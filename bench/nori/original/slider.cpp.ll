@@ -150,58 +150,59 @@ define hidden void @_ZN7nanogui6SliderC2EPNS_6WidgetE(ptr noundef nonnull align 
   %12 = load ptr, ptr %3, align 8
   %13 = load ptr, ptr %4, align 8
   call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6SliderE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %14 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 1
-  store float 0.000000e+00, ptr %14, align 4
-  %15 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 2
-  call void @_ZNSt8functionIFvfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #11
-  %16 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 3
+  %14 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui6SliderE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %12, align 8
+  %15 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 1
+  store float 0.000000e+00, ptr %15, align 4
+  %16 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 2
   call void @_ZNSt8functionIFvfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #11
-  %17 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 4
+  %17 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 3
+  call void @_ZNSt8functionIFvfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #11
+  %18 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 4
   store float 0.000000e+00, ptr %5, align 4
   store float 1.000000e+00, ptr %6, align 4
-  invoke void @_ZNSt4pairIffEC2IffTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS3_S4_EEEbE4typeELb1EEEOS3_OS4_(ptr noundef nonnull align 4 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %18 unwind label %25
+  invoke void @_ZNSt4pairIffEC2IffTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS3_S4_EEEbE4typeELb1EEEOS3_OS4_(ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+          to label %19 unwind label %26
 
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 5
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 5
   store float 0.000000e+00, ptr %9, align 4
   store float 0.000000e+00, ptr %10, align 4
-  invoke void @_ZNSt4pairIffEC2IffTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS3_S4_EEEbE4typeELb1EEEOS3_OS4_(ptr noundef nonnull align 4 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
-          to label %20 unwind label %25
+  invoke void @_ZNSt4pairIffEC2IffTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS3_S4_EEEbE4typeELb1EEEOS3_OS4_(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+          to label %21 unwind label %26
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 6
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %21)
-          to label %22 unwind label %25
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 6
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22)
+          to label %23 unwind label %26
 
-22:                                               ; preds = %20
+23:                                               ; preds = %21
   invoke void @_ZN7nanogui5ColorC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 255, i32 noundef 80, i32 noundef 80, i32 noundef 70)
-          to label %23 unwind label %25
+          to label %24 unwind label %26
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 4 %11, i64 16, i1 false)
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 4 %11, i64 16, i1 false)
   ret void
 
-25:                                               ; preds = %22, %20, %18, %2
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %23, %21, %19, %2
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %7, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %8, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %7, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %8, align 4
+  call void @_ZNSt8functionIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #11
   call void @_ZNSt8functionIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #11
-  call void @_ZNSt8functionIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #11
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %12) #11
-  br label %29
+  br label %30
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %7, align 8
-  %31 = load i32, ptr %8, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %7, align 8
+  %32 = load i32, ptr %8, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 declare void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) unnamed_addr #1
@@ -1383,11 +1384,12 @@ define linkonce_odr hidden void @_ZN7nanogui6SliderD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6SliderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::Slider", ptr %3, i32 0, i32 3
-  call void @_ZNSt8functionIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
-  %5 = getelementptr inbounds %"class.nanogui::Slider", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui6SliderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::Slider", ptr %3, i32 0, i32 3
   call void @_ZNSt8functionIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
+  %6 = getelementptr inbounds %"class.nanogui::Slider", ptr %3, i32 0, i32 2
+  call void @_ZNSt8functionIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #11
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #11
   ret void
 }

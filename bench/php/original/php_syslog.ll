@@ -74,582 +74,585 @@ define void @php_syslog_str(i32 noundef %0, ptr noundef %1) #0 {
   store i32 %0, ptr %44, align 4
   store ptr %1, ptr %45, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %46, i8 0, i64 24, i1 false)
-  %49 = load i64, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 75), align 8
-  %50 = icmp eq i64 %49, 3
-  br i1 %50, label %51, label %56
+  %49 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 75
+  %50 = load i64, ptr %49, align 8
+  %51 = icmp eq i64 %50, 3
+  br i1 %51, label %52, label %57
 
-51:                                               ; preds = %2
-  %52 = load i32, ptr %44, align 4
-  %53 = load ptr, ptr %45, align 8
-  %54 = getelementptr inbounds %struct._zend_string, ptr %53, i32 0, i32 3
-  %55 = getelementptr inbounds [1 x i8], ptr %54, i64 0, i64 0
-  call void (i32, ptr, ...) @syslog(i32 noundef %52, ptr noundef @.str, ptr noundef %55)
-  br label %421
+52:                                               ; preds = %2
+  %53 = load i32, ptr %44, align 4
+  %54 = load ptr, ptr %45, align 8
+  %55 = getelementptr inbounds %struct._zend_string, ptr %54, i32 0, i32 3
+  %56 = getelementptr inbounds [1 x i8], ptr %55, i64 0, i64 0
+  call void (i32, ptr, ...) @syslog(i32 noundef %53, ptr noundef @.str, ptr noundef %56)
+  br label %424
 
-56:                                               ; preds = %2
+57:                                               ; preds = %2
   store i64 0, ptr %47, align 8
-  br label %57
+  br label %58
 
-57:                                               ; preds = %392, %56
-  %58 = load i64, ptr %47, align 8
-  %59 = load ptr, ptr %45, align 8
-  %60 = getelementptr inbounds %struct._zend_string, ptr %59, i32 0, i32 2
-  %61 = load i64, ptr %60, align 8
-  %62 = icmp ult i64 %58, %61
-  br i1 %62, label %63, label %395
+58:                                               ; preds = %395, %57
+  %59 = load i64, ptr %47, align 8
+  %60 = load ptr, ptr %45, align 8
+  %61 = getelementptr inbounds %struct._zend_string, ptr %60, i32 0, i32 2
+  %62 = load i64, ptr %61, align 8
+  %63 = icmp ult i64 %59, %62
+  br i1 %63, label %64, label %398
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr %45, align 8
-  %65 = getelementptr inbounds %struct._zend_string, ptr %64, i32 0, i32 3
-  %66 = load i64, ptr %47, align 8
-  %67 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %66
-  %68 = load i8, ptr %67, align 1
-  store i8 %68, ptr %48, align 1
-  %69 = load i8, ptr %48, align 1
-  %70 = zext i8 %69 to i32
-  %71 = icmp sle i32 32, %70
-  br i1 %71, label %72, label %122
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %45, align 8
+  %66 = getelementptr inbounds %struct._zend_string, ptr %65, i32 0, i32 3
+  %67 = load i64, ptr %47, align 8
+  %68 = getelementptr inbounds [1 x i8], ptr %66, i64 0, i64 %67
+  %69 = load i8, ptr %68, align 1
+  store i8 %69, ptr %48, align 1
+  %70 = load i8, ptr %48, align 1
+  %71 = zext i8 %70 to i32
+  %72 = icmp sle i32 32, %71
+  br i1 %72, label %73, label %123
 
-72:                                               ; preds = %63
-  %73 = load i8, ptr %48, align 1
-  %74 = zext i8 %73 to i32
-  %75 = icmp sle i32 %74, 126
-  br i1 %75, label %76, label %122
+73:                                               ; preds = %64
+  %74 = load i8, ptr %48, align 1
+  %75 = zext i8 %74 to i32
+  %76 = icmp sle i32 %75, 126
+  br i1 %76, label %77, label %123
 
-76:                                               ; preds = %72
-  %77 = load i8, ptr %48, align 1
+77:                                               ; preds = %73
+  %78 = load i8, ptr %48, align 1
   store ptr %46, ptr %29, align 8
-  store i8 %77, ptr %30, align 1
+  store i8 %78, ptr %30, align 1
   store i8 0, ptr %31, align 1
-  %78 = load ptr, ptr %29, align 8
-  %79 = load i8, ptr %31, align 1
-  %80 = trunc i8 %79 to i1
-  store ptr %78, ptr %15, align 8
+  %79 = load ptr, ptr %29, align 8
+  %80 = load i8, ptr %31, align 1
+  %81 = trunc i8 %80 to i1
+  store ptr %79, ptr %15, align 8
   store i64 1, ptr %16, align 8
-  %81 = zext i1 %80 to i8
-  store i8 %81, ptr %17, align 1
-  %82 = load ptr, ptr %15, align 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = icmp ne ptr %83, null
-  %85 = xor i1 %84, true
-  br i1 %85, label %96, label %86
+  %82 = zext i1 %81 to i8
+  store i8 %82, ptr %17, align 1
+  %83 = load ptr, ptr %15, align 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp ne ptr %84, null
+  %86 = xor i1 %85, true
+  br i1 %86, label %97, label %87
 
-86:                                               ; preds = %76
-  %87 = load i64, ptr %16, align 8
-  %88 = load ptr, ptr %15, align 8
-  %89 = getelementptr inbounds %struct.smart_string, ptr %88, i32 0, i32 2
-  %90 = load i64, ptr %89, align 8
-  %91 = load ptr, ptr %15, align 8
-  %92 = getelementptr inbounds %struct.smart_string, ptr %91, i32 0, i32 1
-  %93 = load i64, ptr %92, align 8
-  %94 = sub i64 %90, %93
-  %95 = icmp uge i64 %87, %94
-  br i1 %95, label %96, label %106
+87:                                               ; preds = %77
+  %88 = load i64, ptr %16, align 8
+  %89 = load ptr, ptr %15, align 8
+  %90 = getelementptr inbounds %struct.smart_string, ptr %89, i32 0, i32 2
+  %91 = load i64, ptr %90, align 8
+  %92 = load ptr, ptr %15, align 8
+  %93 = getelementptr inbounds %struct.smart_string, ptr %92, i32 0, i32 1
+  %94 = load i64, ptr %93, align 8
+  %95 = sub i64 %91, %94
+  %96 = icmp uge i64 %88, %95
+  br i1 %96, label %97, label %107
 
-96:                                               ; preds = %86, %76
-  %97 = load i8, ptr %17, align 1
-  %98 = trunc i8 %97 to i1
-  br i1 %98, label %99, label %102
+97:                                               ; preds = %87, %77
+  %98 = load i8, ptr %17, align 1
+  %99 = trunc i8 %98 to i1
+  br i1 %99, label %100, label %103
 
-99:                                               ; preds = %96
-  %100 = load ptr, ptr %15, align 8
-  %101 = load i64, ptr %16, align 8
-  call void @_smart_string_alloc_persistent(ptr noundef %100, i64 noundef %101) #7
-  br label %105
-
-102:                                              ; preds = %96
-  %103 = load ptr, ptr %15, align 8
-  %104 = load i64, ptr %16, align 8
-  call void @_smart_string_alloc(ptr noundef %103, i64 noundef %104) #7
-  br label %105
-
-105:                                              ; preds = %102, %99
+100:                                              ; preds = %97
+  %101 = load ptr, ptr %15, align 8
+  %102 = load i64, ptr %16, align 8
+  call void @_smart_string_alloc_persistent(ptr noundef %101, i64 noundef %102) #7
   br label %106
 
-106:                                              ; preds = %105, %86
-  %107 = load ptr, ptr %15, align 8
-  %108 = getelementptr inbounds %struct.smart_string, ptr %107, i32 0, i32 1
-  %109 = load i64, ptr %108, align 8
-  %110 = load i64, ptr %16, align 8
-  %111 = add i64 %109, %110
-  %112 = load ptr, ptr %29, align 8
-  %113 = getelementptr inbounds %struct.smart_string, ptr %112, i32 0, i32 1
-  store i64 %111, ptr %113, align 8
-  %114 = load i8, ptr %30, align 1
-  %115 = load ptr, ptr %29, align 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = load ptr, ptr %29, align 8
-  %118 = getelementptr inbounds %struct.smart_string, ptr %117, i32 0, i32 1
-  %119 = load i64, ptr %118, align 8
-  %120 = sub i64 %119, 1
-  %121 = getelementptr inbounds i8, ptr %116, i64 %120
-  store i8 %114, ptr %121, align 1
-  br label %391
+103:                                              ; preds = %97
+  %104 = load ptr, ptr %15, align 8
+  %105 = load i64, ptr %16, align 8
+  call void @_smart_string_alloc(ptr noundef %104, i64 noundef %105) #7
+  br label %106
 
-122:                                              ; preds = %72, %63
-  %123 = load i8, ptr %48, align 1
-  %124 = zext i8 %123 to i32
-  %125 = icmp sge i32 %124, 128
-  br i1 %125, label %126, label %175
+106:                                              ; preds = %103, %100
+  br label %107
 
-126:                                              ; preds = %122
-  %127 = load i64, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 75), align 8
-  %128 = icmp ne i64 %127, 2
-  br i1 %128, label %129, label %175
+107:                                              ; preds = %106, %87
+  %108 = load ptr, ptr %15, align 8
+  %109 = getelementptr inbounds %struct.smart_string, ptr %108, i32 0, i32 1
+  %110 = load i64, ptr %109, align 8
+  %111 = load i64, ptr %16, align 8
+  %112 = add i64 %110, %111
+  %113 = load ptr, ptr %29, align 8
+  %114 = getelementptr inbounds %struct.smart_string, ptr %113, i32 0, i32 1
+  store i64 %112, ptr %114, align 8
+  %115 = load i8, ptr %30, align 1
+  %116 = load ptr, ptr %29, align 8
+  %117 = load ptr, ptr %116, align 8
+  %118 = load ptr, ptr %29, align 8
+  %119 = getelementptr inbounds %struct.smart_string, ptr %118, i32 0, i32 1
+  %120 = load i64, ptr %119, align 8
+  %121 = sub i64 %120, 1
+  %122 = getelementptr inbounds i8, ptr %117, i64 %121
+  store i8 %115, ptr %122, align 1
+  br label %394
 
-129:                                              ; preds = %126
-  %130 = load i8, ptr %48, align 1
+123:                                              ; preds = %73, %64
+  %124 = load i8, ptr %48, align 1
+  %125 = zext i8 %124 to i32
+  %126 = icmp sge i32 %125, 128
+  br i1 %126, label %127, label %177
+
+127:                                              ; preds = %123
+  %128 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 75
+  %129 = load i64, ptr %128, align 8
+  %130 = icmp ne i64 %129, 2
+  br i1 %130, label %131, label %177
+
+131:                                              ; preds = %127
+  %132 = load i8, ptr %48, align 1
   store ptr %46, ptr %32, align 8
-  store i8 %130, ptr %33, align 1
+  store i8 %132, ptr %33, align 1
   store i8 0, ptr %34, align 1
-  %131 = load ptr, ptr %32, align 8
-  %132 = load i8, ptr %34, align 1
-  %133 = trunc i8 %132 to i1
-  store ptr %131, ptr %12, align 8
+  %133 = load ptr, ptr %32, align 8
+  %134 = load i8, ptr %34, align 1
+  %135 = trunc i8 %134 to i1
+  store ptr %133, ptr %12, align 8
   store i64 1, ptr %13, align 8
-  %134 = zext i1 %133 to i8
-  store i8 %134, ptr %14, align 1
-  %135 = load ptr, ptr %12, align 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = icmp ne ptr %136, null
-  %138 = xor i1 %137, true
-  br i1 %138, label %149, label %139
+  %136 = zext i1 %135 to i8
+  store i8 %136, ptr %14, align 1
+  %137 = load ptr, ptr %12, align 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = icmp ne ptr %138, null
+  %140 = xor i1 %139, true
+  br i1 %140, label %151, label %141
 
-139:                                              ; preds = %129
-  %140 = load i64, ptr %13, align 8
-  %141 = load ptr, ptr %12, align 8
-  %142 = getelementptr inbounds %struct.smart_string, ptr %141, i32 0, i32 2
-  %143 = load i64, ptr %142, align 8
-  %144 = load ptr, ptr %12, align 8
-  %145 = getelementptr inbounds %struct.smart_string, ptr %144, i32 0, i32 1
-  %146 = load i64, ptr %145, align 8
-  %147 = sub i64 %143, %146
-  %148 = icmp uge i64 %140, %147
-  br i1 %148, label %149, label %159
+141:                                              ; preds = %131
+  %142 = load i64, ptr %13, align 8
+  %143 = load ptr, ptr %12, align 8
+  %144 = getelementptr inbounds %struct.smart_string, ptr %143, i32 0, i32 2
+  %145 = load i64, ptr %144, align 8
+  %146 = load ptr, ptr %12, align 8
+  %147 = getelementptr inbounds %struct.smart_string, ptr %146, i32 0, i32 1
+  %148 = load i64, ptr %147, align 8
+  %149 = sub i64 %145, %148
+  %150 = icmp uge i64 %142, %149
+  br i1 %150, label %151, label %161
 
-149:                                              ; preds = %139, %129
-  %150 = load i8, ptr %14, align 1
-  %151 = trunc i8 %150 to i1
-  br i1 %151, label %152, label %155
+151:                                              ; preds = %141, %131
+  %152 = load i8, ptr %14, align 1
+  %153 = trunc i8 %152 to i1
+  br i1 %153, label %154, label %157
 
-152:                                              ; preds = %149
-  %153 = load ptr, ptr %12, align 8
-  %154 = load i64, ptr %13, align 8
-  call void @_smart_string_alloc_persistent(ptr noundef %153, i64 noundef %154) #7
-  br label %158
+154:                                              ; preds = %151
+  %155 = load ptr, ptr %12, align 8
+  %156 = load i64, ptr %13, align 8
+  call void @_smart_string_alloc_persistent(ptr noundef %155, i64 noundef %156) #7
+  br label %160
 
-155:                                              ; preds = %149
-  %156 = load ptr, ptr %12, align 8
-  %157 = load i64, ptr %13, align 8
-  call void @_smart_string_alloc(ptr noundef %156, i64 noundef %157) #7
-  br label %158
+157:                                              ; preds = %151
+  %158 = load ptr, ptr %12, align 8
+  %159 = load i64, ptr %13, align 8
+  call void @_smart_string_alloc(ptr noundef %158, i64 noundef %159) #7
+  br label %160
 
-158:                                              ; preds = %155, %152
-  br label %159
+160:                                              ; preds = %157, %154
+  br label %161
 
-159:                                              ; preds = %158, %139
-  %160 = load ptr, ptr %12, align 8
-  %161 = getelementptr inbounds %struct.smart_string, ptr %160, i32 0, i32 1
-  %162 = load i64, ptr %161, align 8
-  %163 = load i64, ptr %13, align 8
-  %164 = add i64 %162, %163
-  %165 = load ptr, ptr %32, align 8
-  %166 = getelementptr inbounds %struct.smart_string, ptr %165, i32 0, i32 1
-  store i64 %164, ptr %166, align 8
-  %167 = load i8, ptr %33, align 1
-  %168 = load ptr, ptr %32, align 8
-  %169 = load ptr, ptr %168, align 8
+161:                                              ; preds = %160, %141
+  %162 = load ptr, ptr %12, align 8
+  %163 = getelementptr inbounds %struct.smart_string, ptr %162, i32 0, i32 1
+  %164 = load i64, ptr %163, align 8
+  %165 = load i64, ptr %13, align 8
+  %166 = add i64 %164, %165
+  %167 = load ptr, ptr %32, align 8
+  %168 = getelementptr inbounds %struct.smart_string, ptr %167, i32 0, i32 1
+  store i64 %166, ptr %168, align 8
+  %169 = load i8, ptr %33, align 1
   %170 = load ptr, ptr %32, align 8
-  %171 = getelementptr inbounds %struct.smart_string, ptr %170, i32 0, i32 1
-  %172 = load i64, ptr %171, align 8
-  %173 = sub i64 %172, 1
-  %174 = getelementptr inbounds i8, ptr %169, i64 %173
-  store i8 %167, ptr %174, align 1
-  br label %390
+  %171 = load ptr, ptr %170, align 8
+  %172 = load ptr, ptr %32, align 8
+  %173 = getelementptr inbounds %struct.smart_string, ptr %172, i32 0, i32 1
+  %174 = load i64, ptr %173, align 8
+  %175 = sub i64 %174, 1
+  %176 = getelementptr inbounds i8, ptr %171, i64 %175
+  store i8 %169, ptr %176, align 1
+  br label %393
 
-175:                                              ; preds = %126, %122
-  %176 = load i8, ptr %48, align 1
-  %177 = zext i8 %176 to i32
-  %178 = icmp eq i32 %177, 10
-  br i1 %178, label %179, label %188
+177:                                              ; preds = %127, %123
+  %178 = load i8, ptr %48, align 1
+  %179 = zext i8 %178 to i32
+  %180 = icmp eq i32 %179, 10
+  br i1 %180, label %181, label %190
 
-179:                                              ; preds = %175
-  %180 = load i32, ptr %44, align 4
-  %181 = getelementptr inbounds %struct.smart_string, ptr %46, i32 0, i32 1
-  %182 = load i64, ptr %181, align 8
-  %183 = trunc i64 %182 to i32
-  %184 = getelementptr inbounds %struct.smart_string, ptr %46, i32 0, i32 0
-  %185 = load ptr, ptr %184, align 8
-  call void (i32, ptr, ...) @syslog(i32 noundef %180, ptr noundef @.str.1, i32 noundef %183, ptr noundef %185)
+181:                                              ; preds = %177
+  %182 = load i32, ptr %44, align 4
+  %183 = getelementptr inbounds %struct.smart_string, ptr %46, i32 0, i32 1
+  %184 = load i64, ptr %183, align 8
+  %185 = trunc i64 %184 to i32
+  %186 = getelementptr inbounds %struct.smart_string, ptr %46, i32 0, i32 0
+  %187 = load ptr, ptr %186, align 8
+  call void (i32, ptr, ...) @syslog(i32 noundef %182, ptr noundef @.str.1, i32 noundef %185, ptr noundef %187)
   store ptr %46, ptr %28, align 8
-  %186 = load ptr, ptr %28, align 8
-  %187 = getelementptr inbounds %struct.smart_string, ptr %186, i32 0, i32 1
-  store i64 0, ptr %187, align 8
-  br label %389
+  %188 = load ptr, ptr %28, align 8
+  %189 = getelementptr inbounds %struct.smart_string, ptr %188, i32 0, i32 1
+  store i64 0, ptr %189, align 8
+  br label %392
 
-188:                                              ; preds = %175
-  %189 = load i8, ptr %48, align 1
-  %190 = zext i8 %189 to i32
-  %191 = icmp slt i32 %190, 32
-  br i1 %191, label %192, label %241
+190:                                              ; preds = %177
+  %191 = load i8, ptr %48, align 1
+  %192 = zext i8 %191 to i32
+  %193 = icmp slt i32 %192, 32
+  br i1 %193, label %194, label %244
 
-192:                                              ; preds = %188
-  %193 = load i64, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 75), align 8
-  %194 = icmp eq i64 %193, 0
-  br i1 %194, label %195, label %241
+194:                                              ; preds = %190
+  %195 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 75
+  %196 = load i64, ptr %195, align 8
+  %197 = icmp eq i64 %196, 0
+  br i1 %197, label %198, label %244
 
-195:                                              ; preds = %192
-  %196 = load i8, ptr %48, align 1
+198:                                              ; preds = %194
+  %199 = load i8, ptr %48, align 1
   store ptr %46, ptr %35, align 8
-  store i8 %196, ptr %36, align 1
+  store i8 %199, ptr %36, align 1
   store i8 0, ptr %37, align 1
-  %197 = load ptr, ptr %35, align 8
-  %198 = load i8, ptr %37, align 1
-  %199 = trunc i8 %198 to i1
-  store ptr %197, ptr %9, align 8
+  %200 = load ptr, ptr %35, align 8
+  %201 = load i8, ptr %37, align 1
+  %202 = trunc i8 %201 to i1
+  store ptr %200, ptr %9, align 8
   store i64 1, ptr %10, align 8
-  %200 = zext i1 %199 to i8
-  store i8 %200, ptr %11, align 1
-  %201 = load ptr, ptr %9, align 8
-  %202 = load ptr, ptr %201, align 8
-  %203 = icmp ne ptr %202, null
-  %204 = xor i1 %203, true
-  br i1 %204, label %215, label %205
+  %203 = zext i1 %202 to i8
+  store i8 %203, ptr %11, align 1
+  %204 = load ptr, ptr %9, align 8
+  %205 = load ptr, ptr %204, align 8
+  %206 = icmp ne ptr %205, null
+  %207 = xor i1 %206, true
+  br i1 %207, label %218, label %208
 
-205:                                              ; preds = %195
-  %206 = load i64, ptr %10, align 8
-  %207 = load ptr, ptr %9, align 8
-  %208 = getelementptr inbounds %struct.smart_string, ptr %207, i32 0, i32 2
-  %209 = load i64, ptr %208, align 8
+208:                                              ; preds = %198
+  %209 = load i64, ptr %10, align 8
   %210 = load ptr, ptr %9, align 8
-  %211 = getelementptr inbounds %struct.smart_string, ptr %210, i32 0, i32 1
+  %211 = getelementptr inbounds %struct.smart_string, ptr %210, i32 0, i32 2
   %212 = load i64, ptr %211, align 8
-  %213 = sub i64 %209, %212
-  %214 = icmp uge i64 %206, %213
-  br i1 %214, label %215, label %225
+  %213 = load ptr, ptr %9, align 8
+  %214 = getelementptr inbounds %struct.smart_string, ptr %213, i32 0, i32 1
+  %215 = load i64, ptr %214, align 8
+  %216 = sub i64 %212, %215
+  %217 = icmp uge i64 %209, %216
+  br i1 %217, label %218, label %228
 
-215:                                              ; preds = %205, %195
-  %216 = load i8, ptr %11, align 1
-  %217 = trunc i8 %216 to i1
-  br i1 %217, label %218, label %221
+218:                                              ; preds = %208, %198
+  %219 = load i8, ptr %11, align 1
+  %220 = trunc i8 %219 to i1
+  br i1 %220, label %221, label %224
 
-218:                                              ; preds = %215
-  %219 = load ptr, ptr %9, align 8
-  %220 = load i64, ptr %10, align 8
-  call void @_smart_string_alloc_persistent(ptr noundef %219, i64 noundef %220) #7
-  br label %224
-
-221:                                              ; preds = %215
+221:                                              ; preds = %218
   %222 = load ptr, ptr %9, align 8
   %223 = load i64, ptr %10, align 8
-  call void @_smart_string_alloc(ptr noundef %222, i64 noundef %223) #7
-  br label %224
+  call void @_smart_string_alloc_persistent(ptr noundef %222, i64 noundef %223) #7
+  br label %227
 
-224:                                              ; preds = %221, %218
-  br label %225
+224:                                              ; preds = %218
+  %225 = load ptr, ptr %9, align 8
+  %226 = load i64, ptr %10, align 8
+  call void @_smart_string_alloc(ptr noundef %225, i64 noundef %226) #7
+  br label %227
 
-225:                                              ; preds = %224, %205
-  %226 = load ptr, ptr %9, align 8
-  %227 = getelementptr inbounds %struct.smart_string, ptr %226, i32 0, i32 1
-  %228 = load i64, ptr %227, align 8
-  %229 = load i64, ptr %10, align 8
-  %230 = add i64 %228, %229
-  %231 = load ptr, ptr %35, align 8
-  %232 = getelementptr inbounds %struct.smart_string, ptr %231, i32 0, i32 1
-  store i64 %230, ptr %232, align 8
-  %233 = load i8, ptr %36, align 1
+227:                                              ; preds = %224, %221
+  br label %228
+
+228:                                              ; preds = %227, %208
+  %229 = load ptr, ptr %9, align 8
+  %230 = getelementptr inbounds %struct.smart_string, ptr %229, i32 0, i32 1
+  %231 = load i64, ptr %230, align 8
+  %232 = load i64, ptr %10, align 8
+  %233 = add i64 %231, %232
   %234 = load ptr, ptr %35, align 8
-  %235 = load ptr, ptr %234, align 8
-  %236 = load ptr, ptr %35, align 8
-  %237 = getelementptr inbounds %struct.smart_string, ptr %236, i32 0, i32 1
-  %238 = load i64, ptr %237, align 8
-  %239 = sub i64 %238, 1
-  %240 = getelementptr inbounds i8, ptr %235, i64 %239
-  store i8 %233, ptr %240, align 1
-  br label %388
+  %235 = getelementptr inbounds %struct.smart_string, ptr %234, i32 0, i32 1
+  store i64 %233, ptr %235, align 8
+  %236 = load i8, ptr %36, align 1
+  %237 = load ptr, ptr %35, align 8
+  %238 = load ptr, ptr %237, align 8
+  %239 = load ptr, ptr %35, align 8
+  %240 = getelementptr inbounds %struct.smart_string, ptr %239, i32 0, i32 1
+  %241 = load i64, ptr %240, align 8
+  %242 = sub i64 %241, 1
+  %243 = getelementptr inbounds i8, ptr %238, i64 %242
+  store i8 %236, ptr %243, align 1
+  br label %391
 
-241:                                              ; preds = %192, %188
+244:                                              ; preds = %194, %190
   store ptr %46, ptr %23, align 8
   store ptr @.str.2, ptr %24, align 8
   store i64 2, ptr %25, align 8
   store i8 0, ptr %26, align 1
-  %242 = load ptr, ptr %23, align 8
-  %243 = load i64, ptr %25, align 8
-  %244 = load i8, ptr %26, align 1
-  %245 = trunc i8 %244 to i1
-  store ptr %242, ptr %18, align 8
-  store i64 %243, ptr %19, align 8
-  %246 = zext i1 %245 to i8
-  store i8 %246, ptr %20, align 1
-  %247 = load ptr, ptr %18, align 8
-  %248 = load ptr, ptr %247, align 8
-  %249 = icmp ne ptr %248, null
-  %250 = xor i1 %249, true
-  br i1 %250, label %261, label %251
+  %245 = load ptr, ptr %23, align 8
+  %246 = load i64, ptr %25, align 8
+  %247 = load i8, ptr %26, align 1
+  %248 = trunc i8 %247 to i1
+  store ptr %245, ptr %18, align 8
+  store i64 %246, ptr %19, align 8
+  %249 = zext i1 %248 to i8
+  store i8 %249, ptr %20, align 1
+  %250 = load ptr, ptr %18, align 8
+  %251 = load ptr, ptr %250, align 8
+  %252 = icmp ne ptr %251, null
+  %253 = xor i1 %252, true
+  br i1 %253, label %264, label %254
 
-251:                                              ; preds = %241
-  %252 = load i64, ptr %19, align 8
-  %253 = load ptr, ptr %18, align 8
-  %254 = getelementptr inbounds %struct.smart_string, ptr %253, i32 0, i32 2
-  %255 = load i64, ptr %254, align 8
+254:                                              ; preds = %244
+  %255 = load i64, ptr %19, align 8
   %256 = load ptr, ptr %18, align 8
-  %257 = getelementptr inbounds %struct.smart_string, ptr %256, i32 0, i32 1
+  %257 = getelementptr inbounds %struct.smart_string, ptr %256, i32 0, i32 2
   %258 = load i64, ptr %257, align 8
-  %259 = sub i64 %255, %258
-  %260 = icmp uge i64 %252, %259
-  br i1 %260, label %261, label %271
+  %259 = load ptr, ptr %18, align 8
+  %260 = getelementptr inbounds %struct.smart_string, ptr %259, i32 0, i32 1
+  %261 = load i64, ptr %260, align 8
+  %262 = sub i64 %258, %261
+  %263 = icmp uge i64 %255, %262
+  br i1 %263, label %264, label %274
 
-261:                                              ; preds = %251, %241
-  %262 = load i8, ptr %20, align 1
-  %263 = trunc i8 %262 to i1
-  br i1 %263, label %264, label %267
+264:                                              ; preds = %254, %244
+  %265 = load i8, ptr %20, align 1
+  %266 = trunc i8 %265 to i1
+  br i1 %266, label %267, label %270
 
-264:                                              ; preds = %261
-  %265 = load ptr, ptr %18, align 8
-  %266 = load i64, ptr %19, align 8
-  call void @_smart_string_alloc_persistent(ptr noundef %265, i64 noundef %266) #7
-  br label %270
-
-267:                                              ; preds = %261
+267:                                              ; preds = %264
   %268 = load ptr, ptr %18, align 8
   %269 = load i64, ptr %19, align 8
-  call void @_smart_string_alloc(ptr noundef %268, i64 noundef %269) #7
-  br label %270
+  call void @_smart_string_alloc_persistent(ptr noundef %268, i64 noundef %269) #7
+  br label %273
 
-270:                                              ; preds = %267, %264
-  br label %271
+270:                                              ; preds = %264
+  %271 = load ptr, ptr %18, align 8
+  %272 = load i64, ptr %19, align 8
+  call void @_smart_string_alloc(ptr noundef %271, i64 noundef %272) #7
+  br label %273
 
-271:                                              ; preds = %270, %251
-  %272 = load ptr, ptr %18, align 8
-  %273 = getelementptr inbounds %struct.smart_string, ptr %272, i32 0, i32 1
-  %274 = load i64, ptr %273, align 8
-  %275 = load i64, ptr %19, align 8
-  %276 = add i64 %274, %275
-  store i64 %276, ptr %27, align 8
-  %277 = load ptr, ptr %23, align 8
-  %278 = load ptr, ptr %277, align 8
-  %279 = load ptr, ptr %23, align 8
-  %280 = getelementptr inbounds %struct.smart_string, ptr %279, i32 0, i32 1
-  %281 = load i64, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %278, i64 %281
-  %283 = load ptr, ptr %24, align 8
-  %284 = load i64, ptr %25, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %282, ptr align 1 %283, i64 %284, i1 false)
-  %285 = load i64, ptr %27, align 8
-  %286 = load ptr, ptr %23, align 8
-  %287 = getelementptr inbounds %struct.smart_string, ptr %286, i32 0, i32 1
-  store i64 %285, ptr %287, align 8
-  %288 = load i8, ptr %48, align 1
-  %289 = zext i8 %288 to i32
-  %290 = ashr i32 %289, 4
-  %291 = sext i32 %290 to i64
-  %292 = getelementptr inbounds [17 x i8], ptr @php_syslog_str.xdigits, i64 0, i64 %291
-  %293 = load i8, ptr %292, align 1
+273:                                              ; preds = %270, %267
+  br label %274
+
+274:                                              ; preds = %273, %254
+  %275 = load ptr, ptr %18, align 8
+  %276 = getelementptr inbounds %struct.smart_string, ptr %275, i32 0, i32 1
+  %277 = load i64, ptr %276, align 8
+  %278 = load i64, ptr %19, align 8
+  %279 = add i64 %277, %278
+  store i64 %279, ptr %27, align 8
+  %280 = load ptr, ptr %23, align 8
+  %281 = load ptr, ptr %280, align 8
+  %282 = load ptr, ptr %23, align 8
+  %283 = getelementptr inbounds %struct.smart_string, ptr %282, i32 0, i32 1
+  %284 = load i64, ptr %283, align 8
+  %285 = getelementptr inbounds i8, ptr %281, i64 %284
+  %286 = load ptr, ptr %24, align 8
+  %287 = load i64, ptr %25, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %285, ptr align 1 %286, i64 %287, i1 false)
+  %288 = load i64, ptr %27, align 8
+  %289 = load ptr, ptr %23, align 8
+  %290 = getelementptr inbounds %struct.smart_string, ptr %289, i32 0, i32 1
+  store i64 %288, ptr %290, align 8
+  %291 = load i8, ptr %48, align 1
+  %292 = zext i8 %291 to i32
+  %293 = ashr i32 %292, 4
+  %294 = sext i32 %293 to i64
+  %295 = getelementptr inbounds [17 x i8], ptr @php_syslog_str.xdigits, i64 0, i64 %294
+  %296 = load i8, ptr %295, align 1
   store ptr %46, ptr %38, align 8
-  store i8 %293, ptr %39, align 1
+  store i8 %296, ptr %39, align 1
   store i8 0, ptr %40, align 1
-  %294 = load ptr, ptr %38, align 8
-  %295 = load i8, ptr %40, align 1
-  %296 = trunc i8 %295 to i1
-  store ptr %294, ptr %6, align 8
+  %297 = load ptr, ptr %38, align 8
+  %298 = load i8, ptr %40, align 1
+  %299 = trunc i8 %298 to i1
+  store ptr %297, ptr %6, align 8
   store i64 1, ptr %7, align 8
-  %297 = zext i1 %296 to i8
-  store i8 %297, ptr %8, align 1
-  %298 = load ptr, ptr %6, align 8
-  %299 = load ptr, ptr %298, align 8
-  %300 = icmp ne ptr %299, null
-  %301 = xor i1 %300, true
-  br i1 %301, label %312, label %302
+  %300 = zext i1 %299 to i8
+  store i8 %300, ptr %8, align 1
+  %301 = load ptr, ptr %6, align 8
+  %302 = load ptr, ptr %301, align 8
+  %303 = icmp ne ptr %302, null
+  %304 = xor i1 %303, true
+  br i1 %304, label %315, label %305
 
-302:                                              ; preds = %271
-  %303 = load i64, ptr %7, align 8
-  %304 = load ptr, ptr %6, align 8
-  %305 = getelementptr inbounds %struct.smart_string, ptr %304, i32 0, i32 2
-  %306 = load i64, ptr %305, align 8
+305:                                              ; preds = %274
+  %306 = load i64, ptr %7, align 8
   %307 = load ptr, ptr %6, align 8
-  %308 = getelementptr inbounds %struct.smart_string, ptr %307, i32 0, i32 1
+  %308 = getelementptr inbounds %struct.smart_string, ptr %307, i32 0, i32 2
   %309 = load i64, ptr %308, align 8
-  %310 = sub i64 %306, %309
-  %311 = icmp uge i64 %303, %310
-  br i1 %311, label %312, label %322
+  %310 = load ptr, ptr %6, align 8
+  %311 = getelementptr inbounds %struct.smart_string, ptr %310, i32 0, i32 1
+  %312 = load i64, ptr %311, align 8
+  %313 = sub i64 %309, %312
+  %314 = icmp uge i64 %306, %313
+  br i1 %314, label %315, label %325
 
-312:                                              ; preds = %302, %271
-  %313 = load i8, ptr %8, align 1
-  %314 = trunc i8 %313 to i1
-  br i1 %314, label %315, label %318
+315:                                              ; preds = %305, %274
+  %316 = load i8, ptr %8, align 1
+  %317 = trunc i8 %316 to i1
+  br i1 %317, label %318, label %321
 
-315:                                              ; preds = %312
-  %316 = load ptr, ptr %6, align 8
-  %317 = load i64, ptr %7, align 8
-  call void @_smart_string_alloc_persistent(ptr noundef %316, i64 noundef %317) #7
-  br label %321
-
-318:                                              ; preds = %312
+318:                                              ; preds = %315
   %319 = load ptr, ptr %6, align 8
   %320 = load i64, ptr %7, align 8
-  call void @_smart_string_alloc(ptr noundef %319, i64 noundef %320) #7
-  br label %321
+  call void @_smart_string_alloc_persistent(ptr noundef %319, i64 noundef %320) #7
+  br label %324
 
-321:                                              ; preds = %318, %315
-  br label %322
+321:                                              ; preds = %315
+  %322 = load ptr, ptr %6, align 8
+  %323 = load i64, ptr %7, align 8
+  call void @_smart_string_alloc(ptr noundef %322, i64 noundef %323) #7
+  br label %324
 
-322:                                              ; preds = %321, %302
-  %323 = load ptr, ptr %6, align 8
-  %324 = getelementptr inbounds %struct.smart_string, ptr %323, i32 0, i32 1
-  %325 = load i64, ptr %324, align 8
-  %326 = load i64, ptr %7, align 8
-  %327 = add i64 %325, %326
-  %328 = load ptr, ptr %38, align 8
-  %329 = getelementptr inbounds %struct.smart_string, ptr %328, i32 0, i32 1
-  store i64 %327, ptr %329, align 8
-  %330 = load i8, ptr %39, align 1
+324:                                              ; preds = %321, %318
+  br label %325
+
+325:                                              ; preds = %324, %305
+  %326 = load ptr, ptr %6, align 8
+  %327 = getelementptr inbounds %struct.smart_string, ptr %326, i32 0, i32 1
+  %328 = load i64, ptr %327, align 8
+  %329 = load i64, ptr %7, align 8
+  %330 = add i64 %328, %329
   %331 = load ptr, ptr %38, align 8
-  %332 = load ptr, ptr %331, align 8
-  %333 = load ptr, ptr %38, align 8
-  %334 = getelementptr inbounds %struct.smart_string, ptr %333, i32 0, i32 1
-  %335 = load i64, ptr %334, align 8
-  %336 = sub i64 %335, 1
-  %337 = getelementptr inbounds i8, ptr %332, i64 %336
-  store i8 %330, ptr %337, align 1
-  %338 = load i8, ptr %48, align 1
-  %339 = zext i8 %338 to i32
-  %340 = and i32 %339, 15
-  %341 = sext i32 %340 to i64
-  %342 = getelementptr inbounds [17 x i8], ptr @php_syslog_str.xdigits, i64 0, i64 %341
-  %343 = load i8, ptr %342, align 1
+  %332 = getelementptr inbounds %struct.smart_string, ptr %331, i32 0, i32 1
+  store i64 %330, ptr %332, align 8
+  %333 = load i8, ptr %39, align 1
+  %334 = load ptr, ptr %38, align 8
+  %335 = load ptr, ptr %334, align 8
+  %336 = load ptr, ptr %38, align 8
+  %337 = getelementptr inbounds %struct.smart_string, ptr %336, i32 0, i32 1
+  %338 = load i64, ptr %337, align 8
+  %339 = sub i64 %338, 1
+  %340 = getelementptr inbounds i8, ptr %335, i64 %339
+  store i8 %333, ptr %340, align 1
+  %341 = load i8, ptr %48, align 1
+  %342 = zext i8 %341 to i32
+  %343 = and i32 %342, 15
+  %344 = sext i32 %343 to i64
+  %345 = getelementptr inbounds [17 x i8], ptr @php_syslog_str.xdigits, i64 0, i64 %344
+  %346 = load i8, ptr %345, align 1
   store ptr %46, ptr %41, align 8
-  store i8 %343, ptr %42, align 1
+  store i8 %346, ptr %42, align 1
   store i8 0, ptr %43, align 1
-  %344 = load ptr, ptr %41, align 8
-  %345 = load i8, ptr %43, align 1
-  %346 = trunc i8 %345 to i1
-  store ptr %344, ptr %3, align 8
+  %347 = load ptr, ptr %41, align 8
+  %348 = load i8, ptr %43, align 1
+  %349 = trunc i8 %348 to i1
+  store ptr %347, ptr %3, align 8
   store i64 1, ptr %4, align 8
-  %347 = zext i1 %346 to i8
-  store i8 %347, ptr %5, align 1
-  %348 = load ptr, ptr %3, align 8
-  %349 = load ptr, ptr %348, align 8
-  %350 = icmp ne ptr %349, null
-  %351 = xor i1 %350, true
-  br i1 %351, label %362, label %352
+  %350 = zext i1 %349 to i8
+  store i8 %350, ptr %5, align 1
+  %351 = load ptr, ptr %3, align 8
+  %352 = load ptr, ptr %351, align 8
+  %353 = icmp ne ptr %352, null
+  %354 = xor i1 %353, true
+  br i1 %354, label %365, label %355
 
-352:                                              ; preds = %322
-  %353 = load i64, ptr %4, align 8
-  %354 = load ptr, ptr %3, align 8
-  %355 = getelementptr inbounds %struct.smart_string, ptr %354, i32 0, i32 2
-  %356 = load i64, ptr %355, align 8
+355:                                              ; preds = %325
+  %356 = load i64, ptr %4, align 8
   %357 = load ptr, ptr %3, align 8
-  %358 = getelementptr inbounds %struct.smart_string, ptr %357, i32 0, i32 1
+  %358 = getelementptr inbounds %struct.smart_string, ptr %357, i32 0, i32 2
   %359 = load i64, ptr %358, align 8
-  %360 = sub i64 %356, %359
-  %361 = icmp uge i64 %353, %360
-  br i1 %361, label %362, label %372
+  %360 = load ptr, ptr %3, align 8
+  %361 = getelementptr inbounds %struct.smart_string, ptr %360, i32 0, i32 1
+  %362 = load i64, ptr %361, align 8
+  %363 = sub i64 %359, %362
+  %364 = icmp uge i64 %356, %363
+  br i1 %364, label %365, label %375
 
-362:                                              ; preds = %352, %322
-  %363 = load i8, ptr %5, align 1
-  %364 = trunc i8 %363 to i1
-  br i1 %364, label %365, label %368
+365:                                              ; preds = %355, %325
+  %366 = load i8, ptr %5, align 1
+  %367 = trunc i8 %366 to i1
+  br i1 %367, label %368, label %371
 
-365:                                              ; preds = %362
-  %366 = load ptr, ptr %3, align 8
-  %367 = load i64, ptr %4, align 8
-  call void @_smart_string_alloc_persistent(ptr noundef %366, i64 noundef %367) #7
-  br label %371
-
-368:                                              ; preds = %362
+368:                                              ; preds = %365
   %369 = load ptr, ptr %3, align 8
   %370 = load i64, ptr %4, align 8
-  call void @_smart_string_alloc(ptr noundef %369, i64 noundef %370) #7
-  br label %371
+  call void @_smart_string_alloc_persistent(ptr noundef %369, i64 noundef %370) #7
+  br label %374
 
-371:                                              ; preds = %368, %365
-  br label %372
+371:                                              ; preds = %365
+  %372 = load ptr, ptr %3, align 8
+  %373 = load i64, ptr %4, align 8
+  call void @_smart_string_alloc(ptr noundef %372, i64 noundef %373) #7
+  br label %374
 
-372:                                              ; preds = %371, %352
-  %373 = load ptr, ptr %3, align 8
-  %374 = getelementptr inbounds %struct.smart_string, ptr %373, i32 0, i32 1
-  %375 = load i64, ptr %374, align 8
-  %376 = load i64, ptr %4, align 8
-  %377 = add i64 %375, %376
-  %378 = load ptr, ptr %41, align 8
-  %379 = getelementptr inbounds %struct.smart_string, ptr %378, i32 0, i32 1
-  store i64 %377, ptr %379, align 8
-  %380 = load i8, ptr %42, align 1
+374:                                              ; preds = %371, %368
+  br label %375
+
+375:                                              ; preds = %374, %355
+  %376 = load ptr, ptr %3, align 8
+  %377 = getelementptr inbounds %struct.smart_string, ptr %376, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = load i64, ptr %4, align 8
+  %380 = add i64 %378, %379
   %381 = load ptr, ptr %41, align 8
-  %382 = load ptr, ptr %381, align 8
-  %383 = load ptr, ptr %41, align 8
-  %384 = getelementptr inbounds %struct.smart_string, ptr %383, i32 0, i32 1
-  %385 = load i64, ptr %384, align 8
-  %386 = sub i64 %385, 1
-  %387 = getelementptr inbounds i8, ptr %382, i64 %386
-  store i8 %380, ptr %387, align 1
-  br label %388
-
-388:                                              ; preds = %372, %225
-  br label %389
-
-389:                                              ; preds = %388, %179
-  br label %390
-
-390:                                              ; preds = %389, %159
+  %382 = getelementptr inbounds %struct.smart_string, ptr %381, i32 0, i32 1
+  store i64 %380, ptr %382, align 8
+  %383 = load i8, ptr %42, align 1
+  %384 = load ptr, ptr %41, align 8
+  %385 = load ptr, ptr %384, align 8
+  %386 = load ptr, ptr %41, align 8
+  %387 = getelementptr inbounds %struct.smart_string, ptr %386, i32 0, i32 1
+  %388 = load i64, ptr %387, align 8
+  %389 = sub i64 %388, 1
+  %390 = getelementptr inbounds i8, ptr %385, i64 %389
+  store i8 %383, ptr %390, align 1
   br label %391
 
-391:                                              ; preds = %390, %106
+391:                                              ; preds = %375, %228
   br label %392
 
-392:                                              ; preds = %391
-  %393 = load i64, ptr %47, align 8
-  %394 = add i64 %393, 1
-  store i64 %394, ptr %47, align 8
-  br label %57
+392:                                              ; preds = %391, %181
+  br label %393
 
-395:                                              ; preds = %57
-  %396 = load i32, ptr %44, align 4
-  %397 = getelementptr inbounds %struct.smart_string, ptr %46, i32 0, i32 1
-  %398 = load i64, ptr %397, align 8
-  %399 = trunc i64 %398 to i32
-  %400 = getelementptr inbounds %struct.smart_string, ptr %46, i32 0, i32 0
-  %401 = load ptr, ptr %400, align 8
-  call void (i32, ptr, ...) @syslog(i32 noundef %396, ptr noundef @.str.1, i32 noundef %399, ptr noundef %401)
+393:                                              ; preds = %392, %161
+  br label %394
+
+394:                                              ; preds = %393, %107
+  br label %395
+
+395:                                              ; preds = %394
+  %396 = load i64, ptr %47, align 8
+  %397 = add i64 %396, 1
+  store i64 %397, ptr %47, align 8
+  br label %58
+
+398:                                              ; preds = %58
+  %399 = load i32, ptr %44, align 4
+  %400 = getelementptr inbounds %struct.smart_string, ptr %46, i32 0, i32 1
+  %401 = load i64, ptr %400, align 8
+  %402 = trunc i64 %401 to i32
+  %403 = getelementptr inbounds %struct.smart_string, ptr %46, i32 0, i32 0
+  %404 = load ptr, ptr %403, align 8
+  call void (i32, ptr, ...) @syslog(i32 noundef %399, ptr noundef @.str.1, i32 noundef %402, ptr noundef %404)
   store ptr %46, ptr %21, align 8
   store i8 0, ptr %22, align 1
-  %402 = load ptr, ptr %21, align 8
-  %403 = load ptr, ptr %402, align 8
-  %404 = icmp ne ptr %403, null
-  br i1 %404, label %405, label %416
+  %405 = load ptr, ptr %21, align 8
+  %406 = load ptr, ptr %405, align 8
+  %407 = icmp ne ptr %406, null
+  br i1 %407, label %408, label %419
 
-405:                                              ; preds = %395
-  %406 = load i8, ptr %22, align 1
-  %407 = trunc i8 %406 to i1
-  br i1 %407, label %408, label %411
+408:                                              ; preds = %398
+  %409 = load i8, ptr %22, align 1
+  %410 = trunc i8 %409 to i1
+  br i1 %410, label %411, label %414
 
-408:                                              ; preds = %405
-  %409 = load ptr, ptr %21, align 8
-  %410 = load ptr, ptr %409, align 8
-  call void @free(ptr noundef %410) #7
-  br label %414
-
-411:                                              ; preds = %405
+411:                                              ; preds = %408
   %412 = load ptr, ptr %21, align 8
   %413 = load ptr, ptr %412, align 8
-  call void @_efree(ptr noundef %413) #7
-  br label %414
+  call void @free(ptr noundef %413) #7
+  br label %417
 
-414:                                              ; preds = %411, %408
+414:                                              ; preds = %408
   %415 = load ptr, ptr %21, align 8
-  store ptr null, ptr %415, align 8
-  br label %416
+  %416 = load ptr, ptr %415, align 8
+  call void @_efree(ptr noundef %416) #7
+  br label %417
 
-416:                                              ; preds = %414, %395
-  %417 = load ptr, ptr %21, align 8
-  %418 = getelementptr inbounds %struct.smart_string, ptr %417, i32 0, i32 1
-  store i64 0, ptr %418, align 8
-  %419 = load ptr, ptr %21, align 8
-  %420 = getelementptr inbounds %struct.smart_string, ptr %419, i32 0, i32 2
-  store i64 0, ptr %420, align 8
-  br label %421
+417:                                              ; preds = %414, %411
+  %418 = load ptr, ptr %21, align 8
+  store ptr null, ptr %418, align 8
+  br label %419
 
-421:                                              ; preds = %416, %51
+419:                                              ; preds = %417, %398
+  %420 = load ptr, ptr %21, align 8
+  %421 = getelementptr inbounds %struct.smart_string, ptr %420, i32 0, i32 1
+  store i64 0, ptr %421, align 8
+  %422 = load ptr, ptr %21, align 8
+  %423 = getelementptr inbounds %struct.smart_string, ptr %422, i32 0, i32 2
+  store i64 0, ptr %423, align 8
+  br label %424
+
+424:                                              ; preds = %419, %52
   ret void
 }
 
@@ -670,7 +673,8 @@ define void @php_openlog(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %8 = load i32, ptr %5, align 4
   %9 = load i32, ptr %6, align 4
   call void @openlog(ptr noundef %7, i32 noundef %8, i32 noundef %9)
-  store i8 1, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 72), align 1
+  %10 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 72
+  store i8 1, ptr %10, align 1
   ret void
 }
 
@@ -679,7 +683,8 @@ declare void @openlog(ptr noundef, i32 noundef, i32 noundef) #2
 ; Function Attrs: nounwind uwtable
 define void @php_closelog() #0 {
   call void @closelog()
-  store i8 0, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 72), align 1
+  %1 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 72
+  store i8 0, ptr %1, align 1
   ret void
 }
 
@@ -698,116 +703,119 @@ define void @php_syslog(i32 noundef %0, ptr noundef %1, ...) #0 {
   store i32 %0, ptr %7, align 4
   store ptr %1, ptr %8, align 8
   store ptr null, ptr %9, align 8
-  %11 = load i8, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 72), align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %17, label %13
+  %11 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 72
+  %12 = load i8, ptr %11, align 1
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %20, label %14
 
-13:                                               ; preds = %2
-  %14 = load ptr, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 74), align 8
-  %15 = load i64, ptr getelementptr inbounds (%struct._php_core_globals, ptr @core_globals, i32 0, i32 73), align 8
-  %16 = trunc i64 %15 to i32
-  call void @php_openlog(ptr noundef %14, i32 noundef 0, i32 noundef %16)
-  br label %17
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 74
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds %struct._php_core_globals, ptr @core_globals, i32 0, i32 73
+  %18 = load i64, ptr %17, align 8
+  %19 = trunc i64 %18 to i32
+  call void @php_openlog(ptr noundef %16, i32 noundef 0, i32 noundef %19)
+  br label %20
 
-17:                                               ; preds = %13, %2
-  %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_start(ptr %18)
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  %21 = call ptr @zend_vstrpprintf(i64 noundef 0, ptr noundef %19, ptr noundef %20)
-  store ptr %21, ptr %9, align 8
-  %22 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %22)
-  %23 = load i32, ptr %7, align 4
-  %24 = load ptr, ptr %9, align 8
-  call void @php_syslog_str(i32 noundef %23, ptr noundef %24)
-  %25 = load ptr, ptr %9, align 8
-  store ptr %25, ptr %6, align 8
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct._zend_refcounted_h, ptr %26, i32 0, i32 1
-  %28 = load i32, ptr %27, align 4
-  store i32 %28, ptr %4, align 4
-  %29 = load i32, ptr %4, align 4
-  %30 = and i32 %29, 1008
-  %31 = and i32 %30, 64
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %56, label %33
+20:                                               ; preds = %14, %2
+  %21 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %21)
+  %22 = load ptr, ptr %8, align 8
+  %23 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
+  %24 = call ptr @zend_vstrpprintf(i64 noundef 0, ptr noundef %22, ptr noundef %23)
+  store ptr %24, ptr %9, align 8
+  %25 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %25)
+  %26 = load i32, ptr %7, align 4
+  %27 = load ptr, ptr %9, align 8
+  call void @php_syslog_str(i32 noundef %26, ptr noundef %27)
+  %28 = load ptr, ptr %9, align 8
+  store ptr %28, ptr %6, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds %struct._zend_refcounted_h, ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 4
+  store i32 %31, ptr %4, align 4
+  %32 = load i32, ptr %4, align 4
+  %33 = and i32 %32, 1008
+  %34 = and i32 %33, 64
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %59, label %36
 
-33:                                               ; preds = %17
-  %34 = load ptr, ptr %6, align 8
-  store ptr %34, ptr %3, align 8
-  %35 = load ptr, ptr %3, align 8
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp ugt i32 %36, 0
-  call void @llvm.assume(i1 %37)
+36:                                               ; preds = %20
+  %37 = load ptr, ptr %6, align 8
+  store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %3, align 8
   %39 = load i32, ptr %38, align 4
-  %40 = add i32 %39, -1
-  store i32 %40, ptr %38, align 4
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %55
+  %40 = icmp ugt i32 %39, 0
+  call void @llvm.assume(i1 %40)
+  %41 = load ptr, ptr %3, align 8
+  %42 = load i32, ptr %41, align 4
+  %43 = add i32 %42, -1
+  store i32 %43, ptr %41, align 4
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %58
 
-42:                                               ; preds = %33
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct._zend_refcounted_h, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 4
-  store i32 %45, ptr %5, align 4
-  %46 = load i32, ptr %5, align 4
-  %47 = and i32 %46, 1008
-  %48 = and i32 %47, 128
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %50, label %52
+45:                                               ; preds = %36
+  %46 = load ptr, ptr %6, align 8
+  %47 = getelementptr inbounds %struct._zend_refcounted_h, ptr %46, i32 0, i32 1
+  %48 = load i32, ptr %47, align 4
+  store i32 %48, ptr %5, align 4
+  %49 = load i32, ptr %5, align 4
+  %50 = and i32 %49, 1008
+  %51 = and i32 %50, 128
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %55
 
-50:                                               ; preds = %42
-  %51 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %51) #7
-  br label %54
+53:                                               ; preds = %45
+  %54 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %54) #7
+  br label %57
 
-52:                                               ; preds = %42
-  %53 = load ptr, ptr %6, align 8
-  call void @_efree(ptr noundef %53) #7
-  br label %54
+55:                                               ; preds = %45
+  %56 = load ptr, ptr %6, align 8
+  call void @_efree(ptr noundef %56) #7
+  br label %57
 
-54:                                               ; preds = %52, %50
-  br label %55
+57:                                               ; preds = %55, %53
+  br label %58
 
-55:                                               ; preds = %54, %33
-  br label %56
+58:                                               ; preds = %57, %36
+  br label %59
 
-56:                                               ; preds = %55, %17
+59:                                               ; preds = %58, %20
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 declare ptr @zend_vstrpprintf(i64 noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
 
 declare void @_smart_string_alloc_persistent(ptr noundef, i64 noundef) #2
 
 declare void @_smart_string_alloc(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #5
+declare void @free(ptr noundef) #4
 
 declare void @_efree(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

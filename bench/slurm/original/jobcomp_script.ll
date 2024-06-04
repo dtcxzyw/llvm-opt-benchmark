@@ -544,38 +544,39 @@ declare i32 @pthread_attr_destroy(ptr noundef) #2
 define i32 @jobcomp_p_set_location() #0 {
   %1 = alloca i32, align 4
   %2 = alloca ptr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 69), align 8
-  store ptr %3, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %8
+  %3 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 69
+  %4 = load ptr, ptr %3, align 8
+  store ptr %4, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %9
 
-6:                                                ; preds = %0
-  %7 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.9)
-  store i32 %7, ptr %1, align 4
-  br label %16
+7:                                                ; preds = %0
+  %8 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.9)
+  store i32 %8, ptr %1, align 4
+  br label %17
 
-8:                                                ; preds = %0
-  %9 = load ptr, ptr %2, align 8
-  %10 = call i32 @_check_script_permissions(ptr noundef %9)
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %13
+9:                                                ; preds = %0
+  %10 = load ptr, ptr %2, align 8
+  %11 = call i32 @_check_script_permissions(ptr noundef %10)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %8
+13:                                               ; preds = %9
   store i32 -1, ptr %1, align 4
-  br label %16
+  br label %17
 
-13:                                               ; preds = %8
+14:                                               ; preds = %9
   call void @slurm_xfree(ptr noundef @jobcomp_script)
-  %14 = load ptr, ptr %2, align 8
-  %15 = call ptr @slurm_xstrdup(ptr noundef %14)
-  store ptr %15, ptr @jobcomp_script, align 8
+  %15 = load ptr, ptr %2, align 8
+  %16 = call ptr @slurm_xstrdup(ptr noundef %15)
+  store ptr %16, ptr @jobcomp_script, align 8
   store i32 0, ptr %1, align 4
-  br label %16
+  br label %17
 
-16:                                               ; preds = %13, %12, %6
-  %17 = load i32, ptr %1, align 4
-  ret i32 %17
+17:                                               ; preds = %14, %13, %7
+  %18 = load i32, ptr %1, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2206,13 +2207,13 @@ define internal i32 @_env_append_fmt(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_start(ptr %9)
+  call void @llvm.va_start.p0(ptr %9)
   %10 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
   %13 = call i32 @vsnprintf(ptr noundef %10, i64 noundef 1023, ptr noundef %11, ptr noundef %12) #6
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end(ptr %14)
+  call void @llvm.va_end.p0(ptr %14)
   %15 = load ptr, ptr %4, align 8
   %16 = load ptr, ptr %5, align 8
   %17 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
@@ -2276,14 +2277,8 @@ declare void @slurm_mins2time_str(i32 noundef, ptr noundef, i32 noundef) #1
 ; Function Attrs: nounwind
 declare ptr @getenv(ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) #1
 
@@ -2356,6 +2351,12 @@ declare ptr @slurm_job_state_string(i32 noundef) #1
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

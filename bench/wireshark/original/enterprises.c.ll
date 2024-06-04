@@ -61074,19 +61074,20 @@ define hidden ptr @global_enterprises_lookup(i32 noundef %0) #0 {
 
 7:                                                ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %13
+  br label %14
 
 8:                                                ; preds = %1
   %9 = load i32, ptr %3, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr [61578 x ptr], ptr getelementptr inbounds (%struct.global_enterprises_table_t, ptr @table, i32 0, i32 1), i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %2, align 8
-  br label %13
+  %11 = getelementptr inbounds %struct.global_enterprises_table_t, ptr @table, i32 0, i32 1
+  %12 = getelementptr [61578 x ptr], ptr %11, i64 0, i64 %10
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %2, align 8
+  br label %14
 
-13:                                               ; preds = %8, %7
-  %14 = load ptr, ptr %2, align 8
-  ret ptr %14
+14:                                               ; preds = %8, %7
+  %15 = load ptr, ptr %2, align 8
+  ret ptr %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -61097,39 +61098,41 @@ define void @global_enterprises_dump(ptr noundef %0) #0 {
   store i64 0, ptr %3, align 8
   br label %4
 
-4:                                                ; preds = %22, %1
+4:                                                ; preds = %24, %1
   %5 = load i64, ptr %3, align 8
   %6 = load i32, ptr @table, align 8
   %7 = zext i32 %6 to i64
   %8 = icmp ule i64 %5, %7
-  br i1 %8, label %9, label %25
+  br i1 %8, label %9, label %27
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %3, align 8
-  %11 = getelementptr [61578 x ptr], ptr getelementptr inbounds (%struct.global_enterprises_table_t, ptr @table, i32 0, i32 1), i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %14, label %21
+  %11 = getelementptr inbounds %struct.global_enterprises_table_t, ptr @table, i32 0, i32 1
+  %12 = getelementptr [61578 x ptr], ptr %11, i64 0, i64 %10
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %23
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %2, align 8
-  %16 = load i64, ptr %3, align 8
+15:                                               ; preds = %9
+  %16 = load ptr, ptr %2, align 8
   %17 = load i64, ptr %3, align 8
-  %18 = getelementptr [61578 x ptr], ptr getelementptr inbounds (%struct.global_enterprises_table_t, ptr @table, i32 0, i32 1), i64 0, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str, i64 noundef %16, ptr noundef %19) #2
-  br label %21
+  %18 = load i64, ptr %3, align 8
+  %19 = getelementptr inbounds %struct.global_enterprises_table_t, ptr @table, i32 0, i32 1
+  %20 = getelementptr [61578 x ptr], ptr %19, i64 0, i64 %18
+  %21 = load ptr, ptr %20, align 8
+  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str, i64 noundef %17, ptr noundef %21) #2
+  br label %23
 
-21:                                               ; preds = %14, %9
-  br label %22
+23:                                               ; preds = %15, %9
+  br label %24
 
-22:                                               ; preds = %21
-  %23 = load i64, ptr %3, align 8
-  %24 = add i64 %23, 1
-  store i64 %24, ptr %3, align 8
+24:                                               ; preds = %23
+  %25 = load i64, ptr %3, align 8
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %3, align 8
   br label %4, !llvm.loop !4
 
-25:                                               ; preds = %4
+27:                                               ; preds = %4
   ret void
 }
 

@@ -1784,31 +1784,32 @@ if.end68:                                         ; preds = %if.else67, %if.then
 
 if.end69:                                         ; preds = %if.end68, %if.then62
   %40 = load ptr, ptr @tzname, align 16
-  %41 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @tzname, i64 0, i64 1), align 8
-  %42 = load i32, ptr %daylightType, align 4
+  %41 = getelementptr inbounds [2 x ptr], ptr @tzname, i64 0, i64 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i32, ptr %daylightType, align 4
   %call70 = call i32 @uprv_timezone_75()
-  %call71 = call noundef ptr @_ZL18remapShortTimeZonePKcS0_ii(ptr noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef %call70)
+  %call71 = call noundef ptr @_ZL18remapShortTimeZonePKcS0_ii(ptr noundef %40, ptr noundef %42, i32 noundef %43, i32 noundef %call70)
   store ptr %call71, ptr %tzid, align 8
-  %43 = load ptr, ptr %tzid, align 8
-  %cmp72 = icmp ne ptr %43, null
+  %44 = load ptr, ptr %tzid, align 8
+  %cmp72 = icmp ne ptr %44, null
   br i1 %cmp72, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %if.end69
-  %44 = load ptr, ptr %tzid, align 8
-  store ptr %44, ptr %retval, align 8
+  %45 = load ptr, ptr %tzid, align 8
+  store ptr %45, ptr %retval, align 8
   br label %return
 
 if.end74:                                         ; preds = %if.end69
-  %45 = load i32, ptr %n.addr, align 4
-  %idxprom = sext i32 %45 to i64
+  %46 = load i32, ptr %n.addr, align 4
+  %idxprom = sext i32 %46 to i64
   %arrayidx75 = getelementptr inbounds [2 x ptr], ptr @tzname, i64 0, i64 %idxprom
-  %46 = load ptr, ptr %arrayidx75, align 8
-  store ptr %46, ptr %retval, align 8
+  %47 = load ptr, ptr %arrayidx75, align 8
+  store ptr %47, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end74, %if.then73, %if.else57, %if.then54, %if.then31, %if.end
-  %47 = load ptr, ptr %retval, align 8
-  ret ptr %47
+  %48 = load ptr, ptr %retval, align 8
+  ret ptr %48
 }
 
 ; Function Attrs: nounwind

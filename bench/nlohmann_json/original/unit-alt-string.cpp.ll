@@ -15233,7 +15233,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11other_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11other_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -15912,25 +15913,26 @@ entry:
   store ptr %what_arg, ptr %what_arg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %id_.addr, align 4
-  store i32 %0, ptr %id, align 8
+  %1 = load i32, ptr %id_.addr, align 4
+  store i32 %1, ptr %id, align 8
   %m = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %what_arg.addr, align 8
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef %1)
+  %2 = load ptr, ptr %what_arg.addr, align 8
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #19
   br label %eh.resume
 
@@ -15970,7 +15972,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15985,7 +15988,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 2
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m) #19
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #19
@@ -20225,7 +20229,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -21711,12 +21716,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #19
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIc10alt_stringEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIc10alt_stringEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIc10alt_stringEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #19
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIc10alt_stringEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #19
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIc10alt_stringEEJRS7_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0) #19
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIc10alt_stringEEJRS7_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   ret void
 }
 
@@ -21886,7 +21892,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -22102,10 +22109,11 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIc10alt_stringEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIc10alt_stringEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %str = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::output_string_adapter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  store ptr %0, ptr %str, align 8
+  %1 = load ptr, ptr %s.addr, align 8
+  store ptr %1, ptr %str, align 8
   ret void
 }
 
@@ -22115,7 +22123,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -49950,7 +49959,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -51146,7 +51156,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -53025,7 +53036,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -53039,15 +53051,16 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %id = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %id2 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %id2, align 8
-  store i32 %3, ptr %id, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %id2 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %3, i32 0, i32 1
+  %4 = load i32, ptr %id2, align 8
+  store i32 %4, ptr %id, align 8
   %m = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %.addr, align 8
-  %m3 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %4, i32 0, i32 2
+  %5 = load ptr, ptr %.addr, align 8
+  %m3 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %5, i32 0, i32 2
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef nonnull align 8 dereferenceable(16) %m3) #19
   ret void
 }
@@ -53060,7 +53073,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -54915,12 +54929,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %byte = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::parse_error", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %byte2 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::parse_error", ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %byte2, align 8
-  store i64 %3, ptr %byte, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %byte2 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::parse_error", ptr %3, i32 0, i32 1
+  %4 = load i64, ptr %byte2, align 8
+  store i64 %4, ptr %byte, align 8
   ret void
 }
 
@@ -55214,10 +55229,11 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %byte = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::parse_error", ptr %this1, i32 0, i32 1
-  %2 = load i64, ptr %byte_.addr, align 8
-  store i64 %2, ptr %byte, align 8
+  %3 = load i64, ptr %byte_.addr, align 8
+  store i64 %3, ptr %byte, align 8
   ret void
 }
 
@@ -62100,12 +62116,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #19
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.210", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #19
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #19
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEEJRSoEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEEJRSoEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1) #19
   ret void
 }
 
@@ -62415,10 +62432,11 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::output_stream_adapter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  store ptr %0, ptr %stream, align 8
+  %1 = load ptr, ptr %s.addr, align 8
+  store ptr %1, ptr %stream, align 8
   ret void
 }
 
@@ -64167,7 +64185,7 @@ lpad:                                             ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12out_of_range) #19
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12out_of_range) #19
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -65061,9 +65079,6 @@ entry:
   %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %1) #19
   ret ptr %call
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail6concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA13_KcS8_RA17_S9_EEET_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(13) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1, ptr noundef nonnull align 1 dereferenceable(17) %args3) #4 comdat personality ptr @__gxx_personality_v0 {
@@ -68112,6 +68127,9 @@ entry:
   call void @__cxx_global_var_init.1()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

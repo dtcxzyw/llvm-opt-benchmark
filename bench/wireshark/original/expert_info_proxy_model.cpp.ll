@@ -386,13 +386,14 @@ define void @_ZN20ExpertInfoProxyModelC2EP7QObject(ptr noundef nonnull align 8 d
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV20ExpertInfoProxyModel, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.ExpertInfoProxyModel, ptr %5, i32 0, i32 1
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds %class.ExpertInfoProxyModel, ptr %5, i32 0, i32 2
-  call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #8
-  %9 = getelementptr inbounds %class.ExpertInfoProxyModel, ptr %5, i32 0, i32 3
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %7 = getelementptr inbounds { [59 x ptr] }, ptr @_ZTV20ExpertInfoProxyModel, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.ExpertInfoProxyModel, ptr %5, i32 0, i32 1
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds %class.ExpertInfoProxyModel, ptr %5, i32 0, i32 2
+  call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
+  %10 = getelementptr inbounds %class.ExpertInfoProxyModel, ptr %5, i32 0, i32 3
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #8
   ret void
 }
 

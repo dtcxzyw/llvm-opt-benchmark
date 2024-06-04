@@ -137,23 +137,24 @@ entry:
   store i32 %length, ptr %length.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ScriptRunE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %chars.addr, align 8
-  %1 = load i32, ptr %start.addr, align 4
-  %2 = load i32, ptr %length.addr, align 4
-  invoke void @_ZN6icu_759ScriptRun5resetEPKDsii(ptr noundef nonnull align 8 dereferenceable(1064) %this1, ptr noundef %0, i32 noundef %1, i32 noundef %2)
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759ScriptRunE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %chars.addr, align 8
+  %2 = load i32, ptr %start.addr, align 4
+  %3 = load i32, ptr %length.addr, align 4
+  invoke void @_ZN6icu_759ScriptRun5resetEPKDsii(ptr noundef nonnull align 8 dereferenceable(1064) %this1, ptr noundef %1, i32 noundef %2, i32 noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
   br label %eh.resume
 
@@ -222,7 +223,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

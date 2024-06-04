@@ -154,19 +154,20 @@ define hidden void @_ZN7nanogui10ImagePanelC2EPNS_6WidgetE(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui10ImagePanelE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  %8 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %5, i32 0, i32 2
-  call void @_ZNSt8functionIFviEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
-  %9 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %5, i32 0, i32 3
-  store i32 64, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %5, i32 0, i32 4
-  store i32 10, ptr %10, align 4
-  %11 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %5, i32 0, i32 5
-  store i32 10, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %5, i32 0, i32 6
-  store i32 -1, ptr %12, align 4
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui10ImagePanelE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
+  %9 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %5, i32 0, i32 2
+  call void @_ZNSt8functionIFviEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
+  %10 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %5, i32 0, i32 3
+  store i32 64, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %5, i32 0, i32 4
+  store i32 10, ptr %11, align 4
+  %12 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %5, i32 0, i32 5
+  store i32 10, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %5, i32 0, i32 6
+  store i32 -1, ptr %13, align 4
   ret void
 }
 
@@ -1422,11 +1423,12 @@ define linkonce_odr hidden void @_ZN7nanogui10ImagePanelD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui10ImagePanelE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %3, i32 0, i32 2
-  call void @_ZNSt8functionIFviEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
-  %5 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %4 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui10ImagePanelE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %3, i32 0, i32 2
+  call void @_ZNSt8functionIFviEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
+  %6 = getelementptr inbounds %"class.nanogui::ImagePanel", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #11
   ret void
 }

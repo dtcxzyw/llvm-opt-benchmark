@@ -1355,9 +1355,10 @@ define internal i64 @readlink_without_gvl(i64 noundef %0, i64 noundef %1, i64 no
   %14 = load i64, ptr %6, align 8
   %15 = getelementptr inbounds %struct.readlink_arg, ptr %7, i32 0, i32 2
   store i64 %14, ptr %15, align 8
-  %16 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_readlink, ptr noundef %7, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %17 = ptrtoint ptr %16 to i64
-  ret i64 %17
+  %16 = inttoptr i64 -1 to ptr
+  %17 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_readlink, ptr noundef %7, ptr noundef %16, ptr noundef null)
+  %18 = ptrtoint ptr %17 to i64
+  ret i64 %18
 }
 
 declare void @rb_str_modify_expand(i64 noundef, i64 noundef) #3
@@ -7208,23 +7209,24 @@ define internal i64 @rb_file_s_rename(i64 noundef %0, i64 noundef %1, i64 nounde
   %29 = call ptr @rb_string_value_cstr(ptr noundef %9)
   %30 = getelementptr inbounds %struct.rename_args, ptr %7, i32 0, i32 1
   store ptr %29, ptr %30, align 8
-  %31 = call ptr @rb_thread_call_without_gvl(ptr noundef @no_gvl_rename, ptr noundef %7, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %32 = ptrtoint ptr %31 to i64
-  %33 = trunc i64 %32 to i32
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %41
+  %31 = inttoptr i64 -1 to ptr
+  %32 = call ptr @rb_thread_call_without_gvl(ptr noundef @no_gvl_rename, ptr noundef %7, ptr noundef %31, ptr noundef null)
+  %33 = ptrtoint ptr %32 to i64
+  %34 = trunc i64 %33 to i32
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %36, label %42
 
-35:                                               ; preds = %3
-  %36 = call ptr @rb_errno_ptr()
-  %37 = load i32, ptr %36, align 4
-  store i32 %37, ptr %14, align 4
-  %38 = load i32, ptr %14, align 4
-  %39 = load i64, ptr %5, align 8
-  %40 = load i64, ptr %6, align 8
-  call void @syserr_fail2_in(ptr noundef @__func__.rb_file_s_rename, i32 noundef %38, i64 noundef %39, i64 noundef %40) #22
+36:                                               ; preds = %3
+  %37 = call ptr @rb_errno_ptr()
+  %38 = load i32, ptr %37, align 4
+  store i32 %38, ptr %14, align 4
+  %39 = load i32, ptr %14, align 4
+  %40 = load i64, ptr %5, align 8
+  %41 = load i64, ptr %6, align 8
+  call void @syserr_fail2_in(ptr noundef @__func__.rb_file_s_rename, i32 noundef %39, i64 noundef %40, i64 noundef %41) #22
   unreachable
 
-41:                                               ; preds = %3
+42:                                               ; preds = %3
   ret i64 1
 }
 
@@ -7302,30 +7304,31 @@ define internal i64 @rb_file_s_truncate(i64 noundef %0, i64 noundef %1, i64 noun
   %21 = call ptr @rb_string_value_cstr(ptr noundef %5)
   %22 = getelementptr inbounds %struct.truncate_arg, ptr %7, i32 0, i32 0
   store ptr %21, ptr %22, align 8
-  %23 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_truncate, ptr noundef %7, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %24 = ptrtoint ptr %23 to i64
-  %25 = trunc i64 %24 to i32
-  store i32 %25, ptr %8, align 4
-  %26 = load i32, ptr %8, align 4
-  %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %35
+  %23 = inttoptr i64 -1 to ptr
+  %24 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_truncate, ptr noundef %7, ptr noundef %23, ptr noundef null)
+  %25 = ptrtoint ptr %24 to i64
+  %26 = trunc i64 %25 to i32
+  store i32 %26, ptr %8, align 4
+  %27 = load i32, ptr %8, align 4
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %29, label %36
 
-28:                                               ; preds = %3
-  br label %29
+29:                                               ; preds = %3
+  br label %30
 
-29:                                               ; preds = %28
-  %30 = call ptr @rb_errno_ptr()
-  %31 = load i32, ptr %30, align 4
-  store i32 %31, ptr %11, align 4
-  %32 = load i32, ptr %11, align 4
-  %33 = load i64, ptr %5, align 8
-  call void @rb_syserr_fail_path_in(ptr noundef @__func__.rb_file_s_truncate, i32 noundef %32, i64 noundef %33) #22
+30:                                               ; preds = %29
+  %31 = call ptr @rb_errno_ptr()
+  %32 = load i32, ptr %31, align 4
+  store i32 %32, ptr %11, align 4
+  %33 = load i32, ptr %11, align 4
+  %34 = load i64, ptr %5, align 8
+  call void @rb_syserr_fail_path_in(ptr noundef @__func__.rb_file_s_truncate, i32 noundef %33, i64 noundef %34) #22
   unreachable
 
-34:                                               ; No predecessors!
-  br label %35
+35:                                               ; No predecessors!
+  br label %36
 
-35:                                               ; preds = %34, %3
+36:                                               ; preds = %35, %3
   ret i64 1
 }
 
@@ -7379,26 +7382,27 @@ define internal i64 @rb_file_s_mkfifo(i32 noundef %0, ptr noundef %1, i64 nounde
   %34 = call ptr @RSTRING_PTR(i64 noundef %33)
   %35 = getelementptr inbounds %struct.mkfifo_arg, ptr %8, i32 0, i32 0
   store ptr %34, ptr %35, align 8
-  %36 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_mkfifo, ptr noundef %8, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %45
+  %36 = inttoptr i64 -1 to ptr
+  %37 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_mkfifo, ptr noundef %8, ptr noundef %36, ptr noundef null)
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %46
 
-38:                                               ; preds = %23
-  br label %39
+39:                                               ; preds = %23
+  br label %40
 
-39:                                               ; preds = %38
-  %40 = call ptr @rb_errno_ptr()
-  %41 = load i32, ptr %40, align 4
-  store i32 %41, ptr %11, align 4
-  %42 = load i32, ptr %11, align 4
-  %43 = load i64, ptr %7, align 8
-  call void @rb_syserr_fail_path_in(ptr noundef @__func__.rb_file_s_mkfifo, i32 noundef %42, i64 noundef %43) #22
+40:                                               ; preds = %39
+  %41 = call ptr @rb_errno_ptr()
+  %42 = load i32, ptr %41, align 4
+  store i32 %42, ptr %11, align 4
+  %43 = load i32, ptr %11, align 4
+  %44 = load i64, ptr %7, align 8
+  call void @rb_syserr_fail_path_in(ptr noundef @__func__.rb_file_s_mkfifo, i32 noundef %43, i64 noundef %44) #22
   unreachable
 
-44:                                               ; No predecessors!
-  br label %45
+45:                                               ; No predecessors!
+  br label %46
 
-45:                                               ; preds = %44, %23
+46:                                               ; preds = %45, %23
   ret i64 1
 }
 
@@ -10869,10 +10873,11 @@ define internal i32 @stat_without_gvl(ptr noundef %0, ptr noundef %1) #0 {
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %struct.no_gvl_stat_data, ptr %5, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = call ptr @rb_thread_call_without_gvl(ptr noundef @no_gvl_stat, ptr noundef %5, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %11 = ptrtoint ptr %10 to i64
-  %12 = trunc i64 %11 to i32
-  ret i32 %12
+  %10 = inttoptr i64 -1 to ptr
+  %11 = call ptr @rb_thread_call_without_gvl(ptr noundef @no_gvl_stat, ptr noundef %5, ptr noundef %10, ptr noundef null)
+  %12 = ptrtoint ptr %11 to i64
+  %13 = trunc i64 %12 to i32
+  ret i32 %13
 }
 
 declare i64 @rb_thread_io_blocking_region(ptr noundef, ptr noundef, i32 noundef) #3
@@ -10969,10 +10974,11 @@ define internal i32 @statx_without_gvl(ptr noundef %0, ptr noundef %1, i32 nound
   %14 = getelementptr inbounds %struct.no_gvl_statx_data, ptr %7, i32 0, i32 4
   %15 = load i32, ptr %6, align 4
   store i32 %15, ptr %14, align 4
-  %16 = call ptr @rb_thread_call_without_gvl(ptr noundef @no_gvl_statx, ptr noundef %7, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %17 = ptrtoint ptr %16 to i64
-  %18 = trunc i64 %17 to i32
-  ret i32 %18
+  %16 = inttoptr i64 -1 to ptr
+  %17 = call ptr @rb_thread_call_without_gvl(ptr noundef @no_gvl_statx, ptr noundef %7, ptr noundef %16, ptr noundef null)
+  %18 = ptrtoint ptr %17 to i64
+  %19 = trunc i64 %18 to i32
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -12524,10 +12530,11 @@ define internal i32 @lstat_without_gvl(ptr noundef %0, ptr noundef %1) #0 {
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %struct.no_gvl_stat_data, ptr %5, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = call ptr @rb_thread_call_without_gvl(ptr noundef @no_gvl_lstat, ptr noundef %5, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %11 = ptrtoint ptr %10 to i64
-  %12 = trunc i64 %11 to i32
-  ret i32 %12
+  %10 = inttoptr i64 -1 to ptr
+  %11 = call ptr @rb_thread_call_without_gvl(ptr noundef @no_gvl_lstat, ptr noundef %5, ptr noundef %10, ptr noundef null)
+  %12 = ptrtoint ptr %11 to i64
+  %13 = trunc i64 %12 to i32
+  ret i32 %13
 }
 
 declare i64 @rb_str_replace(i64 noundef, i64 noundef) #3
@@ -12895,10 +12902,11 @@ define internal i32 @rb_eaccess(i64 noundef %0, i32 noundef %1) #0 {
   %16 = load i32, ptr %4, align 4
   %17 = getelementptr inbounds %struct.access_arg, ptr %5, i32 0, i32 1
   store i32 %16, ptr %17, align 8
-  %18 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_eaccess, ptr noundef %5, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %19 = ptrtoint ptr %18 to i64
-  %20 = trunc i64 %19 to i32
-  ret i32 %20
+  %18 = inttoptr i64 -1 to ptr
+  %19 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_eaccess, ptr noundef %5, ptr noundef %18, ptr noundef null)
+  %20 = ptrtoint ptr %19 to i64
+  %21 = trunc i64 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -12949,10 +12957,11 @@ define internal i32 @rb_access(i64 noundef %0, i32 noundef %1) #0 {
   %16 = load i32, ptr %4, align 4
   %17 = getelementptr inbounds %struct.access_arg, ptr %5, i32 0, i32 1
   store i32 %16, ptr %17, align 8
-  %18 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_access, ptr noundef %5, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %19 = ptrtoint ptr %18 to i64
-  %20 = trunc i64 %19 to i32
-  ret i32 %20
+  %18 = inttoptr i64 -1 to ptr
+  %19 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_access, ptr noundef %5, ptr noundef %18, ptr noundef null)
+  %20 = ptrtoint ptr %19 to i64
+  %21 = trunc i64 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -13686,43 +13695,44 @@ define internal i64 @apply2files(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 82:                                               ; preds = %41
   %83 = load ptr, ptr %12, align 8
-  %84 = call ptr @rb_thread_call_without_gvl(ptr noundef @no_gvl_apply2files, ptr noundef %83, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %85 = load ptr, ptr %12, align 8
-  %86 = getelementptr inbounds %struct.apply_arg, ptr %85, i32 0, i32 2
-  %87 = load i32, ptr %86, align 8
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %89, label %102
+  %84 = inttoptr i64 -1 to ptr
+  %85 = call ptr @rb_thread_call_without_gvl(ptr noundef @no_gvl_apply2files, ptr noundef %83, ptr noundef %84, ptr noundef null)
+  %86 = load ptr, ptr %12, align 8
+  %87 = getelementptr inbounds %struct.apply_arg, ptr %86, i32 0, i32 2
+  %88 = load i32, ptr %87, align 8
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %90, label %103
 
-89:                                               ; preds = %82
-  %90 = load ptr, ptr %12, align 8
-  %91 = getelementptr inbounds %struct.apply_arg, ptr %90, i32 0, i32 2
-  %92 = load i32, ptr %91, align 8
-  %93 = load ptr, ptr %12, align 8
-  %94 = getelementptr inbounds %struct.apply_arg, ptr %93, i32 0, i32 5
-  %95 = load ptr, ptr %12, align 8
-  %96 = getelementptr inbounds %struct.apply_arg, ptr %95, i32 0, i32 0
-  %97 = load i32, ptr %96, align 8
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr [0 x %struct.apply_filename], ptr %94, i64 0, i64 %98
-  %100 = getelementptr inbounds %struct.apply_filename, ptr %99, i32 0, i32 1
-  %101 = load i64, ptr %100, align 8
-  call void @rb_syserr_fail_path_in(ptr noundef @__func__.apply2files, i32 noundef %92, i64 noundef %101) #22
+90:                                               ; preds = %82
+  %91 = load ptr, ptr %12, align 8
+  %92 = getelementptr inbounds %struct.apply_arg, ptr %91, i32 0, i32 2
+  %93 = load i32, ptr %92, align 8
+  %94 = load ptr, ptr %12, align 8
+  %95 = getelementptr inbounds %struct.apply_arg, ptr %94, i32 0, i32 5
+  %96 = load ptr, ptr %12, align 8
+  %97 = getelementptr inbounds %struct.apply_arg, ptr %96, i32 0, i32 0
+  %98 = load i32, ptr %97, align 8
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr [0 x %struct.apply_filename], ptr %95, i64 0, i64 %99
+  %101 = getelementptr inbounds %struct.apply_filename, ptr %100, i32 0, i32 1
+  %102 = load i64, ptr %101, align 8
+  call void @rb_syserr_fail_path_in(ptr noundef @__func__.apply2files, i32 noundef %93, i64 noundef %102) #22
   unreachable
 
-102:                                              ; preds = %82
-  %103 = load i64, ptr %9, align 8
-  %104 = icmp ne i64 %103, 0
-  br i1 %104, label %105, label %106
+103:                                              ; preds = %82
+  %104 = load i64, ptr %9, align 8
+  %105 = icmp ne i64 %104, 0
+  br i1 %105, label %106, label %107
 
-105:                                              ; preds = %102
+106:                                              ; preds = %103
   call void @rb_free_tmp_buffer(ptr noundef %9)
-  br label %106
+  br label %107
 
-106:                                              ; preds = %105, %102
-  %107 = load i32, ptr %6, align 4
-  %108 = sext i32 %107 to i64
-  %109 = call i64 @RB_INT2FIX(i64 noundef %108) #19
-  ret i64 %109
+107:                                              ; preds = %106, %103
+  %108 = load i32, ptr %6, align 4
+  %109 = sext i32 %108 to i64
+  %110 = call i64 @RB_INT2FIX(i64 noundef %109) #19
+  ret i64 %110
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -14539,10 +14549,11 @@ define internal i32 @rb_chmod(ptr noundef %0, i32 noundef %1) #0 {
   %8 = getelementptr inbounds %struct.nogvl_chmod_data, ptr %5, i32 0, i32 1
   %9 = load i32, ptr %4, align 4
   store i32 %9, ptr %8, align 8
-  %10 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_chmod, ptr noundef %5, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %11 = ptrtoint ptr %10 to i64
-  %12 = trunc i64 %11 to i32
-  ret i32 %12
+  %10 = inttoptr i64 -1 to ptr
+  %11 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_chmod, ptr noundef %5, ptr noundef %10, ptr noundef null)
+  %12 = ptrtoint ptr %11 to i64
+  %13 = trunc i64 %12 to i32
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -14610,10 +14621,11 @@ define internal i32 @rb_fchown(i32 noundef %0, i32 noundef %1, i32 noundef %2) #
   %13 = getelementptr inbounds %struct.chown_args, ptr %10, i32 0, i32 1
   %14 = load i32, ptr %6, align 4
   store i32 %14, ptr %13, align 4
-  %15 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_fchown, ptr noundef %7, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %16 = ptrtoint ptr %15 to i64
-  %17 = trunc i64 %16 to i32
-  ret i32 %17
+  %15 = inttoptr i64 -1 to ptr
+  %16 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_fchown, ptr noundef %7, ptr noundef %15, ptr noundef null)
+  %17 = ptrtoint ptr %16 to i64
+  %18 = trunc i64 %17 to i32
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -14635,10 +14647,11 @@ define internal i32 @rb_chown(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0
   %13 = getelementptr inbounds %struct.chown_args, ptr %10, i32 0, i32 1
   %14 = load i32, ptr %6, align 4
   store i32 %14, ptr %13, align 4
-  %15 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_chown, ptr noundef %7, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %16 = ptrtoint ptr %15 to i64
-  %17 = trunc i64 %16 to i32
-  ret i32 %17
+  %15 = inttoptr i64 -1 to ptr
+  %16 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_chown, ptr noundef %7, ptr noundef %15, ptr noundef null)
+  %17 = ptrtoint ptr %16 to i64
+  %18 = trunc i64 %17 to i32
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

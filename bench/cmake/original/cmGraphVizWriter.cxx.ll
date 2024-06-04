@@ -2463,169 +2463,170 @@ define dso_local void @_ZN16cmGraphVizWriterC2ERKNSt7__cxx1112basic_stringIcSt11
   store ptr %2, ptr %6, align 8
   %13 = load ptr, ptr %4, align 8
   call void @_ZN22cmLinkItemGraphVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %13) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16cmGraphVizWriter, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %16 unwind label %46
+  %14 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV16cmGraphVizWriter, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %17 unwind label %47
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 2
-  %18 = load ptr, ptr %5, align 8
-  invoke void @_ZN21cmGeneratedFileStreamC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb16codecvt_Encoding(ptr noundef nonnull align 8 dereferenceable(348) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i1 noundef zeroext false, i32 noundef 0)
-          to label %19 unwind label %50
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 2
+  %19 = load ptr, ptr %5, align 8
+  invoke void @_ZN21cmGeneratedFileStreamC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb16codecvt_Encoding(ptr noundef nonnull align 8 dereferenceable(348) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i1 noundef zeroext false, i32 noundef 0)
+          to label %20 unwind label %51
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 3
-  call void @_ZNSt3mapI10cmLinkItemSt6vectorIN16cmGraphVizWriter10ConnectionESaIS3_EESt4lessIS0_ESaISt4pairIKS0_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #3
-  %21 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 4
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 3
   call void @_ZNSt3mapI10cmLinkItemSt6vectorIN16cmGraphVizWriter10ConnectionESaIS3_EESt4lessIS0_ESaISt4pairIKS0_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
-  %22 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 5
-  %23 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 4
+  call void @_ZNSt3mapI10cmLinkItemSt6vectorIN16cmGraphVizWriter10ConnectionESaIS3_EESt4lessIS0_ESaISt4pairIKS0_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
+  %23 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 5
+  %24 = load ptr, ptr %6, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %24 unwind label %54
+          to label %25 unwind label %55
 
-24:                                               ; preds = %19
-  invoke void @_ZNK17cmGlobalGenerator20GetSafeGlobalSettingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull align 8 dereferenceable(1778) %23, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %25 unwind label %58
+25:                                               ; preds = %20
+  invoke void @_ZNK17cmGlobalGenerator20GetSafeGlobalSettingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(1778) %24, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %26 unwind label %59
 
-25:                                               ; preds = %24
+26:                                               ; preds = %25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  %26 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 6
+  %27 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %27 unwind label %63
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %28 unwind label %64
 
-27:                                               ; preds = %25
+28:                                               ; preds = %26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  %28 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 7
+  %29 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 7
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %29 unwind label %67
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %30 unwind label %68
 
-29:                                               ; preds = %27
+30:                                               ; preds = %28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
-  %30 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 8
-  call void @_ZNSt6vectorIN5cmsys17RegularExpressionESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
-  %31 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 9
-  %32 = load ptr, ptr %6, align 8
-  store ptr %32, ptr %31, align 8
-  %33 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 10
-  store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 12
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %34) #3
-  %35 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 13
-  store i8 1, ptr %35, align 8
-  %36 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 14
-  store i8 1, ptr %36, align 1
-  %37 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 15
-  store i8 1, ptr %37, align 2
-  %38 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 16
-  store i8 1, ptr %38, align 1
-  %39 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 17
-  store i8 1, ptr %39, align 4
-  %40 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 18
-  store i8 1, ptr %40, align 1
-  %41 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 19
-  store i8 1, ptr %41, align 2
-  %42 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 20
-  store i8 0, ptr %42, align 1
-  %43 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 21
-  store i8 1, ptr %43, align 8
-  %44 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 22
-  store i8 1, ptr %44, align 1
-  %45 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 23
-  store i8 1, ptr %45, align 2
+  %31 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 8
+  call void @_ZNSt6vectorIN5cmsys17RegularExpressionESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
+  %32 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 9
+  %33 = load ptr, ptr %6, align 8
+  store ptr %33, ptr %32, align 8
+  %34 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 10
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 12
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #3
+  %36 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 13
+  store i8 1, ptr %36, align 8
+  %37 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 14
+  store i8 1, ptr %37, align 1
+  %38 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 15
+  store i8 1, ptr %38, align 2
+  %39 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 16
+  store i8 1, ptr %39, align 1
+  %40 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 17
+  store i8 1, ptr %40, align 4
+  %41 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 18
+  store i8 1, ptr %41, align 1
+  %42 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 19
+  store i8 1, ptr %42, align 2
+  %43 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 20
+  store i8 0, ptr %43, align 1
+  %44 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 21
+  store i8 1, ptr %44, align 8
+  %45 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 22
+  store i8 1, ptr %45, align 1
+  %46 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 23
+  store i8 1, ptr %46, align 2
   ret void
 
-46:                                               ; preds = %3
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %3
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %7, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %8, align 4
-  br label %74
-
-50:                                               ; preds = %16
-  %51 = landingpad { ptr, i32 }
-          cleanup
-  %52 = extractvalue { ptr, i32 } %51, 0
-  store ptr %52, ptr %7, align 8
-  %53 = extractvalue { ptr, i32 } %51, 1
-  store i32 %53, ptr %8, align 4
-  br label %73
-
-54:                                               ; preds = %19
-  %55 = landingpad { ptr, i32 }
-          cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %7, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %8, align 4
-  br label %62
-
-58:                                               ; preds = %24
-  %59 = landingpad { ptr, i32 }
-          cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %7, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %62
-
-62:                                               ; preds = %58, %54
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  br label %72
-
-63:                                               ; preds = %25
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %7, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %8, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  br label %71
-
-67:                                               ; preds = %27
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %7, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %8, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
-  br label %71
-
-71:                                               ; preds = %67, %63
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
-  br label %72
-
-72:                                               ; preds = %71, %62
-  call void @_ZNSt3mapI10cmLinkItemSt6vectorIN16cmGraphVizWriter10ConnectionESaIS3_EESt4lessIS0_ESaISt4pairIKS0_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
-  call void @_ZNSt3mapI10cmLinkItemSt6vectorIN16cmGraphVizWriter10ConnectionESaIS3_EESt4lessIS0_ESaISt4pairIKS0_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #3
-  call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %17) #3
-  br label %73
-
-73:                                               ; preds = %72, %50
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
-  br label %74
-
-74:                                               ; preds = %73, %46
-  call void @_ZN22cmLinkItemGraphVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %13) #3
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %7, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %8, align 4
   br label %75
 
-75:                                               ; preds = %74
-  %76 = load ptr, ptr %7, align 8
-  %77 = load i32, ptr %8, align 4
-  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
-  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
-  resume { ptr, i32 } %79
+51:                                               ; preds = %17
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %7, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %8, align 4
+  br label %74
+
+55:                                               ; preds = %20
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %7, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %8, align 4
+  br label %63
+
+59:                                               ; preds = %25
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %7, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  br label %63
+
+63:                                               ; preds = %59, %55
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  br label %73
+
+64:                                               ; preds = %26
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %7, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %8, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
+  br label %72
+
+68:                                               ; preds = %28
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %7, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %8, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #3
+  br label %72
+
+72:                                               ; preds = %68, %64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
+  br label %73
+
+73:                                               ; preds = %72, %63
+  call void @_ZNSt3mapI10cmLinkItemSt6vectorIN16cmGraphVizWriter10ConnectionESaIS3_EESt4lessIS0_ESaISt4pairIKS0_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
+  call void @_ZNSt3mapI10cmLinkItemSt6vectorIN16cmGraphVizWriter10ConnectionESaIS3_EESt4lessIS0_ESaISt4pairIKS0_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
+  call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %18) #3
+  br label %74
+
+74:                                               ; preds = %73, %51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %75
+
+75:                                               ; preds = %74, %47
+  call void @_ZN22cmLinkItemGraphVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %13) #3
+  br label %76
+
+76:                                               ; preds = %75
+  %77 = load ptr, ptr %7, align 8
+  %78 = load i32, ptr %8, align 4
+  %79 = insertvalue { ptr, i32 } poison, ptr %77, 0
+  %80 = insertvalue { ptr, i32 } %79, i32 %78, 1
+  resume { ptr, i32 } %80
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2633,11 +2634,12 @@ define linkonce_odr dso_local void @_ZN22cmLinkItemGraphVisitorC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmLinkItemGraphVisitor, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmLinkItemGraphVisitor, ptr %3, i32 0, i32 1
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %class.cmLinkItemGraphVisitor, ptr %3, i32 0, i32 2
-  call void @_ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV22cmLinkItemGraphVisitor, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmLinkItemGraphVisitor, ptr %3, i32 0, i32 1
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %class.cmLinkItemGraphVisitor, ptr %3, i32 0, i32 2
+  call void @_ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
   ret void
 }
 
@@ -2764,38 +2766,39 @@ define dso_local void @_ZN16cmGraphVizWriterD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16cmGraphVizWriter, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 2
-  invoke void @_ZN16cmGraphVizWriter11WriteFooterER21cmGeneratedFileStream(ptr noundef nonnull align 8 dereferenceable(1043) %3, ptr noundef nonnull align 8 dereferenceable(348) %4)
-          to label %5 unwind label %15
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV16cmGraphVizWriter, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 2
+  invoke void @_ZN16cmGraphVizWriter11WriteFooterER21cmGeneratedFileStream(ptr noundef nonnull align 8 dereferenceable(1043) %3, ptr noundef nonnull align 8 dereferenceable(348) %5)
+          to label %6 unwind label %16
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 12
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorIN5cmsys17RegularExpressionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  %9 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 6
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 12
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorIN5cmsys17RegularExpressionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %10 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 5
+  %10 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
-  %11 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 4
-  call void @_ZNSt3mapI10cmLinkItemSt6vectorIN16cmGraphVizWriter10ConnectionESaIS3_EESt4lessIS0_ESaISt4pairIKS0_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
-  %12 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 3
+  %11 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  %12 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 4
   call void @_ZNSt3mapI10cmLinkItemSt6vectorIN16cmGraphVizWriter10ConnectionESaIS3_EESt4lessIS0_ESaISt4pairIKS0_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
-  %13 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 2
-  call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %13) #3
-  %14 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  %13 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 3
+  call void @_ZNSt3mapI10cmLinkItemSt6vectorIN16cmGraphVizWriter10ConnectionESaIS3_EESt4lessIS0_ESaISt4pairIKS0_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
+  %14 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 2
+  call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %14) #3
+  %15 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
   call void @_ZN22cmLinkItemGraphVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #3
   ret void
 
-15:                                               ; preds = %1
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #16
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #16
   unreachable
 }
 
@@ -9356,11 +9359,12 @@ define linkonce_odr dso_local void @_ZN22cmLinkItemGraphVisitorD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmLinkItemGraphVisitor, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmLinkItemGraphVisitor, ptr %3, i32 0, i32 2
-  call void @_ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %class.cmLinkItemGraphVisitor, ptr %3, i32 0, i32 1
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV22cmLinkItemGraphVisitor, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmLinkItemGraphVisitor, ptr %3, i32 0, i32 2
+  call void @_ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %class.cmLinkItemGraphVisitor, ptr %3, i32 0, i32 1
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
   ret void
 }
 

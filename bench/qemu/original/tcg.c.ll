@@ -1294,7 +1294,7 @@ entry:
   store i32 %vece, ptr %vece.addr, align 4
   store i64 %a0, ptr %a0.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load i64, ptr %a0.addr, align 8
   %call = call ptr @arg_temp(i64 noundef %0)
   %call1 = call ptr @temp_tcgv_vec(ptr noundef %call)
@@ -1580,12 +1580,9 @@ sw.default:                                       ; preds = %vaarg.end15
 
 sw.epilog:                                        ; preds = %sw.default, %vaarg.end87, %vaarg.end44, %sw.bb28, %sw.bb25, %sw.bb22, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb
   %arraydecay90 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %va, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay90)
+  call void @llvm.va_end.p0(ptr %arraydecay90)
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @temp_tcgv_vec(ptr noundef %t) #0 {
@@ -2491,9 +2488,6 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
-
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_register_jit(ptr noundef %buf, i64 noundef %buf_size) #0 {
 entry:
@@ -2683,12 +2677,17 @@ entry:
   %func_len = getelementptr inbounds %struct.DebugFrameFDEHeader, ptr %fde54, i32 0, i32 3
   store i64 %51, ptr %func_len, align 1
   %53 = load ptr, ptr %img, align 8
-  store ptr %53, ptr getelementptr inbounds (%struct.jit_code_entry, ptr @tcg_register_jit_int.one_entry, i32 0, i32 2), align 8
-  %54 = load i64, ptr %img_size, align 8
-  store i64 %54, ptr getelementptr inbounds (%struct.jit_code_entry, ptr @tcg_register_jit_int.one_entry, i32 0, i32 3), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.jit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 1), align 4
-  store ptr @tcg_register_jit_int.one_entry, ptr getelementptr inbounds (%struct.jit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 2), align 8
-  store ptr @tcg_register_jit_int.one_entry, ptr getelementptr inbounds (%struct.jit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 3), align 8
+  %54 = getelementptr inbounds %struct.jit_code_entry, ptr @tcg_register_jit_int.one_entry, i32 0, i32 2
+  store ptr %53, ptr %54, align 8
+  %55 = load i64, ptr %img_size, align 8
+  %56 = getelementptr inbounds %struct.jit_code_entry, ptr @tcg_register_jit_int.one_entry, i32 0, i32 3
+  store i64 %55, ptr %56, align 8
+  %57 = getelementptr inbounds %struct.jit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 1
+  store i32 1, ptr %57, align 4
+  %58 = getelementptr inbounds %struct.jit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 2
+  store ptr @tcg_register_jit_int.one_entry, ptr %58, align 8
+  %59 = getelementptr inbounds %struct.jit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 3
+  store ptr @tcg_register_jit_int.one_entry, ptr %59, align 8
   call void @__jit_debug_register_code()
   ret void
 }
@@ -2864,7 +2863,7 @@ return:                                           ; preds = %if.end27, %if.then
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) #6
+declare noalias ptr @g_malloc(i64 noundef) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_pool_reset(ptr noundef %s) #0 {
@@ -2914,7 +2913,7 @@ for.end:                                          ; preds = %for.cond
   ret void
 }
 
-declare void @g_free(ptr noundef) #7
+declare void @g_free(ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_init(i64 noundef %tb_size, i32 noundef %splitwx, i32 noundef %max_cpus) #0 {
@@ -3173,7 +3172,7 @@ do.end:                                           ; preds = %if.end57
   ret void
 }
 
-declare void @tcg_region_init(i64 noundef, i32 noundef, i32 noundef) #7
+declare void @tcg_region_init(i64 noundef, i32 noundef, i32 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @tcg_tb_alloc(ptr noundef %s) #0 {
@@ -3279,7 +3278,7 @@ return:                                           ; preds = %do.end13, %if.then9
   ret ptr %21
 }
 
-declare zeroext i1 @tcg_region_alloc(ptr noundef) #7
+declare zeroext i1 @tcg_region_alloc(ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_prologue_init() #0 {
@@ -3554,35 +3553,40 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then5:                                         ; preds = %if.then
   %9 = load i32, ptr %seg, align 4
-  store i32 %9, ptr getelementptr inbounds (%struct.HostAddress, ptr @x86_guest_base, i32 0, i32 3), align 4
+  %10 = getelementptr inbounds %struct.HostAddress, ptr @x86_guest_base, i32 0, i32 3
+  store i32 %9, ptr %10, align 4
   br label %if.end13
 
 if.else:                                          ; preds = %if.then
-  %10 = load i64, ptr @guest_base, align 8
   %11 = load i64, ptr @guest_base, align 8
-  %conv6 = trunc i64 %11 to i32
+  %12 = load i64, ptr @guest_base, align 8
+  %conv6 = trunc i64 %12 to i32
   %conv7 = sext i32 %conv6 to i64
-  %cmp8 = icmp eq i64 %10, %conv7
+  %cmp8 = icmp eq i64 %11, %conv7
   br i1 %cmp8, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.else
-  %12 = load i64, ptr @guest_base, align 8
-  %conv11 = trunc i64 %12 to i32
-  store i32 %conv11, ptr getelementptr inbounds (%struct.HostAddress, ptr @x86_guest_base, i32 0, i32 2), align 4
+  %13 = load i64, ptr @guest_base, align 8
+  %conv11 = trunc i64 %13 to i32
+  %14 = getelementptr inbounds %struct.HostAddress, ptr @x86_guest_base, i32 0, i32 2
+  store i32 %conv11, ptr %14, align 4
   br label %if.end
 
 if.else12:                                        ; preds = %if.else
-  store i32 12, ptr getelementptr inbounds (%struct.HostAddress, ptr @x86_guest_base, i32 0, i32 1), align 4
-  %13 = load ptr, ptr %s.addr, align 8
-  %14 = load i32, ptr getelementptr inbounds (%struct.HostAddress, ptr @x86_guest_base, i32 0, i32 1), align 4
-  %15 = load i64, ptr @guest_base, align 8
-  call void @tcg_out_movi(ptr noundef %13, i32 noundef 1, i32 noundef %14, i64 noundef %15)
-  %16 = load i32, ptr getelementptr inbounds (%struct.HostAddress, ptr @x86_guest_base, i32 0, i32 1), align 4
-  %shl = shl i32 1, %16
-  %17 = load ptr, ptr %s.addr, align 8
-  %reserved_regs = getelementptr inbounds %struct.TCGContext, ptr %17, i32 0, i32 16
-  %18 = load i32, ptr %reserved_regs, align 4
-  %or = or i32 %18, %shl
+  %15 = getelementptr inbounds %struct.HostAddress, ptr @x86_guest_base, i32 0, i32 1
+  store i32 12, ptr %15, align 4
+  %16 = load ptr, ptr %s.addr, align 8
+  %17 = getelementptr inbounds %struct.HostAddress, ptr @x86_guest_base, i32 0, i32 1
+  %18 = load i32, ptr %17, align 4
+  %19 = load i64, ptr @guest_base, align 8
+  call void @tcg_out_movi(ptr noundef %16, i32 noundef 1, i32 noundef %18, i64 noundef %19)
+  %20 = getelementptr inbounds %struct.HostAddress, ptr @x86_guest_base, i32 0, i32 1
+  %21 = load i32, ptr %20, align 4
+  %shl = shl i32 1, %21
+  %22 = load ptr, ptr %s.addr, align 8
+  %reserved_regs = getelementptr inbounds %struct.TCGContext, ptr %22, i32 0, i32 16
+  %23 = load i32, ptr %reserved_regs, align 4
+  %or = or i32 %23, %shl
   store i32 %or, ptr %reserved_regs, align 4
   br label %if.end
 
@@ -3593,41 +3597,42 @@ if.end13:                                         ; preds = %if.end, %if.then5
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end13, %land.lhs.true, %for.end
-  %19 = load ptr, ptr %s.addr, align 8
-  %20 = load i32, ptr @tcg_target_call_iarg_regs, align 16
-  %call15 = call zeroext i1 @tcg_out_mov(ptr noundef %19, i32 noundef 1, i32 noundef 5, i32 noundef %20)
-  %21 = load ptr, ptr %s.addr, align 8
-  %22 = load i32, ptr %stack_addend, align 4
-  %sub = sub i32 0, %22
+  %24 = load ptr, ptr %s.addr, align 8
+  %25 = load i32, ptr @tcg_target_call_iarg_regs, align 16
+  %call15 = call zeroext i1 @tcg_out_mov(ptr noundef %24, i32 noundef 1, i32 noundef 5, i32 noundef %25)
+  %26 = load ptr, ptr %s.addr, align 8
+  %27 = load i32, ptr %stack_addend, align 4
+  %sub = sub i32 0, %27
   %conv16 = sext i32 %sub to i64
-  call void @tcg_out_addi(ptr noundef %21, i32 noundef 4, i64 noundef %conv16)
-  %23 = load ptr, ptr %s.addr, align 8
-  %24 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1), align 4
-  call void @tcg_out_modrm(ptr noundef %23, i32 noundef 255, i32 noundef 4, i32 noundef %24)
-  %25 = load ptr, ptr %s.addr, align 8
-  %code_ptr = getelementptr inbounds %struct.TCGContext, ptr %25, i32 0, i32 23
-  %26 = load ptr, ptr %code_ptr, align 8
-  %call17 = call ptr @tcg_splitwx_to_rx(ptr noundef %26)
-  store ptr %call17, ptr @tcg_code_gen_epilogue, align 8
-  %27 = load ptr, ptr %s.addr, align 8
-  call void @tcg_out_movi(ptr noundef %27, i32 noundef 1, i32 noundef 0, i64 noundef 0)
+  call void @tcg_out_addi(ptr noundef %26, i32 noundef 4, i64 noundef %conv16)
   %28 = load ptr, ptr %s.addr, align 8
-  %code_ptr18 = getelementptr inbounds %struct.TCGContext, ptr %28, i32 0, i32 23
-  %29 = load ptr, ptr %code_ptr18, align 8
-  %call19 = call ptr @tcg_splitwx_to_rx(ptr noundef %29)
+  %29 = getelementptr inbounds [6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1
+  %30 = load i32, ptr %29, align 4
+  call void @tcg_out_modrm(ptr noundef %28, i32 noundef 255, i32 noundef 4, i32 noundef %30)
+  %31 = load ptr, ptr %s.addr, align 8
+  %code_ptr = getelementptr inbounds %struct.TCGContext, ptr %31, i32 0, i32 23
+  %32 = load ptr, ptr %code_ptr, align 8
+  %call17 = call ptr @tcg_splitwx_to_rx(ptr noundef %32)
+  store ptr %call17, ptr @tcg_code_gen_epilogue, align 8
+  %33 = load ptr, ptr %s.addr, align 8
+  call void @tcg_out_movi(ptr noundef %33, i32 noundef 1, i32 noundef 0, i64 noundef 0)
+  %34 = load ptr, ptr %s.addr, align 8
+  %code_ptr18 = getelementptr inbounds %struct.TCGContext, ptr %34, i32 0, i32 23
+  %35 = load ptr, ptr %code_ptr18, align 8
+  %call19 = call ptr @tcg_splitwx_to_rx(ptr noundef %35)
   store ptr %call19, ptr @tb_ret_addr, align 8
-  %30 = load ptr, ptr %s.addr, align 8
-  %31 = load i32, ptr %stack_addend, align 4
-  %conv20 = sext i32 %31 to i64
-  call void @tcg_out_addi(ptr noundef %30, i32 noundef 4, i64 noundef %conv20)
-  %32 = load i32, ptr @cpuinfo, align 4
-  %and = and i32 %32, 1024
+  %36 = load ptr, ptr %s.addr, align 8
+  %37 = load i32, ptr %stack_addend, align 4
+  %conv20 = sext i32 %37 to i64
+  call void @tcg_out_addi(ptr noundef %36, i32 noundef 4, i64 noundef %conv20)
+  %38 = load i32, ptr @cpuinfo, align 4
+  %and = and i32 %38, 1024
   %tobool21 = icmp ne i32 %and, 0
   br i1 %tobool21, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.end14
-  %33 = load ptr, ptr %s.addr, align 8
-  call void @tcg_out_vex_opc(ptr noundef %33, i32 noundef 375, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %39 = load ptr, ptr %s.addr, align 8
+  call void @tcg_out_vex_opc(ptr noundef %39, i32 noundef 375, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then22, %if.end14
@@ -3635,28 +3640,28 @@ if.end23:                                         ; preds = %if.then22, %if.end1
   br label %for.cond24
 
 for.cond24:                                       ; preds = %for.inc30, %if.end23
-  %34 = load i32, ptr %i, align 4
-  %cmp25 = icmp sge i32 %34, 0
+  %40 = load i32, ptr %i, align 4
+  %cmp25 = icmp sge i32 %40, 0
   br i1 %cmp25, label %for.body27, label %for.end31
 
 for.body27:                                       ; preds = %for.cond24
-  %35 = load ptr, ptr %s.addr, align 8
-  %36 = load i32, ptr %i, align 4
-  %idxprom28 = sext i32 %36 to i64
+  %41 = load ptr, ptr %s.addr, align 8
+  %42 = load i32, ptr %i, align 4
+  %idxprom28 = sext i32 %42 to i64
   %arrayidx29 = getelementptr [6 x i32], ptr @tcg_target_callee_save_regs, i64 0, i64 %idxprom28
-  %37 = load i32, ptr %arrayidx29, align 4
-  call void @tcg_out_pop(ptr noundef %35, i32 noundef %37)
+  %43 = load i32, ptr %arrayidx29, align 4
+  call void @tcg_out_pop(ptr noundef %41, i32 noundef %43)
   br label %for.inc30
 
 for.inc30:                                        ; preds = %for.body27
-  %38 = load i32, ptr %i, align 4
-  %dec = add i32 %38, -1
+  %44 = load i32, ptr %i, align 4
+  %dec = add i32 %44, -1
   store i32 %dec, ptr %i, align 4
   br label %for.cond24, !llvm.loop !14
 
 for.end31:                                        ; preds = %for.cond24
-  %39 = load ptr, ptr %s.addr, align 8
-  call void @tcg_out_opc(ptr noundef %39, i32 noundef 195, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %45 = load ptr, ptr %s.addr, align 8
+  call void @tcg_out_opc(ptr noundef %45, i32 noundef 195, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   ret void
 }
 
@@ -3855,7 +3860,7 @@ entry:
   ret i64 %call
 }
 
-declare void @perf_report_prologue(ptr noundef, i64 noundef) #7
+declare void @perf_report_prologue(ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @flush_idcache_range(i64 noundef %rx, i64 noundef %rw, i64 noundef %len) #0 {
@@ -3881,15 +3886,15 @@ entry:
   ret i1 %cmp
 }
 
-declare ptr @qemu_log_trylock() #7
+declare ptr @qemu_log_trylock() #6
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #7
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #6
 
-declare void @disas(ptr noundef, ptr noundef, i64 noundef) #7
+declare void @disas(ptr noundef, ptr noundef, i64 noundef) #6
 
-declare void @qemu_log_unlock(ptr noundef) #7
+declare void @qemu_log_unlock(ptr noundef) #6
 
-declare void @tcg_region_prologue_set(ptr noundef) #7
+declare void @tcg_region_prologue_set(ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_func_start(ptr noundef %s) #0 {
@@ -4049,7 +4054,7 @@ do.end28:                                         ; preds = %if.end27
   ret void
 }
 
-declare void @g_hash_table_remove_all(ptr noundef) #7
+declare void @g_hash_table_remove_all(ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_set_frame(ptr noundef %s, i32 noundef %reg, i64 noundef %start, i64 noundef %size) #0 {
@@ -5098,13 +5103,13 @@ if.end23:                                         ; preds = %if.then6, %if.end
   ret ptr %26
 }
 
-declare ptr @g_hash_table_new(ptr noundef, ptr noundef) #7
+declare ptr @g_hash_table_new(ptr noundef, ptr noundef) #6
 
-declare i32 @g_int64_hash(ptr noundef) #7
+declare i32 @g_int64_hash(ptr noundef) #6
 
-declare i32 @g_int64_equal(ptr noundef, ptr noundef) #7
+declare i32 @g_int64_equal(ptr noundef, ptr noundef) #6
 
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) #7
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @tcg_temp_alloc(ptr noundef %s) #0 {
@@ -5137,7 +5142,7 @@ if.end:                                           ; preds = %entry
   ret ptr %arrayidx
 }
 
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) #7
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @tcg_constant_i32(i32 noundef %val) #0 {
@@ -5271,12 +5276,12 @@ cond.end28:                                       ; preds = %cond.false27, %cond
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i32(i32) #8
+declare i1 @llvm.is.constant.i32(i32) #7
 
 ; Function Attrs: noreturn
-declare void @qemu_build_not_reached_always() #9
+declare void @qemu_build_not_reached_always() #8
 
-declare i64 @dup_const(i32 noundef, i64 noundef) #7
+declare i64 @dup_const(i32 noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @tcg_constant_vec_matching(ptr noundef %match, i32 noundef %vece, i64 noundef %val) #0 {
@@ -8324,7 +8329,7 @@ return:                                           ; preds = %if.end176, %if.then
   ret i32 %138
 }
 
-declare zeroext i1 @qemu_log_in_addr_range(i64 noundef) #7
+declare zeroext i1 @qemu_log_in_addr_range(i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_dump_ops(ptr noundef %s, ptr noundef %f, i1 noundef zeroext %have_prefs) #0 {
@@ -9946,7 +9951,7 @@ for.end591:                                       ; preds = %for.cond
   ret void
 }
 
-declare void @tcg_optimize(ptr noundef) #7
+declare void @tcg_optimize(ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @reachable_code_pass(ptr noundef %s) #0 {
@@ -10152,58 +10157,59 @@ entry:
   %i47 = alloca i32, align 4
   %ts53 = alloca ptr, align 8
   store ptr %s, ptr %s.addr, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %multiple_ebb, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %nb_temps1 = getelementptr inbounds %struct.TCGContext, ptr %0, i32 0, i32 7
-  %1 = load i32, ptr %nb_temps1, align 8
-  store i32 %1, ptr %nb_temps, align 4
-  %2 = load ptr, ptr %s.addr, align 8
-  %nb_globals = getelementptr inbounds %struct.TCGContext, ptr %2, i32 0, i32 6
-  %3 = load i32, ptr %nb_globals, align 4
-  store i32 %3, ptr %i, align 4
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %multiple_ebb, align 8
+  %1 = load ptr, ptr %s.addr, align 8
+  %nb_temps1 = getelementptr inbounds %struct.TCGContext, ptr %1, i32 0, i32 7
+  %2 = load i32, ptr %nb_temps1, align 8
+  store i32 %2, ptr %nb_temps, align 4
+  %3 = load ptr, ptr %s.addr, align 8
+  %nb_globals = getelementptr inbounds %struct.TCGContext, ptr %3, i32 0, i32 6
+  %4 = load i32, ptr %nb_globals, align 4
+  store i32 %4, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %4 = load i32, ptr %i, align 4
-  %5 = load i32, ptr %nb_temps, align 4
-  %cmp = icmp slt i32 %4, %5
+  %5 = load i32, ptr %i, align 4
+  %6 = load i32, ptr %nb_temps, align 4
+  %cmp = icmp slt i32 %5, %6
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr %s.addr, align 8
-  %temps = getelementptr inbounds %struct.TCGContext, ptr %6, i32 0, i32 37
-  %7 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %7 to i64
+  %7 = load ptr, ptr %s.addr, align 8
+  %temps = getelementptr inbounds %struct.TCGContext, ptr %7, i32 0, i32 37
+  %8 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %8 to i64
   %arrayidx = getelementptr [512 x %struct.TCGTemp], ptr %temps, i64 0, i64 %idxprom
   %state_ptr = getelementptr inbounds %struct.TCGTemp, ptr %arrayidx, i32 0, i32 6
   store ptr null, ptr %state_ptr, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %inc = add i32 %8, 1
+  %9 = load i32, ptr %i, align 4
+  %inc = add i32 %9, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !39
 
 for.end:                                          ; preds = %for.cond
-  %9 = load ptr, ptr %s.addr, align 8
-  %ops = getelementptr inbounds %struct.TCGContext, ptr %9, i32 0, i32 38
-  %10 = load ptr, ptr %ops, align 8
-  store ptr %10, ptr %ebb, align 8
-  %11 = load ptr, ptr %s.addr, align 8
-  %ops2 = getelementptr inbounds %struct.TCGContext, ptr %11, i32 0, i32 38
-  %12 = load ptr, ptr %ops2, align 8
-  store ptr %12, ptr %op, align 8
+  %10 = load ptr, ptr %s.addr, align 8
+  %ops = getelementptr inbounds %struct.TCGContext, ptr %10, i32 0, i32 38
+  %11 = load ptr, ptr %ops, align 8
+  store ptr %11, ptr %ebb, align 8
+  %12 = load ptr, ptr %s.addr, align 8
+  %ops2 = getelementptr inbounds %struct.TCGContext, ptr %12, i32 0, i32 38
+  %13 = load ptr, ptr %ops2, align 8
+  store ptr %13, ptr %op, align 8
   br label %for.cond3
 
 for.cond3:                                        ; preds = %for.inc45, %for.end
-  %13 = load ptr, ptr %op, align 8
-  %tobool = icmp ne ptr %13, null
+  %14 = load ptr, ptr %op, align 8
+  %tobool = icmp ne ptr %14, null
   br i1 %tobool, label %for.body4, label %for.end46
 
 for.body4:                                        ; preds = %for.cond3
-  %14 = load ptr, ptr %op, align 8
-  %bf.load = load i32, ptr %14, align 8
+  %15 = load ptr, ptr %op, align 8
+  %bf.load = load i32, ptr %15, align 8
   %bf.clear = and i32 %bf.load, 255
   switch i32 %bf.clear, label %sw.default [
     i32 1, label %sw.bb
@@ -10212,41 +10218,41 @@ for.body4:                                        ; preds = %for.cond3
   ]
 
 sw.bb:                                            ; preds = %for.body4
-  %15 = load ptr, ptr %op, align 8
-  store ptr %15, ptr %ebb, align 8
+  %16 = load ptr, ptr %op, align 8
+  store ptr %16, ptr %ebb, align 8
   br label %for.inc45
 
 sw.bb5:                                           ; preds = %for.body4
   br label %for.inc45
 
 sw.bb6:                                           ; preds = %for.body4
-  %16 = load ptr, ptr %op, align 8
-  %bf.load7 = load i32, ptr %16, align 8
+  %17 = load ptr, ptr %op, align 8
+  %bf.load7 = load i32, ptr %17, align 8
   %bf.lshr = lshr i32 %bf.load7, 24
   store i32 %bf.lshr, ptr %nb_oargs, align 4
-  %17 = load ptr, ptr %op, align 8
-  %bf.load8 = load i32, ptr %17, align 8
+  %18 = load ptr, ptr %op, align 8
+  %bf.load8 = load i32, ptr %18, align 8
   %bf.lshr9 = lshr i32 %bf.load8, 16
   %bf.clear10 = and i32 %bf.lshr9, 255
   store i32 %bf.clear10, ptr %nb_iargs, align 4
   br label %sw.epilog
 
 sw.default:                                       ; preds = %for.body4
-  %18 = load ptr, ptr %op, align 8
-  %bf.load11 = load i32, ptr %18, align 8
+  %19 = load ptr, ptr %op, align 8
+  %bf.load11 = load i32, ptr %19, align 8
   %bf.clear12 = and i32 %bf.load11, 255
   %idxprom13 = zext i32 %bf.clear12 to i64
   %arrayidx14 = getelementptr [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %idxprom13
   store ptr %arrayidx14, ptr %def, align 8
-  %19 = load ptr, ptr %def, align 8
-  %nb_oargs15 = getelementptr inbounds %struct.TCGOpDef, ptr %19, i32 0, i32 1
-  %20 = load i8, ptr %nb_oargs15, align 8
-  %conv = zext i8 %20 to i32
+  %20 = load ptr, ptr %def, align 8
+  %nb_oargs15 = getelementptr inbounds %struct.TCGOpDef, ptr %20, i32 0, i32 1
+  %21 = load i8, ptr %nb_oargs15, align 8
+  %conv = zext i8 %21 to i32
   store i32 %conv, ptr %nb_oargs, align 4
-  %21 = load ptr, ptr %def, align 8
-  %nb_iargs16 = getelementptr inbounds %struct.TCGOpDef, ptr %21, i32 0, i32 2
-  %22 = load i8, ptr %nb_iargs16, align 1
-  %conv17 = zext i8 %22 to i32
+  %22 = load ptr, ptr %def, align 8
+  %nb_iargs16 = getelementptr inbounds %struct.TCGOpDef, ptr %22, i32 0, i32 2
+  %23 = load i8, ptr %nb_iargs16, align 1
+  %conv17 = zext i8 %23 to i32
   store i32 %conv17, ptr %nb_iargs, align 4
   br label %sw.epilog
 
@@ -10255,24 +10261,24 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb6
   br label %for.cond19
 
 for.cond19:                                       ; preds = %for.inc42, %sw.epilog
-  %23 = load i32, ptr %i18, align 4
-  %24 = load i32, ptr %nb_oargs, align 4
-  %25 = load i32, ptr %nb_iargs, align 4
-  %add = add i32 %24, %25
-  %cmp20 = icmp slt i32 %23, %add
+  %24 = load i32, ptr %i18, align 4
+  %25 = load i32, ptr %nb_oargs, align 4
+  %26 = load i32, ptr %nb_iargs, align 4
+  %add = add i32 %25, %26
+  %cmp20 = icmp slt i32 %24, %add
   br i1 %cmp20, label %for.body22, label %for.end44
 
 for.body22:                                       ; preds = %for.cond19
-  %26 = load ptr, ptr %op, align 8
-  %args = getelementptr inbounds %struct.TCGOp, ptr %26, i32 0, i32 4
-  %27 = load i32, ptr %i18, align 4
-  %idxprom23 = sext i32 %27 to i64
+  %27 = load ptr, ptr %op, align 8
+  %args = getelementptr inbounds %struct.TCGOp, ptr %27, i32 0, i32 4
+  %28 = load i32, ptr %i18, align 4
+  %idxprom23 = sext i32 %28 to i64
   %arrayidx24 = getelementptr [0 x i64], ptr %args, i64 0, i64 %idxprom23
-  %28 = load i64, ptr %arrayidx24, align 8
-  %call = call ptr @arg_temp(i64 noundef %28)
+  %29 = load i64, ptr %arrayidx24, align 8
+  %call = call ptr @arg_temp(i64 noundef %29)
   store ptr %call, ptr %ts, align 8
-  %29 = load ptr, ptr %ts, align 8
-  %bf.load25 = load i64, ptr %29, align 8
+  %30 = load ptr, ptr %ts, align 8
+  %bf.load25 = load i64, ptr %30, align 8
   %bf.lshr26 = lshr i64 %bf.load25, 32
   %bf.clear27 = and i64 %bf.lshr26, 7
   %bf.cast = trunc i64 %bf.clear27 to i32
@@ -10283,31 +10289,32 @@ if.then:                                          ; preds = %for.body22
   br label %for.inc42
 
 if.end:                                           ; preds = %for.body22
-  %30 = load ptr, ptr %ts, align 8
-  %state_ptr30 = getelementptr inbounds %struct.TCGTemp, ptr %30, i32 0, i32 6
-  %31 = load ptr, ptr %state_ptr30, align 8
-  %cmp31 = icmp eq ptr %31, null
+  %31 = load ptr, ptr %ts, align 8
+  %state_ptr30 = getelementptr inbounds %struct.TCGTemp, ptr %31, i32 0, i32 6
+  %32 = load ptr, ptr %state_ptr30, align 8
+  %cmp31 = icmp eq ptr %32, null
   br i1 %cmp31, label %if.then33, label %if.else
 
 if.then33:                                        ; preds = %if.end
-  %32 = load ptr, ptr %ebb, align 8
-  %33 = load ptr, ptr %ts, align 8
-  %state_ptr34 = getelementptr inbounds %struct.TCGTemp, ptr %33, i32 0, i32 6
-  store ptr %32, ptr %state_ptr34, align 8
+  %33 = load ptr, ptr %ebb, align 8
+  %34 = load ptr, ptr %ts, align 8
+  %state_ptr34 = getelementptr inbounds %struct.TCGTemp, ptr %34, i32 0, i32 6
+  store ptr %33, ptr %state_ptr34, align 8
   br label %if.end41
 
 if.else:                                          ; preds = %if.end
-  %34 = load ptr, ptr %ts, align 8
-  %state_ptr35 = getelementptr inbounds %struct.TCGTemp, ptr %34, i32 0, i32 6
-  %35 = load ptr, ptr %state_ptr35, align 8
-  %36 = load ptr, ptr %ebb, align 8
-  %cmp36 = icmp ne ptr %35, %36
+  %35 = load ptr, ptr %ts, align 8
+  %state_ptr35 = getelementptr inbounds %struct.TCGTemp, ptr %35, i32 0, i32 6
+  %36 = load ptr, ptr %state_ptr35, align 8
+  %37 = load ptr, ptr %ebb, align 8
+  %cmp36 = icmp ne ptr %36, %37
   br i1 %cmp36, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %if.else
-  %37 = load ptr, ptr %ts, align 8
-  %state_ptr39 = getelementptr inbounds %struct.TCGTemp, ptr %37, i32 0, i32 6
-  store ptr inttoptr (i64 -1 to ptr), ptr %state_ptr39, align 8
+  %38 = load ptr, ptr %ts, align 8
+  %state_ptr39 = getelementptr inbounds %struct.TCGTemp, ptr %38, i32 0, i32 6
+  %39 = inttoptr i64 -1 to ptr
+  store ptr %39, ptr %state_ptr39, align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then38, %if.else
@@ -10317,8 +10324,8 @@ if.end41:                                         ; preds = %if.end40, %if.then3
   br label %for.inc42
 
 for.inc42:                                        ; preds = %if.end41, %if.then
-  %38 = load i32, ptr %i18, align 4
-  %inc43 = add i32 %38, 1
+  %40 = load i32, ptr %i18, align 4
+  %inc43 = add i32 %40, 1
   store i32 %inc43, ptr %i18, align 4
   br label %for.cond19, !llvm.loop !40
 
@@ -10326,34 +10333,34 @@ for.end44:                                        ; preds = %for.cond19
   br label %for.inc45
 
 for.inc45:                                        ; preds = %for.end44, %sw.bb5, %sw.bb
-  %39 = load ptr, ptr %op, align 8
-  %link = getelementptr inbounds %struct.TCGOp, ptr %39, i32 0, i32 2
-  %40 = load ptr, ptr %link, align 8
-  store ptr %40, ptr %op, align 8
+  %41 = load ptr, ptr %op, align 8
+  %link = getelementptr inbounds %struct.TCGOp, ptr %41, i32 0, i32 2
+  %42 = load ptr, ptr %link, align 8
+  store ptr %42, ptr %op, align 8
   br label %for.cond3, !llvm.loop !41
 
 for.end46:                                        ; preds = %for.cond3
-  %41 = load ptr, ptr %s.addr, align 8
-  %nb_globals48 = getelementptr inbounds %struct.TCGContext, ptr %41, i32 0, i32 6
-  %42 = load i32, ptr %nb_globals48, align 4
-  store i32 %42, ptr %i47, align 4
+  %43 = load ptr, ptr %s.addr, align 8
+  %nb_globals48 = getelementptr inbounds %struct.TCGContext, ptr %43, i32 0, i32 6
+  %44 = load i32, ptr %nb_globals48, align 4
+  store i32 %44, ptr %i47, align 4
   br label %for.cond49
 
 for.cond49:                                       ; preds = %for.inc70, %for.end46
-  %43 = load i32, ptr %i47, align 4
-  %44 = load i32, ptr %nb_temps, align 4
-  %cmp50 = icmp slt i32 %43, %44
+  %45 = load i32, ptr %i47, align 4
+  %46 = load i32, ptr %nb_temps, align 4
+  %cmp50 = icmp slt i32 %45, %46
   br i1 %cmp50, label %for.body52, label %for.end72
 
 for.body52:                                       ; preds = %for.cond49
-  %45 = load ptr, ptr %s.addr, align 8
-  %temps54 = getelementptr inbounds %struct.TCGContext, ptr %45, i32 0, i32 37
-  %46 = load i32, ptr %i47, align 4
-  %idxprom55 = sext i32 %46 to i64
+  %47 = load ptr, ptr %s.addr, align 8
+  %temps54 = getelementptr inbounds %struct.TCGContext, ptr %47, i32 0, i32 37
+  %48 = load i32, ptr %i47, align 4
+  %idxprom55 = sext i32 %48 to i64
   %arrayidx56 = getelementptr [512 x %struct.TCGTemp], ptr %temps54, i64 0, i64 %idxprom55
   store ptr %arrayidx56, ptr %ts53, align 8
-  %47 = load ptr, ptr %ts53, align 8
-  %bf.load57 = load i64, ptr %47, align 8
+  %49 = load ptr, ptr %ts53, align 8
+  %bf.load57 = load i64, ptr %49, align 8
   %bf.lshr58 = lshr i64 %bf.load57, 32
   %bf.clear59 = and i64 %bf.lshr58, 7
   %bf.cast60 = trunc i64 %bf.clear59 to i32
@@ -10361,26 +10368,27 @@ for.body52:                                       ; preds = %for.cond49
   br i1 %cmp61, label %land.lhs.true, label %if.end69
 
 land.lhs.true:                                    ; preds = %for.body52
-  %48 = load ptr, ptr %ts53, align 8
-  %state_ptr63 = getelementptr inbounds %struct.TCGTemp, ptr %48, i32 0, i32 6
-  %49 = load ptr, ptr %state_ptr63, align 8
-  %cmp64 = icmp ne ptr %49, inttoptr (i64 -1 to ptr)
+  %50 = load ptr, ptr %ts53, align 8
+  %state_ptr63 = getelementptr inbounds %struct.TCGTemp, ptr %50, i32 0, i32 6
+  %51 = load ptr, ptr %state_ptr63, align 8
+  %52 = inttoptr i64 -1 to ptr
+  %cmp64 = icmp ne ptr %51, %52
   br i1 %cmp64, label %if.then66, label %if.end69
 
 if.then66:                                        ; preds = %land.lhs.true
-  %50 = load ptr, ptr %ts53, align 8
-  %bf.load67 = load i64, ptr %50, align 8
+  %53 = load ptr, ptr %ts53, align 8
+  %bf.load67 = load i64, ptr %53, align 8
   %bf.clear68 = and i64 %bf.load67, -30064771073
   %bf.set = or i64 %bf.clear68, 0
-  store i64 %bf.set, ptr %50, align 8
+  store i64 %bf.set, ptr %53, align 8
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then66, %land.lhs.true, %for.body52
   br label %for.inc70
 
 for.inc70:                                        ; preds = %if.end69
-  %51 = load i32, ptr %i47, align 4
-  %inc71 = add i32 %51, 1
+  %54 = load i32, ptr %i47, align 4
+  %inc71 = add i32 %54, 1
   store i32 %inc71, ptr %i47, align 4
   br label %for.cond49, !llvm.loop !42
 
@@ -13024,18 +13032,20 @@ if.end17:                                         ; preds = %if.then16, %if.then
   br label %if.end133
 
 if.end19:                                         ; preds = %do.end
-  %21 = load ptr, ptr getelementptr ([0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 150, i32 6), align 8
-  %arrayidx20 = getelementptr %struct.TCGArgConstraint, ptr %21, i64 0
+  %21 = getelementptr [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 150, i32 6
+  %22 = load ptr, ptr %21, align 8
+  %arrayidx20 = getelementptr %struct.TCGArgConstraint, ptr %22, i64 0
   %regs = getelementptr inbounds %struct.TCGArgConstraint, ptr %arrayidx20, i32 0, i32 1
-  %22 = load i32, ptr %regs, align 4
-  store i32 %22, ptr %dup_out_regs, align 4
-  %23 = load ptr, ptr getelementptr ([0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 150, i32 6), align 8
-  %arrayidx21 = getelementptr %struct.TCGArgConstraint, ptr %23, i64 1
+  %23 = load i32, ptr %regs, align 4
+  store i32 %23, ptr %dup_out_regs, align 4
+  %24 = getelementptr [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 150, i32 6
+  %25 = load ptr, ptr %24, align 8
+  %arrayidx21 = getelementptr %struct.TCGArgConstraint, ptr %25, i64 1
   %regs22 = getelementptr inbounds %struct.TCGArgConstraint, ptr %arrayidx21, i32 0, i32 1
-  %24 = load i32, ptr %regs22, align 4
-  store i32 %24, ptr %dup_in_regs, align 4
-  %25 = load ptr, ptr %ots, align 8
-  %bf.load23 = load i64, ptr %25, align 8
+  %26 = load i32, ptr %regs22, align 4
+  store i32 %26, ptr %dup_in_regs, align 4
+  %27 = load ptr, ptr %ots, align 8
+  %bf.load23 = load i64, ptr %27, align 8
   %bf.lshr24 = lshr i64 %bf.load23, 8
   %bf.clear25 = and i64 %bf.lshr24, 255
   %bf.cast26 = trunc i64 %bf.clear25 to i32
@@ -13043,18 +13053,18 @@ if.end19:                                         ; preds = %do.end
   br i1 %cmp27, label %if.then28, label %if.end48
 
 if.then28:                                        ; preds = %if.end19
-  %26 = load ptr, ptr %s.addr, align 8
-  %reserved_regs = getelementptr inbounds %struct.TCGContext, ptr %26, i32 0, i32 16
-  %27 = load i32, ptr %reserved_regs, align 4
-  store i32 %27, ptr %allocated_regs, align 4
-  %28 = load i32, ptr %arg_life, align 4
-  %and29 = and i32 %28, 32
+  %28 = load ptr, ptr %s.addr, align 8
+  %reserved_regs = getelementptr inbounds %struct.TCGContext, ptr %28, i32 0, i32 16
+  %29 = load i32, ptr %reserved_regs, align 4
+  store i32 %29, ptr %allocated_regs, align 4
+  %30 = load i32, ptr %arg_life, align 4
+  %and29 = and i32 %30, 32
   %tobool30 = icmp ne i32 %and29, 0
   br i1 %tobool30, label %if.end40, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then28
-  %29 = load ptr, ptr %its, align 8
-  %bf.load31 = load i64, ptr %29, align 8
+  %31 = load ptr, ptr %its, align 8
+  %bf.load31 = load i64, ptr %31, align 8
   %bf.lshr32 = lshr i64 %bf.load31, 8
   %bf.clear33 = and i64 %bf.lshr32, 255
   %bf.cast34 = trunc i64 %bf.clear33 to i32
@@ -13062,39 +13072,39 @@ land.lhs.true:                                    ; preds = %if.then28
   br i1 %cmp35, label %if.then36, label %if.end40
 
 if.then36:                                        ; preds = %land.lhs.true
-  %30 = load ptr, ptr %its, align 8
-  %bf.load37 = load i64, ptr %30, align 8
+  %32 = load ptr, ptr %its, align 8
+  %bf.load37 = load i64, ptr %32, align 8
   %bf.clear38 = and i64 %bf.load37, 255
   %bf.cast39 = trunc i64 %bf.clear38 to i32
   %shl = shl i32 1, %bf.cast39
-  %31 = load i32, ptr %allocated_regs, align 4
-  %or = or i32 %31, %shl
+  %33 = load i32, ptr %allocated_regs, align 4
+  %or = or i32 %33, %shl
   store i32 %or, ptr %allocated_regs, align 4
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then36, %land.lhs.true, %if.then28
-  %32 = load ptr, ptr %s.addr, align 8
-  %33 = load i32, ptr %dup_out_regs, align 4
-  %34 = load i32, ptr %allocated_regs, align 4
-  %35 = load ptr, ptr %op.addr, align 8
-  %call41 = call i32 @output_pref(ptr noundef %35, i32 noundef 0)
-  %36 = load ptr, ptr %ots, align 8
-  %bf.load42 = load i64, ptr %36, align 8
+  %34 = load ptr, ptr %s.addr, align 8
+  %35 = load i32, ptr %dup_out_regs, align 4
+  %36 = load i32, ptr %allocated_regs, align 4
+  %37 = load ptr, ptr %op.addr, align 8
+  %call41 = call i32 @output_pref(ptr noundef %37, i32 noundef 0)
+  %38 = load ptr, ptr %ots, align 8
+  %bf.load42 = load i64, ptr %38, align 8
   %bf.lshr43 = lshr i64 %bf.load42, 36
   %bf.clear44 = and i64 %bf.lshr43, 1
   %bf.cast45 = trunc i64 %bf.clear44 to i32
   %tobool46 = icmp ne i32 %bf.cast45, 0
-  %call47 = call i32 @tcg_reg_alloc(ptr noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %call41, i1 noundef zeroext %tobool46)
+  %call47 = call i32 @tcg_reg_alloc(ptr noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %call41, i1 noundef zeroext %tobool46)
   store i32 %call47, ptr %oreg, align 4
-  %37 = load ptr, ptr %s.addr, align 8
-  %38 = load ptr, ptr %ots, align 8
-  %39 = load i32, ptr %oreg, align 4
-  call void @set_temp_val_reg(ptr noundef %37, ptr noundef %38, i32 noundef %39)
+  %39 = load ptr, ptr %s.addr, align 8
+  %40 = load ptr, ptr %ots, align 8
+  %41 = load i32, ptr %oreg, align 4
+  call void @set_temp_val_reg(ptr noundef %39, ptr noundef %40, i32 noundef %41)
   br label %if.end48
 
 if.end48:                                         ; preds = %if.end40, %if.end19
-  %40 = load ptr, ptr %its, align 8
-  %bf.load49 = load i64, ptr %40, align 8
+  %42 = load ptr, ptr %its, align 8
+  %bf.load49 = load i64, ptr %42, align 8
   %bf.lshr50 = lshr i64 %bf.load49, 8
   %bf.clear51 = and i64 %bf.lshr50, 255
   %bf.cast52 = trunc i64 %bf.clear51 to i32
@@ -13104,29 +13114,29 @@ if.end48:                                         ; preds = %if.end40, %if.end19
   ]
 
 sw.bb:                                            ; preds = %if.end48
-  %41 = load i32, ptr %dup_in_regs, align 4
-  %42 = load ptr, ptr %its, align 8
-  %bf.load53 = load i64, ptr %42, align 8
+  %43 = load i32, ptr %dup_in_regs, align 4
+  %44 = load ptr, ptr %its, align 8
+  %bf.load53 = load i64, ptr %44, align 8
   %bf.clear54 = and i64 %bf.load53, 255
   %bf.cast55 = trunc i64 %bf.clear54 to i32
-  %shr = lshr i32 %41, %bf.cast55
+  %shr = lshr i32 %43, %bf.cast55
   %and56 = and i32 %shr, 1
   %tobool57 = icmp ne i32 %and56, 0
   br i1 %tobool57, label %if.then58, label %if.end68
 
 if.then58:                                        ; preds = %sw.bb
-  %43 = load ptr, ptr %s.addr, align 8
-  %44 = load i32, ptr %vtype, align 4
-  %45 = load i32, ptr %vece, align 4
-  %46 = load ptr, ptr %ots, align 8
-  %bf.load59 = load i64, ptr %46, align 8
+  %45 = load ptr, ptr %s.addr, align 8
+  %46 = load i32, ptr %vtype, align 4
+  %47 = load i32, ptr %vece, align 4
+  %48 = load ptr, ptr %ots, align 8
+  %bf.load59 = load i64, ptr %48, align 8
   %bf.clear60 = and i64 %bf.load59, 255
   %bf.cast61 = trunc i64 %bf.clear60 to i32
-  %47 = load ptr, ptr %its, align 8
-  %bf.load62 = load i64, ptr %47, align 8
+  %49 = load ptr, ptr %its, align 8
+  %bf.load62 = load i64, ptr %49, align 8
   %bf.clear63 = and i64 %bf.load62, 255
   %bf.cast64 = trunc i64 %bf.clear63 to i32
-  %call65 = call zeroext i1 @tcg_out_dup_vec(ptr noundef %43, i32 noundef %44, i32 noundef %45, i32 noundef %bf.cast61, i32 noundef %bf.cast64)
+  %call65 = call zeroext i1 @tcg_out_dup_vec(ptr noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %bf.cast61, i32 noundef %bf.cast64)
   br i1 %call65, label %if.then66, label %if.end67
 
 if.then66:                                        ; preds = %if.then58
@@ -13136,8 +13146,8 @@ if.end67:                                         ; preds = %if.then58
   br label %if.end68
 
 if.end68:                                         ; preds = %if.end67, %sw.bb
-  %48 = load ptr, ptr %its, align 8
-  %bf.load69 = load i64, ptr %48, align 8
+  %50 = load ptr, ptr %its, align 8
+  %bf.load69 = load i64, ptr %50, align 8
   %bf.lshr70 = lshr i64 %bf.load69, 37
   %bf.clear71 = and i64 %bf.lshr70, 1
   %bf.cast72 = trunc i64 %bf.clear71 to i32
@@ -13145,29 +13155,29 @@ if.end68:                                         ; preds = %if.end67, %sw.bb
   br i1 %tobool73, label %if.end85, label %if.then74
 
 if.then74:                                        ; preds = %if.end68
-  %49 = load ptr, ptr %s.addr, align 8
-  %50 = load i32, ptr %itype, align 4
-  %51 = load ptr, ptr %ots, align 8
-  %bf.load75 = load i64, ptr %51, align 8
+  %51 = load ptr, ptr %s.addr, align 8
+  %52 = load i32, ptr %itype, align 4
+  %53 = load ptr, ptr %ots, align 8
+  %bf.load75 = load i64, ptr %53, align 8
   %bf.clear76 = and i64 %bf.load75, 255
   %bf.cast77 = trunc i64 %bf.clear76 to i32
-  %52 = load ptr, ptr %its, align 8
-  %bf.load78 = load i64, ptr %52, align 8
+  %54 = load ptr, ptr %its, align 8
+  %bf.load78 = load i64, ptr %54, align 8
   %bf.clear79 = and i64 %bf.load78, 255
   %bf.cast80 = trunc i64 %bf.clear79 to i32
-  %call81 = call zeroext i1 @tcg_out_mov(ptr noundef %49, i32 noundef %50, i32 noundef %bf.cast77, i32 noundef %bf.cast80)
+  %call81 = call zeroext i1 @tcg_out_mov(ptr noundef %51, i32 noundef %52, i32 noundef %bf.cast77, i32 noundef %bf.cast80)
   br i1 %call81, label %if.then82, label %if.end83
 
 if.then82:                                        ; preds = %if.then74
   br label %sw.epilog
 
 if.end83:                                         ; preds = %if.then74
-  %53 = load ptr, ptr %s.addr, align 8
-  %54 = load ptr, ptr %its, align 8
   %55 = load ptr, ptr %s.addr, align 8
-  %reserved_regs84 = getelementptr inbounds %struct.TCGContext, ptr %55, i32 0, i32 16
-  %56 = load i32, ptr %reserved_regs84, align 4
-  call void @temp_sync(ptr noundef %53, ptr noundef %54, i32 noundef %56, i32 noundef 0, i32 noundef 0)
+  %56 = load ptr, ptr %its, align 8
+  %57 = load ptr, ptr %s.addr, align 8
+  %reserved_regs84 = getelementptr inbounds %struct.TCGContext, ptr %57, i32 0, i32 16
+  %58 = load i32, ptr %reserved_regs84, align 4
+  call void @temp_sync(ptr noundef %55, ptr noundef %56, i32 noundef %58, i32 noundef 0, i32 noundef 0)
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end83, %if.end68
@@ -13175,48 +13185,48 @@ if.end85:                                         ; preds = %if.end83, %if.end68
 
 sw.bb86:                                          ; preds = %if.end85, %if.end48
   store i32 0, ptr %lowpart_ofs, align 4
-  %57 = load ptr, ptr %s.addr, align 8
-  %58 = load i32, ptr %vtype, align 4
-  %59 = load i32, ptr %vece, align 4
-  %60 = load ptr, ptr %ots, align 8
-  %bf.load87 = load i64, ptr %60, align 8
+  %59 = load ptr, ptr %s.addr, align 8
+  %60 = load i32, ptr %vtype, align 4
+  %61 = load i32, ptr %vece, align 4
+  %62 = load ptr, ptr %ots, align 8
+  %bf.load87 = load i64, ptr %62, align 8
   %bf.clear88 = and i64 %bf.load87, 255
   %bf.cast89 = trunc i64 %bf.clear88 to i32
-  %61 = load ptr, ptr %its, align 8
-  %mem_base = getelementptr inbounds %struct.TCGTemp, ptr %61, i32 0, i32 2
-  %62 = load ptr, ptr %mem_base, align 8
-  %bf.load90 = load i64, ptr %62, align 8
+  %63 = load ptr, ptr %its, align 8
+  %mem_base = getelementptr inbounds %struct.TCGTemp, ptr %63, i32 0, i32 2
+  %64 = load ptr, ptr %mem_base, align 8
+  %bf.load90 = load i64, ptr %64, align 8
   %bf.clear91 = and i64 %bf.load90, 255
   %bf.cast92 = trunc i64 %bf.clear91 to i32
-  %63 = load ptr, ptr %its, align 8
-  %mem_offset = getelementptr inbounds %struct.TCGTemp, ptr %63, i32 0, i32 3
-  %64 = load i64, ptr %mem_offset, align 8
-  %65 = load i32, ptr %lowpart_ofs, align 4
-  %conv = sext i32 %65 to i64
-  %add93 = add i64 %64, %conv
-  %call94 = call zeroext i1 @tcg_out_dupm_vec(ptr noundef %57, i32 noundef %58, i32 noundef %59, i32 noundef %bf.cast89, i32 noundef %bf.cast92, i64 noundef %add93)
+  %65 = load ptr, ptr %its, align 8
+  %mem_offset = getelementptr inbounds %struct.TCGTemp, ptr %65, i32 0, i32 3
+  %66 = load i64, ptr %mem_offset, align 8
+  %67 = load i32, ptr %lowpart_ofs, align 4
+  %conv = sext i32 %67 to i64
+  %add93 = add i64 %66, %conv
+  %call94 = call zeroext i1 @tcg_out_dupm_vec(ptr noundef %59, i32 noundef %60, i32 noundef %61, i32 noundef %bf.cast89, i32 noundef %bf.cast92, i64 noundef %add93)
   br i1 %call94, label %if.then95, label %if.end96
 
 if.then95:                                        ; preds = %sw.bb86
   br label %done
 
 if.end96:                                         ; preds = %sw.bb86
-  %66 = load ptr, ptr %s.addr, align 8
-  %67 = load i32, ptr %itype, align 4
-  %68 = load ptr, ptr %ots, align 8
-  %bf.load97 = load i64, ptr %68, align 8
+  %68 = load ptr, ptr %s.addr, align 8
+  %69 = load i32, ptr %itype, align 4
+  %70 = load ptr, ptr %ots, align 8
+  %bf.load97 = load i64, ptr %70, align 8
   %bf.clear98 = and i64 %bf.load97, 255
   %bf.cast99 = trunc i64 %bf.clear98 to i32
-  %69 = load ptr, ptr %its, align 8
-  %mem_base100 = getelementptr inbounds %struct.TCGTemp, ptr %69, i32 0, i32 2
-  %70 = load ptr, ptr %mem_base100, align 8
-  %bf.load101 = load i64, ptr %70, align 8
+  %71 = load ptr, ptr %its, align 8
+  %mem_base100 = getelementptr inbounds %struct.TCGTemp, ptr %71, i32 0, i32 2
+  %72 = load ptr, ptr %mem_base100, align 8
+  %bf.load101 = load i64, ptr %72, align 8
   %bf.clear102 = and i64 %bf.load101, 255
   %bf.cast103 = trunc i64 %bf.clear102 to i32
-  %71 = load ptr, ptr %its, align 8
-  %mem_offset104 = getelementptr inbounds %struct.TCGTemp, ptr %71, i32 0, i32 3
-  %72 = load i64, ptr %mem_offset104, align 8
-  call void @tcg_out_ld(ptr noundef %66, i32 noundef %67, i32 noundef %bf.cast99, i32 noundef %bf.cast103, i64 noundef %72)
+  %73 = load ptr, ptr %its, align 8
+  %mem_offset104 = getelementptr inbounds %struct.TCGTemp, ptr %73, i32 0, i32 3
+  %74 = load i64, ptr %mem_offset104, align 8
+  call void @tcg_out_ld(ptr noundef %68, i32 noundef %69, i32 noundef %bf.cast99, i32 noundef %bf.cast103, i64 noundef %74)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end48
@@ -13230,25 +13240,25 @@ do.end106:                                        ; No predecessors!
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %do.end106, %if.end96, %if.then82
-  %73 = load ptr, ptr %s.addr, align 8
-  %74 = load i32, ptr %vtype, align 4
-  %75 = load i32, ptr %vece, align 4
-  %76 = load ptr, ptr %ots, align 8
-  %bf.load107 = load i64, ptr %76, align 8
+  %75 = load ptr, ptr %s.addr, align 8
+  %76 = load i32, ptr %vtype, align 4
+  %77 = load i32, ptr %vece, align 4
+  %78 = load ptr, ptr %ots, align 8
+  %bf.load107 = load i64, ptr %78, align 8
   %bf.clear108 = and i64 %bf.load107, 255
   %bf.cast109 = trunc i64 %bf.clear108 to i32
-  %77 = load ptr, ptr %ots, align 8
-  %bf.load110 = load i64, ptr %77, align 8
+  %79 = load ptr, ptr %ots, align 8
+  %bf.load110 = load i64, ptr %79, align 8
   %bf.clear111 = and i64 %bf.load110, 255
   %bf.cast112 = trunc i64 %bf.clear111 to i32
-  %call113 = call zeroext i1 @tcg_out_dup_vec(ptr noundef %73, i32 noundef %74, i32 noundef %75, i32 noundef %bf.cast109, i32 noundef %bf.cast112)
+  %call113 = call zeroext i1 @tcg_out_dup_vec(ptr noundef %75, i32 noundef %76, i32 noundef %77, i32 noundef %bf.cast109, i32 noundef %bf.cast112)
   %frombool = zext i1 %call113 to i8
   store i8 %frombool, ptr %ok, align 1
   br label %do.body114
 
 do.body114:                                       ; preds = %sw.epilog
-  %78 = load i8, ptr %ok, align 1
-  %tobool115 = trunc i8 %78 to i1
+  %80 = load i8, ptr %ok, align 1
+  %tobool115 = trunc i8 %80 to i1
   br i1 %tobool115, label %if.end117, label %if.then116
 
 if.then116:                                       ; preds = %do.body114
@@ -13261,47 +13271,47 @@ do.end118:                                        ; preds = %if.end117
   br label %done
 
 done:                                             ; preds = %do.end118, %if.then95, %if.then66
-  %79 = load ptr, ptr %ots, align 8
-  %bf.load119 = load i64, ptr %79, align 8
+  %81 = load ptr, ptr %ots, align 8
+  %bf.load119 = load i64, ptr %81, align 8
   %bf.clear120 = and i64 %bf.load119, -137438953473
   %bf.set = or i64 %bf.clear120, 0
-  store i64 %bf.set, ptr %79, align 8
-  %80 = load i32, ptr %arg_life, align 4
-  %and121 = and i32 %80, 32
+  store i64 %bf.set, ptr %81, align 8
+  %82 = load i32, ptr %arg_life, align 4
+  %and121 = and i32 %82, 32
   %tobool122 = icmp ne i32 %and121, 0
   br i1 %tobool122, label %if.then123, label %if.end124
 
 if.then123:                                       ; preds = %done
-  %81 = load ptr, ptr %s.addr, align 8
-  %82 = load ptr, ptr %its, align 8
-  call void @temp_dead(ptr noundef %81, ptr noundef %82)
+  %83 = load ptr, ptr %s.addr, align 8
+  %84 = load ptr, ptr %its, align 8
+  call void @temp_dead(ptr noundef %83, ptr noundef %84)
   br label %if.end124
 
 if.end124:                                        ; preds = %if.then123, %done
-  %83 = load i32, ptr %arg_life, align 4
-  %and125 = and i32 %83, 1
+  %85 = load i32, ptr %arg_life, align 4
+  %and125 = and i32 %85, 1
   %tobool126 = icmp ne i32 %and125, 0
   br i1 %tobool126, label %if.then127, label %if.end129
 
 if.then127:                                       ; preds = %if.end124
-  %84 = load ptr, ptr %s.addr, align 8
-  %85 = load ptr, ptr %ots, align 8
   %86 = load ptr, ptr %s.addr, align 8
-  %reserved_regs128 = getelementptr inbounds %struct.TCGContext, ptr %86, i32 0, i32 16
-  %87 = load i32, ptr %reserved_regs128, align 4
-  call void @temp_sync(ptr noundef %84, ptr noundef %85, i32 noundef %87, i32 noundef 0, i32 noundef 0)
+  %87 = load ptr, ptr %ots, align 8
+  %88 = load ptr, ptr %s.addr, align 8
+  %reserved_regs128 = getelementptr inbounds %struct.TCGContext, ptr %88, i32 0, i32 16
+  %89 = load i32, ptr %reserved_regs128, align 4
+  call void @temp_sync(ptr noundef %86, ptr noundef %87, i32 noundef %89, i32 noundef 0, i32 noundef 0)
   br label %if.end129
 
 if.end129:                                        ; preds = %if.then127, %if.end124
-  %88 = load i32, ptr %arg_life, align 4
-  %and130 = and i32 %88, 16
+  %90 = load i32, ptr %arg_life, align 4
+  %and130 = and i32 %90, 16
   %tobool131 = icmp ne i32 %and130, 0
   br i1 %tobool131, label %if.then132, label %if.end133
 
 if.then132:                                       ; preds = %if.end129
-  %89 = load ptr, ptr %s.addr, align 8
-  %90 = load ptr, ptr %ots, align 8
-  call void @temp_dead(ptr noundef %89, ptr noundef %90)
+  %91 = load ptr, ptr %s.addr, align 8
+  %92 = load ptr, ptr %ots, align 8
+  call void @temp_dead(ptr noundef %91, ptr noundef %92)
   br label %if.end133
 
 if.end133:                                        ; preds = %if.then132, %if.end129, %if.end17
@@ -13309,7 +13319,7 @@ if.end133:                                        ; preds = %if.then132, %if.end
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #10
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @tcg_get_insn_start_param(ptr noundef %op, i32 noundef %arg) #0 {
@@ -14233,19 +14243,20 @@ if.then20:                                        ; preds = %do.end15
   %reserved_regs = getelementptr inbounds %struct.TCGContext, ptr %12, i32 0, i32 16
   %13 = load i32, ptr %reserved_regs, align 4
   store i32 %13, ptr %allocated_regs, align 4
-  %14 = load ptr, ptr getelementptr ([0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 150, i32 6), align 8
-  %arrayidx21 = getelementptr %struct.TCGArgConstraint, ptr %14, i64 0
+  %14 = getelementptr [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 150, i32 6
+  %15 = load ptr, ptr %14, align 8
+  %arrayidx21 = getelementptr %struct.TCGArgConstraint, ptr %15, i64 0
   %regs = getelementptr inbounds %struct.TCGArgConstraint, ptr %arrayidx21, i32 0, i32 1
-  %15 = load i32, ptr %regs, align 4
-  store i32 %15, ptr %dup_out_regs, align 4
-  %16 = load i32, ptr %arg_life, align 4
-  %and = and i32 %16, 32
+  %16 = load i32, ptr %regs, align 4
+  store i32 %16, ptr %dup_out_regs, align 4
+  %17 = load i32, ptr %arg_life, align 4
+  %and = and i32 %17, 32
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.end31, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then20
-  %17 = load ptr, ptr %itsl, align 8
-  %bf.load22 = load i64, ptr %17, align 8
+  %18 = load ptr, ptr %itsl, align 8
+  %bf.load22 = load i64, ptr %18, align 8
   %bf.lshr23 = lshr i64 %bf.load22, 8
   %bf.clear24 = and i64 %bf.lshr23, 255
   %bf.cast25 = trunc i64 %bf.clear24 to i32
@@ -14253,25 +14264,25 @@ land.lhs.true:                                    ; preds = %if.then20
   br i1 %cmp26, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %land.lhs.true
-  %18 = load ptr, ptr %itsl, align 8
-  %bf.load28 = load i64, ptr %18, align 8
+  %19 = load ptr, ptr %itsl, align 8
+  %bf.load28 = load i64, ptr %19, align 8
   %bf.clear29 = and i64 %bf.load28, 255
   %bf.cast30 = trunc i64 %bf.clear29 to i32
   %shl = shl i32 1, %bf.cast30
-  %19 = load i32, ptr %allocated_regs, align 4
-  %or = or i32 %19, %shl
+  %20 = load i32, ptr %allocated_regs, align 4
+  %or = or i32 %20, %shl
   store i32 %or, ptr %allocated_regs, align 4
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then27, %land.lhs.true, %if.then20
-  %20 = load i32, ptr %arg_life, align 4
-  %and32 = and i32 %20, 64
+  %21 = load i32, ptr %arg_life, align 4
+  %and32 = and i32 %21, 64
   %tobool33 = icmp ne i32 %and32, 0
   br i1 %tobool33, label %if.end46, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %if.end31
-  %21 = load ptr, ptr %itsh, align 8
-  %bf.load35 = load i64, ptr %21, align 8
+  %22 = load ptr, ptr %itsh, align 8
+  %bf.load35 = load i64, ptr %22, align 8
   %bf.lshr36 = lshr i64 %bf.load35, 8
   %bf.clear37 = and i64 %bf.lshr36, 255
   %bf.cast38 = trunc i64 %bf.clear37 to i32
@@ -14279,39 +14290,39 @@ land.lhs.true34:                                  ; preds = %if.end31
   br i1 %cmp39, label %if.then40, label %if.end46
 
 if.then40:                                        ; preds = %land.lhs.true34
-  %22 = load ptr, ptr %itsh, align 8
-  %bf.load41 = load i64, ptr %22, align 8
+  %23 = load ptr, ptr %itsh, align 8
+  %bf.load41 = load i64, ptr %23, align 8
   %bf.clear42 = and i64 %bf.load41, 255
   %bf.cast43 = trunc i64 %bf.clear42 to i32
   %shl44 = shl i32 1, %bf.cast43
-  %23 = load i32, ptr %allocated_regs, align 4
-  %or45 = or i32 %23, %shl44
+  %24 = load i32, ptr %allocated_regs, align 4
+  %or45 = or i32 %24, %shl44
   store i32 %or45, ptr %allocated_regs, align 4
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then40, %land.lhs.true34, %if.end31
-  %24 = load ptr, ptr %s.addr, align 8
-  %25 = load i32, ptr %dup_out_regs, align 4
-  %26 = load i32, ptr %allocated_regs, align 4
-  %27 = load ptr, ptr %op.addr, align 8
-  %call47 = call i32 @output_pref(ptr noundef %27, i32 noundef 0)
-  %28 = load ptr, ptr %ots, align 8
-  %bf.load48 = load i64, ptr %28, align 8
+  %25 = load ptr, ptr %s.addr, align 8
+  %26 = load i32, ptr %dup_out_regs, align 4
+  %27 = load i32, ptr %allocated_regs, align 4
+  %28 = load ptr, ptr %op.addr, align 8
+  %call47 = call i32 @output_pref(ptr noundef %28, i32 noundef 0)
+  %29 = load ptr, ptr %ots, align 8
+  %bf.load48 = load i64, ptr %29, align 8
   %bf.lshr49 = lshr i64 %bf.load48, 36
   %bf.clear50 = and i64 %bf.lshr49, 1
   %bf.cast51 = trunc i64 %bf.clear50 to i32
   %tobool52 = icmp ne i32 %bf.cast51, 0
-  %call53 = call i32 @tcg_reg_alloc(ptr noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef %call47, i1 noundef zeroext %tobool52)
+  %call53 = call i32 @tcg_reg_alloc(ptr noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %call47, i1 noundef zeroext %tobool52)
   store i32 %call53, ptr %oreg, align 4
-  %29 = load ptr, ptr %s.addr, align 8
-  %30 = load ptr, ptr %ots, align 8
-  %31 = load i32, ptr %oreg, align 4
-  call void @set_temp_val_reg(ptr noundef %29, ptr noundef %30, i32 noundef %31)
+  %30 = load ptr, ptr %s.addr, align 8
+  %31 = load ptr, ptr %ots, align 8
+  %32 = load i32, ptr %oreg, align 4
+  call void @set_temp_val_reg(ptr noundef %30, ptr noundef %31, i32 noundef %32)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end46, %do.end15
-  %32 = load ptr, ptr %itsl, align 8
-  %bf.load55 = load i64, ptr %32, align 8
+  %33 = load ptr, ptr %itsl, align 8
+  %bf.load55 = load i64, ptr %33, align 8
   %bf.lshr56 = lshr i64 %bf.load55, 8
   %bf.clear57 = and i64 %bf.lshr56, 255
   %bf.cast58 = trunc i64 %bf.clear57 to i32
@@ -14319,8 +14330,8 @@ if.end54:                                         ; preds = %if.end46, %do.end15
   br i1 %cmp59, label %land.lhs.true60, label %if.end93
 
 land.lhs.true60:                                  ; preds = %if.end54
-  %33 = load ptr, ptr %itsh, align 8
-  %bf.load61 = load i64, ptr %33, align 8
+  %34 = load ptr, ptr %itsh, align 8
+  %bf.load61 = load i64, ptr %34, align 8
   %bf.lshr62 = lshr i64 %bf.load61, 8
   %bf.clear63 = and i64 %bf.lshr62, 255
   %bf.cast64 = trunc i64 %bf.clear63 to i32
@@ -14328,21 +14339,21 @@ land.lhs.true60:                                  ; preds = %if.end54
   br i1 %cmp65, label %if.then66, label %if.end93
 
 if.then66:                                        ; preds = %land.lhs.true60
-  %34 = load ptr, ptr %itsl, align 8
-  %val67 = getelementptr inbounds %struct.TCGTemp, ptr %34, i32 0, i32 1
-  %35 = load i64, ptr %val67, align 8
-  %36 = load ptr, ptr %itsh, align 8
-  %val68 = getelementptr inbounds %struct.TCGTemp, ptr %36, i32 0, i32 1
-  %37 = load i64, ptr %val68, align 8
-  %call69 = call i64 @deposit64(i64 noundef %35, i32 noundef 32, i32 noundef 32, i64 noundef %37)
+  %35 = load ptr, ptr %itsl, align 8
+  %val67 = getelementptr inbounds %struct.TCGTemp, ptr %35, i32 0, i32 1
+  %36 = load i64, ptr %val67, align 8
+  %37 = load ptr, ptr %itsh, align 8
+  %val68 = getelementptr inbounds %struct.TCGTemp, ptr %37, i32 0, i32 1
+  %38 = load i64, ptr %val68, align 8
+  %call69 = call i64 @deposit64(i64 noundef %36, i32 noundef 32, i32 noundef 32, i64 noundef %38)
   store i64 %call69, ptr %val, align 8
   store i32 3, ptr %vece, align 4
-  %38 = load i64, ptr %val, align 8
   %39 = load i64, ptr %val, align 8
-  %conv = trunc i64 %39 to i8
+  %40 = load i64, ptr %val, align 8
+  %conv = trunc i64 %40 to i8
   %conv70 = zext i8 %conv to i64
   %mul = mul i64 72340172838076673, %conv70
-  %cmp71 = icmp eq i64 %38, %mul
+  %cmp71 = icmp eq i64 %39, %mul
   br i1 %cmp71, label %if.then73, label %if.else
 
 if.then73:                                        ; preds = %if.then66
@@ -14350,12 +14361,12 @@ if.then73:                                        ; preds = %if.then66
   br label %if.end89
 
 if.else:                                          ; preds = %if.then66
-  %40 = load i64, ptr %val, align 8
   %41 = load i64, ptr %val, align 8
-  %conv74 = trunc i64 %41 to i16
+  %42 = load i64, ptr %val, align 8
+  %conv74 = trunc i64 %42 to i16
   %conv75 = zext i16 %conv74 to i64
   %mul76 = mul i64 281479271743489, %conv75
-  %cmp77 = icmp eq i64 %40, %mul76
+  %cmp77 = icmp eq i64 %41, %mul76
   br i1 %cmp77, label %if.then79, label %if.else80
 
 if.then79:                                        ; preds = %if.else
@@ -14363,12 +14374,12 @@ if.then79:                                        ; preds = %if.else
   br label %if.end88
 
 if.else80:                                        ; preds = %if.else
-  %42 = load i64, ptr %val, align 8
   %43 = load i64, ptr %val, align 8
-  %conv81 = trunc i64 %43 to i32
+  %44 = load i64, ptr %val, align 8
+  %conv81 = trunc i64 %44 to i32
   %conv82 = zext i32 %conv81 to i64
   %mul83 = mul i64 4294967297, %conv82
-  %cmp84 = icmp eq i64 %42, %mul83
+  %cmp84 = icmp eq i64 %43, %mul83
   br i1 %cmp84, label %if.then86, label %if.end87
 
 if.then86:                                        ; preds = %if.else80
@@ -14382,20 +14393,20 @@ if.end88:                                         ; preds = %if.end87, %if.then7
   br label %if.end89
 
 if.end89:                                         ; preds = %if.end88, %if.then73
-  %44 = load ptr, ptr %s.addr, align 8
-  %45 = load i32, ptr %vtype, align 4
-  %46 = load i32, ptr %vece, align 4
-  %47 = load ptr, ptr %ots, align 8
-  %bf.load90 = load i64, ptr %47, align 8
+  %45 = load ptr, ptr %s.addr, align 8
+  %46 = load i32, ptr %vtype, align 4
+  %47 = load i32, ptr %vece, align 4
+  %48 = load ptr, ptr %ots, align 8
+  %bf.load90 = load i64, ptr %48, align 8
   %bf.clear91 = and i64 %bf.load90, 255
   %bf.cast92 = trunc i64 %bf.clear91 to i32
-  %48 = load i64, ptr %val, align 8
-  call void @tcg_out_dupi_vec(ptr noundef %44, i32 noundef %45, i32 noundef %46, i32 noundef %bf.cast92, i64 noundef %48)
+  %49 = load i64, ptr %val, align 8
+  call void @tcg_out_dupi_vec(ptr noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %bf.cast92, i64 noundef %49)
   br label %done
 
 if.end93:                                         ; preds = %land.lhs.true60, %if.end54
-  %49 = load ptr, ptr %itsl, align 8
-  %bf.load94 = load i64, ptr %49, align 8
+  %50 = load ptr, ptr %itsl, align 8
+  %bf.load94 = load i64, ptr %50, align 8
   %bf.lshr95 = lshr i64 %bf.load94, 40
   %bf.clear96 = and i64 %bf.lshr95, 1
   %bf.cast97 = trunc i64 %bf.clear96 to i32
@@ -14403,8 +14414,8 @@ if.end93:                                         ; preds = %land.lhs.true60, %i
   br i1 %cmp98, label %land.lhs.true100, label %if.end125
 
 land.lhs.true100:                                 ; preds = %if.end93
-  %50 = load ptr, ptr %itsh, align 8
-  %bf.load101 = load i64, ptr %50, align 8
+  %51 = load ptr, ptr %itsh, align 8
+  %bf.load101 = load i64, ptr %51, align 8
   %bf.lshr102 = lshr i64 %bf.load101, 40
   %bf.clear103 = and i64 %bf.lshr102, 1
   %bf.cast104 = trunc i64 %bf.clear103 to i32
@@ -14412,46 +14423,46 @@ land.lhs.true100:                                 ; preds = %if.end93
   br i1 %cmp105, label %land.lhs.true107, label %if.end125
 
 land.lhs.true107:                                 ; preds = %land.lhs.true100
-  %51 = load ptr, ptr %itsl, align 8
-  %52 = load ptr, ptr %itsh, align 8
-  %add.ptr = getelementptr %struct.TCGTemp, ptr %52, i64 -1
-  %cmp108 = icmp eq ptr %51, %add.ptr
+  %52 = load ptr, ptr %itsl, align 8
+  %53 = load ptr, ptr %itsh, align 8
+  %add.ptr = getelementptr %struct.TCGTemp, ptr %53, i64 -1
+  %cmp108 = icmp eq ptr %52, %add.ptr
   br i1 %cmp108, label %if.then110, label %if.end125
 
 if.then110:                                       ; preds = %land.lhs.true107
-  %53 = load ptr, ptr %itsl, align 8
-  %add.ptr111 = getelementptr %struct.TCGTemp, ptr %53, i64 0
+  %54 = load ptr, ptr %itsl, align 8
+  %add.ptr111 = getelementptr %struct.TCGTemp, ptr %54, i64 0
   store ptr %add.ptr111, ptr %its, align 8
-  %54 = load ptr, ptr %s.addr, align 8
-  %55 = load ptr, ptr %its, align 8
-  %add.ptr112 = getelementptr %struct.TCGTemp, ptr %55, i64 0
-  %56 = load ptr, ptr %s.addr, align 8
-  %reserved_regs113 = getelementptr inbounds %struct.TCGContext, ptr %56, i32 0, i32 16
-  %57 = load i32, ptr %reserved_regs113, align 4
-  call void @temp_sync(ptr noundef %54, ptr noundef %add.ptr112, i32 noundef %57, i32 noundef 0, i32 noundef 0)
-  %58 = load ptr, ptr %s.addr, align 8
-  %59 = load ptr, ptr %its, align 8
-  %add.ptr114 = getelementptr %struct.TCGTemp, ptr %59, i64 1
-  %60 = load ptr, ptr %s.addr, align 8
-  %reserved_regs115 = getelementptr inbounds %struct.TCGContext, ptr %60, i32 0, i32 16
-  %61 = load i32, ptr %reserved_regs115, align 4
-  call void @temp_sync(ptr noundef %58, ptr noundef %add.ptr114, i32 noundef %61, i32 noundef 0, i32 noundef 0)
-  %62 = load ptr, ptr %s.addr, align 8
-  %63 = load i32, ptr %vtype, align 4
-  %64 = load ptr, ptr %ots, align 8
-  %bf.load116 = load i64, ptr %64, align 8
+  %55 = load ptr, ptr %s.addr, align 8
+  %56 = load ptr, ptr %its, align 8
+  %add.ptr112 = getelementptr %struct.TCGTemp, ptr %56, i64 0
+  %57 = load ptr, ptr %s.addr, align 8
+  %reserved_regs113 = getelementptr inbounds %struct.TCGContext, ptr %57, i32 0, i32 16
+  %58 = load i32, ptr %reserved_regs113, align 4
+  call void @temp_sync(ptr noundef %55, ptr noundef %add.ptr112, i32 noundef %58, i32 noundef 0, i32 noundef 0)
+  %59 = load ptr, ptr %s.addr, align 8
+  %60 = load ptr, ptr %its, align 8
+  %add.ptr114 = getelementptr %struct.TCGTemp, ptr %60, i64 1
+  %61 = load ptr, ptr %s.addr, align 8
+  %reserved_regs115 = getelementptr inbounds %struct.TCGContext, ptr %61, i32 0, i32 16
+  %62 = load i32, ptr %reserved_regs115, align 4
+  call void @temp_sync(ptr noundef %59, ptr noundef %add.ptr114, i32 noundef %62, i32 noundef 0, i32 noundef 0)
+  %63 = load ptr, ptr %s.addr, align 8
+  %64 = load i32, ptr %vtype, align 4
+  %65 = load ptr, ptr %ots, align 8
+  %bf.load116 = load i64, ptr %65, align 8
   %bf.clear117 = and i64 %bf.load116, 255
   %bf.cast118 = trunc i64 %bf.clear117 to i32
-  %65 = load ptr, ptr %its, align 8
-  %mem_base = getelementptr inbounds %struct.TCGTemp, ptr %65, i32 0, i32 2
-  %66 = load ptr, ptr %mem_base, align 8
-  %bf.load119 = load i64, ptr %66, align 8
+  %66 = load ptr, ptr %its, align 8
+  %mem_base = getelementptr inbounds %struct.TCGTemp, ptr %66, i32 0, i32 2
+  %67 = load ptr, ptr %mem_base, align 8
+  %bf.load119 = load i64, ptr %67, align 8
   %bf.clear120 = and i64 %bf.load119, 255
   %bf.cast121 = trunc i64 %bf.clear120 to i32
-  %67 = load ptr, ptr %its, align 8
-  %mem_offset = getelementptr inbounds %struct.TCGTemp, ptr %67, i32 0, i32 3
-  %68 = load i64, ptr %mem_offset, align 8
-  %call122 = call zeroext i1 @tcg_out_dupm_vec(ptr noundef %62, i32 noundef %63, i32 noundef 3, i32 noundef %bf.cast118, i32 noundef %bf.cast121, i64 noundef %68)
+  %68 = load ptr, ptr %its, align 8
+  %mem_offset = getelementptr inbounds %struct.TCGTemp, ptr %68, i32 0, i32 3
+  %69 = load i64, ptr %mem_offset, align 8
+  %call122 = call zeroext i1 @tcg_out_dupm_vec(ptr noundef %63, i32 noundef %64, i32 noundef 3, i32 noundef %bf.cast118, i32 noundef %bf.cast121, i64 noundef %69)
   br i1 %call122, label %if.then123, label %if.end124
 
 if.then123:                                       ; preds = %if.then110
@@ -14465,61 +14476,61 @@ if.end125:                                        ; preds = %if.end124, %land.lh
   br label %return
 
 done:                                             ; preds = %if.then123, %if.end89
-  %69 = load ptr, ptr %ots, align 8
-  %bf.load126 = load i64, ptr %69, align 8
+  %70 = load ptr, ptr %ots, align 8
+  %bf.load126 = load i64, ptr %70, align 8
   %bf.clear127 = and i64 %bf.load126, -137438953473
   %bf.set = or i64 %bf.clear127, 0
-  store i64 %bf.set, ptr %69, align 8
-  %70 = load i32, ptr %arg_life, align 4
-  %and128 = and i32 %70, 32
+  store i64 %bf.set, ptr %70, align 8
+  %71 = load i32, ptr %arg_life, align 4
+  %and128 = and i32 %71, 32
   %tobool129 = icmp ne i32 %and128, 0
   br i1 %tobool129, label %if.then130, label %if.end131
 
 if.then130:                                       ; preds = %done
-  %71 = load ptr, ptr %s.addr, align 8
-  %72 = load ptr, ptr %itsl, align 8
-  call void @temp_dead(ptr noundef %71, ptr noundef %72)
+  %72 = load ptr, ptr %s.addr, align 8
+  %73 = load ptr, ptr %itsl, align 8
+  call void @temp_dead(ptr noundef %72, ptr noundef %73)
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then130, %done
-  %73 = load i32, ptr %arg_life, align 4
-  %and132 = and i32 %73, 64
+  %74 = load i32, ptr %arg_life, align 4
+  %and132 = and i32 %74, 64
   %tobool133 = icmp ne i32 %and132, 0
   br i1 %tobool133, label %if.then134, label %if.end135
 
 if.then134:                                       ; preds = %if.end131
-  %74 = load ptr, ptr %s.addr, align 8
-  %75 = load ptr, ptr %itsh, align 8
-  call void @temp_dead(ptr noundef %74, ptr noundef %75)
+  %75 = load ptr, ptr %s.addr, align 8
+  %76 = load ptr, ptr %itsh, align 8
+  call void @temp_dead(ptr noundef %75, ptr noundef %76)
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then134, %if.end131
-  %76 = load i32, ptr %arg_life, align 4
-  %and136 = and i32 %76, 1
+  %77 = load i32, ptr %arg_life, align 4
+  %and136 = and i32 %77, 1
   %tobool137 = icmp ne i32 %and136, 0
   br i1 %tobool137, label %if.then138, label %if.else141
 
 if.then138:                                       ; preds = %if.end135
-  %77 = load ptr, ptr %s.addr, align 8
-  %78 = load ptr, ptr %ots, align 8
-  %79 = load ptr, ptr %s.addr, align 8
-  %reserved_regs139 = getelementptr inbounds %struct.TCGContext, ptr %79, i32 0, i32 16
-  %80 = load i32, ptr %reserved_regs139, align 4
-  %81 = load i32, ptr %arg_life, align 4
-  %and140 = and i32 %81, 16
-  call void @temp_sync(ptr noundef %77, ptr noundef %78, i32 noundef %80, i32 noundef 0, i32 noundef %and140)
+  %78 = load ptr, ptr %s.addr, align 8
+  %79 = load ptr, ptr %ots, align 8
+  %80 = load ptr, ptr %s.addr, align 8
+  %reserved_regs139 = getelementptr inbounds %struct.TCGContext, ptr %80, i32 0, i32 16
+  %81 = load i32, ptr %reserved_regs139, align 4
+  %82 = load i32, ptr %arg_life, align 4
+  %and140 = and i32 %82, 16
+  call void @temp_sync(ptr noundef %78, ptr noundef %79, i32 noundef %81, i32 noundef 0, i32 noundef %and140)
   br label %if.end146
 
 if.else141:                                       ; preds = %if.end135
-  %82 = load i32, ptr %arg_life, align 4
-  %and142 = and i32 %82, 16
+  %83 = load i32, ptr %arg_life, align 4
+  %and142 = and i32 %83, 16
   %tobool143 = icmp ne i32 %and142, 0
   br i1 %tobool143, label %if.then144, label %if.end145
 
 if.then144:                                       ; preds = %if.else141
-  %83 = load ptr, ptr %s.addr, align 8
-  %84 = load ptr, ptr %ots, align 8
-  call void @temp_dead(ptr noundef %83, ptr noundef %84)
+  %84 = load ptr, ptr %s.addr, align 8
+  %85 = load ptr, ptr %ots, align 8
+  call void @temp_dead(ptr noundef %84, ptr noundef %85)
   br label %if.end145
 
 if.end145:                                        ; preds = %if.then144, %if.else141
@@ -14530,8 +14541,8 @@ if.end146:                                        ; preds = %if.end145, %if.then
   br label %return
 
 return:                                           ; preds = %if.end146, %if.end125
-  %85 = load i1, ptr %retval, align 1
-  ret i1 %85
+  %86 = load i1, ptr %retval, align 1
+  ret i1 %86
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -16383,7 +16394,7 @@ entry:
   ret void
 }
 
-declare void @vec_gen_3(i32 noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) #7
+declare void @vec_gen_3(i32 noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @tcgv_vec_arg(ptr noundef %v) #0 {
@@ -16396,9 +16407,9 @@ entry:
   ret i64 %call1
 }
 
-declare void @tcg_gen_shri_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #7
+declare void @tcg_gen_shri_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #6
 
-declare void @tcg_gen_shli_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #7
+declare void @tcg_gen_shli_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @temp_arg(ptr noundef %ts) #0 {
@@ -16410,35 +16421,35 @@ entry:
   ret i64 %1
 }
 
-declare void @tcg_gen_sari_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #7
+declare void @tcg_gen_sari_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #6
 
-declare void @vec_gen_4(i32 noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #7
+declare void @vec_gen_4(i32 noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #6
 
-declare void @tcg_gen_cmp_vec(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_cmp_vec(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
-declare void @tcg_gen_or_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_or_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
-declare void @tcg_gen_dup_i32_vec(i32 noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_dup_i32_vec(i32 noundef, ptr noundef, ptr noundef) #6
 
-declare void @tcg_gen_rotlv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_rotlv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
-declare void @tcg_gen_neg_i32(ptr noundef, ptr noundef) #7
+declare void @tcg_gen_neg_i32(ptr noundef, ptr noundef) #6
 
-declare void @tcg_gen_andi_i32(ptr noundef, ptr noundef, i32 noundef) #7
+declare void @tcg_gen_andi_i32(ptr noundef, ptr noundef, i32 noundef) #6
 
-declare void @tcg_gen_shls_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_shls_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
-declare void @tcg_gen_shrs_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_shrs_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
-declare void @tcg_gen_dupi_vec(i32 noundef, ptr noundef, i64 noundef) #7
+declare void @tcg_gen_dupi_vec(i32 noundef, ptr noundef, i64 noundef) #6
 
-declare void @tcg_gen_sub_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_sub_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
-declare void @tcg_gen_shlv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_shlv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
-declare void @tcg_gen_shrv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_shrv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
-declare void @tcg_gen_mul_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_mul_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @expand_vec_cmp_noinv(i32 noundef %type, i32 noundef %vece, ptr noundef %v0, ptr noundef %v1, ptr noundef %v2, i32 noundef %cond) #0 {
@@ -16747,7 +16758,7 @@ if.end72:                                         ; preds = %if.end71, %do.end62
   ret i1 %tobool75
 }
 
-declare void @tcg_gen_not_vec(i32 noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_not_vec(i32 noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @tcg_invert_cond(i32 noundef %c) #0 {
@@ -16783,9 +16794,9 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   ret i32 %cond
 }
 
-declare void @tcg_gen_umin_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_umin_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
-declare void @tcg_gen_umax_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #7
+declare void @tcg_gen_umax_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @tcg_signed_cond(i32 noundef %c) #0 {
@@ -16812,7 +16823,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #11
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @init_call_layout(ptr noundef %info) #0 {
@@ -17214,68 +17225,72 @@ entry:
   %s.addr = alloca ptr, align 8
   store ptr %s, ptr %s.addr, align 8
   store i32 65535, ptr @tcg_target_available_regs, align 16
-  store i32 65535, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_available_regs, i64 0, i64 1), align 4
-  %0 = load i32, ptr @cpuinfo, align 4
-  %and = and i32 %0, 512
+  %0 = getelementptr inbounds [6 x i32], ptr @tcg_target_available_regs, i64 0, i64 1
+  store i32 65535, ptr %0, align 4
+  %1 = load i32, ptr @cpuinfo, align 4
+  %and = and i32 %1, 512
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i32 -65536, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_available_regs, i64 0, i64 3), align 4
-  store i32 -65536, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_available_regs, i64 0, i64 4), align 16
+  %2 = getelementptr inbounds [6 x i32], ptr @tcg_target_available_regs, i64 0, i64 3
+  store i32 -65536, ptr %2, align 4
+  %3 = getelementptr inbounds [6 x i32], ptr @tcg_target_available_regs, i64 0, i64 4
+  store i32 -65536, ptr %3, align 16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %1 = load i32, ptr @cpuinfo, align 4
-  %and1 = and i32 %1, 1024
+  %4 = load i32, ptr @cpuinfo, align 4
+  %and1 = and i32 %4, 1024
   %tobool2 = icmp ne i32 %and1, 0
   br i1 %tobool2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  store i32 -65536, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_available_regs, i64 0, i64 5), align 4
+  %5 = getelementptr inbounds [6 x i32], ptr @tcg_target_available_regs, i64 0, i64 5
+  store i32 -65536, ptr %5, align 4
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
   store i32 -65536, ptr @tcg_target_call_clobber_regs, align 4
-  %2 = load i32, ptr @tcg_target_call_clobber_regs, align 4
-  %or = or i32 %2, 1
-  store i32 %or, ptr @tcg_target_call_clobber_regs, align 4
-  %3 = load i32, ptr @tcg_target_call_clobber_regs, align 4
-  %or5 = or i32 %3, 4
-  store i32 %or5, ptr @tcg_target_call_clobber_regs, align 4
-  %4 = load i32, ptr @tcg_target_call_clobber_regs, align 4
-  %or6 = or i32 %4, 2
-  store i32 %or6, ptr @tcg_target_call_clobber_regs, align 4
-  %5 = load i32, ptr @tcg_target_call_clobber_regs, align 4
-  %or7 = or i32 %5, 128
-  store i32 %or7, ptr @tcg_target_call_clobber_regs, align 4
   %6 = load i32, ptr @tcg_target_call_clobber_regs, align 4
-  %or8 = or i32 %6, 64
-  store i32 %or8, ptr @tcg_target_call_clobber_regs, align 4
+  %or = or i32 %6, 1
+  store i32 %or, ptr @tcg_target_call_clobber_regs, align 4
   %7 = load i32, ptr @tcg_target_call_clobber_regs, align 4
-  %or9 = or i32 %7, 256
-  store i32 %or9, ptr @tcg_target_call_clobber_regs, align 4
+  %or5 = or i32 %7, 4
+  store i32 %or5, ptr @tcg_target_call_clobber_regs, align 4
   %8 = load i32, ptr @tcg_target_call_clobber_regs, align 4
-  %or10 = or i32 %8, 512
-  store i32 %or10, ptr @tcg_target_call_clobber_regs, align 4
+  %or6 = or i32 %8, 2
+  store i32 %or6, ptr @tcg_target_call_clobber_regs, align 4
   %9 = load i32, ptr @tcg_target_call_clobber_regs, align 4
-  %or11 = or i32 %9, 1024
-  store i32 %or11, ptr @tcg_target_call_clobber_regs, align 4
+  %or7 = or i32 %9, 128
+  store i32 %or7, ptr @tcg_target_call_clobber_regs, align 4
   %10 = load i32, ptr @tcg_target_call_clobber_regs, align 4
-  %or12 = or i32 %10, 2048
+  %or8 = or i32 %10, 64
+  store i32 %or8, ptr @tcg_target_call_clobber_regs, align 4
+  %11 = load i32, ptr @tcg_target_call_clobber_regs, align 4
+  %or9 = or i32 %11, 256
+  store i32 %or9, ptr @tcg_target_call_clobber_regs, align 4
+  %12 = load i32, ptr @tcg_target_call_clobber_regs, align 4
+  %or10 = or i32 %12, 512
+  store i32 %or10, ptr @tcg_target_call_clobber_regs, align 4
+  %13 = load i32, ptr @tcg_target_call_clobber_regs, align 4
+  %or11 = or i32 %13, 1024
+  store i32 %or11, ptr @tcg_target_call_clobber_regs, align 4
+  %14 = load i32, ptr @tcg_target_call_clobber_regs, align 4
+  %or12 = or i32 %14, 2048
   store i32 %or12, ptr @tcg_target_call_clobber_regs, align 4
-  %11 = load ptr, ptr %s.addr, align 8
-  %reserved_regs = getelementptr inbounds %struct.TCGContext, ptr %11, i32 0, i32 16
+  %15 = load ptr, ptr %s.addr, align 8
+  %reserved_regs = getelementptr inbounds %struct.TCGContext, ptr %15, i32 0, i32 16
   store i32 0, ptr %reserved_regs, align 4
-  %12 = load ptr, ptr %s.addr, align 8
-  %reserved_regs13 = getelementptr inbounds %struct.TCGContext, ptr %12, i32 0, i32 16
-  %13 = load i32, ptr %reserved_regs13, align 4
-  %or14 = or i32 %13, 16
+  %16 = load ptr, ptr %s.addr, align 8
+  %reserved_regs13 = getelementptr inbounds %struct.TCGContext, ptr %16, i32 0, i32 16
+  %17 = load i32, ptr %reserved_regs13, align 4
+  %or14 = or i32 %17, 16
   store i32 %or14, ptr %reserved_regs13, align 4
-  %14 = load ptr, ptr %s.addr, align 8
-  %reserved_regs15 = getelementptr inbounds %struct.TCGContext, ptr %14, i32 0, i32 16
-  %15 = load i32, ptr %reserved_regs15, align 4
-  %or16 = or i32 %15, 2097152
+  %18 = load ptr, ptr %s.addr, align 8
+  %reserved_regs15 = getelementptr inbounds %struct.TCGContext, ptr %18, i32 0, i32 16
+  %19 = load i32, ptr %reserved_regs15, align 4
+  %or16 = or i32 %19, 2097152
   store i32 %or16, ptr %reserved_regs15, align 4
   ret void
 }
@@ -18164,118 +18179,120 @@ sw.bb379:                                         ; preds = %do.body311
   %tobool380 = trunc i8 %170 to i1
   %171 = load i32, ptr @tcg_target_call_iarg_regs, align 16
   %shl382 = shl i32 1, %171
-  %172 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1), align 4
-  %shl383 = shl i32 1, %172
+  %172 = getelementptr inbounds [6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1
+  %173 = load i32, ptr %172, align 4
+  %shl383 = shl i32 1, %173
   %or384 = or i32 %shl382, %shl383
   %cond385 = select i1 %tobool380, i32 %or384, i32 0
   %not = xor i32 %cond385, -1
   %and386 = and i32 65535, %not
-  %173 = load ptr, ptr %def, align 8
-  %args_ct387 = getelementptr inbounds %struct.TCGOpDef, ptr %173, i32 0, i32 6
-  %174 = load ptr, ptr %args_ct387, align 8
-  %175 = load i32, ptr %i, align 4
-  %idxprom388 = sext i32 %175 to i64
-  %arrayidx389 = getelementptr %struct.TCGArgConstraint, ptr %174, i64 %idxprom388
+  %174 = load ptr, ptr %def, align 8
+  %args_ct387 = getelementptr inbounds %struct.TCGOpDef, ptr %174, i32 0, i32 6
+  %175 = load ptr, ptr %args_ct387, align 8
+  %176 = load i32, ptr %i, align 4
+  %idxprom388 = sext i32 %176 to i64
+  %arrayidx389 = getelementptr %struct.TCGArgConstraint, ptr %175, i64 %idxprom388
   %regs390 = getelementptr inbounds %struct.TCGArgConstraint, ptr %arrayidx389, i32 0, i32 1
-  %176 = load i32, ptr %regs390, align 4
-  %or391 = or i32 %176, %and386
+  %177 = load i32, ptr %regs390, align 4
+  %or391 = or i32 %177, %and386
   store i32 %or391, ptr %regs390, align 4
   br label %sw.epilog462
 
 sw.bb392:                                         ; preds = %do.body311
-  %177 = load i8, ptr @tcg_use_softmmu, align 1
-  %tobool393 = trunc i8 %177 to i1
-  %178 = load i32, ptr @tcg_target_call_iarg_regs, align 16
-  %shl395 = shl i32 1, %178
-  %179 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1), align 4
-  %shl396 = shl i32 1, %179
+  %178 = load i8, ptr @tcg_use_softmmu, align 1
+  %tobool393 = trunc i8 %178 to i1
+  %179 = load i32, ptr @tcg_target_call_iarg_regs, align 16
+  %shl395 = shl i32 1, %179
+  %180 = getelementptr inbounds [6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1
+  %181 = load i32, ptr %180, align 4
+  %shl396 = shl i32 1, %181
   %or397 = or i32 %shl395, %shl396
   %cond398 = select i1 %tobool393, i32 %or397, i32 0
   %not399 = xor i32 %cond398, -1
   %and400 = and i32 65535, %not399
-  %180 = load ptr, ptr %def, align 8
-  %args_ct401 = getelementptr inbounds %struct.TCGOpDef, ptr %180, i32 0, i32 6
-  %181 = load ptr, ptr %args_ct401, align 8
-  %182 = load i32, ptr %i, align 4
-  %idxprom402 = sext i32 %182 to i64
-  %arrayidx403 = getelementptr %struct.TCGArgConstraint, ptr %181, i64 %idxprom402
+  %182 = load ptr, ptr %def, align 8
+  %args_ct401 = getelementptr inbounds %struct.TCGOpDef, ptr %182, i32 0, i32 6
+  %183 = load ptr, ptr %args_ct401, align 8
+  %184 = load i32, ptr %i, align 4
+  %idxprom402 = sext i32 %184 to i64
+  %arrayidx403 = getelementptr %struct.TCGArgConstraint, ptr %183, i64 %idxprom402
   %regs404 = getelementptr inbounds %struct.TCGArgConstraint, ptr %arrayidx403, i32 0, i32 1
-  %183 = load i32, ptr %regs404, align 4
-  %or405 = or i32 %183, %and400
+  %185 = load i32, ptr %regs404, align 4
+  %or405 = or i32 %185, %and400
   store i32 %or405, ptr %regs404, align 4
   br label %sw.epilog462
 
 sw.bb406:                                         ; preds = %do.body311
-  %184 = load ptr, ptr %def, align 8
-  %args_ct407 = getelementptr inbounds %struct.TCGOpDef, ptr %184, i32 0, i32 6
-  %185 = load ptr, ptr %args_ct407, align 8
-  %186 = load i32, ptr %i, align 4
-  %idxprom408 = sext i32 %186 to i64
-  %arrayidx409 = getelementptr %struct.TCGArgConstraint, ptr %185, i64 %idxprom408
+  %186 = load ptr, ptr %def, align 8
+  %args_ct407 = getelementptr inbounds %struct.TCGOpDef, ptr %186, i32 0, i32 6
+  %187 = load ptr, ptr %args_ct407, align 8
+  %188 = load i32, ptr %i, align 4
+  %idxprom408 = sext i32 %188 to i64
+  %arrayidx409 = getelementptr %struct.TCGArgConstraint, ptr %187, i64 %idxprom408
   %bf.load410 = load i64, ptr %arrayidx409, align 4
   %bf.clear411 = and i64 %bf.load410, 65535
   %bf.cast412 = trunc i64 %bf.clear411 to i32
   %or413 = or i32 %bf.cast412, 256
-  %187 = zext i32 %or413 to i64
+  %189 = zext i32 %or413 to i64
   %bf.load414 = load i64, ptr %arrayidx409, align 4
-  %bf.value415 = and i64 %187, 65535
+  %bf.value415 = and i64 %189, 65535
   %bf.clear416 = and i64 %bf.load414, -65536
   %bf.set417 = or i64 %bf.clear416, %bf.value415
   store i64 %bf.set417, ptr %arrayidx409, align 4
   br label %sw.epilog462
 
 sw.bb419:                                         ; preds = %do.body311
-  %188 = load ptr, ptr %def, align 8
-  %args_ct420 = getelementptr inbounds %struct.TCGOpDef, ptr %188, i32 0, i32 6
-  %189 = load ptr, ptr %args_ct420, align 8
-  %190 = load i32, ptr %i, align 4
-  %idxprom421 = sext i32 %190 to i64
-  %arrayidx422 = getelementptr %struct.TCGArgConstraint, ptr %189, i64 %idxprom421
+  %190 = load ptr, ptr %def, align 8
+  %args_ct420 = getelementptr inbounds %struct.TCGOpDef, ptr %190, i32 0, i32 6
+  %191 = load ptr, ptr %args_ct420, align 8
+  %192 = load i32, ptr %i, align 4
+  %idxprom421 = sext i32 %192 to i64
+  %arrayidx422 = getelementptr %struct.TCGArgConstraint, ptr %191, i64 %idxprom421
   %bf.load423 = load i64, ptr %arrayidx422, align 4
   %bf.clear424 = and i64 %bf.load423, 65535
   %bf.cast425 = trunc i64 %bf.clear424 to i32
   %or426 = or i32 %bf.cast425, 1024
-  %191 = zext i32 %or426 to i64
+  %193 = zext i32 %or426 to i64
   %bf.load427 = load i64, ptr %arrayidx422, align 4
-  %bf.value428 = and i64 %191, 65535
+  %bf.value428 = and i64 %193, 65535
   %bf.clear429 = and i64 %bf.load427, -65536
   %bf.set430 = or i64 %bf.clear429, %bf.value428
   store i64 %bf.set430, ptr %arrayidx422, align 4
   br label %sw.epilog462
 
 sw.bb432:                                         ; preds = %do.body311
-  %192 = load ptr, ptr %def, align 8
-  %args_ct433 = getelementptr inbounds %struct.TCGOpDef, ptr %192, i32 0, i32 6
-  %193 = load ptr, ptr %args_ct433, align 8
-  %194 = load i32, ptr %i, align 4
-  %idxprom434 = sext i32 %194 to i64
-  %arrayidx435 = getelementptr %struct.TCGArgConstraint, ptr %193, i64 %idxprom434
+  %194 = load ptr, ptr %def, align 8
+  %args_ct433 = getelementptr inbounds %struct.TCGOpDef, ptr %194, i32 0, i32 6
+  %195 = load ptr, ptr %args_ct433, align 8
+  %196 = load i32, ptr %i, align 4
+  %idxprom434 = sext i32 %196 to i64
+  %arrayidx435 = getelementptr %struct.TCGArgConstraint, ptr %195, i64 %idxprom434
   %bf.load436 = load i64, ptr %arrayidx435, align 4
   %bf.clear437 = and i64 %bf.load436, 65535
   %bf.cast438 = trunc i64 %bf.clear437 to i32
   %or439 = or i32 %bf.cast438, 2048
-  %195 = zext i32 %or439 to i64
+  %197 = zext i32 %or439 to i64
   %bf.load440 = load i64, ptr %arrayidx435, align 4
-  %bf.value441 = and i64 %195, 65535
+  %bf.value441 = and i64 %197, 65535
   %bf.clear442 = and i64 %bf.load440, -65536
   %bf.set443 = or i64 %bf.clear442, %bf.value441
   store i64 %bf.set443, ptr %arrayidx435, align 4
   br label %sw.epilog462
 
 sw.bb445:                                         ; preds = %do.body311
-  %196 = load ptr, ptr %def, align 8
-  %args_ct446 = getelementptr inbounds %struct.TCGOpDef, ptr %196, i32 0, i32 6
-  %197 = load ptr, ptr %args_ct446, align 8
-  %198 = load i32, ptr %i, align 4
-  %idxprom447 = sext i32 %198 to i64
-  %arrayidx448 = getelementptr %struct.TCGArgConstraint, ptr %197, i64 %idxprom447
+  %198 = load ptr, ptr %def, align 8
+  %args_ct446 = getelementptr inbounds %struct.TCGOpDef, ptr %198, i32 0, i32 6
+  %199 = load ptr, ptr %args_ct446, align 8
+  %200 = load i32, ptr %i, align 4
+  %idxprom447 = sext i32 %200 to i64
+  %arrayidx448 = getelementptr %struct.TCGArgConstraint, ptr %199, i64 %idxprom447
   %bf.load449 = load i64, ptr %arrayidx448, align 4
   %bf.clear450 = and i64 %bf.load449, 65535
   %bf.cast451 = trunc i64 %bf.clear450 to i32
   %or452 = or i32 %bf.cast451, 512
-  %199 = zext i32 %or452 to i64
+  %201 = zext i32 %or452 to i64
   %bf.load453 = load i64, ptr %arrayidx448, align 4
-  %bf.value454 = and i64 %199, 65535
+  %bf.value454 = and i64 %201, 65535
   %bf.clear455 = and i64 %bf.load453, -65536
   %bf.set456 = or i64 %bf.clear455, %bf.value454
   store i64 %bf.set456, ptr %arrayidx448, align 4
@@ -18301,11 +18318,11 @@ sw.epilog462:                                     ; preds = %do.end461, %sw.bb44
   br label %do.cond
 
 do.cond:                                          ; preds = %sw.epilog462
-  %200 = load ptr, ptr %ct_str, align 8
-  %incdec.ptr463 = getelementptr i8, ptr %200, i32 1
+  %202 = load ptr, ptr %ct_str, align 8
+  %incdec.ptr463 = getelementptr i8, ptr %202, i32 1
   store ptr %incdec.ptr463, ptr %ct_str, align 8
-  %201 = load i8, ptr %incdec.ptr463, align 1
-  %conv464 = sext i8 %201 to i32
+  %203 = load i8, ptr %incdec.ptr463, align 1
+  %conv464 = sext i8 %203 to i32
   %cmp465 = icmp ne i32 %conv464, 0
   br i1 %cmp465, label %do.body311, label %do.end467, !llvm.loop !82
 
@@ -18313,8 +18330,8 @@ do.end467:                                        ; preds = %do.cond
   br label %for.inc
 
 for.inc:                                          ; preds = %do.end467, %do.end310, %do.end213, %do.end109
-  %202 = load i32, ptr %i, align 4
-  %inc = add i32 %202, 1
+  %204 = load i32, ptr %i, align 4
+  %inc = add i32 %204, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond14, !llvm.loop !83
 
@@ -18322,18 +18339,18 @@ for.end:                                          ; preds = %for.cond14
   br label %do.body468
 
 do.body468:                                       ; preds = %for.end
-  %203 = load i32, ptr %i, align 4
-  %cmp469 = icmp eq i32 %203, 16
+  %205 = load i32, ptr %i, align 4
+  %cmp469 = icmp eq i32 %205, 16
   br i1 %cmp469, label %if.end477, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.body468
-  %204 = load ptr, ptr %tdefs, align 8
-  %args_ct_str471 = getelementptr inbounds %struct.TCGTargetOpDef, ptr %204, i32 0, i32 1
-  %205 = load i32, ptr %i, align 4
-  %idxprom472 = sext i32 %205 to i64
+  %206 = load ptr, ptr %tdefs, align 8
+  %args_ct_str471 = getelementptr inbounds %struct.TCGTargetOpDef, ptr %206, i32 0, i32 1
+  %207 = load i32, ptr %i, align 4
+  %idxprom472 = sext i32 %207 to i64
   %arrayidx473 = getelementptr [16 x ptr], ptr %args_ct_str471, i64 0, i64 %idxprom472
-  %206 = load ptr, ptr %arrayidx473, align 8
-  %cmp474 = icmp eq ptr %206, null
+  %208 = load ptr, ptr %arrayidx473, align 8
+  %cmp474 = icmp eq ptr %208, null
   br i1 %cmp474, label %if.end477, label %if.then476
 
 if.then476:                                       ; preds = %lor.lhs.false
@@ -18343,31 +18360,31 @@ if.end477:                                        ; preds = %lor.lhs.false, %do.
   br label %do.end479
 
 do.end479:                                        ; preds = %if.end477
-  %207 = load i8, ptr %saw_alias_pair, align 1
-  %tobool480 = trunc i8 %207 to i1
+  %209 = load i8, ptr %saw_alias_pair, align 1
+  %tobool480 = trunc i8 %209 to i1
   br i1 %tobool480, label %if.then481, label %if.end735
 
 if.then481:                                       ; preds = %do.end479
-  %208 = load ptr, ptr %def, align 8
-  %nb_oargs482 = getelementptr inbounds %struct.TCGOpDef, ptr %208, i32 0, i32 1
-  %209 = load i8, ptr %nb_oargs482, align 8
-  %conv483 = zext i8 %209 to i32
+  %210 = load ptr, ptr %def, align 8
+  %nb_oargs482 = getelementptr inbounds %struct.TCGOpDef, ptr %210, i32 0, i32 1
+  %211 = load i8, ptr %nb_oargs482, align 8
+  %conv483 = zext i8 %211 to i32
   store i32 %conv483, ptr %i, align 4
   br label %for.cond484
 
 for.cond484:                                      ; preds = %for.inc732, %if.then481
-  %210 = load i32, ptr %i, align 4
-  %211 = load i32, ptr %nb_args, align 4
-  %cmp485 = icmp slt i32 %210, %211
+  %212 = load i32, ptr %i, align 4
+  %213 = load i32, ptr %nb_args, align 4
+  %cmp485 = icmp slt i32 %212, %213
   br i1 %cmp485, label %for.body487, label %for.end734
 
 for.body487:                                      ; preds = %for.cond484
-  %212 = load ptr, ptr %def, align 8
-  %args_ct488 = getelementptr inbounds %struct.TCGOpDef, ptr %212, i32 0, i32 6
-  %213 = load ptr, ptr %args_ct488, align 8
-  %214 = load i32, ptr %i, align 4
-  %idxprom489 = sext i32 %214 to i64
-  %arrayidx490 = getelementptr %struct.TCGArgConstraint, ptr %213, i64 %idxprom489
+  %214 = load ptr, ptr %def, align 8
+  %args_ct488 = getelementptr inbounds %struct.TCGOpDef, ptr %214, i32 0, i32 6
+  %215 = load ptr, ptr %args_ct488, align 8
+  %216 = load i32, ptr %i, align 4
+  %idxprom489 = sext i32 %216 to i64
+  %arrayidx490 = getelementptr %struct.TCGArgConstraint, ptr %215, i64 %idxprom489
   %bf.load491 = load i64, ptr %arrayidx490, align 4
   %bf.lshr492 = lshr i64 %bf.load491, 31
   %bf.clear493 = and i64 %bf.lshr492, 1
@@ -18378,12 +18395,12 @@ if.then495:                                       ; preds = %for.body487
   br label %for.inc732
 
 if.end496:                                        ; preds = %for.body487
-  %215 = load ptr, ptr %def, align 8
-  %args_ct497 = getelementptr inbounds %struct.TCGOpDef, ptr %215, i32 0, i32 6
-  %216 = load ptr, ptr %args_ct497, align 8
-  %217 = load i32, ptr %i, align 4
-  %idxprom498 = sext i32 %217 to i64
-  %arrayidx499 = getelementptr %struct.TCGArgConstraint, ptr %216, i64 %idxprom498
+  %217 = load ptr, ptr %def, align 8
+  %args_ct497 = getelementptr inbounds %struct.TCGOpDef, ptr %217, i32 0, i32 6
+  %218 = load ptr, ptr %args_ct497, align 8
+  %219 = load i32, ptr %i, align 4
+  %idxprom498 = sext i32 %219 to i64
+  %arrayidx499 = getelementptr %struct.TCGArgConstraint, ptr %218, i64 %idxprom498
   %bf.load500 = load i64, ptr %arrayidx499, align 4
   %bf.lshr501 = lshr i64 %bf.load500, 28
   %bf.clear502 = and i64 %bf.lshr501, 3
@@ -18398,23 +18415,23 @@ sw.bb504:                                         ; preds = %if.end496
   br label %sw.epilog731
 
 sw.bb505:                                         ; preds = %if.end496
-  %218 = load ptr, ptr %def, align 8
-  %args_ct506 = getelementptr inbounds %struct.TCGOpDef, ptr %218, i32 0, i32 6
-  %219 = load ptr, ptr %args_ct506, align 8
-  %220 = load i32, ptr %i, align 4
-  %idxprom507 = sext i32 %220 to i64
-  %arrayidx508 = getelementptr %struct.TCGArgConstraint, ptr %219, i64 %idxprom507
+  %220 = load ptr, ptr %def, align 8
+  %args_ct506 = getelementptr inbounds %struct.TCGOpDef, ptr %220, i32 0, i32 6
+  %221 = load ptr, ptr %args_ct506, align 8
+  %222 = load i32, ptr %i, align 4
+  %idxprom507 = sext i32 %222 to i64
+  %arrayidx508 = getelementptr %struct.TCGArgConstraint, ptr %221, i64 %idxprom507
   %bf.load509 = load i64, ptr %arrayidx508, align 4
   %bf.lshr510 = lshr i64 %bf.load509, 16
   %bf.clear511 = and i64 %bf.lshr510, 15
   %bf.cast512 = trunc i64 %bf.clear511 to i32
   store i32 %bf.cast512, ptr %o, align 4
-  %221 = load ptr, ptr %def, align 8
-  %args_ct513 = getelementptr inbounds %struct.TCGOpDef, ptr %221, i32 0, i32 6
-  %222 = load ptr, ptr %args_ct513, align 8
-  %223 = load i32, ptr %o, align 4
-  %idxprom514 = sext i32 %223 to i64
-  %arrayidx515 = getelementptr %struct.TCGArgConstraint, ptr %222, i64 %idxprom514
+  %223 = load ptr, ptr %def, align 8
+  %args_ct513 = getelementptr inbounds %struct.TCGOpDef, ptr %223, i32 0, i32 6
+  %224 = load ptr, ptr %args_ct513, align 8
+  %225 = load i32, ptr %o, align 4
+  %idxprom514 = sext i32 %225 to i64
+  %arrayidx515 = getelementptr %struct.TCGArgConstraint, ptr %224, i64 %idxprom514
   %bf.load516 = load i64, ptr %arrayidx515, align 4
   %bf.lshr517 = lshr i64 %bf.load516, 24
   %bf.clear518 = and i64 %bf.lshr517, 15
@@ -18423,12 +18440,12 @@ sw.bb505:                                         ; preds = %if.end496
   br label %do.body520
 
 do.body520:                                       ; preds = %sw.bb505
-  %224 = load ptr, ptr %def, align 8
-  %args_ct521 = getelementptr inbounds %struct.TCGOpDef, ptr %224, i32 0, i32 6
-  %225 = load ptr, ptr %args_ct521, align 8
-  %226 = load i32, ptr %o, align 4
-  %idxprom522 = sext i32 %226 to i64
-  %arrayidx523 = getelementptr %struct.TCGArgConstraint, ptr %225, i64 %idxprom522
+  %226 = load ptr, ptr %def, align 8
+  %args_ct521 = getelementptr inbounds %struct.TCGOpDef, ptr %226, i32 0, i32 6
+  %227 = load ptr, ptr %args_ct521, align 8
+  %228 = load i32, ptr %o, align 4
+  %idxprom522 = sext i32 %228 to i64
+  %arrayidx523 = getelementptr %struct.TCGArgConstraint, ptr %227, i64 %idxprom522
   %bf.load524 = load i64, ptr %arrayidx523, align 4
   %bf.lshr525 = lshr i64 %bf.load524, 28
   %bf.clear526 = and i64 %bf.lshr525, 3
@@ -18446,12 +18463,12 @@ do.end533:                                        ; preds = %if.end531
   br label %do.body534
 
 do.body534:                                       ; preds = %do.end533
-  %227 = load ptr, ptr %def, align 8
-  %args_ct535 = getelementptr inbounds %struct.TCGOpDef, ptr %227, i32 0, i32 6
-  %228 = load ptr, ptr %args_ct535, align 8
-  %229 = load i32, ptr %o2, align 4
-  %idxprom536 = sext i32 %229 to i64
-  %arrayidx537 = getelementptr %struct.TCGArgConstraint, ptr %228, i64 %idxprom536
+  %229 = load ptr, ptr %def, align 8
+  %args_ct535 = getelementptr inbounds %struct.TCGOpDef, ptr %229, i32 0, i32 6
+  %230 = load ptr, ptr %args_ct535, align 8
+  %231 = load i32, ptr %o2, align 4
+  %idxprom536 = sext i32 %231 to i64
+  %arrayidx537 = getelementptr %struct.TCGArgConstraint, ptr %230, i64 %idxprom536
   %bf.load538 = load i64, ptr %arrayidx537, align 4
   %bf.lshr539 = lshr i64 %bf.load538, 28
   %bf.clear540 = and i64 %bf.lshr539, 3
@@ -18466,12 +18483,12 @@ if.end545:                                        ; preds = %do.body534
   br label %do.end547
 
 do.end547:                                        ; preds = %if.end545
-  %230 = load ptr, ptr %def, align 8
-  %args_ct548 = getelementptr inbounds %struct.TCGOpDef, ptr %230, i32 0, i32 6
-  %231 = load ptr, ptr %args_ct548, align 8
-  %232 = load i32, ptr %o2, align 4
-  %idxprom549 = sext i32 %232 to i64
-  %arrayidx550 = getelementptr %struct.TCGArgConstraint, ptr %231, i64 %idxprom549
+  %232 = load ptr, ptr %def, align 8
+  %args_ct548 = getelementptr inbounds %struct.TCGOpDef, ptr %232, i32 0, i32 6
+  %233 = load ptr, ptr %args_ct548, align 8
+  %234 = load i32, ptr %o2, align 4
+  %idxprom549 = sext i32 %234 to i64
+  %arrayidx550 = getelementptr %struct.TCGArgConstraint, ptr %233, i64 %idxprom549
   %bf.load551 = load i64, ptr %arrayidx550, align 4
   %bf.lshr552 = lshr i64 %bf.load551, 30
   %bf.clear553 = and i64 %bf.lshr552, 1
@@ -18479,12 +18496,12 @@ do.end547:                                        ; preds = %if.end545
   br i1 %bf.cast554, label %if.then555, label %if.else
 
 if.then555:                                       ; preds = %do.end547
-  %233 = load ptr, ptr %def, align 8
-  %args_ct556 = getelementptr inbounds %struct.TCGOpDef, ptr %233, i32 0, i32 6
-  %234 = load ptr, ptr %args_ct556, align 8
-  %235 = load i32, ptr %o2, align 4
-  %idxprom557 = sext i32 %235 to i64
-  %arrayidx558 = getelementptr %struct.TCGArgConstraint, ptr %234, i64 %idxprom557
+  %235 = load ptr, ptr %def, align 8
+  %args_ct556 = getelementptr inbounds %struct.TCGOpDef, ptr %235, i32 0, i32 6
+  %236 = load ptr, ptr %args_ct556, align 8
+  %237 = load i32, ptr %o2, align 4
+  %idxprom557 = sext i32 %237 to i64
+  %arrayidx558 = getelementptr %struct.TCGArgConstraint, ptr %236, i64 %idxprom557
   %bf.load559 = load i64, ptr %arrayidx558, align 4
   %bf.lshr560 = lshr i64 %bf.load559, 16
   %bf.clear561 = and i64 %bf.lshr560, 15
@@ -18493,12 +18510,12 @@ if.then555:                                       ; preds = %do.end547
   br label %do.body563
 
 do.body563:                                       ; preds = %if.then555
-  %236 = load ptr, ptr %def, align 8
-  %args_ct564 = getelementptr inbounds %struct.TCGOpDef, ptr %236, i32 0, i32 6
-  %237 = load ptr, ptr %args_ct564, align 8
-  %238 = load i32, ptr %i2, align 4
-  %idxprom565 = sext i32 %238 to i64
-  %arrayidx566 = getelementptr %struct.TCGArgConstraint, ptr %237, i64 %idxprom565
+  %238 = load ptr, ptr %def, align 8
+  %args_ct564 = getelementptr inbounds %struct.TCGOpDef, ptr %238, i32 0, i32 6
+  %239 = load ptr, ptr %args_ct564, align 8
+  %240 = load i32, ptr %i2, align 4
+  %idxprom565 = sext i32 %240 to i64
+  %arrayidx566 = getelementptr %struct.TCGArgConstraint, ptr %239, i64 %idxprom565
   %bf.load567 = load i64, ptr %arrayidx566, align 4
   %bf.lshr568 = lshr i64 %bf.load567, 28
   %bf.clear569 = and i64 %bf.lshr568, 3
@@ -18513,30 +18530,30 @@ if.end574:                                        ; preds = %do.body563
   br label %do.end576
 
 do.end576:                                        ; preds = %if.end574
-  %239 = load i32, ptr %i, align 4
-  %240 = load ptr, ptr %def, align 8
-  %args_ct577 = getelementptr inbounds %struct.TCGOpDef, ptr %240, i32 0, i32 6
-  %241 = load ptr, ptr %args_ct577, align 8
-  %242 = load i32, ptr %i2, align 4
-  %idxprom578 = sext i32 %242 to i64
-  %arrayidx579 = getelementptr %struct.TCGArgConstraint, ptr %241, i64 %idxprom578
-  %243 = zext i32 %239 to i64
+  %241 = load i32, ptr %i, align 4
+  %242 = load ptr, ptr %def, align 8
+  %args_ct577 = getelementptr inbounds %struct.TCGOpDef, ptr %242, i32 0, i32 6
+  %243 = load ptr, ptr %args_ct577, align 8
+  %244 = load i32, ptr %i2, align 4
+  %idxprom578 = sext i32 %244 to i64
+  %arrayidx579 = getelementptr %struct.TCGArgConstraint, ptr %243, i64 %idxprom578
+  %245 = zext i32 %241 to i64
   %bf.load580 = load i64, ptr %arrayidx579, align 4
-  %bf.value581 = and i64 %243, 15
+  %bf.value581 = and i64 %245, 15
   %bf.shl582 = shl i64 %bf.value581, 24
   %bf.clear583 = and i64 %bf.load580, -251658241
   %bf.set584 = or i64 %bf.clear583, %bf.shl582
   store i64 %bf.set584, ptr %arrayidx579, align 4
-  %244 = load i32, ptr %i2, align 4
-  %245 = load ptr, ptr %def, align 8
-  %args_ct586 = getelementptr inbounds %struct.TCGOpDef, ptr %245, i32 0, i32 6
-  %246 = load ptr, ptr %args_ct586, align 8
-  %247 = load i32, ptr %i, align 4
-  %idxprom587 = sext i32 %247 to i64
-  %arrayidx588 = getelementptr %struct.TCGArgConstraint, ptr %246, i64 %idxprom587
-  %248 = zext i32 %244 to i64
+  %246 = load i32, ptr %i2, align 4
+  %247 = load ptr, ptr %def, align 8
+  %args_ct586 = getelementptr inbounds %struct.TCGOpDef, ptr %247, i32 0, i32 6
+  %248 = load ptr, ptr %args_ct586, align 8
+  %249 = load i32, ptr %i, align 4
+  %idxprom587 = sext i32 %249 to i64
+  %arrayidx588 = getelementptr %struct.TCGArgConstraint, ptr %248, i64 %idxprom587
+  %250 = zext i32 %246 to i64
   %bf.load589 = load i64, ptr %arrayidx588, align 4
-  %bf.value590 = and i64 %248, 15
+  %bf.value590 = and i64 %250, 15
   %bf.shl591 = shl i64 %bf.value590, 24
   %bf.clear592 = and i64 %bf.load589, -251658241
   %bf.set593 = or i64 %bf.clear592, %bf.shl591
@@ -18544,16 +18561,16 @@ do.end576:                                        ; preds = %if.end574
   br label %if.end604
 
 if.else:                                          ; preds = %do.end547
-  %249 = load i32, ptr %i, align 4
-  %250 = load ptr, ptr %def, align 8
-  %args_ct595 = getelementptr inbounds %struct.TCGOpDef, ptr %250, i32 0, i32 6
-  %251 = load ptr, ptr %args_ct595, align 8
-  %252 = load i32, ptr %i, align 4
-  %idxprom596 = sext i32 %252 to i64
-  %arrayidx597 = getelementptr %struct.TCGArgConstraint, ptr %251, i64 %idxprom596
-  %253 = zext i32 %249 to i64
+  %251 = load i32, ptr %i, align 4
+  %252 = load ptr, ptr %def, align 8
+  %args_ct595 = getelementptr inbounds %struct.TCGOpDef, ptr %252, i32 0, i32 6
+  %253 = load ptr, ptr %args_ct595, align 8
+  %254 = load i32, ptr %i, align 4
+  %idxprom596 = sext i32 %254 to i64
+  %arrayidx597 = getelementptr %struct.TCGArgConstraint, ptr %253, i64 %idxprom596
+  %255 = zext i32 %251 to i64
   %bf.load598 = load i64, ptr %arrayidx597, align 4
-  %bf.value599 = and i64 %253, 15
+  %bf.value599 = and i64 %255, 15
   %bf.shl600 = shl i64 %bf.value599, 24
   %bf.clear601 = and i64 %bf.load598, -251658241
   %bf.set602 = or i64 %bf.clear601, %bf.shl600
@@ -18564,23 +18581,23 @@ if.end604:                                        ; preds = %if.else, %do.end576
   br label %sw.epilog731
 
 sw.bb605:                                         ; preds = %if.end496
-  %254 = load ptr, ptr %def, align 8
-  %args_ct606 = getelementptr inbounds %struct.TCGOpDef, ptr %254, i32 0, i32 6
-  %255 = load ptr, ptr %args_ct606, align 8
-  %256 = load i32, ptr %i, align 4
-  %idxprom607 = sext i32 %256 to i64
-  %arrayidx608 = getelementptr %struct.TCGArgConstraint, ptr %255, i64 %idxprom607
+  %256 = load ptr, ptr %def, align 8
+  %args_ct606 = getelementptr inbounds %struct.TCGOpDef, ptr %256, i32 0, i32 6
+  %257 = load ptr, ptr %args_ct606, align 8
+  %258 = load i32, ptr %i, align 4
+  %idxprom607 = sext i32 %258 to i64
+  %arrayidx608 = getelementptr %struct.TCGArgConstraint, ptr %257, i64 %idxprom607
   %bf.load609 = load i64, ptr %arrayidx608, align 4
   %bf.lshr610 = lshr i64 %bf.load609, 16
   %bf.clear611 = and i64 %bf.lshr610, 15
   %bf.cast612 = trunc i64 %bf.clear611 to i32
   store i32 %bf.cast612, ptr %o, align 4
-  %257 = load ptr, ptr %def, align 8
-  %args_ct613 = getelementptr inbounds %struct.TCGOpDef, ptr %257, i32 0, i32 6
-  %258 = load ptr, ptr %args_ct613, align 8
-  %259 = load i32, ptr %o, align 4
-  %idxprom614 = sext i32 %259 to i64
-  %arrayidx615 = getelementptr %struct.TCGArgConstraint, ptr %258, i64 %idxprom614
+  %259 = load ptr, ptr %def, align 8
+  %args_ct613 = getelementptr inbounds %struct.TCGOpDef, ptr %259, i32 0, i32 6
+  %260 = load ptr, ptr %args_ct613, align 8
+  %261 = load i32, ptr %o, align 4
+  %idxprom614 = sext i32 %261 to i64
+  %arrayidx615 = getelementptr %struct.TCGArgConstraint, ptr %260, i64 %idxprom614
   %bf.load616 = load i64, ptr %arrayidx615, align 4
   %bf.lshr617 = lshr i64 %bf.load616, 24
   %bf.clear618 = and i64 %bf.lshr617, 15
@@ -18589,12 +18606,12 @@ sw.bb605:                                         ; preds = %if.end496
   br label %do.body620
 
 do.body620:                                       ; preds = %sw.bb605
-  %260 = load ptr, ptr %def, align 8
-  %args_ct621 = getelementptr inbounds %struct.TCGOpDef, ptr %260, i32 0, i32 6
-  %261 = load ptr, ptr %args_ct621, align 8
-  %262 = load i32, ptr %o, align 4
-  %idxprom622 = sext i32 %262 to i64
-  %arrayidx623 = getelementptr %struct.TCGArgConstraint, ptr %261, i64 %idxprom622
+  %262 = load ptr, ptr %def, align 8
+  %args_ct621 = getelementptr inbounds %struct.TCGOpDef, ptr %262, i32 0, i32 6
+  %263 = load ptr, ptr %args_ct621, align 8
+  %264 = load i32, ptr %o, align 4
+  %idxprom622 = sext i32 %264 to i64
+  %arrayidx623 = getelementptr %struct.TCGArgConstraint, ptr %263, i64 %idxprom622
   %bf.load624 = load i64, ptr %arrayidx623, align 4
   %bf.lshr625 = lshr i64 %bf.load624, 28
   %bf.clear626 = and i64 %bf.lshr625, 3
@@ -18612,12 +18629,12 @@ do.end633:                                        ; preds = %if.end631
   br label %do.body634
 
 do.body634:                                       ; preds = %do.end633
-  %263 = load ptr, ptr %def, align 8
-  %args_ct635 = getelementptr inbounds %struct.TCGOpDef, ptr %263, i32 0, i32 6
-  %264 = load ptr, ptr %args_ct635, align 8
-  %265 = load i32, ptr %o2, align 4
-  %idxprom636 = sext i32 %265 to i64
-  %arrayidx637 = getelementptr %struct.TCGArgConstraint, ptr %264, i64 %idxprom636
+  %265 = load ptr, ptr %def, align 8
+  %args_ct635 = getelementptr inbounds %struct.TCGOpDef, ptr %265, i32 0, i32 6
+  %266 = load ptr, ptr %args_ct635, align 8
+  %267 = load i32, ptr %o2, align 4
+  %idxprom636 = sext i32 %267 to i64
+  %arrayidx637 = getelementptr %struct.TCGArgConstraint, ptr %266, i64 %idxprom636
   %bf.load638 = load i64, ptr %arrayidx637, align 4
   %bf.lshr639 = lshr i64 %bf.load638, 28
   %bf.clear640 = and i64 %bf.lshr639, 3
@@ -18632,12 +18649,12 @@ if.end645:                                        ; preds = %do.body634
   br label %do.end647
 
 do.end647:                                        ; preds = %if.end645
-  %266 = load ptr, ptr %def, align 8
-  %args_ct648 = getelementptr inbounds %struct.TCGOpDef, ptr %266, i32 0, i32 6
-  %267 = load ptr, ptr %args_ct648, align 8
-  %268 = load i32, ptr %o2, align 4
-  %idxprom649 = sext i32 %268 to i64
-  %arrayidx650 = getelementptr %struct.TCGArgConstraint, ptr %267, i64 %idxprom649
+  %268 = load ptr, ptr %def, align 8
+  %args_ct648 = getelementptr inbounds %struct.TCGOpDef, ptr %268, i32 0, i32 6
+  %269 = load ptr, ptr %args_ct648, align 8
+  %270 = load i32, ptr %o2, align 4
+  %idxprom649 = sext i32 %270 to i64
+  %arrayidx650 = getelementptr %struct.TCGArgConstraint, ptr %269, i64 %idxprom649
   %bf.load651 = load i64, ptr %arrayidx650, align 4
   %bf.lshr652 = lshr i64 %bf.load651, 30
   %bf.clear653 = and i64 %bf.lshr652, 1
@@ -18645,12 +18662,12 @@ do.end647:                                        ; preds = %if.end645
   br i1 %bf.cast654, label %if.then655, label %if.else695
 
 if.then655:                                       ; preds = %do.end647
-  %269 = load ptr, ptr %def, align 8
-  %args_ct656 = getelementptr inbounds %struct.TCGOpDef, ptr %269, i32 0, i32 6
-  %270 = load ptr, ptr %args_ct656, align 8
-  %271 = load i32, ptr %o2, align 4
-  %idxprom657 = sext i32 %271 to i64
-  %arrayidx658 = getelementptr %struct.TCGArgConstraint, ptr %270, i64 %idxprom657
+  %271 = load ptr, ptr %def, align 8
+  %args_ct656 = getelementptr inbounds %struct.TCGOpDef, ptr %271, i32 0, i32 6
+  %272 = load ptr, ptr %args_ct656, align 8
+  %273 = load i32, ptr %o2, align 4
+  %idxprom657 = sext i32 %273 to i64
+  %arrayidx658 = getelementptr %struct.TCGArgConstraint, ptr %272, i64 %idxprom657
   %bf.load659 = load i64, ptr %arrayidx658, align 4
   %bf.lshr660 = lshr i64 %bf.load659, 16
   %bf.clear661 = and i64 %bf.lshr660, 15
@@ -18659,12 +18676,12 @@ if.then655:                                       ; preds = %do.end647
   br label %do.body663
 
 do.body663:                                       ; preds = %if.then655
-  %272 = load ptr, ptr %def, align 8
-  %args_ct664 = getelementptr inbounds %struct.TCGOpDef, ptr %272, i32 0, i32 6
-  %273 = load ptr, ptr %args_ct664, align 8
-  %274 = load i32, ptr %i2, align 4
-  %idxprom665 = sext i32 %274 to i64
-  %arrayidx666 = getelementptr %struct.TCGArgConstraint, ptr %273, i64 %idxprom665
+  %274 = load ptr, ptr %def, align 8
+  %args_ct664 = getelementptr inbounds %struct.TCGOpDef, ptr %274, i32 0, i32 6
+  %275 = load ptr, ptr %args_ct664, align 8
+  %276 = load i32, ptr %i2, align 4
+  %idxprom665 = sext i32 %276 to i64
+  %arrayidx666 = getelementptr %struct.TCGArgConstraint, ptr %275, i64 %idxprom665
   %bf.load667 = load i64, ptr %arrayidx666, align 4
   %bf.lshr668 = lshr i64 %bf.load667, 28
   %bf.clear669 = and i64 %bf.lshr668, 3
@@ -18679,30 +18696,30 @@ if.end674:                                        ; preds = %do.body663
   br label %do.end676
 
 do.end676:                                        ; preds = %if.end674
-  %275 = load i32, ptr %i, align 4
-  %276 = load ptr, ptr %def, align 8
-  %args_ct677 = getelementptr inbounds %struct.TCGOpDef, ptr %276, i32 0, i32 6
-  %277 = load ptr, ptr %args_ct677, align 8
-  %278 = load i32, ptr %i2, align 4
-  %idxprom678 = sext i32 %278 to i64
-  %arrayidx679 = getelementptr %struct.TCGArgConstraint, ptr %277, i64 %idxprom678
-  %279 = zext i32 %275 to i64
+  %277 = load i32, ptr %i, align 4
+  %278 = load ptr, ptr %def, align 8
+  %args_ct677 = getelementptr inbounds %struct.TCGOpDef, ptr %278, i32 0, i32 6
+  %279 = load ptr, ptr %args_ct677, align 8
+  %280 = load i32, ptr %i2, align 4
+  %idxprom678 = sext i32 %280 to i64
+  %arrayidx679 = getelementptr %struct.TCGArgConstraint, ptr %279, i64 %idxprom678
+  %281 = zext i32 %277 to i64
   %bf.load680 = load i64, ptr %arrayidx679, align 4
-  %bf.value681 = and i64 %279, 15
+  %bf.value681 = and i64 %281, 15
   %bf.shl682 = shl i64 %bf.value681, 24
   %bf.clear683 = and i64 %bf.load680, -251658241
   %bf.set684 = or i64 %bf.clear683, %bf.shl682
   store i64 %bf.set684, ptr %arrayidx679, align 4
-  %280 = load i32, ptr %i2, align 4
-  %281 = load ptr, ptr %def, align 8
-  %args_ct686 = getelementptr inbounds %struct.TCGOpDef, ptr %281, i32 0, i32 6
-  %282 = load ptr, ptr %args_ct686, align 8
-  %283 = load i32, ptr %i, align 4
-  %idxprom687 = sext i32 %283 to i64
-  %arrayidx688 = getelementptr %struct.TCGArgConstraint, ptr %282, i64 %idxprom687
-  %284 = zext i32 %280 to i64
+  %282 = load i32, ptr %i2, align 4
+  %283 = load ptr, ptr %def, align 8
+  %args_ct686 = getelementptr inbounds %struct.TCGOpDef, ptr %283, i32 0, i32 6
+  %284 = load ptr, ptr %args_ct686, align 8
+  %285 = load i32, ptr %i, align 4
+  %idxprom687 = sext i32 %285 to i64
+  %arrayidx688 = getelementptr %struct.TCGArgConstraint, ptr %284, i64 %idxprom687
+  %286 = zext i32 %282 to i64
   %bf.load689 = load i64, ptr %arrayidx688, align 4
-  %bf.value690 = and i64 %284, 15
+  %bf.value690 = and i64 %286, 15
   %bf.shl691 = shl i64 %bf.value690, 24
   %bf.clear692 = and i64 %bf.load689, -251658241
   %bf.set693 = or i64 %bf.clear692, %bf.shl691
@@ -18710,50 +18727,50 @@ do.end676:                                        ; preds = %if.end674
   br label %if.end726
 
 if.else695:                                       ; preds = %do.end647
-  %285 = load ptr, ptr %def, align 8
-  %args_ct696 = getelementptr inbounds %struct.TCGOpDef, ptr %285, i32 0, i32 6
-  %286 = load ptr, ptr %args_ct696, align 8
-  %287 = load i32, ptr %i, align 4
-  %idxprom697 = sext i32 %287 to i64
-  %arrayidx698 = getelementptr %struct.TCGArgConstraint, ptr %286, i64 %idxprom697
+  %287 = load ptr, ptr %def, align 8
+  %args_ct696 = getelementptr inbounds %struct.TCGOpDef, ptr %287, i32 0, i32 6
+  %288 = load ptr, ptr %args_ct696, align 8
+  %289 = load i32, ptr %i, align 4
+  %idxprom697 = sext i32 %289 to i64
+  %arrayidx698 = getelementptr %struct.TCGArgConstraint, ptr %288, i64 %idxprom697
   %bf.load699 = load i64, ptr %arrayidx698, align 4
   %bf.clear700 = and i64 %bf.load699, -805306369
   %bf.set701 = or i64 %bf.clear700, 805306368
   store i64 %bf.set701, ptr %arrayidx698, align 4
-  %288 = load ptr, ptr %def, align 8
-  %args_ct702 = getelementptr inbounds %struct.TCGOpDef, ptr %288, i32 0, i32 6
-  %289 = load ptr, ptr %args_ct702, align 8
-  %290 = load i32, ptr %o2, align 4
-  %idxprom703 = sext i32 %290 to i64
-  %arrayidx704 = getelementptr %struct.TCGArgConstraint, ptr %289, i64 %idxprom703
+  %290 = load ptr, ptr %def, align 8
+  %args_ct702 = getelementptr inbounds %struct.TCGOpDef, ptr %290, i32 0, i32 6
+  %291 = load ptr, ptr %args_ct702, align 8
+  %292 = load i32, ptr %o2, align 4
+  %idxprom703 = sext i32 %292 to i64
+  %arrayidx704 = getelementptr %struct.TCGArgConstraint, ptr %291, i64 %idxprom703
   %bf.load705 = load i64, ptr %arrayidx704, align 4
   %bf.clear706 = and i64 %bf.load705, -805306369
   %bf.set707 = or i64 %bf.clear706, 805306368
   store i64 %bf.set707, ptr %arrayidx704, align 4
-  %291 = load i32, ptr %o2, align 4
-  %292 = load ptr, ptr %def, align 8
-  %args_ct708 = getelementptr inbounds %struct.TCGOpDef, ptr %292, i32 0, i32 6
-  %293 = load ptr, ptr %args_ct708, align 8
-  %294 = load i32, ptr %i, align 4
-  %idxprom709 = sext i32 %294 to i64
-  %arrayidx710 = getelementptr %struct.TCGArgConstraint, ptr %293, i64 %idxprom709
-  %295 = zext i32 %291 to i64
+  %293 = load i32, ptr %o2, align 4
+  %294 = load ptr, ptr %def, align 8
+  %args_ct708 = getelementptr inbounds %struct.TCGOpDef, ptr %294, i32 0, i32 6
+  %295 = load ptr, ptr %args_ct708, align 8
+  %296 = load i32, ptr %i, align 4
+  %idxprom709 = sext i32 %296 to i64
+  %arrayidx710 = getelementptr %struct.TCGArgConstraint, ptr %295, i64 %idxprom709
+  %297 = zext i32 %293 to i64
   %bf.load711 = load i64, ptr %arrayidx710, align 4
-  %bf.value712 = and i64 %295, 15
+  %bf.value712 = and i64 %297, 15
   %bf.shl713 = shl i64 %bf.value712, 24
   %bf.clear714 = and i64 %bf.load711, -251658241
   %bf.set715 = or i64 %bf.clear714, %bf.shl713
   store i64 %bf.set715, ptr %arrayidx710, align 4
-  %296 = load i32, ptr %i, align 4
-  %297 = load ptr, ptr %def, align 8
-  %args_ct717 = getelementptr inbounds %struct.TCGOpDef, ptr %297, i32 0, i32 6
-  %298 = load ptr, ptr %args_ct717, align 8
-  %299 = load i32, ptr %o2, align 4
-  %idxprom718 = sext i32 %299 to i64
-  %arrayidx719 = getelementptr %struct.TCGArgConstraint, ptr %298, i64 %idxprom718
-  %300 = zext i32 %296 to i64
+  %298 = load i32, ptr %i, align 4
+  %299 = load ptr, ptr %def, align 8
+  %args_ct717 = getelementptr inbounds %struct.TCGOpDef, ptr %299, i32 0, i32 6
+  %300 = load ptr, ptr %args_ct717, align 8
+  %301 = load i32, ptr %o2, align 4
+  %idxprom718 = sext i32 %301 to i64
+  %arrayidx719 = getelementptr %struct.TCGArgConstraint, ptr %300, i64 %idxprom718
+  %302 = zext i32 %298 to i64
   %bf.load720 = load i64, ptr %arrayidx719, align 4
-  %bf.value721 = and i64 %300, 15
+  %bf.value721 = and i64 %302, 15
   %bf.shl722 = shl i64 %bf.value721, 24
   %bf.clear723 = and i64 %bf.load720, -251658241
   %bf.set724 = or i64 %bf.clear723, %bf.shl722
@@ -18777,8 +18794,8 @@ sw.epilog731:                                     ; preds = %do.end730, %if.end7
   br label %for.inc732
 
 for.inc732:                                       ; preds = %sw.epilog731, %if.then495
-  %301 = load i32, ptr %i, align 4
-  %inc733 = add i32 %301, 1
+  %303 = load i32, ptr %i, align 4
+  %inc733 = add i32 %303, 1
   store i32 %inc733, ptr %i, align 4
   br label %for.cond484, !llvm.loop !84
 
@@ -18786,27 +18803,27 @@ for.end734:                                       ; preds = %for.cond484
   br label %if.end735
 
 if.end735:                                        ; preds = %for.end734, %do.end479
-  %302 = load ptr, ptr %def, align 8
-  %303 = load ptr, ptr %def, align 8
-  %nb_oargs736 = getelementptr inbounds %struct.TCGOpDef, ptr %303, i32 0, i32 1
-  %304 = load i8, ptr %nb_oargs736, align 8
-  %conv737 = zext i8 %304 to i32
-  call void @sort_constraints(ptr noundef %302, i32 noundef 0, i32 noundef %conv737)
+  %304 = load ptr, ptr %def, align 8
   %305 = load ptr, ptr %def, align 8
-  %306 = load ptr, ptr %def, align 8
-  %nb_oargs738 = getelementptr inbounds %struct.TCGOpDef, ptr %306, i32 0, i32 1
-  %307 = load i8, ptr %nb_oargs738, align 8
-  %conv739 = zext i8 %307 to i32
+  %nb_oargs736 = getelementptr inbounds %struct.TCGOpDef, ptr %305, i32 0, i32 1
+  %306 = load i8, ptr %nb_oargs736, align 8
+  %conv737 = zext i8 %306 to i32
+  call void @sort_constraints(ptr noundef %304, i32 noundef 0, i32 noundef %conv737)
+  %307 = load ptr, ptr %def, align 8
   %308 = load ptr, ptr %def, align 8
-  %nb_iargs740 = getelementptr inbounds %struct.TCGOpDef, ptr %308, i32 0, i32 2
-  %309 = load i8, ptr %nb_iargs740, align 1
-  %conv741 = zext i8 %309 to i32
-  call void @sort_constraints(ptr noundef %305, i32 noundef %conv739, i32 noundef %conv741)
+  %nb_oargs738 = getelementptr inbounds %struct.TCGOpDef, ptr %308, i32 0, i32 1
+  %309 = load i8, ptr %nb_oargs738, align 8
+  %conv739 = zext i8 %309 to i32
+  %310 = load ptr, ptr %def, align 8
+  %nb_iargs740 = getelementptr inbounds %struct.TCGOpDef, ptr %310, i32 0, i32 2
+  %311 = load i8, ptr %nb_iargs740, align 1
+  %conv741 = zext i8 %311 to i32
+  call void @sort_constraints(ptr noundef %307, i32 noundef %conv739, i32 noundef %conv741)
   br label %for.inc742
 
 for.inc742:                                       ; preds = %if.end735, %if.then5, %if.then
-  %310 = load i32, ptr %op, align 4
-  %inc743 = add i32 %310, 1
+  %312 = load i32, ptr %op, align 4
+  %inc743 = add i32 %312, 1
   store i32 %inc743, ptr %op, align 4
   br label %for.cond, !llvm.loop !85
 
@@ -19734,7 +19751,7 @@ entry:
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #1
 
-declare ptr @g_ptr_array_new_with_free_func(ptr noundef) #7
+declare ptr @g_ptr_array_new_with_free_func(ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_plugin_insn_cleanup_fn(ptr noundef %data) #0 {
@@ -19751,7 +19768,7 @@ entry:
   ret void
 }
 
-declare ptr @g_byte_array_free(ptr noundef, i32 noundef) #7
+declare ptr @g_byte_array_free(ptr noundef, i32 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_out_push(ptr noundef %s, i32 noundef %reg) #0 {
@@ -20480,7 +20497,7 @@ if.end50:                                         ; preds = %if.end49, %if.end37
   ret void
 }
 
-declare i32 @arch_prctl(i32 noundef, i64 noundef) #7
+declare i32 @arch_prctl(i32 noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_out_movi_int(ptr noundef %s, i32 noundef %type, i32 noundef %ret, i64 noundef %arg) #0 {
@@ -21236,7 +21253,7 @@ for.end:                                          ; preds = %if.then12, %if.then
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #12
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tgen_arithi(ptr noundef %s, i32 noundef %c, i32 noundef %r0, i64 noundef %val, i32 noundef %cf) #0 {
@@ -21809,7 +21826,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal void @tcg_raise_tb_overflow(ptr noundef %s) #13 {
+define internal void @tcg_raise_tb_overflow(ptr noundef %s) #12 {
 entry:
   %s.addr = alloca ptr, align 8
   store ptr %s, ptr %s.addr, align 8
@@ -21821,11 +21838,11 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @siglongjmp(ptr noundef, i32 noundef) #10
+declare void @siglongjmp(ptr noundef, i32 noundef) #9
 
-declare i32 @g_once_init_enter(ptr noundef) #7
+declare i32 @g_once_init_enter(ptr noundef) #6
 
-declare void @g_once_init_leave(ptr noundef, i64 noundef) #7
+declare void @g_once_init_leave(ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @ctz32(i32 noundef %val) #0 {
@@ -21849,9 +21866,9 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   ret i32 %cond
 }
 
-declare void @tcg_gen_ext_i32_i64(ptr noundef, ptr noundef) #7
+declare void @tcg_gen_ext_i32_i64(ptr noundef, ptr noundef) #6
 
-declare void @tcg_gen_extu_i32_i64(ptr noundef, ptr noundef) #7
+declare void @tcg_gen_extu_i32_i64(ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @tcgv_i64_arg(ptr noundef %v) #0 {
@@ -21994,7 +22011,7 @@ entry:
   ret i32 %and
 }
 
-declare i32 @putc(i32 noundef, ptr noundef) #7
+declare i32 @putc(i32 noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @output_pref(ptr noundef %op, i32 noundef %i) #0 {
@@ -22157,10 +22174,10 @@ sw.epilog31:                                      ; preds = %sw.epilog, %sw.bb4,
   ret ptr %30
 }
 
-declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) #7
+declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #14
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @move_label_uses(ptr noundef %to, ptr noundef %from) #0 {
@@ -25450,22 +25467,23 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %14 = load ptr, ptr %s.addr, align 8
-  %15 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_available_regs, i64 0, i64 1), align 4
-  %16 = load ptr, ptr %allocated_regs.addr, align 8
-  %17 = load i32, ptr %16, align 4
-  %call1 = call i32 @tcg_reg_alloc(ptr noundef %14, i32 noundef %15, i32 noundef %17, i32 noundef 0, i1 noundef zeroext false)
+  %15 = getelementptr inbounds [6 x i32], ptr @tcg_target_available_regs, i64 0, i64 1
+  %16 = load i32, ptr %15, align 4
+  %17 = load ptr, ptr %allocated_regs.addr, align 8
+  %18 = load i32, ptr %17, align 4
+  %call1 = call i32 @tcg_reg_alloc(ptr noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef 0, i1 noundef zeroext false)
   store i32 %call1, ptr %reg, align 4
-  %18 = load ptr, ptr %s.addr, align 8
-  %19 = load i32, ptr %reg, align 4
-  %20 = load i32, ptr %ref_base.addr, align 4
-  %21 = load i64, ptr %ref_off.addr, align 8
-  call void @tcg_out_addi_ptr(ptr noundef %18, i32 noundef %19, i32 noundef %20, i64 noundef %21)
-  %22 = load ptr, ptr %s.addr, align 8
-  %23 = load i32, ptr %reg, align 4
-  %24 = load i32, ptr %arg_slot.addr, align 4
-  %call2 = call i32 @arg_slot_stk_ofs(i32 noundef %24)
+  %19 = load ptr, ptr %s.addr, align 8
+  %20 = load i32, ptr %reg, align 4
+  %21 = load i32, ptr %ref_base.addr, align 4
+  %22 = load i64, ptr %ref_off.addr, align 8
+  call void @tcg_out_addi_ptr(ptr noundef %19, i32 noundef %20, i32 noundef %21, i64 noundef %22)
+  %23 = load ptr, ptr %s.addr, align 8
+  %24 = load i32, ptr %reg, align 4
+  %25 = load i32, ptr %arg_slot.addr, align 4
+  %call2 = call i32 @arg_slot_stk_ofs(i32 noundef %25)
   %conv = sext i32 %call2 to i64
-  call void @tcg_out_st(ptr noundef %22, i32 noundef 1, i32 noundef %23, i32 noundef 4, i64 noundef %conv)
+  call void @tcg_out_st(ptr noundef %23, i32 noundef 1, i32 noundef %24, i32 noundef 4, i64 noundef %conv)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -30484,110 +30502,114 @@ if.end23:                                         ; preds = %if.then22, %if.then
 if.then37:                                        ; preds = %if.end23
   %57 = load ptr, ptr %s.addr, align 8
   %58 = load i32, ptr %ttype, align 4
-  %59 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1), align 4
-  %60 = load i32, ptr %addrlo.addr, align 4
-  %call38 = call zeroext i1 @tcg_out_mov(ptr noundef %57, i32 noundef %58, i32 noundef %59, i32 noundef %60)
+  %59 = getelementptr inbounds [6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1
+  %60 = load i32, ptr %59, align 4
+  %61 = load i32, ptr %addrlo.addr, align 4
+  %call38 = call zeroext i1 @tcg_out_mov(ptr noundef %57, i32 noundef %58, i32 noundef %60, i32 noundef %61)
   br label %if.end43
 
 if.else39:                                        ; preds = %if.end23
-  %61 = load ptr, ptr %s.addr, align 8
-  %62 = load i32, ptr %trexw, align 4
-  %add40 = add i32 141, %62
-  %63 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1), align 4
-  %64 = load i32, ptr %addrlo.addr, align 4
-  %65 = load i32, ptr %s_mask, align 4
-  %66 = load i32, ptr %a_mask, align 4
-  %sub41 = sub i32 %65, %66
+  %62 = load ptr, ptr %s.addr, align 8
+  %63 = load i32, ptr %trexw, align 4
+  %add40 = add i32 141, %63
+  %64 = getelementptr inbounds [6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1
+  %65 = load i32, ptr %64, align 4
+  %66 = load i32, ptr %addrlo.addr, align 4
+  %67 = load i32, ptr %s_mask, align 4
+  %68 = load i32, ptr %a_mask, align 4
+  %sub41 = sub i32 %67, %68
   %conv42 = zext i32 %sub41 to i64
-  call void @tcg_out_modrm_offset(ptr noundef %61, i32 noundef %add40, i32 noundef %63, i32 noundef %64, i64 noundef %conv42)
+  call void @tcg_out_modrm_offset(ptr noundef %62, i32 noundef %add40, i32 noundef %65, i32 noundef %66, i64 noundef %conv42)
   br label %if.end43
 
 if.end43:                                         ; preds = %if.else39, %if.then37
-  %67 = load ptr, ptr %s.addr, align 8
-  %page_mask = getelementptr inbounds %struct.TCGContext, ptr %67, i32 0, i32 11
-  %68 = load i32, ptr %page_mask, align 8
-  %69 = load i32, ptr %a_mask, align 4
-  %or = or i32 %68, %69
+  %69 = load ptr, ptr %s.addr, align 8
+  %page_mask = getelementptr inbounds %struct.TCGContext, ptr %69, i32 0, i32 11
+  %70 = load i32, ptr %page_mask, align 8
+  %71 = load i32, ptr %a_mask, align 4
+  %or = or i32 %70, %71
   store i32 %or, ptr %tlb_mask, align 4
-  %70 = load ptr, ptr %s.addr, align 8
-  %71 = load i32, ptr %trexw, align 4
-  %add44 = add i32 4, %71
-  %72 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1), align 4
-  %73 = load i32, ptr %tlb_mask, align 4
-  %conv45 = sext i32 %73 to i64
-  call void @tgen_arithi(ptr noundef %70, i32 noundef %add44, i32 noundef %72, i64 noundef %conv45, i32 noundef 0)
-  %74 = load ptr, ptr %s.addr, align 8
-  %75 = load i32, ptr %trexw, align 4
-  %add46 = add i32 59, %75
-  %76 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1), align 4
-  %77 = load i32, ptr @tcg_target_call_iarg_regs, align 16
-  %78 = load i32, ptr %cmp_ofs, align 4
-  %conv47 = sext i32 %78 to i64
-  call void @tcg_out_modrm_offset(ptr noundef %74, i32 noundef %add46, i32 noundef %76, i32 noundef %77, i64 noundef %conv47)
-  %79 = load ptr, ptr %s.addr, align 8
-  call void @tcg_out_opc(ptr noundef %79, i32 noundef 389, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %80 = load ptr, ptr %s.addr, align 8
-  %code_ptr = getelementptr inbounds %struct.TCGContext, ptr %80, i32 0, i32 23
-  %81 = load ptr, ptr %code_ptr, align 8
-  %82 = load ptr, ptr %ldst, align 8
-  %label_ptr = getelementptr inbounds %struct.TCGLabelQemuLdst, ptr %82, i32 0, i32 8
-  %arrayidx = getelementptr [2 x ptr], ptr %label_ptr, i64 0, i64 0
-  store ptr %81, ptr %arrayidx, align 8
+  %72 = load ptr, ptr %s.addr, align 8
+  %73 = load i32, ptr %trexw, align 4
+  %add44 = add i32 4, %73
+  %74 = getelementptr inbounds [6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1
+  %75 = load i32, ptr %74, align 4
+  %76 = load i32, ptr %tlb_mask, align 4
+  %conv45 = sext i32 %76 to i64
+  call void @tgen_arithi(ptr noundef %72, i32 noundef %add44, i32 noundef %75, i64 noundef %conv45, i32 noundef 0)
+  %77 = load ptr, ptr %s.addr, align 8
+  %78 = load i32, ptr %trexw, align 4
+  %add46 = add i32 59, %78
+  %79 = getelementptr inbounds [6 x i32], ptr @tcg_target_call_iarg_regs, i64 0, i64 1
+  %80 = load i32, ptr %79, align 4
+  %81 = load i32, ptr @tcg_target_call_iarg_regs, align 16
+  %82 = load i32, ptr %cmp_ofs, align 4
+  %conv47 = sext i32 %82 to i64
+  call void @tcg_out_modrm_offset(ptr noundef %77, i32 noundef %add46, i32 noundef %80, i32 noundef %81, i64 noundef %conv47)
   %83 = load ptr, ptr %s.addr, align 8
-  %code_ptr48 = getelementptr inbounds %struct.TCGContext, ptr %83, i32 0, i32 23
-  %84 = load ptr, ptr %code_ptr48, align 8
-  %add.ptr = getelementptr i8, ptr %84, i64 4
+  call void @tcg_out_opc(ptr noundef %83, i32 noundef 389, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %84 = load ptr, ptr %s.addr, align 8
+  %code_ptr = getelementptr inbounds %struct.TCGContext, ptr %84, i32 0, i32 23
+  %85 = load ptr, ptr %code_ptr, align 8
+  %86 = load ptr, ptr %ldst, align 8
+  %label_ptr = getelementptr inbounds %struct.TCGLabelQemuLdst, ptr %86, i32 0, i32 8
+  %arrayidx = getelementptr [2 x ptr], ptr %label_ptr, i64 0, i64 0
+  store ptr %85, ptr %arrayidx, align 8
+  %87 = load ptr, ptr %s.addr, align 8
+  %code_ptr48 = getelementptr inbounds %struct.TCGContext, ptr %87, i32 0, i32 23
+  %88 = load ptr, ptr %code_ptr48, align 8
+  %add.ptr = getelementptr i8, ptr %88, i64 4
   store ptr %add.ptr, ptr %code_ptr48, align 8
-  %85 = load ptr, ptr %s.addr, align 8
-  %86 = load i32, ptr @tcg_target_call_iarg_regs, align 16
-  %87 = load i32, ptr @tcg_target_call_iarg_regs, align 16
-  call void @tcg_out_ld(ptr noundef %85, i32 noundef 1, i32 noundef %86, i32 noundef %87, i64 noundef 24)
+  %89 = load ptr, ptr %s.addr, align 8
+  %90 = load i32, ptr @tcg_target_call_iarg_regs, align 16
+  %91 = load i32, ptr @tcg_target_call_iarg_regs, align 16
+  call void @tcg_out_ld(ptr noundef %89, i32 noundef 1, i32 noundef %90, i32 noundef %91, i64 noundef 24)
   br label %if.end65
 
 if.else49:                                        ; preds = %if.end
-  %88 = load i32, ptr %a_mask, align 4
-  %tobool50 = icmp ne i32 %88, 0
+  %92 = load i32, ptr %a_mask, align 4
+  %tobool50 = icmp ne i32 %92, 0
   br i1 %tobool50, label %if.then51, label %if.end64
 
 if.then51:                                        ; preds = %if.else49
-  %89 = load ptr, ptr %s.addr, align 8
-  %call52 = call ptr @new_ldst_label(ptr noundef %89)
+  %93 = load ptr, ptr %s.addr, align 8
+  %call52 = call ptr @new_ldst_label(ptr noundef %93)
   store ptr %call52, ptr %ldst, align 8
-  %90 = load i8, ptr %is_ld.addr, align 1
-  %tobool53 = trunc i8 %90 to i1
-  %91 = load ptr, ptr %ldst, align 8
-  %is_ld54 = getelementptr inbounds %struct.TCGLabelQemuLdst, ptr %91, i32 0, i32 0
+  %94 = load i8, ptr %is_ld.addr, align 1
+  %tobool53 = trunc i8 %94 to i1
+  %95 = load ptr, ptr %ldst, align 8
+  %is_ld54 = getelementptr inbounds %struct.TCGLabelQemuLdst, ptr %95, i32 0, i32 0
   %frombool55 = zext i1 %tobool53 to i8
   store i8 %frombool55, ptr %is_ld54, align 8
-  %92 = load i32, ptr %oi.addr, align 4
-  %93 = load ptr, ptr %ldst, align 8
-  %oi56 = getelementptr inbounds %struct.TCGLabelQemuLdst, ptr %93, i32 0, i32 1
-  store i32 %92, ptr %oi56, align 4
-  %94 = load i32, ptr %addrlo.addr, align 4
-  %95 = load ptr, ptr %ldst, align 8
-  %addrlo_reg57 = getelementptr inbounds %struct.TCGLabelQemuLdst, ptr %95, i32 0, i32 3
-  store i32 %94, ptr %addrlo_reg57, align 4
-  %96 = load i32, ptr %addrhi.addr, align 4
+  %96 = load i32, ptr %oi.addr, align 4
   %97 = load ptr, ptr %ldst, align 8
-  %addrhi_reg58 = getelementptr inbounds %struct.TCGLabelQemuLdst, ptr %97, i32 0, i32 4
-  store i32 %96, ptr %addrhi_reg58, align 8
-  %98 = load ptr, ptr %s.addr, align 8
-  %99 = load i32, ptr %addrlo.addr, align 4
-  %100 = load i32, ptr %a_mask, align 4
-  call void @tcg_out_testi(ptr noundef %98, i32 noundef %99, i32 noundef %100)
-  %101 = load ptr, ptr %s.addr, align 8
-  call void @tcg_out_opc(ptr noundef %101, i32 noundef 389, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %oi56 = getelementptr inbounds %struct.TCGLabelQemuLdst, ptr %97, i32 0, i32 1
+  store i32 %96, ptr %oi56, align 4
+  %98 = load i32, ptr %addrlo.addr, align 4
+  %99 = load ptr, ptr %ldst, align 8
+  %addrlo_reg57 = getelementptr inbounds %struct.TCGLabelQemuLdst, ptr %99, i32 0, i32 3
+  store i32 %98, ptr %addrlo_reg57, align 4
+  %100 = load i32, ptr %addrhi.addr, align 4
+  %101 = load ptr, ptr %ldst, align 8
+  %addrhi_reg58 = getelementptr inbounds %struct.TCGLabelQemuLdst, ptr %101, i32 0, i32 4
+  store i32 %100, ptr %addrhi_reg58, align 8
   %102 = load ptr, ptr %s.addr, align 8
-  %code_ptr59 = getelementptr inbounds %struct.TCGContext, ptr %102, i32 0, i32 23
-  %103 = load ptr, ptr %code_ptr59, align 8
-  %104 = load ptr, ptr %ldst, align 8
-  %label_ptr60 = getelementptr inbounds %struct.TCGLabelQemuLdst, ptr %104, i32 0, i32 8
-  %arrayidx61 = getelementptr [2 x ptr], ptr %label_ptr60, i64 0, i64 0
-  store ptr %103, ptr %arrayidx61, align 8
+  %103 = load i32, ptr %addrlo.addr, align 4
+  %104 = load i32, ptr %a_mask, align 4
+  call void @tcg_out_testi(ptr noundef %102, i32 noundef %103, i32 noundef %104)
   %105 = load ptr, ptr %s.addr, align 8
-  %code_ptr62 = getelementptr inbounds %struct.TCGContext, ptr %105, i32 0, i32 23
-  %106 = load ptr, ptr %code_ptr62, align 8
-  %add.ptr63 = getelementptr i8, ptr %106, i64 4
+  call void @tcg_out_opc(ptr noundef %105, i32 noundef 389, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %106 = load ptr, ptr %s.addr, align 8
+  %code_ptr59 = getelementptr inbounds %struct.TCGContext, ptr %106, i32 0, i32 23
+  %107 = load ptr, ptr %code_ptr59, align 8
+  %108 = load ptr, ptr %ldst, align 8
+  %label_ptr60 = getelementptr inbounds %struct.TCGLabelQemuLdst, ptr %108, i32 0, i32 8
+  %arrayidx61 = getelementptr [2 x ptr], ptr %label_ptr60, i64 0, i64 0
+  store ptr %107, ptr %arrayidx61, align 8
+  %109 = load ptr, ptr %s.addr, align 8
+  %code_ptr62 = getelementptr inbounds %struct.TCGContext, ptr %109, i32 0, i32 23
+  %110 = load ptr, ptr %code_ptr62, align 8
+  %add.ptr63 = getelementptr i8, ptr %110, i64 4
   store ptr %add.ptr63, ptr %code_ptr62, align 8
   br label %if.end64
 
@@ -30595,8 +30617,8 @@ if.end64:                                         ; preds = %if.then51, %if.else
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end64, %if.end43
-  %107 = load ptr, ptr %ldst, align 8
-  ret ptr %107
+  %111 = load ptr, ptr %ldst, align 8
+  ret ptr %111
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -33714,21 +33736,21 @@ if.end:                                           ; preds = %if.then, %entry
   ret i32 %6
 }
 
-declare i64 @helper_ldub_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #7
+declare i64 @helper_ldub_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #6
 
-declare i64 @helper_lduw_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #7
+declare i64 @helper_lduw_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #6
 
-declare i64 @helper_ldul_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #7
+declare i64 @helper_ldul_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #6
 
-declare i64 @helper_ldq_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #7
+declare i64 @helper_ldq_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #6
 
-declare { i64, i64 } @helper_ld16_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #7
+declare { i64, i64 } @helper_ld16_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #6
 
-declare i64 @helper_ldsb_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #7
+declare i64 @helper_ldsb_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #6
 
-declare i64 @helper_ldsw_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #7
+declare i64 @helper_ldsw_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #6
 
-declare i64 @helper_ldsl_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #7
+declare i64 @helper_ldsl_mmu(ptr noundef, i64 noundef, i32 noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcg_out_st_helper_args(ptr noundef %s, ptr noundef %ldst, ptr noundef %parm) #0 {
@@ -34010,15 +34032,15 @@ sw.epilog71:                                      ; preds = %do.end70, %if.end66
   ret void
 }
 
-declare void @helper_stb_mmu(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i64 noundef) #7
+declare void @helper_stb_mmu(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i64 noundef) #6
 
-declare void @helper_stw_mmu(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i64 noundef) #7
+declare void @helper_stw_mmu(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i64 noundef) #6
 
-declare void @helper_stl_mmu(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i64 noundef) #7
+declare void @helper_stl_mmu(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i64 noundef) #6
 
-declare void @helper_stq_mmu(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef) #7
+declare void @helper_stq_mmu(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef) #6
 
-declare void @helper_st16_mmu(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef) #7
+declare void @helper_st16_mmu(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @find_string(ptr noundef %strtab, ptr noundef %str) #0 {
@@ -34060,26 +34082,32 @@ if.end:                                           ; preds = %while.body
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #12
+declare i32 @strcmp(ptr noundef, ptr noundef) #11
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #12
+declare i64 @strlen(ptr noundef) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #9 = { noreturn "dontcall-error"="code path is reachable" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { noreturn "dontcall-error"="code path is reachable" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind willreturn }
 attributes #15 = { noreturn }
 attributes #16 = { allocsize(0) }
 attributes #17 = { allocsize(0,1) }

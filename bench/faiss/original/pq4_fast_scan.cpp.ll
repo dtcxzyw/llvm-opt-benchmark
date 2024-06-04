@@ -741,9 +741,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
   ret void
 }
@@ -1344,26 +1345,27 @@ define void @_ZN5faiss13CodePackerPQ4C2Emm(ptr noundef nonnull align 8 dereferen
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5faiss10CodePackerC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss13CodePackerPQ4E, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = getelementptr inbounds %"struct.faiss::CodePackerPQ4", ptr %7, i32 0, i32 1
-  store i64 %8, ptr %9, align 8
-  %10 = load i64, ptr %6, align 8
-  %11 = getelementptr inbounds %"struct.faiss::CodePacker", ptr %7, i32 0, i32 2
-  store i64 %10, ptr %11, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = mul i64 %12, 4
-  %14 = add i64 %13, 7
-  %15 = udiv i64 %14, 8
-  %16 = getelementptr inbounds %"struct.faiss::CodePacker", ptr %7, i32 0, i32 1
-  store i64 %15, ptr %16, align 8
-  %17 = load i64, ptr %5, align 8
-  %18 = add i64 %17, 1
-  %19 = udiv i64 %18, 2
-  %20 = load i64, ptr %6, align 8
-  %21 = mul i64 %19, %20
-  %22 = getelementptr inbounds %"struct.faiss::CodePacker", ptr %7, i32 0, i32 3
-  store i64 %21, ptr %22, align 8
+  %8 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss13CodePackerPQ4E, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = load i64, ptr %5, align 8
+  %10 = getelementptr inbounds %"struct.faiss::CodePackerPQ4", ptr %7, i32 0, i32 1
+  store i64 %9, ptr %10, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = getelementptr inbounds %"struct.faiss::CodePacker", ptr %7, i32 0, i32 2
+  store i64 %11, ptr %12, align 8
+  %13 = load i64, ptr %5, align 8
+  %14 = mul i64 %13, 4
+  %15 = add i64 %14, 7
+  %16 = udiv i64 %15, 8
+  %17 = getelementptr inbounds %"struct.faiss::CodePacker", ptr %7, i32 0, i32 1
+  store i64 %16, ptr %17, align 8
+  %18 = load i64, ptr %5, align 8
+  %19 = add i64 %18, 1
+  %20 = udiv i64 %19, 2
+  %21 = load i64, ptr %6, align 8
+  %22 = mul i64 %20, %21
+  %23 = getelementptr inbounds %"struct.faiss::CodePacker", ptr %7, i32 0, i32 3
+  store i64 %22, ptr %23, align 8
   ret void
 }
 
@@ -1372,7 +1374,8 @@ define linkonce_odr void @_ZN5faiss10CodePackerC2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss10CodePackerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss10CodePackerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

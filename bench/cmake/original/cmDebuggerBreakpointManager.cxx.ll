@@ -7758,10 +7758,11 @@ define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoISt6vectorINS_3anyESaI
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3dap8TypeInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt6vectorINS_3anyESaIS2_EEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.dap::BasicTypeInfo", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  %6 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt6vectorINS_3anyESaIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.dap::BasicTypeInfo", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   ret void
 }
 
@@ -7772,7 +7773,8 @@ define linkonce_odr dso_local void @_ZN3dap8TypeInfoC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap8TypeInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3dap8TypeInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7784,9 +7786,10 @@ define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoISt6vectorINS_3anyESaI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt6vectorINS_3anyESaIS2_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.dap::BasicTypeInfo", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt6vectorINS_3anyESaIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.dap::BasicTypeInfo", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }

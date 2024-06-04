@@ -56,72 +56,74 @@ define void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull ali
   store i32 %6, ptr %13, align 4
   %19 = load ptr, ptr %9, align 8
   call void @_ZN15QGraphicsObjectC2EP13QGraphicsItem(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef null)
-  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV6Handle, i32 0, i32 0, i32 2), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
-  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV6Handle, i32 0, i32 1, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds %class.Handle, ptr %19, i32 0, i32 1
-  call void @_ZN6QColorC2Ev(ptr noundef nonnull align 4 dereferenceable(14) %21) #7
-  %22 = getelementptr inbounds %class.Handle, ptr %19, i32 0, i32 3
-  %23 = load ptr, ptr %10, align 8
-  store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds %class.Handle, ptr %19, i32 0, i32 1
-  %25 = call noundef nonnull align 4 dereferenceable(14) ptr @_ZN6QColoraSERKS_(ptr noundef nonnull align 4 dereferenceable(14) %24, ptr noundef nonnull align 4 dereferenceable(14) %2) #7
-  %26 = getelementptr inbounds i8, ptr %19, i64 16
-  invoke void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %27 unwind label %37
-
-27:                                               ; preds = %7
+  %20 = getelementptr inbounds { [19 x ptr], [39 x ptr] }, ptr @_ZTV6Handle, i32 0, i32 0, i32 2
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds { [19 x ptr], [39 x ptr] }, ptr @_ZTV6Handle, i32 0, i32 1, i32 2
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %class.Handle, ptr %19, i32 0, i32 1
+  call void @_ZN6QColorC2Ev(ptr noundef nonnull align 4 dereferenceable(14) %23) #7
+  %24 = getelementptr inbounds %class.Handle, ptr %19, i32 0, i32 3
+  %25 = load ptr, ptr %10, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds %class.Handle, ptr %19, i32 0, i32 1
+  %27 = call noundef nonnull align 4 dereferenceable(14) ptr @_ZN6QColoraSERKS_(ptr noundef nonnull align 4 dereferenceable(14) %26, ptr noundef nonnull align 4 dereferenceable(14) %2) #7
   %28 = getelementptr inbounds i8, ptr %19, i64 16
-  %29 = load i32, ptr %12, align 4
-  %30 = sitofp i32 %29 to double
-  invoke void @_ZN13QGraphicsItem9setZValueEd(ptr noundef nonnull align 8 dereferenceable(16) %28, double noundef %30)
-          to label %31 unwind label %37
+  invoke void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %29 unwind label %39
 
-31:                                               ; preds = %27
-  %32 = load i32, ptr %13, align 4
-  %33 = getelementptr inbounds %class.Handle, ptr %19, i32 0, i32 2
-  store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %19, i64 16
+29:                                               ; preds = %7
+  %30 = getelementptr inbounds i8, ptr %19, i64 16
+  %31 = load i32, ptr %12, align 4
+  %32 = sitofp i32 %31 to double
+  invoke void @_ZN13QGraphicsItem9setZValueEd(ptr noundef nonnull align 8 dereferenceable(16) %30, double noundef %32)
+          to label %33 unwind label %39
+
+33:                                               ; preds = %29
+  %34 = load i32, ptr %13, align 4
+  %35 = getelementptr inbounds %class.Handle, ptr %19, i32 0, i32 2
+  store i32 %34, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %19, i64 16
   invoke void @_ZN7QCursorC1EN2Qt11CursorShapeE(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef 17)
-          to label %35 unwind label %37
+          to label %37 unwind label %39
 
-35:                                               ; preds = %31
-  invoke void @_ZN13QGraphicsItem9setCursorERK7QCursor(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %36 unwind label %41
+37:                                               ; preds = %33
+  invoke void @_ZN13QGraphicsItem9setCursorERK7QCursor(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %38 unwind label %43
 
-36:                                               ; preds = %35
+38:                                               ; preds = %37
   call void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #7
   ret void
 
-37:                                               ; preds = %31, %27, %7
-  %38 = landingpad { ptr, i32 }
+39:                                               ; preds = %33, %29, %7
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %14, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %15, align 4
-  br label %45
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %14, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %15, align 4
+  br label %47
 
-41:                                               ; preds = %35
-  %42 = landingpad { ptr, i32 }
+43:                                               ; preds = %37
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %14, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %15, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %14, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %15, align 4
   call void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #7
-  br label %45
+  br label %47
 
-45:                                               ; preds = %41, %37
+47:                                               ; preds = %43, %39
   call void @_ZN15QGraphicsObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
-  br label %46
+  br label %48
 
-46:                                               ; preds = %45
-  %47 = load ptr, ptr %14, align 8
-  %48 = load i32, ptr %15, align 4
-  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
-  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
-  resume { ptr, i32 } %50
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %14, align 8
+  %50 = load i32, ptr %15, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
 declare void @_ZN15QGraphicsObjectC2EP13QGraphicsItem(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #1

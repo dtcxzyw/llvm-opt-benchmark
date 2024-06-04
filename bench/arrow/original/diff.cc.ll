@@ -13796,10 +13796,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #4
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #4
   ret void
 }
 
@@ -13809,7 +13810,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -15558,10 +15560,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter.113", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #4
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #4
   ret void
 }
 
@@ -20199,13 +20202,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12BooleanArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12BooleanArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -20239,7 +20243,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow15ValueComparatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow15ValueComparatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21212,13 +21217,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_8Int8TypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_8Int8TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.187", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.187", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -21765,13 +21771,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9UInt8TypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9UInt8TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.199", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.199", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -22318,13 +22325,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9Int16TypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9Int16TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.211", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.211", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -22871,13 +22879,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10UInt16TypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10UInt16TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.223", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.223", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -23424,13 +23433,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9Int32TypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9Int32TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.235", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.235", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -23975,13 +23985,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10UInt32TypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10UInt32TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.247", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.247", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -24526,13 +24537,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9Int64TypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9Int64TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.258", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.258", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -25046,13 +25058,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10UInt64TypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10UInt64TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.270", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.270", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -25597,13 +25610,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_13HalfFloatTypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_13HalfFloatTypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.282", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.282", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -26150,13 +26164,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9FloatTypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9FloatTypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.294", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.294", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -26701,13 +26716,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10DoubleTypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10DoubleTypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.306", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.306", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -27252,13 +27268,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_11StringArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_11StringArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.317", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.317", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -28056,13 +28073,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15StringViewArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15StringViewArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.328", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.328", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -28595,13 +28613,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_11BinaryArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_11BinaryArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.339", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.339", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -29132,13 +29151,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15BinaryViewArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15BinaryViewArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.350", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.350", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -29669,13 +29689,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_16LargeStringArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_16LargeStringArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.362", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.362", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -30246,13 +30267,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_16LargeBinaryArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_16LargeBinaryArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.373", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.373", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -30783,13 +30805,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_20FixedSizeBinaryArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_20FixedSizeBinaryArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.384", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.384", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -31351,13 +31374,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_12DurationTypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_12DurationTypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.396", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.396", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -31902,13 +31926,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Date32TypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Date32TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.408", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.408", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -32453,13 +32478,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Date64TypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Date64TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.420", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.420", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -33004,13 +33030,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_13TimestampTypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_13TimestampTypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.432", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.432", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -33555,13 +33582,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Time32TypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Time32TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.444", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.444", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -34106,13 +34134,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Time64TypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Time64TypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.456", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.456", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -34657,13 +34686,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_25MonthDayNanoIntervalArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_25MonthDayNanoIntervalArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.467", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.467", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -35252,13 +35282,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_17MonthIntervalTypeEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_17MonthIntervalTypeEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.479", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.479", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -35803,13 +35834,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_20DayTimeIntervalArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_20DayTimeIntervalArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.490", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.490", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -36364,13 +36396,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15Decimal128ArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15Decimal128ArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.501", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.501", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -36901,13 +36934,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15Decimal256ArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15Decimal256ArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.512", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.512", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -37438,13 +37472,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_9ListArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_9ListArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.523", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.523", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -38102,13 +38137,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_14LargeListArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_14LargeListArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.536", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.536", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -38792,13 +38828,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_8MapArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_8MapArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.547", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.547", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -39315,13 +39352,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_18FixedSizeListArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_18FixedSizeListArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.558", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.558", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -39866,13 +39904,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_11StructArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_11StructArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.569", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.569", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -40419,13 +40458,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_16SparseUnionArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_16SparseUnionArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.580", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.580", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -40945,13 +40985,14 @@ entry:
   store ptr %target, ptr %target.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15DenseUnionArrayEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15DenseUnionArrayEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base2 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.591", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base2, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base2, align 8
   %target3 = getelementptr inbounds %"struct.arrow::DefaultValueComparator.591", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target3, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target3, align 8
   ret void
 }
 
@@ -41505,20 +41546,21 @@ entry:
   store ptr %inner_value_comparator, ptr %inner_value_comparator.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIsEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIsEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base_ = getelementptr inbounds %"class.arrow::REEValueComparator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base_, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base_, align 8
   %target_ = getelementptr inbounds %"class.arrow::REEValueComparator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target_, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target_, align 8
   %inner_value_comparator_ = getelementptr inbounds %"class.arrow::REEValueComparator", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %inner_value_comparator.addr, align 8
-  call void @_ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %inner_value_comparator_, ptr noundef nonnull align 8 dereferenceable(8) %2) #4
+  %3 = load ptr, ptr %inner_value_comparator.addr, align 8
+  call void @_ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %inner_value_comparator_, ptr noundef nonnull align 8 dereferenceable(8) %3) #4
   %base_physical_index_finder_ = getelementptr inbounds %"class.arrow::REEValueComparator", ptr %this1, i32 0, i32 4
   %base_2 = getelementptr inbounds %"class.arrow::REEValueComparator", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %base_2, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %4 = load ptr, ptr %base_2, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -41529,8 +41571,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   %target_physical_index_finder_ = getelementptr inbounds %"class.arrow::REEValueComparator", ptr %this1, i32 0, i32 5
   %target_5 = getelementptr inbounds %"class.arrow::REEValueComparator", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %target_5, align 8
-  %call8 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %5 = load ptr, ptr %target_5, align 8
+  %call8 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -41546,27 +41588,27 @@ while.cond:                                       ; preds = %while.body, %invoke
 
 while.body:                                       ; preds = %while.cond
   %base_11 = getelementptr inbounds %"class.arrow::REEValueComparator", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %base_11, align 8
-  %call12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %6 = load ptr, ptr %base_11, align 8
+  %call12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
   %call13 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNKSt19__shared_ptr_accessIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #4
   br label %while.cond, !llvm.loop !25
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont7, %invoke.cont4
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN5arrow8ree_util8internal19PhysicalIndexFinderIsED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %base_physical_index_finder_) #4
   br label %ehcleanup
 
@@ -41578,8 +41620,8 @@ while.cond14:                                     ; preds = %while.body15, %whil
 
 while.body15:                                     ; preds = %while.cond14
   %target_16 = getelementptr inbounds %"class.arrow::REEValueComparator", ptr %this1, i32 0, i32 2
-  %12 = load ptr, ptr %target_16, align 8
-  %call17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %13 = load ptr, ptr %target_16, align 8
+  %call17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
   %call18 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNKSt19__shared_ptr_accessIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %call17) #4
   br label %while.cond14, !llvm.loop !26
 
@@ -41623,20 +41665,21 @@ entry:
   store ptr %inner_value_comparator, ptr %inner_value_comparator.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base_ = getelementptr inbounds %"class.arrow::REEValueComparator.599", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base_, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base_, align 8
   %target_ = getelementptr inbounds %"class.arrow::REEValueComparator.599", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target_, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target_, align 8
   %inner_value_comparator_ = getelementptr inbounds %"class.arrow::REEValueComparator.599", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %inner_value_comparator.addr, align 8
-  call void @_ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %inner_value_comparator_, ptr noundef nonnull align 8 dereferenceable(8) %2) #4
+  %3 = load ptr, ptr %inner_value_comparator.addr, align 8
+  call void @_ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %inner_value_comparator_, ptr noundef nonnull align 8 dereferenceable(8) %3) #4
   %base_physical_index_finder_ = getelementptr inbounds %"class.arrow::REEValueComparator.599", ptr %this1, i32 0, i32 4
   %base_2 = getelementptr inbounds %"class.arrow::REEValueComparator.599", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %base_2, align 8
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %4 = load ptr, ptr %base_2, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
   %call3 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZNKSt19__shared_ptr_accessIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #4
   invoke void @_ZN5arrow8ree_util8internal19PhysicalIndexFinderIiEC2ERKNS_9ArrayDataE(ptr noundef nonnull align 8 dereferenceable(144) %base_physical_index_finder_, ptr noundef nonnull align 8 dereferenceable(104) %call3)
           to label %invoke.cont unwind label %lpad
@@ -41644,8 +41687,8 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %target_physical_index_finder_ = getelementptr inbounds %"class.arrow::REEValueComparator.599", ptr %this1, i32 0, i32 5
   %target_4 = getelementptr inbounds %"class.arrow::REEValueComparator.599", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %target_4, align 8
-  %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %5 = load ptr, ptr %target_4, align 8
+  %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
   %call6 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZNKSt19__shared_ptr_accessIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %call5) #4
   invoke void @_ZN5arrow8ree_util8internal19PhysicalIndexFinderIiEC2ERKNS_9ArrayDataE(ptr noundef nonnull align 8 dereferenceable(144) %target_physical_index_finder_, ptr noundef nonnull align 8 dereferenceable(104) %call6)
           to label %invoke.cont8 unwind label %lpad7
@@ -41658,27 +41701,27 @@ while.cond:                                       ; preds = %while.body, %invoke
 
 while.body:                                       ; preds = %while.cond
   %base_9 = getelementptr inbounds %"class.arrow::REEValueComparator.599", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %base_9, align 8
-  %call10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %6 = load ptr, ptr %base_9, align 8
+  %call10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
   %call11 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNKSt19__shared_ptr_accessIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %call10) #4
   br label %while.cond, !llvm.loop !28
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN5arrow8ree_util8internal19PhysicalIndexFinderIiED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %base_physical_index_finder_) #4
   br label %ehcleanup
 
@@ -41690,8 +41733,8 @@ while.cond12:                                     ; preds = %while.body13, %whil
 
 while.body13:                                     ; preds = %while.cond12
   %target_14 = getelementptr inbounds %"class.arrow::REEValueComparator.599", ptr %this1, i32 0, i32 2
-  %12 = load ptr, ptr %target_14, align 8
-  %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %13 = load ptr, ptr %target_14, align 8
+  %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
   %call16 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNKSt19__shared_ptr_accessIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %call15) #4
   br label %while.cond12, !llvm.loop !29
 
@@ -41735,20 +41778,21 @@ entry:
   store ptr %inner_value_comparator, ptr %inner_value_comparator.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15ValueComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base_ = getelementptr inbounds %"class.arrow::REEValueComparator.601", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base_, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base_, align 8
   %target_ = getelementptr inbounds %"class.arrow::REEValueComparator.601", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %target.addr, align 8
-  store ptr %1, ptr %target_, align 8
+  %2 = load ptr, ptr %target.addr, align 8
+  store ptr %2, ptr %target_, align 8
   %inner_value_comparator_ = getelementptr inbounds %"class.arrow::REEValueComparator.601", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %inner_value_comparator.addr, align 8
-  call void @_ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %inner_value_comparator_, ptr noundef nonnull align 8 dereferenceable(8) %2) #4
+  %3 = load ptr, ptr %inner_value_comparator.addr, align 8
+  call void @_ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %inner_value_comparator_, ptr noundef nonnull align 8 dereferenceable(8) %3) #4
   %base_physical_index_finder_ = getelementptr inbounds %"class.arrow::REEValueComparator.601", ptr %this1, i32 0, i32 4
   %base_2 = getelementptr inbounds %"class.arrow::REEValueComparator.601", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %base_2, align 8
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %4 = load ptr, ptr %base_2, align 8
+  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
   %call3 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZNKSt19__shared_ptr_accessIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %call) #4
   invoke void @_ZN5arrow8ree_util8internal19PhysicalIndexFinderIlEC2ERKNS_9ArrayDataE(ptr noundef nonnull align 8 dereferenceable(144) %base_physical_index_finder_, ptr noundef nonnull align 8 dereferenceable(104) %call3)
           to label %invoke.cont unwind label %lpad
@@ -41756,8 +41800,8 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %target_physical_index_finder_ = getelementptr inbounds %"class.arrow::REEValueComparator.601", ptr %this1, i32 0, i32 5
   %target_4 = getelementptr inbounds %"class.arrow::REEValueComparator.601", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %target_4, align 8
-  %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %5 = load ptr, ptr %target_4, align 8
+  %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
   %call6 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZNKSt19__shared_ptr_accessIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %call5) #4
   invoke void @_ZN5arrow8ree_util8internal19PhysicalIndexFinderIlEC2ERKNS_9ArrayDataE(ptr noundef nonnull align 8 dereferenceable(144) %target_physical_index_finder_, ptr noundef nonnull align 8 dereferenceable(104) %call6)
           to label %invoke.cont8 unwind label %lpad7
@@ -41770,27 +41814,27 @@ while.cond:                                       ; preds = %while.body, %invoke
 
 while.body:                                       ; preds = %while.cond
   %base_9 = getelementptr inbounds %"class.arrow::REEValueComparator.601", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %base_9, align 8
-  %call10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %6 = load ptr, ptr %base_9, align 8
+  %call10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
   %call11 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNKSt19__shared_ptr_accessIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %call10) #4
   br label %while.cond, !llvm.loop !31
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN5arrow8ree_util8internal19PhysicalIndexFinderIlED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %base_physical_index_finder_) #4
   br label %ehcleanup
 
@@ -41802,8 +41846,8 @@ while.cond12:                                     ; preds = %while.body13, %whil
 
 while.body13:                                     ; preds = %while.cond12
   %target_14 = getelementptr inbounds %"class.arrow::REEValueComparator.601", ptr %this1, i32 0, i32 2
-  %12 = load ptr, ptr %target_14, align 8
-  %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %13 = load ptr, ptr %target_14, align 8
+  %call15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Array4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
   %call16 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNKSt19__shared_ptr_accessIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %call15) #4
   br label %while.cond12, !llvm.loop !32
 
@@ -41990,7 +42034,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIsEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIsEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_physical_index_finder_ = getelementptr inbounds %"class.arrow::REEValueComparator", ptr %this1, i32 0, i32 5
   call void @_ZN5arrow8ree_util8internal19PhysicalIndexFinderIsED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %target_physical_index_finder_) #4
   %base_physical_index_finder_ = getelementptr inbounds %"class.arrow::REEValueComparator", ptr %this1, i32 0, i32 4
@@ -43045,7 +43090,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_physical_index_finder_ = getelementptr inbounds %"class.arrow::REEValueComparator.599", ptr %this1, i32 0, i32 5
   call void @_ZN5arrow8ree_util8internal19PhysicalIndexFinderIiED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %target_physical_index_finder_) #4
   %base_physical_index_finder_ = getelementptr inbounds %"class.arrow::REEValueComparator.599", ptr %this1, i32 0, i32 4
@@ -43543,7 +43589,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_physical_index_finder_ = getelementptr inbounds %"class.arrow::REEValueComparator.601", ptr %this1, i32 0, i32 5
   call void @_ZN5arrow8ree_util8internal19PhysicalIndexFinderIlED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %target_physical_index_finder_) #4
   %base_physical_index_finder_ = getelementptr inbounds %"class.arrow::REEValueComparator.601", ptr %this1, i32 0, i32 4
@@ -50789,25 +50836,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl) #4
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %this3) #4
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow12BooleanArrayEJRlSt10shared_ptrINS3_6BufferEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow12BooleanArrayEJRlSt10shared_ptrINS3_6BufferEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #4
   br label %eh.resume
 
@@ -51487,25 +51535,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS0_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS0_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.619", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS0_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl) #4
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS0_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %this3) #4
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow12NumericArrayINS3_9Int64TypeEEEJRlSt10unique_ptrINS3_6BufferESt14default_deleteIS9_EEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow12NumericArrayINS3_9Int64TypeEEEJRlSt10unique_ptrINS3_6BufferESt14default_deleteIS9_EEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #4
   br label %eh.resume
 
@@ -51883,16 +51932,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow12NumericArrayINS_9Int64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow12NumericArrayINS_9Int64TypeEEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #4
   br label %eh.resume
 
@@ -51973,7 +52023,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.arrow::Array", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data_) #4
   ret void
@@ -107814,25 +107865,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl) #4
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %this3) #4
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow12BooleanArrayEJlRSt10shared_ptrINS3_6BufferEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow12BooleanArrayEJlRSt10shared_ptrINS3_6BufferEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #4
   br label %eh.resume
 
@@ -108052,25 +108104,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS0_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS0_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.619", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS0_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl) #4
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS0_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %this3) #4
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow12NumericArrayINS3_9Int64TypeEEEJlRSt10shared_ptrINS3_6BufferEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow12NumericArrayINS3_9Int64TypeEEEJlRSt10shared_ptrINS3_6BufferEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #4
   br label %eh.resume
 

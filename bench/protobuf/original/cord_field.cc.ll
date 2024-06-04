@@ -2587,23 +2587,24 @@ entry:
   %1 = load ptr, ptr %options.addr, align 8
   %2 = load ptr, ptr %scc.addr, align 8
   call void @_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseC2EPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull align 8 dereferenceable(85) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp12_GLOBAL__N_118CordFieldGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %3 = load ptr, ptr %descriptor.addr, align 8
+  %3 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp12_GLOBAL__N_118CordFieldGeneratorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
+  %4 = load ptr, ptr %descriptor.addr, align 8
   %variables_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %options.addr, align 8
-  invoke void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_116SetCordVariablesEPKNS0_15FieldDescriptorEPN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSC_SaIcEEENS8_18container_internal10StringHashENSI_8StringEqESaISt4pairIKSD_SH_EEEERKNS2_7OptionsE(ptr noundef %3, ptr noundef %variables_, ptr noundef nonnull align 8 dereferenceable(206) %4)
+  %5 = load ptr, ptr %options.addr, align 8
+  invoke void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_116SetCordVariablesEPKNS0_15FieldDescriptorEPN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSC_SaIcEEENS8_18container_internal10StringHashENSI_8StringEqESaISt4pairIKSD_SH_EEEERKNS2_7OptionsE(ptr noundef %4, ptr noundef %variables_, ptr noundef nonnull align 8 dereferenceable(206) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(85) %this1) #3
   br label %eh.resume
 
@@ -2948,7 +2949,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp18FieldGeneratorBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp18FieldGeneratorBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %variables_ = getelementptr inbounds %"class.google::protobuf::compiler::cpp::FieldGeneratorBase", ptr %this1, i32 0, i32 4
   call void @_ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS4_SaIcEEENS0_18container_internal10StringHashENSA_8StringEqESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %variables_) #3
   ret void
@@ -5867,7 +5869,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -13424,7 +13427,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24276,7 +24280,8 @@ entry:
   %1 = load ptr, ptr %options.addr, align 8
   %2 = load ptr, ptr %scc.addr, align 8
   call void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_118CordFieldGeneratorC2EPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull align 8 dereferenceable(85) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(206) %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp12_GLOBAL__N_123CordOneofFieldGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN6google8protobuf8compiler3cpp12_GLOBAL__N_123CordOneofFieldGeneratorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   ret void
 }
 

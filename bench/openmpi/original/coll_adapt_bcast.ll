@@ -43,21 +43,22 @@ define i32 @ompi_coll_adapt_bcast(ptr noundef %0, i32 noundef %1, ptr noundef %2
 28:                                               ; preds = %25
   %29 = load i32, ptr %15, align 4
   store i32 %29, ptr %7, align 4
-  br label %35
+  br label %36
 
 30:                                               ; preds = %25
   br label %31
 
 31:                                               ; preds = %30, %6
-  %32 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4), align 8
-  %33 = call i32 %32(ptr noundef %14, ptr noundef null)
-  %34 = load i32, ptr %15, align 4
-  store i32 %34, ptr %7, align 4
-  br label %35
+  %32 = getelementptr inbounds %struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4
+  %33 = load ptr, ptr %32, align 8
+  %34 = call i32 %33(ptr noundef %14, ptr noundef null)
+  %35 = load i32, ptr %15, align 4
+  store i32 %35, ptr %7, align 4
+  br label %36
 
-35:                                               ; preds = %31, %28
-  %36 = load i32, ptr %7, align 4
-  ret i32 %36
+36:                                               ; preds = %31, %28
+  %37 = load i32, ptr %7, align 4
+  ret i32 %37
 }
 
 declare i32 @ompi_coll_adapt_ibcast(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1

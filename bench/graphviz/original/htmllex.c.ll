@@ -156,22 +156,24 @@ target triple = "x86_64-pc-linux-gnu"
 define void @htmlerror(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 6), align 4
-  %4 = icmp ne i32 %3, 0
-  br i1 %4, label %5, label %6
-
-5:                                                ; preds = %1
-  br label %10
+  %3 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 6
+  %4 = load i32, ptr %3, align 4
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  store i32 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 6), align 4
-  %7 = load ptr, ptr %2, align 8
-  %8 = call i32 @htmllineno()
-  %9 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str, ptr noundef %7, i32 noundef %8)
-  call void @error_context()
-  br label %10
+  br label %12
 
-10:                                               ; preds = %6, %5
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 6
+  store i32 1, ptr %8, align 4
+  %9 = load ptr, ptr %2, align 8
+  %10 = call i32 @htmllineno()
+  %11 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str, ptr noundef %9, i32 noundef %10)
+  call void @error_context()
+  br label %12
+
+12:                                               ; preds = %7, %6
   ret void
 }
 
@@ -187,27 +189,36 @@ define i32 @htmllineno() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @error_context() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 3), align 8
-  call void @agxbclear(ptr noundef %1)
-  %2 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 12), align 8
-  %3 = icmp ugt i64 %2, 0
-  br i1 %3, label %4, label %9
+  %1 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 3
+  %2 = load ptr, ptr %1, align 8
+  call void @agxbclear(ptr noundef %2)
+  %3 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 12
+  %4 = load i64, ptr %3, align 8
+  %5 = icmp ugt i64 %4, 0
+  br i1 %5, label %6, label %14
 
-4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 3), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 10), align 8
-  %7 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 12), align 8
-  %8 = call i64 @agxbput_n(ptr noundef %5, ptr noundef %6, i64 noundef %7)
-  br label %9
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 10
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 12
+  %12 = load i64, ptr %11, align 8
+  %13 = call i64 @agxbput_n(ptr noundef %8, ptr noundef %10, i64 noundef %12)
+  br label %14
 
-9:                                                ; preds = %4, %0
-  %10 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 3), align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 9), align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 11), align 8
-  %13 = call i64 @agxbput_n(ptr noundef %10, ptr noundef %11, i64 noundef %12)
-  %14 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 3), align 8
-  %15 = call ptr @agxbuse(ptr noundef %14)
-  %16 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef @.str.3, ptr noundef %15)
+14:                                               ; preds = %6, %0
+  %15 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 3
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 9
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 11
+  %20 = load i64, ptr %19, align 8
+  %21 = call i64 @agxbput_n(ptr noundef %16, ptr noundef %18, i64 noundef %20)
+  %22 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 3
+  %23 = load ptr, ptr %22, align 8
+  %24 = call ptr @agxbuse(ptr noundef %23)
+  %25 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef @.str.3, ptr noundef %24)
   ret void
 }
 
@@ -221,41 +232,50 @@ define i32 @initHTMLlexer(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 3), align 8
+  %9 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 3
+  store ptr %8, ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 4), ptr align 8 %7, i64 32, i1 false)
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 1), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 8), align 1
-  store i32 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 5), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 6), align 4
-  store i64 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 11), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 12), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 7), align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct.htmlenv_t, ptr %10, i32 0, i32 3
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct.Agobj_s, ptr %12, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.Agraphinfo_t, ptr %14, i32 0, i32 8
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  %18 = call ptr @charsetToStr(i32 noundef %17)
-  %19 = call ptr @XML_ParserCreate(ptr noundef %18)
-  store ptr %19, ptr @state, align 8
-  %20 = load ptr, ptr @state, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.htmlenv_t, ptr %21, i32 0, i32 3
+  %10 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %7, i64 32, i1 false)
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 1
+  store ptr %11, ptr %12, align 8
+  %13 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 8
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 5
+  store i32 0, ptr %14, align 8
+  %15 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 6
+  store i32 0, ptr %15, align 4
+  %16 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 11
+  store i64 0, ptr %16, align 8
+  %17 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 12
+  store i64 0, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 7
+  store i8 1, ptr %18, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = getelementptr inbounds %struct.htmlenv_t, ptr %19, i32 0, i32 3
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds %struct.Agobj_s, ptr %21, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.Agobj_s, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.Agraphinfo_t, ptr %25, i32 0, i32 14
-  %27 = load ptr, ptr %26, align 8
-  call void @XML_SetUserData(ptr noundef %20, ptr noundef %27)
-  %28 = load ptr, ptr @state, align 8
-  call void @XML_SetElementHandler(ptr noundef %28, ptr noundef @startElement, ptr noundef @endElement)
+  %24 = getelementptr inbounds %struct.Agraphinfo_t, ptr %23, i32 0, i32 8
+  %25 = load i8, ptr %24, align 1
+  %26 = zext i8 %25 to i32
+  %27 = call ptr @charsetToStr(i32 noundef %26)
+  %28 = call ptr @XML_ParserCreate(ptr noundef %27)
+  store ptr %28, ptr @state, align 8
   %29 = load ptr, ptr @state, align 8
-  call void @XML_SetCharacterDataHandler(ptr noundef %29, ptr noundef @characterData)
+  %30 = load ptr, ptr %6, align 8
+  %31 = getelementptr inbounds %struct.htmlenv_t, ptr %30, i32 0, i32 3
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds %struct.Agobj_s, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %struct.Agraphinfo_t, ptr %34, i32 0, i32 14
+  %36 = load ptr, ptr %35, align 8
+  call void @XML_SetUserData(ptr noundef %29, ptr noundef %36)
+  %37 = load ptr, ptr @state, align 8
+  call void @XML_SetElementHandler(ptr noundef %37, ptr noundef @startElement, ptr noundef @endElement)
+  %38 = load ptr, ptr @state, align 8
+  call void @XML_SetCharacterDataHandler(ptr noundef %38, ptr noundef @characterData)
   ret i32 0
 }
 
@@ -287,258 +307,277 @@ define internal void @startElement(ptr noundef %0, ptr noundef %1, ptr noundef %
   %9 = load ptr, ptr %5, align 8
   %10 = call i32 @strcasecmp(ptr noundef %9, ptr noundef @.str.6) #10
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %15
+  br i1 %11, label %12, label %17
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %6, align 8
   %14 = call ptr @mkTbl(ptr noundef %13)
   store ptr %14, ptr @htmllval, align 8
-  store i8 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 7), align 8
-  store i32 286, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %133
+  %15 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 7
+  store i8 0, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 286, ptr %16, align 8
+  br label %152
 
-15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  %17 = call i32 @strcasecmp(ptr noundef %16, ptr noundef @.str.7) #10
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %23, label %19
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8
+  %19 = call i32 @strcasecmp(ptr noundef %18, ptr noundef @.str.7) #10
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %25, label %21
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %5, align 8
-  %21 = call i32 @strcasecmp(ptr noundef %20, ptr noundef @.str.8) #10
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %24
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8
+  %23 = call i32 @strcasecmp(ptr noundef %22, ptr noundef @.str.8) #10
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %28
 
-23:                                               ; preds = %19, %15
-  store i8 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 7), align 8
-  store i32 260, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %132
+25:                                               ; preds = %21, %17
+  %26 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 7
+  store i8 0, ptr %26, align 8
+  %27 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 260, ptr %27, align 8
+  br label %151
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %5, align 8
-  %26 = call i32 @strcasecmp(ptr noundef %25, ptr noundef @.str.9) #10
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %31
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %5, align 8
+  %30 = call i32 @strcasecmp(ptr noundef %29, ptr noundef @.str.9) #10
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %37
 
-28:                                               ; preds = %24
-  store i8 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 7), align 8
-  %29 = load ptr, ptr %6, align 8
-  %30 = call ptr @mkCell(ptr noundef %29)
-  store ptr %30, ptr @htmllval, align 8
-  store i32 287, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %131
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 7
+  store i8 1, ptr %33, align 8
+  %34 = load ptr, ptr %6, align 8
+  %35 = call ptr @mkCell(ptr noundef %34)
+  store ptr %35, ptr @htmllval, align 8
+  %36 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 287, ptr %36, align 8
+  br label %150
 
-31:                                               ; preds = %24
-  %32 = load ptr, ptr %5, align 8
-  %33 = call i32 @strcasecmp(ptr noundef %32, ptr noundef @.str.10) #10
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %39
+37:                                               ; preds = %28
+  %38 = load ptr, ptr %5, align 8
+  %39 = call i32 @strcasecmp(ptr noundef %38, ptr noundef @.str.10) #10
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %46
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = call ptr @mkFont(ptr noundef %36, ptr noundef %37, i8 noundef zeroext 0)
-  store ptr %38, ptr @htmllval, align 8
-  store i32 288, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %130
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %7, align 8
+  %43 = load ptr, ptr %6, align 8
+  %44 = call ptr @mkFont(ptr noundef %42, ptr noundef %43, i8 noundef zeroext 0)
+  store ptr %44, ptr @htmllval, align 8
+  %45 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 288, ptr %45, align 8
+  br label %149
 
-39:                                               ; preds = %31
-  %40 = load ptr, ptr %5, align 8
-  %41 = call i32 @strcasecmp(ptr noundef %40, ptr noundef @.str.11) #10
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %46
-
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %7, align 8
-  %45 = call ptr @mkFont(ptr noundef %44, ptr noundef null, i8 noundef zeroext 1)
-  store ptr %45, ptr @htmllval, align 8
-  store i32 290, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %129
-
-46:                                               ; preds = %39
+46:                                               ; preds = %37
   %47 = load ptr, ptr %5, align 8
-  %48 = call i32 @strcasecmp(ptr noundef %47, ptr noundef @.str.12) #10
+  %48 = call i32 @strcasecmp(ptr noundef %47, ptr noundef @.str.11) #10
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %53
+  br i1 %49, label %50, label %54
 
 50:                                               ; preds = %46
   %51 = load ptr, ptr %7, align 8
-  %52 = call ptr @mkFont(ptr noundef %51, ptr noundef null, i8 noundef zeroext 32)
+  %52 = call ptr @mkFont(ptr noundef %51, ptr noundef null, i8 noundef zeroext 1)
   store ptr %52, ptr @htmllval, align 8
-  store i32 295, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %128
+  %53 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 290, ptr %53, align 8
+  br label %148
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr %5, align 8
-  %55 = call i32 @strcasecmp(ptr noundef %54, ptr noundef @.str.13) #10
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %60
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %5, align 8
+  %56 = call i32 @strcasecmp(ptr noundef %55, ptr noundef @.str.12) #10
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %62
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %7, align 8
-  %59 = call ptr @mkFont(ptr noundef %58, ptr noundef null, i8 noundef zeroext 4)
-  store ptr %59, ptr @htmllval, align 8
-  store i32 291, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %127
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %7, align 8
+  %60 = call ptr @mkFont(ptr noundef %59, ptr noundef null, i8 noundef zeroext 32)
+  store ptr %60, ptr @htmllval, align 8
+  %61 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 295, ptr %61, align 8
+  br label %147
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %5, align 8
-  %62 = call i32 @strcasecmp(ptr noundef %61, ptr noundef @.str.14) #10
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %67
+62:                                               ; preds = %54
+  %63 = load ptr, ptr %5, align 8
+  %64 = call i32 @strcasecmp(ptr noundef %63, ptr noundef @.str.13) #10
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %70
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %7, align 8
-  %66 = call ptr @mkFont(ptr noundef %65, ptr noundef null, i8 noundef zeroext 64)
-  store ptr %66, ptr @htmllval, align 8
-  store i32 292, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %126
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %7, align 8
+  %68 = call ptr @mkFont(ptr noundef %67, ptr noundef null, i8 noundef zeroext 4)
+  store ptr %68, ptr @htmllval, align 8
+  %69 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 291, ptr %69, align 8
+  br label %146
 
-67:                                               ; preds = %60
-  %68 = load ptr, ptr %5, align 8
-  %69 = call i32 @strcasecmp(ptr noundef %68, ptr noundef @.str.15) #10
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %74
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %5, align 8
+  %72 = call i32 @strcasecmp(ptr noundef %71, ptr noundef @.str.14) #10
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %78
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr %7, align 8
-  %73 = call ptr @mkFont(ptr noundef %72, ptr noundef null, i8 noundef zeroext 2)
-  store ptr %73, ptr @htmllval, align 8
-  store i32 289, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %125
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %7, align 8
+  %76 = call ptr @mkFont(ptr noundef %75, ptr noundef null, i8 noundef zeroext 64)
+  store ptr %76, ptr @htmllval, align 8
+  %77 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 292, ptr %77, align 8
+  br label %145
 
-74:                                               ; preds = %67
-  %75 = load ptr, ptr %5, align 8
-  %76 = call i32 @strcasecmp(ptr noundef %75, ptr noundef @.str.16) #10
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %81
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %5, align 8
+  %80 = call i32 @strcasecmp(ptr noundef %79, ptr noundef @.str.15) #10
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %86
 
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %7, align 8
-  %80 = call ptr @mkFont(ptr noundef %79, ptr noundef null, i8 noundef zeroext 8)
-  store ptr %80, ptr @htmllval, align 8
-  store i32 293, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %124
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %7, align 8
+  %84 = call ptr @mkFont(ptr noundef %83, ptr noundef null, i8 noundef zeroext 2)
+  store ptr %84, ptr @htmllval, align 8
+  %85 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 289, ptr %85, align 8
+  br label %144
 
-81:                                               ; preds = %74
-  %82 = load ptr, ptr %5, align 8
-  %83 = call i32 @strcasecmp(ptr noundef %82, ptr noundef @.str.17) #10
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %88
+86:                                               ; preds = %78
+  %87 = load ptr, ptr %5, align 8
+  %88 = call i32 @strcasecmp(ptr noundef %87, ptr noundef @.str.16) #10
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %94
 
-85:                                               ; preds = %81
-  %86 = load ptr, ptr %7, align 8
-  %87 = call ptr @mkFont(ptr noundef %86, ptr noundef null, i8 noundef zeroext 16)
-  store ptr %87, ptr @htmllval, align 8
-  store i32 294, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %123
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %7, align 8
+  %92 = call ptr @mkFont(ptr noundef %91, ptr noundef null, i8 noundef zeroext 8)
+  store ptr %92, ptr @htmllval, align 8
+  %93 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 293, ptr %93, align 8
+  br label %143
 
-88:                                               ; preds = %81
-  %89 = load ptr, ptr %5, align 8
-  %90 = call i32 @strcasecmp(ptr noundef %89, ptr noundef @.str.18) #10
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %94
-
-92:                                               ; preds = %88
-  %93 = load ptr, ptr %6, align 8
-  call void @mkBR(ptr noundef %93)
-  store i32 283, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %122
-
-94:                                               ; preds = %88
+94:                                               ; preds = %86
   %95 = load ptr, ptr %5, align 8
-  %96 = call i32 @strcasecmp(ptr noundef %95, ptr noundef @.str.19) #10
+  %96 = call i32 @strcasecmp(ptr noundef %95, ptr noundef @.str.17) #10
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %99
+  br i1 %97, label %98, label %102
 
 98:                                               ; preds = %94
-  store i32 277, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %121
+  %99 = load ptr, ptr %7, align 8
+  %100 = call ptr @mkFont(ptr noundef %99, ptr noundef null, i8 noundef zeroext 16)
+  store ptr %100, ptr @htmllval, align 8
+  %101 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 294, ptr %101, align 8
+  br label %142
 
-99:                                               ; preds = %94
-  %100 = load ptr, ptr %5, align 8
-  %101 = call i32 @strcasecmp(ptr noundef %100, ptr noundef @.str.20) #10
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %104
+102:                                              ; preds = %94
+  %103 = load ptr, ptr %5, align 8
+  %104 = call i32 @strcasecmp(ptr noundef %103, ptr noundef @.str.18) #10
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %109
 
-103:                                              ; preds = %99
-  store i32 280, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %120
+106:                                              ; preds = %102
+  %107 = load ptr, ptr %6, align 8
+  call void @mkBR(ptr noundef %107)
+  %108 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 283, ptr %108, align 8
+  br label %141
 
-104:                                              ; preds = %99
-  %105 = load ptr, ptr %5, align 8
-  %106 = call i32 @strcasecmp(ptr noundef %105, ptr noundef @.str.21) #10
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %108, label %111
+109:                                              ; preds = %102
+  %110 = load ptr, ptr %5, align 8
+  %111 = call i32 @strcasecmp(ptr noundef %110, ptr noundef @.str.19) #10
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %115
 
-108:                                              ; preds = %104
-  %109 = load ptr, ptr %6, align 8
-  %110 = call ptr @mkImg(ptr noundef %109)
-  store ptr %110, ptr @htmllval, align 8
-  store i32 285, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %119
+113:                                              ; preds = %109
+  %114 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 277, ptr %114, align 8
+  br label %140
 
-111:                                              ; preds = %104
-  %112 = load ptr, ptr %5, align 8
-  %113 = call i32 @strcasecmp(ptr noundef %112, ptr noundef @.str.22) #10
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %116
+115:                                              ; preds = %109
+  %116 = load ptr, ptr %5, align 8
+  %117 = call i32 @strcasecmp(ptr noundef %116, ptr noundef @.str.20) #10
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %119, label %121
 
-115:                                              ; preds = %111
-  store i32 262, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %118
+119:                                              ; preds = %115
+  %120 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 280, ptr %120, align 8
+  br label %139
 
-116:                                              ; preds = %111
-  %117 = load ptr, ptr %5, align 8
-  call void @lexerror(ptr noundef %117)
-  br label %118
+121:                                              ; preds = %115
+  %122 = load ptr, ptr %5, align 8
+  %123 = call i32 @strcasecmp(ptr noundef %122, ptr noundef @.str.21) #10
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %129
 
-118:                                              ; preds = %116, %115
-  br label %119
+125:                                              ; preds = %121
+  %126 = load ptr, ptr %6, align 8
+  %127 = call ptr @mkImg(ptr noundef %126)
+  store ptr %127, ptr @htmllval, align 8
+  %128 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 285, ptr %128, align 8
+  br label %138
 
-119:                                              ; preds = %118, %108
-  br label %120
+129:                                              ; preds = %121
+  %130 = load ptr, ptr %5, align 8
+  %131 = call i32 @strcasecmp(ptr noundef %130, ptr noundef @.str.22) #10
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %133, label %135
 
-120:                                              ; preds = %119, %103
-  br label %121
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 262, ptr %134, align 8
+  br label %137
 
-121:                                              ; preds = %120, %98
-  br label %122
+135:                                              ; preds = %129
+  %136 = load ptr, ptr %5, align 8
+  call void @lexerror(ptr noundef %136)
+  br label %137
 
-122:                                              ; preds = %121, %92
-  br label %123
+137:                                              ; preds = %135, %133
+  br label %138
 
-123:                                              ; preds = %122, %85
-  br label %124
+138:                                              ; preds = %137, %125
+  br label %139
 
-124:                                              ; preds = %123, %78
-  br label %125
+139:                                              ; preds = %138, %119
+  br label %140
 
-125:                                              ; preds = %124, %71
-  br label %126
+140:                                              ; preds = %139, %113
+  br label %141
 
-126:                                              ; preds = %125, %64
-  br label %127
+141:                                              ; preds = %140, %106
+  br label %142
 
-127:                                              ; preds = %126, %57
-  br label %128
+142:                                              ; preds = %141, %98
+  br label %143
 
-128:                                              ; preds = %127, %50
-  br label %129
+143:                                              ; preds = %142, %90
+  br label %144
 
-129:                                              ; preds = %128, %43
-  br label %130
+144:                                              ; preds = %143, %82
+  br label %145
 
-130:                                              ; preds = %129, %35
-  br label %131
+145:                                              ; preds = %144, %74
+  br label %146
 
-131:                                              ; preds = %130, %28
-  br label %132
+146:                                              ; preds = %145, %66
+  br label %147
 
-132:                                              ; preds = %131, %23
-  br label %133
+147:                                              ; preds = %146, %58
+  br label %148
 
-133:                                              ; preds = %132, %12
+148:                                              ; preds = %147, %50
+  br label %149
+
+149:                                              ; preds = %148, %41
+  br label %150
+
+150:                                              ; preds = %149, %32
+  br label %151
+
+151:                                              ; preds = %150, %25
+  br label %152
+
+152:                                              ; preds = %151, %12
   ret void
 }
 
@@ -551,269 +590,295 @@ define internal void @endElement(ptr noundef %0, ptr noundef %1) #0 {
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 @strcasecmp(ptr noundef %5, ptr noundef @.str.6) #10
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %9
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  store i32 264, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 7), align 8
-  br label %125
+  %9 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 264, ptr %9, align 8
+  %10 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 7
+  store i8 1, ptr %10, align 8
+  br label %151
 
-9:                                                ; preds = %2
-  %10 = load ptr, ptr %4, align 8
-  %11 = call i32 @strcasecmp(ptr noundef %10, ptr noundef @.str.7) #10
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %17, label %13
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8
+  %13 = call i32 @strcasecmp(ptr noundef %12, ptr noundef @.str.7) #10
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %19, label %15
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %4, align 8
-  %15 = call i32 @strcasecmp(ptr noundef %14, ptr noundef @.str.8) #10
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %18
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8
+  %17 = call i32 @strcasecmp(ptr noundef %16, ptr noundef @.str.8) #10
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %21
 
-17:                                               ; preds = %13, %9
-  store i32 261, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %124
+19:                                               ; preds = %15, %11
+  %20 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 261, ptr %20, align 8
+  br label %150
 
-18:                                               ; preds = %13
-  %19 = load ptr, ptr %4, align 8
-  %20 = call i32 @strcasecmp(ptr noundef %19, ptr noundef @.str.9) #10
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %23
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %4, align 8
+  %23 = call i32 @strcasecmp(ptr noundef %22, ptr noundef @.str.9) #10
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %28
 
-22:                                               ; preds = %18
-  store i32 265, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 7), align 8
-  br label %123
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 265, ptr %26, align 8
+  %27 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 7
+  store i8 0, ptr %27, align 8
+  br label %149
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %4, align 8
-  %25 = call i32 @strcasecmp(ptr noundef %24, ptr noundef @.str.22) #10
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %28
-
-27:                                               ; preds = %23
-  store i32 263, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %122
-
-28:                                               ; preds = %23
+28:                                               ; preds = %21
   %29 = load ptr, ptr %4, align 8
-  %30 = call i32 @strcasecmp(ptr noundef %29, ptr noundef @.str.10) #10
+  %30 = call i32 @strcasecmp(ptr noundef %29, ptr noundef @.str.22) #10
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %33
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
-  store i32 266, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %121
+  %33 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 263, ptr %33, align 8
+  br label %148
 
-33:                                               ; preds = %28
-  %34 = load ptr, ptr %4, align 8
-  %35 = call i32 @strcasecmp(ptr noundef %34, ptr noundef @.str.11) #10
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %38
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %4, align 8
+  %36 = call i32 @strcasecmp(ptr noundef %35, ptr noundef @.str.10) #10
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %40
 
-37:                                               ; preds = %33
-  store i32 270, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %120
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 266, ptr %39, align 8
+  br label %147
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %4, align 8
-  %40 = call i32 @strcasecmp(ptr noundef %39, ptr noundef @.str.13) #10
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %43
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %4, align 8
+  %42 = call i32 @strcasecmp(ptr noundef %41, ptr noundef @.str.11) #10
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %46
 
-42:                                               ; preds = %38
-  store i32 271, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %119
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 270, ptr %45, align 8
+  br label %146
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %4, align 8
-  %45 = call i32 @strcasecmp(ptr noundef %44, ptr noundef @.str.14) #10
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %48
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %4, align 8
+  %48 = call i32 @strcasecmp(ptr noundef %47, ptr noundef @.str.13) #10
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %52
 
-47:                                               ; preds = %43
-  store i32 272, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %118
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 271, ptr %51, align 8
+  br label %145
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %4, align 8
-  %50 = call i32 @strcasecmp(ptr noundef %49, ptr noundef @.str.15) #10
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %53
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %4, align 8
+  %54 = call i32 @strcasecmp(ptr noundef %53, ptr noundef @.str.14) #10
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %58
 
-52:                                               ; preds = %48
-  store i32 269, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %117
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 272, ptr %57, align 8
+  br label %144
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %4, align 8
-  %55 = call i32 @strcasecmp(ptr noundef %54, ptr noundef @.str.16) #10
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %58
-
-57:                                               ; preds = %53
-  store i32 273, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %116
-
-58:                                               ; preds = %53
+58:                                               ; preds = %52
   %59 = load ptr, ptr %4, align 8
-  %60 = call i32 @strcasecmp(ptr noundef %59, ptr noundef @.str.17) #10
+  %60 = call i32 @strcasecmp(ptr noundef %59, ptr noundef @.str.15) #10
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %63
+  br i1 %61, label %62, label %64
 
 62:                                               ; preds = %58
-  store i32 274, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %115
+  %63 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 269, ptr %63, align 8
+  br label %143
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %4, align 8
-  %65 = call i32 @strcasecmp(ptr noundef %64, ptr noundef @.str.12) #10
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %68
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %4, align 8
+  %66 = call i32 @strcasecmp(ptr noundef %65, ptr noundef @.str.16) #10
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %70
 
-67:                                               ; preds = %63
-  store i32 275, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %114
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 273, ptr %69, align 8
+  br label %142
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %4, align 8
-  %70 = call i32 @strcasecmp(ptr noundef %69, ptr noundef @.str.18) #10
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %78
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %4, align 8
+  %72 = call i32 @strcasecmp(ptr noundef %71, ptr noundef @.str.17) #10
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %76
 
-72:                                               ; preds = %68
-  %73 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  %74 = icmp eq i32 %73, 283
-  br i1 %74, label %75, label %76
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 274, ptr %75, align 8
+  br label %141
 
-75:                                               ; preds = %72
-  store i32 282, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %77
+76:                                               ; preds = %70
+  %77 = load ptr, ptr %4, align 8
+  %78 = call i32 @strcasecmp(ptr noundef %77, ptr noundef @.str.12) #10
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %82
 
-76:                                               ; preds = %72
-  store i32 258, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %77
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 275, ptr %81, align 8
+  br label %140
 
-77:                                               ; preds = %76, %75
-  br label %113
-
-78:                                               ; preds = %68
-  %79 = load ptr, ptr %4, align 8
-  %80 = call i32 @strcasecmp(ptr noundef %79, ptr noundef @.str.19) #10
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %88
-
-82:                                               ; preds = %78
-  %83 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  %84 = icmp eq i32 %83, 277
-  br i1 %84, label %85, label %86
-
-85:                                               ; preds = %82
-  store i32 276, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %87
+82:                                               ; preds = %76
+  %83 = load ptr, ptr %4, align 8
+  %84 = call i32 @strcasecmp(ptr noundef %83, ptr noundef @.str.18) #10
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %95
 
 86:                                               ; preds = %82
-  store i32 278, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %87
+  %87 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  %88 = load i32, ptr %87, align 8
+  %89 = icmp eq i32 %88, 283
+  br i1 %89, label %90, label %92
 
-87:                                               ; preds = %86, %85
-  br label %112
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 282, ptr %91, align 8
+  br label %94
 
-88:                                               ; preds = %78
-  %89 = load ptr, ptr %4, align 8
-  %90 = call i32 @strcasecmp(ptr noundef %89, ptr noundef @.str.20) #10
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %98
+92:                                               ; preds = %86
+  %93 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 258, ptr %93, align 8
+  br label %94
 
-92:                                               ; preds = %88
-  %93 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  %94 = icmp eq i32 %93, 280
-  br i1 %94, label %95, label %96
+94:                                               ; preds = %92, %90
+  br label %139
 
-95:                                               ; preds = %92
-  store i32 279, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %97
+95:                                               ; preds = %82
+  %96 = load ptr, ptr %4, align 8
+  %97 = call i32 @strcasecmp(ptr noundef %96, ptr noundef @.str.19) #10
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %108
 
-96:                                               ; preds = %92
-  store i32 281, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %97
+99:                                               ; preds = %95
+  %100 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  %101 = load i32, ptr %100, align 8
+  %102 = icmp eq i32 %101, 277
+  br i1 %102, label %103, label %105
 
-97:                                               ; preds = %96, %95
-  br label %111
-
-98:                                               ; preds = %88
-  %99 = load ptr, ptr %4, align 8
-  %100 = call i32 @strcasecmp(ptr noundef %99, ptr noundef @.str.21) #10
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %108
-
-102:                                              ; preds = %98
-  %103 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  %104 = icmp eq i32 %103, 285
-  br i1 %104, label %105, label %106
-
-105:                                              ; preds = %102
-  store i32 284, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 276, ptr %104, align 8
   br label %107
 
-106:                                              ; preds = %102
-  store i32 259, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
+105:                                              ; preds = %99
+  %106 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 278, ptr %106, align 8
   br label %107
 
-107:                                              ; preds = %106, %105
-  br label %110
+107:                                              ; preds = %105, %103
+  br label %138
 
-108:                                              ; preds = %98
+108:                                              ; preds = %95
   %109 = load ptr, ptr %4, align 8
-  call void @lexerror(ptr noundef %109)
-  br label %110
+  %110 = call i32 @strcasecmp(ptr noundef %109, ptr noundef @.str.20) #10
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %121
 
-110:                                              ; preds = %108, %107
-  br label %111
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  %114 = load i32, ptr %113, align 8
+  %115 = icmp eq i32 %114, 280
+  br i1 %115, label %116, label %118
 
-111:                                              ; preds = %110, %97
-  br label %112
-
-112:                                              ; preds = %111, %87
-  br label %113
-
-113:                                              ; preds = %112, %77
-  br label %114
-
-114:                                              ; preds = %113, %67
-  br label %115
-
-115:                                              ; preds = %114, %62
-  br label %116
-
-116:                                              ; preds = %115, %57
-  br label %117
-
-117:                                              ; preds = %116, %52
-  br label %118
-
-118:                                              ; preds = %117, %47
-  br label %119
-
-119:                                              ; preds = %118, %42
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 279, ptr %117, align 8
   br label %120
 
-120:                                              ; preds = %119, %37
-  br label %121
+118:                                              ; preds = %112
+  %119 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 281, ptr %119, align 8
+  br label %120
 
-121:                                              ; preds = %120, %32
-  br label %122
+120:                                              ; preds = %118, %116
+  br label %137
 
-122:                                              ; preds = %121, %27
-  br label %123
+121:                                              ; preds = %108
+  %122 = load ptr, ptr %4, align 8
+  %123 = call i32 @strcasecmp(ptr noundef %122, ptr noundef @.str.21) #10
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %134
 
-123:                                              ; preds = %122, %22
-  br label %124
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  %127 = load i32, ptr %126, align 8
+  %128 = icmp eq i32 %127, 285
+  br i1 %128, label %129, label %131
 
-124:                                              ; preds = %123, %17
-  br label %125
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 284, ptr %130, align 8
+  br label %133
 
-125:                                              ; preds = %124, %8
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 259, ptr %132, align 8
+  br label %133
+
+133:                                              ; preds = %131, %129
+  br label %136
+
+134:                                              ; preds = %121
+  %135 = load ptr, ptr %4, align 8
+  call void @lexerror(ptr noundef %135)
+  br label %136
+
+136:                                              ; preds = %134, %133
+  br label %137
+
+137:                                              ; preds = %136, %120
+  br label %138
+
+138:                                              ; preds = %137, %107
+  br label %139
+
+139:                                              ; preds = %138, %94
+  br label %140
+
+140:                                              ; preds = %139, %80
+  br label %141
+
+141:                                              ; preds = %140, %74
+  br label %142
+
+142:                                              ; preds = %141, %68
+  br label %143
+
+143:                                              ; preds = %142, %62
+  br label %144
+
+144:                                              ; preds = %143, %56
+  br label %145
+
+145:                                              ; preds = %144, %50
+  br label %146
+
+146:                                              ; preds = %145, %44
+  br label %147
+
+147:                                              ; preds = %146, %38
+  br label %148
+
+148:                                              ; preds = %147, %32
+  br label %149
+
+149:                                              ; preds = %148, %25
+  br label %150
+
+150:                                              ; preds = %149, %19
+  br label %151
+
+151:                                              ; preds = %150, %8
   ret void
 }
 
@@ -831,87 +896,93 @@ define internal void @characterData(ptr noundef %0, ptr noundef %1, i32 noundef 
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   store i32 0, ptr %8, align 4
-  %10 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 7), align 8
-  %11 = icmp ne i8 %10, 0
-  br i1 %11, label %12, label %39
+  %10 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 7
+  %11 = load i8, ptr %10, align 8
+  %12 = icmp ne i8 %11, 0
+  br i1 %12, label %13, label %42
 
-12:                                               ; preds = %3
-  %13 = load i32, ptr %6, align 4
-  store i32 %13, ptr %7, align 4
-  br label %14
+13:                                               ; preds = %3
+  %14 = load i32, ptr %6, align 4
+  store i32 %14, ptr %7, align 4
+  br label %15
 
-14:                                               ; preds = %31, %12
-  %15 = load i32, ptr %7, align 4
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %34
+15:                                               ; preds = %33, %13
+  %16 = load i32, ptr %7, align 4
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %36
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i32 1
-  store ptr %19, ptr %5, align 8
-  %20 = load i8, ptr %18, align 1
-  store i8 %20, ptr %9, align 1
-  %21 = load i8, ptr %9, align 1
-  %22 = zext i8 %21 to i32
-  %23 = icmp sge i32 %22, 32
-  br i1 %23, label %24, label %30
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i32 1
+  store ptr %20, ptr %5, align 8
+  %21 = load i8, ptr %19, align 1
+  store i8 %21, ptr %9, align 1
+  %22 = load i8, ptr %9, align 1
+  %23 = zext i8 %22 to i32
+  %24 = icmp sge i32 %23, 32
+  br i1 %24, label %25, label %32
 
-24:                                               ; preds = %17
-  %25 = load i32, ptr %8, align 4
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %8, align 4
-  %27 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 3), align 8
-  %28 = load i8, ptr %9, align 1
-  %29 = call i32 @agxbputc(ptr noundef %27, i8 noundef signext %28)
-  br label %30
+25:                                               ; preds = %18
+  %26 = load i32, ptr %8, align 4
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %8, align 4
+  %28 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i8, ptr %9, align 1
+  %31 = call i32 @agxbputc(ptr noundef %29, i8 noundef signext %30)
+  br label %32
 
-30:                                               ; preds = %24, %17
-  br label %31
+32:                                               ; preds = %25, %18
+  br label %33
 
-31:                                               ; preds = %30
-  %32 = load i32, ptr %7, align 4
-  %33 = add nsw i32 %32, -1
-  store i32 %33, ptr %7, align 4
-  br label %14
+33:                                               ; preds = %32
+  %34 = load i32, ptr %7, align 4
+  %35 = add nsw i32 %34, -1
+  store i32 %35, ptr %7, align 4
+  br label %15
 
-34:                                               ; preds = %14
-  %35 = load i32, ptr %8, align 4
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %37, label %38
+36:                                               ; preds = %15
+  %37 = load i32, ptr %8, align 4
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %41
 
-37:                                               ; preds = %34
-  store i32 267, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %38
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 267, ptr %40, align 8
+  br label %41
 
-38:                                               ; preds = %37, %34
-  br label %39
+41:                                               ; preds = %39, %36
+  br label %42
 
-39:                                               ; preds = %38, %3
+42:                                               ; preds = %41, %3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @clearHTMLlexer() #0 {
   %1 = alloca i32, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 6), align 4
-  %3 = icmp ne i32 %2, 0
-  br i1 %3, label %4, label %5
-
-4:                                                ; preds = %0
-  br label %7
+  %2 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 6
+  %3 = load i32, ptr %2, align 4
+  %4 = icmp ne i32 %3, 0
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %0
-  %6 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 5), align 8
-  br label %7
+  br label %9
 
-7:                                                ; preds = %5, %4
-  %8 = phi i32 [ 3, %4 ], [ %6, %5 ]
-  store i32 %8, ptr %1, align 4
-  %9 = load ptr, ptr @state, align 8
-  call void @XML_ParserFree(ptr noundef %9)
-  call void @agxbfree(ptr noundef getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 4))
-  %10 = load i32, ptr %1, align 4
-  ret i32 %10
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 5
+  %8 = load i32, ptr %7, align 8
+  br label %9
+
+9:                                                ; preds = %6, %5
+  %10 = phi i32 [ 3, %5 ], [ %8, %6 ]
+  store i32 %10, ptr %1, align 4
+  %11 = load ptr, ptr @state, align 8
+  call void @XML_ParserFree(ptr noundef %11)
+  %12 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 4
+  call void @agxbfree(ptr noundef %12)
+  %13 = load i32, ptr %1, align 4
+  ret i32 %13
 }
 
 declare void @XML_ParserFree(ptr noundef) #1
@@ -951,154 +1022,176 @@ define i32 @htmllex() #0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   store ptr null, ptr %3, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %7
+  %7 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 0, ptr %7, align 8
+  br label %8
 
-7:                                                ; preds = %80, %0
-  %8 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 8), align 1
-  %9 = sext i8 %8 to i32
-  %10 = icmp eq i32 %9, 2
-  br i1 %10, label %11, label %12
+8:                                                ; preds = %100, %0
+  %9 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 8
+  %10 = load i8, ptr %9, align 1
+  %11 = sext i8 %10 to i32
+  %12 = icmp eq i32 %11, 2
+  br i1 %12, label %13, label %14
 
-11:                                               ; preds = %7
+13:                                               ; preds = %8
   store i32 -1, ptr %1, align 4
-  br label %85
+  br label %107
 
-12:                                               ; preds = %7
-  %13 = load i8, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 8), align 1
-  %14 = sext i8 %13 to i32
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %20
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 8
+  %16 = load i8, ptr %15, align 1
+  %17 = sext i8 %16 to i32
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %24
 
-16:                                               ; preds = %12
-  store i8 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 8), align 1
-  %17 = load ptr, ptr @htmllex.begin_html, align 8
-  store ptr %17, ptr %2, align 8
-  %18 = load ptr, ptr %2, align 8
-  %19 = call i64 @strlen(ptr noundef %18) #10
-  store i64 %19, ptr %4, align 8
-  store ptr null, ptr %3, align 8
-  br label %39
-
-20:                                               ; preds = %12
-  %21 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 1), align 8
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 8
+  store i8 1, ptr %20, align 1
+  %21 = load ptr, ptr @htmllex.begin_html, align 8
   store ptr %21, ptr %2, align 8
   %22 = load ptr, ptr %2, align 8
-  %23 = load i8, ptr %22, align 1
-  %24 = sext i8 %23 to i32
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %30
+  %23 = call i64 @strlen(ptr noundef %22) #10
+  store i64 %23, ptr %4, align 8
+  store ptr null, ptr %3, align 8
+  br label %46
 
-26:                                               ; preds = %20
-  store i8 2, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 8), align 1
-  %27 = load ptr, ptr @htmllex.end_html, align 8
-  store ptr %27, ptr %2, align 8
-  %28 = load ptr, ptr %2, align 8
-  %29 = call i64 @strlen(ptr noundef %28) #10
-  store i64 %29, ptr %4, align 8
-  br label %38
+24:                                               ; preds = %14
+  %25 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %2, align 8
+  %27 = load ptr, ptr %2, align 8
+  %28 = load i8, ptr %27, align 1
+  %29 = sext i8 %28 to i32
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %36
 
-30:                                               ; preds = %20
-  %31 = load ptr, ptr %2, align 8
-  %32 = call ptr @findNext(ptr noundef %31, ptr noundef getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 4))
-  store ptr %32, ptr %3, align 8
-  %33 = load ptr, ptr %3, align 8
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 8
+  store i8 2, ptr %32, align 1
+  %33 = load ptr, ptr @htmllex.end_html, align 8
+  store ptr %33, ptr %2, align 8
   %34 = load ptr, ptr %2, align 8
-  %35 = ptrtoint ptr %33 to i64
-  %36 = ptrtoint ptr %34 to i64
-  %37 = sub i64 %35, %36
-  store i64 %37, ptr %4, align 8
-  br label %38
+  %35 = call i64 @strlen(ptr noundef %34) #10
+  store i64 %35, ptr %4, align 8
+  br label %45
 
-38:                                               ; preds = %30, %26
-  br label %39
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 4
+  %39 = call ptr @findNext(ptr noundef %37, ptr noundef %38)
+  store ptr %39, ptr %3, align 8
+  %40 = load ptr, ptr %3, align 8
+  %41 = load ptr, ptr %2, align 8
+  %42 = ptrtoint ptr %40 to i64
+  %43 = ptrtoint ptr %41 to i64
+  %44 = sub i64 %42, %43
+  store i64 %44, ptr %4, align 8
+  br label %45
 
-39:                                               ; preds = %38, %16
-  call void @protect_rsqb(ptr noundef getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 4))
-  %40 = load ptr, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 9), align 8
-  store ptr %40, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 10), align 8
-  %41 = load i64, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 11), align 8
-  store i64 %41, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 12), align 8
-  %42 = load ptr, ptr %2, align 8
-  store ptr %42, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 9), align 8
-  %43 = load i64, ptr %4, align 8
-  store i64 %43, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 11), align 8
-  %44 = call i64 @agxblen(ptr noundef getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 4))
-  store i64 %44, ptr %5, align 8
-  %45 = icmp ne i64 %44, 0
-  br i1 %45, label %46, label %52
+45:                                               ; preds = %36, %31
+  br label %46
 
-46:                                               ; preds = %39
-  %47 = load ptr, ptr @state, align 8
-  %48 = call ptr @agxbuse(ptr noundef getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 4))
-  %49 = load i64, ptr %5, align 8
-  %50 = trunc i64 %49 to i32
-  %51 = call i32 @XML_Parse(ptr noundef %47, ptr noundef %48, i32 noundef %50, i32 noundef 0)
-  store i32 %51, ptr %6, align 4
-  br label %61
-
-52:                                               ; preds = %39
-  %53 = load ptr, ptr @state, align 8
+46:                                               ; preds = %45, %19
+  %47 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 4
+  call void @protect_rsqb(ptr noundef %47)
+  %48 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 9
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 10
+  store ptr %49, ptr %50, align 8
+  %51 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 11
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 12
+  store i64 %52, ptr %53, align 8
   %54 = load ptr, ptr %2, align 8
-  %55 = load i64, ptr %4, align 8
-  %56 = trunc i64 %55 to i32
-  %57 = load i64, ptr %4, align 8
-  %58 = icmp ne i64 %57, 0
-  %59 = select i1 %58, i32 0, i32 1
-  %60 = call i32 @XML_Parse(ptr noundef %53, ptr noundef %54, i32 noundef %56, i32 noundef %59)
-  store i32 %60, ptr %6, align 4
-  br label %61
+  %55 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 9
+  store ptr %54, ptr %55, align 8
+  %56 = load i64, ptr %4, align 8
+  %57 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 11
+  store i64 %56, ptr %57, align 8
+  %58 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 4
+  %59 = call i64 @agxblen(ptr noundef %58)
+  store i64 %59, ptr %5, align 8
+  %60 = icmp ne i64 %59, 0
+  br i1 %60, label %61, label %68
 
-61:                                               ; preds = %52, %46
-  %62 = load i32, ptr %6, align 4
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %74
+61:                                               ; preds = %46
+  %62 = load ptr, ptr @state, align 8
+  %63 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 4
+  %64 = call ptr @agxbuse(ptr noundef %63)
+  %65 = load i64, ptr %5, align 8
+  %66 = trunc i64 %65 to i32
+  %67 = call i32 @XML_Parse(ptr noundef %62, ptr noundef %64, i32 noundef %66, i32 noundef 0)
+  store i32 %67, ptr %6, align 4
+  br label %77
 
-64:                                               ; preds = %61
-  %65 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 6), align 4
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %73, label %67
+68:                                               ; preds = %46
+  %69 = load ptr, ptr @state, align 8
+  %70 = load ptr, ptr %2, align 8
+  %71 = load i64, ptr %4, align 8
+  %72 = trunc i64 %71 to i32
+  %73 = load i64, ptr %4, align 8
+  %74 = icmp ne i64 %73, 0
+  %75 = select i1 %74, i32 0, i32 1
+  %76 = call i32 @XML_Parse(ptr noundef %69, ptr noundef %70, i32 noundef %72, i32 noundef %75)
+  store i32 %76, ptr %6, align 4
+  br label %77
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr @state, align 8
-  %69 = call i32 @XML_GetErrorCode(ptr noundef %68)
-  %70 = call ptr @XML_ErrorString(i32 noundef %69)
-  %71 = call i32 @htmllineno()
-  %72 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str, ptr noundef %70, i32 noundef %71)
+77:                                               ; preds = %68, %61
+  %78 = load i32, ptr %6, align 4
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %93
+
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 6
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %92, label %84
+
+84:                                               ; preds = %80
+  %85 = load ptr, ptr @state, align 8
+  %86 = call i32 @XML_GetErrorCode(ptr noundef %85)
+  %87 = call ptr @XML_ErrorString(i32 noundef %86)
+  %88 = call i32 @htmllineno()
+  %89 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str, ptr noundef %87, i32 noundef %88)
   call void @error_context()
-  store i32 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 6), align 4
-  store i32 268, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  br label %73
+  %90 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 6
+  store i32 1, ptr %90, align 4
+  %91 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 268, ptr %91, align 8
+  br label %92
 
-73:                                               ; preds = %67, %64
-  br label %74
+92:                                               ; preds = %84, %80
+  br label %93
 
-74:                                               ; preds = %73, %61
-  %75 = load ptr, ptr %3, align 8
-  %76 = icmp ne ptr %75, null
-  br i1 %76, label %77, label %79
+93:                                               ; preds = %92, %77
+  %94 = load ptr, ptr %3, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %99
 
-77:                                               ; preds = %74
-  %78 = load ptr, ptr %3, align 8
-  store ptr %78, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 1), align 8
-  br label %79
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %3, align 8
+  %98 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 1
+  store ptr %97, ptr %98, align 8
+  br label %99
 
-79:                                               ; preds = %77, %74
-  br label %80
+99:                                               ; preds = %96, %93
+  br label %100
 
-80:                                               ; preds = %79
-  %81 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %7, label %83
+100:                                              ; preds = %99
+  %101 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  %102 = load i32, ptr %101, align 8
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %8, label %104
 
-83:                                               ; preds = %80
-  %84 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  store i32 %84, ptr %1, align 4
-  br label %85
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  %106 = load i32, ptr %105, align 8
+  store i32 %106, ptr %1, align 4
+  br label %107
 
-85:                                               ; preds = %83, %11
-  %86 = load i32, ptr %1, align 4
-  ret i32 %86
+107:                                              ; preds = %104, %13
+  %108 = load i32, ptr %1, align 4
+  ret i32 %108
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -1119,7 +1212,7 @@ define internal ptr @findNext(ptr noundef %0, ptr noundef %1) #0 {
   %10 = load i8, ptr %9, align 1
   %11 = sext i8 %10 to i32
   %12 = icmp eq i32 %11, 60
-  br i1 %12, label %13, label %48
+  br i1 %12, label %13, label %49
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %5, align 8
@@ -1168,85 +1261,86 @@ define internal ptr @findNext(ptr noundef %0, ptr noundef %1) #0 {
   %39 = load i8, ptr %38, align 1
   %40 = sext i8 %39 to i32
   %41 = icmp ne i32 %40, 62
-  br i1 %41, label %42, label %44
+  br i1 %41, label %42, label %45
 
 42:                                               ; preds = %37
   %43 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.101)
-  store i32 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 5), align 8
-  br label %47
+  %44 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 5
+  store i32 1, ptr %44, align 8
+  br label %48
 
-44:                                               ; preds = %37
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i32 1
-  store ptr %46, ptr %5, align 8
-  br label %47
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i32 1
+  store ptr %47, ptr %5, align 8
+  br label %48
 
-47:                                               ; preds = %44, %42
-  br label %84
+48:                                               ; preds = %45, %42
+  br label %85
 
-48:                                               ; preds = %2
-  %49 = load ptr, ptr %3, align 8
-  store ptr %49, ptr %5, align 8
-  br label %50
+49:                                               ; preds = %2
+  %50 = load ptr, ptr %3, align 8
+  store ptr %50, ptr %5, align 8
+  br label %51
 
-50:                                               ; preds = %82, %48
-  %51 = load ptr, ptr %5, align 8
-  %52 = load i8, ptr %51, align 1
-  store i8 %52, ptr %6, align 1
-  %53 = sext i8 %52 to i32
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %59
+51:                                               ; preds = %83, %49
+  %52 = load ptr, ptr %5, align 8
+  %53 = load i8, ptr %52, align 1
+  store i8 %53, ptr %6, align 1
+  %54 = sext i8 %53 to i32
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %60
 
-55:                                               ; preds = %50
-  %56 = load i8, ptr %6, align 1
-  %57 = sext i8 %56 to i32
-  %58 = icmp ne i32 %57, 60
-  br label %59
+56:                                               ; preds = %51
+  %57 = load i8, ptr %6, align 1
+  %58 = sext i8 %57 to i32
+  %59 = icmp ne i32 %58, 60
+  br label %60
 
-59:                                               ; preds = %55, %50
-  %60 = phi i1 [ false, %50 ], [ %58, %55 ]
-  br i1 %60, label %61, label %83
+60:                                               ; preds = %56, %51
+  %61 = phi i1 [ false, %51 ], [ %59, %56 ]
+  br i1 %61, label %62, label %84
 
-61:                                               ; preds = %59
-  %62 = load i8, ptr %6, align 1
-  %63 = sext i8 %62 to i32
-  %64 = icmp eq i32 %63, 38
-  br i1 %64, label %65, label %76
+62:                                               ; preds = %60
+  %63 = load i8, ptr %6, align 1
+  %64 = sext i8 %63 to i32
+  %65 = icmp eq i32 %64, 38
+  br i1 %65, label %66, label %77
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
-  %68 = load i8, ptr %67, align 1
-  %69 = sext i8 %68 to i32
-  %70 = icmp ne i32 %69, 35
-  br i1 %70, label %71, label %76
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %5, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 1
+  %69 = load i8, ptr %68, align 1
+  %70 = sext i8 %69 to i32
+  %71 = icmp ne i32 %70, 35
+  br i1 %71, label %72, label %77
 
-71:                                               ; preds = %65
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1
-  %74 = load ptr, ptr %4, align 8
-  %75 = call ptr @scanEntity(ptr noundef %73, ptr noundef %74)
-  store ptr %75, ptr %5, align 8
-  br label %82
+72:                                               ; preds = %66
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 1
+  %75 = load ptr, ptr %4, align 8
+  %76 = call ptr @scanEntity(ptr noundef %74, ptr noundef %75)
+  store ptr %76, ptr %5, align 8
+  br label %83
 
-76:                                               ; preds = %65, %61
-  %77 = load ptr, ptr %4, align 8
-  %78 = load i8, ptr %6, align 1
-  %79 = call i32 @agxbputc(ptr noundef %77, i8 noundef signext %78)
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i32 1
-  store ptr %81, ptr %5, align 8
-  br label %82
+77:                                               ; preds = %66, %62
+  %78 = load ptr, ptr %4, align 8
+  %79 = load i8, ptr %6, align 1
+  %80 = call i32 @agxbputc(ptr noundef %78, i8 noundef signext %79)
+  %81 = load ptr, ptr %5, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i32 1
+  store ptr %82, ptr %5, align 8
+  br label %83
 
-82:                                               ; preds = %76, %71
-  br label %50
+83:                                               ; preds = %77, %72
+  br label %51
 
-83:                                               ; preds = %59
-  br label %84
+84:                                               ; preds = %60
+  br label %85
 
-84:                                               ; preds = %83, %47
-  %85 = load ptr, ptr %5, align 8
-  ret ptr %85
+85:                                               ; preds = %84, %48
+  %86 = load ptr, ptr %5, align 8
+  ret ptr %86
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1911,11 +2005,13 @@ define internal ptr @mkImg(ptr noundef %0) #0 {
 define internal void @lexerror(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  store i32 268, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 2), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 6), align 4
-  %3 = load ptr, ptr %2, align 8
-  %4 = call i32 @htmllineno()
-  %5 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.99, ptr noundef %3, i32 noundef %4)
+  %3 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 2
+  store i32 268, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 6
+  store i32 1, ptr %4, align 4
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 @htmllineno()
+  %7 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef @.str.99, ptr noundef %5, i32 noundef %6)
   ret void
 }
 
@@ -1945,14 +2041,14 @@ define internal void @doAttrs(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   store ptr %4, ptr %10, align 8
   br label %14
 
-14:                                               ; preds = %42, %5
+14:                                               ; preds = %45, %5
   %15 = load ptr, ptr %9, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i32 1
   store ptr %16, ptr %9, align 8
   %17 = load ptr, ptr %15, align 8
   store ptr %17, ptr %11, align 8
   %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %43
+  br i1 %18, label %19, label %46
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %9, align 8
@@ -1967,7 +2063,7 @@ define internal void @doAttrs(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   store ptr %26, ptr %13, align 8
   %27 = load ptr, ptr %13, align 8
   %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %38
+  br i1 %28, label %29, label %40
 
 29:                                               ; preds = %19
   %30 = load ptr, ptr %13, align 8
@@ -1976,22 +2072,25 @@ define internal void @doAttrs(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %12, align 8
   %35 = call i32 %32(ptr noundef %33, ptr noundef %34)
-  %36 = load i32, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 5), align 8
-  %37 = or i32 %36, %35
-  store i32 %37, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 5), align 8
-  br label %42
+  %36 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 5
+  %37 = load i32, ptr %36, align 8
+  %38 = or i32 %37, %35
+  %39 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 5
+  store i32 %38, ptr %39, align 8
+  br label %45
 
-38:                                               ; preds = %19
-  %39 = load ptr, ptr %11, align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.24, ptr noundef %39, ptr noundef %40)
-  store i32 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 5), align 8
-  br label %42
+40:                                               ; preds = %19
+  %41 = load ptr, ptr %11, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.24, ptr noundef %41, ptr noundef %42)
+  %44 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 5
+  store i32 1, ptr %44, align 8
+  br label %45
 
-42:                                               ; preds = %38, %29
+45:                                               ; preds = %40, %29
   br label %14
 
-43:                                               ; preds = %14
+46:                                               ; preds = %14
   ret void
 }
 
@@ -3731,7 +3830,7 @@ define internal ptr @eatComment(ptr noundef %0) #0 {
   %38 = load ptr, ptr %4, align 8
   %39 = load i8, ptr %38, align 1
   %40 = icmp ne i8 %39, 0
-  br i1 %40, label %41, label %53
+  br i1 %40, label %41, label %54
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %4, align 8
@@ -3745,19 +3844,20 @@ define internal ptr @eatComment(ptr noundef %0) #0 {
 47:                                               ; preds = %41
   %48 = load ptr, ptr %6, align 8
   %49 = call zeroext i1 @startswith(ptr noundef %48, ptr noundef @.str.102)
-  br i1 %49, label %52, label %50
+  br i1 %49, label %53, label %50
 
 50:                                               ; preds = %47, %41
   %51 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef @.str.103)
-  store i32 1, ptr getelementptr inbounds (%struct.lexstate_t, ptr @state, i32 0, i32 5), align 8
-  br label %52
-
-52:                                               ; preds = %50, %47
+  %52 = getelementptr inbounds %struct.lexstate_t, ptr @state, i32 0, i32 5
+  store i32 1, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %52, %35
-  %54 = load ptr, ptr %4, align 8
-  ret ptr %54
+53:                                               ; preds = %50, %47
+  br label %54
+
+54:                                               ; preds = %53, %35
+  %55 = load ptr, ptr %4, align 8
+  ret ptr %55
 }
 
 declare ptr @scanEntity(ptr noundef, ptr noundef) #1

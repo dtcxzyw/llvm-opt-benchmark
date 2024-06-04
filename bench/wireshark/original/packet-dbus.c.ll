@@ -4405,7 +4405,7 @@ define internal i32 @is_dbus_signature_valid(ptr noundef %0, ptr noundef %1) #0 
   store ptr %16, ptr %9, align 8
   br label %17
 
-17:                                               ; preds = %86, %2
+17:                                               ; preds = %88, %2
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr i8, ptr %18, i32 1
   store ptr %19, ptr %4, align 8
@@ -4413,7 +4413,7 @@ define internal i32 @is_dbus_signature_valid(ptr noundef %0, ptr noundef %1) #0 
   store i8 %20, ptr %6, align 1
   %21 = sext i8 %20 to i32
   %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %88
+  br i1 %22, label %23, label %90
 
 23:                                               ; preds = %17
   %24 = load i64, ptr %7, align 8
@@ -4424,12 +4424,12 @@ define internal i32 @is_dbus_signature_valid(ptr noundef %0, ptr noundef %1) #0 
 
 27:                                               ; preds = %23
   store i32 0, ptr %3, align 4
-  br label %93
+  br label %95
 
 28:                                               ; preds = %23
   %29 = load i8, ptr %6, align 1
   %30 = sext i8 %29 to i32
-  switch i32 %30, label %85 [
+  switch i32 %30, label %87 [
     i32 121, label %31
     i32 103, label %31
     i32 118, label %31
@@ -4446,13 +4446,13 @@ define internal i32 @is_dbus_signature_valid(ptr noundef %0, ptr noundef %1) #0 
     i32 100, label %31
     i32 97, label %32
     i32 40, label %38
-    i32 123, label %46
-    i32 41, label %70
-    i32 125, label %70
+    i32 123, label %47
+    i32 41, label %72
+    i32 125, label %72
   ]
 
 31:                                               ; preds = %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28
-  br label %86
+  br label %88
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %4, align 8
@@ -4466,10 +4466,10 @@ define internal i32 @is_dbus_signature_valid(ptr noundef %0, ptr noundef %1) #0 
 
 36:                                               ; preds = %32, %32, %32
   store i32 0, ptr %3, align 4
-  br label %93
+  br label %95
 
 37:                                               ; preds = %32
-  br label %86
+  br label %88
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %4, align 8
@@ -4480,99 +4480,101 @@ define internal i32 @is_dbus_signature_valid(ptr noundef %0, ptr noundef %1) #0 
 
 43:                                               ; preds = %38
   store i32 0, ptr %3, align 4
-  br label %93
+  br label %95
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %9, align 8
-  call void @wmem_list_prepend(ptr noundef %45, ptr noundef inttoptr (i64 41 to ptr))
-  br label %86
+  %46 = inttoptr i64 41 to ptr
+  call void @wmem_list_prepend(ptr noundef %45, ptr noundef %46)
+  br label %88
 
-46:                                               ; preds = %28
-  %47 = load i8, ptr %8, align 1
-  %48 = sext i8 %47 to i32
-  %49 = icmp ne i32 %48, 97
-  br i1 %49, label %55, label %50
+47:                                               ; preds = %28
+  %48 = load i8, ptr %8, align 1
+  %49 = sext i8 %48 to i32
+  %50 = icmp ne i32 %49, 97
+  br i1 %50, label %56, label %51
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %4, align 8
-  %52 = load i8, ptr %51, align 1
-  %53 = call i32 @is_basic_type(i8 noundef signext %52)
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %56, label %55
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %4, align 8
+  %53 = load i8, ptr %52, align 1
+  %54 = call i32 @is_basic_type(i8 noundef signext %53)
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %57, label %56
 
-55:                                               ; preds = %50, %46
+56:                                               ; preds = %51, %47
   store i32 0, ptr %3, align 4
-  br label %93
+  br label %95
 
-56:                                               ; preds = %50
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr i8, ptr %57, i64 1
-  %59 = call ptr @skip_single_complete_type(ptr noundef %58)
-  store ptr %59, ptr %10, align 8
-  %60 = load ptr, ptr %10, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %67
+57:                                               ; preds = %51
+  %58 = load ptr, ptr %4, align 8
+  %59 = getelementptr i8, ptr %58, i64 1
+  %60 = call ptr @skip_single_complete_type(ptr noundef %59)
+  store ptr %60, ptr %10, align 8
+  %61 = load ptr, ptr %10, align 8
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %68
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %10, align 8
-  %64 = load i8, ptr %63, align 1
-  %65 = sext i8 %64 to i32
-  %66 = icmp ne i32 %65, 125
-  br i1 %66, label %67, label %68
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %10, align 8
+  %65 = load i8, ptr %64, align 1
+  %66 = sext i8 %65 to i32
+  %67 = icmp ne i32 %66, 125
+  br i1 %67, label %68, label %69
 
-67:                                               ; preds = %62, %56
+68:                                               ; preds = %63, %57
   store i32 0, ptr %3, align 4
-  br label %93
+  br label %95
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %9, align 8
-  call void @wmem_list_prepend(ptr noundef %69, ptr noundef inttoptr (i64 125 to ptr))
-  br label %86
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %9, align 8
+  %71 = inttoptr i64 125 to ptr
+  call void @wmem_list_prepend(ptr noundef %70, ptr noundef %71)
+  br label %88
 
-70:                                               ; preds = %28, %28
-  %71 = load ptr, ptr %9, align 8
-  %72 = call i32 @wmem_list_count(ptr noundef %71)
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %83, label %74
+72:                                               ; preds = %28, %28
+  %73 = load ptr, ptr %9, align 8
+  %74 = call i32 @wmem_list_count(ptr noundef %73)
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %85, label %76
 
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %9, align 8
-  %76 = call ptr @wmem_stack_pop(ptr noundef %75)
-  %77 = ptrtoint ptr %76 to i64
-  %78 = trunc i64 %77 to i8
-  %79 = sext i8 %78 to i32
-  %80 = load i8, ptr %6, align 1
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %9, align 8
+  %78 = call ptr @wmem_stack_pop(ptr noundef %77)
+  %79 = ptrtoint ptr %78 to i64
+  %80 = trunc i64 %79 to i8
   %81 = sext i8 %80 to i32
-  %82 = icmp ne i32 %79, %81
-  br i1 %82, label %83, label %84
+  %82 = load i8, ptr %6, align 1
+  %83 = sext i8 %82 to i32
+  %84 = icmp ne i32 %81, %83
+  br i1 %84, label %85, label %86
 
-83:                                               ; preds = %74, %70
+85:                                               ; preds = %76, %72
   store i32 0, ptr %3, align 4
-  br label %93
+  br label %95
 
-84:                                               ; preds = %74
-  br label %86
+86:                                               ; preds = %76
+  br label %88
 
-85:                                               ; preds = %28
+87:                                               ; preds = %28
   store i32 0, ptr %3, align 4
-  br label %93
+  br label %95
 
-86:                                               ; preds = %84, %68, %44, %37, %31
-  %87 = load i8, ptr %6, align 1
-  store i8 %87, ptr %8, align 1
+88:                                               ; preds = %86, %69, %44, %37, %31
+  %89 = load i8, ptr %6, align 1
+  store i8 %89, ptr %8, align 1
   br label %17, !llvm.loop !16
 
-88:                                               ; preds = %17
-  %89 = load ptr, ptr %9, align 8
-  %90 = call i32 @wmem_list_count(ptr noundef %89)
-  %91 = icmp eq i32 %90, 0
-  %92 = zext i1 %91 to i32
-  store i32 %92, ptr %3, align 4
-  br label %93
+90:                                               ; preds = %17
+  %91 = load ptr, ptr %9, align 8
+  %92 = call i32 @wmem_list_count(ptr noundef %91)
+  %93 = icmp eq i32 %92, 0
+  %94 = zext i1 %93 to i32
+  store i32 %94, ptr %3, align 4
+  br label %95
 
-93:                                               ; preds = %88, %85, %83, %67, %55, %43, %36, %27
-  %94 = load i32, ptr %3, align 4
-  ret i32 %94
+95:                                               ; preds = %90, %87, %85, %68, %56, %43, %36, %27
+  %96 = load i32, ptr %3, align 4
+  ret i32 %96
 }
 
 ; Function Attrs: nounwind uwtable

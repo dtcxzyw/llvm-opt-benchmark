@@ -1012,7 +1012,8 @@ define dso_local void @_ZN29cmNinjaUtilityTargetGeneratorC2EP17cmGeneratorTarget
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN22cmNinjaTargetGeneratorC2EP17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(240) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29cmNinjaUtilityTargetGenerator, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV29cmNinjaUtilityTargetGenerator, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 

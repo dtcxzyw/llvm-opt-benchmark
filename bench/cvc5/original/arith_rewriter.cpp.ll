@@ -1436,10 +1436,11 @@ entry:
   store ptr %oe, ptr %oe.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal6theory14TheoryRewriterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith13ArithRewriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith13ArithRewriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_opElim = getelementptr inbounds %"class.cvc5::internal::theory::arith::ArithRewriter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %oe.addr, align 8
-  store ptr %0, ptr %d_opElim, align 8
+  %1 = load ptr, ptr %oe.addr, align 8
+  store ptr %1, ptr %d_opElim, align 8
   ret void
 }
 
@@ -1449,7 +1450,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory14TheoryRewriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory14TheoryRewriterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18475,7 +18477,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZN4cvc58internal9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal14LogicExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal14LogicExceptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24088,22 +24091,23 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_msg, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %msg.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_msg, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -24145,7 +24149,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24163,7 +24168,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

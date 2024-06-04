@@ -1039,201 +1039,205 @@ define internal void @register_wimaxasncp_fields(ptr noundef %0) #0 {
   call void @wmem_array_append(ptr noundef %42, ptr noundef @register_wimaxasncp_fields.hf_base, i32 noundef 16)
   %43 = call ptr @wmem_epan_scope()
   %44 = call noalias ptr @wmem_array_new(ptr noundef %43, i64 noundef 8)
-  store ptr %44, ptr getelementptr inbounds (%struct.wimaxasncp_build_dict_t, ptr @wimaxasncp_build_dict, i32 0, i32 1), align 8
-  %45 = load ptr, ptr getelementptr inbounds (%struct.wimaxasncp_build_dict_t, ptr @wimaxasncp_build_dict, i32 0, i32 1), align 8
-  call void @wmem_array_append(ptr noundef %45, ptr noundef @register_wimaxasncp_fields.ett_base, i32 noundef 13)
-  %46 = load ptr, ptr @wimaxasncp_dict, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %96
+  %45 = getelementptr inbounds %struct.wimaxasncp_build_dict_t, ptr @wimaxasncp_build_dict, i32 0, i32 1
+  store ptr %44, ptr %45, align 8
+  %46 = getelementptr inbounds %struct.wimaxasncp_build_dict_t, ptr @wimaxasncp_build_dict, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  call void @wmem_array_append(ptr noundef %47, ptr noundef @register_wimaxasncp_fields.ett_base, i32 noundef 13)
+  %48 = load ptr, ptr @wimaxasncp_dict, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %98
 
-48:                                               ; preds = %39
-  %49 = load ptr, ptr @wimaxasncp_dict, align 8
-  %50 = getelementptr inbounds %struct._wimaxasncp_dict_t, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %8, align 8
-  br label %52
+50:                                               ; preds = %39
+  %51 = load ptr, ptr @wimaxasncp_dict, align 8
+  %52 = getelementptr inbounds %struct._wimaxasncp_dict_t, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  store ptr %53, ptr %8, align 8
+  br label %54
 
-52:                                               ; preds = %91, %48
-  %53 = load ptr, ptr %8, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %95
+54:                                               ; preds = %93, %50
+  %55 = load ptr, ptr %8, align 8
+  %56 = icmp ne ptr %55, null
+  br i1 %56, label %57, label %97
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %56, i32 0, i32 18
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %89
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %8, align 8
+  %59 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %58, i32 0, i32 18
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %91
 
-60:                                               ; preds = %55
-  %61 = call ptr @wmem_epan_scope()
-  %62 = call noalias ptr @wmem_array_new(ptr noundef %61, i64 noundef 16)
-  store ptr %62, ptr %10, align 8
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %63, i32 0, i32 18
-  %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr %9, align 8
-  br label %66
+62:                                               ; preds = %57
+  %63 = call ptr @wmem_epan_scope()
+  %64 = call noalias ptr @wmem_array_new(ptr noundef %63, i64 noundef 16)
+  store ptr %64, ptr %10, align 8
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %65, i32 0, i32 18
+  %67 = load ptr, ptr %66, align 8
+  store ptr %67, ptr %9, align 8
+  br label %68
 
-66:                                               ; preds = %79, %60
-  %67 = load ptr, ptr %9, align 8
-  %68 = icmp ne ptr %67, null
-  br i1 %68, label %69, label %83
+68:                                               ; preds = %81, %62
+  %69 = load ptr, ptr %9, align 8
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %85
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds %struct._value_string, ptr %11, i32 0, i32 0
-  %71 = load ptr, ptr %9, align 8
-  %72 = getelementptr inbounds %struct._wimaxasncp_dict_namecode_t, ptr %71, i32 0, i32 1
-  %73 = load i32, ptr %72, align 8
-  store i32 %73, ptr %70, align 8
-  %74 = getelementptr inbounds %struct._value_string, ptr %11, i32 0, i32 1
-  %75 = load ptr, ptr %9, align 8
-  %76 = getelementptr inbounds %struct._wimaxasncp_dict_namecode_t, ptr %75, i32 0, i32 0
-  %77 = load ptr, ptr %76, align 8
-  store ptr %77, ptr %74, align 8
-  %78 = load ptr, ptr %10, align 8
-  call void @wmem_array_append(ptr noundef %78, ptr noundef %11, i32 noundef 1)
-  br label %79
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds %struct._value_string, ptr %11, i32 0, i32 0
+  %73 = load ptr, ptr %9, align 8
+  %74 = getelementptr inbounds %struct._wimaxasncp_dict_namecode_t, ptr %73, i32 0, i32 1
+  %75 = load i32, ptr %74, align 8
+  store i32 %75, ptr %72, align 8
+  %76 = getelementptr inbounds %struct._value_string, ptr %11, i32 0, i32 1
+  %77 = load ptr, ptr %9, align 8
+  %78 = getelementptr inbounds %struct._wimaxasncp_dict_namecode_t, ptr %77, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8
+  store ptr %79, ptr %76, align 8
+  %80 = load ptr, ptr %10, align 8
+  call void @wmem_array_append(ptr noundef %80, ptr noundef %11, i32 noundef 1)
+  br label %81
 
-79:                                               ; preds = %69
-  %80 = load ptr, ptr %9, align 8
-  %81 = getelementptr inbounds %struct._wimaxasncp_dict_namecode_t, ptr %80, i32 0, i32 2
-  %82 = load ptr, ptr %81, align 8
-  store ptr %82, ptr %9, align 8
-  br label %66, !llvm.loop !7
+81:                                               ; preds = %71
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds %struct._wimaxasncp_dict_namecode_t, ptr %82, i32 0, i32 2
+  %84 = load ptr, ptr %83, align 8
+  store ptr %84, ptr %9, align 8
+  br label %68, !llvm.loop !7
 
-83:                                               ; preds = %66
-  %84 = load ptr, ptr %10, align 8
-  call void @wmem_array_set_null_terminator(ptr noundef %84)
-  %85 = load ptr, ptr %10, align 8
-  %86 = call ptr @wmem_array_get_raw(ptr noundef %85)
-  %87 = load ptr, ptr %8, align 8
-  %88 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %87, i32 0, i32 17
-  store ptr %86, ptr %88, align 8
-  br label %89
-
-89:                                               ; preds = %83, %55
-  %90 = load ptr, ptr %8, align 8
-  call void @add_tlv_reg_info(ptr noundef %90)
+85:                                               ; preds = %68
+  %86 = load ptr, ptr %10, align 8
+  call void @wmem_array_set_null_terminator(ptr noundef %86)
+  %87 = load ptr, ptr %10, align 8
+  %88 = call ptr @wmem_array_get_raw(ptr noundef %87)
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %89, i32 0, i32 17
+  store ptr %88, ptr %90, align 8
   br label %91
 
-91:                                               ; preds = %89
+91:                                               ; preds = %85, %57
   %92 = load ptr, ptr %8, align 8
-  %93 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %92, i32 0, i32 19
-  %94 = load ptr, ptr %93, align 8
-  store ptr %94, ptr %8, align 8
-  br label %52, !llvm.loop !8
+  call void @add_tlv_reg_info(ptr noundef %92)
+  br label %93
 
-95:                                               ; preds = %52
-  br label %96
+93:                                               ; preds = %91
+  %94 = load ptr, ptr %8, align 8
+  %95 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %94, i32 0, i32 19
+  %96 = load ptr, ptr %95, align 8
+  store ptr %96, ptr %8, align 8
+  br label %54, !llvm.loop !8
 
-96:                                               ; preds = %95, %39
+97:                                               ; preds = %54
+  br label %98
+
+98:                                               ; preds = %97, %39
   call void @add_tlv_reg_info(ptr noundef @wimaxasncp_tlv_not_found)
-  %97 = load i32, ptr @debug_enabled, align 4
-  %98 = icmp ne i32 %97, 0
-  br i1 %98, label %99, label %167
+  %99 = load i32, ptr @debug_enabled, align 4
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %169
 
-99:                                               ; preds = %96
-  %100 = load ptr, ptr @wimaxasncp_dict, align 8
-  %101 = icmp ne ptr %100, null
-  br i1 %101, label %102, label %166
+101:                                              ; preds = %98
+  %102 = load ptr, ptr @wimaxasncp_dict, align 8
+  %103 = icmp ne ptr %102, null
+  br i1 %103, label %104, label %168
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr @wimaxasncp_dict, align 8
-  %104 = getelementptr inbounds %struct._wimaxasncp_dict_t, ptr %103, i32 0, i32 0
-  %105 = load ptr, ptr %104, align 8
-  store ptr %105, ptr %12, align 8
-  br label %106
+104:                                              ; preds = %101
+  %105 = load ptr, ptr @wimaxasncp_dict, align 8
+  %106 = getelementptr inbounds %struct._wimaxasncp_dict_t, ptr %105, i32 0, i32 0
+  %107 = load ptr, ptr %106, align 8
+  store ptr %107, ptr %12, align 8
+  br label %108
 
-106:                                              ; preds = %161, %102
-  %107 = load ptr, ptr %12, align 8
-  %108 = icmp ne ptr %107, null
-  br i1 %108, label %109, label %165
+108:                                              ; preds = %163, %104
+  %109 = load ptr, ptr %12, align 8
+  %110 = icmp ne ptr %109, null
+  br i1 %110, label %111, label %167
 
-109:                                              ; preds = %106
-  %110 = load ptr, ptr %12, align 8
-  %111 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %110, i32 0, i32 1
-  %112 = load ptr, ptr %111, align 8
-  %113 = load ptr, ptr %12, align 8
-  %114 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %113, i32 0, i32 0
-  %115 = load i16, ptr %114, align 8
-  %116 = zext i16 %115 to i32
-  %117 = load ptr, ptr %12, align 8
-  %118 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %117, i32 0, i32 2
-  %119 = load ptr, ptr %118, align 8
-  %120 = load ptr, ptr %12, align 8
-  %121 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %120, i32 0, i32 3
-  %122 = load i32, ptr %121, align 8
-  %123 = call ptr @val_to_str(i32 noundef %122, ptr noundef @wimaxasncp_decode_type_vals, ptr noundef @.str.23)
-  %124 = load ptr, ptr %12, align 8
-  %125 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %124, i32 0, i32 5
-  %126 = load i32, ptr %125, align 8
-  %127 = load ptr, ptr %12, align 8
-  %128 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %127, i32 0, i32 6
-  %129 = load i32, ptr %128, align 4
-  %130 = load ptr, ptr %12, align 8
-  %131 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %130, i32 0, i32 7
-  %132 = load i32, ptr %131, align 8
-  %133 = load ptr, ptr %12, align 8
-  %134 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %133, i32 0, i32 8
-  %135 = load i32, ptr %134, align 4
-  %136 = load ptr, ptr %12, align 8
-  %137 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %136, i32 0, i32 9
-  %138 = load i32, ptr %137, align 8
-  %139 = load ptr, ptr %12, align 8
-  %140 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %139, i32 0, i32 10
-  %141 = load i32, ptr %140, align 4
-  %142 = load ptr, ptr %12, align 8
-  %143 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %142, i32 0, i32 11
-  %144 = load i32, ptr %143, align 8
-  %145 = load ptr, ptr %12, align 8
-  %146 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %145, i32 0, i32 12
-  %147 = load i32, ptr %146, align 4
-  %148 = load ptr, ptr %12, align 8
-  %149 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %148, i32 0, i32 13
-  %150 = load i32, ptr %149, align 8
-  %151 = load ptr, ptr %12, align 8
-  %152 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %151, i32 0, i32 14
-  %153 = load i32, ptr %152, align 4
-  %154 = load ptr, ptr %12, align 8
-  %155 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %154, i32 0, i32 15
-  %156 = load i32, ptr %155, align 8
-  %157 = load ptr, ptr %12, align 8
-  %158 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %157, i32 0, i32 16
-  %159 = load i32, ptr %158, align 4
-  %160 = call i32 (ptr, ...) @printf(ptr noundef @.str.248, ptr noundef %112, i32 noundef %116, ptr noundef %119, ptr noundef %123, i32 noundef %126, i32 noundef %129, i32 noundef %132, i32 noundef %135, i32 noundef %138, i32 noundef %141, i32 noundef %144, i32 noundef %147, i32 noundef %150, i32 noundef %153, i32 noundef %156, i32 noundef %159)
-  br label %161
+111:                                              ; preds = %108
+  %112 = load ptr, ptr %12, align 8
+  %113 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %112, i32 0, i32 1
+  %114 = load ptr, ptr %113, align 8
+  %115 = load ptr, ptr %12, align 8
+  %116 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %115, i32 0, i32 0
+  %117 = load i16, ptr %116, align 8
+  %118 = zext i16 %117 to i32
+  %119 = load ptr, ptr %12, align 8
+  %120 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %119, i32 0, i32 2
+  %121 = load ptr, ptr %120, align 8
+  %122 = load ptr, ptr %12, align 8
+  %123 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %122, i32 0, i32 3
+  %124 = load i32, ptr %123, align 8
+  %125 = call ptr @val_to_str(i32 noundef %124, ptr noundef @wimaxasncp_decode_type_vals, ptr noundef @.str.23)
+  %126 = load ptr, ptr %12, align 8
+  %127 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %126, i32 0, i32 5
+  %128 = load i32, ptr %127, align 8
+  %129 = load ptr, ptr %12, align 8
+  %130 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %129, i32 0, i32 6
+  %131 = load i32, ptr %130, align 4
+  %132 = load ptr, ptr %12, align 8
+  %133 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %132, i32 0, i32 7
+  %134 = load i32, ptr %133, align 8
+  %135 = load ptr, ptr %12, align 8
+  %136 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %135, i32 0, i32 8
+  %137 = load i32, ptr %136, align 4
+  %138 = load ptr, ptr %12, align 8
+  %139 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %138, i32 0, i32 9
+  %140 = load i32, ptr %139, align 8
+  %141 = load ptr, ptr %12, align 8
+  %142 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %141, i32 0, i32 10
+  %143 = load i32, ptr %142, align 4
+  %144 = load ptr, ptr %12, align 8
+  %145 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %144, i32 0, i32 11
+  %146 = load i32, ptr %145, align 8
+  %147 = load ptr, ptr %12, align 8
+  %148 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %147, i32 0, i32 12
+  %149 = load i32, ptr %148, align 4
+  %150 = load ptr, ptr %12, align 8
+  %151 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %150, i32 0, i32 13
+  %152 = load i32, ptr %151, align 8
+  %153 = load ptr, ptr %12, align 8
+  %154 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %153, i32 0, i32 14
+  %155 = load i32, ptr %154, align 4
+  %156 = load ptr, ptr %12, align 8
+  %157 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %156, i32 0, i32 15
+  %158 = load i32, ptr %157, align 8
+  %159 = load ptr, ptr %12, align 8
+  %160 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %159, i32 0, i32 16
+  %161 = load i32, ptr %160, align 4
+  %162 = call i32 (ptr, ...) @printf(ptr noundef @.str.248, ptr noundef %114, i32 noundef %118, ptr noundef %121, ptr noundef %125, i32 noundef %128, i32 noundef %131, i32 noundef %134, i32 noundef %137, i32 noundef %140, i32 noundef %143, i32 noundef %146, i32 noundef %149, i32 noundef %152, i32 noundef %155, i32 noundef %158, i32 noundef %161)
+  br label %163
 
-161:                                              ; preds = %109
-  %162 = load ptr, ptr %12, align 8
-  %163 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %162, i32 0, i32 19
-  %164 = load ptr, ptr %163, align 8
-  store ptr %164, ptr %12, align 8
-  br label %106, !llvm.loop !9
+163:                                              ; preds = %111
+  %164 = load ptr, ptr %12, align 8
+  %165 = getelementptr inbounds %struct._wimaxasncp_dict_tlv_t, ptr %164, i32 0, i32 19
+  %166 = load ptr, ptr %165, align 8
+  store ptr %166, ptr %12, align 8
+  br label %108, !llvm.loop !9
 
-165:                                              ; preds = %106
-  br label %166
+167:                                              ; preds = %108
+  br label %168
 
-166:                                              ; preds = %165, %99
-  br label %167
+168:                                              ; preds = %167, %101
+  br label %169
 
-167:                                              ; preds = %166, %96
-  %168 = load i32, ptr @proto_wimaxasncp, align 4
-  %169 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  %170 = call ptr @wmem_array_get_raw(ptr noundef %169)
+169:                                              ; preds = %168, %98
+  %170 = load i32, ptr @proto_wimaxasncp, align 4
   %171 = load ptr, ptr @wimaxasncp_build_dict, align 8
-  %172 = call i32 @wmem_array_get_count(ptr noundef %171)
-  call void @proto_register_field_array(i32 noundef %168, ptr noundef %170, i32 noundef %172)
-  %173 = load ptr, ptr getelementptr inbounds (%struct.wimaxasncp_build_dict_t, ptr @wimaxasncp_build_dict, i32 0, i32 1), align 8
-  %174 = call ptr @wmem_array_get_raw(ptr noundef %173)
-  %175 = load ptr, ptr getelementptr inbounds (%struct.wimaxasncp_build_dict_t, ptr @wimaxasncp_build_dict, i32 0, i32 1), align 8
-  %176 = call i32 @wmem_array_get_count(ptr noundef %175)
-  call void @proto_register_subtree_array(ptr noundef %174, i32 noundef %176)
-  %177 = load i32, ptr @proto_wimaxasncp, align 4
-  %178 = call ptr @expert_register_protocol(i32 noundef %177)
-  store ptr %178, ptr %7, align 8
-  %179 = load ptr, ptr %7, align 8
-  call void @expert_register_field_array(ptr noundef %179, ptr noundef @register_wimaxasncp_fields.ei, i32 noundef 5)
+  %172 = call ptr @wmem_array_get_raw(ptr noundef %171)
+  %173 = load ptr, ptr @wimaxasncp_build_dict, align 8
+  %174 = call i32 @wmem_array_get_count(ptr noundef %173)
+  call void @proto_register_field_array(i32 noundef %170, ptr noundef %172, i32 noundef %174)
+  %175 = getelementptr inbounds %struct.wimaxasncp_build_dict_t, ptr @wimaxasncp_build_dict, i32 0, i32 1
+  %176 = load ptr, ptr %175, align 8
+  %177 = call ptr @wmem_array_get_raw(ptr noundef %176)
+  %178 = getelementptr inbounds %struct.wimaxasncp_build_dict_t, ptr @wimaxasncp_build_dict, i32 0, i32 1
+  %179 = load ptr, ptr %178, align 8
+  %180 = call i32 @wmem_array_get_count(ptr noundef %179)
+  call void @proto_register_subtree_array(ptr noundef %177, i32 noundef %180)
+  %181 = load i32, ptr @proto_wimaxasncp, align 4
+  %182 = call ptr @expert_register_protocol(i32 noundef %181)
+  store ptr %182, ptr %7, align 8
+  %183 = load ptr, ptr %7, align 8
+  call void @expert_register_field_array(ptr noundef %183, ptr noundef @register_wimaxasncp_fields.ei, i32 noundef 5)
   ret void
 }
 

@@ -178,19 +178,19 @@ define internal i32 @i915_ttm_backup(ptr nocapture noundef readonly %0, ptr noun
   %7 = getelementptr inbounds i8, ptr %1, i64 384
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %106, label %10
+  br i1 %9, label %107, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %106, label %14
+  br i1 %13, label %107, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %1, i64 1000
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %106
+  br i1 %17, label %18, label %107
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %0, i64 24
@@ -206,13 +206,13 @@ define internal i32 @i915_ttm_backup(ptr nocapture noundef readonly %0, ptr noun
 25:                                               ; preds = %23
   %26 = tail call ptr @i915_ttm_sys_placement() #6
   %27 = call i32 @ttm_bo_validate(ptr noundef %1, ptr noundef %26, ptr noundef nonnull %3) #6
-  br label %106
+  br label %107
 
 28:                                               ; preds = %23, %18
   %29 = load i8, ptr %19, align 8
   %30 = and i8 %29, 2
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %106, label %32
+  br i1 %31, label %107, label %32
 
 32:                                               ; preds = %28
   %33 = and i8 %29, 1
@@ -224,14 +224,14 @@ define internal i32 @i915_ttm_backup(ptr nocapture noundef readonly %0, ptr noun
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, 32
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %106
+  br i1 %39, label %40, label %107
 
 40:                                               ; preds = %35, %32
   %41 = getelementptr inbounds i8, ptr %1, i64 632
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, 16
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %106
+  br i1 %44, label %45, label %107
 
 45:                                               ; preds = %40
   %46 = tail call zeroext i1 @i915_gem_object_needs_ccs_pages(ptr noundef %1) #6
@@ -275,73 +275,74 @@ define internal i32 @i915_ttm_backup(ptr nocapture noundef readonly %0, ptr noun
   %66 = getelementptr inbounds i8, ptr %1, i64 216
   %67 = load i64, ptr %66, align 8
   %68 = tail call ptr @i915_gem_object_create_region(ptr noundef %65, i64 noundef %67, i64 noundef 0, i32 noundef %63) #6
-  %69 = icmp ugt ptr %68, inttoptr (i64 -4096 to ptr)
-  br i1 %69, label %70, label %73
+  %69 = inttoptr i64 -4096 to ptr
+  %70 = icmp ugt ptr %68, %69
+  br i1 %70, label %71, label %74
 
-70:                                               ; preds = %62
-  %71 = ptrtoint ptr %68 to i64
-  %72 = trunc i64 %71 to i32
-  br label %106
+71:                                               ; preds = %62
+  %72 = ptrtoint ptr %68 to i64
+  %73 = trunc i64 %72 to i32
+  br label %107
 
-73:                                               ; preds = %62
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = tail call fastcc i32 @i915_gem_object_lock(ptr noundef %68, ptr noundef %75)
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %104
+74:                                               ; preds = %62
+  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call fastcc i32 @i915_gem_object_lock(ptr noundef %68, ptr noundef %76)
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %105
 
-78:                                               ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %68, i64 352
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %68, i64 392
-  %82 = load ptr, ptr %81, align 8
-  %83 = call i32 @ttm_tt_populate(ptr noundef %80, ptr noundef %82, ptr noundef nonnull %3) #6
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %102
+79:                                               ; preds = %74
+  %80 = getelementptr inbounds i8, ptr %68, i64 352
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %68, i64 392
+  %83 = load ptr, ptr %82, align 8
+  %84 = call i32 @ttm_tt_populate(ptr noundef %81, ptr noundef %83, ptr noundef nonnull %3) #6
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %103
 
-85:                                               ; preds = %78
-  %86 = load i8, ptr %19, align 8
-  %87 = and i8 %86, 1
-  %88 = icmp ne i8 %87, 0
-  %89 = call i32 @i915_gem_obj_copy_ttm(ptr noundef %68, ptr noundef %1, i1 noundef zeroext %88, i1 noundef zeroext false) #6
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %100, label %91
+86:                                               ; preds = %79
+  %87 = load i8, ptr %19, align 8
+  %88 = and i8 %87, 1
+  %89 = icmp ne i8 %88, 0
+  %90 = call i32 @i915_gem_obj_copy_ttm(ptr noundef %68, ptr noundef %1, i1 noundef zeroext %89, i1 noundef zeroext false) #6
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %101, label %92
 
-91:                                               ; preds = %85
-  %92 = icmp eq ptr %6, null
-  br i1 %92, label %96, label %93
+92:                                               ; preds = %86
+  %93 = icmp eq ptr %6, null
+  br i1 %93, label %97, label %94
 
-93:                                               ; preds = %91
-  %94 = getelementptr i8, ptr %5, i64 -9992
-  %95 = load ptr, ptr %94, align 8
-  br label %96
+94:                                               ; preds = %92
+  %95 = getelementptr i8, ptr %5, i64 -9992
+  %96 = load ptr, ptr %95, align 8
+  br label %97
 
-96:                                               ; preds = %93, %91
-  %97 = phi ptr [ %95, %93 ], [ null, %91 ]
-  %98 = sext i32 %89 to i64
-  %99 = inttoptr i64 %98 to ptr
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %97, ptr noundef nonnull @.str.1, ptr noundef nonnull %99) #7
-  br label %102
+97:                                               ; preds = %94, %92
+  %98 = phi ptr [ %96, %94 ], [ null, %92 ]
+  %99 = sext i32 %90 to i64
+  %100 = inttoptr i64 %99 to ptr
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %98, ptr noundef nonnull @.str.1, ptr noundef nonnull %100) #7
+  br label %103
 
-100:                                              ; preds = %85
-  %101 = call i32 @ttm_bo_wait_ctx(ptr noundef %68, ptr noundef nonnull %3) #6
+101:                                              ; preds = %86
+  %102 = call i32 @ttm_bo_wait_ctx(ptr noundef %68, ptr noundef nonnull %3) #6
   store ptr %68, ptr %15, align 8
-  br label %106
+  br label %107
 
-102:                                              ; preds = %96, %78
-  %103 = phi i32 [ %83, %78 ], [ %89, %96 ]
+103:                                              ; preds = %97, %79
+  %104 = phi i32 [ %84, %79 ], [ %90, %97 ]
   call void @i915_gem_ww_unlock_single(ptr noundef %68) #6
-  br label %104
+  br label %105
 
-104:                                              ; preds = %102, %73
-  %105 = phi i32 [ %76, %73 ], [ %103, %102 ]
+105:                                              ; preds = %103, %74
+  %106 = phi i32 [ %77, %74 ], [ %104, %103 ]
   call fastcc void @i915_gem_object_put(ptr noundef %68)
-  br label %106
+  br label %107
 
-106:                                              ; preds = %104, %100, %70, %40, %35, %28, %25, %14, %10, %2
-  %107 = phi i32 [ %27, %25 ], [ %72, %70 ], [ %105, %104 ], [ 0, %100 ], [ 0, %14 ], [ 0, %10 ], [ 0, %35 ], [ 0, %28 ], [ 0, %40 ], [ 0, %2 ]
+107:                                              ; preds = %105, %101, %71, %40, %35, %28, %25, %14, %10, %2
+  %108 = phi i32 [ %27, %25 ], [ %73, %71 ], [ %106, %105 ], [ 0, %101 ], [ 0, %14 ], [ 0, %10 ], [ 0, %35 ], [ 0, %28 ], [ 0, %40 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
-  ret i32 %107
+  ret i32 %108
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

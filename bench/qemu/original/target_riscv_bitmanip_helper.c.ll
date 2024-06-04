@@ -169,25 +169,31 @@ entry:
   %call = call i64 @do_shuf_stage(i64 noundef %1, i64 noundef %2, i64 noundef %shr, i32 noundef 1)
   store i64 %call, ptr %x, align 8
   %4 = load i64, ptr %x, align 8
-  %5 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @shuf_masks, i64 0, i64 1), align 8
-  %6 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @shuf_masks, i64 0, i64 1), align 8
-  %shr1 = lshr i64 %6, 2
-  %call2 = call i64 @do_shuf_stage(i64 noundef %4, i64 noundef %5, i64 noundef %shr1, i32 noundef 2)
+  %5 = getelementptr inbounds [4 x i64], ptr @shuf_masks, i64 0, i64 1
+  %6 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds [4 x i64], ptr @shuf_masks, i64 0, i64 1
+  %8 = load i64, ptr %7, align 8
+  %shr1 = lshr i64 %8, 2
+  %call2 = call i64 @do_shuf_stage(i64 noundef %4, i64 noundef %6, i64 noundef %shr1, i32 noundef 2)
   store i64 %call2, ptr %x, align 8
-  %7 = load i64, ptr %x, align 8
-  %8 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @shuf_masks, i64 0, i64 2), align 16
-  %9 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @shuf_masks, i64 0, i64 2), align 16
-  %shr3 = lshr i64 %9, 4
-  %call4 = call i64 @do_shuf_stage(i64 noundef %7, i64 noundef %8, i64 noundef %shr3, i32 noundef 4)
+  %9 = load i64, ptr %x, align 8
+  %10 = getelementptr inbounds [4 x i64], ptr @shuf_masks, i64 0, i64 2
+  %11 = load i64, ptr %10, align 16
+  %12 = getelementptr inbounds [4 x i64], ptr @shuf_masks, i64 0, i64 2
+  %13 = load i64, ptr %12, align 16
+  %shr3 = lshr i64 %13, 4
+  %call4 = call i64 @do_shuf_stage(i64 noundef %9, i64 noundef %11, i64 noundef %shr3, i32 noundef 4)
   store i64 %call4, ptr %x, align 8
-  %10 = load i64, ptr %x, align 8
-  %11 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @shuf_masks, i64 0, i64 3), align 8
-  %12 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @shuf_masks, i64 0, i64 3), align 8
-  %shr5 = lshr i64 %12, 8
-  %call6 = call i64 @do_shuf_stage(i64 noundef %10, i64 noundef %11, i64 noundef %shr5, i32 noundef 8)
+  %14 = load i64, ptr %x, align 8
+  %15 = getelementptr inbounds [4 x i64], ptr @shuf_masks, i64 0, i64 3
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds [4 x i64], ptr @shuf_masks, i64 0, i64 3
+  %18 = load i64, ptr %17, align 8
+  %shr5 = lshr i64 %18, 8
+  %call6 = call i64 @do_shuf_stage(i64 noundef %14, i64 noundef %16, i64 noundef %shr5, i32 noundef 8)
   store i64 %call6, ptr %x, align 8
-  %13 = load i64, ptr %x, align 8
-  ret i64 %13
+  %19 = load i64, ptr %x, align 8
+  ret i64 %19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -238,31 +244,37 @@ entry:
   %0 = load i64, ptr %rs1.addr, align 8
   store i64 %0, ptr %x, align 8
   %1 = load i64, ptr %x, align 8
-  %2 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @shuf_masks, i64 0, i64 3), align 8
-  %3 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @shuf_masks, i64 0, i64 3), align 8
-  %shr = lshr i64 %3, 8
-  %call = call i64 @do_shuf_stage(i64 noundef %1, i64 noundef %2, i64 noundef %shr, i32 noundef 8)
+  %2 = getelementptr inbounds [4 x i64], ptr @shuf_masks, i64 0, i64 3
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr inbounds [4 x i64], ptr @shuf_masks, i64 0, i64 3
+  %5 = load i64, ptr %4, align 8
+  %shr = lshr i64 %5, 8
+  %call = call i64 @do_shuf_stage(i64 noundef %1, i64 noundef %3, i64 noundef %shr, i32 noundef 8)
   store i64 %call, ptr %x, align 8
-  %4 = load i64, ptr %x, align 8
-  %5 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @shuf_masks, i64 0, i64 2), align 16
-  %6 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @shuf_masks, i64 0, i64 2), align 16
-  %shr1 = lshr i64 %6, 4
-  %call2 = call i64 @do_shuf_stage(i64 noundef %4, i64 noundef %5, i64 noundef %shr1, i32 noundef 4)
+  %6 = load i64, ptr %x, align 8
+  %7 = getelementptr inbounds [4 x i64], ptr @shuf_masks, i64 0, i64 2
+  %8 = load i64, ptr %7, align 16
+  %9 = getelementptr inbounds [4 x i64], ptr @shuf_masks, i64 0, i64 2
+  %10 = load i64, ptr %9, align 16
+  %shr1 = lshr i64 %10, 4
+  %call2 = call i64 @do_shuf_stage(i64 noundef %6, i64 noundef %8, i64 noundef %shr1, i32 noundef 4)
   store i64 %call2, ptr %x, align 8
-  %7 = load i64, ptr %x, align 8
-  %8 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @shuf_masks, i64 0, i64 1), align 8
-  %9 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @shuf_masks, i64 0, i64 1), align 8
-  %shr3 = lshr i64 %9, 2
-  %call4 = call i64 @do_shuf_stage(i64 noundef %7, i64 noundef %8, i64 noundef %shr3, i32 noundef 2)
+  %11 = load i64, ptr %x, align 8
+  %12 = getelementptr inbounds [4 x i64], ptr @shuf_masks, i64 0, i64 1
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds [4 x i64], ptr @shuf_masks, i64 0, i64 1
+  %15 = load i64, ptr %14, align 8
+  %shr3 = lshr i64 %15, 2
+  %call4 = call i64 @do_shuf_stage(i64 noundef %11, i64 noundef %13, i64 noundef %shr3, i32 noundef 2)
   store i64 %call4, ptr %x, align 8
-  %10 = load i64, ptr %x, align 8
-  %11 = load i64, ptr @shuf_masks, align 16
-  %12 = load i64, ptr @shuf_masks, align 16
-  %shr5 = lshr i64 %12, 1
-  %call6 = call i64 @do_shuf_stage(i64 noundef %10, i64 noundef %11, i64 noundef %shr5, i32 noundef 1)
+  %16 = load i64, ptr %x, align 8
+  %17 = load i64, ptr @shuf_masks, align 16
+  %18 = load i64, ptr @shuf_masks, align 16
+  %shr5 = lshr i64 %18, 1
+  %call6 = call i64 @do_shuf_stage(i64 noundef %16, i64 noundef %17, i64 noundef %shr5, i32 noundef 1)
   store i64 %call6, ptr %x, align 8
-  %13 = load i64, ptr %x, align 8
-  ret i64 %13
+  %19 = load i64, ptr %x, align 8
+  ret i64 %19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

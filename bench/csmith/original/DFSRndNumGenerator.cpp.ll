@@ -474,68 +474,69 @@ define dso_local void @_ZN18DFSRndNumGeneratorC2EP8Sequence(ptr noundef nonnull 
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZN18AbsRndNumGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV18DFSRndNumGenerator, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 1
+  %9 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV18DFSRndNumGenerator, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %10 unwind label %21
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %11 unwind label %22
 
-10:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
-  %11 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 2
-  store i32 -1, ptr %11, align 8
-  %12 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 3
-  store i32 -1, ptr %12, align 4
-  %13 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 4
-  store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 5
-  %15 = load ptr, ptr %4, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 6
-  store i8 0, ptr %16, align 8
-  %17 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 7
-  call void @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  %18 = invoke noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
-          to label %19 unwind label %25
+  %12 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 2
+  store i32 -1, ptr %12, align 8
+  %13 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 3
+  store i32 -1, ptr %13, align 4
+  %14 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 4
+  store i8 0, ptr %14, align 8
+  %15 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 5
+  %16 = load ptr, ptr %4, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 6
+  store i8 0, ptr %17, align 8
+  %18 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 7
+  call void @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  %19 = invoke noundef i32 @_ZN9CGOptions20max_exhaustive_depthEv()
+          to label %20 unwind label %26
 
-19:                                               ; preds = %10
-  invoke void @_ZN18DFSRndNumGenerator11init_statesEi(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef %18)
-          to label %20 unwind label %25
+20:                                               ; preds = %11
+  invoke void @_ZN18DFSRndNumGenerator11init_statesEi(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef %19)
+          to label %21 unwind label %26
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
   ret void
 
-21:                                               ; preds = %2
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %6, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %7, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %6, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %7, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
-  br label %29
-
-25:                                               ; preds = %19, %10
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %6, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %7, align 4
-  call void @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  br label %29
-
-29:                                               ; preds = %25, %21
-  call void @_ZN18AbsRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   br label %30
 
-30:                                               ; preds = %29
-  %31 = load ptr, ptr %6, align 8
-  %32 = load i32, ptr %7, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+26:                                               ; preds = %20, %11
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %6, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %7, align 4
+  call void @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @_ZN18AbsRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %6, align 8
+  %33 = load i32, ptr %7, align 4
+  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
+  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
+  resume { ptr, i32 } %35
 }
 
 declare void @_ZN18AbsRndNumGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -661,60 +662,61 @@ define dso_local void @_ZN18DFSRndNumGeneratorD2Ev(ptr noundef nonnull align 8 d
   %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV18DFSRndNumGenerator, i32 0, i32 0, i32 2), ptr %6, align 8
+  %7 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV18DFSRndNumGenerator, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
   call void @_ZN9__gnu_cxx17__normal_iteratorIPPN18DFSRndNumGenerator11SearchStateESt6vectorIS3_SaIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %7 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %6, i32 0, i32 7
-  %8 = call ptr @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
-  store ptr %8, ptr %9, align 8
+  %8 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %6, i32 0, i32 7
+  %9 = call ptr @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %9, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 8, i1 false)
-  br label %10
+  br label %11
 
-10:                                               ; preds = %21, %1
-  %11 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %6, i32 0, i32 7
-  %12 = call ptr @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  store ptr %12, ptr %13, align 8
-  %14 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN18DFSRndNumGenerator11SearchStateESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br i1 %14, label %15, label %23
+11:                                               ; preds = %22, %1
+  %12 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %6, i32 0, i32 7
+  %13 = call ptr @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %13, ptr %14, align 8
+  %15 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN18DFSRndNumGenerator11SearchStateESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br i1 %15, label %16, label %24
 
-15:                                               ; preds = %10
-  %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN18DFSRndNumGenerator11SearchStateESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %20, label %19
+16:                                               ; preds = %11
+  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN18DFSRndNumGenerator11SearchStateESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %21, label %20
 
-19:                                               ; preds = %15
-  call void @_ZN18DFSRndNumGenerator11SearchStateD1Ev(ptr noundef nonnull align 4 dereferenceable(16) %17) #3
-  call void @_ZdlPv(ptr noundef %17) #12
-  br label %20
-
-20:                                               ; preds = %19, %15
+20:                                               ; preds = %16
+  call void @_ZN18DFSRndNumGenerator11SearchStateD1Ev(ptr noundef nonnull align 4 dereferenceable(16) %18) #3
+  call void @_ZdlPv(ptr noundef %18) #12
   br label %21
 
-21:                                               ; preds = %20
-  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN18DFSRndNumGenerator11SearchStateESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  br label %10, !llvm.loop !7
+21:                                               ; preds = %20, %16
+  br label %22
 
-23:                                               ; preds = %10
-  %24 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %6, i32 0, i32 7
-  call void @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
+22:                                               ; preds = %21
+  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN18DFSRndNumGenerator11SearchStateESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  br label %11, !llvm.loop !7
+
+24:                                               ; preds = %11
+  %25 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %6, i32 0, i32 7
+  call void @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
   invoke void @_ZN15SequenceFactory17destroy_sequencesEv()
-          to label %25 unwind label %28
+          to label %26 unwind label %29
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %6, i32 0, i32 7
-  call void @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
-  %27 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %6, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #3
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %6, i32 0, i32 7
+  call void @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
+  %28 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %6, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #3
   call void @_ZN18AbsRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   ret void
 
-28:                                               ; preds = %23
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %24
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #13
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #13
   unreachable
 }
 

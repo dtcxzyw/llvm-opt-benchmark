@@ -56,26 +56,29 @@ define internal i32 @ptp_kvm_init() #0 section ".init.text" align 16 {
   %1 = tail call i32 @kvm_arch_ptp_init() #11
   switch i32 %1, label %2 [
     i32 0, label %4
-    i32 -95, label %10
+    i32 -95, label %13
   ]
 
 2:                                                ; preds = %0
   %3 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #12
-  br label %10
+  br label %13
 
 4:                                                ; preds = %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) getelementptr inbounds (%struct.kvm_ptp_clock, ptr @kvm_ptp_clock, i64 0, i32 1), ptr noundef nonnull align 8 dereferenceable(184) @ptp_kvm_caps, i64 184, i1 false)
-  %5 = tail call ptr @ptp_clock_register(ptr noundef nonnull getelementptr inbounds (%struct.kvm_ptp_clock, ptr @kvm_ptp_clock, i64 0, i32 1), ptr noundef null) #11
-  store ptr %5, ptr @kvm_ptp_clock, align 8
-  %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  %7 = ptrtoint ptr %5 to i64
-  %8 = trunc i64 %7 to i32
-  %9 = select i1 %6, i32 %8, i32 0
-  br label %10
+  %5 = getelementptr inbounds %struct.kvm_ptp_clock, ptr @kvm_ptp_clock, i64 0, i32 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull align 8 dereferenceable(184) @ptp_kvm_caps, i64 184, i1 false)
+  %6 = getelementptr inbounds %struct.kvm_ptp_clock, ptr @kvm_ptp_clock, i64 0, i32 1
+  %7 = tail call ptr @ptp_clock_register(ptr noundef nonnull %6, ptr noundef null) #11
+  store ptr %7, ptr @kvm_ptp_clock, align 8
+  %8 = inttoptr i64 -4096 to ptr
+  %9 = icmp ugt ptr %7, %8
+  %10 = ptrtoint ptr %7 to i64
+  %11 = trunc i64 %10 to i32
+  %12 = select i1 %9, i32 %11, i32 0
+  br label %13
 
-10:                                               ; preds = %4, %2, %0
-  %11 = phi i32 [ %9, %4 ], [ %1, %0 ], [ %1, %2 ]
-  ret i32 %11
+13:                                               ; preds = %4, %2, %0
+  %14 = phi i32 [ %12, %4 ], [ %1, %0 ], [ %1, %2 ]
+  ret i32 %14
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -170,64 +173,70 @@ define internal i32 @ptp_kvm_get_time_fn(ptr nocapture noundef writeonly %0, ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   store ptr null, ptr %6, align 8, !annotation !6
   tail call void @_raw_spin_lock(ptr noundef nonnull @kvm_ptp_lock) #11
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !7
+  %7 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %8 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, ptr nonnull elementtype(i32) %8) #11, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !8
-  %7 = call i32 @kvm_arch_ptp_get_crosststamp(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %16, label %9
+  %9 = call i32 @kvm_arch_ptp_get_crosststamp(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %20, label %11
 
-9:                                                ; preds = %3
+11:                                               ; preds = %3
   call void @_raw_spin_unlock(ptr noundef nonnull @kvm_ptp_lock) #11
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
-  %10 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !10
-  %11 = icmp ult i8 %10, 2
-  call void @llvm.assume(i1 %11)
-  %12 = icmp eq i8 %10, 0
-  br i1 %12, label %34, label %13, !prof !11
+  %12 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %13 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %14 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, ptr nonnull elementtype(i32) %13) #11, !srcloc !10
+  %15 = icmp ult i8 %14, 2
+  call void @llvm.assume(i1 %15)
+  %16 = icmp eq i8 %14, 0
+  br i1 %16, label %40, label %17, !prof !11
 
-13:                                               ; preds = %9
-  %14 = call i64 @llvm.read_register.i64(metadata !0)
-  %15 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %14) #11, !srcloc !12
-  call void @llvm.write_register.i64(metadata !0, i64 %15)
-  br label %34
+17:                                               ; preds = %11
+  %18 = call i64 @llvm.read_register.i64(metadata !0)
+  %19 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %18) #11, !srcloc !12
+  call void @llvm.write_register.i64(metadata !0, i64 %19)
+  br label %40
 
-16:                                               ; preds = %3
+20:                                               ; preds = %3
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
-  %17 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #11, !srcloc !10
-  %18 = icmp ult i8 %17, 2
-  call void @llvm.assume(i1 %18)
-  %19 = icmp eq i8 %17, 0
-  br i1 %19, label %23, label %20, !prof !11
+  %21 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %22 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %23 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %21, ptr nonnull elementtype(i32) %22) #11, !srcloc !10
+  %24 = icmp ult i8 %23, 2
+  call void @llvm.assume(i1 %24)
+  %25 = icmp eq i8 %23, 0
+  br i1 %25, label %29, label %26, !prof !11
 
-20:                                               ; preds = %16
-  %21 = call i64 @llvm.read_register.i64(metadata !0)
-  %22 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %21) #11, !srcloc !14
-  call void @llvm.write_register.i64(metadata !0, i64 %22)
-  br label %23
+26:                                               ; preds = %20
+  %27 = call i64 @llvm.read_register.i64(metadata !0)
+  %28 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %27) #11, !srcloc !14
+  call void @llvm.write_register.i64(metadata !0, i64 %28)
+  br label %29
 
-23:                                               ; preds = %20, %16
-  %24 = load i64, ptr %4, align 8
-  store i64 %24, ptr %1, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %25, ptr %26, align 8
-  %27 = load i64, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
-  %29 = load i64, ptr %28, align 8
-  %30 = icmp sgt i64 %27, 9223372035
-  %31 = mul i64 %27, 1000000000
-  %32 = add i64 %31, %29
-  %33 = select i1 %30, i64 9223372036854775807, i64 %32, !prof !15
-  store i64 %33, ptr %0, align 8
+29:                                               ; preds = %26, %20
+  %30 = load i64, ptr %4, align 8
+  store i64 %30, ptr %1, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %31, ptr %32, align 8
+  %33 = load i64, ptr %5, align 8
+  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = load i64, ptr %34, align 8
+  %36 = icmp sgt i64 %33, 9223372035
+  %37 = mul i64 %33, 1000000000
+  %38 = add i64 %37, %35
+  %39 = select i1 %36, i64 9223372036854775807, i64 %38, !prof !15
+  store i64 %39, ptr %0, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull @kvm_ptp_lock) #11
-  br label %34
+  br label %40
 
-34:                                               ; preds = %23, %13, %9
-  %35 = phi i32 [ 0, %23 ], [ %7, %13 ], [ %7, %9 ]
+40:                                               ; preds = %29, %17, %11
+  %41 = phi i32 [ 0, %29 ], [ %9, %17 ], [ %9, %11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  ret i32 %35
+  ret i32 %41
 }
 
 ; Function Attrs: null_pointer_is_valid

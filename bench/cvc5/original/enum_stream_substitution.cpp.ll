@@ -2538,10 +2538,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers21EnumStreamPermutationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers21EnumStreamPermutationE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %tds.addr, align 8
-  store ptr %1, ptr %d_tds, align 8
+  %2 = load ptr, ptr %tds.addr, align 8
+  store ptr %2, ptr %d_tds, align 8
   %d_var_classes = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation", ptr %this1, i32 0, i32 2
   call void @_ZNSt3mapIjSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EESt4lessIjESaISt4pairIKjS6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_var_classes) #3
   %d_var_tn_cons = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation", ptr %this1, i32 0, i32 3
@@ -2562,12 +2563,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_INS1_8TypeNodeES3_St4lessIS4_ESaISt4pairIKS4_S3_EEES5_IS3_ESaIS7_IKS3_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_var_tn_cons) #3
   call void @_ZNSt3mapIjSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EESt4lessIjESaISt4pairIKjS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_var_classes) #3
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -9788,10 +9789,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %tds.addr, align 8
-  store ptr %1, ptr %d_tds, align 8
+  %2 = load ptr, ptr %tds.addr, align 8
+  store ptr %2, ptr %d_tds, align 8
   %d_tn = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution", ptr %this1, i32 0, i32 2
   invoke void @_ZN4cvc58internal8TypeNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_tn)
           to label %invoke.cont unwind label %lpad
@@ -9814,9 +9816,9 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   %d_comb_values = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution", ptr %this1, i32 0, i32 7
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_comb_values) #3
   %d_stream_permutations = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution", ptr %this1, i32 0, i32 8
-  %2 = load ptr, ptr %env.addr, align 8
-  %3 = load ptr, ptr %tds.addr, align 8
-  invoke void @_ZN4cvc58internal6theory11quantifiers21EnumStreamPermutationC1ERNS0_3EnvEPNS2_11TermDbSygusE(ptr noundef nonnull align 8 dereferenceable(220) %d_stream_permutations, ptr noundef nonnull align 8 dereferenceable(576) %2, ptr noundef %3)
+  %3 = load ptr, ptr %env.addr, align 8
+  %4 = load ptr, ptr %tds.addr, align 8
+  invoke void @_ZN4cvc58internal6theory11quantifiers21EnumStreamPermutationC1ERNS0_3EnvEPNS2_11TermDbSygusE(ptr noundef nonnull align 8 dereferenceable(220) %d_stream_permutations, ptr noundef nonnull align 8 dereferenceable(576) %3, ptr noundef %4)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -9827,39 +9829,39 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup11
 
 lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup10
 
 lpad4:                                            ; preds = %invoke.cont3
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_comb_values) #3
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_last) #3
   br label %ehcleanup
@@ -14227,11 +14229,12 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers16EnumValGeneratorC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers18EnumStreamConcreteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers18EnumStreamConcreteE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_ess = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamConcrete", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %env.addr, align 8
-  %2 = load ptr, ptr %tds.addr, align 8
-  invoke void @_ZN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionC1ERNS0_3EnvEPNS2_11TermDbSygusE(ptr noundef nonnull align 8 dereferenceable(452) %d_ess, ptr noundef nonnull align 8 dereferenceable(576) %1, ptr noundef %2)
+  %2 = load ptr, ptr %env.addr, align 8
+  %3 = load ptr, ptr %tds.addr, align 8
+  invoke void @_ZN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionC1ERNS0_3EnvEPNS2_11TermDbSygusE(ptr noundef nonnull align 8 dereferenceable(452) %d_ess, ptr noundef nonnull align 8 dereferenceable(576) %2, ptr noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -14243,21 +14246,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(452) %d_ess) #3
   br label %ehcleanup
 
@@ -14283,7 +14286,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16EnumValGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16EnumValGeneratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14293,7 +14297,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_comb_state_class = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution", ptr %this1, i32 0, i32 9
   call void @_ZNSt6vectorIN4cvc58internal6theory11quantifiers22EnumStreamSubstitution16CombinationStateESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_comb_state_class) #3
   %d_stream_permutations = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamSubstitution", ptr %this1, i32 0, i32 8
@@ -14468,7 +14473,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers18EnumStreamConcreteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers18EnumStreamConcreteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_currTerm = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamConcrete", ptr %this1, i32 0, i32 2
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_currTerm) #3
   %d_ess = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamConcrete", ptr %this1, i32 0, i32 1
@@ -14591,7 +14597,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers21EnumStreamPermutationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers21EnumStreamPermutationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_perm_state_class = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation", ptr %this1, i32 0, i32 8
   call void @_ZNSt6vectorIN4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationStateESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_perm_state_class) #3
   %d_perm_values = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumStreamPermutation", ptr %this1, i32 0, i32 7

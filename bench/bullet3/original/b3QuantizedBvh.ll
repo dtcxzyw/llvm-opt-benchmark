@@ -285,7 +285,8 @@ entry:
   %ref.tmp16 = alloca float, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %m_bulletVersion = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 5
   store i32 300, ptr %m_bulletVersion, align 16
   %m_useQuantization = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 7
@@ -335,48 +336,48 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup20
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup19
 
 lpad4:                                            ; preds = %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup18
 
 lpad6:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont12, %invoke.cont7
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_SubtreeHeaders) #10
   br label %ehcleanup
 
@@ -1344,7 +1345,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %m_SubtreeHeaders = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 15
   call void @_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_SubtreeHeaders) #10
   %m_quantizedContiguousNodes = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 12
@@ -6298,18 +6300,19 @@ entry:
   %frombool = zext i1 %0 to i8
   store i8 %frombool, ptr %.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 16
   %m_bvhAabbMin = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %self.addr, align 8
-  %m_bvhAabbMin2 = getelementptr inbounds %class.b3QuantizedBvh, ptr %1, i32 0, i32 2
+  %2 = load ptr, ptr %self.addr, align 8
+  %m_bvhAabbMin2 = getelementptr inbounds %class.b3QuantizedBvh, ptr %2, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %m_bvhAabbMin, ptr align 16 %m_bvhAabbMin2, i64 16, i1 false)
   %m_bvhAabbMax = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %self.addr, align 8
-  %m_bvhAabbMax3 = getelementptr inbounds %class.b3QuantizedBvh, ptr %2, i32 0, i32 3
+  %3 = load ptr, ptr %self.addr, align 8
+  %m_bvhAabbMax3 = getelementptr inbounds %class.b3QuantizedBvh, ptr %3, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %m_bvhAabbMax, ptr align 16 %m_bvhAabbMax3, i64 16, i1 false)
   %m_bvhQuantization = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %self.addr, align 8
-  %m_bvhQuantization4 = getelementptr inbounds %class.b3QuantizedBvh, ptr %3, i32 0, i32 4
+  %4 = load ptr, ptr %self.addr, align 8
+  %m_bvhQuantization4 = getelementptr inbounds %class.b3QuantizedBvh, ptr %4, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %m_bvhQuantization, ptr align 16 %m_bvhQuantization4, i64 16, i1 false)
   %m_bulletVersion = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 5
   store i32 300, ptr %m_bulletVersion, align 16
@@ -6338,39 +6341,39 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad5:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup11
 
 lpad7:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont8
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_quantizedContiguousNodes) #10
   br label %ehcleanup
 

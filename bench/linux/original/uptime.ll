@@ -45,8 +45,8 @@ define internal noundef i32 @uptime_proc_show(ptr noundef %0, ptr nocapture read
   br label %5
 
 5:                                                ; preds = %21, %2
-  %6 = phi i64 [ 0, %2 ], [ %28, %21 ]
-  %7 = phi i64 [ 0, %2 ], [ %29, %21 ]
+  %6 = phi i64 [ 0, %2 ], [ %29, %21 ]
+  %7 = phi i64 [ 0, %2 ], [ %30, %21 ]
   %8 = and i64 %7, 4294967295
   %9 = icmp ugt i64 %8, 63
   br i1 %9, label %17, label %10, !prof !5
@@ -66,7 +66,7 @@ define internal noundef i32 @uptime_proc_show(ptr noundef %0, ptr nocapture read
   %18 = phi i64 [ 64, %5 ], [ %16, %15 ], [ 64, %10 ]
   %19 = trunc i64 %18 to i32
   %20 = icmp ult i32 %19, 64
-  br i1 %20, label %21, label %30
+  br i1 %20, label %21, label %31
 
 21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #6
@@ -74,46 +74,47 @@ define internal noundef i32 @uptime_proc_show(ptr noundef %0, ptr nocapture read
   %22 = and i64 %18, 4294967295
   %23 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %22
   %24 = load i64, ptr %23, align 8
-  %25 = add i64 %24, ptrtoint (ptr @kernel_cpustat to i64)
-  %26 = inttoptr i64 %25 to ptr
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef align 8 dereferenceable(80) %26, i64 80, i1 false)
-  %27 = call i64 @get_idle_time(ptr noundef nonnull %4, i32 noundef %19) #6
-  %28 = add i64 %27, %6
+  %25 = ptrtoint ptr @kernel_cpustat to i64
+  %26 = add i64 %24, %25
+  %27 = inttoptr i64 %26 to ptr
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef align 8 dereferenceable(80) %27, i64 80, i1 false)
+  %28 = call i64 @get_idle_time(ptr noundef nonnull %4, i32 noundef %19) #6
+  %29 = add i64 %28, %6
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #6
-  %29 = add i64 %18, 1
+  %30 = add i64 %18, 1
   br label %5, !llvm.loop !8
 
-30:                                               ; preds = %17
-  %31 = call i64 @ktime_get_with_offset(i32 noundef 1) #6
-  %32 = call { i64, i64 } @ns_to_timespec64(i64 noundef %31) #6
-  %33 = extractvalue { i64, i64 } %32, 0
-  %34 = extractvalue { i64, i64 } %32, 1
-  %35 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !11
-  %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 1872
-  %38 = load ptr, ptr %37, align 16
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 56
-  %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 64
-  %44 = load i64, ptr %43, align 8
+31:                                               ; preds = %17
+  %32 = call i64 @ktime_get_with_offset(i32 noundef 1) #6
+  %33 = call { i64, i64 } @ns_to_timespec64(i64 noundef %32) #6
+  %34 = extractvalue { i64, i64 } %33, 0
+  %35 = extractvalue { i64, i64 } %33, 1
+  %36 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !11
+  %37 = inttoptr i64 %36 to ptr
+  %38 = getelementptr inbounds i8, ptr %37, i64 1872
+  %39 = load ptr, ptr %38, align 16
+  %40 = getelementptr inbounds i8, ptr %39, i64 48
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %41, i64 64
+  %45 = load i64, ptr %44, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !7
-  %45 = add i64 %42, %33
-  %46 = add i64 %44, %34
-  call void @set_normalized_timespec64(ptr noundef nonnull %3, i64 noundef %45, i64 noundef %46) #6
-  %47 = load i64, ptr %3, align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 8
-  %49 = load i64, ptr %48, align 8
+  %46 = add i64 %43, %34
+  %47 = add i64 %45, %35
+  call void @set_normalized_timespec64(ptr noundef nonnull %3, i64 noundef %46, i64 noundef %47) #6
+  %48 = load i64, ptr %3, align 8
+  %49 = getelementptr inbounds i8, ptr %3, i64 8
+  %50 = load i64, ptr %49, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %50 = urem i64 %6, 1000000000
-  %51 = trunc i64 %50 to i32
-  %52 = udiv i64 %6, 1000000000
-  %53 = sdiv i64 %49, 10000000
-  %54 = udiv i32 %51, 10000000
-  %55 = zext nneg i32 %54 to i64
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef %47, i64 noundef %53, i64 noundef %52, i64 noundef %55) #6
+  %51 = urem i64 %6, 1000000000
+  %52 = trunc i64 %51 to i32
+  %53 = udiv i64 %6, 1000000000
+  %54 = sdiv i64 %50, 10000000
+  %55 = udiv i32 %52, 10000000
+  %56 = zext nneg i32 %55 to i64
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef %48, i64 noundef %54, i64 noundef %53, i64 noundef %56) #6
   ret i32 0
 }
 

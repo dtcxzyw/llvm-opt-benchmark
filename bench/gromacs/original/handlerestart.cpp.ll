@@ -1096,7 +1096,7 @@ define void @_ZN3gmx13handleRestartEbP10tmpi_comm_PK14gmx_multisim_tNS_17Appendi
 
 69:                                               ; preds = %65, %61
   %70 = load i32, ptr %21, align 4
-  %71 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %71 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #14
   %72 = icmp eq i32 %70, %71
   br i1 %72, label %73, label %156
 
@@ -3432,9 +3432,6 @@ define linkonce_odr noundef ptr @_ZNKSt10unique_ptrI8t_fileioN3gmx15functor_wrap
   ret ptr %5
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #4
-
 declare ptr @__cxa_begin_catch(ptr)
 
 ; Function Attrs: nounwind
@@ -3495,7 +3492,7 @@ define linkonce_odr noundef zeroext i1 @_ZNKSt15__exception_ptr13exception_ptrcv
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef) #5
+declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__exception_ptr13exception_ptrC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 comdat align 2 {
@@ -3587,7 +3584,8 @@ define linkonce_odr void @_ZN3gmx24ParallelConsistencyErrorC2ERKNS_20ExceptionIn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx8APIErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx24ParallelConsistencyErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx24ParallelConsistencyErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -3622,10 +3620,11 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 24, i1 false)
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 24, i1 false)
   ret void
 }
 
@@ -3781,7 +3780,7 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseISt6vectorI19gmx_file_pos
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__uniq_ptr_dataI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
@@ -3832,7 +3831,7 @@ define linkonce_odr void @_ZNSt11_Tuple_implILm0EJP8t_fileioN3gmx15functor_wrapp
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #14
   call void @_ZSt9terminatev() #16
   unreachable
@@ -3999,7 +3998,8 @@ define linkonce_odr void @_ZN3gmx22InconsistentInputErrorC2ERKNS_20ExceptionInit
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx14UserInputErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx22InconsistentInputErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx22InconsistentInputErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -4052,7 +4052,8 @@ define linkonce_odr void @_ZN3gmx11FileIOErrorC2ERKNS_20ExceptionInitializerE(pt
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx11FileIOErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx11FileIOErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -4229,7 +4230,7 @@ define linkonce_odr ptr @_ZSt3endISt6vectorI19gmx_file_position_tSaIS1_EEEDTcldt
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_132throwBecauseOfMissingOutputFilesERKNSt10filesystem7__cxx114pathENS_8ArrayRefIK19gmx_file_position_tEEiPK8t_filenmm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, ptr %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) #8 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3gmx12_GLOBAL__N_132throwBecauseOfMissingOutputFilesERKNSt10filesystem7__cxx114pathENS_8ArrayRefIK19gmx_file_position_tEEiPK8t_filenmm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, ptr %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) #7 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.gmx::ArrayRef", align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -5056,7 +5057,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114path5_ListD2Ev(ptr noundef n
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64, ptr) #3
@@ -5247,12 +5248,13 @@ define linkonce_odr void @_ZN3gmx22InconsistentInputErrorC2EOS0_(ptr noundef non
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx14UserInputErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx22InconsistentInputErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx22InconsistentInputErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 comdat align 2 {
@@ -5263,11 +5265,12 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 24, i1 false)
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 24, i1 false)
   ret void
 }
 
@@ -5353,7 +5356,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef n
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -5368,7 +5372,7 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #11
+declare void @_ZdlPv(ptr noundef) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_ELb1ELb1EECI2St15__uniq_ptr_implIS2_S4_EEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
@@ -5583,7 +5587,8 @@ define linkonce_odr void @_ZN3gmx14UserInputErrorC2EOS0_(ptr noundef nonnull ali
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx14UserInputErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx14UserInputErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -5596,11 +5601,12 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::GromacsException", ptr %8, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9) #14
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::GromacsException", ptr %9, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   ret void
 }
 
@@ -5633,7 +5639,8 @@ define linkonce_odr void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -5711,9 +5718,10 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   ret void
 }
@@ -5970,7 +5978,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx14UserInputErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 comdat align 2 {
@@ -5981,7 +5989,8 @@ define linkonce_odr void @_ZN3gmx14UserInputErrorC2ERKNS_20ExceptionInitializerE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx14UserInputErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx14UserInputErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -5996,7 +6005,8 @@ define linkonce_odr void @_ZN3gmx11FileIOErrorC2EOS0_(ptr noundef nonnull align 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx11FileIOErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx11FileIOErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -6165,7 +6175,7 @@ define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPK19gmx_file_position
 }
 
 ; Function Attrs: noreturn
-declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #5
+declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #4
 
 declare noundef ptr @_Z7ftp2exti(i32 noundef) #2
 
@@ -6650,9 +6660,10 @@ define linkonce_odr void @_ZN3gmx18StringOutputStreamC2Ev(ptr noundef nonnull al
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3gmx16TextOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx18StringOutputStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::StringOutputStream", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx18StringOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::StringOutputStream", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   ret void
 }
 
@@ -6887,9 +6898,10 @@ define linkonce_odr void @_ZN3gmx18StringOutputStreamD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx18StringOutputStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::StringOutputStream", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx18StringOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::StringOutputStream", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   call void @_ZN3gmx16TextOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   ret void
 }
@@ -6899,7 +6911,8 @@ define linkonce_odr void @_ZN3gmx16TextOutputStreamC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16TextOutputStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16TextOutputStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7010,7 +7023,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #5
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #1 comdat align 2 {
@@ -7740,10 +7753,10 @@ define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorI19gmx_file_position_tE1
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #5
+declare void @_ZSt28__throw_bad_array_new_lengthv() #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #5
+declare void @_ZSt17__throw_bad_allocv() #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__new_allocatorI19gmx_file_position_tED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
@@ -10158,7 +10171,7 @@ declare noundef i32 @_Z12gmx_fio_seekP8t_fileiol(ptr noundef, i64 noundef) #2
 declare ptr @strerror(i32 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #13
+declare ptr @__errno_location() #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNK3gmx8ArrayRefIK19gmx_file_position_tE8subArrayEmm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) #0 comdat align 2 {
@@ -10695,7 +10708,8 @@ define linkonce_odr void @_ZN3gmx24ParallelConsistencyErrorC2EOS0_(ptr noundef n
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx8APIErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx24ParallelConsistencyErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx24ParallelConsistencyErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -10708,7 +10722,8 @@ define linkonce_odr void @_ZN3gmx8APIErrorC2EOS0_(ptr noundef nonnull align 8 de
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx8APIErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx8APIErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -10721,7 +10736,8 @@ define linkonce_odr void @_ZN3gmx8APIErrorC2ERKNS_20ExceptionInitializerE(ptr no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx8APIErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx8APIErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -10730,7 +10746,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11157,20 +11174,23 @@ define linkonce_odr void @_ZNSt10_Head_baseILm1ESt10unique_ptrI8t_fileioN3gmx15f
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { nounwind memory(none) }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #12 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { nounwind memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn }
 attributes #16 = { noreturn nounwind }

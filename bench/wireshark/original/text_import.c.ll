@@ -531,7 +531,7 @@ define internal i32 @write_current_packet(i32 noundef %0) #0 {
   store i32 0, ptr %8, align 4
   %19 = load i32, ptr @curr_offset, align 4
   %20 = icmp ugt i32 %19, 0
-  br i1 %20, label %21, label %1259
+  br i1 %20, label %21, label %1339
 
 21:                                               ; preds = %1
   %22 = load i32, ptr @has_direction, align 4
@@ -729,1497 +729,1577 @@ define internal i32 @write_current_packet(i32 noundef %0) #0 {
 139:                                              ; preds = %138, %118
   %140 = load i32, ptr @hdr_ethernet, align 4
   %141 = icmp ne i32 %140, 0
-  br i1 %141, label %142, label %168
+  br i1 %141, label %142, label %171
 
 142:                                              ; preds = %139
   %143 = load i32, ptr %11, align 4
   %144 = icmp ne i32 %143, 0
-  br i1 %144, label %145, label %146
+  br i1 %144, label %145, label %147
 
 145:                                              ; preds = %142
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 @HDR_ETHERNET, ptr align 1 @hdr_eth_src_addr, i64 6, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 getelementptr inbounds (%struct.hdr_ethernet_t, ptr @HDR_ETHERNET, i32 0, i32 1), ptr align 1 @hdr_eth_dest_addr, i64 6, i1 false)
-  br label %147
+  %146 = getelementptr inbounds %struct.hdr_ethernet_t, ptr @HDR_ETHERNET, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %146, ptr align 1 @hdr_eth_dest_addr, i64 6, i1 false)
+  br label %149
 
-146:                                              ; preds = %142
+147:                                              ; preds = %142
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 @HDR_ETHERNET, ptr align 1 @hdr_eth_dest_addr, i64 6, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 getelementptr inbounds (%struct.hdr_ethernet_t, ptr @HDR_ETHERNET, i32 0, i32 1), ptr align 1 @hdr_eth_src_addr, i64 6, i1 false)
-  br label %147
+  %148 = getelementptr inbounds %struct.hdr_ethernet_t, ptr @HDR_ETHERNET, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %148, ptr align 1 @hdr_eth_src_addr, i64 6, i1 false)
+  br label %149
 
-147:                                              ; preds = %146, %145
-  %148 = load i32, ptr @hdr_ethernet_proto, align 4
-  %149 = trunc i32 %148 to i16
-  %150 = zext i16 %149 to i32
-  %151 = ashr i32 %150, 8
-  %152 = trunc i32 %151 to i16
-  %153 = zext i16 %152 to i32
-  %154 = load i32, ptr @hdr_ethernet_proto, align 4
-  %155 = trunc i32 %154 to i16
-  %156 = zext i16 %155 to i32
-  %157 = shl i32 %156, 8
-  %158 = trunc i32 %157 to i16
-  %159 = zext i16 %158 to i32
-  %160 = or i32 %153, %159
-  %161 = trunc i32 %160 to i16
-  store i16 %161, ptr getelementptr inbounds (%struct.hdr_ethernet_t, ptr @HDR_ETHERNET, i32 0, i32 2), align 2
-  %162 = load ptr, ptr @packet_buf, align 8
-  %163 = load i32, ptr %8, align 4
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr i8, ptr %162, i64 %164
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %165, ptr align 2 @HDR_ETHERNET, i64 14, i1 false)
+149:                                              ; preds = %147, %145
+  %150 = load i32, ptr @hdr_ethernet_proto, align 4
+  %151 = trunc i32 %150 to i16
+  %152 = zext i16 %151 to i32
+  %153 = ashr i32 %152, 8
+  %154 = trunc i32 %153 to i16
+  %155 = zext i16 %154 to i32
+  %156 = load i32, ptr @hdr_ethernet_proto, align 4
+  %157 = trunc i32 %156 to i16
+  %158 = zext i16 %157 to i32
+  %159 = shl i32 %158, 8
+  %160 = trunc i32 %159 to i16
+  %161 = zext i16 %160 to i32
+  %162 = or i32 %155, %161
+  %163 = trunc i32 %162 to i16
+  %164 = getelementptr inbounds %struct.hdr_ethernet_t, ptr @HDR_ETHERNET, i32 0, i32 2
+  store i16 %163, ptr %164, align 2
+  %165 = load ptr, ptr @packet_buf, align 8
   %166 = load i32, ptr %8, align 4
-  %167 = add i32 %166, 14
-  store i32 %167, ptr %8, align 4
-  br label %168
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr i8, ptr %165, i64 %167
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %168, ptr align 2 @HDR_ETHERNET, i64 14, i1 false)
+  %169 = load i32, ptr %8, align 4
+  %170 = add i32 %169, 14
+  store i32 %170, ptr %8, align 4
+  br label %171
 
-168:                                              ; preds = %147, %139
-  %169 = load i32, ptr @hdr_ip, align 4
-  %170 = icmp ne i32 %169, 0
-  br i1 %170, label %171, label %268
-
-171:                                              ; preds = %168
-  %172 = load i32, ptr %11, align 4
+171:                                              ; preds = %149, %139
+  %172 = load i32, ptr @hdr_ip, align 4
   %173 = icmp ne i32 %172, 0
-  br i1 %173, label %174, label %197
+  br i1 %173, label %174, label %285
 
 174:                                              ; preds = %171
-  %175 = load ptr, ptr @info_p, align 8
-  %176 = getelementptr inbounds %struct.text_import_info_t, ptr %175, i32 0, i32 12
-  %177 = load i32, ptr %176, align 4
-  %178 = icmp ne i32 %177, 0
-  br i1 %178, label %179, label %183
+  %175 = load i32, ptr %11, align 4
+  %176 = icmp ne i32 %175, 0
+  br i1 %176, label %177, label %202
 
-179:                                              ; preds = %174
-  %180 = load ptr, ptr @info_p, align 8
-  %181 = getelementptr inbounds %struct.text_import_info_t, ptr %180, i32 0, i32 12
-  %182 = load i32, ptr %181, align 4
-  br label %184
+177:                                              ; preds = %174
+  %178 = load ptr, ptr @info_p, align 8
+  %179 = getelementptr inbounds %struct.text_import_info_t, ptr %178, i32 0, i32 12
+  %180 = load i32, ptr %179, align 4
+  %181 = icmp ne i32 %180, 0
+  br i1 %181, label %182, label %186
 
-183:                                              ; preds = %174
-  br label %184
+182:                                              ; preds = %177
+  %183 = load ptr, ptr @info_p, align 8
+  %184 = getelementptr inbounds %struct.text_import_info_t, ptr %183, i32 0, i32 12
+  %185 = load i32, ptr %184, align 4
+  br label %187
 
-184:                                              ; preds = %183, %179
-  %185 = phi i32 [ %182, %179 ], [ 33686026, %183 ]
-  store i32 %185, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 9), align 4
-  %186 = load ptr, ptr @info_p, align 8
-  %187 = getelementptr inbounds %struct.text_import_info_t, ptr %186, i32 0, i32 11
-  %188 = load i32, ptr %187, align 4
-  %189 = icmp ne i32 %188, 0
-  br i1 %189, label %190, label %194
+186:                                              ; preds = %177
+  br label %187
 
-190:                                              ; preds = %184
-  %191 = load ptr, ptr @info_p, align 8
-  %192 = getelementptr inbounds %struct.text_import_info_t, ptr %191, i32 0, i32 11
-  %193 = load i32, ptr %192, align 4
-  br label %195
+187:                                              ; preds = %186, %182
+  %188 = phi i32 [ %185, %182 ], [ 33686026, %186 ]
+  %189 = getelementptr inbounds %struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 9
+  store i32 %188, ptr %189, align 4
+  %190 = load ptr, ptr @info_p, align 8
+  %191 = getelementptr inbounds %struct.text_import_info_t, ptr %190, i32 0, i32 11
+  %192 = load i32, ptr %191, align 4
+  %193 = icmp ne i32 %192, 0
+  br i1 %193, label %194, label %198
 
-194:                                              ; preds = %184
-  br label %195
+194:                                              ; preds = %187
+  %195 = load ptr, ptr @info_p, align 8
+  %196 = getelementptr inbounds %struct.text_import_info_t, ptr %195, i32 0, i32 11
+  %197 = load i32, ptr %196, align 4
+  br label %199
 
-195:                                              ; preds = %194, %190
-  %196 = phi i32 [ %193, %190 ], [ 16843018, %194 ]
-  store i32 %196, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 10), align 4
-  br label %220
+198:                                              ; preds = %187
+  br label %199
 
-197:                                              ; preds = %171
-  %198 = load ptr, ptr @info_p, align 8
-  %199 = getelementptr inbounds %struct.text_import_info_t, ptr %198, i32 0, i32 11
-  %200 = load i32, ptr %199, align 4
-  %201 = icmp ne i32 %200, 0
-  br i1 %201, label %202, label %206
+199:                                              ; preds = %198, %194
+  %200 = phi i32 [ %197, %194 ], [ 16843018, %198 ]
+  %201 = getelementptr inbounds %struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 10
+  store i32 %200, ptr %201, align 4
+  br label %227
 
-202:                                              ; preds = %197
+202:                                              ; preds = %174
   %203 = load ptr, ptr @info_p, align 8
   %204 = getelementptr inbounds %struct.text_import_info_t, ptr %203, i32 0, i32 11
   %205 = load i32, ptr %204, align 4
-  br label %207
+  %206 = icmp ne i32 %205, 0
+  br i1 %206, label %207, label %211
 
-206:                                              ; preds = %197
-  br label %207
+207:                                              ; preds = %202
+  %208 = load ptr, ptr @info_p, align 8
+  %209 = getelementptr inbounds %struct.text_import_info_t, ptr %208, i32 0, i32 11
+  %210 = load i32, ptr %209, align 4
+  br label %212
 
-207:                                              ; preds = %206, %202
-  %208 = phi i32 [ %205, %202 ], [ 16843018, %206 ]
-  store i32 %208, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 9), align 4
-  %209 = load ptr, ptr @info_p, align 8
-  %210 = getelementptr inbounds %struct.text_import_info_t, ptr %209, i32 0, i32 12
-  %211 = load i32, ptr %210, align 4
-  %212 = icmp ne i32 %211, 0
-  br i1 %212, label %213, label %217
+211:                                              ; preds = %202
+  br label %212
 
-213:                                              ; preds = %207
-  %214 = load ptr, ptr @info_p, align 8
-  %215 = getelementptr inbounds %struct.text_import_info_t, ptr %214, i32 0, i32 12
-  %216 = load i32, ptr %215, align 4
-  br label %218
+212:                                              ; preds = %211, %207
+  %213 = phi i32 [ %210, %207 ], [ 16843018, %211 ]
+  %214 = getelementptr inbounds %struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 9
+  store i32 %213, ptr %214, align 4
+  %215 = load ptr, ptr @info_p, align 8
+  %216 = getelementptr inbounds %struct.text_import_info_t, ptr %215, i32 0, i32 12
+  %217 = load i32, ptr %216, align 4
+  %218 = icmp ne i32 %217, 0
+  br i1 %218, label %219, label %223
 
-217:                                              ; preds = %207
-  br label %218
+219:                                              ; preds = %212
+  %220 = load ptr, ptr @info_p, align 8
+  %221 = getelementptr inbounds %struct.text_import_info_t, ptr %220, i32 0, i32 12
+  %222 = load i32, ptr %221, align 4
+  br label %224
 
-218:                                              ; preds = %217, %213
-  %219 = phi i32 [ %216, %213 ], [ 33686026, %217 ]
-  store i32 %219, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 10), align 4
-  br label %220
+223:                                              ; preds = %212
+  br label %224
 
-220:                                              ; preds = %218, %195
-  %221 = load i32, ptr %6, align 4
-  %222 = trunc i32 %221 to i16
-  %223 = zext i16 %222 to i32
-  %224 = ashr i32 %223, 8
-  %225 = trunc i32 %224 to i16
-  %226 = zext i16 %225 to i32
-  %227 = load i32, ptr %6, align 4
-  %228 = trunc i32 %227 to i16
-  %229 = zext i16 %228 to i32
-  %230 = shl i32 %229, 8
-  %231 = trunc i32 %230 to i16
-  %232 = zext i16 %231 to i32
-  %233 = or i32 %226, %232
-  %234 = trunc i32 %233 to i16
-  store i16 %234, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 2), align 2
-  %235 = load i32, ptr @hdr_ip_proto, align 4
-  %236 = trunc i32 %235 to i8
-  store i8 %236, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 7), align 1
-  store i16 0, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 8), align 2
-  %237 = getelementptr [1 x %struct.vec_t], ptr %12, i64 0, i64 0
-  %238 = getelementptr inbounds %struct.vec_t, ptr %237, i32 0, i32 0
-  store ptr @HDR_IP, ptr %238, align 16
-  %239 = getelementptr [1 x %struct.vec_t], ptr %12, i64 0, i64 0
-  %240 = getelementptr inbounds %struct.vec_t, ptr %239, i32 0, i32 1
-  store i32 20, ptr %240, align 8
-  %241 = getelementptr inbounds [1 x %struct.vec_t], ptr %12, i64 0, i64 0
-  %242 = call i32 @in_cksum(ptr noundef %241, i32 noundef 1)
-  %243 = trunc i32 %242 to i16
-  store i16 %243, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 8), align 2
-  %244 = load ptr, ptr @packet_buf, align 8
-  %245 = load i32, ptr %8, align 4
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr i8, ptr %244, i64 %246
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %247, ptr align 4 @HDR_IP, i64 20, i1 false)
-  %248 = load i32, ptr %8, align 4
-  %249 = add i32 %248, 20
-  store i32 %249, ptr %8, align 4
-  %250 = load i32, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 9), align 4
-  store i32 %250, ptr @pseudoh, align 4
-  %251 = load i32, ptr getelementptr inbounds (%struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 10), align 4
-  store i32 %251, ptr getelementptr inbounds (%struct.anon.2, ptr @pseudoh, i32 0, i32 1), align 4
-  store i8 0, ptr getelementptr inbounds (%struct.anon.2, ptr @pseudoh, i32 0, i32 2), align 4
-  %252 = load i32, ptr @hdr_ip_proto, align 4
-  %253 = trunc i32 %252 to i8
-  store i8 %253, ptr getelementptr inbounds (%struct.anon.2, ptr @pseudoh, i32 0, i32 3), align 1
-  %254 = load i32, ptr %5, align 4
-  %255 = trunc i32 %254 to i16
-  %256 = zext i16 %255 to i32
-  %257 = ashr i32 %256, 8
-  %258 = trunc i32 %257 to i16
-  %259 = zext i16 %258 to i32
-  %260 = load i32, ptr %5, align 4
-  %261 = trunc i32 %260 to i16
-  %262 = zext i16 %261 to i32
-  %263 = shl i32 %262, 8
-  %264 = trunc i32 %263 to i16
-  %265 = zext i16 %264 to i32
-  %266 = or i32 %259, %265
-  %267 = trunc i32 %266 to i16
-  store i16 %267, ptr getelementptr inbounds (%struct.anon.2, ptr @pseudoh, i32 0, i32 4), align 2
-  br label %350
+224:                                              ; preds = %223, %219
+  %225 = phi i32 [ %222, %219 ], [ 33686026, %223 ]
+  %226 = getelementptr inbounds %struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 10
+  store i32 %225, ptr %226, align 4
+  br label %227
 
-268:                                              ; preds = %168
-  %269 = load i32, ptr @hdr_ipv6, align 4
-  %270 = icmp ne i32 %269, 0
-  br i1 %270, label %271, label %349
+227:                                              ; preds = %224, %199
+  %228 = load i32, ptr %6, align 4
+  %229 = trunc i32 %228 to i16
+  %230 = zext i16 %229 to i32
+  %231 = ashr i32 %230, 8
+  %232 = trunc i32 %231 to i16
+  %233 = zext i16 %232 to i32
+  %234 = load i32, ptr %6, align 4
+  %235 = trunc i32 %234 to i16
+  %236 = zext i16 %235 to i32
+  %237 = shl i32 %236, 8
+  %238 = trunc i32 %237 to i16
+  %239 = zext i16 %238 to i32
+  %240 = or i32 %233, %239
+  %241 = trunc i32 %240 to i16
+  %242 = getelementptr inbounds %struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 2
+  store i16 %241, ptr %242, align 2
+  %243 = load i32, ptr @hdr_ip_proto, align 4
+  %244 = trunc i32 %243 to i8
+  %245 = getelementptr inbounds %struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 7
+  store i8 %244, ptr %245, align 1
+  %246 = getelementptr inbounds %struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 8
+  store i16 0, ptr %246, align 2
+  %247 = getelementptr [1 x %struct.vec_t], ptr %12, i64 0, i64 0
+  %248 = getelementptr inbounds %struct.vec_t, ptr %247, i32 0, i32 0
+  store ptr @HDR_IP, ptr %248, align 16
+  %249 = getelementptr [1 x %struct.vec_t], ptr %12, i64 0, i64 0
+  %250 = getelementptr inbounds %struct.vec_t, ptr %249, i32 0, i32 1
+  store i32 20, ptr %250, align 8
+  %251 = getelementptr inbounds [1 x %struct.vec_t], ptr %12, i64 0, i64 0
+  %252 = call i32 @in_cksum(ptr noundef %251, i32 noundef 1)
+  %253 = trunc i32 %252 to i16
+  %254 = getelementptr inbounds %struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 8
+  store i16 %253, ptr %254, align 2
+  %255 = load ptr, ptr @packet_buf, align 8
+  %256 = load i32, ptr %8, align 4
+  %257 = sext i32 %256 to i64
+  %258 = getelementptr i8, ptr %255, i64 %257
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %258, ptr align 4 @HDR_IP, i64 20, i1 false)
+  %259 = load i32, ptr %8, align 4
+  %260 = add i32 %259, 20
+  store i32 %260, ptr %8, align 4
+  %261 = getelementptr inbounds %struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 9
+  %262 = load i32, ptr %261, align 4
+  store i32 %262, ptr @pseudoh, align 4
+  %263 = getelementptr inbounds %struct.hdr_ip_t, ptr @HDR_IP, i32 0, i32 10
+  %264 = load i32, ptr %263, align 4
+  %265 = getelementptr inbounds %struct.anon.2, ptr @pseudoh, i32 0, i32 1
+  store i32 %264, ptr %265, align 4
+  %266 = getelementptr inbounds %struct.anon.2, ptr @pseudoh, i32 0, i32 2
+  store i8 0, ptr %266, align 4
+  %267 = load i32, ptr @hdr_ip_proto, align 4
+  %268 = trunc i32 %267 to i8
+  %269 = getelementptr inbounds %struct.anon.2, ptr @pseudoh, i32 0, i32 3
+  store i8 %268, ptr %269, align 1
+  %270 = load i32, ptr %5, align 4
+  %271 = trunc i32 %270 to i16
+  %272 = zext i16 %271 to i32
+  %273 = ashr i32 %272, 8
+  %274 = trunc i32 %273 to i16
+  %275 = zext i16 %274 to i32
+  %276 = load i32, ptr %5, align 4
+  %277 = trunc i32 %276 to i16
+  %278 = zext i16 %277 to i32
+  %279 = shl i32 %278, 8
+  %280 = trunc i32 %279 to i16
+  %281 = zext i16 %280 to i32
+  %282 = or i32 %275, %281
+  %283 = trunc i32 %282 to i16
+  %284 = getelementptr inbounds %struct.anon.2, ptr @pseudoh, i32 0, i32 4
+  store i16 %283, ptr %284, align 2
+  br label %384
 
-271:                                              ; preds = %268
-  %272 = load ptr, ptr @info_p, align 8
-  %273 = getelementptr inbounds %struct.text_import_info_t, ptr %272, i32 0, i32 12
-  %274 = call i32 @memcmp(ptr noundef %273, ptr noundef @NO_IPv6_ADDRESS, i64 noundef 16) #10
-  %275 = icmp ne i32 %274, 0
-  br i1 %275, label %276, label %282
+285:                                              ; preds = %171
+  %286 = load i32, ptr @hdr_ipv6, align 4
+  %287 = icmp ne i32 %286, 0
+  br i1 %287, label %288, label %383
 
-276:                                              ; preds = %271
-  %277 = load i32, ptr %11, align 4
-  %278 = icmp ne i32 %277, 0
-  %279 = select i1 %278, ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 1), ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 2)
-  %280 = load ptr, ptr @info_p, align 8
-  %281 = getelementptr inbounds %struct.text_import_info_t, ptr %280, i32 0, i32 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %279, ptr align 4 %281, i64 16, i1 false)
-  br label %286
+288:                                              ; preds = %285
+  %289 = load ptr, ptr @info_p, align 8
+  %290 = getelementptr inbounds %struct.text_import_info_t, ptr %289, i32 0, i32 12
+  %291 = call i32 @memcmp(ptr noundef %290, ptr noundef @NO_IPv6_ADDRESS, i64 noundef 16) #10
+  %292 = icmp ne i32 %291, 0
+  br i1 %292, label %293, label %301
 
-282:                                              ; preds = %271
-  %283 = load i32, ptr %11, align 4
-  %284 = icmp ne i32 %283, 0
-  %285 = select i1 %284, ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 1), ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 2)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %285, ptr align 1 @IPv6_DST, i64 16, i1 false)
-  br label %286
+293:                                              ; preds = %288
+  %294 = load i32, ptr %11, align 4
+  %295 = icmp ne i32 %294, 0
+  %296 = getelementptr inbounds %struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 1
+  %297 = getelementptr inbounds %struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 2
+  %298 = select i1 %295, ptr %296, ptr %297
+  %299 = load ptr, ptr @info_p, align 8
+  %300 = getelementptr inbounds %struct.text_import_info_t, ptr %299, i32 0, i32 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %298, ptr align 4 %300, i64 16, i1 false)
+  br label %307
 
-286:                                              ; preds = %282, %276
-  %287 = load ptr, ptr @info_p, align 8
-  %288 = getelementptr inbounds %struct.text_import_info_t, ptr %287, i32 0, i32 11
-  %289 = call i32 @memcmp(ptr noundef %288, ptr noundef @NO_IPv6_ADDRESS, i64 noundef 16) #10
-  %290 = icmp ne i32 %289, 0
-  br i1 %290, label %291, label %297
+301:                                              ; preds = %288
+  %302 = load i32, ptr %11, align 4
+  %303 = icmp ne i32 %302, 0
+  %304 = getelementptr inbounds %struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 1
+  %305 = getelementptr inbounds %struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 2
+  %306 = select i1 %303, ptr %304, ptr %305
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %306, ptr align 1 @IPv6_DST, i64 16, i1 false)
+  br label %307
 
-291:                                              ; preds = %286
-  %292 = load i32, ptr %11, align 4
-  %293 = icmp ne i32 %292, 0
-  %294 = select i1 %293, ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 2), ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 1)
-  %295 = load ptr, ptr @info_p, align 8
-  %296 = getelementptr inbounds %struct.text_import_info_t, ptr %295, i32 0, i32 11
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %294, ptr align 4 %296, i64 16, i1 false)
-  br label %301
+307:                                              ; preds = %301, %293
+  %308 = load ptr, ptr @info_p, align 8
+  %309 = getelementptr inbounds %struct.text_import_info_t, ptr %308, i32 0, i32 11
+  %310 = call i32 @memcmp(ptr noundef %309, ptr noundef @NO_IPv6_ADDRESS, i64 noundef 16) #10
+  %311 = icmp ne i32 %310, 0
+  br i1 %311, label %312, label %320
 
-297:                                              ; preds = %286
-  %298 = load i32, ptr %11, align 4
-  %299 = icmp ne i32 %298, 0
-  %300 = select i1 %299, ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 2), ptr getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 1)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %300, ptr align 1 @IPv6_SRC, i64 16, i1 false)
-  br label %301
+312:                                              ; preds = %307
+  %313 = load i32, ptr %11, align 4
+  %314 = icmp ne i32 %313, 0
+  %315 = getelementptr inbounds %struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 2
+  %316 = getelementptr inbounds %struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 1
+  %317 = select i1 %314, ptr %315, ptr %316
+  %318 = load ptr, ptr @info_p, align 8
+  %319 = getelementptr inbounds %struct.text_import_info_t, ptr %318, i32 0, i32 11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %317, ptr align 4 %319, i64 16, i1 false)
+  br label %326
 
-301:                                              ; preds = %297, %291
-  %302 = load i8, ptr @HDR_IPv6, align 4
-  %303 = zext i8 %302 to i32
-  %304 = and i32 %303, 15
-  %305 = trunc i32 %304 to i8
-  store i8 %305, ptr @HDR_IPv6, align 4
-  %306 = load i8, ptr @HDR_IPv6, align 4
-  %307 = zext i8 %306 to i32
-  %308 = or i32 %307, 96
-  %309 = trunc i32 %308 to i8
-  store i8 %309, ptr @HDR_IPv6, align 4
-  %310 = load i32, ptr %6, align 4
-  %311 = trunc i32 %310 to i16
-  %312 = zext i16 %311 to i32
-  %313 = ashr i32 %312, 8
-  %314 = trunc i32 %313 to i16
-  %315 = zext i16 %314 to i32
-  %316 = load i32, ptr %6, align 4
-  %317 = trunc i32 %316 to i16
-  %318 = zext i16 %317 to i32
-  %319 = shl i32 %318, 8
-  %320 = trunc i32 %319 to i16
-  %321 = zext i16 %320 to i32
-  %322 = or i32 %315, %321
-  %323 = trunc i32 %322 to i16
-  store i16 %323, ptr getelementptr inbounds (%struct.ip6_hdrctl, ptr @HDR_IPv6, i32 0, i32 1), align 4
-  %324 = load i32, ptr @hdr_ip_proto, align 4
-  %325 = trunc i32 %324 to i8
-  store i8 %325, ptr getelementptr inbounds (%struct.ip6_hdrctl, ptr @HDR_IPv6, i32 0, i32 2), align 2
-  store i8 32, ptr getelementptr inbounds (%struct.ip6_hdrctl, ptr @HDR_IPv6, i32 0, i32 3), align 1
-  %326 = load ptr, ptr @packet_buf, align 8
-  %327 = load i32, ptr %8, align 4
-  %328 = sext i32 %327 to i64
-  %329 = getelementptr i8, ptr %326, i64 %328
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %329, ptr align 4 @HDR_IPv6, i64 40, i1 false)
-  %330 = load i32, ptr %8, align 4
-  %331 = add i32 %330, 40
-  store i32 %331, ptr %8, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 @pseudoh6, ptr align 4 getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 1), i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 getelementptr inbounds (%struct.anon.4, ptr @pseudoh6, i32 0, i32 1), ptr align 4 getelementptr inbounds (%struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 2), i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr align 4 getelementptr inbounds (%struct.anon.4, ptr @pseudoh6, i32 0, i32 3), i8 0, i64 3, i1 false)
-  %332 = load i32, ptr @hdr_ip_proto, align 4
-  %333 = trunc i32 %332 to i8
-  store i8 %333, ptr getelementptr inbounds (%struct.anon.4, ptr @pseudoh6, i32 0, i32 4), align 1
-  %334 = load i32, ptr %5, align 4
-  %335 = trunc i32 %334 to i16
-  %336 = zext i16 %335 to i32
-  %337 = ashr i32 %336, 8
-  %338 = trunc i32 %337 to i16
-  %339 = zext i16 %338 to i32
-  %340 = load i32, ptr %5, align 4
-  %341 = trunc i32 %340 to i16
-  %342 = zext i16 %341 to i32
-  %343 = shl i32 %342, 8
-  %344 = trunc i32 %343 to i16
-  %345 = zext i16 %344 to i32
-  %346 = or i32 %339, %345
-  %347 = trunc i32 %346 to i16
-  %348 = zext i16 %347 to i32
-  store i32 %348, ptr getelementptr inbounds (%struct.anon.4, ptr @pseudoh6, i32 0, i32 2), align 4
-  br label %349
+320:                                              ; preds = %307
+  %321 = load i32, ptr %11, align 4
+  %322 = icmp ne i32 %321, 0
+  %323 = getelementptr inbounds %struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 2
+  %324 = getelementptr inbounds %struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 1
+  %325 = select i1 %322, ptr %323, ptr %324
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %325, ptr align 1 @IPv6_SRC, i64 16, i1 false)
+  br label %326
 
-349:                                              ; preds = %301, %268
-  br label %350
-
-350:                                              ; preds = %349, %220
-  %351 = load i32, ptr @hdr_udp, align 4
-  %352 = icmp ne i32 %351, 0
-  br i1 %352, label %353, label %493
-
-353:                                              ; preds = %350
-  %354 = load i32, ptr %11, align 4
-  %355 = icmp ne i32 %354, 0
-  br i1 %355, label %356, label %376
-
-356:                                              ; preds = %353
-  %357 = load ptr, ptr @info_p, align 8
-  %358 = getelementptr inbounds %struct.text_import_info_t, ptr %357, i32 0, i32 15
-  %359 = load i32, ptr %358, align 4
-  %360 = trunc i32 %359 to i16
-  %361 = zext i16 %360 to i32
-  %362 = ashr i32 %361, 8
-  %363 = trunc i32 %362 to i16
-  %364 = zext i16 %363 to i32
-  %365 = load ptr, ptr @info_p, align 8
-  %366 = getelementptr inbounds %struct.text_import_info_t, ptr %365, i32 0, i32 15
-  %367 = load i32, ptr %366, align 4
+326:                                              ; preds = %320, %312
+  %327 = load i8, ptr @HDR_IPv6, align 4
+  %328 = zext i8 %327 to i32
+  %329 = and i32 %328, 15
+  %330 = trunc i32 %329 to i8
+  store i8 %330, ptr @HDR_IPv6, align 4
+  %331 = load i8, ptr @HDR_IPv6, align 4
+  %332 = zext i8 %331 to i32
+  %333 = or i32 %332, 96
+  %334 = trunc i32 %333 to i8
+  store i8 %334, ptr @HDR_IPv6, align 4
+  %335 = load i32, ptr %6, align 4
+  %336 = trunc i32 %335 to i16
+  %337 = zext i16 %336 to i32
+  %338 = ashr i32 %337, 8
+  %339 = trunc i32 %338 to i16
+  %340 = zext i16 %339 to i32
+  %341 = load i32, ptr %6, align 4
+  %342 = trunc i32 %341 to i16
+  %343 = zext i16 %342 to i32
+  %344 = shl i32 %343, 8
+  %345 = trunc i32 %344 to i16
+  %346 = zext i16 %345 to i32
+  %347 = or i32 %340, %346
+  %348 = trunc i32 %347 to i16
+  %349 = getelementptr inbounds %struct.ip6_hdrctl, ptr @HDR_IPv6, i32 0, i32 1
+  store i16 %348, ptr %349, align 4
+  %350 = load i32, ptr @hdr_ip_proto, align 4
+  %351 = trunc i32 %350 to i8
+  %352 = getelementptr inbounds %struct.ip6_hdrctl, ptr @HDR_IPv6, i32 0, i32 2
+  store i8 %351, ptr %352, align 2
+  %353 = getelementptr inbounds %struct.ip6_hdrctl, ptr @HDR_IPv6, i32 0, i32 3
+  store i8 32, ptr %353, align 1
+  %354 = load ptr, ptr @packet_buf, align 8
+  %355 = load i32, ptr %8, align 4
+  %356 = sext i32 %355 to i64
+  %357 = getelementptr i8, ptr %354, i64 %356
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %357, ptr align 4 @HDR_IPv6, i64 40, i1 false)
+  %358 = load i32, ptr %8, align 4
+  %359 = add i32 %358, 40
+  store i32 %359, ptr %8, align 4
+  %360 = getelementptr inbounds %struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 @pseudoh6, ptr align 4 %360, i64 16, i1 false)
+  %361 = getelementptr inbounds %struct.anon.4, ptr @pseudoh6, i32 0, i32 1
+  %362 = getelementptr inbounds %struct.hdr_ipv6_t, ptr @HDR_IPv6, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %361, ptr align 4 %362, i64 16, i1 false)
+  %363 = getelementptr inbounds %struct.anon.4, ptr @pseudoh6, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 4 %363, i8 0, i64 3, i1 false)
+  %364 = load i32, ptr @hdr_ip_proto, align 4
+  %365 = trunc i32 %364 to i8
+  %366 = getelementptr inbounds %struct.anon.4, ptr @pseudoh6, i32 0, i32 4
+  store i8 %365, ptr %366, align 1
+  %367 = load i32, ptr %5, align 4
   %368 = trunc i32 %367 to i16
   %369 = zext i16 %368 to i32
-  %370 = shl i32 %369, 8
+  %370 = ashr i32 %369, 8
   %371 = trunc i32 %370 to i16
   %372 = zext i16 %371 to i32
-  %373 = or i32 %364, %372
+  %373 = load i32, ptr %5, align 4
   %374 = trunc i32 %373 to i16
   %375 = zext i16 %374 to i32
-  br label %396
-
-376:                                              ; preds = %353
-  %377 = load ptr, ptr @info_p, align 8
-  %378 = getelementptr inbounds %struct.text_import_info_t, ptr %377, i32 0, i32 14
-  %379 = load i32, ptr %378, align 8
+  %376 = shl i32 %375, 8
+  %377 = trunc i32 %376 to i16
+  %378 = zext i16 %377 to i32
+  %379 = or i32 %372, %378
   %380 = trunc i32 %379 to i16
   %381 = zext i16 %380 to i32
-  %382 = ashr i32 %381, 8
-  %383 = trunc i32 %382 to i16
-  %384 = zext i16 %383 to i32
-  %385 = load ptr, ptr @info_p, align 8
-  %386 = getelementptr inbounds %struct.text_import_info_t, ptr %385, i32 0, i32 14
-  %387 = load i32, ptr %386, align 8
-  %388 = trunc i32 %387 to i16
-  %389 = zext i16 %388 to i32
-  %390 = shl i32 %389, 8
-  %391 = trunc i32 %390 to i16
-  %392 = zext i16 %391 to i32
-  %393 = or i32 %384, %392
+  %382 = getelementptr inbounds %struct.anon.4, ptr @pseudoh6, i32 0, i32 2
+  store i32 %381, ptr %382, align 4
+  br label %383
+
+383:                                              ; preds = %326, %285
+  br label %384
+
+384:                                              ; preds = %383, %227
+  %385 = load i32, ptr @hdr_udp, align 4
+  %386 = icmp ne i32 %385, 0
+  br i1 %386, label %387, label %531
+
+387:                                              ; preds = %384
+  %388 = load i32, ptr %11, align 4
+  %389 = icmp ne i32 %388, 0
+  br i1 %389, label %390, label %410
+
+390:                                              ; preds = %387
+  %391 = load ptr, ptr @info_p, align 8
+  %392 = getelementptr inbounds %struct.text_import_info_t, ptr %391, i32 0, i32 15
+  %393 = load i32, ptr %392, align 4
   %394 = trunc i32 %393 to i16
   %395 = zext i16 %394 to i32
-  br label %396
-
-396:                                              ; preds = %376, %356
-  %397 = phi i32 [ %375, %356 ], [ %395, %376 ]
-  %398 = trunc i32 %397 to i16
-  store i16 %398, ptr @HDR_UDP, align 2
-  %399 = load i32, ptr %11, align 4
-  %400 = icmp ne i32 %399, 0
-  br i1 %400, label %401, label %421
-
-401:                                              ; preds = %396
-  %402 = load ptr, ptr @info_p, align 8
-  %403 = getelementptr inbounds %struct.text_import_info_t, ptr %402, i32 0, i32 14
-  %404 = load i32, ptr %403, align 8
+  %396 = ashr i32 %395, 8
+  %397 = trunc i32 %396 to i16
+  %398 = zext i16 %397 to i32
+  %399 = load ptr, ptr @info_p, align 8
+  %400 = getelementptr inbounds %struct.text_import_info_t, ptr %399, i32 0, i32 15
+  %401 = load i32, ptr %400, align 4
+  %402 = trunc i32 %401 to i16
+  %403 = zext i16 %402 to i32
+  %404 = shl i32 %403, 8
   %405 = trunc i32 %404 to i16
   %406 = zext i16 %405 to i32
-  %407 = ashr i32 %406, 8
+  %407 = or i32 %398, %406
   %408 = trunc i32 %407 to i16
   %409 = zext i16 %408 to i32
-  %410 = load ptr, ptr @info_p, align 8
-  %411 = getelementptr inbounds %struct.text_import_info_t, ptr %410, i32 0, i32 14
-  %412 = load i32, ptr %411, align 8
-  %413 = trunc i32 %412 to i16
-  %414 = zext i16 %413 to i32
-  %415 = shl i32 %414, 8
-  %416 = trunc i32 %415 to i16
-  %417 = zext i16 %416 to i32
-  %418 = or i32 %409, %417
-  %419 = trunc i32 %418 to i16
-  %420 = zext i16 %419 to i32
-  br label %441
+  br label %430
 
-421:                                              ; preds = %396
-  %422 = load ptr, ptr @info_p, align 8
-  %423 = getelementptr inbounds %struct.text_import_info_t, ptr %422, i32 0, i32 15
-  %424 = load i32, ptr %423, align 4
+410:                                              ; preds = %387
+  %411 = load ptr, ptr @info_p, align 8
+  %412 = getelementptr inbounds %struct.text_import_info_t, ptr %411, i32 0, i32 14
+  %413 = load i32, ptr %412, align 8
+  %414 = trunc i32 %413 to i16
+  %415 = zext i16 %414 to i32
+  %416 = ashr i32 %415, 8
+  %417 = trunc i32 %416 to i16
+  %418 = zext i16 %417 to i32
+  %419 = load ptr, ptr @info_p, align 8
+  %420 = getelementptr inbounds %struct.text_import_info_t, ptr %419, i32 0, i32 14
+  %421 = load i32, ptr %420, align 8
+  %422 = trunc i32 %421 to i16
+  %423 = zext i16 %422 to i32
+  %424 = shl i32 %423, 8
   %425 = trunc i32 %424 to i16
   %426 = zext i16 %425 to i32
-  %427 = ashr i32 %426, 8
+  %427 = or i32 %418, %426
   %428 = trunc i32 %427 to i16
   %429 = zext i16 %428 to i32
-  %430 = load ptr, ptr @info_p, align 8
-  %431 = getelementptr inbounds %struct.text_import_info_t, ptr %430, i32 0, i32 15
-  %432 = load i32, ptr %431, align 4
-  %433 = trunc i32 %432 to i16
-  %434 = zext i16 %433 to i32
-  %435 = shl i32 %434, 8
-  %436 = trunc i32 %435 to i16
-  %437 = zext i16 %436 to i32
-  %438 = or i32 %429, %437
+  br label %430
+
+430:                                              ; preds = %410, %390
+  %431 = phi i32 [ %409, %390 ], [ %429, %410 ]
+  %432 = trunc i32 %431 to i16
+  store i16 %432, ptr @HDR_UDP, align 2
+  %433 = load i32, ptr %11, align 4
+  %434 = icmp ne i32 %433, 0
+  br i1 %434, label %435, label %455
+
+435:                                              ; preds = %430
+  %436 = load ptr, ptr @info_p, align 8
+  %437 = getelementptr inbounds %struct.text_import_info_t, ptr %436, i32 0, i32 14
+  %438 = load i32, ptr %437, align 8
   %439 = trunc i32 %438 to i16
   %440 = zext i16 %439 to i32
-  br label %441
+  %441 = ashr i32 %440, 8
+  %442 = trunc i32 %441 to i16
+  %443 = zext i16 %442 to i32
+  %444 = load ptr, ptr @info_p, align 8
+  %445 = getelementptr inbounds %struct.text_import_info_t, ptr %444, i32 0, i32 14
+  %446 = load i32, ptr %445, align 8
+  %447 = trunc i32 %446 to i16
+  %448 = zext i16 %447 to i32
+  %449 = shl i32 %448, 8
+  %450 = trunc i32 %449 to i16
+  %451 = zext i16 %450 to i32
+  %452 = or i32 %443, %451
+  %453 = trunc i32 %452 to i16
+  %454 = zext i16 %453 to i32
+  br label %475
 
-441:                                              ; preds = %421, %401
-  %442 = phi i32 [ %420, %401 ], [ %440, %421 ]
-  %443 = trunc i32 %442 to i16
-  store i16 %443, ptr getelementptr inbounds (%struct.hdr_udp_t, ptr @HDR_UDP, i32 0, i32 1), align 2
-  %444 = load i32, ptr %5, align 4
-  %445 = trunc i32 %444 to i16
-  %446 = zext i16 %445 to i32
-  %447 = ashr i32 %446, 8
-  %448 = trunc i32 %447 to i16
-  %449 = zext i16 %448 to i32
-  %450 = load i32, ptr %5, align 4
-  %451 = trunc i32 %450 to i16
-  %452 = zext i16 %451 to i32
-  %453 = shl i32 %452, 8
-  %454 = trunc i32 %453 to i16
-  %455 = zext i16 %454 to i32
-  %456 = or i32 %449, %455
-  %457 = trunc i32 %456 to i16
-  store i16 %457, ptr getelementptr inbounds (%struct.hdr_udp_t, ptr @HDR_UDP, i32 0, i32 2), align 2
-  store i16 0, ptr getelementptr inbounds (%struct.hdr_udp_t, ptr @HDR_UDP, i32 0, i32 3), align 2
-  %458 = load i32, ptr @hdr_ipv6, align 4
-  %459 = icmp ne i32 %458, 0
-  br i1 %459, label %460, label %465
+455:                                              ; preds = %430
+  %456 = load ptr, ptr @info_p, align 8
+  %457 = getelementptr inbounds %struct.text_import_info_t, ptr %456, i32 0, i32 15
+  %458 = load i32, ptr %457, align 4
+  %459 = trunc i32 %458 to i16
+  %460 = zext i16 %459 to i32
+  %461 = ashr i32 %460, 8
+  %462 = trunc i32 %461 to i16
+  %463 = zext i16 %462 to i32
+  %464 = load ptr, ptr @info_p, align 8
+  %465 = getelementptr inbounds %struct.text_import_info_t, ptr %464, i32 0, i32 15
+  %466 = load i32, ptr %465, align 4
+  %467 = trunc i32 %466 to i16
+  %468 = zext i16 %467 to i32
+  %469 = shl i32 %468, 8
+  %470 = trunc i32 %469 to i16
+  %471 = zext i16 %470 to i32
+  %472 = or i32 %463, %471
+  %473 = trunc i32 %472 to i16
+  %474 = zext i16 %473 to i32
+  br label %475
 
-460:                                              ; preds = %441
-  %461 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 0
-  %462 = getelementptr inbounds %struct.vec_t, ptr %461, i32 0, i32 0
-  store ptr @pseudoh6, ptr %462, align 16
-  %463 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 0
-  %464 = getelementptr inbounds %struct.vec_t, ptr %463, i32 0, i32 1
-  store i32 40, ptr %464, align 8
-  br label %470
-
-465:                                              ; preds = %441
-  %466 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 0
-  %467 = getelementptr inbounds %struct.vec_t, ptr %466, i32 0, i32 0
-  store ptr @pseudoh, ptr %467, align 16
-  %468 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 0
-  %469 = getelementptr inbounds %struct.vec_t, ptr %468, i32 0, i32 1
-  store i32 12, ptr %469, align 8
-  br label %470
-
-470:                                              ; preds = %465, %460
-  %471 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 1
-  %472 = getelementptr inbounds %struct.vec_t, ptr %471, i32 0, i32 0
-  store ptr @HDR_UDP, ptr %472, align 16
-  %473 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 1
-  %474 = getelementptr inbounds %struct.vec_t, ptr %473, i32 0, i32 1
-  store i32 8, ptr %474, align 8
-  %475 = load ptr, ptr @packet_buf, align 8
-  %476 = load i32, ptr %4, align 4
-  %477 = sext i32 %476 to i64
-  %478 = getelementptr i8, ptr %475, i64 %477
-  %479 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 2
-  %480 = getelementptr inbounds %struct.vec_t, ptr %479, i32 0, i32 0
-  store ptr %478, ptr %480, align 16
-  %481 = load i32, ptr @curr_offset, align 4
-  %482 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 2
-  %483 = getelementptr inbounds %struct.vec_t, ptr %482, i32 0, i32 1
-  store i32 %481, ptr %483, align 8
-  %484 = getelementptr inbounds [3 x %struct.vec_t], ptr %13, i64 0, i64 0
-  %485 = call i32 @in_cksum(ptr noundef %484, i32 noundef 3)
+475:                                              ; preds = %455, %435
+  %476 = phi i32 [ %454, %435 ], [ %474, %455 ]
+  %477 = trunc i32 %476 to i16
+  %478 = getelementptr inbounds %struct.hdr_udp_t, ptr @HDR_UDP, i32 0, i32 1
+  store i16 %477, ptr %478, align 2
+  %479 = load i32, ptr %5, align 4
+  %480 = trunc i32 %479 to i16
+  %481 = zext i16 %480 to i32
+  %482 = ashr i32 %481, 8
+  %483 = trunc i32 %482 to i16
+  %484 = zext i16 %483 to i32
+  %485 = load i32, ptr %5, align 4
   %486 = trunc i32 %485 to i16
-  store i16 %486, ptr getelementptr inbounds (%struct.hdr_udp_t, ptr @HDR_UDP, i32 0, i32 3), align 2
-  %487 = load ptr, ptr @packet_buf, align 8
-  %488 = load i32, ptr %8, align 4
-  %489 = sext i32 %488 to i64
-  %490 = getelementptr i8, ptr %487, i64 %489
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %490, ptr align 2 @HDR_UDP, i64 8, i1 false)
-  %491 = load i32, ptr %8, align 4
-  %492 = add i32 %491, 8
-  store i32 %492, ptr %8, align 4
-  br label %493
+  %487 = zext i16 %486 to i32
+  %488 = shl i32 %487, 8
+  %489 = trunc i32 %488 to i16
+  %490 = zext i16 %489 to i32
+  %491 = or i32 %484, %490
+  %492 = trunc i32 %491 to i16
+  %493 = getelementptr inbounds %struct.hdr_udp_t, ptr @HDR_UDP, i32 0, i32 2
+  store i16 %492, ptr %493, align 2
+  %494 = getelementptr inbounds %struct.hdr_udp_t, ptr @HDR_UDP, i32 0, i32 3
+  store i16 0, ptr %494, align 2
+  %495 = load i32, ptr @hdr_ipv6, align 4
+  %496 = icmp ne i32 %495, 0
+  br i1 %496, label %497, label %502
 
-493:                                              ; preds = %470, %350
-  %494 = load i32, ptr @hdr_tcp, align 4
-  %495 = icmp ne i32 %494, 0
-  br i1 %495, label %496, label %762
+497:                                              ; preds = %475
+  %498 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 0
+  %499 = getelementptr inbounds %struct.vec_t, ptr %498, i32 0, i32 0
+  store ptr @pseudoh6, ptr %499, align 16
+  %500 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 0
+  %501 = getelementptr inbounds %struct.vec_t, ptr %500, i32 0, i32 1
+  store i32 40, ptr %501, align 8
+  br label %507
 
-496:                                              ; preds = %493
-  %497 = load i32, ptr %11, align 4
-  %498 = icmp ne i32 %497, 0
-  br i1 %498, label %499, label %519
+502:                                              ; preds = %475
+  %503 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 0
+  %504 = getelementptr inbounds %struct.vec_t, ptr %503, i32 0, i32 0
+  store ptr @pseudoh, ptr %504, align 16
+  %505 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 0
+  %506 = getelementptr inbounds %struct.vec_t, ptr %505, i32 0, i32 1
+  store i32 12, ptr %506, align 8
+  br label %507
 
-499:                                              ; preds = %496
-  %500 = load ptr, ptr @info_p, align 8
-  %501 = getelementptr inbounds %struct.text_import_info_t, ptr %500, i32 0, i32 15
-  %502 = load i32, ptr %501, align 4
-  %503 = trunc i32 %502 to i16
-  %504 = zext i16 %503 to i32
-  %505 = ashr i32 %504, 8
-  %506 = trunc i32 %505 to i16
-  %507 = zext i16 %506 to i32
-  %508 = load ptr, ptr @info_p, align 8
-  %509 = getelementptr inbounds %struct.text_import_info_t, ptr %508, i32 0, i32 15
-  %510 = load i32, ptr %509, align 4
-  %511 = trunc i32 %510 to i16
-  %512 = zext i16 %511 to i32
-  %513 = shl i32 %512, 8
-  %514 = trunc i32 %513 to i16
-  %515 = zext i16 %514 to i32
-  %516 = or i32 %507, %515
-  %517 = trunc i32 %516 to i16
-  %518 = zext i16 %517 to i32
-  br label %539
-
-519:                                              ; preds = %496
-  %520 = load ptr, ptr @info_p, align 8
-  %521 = getelementptr inbounds %struct.text_import_info_t, ptr %520, i32 0, i32 14
-  %522 = load i32, ptr %521, align 8
+507:                                              ; preds = %502, %497
+  %508 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 1
+  %509 = getelementptr inbounds %struct.vec_t, ptr %508, i32 0, i32 0
+  store ptr @HDR_UDP, ptr %509, align 16
+  %510 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 1
+  %511 = getelementptr inbounds %struct.vec_t, ptr %510, i32 0, i32 1
+  store i32 8, ptr %511, align 8
+  %512 = load ptr, ptr @packet_buf, align 8
+  %513 = load i32, ptr %4, align 4
+  %514 = sext i32 %513 to i64
+  %515 = getelementptr i8, ptr %512, i64 %514
+  %516 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 2
+  %517 = getelementptr inbounds %struct.vec_t, ptr %516, i32 0, i32 0
+  store ptr %515, ptr %517, align 16
+  %518 = load i32, ptr @curr_offset, align 4
+  %519 = getelementptr [3 x %struct.vec_t], ptr %13, i64 0, i64 2
+  %520 = getelementptr inbounds %struct.vec_t, ptr %519, i32 0, i32 1
+  store i32 %518, ptr %520, align 8
+  %521 = getelementptr inbounds [3 x %struct.vec_t], ptr %13, i64 0, i64 0
+  %522 = call i32 @in_cksum(ptr noundef %521, i32 noundef 3)
   %523 = trunc i32 %522 to i16
-  %524 = zext i16 %523 to i32
-  %525 = ashr i32 %524, 8
-  %526 = trunc i32 %525 to i16
-  %527 = zext i16 %526 to i32
-  %528 = load ptr, ptr @info_p, align 8
-  %529 = getelementptr inbounds %struct.text_import_info_t, ptr %528, i32 0, i32 14
-  %530 = load i32, ptr %529, align 8
-  %531 = trunc i32 %530 to i16
-  %532 = zext i16 %531 to i32
-  %533 = shl i32 %532, 8
-  %534 = trunc i32 %533 to i16
-  %535 = zext i16 %534 to i32
-  %536 = or i32 %527, %535
-  %537 = trunc i32 %536 to i16
-  %538 = zext i16 %537 to i32
-  br label %539
+  %524 = getelementptr inbounds %struct.hdr_udp_t, ptr @HDR_UDP, i32 0, i32 3
+  store i16 %523, ptr %524, align 2
+  %525 = load ptr, ptr @packet_buf, align 8
+  %526 = load i32, ptr %8, align 4
+  %527 = sext i32 %526 to i64
+  %528 = getelementptr i8, ptr %525, i64 %527
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %528, ptr align 2 @HDR_UDP, i64 8, i1 false)
+  %529 = load i32, ptr %8, align 4
+  %530 = add i32 %529, 8
+  store i32 %530, ptr %8, align 4
+  br label %531
 
-539:                                              ; preds = %519, %499
-  %540 = phi i32 [ %518, %499 ], [ %538, %519 ]
+531:                                              ; preds = %507, %384
+  %532 = load i32, ptr @hdr_tcp, align 4
+  %533 = icmp ne i32 %532, 0
+  br i1 %533, label %534, label %814
+
+534:                                              ; preds = %531
+  %535 = load i32, ptr %11, align 4
+  %536 = icmp ne i32 %535, 0
+  br i1 %536, label %537, label %557
+
+537:                                              ; preds = %534
+  %538 = load ptr, ptr @info_p, align 8
+  %539 = getelementptr inbounds %struct.text_import_info_t, ptr %538, i32 0, i32 15
+  %540 = load i32, ptr %539, align 4
   %541 = trunc i32 %540 to i16
-  store i16 %541, ptr @HDR_TCP, align 4
-  %542 = load i32, ptr %11, align 4
-  %543 = icmp ne i32 %542, 0
-  br i1 %543, label %544, label %564
+  %542 = zext i16 %541 to i32
+  %543 = ashr i32 %542, 8
+  %544 = trunc i32 %543 to i16
+  %545 = zext i16 %544 to i32
+  %546 = load ptr, ptr @info_p, align 8
+  %547 = getelementptr inbounds %struct.text_import_info_t, ptr %546, i32 0, i32 15
+  %548 = load i32, ptr %547, align 4
+  %549 = trunc i32 %548 to i16
+  %550 = zext i16 %549 to i32
+  %551 = shl i32 %550, 8
+  %552 = trunc i32 %551 to i16
+  %553 = zext i16 %552 to i32
+  %554 = or i32 %545, %553
+  %555 = trunc i32 %554 to i16
+  %556 = zext i16 %555 to i32
+  br label %577
 
-544:                                              ; preds = %539
-  %545 = load ptr, ptr @info_p, align 8
-  %546 = getelementptr inbounds %struct.text_import_info_t, ptr %545, i32 0, i32 14
-  %547 = load i32, ptr %546, align 8
-  %548 = trunc i32 %547 to i16
-  %549 = zext i16 %548 to i32
-  %550 = ashr i32 %549, 8
-  %551 = trunc i32 %550 to i16
-  %552 = zext i16 %551 to i32
-  %553 = load ptr, ptr @info_p, align 8
-  %554 = getelementptr inbounds %struct.text_import_info_t, ptr %553, i32 0, i32 14
-  %555 = load i32, ptr %554, align 8
-  %556 = trunc i32 %555 to i16
-  %557 = zext i16 %556 to i32
-  %558 = shl i32 %557, 8
-  %559 = trunc i32 %558 to i16
-  %560 = zext i16 %559 to i32
-  %561 = or i32 %552, %560
-  %562 = trunc i32 %561 to i16
-  %563 = zext i16 %562 to i32
-  br label %584
+557:                                              ; preds = %534
+  %558 = load ptr, ptr @info_p, align 8
+  %559 = getelementptr inbounds %struct.text_import_info_t, ptr %558, i32 0, i32 14
+  %560 = load i32, ptr %559, align 8
+  %561 = trunc i32 %560 to i16
+  %562 = zext i16 %561 to i32
+  %563 = ashr i32 %562, 8
+  %564 = trunc i32 %563 to i16
+  %565 = zext i16 %564 to i32
+  %566 = load ptr, ptr @info_p, align 8
+  %567 = getelementptr inbounds %struct.text_import_info_t, ptr %566, i32 0, i32 14
+  %568 = load i32, ptr %567, align 8
+  %569 = trunc i32 %568 to i16
+  %570 = zext i16 %569 to i32
+  %571 = shl i32 %570, 8
+  %572 = trunc i32 %571 to i16
+  %573 = zext i16 %572 to i32
+  %574 = or i32 %565, %573
+  %575 = trunc i32 %574 to i16
+  %576 = zext i16 %575 to i32
+  br label %577
 
-564:                                              ; preds = %539
-  %565 = load ptr, ptr @info_p, align 8
-  %566 = getelementptr inbounds %struct.text_import_info_t, ptr %565, i32 0, i32 15
-  %567 = load i32, ptr %566, align 4
-  %568 = trunc i32 %567 to i16
-  %569 = zext i16 %568 to i32
-  %570 = ashr i32 %569, 8
-  %571 = trunc i32 %570 to i16
-  %572 = zext i16 %571 to i32
-  %573 = load ptr, ptr @info_p, align 8
-  %574 = getelementptr inbounds %struct.text_import_info_t, ptr %573, i32 0, i32 15
-  %575 = load i32, ptr %574, align 4
-  %576 = trunc i32 %575 to i16
-  %577 = zext i16 %576 to i32
-  %578 = shl i32 %577, 8
+577:                                              ; preds = %557, %537
+  %578 = phi i32 [ %556, %537 ], [ %576, %557 ]
   %579 = trunc i32 %578 to i16
-  %580 = zext i16 %579 to i32
-  %581 = or i32 %572, %580
-  %582 = trunc i32 %581 to i16
-  %583 = zext i16 %582 to i32
-  br label %584
+  store i16 %579, ptr @HDR_TCP, align 4
+  %580 = load i32, ptr %11, align 4
+  %581 = icmp ne i32 %580, 0
+  br i1 %581, label %582, label %602
 
-584:                                              ; preds = %564, %544
-  %585 = phi i32 [ %563, %544 ], [ %583, %564 ]
+582:                                              ; preds = %577
+  %583 = load ptr, ptr @info_p, align 8
+  %584 = getelementptr inbounds %struct.text_import_info_t, ptr %583, i32 0, i32 14
+  %585 = load i32, ptr %584, align 8
   %586 = trunc i32 %585 to i16
-  store i16 %586, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 1), align 2
-  %587 = load i32, ptr @has_direction, align 4
-  %588 = icmp ne i32 %587, 0
-  br i1 %588, label %589, label %648
+  %587 = zext i16 %586 to i32
+  %588 = ashr i32 %587, 8
+  %589 = trunc i32 %588 to i16
+  %590 = zext i16 %589 to i32
+  %591 = load ptr, ptr @info_p, align 8
+  %592 = getelementptr inbounds %struct.text_import_info_t, ptr %591, i32 0, i32 14
+  %593 = load i32, ptr %592, align 8
+  %594 = trunc i32 %593 to i16
+  %595 = zext i16 %594 to i32
+  %596 = shl i32 %595, 8
+  %597 = trunc i32 %596 to i16
+  %598 = zext i16 %597 to i32
+  %599 = or i32 %590, %598
+  %600 = trunc i32 %599 to i16
+  %601 = zext i16 %600 to i32
+  br label %622
 
-589:                                              ; preds = %584
-  store i8 16, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 5), align 1
-  %590 = load i32, ptr %11, align 4
-  %591 = icmp ne i32 %590, 0
-  br i1 %591, label %592, label %594
+602:                                              ; preds = %577
+  %603 = load ptr, ptr @info_p, align 8
+  %604 = getelementptr inbounds %struct.text_import_info_t, ptr %603, i32 0, i32 15
+  %605 = load i32, ptr %604, align 4
+  %606 = trunc i32 %605 to i16
+  %607 = zext i16 %606 to i32
+  %608 = ashr i32 %607, 8
+  %609 = trunc i32 %608 to i16
+  %610 = zext i16 %609 to i32
+  %611 = load ptr, ptr @info_p, align 8
+  %612 = getelementptr inbounds %struct.text_import_info_t, ptr %611, i32 0, i32 15
+  %613 = load i32, ptr %612, align 4
+  %614 = trunc i32 %613 to i16
+  %615 = zext i16 %614 to i32
+  %616 = shl i32 %615, 8
+  %617 = trunc i32 %616 to i16
+  %618 = zext i16 %617 to i32
+  %619 = or i32 %610, %618
+  %620 = trunc i32 %619 to i16
+  %621 = zext i16 %620 to i32
+  br label %622
 
-592:                                              ; preds = %589
-  %593 = load i32, ptr @tcp_out_seq_num, align 4
-  br label %596
+622:                                              ; preds = %602, %582
+  %623 = phi i32 [ %601, %582 ], [ %621, %602 ]
+  %624 = trunc i32 %623 to i16
+  %625 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 1
+  store i16 %624, ptr %625, align 2
+  %626 = load i32, ptr @has_direction, align 4
+  %627 = icmp ne i32 %626, 0
+  br i1 %627, label %628, label %694
 
-594:                                              ; preds = %589
-  %595 = load i32, ptr @tcp_in_seq_num, align 4
-  br label %596
+628:                                              ; preds = %622
+  %629 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 5
+  store i8 16, ptr %629, align 1
+  %630 = load i32, ptr %11, align 4
+  %631 = icmp ne i32 %630, 0
+  br i1 %631, label %632, label %634
 
-596:                                              ; preds = %594, %592
-  %597 = phi i32 [ %593, %592 ], [ %595, %594 ]
-  %598 = and i32 %597, 255
-  %599 = shl i32 %598, 24
-  %600 = load i32, ptr %11, align 4
-  %601 = icmp ne i32 %600, 0
-  br i1 %601, label %602, label %604
+632:                                              ; preds = %628
+  %633 = load i32, ptr @tcp_out_seq_num, align 4
+  br label %636
 
-602:                                              ; preds = %596
-  %603 = load i32, ptr @tcp_out_seq_num, align 4
-  br label %606
+634:                                              ; preds = %628
+  %635 = load i32, ptr @tcp_in_seq_num, align 4
+  br label %636
 
-604:                                              ; preds = %596
-  %605 = load i32, ptr @tcp_in_seq_num, align 4
-  br label %606
+636:                                              ; preds = %634, %632
+  %637 = phi i32 [ %633, %632 ], [ %635, %634 ]
+  %638 = and i32 %637, 255
+  %639 = shl i32 %638, 24
+  %640 = load i32, ptr %11, align 4
+  %641 = icmp ne i32 %640, 0
+  br i1 %641, label %642, label %644
 
-606:                                              ; preds = %604, %602
-  %607 = phi i32 [ %603, %602 ], [ %605, %604 ]
-  %608 = and i32 %607, 65280
-  %609 = shl i32 %608, 8
-  %610 = or i32 %599, %609
-  %611 = load i32, ptr %11, align 4
-  %612 = icmp ne i32 %611, 0
-  br i1 %612, label %613, label %615
+642:                                              ; preds = %636
+  %643 = load i32, ptr @tcp_out_seq_num, align 4
+  br label %646
 
-613:                                              ; preds = %606
-  %614 = load i32, ptr @tcp_out_seq_num, align 4
-  br label %617
+644:                                              ; preds = %636
+  %645 = load i32, ptr @tcp_in_seq_num, align 4
+  br label %646
 
-615:                                              ; preds = %606
-  %616 = load i32, ptr @tcp_in_seq_num, align 4
-  br label %617
+646:                                              ; preds = %644, %642
+  %647 = phi i32 [ %643, %642 ], [ %645, %644 ]
+  %648 = and i32 %647, 65280
+  %649 = shl i32 %648, 8
+  %650 = or i32 %639, %649
+  %651 = load i32, ptr %11, align 4
+  %652 = icmp ne i32 %651, 0
+  br i1 %652, label %653, label %655
 
-617:                                              ; preds = %615, %613
-  %618 = phi i32 [ %614, %613 ], [ %616, %615 ]
-  %619 = and i32 %618, 16711680
-  %620 = lshr i32 %619, 8
-  %621 = or i32 %610, %620
-  %622 = load i32, ptr %11, align 4
-  %623 = icmp ne i32 %622, 0
-  br i1 %623, label %624, label %626
+653:                                              ; preds = %646
+  %654 = load i32, ptr @tcp_out_seq_num, align 4
+  br label %657
 
-624:                                              ; preds = %617
-  %625 = load i32, ptr @tcp_out_seq_num, align 4
-  br label %628
+655:                                              ; preds = %646
+  %656 = load i32, ptr @tcp_in_seq_num, align 4
+  br label %657
 
-626:                                              ; preds = %617
-  %627 = load i32, ptr @tcp_in_seq_num, align 4
-  br label %628
+657:                                              ; preds = %655, %653
+  %658 = phi i32 [ %654, %653 ], [ %656, %655 ]
+  %659 = and i32 %658, 16711680
+  %660 = lshr i32 %659, 8
+  %661 = or i32 %650, %660
+  %662 = load i32, ptr %11, align 4
+  %663 = icmp ne i32 %662, 0
+  br i1 %663, label %664, label %666
 
-628:                                              ; preds = %626, %624
-  %629 = phi i32 [ %625, %624 ], [ %627, %626 ]
-  %630 = and i32 %629, -16777216
-  %631 = lshr i32 %630, 24
-  %632 = or i32 %621, %631
-  store i32 %632, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3), align 4
-  %633 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3), align 4
-  %634 = and i32 %633, 255
-  %635 = shl i32 %634, 24
-  %636 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3), align 4
-  %637 = and i32 %636, 65280
-  %638 = shl i32 %637, 8
-  %639 = or i32 %635, %638
-  %640 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3), align 4
-  %641 = and i32 %640, 16711680
-  %642 = lshr i32 %641, 8
-  %643 = or i32 %639, %642
-  %644 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3), align 4
-  %645 = and i32 %644, -16777216
-  %646 = lshr i32 %645, 24
-  %647 = or i32 %643, %646
-  store i32 %647, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3), align 4
-  br label %649
+664:                                              ; preds = %657
+  %665 = load i32, ptr @tcp_out_seq_num, align 4
+  br label %668
 
-648:                                              ; preds = %584
-  store i8 0, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 5), align 1
-  store i32 0, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3), align 4
-  br label %649
+666:                                              ; preds = %657
+  %667 = load i32, ptr @tcp_in_seq_num, align 4
+  br label %668
 
-649:                                              ; preds = %648, %628
-  %650 = load i32, ptr %11, align 4
-  %651 = icmp ne i32 %650, 0
-  br i1 %651, label %652, label %654
+668:                                              ; preds = %666, %664
+  %669 = phi i32 [ %665, %664 ], [ %667, %666 ]
+  %670 = and i32 %669, -16777216
+  %671 = lshr i32 %670, 24
+  %672 = or i32 %661, %671
+  %673 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3
+  store i32 %672, ptr %673, align 4
+  %674 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3
+  %675 = load i32, ptr %674, align 4
+  %676 = and i32 %675, 255
+  %677 = shl i32 %676, 24
+  %678 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3
+  %679 = load i32, ptr %678, align 4
+  %680 = and i32 %679, 65280
+  %681 = shl i32 %680, 8
+  %682 = or i32 %677, %681
+  %683 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3
+  %684 = load i32, ptr %683, align 4
+  %685 = and i32 %684, 16711680
+  %686 = lshr i32 %685, 8
+  %687 = or i32 %682, %686
+  %688 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3
+  %689 = load i32, ptr %688, align 4
+  %690 = and i32 %689, -16777216
+  %691 = lshr i32 %690, 24
+  %692 = or i32 %687, %691
+  %693 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3
+  store i32 %692, ptr %693, align 4
+  br label %697
 
-652:                                              ; preds = %649
-  %653 = load i32, ptr @tcp_in_seq_num, align 4
-  br label %656
+694:                                              ; preds = %622
+  %695 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 5
+  store i8 0, ptr %695, align 1
+  %696 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 3
+  store i32 0, ptr %696, align 4
+  br label %697
 
-654:                                              ; preds = %649
-  %655 = load i32, ptr @tcp_out_seq_num, align 4
-  br label %656
+697:                                              ; preds = %694, %668
+  %698 = load i32, ptr %11, align 4
+  %699 = icmp ne i32 %698, 0
+  br i1 %699, label %700, label %702
 
-656:                                              ; preds = %654, %652
-  %657 = phi i32 [ %653, %652 ], [ %655, %654 ]
-  store i32 %657, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2), align 4
-  store i16 32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 6), align 2
-  store i16 0, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 7), align 4
-  %658 = load i32, ptr @hdr_ipv6, align 4
-  %659 = icmp ne i32 %658, 0
-  br i1 %659, label %660, label %665
+700:                                              ; preds = %697
+  %701 = load i32, ptr @tcp_in_seq_num, align 4
+  br label %704
 
-660:                                              ; preds = %656
-  %661 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 0
-  %662 = getelementptr inbounds %struct.vec_t, ptr %661, i32 0, i32 0
-  store ptr @pseudoh6, ptr %662, align 16
-  %663 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 0
-  %664 = getelementptr inbounds %struct.vec_t, ptr %663, i32 0, i32 1
-  store i32 40, ptr %664, align 8
-  br label %670
+702:                                              ; preds = %697
+  %703 = load i32, ptr @tcp_out_seq_num, align 4
+  br label %704
 
-665:                                              ; preds = %656
-  %666 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 0
-  %667 = getelementptr inbounds %struct.vec_t, ptr %666, i32 0, i32 0
-  store ptr @pseudoh, ptr %667, align 16
-  %668 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 0
-  %669 = getelementptr inbounds %struct.vec_t, ptr %668, i32 0, i32 1
-  store i32 12, ptr %669, align 8
-  br label %670
+704:                                              ; preds = %702, %700
+  %705 = phi i32 [ %701, %700 ], [ %703, %702 ]
+  %706 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2
+  store i32 %705, ptr %706, align 4
+  %707 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 6
+  store i16 32, ptr %707, align 2
+  %708 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 7
+  store i16 0, ptr %708, align 4
+  %709 = load i32, ptr @hdr_ipv6, align 4
+  %710 = icmp ne i32 %709, 0
+  br i1 %710, label %711, label %716
 
-670:                                              ; preds = %665, %660
-  %671 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 1
-  %672 = getelementptr inbounds %struct.vec_t, ptr %671, i32 0, i32 0
-  store ptr @HDR_TCP, ptr %672, align 16
-  %673 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 1
-  %674 = getelementptr inbounds %struct.vec_t, ptr %673, i32 0, i32 1
-  store i32 20, ptr %674, align 8
-  %675 = load ptr, ptr @packet_buf, align 8
-  %676 = load i32, ptr %4, align 4
-  %677 = sext i32 %676 to i64
-  %678 = getelementptr i8, ptr %675, i64 %677
-  %679 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 2
-  %680 = getelementptr inbounds %struct.vec_t, ptr %679, i32 0, i32 0
-  store ptr %678, ptr %680, align 16
-  %681 = load i32, ptr @curr_offset, align 4
-  %682 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 2
-  %683 = getelementptr inbounds %struct.vec_t, ptr %682, i32 0, i32 1
-  store i32 %681, ptr %683, align 8
-  %684 = getelementptr inbounds [3 x %struct.vec_t], ptr %14, i64 0, i64 0
-  %685 = call i32 @in_cksum(ptr noundef %684, i32 noundef 3)
-  %686 = trunc i32 %685 to i16
-  store i16 %686, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 7), align 4
-  %687 = load ptr, ptr @packet_buf, align 8
-  %688 = load i32, ptr %8, align 4
-  %689 = sext i32 %688 to i64
-  %690 = getelementptr i8, ptr %687, i64 %689
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %690, ptr align 4 @HDR_TCP, i64 20, i1 false)
-  %691 = load i32, ptr %8, align 4
-  %692 = add i32 %691, 20
-  store i32 %692, ptr %8, align 4
-  %693 = load i32, ptr %11, align 4
-  %694 = icmp ne i32 %693, 0
-  br i1 %694, label %695, label %728
+711:                                              ; preds = %704
+  %712 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 0
+  %713 = getelementptr inbounds %struct.vec_t, ptr %712, i32 0, i32 0
+  store ptr @pseudoh6, ptr %713, align 16
+  %714 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 0
+  %715 = getelementptr inbounds %struct.vec_t, ptr %714, i32 0, i32 1
+  store i32 40, ptr %715, align 8
+  br label %721
 
-695:                                              ; preds = %670
-  %696 = load i32, ptr @tcp_in_seq_num, align 4
-  %697 = and i32 %696, 255
-  %698 = shl i32 %697, 24
-  %699 = load i32, ptr @tcp_in_seq_num, align 4
-  %700 = and i32 %699, 65280
-  %701 = shl i32 %700, 8
-  %702 = or i32 %698, %701
-  %703 = load i32, ptr @tcp_in_seq_num, align 4
-  %704 = and i32 %703, 16711680
-  %705 = lshr i32 %704, 8
-  %706 = or i32 %702, %705
-  %707 = load i32, ptr @tcp_in_seq_num, align 4
-  %708 = and i32 %707, -16777216
-  %709 = lshr i32 %708, 24
-  %710 = or i32 %706, %709
-  %711 = load i32, ptr @curr_offset, align 4
-  %712 = add i32 %710, %711
-  store i32 %712, ptr @tcp_in_seq_num, align 4
-  %713 = load i32, ptr @tcp_in_seq_num, align 4
-  %714 = and i32 %713, 255
-  %715 = shl i32 %714, 24
-  %716 = load i32, ptr @tcp_in_seq_num, align 4
-  %717 = and i32 %716, 65280
-  %718 = shl i32 %717, 8
-  %719 = or i32 %715, %718
-  %720 = load i32, ptr @tcp_in_seq_num, align 4
-  %721 = and i32 %720, 16711680
-  %722 = lshr i32 %721, 8
-  %723 = or i32 %719, %722
-  %724 = load i32, ptr @tcp_in_seq_num, align 4
-  %725 = and i32 %724, -16777216
-  %726 = lshr i32 %725, 24
-  %727 = or i32 %723, %726
-  store i32 %727, ptr @tcp_in_seq_num, align 4
-  br label %761
+716:                                              ; preds = %704
+  %717 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 0
+  %718 = getelementptr inbounds %struct.vec_t, ptr %717, i32 0, i32 0
+  store ptr @pseudoh, ptr %718, align 16
+  %719 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 0
+  %720 = getelementptr inbounds %struct.vec_t, ptr %719, i32 0, i32 1
+  store i32 12, ptr %720, align 8
+  br label %721
 
-728:                                              ; preds = %670
-  %729 = load i32, ptr @tcp_out_seq_num, align 4
-  %730 = and i32 %729, 255
-  %731 = shl i32 %730, 24
-  %732 = load i32, ptr @tcp_out_seq_num, align 4
-  %733 = and i32 %732, 65280
-  %734 = shl i32 %733, 8
-  %735 = or i32 %731, %734
-  %736 = load i32, ptr @tcp_out_seq_num, align 4
-  %737 = and i32 %736, 16711680
-  %738 = lshr i32 %737, 8
-  %739 = or i32 %735, %738
-  %740 = load i32, ptr @tcp_out_seq_num, align 4
-  %741 = and i32 %740, -16777216
-  %742 = lshr i32 %741, 24
-  %743 = or i32 %739, %742
-  %744 = load i32, ptr @curr_offset, align 4
-  %745 = add i32 %743, %744
-  store i32 %745, ptr @tcp_out_seq_num, align 4
-  %746 = load i32, ptr @tcp_out_seq_num, align 4
-  %747 = and i32 %746, 255
-  %748 = shl i32 %747, 24
-  %749 = load i32, ptr @tcp_out_seq_num, align 4
-  %750 = and i32 %749, 65280
-  %751 = shl i32 %750, 8
-  %752 = or i32 %748, %751
-  %753 = load i32, ptr @tcp_out_seq_num, align 4
-  %754 = and i32 %753, 16711680
-  %755 = lshr i32 %754, 8
-  %756 = or i32 %752, %755
-  %757 = load i32, ptr @tcp_out_seq_num, align 4
-  %758 = and i32 %757, -16777216
-  %759 = lshr i32 %758, 24
-  %760 = or i32 %756, %759
-  store i32 %760, ptr @tcp_out_seq_num, align 4
-  br label %761
+721:                                              ; preds = %716, %711
+  %722 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 1
+  %723 = getelementptr inbounds %struct.vec_t, ptr %722, i32 0, i32 0
+  store ptr @HDR_TCP, ptr %723, align 16
+  %724 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 1
+  %725 = getelementptr inbounds %struct.vec_t, ptr %724, i32 0, i32 1
+  store i32 20, ptr %725, align 8
+  %726 = load ptr, ptr @packet_buf, align 8
+  %727 = load i32, ptr %4, align 4
+  %728 = sext i32 %727 to i64
+  %729 = getelementptr i8, ptr %726, i64 %728
+  %730 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 2
+  %731 = getelementptr inbounds %struct.vec_t, ptr %730, i32 0, i32 0
+  store ptr %729, ptr %731, align 16
+  %732 = load i32, ptr @curr_offset, align 4
+  %733 = getelementptr [3 x %struct.vec_t], ptr %14, i64 0, i64 2
+  %734 = getelementptr inbounds %struct.vec_t, ptr %733, i32 0, i32 1
+  store i32 %732, ptr %734, align 8
+  %735 = getelementptr inbounds [3 x %struct.vec_t], ptr %14, i64 0, i64 0
+  %736 = call i32 @in_cksum(ptr noundef %735, i32 noundef 3)
+  %737 = trunc i32 %736 to i16
+  %738 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 7
+  store i16 %737, ptr %738, align 4
+  %739 = load ptr, ptr @packet_buf, align 8
+  %740 = load i32, ptr %8, align 4
+  %741 = sext i32 %740 to i64
+  %742 = getelementptr i8, ptr %739, i64 %741
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %742, ptr align 4 @HDR_TCP, i64 20, i1 false)
+  %743 = load i32, ptr %8, align 4
+  %744 = add i32 %743, 20
+  store i32 %744, ptr %8, align 4
+  %745 = load i32, ptr %11, align 4
+  %746 = icmp ne i32 %745, 0
+  br i1 %746, label %747, label %780
 
-761:                                              ; preds = %728, %695
-  br label %762
+747:                                              ; preds = %721
+  %748 = load i32, ptr @tcp_in_seq_num, align 4
+  %749 = and i32 %748, 255
+  %750 = shl i32 %749, 24
+  %751 = load i32, ptr @tcp_in_seq_num, align 4
+  %752 = and i32 %751, 65280
+  %753 = shl i32 %752, 8
+  %754 = or i32 %750, %753
+  %755 = load i32, ptr @tcp_in_seq_num, align 4
+  %756 = and i32 %755, 16711680
+  %757 = lshr i32 %756, 8
+  %758 = or i32 %754, %757
+  %759 = load i32, ptr @tcp_in_seq_num, align 4
+  %760 = and i32 %759, -16777216
+  %761 = lshr i32 %760, 24
+  %762 = or i32 %758, %761
+  %763 = load i32, ptr @curr_offset, align 4
+  %764 = add i32 %762, %763
+  store i32 %764, ptr @tcp_in_seq_num, align 4
+  %765 = load i32, ptr @tcp_in_seq_num, align 4
+  %766 = and i32 %765, 255
+  %767 = shl i32 %766, 24
+  %768 = load i32, ptr @tcp_in_seq_num, align 4
+  %769 = and i32 %768, 65280
+  %770 = shl i32 %769, 8
+  %771 = or i32 %767, %770
+  %772 = load i32, ptr @tcp_in_seq_num, align 4
+  %773 = and i32 %772, 16711680
+  %774 = lshr i32 %773, 8
+  %775 = or i32 %771, %774
+  %776 = load i32, ptr @tcp_in_seq_num, align 4
+  %777 = and i32 %776, -16777216
+  %778 = lshr i32 %777, 24
+  %779 = or i32 %775, %778
+  store i32 %779, ptr @tcp_in_seq_num, align 4
+  br label %813
 
-762:                                              ; preds = %761, %493
-  %763 = load i32, ptr @hdr_data_chunk, align 4
-  %764 = icmp ne i32 %763, 0
-  br i1 %764, label %765, label %894
-
-765:                                              ; preds = %762
-  store i8 0, ptr @hdr_data_chunk_bits, align 1
-  %766 = load i32, ptr @packet_start, align 4
-  %767 = icmp eq i32 %766, 0
-  br i1 %767, label %768, label %773
-
-768:                                              ; preds = %765
-  %769 = load i8, ptr @hdr_data_chunk_bits, align 1
-  %770 = zext i8 %769 to i32
-  %771 = or i32 %770, 2
-  %772 = trunc i32 %771 to i8
-  store i8 %772, ptr @hdr_data_chunk_bits, align 1
-  br label %773
-
-773:                                              ; preds = %768, %765
-  %774 = load i32, ptr %3, align 4
-  %775 = icmp ne i32 %774, 0
-  br i1 %775, label %781, label %776
-
-776:                                              ; preds = %773
-  %777 = load i8, ptr @hdr_data_chunk_bits, align 1
-  %778 = zext i8 %777 to i32
-  %779 = or i32 %778, 1
-  %780 = trunc i32 %779 to i8
-  store i8 %780, ptr @hdr_data_chunk_bits, align 1
-  br label %781
-
-781:                                              ; preds = %776, %773
-  %782 = load i8, ptr @hdr_data_chunk_type, align 1
-  store i8 %782, ptr @HDR_DATA_CHUNK, align 4
-  %783 = load i8, ptr @hdr_data_chunk_bits, align 1
-  store i8 %783, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i32 0, i32 1), align 1
-  %784 = load i32, ptr @curr_offset, align 4
-  %785 = zext i32 %784 to i64
-  %786 = add i64 %785, 16
-  %787 = trunc i64 %786 to i16
-  %788 = zext i16 %787 to i32
-  %789 = ashr i32 %788, 8
-  %790 = trunc i32 %789 to i16
-  %791 = zext i16 %790 to i32
-  %792 = load i32, ptr @curr_offset, align 4
-  %793 = zext i32 %792 to i64
-  %794 = add i64 %793, 16
-  %795 = trunc i64 %794 to i16
-  %796 = zext i16 %795 to i32
-  %797 = shl i32 %796, 8
-  %798 = trunc i32 %797 to i16
-  %799 = zext i16 %798 to i32
-  %800 = or i32 %791, %799
-  %801 = trunc i32 %800 to i16
-  store i16 %801, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i32 0, i32 2), align 2
-  %802 = load i32, ptr @hdr_data_chunk_tsn, align 4
-  %803 = and i32 %802, 255
-  %804 = shl i32 %803, 24
-  %805 = load i32, ptr @hdr_data_chunk_tsn, align 4
-  %806 = and i32 %805, 65280
-  %807 = shl i32 %806, 8
+780:                                              ; preds = %721
+  %781 = load i32, ptr @tcp_out_seq_num, align 4
+  %782 = and i32 %781, 255
+  %783 = shl i32 %782, 24
+  %784 = load i32, ptr @tcp_out_seq_num, align 4
+  %785 = and i32 %784, 65280
+  %786 = shl i32 %785, 8
+  %787 = or i32 %783, %786
+  %788 = load i32, ptr @tcp_out_seq_num, align 4
+  %789 = and i32 %788, 16711680
+  %790 = lshr i32 %789, 8
+  %791 = or i32 %787, %790
+  %792 = load i32, ptr @tcp_out_seq_num, align 4
+  %793 = and i32 %792, -16777216
+  %794 = lshr i32 %793, 24
+  %795 = or i32 %791, %794
+  %796 = load i32, ptr @curr_offset, align 4
+  %797 = add i32 %795, %796
+  store i32 %797, ptr @tcp_out_seq_num, align 4
+  %798 = load i32, ptr @tcp_out_seq_num, align 4
+  %799 = and i32 %798, 255
+  %800 = shl i32 %799, 24
+  %801 = load i32, ptr @tcp_out_seq_num, align 4
+  %802 = and i32 %801, 65280
+  %803 = shl i32 %802, 8
+  %804 = or i32 %800, %803
+  %805 = load i32, ptr @tcp_out_seq_num, align 4
+  %806 = and i32 %805, 16711680
+  %807 = lshr i32 %806, 8
   %808 = or i32 %804, %807
-  %809 = load i32, ptr @hdr_data_chunk_tsn, align 4
-  %810 = and i32 %809, 16711680
-  %811 = lshr i32 %810, 8
+  %809 = load i32, ptr @tcp_out_seq_num, align 4
+  %810 = and i32 %809, -16777216
+  %811 = lshr i32 %810, 24
   %812 = or i32 %808, %811
-  %813 = load i32, ptr @hdr_data_chunk_tsn, align 4
-  %814 = and i32 %813, -16777216
-  %815 = lshr i32 %814, 24
-  %816 = or i32 %812, %815
-  store i32 %816, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i32 0, i32 3), align 4
-  %817 = load i16, ptr @hdr_data_chunk_sid, align 2
-  %818 = zext i16 %817 to i32
-  %819 = ashr i32 %818, 8
-  %820 = trunc i32 %819 to i16
-  %821 = zext i16 %820 to i32
-  %822 = load i16, ptr @hdr_data_chunk_sid, align 2
-  %823 = zext i16 %822 to i32
-  %824 = shl i32 %823, 8
-  %825 = trunc i32 %824 to i16
-  %826 = zext i16 %825 to i32
-  %827 = or i32 %821, %826
-  %828 = trunc i32 %827 to i16
-  store i16 %828, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i32 0, i32 4), align 4
-  %829 = load i16, ptr @hdr_data_chunk_ssn, align 2
-  %830 = zext i16 %829 to i32
-  %831 = ashr i32 %830, 8
-  %832 = trunc i32 %831 to i16
-  %833 = zext i16 %832 to i32
-  %834 = load i16, ptr @hdr_data_chunk_ssn, align 2
-  %835 = zext i16 %834 to i32
-  %836 = shl i32 %835, 8
-  %837 = trunc i32 %836 to i16
-  %838 = zext i16 %837 to i32
-  %839 = or i32 %833, %838
-  %840 = trunc i32 %839 to i16
-  store i16 %840, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i32 0, i32 5), align 2
-  %841 = load ptr, ptr @info_p, align 8
-  %842 = getelementptr inbounds %struct.text_import_info_t, ptr %841, i32 0, i32 17
-  %843 = load i32, ptr %842, align 4
-  %844 = and i32 %843, 255
-  %845 = shl i32 %844, 24
-  %846 = load ptr, ptr @info_p, align 8
-  %847 = getelementptr inbounds %struct.text_import_info_t, ptr %846, i32 0, i32 17
-  %848 = load i32, ptr %847, align 4
-  %849 = and i32 %848, 65280
+  store i32 %812, ptr @tcp_out_seq_num, align 4
+  br label %813
+
+813:                                              ; preds = %780, %747
+  br label %814
+
+814:                                              ; preds = %813, %531
+  %815 = load i32, ptr @hdr_data_chunk, align 4
+  %816 = icmp ne i32 %815, 0
+  br i1 %816, label %817, label %952
+
+817:                                              ; preds = %814
+  store i8 0, ptr @hdr_data_chunk_bits, align 1
+  %818 = load i32, ptr @packet_start, align 4
+  %819 = icmp eq i32 %818, 0
+  br i1 %819, label %820, label %825
+
+820:                                              ; preds = %817
+  %821 = load i8, ptr @hdr_data_chunk_bits, align 1
+  %822 = zext i8 %821 to i32
+  %823 = or i32 %822, 2
+  %824 = trunc i32 %823 to i8
+  store i8 %824, ptr @hdr_data_chunk_bits, align 1
+  br label %825
+
+825:                                              ; preds = %820, %817
+  %826 = load i32, ptr %3, align 4
+  %827 = icmp ne i32 %826, 0
+  br i1 %827, label %833, label %828
+
+828:                                              ; preds = %825
+  %829 = load i8, ptr @hdr_data_chunk_bits, align 1
+  %830 = zext i8 %829 to i32
+  %831 = or i32 %830, 1
+  %832 = trunc i32 %831 to i8
+  store i8 %832, ptr @hdr_data_chunk_bits, align 1
+  br label %833
+
+833:                                              ; preds = %828, %825
+  %834 = load i8, ptr @hdr_data_chunk_type, align 1
+  store i8 %834, ptr @HDR_DATA_CHUNK, align 4
+  %835 = load i8, ptr @hdr_data_chunk_bits, align 1
+  %836 = getelementptr inbounds %struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i32 0, i32 1
+  store i8 %835, ptr %836, align 1
+  %837 = load i32, ptr @curr_offset, align 4
+  %838 = zext i32 %837 to i64
+  %839 = add i64 %838, 16
+  %840 = trunc i64 %839 to i16
+  %841 = zext i16 %840 to i32
+  %842 = ashr i32 %841, 8
+  %843 = trunc i32 %842 to i16
+  %844 = zext i16 %843 to i32
+  %845 = load i32, ptr @curr_offset, align 4
+  %846 = zext i32 %845 to i64
+  %847 = add i64 %846, 16
+  %848 = trunc i64 %847 to i16
+  %849 = zext i16 %848 to i32
   %850 = shl i32 %849, 8
-  %851 = or i32 %845, %850
-  %852 = load ptr, ptr @info_p, align 8
-  %853 = getelementptr inbounds %struct.text_import_info_t, ptr %852, i32 0, i32 17
-  %854 = load i32, ptr %853, align 4
-  %855 = and i32 %854, 16711680
-  %856 = lshr i32 %855, 8
-  %857 = or i32 %851, %856
-  %858 = load ptr, ptr @info_p, align 8
-  %859 = getelementptr inbounds %struct.text_import_info_t, ptr %858, i32 0, i32 17
-  %860 = load i32, ptr %859, align 4
-  %861 = and i32 %860, -16777216
-  %862 = lshr i32 %861, 24
-  %863 = or i32 %857, %862
-  store i32 %863, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i32 0, i32 6), align 4
-  %864 = load i32, ptr @hdr_data_chunk_tsn, align 4
-  %865 = add i32 %864, 1
-  store i32 %865, ptr @hdr_data_chunk_tsn, align 4
-  %866 = load i32, ptr %3, align 4
-  %867 = icmp ne i32 %866, 0
-  br i1 %867, label %871, label %868
-
-868:                                              ; preds = %781
-  %869 = load i16, ptr @hdr_data_chunk_ssn, align 2
-  %870 = add i16 %869, 1
-  store i16 %870, ptr @hdr_data_chunk_ssn, align 2
-  br label %871
-
-871:                                              ; preds = %868, %781
-  %872 = load i32, ptr @curr_offset, align 4
-  %873 = call i32 @number_of_padding_bytes(i32 noundef %872)
-  store i32 %873, ptr %10, align 4
-  store i32 0, ptr %9, align 4
-  br label %874
-
-874:                                              ; preds = %887, %871
-  %875 = load i32, ptr %9, align 4
-  %876 = load i32, ptr %10, align 4
-  %877 = icmp slt i32 %875, %876
-  br i1 %877, label %878, label %890
-
-878:                                              ; preds = %874
-  %879 = load ptr, ptr @packet_buf, align 8
-  %880 = load i32, ptr %4, align 4
-  %881 = load i32, ptr @curr_offset, align 4
-  %882 = add i32 %880, %881
-  %883 = load i32, ptr %9, align 4
-  %884 = add i32 %882, %883
-  %885 = zext i32 %884 to i64
-  %886 = getelementptr i8, ptr %879, i64 %885
-  store i8 0, ptr %886, align 1
-  br label %887
-
-887:                                              ; preds = %878
-  %888 = load i32, ptr %9, align 4
-  %889 = add i32 %888, 1
-  store i32 %889, ptr %9, align 4
-  br label %874, !llvm.loop !8
-
-890:                                              ; preds = %874
-  %891 = load i32, ptr %10, align 4
-  %892 = load i32, ptr @curr_offset, align 4
-  %893 = add i32 %892, %891
-  store i32 %893, ptr @curr_offset, align 4
-  br label %894
-
-894:                                              ; preds = %890, %762
-  %895 = load i32, ptr @hdr_sctp, align 4
-  %896 = icmp ne i32 %895, 0
-  br i1 %896, label %897, label %1067
-
-897:                                              ; preds = %894
-  %898 = load i32, ptr %11, align 4
-  %899 = icmp ne i32 %898, 0
-  br i1 %899, label %900, label %920
-
-900:                                              ; preds = %897
-  %901 = load ptr, ptr @info_p, align 8
-  %902 = getelementptr inbounds %struct.text_import_info_t, ptr %901, i32 0, i32 15
-  %903 = load i32, ptr %902, align 4
-  %904 = trunc i32 %903 to i16
-  %905 = zext i16 %904 to i32
-  %906 = ashr i32 %905, 8
-  %907 = trunc i32 %906 to i16
-  %908 = zext i16 %907 to i32
+  %851 = trunc i32 %850 to i16
+  %852 = zext i16 %851 to i32
+  %853 = or i32 %844, %852
+  %854 = trunc i32 %853 to i16
+  %855 = getelementptr inbounds %struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i32 0, i32 2
+  store i16 %854, ptr %855, align 2
+  %856 = load i32, ptr @hdr_data_chunk_tsn, align 4
+  %857 = and i32 %856, 255
+  %858 = shl i32 %857, 24
+  %859 = load i32, ptr @hdr_data_chunk_tsn, align 4
+  %860 = and i32 %859, 65280
+  %861 = shl i32 %860, 8
+  %862 = or i32 %858, %861
+  %863 = load i32, ptr @hdr_data_chunk_tsn, align 4
+  %864 = and i32 %863, 16711680
+  %865 = lshr i32 %864, 8
+  %866 = or i32 %862, %865
+  %867 = load i32, ptr @hdr_data_chunk_tsn, align 4
+  %868 = and i32 %867, -16777216
+  %869 = lshr i32 %868, 24
+  %870 = or i32 %866, %869
+  %871 = getelementptr inbounds %struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i32 0, i32 3
+  store i32 %870, ptr %871, align 4
+  %872 = load i16, ptr @hdr_data_chunk_sid, align 2
+  %873 = zext i16 %872 to i32
+  %874 = ashr i32 %873, 8
+  %875 = trunc i32 %874 to i16
+  %876 = zext i16 %875 to i32
+  %877 = load i16, ptr @hdr_data_chunk_sid, align 2
+  %878 = zext i16 %877 to i32
+  %879 = shl i32 %878, 8
+  %880 = trunc i32 %879 to i16
+  %881 = zext i16 %880 to i32
+  %882 = or i32 %876, %881
+  %883 = trunc i32 %882 to i16
+  %884 = getelementptr inbounds %struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i32 0, i32 4
+  store i16 %883, ptr %884, align 4
+  %885 = load i16, ptr @hdr_data_chunk_ssn, align 2
+  %886 = zext i16 %885 to i32
+  %887 = ashr i32 %886, 8
+  %888 = trunc i32 %887 to i16
+  %889 = zext i16 %888 to i32
+  %890 = load i16, ptr @hdr_data_chunk_ssn, align 2
+  %891 = zext i16 %890 to i32
+  %892 = shl i32 %891, 8
+  %893 = trunc i32 %892 to i16
+  %894 = zext i16 %893 to i32
+  %895 = or i32 %889, %894
+  %896 = trunc i32 %895 to i16
+  %897 = getelementptr inbounds %struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i32 0, i32 5
+  store i16 %896, ptr %897, align 2
+  %898 = load ptr, ptr @info_p, align 8
+  %899 = getelementptr inbounds %struct.text_import_info_t, ptr %898, i32 0, i32 17
+  %900 = load i32, ptr %899, align 4
+  %901 = and i32 %900, 255
+  %902 = shl i32 %901, 24
+  %903 = load ptr, ptr @info_p, align 8
+  %904 = getelementptr inbounds %struct.text_import_info_t, ptr %903, i32 0, i32 17
+  %905 = load i32, ptr %904, align 4
+  %906 = and i32 %905, 65280
+  %907 = shl i32 %906, 8
+  %908 = or i32 %902, %907
   %909 = load ptr, ptr @info_p, align 8
-  %910 = getelementptr inbounds %struct.text_import_info_t, ptr %909, i32 0, i32 15
+  %910 = getelementptr inbounds %struct.text_import_info_t, ptr %909, i32 0, i32 17
   %911 = load i32, ptr %910, align 4
-  %912 = trunc i32 %911 to i16
-  %913 = zext i16 %912 to i32
-  %914 = shl i32 %913, 8
-  %915 = trunc i32 %914 to i16
-  %916 = zext i16 %915 to i32
-  %917 = or i32 %908, %916
-  %918 = trunc i32 %917 to i16
-  %919 = zext i16 %918 to i32
-  br label %940
+  %912 = and i32 %911, 16711680
+  %913 = lshr i32 %912, 8
+  %914 = or i32 %908, %913
+  %915 = load ptr, ptr @info_p, align 8
+  %916 = getelementptr inbounds %struct.text_import_info_t, ptr %915, i32 0, i32 17
+  %917 = load i32, ptr %916, align 4
+  %918 = and i32 %917, -16777216
+  %919 = lshr i32 %918, 24
+  %920 = or i32 %914, %919
+  %921 = getelementptr inbounds %struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i32 0, i32 6
+  store i32 %920, ptr %921, align 4
+  %922 = load i32, ptr @hdr_data_chunk_tsn, align 4
+  %923 = add i32 %922, 1
+  store i32 %923, ptr @hdr_data_chunk_tsn, align 4
+  %924 = load i32, ptr %3, align 4
+  %925 = icmp ne i32 %924, 0
+  br i1 %925, label %929, label %926
 
-920:                                              ; preds = %897
-  %921 = load ptr, ptr @info_p, align 8
-  %922 = getelementptr inbounds %struct.text_import_info_t, ptr %921, i32 0, i32 14
-  %923 = load i32, ptr %922, align 8
-  %924 = trunc i32 %923 to i16
-  %925 = zext i16 %924 to i32
-  %926 = ashr i32 %925, 8
-  %927 = trunc i32 %926 to i16
-  %928 = zext i16 %927 to i32
-  %929 = load ptr, ptr @info_p, align 8
-  %930 = getelementptr inbounds %struct.text_import_info_t, ptr %929, i32 0, i32 14
-  %931 = load i32, ptr %930, align 8
-  %932 = trunc i32 %931 to i16
-  %933 = zext i16 %932 to i32
-  %934 = shl i32 %933, 8
-  %935 = trunc i32 %934 to i16
-  %936 = zext i16 %935 to i32
-  %937 = or i32 %928, %936
-  %938 = trunc i32 %937 to i16
-  %939 = zext i16 %938 to i32
-  br label %940
+926:                                              ; preds = %833
+  %927 = load i16, ptr @hdr_data_chunk_ssn, align 2
+  %928 = add i16 %927, 1
+  store i16 %928, ptr @hdr_data_chunk_ssn, align 2
+  br label %929
 
-940:                                              ; preds = %920, %900
-  %941 = phi i32 [ %919, %900 ], [ %939, %920 ]
-  %942 = trunc i32 %941 to i16
-  store i16 %942, ptr @HDR_SCTP, align 4
-  %943 = load i32, ptr %11, align 4
-  %944 = icmp ne i32 %943, 0
-  br i1 %944, label %945, label %965
+929:                                              ; preds = %926, %833
+  %930 = load i32, ptr @curr_offset, align 4
+  %931 = call i32 @number_of_padding_bytes(i32 noundef %930)
+  store i32 %931, ptr %10, align 4
+  store i32 0, ptr %9, align 4
+  br label %932
 
-945:                                              ; preds = %940
-  %946 = load ptr, ptr @info_p, align 8
-  %947 = getelementptr inbounds %struct.text_import_info_t, ptr %946, i32 0, i32 14
-  %948 = load i32, ptr %947, align 8
-  %949 = trunc i32 %948 to i16
-  %950 = zext i16 %949 to i32
-  %951 = ashr i32 %950, 8
-  %952 = trunc i32 %951 to i16
-  %953 = zext i16 %952 to i32
-  %954 = load ptr, ptr @info_p, align 8
-  %955 = getelementptr inbounds %struct.text_import_info_t, ptr %954, i32 0, i32 14
-  %956 = load i32, ptr %955, align 8
-  %957 = trunc i32 %956 to i16
-  %958 = zext i16 %957 to i32
-  %959 = shl i32 %958, 8
-  %960 = trunc i32 %959 to i16
-  %961 = zext i16 %960 to i32
-  %962 = or i32 %953, %961
-  %963 = trunc i32 %962 to i16
-  %964 = zext i16 %963 to i32
-  br label %985
+932:                                              ; preds = %945, %929
+  %933 = load i32, ptr %9, align 4
+  %934 = load i32, ptr %10, align 4
+  %935 = icmp slt i32 %933, %934
+  br i1 %935, label %936, label %948
 
-965:                                              ; preds = %940
-  %966 = load ptr, ptr @info_p, align 8
-  %967 = getelementptr inbounds %struct.text_import_info_t, ptr %966, i32 0, i32 15
-  %968 = load i32, ptr %967, align 4
-  %969 = trunc i32 %968 to i16
-  %970 = zext i16 %969 to i32
-  %971 = ashr i32 %970, 8
-  %972 = trunc i32 %971 to i16
-  %973 = zext i16 %972 to i32
-  %974 = load ptr, ptr @info_p, align 8
-  %975 = getelementptr inbounds %struct.text_import_info_t, ptr %974, i32 0, i32 15
-  %976 = load i32, ptr %975, align 4
-  %977 = trunc i32 %976 to i16
-  %978 = zext i16 %977 to i32
-  %979 = shl i32 %978, 8
-  %980 = trunc i32 %979 to i16
-  %981 = zext i16 %980 to i32
-  %982 = or i32 %973, %981
-  %983 = trunc i32 %982 to i16
-  %984 = zext i16 %983 to i32
-  br label %985
+936:                                              ; preds = %932
+  %937 = load ptr, ptr @packet_buf, align 8
+  %938 = load i32, ptr %4, align 4
+  %939 = load i32, ptr @curr_offset, align 4
+  %940 = add i32 %938, %939
+  %941 = load i32, ptr %9, align 4
+  %942 = add i32 %940, %941
+  %943 = zext i32 %942 to i64
+  %944 = getelementptr i8, ptr %937, i64 %943
+  store i8 0, ptr %944, align 1
+  br label %945
 
-985:                                              ; preds = %965, %945
-  %986 = phi i32 [ %964, %945 ], [ %984, %965 ]
-  %987 = trunc i32 %986 to i16
-  store i16 %987, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 1), align 2
-  %988 = load ptr, ptr @info_p, align 8
-  %989 = getelementptr inbounds %struct.text_import_info_t, ptr %988, i32 0, i32 16
-  %990 = load i32, ptr %989, align 8
-  %991 = and i32 %990, 255
-  %992 = shl i32 %991, 24
-  %993 = load ptr, ptr @info_p, align 8
-  %994 = getelementptr inbounds %struct.text_import_info_t, ptr %993, i32 0, i32 16
-  %995 = load i32, ptr %994, align 8
-  %996 = and i32 %995, 65280
-  %997 = shl i32 %996, 8
-  %998 = or i32 %992, %997
-  %999 = load ptr, ptr @info_p, align 8
-  %1000 = getelementptr inbounds %struct.text_import_info_t, ptr %999, i32 0, i32 16
-  %1001 = load i32, ptr %1000, align 8
-  %1002 = and i32 %1001, 16711680
-  %1003 = lshr i32 %1002, 8
-  %1004 = or i32 %998, %1003
-  %1005 = load ptr, ptr @info_p, align 8
-  %1006 = getelementptr inbounds %struct.text_import_info_t, ptr %1005, i32 0, i32 16
-  %1007 = load i32, ptr %1006, align 8
-  %1008 = and i32 %1007, -16777216
-  %1009 = lshr i32 %1008, 24
-  %1010 = or i32 %1004, %1009
-  store i32 %1010, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 2), align 4
-  store i32 0, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3), align 4
-  %1011 = call i32 @crc32c_calculate(ptr noundef @HDR_SCTP, i32 noundef 12, i32 noundef -1)
-  store i32 %1011, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3), align 4
-  %1012 = load i32, ptr @hdr_data_chunk, align 4
-  %1013 = icmp ne i32 %1012, 0
-  br i1 %1013, label %1014, label %1017
+945:                                              ; preds = %936
+  %946 = load i32, ptr %9, align 4
+  %947 = add i32 %946, 1
+  store i32 %947, ptr %9, align 4
+  br label %932, !llvm.loop !8
 
-1014:                                             ; preds = %985
-  %1015 = load i32, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3), align 4
-  %1016 = call i32 @crc32c_calculate(ptr noundef @HDR_DATA_CHUNK, i32 noundef 16, i32 noundef %1015)
-  store i32 %1016, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3), align 4
-  br label %1017
+948:                                              ; preds = %932
+  %949 = load i32, ptr %10, align 4
+  %950 = load i32, ptr @curr_offset, align 4
+  %951 = add i32 %950, %949
+  store i32 %951, ptr @curr_offset, align 4
+  br label %952
 
-1017:                                             ; preds = %1014, %985
-  %1018 = load ptr, ptr @packet_buf, align 8
-  %1019 = load i32, ptr %4, align 4
-  %1020 = sext i32 %1019 to i64
-  %1021 = getelementptr i8, ptr %1018, i64 %1020
-  %1022 = load i32, ptr @curr_offset, align 4
-  %1023 = load i32, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3), align 4
-  %1024 = call i32 @crc32c_calculate(ptr noundef %1021, i32 noundef %1022, i32 noundef %1023)
-  %1025 = xor i32 %1024, -1
-  %1026 = and i32 %1025, 255
-  %1027 = shl i32 %1026, 24
-  %1028 = load ptr, ptr @packet_buf, align 8
-  %1029 = load i32, ptr %4, align 4
-  %1030 = sext i32 %1029 to i64
-  %1031 = getelementptr i8, ptr %1028, i64 %1030
-  %1032 = load i32, ptr @curr_offset, align 4
-  %1033 = load i32, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3), align 4
-  %1034 = call i32 @crc32c_calculate(ptr noundef %1031, i32 noundef %1032, i32 noundef %1033)
-  %1035 = xor i32 %1034, -1
-  %1036 = and i32 %1035, 65280
+952:                                              ; preds = %948, %814
+  %953 = load i32, ptr @hdr_sctp, align 4
+  %954 = icmp ne i32 %953, 0
+  br i1 %954, label %955, label %1136
+
+955:                                              ; preds = %952
+  %956 = load i32, ptr %11, align 4
+  %957 = icmp ne i32 %956, 0
+  br i1 %957, label %958, label %978
+
+958:                                              ; preds = %955
+  %959 = load ptr, ptr @info_p, align 8
+  %960 = getelementptr inbounds %struct.text_import_info_t, ptr %959, i32 0, i32 15
+  %961 = load i32, ptr %960, align 4
+  %962 = trunc i32 %961 to i16
+  %963 = zext i16 %962 to i32
+  %964 = ashr i32 %963, 8
+  %965 = trunc i32 %964 to i16
+  %966 = zext i16 %965 to i32
+  %967 = load ptr, ptr @info_p, align 8
+  %968 = getelementptr inbounds %struct.text_import_info_t, ptr %967, i32 0, i32 15
+  %969 = load i32, ptr %968, align 4
+  %970 = trunc i32 %969 to i16
+  %971 = zext i16 %970 to i32
+  %972 = shl i32 %971, 8
+  %973 = trunc i32 %972 to i16
+  %974 = zext i16 %973 to i32
+  %975 = or i32 %966, %974
+  %976 = trunc i32 %975 to i16
+  %977 = zext i16 %976 to i32
+  br label %998
+
+978:                                              ; preds = %955
+  %979 = load ptr, ptr @info_p, align 8
+  %980 = getelementptr inbounds %struct.text_import_info_t, ptr %979, i32 0, i32 14
+  %981 = load i32, ptr %980, align 8
+  %982 = trunc i32 %981 to i16
+  %983 = zext i16 %982 to i32
+  %984 = ashr i32 %983, 8
+  %985 = trunc i32 %984 to i16
+  %986 = zext i16 %985 to i32
+  %987 = load ptr, ptr @info_p, align 8
+  %988 = getelementptr inbounds %struct.text_import_info_t, ptr %987, i32 0, i32 14
+  %989 = load i32, ptr %988, align 8
+  %990 = trunc i32 %989 to i16
+  %991 = zext i16 %990 to i32
+  %992 = shl i32 %991, 8
+  %993 = trunc i32 %992 to i16
+  %994 = zext i16 %993 to i32
+  %995 = or i32 %986, %994
+  %996 = trunc i32 %995 to i16
+  %997 = zext i16 %996 to i32
+  br label %998
+
+998:                                              ; preds = %978, %958
+  %999 = phi i32 [ %977, %958 ], [ %997, %978 ]
+  %1000 = trunc i32 %999 to i16
+  store i16 %1000, ptr @HDR_SCTP, align 4
+  %1001 = load i32, ptr %11, align 4
+  %1002 = icmp ne i32 %1001, 0
+  br i1 %1002, label %1003, label %1023
+
+1003:                                             ; preds = %998
+  %1004 = load ptr, ptr @info_p, align 8
+  %1005 = getelementptr inbounds %struct.text_import_info_t, ptr %1004, i32 0, i32 14
+  %1006 = load i32, ptr %1005, align 8
+  %1007 = trunc i32 %1006 to i16
+  %1008 = zext i16 %1007 to i32
+  %1009 = ashr i32 %1008, 8
+  %1010 = trunc i32 %1009 to i16
+  %1011 = zext i16 %1010 to i32
+  %1012 = load ptr, ptr @info_p, align 8
+  %1013 = getelementptr inbounds %struct.text_import_info_t, ptr %1012, i32 0, i32 14
+  %1014 = load i32, ptr %1013, align 8
+  %1015 = trunc i32 %1014 to i16
+  %1016 = zext i16 %1015 to i32
+  %1017 = shl i32 %1016, 8
+  %1018 = trunc i32 %1017 to i16
+  %1019 = zext i16 %1018 to i32
+  %1020 = or i32 %1011, %1019
+  %1021 = trunc i32 %1020 to i16
+  %1022 = zext i16 %1021 to i32
+  br label %1043
+
+1023:                                             ; preds = %998
+  %1024 = load ptr, ptr @info_p, align 8
+  %1025 = getelementptr inbounds %struct.text_import_info_t, ptr %1024, i32 0, i32 15
+  %1026 = load i32, ptr %1025, align 4
+  %1027 = trunc i32 %1026 to i16
+  %1028 = zext i16 %1027 to i32
+  %1029 = ashr i32 %1028, 8
+  %1030 = trunc i32 %1029 to i16
+  %1031 = zext i16 %1030 to i32
+  %1032 = load ptr, ptr @info_p, align 8
+  %1033 = getelementptr inbounds %struct.text_import_info_t, ptr %1032, i32 0, i32 15
+  %1034 = load i32, ptr %1033, align 4
+  %1035 = trunc i32 %1034 to i16
+  %1036 = zext i16 %1035 to i32
   %1037 = shl i32 %1036, 8
-  %1038 = or i32 %1027, %1037
-  %1039 = load ptr, ptr @packet_buf, align 8
-  %1040 = load i32, ptr %4, align 4
-  %1041 = sext i32 %1040 to i64
-  %1042 = getelementptr i8, ptr %1039, i64 %1041
-  %1043 = load i32, ptr @curr_offset, align 4
-  %1044 = load i32, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3), align 4
-  %1045 = call i32 @crc32c_calculate(ptr noundef %1042, i32 noundef %1043, i32 noundef %1044)
-  %1046 = xor i32 %1045, -1
-  %1047 = and i32 %1046, 16711680
-  %1048 = lshr i32 %1047, 8
-  %1049 = or i32 %1038, %1048
-  %1050 = load ptr, ptr @packet_buf, align 8
-  %1051 = load i32, ptr %4, align 4
-  %1052 = sext i32 %1051 to i64
-  %1053 = getelementptr i8, ptr %1050, i64 %1052
-  %1054 = load i32, ptr @curr_offset, align 4
-  %1055 = load i32, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3), align 4
-  %1056 = call i32 @crc32c_calculate(ptr noundef %1053, i32 noundef %1054, i32 noundef %1055)
-  %1057 = xor i32 %1056, -1
-  %1058 = and i32 %1057, -16777216
-  %1059 = lshr i32 %1058, 24
-  %1060 = or i32 %1049, %1059
-  store i32 %1060, ptr getelementptr inbounds (%struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3), align 4
-  %1061 = load ptr, ptr @packet_buf, align 8
-  %1062 = load i32, ptr %8, align 4
-  %1063 = sext i32 %1062 to i64
-  %1064 = getelementptr i8, ptr %1061, i64 %1063
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1064, ptr align 4 @HDR_SCTP, i64 12, i1 false)
-  %1065 = load i32, ptr %8, align 4
-  %1066 = add i32 %1065, 12
-  store i32 %1066, ptr %8, align 4
-  br label %1067
+  %1038 = trunc i32 %1037 to i16
+  %1039 = zext i16 %1038 to i32
+  %1040 = or i32 %1031, %1039
+  %1041 = trunc i32 %1040 to i16
+  %1042 = zext i16 %1041 to i32
+  br label %1043
 
-1067:                                             ; preds = %1017, %894
-  %1068 = load i32, ptr @hdr_data_chunk, align 4
-  %1069 = icmp ne i32 %1068, 0
-  br i1 %1069, label %1070, label %1075
+1043:                                             ; preds = %1023, %1003
+  %1044 = phi i32 [ %1022, %1003 ], [ %1042, %1023 ]
+  %1045 = trunc i32 %1044 to i16
+  %1046 = getelementptr inbounds %struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 1
+  store i16 %1045, ptr %1046, align 2
+  %1047 = load ptr, ptr @info_p, align 8
+  %1048 = getelementptr inbounds %struct.text_import_info_t, ptr %1047, i32 0, i32 16
+  %1049 = load i32, ptr %1048, align 8
+  %1050 = and i32 %1049, 255
+  %1051 = shl i32 %1050, 24
+  %1052 = load ptr, ptr @info_p, align 8
+  %1053 = getelementptr inbounds %struct.text_import_info_t, ptr %1052, i32 0, i32 16
+  %1054 = load i32, ptr %1053, align 8
+  %1055 = and i32 %1054, 65280
+  %1056 = shl i32 %1055, 8
+  %1057 = or i32 %1051, %1056
+  %1058 = load ptr, ptr @info_p, align 8
+  %1059 = getelementptr inbounds %struct.text_import_info_t, ptr %1058, i32 0, i32 16
+  %1060 = load i32, ptr %1059, align 8
+  %1061 = and i32 %1060, 16711680
+  %1062 = lshr i32 %1061, 8
+  %1063 = or i32 %1057, %1062
+  %1064 = load ptr, ptr @info_p, align 8
+  %1065 = getelementptr inbounds %struct.text_import_info_t, ptr %1064, i32 0, i32 16
+  %1066 = load i32, ptr %1065, align 8
+  %1067 = and i32 %1066, -16777216
+  %1068 = lshr i32 %1067, 24
+  %1069 = or i32 %1063, %1068
+  %1070 = getelementptr inbounds %struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 2
+  store i32 %1069, ptr %1070, align 4
+  %1071 = getelementptr inbounds %struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3
+  store i32 0, ptr %1071, align 4
+  %1072 = call i32 @crc32c_calculate(ptr noundef @HDR_SCTP, i32 noundef 12, i32 noundef -1)
+  %1073 = getelementptr inbounds %struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3
+  store i32 %1072, ptr %1073, align 4
+  %1074 = load i32, ptr @hdr_data_chunk, align 4
+  %1075 = icmp ne i32 %1074, 0
+  br i1 %1075, label %1076, label %1081
 
-1070:                                             ; preds = %1067
-  %1071 = load ptr, ptr @packet_buf, align 8
-  %1072 = load i32, ptr %8, align 4
-  %1073 = sext i32 %1072 to i64
-  %1074 = getelementptr i8, ptr %1071, i64 %1073
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1074, ptr align 4 @HDR_DATA_CHUNK, i64 16, i1 false)
-  br label %1075
+1076:                                             ; preds = %1043
+  %1077 = getelementptr inbounds %struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3
+  %1078 = load i32, ptr %1077, align 4
+  %1079 = call i32 @crc32c_calculate(ptr noundef @HDR_DATA_CHUNK, i32 noundef 16, i32 noundef %1078)
+  %1080 = getelementptr inbounds %struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3
+  store i32 %1079, ptr %1080, align 4
+  br label %1081
 
-1075:                                             ; preds = %1070, %1067
-  %1076 = load i32, ptr @hdr_export_pdu, align 4
-  %1077 = icmp ne i32 %1076, 0
-  br i1 %1077, label %1078, label %1122
+1081:                                             ; preds = %1076, %1043
+  %1082 = load ptr, ptr @packet_buf, align 8
+  %1083 = load i32, ptr %4, align 4
+  %1084 = sext i32 %1083 to i64
+  %1085 = getelementptr i8, ptr %1082, i64 %1084
+  %1086 = load i32, ptr @curr_offset, align 4
+  %1087 = getelementptr inbounds %struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3
+  %1088 = load i32, ptr %1087, align 4
+  %1089 = call i32 @crc32c_calculate(ptr noundef %1085, i32 noundef %1086, i32 noundef %1088)
+  %1090 = xor i32 %1089, -1
+  %1091 = and i32 %1090, 255
+  %1092 = shl i32 %1091, 24
+  %1093 = load ptr, ptr @packet_buf, align 8
+  %1094 = load i32, ptr %4, align 4
+  %1095 = sext i32 %1094 to i64
+  %1096 = getelementptr i8, ptr %1093, i64 %1095
+  %1097 = load i32, ptr @curr_offset, align 4
+  %1098 = getelementptr inbounds %struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3
+  %1099 = load i32, ptr %1098, align 4
+  %1100 = call i32 @crc32c_calculate(ptr noundef %1096, i32 noundef %1097, i32 noundef %1099)
+  %1101 = xor i32 %1100, -1
+  %1102 = and i32 %1101, 65280
+  %1103 = shl i32 %1102, 8
+  %1104 = or i32 %1092, %1103
+  %1105 = load ptr, ptr @packet_buf, align 8
+  %1106 = load i32, ptr %4, align 4
+  %1107 = sext i32 %1106 to i64
+  %1108 = getelementptr i8, ptr %1105, i64 %1107
+  %1109 = load i32, ptr @curr_offset, align 4
+  %1110 = getelementptr inbounds %struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3
+  %1111 = load i32, ptr %1110, align 4
+  %1112 = call i32 @crc32c_calculate(ptr noundef %1108, i32 noundef %1109, i32 noundef %1111)
+  %1113 = xor i32 %1112, -1
+  %1114 = and i32 %1113, 16711680
+  %1115 = lshr i32 %1114, 8
+  %1116 = or i32 %1104, %1115
+  %1117 = load ptr, ptr @packet_buf, align 8
+  %1118 = load i32, ptr %4, align 4
+  %1119 = sext i32 %1118 to i64
+  %1120 = getelementptr i8, ptr %1117, i64 %1119
+  %1121 = load i32, ptr @curr_offset, align 4
+  %1122 = getelementptr inbounds %struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3
+  %1123 = load i32, ptr %1122, align 4
+  %1124 = call i32 @crc32c_calculate(ptr noundef %1120, i32 noundef %1121, i32 noundef %1123)
+  %1125 = xor i32 %1124, -1
+  %1126 = and i32 %1125, -16777216
+  %1127 = lshr i32 %1126, 24
+  %1128 = or i32 %1116, %1127
+  %1129 = getelementptr inbounds %struct.hdr_sctp_t, ptr @HDR_SCTP, i32 0, i32 3
+  store i32 %1128, ptr %1129, align 4
+  %1130 = load ptr, ptr @packet_buf, align 8
+  %1131 = load i32, ptr %8, align 4
+  %1132 = sext i32 %1131 to i64
+  %1133 = getelementptr i8, ptr %1130, i64 %1132
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1133, ptr align 4 @HDR_SCTP, i64 12, i1 false)
+  %1134 = load i32, ptr %8, align 4
+  %1135 = add i32 %1134, 12
+  store i32 %1135, ptr %8, align 4
+  br label %1136
 
-1078:                                             ; preds = %1075
-  %1079 = load ptr, ptr @info_p, align 8
-  %1080 = getelementptr inbounds %struct.text_import_info_t, ptr %1079, i32 0, i32 18
-  %1081 = load ptr, ptr %1080, align 8
-  %1082 = call i64 @strlen(ptr noundef %1081) #10
-  %1083 = trunc i64 %1082 to i32
-  store i32 %1083, ptr %15, align 4
+1136:                                             ; preds = %1081, %952
+  %1137 = load i32, ptr @hdr_data_chunk, align 4
+  %1138 = icmp ne i32 %1137, 0
+  br i1 %1138, label %1139, label %1144
+
+1139:                                             ; preds = %1136
+  %1140 = load ptr, ptr @packet_buf, align 8
+  %1141 = load i32, ptr %8, align 4
+  %1142 = sext i32 %1141 to i64
+  %1143 = getelementptr i8, ptr %1140, i64 %1142
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1143, ptr align 4 @HDR_DATA_CHUNK, i64 16, i1 false)
+  br label %1144
+
+1144:                                             ; preds = %1139, %1136
+  %1145 = load i32, ptr @hdr_export_pdu, align 4
+  %1146 = icmp ne i32 %1145, 0
+  br i1 %1146, label %1147, label %1192
+
+1147:                                             ; preds = %1144
+  %1148 = load ptr, ptr @info_p, align 8
+  %1149 = getelementptr inbounds %struct.text_import_info_t, ptr %1148, i32 0, i32 18
+  %1150 = load ptr, ptr %1149, align 8
+  %1151 = call i64 @strlen(ptr noundef %1150) #10
+  %1152 = trunc i64 %1151 to i32
+  store i32 %1152, ptr %15, align 4
   store i16 3072, ptr @HDR_EXPORT_PDU, align 2
-  %1084 = load i32, ptr %15, align 4
-  %1085 = trunc i32 %1084 to i16
-  %1086 = zext i16 %1085 to i32
-  %1087 = ashr i32 %1086, 8
-  %1088 = trunc i32 %1087 to i16
-  %1089 = zext i16 %1088 to i32
-  %1090 = load i32, ptr %15, align 4
-  %1091 = trunc i32 %1090 to i16
-  %1092 = zext i16 %1091 to i32
-  %1093 = shl i32 %1092, 8
-  %1094 = trunc i32 %1093 to i16
-  %1095 = zext i16 %1094 to i32
-  %1096 = or i32 %1089, %1095
-  %1097 = trunc i32 %1096 to i16
-  store i16 %1097, ptr getelementptr inbounds (%struct.hdr_export_pdu_t, ptr @HDR_EXPORT_PDU, i32 0, i32 1), align 2
-  %1098 = load ptr, ptr @packet_buf, align 8
-  %1099 = load i32, ptr %8, align 4
-  %1100 = sext i32 %1099 to i64
-  %1101 = getelementptr i8, ptr %1098, i64 %1100
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1101, ptr align 2 @HDR_EXPORT_PDU, i64 4, i1 false)
-  %1102 = load i32, ptr %8, align 4
-  %1103 = sext i32 %1102 to i64
-  %1104 = add i64 %1103, 4
-  %1105 = trunc i64 %1104 to i32
-  store i32 %1105, ptr %8, align 4
-  %1106 = load ptr, ptr @packet_buf, align 8
-  %1107 = load i32, ptr %8, align 4
-  %1108 = sext i32 %1107 to i64
-  %1109 = getelementptr i8, ptr %1106, i64 %1108
-  %1110 = load ptr, ptr @info_p, align 8
-  %1111 = getelementptr inbounds %struct.text_import_info_t, ptr %1110, i32 0, i32 18
-  %1112 = load ptr, ptr %1111, align 8
-  %1113 = load i32, ptr %15, align 4
-  %1114 = zext i32 %1113 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1109, ptr align 1 %1112, i64 %1114, i1 false)
-  %1115 = load i32, ptr %15, align 4
-  %1116 = load i32, ptr %8, align 4
-  %1117 = add i32 %1116, %1115
-  store i32 %1117, ptr %8, align 4
-  %1118 = load ptr, ptr @packet_buf, align 8
-  %1119 = load i32, ptr %8, align 4
-  %1120 = sext i32 %1119 to i64
-  %1121 = getelementptr i8, ptr %1118, i64 %1120
-  call void @llvm.memset.p0.i64(ptr align 1 %1121, i8 0, i64 4, i1 false)
-  br label %1122
+  %1153 = load i32, ptr %15, align 4
+  %1154 = trunc i32 %1153 to i16
+  %1155 = zext i16 %1154 to i32
+  %1156 = ashr i32 %1155, 8
+  %1157 = trunc i32 %1156 to i16
+  %1158 = zext i16 %1157 to i32
+  %1159 = load i32, ptr %15, align 4
+  %1160 = trunc i32 %1159 to i16
+  %1161 = zext i16 %1160 to i32
+  %1162 = shl i32 %1161, 8
+  %1163 = trunc i32 %1162 to i16
+  %1164 = zext i16 %1163 to i32
+  %1165 = or i32 %1158, %1164
+  %1166 = trunc i32 %1165 to i16
+  %1167 = getelementptr inbounds %struct.hdr_export_pdu_t, ptr @HDR_EXPORT_PDU, i32 0, i32 1
+  store i16 %1166, ptr %1167, align 2
+  %1168 = load ptr, ptr @packet_buf, align 8
+  %1169 = load i32, ptr %8, align 4
+  %1170 = sext i32 %1169 to i64
+  %1171 = getelementptr i8, ptr %1168, i64 %1170
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1171, ptr align 2 @HDR_EXPORT_PDU, i64 4, i1 false)
+  %1172 = load i32, ptr %8, align 4
+  %1173 = sext i32 %1172 to i64
+  %1174 = add i64 %1173, 4
+  %1175 = trunc i64 %1174 to i32
+  store i32 %1175, ptr %8, align 4
+  %1176 = load ptr, ptr @packet_buf, align 8
+  %1177 = load i32, ptr %8, align 4
+  %1178 = sext i32 %1177 to i64
+  %1179 = getelementptr i8, ptr %1176, i64 %1178
+  %1180 = load ptr, ptr @info_p, align 8
+  %1181 = getelementptr inbounds %struct.text_import_info_t, ptr %1180, i32 0, i32 18
+  %1182 = load ptr, ptr %1181, align 8
+  %1183 = load i32, ptr %15, align 4
+  %1184 = zext i32 %1183 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1179, ptr align 1 %1182, i64 %1184, i1 false)
+  %1185 = load i32, ptr %15, align 4
+  %1186 = load i32, ptr %8, align 4
+  %1187 = add i32 %1186, %1185
+  store i32 %1187, ptr %8, align 4
+  %1188 = load ptr, ptr @packet_buf, align 8
+  %1189 = load i32, ptr %8, align 4
+  %1190 = sext i32 %1189 to i64
+  %1191 = getelementptr i8, ptr %1188, i64 %1190
+  call void @llvm.memset.p0.i64(ptr align 1 %1191, i8 0, i64 4, i1 false)
+  br label %1192
 
-1122:                                             ; preds = %1078, %1075
-  %1123 = load i32, ptr @hdr_ethernet, align 4
-  %1124 = icmp ne i32 %1123, 0
-  br i1 %1124, label %1125, label %1137
+1192:                                             ; preds = %1147, %1144
+  %1193 = load i32, ptr @hdr_ethernet, align 4
+  %1194 = icmp ne i32 %1193, 0
+  br i1 %1194, label %1195, label %1207
 
-1125:                                             ; preds = %1122
-  %1126 = load i32, ptr %7, align 4
-  %1127 = icmp sgt i32 %1126, 0
-  br i1 %1127, label %1128, label %1137
+1195:                                             ; preds = %1192
+  %1196 = load i32, ptr %7, align 4
+  %1197 = icmp sgt i32 %1196, 0
+  br i1 %1197, label %1198, label %1207
 
-1128:                                             ; preds = %1125
-  %1129 = load ptr, ptr @packet_buf, align 8
-  %1130 = load i32, ptr %4, align 4
-  %1131 = load i32, ptr @curr_offset, align 4
-  %1132 = add i32 %1130, %1131
-  %1133 = zext i32 %1132 to i64
-  %1134 = getelementptr i8, ptr %1129, i64 %1133
-  %1135 = load i32, ptr %7, align 4
-  %1136 = sext i32 %1135 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %1134, i8 0, i64 %1136, i1 false)
-  br label %1137
+1198:                                             ; preds = %1195
+  %1199 = load ptr, ptr @packet_buf, align 8
+  %1200 = load i32, ptr %4, align 4
+  %1201 = load i32, ptr @curr_offset, align 4
+  %1202 = add i32 %1200, %1201
+  %1203 = zext i32 %1202 to i64
+  %1204 = getelementptr i8, ptr %1199, i64 %1203
+  %1205 = load i32, ptr %7, align 4
+  %1206 = sext i32 %1205 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %1204, i8 0, i64 %1206, i1 false)
+  br label %1207
 
-1137:                                             ; preds = %1128, %1125, %1122
-  %1138 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2), align 4
-  %1139 = and i32 %1138, 255
-  %1140 = shl i32 %1139, 24
-  %1141 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2), align 4
-  %1142 = and i32 %1141, 65280
-  %1143 = shl i32 %1142, 8
-  %1144 = or i32 %1140, %1143
-  %1145 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2), align 4
-  %1146 = and i32 %1145, 16711680
-  %1147 = lshr i32 %1146, 8
-  %1148 = or i32 %1144, %1147
-  %1149 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2), align 4
-  %1150 = and i32 %1149, -16777216
-  %1151 = lshr i32 %1150, 24
-  %1152 = or i32 %1148, %1151
-  %1153 = load i32, ptr @curr_offset, align 4
-  %1154 = add i32 %1152, %1153
-  store i32 %1154, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2), align 4
-  %1155 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2), align 4
-  %1156 = and i32 %1155, 255
-  %1157 = shl i32 %1156, 24
-  %1158 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2), align 4
-  %1159 = and i32 %1158, 65280
-  %1160 = shl i32 %1159, 8
-  %1161 = or i32 %1157, %1160
-  %1162 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2), align 4
-  %1163 = and i32 %1162, 16711680
-  %1164 = lshr i32 %1163, 8
-  %1165 = or i32 %1161, %1164
-  %1166 = load i32, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2), align 4
-  %1167 = and i32 %1166, -16777216
-  %1168 = lshr i32 %1167, 24
-  %1169 = or i32 %1165, %1168
-  store i32 %1169, ptr getelementptr inbounds (%struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2), align 4
-  call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 280, i1 false)
-  %1170 = load ptr, ptr @info_p, align 8
-  %1171 = getelementptr inbounds %struct.text_import_info_t, ptr %1170, i32 0, i32 6
-  %1172 = load i32, ptr %1171, align 8
-  %1173 = icmp eq i32 %1172, 203
-  br i1 %1173, label %1174, label %1186
-
-1174:                                             ; preds = %1137
-  %1175 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 0
-  store i32 4, ptr %1175, align 8
-  %1176 = call ptr @wtap_block_create(i32 noundef 10)
-  %1177 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 8
-  store ptr %1176, ptr %1177, align 8
-  %1178 = load i32, ptr %4, align 4
-  %1179 = load i32, ptr @curr_offset, align 4
-  %1180 = add i32 %1178, %1179
-  %1181 = load i32, ptr %7, align 4
-  %1182 = add i32 %1180, %1181
-  %1183 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 7
-  %1184 = getelementptr inbounds %struct.wtap_systemd_journal_export_header, ptr %1183, i32 0, i32 0
-  store i32 %1182, ptr %1184, align 8
-  %1185 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 1
-  store i32 3, ptr %1185, align 4
-  br label %1227
-
-1186:                                             ; preds = %1137
-  %1187 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 0
-  store i32 0, ptr %1187, align 8
-  %1188 = call ptr @wtap_block_create(i32 noundef 5)
-  %1189 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 8
-  store ptr %1188, ptr %1189, align 8
-  %1190 = load i32, ptr %4, align 4
-  %1191 = load i32, ptr @curr_offset, align 4
-  %1192 = add i32 %1190, %1191
-  %1193 = load i32, ptr %7, align 4
-  %1194 = add i32 %1192, %1193
-  %1195 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 7
-  %1196 = getelementptr inbounds %struct.wtap_packet_header, ptr %1195, i32 0, i32 1
-  store i32 %1194, ptr %1196, align 4
-  %1197 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 7
-  %1198 = getelementptr inbounds %struct.wtap_packet_header, ptr %1197, i32 0, i32 0
-  store i32 %1194, ptr %1198, align 8
-  %1199 = load i64, ptr @ts_sec, align 8
-  %1200 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 3
-  %1201 = getelementptr inbounds %struct.nstime_t, ptr %1200, i32 0, i32 0
-  store i64 %1199, ptr %1201, align 8
-  %1202 = load i32, ptr @ts_nsec, align 4
-  %1203 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 3
-  %1204 = getelementptr inbounds %struct.nstime_t, ptr %1203, i32 0, i32 1
-  store i32 %1202, ptr %1204, align 8
-  %1205 = load ptr, ptr @info_p, align 8
-  %1206 = getelementptr inbounds %struct.text_import_info_t, ptr %1205, i32 0, i32 6
-  %1207 = load i32, ptr %1206, align 8
-  %1208 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 7
-  %1209 = getelementptr inbounds %struct.wtap_packet_header, ptr %1208, i32 0, i32 2
-  store i32 %1207, ptr %1209, align 8
-  %1210 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 1
-  store i32 7, ptr %1210, align 4
-  %1211 = load i32, ptr @has_direction, align 4
-  %1212 = icmp ne i32 %1211, 0
-  br i1 %1212, label %1213, label %1218
-
-1213:                                             ; preds = %1186
-  %1214 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 8
-  %1215 = load ptr, ptr %1214, align 8
-  %1216 = load i32, ptr @direction, align 4
-  %1217 = call i32 @wtap_block_add_uint32_option(ptr noundef %1215, i32 noundef 2, i32 noundef %1216)
-  br label %1218
-
-1218:                                             ; preds = %1213, %1186
-  %1219 = load i32, ptr @has_seqno, align 4
-  %1220 = icmp ne i32 %1219, 0
-  br i1 %1220, label %1221, label %1226
-
-1221:                                             ; preds = %1218
-  %1222 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 8
-  %1223 = load ptr, ptr %1222, align 8
-  %1224 = load i64, ptr @seqno, align 8
-  %1225 = call i32 @wtap_block_add_uint64_option(ptr noundef %1223, i32 noundef 5, i64 noundef %1224)
-  br label %1226
-
-1226:                                             ; preds = %1221, %1218
-  br label %1227
-
-1227:                                             ; preds = %1226, %1174
-  %1228 = load ptr, ptr @info_p, align 8
-  %1229 = getelementptr inbounds %struct.text_import_info_t, ptr %1228, i32 0, i32 7
-  %1230 = load ptr, ptr %1229, align 8
-  %1231 = load ptr, ptr @packet_buf, align 8
-  %1232 = call i32 @wtap_dump(ptr noundef %1230, ptr noundef %16, ptr noundef %1231, ptr noundef %17, ptr noundef %18)
-  %1233 = icmp ne i32 %1232, 0
-  br i1 %1233, label %1252, label %1234
-
-1234:                                             ; preds = %1227
-  %1235 = load ptr, ptr @info_p, align 8
-  %1236 = getelementptr inbounds %struct.text_import_info_t, ptr %1235, i32 0, i32 0
-  %1237 = load ptr, ptr %1236, align 8
-  %1238 = load ptr, ptr @info_p, align 8
-  %1239 = getelementptr inbounds %struct.text_import_info_t, ptr %1238, i32 0, i32 1
-  %1240 = load ptr, ptr %1239, align 8
-  %1241 = load i32, ptr %17, align 4
-  %1242 = load ptr, ptr %18, align 8
-  %1243 = load ptr, ptr @info_p, align 8
-  %1244 = getelementptr inbounds %struct.text_import_info_t, ptr %1243, i32 0, i32 20
+1207:                                             ; preds = %1198, %1195, %1192
+  %1208 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2
+  %1209 = load i32, ptr %1208, align 4
+  %1210 = and i32 %1209, 255
+  %1211 = shl i32 %1210, 24
+  %1212 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2
+  %1213 = load i32, ptr %1212, align 4
+  %1214 = and i32 %1213, 65280
+  %1215 = shl i32 %1214, 8
+  %1216 = or i32 %1211, %1215
+  %1217 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2
+  %1218 = load i32, ptr %1217, align 4
+  %1219 = and i32 %1218, 16711680
+  %1220 = lshr i32 %1219, 8
+  %1221 = or i32 %1216, %1220
+  %1222 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2
+  %1223 = load i32, ptr %1222, align 4
+  %1224 = and i32 %1223, -16777216
+  %1225 = lshr i32 %1224, 24
+  %1226 = or i32 %1221, %1225
+  %1227 = load i32, ptr @curr_offset, align 4
+  %1228 = add i32 %1226, %1227
+  %1229 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2
+  store i32 %1228, ptr %1229, align 4
+  %1230 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2
+  %1231 = load i32, ptr %1230, align 4
+  %1232 = and i32 %1231, 255
+  %1233 = shl i32 %1232, 24
+  %1234 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2
+  %1235 = load i32, ptr %1234, align 4
+  %1236 = and i32 %1235, 65280
+  %1237 = shl i32 %1236, 8
+  %1238 = or i32 %1233, %1237
+  %1239 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2
+  %1240 = load i32, ptr %1239, align 4
+  %1241 = and i32 %1240, 16711680
+  %1242 = lshr i32 %1241, 8
+  %1243 = or i32 %1238, %1242
+  %1244 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2
   %1245 = load i32, ptr %1244, align 4
-  %1246 = load ptr, ptr @info_p, align 8
-  %1247 = getelementptr inbounds %struct.text_import_info_t, ptr %1246, i32 0, i32 7
-  %1248 = load ptr, ptr %1247, align 8
-  %1249 = call i32 @wtap_dump_file_type_subtype(ptr noundef %1248)
-  call void @report_cfile_write_failure(ptr noundef %1237, ptr noundef %1240, i32 noundef %1241, ptr noundef %1242, i32 noundef %1245, i32 noundef %1249)
-  %1250 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 8
-  %1251 = load ptr, ptr %1250, align 8
-  call void @wtap_block_unref(ptr noundef %1251)
+  %1246 = and i32 %1245, -16777216
+  %1247 = lshr i32 %1246, 24
+  %1248 = or i32 %1243, %1247
+  %1249 = getelementptr inbounds %struct.hdr_tcp_t, ptr @HDR_TCP, i32 0, i32 2
+  store i32 %1248, ptr %1249, align 4
+  call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 280, i1 false)
+  %1250 = load ptr, ptr @info_p, align 8
+  %1251 = getelementptr inbounds %struct.text_import_info_t, ptr %1250, i32 0, i32 6
+  %1252 = load i32, ptr %1251, align 8
+  %1253 = icmp eq i32 %1252, 203
+  br i1 %1253, label %1254, label %1266
+
+1254:                                             ; preds = %1207
+  %1255 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 0
+  store i32 4, ptr %1255, align 8
+  %1256 = call ptr @wtap_block_create(i32 noundef 10)
+  %1257 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 8
+  store ptr %1256, ptr %1257, align 8
+  %1258 = load i32, ptr %4, align 4
+  %1259 = load i32, ptr @curr_offset, align 4
+  %1260 = add i32 %1258, %1259
+  %1261 = load i32, ptr %7, align 4
+  %1262 = add i32 %1260, %1261
+  %1263 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 7
+  %1264 = getelementptr inbounds %struct.wtap_systemd_journal_export_header, ptr %1263, i32 0, i32 0
+  store i32 %1262, ptr %1264, align 8
+  %1265 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 1
+  store i32 3, ptr %1265, align 4
+  br label %1307
+
+1266:                                             ; preds = %1207
+  %1267 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 0
+  store i32 0, ptr %1267, align 8
+  %1268 = call ptr @wtap_block_create(i32 noundef 5)
+  %1269 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 8
+  store ptr %1268, ptr %1269, align 8
+  %1270 = load i32, ptr %4, align 4
+  %1271 = load i32, ptr @curr_offset, align 4
+  %1272 = add i32 %1270, %1271
+  %1273 = load i32, ptr %7, align 4
+  %1274 = add i32 %1272, %1273
+  %1275 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 7
+  %1276 = getelementptr inbounds %struct.wtap_packet_header, ptr %1275, i32 0, i32 1
+  store i32 %1274, ptr %1276, align 4
+  %1277 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 7
+  %1278 = getelementptr inbounds %struct.wtap_packet_header, ptr %1277, i32 0, i32 0
+  store i32 %1274, ptr %1278, align 8
+  %1279 = load i64, ptr @ts_sec, align 8
+  %1280 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 3
+  %1281 = getelementptr inbounds %struct.nstime_t, ptr %1280, i32 0, i32 0
+  store i64 %1279, ptr %1281, align 8
+  %1282 = load i32, ptr @ts_nsec, align 4
+  %1283 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 3
+  %1284 = getelementptr inbounds %struct.nstime_t, ptr %1283, i32 0, i32 1
+  store i32 %1282, ptr %1284, align 8
+  %1285 = load ptr, ptr @info_p, align 8
+  %1286 = getelementptr inbounds %struct.text_import_info_t, ptr %1285, i32 0, i32 6
+  %1287 = load i32, ptr %1286, align 8
+  %1288 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 7
+  %1289 = getelementptr inbounds %struct.wtap_packet_header, ptr %1288, i32 0, i32 2
+  store i32 %1287, ptr %1289, align 8
+  %1290 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 1
+  store i32 7, ptr %1290, align 4
+  %1291 = load i32, ptr @has_direction, align 4
+  %1292 = icmp ne i32 %1291, 0
+  br i1 %1292, label %1293, label %1298
+
+1293:                                             ; preds = %1266
+  %1294 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 8
+  %1295 = load ptr, ptr %1294, align 8
+  %1296 = load i32, ptr @direction, align 4
+  %1297 = call i32 @wtap_block_add_uint32_option(ptr noundef %1295, i32 noundef 2, i32 noundef %1296)
+  br label %1298
+
+1298:                                             ; preds = %1293, %1266
+  %1299 = load i32, ptr @has_seqno, align 4
+  %1300 = icmp ne i32 %1299, 0
+  br i1 %1300, label %1301, label %1306
+
+1301:                                             ; preds = %1298
+  %1302 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 8
+  %1303 = load ptr, ptr %1302, align 8
+  %1304 = load i64, ptr @seqno, align 8
+  %1305 = call i32 @wtap_block_add_uint64_option(ptr noundef %1303, i32 noundef 5, i64 noundef %1304)
+  br label %1306
+
+1306:                                             ; preds = %1301, %1298
+  br label %1307
+
+1307:                                             ; preds = %1306, %1254
+  %1308 = load ptr, ptr @info_p, align 8
+  %1309 = getelementptr inbounds %struct.text_import_info_t, ptr %1308, i32 0, i32 7
+  %1310 = load ptr, ptr %1309, align 8
+  %1311 = load ptr, ptr @packet_buf, align 8
+  %1312 = call i32 @wtap_dump(ptr noundef %1310, ptr noundef %16, ptr noundef %1311, ptr noundef %17, ptr noundef %18)
+  %1313 = icmp ne i32 %1312, 0
+  br i1 %1313, label %1332, label %1314
+
+1314:                                             ; preds = %1307
+  %1315 = load ptr, ptr @info_p, align 8
+  %1316 = getelementptr inbounds %struct.text_import_info_t, ptr %1315, i32 0, i32 0
+  %1317 = load ptr, ptr %1316, align 8
+  %1318 = load ptr, ptr @info_p, align 8
+  %1319 = getelementptr inbounds %struct.text_import_info_t, ptr %1318, i32 0, i32 1
+  %1320 = load ptr, ptr %1319, align 8
+  %1321 = load i32, ptr %17, align 4
+  %1322 = load ptr, ptr %18, align 8
+  %1323 = load ptr, ptr @info_p, align 8
+  %1324 = getelementptr inbounds %struct.text_import_info_t, ptr %1323, i32 0, i32 20
+  %1325 = load i32, ptr %1324, align 4
+  %1326 = load ptr, ptr @info_p, align 8
+  %1327 = getelementptr inbounds %struct.text_import_info_t, ptr %1326, i32 0, i32 7
+  %1328 = load ptr, ptr %1327, align 8
+  %1329 = call i32 @wtap_dump_file_type_subtype(ptr noundef %1328)
+  call void @report_cfile_write_failure(ptr noundef %1317, ptr noundef %1320, i32 noundef %1321, ptr noundef %1322, i32 noundef %1325, i32 noundef %1329)
+  %1330 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 8
+  %1331 = load ptr, ptr %1330, align 8
+  call void @wtap_block_unref(ptr noundef %1331)
   store i32 1, ptr %2, align 4
-  br label %1263
+  br label %1343
 
-1252:                                             ; preds = %1227
-  %1253 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 8
-  %1254 = load ptr, ptr %1253, align 8
-  call void @wtap_block_unref(ptr noundef %1254)
-  %1255 = load ptr, ptr @info_p, align 8
-  %1256 = getelementptr inbounds %struct.text_import_info_t, ptr %1255, i32 0, i32 21
-  %1257 = load i32, ptr %1256, align 8
-  %1258 = add i32 %1257, 1
-  store i32 %1258, ptr %1256, align 8
-  br label %1259
+1332:                                             ; preds = %1307
+  %1333 = getelementptr inbounds %struct.wtap_rec, ptr %16, i32 0, i32 8
+  %1334 = load ptr, ptr %1333, align 8
+  call void @wtap_block_unref(ptr noundef %1334)
+  %1335 = load ptr, ptr @info_p, align 8
+  %1336 = getelementptr inbounds %struct.text_import_info_t, ptr %1335, i32 0, i32 21
+  %1337 = load i32, ptr %1336, align 8
+  %1338 = add i32 %1337, 1
+  store i32 %1338, ptr %1336, align 8
+  br label %1339
 
-1259:                                             ; preds = %1252, %1
-  %1260 = load i32, ptr @curr_offset, align 4
-  %1261 = load i32, ptr @packet_start, align 4
-  %1262 = add i32 %1261, %1260
-  store i32 %1262, ptr @packet_start, align 4
+1339:                                             ; preds = %1332, %1
+  %1340 = load i32, ptr @curr_offset, align 4
+  %1341 = load i32, ptr @packet_start, align 4
+  %1342 = add i32 %1341, %1340
+  store i32 %1342, ptr @packet_start, align 4
   store i32 0, ptr @curr_offset, align 4
   store i32 0, ptr %2, align 4
-  br label %1263
+  br label %1343
 
-1263:                                             ; preds = %1259, %1234
-  %1264 = load i32, ptr %2, align 4
-  ret i32 %1264
+1343:                                             ; preds = %1339, %1314
+  %1344 = load i32, ptr %2, align 4
+  ret i32 %1344
 }
 
 declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) #1
@@ -3817,15 +3897,16 @@ define hidden i32 @text_import(ptr noundef %0) #0 {
 11:                                               ; preds = %1
   call void (ptr, ...) @report_failure(ptr noundef @.str.9)
   store i32 8, ptr %2, align 4
-  br label %187
+  br label %188
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @timecode_default, ptr align 8 %13, i64 56, i1 false)
-  store i32 -1, ptr getelementptr inbounds (%struct.tm, ptr @timecode_default, i32 0, i32 8), align 8
+  %14 = getelementptr inbounds %struct.tm, ptr @timecode_default, i32 0, i32 8
+  store i32 -1, ptr %14, align 8
   store i32 0, ptr @ts_nsec, align 4
-  %14 = load ptr, ptr %3, align 8
-  store ptr %14, ptr @info_p, align 8
+  %15 = load ptr, ptr %3, align 8
+  store ptr %15, ptr @info_p, align 8
   store i32 0, ptr @hdr_ethernet, align 4
   store i32 0, ptr @hdr_ip, align 4
   store i32 0, ptr @hdr_udp, align 4
@@ -3833,377 +3914,377 @@ define hidden i32 @text_import(ptr noundef %0) #0 {
   store i32 0, ptr @hdr_sctp, align 4
   store i32 0, ptr @hdr_data_chunk, align 4
   store i32 0, ptr @hdr_export_pdu, align 4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.text_import_info_t, ptr %15, i32 0, i32 2
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %33
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds %struct.text_import_info_t, ptr %16, i32 0, i32 2
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %34
 
-19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.text_import_info_t, ptr %20, i32 0, i32 3
-  %22 = getelementptr inbounds %struct.anon, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 8
-  switch i32 %23, label %28 [
-    i32 0, label %24
-    i32 1, label %25
-    i32 2, label %26
-    i32 3, label %27
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds %struct.text_import_info_t, ptr %21, i32 0, i32 3
+  %23 = getelementptr inbounds %struct.anon, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  switch i32 %24, label %29 [
+    i32 0, label %25
+    i32 1, label %26
+    i32 2, label %27
+    i32 3, label %28
   ]
 
-24:                                               ; preds = %19
+25:                                               ; preds = %20
   store i32 0, ptr @offset_base, align 4
-  br label %28
+  br label %29
 
-25:                                               ; preds = %19
+26:                                               ; preds = %20
   store i32 16, ptr @offset_base, align 4
-  br label %28
+  br label %29
 
-26:                                               ; preds = %19
+27:                                               ; preds = %20
   store i32 8, ptr @offset_base, align 4
-  br label %28
+  br label %29
 
-27:                                               ; preds = %19
+28:                                               ; preds = %20
   store i32 10, ptr @offset_base, align 4
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %26, %25, %24, %19
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.text_import_info_t, ptr %29, i32 0, i32 3
-  %31 = getelementptr inbounds %struct.anon, ptr %30, i32 0, i32 2
-  %32 = load i32, ptr %31, align 4
-  store i32 %32, ptr @has_direction, align 4
+29:                                               ; preds = %28, %27, %26, %25, %20
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds %struct.text_import_info_t, ptr %30, i32 0, i32 3
+  %32 = getelementptr inbounds %struct.anon, ptr %31, i32 0, i32 2
+  %33 = load i32, ptr %32, align 4
+  store i32 %33, ptr @has_direction, align 4
+  br label %55
+
+34:                                               ; preds = %12
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds %struct.text_import_info_t, ptr %35, i32 0, i32 2
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp eq i32 %37, 1
+  br i1 %38, label %39, label %54
+
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %3, align 8
+  %41 = getelementptr inbounds %struct.text_import_info_t, ptr %40, i32 0, i32 4
+  %42 = getelementptr inbounds %struct.anon.0, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8
+  %44 = call i32 @g_regex_get_string_number(ptr noundef %43, ptr noundef @.str.10)
+  %45 = icmp sge i32 %44, 0
+  %46 = zext i1 %45 to i32
+  store i32 %46, ptr @has_direction, align 4
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds %struct.text_import_info_t, ptr %47, i32 0, i32 4
+  %49 = getelementptr inbounds %struct.anon.0, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %51 = call i32 @g_regex_get_string_number(ptr noundef %50, ptr noundef @.str.11)
+  %52 = icmp sge i32 %51, 0
+  %53 = zext i1 %52 to i32
+  store i32 %53, ptr @has_seqno, align 4
   br label %54
 
-33:                                               ; preds = %12
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.text_import_info_t, ptr %34, i32 0, i32 2
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp eq i32 %36, 1
-  br i1 %37, label %38, label %53
+54:                                               ; preds = %39, %34
+  br label %55
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.text_import_info_t, ptr %39, i32 0, i32 4
-  %41 = getelementptr inbounds %struct.anon.0, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = call i32 @g_regex_get_string_number(ptr noundef %42, ptr noundef @.str.10)
-  %44 = icmp sge i32 %43, 0
-  %45 = zext i1 %44 to i32
-  store i32 %45, ptr @has_direction, align 4
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.text_import_info_t, ptr %46, i32 0, i32 4
-  %48 = getelementptr inbounds %struct.anon.0, ptr %47, i32 0, i32 1
-  %49 = load ptr, ptr %48, align 8
-  %50 = call i32 @g_regex_get_string_number(ptr noundef %49, ptr noundef @.str.11)
-  %51 = icmp sge i32 %50, 0
-  %52 = zext i1 %51 to i32
-  store i32 %52, ptr @has_seqno, align 4
-  br label %53
+55:                                               ; preds = %54, %29
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds %struct.text_import_info_t, ptr %56, i32 0, i32 5
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %66, label %60
 
-53:                                               ; preds = %38, %33
-  br label %54
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %3, align 8
+  %62 = getelementptr inbounds %struct.text_import_info_t, ptr %61, i32 0, i32 5
+  %63 = load ptr, ptr %62, align 8
+  %64 = call i32 @g_ascii_strcasecmp(ptr noundef %63, ptr noundef @.str.12)
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %67
 
-54:                                               ; preds = %53, %28
-  %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds %struct.text_import_info_t, ptr %55, i32 0, i32 5
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %65, label %59
-
-59:                                               ; preds = %54
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.text_import_info_t, ptr %60, i32 0, i32 5
-  %62 = load ptr, ptr %61, align 8
-  %63 = call i32 @g_ascii_strcasecmp(ptr noundef %62, ptr noundef @.str.12)
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %65, label %66
-
-65:                                               ; preds = %59, %54
+66:                                               ; preds = %60, %55
   store i32 0, ptr @ts_fmt_iso, align 4
-  br label %67
+  br label %68
 
-66:                                               ; preds = %59
+67:                                               ; preds = %60
   store i32 1, ptr @ts_fmt_iso, align 4
-  br label %67
+  br label %68
 
-67:                                               ; preds = %66, %65
+68:                                               ; preds = %67, %66
   store i32 0, ptr @offset_warned, align 4
   store i32 0, ptr @timecode_warned, align 4
-  %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds %struct.text_import_info_t, ptr %68, i32 0, i32 8
-  %70 = load i32, ptr %69, align 8
-  switch i32 %70, label %84 [
-    i32 1, label %71
-    i32 2, label %75
-    i32 3, label %79
-    i32 4, label %80
-    i32 5, label %81
-    i32 6, label %82
-    i32 7, label %83
+  %69 = load ptr, ptr %3, align 8
+  %70 = getelementptr inbounds %struct.text_import_info_t, ptr %69, i32 0, i32 8
+  %71 = load i32, ptr %70, align 8
+  switch i32 %71, label %85 [
+    i32 1, label %72
+    i32 2, label %76
+    i32 3, label %80
+    i32 4, label %81
+    i32 5, label %82
+    i32 6, label %83
+    i32 7, label %84
   ]
 
-71:                                               ; preds = %67
+72:                                               ; preds = %68
   store i32 1, ptr @hdr_ethernet, align 4
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.text_import_info_t, ptr %72, i32 0, i32 9
-  %74 = load i32, ptr %73, align 4
-  store i32 %74, ptr @hdr_ethernet_proto, align 4
-  br label %85
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds %struct.text_import_info_t, ptr %73, i32 0, i32 9
+  %75 = load i32, ptr %74, align 4
+  store i32 %75, ptr @hdr_ethernet_proto, align 4
+  br label %86
 
-75:                                               ; preds = %67
+76:                                               ; preds = %68
   store i32 1, ptr @hdr_ip, align 4
-  %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds %struct.text_import_info_t, ptr %76, i32 0, i32 13
-  %78 = load i32, ptr %77, align 4
-  store i32 %78, ptr @hdr_ip_proto, align 4
-  br label %85
+  %77 = load ptr, ptr %3, align 8
+  %78 = getelementptr inbounds %struct.text_import_info_t, ptr %77, i32 0, i32 13
+  %79 = load i32, ptr %78, align 4
+  store i32 %79, ptr @hdr_ip_proto, align 4
+  br label %86
 
-79:                                               ; preds = %67
+80:                                               ; preds = %68
   store i32 1, ptr @hdr_udp, align 4
   store i32 0, ptr @hdr_tcp, align 4
   store i32 1, ptr @hdr_ip, align 4
   store i32 17, ptr @hdr_ip_proto, align 4
-  br label %85
+  br label %86
 
-80:                                               ; preds = %67
+81:                                               ; preds = %68
   store i32 1, ptr @hdr_tcp, align 4
   store i32 0, ptr @hdr_udp, align 4
   store i32 1, ptr @hdr_ip, align 4
   store i32 6, ptr @hdr_ip_proto, align 4
-  br label %85
+  br label %86
 
-81:                                               ; preds = %67
+82:                                               ; preds = %68
   store i32 1, ptr @hdr_sctp, align 4
   store i32 1, ptr @hdr_ip, align 4
   store i32 132, ptr @hdr_ip_proto, align 4
-  br label %85
+  br label %86
 
-82:                                               ; preds = %67
+83:                                               ; preds = %68
   store i32 1, ptr @hdr_sctp, align 4
   store i32 1, ptr @hdr_data_chunk, align 4
   store i32 1, ptr @hdr_ip, align 4
   store i32 132, ptr @hdr_ip_proto, align 4
-  br label %85
+  br label %86
 
-83:                                               ; preds = %67
+84:                                               ; preds = %68
   store i32 1, ptr @hdr_export_pdu, align 4
-  br label %85
+  br label %86
 
-84:                                               ; preds = %67
-  br label %85
+85:                                               ; preds = %68
+  br label %86
 
-85:                                               ; preds = %84, %83, %82, %81, %80, %79, %75, %71
-  %86 = load i32, ptr @hdr_ip, align 4
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %88, label %133
+86:                                               ; preds = %85, %84, %83, %82, %81, %80, %76, %72
+  %87 = load i32, ptr @hdr_ip, align 4
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %89, label %134
 
-88:                                               ; preds = %85
-  %89 = load ptr, ptr %3, align 8
-  %90 = getelementptr inbounds %struct.text_import_info_t, ptr %89, i32 0, i32 10
-  %91 = load i32, ptr %90, align 8
-  %92 = icmp ne i32 %91, 0
-  br i1 %92, label %93, label %94
+89:                                               ; preds = %86
+  %90 = load ptr, ptr %3, align 8
+  %91 = getelementptr inbounds %struct.text_import_info_t, ptr %90, i32 0, i32 10
+  %92 = load i32, ptr %91, align 8
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %95
 
-93:                                               ; preds = %88
+94:                                               ; preds = %89
   store i32 1, ptr @hdr_ipv6, align 4
   store i32 0, ptr @hdr_ip, align 4
   store i32 34525, ptr @hdr_ethernet_proto, align 4
-  br label %95
+  br label %96
 
-94:                                               ; preds = %88
+95:                                               ; preds = %89
   store i32 2048, ptr @hdr_ethernet_proto, align 4
-  br label %95
+  br label %96
 
-95:                                               ; preds = %94, %93
-  %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds %struct.text_import_info_t, ptr %96, i32 0, i32 6
-  %98 = load i32, ptr %97, align 8
-  switch i32 %98, label %123 [
-    i32 1, label %99
-    i32 7, label %100
-    i32 129, label %101
-    i32 130, label %112
+96:                                               ; preds = %95, %94
+  %97 = load ptr, ptr %3, align 8
+  %98 = getelementptr inbounds %struct.text_import_info_t, ptr %97, i32 0, i32 6
+  %99 = load i32, ptr %98, align 8
+  switch i32 %99, label %124 [
+    i32 1, label %100
+    i32 7, label %101
+    i32 129, label %102
+    i32 130, label %113
   ]
 
-99:                                               ; preds = %95
+100:                                              ; preds = %96
   store i32 1, ptr @hdr_ethernet, align 4
-  br label %132
-
-100:                                              ; preds = %95
-  br label %132
-
-101:                                              ; preds = %95
-  %102 = load ptr, ptr %3, align 8
-  %103 = getelementptr inbounds %struct.text_import_info_t, ptr %102, i32 0, i32 10
-  %104 = load i32, ptr %103, align 8
-  %105 = icmp ne i32 %104, 0
-  br i1 %105, label %106, label %111
-
-106:                                              ; preds = %101
-  %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr inbounds %struct.text_import_info_t, ptr %107, i32 0, i32 6
-  %109 = load i32, ptr %108, align 8
-  %110 = call ptr @wtap_encap_name(i32 noundef %109)
-  call void (ptr, ...) @report_failure(ptr noundef @.str.13, ptr noundef %110)
-  store i32 1, ptr %2, align 4
-  br label %187
-
-111:                                              ; preds = %101
-  br label %132
-
-112:                                              ; preds = %95
-  %113 = load ptr, ptr %3, align 8
-  %114 = getelementptr inbounds %struct.text_import_info_t, ptr %113, i32 0, i32 10
-  %115 = load i32, ptr %114, align 8
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %122, label %117
-
-117:                                              ; preds = %112
-  %118 = load ptr, ptr %3, align 8
-  %119 = getelementptr inbounds %struct.text_import_info_t, ptr %118, i32 0, i32 6
-  %120 = load i32, ptr %119, align 8
-  %121 = call ptr @wtap_encap_name(i32 noundef %120)
-  call void (ptr, ...) @report_failure(ptr noundef @.str.14, ptr noundef %121)
-  store i32 1, ptr %2, align 4
-  br label %187
-
-122:                                              ; preds = %112
-  br label %132
-
-123:                                              ; preds = %95
-  %124 = load ptr, ptr %3, align 8
-  %125 = getelementptr inbounds %struct.text_import_info_t, ptr %124, i32 0, i32 6
-  %126 = load i32, ptr %125, align 8
-  %127 = call ptr @wtap_encap_name(i32 noundef %126)
-  %128 = load ptr, ptr %3, align 8
-  %129 = getelementptr inbounds %struct.text_import_info_t, ptr %128, i32 0, i32 6
-  %130 = load i32, ptr %129, align 8
-  %131 = call ptr @wtap_encap_description(i32 noundef %130)
-  call void (ptr, ...) @report_failure(ptr noundef @.str.15, ptr noundef %127, ptr noundef %131)
-  store i32 1, ptr %2, align 4
-  br label %187
-
-132:                                              ; preds = %122, %111, %100, %99
   br label %133
 
-133:                                              ; preds = %132, %85
-  %134 = load ptr, ptr %3, align 8
-  %135 = getelementptr inbounds %struct.text_import_info_t, ptr %134, i32 0, i32 20
-  store i32 0, ptr %135, align 4
-  %136 = load ptr, ptr %3, align 8
-  %137 = getelementptr inbounds %struct.text_import_info_t, ptr %136, i32 0, i32 21
-  store i32 0, ptr %137, align 8
-  %138 = call noalias ptr @g_malloc(i64 noundef 262210) #12
-  store ptr %138, ptr @packet_buf, align 8
-  %139 = load ptr, ptr @packet_buf, align 8
-  %140 = icmp ne ptr %139, null
-  br i1 %140, label %142, label %141
+101:                                              ; preds = %96
+  br label %133
 
-141:                                              ; preds = %133
+102:                                              ; preds = %96
+  %103 = load ptr, ptr %3, align 8
+  %104 = getelementptr inbounds %struct.text_import_info_t, ptr %103, i32 0, i32 10
+  %105 = load i32, ptr %104, align 8
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %112
+
+107:                                              ; preds = %102
+  %108 = load ptr, ptr %3, align 8
+  %109 = getelementptr inbounds %struct.text_import_info_t, ptr %108, i32 0, i32 6
+  %110 = load i32, ptr %109, align 8
+  %111 = call ptr @wtap_encap_name(i32 noundef %110)
+  call void (ptr, ...) @report_failure(ptr noundef @.str.13, ptr noundef %111)
+  store i32 1, ptr %2, align 4
+  br label %188
+
+112:                                              ; preds = %102
+  br label %133
+
+113:                                              ; preds = %96
+  %114 = load ptr, ptr %3, align 8
+  %115 = getelementptr inbounds %struct.text_import_info_t, ptr %114, i32 0, i32 10
+  %116 = load i32, ptr %115, align 8
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %123, label %118
+
+118:                                              ; preds = %113
+  %119 = load ptr, ptr %3, align 8
+  %120 = getelementptr inbounds %struct.text_import_info_t, ptr %119, i32 0, i32 6
+  %121 = load i32, ptr %120, align 8
+  %122 = call ptr @wtap_encap_name(i32 noundef %121)
+  call void (ptr, ...) @report_failure(ptr noundef @.str.14, ptr noundef %122)
+  store i32 1, ptr %2, align 4
+  br label %188
+
+123:                                              ; preds = %113
+  br label %133
+
+124:                                              ; preds = %96
+  %125 = load ptr, ptr %3, align 8
+  %126 = getelementptr inbounds %struct.text_import_info_t, ptr %125, i32 0, i32 6
+  %127 = load i32, ptr %126, align 8
+  %128 = call ptr @wtap_encap_name(i32 noundef %127)
+  %129 = load ptr, ptr %3, align 8
+  %130 = getelementptr inbounds %struct.text_import_info_t, ptr %129, i32 0, i32 6
+  %131 = load i32, ptr %130, align 8
+  %132 = call ptr @wtap_encap_description(i32 noundef %131)
+  call void (ptr, ...) @report_failure(ptr noundef @.str.15, ptr noundef %128, ptr noundef %132)
+  store i32 1, ptr %2, align 4
+  br label %188
+
+133:                                              ; preds = %123, %112, %101, %100
+  br label %134
+
+134:                                              ; preds = %133, %86
+  %135 = load ptr, ptr %3, align 8
+  %136 = getelementptr inbounds %struct.text_import_info_t, ptr %135, i32 0, i32 20
+  store i32 0, ptr %136, align 4
+  %137 = load ptr, ptr %3, align 8
+  %138 = getelementptr inbounds %struct.text_import_info_t, ptr %137, i32 0, i32 21
+  store i32 0, ptr %138, align 8
+  %139 = call noalias ptr @g_malloc(i64 noundef 262210) #12
+  store ptr %139, ptr @packet_buf, align 8
+  %140 = load ptr, ptr @packet_buf, align 8
+  %141 = icmp ne ptr %140, null
+  br i1 %141, label %143, label %142
+
+142:                                              ; preds = %134
   call void (ptr, ...) @report_failure(ptr noundef @.str.16)
   store i32 8, ptr %2, align 4
-  br label %187
+  br label %188
 
-142:                                              ; preds = %133
-  %143 = load ptr, ptr %3, align 8
-  %144 = getelementptr inbounds %struct.text_import_info_t, ptr %143, i32 0, i32 2
-  %145 = load i32, ptr %144, align 8
-  %146 = icmp eq i32 %145, 0
-  br i1 %146, label %147, label %162
+143:                                              ; preds = %134
+  %144 = load ptr, ptr %3, align 8
+  %145 = getelementptr inbounds %struct.text_import_info_t, ptr %144, i32 0, i32 2
+  %146 = load i32, ptr %145, align 8
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %148, label %163
 
-147:                                              ; preds = %142
-  %148 = load ptr, ptr %3, align 8
-  %149 = getelementptr inbounds %struct.text_import_info_t, ptr %148, i32 0, i32 3
-  %150 = getelementptr inbounds %struct.anon, ptr %149, i32 0, i32 0
-  %151 = load ptr, ptr %150, align 8
-  %152 = call i32 @text_import_scan(ptr noundef %151)
-  store i32 %152, ptr %4, align 4
-  %153 = load i32, ptr %4, align 4
-  switch i32 %153, label %160 [
-    i32 0, label %154
-    i32 1, label %155
-    i32 2, label %156
+148:                                              ; preds = %143
+  %149 = load ptr, ptr %3, align 8
+  %150 = getelementptr inbounds %struct.text_import_info_t, ptr %149, i32 0, i32 3
+  %151 = getelementptr inbounds %struct.anon, ptr %150, i32 0, i32 0
+  %152 = load ptr, ptr %151, align 8
+  %153 = call i32 @text_import_scan(ptr noundef %152)
+  store i32 %153, ptr %4, align 4
+  %154 = load i32, ptr %4, align 4
+  switch i32 %154, label %161 [
+    i32 0, label %155
+    i32 1, label %156
+    i32 2, label %157
   ]
 
-154:                                              ; preds = %147
+155:                                              ; preds = %148
   store i32 0, ptr %5, align 4
-  br label %161
+  br label %162
 
-155:                                              ; preds = %147
+156:                                              ; preds = %148
   store i32 3, ptr %5, align 4
-  br label %161
+  br label %162
 
-156:                                              ; preds = %147
-  %157 = call ptr @__errno_location() #13
-  %158 = load i32, ptr %157, align 4
-  %159 = call ptr @g_strerror(i32 noundef %158) #13
-  call void (ptr, ...) @report_failure(ptr noundef @.str.17, ptr noundef %159)
+157:                                              ; preds = %148
+  %158 = call ptr @__errno_location() #13
+  %159 = load i32, ptr %158, align 4
+  %160 = call ptr @g_strerror(i32 noundef %159) #13
+  call void (ptr, ...) @report_failure(ptr noundef @.str.17, ptr noundef %160)
   store i32 8, ptr %5, align 4
-  br label %161
+  br label %162
 
-160:                                              ; preds = %147
+161:                                              ; preds = %148
   store i32 0, ptr %5, align 4
-  br label %161
+  br label %162
 
-161:                                              ; preds = %160, %156, %155, %154
-  br label %184
+162:                                              ; preds = %161, %157, %156, %155
+  br label %185
 
-162:                                              ; preds = %142
-  %163 = load ptr, ptr %3, align 8
-  %164 = getelementptr inbounds %struct.text_import_info_t, ptr %163, i32 0, i32 2
-  %165 = load i32, ptr %164, align 8
-  %166 = icmp eq i32 %165, 1
-  br i1 %166, label %167, label %182
+163:                                              ; preds = %143
+  %164 = load ptr, ptr %3, align 8
+  %165 = getelementptr inbounds %struct.text_import_info_t, ptr %164, i32 0, i32 2
+  %166 = load i32, ptr %165, align 8
+  %167 = icmp eq i32 %166, 1
+  br i1 %167, label %168, label %183
 
-167:                                              ; preds = %162
-  %168 = load ptr, ptr %3, align 8
-  %169 = call i32 @text_import_regex(ptr noundef %168)
-  store i32 %169, ptr %5, align 4
-  %170 = load i32, ptr %5, align 4
-  %171 = icmp sgt i32 %170, 0
-  br i1 %171, label %172, label %176
+168:                                              ; preds = %163
+  %169 = load ptr, ptr %3, align 8
+  %170 = call i32 @text_import_regex(ptr noundef %169)
+  store i32 %170, ptr %5, align 4
+  %171 = load i32, ptr %5, align 4
+  %172 = icmp sgt i32 %171, 0
+  br i1 %172, label %173, label %177
 
-172:                                              ; preds = %167
-  %173 = load i32, ptr %5, align 4
-  %174 = load ptr, ptr %3, align 8
-  %175 = getelementptr inbounds %struct.text_import_info_t, ptr %174, i32 0, i32 20
-  store i32 %173, ptr %175, align 4
+173:                                              ; preds = %168
+  %174 = load i32, ptr %5, align 4
+  %175 = load ptr, ptr %3, align 8
+  %176 = getelementptr inbounds %struct.text_import_info_t, ptr %175, i32 0, i32 20
+  store i32 %174, ptr %176, align 4
   store i32 0, ptr %5, align 4
-  br label %181
+  br label %182
 
-176:                                              ; preds = %167
-  %177 = load i32, ptr %5, align 4
-  %178 = icmp slt i32 %177, 0
-  br i1 %178, label %179, label %180
+177:                                              ; preds = %168
+  %178 = load i32, ptr %5, align 4
+  %179 = icmp slt i32 %178, 0
+  br i1 %179, label %180, label %181
 
-179:                                              ; preds = %176
+180:                                              ; preds = %177
   store i32 3, ptr %5, align 4
-  br label %180
-
-180:                                              ; preds = %179, %176
   br label %181
 
-181:                                              ; preds = %180, %172
-  br label %183
+181:                                              ; preds = %180, %177
+  br label %182
 
-182:                                              ; preds = %162
-  store i32 1, ptr %5, align 4
-  br label %183
-
-183:                                              ; preds = %182, %181
+182:                                              ; preds = %181, %173
   br label %184
 
-184:                                              ; preds = %183, %161
-  %185 = load ptr, ptr @packet_buf, align 8
-  call void @g_free(ptr noundef %185)
-  %186 = load i32, ptr %5, align 4
-  store i32 %186, ptr %2, align 4
-  br label %187
+183:                                              ; preds = %163
+  store i32 1, ptr %5, align 4
+  br label %184
 
-187:                                              ; preds = %184, %141, %123, %117, %106, %11
-  %188 = load i32, ptr %2, align 4
-  ret i32 %188
+184:                                              ; preds = %183, %182
+  br label %185
+
+185:                                              ; preds = %184, %162
+  %186 = load ptr, ptr @packet_buf, align 8
+  call void @g_free(ptr noundef %186)
+  %187 = load i32, ptr %5, align 4
+  store i32 %187, ptr %2, align 4
+  br label %188
+
+188:                                              ; preds = %185, %142, %124, %118, %107, %11
+  %189 = load i32, ptr %2, align 4
+  ret i32 %189
 }
 
 ; Function Attrs: nounwind
@@ -4587,150 +4668,148 @@ define internal void @parse_preamble() #0 {
   store i8 0, ptr %6, align 1
   %7 = load i32, ptr @has_direction, align 4
   %8 = icmp ne i32 %7, 0
-  br i1 %8, label %9, label %49
+  br i1 %8, label %9, label %50
 
 9:                                                ; preds = %0
-  call void @_parse_dir(ptr noundef @packet_preamble, ptr noundef getelementptr inbounds ([2049 x i8], ptr @packet_preamble, i64 0, i64 1), ptr noundef @.str.30, ptr noundef @.str.31, ptr noundef @direction)
-  %10 = load i32, ptr @direction, align 4
-  %11 = icmp eq i32 %10, 0
-  %12 = select i1 %11, i32 0, i32 1
-  store i32 %12, ptr %1, align 4
-  br label %13
+  %10 = getelementptr inbounds [2049 x i8], ptr @packet_preamble, i64 0, i64 1
+  call void @_parse_dir(ptr noundef @packet_preamble, ptr noundef %10, ptr noundef @.str.30, ptr noundef @.str.31, ptr noundef @direction)
+  %11 = load i32, ptr @direction, align 4
+  %12 = icmp eq i32 %11, 0
+  %13 = select i1 %12, i32 0, i32 1
+  store i32 %13, ptr %1, align 4
+  br label %14
 
-13:                                               ; preds = %36, %9
-  %14 = load i32, ptr %1, align 4
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %15
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = icmp eq i32 %18, 32
-  br i1 %19, label %34, label %20
+14:                                               ; preds = %37, %9
+  %15 = load i32, ptr %1, align 4
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %16
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i32
+  %20 = icmp eq i32 %19, 32
+  br i1 %20, label %35, label %21
 
-20:                                               ; preds = %13
-  %21 = load i32, ptr %1, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %22
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  %26 = icmp eq i32 %25, 13
-  br i1 %26, label %34, label %27
+21:                                               ; preds = %14
+  %22 = load i32, ptr %1, align 4
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %23
+  %25 = load i8, ptr %24, align 1
+  %26 = zext i8 %25 to i32
+  %27 = icmp eq i32 %26, 13
+  br i1 %27, label %35, label %28
 
-27:                                               ; preds = %20
-  %28 = load i32, ptr %1, align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = icmp eq i32 %32, 9
-  br label %34
+28:                                               ; preds = %21
+  %29 = load i32, ptr %1, align 4
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %30
+  %32 = load i8, ptr %31, align 1
+  %33 = zext i8 %32 to i32
+  %34 = icmp eq i32 %33, 9
+  br label %35
 
-34:                                               ; preds = %27, %20, %13
-  %35 = phi i1 [ true, %20 ], [ true, %13 ], [ %33, %27 ]
-  br i1 %35, label %36, label %39
+35:                                               ; preds = %28, %21, %14
+  %36 = phi i1 [ true, %21 ], [ true, %14 ], [ %34, %28 ]
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %34
-  %37 = load i32, ptr %1, align 4
-  %38 = add i32 %37, 1
-  store i32 %38, ptr %1, align 4
-  br label %13, !llvm.loop !17
+37:                                               ; preds = %35
+  %38 = load i32, ptr %1, align 4
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %1, align 4
+  br label %14, !llvm.loop !17
 
-39:                                               ; preds = %34
-  %40 = load i32, ptr %1, align 4
-  %41 = load i32, ptr @packet_preamble_len, align 4
-  %42 = sub i32 %41, %40
-  store i32 %42, ptr @packet_preamble_len, align 4
-  %43 = load i32, ptr %1, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr i8, ptr @packet_preamble, i64 %44
-  %46 = load i32, ptr @packet_preamble_len, align 4
-  %47 = add i32 %46, 1
-  %48 = sext i32 %47 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 16 @packet_preamble, ptr align 1 %45, i64 %48, i1 false)
-  br label %49
+40:                                               ; preds = %35
+  %41 = load i32, ptr %1, align 4
+  %42 = load i32, ptr @packet_preamble_len, align 4
+  %43 = sub i32 %42, %41
+  store i32 %43, ptr @packet_preamble_len, align 4
+  %44 = load i32, ptr %1, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr i8, ptr @packet_preamble, i64 %45
+  %47 = load i32, ptr @packet_preamble_len, align 4
+  %48 = add i32 %47, 1
+  %49 = sext i32 %48 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr align 16 @packet_preamble, ptr align 1 %46, i64 %49, i1 false)
+  br label %50
 
-49:                                               ; preds = %39, %0
-  %50 = load ptr, ptr @info_p, align 8
-  %51 = getelementptr inbounds %struct.text_import_info_t, ptr %50, i32 0, i32 5
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %87
+50:                                               ; preds = %40, %0
+  %51 = load ptr, ptr @info_p, align 8
+  %52 = getelementptr inbounds %struct.text_import_info_t, ptr %51, i32 0, i32 5
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %88
 
-54:                                               ; preds = %49
-  %55 = call i64 @strlen(ptr noundef @packet_preamble) #10
-  %56 = icmp ugt i64 %55, 2
-  br i1 %56, label %57, label %87
+55:                                               ; preds = %50
+  %56 = call i64 @strlen(ptr noundef @packet_preamble) #10
+  %57 = icmp ugt i64 %56, 2
+  br i1 %57, label %58, label %88
 
-57:                                               ; preds = %54
-  %58 = call i64 @strlen(ptr noundef @packet_preamble) #10
-  %59 = getelementptr i8, ptr @packet_preamble, i64 %58
-  %60 = load ptr, ptr @info_p, align 8
-  %61 = getelementptr inbounds %struct.text_import_info_t, ptr %60, i32 0, i32 5
-  %62 = load ptr, ptr %61, align 8
-  %63 = call i32 @_parse_time(ptr noundef @packet_preamble, ptr noundef %59, ptr noundef %62, ptr noundef @ts_sec, ptr noundef @ts_nsec)
-  store i32 %63, ptr %2, align 4
-  %64 = load i32, ptr %2, align 4
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %86, label %66
+58:                                               ; preds = %55
+  %59 = call i64 @strlen(ptr noundef @packet_preamble) #10
+  %60 = getelementptr i8, ptr @packet_preamble, i64 %59
+  %61 = load ptr, ptr @info_p, align 8
+  %62 = getelementptr inbounds %struct.text_import_info_t, ptr %61, i32 0, i32 5
+  %63 = load ptr, ptr %62, align 8
+  %64 = call i32 @_parse_time(ptr noundef @packet_preamble, ptr noundef %60, ptr noundef %63, ptr noundef @ts_sec, ptr noundef @ts_nsec)
+  store i32 %64, ptr %2, align 4
+  %65 = load i32, ptr %2, align 4
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %87, label %67
 
-66:                                               ; preds = %57
-  %67 = load i32, ptr @timecode_warned, align 4
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %77, label %69
+67:                                               ; preds = %58
+  %68 = load i32, ptr @timecode_warned, align 4
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %78, label %70
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr @info_p, align 8
-  %71 = getelementptr inbounds %struct.text_import_info_t, ptr %70, i32 0, i32 5
-  %72 = load ptr, ptr %71, align 8
-  %73 = load i32, ptr @ts_tick, align 4
-  %74 = load ptr, ptr @info_p, align 8
-  %75 = getelementptr inbounds %struct.text_import_info_t, ptr %74, i32 0, i32 20
-  %76 = load i32, ptr %75, align 4
-  call void (ptr, ...) @report_warning(ptr noundef @.str.32, ptr noundef %72, i32 noundef %73, ptr noundef @packet_preamble, i32 noundef %76)
+70:                                               ; preds = %67
+  %71 = load ptr, ptr @info_p, align 8
+  %72 = getelementptr inbounds %struct.text_import_info_t, ptr %71, i32 0, i32 5
+  %73 = load ptr, ptr %72, align 8
+  %74 = load i32, ptr @ts_tick, align 4
+  %75 = load ptr, ptr @info_p, align 8
+  %76 = getelementptr inbounds %struct.text_import_info_t, ptr %75, i32 0, i32 20
+  %77 = load i32, ptr %76, align 4
+  call void (ptr, ...) @report_warning(ptr noundef @.str.32, ptr noundef %73, i32 noundef %74, ptr noundef @packet_preamble, i32 noundef %77)
   store i32 1, ptr @timecode_warned, align 4
-  br label %77
-
-77:                                               ; preds = %69, %66
   br label %78
 
-78:                                               ; preds = %77
-  %79 = load ptr, ptr @info_p, align 8
-  %80 = getelementptr inbounds %struct.text_import_info_t, ptr %79, i32 0, i32 5
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr @info_p, align 8
-  %83 = getelementptr inbounds %struct.text_import_info_t, ptr %82, i32 0, i32 20
-  %84 = load i32, ptr %83, align 4
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 1203, ptr noundef @__func__.parse_preamble, ptr noundef @.str.33, ptr noundef %81, ptr noundef @packet_preamble, i32 noundef %84)
-  br label %85
+78:                                               ; preds = %70, %67
+  br label %79
 
-85:                                               ; preds = %78
+79:                                               ; preds = %78
+  %80 = load ptr, ptr @info_p, align 8
+  %81 = getelementptr inbounds %struct.text_import_info_t, ptr %80, i32 0, i32 5
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr @info_p, align 8
+  %84 = getelementptr inbounds %struct.text_import_info_t, ptr %83, i32 0, i32 20
+  %85 = load i32, ptr %84, align 4
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.1, i64 noundef 1203, ptr noundef @__func__.parse_preamble, ptr noundef @.str.33, ptr noundef %82, ptr noundef @packet_preamble, i32 noundef %85)
   br label %86
 
-86:                                               ; preds = %85, %57
+86:                                               ; preds = %79
   br label %87
 
-87:                                               ; preds = %86, %54, %49
-  %88 = call i32 @ws_log_get_level()
-  %89 = icmp uge i32 %88, 1
-  br i1 %89, label %90, label %101
+87:                                               ; preds = %86, %58
+  br label %88
 
-90:                                               ; preds = %87
-  br label %91
+88:                                               ; preds = %87, %55, %50
+  %89 = call i32 @ws_log_get_level()
+  %90 = icmp uge i32 %89, 1
+  br i1 %90, label %91, label %102
 
-91:                                               ; preds = %94, %90
-  %92 = call ptr @strchr(ptr noundef @packet_preamble, i32 noundef 13) #10
-  store ptr %92, ptr %3, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %96
+91:                                               ; preds = %88
+  br label %92
 
-94:                                               ; preds = %91
-  %95 = load ptr, ptr %3, align 8
-  store i8 32, ptr %95, align 1
-  br label %91, !llvm.loop !18
+92:                                               ; preds = %95, %91
+  %93 = call ptr @strchr(ptr noundef @packet_preamble, i32 noundef 13) #10
+  store ptr %93, ptr %3, align 8
+  %94 = icmp ne ptr %93, null
+  br i1 %94, label %95, label %97
 
-96:                                               ; preds = %91
-  br label %97
+95:                                               ; preds = %92
+  %96 = load ptr, ptr %3, align 8
+  store i8 32, ptr %96, align 1
+  br label %92, !llvm.loop !18
 
-97:                                               ; preds = %96
+97:                                               ; preds = %92
   br label %98
 
 98:                                               ; preds = %97
@@ -4742,19 +4821,22 @@ define internal void @parse_preamble() #0 {
 100:                                              ; preds = %99
   br label %101
 
-101:                                              ; preds = %100, %87
-  %102 = load i32, ptr %2, align 4
-  %103 = icmp ne i32 %102, 0
-  br i1 %103, label %108, label %104
+101:                                              ; preds = %100
+  br label %102
 
-104:                                              ; preds = %101
-  %105 = load i32, ptr @ts_tick, align 4
-  %106 = load i32, ptr @ts_nsec, align 4
-  %107 = add i32 %106, %105
-  store i32 %107, ptr @ts_nsec, align 4
-  br label %108
+102:                                              ; preds = %101, %88
+  %103 = load i32, ptr %2, align 4
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %109, label %105
 
-108:                                              ; preds = %104, %101
+105:                                              ; preds = %102
+  %106 = load i32, ptr @ts_tick, align 4
+  %107 = load i32, ptr @ts_nsec, align 4
+  %108 = add i32 %107, %106
+  store i32 %108, ptr @ts_nsec, align 4
+  br label %109
+
+109:                                              ; preds = %105, %102
   store i32 0, ptr @packet_preamble_len, align 4
   ret void
 }

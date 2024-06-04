@@ -48,7 +48,8 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759UVector64E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759UVector64E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %count = getelementptr inbounds %"class.icu_75::UVector64", ptr %this1, i32 0, i32 1
   store i32 0, ptr %count, align 8
   %capacity = getelementptr inbounds %"class.icu_75::UVector64", ptr %this1, i32 0, i32 2
@@ -57,20 +58,20 @@ entry:
   store i32 0, ptr %maxCapacity, align 8
   %elements = getelementptr inbounds %"class.icu_75::UVector64", ptr %this1, i32 0, i32 4
   store ptr null, ptr %elements, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_759UVector645_initEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_759UVector645_initEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
   br label %eh.resume
 
@@ -88,7 +89,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -186,7 +188,8 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759UVector64E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759UVector64E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %count = getelementptr inbounds %"class.icu_75::UVector64", ptr %this1, i32 0, i32 1
   store i32 0, ptr %count, align 8
   %capacity = getelementptr inbounds %"class.icu_75::UVector64", ptr %this1, i32 0, i32 2
@@ -195,21 +198,21 @@ entry:
   store i32 0, ptr %maxCapacity, align 8
   %elements = getelementptr inbounds %"class.icu_75::UVector64", ptr %this1, i32 0, i32 4
   store ptr null, ptr %elements, align 8
-  %0 = load i32, ptr %initialCapacity.addr, align 4
-  %1 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_759UVector645_initEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %1 = load i32, ptr %initialCapacity.addr, align 4
+  %2 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_759UVector645_initEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
   br label %eh.resume
 
@@ -232,10 +235,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759UVector64E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_759UVector64E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %elements = getelementptr inbounds %"class.icu_75::UVector64", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %elements, align 8
-  invoke void @uprv_free_75(ptr noundef %0)
+  %1 = load ptr, ptr %elements, align 8
+  invoke void @uprv_free_75(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -245,10 +249,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #9
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #9
   unreachable
 }
 

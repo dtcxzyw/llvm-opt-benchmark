@@ -242,13 +242,14 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory15EqEngineManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory15EqEngineManagerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_te = getelementptr inbounds %"class.cvc5::internal::theory::EqEngineManager", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %te.addr, align 8
-  store ptr %1, ptr %d_te, align 8
+  %2 = load ptr, ptr %te.addr, align 8
+  store ptr %2, ptr %d_te, align 8
   %d_sharedSolver = getelementptr inbounds %"class.cvc5::internal::theory::EqEngineManager", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %shs.addr, align 8
-  store ptr %2, ptr %d_sharedSolver, align 8
+  %3 = load ptr, ptr %shs.addr, align 8
+  store ptr %3, ptr %d_sharedSolver, align 8
   %d_einfo = getelementptr inbounds %"class.cvc5::internal::theory::EqEngineManager", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapIN4cvc58internal6theory8TheoryIdENS2_12EeTheoryInfoESt4lessIS3_ESaISt4pairIKS3_S4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_einfo) #3
   ret void
@@ -658,7 +659,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory15EqEngineManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory15EqEngineManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_einfo = getelementptr inbounds %"class.cvc5::internal::theory::EqEngineManager", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapIN4cvc58internal6theory8TheoryIdENS2_12EeTheoryInfoESt4lessIS3_ESaISt4pairIKS3_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_einfo) #3
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3

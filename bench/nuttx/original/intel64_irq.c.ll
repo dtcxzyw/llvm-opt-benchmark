@@ -21,9 +21,12 @@ define i32 @up_ioapic_read(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
-  call void @mmio_write32(ptr noundef inttoptr (i64 4273995776 to ptr), i32 noundef %3)
-  %4 = call i32 @mmio_read32(ptr noundef getelementptr inbounds (i8, ptr inttoptr (i64 4273995776 to ptr), i64 16))
-  ret i32 %4
+  %4 = inttoptr i64 4273995776 to ptr
+  call void @mmio_write32(ptr noundef %4, i32 noundef %3)
+  %5 = inttoptr i64 4273995776 to ptr
+  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = call i32 @mmio_read32(ptr noundef %6)
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -57,9 +60,12 @@ define void @up_ioapic_write(i32 noundef %0, i32 noundef %1) #0 {
   store i32 %0, ptr %3, align 4
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %3, align 4
-  call void @mmio_write32(ptr noundef inttoptr (i64 4273995776 to ptr), i32 noundef %5)
-  %6 = load i32, ptr %4, align 4
-  call void @mmio_write32(ptr noundef getelementptr inbounds (i8, ptr inttoptr (i64 4273995776 to ptr), i64 16), i32 noundef %6)
+  %6 = inttoptr i64 4273995776 to ptr
+  call void @mmio_write32(ptr noundef %6, i32 noundef %5)
+  %7 = load i32, ptr %4, align 4
+  %8 = inttoptr i64 4273995776 to ptr
+  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  call void @mmio_write32(ptr noundef %9, i32 noundef %7)
   ret void
 }
 
@@ -293,90 +299,139 @@ define internal void @up_apic_init() #0 {
 define internal void @up_ioapic_init() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
-  %3 = call i32 @up_map_region(ptr noundef inttoptr (i64 4273995776 to ptr), i32 noundef 2097152, i32 noundef 19)
-  %4 = call i32 @up_ioapic_read(i32 noundef 1)
-  %5 = lshr i32 %4, 16
-  %6 = and i32 %5, 255
-  store i32 %6, ptr %2, align 4
+  %3 = inttoptr i64 4273995776 to ptr
+  %4 = call i32 @up_map_region(ptr noundef %3, i32 noundef 2097152, i32 noundef 19)
+  %5 = call i32 @up_ioapic_read(i32 noundef 1)
+  %6 = lshr i32 %5, 16
+  %7 = and i32 %6, 255
+  store i32 %7, ptr %2, align 4
   store i32 0, ptr %1, align 4
-  br label %7
+  br label %8
 
-7:                                                ; preds = %16, %0
-  %8 = load i32, ptr %1, align 4
-  %9 = load i32, ptr %2, align 4
-  %10 = icmp ult i32 %8, %9
-  br i1 %10, label %11, label %19
+8:                                                ; preds = %17, %0
+  %9 = load i32, ptr %1, align 4
+  %10 = load i32, ptr %2, align 4
+  %11 = icmp ult i32 %9, %10
+  br i1 %11, label %12, label %20
 
-11:                                               ; preds = %7
-  %12 = load i32, ptr %1, align 4
+12:                                               ; preds = %8
   %13 = load i32, ptr %1, align 4
-  %14 = add nsw i32 32, %13
-  call void @up_ioapic_pin_set_vector(i32 noundef %12, i32 noundef 0, i32 noundef %14)
-  %15 = load i32, ptr %1, align 4
-  call void @up_ioapic_mask_pin(i32 noundef %15)
-  br label %16
+  %14 = load i32, ptr %1, align 4
+  %15 = add nsw i32 32, %14
+  call void @up_ioapic_pin_set_vector(i32 noundef %13, i32 noundef 0, i32 noundef %15)
+  %16 = load i32, ptr %1, align 4
+  call void @up_ioapic_mask_pin(i32 noundef %16)
+  br label %17
 
-16:                                               ; preds = %11
-  %17 = load i32, ptr %1, align 4
-  %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %1, align 4
-  br label %7, !llvm.loop !11
+17:                                               ; preds = %12
+  %18 = load i32, ptr %1, align 4
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %1, align 4
+  br label %8, !llvm.loop !11
 
-19:                                               ; preds = %7
+20:                                               ; preds = %8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @up_idtinit() #0 {
   call void @llvm.memset.p0.i64(ptr align 16 @g_idt_entries, i8 0, i64 4096, i1 false)
-  call void @up_idtentry(i32 noundef 0, i64 noundef ptrtoint (ptr @vector_isr0 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 1, i64 noundef ptrtoint (ptr @vector_isr1 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 2, i64 noundef ptrtoint (ptr @vector_isr2 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 3, i64 noundef ptrtoint (ptr @vector_isr3 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 4, i64 noundef ptrtoint (ptr @vector_isr4 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 5, i64 noundef ptrtoint (ptr @vector_isr5 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 6, i64 noundef ptrtoint (ptr @vector_isr6 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 7, i64 noundef ptrtoint (ptr @vector_isr7 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 8, i64 noundef ptrtoint (ptr @vector_isr8 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 9, i64 noundef ptrtoint (ptr @vector_isr9 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 10, i64 noundef ptrtoint (ptr @vector_isr10 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 11, i64 noundef ptrtoint (ptr @vector_isr11 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 12, i64 noundef ptrtoint (ptr @vector_isr12 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 13, i64 noundef ptrtoint (ptr @vector_isr13 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 14, i64 noundef ptrtoint (ptr @vector_isr14 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 15, i64 noundef ptrtoint (ptr @vector_isr15 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 16, i64 noundef ptrtoint (ptr @vector_isr16 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 17, i64 noundef ptrtoint (ptr @vector_isr17 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 18, i64 noundef ptrtoint (ptr @vector_isr18 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 19, i64 noundef ptrtoint (ptr @vector_isr19 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 20, i64 noundef ptrtoint (ptr @vector_isr20 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 21, i64 noundef ptrtoint (ptr @vector_isr21 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 22, i64 noundef ptrtoint (ptr @vector_isr22 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 23, i64 noundef ptrtoint (ptr @vector_isr23 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 24, i64 noundef ptrtoint (ptr @vector_isr24 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 25, i64 noundef ptrtoint (ptr @vector_isr25 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 26, i64 noundef ptrtoint (ptr @vector_isr26 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 27, i64 noundef ptrtoint (ptr @vector_isr27 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 28, i64 noundef ptrtoint (ptr @vector_isr28 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 29, i64 noundef ptrtoint (ptr @vector_isr29 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 30, i64 noundef ptrtoint (ptr @vector_isr30 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 31, i64 noundef ptrtoint (ptr @vector_isr31 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
-  call void @up_idtentry(i32 noundef 32, i64 noundef ptrtoint (ptr @vector_irq0 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 33, i64 noundef ptrtoint (ptr @vector_irq1 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 34, i64 noundef ptrtoint (ptr @vector_irq2 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 35, i64 noundef ptrtoint (ptr @vector_irq3 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 36, i64 noundef ptrtoint (ptr @vector_irq4 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 37, i64 noundef ptrtoint (ptr @vector_irq5 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 38, i64 noundef ptrtoint (ptr @vector_irq6 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 39, i64 noundef ptrtoint (ptr @vector_irq7 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 40, i64 noundef ptrtoint (ptr @vector_irq8 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 41, i64 noundef ptrtoint (ptr @vector_irq9 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 42, i64 noundef ptrtoint (ptr @vector_irq10 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 43, i64 noundef ptrtoint (ptr @vector_irq11 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 44, i64 noundef ptrtoint (ptr @vector_irq12 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 45, i64 noundef ptrtoint (ptr @vector_irq13 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 46, i64 noundef ptrtoint (ptr @vector_irq14 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
-  call void @up_idtentry(i32 noundef 47, i64 noundef ptrtoint (ptr @vector_irq15 to i64), i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %1 = ptrtoint ptr @vector_isr0 to i64
+  call void @up_idtentry(i32 noundef 0, i64 noundef %1, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %2 = ptrtoint ptr @vector_isr1 to i64
+  call void @up_idtentry(i32 noundef 1, i64 noundef %2, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %3 = ptrtoint ptr @vector_isr2 to i64
+  call void @up_idtentry(i32 noundef 2, i64 noundef %3, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %4 = ptrtoint ptr @vector_isr3 to i64
+  call void @up_idtentry(i32 noundef 3, i64 noundef %4, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %5 = ptrtoint ptr @vector_isr4 to i64
+  call void @up_idtentry(i32 noundef 4, i64 noundef %5, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %6 = ptrtoint ptr @vector_isr5 to i64
+  call void @up_idtentry(i32 noundef 5, i64 noundef %6, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %7 = ptrtoint ptr @vector_isr6 to i64
+  call void @up_idtentry(i32 noundef 6, i64 noundef %7, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %8 = ptrtoint ptr @vector_isr7 to i64
+  call void @up_idtentry(i32 noundef 7, i64 noundef %8, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %9 = ptrtoint ptr @vector_isr8 to i64
+  call void @up_idtentry(i32 noundef 8, i64 noundef %9, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %10 = ptrtoint ptr @vector_isr9 to i64
+  call void @up_idtentry(i32 noundef 9, i64 noundef %10, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %11 = ptrtoint ptr @vector_isr10 to i64
+  call void @up_idtentry(i32 noundef 10, i64 noundef %11, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %12 = ptrtoint ptr @vector_isr11 to i64
+  call void @up_idtentry(i32 noundef 11, i64 noundef %12, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %13 = ptrtoint ptr @vector_isr12 to i64
+  call void @up_idtentry(i32 noundef 12, i64 noundef %13, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %14 = ptrtoint ptr @vector_isr13 to i64
+  call void @up_idtentry(i32 noundef 13, i64 noundef %14, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %15 = ptrtoint ptr @vector_isr14 to i64
+  call void @up_idtentry(i32 noundef 14, i64 noundef %15, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %16 = ptrtoint ptr @vector_isr15 to i64
+  call void @up_idtentry(i32 noundef 15, i64 noundef %16, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %17 = ptrtoint ptr @vector_isr16 to i64
+  call void @up_idtentry(i32 noundef 16, i64 noundef %17, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %18 = ptrtoint ptr @vector_isr17 to i64
+  call void @up_idtentry(i32 noundef 17, i64 noundef %18, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %19 = ptrtoint ptr @vector_isr18 to i64
+  call void @up_idtentry(i32 noundef 18, i64 noundef %19, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %20 = ptrtoint ptr @vector_isr19 to i64
+  call void @up_idtentry(i32 noundef 19, i64 noundef %20, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %21 = ptrtoint ptr @vector_isr20 to i64
+  call void @up_idtentry(i32 noundef 20, i64 noundef %21, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %22 = ptrtoint ptr @vector_isr21 to i64
+  call void @up_idtentry(i32 noundef 21, i64 noundef %22, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %23 = ptrtoint ptr @vector_isr22 to i64
+  call void @up_idtentry(i32 noundef 22, i64 noundef %23, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %24 = ptrtoint ptr @vector_isr23 to i64
+  call void @up_idtentry(i32 noundef 23, i64 noundef %24, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %25 = ptrtoint ptr @vector_isr24 to i64
+  call void @up_idtentry(i32 noundef 24, i64 noundef %25, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %26 = ptrtoint ptr @vector_isr25 to i64
+  call void @up_idtentry(i32 noundef 25, i64 noundef %26, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %27 = ptrtoint ptr @vector_isr26 to i64
+  call void @up_idtentry(i32 noundef 26, i64 noundef %27, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %28 = ptrtoint ptr @vector_isr27 to i64
+  call void @up_idtentry(i32 noundef 27, i64 noundef %28, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %29 = ptrtoint ptr @vector_isr28 to i64
+  call void @up_idtentry(i32 noundef 28, i64 noundef %29, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %30 = ptrtoint ptr @vector_isr29 to i64
+  call void @up_idtentry(i32 noundef 29, i64 noundef %30, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %31 = ptrtoint ptr @vector_isr30 to i64
+  call void @up_idtentry(i32 noundef 30, i64 noundef %31, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %32 = ptrtoint ptr @vector_isr31 to i64
+  call void @up_idtentry(i32 noundef 31, i64 noundef %32, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 2)
+  %33 = ptrtoint ptr @vector_irq0 to i64
+  call void @up_idtentry(i32 noundef 32, i64 noundef %33, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %34 = ptrtoint ptr @vector_irq1 to i64
+  call void @up_idtentry(i32 noundef 33, i64 noundef %34, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %35 = ptrtoint ptr @vector_irq2 to i64
+  call void @up_idtentry(i32 noundef 34, i64 noundef %35, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %36 = ptrtoint ptr @vector_irq3 to i64
+  call void @up_idtentry(i32 noundef 35, i64 noundef %36, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %37 = ptrtoint ptr @vector_irq4 to i64
+  call void @up_idtentry(i32 noundef 36, i64 noundef %37, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %38 = ptrtoint ptr @vector_irq5 to i64
+  call void @up_idtentry(i32 noundef 37, i64 noundef %38, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %39 = ptrtoint ptr @vector_irq6 to i64
+  call void @up_idtentry(i32 noundef 38, i64 noundef %39, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %40 = ptrtoint ptr @vector_irq7 to i64
+  call void @up_idtentry(i32 noundef 39, i64 noundef %40, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %41 = ptrtoint ptr @vector_irq8 to i64
+  call void @up_idtentry(i32 noundef 40, i64 noundef %41, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %42 = ptrtoint ptr @vector_irq9 to i64
+  call void @up_idtentry(i32 noundef 41, i64 noundef %42, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %43 = ptrtoint ptr @vector_irq10 to i64
+  call void @up_idtentry(i32 noundef 42, i64 noundef %43, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %44 = ptrtoint ptr @vector_irq11 to i64
+  call void @up_idtentry(i32 noundef 43, i64 noundef %44, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %45 = ptrtoint ptr @vector_irq12 to i64
+  call void @up_idtentry(i32 noundef 44, i64 noundef %45, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %46 = ptrtoint ptr @vector_irq13 to i64
+  call void @up_idtentry(i32 noundef 45, i64 noundef %46, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %47 = ptrtoint ptr @vector_irq14 to i64
+  call void @up_idtentry(i32 noundef 46, i64 noundef %47, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
+  %48 = ptrtoint ptr @vector_irq15 to i64
+  call void @up_idtentry(i32 noundef 47, i64 noundef %48, i16 noundef zeroext 8, i8 noundef zeroext -114, i8 noundef zeroext 1)
   call void @setidt(ptr noundef @g_idt_entries, i32 noundef 767)
   ret void
 }

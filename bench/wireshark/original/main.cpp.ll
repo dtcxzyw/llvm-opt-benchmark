@@ -1064,7 +1064,7 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) #7 personality ptr @__g
   store ptr %77, ptr %16, align 8
   %78 = extractvalue { ptr, i32 } %76, 1
   store i32 %78, ptr %17, align 4
-  br label %422
+  br label %441
 
 79:                                               ; preds = %74, %64
   invoke void @profile_store_persconffiles(i1 noundef zeroext true)
@@ -1148,7 +1148,7 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) #7 personality ptr @__g
 
 113:                                              ; preds = %112
   store i32 8, ptr %7, align 4
-  br label %409
+  br label %428
 
 114:                                              ; preds = %99, %98
   %115 = landingpad { ptr, i32 }
@@ -1157,16 +1157,16 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) #7 personality ptr @__g
   store ptr %116, ptr %16, align 8
   %117 = extractvalue { ptr, i32 } %115, 1
   store i32 %117, ptr %17, align 4
-  br label %421
+  br label %440
 
-118:                                              ; preds = %417, %416, %415, %414, %413, %411, %409, %407, %405, %404, %403, %402, %393, %392, %391, %390, %389, %380, %378, %362, %352, %348, %337, %335, %331, %323, %310, %308, %300, %298, %295, %288, %285, %281, %276, %274, %272, %267, %265, %260, %258, %256, %255, %254, %252, %250, %248, %244, %237, %230, %224, %223, %222, %221, %218, %216, %215, %212, %210, %206, %205, %204, %203, %202, %201, %200, %199, %197, %194, %189, %185, %184, %181, %177, %176, %175, %164, %159, %150, %148, %146, %144, %141, %137, %136, %134, %131, %126, %122, %112, %110, %108, %106, %101
+118:                                              ; preds = %436, %435, %434, %433, %432, %430, %428, %426, %424, %423, %422, %421, %412, %411, %410, %409, %408, %398, %396, %380, %369, %364, %351, %349, %344, %336, %323, %321, %313, %311, %308, %301, %298, %294, %288, %286, %284, %279, %277, %272, %270, %268, %267, %266, %263, %260, %257, %252, %243, %234, %227, %226, %225, %224, %221, %219, %218, %215, %213, %209, %208, %207, %206, %205, %204, %203, %202, %200, %197, %192, %188, %187, %184, %180, %179, %178, %166, %160, %150, %148, %146, %144, %141, %137, %136, %134, %131, %126, %122, %112, %110, %108, %106, %101
   %119 = landingpad { ptr, i32 }
           cleanup
   %120 = extractvalue { ptr, i32 } %119, 0
   store ptr %120, ptr %16, align 8
   %121 = extractvalue { ptr, i32 } %119, 1
   store i32 %121, ptr %17, align 4
-  br label %420
+  br label %439
 
 122:                                              ; preds = %103
   %123 = invoke i32 @recent_read_profile_static(ptr noundef %9, ptr noundef %10)
@@ -1208,7 +1208,7 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) #7 personality ptr @__g
 
 140:                                              ; preds = %137
   invoke void @_ZN15MainApplication12loadLanguageE7QString(ptr noundef nonnull align 8 dereferenceable(216) %138, ptr noundef %21)
-          to label %141 unwind label %167
+          to label %141 unwind label %170
 
 141:                                              ; preds = %140
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
@@ -1217,7 +1217,7 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) #7 personality ptr @__g
 
 143:                                              ; preds = %141
   invoke void @_ZN19WiresharkMainWindowC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(520) %142, ptr noundef null)
-          to label %144 unwind label %171
+          to label %144 unwind label %174
 
 144:                                              ; preds = %143
   store ptr %142, ptr %6, align 8
@@ -1249,671 +1249,690 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) #7 personality ptr @__g
 
 156:                                              ; preds = %150
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
-  %157 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i32 0, i32 46), align 8
-  %158 = icmp ne ptr %157, null
-  br i1 %158, label %159, label %175
+  %157 = getelementptr inbounds %struct.recent_settings_tag, ptr @recent, i32 0, i32 46
+  %158 = load ptr, ptr %157, align 8
+  %159 = icmp ne ptr %158, null
+  br i1 %159, label %160, label %178
 
-159:                                              ; preds = %156
-  %160 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i32 0, i32 46), align 8
-  %161 = invoke i32 @test_for_directory(ptr noundef %160)
-          to label %162 unwind label %118
+160:                                              ; preds = %156
+  %161 = getelementptr inbounds %struct.recent_settings_tag, ptr @recent, i32 0, i32 46
+  %162 = load ptr, ptr %161, align 8
+  %163 = invoke i32 @test_for_directory(ptr noundef %162)
+          to label %164 unwind label %118
 
-162:                                              ; preds = %159
-  %163 = icmp eq i32 %161, 21
-  br i1 %163, label %164, label %175
-
-164:                                              ; preds = %162
-  %165 = load ptr, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i32 0, i32 46), align 8
-  invoke void @set_last_open_dir(ptr noundef %165)
-          to label %166 unwind label %118
+164:                                              ; preds = %160
+  %165 = icmp eq i32 %163, 21
+  br i1 %165, label %166, label %178
 
 166:                                              ; preds = %164
-  br label %175
+  %167 = getelementptr inbounds %struct.recent_settings_tag, ptr @recent, i32 0, i32 46
+  %168 = load ptr, ptr %167, align 8
+  invoke void @set_last_open_dir(ptr noundef %168)
+          to label %169 unwind label %118
 
-167:                                              ; preds = %140
-  %168 = landingpad { ptr, i32 }
+169:                                              ; preds = %166
+  br label %178
+
+170:                                              ; preds = %140
+  %171 = landingpad { ptr, i32 }
           cleanup
-  %169 = extractvalue { ptr, i32 } %168, 0
-  store ptr %169, ptr %16, align 8
-  %170 = extractvalue { ptr, i32 } %168, 1
-  store i32 %170, ptr %17, align 4
+  %172 = extractvalue { ptr, i32 } %171, 0
+  store ptr %172, ptr %16, align 8
+  %173 = extractvalue { ptr, i32 } %171, 1
+  store i32 %173, ptr %17, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
-  br label %420
+  br label %439
 
-171:                                              ; preds = %143
-  %172 = landingpad { ptr, i32 }
+174:                                              ; preds = %143
+  %175 = landingpad { ptr, i32 }
           cleanup
-  %173 = extractvalue { ptr, i32 } %172, 0
-  store ptr %173, ptr %16, align 8
-  %174 = extractvalue { ptr, i32 } %172, 1
-  store i32 %174, ptr %17, align 4
+  %176 = extractvalue { ptr, i32 } %175, 0
+  store ptr %176, ptr %16, align 8
+  %177 = extractvalue { ptr, i32 } %175, 1
+  store i32 %177, ptr %17, align 4
   call void @_ZdlPv(ptr noundef %142) #17
-  br label %420
+  br label %439
 
-175:                                              ; preds = %166, %162, %156
+178:                                              ; preds = %169, %164, %156
   invoke void @wtap_init(i32 noundef 1)
-          to label %176 unwind label %118
-
-176:                                              ; preds = %175
-  invoke void @_Z13splash_update17register_action_ePKcPv(i32 noundef 1, ptr noundef null, ptr noundef null)
-          to label %177 unwind label %118
-
-177:                                              ; preds = %176
-  %178 = invoke i32 @epan_init(ptr noundef @_Z13splash_update17register_action_ePKcPv, ptr noundef null, i32 noundef 1)
           to label %179 unwind label %118
 
-179:                                              ; preds = %177
-  %180 = icmp ne i32 %178, 0
-  br i1 %180, label %184, label %181
+179:                                              ; preds = %178
+  invoke void @_Z13splash_update17register_action_ePKcPv(i32 noundef 1, ptr noundef null, ptr noundef null)
+          to label %180 unwind label %118
 
-181:                                              ; preds = %179
-  %182 = load ptr, ptr %6, align 8
-  invoke void @_ZN12SimpleDialog21displayQueuedMessagesEP7QWidget(ptr noundef %182)
-          to label %183 unwind label %118
+180:                                              ; preds = %179
+  %181 = invoke i32 @epan_init(ptr noundef @_Z13splash_update17register_action_ePKcPv, ptr noundef null, i32 noundef 1)
+          to label %182 unwind label %118
 
-183:                                              ; preds = %181
+182:                                              ; preds = %180
+  %183 = icmp ne i32 %181, 0
+  br i1 %183, label %187, label %184
+
+184:                                              ; preds = %182
+  %185 = load ptr, ptr %6, align 8
+  invoke void @_ZN12SimpleDialog21displayQueuedMessagesEP7QWidget(ptr noundef %185)
+          to label %186 unwind label %118
+
+186:                                              ; preds = %184
   store i32 8, ptr %7, align 4
-  br label %409
+  br label %428
 
-184:                                              ; preds = %179
+187:                                              ; preds = %182
   invoke void @codecs_init()
-          to label %185 unwind label %118
+          to label %188 unwind label %118
 
-185:                                              ; preds = %184
-  %186 = invoke i32 @recent_read_dynamic(ptr noundef %9, ptr noundef %10)
-          to label %187 unwind label %118
+188:                                              ; preds = %187
+  %189 = invoke i32 @recent_read_dynamic(ptr noundef %9, ptr noundef %10)
+          to label %190 unwind label %118
 
-187:                                              ; preds = %185
-  %188 = icmp ne i32 %186, 0
-  br i1 %188, label %197, label %189
+190:                                              ; preds = %188
+  %191 = icmp ne i32 %189, 0
+  br i1 %191, label %200, label %192
 
-189:                                              ; preds = %187
-  %190 = load ptr, ptr %9, align 8
-  %191 = load i32, ptr %10, align 4
-  %192 = call ptr @g_strerror(i32 noundef %191) #15
-  %193 = invoke ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 1, i32 noundef 1, ptr noundef @.str.25, ptr noundef %190, ptr noundef %192)
-          to label %194 unwind label %118
+192:                                              ; preds = %190
+  %193 = load ptr, ptr %9, align 8
+  %194 = load i32, ptr %10, align 4
+  %195 = call ptr @g_strerror(i32 noundef %194) #15
+  %196 = invoke ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 1, i32 noundef 1, ptr noundef @.str.25, ptr noundef %193, ptr noundef %195)
+          to label %197 unwind label %118
 
-194:                                              ; preds = %189
-  %195 = load ptr, ptr %9, align 8
-  invoke void @g_free(ptr noundef %195)
-          to label %196 unwind label %118
-
-196:                                              ; preds = %194
-  br label %197
-
-197:                                              ; preds = %196, %187
-  %198 = load ptr, ptr @wsApp, align 8
-  invoke void @_ZN15MainApplication21refreshRecentCapturesEv(ptr noundef nonnull align 8 dereferenceable(216) %198)
+197:                                              ; preds = %192
+  %198 = load ptr, ptr %9, align 8
+  invoke void @g_free(ptr noundef %198)
           to label %199 unwind label %118
 
 199:                                              ; preds = %197
-  invoke void @_Z13splash_update17register_action_ePKcPv(i32 noundef 2, ptr noundef null, ptr noundef null)
-          to label %200 unwind label %118
+  br label %200
 
-200:                                              ; preds = %199
-  invoke void @register_all_tap_listeners(ptr noundef @tap_reg_listener)
-          to label %201 unwind label %118
-
-201:                                              ; preds = %200
-  invoke void @conversation_table_set_gui_info(ptr noundef @_Z23init_conversation_tableP11register_ctPKc)
+200:                                              ; preds = %199, %190
+  %201 = load ptr, ptr @wsApp, align 8
+  invoke void @_ZN15MainApplication21refreshRecentCapturesEv(ptr noundef nonnull align 8 dereferenceable(216) %201)
           to label %202 unwind label %118
 
-202:                                              ; preds = %201
-  invoke void @endpoint_table_set_gui_info(ptr noundef @_Z19init_endpoint_tableP11register_ctPKc)
+202:                                              ; preds = %200
+  invoke void @_Z13splash_update17register_action_ePKcPv(i32 noundef 2, ptr noundef null, ptr noundef null)
           to label %203 unwind label %118
 
 203:                                              ; preds = %202
-  invoke void @srt_table_iterate_tables(ptr noundef @_Z32register_service_response_tablesPKvPvS1_, ptr noundef null)
+  invoke void @register_all_tap_listeners(ptr noundef @tap_reg_listener)
           to label %204 unwind label %118
 
 204:                                              ; preds = %203
-  invoke void @rtd_table_iterate_tables(ptr noundef @_Z35register_response_time_delay_tablesPKvPvS1_, ptr noundef null)
+  invoke void @conversation_table_set_gui_info(ptr noundef @_Z23init_conversation_tableP11register_ctPKc)
           to label %205 unwind label %118
 
 205:                                              ; preds = %204
-  invoke void @stat_tap_iterate_tables(ptr noundef @_Z27register_simple_stat_tablesPKvPvS1_, ptr noundef null)
+  invoke void @endpoint_table_set_gui_info(ptr noundef @_Z19init_endpoint_tableP11register_ctPKc)
           to label %206 unwind label %118
 
 206:                                              ; preds = %205
-  %207 = invoke i32 @ex_opt_count(ptr noundef @.str.28)
+  invoke void @srt_table_iterate_tables(ptr noundef @_Z32register_service_response_tablesPKvPvS1_, ptr noundef null)
+          to label %207 unwind label %118
+
+207:                                              ; preds = %206
+  invoke void @rtd_table_iterate_tables(ptr noundef @_Z35register_response_time_delay_tablesPKvPvS1_, ptr noundef null)
           to label %208 unwind label %118
 
-208:                                              ; preds = %206
-  %209 = icmp sgt i32 %207, 0
-  br i1 %209, label %210, label %215
+208:                                              ; preds = %207
+  invoke void @stat_tap_iterate_tables(ptr noundef @_Z27register_simple_stat_tablesPKvPvS1_, ptr noundef null)
+          to label %209 unwind label %118
 
-210:                                              ; preds = %208
-  %211 = invoke ptr @ex_opt_get_next(ptr noundef @.str.28)
-          to label %212 unwind label %118
+209:                                              ; preds = %208
+  %210 = invoke i32 @ex_opt_count(ptr noundef @.str.28)
+          to label %211 unwind label %118
 
-212:                                              ; preds = %210
-  %213 = invoke i32 @open_info_name_to_type(ptr noundef %211)
-          to label %214 unwind label %118
+211:                                              ; preds = %209
+  %212 = icmp sgt i32 %210, 0
+  br i1 %212, label %213, label %218
 
-214:                                              ; preds = %212
-  store i32 %213, ptr %20, align 4
-  br label %215
+213:                                              ; preds = %211
+  %214 = invoke ptr @ex_opt_get_next(ptr noundef @.str.28)
+          to label %215 unwind label %118
 
-215:                                              ; preds = %214, %208
+215:                                              ; preds = %213
+  %216 = invoke i32 @open_info_name_to_type(ptr noundef %214)
+          to label %217 unwind label %118
+
+217:                                              ; preds = %215
+  store i32 %216, ptr %20, align 4
+  br label %218
+
+218:                                              ; preds = %217, %211
   invoke void @_Z13splash_update17register_action_ePKcPv(i32 noundef 10, ptr noundef null, ptr noundef null)
-          to label %216 unwind label %118
+          to label %219 unwind label %118
 
-216:                                              ; preds = %215
-  %217 = invoke noundef ptr @_ZN15MainApplication22readConfigurationFilesEb(ptr noundef nonnull align 8 dereferenceable(216) %18, i1 noundef zeroext false)
-          to label %218 unwind label %118
-
-218:                                              ; preds = %216
-  store ptr %217, ptr @global_commandline_info, align 8
-  %219 = load i32, ptr %4, align 4
-  %220 = load ptr, ptr %8, align 8
-  invoke void @commandline_override_prefs(i32 noundef %219, ptr noundef %220, i32 noundef 1)
+219:                                              ; preds = %218
+  %220 = invoke noundef ptr @_ZN15MainApplication22readConfigurationFilesEb(ptr noundef nonnull align 8 dereferenceable(216) %18, i1 noundef zeroext false)
           to label %221 unwind label %118
 
-221:                                              ; preds = %218
-  invoke void @_Z13splash_update17register_action_ePKcPv(i32 noundef 3, ptr noundef null, ptr noundef null)
-          to label %222 unwind label %118
-
-222:                                              ; preds = %221
-  invoke void @extcap_register_preferences()
-          to label %223 unwind label %118
-
-223:                                              ; preds = %222
-  invoke void @prefs_to_capture_opts()
+221:                                              ; preds = %219
+  store ptr %220, ptr @global_commandline_info, align 8
+  %222 = load i32, ptr %4, align 4
+  %223 = load ptr, ptr %8, align 8
+  invoke void @commandline_override_prefs(i32 noundef %222, ptr noundef %223, i32 noundef 1)
           to label %224 unwind label %118
 
-224:                                              ; preds = %223
-  %225 = load i32, ptr %4, align 4
-  %226 = load ptr, ptr %8, align 8
-  invoke void @commandline_other_options(i32 noundef %225, ptr noundef %226, i32 noundef 1)
+224:                                              ; preds = %221
+  invoke void @_Z13splash_update17register_action_ePKcPv(i32 noundef 3, ptr noundef null, ptr noundef null)
+          to label %225 unwind label %118
+
+225:                                              ; preds = %224
+  invoke void @extcap_register_preferences()
+          to label %226 unwind label %118
+
+226:                                              ; preds = %225
+  invoke void @prefs_to_capture_opts()
           to label %227 unwind label %118
 
-227:                                              ; preds = %224
-  %228 = load ptr, ptr getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 4), align 8
-  %229 = icmp ne ptr %228, null
-  br i1 %229, label %230, label %234
+227:                                              ; preds = %226
+  %228 = load i32, ptr %4, align 4
+  %229 = load ptr, ptr %8, align 8
+  invoke void @commandline_other_options(i32 noundef %228, ptr noundef %229, i32 noundef 1)
+          to label %230 unwind label %118
 
 230:                                              ; preds = %227
-  %231 = load ptr, ptr getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 4), align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef %231)
-          to label %232 unwind label %118
+  %231 = getelementptr inbounds %struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 4
+  %232 = load ptr, ptr %231, align 8
+  %233 = icmp ne ptr %232, null
+  br i1 %233, label %234, label %239
 
-232:                                              ; preds = %230
-  %233 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %26) #13
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #13
-  br label %234
-
-234:                                              ; preds = %232, %227
-  %235 = load ptr, ptr getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 5), align 8
-  %236 = icmp ne ptr %235, null
-  br i1 %236, label %237, label %241
+234:                                              ; preds = %230
+  %235 = getelementptr inbounds %struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 4
+  %236 = load ptr, ptr %235, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef %236)
+          to label %237 unwind label %118
 
 237:                                              ; preds = %234
-  %238 = load ptr, ptr getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 5), align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef %238)
-          to label %239 unwind label %118
+  %238 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %26) #13
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #13
+  br label %239
 
-239:                                              ; preds = %237
-  %240 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %27) #13
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
-  br label %241
+239:                                              ; preds = %237, %230
+  %240 = getelementptr inbounds %struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 5
+  %241 = load ptr, ptr %240, align 8
+  %242 = icmp ne ptr %241, null
+  br i1 %242, label %243, label %248
 
-241:                                              ; preds = %239, %234
-  %242 = load ptr, ptr getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 6), align 8
-  %243 = icmp ne ptr %242, null
-  br i1 %243, label %244, label %248
-
-244:                                              ; preds = %241
-  %245 = load ptr, ptr getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 6), align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef %245)
+243:                                              ; preds = %239
+  %244 = getelementptr inbounds %struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 5
+  %245 = load ptr, ptr %244, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef %245)
           to label %246 unwind label %118
 
-246:                                              ; preds = %244
-  %247 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %28) #13
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #13
+246:                                              ; preds = %243
+  %247 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %27) #13
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #13
   br label %248
 
-248:                                              ; preds = %246, %241
-  %249 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i32 0, i32 10), align 8
-  invoke void @timestamp_set_type(i32 noundef %249)
-          to label %250 unwind label %118
+248:                                              ; preds = %246, %239
+  %249 = getelementptr inbounds %struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 6
+  %250 = load ptr, ptr %249, align 8
+  %251 = icmp ne ptr %250, null
+  br i1 %251, label %252, label %257
 
-250:                                              ; preds = %248
-  %251 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i32 0, i32 11), align 4
-  invoke void @timestamp_set_precision(i32 noundef %251)
-          to label %252 unwind label %118
-
-252:                                              ; preds = %250
-  %253 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i32 0, i32 12), align 8
-  invoke void @timestamp_set_seconds_type(i32 noundef %253)
-          to label %254 unwind label %118
-
-254:                                              ; preds = %252
-  invoke void @_Z13splash_update17register_action_ePKcPv(i32 noundef 12, ptr noundef null, ptr noundef null)
+252:                                              ; preds = %248
+  %253 = getelementptr inbounds %struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 6
+  %254 = load ptr, ptr %253, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef %254)
           to label %255 unwind label %118
 
-255:                                              ; preds = %254
-  invoke void @prefs_apply_all()
-          to label %256 unwind label %118
+255:                                              ; preds = %252
+  %256 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEOS_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %28) #13
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #13
+  br label %257
 
-256:                                              ; preds = %255
-  %257 = load ptr, ptr @wsApp, align 8
-  invoke void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef nonnull align 8 dereferenceable(216) %257, i32 noundef 1)
-          to label %258 unwind label %118
-
-258:                                              ; preds = %256
-  %259 = load ptr, ptr @wsApp, align 8
-  invoke void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef nonnull align 8 dereferenceable(216) %259, i32 noundef 9)
+257:                                              ; preds = %255, %248
+  %258 = getelementptr inbounds %struct.recent_settings_tag, ptr @recent, i32 0, i32 10
+  %259 = load i32, ptr %258, align 8
+  invoke void @timestamp_set_type(i32 noundef %259)
           to label %260 unwind label %118
 
-260:                                              ; preds = %258
-  %261 = invoke i32 @setup_enabled_and_disabled_protocols()
-          to label %262 unwind label %118
+260:                                              ; preds = %257
+  %261 = getelementptr inbounds %struct.recent_settings_tag, ptr @recent, i32 0, i32 11
+  %262 = load i32, ptr %261, align 4
+  invoke void @timestamp_set_precision(i32 noundef %262)
+          to label %263 unwind label %118
 
-262:                                              ; preds = %260
-  %263 = icmp ne i32 %261, 0
-  br i1 %263, label %265, label %264
+263:                                              ; preds = %260
+  %264 = getelementptr inbounds %struct.recent_settings_tag, ptr @recent, i32 0, i32 12
+  %265 = load i32, ptr %264, align 8
+  invoke void @timestamp_set_seconds_type(i32 noundef %265)
+          to label %266 unwind label %118
 
-264:                                              ; preds = %262
-  store i32 1, ptr %7, align 4
-  br label %409
-
-265:                                              ; preds = %262
-  %266 = invoke noundef ptr @_ZN11CaptureFile13globalCapFileEv()
+266:                                              ; preds = %263
+  invoke void @_Z13splash_update17register_action_ePKcPv(i32 noundef 12, ptr noundef null, ptr noundef null)
           to label %267 unwind label %118
 
-267:                                              ; preds = %265
-  %268 = getelementptr inbounds %struct._capture_file, ptr %266, i32 0, i32 45
-  %269 = load ptr, ptr @global_commandline_info, align 8
-  %270 = getelementptr inbounds %struct._e_prefs, ptr %269, i32 0, i32 1
-  %271 = load i32, ptr %270, align 8
-  invoke void @build_column_format_array(ptr noundef %268, i32 noundef %271, i32 noundef 1)
+267:                                              ; preds = %266
+  invoke void @prefs_apply_all()
+          to label %268 unwind label %118
+
+268:                                              ; preds = %267
+  %269 = load ptr, ptr @wsApp, align 8
+  invoke void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef nonnull align 8 dereferenceable(216) %269, i32 noundef 1)
+          to label %270 unwind label %118
+
+270:                                              ; preds = %268
+  %271 = load ptr, ptr @wsApp, align 8
+  invoke void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef nonnull align 8 dereferenceable(216) %271, i32 noundef 9)
           to label %272 unwind label %118
 
-272:                                              ; preds = %267
-  %273 = load ptr, ptr @wsApp, align 8
-  invoke void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef nonnull align 8 dereferenceable(216) %273, i32 noundef 2)
+272:                                              ; preds = %270
+  %273 = invoke i32 @setup_enabled_and_disabled_protocols()
           to label %274 unwind label %118
 
 274:                                              ; preds = %272
-  %275 = load ptr, ptr @wsApp, align 8
-  invoke void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef nonnull align 8 dereferenceable(216) %275, i32 noundef 12)
-          to label %276 unwind label %118
+  %275 = icmp ne i32 %273, 0
+  br i1 %275, label %277, label %276
 
 276:                                              ; preds = %274
-  %277 = load ptr, ptr @wsApp, align 8
-  %278 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 11), align 8
-  invoke void @_ZN15MainApplication16setMonospaceFontEPKc(ptr noundef nonnull align 8 dereferenceable(216) %277, ptr noundef %278)
+  store i32 1, ptr %7, align 4
+  br label %428
+
+277:                                              ; preds = %274
+  %278 = invoke noundef ptr @_ZN11CaptureFile13globalCapFileEv()
           to label %279 unwind label %118
 
-279:                                              ; preds = %276
-  %280 = load ptr, ptr %6, align 8
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
-  invoke void @_ZN19WiresharkMainWindow16setWSWindowTitleE7QString(ptr noundef nonnull align 8 dereferenceable(520) %280, ptr noundef %29)
-          to label %281 unwind label %291
+279:                                              ; preds = %277
+  %280 = getelementptr inbounds %struct._capture_file, ptr %278, i32 0, i32 45
+  %281 = load ptr, ptr @global_commandline_info, align 8
+  %282 = getelementptr inbounds %struct._e_prefs, ptr %281, i32 0, i32 1
+  %283 = load i32, ptr %282, align 8
+  invoke void @build_column_format_array(ptr noundef %280, i32 noundef %283, i32 noundef 1)
+          to label %284 unwind label %118
 
-281:                                              ; preds = %279
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
-  %282 = invoke i32 @color_filters_init(ptr noundef %11, ptr noundef @color_filter_add_cb)
-          to label %283 unwind label %118
+284:                                              ; preds = %279
+  %285 = load ptr, ptr @wsApp, align 8
+  invoke void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef nonnull align 8 dereferenceable(216) %285, i32 noundef 2)
+          to label %286 unwind label %118
 
-283:                                              ; preds = %281
-  %284 = icmp ne i32 %282, 0
-  br i1 %284, label %295, label %285
-
-285:                                              ; preds = %283
-  %286 = load ptr, ptr %11, align 8
-  %287 = invoke ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef @.str.24, ptr noundef %286)
+286:                                              ; preds = %284
+  %287 = load ptr, ptr @wsApp, align 8
+  invoke void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef nonnull align 8 dereferenceable(216) %287, i32 noundef 12)
           to label %288 unwind label %118
 
-288:                                              ; preds = %285
-  %289 = load ptr, ptr %11, align 8
-  invoke void @g_free(ptr noundef %289)
-          to label %290 unwind label %118
+288:                                              ; preds = %286
+  %289 = load ptr, ptr @wsApp, align 8
+  %290 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 11
+  %291 = load ptr, ptr %290, align 8
+  invoke void @_ZN15MainApplication16setMonospaceFontEPKc(ptr noundef nonnull align 8 dereferenceable(216) %289, ptr noundef %291)
+          to label %292 unwind label %118
 
-290:                                              ; preds = %288
-  br label %295
+292:                                              ; preds = %288
+  %293 = load ptr, ptr %6, align 8
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
+  invoke void @_ZN19WiresharkMainWindow16setWSWindowTitleE7QString(ptr noundef nonnull align 8 dereferenceable(520) %293, ptr noundef %29)
+          to label %294 unwind label %304
 
-291:                                              ; preds = %279
-  %292 = landingpad { ptr, i32 }
-          cleanup
-  %293 = extractvalue { ptr, i32 } %292, 0
-  store ptr %293, ptr %16, align 8
-  %294 = extractvalue { ptr, i32 } %292, 1
-  store i32 %294, ptr %17, align 4
+294:                                              ; preds = %292
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
-  br label %420
+  %295 = invoke i32 @color_filters_init(ptr noundef %11, ptr noundef @color_filter_add_cb)
+          to label %296 unwind label %118
 
-295:                                              ; preds = %290, %283
-  %296 = load ptr, ptr @wsApp, align 8
-  invoke void @_ZN15MainApplication12allSystemsGoEv(ptr noundef nonnull align 8 dereferenceable(216) %296)
-          to label %297 unwind label %118
+296:                                              ; preds = %294
+  %297 = icmp ne i32 %295, 0
+  br i1 %297, label %308, label %298
 
-297:                                              ; preds = %295
-  br label %298
+298:                                              ; preds = %296
+  %299 = load ptr, ptr %11, align 8
+  %300 = invoke ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef @.str.24, ptr noundef %299)
+          to label %301 unwind label %118
 
-298:                                              ; preds = %297
-  %299 = invoke i64 @g_get_monotonic_time()
-          to label %300 unwind label %118
+301:                                              ; preds = %298
+  %302 = load ptr, ptr %11, align 8
+  invoke void @g_free(ptr noundef %302)
+          to label %303 unwind label %118
 
-300:                                              ; preds = %298
-  %301 = load i64, ptr %15, align 8
-  %302 = sub i64 %299, %301
-  %303 = uitofp i64 %302 to float
-  %304 = fdiv float %303, 1.000000e+06
-  %305 = fpext float %304 to double
-  invoke void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.29, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef @.str.30, double noundef %305)
-          to label %306 unwind label %118
-
-306:                                              ; preds = %300
-  br label %307
-
-307:                                              ; preds = %306
+303:                                              ; preds = %301
   br label %308
 
-308:                                              ; preds = %307
-  %309 = load ptr, ptr %6, align 8
-  invoke void @_ZN12SimpleDialog21displayQueuedMessagesEP7QWidget(ptr noundef %309)
+304:                                              ; preds = %292
+  %305 = landingpad { ptr, i32 }
+          cleanup
+  %306 = extractvalue { ptr, i32 } %305, 0
+  store ptr %306, ptr %16, align 8
+  %307 = extractvalue { ptr, i32 } %305, 1
+  store i32 %307, ptr %17, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
+  br label %439
+
+308:                                              ; preds = %303, %296
+  %309 = load ptr, ptr @wsApp, align 8
+  invoke void @_ZN15MainApplication12allSystemsGoEv(ptr noundef nonnull align 8 dereferenceable(216) %309)
           to label %310 unwind label %118
 
 310:                                              ; preds = %308
-  %311 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %312 unwind label %118
+  br label %311
 
-312:                                              ; preds = %310
-  br i1 %311, label %323, label %313
+311:                                              ; preds = %310
+  %312 = invoke i64 @g_get_monotonic_time()
+          to label %313 unwind label %118
 
-313:                                              ; preds = %312
-  %314 = load ptr, ptr %6, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds ptr, ptr %315, i64 53
-  %317 = load ptr, ptr %316, align 8
-  invoke void %317(ptr noundef nonnull align 8 dereferenceable(520) %314, ptr noundef %30, i1 noundef zeroext false)
-          to label %318 unwind label %319
-
-318:                                              ; preds = %313
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #13
-  br label %323
+313:                                              ; preds = %311
+  %314 = load i64, ptr %15, align 8
+  %315 = sub i64 %312, %314
+  %316 = uitofp i64 %315 to float
+  %317 = fdiv float %316, 1.000000e+06
+  %318 = fpext float %317 to double
+  invoke void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.29, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef @.str.30, double noundef %318)
+          to label %319 unwind label %118
 
 319:                                              ; preds = %313
-  %320 = landingpad { ptr, i32 }
-          cleanup
-  %321 = extractvalue { ptr, i32 } %320, 0
-  store ptr %321, ptr %16, align 8
-  %322 = extractvalue { ptr, i32 } %320, 1
-  store i32 %322, ptr %17, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #13
-  br label %420
+  br label %320
 
-323:                                              ; preds = %318, %312
-  %324 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
+320:                                              ; preds = %319
+  br label %321
+
+321:                                              ; preds = %320
+  %322 = load ptr, ptr %6, align 8
+  invoke void @_ZN12SimpleDialog21displayQueuedMessagesEP7QWidget(ptr noundef %322)
+          to label %323 unwind label %118
+
+323:                                              ; preds = %321
+  %324 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %325 unwind label %118
 
 325:                                              ; preds = %323
-  br i1 %324, label %389, label %326
+  br i1 %324, label %336, label %326
 
 326:                                              ; preds = %325
   %327 = load ptr, ptr %6, align 8
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %13) #13
+  %328 = load ptr, ptr %327, align 8
+  %329 = getelementptr inbounds ptr, ptr %328, i64 53
+  %330 = load ptr, ptr %329, align 8
+  invoke void %330(ptr noundef nonnull align 8 dereferenceable(520) %327, ptr noundef %30, i1 noundef zeroext false)
+          to label %331 unwind label %332
+
+331:                                              ; preds = %326
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #13
+  br label %336
+
+332:                                              ; preds = %326
+  %333 = landingpad { ptr, i32 }
+          cleanup
+  %334 = extractvalue { ptr, i32 } %333, 0
+  store ptr %334, ptr %16, align 8
+  %335 = extractvalue { ptr, i32 } %333, 1
+  store i32 %335, ptr %17, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #13
+  br label %439
+
+336:                                              ; preds = %331, %325
+  %337 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %338 unwind label %118
+
+338:                                              ; preds = %336
+  br i1 %337, label %408, label %339
+
+339:                                              ; preds = %338
+  %340 = load ptr, ptr %6, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %14) #13
-  %328 = load i32, ptr %20, align 4
-  %329 = invoke noundef zeroext i1 @_ZN19WiresharkMainWindow15openCaptureFileE7QStringS0_ji(ptr noundef nonnull align 8 dereferenceable(520) %327, ptr noundef %31, ptr noundef %32, i32 noundef %328, i32 noundef 0)
-          to label %330 unwind label %341
+  %341 = load i32, ptr %20, align 4
+  %342 = invoke noundef zeroext i1 @_ZN19WiresharkMainWindow15openCaptureFileE7QStringS0_ji(ptr noundef nonnull align 8 dereferenceable(520) %340, ptr noundef %31, ptr noundef %32, i32 noundef %341, i32 noundef 0)
+          to label %343 unwind label %356
 
-330:                                              ; preds = %326
+343:                                              ; preds = %339
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
-  br i1 %329, label %331, label %388
+  br i1 %342, label %344, label %407
 
-331:                                              ; preds = %330
+344:                                              ; preds = %343
   invoke void @start_requested_stats()
-          to label %332 unwind label %118
+          to label %345 unwind label %118
 
-332:                                              ; preds = %331
-  %333 = load i32, ptr getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 2), align 4
-  %334 = icmp ne i32 %333, 0
-  br i1 %334, label %335, label %345
+345:                                              ; preds = %344
+  %346 = getelementptr inbounds %struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 2
+  %347 = load i32, ptr %346, align 4
+  %348 = icmp ne i32 %347, 0
+  br i1 %348, label %349, label %360
 
-335:                                              ; preds = %332
-  %336 = invoke noundef ptr @_ZN11CaptureFile13globalCapFileEv()
-          to label %337 unwind label %118
-
-337:                                              ; preds = %335
-  %338 = load i32, ptr getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 2), align 4
-  %339 = invoke i32 @cf_goto_frame(ptr noundef %336, i32 noundef %338)
-          to label %340 unwind label %118
-
-340:                                              ; preds = %337
-  br label %387
-
-341:                                              ; preds = %326
-  %342 = landingpad { ptr, i32 }
-          cleanup
-  %343 = extractvalue { ptr, i32 } %342, 0
-  store ptr %343, ptr %16, align 8
-  %344 = extractvalue { ptr, i32 } %342, 1
-  store i32 %344, ptr %17, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
-  br label %420
-
-345:                                              ; preds = %332
-  %346 = load ptr, ptr getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 3), align 8
-  %347 = icmp ne ptr %346, null
-  br i1 %347, label %348, label %386
-
-348:                                              ; preds = %345
-  store ptr null, ptr %33, align 8
-  %349 = load ptr, ptr getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 3), align 8
-  %350 = invoke zeroext i1 @dfilter_compile_full(ptr noundef %349, ptr noundef %33, ptr noundef %12, i32 noundef 6, ptr noundef @__func__.main)
+349:                                              ; preds = %345
+  %350 = invoke noundef ptr @_ZN11CaptureFile13globalCapFileEv()
           to label %351 unwind label %118
 
-351:                                              ; preds = %348
-  br i1 %350, label %378, label %352
+351:                                              ; preds = %349
+  %352 = getelementptr inbounds %struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 2
+  %353 = load i32, ptr %352, align 4
+  %354 = invoke i32 @cf_goto_frame(ptr noundef %350, i32 noundef %353)
+          to label %355 unwind label %118
 
-352:                                              ; preds = %351
-  %353 = load ptr, ptr %6, align 8
+355:                                              ; preds = %351
+  br label %406
+
+356:                                              ; preds = %339
+  %357 = landingpad { ptr, i32 }
+          cleanup
+  %358 = extractvalue { ptr, i32 } %357, 0
+  store ptr %358, ptr %16, align 8
+  %359 = extractvalue { ptr, i32 } %357, 1
+  store i32 %359, ptr %17, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #13
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
+  br label %439
+
+360:                                              ; preds = %345
+  %361 = getelementptr inbounds %struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 3
+  %362 = load ptr, ptr %361, align 8
+  %363 = icmp ne ptr %362, null
+  br i1 %363, label %364, label %405
+
+364:                                              ; preds = %360
+  store ptr null, ptr %33, align 8
+  %365 = getelementptr inbounds %struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 3
+  %366 = load ptr, ptr %365, align 8
+  %367 = invoke zeroext i1 @dfilter_compile_full(ptr noundef %366, ptr noundef %33, ptr noundef %12, i32 noundef 6, ptr noundef @__func__.main)
+          to label %368 unwind label %118
+
+368:                                              ; preds = %364
+  br i1 %367, label %396, label %369
+
+369:                                              ; preds = %368
+  %370 = load ptr, ptr %6, align 8
   invoke void @_ZN7QObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %34, ptr noundef @.str.31, ptr noundef null, i32 noundef -1)
-          to label %354 unwind label %118
+          to label %371 unwind label %118
 
-354:                                              ; preds = %352
+371:                                              ; preds = %369
   invoke void @_ZN7QObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %36, ptr noundef @.str.32, ptr noundef null, i32 noundef -1)
-          to label %355 unwind label %364
+          to label %372 unwind label %382
 
-355:                                              ; preds = %354
-  %356 = load ptr, ptr %12, align 8
-  %357 = getelementptr inbounds %struct.df_error_t, ptr %356, i32 0, i32 1
-  invoke void @_ZNK7QString3argIJRPcS2_EEENSt9enable_ifIXaagesZT_Li2Esr3std7is_sameIN9QtPrivate8BoolListIJXspsr33is_convertible_to_view_or_qstringIT_EE5valueELb1EEEENS5_IJLb1EXspsr33is_convertible_to_view_or_qstringIS6_EE5valueEEEEEE5valueES_E4typeEDpOS6_(ptr dead_on_unwind writable sret(%class.QString) align 8 %35, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 3), ptr noundef nonnull align 8 dereferenceable(8) %357)
-          to label %358 unwind label %368
+372:                                              ; preds = %371
+  %373 = load ptr, ptr %12, align 8
+  %374 = getelementptr inbounds %struct.df_error_t, ptr %373, i32 0, i32 1
+  %375 = getelementptr inbounds %struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 3
+  invoke void @_ZNK7QString3argIJRPcS2_EEENSt9enable_ifIXaagesZT_Li2Esr3std7is_sameIN9QtPrivate8BoolListIJXspsr33is_convertible_to_view_or_qstringIT_EE5valueELb1EEEENS5_IJLb1EXspsr33is_convertible_to_view_or_qstringIS6_EE5valueEEEEEE5valueES_E4typeEDpOS6_(ptr dead_on_unwind writable sret(%class.QString) align 8 %35, ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(8) %375, ptr noundef nonnull align 8 dereferenceable(8) %374)
+          to label %376 unwind label %386
 
-358:                                              ; preds = %355
+376:                                              ; preds = %372
   call void @_ZN6QFlagsIN11QMessageBox14StandardButtonEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %37, i32 noundef 1024) #13
-  %359 = getelementptr inbounds %class.QFlags.30, ptr %37, i32 0, i32 0
-  %360 = load i32, ptr %359, align 4
-  %361 = invoke noundef i32 @_ZN11QMessageBox7warningEP7QWidgetRK7QStringS4_6QFlagsINS_14StandardButtonEES6_(ptr noundef %353, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %35, i32 %360, i32 noundef 0)
-          to label %362 unwind label %372
+  %377 = getelementptr inbounds %class.QFlags.30, ptr %37, i32 0, i32 0
+  %378 = load i32, ptr %377, align 4
+  %379 = invoke noundef i32 @_ZN11QMessageBox7warningEP7QWidgetRK7QStringS4_6QFlagsINS_14StandardButtonEES6_(ptr noundef %370, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %35, i32 %378, i32 noundef 0)
+          to label %380 unwind label %390
 
-362:                                              ; preds = %358
+380:                                              ; preds = %376
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
   invoke void @df_error_free(ptr noundef %12)
-          to label %363 unwind label %118
+          to label %381 unwind label %118
 
-363:                                              ; preds = %362
-  br label %385
+381:                                              ; preds = %380
+  br label %404
 
-364:                                              ; preds = %354
-  %365 = landingpad { ptr, i32 }
+382:                                              ; preds = %371
+  %383 = landingpad { ptr, i32 }
           cleanup
-  %366 = extractvalue { ptr, i32 } %365, 0
-  store ptr %366, ptr %16, align 8
-  %367 = extractvalue { ptr, i32 } %365, 1
-  store i32 %367, ptr %17, align 4
-  br label %377
+  %384 = extractvalue { ptr, i32 } %383, 0
+  store ptr %384, ptr %16, align 8
+  %385 = extractvalue { ptr, i32 } %383, 1
+  store i32 %385, ptr %17, align 4
+  br label %395
 
-368:                                              ; preds = %355
-  %369 = landingpad { ptr, i32 }
+386:                                              ; preds = %372
+  %387 = landingpad { ptr, i32 }
           cleanup
-  %370 = extractvalue { ptr, i32 } %369, 0
-  store ptr %370, ptr %16, align 8
-  %371 = extractvalue { ptr, i32 } %369, 1
-  store i32 %371, ptr %17, align 4
-  br label %376
+  %388 = extractvalue { ptr, i32 } %387, 0
+  store ptr %388, ptr %16, align 8
+  %389 = extractvalue { ptr, i32 } %387, 1
+  store i32 %389, ptr %17, align 4
+  br label %394
 
-372:                                              ; preds = %358
-  %373 = landingpad { ptr, i32 }
+390:                                              ; preds = %376
+  %391 = landingpad { ptr, i32 }
           cleanup
-  %374 = extractvalue { ptr, i32 } %373, 0
-  store ptr %374, ptr %16, align 8
-  %375 = extractvalue { ptr, i32 } %373, 1
-  store i32 %375, ptr %17, align 4
+  %392 = extractvalue { ptr, i32 } %391, 0
+  store ptr %392, ptr %16, align 8
+  %393 = extractvalue { ptr, i32 } %391, 1
+  store i32 %393, ptr %17, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #13
-  br label %376
+  br label %394
 
-376:                                              ; preds = %372, %368
+394:                                              ; preds = %390, %386
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #13
-  br label %377
+  br label %395
 
-377:                                              ; preds = %376, %364
+395:                                              ; preds = %394, %382
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #13
-  br label %420
+  br label %439
 
-378:                                              ; preds = %351
-  %379 = invoke noundef ptr @_ZN11CaptureFile13globalCapFileEv()
-          to label %380 unwind label %118
+396:                                              ; preds = %368
+  %397 = invoke noundef ptr @_ZN11CaptureFile13globalCapFileEv()
+          to label %398 unwind label %118
 
-380:                                              ; preds = %378
-  %381 = load ptr, ptr %33, align 8
-  %382 = load i32, ptr getelementptr inbounds (%struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 1), align 8
-  %383 = invoke i32 @cf_find_packet_dfilter(ptr noundef %379, ptr noundef %381, i32 noundef %382)
-          to label %384 unwind label %118
-
-384:                                              ; preds = %380
-  br label %385
-
-385:                                              ; preds = %384, %363
-  br label %386
-
-386:                                              ; preds = %385, %345
-  br label %387
-
-387:                                              ; preds = %386, %340
-  br label %388
-
-388:                                              ; preds = %387, %330
-  br label %389
-
-389:                                              ; preds = %388, %325
-  invoke void @profile_register_persconffile(ptr noundef @.str.33)
-          to label %390 unwind label %118
-
-390:                                              ; preds = %389
-  invoke void @profile_register_persconffile(ptr noundef @.str.34)
-          to label %391 unwind label %118
-
-391:                                              ; preds = %390
-  invoke void @profile_register_persconffile(ptr noundef @.str.35)
-          to label %392 unwind label %118
-
-392:                                              ; preds = %391
-  invoke void @profile_store_persconffiles(i1 noundef zeroext false)
-          to label %393 unwind label %118
-
-393:                                              ; preds = %392
-  %394 = invoke noundef i32 @_ZN12QApplication4execEv()
-          to label %395 unwind label %118
-
-395:                                              ; preds = %393
-  store i32 %394, ptr %7, align 4
-  store ptr null, ptr @wsApp, align 8
-  %396 = load ptr, ptr %6, align 8
-  %397 = icmp eq ptr %396, null
-  br i1 %397, label %402, label %398
-
-398:                                              ; preds = %395
-  %399 = load ptr, ptr %396, align 8
-  %400 = getelementptr inbounds ptr, ptr %399, i64 4
-  %401 = load ptr, ptr %400, align 8
-  call void %401(ptr noundef nonnull align 8 dereferenceable(520) %396) #13
-  br label %402
-
-402:                                              ; preds = %398, %395
-  invoke void @recent_cleanup()
+398:                                              ; preds = %396
+  %399 = load ptr, ptr %33, align 8
+  %400 = getelementptr inbounds %struct.commandline_param_info, ptr @global_commandline_info, i32 0, i32 1
+  %401 = load i32, ptr %400, align 8
+  %402 = invoke i32 @cf_find_packet_dfilter(ptr noundef %397, ptr noundef %399, i32 noundef %401)
           to label %403 unwind label %118
 
-403:                                              ; preds = %402
-  invoke void @epan_cleanup()
-          to label %404 unwind label %118
+403:                                              ; preds = %398
+  br label %404
 
-404:                                              ; preds = %403
-  invoke void @extcap_cleanup()
-          to label %405 unwind label %118
+404:                                              ; preds = %403, %381
+  br label %405
 
-405:                                              ; preds = %404
-  %406 = invoke i32 @Dot11DecryptDestroyContext(ptr noundef @dot11decrypt_ctx)
-          to label %407 unwind label %118
+405:                                              ; preds = %404, %360
+  br label %406
 
-407:                                              ; preds = %405
-  invoke void @ws_cleanup_sockets()
-          to label %408 unwind label %118
+406:                                              ; preds = %405, %355
+  br label %407
 
-408:                                              ; preds = %407
-  br label %409
+407:                                              ; preds = %406, %343
+  br label %408
 
-409:                                              ; preds = %408, %264, %183, %113
-  %410 = invoke noundef ptr @_ZN11CaptureFile13globalCapFileEv()
+408:                                              ; preds = %407, %338
+  invoke void @profile_register_persconffile(ptr noundef @.str.33)
+          to label %409 unwind label %118
+
+409:                                              ; preds = %408
+  invoke void @profile_register_persconffile(ptr noundef @.str.34)
+          to label %410 unwind label %118
+
+410:                                              ; preds = %409
+  invoke void @profile_register_persconffile(ptr noundef @.str.35)
           to label %411 unwind label %118
 
-411:                                              ; preds = %409
-  %412 = getelementptr inbounds %struct._capture_file, ptr %410, i32 0, i32 45
-  invoke void @col_cleanup(ptr noundef %412)
-          to label %413 unwind label %118
+411:                                              ; preds = %410
+  invoke void @profile_store_persconffiles(i1 noundef zeroext false)
+          to label %412 unwind label %118
 
-413:                                              ; preds = %411
-  invoke void @codecs_cleanup()
+412:                                              ; preds = %411
+  %413 = invoke noundef i32 @_ZN12QApplication4execEv()
           to label %414 unwind label %118
 
-414:                                              ; preds = %413
-  invoke void @wtap_cleanup()
-          to label %415 unwind label %118
+414:                                              ; preds = %412
+  store i32 %413, ptr %7, align 4
+  store ptr null, ptr @wsApp, align 8
+  %415 = load ptr, ptr %6, align 8
+  %416 = icmp eq ptr %415, null
+  br i1 %416, label %421, label %417
 
-415:                                              ; preds = %414
-  invoke void @free_progdirs()
-          to label %416 unwind label %118
-
-416:                                              ; preds = %415
-  invoke void @commandline_options_free()
-          to label %417 unwind label %118
-
-417:                                              ; preds = %416
-  %418 = load i32, ptr %7, align 4
-  invoke void @exit_application(i32 noundef %418) #18
-          to label %419 unwind label %118
-
-419:                                              ; preds = %417
-  unreachable
-
-420:                                              ; preds = %377, %341, %319, %291, %171, %167, %118
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
+417:                                              ; preds = %414
+  %418 = load ptr, ptr %415, align 8
+  %419 = getelementptr inbounds ptr, ptr %418, i64 4
+  %420 = load ptr, ptr %419, align 8
+  call void %420(ptr noundef nonnull align 8 dereferenceable(520) %415) #13
   br label %421
 
-421:                                              ; preds = %420, %114
-  call void @_ZN20WiresharkApplicationD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %18) #13
-  br label %422
+421:                                              ; preds = %417, %414
+  invoke void @recent_cleanup()
+          to label %422 unwind label %118
 
-422:                                              ; preds = %421, %75
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  br label %423
+422:                                              ; preds = %421
+  invoke void @epan_cleanup()
+          to label %423 unwind label %118
 
 423:                                              ; preds = %422
-  %424 = load ptr, ptr %16, align 8
-  %425 = load i32, ptr %17, align 4
-  %426 = insertvalue { ptr, i32 } poison, ptr %424, 0
-  %427 = insertvalue { ptr, i32 } %426, i32 %425, 1
-  resume { ptr, i32 } %427
+  invoke void @extcap_cleanup()
+          to label %424 unwind label %118
+
+424:                                              ; preds = %423
+  %425 = invoke i32 @Dot11DecryptDestroyContext(ptr noundef @dot11decrypt_ctx)
+          to label %426 unwind label %118
+
+426:                                              ; preds = %424
+  invoke void @ws_cleanup_sockets()
+          to label %427 unwind label %118
+
+427:                                              ; preds = %426
+  br label %428
+
+428:                                              ; preds = %427, %276, %186, %113
+  %429 = invoke noundef ptr @_ZN11CaptureFile13globalCapFileEv()
+          to label %430 unwind label %118
+
+430:                                              ; preds = %428
+  %431 = getelementptr inbounds %struct._capture_file, ptr %429, i32 0, i32 45
+  invoke void @col_cleanup(ptr noundef %431)
+          to label %432 unwind label %118
+
+432:                                              ; preds = %430
+  invoke void @codecs_cleanup()
+          to label %433 unwind label %118
+
+433:                                              ; preds = %432
+  invoke void @wtap_cleanup()
+          to label %434 unwind label %118
+
+434:                                              ; preds = %433
+  invoke void @free_progdirs()
+          to label %435 unwind label %118
+
+435:                                              ; preds = %434
+  invoke void @commandline_options_free()
+          to label %436 unwind label %118
+
+436:                                              ; preds = %435
+  %437 = load i32, ptr %7, align 4
+  invoke void @exit_application(i32 noundef %437) #18
+          to label %438 unwind label %118
+
+438:                                              ; preds = %436
+  unreachable
+
+439:                                              ; preds = %395, %356, %332, %304, %174, %170, %118
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
+  br label %440
+
+440:                                              ; preds = %439, %114
+  call void @_ZN20WiresharkApplicationD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %18) #13
+  br label %441
+
+441:                                              ; preds = %440, %75
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
+  br label %442
+
+442:                                              ; preds = %441
+  %443 = load ptr, ptr %16, align 8
+  %444 = load i32, ptr %17, align 4
+  %445 = insertvalue { ptr, i32 } poison, ptr %443, 0
+  %446 = insertvalue { ptr, i32 } %445, i32 %444, 1
+  resume { ptr, i32 } %446
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

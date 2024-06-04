@@ -405,21 +405,22 @@ define internal ptr @base64_encode(ptr noundef %0, i64 noundef %1) #0 {
   %128 = load i64, ptr %5, align 8
   %129 = urem i64 %128, 4
   %130 = icmp ne i64 %129, 0
-  br i1 %130, label %131, label %137
+  br i1 %130, label %131, label %138
 
 131:                                              ; preds = %127
-  %132 = load i8, ptr getelementptr inbounds ([66 x i8], ptr @base64_alphabet, i64 0, i64 64), align 16
-  %133 = load ptr, ptr %7, align 8
-  %134 = load i64, ptr %5, align 8
-  %135 = add i64 %134, 1
-  store i64 %135, ptr %5, align 8
-  %136 = getelementptr inbounds i8, ptr %133, i64 %134
-  store i8 %132, ptr %136, align 1
+  %132 = getelementptr inbounds [66 x i8], ptr @base64_alphabet, i64 0, i64 64
+  %133 = load i8, ptr %132, align 16
+  %134 = load ptr, ptr %7, align 8
+  %135 = load i64, ptr %5, align 8
+  %136 = add i64 %135, 1
+  store i64 %136, ptr %5, align 8
+  %137 = getelementptr inbounds i8, ptr %134, i64 %135
+  store i8 %133, ptr %137, align 1
   br label %127
 
-137:                                              ; preds = %127
-  %138 = load ptr, ptr %7, align 8
-  ret ptr %138
+138:                                              ; preds = %127
+  %139 = load ptr, ptr %7, align 8
+  ret ptr %139
 }
 
 ; Function Attrs: nounwind uwtable

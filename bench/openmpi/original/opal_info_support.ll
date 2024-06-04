@@ -1548,376 +1548,409 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) #0 {
 28:                                               ; preds = %23, %12
   %29 = load i8, ptr %3, align 1
   %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %68
+  br i1 %30, label %31, label %85
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr @opal_info_path_prefix, align 8
   %33 = load ptr, ptr @opal_install_dirs, align 8
   call void @opal_info_show_path(ptr noundef %32, ptr noundef %33)
   %34 = load ptr, ptr @opal_info_path_exec_prefix, align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 1), align 8
-  call void @opal_info_show_path(ptr noundef %34, ptr noundef %35)
-  %36 = load ptr, ptr @opal_info_path_bindir, align 8
-  %37 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 2), align 8
-  call void @opal_info_show_path(ptr noundef %36, ptr noundef %37)
-  %38 = load ptr, ptr @opal_info_path_sbindir, align 8
-  %39 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 3), align 8
-  call void @opal_info_show_path(ptr noundef %38, ptr noundef %39)
-  %40 = load ptr, ptr @opal_info_path_libdir, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 10), align 8
-  call void @opal_info_show_path(ptr noundef %40, ptr noundef %41)
-  %42 = load ptr, ptr @opal_info_path_incdir, align 8
-  %43 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 11), align 8
-  call void @opal_info_show_path(ptr noundef %42, ptr noundef %43)
-  %44 = load ptr, ptr @opal_info_path_mandir, align 8
-  %45 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 13), align 8
-  call void @opal_info_show_path(ptr noundef %44, ptr noundef %45)
-  %46 = load ptr, ptr @opal_info_path_pkglibdir, align 8
-  %47 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15), align 8
-  call void @opal_info_show_path(ptr noundef %46, ptr noundef %47)
-  %48 = load ptr, ptr @opal_info_path_libexecdir, align 8
-  %49 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 4), align 8
-  call void @opal_info_show_path(ptr noundef %48, ptr noundef %49)
-  %50 = load ptr, ptr @opal_info_path_datarootdir, align 8
-  %51 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 5), align 8
-  call void @opal_info_show_path(ptr noundef %50, ptr noundef %51)
-  %52 = load ptr, ptr @opal_info_path_datadir, align 8
-  %53 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 6), align 8
-  call void @opal_info_show_path(ptr noundef %52, ptr noundef %53)
-  %54 = load ptr, ptr @opal_info_path_sysconfdir, align 8
-  %55 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 7), align 8
-  call void @opal_info_show_path(ptr noundef %54, ptr noundef %55)
-  %56 = load ptr, ptr @opal_info_path_sharedstatedir, align 8
-  %57 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 8), align 8
-  call void @opal_info_show_path(ptr noundef %56, ptr noundef %57)
-  %58 = load ptr, ptr @opal_info_path_localstatedir, align 8
-  %59 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 9), align 8
-  call void @opal_info_show_path(ptr noundef %58, ptr noundef %59)
-  %60 = load ptr, ptr @opal_info_path_infodir, align 8
-  %61 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 12), align 8
-  call void @opal_info_show_path(ptr noundef %60, ptr noundef %61)
-  %62 = load ptr, ptr @opal_info_path_pkgdatadir, align 8
-  %63 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 14), align 8
-  call void @opal_info_show_path(ptr noundef %62, ptr noundef %63)
-  %64 = load ptr, ptr @opal_info_path_pkglibdir, align 8
-  %65 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15), align 8
-  call void @opal_info_show_path(ptr noundef %64, ptr noundef %65)
-  %66 = load ptr, ptr @opal_info_path_pkgincludedir, align 8
-  %67 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 16), align 8
-  call void @opal_info_show_path(ptr noundef %66, ptr noundef %67)
-  br label %242
+  %35 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8
+  call void @opal_info_show_path(ptr noundef %34, ptr noundef %36)
+  %37 = load ptr, ptr @opal_info_path_bindir, align 8
+  %38 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8
+  call void @opal_info_show_path(ptr noundef %37, ptr noundef %39)
+  %40 = load ptr, ptr @opal_info_path_sbindir, align 8
+  %41 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 3
+  %42 = load ptr, ptr %41, align 8
+  call void @opal_info_show_path(ptr noundef %40, ptr noundef %42)
+  %43 = load ptr, ptr @opal_info_path_libdir, align 8
+  %44 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 10
+  %45 = load ptr, ptr %44, align 8
+  call void @opal_info_show_path(ptr noundef %43, ptr noundef %45)
+  %46 = load ptr, ptr @opal_info_path_incdir, align 8
+  %47 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 11
+  %48 = load ptr, ptr %47, align 8
+  call void @opal_info_show_path(ptr noundef %46, ptr noundef %48)
+  %49 = load ptr, ptr @opal_info_path_mandir, align 8
+  %50 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 13
+  %51 = load ptr, ptr %50, align 8
+  call void @opal_info_show_path(ptr noundef %49, ptr noundef %51)
+  %52 = load ptr, ptr @opal_info_path_pkglibdir, align 8
+  %53 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15
+  %54 = load ptr, ptr %53, align 8
+  call void @opal_info_show_path(ptr noundef %52, ptr noundef %54)
+  %55 = load ptr, ptr @opal_info_path_libexecdir, align 8
+  %56 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 4
+  %57 = load ptr, ptr %56, align 8
+  call void @opal_info_show_path(ptr noundef %55, ptr noundef %57)
+  %58 = load ptr, ptr @opal_info_path_datarootdir, align 8
+  %59 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 5
+  %60 = load ptr, ptr %59, align 8
+  call void @opal_info_show_path(ptr noundef %58, ptr noundef %60)
+  %61 = load ptr, ptr @opal_info_path_datadir, align 8
+  %62 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 6
+  %63 = load ptr, ptr %62, align 8
+  call void @opal_info_show_path(ptr noundef %61, ptr noundef %63)
+  %64 = load ptr, ptr @opal_info_path_sysconfdir, align 8
+  %65 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 7
+  %66 = load ptr, ptr %65, align 8
+  call void @opal_info_show_path(ptr noundef %64, ptr noundef %66)
+  %67 = load ptr, ptr @opal_info_path_sharedstatedir, align 8
+  %68 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 8
+  %69 = load ptr, ptr %68, align 8
+  call void @opal_info_show_path(ptr noundef %67, ptr noundef %69)
+  %70 = load ptr, ptr @opal_info_path_localstatedir, align 8
+  %71 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 9
+  %72 = load ptr, ptr %71, align 8
+  call void @opal_info_show_path(ptr noundef %70, ptr noundef %72)
+  %73 = load ptr, ptr @opal_info_path_infodir, align 8
+  %74 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 12
+  %75 = load ptr, ptr %74, align 8
+  call void @opal_info_show_path(ptr noundef %73, ptr noundef %75)
+  %76 = load ptr, ptr @opal_info_path_pkgdatadir, align 8
+  %77 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 14
+  %78 = load ptr, ptr %77, align 8
+  call void @opal_info_show_path(ptr noundef %76, ptr noundef %78)
+  %79 = load ptr, ptr @opal_info_path_pkglibdir, align 8
+  %80 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15
+  %81 = load ptr, ptr %80, align 8
+  call void @opal_info_show_path(ptr noundef %79, ptr noundef %81)
+  %82 = load ptr, ptr @opal_info_path_pkgincludedir, align 8
+  %83 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 16
+  %84 = load ptr, ptr %83, align 8
+  call void @opal_info_show_path(ptr noundef %82, ptr noundef %84)
+  br label %275
 
-68:                                               ; preds = %28
-  %69 = load ptr, ptr %4, align 8
-  %70 = call i32 @opal_cmd_line_get_ninsts(ptr noundef %69, ptr noundef @.str.41)
-  store i32 %70, ptr %6, align 4
+85:                                               ; preds = %28
+  %86 = load ptr, ptr %4, align 8
+  %87 = call i32 @opal_cmd_line_get_ninsts(ptr noundef %86, ptr noundef @.str.41)
+  store i32 %87, ptr %6, align 4
   store i32 0, ptr %5, align 4
-  br label %71
+  br label %88
 
-71:                                               ; preds = %238, %68
-  %72 = load i32, ptr %5, align 4
-  %73 = load i32, ptr %6, align 4
-  %74 = icmp slt i32 %72, %73
-  br i1 %74, label %75, label %241
+88:                                               ; preds = %271, %85
+  %89 = load i32, ptr %5, align 4
+  %90 = load i32, ptr %6, align 4
+  %91 = icmp slt i32 %89, %90
+  br i1 %91, label %92, label %274
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %4, align 8
-  %77 = load i32, ptr %5, align 4
-  %78 = call ptr @opal_cmd_line_get_param(ptr noundef %76, ptr noundef @.str.41, i32 noundef %77, i32 noundef 0)
-  store ptr %78, ptr %7, align 8
-  %79 = load ptr, ptr @opal_info_path_prefix, align 8
-  %80 = load ptr, ptr %7, align 8
-  %81 = call i32 @strcmp(ptr noundef %79, ptr noundef %80) #10
-  %82 = icmp eq i32 0, %81
-  br i1 %82, label %83, label %86
+92:                                               ; preds = %88
+  %93 = load ptr, ptr %4, align 8
+  %94 = load i32, ptr %5, align 4
+  %95 = call ptr @opal_cmd_line_get_param(ptr noundef %93, ptr noundef @.str.41, i32 noundef %94, i32 noundef 0)
+  store ptr %95, ptr %7, align 8
+  %96 = load ptr, ptr @opal_info_path_prefix, align 8
+  %97 = load ptr, ptr %7, align 8
+  %98 = call i32 @strcmp(ptr noundef %96, ptr noundef %97) #10
+  %99 = icmp eq i32 0, %98
+  br i1 %99, label %100, label %103
 
-83:                                               ; preds = %75
-  %84 = load ptr, ptr @opal_info_path_prefix, align 8
-  %85 = load ptr, ptr @opal_install_dirs, align 8
-  call void @opal_info_show_path(ptr noundef %84, ptr noundef %85)
-  br label %237
+100:                                              ; preds = %92
+  %101 = load ptr, ptr @opal_info_path_prefix, align 8
+  %102 = load ptr, ptr @opal_install_dirs, align 8
+  call void @opal_info_show_path(ptr noundef %101, ptr noundef %102)
+  br label %270
 
-86:                                               ; preds = %75
-  %87 = load ptr, ptr @opal_info_path_bindir, align 8
-  %88 = load ptr, ptr %7, align 8
-  %89 = call i32 @strcmp(ptr noundef %87, ptr noundef %88) #10
-  %90 = icmp eq i32 0, %89
-  br i1 %90, label %91, label %94
+103:                                              ; preds = %92
+  %104 = load ptr, ptr @opal_info_path_bindir, align 8
+  %105 = load ptr, ptr %7, align 8
+  %106 = call i32 @strcmp(ptr noundef %104, ptr noundef %105) #10
+  %107 = icmp eq i32 0, %106
+  br i1 %107, label %108, label %112
 
-91:                                               ; preds = %86
-  %92 = load ptr, ptr @opal_info_path_bindir, align 8
-  %93 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 2), align 8
-  call void @opal_info_show_path(ptr noundef %92, ptr noundef %93)
-  br label %236
+108:                                              ; preds = %103
+  %109 = load ptr, ptr @opal_info_path_bindir, align 8
+  %110 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 2
+  %111 = load ptr, ptr %110, align 8
+  call void @opal_info_show_path(ptr noundef %109, ptr noundef %111)
+  br label %269
 
-94:                                               ; preds = %86
-  %95 = load ptr, ptr @opal_info_path_libdir, align 8
-  %96 = load ptr, ptr %7, align 8
-  %97 = call i32 @strcmp(ptr noundef %95, ptr noundef %96) #10
-  %98 = icmp eq i32 0, %97
-  br i1 %98, label %99, label %102
+112:                                              ; preds = %103
+  %113 = load ptr, ptr @opal_info_path_libdir, align 8
+  %114 = load ptr, ptr %7, align 8
+  %115 = call i32 @strcmp(ptr noundef %113, ptr noundef %114) #10
+  %116 = icmp eq i32 0, %115
+  br i1 %116, label %117, label %121
 
-99:                                               ; preds = %94
-  %100 = load ptr, ptr @opal_info_path_libdir, align 8
-  %101 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 10), align 8
-  call void @opal_info_show_path(ptr noundef %100, ptr noundef %101)
-  br label %235
+117:                                              ; preds = %112
+  %118 = load ptr, ptr @opal_info_path_libdir, align 8
+  %119 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 10
+  %120 = load ptr, ptr %119, align 8
+  call void @opal_info_show_path(ptr noundef %118, ptr noundef %120)
+  br label %268
 
-102:                                              ; preds = %94
-  %103 = load ptr, ptr @opal_info_path_incdir, align 8
-  %104 = load ptr, ptr %7, align 8
-  %105 = call i32 @strcmp(ptr noundef %103, ptr noundef %104) #10
-  %106 = icmp eq i32 0, %105
-  br i1 %106, label %107, label %110
+121:                                              ; preds = %112
+  %122 = load ptr, ptr @opal_info_path_incdir, align 8
+  %123 = load ptr, ptr %7, align 8
+  %124 = call i32 @strcmp(ptr noundef %122, ptr noundef %123) #10
+  %125 = icmp eq i32 0, %124
+  br i1 %125, label %126, label %130
 
-107:                                              ; preds = %102
-  %108 = load ptr, ptr @opal_info_path_incdir, align 8
-  %109 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 11), align 8
-  call void @opal_info_show_path(ptr noundef %108, ptr noundef %109)
-  br label %234
+126:                                              ; preds = %121
+  %127 = load ptr, ptr @opal_info_path_incdir, align 8
+  %128 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 11
+  %129 = load ptr, ptr %128, align 8
+  call void @opal_info_show_path(ptr noundef %127, ptr noundef %129)
+  br label %267
 
-110:                                              ; preds = %102
-  %111 = load ptr, ptr @opal_info_path_mandir, align 8
-  %112 = load ptr, ptr %7, align 8
-  %113 = call i32 @strcmp(ptr noundef %111, ptr noundef %112) #10
-  %114 = icmp eq i32 0, %113
-  br i1 %114, label %115, label %118
+130:                                              ; preds = %121
+  %131 = load ptr, ptr @opal_info_path_mandir, align 8
+  %132 = load ptr, ptr %7, align 8
+  %133 = call i32 @strcmp(ptr noundef %131, ptr noundef %132) #10
+  %134 = icmp eq i32 0, %133
+  br i1 %134, label %135, label %139
 
-115:                                              ; preds = %110
-  %116 = load ptr, ptr @opal_info_path_mandir, align 8
-  %117 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 13), align 8
-  call void @opal_info_show_path(ptr noundef %116, ptr noundef %117)
-  br label %233
+135:                                              ; preds = %130
+  %136 = load ptr, ptr @opal_info_path_mandir, align 8
+  %137 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 13
+  %138 = load ptr, ptr %137, align 8
+  call void @opal_info_show_path(ptr noundef %136, ptr noundef %138)
+  br label %266
 
-118:                                              ; preds = %110
-  %119 = load ptr, ptr @opal_info_path_pkglibdir, align 8
-  %120 = load ptr, ptr %7, align 8
-  %121 = call i32 @strcmp(ptr noundef %119, ptr noundef %120) #10
-  %122 = icmp eq i32 0, %121
-  br i1 %122, label %123, label %126
+139:                                              ; preds = %130
+  %140 = load ptr, ptr @opal_info_path_pkglibdir, align 8
+  %141 = load ptr, ptr %7, align 8
+  %142 = call i32 @strcmp(ptr noundef %140, ptr noundef %141) #10
+  %143 = icmp eq i32 0, %142
+  br i1 %143, label %144, label %148
 
-123:                                              ; preds = %118
-  %124 = load ptr, ptr @opal_info_path_pkglibdir, align 8
-  %125 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15), align 8
-  call void @opal_info_show_path(ptr noundef %124, ptr noundef %125)
-  br label %232
+144:                                              ; preds = %139
+  %145 = load ptr, ptr @opal_info_path_pkglibdir, align 8
+  %146 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15
+  %147 = load ptr, ptr %146, align 8
+  call void @opal_info_show_path(ptr noundef %145, ptr noundef %147)
+  br label %265
 
-126:                                              ; preds = %118
-  %127 = load ptr, ptr @opal_info_path_sysconfdir, align 8
-  %128 = load ptr, ptr %7, align 8
-  %129 = call i32 @strcmp(ptr noundef %127, ptr noundef %128) #10
-  %130 = icmp eq i32 0, %129
-  br i1 %130, label %131, label %134
+148:                                              ; preds = %139
+  %149 = load ptr, ptr @opal_info_path_sysconfdir, align 8
+  %150 = load ptr, ptr %7, align 8
+  %151 = call i32 @strcmp(ptr noundef %149, ptr noundef %150) #10
+  %152 = icmp eq i32 0, %151
+  br i1 %152, label %153, label %157
 
-131:                                              ; preds = %126
-  %132 = load ptr, ptr @opal_info_path_sysconfdir, align 8
-  %133 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 7), align 8
-  call void @opal_info_show_path(ptr noundef %132, ptr noundef %133)
-  br label %231
+153:                                              ; preds = %148
+  %154 = load ptr, ptr @opal_info_path_sysconfdir, align 8
+  %155 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 7
+  %156 = load ptr, ptr %155, align 8
+  call void @opal_info_show_path(ptr noundef %154, ptr noundef %156)
+  br label %264
 
-134:                                              ; preds = %126
-  %135 = load ptr, ptr @opal_info_path_exec_prefix, align 8
-  %136 = load ptr, ptr %7, align 8
-  %137 = call i32 @strcmp(ptr noundef %135, ptr noundef %136) #10
-  %138 = icmp eq i32 0, %137
-  br i1 %138, label %139, label %142
+157:                                              ; preds = %148
+  %158 = load ptr, ptr @opal_info_path_exec_prefix, align 8
+  %159 = load ptr, ptr %7, align 8
+  %160 = call i32 @strcmp(ptr noundef %158, ptr noundef %159) #10
+  %161 = icmp eq i32 0, %160
+  br i1 %161, label %162, label %166
 
-139:                                              ; preds = %134
-  %140 = load ptr, ptr @opal_info_path_exec_prefix, align 8
-  %141 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 1), align 8
-  call void @opal_info_show_path(ptr noundef %140, ptr noundef %141)
-  br label %230
+162:                                              ; preds = %157
+  %163 = load ptr, ptr @opal_info_path_exec_prefix, align 8
+  %164 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 1
+  %165 = load ptr, ptr %164, align 8
+  call void @opal_info_show_path(ptr noundef %163, ptr noundef %165)
+  br label %263
 
-142:                                              ; preds = %134
-  %143 = load ptr, ptr @opal_info_path_sbindir, align 8
-  %144 = load ptr, ptr %7, align 8
-  %145 = call i32 @strcmp(ptr noundef %143, ptr noundef %144) #10
-  %146 = icmp eq i32 0, %145
-  br i1 %146, label %147, label %150
-
-147:                                              ; preds = %142
-  %148 = load ptr, ptr @opal_info_path_sbindir, align 8
-  %149 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 3), align 8
-  call void @opal_info_show_path(ptr noundef %148, ptr noundef %149)
-  br label %229
-
-150:                                              ; preds = %142
-  %151 = load ptr, ptr @opal_info_path_libexecdir, align 8
-  %152 = load ptr, ptr %7, align 8
-  %153 = call i32 @strcmp(ptr noundef %151, ptr noundef %152) #10
-  %154 = icmp eq i32 0, %153
-  br i1 %154, label %155, label %158
-
-155:                                              ; preds = %150
-  %156 = load ptr, ptr @opal_info_path_libexecdir, align 8
-  %157 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 4), align 8
-  call void @opal_info_show_path(ptr noundef %156, ptr noundef %157)
-  br label %228
-
-158:                                              ; preds = %150
-  %159 = load ptr, ptr @opal_info_path_datarootdir, align 8
-  %160 = load ptr, ptr %7, align 8
-  %161 = call i32 @strcmp(ptr noundef %159, ptr noundef %160) #10
-  %162 = icmp eq i32 0, %161
-  br i1 %162, label %163, label %166
-
-163:                                              ; preds = %158
-  %164 = load ptr, ptr @opal_info_path_datarootdir, align 8
-  %165 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 5), align 8
-  call void @opal_info_show_path(ptr noundef %164, ptr noundef %165)
-  br label %227
-
-166:                                              ; preds = %158
-  %167 = load ptr, ptr @opal_info_path_datadir, align 8
+166:                                              ; preds = %157
+  %167 = load ptr, ptr @opal_info_path_sbindir, align 8
   %168 = load ptr, ptr %7, align 8
   %169 = call i32 @strcmp(ptr noundef %167, ptr noundef %168) #10
   %170 = icmp eq i32 0, %169
-  br i1 %170, label %171, label %174
+  br i1 %170, label %171, label %175
 
 171:                                              ; preds = %166
-  %172 = load ptr, ptr @opal_info_path_datadir, align 8
-  %173 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 6), align 8
-  call void @opal_info_show_path(ptr noundef %172, ptr noundef %173)
-  br label %226
+  %172 = load ptr, ptr @opal_info_path_sbindir, align 8
+  %173 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 3
+  %174 = load ptr, ptr %173, align 8
+  call void @opal_info_show_path(ptr noundef %172, ptr noundef %174)
+  br label %262
 
-174:                                              ; preds = %166
-  %175 = load ptr, ptr @opal_info_path_sharedstatedir, align 8
-  %176 = load ptr, ptr %7, align 8
-  %177 = call i32 @strcmp(ptr noundef %175, ptr noundef %176) #10
-  %178 = icmp eq i32 0, %177
-  br i1 %178, label %179, label %182
+175:                                              ; preds = %166
+  %176 = load ptr, ptr @opal_info_path_libexecdir, align 8
+  %177 = load ptr, ptr %7, align 8
+  %178 = call i32 @strcmp(ptr noundef %176, ptr noundef %177) #10
+  %179 = icmp eq i32 0, %178
+  br i1 %179, label %180, label %184
 
-179:                                              ; preds = %174
-  %180 = load ptr, ptr @opal_info_path_sharedstatedir, align 8
-  %181 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 8), align 8
-  call void @opal_info_show_path(ptr noundef %180, ptr noundef %181)
-  br label %225
+180:                                              ; preds = %175
+  %181 = load ptr, ptr @opal_info_path_libexecdir, align 8
+  %182 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 4
+  %183 = load ptr, ptr %182, align 8
+  call void @opal_info_show_path(ptr noundef %181, ptr noundef %183)
+  br label %261
 
-182:                                              ; preds = %174
-  %183 = load ptr, ptr @opal_info_path_localstatedir, align 8
-  %184 = load ptr, ptr %7, align 8
-  %185 = call i32 @strcmp(ptr noundef %183, ptr noundef %184) #10
-  %186 = icmp eq i32 0, %185
-  br i1 %186, label %187, label %190
+184:                                              ; preds = %175
+  %185 = load ptr, ptr @opal_info_path_datarootdir, align 8
+  %186 = load ptr, ptr %7, align 8
+  %187 = call i32 @strcmp(ptr noundef %185, ptr noundef %186) #10
+  %188 = icmp eq i32 0, %187
+  br i1 %188, label %189, label %193
 
-187:                                              ; preds = %182
-  %188 = load ptr, ptr @opal_info_path_localstatedir, align 8
-  %189 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 9), align 8
-  call void @opal_info_show_path(ptr noundef %188, ptr noundef %189)
-  br label %224
+189:                                              ; preds = %184
+  %190 = load ptr, ptr @opal_info_path_datarootdir, align 8
+  %191 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 5
+  %192 = load ptr, ptr %191, align 8
+  call void @opal_info_show_path(ptr noundef %190, ptr noundef %192)
+  br label %260
 
-190:                                              ; preds = %182
-  %191 = load ptr, ptr @opal_info_path_infodir, align 8
-  %192 = load ptr, ptr %7, align 8
-  %193 = call i32 @strcmp(ptr noundef %191, ptr noundef %192) #10
-  %194 = icmp eq i32 0, %193
-  br i1 %194, label %195, label %198
+193:                                              ; preds = %184
+  %194 = load ptr, ptr @opal_info_path_datadir, align 8
+  %195 = load ptr, ptr %7, align 8
+  %196 = call i32 @strcmp(ptr noundef %194, ptr noundef %195) #10
+  %197 = icmp eq i32 0, %196
+  br i1 %197, label %198, label %202
 
-195:                                              ; preds = %190
-  %196 = load ptr, ptr @opal_info_path_infodir, align 8
-  %197 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 12), align 8
-  call void @opal_info_show_path(ptr noundef %196, ptr noundef %197)
-  br label %223
+198:                                              ; preds = %193
+  %199 = load ptr, ptr @opal_info_path_datadir, align 8
+  %200 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 6
+  %201 = load ptr, ptr %200, align 8
+  call void @opal_info_show_path(ptr noundef %199, ptr noundef %201)
+  br label %259
 
-198:                                              ; preds = %190
-  %199 = load ptr, ptr @opal_info_path_pkgdatadir, align 8
-  %200 = load ptr, ptr %7, align 8
-  %201 = call i32 @strcmp(ptr noundef %199, ptr noundef %200) #10
-  %202 = icmp eq i32 0, %201
-  br i1 %202, label %203, label %206
+202:                                              ; preds = %193
+  %203 = load ptr, ptr @opal_info_path_sharedstatedir, align 8
+  %204 = load ptr, ptr %7, align 8
+  %205 = call i32 @strcmp(ptr noundef %203, ptr noundef %204) #10
+  %206 = icmp eq i32 0, %205
+  br i1 %206, label %207, label %211
 
-203:                                              ; preds = %198
-  %204 = load ptr, ptr @opal_info_path_pkgdatadir, align 8
-  %205 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 14), align 8
-  call void @opal_info_show_path(ptr noundef %204, ptr noundef %205)
-  br label %222
+207:                                              ; preds = %202
+  %208 = load ptr, ptr @opal_info_path_sharedstatedir, align 8
+  %209 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 8
+  %210 = load ptr, ptr %209, align 8
+  call void @opal_info_show_path(ptr noundef %208, ptr noundef %210)
+  br label %258
 
-206:                                              ; preds = %198
-  %207 = load ptr, ptr @opal_info_path_pkgincludedir, align 8
-  %208 = load ptr, ptr %7, align 8
-  %209 = call i32 @strcmp(ptr noundef %207, ptr noundef %208) #10
-  %210 = icmp eq i32 0, %209
-  br i1 %210, label %211, label %214
+211:                                              ; preds = %202
+  %212 = load ptr, ptr @opal_info_path_localstatedir, align 8
+  %213 = load ptr, ptr %7, align 8
+  %214 = call i32 @strcmp(ptr noundef %212, ptr noundef %213) #10
+  %215 = icmp eq i32 0, %214
+  br i1 %215, label %216, label %220
 
-211:                                              ; preds = %206
-  %212 = load ptr, ptr @opal_info_path_pkgincludedir, align 8
-  %213 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 16), align 8
-  call void @opal_info_show_path(ptr noundef %212, ptr noundef %213)
-  br label %221
+216:                                              ; preds = %211
+  %217 = load ptr, ptr @opal_info_path_localstatedir, align 8
+  %218 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 9
+  %219 = load ptr, ptr %218, align 8
+  call void @opal_info_show_path(ptr noundef %217, ptr noundef %219)
+  br label %257
 
-214:                                              ; preds = %206
-  %215 = load ptr, ptr %4, align 8
-  %216 = call noalias ptr @opal_cmd_line_get_usage_msg(ptr noundef %215)
-  store ptr %216, ptr %8, align 8
-  %217 = load ptr, ptr @opal_show_help, align 8
-  %218 = load ptr, ptr %8, align 8
-  %219 = call i32 (ptr, ptr, i32, ...) %217(ptr noundef @.str.29, ptr noundef @.str.74, i32 noundef 1, ptr noundef %218)
-  %220 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %220) #8
+220:                                              ; preds = %211
+  %221 = load ptr, ptr @opal_info_path_infodir, align 8
+  %222 = load ptr, ptr %7, align 8
+  %223 = call i32 @strcmp(ptr noundef %221, ptr noundef %222) #10
+  %224 = icmp eq i32 0, %223
+  br i1 %224, label %225, label %229
+
+225:                                              ; preds = %220
+  %226 = load ptr, ptr @opal_info_path_infodir, align 8
+  %227 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 12
+  %228 = load ptr, ptr %227, align 8
+  call void @opal_info_show_path(ptr noundef %226, ptr noundef %228)
+  br label %256
+
+229:                                              ; preds = %220
+  %230 = load ptr, ptr @opal_info_path_pkgdatadir, align 8
+  %231 = load ptr, ptr %7, align 8
+  %232 = call i32 @strcmp(ptr noundef %230, ptr noundef %231) #10
+  %233 = icmp eq i32 0, %232
+  br i1 %233, label %234, label %238
+
+234:                                              ; preds = %229
+  %235 = load ptr, ptr @opal_info_path_pkgdatadir, align 8
+  %236 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 14
+  %237 = load ptr, ptr %236, align 8
+  call void @opal_info_show_path(ptr noundef %235, ptr noundef %237)
+  br label %255
+
+238:                                              ; preds = %229
+  %239 = load ptr, ptr @opal_info_path_pkgincludedir, align 8
+  %240 = load ptr, ptr %7, align 8
+  %241 = call i32 @strcmp(ptr noundef %239, ptr noundef %240) #10
+  %242 = icmp eq i32 0, %241
+  br i1 %242, label %243, label %247
+
+243:                                              ; preds = %238
+  %244 = load ptr, ptr @opal_info_path_pkgincludedir, align 8
+  %245 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 16
+  %246 = load ptr, ptr %245, align 8
+  call void @opal_info_show_path(ptr noundef %244, ptr noundef %246)
+  br label %254
+
+247:                                              ; preds = %238
+  %248 = load ptr, ptr %4, align 8
+  %249 = call noalias ptr @opal_cmd_line_get_usage_msg(ptr noundef %248)
+  store ptr %249, ptr %8, align 8
+  %250 = load ptr, ptr @opal_show_help, align 8
+  %251 = load ptr, ptr %8, align 8
+  %252 = call i32 (ptr, ptr, i32, ...) %250(ptr noundef @.str.29, ptr noundef @.str.74, i32 noundef 1, ptr noundef %251)
+  %253 = load ptr, ptr %8, align 8
+  call void @free(ptr noundef %253) #8
   call void @exit(i32 noundef 1) #9
   unreachable
 
-221:                                              ; preds = %211
-  br label %222
+254:                                              ; preds = %243
+  br label %255
 
-222:                                              ; preds = %221, %203
-  br label %223
+255:                                              ; preds = %254, %234
+  br label %256
 
-223:                                              ; preds = %222, %195
-  br label %224
+256:                                              ; preds = %255, %225
+  br label %257
 
-224:                                              ; preds = %223, %187
-  br label %225
+257:                                              ; preds = %256, %216
+  br label %258
 
-225:                                              ; preds = %224, %179
-  br label %226
+258:                                              ; preds = %257, %207
+  br label %259
 
-226:                                              ; preds = %225, %171
-  br label %227
+259:                                              ; preds = %258, %198
+  br label %260
 
-227:                                              ; preds = %226, %163
-  br label %228
+260:                                              ; preds = %259, %189
+  br label %261
 
-228:                                              ; preds = %227, %155
-  br label %229
+261:                                              ; preds = %260, %180
+  br label %262
 
-229:                                              ; preds = %228, %147
-  br label %230
+262:                                              ; preds = %261, %171
+  br label %263
 
-230:                                              ; preds = %229, %139
-  br label %231
+263:                                              ; preds = %262, %162
+  br label %264
 
-231:                                              ; preds = %230, %131
-  br label %232
+264:                                              ; preds = %263, %153
+  br label %265
 
-232:                                              ; preds = %231, %123
-  br label %233
+265:                                              ; preds = %264, %144
+  br label %266
 
-233:                                              ; preds = %232, %115
-  br label %234
+266:                                              ; preds = %265, %135
+  br label %267
 
-234:                                              ; preds = %233, %107
-  br label %235
+267:                                              ; preds = %266, %126
+  br label %268
 
-235:                                              ; preds = %234, %99
-  br label %236
+268:                                              ; preds = %267, %117
+  br label %269
 
-236:                                              ; preds = %235, %91
-  br label %237
+269:                                              ; preds = %268, %108
+  br label %270
 
-237:                                              ; preds = %236, %83
-  br label %238
+270:                                              ; preds = %269, %100
+  br label %271
 
-238:                                              ; preds = %237
-  %239 = load i32, ptr %5, align 4
-  %240 = add nsw i32 %239, 1
-  store i32 %240, ptr %5, align 4
-  br label %71, !llvm.loop !12
+271:                                              ; preds = %270
+  %272 = load i32, ptr %5, align 4
+  %273 = add nsw i32 %272, 1
+  store i32 %273, ptr %5, align 4
+  br label %88, !llvm.loop !12
 
-241:                                              ; preds = %71
-  br label %242
+274:                                              ; preds = %88
+  br label %275
 
-242:                                              ; preds = %241, %31
+275:                                              ; preds = %274, %31
   ret void
 }
 

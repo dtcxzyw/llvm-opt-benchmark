@@ -12391,7 +12391,7 @@ lpad3117:                                         ; preds = %invoke.cont3113
 
 catch.dispatch:                                   ; preds = %lpad3117
   %sel = load i32, ptr %ehselector.slot, align 4
-  %1138 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #17
+  %1138 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #17
   %matches = icmp eq i32 %sel, %1138
   br i1 %matches, label %catch3125, label %catch
 
@@ -21236,9 +21236,6 @@ declare noundef ptr @_ZN7doctest17getContextOptionsEv() #2
 
 declare void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144), i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #6
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144)) #2
@@ -21246,7 +21243,7 @@ declare void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr nounde
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #17
   call void @_ZSt9terminatev() #18
   unreachable
@@ -22576,7 +22573,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
@@ -23307,7 +23304,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #9
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
@@ -23551,13 +23548,13 @@ if.end4:                                          ; preds = %entry
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #9
+declare void @_ZSt28__throw_bad_array_new_lengthv() #8
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #9
+declare void @_ZSt17__throw_bad_allocv() #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE14_S_do_relocateEPSD_SG_SG_RSE_St17integral_constantIbLb1EE(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #1 comdat align 2 {
@@ -23758,7 +23755,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #11
+declare void @_ZdlPv(ptr noundef) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZSt13__copy_move_aILb1EN9__gnu_cxx17__normal_iteratorIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESt20back_insert_iteratorISJ_EET1_T0_SO_SN_(ptr %__first.coerce, ptr %__last.coerce, ptr %__result.coerce) #4 comdat {
@@ -24364,7 +24361,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #12
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEES5_ISF_SaISF_EEEEbRKNS_17__normal_iteratorIT_T0_EESP_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #1 comdat {
@@ -27315,7 +27312,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -27645,7 +27643,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #12
+declare i64 @strlen(ptr noundef) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN8nlohmann16json_abi_v3_11_36detail13concat_lengthINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJcS8_A3_cEEEmRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef nonnull align 1 dereferenceable(1) %rest, ptr noundef nonnull align 8 dereferenceable(32) %rest1, ptr noundef nonnull align 1 dereferenceable(3) %rest3) #4 comdat {
@@ -28001,25 +27999,26 @@ entry:
   store ptr %what_arg, ptr %what_arg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %id_.addr, align 4
-  store i32 %0, ptr %id, align 8
+  %1 = load i32, ptr %id_.addr, align 4
+  store i32 %1, ptr %id, align 8
   %m = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %what_arg.addr, align 8
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef %1)
+  %2 = load ptr, ptr %what_arg.addr, align 8
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #17
   br label %eh.resume
 
@@ -28059,7 +28058,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28074,7 +28074,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 2
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m) #17
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #17
@@ -30569,7 +30570,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11other_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11other_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -32864,7 +32866,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #13
+declare void @llvm.trap() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt15__uniq_ptr_implISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaISE_EEZNSE_6createISG_JRKSG_EEEPT_DpOT0_EUlPSG_E_E6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
@@ -34412,7 +34414,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
@@ -35269,7 +35271,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #12
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSP_PSt13_Rb_tree_nodeISH_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef %__z) #4 comdat align 2 {
@@ -36476,7 +36478,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -36912,7 +36915,7 @@ entry:
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #14
+declare i1 @llvm.is.constant.i64(i64) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEES5_ISF_SaISF_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
@@ -41413,7 +41416,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #12
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS6_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__x) unnamed_addr #1 comdat align 2 {
@@ -42040,7 +42043,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #15
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7doctest8toStringIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEETnNS_6detail5types9enable_ifIXntsr6detail35should_stringify_as_underlying_typeIT_EE5valueEbE4typeELb1EEENS_6StringERKSJ_(ptr noalias sret(%"class.doctest::String") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %value) #4 comdat {
@@ -43619,12 +43622,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #17
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #17
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #17
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEEJRSoEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEEJRSoEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1) #17
   ret void
 }
 
@@ -43794,7 +43798,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -44007,10 +44012,11 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::output_stream_adapter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  store ptr %0, ptr %stream, align 8
+  %1 = load ptr, ptr %s.addr, align 8
+  store ptr %1, ptr %stream, align 8
   ret void
 }
 
@@ -44020,7 +44026,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -46345,7 +46352,7 @@ entry:
 declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #5
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm512EE4dataEv(ptr noundef nonnull align 1 dereferenceable(512) %this) #16 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm512EE4dataEv(ptr noundef nonnull align 1 dereferenceable(512) %this) #15 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -46356,7 +46363,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm512EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(512) %this) #16 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm512EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(512) %this) #15 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -47057,7 +47064,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm64EE5beginEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #16 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm64EE5beginEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #15 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -47188,7 +47195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm64EE4dataEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #16 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm64EE4dataEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #15 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -47436,7 +47443,7 @@ return:                                           ; preds = %if.end5, %if.then1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm64EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #16 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm64EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #15 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53710,7 +53717,7 @@ return:                                           ; preds = %if.end7, %if.then6
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIhLm9EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(9) %this) #16 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIhLm9EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(9) %this) #15 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53987,7 +53994,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZN8nlohmann16json_abi_v3_11_36detailmiENS1_20primitive_iterator_tES2_(i64 %lhs.coerce, i64 %rhs.coerce) #1 comdat {
@@ -57572,23 +57579,26 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind memory(none) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #14 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #13 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind memory(none) }
 attributes #17 = { nounwind }
 attributes #18 = { noreturn nounwind }
 attributes #19 = { noreturn }

@@ -242,11 +242,12 @@ do.body:                                          ; preds = %if.end11
   %8 = load ptr, ptr %cpu.addr, align 8
   %node = getelementptr inbounds %struct.CPUState, ptr %8, i32 0, i32 35
   store ptr null, ptr %node, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @cpus_queue, i32 0, i32 1), align 8
-  %10 = load ptr, ptr %cpu.addr, align 8
-  %node12 = getelementptr inbounds %struct.CPUState, ptr %10, i32 0, i32 35
+  %9 = getelementptr inbounds %struct.QTailQLink, ptr @cpus_queue, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %cpu.addr, align 8
+  %node12 = getelementptr inbounds %struct.CPUState, ptr %11, i32 0, i32 35
   %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %node12, i32 0, i32 1
-  store ptr %9, ptr %tql_prev, align 8
+  store ptr %10, ptr %tql_prev, align 8
   br label %do.body13
 
 do.body13:                                        ; preds = %do.body
@@ -269,29 +270,31 @@ do.end:                                           ; preds = %do.cond
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %11 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @cpus_queue, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %cpu.addr, align 8
-  store ptr %12, ptr %.atomictmp, align 8
-  %13 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %13, ptr %tql_next release, align 8
+  %12 = getelementptr inbounds %struct.QTailQLink, ptr @cpus_queue, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %13, i32 0, i32 0
+  %14 = load ptr, ptr %cpu.addr, align 8
+  store ptr %14, ptr %.atomictmp, align 8
+  %15 = load i64, ptr %.atomictmp, align 8
+  store atomic i64 %15, ptr %tql_next release, align 8
   br label %do.cond15
 
 do.cond15:                                        ; preds = %while.end
   br label %do.end16
 
 do.end16:                                         ; preds = %do.cond15
-  %14 = load ptr, ptr %cpu.addr, align 8
-  %node17 = getelementptr inbounds %struct.CPUState, ptr %14, i32 0, i32 35
-  store ptr %node17, ptr getelementptr inbounds (%struct.QTailQLink, ptr @cpus_queue, i32 0, i32 1), align 8
+  %16 = load ptr, ptr %cpu.addr, align 8
+  %node17 = getelementptr inbounds %struct.CPUState, ptr %16, i32 0, i32 35
+  %17 = getelementptr inbounds %struct.QTailQLink, ptr @cpus_queue, i32 0, i32 1
+  store ptr %node17, ptr %17, align 8
   br label %do.cond18
 
 do.cond18:                                        ; preds = %do.end16
   br label %do.end19
 
 do.end19:                                         ; preds = %do.cond18
-  %15 = load i32, ptr @cpu_list_generation_id, align 4
-  %inc = add i32 %15, 1
+  %18 = load i32, ptr @cpu_list_generation_id, align 4
+  %inc = add i32 %18, 1
   store i32 %inc, ptr @cpu_list_generation_id, align 4
   call void @glib_autoptr_cleanup_QemuLockable(ptr noundef %qemu_lockable_auto2)
   ret void
@@ -534,7 +537,8 @@ if.else:                                          ; preds = %do.body
   %node10 = getelementptr inbounds %struct.CPUState, ptr %10, i32 0, i32 35
   %tql_prev11 = getelementptr inbounds %struct.QTailQLink, ptr %node10, i32 0, i32 1
   %11 = load ptr, ptr %tql_prev11, align 8
-  store ptr %11, ptr getelementptr inbounds (%struct.QTailQLink, ptr @cpus_queue, i32 0, i32 1), align 8
+  %12 = getelementptr inbounds %struct.QTailQLink, ptr @cpus_queue, i32 0, i32 1
+  store ptr %11, ptr %12, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %if.then4
@@ -560,25 +564,25 @@ do.end:                                           ; preds = %do.cond
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %12 = load ptr, ptr %cpu.addr, align 8
-  %node15 = getelementptr inbounds %struct.CPUState, ptr %12, i32 0, i32 35
+  %13 = load ptr, ptr %cpu.addr, align 8
+  %node15 = getelementptr inbounds %struct.CPUState, ptr %13, i32 0, i32 35
   %tql_prev16 = getelementptr inbounds %struct.QTailQLink, ptr %node15, i32 0, i32 1
-  %13 = load ptr, ptr %tql_prev16, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %cpu.addr, align 8
-  %node17 = getelementptr inbounds %struct.CPUState, ptr %14, i32 0, i32 35
-  %15 = load ptr, ptr %node17, align 8
-  store ptr %15, ptr %.atomictmp, align 8
-  %16 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %16, ptr %tql_next monotonic, align 8
+  %14 = load ptr, ptr %tql_prev16, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %14, i32 0, i32 0
+  %15 = load ptr, ptr %cpu.addr, align 8
+  %node17 = getelementptr inbounds %struct.CPUState, ptr %15, i32 0, i32 35
+  %16 = load ptr, ptr %node17, align 8
+  store ptr %16, ptr %.atomictmp, align 8
+  %17 = load i64, ptr %.atomictmp, align 8
+  store atomic i64 %17, ptr %tql_next monotonic, align 8
   br label %do.cond18
 
 do.cond18:                                        ; preds = %while.end
   br label %do.end19
 
 do.end19:                                         ; preds = %do.cond18
-  %17 = load ptr, ptr %cpu.addr, align 8
-  %node20 = getelementptr inbounds %struct.CPUState, ptr %17, i32 0, i32 35
+  %18 = load ptr, ptr %cpu.addr, align 8
+  %node20 = getelementptr inbounds %struct.CPUState, ptr %18, i32 0, i32 35
   %tql_prev21 = getelementptr inbounds %struct.QTailQLink, ptr %node20, i32 0, i32 1
   store ptr null, ptr %tql_prev21, align 8
   br label %do.cond22
@@ -587,11 +591,11 @@ do.cond22:                                        ; preds = %do.end19
   br label %do.end23
 
 do.end23:                                         ; preds = %do.cond22
-  %18 = load ptr, ptr %cpu.addr, align 8
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %18, i32 0, i32 51
+  %19 = load ptr, ptr %cpu.addr, align 8
+  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %19, i32 0, i32 51
   store i32 -1, ptr %cpu_index, align 8
-  %19 = load i32, ptr @cpu_list_generation_id, align 4
-  %inc = add i32 %19, 1
+  %20 = load i32, ptr @cpu_list_generation_id, align 4
+  %inc = add i32 %20, 1
   store i32 %inc, ptr @cpu_list_generation_id, align 4
   store i32 0, ptr %cleanup.dest.slot, align 4
   br label %cleanup

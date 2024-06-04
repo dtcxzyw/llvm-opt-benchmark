@@ -194,7 +194,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb9HistogramC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %clock_ = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb11SystemClockEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %clock_) #12
   %mutex_ = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 2
@@ -220,30 +221,30 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %clock_4, ptr noundef nonnull align 8 dereferenceable(16) %call) #12
   %window_stats_6 = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 4
   %num_windows_7 = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 7
-  %0 = load i64, ptr %num_windows_7, align 8
-  %1 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %0, i64 920)
-  %2 = extractvalue { i64, i1 } %1, 1
-  %3 = extractvalue { i64, i1 } %1, 0
-  %4 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %3, i64 8)
-  %5 = extractvalue { i64, i1 } %4, 1
-  %6 = or i1 %2, %5
-  %7 = extractvalue { i64, i1 } %4, 0
-  %8 = select i1 %6, i64 -1, i64 %7
-  %call9 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %8) #13
+  %1 = load i64, ptr %num_windows_7, align 8
+  %2 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 920)
+  %3 = extractvalue { i64, i1 } %2, 1
+  %4 = extractvalue { i64, i1 } %2, 0
+  %5 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 8)
+  %6 = extractvalue { i64, i1 } %5, 1
+  %7 = or i1 %3, %6
+  %8 = extractvalue { i64, i1 } %5, 0
+  %9 = select i1 %7, i64 -1, i64 %8
+  %call9 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %9) #13
           to label %invoke.cont8 unwind label %lpad2
 
 invoke.cont8:                                     ; preds = %invoke.cont3
-  store i64 %0, ptr %call9, align 16
-  %9 = getelementptr inbounds i8, ptr %call9, i64 8
-  %isempty = icmp eq i64 %0, 0
+  store i64 %1, ptr %call9, align 16
+  %10 = getelementptr inbounds i8, ptr %call9, i64 8
+  %isempty = icmp eq i64 %1, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
 new.ctorloop:                                     ; preds = %invoke.cont8
-  %arrayctor.end = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %9, i64 %0
+  %arrayctor.end = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %10, i64 %1
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont11, %new.ctorloop
-  %arrayctor.cur = phi ptr [ %9, %new.ctorloop ], [ %arrayctor.next, %invoke.cont11 ]
+  %arrayctor.cur = phi ptr [ %10, %new.ctorloop ], [ %arrayctor.next, %invoke.cont11 ]
   invoke void @_ZN7rocksdb13HistogramStatC1Ev(ptr noundef nonnull align 8 dereferenceable(920) %arrayctor.cur)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -253,49 +254,49 @@ invoke.cont11:                                    ; preds = %arrayctor.loop
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont11, %invoke.cont8
-  call void @_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_(ptr noundef nonnull align 8 dereferenceable(8) %window_stats_6, ptr noundef %9) #12
+  call void @_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_(ptr noundef nonnull align 8 dereferenceable(8) %window_stats_6, ptr noundef %10) #12
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %10 = load ptr, ptr %vfn, align 8
-  invoke void %10(ptr noundef nonnull align 8 dereferenceable(1032) %this1)
+  %11 = load ptr, ptr %vfn, align 8
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(1032) %this1)
           to label %invoke.cont13 unwind label %lpad2
 
 invoke.cont13:                                    ; preds = %arrayctor.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad2:                                            ; preds = %arrayctor.cont, %invoke.cont3, %invoke.cont
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %arrayctor.loop
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
-  %arraydestroy.isempty = icmp eq ptr %9, %arrayctor.cur
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
+  %arraydestroy.isempty = icmp eq ptr %10, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done12, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %lpad10
   %arraydestroy.elementPast = phi ptr [ %arrayctor.cur, %lpad10 ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN7rocksdb13HistogramStatD2Ev(ptr noundef nonnull align 8 dereferenceable(920) %arraydestroy.element) #12
-  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %9
+  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %10
   br i1 %arraydestroy.done, label %arraydestroy.done12, label %arraydestroy.body
 
 arraydestroy.done12:                              ; preds = %arraydestroy.body, %lpad10
@@ -326,7 +327,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb9HistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7rocksdb9HistogramE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -478,7 +480,8 @@ entry:
   store i64 %min_num_per_window, ptr %min_num_per_window.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb9HistogramC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %clock_ = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb11SystemClockEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %clock_) #12
   %mutex_ = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 2
@@ -491,14 +494,14 @@ invoke.cont:                                      ; preds = %entry
   %window_stats_ = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %window_stats_) #12
   %num_windows_ = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 7
-  %0 = load i64, ptr %num_windows.addr, align 8
-  store i64 %0, ptr %num_windows_, align 8
+  %1 = load i64, ptr %num_windows.addr, align 8
+  store i64 %1, ptr %num_windows_, align 8
   %micros_per_window_ = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 8
-  %1 = load i64, ptr %micros_per_window.addr, align 8
-  store i64 %1, ptr %micros_per_window_, align 8
+  %2 = load i64, ptr %micros_per_window.addr, align 8
+  store i64 %2, ptr %micros_per_window_, align 8
   %min_num_per_window_ = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 9
-  %2 = load i64, ptr %min_num_per_window.addr, align 8
-  store i64 %2, ptr %min_num_per_window_, align 8
+  %3 = load i64, ptr %min_num_per_window.addr, align 8
+  store i64 %3, ptr %min_num_per_window_, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb11SystemClock7DefaultEv()
           to label %invoke.cont3 unwind label %lpad2
 
@@ -507,30 +510,30 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %call5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %clock_4, ptr noundef nonnull align 8 dereferenceable(16) %call) #12
   %window_stats_6 = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 4
   %num_windows_7 = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 7
-  %3 = load i64, ptr %num_windows_7, align 8
-  %4 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 920)
-  %5 = extractvalue { i64, i1 } %4, 1
-  %6 = extractvalue { i64, i1 } %4, 0
-  %7 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %6, i64 8)
-  %8 = extractvalue { i64, i1 } %7, 1
-  %9 = or i1 %5, %8
-  %10 = extractvalue { i64, i1 } %7, 0
-  %11 = select i1 %9, i64 -1, i64 %10
-  %call9 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %11) #13
+  %4 = load i64, ptr %num_windows_7, align 8
+  %5 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %4, i64 920)
+  %6 = extractvalue { i64, i1 } %5, 1
+  %7 = extractvalue { i64, i1 } %5, 0
+  %8 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %7, i64 8)
+  %9 = extractvalue { i64, i1 } %8, 1
+  %10 = or i1 %6, %9
+  %11 = extractvalue { i64, i1 } %8, 0
+  %12 = select i1 %10, i64 -1, i64 %11
+  %call9 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %12) #13
           to label %invoke.cont8 unwind label %lpad2
 
 invoke.cont8:                                     ; preds = %invoke.cont3
-  store i64 %3, ptr %call9, align 16
-  %12 = getelementptr inbounds i8, ptr %call9, i64 8
-  %isempty = icmp eq i64 %3, 0
+  store i64 %4, ptr %call9, align 16
+  %13 = getelementptr inbounds i8, ptr %call9, i64 8
+  %isempty = icmp eq i64 %4, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
 new.ctorloop:                                     ; preds = %invoke.cont8
-  %arrayctor.end = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %12, i64 %3
+  %arrayctor.end = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %13, i64 %4
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont11, %new.ctorloop
-  %arrayctor.cur = phi ptr [ %12, %new.ctorloop ], [ %arrayctor.next, %invoke.cont11 ]
+  %arrayctor.cur = phi ptr [ %13, %new.ctorloop ], [ %arrayctor.next, %invoke.cont11 ]
   invoke void @_ZN7rocksdb13HistogramStatC1Ev(ptr noundef nonnull align 8 dereferenceable(920) %arrayctor.cur)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -540,49 +543,49 @@ invoke.cont11:                                    ; preds = %arrayctor.loop
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont11, %invoke.cont8
-  call void @_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_(ptr noundef nonnull align 8 dereferenceable(8) %window_stats_6, ptr noundef %12) #12
+  call void @_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_(ptr noundef nonnull align 8 dereferenceable(8) %window_stats_6, ptr noundef %13) #12
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %13 = load ptr, ptr %vfn, align 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(1032) %this1)
+  %14 = load ptr, ptr %vfn, align 8
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(1032) %this1)
           to label %invoke.cont13 unwind label %lpad2
 
 invoke.cont13:                                    ; preds = %arrayctor.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad2:                                            ; preds = %arrayctor.cont, %invoke.cont3, %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %arrayctor.loop
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
-  %arraydestroy.isempty = icmp eq ptr %12, %arrayctor.cur
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
+  %arraydestroy.isempty = icmp eq ptr %13, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done12, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %lpad10
   %arraydestroy.elementPast = phi ptr [ %arrayctor.cur, %lpad10 ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN7rocksdb13HistogramStatD2Ev(ptr noundef nonnull align 8 dereferenceable(920) %arraydestroy.element) #12
-  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %12
+  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %13
   br i1 %arraydestroy.done, label %arraydestroy.done12, label %arraydestroy.body
 
 arraydestroy.done12:                              ; preds = %arraydestroy.body, %lpad10
@@ -613,7 +616,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %window_stats_ = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %window_stats_) #12
   %stats_ = getelementptr inbounds %"class.rocksdb::HistogramWindowingImpl", ptr %this1, i32 0, i32 3

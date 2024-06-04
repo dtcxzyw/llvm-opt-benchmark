@@ -9,10 +9,11 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @mca_pml_monitoring_add_comm(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 4), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call i32 %3(ptr noundef %4)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 4
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call i32 %4(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -21,10 +22,11 @@ define i32 @mca_pml_monitoring_del_comm(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = call i32 @mca_common_monitoring_coll_cache_name(ptr noundef %3)
-  %5 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 5), align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = call i32 %5(ptr noundef %6)
-  ret i32 %7
+  %5 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 5
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %2, align 8
+  %8 = call i32 %6(ptr noundef %7)
+  ret i32 %8
 }
 
 declare i32 @mca_common_monitoring_coll_cache_name(ptr noundef) #1
@@ -36,12 +38,13 @@ define i32 @mca_pml_monitoring_revoke_comm(ptr noundef %0, i1 noundef zeroext %1
   store ptr %0, ptr %3, align 8
   %5 = zext i1 %1 to i8
   store i8 %5, ptr %4, align 1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 6), align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load i8, ptr %4, align 1
-  %9 = trunc i8 %8 to i1
-  %10 = call i32 %6(ptr noundef %7, i1 noundef zeroext %9)
-  ret i32 %10
+  %6 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 6
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = load i8, ptr %4, align 1
+  %10 = trunc i8 %9 to i1
+  %11 = call i32 %7(ptr noundef %8, i1 noundef zeroext %10)
+  ret i32 %11
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

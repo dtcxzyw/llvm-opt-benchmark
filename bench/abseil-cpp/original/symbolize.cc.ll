@@ -510,10 +510,12 @@ if.end20:                                         ; preds = %if.then16
   br label %do.body
 
 do.body:                                          ; preds = %if.end20
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename, align 8
+  %30 = getelementptr i8, ptr @.str, i64 114
+  store ptr %30, ptr %absl_raw_log_internal_basename, align 8
   %call21 = call ptr @__errno_location() #14
-  %30 = load i32, ptr %call21, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 491, ptr noundef @.str.5, i32 noundef %30)
+  %31 = load i32, ptr %call21, align 4
+  %32 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %32, i32 noundef 491, ptr noundef @.str.5, i32 noundef %31)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -521,32 +523,32 @@ do.end:                                           ; preds = %do.body
   br label %return
 
 if.end22:                                         ; preds = %if.end
-  %31 = load i64, ptr %n12, align 8
-  %cmp23 = icmp eq i64 %31, 0
+  %33 = load i64, ptr %n12, align 8
+  %cmp23 = icmp eq i64 %33, 0
   br i1 %cmp23, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.end22
   br label %while.end
 
 if.end25:                                         ; preds = %if.end22
-  %32 = load i64, ptr %offset.addr, align 8
+  %34 = load i64, ptr %offset.addr, align 8
   %cache_start_26 = getelementptr inbounds %"class.absl::debugging_internal::(anonymous namespace)::CachingFile", ptr %this1, i32 0, i32 3
-  store i64 %32, ptr %cache_start_26, align 8
-  %33 = load i64, ptr %offset.addr, align 8
-  %34 = load i64, ptr %n12, align 8
-  %add27 = add nsw i64 %33, %34
+  store i64 %34, ptr %cache_start_26, align 8
+  %35 = load i64, ptr %offset.addr, align 8
+  %36 = load i64, ptr %n12, align 8
+  %add27 = add nsw i64 %35, %36
   %cache_limit_28 = getelementptr inbounds %"class.absl::debugging_internal::(anonymous namespace)::CachingFile", ptr %this1, i32 0, i32 4
   store i64 %add27, ptr %cache_limit_28, align 8
   br label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %if.then24, %while.cond
-  %35 = load i64, ptr %read, align 8
-  store i64 %35, ptr %retval, align 8
+  %37 = load i64, ptr %read, align 8
+  store i64 %37, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %while.end, %do.end
-  %36 = load i64, ptr %retval, align 8
-  ret i64 %36
+  %38 = load i64, ptr %retval, align 8
+  ret i64 %38
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -634,10 +636,12 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  %1 = load ptr, ptr %name.addr, align 8
-  %2 = load i64, ptr %name_len.addr, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 638, ptr noundef @.str.1, ptr noundef %1, i64 noundef %2)
+  %1 = getelementptr i8, ptr @.str, i64 114
+  store ptr %1, ptr %absl_raw_log_internal_basename, align 8
+  %2 = load ptr, ptr %name.addr, align 8
+  %3 = load i64, ptr %name_len.addr, align 8
+  %4 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %4, i32 noundef 638, ptr noundef @.str.1, ptr noundef %2, i64 noundef %3)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -645,9 +649,9 @@ do.end:                                           ; preds = %do.body
   br label %return
 
 if.end:                                           ; preds = %entry
-  %3 = load i32, ptr %fd.addr, align 4
+  %5 = load i32, ptr %fd.addr, align 4
   %arraydecay = getelementptr inbounds [100 x i8], ptr %buf, i64 0, i64 0
-  call void @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFileC2EiPcm(ptr noundef nonnull align 8 dereferenceable(40) %file, i32 noundef %3, ptr noundef %arraydecay, i64 noundef 100)
+  call void @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFileC2EiPcm(ptr noundef nonnull align 8 dereferenceable(40) %file, i32 noundef %5, ptr noundef %arraydecay, i64 noundef 100)
   %call = call noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml(ptr noundef nonnull align 8 dereferenceable(40) %file, ptr noundef %elf_header, i64 noundef 64, i64 noundef 0)
   br i1 %call, label %if.end2, label %if.then1
 
@@ -657,8 +661,8 @@ if.then1:                                         ; preds = %if.end
 
 if.end2:                                          ; preds = %if.end
   %e_shentsize = getelementptr inbounds %struct.Elf64_Ehdr, ptr %elf_header, i32 0, i32 11
-  %4 = load i16, ptr %e_shentsize, align 2
-  %conv = zext i16 %4 to i64
+  %6 = load i16, ptr %e_shentsize, align 2
+  %conv = zext i16 %6 to i64
   %cmp3 = icmp ne i64 %conv, 64
   br i1 %cmp3, label %if.then4, label %if.end5
 
@@ -668,19 +672,19 @@ if.then4:                                         ; preds = %if.end2
 
 if.end5:                                          ; preds = %if.end2
   %e_shoff = getelementptr inbounds %struct.Elf64_Ehdr, ptr %elf_header, i32 0, i32 6
-  %5 = load i64, ptr %e_shoff, align 8
+  %7 = load i64, ptr %e_shoff, align 8
   %e_shentsize6 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %elf_header, i32 0, i32 11
-  %6 = load i16, ptr %e_shentsize6, align 2
-  %conv7 = zext i16 %6 to i32
+  %8 = load i16, ptr %e_shentsize6, align 2
+  %conv7 = zext i16 %8 to i32
   %e_shstrndx = getelementptr inbounds %struct.Elf64_Ehdr, ptr %elf_header, i32 0, i32 13
-  %7 = load i16, ptr %e_shstrndx, align 2
-  %conv8 = zext i16 %7 to i32
+  %9 = load i16, ptr %e_shstrndx, align 2
+  %conv8 = zext i16 %9 to i32
   %mul = mul nsw i32 %conv7, %conv8
   %conv9 = sext i32 %mul to i64
-  %add = add nsw i64 %5, %conv9
+  %add = add nsw i64 %7, %conv9
   store i64 %add, ptr %shstrtab_offset, align 8
-  %8 = load i64, ptr %shstrtab_offset, align 8
-  %call10 = call noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml(ptr noundef nonnull align 8 dereferenceable(40) %file, ptr noundef %shstrtab, i64 noundef 64, i64 noundef %8)
+  %10 = load i64, ptr %shstrtab_offset, align 8
+  %call10 = call noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml(ptr noundef nonnull align 8 dereferenceable(40) %file, ptr noundef %shstrtab, i64 noundef 64, i64 noundef %10)
   br i1 %call10, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.end5
@@ -692,27 +696,27 @@ if.end12:                                         ; preds = %if.end5
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end12
-  %9 = load i32, ptr %i, align 4
+  %11 = load i32, ptr %i, align 4
   %e_shnum = getelementptr inbounds %struct.Elf64_Ehdr, ptr %elf_header, i32 0, i32 12
-  %10 = load i16, ptr %e_shnum, align 4
-  %conv13 = zext i16 %10 to i32
-  %cmp14 = icmp slt i32 %9, %conv13
+  %12 = load i16, ptr %e_shnum, align 4
+  %conv13 = zext i16 %12 to i32
+  %cmp14 = icmp slt i32 %11, %conv13
   br i1 %cmp14, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %e_shoff15 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %elf_header, i32 0, i32 6
-  %11 = load i64, ptr %e_shoff15, align 8
+  %13 = load i64, ptr %e_shoff15, align 8
   %e_shentsize16 = getelementptr inbounds %struct.Elf64_Ehdr, ptr %elf_header, i32 0, i32 11
-  %12 = load i16, ptr %e_shentsize16, align 2
-  %conv17 = zext i16 %12 to i32
-  %13 = load i32, ptr %i, align 4
-  %mul18 = mul nsw i32 %conv17, %13
+  %14 = load i16, ptr %e_shentsize16, align 2
+  %conv17 = zext i16 %14 to i32
+  %15 = load i32, ptr %i, align 4
+  %mul18 = mul nsw i32 %conv17, %15
   %conv19 = sext i32 %mul18 to i64
-  %add20 = add nsw i64 %11, %conv19
+  %add20 = add nsw i64 %13, %conv19
   store i64 %add20, ptr %section_header_offset, align 8
-  %14 = load ptr, ptr %out.addr, align 8
-  %15 = load i64, ptr %section_header_offset, align 8
-  %call21 = call noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml(ptr noundef nonnull align 8 dereferenceable(40) %file, ptr noundef %14, i64 noundef 64, i64 noundef %15)
+  %16 = load ptr, ptr %out.addr, align 8
+  %17 = load i64, ptr %section_header_offset, align 8
+  %call21 = call noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml(ptr noundef nonnull align 8 dereferenceable(40) %file, ptr noundef %16, i64 noundef 64, i64 noundef %17)
   br i1 %call21, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %for.body
@@ -721,19 +725,19 @@ if.then22:                                        ; preds = %for.body
 
 if.end23:                                         ; preds = %for.body
   %sh_offset = getelementptr inbounds %struct.Elf64_Shdr, ptr %shstrtab, i32 0, i32 4
-  %16 = load i64, ptr %sh_offset, align 8
-  %17 = load ptr, ptr %out.addr, align 8
-  %sh_name = getelementptr inbounds %struct.Elf64_Shdr, ptr %17, i32 0, i32 0
-  %18 = load i32, ptr %sh_name, align 8
-  %conv24 = zext i32 %18 to i64
-  %add25 = add nsw i64 %16, %conv24
+  %18 = load i64, ptr %sh_offset, align 8
+  %19 = load ptr, ptr %out.addr, align 8
+  %sh_name = getelementptr inbounds %struct.Elf64_Shdr, ptr %19, i32 0, i32 0
+  %20 = load i32, ptr %sh_name, align 8
+  %conv24 = zext i32 %20 to i64
+  %add25 = add nsw i64 %18, %conv24
   store i64 %add25, ptr %name_offset, align 8
-  %19 = load i64, ptr %name_len.addr, align 8
-  %20 = load i64, ptr %name_offset, align 8
-  %call26 = call noundef i64 @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml(ptr noundef nonnull align 8 dereferenceable(40) %file, ptr noundef %header_name, i64 noundef %19, i64 noundef %20)
+  %21 = load i64, ptr %name_len.addr, align 8
+  %22 = load i64, ptr %name_offset, align 8
+  %call26 = call noundef i64 @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml(ptr noundef nonnull align 8 dereferenceable(40) %file, ptr noundef %header_name, i64 noundef %21, i64 noundef %22)
   store i64 %call26, ptr %n_read, align 8
-  %21 = load i64, ptr %n_read, align 8
-  %cmp27 = icmp slt i64 %21, 0
+  %23 = load i64, ptr %n_read, align 8
+  %cmp27 = icmp slt i64 %23, 0
   br i1 %cmp27, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %if.end23
@@ -741,9 +745,9 @@ if.then28:                                        ; preds = %if.end23
   br label %return
 
 if.else:                                          ; preds = %if.end23
-  %22 = load i64, ptr %n_read, align 8
-  %23 = load i64, ptr %name_len.addr, align 8
-  %cmp29 = icmp ne i64 %22, %23
+  %24 = load i64, ptr %n_read, align 8
+  %25 = load i64, ptr %name_len.addr, align 8
+  %cmp29 = icmp ne i64 %24, %25
   br i1 %cmp29, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.else
@@ -754,9 +758,9 @@ if.end31:                                         ; preds = %if.else
 
 if.end32:                                         ; preds = %if.end31
   %arraydecay33 = getelementptr inbounds [64 x i8], ptr %header_name, i64 0, i64 0
-  %24 = load ptr, ptr %name.addr, align 8
-  %25 = load i64, ptr %name_len.addr, align 8
-  %call34 = call i32 @memcmp(ptr noundef %arraydecay33, ptr noundef %24, i64 noundef %25) #13
+  %26 = load ptr, ptr %name.addr, align 8
+  %27 = load i64, ptr %name_len.addr, align 8
+  %call34 = call i32 @memcmp(ptr noundef %arraydecay33, ptr noundef %26, i64 noundef %27) #13
   %cmp35 = icmp eq i32 %call34, 0
   br i1 %cmp35, label %if.then36, label %if.end37
 
@@ -768,8 +772,8 @@ if.end37:                                         ; preds = %if.end32
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end37, %if.then30
-  %26 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %26, 1
+  %28 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %28, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !8
 
@@ -778,8 +782,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then36, %if.then28, %if.then22, %if.then11, %if.then4, %if.then1, %do.end
-  %27 = load i1, ptr %retval, align 1
-  ret i1 %27
+  %29 = load i1, ptr %retval, align 1
+  ret i1 %29
 }
 
 declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) #1
@@ -1186,8 +1190,10 @@ if.then11:                                        ; preds = %do.body
   br label %do.body12
 
 do.body12:                                        ; preds = %if.then11
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1646, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4)
+  %9 = getelementptr i8, ptr @.str, i64 114
+  store ptr %9, ptr %absl_raw_log_internal_basename, align 8
+  %10 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %10, i32 noundef 1646, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4)
   br label %do.body13
 
 do.body13:                                        ; preds = %do.body12
@@ -1203,45 +1209,45 @@ if.end15:                                         ; preds = %do.end14, %do.body
   br label %do.end16
 
 do.end16:                                         ; preds = %if.end15
-  %9 = load ptr, ptr %dst, align 8
-  %10 = load ptr, ptr %filename.addr, align 8
-  %11 = load i64, ptr %len, align 8
-  %add17 = add i64 %11, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %10, i64 %add17, i1 false)
-  %12 = load i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124g_num_file_mapping_hintsE, align 4
-  %inc = add nsw i32 %12, 1
+  %11 = load ptr, ptr %dst, align 8
+  %12 = load ptr, ptr %filename.addr, align 8
+  %13 = load i64, ptr %len, align 8
+  %add17 = add i64 %13, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %12, i64 %add17, i1 false)
+  %14 = load i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124g_num_file_mapping_hintsE, align 4
+  %inc = add nsw i32 %14, 1
   store i32 %inc, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124g_num_file_mapping_hintsE, align 4
-  %idxprom = sext i32 %12 to i64
+  %idxprom = sext i32 %14 to i64
   %arrayidx = getelementptr inbounds [8 x %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint"], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 0, i64 %idxprom
   store ptr %arrayidx, ptr %hint, align 8
-  %13 = load ptr, ptr %start.addr, align 8
-  %14 = load ptr, ptr %hint, align 8
-  %start18 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr %14, i32 0, i32 0
-  store ptr %13, ptr %start18, align 8
-  %15 = load ptr, ptr %end.addr, align 8
+  %15 = load ptr, ptr %start.addr, align 8
   %16 = load ptr, ptr %hint, align 8
-  %end19 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr %16, i32 0, i32 1
-  store ptr %15, ptr %end19, align 8
-  %17 = load i64, ptr %offset.addr, align 8
+  %start18 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr %16, i32 0, i32 0
+  store ptr %15, ptr %start18, align 8
+  %17 = load ptr, ptr %end.addr, align 8
   %18 = load ptr, ptr %hint, align 8
-  %offset20 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr %18, i32 0, i32 2
-  store i64 %17, ptr %offset20, align 8
-  %19 = load ptr, ptr %dst, align 8
+  %end19 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr %18, i32 0, i32 1
+  store ptr %17, ptr %end19, align 8
+  %19 = load i64, ptr %offset.addr, align 8
   %20 = load ptr, ptr %hint, align 8
-  %filename21 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr %20, i32 0, i32 3
-  store ptr %19, ptr %filename21, align 8
+  %offset20 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr %20, i32 0, i32 2
+  store i64 %19, ptr %offset20, align 8
+  %21 = load ptr, ptr %dst, align 8
+  %22 = load ptr, ptr %hint, align 8
+  %filename21 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr %22, i32 0, i32 3
+  store ptr %21, ptr %filename21, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %do.end16, %if.then6
   call void @_ZN4absl13base_internal8SpinLock6UnlockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE)
-  %21 = load i8, ptr %ret, align 1
-  %tobool = trunc i8 %21 to i1
+  %23 = load i8, ptr %ret, align 1
+  %tobool = trunc i8 %23 to i1
   store i1 %tobool, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end22, %if.then
-  %22 = load i1, ptr %retval, align 1
-  ret i1 %22
+  %24 = load i1, ptr %retval, align 1
+  ret i1 %24
 }
 
 ; Function Attrs: noreturn nounwind
@@ -2939,8 +2945,10 @@ if.then18:                                        ; preds = %do.body
   br label %do.body19
 
 do.body19:                                        ; preds = %if.then18
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1478, ptr noundef @.str.2, ptr noundef @.str.8, ptr noundef @.str.9)
+  %22 = getelementptr i8, ptr @.str, i64 114
+  store ptr %22, ptr %absl_raw_log_internal_basename, align 8
+  %23 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %23, i32 noundef 1478, ptr noundef @.str.2, ptr noundef @.str.8, ptr noundef @.str.9)
   br label %do.body20
 
 do.body20:                                        ; preds = %do.body19
@@ -2959,65 +2967,67 @@ do.end22:                                         ; preds = %if.end
   br label %for.end
 
 if.end23:                                         ; preds = %for.body
-  %22 = load ptr, ptr %pc.addr, align 8
-  %23 = load i64, ptr %start_addr, align 8
-  %24 = load ptr, ptr %p, align 8
-  %p_vaddr = getelementptr inbounds %struct.Elf64_Phdr, ptr %24, i32 0, i32 3
-  %25 = load i64, ptr %p_vaddr, align 8
-  %add = add i64 %23, %25
+  %24 = load ptr, ptr %pc.addr, align 8
+  %25 = load i64, ptr %start_addr, align 8
   %26 = load ptr, ptr %p, align 8
-  %p_memsz = getelementptr inbounds %struct.Elf64_Phdr, ptr %26, i32 0, i32 6
-  %27 = load i64, ptr %p_memsz, align 8
-  %add24 = add i64 %add, %27
-  %28 = inttoptr i64 %add24 to ptr
-  %cmp25 = icmp ult ptr %22, %28
+  %p_vaddr = getelementptr inbounds %struct.Elf64_Phdr, ptr %26, i32 0, i32 3
+  %27 = load i64, ptr %p_vaddr, align 8
+  %add = add i64 %25, %27
+  %28 = load ptr, ptr %p, align 8
+  %p_memsz = getelementptr inbounds %struct.Elf64_Phdr, ptr %28, i32 0, i32 6
+  %29 = load i64, ptr %p_memsz, align 8
+  %add24 = add i64 %add, %29
+  %30 = inttoptr i64 %add24 to ptr
+  %cmp25 = icmp ult ptr %24, %30
   br i1 %cmp25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end23
-  %29 = load ptr, ptr %p, align 8
-  store ptr %29, ptr %phdr, align 8
+  %31 = load ptr, ptr %p, align 8
+  store ptr %31, ptr %phdr, align 8
   br label %for.end
 
 if.end27:                                         ; preds = %if.end23
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end27
-  %30 = load i64, ptr %j, align 8
-  %inc = add i64 %30, 1
+  %32 = load i64, ptr %j, align 8
+  %inc = add i64 %32, 1
   store i64 %inc, ptr %j, align 8
   br label %for.cond, !llvm.loop !14
 
 for.end:                                          ; preds = %if.then26, %do.end22, %for.cond
-  %31 = load ptr, ptr %phdr, align 8
-  %cmp28 = icmp eq ptr %31, null
+  %33 = load ptr, ptr %phdr, align 8
+  %cmp28 = icmp eq ptr %33, null
   br i1 %cmp28, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %for.end
   br label %do.body30
 
 do.body30:                                        ; preds = %if.then29
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename31, align 8
-  %32 = load ptr, ptr %obj, align 8
-  %filename = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %filename, align 8
-  %34 = load ptr, ptr %pc.addr, align 8
-  %35 = load i64, ptr %start_addr, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1491, ptr noundef @.str.10, ptr noundef %33, ptr noundef %34, i64 noundef %35)
+  %34 = getelementptr i8, ptr @.str, i64 114
+  store ptr %34, ptr %absl_raw_log_internal_basename31, align 8
+  %35 = load ptr, ptr %obj, align 8
+  %filename = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %35, i32 0, i32 0
+  %36 = load ptr, ptr %filename, align 8
+  %37 = load ptr, ptr %pc.addr, align 8
+  %38 = load i64, ptr %start_addr, align 8
+  %39 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %39, i32 noundef 1491, ptr noundef @.str.10, ptr noundef %36, ptr noundef %37, i64 noundef %38)
   br label %do.end32
 
 do.end32:                                         ; preds = %do.body30
   br label %if.end36
 
 if.else:                                          ; preds = %for.end
-  %36 = load ptr, ptr %phdr, align 8
-  %p_vaddr33 = getelementptr inbounds %struct.Elf64_Phdr, ptr %36, i32 0, i32 3
-  %37 = load i64, ptr %p_vaddr33, align 8
-  %38 = load ptr, ptr %phdr, align 8
-  %p_offset = getelementptr inbounds %struct.Elf64_Phdr, ptr %38, i32 0, i32 2
-  %39 = load i64, ptr %p_offset, align 8
-  %sub34 = sub i64 %37, %39
-  %40 = load i64, ptr %relocation, align 8
-  %sub35 = sub i64 %40, %sub34
+  %40 = load ptr, ptr %phdr, align 8
+  %p_vaddr33 = getelementptr inbounds %struct.Elf64_Phdr, ptr %40, i32 0, i32 3
+  %41 = load i64, ptr %p_vaddr33, align 8
+  %42 = load ptr, ptr %phdr, align 8
+  %p_offset = getelementptr inbounds %struct.Elf64_Phdr, ptr %42, i32 0, i32 2
+  %43 = load i64, ptr %p_offset, align 8
+  %sub34 = sub i64 %41, %43
+  %44 = load i64, ptr %relocation, align 8
+  %sub35 = sub i64 %44, %sub34
   store i64 %sub35, ptr %relocation, align 8
   br label %if.end36
 
@@ -3025,18 +3035,18 @@ if.end36:                                         ; preds = %if.else, %do.end32
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end36, %land.lhs.true, %if.then3
-  %41 = load ptr, ptr %obj, align 8
-  %fd38 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %41, i32 0, i32 4
-  %42 = load i32, ptr %fd38, align 8
-  store i32 %42, ptr %fd, align 4
-  %43 = load ptr, ptr %obj, align 8
-  %44 = load ptr, ptr %pc.addr, align 8
-  %45 = load i64, ptr %relocation, align 8
+  %45 = load ptr, ptr %obj, align 8
+  %fd38 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %45, i32 0, i32 4
+  %46 = load i32, ptr %fd38, align 8
+  store i32 %46, ptr %fd, align 4
+  %47 = load ptr, ptr %obj, align 8
+  %48 = load ptr, ptr %pc.addr, align 8
+  %49 = load i64, ptr %relocation, align 8
   %symbol_buf_ = getelementptr inbounds %"class.absl::debugging_internal::(anonymous namespace)::Symbolizer", ptr %this1, i32 0, i32 3
   %arraydecay = getelementptr inbounds [3072 x i8], ptr %symbol_buf_, i64 0, i64 0
   %tmp_buf_ = getelementptr inbounds %"class.absl::debugging_internal::(anonymous namespace)::Symbolizer", ptr %this1, i32 0, i32 6
   %arraydecay39 = getelementptr inbounds [1024 x i8], ptr %tmp_buf_, i64 0, i64 0
-  %call40 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m(ptr noundef nonnull align 16 dereferenceable(22560) %this1, ptr noundef nonnull align 8 dereferenceable(328) %43, ptr noundef %44, i64 noundef %45, ptr noundef %arraydecay, i64 noundef 3072, ptr noundef %arraydecay39, i64 noundef 1024)
+  %call40 = call noundef i32 @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer23GetSymbolFromObjectFileERKNS1_7ObjFileEPKvlPcmS8_m(ptr noundef nonnull align 16 dereferenceable(22560) %this1, ptr noundef nonnull align 8 dereferenceable(328) %47, ptr noundef %48, i64 noundef %49, ptr noundef %arraydecay, i64 noundef 3072, ptr noundef %arraydecay39, i64 noundef 1024)
   %cmp41 = icmp eq i32 %call40, 3
   br i1 %cmp41, label %if.then42, label %if.end47
 
@@ -3060,20 +3070,20 @@ if.else49:                                        ; preds = %entry
   br i1 %call50, label %if.then51, label %if.end72
 
 if.then51:                                        ; preds = %if.else49
-  %46 = load ptr, ptr %pc.addr, align 8
-  %call52 = call noundef zeroext i1 @_ZNK4absl18debugging_internal11VDSOSupport21LookupSymbolByAddressEPKvPNS0_11ElfMemImage10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72) %vdso, ptr noundef %46, ptr noundef %symbol_info)
+  %50 = load ptr, ptr %pc.addr, align 8
+  %call52 = call noundef zeroext i1 @_ZNK4absl18debugging_internal11VDSOSupport21LookupSymbolByAddressEPKvPNS0_11ElfMemImage10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72) %vdso, ptr noundef %50, ptr noundef %symbol_info)
   br i1 %call52, label %if.then53, label %if.end71
 
 if.then53:                                        ; preds = %if.then51
   %name = getelementptr inbounds %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %symbol_info, i32 0, i32 0
-  %47 = load ptr, ptr %name, align 8
-  %call54 = call i64 @strlen(ptr noundef %47) #13
+  %51 = load ptr, ptr %name, align 8
+  %call54 = call i64 @strlen(ptr noundef %51) #13
   store i64 %call54, ptr %len, align 8
   br label %do.body55
 
 do.body55:                                        ; preds = %if.then53
-  %48 = load i64, ptr %len, align 8
-  %add56 = add i64 %48, 1
+  %52 = load i64, ptr %len, align 8
+  %add56 = add i64 %52, 1
   %cmp57 = icmp ult i64 %add56, 3072
   %lnot58 = xor i1 %cmp57, true
   br i1 %lnot58, label %if.then59, label %if.end65
@@ -3082,8 +3092,10 @@ if.then59:                                        ; preds = %do.body55
   br label %do.body60
 
 do.body60:                                        ; preds = %if.then59
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename61, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1518, ptr noundef @.str.2, ptr noundef @.str.11, ptr noundef @.str.12)
+  %53 = getelementptr i8, ptr @.str, i64 114
+  store ptr %53, ptr %absl_raw_log_internal_basename61, align 8
+  %54 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %54, i32 noundef 1518, ptr noundef @.str.2, ptr noundef @.str.11, ptr noundef @.str.12)
   br label %do.body62
 
 do.body62:                                        ; preds = %do.body60
@@ -3102,10 +3114,10 @@ do.end66:                                         ; preds = %if.end65
   %symbol_buf_67 = getelementptr inbounds %"class.absl::debugging_internal::(anonymous namespace)::Symbolizer", ptr %this1, i32 0, i32 3
   %arraydecay68 = getelementptr inbounds [3072 x i8], ptr %symbol_buf_67, i64 0, i64 0
   %name69 = getelementptr inbounds %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", ptr %symbol_info, i32 0, i32 0
-  %49 = load ptr, ptr %name69, align 8
-  %50 = load i64, ptr %len, align 8
-  %add70 = add i64 %50, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %arraydecay68, ptr align 1 %49, i64 %add70, i1 false)
+  %55 = load ptr, ptr %name69, align 8
+  %56 = load i64, ptr %len, align 8
+  %add70 = add i64 %56, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %arraydecay68, ptr align 1 %55, i64 %add70, i1 false)
   br label %if.end71
 
 if.end71:                                         ; preds = %do.end66, %if.then51
@@ -3119,20 +3131,20 @@ if.end73:                                         ; preds = %if.end72, %if.end48
   br i1 %call74, label %if.then75, label %if.end96
 
 if.then75:                                        ; preds = %if.end73
-  %51 = load i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_num_decoratorsE, align 4
-  %cmp76 = icmp sgt i32 %51, 0
+  %57 = load i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_num_decoratorsE, align 4
+  %cmp76 = icmp sgt i32 %57, 0
   br i1 %cmp76, label %if.then77, label %if.end95
 
 if.then77:                                        ; preds = %if.then75
   %pc78 = getelementptr inbounds %"struct.absl::debugging_internal::SymbolDecoratorArgs", ptr %decorator_args, i32 0, i32 0
-  %52 = load ptr, ptr %pc.addr, align 8
-  store ptr %52, ptr %pc78, align 8
+  %58 = load ptr, ptr %pc.addr, align 8
+  store ptr %58, ptr %pc78, align 8
   %relocation79 = getelementptr inbounds %"struct.absl::debugging_internal::SymbolDecoratorArgs", ptr %decorator_args, i32 0, i32 1
-  %53 = load i64, ptr %relocation, align 8
-  store i64 %53, ptr %relocation79, align 8
+  %59 = load i64, ptr %relocation, align 8
+  store i64 %59, ptr %relocation79, align 8
   %fd80 = getelementptr inbounds %"struct.absl::debugging_internal::SymbolDecoratorArgs", ptr %decorator_args, i32 0, i32 2
-  %54 = load i32, ptr %fd, align 4
-  store i32 %54, ptr %fd80, align 8
+  %60 = load i32, ptr %fd, align 4
+  store i32 %60, ptr %fd80, align 8
   %symbol_buf = getelementptr inbounds %"struct.absl::debugging_internal::SymbolDecoratorArgs", ptr %decorator_args, i32 0, i32 3
   %symbol_buf_81 = getelementptr inbounds %"class.absl::debugging_internal::(anonymous namespace)::Symbolizer", ptr %this1, i32 0, i32 3
   %arraydecay82 = getelementptr inbounds [3072 x i8], ptr %symbol_buf_81, i64 0, i64 0
@@ -3151,30 +3163,30 @@ if.then77:                                        ; preds = %if.then75
   br label %for.cond85
 
 for.cond85:                                       ; preds = %for.inc92, %if.then77
-  %55 = load i32, ptr %i, align 4
-  %56 = load i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_num_decoratorsE, align 4
-  %cmp86 = icmp slt i32 %55, %56
+  %61 = load i32, ptr %i, align 4
+  %62 = load i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_num_decoratorsE, align 4
+  %cmp86 = icmp slt i32 %61, %62
   br i1 %cmp86, label %for.body87, label %for.end94
 
 for.body87:                                       ; preds = %for.cond85
-  %57 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %57 to i64
+  %63 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %63 to i64
   %arrayidx = getelementptr inbounds [10 x %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator"], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 0, i64 %idxprom
   %arg88 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr %arrayidx, i32 0, i32 1
-  %58 = load ptr, ptr %arg88, align 8
+  %64 = load ptr, ptr %arg88, align 8
   %arg89 = getelementptr inbounds %"struct.absl::debugging_internal::SymbolDecoratorArgs", ptr %decorator_args, i32 0, i32 7
-  store ptr %58, ptr %arg89, align 8
-  %59 = load i32, ptr %i, align 4
-  %idxprom90 = sext i32 %59 to i64
+  store ptr %64, ptr %arg89, align 8
+  %65 = load i32, ptr %i, align 4
+  %idxprom90 = sext i32 %65 to i64
   %arrayidx91 = getelementptr inbounds [10 x %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator"], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 0, i64 %idxprom90
   %fn = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr %arrayidx91, i32 0, i32 0
-  %60 = load ptr, ptr %fn, align 8
-  call void %60(ptr noundef %decorator_args)
+  %66 = load ptr, ptr %fn, align 8
+  call void %66(ptr noundef %decorator_args)
   br label %for.inc92
 
 for.inc92:                                        ; preds = %for.body87
-  %61 = load i32, ptr %i, align 4
-  %inc93 = add nsw i32 %61, 1
+  %67 = load i32, ptr %i, align 4
+  %inc93 = add nsw i32 %67, 1
   store i32 %inc93, ptr %i, align 4
   br label %for.cond85, !llvm.loop !15
 
@@ -3188,8 +3200,8 @@ if.end95:                                         ; preds = %for.end94, %if.then
 if.end96:                                         ; preds = %if.end95, %if.end73
   %symbol_buf_97 = getelementptr inbounds %"class.absl::debugging_internal::(anonymous namespace)::Symbolizer", ptr %this1, i32 0, i32 3
   %arrayidx98 = getelementptr inbounds [3072 x i8], ptr %symbol_buf_97, i64 0, i64 0
-  %62 = load i8, ptr %arrayidx98, align 2
-  %conv = sext i8 %62 to i32
+  %68 = load i8, ptr %arrayidx98, align 2
+  %conv = sext i8 %68 to i32
   %cmp99 = icmp eq i32 %conv, 0
   br i1 %cmp99, label %if.then100, label %if.end101
 
@@ -3201,16 +3213,16 @@ if.end101:                                        ; preds = %if.end96
   %symbol_buf_102 = getelementptr inbounds %"class.absl::debugging_internal::(anonymous namespace)::Symbolizer", ptr %this1, i32 0, i32 3
   %arrayidx103 = getelementptr inbounds [3072 x i8], ptr %symbol_buf_102, i64 0, i64 3071
   store i8 0, ptr %arrayidx103, align 1
-  %63 = load ptr, ptr %pc.addr, align 8
+  %69 = load ptr, ptr %pc.addr, align 8
   %symbol_buf_104 = getelementptr inbounds %"class.absl::debugging_internal::(anonymous namespace)::Symbolizer", ptr %this1, i32 0, i32 3
   %arraydecay105 = getelementptr inbounds [3072 x i8], ptr %symbol_buf_104, i64 0, i64 0
-  %call106 = call noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc(ptr noundef nonnull align 16 dereferenceable(22560) %this1, ptr noundef %63, ptr noundef %arraydecay105)
+  %call106 = call noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc(ptr noundef nonnull align 16 dereferenceable(22560) %this1, ptr noundef %69, ptr noundef %arraydecay105)
   store ptr %call106, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end101, %if.then100
-  %64 = load ptr, ptr %retval, align 8
-  ret ptr %64
+  %70 = load ptr, ptr %retval, align 8
+  ret ptr %70
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3551,13 +3563,15 @@ if.then17:                                        ; preds = %if.end14
   br label %do.body
 
 do.body:                                          ; preds = %if.then17
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  %15 = load ptr, ptr %obj.addr, align 8
-  %filename18 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %filename18, align 8
+  %15 = getelementptr i8, ptr @.str, i64 114
+  store ptr %15, ptr %absl_raw_log_internal_basename, align 8
+  %16 = load ptr, ptr %obj.addr, align 8
+  %filename18 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %16, i32 0, i32 0
+  %17 = load ptr, ptr %filename18, align 8
   %call19 = call ptr @__errno_location() #14
-  %17 = load i32, ptr %call19, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1383, ptr noundef @.str.20, ptr noundef %16, i32 noundef %17)
+  %18 = load i32, ptr %call19, align 4
+  %19 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %19, i32 noundef 1383, ptr noundef @.str.20, ptr noundef %17, i32 noundef %18)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -3565,33 +3579,35 @@ do.end:                                           ; preds = %do.body
   br label %return
 
 if.end20:                                         ; preds = %if.end14
-  %18 = load ptr, ptr %obj.addr, align 8
-  %fd21 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %18, i32 0, i32 4
-  %19 = load i32, ptr %fd21, align 8
-  %arraydecay = getelementptr inbounds [100 x i8], ptr %buf, i64 0, i64 0
-  call void @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFileC2EiPcm(ptr noundef nonnull align 8 dereferenceable(40) %file, i32 noundef %19, ptr noundef %arraydecay, i64 noundef 100)
-  %call22 = call noundef i32 @_ZN4absl18debugging_internalL14FileGetElfTypeEPNS0_12_GLOBAL__N_111CachingFileE(ptr noundef %file)
   %20 = load ptr, ptr %obj.addr, align 8
-  %elf_type = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %20, i32 0, i32 5
+  %fd21 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %20, i32 0, i32 4
+  %21 = load i32, ptr %fd21, align 8
+  %arraydecay = getelementptr inbounds [100 x i8], ptr %buf, i64 0, i64 0
+  call void @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFileC2EiPcm(ptr noundef nonnull align 8 dereferenceable(40) %file, i32 noundef %21, ptr noundef %arraydecay, i64 noundef 100)
+  %call22 = call noundef i32 @_ZN4absl18debugging_internalL14FileGetElfTypeEPNS0_12_GLOBAL__N_111CachingFileE(ptr noundef %file)
+  %22 = load ptr, ptr %obj.addr, align 8
+  %elf_type = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %22, i32 0, i32 5
   store i32 %call22, ptr %elf_type, align 4
-  %21 = load ptr, ptr %obj.addr, align 8
-  %elf_type23 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %21, i32 0, i32 5
-  %22 = load i32, ptr %elf_type23, align 4
-  %cmp24 = icmp slt i32 %22, 0
+  %23 = load ptr, ptr %obj.addr, align 8
+  %elf_type23 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %23, i32 0, i32 5
+  %24 = load i32, ptr %elf_type23, align 4
+  %cmp24 = icmp slt i32 %24, 0
   br i1 %cmp24, label %if.then25, label %if.end31
 
 if.then25:                                        ; preds = %if.end20
   br label %do.body26
 
 do.body26:                                        ; preds = %if.then25
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename27, align 8
-  %23 = load ptr, ptr %obj.addr, align 8
-  %filename28 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %filename28, align 8
-  %25 = load ptr, ptr %obj.addr, align 8
-  %elf_type29 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %25, i32 0, i32 5
-  %26 = load i32, ptr %elf_type29, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1393, ptr noundef @.str.21, ptr noundef %24, i32 noundef %26)
+  %25 = getelementptr i8, ptr @.str, i64 114
+  store ptr %25, ptr %absl_raw_log_internal_basename27, align 8
+  %26 = load ptr, ptr %obj.addr, align 8
+  %filename28 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %26, i32 0, i32 0
+  %27 = load ptr, ptr %filename28, align 8
+  %28 = load ptr, ptr %obj.addr, align 8
+  %elf_type29 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %28, i32 0, i32 5
+  %29 = load i32, ptr %elf_type29, align 4
+  %30 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %30, i32 noundef 1393, ptr noundef @.str.21, ptr noundef %27, i32 noundef %29)
   br label %do.end30
 
 do.end30:                                         ; preds = %do.body26
@@ -3599,8 +3615,8 @@ do.end30:                                         ; preds = %do.body26
   br label %return
 
 if.end31:                                         ; preds = %if.end20
-  %27 = load ptr, ptr %obj.addr, align 8
-  %elf_header = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %27, i32 0, i32 6
+  %31 = load ptr, ptr %obj.addr, align 8
+  %elf_header = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %31, i32 0, i32 6
   %call32 = call noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml(ptr noundef nonnull align 8 dereferenceable(40) %file, ptr noundef %elf_header, i64 noundef 64, i64 noundef 0)
   br i1 %call32, label %if.end38, label %if.then33
 
@@ -3608,11 +3624,13 @@ if.then33:                                        ; preds = %if.end31
   br label %do.body34
 
 do.body34:                                        ; preds = %if.then33
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename35, align 8
-  %28 = load ptr, ptr %obj.addr, align 8
-  %filename36 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %filename36, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1399, ptr noundef @.str.22, ptr noundef %29)
+  %32 = getelementptr i8, ptr @.str, i64 114
+  store ptr %32, ptr %absl_raw_log_internal_basename35, align 8
+  %33 = load ptr, ptr %obj.addr, align 8
+  %filename36 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %33, i32 0, i32 0
+  %34 = load ptr, ptr %filename36, align 8
+  %35 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %35, i32 noundef 1399, ptr noundef @.str.22, ptr noundef %34)
   br label %do.end37
 
 do.end37:                                         ; preds = %do.body34
@@ -3620,48 +3638,50 @@ do.end37:                                         ; preds = %do.body34
   br label %return
 
 if.end38:                                         ; preds = %if.end31
-  %30 = load ptr, ptr %obj.addr, align 8
-  %elf_header39 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %30, i32 0, i32 6
+  %36 = load ptr, ptr %obj.addr, align 8
+  %elf_header39 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %36, i32 0, i32 6
   %e_phnum = getelementptr inbounds %struct.Elf64_Ehdr, ptr %elf_header39, i32 0, i32 10
-  %31 = load i16, ptr %e_phnum, align 8
-  %conv = zext i16 %31 to i32
+  %37 = load i16, ptr %e_phnum, align 8
+  %conv = zext i16 %37 to i32
   store i32 %conv, ptr %phnum, align 4
-  %32 = load ptr, ptr %obj.addr, align 8
-  %elf_header40 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %32, i32 0, i32 6
+  %38 = load ptr, ptr %obj.addr, align 8
+  %elf_header40 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %38, i32 0, i32 6
   %e_phentsize = getelementptr inbounds %struct.Elf64_Ehdr, ptr %elf_header40, i32 0, i32 9
-  %33 = load i16, ptr %e_phentsize, align 2
-  %conv41 = zext i16 %33 to i32
+  %39 = load i16, ptr %e_phentsize, align 2
+  %conv41 = zext i16 %39 to i32
   store i32 %conv41, ptr %phentsize, align 4
-  %34 = load ptr, ptr %obj.addr, align 8
-  %elf_header42 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %34, i32 0, i32 6
+  %40 = load ptr, ptr %obj.addr, align 8
+  %elf_header42 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %40, i32 0, i32 6
   %e_phoff = getelementptr inbounds %struct.Elf64_Ehdr, ptr %elf_header42, i32 0, i32 5
-  %35 = load i64, ptr %e_phoff, align 8
-  store i64 %35, ptr %phoff, align 8
+  %41 = load i64, ptr %e_phoff, align 8
+  store i64 %41, ptr %phoff, align 8
   store i64 0, ptr %num_interesting_load_segments, align 8
   store i32 0, ptr %j, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end38
-  %36 = load i32, ptr %j, align 4
-  %37 = load i32, ptr %phnum, align 4
-  %cmp43 = icmp slt i32 %36, %37
+  %42 = load i32, ptr %j, align 4
+  %43 = load i32, ptr %phnum, align 4
+  %cmp43 = icmp slt i32 %42, %43
   br i1 %cmp43, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %38 = load i64, ptr %phoff, align 8
-  %call44 = call noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml(ptr noundef nonnull align 8 dereferenceable(40) %file, ptr noundef %phdr, i64 noundef 56, i64 noundef %38)
+  %44 = load i64, ptr %phoff, align 8
+  %call44 = call noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml(ptr noundef nonnull align 8 dereferenceable(40) %file, ptr noundef %phdr, i64 noundef 56, i64 noundef %44)
   br i1 %call44, label %if.end50, label %if.then45
 
 if.then45:                                        ; preds = %for.body
   br label %do.body46
 
 do.body46:                                        ; preds = %if.then45
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename47, align 8
-  %39 = load ptr, ptr %obj.addr, align 8
-  %filename48 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %39, i32 0, i32 0
-  %40 = load ptr, ptr %filename48, align 8
-  %41 = load i32, ptr %j, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1410, ptr noundef @.str.23, ptr noundef %40, i32 noundef %41)
+  %45 = getelementptr i8, ptr @.str, i64 114
+  store ptr %45, ptr %absl_raw_log_internal_basename47, align 8
+  %46 = load ptr, ptr %obj.addr, align 8
+  %filename48 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %46, i32 0, i32 0
+  %47 = load ptr, ptr %filename48, align 8
+  %48 = load i32, ptr %j, align 4
+  %49 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %49, i32 noundef 1410, ptr noundef @.str.23, ptr noundef %47, i32 noundef %48)
   br label %do.end49
 
 do.end49:                                         ; preds = %do.body46
@@ -3669,21 +3689,21 @@ do.end49:                                         ; preds = %do.body46
   br label %return
 
 if.end50:                                         ; preds = %for.body
-  %42 = load i32, ptr %phentsize, align 4
-  %conv51 = sext i32 %42 to i64
-  %43 = load i64, ptr %phoff, align 8
-  %add = add nsw i64 %43, %conv51
+  %50 = load i32, ptr %phentsize, align 4
+  %conv51 = sext i32 %50 to i64
+  %51 = load i64, ptr %phoff, align 8
+  %add = add nsw i64 %51, %conv51
   store i64 %add, ptr %phoff, align 8
   store i32 5, ptr %interesting, align 4
   %p_type = getelementptr inbounds %struct.Elf64_Phdr, ptr %phdr, i32 0, i32 0
-  %44 = load i32, ptr %p_type, align 8
-  %cmp52 = icmp ne i32 %44, 1
+  %52 = load i32, ptr %p_type, align 8
+  %cmp52 = icmp ne i32 %52, 1
   br i1 %cmp52, label %if.then54, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end50
   %p_flags = getelementptr inbounds %struct.Elf64_Phdr, ptr %phdr, i32 0, i32 1
-  %45 = load i32, ptr %p_flags, align 4
-  %and = and i32 %45, 5
+  %53 = load i32, ptr %p_flags, align 4
+  %and = and i32 %53, 5
   %cmp53 = icmp ne i32 %and, 5
   br i1 %cmp53, label %if.then54, label %if.end55
 
@@ -3691,20 +3711,20 @@ if.then54:                                        ; preds = %lor.lhs.false, %if.
   br label %for.inc
 
 if.end55:                                         ; preds = %lor.lhs.false
-  %46 = load i64, ptr %num_interesting_load_segments, align 8
-  %47 = load ptr, ptr %obj.addr, align 8
-  %phdr56 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %47, i32 0, i32 7
+  %54 = load i64, ptr %num_interesting_load_segments, align 8
+  %55 = load ptr, ptr %obj.addr, align 8
+  %phdr56 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %55, i32 0, i32 7
   %call57 = call noundef i64 @_ZNKSt5arrayI10Elf64_PhdrLm4EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(224) %phdr56) #14
-  %cmp58 = icmp ult i64 %46, %call57
+  %cmp58 = icmp ult i64 %54, %call57
   br i1 %cmp58, label %if.then59, label %if.else62
 
 if.then59:                                        ; preds = %if.end55
-  %48 = load ptr, ptr %obj.addr, align 8
-  %phdr60 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %48, i32 0, i32 7
-  %49 = load i64, ptr %num_interesting_load_segments, align 8
-  %inc = add i64 %49, 1
+  %56 = load ptr, ptr %obj.addr, align 8
+  %phdr60 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %56, i32 0, i32 7
+  %57 = load i64, ptr %num_interesting_load_segments, align 8
+  %inc = add i64 %57, 1
   store i64 %inc, ptr %num_interesting_load_segments, align 8
-  %call61 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt5arrayI10Elf64_PhdrLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(224) %phdr60, i64 noundef %49) #12
+  %call61 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt5arrayI10Elf64_PhdrLm4EEixEm(ptr noundef nonnull align 8 dereferenceable(224) %phdr60, i64 noundef %57) #12
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call61, ptr align 8 %phdr, i64 56, i1 false)
   br label %if.end69
 
@@ -3712,15 +3732,17 @@ if.else62:                                        ; preds = %if.end55
   br label %do.body63
 
 do.body63:                                        ; preds = %if.else62
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename64, align 8
-  %50 = load ptr, ptr %obj.addr, align 8
-  %filename65 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %50, i32 0, i32 0
-  %51 = load ptr, ptr %filename65, align 8
-  %52 = load i64, ptr %num_interesting_load_segments, align 8
-  %53 = load ptr, ptr %obj.addr, align 8
-  %phdr66 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %53, i32 0, i32 7
+  %58 = getelementptr i8, ptr @.str, i64 114
+  store ptr %58, ptr %absl_raw_log_internal_basename64, align 8
+  %59 = load ptr, ptr %obj.addr, align 8
+  %filename65 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %59, i32 0, i32 0
+  %60 = load ptr, ptr %filename65, align 8
+  %61 = load i64, ptr %num_interesting_load_segments, align 8
+  %62 = load ptr, ptr %obj.addr, align 8
+  %phdr66 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %62, i32 0, i32 7
   %call67 = call noundef i64 @_ZNKSt5arrayI10Elf64_PhdrLm4EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(224) %phdr66) #14
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1436, ptr noundef @.str.24, ptr noundef %51, i64 noundef %52, i64 noundef %call67)
+  %63 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %63, i32 noundef 1436, ptr noundef @.str.24, ptr noundef %60, i64 noundef %61, i64 noundef %call67)
   br label %do.end68
 
 do.end68:                                         ; preds = %do.body63
@@ -3730,25 +3752,27 @@ if.end69:                                         ; preds = %if.then59
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end69, %if.then54
-  %54 = load i32, ptr %j, align 4
-  %inc70 = add nsw i32 %54, 1
+  %64 = load i32, ptr %j, align 4
+  %inc70 = add nsw i32 %64, 1
   store i32 %inc70, ptr %j, align 4
   br label %for.cond, !llvm.loop !18
 
 for.end:                                          ; preds = %do.end68, %for.cond
-  %55 = load i64, ptr %num_interesting_load_segments, align 8
-  %cmp71 = icmp eq i64 %55, 0
+  %65 = load i64, ptr %num_interesting_load_segments, align 8
+  %cmp71 = icmp eq i64 %65, 0
   br i1 %cmp71, label %if.then72, label %if.end77
 
 if.then72:                                        ; preds = %for.end
   br label %do.body73
 
 do.body73:                                        ; preds = %if.then72
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename74, align 8
-  %56 = load ptr, ptr %obj.addr, align 8
-  %filename75 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %56, i32 0, i32 0
-  %57 = load ptr, ptr %filename75, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1442, ptr noundef @.str.25, ptr noundef %57)
+  %66 = getelementptr i8, ptr @.str, i64 114
+  store ptr %66, ptr %absl_raw_log_internal_basename74, align 8
+  %67 = load ptr, ptr %obj.addr, align 8
+  %filename75 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %67, i32 0, i32 0
+  %68 = load ptr, ptr %filename75, align 8
+  %69 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %69, i32 noundef 1442, ptr noundef @.str.25, ptr noundef %68)
   br label %do.end76
 
 do.end76:                                         ; preds = %do.body73
@@ -3763,8 +3787,8 @@ if.end78:                                         ; preds = %if.end77, %entry
   br label %return
 
 return:                                           ; preds = %if.end78, %do.end76, %do.end49, %do.end37, %do.end30, %do.end
-  %58 = load i1, ptr %retval, align 1
-  ret i1 %58
+  %70 = load i1, ptr %retval, align 1
+  ret i1 %70
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
@@ -4130,8 +4154,10 @@ if.then20:                                        ; preds = %do.body
   br label %do.body21
 
 do.body21:                                        ; preds = %if.then20
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1331, ptr noundef @.str.2, ptr noundef @.str.32, ptr noundef @.str.33)
+  %30 = getelementptr i8, ptr @.str, i64 114
+  store ptr %30, ptr %absl_raw_log_internal_basename, align 8
+  %31 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %31, i32 noundef 1331, ptr noundef @.str.2, ptr noundef @.str.32, ptr noundef @.str.33)
   br label %do.body22
 
 do.body22:                                        ; preds = %do.body21
@@ -4147,41 +4173,41 @@ if.end24:                                         ; preds = %do.end23, %do.body
   br label %do.end25
 
 do.end25:                                         ; preds = %if.end24
-  %30 = load ptr, ptr %line, align 8
-  %name26 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine", ptr %30, i32 0, i32 1
-  %31 = load i64, ptr %oldest_index, align 8
-  %arrayidx27 = getelementptr inbounds [4 x ptr], ptr %name26, i64 0, i64 %31
-  %32 = load ptr, ptr %arrayidx27, align 8
-  call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %32)
-  %33 = load ptr, ptr %pc.addr, align 8
-  %34 = load ptr, ptr %line, align 8
-  %pc28 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine", ptr %34, i32 0, i32 0
-  %35 = load i64, ptr %oldest_index, align 8
-  %arrayidx29 = getelementptr inbounds [4 x ptr], ptr %pc28, i64 0, i64 %35
-  store ptr %33, ptr %arrayidx29, align 8
-  %36 = load ptr, ptr %name.addr, align 8
-  %call30 = call noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc(ptr noundef nonnull align 16 dereferenceable(22560) %this1, ptr noundef %36)
-  %37 = load ptr, ptr %line, align 8
-  %name31 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine", ptr %37, i32 0, i32 1
-  %38 = load i64, ptr %oldest_index, align 8
-  %arrayidx32 = getelementptr inbounds [4 x ptr], ptr %name31, i64 0, i64 %38
-  store ptr %call30, ptr %arrayidx32, align 8
+  %32 = load ptr, ptr %line, align 8
+  %name26 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine", ptr %32, i32 0, i32 1
+  %33 = load i64, ptr %oldest_index, align 8
+  %arrayidx27 = getelementptr inbounds [4 x ptr], ptr %name26, i64 0, i64 %33
+  %34 = load ptr, ptr %arrayidx27, align 8
+  call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %34)
+  %35 = load ptr, ptr %pc.addr, align 8
+  %36 = load ptr, ptr %line, align 8
+  %pc28 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine", ptr %36, i32 0, i32 0
+  %37 = load i64, ptr %oldest_index, align 8
+  %arrayidx29 = getelementptr inbounds [4 x ptr], ptr %pc28, i64 0, i64 %37
+  store ptr %35, ptr %arrayidx29, align 8
+  %38 = load ptr, ptr %name.addr, align 8
+  %call30 = call noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc(ptr noundef nonnull align 16 dereferenceable(22560) %this1, ptr noundef %38)
   %39 = load ptr, ptr %line, align 8
-  %age33 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine", ptr %39, i32 0, i32 2
+  %name31 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine", ptr %39, i32 0, i32 1
   %40 = load i64, ptr %oldest_index, align 8
-  %arrayidx34 = getelementptr inbounds [4 x i32], ptr %age33, i64 0, i64 %40
-  store i32 0, ptr %arrayidx34, align 4
+  %arrayidx32 = getelementptr inbounds [4 x ptr], ptr %name31, i64 0, i64 %40
+  store ptr %call30, ptr %arrayidx32, align 8
   %41 = load ptr, ptr %line, align 8
-  %name35 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine", ptr %41, i32 0, i32 1
+  %age33 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine", ptr %41, i32 0, i32 2
   %42 = load i64, ptr %oldest_index, align 8
-  %arrayidx36 = getelementptr inbounds [4 x ptr], ptr %name35, i64 0, i64 %42
-  %43 = load ptr, ptr %arrayidx36, align 8
-  store ptr %43, ptr %retval, align 8
+  %arrayidx34 = getelementptr inbounds [4 x i32], ptr %age33, i64 0, i64 %42
+  store i32 0, ptr %arrayidx34, align 4
+  %43 = load ptr, ptr %line, align 8
+  %name35 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine", ptr %43, i32 0, i32 1
+  %44 = load i64, ptr %oldest_index, align 8
+  %arrayidx36 = getelementptr inbounds [4 x ptr], ptr %name35, i64 0, i64 %44
+  %45 = load ptr, ptr %arrayidx36, align 8
+  store ptr %45, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %do.end25, %if.then
-  %44 = load ptr, ptr %retval, align 8
-  ret ptr %44
+  %46 = load ptr, ptr %retval, align 8
+  ret ptr %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4255,11 +4281,13 @@ if.then:                                          ; preds = %invoke.cont
   br label %do.body8
 
 do.body8:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename, align 8
+  %3 = getelementptr i8, ptr @.str, i64 114
+  store ptr %3, ptr %absl_raw_log_internal_basename, align 8
   %arraydecay9 = getelementptr inbounds [80 x i8], ptr %maps_path, i64 0, i64 0
   %call10 = call ptr @__errno_location() #14
-  %3 = load i32, ptr %call10, align 4
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1072, ptr noundef @.str.14, ptr noundef %arraydecay9, i32 noundef %3)
+  %4 = load i32, ptr %call10, align 4
+  %5 = getelementptr i8, ptr @.str, i64 114
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %5, i32 noundef 1072, ptr noundef @.str.14, ptr noundef %arraydecay9, i32 noundef %4)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %do.body8
@@ -4274,12 +4302,12 @@ do.end13:                                         ; preds = %do.cond12
   br label %cleanup
 
 lpad:                                             ; preds = %if.end91, %while.end83, %if.end67, %if.end63, %do.body58, %do.body39, %if.end31, %do.body26, %if.end20, %while.body, %invoke.cont14, %if.end, %do.body8, %do.end
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %wrapped_maps_fd) #12
   br label %eh.resume
 
@@ -4288,9 +4316,9 @@ if.end:                                           ; preds = %invoke.cont
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %if.end
-  %7 = load ptr, ptr %tmp_buf.addr, align 8
-  %8 = load i64, ptr %tmp_buf_size.addr, align 8
-  invoke void @_ZN4absl18debugging_internal12_GLOBAL__N_110LineReaderC2EiPcm(ptr noundef nonnull align 8 dereferenceable(48) %reader, i32 noundef %call15, ptr noundef %7, i64 noundef %8)
+  %9 = load ptr, ptr %tmp_buf.addr, align 8
+  %10 = load i64, ptr %tmp_buf_size.addr, align 8
+  invoke void @_ZN4absl18debugging_internal12_GLOBAL__N_110LineReaderC2EiPcm(ptr noundef nonnull align 8 dereferenceable(48) %reader, i32 noundef %call15, ptr noundef %9, i64 noundef %10)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont14
@@ -4310,24 +4338,24 @@ if.then19:                                        ; preds = %invoke.cont17
   br label %while.end96
 
 if.end20:                                         ; preds = %invoke.cont17
-  %9 = load ptr, ptr %cursor, align 8
-  store ptr %9, ptr %line, align 8
-  %10 = load ptr, ptr %cursor, align 8
-  %11 = load ptr, ptr %eol, align 8
-  %call22 = invoke noundef ptr @_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv(ptr noundef %10, ptr noundef %11, ptr noundef %start_address)
+  %11 = load ptr, ptr %cursor, align 8
+  store ptr %11, ptr %line, align 8
+  %12 = load ptr, ptr %cursor, align 8
+  %13 = load ptr, ptr %eol, align 8
+  %call22 = invoke noundef ptr @_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv(ptr noundef %12, ptr noundef %13, ptr noundef %start_address)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.end20
   store ptr %call22, ptr %cursor, align 8
-  %12 = load ptr, ptr %cursor, align 8
-  %13 = load ptr, ptr %eol, align 8
-  %cmp23 = icmp eq ptr %12, %13
+  %14 = load ptr, ptr %cursor, align 8
+  %15 = load ptr, ptr %eol, align 8
+  %cmp23 = icmp eq ptr %14, %15
   br i1 %cmp23, label %if.then25, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont21
-  %14 = load ptr, ptr %cursor, align 8
-  %15 = load i8, ptr %14, align 1
-  %conv = sext i8 %15 to i32
+  %16 = load ptr, ptr %cursor, align 8
+  %17 = load i8, ptr %16, align 1
+  %conv = sext i8 %17 to i32
   %cmp24 = icmp ne i32 %conv, 45
   br i1 %cmp24, label %if.then25, label %if.end31
 
@@ -4335,9 +4363,11 @@ if.then25:                                        ; preds = %lor.lhs.false, %inv
   br label %do.body26
 
 do.body26:                                        ; preds = %if.then25
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename27, align 8
-  %16 = load ptr, ptr %line, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1099, ptr noundef @.str.15, ptr noundef %16)
+  %18 = getelementptr i8, ptr @.str, i64 114
+  store ptr %18, ptr %absl_raw_log_internal_basename27, align 8
+  %19 = load ptr, ptr %line, align 8
+  %20 = getelementptr i8, ptr @.str, i64 114
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %20, i32 noundef 1099, ptr noundef @.str.15, ptr noundef %19)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %do.body26
@@ -4352,25 +4382,25 @@ do.end30:                                         ; preds = %do.cond29
   br label %cleanup
 
 if.end31:                                         ; preds = %lor.lhs.false
-  %17 = load ptr, ptr %cursor, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %17, i32 1
+  %21 = load ptr, ptr %cursor, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %21, i32 1
   store ptr %incdec.ptr, ptr %cursor, align 8
-  %18 = load ptr, ptr %cursor, align 8
-  %19 = load ptr, ptr %eol, align 8
-  %call33 = invoke noundef ptr @_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv(ptr noundef %18, ptr noundef %19, ptr noundef %end_address)
+  %22 = load ptr, ptr %cursor, align 8
+  %23 = load ptr, ptr %eol, align 8
+  %call33 = invoke noundef ptr @_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv(ptr noundef %22, ptr noundef %23, ptr noundef %end_address)
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %if.end31
   store ptr %call33, ptr %cursor, align 8
-  %20 = load ptr, ptr %cursor, align 8
-  %21 = load ptr, ptr %eol, align 8
-  %cmp34 = icmp eq ptr %20, %21
+  %24 = load ptr, ptr %cursor, align 8
+  %25 = load ptr, ptr %eol, align 8
+  %cmp34 = icmp eq ptr %24, %25
   br i1 %cmp34, label %if.then38, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %invoke.cont32
-  %22 = load ptr, ptr %cursor, align 8
-  %23 = load i8, ptr %22, align 1
-  %conv36 = sext i8 %23 to i32
+  %26 = load ptr, ptr %cursor, align 8
+  %27 = load i8, ptr %26, align 1
+  %conv36 = sext i8 %27 to i32
   %cmp37 = icmp ne i32 %conv36, 32
   br i1 %cmp37, label %if.then38, label %if.end44
 
@@ -4378,9 +4408,11 @@ if.then38:                                        ; preds = %lor.lhs.false35, %i
   br label %do.body39
 
 do.body39:                                        ; preds = %if.then38
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename40, align 8
-  %24 = load ptr, ptr %line, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1108, ptr noundef @.str.15, ptr noundef %24)
+  %28 = getelementptr i8, ptr @.str, i64 114
+  store ptr %28, ptr %absl_raw_log_internal_basename40, align 8
+  %29 = load ptr, ptr %line, align 8
+  %30 = getelementptr i8, ptr @.str, i64 114
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %30, i32 noundef 1108, ptr noundef @.str.15, ptr noundef %29)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %do.body39
@@ -4395,56 +4427,58 @@ do.end43:                                         ; preds = %do.cond42
   br label %cleanup
 
 if.end44:                                         ; preds = %lor.lhs.false35
-  %25 = load ptr, ptr %cursor, align 8
-  %incdec.ptr45 = getelementptr inbounds i8, ptr %25, i32 1
+  %31 = load ptr, ptr %cursor, align 8
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %31, i32 1
   store ptr %incdec.ptr45, ptr %cursor, align 8
-  %26 = load ptr, ptr %cursor, align 8
-  store ptr %26, ptr %flags_start, align 8
+  %32 = load ptr, ptr %cursor, align 8
+  store ptr %32, ptr %flags_start, align 8
   br label %while.cond46
 
 while.cond46:                                     ; preds = %while.body52, %if.end44
-  %27 = load ptr, ptr %cursor, align 8
-  %28 = load ptr, ptr %eol, align 8
-  %cmp47 = icmp ult ptr %27, %28
+  %33 = load ptr, ptr %cursor, align 8
+  %34 = load ptr, ptr %eol, align 8
+  %cmp47 = icmp ult ptr %33, %34
   br i1 %cmp47, label %land.rhs48, label %land.end51
 
 land.rhs48:                                       ; preds = %while.cond46
-  %29 = load ptr, ptr %cursor, align 8
-  %30 = load i8, ptr %29, align 1
-  %conv49 = sext i8 %30 to i32
+  %35 = load ptr, ptr %cursor, align 8
+  %36 = load i8, ptr %35, align 1
+  %conv49 = sext i8 %36 to i32
   %cmp50 = icmp ne i32 %conv49, 32
   br label %land.end51
 
 land.end51:                                       ; preds = %land.rhs48, %while.cond46
-  %31 = phi i1 [ false, %while.cond46 ], [ %cmp50, %land.rhs48 ]
-  br i1 %31, label %while.body52, label %while.end
+  %37 = phi i1 [ false, %while.cond46 ], [ %cmp50, %land.rhs48 ]
+  br i1 %37, label %while.body52, label %while.end
 
 while.body52:                                     ; preds = %land.end51
-  %32 = load ptr, ptr %cursor, align 8
-  %incdec.ptr53 = getelementptr inbounds i8, ptr %32, i32 1
+  %38 = load ptr, ptr %cursor, align 8
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %38, i32 1
   store ptr %incdec.ptr53, ptr %cursor, align 8
   br label %while.cond46, !llvm.loop !21
 
 while.end:                                        ; preds = %land.end51
-  %33 = load ptr, ptr %cursor, align 8
-  %34 = load ptr, ptr %eol, align 8
-  %cmp54 = icmp eq ptr %33, %34
+  %39 = load ptr, ptr %cursor, align 8
+  %40 = load ptr, ptr %eol, align 8
+  %cmp54 = icmp eq ptr %39, %40
   br i1 %cmp54, label %if.then57, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %while.end
-  %35 = load ptr, ptr %cursor, align 8
-  %36 = load ptr, ptr %flags_start, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %36, i64 4
-  %cmp56 = icmp ult ptr %35, %add.ptr
+  %41 = load ptr, ptr %cursor, align 8
+  %42 = load ptr, ptr %flags_start, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %42, i64 4
+  %cmp56 = icmp ult ptr %41, %add.ptr
   br i1 %cmp56, label %if.then57, label %if.end63
 
 if.then57:                                        ; preds = %lor.lhs.false55, %while.end
   br label %do.body58
 
 do.body58:                                        ; preds = %if.then57
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename59, align 8
-  %37 = load ptr, ptr %line, align 8
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1120, ptr noundef @.str.16, ptr noundef %37)
+  %43 = getelementptr i8, ptr @.str, i64 114
+  store ptr %43, ptr %absl_raw_log_internal_basename59, align 8
+  %44 = load ptr, ptr %line, align 8
+  %45 = getelementptr i8, ptr @.str, i64 114
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %45, i32 noundef 1120, ptr noundef @.str.16, ptr noundef %44)
           to label %invoke.cont60 unwind label %lpad
 
 invoke.cont60:                                    ; preds = %do.body58
@@ -4459,8 +4493,8 @@ do.end62:                                         ; preds = %do.cond61
   br label %cleanup
 
 if.end63:                                         ; preds = %lor.lhs.false55
-  %38 = load ptr, ptr %flags_start, align 8
-  %call65 = invoke noundef zeroext i1 @_ZN4absl18debugging_internalL16ShouldUseMappingEPKc(ptr noundef %38)
+  %46 = load ptr, ptr %flags_start, align 8
+  %call65 = invoke noundef zeroext i1 @_ZN4absl18debugging_internalL16ShouldUseMappingEPKc(ptr noundef %46)
           to label %invoke.cont64 unwind label %lpad
 
 invoke.cont64:                                    ; preds = %if.end63
@@ -4470,44 +4504,44 @@ if.then66:                                        ; preds = %invoke.cont64
   br label %while.cond, !llvm.loop !22
 
 if.end67:                                         ; preds = %invoke.cont64
-  %39 = load ptr, ptr %cursor, align 8
-  %incdec.ptr68 = getelementptr inbounds i8, ptr %39, i32 1
+  %47 = load ptr, ptr %cursor, align 8
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %47, i32 1
   store ptr %incdec.ptr68, ptr %cursor, align 8
-  %40 = load ptr, ptr %cursor, align 8
-  %41 = load ptr, ptr %eol, align 8
-  %call70 = invoke noundef ptr @_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm(ptr noundef %40, ptr noundef %41, ptr noundef %offset)
+  %48 = load ptr, ptr %cursor, align 8
+  %49 = load ptr, ptr %eol, align 8
+  %call70 = invoke noundef ptr @_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm(ptr noundef %48, ptr noundef %49, ptr noundef %offset)
           to label %invoke.cont69 unwind label %lpad
 
 invoke.cont69:                                    ; preds = %if.end67
   store ptr %call70, ptr %cursor, align 8
-  %42 = load ptr, ptr %cursor, align 8
-  %incdec.ptr71 = getelementptr inbounds i8, ptr %42, i32 1
+  %50 = load ptr, ptr %cursor, align 8
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %50, i32 1
   store ptr %incdec.ptr71, ptr %cursor, align 8
   store i32 0, ptr %num_spaces, align 4
   br label %while.cond72
 
 while.cond72:                                     ; preds = %if.end81, %invoke.cont69
-  %43 = load ptr, ptr %cursor, align 8
-  %44 = load ptr, ptr %eol, align 8
-  %cmp73 = icmp ult ptr %43, %44
+  %51 = load ptr, ptr %cursor, align 8
+  %52 = load ptr, ptr %eol, align 8
+  %cmp73 = icmp ult ptr %51, %52
   br i1 %cmp73, label %while.body74, label %while.end83
 
 while.body74:                                     ; preds = %while.cond72
-  %45 = load ptr, ptr %cursor, align 8
-  %46 = load i8, ptr %45, align 1
-  %conv75 = sext i8 %46 to i32
+  %53 = load ptr, ptr %cursor, align 8
+  %54 = load i8, ptr %53, align 1
+  %conv75 = sext i8 %54 to i32
   %cmp76 = icmp eq i32 %conv75, 32
   br i1 %cmp76, label %if.then77, label %if.else
 
 if.then77:                                        ; preds = %while.body74
-  %47 = load i32, ptr %num_spaces, align 4
-  %inc = add nsw i32 %47, 1
+  %55 = load i32, ptr %num_spaces, align 4
+  %inc = add nsw i32 %55, 1
   store i32 %inc, ptr %num_spaces, align 4
   br label %if.end81
 
 if.else:                                          ; preds = %while.body74
-  %48 = load i32, ptr %num_spaces, align 4
-  %cmp78 = icmp sge i32 %48, 2
+  %56 = load i32, ptr %num_spaces, align 4
+  %cmp78 = icmp sge i32 %56, 2
   br i1 %cmp78, label %if.then79, label %if.end80
 
 if.then79:                                        ; preds = %if.else
@@ -4517,8 +4551,8 @@ if.end80:                                         ; preds = %if.else
   br label %if.end81
 
 if.end81:                                         ; preds = %if.end80, %if.then77
-  %49 = load ptr, ptr %cursor, align 8
-  %incdec.ptr82 = getelementptr inbounds i8, ptr %49, i32 1
+  %57 = load ptr, ptr %cursor, align 8
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %57, i32 1
   store ptr %incdec.ptr82, ptr %cursor, align 8
   br label %while.cond72, !llvm.loop !23
 
@@ -4529,21 +4563,21 @@ while.end83:                                      ; preds = %if.then79, %while.c
 invoke.cont84:                                    ; preds = %while.end83
   %frombool = zext i1 %call85 to i8
   store i8 %frombool, ptr %hinted, align 1
-  %50 = load i8, ptr %hinted, align 1
-  %tobool = trunc i8 %50 to i1
+  %58 = load i8, ptr %hinted, align 1
+  %tobool = trunc i8 %58 to i1
   br i1 %tobool, label %if.end91, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont84
-  %51 = load ptr, ptr %cursor, align 8
-  %52 = load ptr, ptr %eol, align 8
-  %cmp86 = icmp eq ptr %51, %52
+  %59 = load ptr, ptr %cursor, align 8
+  %60 = load ptr, ptr %eol, align 8
+  %cmp86 = icmp eq ptr %59, %60
   br i1 %cmp86, label %if.then90, label %lor.lhs.false87
 
 lor.lhs.false87:                                  ; preds = %land.lhs.true
-  %53 = load ptr, ptr %cursor, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %53, i64 0
-  %54 = load i8, ptr %arrayidx, align 1
-  %conv88 = sext i8 %54 to i32
+  %61 = load ptr, ptr %cursor, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %61, i64 0
+  %62 = load i8, ptr %arrayidx, align 1
+  %conv88 = sext i8 %62 to i32
   %cmp89 = icmp eq i32 %conv88, 91
   br i1 %cmp89, label %if.then90, label %if.end91
 
@@ -4551,13 +4585,13 @@ if.then90:                                        ; preds = %lor.lhs.false87, %l
   br label %while.cond, !llvm.loop !22
 
 if.end91:                                         ; preds = %lor.lhs.false87, %invoke.cont84
-  %55 = load ptr, ptr %callback.addr, align 8
-  %56 = load ptr, ptr %cursor, align 8
-  %57 = load ptr, ptr %start_address, align 8
-  %58 = load ptr, ptr %end_address, align 8
-  %59 = load i64, ptr %offset, align 8
-  %60 = load ptr, ptr %arg.addr, align 8
-  %call93 = invoke noundef zeroext i1 %55(ptr noundef %56, ptr noundef %57, ptr noundef %58, i64 noundef %59, ptr noundef %60)
+  %63 = load ptr, ptr %callback.addr, align 8
+  %64 = load ptr, ptr %cursor, align 8
+  %65 = load ptr, ptr %start_address, align 8
+  %66 = load ptr, ptr %end_address, align 8
+  %67 = load i64, ptr %offset, align 8
+  %68 = load ptr, ptr %arg.addr, align 8
+  %call93 = invoke noundef zeroext i1 %63(ptr noundef %64, ptr noundef %65, ptr noundef %66, i64 noundef %67, ptr noundef %68)
           to label %invoke.cont92 unwind label %lpad
 
 invoke.cont92:                                    ; preds = %if.end91
@@ -4576,8 +4610,8 @@ while.end96:                                      ; preds = %if.then94, %if.then
 
 cleanup:                                          ; preds = %while.end96, %do.end62, %do.end43, %do.end30, %do.end13
   call void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %wrapped_maps_fd) #12
-  %61 = load i1, ptr %retval, align 1
-  ret i1 %61
+  %69 = load i1, ptr %retval, align 1
+  ret i1 %69
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -4635,18 +4669,20 @@ if.then5:                                         ; preds = %if.then
   br label %do.body
 
 do.body:                                          ; preds = %if.then5
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  %8 = load ptr, ptr %end_addr.addr, align 8
-  %9 = ptrtoint ptr %8 to i64
-  %10 = load ptr, ptr %filename.addr, align 8
-  %11 = load ptr, ptr %old, align 8
-  %end_addr6 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %end_addr6, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %14 = load ptr, ptr %old, align 8
-  %filename7 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %filename7, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1229, ptr noundef @.str.17, i64 noundef %9, ptr noundef %10, i64 noundef %13, ptr noundef %15)
+  %8 = getelementptr i8, ptr @.str, i64 114
+  store ptr %8, ptr %absl_raw_log_internal_basename, align 8
+  %9 = load ptr, ptr %end_addr.addr, align 8
+  %10 = ptrtoint ptr %9 to i64
+  %11 = load ptr, ptr %filename.addr, align 8
+  %12 = load ptr, ptr %old, align 8
+  %end_addr6 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %12, i32 0, i32 2
+  %13 = load ptr, ptr %end_addr6, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %15 = load ptr, ptr %old, align 8
+  %filename7 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %15, i32 0, i32 0
+  %16 = load ptr, ptr %filename7, align 8
+  %17 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %17, i32 noundef 1229, ptr noundef @.str.17, i64 noundef %10, ptr noundef %11, i64 noundef %14, ptr noundef %16)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -4654,27 +4690,27 @@ do.end:                                           ; preds = %do.body
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %16 = load ptr, ptr %old, align 8
-  %end_addr8 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %end_addr8, align 8
-  %18 = load ptr, ptr %end_addr.addr, align 8
-  %cmp9 = icmp eq ptr %17, %18
+  %18 = load ptr, ptr %old, align 8
+  %end_addr8 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %18, i32 0, i32 2
+  %19 = load ptr, ptr %end_addr8, align 8
+  %20 = load ptr, ptr %end_addr.addr, align 8
+  %cmp9 = icmp eq ptr %19, %20
   br i1 %cmp9, label %if.then10, label %if.else22
 
 if.then10:                                        ; preds = %if.else
-  %19 = load ptr, ptr %old, align 8
-  %start_addr11 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %start_addr11, align 8
-  %21 = load ptr, ptr %start_addr.addr, align 8
-  %cmp12 = icmp ne ptr %20, %21
+  %21 = load ptr, ptr %old, align 8
+  %start_addr11 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %21, i32 0, i32 1
+  %22 = load ptr, ptr %start_addr11, align 8
+  %23 = load ptr, ptr %start_addr.addr, align 8
+  %cmp12 = icmp ne ptr %22, %23
   br i1 %cmp12, label %if.then16, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then10
-  %22 = load ptr, ptr %old, align 8
-  %filename13 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %filename13, align 8
-  %24 = load ptr, ptr %filename.addr, align 8
-  %call14 = call i32 @strcmp(ptr noundef %23, ptr noundef %24) #13
+  %24 = load ptr, ptr %old, align 8
+  %filename13 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %24, i32 0, i32 0
+  %25 = load ptr, ptr %filename13, align 8
+  %26 = load ptr, ptr %filename.addr, align 8
+  %call14 = call i32 @strcmp(ptr noundef %25, ptr noundef %26) #13
   %cmp15 = icmp ne i32 %call14, 0
   br i1 %cmp15, label %if.then16, label %if.end
 
@@ -4682,18 +4718,20 @@ if.then16:                                        ; preds = %lor.lhs.false, %if.
   br label %do.body17
 
 do.body17:                                        ; preds = %if.then16
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename18, align 8
-  %25 = load ptr, ptr %end_addr.addr, align 8
-  %26 = ptrtoint ptr %25 to i64
-  %27 = load ptr, ptr %filename.addr, align 8
-  %28 = load ptr, ptr %old, align 8
-  %end_addr19 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %end_addr19, align 8
-  %30 = ptrtoint ptr %29 to i64
+  %27 = getelementptr i8, ptr @.str, i64 114
+  store ptr %27, ptr %absl_raw_log_internal_basename18, align 8
+  %28 = load ptr, ptr %end_addr.addr, align 8
+  %29 = ptrtoint ptr %28 to i64
+  %30 = load ptr, ptr %filename.addr, align 8
   %31 = load ptr, ptr %old, align 8
-  %filename20 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %filename20, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 1238, ptr noundef @.str.18, i64 noundef %26, ptr noundef %27, i64 noundef %30, ptr noundef %32)
+  %end_addr19 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %31, i32 0, i32 2
+  %32 = load ptr, ptr %end_addr19, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = load ptr, ptr %old, align 8
+  %filename20 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %34, i32 0, i32 0
+  %35 = load ptr, ptr %filename20, align 8
+  %36 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %36, i32 noundef 1238, ptr noundef @.str.18, i64 noundef %29, ptr noundef %30, i64 noundef %33, ptr noundef %35)
   br label %do.end21
 
 do.end21:                                         ; preds = %do.body17
@@ -4704,43 +4742,43 @@ if.end:                                           ; preds = %do.end21, %lor.lhs.
   br label %return
 
 if.else22:                                        ; preds = %if.else
-  %33 = load ptr, ptr %old, align 8
-  %end_addr23 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %33, i32 0, i32 2
-  %34 = load ptr, ptr %end_addr23, align 8
-  %35 = load ptr, ptr %start_addr.addr, align 8
-  %cmp24 = icmp eq ptr %34, %35
+  %37 = load ptr, ptr %old, align 8
+  %end_addr23 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %37, i32 0, i32 2
+  %38 = load ptr, ptr %end_addr23, align 8
+  %39 = load ptr, ptr %start_addr.addr, align 8
+  %cmp24 = icmp eq ptr %38, %39
   br i1 %cmp24, label %land.lhs.true, label %if.end36
 
 land.lhs.true:                                    ; preds = %if.else22
-  %36 = load ptr, ptr %old, align 8
-  %start_addr25 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %36, i32 0, i32 1
-  %37 = load ptr, ptr %start_addr25, align 8
-  %38 = ptrtoint ptr %37 to i64
-  %39 = load ptr, ptr %old, align 8
-  %offset26 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %39, i32 0, i32 3
-  %40 = load i64, ptr %offset26, align 8
-  %sub27 = sub i64 %38, %40
-  %41 = load ptr, ptr %start_addr.addr, align 8
+  %40 = load ptr, ptr %old, align 8
+  %start_addr25 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %40, i32 0, i32 1
+  %41 = load ptr, ptr %start_addr25, align 8
   %42 = ptrtoint ptr %41 to i64
-  %43 = load i64, ptr %offset.addr, align 8
-  %sub28 = sub i64 %42, %43
+  %43 = load ptr, ptr %old, align 8
+  %offset26 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %43, i32 0, i32 3
+  %44 = load i64, ptr %offset26, align 8
+  %sub27 = sub i64 %42, %44
+  %45 = load ptr, ptr %start_addr.addr, align 8
+  %46 = ptrtoint ptr %45 to i64
+  %47 = load i64, ptr %offset.addr, align 8
+  %sub28 = sub i64 %46, %47
   %cmp29 = icmp eq i64 %sub27, %sub28
   br i1 %cmp29, label %land.lhs.true30, label %if.end36
 
 land.lhs.true30:                                  ; preds = %land.lhs.true
-  %44 = load ptr, ptr %old, align 8
-  %filename31 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %44, i32 0, i32 0
-  %45 = load ptr, ptr %filename31, align 8
-  %46 = load ptr, ptr %filename.addr, align 8
-  %call32 = call i32 @strcmp(ptr noundef %45, ptr noundef %46) #13
+  %48 = load ptr, ptr %old, align 8
+  %filename31 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %48, i32 0, i32 0
+  %49 = load ptr, ptr %filename31, align 8
+  %50 = load ptr, ptr %filename.addr, align 8
+  %call32 = call i32 @strcmp(ptr noundef %49, ptr noundef %50) #13
   %cmp33 = icmp eq i32 %call32, 0
   br i1 %cmp33, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %land.lhs.true30
-  %47 = load ptr, ptr %end_addr.addr, align 8
-  %48 = load ptr, ptr %old, align 8
-  %end_addr35 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %48, i32 0, i32 2
-  store ptr %47, ptr %end_addr35, align 8
+  %51 = load ptr, ptr %end_addr.addr, align 8
+  %52 = load ptr, ptr %old, align 8
+  %end_addr35 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %52, i32 0, i32 2
+  store ptr %51, ptr %end_addr35, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
@@ -4754,40 +4792,40 @@ if.end38:                                         ; preds = %if.end37
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end38, %entry
-  %49 = load ptr, ptr %impl, align 8
-  %addr_map_40 = getelementptr inbounds %"class.absl::debugging_internal::(anonymous namespace)::Symbolizer", ptr %49, i32 0, i32 0
+  %53 = load ptr, ptr %impl, align 8
+  %addr_map_40 = getelementptr inbounds %"class.absl::debugging_internal::(anonymous namespace)::Symbolizer", ptr %53, i32 0, i32 0
   %call41 = call noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %addr_map_40)
   store ptr %call41, ptr %obj, align 8
-  %50 = load ptr, ptr %impl, align 8
-  %51 = load ptr, ptr %filename.addr, align 8
-  %call42 = call noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc(ptr noundef nonnull align 16 dereferenceable(22560) %50, ptr noundef %51)
-  %52 = load ptr, ptr %obj, align 8
-  %filename43 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %52, i32 0, i32 0
-  store ptr %call42, ptr %filename43, align 8
-  %53 = load ptr, ptr %start_addr.addr, align 8
-  %54 = load ptr, ptr %obj, align 8
-  %start_addr44 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %54, i32 0, i32 1
-  store ptr %53, ptr %start_addr44, align 8
-  %55 = load ptr, ptr %end_addr.addr, align 8
+  %54 = load ptr, ptr %impl, align 8
+  %55 = load ptr, ptr %filename.addr, align 8
+  %call42 = call noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc(ptr noundef nonnull align 16 dereferenceable(22560) %54, ptr noundef %55)
   %56 = load ptr, ptr %obj, align 8
-  %end_addr45 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %56, i32 0, i32 2
-  store ptr %55, ptr %end_addr45, align 8
-  %57 = load i64, ptr %offset.addr, align 8
+  %filename43 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %56, i32 0, i32 0
+  store ptr %call42, ptr %filename43, align 8
+  %57 = load ptr, ptr %start_addr.addr, align 8
   %58 = load ptr, ptr %obj, align 8
-  %offset46 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %58, i32 0, i32 3
-  store i64 %57, ptr %offset46, align 8
-  %59 = load ptr, ptr %obj, align 8
-  %elf_type = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %59, i32 0, i32 5
-  store i32 -1, ptr %elf_type, align 4
+  %start_addr44 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %58, i32 0, i32 1
+  store ptr %57, ptr %start_addr44, align 8
+  %59 = load ptr, ptr %end_addr.addr, align 8
   %60 = load ptr, ptr %obj, align 8
-  %fd = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %60, i32 0, i32 4
+  %end_addr45 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %60, i32 0, i32 2
+  store ptr %59, ptr %end_addr45, align 8
+  %61 = load i64, ptr %offset.addr, align 8
+  %62 = load ptr, ptr %obj, align 8
+  %offset46 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %62, i32 0, i32 3
+  store i64 %61, ptr %offset46, align 8
+  %63 = load ptr, ptr %obj, align 8
+  %elf_type = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %63, i32 0, i32 5
+  store i32 -1, ptr %elf_type, align 4
+  %64 = load ptr, ptr %obj, align 8
+  %fd = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %64, i32 0, i32 4
   store i32 -1, ptr %fd, align 8
   store i1 true, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end39, %if.then34, %if.end, %do.end
-  %61 = load i1, ptr %retval, align 1
-  ret i1 %61
+  %65 = load i1, ptr %retval, align 1
+  ret i1 %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5407,10 +5445,12 @@ if.then:                                          ; preds = %do.end
   br label %do.body10
 
 do.body10:                                        ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename, align 8
+  %15 = getelementptr i8, ptr @.str, i64 114
+  store ptr %15, ptr %absl_raw_log_internal_basename, align 8
   %call11 = call ptr @__errno_location() #14
-  %15 = load i32, ptr %call11, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 453, ptr noundef @.str.5, i32 noundef %15)
+  %16 = load i32, ptr %call11, align 4
+  %17 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %17, i32 noundef 453, ptr noundef @.str.5, i32 noundef %16)
   br label %do.end13
 
 do.end13:                                         ; preds = %do.body10
@@ -5418,24 +5458,24 @@ do.end13:                                         ; preds = %do.body10
   br label %return
 
 if.end:                                           ; preds = %do.end
-  %16 = load i64, ptr %len, align 8
-  %cmp14 = icmp eq i64 %16, 0
+  %18 = load i64, ptr %len, align 8
+  %cmp14 = icmp eq i64 %18, 0
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end
   br label %while.end
 
 if.end16:                                         ; preds = %if.end
-  %17 = load i64, ptr %len, align 8
-  %18 = load i64, ptr %num_bytes, align 8
-  %add = add i64 %18, %17
+  %19 = load i64, ptr %len, align 8
+  %20 = load i64, ptr %num_bytes, align 8
+  %add = add i64 %20, %19
   store i64 %add, ptr %num_bytes, align 8
   br label %while.cond, !llvm.loop !27
 
 while.end:                                        ; preds = %if.then15, %while.cond
-  %19 = load i64, ptr %num_bytes, align 8
-  %20 = load i64, ptr %count.addr, align 8
-  %cmp17 = icmp ule i64 %19, %20
+  %21 = load i64, ptr %num_bytes, align 8
+  %22 = load i64, ptr %count.addr, align 8
+  %cmp17 = icmp ule i64 %21, %22
   br i1 %cmp17, label %cond.true18, label %cond.false19
 
 cond.true18:                                      ; preds = %while.end
@@ -5445,17 +5485,17 @@ cond.false19:                                     ; preds = %while.end
   call void @abort() #16
   unreachable
 
-21:                                               ; No predecessors!
+23:                                               ; No predecessors!
   br label %cond.end20
 
-cond.end20:                                       ; preds = %21, %cond.true18
-  %22 = load i64, ptr %num_bytes, align 8
-  store i64 %22, ptr %retval, align 8
+cond.end20:                                       ; preds = %23, %cond.true18
+  %24 = load i64, ptr %num_bytes, align 8
+  store i64 %24, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %cond.end20, %do.end13
-  %23 = load i64, ptr %retval, align 8
-  ret i64 %23
+  %25 = load i64, ptr %retval, align 8
+  ret i64 %25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5604,8 +5644,10 @@ if.then:                                          ; preds = %do.body
   br label %do.body4
 
 do.body4:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 331, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4)
+  %3 = getelementptr i8, ptr @.str, i64 114
+  store ptr %3, ptr %absl_raw_log_internal_basename, align 8
+  %4 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %4, i32 noundef 331, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4)
   br label %do.body5
 
 do.body5:                                         ; preds = %do.body4
@@ -5621,13 +5663,13 @@ if.end:                                           ; preds = %do.end6, %do.body
   br label %do.end7
 
 do.end7:                                          ; preds = %if.end
-  %3 = load ptr, ptr %dst, align 8
-  %4 = load ptr, ptr %s.addr, align 8
-  %5 = load i64, ptr %len, align 8
-  %add8 = add i64 %5, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %4, i64 %add8, i1 false)
-  %6 = load ptr, ptr %dst, align 8
-  ret ptr %6
+  %5 = load ptr, ptr %dst, align 8
+  %6 = load ptr, ptr %s.addr, align 8
+  %7 = load i64, ptr %len, align 8
+  %add8 = add i64 %7, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %6, i64 %add8, i1 false)
+  %8 = load ptr, ptr %dst, align 8
+  ret ptr %8
 }
 
 declare void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef) #1 section "malloc_hook"
@@ -5974,11 +6016,13 @@ if.then:                                          ; preds = %cond.end
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  %18 = load i64, ptr %num_bytes_to_read, align 8
-  %19 = load i64, ptr %offset, align 8
-  %20 = load i64, ptr %len, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 548, ptr noundef @.str.27, i64 noundef %18, i64 noundef %19, i64 noundef %20)
+  %18 = getelementptr i8, ptr @.str, i64 114
+  store ptr %18, ptr %absl_raw_log_internal_basename, align 8
+  %19 = load i64, ptr %num_bytes_to_read, align 8
+  %20 = load i64, ptr %offset, align 8
+  %21 = load i64, ptr %len, align 8
+  %22 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %22, i32 noundef 548, ptr noundef @.str.27, i64 noundef %19, i64 noundef %20, i64 noundef %21)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -5986,8 +6030,8 @@ do.end:                                           ; preds = %do.body
   br label %return
 
 if.end:                                           ; preds = %cond.end
-  %21 = load i64, ptr %len, align 8
-  %rem = urem i64 %21, 64
+  %23 = load i64, ptr %len, align 8
+  %rem = urem i64 %23, 64
   %cmp7 = icmp ne i64 %rem, 0
   br i1 %cmp7, label %if.then8, label %if.end12
 
@@ -5995,11 +6039,13 @@ if.then8:                                         ; preds = %if.end
   br label %do.body9
 
 do.body9:                                         ; preds = %if.then8
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename10, align 8
-  %22 = load i64, ptr %num_bytes_to_read, align 8
-  %23 = load i64, ptr %offset, align 8
-  %24 = load i64, ptr %len, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 557, ptr noundef @.str.28, i64 noundef %22, i64 noundef %23, i64 noundef %24, i64 noundef 64)
+  %24 = getelementptr i8, ptr @.str, i64 114
+  store ptr %24, ptr %absl_raw_log_internal_basename10, align 8
+  %25 = load i64, ptr %num_bytes_to_read, align 8
+  %26 = load i64, ptr %offset, align 8
+  %27 = load i64, ptr %len, align 8
+  %28 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %28, i32 noundef 557, ptr noundef @.str.28, i64 noundef %25, i64 noundef %26, i64 noundef %27, i64 noundef 64)
   br label %do.end11
 
 do.end11:                                         ; preds = %do.body9
@@ -6007,12 +6053,12 @@ do.end11:                                         ; preds = %do.body9
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %25 = load i64, ptr %len, align 8
-  %div13 = udiv i64 %25, 64
+  %29 = load i64, ptr %len, align 8
+  %div13 = udiv i64 %29, 64
   store i64 %div13, ptr %num_headers_in_buf, align 8
-  %26 = load i64, ptr %num_headers_in_buf, align 8
-  %27 = load i64, ptr %buf_entries, align 8
-  %cmp14 = icmp ule i64 %26, %27
+  %30 = load i64, ptr %num_headers_in_buf, align 8
+  %31 = load i64, ptr %buf_entries, align 8
+  %cmp14 = icmp ule i64 %30, %31
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
 cond.true15:                                      ; preds = %if.end12
@@ -6022,35 +6068,35 @@ cond.false16:                                     ; preds = %if.end12
   call void @abort() #16
   unreachable
 
-28:                                               ; No predecessors!
+32:                                               ; No predecessors!
   br label %cond.end17
 
-cond.end17:                                       ; preds = %28, %cond.true15
+cond.end17:                                       ; preds = %32, %cond.true15
   store i64 0, ptr %j, align 8
   br label %for.cond18
 
 for.cond18:                                       ; preds = %for.inc, %cond.end17
-  %29 = load i64, ptr %j, align 8
-  %30 = load i64, ptr %num_headers_in_buf, align 8
-  %cmp19 = icmp ult i64 %29, %30
+  %33 = load i64, ptr %j, align 8
+  %34 = load i64, ptr %num_headers_in_buf, align 8
+  %cmp19 = icmp ult i64 %33, %34
   br i1 %cmp19, label %for.body20, label %for.end
 
 for.body20:                                       ; preds = %for.cond18
-  %31 = load ptr, ptr %buf, align 8
-  %32 = load i64, ptr %j, align 8
-  %arrayidx = getelementptr inbounds %struct.Elf64_Shdr, ptr %31, i64 %32
+  %35 = load ptr, ptr %buf, align 8
+  %36 = load i64, ptr %j, align 8
+  %arrayidx = getelementptr inbounds %struct.Elf64_Shdr, ptr %35, i64 %36
   %sh_type = getelementptr inbounds %struct.Elf64_Shdr, ptr %arrayidx, i32 0, i32 1
-  %33 = load i32, ptr %sh_type, align 4
-  %34 = load i32, ptr %type.addr, align 4
-  %cmp21 = icmp eq i32 %33, %34
+  %37 = load i32, ptr %sh_type, align 4
+  %38 = load i32, ptr %type.addr, align 4
+  %cmp21 = icmp eq i32 %37, %38
   br i1 %cmp21, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %for.body20
-  %35 = load ptr, ptr %buf, align 8
-  %36 = load i64, ptr %j, align 8
-  %arrayidx23 = getelementptr inbounds %struct.Elf64_Shdr, ptr %35, i64 %36
-  %37 = load ptr, ptr %out.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %arrayidx23, i64 64, i1 false)
+  %39 = load ptr, ptr %buf, align 8
+  %40 = load i64, ptr %j, align 8
+  %arrayidx23 = getelementptr inbounds %struct.Elf64_Shdr, ptr %39, i64 %40
+  %41 = load ptr, ptr %out.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %arrayidx23, i64 64, i1 false)
   store i1 true, ptr %retval, align 1
   br label %return
 
@@ -6058,15 +6104,15 @@ if.end24:                                         ; preds = %for.body20
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end24
-  %38 = load i64, ptr %j, align 8
-  %inc = add i64 %38, 1
+  %42 = load i64, ptr %j, align 8
+  %inc = add i64 %42, 1
   store i64 %inc, ptr %j, align 8
   br label %for.cond18, !llvm.loop !31
 
 for.end:                                          ; preds = %for.cond18
-  %39 = load i64, ptr %num_headers_in_buf, align 8
-  %40 = load i64, ptr %i, align 8
-  %add25 = add i64 %40, %39
+  %43 = load i64, ptr %num_headers_in_buf, align 8
+  %44 = load i64, ptr %i, align 8
+  %add25 = add i64 %44, %43
   store i64 %add25, ptr %i, align 8
   br label %for.cond, !llvm.loop !32
 
@@ -6075,8 +6121,8 @@ for.end26:                                        ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end26, %if.then22, %do.end11, %do.end
-  %41 = load i1, ptr %retval, align 1
-  ret i1 %41
+  %45 = load i1, ptr %retval, align 1
+  ret i1 %45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6380,12 +6426,14 @@ if.then49:                                        ; preds = %if.then43
   br label %do.body
 
 do.body:                                          ; preds = %if.then49
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  %72 = load ptr, ptr %file.addr, align 8
-  %call50 = call noundef i32 @_ZNK4absl18debugging_internal12_GLOBAL__N_111CachingFile2fdEv(ptr noundef nonnull align 8 dereferenceable(40) %72)
-  %73 = load i64, ptr %off, align 8
-  %74 = load i64, ptr %n_read, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 838, ptr noundef @.str.29, i32 noundef %call50, i64 noundef %73, i64 noundef %74)
+  %72 = getelementptr i8, ptr @.str, i64 114
+  store ptr %72, ptr %absl_raw_log_internal_basename, align 8
+  %73 = load ptr, ptr %file.addr, align 8
+  %call50 = call noundef i32 @_ZNK4absl18debugging_internal12_GLOBAL__N_111CachingFile2fdEv(ptr noundef nonnull align 8 dereferenceable(40) %73)
+  %74 = load i64, ptr %off, align 8
+  %75 = load i64, ptr %n_read, align 8
+  %76 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef %76, i32 noundef 838, ptr noundef @.str.29, i32 noundef %call50, i64 noundef %74, i64 noundef %75)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -6396,9 +6444,9 @@ if.end51:                                         ; preds = %if.then43
   br label %do.body52
 
 do.body52:                                        ; preds = %if.end51
-  %75 = load i64, ptr %n_read, align 8
-  %76 = load i64, ptr %out_size.addr, align 8
-  %cmp53 = icmp ule i64 %75, %76
+  %77 = load i64, ptr %n_read, align 8
+  %78 = load i64, ptr %out_size.addr, align 8
+  %cmp53 = icmp ule i64 %77, %78
   %lnot = xor i1 %cmp53, true
   br i1 %lnot, label %if.then55, label %if.end61
 
@@ -6406,8 +6454,10 @@ if.then55:                                        ; preds = %do.body52
   br label %do.body56
 
 do.body56:                                        ; preds = %if.then55
-  store ptr getelementptr (i8, ptr @.str, i64 114), ptr %absl_raw_log_internal_basename57, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 114), i32 noundef 842, ptr noundef @.str.2, ptr noundef @.str.30, ptr noundef @.str.31)
+  %79 = getelementptr i8, ptr @.str, i64 114
+  store ptr %79, ptr %absl_raw_log_internal_basename57, align 8
+  %80 = getelementptr i8, ptr @.str, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %80, i32 noundef 842, ptr noundef @.str.2, ptr noundef @.str.30, ptr noundef @.str.31)
   br label %do.body58
 
 do.body58:                                        ; preds = %do.body56
@@ -6423,17 +6473,17 @@ if.end61:                                         ; preds = %do.end60, %do.body5
   br label %do.end62
 
 do.end62:                                         ; preds = %if.end61
-  %77 = load ptr, ptr %out.addr, align 8
-  %78 = load i64, ptr %n_read, align 8
-  %call63 = call noundef ptr @memchr(ptr noundef %77, i32 noundef 0, i64 noundef %78) #13
+  %81 = load ptr, ptr %out.addr, align 8
+  %82 = load i64, ptr %n_read, align 8
+  %call63 = call noundef ptr @memchr(ptr noundef %81, i32 noundef 0, i64 noundef %82) #13
   %cmp64 = icmp eq ptr %call63, null
   br i1 %cmp64, label %if.then65, label %if.end68
 
 if.then65:                                        ; preds = %do.end62
-  %79 = load ptr, ptr %out.addr, align 8
-  %80 = load i64, ptr %n_read, align 8
-  %sub66 = sub nsw i64 %80, 1
-  %arrayidx67 = getelementptr inbounds i8, ptr %79, i64 %sub66
+  %83 = load ptr, ptr %out.addr, align 8
+  %84 = load i64, ptr %n_read, align 8
+  %sub66 = sub nsw i64 %84, 1
+  %arrayidx67 = getelementptr inbounds i8, ptr %83, i64 %sub66
   store i8 0, ptr %arrayidx67, align 1
   store i32 2, ptr %retval, align 4
   br label %return
@@ -6447,8 +6497,8 @@ if.end69:                                         ; preds = %for.end41
   br label %return
 
 return:                                           ; preds = %if.end69, %if.end68, %if.then65, %do.end, %if.then
-  %81 = load i32, ptr %retval, align 4
-  ret i32 %81
+  %85 = load i32, ptr %retval, align 4
+  ret i32 %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

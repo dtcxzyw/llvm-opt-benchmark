@@ -66,7 +66,7 @@ define i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %40 = phi i1 [ true, %30 ], [ %38, %33 ]
   %41 = select i1 %40, i32 0, i32 15
   store i32 %41, ptr %7, align 4
-  br label %252
+  br label %256
 
 42:                                               ; preds = %24
   %43 = load ptr, ptr %10, align 8
@@ -102,14 +102,14 @@ define i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %64 = icmp sgt i32 %62, %63
   %65 = select i1 %64, i32 15, i32 0
   store i32 %65, ptr %7, align 4
-  br label %252
+  br label %256
 
 66:                                               ; preds = %42
   %67 = load ptr, ptr %13, align 8
   %68 = getelementptr inbounds %struct.ompi_datatype_t, ptr %67, i32 0, i32 1
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, 17
-  br i1 %70, label %71, label %118
+  br i1 %70, label %71, label %119
 
 71:                                               ; preds = %66
   br label %72
@@ -119,309 +119,313 @@ define i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 73:                                               ; preds = %72
   %74 = load i32, ptr @opal_class_init_epoch, align 4
-  %75 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i32 0, i32 4), align 8
-  %76 = icmp ne i32 %74, %75
-  br i1 %76, label %77, label %78
+  %75 = getelementptr inbounds %struct.opal_class_t, ptr @opal_convertor_t_class, i32 0, i32 4
+  %76 = load i32, ptr %75, align 8
+  %77 = icmp ne i32 %74, %76
+  br i1 %77, label %78, label %79
 
-77:                                               ; preds = %73
+78:                                               ; preds = %73
   call void @opal_class_initialize(ptr noundef @opal_convertor_t_class)
-  br label %78
+  br label %79
 
-78:                                               ; preds = %77, %73
-  %79 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 0
-  store ptr @opal_convertor_t_class, ptr %79, align 8
-  %80 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 1
-  store volatile i32 1, ptr %80, align 8
+79:                                               ; preds = %78, %73
+  %80 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 0
+  store ptr @opal_convertor_t_class, ptr %80, align 8
+  %81 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 1
+  store volatile i32 1, ptr %81, align 8
   call void @opal_obj_run_constructors(ptr noundef %14)
-  br label %81
-
-81:                                               ; preds = %78
   br label %82
 
-82:                                               ; preds = %81
-  %83 = load ptr, ptr @ompi_mpi_local_convertor, align 8
-  %84 = load ptr, ptr %10, align 8
-  %85 = getelementptr inbounds %struct.ompi_datatype_t, ptr %84, i32 0, i32 0
-  %86 = load i32, ptr %9, align 4
-  %87 = sext i32 %86 to i64
-  %88 = load ptr, ptr %8, align 8
-  %89 = call i32 @opal_convertor_copy_and_prepare_for_send(ptr noundef %83, ptr noundef %85, i64 noundef %87, ptr noundef %88, i32 noundef 0, ptr noundef %14)
+82:                                               ; preds = %79
+  br label %83
+
+83:                                               ; preds = %82
+  %84 = load ptr, ptr @ompi_mpi_local_convertor, align 8
+  %85 = load ptr, ptr %10, align 8
+  %86 = getelementptr inbounds %struct.ompi_datatype_t, ptr %85, i32 0, i32 0
+  %87 = load i32, ptr %9, align 4
+  %88 = sext i32 %87 to i64
+  %89 = load ptr, ptr %8, align 8
+  %90 = call i32 @opal_convertor_copy_and_prepare_for_send(ptr noundef %84, ptr noundef %86, i64 noundef %88, ptr noundef %89, i32 noundef 0, ptr noundef %14)
   store i32 1, ptr %19, align 4
-  %90 = load ptr, ptr %11, align 8
-  %91 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 0
-  store ptr %90, ptr %91, align 8
-  %92 = load i32, ptr %9, align 4
-  %93 = sext i32 %92 to i64
-  %94 = load ptr, ptr %10, align 8
-  %95 = getelementptr inbounds %struct.ompi_datatype_t, ptr %94, i32 0, i32 0
-  %96 = getelementptr inbounds %struct.opal_datatype_t, ptr %95, i32 0, i32 4
-  %97 = load i64, ptr %96, align 8
-  %98 = mul i64 %93, %97
-  %99 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
-  store i64 %98, ptr %99, align 8
+  %91 = load ptr, ptr %11, align 8
+  %92 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 0
+  store ptr %91, ptr %92, align 8
+  %93 = load i32, ptr %9, align 4
+  %94 = sext i32 %93 to i64
+  %95 = load ptr, ptr %10, align 8
+  %96 = getelementptr inbounds %struct.ompi_datatype_t, ptr %95, i32 0, i32 0
+  %97 = getelementptr inbounds %struct.opal_datatype_t, ptr %96, i32 0, i32 4
+  %98 = load i64, ptr %97, align 8
+  %99 = mul i64 %94, %98
   %100 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
-  %101 = load i64, ptr %100, align 8
-  %102 = trunc i64 %101 to i32
-  %103 = load i32, ptr %12, align 4
-  %104 = icmp sgt i32 %102, %103
-  br i1 %104, label %105, label %109
+  store i64 %99, ptr %100, align 8
+  %101 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
+  %102 = load i64, ptr %101, align 8
+  %103 = trunc i64 %102 to i32
+  %104 = load i32, ptr %12, align 4
+  %105 = icmp sgt i32 %103, %104
+  br i1 %105, label %106, label %110
 
-105:                                              ; preds = %82
-  %106 = load i32, ptr %12, align 4
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
-  store i64 %107, ptr %108, align 8
-  br label %109
+106:                                              ; preds = %83
+  %107 = load i32, ptr %12, align 4
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
+  store i64 %108, ptr %109, align 8
+  br label %110
 
-109:                                              ; preds = %105, %82
-  %110 = call i32 @opal_convertor_pack(ptr noundef %14, ptr noundef %16, ptr noundef %19, ptr noundef %20)
-  br label %111
-
-111:                                              ; preds = %109
-  call void @opal_obj_run_destructors(ptr noundef %14)
+110:                                              ; preds = %106, %83
+  %111 = call i32 @opal_convertor_pack(ptr noundef %14, ptr noundef %16, ptr noundef %19, ptr noundef %20)
   br label %112
 
-112:                                              ; preds = %111
-  %113 = load i64, ptr %20, align 8
-  %114 = load i32, ptr %12, align 4
-  %115 = sext i32 %114 to i64
-  %116 = icmp ult i64 %113, %115
-  %117 = select i1 %116, i32 15, i32 0
-  store i32 %117, ptr %7, align 4
-  br label %252
+112:                                              ; preds = %110
+  call void @opal_obj_run_destructors(ptr noundef %14)
+  br label %113
 
-118:                                              ; preds = %66
-  %119 = load ptr, ptr %10, align 8
-  %120 = getelementptr inbounds %struct.ompi_datatype_t, ptr %119, i32 0, i32 1
-  %121 = load i32, ptr %120, align 8
-  %122 = icmp eq i32 %121, 17
-  br i1 %122, label %123, label %170
+113:                                              ; preds = %112
+  %114 = load i64, ptr %20, align 8
+  %115 = load i32, ptr %12, align 4
+  %116 = sext i32 %115 to i64
+  %117 = icmp ult i64 %114, %116
+  %118 = select i1 %117, i32 15, i32 0
+  store i32 %118, ptr %7, align 4
+  br label %256
 
-123:                                              ; preds = %118
-  br label %124
+119:                                              ; preds = %66
+  %120 = load ptr, ptr %10, align 8
+  %121 = getelementptr inbounds %struct.ompi_datatype_t, ptr %120, i32 0, i32 1
+  %122 = load i32, ptr %121, align 8
+  %123 = icmp eq i32 %122, 17
+  br i1 %123, label %124, label %172
 
-124:                                              ; preds = %123
+124:                                              ; preds = %119
   br label %125
 
 125:                                              ; preds = %124
-  %126 = load i32, ptr @opal_class_init_epoch, align 4
-  %127 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i32 0, i32 4), align 8
-  %128 = icmp ne i32 %126, %127
-  br i1 %128, label %129, label %130
+  br label %126
 
-129:                                              ; preds = %125
+126:                                              ; preds = %125
+  %127 = load i32, ptr @opal_class_init_epoch, align 4
+  %128 = getelementptr inbounds %struct.opal_class_t, ptr @opal_convertor_t_class, i32 0, i32 4
+  %129 = load i32, ptr %128, align 8
+  %130 = icmp ne i32 %127, %129
+  br i1 %130, label %131, label %132
+
+131:                                              ; preds = %126
   call void @opal_class_initialize(ptr noundef @opal_convertor_t_class)
-  br label %130
+  br label %132
 
-130:                                              ; preds = %129, %125
-  %131 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 0
-  store ptr @opal_convertor_t_class, ptr %131, align 8
-  %132 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
-  store volatile i32 1, ptr %132, align 8
+132:                                              ; preds = %131, %126
+  %133 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 0
+  store ptr @opal_convertor_t_class, ptr %133, align 8
+  %134 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
+  store volatile i32 1, ptr %134, align 8
   call void @opal_obj_run_constructors(ptr noundef %15)
-  br label %133
+  br label %135
 
-133:                                              ; preds = %130
-  br label %134
+135:                                              ; preds = %132
+  br label %136
 
-134:                                              ; preds = %133
-  %135 = load ptr, ptr @ompi_mpi_local_convertor, align 8
-  %136 = load ptr, ptr %13, align 8
-  %137 = getelementptr inbounds %struct.ompi_datatype_t, ptr %136, i32 0, i32 0
-  %138 = load i32, ptr %12, align 4
-  %139 = sext i32 %138 to i64
-  %140 = load ptr, ptr %11, align 8
-  %141 = call i32 @opal_convertor_copy_and_prepare_for_recv(ptr noundef %135, ptr noundef %137, i64 noundef %139, ptr noundef %140, i32 noundef 0, ptr noundef %15)
+136:                                              ; preds = %135
+  %137 = load ptr, ptr @ompi_mpi_local_convertor, align 8
+  %138 = load ptr, ptr %13, align 8
+  %139 = getelementptr inbounds %struct.ompi_datatype_t, ptr %138, i32 0, i32 0
+  %140 = load i32, ptr %12, align 4
+  %141 = sext i32 %140 to i64
+  %142 = load ptr, ptr %11, align 8
+  %143 = call i32 @opal_convertor_copy_and_prepare_for_recv(ptr noundef %137, ptr noundef %139, i64 noundef %141, ptr noundef %142, i32 noundef 0, ptr noundef %15)
   store i32 1, ptr %19, align 4
-  %142 = load ptr, ptr %8, align 8
-  %143 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 0
-  store ptr %142, ptr %143, align 8
-  %144 = load i32, ptr %12, align 4
-  %145 = sext i32 %144 to i64
-  %146 = load ptr, ptr %13, align 8
-  %147 = getelementptr inbounds %struct.ompi_datatype_t, ptr %146, i32 0, i32 0
-  %148 = getelementptr inbounds %struct.opal_datatype_t, ptr %147, i32 0, i32 4
-  %149 = load i64, ptr %148, align 8
-  %150 = mul i64 %145, %149
-  %151 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
-  store i64 %150, ptr %151, align 8
-  %152 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
-  %153 = load i64, ptr %152, align 8
-  %154 = trunc i64 %153 to i32
-  %155 = load i32, ptr %9, align 4
-  %156 = icmp sgt i32 %154, %155
-  br i1 %156, label %157, label %161
+  %144 = load ptr, ptr %8, align 8
+  %145 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 0
+  store ptr %144, ptr %145, align 8
+  %146 = load i32, ptr %12, align 4
+  %147 = sext i32 %146 to i64
+  %148 = load ptr, ptr %13, align 8
+  %149 = getelementptr inbounds %struct.ompi_datatype_t, ptr %148, i32 0, i32 0
+  %150 = getelementptr inbounds %struct.opal_datatype_t, ptr %149, i32 0, i32 4
+  %151 = load i64, ptr %150, align 8
+  %152 = mul i64 %147, %151
+  %153 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
+  store i64 %152, ptr %153, align 8
+  %154 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
+  %155 = load i64, ptr %154, align 8
+  %156 = trunc i64 %155 to i32
+  %157 = load i32, ptr %9, align 4
+  %158 = icmp sgt i32 %156, %157
+  br i1 %158, label %159, label %163
 
-157:                                              ; preds = %134
-  %158 = load i32, ptr %9, align 4
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
-  store i64 %159, ptr %160, align 8
-  br label %161
-
-161:                                              ; preds = %157, %134
-  %162 = call i32 @opal_convertor_unpack(ptr noundef %15, ptr noundef %16, ptr noundef %19, ptr noundef %20)
+159:                                              ; preds = %136
+  %160 = load i32, ptr %9, align 4
+  %161 = sext i32 %160 to i64
+  %162 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
+  store i64 %161, ptr %162, align 8
   br label %163
 
-163:                                              ; preds = %161
+163:                                              ; preds = %159, %136
+  %164 = call i32 @opal_convertor_unpack(ptr noundef %15, ptr noundef %16, ptr noundef %19, ptr noundef %20)
+  br label %165
+
+165:                                              ; preds = %163
   call void @opal_obj_run_destructors(ptr noundef %15)
-  br label %164
+  br label %166
 
-164:                                              ; preds = %163
-  %165 = load i32, ptr %9, align 4
-  %166 = sext i32 %165 to i64
-  %167 = load i64, ptr %20, align 8
-  %168 = icmp ugt i64 %166, %167
-  %169 = select i1 %168, i32 15, i32 0
-  store i32 %169, ptr %7, align 4
-  br label %252
+166:                                              ; preds = %165
+  %167 = load i32, ptr %9, align 4
+  %168 = sext i32 %167 to i64
+  %169 = load i64, ptr %20, align 8
+  %170 = icmp ugt i64 %168, %169
+  %171 = select i1 %170, i32 15, i32 0
+  store i32 %171, ptr %7, align 4
+  br label %256
 
-170:                                              ; preds = %118
+172:                                              ; preds = %119
   store i32 65536, ptr %17, align 4
-  %171 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
-  store i64 65536, ptr %171, align 8
-  %172 = load i32, ptr %17, align 4
-  %173 = sext i32 %172 to i64
-  %174 = mul i64 %173, 1
-  %175 = call noalias ptr @malloc(i64 noundef %174) #4
-  %176 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 0
-  store ptr %175, ptr %176, align 8
-  br label %177
+  %173 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
+  store i64 65536, ptr %173, align 8
+  %174 = load i32, ptr %17, align 4
+  %175 = sext i32 %174 to i64
+  %176 = mul i64 %175, 1
+  %177 = call noalias ptr @malloc(i64 noundef %176) #4
+  %178 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 0
+  store ptr %177, ptr %178, align 8
+  br label %179
 
-177:                                              ; preds = %170
-  br label %178
+179:                                              ; preds = %172
+  br label %180
 
-178:                                              ; preds = %177
-  %179 = load i32, ptr @opal_class_init_epoch, align 4
-  %180 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i32 0, i32 4), align 8
-  %181 = icmp ne i32 %179, %180
-  br i1 %181, label %182, label %183
+180:                                              ; preds = %179
+  %181 = load i32, ptr @opal_class_init_epoch, align 4
+  %182 = getelementptr inbounds %struct.opal_class_t, ptr @opal_convertor_t_class, i32 0, i32 4
+  %183 = load i32, ptr %182, align 8
+  %184 = icmp ne i32 %181, %183
+  br i1 %184, label %185, label %186
 
-182:                                              ; preds = %178
+185:                                              ; preds = %180
   call void @opal_class_initialize(ptr noundef @opal_convertor_t_class)
-  br label %183
-
-183:                                              ; preds = %182, %178
-  %184 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 0
-  store ptr @opal_convertor_t_class, ptr %184, align 8
-  %185 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 1
-  store volatile i32 1, ptr %185, align 8
-  call void @opal_obj_run_constructors(ptr noundef %14)
   br label %186
 
-186:                                              ; preds = %183
-  br label %187
+186:                                              ; preds = %185, %180
+  %187 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 0
+  store ptr @opal_convertor_t_class, ptr %187, align 8
+  %188 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 1
+  store volatile i32 1, ptr %188, align 8
+  call void @opal_obj_run_constructors(ptr noundef %14)
+  br label %189
 
-187:                                              ; preds = %186
-  %188 = load ptr, ptr @ompi_mpi_local_convertor, align 8
-  %189 = load ptr, ptr %10, align 8
-  %190 = getelementptr inbounds %struct.ompi_datatype_t, ptr %189, i32 0, i32 0
-  %191 = load i32, ptr %9, align 4
-  %192 = sext i32 %191 to i64
-  %193 = load ptr, ptr %8, align 8
-  %194 = call i32 @opal_convertor_copy_and_prepare_for_send(ptr noundef %188, ptr noundef %190, i64 noundef %192, ptr noundef %193, i32 noundef 0, ptr noundef %14)
-  br label %195
+189:                                              ; preds = %186
+  br label %190
 
-195:                                              ; preds = %187
-  br label %196
+190:                                              ; preds = %189
+  %191 = load ptr, ptr @ompi_mpi_local_convertor, align 8
+  %192 = load ptr, ptr %10, align 8
+  %193 = getelementptr inbounds %struct.ompi_datatype_t, ptr %192, i32 0, i32 0
+  %194 = load i32, ptr %9, align 4
+  %195 = sext i32 %194 to i64
+  %196 = load ptr, ptr %8, align 8
+  %197 = call i32 @opal_convertor_copy_and_prepare_for_send(ptr noundef %191, ptr noundef %193, i64 noundef %195, ptr noundef %196, i32 noundef 0, ptr noundef %14)
+  br label %198
 
-196:                                              ; preds = %195
-  %197 = load i32, ptr @opal_class_init_epoch, align 4
-  %198 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i32 0, i32 4), align 8
-  %199 = icmp ne i32 %197, %198
-  br i1 %199, label %200, label %201
+198:                                              ; preds = %190
+  br label %199
 
-200:                                              ; preds = %196
+199:                                              ; preds = %198
+  %200 = load i32, ptr @opal_class_init_epoch, align 4
+  %201 = getelementptr inbounds %struct.opal_class_t, ptr @opal_convertor_t_class, i32 0, i32 4
+  %202 = load i32, ptr %201, align 8
+  %203 = icmp ne i32 %200, %202
+  br i1 %203, label %204, label %205
+
+204:                                              ; preds = %199
   call void @opal_class_initialize(ptr noundef @opal_convertor_t_class)
-  br label %201
-
-201:                                              ; preds = %200, %196
-  %202 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 0
-  store ptr @opal_convertor_t_class, ptr %202, align 8
-  %203 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
-  store volatile i32 1, ptr %203, align 8
-  call void @opal_obj_run_constructors(ptr noundef %15)
-  br label %204
-
-204:                                              ; preds = %201
   br label %205
 
-205:                                              ; preds = %204
-  %206 = load ptr, ptr @ompi_mpi_local_convertor, align 8
-  %207 = load ptr, ptr %13, align 8
-  %208 = getelementptr inbounds %struct.ompi_datatype_t, ptr %207, i32 0, i32 0
-  %209 = load i32, ptr %12, align 4
-  %210 = sext i32 %209 to i64
-  %211 = load ptr, ptr %11, align 8
-  %212 = call i32 @opal_convertor_copy_and_prepare_for_recv(ptr noundef %206, ptr noundef %208, i64 noundef %210, ptr noundef %211, i32 noundef 0, ptr noundef %15)
+205:                                              ; preds = %204, %199
+  %206 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 0
+  store ptr @opal_convertor_t_class, ptr %206, align 8
+  %207 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
+  store volatile i32 1, ptr %207, align 8
+  call void @opal_obj_run_constructors(ptr noundef %15)
+  br label %208
+
+208:                                              ; preds = %205
+  br label %209
+
+209:                                              ; preds = %208
+  %210 = load ptr, ptr @ompi_mpi_local_convertor, align 8
+  %211 = load ptr, ptr %13, align 8
+  %212 = getelementptr inbounds %struct.ompi_datatype_t, ptr %211, i32 0, i32 0
+  %213 = load i32, ptr %12, align 4
+  %214 = sext i32 %213 to i64
+  %215 = load ptr, ptr %11, align 8
+  %216 = call i32 @opal_convertor_copy_and_prepare_for_recv(ptr noundef %210, ptr noundef %212, i64 noundef %214, ptr noundef %215, i32 noundef 0, ptr noundef %15)
   store i32 0, ptr %18, align 4
-  br label %213
+  br label %217
 
-213:                                              ; preds = %217, %205
-  %214 = load i32, ptr %18, align 4
-  %215 = icmp ne i32 %214, 0
-  %216 = xor i1 %215, true
-  br i1 %216, label %217, label %229
+217:                                              ; preds = %221, %209
+  %218 = load i32, ptr %18, align 4
+  %219 = icmp ne i32 %218, 0
+  %220 = xor i1 %219, true
+  br i1 %220, label %221, label %233
 
-217:                                              ; preds = %213
-  %218 = load i32, ptr %17, align 4
-  %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
-  store i64 %219, ptr %220, align 8
+221:                                              ; preds = %217
+  %222 = load i32, ptr %17, align 4
+  %223 = sext i32 %222 to i64
+  %224 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 1
+  store i64 %223, ptr %224, align 8
   store i32 1, ptr %19, align 4
-  %221 = load i32, ptr %17, align 4
-  %222 = sext i32 %221 to i64
-  store i64 %222, ptr %20, align 8
-  %223 = call i32 @opal_convertor_pack(ptr noundef %14, ptr noundef %16, ptr noundef %19, ptr noundef %20)
-  %224 = load i32, ptr %18, align 4
-  %225 = or i32 %224, %223
-  store i32 %225, ptr %18, align 4
-  %226 = call i32 @opal_convertor_unpack(ptr noundef %15, ptr noundef %16, ptr noundef %19, ptr noundef %20)
-  %227 = load i32, ptr %18, align 4
-  %228 = or i32 %227, %226
-  store i32 %228, ptr %18, align 4
-  br label %213, !llvm.loop !4
+  %225 = load i32, ptr %17, align 4
+  %226 = sext i32 %225 to i64
+  store i64 %226, ptr %20, align 8
+  %227 = call i32 @opal_convertor_pack(ptr noundef %14, ptr noundef %16, ptr noundef %19, ptr noundef %20)
+  %228 = load i32, ptr %18, align 4
+  %229 = or i32 %228, %227
+  store i32 %229, ptr %18, align 4
+  %230 = call i32 @opal_convertor_unpack(ptr noundef %15, ptr noundef %16, ptr noundef %19, ptr noundef %20)
+  %231 = load i32, ptr %18, align 4
+  %232 = or i32 %231, %230
+  store i32 %232, ptr %18, align 4
+  br label %217, !llvm.loop !4
 
-229:                                              ; preds = %213
-  %230 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 0
-  %231 = load ptr, ptr %230, align 8
-  call void @free(ptr noundef %231) #5
-  br label %232
+233:                                              ; preds = %217
+  %234 = getelementptr inbounds %struct.iovec, ptr %16, i32 0, i32 0
+  %235 = load ptr, ptr %234, align 8
+  call void @free(ptr noundef %235) #5
+  br label %236
 
-232:                                              ; preds = %229
+236:                                              ; preds = %233
   call void @opal_obj_run_destructors(ptr noundef %14)
-  br label %233
+  br label %237
 
-233:                                              ; preds = %232
-  br label %234
+237:                                              ; preds = %236
+  br label %238
 
-234:                                              ; preds = %233
+238:                                              ; preds = %237
   call void @opal_obj_run_destructors(ptr noundef %15)
-  br label %235
+  br label %239
 
-235:                                              ; preds = %234
-  %236 = load i32, ptr %9, align 4
-  %237 = sext i32 %236 to i64
-  %238 = load ptr, ptr %10, align 8
-  %239 = getelementptr inbounds %struct.ompi_datatype_t, ptr %238, i32 0, i32 0
-  %240 = getelementptr inbounds %struct.opal_datatype_t, ptr %239, i32 0, i32 4
-  %241 = load i64, ptr %240, align 8
-  %242 = mul i64 %237, %241
-  %243 = load i32, ptr %12, align 4
-  %244 = sext i32 %243 to i64
-  %245 = load ptr, ptr %13, align 8
-  %246 = getelementptr inbounds %struct.ompi_datatype_t, ptr %245, i32 0, i32 0
-  %247 = getelementptr inbounds %struct.opal_datatype_t, ptr %246, i32 0, i32 4
-  %248 = load i64, ptr %247, align 8
-  %249 = mul i64 %244, %248
-  %250 = icmp ule i64 %242, %249
-  %251 = select i1 %250, i32 0, i32 15
-  store i32 %251, ptr %7, align 4
-  br label %252
+239:                                              ; preds = %238
+  %240 = load i32, ptr %9, align 4
+  %241 = sext i32 %240 to i64
+  %242 = load ptr, ptr %10, align 8
+  %243 = getelementptr inbounds %struct.ompi_datatype_t, ptr %242, i32 0, i32 0
+  %244 = getelementptr inbounds %struct.opal_datatype_t, ptr %243, i32 0, i32 4
+  %245 = load i64, ptr %244, align 8
+  %246 = mul i64 %241, %245
+  %247 = load i32, ptr %12, align 4
+  %248 = sext i32 %247 to i64
+  %249 = load ptr, ptr %13, align 8
+  %250 = getelementptr inbounds %struct.ompi_datatype_t, ptr %249, i32 0, i32 0
+  %251 = getelementptr inbounds %struct.opal_datatype_t, ptr %250, i32 0, i32 4
+  %252 = load i64, ptr %251, align 8
+  %253 = mul i64 %248, %252
+  %254 = icmp ule i64 %246, %253
+  %255 = select i1 %254, i32 0, i32 15
+  store i32 %255, ptr %7, align 4
+  br label %256
 
-252:                                              ; preds = %235, %164, %112, %54, %39
-  %253 = load i32, ptr %7, align 4
-  ret i32 %253
+256:                                              ; preds = %239, %166, %113, %54, %39
+  %257 = load i32, ptr %7, align 4
+  ret i32 %257
 }
 
 declare i32 @opal_datatype_copy_content_same_ddt(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1

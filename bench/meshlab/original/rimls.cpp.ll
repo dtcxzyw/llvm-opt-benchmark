@@ -1082,9 +1082,10 @@ define linkonce_odr void @_ZN7GaelMls5RIMLSI6CMeshOED2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7GaelMls5RIMLSI6CMeshOEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #6
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7GaelMls5RIMLSI6CMeshOEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #6
   call void @_ZN7GaelMls10MlsSurfaceI6CMeshOED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %3) #6
   ret void
 }
@@ -6575,70 +6576,71 @@ define weak_odr void @_ZN7GaelMls5RIMLSI6CMeshOEC2ERKS1_(ptr noundef nonnull ali
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN7GaelMls10MlsSurfaceI6CMeshOEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(248) %7, ptr noundef nonnull align 8 dereferenceable(1196) %8)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7GaelMls5RIMLSI6CMeshOEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 6
-  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %9)
-          to label %10 unwind label %23
+  %9 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7GaelMls5RIMLSI6CMeshOEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 6
+  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %10)
+          to label %11 unwind label %24
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 9
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #6
-  %12 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 10
-  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %12)
-          to label %13 unwind label %27
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 9
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #6
+  %13 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 10
+  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %13)
+          to label %14 unwind label %28
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 11
-  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %14)
-          to label %15 unwind label %27
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 11
+  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %15)
+          to label %16 unwind label %28
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 12
-  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %16)
-          to label %17 unwind label %27
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 12
+  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %17)
+          to label %18 unwind label %28
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 5
-  store float 0.000000e+00, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 4
-  store float 0x3FE99999A0000000, ptr %19, align 4
-  %20 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 3
-  store float 0x3F50624DE0000000, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 1
-  store i32 1, ptr %21, align 8
-  %22 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 2
-  store i32 3, ptr %22, align 4
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 5
+  store float 0.000000e+00, ptr %19, align 8
+  %20 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 4
+  store float 0x3FE99999A0000000, ptr %20, align 4
+  %21 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 3
+  store float 0x3F50624DE0000000, ptr %21, align 8
+  %22 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 1
+  store i32 1, ptr %22, align 8
+  %23 = getelementptr inbounds %"class.GaelMls::RIMLS", ptr %7, i32 0, i32 2
+  store i32 3, ptr %23, align 4
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  br label %31
-
-27:                                               ; preds = %15, %13, %10
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #6
-  br label %31
-
-31:                                               ; preds = %27, %23
-  call void @_ZN7GaelMls10MlsSurfaceI6CMeshOED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %7) #6
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %5, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %6, align 4
   br label %32
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %5, align 8
-  %34 = load i32, ptr %6, align 4
-  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
-  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
-  resume { ptr, i32 } %36
+28:                                               ; preds = %16, %14, %11
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #6
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZN7GaelMls10MlsSurfaceI6CMeshOED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %7) #6
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6654,136 +6656,137 @@ define linkonce_odr void @_ZN7GaelMls10MlsSurfaceI6CMeshOEC2ERKS1_(ptr noundef n
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %11 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7GaelMls10MlsSurfaceI6CMeshOEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %4, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 2
-  call void @_ZN3vcg4Box3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %14)
-  %15 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 14
-  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %15)
-          to label %16 unwind label %45
+  %12 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7GaelMls10MlsSurfaceI6CMeshOEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %4, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 2
+  call void @_ZN3vcg4Box3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %15)
+  %16 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 14
+  invoke void @_ZN3vcg6Point3IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %16)
+          to label %17 unwind label %46
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 15
-  call void @_ZN7GaelMls12NeighborhoodIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #6
-  %18 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 16
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #6
-  %19 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 17
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 15
+  call void @_ZN7GaelMls12NeighborhoodIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #6
+  %19 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 16
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #6
-  %20 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 18
-  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #6
-  %21 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 19
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #6
-  %22 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 13
-  store i8 0, ptr %22, align 4
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %23, i32 0, i32 15
-  %25 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 4 %24, i64 24, i1 false)
+  %20 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 17
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #6
+  %21 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 18
+  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #6
+  %22 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 19
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #6
+  %23 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 13
+  store i8 0, ptr %23, align 4
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %24, i32 0, i32 15
+  %26 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 4 %25, i64 24, i1 false)
   invoke void @_ZN3vcg3tri7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESA_SA_E29ConstPerVertexAttributeHandleIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7)
-          to label %26 unwind label %49
+          to label %27 unwind label %50
 
-26:                                               ; preds = %16
-  %27 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
+27:                                               ; preds = %17
+  %28 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %29 unwind label %53
+          to label %30 unwind label %54
 
-29:                                               ; preds = %26
-  %30 = invoke { ptr, i32 } @_ZN3vcg3tri9AllocatorI6CMeshOE22FindPerVertexAttributeIfEENS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESE_SE_E29ConstPerVertexAttributeHandleIT_EERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1196) %28, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %31 unwind label %57
+30:                                               ; preds = %27
+  %31 = invoke { ptr, i32 } @_ZN3vcg3tri9AllocatorI6CMeshOE22FindPerVertexAttributeIfEENS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESE_SE_E29ConstPerVertexAttributeHandleIT_EERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1196) %29, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %32 unwind label %58
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds { ptr, i32 }, ptr %8, i32 0, i32 0
-  %33 = extractvalue { ptr, i32 } %30, 0
-  store ptr %33, ptr %32, align 8
-  %34 = getelementptr inbounds { ptr, i32 }, ptr %8, i32 0, i32 1
-  %35 = extractvalue { ptr, i32 } %30, 1
-  store i32 %35, ptr %34, align 8
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds { ptr, i32 }, ptr %8, i32 0, i32 0
+  %34 = extractvalue { ptr, i32 } %31, 0
+  store ptr %34, ptr %33, align 8
+  %35 = getelementptr inbounds { ptr, i32 }, ptr %8, i32 0, i32 1
+  %36 = extractvalue { ptr, i32 } %31, 1
+  store i32 %36, ptr %35, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 12, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #6
-  %36 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 7
-  store float 4.000000e+00, ptr %36, align 4
-  %37 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 6
-  store i32 20, ptr %37, align 8
-  %38 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 9
-  store float 0x3F1A36E2E0000000, ptr %38, align 4
-  %39 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 5
-  store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 3
-  store i32 4, ptr %40, align 8
-  %41 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 4
-  store i32 4, ptr %41, align 4
-  %42 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 10
-  store i32 4, ptr %42, align 8
-  %43 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 11
-  store float 2.000000e+00, ptr %43, align 4
-  %44 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 12
-  store float 1.000000e+00, ptr %44, align 8
+  %37 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 7
+  store float 4.000000e+00, ptr %37, align 4
+  %38 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 6
+  store i32 20, ptr %38, align 8
+  %39 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 9
+  store float 0x3F1A36E2E0000000, ptr %39, align 4
+  %40 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 5
+  store ptr null, ptr %40, align 8
+  %41 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 3
+  store i32 4, ptr %41, align 8
+  %42 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 4
+  store i32 4, ptr %42, align 4
+  %43 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 10
+  store i32 4, ptr %43, align 8
+  %44 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 11
+  store float 2.000000e+00, ptr %44, align 4
+  %45 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %11, i32 0, i32 12
+  store float 1.000000e+00, ptr %45, align 8
   ret void
 
-45:                                               ; preds = %2
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %2
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %5, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %6, align 4
-  br label %63
-
-49:                                               ; preds = %16
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %5, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %6, align 4
-  br label %62
-
-53:                                               ; preds = %26
-  %54 = landingpad { ptr, i32 }
-          cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %5, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %6, align 4
-  br label %61
-
-57:                                               ; preds = %29
-  %58 = landingpad { ptr, i32 }
-          cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %5, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
-  br label %61
-
-61:                                               ; preds = %57, %53
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #6
-  br label %62
-
-62:                                               ; preds = %61, %49
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #6
-  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #6
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #6
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #6
-  call void @_ZN7GaelMls12NeighborhoodIfED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #6
-  br label %63
-
-63:                                               ; preds = %62, %45
-  call void @_ZN3vcg4Box3IfED2Ev(ptr noundef nonnull align 4 dereferenceable(24) %14) #6
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %5, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %6, align 4
   br label %64
 
-64:                                               ; preds = %63
-  %65 = load ptr, ptr %5, align 8
-  %66 = load i32, ptr %6, align 4
-  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
-  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
-  resume { ptr, i32 } %68
+50:                                               ; preds = %17
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %5, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %6, align 4
+  br label %63
+
+54:                                               ; preds = %27
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %5, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %6, align 4
+  br label %62
+
+58:                                               ; preds = %30
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %5, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
+  br label %62
+
+62:                                               ; preds = %58, %54
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #6
+  br label %63
+
+63:                                               ; preds = %62, %50
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #6
+  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #6
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #6
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #6
+  call void @_ZN7GaelMls12NeighborhoodIfED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #6
+  br label %64
+
+64:                                               ; preds = %63, %46
+  call void @_ZN3vcg4Box3IfED2Ev(ptr noundef nonnull align 4 dereferenceable(24) %15) #6
+  br label %65
+
+65:                                               ; preds = %64
+  %66 = load ptr, ptr %5, align 8
+  %67 = load i32, ptr %6, align 4
+  %68 = insertvalue { ptr, i32 } poison, ptr %66, 0
+  %69 = insertvalue { ptr, i32 } %68, i32 %67, 1
+  resume { ptr, i32 } %69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7048,19 +7051,20 @@ define linkonce_odr void @_ZN7GaelMls10MlsSurfaceI6CMeshOED2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7GaelMls10MlsSurfaceI6CMeshOEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %3, i32 0, i32 19
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #6
-  %5 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %3, i32 0, i32 18
-  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #6
-  %6 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %3, i32 0, i32 17
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #6
-  %7 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %3, i32 0, i32 16
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7GaelMls10MlsSurfaceI6CMeshOEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %3, i32 0, i32 19
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #6
+  %6 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %3, i32 0, i32 18
+  call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #6
+  %7 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %3, i32 0, i32 17
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #6
-  %8 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %3, i32 0, i32 15
-  call void @_ZN7GaelMls12NeighborhoodIfED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #6
-  %9 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %3, i32 0, i32 2
-  call void @_ZN3vcg4Box3IfED2Ev(ptr noundef nonnull align 4 dereferenceable(24) %9) #6
+  %8 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %3, i32 0, i32 16
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #6
+  %9 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %3, i32 0, i32 15
+  call void @_ZN7GaelMls12NeighborhoodIfED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #6
+  %10 = getelementptr inbounds %"class.GaelMls::MlsSurface", ptr %3, i32 0, i32 2
+  call void @_ZN3vcg4Box3IfED2Ev(ptr noundef nonnull align 4 dereferenceable(24) %10) #6
   ret void
 }
 

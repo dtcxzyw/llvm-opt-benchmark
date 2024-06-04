@@ -2448,27 +2448,28 @@ define void @_ZN4LIEF2PE10SignerInfoC2Ev(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE10SignerInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
-  %6 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
-  %7 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 4
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 5
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
-  %10 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 7
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE10SignerInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
+  %7 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  %8 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 4
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 5
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #15
-  %11 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
-  %12 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 9
+  %11 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  %12 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 8
   call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #15
-  %13 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 10
-  call void @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
+  %13 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
+  %14 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 10
+  call void @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #15
   ret void
 }
 
@@ -2511,21 +2512,22 @@ define void @_ZN4LIEF2PE10SignerInfoD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE10SignerInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 10
-  call void @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
-  %5 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
-  %6 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE10SignerInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 10
+  call void @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %6 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 9
   call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
-  %7 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
-  %8 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 6
+  %7 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  %8 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 7
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #15
-  %9 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 3
+  %9 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
-  %10 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #15
+  %10 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #15
+  %11 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #15
   call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret void
 }
@@ -2636,44 +2638,45 @@ define void @_ZN4LIEF2PE10SignerInfoC2EOS1_(ptr noundef nonnull align 8 derefere
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE10SignerInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %12, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13) #15
-  %14 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %15, i32 0, i32 3
-  call void @_ZNSt6vectorIhSaIhEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %16) #15
-  %17 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 4
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %19, i64 8, i1 false)
-  %20 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 6
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %21, i32 0, i32 6
-  call void @_ZNSt6vectorIhSaIhEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %22) #15
-  %23 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 7
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %24, i32 0, i32 7
-  call void @_ZNSt6vectorIhSaIhEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %25) #15
-  %26 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %27, i32 0, i32 8
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %28) #15
-  %29 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 9
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %30, i32 0, i32 9
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %31) #15
-  %32 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 10
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %33, i32 0, i32 10
-  call void @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %34) #15
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE10SignerInfoE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %13, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %14) #15
+  %15 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %16, i32 0, i32 3
+  call void @_ZNSt6vectorIhSaIhEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  %18 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 4
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %19, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %20, i64 8, i1 false)
+  %21 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 6
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %22, i32 0, i32 6
+  call void @_ZNSt6vectorIhSaIhEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %23) #15
+  %24 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 7
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %25, i32 0, i32 7
+  call void @_ZNSt6vectorIhSaIhEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %26) #15
+  %27 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 8
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %28, i32 0, i32 8
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %29) #15
+  %30 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 9
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %31, i32 0, i32 9
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %32) #15
+  %33 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %5, i32 0, i32 10
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %34, i32 0, i32 10
+  call void @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %35) #15
   ret void
 }
 
@@ -2841,255 +2844,256 @@ define void @_ZN4LIEF2PE10SignerInfoC2ERKS1_(ptr noundef nonnull align 8 derefer
   %18 = load ptr, ptr %3, align 8
   %19 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE10SignerInfoE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %20 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 1
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 8
-  store i32 %23, ptr %20, align 8
-  %24 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 2
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %25, i32 0, i32 2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %26)
-          to label %27 unwind label %73
+  %20 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE10SignerInfoE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %18, align 8
+  %21 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 1
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  store i32 %24, ptr %21, align 8
+  %25 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 2
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %26, i32 0, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %27)
+          to label %28 unwind label %74
 
-27:                                               ; preds = %2
-  %28 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 3
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %29, i32 0, i32 3
-  invoke void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %30)
-          to label %31 unwind label %77
+28:                                               ; preds = %2
+  %29 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 3
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %30, i32 0, i32 3
+  invoke void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %31)
+          to label %32 unwind label %78
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 4
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %33, i32 0, i32 4
-  %35 = load i32, ptr %34, align 8
-  store i32 %35, ptr %32, align 8
-  %36 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 5
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %37, i32 0, i32 5
-  %39 = load i32, ptr %38, align 4
-  store i32 %39, ptr %36, align 4
-  %40 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 6
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %41, i32 0, i32 6
-  invoke void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %42)
-          to label %43 unwind label %81
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 4
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %34, i32 0, i32 4
+  %36 = load i32, ptr %35, align 8
+  store i32 %36, ptr %33, align 8
+  %37 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 5
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %38, i32 0, i32 5
+  %40 = load i32, ptr %39, align 4
+  store i32 %40, ptr %37, align 4
+  %41 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 6
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %42, i32 0, i32 6
+  invoke void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %43)
+          to label %44 unwind label %82
 
-43:                                               ; preds = %31
-  %44 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 7
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %45, i32 0, i32 7
-  invoke void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %46)
-          to label %47 unwind label %85
+44:                                               ; preds = %32
+  %45 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 7
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %46, i32 0, i32 7
+  invoke void @_ZNSt6vectorIhSaIhEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %47)
+          to label %48 unwind label %86
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 8
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #15
-  %49 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 9
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 8
   call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #15
-  %50 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 10
-  call void @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %50) #15
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %51, i32 0, i32 8
-  store ptr %52, ptr %7, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = call ptr @_ZNKSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %53) #15
-  %55 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
-  store ptr %54, ptr %55, align 8
-  %56 = load ptr, ptr %7, align 8
-  %57 = call ptr @_ZNKSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %56) #15
-  %58 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
-  store ptr %57, ptr %58, align 8
-  br label %59
+  %50 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 9
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #15
+  %51 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 10
+  call void @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %51) #15
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %52, i32 0, i32 8
+  store ptr %53, ptr %7, align 8
+  %54 = load ptr, ptr %7, align 8
+  %55 = call ptr @_ZNKSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %54) #15
+  %56 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  store ptr %55, ptr %56, align 8
+  %57 = load ptr, ptr %7, align 8
+  %58 = call ptr @_ZNKSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %57) #15
+  %59 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
+  store ptr %58, ptr %59, align 8
+  br label %60
 
-59:                                               ; preds = %71, %47
-  %60 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEbRKNS_17__normal_iteratorIT_T0_EESI_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #15
-  br i1 %60, label %61, label %97
+60:                                               ; preds = %72, %48
+  %61 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEbRKNS_17__normal_iteratorIT_T0_EESI_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #15
+  br i1 %61, label %62, label %98
 
-61:                                               ; preds = %59
-  %62 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
-  store ptr %62, ptr %10, align 8
-  %63 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 8
-  %64 = load ptr, ptr %10, align 8
-  %65 = call noundef ptr @_ZNKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %64) #15
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds ptr, ptr %66, i64 5
-  %68 = load ptr, ptr %67, align 8
-  invoke void %68(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.11") align 8 %11, ptr noundef nonnull align 8 dereferenceable(12) %65)
-          to label %69 unwind label %89
+62:                                               ; preds = %60
+  %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  store ptr %63, ptr %10, align 8
+  %64 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 8
+  %65 = load ptr, ptr %10, align 8
+  %66 = call noundef ptr @_ZNKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %65) #15
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds ptr, ptr %67, i64 5
+  %69 = load ptr, ptr %68, align 8
+  invoke void %69(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.11") align 8 %11, ptr noundef nonnull align 8 dereferenceable(12) %66)
+          to label %70 unwind label %90
 
-69:                                               ; preds = %61
-  invoke void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %70 unwind label %93
-
-70:                                               ; preds = %69
-  call void @_ZNSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
-  br label %71
+70:                                               ; preds = %62
+  invoke void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %71 unwind label %94
 
 71:                                               ; preds = %70
-  %72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
-  br label %59
-
-73:                                               ; preds = %2
-  %74 = landingpad { ptr, i32 }
-          cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %5, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %6, align 4
-  br label %140
-
-77:                                               ; preds = %27
-  %78 = landingpad { ptr, i32 }
-          cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %5, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %6, align 4
-  br label %139
-
-81:                                               ; preds = %31
-  %82 = landingpad { ptr, i32 }
-          cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %5, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %6, align 4
-  br label %138
-
-85:                                               ; preds = %43
-  %86 = landingpad { ptr, i32 }
-          cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %5, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %6, align 4
-  br label %137
-
-89:                                               ; preds = %128, %108, %61
-  %90 = landingpad { ptr, i32 }
-          cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %5, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %6, align 4
-  br label %136
-
-93:                                               ; preds = %69
-  %94 = landingpad { ptr, i32 }
-          cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %5, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %6, align 4
   call void @_ZNSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
-  br label %136
+  br label %72
 
-97:                                               ; preds = %59
-  %98 = load ptr, ptr %4, align 8
-  %99 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %98, i32 0, i32 9
-  store ptr %99, ptr %12, align 8
-  %100 = load ptr, ptr %12, align 8
-  %101 = call ptr @_ZNKSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %100) #15
-  %102 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %13, i32 0, i32 0
-  store ptr %101, ptr %102, align 8
-  %103 = load ptr, ptr %12, align 8
-  %104 = call ptr @_ZNKSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %103) #15
-  %105 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
-  store ptr %104, ptr %105, align 8
-  br label %106
+72:                                               ; preds = %71
+  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  br label %60
 
-106:                                              ; preds = %118, %97
-  %107 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEbRKNS_17__normal_iteratorIT_T0_EESI_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14) #15
-  br i1 %107, label %108, label %124
-
-108:                                              ; preds = %106
-  %109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
-  store ptr %109, ptr %15, align 8
-  %110 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 9
-  %111 = load ptr, ptr %15, align 8
-  %112 = call noundef ptr @_ZNKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %111) #15
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds ptr, ptr %113, i64 5
-  %115 = load ptr, ptr %114, align 8
-  invoke void %115(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.11") align 8 %16, ptr noundef nonnull align 8 dereferenceable(12) %112)
-          to label %116 unwind label %89
-
-116:                                              ; preds = %108
-  invoke void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %110, ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %117 unwind label %120
-
-117:                                              ; preds = %116
-  call void @_ZNSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
-  br label %118
-
-118:                                              ; preds = %117
-  %119 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
-  br label %106
-
-120:                                              ; preds = %116
-  %121 = landingpad { ptr, i32 }
+74:                                               ; preds = %2
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %122 = extractvalue { ptr, i32 } %121, 0
-  store ptr %122, ptr %5, align 8
-  %123 = extractvalue { ptr, i32 } %121, 1
-  store i32 %123, ptr %6, align 4
-  call void @_ZNSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
-  br label %136
-
-124:                                              ; preds = %106
-  %125 = load ptr, ptr %4, align 8
-  %126 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %125, i32 0, i32 10
-  %127 = call noundef zeroext i1 @_ZStneIN4LIEF2PE4x509ESt14default_deleteIS2_EEbRKSt10unique_ptrIT_T0_EDn(ptr noundef nonnull align 8 dereferenceable(8) %126, ptr null) #15
-  br i1 %127, label %128, label %135
-
-128:                                              ; preds = %124
-  %129 = load ptr, ptr %4, align 8
-  %130 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %129, i32 0, i32 10
-  %131 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %130) #15
-  invoke void @_ZSt11make_uniqueIN4LIEF2PE4x509EJRS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %131)
-          to label %132 unwind label %89
-
-132:                                              ; preds = %128
-  %133 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 10
-  %134 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull align 8 dereferenceable(8) %17) #15
-  call void @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #15
-  br label %135
-
-135:                                              ; preds = %132, %124
-  ret void
-
-136:                                              ; preds = %120, %93, %89
-  call void @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #15
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #15
-  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #15
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #15
-  br label %137
-
-137:                                              ; preds = %136, %85
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #15
-  br label %138
-
-138:                                              ; preds = %137, %81
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #15
-  br label %139
-
-139:                                              ; preds = %138, %77
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #15
-  br label %140
-
-140:                                              ; preds = %139, %73
-  call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #15
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %5, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %6, align 4
   br label %141
 
-141:                                              ; preds = %140
-  %142 = load ptr, ptr %5, align 8
-  %143 = load i32, ptr %6, align 4
-  %144 = insertvalue { ptr, i32 } poison, ptr %142, 0
-  %145 = insertvalue { ptr, i32 } %144, i32 %143, 1
-  resume { ptr, i32 } %145
+78:                                               ; preds = %28
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %5, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %6, align 4
+  br label %140
+
+82:                                               ; preds = %32
+  %83 = landingpad { ptr, i32 }
+          cleanup
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %5, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %6, align 4
+  br label %139
+
+86:                                               ; preds = %44
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %5, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %6, align 4
+  br label %138
+
+90:                                               ; preds = %129, %109, %62
+  %91 = landingpad { ptr, i32 }
+          cleanup
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %5, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %6, align 4
+  br label %137
+
+94:                                               ; preds = %70
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %5, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %6, align 4
+  call void @_ZNSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
+  br label %137
+
+98:                                               ; preds = %60
+  %99 = load ptr, ptr %4, align 8
+  %100 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %99, i32 0, i32 9
+  store ptr %100, ptr %12, align 8
+  %101 = load ptr, ptr %12, align 8
+  %102 = call ptr @_ZNKSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %101) #15
+  %103 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %13, i32 0, i32 0
+  store ptr %102, ptr %103, align 8
+  %104 = load ptr, ptr %12, align 8
+  %105 = call ptr @_ZNKSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %104) #15
+  %106 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
+  store ptr %105, ptr %106, align 8
+  br label %107
+
+107:                                              ; preds = %119, %98
+  %108 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEbRKNS_17__normal_iteratorIT_T0_EESI_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14) #15
+  br i1 %108, label %109, label %125
+
+109:                                              ; preds = %107
+  %110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
+  store ptr %110, ptr %15, align 8
+  %111 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 9
+  %112 = load ptr, ptr %15, align 8
+  %113 = call noundef ptr @_ZNKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %112) #15
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds ptr, ptr %114, i64 5
+  %116 = load ptr, ptr %115, align 8
+  invoke void %116(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.11") align 8 %16, ptr noundef nonnull align 8 dereferenceable(12) %113)
+          to label %117 unwind label %90
+
+117:                                              ; preds = %109
+  invoke void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %118 unwind label %121
+
+118:                                              ; preds = %117
+  call void @_ZNSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
+  br label %119
+
+119:                                              ; preds = %118
+  %120 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
+  br label %107
+
+121:                                              ; preds = %117
+  %122 = landingpad { ptr, i32 }
+          cleanup
+  %123 = extractvalue { ptr, i32 } %122, 0
+  store ptr %123, ptr %5, align 8
+  %124 = extractvalue { ptr, i32 } %122, 1
+  store i32 %124, ptr %6, align 4
+  call void @_ZNSt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
+  br label %137
+
+125:                                              ; preds = %107
+  %126 = load ptr, ptr %4, align 8
+  %127 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %126, i32 0, i32 10
+  %128 = call noundef zeroext i1 @_ZStneIN4LIEF2PE4x509ESt14default_deleteIS2_EEbRKSt10unique_ptrIT_T0_EDn(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr null) #15
+  br i1 %128, label %129, label %136
+
+129:                                              ; preds = %125
+  %130 = load ptr, ptr %4, align 8
+  %131 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %130, i32 0, i32 10
+  %132 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %131) #15
+  invoke void @_ZSt11make_uniqueIN4LIEF2PE4x509EJRS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %132)
+          to label %133 unwind label %90
+
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds %"class.LIEF::PE::SignerInfo", ptr %18, i32 0, i32 10
+  %135 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull align 8 dereferenceable(8) %17) #15
+  call void @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #15
+  br label %136
+
+136:                                              ; preds = %133, %125
+  ret void
+
+137:                                              ; preds = %121, %94, %90
+  call void @_ZNSt10unique_ptrIN4LIEF2PE4x509ESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #15
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #15
+  call void @_ZNSt6vectorISt10unique_ptrIN4LIEF2PE9AttributeESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #15
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #15
+  br label %138
+
+138:                                              ; preds = %137, %86
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #15
+  br label %139
+
+139:                                              ; preds = %138, %82
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #15
+  br label %140
+
+140:                                              ; preds = %139, %78
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #15
+  br label %141
+
+141:                                              ; preds = %140, %74
+  call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #15
+  br label %142
+
+142:                                              ; preds = %141
+  %143 = load ptr, ptr %5, align 8
+  %144 = load i32, ptr %6, align 4
+  %145 = insertvalue { ptr, i32 } poison, ptr %143, 0
+  %146 = insertvalue { ptr, i32 } %145, i32 %144, 1
+  resume { ptr, i32 } %146
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
@@ -8047,13 +8051,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIcLm500ESaIcEEC2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [500 x i8], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 500) #15
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #15
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [500 x i8], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 500) #15
   ret void
 }
 
@@ -8630,16 +8635,17 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef 
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -9391,7 +9397,8 @@ define linkonce_odr hidden void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef nonn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -14449,13 +14456,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIiLm500ESaIiEEC2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.37", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.37", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [500 x i32], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 500) #15
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.37", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #15
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.37", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [500 x i32], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 500) #15
   ret void
 }
 
@@ -14581,16 +14589,17 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef 
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.38", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.38", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.38", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.38", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.38", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.38", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -29691,13 +29700,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEEC2E
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.66", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.66", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [32 x i32], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 32) #15
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.66", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #15
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.66", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [32 x i32], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 32) #15
   ret void
 }
 
@@ -29728,16 +29738,17 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef 
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.67", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.67", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.67", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.67", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.67", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.67", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -30587,21 +30598,22 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEEC2E
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.66", ptr %5, i32 0, i32 2
-  call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
-  %7 = load ptr, ptr %4, align 8
-  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %7)
-          to label %8 unwind label %9
-
-8:                                                ; preds = %2
-  ret void
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.66", ptr %5, i32 0, i32 2
+  call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
+  %8 = load ptr, ptr %4, align 8
+  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %8)
+          to label %9 unwind label %10
 
 9:                                                ; preds = %2
-  %10 = landingpad { ptr, i32 }
+  ret void
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #17
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #17
   unreachable
 }
 

@@ -1475,26 +1475,27 @@ define void @_ZN5draco10PointCloudC2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5draco10PointCloudE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5draco16GeometryMetadataESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 3
-  %7 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"class.std::vector.2", ptr %7, i64 5
-  br label %9
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5draco10PointCloudE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5draco16GeometryMetadataESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 3
+  %8 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds %"class.std::vector.2", ptr %8, i64 5
+  br label %10
 
-9:                                                ; preds = %9, %1
-  %10 = phi ptr [ %7, %1 ], [ %11, %9 ]
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %"class.std::vector.2", ptr %10, i64 1
-  %12 = icmp eq ptr %11, %8
-  br i1 %12, label %13, label %9
+10:                                               ; preds = %10, %1
+  %11 = phi ptr [ %8, %1 ], [ %12, %10 ]
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = getelementptr inbounds %"class.std::vector.2", ptr %11, i64 1
+  %13 = icmp eq ptr %12, %9
+  br i1 %13, label %14, label %10
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 4
-  store i32 0, ptr %14, align 8
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 4
+  store i32 0, ptr %15, align 8
   ret void
 }
 
@@ -4238,24 +4239,25 @@ define linkonce_odr void @_ZN5draco10PointCloudD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5draco10PointCloudE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 3
-  %5 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"class.std::vector.2", ptr %5, i64 5
-  br label %7
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5draco10PointCloudE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 3
+  %6 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"class.std::vector.2", ptr %6, i64 5
+  br label %8
 
-7:                                                ; preds = %7, %1
-  %8 = phi ptr [ %6, %1 ], [ %9, %7 ]
-  %9 = getelementptr inbounds %"class.std::vector.2", ptr %8, i64 -1
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %10 = icmp eq ptr %9, %5
-  br i1 %10, label %11, label %7
+8:                                                ; preds = %8, %1
+  %9 = phi ptr [ %7, %1 ], [ %10, %8 ]
+  %10 = getelementptr inbounds %"class.std::vector.2", ptr %9, i64 -1
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %11 = icmp eq ptr %10, %6
+  br i1 %11, label %12, label %8
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %13 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5draco16GeometryMetadataESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %14 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5draco16GeometryMetadataESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
   ret void
 }
 

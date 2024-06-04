@@ -26,18 +26,19 @@ define hidden void @"_ZN101_$LT$clap_builder..builder..possible_value..PossibleV
   store i64 -9223372036854775808, ptr %5, align 8
   store i64 0, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %9, align 8
-  %10 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %4, i32 0, i32 1
-  store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %0, i32 0, i32 2
-  store ptr %7, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %8, ptr %12, align 8
-  %13 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %5, i64 24, i1 false)
+  %10 = inttoptr i64 8 to ptr
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %4, i32 0, i32 1
+  store i64 0, ptr %11, align 8
+  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %0, i32 0, i32 2
+  store ptr %7, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 %8, ptr %13, align 8
+  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %5, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %4, i64 24, i1 false)
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %0, i32 0, i32 3
-  store i8 0, ptr %14, align 8
+  %15 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %0, i32 0, i32 3
+  store i8 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr %5)
   ret void
@@ -533,10 +534,11 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821
 
 127:                                              ; preds = %107
   %128 = load ptr, ptr @anon.3523629cbbbe30aa83696a811f8affad.9, align 8, !noundef !4
-  %129 = load i64, ptr getelementptr inbounds (i8, ptr @anon.3523629cbbbe30aa83696a811f8affad.9, i64 8), align 8
+  %129 = getelementptr inbounds i8, ptr @anon.3523629cbbbe30aa83696a811f8affad.9, i64 8
+  %130 = load i64, ptr %129, align 8
   store ptr %128, ptr %23, align 8
-  %130 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %129, ptr %130, align 8
+  %131 = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 %130, ptr %131, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr %20)
   br label %50

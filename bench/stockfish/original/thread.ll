@@ -1385,38 +1385,39 @@ define dso_local void @_ZN9Stockfish6ThreadC2ERNS_6Search11SharedStateESt10uniqu
   store ptr %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %14 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9Stockfish6ThreadE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 1
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt11make_uniqueIN9Stockfish6Search6WorkerEJRNS1_11SharedStateESt10unique_ptrINS1_14ISearchManagerESt14default_deleteIS6_EERmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %17 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 2
-  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #3
-  %18 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 3
-  call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #3
-  %19 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 4
-  %20 = load i64, ptr %8, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 5
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %"struct.Stockfish::Search::SharedState", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
+  %15 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9Stockfish6ThreadE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 1
+  %17 = load ptr, ptr %6, align 8
+  call void @_ZSt11make_uniqueIN9Stockfish6Search6WorkerEJRNS1_11SharedStateESt10unique_ptrINS1_14ISearchManagerESt14default_deleteIS6_EERmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %18 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 2
+  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #3
+  %19 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 3
+  call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
+  %20 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 4
+  %21 = load i64, ptr %8, align 8
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 5
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds %"struct.Stockfish::Search::SharedState", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %11)
-  call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.Stockfish::Option") align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %25 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %9)
-  %26 = sext i32 %25 to i64
+  call void @_ZNK9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.Stockfish::Option") align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %26 = call noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull align 8 dereferenceable(144) %9)
+  %27 = sext i32 %26 to i64
   call void @_ZN9Stockfish6OptionD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %9) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  store i64 %26, ptr %21, align 8
-  %27 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 6
-  store i8 0, ptr %27, align 8
-  %28 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 7
-  store i8 1, ptr %28, align 1
-  %29 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 8
+  store i64 %27, ptr %22, align 8
+  %28 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 6
+  store i8 0, ptr %28, align 8
+  %29 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 7
+  store i8 1, ptr %29, align 1
+  %30 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN9Stockfish6Thread9idle_loopEv to i64), i64 0 }, ptr %12, align 8
   store ptr %14, ptr %13, align 8
-  call void @_ZN9Stockfish12NativeThreadC2IMNS_6ThreadEFvvEJPS2_EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  call void @_ZN9Stockfish12NativeThreadC2IMNS_6ThreadEFvvEJPS2_EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
   call void @_ZN9Stockfish6Thread24wait_for_search_finishedEv(ptr noundef nonnull align 8 dereferenceable(136) %14)
   ret void
 }
@@ -1646,16 +1647,17 @@ define dso_local void @_ZN9Stockfish6ThreadD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9Stockfish6ThreadE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Stockfish::Thread", ptr %3, i32 0, i32 6
-  store i8 1, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9Stockfish6ThreadE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Stockfish::Thread", ptr %3, i32 0, i32 6
+  store i8 1, ptr %5, align 8
   call void @_ZN9Stockfish6Thread15start_searchingEv(ptr noundef nonnull align 8 dereferenceable(136) %3)
-  %5 = getelementptr inbounds %"class.Stockfish::Thread", ptr %3, i32 0, i32 8
-  call void @_ZN9Stockfish12NativeThread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %6 = getelementptr inbounds %"class.Stockfish::Thread", ptr %3, i32 0, i32 3
-  call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %"class.Stockfish::Thread", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN9Stockfish6Search6WorkerESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %6 = getelementptr inbounds %"class.Stockfish::Thread", ptr %3, i32 0, i32 8
+  call void @_ZN9Stockfish12NativeThread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %7 = getelementptr inbounds %"class.Stockfish::Thread", ptr %3, i32 0, i32 3
+  call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %"class.Stockfish::Thread", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN9Stockfish6Search6WorkerESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   ret void
 }
 
@@ -2118,9 +2120,10 @@ define linkonce_odr dso_local void @_ZN9Stockfish6Search13SearchManagerC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9Stockfish6Search14ISearchManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9Stockfish6Search13SearchManagerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Stockfish::Search::SearchManager", ptr %3, i32 0, i32 1
-  call void @_ZN9Stockfish14TimeManagementC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9Stockfish6Search13SearchManagerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Stockfish::Search::SearchManager", ptr %3, i32 0, i32 1
+  call void @_ZN9Stockfish14TimeManagementC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #3
   ret void
 }
 
@@ -2170,7 +2173,8 @@ define linkonce_odr dso_local void @_ZN9Stockfish6Search17NullSearchManagerC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9Stockfish6Search14ISearchManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9Stockfish6Search17NullSearchManagerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9Stockfish6Search17NullSearchManagerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3950,7 +3954,8 @@ define linkonce_odr dso_local void @_ZN9Stockfish6Search14ISearchManagerC2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9Stockfish6Search14ISearchManagerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9Stockfish6Search14ISearchManagerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

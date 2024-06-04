@@ -26,25 +26,26 @@ define internal i32 @component_query(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 5), align 8
-  %7 = icmp eq ptr null, %6
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %2
-  store i32 -1, ptr %3, align 4
-  br label %12
+  %6 = getelementptr inbounds %struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 5
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr null, %7
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %5, align 8
-  store i32 100, ptr %10, align 4
-  %11 = load ptr, ptr %4, align 8
-  store ptr @pmix_preg_compress_module, ptr %11, align 8
-  store i32 0, ptr %3, align 4
-  br label %12
+  store i32 -1, ptr %3, align 4
+  br label %13
 
-12:                                               ; preds = %9, %8
-  %13 = load i32, ptr %3, align 4
-  ret i32 %13
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8
+  store i32 100, ptr %11, align 4
+  %12 = load ptr, ptr %4, align 8
+  store ptr @pmix_preg_compress_module, ptr %12, align 8
+  store i32 0, ptr %3, align 4
+  br label %13
+
+13:                                               ; preds = %10, %9
+  %14 = load i32, ptr %3, align 4
+  ret i32 %14
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

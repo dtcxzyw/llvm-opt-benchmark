@@ -2940,7 +2940,8 @@ terminate.lpad:                                   ; preds = %if.then41, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @_ZN3re2L17empty_group_namesB5cxx11Ev() #0 {
 entry:
-  ret ptr getelementptr inbounds (%"struct.re2::EmptyStorage", ptr @_ZN3re2L13empty_storageE, i32 0, i32 2)
+  %0 = getelementptr inbounds %"struct.re2::EmptyStorage", ptr @_ZN3re2L13empty_storageE, i32 0, i32 2
+  ret ptr %0
 }
 
 ; Function Attrs: noreturn nounwind uwtable
@@ -2968,7 +2969,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @_ZN3re2L18empty_named_groupsB5cxx11Ev() #0 {
 entry:
-  ret ptr getelementptr inbounds (%"struct.re2::EmptyStorage", ptr @_ZN3re2L13empty_storageE, i32 0, i32 1)
+  %0 = getelementptr inbounds %"struct.re2::EmptyStorage", ptr @_ZN3re2L13empty_storageE, i32 0, i32 1
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

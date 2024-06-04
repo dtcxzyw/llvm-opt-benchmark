@@ -742,7 +742,8 @@ define hidden i32 @zm_startup_date(i32 noundef %0, i32 noundef %1) #0 {
   call void @register_php_date_symbols(i32 noundef %8)
   store ptr null, ptr @php_date_global_timezone_db, align 8
   store i32 0, ptr @php_date_global_timezone_db_enabled, align 4
-  store ptr null, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
+  %9 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  store ptr null, ptr %9, align 8
   ret i32 0
 }
 
@@ -755,16 +756,18 @@ define hidden i32 @zm_shutdown_date(i32 noundef %0, i32 noundef %1) #0 {
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %3, align 4
   call void @zend_unregister_ini_entries_ex(i32 noundef %5, i32 noundef %6)
-  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %11
+  %7 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %13
 
-9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
-  call void @timelib_error_container_dtor(ptr noundef %10)
-  br label %11
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  %12 = load ptr, ptr %11, align 8
+  call void @timelib_error_container_dtor(ptr noundef %12)
+  br label %13
 
-11:                                               ; preds = %9, %2
+13:                                               ; preds = %10, %2
   store ptr null, ptr @date_globals, align 8
   ret i32 0
 }
@@ -775,19 +778,24 @@ define hidden i32 @zm_activate_date(i32 noundef %0, i32 noundef %1) #0 {
   %4 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %9
+  %5 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
-  call void @_efree(ptr noundef %8)
-  br label %9
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  call void @_efree(ptr noundef %10)
+  br label %11
 
-9:                                                ; preds = %7, %2
-  store ptr null, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
+11:                                               ; preds = %8, %2
+  %12 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  store ptr null, ptr %12, align 8
+  %13 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 2
+  store ptr null, ptr %13, align 8
+  %14 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  store ptr null, ptr %14, align 8
   ret i32 0
 }
 
@@ -797,17 +805,20 @@ define hidden i32 @zm_deactivate_date(i32 noundef %0, i32 noundef %1) #0 {
   %4 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %9
+  %5 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
-  call void @_efree(ptr noundef %8)
-  br label %9
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  call void @_efree(ptr noundef %10)
+  br label %11
 
-9:                                                ; preds = %7, %2
-  store ptr null, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
+11:                                               ; preds = %8, %2
+  %12 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  store ptr null, ptr %12, align 8
   ret i32 0
 }
 
@@ -869,36 +880,43 @@ define internal void @zm_globals_ctor_date(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @zm_post_zend_deactivate_date() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 2), align 8
-  %2 = icmp ne ptr %1, null
-  br i1 %2, label %3, label %8
+  %1 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 2
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp ne ptr %2, null
+  br i1 %3, label %4, label %12
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 2), align 8
-  call void @zend_hash_destroy(ptr noundef %4)
-  br label %5
-
-5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 2), align 8
-  call void @_efree_56(ptr noundef %6)
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  call void @zend_hash_destroy(ptr noundef %6)
   br label %7
 
-7:                                                ; preds = %5
-  store ptr null, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 2), align 8
-  br label %8
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  call void @_efree_56(ptr noundef %9)
+  br label %10
 
-8:                                                ; preds = %7, %0
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %13
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 2
+  store ptr null, ptr %11, align 8
+  br label %12
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
-  call void @timelib_error_container_dtor(ptr noundef %12)
-  store ptr null, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
-  br label %13
+12:                                               ; preds = %10, %0
+  %13 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %20
 
-13:                                               ; preds = %11, %8
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  %18 = load ptr, ptr %17, align 8
+  call void @timelib_error_container_dtor(ptr noundef %18)
+  %19 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  store ptr null, ptr %19, align 8
+  br label %20
+
+20:                                               ; preds = %16, %12
   ret i32 0
 }
 
@@ -930,107 +948,137 @@ define internal void @date_register_classes() #0 {
   store ptr @date_object_handlers_date, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @date_object_handlers_date, ptr align 8 @std_object_handlers, i64 200, i1 false)
   store i32 8, ptr @date_object_handlers_date, align 8
-  store ptr @date_object_free_storage_date, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_date, i32 0, i32 1), align 8
-  store ptr @date_object_clone_date, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_date, i32 0, i32 3), align 8
-  store ptr @date_object_compare_date, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_date, i32 0, i32 23), align 8
-  store ptr @date_object_get_properties_for, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_date, i32 0, i32 24), align 8
-  store ptr @date_object_get_gc, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_date, i32 0, i32 21), align 8
-  %10 = load ptr, ptr @date_ce_interface, align 8
-  %11 = call ptr @register_class_DateTimeImmutable(ptr noundef %10)
-  store ptr %11, ptr @date_ce_immutable, align 8
-  %12 = load ptr, ptr @date_ce_immutable, align 8
-  %13 = getelementptr inbounds %struct._zend_class_entry, ptr %12, i32 0, i32 32
-  store ptr @date_object_new_date, ptr %13, align 8
-  %14 = load ptr, ptr @date_ce_immutable, align 8
-  %15 = getelementptr inbounds %struct._zend_class_entry, ptr %14, i32 0, i32 29
-  store ptr @date_object_handlers_date, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @date_object_handlers_immutable, ptr align 8 @std_object_handlers, i64 200, i1 false)
-  store ptr @date_object_clone_date, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_immutable, i32 0, i32 3), align 8
-  store ptr @date_object_compare_date, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_immutable, i32 0, i32 23), align 8
-  store ptr @date_object_get_properties_for, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_immutable, i32 0, i32 24), align 8
-  store ptr @date_object_get_gc, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_immutable, i32 0, i32 21), align 8
-  %16 = call ptr @register_class_DateTimeZone()
-  store ptr %16, ptr @date_ce_timezone, align 8
-  %17 = load ptr, ptr @date_ce_timezone, align 8
+  %10 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_date, i32 0, i32 1
+  store ptr @date_object_free_storage_date, ptr %10, align 8
+  %11 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_date, i32 0, i32 3
+  store ptr @date_object_clone_date, ptr %11, align 8
+  %12 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_date, i32 0, i32 23
+  store ptr @date_object_compare_date, ptr %12, align 8
+  %13 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_date, i32 0, i32 24
+  store ptr @date_object_get_properties_for, ptr %13, align 8
+  %14 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_date, i32 0, i32 21
+  store ptr @date_object_get_gc, ptr %14, align 8
+  %15 = load ptr, ptr @date_ce_interface, align 8
+  %16 = call ptr @register_class_DateTimeImmutable(ptr noundef %15)
+  store ptr %16, ptr @date_ce_immutable, align 8
+  %17 = load ptr, ptr @date_ce_immutable, align 8
   %18 = getelementptr inbounds %struct._zend_class_entry, ptr %17, i32 0, i32 32
-  store ptr @date_object_new_timezone, ptr %18, align 8
-  %19 = load ptr, ptr @date_ce_timezone, align 8
+  store ptr @date_object_new_date, ptr %18, align 8
+  %19 = load ptr, ptr @date_ce_immutable, align 8
   %20 = getelementptr inbounds %struct._zend_class_entry, ptr %19, i32 0, i32 29
-  store ptr @date_object_handlers_timezone, ptr %20, align 8
+  store ptr @date_object_handlers_date, ptr %20, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @date_object_handlers_immutable, ptr align 8 @std_object_handlers, i64 200, i1 false)
+  %21 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_immutable, i32 0, i32 3
+  store ptr @date_object_clone_date, ptr %21, align 8
+  %22 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_immutable, i32 0, i32 23
+  store ptr @date_object_compare_date, ptr %22, align 8
+  %23 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_immutable, i32 0, i32 24
+  store ptr @date_object_get_properties_for, ptr %23, align 8
+  %24 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_immutable, i32 0, i32 21
+  store ptr @date_object_get_gc, ptr %24, align 8
+  %25 = call ptr @register_class_DateTimeZone()
+  store ptr %25, ptr @date_ce_timezone, align 8
+  %26 = load ptr, ptr @date_ce_timezone, align 8
+  %27 = getelementptr inbounds %struct._zend_class_entry, ptr %26, i32 0, i32 32
+  store ptr @date_object_new_timezone, ptr %27, align 8
+  %28 = load ptr, ptr @date_ce_timezone, align 8
+  %29 = getelementptr inbounds %struct._zend_class_entry, ptr %28, i32 0, i32 29
+  store ptr @date_object_handlers_timezone, ptr %29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @date_object_handlers_timezone, ptr align 8 @std_object_handlers, i64 200, i1 false)
   store i32 32, ptr @date_object_handlers_timezone, align 8
-  store ptr @date_object_free_storage_timezone, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_timezone, i32 0, i32 1), align 8
-  store ptr @date_object_clone_timezone, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_timezone, i32 0, i32 3), align 8
-  store ptr @date_object_get_properties_for_timezone, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_timezone, i32 0, i32 24), align 8
-  store ptr @date_object_get_gc_timezone, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_timezone, i32 0, i32 21), align 8
-  store ptr @date_object_get_debug_info_timezone, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_timezone, i32 0, i32 19), align 8
-  store ptr @date_object_compare_timezone, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_timezone, i32 0, i32 23), align 8
-  %21 = call ptr @register_class_DateInterval()
-  store ptr %21, ptr @date_ce_interval, align 8
-  %22 = load ptr, ptr @date_ce_interval, align 8
-  %23 = getelementptr inbounds %struct._zend_class_entry, ptr %22, i32 0, i32 32
-  store ptr @date_object_new_interval, ptr %23, align 8
-  %24 = load ptr, ptr @date_ce_interval, align 8
-  %25 = getelementptr inbounds %struct._zend_class_entry, ptr %24, i32 0, i32 29
-  store ptr @date_object_handlers_interval, ptr %25, align 8
+  %30 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_timezone, i32 0, i32 1
+  store ptr @date_object_free_storage_timezone, ptr %30, align 8
+  %31 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_timezone, i32 0, i32 3
+  store ptr @date_object_clone_timezone, ptr %31, align 8
+  %32 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_timezone, i32 0, i32 24
+  store ptr @date_object_get_properties_for_timezone, ptr %32, align 8
+  %33 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_timezone, i32 0, i32 21
+  store ptr @date_object_get_gc_timezone, ptr %33, align 8
+  %34 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_timezone, i32 0, i32 19
+  store ptr @date_object_get_debug_info_timezone, ptr %34, align 8
+  %35 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_timezone, i32 0, i32 23
+  store ptr @date_object_compare_timezone, ptr %35, align 8
+  %36 = call ptr @register_class_DateInterval()
+  store ptr %36, ptr @date_ce_interval, align 8
+  %37 = load ptr, ptr @date_ce_interval, align 8
+  %38 = getelementptr inbounds %struct._zend_class_entry, ptr %37, i32 0, i32 32
+  store ptr @date_object_new_interval, ptr %38, align 8
+  %39 = load ptr, ptr @date_ce_interval, align 8
+  %40 = getelementptr inbounds %struct._zend_class_entry, ptr %39, i32 0, i32 29
+  store ptr @date_object_handlers_interval, ptr %40, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @date_object_handlers_interval, ptr align 8 @std_object_handlers, i64 200, i1 false)
   store i32 32, ptr @date_object_handlers_interval, align 8
-  store ptr @date_object_free_storage_interval, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 1), align 8
-  store ptr @date_object_clone_interval, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 3), align 8
-  store ptr @date_interval_has_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 9), align 8
-  store ptr @date_interval_read_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 4), align 8
-  store ptr @date_interval_write_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 5), align 8
-  store ptr @date_object_get_properties_interval, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 13), align 8
-  store ptr @date_interval_get_property_ptr_ptr, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 8), align 8
-  store ptr @date_object_get_gc_interval, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 21), align 8
-  store ptr @date_interval_compare_objects, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 23), align 8
-  %26 = load ptr, ptr @zend_ce_aggregate, align 8
-  %27 = call ptr @register_class_DatePeriod(ptr noundef %26)
-  store ptr %27, ptr @date_ce_period, align 8
-  %28 = load ptr, ptr @date_ce_period, align 8
-  %29 = getelementptr inbounds %struct._zend_class_entry, ptr %28, i32 0, i32 32
-  store ptr @date_object_new_period, ptr %29, align 8
-  %30 = load ptr, ptr @date_ce_period, align 8
-  %31 = getelementptr inbounds %struct._zend_class_entry, ptr %30, i32 0, i32 29
-  store ptr @date_object_handlers_period, ptr %31, align 8
-  %32 = load ptr, ptr @date_ce_period, align 8
-  %33 = getelementptr inbounds %struct._zend_class_entry, ptr %32, i32 0, i32 33
-  store ptr @date_object_period_get_iterator, ptr %33, align 8
+  %41 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 1
+  store ptr @date_object_free_storage_interval, ptr %41, align 8
+  %42 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 3
+  store ptr @date_object_clone_interval, ptr %42, align 8
+  %43 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 9
+  store ptr @date_interval_has_property, ptr %43, align 8
+  %44 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 4
+  store ptr @date_interval_read_property, ptr %44, align 8
+  %45 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 5
+  store ptr @date_interval_write_property, ptr %45, align 8
+  %46 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 13
+  store ptr @date_object_get_properties_interval, ptr %46, align 8
+  %47 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 8
+  store ptr @date_interval_get_property_ptr_ptr, ptr %47, align 8
+  %48 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 21
+  store ptr @date_object_get_gc_interval, ptr %48, align 8
+  %49 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_interval, i32 0, i32 23
+  store ptr @date_interval_compare_objects, ptr %49, align 8
+  %50 = load ptr, ptr @zend_ce_aggregate, align 8
+  %51 = call ptr @register_class_DatePeriod(ptr noundef %50)
+  store ptr %51, ptr @date_ce_period, align 8
+  %52 = load ptr, ptr @date_ce_period, align 8
+  %53 = getelementptr inbounds %struct._zend_class_entry, ptr %52, i32 0, i32 32
+  store ptr @date_object_new_period, ptr %53, align 8
+  %54 = load ptr, ptr @date_ce_period, align 8
+  %55 = getelementptr inbounds %struct._zend_class_entry, ptr %54, i32 0, i32 29
+  store ptr @date_object_handlers_period, ptr %55, align 8
+  %56 = load ptr, ptr @date_ce_period, align 8
+  %57 = getelementptr inbounds %struct._zend_class_entry, ptr %56, i32 0, i32 33
+  store ptr @date_object_period_get_iterator, ptr %57, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @date_object_handlers_period, ptr align 8 @std_object_handlers, i64 200, i1 false)
   store i32 48, ptr @date_object_handlers_period, align 8
-  store ptr @date_object_free_storage_period, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_period, i32 0, i32 1), align 8
-  store ptr @date_object_clone_period, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_period, i32 0, i32 3), align 8
-  store ptr @date_object_get_gc_period, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_period, i32 0, i32 21), align 8
-  store ptr @date_period_get_property_ptr_ptr, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_period, i32 0, i32 8), align 8
-  store ptr @date_period_read_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_period, i32 0, i32 4), align 8
-  store ptr @date_period_write_property, ptr getelementptr inbounds (%struct._zend_object_handlers, ptr @date_object_handlers_period, i32 0, i32 5), align 8
-  %34 = load ptr, ptr @zend_ce_error, align 8
-  %35 = call ptr @register_class_DateError(ptr noundef %34)
-  store ptr %35, ptr @date_ce_date_error, align 8
-  %36 = load ptr, ptr @date_ce_date_error, align 8
-  %37 = call ptr @register_class_DateObjectError(ptr noundef %36)
-  store ptr %37, ptr @date_ce_date_object_error, align 8
-  %38 = load ptr, ptr @date_ce_date_error, align 8
-  %39 = call ptr @register_class_DateRangeError(ptr noundef %38)
-  store ptr %39, ptr @date_ce_date_range_error, align 8
-  %40 = load ptr, ptr @zend_ce_exception, align 8
-  %41 = call ptr @register_class_DateException(ptr noundef %40)
-  store ptr %41, ptr @date_ce_date_exception, align 8
-  %42 = load ptr, ptr @date_ce_date_exception, align 8
-  %43 = call ptr @register_class_DateInvalidTimeZoneException(ptr noundef %42)
-  store ptr %43, ptr @date_ce_date_invalid_timezone_exception, align 8
-  %44 = load ptr, ptr @date_ce_date_exception, align 8
-  %45 = call ptr @register_class_DateInvalidOperationException(ptr noundef %44)
-  store ptr %45, ptr @date_ce_date_invalid_operation_exception, align 8
-  %46 = load ptr, ptr @date_ce_date_exception, align 8
-  %47 = call ptr @register_class_DateMalformedStringException(ptr noundef %46)
-  store ptr %47, ptr @date_ce_date_malformed_string_exception, align 8
-  %48 = load ptr, ptr @date_ce_date_exception, align 8
-  %49 = call ptr @register_class_DateMalformedIntervalStringException(ptr noundef %48)
-  store ptr %49, ptr @date_ce_date_malformed_interval_string_exception, align 8
-  %50 = load ptr, ptr @date_ce_date_exception, align 8
-  %51 = call ptr @register_class_DateMalformedPeriodStringException(ptr noundef %50)
-  store ptr %51, ptr @date_ce_date_malformed_period_string_exception, align 8
+  %58 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_period, i32 0, i32 1
+  store ptr @date_object_free_storage_period, ptr %58, align 8
+  %59 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_period, i32 0, i32 3
+  store ptr @date_object_clone_period, ptr %59, align 8
+  %60 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_period, i32 0, i32 21
+  store ptr @date_object_get_gc_period, ptr %60, align 8
+  %61 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_period, i32 0, i32 8
+  store ptr @date_period_get_property_ptr_ptr, ptr %61, align 8
+  %62 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_period, i32 0, i32 4
+  store ptr @date_period_read_property, ptr %62, align 8
+  %63 = getelementptr inbounds %struct._zend_object_handlers, ptr @date_object_handlers_period, i32 0, i32 5
+  store ptr @date_period_write_property, ptr %63, align 8
+  %64 = load ptr, ptr @zend_ce_error, align 8
+  %65 = call ptr @register_class_DateError(ptr noundef %64)
+  store ptr %65, ptr @date_ce_date_error, align 8
+  %66 = load ptr, ptr @date_ce_date_error, align 8
+  %67 = call ptr @register_class_DateObjectError(ptr noundef %66)
+  store ptr %67, ptr @date_ce_date_object_error, align 8
+  %68 = load ptr, ptr @date_ce_date_error, align 8
+  %69 = call ptr @register_class_DateRangeError(ptr noundef %68)
+  store ptr %69, ptr @date_ce_date_range_error, align 8
+  %70 = load ptr, ptr @zend_ce_exception, align 8
+  %71 = call ptr @register_class_DateException(ptr noundef %70)
+  store ptr %71, ptr @date_ce_date_exception, align 8
+  %72 = load ptr, ptr @date_ce_date_exception, align 8
+  %73 = call ptr @register_class_DateInvalidTimeZoneException(ptr noundef %72)
+  store ptr %73, ptr @date_ce_date_invalid_timezone_exception, align 8
+  %74 = load ptr, ptr @date_ce_date_exception, align 8
+  %75 = call ptr @register_class_DateInvalidOperationException(ptr noundef %74)
+  store ptr %75, ptr @date_ce_date_invalid_operation_exception, align 8
+  %76 = load ptr, ptr @date_ce_date_exception, align 8
+  %77 = call ptr @register_class_DateMalformedStringException(ptr noundef %76)
+  store ptr %77, ptr @date_ce_date_malformed_string_exception, align 8
+  %78 = load ptr, ptr @date_ce_date_exception, align 8
+  %79 = call ptr @register_class_DateMalformedIntervalStringException(ptr noundef %78)
+  store ptr %79, ptr @date_ce_date_malformed_interval_string_exception, align 8
+  %80 = load ptr, ptr @date_ce_date_exception, align 8
+  %81 = call ptr @register_class_DateMalformedPeriodStringException(ptr noundef %80)
+  store ptr %81, ptr @date_ce_date_malformed_period_string_exception, align 8
   ret void
 }
 
@@ -1090,95 +1138,98 @@ define internal ptr @guess_timezone(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %8, label %14
+  %6 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %17
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
-  %10 = call i64 @strlen(ptr noundef %9) #14
-  %11 = icmp ugt i64 %10, 0
-  br i1 %11, label %12, label %14
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = call i64 @strlen(ptr noundef %11) #14
+  %13 = icmp ugt i64 %12, 0
+  br i1 %13, label %14, label %17
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
-  store ptr %13, ptr %3, align 8
-  br label %58
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %3, align 8
+  br label %61
 
-14:                                               ; preds = %8, %1
-  %15 = load ptr, ptr @date_globals, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %50, label %17
-
-17:                                               ; preds = %14
-  %18 = call ptr @cfg_get_entry(ptr noundef @.str.181, i64 noundef 14)
-  store ptr %18, ptr %5, align 8
-  %19 = icmp ne ptr null, %18
-  br i1 %19, label %20, label %49
+17:                                               ; preds = %9, %1
+  %18 = load ptr, ptr @date_globals, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %53, label %20
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %5, align 8
-  store ptr %21, ptr %2, align 8
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i32 0, i32 1
-  %24 = load i8, ptr %23, align 8
-  %25 = zext i8 %24 to i32
-  %26 = icmp eq i32 %25, 6
-  br i1 %26, label %27, label %49
+  %21 = call ptr @cfg_get_entry(ptr noundef @.str.181, i64 noundef 14)
+  store ptr %21, ptr %5, align 8
+  %22 = icmp ne ptr null, %21
+  br i1 %22, label %23, label %52
 
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct._zend_string, ptr %30, i32 0, i32 2
-  %32 = load i64, ptr %31, align 8
-  %33 = icmp ugt i64 %32, 0
-  br i1 %33, label %34, label %49
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %5, align 8
+  store ptr %24, ptr %2, align 8
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds %struct._zval_struct, ptr %25, i32 0, i32 1
+  %27 = load i8, ptr %26, align 8
+  %28 = zext i8 %27 to i32
+  %29 = icmp eq i32 %28, 6
+  br i1 %29, label %30, label %52
 
-34:                                               ; preds = %27
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct._zval_struct, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct._zend_string, ptr %37, i32 0, i32 3
-  %39 = getelementptr inbounds [1 x i8], ptr %38, i64 0, i64 0
-  %40 = load ptr, ptr %4, align 8
-  %41 = call i32 @timelib_timezone_id_is_valid(ptr noundef %39, ptr noundef %40)
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %49
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %struct._zval_struct, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct._zend_string, ptr %33, i32 0, i32 2
+  %35 = load i64, ptr %34, align 8
+  %36 = icmp ugt i64 %35, 0
+  br i1 %36, label %37, label %52
 
-43:                                               ; preds = %34
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct._zval_struct, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct._zend_string, ptr %46, i32 0, i32 3
-  %48 = getelementptr inbounds [1 x i8], ptr %47, i64 0, i64 0
-  store ptr %48, ptr %3, align 8
-  br label %58
+37:                                               ; preds = %30
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds %struct._zval_struct, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds %struct._zend_string, ptr %40, i32 0, i32 3
+  %42 = getelementptr inbounds [1 x i8], ptr %41, i64 0, i64 0
+  %43 = load ptr, ptr %4, align 8
+  %44 = call i32 @timelib_timezone_id_is_valid(ptr noundef %42, ptr noundef %43)
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %52
 
-49:                                               ; preds = %34, %27, %20, %17
-  br label %57
+46:                                               ; preds = %37
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct._zend_string, ptr %49, i32 0, i32 3
+  %51 = getelementptr inbounds [1 x i8], ptr %50, i64 0, i64 0
+  store ptr %51, ptr %3, align 8
+  br label %61
 
-50:                                               ; preds = %14
-  %51 = load ptr, ptr @date_globals, align 8
-  %52 = load i8, ptr %51, align 1
-  %53 = icmp ne i8 %52, 0
-  br i1 %53, label %54, label %56
+52:                                               ; preds = %37, %30, %23, %20
+  br label %60
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr @date_globals, align 8
-  store ptr %55, ptr %3, align 8
-  br label %58
+53:                                               ; preds = %17
+  %54 = load ptr, ptr @date_globals, align 8
+  %55 = load i8, ptr %54, align 1
+  %56 = icmp ne i8 %55, 0
+  br i1 %56, label %57, label %59
 
-56:                                               ; preds = %50
-  br label %57
+57:                                               ; preds = %53
+  %58 = load ptr, ptr @date_globals, align 8
+  store ptr %58, ptr %3, align 8
+  br label %61
 
-57:                                               ; preds = %56, %49
+59:                                               ; preds = %53
+  br label %60
+
+60:                                               ; preds = %59, %52
   store ptr @.str.182, ptr %3, align 8
-  br label %58
+  br label %61
 
-58:                                               ; preds = %57, %54, %43, %12
-  %59 = load ptr, ptr %3, align 8
-  ret ptr %59
+61:                                               ; preds = %60, %57, %46, %14
+  %62 = load ptr, ptr %3, align 8
+  ret ptr %62
 }
 
 declare void @php_info_print_table_end() #2
@@ -1257,116 +1308,121 @@ define internal ptr @php_date_parse_tzfile(ptr noundef %0, ptr noundef %1) #0 {
   %19 = alloca i32, align 4
   store ptr %0, ptr %16, align 8
   store ptr %1, ptr %17, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 2), align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %25, label %22
+  %20 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %28, label %23
 
-22:                                               ; preds = %2
-  %23 = call noalias ptr @_emalloc_56()
-  store ptr %23, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 2), align 8
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 2), align 8
-  call void @_zend_hash_init(ptr noundef %24, i32 noundef 4, ptr noundef @_php_date_tzinfo_dtor, i1 noundef zeroext false)
-  br label %25
+23:                                               ; preds = %2
+  %24 = call noalias ptr @_emalloc_56()
+  %25 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 2
+  store ptr %24, ptr %25, align 8
+  %26 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8
+  call void @_zend_hash_init(ptr noundef %27, i32 noundef 4, ptr noundef @_php_date_tzinfo_dtor, i1 noundef zeroext false)
+  br label %28
 
-25:                                               ; preds = %22, %2
-  %26 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 2), align 8
-  %27 = load ptr, ptr %16, align 8
-  %28 = load ptr, ptr %16, align 8
-  %29 = call i64 @strlen(ptr noundef %28) #14
-  store ptr %26, ptr %11, align 8
-  store ptr %27, ptr %12, align 8
-  store i64 %29, ptr %13, align 8
-  %30 = load ptr, ptr %11, align 8
-  %31 = load ptr, ptr %12, align 8
-  %32 = load i64, ptr %13, align 8
-  %33 = call ptr @zend_hash_str_find(ptr noundef %30, ptr noundef %31, i64 noundef %32) #13
-  store ptr %33, ptr %14, align 8
-  %34 = load ptr, ptr %14, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %36, label %42
-
-36:                                               ; preds = %25
-  %37 = load ptr, ptr %14, align 8
-  %38 = load ptr, ptr %37, align 8
+28:                                               ; preds = %23, %2
+  %29 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %16, align 8
+  %32 = load ptr, ptr %16, align 8
+  %33 = call i64 @strlen(ptr noundef %32) #14
+  store ptr %30, ptr %11, align 8
+  store ptr %31, ptr %12, align 8
+  store i64 %33, ptr %13, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i64, ptr %13, align 8
+  %37 = call ptr @zend_hash_str_find(ptr noundef %34, ptr noundef %35, i64 noundef %36) #13
+  store ptr %37, ptr %14, align 8
+  %38 = load ptr, ptr %14, align 8
   %39 = icmp ne ptr %38, null
-  call void @llvm.assume(i1 %39)
-  %40 = load ptr, ptr %14, align 8
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %10, align 8
-  br label %43
+  br i1 %39, label %40, label %46
 
-42:                                               ; preds = %25
+40:                                               ; preds = %28
+  %41 = load ptr, ptr %14, align 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  call void @llvm.assume(i1 %43)
+  %44 = load ptr, ptr %14, align 8
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %10, align 8
+  br label %47
+
+46:                                               ; preds = %28
   store ptr null, ptr %10, align 8
-  br label %43
+  br label %47
 
-43:                                               ; preds = %42, %36
-  %44 = load ptr, ptr %10, align 8
-  store ptr %44, ptr %18, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %48
+47:                                               ; preds = %46, %40
+  %48 = load ptr, ptr %10, align 8
+  store ptr %48, ptr %18, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %52
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %18, align 8
-  store ptr %47, ptr %15, align 8
-  br label %78
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %18, align 8
+  store ptr %51, ptr %15, align 8
+  br label %83
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %16, align 8
-  %50 = load ptr, ptr %17, align 8
-  %51 = call ptr @timelib_parse_tzfile(ptr noundef %49, ptr noundef %50, ptr noundef %19)
-  store ptr %51, ptr %18, align 8
-  %52 = load ptr, ptr %18, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %76
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %16, align 8
+  %54 = load ptr, ptr %17, align 8
+  %55 = call ptr @timelib_parse_tzfile(ptr noundef %53, ptr noundef %54, ptr noundef %19)
+  store ptr %55, ptr %18, align 8
+  %56 = load ptr, ptr %18, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %81
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 2), align 8
-  %56 = load ptr, ptr %16, align 8
-  %57 = load ptr, ptr %16, align 8
-  %58 = call i64 @strlen(ptr noundef %57) #14
-  %59 = load ptr, ptr %18, align 8
-  store ptr %55, ptr %4, align 8
-  store ptr %56, ptr %5, align 8
-  store i64 %58, ptr %6, align 8
-  store ptr %59, ptr %7, align 8
-  %60 = load ptr, ptr %7, align 8
-  store ptr %60, ptr %8, align 8
-  %61 = getelementptr inbounds %struct._zval_struct, ptr %8, i32 0, i32 1
-  store i32 13, ptr %61, align 8
-  %62 = load ptr, ptr %4, align 8
-  %63 = load ptr, ptr %5, align 8
-  %64 = load i64, ptr %6, align 8
-  %65 = call ptr @zend_hash_str_add(ptr noundef %62, ptr noundef %63, i64 noundef %64, ptr noundef %8) #13
-  store ptr %65, ptr %9, align 8
-  %66 = load ptr, ptr %9, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %74
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %16, align 8
+  %62 = load ptr, ptr %16, align 8
+  %63 = call i64 @strlen(ptr noundef %62) #14
+  %64 = load ptr, ptr %18, align 8
+  store ptr %60, ptr %4, align 8
+  store ptr %61, ptr %5, align 8
+  store i64 %63, ptr %6, align 8
+  store ptr %64, ptr %7, align 8
+  %65 = load ptr, ptr %7, align 8
+  store ptr %65, ptr %8, align 8
+  %66 = getelementptr inbounds %struct._zval_struct, ptr %8, i32 0, i32 1
+  store i32 13, ptr %66, align 8
+  %67 = load ptr, ptr %4, align 8
+  %68 = load ptr, ptr %5, align 8
+  %69 = load i64, ptr %6, align 8
+  %70 = call ptr @zend_hash_str_add(ptr noundef %67, ptr noundef %68, i64 noundef %69, ptr noundef %8) #13
+  store ptr %70, ptr %9, align 8
+  %71 = load ptr, ptr %9, align 8
+  %72 = icmp ne ptr %71, null
+  br i1 %72, label %73, label %79
 
-68:                                               ; preds = %54
-  %69 = load ptr, ptr %9, align 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp ne ptr %70, null
-  call void @llvm.assume(i1 %71)
-  %72 = load ptr, ptr %9, align 8
-  %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %3, align 8
-  br label %75
+73:                                               ; preds = %58
+  %74 = load ptr, ptr %9, align 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp ne ptr %75, null
+  call void @llvm.assume(i1 %76)
+  %77 = load ptr, ptr %9, align 8
+  %78 = load ptr, ptr %77, align 8
+  store ptr %78, ptr %3, align 8
+  br label %80
 
-74:                                               ; preds = %54
+79:                                               ; preds = %58
   store ptr null, ptr %3, align 8
-  br label %75
+  br label %80
 
-75:                                               ; preds = %74, %68
-  br label %76
+80:                                               ; preds = %79, %73
+  br label %81
 
-76:                                               ; preds = %75, %48
-  %77 = load ptr, ptr %18, align 8
-  store ptr %77, ptr %15, align 8
-  br label %78
+81:                                               ; preds = %80, %52
+  %82 = load ptr, ptr %18, align 8
+  store ptr %82, ptr %15, align 8
+  br label %83
 
-78:                                               ; preds = %76, %46
-  %79 = load ptr, ptr %15, align 8
-  ret ptr %79
+83:                                               ; preds = %81, %50
+  %84 = load ptr, ptr %15, align 8
+  ret ptr %84
 }
 
 declare void @zend_throw_error(ptr noundef, ptr noundef, ...) #2
@@ -10941,7 +10997,7 @@ define hidden void @zif_localtime(ptr noundef %0, ptr noundef %1) #0 {
   %337 = load i32, ptr %73, align 4
   %338 = load ptr, ptr %72, align 8
   call void @zend_wrong_parameter_error(i32 noundef %334, i32 noundef %335, ptr noundef %336, i32 noundef %337, ptr noundef %338)
-  br label %538
+  br label %539
 
 339:                                              ; preds = %325
   br label %340
@@ -10961,262 +11017,263 @@ define hidden void @zif_localtime(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %346, ptr %64, align 8
   %347 = load ptr, ptr %64, align 8
   %348 = icmp ne ptr %347, null
-  br i1 %348, label %354, label %349
+  br i1 %348, label %355, label %349
 
 349:                                              ; preds = %345
   br label %350
 
 350:                                              ; preds = %349
-  %351 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %352 = icmp ne ptr %351, null
-  call void @llvm.assume(i1 %352)
-  br label %538
+  %351 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %352 = load ptr, ptr %351, align 8
+  %353 = icmp ne ptr %352, null
+  call void @llvm.assume(i1 %353)
+  br label %539
 
-353:                                              ; No predecessors!
-  br label %354
+354:                                              ; No predecessors!
+  br label %355
 
-354:                                              ; preds = %353, %345
-  %355 = call ptr @timelib_time_ctor()
-  store ptr %355, ptr %65, align 8
-  %356 = load ptr, ptr %64, align 8
-  %357 = load ptr, ptr %65, align 8
-  %358 = getelementptr inbounds %struct._timelib_time, ptr %357, i32 0, i32 9
-  store ptr %356, ptr %358, align 8
-  %359 = load ptr, ptr %65, align 8
-  %360 = getelementptr inbounds %struct._timelib_time, ptr %359, i32 0, i32 21
-  store i32 3, ptr %360, align 8
-  %361 = load ptr, ptr %65, align 8
-  %362 = load i64, ptr %61, align 8
-  call void @timelib_unixtime2local(ptr noundef %361, i64 noundef %362)
-  br label %363
+355:                                              ; preds = %354, %345
+  %356 = call ptr @timelib_time_ctor()
+  store ptr %356, ptr %65, align 8
+  %357 = load ptr, ptr %64, align 8
+  %358 = load ptr, ptr %65, align 8
+  %359 = getelementptr inbounds %struct._timelib_time, ptr %358, i32 0, i32 9
+  store ptr %357, ptr %359, align 8
+  %360 = load ptr, ptr %65, align 8
+  %361 = getelementptr inbounds %struct._timelib_time, ptr %360, i32 0, i32 21
+  store i32 3, ptr %361, align 8
+  %362 = load ptr, ptr %65, align 8
+  %363 = load i64, ptr %61, align 8
+  call void @timelib_unixtime2local(ptr noundef %362, i64 noundef %363)
+  br label %364
 
-363:                                              ; preds = %354
-  %364 = call ptr @_zend_new_array_0()
-  store ptr %364, ptr %78, align 8
-  %365 = load ptr, ptr %60, align 8
-  store ptr %365, ptr %79, align 8
-  %366 = load ptr, ptr %78, align 8
-  %367 = load ptr, ptr %79, align 8
-  %368 = getelementptr inbounds %struct._zval_struct, ptr %367, i32 0, i32 0
-  store ptr %366, ptr %368, align 8
-  %369 = load ptr, ptr %79, align 8
-  %370 = getelementptr inbounds %struct._zval_struct, ptr %369, i32 0, i32 1
-  store i32 775, ptr %370, align 8
-  br label %371
+364:                                              ; preds = %355
+  %365 = call ptr @_zend_new_array_0()
+  store ptr %365, ptr %78, align 8
+  %366 = load ptr, ptr %60, align 8
+  store ptr %366, ptr %79, align 8
+  %367 = load ptr, ptr %78, align 8
+  %368 = load ptr, ptr %79, align 8
+  %369 = getelementptr inbounds %struct._zval_struct, ptr %368, i32 0, i32 0
+  store ptr %367, ptr %369, align 8
+  %370 = load ptr, ptr %79, align 8
+  %371 = getelementptr inbounds %struct._zval_struct, ptr %370, i32 0, i32 1
+  store i32 775, ptr %371, align 8
+  br label %372
 
-371:                                              ; preds = %363
-  %372 = load i8, ptr %63, align 1
-  %373 = trunc i8 %372 to i1
-  br i1 %373, label %374, label %473
+372:                                              ; preds = %364
+  %373 = load i8, ptr %63, align 1
+  %374 = trunc i8 %373 to i1
+  br i1 %374, label %375, label %474
 
-374:                                              ; preds = %371
-  %375 = load ptr, ptr %60, align 8
-  %376 = load ptr, ptr %65, align 8
-  %377 = getelementptr inbounds %struct._timelib_time, ptr %376, i32 0, i32 5
-  %378 = load i64, ptr %377, align 8
-  store ptr %375, ptr %22, align 8
+375:                                              ; preds = %372
+  %376 = load ptr, ptr %60, align 8
+  %377 = load ptr, ptr %65, align 8
+  %378 = getelementptr inbounds %struct._timelib_time, ptr %377, i32 0, i32 5
+  %379 = load i64, ptr %378, align 8
+  store ptr %376, ptr %22, align 8
   store ptr @.str.18, ptr %23, align 8
-  store i64 %378, ptr %24, align 8
-  %379 = load ptr, ptr %22, align 8
-  %380 = load ptr, ptr %23, align 8
+  store i64 %379, ptr %24, align 8
+  %380 = load ptr, ptr %22, align 8
   %381 = load ptr, ptr %23, align 8
-  %382 = call i64 @strlen(ptr noundef %381) #14
-  %383 = load i64, ptr %24, align 8
-  call void @add_assoc_long_ex(ptr noundef %379, ptr noundef %380, i64 noundef %382, i64 noundef %383) #13
-  %384 = load ptr, ptr %60, align 8
-  %385 = load ptr, ptr %65, align 8
-  %386 = getelementptr inbounds %struct._timelib_time, ptr %385, i32 0, i32 4
-  %387 = load i64, ptr %386, align 8
-  store ptr %384, ptr %25, align 8
+  %382 = load ptr, ptr %23, align 8
+  %383 = call i64 @strlen(ptr noundef %382) #14
+  %384 = load i64, ptr %24, align 8
+  call void @add_assoc_long_ex(ptr noundef %380, ptr noundef %381, i64 noundef %383, i64 noundef %384) #13
+  %385 = load ptr, ptr %60, align 8
+  %386 = load ptr, ptr %65, align 8
+  %387 = getelementptr inbounds %struct._timelib_time, ptr %386, i32 0, i32 4
+  %388 = load i64, ptr %387, align 8
+  store ptr %385, ptr %25, align 8
   store ptr @.str.19, ptr %26, align 8
-  store i64 %387, ptr %27, align 8
-  %388 = load ptr, ptr %25, align 8
-  %389 = load ptr, ptr %26, align 8
+  store i64 %388, ptr %27, align 8
+  %389 = load ptr, ptr %25, align 8
   %390 = load ptr, ptr %26, align 8
-  %391 = call i64 @strlen(ptr noundef %390) #14
-  %392 = load i64, ptr %27, align 8
-  call void @add_assoc_long_ex(ptr noundef %388, ptr noundef %389, i64 noundef %391, i64 noundef %392) #13
-  %393 = load ptr, ptr %60, align 8
-  %394 = load ptr, ptr %65, align 8
-  %395 = getelementptr inbounds %struct._timelib_time, ptr %394, i32 0, i32 3
-  %396 = load i64, ptr %395, align 8
-  store ptr %393, ptr %28, align 8
+  %391 = load ptr, ptr %26, align 8
+  %392 = call i64 @strlen(ptr noundef %391) #14
+  %393 = load i64, ptr %27, align 8
+  call void @add_assoc_long_ex(ptr noundef %389, ptr noundef %390, i64 noundef %392, i64 noundef %393) #13
+  %394 = load ptr, ptr %60, align 8
+  %395 = load ptr, ptr %65, align 8
+  %396 = getelementptr inbounds %struct._timelib_time, ptr %395, i32 0, i32 3
+  %397 = load i64, ptr %396, align 8
+  store ptr %394, ptr %28, align 8
   store ptr @.str.20, ptr %29, align 8
-  store i64 %396, ptr %30, align 8
-  %397 = load ptr, ptr %28, align 8
-  %398 = load ptr, ptr %29, align 8
+  store i64 %397, ptr %30, align 8
+  %398 = load ptr, ptr %28, align 8
   %399 = load ptr, ptr %29, align 8
-  %400 = call i64 @strlen(ptr noundef %399) #14
-  %401 = load i64, ptr %30, align 8
-  call void @add_assoc_long_ex(ptr noundef %397, ptr noundef %398, i64 noundef %400, i64 noundef %401) #13
-  %402 = load ptr, ptr %60, align 8
-  %403 = load ptr, ptr %65, align 8
-  %404 = getelementptr inbounds %struct._timelib_time, ptr %403, i32 0, i32 2
-  %405 = load i64, ptr %404, align 8
-  store ptr %402, ptr %31, align 8
+  %400 = load ptr, ptr %29, align 8
+  %401 = call i64 @strlen(ptr noundef %400) #14
+  %402 = load i64, ptr %30, align 8
+  call void @add_assoc_long_ex(ptr noundef %398, ptr noundef %399, i64 noundef %401, i64 noundef %402) #13
+  %403 = load ptr, ptr %60, align 8
+  %404 = load ptr, ptr %65, align 8
+  %405 = getelementptr inbounds %struct._timelib_time, ptr %404, i32 0, i32 2
+  %406 = load i64, ptr %405, align 8
+  store ptr %403, ptr %31, align 8
   store ptr @.str.21, ptr %32, align 8
-  store i64 %405, ptr %33, align 8
-  %406 = load ptr, ptr %31, align 8
-  %407 = load ptr, ptr %32, align 8
+  store i64 %406, ptr %33, align 8
+  %407 = load ptr, ptr %31, align 8
   %408 = load ptr, ptr %32, align 8
-  %409 = call i64 @strlen(ptr noundef %408) #14
-  %410 = load i64, ptr %33, align 8
-  call void @add_assoc_long_ex(ptr noundef %406, ptr noundef %407, i64 noundef %409, i64 noundef %410) #13
-  %411 = load ptr, ptr %60, align 8
-  %412 = load ptr, ptr %65, align 8
-  %413 = getelementptr inbounds %struct._timelib_time, ptr %412, i32 0, i32 1
-  %414 = load i64, ptr %413, align 8
-  %415 = sub nsw i64 %414, 1
-  store ptr %411, ptr %34, align 8
+  %409 = load ptr, ptr %32, align 8
+  %410 = call i64 @strlen(ptr noundef %409) #14
+  %411 = load i64, ptr %33, align 8
+  call void @add_assoc_long_ex(ptr noundef %407, ptr noundef %408, i64 noundef %410, i64 noundef %411) #13
+  %412 = load ptr, ptr %60, align 8
+  %413 = load ptr, ptr %65, align 8
+  %414 = getelementptr inbounds %struct._timelib_time, ptr %413, i32 0, i32 1
+  %415 = load i64, ptr %414, align 8
+  %416 = sub nsw i64 %415, 1
+  store ptr %412, ptr %34, align 8
   store ptr @.str.22, ptr %35, align 8
-  store i64 %415, ptr %36, align 8
-  %416 = load ptr, ptr %34, align 8
-  %417 = load ptr, ptr %35, align 8
+  store i64 %416, ptr %36, align 8
+  %417 = load ptr, ptr %34, align 8
   %418 = load ptr, ptr %35, align 8
-  %419 = call i64 @strlen(ptr noundef %418) #14
-  %420 = load i64, ptr %36, align 8
-  call void @add_assoc_long_ex(ptr noundef %416, ptr noundef %417, i64 noundef %419, i64 noundef %420) #13
-  %421 = load ptr, ptr %60, align 8
-  %422 = load ptr, ptr %65, align 8
-  %423 = getelementptr inbounds %struct._timelib_time, ptr %422, i32 0, i32 0
-  %424 = load i64, ptr %423, align 8
-  %425 = sub nsw i64 %424, 1900
-  store ptr %421, ptr %37, align 8
+  %419 = load ptr, ptr %35, align 8
+  %420 = call i64 @strlen(ptr noundef %419) #14
+  %421 = load i64, ptr %36, align 8
+  call void @add_assoc_long_ex(ptr noundef %417, ptr noundef %418, i64 noundef %420, i64 noundef %421) #13
+  %422 = load ptr, ptr %60, align 8
+  %423 = load ptr, ptr %65, align 8
+  %424 = getelementptr inbounds %struct._timelib_time, ptr %423, i32 0, i32 0
+  %425 = load i64, ptr %424, align 8
+  %426 = sub nsw i64 %425, 1900
+  store ptr %422, ptr %37, align 8
   store ptr @.str.23, ptr %38, align 8
-  store i64 %425, ptr %39, align 8
-  %426 = load ptr, ptr %37, align 8
-  %427 = load ptr, ptr %38, align 8
+  store i64 %426, ptr %39, align 8
+  %427 = load ptr, ptr %37, align 8
   %428 = load ptr, ptr %38, align 8
-  %429 = call i64 @strlen(ptr noundef %428) #14
-  %430 = load i64, ptr %39, align 8
-  call void @add_assoc_long_ex(ptr noundef %426, ptr noundef %427, i64 noundef %429, i64 noundef %430) #13
-  %431 = load ptr, ptr %60, align 8
-  %432 = load ptr, ptr %65, align 8
-  %433 = getelementptr inbounds %struct._timelib_time, ptr %432, i32 0, i32 0
-  %434 = load i64, ptr %433, align 8
-  %435 = load ptr, ptr %65, align 8
-  %436 = getelementptr inbounds %struct._timelib_time, ptr %435, i32 0, i32 1
-  %437 = load i64, ptr %436, align 8
-  %438 = load ptr, ptr %65, align 8
-  %439 = getelementptr inbounds %struct._timelib_time, ptr %438, i32 0, i32 2
-  %440 = load i64, ptr %439, align 8
-  %441 = call i64 @timelib_day_of_week(i64 noundef %434, i64 noundef %437, i64 noundef %440)
-  store ptr %431, ptr %40, align 8
+  %429 = load ptr, ptr %38, align 8
+  %430 = call i64 @strlen(ptr noundef %429) #14
+  %431 = load i64, ptr %39, align 8
+  call void @add_assoc_long_ex(ptr noundef %427, ptr noundef %428, i64 noundef %430, i64 noundef %431) #13
+  %432 = load ptr, ptr %60, align 8
+  %433 = load ptr, ptr %65, align 8
+  %434 = getelementptr inbounds %struct._timelib_time, ptr %433, i32 0, i32 0
+  %435 = load i64, ptr %434, align 8
+  %436 = load ptr, ptr %65, align 8
+  %437 = getelementptr inbounds %struct._timelib_time, ptr %436, i32 0, i32 1
+  %438 = load i64, ptr %437, align 8
+  %439 = load ptr, ptr %65, align 8
+  %440 = getelementptr inbounds %struct._timelib_time, ptr %439, i32 0, i32 2
+  %441 = load i64, ptr %440, align 8
+  %442 = call i64 @timelib_day_of_week(i64 noundef %435, i64 noundef %438, i64 noundef %441)
+  store ptr %432, ptr %40, align 8
   store ptr @.str.24, ptr %41, align 8
-  store i64 %441, ptr %42, align 8
-  %442 = load ptr, ptr %40, align 8
-  %443 = load ptr, ptr %41, align 8
+  store i64 %442, ptr %42, align 8
+  %443 = load ptr, ptr %40, align 8
   %444 = load ptr, ptr %41, align 8
-  %445 = call i64 @strlen(ptr noundef %444) #14
-  %446 = load i64, ptr %42, align 8
-  call void @add_assoc_long_ex(ptr noundef %442, ptr noundef %443, i64 noundef %445, i64 noundef %446) #13
-  %447 = load ptr, ptr %60, align 8
-  %448 = load ptr, ptr %65, align 8
-  %449 = getelementptr inbounds %struct._timelib_time, ptr %448, i32 0, i32 0
-  %450 = load i64, ptr %449, align 8
-  %451 = load ptr, ptr %65, align 8
-  %452 = getelementptr inbounds %struct._timelib_time, ptr %451, i32 0, i32 1
-  %453 = load i64, ptr %452, align 8
-  %454 = load ptr, ptr %65, align 8
-  %455 = getelementptr inbounds %struct._timelib_time, ptr %454, i32 0, i32 2
-  %456 = load i64, ptr %455, align 8
-  %457 = call i64 @timelib_day_of_year(i64 noundef %450, i64 noundef %453, i64 noundef %456)
-  store ptr %447, ptr %43, align 8
+  %445 = load ptr, ptr %41, align 8
+  %446 = call i64 @strlen(ptr noundef %445) #14
+  %447 = load i64, ptr %42, align 8
+  call void @add_assoc_long_ex(ptr noundef %443, ptr noundef %444, i64 noundef %446, i64 noundef %447) #13
+  %448 = load ptr, ptr %60, align 8
+  %449 = load ptr, ptr %65, align 8
+  %450 = getelementptr inbounds %struct._timelib_time, ptr %449, i32 0, i32 0
+  %451 = load i64, ptr %450, align 8
+  %452 = load ptr, ptr %65, align 8
+  %453 = getelementptr inbounds %struct._timelib_time, ptr %452, i32 0, i32 1
+  %454 = load i64, ptr %453, align 8
+  %455 = load ptr, ptr %65, align 8
+  %456 = getelementptr inbounds %struct._timelib_time, ptr %455, i32 0, i32 2
+  %457 = load i64, ptr %456, align 8
+  %458 = call i64 @timelib_day_of_year(i64 noundef %451, i64 noundef %454, i64 noundef %457)
+  store ptr %448, ptr %43, align 8
   store ptr @.str.25, ptr %44, align 8
-  store i64 %457, ptr %45, align 8
-  %458 = load ptr, ptr %43, align 8
-  %459 = load ptr, ptr %44, align 8
+  store i64 %458, ptr %45, align 8
+  %459 = load ptr, ptr %43, align 8
   %460 = load ptr, ptr %44, align 8
-  %461 = call i64 @strlen(ptr noundef %460) #14
-  %462 = load i64, ptr %45, align 8
-  call void @add_assoc_long_ex(ptr noundef %458, ptr noundef %459, i64 noundef %461, i64 noundef %462) #13
-  %463 = load ptr, ptr %60, align 8
-  %464 = load ptr, ptr %65, align 8
-  %465 = getelementptr inbounds %struct._timelib_time, ptr %464, i32 0, i32 10
-  %466 = load i32, ptr %465, align 8
-  %467 = sext i32 %466 to i64
-  store ptr %463, ptr %46, align 8
+  %461 = load ptr, ptr %44, align 8
+  %462 = call i64 @strlen(ptr noundef %461) #14
+  %463 = load i64, ptr %45, align 8
+  call void @add_assoc_long_ex(ptr noundef %459, ptr noundef %460, i64 noundef %462, i64 noundef %463) #13
+  %464 = load ptr, ptr %60, align 8
+  %465 = load ptr, ptr %65, align 8
+  %466 = getelementptr inbounds %struct._timelib_time, ptr %465, i32 0, i32 10
+  %467 = load i32, ptr %466, align 8
+  %468 = sext i32 %467 to i64
+  store ptr %464, ptr %46, align 8
   store ptr @.str.26, ptr %47, align 8
-  store i64 %467, ptr %48, align 8
-  %468 = load ptr, ptr %46, align 8
-  %469 = load ptr, ptr %47, align 8
+  store i64 %468, ptr %48, align 8
+  %469 = load ptr, ptr %46, align 8
   %470 = load ptr, ptr %47, align 8
-  %471 = call i64 @strlen(ptr noundef %470) #14
-  %472 = load i64, ptr %48, align 8
-  call void @add_assoc_long_ex(ptr noundef %468, ptr noundef %469, i64 noundef %471, i64 noundef %472) #13
-  br label %536
+  %471 = load ptr, ptr %47, align 8
+  %472 = call i64 @strlen(ptr noundef %471) #14
+  %473 = load i64, ptr %48, align 8
+  call void @add_assoc_long_ex(ptr noundef %469, ptr noundef %470, i64 noundef %472, i64 noundef %473) #13
+  br label %537
 
-473:                                              ; preds = %371
-  %474 = load ptr, ptr %60, align 8
-  %475 = load ptr, ptr %65, align 8
-  %476 = getelementptr inbounds %struct._timelib_time, ptr %475, i32 0, i32 5
-  %477 = load i64, ptr %476, align 8
-  %478 = call i32 @add_next_index_long(ptr noundef %474, i64 noundef %477)
-  %479 = load ptr, ptr %60, align 8
-  %480 = load ptr, ptr %65, align 8
-  %481 = getelementptr inbounds %struct._timelib_time, ptr %480, i32 0, i32 4
-  %482 = load i64, ptr %481, align 8
-  %483 = call i32 @add_next_index_long(ptr noundef %479, i64 noundef %482)
-  %484 = load ptr, ptr %60, align 8
-  %485 = load ptr, ptr %65, align 8
-  %486 = getelementptr inbounds %struct._timelib_time, ptr %485, i32 0, i32 3
-  %487 = load i64, ptr %486, align 8
-  %488 = call i32 @add_next_index_long(ptr noundef %484, i64 noundef %487)
-  %489 = load ptr, ptr %60, align 8
-  %490 = load ptr, ptr %65, align 8
-  %491 = getelementptr inbounds %struct._timelib_time, ptr %490, i32 0, i32 2
-  %492 = load i64, ptr %491, align 8
-  %493 = call i32 @add_next_index_long(ptr noundef %489, i64 noundef %492)
-  %494 = load ptr, ptr %60, align 8
-  %495 = load ptr, ptr %65, align 8
-  %496 = getelementptr inbounds %struct._timelib_time, ptr %495, i32 0, i32 1
-  %497 = load i64, ptr %496, align 8
-  %498 = sub nsw i64 %497, 1
-  %499 = call i32 @add_next_index_long(ptr noundef %494, i64 noundef %498)
-  %500 = load ptr, ptr %60, align 8
-  %501 = load ptr, ptr %65, align 8
-  %502 = getelementptr inbounds %struct._timelib_time, ptr %501, i32 0, i32 0
-  %503 = load i64, ptr %502, align 8
-  %504 = sub nsw i64 %503, 1900
-  %505 = call i32 @add_next_index_long(ptr noundef %500, i64 noundef %504)
-  %506 = load ptr, ptr %60, align 8
-  %507 = load ptr, ptr %65, align 8
-  %508 = getelementptr inbounds %struct._timelib_time, ptr %507, i32 0, i32 0
-  %509 = load i64, ptr %508, align 8
-  %510 = load ptr, ptr %65, align 8
-  %511 = getelementptr inbounds %struct._timelib_time, ptr %510, i32 0, i32 1
-  %512 = load i64, ptr %511, align 8
-  %513 = load ptr, ptr %65, align 8
-  %514 = getelementptr inbounds %struct._timelib_time, ptr %513, i32 0, i32 2
-  %515 = load i64, ptr %514, align 8
-  %516 = call i64 @timelib_day_of_week(i64 noundef %509, i64 noundef %512, i64 noundef %515)
-  %517 = call i32 @add_next_index_long(ptr noundef %506, i64 noundef %516)
-  %518 = load ptr, ptr %60, align 8
-  %519 = load ptr, ptr %65, align 8
-  %520 = getelementptr inbounds %struct._timelib_time, ptr %519, i32 0, i32 0
-  %521 = load i64, ptr %520, align 8
-  %522 = load ptr, ptr %65, align 8
-  %523 = getelementptr inbounds %struct._timelib_time, ptr %522, i32 0, i32 1
-  %524 = load i64, ptr %523, align 8
-  %525 = load ptr, ptr %65, align 8
-  %526 = getelementptr inbounds %struct._timelib_time, ptr %525, i32 0, i32 2
-  %527 = load i64, ptr %526, align 8
-  %528 = call i64 @timelib_day_of_year(i64 noundef %521, i64 noundef %524, i64 noundef %527)
-  %529 = call i32 @add_next_index_long(ptr noundef %518, i64 noundef %528)
-  %530 = load ptr, ptr %60, align 8
-  %531 = load ptr, ptr %65, align 8
-  %532 = getelementptr inbounds %struct._timelib_time, ptr %531, i32 0, i32 10
-  %533 = load i32, ptr %532, align 8
-  %534 = sext i32 %533 to i64
-  %535 = call i32 @add_next_index_long(ptr noundef %530, i64 noundef %534)
-  br label %536
+474:                                              ; preds = %372
+  %475 = load ptr, ptr %60, align 8
+  %476 = load ptr, ptr %65, align 8
+  %477 = getelementptr inbounds %struct._timelib_time, ptr %476, i32 0, i32 5
+  %478 = load i64, ptr %477, align 8
+  %479 = call i32 @add_next_index_long(ptr noundef %475, i64 noundef %478)
+  %480 = load ptr, ptr %60, align 8
+  %481 = load ptr, ptr %65, align 8
+  %482 = getelementptr inbounds %struct._timelib_time, ptr %481, i32 0, i32 4
+  %483 = load i64, ptr %482, align 8
+  %484 = call i32 @add_next_index_long(ptr noundef %480, i64 noundef %483)
+  %485 = load ptr, ptr %60, align 8
+  %486 = load ptr, ptr %65, align 8
+  %487 = getelementptr inbounds %struct._timelib_time, ptr %486, i32 0, i32 3
+  %488 = load i64, ptr %487, align 8
+  %489 = call i32 @add_next_index_long(ptr noundef %485, i64 noundef %488)
+  %490 = load ptr, ptr %60, align 8
+  %491 = load ptr, ptr %65, align 8
+  %492 = getelementptr inbounds %struct._timelib_time, ptr %491, i32 0, i32 2
+  %493 = load i64, ptr %492, align 8
+  %494 = call i32 @add_next_index_long(ptr noundef %490, i64 noundef %493)
+  %495 = load ptr, ptr %60, align 8
+  %496 = load ptr, ptr %65, align 8
+  %497 = getelementptr inbounds %struct._timelib_time, ptr %496, i32 0, i32 1
+  %498 = load i64, ptr %497, align 8
+  %499 = sub nsw i64 %498, 1
+  %500 = call i32 @add_next_index_long(ptr noundef %495, i64 noundef %499)
+  %501 = load ptr, ptr %60, align 8
+  %502 = load ptr, ptr %65, align 8
+  %503 = getelementptr inbounds %struct._timelib_time, ptr %502, i32 0, i32 0
+  %504 = load i64, ptr %503, align 8
+  %505 = sub nsw i64 %504, 1900
+  %506 = call i32 @add_next_index_long(ptr noundef %501, i64 noundef %505)
+  %507 = load ptr, ptr %60, align 8
+  %508 = load ptr, ptr %65, align 8
+  %509 = getelementptr inbounds %struct._timelib_time, ptr %508, i32 0, i32 0
+  %510 = load i64, ptr %509, align 8
+  %511 = load ptr, ptr %65, align 8
+  %512 = getelementptr inbounds %struct._timelib_time, ptr %511, i32 0, i32 1
+  %513 = load i64, ptr %512, align 8
+  %514 = load ptr, ptr %65, align 8
+  %515 = getelementptr inbounds %struct._timelib_time, ptr %514, i32 0, i32 2
+  %516 = load i64, ptr %515, align 8
+  %517 = call i64 @timelib_day_of_week(i64 noundef %510, i64 noundef %513, i64 noundef %516)
+  %518 = call i32 @add_next_index_long(ptr noundef %507, i64 noundef %517)
+  %519 = load ptr, ptr %60, align 8
+  %520 = load ptr, ptr %65, align 8
+  %521 = getelementptr inbounds %struct._timelib_time, ptr %520, i32 0, i32 0
+  %522 = load i64, ptr %521, align 8
+  %523 = load ptr, ptr %65, align 8
+  %524 = getelementptr inbounds %struct._timelib_time, ptr %523, i32 0, i32 1
+  %525 = load i64, ptr %524, align 8
+  %526 = load ptr, ptr %65, align 8
+  %527 = getelementptr inbounds %struct._timelib_time, ptr %526, i32 0, i32 2
+  %528 = load i64, ptr %527, align 8
+  %529 = call i64 @timelib_day_of_year(i64 noundef %522, i64 noundef %525, i64 noundef %528)
+  %530 = call i32 @add_next_index_long(ptr noundef %519, i64 noundef %529)
+  %531 = load ptr, ptr %60, align 8
+  %532 = load ptr, ptr %65, align 8
+  %533 = getelementptr inbounds %struct._timelib_time, ptr %532, i32 0, i32 10
+  %534 = load i32, ptr %533, align 8
+  %535 = sext i32 %534 to i64
+  %536 = call i32 @add_next_index_long(ptr noundef %531, i64 noundef %535)
+  br label %537
 
-536:                                              ; preds = %473, %374
-  %537 = load ptr, ptr %65, align 8
-  call void @timelib_time_dtor(ptr noundef %537)
-  br label %538
+537:                                              ; preds = %474, %375
+  %538 = load ptr, ptr %65, align 8
+  call void @timelib_time_dtor(ptr noundef %538)
+  br label %539
 
-538:                                              ; preds = %536, %350, %333
+539:                                              ; preds = %537, %350, %333
   ret void
 }
 
@@ -11548,7 +11605,7 @@ define hidden void @zif_getdate(ptr noundef %0, ptr noundef %1) #0 {
   %216 = load i32, ptr %60, align 4
   %217 = load ptr, ptr %59, align 8
   call void @zend_wrong_parameter_error(i32 noundef %213, i32 noundef %214, ptr noundef %215, i32 noundef %216, ptr noundef %217)
-  br label %368
+  br label %369
 
 218:                                              ; preds = %204
   br label %219
@@ -11568,212 +11625,213 @@ define hidden void @zif_getdate(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %225, ptr %51, align 8
   %226 = load ptr, ptr %51, align 8
   %227 = icmp ne ptr %226, null
-  br i1 %227, label %233, label %228
+  br i1 %227, label %234, label %228
 
 228:                                              ; preds = %224
   br label %229
 
 229:                                              ; preds = %228
-  %230 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %231 = icmp ne ptr %230, null
-  call void @llvm.assume(i1 %231)
-  br label %368
+  %230 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %231 = load ptr, ptr %230, align 8
+  %232 = icmp ne ptr %231, null
+  call void @llvm.assume(i1 %232)
+  br label %369
 
-232:                                              ; No predecessors!
-  br label %233
+233:                                              ; No predecessors!
+  br label %234
 
-233:                                              ; preds = %232, %224
-  %234 = call ptr @timelib_time_ctor()
-  store ptr %234, ptr %52, align 8
-  %235 = load ptr, ptr %51, align 8
-  %236 = load ptr, ptr %52, align 8
-  %237 = getelementptr inbounds %struct._timelib_time, ptr %236, i32 0, i32 9
-  store ptr %235, ptr %237, align 8
-  %238 = load ptr, ptr %52, align 8
-  %239 = getelementptr inbounds %struct._timelib_time, ptr %238, i32 0, i32 21
-  store i32 3, ptr %239, align 8
-  %240 = load ptr, ptr %52, align 8
-  %241 = load i64, ptr %49, align 8
-  call void @timelib_unixtime2local(ptr noundef %240, i64 noundef %241)
-  br label %242
+234:                                              ; preds = %233, %224
+  %235 = call ptr @timelib_time_ctor()
+  store ptr %235, ptr %52, align 8
+  %236 = load ptr, ptr %51, align 8
+  %237 = load ptr, ptr %52, align 8
+  %238 = getelementptr inbounds %struct._timelib_time, ptr %237, i32 0, i32 9
+  store ptr %236, ptr %238, align 8
+  %239 = load ptr, ptr %52, align 8
+  %240 = getelementptr inbounds %struct._timelib_time, ptr %239, i32 0, i32 21
+  store i32 3, ptr %240, align 8
+  %241 = load ptr, ptr %52, align 8
+  %242 = load i64, ptr %49, align 8
+  call void @timelib_unixtime2local(ptr noundef %241, i64 noundef %242)
+  br label %243
 
-242:                                              ; preds = %233
-  %243 = call ptr @_zend_new_array_0()
-  store ptr %243, ptr %65, align 8
-  %244 = load ptr, ptr %48, align 8
-  store ptr %244, ptr %66, align 8
-  %245 = load ptr, ptr %65, align 8
-  %246 = load ptr, ptr %66, align 8
-  %247 = getelementptr inbounds %struct._zval_struct, ptr %246, i32 0, i32 0
-  store ptr %245, ptr %247, align 8
-  %248 = load ptr, ptr %66, align 8
-  %249 = getelementptr inbounds %struct._zval_struct, ptr %248, i32 0, i32 1
-  store i32 775, ptr %249, align 8
-  br label %250
+243:                                              ; preds = %234
+  %244 = call ptr @_zend_new_array_0()
+  store ptr %244, ptr %65, align 8
+  %245 = load ptr, ptr %48, align 8
+  store ptr %245, ptr %66, align 8
+  %246 = load ptr, ptr %65, align 8
+  %247 = load ptr, ptr %66, align 8
+  %248 = getelementptr inbounds %struct._zval_struct, ptr %247, i32 0, i32 0
+  store ptr %246, ptr %248, align 8
+  %249 = load ptr, ptr %66, align 8
+  %250 = getelementptr inbounds %struct._zval_struct, ptr %249, i32 0, i32 1
+  store i32 775, ptr %250, align 8
+  br label %251
 
-250:                                              ; preds = %242
-  %251 = load ptr, ptr %48, align 8
-  %252 = load ptr, ptr %52, align 8
-  %253 = getelementptr inbounds %struct._timelib_time, ptr %252, i32 0, i32 5
-  %254 = load i64, ptr %253, align 8
-  store ptr %251, ptr %18, align 8
+251:                                              ; preds = %243
+  %252 = load ptr, ptr %48, align 8
+  %253 = load ptr, ptr %52, align 8
+  %254 = getelementptr inbounds %struct._timelib_time, ptr %253, i32 0, i32 5
+  %255 = load i64, ptr %254, align 8
+  store ptr %252, ptr %18, align 8
   store ptr @.str.27, ptr %19, align 8
-  store i64 %254, ptr %20, align 8
-  %255 = load ptr, ptr %18, align 8
-  %256 = load ptr, ptr %19, align 8
+  store i64 %255, ptr %20, align 8
+  %256 = load ptr, ptr %18, align 8
   %257 = load ptr, ptr %19, align 8
-  %258 = call i64 @strlen(ptr noundef %257) #14
-  %259 = load i64, ptr %20, align 8
-  call void @add_assoc_long_ex(ptr noundef %255, ptr noundef %256, i64 noundef %258, i64 noundef %259) #13
-  %260 = load ptr, ptr %48, align 8
-  %261 = load ptr, ptr %52, align 8
-  %262 = getelementptr inbounds %struct._timelib_time, ptr %261, i32 0, i32 4
-  %263 = load i64, ptr %262, align 8
-  store ptr %260, ptr %21, align 8
+  %258 = load ptr, ptr %19, align 8
+  %259 = call i64 @strlen(ptr noundef %258) #14
+  %260 = load i64, ptr %20, align 8
+  call void @add_assoc_long_ex(ptr noundef %256, ptr noundef %257, i64 noundef %259, i64 noundef %260) #13
+  %261 = load ptr, ptr %48, align 8
+  %262 = load ptr, ptr %52, align 8
+  %263 = getelementptr inbounds %struct._timelib_time, ptr %262, i32 0, i32 4
+  %264 = load i64, ptr %263, align 8
+  store ptr %261, ptr %21, align 8
   store ptr @.str.28, ptr %22, align 8
-  store i64 %263, ptr %23, align 8
-  %264 = load ptr, ptr %21, align 8
-  %265 = load ptr, ptr %22, align 8
+  store i64 %264, ptr %23, align 8
+  %265 = load ptr, ptr %21, align 8
   %266 = load ptr, ptr %22, align 8
-  %267 = call i64 @strlen(ptr noundef %266) #14
-  %268 = load i64, ptr %23, align 8
-  call void @add_assoc_long_ex(ptr noundef %264, ptr noundef %265, i64 noundef %267, i64 noundef %268) #13
-  %269 = load ptr, ptr %48, align 8
-  %270 = load ptr, ptr %52, align 8
-  %271 = getelementptr inbounds %struct._timelib_time, ptr %270, i32 0, i32 3
-  %272 = load i64, ptr %271, align 8
-  store ptr %269, ptr %24, align 8
+  %267 = load ptr, ptr %22, align 8
+  %268 = call i64 @strlen(ptr noundef %267) #14
+  %269 = load i64, ptr %23, align 8
+  call void @add_assoc_long_ex(ptr noundef %265, ptr noundef %266, i64 noundef %268, i64 noundef %269) #13
+  %270 = load ptr, ptr %48, align 8
+  %271 = load ptr, ptr %52, align 8
+  %272 = getelementptr inbounds %struct._timelib_time, ptr %271, i32 0, i32 3
+  %273 = load i64, ptr %272, align 8
+  store ptr %270, ptr %24, align 8
   store ptr @.str.29, ptr %25, align 8
-  store i64 %272, ptr %26, align 8
-  %273 = load ptr, ptr %24, align 8
-  %274 = load ptr, ptr %25, align 8
+  store i64 %273, ptr %26, align 8
+  %274 = load ptr, ptr %24, align 8
   %275 = load ptr, ptr %25, align 8
-  %276 = call i64 @strlen(ptr noundef %275) #14
-  %277 = load i64, ptr %26, align 8
-  call void @add_assoc_long_ex(ptr noundef %273, ptr noundef %274, i64 noundef %276, i64 noundef %277) #13
-  %278 = load ptr, ptr %48, align 8
-  %279 = load ptr, ptr %52, align 8
-  %280 = getelementptr inbounds %struct._timelib_time, ptr %279, i32 0, i32 2
-  %281 = load i64, ptr %280, align 8
-  store ptr %278, ptr %27, align 8
+  %276 = load ptr, ptr %25, align 8
+  %277 = call i64 @strlen(ptr noundef %276) #14
+  %278 = load i64, ptr %26, align 8
+  call void @add_assoc_long_ex(ptr noundef %274, ptr noundef %275, i64 noundef %277, i64 noundef %278) #13
+  %279 = load ptr, ptr %48, align 8
+  %280 = load ptr, ptr %52, align 8
+  %281 = getelementptr inbounds %struct._timelib_time, ptr %280, i32 0, i32 2
+  %282 = load i64, ptr %281, align 8
+  store ptr %279, ptr %27, align 8
   store ptr @.str.30, ptr %28, align 8
-  store i64 %281, ptr %29, align 8
-  %282 = load ptr, ptr %27, align 8
-  %283 = load ptr, ptr %28, align 8
+  store i64 %282, ptr %29, align 8
+  %283 = load ptr, ptr %27, align 8
   %284 = load ptr, ptr %28, align 8
-  %285 = call i64 @strlen(ptr noundef %284) #14
-  %286 = load i64, ptr %29, align 8
-  call void @add_assoc_long_ex(ptr noundef %282, ptr noundef %283, i64 noundef %285, i64 noundef %286) #13
-  %287 = load ptr, ptr %48, align 8
-  %288 = load ptr, ptr %52, align 8
-  %289 = getelementptr inbounds %struct._timelib_time, ptr %288, i32 0, i32 0
-  %290 = load i64, ptr %289, align 8
-  %291 = load ptr, ptr %52, align 8
-  %292 = getelementptr inbounds %struct._timelib_time, ptr %291, i32 0, i32 1
-  %293 = load i64, ptr %292, align 8
-  %294 = load ptr, ptr %52, align 8
-  %295 = getelementptr inbounds %struct._timelib_time, ptr %294, i32 0, i32 2
-  %296 = load i64, ptr %295, align 8
-  %297 = call i64 @timelib_day_of_week(i64 noundef %290, i64 noundef %293, i64 noundef %296)
-  store ptr %287, ptr %30, align 8
+  %285 = load ptr, ptr %28, align 8
+  %286 = call i64 @strlen(ptr noundef %285) #14
+  %287 = load i64, ptr %29, align 8
+  call void @add_assoc_long_ex(ptr noundef %283, ptr noundef %284, i64 noundef %286, i64 noundef %287) #13
+  %288 = load ptr, ptr %48, align 8
+  %289 = load ptr, ptr %52, align 8
+  %290 = getelementptr inbounds %struct._timelib_time, ptr %289, i32 0, i32 0
+  %291 = load i64, ptr %290, align 8
+  %292 = load ptr, ptr %52, align 8
+  %293 = getelementptr inbounds %struct._timelib_time, ptr %292, i32 0, i32 1
+  %294 = load i64, ptr %293, align 8
+  %295 = load ptr, ptr %52, align 8
+  %296 = getelementptr inbounds %struct._timelib_time, ptr %295, i32 0, i32 2
+  %297 = load i64, ptr %296, align 8
+  %298 = call i64 @timelib_day_of_week(i64 noundef %291, i64 noundef %294, i64 noundef %297)
+  store ptr %288, ptr %30, align 8
   store ptr @.str.31, ptr %31, align 8
-  store i64 %297, ptr %32, align 8
-  %298 = load ptr, ptr %30, align 8
-  %299 = load ptr, ptr %31, align 8
+  store i64 %298, ptr %32, align 8
+  %299 = load ptr, ptr %30, align 8
   %300 = load ptr, ptr %31, align 8
-  %301 = call i64 @strlen(ptr noundef %300) #14
-  %302 = load i64, ptr %32, align 8
-  call void @add_assoc_long_ex(ptr noundef %298, ptr noundef %299, i64 noundef %301, i64 noundef %302) #13
-  %303 = load ptr, ptr %48, align 8
-  %304 = load ptr, ptr %52, align 8
-  %305 = getelementptr inbounds %struct._timelib_time, ptr %304, i32 0, i32 1
-  %306 = load i64, ptr %305, align 8
-  store ptr %303, ptr %33, align 8
+  %301 = load ptr, ptr %31, align 8
+  %302 = call i64 @strlen(ptr noundef %301) #14
+  %303 = load i64, ptr %32, align 8
+  call void @add_assoc_long_ex(ptr noundef %299, ptr noundef %300, i64 noundef %302, i64 noundef %303) #13
+  %304 = load ptr, ptr %48, align 8
+  %305 = load ptr, ptr %52, align 8
+  %306 = getelementptr inbounds %struct._timelib_time, ptr %305, i32 0, i32 1
+  %307 = load i64, ptr %306, align 8
+  store ptr %304, ptr %33, align 8
   store ptr @.str.32, ptr %34, align 8
-  store i64 %306, ptr %35, align 8
-  %307 = load ptr, ptr %33, align 8
-  %308 = load ptr, ptr %34, align 8
+  store i64 %307, ptr %35, align 8
+  %308 = load ptr, ptr %33, align 8
   %309 = load ptr, ptr %34, align 8
-  %310 = call i64 @strlen(ptr noundef %309) #14
-  %311 = load i64, ptr %35, align 8
-  call void @add_assoc_long_ex(ptr noundef %307, ptr noundef %308, i64 noundef %310, i64 noundef %311) #13
-  %312 = load ptr, ptr %48, align 8
-  %313 = load ptr, ptr %52, align 8
-  %314 = getelementptr inbounds %struct._timelib_time, ptr %313, i32 0, i32 0
-  %315 = load i64, ptr %314, align 8
-  store ptr %312, ptr %36, align 8
+  %310 = load ptr, ptr %34, align 8
+  %311 = call i64 @strlen(ptr noundef %310) #14
+  %312 = load i64, ptr %35, align 8
+  call void @add_assoc_long_ex(ptr noundef %308, ptr noundef %309, i64 noundef %311, i64 noundef %312) #13
+  %313 = load ptr, ptr %48, align 8
+  %314 = load ptr, ptr %52, align 8
+  %315 = getelementptr inbounds %struct._timelib_time, ptr %314, i32 0, i32 0
+  %316 = load i64, ptr %315, align 8
+  store ptr %313, ptr %36, align 8
   store ptr @.str.33, ptr %37, align 8
-  store i64 %315, ptr %38, align 8
-  %316 = load ptr, ptr %36, align 8
-  %317 = load ptr, ptr %37, align 8
+  store i64 %316, ptr %38, align 8
+  %317 = load ptr, ptr %36, align 8
   %318 = load ptr, ptr %37, align 8
-  %319 = call i64 @strlen(ptr noundef %318) #14
-  %320 = load i64, ptr %38, align 8
-  call void @add_assoc_long_ex(ptr noundef %316, ptr noundef %317, i64 noundef %319, i64 noundef %320) #13
-  %321 = load ptr, ptr %48, align 8
-  %322 = load ptr, ptr %52, align 8
-  %323 = getelementptr inbounds %struct._timelib_time, ptr %322, i32 0, i32 0
-  %324 = load i64, ptr %323, align 8
-  %325 = load ptr, ptr %52, align 8
-  %326 = getelementptr inbounds %struct._timelib_time, ptr %325, i32 0, i32 1
-  %327 = load i64, ptr %326, align 8
-  %328 = load ptr, ptr %52, align 8
-  %329 = getelementptr inbounds %struct._timelib_time, ptr %328, i32 0, i32 2
-  %330 = load i64, ptr %329, align 8
-  %331 = call i64 @timelib_day_of_year(i64 noundef %324, i64 noundef %327, i64 noundef %330)
-  store ptr %321, ptr %39, align 8
+  %319 = load ptr, ptr %37, align 8
+  %320 = call i64 @strlen(ptr noundef %319) #14
+  %321 = load i64, ptr %38, align 8
+  call void @add_assoc_long_ex(ptr noundef %317, ptr noundef %318, i64 noundef %320, i64 noundef %321) #13
+  %322 = load ptr, ptr %48, align 8
+  %323 = load ptr, ptr %52, align 8
+  %324 = getelementptr inbounds %struct._timelib_time, ptr %323, i32 0, i32 0
+  %325 = load i64, ptr %324, align 8
+  %326 = load ptr, ptr %52, align 8
+  %327 = getelementptr inbounds %struct._timelib_time, ptr %326, i32 0, i32 1
+  %328 = load i64, ptr %327, align 8
+  %329 = load ptr, ptr %52, align 8
+  %330 = getelementptr inbounds %struct._timelib_time, ptr %329, i32 0, i32 2
+  %331 = load i64, ptr %330, align 8
+  %332 = call i64 @timelib_day_of_year(i64 noundef %325, i64 noundef %328, i64 noundef %331)
+  store ptr %322, ptr %39, align 8
   store ptr @.str.34, ptr %40, align 8
-  store i64 %331, ptr %41, align 8
-  %332 = load ptr, ptr %39, align 8
-  %333 = load ptr, ptr %40, align 8
+  store i64 %332, ptr %41, align 8
+  %333 = load ptr, ptr %39, align 8
   %334 = load ptr, ptr %40, align 8
-  %335 = call i64 @strlen(ptr noundef %334) #14
-  %336 = load i64, ptr %41, align 8
-  call void @add_assoc_long_ex(ptr noundef %332, ptr noundef %333, i64 noundef %335, i64 noundef %336) #13
-  %337 = load ptr, ptr %48, align 8
-  %338 = load ptr, ptr %52, align 8
-  %339 = getelementptr inbounds %struct._timelib_time, ptr %338, i32 0, i32 0
-  %340 = load i64, ptr %339, align 8
-  %341 = load ptr, ptr %52, align 8
-  %342 = getelementptr inbounds %struct._timelib_time, ptr %341, i32 0, i32 1
-  %343 = load i64, ptr %342, align 8
-  %344 = load ptr, ptr %52, align 8
-  %345 = getelementptr inbounds %struct._timelib_time, ptr %344, i32 0, i32 2
-  %346 = load i64, ptr %345, align 8
-  %347 = call ptr @php_date_full_day_name(i64 noundef %340, i64 noundef %343, i64 noundef %346)
-  store ptr %337, ptr %12, align 8
+  %335 = load ptr, ptr %40, align 8
+  %336 = call i64 @strlen(ptr noundef %335) #14
+  %337 = load i64, ptr %41, align 8
+  call void @add_assoc_long_ex(ptr noundef %333, ptr noundef %334, i64 noundef %336, i64 noundef %337) #13
+  %338 = load ptr, ptr %48, align 8
+  %339 = load ptr, ptr %52, align 8
+  %340 = getelementptr inbounds %struct._timelib_time, ptr %339, i32 0, i32 0
+  %341 = load i64, ptr %340, align 8
+  %342 = load ptr, ptr %52, align 8
+  %343 = getelementptr inbounds %struct._timelib_time, ptr %342, i32 0, i32 1
+  %344 = load i64, ptr %343, align 8
+  %345 = load ptr, ptr %52, align 8
+  %346 = getelementptr inbounds %struct._timelib_time, ptr %345, i32 0, i32 2
+  %347 = load i64, ptr %346, align 8
+  %348 = call ptr @php_date_full_day_name(i64 noundef %341, i64 noundef %344, i64 noundef %347)
+  store ptr %338, ptr %12, align 8
   store ptr @.str.35, ptr %13, align 8
-  store ptr %347, ptr %14, align 8
-  %348 = load ptr, ptr %12, align 8
-  %349 = load ptr, ptr %13, align 8
+  store ptr %348, ptr %14, align 8
+  %349 = load ptr, ptr %12, align 8
   %350 = load ptr, ptr %13, align 8
-  %351 = call i64 @strlen(ptr noundef %350) #14
-  %352 = load ptr, ptr %14, align 8
-  call void @add_assoc_string_ex(ptr noundef %348, ptr noundef %349, i64 noundef %351, ptr noundef %352) #13
-  %353 = load ptr, ptr %48, align 8
-  %354 = load ptr, ptr %52, align 8
-  %355 = getelementptr inbounds %struct._timelib_time, ptr %354, i32 0, i32 1
-  %356 = load i64, ptr %355, align 8
-  %357 = sub nsw i64 %356, 1
-  %358 = getelementptr inbounds [12 x ptr], ptr @mon_full_names, i64 0, i64 %357
-  %359 = load ptr, ptr %358, align 8
-  store ptr %353, ptr %15, align 8
+  %351 = load ptr, ptr %13, align 8
+  %352 = call i64 @strlen(ptr noundef %351) #14
+  %353 = load ptr, ptr %14, align 8
+  call void @add_assoc_string_ex(ptr noundef %349, ptr noundef %350, i64 noundef %352, ptr noundef %353) #13
+  %354 = load ptr, ptr %48, align 8
+  %355 = load ptr, ptr %52, align 8
+  %356 = getelementptr inbounds %struct._timelib_time, ptr %355, i32 0, i32 1
+  %357 = load i64, ptr %356, align 8
+  %358 = sub nsw i64 %357, 1
+  %359 = getelementptr inbounds [12 x ptr], ptr @mon_full_names, i64 0, i64 %358
+  %360 = load ptr, ptr %359, align 8
+  store ptr %354, ptr %15, align 8
   store ptr @.str.36, ptr %16, align 8
-  store ptr %359, ptr %17, align 8
-  %360 = load ptr, ptr %15, align 8
-  %361 = load ptr, ptr %16, align 8
+  store ptr %360, ptr %17, align 8
+  %361 = load ptr, ptr %15, align 8
   %362 = load ptr, ptr %16, align 8
-  %363 = call i64 @strlen(ptr noundef %362) #14
-  %364 = load ptr, ptr %17, align 8
-  call void @add_assoc_string_ex(ptr noundef %360, ptr noundef %361, i64 noundef %363, ptr noundef %364) #13
-  %365 = load ptr, ptr %48, align 8
-  %366 = load i64, ptr %49, align 8
-  call void @add_index_long(ptr noundef %365, i64 noundef 0, i64 noundef %366)
-  %367 = load ptr, ptr %52, align 8
-  call void @timelib_time_dtor(ptr noundef %367)
-  br label %368
+  %363 = load ptr, ptr %16, align 8
+  %364 = call i64 @strlen(ptr noundef %363) #14
+  %365 = load ptr, ptr %17, align 8
+  call void @add_assoc_string_ex(ptr noundef %361, ptr noundef %362, i64 noundef %364, ptr noundef %365) #13
+  %366 = load ptr, ptr %48, align 8
+  %367 = load i64, ptr %49, align 8
+  call void @add_index_long(ptr noundef %366, i64 noundef 0, i64 noundef %367)
+  %368 = load ptr, ptr %52, align 8
+  call void @timelib_time_dtor(ptr noundef %368)
+  br label %369
 
-368:                                              ; preds = %250, %229, %212
+369:                                              ; preds = %251, %229, %212
   ret void
 }
 
@@ -12257,61 +12315,65 @@ declare ptr @timelib_parse_from_format(ptr noundef, ptr noundef, i64 noundef, pt
 define internal void @update_errors_warnings(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %7
+  %3 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %6, label %10
 
-5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
-  call void @timelib_error_container_dtor(ptr noundef %6)
-  store ptr null, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
-  br label %7
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  call void @timelib_error_container_dtor(ptr noundef %8)
+  %9 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  store ptr null, ptr %9, align 8
+  br label %10
 
-7:                                                ; preds = %5, %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %14, label %10
-
-10:                                               ; preds = %7
+10:                                               ; preds = %6, %1
   %11 = load ptr, ptr %2, align 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %17, label %13
 
-14:                                               ; preds = %10, %7
-  br label %34
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %2, align 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-15:                                               ; preds = %10
-  %16 = load ptr, ptr %2, align 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct._timelib_error_container, ptr %17, i32 0, i32 3
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %27, label %21
+17:                                               ; preds = %13, %10
+  br label %38
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %2, align 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct._timelib_error_container, ptr %23, i32 0, i32 2
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %30
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %2, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct._timelib_error_container, ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %30, label %24
 
-27:                                               ; preds = %21, %15
-  %28 = load ptr, ptr %2, align 8
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
-  br label %34
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %2, align 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct._timelib_error_container, ptr %26, i32 0, i32 2
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %34
 
-30:                                               ; preds = %21
+30:                                               ; preds = %24, %18
   %31 = load ptr, ptr %2, align 8
   %32 = load ptr, ptr %31, align 8
-  call void @timelib_error_container_dtor(ptr noundef %32)
-  %33 = load ptr, ptr %2, align 8
-  store ptr null, ptr %33, align 8
-  br label %34
+  %33 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  store ptr %32, ptr %33, align 8
+  br label %38
 
-34:                                               ; preds = %30, %27, %14
+34:                                               ; preds = %24
+  %35 = load ptr, ptr %2, align 8
+  %36 = load ptr, ptr %35, align 8
+  call void @timelib_error_container_dtor(ptr noundef %36)
+  %37 = load ptr, ptr %2, align 8
+  store ptr null, ptr %37, align 8
+  br label %38
+
+38:                                               ; preds = %34, %30, %17
   ret void
 }
 
@@ -16699,7 +16761,7 @@ define hidden void @zim_DateTime_createFromImmutable(ptr noundef %0, ptr noundef
   %179 = load i32, ptr %24, align 4
   %180 = load ptr, ptr %23, align 8
   call void @zend_wrong_parameter_error(i32 noundef %176, i32 noundef %177, ptr noundef %178, i32 noundef %179, ptr noundef %180)
-  br label %228
+  br label %229
 
 181:                                              ; preds = %167
   br label %182
@@ -16714,7 +16776,7 @@ define hidden void @zim_DateTime_createFromImmutable(ptr noundef %0, ptr noundef
   %188 = getelementptr inbounds %struct._php_date_obj, ptr %187, i32 0, i32 0
   %189 = load ptr, ptr %188, align 8
   %190 = icmp ne ptr %189, null
-  br i1 %190, label %201, label %191
+  br i1 %190, label %202, label %191
 
 191:                                              ; preds = %182
   %192 = load ptr, ptr %14, align 8
@@ -16726,52 +16788,53 @@ define hidden void @zim_DateTime_createFromImmutable(ptr noundef %0, ptr noundef
   br label %197
 
 197:                                              ; preds = %191
-  %198 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %199 = icmp ne ptr %198, null
-  call void @llvm.assume(i1 %199)
-  br label %228
+  %198 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %199 = load ptr, ptr %198, align 8
+  %200 = icmp ne ptr %199, null
+  call void @llvm.assume(i1 %200)
+  br label %229
 
-200:                                              ; No predecessors!
-  br label %201
+201:                                              ; No predecessors!
+  br label %202
 
-201:                                              ; preds = %200, %182
-  %202 = load ptr, ptr %12, align 8
-  %203 = getelementptr inbounds %struct._zend_execute_data, ptr %202, i32 0, i32 4
-  %204 = getelementptr inbounds %struct._zval_struct, ptr %203, i32 0, i32 0
-  %205 = load ptr, ptr %204, align 8
-  %206 = icmp ne ptr %205, null
-  br i1 %206, label %207, label %212
+202:                                              ; preds = %201, %182
+  %203 = load ptr, ptr %12, align 8
+  %204 = getelementptr inbounds %struct._zend_execute_data, ptr %203, i32 0, i32 4
+  %205 = getelementptr inbounds %struct._zval_struct, ptr %204, i32 0, i32 0
+  %206 = load ptr, ptr %205, align 8
+  %207 = icmp ne ptr %206, null
+  br i1 %207, label %208, label %213
 
-207:                                              ; preds = %201
-  %208 = load ptr, ptr %12, align 8
-  %209 = getelementptr inbounds %struct._zend_execute_data, ptr %208, i32 0, i32 4
-  %210 = getelementptr inbounds %struct._zval_struct, ptr %209, i32 0, i32 0
-  %211 = load ptr, ptr %210, align 8
-  br label %214
+208:                                              ; preds = %202
+  %209 = load ptr, ptr %12, align 8
+  %210 = getelementptr inbounds %struct._zend_execute_data, ptr %209, i32 0, i32 4
+  %211 = getelementptr inbounds %struct._zval_struct, ptr %210, i32 0, i32 0
+  %212 = load ptr, ptr %211, align 8
+  br label %215
 
-212:                                              ; preds = %201
-  %213 = load ptr, ptr @date_ce_date, align 8
-  br label %214
+213:                                              ; preds = %202
+  %214 = load ptr, ptr @date_ce_date, align 8
+  br label %215
 
-214:                                              ; preds = %212, %207
-  %215 = phi ptr [ %211, %207 ], [ %213, %212 ]
-  %216 = load ptr, ptr %13, align 8
-  %217 = call ptr @php_date_instantiate(ptr noundef %215, ptr noundef %216)
-  %218 = load ptr, ptr %13, align 8
-  %219 = getelementptr inbounds %struct._zval_struct, ptr %218, i32 0, i32 0
-  %220 = load ptr, ptr %219, align 8
-  %221 = call ptr @php_date_obj_from_obj(ptr noundef %220)
-  store ptr %221, ptr %15, align 8
-  %222 = load ptr, ptr %16, align 8
-  %223 = getelementptr inbounds %struct._php_date_obj, ptr %222, i32 0, i32 0
-  %224 = load ptr, ptr %223, align 8
-  %225 = call ptr @timelib_time_clone(ptr noundef %224)
-  %226 = load ptr, ptr %15, align 8
-  %227 = getelementptr inbounds %struct._php_date_obj, ptr %226, i32 0, i32 0
-  store ptr %225, ptr %227, align 8
-  br label %228
+215:                                              ; preds = %213, %208
+  %216 = phi ptr [ %212, %208 ], [ %214, %213 ]
+  %217 = load ptr, ptr %13, align 8
+  %218 = call ptr @php_date_instantiate(ptr noundef %216, ptr noundef %217)
+  %219 = load ptr, ptr %13, align 8
+  %220 = getelementptr inbounds %struct._zval_struct, ptr %219, i32 0, i32 0
+  %221 = load ptr, ptr %220, align 8
+  %222 = call ptr @php_date_obj_from_obj(ptr noundef %221)
+  store ptr %222, ptr %15, align 8
+  %223 = load ptr, ptr %16, align 8
+  %224 = getelementptr inbounds %struct._php_date_obj, ptr %223, i32 0, i32 0
+  %225 = load ptr, ptr %224, align 8
+  %226 = call ptr @timelib_time_clone(ptr noundef %225)
+  %227 = load ptr, ptr %15, align 8
+  %228 = getelementptr inbounds %struct._php_date_obj, ptr %227, i32 0, i32 0
+  store ptr %226, ptr %228, align 8
+  br label %229
 
-228:                                              ; preds = %214, %197, %175
+229:                                              ; preds = %215, %197, %175
   ret void
 }
 
@@ -17158,7 +17221,7 @@ define hidden void @zim_DateTime_createFromInterface(ptr noundef %0, ptr noundef
   %179 = load i32, ptr %24, align 4
   %180 = load ptr, ptr %23, align 8
   call void @zend_wrong_parameter_error(i32 noundef %176, i32 noundef %177, ptr noundef %178, i32 noundef %179, ptr noundef %180)
-  br label %228
+  br label %229
 
 181:                                              ; preds = %167
   br label %182
@@ -17173,7 +17236,7 @@ define hidden void @zim_DateTime_createFromInterface(ptr noundef %0, ptr noundef
   %188 = getelementptr inbounds %struct._php_date_obj, ptr %187, i32 0, i32 0
   %189 = load ptr, ptr %188, align 8
   %190 = icmp ne ptr %189, null
-  br i1 %190, label %201, label %191
+  br i1 %190, label %202, label %191
 
 191:                                              ; preds = %182
   %192 = load ptr, ptr %14, align 8
@@ -17185,52 +17248,53 @@ define hidden void @zim_DateTime_createFromInterface(ptr noundef %0, ptr noundef
   br label %197
 
 197:                                              ; preds = %191
-  %198 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %199 = icmp ne ptr %198, null
-  call void @llvm.assume(i1 %199)
-  br label %228
+  %198 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %199 = load ptr, ptr %198, align 8
+  %200 = icmp ne ptr %199, null
+  call void @llvm.assume(i1 %200)
+  br label %229
 
-200:                                              ; No predecessors!
-  br label %201
+201:                                              ; No predecessors!
+  br label %202
 
-201:                                              ; preds = %200, %182
-  %202 = load ptr, ptr %12, align 8
-  %203 = getelementptr inbounds %struct._zend_execute_data, ptr %202, i32 0, i32 4
-  %204 = getelementptr inbounds %struct._zval_struct, ptr %203, i32 0, i32 0
-  %205 = load ptr, ptr %204, align 8
-  %206 = icmp ne ptr %205, null
-  br i1 %206, label %207, label %212
+202:                                              ; preds = %201, %182
+  %203 = load ptr, ptr %12, align 8
+  %204 = getelementptr inbounds %struct._zend_execute_data, ptr %203, i32 0, i32 4
+  %205 = getelementptr inbounds %struct._zval_struct, ptr %204, i32 0, i32 0
+  %206 = load ptr, ptr %205, align 8
+  %207 = icmp ne ptr %206, null
+  br i1 %207, label %208, label %213
 
-207:                                              ; preds = %201
-  %208 = load ptr, ptr %12, align 8
-  %209 = getelementptr inbounds %struct._zend_execute_data, ptr %208, i32 0, i32 4
-  %210 = getelementptr inbounds %struct._zval_struct, ptr %209, i32 0, i32 0
-  %211 = load ptr, ptr %210, align 8
-  br label %214
+208:                                              ; preds = %202
+  %209 = load ptr, ptr %12, align 8
+  %210 = getelementptr inbounds %struct._zend_execute_data, ptr %209, i32 0, i32 4
+  %211 = getelementptr inbounds %struct._zval_struct, ptr %210, i32 0, i32 0
+  %212 = load ptr, ptr %211, align 8
+  br label %215
 
-212:                                              ; preds = %201
-  %213 = load ptr, ptr @date_ce_date, align 8
-  br label %214
+213:                                              ; preds = %202
+  %214 = load ptr, ptr @date_ce_date, align 8
+  br label %215
 
-214:                                              ; preds = %212, %207
-  %215 = phi ptr [ %211, %207 ], [ %213, %212 ]
-  %216 = load ptr, ptr %13, align 8
-  %217 = call ptr @php_date_instantiate(ptr noundef %215, ptr noundef %216)
-  %218 = load ptr, ptr %13, align 8
-  %219 = getelementptr inbounds %struct._zval_struct, ptr %218, i32 0, i32 0
-  %220 = load ptr, ptr %219, align 8
-  %221 = call ptr @php_date_obj_from_obj(ptr noundef %220)
-  store ptr %221, ptr %15, align 8
-  %222 = load ptr, ptr %16, align 8
-  %223 = getelementptr inbounds %struct._php_date_obj, ptr %222, i32 0, i32 0
-  %224 = load ptr, ptr %223, align 8
-  %225 = call ptr @timelib_time_clone(ptr noundef %224)
-  %226 = load ptr, ptr %15, align 8
-  %227 = getelementptr inbounds %struct._php_date_obj, ptr %226, i32 0, i32 0
-  store ptr %225, ptr %227, align 8
-  br label %228
+215:                                              ; preds = %213, %208
+  %216 = phi ptr [ %212, %208 ], [ %214, %213 ]
+  %217 = load ptr, ptr %13, align 8
+  %218 = call ptr @php_date_instantiate(ptr noundef %216, ptr noundef %217)
+  %219 = load ptr, ptr %13, align 8
+  %220 = getelementptr inbounds %struct._zval_struct, ptr %219, i32 0, i32 0
+  %221 = load ptr, ptr %220, align 8
+  %222 = call ptr @php_date_obj_from_obj(ptr noundef %221)
+  store ptr %222, ptr %15, align 8
+  %223 = load ptr, ptr %16, align 8
+  %224 = getelementptr inbounds %struct._php_date_obj, ptr %223, i32 0, i32 0
+  %225 = load ptr, ptr %224, align 8
+  %226 = call ptr @timelib_time_clone(ptr noundef %225)
+  %227 = load ptr, ptr %15, align 8
+  %228 = getelementptr inbounds %struct._php_date_obj, ptr %227, i32 0, i32 0
+  store ptr %226, ptr %228, align 8
+  br label %229
 
-228:                                              ; preds = %214, %197, %175
+229:                                              ; preds = %215, %197, %175
   ret void
 }
 
@@ -17493,7 +17557,7 @@ define hidden void @zim_DateTime_createFromTimestamp(ptr noundef %0, ptr noundef
   %166 = load i32, ptr %24, align 4
   %167 = load ptr, ptr %23, align 8
   call void @zend_wrong_parameter_error(i32 noundef %163, i32 noundef %164, ptr noundef %165, i32 noundef %166, ptr noundef %167)
-  br label %222
+  br label %223
 
 168:                                              ; preds = %154
   br label %169
@@ -17530,7 +17594,7 @@ define hidden void @zim_DateTime_createFromTimestamp(ptr noundef %0, ptr noundef
   %190 = getelementptr inbounds %struct._zval_struct, ptr %189, i32 0, i32 1
   %191 = load i8, ptr %190, align 8
   %192 = zext i8 %191 to i32
-  switch i32 %192, label %210 [
+  switch i32 %192, label %211 [
     i32 4, label %193
     i32 5, label %198
   ]
@@ -17541,7 +17605,7 @@ define hidden void @zim_DateTime_createFromTimestamp(ptr noundef %0, ptr noundef
   %196 = getelementptr inbounds %struct._zval_struct, ptr %195, i32 0, i32 0
   %197 = load i64, ptr %196, align 8
   call void @php_date_initialize_from_ts_long(ptr noundef %194, i64 noundef %197, i32 noundef 0)
-  br label %211
+  br label %212
 
 198:                                              ; preds = %182
   %199 = load ptr, ptr %16, align 8
@@ -17549,50 +17613,51 @@ define hidden void @zim_DateTime_createFromTimestamp(ptr noundef %0, ptr noundef
   %201 = getelementptr inbounds %struct._zval_struct, ptr %200, i32 0, i32 0
   %202 = load double, ptr %201, align 8
   %203 = call zeroext i1 @php_date_initialize_from_ts_double(ptr noundef %199, double noundef %202)
-  br i1 %203, label %209, label %204
+  br i1 %203, label %210, label %204
 
 204:                                              ; preds = %198
   call void @zval_ptr_dtor(ptr noundef %15)
   br label %205
 
 205:                                              ; preds = %204
-  %206 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %207 = icmp ne ptr %206, null
-  call void @llvm.assume(i1 %207)
-  br label %222
+  %206 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %207 = load ptr, ptr %206, align 8
+  %208 = icmp ne ptr %207, null
+  call void @llvm.assume(i1 %208)
+  br label %223
 
-208:                                              ; No predecessors!
-  br label %209
+209:                                              ; No predecessors!
+  br label %210
 
-209:                                              ; preds = %208, %198
-  br label %211
-
-210:                                              ; preds = %182
-  unreachable
-
-211:                                              ; preds = %209, %193
+210:                                              ; preds = %209, %198
   br label %212
 
-212:                                              ; preds = %211
+211:                                              ; preds = %182
+  unreachable
+
+212:                                              ; preds = %210, %193
   br label %213
 
 213:                                              ; preds = %212
-  %214 = load ptr, ptr %13, align 8
-  store ptr %214, ptr %29, align 8
-  %215 = getelementptr inbounds %struct._zval_struct, ptr %15, i32 0, i32 0
-  %216 = load ptr, ptr %215, align 8
-  %217 = load ptr, ptr %29, align 8
-  %218 = getelementptr inbounds %struct._zval_struct, ptr %217, i32 0, i32 0
-  store ptr %216, ptr %218, align 8
-  %219 = load ptr, ptr %29, align 8
-  %220 = getelementptr inbounds %struct._zval_struct, ptr %219, i32 0, i32 1
-  store i32 776, ptr %220, align 8
-  br label %221
+  br label %214
 
-221:                                              ; preds = %213
+214:                                              ; preds = %213
+  %215 = load ptr, ptr %13, align 8
+  store ptr %215, ptr %29, align 8
+  %216 = getelementptr inbounds %struct._zval_struct, ptr %15, i32 0, i32 0
+  %217 = load ptr, ptr %216, align 8
+  %218 = load ptr, ptr %29, align 8
+  %219 = getelementptr inbounds %struct._zval_struct, ptr %218, i32 0, i32 0
+  store ptr %217, ptr %219, align 8
+  %220 = load ptr, ptr %29, align 8
+  %221 = getelementptr inbounds %struct._zval_struct, ptr %220, i32 0, i32 1
+  store i32 776, ptr %221, align 8
   br label %222
 
-222:                                              ; preds = %221, %205, %162
+222:                                              ; preds = %214
+  br label %223
+
+223:                                              ; preds = %222, %205, %162
   ret void
 }
 
@@ -17882,7 +17947,7 @@ define hidden void @zim_DateTimeImmutable_createFromMutable(ptr noundef %0, ptr 
   %179 = load i32, ptr %24, align 4
   %180 = load ptr, ptr %23, align 8
   call void @zend_wrong_parameter_error(i32 noundef %176, i32 noundef %177, ptr noundef %178, i32 noundef %179, ptr noundef %180)
-  br label %228
+  br label %229
 
 181:                                              ; preds = %167
   br label %182
@@ -17897,7 +17962,7 @@ define hidden void @zim_DateTimeImmutable_createFromMutable(ptr noundef %0, ptr 
   %188 = getelementptr inbounds %struct._php_date_obj, ptr %187, i32 0, i32 0
   %189 = load ptr, ptr %188, align 8
   %190 = icmp ne ptr %189, null
-  br i1 %190, label %201, label %191
+  br i1 %190, label %202, label %191
 
 191:                                              ; preds = %182
   %192 = load ptr, ptr %14, align 8
@@ -17909,52 +17974,53 @@ define hidden void @zim_DateTimeImmutable_createFromMutable(ptr noundef %0, ptr 
   br label %197
 
 197:                                              ; preds = %191
-  %198 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %199 = icmp ne ptr %198, null
-  call void @llvm.assume(i1 %199)
-  br label %228
+  %198 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %199 = load ptr, ptr %198, align 8
+  %200 = icmp ne ptr %199, null
+  call void @llvm.assume(i1 %200)
+  br label %229
 
-200:                                              ; No predecessors!
-  br label %201
+201:                                              ; No predecessors!
+  br label %202
 
-201:                                              ; preds = %200, %182
-  %202 = load ptr, ptr %12, align 8
-  %203 = getelementptr inbounds %struct._zend_execute_data, ptr %202, i32 0, i32 4
-  %204 = getelementptr inbounds %struct._zval_struct, ptr %203, i32 0, i32 0
-  %205 = load ptr, ptr %204, align 8
-  %206 = icmp ne ptr %205, null
-  br i1 %206, label %207, label %212
+202:                                              ; preds = %201, %182
+  %203 = load ptr, ptr %12, align 8
+  %204 = getelementptr inbounds %struct._zend_execute_data, ptr %203, i32 0, i32 4
+  %205 = getelementptr inbounds %struct._zval_struct, ptr %204, i32 0, i32 0
+  %206 = load ptr, ptr %205, align 8
+  %207 = icmp ne ptr %206, null
+  br i1 %207, label %208, label %213
 
-207:                                              ; preds = %201
-  %208 = load ptr, ptr %12, align 8
-  %209 = getelementptr inbounds %struct._zend_execute_data, ptr %208, i32 0, i32 4
-  %210 = getelementptr inbounds %struct._zval_struct, ptr %209, i32 0, i32 0
-  %211 = load ptr, ptr %210, align 8
-  br label %214
+208:                                              ; preds = %202
+  %209 = load ptr, ptr %12, align 8
+  %210 = getelementptr inbounds %struct._zend_execute_data, ptr %209, i32 0, i32 4
+  %211 = getelementptr inbounds %struct._zval_struct, ptr %210, i32 0, i32 0
+  %212 = load ptr, ptr %211, align 8
+  br label %215
 
-212:                                              ; preds = %201
-  %213 = load ptr, ptr @date_ce_immutable, align 8
-  br label %214
+213:                                              ; preds = %202
+  %214 = load ptr, ptr @date_ce_immutable, align 8
+  br label %215
 
-214:                                              ; preds = %212, %207
-  %215 = phi ptr [ %211, %207 ], [ %213, %212 ]
-  %216 = load ptr, ptr %13, align 8
-  %217 = call ptr @php_date_instantiate(ptr noundef %215, ptr noundef %216)
-  %218 = load ptr, ptr %13, align 8
-  %219 = getelementptr inbounds %struct._zval_struct, ptr %218, i32 0, i32 0
-  %220 = load ptr, ptr %219, align 8
-  %221 = call ptr @php_date_obj_from_obj(ptr noundef %220)
-  store ptr %221, ptr %15, align 8
-  %222 = load ptr, ptr %16, align 8
-  %223 = getelementptr inbounds %struct._php_date_obj, ptr %222, i32 0, i32 0
-  %224 = load ptr, ptr %223, align 8
-  %225 = call ptr @timelib_time_clone(ptr noundef %224)
-  %226 = load ptr, ptr %15, align 8
-  %227 = getelementptr inbounds %struct._php_date_obj, ptr %226, i32 0, i32 0
-  store ptr %225, ptr %227, align 8
-  br label %228
+215:                                              ; preds = %213, %208
+  %216 = phi ptr [ %212, %208 ], [ %214, %213 ]
+  %217 = load ptr, ptr %13, align 8
+  %218 = call ptr @php_date_instantiate(ptr noundef %216, ptr noundef %217)
+  %219 = load ptr, ptr %13, align 8
+  %220 = getelementptr inbounds %struct._zval_struct, ptr %219, i32 0, i32 0
+  %221 = load ptr, ptr %220, align 8
+  %222 = call ptr @php_date_obj_from_obj(ptr noundef %221)
+  store ptr %222, ptr %15, align 8
+  %223 = load ptr, ptr %16, align 8
+  %224 = getelementptr inbounds %struct._php_date_obj, ptr %223, i32 0, i32 0
+  %225 = load ptr, ptr %224, align 8
+  %226 = call ptr @timelib_time_clone(ptr noundef %225)
+  %227 = load ptr, ptr %15, align 8
+  %228 = getelementptr inbounds %struct._php_date_obj, ptr %227, i32 0, i32 0
+  store ptr %226, ptr %228, align 8
+  br label %229
 
-228:                                              ; preds = %214, %197, %175
+229:                                              ; preds = %215, %197, %175
   ret void
 }
 
@@ -18244,7 +18310,7 @@ define hidden void @zim_DateTimeImmutable_createFromInterface(ptr noundef %0, pt
   %179 = load i32, ptr %24, align 4
   %180 = load ptr, ptr %23, align 8
   call void @zend_wrong_parameter_error(i32 noundef %176, i32 noundef %177, ptr noundef %178, i32 noundef %179, ptr noundef %180)
-  br label %228
+  br label %229
 
 181:                                              ; preds = %167
   br label %182
@@ -18259,7 +18325,7 @@ define hidden void @zim_DateTimeImmutable_createFromInterface(ptr noundef %0, pt
   %188 = getelementptr inbounds %struct._php_date_obj, ptr %187, i32 0, i32 0
   %189 = load ptr, ptr %188, align 8
   %190 = icmp ne ptr %189, null
-  br i1 %190, label %201, label %191
+  br i1 %190, label %202, label %191
 
 191:                                              ; preds = %182
   %192 = load ptr, ptr %14, align 8
@@ -18271,52 +18337,53 @@ define hidden void @zim_DateTimeImmutable_createFromInterface(ptr noundef %0, pt
   br label %197
 
 197:                                              ; preds = %191
-  %198 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %199 = icmp ne ptr %198, null
-  call void @llvm.assume(i1 %199)
-  br label %228
+  %198 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %199 = load ptr, ptr %198, align 8
+  %200 = icmp ne ptr %199, null
+  call void @llvm.assume(i1 %200)
+  br label %229
 
-200:                                              ; No predecessors!
-  br label %201
+201:                                              ; No predecessors!
+  br label %202
 
-201:                                              ; preds = %200, %182
-  %202 = load ptr, ptr %12, align 8
-  %203 = getelementptr inbounds %struct._zend_execute_data, ptr %202, i32 0, i32 4
-  %204 = getelementptr inbounds %struct._zval_struct, ptr %203, i32 0, i32 0
-  %205 = load ptr, ptr %204, align 8
-  %206 = icmp ne ptr %205, null
-  br i1 %206, label %207, label %212
+202:                                              ; preds = %201, %182
+  %203 = load ptr, ptr %12, align 8
+  %204 = getelementptr inbounds %struct._zend_execute_data, ptr %203, i32 0, i32 4
+  %205 = getelementptr inbounds %struct._zval_struct, ptr %204, i32 0, i32 0
+  %206 = load ptr, ptr %205, align 8
+  %207 = icmp ne ptr %206, null
+  br i1 %207, label %208, label %213
 
-207:                                              ; preds = %201
-  %208 = load ptr, ptr %12, align 8
-  %209 = getelementptr inbounds %struct._zend_execute_data, ptr %208, i32 0, i32 4
-  %210 = getelementptr inbounds %struct._zval_struct, ptr %209, i32 0, i32 0
-  %211 = load ptr, ptr %210, align 8
-  br label %214
+208:                                              ; preds = %202
+  %209 = load ptr, ptr %12, align 8
+  %210 = getelementptr inbounds %struct._zend_execute_data, ptr %209, i32 0, i32 4
+  %211 = getelementptr inbounds %struct._zval_struct, ptr %210, i32 0, i32 0
+  %212 = load ptr, ptr %211, align 8
+  br label %215
 
-212:                                              ; preds = %201
-  %213 = load ptr, ptr @date_ce_immutable, align 8
-  br label %214
+213:                                              ; preds = %202
+  %214 = load ptr, ptr @date_ce_immutable, align 8
+  br label %215
 
-214:                                              ; preds = %212, %207
-  %215 = phi ptr [ %211, %207 ], [ %213, %212 ]
-  %216 = load ptr, ptr %13, align 8
-  %217 = call ptr @php_date_instantiate(ptr noundef %215, ptr noundef %216)
-  %218 = load ptr, ptr %13, align 8
-  %219 = getelementptr inbounds %struct._zval_struct, ptr %218, i32 0, i32 0
-  %220 = load ptr, ptr %219, align 8
-  %221 = call ptr @php_date_obj_from_obj(ptr noundef %220)
-  store ptr %221, ptr %15, align 8
-  %222 = load ptr, ptr %16, align 8
-  %223 = getelementptr inbounds %struct._php_date_obj, ptr %222, i32 0, i32 0
-  %224 = load ptr, ptr %223, align 8
-  %225 = call ptr @timelib_time_clone(ptr noundef %224)
-  %226 = load ptr, ptr %15, align 8
-  %227 = getelementptr inbounds %struct._php_date_obj, ptr %226, i32 0, i32 0
-  store ptr %225, ptr %227, align 8
-  br label %228
+215:                                              ; preds = %213, %208
+  %216 = phi ptr [ %212, %208 ], [ %214, %213 ]
+  %217 = load ptr, ptr %13, align 8
+  %218 = call ptr @php_date_instantiate(ptr noundef %216, ptr noundef %217)
+  %219 = load ptr, ptr %13, align 8
+  %220 = getelementptr inbounds %struct._zval_struct, ptr %219, i32 0, i32 0
+  %221 = load ptr, ptr %220, align 8
+  %222 = call ptr @php_date_obj_from_obj(ptr noundef %221)
+  store ptr %222, ptr %15, align 8
+  %223 = load ptr, ptr %16, align 8
+  %224 = getelementptr inbounds %struct._php_date_obj, ptr %223, i32 0, i32 0
+  %225 = load ptr, ptr %224, align 8
+  %226 = call ptr @timelib_time_clone(ptr noundef %225)
+  %227 = load ptr, ptr %15, align 8
+  %228 = getelementptr inbounds %struct._php_date_obj, ptr %227, i32 0, i32 0
+  store ptr %226, ptr %228, align 8
+  br label %229
 
-228:                                              ; preds = %214, %197, %175
+229:                                              ; preds = %215, %197, %175
   ret void
 }
 
@@ -18579,7 +18646,7 @@ define hidden void @zim_DateTimeImmutable_createFromTimestamp(ptr noundef %0, pt
   %166 = load i32, ptr %24, align 4
   %167 = load ptr, ptr %23, align 8
   call void @zend_wrong_parameter_error(i32 noundef %163, i32 noundef %164, ptr noundef %165, i32 noundef %166, ptr noundef %167)
-  br label %222
+  br label %223
 
 168:                                              ; preds = %154
   br label %169
@@ -18616,7 +18683,7 @@ define hidden void @zim_DateTimeImmutable_createFromTimestamp(ptr noundef %0, pt
   %190 = getelementptr inbounds %struct._zval_struct, ptr %189, i32 0, i32 1
   %191 = load i8, ptr %190, align 8
   %192 = zext i8 %191 to i32
-  switch i32 %192, label %210 [
+  switch i32 %192, label %211 [
     i32 4, label %193
     i32 5, label %198
   ]
@@ -18627,7 +18694,7 @@ define hidden void @zim_DateTimeImmutable_createFromTimestamp(ptr noundef %0, pt
   %196 = getelementptr inbounds %struct._zval_struct, ptr %195, i32 0, i32 0
   %197 = load i64, ptr %196, align 8
   call void @php_date_initialize_from_ts_long(ptr noundef %194, i64 noundef %197, i32 noundef 0)
-  br label %211
+  br label %212
 
 198:                                              ; preds = %182
   %199 = load ptr, ptr %16, align 8
@@ -18635,50 +18702,51 @@ define hidden void @zim_DateTimeImmutable_createFromTimestamp(ptr noundef %0, pt
   %201 = getelementptr inbounds %struct._zval_struct, ptr %200, i32 0, i32 0
   %202 = load double, ptr %201, align 8
   %203 = call zeroext i1 @php_date_initialize_from_ts_double(ptr noundef %199, double noundef %202)
-  br i1 %203, label %209, label %204
+  br i1 %203, label %210, label %204
 
 204:                                              ; preds = %198
   call void @zval_ptr_dtor(ptr noundef %15)
   br label %205
 
 205:                                              ; preds = %204
-  %206 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %207 = icmp ne ptr %206, null
-  call void @llvm.assume(i1 %207)
-  br label %222
+  %206 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %207 = load ptr, ptr %206, align 8
+  %208 = icmp ne ptr %207, null
+  call void @llvm.assume(i1 %208)
+  br label %223
 
-208:                                              ; No predecessors!
-  br label %209
+209:                                              ; No predecessors!
+  br label %210
 
-209:                                              ; preds = %208, %198
-  br label %211
-
-210:                                              ; preds = %182
-  unreachable
-
-211:                                              ; preds = %209, %193
+210:                                              ; preds = %209, %198
   br label %212
 
-212:                                              ; preds = %211
+211:                                              ; preds = %182
+  unreachable
+
+212:                                              ; preds = %210, %193
   br label %213
 
 213:                                              ; preds = %212
-  %214 = load ptr, ptr %13, align 8
-  store ptr %214, ptr %29, align 8
-  %215 = getelementptr inbounds %struct._zval_struct, ptr %15, i32 0, i32 0
-  %216 = load ptr, ptr %215, align 8
-  %217 = load ptr, ptr %29, align 8
-  %218 = getelementptr inbounds %struct._zval_struct, ptr %217, i32 0, i32 0
-  store ptr %216, ptr %218, align 8
-  %219 = load ptr, ptr %29, align 8
-  %220 = getelementptr inbounds %struct._zval_struct, ptr %219, i32 0, i32 1
-  store i32 776, ptr %220, align 8
-  br label %221
+  br label %214
 
-221:                                              ; preds = %213
+214:                                              ; preds = %213
+  %215 = load ptr, ptr %13, align 8
+  store ptr %215, ptr %29, align 8
+  %216 = getelementptr inbounds %struct._zval_struct, ptr %15, i32 0, i32 0
+  %217 = load ptr, ptr %216, align 8
+  %218 = load ptr, ptr %29, align 8
+  %219 = getelementptr inbounds %struct._zval_struct, ptr %218, i32 0, i32 0
+  store ptr %217, ptr %219, align 8
+  %220 = load ptr, ptr %29, align 8
+  %221 = getelementptr inbounds %struct._zval_struct, ptr %220, i32 0, i32 1
+  store i32 776, ptr %221, align 8
   br label %222
 
-222:                                              ; preds = %221, %205, %162
+222:                                              ; preds = %214
+  br label %223
+
+223:                                              ; preds = %222, %205, %162
   ret void
 }
 
@@ -18935,7 +19003,7 @@ define hidden void @zim_DateTime___set_state(ptr noundef %0, ptr noundef %1) #0 
   %160 = load i32, ptr %23, align 4
   %161 = load ptr, ptr %22, align 8
   call void @zend_wrong_parameter_error(i32 noundef %157, i32 noundef %158, ptr noundef %159, i32 noundef %160, ptr noundef %161)
-  br label %181
+  br label %182
 
 162:                                              ; preds = %148
   br label %163
@@ -18955,22 +19023,23 @@ define hidden void @zim_DateTime___set_state(ptr noundef %0, ptr noundef %1) #0 
   store ptr %173, ptr %13, align 8
   %174 = load ptr, ptr %15, align 8
   %175 = call zeroext i1 @php_date_initialize_from_hash(ptr noundef %13, ptr noundef %174)
-  br i1 %175, label %181, label %176
+  br i1 %175, label %182, label %176
 
 176:                                              ; preds = %163
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.41)
   br label %177
 
 177:                                              ; preds = %176
-  %178 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %179 = icmp ne ptr %178, null
-  call void @llvm.assume(i1 %179)
-  br label %181
+  %178 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %179 = load ptr, ptr %178, align 8
+  %180 = icmp ne ptr %179, null
+  call void @llvm.assume(i1 %180)
+  br label %182
 
-180:                                              ; No predecessors!
-  br label %181
+181:                                              ; No predecessors!
+  br label %182
 
-181:                                              ; preds = %180, %177, %163, %156
+182:                                              ; preds = %181, %177, %163, %156
   ret void
 }
 
@@ -19495,7 +19564,7 @@ define hidden void @zim_DateTimeImmutable___set_state(ptr noundef %0, ptr nounde
   %160 = load i32, ptr %23, align 4
   %161 = load ptr, ptr %22, align 8
   call void @zend_wrong_parameter_error(i32 noundef %157, i32 noundef %158, ptr noundef %159, i32 noundef %160, ptr noundef %161)
-  br label %181
+  br label %182
 
 162:                                              ; preds = %148
   br label %163
@@ -19515,22 +19584,23 @@ define hidden void @zim_DateTimeImmutable___set_state(ptr noundef %0, ptr nounde
   store ptr %173, ptr %13, align 8
   %174 = load ptr, ptr %15, align 8
   %175 = call zeroext i1 @php_date_initialize_from_hash(ptr noundef %13, ptr noundef %174)
-  br i1 %175, label %181, label %176
+  br i1 %175, label %182, label %176
 
 176:                                              ; preds = %163
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.42)
   br label %177
 
 177:                                              ; preds = %176
-  %178 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %179 = icmp ne ptr %178, null
-  call void @llvm.assume(i1 %179)
-  br label %181
+  %178 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %179 = load ptr, ptr %178, align 8
+  %180 = icmp ne ptr %179, null
+  call void @llvm.assume(i1 %180)
+  br label %182
 
-180:                                              ; No predecessors!
-  br label %181
+181:                                              ; No predecessors!
+  br label %182
 
-181:                                              ; preds = %180, %177, %163, %156
+182:                                              ; preds = %181, %177, %163, %156
   ret void
 }
 
@@ -19565,7 +19635,7 @@ define hidden void @zim_DateTime___serialize(ptr noundef %0, ptr noundef %1) #0 
 
 23:                                               ; preds = %12
   call void @zend_wrong_parameters_none_error()
-  br label %62
+  br label %63
 
 24:                                               ; preds = %12
   br label %25
@@ -19580,7 +19650,7 @@ define hidden void @zim_DateTime___serialize(ptr noundef %0, ptr noundef %1) #0 
   %31 = getelementptr inbounds %struct._php_date_obj, ptr %30, i32 0, i32 0
   %32 = load ptr, ptr %31, align 8
   %33 = icmp ne ptr %32, null
-  br i1 %33, label %44, label %34
+  br i1 %33, label %45, label %34
 
 34:                                               ; preds = %25
   %35 = load ptr, ptr %5, align 8
@@ -19592,46 +19662,47 @@ define hidden void @zim_DateTime___serialize(ptr noundef %0, ptr noundef %1) #0 
   br label %40
 
 40:                                               ; preds = %34
-  %41 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %42 = icmp ne ptr %41, null
-  call void @llvm.assume(i1 %42)
-  br label %62
+  %41 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  call void @llvm.assume(i1 %43)
+  br label %63
 
-43:                                               ; No predecessors!
-  br label %44
-
-44:                                               ; preds = %43, %25
+44:                                               ; No predecessors!
   br label %45
 
-45:                                               ; preds = %44
-  %46 = call ptr @_zend_new_array_0()
-  store ptr %46, ptr %8, align 8
-  %47 = load ptr, ptr %4, align 8
-  store ptr %47, ptr %9, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 0
-  store ptr %48, ptr %50, align 8
-  %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds %struct._zval_struct, ptr %51, i32 0, i32 1
-  store i32 775, ptr %52, align 8
-  br label %53
+45:                                               ; preds = %44, %25
+  br label %46
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %7, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = load ptr, ptr %7, align 8
-  call void @date_object_to_hash(ptr noundef %57, ptr noundef %58)
+46:                                               ; preds = %45
+  %47 = call ptr @_zend_new_array_0()
+  store ptr %47, ptr %8, align 8
+  %48 = load ptr, ptr %4, align 8
+  store ptr %48, ptr %9, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds %struct._zval_struct, ptr %50, i32 0, i32 0
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds %struct._zval_struct, ptr %52, i32 0, i32 1
+  store i32 775, ptr %53, align 8
+  br label %54
+
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds %struct._zval_struct, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  store ptr %57, ptr %7, align 8
+  %58 = load ptr, ptr %6, align 8
   %59 = load ptr, ptr %7, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct._php_date_obj, ptr %60, i32 0, i32 1
-  call void @add_common_properties(ptr noundef %59, ptr noundef %61)
-  br label %62
+  call void @date_object_to_hash(ptr noundef %58, ptr noundef %59)
+  %60 = load ptr, ptr %7, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct._php_date_obj, ptr %61, i32 0, i32 1
+  call void @add_common_properties(ptr noundef %60, ptr noundef %62)
+  br label %63
 
-62:                                               ; preds = %53, %40, %23
+63:                                               ; preds = %54, %40, %23
   ret void
 }
 
@@ -22026,7 +22097,7 @@ define hidden void @zim_DateTimeImmutable___serialize(ptr noundef %0, ptr nounde
 
 23:                                               ; preds = %12
   call void @zend_wrong_parameters_none_error()
-  br label %62
+  br label %63
 
 24:                                               ; preds = %12
   br label %25
@@ -22041,7 +22112,7 @@ define hidden void @zim_DateTimeImmutable___serialize(ptr noundef %0, ptr nounde
   %31 = getelementptr inbounds %struct._php_date_obj, ptr %30, i32 0, i32 0
   %32 = load ptr, ptr %31, align 8
   %33 = icmp ne ptr %32, null
-  br i1 %33, label %44, label %34
+  br i1 %33, label %45, label %34
 
 34:                                               ; preds = %25
   %35 = load ptr, ptr %5, align 8
@@ -22053,46 +22124,47 @@ define hidden void @zim_DateTimeImmutable___serialize(ptr noundef %0, ptr nounde
   br label %40
 
 40:                                               ; preds = %34
-  %41 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %42 = icmp ne ptr %41, null
-  call void @llvm.assume(i1 %42)
-  br label %62
+  %41 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  call void @llvm.assume(i1 %43)
+  br label %63
 
-43:                                               ; No predecessors!
-  br label %44
-
-44:                                               ; preds = %43, %25
+44:                                               ; No predecessors!
   br label %45
 
-45:                                               ; preds = %44
-  %46 = call ptr @_zend_new_array_0()
-  store ptr %46, ptr %8, align 8
-  %47 = load ptr, ptr %4, align 8
-  store ptr %47, ptr %9, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 0
-  store ptr %48, ptr %50, align 8
-  %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds %struct._zval_struct, ptr %51, i32 0, i32 1
-  store i32 775, ptr %52, align 8
-  br label %53
+45:                                               ; preds = %44, %25
+  br label %46
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %7, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = load ptr, ptr %7, align 8
-  call void @date_object_to_hash(ptr noundef %57, ptr noundef %58)
+46:                                               ; preds = %45
+  %47 = call ptr @_zend_new_array_0()
+  store ptr %47, ptr %8, align 8
+  %48 = load ptr, ptr %4, align 8
+  store ptr %48, ptr %9, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds %struct._zval_struct, ptr %50, i32 0, i32 0
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds %struct._zval_struct, ptr %52, i32 0, i32 1
+  store i32 775, ptr %53, align 8
+  br label %54
+
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds %struct._zval_struct, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  store ptr %57, ptr %7, align 8
+  %58 = load ptr, ptr %6, align 8
   %59 = load ptr, ptr %7, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct._php_date_obj, ptr %60, i32 0, i32 1
-  call void @add_common_properties(ptr noundef %59, ptr noundef %61)
-  br label %62
+  call void @date_object_to_hash(ptr noundef %58, ptr noundef %59)
+  %60 = load ptr, ptr %7, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct._php_date_obj, ptr %61, i32 0, i32 1
+  call void @add_common_properties(ptr noundef %60, ptr noundef %62)
+  br label %63
 
-62:                                               ; preds = %53, %40, %23
+63:                                               ; preds = %54, %40, %23
   ret void
 }
 
@@ -22353,7 +22425,7 @@ define hidden void @zim_DateTime___unserialize(ptr noundef %0, ptr noundef %1) #
   %163 = load i32, ptr %24, align 4
   %164 = load ptr, ptr %23, align 8
   call void @zend_wrong_parameter_error(i32 noundef %160, i32 noundef %161, ptr noundef %162, i32 noundef %163, ptr noundef %164)
-  br label %184
+  br label %185
 
 165:                                              ; preds = %151
   br label %166
@@ -22370,28 +22442,29 @@ define hidden void @zim_DateTime___unserialize(ptr noundef %0, ptr noundef %1) #
   store ptr %173, ptr %16, align 8
   %174 = load ptr, ptr %16, align 8
   %175 = call zeroext i1 @php_date_initialize_from_hash(ptr noundef %14, ptr noundef %174)
-  br i1 %175, label %181, label %176
+  br i1 %175, label %182, label %176
 
 176:                                              ; preds = %166
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.41)
   br label %177
 
 177:                                              ; preds = %176
-  %178 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %179 = icmp ne ptr %178, null
-  call void @llvm.assume(i1 %179)
-  br label %184
+  %178 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %179 = load ptr, ptr %178, align 8
+  %180 = icmp ne ptr %179, null
+  call void @llvm.assume(i1 %180)
+  br label %185
 
-180:                                              ; No predecessors!
-  br label %181
+181:                                              ; No predecessors!
+  br label %182
 
-181:                                              ; preds = %180, %166
-  %182 = load ptr, ptr %13, align 8
-  %183 = load ptr, ptr %16, align 8
-  call void @restore_custom_datetime_properties(ptr noundef %182, ptr noundef %183)
-  br label %184
+182:                                              ; preds = %181, %166
+  %183 = load ptr, ptr %13, align 8
+  %184 = load ptr, ptr %16, align 8
+  call void @restore_custom_datetime_properties(ptr noundef %183, ptr noundef %184)
+  br label %185
 
-184:                                              ; preds = %181, %177, %159
+185:                                              ; preds = %182, %177, %159
   ret void
 }
 
@@ -22772,7 +22845,7 @@ define hidden void @zim_DateTimeImmutable___unserialize(ptr noundef %0, ptr noun
   %163 = load i32, ptr %24, align 4
   %164 = load ptr, ptr %23, align 8
   call void @zend_wrong_parameter_error(i32 noundef %160, i32 noundef %161, ptr noundef %162, i32 noundef %163, ptr noundef %164)
-  br label %184
+  br label %185
 
 165:                                              ; preds = %151
   br label %166
@@ -22789,28 +22862,29 @@ define hidden void @zim_DateTimeImmutable___unserialize(ptr noundef %0, ptr noun
   store ptr %173, ptr %16, align 8
   %174 = load ptr, ptr %16, align 8
   %175 = call zeroext i1 @php_date_initialize_from_hash(ptr noundef %14, ptr noundef %174)
-  br i1 %175, label %181, label %176
+  br i1 %175, label %182, label %176
 
 176:                                              ; preds = %166
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.42)
   br label %177
 
 177:                                              ; preds = %176
-  %178 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %179 = icmp ne ptr %178, null
-  call void @llvm.assume(i1 %179)
-  br label %184
+  %178 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %179 = load ptr, ptr %178, align 8
+  %180 = icmp ne ptr %179, null
+  call void @llvm.assume(i1 %180)
+  br label %185
 
-180:                                              ; No predecessors!
-  br label %181
+181:                                              ; No predecessors!
+  br label %182
 
-181:                                              ; preds = %180, %166
-  %182 = load ptr, ptr %13, align 8
-  %183 = load ptr, ptr %16, align 8
-  call void @restore_custom_datetime_properties(ptr noundef %182, ptr noundef %183)
-  br label %184
+182:                                              ; preds = %181, %166
+  %183 = load ptr, ptr %13, align 8
+  %184 = load ptr, ptr %16, align 8
+  call void @restore_custom_datetime_properties(ptr noundef %183, ptr noundef %184)
+  br label %185
 
-184:                                              ; preds = %181, %177, %159
+185:                                              ; preds = %182, %177, %159
   ret void
 }
 
@@ -22967,58 +23041,60 @@ define hidden void @zif_date_get_last_errors(ptr noundef %0, ptr noundef %1) #0 
 
 18:                                               ; preds = %7
   call void @zend_wrong_parameters_none_error()
-  br label %42
+  br label %44
 
 19:                                               ; preds = %7
   br label %20
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %35
+  %21 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %37
 
-23:                                               ; preds = %20
-  br label %24
+24:                                               ; preds = %20
+  br label %25
 
-24:                                               ; preds = %23
-  %25 = call ptr @_zend_new_array_0()
-  store ptr %25, ptr %5, align 8
-  %26 = load ptr, ptr %4, align 8
-  store ptr %26, ptr %6, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i32 0, i32 0
-  store ptr %27, ptr %29, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct._zval_struct, ptr %30, i32 0, i32 1
-  store i32 775, ptr %31, align 8
-  br label %32
+25:                                               ; preds = %24
+  %26 = call ptr @_zend_new_array_0()
+  store ptr %26, ptr %5, align 8
+  %27 = load ptr, ptr %4, align 8
+  store ptr %27, ptr %6, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 0
+  store ptr %28, ptr %30, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds %struct._zval_struct, ptr %31, i32 0, i32 1
+  store i32 775, ptr %32, align 8
+  br label %33
 
-32:                                               ; preds = %24
-  %33 = load ptr, ptr %4, align 8
-  %34 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 3), align 8
-  call void @zval_from_error_container(ptr noundef %33, ptr noundef %34)
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 3
+  %36 = load ptr, ptr %35, align 8
+  call void @zval_from_error_container(ptr noundef %34, ptr noundef %36)
+  br label %44
+
+37:                                               ; preds = %20
+  br label %38
+
+38:                                               ; preds = %37
+  br label %39
+
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %4, align 8
+  %41 = getelementptr inbounds %struct._zval_struct, ptr %40, i32 0, i32 1
+  store i32 2, ptr %41, align 8
   br label %42
 
-35:                                               ; preds = %20
-  br label %36
+42:                                               ; preds = %39
+  br label %44
 
-36:                                               ; preds = %35
-  br label %37
+43:                                               ; No predecessors!
+  br label %44
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct._zval_struct, ptr %38, i32 0, i32 1
-  store i32 2, ptr %39, align 8
-  br label %40
-
-40:                                               ; preds = %37
-  br label %42
-
-41:                                               ; No predecessors!
-  br label %42
-
-42:                                               ; preds = %41, %40, %32, %18
+44:                                               ; preds = %43, %42, %33, %18
   ret void
 }
 
@@ -24954,95 +25030,97 @@ define hidden void @zif_date_format(ptr noundef %0, ptr noundef %1) #0 {
   %30 = load ptr, ptr @date_ce_interface, align 8
   %31 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %16, ptr noundef %29, ptr noundef @.str.43, ptr noundef %7, ptr noundef %30, ptr noundef %9, ptr noundef %10)
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %38
+  br i1 %32, label %33, label %39
 
 33:                                               ; preds = %28
   br label %34
 
 34:                                               ; preds = %33
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %36 = icmp ne ptr %35, null
-  call void @llvm.assume(i1 %36)
-  br label %88
+  %35 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  call void @llvm.assume(i1 %37)
+  br label %90
 
-37:                                               ; No predecessors!
-  br label %38
+38:                                               ; No predecessors!
+  br label %39
 
-38:                                               ; preds = %37, %28
-  %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct._zval_struct, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = call ptr @php_date_obj_from_obj(ptr noundef %41)
-  store ptr %42, ptr %8, align 8
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct._php_date_obj, ptr %43, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %57, label %47
+39:                                               ; preds = %38, %28
+  %40 = load ptr, ptr %7, align 8
+  %41 = getelementptr inbounds %struct._zval_struct, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = call ptr @php_date_obj_from_obj(ptr noundef %42)
+  store ptr %43, ptr %8, align 8
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds %struct._php_date_obj, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %59, label %48
 
-47:                                               ; preds = %38
-  %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct._zend_object, ptr %50, i32 0, i32 2
-  %52 = load ptr, ptr %51, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %52)
-  br label %53
+48:                                               ; preds = %39
+  %49 = load ptr, ptr %7, align 8
+  %50 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds %struct._zend_object, ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %53)
+  br label %54
 
-53:                                               ; preds = %47
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %55 = icmp ne ptr %54, null
-  call void @llvm.assume(i1 %55)
-  br label %88
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  call void @llvm.assume(i1 %57)
+  br label %90
 
-56:                                               ; No predecessors!
-  br label %57
-
-57:                                               ; preds = %56, %38
-  br label %58
-
-58:                                               ; preds = %57
+58:                                               ; No predecessors!
   br label %59
 
-59:                                               ; preds = %58
-  %60 = load ptr, ptr %6, align 8
-  store ptr %60, ptr %11, align 8
-  %61 = load ptr, ptr %9, align 8
-  %62 = load i64, ptr %10, align 8
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds %struct._php_date_obj, ptr %63, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %8, align 8
-  %67 = getelementptr inbounds %struct._php_date_obj, ptr %66, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds %struct._timelib_time, ptr %68, i32 0, i32 20
-  %70 = load i32, ptr %69, align 4
-  %71 = icmp ne i32 %70, 0
-  %72 = call ptr @date_format(ptr noundef %61, i64 noundef %62, ptr noundef %65, i1 noundef zeroext %71)
-  store ptr %72, ptr %12, align 8
-  %73 = load ptr, ptr %12, align 8
-  %74 = load ptr, ptr %11, align 8
-  %75 = getelementptr inbounds %struct._zval_struct, ptr %74, i32 0, i32 0
-  store ptr %73, ptr %75, align 8
-  %76 = load ptr, ptr %12, align 8
-  %77 = getelementptr inbounds %struct._zend_string, ptr %76, i32 0, i32 0
-  %78 = getelementptr inbounds %struct._zend_refcounted_h, ptr %77, i32 0, i32 1
-  %79 = load i32, ptr %78, align 4
-  store i32 %79, ptr %3, align 4
-  %80 = load i32, ptr %3, align 4
-  %81 = and i32 %80, 1008
-  %82 = and i32 %81, 64
-  %83 = icmp ne i32 %82, 0
-  %84 = select i1 %83, i32 6, i32 262
-  %85 = load ptr, ptr %11, align 8
-  %86 = getelementptr inbounds %struct._zval_struct, ptr %85, i32 0, i32 1
-  store i32 %84, ptr %86, align 8
-  br label %87
+59:                                               ; preds = %58, %39
+  br label %60
 
-87:                                               ; preds = %59
-  br label %88
+60:                                               ; preds = %59
+  br label %61
 
-88:                                               ; preds = %87, %53, %34
+61:                                               ; preds = %60
+  %62 = load ptr, ptr %6, align 8
+  store ptr %62, ptr %11, align 8
+  %63 = load ptr, ptr %9, align 8
+  %64 = load i64, ptr %10, align 8
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr inbounds %struct._php_date_obj, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr %8, align 8
+  %69 = getelementptr inbounds %struct._php_date_obj, ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds %struct._timelib_time, ptr %70, i32 0, i32 20
+  %72 = load i32, ptr %71, align 4
+  %73 = icmp ne i32 %72, 0
+  %74 = call ptr @date_format(ptr noundef %63, i64 noundef %64, ptr noundef %67, i1 noundef zeroext %73)
+  store ptr %74, ptr %12, align 8
+  %75 = load ptr, ptr %12, align 8
+  %76 = load ptr, ptr %11, align 8
+  %77 = getelementptr inbounds %struct._zval_struct, ptr %76, i32 0, i32 0
+  store ptr %75, ptr %77, align 8
+  %78 = load ptr, ptr %12, align 8
+  %79 = getelementptr inbounds %struct._zend_string, ptr %78, i32 0, i32 0
+  %80 = getelementptr inbounds %struct._zend_refcounted_h, ptr %79, i32 0, i32 1
+  %81 = load i32, ptr %80, align 4
+  store i32 %81, ptr %3, align 4
+  %82 = load i32, ptr %3, align 4
+  %83 = and i32 %82, 1008
+  %84 = and i32 %83, 64
+  %85 = icmp ne i32 %84, 0
+  %86 = select i1 %85, i32 6, i32 262
+  %87 = load ptr, ptr %11, align 8
+  %88 = getelementptr inbounds %struct._zval_struct, ptr %87, i32 0, i32 1
+  store i32 %86, ptr %88, align 8
+  br label %89
+
+89:                                               ; preds = %61
+  br label %90
+
+90:                                               ; preds = %89, %54, %34
   ret void
 }
 
@@ -25088,78 +25166,79 @@ define hidden void @zif_date_modify(ptr noundef %0, ptr noundef %1) #0 {
   %29 = load ptr, ptr @date_ce_date, align 8
   %30 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %15, ptr noundef %28, ptr noundef @.str.43, ptr noundef %7, ptr noundef %29, ptr noundef %8, ptr noundef %9)
   %31 = icmp eq i32 %30, -1
-  br i1 %31, label %32, label %37
+  br i1 %31, label %32, label %38
 
 32:                                               ; preds = %27
   br label %33
 
 33:                                               ; preds = %32
-  %34 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %35 = icmp ne ptr %34, null
-  call void @llvm.assume(i1 %35)
-  br label %67
+  %34 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp ne ptr %35, null
+  call void @llvm.assume(i1 %36)
+  br label %68
 
-36:                                               ; No predecessors!
-  br label %37
+37:                                               ; No predecessors!
+  br label %38
 
-37:                                               ; preds = %36, %27
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i64, ptr %9, align 8
-  %41 = call zeroext i1 @php_date_modify(ptr noundef %38, ptr noundef %39, i64 noundef %40)
-  br i1 %41, label %49, label %42
+38:                                               ; preds = %37, %27
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load i64, ptr %9, align 8
+  %42 = call zeroext i1 @php_date_modify(ptr noundef %39, ptr noundef %40, i64 noundef %41)
+  br i1 %42, label %50, label %43
 
-42:                                               ; preds = %37
-  br label %43
-
-43:                                               ; preds = %42
+43:                                               ; preds = %38
   br label %44
 
 44:                                               ; preds = %43
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct._zval_struct, ptr %45, i32 0, i32 1
-  store i32 2, ptr %46, align 8
-  br label %47
+  br label %45
 
-47:                                               ; preds = %44
-  br label %67
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %6, align 8
+  %47 = getelementptr inbounds %struct._zval_struct, ptr %46, i32 0, i32 1
+  store i32 2, ptr %47, align 8
+  br label %48
 
-48:                                               ; No predecessors!
-  br label %49
+48:                                               ; preds = %45
+  br label %68
 
-49:                                               ; preds = %48, %37
+49:                                               ; No predecessors!
   br label %50
 
-50:                                               ; preds = %49
+50:                                               ; preds = %49, %38
   br label %51
 
 51:                                               ; preds = %50
-  %52 = load ptr, ptr %6, align 8
-  store ptr %52, ptr %10, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %struct._zval_struct, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %11, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = getelementptr inbounds %struct._zend_object, ptr %56, i32 0, i32 0
-  store ptr %57, ptr %3, align 8
-  %58 = load ptr, ptr %3, align 8
-  %59 = load i32, ptr %58, align 4
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %58, align 4
-  %61 = load ptr, ptr %11, align 8
-  %62 = load ptr, ptr %10, align 8
-  %63 = getelementptr inbounds %struct._zval_struct, ptr %62, i32 0, i32 0
-  store ptr %61, ptr %63, align 8
-  %64 = load ptr, ptr %10, align 8
-  %65 = getelementptr inbounds %struct._zval_struct, ptr %64, i32 0, i32 1
-  store i32 776, ptr %65, align 8
-  br label %66
+  br label %52
 
-66:                                               ; preds = %51
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %6, align 8
+  store ptr %53, ptr %10, align 8
+  %54 = load ptr, ptr %7, align 8
+  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %11, align 8
+  %57 = load ptr, ptr %11, align 8
+  %58 = getelementptr inbounds %struct._zend_object, ptr %57, i32 0, i32 0
+  store ptr %58, ptr %3, align 8
+  %59 = load ptr, ptr %3, align 8
+  %60 = load i32, ptr %59, align 4
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %59, align 4
+  %62 = load ptr, ptr %11, align 8
+  %63 = load ptr, ptr %10, align 8
+  %64 = getelementptr inbounds %struct._zval_struct, ptr %63, i32 0, i32 0
+  store ptr %62, ptr %64, align 8
+  %65 = load ptr, ptr %10, align 8
+  %66 = getelementptr inbounds %struct._zval_struct, ptr %65, i32 0, i32 1
+  store i32 776, ptr %66, align 8
   br label %67
 
-67:                                               ; preds = %66, %47, %33
+67:                                               ; preds = %52
+  br label %68
+
+68:                                               ; preds = %67, %48, %33
   ret void
 }
 
@@ -25575,76 +25654,78 @@ define hidden void @zim_DateTime_modify(ptr noundef %0, ptr noundef %1) #0 {
   %17 = load i32, ptr %16, align 4
   %18 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %17, ptr noundef @.str.44, ptr noundef %7, ptr noundef %8)
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %25
+  br i1 %19, label %20, label %26
 
 20:                                               ; preds = %2
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %23 = icmp ne ptr %22, null
-  call void @llvm.assume(i1 %23)
-  br label %54
+  %22 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp ne ptr %23, null
+  call void @llvm.assume(i1 %24)
+  br label %56
 
-24:                                               ; No predecessors!
-  br label %25
+25:                                               ; No predecessors!
+  br label %26
 
-25:                                               ; preds = %24, %2
-  %26 = load ptr, ptr @date_ce_date_malformed_string_exception, align 8
-  call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %26, ptr noundef %9)
-  %27 = load ptr, ptr %6, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i64, ptr %8, align 8
-  %30 = call zeroext i1 @php_date_modify(ptr noundef %27, ptr noundef %28, i64 noundef %29)
-  br i1 %30, label %36, label %31
+26:                                               ; preds = %25, %2
+  %27 = load ptr, ptr @date_ce_date_malformed_string_exception, align 8
+  call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %27, ptr noundef %9)
+  %28 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i64, ptr %8, align 8
+  %31 = call zeroext i1 @php_date_modify(ptr noundef %28, ptr noundef %29, i64 noundef %30)
+  br i1 %31, label %38, label %32
 
-31:                                               ; preds = %25
+32:                                               ; preds = %26
   call void @zend_restore_error_handling(ptr noundef %9)
-  br label %32
+  br label %33
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  br label %54
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp ne ptr %35, null
+  call void @llvm.assume(i1 %36)
+  br label %56
 
-35:                                               ; No predecessors!
-  br label %36
-
-36:                                               ; preds = %35, %25
-  call void @zend_restore_error_handling(ptr noundef %9)
-  br label %37
-
-37:                                               ; preds = %36
+37:                                               ; No predecessors!
   br label %38
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %5, align 8
-  store ptr %39, ptr %10, align 8
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct._zval_struct, ptr %40, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %11, align 8
-  %43 = load ptr, ptr %11, align 8
-  %44 = getelementptr inbounds %struct._zend_object, ptr %43, i32 0, i32 0
-  store ptr %44, ptr %3, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = load i32, ptr %45, align 4
-  %47 = add i32 %46, 1
-  store i32 %47, ptr %45, align 4
-  %48 = load ptr, ptr %11, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 0
-  store ptr %48, ptr %50, align 8
+38:                                               ; preds = %37, %26
+  call void @zend_restore_error_handling(ptr noundef %9)
+  br label %39
+
+39:                                               ; preds = %38
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %5, align 8
+  store ptr %41, ptr %10, align 8
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds %struct._zval_struct, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  store ptr %44, ptr %11, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = getelementptr inbounds %struct._zend_object, ptr %45, i32 0, i32 0
+  store ptr %46, ptr %3, align 8
+  %47 = load ptr, ptr %3, align 8
+  %48 = load i32, ptr %47, align 4
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %47, align 4
+  %50 = load ptr, ptr %11, align 8
   %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds %struct._zval_struct, ptr %51, i32 0, i32 1
-  store i32 776, ptr %52, align 8
-  br label %53
+  %52 = getelementptr inbounds %struct._zval_struct, ptr %51, i32 0, i32 0
+  store ptr %50, ptr %52, align 8
+  %53 = load ptr, ptr %10, align 8
+  %54 = getelementptr inbounds %struct._zval_struct, ptr %53, i32 0, i32 1
+  store i32 776, ptr %54, align 8
+  br label %55
 
-53:                                               ; preds = %38
-  br label %54
+55:                                               ; preds = %40
+  br label %56
 
-54:                                               ; preds = %53, %32, %21
+56:                                               ; preds = %55, %33, %21
   ret void
 }
 
@@ -25675,68 +25756,70 @@ define hidden void @zim_DateTimeImmutable_modify(ptr noundef %0, ptr noundef %1)
   %16 = load i32, ptr %15, align 4
   %17 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %16, ptr noundef @.str.44, ptr noundef %7, ptr noundef %8)
   %18 = icmp eq i32 %17, -1
-  br i1 %18, label %19, label %24
+  br i1 %18, label %19, label %25
 
 19:                                               ; preds = %2
   br label %20
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %22 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %22)
-  br label %46
+  %21 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  call void @llvm.assume(i1 %23)
+  br label %48
 
-23:                                               ; No predecessors!
-  br label %24
+24:                                               ; No predecessors!
+  br label %25
 
-24:                                               ; preds = %23, %2
-  %25 = load ptr, ptr %5, align 8
-  call void @date_clone_immutable(ptr noundef %25, ptr noundef %6)
-  %26 = load ptr, ptr @date_ce_date_malformed_string_exception, align 8
-  call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %26, ptr noundef %9)
-  %27 = load ptr, ptr %7, align 8
-  %28 = load i64, ptr %8, align 8
-  %29 = call zeroext i1 @php_date_modify(ptr noundef %6, ptr noundef %27, i64 noundef %28)
-  br i1 %29, label %35, label %30
+25:                                               ; preds = %24, %2
+  %26 = load ptr, ptr %5, align 8
+  call void @date_clone_immutable(ptr noundef %26, ptr noundef %6)
+  %27 = load ptr, ptr @date_ce_date_malformed_string_exception, align 8
+  call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %27, ptr noundef %9)
+  %28 = load ptr, ptr %7, align 8
+  %29 = load i64, ptr %8, align 8
+  %30 = call zeroext i1 @php_date_modify(ptr noundef %6, ptr noundef %28, i64 noundef %29)
+  br i1 %30, label %37, label %31
 
-30:                                               ; preds = %24
+31:                                               ; preds = %25
   call void @zval_ptr_dtor(ptr noundef %6)
   call void @zend_restore_error_handling(ptr noundef %9)
-  br label %31
+  br label %32
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %33 = icmp ne ptr %32, null
-  call void @llvm.assume(i1 %33)
-  br label %46
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp ne ptr %34, null
+  call void @llvm.assume(i1 %35)
+  br label %48
 
-34:                                               ; No predecessors!
-  br label %35
-
-35:                                               ; preds = %34, %24
-  call void @zend_restore_error_handling(ptr noundef %9)
-  br label %36
-
-36:                                               ; preds = %35
+36:                                               ; No predecessors!
   br label %37
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %4, align 8
-  store ptr %38, ptr %10, align 8
-  %39 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds %struct._zval_struct, ptr %41, i32 0, i32 0
-  store ptr %40, ptr %42, align 8
+37:                                               ; preds = %36, %25
+  call void @zend_restore_error_handling(ptr noundef %9)
+  br label %38
+
+38:                                               ; preds = %37
+  br label %39
+
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %4, align 8
+  store ptr %40, ptr %10, align 8
+  %41 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct._zval_struct, ptr %43, i32 0, i32 1
-  store i32 776, ptr %44, align 8
-  br label %45
+  %44 = getelementptr inbounds %struct._zval_struct, ptr %43, i32 0, i32 0
+  store ptr %42, ptr %44, align 8
+  %45 = load ptr, ptr %10, align 8
+  %46 = getelementptr inbounds %struct._zval_struct, ptr %45, i32 0, i32 1
+  store i32 776, ptr %46, align 8
+  br label %47
 
-45:                                               ; preds = %37
-  br label %46
+47:                                               ; preds = %39
+  br label %48
 
-46:                                               ; preds = %45, %31, %20
+48:                                               ; preds = %47, %32, %20
   ret void
 }
 
@@ -25808,57 +25891,58 @@ define hidden void @zif_date_add(ptr noundef %0, ptr noundef %1) #0 {
   %29 = load ptr, ptr @date_ce_interval, align 8
   %30 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %14, ptr noundef %27, ptr noundef @.str.45, ptr noundef %7, ptr noundef %28, ptr noundef %8, ptr noundef %29)
   %31 = icmp eq i32 %30, -1
-  br i1 %31, label %32, label %37
+  br i1 %31, label %32, label %38
 
 32:                                               ; preds = %26
   br label %33
 
 33:                                               ; preds = %32
-  %34 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %35 = icmp ne ptr %34, null
-  call void @llvm.assume(i1 %35)
-  br label %58
+  %34 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp ne ptr %35, null
+  call void @llvm.assume(i1 %36)
+  br label %59
 
-36:                                               ; No predecessors!
-  br label %37
+37:                                               ; No predecessors!
+  br label %38
 
-37:                                               ; preds = %36, %26
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load ptr, ptr %6, align 8
-  call void @php_date_add(ptr noundef %38, ptr noundef %39, ptr noundef %40)
-  br label %41
-
-41:                                               ; preds = %37
+38:                                               ; preds = %37, %26
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %6, align 8
+  call void @php_date_add(ptr noundef %39, ptr noundef %40, ptr noundef %41)
   br label %42
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %6, align 8
-  store ptr %43, ptr %9, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct._zval_struct, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %10, align 8
-  %47 = load ptr, ptr %10, align 8
-  %48 = getelementptr inbounds %struct._zend_object, ptr %47, i32 0, i32 0
-  store ptr %48, ptr %3, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 4
-  %52 = load ptr, ptr %10, align 8
-  %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds %struct._zval_struct, ptr %53, i32 0, i32 0
-  store ptr %52, ptr %54, align 8
-  %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct._zval_struct, ptr %55, i32 0, i32 1
-  store i32 776, ptr %56, align 8
-  br label %57
+42:                                               ; preds = %38
+  br label %43
 
-57:                                               ; preds = %42
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %6, align 8
+  store ptr %44, ptr %9, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds %struct._zval_struct, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %10, align 8
+  %48 = load ptr, ptr %10, align 8
+  %49 = getelementptr inbounds %struct._zend_object, ptr %48, i32 0, i32 0
+  store ptr %49, ptr %3, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = load i32, ptr %50, align 4
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %50, align 4
+  %53 = load ptr, ptr %10, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 0
+  store ptr %53, ptr %55, align 8
+  %56 = load ptr, ptr %9, align 8
+  %57 = getelementptr inbounds %struct._zval_struct, ptr %56, i32 0, i32 1
+  store i32 776, ptr %57, align 8
   br label %58
 
-58:                                               ; preds = %57, %33
+58:                                               ; preds = %43
+  br label %59
+
+59:                                               ; preds = %58, %33
   ret void
 }
 
@@ -25882,7 +25966,7 @@ define internal void @php_date_add(ptr noundef %0, ptr noundef %1, ptr noundef %
   %15 = getelementptr inbounds %struct._php_date_obj, ptr %14, i32 0, i32 0
   %16 = load ptr, ptr %15, align 8
   %17 = icmp ne ptr %16, null
-  br i1 %17, label %28, label %18
+  br i1 %17, label %29, label %18
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %4, align 8
@@ -25894,85 +25978,87 @@ define internal void @php_date_add(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %24
 
 24:                                               ; preds = %18
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
-  br label %75
+  %25 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ne ptr %26, null
+  call void @llvm.assume(i1 %27)
+  br label %77
 
-27:                                               ; No predecessors!
-  br label %28
+28:                                               ; No predecessors!
+  br label %29
 
-28:                                               ; preds = %27, %3
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = call ptr @php_interval_obj_from_obj(ptr noundef %31)
-  store ptr %32, ptr %8, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct._php_interval_obj, ptr %33, i32 0, i32 4
-  %35 = load i8, ptr %34, align 8
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %47, label %37
+29:                                               ; preds = %28, %3
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct._zval_struct, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = call ptr @php_interval_obj_from_obj(ptr noundef %32)
+  store ptr %33, ptr %8, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds %struct._php_interval_obj, ptr %34, i32 0, i32 4
+  %36 = load i8, ptr %35, align 8
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %49, label %38
 
-37:                                               ; preds = %28
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct._zval_struct, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct._zend_object, ptr %40, i32 0, i32 2
-  %42 = load ptr, ptr %41, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %42)
-  br label %43
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds %struct._zval_struct, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct._zend_object, ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %43)
+  br label %44
 
-43:                                               ; preds = %37
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %45 = icmp ne ptr %44, null
-  call void @llvm.assume(i1 %45)
-  br label %75
+44:                                               ; preds = %38
+  %45 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  call void @llvm.assume(i1 %47)
+  br label %77
 
-46:                                               ; No predecessors!
-  br label %47
+48:                                               ; No predecessors!
+  br label %49
 
-47:                                               ; preds = %46, %28
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %struct._php_interval_obj, ptr %48, i32 0, i32 1
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp eq i32 %50, 2
-  br i1 %51, label %52, label %60
+49:                                               ; preds = %48, %29
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds %struct._php_interval_obj, ptr %50, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp eq i32 %52, 2
+  br i1 %53, label %54, label %62
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %struct._php_date_obj, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct._php_interval_obj, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @timelib_add_wall(ptr noundef %55, ptr noundef %58)
-  store ptr %59, ptr %9, align 8
-  br label %68
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %7, align 8
+  %56 = getelementptr inbounds %struct._php_date_obj, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %8, align 8
+  %59 = getelementptr inbounds %struct._php_interval_obj, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = call ptr @timelib_add_wall(ptr noundef %57, ptr noundef %60)
+  store ptr %61, ptr %9, align 8
+  br label %70
 
-60:                                               ; preds = %47
-  %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds %struct._php_date_obj, ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds %struct._php_interval_obj, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = call ptr @timelib_add(ptr noundef %63, ptr noundef %66)
-  store ptr %67, ptr %9, align 8
-  br label %68
+62:                                               ; preds = %49
+  %63 = load ptr, ptr %7, align 8
+  %64 = getelementptr inbounds %struct._php_date_obj, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %8, align 8
+  %67 = getelementptr inbounds %struct._php_interval_obj, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = call ptr @timelib_add(ptr noundef %65, ptr noundef %68)
+  store ptr %69, ptr %9, align 8
+  br label %70
 
-68:                                               ; preds = %60, %52
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds %struct._php_date_obj, ptr %69, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  call void @timelib_time_dtor(ptr noundef %71)
-  %72 = load ptr, ptr %9, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = getelementptr inbounds %struct._php_date_obj, ptr %73, i32 0, i32 0
-  store ptr %72, ptr %74, align 8
-  br label %75
+70:                                               ; preds = %62, %54
+  %71 = load ptr, ptr %7, align 8
+  %72 = getelementptr inbounds %struct._php_date_obj, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8
+  call void @timelib_time_dtor(ptr noundef %73)
+  %74 = load ptr, ptr %9, align 8
+  %75 = load ptr, ptr %7, align 8
+  %76 = getelementptr inbounds %struct._php_date_obj, ptr %75, i32 0, i32 0
+  store ptr %74, ptr %76, align 8
+  br label %77
 
-75:                                               ; preds = %68, %43, %24
+77:                                               ; preds = %70, %44, %24
   ret void
 }
 
@@ -25996,48 +26082,49 @@ define hidden void @zim_DateTimeImmutable_add(ptr noundef %0, ptr noundef %1) #0
   %15 = load ptr, ptr @date_ce_interval, align 8
   %16 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %14, ptr noundef @.str.46, ptr noundef %6, ptr noundef %15)
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %18, label %23
+  br i1 %17, label %18, label %24
 
 18:                                               ; preds = %2
   br label %19
 
 19:                                               ; preds = %18
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %21 = icmp ne ptr %20, null
-  call void @llvm.assume(i1 %21)
-  br label %37
+  %20 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  call void @llvm.assume(i1 %22)
+  br label %38
 
-22:                                               ; No predecessors!
-  br label %23
+23:                                               ; No predecessors!
+  br label %24
 
-23:                                               ; preds = %22, %2
-  %24 = load ptr, ptr %5, align 8
-  call void @date_clone_immutable(ptr noundef %24, ptr noundef %7)
-  %25 = load ptr, ptr %6, align 8
-  %26 = load ptr, ptr %4, align 8
-  call void @php_date_add(ptr noundef %7, ptr noundef %25, ptr noundef %26)
-  br label %27
-
-27:                                               ; preds = %23
+24:                                               ; preds = %23, %2
+  %25 = load ptr, ptr %5, align 8
+  call void @date_clone_immutable(ptr noundef %25, ptr noundef %7)
+  %26 = load ptr, ptr %6, align 8
+  %27 = load ptr, ptr %4, align 8
+  call void @php_date_add(ptr noundef %7, ptr noundef %26, ptr noundef %27)
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %4, align 8
-  store ptr %29, ptr %8, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %7, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %struct._zval_struct, ptr %32, i32 0, i32 0
-  store ptr %31, ptr %33, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct._zval_struct, ptr %34, i32 0, i32 1
-  store i32 776, ptr %35, align 8
-  br label %36
+28:                                               ; preds = %24
+  br label %29
 
-36:                                               ; preds = %28
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %4, align 8
+  store ptr %30, ptr %8, align 8
+  %31 = getelementptr inbounds %struct._zval_struct, ptr %7, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds %struct._zval_struct, ptr %33, i32 0, i32 0
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds %struct._zval_struct, ptr %35, i32 0, i32 1
+  store i32 776, ptr %36, align 8
   br label %37
 
-37:                                               ; preds = %36, %19
+37:                                               ; preds = %29
+  br label %38
+
+38:                                               ; preds = %37, %19
   ret void
 }
 
@@ -26081,57 +26168,58 @@ define hidden void @zif_date_sub(ptr noundef %0, ptr noundef %1) #0 {
   %29 = load ptr, ptr @date_ce_interval, align 8
   %30 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %14, ptr noundef %27, ptr noundef @.str.45, ptr noundef %7, ptr noundef %28, ptr noundef %8, ptr noundef %29)
   %31 = icmp eq i32 %30, -1
-  br i1 %31, label %32, label %37
+  br i1 %31, label %32, label %38
 
 32:                                               ; preds = %26
   br label %33
 
 33:                                               ; preds = %32
-  %34 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %35 = icmp ne ptr %34, null
-  call void @llvm.assume(i1 %35)
-  br label %58
+  %34 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp ne ptr %35, null
+  call void @llvm.assume(i1 %36)
+  br label %59
 
-36:                                               ; No predecessors!
-  br label %37
+37:                                               ; No predecessors!
+  br label %38
 
-37:                                               ; preds = %36, %26
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load ptr, ptr %6, align 8
-  call void @php_date_sub(ptr noundef %38, ptr noundef %39, ptr noundef %40)
-  br label %41
-
-41:                                               ; preds = %37
+38:                                               ; preds = %37, %26
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %6, align 8
+  call void @php_date_sub(ptr noundef %39, ptr noundef %40, ptr noundef %41)
   br label %42
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %6, align 8
-  store ptr %43, ptr %9, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct._zval_struct, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %10, align 8
-  %47 = load ptr, ptr %10, align 8
-  %48 = getelementptr inbounds %struct._zend_object, ptr %47, i32 0, i32 0
-  store ptr %48, ptr %3, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 4
-  %52 = load ptr, ptr %10, align 8
-  %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds %struct._zval_struct, ptr %53, i32 0, i32 0
-  store ptr %52, ptr %54, align 8
-  %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct._zval_struct, ptr %55, i32 0, i32 1
-  store i32 776, ptr %56, align 8
-  br label %57
+42:                                               ; preds = %38
+  br label %43
 
-57:                                               ; preds = %42
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %6, align 8
+  store ptr %44, ptr %9, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds %struct._zval_struct, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %10, align 8
+  %48 = load ptr, ptr %10, align 8
+  %49 = getelementptr inbounds %struct._zend_object, ptr %48, i32 0, i32 0
+  store ptr %49, ptr %3, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = load i32, ptr %50, align 4
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %50, align 4
+  %53 = load ptr, ptr %10, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 0
+  store ptr %53, ptr %55, align 8
+  %56 = load ptr, ptr %9, align 8
+  %57 = getelementptr inbounds %struct._zval_struct, ptr %56, i32 0, i32 1
+  store i32 776, ptr %57, align 8
   br label %58
 
-58:                                               ; preds = %57, %33
+58:                                               ; preds = %43
+  br label %59
+
+59:                                               ; preds = %58, %33
   ret void
 }
 
@@ -26155,7 +26243,7 @@ define internal void @php_date_sub(ptr noundef %0, ptr noundef %1, ptr noundef %
   %15 = getelementptr inbounds %struct._php_date_obj, ptr %14, i32 0, i32 0
   %16 = load ptr, ptr %15, align 8
   %17 = icmp ne ptr %16, null
-  br i1 %17, label %28, label %18
+  br i1 %17, label %29, label %18
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %4, align 8
@@ -26167,107 +26255,109 @@ define internal void @php_date_sub(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %24
 
 24:                                               ; preds = %18
-  %25 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
-  br label %90
+  %25 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ne ptr %26, null
+  call void @llvm.assume(i1 %27)
+  br label %92
 
-27:                                               ; No predecessors!
-  br label %28
+28:                                               ; No predecessors!
+  br label %29
 
-28:                                               ; preds = %27, %3
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = call ptr @php_interval_obj_from_obj(ptr noundef %31)
-  store ptr %32, ptr %8, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct._php_interval_obj, ptr %33, i32 0, i32 4
-  %35 = load i8, ptr %34, align 8
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %47, label %37
+29:                                               ; preds = %28, %3
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct._zval_struct, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = call ptr @php_interval_obj_from_obj(ptr noundef %32)
+  store ptr %33, ptr %8, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds %struct._php_interval_obj, ptr %34, i32 0, i32 4
+  %36 = load i8, ptr %35, align 8
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %49, label %38
 
-37:                                               ; preds = %28
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct._zval_struct, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct._zend_object, ptr %40, i32 0, i32 2
-  %42 = load ptr, ptr %41, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %42)
-  br label %43
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds %struct._zval_struct, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct._zend_object, ptr %41, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %43)
+  br label %44
 
-43:                                               ; preds = %37
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %45 = icmp ne ptr %44, null
-  call void @llvm.assume(i1 %45)
-  br label %90
+44:                                               ; preds = %38
+  %45 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  call void @llvm.assume(i1 %47)
+  br label %92
 
-46:                                               ; No predecessors!
-  br label %47
+48:                                               ; No predecessors!
+  br label %49
 
-47:                                               ; preds = %46, %28
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %struct._php_interval_obj, ptr %48, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct._timelib_rel_time, ptr %50, i32 0, i32 13
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %61, label %54
+49:                                               ; preds = %48, %29
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds %struct._php_interval_obj, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds %struct._timelib_rel_time, ptr %52, i32 0, i32 13
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %63, label %56
 
-54:                                               ; preds = %47
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct._php_interval_obj, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct._timelib_rel_time, ptr %57, i32 0, i32 14
-  %59 = load i32, ptr %58, align 4
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %61, label %62
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds %struct._php_interval_obj, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds %struct._timelib_rel_time, ptr %59, i32 0, i32 14
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %64
 
-61:                                               ; preds = %54, %47
+63:                                               ; preds = %56, %49
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef @.str.403)
-  br label %90
+  br label %92
 
-62:                                               ; preds = %54
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds %struct._php_interval_obj, ptr %63, i32 0, i32 1
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp eq i32 %65, 2
-  br i1 %66, label %67, label %75
+64:                                               ; preds = %56
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr inbounds %struct._php_interval_obj, ptr %65, i32 0, i32 1
+  %67 = load i32, ptr %66, align 8
+  %68 = icmp eq i32 %67, 2
+  br i1 %68, label %69, label %77
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct._php_date_obj, ptr %68, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds %struct._php_interval_obj, ptr %71, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = call ptr @timelib_sub_wall(ptr noundef %70, ptr noundef %73)
-  store ptr %74, ptr %9, align 8
-  br label %83
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %7, align 8
+  %71 = getelementptr inbounds %struct._php_date_obj, ptr %70, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds %struct._php_interval_obj, ptr %73, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 8
+  %76 = call ptr @timelib_sub_wall(ptr noundef %72, ptr noundef %75)
+  store ptr %76, ptr %9, align 8
+  br label %85
 
-75:                                               ; preds = %62
-  %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %struct._php_date_obj, ptr %76, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %8, align 8
-  %80 = getelementptr inbounds %struct._php_interval_obj, ptr %79, i32 0, i32 0
-  %81 = load ptr, ptr %80, align 8
-  %82 = call ptr @timelib_sub(ptr noundef %78, ptr noundef %81)
-  store ptr %82, ptr %9, align 8
-  br label %83
+77:                                               ; preds = %64
+  %78 = load ptr, ptr %7, align 8
+  %79 = getelementptr inbounds %struct._php_date_obj, ptr %78, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %8, align 8
+  %82 = getelementptr inbounds %struct._php_interval_obj, ptr %81, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8
+  %84 = call ptr @timelib_sub(ptr noundef %80, ptr noundef %83)
+  store ptr %84, ptr %9, align 8
+  br label %85
 
-83:                                               ; preds = %75, %67
-  %84 = load ptr, ptr %7, align 8
-  %85 = getelementptr inbounds %struct._php_date_obj, ptr %84, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  call void @timelib_time_dtor(ptr noundef %86)
-  %87 = load ptr, ptr %9, align 8
-  %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds %struct._php_date_obj, ptr %88, i32 0, i32 0
-  store ptr %87, ptr %89, align 8
-  br label %90
+85:                                               ; preds = %77, %69
+  %86 = load ptr, ptr %7, align 8
+  %87 = getelementptr inbounds %struct._php_date_obj, ptr %86, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  call void @timelib_time_dtor(ptr noundef %88)
+  %89 = load ptr, ptr %9, align 8
+  %90 = load ptr, ptr %7, align 8
+  %91 = getelementptr inbounds %struct._php_date_obj, ptr %90, i32 0, i32 0
+  store ptr %89, ptr %91, align 8
+  br label %92
 
-90:                                               ; preds = %83, %61, %43, %24
+92:                                               ; preds = %85, %63, %44, %24
   ret void
 }
 
@@ -26312,60 +26402,61 @@ define hidden void @zim_DateTime_sub(ptr noundef %0, ptr noundef %1) #0 {
   %30 = load ptr, ptr @date_ce_interval, align 8
   %31 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %15, ptr noundef %28, ptr noundef @.str.45, ptr noundef %7, ptr noundef %29, ptr noundef %8, ptr noundef %30)
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %38
+  br i1 %32, label %33, label %39
 
 33:                                               ; preds = %27
   br label %34
 
 34:                                               ; preds = %33
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %36 = icmp ne ptr %35, null
-  call void @llvm.assume(i1 %36)
-  br label %60
+  %35 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  call void @llvm.assume(i1 %37)
+  br label %61
 
-37:                                               ; No predecessors!
-  br label %38
+38:                                               ; No predecessors!
+  br label %39
 
-38:                                               ; preds = %37, %27
-  %39 = load ptr, ptr @date_ce_date_invalid_operation_exception, align 8
-  call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %39, ptr noundef %9)
-  %40 = load ptr, ptr %7, align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = load ptr, ptr %6, align 8
-  call void @php_date_sub(ptr noundef %40, ptr noundef %41, ptr noundef %42)
+39:                                               ; preds = %38, %27
+  %40 = load ptr, ptr @date_ce_date_invalid_operation_exception, align 8
+  call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %40, ptr noundef %9)
+  %41 = load ptr, ptr %7, align 8
+  %42 = load ptr, ptr %8, align 8
+  %43 = load ptr, ptr %6, align 8
+  call void @php_date_sub(ptr noundef %41, ptr noundef %42, ptr noundef %43)
   call void @zend_restore_error_handling(ptr noundef %9)
-  br label %43
-
-43:                                               ; preds = %38
   br label %44
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %6, align 8
-  store ptr %45, ptr %10, align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %struct._zval_struct, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %11, align 8
-  %49 = load ptr, ptr %11, align 8
-  %50 = getelementptr inbounds %struct._zend_object, ptr %49, i32 0, i32 0
-  store ptr %50, ptr %3, align 8
-  %51 = load ptr, ptr %3, align 8
-  %52 = load i32, ptr %51, align 4
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %51, align 4
-  %54 = load ptr, ptr %11, align 8
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds %struct._zval_struct, ptr %55, i32 0, i32 0
-  store ptr %54, ptr %56, align 8
-  %57 = load ptr, ptr %10, align 8
-  %58 = getelementptr inbounds %struct._zval_struct, ptr %57, i32 0, i32 1
-  store i32 776, ptr %58, align 8
-  br label %59
+44:                                               ; preds = %39
+  br label %45
 
-59:                                               ; preds = %44
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %6, align 8
+  store ptr %46, ptr %10, align 8
+  %47 = load ptr, ptr %7, align 8
+  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  store ptr %49, ptr %11, align 8
+  %50 = load ptr, ptr %11, align 8
+  %51 = getelementptr inbounds %struct._zend_object, ptr %50, i32 0, i32 0
+  store ptr %51, ptr %3, align 8
+  %52 = load ptr, ptr %3, align 8
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %52, align 4
+  %55 = load ptr, ptr %11, align 8
+  %56 = load ptr, ptr %10, align 8
+  %57 = getelementptr inbounds %struct._zval_struct, ptr %56, i32 0, i32 0
+  store ptr %55, ptr %57, align 8
+  %58 = load ptr, ptr %10, align 8
+  %59 = getelementptr inbounds %struct._zval_struct, ptr %58, i32 0, i32 1
+  store i32 776, ptr %59, align 8
   br label %60
 
-60:                                               ; preds = %59, %34
+60:                                               ; preds = %45
+  br label %61
+
+61:                                               ; preds = %60, %34
   ret void
 }
 
@@ -26390,51 +26481,52 @@ define hidden void @zim_DateTimeImmutable_sub(ptr noundef %0, ptr noundef %1) #0
   %16 = load ptr, ptr @date_ce_interval, align 8
   %17 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %15, ptr noundef @.str.46, ptr noundef %6, ptr noundef %16)
   %18 = icmp eq i32 %17, -1
-  br i1 %18, label %19, label %24
+  br i1 %18, label %19, label %25
 
 19:                                               ; preds = %2
   br label %20
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %22 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %22)
-  br label %39
+  %21 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  call void @llvm.assume(i1 %23)
+  br label %40
 
-23:                                               ; No predecessors!
-  br label %24
+24:                                               ; No predecessors!
+  br label %25
 
-24:                                               ; preds = %23, %2
-  %25 = load ptr, ptr %5, align 8
-  call void @date_clone_immutable(ptr noundef %25, ptr noundef %7)
-  %26 = load ptr, ptr @date_ce_date_invalid_operation_exception, align 8
-  call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %26, ptr noundef %8)
-  %27 = load ptr, ptr %6, align 8
-  %28 = load ptr, ptr %4, align 8
-  call void @php_date_sub(ptr noundef %7, ptr noundef %27, ptr noundef %28)
+25:                                               ; preds = %24, %2
+  %26 = load ptr, ptr %5, align 8
+  call void @date_clone_immutable(ptr noundef %26, ptr noundef %7)
+  %27 = load ptr, ptr @date_ce_date_invalid_operation_exception, align 8
+  call void @zend_replace_error_handling(i32 noundef 1, ptr noundef %27, ptr noundef %8)
+  %28 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %4, align 8
+  call void @php_date_sub(ptr noundef %7, ptr noundef %28, ptr noundef %29)
   call void @zend_restore_error_handling(ptr noundef %8)
-  br label %29
-
-29:                                               ; preds = %24
   br label %30
 
-30:                                               ; preds = %29
-  %31 = load ptr, ptr %4, align 8
-  store ptr %31, ptr %9, align 8
-  %32 = getelementptr inbounds %struct._zval_struct, ptr %7, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct._zval_struct, ptr %34, i32 0, i32 0
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds %struct._zval_struct, ptr %36, i32 0, i32 1
-  store i32 776, ptr %37, align 8
-  br label %38
+30:                                               ; preds = %25
+  br label %31
 
-38:                                               ; preds = %30
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %4, align 8
+  store ptr %32, ptr %9, align 8
+  %33 = getelementptr inbounds %struct._zval_struct, ptr %7, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = getelementptr inbounds %struct._zval_struct, ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds %struct._zval_struct, ptr %37, i32 0, i32 1
+  store i32 776, ptr %38, align 8
   br label %39
 
-39:                                               ; preds = %38, %20
+39:                                               ; preds = %31
+  br label %40
+
+40:                                               ; preds = %39, %20
   ret void
 }
 
@@ -26475,94 +26567,96 @@ define hidden void @zif_date_timezone_get(ptr noundef %0, ptr noundef %1) #0 {
   %26 = load ptr, ptr @date_ce_interface, align 8
   %27 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %12, ptr noundef %25, ptr noundef @.str.46, ptr noundef %6, ptr noundef %26)
   %28 = icmp eq i32 %27, -1
-  br i1 %28, label %29, label %34
+  br i1 %28, label %29, label %35
 
 29:                                               ; preds = %24
   br label %30
 
 30:                                               ; preds = %29
-  %31 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
-  br label %79
+  %31 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp ne ptr %32, null
+  call void @llvm.assume(i1 %33)
+  br label %81
 
-33:                                               ; No predecessors!
-  br label %34
+34:                                               ; No predecessors!
+  br label %35
 
-34:                                               ; preds = %33, %24
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct._zval_struct, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = call ptr @php_date_obj_from_obj(ptr noundef %37)
-  store ptr %38, ptr %7, align 8
-  %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct._php_date_obj, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %53, label %43
+35:                                               ; preds = %34, %24
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds %struct._zval_struct, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = call ptr @php_date_obj_from_obj(ptr noundef %38)
+  store ptr %39, ptr %7, align 8
+  %40 = load ptr, ptr %7, align 8
+  %41 = getelementptr inbounds %struct._php_date_obj, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %55, label %44
 
-43:                                               ; preds = %34
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct._zval_struct, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct._zend_object, ptr %46, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %48)
-  br label %49
+44:                                               ; preds = %35
+  %45 = load ptr, ptr %6, align 8
+  %46 = getelementptr inbounds %struct._zval_struct, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct._zend_object, ptr %47, i32 0, i32 2
+  %49 = load ptr, ptr %48, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %49)
+  br label %50
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %51 = icmp ne ptr %50, null
-  call void @llvm.assume(i1 %51)
-  br label %79
+50:                                               ; preds = %44
+  %51 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp ne ptr %52, null
+  call void @llvm.assume(i1 %53)
+  br label %81
 
-52:                                               ; No predecessors!
-  br label %53
+54:                                               ; No predecessors!
+  br label %55
 
-53:                                               ; preds = %52, %34
-  %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds %struct._php_date_obj, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct._timelib_time, ptr %56, i32 0, i32 20
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp ne i32 %58, 0
-  br i1 %59, label %60, label %72
+55:                                               ; preds = %54, %35
+  %56 = load ptr, ptr %7, align 8
+  %57 = getelementptr inbounds %struct._php_date_obj, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds %struct._timelib_time, ptr %58, i32 0, i32 20
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %74
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr @date_ce_timezone, align 8
-  %62 = load ptr, ptr %5, align 8
-  %63 = call ptr @php_date_instantiate(ptr noundef %61, ptr noundef %62)
+62:                                               ; preds = %55
+  %63 = load ptr, ptr @date_ce_timezone, align 8
   %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct._zval_struct, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = call ptr @php_timezone_obj_from_obj(ptr noundef %66)
-  store ptr %67, ptr %8, align 8
-  %68 = load ptr, ptr %8, align 8
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds %struct._php_date_obj, ptr %69, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  call void @set_timezone_from_timelib_time(ptr noundef %68, ptr noundef %71)
+  %65 = call ptr @php_date_instantiate(ptr noundef %63, ptr noundef %64)
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds %struct._zval_struct, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = call ptr @php_timezone_obj_from_obj(ptr noundef %68)
+  store ptr %69, ptr %8, align 8
+  %70 = load ptr, ptr %8, align 8
+  %71 = load ptr, ptr %7, align 8
+  %72 = getelementptr inbounds %struct._php_date_obj, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8
+  call void @set_timezone_from_timelib_time(ptr noundef %70, ptr noundef %73)
+  br label %81
+
+74:                                               ; preds = %55
+  br label %75
+
+75:                                               ; preds = %74
+  br label %76
+
+76:                                               ; preds = %75
+  %77 = load ptr, ptr %5, align 8
+  %78 = getelementptr inbounds %struct._zval_struct, ptr %77, i32 0, i32 1
+  store i32 2, ptr %78, align 8
   br label %79
 
-72:                                               ; preds = %53
-  br label %73
+79:                                               ; preds = %76
+  br label %81
 
-73:                                               ; preds = %72
-  br label %74
+80:                                               ; No predecessors!
+  br label %81
 
-74:                                               ; preds = %73
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds %struct._zval_struct, ptr %75, i32 0, i32 1
-  store i32 2, ptr %76, align 8
-  br label %77
-
-77:                                               ; preds = %74
-  br label %79
-
-78:                                               ; No predecessors!
-  br label %79
-
-79:                                               ; preds = %78, %77, %60, %49, %30
+81:                                               ; preds = %80, %79, %62, %50, %30
   ret void
 }
 
@@ -26701,57 +26795,58 @@ define hidden void @zif_date_timezone_set(ptr noundef %0, ptr noundef %1) #0 {
   %29 = load ptr, ptr @date_ce_timezone, align 8
   %30 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %14, ptr noundef %27, ptr noundef @.str.45, ptr noundef %7, ptr noundef %28, ptr noundef %8, ptr noundef %29)
   %31 = icmp eq i32 %30, -1
-  br i1 %31, label %32, label %37
+  br i1 %31, label %32, label %38
 
 32:                                               ; preds = %26
   br label %33
 
 33:                                               ; preds = %32
-  %34 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %35 = icmp ne ptr %34, null
-  call void @llvm.assume(i1 %35)
-  br label %58
+  %34 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp ne ptr %35, null
+  call void @llvm.assume(i1 %36)
+  br label %59
 
-36:                                               ; No predecessors!
-  br label %37
+37:                                               ; No predecessors!
+  br label %38
 
-37:                                               ; preds = %36, %26
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load ptr, ptr %6, align 8
-  call void @php_date_timezone_set(ptr noundef %38, ptr noundef %39, ptr noundef %40)
-  br label %41
-
-41:                                               ; preds = %37
+38:                                               ; preds = %37, %26
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = load ptr, ptr %6, align 8
+  call void @php_date_timezone_set(ptr noundef %39, ptr noundef %40, ptr noundef %41)
   br label %42
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %6, align 8
-  store ptr %43, ptr %9, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct._zval_struct, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %10, align 8
-  %47 = load ptr, ptr %10, align 8
-  %48 = getelementptr inbounds %struct._zend_object, ptr %47, i32 0, i32 0
-  store ptr %48, ptr %3, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 4
-  %52 = load ptr, ptr %10, align 8
-  %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds %struct._zval_struct, ptr %53, i32 0, i32 0
-  store ptr %52, ptr %54, align 8
-  %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct._zval_struct, ptr %55, i32 0, i32 1
-  store i32 776, ptr %56, align 8
-  br label %57
+42:                                               ; preds = %38
+  br label %43
 
-57:                                               ; preds = %42
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %6, align 8
+  store ptr %44, ptr %9, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds %struct._zval_struct, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %10, align 8
+  %48 = load ptr, ptr %10, align 8
+  %49 = getelementptr inbounds %struct._zend_object, ptr %48, i32 0, i32 0
+  store ptr %49, ptr %3, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = load i32, ptr %50, align 4
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %50, align 4
+  %53 = load ptr, ptr %10, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 0
+  store ptr %53, ptr %55, align 8
+  %56 = load ptr, ptr %9, align 8
+  %57 = getelementptr inbounds %struct._zval_struct, ptr %56, i32 0, i32 1
+  store i32 776, ptr %57, align 8
   br label %58
 
-58:                                               ; preds = %57, %33
+58:                                               ; preds = %43
+  br label %59
+
+59:                                               ; preds = %58, %33
   ret void
 }
 
@@ -26774,7 +26869,7 @@ define internal void @php_date_timezone_set(ptr noundef %0, ptr noundef %1, ptr 
   %14 = getelementptr inbounds %struct._php_date_obj, ptr %13, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
   %16 = icmp ne ptr %15, null
-  br i1 %16, label %27, label %17
+  br i1 %16, label %28, label %17
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr %4, align 8
@@ -26786,71 +26881,72 @@ define internal void @php_date_timezone_set(ptr noundef %0, ptr noundef %1, ptr 
   br label %23
 
 23:                                               ; preds = %17
-  %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %25 = icmp ne ptr %24, null
-  call void @llvm.assume(i1 %25)
-  br label %64
+  %24 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  call void @llvm.assume(i1 %26)
+  br label %65
 
-26:                                               ; No predecessors!
-  br label %27
+27:                                               ; No predecessors!
+  br label %28
 
-27:                                               ; preds = %26, %3
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = call ptr @php_timezone_obj_from_obj(ptr noundef %30)
-  store ptr %31, ptr %8, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %struct._php_timezone_obj, ptr %32, i32 0, i32 1
-  %34 = load i32, ptr %33, align 4
-  switch i32 %34, label %55 [
-    i32 1, label %35
-    i32 2, label %42
-    i32 3, label %48
+28:                                               ; preds = %27, %3
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = call ptr @php_timezone_obj_from_obj(ptr noundef %31)
+  store ptr %32, ptr %8, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds %struct._php_timezone_obj, ptr %33, i32 0, i32 1
+  %35 = load i32, ptr %34, align 4
+  switch i32 %35, label %56 [
+    i32 1, label %36
+    i32 2, label %43
+    i32 3, label %49
   ]
 
-35:                                               ; preds = %27
-  %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %struct._php_date_obj, ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct._php_timezone_obj, ptr %39, i32 0, i32 2
-  %41 = load i64, ptr %40, align 8
-  call void @timelib_set_timezone_from_offset(ptr noundef %38, i64 noundef %41)
-  br label %55
+36:                                               ; preds = %28
+  %37 = load ptr, ptr %7, align 8
+  %38 = getelementptr inbounds %struct._php_date_obj, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds %struct._php_timezone_obj, ptr %40, i32 0, i32 2
+  %42 = load i64, ptr %41, align 8
+  call void @timelib_set_timezone_from_offset(ptr noundef %39, i64 noundef %42)
+  br label %56
 
-42:                                               ; preds = %27
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct._php_date_obj, ptr %43, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct._php_timezone_obj, ptr %46, i32 0, i32 2
-  call void @timelib_set_timezone_from_abbr(ptr noundef %45, ptr noundef byval(%struct._timelib_abbr_info) align 8 %47)
-  br label %55
+43:                                               ; preds = %28
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds %struct._php_date_obj, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %8, align 8
+  %48 = getelementptr inbounds %struct._php_timezone_obj, ptr %47, i32 0, i32 2
+  call void @timelib_set_timezone_from_abbr(ptr noundef %46, ptr noundef byval(%struct._timelib_abbr_info) align 8 %48)
+  br label %56
 
-48:                                               ; preds = %27
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct._php_date_obj, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct._php_timezone_obj, ptr %52, i32 0, i32 2
-  %54 = load ptr, ptr %53, align 8
-  call void @timelib_set_timezone(ptr noundef %51, ptr noundef %54)
-  br label %55
+49:                                               ; preds = %28
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds %struct._php_date_obj, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct._php_timezone_obj, ptr %53, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8
+  call void @timelib_set_timezone(ptr noundef %52, ptr noundef %55)
+  br label %56
 
-55:                                               ; preds = %48, %42, %35, %27
-  %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds %struct._php_date_obj, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds %struct._php_date_obj, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct._timelib_time, ptr %61, i32 0, i32 12
-  %63 = load i64, ptr %62, align 8
-  call void @timelib_unixtime2local(ptr noundef %58, i64 noundef %63)
-  br label %64
+56:                                               ; preds = %49, %43, %36, %28
+  %57 = load ptr, ptr %7, align 8
+  %58 = getelementptr inbounds %struct._php_date_obj, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %7, align 8
+  %61 = getelementptr inbounds %struct._php_date_obj, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds %struct._timelib_time, ptr %62, i32 0, i32 12
+  %64 = load i64, ptr %63, align 8
+  call void @timelib_unixtime2local(ptr noundef %59, i64 noundef %64)
+  br label %65
 
-64:                                               ; preds = %55, %23
+65:                                               ; preds = %56, %23
   ret void
 }
 
@@ -26874,48 +26970,49 @@ define hidden void @zim_DateTimeImmutable_setTimezone(ptr noundef %0, ptr nounde
   %15 = load ptr, ptr @date_ce_timezone, align 8
   %16 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %14, ptr noundef @.str.46, ptr noundef %7, ptr noundef %15)
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %18, label %23
+  br i1 %17, label %18, label %24
 
 18:                                               ; preds = %2
   br label %19
 
 19:                                               ; preds = %18
-  %20 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %21 = icmp ne ptr %20, null
-  call void @llvm.assume(i1 %21)
-  br label %37
+  %20 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  call void @llvm.assume(i1 %22)
+  br label %38
 
-22:                                               ; No predecessors!
-  br label %23
+23:                                               ; No predecessors!
+  br label %24
 
-23:                                               ; preds = %22, %2
-  %24 = load ptr, ptr %5, align 8
-  call void @date_clone_immutable(ptr noundef %24, ptr noundef %6)
-  %25 = load ptr, ptr %7, align 8
-  %26 = load ptr, ptr %4, align 8
-  call void @php_date_timezone_set(ptr noundef %6, ptr noundef %25, ptr noundef %26)
-  br label %27
-
-27:                                               ; preds = %23
+24:                                               ; preds = %23, %2
+  %25 = load ptr, ptr %5, align 8
+  call void @date_clone_immutable(ptr noundef %25, ptr noundef %6)
+  %26 = load ptr, ptr %7, align 8
+  %27 = load ptr, ptr %4, align 8
+  call void @php_date_timezone_set(ptr noundef %6, ptr noundef %26, ptr noundef %27)
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %4, align 8
-  store ptr %29, ptr %8, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %struct._zval_struct, ptr %32, i32 0, i32 0
-  store ptr %31, ptr %33, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct._zval_struct, ptr %34, i32 0, i32 1
-  store i32 776, ptr %35, align 8
-  br label %36
+28:                                               ; preds = %24
+  br label %29
 
-36:                                               ; preds = %28
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %4, align 8
+  store ptr %30, ptr %8, align 8
+  %31 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = getelementptr inbounds %struct._zval_struct, ptr %33, i32 0, i32 0
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds %struct._zval_struct, ptr %35, i32 0, i32 1
+  store i32 776, ptr %36, align 8
   br label %37
 
-37:                                               ; preds = %36, %19
+37:                                               ; preds = %29
+  br label %38
+
+38:                                               ; preds = %37, %19
   ret void
 }
 
@@ -26960,186 +27057,188 @@ define hidden void @zif_date_offset_get(ptr noundef %0, ptr noundef %1) #0 {
   %30 = load ptr, ptr @date_ce_interface, align 8
   %31 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %16, ptr noundef %29, ptr noundef @.str.46, ptr noundef %6, ptr noundef %30)
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %38
+  br i1 %32, label %33, label %39
 
 33:                                               ; preds = %28
   br label %34
 
 34:                                               ; preds = %33
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %36 = icmp ne ptr %35, null
-  call void @llvm.assume(i1 %36)
-  br label %140
+  %35 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  call void @llvm.assume(i1 %37)
+  br label %142
 
-37:                                               ; No predecessors!
-  br label %38
+38:                                               ; No predecessors!
+  br label %39
 
-38:                                               ; preds = %37, %28
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct._zval_struct, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = call ptr @php_date_obj_from_obj(ptr noundef %41)
-  store ptr %42, ptr %7, align 8
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct._php_date_obj, ptr %43, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %57, label %47
+39:                                               ; preds = %38, %28
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds %struct._zval_struct, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = call ptr @php_date_obj_from_obj(ptr noundef %42)
+  store ptr %43, ptr %7, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds %struct._php_date_obj, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %59, label %48
 
-47:                                               ; preds = %38
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct._zend_object, ptr %50, i32 0, i32 2
-  %52 = load ptr, ptr %51, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %52)
-  br label %53
+48:                                               ; preds = %39
+  %49 = load ptr, ptr %6, align 8
+  %50 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds %struct._zend_object, ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %53)
+  br label %54
 
-53:                                               ; preds = %47
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %55 = icmp ne ptr %54, null
-  call void @llvm.assume(i1 %55)
-  br label %140
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  call void @llvm.assume(i1 %57)
+  br label %142
 
-56:                                               ; No predecessors!
-  br label %57
+58:                                               ; No predecessors!
+  br label %59
 
-57:                                               ; preds = %56, %38
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr inbounds %struct._php_date_obj, ptr %58, i32 0, i32 0
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._timelib_time, ptr %60, i32 0, i32 20
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %64, label %130
+59:                                               ; preds = %58, %39
+  %60 = load ptr, ptr %7, align 8
+  %61 = getelementptr inbounds %struct._php_date_obj, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds %struct._timelib_time, ptr %62, i32 0, i32 20
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %132
 
-64:                                               ; preds = %57
-  %65 = load ptr, ptr %7, align 8
-  %66 = getelementptr inbounds %struct._php_date_obj, ptr %65, i32 0, i32 0
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct._timelib_time, ptr %67, i32 0, i32 21
-  %69 = load i32, ptr %68, align 8
-  switch i32 %69, label %129 [
-    i32 3, label %70
-    i32 1, label %94
-    i32 2, label %108
+66:                                               ; preds = %59
+  %67 = load ptr, ptr %7, align 8
+  %68 = getelementptr inbounds %struct._php_date_obj, ptr %67, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds %struct._timelib_time, ptr %69, i32 0, i32 21
+  %71 = load i32, ptr %70, align 8
+  switch i32 %71, label %131 [
+    i32 3, label %72
+    i32 1, label %96
+    i32 2, label %110
   ]
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds %struct._php_date_obj, ptr %71, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %struct._timelib_time, ptr %73, i32 0, i32 12
-  %75 = load i64, ptr %74, align 8
-  %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %struct._php_date_obj, ptr %76, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct._timelib_time, ptr %78, i32 0, i32 9
+72:                                               ; preds = %66
+  %73 = load ptr, ptr %7, align 8
+  %74 = getelementptr inbounds %struct._php_date_obj, ptr %73, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds %struct._timelib_time, ptr %75, i32 0, i32 12
+  %77 = load i64, ptr %76, align 8
+  %78 = load ptr, ptr %7, align 8
+  %79 = getelementptr inbounds %struct._php_date_obj, ptr %78, i32 0, i32 0
   %80 = load ptr, ptr %79, align 8
-  %81 = call ptr @timelib_get_time_zone_info(i64 noundef %75, ptr noundef %80)
-  store ptr %81, ptr %8, align 8
-  br label %82
+  %81 = getelementptr inbounds %struct._timelib_time, ptr %80, i32 0, i32 9
+  %82 = load ptr, ptr %81, align 8
+  %83 = call ptr @timelib_get_time_zone_info(i64 noundef %77, ptr noundef %82)
+  store ptr %83, ptr %8, align 8
+  br label %84
 
-82:                                               ; preds = %70
-  %83 = load ptr, ptr %5, align 8
-  store ptr %83, ptr %9, align 8
-  %84 = load ptr, ptr %8, align 8
-  %85 = getelementptr inbounds %struct._timelib_time_offset, ptr %84, i32 0, i32 0
-  %86 = load i32, ptr %85, align 8
-  %87 = sext i32 %86 to i64
-  %88 = load ptr, ptr %9, align 8
-  %89 = getelementptr inbounds %struct._zval_struct, ptr %88, i32 0, i32 0
-  store i64 %87, ptr %89, align 8
+84:                                               ; preds = %72
+  %85 = load ptr, ptr %5, align 8
+  store ptr %85, ptr %9, align 8
+  %86 = load ptr, ptr %8, align 8
+  %87 = getelementptr inbounds %struct._timelib_time_offset, ptr %86, i32 0, i32 0
+  %88 = load i32, ptr %87, align 8
+  %89 = sext i32 %88 to i64
   %90 = load ptr, ptr %9, align 8
-  %91 = getelementptr inbounds %struct._zval_struct, ptr %90, i32 0, i32 1
-  store i32 4, ptr %91, align 8
-  br label %92
+  %91 = getelementptr inbounds %struct._zval_struct, ptr %90, i32 0, i32 0
+  store i64 %89, ptr %91, align 8
+  %92 = load ptr, ptr %9, align 8
+  %93 = getelementptr inbounds %struct._zval_struct, ptr %92, i32 0, i32 1
+  store i32 4, ptr %93, align 8
+  br label %94
 
-92:                                               ; preds = %82
-  %93 = load ptr, ptr %8, align 8
-  call void @timelib_time_offset_dtor(ptr noundef %93)
-  br label %129
-
-94:                                               ; preds = %64
-  br label %95
-
-95:                                               ; preds = %94
-  %96 = load ptr, ptr %5, align 8
-  store ptr %96, ptr %10, align 8
-  %97 = load ptr, ptr %7, align 8
-  %98 = getelementptr inbounds %struct._php_date_obj, ptr %97, i32 0, i32 0
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %struct._timelib_time, ptr %99, i32 0, i32 7
-  %101 = load i32, ptr %100, align 8
-  %102 = sext i32 %101 to i64
-  %103 = load ptr, ptr %10, align 8
-  %104 = getelementptr inbounds %struct._zval_struct, ptr %103, i32 0, i32 0
-  store i64 %102, ptr %104, align 8
-  %105 = load ptr, ptr %10, align 8
-  %106 = getelementptr inbounds %struct._zval_struct, ptr %105, i32 0, i32 1
-  store i32 4, ptr %106, align 8
-  br label %107
-
-107:                                              ; preds = %95
-  br label %129
-
-108:                                              ; preds = %64
-  br label %109
-
-109:                                              ; preds = %108
-  %110 = load ptr, ptr %5, align 8
-  store ptr %110, ptr %11, align 8
-  %111 = load ptr, ptr %7, align 8
-  %112 = getelementptr inbounds %struct._php_date_obj, ptr %111, i32 0, i32 0
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %struct._timelib_time, ptr %113, i32 0, i32 7
-  %115 = load i32, ptr %114, align 8
-  %116 = load ptr, ptr %7, align 8
-  %117 = getelementptr inbounds %struct._php_date_obj, ptr %116, i32 0, i32 0
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds %struct._timelib_time, ptr %118, i32 0, i32 10
-  %120 = load i32, ptr %119, align 8
-  %121 = mul nsw i32 3600, %120
-  %122 = add nsw i32 %115, %121
-  %123 = sext i32 %122 to i64
-  %124 = load ptr, ptr %11, align 8
-  %125 = getelementptr inbounds %struct._zval_struct, ptr %124, i32 0, i32 0
-  store i64 %123, ptr %125, align 8
-  %126 = load ptr, ptr %11, align 8
-  %127 = getelementptr inbounds %struct._zval_struct, ptr %126, i32 0, i32 1
-  store i32 4, ptr %127, align 8
-  br label %128
-
-128:                                              ; preds = %109
-  br label %129
-
-129:                                              ; preds = %128, %107, %92, %64
-  br label %140
-
-130:                                              ; preds = %57
+94:                                               ; preds = %84
+  %95 = load ptr, ptr %8, align 8
+  call void @timelib_time_offset_dtor(ptr noundef %95)
   br label %131
 
-131:                                              ; preds = %130
-  br label %132
+96:                                               ; preds = %66
+  br label %97
 
-132:                                              ; preds = %131
-  %133 = load ptr, ptr %5, align 8
-  store ptr %133, ptr %12, align 8
-  %134 = load ptr, ptr %12, align 8
-  %135 = getelementptr inbounds %struct._zval_struct, ptr %134, i32 0, i32 0
-  store i64 0, ptr %135, align 8
+97:                                               ; preds = %96
+  %98 = load ptr, ptr %5, align 8
+  store ptr %98, ptr %10, align 8
+  %99 = load ptr, ptr %7, align 8
+  %100 = getelementptr inbounds %struct._php_date_obj, ptr %99, i32 0, i32 0
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds %struct._timelib_time, ptr %101, i32 0, i32 7
+  %103 = load i32, ptr %102, align 8
+  %104 = sext i32 %103 to i64
+  %105 = load ptr, ptr %10, align 8
+  %106 = getelementptr inbounds %struct._zval_struct, ptr %105, i32 0, i32 0
+  store i64 %104, ptr %106, align 8
+  %107 = load ptr, ptr %10, align 8
+  %108 = getelementptr inbounds %struct._zval_struct, ptr %107, i32 0, i32 1
+  store i32 4, ptr %108, align 8
+  br label %109
+
+109:                                              ; preds = %97
+  br label %131
+
+110:                                              ; preds = %66
+  br label %111
+
+111:                                              ; preds = %110
+  %112 = load ptr, ptr %5, align 8
+  store ptr %112, ptr %11, align 8
+  %113 = load ptr, ptr %7, align 8
+  %114 = getelementptr inbounds %struct._php_date_obj, ptr %113, i32 0, i32 0
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds %struct._timelib_time, ptr %115, i32 0, i32 7
+  %117 = load i32, ptr %116, align 8
+  %118 = load ptr, ptr %7, align 8
+  %119 = getelementptr inbounds %struct._php_date_obj, ptr %118, i32 0, i32 0
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds %struct._timelib_time, ptr %120, i32 0, i32 10
+  %122 = load i32, ptr %121, align 8
+  %123 = mul nsw i32 3600, %122
+  %124 = add nsw i32 %117, %123
+  %125 = sext i32 %124 to i64
+  %126 = load ptr, ptr %11, align 8
+  %127 = getelementptr inbounds %struct._zval_struct, ptr %126, i32 0, i32 0
+  store i64 %125, ptr %127, align 8
+  %128 = load ptr, ptr %11, align 8
+  %129 = getelementptr inbounds %struct._zval_struct, ptr %128, i32 0, i32 1
+  store i32 4, ptr %129, align 8
+  br label %130
+
+130:                                              ; preds = %111
+  br label %131
+
+131:                                              ; preds = %130, %109, %94, %66
+  br label %142
+
+132:                                              ; preds = %59
+  br label %133
+
+133:                                              ; preds = %132
+  br label %134
+
+134:                                              ; preds = %133
+  %135 = load ptr, ptr %5, align 8
+  store ptr %135, ptr %12, align 8
   %136 = load ptr, ptr %12, align 8
-  %137 = getelementptr inbounds %struct._zval_struct, ptr %136, i32 0, i32 1
-  store i32 4, ptr %137, align 8
-  br label %138
-
-138:                                              ; preds = %132
+  %137 = getelementptr inbounds %struct._zval_struct, ptr %136, i32 0, i32 0
+  store i64 0, ptr %137, align 8
+  %138 = load ptr, ptr %12, align 8
+  %139 = getelementptr inbounds %struct._zval_struct, ptr %138, i32 0, i32 1
+  store i32 4, ptr %139, align 8
   br label %140
 
-139:                                              ; No predecessors!
-  br label %140
+140:                                              ; preds = %134
+  br label %142
 
-140:                                              ; preds = %139, %138, %129, %53, %34
+141:                                              ; No predecessors!
+  br label %142
+
+142:                                              ; preds = %141, %140, %131, %54, %34
   ret void
 }
 
@@ -27187,60 +27286,61 @@ define hidden void @zif_date_time_set(ptr noundef %0, ptr noundef %1) #0 {
   %31 = load ptr, ptr @date_ce_date, align 8
   %32 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %17, ptr noundef %30, ptr noundef @.str.47, ptr noundef %7, ptr noundef %31, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %33 = icmp eq i32 %32, -1
-  br i1 %33, label %34, label %39
+  br i1 %33, label %34, label %40
 
 34:                                               ; preds = %29
   br label %35
 
 35:                                               ; preds = %34
-  %36 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %37 = icmp ne ptr %36, null
-  call void @llvm.assume(i1 %37)
-  br label %63
+  %36 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp ne ptr %37, null
+  call void @llvm.assume(i1 %38)
+  br label %64
 
-38:                                               ; No predecessors!
-  br label %39
+39:                                               ; No predecessors!
+  br label %40
 
-39:                                               ; preds = %38, %29
-  %40 = load ptr, ptr %7, align 8
-  %41 = load i64, ptr %8, align 8
-  %42 = load i64, ptr %9, align 8
-  %43 = load i64, ptr %10, align 8
-  %44 = load i64, ptr %11, align 8
-  %45 = load ptr, ptr %6, align 8
-  call void @php_date_time_set(ptr noundef %40, i64 noundef %41, i64 noundef %42, i64 noundef %43, i64 noundef %44, ptr noundef %45)
-  br label %46
-
-46:                                               ; preds = %39
+40:                                               ; preds = %39, %29
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i64, ptr %8, align 8
+  %43 = load i64, ptr %9, align 8
+  %44 = load i64, ptr %10, align 8
+  %45 = load i64, ptr %11, align 8
+  %46 = load ptr, ptr %6, align 8
+  call void @php_date_time_set(ptr noundef %41, i64 noundef %42, i64 noundef %43, i64 noundef %44, i64 noundef %45, ptr noundef %46)
   br label %47
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %6, align 8
-  store ptr %48, ptr %12, align 8
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %13, align 8
-  %52 = load ptr, ptr %13, align 8
-  %53 = getelementptr inbounds %struct._zend_object, ptr %52, i32 0, i32 0
-  store ptr %53, ptr %3, align 8
-  %54 = load ptr, ptr %3, align 8
-  %55 = load i32, ptr %54, align 4
-  %56 = add i32 %55, 1
-  store i32 %56, ptr %54, align 4
-  %57 = load ptr, ptr %13, align 8
-  %58 = load ptr, ptr %12, align 8
-  %59 = getelementptr inbounds %struct._zval_struct, ptr %58, i32 0, i32 0
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %12, align 8
-  %61 = getelementptr inbounds %struct._zval_struct, ptr %60, i32 0, i32 1
-  store i32 776, ptr %61, align 8
-  br label %62
+47:                                               ; preds = %40
+  br label %48
 
-62:                                               ; preds = %47
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %6, align 8
+  store ptr %49, ptr %12, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds %struct._zval_struct, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr %13, align 8
+  %53 = load ptr, ptr %13, align 8
+  %54 = getelementptr inbounds %struct._zend_object, ptr %53, i32 0, i32 0
+  store ptr %54, ptr %3, align 8
+  %55 = load ptr, ptr %3, align 8
+  %56 = load i32, ptr %55, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %55, align 4
+  %58 = load ptr, ptr %13, align 8
+  %59 = load ptr, ptr %12, align 8
+  %60 = getelementptr inbounds %struct._zval_struct, ptr %59, i32 0, i32 0
+  store ptr %58, ptr %60, align 8
+  %61 = load ptr, ptr %12, align 8
+  %62 = getelementptr inbounds %struct._zval_struct, ptr %61, i32 0, i32 1
+  store i32 776, ptr %62, align 8
   br label %63
 
-63:                                               ; preds = %62, %35
+63:                                               ; preds = %48
+  br label %64
+
+64:                                               ; preds = %63, %35
   ret void
 }
 
@@ -27268,7 +27368,7 @@ define internal void @php_date_time_set(ptr noundef %0, i64 noundef %1, i64 noun
   %19 = getelementptr inbounds %struct._php_date_obj, ptr %18, i32 0, i32 0
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ne ptr %20, null
-  br i1 %21, label %32, label %22
+  br i1 %21, label %33, label %22
 
 22:                                               ; preds = %6
   %23 = load ptr, ptr %7, align 8
@@ -27280,50 +27380,51 @@ define internal void @php_date_time_set(ptr noundef %0, i64 noundef %1, i64 noun
   br label %28
 
 28:                                               ; preds = %22
-  %29 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %30 = icmp ne ptr %29, null
-  call void @llvm.assume(i1 %30)
-  br label %59
+  %29 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp ne ptr %30, null
+  call void @llvm.assume(i1 %31)
+  br label %60
 
-31:                                               ; No predecessors!
-  br label %32
+32:                                               ; No predecessors!
+  br label %33
 
-32:                                               ; preds = %31, %6
-  %33 = load i64, ptr %8, align 8
-  %34 = load ptr, ptr %13, align 8
-  %35 = getelementptr inbounds %struct._php_date_obj, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct._timelib_time, ptr %36, i32 0, i32 3
-  store i64 %33, ptr %37, align 8
-  %38 = load i64, ptr %9, align 8
-  %39 = load ptr, ptr %13, align 8
-  %40 = getelementptr inbounds %struct._php_date_obj, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct._timelib_time, ptr %41, i32 0, i32 4
-  store i64 %38, ptr %42, align 8
-  %43 = load i64, ptr %10, align 8
-  %44 = load ptr, ptr %13, align 8
-  %45 = getelementptr inbounds %struct._php_date_obj, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct._timelib_time, ptr %46, i32 0, i32 5
-  store i64 %43, ptr %47, align 8
-  %48 = load i64, ptr %11, align 8
-  %49 = load ptr, ptr %13, align 8
-  %50 = getelementptr inbounds %struct._php_date_obj, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct._timelib_time, ptr %51, i32 0, i32 6
-  store i64 %48, ptr %52, align 8
-  %53 = load ptr, ptr %13, align 8
-  %54 = getelementptr inbounds %struct._php_date_obj, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  call void @timelib_update_ts(ptr noundef %55, ptr noundef null)
-  %56 = load ptr, ptr %13, align 8
-  %57 = getelementptr inbounds %struct._php_date_obj, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  call void @timelib_update_from_sse(ptr noundef %58)
-  br label %59
+33:                                               ; preds = %32, %6
+  %34 = load i64, ptr %8, align 8
+  %35 = load ptr, ptr %13, align 8
+  %36 = getelementptr inbounds %struct._php_date_obj, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct._timelib_time, ptr %37, i32 0, i32 3
+  store i64 %34, ptr %38, align 8
+  %39 = load i64, ptr %9, align 8
+  %40 = load ptr, ptr %13, align 8
+  %41 = getelementptr inbounds %struct._php_date_obj, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds %struct._timelib_time, ptr %42, i32 0, i32 4
+  store i64 %39, ptr %43, align 8
+  %44 = load i64, ptr %10, align 8
+  %45 = load ptr, ptr %13, align 8
+  %46 = getelementptr inbounds %struct._php_date_obj, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct._timelib_time, ptr %47, i32 0, i32 5
+  store i64 %44, ptr %48, align 8
+  %49 = load i64, ptr %11, align 8
+  %50 = load ptr, ptr %13, align 8
+  %51 = getelementptr inbounds %struct._php_date_obj, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds %struct._timelib_time, ptr %52, i32 0, i32 6
+  store i64 %49, ptr %53, align 8
+  %54 = load ptr, ptr %13, align 8
+  %55 = getelementptr inbounds %struct._php_date_obj, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  call void @timelib_update_ts(ptr noundef %56, ptr noundef null)
+  %57 = load ptr, ptr %13, align 8
+  %58 = getelementptr inbounds %struct._php_date_obj, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  call void @timelib_update_from_sse(ptr noundef %59)
+  br label %60
 
-59:                                               ; preds = %32, %28
+60:                                               ; preds = %33, %28
   ret void
 }
 
@@ -27351,51 +27452,52 @@ define hidden void @zim_DateTimeImmutable_setTime(ptr noundef %0, ptr noundef %1
   %17 = load i32, ptr %16, align 4
   %18 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %17, ptr noundef @.str.48, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %25
+  br i1 %19, label %20, label %26
 
 20:                                               ; preds = %2
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %23 = icmp ne ptr %22, null
-  call void @llvm.assume(i1 %23)
-  br label %42
+  %22 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp ne ptr %23, null
+  call void @llvm.assume(i1 %24)
+  br label %43
 
-24:                                               ; No predecessors!
-  br label %25
+25:                                               ; No predecessors!
+  br label %26
 
-25:                                               ; preds = %24, %2
-  %26 = load ptr, ptr %5, align 8
-  call void @date_clone_immutable(ptr noundef %26, ptr noundef %6)
-  %27 = load i64, ptr %7, align 8
-  %28 = load i64, ptr %8, align 8
-  %29 = load i64, ptr %9, align 8
-  %30 = load i64, ptr %10, align 8
-  %31 = load ptr, ptr %4, align 8
-  call void @php_date_time_set(ptr noundef %6, i64 noundef %27, i64 noundef %28, i64 noundef %29, i64 noundef %30, ptr noundef %31)
-  br label %32
-
-32:                                               ; preds = %25
+26:                                               ; preds = %25, %2
+  %27 = load ptr, ptr %5, align 8
+  call void @date_clone_immutable(ptr noundef %27, ptr noundef %6)
+  %28 = load i64, ptr %7, align 8
+  %29 = load i64, ptr %8, align 8
+  %30 = load i64, ptr %9, align 8
+  %31 = load i64, ptr %10, align 8
+  %32 = load ptr, ptr %4, align 8
+  call void @php_date_time_set(ptr noundef %6, i64 noundef %28, i64 noundef %29, i64 noundef %30, i64 noundef %31, ptr noundef %32)
   br label %33
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %4, align 8
-  store ptr %34, ptr %11, align 8
-  %35 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %11, align 8
-  %38 = getelementptr inbounds %struct._zval_struct, ptr %37, i32 0, i32 0
-  store ptr %36, ptr %38, align 8
-  %39 = load ptr, ptr %11, align 8
-  %40 = getelementptr inbounds %struct._zval_struct, ptr %39, i32 0, i32 1
-  store i32 776, ptr %40, align 8
-  br label %41
+33:                                               ; preds = %26
+  br label %34
 
-41:                                               ; preds = %33
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %4, align 8
+  store ptr %35, ptr %11, align 8
+  %36 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds %struct._zval_struct, ptr %38, i32 0, i32 0
+  store ptr %37, ptr %39, align 8
+  %40 = load ptr, ptr %11, align 8
+  %41 = getelementptr inbounds %struct._zval_struct, ptr %40, i32 0, i32 1
+  store i32 776, ptr %41, align 8
   br label %42
 
-42:                                               ; preds = %41, %21
+42:                                               ; preds = %34
+  br label %43
+
+43:                                               ; preds = %42, %21
   ret void
 }
 
@@ -27440,59 +27542,60 @@ define hidden void @zif_date_date_set(ptr noundef %0, ptr noundef %1) #0 {
   %30 = load ptr, ptr @date_ce_date, align 8
   %31 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %16, ptr noundef %29, ptr noundef @.str.49, ptr noundef %7, ptr noundef %30, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %38
+  br i1 %32, label %33, label %39
 
 33:                                               ; preds = %28
   br label %34
 
 34:                                               ; preds = %33
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %36 = icmp ne ptr %35, null
-  call void @llvm.assume(i1 %36)
-  br label %61
+  %35 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  call void @llvm.assume(i1 %37)
+  br label %62
 
-37:                                               ; No predecessors!
-  br label %38
+38:                                               ; No predecessors!
+  br label %39
 
-38:                                               ; preds = %37, %28
-  %39 = load ptr, ptr %7, align 8
-  %40 = load i64, ptr %8, align 8
-  %41 = load i64, ptr %9, align 8
-  %42 = load i64, ptr %10, align 8
-  %43 = load ptr, ptr %6, align 8
-  call void @php_date_date_set(ptr noundef %39, i64 noundef %40, i64 noundef %41, i64 noundef %42, ptr noundef %43)
-  br label %44
-
-44:                                               ; preds = %38
+39:                                               ; preds = %38, %28
+  %40 = load ptr, ptr %7, align 8
+  %41 = load i64, ptr %8, align 8
+  %42 = load i64, ptr %9, align 8
+  %43 = load i64, ptr %10, align 8
+  %44 = load ptr, ptr %6, align 8
+  call void @php_date_date_set(ptr noundef %40, i64 noundef %41, i64 noundef %42, i64 noundef %43, ptr noundef %44)
   br label %45
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %6, align 8
-  store ptr %46, ptr %11, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %12, align 8
-  %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds %struct._zend_object, ptr %50, i32 0, i32 0
-  store ptr %51, ptr %3, align 8
-  %52 = load ptr, ptr %3, align 8
-  %53 = load i32, ptr %52, align 4
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %52, align 4
-  %55 = load ptr, ptr %12, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = getelementptr inbounds %struct._zval_struct, ptr %56, i32 0, i32 0
-  store ptr %55, ptr %57, align 8
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._zval_struct, ptr %58, i32 0, i32 1
-  store i32 776, ptr %59, align 8
-  br label %60
+45:                                               ; preds = %39
+  br label %46
 
-60:                                               ; preds = %45
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %6, align 8
+  store ptr %47, ptr %11, align 8
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %12, align 8
+  %51 = load ptr, ptr %12, align 8
+  %52 = getelementptr inbounds %struct._zend_object, ptr %51, i32 0, i32 0
+  store ptr %52, ptr %3, align 8
+  %53 = load ptr, ptr %3, align 8
+  %54 = load i32, ptr %53, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %53, align 4
+  %56 = load ptr, ptr %12, align 8
+  %57 = load ptr, ptr %11, align 8
+  %58 = getelementptr inbounds %struct._zval_struct, ptr %57, i32 0, i32 0
+  store ptr %56, ptr %58, align 8
+  %59 = load ptr, ptr %11, align 8
+  %60 = getelementptr inbounds %struct._zval_struct, ptr %59, i32 0, i32 1
+  store i32 776, ptr %60, align 8
   br label %61
 
-61:                                               ; preds = %60, %34
+61:                                               ; preds = %46
+  br label %62
+
+62:                                               ; preds = %61, %34
   ret void
 }
 
@@ -27518,7 +27621,7 @@ define internal void @php_date_date_set(ptr noundef %0, i64 noundef %1, i64 noun
   %17 = getelementptr inbounds %struct._php_date_obj, ptr %16, i32 0, i32 0
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ne ptr %18, null
-  br i1 %19, label %30, label %20
+  br i1 %19, label %31, label %20
 
 20:                                               ; preds = %5
   %21 = load ptr, ptr %6, align 8
@@ -27530,40 +27633,41 @@ define internal void @php_date_date_set(ptr noundef %0, i64 noundef %1, i64 noun
   br label %26
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  br label %49
+  %27 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  call void @llvm.assume(i1 %29)
+  br label %50
 
-29:                                               ; No predecessors!
-  br label %30
+30:                                               ; No predecessors!
+  br label %31
 
-30:                                               ; preds = %29, %5
-  %31 = load i64, ptr %7, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds %struct._php_date_obj, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct._timelib_time, ptr %34, i32 0, i32 0
-  store i64 %31, ptr %35, align 8
-  %36 = load i64, ptr %8, align 8
-  %37 = load ptr, ptr %11, align 8
-  %38 = getelementptr inbounds %struct._php_date_obj, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct._timelib_time, ptr %39, i32 0, i32 1
-  store i64 %36, ptr %40, align 8
-  %41 = load i64, ptr %9, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds %struct._php_date_obj, ptr %42, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct._timelib_time, ptr %44, i32 0, i32 2
-  store i64 %41, ptr %45, align 8
-  %46 = load ptr, ptr %11, align 8
-  %47 = getelementptr inbounds %struct._php_date_obj, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  call void @timelib_update_ts(ptr noundef %48, ptr noundef null)
-  br label %49
+31:                                               ; preds = %30, %5
+  %32 = load i64, ptr %7, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = getelementptr inbounds %struct._php_date_obj, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds %struct._timelib_time, ptr %35, i32 0, i32 0
+  store i64 %32, ptr %36, align 8
+  %37 = load i64, ptr %8, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds %struct._php_date_obj, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds %struct._timelib_time, ptr %40, i32 0, i32 1
+  store i64 %37, ptr %41, align 8
+  %42 = load i64, ptr %9, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = getelementptr inbounds %struct._php_date_obj, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct._timelib_time, ptr %45, i32 0, i32 2
+  store i64 %42, ptr %46, align 8
+  %47 = load ptr, ptr %11, align 8
+  %48 = getelementptr inbounds %struct._php_date_obj, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  call void @timelib_update_ts(ptr noundef %49, ptr noundef null)
+  br label %50
 
-49:                                               ; preds = %30, %26
+50:                                               ; preds = %31, %26
   ret void
 }
 
@@ -27588,50 +27692,51 @@ define hidden void @zim_DateTimeImmutable_setDate(ptr noundef %0, ptr noundef %1
   %16 = load i32, ptr %15, align 4
   %17 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %16, ptr noundef @.str.50, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %18 = icmp eq i32 %17, -1
-  br i1 %18, label %19, label %24
+  br i1 %18, label %19, label %25
 
 19:                                               ; preds = %2
   br label %20
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %22 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %22)
-  br label %40
+  %21 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  call void @llvm.assume(i1 %23)
+  br label %41
 
-23:                                               ; No predecessors!
-  br label %24
+24:                                               ; No predecessors!
+  br label %25
 
-24:                                               ; preds = %23, %2
-  %25 = load ptr, ptr %5, align 8
-  call void @date_clone_immutable(ptr noundef %25, ptr noundef %6)
-  %26 = load i64, ptr %7, align 8
-  %27 = load i64, ptr %8, align 8
-  %28 = load i64, ptr %9, align 8
-  %29 = load ptr, ptr %4, align 8
-  call void @php_date_date_set(ptr noundef %6, i64 noundef %26, i64 noundef %27, i64 noundef %28, ptr noundef %29)
-  br label %30
-
-30:                                               ; preds = %24
+25:                                               ; preds = %24, %2
+  %26 = load ptr, ptr %5, align 8
+  call void @date_clone_immutable(ptr noundef %26, ptr noundef %6)
+  %27 = load i64, ptr %7, align 8
+  %28 = load i64, ptr %8, align 8
+  %29 = load i64, ptr %9, align 8
+  %30 = load ptr, ptr %4, align 8
+  call void @php_date_date_set(ptr noundef %6, i64 noundef %27, i64 noundef %28, i64 noundef %29, ptr noundef %30)
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %4, align 8
-  store ptr %32, ptr %10, align 8
-  %33 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds %struct._zval_struct, ptr %35, i32 0, i32 0
-  store ptr %34, ptr %36, align 8
-  %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr inbounds %struct._zval_struct, ptr %37, i32 0, i32 1
-  store i32 776, ptr %38, align 8
-  br label %39
+31:                                               ; preds = %25
+  br label %32
 
-39:                                               ; preds = %31
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %4, align 8
+  store ptr %33, ptr %10, align 8
+  %34 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = getelementptr inbounds %struct._zval_struct, ptr %36, i32 0, i32 0
+  store ptr %35, ptr %37, align 8
+  %38 = load ptr, ptr %10, align 8
+  %39 = getelementptr inbounds %struct._zval_struct, ptr %38, i32 0, i32 1
+  store i32 776, ptr %39, align 8
   br label %40
 
-40:                                               ; preds = %39, %20
+40:                                               ; preds = %32
+  br label %41
+
+41:                                               ; preds = %40, %20
   ret void
 }
 
@@ -27677,59 +27782,60 @@ define hidden void @zif_date_isodate_set(ptr noundef %0, ptr noundef %1) #0 {
   %30 = load ptr, ptr @date_ce_date, align 8
   %31 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %16, ptr noundef %29, ptr noundef @.str.51, ptr noundef %7, ptr noundef %30, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %38
+  br i1 %32, label %33, label %39
 
 33:                                               ; preds = %28
   br label %34
 
 34:                                               ; preds = %33
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %36 = icmp ne ptr %35, null
-  call void @llvm.assume(i1 %36)
-  br label %61
+  %35 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  call void @llvm.assume(i1 %37)
+  br label %62
 
-37:                                               ; No predecessors!
-  br label %38
+38:                                               ; No predecessors!
+  br label %39
 
-38:                                               ; preds = %37, %28
-  %39 = load ptr, ptr %7, align 8
-  %40 = load i64, ptr %8, align 8
-  %41 = load i64, ptr %9, align 8
-  %42 = load i64, ptr %10, align 8
-  %43 = load ptr, ptr %6, align 8
-  call void @php_date_isodate_set(ptr noundef %39, i64 noundef %40, i64 noundef %41, i64 noundef %42, ptr noundef %43)
-  br label %44
-
-44:                                               ; preds = %38
+39:                                               ; preds = %38, %28
+  %40 = load ptr, ptr %7, align 8
+  %41 = load i64, ptr %8, align 8
+  %42 = load i64, ptr %9, align 8
+  %43 = load i64, ptr %10, align 8
+  %44 = load ptr, ptr %6, align 8
+  call void @php_date_isodate_set(ptr noundef %40, i64 noundef %41, i64 noundef %42, i64 noundef %43, ptr noundef %44)
   br label %45
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %6, align 8
-  store ptr %46, ptr %11, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %12, align 8
-  %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds %struct._zend_object, ptr %50, i32 0, i32 0
-  store ptr %51, ptr %3, align 8
-  %52 = load ptr, ptr %3, align 8
-  %53 = load i32, ptr %52, align 4
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %52, align 4
-  %55 = load ptr, ptr %12, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = getelementptr inbounds %struct._zval_struct, ptr %56, i32 0, i32 0
-  store ptr %55, ptr %57, align 8
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._zval_struct, ptr %58, i32 0, i32 1
-  store i32 776, ptr %59, align 8
-  br label %60
+45:                                               ; preds = %39
+  br label %46
 
-60:                                               ; preds = %45
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %6, align 8
+  store ptr %47, ptr %11, align 8
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %12, align 8
+  %51 = load ptr, ptr %12, align 8
+  %52 = getelementptr inbounds %struct._zend_object, ptr %51, i32 0, i32 0
+  store ptr %52, ptr %3, align 8
+  %53 = load ptr, ptr %3, align 8
+  %54 = load i32, ptr %53, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %53, align 4
+  %56 = load ptr, ptr %12, align 8
+  %57 = load ptr, ptr %11, align 8
+  %58 = getelementptr inbounds %struct._zval_struct, ptr %57, i32 0, i32 0
+  store ptr %56, ptr %58, align 8
+  %59 = load ptr, ptr %11, align 8
+  %60 = getelementptr inbounds %struct._zval_struct, ptr %59, i32 0, i32 1
+  store i32 776, ptr %60, align 8
   br label %61
 
-61:                                               ; preds = %60, %34
+61:                                               ; preds = %46
+  br label %62
+
+62:                                               ; preds = %61, %34
   ret void
 }
 
@@ -27755,7 +27861,7 @@ define internal void @php_date_isodate_set(ptr noundef %0, i64 noundef %1, i64 n
   %17 = getelementptr inbounds %struct._php_date_obj, ptr %16, i32 0, i32 0
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ne ptr %18, null
-  br i1 %19, label %30, label %20
+  br i1 %19, label %31, label %20
 
 20:                                               ; preds = %5
   %21 = load ptr, ptr %6, align 8
@@ -27767,58 +27873,59 @@ define internal void @php_date_isodate_set(ptr noundef %0, i64 noundef %1, i64 n
   br label %26
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  br label %64
+  %27 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp ne ptr %28, null
+  call void @llvm.assume(i1 %29)
+  br label %65
 
-29:                                               ; No predecessors!
-  br label %30
+30:                                               ; No predecessors!
+  br label %31
 
-30:                                               ; preds = %29, %5
-  %31 = load i64, ptr %7, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds %struct._php_date_obj, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct._timelib_time, ptr %34, i32 0, i32 0
-  store i64 %31, ptr %35, align 8
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._php_date_obj, ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._timelib_time, ptr %38, i32 0, i32 1
-  store i64 1, ptr %39, align 8
-  %40 = load ptr, ptr %11, align 8
-  %41 = getelementptr inbounds %struct._php_date_obj, ptr %40, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct._timelib_time, ptr %42, i32 0, i32 2
-  store i64 1, ptr %43, align 8
-  %44 = load ptr, ptr %11, align 8
-  %45 = getelementptr inbounds %struct._php_date_obj, ptr %44, i32 0, i32 0
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct._timelib_time, ptr %46, i32 0, i32 11
-  call void @llvm.memset.p0.i64(ptr align 8 %47, i8 0, i64 104, i1 false)
-  %48 = load i64, ptr %7, align 8
-  %49 = load i64, ptr %8, align 8
-  %50 = load i64, ptr %9, align 8
-  %51 = call i64 @timelib_daynr_from_weeknr(i64 noundef %48, i64 noundef %49, i64 noundef %50)
-  %52 = load ptr, ptr %11, align 8
-  %53 = getelementptr inbounds %struct._php_date_obj, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct._timelib_time, ptr %54, i32 0, i32 11
-  %56 = getelementptr inbounds %struct._timelib_rel_time, ptr %55, i32 0, i32 2
-  store i64 %51, ptr %56, align 8
-  %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr inbounds %struct._php_date_obj, ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct._timelib_time, ptr %59, i32 0, i32 16
-  store i32 1, ptr %60, align 4
-  %61 = load ptr, ptr %11, align 8
-  %62 = getelementptr inbounds %struct._php_date_obj, ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  call void @timelib_update_ts(ptr noundef %63, ptr noundef null)
-  br label %64
+31:                                               ; preds = %30, %5
+  %32 = load i64, ptr %7, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = getelementptr inbounds %struct._php_date_obj, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds %struct._timelib_time, ptr %35, i32 0, i32 0
+  store i64 %32, ptr %36, align 8
+  %37 = load ptr, ptr %11, align 8
+  %38 = getelementptr inbounds %struct._php_date_obj, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds %struct._timelib_time, ptr %39, i32 0, i32 1
+  store i64 1, ptr %40, align 8
+  %41 = load ptr, ptr %11, align 8
+  %42 = getelementptr inbounds %struct._php_date_obj, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct._timelib_time, ptr %43, i32 0, i32 2
+  store i64 1, ptr %44, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = getelementptr inbounds %struct._php_date_obj, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct._timelib_time, ptr %47, i32 0, i32 11
+  call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 104, i1 false)
+  %49 = load i64, ptr %7, align 8
+  %50 = load i64, ptr %8, align 8
+  %51 = load i64, ptr %9, align 8
+  %52 = call i64 @timelib_daynr_from_weeknr(i64 noundef %49, i64 noundef %50, i64 noundef %51)
+  %53 = load ptr, ptr %11, align 8
+  %54 = getelementptr inbounds %struct._php_date_obj, ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds %struct._timelib_time, ptr %55, i32 0, i32 11
+  %57 = getelementptr inbounds %struct._timelib_rel_time, ptr %56, i32 0, i32 2
+  store i64 %52, ptr %57, align 8
+  %58 = load ptr, ptr %11, align 8
+  %59 = getelementptr inbounds %struct._php_date_obj, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds %struct._timelib_time, ptr %60, i32 0, i32 16
+  store i32 1, ptr %61, align 4
+  %62 = load ptr, ptr %11, align 8
+  %63 = getelementptr inbounds %struct._php_date_obj, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  call void @timelib_update_ts(ptr noundef %64, ptr noundef null)
+  br label %65
 
-64:                                               ; preds = %30, %26
+65:                                               ; preds = %31, %26
   ret void
 }
 
@@ -27844,50 +27951,51 @@ define hidden void @zim_DateTimeImmutable_setISODate(ptr noundef %0, ptr noundef
   %16 = load i32, ptr %15, align 4
   %17 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %16, ptr noundef @.str.52, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %18 = icmp eq i32 %17, -1
-  br i1 %18, label %19, label %24
+  br i1 %18, label %19, label %25
 
 19:                                               ; preds = %2
   br label %20
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %22 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %22)
-  br label %40
+  %21 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  call void @llvm.assume(i1 %23)
+  br label %41
 
-23:                                               ; No predecessors!
-  br label %24
+24:                                               ; No predecessors!
+  br label %25
 
-24:                                               ; preds = %23, %2
-  %25 = load ptr, ptr %5, align 8
-  call void @date_clone_immutable(ptr noundef %25, ptr noundef %6)
-  %26 = load i64, ptr %7, align 8
-  %27 = load i64, ptr %8, align 8
-  %28 = load i64, ptr %9, align 8
-  %29 = load ptr, ptr %4, align 8
-  call void @php_date_isodate_set(ptr noundef %6, i64 noundef %26, i64 noundef %27, i64 noundef %28, ptr noundef %29)
-  br label %30
-
-30:                                               ; preds = %24
+25:                                               ; preds = %24, %2
+  %26 = load ptr, ptr %5, align 8
+  call void @date_clone_immutable(ptr noundef %26, ptr noundef %6)
+  %27 = load i64, ptr %7, align 8
+  %28 = load i64, ptr %8, align 8
+  %29 = load i64, ptr %9, align 8
+  %30 = load ptr, ptr %4, align 8
+  call void @php_date_isodate_set(ptr noundef %6, i64 noundef %27, i64 noundef %28, i64 noundef %29, ptr noundef %30)
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %4, align 8
-  store ptr %32, ptr %10, align 8
-  %33 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds %struct._zval_struct, ptr %35, i32 0, i32 0
-  store ptr %34, ptr %36, align 8
-  %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr inbounds %struct._zval_struct, ptr %37, i32 0, i32 1
-  store i32 776, ptr %38, align 8
-  br label %39
+31:                                               ; preds = %25
+  br label %32
 
-39:                                               ; preds = %31
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %4, align 8
+  store ptr %33, ptr %10, align 8
+  %34 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = getelementptr inbounds %struct._zval_struct, ptr %36, i32 0, i32 0
+  store ptr %35, ptr %37, align 8
+  %38 = load ptr, ptr %10, align 8
+  %39 = getelementptr inbounds %struct._zval_struct, ptr %38, i32 0, i32 1
+  store i32 776, ptr %39, align 8
   br label %40
 
-40:                                               ; preds = %39, %20
+40:                                               ; preds = %32
+  br label %41
+
+41:                                               ; preds = %40, %20
   ret void
 }
 
@@ -27930,57 +28038,58 @@ define hidden void @zif_date_timestamp_set(ptr noundef %0, ptr noundef %1) #0 {
   %28 = load ptr, ptr @date_ce_date, align 8
   %29 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %14, ptr noundef %27, ptr noundef @.str.53, ptr noundef %7, ptr noundef %28, ptr noundef %8)
   %30 = icmp eq i32 %29, -1
-  br i1 %30, label %31, label %36
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %26
   br label %32
 
 32:                                               ; preds = %31
-  %33 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  br label %57
+  %33 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp ne ptr %34, null
+  call void @llvm.assume(i1 %35)
+  br label %58
 
-35:                                               ; No predecessors!
-  br label %36
+36:                                               ; No predecessors!
+  br label %37
 
-36:                                               ; preds = %35, %26
-  %37 = load ptr, ptr %7, align 8
-  %38 = load i64, ptr %8, align 8
-  %39 = load ptr, ptr %6, align 8
-  call void @php_date_timestamp_set(ptr noundef %37, i64 noundef %38, ptr noundef %39)
-  br label %40
-
-40:                                               ; preds = %36
+37:                                               ; preds = %36, %26
+  %38 = load ptr, ptr %7, align 8
+  %39 = load i64, ptr %8, align 8
+  %40 = load ptr, ptr %6, align 8
+  call void @php_date_timestamp_set(ptr noundef %38, i64 noundef %39, ptr noundef %40)
   br label %41
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %6, align 8
-  store ptr %42, ptr %9, align 8
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct._zval_struct, ptr %43, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %10, align 8
-  %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds %struct._zend_object, ptr %46, i32 0, i32 0
-  store ptr %47, ptr %3, align 8
-  %48 = load ptr, ptr %3, align 8
-  %49 = load i32, ptr %48, align 4
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %48, align 4
-  %51 = load ptr, ptr %10, align 8
-  %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds %struct._zval_struct, ptr %52, i32 0, i32 0
-  store ptr %51, ptr %53, align 8
-  %54 = load ptr, ptr %9, align 8
-  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 1
-  store i32 776, ptr %55, align 8
-  br label %56
+41:                                               ; preds = %37
+  br label %42
 
-56:                                               ; preds = %41
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %6, align 8
+  store ptr %43, ptr %9, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds %struct._zval_struct, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %10, align 8
+  %47 = load ptr, ptr %10, align 8
+  %48 = getelementptr inbounds %struct._zend_object, ptr %47, i32 0, i32 0
+  store ptr %48, ptr %3, align 8
+  %49 = load ptr, ptr %3, align 8
+  %50 = load i32, ptr %49, align 4
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %49, align 4
+  %52 = load ptr, ptr %10, align 8
+  %53 = load ptr, ptr %9, align 8
+  %54 = getelementptr inbounds %struct._zval_struct, ptr %53, i32 0, i32 0
+  store ptr %52, ptr %54, align 8
+  %55 = load ptr, ptr %9, align 8
+  %56 = getelementptr inbounds %struct._zval_struct, ptr %55, i32 0, i32 1
+  store i32 776, ptr %56, align 8
   br label %57
 
-57:                                               ; preds = %56, %32
+57:                                               ; preds = %42
+  br label %58
+
+58:                                               ; preds = %57, %32
   ret void
 }
 
@@ -28002,7 +28111,7 @@ define internal void @php_date_timestamp_set(ptr noundef %0, i64 noundef %1, ptr
   %13 = getelementptr inbounds %struct._php_date_obj, ptr %12, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ne ptr %14, null
-  br i1 %15, label %26, label %16
+  br i1 %15, label %27, label %16
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %4, align 8
@@ -28014,31 +28123,32 @@ define internal void @php_date_timestamp_set(ptr noundef %0, i64 noundef %1, ptr
   br label %22
 
 22:                                               ; preds = %16
-  %23 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  br label %37
+  %23 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  call void @llvm.assume(i1 %25)
+  br label %38
 
-25:                                               ; No predecessors!
-  br label %26
+26:                                               ; No predecessors!
+  br label %27
 
-26:                                               ; preds = %25, %3
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct._php_date_obj, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i64, ptr %5, align 8
-  call void @timelib_unixtime2local(ptr noundef %29, i64 noundef %30)
-  %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %struct._php_date_obj, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  call void @timelib_update_ts(ptr noundef %33, ptr noundef null)
-  %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds %struct._php_date_obj, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  call void @php_date_set_time_fraction(ptr noundef %36, i32 noundef 0)
-  br label %37
+27:                                               ; preds = %26, %3
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds %struct._php_date_obj, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i64, ptr %5, align 8
+  call void @timelib_unixtime2local(ptr noundef %30, i64 noundef %31)
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds %struct._php_date_obj, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  call void @timelib_update_ts(ptr noundef %34, ptr noundef null)
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr inbounds %struct._php_date_obj, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  call void @php_date_set_time_fraction(ptr noundef %37, i32 noundef 0)
+  br label %38
 
-37:                                               ; preds = %26, %22
+38:                                               ; preds = %27, %22
   ret void
 }
 
@@ -28061,48 +28171,49 @@ define hidden void @zim_DateTimeImmutable_setTimestamp(ptr noundef %0, ptr nound
   %14 = load i32, ptr %13, align 4
   %15 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %14, ptr noundef @.str.54, ptr noundef %7)
   %16 = icmp eq i32 %15, -1
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %23
 
 17:                                               ; preds = %2
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  br label %36
+  %19 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  call void @llvm.assume(i1 %21)
+  br label %37
 
-21:                                               ; No predecessors!
-  br label %22
+22:                                               ; No predecessors!
+  br label %23
 
-22:                                               ; preds = %21, %2
-  %23 = load ptr, ptr %5, align 8
-  call void @date_clone_immutable(ptr noundef %23, ptr noundef %6)
-  %24 = load i64, ptr %7, align 8
-  %25 = load ptr, ptr %4, align 8
-  call void @php_date_timestamp_set(ptr noundef %6, i64 noundef %24, ptr noundef %25)
-  br label %26
-
-26:                                               ; preds = %22
+23:                                               ; preds = %22, %2
+  %24 = load ptr, ptr %5, align 8
+  call void @date_clone_immutable(ptr noundef %24, ptr noundef %6)
+  %25 = load i64, ptr %7, align 8
+  %26 = load ptr, ptr %4, align 8
+  call void @php_date_timestamp_set(ptr noundef %6, i64 noundef %25, ptr noundef %26)
   br label %27
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %4, align 8
-  store ptr %28, ptr %8, align 8
-  %29 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct._zval_struct, ptr %31, i32 0, i32 0
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct._zval_struct, ptr %33, i32 0, i32 1
-  store i32 776, ptr %34, align 8
-  br label %35
+27:                                               ; preds = %23
+  br label %28
 
-35:                                               ; preds = %27
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %4, align 8
+  store ptr %29, ptr %8, align 8
+  %30 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds %struct._zval_struct, ptr %32, i32 0, i32 0
+  store ptr %31, ptr %33, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds %struct._zval_struct, ptr %34, i32 0, i32 1
+  store i32 776, ptr %35, align 8
   br label %36
 
-36:                                               ; preds = %35, %18
+36:                                               ; preds = %28
+  br label %37
+
+37:                                               ; preds = %36, %18
   ret void
 }
 
@@ -28124,122 +28235,125 @@ define hidden void @zim_DateTimeImmutable_setMicroseconds(ptr noundef %0, ptr no
   %14 = load i32, ptr %13, align 4
   %15 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %14, ptr noundef @.str.54, ptr noundef %9)
   %16 = icmp eq i32 %15, -1
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %23
 
 17:                                               ; preds = %2
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  br label %83
+  %19 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  call void @llvm.assume(i1 %21)
+  br label %86
 
-21:                                               ; No predecessors!
-  br label %22
+22:                                               ; No predecessors!
+  br label %23
 
-22:                                               ; preds = %21, %2
-  %23 = load i64, ptr %9, align 8
-  %24 = icmp slt i64 %23, 0
-  br i1 %24, label %28, label %25
+23:                                               ; preds = %22, %2
+  %24 = load i64, ptr %9, align 8
+  %25 = icmp slt i64 %24, 0
+  br i1 %25, label %29, label %26
 
-25:                                               ; preds = %22
-  %26 = load i64, ptr %9, align 8
-  %27 = icmp sgt i64 %26, 999999
-  br label %28
+26:                                               ; preds = %23
+  %27 = load i64, ptr %9, align 8
+  %28 = icmp sgt i64 %27, 999999
+  br label %29
 
-28:                                               ; preds = %25, %22
-  %29 = phi i1 [ true, %22 ], [ %27, %25 ]
-  %30 = xor i1 %29, true
+29:                                               ; preds = %26, %23
+  %30 = phi i1 [ true, %23 ], [ %28, %26 ]
   %31 = xor i1 %30, true
-  %32 = zext i1 %31 to i32
-  %33 = sext i32 %32 to i64
-  %34 = icmp ne i64 %33, 0
-  br i1 %34, label %35, label %42
+  %32 = xor i1 %31, true
+  %33 = zext i1 %32 to i32
+  %34 = sext i32 %33 to i64
+  %35 = icmp ne i64 %34, 0
+  br i1 %35, label %36, label %44
 
-35:                                               ; preds = %28
-  %36 = load ptr, ptr @date_ce_date_range_error, align 8
-  %37 = load i64, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %36, i32 noundef 1, ptr noundef @.str.55, i64 noundef %37)
-  br label %38
+36:                                               ; preds = %29
+  %37 = load ptr, ptr @date_ce_date_range_error, align 8
+  %38 = load i64, ptr %9, align 8
+  call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %37, i32 noundef 1, ptr noundef @.str.55, i64 noundef %38)
+  br label %39
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %40 = icmp ne ptr %39, null
-  call void @llvm.assume(i1 %40)
-  br label %83
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp ne ptr %41, null
+  call void @llvm.assume(i1 %42)
+  br label %86
 
-41:                                               ; No predecessors!
-  br label %42
+43:                                               ; No predecessors!
+  br label %44
 
-42:                                               ; preds = %41, %28
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct._zend_execute_data, ptr %43, i32 0, i32 4
-  store ptr %44, ptr %5, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct._zval_struct, ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = call ptr @php_date_obj_from_obj(ptr noundef %47)
-  store ptr %48, ptr %7, align 8
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct._php_date_obj, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp ne ptr %51, null
-  br i1 %52, label %63, label %53
+44:                                               ; preds = %43, %29
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds %struct._zend_execute_data, ptr %45, i32 0, i32 4
+  store ptr %46, ptr %5, align 8
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = call ptr @php_date_obj_from_obj(ptr noundef %49)
+  store ptr %50, ptr %7, align 8
+  %51 = load ptr, ptr %7, align 8
+  %52 = getelementptr inbounds %struct._php_date_obj, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %66, label %55
 
-53:                                               ; preds = %42
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct._zend_object, ptr %56, i32 0, i32 2
+55:                                               ; preds = %44
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %struct._zval_struct, ptr %56, i32 0, i32 0
   %58 = load ptr, ptr %57, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %58)
-  br label %59
+  %59 = getelementptr inbounds %struct._zend_object, ptr %58, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %60)
+  br label %61
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %61 = icmp ne ptr %60, null
-  call void @llvm.assume(i1 %61)
-  br label %83
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp ne ptr %63, null
+  call void @llvm.assume(i1 %64)
+  br label %86
 
-62:                                               ; No predecessors!
-  br label %63
+65:                                               ; No predecessors!
+  br label %66
 
-63:                                               ; preds = %62, %42
-  %64 = load ptr, ptr %5, align 8
-  call void @date_clone_immutable(ptr noundef %64, ptr noundef %6)
-  %65 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = call ptr @php_date_obj_from_obj(ptr noundef %66)
-  store ptr %67, ptr %8, align 8
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %struct._php_date_obj, ptr %68, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  %71 = load i64, ptr %9, align 8
-  %72 = trunc i64 %71 to i32
-  call void @php_date_set_time_fraction(ptr noundef %70, i32 noundef %72)
-  br label %73
+66:                                               ; preds = %65, %44
+  %67 = load ptr, ptr %5, align 8
+  call void @date_clone_immutable(ptr noundef %67, ptr noundef %6)
+  %68 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = call ptr @php_date_obj_from_obj(ptr noundef %69)
+  store ptr %70, ptr %8, align 8
+  %71 = load ptr, ptr %8, align 8
+  %72 = getelementptr inbounds %struct._php_date_obj, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8
+  %74 = load i64, ptr %9, align 8
+  %75 = trunc i64 %74 to i32
+  call void @php_date_set_time_fraction(ptr noundef %73, i32 noundef %75)
+  br label %76
 
-73:                                               ; preds = %63
-  br label %74
+76:                                               ; preds = %66
+  br label %77
 
-74:                                               ; preds = %73
-  %75 = load ptr, ptr %4, align 8
-  store ptr %75, ptr %10, align 8
-  %76 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %10, align 8
-  %79 = getelementptr inbounds %struct._zval_struct, ptr %78, i32 0, i32 0
-  store ptr %77, ptr %79, align 8
-  %80 = load ptr, ptr %10, align 8
-  %81 = getelementptr inbounds %struct._zval_struct, ptr %80, i32 0, i32 1
-  store i32 776, ptr %81, align 8
-  br label %82
+77:                                               ; preds = %76
+  %78 = load ptr, ptr %4, align 8
+  store ptr %78, ptr %10, align 8
+  %79 = getelementptr inbounds %struct._zval_struct, ptr %6, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %10, align 8
+  %82 = getelementptr inbounds %struct._zval_struct, ptr %81, i32 0, i32 0
+  store ptr %80, ptr %82, align 8
+  %83 = load ptr, ptr %10, align 8
+  %84 = getelementptr inbounds %struct._zval_struct, ptr %83, i32 0, i32 1
+  store i32 776, ptr %84, align 8
+  br label %85
 
-82:                                               ; preds = %74
-  br label %83
+85:                                               ; preds = %77
+  br label %86
 
-83:                                               ; preds = %82, %59, %38, %18
+86:                                               ; preds = %85, %61, %39, %18
   ret void
 }
 
@@ -28261,126 +28375,129 @@ define hidden void @zim_DateTime_setMicroseconds(ptr noundef %0, ptr noundef %1)
   %14 = load i32, ptr %13, align 4
   %15 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %14, ptr noundef @.str.54, ptr noundef %8)
   %16 = icmp eq i32 %15, -1
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %23
 
 17:                                               ; preds = %2
   br label %18
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  br label %86
+  %19 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  call void @llvm.assume(i1 %21)
+  br label %89
 
-21:                                               ; No predecessors!
-  br label %22
+22:                                               ; No predecessors!
+  br label %23
 
-22:                                               ; preds = %21, %2
-  %23 = load i64, ptr %8, align 8
-  %24 = icmp slt i64 %23, 0
-  br i1 %24, label %28, label %25
+23:                                               ; preds = %22, %2
+  %24 = load i64, ptr %8, align 8
+  %25 = icmp slt i64 %24, 0
+  br i1 %25, label %29, label %26
 
-25:                                               ; preds = %22
-  %26 = load i64, ptr %8, align 8
-  %27 = icmp sgt i64 %26, 999999
-  br label %28
+26:                                               ; preds = %23
+  %27 = load i64, ptr %8, align 8
+  %28 = icmp sgt i64 %27, 999999
+  br label %29
 
-28:                                               ; preds = %25, %22
-  %29 = phi i1 [ true, %22 ], [ %27, %25 ]
-  %30 = xor i1 %29, true
+29:                                               ; preds = %26, %23
+  %30 = phi i1 [ true, %23 ], [ %28, %26 ]
   %31 = xor i1 %30, true
-  %32 = zext i1 %31 to i32
-  %33 = sext i32 %32 to i64
-  %34 = icmp ne i64 %33, 0
-  br i1 %34, label %35, label %42
+  %32 = xor i1 %31, true
+  %33 = zext i1 %32 to i32
+  %34 = sext i32 %33 to i64
+  %35 = icmp ne i64 %34, 0
+  br i1 %35, label %36, label %44
 
-35:                                               ; preds = %28
-  %36 = load ptr, ptr @date_ce_date_range_error, align 8
-  %37 = load i64, ptr %8, align 8
-  call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %36, i32 noundef 1, ptr noundef @.str.55, i64 noundef %37)
-  br label %38
+36:                                               ; preds = %29
+  %37 = load ptr, ptr @date_ce_date_range_error, align 8
+  %38 = load i64, ptr %8, align 8
+  call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %37, i32 noundef 1, ptr noundef @.str.55, i64 noundef %38)
+  br label %39
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %40 = icmp ne ptr %39, null
-  call void @llvm.assume(i1 %40)
-  br label %86
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp ne ptr %41, null
+  call void @llvm.assume(i1 %42)
+  br label %89
 
-41:                                               ; No predecessors!
-  br label %42
+43:                                               ; No predecessors!
+  br label %44
 
-42:                                               ; preds = %41, %28
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct._zend_execute_data, ptr %43, i32 0, i32 4
-  store ptr %44, ptr %6, align 8
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct._zval_struct, ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = call ptr @php_date_obj_from_obj(ptr noundef %47)
-  store ptr %48, ptr %7, align 8
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct._php_date_obj, ptr %49, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp ne ptr %51, null
-  br i1 %52, label %63, label %53
+44:                                               ; preds = %43, %29
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %struct._zend_execute_data, ptr %45, i32 0, i32 4
+  store ptr %46, ptr %6, align 8
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = call ptr @php_date_obj_from_obj(ptr noundef %49)
+  store ptr %50, ptr %7, align 8
+  %51 = load ptr, ptr %7, align 8
+  %52 = getelementptr inbounds %struct._php_date_obj, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %66, label %55
 
-53:                                               ; preds = %42
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct._zend_object, ptr %56, i32 0, i32 2
+55:                                               ; preds = %44
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds %struct._zval_struct, ptr %56, i32 0, i32 0
   %58 = load ptr, ptr %57, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %58)
-  br label %59
+  %59 = getelementptr inbounds %struct._zend_object, ptr %58, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %60)
+  br label %61
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %61 = icmp ne ptr %60, null
-  call void @llvm.assume(i1 %61)
-  br label %86
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp ne ptr %63, null
+  call void @llvm.assume(i1 %64)
+  br label %89
 
-62:                                               ; No predecessors!
-  br label %63
+65:                                               ; No predecessors!
+  br label %66
 
-63:                                               ; preds = %62, %42
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds %struct._php_date_obj, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i64, ptr %8, align 8
-  %68 = trunc i64 %67 to i32
-  call void @php_date_set_time_fraction(ptr noundef %66, i32 noundef %68)
-  br label %69
+66:                                               ; preds = %65, %44
+  %67 = load ptr, ptr %7, align 8
+  %68 = getelementptr inbounds %struct._php_date_obj, ptr %67, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8
+  %70 = load i64, ptr %8, align 8
+  %71 = trunc i64 %70 to i32
+  call void @php_date_set_time_fraction(ptr noundef %69, i32 noundef %71)
+  br label %72
 
-69:                                               ; preds = %63
-  br label %70
+72:                                               ; preds = %66
+  br label %73
 
-70:                                               ; preds = %69
-  %71 = load ptr, ptr %5, align 8
-  store ptr %71, ptr %9, align 8
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds %struct._zval_struct, ptr %72, i32 0, i32 0
-  %74 = load ptr, ptr %73, align 8
-  store ptr %74, ptr %10, align 8
-  %75 = load ptr, ptr %10, align 8
-  %76 = getelementptr inbounds %struct._zend_object, ptr %75, i32 0, i32 0
-  store ptr %76, ptr %3, align 8
-  %77 = load ptr, ptr %3, align 8
-  %78 = load i32, ptr %77, align 4
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %77, align 4
-  %80 = load ptr, ptr %10, align 8
-  %81 = load ptr, ptr %9, align 8
-  %82 = getelementptr inbounds %struct._zval_struct, ptr %81, i32 0, i32 0
-  store ptr %80, ptr %82, align 8
-  %83 = load ptr, ptr %9, align 8
-  %84 = getelementptr inbounds %struct._zval_struct, ptr %83, i32 0, i32 1
-  store i32 776, ptr %84, align 8
-  br label %85
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %5, align 8
+  store ptr %74, ptr %9, align 8
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds %struct._zval_struct, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  store ptr %77, ptr %10, align 8
+  %78 = load ptr, ptr %10, align 8
+  %79 = getelementptr inbounds %struct._zend_object, ptr %78, i32 0, i32 0
+  store ptr %79, ptr %3, align 8
+  %80 = load ptr, ptr %3, align 8
+  %81 = load i32, ptr %80, align 4
+  %82 = add i32 %81, 1
+  store i32 %82, ptr %80, align 4
+  %83 = load ptr, ptr %10, align 8
+  %84 = load ptr, ptr %9, align 8
+  %85 = getelementptr inbounds %struct._zval_struct, ptr %84, i32 0, i32 0
+  store ptr %83, ptr %85, align 8
+  %86 = load ptr, ptr %9, align 8
+  %87 = getelementptr inbounds %struct._zval_struct, ptr %86, i32 0, i32 1
+  store i32 776, ptr %87, align 8
+  br label %88
 
-85:                                               ; preds = %70
-  br label %86
+88:                                               ; preds = %73
+  br label %89
 
-86:                                               ; preds = %85, %59, %38, %18
+89:                                               ; preds = %88, %61, %39, %18
   ret void
 }
 
@@ -28423,112 +28540,115 @@ define hidden void @zif_date_timestamp_get(ptr noundef %0, ptr noundef %1) #0 {
   %28 = load ptr, ptr @date_ce_interface, align 8
   %29 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %14, ptr noundef %27, ptr noundef @.str.46, ptr noundef %6, ptr noundef %28)
   %30 = icmp eq i32 %29, -1
-  br i1 %30, label %31, label %36
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %26
   br label %32
 
 32:                                               ; preds = %31
-  %33 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  br label %89
+  %33 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp ne ptr %34, null
+  call void @llvm.assume(i1 %35)
+  br label %92
 
-35:                                               ; No predecessors!
-  br label %36
+36:                                               ; No predecessors!
+  br label %37
 
-36:                                               ; preds = %35, %26
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct._zval_struct, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = call ptr @php_date_obj_from_obj(ptr noundef %39)
-  store ptr %40, ptr %7, align 8
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct._php_date_obj, ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %55, label %45
+37:                                               ; preds = %36, %26
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds %struct._zval_struct, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = call ptr @php_date_obj_from_obj(ptr noundef %40)
+  store ptr %41, ptr %7, align 8
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds %struct._php_date_obj, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %57, label %46
 
-45:                                               ; preds = %36
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct._zval_struct, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._zend_object, ptr %48, i32 0, i32 2
-  %50 = load ptr, ptr %49, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %50)
-  br label %51
+46:                                               ; preds = %37
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct._zend_object, ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %51)
+  br label %52
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %53 = icmp ne ptr %52, null
-  call void @llvm.assume(i1 %53)
-  br label %89
+52:                                               ; preds = %46
+  %53 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp ne ptr %54, null
+  call void @llvm.assume(i1 %55)
+  br label %92
 
-54:                                               ; No predecessors!
-  br label %55
+56:                                               ; No predecessors!
+  br label %57
 
-55:                                               ; preds = %54, %36
-  %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds %struct._php_date_obj, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct._timelib_time, ptr %58, i32 0, i32 18
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %66, label %62
+57:                                               ; preds = %56, %37
+  %58 = load ptr, ptr %7, align 8
+  %59 = getelementptr inbounds %struct._php_date_obj, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds %struct._timelib_time, ptr %60, i32 0, i32 18
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %68, label %64
 
-62:                                               ; preds = %55
-  %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds %struct._php_date_obj, ptr %63, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8
-  call void @timelib_update_ts(ptr noundef %65, ptr noundef null)
-  br label %66
+64:                                               ; preds = %57
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds %struct._php_date_obj, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  call void @timelib_update_ts(ptr noundef %67, ptr noundef null)
+  br label %68
 
-66:                                               ; preds = %62, %55
-  %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds %struct._php_date_obj, ptr %67, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = call i64 @timelib_date_to_int(ptr noundef %69, ptr noundef %9)
-  store i64 %70, ptr %8, align 8
-  %71 = load i32, ptr %9, align 4
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %79
+68:                                               ; preds = %64, %57
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds %struct._php_date_obj, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8
+  %72 = call i64 @timelib_date_to_int(ptr noundef %71, ptr noundef %9)
+  store i64 %72, ptr %8, align 8
+  %73 = load i32, ptr %9, align 4
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %82
 
-73:                                               ; preds = %66
-  %74 = load ptr, ptr @date_ce_date_range_error, align 8
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %74, ptr noundef @.str.16)
-  br label %75
+75:                                               ; preds = %68
+  %76 = load ptr, ptr @date_ce_date_range_error, align 8
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef %76, ptr noundef @.str.16)
+  br label %77
 
-75:                                               ; preds = %73
-  %76 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %77 = icmp ne ptr %76, null
-  call void @llvm.assume(i1 %77)
-  br label %89
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp ne ptr %79, null
+  call void @llvm.assume(i1 %80)
+  br label %92
 
-78:                                               ; No predecessors!
-  br label %79
+81:                                               ; No predecessors!
+  br label %82
 
-79:                                               ; preds = %78, %66
-  br label %80
+82:                                               ; preds = %81, %68
+  br label %83
 
-80:                                               ; preds = %79
-  br label %81
+83:                                               ; preds = %82
+  br label %84
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr %5, align 8
-  store ptr %82, ptr %10, align 8
-  %83 = load i64, ptr %8, align 8
-  %84 = load ptr, ptr %10, align 8
-  %85 = getelementptr inbounds %struct._zval_struct, ptr %84, i32 0, i32 0
-  store i64 %83, ptr %85, align 8
-  %86 = load ptr, ptr %10, align 8
-  %87 = getelementptr inbounds %struct._zval_struct, ptr %86, i32 0, i32 1
-  store i32 4, ptr %87, align 8
-  br label %88
+84:                                               ; preds = %83
+  %85 = load ptr, ptr %5, align 8
+  store ptr %85, ptr %10, align 8
+  %86 = load i64, ptr %8, align 8
+  %87 = load ptr, ptr %10, align 8
+  %88 = getelementptr inbounds %struct._zval_struct, ptr %87, i32 0, i32 0
+  store i64 %86, ptr %88, align 8
+  %89 = load ptr, ptr %10, align 8
+  %90 = getelementptr inbounds %struct._zval_struct, ptr %89, i32 0, i32 1
+  store i32 4, ptr %90, align 8
+  br label %91
 
-88:                                               ; preds = %81
-  br label %89
+91:                                               ; preds = %84
+  br label %92
 
-89:                                               ; preds = %88, %75, %51, %32
+92:                                               ; preds = %91, %77, %52, %32
   ret void
 }
 
@@ -28558,7 +28678,7 @@ define hidden void @zim_DateTime_getMicroseconds(ptr noundef %0, ptr noundef %1)
 
 19:                                               ; preds = %8
   call void @zend_wrong_parameters_none_error()
-  br label %56
+  br label %57
 
 20:                                               ; preds = %8
   br label %21
@@ -28576,7 +28696,7 @@ define hidden void @zim_DateTime_getMicroseconds(ptr noundef %0, ptr noundef %1)
   %29 = getelementptr inbounds %struct._php_date_obj, ptr %28, i32 0, i32 0
   %30 = load ptr, ptr %29, align 8
   %31 = icmp ne ptr %30, null
-  br i1 %31, label %42, label %32
+  br i1 %31, label %43, label %32
 
 32:                                               ; preds = %21
   %33 = load ptr, ptr %5, align 8
@@ -28588,40 +28708,41 @@ define hidden void @zim_DateTime_getMicroseconds(ptr noundef %0, ptr noundef %1)
   br label %38
 
 38:                                               ; preds = %32
-  %39 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %40 = icmp ne ptr %39, null
-  call void @llvm.assume(i1 %40)
-  br label %56
+  %39 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp ne ptr %40, null
+  call void @llvm.assume(i1 %41)
+  br label %57
 
-41:                                               ; No predecessors!
-  br label %42
-
-42:                                               ; preds = %41, %21
+42:                                               ; No predecessors!
   br label %43
 
-43:                                               ; preds = %42
+43:                                               ; preds = %42, %21
   br label %44
 
 44:                                               ; preds = %43
-  %45 = load ptr, ptr %4, align 8
-  store ptr %45, ptr %7, align 8
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct._php_date_obj, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._timelib_time, ptr %48, i32 0, i32 6
-  %50 = load i64, ptr %49, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct._zval_struct, ptr %51, i32 0, i32 0
-  store i64 %50, ptr %52, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %struct._zval_struct, ptr %53, i32 0, i32 1
-  store i32 4, ptr %54, align 8
-  br label %55
+  br label %45
 
-55:                                               ; preds = %44
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %4, align 8
+  store ptr %46, ptr %7, align 8
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds %struct._php_date_obj, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct._timelib_time, ptr %49, i32 0, i32 6
+  %51 = load i64, ptr %50, align 8
+  %52 = load ptr, ptr %7, align 8
+  %53 = getelementptr inbounds %struct._zval_struct, ptr %52, i32 0, i32 0
+  store i64 %51, ptr %53, align 8
+  %54 = load ptr, ptr %7, align 8
+  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 1
+  store i32 4, ptr %55, align 8
   br label %56
 
-56:                                               ; preds = %55, %38, %19
+56:                                               ; preds = %45
+  br label %57
+
+57:                                               ; preds = %56, %38, %19
   ret void
 }
 
@@ -28667,121 +28788,124 @@ define hidden void @zif_date_diff(ptr noundef %0, ptr noundef %1) #0 {
   %30 = load ptr, ptr @date_ce_interface, align 8
   %31 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %15, ptr noundef %28, ptr noundef @.str.56, ptr noundef %6, ptr noundef %29, ptr noundef %7, ptr noundef %30, ptr noundef %11)
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %38
+  br i1 %32, label %33, label %39
 
 33:                                               ; preds = %27
   br label %34
 
 34:                                               ; preds = %33
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %36 = icmp ne ptr %35, null
-  call void @llvm.assume(i1 %36)
-  br label %105
+  %35 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  call void @llvm.assume(i1 %37)
+  br label %108
 
-37:                                               ; No predecessors!
-  br label %38
+38:                                               ; No predecessors!
+  br label %39
 
-38:                                               ; preds = %37, %27
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct._zval_struct, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = call ptr @php_date_obj_from_obj(ptr noundef %41)
-  store ptr %42, ptr %8, align 8
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct._zval_struct, ptr %43, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = call ptr @php_date_obj_from_obj(ptr noundef %45)
-  store ptr %46, ptr %9, align 8
-  %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct._php_date_obj, ptr %47, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %61, label %51
+39:                                               ; preds = %38, %27
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds %struct._zval_struct, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = call ptr @php_date_obj_from_obj(ptr noundef %42)
+  store ptr %43, ptr %8, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds %struct._zval_struct, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  %47 = call ptr @php_date_obj_from_obj(ptr noundef %46)
+  store ptr %47, ptr %9, align 8
+  %48 = load ptr, ptr %8, align 8
+  %49 = getelementptr inbounds %struct._php_date_obj, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %63, label %52
 
-51:                                               ; preds = %38
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct._zval_struct, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct._zend_object, ptr %54, i32 0, i32 2
-  %56 = load ptr, ptr %55, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %56)
-  br label %57
+52:                                               ; preds = %39
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds %struct._zval_struct, ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds %struct._zend_object, ptr %55, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %57)
+  br label %58
 
-57:                                               ; preds = %51
-  %58 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %59 = icmp ne ptr %58, null
-  call void @llvm.assume(i1 %59)
-  br label %105
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp ne ptr %60, null
+  call void @llvm.assume(i1 %61)
+  br label %108
 
-60:                                               ; No predecessors!
-  br label %61
+62:                                               ; No predecessors!
+  br label %63
 
-61:                                               ; preds = %60, %38
-  %62 = load ptr, ptr %9, align 8
-  %63 = getelementptr inbounds %struct._php_date_obj, ptr %62, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %76, label %66
+63:                                               ; preds = %62, %39
+  %64 = load ptr, ptr %9, align 8
+  %65 = getelementptr inbounds %struct._php_date_obj, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %79, label %68
 
-66:                                               ; preds = %61
-  %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds %struct._zval_struct, ptr %67, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct._zend_object, ptr %69, i32 0, i32 2
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds %struct._zval_struct, ptr %69, i32 0, i32 0
   %71 = load ptr, ptr %70, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %71)
-  br label %72
+  %72 = getelementptr inbounds %struct._zend_object, ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %73)
+  br label %74
 
-72:                                               ; preds = %66
-  %73 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %74 = icmp ne ptr %73, null
-  call void @llvm.assume(i1 %74)
-  br label %105
+74:                                               ; preds = %68
+  %75 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp ne ptr %76, null
+  call void @llvm.assume(i1 %77)
+  br label %108
 
-75:                                               ; No predecessors!
-  br label %76
+78:                                               ; No predecessors!
+  br label %79
 
-76:                                               ; preds = %75, %61
-  %77 = load ptr, ptr @date_ce_interval, align 8
-  %78 = load ptr, ptr %5, align 8
-  %79 = call ptr @php_date_instantiate(ptr noundef %77, ptr noundef %78)
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct._zval_struct, ptr %80, i32 0, i32 0
-  %82 = load ptr, ptr %81, align 8
-  %83 = call ptr @php_interval_obj_from_obj(ptr noundef %82)
-  store ptr %83, ptr %10, align 8
-  %84 = load ptr, ptr %8, align 8
-  %85 = getelementptr inbounds %struct._php_date_obj, ptr %84, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr %9, align 8
+79:                                               ; preds = %78, %63
+  %80 = load ptr, ptr @date_ce_interval, align 8
+  %81 = load ptr, ptr %5, align 8
+  %82 = call ptr @php_date_instantiate(ptr noundef %80, ptr noundef %81)
+  %83 = load ptr, ptr %5, align 8
+  %84 = getelementptr inbounds %struct._zval_struct, ptr %83, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8
+  %86 = call ptr @php_interval_obj_from_obj(ptr noundef %85)
+  store ptr %86, ptr %10, align 8
+  %87 = load ptr, ptr %8, align 8
   %88 = getelementptr inbounds %struct._php_date_obj, ptr %87, i32 0, i32 0
   %89 = load ptr, ptr %88, align 8
-  %90 = call ptr @timelib_diff(ptr noundef %86, ptr noundef %89)
-  %91 = load ptr, ptr %10, align 8
-  %92 = getelementptr inbounds %struct._php_interval_obj, ptr %91, i32 0, i32 0
-  store ptr %90, ptr %92, align 8
-  %93 = load i8, ptr %11, align 1
-  %94 = trunc i8 %93 to i1
-  br i1 %94, label %95, label %100
+  %90 = load ptr, ptr %9, align 8
+  %91 = getelementptr inbounds %struct._php_date_obj, ptr %90, i32 0, i32 0
+  %92 = load ptr, ptr %91, align 8
+  %93 = call ptr @timelib_diff(ptr noundef %89, ptr noundef %92)
+  %94 = load ptr, ptr %10, align 8
+  %95 = getelementptr inbounds %struct._php_interval_obj, ptr %94, i32 0, i32 0
+  store ptr %93, ptr %95, align 8
+  %96 = load i8, ptr %11, align 1
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %103
 
-95:                                               ; preds = %76
-  %96 = load ptr, ptr %10, align 8
-  %97 = getelementptr inbounds %struct._php_interval_obj, ptr %96, i32 0, i32 0
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct._timelib_rel_time, ptr %98, i32 0, i32 10
-  store i32 0, ptr %99, align 4
-  br label %100
+98:                                               ; preds = %79
+  %99 = load ptr, ptr %10, align 8
+  %100 = getelementptr inbounds %struct._php_interval_obj, ptr %99, i32 0, i32 0
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds %struct._timelib_rel_time, ptr %101, i32 0, i32 10
+  store i32 0, ptr %102, align 4
+  br label %103
 
-100:                                              ; preds = %95, %76
-  %101 = load ptr, ptr %10, align 8
-  %102 = getelementptr inbounds %struct._php_interval_obj, ptr %101, i32 0, i32 4
-  store i8 1, ptr %102, align 8
-  %103 = load ptr, ptr %10, align 8
-  %104 = getelementptr inbounds %struct._php_interval_obj, ptr %103, i32 0, i32 1
-  store i32 1, ptr %104, align 8
-  br label %105
+103:                                              ; preds = %98, %79
+  %104 = load ptr, ptr %10, align 8
+  %105 = getelementptr inbounds %struct._php_interval_obj, ptr %104, i32 0, i32 4
+  store i8 1, ptr %105, align 8
+  %106 = load ptr, ptr %10, align 8
+  %107 = getelementptr inbounds %struct._php_interval_obj, ptr %106, i32 0, i32 1
+  store i32 1, ptr %107, align 8
+  br label %108
 
-105:                                              ; preds = %100, %72, %57, %34
+108:                                              ; preds = %103, %74, %58, %34
   ret void
 }
 
@@ -30180,7 +30304,7 @@ define hidden void @zim_DateTimeZone___serialize(ptr noundef %0, ptr noundef %1)
 
 23:                                               ; preds = %12
   call void @zend_wrong_parameters_none_error()
-  br label %62
+  br label %63
 
 24:                                               ; preds = %12
   br label %25
@@ -30195,7 +30319,7 @@ define hidden void @zim_DateTimeZone___serialize(ptr noundef %0, ptr noundef %1)
   %31 = getelementptr inbounds %struct._php_timezone_obj, ptr %30, i32 0, i32 0
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %44, label %34
+  br i1 %33, label %45, label %34
 
 34:                                               ; preds = %25
   %35 = load ptr, ptr %5, align 8
@@ -30207,46 +30331,47 @@ define hidden void @zim_DateTimeZone___serialize(ptr noundef %0, ptr noundef %1)
   br label %40
 
 40:                                               ; preds = %34
-  %41 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %42 = icmp ne ptr %41, null
-  call void @llvm.assume(i1 %42)
-  br label %62
+  %41 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  call void @llvm.assume(i1 %43)
+  br label %63
 
-43:                                               ; No predecessors!
-  br label %44
-
-44:                                               ; preds = %43, %25
+44:                                               ; No predecessors!
   br label %45
 
-45:                                               ; preds = %44
-  %46 = call ptr @_zend_new_array_0()
-  store ptr %46, ptr %8, align 8
-  %47 = load ptr, ptr %4, align 8
-  store ptr %47, ptr %9, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 0
-  store ptr %48, ptr %50, align 8
-  %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds %struct._zval_struct, ptr %51, i32 0, i32 1
-  store i32 775, ptr %52, align 8
-  br label %53
+45:                                               ; preds = %44, %25
+  br label %46
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %7, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = load ptr, ptr %7, align 8
-  call void @date_timezone_object_to_hash(ptr noundef %57, ptr noundef %58)
+46:                                               ; preds = %45
+  %47 = call ptr @_zend_new_array_0()
+  store ptr %47, ptr %8, align 8
+  %48 = load ptr, ptr %4, align 8
+  store ptr %48, ptr %9, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds %struct._zval_struct, ptr %50, i32 0, i32 0
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds %struct._zval_struct, ptr %52, i32 0, i32 1
+  store i32 775, ptr %53, align 8
+  br label %54
+
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds %struct._zval_struct, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  store ptr %57, ptr %7, align 8
+  %58 = load ptr, ptr %6, align 8
   %59 = load ptr, ptr %7, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct._php_timezone_obj, ptr %60, i32 0, i32 3
-  call void @add_common_properties(ptr noundef %59, ptr noundef %61)
-  br label %62
+  call void @date_timezone_object_to_hash(ptr noundef %58, ptr noundef %59)
+  %60 = load ptr, ptr %7, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct._php_timezone_obj, ptr %61, i32 0, i32 3
+  call void @add_common_properties(ptr noundef %60, ptr noundef %62)
+  br label %63
 
-62:                                               ; preds = %53, %40, %23
+63:                                               ; preds = %54, %40, %23
   ret void
 }
 
@@ -30730,57 +30855,59 @@ define hidden void @zif_timezone_name_get(ptr noundef %0, ptr noundef %1) #0 {
   %25 = load ptr, ptr @date_ce_timezone, align 8
   %26 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %11, ptr noundef %24, ptr noundef @.str.46, ptr noundef %6, ptr noundef %25)
   %27 = icmp eq i32 %26, -1
-  br i1 %27, label %28, label %33
+  br i1 %27, label %28, label %34
 
 28:                                               ; preds = %23
   br label %29
 
 29:                                               ; preds = %28
-  %30 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %31 = icmp ne ptr %30, null
-  call void @llvm.assume(i1 %31)
-  br label %55
+  %30 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  call void @llvm.assume(i1 %32)
+  br label %57
 
-32:                                               ; No predecessors!
-  br label %33
+33:                                               ; No predecessors!
+  br label %34
 
-33:                                               ; preds = %32, %23
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct._zval_struct, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = call ptr @php_timezone_obj_from_obj(ptr noundef %36)
-  store ptr %37, ptr %7, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct._php_timezone_obj, ptr %38, i32 0, i32 0
-  %40 = load i8, ptr %39, align 8
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %52, label %42
+34:                                               ; preds = %33, %23
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds %struct._zval_struct, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = call ptr @php_timezone_obj_from_obj(ptr noundef %37)
+  store ptr %38, ptr %7, align 8
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds %struct._php_timezone_obj, ptr %39, i32 0, i32 0
+  %41 = load i8, ptr %40, align 8
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %54, label %43
 
-42:                                               ; preds = %33
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct._zval_struct, ptr %43, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct._zend_object, ptr %45, i32 0, i32 2
-  %47 = load ptr, ptr %46, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %47)
-  br label %48
+43:                                               ; preds = %34
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds %struct._zval_struct, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct._zend_object, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %48)
+  br label %49
 
-48:                                               ; preds = %42
-  %49 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
-  br label %55
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp ne ptr %51, null
+  call void @llvm.assume(i1 %52)
+  br label %57
 
-51:                                               ; No predecessors!
-  br label %52
+53:                                               ; No predecessors!
+  br label %54
 
-52:                                               ; preds = %51, %33
-  %53 = load ptr, ptr %7, align 8
-  %54 = load ptr, ptr %5, align 8
-  call void @php_timezone_to_string(ptr noundef %53, ptr noundef %54)
-  br label %55
+54:                                               ; preds = %53, %34
+  %55 = load ptr, ptr %7, align 8
+  %56 = load ptr, ptr %5, align 8
+  call void @php_timezone_to_string(ptr noundef %55, ptr noundef %56)
+  br label %57
 
-55:                                               ; preds = %52, %48, %29
+57:                                               ; preds = %54, %49, %29
   ret void
 }
 
@@ -34378,184 +34505,187 @@ define hidden void @zif_timezone_offset_get(ptr noundef %0, ptr noundef %1) #0 {
   %32 = load ptr, ptr @date_ce_interface, align 8
   %33 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %17, ptr noundef %30, ptr noundef @.str.45, ptr noundef %6, ptr noundef %31, ptr noundef %7, ptr noundef %32)
   %34 = icmp eq i32 %33, -1
-  br i1 %34, label %35, label %40
+  br i1 %34, label %35, label %41
 
 35:                                               ; preds = %29
   br label %36
 
 36:                                               ; preds = %35
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %38 = icmp ne ptr %37, null
-  call void @llvm.assume(i1 %38)
-  br label %138
+  %37 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %38, null
+  call void @llvm.assume(i1 %39)
+  br label %141
 
-39:                                               ; No predecessors!
-  br label %40
+40:                                               ; No predecessors!
+  br label %41
 
-40:                                               ; preds = %39, %29
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct._zval_struct, ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = call ptr @php_timezone_obj_from_obj(ptr noundef %43)
-  store ptr %44, ptr %8, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct._php_timezone_obj, ptr %45, i32 0, i32 0
-  %47 = load i8, ptr %46, align 8
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %59, label %49
+41:                                               ; preds = %40, %29
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds %struct._zval_struct, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = call ptr @php_timezone_obj_from_obj(ptr noundef %44)
+  store ptr %45, ptr %8, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = getelementptr inbounds %struct._php_timezone_obj, ptr %46, i32 0, i32 0
+  %48 = load i8, ptr %47, align 8
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %61, label %50
 
-49:                                               ; preds = %40
-  %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds %struct._zval_struct, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct._zend_object, ptr %52, i32 0, i32 2
-  %54 = load ptr, ptr %53, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %54)
-  br label %55
+50:                                               ; preds = %41
+  %51 = load ptr, ptr %6, align 8
+  %52 = getelementptr inbounds %struct._zval_struct, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds %struct._zend_object, ptr %53, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %55)
+  br label %56
 
-55:                                               ; preds = %49
-  %56 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %57 = icmp ne ptr %56, null
-  call void @llvm.assume(i1 %57)
-  br label %138
+56:                                               ; preds = %50
+  %57 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp ne ptr %58, null
+  call void @llvm.assume(i1 %59)
+  br label %141
 
-58:                                               ; No predecessors!
-  br label %59
+60:                                               ; No predecessors!
+  br label %61
 
-59:                                               ; preds = %58, %40
-  %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds %struct._zval_struct, ptr %60, i32 0, i32 0
-  %62 = load ptr, ptr %61, align 8
-  %63 = call ptr @php_date_obj_from_obj(ptr noundef %62)
-  store ptr %63, ptr %9, align 8
-  %64 = load ptr, ptr %9, align 8
-  %65 = getelementptr inbounds %struct._php_date_obj, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %78, label %68
+61:                                               ; preds = %60, %41
+  %62 = load ptr, ptr %7, align 8
+  %63 = getelementptr inbounds %struct._zval_struct, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  %65 = call ptr @php_date_obj_from_obj(ptr noundef %64)
+  store ptr %65, ptr %9, align 8
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds %struct._php_date_obj, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %81, label %70
 
-68:                                               ; preds = %59
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds %struct._zval_struct, ptr %69, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds %struct._zend_object, ptr %71, i32 0, i32 2
+70:                                               ; preds = %61
+  %71 = load ptr, ptr %7, align 8
+  %72 = getelementptr inbounds %struct._zval_struct, ptr %71, i32 0, i32 0
   %73 = load ptr, ptr %72, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %73)
-  br label %74
+  %74 = getelementptr inbounds %struct._zend_object, ptr %73, i32 0, i32 2
+  %75 = load ptr, ptr %74, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %75)
+  br label %76
 
-74:                                               ; preds = %68
-  %75 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %76 = icmp ne ptr %75, null
-  call void @llvm.assume(i1 %76)
-  br label %138
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp ne ptr %78, null
+  call void @llvm.assume(i1 %79)
+  br label %141
 
-77:                                               ; No predecessors!
-  br label %78
+80:                                               ; No predecessors!
+  br label %81
 
-78:                                               ; preds = %77, %59
-  %79 = load ptr, ptr %8, align 8
-  %80 = getelementptr inbounds %struct._php_timezone_obj, ptr %79, i32 0, i32 1
-  %81 = load i32, ptr %80, align 4
-  switch i32 %81, label %138 [
-    i32 3, label %82
-    i32 1, label %104
-    i32 2, label %117
+81:                                               ; preds = %80, %61
+  %82 = load ptr, ptr %8, align 8
+  %83 = getelementptr inbounds %struct._php_timezone_obj, ptr %82, i32 0, i32 1
+  %84 = load i32, ptr %83, align 4
+  switch i32 %84, label %141 [
+    i32 3, label %85
+    i32 1, label %107
+    i32 2, label %120
   ]
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %9, align 8
-  %84 = getelementptr inbounds %struct._php_date_obj, ptr %83, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct._timelib_time, ptr %85, i32 0, i32 12
-  %87 = load i64, ptr %86, align 8
-  %88 = load ptr, ptr %8, align 8
-  %89 = getelementptr inbounds %struct._php_timezone_obj, ptr %88, i32 0, i32 2
-  %90 = load ptr, ptr %89, align 8
-  %91 = call ptr @timelib_get_time_zone_info(i64 noundef %87, ptr noundef %90)
-  store ptr %91, ptr %10, align 8
-  br label %92
+85:                                               ; preds = %81
+  %86 = load ptr, ptr %9, align 8
+  %87 = getelementptr inbounds %struct._php_date_obj, ptr %86, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds %struct._timelib_time, ptr %88, i32 0, i32 12
+  %90 = load i64, ptr %89, align 8
+  %91 = load ptr, ptr %8, align 8
+  %92 = getelementptr inbounds %struct._php_timezone_obj, ptr %91, i32 0, i32 2
+  %93 = load ptr, ptr %92, align 8
+  %94 = call ptr @timelib_get_time_zone_info(i64 noundef %90, ptr noundef %93)
+  store ptr %94, ptr %10, align 8
+  br label %95
 
-92:                                               ; preds = %82
-  %93 = load ptr, ptr %5, align 8
-  store ptr %93, ptr %11, align 8
-  %94 = load ptr, ptr %10, align 8
-  %95 = getelementptr inbounds %struct._timelib_time_offset, ptr %94, i32 0, i32 0
-  %96 = load i32, ptr %95, align 8
-  %97 = sext i32 %96 to i64
-  %98 = load ptr, ptr %11, align 8
-  %99 = getelementptr inbounds %struct._zval_struct, ptr %98, i32 0, i32 0
-  store i64 %97, ptr %99, align 8
-  %100 = load ptr, ptr %11, align 8
-  %101 = getelementptr inbounds %struct._zval_struct, ptr %100, i32 0, i32 1
-  store i32 4, ptr %101, align 8
-  br label %102
-
-102:                                              ; preds = %92
-  %103 = load ptr, ptr %10, align 8
-  call void @timelib_time_offset_dtor(ptr noundef %103)
-  br label %138
-
-104:                                              ; preds = %78
+95:                                               ; preds = %85
+  %96 = load ptr, ptr %5, align 8
+  store ptr %96, ptr %11, align 8
+  %97 = load ptr, ptr %10, align 8
+  %98 = getelementptr inbounds %struct._timelib_time_offset, ptr %97, i32 0, i32 0
+  %99 = load i32, ptr %98, align 8
+  %100 = sext i32 %99 to i64
+  %101 = load ptr, ptr %11, align 8
+  %102 = getelementptr inbounds %struct._zval_struct, ptr %101, i32 0, i32 0
+  store i64 %100, ptr %102, align 8
+  %103 = load ptr, ptr %11, align 8
+  %104 = getelementptr inbounds %struct._zval_struct, ptr %103, i32 0, i32 1
+  store i32 4, ptr %104, align 8
   br label %105
 
-105:                                              ; preds = %104
-  br label %106
+105:                                              ; preds = %95
+  %106 = load ptr, ptr %10, align 8
+  call void @timelib_time_offset_dtor(ptr noundef %106)
+  br label %141
 
-106:                                              ; preds = %105
-  %107 = load ptr, ptr %5, align 8
-  store ptr %107, ptr %12, align 8
-  %108 = load ptr, ptr %8, align 8
-  %109 = getelementptr inbounds %struct._php_timezone_obj, ptr %108, i32 0, i32 2
-  %110 = load i64, ptr %109, align 8
-  %111 = load ptr, ptr %12, align 8
-  %112 = getelementptr inbounds %struct._zval_struct, ptr %111, i32 0, i32 0
-  store i64 %110, ptr %112, align 8
-  %113 = load ptr, ptr %12, align 8
-  %114 = getelementptr inbounds %struct._zval_struct, ptr %113, i32 0, i32 1
-  store i32 4, ptr %114, align 8
-  br label %115
+107:                                              ; preds = %81
+  br label %108
 
-115:                                              ; preds = %106
-  br label %138
+108:                                              ; preds = %107
+  br label %109
 
-116:                                              ; No predecessors!
-  br label %138
-
-117:                                              ; preds = %78
+109:                                              ; preds = %108
+  %110 = load ptr, ptr %5, align 8
+  store ptr %110, ptr %12, align 8
+  %111 = load ptr, ptr %8, align 8
+  %112 = getelementptr inbounds %struct._php_timezone_obj, ptr %111, i32 0, i32 2
+  %113 = load i64, ptr %112, align 8
+  %114 = load ptr, ptr %12, align 8
+  %115 = getelementptr inbounds %struct._zval_struct, ptr %114, i32 0, i32 0
+  store i64 %113, ptr %115, align 8
+  %116 = load ptr, ptr %12, align 8
+  %117 = getelementptr inbounds %struct._zval_struct, ptr %116, i32 0, i32 1
+  store i32 4, ptr %117, align 8
   br label %118
 
-118:                                              ; preds = %117
-  br label %119
+118:                                              ; preds = %109
+  br label %141
 
-119:                                              ; preds = %118
-  %120 = load ptr, ptr %5, align 8
-  store ptr %120, ptr %13, align 8
-  %121 = load ptr, ptr %8, align 8
-  %122 = getelementptr inbounds %struct._php_timezone_obj, ptr %121, i32 0, i32 2
-  %123 = getelementptr inbounds %struct._timelib_abbr_info, ptr %122, i32 0, i32 0
-  %124 = load i64, ptr %123, align 8
-  %125 = load ptr, ptr %8, align 8
-  %126 = getelementptr inbounds %struct._php_timezone_obj, ptr %125, i32 0, i32 2
-  %127 = getelementptr inbounds %struct._timelib_abbr_info, ptr %126, i32 0, i32 2
-  %128 = load i32, ptr %127, align 8
-  %129 = mul nsw i32 %128, 3600
-  %130 = sext i32 %129 to i64
-  %131 = add nsw i64 %124, %130
-  %132 = load ptr, ptr %13, align 8
-  %133 = getelementptr inbounds %struct._zval_struct, ptr %132, i32 0, i32 0
-  store i64 %131, ptr %133, align 8
-  %134 = load ptr, ptr %13, align 8
-  %135 = getelementptr inbounds %struct._zval_struct, ptr %134, i32 0, i32 1
-  store i32 4, ptr %135, align 8
-  br label %136
+119:                                              ; No predecessors!
+  br label %141
 
-136:                                              ; preds = %119
-  br label %138
+120:                                              ; preds = %81
+  br label %121
 
-137:                                              ; No predecessors!
-  br label %138
+121:                                              ; preds = %120
+  br label %122
 
-138:                                              ; preds = %137, %136, %116, %115, %102, %78, %74, %55, %36
+122:                                              ; preds = %121
+  %123 = load ptr, ptr %5, align 8
+  store ptr %123, ptr %13, align 8
+  %124 = load ptr, ptr %8, align 8
+  %125 = getelementptr inbounds %struct._php_timezone_obj, ptr %124, i32 0, i32 2
+  %126 = getelementptr inbounds %struct._timelib_abbr_info, ptr %125, i32 0, i32 0
+  %127 = load i64, ptr %126, align 8
+  %128 = load ptr, ptr %8, align 8
+  %129 = getelementptr inbounds %struct._php_timezone_obj, ptr %128, i32 0, i32 2
+  %130 = getelementptr inbounds %struct._timelib_abbr_info, ptr %129, i32 0, i32 2
+  %131 = load i32, ptr %130, align 8
+  %132 = mul nsw i32 %131, 3600
+  %133 = sext i32 %132 to i64
+  %134 = add nsw i64 %127, %133
+  %135 = load ptr, ptr %13, align 8
+  %136 = getelementptr inbounds %struct._zval_struct, ptr %135, i32 0, i32 0
+  store i64 %134, ptr %136, align 8
+  %137 = load ptr, ptr %13, align 8
+  %138 = getelementptr inbounds %struct._zval_struct, ptr %137, i32 0, i32 1
+  store i32 4, ptr %138, align 8
+  br label %139
+
+139:                                              ; preds = %122
+  br label %141
+
+140:                                              ; No predecessors!
+  br label %141
+
+141:                                              ; preds = %140, %139, %119, %118, %105, %81, %76, %56, %36
   ret void
 }
 
@@ -34767,1382 +34897,1384 @@ define hidden void @zif_timezone_transitions_get(ptr noundef %0, ptr noundef %1)
   %194 = load ptr, ptr @date_ce_timezone, align 8
   %195 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %180, ptr noundef %193, ptr noundef @.str.60, ptr noundef %142, ptr noundef %194, ptr noundef %147, ptr noundef %148)
   %196 = icmp eq i32 %195, -1
-  br i1 %196, label %197, label %202
+  br i1 %196, label %197, label %203
 
 197:                                              ; preds = %192
   br label %198
 
 198:                                              ; preds = %197
-  %199 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %200 = icmp ne ptr %199, null
-  call void @llvm.assume(i1 %200)
-  br label %1178
+  %199 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %200 = load ptr, ptr %199, align 8
+  %201 = icmp ne ptr %200, null
+  call void @llvm.assume(i1 %201)
+  br label %1180
 
-201:                                              ; No predecessors!
-  br label %202
+202:                                              ; No predecessors!
+  br label %203
 
-202:                                              ; preds = %201, %192
-  %203 = load ptr, ptr %142, align 8
-  %204 = getelementptr inbounds %struct._zval_struct, ptr %203, i32 0, i32 0
-  %205 = load ptr, ptr %204, align 8
-  %206 = call ptr @php_timezone_obj_from_obj(ptr noundef %205)
-  store ptr %206, ptr %144, align 8
-  %207 = load ptr, ptr %144, align 8
-  %208 = getelementptr inbounds %struct._php_timezone_obj, ptr %207, i32 0, i32 0
-  %209 = load i8, ptr %208, align 8
-  %210 = trunc i8 %209 to i1
-  br i1 %210, label %221, label %211
+203:                                              ; preds = %202, %192
+  %204 = load ptr, ptr %142, align 8
+  %205 = getelementptr inbounds %struct._zval_struct, ptr %204, i32 0, i32 0
+  %206 = load ptr, ptr %205, align 8
+  %207 = call ptr @php_timezone_obj_from_obj(ptr noundef %206)
+  store ptr %207, ptr %144, align 8
+  %208 = load ptr, ptr %144, align 8
+  %209 = getelementptr inbounds %struct._php_timezone_obj, ptr %208, i32 0, i32 0
+  %210 = load i8, ptr %209, align 8
+  %211 = trunc i8 %210 to i1
+  br i1 %211, label %223, label %212
 
-211:                                              ; preds = %202
-  %212 = load ptr, ptr %142, align 8
-  %213 = getelementptr inbounds %struct._zval_struct, ptr %212, i32 0, i32 0
-  %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds %struct._zend_object, ptr %214, i32 0, i32 2
-  %216 = load ptr, ptr %215, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %216)
-  br label %217
+212:                                              ; preds = %203
+  %213 = load ptr, ptr %142, align 8
+  %214 = getelementptr inbounds %struct._zval_struct, ptr %213, i32 0, i32 0
+  %215 = load ptr, ptr %214, align 8
+  %216 = getelementptr inbounds %struct._zend_object, ptr %215, i32 0, i32 2
+  %217 = load ptr, ptr %216, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %217)
+  br label %218
 
-217:                                              ; preds = %211
-  %218 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %219 = icmp ne ptr %218, null
-  call void @llvm.assume(i1 %219)
-  br label %1178
+218:                                              ; preds = %212
+  %219 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %220 = load ptr, ptr %219, align 8
+  %221 = icmp ne ptr %220, null
+  call void @llvm.assume(i1 %221)
+  br label %1180
 
-220:                                              ; No predecessors!
-  br label %221
+222:                                              ; No predecessors!
+  br label %223
 
-221:                                              ; preds = %220, %202
-  %222 = load ptr, ptr %144, align 8
-  %223 = getelementptr inbounds %struct._php_timezone_obj, ptr %222, i32 0, i32 1
-  %224 = load i32, ptr %223, align 4
-  %225 = icmp ne i32 %224, 3
-  br i1 %225, label %226, label %233
+223:                                              ; preds = %222, %203
+  %224 = load ptr, ptr %144, align 8
+  %225 = getelementptr inbounds %struct._php_timezone_obj, ptr %224, i32 0, i32 1
+  %226 = load i32, ptr %225, align 4
+  %227 = icmp ne i32 %226, 3
+  br i1 %227, label %228, label %235
 
-226:                                              ; preds = %221
-  br label %227
+228:                                              ; preds = %223
+  br label %229
 
-227:                                              ; preds = %226
-  br label %228
+229:                                              ; preds = %228
+  br label %230
 
-228:                                              ; preds = %227
-  %229 = load ptr, ptr %141, align 8
-  %230 = getelementptr inbounds %struct._zval_struct, ptr %229, i32 0, i32 1
-  store i32 2, ptr %230, align 8
-  br label %231
-
-231:                                              ; preds = %228
-  br label %1178
-
-232:                                              ; No predecessors!
+230:                                              ; preds = %229
+  %231 = load ptr, ptr %141, align 8
+  %232 = getelementptr inbounds %struct._zval_struct, ptr %231, i32 0, i32 1
+  store i32 2, ptr %232, align 8
   br label %233
 
-233:                                              ; preds = %232, %221
-  br label %234
+233:                                              ; preds = %230
+  br label %1180
 
-234:                                              ; preds = %233
-  %235 = call ptr @_zend_new_array_0()
-  store ptr %235, ptr %149, align 8
-  %236 = load ptr, ptr %141, align 8
-  store ptr %236, ptr %150, align 8
-  %237 = load ptr, ptr %149, align 8
-  %238 = load ptr, ptr %150, align 8
-  %239 = getelementptr inbounds %struct._zval_struct, ptr %238, i32 0, i32 0
-  store ptr %237, ptr %239, align 8
+234:                                              ; No predecessors!
+  br label %235
+
+235:                                              ; preds = %234, %223
+  br label %236
+
+236:                                              ; preds = %235
+  %237 = call ptr @_zend_new_array_0()
+  store ptr %237, ptr %149, align 8
+  %238 = load ptr, ptr %141, align 8
+  store ptr %238, ptr %150, align 8
+  %239 = load ptr, ptr %149, align 8
   %240 = load ptr, ptr %150, align 8
-  %241 = getelementptr inbounds %struct._zval_struct, ptr %240, i32 0, i32 1
-  store i32 775, ptr %241, align 8
-  br label %242
+  %241 = getelementptr inbounds %struct._zval_struct, ptr %240, i32 0, i32 0
+  store ptr %239, ptr %241, align 8
+  %242 = load ptr, ptr %150, align 8
+  %243 = getelementptr inbounds %struct._zval_struct, ptr %242, i32 0, i32 1
+  store i32 775, ptr %243, align 8
+  br label %244
 
-242:                                              ; preds = %234
-  %243 = load i64, ptr %147, align 8
-  %244 = icmp eq i64 %243, -9223372036854775808
-  br i1 %244, label %245, label %322
+244:                                              ; preds = %236
+  %245 = load i64, ptr %147, align 8
+  %246 = icmp eq i64 %245, -9223372036854775808
+  br i1 %246, label %247, label %324
 
-245:                                              ; preds = %242
-  br label %246
+247:                                              ; preds = %244
+  br label %248
 
-246:                                              ; preds = %245
-  %247 = call ptr @_zend_new_array_0()
-  store ptr %247, ptr %151, align 8
+248:                                              ; preds = %247
+  %249 = call ptr @_zend_new_array_0()
+  store ptr %249, ptr %151, align 8
   store ptr %143, ptr %152, align 8
-  %248 = load ptr, ptr %151, align 8
-  %249 = load ptr, ptr %152, align 8
-  %250 = getelementptr inbounds %struct._zval_struct, ptr %249, i32 0, i32 0
-  store ptr %248, ptr %250, align 8
+  %250 = load ptr, ptr %151, align 8
   %251 = load ptr, ptr %152, align 8
-  %252 = getelementptr inbounds %struct._zval_struct, ptr %251, i32 0, i32 1
-  store i32 775, ptr %252, align 8
-  br label %253
+  %252 = getelementptr inbounds %struct._zval_struct, ptr %251, i32 0, i32 0
+  store ptr %250, ptr %252, align 8
+  %253 = load ptr, ptr %152, align 8
+  %254 = getelementptr inbounds %struct._zval_struct, ptr %253, i32 0, i32 1
+  store i32 775, ptr %254, align 8
+  br label %255
 
-253:                                              ; preds = %246
-  %254 = load i64, ptr %147, align 8
+255:                                              ; preds = %248
+  %256 = load i64, ptr %147, align 8
   store ptr %143, ptr %92, align 8
   store ptr @.str.61, ptr %93, align 8
-  store i64 %254, ptr %94, align 8
-  %255 = load ptr, ptr %92, align 8
-  %256 = load ptr, ptr %93, align 8
-  %257 = load ptr, ptr %93, align 8
-  %258 = call i64 @strlen(ptr noundef %257) #14
-  %259 = load i64, ptr %94, align 8
-  call void @add_assoc_long_ex(ptr noundef %255, ptr noundef %256, i64 noundef %258, i64 noundef %259) #13
-  %260 = load i64, ptr %147, align 8
-  %261 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %260, i1 noundef zeroext false)
+  store i64 %256, ptr %94, align 8
+  %257 = load ptr, ptr %92, align 8
+  %258 = load ptr, ptr %93, align 8
+  %259 = load ptr, ptr %93, align 8
+  %260 = call i64 @strlen(ptr noundef %259) #14
+  %261 = load i64, ptr %94, align 8
+  call void @add_assoc_long_ex(ptr noundef %257, ptr noundef %258, i64 noundef %260, i64 noundef %261) #13
+  %262 = load i64, ptr %147, align 8
+  %263 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %262, i1 noundef zeroext false)
   store ptr %143, ptr %43, align 8
   store ptr @.str.62, ptr %44, align 8
-  store ptr %261, ptr %45, align 8
-  %262 = load ptr, ptr %43, align 8
-  %263 = load ptr, ptr %44, align 8
-  %264 = load ptr, ptr %44, align 8
-  %265 = call i64 @strlen(ptr noundef %264) #14
-  %266 = load ptr, ptr %45, align 8
-  call void @add_assoc_str_ex(ptr noundef %262, ptr noundef %263, i64 noundef %265, ptr noundef %266) #13
-  %267 = load ptr, ptr %144, align 8
-  %268 = getelementptr inbounds %struct._php_timezone_obj, ptr %267, i32 0, i32 2
-  %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds %struct._timelib_tzinfo, ptr %269, i32 0, i32 5
+  store ptr %263, ptr %45, align 8
+  %264 = load ptr, ptr %43, align 8
+  %265 = load ptr, ptr %44, align 8
+  %266 = load ptr, ptr %44, align 8
+  %267 = call i64 @strlen(ptr noundef %266) #14
+  %268 = load ptr, ptr %45, align 8
+  call void @add_assoc_str_ex(ptr noundef %264, ptr noundef %265, i64 noundef %267, ptr noundef %268) #13
+  %269 = load ptr, ptr %144, align 8
+  %270 = getelementptr inbounds %struct._php_timezone_obj, ptr %269, i32 0, i32 2
   %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds %struct._ttinfo, ptr %271, i64 0
-  %273 = getelementptr inbounds %struct._ttinfo, ptr %272, i32 0, i32 0
-  %274 = load i32, ptr %273, align 4
-  %275 = sext i32 %274 to i64
+  %272 = getelementptr inbounds %struct._timelib_tzinfo, ptr %271, i32 0, i32 5
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds %struct._ttinfo, ptr %273, i64 0
+  %275 = getelementptr inbounds %struct._ttinfo, ptr %274, i32 0, i32 0
+  %276 = load i32, ptr %275, align 4
+  %277 = sext i32 %276 to i64
   store ptr %143, ptr %95, align 8
   store ptr @.str.64, ptr %96, align 8
-  store i64 %275, ptr %97, align 8
-  %276 = load ptr, ptr %95, align 8
-  %277 = load ptr, ptr %96, align 8
-  %278 = load ptr, ptr %96, align 8
-  %279 = call i64 @strlen(ptr noundef %278) #14
-  %280 = load i64, ptr %97, align 8
-  call void @add_assoc_long_ex(ptr noundef %276, ptr noundef %277, i64 noundef %279, i64 noundef %280) #13
-  %281 = load ptr, ptr %144, align 8
-  %282 = getelementptr inbounds %struct._php_timezone_obj, ptr %281, i32 0, i32 2
-  %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds %struct._timelib_tzinfo, ptr %283, i32 0, i32 5
+  store i64 %277, ptr %97, align 8
+  %278 = load ptr, ptr %95, align 8
+  %279 = load ptr, ptr %96, align 8
+  %280 = load ptr, ptr %96, align 8
+  %281 = call i64 @strlen(ptr noundef %280) #14
+  %282 = load i64, ptr %97, align 8
+  call void @add_assoc_long_ex(ptr noundef %278, ptr noundef %279, i64 noundef %281, i64 noundef %282) #13
+  %283 = load ptr, ptr %144, align 8
+  %284 = getelementptr inbounds %struct._php_timezone_obj, ptr %283, i32 0, i32 2
   %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr inbounds %struct._ttinfo, ptr %285, i64 0
-  %287 = getelementptr inbounds %struct._ttinfo, ptr %286, i32 0, i32 1
-  %288 = load i32, ptr %287, align 4
-  %289 = icmp ne i32 %288, 0
+  %286 = getelementptr inbounds %struct._timelib_tzinfo, ptr %285, i32 0, i32 5
+  %287 = load ptr, ptr %286, align 8
+  %288 = getelementptr inbounds %struct._ttinfo, ptr %287, i64 0
+  %289 = getelementptr inbounds %struct._ttinfo, ptr %288, i32 0, i32 1
+  %290 = load i32, ptr %289, align 4
+  %291 = icmp ne i32 %290, 0
   store ptr %143, ptr %19, align 8
   store ptr @.str.65, ptr %20, align 8
-  %290 = zext i1 %289 to i8
-  store i8 %290, ptr %21, align 1
-  %291 = load ptr, ptr %19, align 8
-  %292 = load ptr, ptr %20, align 8
-  %293 = load ptr, ptr %20, align 8
-  %294 = call i64 @strlen(ptr noundef %293) #14
-  %295 = load i8, ptr %21, align 1
-  %296 = trunc i8 %295 to i1
-  call void @add_assoc_bool_ex(ptr noundef %291, ptr noundef %292, i64 noundef %294, i1 noundef zeroext %296) #13
-  %297 = load ptr, ptr %144, align 8
-  %298 = getelementptr inbounds %struct._php_timezone_obj, ptr %297, i32 0, i32 2
-  %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds %struct._timelib_tzinfo, ptr %299, i32 0, i32 6
+  %292 = zext i1 %291 to i8
+  store i8 %292, ptr %21, align 1
+  %293 = load ptr, ptr %19, align 8
+  %294 = load ptr, ptr %20, align 8
+  %295 = load ptr, ptr %20, align 8
+  %296 = call i64 @strlen(ptr noundef %295) #14
+  %297 = load i8, ptr %21, align 1
+  %298 = trunc i8 %297 to i1
+  call void @add_assoc_bool_ex(ptr noundef %293, ptr noundef %294, i64 noundef %296, i1 noundef zeroext %298) #13
+  %299 = load ptr, ptr %144, align 8
+  %300 = getelementptr inbounds %struct._php_timezone_obj, ptr %299, i32 0, i32 2
   %301 = load ptr, ptr %300, align 8
-  %302 = load ptr, ptr %144, align 8
-  %303 = getelementptr inbounds %struct._php_timezone_obj, ptr %302, i32 0, i32 2
-  %304 = load ptr, ptr %303, align 8
-  %305 = getelementptr inbounds %struct._timelib_tzinfo, ptr %304, i32 0, i32 5
+  %302 = getelementptr inbounds %struct._timelib_tzinfo, ptr %301, i32 0, i32 6
+  %303 = load ptr, ptr %302, align 8
+  %304 = load ptr, ptr %144, align 8
+  %305 = getelementptr inbounds %struct._php_timezone_obj, ptr %304, i32 0, i32 2
   %306 = load ptr, ptr %305, align 8
-  %307 = getelementptr inbounds %struct._ttinfo, ptr %306, i64 0
-  %308 = getelementptr inbounds %struct._ttinfo, ptr %307, i32 0, i32 2
-  %309 = load i32, ptr %308, align 4
-  %310 = zext i32 %309 to i64
-  %311 = getelementptr inbounds i8, ptr %301, i64 %310
+  %307 = getelementptr inbounds %struct._timelib_tzinfo, ptr %306, i32 0, i32 5
+  %308 = load ptr, ptr %307, align 8
+  %309 = getelementptr inbounds %struct._ttinfo, ptr %308, i64 0
+  %310 = getelementptr inbounds %struct._ttinfo, ptr %309, i32 0, i32 2
+  %311 = load i32, ptr %310, align 4
+  %312 = zext i32 %311 to i64
+  %313 = getelementptr inbounds i8, ptr %303, i64 %312
   store ptr %143, ptr %68, align 8
   store ptr @.str.66, ptr %69, align 8
-  store ptr %311, ptr %70, align 8
-  %312 = load ptr, ptr %68, align 8
-  %313 = load ptr, ptr %69, align 8
-  %314 = load ptr, ptr %69, align 8
-  %315 = call i64 @strlen(ptr noundef %314) #14
-  %316 = load ptr, ptr %70, align 8
-  call void @add_assoc_string_ex(ptr noundef %312, ptr noundef %313, i64 noundef %315, ptr noundef %316) #13
-  %317 = load ptr, ptr %141, align 8
-  store ptr %317, ptr %3, align 8
+  store ptr %313, ptr %70, align 8
+  %314 = load ptr, ptr %68, align 8
+  %315 = load ptr, ptr %69, align 8
+  %316 = load ptr, ptr %69, align 8
+  %317 = call i64 @strlen(ptr noundef %316) #14
+  %318 = load ptr, ptr %70, align 8
+  call void @add_assoc_string_ex(ptr noundef %314, ptr noundef %315, i64 noundef %317, ptr noundef %318) #13
+  %319 = load ptr, ptr %141, align 8
+  store ptr %319, ptr %3, align 8
   store ptr %143, ptr %4, align 8
-  %318 = load ptr, ptr %3, align 8
-  %319 = load ptr, ptr %318, align 8
-  %320 = load ptr, ptr %4, align 8
-  %321 = call ptr @zend_hash_next_index_insert(ptr noundef %319, ptr noundef %320) #13
+  %320 = load ptr, ptr %3, align 8
+  %321 = load ptr, ptr %320, align 8
+  %322 = load ptr, ptr %4, align 8
+  %323 = call ptr @zend_hash_next_index_insert(ptr noundef %321, ptr noundef %322) #13
   store i32 0, ptr %145, align 4
   store i8 1, ptr %146, align 1
-  br label %549
+  br label %551
 
-322:                                              ; preds = %242
+324:                                              ; preds = %244
   store i32 0, ptr %145, align 4
   store i8 0, ptr %146, align 1
-  %323 = load ptr, ptr %144, align 8
-  %324 = getelementptr inbounds %struct._php_timezone_obj, ptr %323, i32 0, i32 2
-  %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr inbounds %struct._timelib_tzinfo, ptr %325, i32 0, i32 2
-  %327 = getelementptr inbounds %struct.anon.17, ptr %326, i32 0, i32 3
-  %328 = load i64, ptr %327, align 8
-  %329 = icmp ugt i64 %328, 0
-  br i1 %329, label %330, label %548
+  %325 = load ptr, ptr %144, align 8
+  %326 = getelementptr inbounds %struct._php_timezone_obj, ptr %325, i32 0, i32 2
+  %327 = load ptr, ptr %326, align 8
+  %328 = getelementptr inbounds %struct._timelib_tzinfo, ptr %327, i32 0, i32 2
+  %329 = getelementptr inbounds %struct.anon.17, ptr %328, i32 0, i32 3
+  %330 = load i64, ptr %329, align 8
+  %331 = icmp ugt i64 %330, 0
+  br i1 %331, label %332, label %550
 
-330:                                              ; preds = %322
-  br label %331
+332:                                              ; preds = %324
+  br label %333
 
-331:                                              ; preds = %537, %330
-  %332 = load ptr, ptr %144, align 8
-  %333 = getelementptr inbounds %struct._php_timezone_obj, ptr %332, i32 0, i32 2
-  %334 = load ptr, ptr %333, align 8
-  %335 = getelementptr inbounds %struct._timelib_tzinfo, ptr %334, i32 0, i32 3
+333:                                              ; preds = %539, %332
+  %334 = load ptr, ptr %144, align 8
+  %335 = getelementptr inbounds %struct._php_timezone_obj, ptr %334, i32 0, i32 2
   %336 = load ptr, ptr %335, align 8
-  %337 = load i32, ptr %145, align 4
-  %338 = sext i32 %337 to i64
-  %339 = getelementptr inbounds i64, ptr %336, i64 %338
-  %340 = load i64, ptr %339, align 8
-  %341 = load i64, ptr %147, align 8
-  %342 = icmp sgt i64 %340, %341
-  br i1 %342, label %343, label %534
+  %337 = getelementptr inbounds %struct._timelib_tzinfo, ptr %336, i32 0, i32 3
+  %338 = load ptr, ptr %337, align 8
+  %339 = load i32, ptr %145, align 4
+  %340 = sext i32 %339 to i64
+  %341 = getelementptr inbounds i64, ptr %338, i64 %340
+  %342 = load i64, ptr %341, align 8
+  %343 = load i64, ptr %147, align 8
+  %344 = icmp sgt i64 %342, %343
+  br i1 %344, label %345, label %536
 
-343:                                              ; preds = %331
-  %344 = load i32, ptr %145, align 4
-  %345 = icmp sgt i32 %344, 0
-  br i1 %345, label %346, label %456
+345:                                              ; preds = %333
+  %346 = load i32, ptr %145, align 4
+  %347 = icmp sgt i32 %346, 0
+  br i1 %347, label %348, label %458
 
-346:                                              ; preds = %343
-  br label %347
+348:                                              ; preds = %345
+  br label %349
 
-347:                                              ; preds = %346
-  %348 = call ptr @_zend_new_array_0()
-  store ptr %348, ptr %153, align 8
+349:                                              ; preds = %348
+  %350 = call ptr @_zend_new_array_0()
+  store ptr %350, ptr %153, align 8
   store ptr %143, ptr %154, align 8
-  %349 = load ptr, ptr %153, align 8
-  %350 = load ptr, ptr %154, align 8
-  %351 = getelementptr inbounds %struct._zval_struct, ptr %350, i32 0, i32 0
-  store ptr %349, ptr %351, align 8
+  %351 = load ptr, ptr %153, align 8
   %352 = load ptr, ptr %154, align 8
-  %353 = getelementptr inbounds %struct._zval_struct, ptr %352, i32 0, i32 1
-  store i32 775, ptr %353, align 8
-  br label %354
+  %353 = getelementptr inbounds %struct._zval_struct, ptr %352, i32 0, i32 0
+  store ptr %351, ptr %353, align 8
+  %354 = load ptr, ptr %154, align 8
+  %355 = getelementptr inbounds %struct._zval_struct, ptr %354, i32 0, i32 1
+  store i32 775, ptr %355, align 8
+  br label %356
 
-354:                                              ; preds = %347
-  %355 = load i64, ptr %147, align 8
+356:                                              ; preds = %349
+  %357 = load i64, ptr %147, align 8
   store ptr %143, ptr %98, align 8
   store ptr @.str.61, ptr %99, align 8
-  store i64 %355, ptr %100, align 8
-  %356 = load ptr, ptr %98, align 8
-  %357 = load ptr, ptr %99, align 8
-  %358 = load ptr, ptr %99, align 8
-  %359 = call i64 @strlen(ptr noundef %358) #14
-  %360 = load i64, ptr %100, align 8
-  call void @add_assoc_long_ex(ptr noundef %356, ptr noundef %357, i64 noundef %359, i64 noundef %360) #13
-  %361 = load i64, ptr %147, align 8
-  %362 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %361, i1 noundef zeroext false)
+  store i64 %357, ptr %100, align 8
+  %358 = load ptr, ptr %98, align 8
+  %359 = load ptr, ptr %99, align 8
+  %360 = load ptr, ptr %99, align 8
+  %361 = call i64 @strlen(ptr noundef %360) #14
+  %362 = load i64, ptr %100, align 8
+  call void @add_assoc_long_ex(ptr noundef %358, ptr noundef %359, i64 noundef %361, i64 noundef %362) #13
+  %363 = load i64, ptr %147, align 8
+  %364 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %363, i1 noundef zeroext false)
   store ptr %143, ptr %46, align 8
   store ptr @.str.62, ptr %47, align 8
-  store ptr %362, ptr %48, align 8
-  %363 = load ptr, ptr %46, align 8
-  %364 = load ptr, ptr %47, align 8
-  %365 = load ptr, ptr %47, align 8
-  %366 = call i64 @strlen(ptr noundef %365) #14
-  %367 = load ptr, ptr %48, align 8
-  call void @add_assoc_str_ex(ptr noundef %363, ptr noundef %364, i64 noundef %366, ptr noundef %367) #13
-  %368 = load ptr, ptr %144, align 8
-  %369 = getelementptr inbounds %struct._php_timezone_obj, ptr %368, i32 0, i32 2
-  %370 = load ptr, ptr %369, align 8
-  %371 = getelementptr inbounds %struct._timelib_tzinfo, ptr %370, i32 0, i32 5
+  store ptr %364, ptr %48, align 8
+  %365 = load ptr, ptr %46, align 8
+  %366 = load ptr, ptr %47, align 8
+  %367 = load ptr, ptr %47, align 8
+  %368 = call i64 @strlen(ptr noundef %367) #14
+  %369 = load ptr, ptr %48, align 8
+  call void @add_assoc_str_ex(ptr noundef %365, ptr noundef %366, i64 noundef %368, ptr noundef %369) #13
+  %370 = load ptr, ptr %144, align 8
+  %371 = getelementptr inbounds %struct._php_timezone_obj, ptr %370, i32 0, i32 2
   %372 = load ptr, ptr %371, align 8
-  %373 = load ptr, ptr %144, align 8
-  %374 = getelementptr inbounds %struct._php_timezone_obj, ptr %373, i32 0, i32 2
-  %375 = load ptr, ptr %374, align 8
-  %376 = getelementptr inbounds %struct._timelib_tzinfo, ptr %375, i32 0, i32 4
+  %373 = getelementptr inbounds %struct._timelib_tzinfo, ptr %372, i32 0, i32 5
+  %374 = load ptr, ptr %373, align 8
+  %375 = load ptr, ptr %144, align 8
+  %376 = getelementptr inbounds %struct._php_timezone_obj, ptr %375, i32 0, i32 2
   %377 = load ptr, ptr %376, align 8
-  %378 = load i32, ptr %145, align 4
-  %379 = sub nsw i32 %378, 1
-  %380 = sext i32 %379 to i64
-  %381 = getelementptr inbounds i8, ptr %377, i64 %380
-  %382 = load i8, ptr %381, align 1
-  %383 = zext i8 %382 to i64
-  %384 = getelementptr inbounds %struct._ttinfo, ptr %372, i64 %383
-  %385 = getelementptr inbounds %struct._ttinfo, ptr %384, i32 0, i32 0
-  %386 = load i32, ptr %385, align 4
-  %387 = sext i32 %386 to i64
+  %378 = getelementptr inbounds %struct._timelib_tzinfo, ptr %377, i32 0, i32 4
+  %379 = load ptr, ptr %378, align 8
+  %380 = load i32, ptr %145, align 4
+  %381 = sub nsw i32 %380, 1
+  %382 = sext i32 %381 to i64
+  %383 = getelementptr inbounds i8, ptr %379, i64 %382
+  %384 = load i8, ptr %383, align 1
+  %385 = zext i8 %384 to i64
+  %386 = getelementptr inbounds %struct._ttinfo, ptr %374, i64 %385
+  %387 = getelementptr inbounds %struct._ttinfo, ptr %386, i32 0, i32 0
+  %388 = load i32, ptr %387, align 4
+  %389 = sext i32 %388 to i64
   store ptr %143, ptr %101, align 8
   store ptr @.str.64, ptr %102, align 8
-  store i64 %387, ptr %103, align 8
-  %388 = load ptr, ptr %101, align 8
-  %389 = load ptr, ptr %102, align 8
-  %390 = load ptr, ptr %102, align 8
-  %391 = call i64 @strlen(ptr noundef %390) #14
-  %392 = load i64, ptr %103, align 8
-  call void @add_assoc_long_ex(ptr noundef %388, ptr noundef %389, i64 noundef %391, i64 noundef %392) #13
-  %393 = load ptr, ptr %144, align 8
-  %394 = getelementptr inbounds %struct._php_timezone_obj, ptr %393, i32 0, i32 2
-  %395 = load ptr, ptr %394, align 8
-  %396 = getelementptr inbounds %struct._timelib_tzinfo, ptr %395, i32 0, i32 5
+  store i64 %389, ptr %103, align 8
+  %390 = load ptr, ptr %101, align 8
+  %391 = load ptr, ptr %102, align 8
+  %392 = load ptr, ptr %102, align 8
+  %393 = call i64 @strlen(ptr noundef %392) #14
+  %394 = load i64, ptr %103, align 8
+  call void @add_assoc_long_ex(ptr noundef %390, ptr noundef %391, i64 noundef %393, i64 noundef %394) #13
+  %395 = load ptr, ptr %144, align 8
+  %396 = getelementptr inbounds %struct._php_timezone_obj, ptr %395, i32 0, i32 2
   %397 = load ptr, ptr %396, align 8
-  %398 = load ptr, ptr %144, align 8
-  %399 = getelementptr inbounds %struct._php_timezone_obj, ptr %398, i32 0, i32 2
-  %400 = load ptr, ptr %399, align 8
-  %401 = getelementptr inbounds %struct._timelib_tzinfo, ptr %400, i32 0, i32 4
+  %398 = getelementptr inbounds %struct._timelib_tzinfo, ptr %397, i32 0, i32 5
+  %399 = load ptr, ptr %398, align 8
+  %400 = load ptr, ptr %144, align 8
+  %401 = getelementptr inbounds %struct._php_timezone_obj, ptr %400, i32 0, i32 2
   %402 = load ptr, ptr %401, align 8
-  %403 = load i32, ptr %145, align 4
-  %404 = sub nsw i32 %403, 1
-  %405 = sext i32 %404 to i64
-  %406 = getelementptr inbounds i8, ptr %402, i64 %405
-  %407 = load i8, ptr %406, align 1
-  %408 = zext i8 %407 to i64
-  %409 = getelementptr inbounds %struct._ttinfo, ptr %397, i64 %408
-  %410 = getelementptr inbounds %struct._ttinfo, ptr %409, i32 0, i32 1
-  %411 = load i32, ptr %410, align 4
-  %412 = icmp ne i32 %411, 0
+  %403 = getelementptr inbounds %struct._timelib_tzinfo, ptr %402, i32 0, i32 4
+  %404 = load ptr, ptr %403, align 8
+  %405 = load i32, ptr %145, align 4
+  %406 = sub nsw i32 %405, 1
+  %407 = sext i32 %406 to i64
+  %408 = getelementptr inbounds i8, ptr %404, i64 %407
+  %409 = load i8, ptr %408, align 1
+  %410 = zext i8 %409 to i64
+  %411 = getelementptr inbounds %struct._ttinfo, ptr %399, i64 %410
+  %412 = getelementptr inbounds %struct._ttinfo, ptr %411, i32 0, i32 1
+  %413 = load i32, ptr %412, align 4
+  %414 = icmp ne i32 %413, 0
   store ptr %143, ptr %22, align 8
   store ptr @.str.65, ptr %23, align 8
-  %413 = zext i1 %412 to i8
-  store i8 %413, ptr %24, align 1
-  %414 = load ptr, ptr %22, align 8
-  %415 = load ptr, ptr %23, align 8
-  %416 = load ptr, ptr %23, align 8
-  %417 = call i64 @strlen(ptr noundef %416) #14
-  %418 = load i8, ptr %24, align 1
-  %419 = trunc i8 %418 to i1
-  call void @add_assoc_bool_ex(ptr noundef %414, ptr noundef %415, i64 noundef %417, i1 noundef zeroext %419) #13
-  %420 = load ptr, ptr %144, align 8
-  %421 = getelementptr inbounds %struct._php_timezone_obj, ptr %420, i32 0, i32 2
-  %422 = load ptr, ptr %421, align 8
-  %423 = getelementptr inbounds %struct._timelib_tzinfo, ptr %422, i32 0, i32 6
+  %415 = zext i1 %414 to i8
+  store i8 %415, ptr %24, align 1
+  %416 = load ptr, ptr %22, align 8
+  %417 = load ptr, ptr %23, align 8
+  %418 = load ptr, ptr %23, align 8
+  %419 = call i64 @strlen(ptr noundef %418) #14
+  %420 = load i8, ptr %24, align 1
+  %421 = trunc i8 %420 to i1
+  call void @add_assoc_bool_ex(ptr noundef %416, ptr noundef %417, i64 noundef %419, i1 noundef zeroext %421) #13
+  %422 = load ptr, ptr %144, align 8
+  %423 = getelementptr inbounds %struct._php_timezone_obj, ptr %422, i32 0, i32 2
   %424 = load ptr, ptr %423, align 8
-  %425 = load ptr, ptr %144, align 8
-  %426 = getelementptr inbounds %struct._php_timezone_obj, ptr %425, i32 0, i32 2
-  %427 = load ptr, ptr %426, align 8
-  %428 = getelementptr inbounds %struct._timelib_tzinfo, ptr %427, i32 0, i32 5
+  %425 = getelementptr inbounds %struct._timelib_tzinfo, ptr %424, i32 0, i32 6
+  %426 = load ptr, ptr %425, align 8
+  %427 = load ptr, ptr %144, align 8
+  %428 = getelementptr inbounds %struct._php_timezone_obj, ptr %427, i32 0, i32 2
   %429 = load ptr, ptr %428, align 8
-  %430 = load ptr, ptr %144, align 8
-  %431 = getelementptr inbounds %struct._php_timezone_obj, ptr %430, i32 0, i32 2
-  %432 = load ptr, ptr %431, align 8
-  %433 = getelementptr inbounds %struct._timelib_tzinfo, ptr %432, i32 0, i32 4
+  %430 = getelementptr inbounds %struct._timelib_tzinfo, ptr %429, i32 0, i32 5
+  %431 = load ptr, ptr %430, align 8
+  %432 = load ptr, ptr %144, align 8
+  %433 = getelementptr inbounds %struct._php_timezone_obj, ptr %432, i32 0, i32 2
   %434 = load ptr, ptr %433, align 8
-  %435 = load i32, ptr %145, align 4
-  %436 = sub nsw i32 %435, 1
-  %437 = sext i32 %436 to i64
-  %438 = getelementptr inbounds i8, ptr %434, i64 %437
-  %439 = load i8, ptr %438, align 1
-  %440 = zext i8 %439 to i64
-  %441 = getelementptr inbounds %struct._ttinfo, ptr %429, i64 %440
-  %442 = getelementptr inbounds %struct._ttinfo, ptr %441, i32 0, i32 2
-  %443 = load i32, ptr %442, align 4
-  %444 = zext i32 %443 to i64
-  %445 = getelementptr inbounds i8, ptr %424, i64 %444
+  %435 = getelementptr inbounds %struct._timelib_tzinfo, ptr %434, i32 0, i32 4
+  %436 = load ptr, ptr %435, align 8
+  %437 = load i32, ptr %145, align 4
+  %438 = sub nsw i32 %437, 1
+  %439 = sext i32 %438 to i64
+  %440 = getelementptr inbounds i8, ptr %436, i64 %439
+  %441 = load i8, ptr %440, align 1
+  %442 = zext i8 %441 to i64
+  %443 = getelementptr inbounds %struct._ttinfo, ptr %431, i64 %442
+  %444 = getelementptr inbounds %struct._ttinfo, ptr %443, i32 0, i32 2
+  %445 = load i32, ptr %444, align 4
+  %446 = zext i32 %445 to i64
+  %447 = getelementptr inbounds i8, ptr %426, i64 %446
   store ptr %143, ptr %71, align 8
   store ptr @.str.66, ptr %72, align 8
-  store ptr %445, ptr %73, align 8
-  %446 = load ptr, ptr %71, align 8
-  %447 = load ptr, ptr %72, align 8
-  %448 = load ptr, ptr %72, align 8
-  %449 = call i64 @strlen(ptr noundef %448) #14
-  %450 = load ptr, ptr %73, align 8
-  call void @add_assoc_string_ex(ptr noundef %446, ptr noundef %447, i64 noundef %449, ptr noundef %450) #13
-  %451 = load ptr, ptr %141, align 8
-  store ptr %451, ptr %5, align 8
+  store ptr %447, ptr %73, align 8
+  %448 = load ptr, ptr %71, align 8
+  %449 = load ptr, ptr %72, align 8
+  %450 = load ptr, ptr %72, align 8
+  %451 = call i64 @strlen(ptr noundef %450) #14
+  %452 = load ptr, ptr %73, align 8
+  call void @add_assoc_string_ex(ptr noundef %448, ptr noundef %449, i64 noundef %451, ptr noundef %452) #13
+  %453 = load ptr, ptr %141, align 8
+  store ptr %453, ptr %5, align 8
   store ptr %143, ptr %6, align 8
-  %452 = load ptr, ptr %5, align 8
-  %453 = load ptr, ptr %452, align 8
-  %454 = load ptr, ptr %6, align 8
-  %455 = call ptr @zend_hash_next_index_insert(ptr noundef %453, ptr noundef %454) #13
-  br label %533
+  %454 = load ptr, ptr %5, align 8
+  %455 = load ptr, ptr %454, align 8
+  %456 = load ptr, ptr %6, align 8
+  %457 = call ptr @zend_hash_next_index_insert(ptr noundef %455, ptr noundef %456) #13
+  br label %535
 
-456:                                              ; preds = %343
-  br label %457
+458:                                              ; preds = %345
+  br label %459
 
-457:                                              ; preds = %456
-  %458 = call ptr @_zend_new_array_0()
-  store ptr %458, ptr %155, align 8
+459:                                              ; preds = %458
+  %460 = call ptr @_zend_new_array_0()
+  store ptr %460, ptr %155, align 8
   store ptr %143, ptr %156, align 8
-  %459 = load ptr, ptr %155, align 8
-  %460 = load ptr, ptr %156, align 8
-  %461 = getelementptr inbounds %struct._zval_struct, ptr %460, i32 0, i32 0
-  store ptr %459, ptr %461, align 8
+  %461 = load ptr, ptr %155, align 8
   %462 = load ptr, ptr %156, align 8
-  %463 = getelementptr inbounds %struct._zval_struct, ptr %462, i32 0, i32 1
-  store i32 775, ptr %463, align 8
-  br label %464
+  %463 = getelementptr inbounds %struct._zval_struct, ptr %462, i32 0, i32 0
+  store ptr %461, ptr %463, align 8
+  %464 = load ptr, ptr %156, align 8
+  %465 = getelementptr inbounds %struct._zval_struct, ptr %464, i32 0, i32 1
+  store i32 775, ptr %465, align 8
+  br label %466
 
-464:                                              ; preds = %457
-  %465 = load i64, ptr %147, align 8
+466:                                              ; preds = %459
+  %467 = load i64, ptr %147, align 8
   store ptr %143, ptr %104, align 8
   store ptr @.str.61, ptr %105, align 8
-  store i64 %465, ptr %106, align 8
-  %466 = load ptr, ptr %104, align 8
-  %467 = load ptr, ptr %105, align 8
-  %468 = load ptr, ptr %105, align 8
-  %469 = call i64 @strlen(ptr noundef %468) #14
-  %470 = load i64, ptr %106, align 8
-  call void @add_assoc_long_ex(ptr noundef %466, ptr noundef %467, i64 noundef %469, i64 noundef %470) #13
-  %471 = load i64, ptr %147, align 8
-  %472 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %471, i1 noundef zeroext false)
+  store i64 %467, ptr %106, align 8
+  %468 = load ptr, ptr %104, align 8
+  %469 = load ptr, ptr %105, align 8
+  %470 = load ptr, ptr %105, align 8
+  %471 = call i64 @strlen(ptr noundef %470) #14
+  %472 = load i64, ptr %106, align 8
+  call void @add_assoc_long_ex(ptr noundef %468, ptr noundef %469, i64 noundef %471, i64 noundef %472) #13
+  %473 = load i64, ptr %147, align 8
+  %474 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %473, i1 noundef zeroext false)
   store ptr %143, ptr %49, align 8
   store ptr @.str.62, ptr %50, align 8
-  store ptr %472, ptr %51, align 8
-  %473 = load ptr, ptr %49, align 8
-  %474 = load ptr, ptr %50, align 8
-  %475 = load ptr, ptr %50, align 8
-  %476 = call i64 @strlen(ptr noundef %475) #14
-  %477 = load ptr, ptr %51, align 8
-  call void @add_assoc_str_ex(ptr noundef %473, ptr noundef %474, i64 noundef %476, ptr noundef %477) #13
-  %478 = load ptr, ptr %144, align 8
-  %479 = getelementptr inbounds %struct._php_timezone_obj, ptr %478, i32 0, i32 2
-  %480 = load ptr, ptr %479, align 8
-  %481 = getelementptr inbounds %struct._timelib_tzinfo, ptr %480, i32 0, i32 5
+  store ptr %474, ptr %51, align 8
+  %475 = load ptr, ptr %49, align 8
+  %476 = load ptr, ptr %50, align 8
+  %477 = load ptr, ptr %50, align 8
+  %478 = call i64 @strlen(ptr noundef %477) #14
+  %479 = load ptr, ptr %51, align 8
+  call void @add_assoc_str_ex(ptr noundef %475, ptr noundef %476, i64 noundef %478, ptr noundef %479) #13
+  %480 = load ptr, ptr %144, align 8
+  %481 = getelementptr inbounds %struct._php_timezone_obj, ptr %480, i32 0, i32 2
   %482 = load ptr, ptr %481, align 8
-  %483 = getelementptr inbounds %struct._ttinfo, ptr %482, i64 0
-  %484 = getelementptr inbounds %struct._ttinfo, ptr %483, i32 0, i32 0
-  %485 = load i32, ptr %484, align 4
-  %486 = sext i32 %485 to i64
+  %483 = getelementptr inbounds %struct._timelib_tzinfo, ptr %482, i32 0, i32 5
+  %484 = load ptr, ptr %483, align 8
+  %485 = getelementptr inbounds %struct._ttinfo, ptr %484, i64 0
+  %486 = getelementptr inbounds %struct._ttinfo, ptr %485, i32 0, i32 0
+  %487 = load i32, ptr %486, align 4
+  %488 = sext i32 %487 to i64
   store ptr %143, ptr %107, align 8
   store ptr @.str.64, ptr %108, align 8
-  store i64 %486, ptr %109, align 8
-  %487 = load ptr, ptr %107, align 8
-  %488 = load ptr, ptr %108, align 8
-  %489 = load ptr, ptr %108, align 8
-  %490 = call i64 @strlen(ptr noundef %489) #14
-  %491 = load i64, ptr %109, align 8
-  call void @add_assoc_long_ex(ptr noundef %487, ptr noundef %488, i64 noundef %490, i64 noundef %491) #13
-  %492 = load ptr, ptr %144, align 8
-  %493 = getelementptr inbounds %struct._php_timezone_obj, ptr %492, i32 0, i32 2
-  %494 = load ptr, ptr %493, align 8
-  %495 = getelementptr inbounds %struct._timelib_tzinfo, ptr %494, i32 0, i32 5
+  store i64 %488, ptr %109, align 8
+  %489 = load ptr, ptr %107, align 8
+  %490 = load ptr, ptr %108, align 8
+  %491 = load ptr, ptr %108, align 8
+  %492 = call i64 @strlen(ptr noundef %491) #14
+  %493 = load i64, ptr %109, align 8
+  call void @add_assoc_long_ex(ptr noundef %489, ptr noundef %490, i64 noundef %492, i64 noundef %493) #13
+  %494 = load ptr, ptr %144, align 8
+  %495 = getelementptr inbounds %struct._php_timezone_obj, ptr %494, i32 0, i32 2
   %496 = load ptr, ptr %495, align 8
-  %497 = getelementptr inbounds %struct._ttinfo, ptr %496, i64 0
-  %498 = getelementptr inbounds %struct._ttinfo, ptr %497, i32 0, i32 1
-  %499 = load i32, ptr %498, align 4
-  %500 = icmp ne i32 %499, 0
+  %497 = getelementptr inbounds %struct._timelib_tzinfo, ptr %496, i32 0, i32 5
+  %498 = load ptr, ptr %497, align 8
+  %499 = getelementptr inbounds %struct._ttinfo, ptr %498, i64 0
+  %500 = getelementptr inbounds %struct._ttinfo, ptr %499, i32 0, i32 1
+  %501 = load i32, ptr %500, align 4
+  %502 = icmp ne i32 %501, 0
   store ptr %143, ptr %25, align 8
   store ptr @.str.65, ptr %26, align 8
-  %501 = zext i1 %500 to i8
-  store i8 %501, ptr %27, align 1
-  %502 = load ptr, ptr %25, align 8
-  %503 = load ptr, ptr %26, align 8
-  %504 = load ptr, ptr %26, align 8
-  %505 = call i64 @strlen(ptr noundef %504) #14
-  %506 = load i8, ptr %27, align 1
-  %507 = trunc i8 %506 to i1
-  call void @add_assoc_bool_ex(ptr noundef %502, ptr noundef %503, i64 noundef %505, i1 noundef zeroext %507) #13
-  %508 = load ptr, ptr %144, align 8
-  %509 = getelementptr inbounds %struct._php_timezone_obj, ptr %508, i32 0, i32 2
-  %510 = load ptr, ptr %509, align 8
-  %511 = getelementptr inbounds %struct._timelib_tzinfo, ptr %510, i32 0, i32 6
+  %503 = zext i1 %502 to i8
+  store i8 %503, ptr %27, align 1
+  %504 = load ptr, ptr %25, align 8
+  %505 = load ptr, ptr %26, align 8
+  %506 = load ptr, ptr %26, align 8
+  %507 = call i64 @strlen(ptr noundef %506) #14
+  %508 = load i8, ptr %27, align 1
+  %509 = trunc i8 %508 to i1
+  call void @add_assoc_bool_ex(ptr noundef %504, ptr noundef %505, i64 noundef %507, i1 noundef zeroext %509) #13
+  %510 = load ptr, ptr %144, align 8
+  %511 = getelementptr inbounds %struct._php_timezone_obj, ptr %510, i32 0, i32 2
   %512 = load ptr, ptr %511, align 8
-  %513 = load ptr, ptr %144, align 8
-  %514 = getelementptr inbounds %struct._php_timezone_obj, ptr %513, i32 0, i32 2
-  %515 = load ptr, ptr %514, align 8
-  %516 = getelementptr inbounds %struct._timelib_tzinfo, ptr %515, i32 0, i32 5
+  %513 = getelementptr inbounds %struct._timelib_tzinfo, ptr %512, i32 0, i32 6
+  %514 = load ptr, ptr %513, align 8
+  %515 = load ptr, ptr %144, align 8
+  %516 = getelementptr inbounds %struct._php_timezone_obj, ptr %515, i32 0, i32 2
   %517 = load ptr, ptr %516, align 8
-  %518 = getelementptr inbounds %struct._ttinfo, ptr %517, i64 0
-  %519 = getelementptr inbounds %struct._ttinfo, ptr %518, i32 0, i32 2
-  %520 = load i32, ptr %519, align 4
-  %521 = zext i32 %520 to i64
-  %522 = getelementptr inbounds i8, ptr %512, i64 %521
+  %518 = getelementptr inbounds %struct._timelib_tzinfo, ptr %517, i32 0, i32 5
+  %519 = load ptr, ptr %518, align 8
+  %520 = getelementptr inbounds %struct._ttinfo, ptr %519, i64 0
+  %521 = getelementptr inbounds %struct._ttinfo, ptr %520, i32 0, i32 2
+  %522 = load i32, ptr %521, align 4
+  %523 = zext i32 %522 to i64
+  %524 = getelementptr inbounds i8, ptr %514, i64 %523
   store ptr %143, ptr %74, align 8
   store ptr @.str.66, ptr %75, align 8
-  store ptr %522, ptr %76, align 8
-  %523 = load ptr, ptr %74, align 8
-  %524 = load ptr, ptr %75, align 8
-  %525 = load ptr, ptr %75, align 8
-  %526 = call i64 @strlen(ptr noundef %525) #14
-  %527 = load ptr, ptr %76, align 8
-  call void @add_assoc_string_ex(ptr noundef %523, ptr noundef %524, i64 noundef %526, ptr noundef %527) #13
-  %528 = load ptr, ptr %141, align 8
-  store ptr %528, ptr %7, align 8
+  store ptr %524, ptr %76, align 8
+  %525 = load ptr, ptr %74, align 8
+  %526 = load ptr, ptr %75, align 8
+  %527 = load ptr, ptr %75, align 8
+  %528 = call i64 @strlen(ptr noundef %527) #14
+  %529 = load ptr, ptr %76, align 8
+  call void @add_assoc_string_ex(ptr noundef %525, ptr noundef %526, i64 noundef %528, ptr noundef %529) #13
+  %530 = load ptr, ptr %141, align 8
+  store ptr %530, ptr %7, align 8
   store ptr %143, ptr %8, align 8
-  %529 = load ptr, ptr %7, align 8
-  %530 = load ptr, ptr %529, align 8
-  %531 = load ptr, ptr %8, align 8
-  %532 = call ptr @zend_hash_next_index_insert(ptr noundef %530, ptr noundef %531) #13
-  br label %533
+  %531 = load ptr, ptr %7, align 8
+  %532 = load ptr, ptr %531, align 8
+  %533 = load ptr, ptr %8, align 8
+  %534 = call ptr @zend_hash_next_index_insert(ptr noundef %532, ptr noundef %533) #13
+  br label %535
 
-533:                                              ; preds = %464, %354
+535:                                              ; preds = %466, %356
   store i8 1, ptr %146, align 1
-  br label %547
-
-534:                                              ; preds = %331
-  %535 = load i32, ptr %145, align 4
-  %536 = add nsw i32 %535, 1
-  store i32 %536, ptr %145, align 4
-  br label %537
-
-537:                                              ; preds = %534
-  %538 = load i32, ptr %145, align 4
-  %539 = sext i32 %538 to i64
-  %540 = load ptr, ptr %144, align 8
-  %541 = getelementptr inbounds %struct._php_timezone_obj, ptr %540, i32 0, i32 2
-  %542 = load ptr, ptr %541, align 8
-  %543 = getelementptr inbounds %struct._timelib_tzinfo, ptr %542, i32 0, i32 2
-  %544 = getelementptr inbounds %struct.anon.17, ptr %543, i32 0, i32 3
-  %545 = load i64, ptr %544, align 8
-  %546 = icmp ult i64 %539, %545
-  br i1 %546, label %331, label %547
-
-547:                                              ; preds = %537, %533
-  br label %548
-
-548:                                              ; preds = %547, %322
   br label %549
 
-549:                                              ; preds = %548, %253
-  %550 = load i8, ptr %146, align 1
-  %551 = trunc i8 %550 to i1
-  br i1 %551, label %838, label %552
+536:                                              ; preds = %333
+  %537 = load i32, ptr %145, align 4
+  %538 = add nsw i32 %537, 1
+  store i32 %538, ptr %145, align 4
+  br label %539
 
-552:                                              ; preds = %549
-  %553 = load ptr, ptr %144, align 8
-  %554 = getelementptr inbounds %struct._php_timezone_obj, ptr %553, i32 0, i32 2
-  %555 = load ptr, ptr %554, align 8
-  %556 = getelementptr inbounds %struct._timelib_tzinfo, ptr %555, i32 0, i32 2
-  %557 = getelementptr inbounds %struct.anon.17, ptr %556, i32 0, i32 3
-  %558 = load i64, ptr %557, align 8
-  %559 = icmp ugt i64 %558, 0
-  br i1 %559, label %560, label %760
+539:                                              ; preds = %536
+  %540 = load i32, ptr %145, align 4
+  %541 = sext i32 %540 to i64
+  %542 = load ptr, ptr %144, align 8
+  %543 = getelementptr inbounds %struct._php_timezone_obj, ptr %542, i32 0, i32 2
+  %544 = load ptr, ptr %543, align 8
+  %545 = getelementptr inbounds %struct._timelib_tzinfo, ptr %544, i32 0, i32 2
+  %546 = getelementptr inbounds %struct.anon.17, ptr %545, i32 0, i32 3
+  %547 = load i64, ptr %546, align 8
+  %548 = icmp ult i64 %541, %547
+  br i1 %548, label %333, label %549
 
-560:                                              ; preds = %552
-  %561 = load ptr, ptr %144, align 8
-  %562 = getelementptr inbounds %struct._php_timezone_obj, ptr %561, i32 0, i32 2
-  %563 = load ptr, ptr %562, align 8
-  %564 = getelementptr inbounds %struct._timelib_tzinfo, ptr %563, i32 0, i32 11
+549:                                              ; preds = %539, %535
+  br label %550
+
+550:                                              ; preds = %549, %324
+  br label %551
+
+551:                                              ; preds = %550, %255
+  %552 = load i8, ptr %146, align 1
+  %553 = trunc i8 %552 to i1
+  br i1 %553, label %840, label %554
+
+554:                                              ; preds = %551
+  %555 = load ptr, ptr %144, align 8
+  %556 = getelementptr inbounds %struct._php_timezone_obj, ptr %555, i32 0, i32 2
+  %557 = load ptr, ptr %556, align 8
+  %558 = getelementptr inbounds %struct._timelib_tzinfo, ptr %557, i32 0, i32 2
+  %559 = getelementptr inbounds %struct.anon.17, ptr %558, i32 0, i32 3
+  %560 = load i64, ptr %559, align 8
+  %561 = icmp ugt i64 %560, 0
+  br i1 %561, label %562, label %762
+
+562:                                              ; preds = %554
+  %563 = load ptr, ptr %144, align 8
+  %564 = getelementptr inbounds %struct._php_timezone_obj, ptr %563, i32 0, i32 2
   %565 = load ptr, ptr %564, align 8
-  %566 = icmp ne ptr %565, null
-  br i1 %566, label %567, label %637
+  %566 = getelementptr inbounds %struct._timelib_tzinfo, ptr %565, i32 0, i32 11
+  %567 = load ptr, ptr %566, align 8
+  %568 = icmp ne ptr %567, null
+  br i1 %568, label %569, label %639
 
-567:                                              ; preds = %560
-  %568 = load ptr, ptr %144, align 8
-  %569 = getelementptr inbounds %struct._php_timezone_obj, ptr %568, i32 0, i32 2
-  %570 = load ptr, ptr %569, align 8
-  %571 = getelementptr inbounds %struct._timelib_tzinfo, ptr %570, i32 0, i32 11
+569:                                              ; preds = %562
+  %570 = load ptr, ptr %144, align 8
+  %571 = getelementptr inbounds %struct._php_timezone_obj, ptr %570, i32 0, i32 2
   %572 = load ptr, ptr %571, align 8
-  %573 = getelementptr inbounds %struct._timelib_posix_str, ptr %572, i32 0, i32 5
+  %573 = getelementptr inbounds %struct._timelib_tzinfo, ptr %572, i32 0, i32 11
   %574 = load ptr, ptr %573, align 8
-  %575 = icmp ne ptr %574, null
-  br i1 %575, label %576, label %637
+  %575 = getelementptr inbounds %struct._timelib_posix_str, ptr %574, i32 0, i32 5
+  %576 = load ptr, ptr %575, align 8
+  %577 = icmp ne ptr %576, null
+  br i1 %577, label %578, label %639
 
-576:                                              ; preds = %567
-  %577 = load i64, ptr %147, align 8
-  %578 = load ptr, ptr %144, align 8
-  %579 = getelementptr inbounds %struct._php_timezone_obj, ptr %578, i32 0, i32 2
-  %580 = load ptr, ptr %579, align 8
-  %581 = call ptr @timelib_get_time_zone_info(i64 noundef %577, ptr noundef %580)
-  store ptr %581, ptr %157, align 8
-  br label %582
+578:                                              ; preds = %569
+  %579 = load i64, ptr %147, align 8
+  %580 = load ptr, ptr %144, align 8
+  %581 = getelementptr inbounds %struct._php_timezone_obj, ptr %580, i32 0, i32 2
+  %582 = load ptr, ptr %581, align 8
+  %583 = call ptr @timelib_get_time_zone_info(i64 noundef %579, ptr noundef %582)
+  store ptr %583, ptr %157, align 8
+  br label %584
 
-582:                                              ; preds = %576
-  %583 = call ptr @_zend_new_array_0()
-  store ptr %583, ptr %158, align 8
+584:                                              ; preds = %578
+  %585 = call ptr @_zend_new_array_0()
+  store ptr %585, ptr %158, align 8
   store ptr %143, ptr %159, align 8
-  %584 = load ptr, ptr %158, align 8
-  %585 = load ptr, ptr %159, align 8
-  %586 = getelementptr inbounds %struct._zval_struct, ptr %585, i32 0, i32 0
-  store ptr %584, ptr %586, align 8
+  %586 = load ptr, ptr %158, align 8
   %587 = load ptr, ptr %159, align 8
-  %588 = getelementptr inbounds %struct._zval_struct, ptr %587, i32 0, i32 1
-  store i32 775, ptr %588, align 8
-  br label %589
+  %588 = getelementptr inbounds %struct._zval_struct, ptr %587, i32 0, i32 0
+  store ptr %586, ptr %588, align 8
+  %589 = load ptr, ptr %159, align 8
+  %590 = getelementptr inbounds %struct._zval_struct, ptr %589, i32 0, i32 1
+  store i32 775, ptr %590, align 8
+  br label %591
 
-589:                                              ; preds = %582
-  %590 = load i64, ptr %147, align 8
+591:                                              ; preds = %584
+  %592 = load i64, ptr %147, align 8
   store ptr %143, ptr %110, align 8
   store ptr @.str.61, ptr %111, align 8
-  store i64 %590, ptr %112, align 8
-  %591 = load ptr, ptr %110, align 8
-  %592 = load ptr, ptr %111, align 8
-  %593 = load ptr, ptr %111, align 8
-  %594 = call i64 @strlen(ptr noundef %593) #14
-  %595 = load i64, ptr %112, align 8
-  call void @add_assoc_long_ex(ptr noundef %591, ptr noundef %592, i64 noundef %594, i64 noundef %595) #13
-  %596 = load i64, ptr %147, align 8
-  %597 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %596, i1 noundef zeroext false)
+  store i64 %592, ptr %112, align 8
+  %593 = load ptr, ptr %110, align 8
+  %594 = load ptr, ptr %111, align 8
+  %595 = load ptr, ptr %111, align 8
+  %596 = call i64 @strlen(ptr noundef %595) #14
+  %597 = load i64, ptr %112, align 8
+  call void @add_assoc_long_ex(ptr noundef %593, ptr noundef %594, i64 noundef %596, i64 noundef %597) #13
+  %598 = load i64, ptr %147, align 8
+  %599 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %598, i1 noundef zeroext false)
   store ptr %143, ptr %52, align 8
   store ptr @.str.62, ptr %53, align 8
-  store ptr %597, ptr %54, align 8
-  %598 = load ptr, ptr %52, align 8
-  %599 = load ptr, ptr %53, align 8
-  %600 = load ptr, ptr %53, align 8
-  %601 = call i64 @strlen(ptr noundef %600) #14
-  %602 = load ptr, ptr %54, align 8
-  call void @add_assoc_str_ex(ptr noundef %598, ptr noundef %599, i64 noundef %601, ptr noundef %602) #13
-  %603 = load ptr, ptr %157, align 8
-  %604 = getelementptr inbounds %struct._timelib_time_offset, ptr %603, i32 0, i32 0
-  %605 = load i32, ptr %604, align 8
-  %606 = sext i32 %605 to i64
+  store ptr %599, ptr %54, align 8
+  %600 = load ptr, ptr %52, align 8
+  %601 = load ptr, ptr %53, align 8
+  %602 = load ptr, ptr %53, align 8
+  %603 = call i64 @strlen(ptr noundef %602) #14
+  %604 = load ptr, ptr %54, align 8
+  call void @add_assoc_str_ex(ptr noundef %600, ptr noundef %601, i64 noundef %603, ptr noundef %604) #13
+  %605 = load ptr, ptr %157, align 8
+  %606 = getelementptr inbounds %struct._timelib_time_offset, ptr %605, i32 0, i32 0
+  %607 = load i32, ptr %606, align 8
+  %608 = sext i32 %607 to i64
   store ptr %143, ptr %113, align 8
   store ptr @.str.64, ptr %114, align 8
-  store i64 %606, ptr %115, align 8
-  %607 = load ptr, ptr %113, align 8
-  %608 = load ptr, ptr %114, align 8
-  %609 = load ptr, ptr %114, align 8
-  %610 = call i64 @strlen(ptr noundef %609) #14
-  %611 = load i64, ptr %115, align 8
-  call void @add_assoc_long_ex(ptr noundef %607, ptr noundef %608, i64 noundef %610, i64 noundef %611) #13
-  %612 = load ptr, ptr %157, align 8
-  %613 = getelementptr inbounds %struct._timelib_time_offset, ptr %612, i32 0, i32 2
-  %614 = load i32, ptr %613, align 8
-  %615 = icmp ne i32 %614, 0
+  store i64 %608, ptr %115, align 8
+  %609 = load ptr, ptr %113, align 8
+  %610 = load ptr, ptr %114, align 8
+  %611 = load ptr, ptr %114, align 8
+  %612 = call i64 @strlen(ptr noundef %611) #14
+  %613 = load i64, ptr %115, align 8
+  call void @add_assoc_long_ex(ptr noundef %609, ptr noundef %610, i64 noundef %612, i64 noundef %613) #13
+  %614 = load ptr, ptr %157, align 8
+  %615 = getelementptr inbounds %struct._timelib_time_offset, ptr %614, i32 0, i32 2
+  %616 = load i32, ptr %615, align 8
+  %617 = icmp ne i32 %616, 0
   store ptr %143, ptr %28, align 8
   store ptr @.str.65, ptr %29, align 8
-  %616 = zext i1 %615 to i8
-  store i8 %616, ptr %30, align 1
-  %617 = load ptr, ptr %28, align 8
-  %618 = load ptr, ptr %29, align 8
-  %619 = load ptr, ptr %29, align 8
-  %620 = call i64 @strlen(ptr noundef %619) #14
-  %621 = load i8, ptr %30, align 1
-  %622 = trunc i8 %621 to i1
-  call void @add_assoc_bool_ex(ptr noundef %617, ptr noundef %618, i64 noundef %620, i1 noundef zeroext %622) #13
-  %623 = load ptr, ptr %157, align 8
-  %624 = getelementptr inbounds %struct._timelib_time_offset, ptr %623, i32 0, i32 3
-  %625 = load ptr, ptr %624, align 8
+  %618 = zext i1 %617 to i8
+  store i8 %618, ptr %30, align 1
+  %619 = load ptr, ptr %28, align 8
+  %620 = load ptr, ptr %29, align 8
+  %621 = load ptr, ptr %29, align 8
+  %622 = call i64 @strlen(ptr noundef %621) #14
+  %623 = load i8, ptr %30, align 1
+  %624 = trunc i8 %623 to i1
+  call void @add_assoc_bool_ex(ptr noundef %619, ptr noundef %620, i64 noundef %622, i1 noundef zeroext %624) #13
+  %625 = load ptr, ptr %157, align 8
+  %626 = getelementptr inbounds %struct._timelib_time_offset, ptr %625, i32 0, i32 3
+  %627 = load ptr, ptr %626, align 8
   store ptr %143, ptr %77, align 8
   store ptr @.str.66, ptr %78, align 8
-  store ptr %625, ptr %79, align 8
-  %626 = load ptr, ptr %77, align 8
-  %627 = load ptr, ptr %78, align 8
-  %628 = load ptr, ptr %78, align 8
-  %629 = call i64 @strlen(ptr noundef %628) #14
-  %630 = load ptr, ptr %79, align 8
-  call void @add_assoc_string_ex(ptr noundef %626, ptr noundef %627, i64 noundef %629, ptr noundef %630) #13
-  %631 = load ptr, ptr %141, align 8
-  store ptr %631, ptr %9, align 8
+  store ptr %627, ptr %79, align 8
+  %628 = load ptr, ptr %77, align 8
+  %629 = load ptr, ptr %78, align 8
+  %630 = load ptr, ptr %78, align 8
+  %631 = call i64 @strlen(ptr noundef %630) #14
+  %632 = load ptr, ptr %79, align 8
+  call void @add_assoc_string_ex(ptr noundef %628, ptr noundef %629, i64 noundef %631, ptr noundef %632) #13
+  %633 = load ptr, ptr %141, align 8
+  store ptr %633, ptr %9, align 8
   store ptr %143, ptr %10, align 8
-  %632 = load ptr, ptr %9, align 8
-  %633 = load ptr, ptr %632, align 8
-  %634 = load ptr, ptr %10, align 8
-  %635 = call ptr @zend_hash_next_index_insert(ptr noundef %633, ptr noundef %634) #13
-  %636 = load ptr, ptr %157, align 8
-  call void @timelib_time_offset_dtor(ptr noundef %636)
-  br label %759
-
-637:                                              ; preds = %567, %560
-  br label %638
-
-638:                                              ; preds = %637
-  %639 = call ptr @_zend_new_array_0()
-  store ptr %639, ptr %160, align 8
-  store ptr %143, ptr %161, align 8
-  %640 = load ptr, ptr %160, align 8
-  %641 = load ptr, ptr %161, align 8
-  %642 = getelementptr inbounds %struct._zval_struct, ptr %641, i32 0, i32 0
-  store ptr %640, ptr %642, align 8
-  %643 = load ptr, ptr %161, align 8
-  %644 = getelementptr inbounds %struct._zval_struct, ptr %643, i32 0, i32 1
-  store i32 775, ptr %644, align 8
-  br label %645
-
-645:                                              ; preds = %638
-  %646 = load i64, ptr %147, align 8
-  store ptr %143, ptr %116, align 8
-  store ptr @.str.61, ptr %117, align 8
-  store i64 %646, ptr %118, align 8
-  %647 = load ptr, ptr %116, align 8
-  %648 = load ptr, ptr %117, align 8
-  %649 = load ptr, ptr %117, align 8
-  %650 = call i64 @strlen(ptr noundef %649) #14
-  %651 = load i64, ptr %118, align 8
-  call void @add_assoc_long_ex(ptr noundef %647, ptr noundef %648, i64 noundef %650, i64 noundef %651) #13
-  %652 = load i64, ptr %147, align 8
-  %653 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %652, i1 noundef zeroext false)
-  store ptr %143, ptr %55, align 8
-  store ptr @.str.62, ptr %56, align 8
-  store ptr %653, ptr %57, align 8
-  %654 = load ptr, ptr %55, align 8
-  %655 = load ptr, ptr %56, align 8
-  %656 = load ptr, ptr %56, align 8
-  %657 = call i64 @strlen(ptr noundef %656) #14
-  %658 = load ptr, ptr %57, align 8
-  call void @add_assoc_str_ex(ptr noundef %654, ptr noundef %655, i64 noundef %657, ptr noundef %658) #13
-  %659 = load ptr, ptr %144, align 8
-  %660 = getelementptr inbounds %struct._php_timezone_obj, ptr %659, i32 0, i32 2
-  %661 = load ptr, ptr %660, align 8
-  %662 = getelementptr inbounds %struct._timelib_tzinfo, ptr %661, i32 0, i32 5
-  %663 = load ptr, ptr %662, align 8
-  %664 = load ptr, ptr %144, align 8
-  %665 = getelementptr inbounds %struct._php_timezone_obj, ptr %664, i32 0, i32 2
-  %666 = load ptr, ptr %665, align 8
-  %667 = getelementptr inbounds %struct._timelib_tzinfo, ptr %666, i32 0, i32 4
-  %668 = load ptr, ptr %667, align 8
-  %669 = load ptr, ptr %144, align 8
-  %670 = getelementptr inbounds %struct._php_timezone_obj, ptr %669, i32 0, i32 2
-  %671 = load ptr, ptr %670, align 8
-  %672 = getelementptr inbounds %struct._timelib_tzinfo, ptr %671, i32 0, i32 2
-  %673 = getelementptr inbounds %struct.anon.17, ptr %672, i32 0, i32 3
-  %674 = load i64, ptr %673, align 8
-  %675 = sub i64 %674, 1
-  %676 = getelementptr inbounds i8, ptr %668, i64 %675
-  %677 = load i8, ptr %676, align 1
-  %678 = zext i8 %677 to i64
-  %679 = getelementptr inbounds %struct._ttinfo, ptr %663, i64 %678
-  %680 = getelementptr inbounds %struct._ttinfo, ptr %679, i32 0, i32 0
-  %681 = load i32, ptr %680, align 4
-  %682 = sext i32 %681 to i64
-  store ptr %143, ptr %119, align 8
-  store ptr @.str.64, ptr %120, align 8
-  store i64 %682, ptr %121, align 8
-  %683 = load ptr, ptr %119, align 8
-  %684 = load ptr, ptr %120, align 8
-  %685 = load ptr, ptr %120, align 8
-  %686 = call i64 @strlen(ptr noundef %685) #14
-  %687 = load i64, ptr %121, align 8
-  call void @add_assoc_long_ex(ptr noundef %683, ptr noundef %684, i64 noundef %686, i64 noundef %687) #13
-  %688 = load ptr, ptr %144, align 8
-  %689 = getelementptr inbounds %struct._php_timezone_obj, ptr %688, i32 0, i32 2
-  %690 = load ptr, ptr %689, align 8
-  %691 = getelementptr inbounds %struct._timelib_tzinfo, ptr %690, i32 0, i32 5
-  %692 = load ptr, ptr %691, align 8
-  %693 = load ptr, ptr %144, align 8
-  %694 = getelementptr inbounds %struct._php_timezone_obj, ptr %693, i32 0, i32 2
-  %695 = load ptr, ptr %694, align 8
-  %696 = getelementptr inbounds %struct._timelib_tzinfo, ptr %695, i32 0, i32 4
-  %697 = load ptr, ptr %696, align 8
-  %698 = load ptr, ptr %144, align 8
-  %699 = getelementptr inbounds %struct._php_timezone_obj, ptr %698, i32 0, i32 2
-  %700 = load ptr, ptr %699, align 8
-  %701 = getelementptr inbounds %struct._timelib_tzinfo, ptr %700, i32 0, i32 2
-  %702 = getelementptr inbounds %struct.anon.17, ptr %701, i32 0, i32 3
-  %703 = load i64, ptr %702, align 8
-  %704 = sub i64 %703, 1
-  %705 = getelementptr inbounds i8, ptr %697, i64 %704
-  %706 = load i8, ptr %705, align 1
-  %707 = zext i8 %706 to i64
-  %708 = getelementptr inbounds %struct._ttinfo, ptr %692, i64 %707
-  %709 = getelementptr inbounds %struct._ttinfo, ptr %708, i32 0, i32 1
-  %710 = load i32, ptr %709, align 4
-  %711 = icmp ne i32 %710, 0
-  store ptr %143, ptr %31, align 8
-  store ptr @.str.65, ptr %32, align 8
-  %712 = zext i1 %711 to i8
-  store i8 %712, ptr %33, align 1
-  %713 = load ptr, ptr %31, align 8
-  %714 = load ptr, ptr %32, align 8
-  %715 = load ptr, ptr %32, align 8
-  %716 = call i64 @strlen(ptr noundef %715) #14
-  %717 = load i8, ptr %33, align 1
-  %718 = trunc i8 %717 to i1
-  call void @add_assoc_bool_ex(ptr noundef %713, ptr noundef %714, i64 noundef %716, i1 noundef zeroext %718) #13
-  %719 = load ptr, ptr %144, align 8
-  %720 = getelementptr inbounds %struct._php_timezone_obj, ptr %719, i32 0, i32 2
-  %721 = load ptr, ptr %720, align 8
-  %722 = getelementptr inbounds %struct._timelib_tzinfo, ptr %721, i32 0, i32 6
-  %723 = load ptr, ptr %722, align 8
-  %724 = load ptr, ptr %144, align 8
-  %725 = getelementptr inbounds %struct._php_timezone_obj, ptr %724, i32 0, i32 2
-  %726 = load ptr, ptr %725, align 8
-  %727 = getelementptr inbounds %struct._timelib_tzinfo, ptr %726, i32 0, i32 5
-  %728 = load ptr, ptr %727, align 8
-  %729 = load ptr, ptr %144, align 8
-  %730 = getelementptr inbounds %struct._php_timezone_obj, ptr %729, i32 0, i32 2
-  %731 = load ptr, ptr %730, align 8
-  %732 = getelementptr inbounds %struct._timelib_tzinfo, ptr %731, i32 0, i32 4
-  %733 = load ptr, ptr %732, align 8
-  %734 = load ptr, ptr %144, align 8
-  %735 = getelementptr inbounds %struct._php_timezone_obj, ptr %734, i32 0, i32 2
-  %736 = load ptr, ptr %735, align 8
-  %737 = getelementptr inbounds %struct._timelib_tzinfo, ptr %736, i32 0, i32 2
-  %738 = getelementptr inbounds %struct.anon.17, ptr %737, i32 0, i32 3
-  %739 = load i64, ptr %738, align 8
-  %740 = sub i64 %739, 1
-  %741 = getelementptr inbounds i8, ptr %733, i64 %740
-  %742 = load i8, ptr %741, align 1
-  %743 = zext i8 %742 to i64
-  %744 = getelementptr inbounds %struct._ttinfo, ptr %728, i64 %743
-  %745 = getelementptr inbounds %struct._ttinfo, ptr %744, i32 0, i32 2
-  %746 = load i32, ptr %745, align 4
-  %747 = zext i32 %746 to i64
-  %748 = getelementptr inbounds i8, ptr %723, i64 %747
-  store ptr %143, ptr %80, align 8
-  store ptr @.str.66, ptr %81, align 8
-  store ptr %748, ptr %82, align 8
-  %749 = load ptr, ptr %80, align 8
-  %750 = load ptr, ptr %81, align 8
-  %751 = load ptr, ptr %81, align 8
-  %752 = call i64 @strlen(ptr noundef %751) #14
-  %753 = load ptr, ptr %82, align 8
-  call void @add_assoc_string_ex(ptr noundef %749, ptr noundef %750, i64 noundef %752, ptr noundef %753) #13
-  %754 = load ptr, ptr %141, align 8
-  store ptr %754, ptr %11, align 8
-  store ptr %143, ptr %12, align 8
-  %755 = load ptr, ptr %11, align 8
-  %756 = load ptr, ptr %755, align 8
-  %757 = load ptr, ptr %12, align 8
-  %758 = call ptr @zend_hash_next_index_insert(ptr noundef %756, ptr noundef %757) #13
-  br label %759
-
-759:                                              ; preds = %645, %589
-  br label %837
-
-760:                                              ; preds = %552
+  %634 = load ptr, ptr %9, align 8
+  %635 = load ptr, ptr %634, align 8
+  %636 = load ptr, ptr %10, align 8
+  %637 = call ptr @zend_hash_next_index_insert(ptr noundef %635, ptr noundef %636) #13
+  %638 = load ptr, ptr %157, align 8
+  call void @timelib_time_offset_dtor(ptr noundef %638)
   br label %761
 
-761:                                              ; preds = %760
-  %762 = call ptr @_zend_new_array_0()
-  store ptr %762, ptr %162, align 8
-  store ptr %143, ptr %163, align 8
-  %763 = load ptr, ptr %162, align 8
-  %764 = load ptr, ptr %163, align 8
-  %765 = getelementptr inbounds %struct._zval_struct, ptr %764, i32 0, i32 0
-  store ptr %763, ptr %765, align 8
-  %766 = load ptr, ptr %163, align 8
-  %767 = getelementptr inbounds %struct._zval_struct, ptr %766, i32 0, i32 1
-  store i32 775, ptr %767, align 8
-  br label %768
+639:                                              ; preds = %569, %562
+  br label %640
 
-768:                                              ; preds = %761
-  %769 = load i64, ptr %147, align 8
+640:                                              ; preds = %639
+  %641 = call ptr @_zend_new_array_0()
+  store ptr %641, ptr %160, align 8
+  store ptr %143, ptr %161, align 8
+  %642 = load ptr, ptr %160, align 8
+  %643 = load ptr, ptr %161, align 8
+  %644 = getelementptr inbounds %struct._zval_struct, ptr %643, i32 0, i32 0
+  store ptr %642, ptr %644, align 8
+  %645 = load ptr, ptr %161, align 8
+  %646 = getelementptr inbounds %struct._zval_struct, ptr %645, i32 0, i32 1
+  store i32 775, ptr %646, align 8
+  br label %647
+
+647:                                              ; preds = %640
+  %648 = load i64, ptr %147, align 8
+  store ptr %143, ptr %116, align 8
+  store ptr @.str.61, ptr %117, align 8
+  store i64 %648, ptr %118, align 8
+  %649 = load ptr, ptr %116, align 8
+  %650 = load ptr, ptr %117, align 8
+  %651 = load ptr, ptr %117, align 8
+  %652 = call i64 @strlen(ptr noundef %651) #14
+  %653 = load i64, ptr %118, align 8
+  call void @add_assoc_long_ex(ptr noundef %649, ptr noundef %650, i64 noundef %652, i64 noundef %653) #13
+  %654 = load i64, ptr %147, align 8
+  %655 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %654, i1 noundef zeroext false)
+  store ptr %143, ptr %55, align 8
+  store ptr @.str.62, ptr %56, align 8
+  store ptr %655, ptr %57, align 8
+  %656 = load ptr, ptr %55, align 8
+  %657 = load ptr, ptr %56, align 8
+  %658 = load ptr, ptr %56, align 8
+  %659 = call i64 @strlen(ptr noundef %658) #14
+  %660 = load ptr, ptr %57, align 8
+  call void @add_assoc_str_ex(ptr noundef %656, ptr noundef %657, i64 noundef %659, ptr noundef %660) #13
+  %661 = load ptr, ptr %144, align 8
+  %662 = getelementptr inbounds %struct._php_timezone_obj, ptr %661, i32 0, i32 2
+  %663 = load ptr, ptr %662, align 8
+  %664 = getelementptr inbounds %struct._timelib_tzinfo, ptr %663, i32 0, i32 5
+  %665 = load ptr, ptr %664, align 8
+  %666 = load ptr, ptr %144, align 8
+  %667 = getelementptr inbounds %struct._php_timezone_obj, ptr %666, i32 0, i32 2
+  %668 = load ptr, ptr %667, align 8
+  %669 = getelementptr inbounds %struct._timelib_tzinfo, ptr %668, i32 0, i32 4
+  %670 = load ptr, ptr %669, align 8
+  %671 = load ptr, ptr %144, align 8
+  %672 = getelementptr inbounds %struct._php_timezone_obj, ptr %671, i32 0, i32 2
+  %673 = load ptr, ptr %672, align 8
+  %674 = getelementptr inbounds %struct._timelib_tzinfo, ptr %673, i32 0, i32 2
+  %675 = getelementptr inbounds %struct.anon.17, ptr %674, i32 0, i32 3
+  %676 = load i64, ptr %675, align 8
+  %677 = sub i64 %676, 1
+  %678 = getelementptr inbounds i8, ptr %670, i64 %677
+  %679 = load i8, ptr %678, align 1
+  %680 = zext i8 %679 to i64
+  %681 = getelementptr inbounds %struct._ttinfo, ptr %665, i64 %680
+  %682 = getelementptr inbounds %struct._ttinfo, ptr %681, i32 0, i32 0
+  %683 = load i32, ptr %682, align 4
+  %684 = sext i32 %683 to i64
+  store ptr %143, ptr %119, align 8
+  store ptr @.str.64, ptr %120, align 8
+  store i64 %684, ptr %121, align 8
+  %685 = load ptr, ptr %119, align 8
+  %686 = load ptr, ptr %120, align 8
+  %687 = load ptr, ptr %120, align 8
+  %688 = call i64 @strlen(ptr noundef %687) #14
+  %689 = load i64, ptr %121, align 8
+  call void @add_assoc_long_ex(ptr noundef %685, ptr noundef %686, i64 noundef %688, i64 noundef %689) #13
+  %690 = load ptr, ptr %144, align 8
+  %691 = getelementptr inbounds %struct._php_timezone_obj, ptr %690, i32 0, i32 2
+  %692 = load ptr, ptr %691, align 8
+  %693 = getelementptr inbounds %struct._timelib_tzinfo, ptr %692, i32 0, i32 5
+  %694 = load ptr, ptr %693, align 8
+  %695 = load ptr, ptr %144, align 8
+  %696 = getelementptr inbounds %struct._php_timezone_obj, ptr %695, i32 0, i32 2
+  %697 = load ptr, ptr %696, align 8
+  %698 = getelementptr inbounds %struct._timelib_tzinfo, ptr %697, i32 0, i32 4
+  %699 = load ptr, ptr %698, align 8
+  %700 = load ptr, ptr %144, align 8
+  %701 = getelementptr inbounds %struct._php_timezone_obj, ptr %700, i32 0, i32 2
+  %702 = load ptr, ptr %701, align 8
+  %703 = getelementptr inbounds %struct._timelib_tzinfo, ptr %702, i32 0, i32 2
+  %704 = getelementptr inbounds %struct.anon.17, ptr %703, i32 0, i32 3
+  %705 = load i64, ptr %704, align 8
+  %706 = sub i64 %705, 1
+  %707 = getelementptr inbounds i8, ptr %699, i64 %706
+  %708 = load i8, ptr %707, align 1
+  %709 = zext i8 %708 to i64
+  %710 = getelementptr inbounds %struct._ttinfo, ptr %694, i64 %709
+  %711 = getelementptr inbounds %struct._ttinfo, ptr %710, i32 0, i32 1
+  %712 = load i32, ptr %711, align 4
+  %713 = icmp ne i32 %712, 0
+  store ptr %143, ptr %31, align 8
+  store ptr @.str.65, ptr %32, align 8
+  %714 = zext i1 %713 to i8
+  store i8 %714, ptr %33, align 1
+  %715 = load ptr, ptr %31, align 8
+  %716 = load ptr, ptr %32, align 8
+  %717 = load ptr, ptr %32, align 8
+  %718 = call i64 @strlen(ptr noundef %717) #14
+  %719 = load i8, ptr %33, align 1
+  %720 = trunc i8 %719 to i1
+  call void @add_assoc_bool_ex(ptr noundef %715, ptr noundef %716, i64 noundef %718, i1 noundef zeroext %720) #13
+  %721 = load ptr, ptr %144, align 8
+  %722 = getelementptr inbounds %struct._php_timezone_obj, ptr %721, i32 0, i32 2
+  %723 = load ptr, ptr %722, align 8
+  %724 = getelementptr inbounds %struct._timelib_tzinfo, ptr %723, i32 0, i32 6
+  %725 = load ptr, ptr %724, align 8
+  %726 = load ptr, ptr %144, align 8
+  %727 = getelementptr inbounds %struct._php_timezone_obj, ptr %726, i32 0, i32 2
+  %728 = load ptr, ptr %727, align 8
+  %729 = getelementptr inbounds %struct._timelib_tzinfo, ptr %728, i32 0, i32 5
+  %730 = load ptr, ptr %729, align 8
+  %731 = load ptr, ptr %144, align 8
+  %732 = getelementptr inbounds %struct._php_timezone_obj, ptr %731, i32 0, i32 2
+  %733 = load ptr, ptr %732, align 8
+  %734 = getelementptr inbounds %struct._timelib_tzinfo, ptr %733, i32 0, i32 4
+  %735 = load ptr, ptr %734, align 8
+  %736 = load ptr, ptr %144, align 8
+  %737 = getelementptr inbounds %struct._php_timezone_obj, ptr %736, i32 0, i32 2
+  %738 = load ptr, ptr %737, align 8
+  %739 = getelementptr inbounds %struct._timelib_tzinfo, ptr %738, i32 0, i32 2
+  %740 = getelementptr inbounds %struct.anon.17, ptr %739, i32 0, i32 3
+  %741 = load i64, ptr %740, align 8
+  %742 = sub i64 %741, 1
+  %743 = getelementptr inbounds i8, ptr %735, i64 %742
+  %744 = load i8, ptr %743, align 1
+  %745 = zext i8 %744 to i64
+  %746 = getelementptr inbounds %struct._ttinfo, ptr %730, i64 %745
+  %747 = getelementptr inbounds %struct._ttinfo, ptr %746, i32 0, i32 2
+  %748 = load i32, ptr %747, align 4
+  %749 = zext i32 %748 to i64
+  %750 = getelementptr inbounds i8, ptr %725, i64 %749
+  store ptr %143, ptr %80, align 8
+  store ptr @.str.66, ptr %81, align 8
+  store ptr %750, ptr %82, align 8
+  %751 = load ptr, ptr %80, align 8
+  %752 = load ptr, ptr %81, align 8
+  %753 = load ptr, ptr %81, align 8
+  %754 = call i64 @strlen(ptr noundef %753) #14
+  %755 = load ptr, ptr %82, align 8
+  call void @add_assoc_string_ex(ptr noundef %751, ptr noundef %752, i64 noundef %754, ptr noundef %755) #13
+  %756 = load ptr, ptr %141, align 8
+  store ptr %756, ptr %11, align 8
+  store ptr %143, ptr %12, align 8
+  %757 = load ptr, ptr %11, align 8
+  %758 = load ptr, ptr %757, align 8
+  %759 = load ptr, ptr %12, align 8
+  %760 = call ptr @zend_hash_next_index_insert(ptr noundef %758, ptr noundef %759) #13
+  br label %761
+
+761:                                              ; preds = %647, %591
+  br label %839
+
+762:                                              ; preds = %554
+  br label %763
+
+763:                                              ; preds = %762
+  %764 = call ptr @_zend_new_array_0()
+  store ptr %764, ptr %162, align 8
+  store ptr %143, ptr %163, align 8
+  %765 = load ptr, ptr %162, align 8
+  %766 = load ptr, ptr %163, align 8
+  %767 = getelementptr inbounds %struct._zval_struct, ptr %766, i32 0, i32 0
+  store ptr %765, ptr %767, align 8
+  %768 = load ptr, ptr %163, align 8
+  %769 = getelementptr inbounds %struct._zval_struct, ptr %768, i32 0, i32 1
+  store i32 775, ptr %769, align 8
+  br label %770
+
+770:                                              ; preds = %763
+  %771 = load i64, ptr %147, align 8
   store ptr %143, ptr %122, align 8
   store ptr @.str.61, ptr %123, align 8
-  store i64 %769, ptr %124, align 8
-  %770 = load ptr, ptr %122, align 8
-  %771 = load ptr, ptr %123, align 8
-  %772 = load ptr, ptr %123, align 8
-  %773 = call i64 @strlen(ptr noundef %772) #14
-  %774 = load i64, ptr %124, align 8
-  call void @add_assoc_long_ex(ptr noundef %770, ptr noundef %771, i64 noundef %773, i64 noundef %774) #13
-  %775 = load i64, ptr %147, align 8
-  %776 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %775, i1 noundef zeroext false)
+  store i64 %771, ptr %124, align 8
+  %772 = load ptr, ptr %122, align 8
+  %773 = load ptr, ptr %123, align 8
+  %774 = load ptr, ptr %123, align 8
+  %775 = call i64 @strlen(ptr noundef %774) #14
+  %776 = load i64, ptr %124, align 8
+  call void @add_assoc_long_ex(ptr noundef %772, ptr noundef %773, i64 noundef %775, i64 noundef %776) #13
+  %777 = load i64, ptr %147, align 8
+  %778 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %777, i1 noundef zeroext false)
   store ptr %143, ptr %58, align 8
   store ptr @.str.62, ptr %59, align 8
-  store ptr %776, ptr %60, align 8
-  %777 = load ptr, ptr %58, align 8
-  %778 = load ptr, ptr %59, align 8
-  %779 = load ptr, ptr %59, align 8
-  %780 = call i64 @strlen(ptr noundef %779) #14
-  %781 = load ptr, ptr %60, align 8
-  call void @add_assoc_str_ex(ptr noundef %777, ptr noundef %778, i64 noundef %780, ptr noundef %781) #13
-  %782 = load ptr, ptr %144, align 8
-  %783 = getelementptr inbounds %struct._php_timezone_obj, ptr %782, i32 0, i32 2
-  %784 = load ptr, ptr %783, align 8
-  %785 = getelementptr inbounds %struct._timelib_tzinfo, ptr %784, i32 0, i32 5
+  store ptr %778, ptr %60, align 8
+  %779 = load ptr, ptr %58, align 8
+  %780 = load ptr, ptr %59, align 8
+  %781 = load ptr, ptr %59, align 8
+  %782 = call i64 @strlen(ptr noundef %781) #14
+  %783 = load ptr, ptr %60, align 8
+  call void @add_assoc_str_ex(ptr noundef %779, ptr noundef %780, i64 noundef %782, ptr noundef %783) #13
+  %784 = load ptr, ptr %144, align 8
+  %785 = getelementptr inbounds %struct._php_timezone_obj, ptr %784, i32 0, i32 2
   %786 = load ptr, ptr %785, align 8
-  %787 = getelementptr inbounds %struct._ttinfo, ptr %786, i64 0
-  %788 = getelementptr inbounds %struct._ttinfo, ptr %787, i32 0, i32 0
-  %789 = load i32, ptr %788, align 4
-  %790 = sext i32 %789 to i64
+  %787 = getelementptr inbounds %struct._timelib_tzinfo, ptr %786, i32 0, i32 5
+  %788 = load ptr, ptr %787, align 8
+  %789 = getelementptr inbounds %struct._ttinfo, ptr %788, i64 0
+  %790 = getelementptr inbounds %struct._ttinfo, ptr %789, i32 0, i32 0
+  %791 = load i32, ptr %790, align 4
+  %792 = sext i32 %791 to i64
   store ptr %143, ptr %125, align 8
   store ptr @.str.64, ptr %126, align 8
-  store i64 %790, ptr %127, align 8
-  %791 = load ptr, ptr %125, align 8
-  %792 = load ptr, ptr %126, align 8
-  %793 = load ptr, ptr %126, align 8
-  %794 = call i64 @strlen(ptr noundef %793) #14
-  %795 = load i64, ptr %127, align 8
-  call void @add_assoc_long_ex(ptr noundef %791, ptr noundef %792, i64 noundef %794, i64 noundef %795) #13
-  %796 = load ptr, ptr %144, align 8
-  %797 = getelementptr inbounds %struct._php_timezone_obj, ptr %796, i32 0, i32 2
-  %798 = load ptr, ptr %797, align 8
-  %799 = getelementptr inbounds %struct._timelib_tzinfo, ptr %798, i32 0, i32 5
+  store i64 %792, ptr %127, align 8
+  %793 = load ptr, ptr %125, align 8
+  %794 = load ptr, ptr %126, align 8
+  %795 = load ptr, ptr %126, align 8
+  %796 = call i64 @strlen(ptr noundef %795) #14
+  %797 = load i64, ptr %127, align 8
+  call void @add_assoc_long_ex(ptr noundef %793, ptr noundef %794, i64 noundef %796, i64 noundef %797) #13
+  %798 = load ptr, ptr %144, align 8
+  %799 = getelementptr inbounds %struct._php_timezone_obj, ptr %798, i32 0, i32 2
   %800 = load ptr, ptr %799, align 8
-  %801 = getelementptr inbounds %struct._ttinfo, ptr %800, i64 0
-  %802 = getelementptr inbounds %struct._ttinfo, ptr %801, i32 0, i32 1
-  %803 = load i32, ptr %802, align 4
-  %804 = icmp ne i32 %803, 0
+  %801 = getelementptr inbounds %struct._timelib_tzinfo, ptr %800, i32 0, i32 5
+  %802 = load ptr, ptr %801, align 8
+  %803 = getelementptr inbounds %struct._ttinfo, ptr %802, i64 0
+  %804 = getelementptr inbounds %struct._ttinfo, ptr %803, i32 0, i32 1
+  %805 = load i32, ptr %804, align 4
+  %806 = icmp ne i32 %805, 0
   store ptr %143, ptr %34, align 8
   store ptr @.str.65, ptr %35, align 8
-  %805 = zext i1 %804 to i8
-  store i8 %805, ptr %36, align 1
-  %806 = load ptr, ptr %34, align 8
-  %807 = load ptr, ptr %35, align 8
-  %808 = load ptr, ptr %35, align 8
-  %809 = call i64 @strlen(ptr noundef %808) #14
-  %810 = load i8, ptr %36, align 1
-  %811 = trunc i8 %810 to i1
-  call void @add_assoc_bool_ex(ptr noundef %806, ptr noundef %807, i64 noundef %809, i1 noundef zeroext %811) #13
-  %812 = load ptr, ptr %144, align 8
-  %813 = getelementptr inbounds %struct._php_timezone_obj, ptr %812, i32 0, i32 2
-  %814 = load ptr, ptr %813, align 8
-  %815 = getelementptr inbounds %struct._timelib_tzinfo, ptr %814, i32 0, i32 6
+  %807 = zext i1 %806 to i8
+  store i8 %807, ptr %36, align 1
+  %808 = load ptr, ptr %34, align 8
+  %809 = load ptr, ptr %35, align 8
+  %810 = load ptr, ptr %35, align 8
+  %811 = call i64 @strlen(ptr noundef %810) #14
+  %812 = load i8, ptr %36, align 1
+  %813 = trunc i8 %812 to i1
+  call void @add_assoc_bool_ex(ptr noundef %808, ptr noundef %809, i64 noundef %811, i1 noundef zeroext %813) #13
+  %814 = load ptr, ptr %144, align 8
+  %815 = getelementptr inbounds %struct._php_timezone_obj, ptr %814, i32 0, i32 2
   %816 = load ptr, ptr %815, align 8
-  %817 = load ptr, ptr %144, align 8
-  %818 = getelementptr inbounds %struct._php_timezone_obj, ptr %817, i32 0, i32 2
-  %819 = load ptr, ptr %818, align 8
-  %820 = getelementptr inbounds %struct._timelib_tzinfo, ptr %819, i32 0, i32 5
+  %817 = getelementptr inbounds %struct._timelib_tzinfo, ptr %816, i32 0, i32 6
+  %818 = load ptr, ptr %817, align 8
+  %819 = load ptr, ptr %144, align 8
+  %820 = getelementptr inbounds %struct._php_timezone_obj, ptr %819, i32 0, i32 2
   %821 = load ptr, ptr %820, align 8
-  %822 = getelementptr inbounds %struct._ttinfo, ptr %821, i64 0
-  %823 = getelementptr inbounds %struct._ttinfo, ptr %822, i32 0, i32 2
-  %824 = load i32, ptr %823, align 4
-  %825 = zext i32 %824 to i64
-  %826 = getelementptr inbounds i8, ptr %816, i64 %825
+  %822 = getelementptr inbounds %struct._timelib_tzinfo, ptr %821, i32 0, i32 5
+  %823 = load ptr, ptr %822, align 8
+  %824 = getelementptr inbounds %struct._ttinfo, ptr %823, i64 0
+  %825 = getelementptr inbounds %struct._ttinfo, ptr %824, i32 0, i32 2
+  %826 = load i32, ptr %825, align 4
+  %827 = zext i32 %826 to i64
+  %828 = getelementptr inbounds i8, ptr %818, i64 %827
   store ptr %143, ptr %83, align 8
   store ptr @.str.66, ptr %84, align 8
-  store ptr %826, ptr %85, align 8
-  %827 = load ptr, ptr %83, align 8
-  %828 = load ptr, ptr %84, align 8
-  %829 = load ptr, ptr %84, align 8
-  %830 = call i64 @strlen(ptr noundef %829) #14
-  %831 = load ptr, ptr %85, align 8
-  call void @add_assoc_string_ex(ptr noundef %827, ptr noundef %828, i64 noundef %830, ptr noundef %831) #13
-  %832 = load ptr, ptr %141, align 8
-  store ptr %832, ptr %13, align 8
+  store ptr %828, ptr %85, align 8
+  %829 = load ptr, ptr %83, align 8
+  %830 = load ptr, ptr %84, align 8
+  %831 = load ptr, ptr %84, align 8
+  %832 = call i64 @strlen(ptr noundef %831) #14
+  %833 = load ptr, ptr %85, align 8
+  call void @add_assoc_string_ex(ptr noundef %829, ptr noundef %830, i64 noundef %832, ptr noundef %833) #13
+  %834 = load ptr, ptr %141, align 8
+  store ptr %834, ptr %13, align 8
   store ptr %143, ptr %14, align 8
-  %833 = load ptr, ptr %13, align 8
-  %834 = load ptr, ptr %833, align 8
-  %835 = load ptr, ptr %14, align 8
-  %836 = call ptr @zend_hash_next_index_insert(ptr noundef %834, ptr noundef %835) #13
-  br label %837
+  %835 = load ptr, ptr %13, align 8
+  %836 = load ptr, ptr %835, align 8
+  %837 = load ptr, ptr %14, align 8
+  %838 = call ptr @zend_hash_next_index_insert(ptr noundef %836, ptr noundef %837) #13
+  br label %839
 
-837:                                              ; preds = %768, %759
-  br label %991
+839:                                              ; preds = %770, %761
+  br label %993
 
-838:                                              ; preds = %549
-  %839 = load i32, ptr %145, align 4
-  store i32 %839, ptr %164, align 4
-  br label %840
+840:                                              ; preds = %551
+  %841 = load i32, ptr %145, align 4
+  store i32 %841, ptr %164, align 4
+  br label %842
 
-840:                                              ; preds = %987, %838
-  %841 = load i32, ptr %164, align 4
-  %842 = zext i32 %841 to i64
-  %843 = load ptr, ptr %144, align 8
-  %844 = getelementptr inbounds %struct._php_timezone_obj, ptr %843, i32 0, i32 2
-  %845 = load ptr, ptr %844, align 8
-  %846 = getelementptr inbounds %struct._timelib_tzinfo, ptr %845, i32 0, i32 2
-  %847 = getelementptr inbounds %struct.anon.17, ptr %846, i32 0, i32 3
-  %848 = load i64, ptr %847, align 8
-  %849 = icmp ult i64 %842, %848
-  br i1 %849, label %850, label %990
+842:                                              ; preds = %989, %840
+  %843 = load i32, ptr %164, align 4
+  %844 = zext i32 %843 to i64
+  %845 = load ptr, ptr %144, align 8
+  %846 = getelementptr inbounds %struct._php_timezone_obj, ptr %845, i32 0, i32 2
+  %847 = load ptr, ptr %846, align 8
+  %848 = getelementptr inbounds %struct._timelib_tzinfo, ptr %847, i32 0, i32 2
+  %849 = getelementptr inbounds %struct.anon.17, ptr %848, i32 0, i32 3
+  %850 = load i64, ptr %849, align 8
+  %851 = icmp ult i64 %844, %850
+  br i1 %851, label %852, label %992
 
-850:                                              ; preds = %840
-  %851 = load ptr, ptr %144, align 8
-  %852 = getelementptr inbounds %struct._php_timezone_obj, ptr %851, i32 0, i32 2
-  %853 = load ptr, ptr %852, align 8
-  %854 = getelementptr inbounds %struct._timelib_tzinfo, ptr %853, i32 0, i32 3
+852:                                              ; preds = %842
+  %853 = load ptr, ptr %144, align 8
+  %854 = getelementptr inbounds %struct._php_timezone_obj, ptr %853, i32 0, i32 2
   %855 = load ptr, ptr %854, align 8
-  %856 = load i32, ptr %164, align 4
-  %857 = zext i32 %856 to i64
-  %858 = getelementptr inbounds i64, ptr %855, i64 %857
-  %859 = load i64, ptr %858, align 8
-  %860 = load i64, ptr %148, align 8
-  %861 = icmp slt i64 %859, %860
-  br i1 %861, label %862, label %985
+  %856 = getelementptr inbounds %struct._timelib_tzinfo, ptr %855, i32 0, i32 3
+  %857 = load ptr, ptr %856, align 8
+  %858 = load i32, ptr %164, align 4
+  %859 = zext i32 %858 to i64
+  %860 = getelementptr inbounds i64, ptr %857, i64 %859
+  %861 = load i64, ptr %860, align 8
+  %862 = load i64, ptr %148, align 8
+  %863 = icmp slt i64 %861, %862
+  br i1 %863, label %864, label %987
 
-862:                                              ; preds = %850
-  br label %863
+864:                                              ; preds = %852
+  br label %865
 
-863:                                              ; preds = %862
-  %864 = call ptr @_zend_new_array_0()
-  store ptr %864, ptr %165, align 8
+865:                                              ; preds = %864
+  %866 = call ptr @_zend_new_array_0()
+  store ptr %866, ptr %165, align 8
   store ptr %143, ptr %166, align 8
-  %865 = load ptr, ptr %165, align 8
-  %866 = load ptr, ptr %166, align 8
-  %867 = getelementptr inbounds %struct._zval_struct, ptr %866, i32 0, i32 0
-  store ptr %865, ptr %867, align 8
+  %867 = load ptr, ptr %165, align 8
   %868 = load ptr, ptr %166, align 8
-  %869 = getelementptr inbounds %struct._zval_struct, ptr %868, i32 0, i32 1
-  store i32 775, ptr %869, align 8
-  br label %870
+  %869 = getelementptr inbounds %struct._zval_struct, ptr %868, i32 0, i32 0
+  store ptr %867, ptr %869, align 8
+  %870 = load ptr, ptr %166, align 8
+  %871 = getelementptr inbounds %struct._zval_struct, ptr %870, i32 0, i32 1
+  store i32 775, ptr %871, align 8
+  br label %872
 
-870:                                              ; preds = %863
-  %871 = load ptr, ptr %144, align 8
-  %872 = getelementptr inbounds %struct._php_timezone_obj, ptr %871, i32 0, i32 2
-  %873 = load ptr, ptr %872, align 8
-  %874 = getelementptr inbounds %struct._timelib_tzinfo, ptr %873, i32 0, i32 3
+872:                                              ; preds = %865
+  %873 = load ptr, ptr %144, align 8
+  %874 = getelementptr inbounds %struct._php_timezone_obj, ptr %873, i32 0, i32 2
   %875 = load ptr, ptr %874, align 8
-  %876 = load i32, ptr %164, align 4
-  %877 = zext i32 %876 to i64
-  %878 = getelementptr inbounds i64, ptr %875, i64 %877
-  %879 = load i64, ptr %878, align 8
+  %876 = getelementptr inbounds %struct._timelib_tzinfo, ptr %875, i32 0, i32 3
+  %877 = load ptr, ptr %876, align 8
+  %878 = load i32, ptr %164, align 4
+  %879 = zext i32 %878 to i64
+  %880 = getelementptr inbounds i64, ptr %877, i64 %879
+  %881 = load i64, ptr %880, align 8
   store ptr %143, ptr %128, align 8
   store ptr @.str.61, ptr %129, align 8
-  store i64 %879, ptr %130, align 8
-  %880 = load ptr, ptr %128, align 8
-  %881 = load ptr, ptr %129, align 8
-  %882 = load ptr, ptr %129, align 8
-  %883 = call i64 @strlen(ptr noundef %882) #14
-  %884 = load i64, ptr %130, align 8
-  call void @add_assoc_long_ex(ptr noundef %880, ptr noundef %881, i64 noundef %883, i64 noundef %884) #13
-  %885 = load ptr, ptr %144, align 8
-  %886 = getelementptr inbounds %struct._php_timezone_obj, ptr %885, i32 0, i32 2
-  %887 = load ptr, ptr %886, align 8
-  %888 = getelementptr inbounds %struct._timelib_tzinfo, ptr %887, i32 0, i32 3
+  store i64 %881, ptr %130, align 8
+  %882 = load ptr, ptr %128, align 8
+  %883 = load ptr, ptr %129, align 8
+  %884 = load ptr, ptr %129, align 8
+  %885 = call i64 @strlen(ptr noundef %884) #14
+  %886 = load i64, ptr %130, align 8
+  call void @add_assoc_long_ex(ptr noundef %882, ptr noundef %883, i64 noundef %885, i64 noundef %886) #13
+  %887 = load ptr, ptr %144, align 8
+  %888 = getelementptr inbounds %struct._php_timezone_obj, ptr %887, i32 0, i32 2
   %889 = load ptr, ptr %888, align 8
-  %890 = load i32, ptr %164, align 4
-  %891 = zext i32 %890 to i64
-  %892 = getelementptr inbounds i64, ptr %889, i64 %891
-  %893 = load i64, ptr %892, align 8
-  %894 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %893, i1 noundef zeroext false)
+  %890 = getelementptr inbounds %struct._timelib_tzinfo, ptr %889, i32 0, i32 3
+  %891 = load ptr, ptr %890, align 8
+  %892 = load i32, ptr %164, align 4
+  %893 = zext i32 %892 to i64
+  %894 = getelementptr inbounds i64, ptr %891, i64 %893
+  %895 = load i64, ptr %894, align 8
+  %896 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %895, i1 noundef zeroext false)
   store ptr %143, ptr %61, align 8
   store ptr @.str.62, ptr %62, align 8
-  store ptr %894, ptr %63, align 8
-  %895 = load ptr, ptr %61, align 8
-  %896 = load ptr, ptr %62, align 8
-  %897 = load ptr, ptr %62, align 8
-  %898 = call i64 @strlen(ptr noundef %897) #14
-  %899 = load ptr, ptr %63, align 8
-  call void @add_assoc_str_ex(ptr noundef %895, ptr noundef %896, i64 noundef %898, ptr noundef %899) #13
-  %900 = load ptr, ptr %144, align 8
-  %901 = getelementptr inbounds %struct._php_timezone_obj, ptr %900, i32 0, i32 2
-  %902 = load ptr, ptr %901, align 8
-  %903 = getelementptr inbounds %struct._timelib_tzinfo, ptr %902, i32 0, i32 5
+  store ptr %896, ptr %63, align 8
+  %897 = load ptr, ptr %61, align 8
+  %898 = load ptr, ptr %62, align 8
+  %899 = load ptr, ptr %62, align 8
+  %900 = call i64 @strlen(ptr noundef %899) #14
+  %901 = load ptr, ptr %63, align 8
+  call void @add_assoc_str_ex(ptr noundef %897, ptr noundef %898, i64 noundef %900, ptr noundef %901) #13
+  %902 = load ptr, ptr %144, align 8
+  %903 = getelementptr inbounds %struct._php_timezone_obj, ptr %902, i32 0, i32 2
   %904 = load ptr, ptr %903, align 8
-  %905 = load ptr, ptr %144, align 8
-  %906 = getelementptr inbounds %struct._php_timezone_obj, ptr %905, i32 0, i32 2
-  %907 = load ptr, ptr %906, align 8
-  %908 = getelementptr inbounds %struct._timelib_tzinfo, ptr %907, i32 0, i32 4
+  %905 = getelementptr inbounds %struct._timelib_tzinfo, ptr %904, i32 0, i32 5
+  %906 = load ptr, ptr %905, align 8
+  %907 = load ptr, ptr %144, align 8
+  %908 = getelementptr inbounds %struct._php_timezone_obj, ptr %907, i32 0, i32 2
   %909 = load ptr, ptr %908, align 8
-  %910 = load i32, ptr %164, align 4
-  %911 = zext i32 %910 to i64
-  %912 = getelementptr inbounds i8, ptr %909, i64 %911
-  %913 = load i8, ptr %912, align 1
-  %914 = zext i8 %913 to i64
-  %915 = getelementptr inbounds %struct._ttinfo, ptr %904, i64 %914
-  %916 = getelementptr inbounds %struct._ttinfo, ptr %915, i32 0, i32 0
-  %917 = load i32, ptr %916, align 4
-  %918 = sext i32 %917 to i64
+  %910 = getelementptr inbounds %struct._timelib_tzinfo, ptr %909, i32 0, i32 4
+  %911 = load ptr, ptr %910, align 8
+  %912 = load i32, ptr %164, align 4
+  %913 = zext i32 %912 to i64
+  %914 = getelementptr inbounds i8, ptr %911, i64 %913
+  %915 = load i8, ptr %914, align 1
+  %916 = zext i8 %915 to i64
+  %917 = getelementptr inbounds %struct._ttinfo, ptr %906, i64 %916
+  %918 = getelementptr inbounds %struct._ttinfo, ptr %917, i32 0, i32 0
+  %919 = load i32, ptr %918, align 4
+  %920 = sext i32 %919 to i64
   store ptr %143, ptr %131, align 8
   store ptr @.str.64, ptr %132, align 8
-  store i64 %918, ptr %133, align 8
-  %919 = load ptr, ptr %131, align 8
-  %920 = load ptr, ptr %132, align 8
-  %921 = load ptr, ptr %132, align 8
-  %922 = call i64 @strlen(ptr noundef %921) #14
-  %923 = load i64, ptr %133, align 8
-  call void @add_assoc_long_ex(ptr noundef %919, ptr noundef %920, i64 noundef %922, i64 noundef %923) #13
-  %924 = load ptr, ptr %144, align 8
-  %925 = getelementptr inbounds %struct._php_timezone_obj, ptr %924, i32 0, i32 2
-  %926 = load ptr, ptr %925, align 8
-  %927 = getelementptr inbounds %struct._timelib_tzinfo, ptr %926, i32 0, i32 5
+  store i64 %920, ptr %133, align 8
+  %921 = load ptr, ptr %131, align 8
+  %922 = load ptr, ptr %132, align 8
+  %923 = load ptr, ptr %132, align 8
+  %924 = call i64 @strlen(ptr noundef %923) #14
+  %925 = load i64, ptr %133, align 8
+  call void @add_assoc_long_ex(ptr noundef %921, ptr noundef %922, i64 noundef %924, i64 noundef %925) #13
+  %926 = load ptr, ptr %144, align 8
+  %927 = getelementptr inbounds %struct._php_timezone_obj, ptr %926, i32 0, i32 2
   %928 = load ptr, ptr %927, align 8
-  %929 = load ptr, ptr %144, align 8
-  %930 = getelementptr inbounds %struct._php_timezone_obj, ptr %929, i32 0, i32 2
-  %931 = load ptr, ptr %930, align 8
-  %932 = getelementptr inbounds %struct._timelib_tzinfo, ptr %931, i32 0, i32 4
+  %929 = getelementptr inbounds %struct._timelib_tzinfo, ptr %928, i32 0, i32 5
+  %930 = load ptr, ptr %929, align 8
+  %931 = load ptr, ptr %144, align 8
+  %932 = getelementptr inbounds %struct._php_timezone_obj, ptr %931, i32 0, i32 2
   %933 = load ptr, ptr %932, align 8
-  %934 = load i32, ptr %164, align 4
-  %935 = zext i32 %934 to i64
-  %936 = getelementptr inbounds i8, ptr %933, i64 %935
-  %937 = load i8, ptr %936, align 1
-  %938 = zext i8 %937 to i64
-  %939 = getelementptr inbounds %struct._ttinfo, ptr %928, i64 %938
-  %940 = getelementptr inbounds %struct._ttinfo, ptr %939, i32 0, i32 1
-  %941 = load i32, ptr %940, align 4
-  %942 = icmp ne i32 %941, 0
+  %934 = getelementptr inbounds %struct._timelib_tzinfo, ptr %933, i32 0, i32 4
+  %935 = load ptr, ptr %934, align 8
+  %936 = load i32, ptr %164, align 4
+  %937 = zext i32 %936 to i64
+  %938 = getelementptr inbounds i8, ptr %935, i64 %937
+  %939 = load i8, ptr %938, align 1
+  %940 = zext i8 %939 to i64
+  %941 = getelementptr inbounds %struct._ttinfo, ptr %930, i64 %940
+  %942 = getelementptr inbounds %struct._ttinfo, ptr %941, i32 0, i32 1
+  %943 = load i32, ptr %942, align 4
+  %944 = icmp ne i32 %943, 0
   store ptr %143, ptr %37, align 8
   store ptr @.str.65, ptr %38, align 8
-  %943 = zext i1 %942 to i8
-  store i8 %943, ptr %39, align 1
-  %944 = load ptr, ptr %37, align 8
-  %945 = load ptr, ptr %38, align 8
-  %946 = load ptr, ptr %38, align 8
-  %947 = call i64 @strlen(ptr noundef %946) #14
-  %948 = load i8, ptr %39, align 1
-  %949 = trunc i8 %948 to i1
-  call void @add_assoc_bool_ex(ptr noundef %944, ptr noundef %945, i64 noundef %947, i1 noundef zeroext %949) #13
-  %950 = load ptr, ptr %144, align 8
-  %951 = getelementptr inbounds %struct._php_timezone_obj, ptr %950, i32 0, i32 2
-  %952 = load ptr, ptr %951, align 8
-  %953 = getelementptr inbounds %struct._timelib_tzinfo, ptr %952, i32 0, i32 6
+  %945 = zext i1 %944 to i8
+  store i8 %945, ptr %39, align 1
+  %946 = load ptr, ptr %37, align 8
+  %947 = load ptr, ptr %38, align 8
+  %948 = load ptr, ptr %38, align 8
+  %949 = call i64 @strlen(ptr noundef %948) #14
+  %950 = load i8, ptr %39, align 1
+  %951 = trunc i8 %950 to i1
+  call void @add_assoc_bool_ex(ptr noundef %946, ptr noundef %947, i64 noundef %949, i1 noundef zeroext %951) #13
+  %952 = load ptr, ptr %144, align 8
+  %953 = getelementptr inbounds %struct._php_timezone_obj, ptr %952, i32 0, i32 2
   %954 = load ptr, ptr %953, align 8
-  %955 = load ptr, ptr %144, align 8
-  %956 = getelementptr inbounds %struct._php_timezone_obj, ptr %955, i32 0, i32 2
-  %957 = load ptr, ptr %956, align 8
-  %958 = getelementptr inbounds %struct._timelib_tzinfo, ptr %957, i32 0, i32 5
+  %955 = getelementptr inbounds %struct._timelib_tzinfo, ptr %954, i32 0, i32 6
+  %956 = load ptr, ptr %955, align 8
+  %957 = load ptr, ptr %144, align 8
+  %958 = getelementptr inbounds %struct._php_timezone_obj, ptr %957, i32 0, i32 2
   %959 = load ptr, ptr %958, align 8
-  %960 = load ptr, ptr %144, align 8
-  %961 = getelementptr inbounds %struct._php_timezone_obj, ptr %960, i32 0, i32 2
-  %962 = load ptr, ptr %961, align 8
-  %963 = getelementptr inbounds %struct._timelib_tzinfo, ptr %962, i32 0, i32 4
+  %960 = getelementptr inbounds %struct._timelib_tzinfo, ptr %959, i32 0, i32 5
+  %961 = load ptr, ptr %960, align 8
+  %962 = load ptr, ptr %144, align 8
+  %963 = getelementptr inbounds %struct._php_timezone_obj, ptr %962, i32 0, i32 2
   %964 = load ptr, ptr %963, align 8
-  %965 = load i32, ptr %164, align 4
-  %966 = zext i32 %965 to i64
-  %967 = getelementptr inbounds i8, ptr %964, i64 %966
-  %968 = load i8, ptr %967, align 1
-  %969 = zext i8 %968 to i64
-  %970 = getelementptr inbounds %struct._ttinfo, ptr %959, i64 %969
-  %971 = getelementptr inbounds %struct._ttinfo, ptr %970, i32 0, i32 2
-  %972 = load i32, ptr %971, align 4
-  %973 = zext i32 %972 to i64
-  %974 = getelementptr inbounds i8, ptr %954, i64 %973
+  %965 = getelementptr inbounds %struct._timelib_tzinfo, ptr %964, i32 0, i32 4
+  %966 = load ptr, ptr %965, align 8
+  %967 = load i32, ptr %164, align 4
+  %968 = zext i32 %967 to i64
+  %969 = getelementptr inbounds i8, ptr %966, i64 %968
+  %970 = load i8, ptr %969, align 1
+  %971 = zext i8 %970 to i64
+  %972 = getelementptr inbounds %struct._ttinfo, ptr %961, i64 %971
+  %973 = getelementptr inbounds %struct._ttinfo, ptr %972, i32 0, i32 2
+  %974 = load i32, ptr %973, align 4
+  %975 = zext i32 %974 to i64
+  %976 = getelementptr inbounds i8, ptr %956, i64 %975
   store ptr %143, ptr %86, align 8
   store ptr @.str.66, ptr %87, align 8
-  store ptr %974, ptr %88, align 8
-  %975 = load ptr, ptr %86, align 8
-  %976 = load ptr, ptr %87, align 8
-  %977 = load ptr, ptr %87, align 8
-  %978 = call i64 @strlen(ptr noundef %977) #14
-  %979 = load ptr, ptr %88, align 8
-  call void @add_assoc_string_ex(ptr noundef %975, ptr noundef %976, i64 noundef %978, ptr noundef %979) #13
-  %980 = load ptr, ptr %141, align 8
-  store ptr %980, ptr %15, align 8
+  store ptr %976, ptr %88, align 8
+  %977 = load ptr, ptr %86, align 8
+  %978 = load ptr, ptr %87, align 8
+  %979 = load ptr, ptr %87, align 8
+  %980 = call i64 @strlen(ptr noundef %979) #14
+  %981 = load ptr, ptr %88, align 8
+  call void @add_assoc_string_ex(ptr noundef %977, ptr noundef %978, i64 noundef %980, ptr noundef %981) #13
+  %982 = load ptr, ptr %141, align 8
+  store ptr %982, ptr %15, align 8
   store ptr %143, ptr %16, align 8
-  %981 = load ptr, ptr %15, align 8
-  %982 = load ptr, ptr %981, align 8
-  %983 = load ptr, ptr %16, align 8
-  %984 = call ptr @zend_hash_next_index_insert(ptr noundef %982, ptr noundef %983) #13
-  br label %986
+  %983 = load ptr, ptr %15, align 8
+  %984 = load ptr, ptr %983, align 8
+  %985 = load ptr, ptr %16, align 8
+  %986 = call ptr @zend_hash_next_index_insert(ptr noundef %984, ptr noundef %985) #13
+  br label %988
 
-985:                                              ; preds = %850
-  br label %1178
+987:                                              ; preds = %852
+  br label %1180
 
-986:                                              ; preds = %870
-  br label %987
+988:                                              ; preds = %872
+  br label %989
 
-987:                                              ; preds = %986
-  %988 = load i32, ptr %164, align 4
-  %989 = add i32 %988, 1
-  store i32 %989, ptr %164, align 4
-  br label %840
+989:                                              ; preds = %988
+  %990 = load i32, ptr %164, align 4
+  %991 = add i32 %990, 1
+  store i32 %991, ptr %164, align 4
+  br label %842
 
-990:                                              ; preds = %840
-  br label %991
+992:                                              ; preds = %842
+  br label %993
 
-991:                                              ; preds = %990, %837
-  %992 = load ptr, ptr %144, align 8
-  %993 = getelementptr inbounds %struct._php_timezone_obj, ptr %992, i32 0, i32 2
-  %994 = load ptr, ptr %993, align 8
-  %995 = getelementptr inbounds %struct._timelib_tzinfo, ptr %994, i32 0, i32 11
+993:                                              ; preds = %992, %839
+  %994 = load ptr, ptr %144, align 8
+  %995 = getelementptr inbounds %struct._php_timezone_obj, ptr %994, i32 0, i32 2
   %996 = load ptr, ptr %995, align 8
-  %997 = icmp ne ptr %996, null
-  br i1 %997, label %998, label %1178
+  %997 = getelementptr inbounds %struct._timelib_tzinfo, ptr %996, i32 0, i32 11
+  %998 = load ptr, ptr %997, align 8
+  %999 = icmp ne ptr %998, null
+  br i1 %999, label %1000, label %1180
 
-998:                                              ; preds = %991
-  %999 = load ptr, ptr %144, align 8
-  %1000 = getelementptr inbounds %struct._php_timezone_obj, ptr %999, i32 0, i32 2
-  %1001 = load ptr, ptr %1000, align 8
-  %1002 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1001, i32 0, i32 11
+1000:                                             ; preds = %993
+  %1001 = load ptr, ptr %144, align 8
+  %1002 = getelementptr inbounds %struct._php_timezone_obj, ptr %1001, i32 0, i32 2
   %1003 = load ptr, ptr %1002, align 8
-  %1004 = getelementptr inbounds %struct._timelib_posix_str, ptr %1003, i32 0, i32 5
+  %1004 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1003, i32 0, i32 11
   %1005 = load ptr, ptr %1004, align 8
-  %1006 = icmp ne ptr %1005, null
-  br i1 %1006, label %1007, label %1178
+  %1006 = getelementptr inbounds %struct._timelib_posix_str, ptr %1005, i32 0, i32 5
+  %1007 = load ptr, ptr %1006, align 8
+  %1008 = icmp ne ptr %1007, null
+  br i1 %1008, label %1009, label %1180
 
-1007:                                             ; preds = %998
-  %1008 = load ptr, ptr %144, align 8
-  %1009 = getelementptr inbounds %struct._php_timezone_obj, ptr %1008, i32 0, i32 2
-  %1010 = load ptr, ptr %1009, align 8
-  %1011 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1010, i32 0, i32 3
+1009:                                             ; preds = %1000
+  %1010 = load ptr, ptr %144, align 8
+  %1011 = getelementptr inbounds %struct._php_timezone_obj, ptr %1010, i32 0, i32 2
   %1012 = load ptr, ptr %1011, align 8
-  %1013 = load ptr, ptr %144, align 8
-  %1014 = getelementptr inbounds %struct._php_timezone_obj, ptr %1013, i32 0, i32 2
-  %1015 = load ptr, ptr %1014, align 8
-  %1016 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1015, i32 0, i32 2
-  %1017 = getelementptr inbounds %struct.anon.17, ptr %1016, i32 0, i32 3
-  %1018 = load i64, ptr %1017, align 8
-  %1019 = sub i64 %1018, 1
-  %1020 = getelementptr inbounds i64, ptr %1012, i64 %1019
-  %1021 = load i64, ptr %1020, align 8
-  store i64 %1021, ptr %173, align 8
-  %1022 = load i64, ptr %173, align 8
-  call void @timelib_unixtime2date(i64 noundef %1022, ptr noundef %169, ptr noundef %171, ptr noundef %172)
-  %1023 = load i64, ptr %148, align 8
-  call void @timelib_unixtime2date(i64 noundef %1023, ptr noundef %170, ptr noundef %171, ptr noundef %172)
-  %1024 = load i64, ptr %169, align 8
-  %1025 = trunc i64 %1024 to i32
-  store i32 %1025, ptr %167, align 4
-  br label %1026
+  %1013 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1012, i32 0, i32 3
+  %1014 = load ptr, ptr %1013, align 8
+  %1015 = load ptr, ptr %144, align 8
+  %1016 = getelementptr inbounds %struct._php_timezone_obj, ptr %1015, i32 0, i32 2
+  %1017 = load ptr, ptr %1016, align 8
+  %1018 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1017, i32 0, i32 2
+  %1019 = getelementptr inbounds %struct.anon.17, ptr %1018, i32 0, i32 3
+  %1020 = load i64, ptr %1019, align 8
+  %1021 = sub i64 %1020, 1
+  %1022 = getelementptr inbounds i64, ptr %1014, i64 %1021
+  %1023 = load i64, ptr %1022, align 8
+  store i64 %1023, ptr %173, align 8
+  %1024 = load i64, ptr %173, align 8
+  call void @timelib_unixtime2date(i64 noundef %1024, ptr noundef %169, ptr noundef %171, ptr noundef %172)
+  %1025 = load i64, ptr %148, align 8
+  call void @timelib_unixtime2date(i64 noundef %1025, ptr noundef %170, ptr noundef %171, ptr noundef %172)
+  %1026 = load i64, ptr %169, align 8
+  %1027 = trunc i64 %1026 to i32
+  store i32 %1027, ptr %167, align 4
+  br label %1028
 
-1026:                                             ; preds = %1174, %1007
-  %1027 = load i32, ptr %167, align 4
-  %1028 = sext i32 %1027 to i64
-  %1029 = load i64, ptr %170, align 8
-  %1030 = icmp sle i64 %1028, %1029
-  br i1 %1030, label %1031, label %1177
+1028:                                             ; preds = %1176, %1009
+  %1029 = load i32, ptr %167, align 4
+  %1030 = sext i32 %1029 to i64
+  %1031 = load i64, ptr %170, align 8
+  %1032 = icmp sle i64 %1030, %1031
+  br i1 %1032, label %1033, label %1179
 
-1031:                                             ; preds = %1026
+1033:                                             ; preds = %1028
   call void @llvm.memset.p0.i64(ptr align 8 %174, i8 0, i64 104, i1 false)
-  %1032 = load ptr, ptr %144, align 8
-  %1033 = getelementptr inbounds %struct._php_timezone_obj, ptr %1032, i32 0, i32 2
-  %1034 = load ptr, ptr %1033, align 8
-  %1035 = load i32, ptr %167, align 4
-  %1036 = sext i32 %1035 to i64
-  call void @timelib_get_transitions_for_year(ptr noundef %1034, i64 noundef %1036, ptr noundef %174)
+  %1034 = load ptr, ptr %144, align 8
+  %1035 = getelementptr inbounds %struct._php_timezone_obj, ptr %1034, i32 0, i32 2
+  %1036 = load ptr, ptr %1035, align 8
+  %1037 = load i32, ptr %167, align 4
+  %1038 = sext i32 %1037 to i64
+  call void @timelib_get_transitions_for_year(ptr noundef %1036, i64 noundef %1038, ptr noundef %174)
   store i32 0, ptr %168, align 4
-  br label %1037
+  br label %1039
 
-1037:                                             ; preds = %1170, %1031
-  %1038 = load i32, ptr %168, align 4
-  %1039 = sext i32 %1038 to i64
-  %1040 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 0
-  %1041 = load i64, ptr %1040, align 8
-  %1042 = icmp ult i64 %1039, %1041
-  br i1 %1042, label %1043, label %1173
+1039:                                             ; preds = %1172, %1033
+  %1040 = load i32, ptr %168, align 4
+  %1041 = sext i32 %1040 to i64
+  %1042 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 0
+  %1043 = load i64, ptr %1042, align 8
+  %1044 = icmp ult i64 %1041, %1043
+  br i1 %1044, label %1045, label %1175
 
-1043:                                             ; preds = %1037
-  %1044 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 1
-  %1045 = load i32, ptr %168, align 4
-  %1046 = sext i32 %1045 to i64
-  %1047 = getelementptr inbounds [6 x i64], ptr %1044, i64 0, i64 %1046
-  %1048 = load i64, ptr %1047, align 8
-  %1049 = load i64, ptr %173, align 8
-  %1050 = icmp sle i64 %1048, %1049
-  br i1 %1050, label %1051, label %1052
+1045:                                             ; preds = %1039
+  %1046 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 1
+  %1047 = load i32, ptr %168, align 4
+  %1048 = sext i32 %1047 to i64
+  %1049 = getelementptr inbounds [6 x i64], ptr %1046, i64 0, i64 %1048
+  %1050 = load i64, ptr %1049, align 8
+  %1051 = load i64, ptr %173, align 8
+  %1052 = icmp sle i64 %1050, %1051
+  br i1 %1052, label %1053, label %1054
 
-1051:                                             ; preds = %1043
-  br label %1170
+1053:                                             ; preds = %1045
+  br label %1172
 
-1052:                                             ; preds = %1043
-  %1053 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 1
-  %1054 = load i32, ptr %168, align 4
-  %1055 = sext i32 %1054 to i64
-  %1056 = getelementptr inbounds [6 x i64], ptr %1053, i64 0, i64 %1055
-  %1057 = load i64, ptr %1056, align 8
-  %1058 = load i64, ptr %147, align 8
-  %1059 = icmp slt i64 %1057, %1058
-  br i1 %1059, label %1060, label %1061
+1054:                                             ; preds = %1045
+  %1055 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 1
+  %1056 = load i32, ptr %168, align 4
+  %1057 = sext i32 %1056 to i64
+  %1058 = getelementptr inbounds [6 x i64], ptr %1055, i64 0, i64 %1057
+  %1059 = load i64, ptr %1058, align 8
+  %1060 = load i64, ptr %147, align 8
+  %1061 = icmp slt i64 %1059, %1060
+  br i1 %1061, label %1062, label %1063
 
-1060:                                             ; preds = %1052
-  br label %1170
+1062:                                             ; preds = %1054
+  br label %1172
 
-1061:                                             ; preds = %1052
-  %1062 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 1
-  %1063 = load i32, ptr %168, align 4
-  %1064 = sext i32 %1063 to i64
-  %1065 = getelementptr inbounds [6 x i64], ptr %1062, i64 0, i64 %1064
-  %1066 = load i64, ptr %1065, align 8
-  %1067 = load i64, ptr %148, align 8
-  %1068 = icmp sgt i64 %1066, %1067
-  br i1 %1068, label %1069, label %1070
+1063:                                             ; preds = %1054
+  %1064 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 1
+  %1065 = load i32, ptr %168, align 4
+  %1066 = sext i32 %1065 to i64
+  %1067 = getelementptr inbounds [6 x i64], ptr %1064, i64 0, i64 %1066
+  %1068 = load i64, ptr %1067, align 8
+  %1069 = load i64, ptr %148, align 8
+  %1070 = icmp sgt i64 %1068, %1069
+  br i1 %1070, label %1071, label %1072
 
-1069:                                             ; preds = %1061
-  br label %1178
+1071:                                             ; preds = %1063
+  br label %1180
 
-1070:                                             ; preds = %1061
-  br label %1071
+1072:                                             ; preds = %1063
+  br label %1073
 
-1071:                                             ; preds = %1070
-  %1072 = call ptr @_zend_new_array_0()
-  store ptr %1072, ptr %175, align 8
+1073:                                             ; preds = %1072
+  %1074 = call ptr @_zend_new_array_0()
+  store ptr %1074, ptr %175, align 8
   store ptr %143, ptr %176, align 8
-  %1073 = load ptr, ptr %175, align 8
-  %1074 = load ptr, ptr %176, align 8
-  %1075 = getelementptr inbounds %struct._zval_struct, ptr %1074, i32 0, i32 0
-  store ptr %1073, ptr %1075, align 8
+  %1075 = load ptr, ptr %175, align 8
   %1076 = load ptr, ptr %176, align 8
-  %1077 = getelementptr inbounds %struct._zval_struct, ptr %1076, i32 0, i32 1
-  store i32 775, ptr %1077, align 8
-  br label %1078
+  %1077 = getelementptr inbounds %struct._zval_struct, ptr %1076, i32 0, i32 0
+  store ptr %1075, ptr %1077, align 8
+  %1078 = load ptr, ptr %176, align 8
+  %1079 = getelementptr inbounds %struct._zval_struct, ptr %1078, i32 0, i32 1
+  store i32 775, ptr %1079, align 8
+  br label %1080
 
-1078:                                             ; preds = %1071
-  %1079 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 1
-  %1080 = load i32, ptr %168, align 4
-  %1081 = sext i32 %1080 to i64
-  %1082 = getelementptr inbounds [6 x i64], ptr %1079, i64 0, i64 %1081
-  %1083 = load i64, ptr %1082, align 8
+1080:                                             ; preds = %1073
+  %1081 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 1
+  %1082 = load i32, ptr %168, align 4
+  %1083 = sext i32 %1082 to i64
+  %1084 = getelementptr inbounds [6 x i64], ptr %1081, i64 0, i64 %1083
+  %1085 = load i64, ptr %1084, align 8
   store ptr %143, ptr %134, align 8
   store ptr @.str.61, ptr %135, align 8
-  store i64 %1083, ptr %136, align 8
-  %1084 = load ptr, ptr %134, align 8
-  %1085 = load ptr, ptr %135, align 8
-  %1086 = load ptr, ptr %135, align 8
-  %1087 = call i64 @strlen(ptr noundef %1086) #14
-  %1088 = load i64, ptr %136, align 8
-  call void @add_assoc_long_ex(ptr noundef %1084, ptr noundef %1085, i64 noundef %1087, i64 noundef %1088) #13
-  %1089 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 1
-  %1090 = load i32, ptr %168, align 4
-  %1091 = sext i32 %1090 to i64
-  %1092 = getelementptr inbounds [6 x i64], ptr %1089, i64 0, i64 %1091
-  %1093 = load i64, ptr %1092, align 8
-  %1094 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %1093, i1 noundef zeroext false)
+  store i64 %1085, ptr %136, align 8
+  %1086 = load ptr, ptr %134, align 8
+  %1087 = load ptr, ptr %135, align 8
+  %1088 = load ptr, ptr %135, align 8
+  %1089 = call i64 @strlen(ptr noundef %1088) #14
+  %1090 = load i64, ptr %136, align 8
+  call void @add_assoc_long_ex(ptr noundef %1086, ptr noundef %1087, i64 noundef %1089, i64 noundef %1090) #13
+  %1091 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 1
+  %1092 = load i32, ptr %168, align 4
+  %1093 = sext i32 %1092 to i64
+  %1094 = getelementptr inbounds [6 x i64], ptr %1091, i64 0, i64 %1093
+  %1095 = load i64, ptr %1094, align 8
+  %1096 = call ptr @php_format_date(ptr noundef @.str.63, i64 noundef 13, i64 noundef %1095, i1 noundef zeroext false)
   store ptr %143, ptr %64, align 8
   store ptr @.str.62, ptr %65, align 8
-  store ptr %1094, ptr %66, align 8
-  %1095 = load ptr, ptr %64, align 8
-  %1096 = load ptr, ptr %65, align 8
-  %1097 = load ptr, ptr %65, align 8
-  %1098 = call i64 @strlen(ptr noundef %1097) #14
-  %1099 = load ptr, ptr %66, align 8
-  call void @add_assoc_str_ex(ptr noundef %1095, ptr noundef %1096, i64 noundef %1098, ptr noundef %1099) #13
-  %1100 = load ptr, ptr %144, align 8
-  %1101 = getelementptr inbounds %struct._php_timezone_obj, ptr %1100, i32 0, i32 2
-  %1102 = load ptr, ptr %1101, align 8
-  %1103 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1102, i32 0, i32 5
+  store ptr %1096, ptr %66, align 8
+  %1097 = load ptr, ptr %64, align 8
+  %1098 = load ptr, ptr %65, align 8
+  %1099 = load ptr, ptr %65, align 8
+  %1100 = call i64 @strlen(ptr noundef %1099) #14
+  %1101 = load ptr, ptr %66, align 8
+  call void @add_assoc_str_ex(ptr noundef %1097, ptr noundef %1098, i64 noundef %1100, ptr noundef %1101) #13
+  %1102 = load ptr, ptr %144, align 8
+  %1103 = getelementptr inbounds %struct._php_timezone_obj, ptr %1102, i32 0, i32 2
   %1104 = load ptr, ptr %1103, align 8
-  %1105 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 2
-  %1106 = load i32, ptr %168, align 4
-  %1107 = sext i32 %1106 to i64
-  %1108 = getelementptr inbounds [6 x i64], ptr %1105, i64 0, i64 %1107
-  %1109 = load i64, ptr %1108, align 8
-  %1110 = getelementptr inbounds %struct._ttinfo, ptr %1104, i64 %1109
-  %1111 = getelementptr inbounds %struct._ttinfo, ptr %1110, i32 0, i32 0
-  %1112 = load i32, ptr %1111, align 4
-  %1113 = sext i32 %1112 to i64
+  %1105 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1104, i32 0, i32 5
+  %1106 = load ptr, ptr %1105, align 8
+  %1107 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 2
+  %1108 = load i32, ptr %168, align 4
+  %1109 = sext i32 %1108 to i64
+  %1110 = getelementptr inbounds [6 x i64], ptr %1107, i64 0, i64 %1109
+  %1111 = load i64, ptr %1110, align 8
+  %1112 = getelementptr inbounds %struct._ttinfo, ptr %1106, i64 %1111
+  %1113 = getelementptr inbounds %struct._ttinfo, ptr %1112, i32 0, i32 0
+  %1114 = load i32, ptr %1113, align 4
+  %1115 = sext i32 %1114 to i64
   store ptr %143, ptr %137, align 8
   store ptr @.str.64, ptr %138, align 8
-  store i64 %1113, ptr %139, align 8
-  %1114 = load ptr, ptr %137, align 8
-  %1115 = load ptr, ptr %138, align 8
-  %1116 = load ptr, ptr %138, align 8
-  %1117 = call i64 @strlen(ptr noundef %1116) #14
-  %1118 = load i64, ptr %139, align 8
-  call void @add_assoc_long_ex(ptr noundef %1114, ptr noundef %1115, i64 noundef %1117, i64 noundef %1118) #13
-  %1119 = load ptr, ptr %144, align 8
-  %1120 = getelementptr inbounds %struct._php_timezone_obj, ptr %1119, i32 0, i32 2
-  %1121 = load ptr, ptr %1120, align 8
-  %1122 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1121, i32 0, i32 5
+  store i64 %1115, ptr %139, align 8
+  %1116 = load ptr, ptr %137, align 8
+  %1117 = load ptr, ptr %138, align 8
+  %1118 = load ptr, ptr %138, align 8
+  %1119 = call i64 @strlen(ptr noundef %1118) #14
+  %1120 = load i64, ptr %139, align 8
+  call void @add_assoc_long_ex(ptr noundef %1116, ptr noundef %1117, i64 noundef %1119, i64 noundef %1120) #13
+  %1121 = load ptr, ptr %144, align 8
+  %1122 = getelementptr inbounds %struct._php_timezone_obj, ptr %1121, i32 0, i32 2
   %1123 = load ptr, ptr %1122, align 8
-  %1124 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 2
-  %1125 = load i32, ptr %168, align 4
-  %1126 = sext i32 %1125 to i64
-  %1127 = getelementptr inbounds [6 x i64], ptr %1124, i64 0, i64 %1126
-  %1128 = load i64, ptr %1127, align 8
-  %1129 = getelementptr inbounds %struct._ttinfo, ptr %1123, i64 %1128
-  %1130 = getelementptr inbounds %struct._ttinfo, ptr %1129, i32 0, i32 1
-  %1131 = load i32, ptr %1130, align 4
-  %1132 = icmp ne i32 %1131, 0
+  %1124 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1123, i32 0, i32 5
+  %1125 = load ptr, ptr %1124, align 8
+  %1126 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 2
+  %1127 = load i32, ptr %168, align 4
+  %1128 = sext i32 %1127 to i64
+  %1129 = getelementptr inbounds [6 x i64], ptr %1126, i64 0, i64 %1128
+  %1130 = load i64, ptr %1129, align 8
+  %1131 = getelementptr inbounds %struct._ttinfo, ptr %1125, i64 %1130
+  %1132 = getelementptr inbounds %struct._ttinfo, ptr %1131, i32 0, i32 1
+  %1133 = load i32, ptr %1132, align 4
+  %1134 = icmp ne i32 %1133, 0
   store ptr %143, ptr %40, align 8
   store ptr @.str.65, ptr %41, align 8
-  %1133 = zext i1 %1132 to i8
-  store i8 %1133, ptr %42, align 1
-  %1134 = load ptr, ptr %40, align 8
-  %1135 = load ptr, ptr %41, align 8
-  %1136 = load ptr, ptr %41, align 8
-  %1137 = call i64 @strlen(ptr noundef %1136) #14
-  %1138 = load i8, ptr %42, align 1
-  %1139 = trunc i8 %1138 to i1
-  call void @add_assoc_bool_ex(ptr noundef %1134, ptr noundef %1135, i64 noundef %1137, i1 noundef zeroext %1139) #13
-  %1140 = load ptr, ptr %144, align 8
-  %1141 = getelementptr inbounds %struct._php_timezone_obj, ptr %1140, i32 0, i32 2
-  %1142 = load ptr, ptr %1141, align 8
-  %1143 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1142, i32 0, i32 6
+  %1135 = zext i1 %1134 to i8
+  store i8 %1135, ptr %42, align 1
+  %1136 = load ptr, ptr %40, align 8
+  %1137 = load ptr, ptr %41, align 8
+  %1138 = load ptr, ptr %41, align 8
+  %1139 = call i64 @strlen(ptr noundef %1138) #14
+  %1140 = load i8, ptr %42, align 1
+  %1141 = trunc i8 %1140 to i1
+  call void @add_assoc_bool_ex(ptr noundef %1136, ptr noundef %1137, i64 noundef %1139, i1 noundef zeroext %1141) #13
+  %1142 = load ptr, ptr %144, align 8
+  %1143 = getelementptr inbounds %struct._php_timezone_obj, ptr %1142, i32 0, i32 2
   %1144 = load ptr, ptr %1143, align 8
-  %1145 = load ptr, ptr %144, align 8
-  %1146 = getelementptr inbounds %struct._php_timezone_obj, ptr %1145, i32 0, i32 2
-  %1147 = load ptr, ptr %1146, align 8
-  %1148 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1147, i32 0, i32 5
+  %1145 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1144, i32 0, i32 6
+  %1146 = load ptr, ptr %1145, align 8
+  %1147 = load ptr, ptr %144, align 8
+  %1148 = getelementptr inbounds %struct._php_timezone_obj, ptr %1147, i32 0, i32 2
   %1149 = load ptr, ptr %1148, align 8
-  %1150 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 2
-  %1151 = load i32, ptr %168, align 4
-  %1152 = sext i32 %1151 to i64
-  %1153 = getelementptr inbounds [6 x i64], ptr %1150, i64 0, i64 %1152
-  %1154 = load i64, ptr %1153, align 8
-  %1155 = getelementptr inbounds %struct._ttinfo, ptr %1149, i64 %1154
-  %1156 = getelementptr inbounds %struct._ttinfo, ptr %1155, i32 0, i32 2
-  %1157 = load i32, ptr %1156, align 4
-  %1158 = zext i32 %1157 to i64
-  %1159 = getelementptr inbounds i8, ptr %1144, i64 %1158
+  %1150 = getelementptr inbounds %struct._timelib_tzinfo, ptr %1149, i32 0, i32 5
+  %1151 = load ptr, ptr %1150, align 8
+  %1152 = getelementptr inbounds %struct._timelib_posix_transitions, ptr %174, i32 0, i32 2
+  %1153 = load i32, ptr %168, align 4
+  %1154 = sext i32 %1153 to i64
+  %1155 = getelementptr inbounds [6 x i64], ptr %1152, i64 0, i64 %1154
+  %1156 = load i64, ptr %1155, align 8
+  %1157 = getelementptr inbounds %struct._ttinfo, ptr %1151, i64 %1156
+  %1158 = getelementptr inbounds %struct._ttinfo, ptr %1157, i32 0, i32 2
+  %1159 = load i32, ptr %1158, align 4
+  %1160 = zext i32 %1159 to i64
+  %1161 = getelementptr inbounds i8, ptr %1146, i64 %1160
   store ptr %143, ptr %89, align 8
   store ptr @.str.66, ptr %90, align 8
-  store ptr %1159, ptr %91, align 8
-  %1160 = load ptr, ptr %89, align 8
-  %1161 = load ptr, ptr %90, align 8
-  %1162 = load ptr, ptr %90, align 8
-  %1163 = call i64 @strlen(ptr noundef %1162) #14
-  %1164 = load ptr, ptr %91, align 8
-  call void @add_assoc_string_ex(ptr noundef %1160, ptr noundef %1161, i64 noundef %1163, ptr noundef %1164) #13
-  %1165 = load ptr, ptr %141, align 8
-  store ptr %1165, ptr %17, align 8
+  store ptr %1161, ptr %91, align 8
+  %1162 = load ptr, ptr %89, align 8
+  %1163 = load ptr, ptr %90, align 8
+  %1164 = load ptr, ptr %90, align 8
+  %1165 = call i64 @strlen(ptr noundef %1164) #14
+  %1166 = load ptr, ptr %91, align 8
+  call void @add_assoc_string_ex(ptr noundef %1162, ptr noundef %1163, i64 noundef %1165, ptr noundef %1166) #13
+  %1167 = load ptr, ptr %141, align 8
+  store ptr %1167, ptr %17, align 8
   store ptr %143, ptr %18, align 8
-  %1166 = load ptr, ptr %17, align 8
-  %1167 = load ptr, ptr %1166, align 8
-  %1168 = load ptr, ptr %18, align 8
-  %1169 = call ptr @zend_hash_next_index_insert(ptr noundef %1167, ptr noundef %1168) #13
-  br label %1170
+  %1168 = load ptr, ptr %17, align 8
+  %1169 = load ptr, ptr %1168, align 8
+  %1170 = load ptr, ptr %18, align 8
+  %1171 = call ptr @zend_hash_next_index_insert(ptr noundef %1169, ptr noundef %1170) #13
+  br label %1172
 
-1170:                                             ; preds = %1078, %1060, %1051
-  %1171 = load i32, ptr %168, align 4
-  %1172 = add nsw i32 %1171, 1
-  store i32 %1172, ptr %168, align 4
-  br label %1037
+1172:                                             ; preds = %1080, %1062, %1053
+  %1173 = load i32, ptr %168, align 4
+  %1174 = add nsw i32 %1173, 1
+  store i32 %1174, ptr %168, align 4
+  br label %1039
 
-1173:                                             ; preds = %1037
-  br label %1174
+1175:                                             ; preds = %1039
+  br label %1176
 
-1174:                                             ; preds = %1173
-  %1175 = load i32, ptr %167, align 4
-  %1176 = add nsw i32 %1175, 1
-  store i32 %1176, ptr %167, align 4
-  br label %1026
+1176:                                             ; preds = %1175
+  %1177 = load i32, ptr %167, align 4
+  %1178 = add nsw i32 %1177, 1
+  store i32 %1178, ptr %167, align 4
+  br label %1028
 
-1177:                                             ; preds = %1026
-  br label %1178
+1179:                                             ; preds = %1028
+  br label %1180
 
-1178:                                             ; preds = %1177, %1069, %998, %991, %985, %231, %217, %198
+1180:                                             ; preds = %1179, %1071, %1000, %993, %987, %233, %218, %198
   ret void
 }
 
@@ -36203,160 +36335,162 @@ define hidden void @zif_timezone_location_get(ptr noundef %0, ptr noundef %1) #0
   %39 = load ptr, ptr @date_ce_timezone, align 8
   %40 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %25, ptr noundef %38, ptr noundef @.str.46, ptr noundef %18, ptr noundef %39)
   %41 = icmp eq i32 %40, -1
-  br i1 %41, label %42, label %47
+  br i1 %41, label %42, label %48
 
 42:                                               ; preds = %37
   br label %43
 
 43:                                               ; preds = %42
-  %44 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %45 = icmp ne ptr %44, null
-  call void @llvm.assume(i1 %45)
-  br label %136
+  %44 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp ne ptr %45, null
+  call void @llvm.assume(i1 %46)
+  br label %138
 
-46:                                               ; No predecessors!
-  br label %47
+47:                                               ; No predecessors!
+  br label %48
 
-47:                                               ; preds = %46, %37
-  %48 = load ptr, ptr %18, align 8
-  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8
-  %51 = call ptr @php_timezone_obj_from_obj(ptr noundef %50)
-  store ptr %51, ptr %19, align 8
-  %52 = load ptr, ptr %19, align 8
-  %53 = getelementptr inbounds %struct._php_timezone_obj, ptr %52, i32 0, i32 0
-  %54 = load i8, ptr %53, align 8
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %66, label %56
+48:                                               ; preds = %47, %37
+  %49 = load ptr, ptr %18, align 8
+  %50 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  %52 = call ptr @php_timezone_obj_from_obj(ptr noundef %51)
+  store ptr %52, ptr %19, align 8
+  %53 = load ptr, ptr %19, align 8
+  %54 = getelementptr inbounds %struct._php_timezone_obj, ptr %53, i32 0, i32 0
+  %55 = load i8, ptr %54, align 8
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %68, label %57
 
-56:                                               ; preds = %47
-  %57 = load ptr, ptr %18, align 8
-  %58 = getelementptr inbounds %struct._zval_struct, ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct._zend_object, ptr %59, i32 0, i32 2
-  %61 = load ptr, ptr %60, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %61)
-  br label %62
+57:                                               ; preds = %48
+  %58 = load ptr, ptr %18, align 8
+  %59 = getelementptr inbounds %struct._zval_struct, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds %struct._zend_object, ptr %60, i32 0, i32 2
+  %62 = load ptr, ptr %61, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %62)
+  br label %63
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %64 = icmp ne ptr %63, null
-  call void @llvm.assume(i1 %64)
-  br label %136
+63:                                               ; preds = %57
+  %64 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp ne ptr %65, null
+  call void @llvm.assume(i1 %66)
+  br label %138
 
-65:                                               ; No predecessors!
-  br label %66
+67:                                               ; No predecessors!
+  br label %68
 
-66:                                               ; preds = %65, %47
-  %67 = load ptr, ptr %19, align 8
-  %68 = getelementptr inbounds %struct._php_timezone_obj, ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp ne i32 %69, 3
-  br i1 %70, label %71, label %78
+68:                                               ; preds = %67, %48
+  %69 = load ptr, ptr %19, align 8
+  %70 = getelementptr inbounds %struct._php_timezone_obj, ptr %69, i32 0, i32 1
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp ne i32 %71, 3
+  br i1 %72, label %73, label %80
 
-71:                                               ; preds = %66
-  br label %72
+73:                                               ; preds = %68
+  br label %74
 
-72:                                               ; preds = %71
-  br label %73
+74:                                               ; preds = %73
+  br label %75
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %17, align 8
-  %75 = getelementptr inbounds %struct._zval_struct, ptr %74, i32 0, i32 1
-  store i32 2, ptr %75, align 8
-  br label %76
-
-76:                                               ; preds = %73
-  br label %136
-
-77:                                               ; No predecessors!
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %17, align 8
+  %77 = getelementptr inbounds %struct._zval_struct, ptr %76, i32 0, i32 1
+  store i32 2, ptr %77, align 8
   br label %78
 
-78:                                               ; preds = %77, %66
-  br label %79
+78:                                               ; preds = %75
+  br label %138
 
-79:                                               ; preds = %78
-  %80 = call ptr @_zend_new_array_0()
-  store ptr %80, ptr %20, align 8
-  %81 = load ptr, ptr %17, align 8
-  store ptr %81, ptr %21, align 8
-  %82 = load ptr, ptr %20, align 8
-  %83 = load ptr, ptr %21, align 8
-  %84 = getelementptr inbounds %struct._zval_struct, ptr %83, i32 0, i32 0
-  store ptr %82, ptr %84, align 8
+79:                                               ; No predecessors!
+  br label %80
+
+80:                                               ; preds = %79, %68
+  br label %81
+
+81:                                               ; preds = %80
+  %82 = call ptr @_zend_new_array_0()
+  store ptr %82, ptr %20, align 8
+  %83 = load ptr, ptr %17, align 8
+  store ptr %83, ptr %21, align 8
+  %84 = load ptr, ptr %20, align 8
   %85 = load ptr, ptr %21, align 8
-  %86 = getelementptr inbounds %struct._zval_struct, ptr %85, i32 0, i32 1
-  store i32 775, ptr %86, align 8
-  br label %87
+  %86 = getelementptr inbounds %struct._zval_struct, ptr %85, i32 0, i32 0
+  store ptr %84, ptr %86, align 8
+  %87 = load ptr, ptr %21, align 8
+  %88 = getelementptr inbounds %struct._zval_struct, ptr %87, i32 0, i32 1
+  store i32 775, ptr %88, align 8
+  br label %89
 
-87:                                               ; preds = %79
-  %88 = load ptr, ptr %17, align 8
-  %89 = load ptr, ptr %19, align 8
-  %90 = getelementptr inbounds %struct._php_timezone_obj, ptr %89, i32 0, i32 2
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %struct._timelib_tzinfo, ptr %91, i32 0, i32 9
-  %93 = getelementptr inbounds %struct._tlocinfo, ptr %92, i32 0, i32 0
-  %94 = getelementptr inbounds [3 x i8], ptr %93, i64 0, i64 0
-  store ptr %88, ptr %10, align 8
+89:                                               ; preds = %81
+  %90 = load ptr, ptr %17, align 8
+  %91 = load ptr, ptr %19, align 8
+  %92 = getelementptr inbounds %struct._php_timezone_obj, ptr %91, i32 0, i32 2
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds %struct._timelib_tzinfo, ptr %93, i32 0, i32 9
+  %95 = getelementptr inbounds %struct._tlocinfo, ptr %94, i32 0, i32 0
+  %96 = getelementptr inbounds [3 x i8], ptr %95, i64 0, i64 0
+  store ptr %90, ptr %10, align 8
   store ptr @.str.67, ptr %11, align 8
-  store ptr %94, ptr %12, align 8
-  %95 = load ptr, ptr %10, align 8
-  %96 = load ptr, ptr %11, align 8
-  %97 = load ptr, ptr %11, align 8
-  %98 = call i64 @strlen(ptr noundef %97) #14
-  %99 = load ptr, ptr %12, align 8
-  call void @add_assoc_string_ex(ptr noundef %95, ptr noundef %96, i64 noundef %98, ptr noundef %99) #13
-  %100 = load ptr, ptr %17, align 8
-  %101 = load ptr, ptr %19, align 8
-  %102 = getelementptr inbounds %struct._php_timezone_obj, ptr %101, i32 0, i32 2
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct._timelib_tzinfo, ptr %103, i32 0, i32 9
-  %105 = getelementptr inbounds %struct._tlocinfo, ptr %104, i32 0, i32 1
-  %106 = load double, ptr %105, align 8
-  store ptr %100, ptr %3, align 8
+  store ptr %96, ptr %12, align 8
+  %97 = load ptr, ptr %10, align 8
+  %98 = load ptr, ptr %11, align 8
+  %99 = load ptr, ptr %11, align 8
+  %100 = call i64 @strlen(ptr noundef %99) #14
+  %101 = load ptr, ptr %12, align 8
+  call void @add_assoc_string_ex(ptr noundef %97, ptr noundef %98, i64 noundef %100, ptr noundef %101) #13
+  %102 = load ptr, ptr %17, align 8
+  %103 = load ptr, ptr %19, align 8
+  %104 = getelementptr inbounds %struct._php_timezone_obj, ptr %103, i32 0, i32 2
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds %struct._timelib_tzinfo, ptr %105, i32 0, i32 9
+  %107 = getelementptr inbounds %struct._tlocinfo, ptr %106, i32 0, i32 1
+  %108 = load double, ptr %107, align 8
+  store ptr %102, ptr %3, align 8
   store ptr @.str.68, ptr %4, align 8
-  store double %106, ptr %5, align 8
-  %107 = load ptr, ptr %3, align 8
-  %108 = load ptr, ptr %4, align 8
-  %109 = load ptr, ptr %4, align 8
-  %110 = call i64 @strlen(ptr noundef %109) #14
-  %111 = load double, ptr %5, align 8
-  call void @add_assoc_double_ex(ptr noundef %107, ptr noundef %108, i64 noundef %110, double noundef %111) #13
-  %112 = load ptr, ptr %17, align 8
-  %113 = load ptr, ptr %19, align 8
-  %114 = getelementptr inbounds %struct._php_timezone_obj, ptr %113, i32 0, i32 2
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds %struct._timelib_tzinfo, ptr %115, i32 0, i32 9
-  %117 = getelementptr inbounds %struct._tlocinfo, ptr %116, i32 0, i32 2
-  %118 = load double, ptr %117, align 8
-  store ptr %112, ptr %6, align 8
+  store double %108, ptr %5, align 8
+  %109 = load ptr, ptr %3, align 8
+  %110 = load ptr, ptr %4, align 8
+  %111 = load ptr, ptr %4, align 8
+  %112 = call i64 @strlen(ptr noundef %111) #14
+  %113 = load double, ptr %5, align 8
+  call void @add_assoc_double_ex(ptr noundef %109, ptr noundef %110, i64 noundef %112, double noundef %113) #13
+  %114 = load ptr, ptr %17, align 8
+  %115 = load ptr, ptr %19, align 8
+  %116 = getelementptr inbounds %struct._php_timezone_obj, ptr %115, i32 0, i32 2
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds %struct._timelib_tzinfo, ptr %117, i32 0, i32 9
+  %119 = getelementptr inbounds %struct._tlocinfo, ptr %118, i32 0, i32 2
+  %120 = load double, ptr %119, align 8
+  store ptr %114, ptr %6, align 8
   store ptr @.str.69, ptr %7, align 8
-  store double %118, ptr %8, align 8
-  %119 = load ptr, ptr %6, align 8
-  %120 = load ptr, ptr %7, align 8
-  %121 = load ptr, ptr %7, align 8
-  %122 = call i64 @strlen(ptr noundef %121) #14
-  %123 = load double, ptr %8, align 8
-  call void @add_assoc_double_ex(ptr noundef %119, ptr noundef %120, i64 noundef %122, double noundef %123) #13
-  %124 = load ptr, ptr %17, align 8
-  %125 = load ptr, ptr %19, align 8
-  %126 = getelementptr inbounds %struct._php_timezone_obj, ptr %125, i32 0, i32 2
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %struct._timelib_tzinfo, ptr %127, i32 0, i32 9
-  %129 = getelementptr inbounds %struct._tlocinfo, ptr %128, i32 0, i32 3
-  %130 = load ptr, ptr %129, align 8
-  store ptr %124, ptr %13, align 8
+  store double %120, ptr %8, align 8
+  %121 = load ptr, ptr %6, align 8
+  %122 = load ptr, ptr %7, align 8
+  %123 = load ptr, ptr %7, align 8
+  %124 = call i64 @strlen(ptr noundef %123) #14
+  %125 = load double, ptr %8, align 8
+  call void @add_assoc_double_ex(ptr noundef %121, ptr noundef %122, i64 noundef %124, double noundef %125) #13
+  %126 = load ptr, ptr %17, align 8
+  %127 = load ptr, ptr %19, align 8
+  %128 = getelementptr inbounds %struct._php_timezone_obj, ptr %127, i32 0, i32 2
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds %struct._timelib_tzinfo, ptr %129, i32 0, i32 9
+  %131 = getelementptr inbounds %struct._tlocinfo, ptr %130, i32 0, i32 3
+  %132 = load ptr, ptr %131, align 8
+  store ptr %126, ptr %13, align 8
   store ptr @.str.70, ptr %14, align 8
-  store ptr %130, ptr %15, align 8
-  %131 = load ptr, ptr %13, align 8
-  %132 = load ptr, ptr %14, align 8
-  %133 = load ptr, ptr %14, align 8
-  %134 = call i64 @strlen(ptr noundef %133) #14
-  %135 = load ptr, ptr %15, align 8
-  call void @add_assoc_string_ex(ptr noundef %131, ptr noundef %132, i64 noundef %134, ptr noundef %135) #13
-  br label %136
+  store ptr %132, ptr %15, align 8
+  %133 = load ptr, ptr %13, align 8
+  %134 = load ptr, ptr %14, align 8
+  %135 = load ptr, ptr %14, align 8
+  %136 = call i64 @strlen(ptr noundef %135) #14
+  %137 = load ptr, ptr %15, align 8
+  call void @add_assoc_string_ex(ptr noundef %133, ptr noundef %134, i64 noundef %136, ptr noundef %137) #13
+  br label %138
 
-136:                                              ; preds = %87, %76, %62, %43
+138:                                              ; preds = %89, %78, %63, %43
   ret void
 }
 
@@ -36633,7 +36767,7 @@ define hidden void @zim_DateInterval___construct(ptr noundef %0, ptr noundef %1)
   %174 = load i32, ptr %26, align 4
   %175 = load ptr, ptr %25, align 8
   call void @zend_wrong_parameter_error(i32 noundef %171, i32 noundef %172, ptr noundef %173, i32 noundef %174, ptr noundef %175)
-  br label %203
+  br label %204
 
 176:                                              ; preds = %162
   br label %177
@@ -36646,40 +36780,41 @@ define hidden void @zim_DateInterval___construct(ptr noundef %0, ptr noundef %1)
   %182 = getelementptr inbounds %struct._zend_string, ptr %181, i32 0, i32 2
   %183 = load i64, ptr %182, align 8
   %184 = call zeroext i1 @date_interval_initialize(ptr noundef %18, ptr noundef %180, i64 noundef %183)
-  br i1 %184, label %190, label %185
+  br i1 %184, label %191, label %185
 
 185:                                              ; preds = %177
   br label %186
 
 186:                                              ; preds = %185
-  %187 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %188 = icmp ne ptr %187, null
-  call void @llvm.assume(i1 %188)
-  br label %203
+  %187 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %188 = load ptr, ptr %187, align 8
+  %189 = icmp ne ptr %188, null
+  call void @llvm.assume(i1 %189)
+  br label %204
 
-189:                                              ; No predecessors!
-  br label %190
+190:                                              ; No predecessors!
+  br label %191
 
-190:                                              ; preds = %189, %177
-  %191 = load ptr, ptr %15, align 8
-  %192 = getelementptr inbounds %struct._zend_execute_data, ptr %191, i32 0, i32 4
-  %193 = getelementptr inbounds %struct._zval_struct, ptr %192, i32 0, i32 0
-  %194 = load ptr, ptr %193, align 8
-  %195 = call ptr @php_interval_obj_from_obj(ptr noundef %194)
-  store ptr %195, ptr %31, align 8
-  %196 = load ptr, ptr %18, align 8
-  %197 = load ptr, ptr %31, align 8
-  %198 = getelementptr inbounds %struct._php_interval_obj, ptr %197, i32 0, i32 0
-  store ptr %196, ptr %198, align 8
-  %199 = load ptr, ptr %31, align 8
-  %200 = getelementptr inbounds %struct._php_interval_obj, ptr %199, i32 0, i32 4
-  store i8 1, ptr %200, align 8
-  %201 = load ptr, ptr %31, align 8
-  %202 = getelementptr inbounds %struct._php_interval_obj, ptr %201, i32 0, i32 1
-  store i32 2, ptr %202, align 8
-  br label %203
+191:                                              ; preds = %190, %177
+  %192 = load ptr, ptr %15, align 8
+  %193 = getelementptr inbounds %struct._zend_execute_data, ptr %192, i32 0, i32 4
+  %194 = getelementptr inbounds %struct._zval_struct, ptr %193, i32 0, i32 0
+  %195 = load ptr, ptr %194, align 8
+  %196 = call ptr @php_interval_obj_from_obj(ptr noundef %195)
+  store ptr %196, ptr %31, align 8
+  %197 = load ptr, ptr %18, align 8
+  %198 = load ptr, ptr %31, align 8
+  %199 = getelementptr inbounds %struct._php_interval_obj, ptr %198, i32 0, i32 0
+  store ptr %197, ptr %199, align 8
+  %200 = load ptr, ptr %31, align 8
+  %201 = getelementptr inbounds %struct._php_interval_obj, ptr %200, i32 0, i32 4
+  store i8 1, ptr %201, align 8
+  %202 = load ptr, ptr %31, align 8
+  %203 = getelementptr inbounds %struct._php_interval_obj, ptr %202, i32 0, i32 1
+  store i32 2, ptr %203, align 8
+  br label %204
 
-203:                                              ; preds = %190, %186, %170
+204:                                              ; preds = %191, %186, %170
   ret void
 }
 
@@ -38674,7 +38809,7 @@ define hidden void @zim_DateInterval___serialize(ptr noundef %0, ptr noundef %1)
 
 23:                                               ; preds = %12
   call void @zend_wrong_parameters_none_error()
-  br label %62
+  br label %63
 
 24:                                               ; preds = %12
   br label %25
@@ -38689,7 +38824,7 @@ define hidden void @zim_DateInterval___serialize(ptr noundef %0, ptr noundef %1)
   %31 = getelementptr inbounds %struct._php_interval_obj, ptr %30, i32 0, i32 4
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %44, label %34
+  br i1 %33, label %45, label %34
 
 34:                                               ; preds = %25
   %35 = load ptr, ptr %5, align 8
@@ -38701,46 +38836,47 @@ define hidden void @zim_DateInterval___serialize(ptr noundef %0, ptr noundef %1)
   br label %40
 
 40:                                               ; preds = %34
-  %41 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %42 = icmp ne ptr %41, null
-  call void @llvm.assume(i1 %42)
-  br label %62
+  %41 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  call void @llvm.assume(i1 %43)
+  br label %63
 
-43:                                               ; No predecessors!
-  br label %44
-
-44:                                               ; preds = %43, %25
+44:                                               ; No predecessors!
   br label %45
 
-45:                                               ; preds = %44
-  %46 = call ptr @_zend_new_array_0()
-  store ptr %46, ptr %8, align 8
-  %47 = load ptr, ptr %4, align 8
-  store ptr %47, ptr %9, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 0
-  store ptr %48, ptr %50, align 8
-  %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds %struct._zval_struct, ptr %51, i32 0, i32 1
-  store i32 775, ptr %52, align 8
-  br label %53
+45:                                               ; preds = %44, %25
+  br label %46
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %7, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = load ptr, ptr %7, align 8
-  call void @date_interval_object_to_hash(ptr noundef %57, ptr noundef %58)
+46:                                               ; preds = %45
+  %47 = call ptr @_zend_new_array_0()
+  store ptr %47, ptr %8, align 8
+  %48 = load ptr, ptr %4, align 8
+  store ptr %48, ptr %9, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds %struct._zval_struct, ptr %50, i32 0, i32 0
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds %struct._zval_struct, ptr %52, i32 0, i32 1
+  store i32 775, ptr %53, align 8
+  br label %54
+
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds %struct._zval_struct, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  store ptr %57, ptr %7, align 8
+  %58 = load ptr, ptr %6, align 8
   %59 = load ptr, ptr %7, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct._php_interval_obj, ptr %60, i32 0, i32 5
-  call void @add_common_properties(ptr noundef %59, ptr noundef %61)
-  br label %62
+  call void @date_interval_object_to_hash(ptr noundef %58, ptr noundef %59)
+  %60 = load ptr, ptr %7, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct._php_interval_obj, ptr %61, i32 0, i32 5
+  call void @add_common_properties(ptr noundef %60, ptr noundef %62)
+  br label %63
 
-62:                                               ; preds = %53, %40, %23
+63:                                               ; preds = %54, %40, %23
   ret void
 }
 
@@ -40450,89 +40586,91 @@ define hidden void @zif_date_interval_format(ptr noundef %0, ptr noundef %1) #0 
   %30 = load ptr, ptr @date_ce_interval, align 8
   %31 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %16, ptr noundef %29, ptr noundef @.str.43, ptr noundef %7, ptr noundef %30, ptr noundef %9, ptr noundef %10)
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %38
+  br i1 %32, label %33, label %39
 
 33:                                               ; preds = %28
   br label %34
 
 34:                                               ; preds = %33
-  %35 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %36 = icmp ne ptr %35, null
-  call void @llvm.assume(i1 %36)
-  br label %82
+  %35 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  call void @llvm.assume(i1 %37)
+  br label %84
 
-37:                                               ; No predecessors!
-  br label %38
+38:                                               ; No predecessors!
+  br label %39
 
-38:                                               ; preds = %37, %28
-  %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct._zval_struct, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = call ptr @php_interval_obj_from_obj(ptr noundef %41)
-  store ptr %42, ptr %8, align 8
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct._php_interval_obj, ptr %43, i32 0, i32 4
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %57, label %47
+39:                                               ; preds = %38, %28
+  %40 = load ptr, ptr %7, align 8
+  %41 = getelementptr inbounds %struct._zval_struct, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = call ptr @php_interval_obj_from_obj(ptr noundef %42)
+  store ptr %43, ptr %8, align 8
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds %struct._php_interval_obj, ptr %44, i32 0, i32 4
+  %46 = load i8, ptr %45, align 8
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %59, label %48
 
-47:                                               ; preds = %38
-  %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct._zend_object, ptr %50, i32 0, i32 2
-  %52 = load ptr, ptr %51, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %52)
-  br label %53
+48:                                               ; preds = %39
+  %49 = load ptr, ptr %7, align 8
+  %50 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds %struct._zend_object, ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %53)
+  br label %54
 
-53:                                               ; preds = %47
-  %54 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %55 = icmp ne ptr %54, null
-  call void @llvm.assume(i1 %55)
-  br label %82
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  call void @llvm.assume(i1 %57)
+  br label %84
 
-56:                                               ; No predecessors!
-  br label %57
-
-57:                                               ; preds = %56, %38
-  br label %58
-
-58:                                               ; preds = %57
+58:                                               ; No predecessors!
   br label %59
 
-59:                                               ; preds = %58
-  %60 = load ptr, ptr %6, align 8
-  store ptr %60, ptr %11, align 8
-  %61 = load ptr, ptr %9, align 8
-  %62 = load i64, ptr %10, align 8
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds %struct._php_interval_obj, ptr %63, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8
-  %66 = call ptr @date_interval_format(ptr noundef %61, i64 noundef %62, ptr noundef %65)
-  store ptr %66, ptr %12, align 8
-  %67 = load ptr, ptr %12, align 8
-  %68 = load ptr, ptr %11, align 8
-  %69 = getelementptr inbounds %struct._zval_struct, ptr %68, i32 0, i32 0
-  store ptr %67, ptr %69, align 8
-  %70 = load ptr, ptr %12, align 8
-  %71 = getelementptr inbounds %struct._zend_string, ptr %70, i32 0, i32 0
-  %72 = getelementptr inbounds %struct._zend_refcounted_h, ptr %71, i32 0, i32 1
-  %73 = load i32, ptr %72, align 4
-  store i32 %73, ptr %3, align 4
-  %74 = load i32, ptr %3, align 4
-  %75 = and i32 %74, 1008
-  %76 = and i32 %75, 64
-  %77 = icmp ne i32 %76, 0
-  %78 = select i1 %77, i32 6, i32 262
-  %79 = load ptr, ptr %11, align 8
-  %80 = getelementptr inbounds %struct._zval_struct, ptr %79, i32 0, i32 1
-  store i32 %78, ptr %80, align 8
-  br label %81
+59:                                               ; preds = %58, %39
+  br label %60
 
-81:                                               ; preds = %59
-  br label %82
+60:                                               ; preds = %59
+  br label %61
 
-82:                                               ; preds = %81, %53, %34
+61:                                               ; preds = %60
+  %62 = load ptr, ptr %6, align 8
+  store ptr %62, ptr %11, align 8
+  %63 = load ptr, ptr %9, align 8
+  %64 = load i64, ptr %10, align 8
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr inbounds %struct._php_interval_obj, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8
+  %68 = call ptr @date_interval_format(ptr noundef %63, i64 noundef %64, ptr noundef %67)
+  store ptr %68, ptr %12, align 8
+  %69 = load ptr, ptr %12, align 8
+  %70 = load ptr, ptr %11, align 8
+  %71 = getelementptr inbounds %struct._zval_struct, ptr %70, i32 0, i32 0
+  store ptr %69, ptr %71, align 8
+  %72 = load ptr, ptr %12, align 8
+  %73 = getelementptr inbounds %struct._zend_string, ptr %72, i32 0, i32 0
+  %74 = getelementptr inbounds %struct._zend_refcounted_h, ptr %73, i32 0, i32 1
+  %75 = load i32, ptr %74, align 4
+  store i32 %75, ptr %3, align 4
+  %76 = load i32, ptr %3, align 4
+  %77 = and i32 %76, 1008
+  %78 = and i32 %77, 64
+  %79 = icmp ne i32 %78, 0
+  %80 = select i1 %79, i32 6, i32 262
+  %81 = load ptr, ptr %11, align 8
+  %82 = getelementptr inbounds %struct._zval_struct, ptr %81, i32 0, i32 1
+  store i32 %80, ptr %82, align 8
+  br label %83
+
+83:                                               ; preds = %61
+  br label %84
+
+84:                                               ; preds = %83, %54, %34
   ret void
 }
 
@@ -41091,91 +41229,94 @@ define hidden void @zim_DatePeriod_createFromISO8601String(ptr noundef %0, ptr n
   %13 = load i32, ptr %12, align 4
   %14 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %13, ptr noundef @.str.73, ptr noundef %8, ptr noundef %9, ptr noundef %7)
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %21
+  br i1 %15, label %16, label %22
 
 16:                                               ; preds = %2
   br label %17
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %19 = icmp ne ptr %18, null
-  call void @llvm.assume(i1 %19)
-  br label %65
+  %18 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  call void @llvm.assume(i1 %20)
+  br label %68
 
-20:                                               ; No predecessors!
-  br label %21
+21:                                               ; No predecessors!
+  br label %22
 
-21:                                               ; preds = %20, %2
-  %22 = load ptr, ptr %4, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct._zend_execute_data, ptr %23, i32 0, i32 4
-  %25 = getelementptr inbounds %struct._zval_struct, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %33
+22:                                               ; preds = %21, %2
+  %23 = load ptr, ptr %4, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds %struct._zend_execute_data, ptr %24, i32 0, i32 4
+  %26 = getelementptr inbounds %struct._zval_struct, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %34
 
-28:                                               ; preds = %21
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct._zend_execute_data, ptr %29, i32 0, i32 4
-  %31 = getelementptr inbounds %struct._zval_struct, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  br label %35
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds %struct._zend_execute_data, ptr %30, i32 0, i32 4
+  %32 = getelementptr inbounds %struct._zval_struct, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  br label %36
 
-33:                                               ; preds = %21
-  %34 = load ptr, ptr @date_ce_period, align 8
-  br label %35
+34:                                               ; preds = %22
+  %35 = load ptr, ptr @date_ce_period, align 8
+  br label %36
 
-35:                                               ; preds = %33, %28
-  %36 = phi ptr [ %32, %28 ], [ %34, %33 ]
-  %37 = call i32 @object_init_ex(ptr noundef %22, ptr noundef %36)
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct._zval_struct, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = call ptr @php_period_obj_from_obj(ptr noundef %40)
-  store ptr %41, ptr %5, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct._php_period_obj, ptr %42, i32 0, i32 2
-  store ptr null, ptr %43, align 8
-  %44 = load ptr, ptr %5, align 8
-  %45 = load ptr, ptr @date_ce_immutable, align 8
-  %46 = load ptr, ptr %8, align 8
-  %47 = load i64, ptr %9, align 8
-  %48 = load i64, ptr %7, align 8
-  %49 = call zeroext i1 @date_period_init_iso8601_string(ptr noundef %44, ptr noundef %45, ptr noundef %46, i64 noundef %47, i64 noundef %48, ptr noundef %6)
-  br i1 %49, label %55, label %50
+36:                                               ; preds = %34, %29
+  %37 = phi ptr [ %33, %29 ], [ %35, %34 ]
+  %38 = call i32 @object_init_ex(ptr noundef %23, ptr noundef %37)
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds %struct._zval_struct, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  %42 = call ptr @php_period_obj_from_obj(ptr noundef %41)
+  store ptr %42, ptr %5, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds %struct._php_period_obj, ptr %43, i32 0, i32 2
+  store ptr null, ptr %44, align 8
+  %45 = load ptr, ptr %5, align 8
+  %46 = load ptr, ptr @date_ce_immutable, align 8
+  %47 = load ptr, ptr %8, align 8
+  %48 = load i64, ptr %9, align 8
+  %49 = load i64, ptr %7, align 8
+  %50 = call zeroext i1 @date_period_init_iso8601_string(ptr noundef %45, ptr noundef %46, ptr noundef %47, i64 noundef %48, i64 noundef %49, ptr noundef %6)
+  br i1 %50, label %57, label %51
 
-50:                                               ; preds = %35
-  br label %51
+51:                                               ; preds = %36
+  br label %52
 
-51:                                               ; preds = %50
-  %52 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %53 = icmp ne ptr %52, null
-  call void @llvm.assume(i1 %53)
-  br label %65
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp ne ptr %54, null
+  call void @llvm.assume(i1 %55)
+  br label %68
 
-54:                                               ; No predecessors!
-  br label %55
+56:                                               ; No predecessors!
+  br label %57
 
-55:                                               ; preds = %54, %35
-  %56 = load ptr, ptr %5, align 8
-  %57 = load i64, ptr %7, align 8
-  %58 = load i64, ptr %6, align 8
-  %59 = call zeroext i1 @date_period_init_finish(ptr noundef %56, i64 noundef %57, i64 noundef %58)
-  br i1 %59, label %65, label %60
+57:                                               ; preds = %56, %36
+  %58 = load ptr, ptr %5, align 8
+  %59 = load i64, ptr %7, align 8
+  %60 = load i64, ptr %6, align 8
+  %61 = call zeroext i1 @date_period_init_finish(ptr noundef %58, i64 noundef %59, i64 noundef %60)
+  br i1 %61, label %68, label %62
 
-60:                                               ; preds = %55
-  br label %61
+62:                                               ; preds = %57
+  br label %63
 
-61:                                               ; preds = %60
-  %62 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %63 = icmp ne ptr %62, null
-  call void @llvm.assume(i1 %63)
-  br label %65
+63:                                               ; preds = %62
+  %64 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp ne ptr %65, null
+  call void @llvm.assume(i1 %66)
+  br label %68
 
-64:                                               ; No predecessors!
-  br label %65
+67:                                               ; No predecessors!
+  br label %68
 
-65:                                               ; preds = %64, %61, %55, %51, %17
+68:                                               ; preds = %67, %63, %57, %52, %17
   ret void
 }
 
@@ -41665,7 +41806,7 @@ define hidden void @zim_DatePeriod___construct(ptr noundef %0, ptr noundef %1) #
   %21 = load ptr, ptr @date_ce_interval, align 8
   %22 = call i32 (i32, i32, ptr, ...) @zend_parse_parameters_ex(i32 noundef 2, i32 noundef %19, ptr noundef @.str.74, ptr noundef %7, ptr noundef %20, ptr noundef %9, ptr noundef %21, ptr noundef %10, ptr noundef %11)
   %23 = icmp eq i32 %22, -1
-  br i1 %23, label %24, label %48
+  br i1 %23, label %24, label %49
 
 24:                                               ; preds = %2
   %25 = load ptr, ptr %3, align 8
@@ -41677,7 +41818,7 @@ define hidden void @zim_DatePeriod___construct(ptr noundef %0, ptr noundef %1) #
   %31 = load ptr, ptr @date_ce_interface, align 8
   %32 = call i32 (i32, i32, ptr, ...) @zend_parse_parameters_ex(i32 noundef 2, i32 noundef %28, ptr noundef @.str.75, ptr noundef %7, ptr noundef %29, ptr noundef %9, ptr noundef %30, ptr noundef %8, ptr noundef %31, ptr noundef %11)
   %33 = icmp eq i32 %32, -1
-  br i1 %33, label %34, label %47
+  br i1 %33, label %34, label %48
 
 34:                                               ; preds = %24
   %35 = load ptr, ptr %3, align 8
@@ -41686,266 +41827,273 @@ define hidden void @zim_DatePeriod___construct(ptr noundef %0, ptr noundef %1) #
   %38 = load i32, ptr %37, align 4
   %39 = call i32 (i32, i32, ptr, ...) @zend_parse_parameters_ex(i32 noundef 2, i32 noundef %38, ptr noundef @.str.73, ptr noundef %12, ptr noundef %13, ptr noundef %11)
   %40 = icmp eq i32 %39, -1
-  br i1 %40, label %41, label %46
+  br i1 %40, label %41, label %47
 
 41:                                               ; preds = %34
   call void (ptr, ...) @zend_type_error(ptr noundef @.str.76)
   br label %42
 
 42:                                               ; preds = %41
-  %43 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %44 = icmp ne ptr %43, null
-  call void @llvm.assume(i1 %44)
-  br label %202
+  %43 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ne ptr %44, null
+  call void @llvm.assume(i1 %45)
+  br label %209
 
-45:                                               ; No predecessors!
-  br label %46
-
-46:                                               ; preds = %45, %34
+46:                                               ; No predecessors!
   br label %47
 
-47:                                               ; preds = %46, %24
+47:                                               ; preds = %46, %34
   br label %48
 
-48:                                               ; preds = %47, %2
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct._zend_execute_data, ptr %49, i32 0, i32 4
-  %51 = getelementptr inbounds %struct._zval_struct, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = call ptr @php_period_obj_from_obj(ptr noundef %52)
-  store ptr %53, ptr %5, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct._php_period_obj, ptr %54, i32 0, i32 2
-  store ptr null, ptr %55, align 8
-  %56 = load ptr, ptr %12, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %84
+48:                                               ; preds = %47, %24
+  br label %49
 
-58:                                               ; preds = %48
+49:                                               ; preds = %48, %2
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds %struct._zend_execute_data, ptr %50, i32 0, i32 4
+  %52 = getelementptr inbounds %struct._zval_struct, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = call ptr @php_period_obj_from_obj(ptr noundef %53)
+  store ptr %54, ptr %5, align 8
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds %struct._php_period_obj, ptr %55, i32 0, i32 2
+  store ptr null, ptr %56, align 8
+  %57 = load ptr, ptr %12, align 8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %88
+
+59:                                               ; preds = %49
   call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef @.str.77)
-  %59 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %60 = icmp ne ptr %59, null
-  %61 = xor i1 %60, true
-  %62 = xor i1 %61, true
-  %63 = zext i1 %62 to i32
-  %64 = sext i32 %63 to i64
-  %65 = icmp ne i64 %64, 0
-  br i1 %65, label %66, label %71
+  %60 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp ne ptr %61, null
+  %63 = xor i1 %62, true
+  %64 = xor i1 %63, true
+  %65 = zext i1 %64 to i32
+  %66 = sext i32 %65 to i64
+  %67 = icmp ne i64 %66, 0
+  br i1 %67, label %68, label %74
 
-66:                                               ; preds = %58
-  br label %67
+68:                                               ; preds = %59
+  br label %69
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %69 = icmp ne ptr %68, null
-  call void @llvm.assume(i1 %69)
-  br label %202
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp ne ptr %71, null
+  call void @llvm.assume(i1 %72)
+  br label %209
 
-70:                                               ; No predecessors!
-  br label %71
+73:                                               ; No predecessors!
+  br label %74
 
-71:                                               ; preds = %70, %58
-  %72 = load ptr, ptr %5, align 8
-  %73 = load ptr, ptr @date_ce_date, align 8
-  %74 = load ptr, ptr %12, align 8
-  %75 = load i64, ptr %13, align 8
-  %76 = load i64, ptr %11, align 8
-  %77 = call zeroext i1 @date_period_init_iso8601_string(ptr noundef %72, ptr noundef %73, ptr noundef %74, i64 noundef %75, i64 noundef %76, ptr noundef %10)
-  br i1 %77, label %83, label %78
+74:                                               ; preds = %73, %59
+  %75 = load ptr, ptr %5, align 8
+  %76 = load ptr, ptr @date_ce_date, align 8
+  %77 = load ptr, ptr %12, align 8
+  %78 = load i64, ptr %13, align 8
+  %79 = load i64, ptr %11, align 8
+  %80 = call zeroext i1 @date_period_init_iso8601_string(ptr noundef %75, ptr noundef %76, ptr noundef %77, i64 noundef %78, i64 noundef %79, ptr noundef %10)
+  br i1 %80, label %87, label %81
 
-78:                                               ; preds = %71
-  br label %79
+81:                                               ; preds = %74
+  br label %82
 
-79:                                               ; preds = %78
-  %80 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %81 = icmp ne ptr %80, null
-  call void @llvm.assume(i1 %81)
-  br label %202
+82:                                               ; preds = %81
+  %83 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp ne ptr %84, null
+  call void @llvm.assume(i1 %85)
+  br label %209
 
-82:                                               ; No predecessors!
-  br label %83
+86:                                               ; No predecessors!
+  br label %87
 
-83:                                               ; preds = %82, %71
-  br label %192
-
-84:                                               ; preds = %48
-  %85 = load ptr, ptr %7, align 8
-  %86 = getelementptr inbounds %struct._zval_struct, ptr %85, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = call ptr @php_date_obj_from_obj(ptr noundef %87)
-  %89 = getelementptr inbounds %struct._php_date_obj, ptr %88, i32 0, i32 0
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp ne ptr %90, null
-  br i1 %91, label %98, label %92
-
-92:                                               ; preds = %84
-  %93 = load ptr, ptr @date_ce_interface, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %93)
-  br label %94
-
-94:                                               ; preds = %92
-  %95 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %96 = icmp ne ptr %95, null
-  call void @llvm.assume(i1 %96)
-  br label %202
-
-97:                                               ; No predecessors!
-  br label %98
-
-98:                                               ; preds = %97, %84
-  %99 = load ptr, ptr %8, align 8
-  %100 = icmp ne ptr %99, null
-  br i1 %100, label %101, label %116
-
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %8, align 8
-  %103 = getelementptr inbounds %struct._zval_struct, ptr %102, i32 0, i32 0
-  %104 = load ptr, ptr %103, align 8
-  %105 = call ptr @php_date_obj_from_obj(ptr noundef %104)
-  %106 = getelementptr inbounds %struct._php_date_obj, ptr %105, i32 0, i32 0
-  %107 = load ptr, ptr %106, align 8
-  %108 = icmp ne ptr %107, null
-  br i1 %108, label %115, label %109
-
-109:                                              ; preds = %101
-  %110 = load ptr, ptr @date_ce_interface, align 8
-  call void @date_throw_uninitialized_error(ptr noundef %110)
-  br label %111
-
-111:                                              ; preds = %109
-  %112 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %113 = icmp ne ptr %112, null
-  call void @llvm.assume(i1 %113)
-  br label %202
-
-114:                                              ; No predecessors!
-  br label %115
-
-115:                                              ; preds = %114, %101
-  br label %116
-
-116:                                              ; preds = %115, %98
-  %117 = load ptr, ptr %9, align 8
-  %118 = getelementptr inbounds %struct._zval_struct, ptr %117, i32 0, i32 0
-  %119 = load ptr, ptr %118, align 8
-  %120 = call ptr @php_interval_obj_from_obj(ptr noundef %119)
-  store ptr %120, ptr %15, align 8
-  %121 = load ptr, ptr %7, align 8
-  %122 = getelementptr inbounds %struct._zval_struct, ptr %121, i32 0, i32 0
-  %123 = load ptr, ptr %122, align 8
-  %124 = call ptr @php_date_obj_from_obj(ptr noundef %123)
-  store ptr %124, ptr %6, align 8
-  %125 = call ptr @timelib_time_ctor()
-  store ptr %125, ptr %14, align 8
-  %126 = load ptr, ptr %14, align 8
-  %127 = load ptr, ptr %6, align 8
-  %128 = getelementptr inbounds %struct._php_date_obj, ptr %127, i32 0, i32 0
-  %129 = load ptr, ptr %128, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %126, ptr align 8 %129, i64 240, i1 false)
-  %130 = load ptr, ptr %6, align 8
-  %131 = getelementptr inbounds %struct._php_date_obj, ptr %130, i32 0, i32 0
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds %struct._timelib_time, ptr %132, i32 0, i32 8
-  %134 = load ptr, ptr %133, align 8
-  %135 = icmp ne ptr %134, null
-  br i1 %135, label %136, label %145
-
-136:                                              ; preds = %116
-  %137 = load ptr, ptr %6, align 8
-  %138 = getelementptr inbounds %struct._php_date_obj, ptr %137, i32 0, i32 0
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds %struct._timelib_time, ptr %139, i32 0, i32 8
-  %141 = load ptr, ptr %140, align 8
-  %142 = call noalias ptr @_estrdup(ptr noundef %141)
-  %143 = load ptr, ptr %14, align 8
-  %144 = getelementptr inbounds %struct._timelib_time, ptr %143, i32 0, i32 8
-  store ptr %142, ptr %144, align 8
-  br label %145
-
-145:                                              ; preds = %136, %116
-  %146 = load ptr, ptr %6, align 8
-  %147 = getelementptr inbounds %struct._php_date_obj, ptr %146, i32 0, i32 0
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds %struct._timelib_time, ptr %148, i32 0, i32 9
-  %150 = load ptr, ptr %149, align 8
-  %151 = icmp ne ptr %150, null
-  br i1 %151, label %152, label %160
-
-152:                                              ; preds = %145
-  %153 = load ptr, ptr %6, align 8
-  %154 = getelementptr inbounds %struct._php_date_obj, ptr %153, i32 0, i32 0
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds %struct._timelib_time, ptr %155, i32 0, i32 9
-  %157 = load ptr, ptr %156, align 8
-  %158 = load ptr, ptr %14, align 8
-  %159 = getelementptr inbounds %struct._timelib_time, ptr %158, i32 0, i32 9
-  store ptr %157, ptr %159, align 8
-  br label %160
-
-160:                                              ; preds = %152, %145
-  %161 = load ptr, ptr %14, align 8
-  %162 = load ptr, ptr %5, align 8
-  %163 = getelementptr inbounds %struct._php_period_obj, ptr %162, i32 0, i32 0
-  store ptr %161, ptr %163, align 8
-  %164 = load ptr, ptr %7, align 8
-  %165 = getelementptr inbounds %struct._zval_struct, ptr %164, i32 0, i32 0
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds %struct._zend_object, ptr %166, i32 0, i32 2
-  %168 = load ptr, ptr %167, align 8
-  %169 = load ptr, ptr %5, align 8
-  %170 = getelementptr inbounds %struct._php_period_obj, ptr %169, i32 0, i32 1
-  store ptr %168, ptr %170, align 8
-  %171 = load ptr, ptr %15, align 8
-  %172 = getelementptr inbounds %struct._php_interval_obj, ptr %171, i32 0, i32 0
-  %173 = load ptr, ptr %172, align 8
-  %174 = call ptr @timelib_rel_time_clone(ptr noundef %173)
-  %175 = load ptr, ptr %5, align 8
-  %176 = getelementptr inbounds %struct._php_period_obj, ptr %175, i32 0, i32 4
-  store ptr %174, ptr %176, align 8
-  %177 = load ptr, ptr %8, align 8
-  %178 = icmp ne ptr %177, null
-  br i1 %178, label %179, label %191
-
-179:                                              ; preds = %160
-  %180 = load ptr, ptr %8, align 8
-  %181 = getelementptr inbounds %struct._zval_struct, ptr %180, i32 0, i32 0
-  %182 = load ptr, ptr %181, align 8
-  %183 = call ptr @php_date_obj_from_obj(ptr noundef %182)
-  store ptr %183, ptr %6, align 8
-  %184 = load ptr, ptr %6, align 8
-  %185 = getelementptr inbounds %struct._php_date_obj, ptr %184, i32 0, i32 0
-  %186 = load ptr, ptr %185, align 8
-  %187 = call ptr @timelib_time_clone(ptr noundef %186)
-  store ptr %187, ptr %14, align 8
-  %188 = load ptr, ptr %14, align 8
-  %189 = load ptr, ptr %5, align 8
-  %190 = getelementptr inbounds %struct._php_period_obj, ptr %189, i32 0, i32 3
-  store ptr %188, ptr %190, align 8
-  br label %191
-
-191:                                              ; preds = %179, %160
-  br label %192
-
-192:                                              ; preds = %191, %83
-  %193 = load ptr, ptr %5, align 8
-  %194 = load i64, ptr %11, align 8
-  %195 = load i64, ptr %10, align 8
-  %196 = call zeroext i1 @date_period_init_finish(ptr noundef %193, i64 noundef %194, i64 noundef %195)
-  br i1 %196, label %202, label %197
-
-197:                                              ; preds = %192
+87:                                               ; preds = %86, %74
   br label %198
 
-198:                                              ; preds = %197
-  %199 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %200 = icmp ne ptr %199, null
-  call void @llvm.assume(i1 %200)
-  br label %202
+88:                                               ; preds = %49
+  %89 = load ptr, ptr %7, align 8
+  %90 = getelementptr inbounds %struct._zval_struct, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8
+  %92 = call ptr @php_date_obj_from_obj(ptr noundef %91)
+  %93 = getelementptr inbounds %struct._php_date_obj, ptr %92, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %103, label %96
 
-201:                                              ; No predecessors!
-  br label %202
+96:                                               ; preds = %88
+  %97 = load ptr, ptr @date_ce_interface, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %97)
+  br label %98
 
-202:                                              ; preds = %201, %198, %192, %111, %94, %79, %67, %42
+98:                                               ; preds = %96
+  %99 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp ne ptr %100, null
+  call void @llvm.assume(i1 %101)
+  br label %209
+
+102:                                              ; No predecessors!
+  br label %103
+
+103:                                              ; preds = %102, %88
+  %104 = load ptr, ptr %8, align 8
+  %105 = icmp ne ptr %104, null
+  br i1 %105, label %106, label %122
+
+106:                                              ; preds = %103
+  %107 = load ptr, ptr %8, align 8
+  %108 = getelementptr inbounds %struct._zval_struct, ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
+  %110 = call ptr @php_date_obj_from_obj(ptr noundef %109)
+  %111 = getelementptr inbounds %struct._php_date_obj, ptr %110, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp ne ptr %112, null
+  br i1 %113, label %121, label %114
+
+114:                                              ; preds = %106
+  %115 = load ptr, ptr @date_ce_interface, align 8
+  call void @date_throw_uninitialized_error(ptr noundef %115)
+  br label %116
+
+116:                                              ; preds = %114
+  %117 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %118 = load ptr, ptr %117, align 8
+  %119 = icmp ne ptr %118, null
+  call void @llvm.assume(i1 %119)
+  br label %209
+
+120:                                              ; No predecessors!
+  br label %121
+
+121:                                              ; preds = %120, %106
+  br label %122
+
+122:                                              ; preds = %121, %103
+  %123 = load ptr, ptr %9, align 8
+  %124 = getelementptr inbounds %struct._zval_struct, ptr %123, i32 0, i32 0
+  %125 = load ptr, ptr %124, align 8
+  %126 = call ptr @php_interval_obj_from_obj(ptr noundef %125)
+  store ptr %126, ptr %15, align 8
+  %127 = load ptr, ptr %7, align 8
+  %128 = getelementptr inbounds %struct._zval_struct, ptr %127, i32 0, i32 0
+  %129 = load ptr, ptr %128, align 8
+  %130 = call ptr @php_date_obj_from_obj(ptr noundef %129)
+  store ptr %130, ptr %6, align 8
+  %131 = call ptr @timelib_time_ctor()
+  store ptr %131, ptr %14, align 8
+  %132 = load ptr, ptr %14, align 8
+  %133 = load ptr, ptr %6, align 8
+  %134 = getelementptr inbounds %struct._php_date_obj, ptr %133, i32 0, i32 0
+  %135 = load ptr, ptr %134, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %132, ptr align 8 %135, i64 240, i1 false)
+  %136 = load ptr, ptr %6, align 8
+  %137 = getelementptr inbounds %struct._php_date_obj, ptr %136, i32 0, i32 0
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds %struct._timelib_time, ptr %138, i32 0, i32 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = icmp ne ptr %140, null
+  br i1 %141, label %142, label %151
+
+142:                                              ; preds = %122
+  %143 = load ptr, ptr %6, align 8
+  %144 = getelementptr inbounds %struct._php_date_obj, ptr %143, i32 0, i32 0
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds %struct._timelib_time, ptr %145, i32 0, i32 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = call noalias ptr @_estrdup(ptr noundef %147)
+  %149 = load ptr, ptr %14, align 8
+  %150 = getelementptr inbounds %struct._timelib_time, ptr %149, i32 0, i32 8
+  store ptr %148, ptr %150, align 8
+  br label %151
+
+151:                                              ; preds = %142, %122
+  %152 = load ptr, ptr %6, align 8
+  %153 = getelementptr inbounds %struct._php_date_obj, ptr %152, i32 0, i32 0
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds %struct._timelib_time, ptr %154, i32 0, i32 9
+  %156 = load ptr, ptr %155, align 8
+  %157 = icmp ne ptr %156, null
+  br i1 %157, label %158, label %166
+
+158:                                              ; preds = %151
+  %159 = load ptr, ptr %6, align 8
+  %160 = getelementptr inbounds %struct._php_date_obj, ptr %159, i32 0, i32 0
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr inbounds %struct._timelib_time, ptr %161, i32 0, i32 9
+  %163 = load ptr, ptr %162, align 8
+  %164 = load ptr, ptr %14, align 8
+  %165 = getelementptr inbounds %struct._timelib_time, ptr %164, i32 0, i32 9
+  store ptr %163, ptr %165, align 8
+  br label %166
+
+166:                                              ; preds = %158, %151
+  %167 = load ptr, ptr %14, align 8
+  %168 = load ptr, ptr %5, align 8
+  %169 = getelementptr inbounds %struct._php_period_obj, ptr %168, i32 0, i32 0
+  store ptr %167, ptr %169, align 8
+  %170 = load ptr, ptr %7, align 8
+  %171 = getelementptr inbounds %struct._zval_struct, ptr %170, i32 0, i32 0
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds %struct._zend_object, ptr %172, i32 0, i32 2
+  %174 = load ptr, ptr %173, align 8
+  %175 = load ptr, ptr %5, align 8
+  %176 = getelementptr inbounds %struct._php_period_obj, ptr %175, i32 0, i32 1
+  store ptr %174, ptr %176, align 8
+  %177 = load ptr, ptr %15, align 8
+  %178 = getelementptr inbounds %struct._php_interval_obj, ptr %177, i32 0, i32 0
+  %179 = load ptr, ptr %178, align 8
+  %180 = call ptr @timelib_rel_time_clone(ptr noundef %179)
+  %181 = load ptr, ptr %5, align 8
+  %182 = getelementptr inbounds %struct._php_period_obj, ptr %181, i32 0, i32 4
+  store ptr %180, ptr %182, align 8
+  %183 = load ptr, ptr %8, align 8
+  %184 = icmp ne ptr %183, null
+  br i1 %184, label %185, label %197
+
+185:                                              ; preds = %166
+  %186 = load ptr, ptr %8, align 8
+  %187 = getelementptr inbounds %struct._zval_struct, ptr %186, i32 0, i32 0
+  %188 = load ptr, ptr %187, align 8
+  %189 = call ptr @php_date_obj_from_obj(ptr noundef %188)
+  store ptr %189, ptr %6, align 8
+  %190 = load ptr, ptr %6, align 8
+  %191 = getelementptr inbounds %struct._php_date_obj, ptr %190, i32 0, i32 0
+  %192 = load ptr, ptr %191, align 8
+  %193 = call ptr @timelib_time_clone(ptr noundef %192)
+  store ptr %193, ptr %14, align 8
+  %194 = load ptr, ptr %14, align 8
+  %195 = load ptr, ptr %5, align 8
+  %196 = getelementptr inbounds %struct._php_period_obj, ptr %195, i32 0, i32 3
+  store ptr %194, ptr %196, align 8
+  br label %197
+
+197:                                              ; preds = %185, %166
+  br label %198
+
+198:                                              ; preds = %197, %87
+  %199 = load ptr, ptr %5, align 8
+  %200 = load i64, ptr %11, align 8
+  %201 = load i64, ptr %10, align 8
+  %202 = call zeroext i1 @date_period_init_finish(ptr noundef %199, i64 noundef %200, i64 noundef %201)
+  br i1 %202, label %209, label %203
+
+203:                                              ; preds = %198
+  br label %204
+
+204:                                              ; preds = %203
+  %205 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %206 = load ptr, ptr %205, align 8
+  %207 = icmp ne ptr %206, null
+  call void @llvm.assume(i1 %207)
+  br label %209
+
+208:                                              ; No predecessors!
+  br label %209
+
+209:                                              ; preds = %208, %204, %198, %116, %98, %82, %69, %42
   ret void
 }
 
@@ -41985,7 +42133,7 @@ define hidden void @zim_DatePeriod_getStartDate(ptr noundef %0, ptr noundef %1) 
 
 18:                                               ; preds = %7
   call void @zend_wrong_parameters_none_error()
-  br label %94
+  br label %95
 
 19:                                               ; preds = %7
   br label %20
@@ -42001,7 +42149,7 @@ define hidden void @zim_DatePeriod_getStartDate(ptr noundef %0, ptr noundef %1) 
   %27 = getelementptr inbounds %struct._php_period_obj, ptr %26, i32 0, i32 0
   %28 = load ptr, ptr %27, align 8
   %29 = icmp ne ptr %28, null
-  br i1 %29, label %41, label %30
+  br i1 %29, label %42, label %30
 
 30:                                               ; preds = %20
   %31 = load ptr, ptr %3, align 8
@@ -42014,81 +42162,82 @@ define hidden void @zim_DatePeriod_getStartDate(ptr noundef %0, ptr noundef %1) 
   br label %37
 
 37:                                               ; preds = %30
-  %38 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %39 = icmp ne ptr %38, null
-  call void @llvm.assume(i1 %39)
-  br label %94
+  %38 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp ne ptr %39, null
+  call void @llvm.assume(i1 %40)
+  br label %95
 
-40:                                               ; No predecessors!
-  br label %41
+41:                                               ; No predecessors!
+  br label %42
 
-41:                                               ; preds = %40, %20
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct._php_period_obj, ptr %42, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %4, align 8
-  %46 = call ptr @php_date_instantiate(ptr noundef %44, ptr noundef %45)
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = call ptr @php_date_obj_from_obj(ptr noundef %49)
-  store ptr %50, ptr %6, align 8
-  %51 = call ptr @timelib_time_ctor()
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct._php_date_obj, ptr %52, i32 0, i32 0
-  store ptr %51, ptr %53, align 8
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds %struct._php_date_obj, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %struct._php_period_obj, ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 8 %59, i64 240, i1 false)
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct._php_period_obj, ptr %60, i32 0, i32 0
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct._timelib_time, ptr %62, i32 0, i32 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %77
+42:                                               ; preds = %41, %20
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds %struct._php_period_obj, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %4, align 8
+  %47 = call ptr @php_date_instantiate(ptr noundef %45, ptr noundef %46)
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = call ptr @php_date_obj_from_obj(ptr noundef %50)
+  store ptr %51, ptr %6, align 8
+  %52 = call ptr @timelib_time_ctor()
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds %struct._php_date_obj, ptr %53, i32 0, i32 0
+  store ptr %52, ptr %54, align 8
+  %55 = load ptr, ptr %6, align 8
+  %56 = getelementptr inbounds %struct._php_date_obj, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %struct._php_period_obj, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %57, ptr align 8 %60, i64 240, i1 false)
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds %struct._php_period_obj, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds %struct._timelib_time, ptr %63, i32 0, i32 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %78
 
-66:                                               ; preds = %41
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct._php_period_obj, ptr %67, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct._timelib_time, ptr %69, i32 0, i32 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = call noalias ptr @_estrdup(ptr noundef %71)
-  %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds %struct._php_date_obj, ptr %73, i32 0, i32 0
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds %struct._timelib_time, ptr %75, i32 0, i32 8
-  store ptr %72, ptr %76, align 8
-  br label %77
+67:                                               ; preds = %42
+  %68 = load ptr, ptr %5, align 8
+  %69 = getelementptr inbounds %struct._php_period_obj, ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds %struct._timelib_time, ptr %70, i32 0, i32 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = call noalias ptr @_estrdup(ptr noundef %72)
+  %74 = load ptr, ptr %6, align 8
+  %75 = getelementptr inbounds %struct._php_date_obj, ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds %struct._timelib_time, ptr %76, i32 0, i32 8
+  store ptr %73, ptr %77, align 8
+  br label %78
 
-77:                                               ; preds = %66, %41
-  %78 = load ptr, ptr %5, align 8
-  %79 = getelementptr inbounds %struct._php_period_obj, ptr %78, i32 0, i32 0
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %struct._timelib_time, ptr %80, i32 0, i32 9
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %94
+78:                                               ; preds = %67, %42
+  %79 = load ptr, ptr %5, align 8
+  %80 = getelementptr inbounds %struct._php_period_obj, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds %struct._timelib_time, ptr %81, i32 0, i32 9
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp ne ptr %83, null
+  br i1 %84, label %85, label %95
 
-84:                                               ; preds = %77
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %struct._php_period_obj, ptr %85, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds %struct._timelib_time, ptr %87, i32 0, i32 9
-  %89 = load ptr, ptr %88, align 8
-  %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds %struct._php_date_obj, ptr %90, i32 0, i32 0
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds %struct._timelib_time, ptr %92, i32 0, i32 9
-  store ptr %89, ptr %93, align 8
-  br label %94
+85:                                               ; preds = %78
+  %86 = load ptr, ptr %5, align 8
+  %87 = getelementptr inbounds %struct._php_period_obj, ptr %86, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds %struct._timelib_time, ptr %88, i32 0, i32 9
+  %90 = load ptr, ptr %89, align 8
+  %91 = load ptr, ptr %6, align 8
+  %92 = getelementptr inbounds %struct._php_date_obj, ptr %91, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds %struct._timelib_time, ptr %93, i32 0, i32 9
+  store ptr %90, ptr %94, align 8
+  br label %95
 
-94:                                               ; preds = %84, %77, %37, %18
+95:                                               ; preds = %85, %78, %37, %18
   ret void
 }
 
@@ -42233,7 +42382,7 @@ define hidden void @zim_DatePeriod_getDateInterval(ptr noundef %0, ptr noundef %
 
 18:                                               ; preds = %7
   call void @zend_wrong_parameters_none_error()
-  br label %57
+  br label %58
 
 19:                                               ; preds = %7
   br label %20
@@ -42249,7 +42398,7 @@ define hidden void @zim_DatePeriod_getDateInterval(ptr noundef %0, ptr noundef %
   %27 = getelementptr inbounds %struct._php_period_obj, ptr %26, i32 0, i32 4
   %28 = load ptr, ptr %27, align 8
   %29 = icmp ne ptr %28, null
-  br i1 %29, label %41, label %30
+  br i1 %29, label %42, label %30
 
 30:                                               ; preds = %20
   %31 = load ptr, ptr %3, align 8
@@ -42262,36 +42411,37 @@ define hidden void @zim_DatePeriod_getDateInterval(ptr noundef %0, ptr noundef %
   br label %37
 
 37:                                               ; preds = %30
-  %38 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %39 = icmp ne ptr %38, null
-  call void @llvm.assume(i1 %39)
-  br label %57
+  %38 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp ne ptr %39, null
+  call void @llvm.assume(i1 %40)
+  br label %58
 
-40:                                               ; No predecessors!
-  br label %41
+41:                                               ; No predecessors!
+  br label %42
 
-41:                                               ; preds = %40, %20
-  %42 = load ptr, ptr @date_ce_interval, align 8
-  %43 = load ptr, ptr %4, align 8
-  %44 = call ptr @php_date_instantiate(ptr noundef %42, ptr noundef %43)
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct._zval_struct, ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = call ptr @php_interval_obj_from_obj(ptr noundef %47)
-  store ptr %48, ptr %6, align 8
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct._php_period_obj, ptr %49, i32 0, i32 4
-  %51 = load ptr, ptr %50, align 8
-  %52 = call ptr @timelib_rel_time_clone(ptr noundef %51)
-  %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds %struct._php_interval_obj, ptr %53, i32 0, i32 0
-  store ptr %52, ptr %54, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct._php_interval_obj, ptr %55, i32 0, i32 4
-  store i8 1, ptr %56, align 8
-  br label %57
+42:                                               ; preds = %41, %20
+  %43 = load ptr, ptr @date_ce_interval, align 8
+  %44 = load ptr, ptr %4, align 8
+  %45 = call ptr @php_date_instantiate(ptr noundef %43, ptr noundef %44)
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds %struct._zval_struct, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = call ptr @php_interval_obj_from_obj(ptr noundef %48)
+  store ptr %49, ptr %6, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds %struct._php_period_obj, ptr %50, i32 0, i32 4
+  %52 = load ptr, ptr %51, align 8
+  %53 = call ptr @timelib_rel_time_clone(ptr noundef %52)
+  %54 = load ptr, ptr %6, align 8
+  %55 = getelementptr inbounds %struct._php_interval_obj, ptr %54, i32 0, i32 0
+  store ptr %53, ptr %55, align 8
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds %struct._php_interval_obj, ptr %56, i32 0, i32 4
+  store i8 1, ptr %57, align 8
+  br label %58
 
-57:                                               ; preds = %41, %37, %18
+58:                                               ; preds = %42, %37, %18
   ret void
 }
 
@@ -42958,7 +43108,7 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
   %328 = load i32, ptr %52, align 4
   %329 = load ptr, ptr %51, align 8
   call void @zend_wrong_parameter_error(i32 noundef %325, i32 noundef %326, ptr noundef %327, i32 noundef %328, ptr noundef %329)
-  br label %462
+  br label %463
 
 330:                                              ; preds = %316
   br label %331
@@ -42966,193 +43116,194 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
 331:                                              ; preds = %330
   %332 = load i64, ptr %42, align 8
   %333 = icmp eq i64 %332, 4096
-  br i1 %333, label %334, label %342
+  br i1 %333, label %334, label %343
 
 334:                                              ; preds = %331
   %335 = load i64, ptr %44, align 8
   %336 = icmp ne i64 %335, 2
-  br i1 %336, label %337, label %342
+  br i1 %336, label %337, label %343
 
 337:                                              ; preds = %334
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef @.str.78)
   br label %338
 
 338:                                              ; preds = %337
-  %339 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %340 = icmp ne ptr %339, null
-  call void @llvm.assume(i1 %340)
-  br label %462
+  %339 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %340 = load ptr, ptr %339, align 8
+  %341 = icmp ne ptr %340, null
+  call void @llvm.assume(i1 %341)
+  br label %463
 
-341:                                              ; No predecessors!
-  br label %342
+342:                                              ; No predecessors!
+  br label %343
 
-342:                                              ; preds = %341, %334, %331
-  %343 = load ptr, ptr @php_date_global_timezone_db, align 8
-  %344 = icmp ne ptr %343, null
-  br i1 %344, label %345, label %347
+343:                                              ; preds = %342, %334, %331
+  %344 = load ptr, ptr @php_date_global_timezone_db, align 8
+  %345 = icmp ne ptr %344, null
+  br i1 %345, label %346, label %348
 
-345:                                              ; preds = %342
-  %346 = load ptr, ptr @php_date_global_timezone_db, align 8
-  br label %349
+346:                                              ; preds = %343
+  %347 = load ptr, ptr @php_date_global_timezone_db, align 8
+  br label %350
 
-347:                                              ; preds = %342
-  %348 = call ptr @timelib_builtin_db()
-  br label %349
+348:                                              ; preds = %343
+  %349 = call ptr @timelib_builtin_db()
+  br label %350
 
-349:                                              ; preds = %347, %345
-  %350 = phi ptr [ %346, %345 ], [ %348, %347 ]
-  store ptr %350, ptr %38, align 8
-  %351 = load ptr, ptr %38, align 8
-  %352 = call ptr @timelib_timezone_identifiers_list(ptr noundef %351, ptr noundef %41)
-  store ptr %352, ptr %39, align 8
-  br label %353
+350:                                              ; preds = %348, %346
+  %351 = phi ptr [ %347, %346 ], [ %349, %348 ]
+  store ptr %351, ptr %38, align 8
+  %352 = load ptr, ptr %38, align 8
+  %353 = call ptr @timelib_timezone_identifiers_list(ptr noundef %352, ptr noundef %41)
+  store ptr %353, ptr %39, align 8
+  br label %354
 
-353:                                              ; preds = %349
-  %354 = call ptr @_zend_new_array_0()
-  store ptr %354, ptr %57, align 8
-  %355 = load ptr, ptr %37, align 8
-  store ptr %355, ptr %58, align 8
-  %356 = load ptr, ptr %57, align 8
-  %357 = load ptr, ptr %58, align 8
-  %358 = getelementptr inbounds %struct._zval_struct, ptr %357, i32 0, i32 0
-  store ptr %356, ptr %358, align 8
-  %359 = load ptr, ptr %58, align 8
-  %360 = getelementptr inbounds %struct._zval_struct, ptr %359, i32 0, i32 1
-  store i32 775, ptr %360, align 8
-  br label %361
-
-361:                                              ; preds = %353
-  store i32 0, ptr %40, align 4
+354:                                              ; preds = %350
+  %355 = call ptr @_zend_new_array_0()
+  store ptr %355, ptr %57, align 8
+  %356 = load ptr, ptr %37, align 8
+  store ptr %356, ptr %58, align 8
+  %357 = load ptr, ptr %57, align 8
+  %358 = load ptr, ptr %58, align 8
+  %359 = getelementptr inbounds %struct._zval_struct, ptr %358, i32 0, i32 0
+  store ptr %357, ptr %359, align 8
+  %360 = load ptr, ptr %58, align 8
+  %361 = getelementptr inbounds %struct._zval_struct, ptr %360, i32 0, i32 1
+  store i32 775, ptr %361, align 8
   br label %362
 
-362:                                              ; preds = %459, %361
-  %363 = load i32, ptr %40, align 4
-  %364 = load i32, ptr %41, align 4
-  %365 = icmp slt i32 %363, %364
-  br i1 %365, label %366, label %462
+362:                                              ; preds = %354
+  store i32 0, ptr %40, align 4
+  br label %363
 
-366:                                              ; preds = %362
-  %367 = load i64, ptr %42, align 8
-  %368 = icmp eq i64 %367, 4096
-  br i1 %368, label %369, label %419
+363:                                              ; preds = %460, %362
+  %364 = load i32, ptr %40, align 4
+  %365 = load i32, ptr %41, align 4
+  %366 = icmp slt i32 %364, %365
+  br i1 %366, label %367, label %463
 
-369:                                              ; preds = %366
-  %370 = load ptr, ptr %38, align 8
-  %371 = getelementptr inbounds %struct._timelib_tzdb, ptr %370, i32 0, i32 3
-  %372 = load ptr, ptr %371, align 8
-  %373 = load ptr, ptr %39, align 8
-  %374 = load i32, ptr %40, align 4
-  %375 = sext i32 %374 to i64
-  %376 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %373, i64 %375
-  %377 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %376, i32 0, i32 1
-  %378 = load i32, ptr %377, align 8
-  %379 = add i32 %378, 5
-  %380 = zext i32 %379 to i64
-  %381 = getelementptr inbounds i8, ptr %372, i64 %380
-  %382 = load i8, ptr %381, align 1
-  %383 = zext i8 %382 to i32
-  %384 = load ptr, ptr %43, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 0
-  %386 = load i8, ptr %385, align 1
-  %387 = sext i8 %386 to i32
-  %388 = icmp eq i32 %383, %387
-  br i1 %388, label %389, label %418
+367:                                              ; preds = %363
+  %368 = load i64, ptr %42, align 8
+  %369 = icmp eq i64 %368, 4096
+  br i1 %369, label %370, label %420
 
-389:                                              ; preds = %369
-  %390 = load ptr, ptr %38, align 8
-  %391 = getelementptr inbounds %struct._timelib_tzdb, ptr %390, i32 0, i32 3
-  %392 = load ptr, ptr %391, align 8
-  %393 = load ptr, ptr %39, align 8
-  %394 = load i32, ptr %40, align 4
-  %395 = sext i32 %394 to i64
-  %396 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %393, i64 %395
-  %397 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %396, i32 0, i32 1
-  %398 = load i32, ptr %397, align 8
-  %399 = add i32 %398, 6
-  %400 = zext i32 %399 to i64
-  %401 = getelementptr inbounds i8, ptr %392, i64 %400
-  %402 = load i8, ptr %401, align 1
-  %403 = zext i8 %402 to i32
-  %404 = load ptr, ptr %43, align 8
-  %405 = getelementptr inbounds i8, ptr %404, i64 1
-  %406 = load i8, ptr %405, align 1
-  %407 = sext i8 %406 to i32
-  %408 = icmp eq i32 %403, %407
-  br i1 %408, label %409, label %418
+370:                                              ; preds = %367
+  %371 = load ptr, ptr %38, align 8
+  %372 = getelementptr inbounds %struct._timelib_tzdb, ptr %371, i32 0, i32 3
+  %373 = load ptr, ptr %372, align 8
+  %374 = load ptr, ptr %39, align 8
+  %375 = load i32, ptr %40, align 4
+  %376 = sext i32 %375 to i64
+  %377 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %374, i64 %376
+  %378 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %377, i32 0, i32 1
+  %379 = load i32, ptr %378, align 8
+  %380 = add i32 %379, 5
+  %381 = zext i32 %380 to i64
+  %382 = getelementptr inbounds i8, ptr %373, i64 %381
+  %383 = load i8, ptr %382, align 1
+  %384 = zext i8 %383 to i32
+  %385 = load ptr, ptr %43, align 8
+  %386 = getelementptr inbounds i8, ptr %385, i64 0
+  %387 = load i8, ptr %386, align 1
+  %388 = sext i8 %387 to i32
+  %389 = icmp eq i32 %384, %388
+  br i1 %389, label %390, label %419
 
-409:                                              ; preds = %389
-  %410 = load ptr, ptr %37, align 8
-  %411 = load ptr, ptr %39, align 8
-  %412 = load i32, ptr %40, align 4
-  %413 = sext i32 %412 to i64
-  %414 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %411, i64 %413
-  %415 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %414, i32 0, i32 0
-  %416 = load ptr, ptr %415, align 8
-  %417 = call i32 @add_next_index_string(ptr noundef %410, ptr noundef %416)
-  br label %418
+390:                                              ; preds = %370
+  %391 = load ptr, ptr %38, align 8
+  %392 = getelementptr inbounds %struct._timelib_tzdb, ptr %391, i32 0, i32 3
+  %393 = load ptr, ptr %392, align 8
+  %394 = load ptr, ptr %39, align 8
+  %395 = load i32, ptr %40, align 4
+  %396 = sext i32 %395 to i64
+  %397 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %394, i64 %396
+  %398 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %397, i32 0, i32 1
+  %399 = load i32, ptr %398, align 8
+  %400 = add i32 %399, 6
+  %401 = zext i32 %400 to i64
+  %402 = getelementptr inbounds i8, ptr %393, i64 %401
+  %403 = load i8, ptr %402, align 1
+  %404 = zext i8 %403 to i32
+  %405 = load ptr, ptr %43, align 8
+  %406 = getelementptr inbounds i8, ptr %405, i64 1
+  %407 = load i8, ptr %406, align 1
+  %408 = sext i8 %407 to i32
+  %409 = icmp eq i32 %404, %408
+  br i1 %409, label %410, label %419
 
-418:                                              ; preds = %409, %389, %369
-  br label %458
+410:                                              ; preds = %390
+  %411 = load ptr, ptr %37, align 8
+  %412 = load ptr, ptr %39, align 8
+  %413 = load i32, ptr %40, align 4
+  %414 = sext i32 %413 to i64
+  %415 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %412, i64 %414
+  %416 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %415, i32 0, i32 0
+  %417 = load ptr, ptr %416, align 8
+  %418 = call i32 @add_next_index_string(ptr noundef %411, ptr noundef %417)
+  br label %419
 
-419:                                              ; preds = %366
-  %420 = load i64, ptr %42, align 8
-  %421 = icmp eq i64 %420, 4095
-  br i1 %421, label %448, label %422
-
-422:                                              ; preds = %419
-  %423 = load ptr, ptr %39, align 8
-  %424 = load i32, ptr %40, align 4
-  %425 = sext i32 %424 to i64
-  %426 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %423, i64 %425
-  %427 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %426, i32 0, i32 0
-  %428 = load ptr, ptr %427, align 8
-  %429 = load i64, ptr %42, align 8
-  %430 = call i32 @check_id_allowed(ptr noundef %428, i64 noundef %429)
-  %431 = icmp ne i32 %430, 0
-  br i1 %431, label %432, label %457
-
-432:                                              ; preds = %422
-  %433 = load ptr, ptr %38, align 8
-  %434 = getelementptr inbounds %struct._timelib_tzdb, ptr %433, i32 0, i32 3
-  %435 = load ptr, ptr %434, align 8
-  %436 = load ptr, ptr %39, align 8
-  %437 = load i32, ptr %40, align 4
-  %438 = sext i32 %437 to i64
-  %439 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %436, i64 %438
-  %440 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %439, i32 0, i32 1
-  %441 = load i32, ptr %440, align 8
-  %442 = add i32 %441, 4
-  %443 = zext i32 %442 to i64
-  %444 = getelementptr inbounds i8, ptr %435, i64 %443
-  %445 = load i8, ptr %444, align 1
-  %446 = zext i8 %445 to i32
-  %447 = icmp eq i32 %446, 1
-  br i1 %447, label %448, label %457
-
-448:                                              ; preds = %432, %419
-  %449 = load ptr, ptr %37, align 8
-  %450 = load ptr, ptr %39, align 8
-  %451 = load i32, ptr %40, align 4
-  %452 = sext i32 %451 to i64
-  %453 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %450, i64 %452
-  %454 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %453, i32 0, i32 0
-  %455 = load ptr, ptr %454, align 8
-  %456 = call i32 @add_next_index_string(ptr noundef %449, ptr noundef %455)
-  br label %457
-
-457:                                              ; preds = %448, %432, %422
-  br label %458
-
-458:                                              ; preds = %457, %418
+419:                                              ; preds = %410, %390, %370
   br label %459
 
-459:                                              ; preds = %458
-  %460 = load i32, ptr %40, align 4
-  %461 = add nsw i32 %460, 1
-  store i32 %461, ptr %40, align 4
-  br label %362
+420:                                              ; preds = %367
+  %421 = load i64, ptr %42, align 8
+  %422 = icmp eq i64 %421, 4095
+  br i1 %422, label %449, label %423
 
-462:                                              ; preds = %362, %338, %324
+423:                                              ; preds = %420
+  %424 = load ptr, ptr %39, align 8
+  %425 = load i32, ptr %40, align 4
+  %426 = sext i32 %425 to i64
+  %427 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %424, i64 %426
+  %428 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %427, i32 0, i32 0
+  %429 = load ptr, ptr %428, align 8
+  %430 = load i64, ptr %42, align 8
+  %431 = call i32 @check_id_allowed(ptr noundef %429, i64 noundef %430)
+  %432 = icmp ne i32 %431, 0
+  br i1 %432, label %433, label %458
+
+433:                                              ; preds = %423
+  %434 = load ptr, ptr %38, align 8
+  %435 = getelementptr inbounds %struct._timelib_tzdb, ptr %434, i32 0, i32 3
+  %436 = load ptr, ptr %435, align 8
+  %437 = load ptr, ptr %39, align 8
+  %438 = load i32, ptr %40, align 4
+  %439 = sext i32 %438 to i64
+  %440 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %437, i64 %439
+  %441 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %440, i32 0, i32 1
+  %442 = load i32, ptr %441, align 8
+  %443 = add i32 %442, 4
+  %444 = zext i32 %443 to i64
+  %445 = getelementptr inbounds i8, ptr %436, i64 %444
+  %446 = load i8, ptr %445, align 1
+  %447 = zext i8 %446 to i32
+  %448 = icmp eq i32 %447, 1
+  br i1 %448, label %449, label %458
+
+449:                                              ; preds = %433, %420
+  %450 = load ptr, ptr %37, align 8
+  %451 = load ptr, ptr %39, align 8
+  %452 = load i32, ptr %40, align 4
+  %453 = sext i32 %452 to i64
+  %454 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %451, i64 %453
+  %455 = getelementptr inbounds %struct._timelib_tzdb_index_entry, ptr %454, i32 0, i32 0
+  %456 = load ptr, ptr %455, align 8
+  %457 = call i32 @add_next_index_string(ptr noundef %450, ptr noundef %456)
+  br label %458
+
+458:                                              ; preds = %449, %433, %423
+  br label %459
+
+459:                                              ; preds = %458, %419
+  br label %460
+
+460:                                              ; preds = %459
+  %461 = load i32, ptr %40, align 4
+  %462 = add nsw i32 %461, 1
+  store i32 %462, ptr %40, align 4
+  br label %363
+
+463:                                              ; preds = %363, %338, %324
   ret void
 }
 
@@ -44675,7 +44826,7 @@ define hidden void @zif_date_default_timezone_set(ptr noundef %0, ptr noundef %1
   %207 = load i32, ptr %33, align 4
   %208 = load ptr, ptr %32, align 8
   call void @zend_wrong_parameter_error(i32 noundef %204, i32 noundef %205, ptr noundef %206, i32 noundef %207, ptr noundef %208)
-  br label %244
+  br label %248
 
 209:                                              ; preds = %195
   br label %210
@@ -44715,42 +44866,46 @@ define hidden void @zif_date_default_timezone_set(ptr noundef %0, ptr noundef %1
   br label %228
 
 228:                                              ; preds = %225
-  br label %244
+  br label %248
 
 229:                                              ; No predecessors!
   br label %230
 
 230:                                              ; preds = %229, %218
-  %231 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
-  %232 = icmp ne ptr %231, null
-  br i1 %232, label %233, label %235
+  %231 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  %232 = load ptr, ptr %231, align 8
+  %233 = icmp ne ptr %232, null
+  br i1 %233, label %234, label %238
 
-233:                                              ; preds = %230
-  %234 = load ptr, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
-  call void @_efree(ptr noundef %234)
-  store ptr null, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
-  br label %235
+234:                                              ; preds = %230
+  %235 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  %236 = load ptr, ptr %235, align 8
+  call void @_efree(ptr noundef %236)
+  %237 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  store ptr null, ptr %237, align 8
+  br label %238
 
-235:                                              ; preds = %233, %230
-  %236 = load ptr, ptr %24, align 8
-  %237 = load i64, ptr %25, align 8
-  %238 = call noalias ptr @_estrndup(ptr noundef %236, i64 noundef %237)
-  store ptr %238, ptr getelementptr inbounds (%struct._zend_date_globals, ptr @date_globals, i32 0, i32 1), align 8
-  br label %239
-
-239:                                              ; preds = %235
-  br label %240
-
-240:                                              ; preds = %239
-  %241 = load ptr, ptr %23, align 8
-  %242 = getelementptr inbounds %struct._zval_struct, ptr %241, i32 0, i32 1
-  store i32 3, ptr %242, align 8
+238:                                              ; preds = %234, %230
+  %239 = load ptr, ptr %24, align 8
+  %240 = load i64, ptr %25, align 8
+  %241 = call noalias ptr @_estrndup(ptr noundef %239, i64 noundef %240)
+  %242 = getelementptr inbounds %struct._zend_date_globals, ptr @date_globals, i32 0, i32 1
+  store ptr %241, ptr %242, align 8
   br label %243
 
-243:                                              ; preds = %240
+243:                                              ; preds = %238
   br label %244
 
-244:                                              ; preds = %243, %228, %203
+244:                                              ; preds = %243
+  %245 = load ptr, ptr %23, align 8
+  %246 = getelementptr inbounds %struct._zval_struct, ptr %245, i32 0, i32 1
+  store i32 3, ptr %246, align 8
+  br label %247
+
+247:                                              ; preds = %244
+  br label %248
+
+248:                                              ; preds = %247, %228, %203
   ret void
 }
 
@@ -44794,7 +44949,7 @@ define hidden void @zif_date_default_timezone_get(ptr noundef %0, ptr noundef %1
 
 29:                                               ; preds = %18
   call void @zend_wrong_parameters_none_error()
-  br label %502
+  br label %503
 
 30:                                               ; preds = %18
   br label %31
@@ -44804,713 +44959,714 @@ define hidden void @zif_date_default_timezone_get(ptr noundef %0, ptr noundef %1
   store ptr %32, ptr %14, align 8
   %33 = load ptr, ptr %14, align 8
   %34 = icmp ne ptr %33, null
-  br i1 %34, label %40, label %35
+  br i1 %34, label %41, label %35
 
 35:                                               ; preds = %31
   br label %36
 
 36:                                               ; preds = %35
-  %37 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %38 = icmp ne ptr %37, null
-  call void @llvm.assume(i1 %38)
-  br label %502
+  %37 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %38, null
+  call void @llvm.assume(i1 %39)
+  br label %503
 
-39:                                               ; No predecessors!
-  br label %40
-
-40:                                               ; preds = %39, %31
+40:                                               ; No predecessors!
   br label %41
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %14, align 8
-  %43 = getelementptr inbounds %struct._timelib_tzinfo, ptr %42, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %15, align 8
-  br label %45
+41:                                               ; preds = %40, %31
+  br label %42
 
-45:                                               ; preds = %41
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %14, align 8
+  %44 = getelementptr inbounds %struct._timelib_tzinfo, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %15, align 8
   br label %46
 
-46:                                               ; preds = %45
-  %47 = load ptr, ptr %13, align 8
-  store ptr %47, ptr %16, align 8
-  %48 = load ptr, ptr %15, align 8
+46:                                               ; preds = %42
+  br label %47
+
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %13, align 8
+  store ptr %48, ptr %16, align 8
   %49 = load ptr, ptr %15, align 8
-  %50 = call i64 @strlen(ptr noundef %49) #14
-  store ptr %48, ptr %8, align 8
-  store i64 %50, ptr %9, align 8
+  %50 = load ptr, ptr %15, align 8
+  %51 = call i64 @strlen(ptr noundef %50) #14
+  store ptr %49, ptr %8, align 8
+  store i64 %51, ptr %9, align 8
   store i8 0, ptr %10, align 1
-  %51 = load i64, ptr %9, align 8
-  %52 = load i8, ptr %10, align 1
-  %53 = trunc i8 %52 to i1
-  store i64 %51, ptr %5, align 8
-  %54 = zext i1 %53 to i8
-  store i8 %54, ptr %6, align 1
-  %55 = load i8, ptr %6, align 1
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %57, label %65
-
-57:                                               ; preds = %46
-  %58 = load i64, ptr %5, align 8
-  %59 = add i64 24, %58
-  %60 = add i64 %59, 1
-  %61 = add i64 %60, 8
-  %62 = sub i64 %61, 1
-  %63 = and i64 %62, -8
-  %64 = call noalias ptr @__zend_malloc(i64 noundef %63) #15
-  br label %469
-
-65:                                               ; preds = %46
-  %66 = load i64, ptr %5, align 8
-  %67 = add i64 24, %66
-  %68 = add i64 %67, 1
-  %69 = add i64 %68, 8
-  %70 = sub i64 %69, 1
-  %71 = and i64 %70, -8
-  %72 = call i1 @llvm.is.constant.i64(i64 %71)
-  br i1 %72, label %73, label %459
-
-73:                                               ; preds = %65
-  %74 = load i64, ptr %5, align 8
-  %75 = add i64 24, %74
-  %76 = add i64 %75, 1
-  %77 = add i64 %76, 8
-  %78 = sub i64 %77, 1
-  %79 = and i64 %78, -8
-  %80 = icmp ule i64 %79, 8
-  br i1 %80, label %81, label %83
-
-81:                                               ; preds = %73
-  %82 = call noalias ptr @_emalloc_8() #13
-  br label %457
-
-83:                                               ; preds = %73
-  %84 = load i64, ptr %5, align 8
-  %85 = add i64 24, %84
-  %86 = add i64 %85, 1
-  %87 = add i64 %86, 8
-  %88 = sub i64 %87, 1
-  %89 = and i64 %88, -8
-  %90 = icmp ule i64 %89, 16
-  br i1 %90, label %91, label %93
-
-91:                                               ; preds = %83
-  %92 = call noalias ptr @_emalloc_16() #13
-  br label %455
-
-93:                                               ; preds = %83
-  %94 = load i64, ptr %5, align 8
-  %95 = add i64 24, %94
-  %96 = add i64 %95, 1
-  %97 = add i64 %96, 8
-  %98 = sub i64 %97, 1
-  %99 = and i64 %98, -8
-  %100 = icmp ule i64 %99, 24
-  br i1 %100, label %101, label %103
-
-101:                                              ; preds = %93
-  %102 = call noalias ptr @_emalloc_24() #13
-  br label %453
-
-103:                                              ; preds = %93
-  %104 = load i64, ptr %5, align 8
-  %105 = add i64 24, %104
-  %106 = add i64 %105, 1
-  %107 = add i64 %106, 8
-  %108 = sub i64 %107, 1
-  %109 = and i64 %108, -8
-  %110 = icmp ule i64 %109, 32
-  br i1 %110, label %111, label %113
-
-111:                                              ; preds = %103
-  %112 = call noalias ptr @_emalloc_32() #13
-  br label %451
-
-113:                                              ; preds = %103
-  %114 = load i64, ptr %5, align 8
-  %115 = add i64 24, %114
-  %116 = add i64 %115, 1
-  %117 = add i64 %116, 8
-  %118 = sub i64 %117, 1
-  %119 = and i64 %118, -8
-  %120 = icmp ule i64 %119, 40
-  br i1 %120, label %121, label %123
-
-121:                                              ; preds = %113
-  %122 = call noalias ptr @_emalloc_40() #13
-  br label %449
-
-123:                                              ; preds = %113
-  %124 = load i64, ptr %5, align 8
-  %125 = add i64 24, %124
-  %126 = add i64 %125, 1
-  %127 = add i64 %126, 8
-  %128 = sub i64 %127, 1
-  %129 = and i64 %128, -8
-  %130 = icmp ule i64 %129, 48
-  br i1 %130, label %131, label %133
-
-131:                                              ; preds = %123
-  %132 = call noalias ptr @_emalloc_48() #13
-  br label %447
-
-133:                                              ; preds = %123
-  %134 = load i64, ptr %5, align 8
-  %135 = add i64 24, %134
-  %136 = add i64 %135, 1
-  %137 = add i64 %136, 8
-  %138 = sub i64 %137, 1
-  %139 = and i64 %138, -8
-  %140 = icmp ule i64 %139, 56
-  br i1 %140, label %141, label %143
-
-141:                                              ; preds = %133
-  %142 = call noalias ptr @_emalloc_56() #13
-  br label %445
-
-143:                                              ; preds = %133
-  %144 = load i64, ptr %5, align 8
-  %145 = add i64 24, %144
-  %146 = add i64 %145, 1
-  %147 = add i64 %146, 8
-  %148 = sub i64 %147, 1
-  %149 = and i64 %148, -8
-  %150 = icmp ule i64 %149, 64
-  br i1 %150, label %151, label %153
-
-151:                                              ; preds = %143
-  %152 = call noalias ptr @_emalloc_64() #13
-  br label %443
-
-153:                                              ; preds = %143
-  %154 = load i64, ptr %5, align 8
-  %155 = add i64 24, %154
-  %156 = add i64 %155, 1
-  %157 = add i64 %156, 8
-  %158 = sub i64 %157, 1
-  %159 = and i64 %158, -8
-  %160 = icmp ule i64 %159, 80
-  br i1 %160, label %161, label %163
-
-161:                                              ; preds = %153
-  %162 = call noalias ptr @_emalloc_80() #13
-  br label %441
-
-163:                                              ; preds = %153
-  %164 = load i64, ptr %5, align 8
-  %165 = add i64 24, %164
-  %166 = add i64 %165, 1
-  %167 = add i64 %166, 8
-  %168 = sub i64 %167, 1
-  %169 = and i64 %168, -8
-  %170 = icmp ule i64 %169, 96
-  br i1 %170, label %171, label %173
-
-171:                                              ; preds = %163
-  %172 = call noalias ptr @_emalloc_96() #13
-  br label %439
-
-173:                                              ; preds = %163
-  %174 = load i64, ptr %5, align 8
-  %175 = add i64 24, %174
-  %176 = add i64 %175, 1
-  %177 = add i64 %176, 8
-  %178 = sub i64 %177, 1
-  %179 = and i64 %178, -8
-  %180 = icmp ule i64 %179, 112
-  br i1 %180, label %181, label %183
-
-181:                                              ; preds = %173
-  %182 = call noalias ptr @_emalloc_112() #13
-  br label %437
-
-183:                                              ; preds = %173
-  %184 = load i64, ptr %5, align 8
-  %185 = add i64 24, %184
-  %186 = add i64 %185, 1
-  %187 = add i64 %186, 8
-  %188 = sub i64 %187, 1
-  %189 = and i64 %188, -8
-  %190 = icmp ule i64 %189, 128
-  br i1 %190, label %191, label %193
-
-191:                                              ; preds = %183
-  %192 = call noalias ptr @_emalloc_128() #13
-  br label %435
-
-193:                                              ; preds = %183
-  %194 = load i64, ptr %5, align 8
-  %195 = add i64 24, %194
-  %196 = add i64 %195, 1
-  %197 = add i64 %196, 8
-  %198 = sub i64 %197, 1
-  %199 = and i64 %198, -8
-  %200 = icmp ule i64 %199, 160
-  br i1 %200, label %201, label %203
-
-201:                                              ; preds = %193
-  %202 = call noalias ptr @_emalloc_160() #13
-  br label %433
-
-203:                                              ; preds = %193
-  %204 = load i64, ptr %5, align 8
-  %205 = add i64 24, %204
-  %206 = add i64 %205, 1
-  %207 = add i64 %206, 8
-  %208 = sub i64 %207, 1
-  %209 = and i64 %208, -8
-  %210 = icmp ule i64 %209, 192
-  br i1 %210, label %211, label %213
-
-211:                                              ; preds = %203
-  %212 = call noalias ptr @_emalloc_192() #13
-  br label %431
-
-213:                                              ; preds = %203
-  %214 = load i64, ptr %5, align 8
-  %215 = add i64 24, %214
-  %216 = add i64 %215, 1
-  %217 = add i64 %216, 8
-  %218 = sub i64 %217, 1
-  %219 = and i64 %218, -8
-  %220 = icmp ule i64 %219, 224
-  br i1 %220, label %221, label %223
-
-221:                                              ; preds = %213
-  %222 = call noalias ptr @_emalloc_224() #13
-  br label %429
-
-223:                                              ; preds = %213
-  %224 = load i64, ptr %5, align 8
-  %225 = add i64 24, %224
-  %226 = add i64 %225, 1
-  %227 = add i64 %226, 8
-  %228 = sub i64 %227, 1
-  %229 = and i64 %228, -8
-  %230 = icmp ule i64 %229, 256
-  br i1 %230, label %231, label %233
-
-231:                                              ; preds = %223
-  %232 = call noalias ptr @_emalloc_256() #13
-  br label %427
-
-233:                                              ; preds = %223
-  %234 = load i64, ptr %5, align 8
-  %235 = add i64 24, %234
-  %236 = add i64 %235, 1
-  %237 = add i64 %236, 8
-  %238 = sub i64 %237, 1
-  %239 = and i64 %238, -8
-  %240 = icmp ule i64 %239, 320
-  br i1 %240, label %241, label %243
-
-241:                                              ; preds = %233
-  %242 = call noalias ptr @_emalloc_320() #13
-  br label %425
-
-243:                                              ; preds = %233
-  %244 = load i64, ptr %5, align 8
-  %245 = add i64 24, %244
-  %246 = add i64 %245, 1
-  %247 = add i64 %246, 8
-  %248 = sub i64 %247, 1
-  %249 = and i64 %248, -8
-  %250 = icmp ule i64 %249, 384
-  br i1 %250, label %251, label %253
-
-251:                                              ; preds = %243
-  %252 = call noalias ptr @_emalloc_384() #13
-  br label %423
-
-253:                                              ; preds = %243
-  %254 = load i64, ptr %5, align 8
-  %255 = add i64 24, %254
-  %256 = add i64 %255, 1
-  %257 = add i64 %256, 8
-  %258 = sub i64 %257, 1
-  %259 = and i64 %258, -8
-  %260 = icmp ule i64 %259, 448
-  br i1 %260, label %261, label %263
-
-261:                                              ; preds = %253
-  %262 = call noalias ptr @_emalloc_448() #13
-  br label %421
-
-263:                                              ; preds = %253
-  %264 = load i64, ptr %5, align 8
-  %265 = add i64 24, %264
-  %266 = add i64 %265, 1
-  %267 = add i64 %266, 8
-  %268 = sub i64 %267, 1
-  %269 = and i64 %268, -8
-  %270 = icmp ule i64 %269, 512
-  br i1 %270, label %271, label %273
-
-271:                                              ; preds = %263
-  %272 = call noalias ptr @_emalloc_512() #13
-  br label %419
-
-273:                                              ; preds = %263
-  %274 = load i64, ptr %5, align 8
-  %275 = add i64 24, %274
-  %276 = add i64 %275, 1
-  %277 = add i64 %276, 8
-  %278 = sub i64 %277, 1
-  %279 = and i64 %278, -8
-  %280 = icmp ule i64 %279, 640
-  br i1 %280, label %281, label %283
-
-281:                                              ; preds = %273
-  %282 = call noalias ptr @_emalloc_640() #13
-  br label %417
-
-283:                                              ; preds = %273
-  %284 = load i64, ptr %5, align 8
-  %285 = add i64 24, %284
-  %286 = add i64 %285, 1
-  %287 = add i64 %286, 8
-  %288 = sub i64 %287, 1
-  %289 = and i64 %288, -8
-  %290 = icmp ule i64 %289, 768
-  br i1 %290, label %291, label %293
-
-291:                                              ; preds = %283
-  %292 = call noalias ptr @_emalloc_768() #13
-  br label %415
-
-293:                                              ; preds = %283
-  %294 = load i64, ptr %5, align 8
-  %295 = add i64 24, %294
-  %296 = add i64 %295, 1
-  %297 = add i64 %296, 8
-  %298 = sub i64 %297, 1
-  %299 = and i64 %298, -8
-  %300 = icmp ule i64 %299, 896
-  br i1 %300, label %301, label %303
-
-301:                                              ; preds = %293
-  %302 = call noalias ptr @_emalloc_896() #13
-  br label %413
-
-303:                                              ; preds = %293
-  %304 = load i64, ptr %5, align 8
-  %305 = add i64 24, %304
-  %306 = add i64 %305, 1
-  %307 = add i64 %306, 8
-  %308 = sub i64 %307, 1
-  %309 = and i64 %308, -8
-  %310 = icmp ule i64 %309, 1024
-  br i1 %310, label %311, label %313
-
-311:                                              ; preds = %303
-  %312 = call noalias ptr @_emalloc_1024() #13
-  br label %411
-
-313:                                              ; preds = %303
-  %314 = load i64, ptr %5, align 8
-  %315 = add i64 24, %314
-  %316 = add i64 %315, 1
-  %317 = add i64 %316, 8
-  %318 = sub i64 %317, 1
-  %319 = and i64 %318, -8
-  %320 = icmp ule i64 %319, 1280
-  br i1 %320, label %321, label %323
-
-321:                                              ; preds = %313
-  %322 = call noalias ptr @_emalloc_1280() #13
-  br label %409
-
-323:                                              ; preds = %313
-  %324 = load i64, ptr %5, align 8
-  %325 = add i64 24, %324
-  %326 = add i64 %325, 1
-  %327 = add i64 %326, 8
-  %328 = sub i64 %327, 1
-  %329 = and i64 %328, -8
-  %330 = icmp ule i64 %329, 1536
-  br i1 %330, label %331, label %333
-
-331:                                              ; preds = %323
-  %332 = call noalias ptr @_emalloc_1536() #13
-  br label %407
-
-333:                                              ; preds = %323
-  %334 = load i64, ptr %5, align 8
-  %335 = add i64 24, %334
-  %336 = add i64 %335, 1
-  %337 = add i64 %336, 8
-  %338 = sub i64 %337, 1
-  %339 = and i64 %338, -8
-  %340 = icmp ule i64 %339, 1792
-  br i1 %340, label %341, label %343
-
-341:                                              ; preds = %333
-  %342 = call noalias ptr @_emalloc_1792() #13
-  br label %405
-
-343:                                              ; preds = %333
-  %344 = load i64, ptr %5, align 8
-  %345 = add i64 24, %344
-  %346 = add i64 %345, 1
-  %347 = add i64 %346, 8
-  %348 = sub i64 %347, 1
-  %349 = and i64 %348, -8
-  %350 = icmp ule i64 %349, 2048
-  br i1 %350, label %351, label %353
-
-351:                                              ; preds = %343
-  %352 = call noalias ptr @_emalloc_2048() #13
-  br label %403
-
-353:                                              ; preds = %343
-  %354 = load i64, ptr %5, align 8
-  %355 = add i64 24, %354
-  %356 = add i64 %355, 1
-  %357 = add i64 %356, 8
-  %358 = sub i64 %357, 1
-  %359 = and i64 %358, -8
-  %360 = icmp ule i64 %359, 2560
-  br i1 %360, label %361, label %363
-
-361:                                              ; preds = %353
-  %362 = call noalias ptr @_emalloc_2560() #13
-  br label %401
-
-363:                                              ; preds = %353
-  %364 = load i64, ptr %5, align 8
-  %365 = add i64 24, %364
-  %366 = add i64 %365, 1
-  %367 = add i64 %366, 8
-  %368 = sub i64 %367, 1
-  %369 = and i64 %368, -8
-  %370 = icmp ule i64 %369, 3072
-  br i1 %370, label %371, label %373
-
-371:                                              ; preds = %363
-  %372 = call noalias ptr @_emalloc_3072() #13
-  br label %399
-
-373:                                              ; preds = %363
-  %374 = load i64, ptr %5, align 8
-  %375 = add i64 24, %374
-  %376 = add i64 %375, 1
-  %377 = add i64 %376, 8
-  %378 = sub i64 %377, 1
-  %379 = and i64 %378, -8
-  %380 = icmp ule i64 %379, 2093056
-  br i1 %380, label %381, label %389
-
-381:                                              ; preds = %373
-  %382 = load i64, ptr %5, align 8
-  %383 = add i64 24, %382
-  %384 = add i64 %383, 1
-  %385 = add i64 %384, 8
-  %386 = sub i64 %385, 1
-  %387 = and i64 %386, -8
-  %388 = call noalias ptr @_emalloc_large(i64 noundef %387) #15
-  br label %397
-
-389:                                              ; preds = %373
-  %390 = load i64, ptr %5, align 8
-  %391 = add i64 24, %390
-  %392 = add i64 %391, 1
-  %393 = add i64 %392, 8
-  %394 = sub i64 %393, 1
-  %395 = and i64 %394, -8
-  %396 = call noalias ptr @_emalloc_huge(i64 noundef %395) #15
-  br label %397
-
-397:                                              ; preds = %389, %381
-  %398 = phi ptr [ %388, %381 ], [ %396, %389 ]
-  br label %399
-
-399:                                              ; preds = %397, %371
-  %400 = phi ptr [ %372, %371 ], [ %398, %397 ]
-  br label %401
-
-401:                                              ; preds = %399, %361
-  %402 = phi ptr [ %362, %361 ], [ %400, %399 ]
-  br label %403
-
-403:                                              ; preds = %401, %351
-  %404 = phi ptr [ %352, %351 ], [ %402, %401 ]
-  br label %405
-
-405:                                              ; preds = %403, %341
-  %406 = phi ptr [ %342, %341 ], [ %404, %403 ]
-  br label %407
-
-407:                                              ; preds = %405, %331
-  %408 = phi ptr [ %332, %331 ], [ %406, %405 ]
-  br label %409
-
-409:                                              ; preds = %407, %321
-  %410 = phi ptr [ %322, %321 ], [ %408, %407 ]
-  br label %411
-
-411:                                              ; preds = %409, %311
-  %412 = phi ptr [ %312, %311 ], [ %410, %409 ]
-  br label %413
-
-413:                                              ; preds = %411, %301
-  %414 = phi ptr [ %302, %301 ], [ %412, %411 ]
-  br label %415
-
-415:                                              ; preds = %413, %291
-  %416 = phi ptr [ %292, %291 ], [ %414, %413 ]
-  br label %417
-
-417:                                              ; preds = %415, %281
-  %418 = phi ptr [ %282, %281 ], [ %416, %415 ]
-  br label %419
-
-419:                                              ; preds = %417, %271
-  %420 = phi ptr [ %272, %271 ], [ %418, %417 ]
-  br label %421
-
-421:                                              ; preds = %419, %261
-  %422 = phi ptr [ %262, %261 ], [ %420, %419 ]
-  br label %423
-
-423:                                              ; preds = %421, %251
-  %424 = phi ptr [ %252, %251 ], [ %422, %421 ]
-  br label %425
-
-425:                                              ; preds = %423, %241
-  %426 = phi ptr [ %242, %241 ], [ %424, %423 ]
-  br label %427
-
-427:                                              ; preds = %425, %231
-  %428 = phi ptr [ %232, %231 ], [ %426, %425 ]
-  br label %429
-
-429:                                              ; preds = %427, %221
-  %430 = phi ptr [ %222, %221 ], [ %428, %427 ]
-  br label %431
-
-431:                                              ; preds = %429, %211
-  %432 = phi ptr [ %212, %211 ], [ %430, %429 ]
-  br label %433
-
-433:                                              ; preds = %431, %201
-  %434 = phi ptr [ %202, %201 ], [ %432, %431 ]
-  br label %435
-
-435:                                              ; preds = %433, %191
-  %436 = phi ptr [ %192, %191 ], [ %434, %433 ]
-  br label %437
-
-437:                                              ; preds = %435, %181
-  %438 = phi ptr [ %182, %181 ], [ %436, %435 ]
-  br label %439
-
-439:                                              ; preds = %437, %171
-  %440 = phi ptr [ %172, %171 ], [ %438, %437 ]
-  br label %441
-
-441:                                              ; preds = %439, %161
-  %442 = phi ptr [ %162, %161 ], [ %440, %439 ]
-  br label %443
-
-443:                                              ; preds = %441, %151
-  %444 = phi ptr [ %152, %151 ], [ %442, %441 ]
-  br label %445
-
-445:                                              ; preds = %443, %141
-  %446 = phi ptr [ %142, %141 ], [ %444, %443 ]
-  br label %447
-
-447:                                              ; preds = %445, %131
-  %448 = phi ptr [ %132, %131 ], [ %446, %445 ]
-  br label %449
-
-449:                                              ; preds = %447, %121
-  %450 = phi ptr [ %122, %121 ], [ %448, %447 ]
-  br label %451
-
-451:                                              ; preds = %449, %111
-  %452 = phi ptr [ %112, %111 ], [ %450, %449 ]
-  br label %453
-
-453:                                              ; preds = %451, %101
-  %454 = phi ptr [ %102, %101 ], [ %452, %451 ]
-  br label %455
-
-455:                                              ; preds = %453, %91
-  %456 = phi ptr [ %92, %91 ], [ %454, %453 ]
-  br label %457
-
-457:                                              ; preds = %455, %81
-  %458 = phi ptr [ %82, %81 ], [ %456, %455 ]
-  br label %467
-
-459:                                              ; preds = %65
-  %460 = load i64, ptr %5, align 8
-  %461 = add i64 24, %460
-  %462 = add i64 %461, 1
-  %463 = add i64 %462, 8
-  %464 = sub i64 %463, 1
-  %465 = and i64 %464, -8
-  %466 = call noalias ptr @_emalloc(i64 noundef %465) #15
-  br label %467
-
-467:                                              ; preds = %459, %457
-  %468 = phi ptr [ %458, %457 ], [ %466, %459 ]
-  br label %469
-
-469:                                              ; preds = %467, %57
-  %470 = phi ptr [ %64, %57 ], [ %468, %467 ]
-  store ptr %470, ptr %7, align 8
-  %471 = load ptr, ptr %7, align 8
-  store ptr %471, ptr %3, align 8
+  %52 = load i64, ptr %9, align 8
+  %53 = load i8, ptr %10, align 1
+  %54 = trunc i8 %53 to i1
+  store i64 %52, ptr %5, align 8
+  %55 = zext i1 %54 to i8
+  store i8 %55, ptr %6, align 1
+  %56 = load i8, ptr %6, align 1
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %66
+
+58:                                               ; preds = %47
+  %59 = load i64, ptr %5, align 8
+  %60 = add i64 24, %59
+  %61 = add i64 %60, 1
+  %62 = add i64 %61, 8
+  %63 = sub i64 %62, 1
+  %64 = and i64 %63, -8
+  %65 = call noalias ptr @__zend_malloc(i64 noundef %64) #15
+  br label %470
+
+66:                                               ; preds = %47
+  %67 = load i64, ptr %5, align 8
+  %68 = add i64 24, %67
+  %69 = add i64 %68, 1
+  %70 = add i64 %69, 8
+  %71 = sub i64 %70, 1
+  %72 = and i64 %71, -8
+  %73 = call i1 @llvm.is.constant.i64(i64 %72)
+  br i1 %73, label %74, label %460
+
+74:                                               ; preds = %66
+  %75 = load i64, ptr %5, align 8
+  %76 = add i64 24, %75
+  %77 = add i64 %76, 1
+  %78 = add i64 %77, 8
+  %79 = sub i64 %78, 1
+  %80 = and i64 %79, -8
+  %81 = icmp ule i64 %80, 8
+  br i1 %81, label %82, label %84
+
+82:                                               ; preds = %74
+  %83 = call noalias ptr @_emalloc_8() #13
+  br label %458
+
+84:                                               ; preds = %74
+  %85 = load i64, ptr %5, align 8
+  %86 = add i64 24, %85
+  %87 = add i64 %86, 1
+  %88 = add i64 %87, 8
+  %89 = sub i64 %88, 1
+  %90 = and i64 %89, -8
+  %91 = icmp ule i64 %90, 16
+  br i1 %91, label %92, label %94
+
+92:                                               ; preds = %84
+  %93 = call noalias ptr @_emalloc_16() #13
+  br label %456
+
+94:                                               ; preds = %84
+  %95 = load i64, ptr %5, align 8
+  %96 = add i64 24, %95
+  %97 = add i64 %96, 1
+  %98 = add i64 %97, 8
+  %99 = sub i64 %98, 1
+  %100 = and i64 %99, -8
+  %101 = icmp ule i64 %100, 24
+  br i1 %101, label %102, label %104
+
+102:                                              ; preds = %94
+  %103 = call noalias ptr @_emalloc_24() #13
+  br label %454
+
+104:                                              ; preds = %94
+  %105 = load i64, ptr %5, align 8
+  %106 = add i64 24, %105
+  %107 = add i64 %106, 1
+  %108 = add i64 %107, 8
+  %109 = sub i64 %108, 1
+  %110 = and i64 %109, -8
+  %111 = icmp ule i64 %110, 32
+  br i1 %111, label %112, label %114
+
+112:                                              ; preds = %104
+  %113 = call noalias ptr @_emalloc_32() #13
+  br label %452
+
+114:                                              ; preds = %104
+  %115 = load i64, ptr %5, align 8
+  %116 = add i64 24, %115
+  %117 = add i64 %116, 1
+  %118 = add i64 %117, 8
+  %119 = sub i64 %118, 1
+  %120 = and i64 %119, -8
+  %121 = icmp ule i64 %120, 40
+  br i1 %121, label %122, label %124
+
+122:                                              ; preds = %114
+  %123 = call noalias ptr @_emalloc_40() #13
+  br label %450
+
+124:                                              ; preds = %114
+  %125 = load i64, ptr %5, align 8
+  %126 = add i64 24, %125
+  %127 = add i64 %126, 1
+  %128 = add i64 %127, 8
+  %129 = sub i64 %128, 1
+  %130 = and i64 %129, -8
+  %131 = icmp ule i64 %130, 48
+  br i1 %131, label %132, label %134
+
+132:                                              ; preds = %124
+  %133 = call noalias ptr @_emalloc_48() #13
+  br label %448
+
+134:                                              ; preds = %124
+  %135 = load i64, ptr %5, align 8
+  %136 = add i64 24, %135
+  %137 = add i64 %136, 1
+  %138 = add i64 %137, 8
+  %139 = sub i64 %138, 1
+  %140 = and i64 %139, -8
+  %141 = icmp ule i64 %140, 56
+  br i1 %141, label %142, label %144
+
+142:                                              ; preds = %134
+  %143 = call noalias ptr @_emalloc_56() #13
+  br label %446
+
+144:                                              ; preds = %134
+  %145 = load i64, ptr %5, align 8
+  %146 = add i64 24, %145
+  %147 = add i64 %146, 1
+  %148 = add i64 %147, 8
+  %149 = sub i64 %148, 1
+  %150 = and i64 %149, -8
+  %151 = icmp ule i64 %150, 64
+  br i1 %151, label %152, label %154
+
+152:                                              ; preds = %144
+  %153 = call noalias ptr @_emalloc_64() #13
+  br label %444
+
+154:                                              ; preds = %144
+  %155 = load i64, ptr %5, align 8
+  %156 = add i64 24, %155
+  %157 = add i64 %156, 1
+  %158 = add i64 %157, 8
+  %159 = sub i64 %158, 1
+  %160 = and i64 %159, -8
+  %161 = icmp ule i64 %160, 80
+  br i1 %161, label %162, label %164
+
+162:                                              ; preds = %154
+  %163 = call noalias ptr @_emalloc_80() #13
+  br label %442
+
+164:                                              ; preds = %154
+  %165 = load i64, ptr %5, align 8
+  %166 = add i64 24, %165
+  %167 = add i64 %166, 1
+  %168 = add i64 %167, 8
+  %169 = sub i64 %168, 1
+  %170 = and i64 %169, -8
+  %171 = icmp ule i64 %170, 96
+  br i1 %171, label %172, label %174
+
+172:                                              ; preds = %164
+  %173 = call noalias ptr @_emalloc_96() #13
+  br label %440
+
+174:                                              ; preds = %164
+  %175 = load i64, ptr %5, align 8
+  %176 = add i64 24, %175
+  %177 = add i64 %176, 1
+  %178 = add i64 %177, 8
+  %179 = sub i64 %178, 1
+  %180 = and i64 %179, -8
+  %181 = icmp ule i64 %180, 112
+  br i1 %181, label %182, label %184
+
+182:                                              ; preds = %174
+  %183 = call noalias ptr @_emalloc_112() #13
+  br label %438
+
+184:                                              ; preds = %174
+  %185 = load i64, ptr %5, align 8
+  %186 = add i64 24, %185
+  %187 = add i64 %186, 1
+  %188 = add i64 %187, 8
+  %189 = sub i64 %188, 1
+  %190 = and i64 %189, -8
+  %191 = icmp ule i64 %190, 128
+  br i1 %191, label %192, label %194
+
+192:                                              ; preds = %184
+  %193 = call noalias ptr @_emalloc_128() #13
+  br label %436
+
+194:                                              ; preds = %184
+  %195 = load i64, ptr %5, align 8
+  %196 = add i64 24, %195
+  %197 = add i64 %196, 1
+  %198 = add i64 %197, 8
+  %199 = sub i64 %198, 1
+  %200 = and i64 %199, -8
+  %201 = icmp ule i64 %200, 160
+  br i1 %201, label %202, label %204
+
+202:                                              ; preds = %194
+  %203 = call noalias ptr @_emalloc_160() #13
+  br label %434
+
+204:                                              ; preds = %194
+  %205 = load i64, ptr %5, align 8
+  %206 = add i64 24, %205
+  %207 = add i64 %206, 1
+  %208 = add i64 %207, 8
+  %209 = sub i64 %208, 1
+  %210 = and i64 %209, -8
+  %211 = icmp ule i64 %210, 192
+  br i1 %211, label %212, label %214
+
+212:                                              ; preds = %204
+  %213 = call noalias ptr @_emalloc_192() #13
+  br label %432
+
+214:                                              ; preds = %204
+  %215 = load i64, ptr %5, align 8
+  %216 = add i64 24, %215
+  %217 = add i64 %216, 1
+  %218 = add i64 %217, 8
+  %219 = sub i64 %218, 1
+  %220 = and i64 %219, -8
+  %221 = icmp ule i64 %220, 224
+  br i1 %221, label %222, label %224
+
+222:                                              ; preds = %214
+  %223 = call noalias ptr @_emalloc_224() #13
+  br label %430
+
+224:                                              ; preds = %214
+  %225 = load i64, ptr %5, align 8
+  %226 = add i64 24, %225
+  %227 = add i64 %226, 1
+  %228 = add i64 %227, 8
+  %229 = sub i64 %228, 1
+  %230 = and i64 %229, -8
+  %231 = icmp ule i64 %230, 256
+  br i1 %231, label %232, label %234
+
+232:                                              ; preds = %224
+  %233 = call noalias ptr @_emalloc_256() #13
+  br label %428
+
+234:                                              ; preds = %224
+  %235 = load i64, ptr %5, align 8
+  %236 = add i64 24, %235
+  %237 = add i64 %236, 1
+  %238 = add i64 %237, 8
+  %239 = sub i64 %238, 1
+  %240 = and i64 %239, -8
+  %241 = icmp ule i64 %240, 320
+  br i1 %241, label %242, label %244
+
+242:                                              ; preds = %234
+  %243 = call noalias ptr @_emalloc_320() #13
+  br label %426
+
+244:                                              ; preds = %234
+  %245 = load i64, ptr %5, align 8
+  %246 = add i64 24, %245
+  %247 = add i64 %246, 1
+  %248 = add i64 %247, 8
+  %249 = sub i64 %248, 1
+  %250 = and i64 %249, -8
+  %251 = icmp ule i64 %250, 384
+  br i1 %251, label %252, label %254
+
+252:                                              ; preds = %244
+  %253 = call noalias ptr @_emalloc_384() #13
+  br label %424
+
+254:                                              ; preds = %244
+  %255 = load i64, ptr %5, align 8
+  %256 = add i64 24, %255
+  %257 = add i64 %256, 1
+  %258 = add i64 %257, 8
+  %259 = sub i64 %258, 1
+  %260 = and i64 %259, -8
+  %261 = icmp ule i64 %260, 448
+  br i1 %261, label %262, label %264
+
+262:                                              ; preds = %254
+  %263 = call noalias ptr @_emalloc_448() #13
+  br label %422
+
+264:                                              ; preds = %254
+  %265 = load i64, ptr %5, align 8
+  %266 = add i64 24, %265
+  %267 = add i64 %266, 1
+  %268 = add i64 %267, 8
+  %269 = sub i64 %268, 1
+  %270 = and i64 %269, -8
+  %271 = icmp ule i64 %270, 512
+  br i1 %271, label %272, label %274
+
+272:                                              ; preds = %264
+  %273 = call noalias ptr @_emalloc_512() #13
+  br label %420
+
+274:                                              ; preds = %264
+  %275 = load i64, ptr %5, align 8
+  %276 = add i64 24, %275
+  %277 = add i64 %276, 1
+  %278 = add i64 %277, 8
+  %279 = sub i64 %278, 1
+  %280 = and i64 %279, -8
+  %281 = icmp ule i64 %280, 640
+  br i1 %281, label %282, label %284
+
+282:                                              ; preds = %274
+  %283 = call noalias ptr @_emalloc_640() #13
+  br label %418
+
+284:                                              ; preds = %274
+  %285 = load i64, ptr %5, align 8
+  %286 = add i64 24, %285
+  %287 = add i64 %286, 1
+  %288 = add i64 %287, 8
+  %289 = sub i64 %288, 1
+  %290 = and i64 %289, -8
+  %291 = icmp ule i64 %290, 768
+  br i1 %291, label %292, label %294
+
+292:                                              ; preds = %284
+  %293 = call noalias ptr @_emalloc_768() #13
+  br label %416
+
+294:                                              ; preds = %284
+  %295 = load i64, ptr %5, align 8
+  %296 = add i64 24, %295
+  %297 = add i64 %296, 1
+  %298 = add i64 %297, 8
+  %299 = sub i64 %298, 1
+  %300 = and i64 %299, -8
+  %301 = icmp ule i64 %300, 896
+  br i1 %301, label %302, label %304
+
+302:                                              ; preds = %294
+  %303 = call noalias ptr @_emalloc_896() #13
+  br label %414
+
+304:                                              ; preds = %294
+  %305 = load i64, ptr %5, align 8
+  %306 = add i64 24, %305
+  %307 = add i64 %306, 1
+  %308 = add i64 %307, 8
+  %309 = sub i64 %308, 1
+  %310 = and i64 %309, -8
+  %311 = icmp ule i64 %310, 1024
+  br i1 %311, label %312, label %314
+
+312:                                              ; preds = %304
+  %313 = call noalias ptr @_emalloc_1024() #13
+  br label %412
+
+314:                                              ; preds = %304
+  %315 = load i64, ptr %5, align 8
+  %316 = add i64 24, %315
+  %317 = add i64 %316, 1
+  %318 = add i64 %317, 8
+  %319 = sub i64 %318, 1
+  %320 = and i64 %319, -8
+  %321 = icmp ule i64 %320, 1280
+  br i1 %321, label %322, label %324
+
+322:                                              ; preds = %314
+  %323 = call noalias ptr @_emalloc_1280() #13
+  br label %410
+
+324:                                              ; preds = %314
+  %325 = load i64, ptr %5, align 8
+  %326 = add i64 24, %325
+  %327 = add i64 %326, 1
+  %328 = add i64 %327, 8
+  %329 = sub i64 %328, 1
+  %330 = and i64 %329, -8
+  %331 = icmp ule i64 %330, 1536
+  br i1 %331, label %332, label %334
+
+332:                                              ; preds = %324
+  %333 = call noalias ptr @_emalloc_1536() #13
+  br label %408
+
+334:                                              ; preds = %324
+  %335 = load i64, ptr %5, align 8
+  %336 = add i64 24, %335
+  %337 = add i64 %336, 1
+  %338 = add i64 %337, 8
+  %339 = sub i64 %338, 1
+  %340 = and i64 %339, -8
+  %341 = icmp ule i64 %340, 1792
+  br i1 %341, label %342, label %344
+
+342:                                              ; preds = %334
+  %343 = call noalias ptr @_emalloc_1792() #13
+  br label %406
+
+344:                                              ; preds = %334
+  %345 = load i64, ptr %5, align 8
+  %346 = add i64 24, %345
+  %347 = add i64 %346, 1
+  %348 = add i64 %347, 8
+  %349 = sub i64 %348, 1
+  %350 = and i64 %349, -8
+  %351 = icmp ule i64 %350, 2048
+  br i1 %351, label %352, label %354
+
+352:                                              ; preds = %344
+  %353 = call noalias ptr @_emalloc_2048() #13
+  br label %404
+
+354:                                              ; preds = %344
+  %355 = load i64, ptr %5, align 8
+  %356 = add i64 24, %355
+  %357 = add i64 %356, 1
+  %358 = add i64 %357, 8
+  %359 = sub i64 %358, 1
+  %360 = and i64 %359, -8
+  %361 = icmp ule i64 %360, 2560
+  br i1 %361, label %362, label %364
+
+362:                                              ; preds = %354
+  %363 = call noalias ptr @_emalloc_2560() #13
+  br label %402
+
+364:                                              ; preds = %354
+  %365 = load i64, ptr %5, align 8
+  %366 = add i64 24, %365
+  %367 = add i64 %366, 1
+  %368 = add i64 %367, 8
+  %369 = sub i64 %368, 1
+  %370 = and i64 %369, -8
+  %371 = icmp ule i64 %370, 3072
+  br i1 %371, label %372, label %374
+
+372:                                              ; preds = %364
+  %373 = call noalias ptr @_emalloc_3072() #13
+  br label %400
+
+374:                                              ; preds = %364
+  %375 = load i64, ptr %5, align 8
+  %376 = add i64 24, %375
+  %377 = add i64 %376, 1
+  %378 = add i64 %377, 8
+  %379 = sub i64 %378, 1
+  %380 = and i64 %379, -8
+  %381 = icmp ule i64 %380, 2093056
+  br i1 %381, label %382, label %390
+
+382:                                              ; preds = %374
+  %383 = load i64, ptr %5, align 8
+  %384 = add i64 24, %383
+  %385 = add i64 %384, 1
+  %386 = add i64 %385, 8
+  %387 = sub i64 %386, 1
+  %388 = and i64 %387, -8
+  %389 = call noalias ptr @_emalloc_large(i64 noundef %388) #15
+  br label %398
+
+390:                                              ; preds = %374
+  %391 = load i64, ptr %5, align 8
+  %392 = add i64 24, %391
+  %393 = add i64 %392, 1
+  %394 = add i64 %393, 8
+  %395 = sub i64 %394, 1
+  %396 = and i64 %395, -8
+  %397 = call noalias ptr @_emalloc_huge(i64 noundef %396) #15
+  br label %398
+
+398:                                              ; preds = %390, %382
+  %399 = phi ptr [ %389, %382 ], [ %397, %390 ]
+  br label %400
+
+400:                                              ; preds = %398, %372
+  %401 = phi ptr [ %373, %372 ], [ %399, %398 ]
+  br label %402
+
+402:                                              ; preds = %400, %362
+  %403 = phi ptr [ %363, %362 ], [ %401, %400 ]
+  br label %404
+
+404:                                              ; preds = %402, %352
+  %405 = phi ptr [ %353, %352 ], [ %403, %402 ]
+  br label %406
+
+406:                                              ; preds = %404, %342
+  %407 = phi ptr [ %343, %342 ], [ %405, %404 ]
+  br label %408
+
+408:                                              ; preds = %406, %332
+  %409 = phi ptr [ %333, %332 ], [ %407, %406 ]
+  br label %410
+
+410:                                              ; preds = %408, %322
+  %411 = phi ptr [ %323, %322 ], [ %409, %408 ]
+  br label %412
+
+412:                                              ; preds = %410, %312
+  %413 = phi ptr [ %313, %312 ], [ %411, %410 ]
+  br label %414
+
+414:                                              ; preds = %412, %302
+  %415 = phi ptr [ %303, %302 ], [ %413, %412 ]
+  br label %416
+
+416:                                              ; preds = %414, %292
+  %417 = phi ptr [ %293, %292 ], [ %415, %414 ]
+  br label %418
+
+418:                                              ; preds = %416, %282
+  %419 = phi ptr [ %283, %282 ], [ %417, %416 ]
+  br label %420
+
+420:                                              ; preds = %418, %272
+  %421 = phi ptr [ %273, %272 ], [ %419, %418 ]
+  br label %422
+
+422:                                              ; preds = %420, %262
+  %423 = phi ptr [ %263, %262 ], [ %421, %420 ]
+  br label %424
+
+424:                                              ; preds = %422, %252
+  %425 = phi ptr [ %253, %252 ], [ %423, %422 ]
+  br label %426
+
+426:                                              ; preds = %424, %242
+  %427 = phi ptr [ %243, %242 ], [ %425, %424 ]
+  br label %428
+
+428:                                              ; preds = %426, %232
+  %429 = phi ptr [ %233, %232 ], [ %427, %426 ]
+  br label %430
+
+430:                                              ; preds = %428, %222
+  %431 = phi ptr [ %223, %222 ], [ %429, %428 ]
+  br label %432
+
+432:                                              ; preds = %430, %212
+  %433 = phi ptr [ %213, %212 ], [ %431, %430 ]
+  br label %434
+
+434:                                              ; preds = %432, %202
+  %435 = phi ptr [ %203, %202 ], [ %433, %432 ]
+  br label %436
+
+436:                                              ; preds = %434, %192
+  %437 = phi ptr [ %193, %192 ], [ %435, %434 ]
+  br label %438
+
+438:                                              ; preds = %436, %182
+  %439 = phi ptr [ %183, %182 ], [ %437, %436 ]
+  br label %440
+
+440:                                              ; preds = %438, %172
+  %441 = phi ptr [ %173, %172 ], [ %439, %438 ]
+  br label %442
+
+442:                                              ; preds = %440, %162
+  %443 = phi ptr [ %163, %162 ], [ %441, %440 ]
+  br label %444
+
+444:                                              ; preds = %442, %152
+  %445 = phi ptr [ %153, %152 ], [ %443, %442 ]
+  br label %446
+
+446:                                              ; preds = %444, %142
+  %447 = phi ptr [ %143, %142 ], [ %445, %444 ]
+  br label %448
+
+448:                                              ; preds = %446, %132
+  %449 = phi ptr [ %133, %132 ], [ %447, %446 ]
+  br label %450
+
+450:                                              ; preds = %448, %122
+  %451 = phi ptr [ %123, %122 ], [ %449, %448 ]
+  br label %452
+
+452:                                              ; preds = %450, %112
+  %453 = phi ptr [ %113, %112 ], [ %451, %450 ]
+  br label %454
+
+454:                                              ; preds = %452, %102
+  %455 = phi ptr [ %103, %102 ], [ %453, %452 ]
+  br label %456
+
+456:                                              ; preds = %454, %92
+  %457 = phi ptr [ %93, %92 ], [ %455, %454 ]
+  br label %458
+
+458:                                              ; preds = %456, %82
+  %459 = phi ptr [ %83, %82 ], [ %457, %456 ]
+  br label %468
+
+460:                                              ; preds = %66
+  %461 = load i64, ptr %5, align 8
+  %462 = add i64 24, %461
+  %463 = add i64 %462, 1
+  %464 = add i64 %463, 8
+  %465 = sub i64 %464, 1
+  %466 = and i64 %465, -8
+  %467 = call noalias ptr @_emalloc(i64 noundef %466) #15
+  br label %468
+
+468:                                              ; preds = %460, %458
+  %469 = phi ptr [ %459, %458 ], [ %467, %460 ]
+  br label %470
+
+470:                                              ; preds = %468, %58
+  %471 = phi ptr [ %65, %58 ], [ %469, %468 ]
+  store ptr %471, ptr %7, align 8
+  %472 = load ptr, ptr %7, align 8
+  store ptr %472, ptr %3, align 8
   store i32 1, ptr %4, align 4
-  %472 = load i32, ptr %4, align 4
-  %473 = load ptr, ptr %3, align 8
-  store i32 %472, ptr %473, align 4
-  %474 = load i8, ptr %6, align 1
-  %475 = trunc i8 %474 to i1
-  %476 = select i1 %475, i32 128, i32 0
-  %477 = or i32 22, %476
-  %478 = load ptr, ptr %7, align 8
-  %479 = getelementptr inbounds %struct._zend_refcounted_h, ptr %478, i32 0, i32 1
-  store i32 %477, ptr %479, align 4
-  %480 = load ptr, ptr %7, align 8
-  %481 = getelementptr inbounds %struct._zend_string, ptr %480, i32 0, i32 1
-  store i64 0, ptr %481, align 8
-  %482 = load i64, ptr %5, align 8
-  %483 = load ptr, ptr %7, align 8
-  %484 = getelementptr inbounds %struct._zend_string, ptr %483, i32 0, i32 2
-  store i64 %482, ptr %484, align 8
-  %485 = load ptr, ptr %7, align 8
-  store ptr %485, ptr %11, align 8
-  %486 = load ptr, ptr %11, align 8
-  %487 = getelementptr inbounds %struct._zend_string, ptr %486, i32 0, i32 3
-  %488 = load ptr, ptr %8, align 8
-  %489 = load i64, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %487, ptr align 1 %488, i64 %489, i1 false)
-  %490 = load ptr, ptr %11, align 8
-  %491 = getelementptr inbounds %struct._zend_string, ptr %490, i32 0, i32 3
-  %492 = load i64, ptr %9, align 8
-  %493 = getelementptr inbounds [1 x i8], ptr %491, i64 0, i64 %492
-  store i8 0, ptr %493, align 1
-  %494 = load ptr, ptr %11, align 8
-  store ptr %494, ptr %17, align 8
-  %495 = load ptr, ptr %17, align 8
-  %496 = load ptr, ptr %16, align 8
-  %497 = getelementptr inbounds %struct._zval_struct, ptr %496, i32 0, i32 0
-  store ptr %495, ptr %497, align 8
-  %498 = load ptr, ptr %16, align 8
-  %499 = getelementptr inbounds %struct._zval_struct, ptr %498, i32 0, i32 1
-  store i32 262, ptr %499, align 8
-  br label %500
-
-500:                                              ; preds = %469
+  %473 = load i32, ptr %4, align 4
+  %474 = load ptr, ptr %3, align 8
+  store i32 %473, ptr %474, align 4
+  %475 = load i8, ptr %6, align 1
+  %476 = trunc i8 %475 to i1
+  %477 = select i1 %476, i32 128, i32 0
+  %478 = or i32 22, %477
+  %479 = load ptr, ptr %7, align 8
+  %480 = getelementptr inbounds %struct._zend_refcounted_h, ptr %479, i32 0, i32 1
+  store i32 %478, ptr %480, align 4
+  %481 = load ptr, ptr %7, align 8
+  %482 = getelementptr inbounds %struct._zend_string, ptr %481, i32 0, i32 1
+  store i64 0, ptr %482, align 8
+  %483 = load i64, ptr %5, align 8
+  %484 = load ptr, ptr %7, align 8
+  %485 = getelementptr inbounds %struct._zend_string, ptr %484, i32 0, i32 2
+  store i64 %483, ptr %485, align 8
+  %486 = load ptr, ptr %7, align 8
+  store ptr %486, ptr %11, align 8
+  %487 = load ptr, ptr %11, align 8
+  %488 = getelementptr inbounds %struct._zend_string, ptr %487, i32 0, i32 3
+  %489 = load ptr, ptr %8, align 8
+  %490 = load i64, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %488, ptr align 1 %489, i64 %490, i1 false)
+  %491 = load ptr, ptr %11, align 8
+  %492 = getelementptr inbounds %struct._zend_string, ptr %491, i32 0, i32 3
+  %493 = load i64, ptr %9, align 8
+  %494 = getelementptr inbounds [1 x i8], ptr %492, i64 0, i64 %493
+  store i8 0, ptr %494, align 1
+  %495 = load ptr, ptr %11, align 8
+  store ptr %495, ptr %17, align 8
+  %496 = load ptr, ptr %17, align 8
+  %497 = load ptr, ptr %16, align 8
+  %498 = getelementptr inbounds %struct._zval_struct, ptr %497, i32 0, i32 0
+  store ptr %496, ptr %498, align 8
+  %499 = load ptr, ptr %16, align 8
+  %500 = getelementptr inbounds %struct._zval_struct, ptr %499, i32 0, i32 1
+  store i32 262, ptr %500, align 8
   br label %501
 
-501:                                              ; preds = %500
+501:                                              ; preds = %470
   br label %502
 
-502:                                              ; preds = %501, %36, %29
+502:                                              ; preds = %501
+  br label %503
+
+503:                                              ; preds = %502, %36, %29
   ret void
 }
 
@@ -46633,7 +46789,7 @@ define internal void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noundef %1,
   %694 = load i32, ptr %95, align 4
   %695 = load ptr, ptr %94, align 8
   call void @zend_wrong_parameter_error(i32 noundef %691, i32 noundef %692, ptr noundef %693, i32 noundef %694, ptr noundef %695)
-  br label %854
+  br label %856
 
 696:                                              ; preds = %682
   br label %697
@@ -46684,257 +46840,259 @@ define internal void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noundef %1,
 718:                                              ; preds = %717, %707
   %719 = load i64, ptr %83, align 8
   %720 = icmp ne i64 %719, 0
-  br i1 %720, label %721, label %732
+  br i1 %720, label %721, label %733
 
 721:                                              ; preds = %718
   %722 = load i64, ptr %83, align 8
   %723 = icmp ne i64 %722, 1
-  br i1 %723, label %724, label %732
+  br i1 %723, label %724, label %733
 
 724:                                              ; preds = %721
   %725 = load i64, ptr %83, align 8
   %726 = icmp ne i64 %725, 2
-  br i1 %726, label %727, label %732
+  br i1 %726, label %727, label %733
 
 727:                                              ; preds = %724
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef @.str.439)
   br label %728
 
 728:                                              ; preds = %727
-  %729 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %730 = icmp ne ptr %729, null
-  call void @llvm.assume(i1 %730)
-  br label %854
+  %729 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %730 = load ptr, ptr %729, align 8
+  %731 = icmp ne ptr %730, null
+  call void @llvm.assume(i1 %731)
+  br label %856
 
-731:                                              ; No predecessors!
-  br label %732
+732:                                              ; No predecessors!
+  br label %733
 
-732:                                              ; preds = %731, %724, %721, %718
-  %733 = load double, ptr %69, align 8
-  %734 = fsub double 9.000000e+01, %733
-  store double %734, ptr %71, align 8
-  %735 = call ptr @get_timezone_info()
-  store ptr %735, ptr %86, align 8
-  %736 = load ptr, ptr %86, align 8
-  %737 = icmp ne ptr %736, null
-  br i1 %737, label %743, label %738
+733:                                              ; preds = %732, %724, %721, %718
+  %734 = load double, ptr %69, align 8
+  %735 = fsub double 9.000000e+01, %734
+  store double %735, ptr %71, align 8
+  %736 = call ptr @get_timezone_info()
+  store ptr %736, ptr %86, align 8
+  %737 = load ptr, ptr %86, align 8
+  %738 = icmp ne ptr %737, null
+  br i1 %738, label %745, label %739
 
-738:                                              ; preds = %732
-  br label %739
+739:                                              ; preds = %733
+  br label %740
 
-739:                                              ; preds = %738
-  %740 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %741 = icmp ne ptr %740, null
-  call void @llvm.assume(i1 %741)
-  br label %854
+740:                                              ; preds = %739
+  %741 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %742 = load ptr, ptr %741, align 8
+  %743 = icmp ne ptr %742, null
+  call void @llvm.assume(i1 %743)
+  br label %856
 
-742:                                              ; No predecessors!
-  br label %743
+744:                                              ; No predecessors!
+  br label %745
 
-743:                                              ; preds = %742, %732
-  %744 = call ptr @timelib_time_ctor()
-  store ptr %744, ptr %85, align 8
-  %745 = load ptr, ptr %86, align 8
-  %746 = load ptr, ptr %85, align 8
-  %747 = getelementptr inbounds %struct._timelib_time, ptr %746, i32 0, i32 9
-  store ptr %745, ptr %747, align 8
+745:                                              ; preds = %744, %733
+  %746 = call ptr @timelib_time_ctor()
+  store ptr %746, ptr %85, align 8
+  %747 = load ptr, ptr %86, align 8
   %748 = load ptr, ptr %85, align 8
-  %749 = getelementptr inbounds %struct._timelib_time, ptr %748, i32 0, i32 21
-  store i32 3, ptr %749, align 8
-  %750 = load i8, ptr %75, align 1
-  %751 = trunc i8 %750 to i1
-  br i1 %751, label %752, label %757
+  %749 = getelementptr inbounds %struct._timelib_time, ptr %748, i32 0, i32 9
+  store ptr %747, ptr %749, align 8
+  %750 = load ptr, ptr %85, align 8
+  %751 = getelementptr inbounds %struct._timelib_time, ptr %750, i32 0, i32 21
+  store i32 3, ptr %751, align 8
+  %752 = load i8, ptr %75, align 1
+  %753 = trunc i8 %752 to i1
+  br i1 %753, label %754, label %759
 
-752:                                              ; preds = %743
-  %753 = load ptr, ptr %85, align 8
-  %754 = call i64 @timelib_get_current_offset(ptr noundef %753)
-  %755 = sdiv i64 %754, 3600
-  %756 = sitofp i64 %755 to double
-  store double %756, ptr %70, align 8
-  br label %757
+754:                                              ; preds = %745
+  %755 = load ptr, ptr %85, align 8
+  %756 = call i64 @timelib_get_current_offset(ptr noundef %755)
+  %757 = sdiv i64 %756, 3600
+  %758 = sitofp i64 %757 to double
+  store double %758, ptr %70, align 8
+  br label %759
 
-757:                                              ; preds = %752, %743
-  %758 = load ptr, ptr %85, align 8
-  %759 = load i64, ptr %82, align 8
-  call void @timelib_unixtime2local(ptr noundef %758, i64 noundef %759)
+759:                                              ; preds = %754, %745
   %760 = load ptr, ptr %85, align 8
-  %761 = load double, ptr %68, align 8
-  %762 = load double, ptr %67, align 8
-  %763 = load double, ptr %71, align 8
-  %764 = call i32 @timelib_astro_rise_set_altitude(ptr noundef %760, double noundef %761, double noundef %762, double noundef %763, i32 noundef 1, ptr noundef %76, ptr noundef %77, ptr noundef %79, ptr noundef %80, ptr noundef %81)
-  store i32 %764, ptr %84, align 4
-  %765 = load ptr, ptr %85, align 8
-  call void @timelib_time_dtor(ptr noundef %765)
-  %766 = load i32, ptr %84, align 4
-  %767 = icmp ne i32 %766, 0
-  br i1 %767, label %768, label %775
+  %761 = load i64, ptr %82, align 8
+  call void @timelib_unixtime2local(ptr noundef %760, i64 noundef %761)
+  %762 = load ptr, ptr %85, align 8
+  %763 = load double, ptr %68, align 8
+  %764 = load double, ptr %67, align 8
+  %765 = load double, ptr %71, align 8
+  %766 = call i32 @timelib_astro_rise_set_altitude(ptr noundef %762, double noundef %763, double noundef %764, double noundef %765, i32 noundef 1, ptr noundef %76, ptr noundef %77, ptr noundef %79, ptr noundef %80, ptr noundef %81)
+  store i32 %766, ptr %84, align 4
+  %767 = load ptr, ptr %85, align 8
+  call void @timelib_time_dtor(ptr noundef %767)
+  %768 = load i32, ptr %84, align 4
+  %769 = icmp ne i32 %768, 0
+  br i1 %769, label %770, label %777
 
-768:                                              ; preds = %757
-  br label %769
+770:                                              ; preds = %759
+  br label %771
 
-769:                                              ; preds = %768
-  br label %770
+771:                                              ; preds = %770
+  br label %772
 
-770:                                              ; preds = %769
-  %771 = load ptr, ptr %65, align 8
-  %772 = getelementptr inbounds %struct._zval_struct, ptr %771, i32 0, i32 1
-  store i32 2, ptr %772, align 8
-  br label %773
-
-773:                                              ; preds = %770
-  br label %854
-
-774:                                              ; No predecessors!
+772:                                              ; preds = %771
+  %773 = load ptr, ptr %65, align 8
+  %774 = getelementptr inbounds %struct._zval_struct, ptr %773, i32 0, i32 1
+  store i32 2, ptr %774, align 8
   br label %775
 
-775:                                              ; preds = %774, %757
-  %776 = load i64, ptr %83, align 8
-  %777 = icmp eq i64 %776, 0
-  br i1 %777, label %778, label %796
+775:                                              ; preds = %772
+  br label %856
 
-778:                                              ; preds = %775
-  br label %779
+776:                                              ; No predecessors!
+  br label %777
 
-779:                                              ; preds = %778
-  br label %780
+777:                                              ; preds = %776, %759
+  %778 = load i64, ptr %83, align 8
+  %779 = icmp eq i64 %778, 0
+  br i1 %779, label %780, label %798
 
-780:                                              ; preds = %779
-  %781 = load ptr, ptr %65, align 8
-  store ptr %781, ptr %100, align 8
-  %782 = load i8, ptr %66, align 1
-  %783 = trunc i8 %782 to i1
-  br i1 %783, label %784, label %786
+780:                                              ; preds = %777
+  br label %781
 
-784:                                              ; preds = %780
-  %785 = load i64, ptr %80, align 8
-  br label %788
+781:                                              ; preds = %780
+  br label %782
 
-786:                                              ; preds = %780
-  %787 = load i64, ptr %79, align 8
-  br label %788
+782:                                              ; preds = %781
+  %783 = load ptr, ptr %65, align 8
+  store ptr %783, ptr %100, align 8
+  %784 = load i8, ptr %66, align 1
+  %785 = trunc i8 %784 to i1
+  br i1 %785, label %786, label %788
 
-788:                                              ; preds = %786, %784
-  %789 = phi i64 [ %785, %784 ], [ %787, %786 ]
-  %790 = load ptr, ptr %100, align 8
-  %791 = getelementptr inbounds %struct._zval_struct, ptr %790, i32 0, i32 0
-  store i64 %789, ptr %791, align 8
+786:                                              ; preds = %782
+  %787 = load i64, ptr %80, align 8
+  br label %790
+
+788:                                              ; preds = %782
+  %789 = load i64, ptr %79, align 8
+  br label %790
+
+790:                                              ; preds = %788, %786
+  %791 = phi i64 [ %787, %786 ], [ %789, %788 ]
   %792 = load ptr, ptr %100, align 8
-  %793 = getelementptr inbounds %struct._zval_struct, ptr %792, i32 0, i32 1
-  store i32 4, ptr %793, align 8
-  br label %794
-
-794:                                              ; preds = %788
-  br label %854
-
-795:                                              ; No predecessors!
+  %793 = getelementptr inbounds %struct._zval_struct, ptr %792, i32 0, i32 0
+  store i64 %791, ptr %793, align 8
+  %794 = load ptr, ptr %100, align 8
+  %795 = getelementptr inbounds %struct._zval_struct, ptr %794, i32 0, i32 1
+  store i32 4, ptr %795, align 8
   br label %796
 
-796:                                              ; preds = %795, %775
-  %797 = load i8, ptr %66, align 1
-  %798 = trunc i8 %797 to i1
-  br i1 %798, label %799, label %801
+796:                                              ; preds = %790
+  br label %856
 
-799:                                              ; preds = %796
-  %800 = load double, ptr %77, align 8
-  br label %803
+797:                                              ; No predecessors!
+  br label %798
 
-801:                                              ; preds = %796
-  %802 = load double, ptr %76, align 8
-  br label %803
+798:                                              ; preds = %797, %777
+  %799 = load i8, ptr %66, align 1
+  %800 = trunc i8 %799 to i1
+  br i1 %800, label %801, label %803
 
-803:                                              ; preds = %801, %799
-  %804 = phi double [ %800, %799 ], [ %802, %801 ]
-  %805 = load double, ptr %70, align 8
-  %806 = fadd double %804, %805
-  store double %806, ptr %78, align 8
-  %807 = load double, ptr %78, align 8
-  %808 = fcmp ogt double %807, 2.400000e+01
-  br i1 %808, label %812, label %809
+801:                                              ; preds = %798
+  %802 = load double, ptr %77, align 8
+  br label %805
 
-809:                                              ; preds = %803
-  %810 = load double, ptr %78, align 8
-  %811 = fcmp olt double %810, 0.000000e+00
-  br i1 %811, label %812, label %819
+803:                                              ; preds = %798
+  %804 = load double, ptr %76, align 8
+  br label %805
 
-812:                                              ; preds = %809, %803
-  %813 = load double, ptr %78, align 8
-  %814 = fdiv double %813, 2.400000e+01
-  %815 = call double @llvm.floor.f64(double %814)
-  %816 = load double, ptr %78, align 8
-  %817 = fneg double %815
-  %818 = call double @llvm.fmuladd.f64(double %817, double 2.400000e+01, double %816)
-  store double %818, ptr %78, align 8
-  br label %819
+805:                                              ; preds = %803, %801
+  %806 = phi double [ %802, %801 ], [ %804, %803 ]
+  %807 = load double, ptr %70, align 8
+  %808 = fadd double %806, %807
+  store double %808, ptr %78, align 8
+  %809 = load double, ptr %78, align 8
+  %810 = fcmp ogt double %809, 2.400000e+01
+  br i1 %810, label %814, label %811
 
-819:                                              ; preds = %812, %809
-  %820 = load i64, ptr %83, align 8
-  switch i64 %820, label %854 [
-    i64 1, label %821
-    i64 2, label %843
+811:                                              ; preds = %805
+  %812 = load double, ptr %78, align 8
+  %813 = fcmp olt double %812, 0.000000e+00
+  br i1 %813, label %814, label %821
+
+814:                                              ; preds = %811, %805
+  %815 = load double, ptr %78, align 8
+  %816 = fdiv double %815, 2.400000e+01
+  %817 = call double @llvm.floor.f64(double %816)
+  %818 = load double, ptr %78, align 8
+  %819 = fneg double %817
+  %820 = call double @llvm.fmuladd.f64(double %819, double 2.400000e+01, double %818)
+  store double %820, ptr %78, align 8
+  br label %821
+
+821:                                              ; preds = %814, %811
+  %822 = load i64, ptr %83, align 8
+  switch i64 %822, label %856 [
+    i64 1, label %823
+    i64 2, label %845
   ]
 
-821:                                              ; preds = %819
-  %822 = load double, ptr %78, align 8
-  %823 = fptosi double %822 to i32
+823:                                              ; preds = %821
   %824 = load double, ptr %78, align 8
-  %825 = load double, ptr %78, align 8
-  %826 = fptosi double %825 to i32
-  %827 = sitofp i32 %826 to double
-  %828 = fsub double %824, %827
-  %829 = fmul double 6.000000e+01, %828
-  %830 = fptosi double %829 to i32
-  %831 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef @.str.440, i32 noundef %823, i32 noundef %830)
-  store ptr %831, ptr %87, align 8
-  br label %832
+  %825 = fptosi double %824 to i32
+  %826 = load double, ptr %78, align 8
+  %827 = load double, ptr %78, align 8
+  %828 = fptosi double %827 to i32
+  %829 = sitofp i32 %828 to double
+  %830 = fsub double %826, %829
+  %831 = fmul double 6.000000e+01, %830
+  %832 = fptosi double %831 to i32
+  %833 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef @.str.440, i32 noundef %825, i32 noundef %832)
+  store ptr %833, ptr %87, align 8
+  br label %834
 
-832:                                              ; preds = %821
-  br label %833
+834:                                              ; preds = %823
+  br label %835
 
-833:                                              ; preds = %832
-  %834 = load ptr, ptr %65, align 8
-  store ptr %834, ptr %101, align 8
-  %835 = load ptr, ptr %87, align 8
-  store ptr %835, ptr %102, align 8
-  %836 = load ptr, ptr %102, align 8
-  %837 = load ptr, ptr %101, align 8
-  %838 = getelementptr inbounds %struct._zval_struct, ptr %837, i32 0, i32 0
-  store ptr %836, ptr %838, align 8
+835:                                              ; preds = %834
+  %836 = load ptr, ptr %65, align 8
+  store ptr %836, ptr %101, align 8
+  %837 = load ptr, ptr %87, align 8
+  store ptr %837, ptr %102, align 8
+  %838 = load ptr, ptr %102, align 8
   %839 = load ptr, ptr %101, align 8
-  %840 = getelementptr inbounds %struct._zval_struct, ptr %839, i32 0, i32 1
-  store i32 262, ptr %840, align 8
-  br label %841
+  %840 = getelementptr inbounds %struct._zval_struct, ptr %839, i32 0, i32 0
+  store ptr %838, ptr %840, align 8
+  %841 = load ptr, ptr %101, align 8
+  %842 = getelementptr inbounds %struct._zval_struct, ptr %841, i32 0, i32 1
+  store i32 262, ptr %842, align 8
+  br label %843
 
-841:                                              ; preds = %833
-  br label %854
+843:                                              ; preds = %835
+  br label %856
 
-842:                                              ; No predecessors!
-  br label %854
+844:                                              ; No predecessors!
+  br label %856
 
-843:                                              ; preds = %819
-  br label %844
+845:                                              ; preds = %821
+  br label %846
 
-844:                                              ; preds = %843
-  br label %845
+846:                                              ; preds = %845
+  br label %847
 
-845:                                              ; preds = %844
-  %846 = load ptr, ptr %65, align 8
-  store ptr %846, ptr %103, align 8
-  %847 = load double, ptr %78, align 8
-  %848 = load ptr, ptr %103, align 8
-  %849 = getelementptr inbounds %struct._zval_struct, ptr %848, i32 0, i32 0
-  store double %847, ptr %849, align 8
+847:                                              ; preds = %846
+  %848 = load ptr, ptr %65, align 8
+  store ptr %848, ptr %103, align 8
+  %849 = load double, ptr %78, align 8
   %850 = load ptr, ptr %103, align 8
-  %851 = getelementptr inbounds %struct._zval_struct, ptr %850, i32 0, i32 1
-  store i32 5, ptr %851, align 8
-  br label %852
-
-852:                                              ; preds = %845
+  %851 = getelementptr inbounds %struct._zval_struct, ptr %850, i32 0, i32 0
+  store double %849, ptr %851, align 8
+  %852 = load ptr, ptr %103, align 8
+  %853 = getelementptr inbounds %struct._zval_struct, ptr %852, i32 0, i32 1
+  store i32 5, ptr %853, align 8
   br label %854
 
-853:                                              ; No predecessors!
-  br label %854
+854:                                              ; preds = %847
+  br label %856
 
-854:                                              ; preds = %853, %852, %842, %841, %819, %794, %773, %739, %728, %690
+855:                                              ; No predecessors!
+  br label %856
+
+856:                                              ; preds = %855, %854, %844, %843, %821, %796, %775, %740, %728, %690
   ret void
 }
 
@@ -47627,7 +47785,7 @@ define hidden void @zif_date_sun_info(ptr noundef %0, ptr noundef %1) #0 {
   %455 = load i32, ptr %129, align 4
   %456 = load ptr, ptr %128, align 8
   call void @zend_wrong_parameter_error(i32 noundef %452, i32 noundef %453, ptr noundef %454, i32 noundef %455, ptr noundef %456)
-  br label %735
+  br label %736
 
 457:                                              ; preds = %443
   br label %458
@@ -47637,463 +47795,464 @@ define hidden void @zif_date_sun_info(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %459, ptr %115, align 8
   %460 = load ptr, ptr %115, align 8
   %461 = icmp ne ptr %460, null
-  br i1 %461, label %467, label %462
+  br i1 %461, label %468, label %462
 
 462:                                              ; preds = %458
   br label %463
 
 463:                                              ; preds = %462
-  %464 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %465 = icmp ne ptr %464, null
-  call void @llvm.assume(i1 %465)
-  br label %735
+  %464 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %465 = load ptr, ptr %464, align 8
+  %466 = icmp ne ptr %465, null
+  call void @llvm.assume(i1 %466)
+  br label %736
 
-466:                                              ; No predecessors!
-  br label %467
+467:                                              ; No predecessors!
+  br label %468
 
-467:                                              ; preds = %466, %458
-  %468 = call ptr @timelib_time_ctor()
-  store ptr %468, ptr %113, align 8
-  %469 = load ptr, ptr %115, align 8
-  %470 = load ptr, ptr %113, align 8
-  %471 = getelementptr inbounds %struct._timelib_time, ptr %470, i32 0, i32 9
-  store ptr %469, ptr %471, align 8
-  %472 = load ptr, ptr %113, align 8
-  %473 = getelementptr inbounds %struct._timelib_time, ptr %472, i32 0, i32 21
-  store i32 3, ptr %473, align 8
-  %474 = load ptr, ptr %113, align 8
-  %475 = load i64, ptr %110, align 8
-  call void @timelib_unixtime2local(ptr noundef %474, i64 noundef %475)
-  %476 = call ptr @timelib_time_ctor()
-  store ptr %476, ptr %114, align 8
-  br label %477
+468:                                              ; preds = %467, %458
+  %469 = call ptr @timelib_time_ctor()
+  store ptr %469, ptr %113, align 8
+  %470 = load ptr, ptr %115, align 8
+  %471 = load ptr, ptr %113, align 8
+  %472 = getelementptr inbounds %struct._timelib_time, ptr %471, i32 0, i32 9
+  store ptr %470, ptr %472, align 8
+  %473 = load ptr, ptr %113, align 8
+  %474 = getelementptr inbounds %struct._timelib_time, ptr %473, i32 0, i32 21
+  store i32 3, ptr %474, align 8
+  %475 = load ptr, ptr %113, align 8
+  %476 = load i64, ptr %110, align 8
+  call void @timelib_unixtime2local(ptr noundef %475, i64 noundef %476)
+  %477 = call ptr @timelib_time_ctor()
+  store ptr %477, ptr %114, align 8
+  br label %478
 
-477:                                              ; preds = %467
-  %478 = call ptr @_zend_new_array_0()
-  store ptr %478, ptr %134, align 8
-  %479 = load ptr, ptr %109, align 8
-  store ptr %479, ptr %135, align 8
-  %480 = load ptr, ptr %134, align 8
-  %481 = load ptr, ptr %135, align 8
-  %482 = getelementptr inbounds %struct._zval_struct, ptr %481, i32 0, i32 0
-  store ptr %480, ptr %482, align 8
-  %483 = load ptr, ptr %135, align 8
-  %484 = getelementptr inbounds %struct._zval_struct, ptr %483, i32 0, i32 1
-  store i32 775, ptr %484, align 8
-  br label %485
+478:                                              ; preds = %468
+  %479 = call ptr @_zend_new_array_0()
+  store ptr %479, ptr %134, align 8
+  %480 = load ptr, ptr %109, align 8
+  store ptr %480, ptr %135, align 8
+  %481 = load ptr, ptr %134, align 8
+  %482 = load ptr, ptr %135, align 8
+  %483 = getelementptr inbounds %struct._zval_struct, ptr %482, i32 0, i32 0
+  store ptr %481, ptr %483, align 8
+  %484 = load ptr, ptr %135, align 8
+  %485 = getelementptr inbounds %struct._zval_struct, ptr %484, i32 0, i32 1
+  store i32 775, ptr %485, align 8
+  br label %486
 
-485:                                              ; preds = %477
-  %486 = load ptr, ptr %113, align 8
-  %487 = load double, ptr %112, align 8
-  %488 = load double, ptr %111, align 8
-  %489 = call i32 @timelib_astro_rise_set_altitude(ptr noundef %486, double noundef %487, double noundef %488, double noundef 0xBFEAAAAAAAAAAAAB, i32 noundef 1, ptr noundef %121, ptr noundef %121, ptr noundef %117, ptr noundef %118, ptr noundef %119)
-  store i32 %489, ptr %116, align 4
-  %490 = load i32, ptr %116, align 4
-  switch i32 %490, label %521 [
-    i32 -1, label %491
-    i32 1, label %506
+486:                                              ; preds = %478
+  %487 = load ptr, ptr %113, align 8
+  %488 = load double, ptr %112, align 8
+  %489 = load double, ptr %111, align 8
+  %490 = call i32 @timelib_astro_rise_set_altitude(ptr noundef %487, double noundef %488, double noundef %489, double noundef 0xBFEAAAAAAAAAAAAB, i32 noundef 1, ptr noundef %121, ptr noundef %121, ptr noundef %117, ptr noundef %118, ptr noundef %119)
+  store i32 %490, ptr %116, align 4
+  %491 = load i32, ptr %116, align 4
+  switch i32 %491, label %522 [
+    i32 -1, label %492
+    i32 1, label %507
   ]
 
-491:                                              ; preds = %485
-  %492 = load ptr, ptr %109, align 8
-  store ptr %492, ptr %28, align 8
+492:                                              ; preds = %486
+  %493 = load ptr, ptr %109, align 8
+  store ptr %493, ptr %28, align 8
   store ptr @.str.82, ptr %29, align 8
   store i8 0, ptr %30, align 1
-  %493 = load ptr, ptr %28, align 8
-  %494 = load ptr, ptr %29, align 8
+  %494 = load ptr, ptr %28, align 8
   %495 = load ptr, ptr %29, align 8
-  %496 = call i64 @strlen(ptr noundef %495) #14
-  %497 = load i8, ptr %30, align 1
-  %498 = trunc i8 %497 to i1
-  call void @add_assoc_bool_ex(ptr noundef %493, ptr noundef %494, i64 noundef %496, i1 noundef zeroext %498) #13
-  %499 = load ptr, ptr %109, align 8
-  store ptr %499, ptr %31, align 8
+  %496 = load ptr, ptr %29, align 8
+  %497 = call i64 @strlen(ptr noundef %496) #14
+  %498 = load i8, ptr %30, align 1
+  %499 = trunc i8 %498 to i1
+  call void @add_assoc_bool_ex(ptr noundef %494, ptr noundef %495, i64 noundef %497, i1 noundef zeroext %499) #13
+  %500 = load ptr, ptr %109, align 8
+  store ptr %500, ptr %31, align 8
   store ptr @.str.83, ptr %32, align 8
   store i8 0, ptr %33, align 1
-  %500 = load ptr, ptr %31, align 8
-  %501 = load ptr, ptr %32, align 8
+  %501 = load ptr, ptr %31, align 8
   %502 = load ptr, ptr %32, align 8
-  %503 = call i64 @strlen(ptr noundef %502) #14
-  %504 = load i8, ptr %33, align 1
-  %505 = trunc i8 %504 to i1
-  call void @add_assoc_bool_ex(ptr noundef %500, ptr noundef %501, i64 noundef %503, i1 noundef zeroext %505) #13
-  br label %544
+  %503 = load ptr, ptr %32, align 8
+  %504 = call i64 @strlen(ptr noundef %503) #14
+  %505 = load i8, ptr %33, align 1
+  %506 = trunc i8 %505 to i1
+  call void @add_assoc_bool_ex(ptr noundef %501, ptr noundef %502, i64 noundef %504, i1 noundef zeroext %506) #13
+  br label %545
 
-506:                                              ; preds = %485
-  %507 = load ptr, ptr %109, align 8
-  store ptr %507, ptr %34, align 8
+507:                                              ; preds = %486
+  %508 = load ptr, ptr %109, align 8
+  store ptr %508, ptr %34, align 8
   store ptr @.str.82, ptr %35, align 8
   store i8 1, ptr %36, align 1
-  %508 = load ptr, ptr %34, align 8
-  %509 = load ptr, ptr %35, align 8
+  %509 = load ptr, ptr %34, align 8
   %510 = load ptr, ptr %35, align 8
-  %511 = call i64 @strlen(ptr noundef %510) #14
-  %512 = load i8, ptr %36, align 1
-  %513 = trunc i8 %512 to i1
-  call void @add_assoc_bool_ex(ptr noundef %508, ptr noundef %509, i64 noundef %511, i1 noundef zeroext %513) #13
-  %514 = load ptr, ptr %109, align 8
-  store ptr %514, ptr %37, align 8
+  %511 = load ptr, ptr %35, align 8
+  %512 = call i64 @strlen(ptr noundef %511) #14
+  %513 = load i8, ptr %36, align 1
+  %514 = trunc i8 %513 to i1
+  call void @add_assoc_bool_ex(ptr noundef %509, ptr noundef %510, i64 noundef %512, i1 noundef zeroext %514) #13
+  %515 = load ptr, ptr %109, align 8
+  store ptr %515, ptr %37, align 8
   store ptr @.str.83, ptr %38, align 8
   store i8 1, ptr %39, align 1
-  %515 = load ptr, ptr %37, align 8
-  %516 = load ptr, ptr %38, align 8
+  %516 = load ptr, ptr %37, align 8
   %517 = load ptr, ptr %38, align 8
-  %518 = call i64 @strlen(ptr noundef %517) #14
-  %519 = load i8, ptr %39, align 1
-  %520 = trunc i8 %519 to i1
-  call void @add_assoc_bool_ex(ptr noundef %515, ptr noundef %516, i64 noundef %518, i1 noundef zeroext %520) #13
-  br label %544
+  %518 = load ptr, ptr %38, align 8
+  %519 = call i64 @strlen(ptr noundef %518) #14
+  %520 = load i8, ptr %39, align 1
+  %521 = trunc i8 %520 to i1
+  call void @add_assoc_bool_ex(ptr noundef %516, ptr noundef %517, i64 noundef %519, i1 noundef zeroext %521) #13
+  br label %545
 
-521:                                              ; preds = %485
-  %522 = load i64, ptr %117, align 8
-  %523 = load ptr, ptr %114, align 8
-  %524 = getelementptr inbounds %struct._timelib_time, ptr %523, i32 0, i32 12
-  store i64 %522, ptr %524, align 8
-  %525 = load ptr, ptr %109, align 8
-  %526 = load ptr, ptr %114, align 8
-  %527 = call i64 @timelib_date_to_int(ptr noundef %526, ptr noundef %120)
-  store ptr %525, ptr %76, align 8
+522:                                              ; preds = %486
+  %523 = load i64, ptr %117, align 8
+  %524 = load ptr, ptr %114, align 8
+  %525 = getelementptr inbounds %struct._timelib_time, ptr %524, i32 0, i32 12
+  store i64 %523, ptr %525, align 8
+  %526 = load ptr, ptr %109, align 8
+  %527 = load ptr, ptr %114, align 8
+  %528 = call i64 @timelib_date_to_int(ptr noundef %527, ptr noundef %120)
+  store ptr %526, ptr %76, align 8
   store ptr @.str.82, ptr %77, align 8
-  store i64 %527, ptr %78, align 8
-  %528 = load ptr, ptr %76, align 8
-  %529 = load ptr, ptr %77, align 8
+  store i64 %528, ptr %78, align 8
+  %529 = load ptr, ptr %76, align 8
   %530 = load ptr, ptr %77, align 8
-  %531 = call i64 @strlen(ptr noundef %530) #14
-  %532 = load i64, ptr %78, align 8
-  call void @add_assoc_long_ex(ptr noundef %528, ptr noundef %529, i64 noundef %531, i64 noundef %532) #13
-  %533 = load i64, ptr %118, align 8
-  %534 = load ptr, ptr %114, align 8
-  %535 = getelementptr inbounds %struct._timelib_time, ptr %534, i32 0, i32 12
-  store i64 %533, ptr %535, align 8
-  %536 = load ptr, ptr %109, align 8
-  %537 = load ptr, ptr %114, align 8
-  %538 = call i64 @timelib_date_to_int(ptr noundef %537, ptr noundef %120)
-  store ptr %536, ptr %79, align 8
+  %531 = load ptr, ptr %77, align 8
+  %532 = call i64 @strlen(ptr noundef %531) #14
+  %533 = load i64, ptr %78, align 8
+  call void @add_assoc_long_ex(ptr noundef %529, ptr noundef %530, i64 noundef %532, i64 noundef %533) #13
+  %534 = load i64, ptr %118, align 8
+  %535 = load ptr, ptr %114, align 8
+  %536 = getelementptr inbounds %struct._timelib_time, ptr %535, i32 0, i32 12
+  store i64 %534, ptr %536, align 8
+  %537 = load ptr, ptr %109, align 8
+  %538 = load ptr, ptr %114, align 8
+  %539 = call i64 @timelib_date_to_int(ptr noundef %538, ptr noundef %120)
+  store ptr %537, ptr %79, align 8
   store ptr @.str.83, ptr %80, align 8
-  store i64 %538, ptr %81, align 8
-  %539 = load ptr, ptr %79, align 8
-  %540 = load ptr, ptr %80, align 8
+  store i64 %539, ptr %81, align 8
+  %540 = load ptr, ptr %79, align 8
   %541 = load ptr, ptr %80, align 8
-  %542 = call i64 @strlen(ptr noundef %541) #14
-  %543 = load i64, ptr %81, align 8
-  call void @add_assoc_long_ex(ptr noundef %539, ptr noundef %540, i64 noundef %542, i64 noundef %543) #13
-  br label %544
+  %542 = load ptr, ptr %80, align 8
+  %543 = call i64 @strlen(ptr noundef %542) #14
+  %544 = load i64, ptr %81, align 8
+  call void @add_assoc_long_ex(ptr noundef %540, ptr noundef %541, i64 noundef %543, i64 noundef %544) #13
+  br label %545
 
-544:                                              ; preds = %521, %506, %491
-  %545 = load i64, ptr %119, align 8
-  %546 = load ptr, ptr %114, align 8
-  %547 = getelementptr inbounds %struct._timelib_time, ptr %546, i32 0, i32 12
-  store i64 %545, ptr %547, align 8
-  %548 = load ptr, ptr %109, align 8
-  %549 = load ptr, ptr %114, align 8
-  %550 = call i64 @timelib_date_to_int(ptr noundef %549, ptr noundef %120)
-  store ptr %548, ptr %82, align 8
+545:                                              ; preds = %522, %507, %492
+  %546 = load i64, ptr %119, align 8
+  %547 = load ptr, ptr %114, align 8
+  %548 = getelementptr inbounds %struct._timelib_time, ptr %547, i32 0, i32 12
+  store i64 %546, ptr %548, align 8
+  %549 = load ptr, ptr %109, align 8
+  %550 = load ptr, ptr %114, align 8
+  %551 = call i64 @timelib_date_to_int(ptr noundef %550, ptr noundef %120)
+  store ptr %549, ptr %82, align 8
   store ptr @.str.84, ptr %83, align 8
-  store i64 %550, ptr %84, align 8
-  %551 = load ptr, ptr %82, align 8
-  %552 = load ptr, ptr %83, align 8
+  store i64 %551, ptr %84, align 8
+  %552 = load ptr, ptr %82, align 8
   %553 = load ptr, ptr %83, align 8
-  %554 = call i64 @strlen(ptr noundef %553) #14
-  %555 = load i64, ptr %84, align 8
-  call void @add_assoc_long_ex(ptr noundef %551, ptr noundef %552, i64 noundef %554, i64 noundef %555) #13
-  %556 = load ptr, ptr %113, align 8
-  %557 = load double, ptr %112, align 8
-  %558 = load double, ptr %111, align 8
-  %559 = call i32 @timelib_astro_rise_set_altitude(ptr noundef %556, double noundef %557, double noundef %558, double noundef -6.000000e+00, i32 noundef 0, ptr noundef %121, ptr noundef %121, ptr noundef %117, ptr noundef %118, ptr noundef %119)
-  store i32 %559, ptr %116, align 4
-  %560 = load i32, ptr %116, align 4
-  switch i32 %560, label %591 [
-    i32 -1, label %561
-    i32 1, label %576
+  %554 = load ptr, ptr %83, align 8
+  %555 = call i64 @strlen(ptr noundef %554) #14
+  %556 = load i64, ptr %84, align 8
+  call void @add_assoc_long_ex(ptr noundef %552, ptr noundef %553, i64 noundef %555, i64 noundef %556) #13
+  %557 = load ptr, ptr %113, align 8
+  %558 = load double, ptr %112, align 8
+  %559 = load double, ptr %111, align 8
+  %560 = call i32 @timelib_astro_rise_set_altitude(ptr noundef %557, double noundef %558, double noundef %559, double noundef -6.000000e+00, i32 noundef 0, ptr noundef %121, ptr noundef %121, ptr noundef %117, ptr noundef %118, ptr noundef %119)
+  store i32 %560, ptr %116, align 4
+  %561 = load i32, ptr %116, align 4
+  switch i32 %561, label %592 [
+    i32 -1, label %562
+    i32 1, label %577
   ]
 
-561:                                              ; preds = %544
-  %562 = load ptr, ptr %109, align 8
-  store ptr %562, ptr %40, align 8
+562:                                              ; preds = %545
+  %563 = load ptr, ptr %109, align 8
+  store ptr %563, ptr %40, align 8
   store ptr @.str.85, ptr %41, align 8
   store i8 0, ptr %42, align 1
-  %563 = load ptr, ptr %40, align 8
-  %564 = load ptr, ptr %41, align 8
+  %564 = load ptr, ptr %40, align 8
   %565 = load ptr, ptr %41, align 8
-  %566 = call i64 @strlen(ptr noundef %565) #14
-  %567 = load i8, ptr %42, align 1
-  %568 = trunc i8 %567 to i1
-  call void @add_assoc_bool_ex(ptr noundef %563, ptr noundef %564, i64 noundef %566, i1 noundef zeroext %568) #13
-  %569 = load ptr, ptr %109, align 8
-  store ptr %569, ptr %43, align 8
+  %566 = load ptr, ptr %41, align 8
+  %567 = call i64 @strlen(ptr noundef %566) #14
+  %568 = load i8, ptr %42, align 1
+  %569 = trunc i8 %568 to i1
+  call void @add_assoc_bool_ex(ptr noundef %564, ptr noundef %565, i64 noundef %567, i1 noundef zeroext %569) #13
+  %570 = load ptr, ptr %109, align 8
+  store ptr %570, ptr %43, align 8
   store ptr @.str.86, ptr %44, align 8
   store i8 0, ptr %45, align 1
-  %570 = load ptr, ptr %43, align 8
-  %571 = load ptr, ptr %44, align 8
+  %571 = load ptr, ptr %43, align 8
   %572 = load ptr, ptr %44, align 8
-  %573 = call i64 @strlen(ptr noundef %572) #14
-  %574 = load i8, ptr %45, align 1
-  %575 = trunc i8 %574 to i1
-  call void @add_assoc_bool_ex(ptr noundef %570, ptr noundef %571, i64 noundef %573, i1 noundef zeroext %575) #13
-  br label %614
+  %573 = load ptr, ptr %44, align 8
+  %574 = call i64 @strlen(ptr noundef %573) #14
+  %575 = load i8, ptr %45, align 1
+  %576 = trunc i8 %575 to i1
+  call void @add_assoc_bool_ex(ptr noundef %571, ptr noundef %572, i64 noundef %574, i1 noundef zeroext %576) #13
+  br label %615
 
-576:                                              ; preds = %544
-  %577 = load ptr, ptr %109, align 8
-  store ptr %577, ptr %46, align 8
+577:                                              ; preds = %545
+  %578 = load ptr, ptr %109, align 8
+  store ptr %578, ptr %46, align 8
   store ptr @.str.85, ptr %47, align 8
   store i8 1, ptr %48, align 1
-  %578 = load ptr, ptr %46, align 8
-  %579 = load ptr, ptr %47, align 8
+  %579 = load ptr, ptr %46, align 8
   %580 = load ptr, ptr %47, align 8
-  %581 = call i64 @strlen(ptr noundef %580) #14
-  %582 = load i8, ptr %48, align 1
-  %583 = trunc i8 %582 to i1
-  call void @add_assoc_bool_ex(ptr noundef %578, ptr noundef %579, i64 noundef %581, i1 noundef zeroext %583) #13
-  %584 = load ptr, ptr %109, align 8
-  store ptr %584, ptr %49, align 8
+  %581 = load ptr, ptr %47, align 8
+  %582 = call i64 @strlen(ptr noundef %581) #14
+  %583 = load i8, ptr %48, align 1
+  %584 = trunc i8 %583 to i1
+  call void @add_assoc_bool_ex(ptr noundef %579, ptr noundef %580, i64 noundef %582, i1 noundef zeroext %584) #13
+  %585 = load ptr, ptr %109, align 8
+  store ptr %585, ptr %49, align 8
   store ptr @.str.86, ptr %50, align 8
   store i8 1, ptr %51, align 1
-  %585 = load ptr, ptr %49, align 8
-  %586 = load ptr, ptr %50, align 8
+  %586 = load ptr, ptr %49, align 8
   %587 = load ptr, ptr %50, align 8
-  %588 = call i64 @strlen(ptr noundef %587) #14
-  %589 = load i8, ptr %51, align 1
-  %590 = trunc i8 %589 to i1
-  call void @add_assoc_bool_ex(ptr noundef %585, ptr noundef %586, i64 noundef %588, i1 noundef zeroext %590) #13
-  br label %614
+  %588 = load ptr, ptr %50, align 8
+  %589 = call i64 @strlen(ptr noundef %588) #14
+  %590 = load i8, ptr %51, align 1
+  %591 = trunc i8 %590 to i1
+  call void @add_assoc_bool_ex(ptr noundef %586, ptr noundef %587, i64 noundef %589, i1 noundef zeroext %591) #13
+  br label %615
 
-591:                                              ; preds = %544
-  %592 = load i64, ptr %117, align 8
-  %593 = load ptr, ptr %114, align 8
-  %594 = getelementptr inbounds %struct._timelib_time, ptr %593, i32 0, i32 12
-  store i64 %592, ptr %594, align 8
-  %595 = load ptr, ptr %109, align 8
-  %596 = load ptr, ptr %114, align 8
-  %597 = call i64 @timelib_date_to_int(ptr noundef %596, ptr noundef %120)
-  store ptr %595, ptr %85, align 8
+592:                                              ; preds = %545
+  %593 = load i64, ptr %117, align 8
+  %594 = load ptr, ptr %114, align 8
+  %595 = getelementptr inbounds %struct._timelib_time, ptr %594, i32 0, i32 12
+  store i64 %593, ptr %595, align 8
+  %596 = load ptr, ptr %109, align 8
+  %597 = load ptr, ptr %114, align 8
+  %598 = call i64 @timelib_date_to_int(ptr noundef %597, ptr noundef %120)
+  store ptr %596, ptr %85, align 8
   store ptr @.str.85, ptr %86, align 8
-  store i64 %597, ptr %87, align 8
-  %598 = load ptr, ptr %85, align 8
-  %599 = load ptr, ptr %86, align 8
+  store i64 %598, ptr %87, align 8
+  %599 = load ptr, ptr %85, align 8
   %600 = load ptr, ptr %86, align 8
-  %601 = call i64 @strlen(ptr noundef %600) #14
-  %602 = load i64, ptr %87, align 8
-  call void @add_assoc_long_ex(ptr noundef %598, ptr noundef %599, i64 noundef %601, i64 noundef %602) #13
-  %603 = load i64, ptr %118, align 8
-  %604 = load ptr, ptr %114, align 8
-  %605 = getelementptr inbounds %struct._timelib_time, ptr %604, i32 0, i32 12
-  store i64 %603, ptr %605, align 8
-  %606 = load ptr, ptr %109, align 8
-  %607 = load ptr, ptr %114, align 8
-  %608 = call i64 @timelib_date_to_int(ptr noundef %607, ptr noundef %120)
-  store ptr %606, ptr %88, align 8
+  %601 = load ptr, ptr %86, align 8
+  %602 = call i64 @strlen(ptr noundef %601) #14
+  %603 = load i64, ptr %87, align 8
+  call void @add_assoc_long_ex(ptr noundef %599, ptr noundef %600, i64 noundef %602, i64 noundef %603) #13
+  %604 = load i64, ptr %118, align 8
+  %605 = load ptr, ptr %114, align 8
+  %606 = getelementptr inbounds %struct._timelib_time, ptr %605, i32 0, i32 12
+  store i64 %604, ptr %606, align 8
+  %607 = load ptr, ptr %109, align 8
+  %608 = load ptr, ptr %114, align 8
+  %609 = call i64 @timelib_date_to_int(ptr noundef %608, ptr noundef %120)
+  store ptr %607, ptr %88, align 8
   store ptr @.str.86, ptr %89, align 8
-  store i64 %608, ptr %90, align 8
-  %609 = load ptr, ptr %88, align 8
-  %610 = load ptr, ptr %89, align 8
+  store i64 %609, ptr %90, align 8
+  %610 = load ptr, ptr %88, align 8
   %611 = load ptr, ptr %89, align 8
-  %612 = call i64 @strlen(ptr noundef %611) #14
-  %613 = load i64, ptr %90, align 8
-  call void @add_assoc_long_ex(ptr noundef %609, ptr noundef %610, i64 noundef %612, i64 noundef %613) #13
-  br label %614
+  %612 = load ptr, ptr %89, align 8
+  %613 = call i64 @strlen(ptr noundef %612) #14
+  %614 = load i64, ptr %90, align 8
+  call void @add_assoc_long_ex(ptr noundef %610, ptr noundef %611, i64 noundef %613, i64 noundef %614) #13
+  br label %615
 
-614:                                              ; preds = %591, %576, %561
-  %615 = load ptr, ptr %113, align 8
-  %616 = load double, ptr %112, align 8
-  %617 = load double, ptr %111, align 8
-  %618 = call i32 @timelib_astro_rise_set_altitude(ptr noundef %615, double noundef %616, double noundef %617, double noundef -1.200000e+01, i32 noundef 0, ptr noundef %121, ptr noundef %121, ptr noundef %117, ptr noundef %118, ptr noundef %119)
-  store i32 %618, ptr %116, align 4
-  %619 = load i32, ptr %116, align 4
-  switch i32 %619, label %650 [
-    i32 -1, label %620
-    i32 1, label %635
+615:                                              ; preds = %592, %577, %562
+  %616 = load ptr, ptr %113, align 8
+  %617 = load double, ptr %112, align 8
+  %618 = load double, ptr %111, align 8
+  %619 = call i32 @timelib_astro_rise_set_altitude(ptr noundef %616, double noundef %617, double noundef %618, double noundef -1.200000e+01, i32 noundef 0, ptr noundef %121, ptr noundef %121, ptr noundef %117, ptr noundef %118, ptr noundef %119)
+  store i32 %619, ptr %116, align 4
+  %620 = load i32, ptr %116, align 4
+  switch i32 %620, label %651 [
+    i32 -1, label %621
+    i32 1, label %636
   ]
 
-620:                                              ; preds = %614
-  %621 = load ptr, ptr %109, align 8
-  store ptr %621, ptr %52, align 8
+621:                                              ; preds = %615
+  %622 = load ptr, ptr %109, align 8
+  store ptr %622, ptr %52, align 8
   store ptr @.str.87, ptr %53, align 8
   store i8 0, ptr %54, align 1
-  %622 = load ptr, ptr %52, align 8
-  %623 = load ptr, ptr %53, align 8
+  %623 = load ptr, ptr %52, align 8
   %624 = load ptr, ptr %53, align 8
-  %625 = call i64 @strlen(ptr noundef %624) #14
-  %626 = load i8, ptr %54, align 1
-  %627 = trunc i8 %626 to i1
-  call void @add_assoc_bool_ex(ptr noundef %622, ptr noundef %623, i64 noundef %625, i1 noundef zeroext %627) #13
-  %628 = load ptr, ptr %109, align 8
-  store ptr %628, ptr %55, align 8
+  %625 = load ptr, ptr %53, align 8
+  %626 = call i64 @strlen(ptr noundef %625) #14
+  %627 = load i8, ptr %54, align 1
+  %628 = trunc i8 %627 to i1
+  call void @add_assoc_bool_ex(ptr noundef %623, ptr noundef %624, i64 noundef %626, i1 noundef zeroext %628) #13
+  %629 = load ptr, ptr %109, align 8
+  store ptr %629, ptr %55, align 8
   store ptr @.str.88, ptr %56, align 8
   store i8 0, ptr %57, align 1
-  %629 = load ptr, ptr %55, align 8
-  %630 = load ptr, ptr %56, align 8
+  %630 = load ptr, ptr %55, align 8
   %631 = load ptr, ptr %56, align 8
-  %632 = call i64 @strlen(ptr noundef %631) #14
-  %633 = load i8, ptr %57, align 1
-  %634 = trunc i8 %633 to i1
-  call void @add_assoc_bool_ex(ptr noundef %629, ptr noundef %630, i64 noundef %632, i1 noundef zeroext %634) #13
-  br label %673
+  %632 = load ptr, ptr %56, align 8
+  %633 = call i64 @strlen(ptr noundef %632) #14
+  %634 = load i8, ptr %57, align 1
+  %635 = trunc i8 %634 to i1
+  call void @add_assoc_bool_ex(ptr noundef %630, ptr noundef %631, i64 noundef %633, i1 noundef zeroext %635) #13
+  br label %674
 
-635:                                              ; preds = %614
-  %636 = load ptr, ptr %109, align 8
-  store ptr %636, ptr %58, align 8
+636:                                              ; preds = %615
+  %637 = load ptr, ptr %109, align 8
+  store ptr %637, ptr %58, align 8
   store ptr @.str.87, ptr %59, align 8
   store i8 1, ptr %60, align 1
-  %637 = load ptr, ptr %58, align 8
-  %638 = load ptr, ptr %59, align 8
+  %638 = load ptr, ptr %58, align 8
   %639 = load ptr, ptr %59, align 8
-  %640 = call i64 @strlen(ptr noundef %639) #14
-  %641 = load i8, ptr %60, align 1
-  %642 = trunc i8 %641 to i1
-  call void @add_assoc_bool_ex(ptr noundef %637, ptr noundef %638, i64 noundef %640, i1 noundef zeroext %642) #13
-  %643 = load ptr, ptr %109, align 8
-  store ptr %643, ptr %61, align 8
+  %640 = load ptr, ptr %59, align 8
+  %641 = call i64 @strlen(ptr noundef %640) #14
+  %642 = load i8, ptr %60, align 1
+  %643 = trunc i8 %642 to i1
+  call void @add_assoc_bool_ex(ptr noundef %638, ptr noundef %639, i64 noundef %641, i1 noundef zeroext %643) #13
+  %644 = load ptr, ptr %109, align 8
+  store ptr %644, ptr %61, align 8
   store ptr @.str.88, ptr %62, align 8
   store i8 1, ptr %63, align 1
-  %644 = load ptr, ptr %61, align 8
-  %645 = load ptr, ptr %62, align 8
+  %645 = load ptr, ptr %61, align 8
   %646 = load ptr, ptr %62, align 8
-  %647 = call i64 @strlen(ptr noundef %646) #14
-  %648 = load i8, ptr %63, align 1
-  %649 = trunc i8 %648 to i1
-  call void @add_assoc_bool_ex(ptr noundef %644, ptr noundef %645, i64 noundef %647, i1 noundef zeroext %649) #13
-  br label %673
+  %647 = load ptr, ptr %62, align 8
+  %648 = call i64 @strlen(ptr noundef %647) #14
+  %649 = load i8, ptr %63, align 1
+  %650 = trunc i8 %649 to i1
+  call void @add_assoc_bool_ex(ptr noundef %645, ptr noundef %646, i64 noundef %648, i1 noundef zeroext %650) #13
+  br label %674
 
-650:                                              ; preds = %614
-  %651 = load i64, ptr %117, align 8
-  %652 = load ptr, ptr %114, align 8
-  %653 = getelementptr inbounds %struct._timelib_time, ptr %652, i32 0, i32 12
-  store i64 %651, ptr %653, align 8
-  %654 = load ptr, ptr %109, align 8
-  %655 = load ptr, ptr %114, align 8
-  %656 = call i64 @timelib_date_to_int(ptr noundef %655, ptr noundef %120)
-  store ptr %654, ptr %91, align 8
+651:                                              ; preds = %615
+  %652 = load i64, ptr %117, align 8
+  %653 = load ptr, ptr %114, align 8
+  %654 = getelementptr inbounds %struct._timelib_time, ptr %653, i32 0, i32 12
+  store i64 %652, ptr %654, align 8
+  %655 = load ptr, ptr %109, align 8
+  %656 = load ptr, ptr %114, align 8
+  %657 = call i64 @timelib_date_to_int(ptr noundef %656, ptr noundef %120)
+  store ptr %655, ptr %91, align 8
   store ptr @.str.87, ptr %92, align 8
-  store i64 %656, ptr %93, align 8
-  %657 = load ptr, ptr %91, align 8
-  %658 = load ptr, ptr %92, align 8
+  store i64 %657, ptr %93, align 8
+  %658 = load ptr, ptr %91, align 8
   %659 = load ptr, ptr %92, align 8
-  %660 = call i64 @strlen(ptr noundef %659) #14
-  %661 = load i64, ptr %93, align 8
-  call void @add_assoc_long_ex(ptr noundef %657, ptr noundef %658, i64 noundef %660, i64 noundef %661) #13
-  %662 = load i64, ptr %118, align 8
-  %663 = load ptr, ptr %114, align 8
-  %664 = getelementptr inbounds %struct._timelib_time, ptr %663, i32 0, i32 12
-  store i64 %662, ptr %664, align 8
-  %665 = load ptr, ptr %109, align 8
-  %666 = load ptr, ptr %114, align 8
-  %667 = call i64 @timelib_date_to_int(ptr noundef %666, ptr noundef %120)
-  store ptr %665, ptr %94, align 8
+  %660 = load ptr, ptr %92, align 8
+  %661 = call i64 @strlen(ptr noundef %660) #14
+  %662 = load i64, ptr %93, align 8
+  call void @add_assoc_long_ex(ptr noundef %658, ptr noundef %659, i64 noundef %661, i64 noundef %662) #13
+  %663 = load i64, ptr %118, align 8
+  %664 = load ptr, ptr %114, align 8
+  %665 = getelementptr inbounds %struct._timelib_time, ptr %664, i32 0, i32 12
+  store i64 %663, ptr %665, align 8
+  %666 = load ptr, ptr %109, align 8
+  %667 = load ptr, ptr %114, align 8
+  %668 = call i64 @timelib_date_to_int(ptr noundef %667, ptr noundef %120)
+  store ptr %666, ptr %94, align 8
   store ptr @.str.88, ptr %95, align 8
-  store i64 %667, ptr %96, align 8
-  %668 = load ptr, ptr %94, align 8
-  %669 = load ptr, ptr %95, align 8
+  store i64 %668, ptr %96, align 8
+  %669 = load ptr, ptr %94, align 8
   %670 = load ptr, ptr %95, align 8
-  %671 = call i64 @strlen(ptr noundef %670) #14
-  %672 = load i64, ptr %96, align 8
-  call void @add_assoc_long_ex(ptr noundef %668, ptr noundef %669, i64 noundef %671, i64 noundef %672) #13
-  br label %673
+  %671 = load ptr, ptr %95, align 8
+  %672 = call i64 @strlen(ptr noundef %671) #14
+  %673 = load i64, ptr %96, align 8
+  call void @add_assoc_long_ex(ptr noundef %669, ptr noundef %670, i64 noundef %672, i64 noundef %673) #13
+  br label %674
 
-673:                                              ; preds = %650, %635, %620
-  %674 = load ptr, ptr %113, align 8
-  %675 = load double, ptr %112, align 8
-  %676 = load double, ptr %111, align 8
-  %677 = call i32 @timelib_astro_rise_set_altitude(ptr noundef %674, double noundef %675, double noundef %676, double noundef -1.800000e+01, i32 noundef 0, ptr noundef %121, ptr noundef %121, ptr noundef %117, ptr noundef %118, ptr noundef %119)
-  store i32 %677, ptr %116, align 4
-  %678 = load i32, ptr %116, align 4
-  switch i32 %678, label %709 [
-    i32 -1, label %679
-    i32 1, label %694
+674:                                              ; preds = %651, %636, %621
+  %675 = load ptr, ptr %113, align 8
+  %676 = load double, ptr %112, align 8
+  %677 = load double, ptr %111, align 8
+  %678 = call i32 @timelib_astro_rise_set_altitude(ptr noundef %675, double noundef %676, double noundef %677, double noundef -1.800000e+01, i32 noundef 0, ptr noundef %121, ptr noundef %121, ptr noundef %117, ptr noundef %118, ptr noundef %119)
+  store i32 %678, ptr %116, align 4
+  %679 = load i32, ptr %116, align 4
+  switch i32 %679, label %710 [
+    i32 -1, label %680
+    i32 1, label %695
   ]
 
-679:                                              ; preds = %673
-  %680 = load ptr, ptr %109, align 8
-  store ptr %680, ptr %64, align 8
+680:                                              ; preds = %674
+  %681 = load ptr, ptr %109, align 8
+  store ptr %681, ptr %64, align 8
   store ptr @.str.89, ptr %65, align 8
   store i8 0, ptr %66, align 1
-  %681 = load ptr, ptr %64, align 8
-  %682 = load ptr, ptr %65, align 8
+  %682 = load ptr, ptr %64, align 8
   %683 = load ptr, ptr %65, align 8
-  %684 = call i64 @strlen(ptr noundef %683) #14
-  %685 = load i8, ptr %66, align 1
-  %686 = trunc i8 %685 to i1
-  call void @add_assoc_bool_ex(ptr noundef %681, ptr noundef %682, i64 noundef %684, i1 noundef zeroext %686) #13
-  %687 = load ptr, ptr %109, align 8
-  store ptr %687, ptr %67, align 8
+  %684 = load ptr, ptr %65, align 8
+  %685 = call i64 @strlen(ptr noundef %684) #14
+  %686 = load i8, ptr %66, align 1
+  %687 = trunc i8 %686 to i1
+  call void @add_assoc_bool_ex(ptr noundef %682, ptr noundef %683, i64 noundef %685, i1 noundef zeroext %687) #13
+  %688 = load ptr, ptr %109, align 8
+  store ptr %688, ptr %67, align 8
   store ptr @.str.90, ptr %68, align 8
   store i8 0, ptr %69, align 1
-  %688 = load ptr, ptr %67, align 8
-  %689 = load ptr, ptr %68, align 8
+  %689 = load ptr, ptr %67, align 8
   %690 = load ptr, ptr %68, align 8
-  %691 = call i64 @strlen(ptr noundef %690) #14
-  %692 = load i8, ptr %69, align 1
-  %693 = trunc i8 %692 to i1
-  call void @add_assoc_bool_ex(ptr noundef %688, ptr noundef %689, i64 noundef %691, i1 noundef zeroext %693) #13
-  br label %732
+  %691 = load ptr, ptr %68, align 8
+  %692 = call i64 @strlen(ptr noundef %691) #14
+  %693 = load i8, ptr %69, align 1
+  %694 = trunc i8 %693 to i1
+  call void @add_assoc_bool_ex(ptr noundef %689, ptr noundef %690, i64 noundef %692, i1 noundef zeroext %694) #13
+  br label %733
 
-694:                                              ; preds = %673
-  %695 = load ptr, ptr %109, align 8
-  store ptr %695, ptr %70, align 8
+695:                                              ; preds = %674
+  %696 = load ptr, ptr %109, align 8
+  store ptr %696, ptr %70, align 8
   store ptr @.str.89, ptr %71, align 8
   store i8 1, ptr %72, align 1
-  %696 = load ptr, ptr %70, align 8
-  %697 = load ptr, ptr %71, align 8
+  %697 = load ptr, ptr %70, align 8
   %698 = load ptr, ptr %71, align 8
-  %699 = call i64 @strlen(ptr noundef %698) #14
-  %700 = load i8, ptr %72, align 1
-  %701 = trunc i8 %700 to i1
-  call void @add_assoc_bool_ex(ptr noundef %696, ptr noundef %697, i64 noundef %699, i1 noundef zeroext %701) #13
-  %702 = load ptr, ptr %109, align 8
-  store ptr %702, ptr %73, align 8
+  %699 = load ptr, ptr %71, align 8
+  %700 = call i64 @strlen(ptr noundef %699) #14
+  %701 = load i8, ptr %72, align 1
+  %702 = trunc i8 %701 to i1
+  call void @add_assoc_bool_ex(ptr noundef %697, ptr noundef %698, i64 noundef %700, i1 noundef zeroext %702) #13
+  %703 = load ptr, ptr %109, align 8
+  store ptr %703, ptr %73, align 8
   store ptr @.str.90, ptr %74, align 8
   store i8 1, ptr %75, align 1
-  %703 = load ptr, ptr %73, align 8
-  %704 = load ptr, ptr %74, align 8
+  %704 = load ptr, ptr %73, align 8
   %705 = load ptr, ptr %74, align 8
-  %706 = call i64 @strlen(ptr noundef %705) #14
-  %707 = load i8, ptr %75, align 1
-  %708 = trunc i8 %707 to i1
-  call void @add_assoc_bool_ex(ptr noundef %703, ptr noundef %704, i64 noundef %706, i1 noundef zeroext %708) #13
-  br label %732
+  %706 = load ptr, ptr %74, align 8
+  %707 = call i64 @strlen(ptr noundef %706) #14
+  %708 = load i8, ptr %75, align 1
+  %709 = trunc i8 %708 to i1
+  call void @add_assoc_bool_ex(ptr noundef %704, ptr noundef %705, i64 noundef %707, i1 noundef zeroext %709) #13
+  br label %733
 
-709:                                              ; preds = %673
-  %710 = load i64, ptr %117, align 8
-  %711 = load ptr, ptr %114, align 8
-  %712 = getelementptr inbounds %struct._timelib_time, ptr %711, i32 0, i32 12
-  store i64 %710, ptr %712, align 8
-  %713 = load ptr, ptr %109, align 8
-  %714 = load ptr, ptr %114, align 8
-  %715 = call i64 @timelib_date_to_int(ptr noundef %714, ptr noundef %120)
-  store ptr %713, ptr %97, align 8
+710:                                              ; preds = %674
+  %711 = load i64, ptr %117, align 8
+  %712 = load ptr, ptr %114, align 8
+  %713 = getelementptr inbounds %struct._timelib_time, ptr %712, i32 0, i32 12
+  store i64 %711, ptr %713, align 8
+  %714 = load ptr, ptr %109, align 8
+  %715 = load ptr, ptr %114, align 8
+  %716 = call i64 @timelib_date_to_int(ptr noundef %715, ptr noundef %120)
+  store ptr %714, ptr %97, align 8
   store ptr @.str.89, ptr %98, align 8
-  store i64 %715, ptr %99, align 8
-  %716 = load ptr, ptr %97, align 8
-  %717 = load ptr, ptr %98, align 8
+  store i64 %716, ptr %99, align 8
+  %717 = load ptr, ptr %97, align 8
   %718 = load ptr, ptr %98, align 8
-  %719 = call i64 @strlen(ptr noundef %718) #14
-  %720 = load i64, ptr %99, align 8
-  call void @add_assoc_long_ex(ptr noundef %716, ptr noundef %717, i64 noundef %719, i64 noundef %720) #13
-  %721 = load i64, ptr %118, align 8
-  %722 = load ptr, ptr %114, align 8
-  %723 = getelementptr inbounds %struct._timelib_time, ptr %722, i32 0, i32 12
-  store i64 %721, ptr %723, align 8
-  %724 = load ptr, ptr %109, align 8
-  %725 = load ptr, ptr %114, align 8
-  %726 = call i64 @timelib_date_to_int(ptr noundef %725, ptr noundef %120)
-  store ptr %724, ptr %100, align 8
+  %719 = load ptr, ptr %98, align 8
+  %720 = call i64 @strlen(ptr noundef %719) #14
+  %721 = load i64, ptr %99, align 8
+  call void @add_assoc_long_ex(ptr noundef %717, ptr noundef %718, i64 noundef %720, i64 noundef %721) #13
+  %722 = load i64, ptr %118, align 8
+  %723 = load ptr, ptr %114, align 8
+  %724 = getelementptr inbounds %struct._timelib_time, ptr %723, i32 0, i32 12
+  store i64 %722, ptr %724, align 8
+  %725 = load ptr, ptr %109, align 8
+  %726 = load ptr, ptr %114, align 8
+  %727 = call i64 @timelib_date_to_int(ptr noundef %726, ptr noundef %120)
+  store ptr %725, ptr %100, align 8
   store ptr @.str.90, ptr %101, align 8
-  store i64 %726, ptr %102, align 8
-  %727 = load ptr, ptr %100, align 8
-  %728 = load ptr, ptr %101, align 8
+  store i64 %727, ptr %102, align 8
+  %728 = load ptr, ptr %100, align 8
   %729 = load ptr, ptr %101, align 8
-  %730 = call i64 @strlen(ptr noundef %729) #14
-  %731 = load i64, ptr %102, align 8
-  call void @add_assoc_long_ex(ptr noundef %727, ptr noundef %728, i64 noundef %730, i64 noundef %731) #13
-  br label %732
+  %730 = load ptr, ptr %101, align 8
+  %731 = call i64 @strlen(ptr noundef %730) #14
+  %732 = load i64, ptr %102, align 8
+  call void @add_assoc_long_ex(ptr noundef %728, ptr noundef %729, i64 noundef %731, i64 noundef %732) #13
+  br label %733
 
-732:                                              ; preds = %709, %694, %679
-  %733 = load ptr, ptr %113, align 8
-  call void @timelib_time_dtor(ptr noundef %733)
-  %734 = load ptr, ptr %114, align 8
+733:                                              ; preds = %710, %695, %680
+  %734 = load ptr, ptr %113, align 8
   call void @timelib_time_dtor(ptr noundef %734)
-  br label %735
+  %735 = load ptr, ptr %114, align 8
+  call void @timelib_time_dtor(ptr noundef %735)
+  br label %736
 
-735:                                              ; preds = %732, %463, %451
+736:                                              ; preds = %733, %463, %451
   ret void
 }
 
@@ -49002,7 +49161,7 @@ define hidden void @zim_DatePeriod___serialize(ptr noundef %0, ptr noundef %1) #
 
 23:                                               ; preds = %12
   call void @zend_wrong_parameters_none_error()
-  br label %62
+  br label %63
 
 24:                                               ; preds = %12
   br label %25
@@ -49017,7 +49176,7 @@ define hidden void @zim_DatePeriod___serialize(ptr noundef %0, ptr noundef %1) #
   %31 = getelementptr inbounds %struct._php_period_obj, ptr %30, i32 0, i32 0
   %32 = load ptr, ptr %31, align 8
   %33 = icmp ne ptr %32, null
-  br i1 %33, label %44, label %34
+  br i1 %33, label %45, label %34
 
 34:                                               ; preds = %25
   %35 = load ptr, ptr %5, align 8
@@ -49029,46 +49188,47 @@ define hidden void @zim_DatePeriod___serialize(ptr noundef %0, ptr noundef %1) #
   br label %40
 
 40:                                               ; preds = %34
-  %41 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %42 = icmp ne ptr %41, null
-  call void @llvm.assume(i1 %42)
-  br label %62
+  %41 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  call void @llvm.assume(i1 %43)
+  br label %63
 
-43:                                               ; No predecessors!
-  br label %44
-
-44:                                               ; preds = %43, %25
+44:                                               ; No predecessors!
   br label %45
 
-45:                                               ; preds = %44
-  %46 = call ptr @_zend_new_array_0()
-  store ptr %46, ptr %8, align 8
-  %47 = load ptr, ptr %4, align 8
-  store ptr %47, ptr %9, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct._zval_struct, ptr %49, i32 0, i32 0
-  store ptr %48, ptr %50, align 8
-  %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds %struct._zval_struct, ptr %51, i32 0, i32 1
-  store i32 775, ptr %52, align 8
-  br label %53
+45:                                               ; preds = %44, %25
+  br label %46
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct._zval_struct, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %7, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = load ptr, ptr %7, align 8
-  call void @date_period_object_to_hash(ptr noundef %57, ptr noundef %58)
+46:                                               ; preds = %45
+  %47 = call ptr @_zend_new_array_0()
+  store ptr %47, ptr %8, align 8
+  %48 = load ptr, ptr %4, align 8
+  store ptr %48, ptr %9, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds %struct._zval_struct, ptr %50, i32 0, i32 0
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %9, align 8
+  %53 = getelementptr inbounds %struct._zval_struct, ptr %52, i32 0, i32 1
+  store i32 775, ptr %53, align 8
+  br label %54
+
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds %struct._zval_struct, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  store ptr %57, ptr %7, align 8
+  %58 = load ptr, ptr %6, align 8
   %59 = load ptr, ptr %7, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct._php_period_obj, ptr %60, i32 0, i32 9
-  call void @add_common_properties(ptr noundef %59, ptr noundef %61)
-  br label %62
+  call void @date_period_object_to_hash(ptr noundef %58, ptr noundef %59)
+  %60 = load ptr, ptr %7, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds %struct._php_period_obj, ptr %61, i32 0, i32 9
+  call void @add_common_properties(ptr noundef %60, ptr noundef %62)
+  br label %63
 
-62:                                               ; preds = %53, %40, %23
+63:                                               ; preds = %54, %40, %23
   ret void
 }
 
@@ -73066,28 +73226,29 @@ define internal ptr @date_period_get_property_ptr_ptr(ptr noundef %0, ptr nounde
   store ptr %3, ptr %9, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = call zeroext i1 @date_period_is_internal_property(ptr noundef %10)
-  br i1 %11, label %12, label %16
+  br i1 %11, label %12, label %17
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds %struct._zend_string, ptr %13, i32 0, i32 3
   %15 = getelementptr inbounds [1 x i8], ptr %14, i64 0, i64 0
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef @.str.373, ptr noundef %15)
-  store ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 1), ptr %5, align 8
-  br label %22
+  %16 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 1
+  store ptr %16, ptr %5, align 8
+  br label %23
 
-16:                                               ; preds = %4
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i32, ptr %8, align 4
-  %20 = load ptr, ptr %9, align 8
-  %21 = call ptr @zend_std_get_property_ptr_ptr(ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef %20)
-  store ptr %21, ptr %5, align 8
-  br label %22
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = load ptr, ptr %9, align 8
+  %22 = call ptr @zend_std_get_property_ptr_ptr(ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef %21)
+  store ptr %22, ptr %5, align 8
+  br label %23
 
-22:                                               ; preds = %16, %12
-  %23 = load ptr, ptr %5, align 8
-  ret ptr %23
+23:                                               ; preds = %17, %12
+  %24 = load ptr, ptr %5, align 8
+  ret ptr %24
 }
 
 ; Function Attrs: nounwind uwtable

@@ -35,21 +35,22 @@ define internal noundef i32 @menu_enable_device(ptr nocapture readnone %0, ptr n
   %5 = zext i32 %4 to i64
   %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
-  %8 = add i64 %7, ptrtoint (ptr @menu_devices to i64)
-  %9 = inttoptr i64 %8 to ptr
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(104) %9, i8 0, i64 104, i1 false)
-  %10 = getelementptr inbounds i8, ptr %9, i64 20
-  br label %11
+  %8 = ptrtoint ptr @menu_devices to i64
+  %9 = add i64 %7, %8
+  %10 = inttoptr i64 %9 to ptr
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(104) %10, i8 0, i64 104, i1 false)
+  %11 = getelementptr inbounds i8, ptr %10, i64 20
+  br label %12
 
-11:                                               ; preds = %11, %2
-  %12 = phi i64 [ 0, %2 ], [ %14, %11 ]
-  %13 = getelementptr [12 x i32], ptr %10, i64 0, i64 %12
-  store i32 8192, ptr %13, align 4
-  %14 = add nuw nsw i64 %12, 1
-  %15 = icmp eq i64 %14, 12
-  br i1 %15, label %16, label %11, !llvm.loop !5
+12:                                               ; preds = %12, %2
+  %13 = phi i64 [ 0, %2 ], [ %15, %12 ]
+  %14 = getelementptr [12 x i32], ptr %11, i64 0, i64 %13
+  store i32 8192, ptr %14, align 4
+  %15 = add nuw nsw i64 %13, 1
+  %16 = icmp eq i64 %15, 12
+  br i1 %16, label %17, label %12, !llvm.loop !5
 
-16:                                               ; preds = %11
+17:                                               ; preds = %12
   ret i32 0
 }
 

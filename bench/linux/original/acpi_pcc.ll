@@ -17,15 +17,16 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @acpi_init_pcc() local_unnamed_addr #0 section ".init.text" align 16 {
-  %1 = tail call i32 @acpi_install_address_space_handler(ptr noundef nonnull inttoptr (i64 -1 to ptr), i8 noundef zeroext 10, ptr noundef nonnull @acpi_pcc_address_space_handler, ptr noundef nonnull @acpi_pcc_address_space_setup, ptr noundef nonnull @pcc_ctx) #5
-  %2 = icmp eq i32 %1, 0
-  br i1 %2, label %5, label %3
+  %1 = inttoptr i64 -1 to ptr
+  %2 = tail call i32 @acpi_install_address_space_handler(ptr noundef nonnull %1, i8 noundef zeroext 10, ptr noundef nonnull @acpi_pcc_address_space_handler, ptr noundef nonnull @acpi_pcc_address_space_setup, ptr noundef nonnull @pcc_ctx) #5
+  %3 = icmp eq i32 %2, 0
+  br i1 %3, label %6, label %4
 
-3:                                                ; preds = %0
-  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #6
-  br label %5
+4:                                                ; preds = %0
+  %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #6
+  br label %6
 
-5:                                                ; preds = %3, %0
+6:                                                ; preds = %4, %0
   ret void
 }
 
@@ -80,88 +81,90 @@ define internal noundef i32 @acpi_pcc_address_space_handler(i32 %0, i64 %1, i32 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @acpi_pcc_address_space_setup(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #2 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 120) #7
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %54, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 120) #7
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %56, label %9
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 48
-  %10 = getelementptr inbounds i8, ptr %6, i64 80
-  store ptr @pcc_rx_callback, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 72
-  store i8 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 2
-  %13 = load i16, ptr %12, align 2
-  %14 = getelementptr inbounds i8, ptr %6, i64 104
-  %15 = getelementptr inbounds i8, ptr %6, i64 106
-  store i16 %13, ptr %15, align 2
-  %16 = load i8, ptr %2, align 8
-  store i8 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 112
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @__init_swait_queue_head(ptr noundef %21, ptr noundef nonnull @.str.6, ptr noundef nonnull @init_completion.__key) #5
-  %22 = load i8, ptr %2, align 8
-  %23 = zext i8 %22 to i32
-  %24 = tail call ptr @pcc_mbox_request_channel(ptr noundef %9, i32 noundef %23) #5
-  store ptr %24, ptr %6, align 8
-  %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
-  br i1 %25, label %26, label %30
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds i8, ptr %7, i64 48
+  %11 = getelementptr inbounds i8, ptr %7, i64 80
+  store ptr @pcc_rx_callback, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 72
+  store i8 1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 2
+  %14 = load i16, ptr %13, align 2
+  %15 = getelementptr inbounds i8, ptr %7, i64 104
+  %16 = getelementptr inbounds i8, ptr %7, i64 106
+  store i16 %14, ptr %16, align 2
+  %17 = load i8, ptr %2, align 8
+  store i8 %17, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 112
+  store ptr %19, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  tail call void @__init_swait_queue_head(ptr noundef %22, ptr noundef nonnull @.str.6, ptr noundef nonnull @init_completion.__key) #5
+  %23 = load i8, ptr %2, align 8
+  %24 = zext i8 %23 to i32
+  %25 = tail call ptr @pcc_mbox_request_channel(ptr noundef %10, i32 noundef %24) #5
+  store ptr %25, ptr %7, align 8
+  %26 = inttoptr i64 -4096 to ptr
+  %27 = icmp ugt ptr %25, %26
+  br i1 %27, label %28, label %32
 
-26:                                               ; preds = %8
-  %27 = load i8, ptr %2, align 8
-  %28 = zext i8 %27 to i32
-  %29 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %28) #6
+28:                                               ; preds = %9
+  %29 = load i8, ptr %2, align 8
+  %30 = zext i8 %29 to i32
+  %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %30) #6
   store i32 5, ptr @acpi_pcc_address_space_setup.ret, align 4
-  br label %52
+  br label %54
 
-30:                                               ; preds = %8
-  %31 = load ptr, ptr %24, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 28
-  %34 = load i8, ptr %33, align 4, !range !5, !noundef !6
-  %35 = icmp eq i8 %34, 0
-  br i1 %35, label %45, label %36
+32:                                               ; preds = %9
+  %33 = load ptr, ptr %25, align 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 28
+  %36 = load i8, ptr %35, align 4, !range !5, !noundef !6
+  %37 = icmp eq i8 %36, 0
+  br i1 %37, label %47, label %38
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %24, i64 8
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %24, i64 16
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds i8, ptr %25, i64 8
   %40 = load i64, ptr %39, align 8
-  %41 = tail call ptr @ioremap_cache(i64 noundef %38, i64 noundef %40) #5
-  %42 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %41, ptr %42, align 8
-  %43 = icmp eq ptr %41, null
-  br i1 %43, label %45, label %44
+  %41 = getelementptr inbounds i8, ptr %25, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = tail call ptr @ioremap_cache(i64 noundef %40, i64 noundef %42) #5
+  %44 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %43, ptr %44, align 8
+  %45 = icmp eq ptr %43, null
+  br i1 %45, label %47, label %46
 
-44:                                               ; preds = %36
-  store ptr %6, ptr %3, align 8
+46:                                               ; preds = %38
+  store ptr %7, ptr %3, align 8
+  br label %56
+
+47:                                               ; preds = %38, %32
+  %48 = phi ptr [ @.str.3, %32 ], [ @.str.4, %38 ]
+  %49 = phi i32 [ 15, %32 ], [ 4, %38 ]
+  %50 = load i8, ptr %2, align 8
+  %51 = zext i8 %50 to i32
+  %52 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %48, i32 noundef %51) #6
+  store i32 %49, ptr @acpi_pcc_address_space_setup.ret, align 4
+  %53 = load ptr, ptr %7, align 8
+  tail call void @pcc_mbox_free_channel(ptr noundef %53) #5
   br label %54
 
-45:                                               ; preds = %36, %30
-  %46 = phi ptr [ @.str.3, %30 ], [ @.str.4, %36 ]
-  %47 = phi i32 [ 15, %30 ], [ 4, %36 ]
-  %48 = load i8, ptr %2, align 8
-  %49 = zext i8 %48 to i32
-  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %46, i32 noundef %49) #6
-  store i32 %47, ptr @acpi_pcc_address_space_setup.ret, align 4
-  %51 = load ptr, ptr %6, align 8
-  tail call void @pcc_mbox_free_channel(ptr noundef %51) #5
-  br label %52
+54:                                               ; preds = %47, %28
+  tail call void @kfree(ptr noundef nonnull %7) #5
+  %55 = load i32, ptr @acpi_pcc_address_space_setup.ret, align 4
+  br label %56
 
-52:                                               ; preds = %45, %26
-  tail call void @kfree(ptr noundef nonnull %6) #5
-  %53 = load i32, ptr @acpi_pcc_address_space_setup.ret, align 4
-  br label %54
-
-54:                                               ; preds = %52, %44, %4
-  %55 = phi i32 [ %53, %52 ], [ 0, %44 ], [ 4, %4 ]
-  ret i32 %55
+56:                                               ; preds = %54, %46, %4
+  %57 = phi i32 [ %55, %54 ], [ 0, %46 ], [ 4, %4 ]
+  ret i32 %57
 }
 
 ; Function Attrs: cold null_pointer_is_valid

@@ -51,7 +51,7 @@ define internal i32 @nfs4_file_open(ptr nocapture noundef readonly %0, ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !6
   %21 = tail call i32 @nfs_check_flags(i32 noundef %20) #4
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %90
+  br i1 %22, label %23, label %92
 
 23:                                               ; preds = %17
   %24 = and i32 %20, -193
@@ -87,81 +87,83 @@ define internal i32 @nfs4_file_open(ptr nocapture noundef readonly %0, ptr nound
   %50 = tail call ptr @alloc_nfs_open_context(ptr noundef %41, i32 noundef %49, ptr noundef %1) #4
   %51 = ptrtoint ptr %50 to i64
   %52 = trunc i64 %51 to i32
-  %53 = icmp ugt ptr %50, inttoptr (i64 -4096 to ptr)
-  br i1 %53, label %87, label %54
+  %53 = inttoptr i64 -4096 to ptr
+  %54 = icmp ugt ptr %50, %53
+  br i1 %54, label %89, label %55
 
-54:                                               ; preds = %40
+55:                                               ; preds = %40
   store i32 32768, ptr %3, align 8
-  %55 = and i32 %20, 512
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %62, label %57
+  %56 = and i32 %20, 512
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %63, label %58
 
-57:                                               ; preds = %54
+58:                                               ; preds = %55
   store i32 32776, ptr %3, align 8
-  %58 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 48
-  %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 @filemap_write_and_wait_range(ptr noundef %60, i64 noundef 0, i64 noundef 9223372036854775807) #4
-  br label %62
+  %59 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 0, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 48
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call i32 @filemap_write_and_wait_range(ptr noundef %61, i64 noundef 0, i64 noundef 9223372036854775807) #4
+  br label %63
 
-62:                                               ; preds = %57, %54
-  %63 = getelementptr inbounds i8, ptr %27, i64 40
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 872
-  %66 = load ptr, ptr %65, align 8
+63:                                               ; preds = %58, %55
+  %64 = getelementptr inbounds i8, ptr %27, i64 40
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 872
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 224
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 368
-  %71 = load ptr, ptr %70, align 8
-  %72 = call ptr %71(ptr noundef %27, ptr noundef %50, i32 noundef %24, ptr noundef nonnull %3, ptr noundef null) #4
-  %73 = icmp ugt ptr %72, inttoptr (i64 -4096 to ptr)
-  br i1 %73, label %74, label %77
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 224
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 368
+  %72 = load ptr, ptr %71, align 8
+  %73 = call ptr %72(ptr noundef %27, ptr noundef %50, i32 noundef %24, ptr noundef nonnull %3, ptr noundef null) #4
+  %74 = inttoptr i64 -4096 to ptr
+  %75 = icmp ugt ptr %73, %74
+  br i1 %75, label %76, label %79
 
-74:                                               ; preds = %62
-  %75 = ptrtoint ptr %72 to i64
-  %76 = trunc i64 %75 to i32
-  switch i32 %76, label %85 [
-    i32 -2, label %89
-    i32 -116, label %89
-    i32 -21, label %89
-    i32 -20, label %89
-    i32 -40, label %89
+76:                                               ; preds = %63
+  %77 = ptrtoint ptr %73 to i64
+  %78 = trunc i64 %77 to i32
+  switch i32 %78, label %87 [
+    i32 -2, label %91
+    i32 -116, label %91
+    i32 -21, label %91
+    i32 -20, label %91
+    i32 -40, label %91
   ]
 
-77:                                               ; preds = %62
-  %78 = getelementptr inbounds i8, ptr %18, i64 48
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %72, %79
-  br i1 %80, label %81, label %89
+79:                                               ; preds = %63
+  %80 = getelementptr inbounds i8, ptr %18, i64 48
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp eq ptr %73, %81
+  br i1 %82, label %83, label %91
 
-81:                                               ; preds = %77
+83:                                               ; preds = %79
   call void @nfs_file_set_open_context(ptr noundef %1, ptr noundef %50) #4
-  %82 = getelementptr inbounds i8, ptr %1, i64 20
-  %83 = load i32, ptr %82, align 4
-  %84 = or i32 %83, 4194304
-  store i32 %84, ptr %82, align 4
-  br label %85
-
-85:                                               ; preds = %89, %81, %74
-  %86 = phi i32 [ %76, %74 ], [ -518, %89 ], [ 0, %81 ]
-  call void @put_nfs_open_context(ptr noundef %50) #4
+  %84 = getelementptr inbounds i8, ptr %1, i64 20
+  %85 = load i32, ptr %84, align 4
+  %86 = or i32 %85, 4194304
+  store i32 %86, ptr %84, align 4
   br label %87
 
-87:                                               ; preds = %85, %40
-  %88 = phi i32 [ %52, %40 ], [ %86, %85 ]
+87:                                               ; preds = %91, %83, %76
+  %88 = phi i32 [ %78, %76 ], [ -518, %91 ], [ 0, %83 ]
+  call void @put_nfs_open_context(ptr noundef %50) #4
+  br label %89
+
+89:                                               ; preds = %87, %40
+  %90 = phi i32 [ %52, %40 ], [ %88, %87 ]
   call void @dput(ptr noundef %25) #4
-  br label %90
+  br label %92
 
-89:                                               ; preds = %77, %74, %74, %74, %74, %74
+91:                                               ; preds = %79, %76, %76, %76, %76, %76
   call void @d_drop(ptr noundef %18) #4
-  br label %85
+  br label %87
 
-90:                                               ; preds = %87, %17
-  %91 = phi i32 [ %88, %87 ], [ %21, %17 ]
+92:                                               ; preds = %89, %17
+  %93 = phi i32 [ %90, %89 ], [ %21, %17 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #4
-  ret i32 %91
+  ret i32 %93
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

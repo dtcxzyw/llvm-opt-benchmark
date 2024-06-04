@@ -245,111 +245,114 @@ define ptr @Ssc_ManStart(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %30 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %29, i32 0, i32 4
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %36
+  br i1 %32, label %33, label %37
 
 33:                                               ; preds = %3
   %34 = call i32 (ptr, ...) @printf(ptr noundef @.str)
   %35 = load ptr, ptr %8, align 8
   call void @Ssc_ManStop(ptr noundef %35)
-  store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
-  br label %99
+  %36 = inttoptr i64 1 to ptr
+  store ptr %36, ptr %4, align 8
+  br label %102
 
-36:                                               ; preds = %3
-  %37 = load ptr, ptr %8, align 8
-  %38 = call ptr @Ssc_ManFindPivotSat(ptr noundef %37)
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %39, i32 0, i32 7
-  store ptr %38, ptr %40, align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %41, i32 0, i32 7
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, inttoptr (i64 1 to ptr)
-  br i1 %44, label %45, label %48
+37:                                               ; preds = %3
+  %38 = load ptr, ptr %8, align 8
+  %39 = call ptr @Ssc_ManFindPivotSat(ptr noundef %38)
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %40, i32 0, i32 7
+  store ptr %39, ptr %41, align 8
+  %42 = load ptr, ptr %8, align 8
+  %43 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %42, i32 0, i32 7
+  %44 = load ptr, ptr %43, align 8
+  %45 = inttoptr i64 1 to ptr
+  %46 = icmp eq ptr %44, %45
+  br i1 %46, label %47, label %51
 
-45:                                               ; preds = %36
-  %46 = call i32 (ptr, ...) @printf(ptr noundef @.str.1)
-  %47 = load ptr, ptr %8, align 8
-  call void @Ssc_ManStop(ptr noundef %47)
-  store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
-  br label %99
-
-48:                                               ; preds = %36
+47:                                               ; preds = %37
+  %48 = call i32 (ptr, ...) @printf(ptr noundef @.str.1)
   %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %49, i32 0, i32 7
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %56
+  call void @Ssc_ManStop(ptr noundef %49)
+  %50 = inttoptr i64 1 to ptr
+  store ptr %50, ptr %4, align 8
+  br label %102
 
-53:                                               ; preds = %48
-  %54 = call i32 (ptr, ...) @printf(ptr noundef @.str.2)
-  %55 = load ptr, ptr %8, align 8
-  call void @Ssc_ManStop(ptr noundef %55)
+51:                                               ; preds = %37
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %52, i32 0, i32 7
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %59
+
+56:                                               ; preds = %51
+  %57 = call i32 (ptr, ...) @printf(ptr noundef @.str.2)
+  %58 = load ptr, ptr %8, align 8
+  call void @Ssc_ManStop(ptr noundef %58)
   store ptr null, ptr %4, align 8
-  br label %99
+  br label %102
 
-56:                                               ; preds = %48
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %57, i32 0, i32 4
-  %59 = load ptr, ptr %58, align 8
-  call void @sat_solver_bookmark(ptr noundef %59)
+59:                                               ; preds = %51
   %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %60, i32 0, i32 1
+  %61 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %60, i32 0, i32 4
   %62 = load ptr, ptr %61, align 8
+  call void @sat_solver_bookmark(ptr noundef %62)
   %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %63, i32 0, i32 7
+  %64 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %63, i32 0, i32 1
   %65 = load ptr, ptr %64, align 8
-  call void @Gia_ManSetPhasePattern(ptr noundef %62, ptr noundef %65)
   %66 = load ptr, ptr %8, align 8
-  %67 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %66, i32 0, i32 2
+  %67 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %66, i32 0, i32 7
   %68 = load ptr, ptr %67, align 8
+  call void @Gia_ManSetPhasePattern(ptr noundef %65, ptr noundef %68)
   %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %69, i32 0, i32 7
+  %70 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %69, i32 0, i32 2
   %71 = load ptr, ptr %70, align 8
-  call void @Gia_ManSetPhasePattern(ptr noundef %68, ptr noundef %71)
   %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %72, i32 0, i32 2
+  %73 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %72, i32 0, i32 7
   %74 = load ptr, ptr %73, align 8
-  %75 = call i32 @Gia_ManCheckCoPhase(ptr noundef %74)
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %84
+  call void @Gia_ManSetPhasePattern(ptr noundef %71, ptr noundef %74)
+  %75 = load ptr, ptr %8, align 8
+  %76 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8
+  %78 = call i32 @Gia_ManCheckCoPhase(ptr noundef %77)
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %87
 
-77:                                               ; preds = %56
-  %78 = load ptr, ptr %8, align 8
-  %79 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %78, i32 0, i32 2
-  %80 = load ptr, ptr %79, align 8
-  %81 = call i32 @Gia_ManCheckCoPhase(ptr noundef %80)
-  %82 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, i32 noundef %81)
-  %83 = load ptr, ptr %8, align 8
-  call void @Ssc_ManStop(ptr noundef %83)
-  store ptr null, ptr %4, align 8
-  br label %99
-
-84:                                               ; preds = %56
-  %85 = call ptr @Vec_IntAlloc(i32 noundef 100)
+80:                                               ; preds = %59
+  %81 = load ptr, ptr %8, align 8
+  %82 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %81, i32 0, i32 2
+  %83 = load ptr, ptr %82, align 8
+  %84 = call i32 @Gia_ManCheckCoPhase(ptr noundef %83)
+  %85 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, i32 noundef %84)
   %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %86, i32 0, i32 13
-  store ptr %85, ptr %87, align 8
+  call void @Ssc_ManStop(ptr noundef %86)
+  store ptr null, ptr %4, align 8
+  br label %102
+
+87:                                               ; preds = %59
   %88 = call ptr @Vec_IntAlloc(i32 noundef 100)
   %89 = load ptr, ptr %8, align 8
-  %90 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %89, i32 0, i32 12
+  %90 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %89, i32 0, i32 13
   store ptr %88, ptr %90, align 8
   %91 = call ptr @Vec_IntAlloc(i32 noundef 100)
   %92 = load ptr, ptr %8, align 8
-  %93 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %92, i32 0, i32 11
+  %93 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %92, i32 0, i32 12
   store ptr %91, ptr %93, align 8
   %94 = call ptr @Vec_IntAlloc(i32 noundef 100)
   %95 = load ptr, ptr %8, align 8
-  %96 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %95, i32 0, i32 10
+  %96 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %95, i32 0, i32 11
   store ptr %94, ptr %96, align 8
-  %97 = load ptr, ptr %5, align 8
-  call void @Ssc_GiaClassesInit(ptr noundef %97)
+  %97 = call ptr @Vec_IntAlloc(i32 noundef 100)
   %98 = load ptr, ptr %8, align 8
-  store ptr %98, ptr %4, align 8
-  br label %99
+  %99 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %98, i32 0, i32 10
+  store ptr %97, ptr %99, align 8
+  %100 = load ptr, ptr %5, align 8
+  call void @Ssc_GiaClassesInit(ptr noundef %100)
+  %101 = load ptr, ptr %8, align 8
+  store ptr %101, ptr %4, align 8
+  br label %102
 
-99:                                               ; preds = %84, %77, %53, %45, %33
-  %100 = load ptr, ptr %4, align 8
-  ret ptr %100
+102:                                              ; preds = %87, %80, %56, %47, %33
+  %103 = load ptr, ptr %4, align 8
+  ret ptr %103
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
@@ -944,7 +947,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -972,7 +975,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -1577,675 +1580,676 @@ define ptr @Ssc_PerformSweepingInt(ptr noundef %0, ptr noundef %1, ptr noundef %
   %25 = call ptr @Ssc_ManStart(ptr noundef %22, ptr noundef %23, ptr noundef %24)
   store ptr %25, ptr %8, align 8
   %26 = load ptr, ptr %8, align 8
-  %27 = icmp eq ptr %26, inttoptr (i64 1 to ptr)
-  br i1 %27, label %28, label %31
+  %27 = inttoptr i64 1 to ptr
+  %28 = icmp eq ptr %26, %27
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %3
-  %29 = load ptr, ptr %5, align 8
-  %30 = call ptr @Gia_ManDupZero(ptr noundef %29)
-  store ptr %30, ptr %4, align 8
-  br label %487
+29:                                               ; preds = %3
+  %30 = load ptr, ptr %5, align 8
+  %31 = call ptr @Gia_ManDupZero(ptr noundef %30)
+  store ptr %31, ptr %4, align 8
+  br label %488
 
-31:                                               ; preds = %3
-  %32 = load ptr, ptr %8, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %37
+32:                                               ; preds = %3
+  %33 = load ptr, ptr %8, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %38
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %5, align 8
-  %36 = call ptr @Gia_ManDup(ptr noundef %35)
-  store ptr %36, ptr %4, align 8
-  br label %487
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %5, align 8
+  %37 = call ptr @Gia_ManDup(ptr noundef %36)
+  store ptr %37, ptr %4, align 8
+  br label %488
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %40, i32 0, i32 5
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %50
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %41, i32 0, i32 5
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %51
 
-44:                                               ; preds = %37
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %45, i32 0, i32 3
-  %47 = load ptr, ptr %46, align 8
-  %48 = call i32 @Ssc_GiaEstimateCare(ptr noundef %47, i32 noundef 5)
-  %49 = call i32 (ptr, ...) @printf(ptr noundef @.str.21, i32 noundef %48, i32 noundef 640)
-  br label %50
-
-50:                                               ; preds = %44, %37
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %8, align 8
+  %47 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %46, i32 0, i32 3
+  %48 = load ptr, ptr %47, align 8
+  %49 = call i32 @Ssc_GiaEstimateCare(ptr noundef %48, i32 noundef 5)
+  %50 = call i32 (ptr, ...) @printf(ptr noundef @.str.21, i32 noundef %49, i32 noundef 640)
   br label %51
 
-51:                                               ; preds = %85, %50
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %52, i32 0, i32 3
-  %54 = load ptr, ptr %53, align 8
-  call void @Ssc_GiaRandomPiPattern(ptr noundef %54, i32 noundef 5, ptr noundef null)
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %55, i32 0, i32 3
-  %57 = load ptr, ptr %56, align 8
-  call void @Ssc_GiaSimRound(ptr noundef %57)
-  %58 = load ptr, ptr %5, align 8
-  %59 = load ptr, ptr %8, align 8
-  %60 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %59, i32 0, i32 3
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %62, i32 0, i32 7
-  %64 = load ptr, ptr %63, align 8
-  %65 = call i32 @Ssc_GiaTransferPiPattern(ptr noundef %58, ptr noundef %61, ptr noundef %64)
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %68, label %67
+51:                                               ; preds = %45, %38
+  br label %52
 
-67:                                               ; preds = %51
-  br label %86
+52:                                               ; preds = %86, %51
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %53, i32 0, i32 3
+  %55 = load ptr, ptr %54, align 8
+  call void @Ssc_GiaRandomPiPattern(ptr noundef %55, i32 noundef 5, ptr noundef null)
+  %56 = load ptr, ptr %8, align 8
+  %57 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %56, i32 0, i32 3
+  %58 = load ptr, ptr %57, align 8
+  call void @Ssc_GiaSimRound(ptr noundef %58)
+  %59 = load ptr, ptr %5, align 8
+  %60 = load ptr, ptr %8, align 8
+  %61 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %60, i32 0, i32 3
+  %62 = load ptr, ptr %61, align 8
+  %63 = load ptr, ptr %8, align 8
+  %64 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %63, i32 0, i32 7
+  %65 = load ptr, ptr %64, align 8
+  %66 = call i32 @Ssc_GiaTransferPiPattern(ptr noundef %59, ptr noundef %62, ptr noundef %65)
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %69, label %68
 
-68:                                               ; preds = %51
-  %69 = load ptr, ptr %5, align 8
-  call void @Ssc_GiaSimRound(ptr noundef %69)
+68:                                               ; preds = %52
+  br label %87
+
+69:                                               ; preds = %52
   %70 = load ptr, ptr %5, align 8
-  %71 = call i32 @Ssc_GiaClassesRefine(ptr noundef %70)
-  store i32 %71, ptr %17, align 4
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %72, i32 0, i32 5
-  %74 = load i32, ptr %73, align 4
-  %75 = icmp ne i32 %74, 0
-  br i1 %75, label %76, label %78
+  call void @Ssc_GiaSimRound(ptr noundef %70)
+  %71 = load ptr, ptr %5, align 8
+  %72 = call i32 @Ssc_GiaClassesRefine(ptr noundef %71)
+  store i32 %72, ptr %17, align 4
+  %73 = load ptr, ptr %7, align 8
+  %74 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %73, i32 0, i32 5
+  %75 = load i32, ptr %74, align 4
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %77, label %79
 
-76:                                               ; preds = %68
-  %77 = load ptr, ptr %5, align 8
-  call void @Gia_ManEquivPrintClasses(ptr noundef %77, i32 noundef 0, float noundef 0.000000e+00)
-  br label %78
+77:                                               ; preds = %69
+  %78 = load ptr, ptr %5, align 8
+  call void @Gia_ManEquivPrintClasses(ptr noundef %78, i32 noundef 0, float noundef 0.000000e+00)
+  br label %79
 
-78:                                               ; preds = %76, %68
-  %79 = load i32, ptr %17, align 4
-  %80 = load ptr, ptr %5, align 8
-  %81 = call i32 @Gia_ManCandNum(ptr noundef %80)
-  %82 = sdiv i32 %81, 100
-  %83 = icmp sle i32 %79, %82
-  br i1 %83, label %84, label %85
+79:                                               ; preds = %77, %69
+  %80 = load i32, ptr %17, align 4
+  %81 = load ptr, ptr %5, align 8
+  %82 = call i32 @Gia_ManCandNum(ptr noundef %81)
+  %83 = sdiv i32 %82, 100
+  %84 = icmp sle i32 %80, %83
+  br i1 %84, label %85, label %86
 
-84:                                               ; preds = %78
-  br label %86
+85:                                               ; preds = %79
+  br label %87
 
-85:                                               ; preds = %78
-  br label %51
+86:                                               ; preds = %79
+  br label %52
 
-86:                                               ; preds = %84, %67
-  %87 = call i64 @Abc_Clock()
-  %88 = load i64, ptr %13, align 8
-  %89 = sub nsw i64 %87, %88
-  %90 = load ptr, ptr %8, align 8
-  %91 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %90, i32 0, i32 21
-  %92 = load i64, ptr %91, align 8
-  %93 = add nsw i64 %92, %89
-  store i64 %93, ptr %91, align 8
-  %94 = load ptr, ptr %5, align 8
-  call void @Gia_ManFillValue(ptr noundef %94)
+87:                                               ; preds = %85, %68
+  %88 = call i64 @Abc_Clock()
+  %89 = load i64, ptr %13, align 8
+  %90 = sub nsw i64 %88, %89
+  %91 = load ptr, ptr %8, align 8
+  %92 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %91, i32 0, i32 21
+  %93 = load i64, ptr %92, align 8
+  %94 = add nsw i64 %93, %90
+  store i64 %94, ptr %92, align 8
   %95 = load ptr, ptr %5, align 8
-  %96 = call ptr @Gia_ManConst0(ptr noundef %95)
-  %97 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %96, i32 0, i32 1
-  store i32 0, ptr %97, align 4
+  call void @Gia_ManFillValue(ptr noundef %95)
+  %96 = load ptr, ptr %5, align 8
+  %97 = call ptr @Gia_ManConst0(ptr noundef %96)
+  %98 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %97, i32 0, i32 1
+  store i32 0, ptr %98, align 4
   store i32 0, ptr %15, align 4
-  br label %98
+  br label %99
 
-98:                                               ; preds = %124, %86
-  %99 = load i32, ptr %15, align 4
-  %100 = load ptr, ptr %5, align 8
-  %101 = getelementptr inbounds %struct.Gia_Man_t_, ptr %100, i32 0, i32 11
-  %102 = load ptr, ptr %101, align 8
-  %103 = call i32 @Vec_IntSize(ptr noundef %102)
-  %104 = icmp slt i32 %99, %103
-  br i1 %104, label %105, label %110
+99:                                               ; preds = %125, %87
+  %100 = load i32, ptr %15, align 4
+  %101 = load ptr, ptr %5, align 8
+  %102 = getelementptr inbounds %struct.Gia_Man_t_, ptr %101, i32 0, i32 11
+  %103 = load ptr, ptr %102, align 8
+  %104 = call i32 @Vec_IntSize(ptr noundef %103)
+  %105 = icmp slt i32 %100, %104
+  br i1 %105, label %106, label %111
 
-105:                                              ; preds = %98
-  %106 = load ptr, ptr %5, align 8
-  %107 = load i32, ptr %15, align 4
-  %108 = call ptr @Gia_ManCi(ptr noundef %106, i32 noundef %107)
-  store ptr %108, ptr %11, align 8
-  %109 = icmp ne ptr %108, null
-  br label %110
+106:                                              ; preds = %99
+  %107 = load ptr, ptr %5, align 8
+  %108 = load i32, ptr %15, align 4
+  %109 = call ptr @Gia_ManCi(ptr noundef %107, i32 noundef %108)
+  store ptr %109, ptr %11, align 8
+  %110 = icmp ne ptr %109, null
+  br label %111
 
-110:                                              ; preds = %105, %98
-  %111 = phi i1 [ false, %98 ], [ %109, %105 ]
-  br i1 %111, label %112, label %127
+111:                                              ; preds = %106, %99
+  %112 = phi i1 [ false, %99 ], [ %110, %106 ]
+  br i1 %112, label %113, label %128
 
-112:                                              ; preds = %110
-  %113 = load ptr, ptr %8, align 8
-  %114 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %113, i32 0, i32 3
-  %115 = load ptr, ptr %114, align 8
-  %116 = load ptr, ptr %8, align 8
-  %117 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %116, i32 0, i32 3
-  %118 = load ptr, ptr %117, align 8
-  %119 = load i32, ptr %15, align 4
-  %120 = call ptr @Gia_ManCi(ptr noundef %118, i32 noundef %119)
-  %121 = call i32 @Gia_Obj2Lit(ptr noundef %115, ptr noundef %120)
-  %122 = load ptr, ptr %11, align 8
-  %123 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %122, i32 0, i32 1
-  store i32 %121, ptr %123, align 4
-  br label %124
+113:                                              ; preds = %111
+  %114 = load ptr, ptr %8, align 8
+  %115 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %114, i32 0, i32 3
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr %8, align 8
+  %118 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %117, i32 0, i32 3
+  %119 = load ptr, ptr %118, align 8
+  %120 = load i32, ptr %15, align 4
+  %121 = call ptr @Gia_ManCi(ptr noundef %119, i32 noundef %120)
+  %122 = call i32 @Gia_Obj2Lit(ptr noundef %116, ptr noundef %121)
+  %123 = load ptr, ptr %11, align 8
+  %124 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %123, i32 0, i32 1
+  store i32 %122, ptr %124, align 4
+  br label %125
 
-124:                                              ; preds = %112
-  %125 = load i32, ptr %15, align 4
-  %126 = add nsw i32 %125, 1
-  store i32 %126, ptr %15, align 4
-  br label %98, !llvm.loop !6
+125:                                              ; preds = %113
+  %126 = load i32, ptr %15, align 4
+  %127 = add nsw i32 %126, 1
+  store i32 %127, ptr %15, align 4
+  br label %99, !llvm.loop !6
 
-127:                                              ; preds = %110
-  %128 = load ptr, ptr %8, align 8
-  %129 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %128, i32 0, i32 3
-  %130 = load ptr, ptr %129, align 8
-  call void @Gia_ManHashStart(ptr noundef %130)
-  %131 = load ptr, ptr %5, align 8
-  %132 = load ptr, ptr %7, align 8
-  %133 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %132, i32 0, i32 0
-  %134 = load i32, ptr %133, align 4
-  call void @Ssc_GiaResetPiPattern(ptr noundef %131, i32 noundef %134)
-  %135 = load ptr, ptr %5, align 8
-  %136 = load ptr, ptr %8, align 8
-  %137 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %136, i32 0, i32 7
-  %138 = load ptr, ptr %137, align 8
-  call void @Ssc_GiaSavePiPattern(ptr noundef %135, ptr noundef %138)
+128:                                              ; preds = %111
+  %129 = load ptr, ptr %8, align 8
+  %130 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %129, i32 0, i32 3
+  %131 = load ptr, ptr %130, align 8
+  call void @Gia_ManHashStart(ptr noundef %131)
+  %132 = load ptr, ptr %5, align 8
+  %133 = load ptr, ptr %7, align 8
+  %134 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %133, i32 0, i32 0
+  %135 = load i32, ptr %134, align 4
+  call void @Ssc_GiaResetPiPattern(ptr noundef %132, i32 noundef %135)
+  %136 = load ptr, ptr %5, align 8
+  %137 = load ptr, ptr %8, align 8
+  %138 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %137, i32 0, i32 7
+  %139 = load ptr, ptr %138, align 8
+  call void @Ssc_GiaSavePiPattern(ptr noundef %136, ptr noundef %139)
   store i32 0, ptr %15, align 4
-  br label %139
+  br label %140
 
-139:                                              ; preds = %365, %127
-  %140 = load i32, ptr %15, align 4
-  %141 = load ptr, ptr %5, align 8
-  %142 = getelementptr inbounds %struct.Gia_Man_t_, ptr %141, i32 0, i32 4
-  %143 = load i32, ptr %142, align 8
-  %144 = icmp slt i32 %140, %143
-  br i1 %144, label %145, label %150
+140:                                              ; preds = %366, %128
+  %141 = load i32, ptr %15, align 4
+  %142 = load ptr, ptr %5, align 8
+  %143 = getelementptr inbounds %struct.Gia_Man_t_, ptr %142, i32 0, i32 4
+  %144 = load i32, ptr %143, align 8
+  %145 = icmp slt i32 %141, %144
+  br i1 %145, label %146, label %151
 
-145:                                              ; preds = %139
-  %146 = load ptr, ptr %5, align 8
-  %147 = load i32, ptr %15, align 4
-  %148 = call ptr @Gia_ManObj(ptr noundef %146, i32 noundef %147)
-  store ptr %148, ptr %11, align 8
-  %149 = icmp ne ptr %148, null
-  br label %150
+146:                                              ; preds = %140
+  %147 = load ptr, ptr %5, align 8
+  %148 = load i32, ptr %15, align 4
+  %149 = call ptr @Gia_ManObj(ptr noundef %147, i32 noundef %148)
+  store ptr %149, ptr %11, align 8
+  %150 = icmp ne ptr %149, null
+  br label %151
 
-150:                                              ; preds = %145, %139
-  %151 = phi i1 [ false, %139 ], [ %149, %145 ]
-  br i1 %151, label %152, label %368
+151:                                              ; preds = %146, %140
+  %152 = phi i1 [ false, %140 ], [ %150, %146 ]
+  br i1 %152, label %153, label %369
 
-152:                                              ; preds = %150
-  %153 = load ptr, ptr %11, align 8
-  %154 = call i32 @Gia_ObjIsCand(ptr noundef %153)
-  %155 = icmp ne i32 %154, 0
-  br i1 %155, label %157, label %156
+153:                                              ; preds = %151
+  %154 = load ptr, ptr %11, align 8
+  %155 = call i32 @Gia_ObjIsCand(ptr noundef %154)
+  %156 = icmp ne i32 %155, 0
+  br i1 %156, label %158, label %157
 
-156:                                              ; preds = %152
-  br label %364
+157:                                              ; preds = %153
+  br label %365
 
-157:                                              ; preds = %152
-  %158 = load ptr, ptr %5, align 8
-  %159 = getelementptr inbounds %struct.Gia_Man_t_, ptr %158, i32 0, i32 108
-  %160 = load i32, ptr %159, align 4
-  %161 = load ptr, ptr %7, align 8
-  %162 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %161, i32 0, i32 0
-  %163 = load i32, ptr %162, align 4
-  %164 = mul nsw i32 64, %163
-  %165 = icmp eq i32 %160, %164
-  br i1 %165, label %166, label %200
+158:                                              ; preds = %153
+  %159 = load ptr, ptr %5, align 8
+  %160 = getelementptr inbounds %struct.Gia_Man_t_, ptr %159, i32 0, i32 108
+  %161 = load i32, ptr %160, align 4
+  %162 = load ptr, ptr %7, align 8
+  %163 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %162, i32 0, i32 0
+  %164 = load i32, ptr %163, align 4
+  %165 = mul nsw i32 64, %164
+  %166 = icmp eq i32 %161, %165
+  br i1 %166, label %167, label %201
 
-166:                                              ; preds = %157
-  %167 = call i64 @Abc_Clock()
-  store i64 %167, ptr %13, align 8
-  %168 = load ptr, ptr %5, align 8
-  call void @Ssc_GiaSimRound(ptr noundef %168)
+167:                                              ; preds = %158
+  %168 = call i64 @Abc_Clock()
+  store i64 %168, ptr %13, align 8
   %169 = load ptr, ptr %5, align 8
-  %170 = call i32 @Ssc_GiaClassesRefine(ptr noundef %169)
-  %171 = load ptr, ptr %7, align 8
-  %172 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %171, i32 0, i32 5
-  %173 = load i32, ptr %172, align 4
-  %174 = icmp ne i32 %173, 0
-  br i1 %174, label %175, label %177
+  call void @Ssc_GiaSimRound(ptr noundef %169)
+  %170 = load ptr, ptr %5, align 8
+  %171 = call i32 @Ssc_GiaClassesRefine(ptr noundef %170)
+  %172 = load ptr, ptr %7, align 8
+  %173 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %172, i32 0, i32 5
+  %174 = load i32, ptr %173, align 4
+  %175 = icmp ne i32 %174, 0
+  br i1 %175, label %176, label %178
 
-175:                                              ; preds = %166
-  %176 = load ptr, ptr %5, align 8
-  call void @Gia_ManEquivPrintClasses(ptr noundef %176, i32 noundef 0, float noundef 0.000000e+00)
-  br label %177
+176:                                              ; preds = %167
+  %177 = load ptr, ptr %5, align 8
+  call void @Gia_ManEquivPrintClasses(ptr noundef %177, i32 noundef 0, float noundef 0.000000e+00)
+  br label %178
 
-177:                                              ; preds = %175, %166
-  %178 = load ptr, ptr %5, align 8
-  %179 = load ptr, ptr %8, align 8
-  %180 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %179, i32 0, i32 13
-  %181 = load ptr, ptr %180, align 8
-  call void @Ssc_GiaClassesCheckPairs(ptr noundef %178, ptr noundef %181)
-  %182 = load ptr, ptr %8, align 8
-  %183 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %182, i32 0, i32 13
-  %184 = load ptr, ptr %183, align 8
-  call void @Vec_IntClear(ptr noundef %184)
-  %185 = load ptr, ptr %5, align 8
-  %186 = load ptr, ptr %7, align 8
-  %187 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %186, i32 0, i32 0
-  %188 = load i32, ptr %187, align 4
-  call void @Ssc_GiaResetPiPattern(ptr noundef %185, i32 noundef %188)
-  %189 = load ptr, ptr %5, align 8
-  %190 = load ptr, ptr %8, align 8
-  %191 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %190, i32 0, i32 7
-  %192 = load ptr, ptr %191, align 8
-  call void @Ssc_GiaSavePiPattern(ptr noundef %189, ptr noundef %192)
-  %193 = call i64 @Abc_Clock()
-  %194 = load i64, ptr %13, align 8
-  %195 = sub nsw i64 %193, %194
-  %196 = load ptr, ptr %8, align 8
-  %197 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %196, i32 0, i32 22
-  %198 = load i64, ptr %197, align 8
-  %199 = add nsw i64 %198, %195
-  store i64 %199, ptr %197, align 8
-  br label %200
+178:                                              ; preds = %176, %167
+  %179 = load ptr, ptr %5, align 8
+  %180 = load ptr, ptr %8, align 8
+  %181 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %180, i32 0, i32 13
+  %182 = load ptr, ptr %181, align 8
+  call void @Ssc_GiaClassesCheckPairs(ptr noundef %179, ptr noundef %182)
+  %183 = load ptr, ptr %8, align 8
+  %184 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %183, i32 0, i32 13
+  %185 = load ptr, ptr %184, align 8
+  call void @Vec_IntClear(ptr noundef %185)
+  %186 = load ptr, ptr %5, align 8
+  %187 = load ptr, ptr %7, align 8
+  %188 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %187, i32 0, i32 0
+  %189 = load i32, ptr %188, align 4
+  call void @Ssc_GiaResetPiPattern(ptr noundef %186, i32 noundef %189)
+  %190 = load ptr, ptr %5, align 8
+  %191 = load ptr, ptr %8, align 8
+  %192 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %191, i32 0, i32 7
+  %193 = load ptr, ptr %192, align 8
+  call void @Ssc_GiaSavePiPattern(ptr noundef %190, ptr noundef %193)
+  %194 = call i64 @Abc_Clock()
+  %195 = load i64, ptr %13, align 8
+  %196 = sub nsw i64 %194, %195
+  %197 = load ptr, ptr %8, align 8
+  %198 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %197, i32 0, i32 22
+  %199 = load i64, ptr %198, align 8
+  %200 = add nsw i64 %199, %196
+  store i64 %200, ptr %198, align 8
+  br label %201
 
-200:                                              ; preds = %177, %157
-  %201 = load ptr, ptr %11, align 8
-  %202 = call i32 @Gia_ObjIsAnd(ptr noundef %201)
-  %203 = icmp ne i32 %202, 0
-  br i1 %203, label %204, label %215
+201:                                              ; preds = %178, %158
+  %202 = load ptr, ptr %11, align 8
+  %203 = call i32 @Gia_ObjIsAnd(ptr noundef %202)
+  %204 = icmp ne i32 %203, 0
+  br i1 %204, label %205, label %216
 
-204:                                              ; preds = %200
-  %205 = load ptr, ptr %8, align 8
-  %206 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %205, i32 0, i32 3
-  %207 = load ptr, ptr %206, align 8
-  %208 = load ptr, ptr %11, align 8
-  %209 = call i32 @Gia_ObjFanin0Copy(ptr noundef %208)
-  %210 = load ptr, ptr %11, align 8
-  %211 = call i32 @Gia_ObjFanin1Copy(ptr noundef %210)
-  %212 = call i32 @Gia_ManHashAnd(ptr noundef %207, i32 noundef %209, i32 noundef %211)
-  %213 = load ptr, ptr %11, align 8
-  %214 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %213, i32 0, i32 1
-  store i32 %212, ptr %214, align 4
-  br label %215
+205:                                              ; preds = %201
+  %206 = load ptr, ptr %8, align 8
+  %207 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %206, i32 0, i32 3
+  %208 = load ptr, ptr %207, align 8
+  %209 = load ptr, ptr %11, align 8
+  %210 = call i32 @Gia_ObjFanin0Copy(ptr noundef %209)
+  %211 = load ptr, ptr %11, align 8
+  %212 = call i32 @Gia_ObjFanin1Copy(ptr noundef %211)
+  %213 = call i32 @Gia_ManHashAnd(ptr noundef %208, i32 noundef %210, i32 noundef %212)
+  %214 = load ptr, ptr %11, align 8
+  %215 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %214, i32 0, i32 1
+  store i32 %213, ptr %215, align 4
+  br label %216
 
-215:                                              ; preds = %204, %200
-  %216 = load ptr, ptr %5, align 8
-  %217 = load i32, ptr %15, align 4
-  %218 = call i32 @Gia_ObjHasRepr(ptr noundef %216, i32 noundef %217)
-  %219 = icmp ne i32 %218, 0
-  br i1 %219, label %221, label %220
+216:                                              ; preds = %205, %201
+  %217 = load ptr, ptr %5, align 8
+  %218 = load i32, ptr %15, align 4
+  %219 = call i32 @Gia_ObjHasRepr(ptr noundef %217, i32 noundef %218)
+  %220 = icmp ne i32 %219, 0
+  br i1 %220, label %222, label %221
 
-220:                                              ; preds = %215
-  br label %365
+221:                                              ; preds = %216
+  br label %366
 
-221:                                              ; preds = %215
-  %222 = load ptr, ptr %5, align 8
-  %223 = load i32, ptr %15, align 4
-  %224 = call ptr @Gia_ObjReprObj(ptr noundef %222, i32 noundef %223)
-  store ptr %224, ptr %12, align 8
-  %225 = load ptr, ptr %11, align 8
-  %226 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %225, i32 0, i32 1
-  %227 = load i32, ptr %226, align 4
-  %228 = load ptr, ptr %12, align 8
-  %229 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %228, i32 0, i32 1
-  %230 = load i32, ptr %229, align 4
-  %231 = load ptr, ptr %12, align 8
-  %232 = load i64, ptr %231, align 4
-  %233 = lshr i64 %232, 63
-  %234 = trunc i64 %233 to i32
-  %235 = load ptr, ptr %11, align 8
-  %236 = load i64, ptr %235, align 4
-  %237 = lshr i64 %236, 63
-  %238 = trunc i64 %237 to i32
-  %239 = xor i32 %234, %238
-  %240 = call i32 @Abc_LitNotCond(i32 noundef %230, i32 noundef %239)
-  %241 = icmp eq i32 %227, %240
-  br i1 %241, label %242, label %245
+222:                                              ; preds = %216
+  %223 = load ptr, ptr %5, align 8
+  %224 = load i32, ptr %15, align 4
+  %225 = call ptr @Gia_ObjReprObj(ptr noundef %223, i32 noundef %224)
+  store ptr %225, ptr %12, align 8
+  %226 = load ptr, ptr %11, align 8
+  %227 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %226, i32 0, i32 1
+  %228 = load i32, ptr %227, align 4
+  %229 = load ptr, ptr %12, align 8
+  %230 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %229, i32 0, i32 1
+  %231 = load i32, ptr %230, align 4
+  %232 = load ptr, ptr %12, align 8
+  %233 = load i64, ptr %232, align 4
+  %234 = lshr i64 %233, 63
+  %235 = trunc i64 %234 to i32
+  %236 = load ptr, ptr %11, align 8
+  %237 = load i64, ptr %236, align 4
+  %238 = lshr i64 %237, 63
+  %239 = trunc i64 %238 to i32
+  %240 = xor i32 %235, %239
+  %241 = call i32 @Abc_LitNotCond(i32 noundef %231, i32 noundef %240)
+  %242 = icmp eq i32 %228, %241
+  br i1 %242, label %243, label %246
 
-242:                                              ; preds = %221
-  %243 = load ptr, ptr %5, align 8
-  %244 = load i32, ptr %15, align 4
-  call void @Gia_ObjSetProved(ptr noundef %243, i32 noundef %244)
-  br label %365
+243:                                              ; preds = %222
+  %244 = load ptr, ptr %5, align 8
+  %245 = load i32, ptr %15, align 4
+  call void @Gia_ObjSetProved(ptr noundef %244, i32 noundef %245)
+  br label %366
 
-245:                                              ; preds = %221
-  %246 = load ptr, ptr %12, align 8
-  %247 = load i64, ptr %246, align 4
-  %248 = lshr i64 %247, 63
-  %249 = trunc i64 %248 to i32
-  %250 = load ptr, ptr %11, align 8
-  %251 = load i64, ptr %250, align 4
-  %252 = lshr i64 %251, 63
-  %253 = trunc i64 %252 to i32
-  %254 = xor i32 %249, %253
-  %255 = load ptr, ptr %12, align 8
-  %256 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %255, i32 0, i32 1
-  %257 = load i32, ptr %256, align 4
-  %258 = call i32 @Abc_LitIsCompl(i32 noundef %257)
-  %259 = xor i32 %254, %258
-  %260 = load ptr, ptr %11, align 8
-  %261 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %260, i32 0, i32 1
-  %262 = load i32, ptr %261, align 4
-  %263 = call i32 @Abc_LitIsCompl(i32 noundef %262)
-  %264 = xor i32 %259, %263
-  store i32 %264, ptr %16, align 4
-  %265 = call i64 @Abc_Clock()
-  store i64 %265, ptr %13, align 8
-  %266 = load ptr, ptr %8, align 8
-  %267 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %266, i32 0, i32 17
-  %268 = load i32, ptr %267, align 4
-  %269 = add nsw i32 %268, 1
-  store i32 %269, ptr %267, align 4
-  %270 = load ptr, ptr %8, align 8
-  %271 = load ptr, ptr %12, align 8
-  %272 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %271, i32 0, i32 1
-  %273 = load i32, ptr %272, align 4
-  %274 = call i32 @Abc_Lit2Var(i32 noundef %273)
-  %275 = load ptr, ptr %11, align 8
-  %276 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %275, i32 0, i32 1
-  %277 = load i32, ptr %276, align 4
-  %278 = call i32 @Abc_Lit2Var(i32 noundef %277)
-  %279 = load i32, ptr %16, align 4
-  %280 = call i32 @Ssc_ManCheckEquivalence(ptr noundef %270, i32 noundef %274, i32 noundef %278, i32 noundef %279)
-  store i32 %280, ptr %18, align 4
-  %281 = load i32, ptr %18, align 4
-  %282 = icmp eq i32 %281, -1
-  br i1 %282, label %283, label %305
+246:                                              ; preds = %222
+  %247 = load ptr, ptr %12, align 8
+  %248 = load i64, ptr %247, align 4
+  %249 = lshr i64 %248, 63
+  %250 = trunc i64 %249 to i32
+  %251 = load ptr, ptr %11, align 8
+  %252 = load i64, ptr %251, align 4
+  %253 = lshr i64 %252, 63
+  %254 = trunc i64 %253 to i32
+  %255 = xor i32 %250, %254
+  %256 = load ptr, ptr %12, align 8
+  %257 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %256, i32 0, i32 1
+  %258 = load i32, ptr %257, align 4
+  %259 = call i32 @Abc_LitIsCompl(i32 noundef %258)
+  %260 = xor i32 %255, %259
+  %261 = load ptr, ptr %11, align 8
+  %262 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %261, i32 0, i32 1
+  %263 = load i32, ptr %262, align 4
+  %264 = call i32 @Abc_LitIsCompl(i32 noundef %263)
+  %265 = xor i32 %260, %264
+  store i32 %265, ptr %16, align 4
+  %266 = call i64 @Abc_Clock()
+  store i64 %266, ptr %13, align 8
+  %267 = load ptr, ptr %8, align 8
+  %268 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %267, i32 0, i32 17
+  %269 = load i32, ptr %268, align 4
+  %270 = add nsw i32 %269, 1
+  store i32 %270, ptr %268, align 4
+  %271 = load ptr, ptr %8, align 8
+  %272 = load ptr, ptr %12, align 8
+  %273 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %272, i32 0, i32 1
+  %274 = load i32, ptr %273, align 4
+  %275 = call i32 @Abc_Lit2Var(i32 noundef %274)
+  %276 = load ptr, ptr %11, align 8
+  %277 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %276, i32 0, i32 1
+  %278 = load i32, ptr %277, align 4
+  %279 = call i32 @Abc_Lit2Var(i32 noundef %278)
+  %280 = load i32, ptr %16, align 4
+  %281 = call i32 @Ssc_ManCheckEquivalence(ptr noundef %271, i32 noundef %275, i32 noundef %279, i32 noundef %280)
+  store i32 %281, ptr %18, align 4
+  %282 = load i32, ptr %18, align 4
+  %283 = icmp eq i32 %282, -1
+  br i1 %283, label %284, label %306
 
-283:                                              ; preds = %245
-  %284 = load ptr, ptr %8, align 8
-  %285 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %284, i32 0, i32 18
-  %286 = load i32, ptr %285, align 8
-  %287 = add nsw i32 %286, 1
-  store i32 %287, ptr %285, align 8
-  %288 = load ptr, ptr %12, align 8
-  %289 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %288, i32 0, i32 1
-  %290 = load i32, ptr %289, align 4
-  %291 = load ptr, ptr %12, align 8
-  %292 = load i64, ptr %291, align 4
-  %293 = lshr i64 %292, 63
-  %294 = trunc i64 %293 to i32
-  %295 = load ptr, ptr %11, align 8
-  %296 = load i64, ptr %295, align 4
-  %297 = lshr i64 %296, 63
-  %298 = trunc i64 %297 to i32
-  %299 = xor i32 %294, %298
-  %300 = call i32 @Abc_LitNotCond(i32 noundef %290, i32 noundef %299)
-  %301 = load ptr, ptr %11, align 8
-  %302 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %301, i32 0, i32 1
-  store i32 %300, ptr %302, align 4
-  %303 = load ptr, ptr %5, align 8
-  %304 = load i32, ptr %15, align 4
-  call void @Gia_ObjSetProved(ptr noundef %303, i32 noundef %304)
-  br label %356
+284:                                              ; preds = %246
+  %285 = load ptr, ptr %8, align 8
+  %286 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %285, i32 0, i32 18
+  %287 = load i32, ptr %286, align 8
+  %288 = add nsw i32 %287, 1
+  store i32 %288, ptr %286, align 8
+  %289 = load ptr, ptr %12, align 8
+  %290 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %289, i32 0, i32 1
+  %291 = load i32, ptr %290, align 4
+  %292 = load ptr, ptr %12, align 8
+  %293 = load i64, ptr %292, align 4
+  %294 = lshr i64 %293, 63
+  %295 = trunc i64 %294 to i32
+  %296 = load ptr, ptr %11, align 8
+  %297 = load i64, ptr %296, align 4
+  %298 = lshr i64 %297, 63
+  %299 = trunc i64 %298 to i32
+  %300 = xor i32 %295, %299
+  %301 = call i32 @Abc_LitNotCond(i32 noundef %291, i32 noundef %300)
+  %302 = load ptr, ptr %11, align 8
+  %303 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %302, i32 0, i32 1
+  store i32 %301, ptr %303, align 4
+  %304 = load ptr, ptr %5, align 8
+  %305 = load i32, ptr %15, align 4
+  call void @Gia_ObjSetProved(ptr noundef %304, i32 noundef %305)
+  br label %357
 
-305:                                              ; preds = %245
-  %306 = load i32, ptr %18, align 4
-  %307 = icmp eq i32 %306, 1
-  br i1 %307, label %308, label %345
+306:                                              ; preds = %246
+  %307 = load i32, ptr %18, align 4
+  %308 = icmp eq i32 %307, 1
+  br i1 %308, label %309, label %346
 
-308:                                              ; preds = %305
-  %309 = load ptr, ptr %8, align 8
-  %310 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %309, i32 0, i32 19
-  %311 = load i32, ptr %310, align 4
-  %312 = add nsw i32 %311, 1
-  store i32 %312, ptr %310, align 4
-  %313 = load ptr, ptr %5, align 8
-  %314 = load ptr, ptr %8, align 8
-  %315 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %314, i32 0, i32 12
-  %316 = load ptr, ptr %315, align 8
-  call void @Ssc_GiaSavePiPattern(ptr noundef %313, ptr noundef %316)
-  %317 = load ptr, ptr %8, align 8
-  %318 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %317, i32 0, i32 13
-  %319 = load ptr, ptr %318, align 8
-  %320 = load ptr, ptr %8, align 8
-  %321 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %320, i32 0, i32 1
-  %322 = load ptr, ptr %321, align 8
-  %323 = load i32, ptr %15, align 4
-  %324 = call i32 @Gia_ObjRepr(ptr noundef %322, i32 noundef %323)
-  call void @Vec_IntPush(ptr noundef %319, i32 noundef %324)
-  %325 = load ptr, ptr %8, align 8
-  %326 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %325, i32 0, i32 13
-  %327 = load ptr, ptr %326, align 8
-  %328 = load i32, ptr %15, align 4
-  call void @Vec_IntPush(ptr noundef %327, i32 noundef %328)
-  %329 = load ptr, ptr %8, align 8
-  %330 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %329, i32 0, i32 1
-  %331 = load ptr, ptr %330, align 8
-  %332 = load i32, ptr %15, align 4
-  %333 = call i32 @Gia_ObjRepr(ptr noundef %331, i32 noundef %332)
-  %334 = icmp sgt i32 %333, 0
-  br i1 %334, label %335, label %344
+309:                                              ; preds = %306
+  %310 = load ptr, ptr %8, align 8
+  %311 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %310, i32 0, i32 19
+  %312 = load i32, ptr %311, align 4
+  %313 = add nsw i32 %312, 1
+  store i32 %313, ptr %311, align 4
+  %314 = load ptr, ptr %5, align 8
+  %315 = load ptr, ptr %8, align 8
+  %316 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %315, i32 0, i32 12
+  %317 = load ptr, ptr %316, align 8
+  call void @Ssc_GiaSavePiPattern(ptr noundef %314, ptr noundef %317)
+  %318 = load ptr, ptr %8, align 8
+  %319 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %318, i32 0, i32 13
+  %320 = load ptr, ptr %319, align 8
+  %321 = load ptr, ptr %8, align 8
+  %322 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %321, i32 0, i32 1
+  %323 = load ptr, ptr %322, align 8
+  %324 = load i32, ptr %15, align 4
+  %325 = call i32 @Gia_ObjRepr(ptr noundef %323, i32 noundef %324)
+  call void @Vec_IntPush(ptr noundef %320, i32 noundef %325)
+  %326 = load ptr, ptr %8, align 8
+  %327 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %326, i32 0, i32 13
+  %328 = load ptr, ptr %327, align 8
+  %329 = load i32, ptr %15, align 4
+  call void @Vec_IntPush(ptr noundef %328, i32 noundef %329)
+  %330 = load ptr, ptr %8, align 8
+  %331 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %330, i32 0, i32 1
+  %332 = load ptr, ptr %331, align 8
+  %333 = load i32, ptr %15, align 4
+  %334 = call i32 @Gia_ObjRepr(ptr noundef %332, i32 noundef %333)
+  %335 = icmp sgt i32 %334, 0
+  br i1 %335, label %336, label %345
 
-335:                                              ; preds = %308
-  %336 = load ptr, ptr %8, align 8
+336:                                              ; preds = %309
   %337 = load ptr, ptr %8, align 8
-  %338 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %337, i32 0, i32 1
-  %339 = load ptr, ptr %338, align 8
-  %340 = load i32, ptr %15, align 4
-  %341 = call i32 @Gia_ObjRepr(ptr noundef %339, i32 noundef %340)
-  %342 = load i32, ptr %15, align 4
-  %343 = call i32 @Ssc_GiaResimulateOneClass(ptr noundef %336, i32 noundef %341, i32 noundef %342)
-  br label %344
+  %338 = load ptr, ptr %8, align 8
+  %339 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %338, i32 0, i32 1
+  %340 = load ptr, ptr %339, align 8
+  %341 = load i32, ptr %15, align 4
+  %342 = call i32 @Gia_ObjRepr(ptr noundef %340, i32 noundef %341)
+  %343 = load i32, ptr %15, align 4
+  %344 = call i32 @Ssc_GiaResimulateOneClass(ptr noundef %337, i32 noundef %342, i32 noundef %343)
+  br label %345
 
-344:                                              ; preds = %335, %308
-  br label %355
-
-345:                                              ; preds = %305
-  %346 = load i32, ptr %18, align 4
-  %347 = icmp eq i32 %346, 0
-  br i1 %347, label %348, label %353
-
-348:                                              ; preds = %345
-  %349 = load ptr, ptr %8, align 8
-  %350 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %349, i32 0, i32 20
-  %351 = load i32, ptr %350, align 8
-  %352 = add nsw i32 %351, 1
-  store i32 %352, ptr %350, align 8
-  br label %354
-
-353:                                              ; preds = %345
-  br label %354
-
-354:                                              ; preds = %353, %348
-  br label %355
-
-355:                                              ; preds = %354, %344
+345:                                              ; preds = %336, %309
   br label %356
 
-356:                                              ; preds = %355, %283
-  %357 = call i64 @Abc_Clock()
-  %358 = load i64, ptr %13, align 8
-  %359 = sub nsw i64 %357, %358
-  %360 = load ptr, ptr %8, align 8
-  %361 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %360, i32 0, i32 24
-  %362 = load i64, ptr %361, align 8
-  %363 = add nsw i64 %362, %359
-  store i64 %363, ptr %361, align 8
-  br label %364
+346:                                              ; preds = %306
+  %347 = load i32, ptr %18, align 4
+  %348 = icmp eq i32 %347, 0
+  br i1 %348, label %349, label %354
 
-364:                                              ; preds = %356, %156
+349:                                              ; preds = %346
+  %350 = load ptr, ptr %8, align 8
+  %351 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %350, i32 0, i32 20
+  %352 = load i32, ptr %351, align 8
+  %353 = add nsw i32 %352, 1
+  store i32 %353, ptr %351, align 8
+  br label %355
+
+354:                                              ; preds = %346
+  br label %355
+
+355:                                              ; preds = %354, %349
+  br label %356
+
+356:                                              ; preds = %355, %345
+  br label %357
+
+357:                                              ; preds = %356, %284
+  %358 = call i64 @Abc_Clock()
+  %359 = load i64, ptr %13, align 8
+  %360 = sub nsw i64 %358, %359
+  %361 = load ptr, ptr %8, align 8
+  %362 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %361, i32 0, i32 24
+  %363 = load i64, ptr %362, align 8
+  %364 = add nsw i64 %363, %360
+  store i64 %364, ptr %362, align 8
   br label %365
 
-365:                                              ; preds = %364, %242, %220
-  %366 = load i32, ptr %15, align 4
-  %367 = add nsw i32 %366, 1
-  store i32 %367, ptr %15, align 4
-  br label %139, !llvm.loop !7
+365:                                              ; preds = %357, %157
+  br label %366
 
-368:                                              ; preds = %150
-  %369 = load ptr, ptr %5, align 8
-  %370 = getelementptr inbounds %struct.Gia_Man_t_, ptr %369, i32 0, i32 108
-  %371 = load i32, ptr %370, align 4
-  %372 = icmp sgt i32 %371, 1
-  br i1 %372, label %373, label %414
+366:                                              ; preds = %365, %243, %221
+  %367 = load i32, ptr %15, align 4
+  %368 = add nsw i32 %367, 1
+  store i32 %368, ptr %15, align 4
+  br label %140, !llvm.loop !7
 
-373:                                              ; preds = %368
-  %374 = call i64 @Abc_Clock()
-  store i64 %374, ptr %13, align 8
-  br label %375
+369:                                              ; preds = %151
+  %370 = load ptr, ptr %5, align 8
+  %371 = getelementptr inbounds %struct.Gia_Man_t_, ptr %370, i32 0, i32 108
+  %372 = load i32, ptr %371, align 4
+  %373 = icmp sgt i32 %372, 1
+  br i1 %373, label %374, label %415
 
-375:                                              ; preds = %384, %373
-  %376 = load ptr, ptr %5, align 8
-  %377 = getelementptr inbounds %struct.Gia_Man_t_, ptr %376, i32 0, i32 108
-  %378 = load i32, ptr %377, align 4
-  %379 = load ptr, ptr %7, align 8
-  %380 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %379, i32 0, i32 0
-  %381 = load i32, ptr %380, align 4
-  %382 = mul nsw i32 64, %381
-  %383 = icmp slt i32 %378, %382
-  br i1 %383, label %384, label %389
+374:                                              ; preds = %369
+  %375 = call i64 @Abc_Clock()
+  store i64 %375, ptr %13, align 8
+  br label %376
 
-384:                                              ; preds = %375
-  %385 = load ptr, ptr %5, align 8
-  %386 = load ptr, ptr %8, align 8
-  %387 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %386, i32 0, i32 7
-  %388 = load ptr, ptr %387, align 8
-  call void @Ssc_GiaSavePiPattern(ptr noundef %385, ptr noundef %388)
-  br label %375, !llvm.loop !8
+376:                                              ; preds = %385, %374
+  %377 = load ptr, ptr %5, align 8
+  %378 = getelementptr inbounds %struct.Gia_Man_t_, ptr %377, i32 0, i32 108
+  %379 = load i32, ptr %378, align 4
+  %380 = load ptr, ptr %7, align 8
+  %381 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %380, i32 0, i32 0
+  %382 = load i32, ptr %381, align 4
+  %383 = mul nsw i32 64, %382
+  %384 = icmp slt i32 %379, %383
+  br i1 %384, label %385, label %390
 
-389:                                              ; preds = %375
-  %390 = load ptr, ptr %5, align 8
-  call void @Ssc_GiaSimRound(ptr noundef %390)
+385:                                              ; preds = %376
+  %386 = load ptr, ptr %5, align 8
+  %387 = load ptr, ptr %8, align 8
+  %388 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %387, i32 0, i32 7
+  %389 = load ptr, ptr %388, align 8
+  call void @Ssc_GiaSavePiPattern(ptr noundef %386, ptr noundef %389)
+  br label %376, !llvm.loop !8
+
+390:                                              ; preds = %376
   %391 = load ptr, ptr %5, align 8
-  %392 = call i32 @Ssc_GiaClassesRefine(ptr noundef %391)
-  %393 = load ptr, ptr %7, align 8
-  %394 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %393, i32 0, i32 5
-  %395 = load i32, ptr %394, align 4
-  %396 = icmp ne i32 %395, 0
-  br i1 %396, label %397, label %399
+  call void @Ssc_GiaSimRound(ptr noundef %391)
+  %392 = load ptr, ptr %5, align 8
+  %393 = call i32 @Ssc_GiaClassesRefine(ptr noundef %392)
+  %394 = load ptr, ptr %7, align 8
+  %395 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %394, i32 0, i32 5
+  %396 = load i32, ptr %395, align 4
+  %397 = icmp ne i32 %396, 0
+  br i1 %397, label %398, label %400
 
-397:                                              ; preds = %389
-  %398 = load ptr, ptr %5, align 8
-  call void @Gia_ManEquivPrintClasses(ptr noundef %398, i32 noundef 0, float noundef 0.000000e+00)
-  br label %399
+398:                                              ; preds = %390
+  %399 = load ptr, ptr %5, align 8
+  call void @Gia_ManEquivPrintClasses(ptr noundef %399, i32 noundef 0, float noundef 0.000000e+00)
+  br label %400
 
-399:                                              ; preds = %397, %389
-  %400 = load ptr, ptr %5, align 8
-  %401 = load ptr, ptr %8, align 8
-  %402 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %401, i32 0, i32 13
-  %403 = load ptr, ptr %402, align 8
-  call void @Ssc_GiaClassesCheckPairs(ptr noundef %400, ptr noundef %403)
-  %404 = load ptr, ptr %8, align 8
-  %405 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %404, i32 0, i32 13
-  %406 = load ptr, ptr %405, align 8
-  call void @Vec_IntClear(ptr noundef %406)
-  %407 = call i64 @Abc_Clock()
-  %408 = load i64, ptr %13, align 8
-  %409 = sub nsw i64 %407, %408
-  %410 = load ptr, ptr %8, align 8
-  %411 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %410, i32 0, i32 22
-  %412 = load i64, ptr %411, align 8
-  %413 = add nsw i64 %412, %409
-  store i64 %413, ptr %411, align 8
-  br label %414
+400:                                              ; preds = %398, %390
+  %401 = load ptr, ptr %5, align 8
+  %402 = load ptr, ptr %8, align 8
+  %403 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %402, i32 0, i32 13
+  %404 = load ptr, ptr %403, align 8
+  call void @Ssc_GiaClassesCheckPairs(ptr noundef %401, ptr noundef %404)
+  %405 = load ptr, ptr %8, align 8
+  %406 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %405, i32 0, i32 13
+  %407 = load ptr, ptr %406, align 8
+  call void @Vec_IntClear(ptr noundef %407)
+  %408 = call i64 @Abc_Clock()
+  %409 = load i64, ptr %13, align 8
+  %410 = sub nsw i64 %408, %409
+  %411 = load ptr, ptr %8, align 8
+  %412 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %411, i32 0, i32 22
+  %413 = load i64, ptr %412, align 8
+  %414 = add nsw i64 %413, %410
+  store i64 %414, ptr %412, align 8
+  br label %415
 
-414:                                              ; preds = %399, %368
-  %415 = load ptr, ptr %5, align 8
-  %416 = call ptr @Gia_ManEquivReduce(ptr noundef %415, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  store ptr %416, ptr %9, align 8
-  %417 = load ptr, ptr %9, align 8
-  %418 = icmp eq ptr %417, null
-  br i1 %418, label %419, label %447
+415:                                              ; preds = %400, %369
+  %416 = load ptr, ptr %5, align 8
+  %417 = call ptr @Gia_ManEquivReduce(ptr noundef %416, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  store ptr %417, ptr %9, align 8
+  %418 = load ptr, ptr %9, align 8
+  %419 = icmp eq ptr %418, null
+  br i1 %419, label %420, label %448
 
-419:                                              ; preds = %414
-  %420 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
-  %421 = load ptr, ptr %5, align 8
-  %422 = getelementptr inbounds %struct.Gia_Man_t_, ptr %421, i32 0, i32 27
-  %423 = load ptr, ptr %422, align 8
-  %424 = icmp ne ptr %423, null
-  br i1 %424, label %425, label %431
+420:                                              ; preds = %415
+  %421 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
+  %422 = load ptr, ptr %5, align 8
+  %423 = getelementptr inbounds %struct.Gia_Man_t_, ptr %422, i32 0, i32 27
+  %424 = load ptr, ptr %423, align 8
+  %425 = icmp ne ptr %424, null
+  br i1 %425, label %426, label %432
 
-425:                                              ; preds = %419
-  %426 = load ptr, ptr %5, align 8
-  %427 = getelementptr inbounds %struct.Gia_Man_t_, ptr %426, i32 0, i32 27
-  %428 = load ptr, ptr %427, align 8
-  call void @free(ptr noundef %428) #11
-  %429 = load ptr, ptr %5, align 8
-  %430 = getelementptr inbounds %struct.Gia_Man_t_, ptr %429, i32 0, i32 27
-  store ptr null, ptr %430, align 8
-  br label %432
+426:                                              ; preds = %420
+  %427 = load ptr, ptr %5, align 8
+  %428 = getelementptr inbounds %struct.Gia_Man_t_, ptr %427, i32 0, i32 27
+  %429 = load ptr, ptr %428, align 8
+  call void @free(ptr noundef %429) #11
+  %430 = load ptr, ptr %5, align 8
+  %431 = getelementptr inbounds %struct.Gia_Man_t_, ptr %430, i32 0, i32 27
+  store ptr null, ptr %431, align 8
+  br label %433
 
-431:                                              ; preds = %419
-  br label %432
+432:                                              ; preds = %420
+  br label %433
 
-432:                                              ; preds = %431, %425
-  %433 = load ptr, ptr %5, align 8
-  %434 = getelementptr inbounds %struct.Gia_Man_t_, ptr %433, i32 0, i32 28
-  %435 = load ptr, ptr %434, align 8
-  %436 = icmp ne ptr %435, null
-  br i1 %436, label %437, label %443
+433:                                              ; preds = %432, %426
+  %434 = load ptr, ptr %5, align 8
+  %435 = getelementptr inbounds %struct.Gia_Man_t_, ptr %434, i32 0, i32 28
+  %436 = load ptr, ptr %435, align 8
+  %437 = icmp ne ptr %436, null
+  br i1 %437, label %438, label %444
 
-437:                                              ; preds = %432
-  %438 = load ptr, ptr %5, align 8
-  %439 = getelementptr inbounds %struct.Gia_Man_t_, ptr %438, i32 0, i32 28
-  %440 = load ptr, ptr %439, align 8
-  call void @free(ptr noundef %440) #11
-  %441 = load ptr, ptr %5, align 8
-  %442 = getelementptr inbounds %struct.Gia_Man_t_, ptr %441, i32 0, i32 28
-  store ptr null, ptr %442, align 8
-  br label %444
+438:                                              ; preds = %433
+  %439 = load ptr, ptr %5, align 8
+  %440 = getelementptr inbounds %struct.Gia_Man_t_, ptr %439, i32 0, i32 28
+  %441 = load ptr, ptr %440, align 8
+  call void @free(ptr noundef %441) #11
+  %442 = load ptr, ptr %5, align 8
+  %443 = getelementptr inbounds %struct.Gia_Man_t_, ptr %442, i32 0, i32 28
+  store ptr null, ptr %443, align 8
+  br label %445
 
-443:                                              ; preds = %432
-  br label %444
+444:                                              ; preds = %433
+  br label %445
 
-444:                                              ; preds = %443, %437
-  %445 = load ptr, ptr %5, align 8
-  %446 = call ptr @Gia_ManDup(ptr noundef %445)
-  store ptr %446, ptr %9, align 8
-  br label %447
+445:                                              ; preds = %444, %438
+  %446 = load ptr, ptr %5, align 8
+  %447 = call ptr @Gia_ManDup(ptr noundef %446)
+  store ptr %447, ptr %9, align 8
+  br label %448
 
-447:                                              ; preds = %444, %414
-  %448 = load ptr, ptr %9, align 8
-  store ptr %448, ptr %10, align 8
-  %449 = call ptr @Gia_ManCleanup(ptr noundef %448)
-  store ptr %449, ptr %9, align 8
-  %450 = load ptr, ptr %10, align 8
-  call void @Gia_ManStop(ptr noundef %450)
-  %451 = call i64 @Abc_Clock()
-  %452 = load i64, ptr %14, align 8
-  %453 = sub nsw i64 %451, %452
-  %454 = load ptr, ptr %8, align 8
-  %455 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %454, i32 0, i32 29
-  store i64 %453, ptr %455, align 8
-  %456 = load ptr, ptr %7, align 8
-  %457 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %456, i32 0, i32 5
-  %458 = load i32, ptr %457, align 4
-  %459 = icmp ne i32 %458, 0
-  br i1 %459, label %460, label %462
+448:                                              ; preds = %445, %415
+  %449 = load ptr, ptr %9, align 8
+  store ptr %449, ptr %10, align 8
+  %450 = call ptr @Gia_ManCleanup(ptr noundef %449)
+  store ptr %450, ptr %9, align 8
+  %451 = load ptr, ptr %10, align 8
+  call void @Gia_ManStop(ptr noundef %451)
+  %452 = call i64 @Abc_Clock()
+  %453 = load i64, ptr %14, align 8
+  %454 = sub nsw i64 %452, %453
+  %455 = load ptr, ptr %8, align 8
+  %456 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %455, i32 0, i32 29
+  store i64 %454, ptr %456, align 8
+  %457 = load ptr, ptr %7, align 8
+  %458 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %457, i32 0, i32 5
+  %459 = load i32, ptr %458, align 4
+  %460 = icmp ne i32 %459, 0
+  br i1 %460, label %461, label %463
 
-460:                                              ; preds = %447
-  %461 = load ptr, ptr %8, align 8
-  call void @Ssc_ManPrintStats(ptr noundef %461)
-  br label %462
+461:                                              ; preds = %448
+  %462 = load ptr, ptr %8, align 8
+  call void @Ssc_ManPrintStats(ptr noundef %462)
+  br label %463
 
-462:                                              ; preds = %460, %447
-  %463 = load ptr, ptr %8, align 8
-  call void @Ssc_ManStop(ptr noundef %463)
-  %464 = load ptr, ptr %7, align 8
-  %465 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %464, i32 0, i32 5
-  %466 = load i32, ptr %465, align 4
-  %467 = icmp ne i32 %466, 0
-  br i1 %467, label %468, label %485
+463:                                              ; preds = %461, %448
+  %464 = load ptr, ptr %8, align 8
+  call void @Ssc_ManStop(ptr noundef %464)
+  %465 = load ptr, ptr %7, align 8
+  %466 = getelementptr inbounds %struct.Ssc_Pars_t_, ptr %465, i32 0, i32 5
+  %467 = load i32, ptr %466, align 4
+  %468 = icmp ne i32 %467, 0
+  br i1 %468, label %469, label %486
 
-468:                                              ; preds = %462
-  %469 = load ptr, ptr %5, align 8
-  %470 = call i32 @Gia_ManAndNum(ptr noundef %469)
-  %471 = load ptr, ptr %9, align 8
-  %472 = call i32 @Gia_ManAndNum(ptr noundef %471)
-  %473 = load ptr, ptr %9, align 8
-  %474 = call i32 @Gia_ManAndNum(ptr noundef %473)
-  %475 = sitofp i32 %474 to double
-  %476 = fmul double 1.000000e+02, %475
-  %477 = load ptr, ptr %5, align 8
-  %478 = call i32 @Gia_ManAndNum(ptr noundef %477)
-  %479 = sitofp i32 %478 to double
-  %480 = fdiv double %476, %479
-  %481 = fsub double 1.000000e+02, %480
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.23, i32 noundef %470, i32 noundef %472, double noundef %481)
-  %482 = call i64 @Abc_Clock()
-  %483 = load i64, ptr %14, align 8
-  %484 = sub nsw i64 %482, %483
-  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.24, i64 noundef %484)
-  br label %485
+469:                                              ; preds = %463
+  %470 = load ptr, ptr %5, align 8
+  %471 = call i32 @Gia_ManAndNum(ptr noundef %470)
+  %472 = load ptr, ptr %9, align 8
+  %473 = call i32 @Gia_ManAndNum(ptr noundef %472)
+  %474 = load ptr, ptr %9, align 8
+  %475 = call i32 @Gia_ManAndNum(ptr noundef %474)
+  %476 = sitofp i32 %475 to double
+  %477 = fmul double 1.000000e+02, %476
+  %478 = load ptr, ptr %5, align 8
+  %479 = call i32 @Gia_ManAndNum(ptr noundef %478)
+  %480 = sitofp i32 %479 to double
+  %481 = fdiv double %477, %480
+  %482 = fsub double 1.000000e+02, %481
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef @.str.23, i32 noundef %471, i32 noundef %473, double noundef %482)
+  %483 = call i64 @Abc_Clock()
+  %484 = load i64, ptr %14, align 8
+  %485 = sub nsw i64 %483, %484
+  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.24, i64 noundef %485)
+  br label %486
 
-485:                                              ; preds = %468, %462
-  %486 = load ptr, ptr %9, align 8
-  store ptr %486, ptr %4, align 8
-  br label %487
+486:                                              ; preds = %469, %463
+  %487 = load ptr, ptr %9, align 8
+  store ptr %487, ptr %4, align 8
+  br label %488
 
-487:                                              ; preds = %485, %34, %28
-  %488 = load ptr, ptr %4, align 8
-  ret ptr %488
+488:                                              ; preds = %486, %35, %29
+  %489 = load ptr, ptr %4, align 8
+  ret ptr %489
 }
 
 declare i32 @Gia_ManRandom(i32 noundef) #2
@@ -3181,19 +3185,13 @@ declare i32 @Abc_FrameIsBridgeMode(...) #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #8
+declare i64 @strlen(ptr noundef) #7
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Vec_IntEntry(ptr noundef %0, i32 noundef %1) #0 {
@@ -3384,7 +3382,7 @@ define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #9
+declare ptr @realloc(ptr noundef, i64 noundef) #8
 
 ; Function Attrs: nounwind
 declare ptr @strcpy(ptr noundef, ptr noundef) #3
@@ -3590,9 +3588,15 @@ define internal i32 @Abc_MinInt(i32 noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #10
+declare void @exit(i32 noundef) #9
 
 declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -3601,10 +3605,10 @@ attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #4 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(0,1) }
 attributes #13 = { nounwind allocsize(0) }

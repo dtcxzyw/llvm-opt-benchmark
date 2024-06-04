@@ -1858,31 +1858,33 @@ if.then47:                                        ; preds = %if.then45
 
 if.end50:                                         ; preds = %if.then45
   %30 = load i32, ptr @diff_dirstat_permille_default, align 4
-  store i32 %30, ptr getelementptr inbounds (%struct.diff_options, ptr @default_diff_options, i32 0, i32 31), align 4
-  %31 = load ptr, ptr %value.addr, align 8
-  %call51 = call i32 @parse_dirstat_params(ptr noundef @default_diff_options, ptr noundef %31, ptr noundef %errmsg)
+  %31 = getelementptr inbounds %struct.diff_options, ptr @default_diff_options, i32 0, i32 31
+  store i32 %30, ptr %31, align 4
+  %32 = load ptr, ptr %value.addr, align 8
+  %call51 = call i32 @parse_dirstat_params(ptr noundef @default_diff_options, ptr noundef %32, ptr noundef %errmsg)
   %tobool52 = icmp ne i32 %call51, 0
   br i1 %tobool52, label %if.then53, label %if.end55
 
 if.then53:                                        ; preds = %if.end50
   %call54 = call ptr @_(ptr noundef @.str.37)
   %buf = getelementptr inbounds %struct.strbuf, ptr %errmsg, i32 0, i32 2
-  %32 = load ptr, ptr %buf, align 8
-  call void (ptr, ...) @warning(ptr noundef %call54, ptr noundef %32)
+  %33 = load ptr, ptr %buf, align 8
+  call void (ptr, ...) @warning(ptr noundef %call54, ptr noundef %33)
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then53, %if.end50
   call void @strbuf_release(ptr noundef %errmsg)
-  %33 = load i32, ptr getelementptr inbounds (%struct.diff_options, ptr @default_diff_options, i32 0, i32 31), align 4
-  store i32 %33, ptr @diff_dirstat_permille_default, align 4
+  %34 = getelementptr inbounds %struct.diff_options, ptr @default_diff_options, i32 0, i32 31
+  %35 = load i32, ptr %34, align 4
+  store i32 %35, ptr @diff_dirstat_permille_default, align 4
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end56:                                         ; preds = %if.end42
-  %34 = load ptr, ptr %var.addr, align 8
-  %35 = load ptr, ptr %value.addr, align 8
-  %36 = load ptr, ptr %cb.addr, align 8
-  %call57 = call i32 @git_diff_heuristic_config(ptr noundef %34, ptr noundef %35, ptr noundef %36)
+  %36 = load ptr, ptr %var.addr, align 8
+  %37 = load ptr, ptr %value.addr, align 8
+  %38 = load ptr, ptr %cb.addr, align 8
+  %call57 = call i32 @git_diff_heuristic_config(ptr noundef %36, ptr noundef %37, ptr noundef %38)
   %cmp58 = icmp slt i32 %call57, 0
   br i1 %cmp58, label %if.then59, label %if.end60
 
@@ -1891,17 +1893,17 @@ if.then59:                                        ; preds = %if.end56
   br label %return
 
 if.end60:                                         ; preds = %if.end56
-  %37 = load ptr, ptr %var.addr, align 8
-  %38 = load ptr, ptr %value.addr, align 8
-  %39 = load ptr, ptr %ctx.addr, align 8
-  %40 = load ptr, ptr %cb.addr, align 8
-  %call61 = call i32 @git_default_config(ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40)
+  %39 = load ptr, ptr %var.addr, align 8
+  %40 = load ptr, ptr %value.addr, align 8
+  %41 = load ptr, ptr %ctx.addr, align 8
+  %42 = load ptr, ptr %cb.addr, align 8
+  %call61 = call i32 @git_default_config(ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42)
   store i32 %call61, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end60, %if.then59, %if.end55, %if.then47, %if.then40, %if.end33, %if.then29, %if.then23, %if.end16, %if.then13, %if.then10, %if.then3, %if.then
-  %41 = load i32, ptr %retval, align 4
-  ret i32 %41
+  %43 = load i32, ptr %retval, align 4
+  ret i32 %43
 }
 
 declare i32 @userdiff_config(ptr noundef, ptr noundef) #2
@@ -4841,8 +4843,9 @@ entry:
 define internal void @prepare_filter_bits() #0 {
 entry:
   %i = alloca i32, align 4
-  %0 = load i32, ptr getelementptr inbounds ([91 x i32], ptr @filter_bit, i64 0, i64 65), align 4
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds [91 x i32], ptr @filter_bit, i64 0, i64 65
+  %1 = load i32, ptr %0, align 4
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -4850,29 +4853,29 @@ if.then:                                          ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
+  %2 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr inbounds [11 x i8], ptr @diff_status_letters, i64 0, i64 %idxprom
-  %2 = load i8, ptr %arrayidx, align 1
-  %tobool1 = icmp ne i8 %2, 0
+  %3 = load i8, ptr %arrayidx, align 1
+  %tobool1 = icmp ne i8 %3, 0
   br i1 %tobool1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %3 = load i32, ptr %i, align 4
-  %shl = shl i32 1, %3
   %4 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %4 to i64
+  %shl = shl i32 1, %4
+  %5 = load i32, ptr %i, align 4
+  %idxprom2 = sext i32 %5 to i64
   %arrayidx3 = getelementptr inbounds [11 x i8], ptr @diff_status_letters, i64 0, i64 %idxprom2
-  %5 = load i8, ptr %arrayidx3, align 1
-  %conv = sext i8 %5 to i32
+  %6 = load i8, ptr %arrayidx3, align 1
+  %conv = sext i8 %6 to i32
   %idxprom4 = sext i32 %conv to i64
   %arrayidx5 = getelementptr inbounds [91 x i32], ptr @filter_bit, i64 0, i64 %idxprom4
   store i32 %shl, ptr %arrayidx5, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %6 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %6, 1
+  %7 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %7, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !14
 
@@ -5309,22 +5312,23 @@ if.then117:                                       ; preds = %if.end115
   br i1 %tobool118, label %if.end121, label %if.then119
 
 if.then119:                                       ; preds = %if.then117
-  %83 = load i32, ptr getelementptr inbounds ([91 x i32], ptr @filter_bit, i64 0, i64 42), align 8
-  %not = xor i32 %83, -1
-  %84 = load ptr, ptr %options.addr, align 8
-  %filter120 = getelementptr inbounds %struct.diff_options, ptr %84, i32 0, i32 15
+  %83 = getelementptr inbounds [91 x i32], ptr @filter_bit, i64 0, i64 42
+  %84 = load i32, ptr %83, align 8
+  %not = xor i32 %84, -1
+  %85 = load ptr, ptr %options.addr, align 8
+  %filter120 = getelementptr inbounds %struct.diff_options, ptr %85, i32 0, i32 15
   store i32 %not, ptr %filter120, align 4
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then119, %if.then117
-  %85 = load ptr, ptr %options.addr, align 8
-  %filter_not122 = getelementptr inbounds %struct.diff_options, ptr %85, i32 0, i32 16
-  %86 = load i32, ptr %filter_not122, align 8
-  %not123 = xor i32 %86, -1
-  %87 = load ptr, ptr %options.addr, align 8
-  %filter124 = getelementptr inbounds %struct.diff_options, ptr %87, i32 0, i32 15
-  %88 = load i32, ptr %filter124, align 4
-  %and125 = and i32 %88, %not123
+  %86 = load ptr, ptr %options.addr, align 8
+  %filter_not122 = getelementptr inbounds %struct.diff_options, ptr %86, i32 0, i32 16
+  %87 = load i32, ptr %filter_not122, align 8
+  %not123 = xor i32 %87, -1
+  %88 = load ptr, ptr %options.addr, align 8
+  %filter124 = getelementptr inbounds %struct.diff_options, ptr %88, i32 0, i32 15
+  %89 = load i32, ptr %filter124, align 4
+  %and125 = and i32 %89, %not123
   store i32 %and125, ptr %filter124, align 4
   br label %if.end126
 
@@ -6154,7 +6158,8 @@ entry:
   %callback336 = getelementptr inbounds %struct.option, ptr %arrayinit.element328, i32 0, i32 7
   store ptr @parse_opt_color_flag_cb, ptr %callback336, align 8
   %defval337 = getelementptr inbounds %struct.option, ptr %arrayinit.element328, i32 0, i32 8
-  store i64 ptrtoint (ptr @.str.116 to i64), ptr %defval337, align 8
+  %26 = ptrtoint ptr @.str.116 to i64
+  store i64 %26, ptr %defval337, align 8
   %ll_callback338 = getelementptr inbounds %struct.option, ptr %arrayinit.element328, i32 0, i32 9
   store ptr null, ptr %ll_callback338, align 8
   %extra339 = getelementptr inbounds %struct.option, ptr %arrayinit.element328, i32 0, i32 10
@@ -6169,8 +6174,8 @@ entry:
   %long_name344 = getelementptr inbounds %struct.option, ptr %arrayinit.element341, i32 0, i32 2
   store ptr @.str.117, ptr %long_name344, align 8
   %value345 = getelementptr inbounds %struct.option, ptr %arrayinit.element341, i32 0, i32 3
-  %26 = load ptr, ptr %options.addr, align 8
-  store ptr %26, ptr %value345, align 8
+  %27 = load ptr, ptr %options.addr, align 8
+  store ptr %27, ptr %value345, align 8
   %argh346 = getelementptr inbounds %struct.option, ptr %arrayinit.element341, i32 0, i32 4
   store ptr @.str.118, ptr %argh346, align 8
   %help347 = getelementptr inbounds %struct.option, ptr %arrayinit.element341, i32 0, i32 5
@@ -6195,8 +6200,8 @@ entry:
   %long_name357 = getelementptr inbounds %struct.option, ptr %arrayinit.element354, i32 0, i32 2
   store ptr null, ptr %long_name357, align 8
   %value358 = getelementptr inbounds %struct.option, ptr %arrayinit.element354, i32 0, i32 3
-  %27 = load ptr, ptr %options.addr, align 8
-  %line_termination = getelementptr inbounds %struct.diff_options, ptr %27, i32 0, i32 24
+  %28 = load ptr, ptr %options.addr, align 8
+  %line_termination = getelementptr inbounds %struct.diff_options, ptr %28, i32 0, i32 24
   store ptr %line_termination, ptr %value358, align 8
   %argh359 = getelementptr inbounds %struct.option, ptr %arrayinit.element354, i32 0, i32 4
   store ptr null, ptr %argh359, align 8
@@ -6222,8 +6227,8 @@ entry:
   %long_name370 = getelementptr inbounds %struct.option, ptr %arrayinit.element367, i32 0, i32 2
   store ptr @.str.121, ptr %long_name370, align 8
   %value371 = getelementptr inbounds %struct.option, ptr %arrayinit.element367, i32 0, i32 3
-  %28 = load ptr, ptr %options.addr, align 8
-  %abbrev = getelementptr inbounds %struct.diff_options, ptr %28, i32 0, i32 33
+  %29 = load ptr, ptr %options.addr, align 8
+  %abbrev = getelementptr inbounds %struct.diff_options, ptr %29, i32 0, i32 33
   store ptr %abbrev, ptr %value371, align 8
   %argh372 = getelementptr inbounds %struct.option, ptr %arrayinit.element367, i32 0, i32 4
   store ptr @.str.122, ptr %argh372, align 8
@@ -6249,8 +6254,8 @@ entry:
   %long_name383 = getelementptr inbounds %struct.option, ptr %arrayinit.element380, i32 0, i32 2
   store ptr @.str.124, ptr %long_name383, align 8
   %value384 = getelementptr inbounds %struct.option, ptr %arrayinit.element380, i32 0, i32 3
-  %29 = load ptr, ptr %options.addr, align 8
-  %a_prefix = getelementptr inbounds %struct.diff_options, ptr %29, i32 0, i32 10
+  %30 = load ptr, ptr %options.addr, align 8
+  %a_prefix = getelementptr inbounds %struct.diff_options, ptr %30, i32 0, i32 10
   store ptr %a_prefix, ptr %value384, align 8
   %argh385 = getelementptr inbounds %struct.option, ptr %arrayinit.element380, i32 0, i32 4
   store ptr @.str.125, ptr %argh385, align 8
@@ -6276,8 +6281,8 @@ entry:
   %long_name396 = getelementptr inbounds %struct.option, ptr %arrayinit.element393, i32 0, i32 2
   store ptr @.str.127, ptr %long_name396, align 8
   %value397 = getelementptr inbounds %struct.option, ptr %arrayinit.element393, i32 0, i32 3
-  %30 = load ptr, ptr %options.addr, align 8
-  %b_prefix = getelementptr inbounds %struct.diff_options, ptr %30, i32 0, i32 11
+  %31 = load ptr, ptr %options.addr, align 8
+  %b_prefix = getelementptr inbounds %struct.diff_options, ptr %31, i32 0, i32 11
   store ptr %b_prefix, ptr %value397, align 8
   %argh398 = getelementptr inbounds %struct.option, ptr %arrayinit.element393, i32 0, i32 4
   store ptr @.str.125, ptr %argh398, align 8
@@ -6303,8 +6308,8 @@ entry:
   %long_name409 = getelementptr inbounds %struct.option, ptr %arrayinit.element406, i32 0, i32 2
   store ptr @.str.129, ptr %long_name409, align 8
   %value410 = getelementptr inbounds %struct.option, ptr %arrayinit.element406, i32 0, i32 3
-  %31 = load ptr, ptr %options.addr, align 8
-  store ptr %31, ptr %value410, align 8
+  %32 = load ptr, ptr %options.addr, align 8
+  store ptr %32, ptr %value410, align 8
   %argh411 = getelementptr inbounds %struct.option, ptr %arrayinit.element406, i32 0, i32 4
   store ptr @.str.125, ptr %argh411, align 8
   %help412 = getelementptr inbounds %struct.option, ptr %arrayinit.element406, i32 0, i32 5
@@ -6329,8 +6334,8 @@ entry:
   %long_name422 = getelementptr inbounds %struct.option, ptr %arrayinit.element419, i32 0, i32 2
   store ptr @.str.131, ptr %long_name422, align 8
   %value423 = getelementptr inbounds %struct.option, ptr %arrayinit.element419, i32 0, i32 3
-  %32 = load ptr, ptr %options.addr, align 8
-  store ptr %32, ptr %value423, align 8
+  %33 = load ptr, ptr %options.addr, align 8
+  store ptr %33, ptr %value423, align 8
   %argh424 = getelementptr inbounds %struct.option, ptr %arrayinit.element419, i32 0, i32 4
   store ptr null, ptr %argh424, align 8
   %help425 = getelementptr inbounds %struct.option, ptr %arrayinit.element419, i32 0, i32 5
@@ -6355,8 +6360,8 @@ entry:
   %long_name435 = getelementptr inbounds %struct.option, ptr %arrayinit.element432, i32 0, i32 2
   store ptr @.str.133, ptr %long_name435, align 8
   %value436 = getelementptr inbounds %struct.option, ptr %arrayinit.element432, i32 0, i32 3
-  %33 = load ptr, ptr %options.addr, align 8
-  store ptr %33, ptr %value436, align 8
+  %34 = load ptr, ptr %options.addr, align 8
+  store ptr %34, ptr %value436, align 8
   %argh437 = getelementptr inbounds %struct.option, ptr %arrayinit.element432, i32 0, i32 4
   store ptr null, ptr %argh437, align 8
   %help438 = getelementptr inbounds %struct.option, ptr %arrayinit.element432, i32 0, i32 5
@@ -6381,8 +6386,8 @@ entry:
   %long_name448 = getelementptr inbounds %struct.option, ptr %arrayinit.element445, i32 0, i32 2
   store ptr @.str.135, ptr %long_name448, align 8
   %value449 = getelementptr inbounds %struct.option, ptr %arrayinit.element445, i32 0, i32 3
-  %34 = load ptr, ptr %options.addr, align 8
-  %interhunkcontext = getelementptr inbounds %struct.diff_options, ptr %34, i32 0, i32 19
+  %35 = load ptr, ptr %options.addr, align 8
+  %interhunkcontext = getelementptr inbounds %struct.diff_options, ptr %35, i32 0, i32 19
   store ptr %interhunkcontext, ptr %value449, align 8
   %argh450 = getelementptr inbounds %struct.option, ptr %arrayinit.element445, i32 0, i32 4
   store ptr @.str.122, ptr %argh450, align 8
@@ -6408,8 +6413,8 @@ entry:
   %long_name461 = getelementptr inbounds %struct.option, ptr %arrayinit.element458, i32 0, i32 2
   store ptr @.str.137, ptr %long_name461, align 8
   %value462 = getelementptr inbounds %struct.option, ptr %arrayinit.element458, i32 0, i32 3
-  %35 = load ptr, ptr %options.addr, align 8
-  %output_indicators = getelementptr inbounds %struct.diff_options, ptr %35, i32 0, i32 58
+  %36 = load ptr, ptr %options.addr, align 8
+  %output_indicators = getelementptr inbounds %struct.diff_options, ptr %36, i32 0, i32 58
   %arrayidx = getelementptr inbounds [3 x i8], ptr %output_indicators, i64 0, i64 0
   store ptr %arrayidx, ptr %value462, align 8
   %argh463 = getelementptr inbounds %struct.option, ptr %arrayinit.element458, i32 0, i32 4
@@ -6436,8 +6441,8 @@ entry:
   %long_name474 = getelementptr inbounds %struct.option, ptr %arrayinit.element471, i32 0, i32 2
   store ptr @.str.140, ptr %long_name474, align 8
   %value475 = getelementptr inbounds %struct.option, ptr %arrayinit.element471, i32 0, i32 3
-  %36 = load ptr, ptr %options.addr, align 8
-  %output_indicators476 = getelementptr inbounds %struct.diff_options, ptr %36, i32 0, i32 58
+  %37 = load ptr, ptr %options.addr, align 8
+  %output_indicators476 = getelementptr inbounds %struct.diff_options, ptr %37, i32 0, i32 58
   %arrayidx477 = getelementptr inbounds [3 x i8], ptr %output_indicators476, i64 0, i64 1
   store ptr %arrayidx477, ptr %value475, align 8
   %argh478 = getelementptr inbounds %struct.option, ptr %arrayinit.element471, i32 0, i32 4
@@ -6464,8 +6469,8 @@ entry:
   %long_name489 = getelementptr inbounds %struct.option, ptr %arrayinit.element486, i32 0, i32 2
   store ptr @.str.142, ptr %long_name489, align 8
   %value490 = getelementptr inbounds %struct.option, ptr %arrayinit.element486, i32 0, i32 3
-  %37 = load ptr, ptr %options.addr, align 8
-  %output_indicators491 = getelementptr inbounds %struct.diff_options, ptr %37, i32 0, i32 58
+  %38 = load ptr, ptr %options.addr, align 8
+  %output_indicators491 = getelementptr inbounds %struct.diff_options, ptr %38, i32 0, i32 58
   %arrayidx492 = getelementptr inbounds [3 x i8], ptr %output_indicators491, i64 0, i64 2
   store ptr %arrayidx492, ptr %value490, align 8
   %argh493 = getelementptr inbounds %struct.option, ptr %arrayinit.element486, i32 0, i32 4
@@ -6498,8 +6503,8 @@ entry:
   %long_name517 = getelementptr inbounds %struct.option, ptr %arrayinit.element514, i32 0, i32 2
   store ptr @.str.145, ptr %long_name517, align 8
   %value518 = getelementptr inbounds %struct.option, ptr %arrayinit.element514, i32 0, i32 3
-  %38 = load ptr, ptr %options.addr, align 8
-  %break_opt = getelementptr inbounds %struct.diff_options, ptr %38, i32 0, i32 20
+  %39 = load ptr, ptr %options.addr, align 8
+  %break_opt = getelementptr inbounds %struct.diff_options, ptr %39, i32 0, i32 20
   store ptr %break_opt, ptr %value518, align 8
   %argh519 = getelementptr inbounds %struct.option, ptr %arrayinit.element514, i32 0, i32 4
   store ptr @.str.146, ptr %argh519, align 8
@@ -6525,8 +6530,8 @@ entry:
   %long_name530 = getelementptr inbounds %struct.option, ptr %arrayinit.element527, i32 0, i32 2
   store ptr @.str.148, ptr %long_name530, align 8
   %value531 = getelementptr inbounds %struct.option, ptr %arrayinit.element527, i32 0, i32 3
-  %39 = load ptr, ptr %options.addr, align 8
-  store ptr %39, ptr %value531, align 8
+  %40 = load ptr, ptr %options.addr, align 8
+  store ptr %40, ptr %value531, align 8
   %argh532 = getelementptr inbounds %struct.option, ptr %arrayinit.element527, i32 0, i32 4
   store ptr @.str.66, ptr %argh532, align 8
   %help533 = getelementptr inbounds %struct.option, ptr %arrayinit.element527, i32 0, i32 5
@@ -6551,8 +6556,8 @@ entry:
   %long_name543 = getelementptr inbounds %struct.option, ptr %arrayinit.element540, i32 0, i32 2
   store ptr @.str.150, ptr %long_name543, align 8
   %value544 = getelementptr inbounds %struct.option, ptr %arrayinit.element540, i32 0, i32 3
-  %40 = load ptr, ptr %options.addr, align 8
-  %irreversible_delete = getelementptr inbounds %struct.diff_options, ptr %40, i32 0, i32 22
+  %41 = load ptr, ptr %options.addr, align 8
+  %irreversible_delete = getelementptr inbounds %struct.diff_options, ptr %41, i32 0, i32 22
   store ptr %irreversible_delete, ptr %value544, align 8
   %argh545 = getelementptr inbounds %struct.option, ptr %arrayinit.element540, i32 0, i32 4
   store ptr null, ptr %argh545, align 8
@@ -6578,8 +6583,8 @@ entry:
   %long_name556 = getelementptr inbounds %struct.option, ptr %arrayinit.element553, i32 0, i32 2
   store ptr @.str.152, ptr %long_name556, align 8
   %value557 = getelementptr inbounds %struct.option, ptr %arrayinit.element553, i32 0, i32 3
-  %41 = load ptr, ptr %options.addr, align 8
-  store ptr %41, ptr %value557, align 8
+  %42 = load ptr, ptr %options.addr, align 8
+  store ptr %42, ptr %value557, align 8
   %argh558 = getelementptr inbounds %struct.option, ptr %arrayinit.element553, i32 0, i32 4
   store ptr @.str.66, ptr %argh558, align 8
   %help559 = getelementptr inbounds %struct.option, ptr %arrayinit.element553, i32 0, i32 5
@@ -6604,8 +6609,8 @@ entry:
   %long_name569 = getelementptr inbounds %struct.option, ptr %arrayinit.element566, i32 0, i32 2
   store ptr @.str.154, ptr %long_name569, align 8
   %value570 = getelementptr inbounds %struct.option, ptr %arrayinit.element566, i32 0, i32 3
-  %42 = load ptr, ptr %options.addr, align 8
-  %flags571 = getelementptr inbounds %struct.diff_options, ptr %42, i32 0, i32 14
+  %43 = load ptr, ptr %options.addr, align 8
+  %flags571 = getelementptr inbounds %struct.diff_options, ptr %43, i32 0, i32 14
   %find_copies_harder = getelementptr inbounds %struct.diff_flags, ptr %flags571, i32 0, i32 6
   store ptr %find_copies_harder, ptr %value570, align 8
   %argh572 = getelementptr inbounds %struct.option, ptr %arrayinit.element566, i32 0, i32 4
@@ -6632,8 +6637,8 @@ entry:
   %long_name583 = getelementptr inbounds %struct.option, ptr %arrayinit.element580, i32 0, i32 2
   store ptr @.str.156, ptr %long_name583, align 8
   %value584 = getelementptr inbounds %struct.option, ptr %arrayinit.element580, i32 0, i32 3
-  %43 = load ptr, ptr %options.addr, align 8
-  %detect_rename = getelementptr inbounds %struct.diff_options, ptr %43, i32 0, i32 21
+  %44 = load ptr, ptr %options.addr, align 8
+  %detect_rename = getelementptr inbounds %struct.diff_options, ptr %44, i32 0, i32 21
   store ptr %detect_rename, ptr %value584, align 8
   %argh585 = getelementptr inbounds %struct.option, ptr %arrayinit.element580, i32 0, i32 4
   store ptr null, ptr %argh585, align 8
@@ -6659,8 +6664,8 @@ entry:
   %long_name596 = getelementptr inbounds %struct.option, ptr %arrayinit.element593, i32 0, i32 2
   store ptr @.str.158, ptr %long_name596, align 8
   %value597 = getelementptr inbounds %struct.option, ptr %arrayinit.element593, i32 0, i32 3
-  %44 = load ptr, ptr %options.addr, align 8
-  %flags598 = getelementptr inbounds %struct.diff_options, ptr %44, i32 0, i32 14
+  %45 = load ptr, ptr %options.addr, align 8
+  %flags598 = getelementptr inbounds %struct.diff_options, ptr %45, i32 0, i32 14
   %rename_empty = getelementptr inbounds %struct.diff_flags, ptr %flags598, i32 0, i32 8
   store ptr %rename_empty, ptr %value597, align 8
   %argh599 = getelementptr inbounds %struct.option, ptr %arrayinit.element593, i32 0, i32 4
@@ -6687,8 +6692,8 @@ entry:
   %long_name610 = getelementptr inbounds %struct.option, ptr %arrayinit.element607, i32 0, i32 2
   store ptr @.str.160, ptr %long_name610, align 8
   %value611 = getelementptr inbounds %struct.option, ptr %arrayinit.element607, i32 0, i32 3
-  %45 = load ptr, ptr %options.addr, align 8
-  store ptr %45, ptr %value611, align 8
+  %46 = load ptr, ptr %options.addr, align 8
+  store ptr %46, ptr %value611, align 8
   %argh612 = getelementptr inbounds %struct.option, ptr %arrayinit.element607, i32 0, i32 4
   store ptr null, ptr %argh612, align 8
   %help613 = getelementptr inbounds %struct.option, ptr %arrayinit.element607, i32 0, i32 5
@@ -6713,8 +6718,8 @@ entry:
   %long_name623 = getelementptr inbounds %struct.option, ptr %arrayinit.element620, i32 0, i32 2
   store ptr null, ptr %long_name623, align 8
   %value624 = getelementptr inbounds %struct.option, ptr %arrayinit.element620, i32 0, i32 3
-  %46 = load ptr, ptr %options.addr, align 8
-  %rename_limit = getelementptr inbounds %struct.diff_options, ptr %46, i32 0, i32 27
+  %47 = load ptr, ptr %options.addr, align 8
+  %rename_limit = getelementptr inbounds %struct.diff_options, ptr %47, i32 0, i32 27
   store ptr %rename_limit, ptr %value624, align 8
   %argh625 = getelementptr inbounds %struct.option, ptr %arrayinit.element620, i32 0, i32 4
   store ptr @.str.122, ptr %argh625, align 8
@@ -6746,8 +6751,8 @@ entry:
   %long_name649 = getelementptr inbounds %struct.option, ptr %arrayinit.element646, i32 0, i32 2
   store ptr @.str.5, ptr %long_name649, align 8
   %value650 = getelementptr inbounds %struct.option, ptr %arrayinit.element646, i32 0, i32 3
-  %47 = load ptr, ptr %options.addr, align 8
-  store ptr %47, ptr %value650, align 8
+  %48 = load ptr, ptr %options.addr, align 8
+  store ptr %48, ptr %value650, align 8
   %argh651 = getelementptr inbounds %struct.option, ptr %arrayinit.element646, i32 0, i32 4
   store ptr null, ptr %argh651, align 8
   %help652 = getelementptr inbounds %struct.option, ptr %arrayinit.element646, i32 0, i32 5
@@ -6772,8 +6777,8 @@ entry:
   %long_name662 = getelementptr inbounds %struct.option, ptr %arrayinit.element659, i32 0, i32 2
   store ptr @.str.165, ptr %long_name662, align 8
   %value663 = getelementptr inbounds %struct.option, ptr %arrayinit.element659, i32 0, i32 3
-  %48 = load ptr, ptr %options.addr, align 8
-  %xdl_opts = getelementptr inbounds %struct.diff_options, ptr %48, i32 0, i32 40
+  %49 = load ptr, ptr %options.addr, align 8
+  %xdl_opts = getelementptr inbounds %struct.diff_options, ptr %49, i32 0, i32 40
   store ptr %xdl_opts, ptr %value663, align 8
   %argh664 = getelementptr inbounds %struct.option, ptr %arrayinit.element659, i32 0, i32 4
   store ptr null, ptr %argh664, align 8
@@ -6799,8 +6804,8 @@ entry:
   %long_name675 = getelementptr inbounds %struct.option, ptr %arrayinit.element672, i32 0, i32 2
   store ptr @.str.167, ptr %long_name675, align 8
   %value676 = getelementptr inbounds %struct.option, ptr %arrayinit.element672, i32 0, i32 3
-  %49 = load ptr, ptr %options.addr, align 8
-  %xdl_opts677 = getelementptr inbounds %struct.diff_options, ptr %49, i32 0, i32 40
+  %50 = load ptr, ptr %options.addr, align 8
+  %xdl_opts677 = getelementptr inbounds %struct.diff_options, ptr %50, i32 0, i32 40
   store ptr %xdl_opts677, ptr %value676, align 8
   %argh678 = getelementptr inbounds %struct.option, ptr %arrayinit.element672, i32 0, i32 4
   store ptr null, ptr %argh678, align 8
@@ -6826,8 +6831,8 @@ entry:
   %long_name689 = getelementptr inbounds %struct.option, ptr %arrayinit.element686, i32 0, i32 2
   store ptr @.str.169, ptr %long_name689, align 8
   %value690 = getelementptr inbounds %struct.option, ptr %arrayinit.element686, i32 0, i32 3
-  %50 = load ptr, ptr %options.addr, align 8
-  %xdl_opts691 = getelementptr inbounds %struct.diff_options, ptr %50, i32 0, i32 40
+  %51 = load ptr, ptr %options.addr, align 8
+  %xdl_opts691 = getelementptr inbounds %struct.diff_options, ptr %51, i32 0, i32 40
   store ptr %xdl_opts691, ptr %value690, align 8
   %argh692 = getelementptr inbounds %struct.option, ptr %arrayinit.element686, i32 0, i32 4
   store ptr null, ptr %argh692, align 8
@@ -6853,8 +6858,8 @@ entry:
   %long_name703 = getelementptr inbounds %struct.option, ptr %arrayinit.element700, i32 0, i32 2
   store ptr @.str.171, ptr %long_name703, align 8
   %value704 = getelementptr inbounds %struct.option, ptr %arrayinit.element700, i32 0, i32 3
-  %51 = load ptr, ptr %options.addr, align 8
-  %xdl_opts705 = getelementptr inbounds %struct.diff_options, ptr %51, i32 0, i32 40
+  %52 = load ptr, ptr %options.addr, align 8
+  %xdl_opts705 = getelementptr inbounds %struct.diff_options, ptr %52, i32 0, i32 40
   store ptr %xdl_opts705, ptr %value704, align 8
   %argh706 = getelementptr inbounds %struct.option, ptr %arrayinit.element700, i32 0, i32 4
   store ptr null, ptr %argh706, align 8
@@ -6880,8 +6885,8 @@ entry:
   %long_name717 = getelementptr inbounds %struct.option, ptr %arrayinit.element714, i32 0, i32 2
   store ptr @.str.173, ptr %long_name717, align 8
   %value718 = getelementptr inbounds %struct.option, ptr %arrayinit.element714, i32 0, i32 3
-  %52 = load ptr, ptr %options.addr, align 8
-  %xdl_opts719 = getelementptr inbounds %struct.diff_options, ptr %52, i32 0, i32 40
+  %53 = load ptr, ptr %options.addr, align 8
+  %xdl_opts719 = getelementptr inbounds %struct.diff_options, ptr %53, i32 0, i32 40
   store ptr %xdl_opts719, ptr %value718, align 8
   %argh720 = getelementptr inbounds %struct.option, ptr %arrayinit.element714, i32 0, i32 4
   store ptr null, ptr %argh720, align 8
@@ -6907,8 +6912,8 @@ entry:
   %long_name731 = getelementptr inbounds %struct.option, ptr %arrayinit.element728, i32 0, i32 2
   store ptr @.str.175, ptr %long_name731, align 8
   %value732 = getelementptr inbounds %struct.option, ptr %arrayinit.element728, i32 0, i32 3
-  %53 = load ptr, ptr %options.addr, align 8
-  store ptr %53, ptr %value732, align 8
+  %54 = load ptr, ptr %options.addr, align 8
+  store ptr %54, ptr %value732, align 8
   %argh733 = getelementptr inbounds %struct.option, ptr %arrayinit.element728, i32 0, i32 4
   store ptr @.str.176, ptr %argh733, align 8
   %help734 = getelementptr inbounds %struct.option, ptr %arrayinit.element728, i32 0, i32 5
@@ -6933,8 +6938,8 @@ entry:
   %long_name744 = getelementptr inbounds %struct.option, ptr %arrayinit.element741, i32 0, i32 2
   store ptr @.str.178, ptr %long_name744, align 8
   %value745 = getelementptr inbounds %struct.option, ptr %arrayinit.element741, i32 0, i32 3
-  %54 = load ptr, ptr %options.addr, align 8
-  %xdl_opts746 = getelementptr inbounds %struct.diff_options, ptr %54, i32 0, i32 40
+  %55 = load ptr, ptr %options.addr, align 8
+  %xdl_opts746 = getelementptr inbounds %struct.diff_options, ptr %55, i32 0, i32 40
   store ptr %xdl_opts746, ptr %value745, align 8
   %argh747 = getelementptr inbounds %struct.option, ptr %arrayinit.element741, i32 0, i32 4
   store ptr null, ptr %argh747, align 8
@@ -6960,8 +6965,8 @@ entry:
   %long_name758 = getelementptr inbounds %struct.option, ptr %arrayinit.element755, i32 0, i32 2
   store ptr @.str.6, ptr %long_name758, align 8
   %value759 = getelementptr inbounds %struct.option, ptr %arrayinit.element755, i32 0, i32 3
-  %55 = load ptr, ptr %options.addr, align 8
-  store ptr %55, ptr %value759, align 8
+  %56 = load ptr, ptr %options.addr, align 8
+  store ptr %56, ptr %value759, align 8
   %argh760 = getelementptr inbounds %struct.option, ptr %arrayinit.element755, i32 0, i32 4
   store ptr null, ptr %argh760, align 8
   %help761 = getelementptr inbounds %struct.option, ptr %arrayinit.element755, i32 0, i32 5
@@ -6986,8 +6991,8 @@ entry:
   %long_name771 = getelementptr inbounds %struct.option, ptr %arrayinit.element768, i32 0, i32 2
   store ptr @.str.7, ptr %long_name771, align 8
   %value772 = getelementptr inbounds %struct.option, ptr %arrayinit.element768, i32 0, i32 3
-  %56 = load ptr, ptr %options.addr, align 8
-  store ptr %56, ptr %value772, align 8
+  %57 = load ptr, ptr %options.addr, align 8
+  store ptr %57, ptr %value772, align 8
   %argh773 = getelementptr inbounds %struct.option, ptr %arrayinit.element768, i32 0, i32 4
   store ptr null, ptr %argh773, align 8
   %help774 = getelementptr inbounds %struct.option, ptr %arrayinit.element768, i32 0, i32 5
@@ -7012,8 +7017,8 @@ entry:
   %long_name784 = getelementptr inbounds %struct.option, ptr %arrayinit.element781, i32 0, i32 2
   store ptr @.str.182, ptr %long_name784, align 8
   %value785 = getelementptr inbounds %struct.option, ptr %arrayinit.element781, i32 0, i32 3
-  %57 = load ptr, ptr %options.addr, align 8
-  store ptr %57, ptr %value785, align 8
+  %58 = load ptr, ptr %options.addr, align 8
+  store ptr %58, ptr %value785, align 8
   %argh786 = getelementptr inbounds %struct.option, ptr %arrayinit.element781, i32 0, i32 4
   store ptr @.str.183, ptr %argh786, align 8
   %help787 = getelementptr inbounds %struct.option, ptr %arrayinit.element781, i32 0, i32 5
@@ -7038,8 +7043,8 @@ entry:
   %long_name797 = getelementptr inbounds %struct.option, ptr %arrayinit.element794, i32 0, i32 2
   store ptr @.str.185, ptr %long_name797, align 8
   %value798 = getelementptr inbounds %struct.option, ptr %arrayinit.element794, i32 0, i32 3
-  %58 = load ptr, ptr %options.addr, align 8
-  store ptr %58, ptr %value798, align 8
+  %59 = load ptr, ptr %options.addr, align 8
+  store ptr %59, ptr %value798, align 8
   %argh799 = getelementptr inbounds %struct.option, ptr %arrayinit.element794, i32 0, i32 4
   store ptr @.str.186, ptr %argh799, align 8
   %help800 = getelementptr inbounds %struct.option, ptr %arrayinit.element794, i32 0, i32 5
@@ -7064,8 +7069,8 @@ entry:
   %long_name810 = getelementptr inbounds %struct.option, ptr %arrayinit.element807, i32 0, i32 2
   store ptr @.str.188, ptr %long_name810, align 8
   %value811 = getelementptr inbounds %struct.option, ptr %arrayinit.element807, i32 0, i32 3
-  %59 = load ptr, ptr %options.addr, align 8
-  store ptr %59, ptr %value811, align 8
+  %60 = load ptr, ptr %options.addr, align 8
+  store ptr %60, ptr %value811, align 8
   %argh812 = getelementptr inbounds %struct.option, ptr %arrayinit.element807, i32 0, i32 4
   store ptr @.str.189, ptr %argh812, align 8
   %help813 = getelementptr inbounds %struct.option, ptr %arrayinit.element807, i32 0, i32 5
@@ -7090,8 +7095,8 @@ entry:
   %long_name823 = getelementptr inbounds %struct.option, ptr %arrayinit.element820, i32 0, i32 2
   store ptr @.str.191, ptr %long_name823, align 8
   %value824 = getelementptr inbounds %struct.option, ptr %arrayinit.element820, i32 0, i32 3
-  %60 = load ptr, ptr %options.addr, align 8
-  store ptr %60, ptr %value824, align 8
+  %61 = load ptr, ptr %options.addr, align 8
+  store ptr %61, ptr %value824, align 8
   %argh825 = getelementptr inbounds %struct.option, ptr %arrayinit.element820, i32 0, i32 4
   store ptr @.str.176, ptr %argh825, align 8
   %help826 = getelementptr inbounds %struct.option, ptr %arrayinit.element820, i32 0, i32 5
@@ -7116,8 +7121,8 @@ entry:
   %long_name836 = getelementptr inbounds %struct.option, ptr %arrayinit.element833, i32 0, i32 2
   store ptr @.str.193, ptr %long_name836, align 8
   %value837 = getelementptr inbounds %struct.option, ptr %arrayinit.element833, i32 0, i32 3
-  %61 = load ptr, ptr %options.addr, align 8
-  store ptr %61, ptr %value837, align 8
+  %62 = load ptr, ptr %options.addr, align 8
+  store ptr %62, ptr %value837, align 8
   %argh838 = getelementptr inbounds %struct.option, ptr %arrayinit.element833, i32 0, i32 4
   store ptr @.str.176, ptr %argh838, align 8
   %help839 = getelementptr inbounds %struct.option, ptr %arrayinit.element833, i32 0, i32 5
@@ -7142,8 +7147,8 @@ entry:
   %long_name849 = getelementptr inbounds %struct.option, ptr %arrayinit.element846, i32 0, i32 2
   store ptr @.str.195, ptr %long_name849, align 8
   %value850 = getelementptr inbounds %struct.option, ptr %arrayinit.element846, i32 0, i32 3
-  %62 = load ptr, ptr %options.addr, align 8
-  store ptr %62, ptr %value850, align 8
+  %63 = load ptr, ptr %options.addr, align 8
+  store ptr %63, ptr %value850, align 8
   %argh851 = getelementptr inbounds %struct.option, ptr %arrayinit.element846, i32 0, i32 4
   store ptr @.str.189, ptr %argh851, align 8
   %help852 = getelementptr inbounds %struct.option, ptr %arrayinit.element846, i32 0, i32 5
@@ -7168,8 +7173,8 @@ entry:
   %long_name862 = getelementptr inbounds %struct.option, ptr %arrayinit.element859, i32 0, i32 2
   store ptr @.str.197, ptr %long_name862, align 8
   %value863 = getelementptr inbounds %struct.option, ptr %arrayinit.element859, i32 0, i32 3
-  %63 = load ptr, ptr %options.addr, align 8
-  store ptr %63, ptr %value863, align 8
+  %64 = load ptr, ptr %options.addr, align 8
+  store ptr %64, ptr %value863, align 8
   %argh864 = getelementptr inbounds %struct.option, ptr %arrayinit.element859, i32 0, i32 4
   store ptr @.str.189, ptr %argh864, align 8
   %help865 = getelementptr inbounds %struct.option, ptr %arrayinit.element859, i32 0, i32 5
@@ -7200,8 +7205,8 @@ entry:
   %long_name888 = getelementptr inbounds %struct.option, ptr %arrayinit.element885, i32 0, i32 2
   store ptr @.str.200, ptr %long_name888, align 8
   %value889 = getelementptr inbounds %struct.option, ptr %arrayinit.element885, i32 0, i32 3
-  %64 = load ptr, ptr %options.addr, align 8
-  store ptr %64, ptr %value889, align 8
+  %65 = load ptr, ptr %options.addr, align 8
+  store ptr %65, ptr %value889, align 8
   %argh890 = getelementptr inbounds %struct.option, ptr %arrayinit.element885, i32 0, i32 4
   store ptr @.str.125, ptr %argh890, align 8
   %help891 = getelementptr inbounds %struct.option, ptr %arrayinit.element885, i32 0, i32 5
@@ -7226,8 +7231,8 @@ entry:
   %long_name901 = getelementptr inbounds %struct.option, ptr %arrayinit.element898, i32 0, i32 2
   store ptr @.str.202, ptr %long_name901, align 8
   %value902 = getelementptr inbounds %struct.option, ptr %arrayinit.element898, i32 0, i32 3
-  %65 = load ptr, ptr %options.addr, align 8
-  %flags903 = getelementptr inbounds %struct.diff_options, ptr %65, i32 0, i32 14
+  %66 = load ptr, ptr %options.addr, align 8
+  %flags903 = getelementptr inbounds %struct.diff_options, ptr %66, i32 0, i32 14
   %text = getelementptr inbounds %struct.diff_flags, ptr %flags903, i32 0, i32 3
   store ptr %text, ptr %value902, align 8
   %argh904 = getelementptr inbounds %struct.option, ptr %arrayinit.element898, i32 0, i32 4
@@ -7254,8 +7259,8 @@ entry:
   %long_name915 = getelementptr inbounds %struct.option, ptr %arrayinit.element912, i32 0, i32 2
   store ptr null, ptr %long_name915, align 8
   %value916 = getelementptr inbounds %struct.option, ptr %arrayinit.element912, i32 0, i32 3
-  %66 = load ptr, ptr %options.addr, align 8
-  %flags917 = getelementptr inbounds %struct.diff_options, ptr %66, i32 0, i32 14
+  %67 = load ptr, ptr %options.addr, align 8
+  %flags917 = getelementptr inbounds %struct.diff_options, ptr %67, i32 0, i32 14
   %reverse_diff = getelementptr inbounds %struct.diff_flags, ptr %flags917, i32 0, i32 14
   store ptr %reverse_diff, ptr %value916, align 8
   %argh918 = getelementptr inbounds %struct.option, ptr %arrayinit.element912, i32 0, i32 4
@@ -7282,8 +7287,8 @@ entry:
   %long_name929 = getelementptr inbounds %struct.option, ptr %arrayinit.element926, i32 0, i32 2
   store ptr @.str.205, ptr %long_name929, align 8
   %value930 = getelementptr inbounds %struct.option, ptr %arrayinit.element926, i32 0, i32 3
-  %67 = load ptr, ptr %options.addr, align 8
-  %flags931 = getelementptr inbounds %struct.diff_options, ptr %67, i32 0, i32 14
+  %68 = load ptr, ptr %options.addr, align 8
+  %flags931 = getelementptr inbounds %struct.diff_options, ptr %68, i32 0, i32 14
   %exit_with_status = getelementptr inbounds %struct.diff_flags, ptr %flags931, i32 0, i32 13
   store ptr %exit_with_status, ptr %value930, align 8
   %argh932 = getelementptr inbounds %struct.option, ptr %arrayinit.element926, i32 0, i32 4
@@ -7310,8 +7315,8 @@ entry:
   %long_name943 = getelementptr inbounds %struct.option, ptr %arrayinit.element940, i32 0, i32 2
   store ptr @.str.207, ptr %long_name943, align 8
   %value944 = getelementptr inbounds %struct.option, ptr %arrayinit.element940, i32 0, i32 3
-  %68 = load ptr, ptr %options.addr, align 8
-  %flags945 = getelementptr inbounds %struct.diff_options, ptr %68, i32 0, i32 14
+  %69 = load ptr, ptr %options.addr, align 8
+  %flags945 = getelementptr inbounds %struct.diff_options, ptr %69, i32 0, i32 14
   %quick = getelementptr inbounds %struct.diff_flags, ptr %flags945, i32 0, i32 10
   store ptr %quick, ptr %value944, align 8
   %argh946 = getelementptr inbounds %struct.option, ptr %arrayinit.element940, i32 0, i32 4
@@ -7338,8 +7343,8 @@ entry:
   %long_name957 = getelementptr inbounds %struct.option, ptr %arrayinit.element954, i32 0, i32 2
   store ptr @.str.209, ptr %long_name957, align 8
   %value958 = getelementptr inbounds %struct.option, ptr %arrayinit.element954, i32 0, i32 3
-  %69 = load ptr, ptr %options.addr, align 8
-  %flags959 = getelementptr inbounds %struct.diff_options, ptr %69, i32 0, i32 14
+  %70 = load ptr, ptr %options.addr, align 8
+  %flags959 = getelementptr inbounds %struct.diff_options, ptr %70, i32 0, i32 14
   %allow_external = getelementptr inbounds %struct.diff_flags, ptr %flags959, i32 0, i32 12
   store ptr %allow_external, ptr %value958, align 8
   %argh960 = getelementptr inbounds %struct.option, ptr %arrayinit.element954, i32 0, i32 4
@@ -7366,8 +7371,8 @@ entry:
   %long_name971 = getelementptr inbounds %struct.option, ptr %arrayinit.element968, i32 0, i32 2
   store ptr @.str.211, ptr %long_name971, align 8
   %value972 = getelementptr inbounds %struct.option, ptr %arrayinit.element968, i32 0, i32 3
-  %70 = load ptr, ptr %options.addr, align 8
-  store ptr %70, ptr %value972, align 8
+  %71 = load ptr, ptr %options.addr, align 8
+  store ptr %71, ptr %value972, align 8
   %argh973 = getelementptr inbounds %struct.option, ptr %arrayinit.element968, i32 0, i32 4
   store ptr null, ptr %argh973, align 8
   %help974 = getelementptr inbounds %struct.option, ptr %arrayinit.element968, i32 0, i32 5
@@ -7392,8 +7397,8 @@ entry:
   %long_name984 = getelementptr inbounds %struct.option, ptr %arrayinit.element981, i32 0, i32 2
   store ptr @.str.213, ptr %long_name984, align 8
   %value985 = getelementptr inbounds %struct.option, ptr %arrayinit.element981, i32 0, i32 3
-  %71 = load ptr, ptr %options.addr, align 8
-  store ptr %71, ptr %value985, align 8
+  %72 = load ptr, ptr %options.addr, align 8
+  store ptr %72, ptr %value985, align 8
   %argh986 = getelementptr inbounds %struct.option, ptr %arrayinit.element981, i32 0, i32 4
   store ptr @.str.214, ptr %argh986, align 8
   %help987 = getelementptr inbounds %struct.option, ptr %arrayinit.element981, i32 0, i32 5
@@ -7418,8 +7423,8 @@ entry:
   %long_name997 = getelementptr inbounds %struct.option, ptr %arrayinit.element994, i32 0, i32 2
   store ptr @.str.216, ptr %long_name997, align 8
   %value998 = getelementptr inbounds %struct.option, ptr %arrayinit.element994, i32 0, i32 3
-  %72 = load ptr, ptr %options.addr, align 8
-  store ptr %72, ptr %value998, align 8
+  %73 = load ptr, ptr %options.addr, align 8
+  store ptr %73, ptr %value998, align 8
   %argh999 = getelementptr inbounds %struct.option, ptr %arrayinit.element994, i32 0, i32 4
   store ptr @.str.217, ptr %argh999, align 8
   %help1000 = getelementptr inbounds %struct.option, ptr %arrayinit.element994, i32 0, i32 5
@@ -7444,8 +7449,8 @@ entry:
   %long_name1010 = getelementptr inbounds %struct.option, ptr %arrayinit.element1007, i32 0, i32 2
   store ptr @.str.219, ptr %long_name1010, align 8
   %value1011 = getelementptr inbounds %struct.option, ptr %arrayinit.element1007, i32 0, i32 3
-  %73 = load ptr, ptr %options.addr, align 8
-  %ita_invisible_in_index = getelementptr inbounds %struct.diff_options, ptr %73, i32 0, i32 35
+  %74 = load ptr, ptr %options.addr, align 8
+  %ita_invisible_in_index = getelementptr inbounds %struct.diff_options, ptr %74, i32 0, i32 35
   store ptr %ita_invisible_in_index, ptr %value1011, align 8
   %argh1012 = getelementptr inbounds %struct.option, ptr %arrayinit.element1007, i32 0, i32 4
   store ptr null, ptr %argh1012, align 8
@@ -7471,8 +7476,8 @@ entry:
   %long_name1023 = getelementptr inbounds %struct.option, ptr %arrayinit.element1020, i32 0, i32 2
   store ptr @.str.221, ptr %long_name1023, align 8
   %value1024 = getelementptr inbounds %struct.option, ptr %arrayinit.element1020, i32 0, i32 3
-  %74 = load ptr, ptr %options.addr, align 8
-  %ita_invisible_in_index1025 = getelementptr inbounds %struct.diff_options, ptr %74, i32 0, i32 35
+  %75 = load ptr, ptr %options.addr, align 8
+  %ita_invisible_in_index1025 = getelementptr inbounds %struct.diff_options, ptr %75, i32 0, i32 35
   store ptr %ita_invisible_in_index1025, ptr %value1024, align 8
   %argh1026 = getelementptr inbounds %struct.option, ptr %arrayinit.element1020, i32 0, i32 4
   store ptr null, ptr %argh1026, align 8
@@ -7498,8 +7503,8 @@ entry:
   %long_name1037 = getelementptr inbounds %struct.option, ptr %arrayinit.element1034, i32 0, i32 2
   store ptr null, ptr %long_name1037, align 8
   %value1038 = getelementptr inbounds %struct.option, ptr %arrayinit.element1034, i32 0, i32 3
-  %75 = load ptr, ptr %options.addr, align 8
-  store ptr %75, ptr %value1038, align 8
+  %76 = load ptr, ptr %options.addr, align 8
+  store ptr %76, ptr %value1038, align 8
   %argh1039 = getelementptr inbounds %struct.option, ptr %arrayinit.element1034, i32 0, i32 4
   store ptr @.str.223, ptr %argh1039, align 8
   %help1040 = getelementptr inbounds %struct.option, ptr %arrayinit.element1034, i32 0, i32 5
@@ -7524,8 +7529,8 @@ entry:
   %long_name1050 = getelementptr inbounds %struct.option, ptr %arrayinit.element1047, i32 0, i32 2
   store ptr null, ptr %long_name1050, align 8
   %value1051 = getelementptr inbounds %struct.option, ptr %arrayinit.element1047, i32 0, i32 3
-  %76 = load ptr, ptr %options.addr, align 8
-  store ptr %76, ptr %value1051, align 8
+  %77 = load ptr, ptr %options.addr, align 8
+  store ptr %77, ptr %value1051, align 8
   %argh1052 = getelementptr inbounds %struct.option, ptr %arrayinit.element1047, i32 0, i32 4
   store ptr @.str.176, ptr %argh1052, align 8
   %help1053 = getelementptr inbounds %struct.option, ptr %arrayinit.element1047, i32 0, i32 5
@@ -7550,8 +7555,8 @@ entry:
   %long_name1063 = getelementptr inbounds %struct.option, ptr %arrayinit.element1060, i32 0, i32 2
   store ptr @.str.226, ptr %long_name1063, align 8
   %value1064 = getelementptr inbounds %struct.option, ptr %arrayinit.element1060, i32 0, i32 3
-  %77 = load ptr, ptr %options.addr, align 8
-  %pickaxe_opts = getelementptr inbounds %struct.diff_options, ptr %77, i32 0, i32 5
+  %78 = load ptr, ptr %options.addr, align 8
+  %pickaxe_opts = getelementptr inbounds %struct.diff_options, ptr %78, i32 0, i32 5
   store ptr %pickaxe_opts, ptr %value1064, align 8
   %argh1065 = getelementptr inbounds %struct.option, ptr %arrayinit.element1060, i32 0, i32 4
   store ptr null, ptr %argh1065, align 8
@@ -7577,8 +7582,8 @@ entry:
   %long_name1076 = getelementptr inbounds %struct.option, ptr %arrayinit.element1073, i32 0, i32 2
   store ptr @.str.228, ptr %long_name1076, align 8
   %value1077 = getelementptr inbounds %struct.option, ptr %arrayinit.element1073, i32 0, i32 3
-  %78 = load ptr, ptr %options.addr, align 8
-  %pickaxe_opts1078 = getelementptr inbounds %struct.diff_options, ptr %78, i32 0, i32 5
+  %79 = load ptr, ptr %options.addr, align 8
+  %pickaxe_opts1078 = getelementptr inbounds %struct.diff_options, ptr %79, i32 0, i32 5
   store ptr %pickaxe_opts1078, ptr %value1077, align 8
   %argh1079 = getelementptr inbounds %struct.option, ptr %arrayinit.element1073, i32 0, i32 4
   store ptr null, ptr %argh1079, align 8
@@ -7604,8 +7609,8 @@ entry:
   %long_name1090 = getelementptr inbounds %struct.option, ptr %arrayinit.element1087, i32 0, i32 2
   store ptr null, ptr %long_name1090, align 8
   %value1091 = getelementptr inbounds %struct.option, ptr %arrayinit.element1087, i32 0, i32 3
-  %79 = load ptr, ptr %options.addr, align 8
-  %orderfile = getelementptr inbounds %struct.diff_options, ptr %79, i32 0, i32 0
+  %80 = load ptr, ptr %options.addr, align 8
+  %orderfile = getelementptr inbounds %struct.diff_options, ptr %80, i32 0, i32 0
   store ptr %orderfile, ptr %value1091, align 8
   %argh1092 = getelementptr inbounds %struct.option, ptr %arrayinit.element1087, i32 0, i32 4
   store ptr @.str.230, ptr %argh1092, align 8
@@ -7631,8 +7636,8 @@ entry:
   %long_name1103 = getelementptr inbounds %struct.option, ptr %arrayinit.element1100, i32 0, i32 2
   store ptr @.str.232, ptr %long_name1103, align 8
   %value1104 = getelementptr inbounds %struct.option, ptr %arrayinit.element1100, i32 0, i32 3
-  %80 = load ptr, ptr %options.addr, align 8
-  store ptr %80, ptr %value1104, align 8
+  %81 = load ptr, ptr %options.addr, align 8
+  store ptr %81, ptr %value1104, align 8
   %argh1105 = getelementptr inbounds %struct.option, ptr %arrayinit.element1100, i32 0, i32 4
   store ptr @.str.233, ptr %argh1105, align 8
   %help1106 = getelementptr inbounds %struct.option, ptr %arrayinit.element1100, i32 0, i32 5
@@ -7657,8 +7662,8 @@ entry:
   %long_name1116 = getelementptr inbounds %struct.option, ptr %arrayinit.element1113, i32 0, i32 2
   store ptr @.str.235, ptr %long_name1116, align 8
   %value1117 = getelementptr inbounds %struct.option, ptr %arrayinit.element1113, i32 0, i32 3
-  %81 = load ptr, ptr %options.addr, align 8
-  store ptr %81, ptr %value1117, align 8
+  %82 = load ptr, ptr %options.addr, align 8
+  store ptr %82, ptr %value1117, align 8
   %argh1118 = getelementptr inbounds %struct.option, ptr %arrayinit.element1113, i32 0, i32 4
   store ptr @.str.233, ptr %argh1118, align 8
   %help1119 = getelementptr inbounds %struct.option, ptr %arrayinit.element1113, i32 0, i32 5
@@ -7683,8 +7688,8 @@ entry:
   %long_name1129 = getelementptr inbounds %struct.option, ptr %arrayinit.element1126, i32 0, i32 2
   store ptr @.str.237, ptr %long_name1129, align 8
   %value1130 = getelementptr inbounds %struct.option, ptr %arrayinit.element1126, i32 0, i32 3
-  %82 = load ptr, ptr %options.addr, align 8
-  store ptr %82, ptr %value1130, align 8
+  %83 = load ptr, ptr %options.addr, align 8
+  store ptr %83, ptr %value1130, align 8
   %argh1131 = getelementptr inbounds %struct.option, ptr %arrayinit.element1126, i32 0, i32 4
   store ptr @.str.238, ptr %argh1131, align 8
   %help1132 = getelementptr inbounds %struct.option, ptr %arrayinit.element1126, i32 0, i32 5
@@ -7709,8 +7714,8 @@ entry:
   %long_name1142 = getelementptr inbounds %struct.option, ptr %arrayinit.element1139, i32 0, i32 2
   store ptr @.str.240, ptr %long_name1142, align 8
   %value1143 = getelementptr inbounds %struct.option, ptr %arrayinit.element1139, i32 0, i32 3
-  %83 = load ptr, ptr %options.addr, align 8
-  store ptr %83, ptr %value1143, align 8
+  %84 = load ptr, ptr %options.addr, align 8
+  store ptr %84, ptr %value1143, align 8
   %argh1144 = getelementptr inbounds %struct.option, ptr %arrayinit.element1139, i32 0, i32 4
   store ptr @.str.241, ptr %argh1144, align 8
   %help1145 = getelementptr inbounds %struct.option, ptr %arrayinit.element1139, i32 0, i32 5
@@ -7735,8 +7740,8 @@ entry:
   %long_name1155 = getelementptr inbounds %struct.option, ptr %arrayinit.element1152, i32 0, i32 2
   store ptr @.str.243, ptr %long_name1155, align 8
   %value1156 = getelementptr inbounds %struct.option, ptr %arrayinit.element1152, i32 0, i32 3
-  %84 = load ptr, ptr %options.addr, align 8
-  store ptr %84, ptr %value1156, align 8
+  %85 = load ptr, ptr %options.addr, align 8
+  store ptr %85, ptr %value1156, align 8
   %argh1157 = getelementptr inbounds %struct.option, ptr %arrayinit.element1152, i32 0, i32 4
   store ptr @.str.244, ptr %argh1157, align 8
   %help1158 = getelementptr inbounds %struct.option, ptr %arrayinit.element1152, i32 0, i32 5
@@ -7757,9 +7762,9 @@ entry:
   call void @llvm.memset.p0.i64(ptr align 8 %arrayinit.element1165, i8 0, i64 88, i1 false)
   %type1166 = getelementptr inbounds %struct.option, ptr %arrayinit.element1165, i32 0, i32 0
   store i32 0, ptr %type1166, align 8
-  %85 = load ptr, ptr %opts.addr, align 8
+  %86 = load ptr, ptr %opts.addr, align 8
   %arraydecay = getelementptr inbounds [90 x %struct.option], ptr %parseopts, i64 0, i64 0
-  %call = call ptr @parse_options_concat(ptr noundef %85, ptr noundef %arraydecay)
+  %call = call ptr @parse_options_concat(ptr noundef %86, ptr noundef %arraydecay)
   ret ptr %call
 }
 
@@ -14928,22 +14933,23 @@ if.end18:                                         ; preds = %if.end17, %if.then9
 
 for.cond19:                                       ; preds = %for.inc24, %if.end18
   %28 = load i32, ptr %i, align 4
-  %29 = load i32, ptr getelementptr inbounds (%struct.emitted_diff_symbols, ptr @diff_flush_patch_all_file_pairs.esm, i32 0, i32 1), align 8
-  %cmp20 = icmp slt i32 %28, %29
+  %29 = getelementptr inbounds %struct.emitted_diff_symbols, ptr @diff_flush_patch_all_file_pairs.esm, i32 0, i32 1
+  %30 = load i32, ptr %29, align 8
+  %cmp20 = icmp slt i32 %28, %30
   br i1 %cmp20, label %for.body21, label %for.end26
 
 for.body21:                                       ; preds = %for.cond19
-  %30 = load ptr, ptr %o.addr, align 8
-  %31 = load ptr, ptr @diff_flush_patch_all_file_pairs.esm, align 8
-  %32 = load i32, ptr %i, align 4
-  %idxprom22 = sext i32 %32 to i64
-  %arrayidx23 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %31, i64 %idxprom22
-  call void @emit_diff_symbol_from_struct(ptr noundef %30, ptr noundef %arrayidx23)
+  %31 = load ptr, ptr %o.addr, align 8
+  %32 = load ptr, ptr @diff_flush_patch_all_file_pairs.esm, align 8
+  %33 = load i32, ptr %i, align 4
+  %idxprom22 = sext i32 %33 to i64
+  %arrayidx23 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %32, i64 %idxprom22
+  call void @emit_diff_symbol_from_struct(ptr noundef %31, ptr noundef %arrayidx23)
   br label %for.inc24
 
 for.inc24:                                        ; preds = %for.body21
-  %33 = load i32, ptr %i, align 4
-  %inc25 = add nsw i32 %33, 1
+  %34 = load i32, ptr %i, align 4
+  %inc25 = add nsw i32 %34, 1
   store i32 %inc25, ptr %i, align 4
   br label %for.cond19, !llvm.loop !35
 
@@ -14952,31 +14958,33 @@ for.end26:                                        ; preds = %for.cond19
   br label %for.cond27
 
 for.cond27:                                       ; preds = %for.inc32, %for.end26
-  %34 = load i32, ptr %i, align 4
-  %35 = load i32, ptr getelementptr inbounds (%struct.emitted_diff_symbols, ptr @diff_flush_patch_all_file_pairs.esm, i32 0, i32 1), align 8
-  %cmp28 = icmp slt i32 %34, %35
+  %35 = load i32, ptr %i, align 4
+  %36 = getelementptr inbounds %struct.emitted_diff_symbols, ptr @diff_flush_patch_all_file_pairs.esm, i32 0, i32 1
+  %37 = load i32, ptr %36, align 8
+  %cmp28 = icmp slt i32 %35, %37
   br i1 %cmp28, label %for.body29, label %for.end34
 
 for.body29:                                       ; preds = %for.cond27
-  %36 = load ptr, ptr @diff_flush_patch_all_file_pairs.esm, align 8
-  %37 = load i32, ptr %i, align 4
-  %idxprom30 = sext i32 %37 to i64
-  %arrayidx31 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %36, i64 %idxprom30
+  %38 = load ptr, ptr @diff_flush_patch_all_file_pairs.esm, align 8
+  %39 = load i32, ptr %i, align 4
+  %idxprom30 = sext i32 %39 to i64
+  %arrayidx31 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %38, i64 %idxprom30
   %line = getelementptr inbounds %struct.emitted_diff_symbol, ptr %arrayidx31, i32 0, i32 0
-  %38 = load ptr, ptr %line, align 8
-  call void @free(ptr noundef %38) #9
+  %40 = load ptr, ptr %line, align 8
+  call void @free(ptr noundef %40) #9
   br label %for.inc32
 
 for.inc32:                                        ; preds = %for.body29
-  %39 = load i32, ptr %i, align 4
-  %inc33 = add nsw i32 %39, 1
+  %41 = load i32, ptr %i, align 4
+  %inc33 = add nsw i32 %41, 1
   store i32 %inc33, ptr %i, align 4
   br label %for.cond27, !llvm.loop !36
 
 for.end34:                                        ; preds = %for.cond27
-  store i32 0, ptr getelementptr inbounds (%struct.emitted_diff_symbols, ptr @diff_flush_patch_all_file_pairs.esm, i32 0, i32 1), align 8
-  %40 = load ptr, ptr %o.addr, align 8
-  %emitted_symbols35 = getelementptr inbounds %struct.diff_options, ptr %40, i32 0, i32 69
+  %42 = getelementptr inbounds %struct.emitted_diff_symbols, ptr @diff_flush_patch_all_file_pairs.esm, i32 0, i32 1
+  store i32 0, ptr %42, align 8
+  %43 = load ptr, ptr %o.addr, align 8
+  %emitted_symbols35 = getelementptr inbounds %struct.diff_options, ptr %43, i32 0, i32 69
   store ptr null, ptr %emitted_symbols35, align 8
   br label %if.end36
 
@@ -15512,35 +15520,36 @@ if.then38:                                        ; preds = %if.end35
 if.end39:                                         ; preds = %if.then38, %if.end35
   %39 = load ptr, ptr %options.addr, align 8
   call void @diffcore_apply_filter(ptr noundef %39)
-  %40 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
-  %tobool40 = icmp ne i32 %40, 0
+  %40 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  %41 = load i32, ptr %40, align 4
+  %tobool40 = icmp ne i32 %41, 0
   br i1 %tobool40, label %land.lhs.true41, label %if.else
 
 land.lhs.true41:                                  ; preds = %if.end39
-  %41 = load ptr, ptr %options.addr, align 8
-  %flags = getelementptr inbounds %struct.diff_options, ptr %41, i32 0, i32 14
+  %42 = load ptr, ptr %options.addr, align 8
+  %flags = getelementptr inbounds %struct.diff_options, ptr %42, i32 0, i32 14
   %diff_from_contents = getelementptr inbounds %struct.diff_flags, ptr %flags, i32 0, i32 22
-  %42 = load i32, ptr %diff_from_contents, align 8
-  %tobool42 = icmp ne i32 %42, 0
+  %43 = load i32, ptr %diff_from_contents, align 8
+  %tobool42 = icmp ne i32 %43, 0
   br i1 %tobool42, label %if.else, label %if.then43
 
 if.then43:                                        ; preds = %land.lhs.true41
-  %43 = load ptr, ptr %options.addr, align 8
-  %flags44 = getelementptr inbounds %struct.diff_options, ptr %43, i32 0, i32 14
+  %44 = load ptr, ptr %options.addr, align 8
+  %flags44 = getelementptr inbounds %struct.diff_options, ptr %44, i32 0, i32 14
   %has_changes = getelementptr inbounds %struct.diff_flags, ptr %flags44, i32 0, i32 9
   store i32 1, ptr %has_changes, align 4
   br label %if.end47
 
 if.else:                                          ; preds = %land.lhs.true41, %if.end39
-  %44 = load ptr, ptr %options.addr, align 8
-  %flags45 = getelementptr inbounds %struct.diff_options, ptr %44, i32 0, i32 14
+  %45 = load ptr, ptr %options.addr, align 8
+  %flags45 = getelementptr inbounds %struct.diff_options, ptr %45, i32 0, i32 14
   %has_changes46 = getelementptr inbounds %struct.diff_flags, ptr %flags45, i32 0, i32 9
   store i32 0, ptr %has_changes46, align 4
   br label %if.end47
 
 if.end47:                                         ; preds = %if.else, %if.then43
-  %45 = load ptr, ptr %options.addr, align 8
-  %found_follow48 = getelementptr inbounds %struct.diff_options, ptr %45, i32 0, i32 54
+  %46 = load ptr, ptr %options.addr, align 8
+  %found_follow48 = getelementptr inbounds %struct.diff_options, ptr %46, i32 0, i32 54
   store i32 0, ptr %found_follow48, align 4
   ret void
 }
@@ -19097,7 +19106,8 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @hash_algos to i64)
+  %1 = ptrtoint ptr @hash_algos to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv
@@ -26453,25 +26463,29 @@ if.end22:                                         ; preds = %if.then19, %if.end
   %call26 = call i32 @count_lines(ptr noundef %43, i32 noundef %conv25)
   store i32 %call26, ptr %lc_b, align 4
   %45 = load ptr, ptr %o.addr, align 8
-  %46 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @emit_rewrite_diff.a_name, i32 0, i32 2), align 8
-  %47 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @emit_rewrite_diff.a_name, i32 0, i32 1), align 8
-  %conv27 = trunc i64 %47 to i32
-  call void @emit_diff_symbol(ptr noundef %45, i32 noundef 23, ptr noundef %46, i32 noundef %conv27, i32 noundef 0)
-  %48 = load ptr, ptr %o.addr, align 8
-  %49 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @emit_rewrite_diff.b_name, i32 0, i32 2), align 8
-  %50 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @emit_rewrite_diff.b_name, i32 0, i32 1), align 8
-  %conv28 = trunc i64 %50 to i32
-  call void @emit_diff_symbol(ptr noundef %48, i32 noundef 22, ptr noundef %49, i32 noundef %conv28, i32 noundef 0)
+  %46 = getelementptr inbounds %struct.strbuf, ptr @emit_rewrite_diff.a_name, i32 0, i32 2
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %struct.strbuf, ptr @emit_rewrite_diff.a_name, i32 0, i32 1
+  %49 = load i64, ptr %48, align 8
+  %conv27 = trunc i64 %49 to i32
+  call void @emit_diff_symbol(ptr noundef %45, i32 noundef 23, ptr noundef %47, i32 noundef %conv27, i32 noundef 0)
+  %50 = load ptr, ptr %o.addr, align 8
+  %51 = getelementptr inbounds %struct.strbuf, ptr @emit_rewrite_diff.b_name, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds %struct.strbuf, ptr @emit_rewrite_diff.b_name, i32 0, i32 1
+  %54 = load i64, ptr %53, align 8
+  %conv28 = trunc i64 %54 to i32
+  call void @emit_diff_symbol(ptr noundef %50, i32 noundef 22, ptr noundef %52, i32 noundef %conv28, i32 noundef 0)
   call void @strbuf_addstr(ptr noundef %out, ptr noundef @.str.436)
-  %51 = load ptr, ptr %o.addr, align 8
-  %irreversible_delete = getelementptr inbounds %struct.diff_options, ptr %51, i32 0, i32 22
-  %52 = load i32, ptr %irreversible_delete, align 8
-  %tobool29 = icmp ne i32 %52, 0
+  %55 = load ptr, ptr %o.addr, align 8
+  %irreversible_delete = getelementptr inbounds %struct.diff_options, ptr %55, i32 0, i32 22
+  %56 = load i32, ptr %irreversible_delete, align 8
+  %tobool29 = icmp ne i32 %56, 0
   br i1 %tobool29, label %if.else31, label %if.then30
 
 if.then30:                                        ; preds = %if.end22
-  %53 = load i32, ptr %lc_a, align 4
-  call void @add_line_count(ptr noundef %out, i32 noundef %53)
+  %57 = load i32, ptr %lc_a, align 4
+  call void @add_line_count(ptr noundef %out, i32 noundef %57)
   br label %if.end32
 
 if.else31:                                        ; preds = %if.end22
@@ -26480,65 +26494,65 @@ if.else31:                                        ; preds = %if.end22
 
 if.end32:                                         ; preds = %if.else31, %if.then30
   call void @strbuf_addstr(ptr noundef %out, ptr noundef @.str.438)
-  %54 = load i32, ptr %lc_b, align 4
-  call void @add_line_count(ptr noundef %out, i32 noundef %54)
+  %58 = load i32, ptr %lc_b, align 4
+  call void @add_line_count(ptr noundef %out, i32 noundef %58)
   call void @strbuf_addstr(ptr noundef %out, ptr noundef @.str.439)
-  %55 = load ptr, ptr %o.addr, align 8
+  %59 = load ptr, ptr %o.addr, align 8
   %buf = getelementptr inbounds %struct.strbuf, ptr %out, i32 0, i32 2
-  %56 = load ptr, ptr %buf, align 8
+  %60 = load ptr, ptr %buf, align 8
   %len = getelementptr inbounds %struct.strbuf, ptr %out, i32 0, i32 1
-  %57 = load i64, ptr %len, align 8
-  %conv33 = trunc i64 %57 to i32
-  call void @emit_diff_symbol(ptr noundef %55, i32 noundef 19, ptr noundef %56, i32 noundef %conv33, i32 noundef 0)
+  %61 = load i64, ptr %len, align 8
+  %conv33 = trunc i64 %61 to i32
+  call void @emit_diff_symbol(ptr noundef %59, i32 noundef 19, ptr noundef %60, i32 noundef %conv33, i32 noundef 0)
   call void @strbuf_release(ptr noundef %out)
-  %58 = load i32, ptr %lc_a, align 4
-  %tobool34 = icmp ne i32 %58, 0
+  %62 = load i32, ptr %lc_a, align 4
+  %tobool34 = icmp ne i32 %62, 0
   br i1 %tobool34, label %land.lhs.true35, label %if.end40
 
 land.lhs.true35:                                  ; preds = %if.end32
-  %59 = load ptr, ptr %o.addr, align 8
-  %irreversible_delete36 = getelementptr inbounds %struct.diff_options, ptr %59, i32 0, i32 22
-  %60 = load i32, ptr %irreversible_delete36, align 8
-  %tobool37 = icmp ne i32 %60, 0
+  %63 = load ptr, ptr %o.addr, align 8
+  %irreversible_delete36 = getelementptr inbounds %struct.diff_options, ptr %63, i32 0, i32 22
+  %64 = load i32, ptr %irreversible_delete36, align 8
+  %tobool37 = icmp ne i32 %64, 0
   br i1 %tobool37, label %if.end40, label %if.then38
 
 if.then38:                                        ; preds = %land.lhs.true35
-  %61 = load ptr, ptr %data_one, align 8
-  %62 = load i64, ptr %size_one, align 8
-  %conv39 = trunc i64 %62 to i32
-  call void @emit_rewrite_lines(ptr noundef %ecbdata, i32 noundef 45, ptr noundef %61, i32 noundef %conv39)
+  %65 = load ptr, ptr %data_one, align 8
+  %66 = load i64, ptr %size_one, align 8
+  %conv39 = trunc i64 %66 to i32
+  call void @emit_rewrite_lines(ptr noundef %ecbdata, i32 noundef 45, ptr noundef %65, i32 noundef %conv39)
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then38, %land.lhs.true35, %if.end32
-  %63 = load i32, ptr %lc_b, align 4
-  %tobool41 = icmp ne i32 %63, 0
+  %67 = load i32, ptr %lc_b, align 4
+  %tobool41 = icmp ne i32 %67, 0
   br i1 %tobool41, label %if.then42, label %if.end44
 
 if.then42:                                        ; preds = %if.end40
-  %64 = load ptr, ptr %data_two, align 8
-  %65 = load i64, ptr %size_two, align 8
-  %conv43 = trunc i64 %65 to i32
-  call void @emit_rewrite_lines(ptr noundef %ecbdata, i32 noundef 43, ptr noundef %64, i32 noundef %conv43)
+  %68 = load ptr, ptr %data_two, align 8
+  %69 = load i64, ptr %size_two, align 8
+  %conv43 = trunc i64 %69 to i32
+  call void @emit_rewrite_lines(ptr noundef %ecbdata, i32 noundef 43, ptr noundef %68, i32 noundef %conv43)
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then42, %if.end40
-  %66 = load ptr, ptr %textconv_one.addr, align 8
-  %tobool45 = icmp ne ptr %66, null
+  %70 = load ptr, ptr %textconv_one.addr, align 8
+  %tobool45 = icmp ne ptr %70, null
   br i1 %tobool45, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %if.end44
-  %67 = load ptr, ptr %data_one, align 8
-  call void @free(ptr noundef %67) #9
+  %71 = load ptr, ptr %data_one, align 8
+  call void @free(ptr noundef %71) #9
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then46, %if.end44
-  %68 = load ptr, ptr %textconv_two.addr, align 8
-  %tobool48 = icmp ne ptr %68, null
+  %72 = load ptr, ptr %textconv_two.addr, align 8
+  %tobool48 = icmp ne ptr %72, null
   br i1 %tobool48, label %if.then49, label %if.end50
 
 if.then49:                                        ; preds = %if.end47
-  %69 = load ptr, ptr %data_two, align 8
-  call void @free(ptr noundef %69) #9
+  %73 = load ptr, ptr %data_two, align 8
+  call void @free(ptr noundef %73) #9
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then49, %if.end47

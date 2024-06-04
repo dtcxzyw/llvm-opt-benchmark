@@ -6973,18 +6973,19 @@ entry:
   call void @_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %crashMgr) #18
   call void @_ZN6hermes2vm6GCBaseC2ERNS1_11GCCallbacksERNS0_11PointerBaseERKNS0_8GCConfigESt10shared_ptrINS0_12CrashManagerEENS1_8HeapKindE(ptr noundef nonnull align 8 dereferenceable(741) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef %agg.tmp, i32 noundef 0)
   call void @_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGCE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGCE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %maxHeapSize_ = getelementptr inbounds %"class.hermes::vm::HadesGC", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %gcConfig.addr, align 8
-  %call = call noundef i32 @_ZNK6hermes2vm8GCConfig14getMaxHeapSizeEv(ptr noundef nonnull align 8 dereferenceable(200) %3)
+  %4 = load ptr, ptr %gcConfig.addr, align 8
+  %call = call noundef i32 @_ZNK6hermes2vm8GCConfig14getMaxHeapSizeEv(ptr noundef nonnull align 8 dereferenceable(200) %4)
   %conv = zext i32 %call to i64
   store i64 %conv, ptr %ref.tmp, align 8
   %call3 = call noundef i64 @_ZN6hermes2vm14AlignedStorage4sizeEv()
   %mul = mul i64 2, %call3
   store i64 %mul, ptr %ref.tmp2, align 8
   %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
-  %4 = load i64, ptr %call4, align 8
-  store i64 %4, ptr %maxHeapSize_, align 8
+  %5 = load i64, ptr %call4, align 8
+  store i64 %5, ptr %maxHeapSize_, align 8
   %numSegments_ = getelementptr inbounds %"class.hermes::vm::HadesGC", ptr %this1, i32 0, i32 2
   store i64 0, ptr %numSegments_, align 8
   %segmentIndices_ = getelementptr inbounds %"class.hermes::vm::HadesGC", ptr %this1, i32 0, i32 3
@@ -7026,24 +7027,24 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %ogThreadStatus_ = getelementptr inbounds %"class.hermes::vm::HadesGC", ptr %this1, i32 0, i32 17
   call void @_ZNSt6futureIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ogThreadStatus_) #18
   %promoteYGToOG_ = getelementptr inbounds %"class.hermes::vm::HadesGC", ptr %this1, i32 0, i32 18
-  %5 = load ptr, ptr %gcConfig.addr, align 8
-  %call5 = call noundef zeroext i1 @_ZNK6hermes2vm8GCConfig15getAllocInYoungEv(ptr noundef nonnull align 8 dereferenceable(200) %5)
+  %6 = load ptr, ptr %gcConfig.addr, align 8
+  %call5 = call noundef zeroext i1 @_ZNK6hermes2vm8GCConfig15getAllocInYoungEv(ptr noundef nonnull align 8 dereferenceable(200) %6)
   %lnot = xor i1 %call5, true
   %frombool = zext i1 %lnot to i8
   store i8 %frombool, ptr %promoteYGToOG_, align 8
   %revertToYGAtTTI_ = getelementptr inbounds %"class.hermes::vm::HadesGC", ptr %this1, i32 0, i32 19
-  %6 = load ptr, ptr %gcConfig.addr, align 8
-  %call6 = call noundef zeroext i1 @_ZNK6hermes2vm8GCConfig18getRevertToYGAtTTIEv(ptr noundef nonnull align 8 dereferenceable(200) %6)
+  %7 = load ptr, ptr %gcConfig.addr, align 8
+  %call6 = call noundef zeroext i1 @_ZNK6hermes2vm8GCConfig18getRevertToYGAtTTIEv(ptr noundef nonnull align 8 dereferenceable(200) %7)
   %frombool7 = zext i1 %call6 to i8
   store i8 %frombool7, ptr %revertToYGAtTTI_, align 1
   %overwriteDeadYGObjects_ = getelementptr inbounds %"class.hermes::vm::HadesGC", ptr %this1, i32 0, i32 20
-  %7 = load ptr, ptr %gcConfig.addr, align 8
-  %call8 = call noundef zeroext i1 @_ZNK6hermes2vm8GCConfig25getOverwriteDeadYGObjectsEv(ptr noundef nonnull align 8 dereferenceable(200) %7)
+  %8 = load ptr, ptr %gcConfig.addr, align 8
+  %call8 = call noundef zeroext i1 @_ZNK6hermes2vm8GCConfig25getOverwriteDeadYGObjectsEv(ptr noundef nonnull align 8 dereferenceable(200) %8)
   %frombool9 = zext i1 %call8 to i8
   store i8 %frombool9, ptr %overwriteDeadYGObjects_, align 2
   %occupancyTarget_ = getelementptr inbounds %"class.hermes::vm::HadesGC", ptr %this1, i32 0, i32 21
-  %8 = load ptr, ptr %gcConfig.addr, align 8
-  %call10 = call noundef double @_ZNK6hermes2vm8GCConfig18getOccupancyTargetEv(ptr noundef nonnull align 8 dereferenceable(200) %8)
+  %9 = load ptr, ptr %gcConfig.addr, align 8
+  %call10 = call noundef double @_ZNK6hermes2vm8GCConfig18getOccupancyTargetEv(ptr noundef nonnull align 8 dereferenceable(200) %9)
   store double %call10, ptr %occupancyTarget_, align 8
   %ogThreshold_ = getelementptr inbounds %"class.hermes::vm::HadesGC", ptr %this1, i32 0, i32 22
   call void @_ZN6hermes24ExponentialMovingAverageC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %ogThreshold_, double noundef 5.000000e-01, double noundef 7.500000e-01)
@@ -7077,8 +7078,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %call18 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #18
   %vtable = load ptr, ptr %call16, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %9 = load ptr, ptr %vfn, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %call16, ptr noundef @.str, ptr noundef %call18)
+  %10 = load ptr, ptr %vfn, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %call16, ptr noundef @.str, ptr noundef %call18)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #18
   call void @_ZN6hermes2vm7HadesGC13createSegmentEv(ptr sret(%"class.llvh::ErrorOr") align 8 %newYoungGen, ptr noundef nonnull align 8 dereferenceable(8152) %this1)
   %call19 = call noundef zeroext i1 @_ZNK4llvh7ErrorOrIN6hermes2vm7HadesGC11HeapSegmentEEcvbEv(ptr noundef nonnull align 8 dereferenceable(33) %newYoungGen)
@@ -7088,16 +7089,16 @@ if.then:                                          ; preds = %cond.end
   store ptr %agg.tmp20, ptr %this.addr.i, align 8
   store ptr @.str.1, ptr %Str.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %10 = load ptr, ptr %Str.addr.i, align 8
-  store ptr %10, ptr %this1.i, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
   %11 = load ptr, ptr %Str.addr.i, align 8
-  %tobool.i = icmp ne ptr %11, null
+  store ptr %11, ptr %this1.i, align 8
+  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
+  %12 = load ptr, ptr %Str.addr.i, align 8
+  %tobool.i = icmp ne ptr %12, null
   br i1 %tobool.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.then
-  %12 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %12) #20
+  %13 = load ptr, ptr %Str.addr.i, align 8
+  %call.i = call i64 @strlen(ptr noundef %13) #20
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %if.then
@@ -7107,21 +7108,21 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %cond.i = phi i64 [ %call.i, %cond.true.i ], [ 0, %cond.false.i ]
   store i64 %cond.i, ptr %Length.i, align 8
   %call22 = call { i32, ptr } @_ZNK4llvh7ErrorOrIN6hermes2vm7HadesGC11HeapSegmentEE8getErrorEv(ptr noundef nonnull align 8 dereferenceable(33) %newYoungGen)
-  %13 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp21, i32 0, i32 0
-  %14 = extractvalue { i32, ptr } %call22, 0
-  store i32 %14, ptr %13, align 8
-  %15 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp21, i32 0, i32 1
-  %16 = extractvalue { i32, ptr } %call22, 1
-  store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 1
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp21, i32 0, i32 0
-  %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp21, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  call void @_ZN6hermes12hermes_fatalEN4llvh9StringRefESt10error_code(ptr %18, i64 %20, i32 %22, ptr %24) #21
+  %14 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp21, i32 0, i32 0
+  %15 = extractvalue { i32, ptr } %call22, 0
+  store i32 %15, ptr %14, align 8
+  %16 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp21, i32 0, i32 1
+  %17 = extractvalue { i32, ptr } %call22, 1
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp21, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  call void @_ZN6hermes12hermes_fatalEN4llvh9StringRefESt10error_code(ptr %19, i64 %21, i32 %23, ptr %25) #21
   unreachable
 
 if.end:                                           ; preds = %cond.end
@@ -7131,13 +7132,13 @@ if.end:                                           ; preds = %cond.end
   call void @_ZN6hermes2vm7HadesGC11HeapSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.ensured) #18
   call void @_ZN6hermes2vm7HadesGC11HeapSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23) #18
   %arrayinit.begin = getelementptr inbounds [3 x i64], ptr %ref.tmp26, i64 0, i64 0
-  %25 = load ptr, ptr %gcConfig.addr, align 8
-  %call27 = call noundef i32 @_ZNK6hermes2vm8GCConfig14getMinHeapSizeEv(ptr noundef nonnull align 8 dereferenceable(200) %25)
+  %26 = load ptr, ptr %gcConfig.addr, align 8
+  %call27 = call noundef i32 @_ZNK6hermes2vm8GCConfig14getMinHeapSizeEv(ptr noundef nonnull align 8 dereferenceable(200) %26)
   %conv28 = zext i32 %call27 to i64
   store i64 %conv28, ptr %arrayinit.begin, align 8
   %arrayinit.element = getelementptr inbounds i64, ptr %arrayinit.begin, i64 1
-  %26 = load ptr, ptr %gcConfig.addr, align 8
-  %call29 = call noundef i32 @_ZNK6hermes2vm8GCConfig15getInitHeapSizeEv(ptr noundef nonnull align 8 dereferenceable(200) %26)
+  %27 = load ptr, ptr %gcConfig.addr, align 8
+  %call29 = call noundef i32 @_ZNK6hermes2vm8GCConfig15getInitHeapSizeEv(ptr noundef nonnull align 8 dereferenceable(200) %27)
   %conv30 = zext i32 %call29 to i64
   store i64 %conv30, ptr %arrayinit.element, align 8
   %arrayinit.element31 = getelementptr inbounds i64, ptr %arrayinit.element, i64 1
@@ -7148,16 +7149,16 @@ if.end:                                           ; preds = %cond.end
   store ptr %arraystart, ptr %_M_array, align 8
   %_M_len = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp25, i32 0, i32 1
   store i64 3, ptr %_M_len, align 8
-  %27 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp25, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp25, i32 0, i32 1
-  %30 = load i64, ptr %29, align 8
-  %call33 = call noundef i64 @_ZSt3maxImET_St16initializer_listIS0_E(ptr %28, i64 %30)
+  %28 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp25, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp25, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %call33 = call noundef i64 @_ZSt3maxImET_St16initializer_listIS0_E(ptr %29, i64 %31)
   store i64 %call33, ptr %initHeapSize, align 8
   %oldGen_34 = getelementptr inbounds %"class.hermes::vm::HadesGC", ptr %this1, i32 0, i32 9
-  %31 = load i64, ptr %initHeapSize, align 8
+  %32 = load i64, ptr %initHeapSize, align 8
   %call35 = call noundef i64 @_ZN6hermes2vm18AlignedHeapSegment7maxSizeEv()
-  %sub = sub i64 %31, %call35
+  %sub = sub i64 %32, %call35
   call void @_ZN6hermes2vm7HadesGC6OldGen18setTargetSizeBytesEm(ptr noundef nonnull align 8 dereferenceable(6672) %oldGen_34, i64 noundef %sub)
   call void @_ZN4llvh7ErrorOrIN6hermes2vm7HadesGC11HeapSegmentEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %newYoungGen) #18
   call void @_ZNSt10lock_guardISt15recursive_mutexED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lk) #18
@@ -7462,7 +7463,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %start = getelementptr inbounds %"struct.hermes::vm::HadesGC::CompacteeState", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %start, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %start, align 8
   %startCP = getelementptr inbounds %"struct.hermes::vm::HadesGC::CompacteeState", ptr %this1, i32 0, i32 1
   %call = call i32 @_ZN6hermes2vm17CompressedPointer7fromRawEj(i32 noundef 1)
   %coerce.dive = getelementptr inbounds %"class.hermes::vm::CompressedPointer", ptr %agg.tmp, i32 0, i32 0
@@ -7470,10 +7472,11 @@ entry:
   store i32 %call, ptr %coerce.dive2, align 4
   %coerce.dive3 = getelementptr inbounds %"class.hermes::vm::CompressedPointer", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive4 = getelementptr inbounds %"class.hermes::vm::BasedPointer", ptr %coerce.dive3, i32 0, i32 0
-  %0 = load i32, ptr %coerce.dive4, align 4
-  call void @_ZN6hermes2vm27AssignableCompressedPointerC2ENS0_17CompressedPointerE(ptr noundef nonnull align 4 dereferenceable(4) %startCP, i32 %0)
+  %1 = load i32, ptr %coerce.dive4, align 4
+  call void @_ZN6hermes2vm27AssignableCompressedPointerC2ENS0_17CompressedPointerE(ptr noundef nonnull align 4 dereferenceable(4) %startCP, i32 %1)
   %evacStart = getelementptr inbounds %"struct.hermes::vm::HadesGC::CompacteeState", ptr %this1, i32 0, i32 2
-  store ptr inttoptr (i64 1 to ptr), ptr %evacStart, align 8
+  %2 = inttoptr i64 1 to ptr
+  store ptr %2, ptr %evacStart, align 8
   %evacStartCP = getelementptr inbounds %"struct.hermes::vm::HadesGC::CompacteeState", ptr %this1, i32 0, i32 3
   %call6 = call i32 @_ZN6hermes2vm17CompressedPointer7fromRawEj(i32 noundef 1)
   %coerce.dive7 = getelementptr inbounds %"class.hermes::vm::CompressedPointer", ptr %agg.tmp5, i32 0, i32 0
@@ -7481,8 +7484,8 @@ entry:
   store i32 %call6, ptr %coerce.dive8, align 4
   %coerce.dive9 = getelementptr inbounds %"class.hermes::vm::CompressedPointer", ptr %agg.tmp5, i32 0, i32 0
   %coerce.dive10 = getelementptr inbounds %"class.hermes::vm::BasedPointer", ptr %coerce.dive9, i32 0, i32 0
-  %1 = load i32, ptr %coerce.dive10, align 4
-  call void @_ZN6hermes2vm27AssignableCompressedPointerC2ENS0_17CompressedPointerE(ptr noundef nonnull align 4 dereferenceable(4) %evacStartCP, i32 %1)
+  %3 = load i32, ptr %coerce.dive10, align 4
+  call void @_ZN6hermes2vm27AssignableCompressedPointerC2ENS0_17CompressedPointerE(ptr noundef nonnull align 4 dereferenceable(4) %evacStartCP, i32 %3)
   %segment = getelementptr inbounds %"struct.hermes::vm::HadesGC::CompacteeState", ptr %this1, i32 0, i32 4
   call void @_ZNSt10shared_ptrIN6hermes2vm7HadesGC11HeapSegmentEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %segment) #18
   ret void
@@ -8082,7 +8085,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN6hermes2vm6GCBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr] }, ptr @_ZTVN6hermes2vm6GCBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tripwireCallback_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 29
   call void @_ZNSt8functionIFvRN6hermes2vm17GCTripwireContextEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %tripwireCallback_) #18
   %idTracker_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %this1, i32 0, i32 27
@@ -10123,17 +10127,20 @@ entry:
   call void @_ZN6hermes2vm19RootAndSlotAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
   %0 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN6hermes2vm15WeakRefAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
-  store ptr getelementptr inbounds ({ [15 x ptr], [8 x ptr], [5 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12MarkAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [15 x ptr], [8 x ptr], [5 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12MarkAcceptorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [8 x ptr], [5 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12MarkAcceptorE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [15 x ptr], [8 x ptr], [5 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12MarkAcceptorE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [15 x ptr], [8 x ptr], [5 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12MarkAcceptorE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %3 = getelementptr inbounds { [15 x ptr], [8 x ptr], [5 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12MarkAcceptorE, i32 0, i32 2, i32 2
+  store ptr %3, ptr %add.ptr2, align 8
   %gc3 = getelementptr inbounds %"class.hermes::vm::HadesGC::MarkAcceptor", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %gc.addr, align 8
-  store ptr %1, ptr %gc3, align 8
+  %4 = load ptr, ptr %gc.addr, align 8
+  store ptr %4, ptr %gc3, align 8
   %pointerBase_ = getelementptr inbounds %"class.hermes::vm::HadesGC::MarkAcceptor", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %gc.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6hermes2vm6GCBase14getPointerBaseEv(ptr noundef nonnull align 8 dereferenceable(741) %2)
+  %5 = load ptr, ptr %gc.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6hermes2vm6GCBase14getPointerBaseEv(ptr noundef nonnull align 8 dereferenceable(741) %5)
   store ptr %call, ptr %pointerBase_, align 8
   %localWorklist_ = getelementptr inbounds %"class.hermes::vm::HadesGC::MarkAcceptor", ptr %this1, i32 0, i32 4
   call void @_ZNSt5stackIPN6hermes2vm6GCCellESt6vectorIS3_SaIS3_EEEC2IS6_vEEv(ptr noundef nonnull align 8 dereferenceable(24) %localWorklist_)
@@ -10142,22 +10149,22 @@ entry:
   %reachableWeakMaps_ = getelementptr inbounds %"class.hermes::vm::HadesGC::MarkAcceptor", ptr %this1, i32 0, i32 6
   call void @_ZNSt6vectorIPN6hermes2vm13JSWeakMapImplILNS1_8CellKindE51EEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %reachableWeakMaps_) #18
   %markedSymbols_ = getelementptr inbounds %"class.hermes::vm::HadesGC::MarkAcceptor", ptr %this1, i32 0, i32 7
-  %3 = load ptr, ptr %gc.addr, align 8
-  %gcCallbacks_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %3, i32 0, i32 6
-  %4 = load ptr, ptr %gcCallbacks_, align 8
-  %vtable = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %gc.addr, align 8
+  %gcCallbacks_ = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %6, i32 0, i32 6
+  %7 = load ptr, ptr %gcCallbacks_, align 8
+  %vtable = load ptr, ptr %7, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
-  %5 = load ptr, ptr %vfn, align 8
-  %call4 = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %8 = load ptr, ptr %vfn, align 8
+  %call4 = call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @_ZN4llvh9BitVectorC2Ejb(ptr noundef nonnull align 8 dereferenceable(20) %markedSymbols_, i32 noundef %call4, i1 noundef zeroext false)
   %writeBarrierMarkedSymbols_ = getelementptr inbounds %"class.hermes::vm::HadesGC::MarkAcceptor", ptr %this1, i32 0, i32 8
-  %6 = load ptr, ptr %gc.addr, align 8
-  %gcCallbacks_5 = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %6, i32 0, i32 6
-  %7 = load ptr, ptr %gcCallbacks_5, align 8
-  %vtable6 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %gc.addr, align 8
+  %gcCallbacks_5 = getelementptr inbounds %"class.hermes::vm::GCBase", ptr %9, i32 0, i32 6
+  %10 = load ptr, ptr %gcCallbacks_5, align 8
+  %vtable6 = load ptr, ptr %10, align 8
   %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 5
-  %8 = load ptr, ptr %vfn7, align 8
-  %call8 = call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %11 = load ptr, ptr %vfn7, align 8
+  %call8 = call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @_ZN4llvh9BitVectorC2Ejb(ptr noundef nonnull align 8 dereferenceable(20) %writeBarrierMarkedSymbols_, i32 noundef %call8, i1 noundef zeroext false)
   %byteDrainRate_ = getelementptr inbounds %"class.hermes::vm::HadesGC::MarkAcceptor", ptr %this1, i32 0, i32 9
   store i64 0, ptr %byteDrainRate_, align 8
@@ -10191,12 +10198,14 @@ entry:
   store ptr %acceptor, ptr %acceptor.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm28RootAndSlotAcceptorWithNamesC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorINS0_7HadesGC12MarkAcceptorEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorINS0_7HadesGC12MarkAcceptorEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorINS0_7HadesGC12MarkAcceptorEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorINS0_7HadesGC12MarkAcceptorEEE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %acceptor2 = getelementptr inbounds %"struct.hermes::vm::DroppingAcceptor", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %acceptor.addr, align 8
-  store ptr %0, ptr %acceptor2, align 8
+  %2 = load ptr, ptr %acceptor.addr, align 8
+  store ptr %2, ptr %acceptor2, align 8
   ret void
 }
 
@@ -11125,7 +11134,8 @@ while.end:                                        ; preds = %while.cond
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29) #18
   %start = getelementptr inbounds %"struct.hermes::vm::HadesGC::CompacteeState", ptr %ref.tmp30, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %start, align 8
+  %21 = inttoptr i64 1 to ptr
+  store ptr %21, ptr %start, align 8
   %startCP = getelementptr inbounds %"struct.hermes::vm::HadesGC::CompacteeState", ptr %ref.tmp30, i32 0, i32 1
   %call31 = call i32 @_ZN6hermes2vm17CompressedPointer7fromRawEj(i32 noundef 1)
   %coerce.dive32 = getelementptr inbounds %"class.hermes::vm::CompressedPointer", ptr %agg.tmp, i32 0, i32 0
@@ -11133,10 +11143,11 @@ while.end:                                        ; preds = %while.cond
   store i32 %call31, ptr %coerce.dive33, align 4
   %coerce.dive34 = getelementptr inbounds %"class.hermes::vm::CompressedPointer", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive35 = getelementptr inbounds %"class.hermes::vm::BasedPointer", ptr %coerce.dive34, i32 0, i32 0
-  %21 = load i32, ptr %coerce.dive35, align 4
-  call void @_ZN6hermes2vm27AssignableCompressedPointerC2ENS0_17CompressedPointerE(ptr noundef nonnull align 4 dereferenceable(4) %startCP, i32 %21)
+  %22 = load i32, ptr %coerce.dive35, align 4
+  call void @_ZN6hermes2vm27AssignableCompressedPointerC2ENS0_17CompressedPointerE(ptr noundef nonnull align 4 dereferenceable(4) %startCP, i32 %22)
   %evacStart = getelementptr inbounds %"struct.hermes::vm::HadesGC::CompacteeState", ptr %ref.tmp30, i32 0, i32 2
-  store ptr inttoptr (i64 1 to ptr), ptr %evacStart, align 8
+  %23 = inttoptr i64 1 to ptr
+  store ptr %23, ptr %evacStart, align 8
   %evacStartCP = getelementptr inbounds %"struct.hermes::vm::HadesGC::CompacteeState", ptr %ref.tmp30, i32 0, i32 3
   %call37 = call i32 @_ZN6hermes2vm17CompressedPointer7fromRawEj(i32 noundef 1)
   %coerce.dive38 = getelementptr inbounds %"class.hermes::vm::CompressedPointer", ptr %agg.tmp36, i32 0, i32 0
@@ -11144,8 +11155,8 @@ while.end:                                        ; preds = %while.cond
   store i32 %call37, ptr %coerce.dive39, align 4
   %coerce.dive40 = getelementptr inbounds %"class.hermes::vm::CompressedPointer", ptr %agg.tmp36, i32 0, i32 0
   %coerce.dive41 = getelementptr inbounds %"class.hermes::vm::BasedPointer", ptr %coerce.dive40, i32 0, i32 0
-  %22 = load i32, ptr %coerce.dive41, align 4
-  call void @_ZN6hermes2vm27AssignableCompressedPointerC2ENS0_17CompressedPointerE(ptr noundef nonnull align 4 dereferenceable(4) %evacStartCP, i32 %22)
+  %24 = load i32, ptr %coerce.dive41, align 4
+  call void @_ZN6hermes2vm27AssignableCompressedPointerC2ENS0_17CompressedPointerE(ptr noundef nonnull align 4 dereferenceable(4) %evacStartCP, i32 %24)
   %segment42 = getelementptr inbounds %"struct.hermes::vm::HadesGC::CompacteeState", ptr %ref.tmp30, i32 0, i32 4
   call void @_ZNSt10shared_ptrIN6hermes2vm7HadesGC11HeapSegmentEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %segment42) #18
   %compactee_43 = getelementptr inbounds %"class.hermes::vm::HadesGC", ptr %this1, i32 0, i32 29
@@ -11630,10 +11641,11 @@ entry:
   store ptr %gc, ptr %gc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm16WeakRootAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC21MarkWeakRootsAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC21MarkWeakRootsAcceptorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %gc_ = getelementptr inbounds %"class.hermes::vm::HadesGC::MarkWeakRootsAcceptor", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %gc.addr, align 8
-  store ptr %0, ptr %gc_, align 8
+  %1 = load ptr, ptr %gc.addr, align 8
+  store ptr %1, ptr %gc_, align 8
   ret void
 }
 
@@ -13315,7 +13327,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %evacStart = getelementptr inbounds %"struct.hermes::vm::HadesGC::CompacteeState", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %evacStart, align 8
-  %cmp = icmp ne ptr %0, inttoptr (i64 1 to ptr)
+  %1 = inttoptr i64 1 to ptr
+  %cmp = icmp ne ptr %0, %1
   ret i1 %cmp
 }
 
@@ -14056,23 +14069,26 @@ entry:
   call void @_ZN6hermes2vm19RootAndSlotAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
   %0 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN6hermes2vm16WeakRootAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
-  store ptr getelementptr inbounds ({ [15 x ptr], [8 x ptr], [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12EvacAcceptorILb1EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [15 x ptr], [8 x ptr], [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12EvacAcceptorILb1EEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [8 x ptr], [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12EvacAcceptorILb1EEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [15 x ptr], [8 x ptr], [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12EvacAcceptorILb1EEE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [15 x ptr], [8 x ptr], [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12EvacAcceptorILb1EEE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %3 = getelementptr inbounds { [15 x ptr], [8 x ptr], [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12EvacAcceptorILb1EEE, i32 0, i32 2, i32 2
+  store ptr %3, ptr %add.ptr2, align 8
   %gc3 = getelementptr inbounds %"class.hermes::vm::HadesGC::EvacAcceptor", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %gc.addr, align 8
-  store ptr %1, ptr %gc3, align 8
+  %4 = load ptr, ptr %gc.addr, align 8
+  store ptr %4, ptr %gc3, align 8
   %pointerBase_ = getelementptr inbounds %"class.hermes::vm::HadesGC::EvacAcceptor", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %gc.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6hermes2vm6GCBase14getPointerBaseEv(ptr noundef nonnull align 8 dereferenceable(741) %2)
+  %5 = load ptr, ptr %gc.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6hermes2vm6GCBase14getPointerBaseEv(ptr noundef nonnull align 8 dereferenceable(741) %5)
   store ptr %call, ptr %pointerBase_, align 8
   %copyListHead_ = getelementptr inbounds %"class.hermes::vm::HadesGC::EvacAcceptor", ptr %this1, i32 0, i32 4
   call void @_ZN6hermes2vm27AssignableCompressedPointerC2EDn(ptr noundef nonnull align 4 dereferenceable(4) %copyListHead_, ptr null)
   %isTrackingIDs_ = getelementptr inbounds %"class.hermes::vm::HadesGC::EvacAcceptor", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %gc.addr, align 8
-  %call4 = call noundef zeroext i1 @_ZN6hermes2vm6GCBase13isTrackingIDsEv(ptr noundef nonnull align 8 dereferenceable(741) %3)
+  %6 = load ptr, ptr %gc.addr, align 8
+  %call4 = call noundef zeroext i1 @_ZN6hermes2vm6GCBase13isTrackingIDsEv(ptr noundef nonnull align 8 dereferenceable(741) %6)
   %frombool = zext i1 %call4 to i8
   store i8 %frombool, ptr %isTrackingIDs_, align 4
   %evacuatedBytes_ = getelementptr inbounds %"class.hermes::vm::HadesGC::EvacAcceptor", ptr %this1, i32 0, i32 6
@@ -14170,23 +14186,26 @@ entry:
   call void @_ZN6hermes2vm19RootAndSlotAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
   %0 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN6hermes2vm16WeakRootAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
-  store ptr getelementptr inbounds ({ [15 x ptr], [8 x ptr], [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12EvacAcceptorILb0EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [15 x ptr], [8 x ptr], [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12EvacAcceptorILb0EEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [8 x ptr], [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12EvacAcceptorILb0EEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [15 x ptr], [8 x ptr], [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12EvacAcceptorILb0EEE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [15 x ptr], [8 x ptr], [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12EvacAcceptorILb0EEE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %3 = getelementptr inbounds { [15 x ptr], [8 x ptr], [7 x ptr] }, ptr @_ZTVN6hermes2vm7HadesGC12EvacAcceptorILb0EEE, i32 0, i32 2, i32 2
+  store ptr %3, ptr %add.ptr2, align 8
   %gc3 = getelementptr inbounds %"class.hermes::vm::HadesGC::EvacAcceptor.123", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %gc.addr, align 8
-  store ptr %1, ptr %gc3, align 8
+  %4 = load ptr, ptr %gc.addr, align 8
+  store ptr %4, ptr %gc3, align 8
   %pointerBase_ = getelementptr inbounds %"class.hermes::vm::HadesGC::EvacAcceptor.123", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %gc.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6hermes2vm6GCBase14getPointerBaseEv(ptr noundef nonnull align 8 dereferenceable(741) %2)
+  %5 = load ptr, ptr %gc.addr, align 8
+  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6hermes2vm6GCBase14getPointerBaseEv(ptr noundef nonnull align 8 dereferenceable(741) %5)
   store ptr %call, ptr %pointerBase_, align 8
   %copyListHead_ = getelementptr inbounds %"class.hermes::vm::HadesGC::EvacAcceptor.123", ptr %this1, i32 0, i32 4
   call void @_ZN6hermes2vm27AssignableCompressedPointerC2EDn(ptr noundef nonnull align 4 dereferenceable(4) %copyListHead_, ptr null)
   %isTrackingIDs_ = getelementptr inbounds %"class.hermes::vm::HadesGC::EvacAcceptor.123", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %gc.addr, align 8
-  %call4 = call noundef zeroext i1 @_ZN6hermes2vm6GCBase13isTrackingIDsEv(ptr noundef nonnull align 8 dereferenceable(741) %3)
+  %6 = load ptr, ptr %gc.addr, align 8
+  %call4 = call noundef zeroext i1 @_ZN6hermes2vm6GCBase13isTrackingIDsEv(ptr noundef nonnull align 8 dereferenceable(741) %6)
   %frombool = zext i1 %call4 to i8
   store i8 %frombool, ptr %isTrackingIDs_, align 4
   %evacuatedBytes_ = getelementptr inbounds %"class.hermes::vm::HadesGC::EvacAcceptor.123", ptr %this1, i32 0, i32 6
@@ -18196,7 +18215,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES1_(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl) #18
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceISt5mutexSaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %this1) #18
@@ -18360,7 +18380,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -24150,9 +24171,11 @@ entry:
   call void @_ZN6hermes2vm12RootAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6hermes2vm12SlotAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
-  store ptr getelementptr inbounds ({ [10 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm19RootAndSlotAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm19RootAndSlotAcceptorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm19RootAndSlotAcceptorE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [10 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm19RootAndSlotAcceptorE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   ret void
 }
 
@@ -24162,7 +24185,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes2vm15WeakRefAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6hermes2vm15WeakRefAcceptorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24697,7 +24721,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm19RootSectionAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes2vm12RootAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6hermes2vm12RootAcceptorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24707,7 +24732,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6hermes2vm12SlotAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6hermes2vm12SlotAcceptorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24760,7 +24786,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm19RootSectionAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6hermes2vm19RootSectionAcceptorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27816,7 +27843,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt7promiseIvESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt7promiseIvESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.218", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceISt7promiseIvESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl) #18
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceISt7promiseIvESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %this1) #18
@@ -28133,7 +28161,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIvEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28285,7 +28314,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.226", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl) #18
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %this1) #18
@@ -28570,7 +28600,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_result = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_result) #18
   %_M_status = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %this1, i32 0, i32 2
@@ -28643,7 +28674,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_result = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_result) #18
   ret void
@@ -29596,7 +29628,8 @@ entry:
   call void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::future_error", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_M_code, ptr align 8 %__ec, i64 16, i1 false)
   ret void
@@ -35732,7 +35765,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm19RootSectionAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6hermes2vm16WeakRootAcceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6hermes2vm16WeakRootAcceptorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -37987,10 +38021,11 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN6hermes2vm7HadesGC8ExecutorC1EvEUlvE_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN6hermes2vm7HadesGC8ExecutorC1EvEUlvE_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt6thread8_InvokerISt5tupleIJZN6hermes2vm7HadesGC8ExecutorC1EvEUlvE_EEEC2IJS6_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %_M_func, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt6thread8_InvokerISt5tupleIJZN6hermes2vm7HadesGC8ExecutorC1EvEUlvE_EEEC2IJS6_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %_M_func, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -38042,7 +38077,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -40243,9 +40279,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm19RootAndSlotAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm28RootAndSlotAcceptorWithNamesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm28RootAndSlotAcceptorWithNamesE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm28RootAndSlotAcceptorWithNamesE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm28RootAndSlotAcceptorWithNamesE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   ret void
 }
 
@@ -41365,12 +41403,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6hermes2vm7HadesGC11HeapSegmentESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6hermes2vm7HadesGC11HeapSegmentESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.266", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN6hermes2vm7HadesGC11HeapSegmentESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl) #18
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6hermes2vm7HadesGC11HeapSegmentESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %this1) #18
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN6hermes2vm7HadesGC11HeapSegmentEJS6_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN6hermes2vm7HadesGC11HeapSegmentEJS6_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
@@ -43746,12 +43785,14 @@ entry:
   store ptr %acceptor, ptr %acceptor.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm28RootAndSlotAcceptorWithNamesC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorINS0_7HadesGC12EvacAcceptorILb1EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorINS0_7HadesGC12EvacAcceptorILb1EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorINS0_7HadesGC12EvacAcceptorILb1EEEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorINS0_7HadesGC12EvacAcceptorILb1EEEEE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %acceptor2 = getelementptr inbounds %"struct.hermes::vm::DroppingAcceptor.269", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %acceptor.addr, align 8
-  store ptr %0, ptr %acceptor2, align 8
+  %2 = load ptr, ptr %acceptor.addr, align 8
+  store ptr %2, ptr %acceptor2, align 8
   ret void
 }
 
@@ -46557,12 +46598,14 @@ entry:
   store ptr %acceptor, ptr %acceptor.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm28RootAndSlotAcceptorWithNamesC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorINS0_7HadesGC12EvacAcceptorILb0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorINS0_7HadesGC12EvacAcceptorILb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorINS0_7HadesGC12EvacAcceptorILb0EEEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorINS0_7HadesGC12EvacAcceptorILb0EEEEE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %acceptor2 = getelementptr inbounds %"struct.hermes::vm::DroppingAcceptor.274", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %acceptor.addr, align 8
-  store ptr %0, ptr %acceptor2, align 8
+  %2 = load ptr, ptr %acceptor.addr, align 8
+  store ptr %2, ptr %acceptor2, align 8
   ret void
 }
 
@@ -48560,10 +48603,11 @@ entry:
   store ptr %acceptor, ptr %acceptor.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm12SlotAcceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6hermes2vm20SkipWeakRefsAcceptorINS0_7HadesGC12MarkAcceptorEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6hermes2vm20SkipWeakRefsAcceptorINS0_7HadesGC12MarkAcceptorEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %acceptor_ = getelementptr inbounds %"class.hermes::vm::SkipWeakRefsAcceptor", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %acceptor.addr, align 8
-  store ptr %0, ptr %acceptor_, align 8
+  %1 = load ptr, ptr %acceptor.addr, align 8
+  store ptr %1, ptr %acceptor_, align 8
   ret void
 }
 
@@ -54347,13 +54391,14 @@ define linkonce_odr hidden { ptr, i32 } @_ZN6hermes2vm6detail11WeakRefInfo15getT
 entry:
   %retval = alloca %"struct.hermes::vm::detail::WeakRefKey", align 8
   %agg.tmp = alloca %"class.hermes::vm::WeakRef", align 8
-  call void @_ZN6hermes2vm7WeakRefINS0_8JSObjectEEC2EPNS0_11WeakRefSlotE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef inttoptr (i64 1 to ptr))
+  %0 = inttoptr i64 1 to ptr
+  call void @_ZN6hermes2vm7WeakRefINS0_8JSObjectEEC2EPNS0_11WeakRefSlotE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef %0)
   %coerce.dive = getelementptr inbounds %"class.hermes::vm::WeakRef", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive1 = getelementptr inbounds %"class.hermes::vm::WeakRefBase", ptr %coerce.dive, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive1, align 8
-  call void @_ZN6hermes2vm6detail10WeakRefKeyC2ENS0_7WeakRefINS0_8JSObjectEEEj(ptr noundef nonnull align 8 dereferenceable(12) %retval, ptr %0, i32 noundef 1)
-  %1 = load { ptr, i32 }, ptr %retval, align 8
-  ret { ptr, i32 } %1
+  %1 = load ptr, ptr %coerce.dive1, align 8
+  call void @_ZN6hermes2vm6detail10WeakRefKeyC2ENS0_7WeakRefINS0_8JSObjectEEEj(ptr noundef nonnull align 8 dereferenceable(12) %retval, ptr %1, i32 noundef 1)
+  %2 = load { ptr, i32 }, ptr %retval, align 8
+  ret { ptr, i32 } %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

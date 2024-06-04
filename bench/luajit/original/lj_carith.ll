@@ -816,7 +816,8 @@ if.else133:                                       ; preds = %if.else72
   %205 = load i32, ptr %i, align 4
   %idxprom138 = zext i32 %205 to i64
   %arrayidx139 = getelementptr inbounds [2 x ptr], ptr %p137, i64 0, i64 %idxprom138
-  store ptr inttoptr (i64 1 to ptr), ptr %arrayidx139, align 8
+  %206 = inttoptr i64 1 to ptr
+  store ptr %206, ptr %arrayidx139, align 8
   store i32 0, ptr %ok, align 4
   br label %if.end140
 
@@ -833,17 +834,17 @@ if.end143:                                        ; preds = %if.end142, %if.end4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end143
-  %206 = load i32, ptr %i, align 4
-  %inc = add i32 %206, 1
+  %207 = load i32, ptr %i, align 4
+  %inc = add i32 %207, 1
   store i32 %inc, ptr %i, align 4
-  %207 = load ptr, ptr %o, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %207, i32 1
+  %208 = load ptr, ptr %o, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %208, i32 1
   store ptr %incdec.ptr, ptr %o, align 8
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %if.else123, %for.cond
-  %208 = load i32, ptr %ok, align 4
-  ret i32 %208
+  %209 = load i32, ptr %ok, align 4
+  ret i32 %209
 }
 
 ; Function Attrs: nounwind uwtable

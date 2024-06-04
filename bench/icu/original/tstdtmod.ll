@@ -820,7 +820,8 @@ entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16IcuTestErrorCode, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16IcuTestErrorCode, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = invoke noundef signext i8 @_ZNK6icu_759ErrorCode9isFailureEv(ptr noundef nonnull align 8 dereferenceable(12) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -847,10 +848,10 @@ if.end:                                           ; preds = %invoke.cont3, %invo
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont2, %if.then, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #13
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #13
   unreachable
 }
 
@@ -1194,13 +1195,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay2 = getelementptr inbounds [4000 x i8], ptr %buffer, i64 0, i64 0
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call4 = call i32 @vsnprintf(ptr noundef %arraydecay2, i64 noundef 4000, ptr noundef %0, ptr noundef %arraydecay3) #11
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay5)
+  call void @llvm.va_end.p0(ptr %arraydecay5)
   call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef @.str.1)
   %arraydecay6 = getelementptr inbounds [4000 x i8], ptr %buffer, i64 0, i64 0
   invoke void @_ZNK16IcuTestErrorCode6errlogEaRKN6icu_7513UnicodeStringEPKc(ptr noundef nonnull align 8 dereferenceable(96) %this1, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef %arraydecay6)
@@ -1239,14 +1240,8 @@ eh.resume:                                        ; preds = %lpad
   resume { ptr, i32 } %lpad.val9
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZN16IcuTestErrorCode24errDataIfFailureAndResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this) #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -1320,13 +1315,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay2 = getelementptr inbounds [4000 x i8], ptr %buffer, i64 0, i64 0
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call4 = call i32 @vsnprintf(ptr noundef %arraydecay2, i64 noundef 4000, ptr noundef %0, ptr noundef %arraydecay3) #11
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay5)
+  call void @llvm.va_end.p0(ptr %arraydecay5)
   call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef @.str.2)
   %arraydecay6 = getelementptr inbounds [4000 x i8], ptr %buffer, i64 0, i64 0
   invoke void @_ZNK16IcuTestErrorCode6errlogEaRKN6icu_7513UnicodeStringEPKc(ptr noundef nonnull align 8 dereferenceable(96) %this1, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef %arraydecay6)
@@ -1501,13 +1496,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay2 = getelementptr inbounds [4000 x i8], ptr %buffer, i64 0, i64 0
   %1 = load ptr, ptr %fmt.addr, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call4 = call i32 @vsnprintf(ptr noundef %arraydecay2, i64 noundef 4000, ptr noundef %1, ptr noundef %arraydecay3) #11
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay5)
+  call void @llvm.va_end.p0(ptr %arraydecay5)
   call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp6, ptr noundef @.str.3)
   %2 = load i32, ptr %expectedError.addr, align 4
   %call8 = invoke ptr @u_errorName_75(i32 noundef %2)
@@ -1827,10 +1822,10 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #10
+declare void @_ZdlPv(ptr noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %code) #0 {
@@ -1855,15 +1850,16 @@ entry:
   store ptr %log, ptr %log.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV14TestDataModule, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV14TestDataModule, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %testName = getelementptr inbounds %class.TestDataModule, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %name.addr, align 8
-  store ptr %1, ptr %testName, align 8
+  %2 = load ptr, ptr %name.addr, align 8
+  store ptr %2, ptr %testName, align 8
   %fInfo = getelementptr inbounds %class.TestDataModule, ptr %this1, i32 0, i32 2
   store ptr null, ptr %fInfo, align 8
   %fLog = getelementptr inbounds %class.TestDataModule, ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %log.addr, align 8
-  store ptr %2, ptr %fLog, align 8
+  %3 = load ptr, ptr %log.addr, align 8
+  store ptr %3, ptr %fLog, align 8
   ret void
 }
 
@@ -1873,23 +1869,24 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV14TestDataModule, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV14TestDataModule, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fInfo = getelementptr inbounds %class.TestDataModule, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %fInfo, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %fInfo, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %fInfo2 = getelementptr inbounds %class.TestDataModule, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %fInfo2, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %fInfo2, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -1925,28 +1922,29 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16RBTestDataModule, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV16RBTestDataModule, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fTestData = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %fTestData, align 8
-  invoke void @ures_close_75(ptr noundef %0)
+  %1 = load ptr, ptr %fTestData, align 8
+  invoke void @ures_close_75(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %fModuleBundle = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %fModuleBundle, align 8
-  invoke void @ures_close_75(ptr noundef %1)
+  %2 = load ptr, ptr %fModuleBundle, align 8
+  invoke void @ures_close_75(ptr noundef %2)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %fInfoRB = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %fInfoRB, align 8
-  invoke void @ures_close_75(ptr noundef %2)
+  %3 = load ptr, ptr %fInfoRB, align 8
+  invoke void @ures_close_75(ptr noundef %3)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   %tdpath = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 6
-  %3 = load ptr, ptr %tdpath, align 8
-  invoke void @uprv_free_75(ptr noundef %3)
+  %4 = load ptr, ptr %tdpath, align 8
+  invoke void @uprv_free_75(ptr noundef %4)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -1954,10 +1952,10 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #13
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #13
   unreachable
 }
 
@@ -1994,7 +1992,8 @@ entry:
   %1 = load ptr, ptr %log.addr, align 8
   %2 = load ptr, ptr %status.addr, align 8
   call void @_ZN14TestDataModuleC2EPKcR7TestLogR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16RBTestDataModule, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV16RBTestDataModule, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %fModuleBundle = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 1
   store ptr null, ptr %fModuleBundle, align 8
   %fTestData = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 2
@@ -2007,53 +2006,53 @@ entry:
   store i32 0, ptr %fNumberOfTests, align 8
   %fDataTestValid = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 4
   store i8 1, ptr %fDataTestValid, align 8
-  %3 = load ptr, ptr %name.addr, align 8
-  %4 = load ptr, ptr %status.addr, align 8
-  %call = invoke noundef ptr @_ZN16RBTestDataModule13getTestBundleEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(76) %this1, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %4 = load ptr, ptr %name.addr, align 8
+  %5 = load ptr, ptr %status.addr, align 8
+  %call = invoke noundef ptr @_ZN16RBTestDataModule13getTestBundleEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(76) %this1, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %fModuleBundle2 = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 1
   store ptr %call, ptr %fModuleBundle2, align 8
   %fDataTestValid3 = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 4
-  %5 = load i8, ptr %fDataTestValid3, align 8
-  %tobool = icmp ne i8 %5, 0
+  %6 = load i8, ptr %fDataTestValid3, align 8
+  %tobool = icmp ne i8 %6, 0
   br i1 %tobool, label %if.then, label %if.end29
 
 if.then:                                          ; preds = %invoke.cont
   %fModuleBundle4 = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %fModuleBundle4, align 8
-  %7 = load ptr, ptr %status.addr, align 8
-  %call6 = invoke ptr @ures_getByKey_75(ptr noundef %6, ptr noundef @.str.8, ptr noundef null, ptr noundef %7)
+  %7 = load ptr, ptr %fModuleBundle4, align 8
+  %8 = load ptr, ptr %status.addr, align 8
+  %call6 = invoke ptr @ures_getByKey_75(ptr noundef %7, ptr noundef @.str.8, ptr noundef null, ptr noundef %8)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %if.then
   %fTestData7 = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 2
   store ptr %call6, ptr %fTestData7, align 8
   %fTestData8 = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 2
-  %8 = load ptr, ptr %fTestData8, align 8
-  %call10 = invoke i32 @ures_getSize_75(ptr noundef %8)
+  %9 = load ptr, ptr %fTestData8, align 8
+  %call10 = invoke i32 @ures_getSize_75(ptr noundef %9)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont5
   %fNumberOfTests11 = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 7
   store i32 %call10, ptr %fNumberOfTests11, align 8
   %fModuleBundle12 = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %fModuleBundle12, align 8
-  %10 = load ptr, ptr %status.addr, align 8
-  %call14 = invoke ptr @ures_getByKey_75(ptr noundef %9, ptr noundef @.str.9, ptr noundef null, ptr noundef %10)
+  %10 = load ptr, ptr %fModuleBundle12, align 8
+  %11 = load ptr, ptr %status.addr, align 8
+  %call14 = invoke ptr @ures_getByKey_75(ptr noundef %10, ptr noundef @.str.9, ptr noundef null, ptr noundef %11)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont9
   %fInfoRB15 = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 3
   store ptr %call14, ptr %fInfoRB15, align 8
-  %11 = load ptr, ptr %status.addr, align 8
-  %12 = load i32, ptr %11, align 4
-  %cmp = icmp ne i32 %12, 0
+  %12 = load ptr, ptr %status.addr, align 8
+  %13 = load i32, ptr %12, align 4
+  %cmp = icmp ne i32 %13, 0
   br i1 %cmp, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %invoke.cont13
-  %13 = load ptr, ptr %log.addr, align 8
+  %14 = load ptr, ptr %log.addr, align 8
   invoke void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef @.str.10)
           to label %invoke.cont17 unwind label %lpad
 
@@ -2062,10 +2061,10 @@ invoke.cont17:                                    ; preds = %if.then16
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
-  %vtable = load ptr, ptr %13, align 8
+  %vtable = load ptr, ptr %14, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %14 = load ptr, ptr %vfn, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
+  %15 = load ptr, ptr %vfn, align 8
+  invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -2076,30 +2075,30 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   br label %if.end
 
 lpad:                                             ; preds = %if.else, %if.then16, %invoke.cont9, %invoke.cont5, %if.then, %entry
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup30
 
 lpad18:                                           ; preds = %invoke.cont17
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad20:                                           ; preds = %invoke.cont19
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #11
   br label %ehcleanup
 
@@ -2113,9 +2112,9 @@ if.else:                                          ; preds = %invoke.cont13
 
 invoke.cont23:                                    ; preds = %if.else
   %fInfoRB25 = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 3
-  %24 = load ptr, ptr %fInfoRB25, align 8
-  %25 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN9RBDataMapC1EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %call24, ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %25)
+  %25 = load ptr, ptr %fInfoRB25, align 8
+  %26 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN9RBDataMapC1EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %call24, ptr noundef %25, ptr noundef nonnull align 4 dereferenceable(4) %26)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont23
@@ -2124,12 +2123,12 @@ invoke.cont27:                                    ; preds = %invoke.cont23
   br label %if.end
 
 lpad26:                                           ; preds = %invoke.cont23
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call24) #15
   br label %ehcleanup30
 
@@ -2726,6 +2725,12 @@ entry:
 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, i32 noundef) #5
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2734,9 +2739,9 @@ attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind }
 attributes #12 = { allocsize(0) }
 attributes #13 = { noreturn nounwind }

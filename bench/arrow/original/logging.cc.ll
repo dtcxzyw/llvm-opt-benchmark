@@ -320,27 +320,28 @@ entry:
   store i32 %severity, ptr %severity.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow4util12ArrowLogBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow4util8ArrowLogE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow4util8ArrowLogE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %logging_provider_ = getelementptr inbounds %"class.arrow::util::ArrowLog", ptr %this1, i32 0, i32 1
   store ptr null, ptr %logging_provider_, align 8
   %is_enabled_ = getelementptr inbounds %"class.arrow::util::ArrowLog", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %severity.addr, align 4
-  %1 = load i32, ptr @_ZN5arrow4util8ArrowLog19severity_threshold_E, align 4
-  %cmp = icmp sge i32 %0, %1
+  %1 = load i32, ptr %severity.addr, align 4
+  %2 = load i32, ptr @_ZN5arrow4util8ArrowLog19severity_threshold_E, align 4
+  %cmp = icmp sge i32 %1, %2
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %is_enabled_, align 8
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load i32, ptr %severity.addr, align 4
-  invoke void @_ZN5arrow4util7CerrLogC2ENS0_13ArrowLogLevelE(ptr noundef nonnull align 8 dereferenceable(13) %call, i32 noundef %2)
+  %3 = load i32, ptr %severity.addr, align 4
+  invoke void @_ZN5arrow4util7CerrLogC2ENS0_13ArrowLogLevelE(ptr noundef nonnull align 8 dereferenceable(13) %call, i32 noundef %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call, ptr %logging_provider, align 8
-  %3 = load ptr, ptr %logging_provider, align 8
-  %call5 = invoke noundef nonnull align 8 dereferenceable(13) ptr @_ZN5arrow4util7CerrLoglsIPKcEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(13) %3, ptr noundef nonnull align 8 dereferenceable(8) %file_name.addr)
+  %4 = load ptr, ptr %logging_provider, align 8
+  %call5 = invoke noundef nonnull align 8 dereferenceable(13) ptr @_ZN5arrow4util7CerrLoglsIPKcEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(8) %file_name.addr)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -356,27 +357,27 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %4 = load ptr, ptr %logging_provider, align 8
+  %5 = load ptr, ptr %logging_provider, align 8
   %logging_provider_12 = getelementptr inbounds %"class.arrow::util::ArrowLog", ptr %this1, i32 0, i32 1
-  store ptr %4, ptr %logging_provider_12, align 8
+  store ptr %5, ptr %logging_provider_12, align 8
   ret void
 
 lpad:                                             ; preds = %invoke.cont8, %invoke.cont6, %invoke.cont4, %invoke.cont3, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #13
   br label %ehcleanup
 
@@ -398,7 +399,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow4util12ArrowLogBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow4util12ArrowLogBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -410,10 +412,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %severity, ptr %severity.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %severity_ = getelementptr inbounds %"class.arrow::util::CerrLog", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %severity.addr, align 4
-  store i32 %0, ptr %severity_, align 8
+  %1 = load i32, ptr %severity.addr, align 4
+  store i32 %1, ptr %severity_, align 8
   %has_logged_ = getelementptr inbounds %"class.arrow::util::CerrLog", ptr %this1, i32 0, i32 2
   store i8 0, ptr %has_logged_, align 4
   ret void
@@ -563,23 +566,24 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow4util8ArrowLogE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5arrow4util8ArrowLogE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %logging_provider_ = getelementptr inbounds %"class.arrow::util::ArrowLog", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %logging_provider_, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %logging_provider_, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %logging_provider_2 = getelementptr inbounds %"class.arrow::util::ArrowLog", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %logging_provider_2, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %logging_provider_2, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(13) %1) #3
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(13) %2) #3
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -639,10 +643,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %has_logged_ = getelementptr inbounds %"class.arrow::util::CerrLog", ptr %this1, i32 0, i32 2
-  %0 = load i8, ptr %has_logged_, align 4
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %has_logged_, align 4
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -654,8 +659,8 @@ invoke.cont:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %severity_ = getelementptr inbounds %"class.arrow::util::CerrLog", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %severity_, align 8
-  %cmp = icmp eq i32 %1, 3
+  %2 = load i32, ptr %severity_, align 8
+  %cmp = icmp eq i32 %2, 3
   br i1 %cmp, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
@@ -670,10 +675,10 @@ if.end4:                                          ; preds = %if.end
   ret void
 
 terminate.lpad:                                   ; preds = %if.then2, %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #11
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #11
   unreachable
 }
 

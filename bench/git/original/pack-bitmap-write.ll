@@ -95,7 +95,8 @@ entry:
   %show.addr = alloca i32, align 4
   store i32 %show, ptr %show.addr, align 4
   %0 = load i32, ptr %show.addr, align 4
-  store i32 %0, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 10), align 8
+  %1 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 10
+  store i32 %0, ptr %1, align 8
   ret void
 }
 
@@ -114,42 +115,45 @@ entry:
   %call = call ptr @ewah_new()
   store ptr %call, ptr @writer, align 8
   %call1 = call ptr @ewah_new()
-  store ptr %call1, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 1
+  store ptr %call1, ptr %0, align 8
   %call2 = call ptr @ewah_new()
-  store ptr %call2, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 2), align 8
+  %1 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 2
+  store ptr %call2, ptr %1, align 8
   %call3 = call ptr @ewah_new()
-  store ptr %call3, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 3), align 8
-  %0 = load ptr, ptr %to_pack.addr, align 8
-  %nr_objects = getelementptr inbounds %struct.packing_data, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %nr_objects, align 8
-  %conv = zext i32 %1 to i64
+  %2 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 3
+  store ptr %call3, ptr %2, align 8
+  %3 = load ptr, ptr %to_pack.addr, align 8
+  %nr_objects = getelementptr inbounds %struct.packing_data, ptr %3, i32 0, i32 2
+  %4 = load i32, ptr %nr_objects, align 8
+  %conv = zext i32 %4 to i64
   %call4 = call i64 @st_mult(i64 noundef 4, i64 noundef %conv)
   %call5 = call ptr @xmalloc(i64 noundef %call4)
-  %2 = load ptr, ptr %to_pack.addr, align 8
-  %in_pack_pos = getelementptr inbounds %struct.packing_data, ptr %2, i32 0, i32 6
+  %5 = load ptr, ptr %to_pack.addr, align 8
+  %in_pack_pos = getelementptr inbounds %struct.packing_data, ptr %5, i32 0, i32 6
   store ptr %call5, ptr %in_pack_pos, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %index_nr.addr, align 4
-  %cmp = icmp ult i32 %3, %4
+  %6 = load i32, ptr %i, align 4
+  %7 = load i32, ptr %index_nr.addr, align 4
+  %cmp = icmp ult i32 %6, %7
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %index.addr, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %6 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx, align 8
-  store ptr %7, ptr %entry7, align 8
-  %8 = load ptr, ptr %to_pack.addr, align 8
-  %9 = load ptr, ptr %entry7, align 8
-  %10 = load i32, ptr %i, align 4
-  call void @oe_set_in_pack_pos(ptr noundef %8, ptr noundef %9, i32 noundef %10)
-  %11 = load ptr, ptr %entry7, align 8
-  %call8 = call i32 @oe_type(ptr noundef %11)
+  %8 = load ptr, ptr %index.addr, align 8
+  %9 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %9 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %idxprom
+  %10 = load ptr, ptr %arrayidx, align 8
+  store ptr %10, ptr %entry7, align 8
+  %11 = load ptr, ptr %to_pack.addr, align 8
+  %12 = load ptr, ptr %entry7, align 8
+  %13 = load i32, ptr %i, align 4
+  call void @oe_set_in_pack_pos(ptr noundef %11, ptr noundef %12, i32 noundef %13)
+  %14 = load ptr, ptr %entry7, align 8
+  %call8 = call i32 @oe_type(ptr noundef %14)
   switch i32 %call8, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb
@@ -158,25 +162,25 @@ for.body:                                         ; preds = %for.cond
   ]
 
 sw.bb:                                            ; preds = %for.body, %for.body, %for.body, %for.body
-  %12 = load ptr, ptr %entry7, align 8
-  %call9 = call i32 @oe_type(ptr noundef %12)
+  %15 = load ptr, ptr %entry7, align 8
+  %call9 = call i32 @oe_type(ptr noundef %15)
   store i32 %call9, ptr %real_type, align 4
   br label %sw.epilog
 
 sw.default:                                       ; preds = %for.body
-  %13 = load ptr, ptr %to_pack.addr, align 8
-  %repo = getelementptr inbounds %struct.packing_data, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %repo, align 8
-  %15 = load ptr, ptr %entry7, align 8
-  %idx = getelementptr inbounds %struct.object_entry, ptr %15, i32 0, i32 0
+  %16 = load ptr, ptr %to_pack.addr, align 8
+  %repo = getelementptr inbounds %struct.packing_data, ptr %16, i32 0, i32 0
+  %17 = load ptr, ptr %repo, align 8
+  %18 = load ptr, ptr %entry7, align 8
+  %idx = getelementptr inbounds %struct.object_entry, ptr %18, i32 0, i32 0
   %oid = getelementptr inbounds %struct.pack_idx_entry, ptr %idx, i32 0, i32 0
-  %call10 = call i32 @oid_object_info(ptr noundef %14, ptr noundef %oid, ptr noundef null)
+  %call10 = call i32 @oid_object_info(ptr noundef %17, ptr noundef %oid, ptr noundef null)
   store i32 %call10, ptr %real_type, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb
-  %16 = load i32, ptr %real_type, align 4
-  switch i32 %16, label %sw.default19 [
+  %19 = load i32, ptr %real_type, align 4
+  switch i32 %19, label %sw.default19 [
     i32 1, label %sw.bb11
     i32 2, label %sw.bb13
     i32 3, label %sw.bb15
@@ -184,50 +188,53 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb
   ]
 
 sw.bb11:                                          ; preds = %sw.epilog
-  %17 = load ptr, ptr @writer, align 8
-  %18 = load i32, ptr %i, align 4
-  %conv12 = zext i32 %18 to i64
-  call void @ewah_set(ptr noundef %17, i64 noundef %conv12)
+  %20 = load ptr, ptr @writer, align 8
+  %21 = load i32, ptr %i, align 4
+  %conv12 = zext i32 %21 to i64
+  call void @ewah_set(ptr noundef %20, i64 noundef %conv12)
   br label %sw.epilog24
 
 sw.bb13:                                          ; preds = %sw.epilog
-  %19 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 1), align 8
-  %20 = load i32, ptr %i, align 4
-  %conv14 = zext i32 %20 to i64
-  call void @ewah_set(ptr noundef %19, i64 noundef %conv14)
+  %22 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i32, ptr %i, align 4
+  %conv14 = zext i32 %24 to i64
+  call void @ewah_set(ptr noundef %23, i64 noundef %conv14)
   br label %sw.epilog24
 
 sw.bb15:                                          ; preds = %sw.epilog
-  %21 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 2), align 8
-  %22 = load i32, ptr %i, align 4
-  %conv16 = zext i32 %22 to i64
-  call void @ewah_set(ptr noundef %21, i64 noundef %conv16)
+  %25 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i32, ptr %i, align 4
+  %conv16 = zext i32 %27 to i64
+  call void @ewah_set(ptr noundef %26, i64 noundef %conv16)
   br label %sw.epilog24
 
 sw.bb17:                                          ; preds = %sw.epilog
-  %23 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 3), align 8
-  %24 = load i32, ptr %i, align 4
-  %conv18 = zext i32 %24 to i64
-  call void @ewah_set(ptr noundef %23, i64 noundef %conv18)
+  %28 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr %i, align 4
+  %conv18 = zext i32 %30 to i64
+  call void @ewah_set(ptr noundef %29, i64 noundef %conv18)
   br label %sw.epilog24
 
 sw.default19:                                     ; preds = %sw.epilog
-  %25 = load ptr, ptr %entry7, align 8
-  %idx20 = getelementptr inbounds %struct.object_entry, ptr %25, i32 0, i32 0
+  %31 = load ptr, ptr %entry7, align 8
+  %idx20 = getelementptr inbounds %struct.object_entry, ptr %31, i32 0, i32 0
   %oid21 = getelementptr inbounds %struct.pack_idx_entry, ptr %idx20, i32 0, i32 0
   %call22 = call ptr @oid_to_hex(ptr noundef %oid21)
-  %26 = load i32, ptr %real_type, align 4
-  %27 = load ptr, ptr %entry7, align 8
-  %call23 = call i32 @oe_type(ptr noundef %27)
-  call void (ptr, ...) @die(ptr noundef @.str, ptr noundef %call22, i32 noundef %26, i32 noundef %call23) #10
+  %32 = load i32, ptr %real_type, align 4
+  %33 = load ptr, ptr %entry7, align 8
+  %call23 = call i32 @oe_type(ptr noundef %33)
+  call void (ptr, ...) @die(ptr noundef @.str, ptr noundef %call22, i32 noundef %32, i32 noundef %call23) #10
   unreachable
 
 sw.epilog24:                                      ; preds = %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.epilog24
-  %28 = load i32, ptr %i, align 4
-  %inc = add i32 %28, 1
+  %34 = load i32, ptr %i, align 4
+  %inc = add i32 %34, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !5
 
@@ -359,36 +366,41 @@ entry:
   call void @llvm.memset.p0.i64(ptr align 8 %tree_queue, i8 0, i64 40, i1 false)
   store i32 1, ptr %closed, align 4
   %call = call ptr @kh_init_oid_map()
-  store ptr %call, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 4), align 8
-  %0 = load ptr, ptr %to_pack.addr, align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 5), align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 10), align 8
-  %tobool = icmp ne i32 %1, 0
+  %0 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 4
+  store ptr %call, ptr %0, align 8
+  %1 = load ptr, ptr %to_pack.addr, align 8
+  %2 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 5
+  store ptr %1, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 10
+  %4 = load i32, ptr %3, align 8
+  %tobool = icmp ne i32 %4, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %conv = zext i32 %2 to i64
+  %5 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %6 = load i32, ptr %5, align 8
+  %conv = zext i32 %6 to i64
   %call1 = call ptr @start_progress(ptr noundef @.str.1, i64 noundef %conv)
-  store ptr %call1, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 9), align 8
+  %7 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 9
+  store ptr %call1, ptr %7, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %3 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef @.str.2, i32 noundef 497, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef %3)
-  %4 = load ptr, ptr %to_pack.addr, align 8
-  %repo = getelementptr inbounds %struct.packing_data, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %repo, align 8
-  %call2 = call ptr @prepare_bitmap_git(ptr noundef %5)
+  %8 = load ptr, ptr @the_repository, align 8
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef @.str.2, i32 noundef 497, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef %8)
+  %9 = load ptr, ptr %to_pack.addr, align 8
+  %repo = getelementptr inbounds %struct.packing_data, ptr %9, i32 0, i32 0
+  %10 = load ptr, ptr %repo, align 8
+  %call2 = call ptr @prepare_bitmap_git(ptr noundef %10)
   store ptr %call2, ptr %old_bitmap, align 8
-  %6 = load ptr, ptr %old_bitmap, align 8
-  %tobool3 = icmp ne ptr %6, null
+  %11 = load ptr, ptr %old_bitmap, align 8
+  %tobool3 = icmp ne ptr %11, null
   br i1 %tobool3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end
-  %7 = load ptr, ptr %old_bitmap, align 8
-  %8 = load ptr, ptr %to_pack.addr, align 8
-  %call5 = call ptr @create_bitmap_mapping(ptr noundef %7, ptr noundef %8)
+  %12 = load ptr, ptr %old_bitmap, align 8
+  %13 = load ptr, ptr %to_pack.addr, align 8
+  %call5 = call ptr @create_bitmap_mapping(ptr noundef %12, ptr noundef %13)
   store ptr %call5, ptr %mapping, align 8
   br label %if.end6
 
@@ -397,36 +409,36 @@ if.else:                                          ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.else, %if.then4
-  %9 = load ptr, ptr %old_bitmap, align 8
-  call void @bitmap_builder_init(ptr noundef %bb, ptr noundef @writer, ptr noundef %9)
+  %14 = load ptr, ptr %old_bitmap, align 8
+  call void @bitmap_builder_init(ptr noundef %bb, ptr noundef @writer, ptr noundef %14)
   %commits_nr = getelementptr inbounds %struct.bitmap_builder, ptr %bb, i32 0, i32 2
-  %10 = load i64, ptr %commits_nr, align 8
-  store i64 %10, ptr %i, align 8
+  %15 = load i64, ptr %commits_nr, align 8
+  store i64 %15, ptr %i, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end6
-  %11 = load i64, ptr %i, align 8
-  %cmp = icmp ugt i64 %11, 0
+  %16 = load i64, ptr %i, align 8
+  %cmp = icmp ugt i64 %16, 0
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %commits = getelementptr inbounds %struct.bitmap_builder, ptr %bb, i32 0, i32 1
-  %12 = load ptr, ptr %commits, align 8
-  %13 = load i64, ptr %i, align 8
-  %sub = sub i64 %13, 1
-  %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %sub
-  %14 = load ptr, ptr %arrayidx, align 8
-  store ptr %14, ptr %commit, align 8
+  %17 = load ptr, ptr %commits, align 8
+  %18 = load i64, ptr %i, align 8
+  %sub = sub i64 %18, 1
+  %arrayidx = getelementptr inbounds ptr, ptr %17, i64 %sub
+  %19 = load ptr, ptr %arrayidx, align 8
+  store ptr %19, ptr %commit, align 8
   %data = getelementptr inbounds %struct.bitmap_builder, ptr %bb, i32 0, i32 0
-  %15 = load ptr, ptr %commit, align 8
-  %call8 = call ptr @bb_data_at(ptr noundef %data, ptr noundef %15)
+  %20 = load ptr, ptr %commit, align 8
+  %call8 = call ptr @bb_data_at(ptr noundef %data, ptr noundef %20)
   store ptr %call8, ptr %ent, align 8
   store i32 0, ptr %reused, align 4
-  %16 = load ptr, ptr %ent, align 8
-  %17 = load ptr, ptr %commit, align 8
-  %18 = load ptr, ptr %old_bitmap, align 8
-  %19 = load ptr, ptr %mapping, align 8
-  %call9 = call i32 @fill_bitmap_commit(ptr noundef %16, ptr noundef %17, ptr noundef %queue, ptr noundef %tree_queue, ptr noundef %18, ptr noundef %19)
+  %21 = load ptr, ptr %ent, align 8
+  %22 = load ptr, ptr %commit, align 8
+  %23 = load ptr, ptr %old_bitmap, align 8
+  %24 = load ptr, ptr %mapping, align 8
+  %call9 = call i32 @fill_bitmap_commit(ptr noundef %21, ptr noundef %22, ptr noundef %queue, ptr noundef %tree_queue, ptr noundef %23, ptr noundef %24)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %if.then12, label %if.end13
 
@@ -435,8 +447,8 @@ if.then12:                                        ; preds = %for.body
   br label %for.end
 
 if.end13:                                         ; preds = %for.body
-  %20 = load ptr, ptr %ent, align 8
-  %selected = getelementptr inbounds %struct.bb_commit, ptr %20, i32 0, i32 3
+  %25 = load ptr, ptr %ent, align 8
+  %selected = getelementptr inbounds %struct.bb_commit, ptr %25, i32 0, i32 3
   %bf.load = load i8, ptr %selected, align 8
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext i8 %bf.clear to i32
@@ -444,24 +456,25 @@ if.end13:                                         ; preds = %for.body
   br i1 %tobool14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end13
-  %21 = load ptr, ptr %ent, align 8
-  %22 = load ptr, ptr %commit, align 8
-  call void @store_selected(ptr noundef %21, ptr noundef %22)
-  %23 = load i32, ptr %nr_stored, align 4
-  %inc = add nsw i32 %23, 1
+  %26 = load ptr, ptr %ent, align 8
+  %27 = load ptr, ptr %commit, align 8
+  call void @store_selected(ptr noundef %26, ptr noundef %27)
+  %28 = load i32, ptr %nr_stored, align 4
+  %inc = add nsw i32 %28, 1
   store i32 %inc, ptr %nr_stored, align 4
-  %24 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 9), align 8
-  %25 = load i32, ptr %nr_stored, align 4
-  %conv16 = sext i32 %25 to i64
-  call void @display_progress(ptr noundef %24, i64 noundef %conv16)
+  %29 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 9
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i32, ptr %nr_stored, align 4
+  %conv16 = sext i32 %31 to i64
+  call void @display_progress(ptr noundef %30, i64 noundef %conv16)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.end13
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end36, %if.end17
-  %26 = load ptr, ptr %ent, align 8
-  %reverse_edges = getelementptr inbounds %struct.bb_commit, ptr %26, i32 0, i32 0
+  %32 = load ptr, ptr %ent, align 8
+  %reverse_edges = getelementptr inbounds %struct.bb_commit, ptr %32, i32 0, i32 0
   %call18 = call ptr @pop_commit(ptr noundef %reverse_edges)
   store ptr %call18, ptr %child, align 8
   %tobool19 = icmp ne ptr %call18, null
@@ -469,47 +482,47 @@ while.cond:                                       ; preds = %if.end36, %if.end17
 
 while.body:                                       ; preds = %while.cond
   %data20 = getelementptr inbounds %struct.bitmap_builder, ptr %bb, i32 0, i32 0
-  %27 = load ptr, ptr %child, align 8
-  %call21 = call ptr @bb_data_at(ptr noundef %data20, ptr noundef %27)
+  %33 = load ptr, ptr %child, align 8
+  %call21 = call ptr @bb_data_at(ptr noundef %data20, ptr noundef %33)
   store ptr %call21, ptr %child_ent, align 8
-  %28 = load ptr, ptr %child_ent, align 8
-  %bitmap = getelementptr inbounds %struct.bb_commit, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %bitmap, align 8
-  %tobool22 = icmp ne ptr %29, null
+  %34 = load ptr, ptr %child_ent, align 8
+  %bitmap = getelementptr inbounds %struct.bb_commit, ptr %34, i32 0, i32 2
+  %35 = load ptr, ptr %bitmap, align 8
+  %tobool22 = icmp ne ptr %35, null
   br i1 %tobool22, label %if.then23, label %if.else26
 
 if.then23:                                        ; preds = %while.body
-  %30 = load ptr, ptr %child_ent, align 8
-  %bitmap24 = getelementptr inbounds %struct.bb_commit, ptr %30, i32 0, i32 2
-  %31 = load ptr, ptr %bitmap24, align 8
-  %32 = load ptr, ptr %ent, align 8
-  %bitmap25 = getelementptr inbounds %struct.bb_commit, ptr %32, i32 0, i32 2
-  %33 = load ptr, ptr %bitmap25, align 8
-  call void @bitmap_or(ptr noundef %31, ptr noundef %33)
+  %36 = load ptr, ptr %child_ent, align 8
+  %bitmap24 = getelementptr inbounds %struct.bb_commit, ptr %36, i32 0, i32 2
+  %37 = load ptr, ptr %bitmap24, align 8
+  %38 = load ptr, ptr %ent, align 8
+  %bitmap25 = getelementptr inbounds %struct.bb_commit, ptr %38, i32 0, i32 2
+  %39 = load ptr, ptr %bitmap25, align 8
+  call void @bitmap_or(ptr noundef %37, ptr noundef %39)
   br label %if.end36
 
 if.else26:                                        ; preds = %while.body
-  %34 = load i32, ptr %reused, align 4
-  %tobool27 = icmp ne i32 %34, 0
+  %40 = load i32, ptr %reused, align 4
+  %tobool27 = icmp ne i32 %40, 0
   br i1 %tobool27, label %if.then28, label %if.else32
 
 if.then28:                                        ; preds = %if.else26
-  %35 = load ptr, ptr %ent, align 8
-  %bitmap29 = getelementptr inbounds %struct.bb_commit, ptr %35, i32 0, i32 2
-  %36 = load ptr, ptr %bitmap29, align 8
-  %call30 = call ptr @bitmap_dup(ptr noundef %36)
-  %37 = load ptr, ptr %child_ent, align 8
-  %bitmap31 = getelementptr inbounds %struct.bb_commit, ptr %37, i32 0, i32 2
+  %41 = load ptr, ptr %ent, align 8
+  %bitmap29 = getelementptr inbounds %struct.bb_commit, ptr %41, i32 0, i32 2
+  %42 = load ptr, ptr %bitmap29, align 8
+  %call30 = call ptr @bitmap_dup(ptr noundef %42)
+  %43 = load ptr, ptr %child_ent, align 8
+  %bitmap31 = getelementptr inbounds %struct.bb_commit, ptr %43, i32 0, i32 2
   store ptr %call30, ptr %bitmap31, align 8
   br label %if.end35
 
 if.else32:                                        ; preds = %if.else26
-  %38 = load ptr, ptr %ent, align 8
-  %bitmap33 = getelementptr inbounds %struct.bb_commit, ptr %38, i32 0, i32 2
-  %39 = load ptr, ptr %bitmap33, align 8
-  %40 = load ptr, ptr %child_ent, align 8
-  %bitmap34 = getelementptr inbounds %struct.bb_commit, ptr %40, i32 0, i32 2
-  store ptr %39, ptr %bitmap34, align 8
+  %44 = load ptr, ptr %ent, align 8
+  %bitmap33 = getelementptr inbounds %struct.bb_commit, ptr %44, i32 0, i32 2
+  %45 = load ptr, ptr %bitmap33, align 8
+  %46 = load ptr, ptr %child_ent, align 8
+  %bitmap34 = getelementptr inbounds %struct.bb_commit, ptr %46, i32 0, i32 2
+  store ptr %45, ptr %bitmap34, align 8
   store i32 1, ptr %reused, align 4
   br label %if.end35
 
@@ -520,26 +533,26 @@ if.end36:                                         ; preds = %if.end35, %if.then2
   br label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
-  %41 = load i32, ptr %reused, align 4
-  %tobool37 = icmp ne i32 %41, 0
+  %47 = load i32, ptr %reused, align 4
+  %tobool37 = icmp ne i32 %47, 0
   br i1 %tobool37, label %if.end40, label %if.then38
 
 if.then38:                                        ; preds = %while.end
-  %42 = load ptr, ptr %ent, align 8
-  %bitmap39 = getelementptr inbounds %struct.bb_commit, ptr %42, i32 0, i32 2
-  %43 = load ptr, ptr %bitmap39, align 8
-  call void @bitmap_free(ptr noundef %43)
+  %48 = load ptr, ptr %ent, align 8
+  %bitmap39 = getelementptr inbounds %struct.bb_commit, ptr %48, i32 0, i32 2
+  %49 = load ptr, ptr %bitmap39, align 8
+  call void @bitmap_free(ptr noundef %49)
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then38, %while.end
-  %44 = load ptr, ptr %ent, align 8
-  %bitmap41 = getelementptr inbounds %struct.bb_commit, ptr %44, i32 0, i32 2
+  %50 = load ptr, ptr %ent, align 8
+  %bitmap41 = getelementptr inbounds %struct.bb_commit, ptr %50, i32 0, i32 2
   store ptr null, ptr %bitmap41, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end40
-  %45 = load i64, ptr %i, align 8
-  %dec = add i64 %45, -1
+  %51 = load i64, ptr %i, align 8
+  %dec = add i64 %51, -1
   store i64 %dec, ptr %i, align 8
   br label %for.cond, !llvm.loop !8
 
@@ -547,19 +560,20 @@ for.end:                                          ; preds = %if.then12, %for.con
   call void @clear_prio_queue(ptr noundef %queue)
   call void @clear_prio_queue(ptr noundef %tree_queue)
   call void @bitmap_builder_clear(ptr noundef %bb)
-  %46 = load ptr, ptr %old_bitmap, align 8
-  call void @free_bitmap_index(ptr noundef %46)
-  %47 = load ptr, ptr %mapping, align 8
-  call void @free(ptr noundef %47) #11
-  %48 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef @.str.2, i32 noundef 548, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef %48)
-  %49 = load ptr, ptr @the_repository, align 8
-  %50 = load i32, ptr @reused_bitmaps_nr, align 4
-  %conv42 = sext i32 %50 to i64
-  call void @trace2_data_intmax_fl(ptr noundef @.str.2, i32 noundef 550, ptr noundef @.str.3, ptr noundef %49, ptr noundef @.str.5, i64 noundef %conv42)
-  call void @stop_progress(ptr noundef getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 9))
-  %51 = load i32, ptr %closed, align 4
-  %tobool43 = icmp ne i32 %51, 0
+  %52 = load ptr, ptr %old_bitmap, align 8
+  call void @free_bitmap_index(ptr noundef %52)
+  %53 = load ptr, ptr %mapping, align 8
+  call void @free(ptr noundef %53) #11
+  %54 = load ptr, ptr @the_repository, align 8
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef @.str.2, i32 noundef 548, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef %54)
+  %55 = load ptr, ptr @the_repository, align 8
+  %56 = load i32, ptr @reused_bitmaps_nr, align 4
+  %conv42 = sext i32 %56 to i64
+  call void @trace2_data_intmax_fl(ptr noundef @.str.2, i32 noundef 550, ptr noundef @.str.3, ptr noundef %55, ptr noundef @.str.5, i64 noundef %conv42)
+  %57 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 9
+  call void @stop_progress(ptr noundef %57)
+  %58 = load i32, ptr %closed, align 4
+  %tobool43 = icmp ne i32 %58, 0
   br i1 %tobool43, label %if.then44, label %if.end45
 
 if.then44:                                        ; preds = %for.end
@@ -567,8 +581,8 @@ if.then44:                                        ; preds = %for.end
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then44, %for.end
-  %52 = load i32, ptr %closed, align 4
-  %tobool46 = icmp ne i32 %52, 0
+  %59 = load i32, ptr %closed, align 4
+  %tobool46 = icmp ne i32 %59, 0
   %cond = select i1 %tobool46, i32 0, i32 -1
   ret i32 %cond
 }
@@ -1391,48 +1405,51 @@ entry:
   %byval-temp = alloca %struct.object_id, align 8
   store ptr %ent, ptr %ent.addr, align 8
   store ptr %commit, ptr %commit.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 6), align 8
-  %1 = load ptr, ptr %ent.addr, align 8
-  %idx = getelementptr inbounds %struct.bb_commit, ptr %1, i32 0, i32 4
-  %2 = load i32, ptr %idx, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %0, i64 %idxprom
+  %0 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 6
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %ent.addr, align 8
+  %idx = getelementptr inbounds %struct.bb_commit, ptr %2, i32 0, i32 4
+  %3 = load i32, ptr %idx, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %1, i64 %idxprom
   store ptr %arrayidx, ptr %stored, align 8
-  %3 = load ptr, ptr %ent.addr, align 8
-  %bitmap = getelementptr inbounds %struct.bb_commit, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %bitmap, align 8
-  %call = call ptr @bitmap_to_ewah(ptr noundef %4)
-  %5 = load ptr, ptr %stored, align 8
-  %bitmap1 = getelementptr inbounds %struct.bitmapped_commit, ptr %5, i32 0, i32 1
+  %4 = load ptr, ptr %ent.addr, align 8
+  %bitmap = getelementptr inbounds %struct.bb_commit, ptr %4, i32 0, i32 2
+  %5 = load ptr, ptr %bitmap, align 8
+  %call = call ptr @bitmap_to_ewah(ptr noundef %5)
+  %6 = load ptr, ptr %stored, align 8
+  %bitmap1 = getelementptr inbounds %struct.bitmapped_commit, ptr %6, i32 0, i32 1
   store ptr %call, ptr %bitmap1, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 4), align 8
-  %7 = load ptr, ptr %commit.addr, align 8
-  %object = getelementptr inbounds %struct.commit, ptr %7, i32 0, i32 0
+  %7 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 4
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %commit.addr, align 8
+  %object = getelementptr inbounds %struct.commit, ptr %9, i32 0, i32 0
   %oid = getelementptr inbounds %struct.object, ptr %object, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %byval-temp, ptr align 4 %oid, i64 36, i1 false)
-  %call2 = call i32 @kh_put_oid_map(ptr noundef %6, ptr noundef byval(%struct.object_id) align 8 %byval-temp, ptr noundef %hash_ret)
+  %call2 = call i32 @kh_put_oid_map(ptr noundef %8, ptr noundef byval(%struct.object_id) align 8 %byval-temp, ptr noundef %hash_ret)
   store i32 %call2, ptr %hash_pos, align 4
-  %8 = load i32, ptr %hash_ret, align 4
-  %cmp = icmp eq i32 %8, 0
+  %10 = load i32, ptr %hash_ret, align 4
+  %cmp = icmp eq i32 %10, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %9 = load ptr, ptr %commit.addr, align 8
-  %object3 = getelementptr inbounds %struct.commit, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %commit.addr, align 8
+  %object3 = getelementptr inbounds %struct.commit, ptr %11, i32 0, i32 0
   %oid4 = getelementptr inbounds %struct.object, ptr %object3, i32 0, i32 1
   %call5 = call ptr @oid_to_hex(ptr noundef %oid4)
   call void (ptr, ...) @die(ptr noundef @.str.18, ptr noundef %call5) #10
   unreachable
 
 if.end:                                           ; preds = %entry
-  %10 = load ptr, ptr %stored, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 4), align 8
-  %vals = getelementptr inbounds %struct.kh_oid_map, ptr %11, i32 0, i32 6
-  %12 = load ptr, ptr %vals, align 8
-  %13 = load i32, ptr %hash_pos, align 4
-  %idxprom6 = zext i32 %13 to i64
-  %arrayidx7 = getelementptr inbounds ptr, ptr %12, i64 %idxprom6
-  store ptr %10, ptr %arrayidx7, align 8
+  %12 = load ptr, ptr %stored, align 8
+  %13 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 4
+  %14 = load ptr, ptr %13, align 8
+  %vals = getelementptr inbounds %struct.kh_oid_map, ptr %14, i32 0, i32 6
+  %15 = load ptr, ptr %vals, align 8
+  %16 = load i32, ptr %hash_pos, align 4
+  %idxprom6 = zext i32 %16 to i64
+  %arrayidx7 = getelementptr inbounds ptr, ptr %15, i64 %idxprom6
+  store ptr %12, ptr %arrayidx7, align 8
   ret void
 }
 
@@ -1504,36 +1521,38 @@ entry:
 
 while.cond:                                       ; preds = %for.end, %entry
   %0 = load i32, ptr %next, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %cmp = icmp ult i32 %0, %1
+  %1 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %2 = load i32, ptr %1, align 8
+  %cmp = icmp ult i32 %0, %2
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 6), align 8
-  %3 = load i32, ptr %next, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %2, i64 %idxprom
+  %3 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 6
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %next, align 4
+  %idxprom = sext i32 %5 to i64
+  %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %4, i64 %idxprom
   store ptr %arrayidx, ptr %stored, align 8
   store i32 0, ptr %best_offset, align 4
-  %4 = load ptr, ptr %stored, align 8
-  %bitmap = getelementptr inbounds %struct.bitmapped_commit, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %bitmap, align 8
-  store ptr %5, ptr %best_bitmap, align 8
+  %6 = load ptr, ptr %stored, align 8
+  %bitmap = getelementptr inbounds %struct.bitmapped_commit, ptr %6, i32 0, i32 1
+  %7 = load ptr, ptr %bitmap, align 8
+  store ptr %7, ptr %best_bitmap, align 8
   store i32 1, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %while.body
-  %6 = load i32, ptr %i, align 4
-  %cmp1 = icmp sle i32 %6, 10
+  %8 = load i32, ptr %i, align 4
+  %cmp1 = icmp sle i32 %8, 10
   br i1 %cmp1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %7 = load i32, ptr %next, align 4
-  %8 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 %7, %8
+  %9 = load i32, ptr %next, align 4
+  %10 = load i32, ptr %i, align 4
+  %sub = sub nsw i32 %9, %10
   store i32 %sub, ptr %curr, align 4
-  %9 = load i32, ptr %curr, align 4
-  %cmp2 = icmp slt i32 %9, 0
+  %11 = load i32, ptr %curr, align 4
+  %cmp2 = icmp slt i32 %11, 0
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
@@ -1542,71 +1561,72 @@ if.then:                                          ; preds = %for.body
 if.end:                                           ; preds = %for.body
   %call = call ptr @ewah_pool_new()
   store ptr %call, ptr %test_xor, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 6), align 8
-  %11 = load i32, ptr %curr, align 4
-  %idxprom3 = sext i32 %11 to i64
-  %arrayidx4 = getelementptr inbounds %struct.bitmapped_commit, ptr %10, i64 %idxprom3
+  %12 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 6
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i32, ptr %curr, align 4
+  %idxprom3 = sext i32 %14 to i64
+  %arrayidx4 = getelementptr inbounds %struct.bitmapped_commit, ptr %13, i64 %idxprom3
   %bitmap5 = getelementptr inbounds %struct.bitmapped_commit, ptr %arrayidx4, i32 0, i32 1
-  %12 = load ptr, ptr %bitmap5, align 8
-  %13 = load ptr, ptr %stored, align 8
-  %bitmap6 = getelementptr inbounds %struct.bitmapped_commit, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %bitmap6, align 8
-  %15 = load ptr, ptr %test_xor, align 8
-  call void @ewah_xor(ptr noundef %12, ptr noundef %14, ptr noundef %15)
-  %16 = load ptr, ptr %test_xor, align 8
-  %buffer_size = getelementptr inbounds %struct.ewah_bitmap, ptr %16, i32 0, i32 1
-  %17 = load i64, ptr %buffer_size, align 8
-  %18 = load ptr, ptr %best_bitmap, align 8
-  %buffer_size7 = getelementptr inbounds %struct.ewah_bitmap, ptr %18, i32 0, i32 1
-  %19 = load i64, ptr %buffer_size7, align 8
-  %cmp8 = icmp ult i64 %17, %19
+  %15 = load ptr, ptr %bitmap5, align 8
+  %16 = load ptr, ptr %stored, align 8
+  %bitmap6 = getelementptr inbounds %struct.bitmapped_commit, ptr %16, i32 0, i32 1
+  %17 = load ptr, ptr %bitmap6, align 8
+  %18 = load ptr, ptr %test_xor, align 8
+  call void @ewah_xor(ptr noundef %15, ptr noundef %17, ptr noundef %18)
+  %19 = load ptr, ptr %test_xor, align 8
+  %buffer_size = getelementptr inbounds %struct.ewah_bitmap, ptr %19, i32 0, i32 1
+  %20 = load i64, ptr %buffer_size, align 8
+  %21 = load ptr, ptr %best_bitmap, align 8
+  %buffer_size7 = getelementptr inbounds %struct.ewah_bitmap, ptr %21, i32 0, i32 1
+  %22 = load i64, ptr %buffer_size7, align 8
+  %cmp8 = icmp ult i64 %20, %22
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end
-  %20 = load ptr, ptr %best_bitmap, align 8
-  %21 = load ptr, ptr %stored, align 8
-  %bitmap10 = getelementptr inbounds %struct.bitmapped_commit, ptr %21, i32 0, i32 1
-  %22 = load ptr, ptr %bitmap10, align 8
-  %cmp11 = icmp ne ptr %20, %22
+  %23 = load ptr, ptr %best_bitmap, align 8
+  %24 = load ptr, ptr %stored, align 8
+  %bitmap10 = getelementptr inbounds %struct.bitmapped_commit, ptr %24, i32 0, i32 1
+  %25 = load ptr, ptr %bitmap10, align 8
+  %cmp11 = icmp ne ptr %23, %25
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.then9
-  %23 = load ptr, ptr %best_bitmap, align 8
-  call void @ewah_pool_free(ptr noundef %23)
+  %26 = load ptr, ptr %best_bitmap, align 8
+  call void @ewah_pool_free(ptr noundef %26)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.then9
-  %24 = load ptr, ptr %test_xor, align 8
-  store ptr %24, ptr %best_bitmap, align 8
-  %25 = load i32, ptr %i, align 4
-  store i32 %25, ptr %best_offset, align 4
+  %27 = load ptr, ptr %test_xor, align 8
+  store ptr %27, ptr %best_bitmap, align 8
+  %28 = load i32, ptr %i, align 4
+  store i32 %28, ptr %best_offset, align 4
   br label %if.end14
 
 if.else:                                          ; preds = %if.end
-  %26 = load ptr, ptr %test_xor, align 8
-  call void @ewah_pool_free(ptr noundef %26)
+  %29 = load ptr, ptr %test_xor, align 8
+  call void @ewah_pool_free(ptr noundef %29)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.end13
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end14
-  %27 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %27, 1
+  %30 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %30, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !16
 
 for.end:                                          ; preds = %if.then, %for.cond
-  %28 = load i32, ptr %best_offset, align 4
-  %29 = load ptr, ptr %stored, align 8
-  %xor_offset = getelementptr inbounds %struct.bitmapped_commit, ptr %29, i32 0, i32 4
-  store i32 %28, ptr %xor_offset, align 4
-  %30 = load ptr, ptr %best_bitmap, align 8
-  %31 = load ptr, ptr %stored, align 8
-  %write_as = getelementptr inbounds %struct.bitmapped_commit, ptr %31, i32 0, i32 2
-  store ptr %30, ptr %write_as, align 8
-  %32 = load i32, ptr %next, align 4
-  %inc15 = add nsw i32 %32, 1
+  %31 = load i32, ptr %best_offset, align 4
+  %32 = load ptr, ptr %stored, align 8
+  %xor_offset = getelementptr inbounds %struct.bitmapped_commit, ptr %32, i32 0, i32 4
+  store i32 %31, ptr %xor_offset, align 4
+  %33 = load ptr, ptr %best_bitmap, align 8
+  %34 = load ptr, ptr %stored, align 8
+  %write_as = getelementptr inbounds %struct.bitmapped_commit, ptr %34, i32 0, i32 2
+  store ptr %33, ptr %write_as, align 8
+  %35 = load i32, ptr %next, align 4
+  %inc15 = add nsw i32 %35, 1
   store i32 %inc15, ptr %next, align 4
   br label %while.cond, !llvm.loop !17
 
@@ -1666,13 +1686,15 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 if.end:                                           ; preds = %entry
-  %9 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 10), align 8
-  %tobool = icmp ne i32 %9, 0
+  %9 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 10
+  %10 = load i32, ptr %9, align 8
+  %tobool = icmp ne i32 %10, 0
   br i1 %tobool, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
   %call = call ptr @start_progress(ptr noundef @.str.6, i64 noundef 0)
-  store ptr %call, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 9), align 8
+  %11 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 9
+  store ptr %call, ptr %11, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %if.end
@@ -1680,78 +1702,80 @@ if.end5:                                          ; preds = %if.then4, %if.end
 
 for.cond6:                                        ; preds = %if.end47, %if.end5
   store ptr null, ptr %chosen, align 8
-  %10 = load i32, ptr %i, align 4
-  %call7 = call i32 @next_commit_index(i32 noundef %10)
+  %12 = load i32, ptr %i, align 4
+  %call7 = call i32 @next_commit_index(i32 noundef %12)
   store i32 %call7, ptr %next, align 4
-  %11 = load i32, ptr %i, align 4
-  %12 = load i32, ptr %next, align 4
-  %add = add i32 %11, %12
-  %13 = load i32, ptr %indexed_commits_nr.addr, align 4
-  %cmp8 = icmp uge i32 %add, %13
+  %13 = load i32, ptr %i, align 4
+  %14 = load i32, ptr %next, align 4
+  %add = add i32 %13, %14
+  %15 = load i32, ptr %indexed_commits_nr.addr, align 4
+  %cmp8 = icmp uge i32 %add, %15
   br i1 %cmp8, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %for.cond6
   br label %for.end51
 
 if.end11:                                         ; preds = %for.cond6
-  %14 = load i32, ptr %max_bitmaps.addr, align 4
-  %cmp12 = icmp sgt i32 %14, 0
+  %16 = load i32, ptr %max_bitmaps.addr, align 4
+  %cmp12 = icmp sgt i32 %16, 0
   br i1 %cmp12, label %land.lhs.true, label %if.end17
 
 land.lhs.true:                                    ; preds = %if.end11
-  %15 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %16 = load i32, ptr %max_bitmaps.addr, align 4
-  %cmp14 = icmp uge i32 %15, %16
+  %17 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %18 = load i32, ptr %17, align 8
+  %19 = load i32, ptr %max_bitmaps.addr, align 4
+  %cmp14 = icmp uge i32 %18, %19
   br i1 %cmp14, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %land.lhs.true
-  %17 = load i32, ptr %max_bitmaps.addr, align 4
-  store i32 %17, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
+  %20 = load i32, ptr %max_bitmaps.addr, align 4
+  %21 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  store i32 %20, ptr %21, align 8
   br label %for.end51
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end11
-  %18 = load i32, ptr %next, align 4
-  %cmp18 = icmp eq i32 %18, 0
+  %22 = load i32, ptr %next, align 4
+  %cmp18 = icmp eq i32 %22, 0
   br i1 %cmp18, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end17
-  %19 = load ptr, ptr %indexed_commits.addr, align 8
-  %20 = load i32, ptr %i, align 4
-  %idxprom21 = zext i32 %20 to i64
-  %arrayidx22 = getelementptr inbounds ptr, ptr %19, i64 %idxprom21
-  %21 = load ptr, ptr %arrayidx22, align 8
-  store ptr %21, ptr %chosen, align 8
+  %23 = load ptr, ptr %indexed_commits.addr, align 8
+  %24 = load i32, ptr %i, align 4
+  %idxprom21 = zext i32 %24 to i64
+  %arrayidx22 = getelementptr inbounds ptr, ptr %23, i64 %idxprom21
+  %25 = load ptr, ptr %arrayidx22, align 8
+  store ptr %25, ptr %chosen, align 8
   br label %if.end47
 
 if.else:                                          ; preds = %if.end17
-  %22 = load ptr, ptr %indexed_commits.addr, align 8
-  %23 = load i32, ptr %i, align 4
-  %24 = load i32, ptr %next, align 4
-  %add23 = add i32 %23, %24
+  %26 = load ptr, ptr %indexed_commits.addr, align 8
+  %27 = load i32, ptr %i, align 4
+  %28 = load i32, ptr %next, align 4
+  %add23 = add i32 %27, %28
   %idxprom24 = zext i32 %add23 to i64
-  %arrayidx25 = getelementptr inbounds ptr, ptr %22, i64 %idxprom24
-  %25 = load ptr, ptr %arrayidx25, align 8
-  store ptr %25, ptr %chosen, align 8
+  %arrayidx25 = getelementptr inbounds ptr, ptr %26, i64 %idxprom24
+  %29 = load ptr, ptr %arrayidx25, align 8
+  store ptr %29, ptr %chosen, align 8
   store i32 0, ptr %j, align 4
   br label %for.cond26
 
 for.cond26:                                       ; preds = %for.inc44, %if.else
-  %26 = load i32, ptr %j, align 4
-  %27 = load i32, ptr %next, align 4
-  %cmp27 = icmp ule i32 %26, %27
+  %30 = load i32, ptr %j, align 4
+  %31 = load i32, ptr %next, align 4
+  %cmp27 = icmp ule i32 %30, %31
   br i1 %cmp27, label %for.body29, label %for.end46
 
 for.body29:                                       ; preds = %for.cond26
-  %28 = load ptr, ptr %indexed_commits.addr, align 8
-  %29 = load i32, ptr %i, align 4
-  %30 = load i32, ptr %j, align 4
-  %add30 = add i32 %29, %30
+  %32 = load ptr, ptr %indexed_commits.addr, align 8
+  %33 = load i32, ptr %i, align 4
+  %34 = load i32, ptr %j, align 4
+  %add30 = add i32 %33, %34
   %idxprom31 = zext i32 %add30 to i64
-  %arrayidx32 = getelementptr inbounds ptr, ptr %28, i64 %idxprom31
-  %31 = load ptr, ptr %arrayidx32, align 8
-  store ptr %31, ptr %cm, align 8
-  %32 = load ptr, ptr %cm, align 8
-  %object = getelementptr inbounds %struct.commit, ptr %32, i32 0, i32 0
+  %arrayidx32 = getelementptr inbounds ptr, ptr %32, i64 %idxprom31
+  %35 = load ptr, ptr %arrayidx32, align 8
+  store ptr %35, ptr %cm, align 8
+  %36 = load ptr, ptr %cm, align 8
+  %object = getelementptr inbounds %struct.commit, ptr %36, i32 0, i32 0
   %bf.load = load i32, ptr %object, align 8
   %bf.lshr = lshr i32 %bf.load, 4
   %and = and i32 %bf.lshr, 4194304
@@ -1759,37 +1783,37 @@ for.body29:                                       ; preds = %for.cond26
   br i1 %cmp33, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %for.body29
-  %33 = load ptr, ptr %cm, align 8
-  store ptr %33, ptr %chosen, align 8
+  %37 = load ptr, ptr %cm, align 8
+  store ptr %37, ptr %chosen, align 8
   br label %for.end46
 
 if.end36:                                         ; preds = %for.body29
-  %34 = load ptr, ptr %cm, align 8
-  %parents = getelementptr inbounds %struct.commit, ptr %34, i32 0, i32 2
-  %35 = load ptr, ptr %parents, align 8
-  %tobool37 = icmp ne ptr %35, null
+  %38 = load ptr, ptr %cm, align 8
+  %parents = getelementptr inbounds %struct.commit, ptr %38, i32 0, i32 2
+  %39 = load ptr, ptr %parents, align 8
+  %tobool37 = icmp ne ptr %39, null
   br i1 %tobool37, label %land.lhs.true38, label %if.end43
 
 land.lhs.true38:                                  ; preds = %if.end36
-  %36 = load ptr, ptr %cm, align 8
-  %parents39 = getelementptr inbounds %struct.commit, ptr %36, i32 0, i32 2
-  %37 = load ptr, ptr %parents39, align 8
-  %next40 = getelementptr inbounds %struct.commit_list, ptr %37, i32 0, i32 1
-  %38 = load ptr, ptr %next40, align 8
-  %tobool41 = icmp ne ptr %38, null
+  %40 = load ptr, ptr %cm, align 8
+  %parents39 = getelementptr inbounds %struct.commit, ptr %40, i32 0, i32 2
+  %41 = load ptr, ptr %parents39, align 8
+  %next40 = getelementptr inbounds %struct.commit_list, ptr %41, i32 0, i32 1
+  %42 = load ptr, ptr %next40, align 8
+  %tobool41 = icmp ne ptr %42, null
   br i1 %tobool41, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %land.lhs.true38
-  %39 = load ptr, ptr %cm, align 8
-  store ptr %39, ptr %chosen, align 8
+  %43 = load ptr, ptr %cm, align 8
+  store ptr %43, ptr %chosen, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %land.lhs.true38, %if.end36
   br label %for.inc44
 
 for.inc44:                                        ; preds = %if.end43
-  %40 = load i32, ptr %j, align 4
-  %inc45 = add i32 %40, 1
+  %44 = load i32, ptr %j, align 4
+  %inc45 = add i32 %44, 1
   store i32 %inc45, ptr %j, align 4
   br label %for.cond26, !llvm.loop !19
 
@@ -1797,21 +1821,23 @@ for.end46:                                        ; preds = %if.then35, %for.con
   br label %if.end47
 
 if.end47:                                         ; preds = %for.end46, %if.then20
-  %41 = load ptr, ptr %chosen, align 8
-  call void @push_bitmapped_commit(ptr noundef %41)
-  %42 = load i32, ptr %next, align 4
-  %add48 = add i32 %42, 1
-  %43 = load i32, ptr %i, align 4
-  %add49 = add i32 %43, %add48
+  %45 = load ptr, ptr %chosen, align 8
+  call void @push_bitmapped_commit(ptr noundef %45)
+  %46 = load i32, ptr %next, align 4
+  %add48 = add i32 %46, 1
+  %47 = load i32, ptr %i, align 4
+  %add49 = add i32 %47, %add48
   store i32 %add49, ptr %i, align 4
-  %44 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 9), align 8
-  %45 = load i32, ptr %i, align 4
-  %conv50 = zext i32 %45 to i64
-  call void @display_progress(ptr noundef %44, i64 noundef %conv50)
+  %48 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 9
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i32, ptr %i, align 4
+  %conv50 = zext i32 %50 to i64
+  call void @display_progress(ptr noundef %49, i64 noundef %conv50)
   br label %for.cond6
 
 for.end51:                                        ; preds = %if.then16, %if.then10
-  call void @stop_progress(ptr noundef getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 9))
+  %51 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 9
+  call void @stop_progress(ptr noundef %51)
   br label %return
 
 return:                                           ; preds = %for.end51, %for.end
@@ -1876,47 +1902,62 @@ define internal void @push_bitmapped_commit(ptr noundef %commit) #0 {
 entry:
   %commit.addr = alloca ptr, align 8
   store ptr %commit, ptr %commit.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 8), align 4
-  %cmp = icmp uge i32 %0, %1
+  %0 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %1 = load i32, ptr %0, align 8
+  %2 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 8
+  %3 = load i32, ptr %2, align 4
+  %cmp = icmp uge i32 %1, %3
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 8), align 4
-  %add = add i32 %2, 32
+  %4 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 8
+  %5 = load i32, ptr %4, align 4
+  %add = add i32 %5, 32
   %mul = mul i32 %add, 2
-  store i32 %mul, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 8), align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 6), align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 8), align 4
-  %conv = zext i32 %4 to i64
+  %6 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 8
+  store i32 %mul, ptr %6, align 4
+  %7 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 6
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 8
+  %10 = load i32, ptr %9, align 4
+  %conv = zext i32 %10 to i64
   %call = call i64 @st_mult(i64 noundef 40, i64 noundef %conv)
-  %call1 = call ptr @xrealloc(ptr noundef %3, i64 noundef %call)
-  store ptr %call1, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 6), align 8
+  %call1 = call ptr @xrealloc(ptr noundef %8, i64 noundef %call)
+  %11 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 6
+  store ptr %call1, ptr %11, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %5 = load ptr, ptr %commit.addr, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 6), align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %idxprom = zext i32 %7 to i64
-  %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %6, i64 %idxprom
+  %12 = load ptr, ptr %commit.addr, align 8
+  %13 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 6
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %16 = load i32, ptr %15, align 8
+  %idxprom = zext i32 %16 to i64
+  %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %14, i64 %idxprom
   %commit2 = getelementptr inbounds %struct.bitmapped_commit, ptr %arrayidx, i32 0, i32 0
-  store ptr %5, ptr %commit2, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 6), align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %idxprom3 = zext i32 %9 to i64
-  %arrayidx4 = getelementptr inbounds %struct.bitmapped_commit, ptr %8, i64 %idxprom3
+  store ptr %12, ptr %commit2, align 8
+  %17 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 6
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %20 = load i32, ptr %19, align 8
+  %idxprom3 = zext i32 %20 to i64
+  %arrayidx4 = getelementptr inbounds %struct.bitmapped_commit, ptr %18, i64 %idxprom3
   %bitmap = getelementptr inbounds %struct.bitmapped_commit, ptr %arrayidx4, i32 0, i32 1
   store ptr null, ptr %bitmap, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 6), align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %idxprom5 = zext i32 %11 to i64
-  %arrayidx6 = getelementptr inbounds %struct.bitmapped_commit, ptr %10, i64 %idxprom5
+  %21 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 6
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %24 = load i32, ptr %23, align 8
+  %idxprom5 = zext i32 %24 to i64
+  %arrayidx6 = getelementptr inbounds %struct.bitmapped_commit, ptr %22, i64 %idxprom5
   %flags = getelementptr inbounds %struct.bitmapped_commit, ptr %arrayidx6, i32 0, i32 3
   store i32 0, ptr %flags, align 8
-  %12 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %inc = add i32 %12, 1
-  store i32 %inc, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
+  %25 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %26 = load i32, ptr %25, align 8
+  %inc = add i32 %26, 1
+  %27 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  store i32 %inc, ptr %27, align 8
   ret void
 }
 
@@ -2006,7 +2047,8 @@ entry:
   %sha1.addr = alloca ptr, align 8
   store ptr %sha1, ptr %sha1.addr, align 8
   %0 = load ptr, ptr %sha1.addr, align 8
-  call void @hashcpy(ptr noundef getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 11), ptr noundef %0)
+  %1 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 11
+  call void @hashcpy(ptr noundef %1, ptr noundef %0)
   ret void
 }
 
@@ -2074,50 +2116,56 @@ entry:
   %call5 = call zeroext i16 @htons(i16 noundef zeroext %conv4) #12
   %options6 = getelementptr inbounds %struct.bitmap_disk_header, ptr %header, i32 0, i32 2
   store i16 %call5, ptr %options6, align 2
-  %5 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %call7 = call i32 @git_bswap32(i32 noundef %5)
+  %5 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %6 = load i32, ptr %5, align 8
+  %call7 = call i32 @git_bswap32(i32 noundef %6)
   %entry_count = getelementptr inbounds %struct.bitmap_disk_header, ptr %header, i32 0, i32 3
   store i32 %call7, ptr %entry_count, align 4
   %checksum = getelementptr inbounds %struct.bitmap_disk_header, ptr %header, i32 0, i32 4
   %arraydecay8 = getelementptr inbounds [32 x i8], ptr %checksum, i64 0, i64 0
-  call void @hashcpy(ptr noundef %arraydecay8, ptr noundef getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 11))
-  %6 = load ptr, ptr %f, align 8
-  %7 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %7, i32 0, i32 15
-  %8 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %8, i32 0, i32 2
-  %9 = load i64, ptr %rawsz, align 8
-  %add = add i64 12, %9
+  %7 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 11
+  call void @hashcpy(ptr noundef %arraydecay8, ptr noundef %7)
+  %8 = load ptr, ptr %f, align 8
+  %9 = load ptr, ptr @the_repository, align 8
+  %hash_algo = getelementptr inbounds %struct.repository, ptr %9, i32 0, i32 15
+  %10 = load ptr, ptr %hash_algo, align 8
+  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %10, i32 0, i32 2
+  %11 = load i64, ptr %rawsz, align 8
+  %add = add i64 12, %11
   %conv9 = trunc i64 %add to i32
-  call void @hashwrite(ptr noundef %6, ptr noundef %header, i32 noundef %conv9)
-  %10 = load ptr, ptr %f, align 8
-  %11 = load ptr, ptr @writer, align 8
-  call void @dump_bitmap(ptr noundef %10, ptr noundef %11)
+  call void @hashwrite(ptr noundef %8, ptr noundef %header, i32 noundef %conv9)
   %12 = load ptr, ptr %f, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 1), align 8
+  %13 = load ptr, ptr @writer, align 8
   call void @dump_bitmap(ptr noundef %12, ptr noundef %13)
   %14 = load ptr, ptr %f, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 2), align 8
-  call void @dump_bitmap(ptr noundef %14, ptr noundef %15)
-  %16 = load ptr, ptr %f, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 3), align 8
-  call void @dump_bitmap(ptr noundef %16, ptr noundef %17)
-  %18 = load i16, ptr %options.addr, align 2
-  %conv10 = zext i16 %18 to i32
+  %15 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  call void @dump_bitmap(ptr noundef %14, ptr noundef %16)
+  %17 = load ptr, ptr %f, align 8
+  %18 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8
+  call void @dump_bitmap(ptr noundef %17, ptr noundef %19)
+  %20 = load ptr, ptr %f, align 8
+  %21 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  call void @dump_bitmap(ptr noundef %20, ptr noundef %22)
+  %23 = load i16, ptr %options.addr, align 2
+  %conv10 = zext i16 %23 to i32
   %and = and i32 %conv10, 16
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %19 = load i32, ptr %index_nr.addr, align 4
-  %conv11 = zext i32 %19 to i64
+  %24 = load i32, ptr %index_nr.addr, align 4
+  %conv11 = zext i32 %24 to i64
   %call12 = call ptr @xcalloc(i64 noundef %conv11, i64 noundef 8)
   store ptr %call12, ptr %offsets, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %20 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %conv13 = zext i32 %20 to i64
+  %25 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %26 = load i32, ptr %25, align 8
+  %conv13 = zext i32 %26 to i64
   %call14 = call i64 @st_mult(i64 noundef 4, i64 noundef %conv13)
   %call15 = call ptr @xmalloc(i64 noundef %call14)
   store ptr %call15, ptr %commit_positions, align 8
@@ -2125,29 +2173,31 @@ if.end:                                           ; preds = %if.then, %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %21 = load i32, ptr %i, align 4
-  %22 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %cmp = icmp ult i32 %21, %22
+  %27 = load i32, ptr %i, align 4
+  %28 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %29 = load i32, ptr %28, align 8
+  %cmp = icmp ult i32 %27, %29
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %23 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 6), align 8
-  %24 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %24 to i64
-  %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %23, i64 %idxprom
+  %30 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 6
+  %31 = load ptr, ptr %30, align 8
+  %32 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %32 to i64
+  %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %31, i64 %idxprom
   store ptr %arrayidx, ptr %stored, align 8
-  %25 = load ptr, ptr %stored, align 8
-  %commit = getelementptr inbounds %struct.bitmapped_commit, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %commit, align 8
-  %object = getelementptr inbounds %struct.commit, ptr %26, i32 0, i32 0
+  %33 = load ptr, ptr %stored, align 8
+  %commit = getelementptr inbounds %struct.bitmapped_commit, ptr %33, i32 0, i32 0
+  %34 = load ptr, ptr %commit, align 8
+  %object = getelementptr inbounds %struct.commit, ptr %34, i32 0, i32 0
   %oid = getelementptr inbounds %struct.object, ptr %object, i32 0, i32 1
-  %27 = load ptr, ptr %index.addr, align 8
-  %28 = load i32, ptr %index_nr.addr, align 4
-  %conv17 = zext i32 %28 to i64
-  %call18 = call i32 @oid_pos(ptr noundef %oid, ptr noundef %27, i64 noundef %conv17, ptr noundef @oid_access)
+  %35 = load ptr, ptr %index.addr, align 8
+  %36 = load i32, ptr %index_nr.addr, align 4
+  %conv17 = zext i32 %36 to i64
+  %call18 = call i32 @oid_pos(ptr noundef %oid, ptr noundef %35, i64 noundef %conv17, ptr noundef @oid_access)
   store i32 %call18, ptr %commit_pos, align 4
-  %29 = load i32, ptr %commit_pos, align 4
-  %cmp19 = icmp slt i32 %29, 0
+  %37 = load i32, ptr %commit_pos, align 4
+  %cmp19 = icmp slt i32 %37, 0
   br i1 %cmp19, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %for.body
@@ -2156,58 +2206,58 @@ if.then21:                                        ; preds = %for.body
   unreachable
 
 if.end23:                                         ; preds = %for.body
-  %30 = load i32, ptr %commit_pos, align 4
-  %31 = load ptr, ptr %commit_positions, align 8
-  %32 = load i32, ptr %i, align 4
-  %idxprom24 = zext i32 %32 to i64
-  %arrayidx25 = getelementptr inbounds i32, ptr %31, i64 %idxprom24
-  store i32 %30, ptr %arrayidx25, align 4
+  %38 = load i32, ptr %commit_pos, align 4
+  %39 = load ptr, ptr %commit_positions, align 8
+  %40 = load i32, ptr %i, align 4
+  %idxprom24 = zext i32 %40 to i64
+  %arrayidx25 = getelementptr inbounds i32, ptr %39, i64 %idxprom24
+  store i32 %38, ptr %arrayidx25, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end23
-  %33 = load i32, ptr %i, align 4
-  %inc = add i32 %33, 1
+  %41 = load i32, ptr %i, align 4
+  %inc = add i32 %41, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !20
 
 for.end:                                          ; preds = %for.cond
-  %34 = load ptr, ptr %f, align 8
-  %35 = load ptr, ptr %commit_positions, align 8
-  %36 = load ptr, ptr %offsets, align 8
-  call void @write_selected_commits_v1(ptr noundef %34, ptr noundef %35, ptr noundef %36)
-  %37 = load i16, ptr %options.addr, align 2
-  %conv26 = zext i16 %37 to i32
+  %42 = load ptr, ptr %f, align 8
+  %43 = load ptr, ptr %commit_positions, align 8
+  %44 = load ptr, ptr %offsets, align 8
+  call void @write_selected_commits_v1(ptr noundef %42, ptr noundef %43, ptr noundef %44)
+  %45 = load i16, ptr %options.addr, align 2
+  %conv26 = zext i16 %45 to i32
   %and27 = and i32 %conv26, 16
   %tobool28 = icmp ne i32 %and27, 0
   br i1 %tobool28, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %for.end
-  %38 = load ptr, ptr %f, align 8
-  %39 = load ptr, ptr %commit_positions, align 8
-  %40 = load ptr, ptr %offsets, align 8
-  call void @write_lookup_table(ptr noundef %38, ptr noundef %39, ptr noundef %40)
+  %46 = load ptr, ptr %f, align 8
+  %47 = load ptr, ptr %commit_positions, align 8
+  %48 = load ptr, ptr %offsets, align 8
+  call void @write_lookup_table(ptr noundef %46, ptr noundef %47, ptr noundef %48)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then29, %for.end
-  %41 = load i16, ptr %options.addr, align 2
-  %conv31 = zext i16 %41 to i32
+  %49 = load i16, ptr %options.addr, align 2
+  %conv31 = zext i16 %49 to i32
   %and32 = and i32 %conv31, 4
   %tobool33 = icmp ne i32 %and32, 0
   br i1 %tobool33, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.end30
-  %42 = load ptr, ptr %f, align 8
-  %43 = load ptr, ptr %index.addr, align 8
-  %44 = load i32, ptr %index_nr.addr, align 4
-  call void @write_hash_cache(ptr noundef %42, ptr noundef %43, i32 noundef %44)
+  %50 = load ptr, ptr %f, align 8
+  %51 = load ptr, ptr %index.addr, align 8
+  %52 = load i32, ptr %index_nr.addr, align 4
+  call void @write_hash_cache(ptr noundef %50, ptr noundef %51, i32 noundef %52)
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then34, %if.end30
-  %45 = load ptr, ptr %f, align 8
-  %call36 = call i32 @finalize_hashfile(ptr noundef %45, ptr noundef null, i32 noundef 4, i32 noundef 7)
+  %53 = load ptr, ptr %f, align 8
+  %call36 = call i32 @finalize_hashfile(ptr noundef %53, ptr noundef null, i32 noundef 4, i32 noundef 7)
   %buf37 = getelementptr inbounds %struct.strbuf, ptr %tmp_file, i32 0, i32 2
-  %46 = load ptr, ptr %buf37, align 8
-  %call38 = call i32 @adjust_shared_perm(ptr noundef %46)
+  %54 = load ptr, ptr %buf37, align 8
+  %call38 = call i32 @adjust_shared_perm(ptr noundef %54)
   %tobool39 = icmp ne i32 %call38, 0
   br i1 %tobool39, label %if.then40, label %if.end41
 
@@ -2217,23 +2267,23 @@ if.then40:                                        ; preds = %if.end35
 
 if.end41:                                         ; preds = %if.end35
   %buf42 = getelementptr inbounds %struct.strbuf, ptr %tmp_file, i32 0, i32 2
-  %47 = load ptr, ptr %buf42, align 8
-  %48 = load ptr, ptr %filename.addr, align 8
-  %call43 = call i32 @rename(ptr noundef %47, ptr noundef %48) #11
+  %55 = load ptr, ptr %buf42, align 8
+  %56 = load ptr, ptr %filename.addr, align 8
+  %call43 = call i32 @rename(ptr noundef %55, ptr noundef %56) #11
   %tobool44 = icmp ne i32 %call43, 0
   br i1 %tobool44, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %if.end41
-  %49 = load ptr, ptr %filename.addr, align 8
-  call void (ptr, ...) @die_errno(ptr noundef @.str.10, ptr noundef %49) #10
+  %57 = load ptr, ptr %filename.addr, align 8
+  call void (ptr, ...) @die_errno(ptr noundef @.str.10, ptr noundef %57) #10
   unreachable
 
 if.end46:                                         ; preds = %if.end41
   call void @strbuf_release(ptr noundef %tmp_file)
-  %50 = load ptr, ptr %commit_positions, align 8
-  call void @free(ptr noundef %50) #11
-  %51 = load ptr, ptr %offsets, align 8
-  call void @free(ptr noundef %51) #11
+  %58 = load ptr, ptr %commit_positions, align 8
+  call void @free(ptr noundef %58) #11
+  %59 = load ptr, ptr %offsets, align 8
+  call void @free(ptr noundef %59) #11
   ret void
 }
 
@@ -2371,60 +2421,62 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %0 = load i32, ptr %i, align 4
-  %1 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %cmp = icmp ult i32 %0, %1
+  %1 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %2 = load i32, ptr %1, align 8
+  %cmp = icmp ult i32 %0, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 6), align 8
-  %3 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %2, i64 %idxprom
+  %3 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 6
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %5 to i64
+  %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %4, i64 %idxprom
   store ptr %arrayidx, ptr %stored, align 8
-  %4 = load ptr, ptr %offsets.addr, align 8
-  %tobool = icmp ne ptr %4, null
+  %6 = load ptr, ptr %offsets.addr, align 8
+  %tobool = icmp ne ptr %6, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %5 = load ptr, ptr %f.addr, align 8
-  %call = call i64 @hashfile_total(ptr noundef %5)
-  %6 = load ptr, ptr %offsets.addr, align 8
-  %7 = load i32, ptr %i, align 4
-  %idxprom1 = sext i32 %7 to i64
-  %arrayidx2 = getelementptr inbounds i64, ptr %6, i64 %idxprom1
+  %7 = load ptr, ptr %f.addr, align 8
+  %call = call i64 @hashfile_total(ptr noundef %7)
+  %8 = load ptr, ptr %offsets.addr, align 8
+  %9 = load i32, ptr %i, align 4
+  %idxprom1 = sext i32 %9 to i64
+  %arrayidx2 = getelementptr inbounds i64, ptr %8, i64 %idxprom1
   store i64 %call, ptr %arrayidx2, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %8 = load ptr, ptr %f.addr, align 8
-  %9 = load ptr, ptr %commit_positions.addr, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %10 to i64
-  %arrayidx4 = getelementptr inbounds i32, ptr %9, i64 %idxprom3
-  %11 = load i32, ptr %arrayidx4, align 4
-  call void @hashwrite_be32(ptr noundef %8, i32 noundef %11)
-  %12 = load ptr, ptr %f.addr, align 8
-  %13 = load ptr, ptr %stored, align 8
-  %xor_offset = getelementptr inbounds %struct.bitmapped_commit, ptr %13, i32 0, i32 4
-  %14 = load i32, ptr %xor_offset, align 4
-  %conv = trunc i32 %14 to i8
-  call void @hashwrite_u8(ptr noundef %12, i8 noundef zeroext %conv)
-  %15 = load ptr, ptr %f.addr, align 8
-  %16 = load ptr, ptr %stored, align 8
-  %flags = getelementptr inbounds %struct.bitmapped_commit, ptr %16, i32 0, i32 3
-  %17 = load i32, ptr %flags, align 8
-  %conv5 = trunc i32 %17 to i8
-  call void @hashwrite_u8(ptr noundef %15, i8 noundef zeroext %conv5)
-  %18 = load ptr, ptr %f.addr, align 8
-  %19 = load ptr, ptr %stored, align 8
-  %write_as = getelementptr inbounds %struct.bitmapped_commit, ptr %19, i32 0, i32 2
-  %20 = load ptr, ptr %write_as, align 8
-  call void @dump_bitmap(ptr noundef %18, ptr noundef %20)
+  %10 = load ptr, ptr %f.addr, align 8
+  %11 = load ptr, ptr %commit_positions.addr, align 8
+  %12 = load i32, ptr %i, align 4
+  %idxprom3 = sext i32 %12 to i64
+  %arrayidx4 = getelementptr inbounds i32, ptr %11, i64 %idxprom3
+  %13 = load i32, ptr %arrayidx4, align 4
+  call void @hashwrite_be32(ptr noundef %10, i32 noundef %13)
+  %14 = load ptr, ptr %f.addr, align 8
+  %15 = load ptr, ptr %stored, align 8
+  %xor_offset = getelementptr inbounds %struct.bitmapped_commit, ptr %15, i32 0, i32 4
+  %16 = load i32, ptr %xor_offset, align 4
+  %conv = trunc i32 %16 to i8
+  call void @hashwrite_u8(ptr noundef %14, i8 noundef zeroext %conv)
+  %17 = load ptr, ptr %f.addr, align 8
+  %18 = load ptr, ptr %stored, align 8
+  %flags = getelementptr inbounds %struct.bitmapped_commit, ptr %18, i32 0, i32 3
+  %19 = load i32, ptr %flags, align 8
+  %conv5 = trunc i32 %19 to i8
+  call void @hashwrite_u8(ptr noundef %17, i8 noundef zeroext %conv5)
+  %20 = load ptr, ptr %f.addr, align 8
+  %21 = load ptr, ptr %stored, align 8
+  %write_as = getelementptr inbounds %struct.bitmapped_commit, ptr %21, i32 0, i32 2
+  %22 = load ptr, ptr %write_as, align 8
+  call void @dump_bitmap(ptr noundef %20, ptr noundef %22)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %21 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %21, 1
+  %23 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %23, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !22
 
@@ -2448,13 +2500,15 @@ entry:
   store ptr %f, ptr %f.addr, align 8
   store ptr %commit_positions, ptr %commit_positions.addr, align 8
   store ptr %offsets, ptr %offsets.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %conv = zext i32 %0 to i64
+  %0 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %1 = load i32, ptr %0, align 8
+  %conv = zext i32 %1 to i64
   %call = call i64 @st_mult(i64 noundef 4, i64 noundef %conv)
   %call1 = call ptr @xmalloc(i64 noundef %call)
   store ptr %call1, ptr %table, align 8
-  %1 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %conv2 = zext i32 %1 to i64
+  %2 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %3 = load i32, ptr %2, align 8
+  %conv2 = zext i32 %3 to i64
   %call3 = call i64 @st_mult(i64 noundef 4, i64 noundef %conv2)
   %call4 = call ptr @xmalloc(i64 noundef %call3)
   store ptr %call4, ptr %table_inv, align 8
@@ -2462,23 +2516,24 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %i, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %cmp = icmp ult i32 %2, %3
+  %4 = load i32, ptr %i, align 4
+  %5 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %6 = load i32, ptr %5, align 8
+  %cmp = icmp ult i32 %4, %6
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load i32, ptr %i, align 4
-  %5 = load ptr, ptr %table, align 8
-  %6 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %6 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %5, i64 %idxprom
-  store i32 %4, ptr %arrayidx, align 4
+  %7 = load i32, ptr %i, align 4
+  %8 = load ptr, ptr %table, align 8
+  %9 = load i32, ptr %i, align 4
+  %idxprom = zext i32 %9 to i64
+  %arrayidx = getelementptr inbounds i32, ptr %8, i64 %idxprom
+  store i32 %7, ptr %arrayidx, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %i, align 4
-  %inc = add i32 %7, 1
+  %10 = load i32, ptr %i, align 4
+  %inc = add i32 %10, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !23
 
@@ -2486,11 +2541,12 @@ for.end:                                          ; preds = %for.cond
   br label %do.body
 
 do.body:                                          ; preds = %for.end
-  %8 = load ptr, ptr %table, align 8
-  %9 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %conv6 = zext i32 %9 to i64
-  %10 = load ptr, ptr %commit_positions.addr, align 8
-  %call7 = call i32 @git_qsort_s(ptr noundef %8, i64 noundef %conv6, i64 noundef 4, ptr noundef @table_cmp, ptr noundef %10)
+  %11 = load ptr, ptr %table, align 8
+  %12 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %13 = load i32, ptr %12, align 8
+  %conv6 = zext i32 %13 to i64
+  %14 = load ptr, ptr %commit_positions.addr, align 8
+  %call7 = call i32 @git_qsort_s(ptr noundef %11, i64 noundef %conv6, i64 noundef 4, ptr noundef @table_cmp, ptr noundef %14)
   %tobool = icmp ne i32 %call7, 0
   br i1 %tobool, label %if.then, label %if.end
 
@@ -2506,75 +2562,78 @@ do.end:                                           ; preds = %if.end
   br label %for.cond8
 
 for.cond8:                                        ; preds = %for.inc16, %do.end
-  %11 = load i32, ptr %i, align 4
-  %12 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %cmp9 = icmp ult i32 %11, %12
+  %15 = load i32, ptr %i, align 4
+  %16 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %17 = load i32, ptr %16, align 8
+  %cmp9 = icmp ult i32 %15, %17
   br i1 %cmp9, label %for.body11, label %for.end18
 
 for.body11:                                       ; preds = %for.cond8
-  %13 = load i32, ptr %i, align 4
-  %14 = load ptr, ptr %table_inv, align 8
-  %15 = load ptr, ptr %table, align 8
-  %16 = load i32, ptr %i, align 4
-  %idxprom12 = zext i32 %16 to i64
-  %arrayidx13 = getelementptr inbounds i32, ptr %15, i64 %idxprom12
-  %17 = load i32, ptr %arrayidx13, align 4
-  %idxprom14 = zext i32 %17 to i64
-  %arrayidx15 = getelementptr inbounds i32, ptr %14, i64 %idxprom14
-  store i32 %13, ptr %arrayidx15, align 4
+  %18 = load i32, ptr %i, align 4
+  %19 = load ptr, ptr %table_inv, align 8
+  %20 = load ptr, ptr %table, align 8
+  %21 = load i32, ptr %i, align 4
+  %idxprom12 = zext i32 %21 to i64
+  %arrayidx13 = getelementptr inbounds i32, ptr %20, i64 %idxprom12
+  %22 = load i32, ptr %arrayidx13, align 4
+  %idxprom14 = zext i32 %22 to i64
+  %arrayidx15 = getelementptr inbounds i32, ptr %19, i64 %idxprom14
+  store i32 %18, ptr %arrayidx15, align 4
   br label %for.inc16
 
 for.inc16:                                        ; preds = %for.body11
-  %18 = load i32, ptr %i, align 4
-  %inc17 = add i32 %18, 1
+  %23 = load i32, ptr %i, align 4
+  %inc17 = add i32 %23, 1
   store i32 %inc17, ptr %i, align 4
   br label %for.cond8, !llvm.loop !24
 
 for.end18:                                        ; preds = %for.cond8
-  %19 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef @.str.2, i32 noundef 733, ptr noundef @.str.3, ptr noundef @.str.22, ptr noundef %19)
+  %24 = load ptr, ptr @the_repository, align 8
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef @.str.2, i32 noundef 733, ptr noundef @.str.3, ptr noundef @.str.22, ptr noundef %24)
   store i32 0, ptr %i, align 4
   br label %for.cond19
 
 for.cond19:                                       ; preds = %for.inc44, %for.end18
-  %20 = load i32, ptr %i, align 4
-  %21 = load i32, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 7), align 8
-  %cmp20 = icmp ult i32 %20, %21
+  %25 = load i32, ptr %i, align 4
+  %26 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 7
+  %27 = load i32, ptr %26, align 8
+  %cmp20 = icmp ult i32 %25, %27
   br i1 %cmp20, label %for.body22, label %for.end46
 
 for.body22:                                       ; preds = %for.cond19
-  %22 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 6), align 8
-  %23 = load ptr, ptr %table, align 8
-  %24 = load i32, ptr %i, align 4
-  %idxprom23 = zext i32 %24 to i64
-  %arrayidx24 = getelementptr inbounds i32, ptr %23, i64 %idxprom23
-  %25 = load i32, ptr %arrayidx24, align 4
-  %idxprom25 = zext i32 %25 to i64
-  %arrayidx26 = getelementptr inbounds %struct.bitmapped_commit, ptr %22, i64 %idxprom25
+  %28 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 6
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %table, align 8
+  %31 = load i32, ptr %i, align 4
+  %idxprom23 = zext i32 %31 to i64
+  %arrayidx24 = getelementptr inbounds i32, ptr %30, i64 %idxprom23
+  %32 = load i32, ptr %arrayidx24, align 4
+  %idxprom25 = zext i32 %32 to i64
+  %arrayidx26 = getelementptr inbounds %struct.bitmapped_commit, ptr %29, i64 %idxprom25
   store ptr %arrayidx26, ptr %selected, align 8
-  %26 = load ptr, ptr %selected, align 8
-  %xor_offset27 = getelementptr inbounds %struct.bitmapped_commit, ptr %26, i32 0, i32 4
-  %27 = load i32, ptr %xor_offset27, align 4
-  store i32 %27, ptr %xor_offset, align 4
-  %28 = load i32, ptr %xor_offset, align 4
-  %tobool28 = icmp ne i32 %28, 0
+  %33 = load ptr, ptr %selected, align 8
+  %xor_offset27 = getelementptr inbounds %struct.bitmapped_commit, ptr %33, i32 0, i32 4
+  %34 = load i32, ptr %xor_offset27, align 4
+  store i32 %34, ptr %xor_offset, align 4
+  %35 = load i32, ptr %xor_offset, align 4
+  %tobool28 = icmp ne i32 %35, 0
   br i1 %tobool28, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %for.body22
-  %29 = load ptr, ptr %table, align 8
-  %30 = load i32, ptr %i, align 4
-  %idxprom30 = zext i32 %30 to i64
-  %arrayidx31 = getelementptr inbounds i32, ptr %29, i64 %idxprom30
-  %31 = load i32, ptr %arrayidx31, align 4
-  %32 = load i32, ptr %xor_offset, align 4
-  %sub = sub i32 %31, %32
+  %36 = load ptr, ptr %table, align 8
+  %37 = load i32, ptr %i, align 4
+  %idxprom30 = zext i32 %37 to i64
+  %arrayidx31 = getelementptr inbounds i32, ptr %36, i64 %idxprom30
+  %38 = load i32, ptr %arrayidx31, align 4
+  %39 = load i32, ptr %xor_offset, align 4
+  %sub = sub i32 %38, %39
   store i32 %sub, ptr %xor_index, align 4
-  %33 = load ptr, ptr %table_inv, align 8
-  %34 = load i32, ptr %xor_index, align 4
-  %idxprom32 = zext i32 %34 to i64
-  %arrayidx33 = getelementptr inbounds i32, ptr %33, i64 %idxprom32
-  %35 = load i32, ptr %arrayidx33, align 4
-  store i32 %35, ptr %xor_row, align 4
+  %40 = load ptr, ptr %table_inv, align 8
+  %41 = load i32, ptr %xor_index, align 4
+  %idxprom32 = zext i32 %41 to i64
+  %arrayidx33 = getelementptr inbounds i32, ptr %40, i64 %idxprom32
+  %42 = load i32, ptr %arrayidx33, align 4
+  store i32 %42, ptr %xor_row, align 4
   br label %if.end34
 
 if.else:                                          ; preds = %for.body22
@@ -2582,46 +2641,46 @@ if.else:                                          ; preds = %for.body22
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else, %if.then29
-  %36 = load ptr, ptr %f.addr, align 8
-  %37 = load ptr, ptr %commit_positions.addr, align 8
-  %38 = load ptr, ptr %table, align 8
-  %39 = load i32, ptr %i, align 4
-  %idxprom35 = zext i32 %39 to i64
-  %arrayidx36 = getelementptr inbounds i32, ptr %38, i64 %idxprom35
-  %40 = load i32, ptr %arrayidx36, align 4
-  %idxprom37 = zext i32 %40 to i64
-  %arrayidx38 = getelementptr inbounds i32, ptr %37, i64 %idxprom37
-  %41 = load i32, ptr %arrayidx38, align 4
-  call void @hashwrite_be32(ptr noundef %36, i32 noundef %41)
-  %42 = load ptr, ptr %f.addr, align 8
-  %43 = load ptr, ptr %offsets.addr, align 8
-  %44 = load ptr, ptr %table, align 8
-  %45 = load i32, ptr %i, align 4
-  %idxprom39 = zext i32 %45 to i64
-  %arrayidx40 = getelementptr inbounds i32, ptr %44, i64 %idxprom39
-  %46 = load i32, ptr %arrayidx40, align 4
-  %idxprom41 = zext i32 %46 to i64
-  %arrayidx42 = getelementptr inbounds i64, ptr %43, i64 %idxprom41
-  %47 = load i64, ptr %arrayidx42, align 8
-  %call43 = call i64 @hashwrite_be64(ptr noundef %42, i64 noundef %47)
-  %48 = load ptr, ptr %f.addr, align 8
-  %49 = load i32, ptr %xor_row, align 4
-  call void @hashwrite_be32(ptr noundef %48, i32 noundef %49)
+  %43 = load ptr, ptr %f.addr, align 8
+  %44 = load ptr, ptr %commit_positions.addr, align 8
+  %45 = load ptr, ptr %table, align 8
+  %46 = load i32, ptr %i, align 4
+  %idxprom35 = zext i32 %46 to i64
+  %arrayidx36 = getelementptr inbounds i32, ptr %45, i64 %idxprom35
+  %47 = load i32, ptr %arrayidx36, align 4
+  %idxprom37 = zext i32 %47 to i64
+  %arrayidx38 = getelementptr inbounds i32, ptr %44, i64 %idxprom37
+  %48 = load i32, ptr %arrayidx38, align 4
+  call void @hashwrite_be32(ptr noundef %43, i32 noundef %48)
+  %49 = load ptr, ptr %f.addr, align 8
+  %50 = load ptr, ptr %offsets.addr, align 8
+  %51 = load ptr, ptr %table, align 8
+  %52 = load i32, ptr %i, align 4
+  %idxprom39 = zext i32 %52 to i64
+  %arrayidx40 = getelementptr inbounds i32, ptr %51, i64 %idxprom39
+  %53 = load i32, ptr %arrayidx40, align 4
+  %idxprom41 = zext i32 %53 to i64
+  %arrayidx42 = getelementptr inbounds i64, ptr %50, i64 %idxprom41
+  %54 = load i64, ptr %arrayidx42, align 8
+  %call43 = call i64 @hashwrite_be64(ptr noundef %49, i64 noundef %54)
+  %55 = load ptr, ptr %f.addr, align 8
+  %56 = load i32, ptr %xor_row, align 4
+  call void @hashwrite_be32(ptr noundef %55, i32 noundef %56)
   br label %for.inc44
 
 for.inc44:                                        ; preds = %if.end34
-  %50 = load i32, ptr %i, align 4
-  %inc45 = add i32 %50, 1
+  %57 = load i32, ptr %i, align 4
+  %inc45 = add i32 %57, 1
   store i32 %inc45, ptr %i, align 4
   br label %for.cond19, !llvm.loop !25
 
 for.end46:                                        ; preds = %for.cond19
-  %51 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef @.str.2, i32 noundef 760, ptr noundef @.str.3, ptr noundef @.str.22, ptr noundef %51)
-  %52 = load ptr, ptr %table, align 8
-  call void @free(ptr noundef %52) #11
-  %53 = load ptr, ptr %table_inv, align 8
-  call void @free(ptr noundef %53) #11
+  %58 = load ptr, ptr @the_repository, align 8
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef @.str.2, i32 noundef 760, ptr noundef @.str.3, ptr noundef @.str.22, ptr noundef %58)
+  %59 = load ptr, ptr %table, align 8
+  call void @free(ptr noundef %59) #11
+  %60 = load ptr, ptr %table_inv, align 8
+  call void @free(ptr noundef %60) #11
   ret void
 }
 
@@ -2932,51 +2991,53 @@ entry:
   %entry1 = alloca ptr, align 8
   store ptr %oid, ptr %oid.addr, align 8
   store ptr %found, ptr %found.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 5), align 8
-  %1 = load ptr, ptr %oid.addr, align 8
-  %call = call ptr @packlist_find(ptr noundef %0, ptr noundef %1)
+  %0 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %oid.addr, align 8
+  %call = call ptr @packlist_find(ptr noundef %1, ptr noundef %2)
   store ptr %call, ptr %entry1, align 8
-  %2 = load ptr, ptr %entry1, align 8
-  %tobool = icmp ne ptr %2, null
+  %3 = load ptr, ptr %entry1, align 8
+  %tobool = icmp ne ptr %3, null
   br i1 %tobool, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %found.addr, align 8
-  %tobool2 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %found.addr, align 8
+  %tobool2 = icmp ne ptr %4, null
   br i1 %tobool2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %4 = load ptr, ptr %found.addr, align 8
-  store i32 0, ptr %4, align 4
+  %5 = load ptr, ptr %found.addr, align 8
+  store i32 0, ptr %5, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %5 = load ptr, ptr %oid.addr, align 8
-  %call4 = call ptr @oid_to_hex(ptr noundef %5)
+  %6 = load ptr, ptr %oid.addr, align 8
+  %call4 = call ptr @oid_to_hex(ptr noundef %6)
   call void (ptr, ...) @warning(ptr noundef @.str.16, ptr noundef %call4)
   store i32 0, ptr %retval, align 4
   br label %return
 
 if.end5:                                          ; preds = %entry
-  %6 = load ptr, ptr %found.addr, align 8
-  %tobool6 = icmp ne ptr %6, null
+  %7 = load ptr, ptr %found.addr, align 8
+  %tobool6 = icmp ne ptr %7, null
   br i1 %tobool6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end5
-  %7 = load ptr, ptr %found.addr, align 8
-  store i32 1, ptr %7, align 4
+  %8 = load ptr, ptr %found.addr, align 8
+  store i32 1, ptr %8, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %if.end5
-  %8 = load ptr, ptr getelementptr inbounds (%struct.bitmap_writer, ptr @writer, i32 0, i32 5), align 8
-  %9 = load ptr, ptr %entry1, align 8
-  %call9 = call i32 @oe_in_pack_pos(ptr noundef %8, ptr noundef %9)
+  %9 = getelementptr inbounds %struct.bitmap_writer, ptr @writer, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %entry1, align 8
+  %call9 = call i32 @oe_in_pack_pos(ptr noundef %10, ptr noundef %11)
   store i32 %call9, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end8, %if.end
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+  %12 = load i32, ptr %retval, align 4
+  ret i32 %12
 }
 
 declare ptr @repo_get_commit_tree(ptr noundef, ptr noundef) #1

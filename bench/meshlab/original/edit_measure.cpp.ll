@@ -5891,107 +5891,109 @@ define void @_ZN17EditMeasurePluginC2Ev(ptr noundef nonnull align 8 dereferencea
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null)
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   invoke void @_ZN8EditToolC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %9 unwind label %29
+          to label %9 unwind label %31
 
 9:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV17EditMeasurePlugin, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV17EditMeasurePlugin, i32 0, i32 1, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 2
-  invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %11)
-          to label %12 unwind label %33
+  %10 = getelementptr inbounds { [21 x ptr], [20 x ptr] }, ptr @_ZTV17EditMeasurePlugin, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds { [21 x ptr], [20 x ptr] }, ptr @_ZTV17EditMeasurePlugin, i32 0, i32 1, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 2
+  invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %13)
+          to label %14 unwind label %35
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 3
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 3
   invoke void @_ZN3vcg6Color4IhEC2Ehhhh(ptr noundef nonnull align 1 dereferenceable(4) %5, i8 noundef zeroext -1, i8 noundef zeroext -86, i8 noundef zeroext 85, i8 noundef zeroext 11)
-          to label %14 unwind label %37
+          to label %16 unwind label %39
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %"class.vcg::Color4", ptr %5, i32 0, i32 0
-  %16 = getelementptr inbounds %"class.vcg::Point4", ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 1
-  invoke void @_ZN3vcg10RubberbandC1ENS_6Color4IhEE(ptr noundef nonnull align 8 dereferenceable(49) %13, i32 %17)
-          to label %18 unwind label %37
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds %"class.vcg::Color4", ptr %5, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.vcg::Point4", ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 1
+  invoke void @_ZN3vcg10RubberbandC1ENS_6Color4IhEE(ptr noundef nonnull align 8 dereferenceable(49) %15, i32 %19)
+          to label %20 unwind label %39
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 4
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 4
   invoke void @_ZN3vcg6Color4IhEC2Ehhhh(ptr noundef nonnull align 1 dereferenceable(4) %6, i8 noundef zeroext 85, i8 noundef zeroext -86, i8 noundef zeroext -1, i8 noundef zeroext 11)
-          to label %20 unwind label %41
+          to label %22 unwind label %43
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"class.vcg::Color4", ptr %6, i32 0, i32 0
-  %22 = getelementptr inbounds %"class.vcg::Point4", ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 1
-  invoke void @_ZN3vcg10RubberbandC1ENS_6Color4IhEE(ptr noundef nonnull align 8 dereferenceable(49) %19, i32 %23)
-          to label %24 unwind label %41
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds %"class.vcg::Color4", ptr %6, i32 0, i32 0
+  %24 = getelementptr inbounds %"class.vcg::Point4", ptr %23, i32 0, i32 0
+  %25 = load i32, ptr %24, align 1
+  invoke void @_ZN3vcg10RubberbandC1ENS_6Color4IhEE(ptr noundef nonnull align 8 dereferenceable(49) %21, i32 %25)
+          to label %26 unwind label %43
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 5
-  store i8 0, ptr %25, align 8
-  %26 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 7
-  call void @_ZNSt6vectorI7measureSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
-  %27 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 7
-  call void @_ZNSt6vectorI7measureSaIS0_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
-  %28 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 6
-  store i32 0, ptr %28, align 4
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 5
+  store i8 0, ptr %27, align 8
+  %28 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 7
+  call void @_ZNSt6vectorI7measureSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
+  %29 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 7
+  call void @_ZNSt6vectorI7measureSaIS0_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  %30 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 6
+  store i32 0, ptr %30, align 4
   ret void
 
-29:                                               ; preds = %1
-  %30 = landingpad { ptr, i32 }
+31:                                               ; preds = %1
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %3, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %4, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %3, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %4, align 4
+  br label %50
+
+35:                                               ; preds = %9
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %3, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %4, align 4
   br label %48
 
-33:                                               ; preds = %9
-  %34 = landingpad { ptr, i32 }
+39:                                               ; preds = %16, %14
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %3, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %4, align 4
-  br label %46
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %3, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %4, align 4
+  br label %47
 
-37:                                               ; preds = %14, %12
-  %38 = landingpad { ptr, i32 }
+43:                                               ; preds = %22, %20
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %3, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %4, align 4
-  br label %45
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %3, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %4, align 4
+  call void @_ZN3vcg10RubberbandD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %15) #3
+  br label %47
 
-41:                                               ; preds = %20, %18
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %3, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %4, align 4
-  call void @_ZN3vcg10RubberbandD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %13) #3
-  br label %45
-
-45:                                               ; preds = %41, %37
-  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #3
-  br label %46
-
-46:                                               ; preds = %45, %33
-  %47 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN8EditToolD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #3
+47:                                               ; preds = %43, %39
+  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #3
   br label %48
 
-48:                                               ; preds = %46, %29
+48:                                               ; preds = %47, %35
+  %49 = getelementptr inbounds i8, ptr %7, i64 16
+  call void @_ZN8EditToolD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %49) #3
+  br label %50
+
+50:                                               ; preds = %48, %31
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
-  br label %49
+  br label %51
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %3, align 8
-  %51 = load i32, ptr %4, align 4
-  %52 = insertvalue { ptr, i32 } poison, ptr %50, 0
-  %53 = insertvalue { ptr, i32 } %52, i32 %51, 1
-  resume { ptr, i32 } %53
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %3, align 8
+  %53 = load i32, ptr %4, align 4
+  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
+  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
+  resume { ptr, i32 } %55
 }
 
 declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -6002,7 +6004,8 @@ define linkonce_odr void @_ZN8EditToolC2Ev(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN19MeshLabPluginLoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV8EditTool, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV8EditTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

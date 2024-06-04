@@ -223,22 +223,23 @@ define internal noundef i32 @xfrm6_get_saddr(ptr noundef %0, i32 %1, ptr noundef
 16:                                               ; preds = %13, %5
   %17 = phi ptr [ %15, %13 ], [ %9, %5 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #7
-  %18 = icmp ugt ptr %17, inttoptr (i64 -4096 to ptr)
-  br i1 %18, label %26, label %19
+  %18 = inttoptr i64 -4096 to ptr
+  %19 = icmp ugt ptr %17, %18
+  br i1 %19, label %27, label %20
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 208
-  %21 = load ptr, ptr %20, align 8
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %17, i64 208
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 272
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @ipv6_dev_get_saddr(ptr noundef %24, ptr noundef %22, ptr noundef %3, i32 noundef 0, ptr noundef %2) #7
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 272
+  %25 = load ptr, ptr %24, align 8
+  %26 = call i32 @ipv6_dev_get_saddr(ptr noundef %25, ptr noundef %23, ptr noundef %3, i32 noundef 0, ptr noundef %2) #7
   call void @dst_release(ptr noundef %17) #7
-  br label %26
+  br label %27
 
-26:                                               ; preds = %19, %16
-  %27 = phi i32 [ 0, %19 ], [ -113, %16 ]
-  ret i32 %27
+27:                                               ; preds = %20, %16
+  %28 = phi i32 [ 0, %20 ], [ -113, %16 ]
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

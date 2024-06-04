@@ -106,33 +106,34 @@ define internal i64 @nlm_end_grace_write(ptr noundef %0, ptr noundef %1, i64 nou
   %16 = load ptr, ptr %15, align 8
   tail call void @__rcu_read_unlock() #5
   %17 = icmp eq i64 %2, 0
-  br i1 %17, label %27, label %18
+  br i1 %17, label %28, label %18
 
 18:                                               ; preds = %4
   %19 = tail call ptr @simple_transaction_get(ptr noundef %0, ptr noundef %1, i64 noundef %2) #5
-  %20 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
-  br i1 %20, label %21, label %23
+  %20 = inttoptr i64 -4096 to ptr
+  %21 = icmp ugt ptr %19, %20
+  br i1 %21, label %22, label %24
 
-21:                                               ; preds = %18
-  %22 = ptrtoint ptr %19 to i64
-  br label %27
+22:                                               ; preds = %18
+  %23 = ptrtoint ptr %19 to i64
+  br label %28
 
-23:                                               ; preds = %18
-  %24 = load i8, ptr %19, align 1
-  switch i8 %24, label %27 [
-    i8 89, label %25
-    i8 121, label %25
-    i8 49, label %25
+24:                                               ; preds = %18
+  %25 = load i8, ptr %19, align 1
+  switch i8 %25, label %28 [
+    i8 89, label %26
+    i8 121, label %26
+    i8 49, label %26
   ]
 
-25:                                               ; preds = %23, %23, %23
-  %26 = getelementptr inbounds i8, ptr %16, i64 112
-  tail call void @locks_end_grace(ptr noundef %26) #5
-  br label %27
+26:                                               ; preds = %24, %24, %24
+  %27 = getelementptr inbounds i8, ptr %16, i64 112
+  tail call void @locks_end_grace(ptr noundef %27) #5
+  br label %28
 
-27:                                               ; preds = %25, %23, %21, %4
-  %28 = phi i64 [ %22, %21 ], [ %2, %25 ], [ -22, %4 ], [ -22, %23 ]
-  ret i64 %28
+28:                                               ; preds = %26, %24, %22, %4
+  %29 = phi i64 [ %23, %22 ], [ %2, %26 ], [ -22, %4 ], [ -22, %24 ]
+  ret i64 %29
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -391,27 +391,28 @@ entry:
   %3 = load i8, ptr %pLinear.addr, align 1
   %tobool = trunc i8 %3 to i1
   call void @_ZN7Imf_3_216FlatImageChannelC2ERNS_14FlatImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %_pixels = getelementptr inbounds %"class.Imf_3_2::TypedFlatImageChannel", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_pixels, align 8
   %_base = getelementptr inbounds %"class.Imf_3_2::TypedFlatImageChannel", ptr %this1, i32 0, i32 2
   store ptr null, ptr %_base, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %4 = load ptr, ptr %vfn, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(64) %this1)
+  %5 = load ptr, ptr %vfn, align 8
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(64) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_216FlatImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
   br label %eh.resume
 
@@ -444,7 +445,8 @@ entry:
   %3 = load i8, ptr %pLinear.addr, align 1
   %tobool = trunc i8 %3 to i1
   call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_216FlatImageChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7Imf_3_216FlatImageChannelE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   ret void
 }
 
@@ -466,14 +468,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_pixels = getelementptr inbounds %"class.Imf_3_2::TypedFlatImageChannel", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_pixels, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_pixels, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #12
+  call void @_ZdaPv(ptr noundef %1) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -860,27 +863,28 @@ entry:
   %3 = load i8, ptr %pLinear.addr, align 1
   %tobool = trunc i8 %3 to i1
   call void @_ZN7Imf_3_216FlatImageChannelC2ERNS_14FlatImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIfEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %_pixels = getelementptr inbounds %"class.Imf_3_2::TypedFlatImageChannel.0", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_pixels, align 8
   %_base = getelementptr inbounds %"class.Imf_3_2::TypedFlatImageChannel.0", ptr %this1, i32 0, i32 2
   store ptr null, ptr %_base, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %4 = load ptr, ptr %vfn, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(64) %this1)
+  %5 = load ptr, ptr %vfn, align 8
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(64) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_216FlatImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
   br label %eh.resume
 
@@ -898,14 +902,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIfEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_pixels = getelementptr inbounds %"class.Imf_3_2::TypedFlatImageChannel.0", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_pixels, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_pixels, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #12
+  call void @_ZdaPv(ptr noundef %1) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -1208,27 +1213,28 @@ entry:
   %3 = load i8, ptr %pLinear.addr, align 1
   %tobool = trunc i8 %3 to i1
   call void @_ZN7Imf_3_216FlatImageChannelC2ERNS_14FlatImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIjEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %_pixels = getelementptr inbounds %"class.Imf_3_2::TypedFlatImageChannel.1", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_pixels, align 8
   %_base = getelementptr inbounds %"class.Imf_3_2::TypedFlatImageChannel.1", ptr %this1, i32 0, i32 2
   store ptr null, ptr %_base, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %4 = load ptr, ptr %vfn, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(64) %this1)
+  %5 = load ptr, ptr %vfn, align 8
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(64) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_216FlatImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
   br label %eh.resume
 
@@ -1246,14 +1252,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_pixels = getelementptr inbounds %"class.Imf_3_2::TypedFlatImageChannel.1", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_pixels, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_pixels, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #12
+  call void @_ZdaPv(ptr noundef %1) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry

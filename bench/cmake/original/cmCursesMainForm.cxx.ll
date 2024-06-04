@@ -1360,157 +1360,158 @@ define dso_local void @_ZN16cmCursesMainFormC2ESt6vectorINSt7__cxx1112basic_stri
   store i32 %2, ptr %6, align 4
   %14 = load ptr, ptr %4, align 8
   call void @_ZN12cmCursesFormC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16cmCursesMainForm, i32 0, i32 0, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 1
-  call void @_ZNSt6vectorI27cmCursesCacheEntryCompositeSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  %16 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 2
-  call void @_ZNSt10unique_ptrI23cmCursesLongMessageFormSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  %17 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 3
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  %18 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 4
-  store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
-  %20 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 7
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  %21 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 8
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
-  %22 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 9
-  call void @_ZNSt6vectorIP9fieldnodeSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
-  %23 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 10
-  store i64 0, ptr %23, align 8
-  %24 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 11
-  store i8 0, ptr %24, align 8
-  %25 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 12
-  store i8 0, ptr %25, align 1
-  %26 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 14
-  store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 15
-  store i8 0, ptr %27, align 8
-  %28 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 17
-  call void @_ZNSt10unique_ptrI27cmCursesCacheEntryCompositeSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %28) #3
-  %29 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 18
-  %30 = load i32, ptr %6, align 4
-  store i32 %30, ptr %29, align 8
-  %31 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 20
-  call void @_ZNSt10unique_ptrI5cmakeSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %31) #3
-  %32 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #3
-  %33 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 22
+  %15 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV16cmCursesMainForm, i32 0, i32 0, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 1
+  call void @_ZNSt6vectorI27cmCursesCacheEntryCompositeSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %17 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 2
+  call void @_ZNSt10unique_ptrI23cmCursesLongMessageFormSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  %18 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  %19 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 4
+  store i8 0, ptr %19, align 8
+  %20 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  %21 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 7
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
+  %22 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 8
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  %23 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 9
+  call void @_ZNSt6vectorIP9fieldnodeSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %24 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 10
+  store i64 0, ptr %24, align 8
+  %25 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 11
+  store i8 0, ptr %25, align 8
+  %26 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 12
+  store i8 0, ptr %26, align 1
+  %27 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 14
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 15
+  store i8 0, ptr %28, align 8
+  %29 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 17
+  call void @_ZNSt10unique_ptrI27cmCursesCacheEntryCompositeSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %29) #3
+  %30 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 18
+  %31 = load i32, ptr %6, align 4
+  store i32 %31, ptr %30, align 8
+  %32 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 20
+  call void @_ZNSt10unique_ptrI5cmakeSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %32) #3
+  %33 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #3
-  %34 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 23
-  store i8 0, ptr %34, align 8
-  %35 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 8
-  %36 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRA58_KcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 1 dereferenceable(58) @.str)
-          to label %37 unwind label %64
+  %34 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #3
+  %35 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 23
+  store i8 0, ptr %35, align 8
+  %36 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 8
+  %37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRA58_KcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 1 dereferenceable(58) @.str)
+          to label %38 unwind label %65
 
-37:                                               ; preds = %3
-  %38 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 8
-  %39 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %38)
-          to label %40 unwind label %64
+38:                                               ; preds = %3
+  %39 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 8
+  %40 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %39)
+          to label %41 unwind label %65
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 8
-  %42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(8) @_ZN16cmCursesMainForm18s_ConstHelpMessageE)
-          to label %43 unwind label %64
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 8
+  %43 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(8) @_ZN16cmCursesMainForm18s_ConstHelpMessageE)
+          to label %44 unwind label %65
 
-43:                                               ; preds = %40
+44:                                               ; preds = %41
   store i32 2, ptr %10, align 4
   store i32 1, ptr %11, align 4
   invoke void @_ZSt11make_uniqueI5cmakeJNS0_4RoleEN7cmState4ModeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.23") align 8 %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
-          to label %44 unwind label %64
+          to label %45 unwind label %65
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 20
-  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI5cmakeSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 20
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI5cmakeSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(8) %9) #3
   call void @_ZNSt10unique_ptrI5cmakeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %47 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 20
-  %48 = call noundef ptr @_ZNKSt10unique_ptrI5cmakeSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %47) #3
-  %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN13cmSystemTools21GetCMakeCursesCommandB5cxx11Ev()
-          to label %50 unwind label %64
+  %48 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 20
+  %49 = call noundef ptr @_ZNKSt10unique_ptrI5cmakeSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %48) #3
+  %50 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN13cmSystemTools21GetCMakeCursesCommandB5cxx11Ev()
+          to label %51 unwind label %65
 
-50:                                               ; preds = %44
-  invoke void @_ZN5cmake19SetCMakeEditCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2216) %48, ptr noundef nonnull align 8 dereferenceable(32) %49)
-          to label %51 unwind label %64
+51:                                               ; preds = %45
+  invoke void @_ZN5cmake19SetCMakeEditCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2216) %49, ptr noundef nonnull align 8 dereferenceable(32) %50)
+          to label %52 unwind label %65
 
-51:                                               ; preds = %50
-  %52 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 7
-  %53 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %52, i64 noundef 0) #3
-  invoke void @_ZN5cmsys11SystemTools14GetProgramPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %53)
-          to label %54 unwind label %64
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 7
+  %54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef 0) #3
+  invoke void @_ZN5cmsys11SystemTools14GetProgramPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %54)
+          to label %55 unwind label %65
 
-54:                                               ; preds = %51
+55:                                               ; preds = %52
   invoke void @_Z8cmStrCatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA7_KcJEES5_OT_OT0_DpOT1_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 1 dereferenceable(7) @.str.2)
-          to label %55 unwind label %68
+          to label %56 unwind label %69
 
-55:                                               ; preds = %54
+56:                                               ; preds = %55
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
-  %56 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 7
-  %57 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 noundef 0) #3
-  %58 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %59 unwind label %72
+  %57 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 7
+  %58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %57, i64 noundef 0) #3
+  %59 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %60 unwind label %73
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 20
-  %61 = call noundef ptr @_ZNKSt10unique_ptrI5cmakeSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %60) #3
-  %62 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 7
-  invoke void @_ZN5cmake7SetArgsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(2216) %61, ptr noundef nonnull align 8 dereferenceable(24) %62)
-          to label %63 unwind label %72
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 20
+  %62 = call noundef ptr @_ZNKSt10unique_ptrI5cmakeSt14default_deleteIS0_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %61) #3
+  %63 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 7
+  invoke void @_ZN5cmake7SetArgsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(2216) %62, ptr noundef nonnull align 8 dereferenceable(24) %63)
+          to label %64 unwind label %73
 
-63:                                               ; preds = %59
+64:                                               ; preds = %60
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
   ret void
 
-64:                                               ; preds = %51, %50, %44, %43, %40, %37, %3
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %52, %51, %45, %44, %41, %38, %3
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %7, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %8, align 4
-  br label %76
-
-68:                                               ; preds = %54
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %7, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
-  br label %76
-
-72:                                               ; preds = %59, %55
-  %73 = landingpad { ptr, i32 }
-          cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %7, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  br label %76
-
-76:                                               ; preds = %72, %68, %64
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #3
-  call void @_ZNSt10unique_ptrI5cmakeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #3
-  call void @_ZNSt10unique_ptrI27cmCursesCacheEntryCompositeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #3
-  call void @_ZNSt6vectorIP9fieldnodeSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  call void @_ZNSt10unique_ptrI23cmCursesLongMessageFormSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  call void @_ZNSt6vectorI27cmCursesCacheEntryCompositeSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  call void @_ZN12cmCursesFormD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %7, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %8, align 4
   br label %77
 
-77:                                               ; preds = %76
-  %78 = load ptr, ptr %7, align 8
-  %79 = load i32, ptr %8, align 4
-  %80 = insertvalue { ptr, i32 } poison, ptr %78, 0
-  %81 = insertvalue { ptr, i32 } %80, i32 %79, 1
-  resume { ptr, i32 } %81
+69:                                               ; preds = %55
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %7, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  br label %77
+
+73:                                               ; preds = %60, %56
+  %74 = landingpad { ptr, i32 }
+          cleanup
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %7, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  br label %77
+
+77:                                               ; preds = %73, %69, %65
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #3
+  call void @_ZNSt10unique_ptrI5cmakeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #3
+  call void @_ZNSt10unique_ptrI27cmCursesCacheEntryCompositeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #3
+  call void @_ZNSt6vectorIP9fieldnodeSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  call void @_ZNSt10unique_ptrI23cmCursesLongMessageFormSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  call void @_ZNSt6vectorI27cmCursesCacheEntryCompositeSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  call void @_ZN12cmCursesFormD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
+  br label %78
+
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %7, align 8
+  %80 = load i32, ptr %8, align 4
+  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
+  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
+  resume { ptr, i32 } %82
 }
 
 declare void @_ZN12cmCursesFormC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -2036,60 +2037,61 @@ define dso_local void @_ZN16cmCursesMainFormD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16cmCursesMainForm, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %17
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV16cmCursesMainForm, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %18
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = invoke i32 @unpost_form(ptr noundef %9)
-          to label %11 unwind label %29
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = invoke i32 @unpost_form(ptr noundef %10)
+          to label %12 unwind label %30
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = invoke i32 @free_form(ptr noundef %13)
-          to label %15 unwind label %29
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = invoke i32 @free_form(ptr noundef %14)
+          to label %16 unwind label %30
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
-  store ptr null, ptr %16, align 8
-  br label %17
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
+  store ptr null, ptr %17, align 8
+  br label %18
 
-17:                                               ; preds = %15, %1
-  %18 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
-  %19 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 21
+18:                                               ; preds = %16, %1
+  %19 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
-  %20 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 20
-  call void @_ZNSt10unique_ptrI5cmakeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
-  %21 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 17
-  call void @_ZNSt10unique_ptrI27cmCursesCacheEntryCompositeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
-  %22 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorIP9fieldnodeSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
-  %23 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  %24 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 7
+  %20 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  %21 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 20
+  call void @_ZNSt10unique_ptrI5cmakeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
+  %22 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 17
+  call void @_ZNSt10unique_ptrI27cmCursesCacheEntryCompositeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
+  %23 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorIP9fieldnodeSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %24 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 8
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  %25 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #3
-  %26 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
-  %27 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrI23cmCursesLongMessageFormSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #3
-  %28 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorI27cmCursesCacheEntryCompositeSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
+  %25 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  %26 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
+  %27 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
+  %28 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrI23cmCursesLongMessageFormSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #3
+  %29 = getelementptr inbounds %class.cmCursesMainForm, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorI27cmCursesCacheEntryCompositeSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
   call void @_ZN12cmCursesFormD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 
-29:                                               ; preds = %11, %7
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %12, %8
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #15
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #15
   unreachable
 }
 

@@ -47,13 +47,13 @@ define i32 @Extra_TruthCanonFastN(i32 noundef %0, i32 noundef %1, ptr noundef %2
   store i32 %22, ptr %11, align 4
   %23 = load i32, ptr %6, align 4
   %24 = icmp eq i32 %23, 6
-  br i1 %24, label %25, label %37
+  br i1 %24, label %25, label %38
 
 25:                                               ; preds = %17
   %26 = load i32, ptr %7, align 4
   %27 = load i32, ptr %6, align 4
   %28 = icmp slt i32 %26, %27
-  br i1 %28, label %29, label %37
+  br i1 %28, label %29, label %38
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %9, align 8
@@ -63,14 +63,15 @@ define i32 @Extra_TruthCanonFastN(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %33 = load ptr, ptr %9, align 8
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 4
-  store i32 %35, ptr getelementptr inbounds ([2 x i32], ptr @Extra_TruthCanonFastN.uTruthStore6, i64 0, i64 1), align 4
-  %36 = load ptr, ptr %9, align 8
-  store ptr @Extra_TruthCanonFastN.uTruthStore6, ptr %36, align 8
-  br label %37
+  %36 = getelementptr inbounds [2 x i32], ptr @Extra_TruthCanonFastN.uTruthStore6, i64 0, i64 1
+  store i32 %35, ptr %36, align 4
+  %37 = load ptr, ptr %9, align 8
+  store ptr @Extra_TruthCanonFastN.uTruthStore6, ptr %37, align 8
+  br label %38
 
-37:                                               ; preds = %29, %25, %17
-  %38 = load i32, ptr %11, align 4
-  ret i32 %38
+38:                                               ; preds = %29, %25, %17
+  %39 = load i32, ptr %11, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable

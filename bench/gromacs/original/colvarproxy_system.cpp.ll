@@ -761,81 +761,82 @@ define void @_ZN18colvarproxy_systemC2Ev(ptr noundef nonnull align 8 dereference
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTV18colvarproxy_system, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #9
-  %7 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 12
-  invoke void @_ZN12colvarmodule7rvectorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %8 unwind label %30
+  %6 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTV18colvarproxy_system, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #9
+  %8 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 12
+  invoke void @_ZN12colvarmodule7rvectorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %9 unwind label %31
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 13
-  invoke void @_ZN12colvarmodule7rvectorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %10 unwind label %30
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 13
+  invoke void @_ZN12colvarmodule7rvectorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %11 unwind label %31
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 14
-  invoke void @_ZN12colvarmodule7rvectorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %12 unwind label %30
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 14
+  invoke void @_ZN12colvarmodule7rvectorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %13 unwind label %31
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 15
-  invoke void @_ZN12colvarmodule7rvectorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %14 unwind label %30
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 15
+  invoke void @_ZN12colvarmodule7rvectorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14)
+          to label %15 unwind label %31
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 16
-  invoke void @_ZN12colvarmodule7rvectorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %16 unwind label %30
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 16
+  invoke void @_ZN12colvarmodule7rvectorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %17 unwind label %31
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 17
-  invoke void @_ZN12colvarmodule7rvectorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %18 unwind label %30
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 17
+  invoke void @_ZN12colvarmodule7rvectorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18)
+          to label %19 unwind label %31
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 8
-  store double 0.000000e+00, ptr %19, align 8
-  %20 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 9
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 8
   store double 0.000000e+00, ptr %20, align 8
-  %21 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 7
-  store double 1.000000e+00, ptr %21, align 8
-  %22 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 6
-  store double 0.000000e+00, ptr %22, align 8
-  %23 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 5
-  store double 0x3F6047710B639402, ptr %23, align 8
-  %24 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 11
-  store i32 3, ptr %24, align 4
-  %25 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 10
-  store i8 0, ptr %25, align 8
-  %26 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 2
-  store double 0.000000e+00, ptr %26, align 8
-  %27 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 4
-  store i8 0, ptr %27, align 8
-  %28 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 3
-  store double -1.000000e+00, ptr %28, align 8
+  %21 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 9
+  store double 0.000000e+00, ptr %21, align 8
+  %22 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 7
+  store double 1.000000e+00, ptr %22, align 8
+  %23 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 6
+  store double 0.000000e+00, ptr %23, align 8
+  %24 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 5
+  store double 0x3F6047710B639402, ptr %24, align 8
+  %25 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 11
+  store i32 3, ptr %25, align 4
+  %26 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 10
+  store i8 0, ptr %26, align 8
+  %27 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 2
+  store double 0.000000e+00, ptr %27, align 8
+  %28 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 4
+  store i8 0, ptr %28, align 8
+  %29 = getelementptr inbounds %class.colvarproxy_system, ptr %5, i32 0, i32 3
+  store double -1.000000e+00, ptr %29, align 8
   invoke void @_ZN18colvarproxy_system17reset_pbc_latticeEv(ptr noundef nonnull align 8 dereferenceable(256) %5)
-          to label %29 unwind label %30
+          to label %30 unwind label %31
 
-29:                                               ; preds = %18
+30:                                               ; preds = %19
   ret void
 
-30:                                               ; preds = %18, %16, %14, %12, %10, %8, %1
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %19, %17, %15, %13, %11, %9, %1
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %3, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #9
-  br label %34
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %3, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %4, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #9
+  br label %35
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %3, align 8
-  %36 = load i32, ptr %4, align 4
-  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
-  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
-  resume { ptr, i32 } %38
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %3, align 8
+  %37 = load i32, ptr %4, align 4
+  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
+  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
+  resume { ptr, i32 } %39
 }
 
 ; Function Attrs: nounwind
@@ -906,9 +907,10 @@ define void @_ZN18colvarproxy_systemD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) ({ [21 x ptr] }, ptr @_ZTV18colvarproxy_system, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.colvarproxy_system, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
+  %4 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTV18colvarproxy_system, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.colvarproxy_system, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
   ret void
 }
 

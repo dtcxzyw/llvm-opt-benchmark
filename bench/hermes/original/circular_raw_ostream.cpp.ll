@@ -253,17 +253,18 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh20circular_raw_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh20circular_raw_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   call void @_ZN4llvh11raw_ostream5flushEv(ptr noundef nonnull align 8 dereferenceable(36) %this1)
   call void @_ZN4llvh20circular_raw_ostream21flushBufferWithBannerEv(ptr noundef nonnull align 8 dereferenceable(96) %this1)
   call void @_ZN4llvh20circular_raw_ostream13releaseStreamEv(ptr noundef nonnull align 8 dereferenceable(96) %this1)
   %BufferArray = getelementptr inbounds %"class.llvh::circular_raw_ostream", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %BufferArray, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %BufferArray, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #7
+  call void @_ZdaPv(ptr noundef %1) #7
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry

@@ -153,7 +153,7 @@ declare dso_local i32 @blocking_notifier_chain_unregister(ptr noundef, ptr nound
 define dso_local noundef i32 @acpi_bus_generate_netlink_event(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) #0 align 16 {
   %5 = tail call ptr @__alloc_skb(i32 noundef 72, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #7
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %44, label %7
+  br i1 %6, label %47, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr @acpi_event_seqnum, align 4
@@ -165,7 +165,7 @@ define dso_local noundef i32 @acpi_bus_generate_netlink_event(ptr noundef %0, pt
 
 12:                                               ; preds = %7
   tail call void @kfree_skb_reason(ptr noundef nonnull %5, i32 noundef 2) #7
-  br label %44
+  br label %47
 
 13:                                               ; preds = %7
   %14 = tail call ptr @nla_reserve(ptr noundef nonnull %5, i32 noundef 1, i32 noundef 44) #7
@@ -174,7 +174,7 @@ define dso_local noundef i32 @acpi_bus_generate_netlink_event(ptr noundef %0, pt
 
 16:                                               ; preds = %13
   tail call void @kfree_skb_reason(ptr noundef nonnull %5, i32 noundef 2) #7
-  br label %44
+  br label %47
 
 17:                                               ; preds = %13
   %18 = getelementptr i8, ptr %14, i64 4
@@ -199,27 +199,30 @@ define dso_local noundef i32 @acpi_bus_generate_netlink_event(ptr noundef %0, pt
   %34 = sub i64 %32, %33
   %35 = trunc i64 %34 to i32
   store i32 %35, ptr %25, align 4
-  %36 = load i8, ptr getelementptr inbounds (%struct.genl_family, ptr @acpi_event_genl_family, i64 0, i32 8), align 8
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %38, label %39, !prof !6
+  %36 = getelementptr inbounds %struct.genl_family, ptr @acpi_event_genl_family, i64 0, i32 8
+  %37 = load i8, ptr %36, align 8
+  %38 = icmp eq i8 %37, 0
+  br i1 %38, label %39, label %40, !prof !6
 
-38:                                               ; preds = %17
+39:                                               ; preds = %17
   tail call void asm sideeffect "451: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 451b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 451) #7, !srcloc !7
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 476, i32 2307, i64 12) #7, !srcloc !8
   tail call void asm sideeffect "452: nop\0A\09.pushsection .discard.instr_end\0A\09.long 452b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 452) #7, !srcloc !9
-  br label %44
+  br label %47
 
-39:                                               ; preds = %17
-  %40 = load i32, ptr getelementptr inbounds (%struct.genl_family, ptr @acpi_event_genl_family, i64 0, i32 22), align 4
-  %41 = load ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 22), align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 56
-  store i32 %40, ptr %42, align 8
-  %43 = tail call i32 @netlink_broadcast_filtered(ptr noundef %41, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %40, i32 noundef 2080, ptr noundef null, ptr noundef null) #7
-  br label %44
+40:                                               ; preds = %17
+  %41 = getelementptr inbounds %struct.genl_family, ptr @acpi_event_genl_family, i64 0, i32 22
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds %struct.net, ptr @init_net, i64 0, i32 22
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %5, i64 56
+  store i32 %42, ptr %45, align 8
+  %46 = tail call i32 @netlink_broadcast_filtered(ptr noundef %44, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %42, i32 noundef 2080, ptr noundef null, ptr noundef null) #7
+  br label %47
 
-44:                                               ; preds = %39, %38, %16, %12, %4
-  %45 = phi i32 [ -22, %16 ], [ -12, %12 ], [ -12, %4 ], [ 0, %38 ], [ 0, %39 ]
-  ret i32 %45
+47:                                               ; preds = %40, %39, %16, %12, %4
+  %48 = phi i32 [ -22, %16 ], [ -12, %12 ], [ -12, %4 ], [ 0, %39 ], [ 0, %40 ]
+  ret i32 %48
 }
 
 ; Function Attrs: null_pointer_is_valid

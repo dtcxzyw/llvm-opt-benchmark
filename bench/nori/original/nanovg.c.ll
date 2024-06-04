@@ -229,7 +229,7 @@ define dso_local i32 @stbtt_GetFontOffsetForIndex(ptr noundef %0, i32 noundef %1
   %12 = icmp eq i32 %11, 0
   %13 = select i1 %12, i32 0, i32 -1
   store i32 %13, ptr %3, align 4
-  br label %74
+  br label %77
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %4, align 8
@@ -239,87 +239,90 @@ define dso_local i32 @stbtt_GetFontOffsetForIndex(ptr noundef %0, i32 noundef %1
   %19 = load i8, ptr @.str, align 1
   %20 = sext i8 %19 to i32
   %21 = icmp eq i32 %18, %20
-  br i1 %21, label %22, label %73
+  br i1 %21, label %22, label %76
 
 22:                                               ; preds = %14
   %23 = load ptr, ptr %4, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str, i64 0, i64 1), align 1
-  %28 = sext i8 %27 to i32
-  %29 = icmp eq i32 %26, %28
-  br i1 %29, label %30, label %73
+  %27 = getelementptr inbounds [5 x i8], ptr @.str, i64 0, i64 1
+  %28 = load i8, ptr %27, align 1
+  %29 = sext i8 %28 to i32
+  %30 = icmp eq i32 %26, %29
+  br i1 %30, label %31, label %76
 
-30:                                               ; preds = %22
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 2
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str, i64 0, i64 2), align 1
-  %36 = sext i8 %35 to i32
-  %37 = icmp eq i32 %34, %36
-  br i1 %37, label %38, label %73
+31:                                               ; preds = %22
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 2
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  %36 = getelementptr inbounds [5 x i8], ptr @.str, i64 0, i64 2
+  %37 = load i8, ptr %36, align 1
+  %38 = sext i8 %37 to i32
+  %39 = icmp eq i32 %35, %38
+  br i1 %39, label %40, label %76
 
-38:                                               ; preds = %30
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 3
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i32
-  %43 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str, i64 0, i64 3), align 1
-  %44 = sext i8 %43 to i32
-  %45 = icmp eq i32 %42, %44
-  br i1 %45, label %46, label %73
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 3
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  %45 = getelementptr inbounds [5 x i8], ptr @.str, i64 0, i64 3
+  %46 = load i8, ptr %45, align 1
+  %47 = sext i8 %46 to i32
+  %48 = icmp eq i32 %44, %47
+  br i1 %48, label %49, label %76
 
-46:                                               ; preds = %38
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
-  %49 = call i32 @ttULONG(ptr noundef %48)
-  %50 = icmp eq i32 %49, 65536
-  br i1 %50, label %56, label %51
+49:                                               ; preds = %40
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %52 = call i32 @ttULONG(ptr noundef %51)
+  %53 = icmp eq i32 %52, 65536
+  br i1 %53, label %59, label %54
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
-  %54 = call i32 @ttULONG(ptr noundef %53)
-  %55 = icmp eq i32 %54, 131072
-  br i1 %55, label %56, label %72
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %57 = call i32 @ttULONG(ptr noundef %56)
+  %58 = icmp eq i32 %57, 131072
+  br i1 %58, label %59, label %75
 
-56:                                               ; preds = %51, %46
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
-  %59 = call i32 @ttLONG(ptr noundef %58)
-  store i32 %59, ptr %6, align 4
-  %60 = load i32, ptr %5, align 4
-  %61 = load i32, ptr %6, align 4
-  %62 = icmp sge i32 %60, %61
-  br i1 %62, label %63, label %64
+59:                                               ; preds = %54, %49
+  %60 = load ptr, ptr %4, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = call i32 @ttLONG(ptr noundef %61)
+  store i32 %62, ptr %6, align 4
+  %63 = load i32, ptr %5, align 4
+  %64 = load i32, ptr %6, align 4
+  %65 = icmp sge i32 %63, %64
+  br i1 %65, label %66, label %67
 
-63:                                               ; preds = %56
+66:                                               ; preds = %59
   store i32 -1, ptr %3, align 4
-  br label %74
+  br label %77
 
-64:                                               ; preds = %56
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 12
-  %67 = load i32, ptr %5, align 4
-  %68 = mul nsw i32 %67, 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i8, ptr %66, i64 %69
-  %71 = call i32 @ttULONG(ptr noundef %70)
-  store i32 %71, ptr %3, align 4
-  br label %74
+67:                                               ; preds = %59
+  %68 = load ptr, ptr %4, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 12
+  %70 = load i32, ptr %5, align 4
+  %71 = mul nsw i32 %70, 4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i8, ptr %69, i64 %72
+  %74 = call i32 @ttULONG(ptr noundef %73)
+  store i32 %74, ptr %3, align 4
+  br label %77
 
-72:                                               ; preds = %51
-  br label %73
+75:                                               ; preds = %54
+  br label %76
 
-73:                                               ; preds = %72, %38, %30, %22, %14
+76:                                               ; preds = %75, %40, %31, %22, %14
   store i32 -1, ptr %3, align 4
-  br label %74
+  br label %77
 
-74:                                               ; preds = %73, %64, %63, %10
-  %75 = load i32, ptr %3, align 4
-  ret i32 %75
+77:                                               ; preds = %76, %67, %66, %10
+  %78 = load i32, ptr %3, align 4
+  ret i32 %78
 }
 
 ; Function Attrs: nounwind uwtable
@@ -360,7 +363,7 @@ define internal i32 @stbtt__isfont(ptr noundef %0) #0 {
 
 27:                                               ; preds = %21
   store i32 1, ptr %2, align 4
-  br label %120
+  br label %126
 
 28:                                               ; preds = %21, %15, %9, %1
   %29 = load ptr, ptr %3, align 8
@@ -370,129 +373,135 @@ define internal i32 @stbtt__isfont(ptr noundef %0) #0 {
   %33 = load i8, ptr @.str.17, align 1
   %34 = sext i8 %33 to i32
   %35 = icmp eq i32 %32, %34
-  br i1 %35, label %36, label %61
+  br i1 %35, label %36, label %64
 
 36:                                               ; preds = %28
   %37 = load ptr, ptr %3, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
-  %41 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.17, i64 0, i64 1), align 1
-  %42 = sext i8 %41 to i32
-  %43 = icmp eq i32 %40, %42
-  br i1 %43, label %44, label %61
+  %41 = getelementptr inbounds [5 x i8], ptr @.str.17, i64 0, i64 1
+  %42 = load i8, ptr %41, align 1
+  %43 = sext i8 %42 to i32
+  %44 = icmp eq i32 %40, %43
+  br i1 %44, label %45, label %64
 
-44:                                               ; preds = %36
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 2
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.17, i64 0, i64 2), align 1
-  %50 = sext i8 %49 to i32
-  %51 = icmp eq i32 %48, %50
-  br i1 %51, label %52, label %61
+45:                                               ; preds = %36
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 2
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i32
+  %50 = getelementptr inbounds [5 x i8], ptr @.str.17, i64 0, i64 2
+  %51 = load i8, ptr %50, align 1
+  %52 = sext i8 %51 to i32
+  %53 = icmp eq i32 %49, %52
+  br i1 %53, label %54, label %64
 
-52:                                               ; preds = %44
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 3
-  %55 = load i8, ptr %54, align 1
-  %56 = zext i8 %55 to i32
-  %57 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.17, i64 0, i64 3), align 1
-  %58 = sext i8 %57 to i32
-  %59 = icmp eq i32 %56, %58
-  br i1 %59, label %60, label %61
+54:                                               ; preds = %45
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 3
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = getelementptr inbounds [5 x i8], ptr @.str.17, i64 0, i64 3
+  %60 = load i8, ptr %59, align 1
+  %61 = sext i8 %60 to i32
+  %62 = icmp eq i32 %58, %61
+  br i1 %62, label %63, label %64
 
-60:                                               ; preds = %52
+63:                                               ; preds = %54
   store i32 1, ptr %2, align 4
-  br label %120
+  br label %126
 
-61:                                               ; preds = %52, %44, %36, %28
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 0
-  %64 = load i8, ptr %63, align 1
-  %65 = zext i8 %64 to i32
-  %66 = load i8, ptr @.str.18, align 1
-  %67 = sext i8 %66 to i32
-  %68 = icmp eq i32 %65, %67
-  br i1 %68, label %69, label %94
+64:                                               ; preds = %54, %45, %36, %28
+  %65 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 0
+  %67 = load i8, ptr %66, align 1
+  %68 = zext i8 %67 to i32
+  %69 = load i8, ptr @.str.18, align 1
+  %70 = sext i8 %69 to i32
+  %71 = icmp eq i32 %68, %70
+  br i1 %71, label %72, label %100
 
-69:                                               ; preds = %61
-  %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.18, i64 0, i64 1), align 1
-  %75 = sext i8 %74 to i32
-  %76 = icmp eq i32 %73, %75
-  br i1 %76, label %77, label %94
+72:                                               ; preds = %64
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 1
+  %75 = load i8, ptr %74, align 1
+  %76 = zext i8 %75 to i32
+  %77 = getelementptr inbounds [5 x i8], ptr @.str.18, i64 0, i64 1
+  %78 = load i8, ptr %77, align 1
+  %79 = sext i8 %78 to i32
+  %80 = icmp eq i32 %76, %79
+  br i1 %80, label %81, label %100
 
-77:                                               ; preds = %69
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 2
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  %82 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.18, i64 0, i64 2), align 1
-  %83 = sext i8 %82 to i32
-  %84 = icmp eq i32 %81, %83
-  br i1 %84, label %85, label %94
+81:                                               ; preds = %72
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 2
+  %84 = load i8, ptr %83, align 1
+  %85 = zext i8 %84 to i32
+  %86 = getelementptr inbounds [5 x i8], ptr @.str.18, i64 0, i64 2
+  %87 = load i8, ptr %86, align 1
+  %88 = sext i8 %87 to i32
+  %89 = icmp eq i32 %85, %88
+  br i1 %89, label %90, label %100
 
-85:                                               ; preds = %77
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 3
-  %88 = load i8, ptr %87, align 1
-  %89 = zext i8 %88 to i32
-  %90 = load i8, ptr getelementptr inbounds ([5 x i8], ptr @.str.18, i64 0, i64 3), align 1
-  %91 = sext i8 %90 to i32
-  %92 = icmp eq i32 %89, %91
-  br i1 %92, label %93, label %94
+90:                                               ; preds = %81
+  %91 = load ptr, ptr %3, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 3
+  %93 = load i8, ptr %92, align 1
+  %94 = zext i8 %93 to i32
+  %95 = getelementptr inbounds [5 x i8], ptr @.str.18, i64 0, i64 3
+  %96 = load i8, ptr %95, align 1
+  %97 = sext i8 %96 to i32
+  %98 = icmp eq i32 %94, %97
+  br i1 %98, label %99, label %100
 
-93:                                               ; preds = %85
+99:                                               ; preds = %90
   store i32 1, ptr %2, align 4
-  br label %120
+  br label %126
 
-94:                                               ; preds = %85, %77, %69, %61
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 0
-  %97 = load i8, ptr %96, align 1
-  %98 = zext i8 %97 to i32
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %119
-
-100:                                              ; preds = %94
+100:                                              ; preds = %90, %81, %72, %64
   %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1
+  %102 = getelementptr inbounds i8, ptr %101, i64 0
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
-  %105 = icmp eq i32 %104, 1
-  br i1 %105, label %106, label %119
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %125
 
 106:                                              ; preds = %100
   %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 2
+  %108 = getelementptr inbounds i8, ptr %107, i64 1
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %119
+  %111 = icmp eq i32 %110, 1
+  br i1 %111, label %112, label %125
 
 112:                                              ; preds = %106
   %113 = load ptr, ptr %3, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 3
+  %114 = getelementptr inbounds i8, ptr %113, i64 2
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %119
+  br i1 %117, label %118, label %125
 
 118:                                              ; preds = %112
+  %119 = load ptr, ptr %3, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 3
+  %121 = load i8, ptr %120, align 1
+  %122 = zext i8 %121 to i32
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %124, label %125
+
+124:                                              ; preds = %118
   store i32 1, ptr %2, align 4
-  br label %120
+  br label %126
 
-119:                                              ; preds = %112, %106, %100, %94
+125:                                              ; preds = %118, %112, %106, %100
   store i32 0, ptr %2, align 4
-  br label %120
+  br label %126
 
-120:                                              ; preds = %119, %118, %93, %60, %27
-  %121 = load i32, ptr %2, align 4
-  ret i32 %121
+126:                                              ; preds = %125, %124, %99, %63, %27
+  %127 = load i32, ptr %2, align 4
+  ret i32 %127
 }
 
 ; Function Attrs: nounwind uwtable
@@ -51182,7 +51191,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 
 42:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %747
+  br label %750
 
 43:                                               ; preds = %3
   %44 = load i32, ptr %6, align 4
@@ -51191,12 +51200,12 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 
 46:                                               ; preds = %43
   store i32 1, ptr %4, align 4
-  br label %747
+  br label %750
 
 47:                                               ; preds = %43
   br label %48
 
-48:                                               ; preds = %744, %47
+48:                                               ; preds = %747, %47
   %49 = load ptr, ptr %22, align 8
   %50 = call i64 @stbi__get_chunk_header(ptr noundef %49)
   store i64 %50, ptr %23, align 4
@@ -51217,7 +51226,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
   %55 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 0
   %56 = load i32, ptr %55, align 4
   call void @stbi__skip(ptr noundef %54, i32 noundef %56)
-  br label %744
+  br label %747
 
 57:                                               ; preds = %48
   %58 = load i32, ptr %17, align 4
@@ -51227,7 +51236,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 60:                                               ; preds = %57
   %61 = call i32 @stbi__err(ptr noundef @.str.53)
   store i32 %61, ptr %4, align 4
-  br label %747
+  br label %750
 
 62:                                               ; preds = %57
   store i32 0, ptr %17, align 4
@@ -51239,7 +51248,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 66:                                               ; preds = %62
   %67 = call i32 @stbi__err(ptr noundef @.str.54)
   store i32 %67, ptr %4, align 4
-  br label %747
+  br label %750
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %22, align 8
@@ -51256,7 +51265,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 77:                                               ; preds = %68
   %78 = call i32 @stbi__err(ptr noundef @.str.40)
   store i32 %78, ptr %4, align 4
-  br label %747
+  br label %750
 
 79:                                               ; preds = %68
   %80 = load ptr, ptr %22, align 8
@@ -51273,7 +51282,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 88:                                               ; preds = %79
   %89 = call i32 @stbi__err(ptr noundef @.str.40)
   store i32 %89, ptr %4, align 4
-  br label %747
+  br label %750
 
 90:                                               ; preds = %79
   %91 = load ptr, ptr %22, align 8
@@ -51319,7 +51328,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 120:                                              ; preds = %115
   %121 = call i32 @stbi__err(ptr noundef @.str.55)
   store i32 %121, ptr %4, align 4
-  br label %747
+  br label %750
 
 122:                                              ; preds = %115, %110, %105, %100, %90
   %123 = load ptr, ptr %22, align 8
@@ -51333,7 +51342,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 128:                                              ; preds = %122
   %129 = call i32 @stbi__err(ptr noundef @.str.56)
   store i32 %129, ptr %4, align 4
-  br label %747
+  br label %750
 
 130:                                              ; preds = %122
   %131 = load i32, ptr %20, align 4
@@ -51350,7 +51359,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 138:                                              ; preds = %133
   %139 = call i32 @stbi__err(ptr noundef @.str.56)
   store i32 %139, ptr %4, align 4
-  br label %747
+  br label %750
 
 140:                                              ; preds = %133, %130
   %141 = load i32, ptr %20, align 4
@@ -51370,7 +51379,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 148:                                              ; preds = %144
   %149 = call i32 @stbi__err(ptr noundef @.str.56)
   store i32 %149, ptr %4, align 4
-  br label %747
+  br label %750
 
 150:                                              ; preds = %144
   br label %151
@@ -51387,7 +51396,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 157:                                              ; preds = %151
   %158 = call i32 @stbi__err(ptr noundef @.str.57)
   store i32 %158, ptr %4, align 4
-  br label %747
+  br label %750
 
 159:                                              ; preds = %151
   %160 = load ptr, ptr %22, align 8
@@ -51401,7 +51410,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 165:                                              ; preds = %159
   %166 = call i32 @stbi__err(ptr noundef @.str.58)
   store i32 %166, ptr %4, align 4
-  br label %747
+  br label %750
 
 167:                                              ; preds = %159
   %168 = load ptr, ptr %22, align 8
@@ -51415,7 +51424,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 173:                                              ; preds = %167
   %174 = call i32 @stbi__err(ptr noundef @.str.59)
   store i32 %174, ptr %4, align 4
-  br label %747
+  br label %750
 
 175:                                              ; preds = %167
   %176 = load ptr, ptr %22, align 8
@@ -51434,7 +51443,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 185:                                              ; preds = %180, %175
   %186 = call i32 @stbi__err(ptr noundef @.str.60)
   store i32 %186, ptr %4, align 4
-  br label %747
+  br label %750
 
 187:                                              ; preds = %180
   %188 = load i8, ptr %9, align 1
@@ -51471,7 +51480,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 214:                                              ; preds = %190
   %215 = call i32 @stbi__err(ptr noundef @.str.40)
   store i32 %215, ptr %4, align 4
-  br label %747
+  br label %750
 
 216:                                              ; preds = %190
   %217 = load i32, ptr %6, align 4
@@ -51480,7 +51489,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 
 219:                                              ; preds = %216
   store i32 1, ptr %4, align 4
-  br label %747
+  br label %750
 
 220:                                              ; preds = %216
   br label %236
@@ -51503,13 +51512,13 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 233:                                              ; preds = %221
   %234 = call i32 @stbi__err(ptr noundef @.str.40)
   store i32 %234, ptr %4, align 4
-  br label %747
+  br label %750
 
 235:                                              ; preds = %221
   br label %236
 
 236:                                              ; preds = %235, %220
-  br label %744
+  br label %747
 
 237:                                              ; preds = %48
   %238 = load i32, ptr %17, align 4
@@ -51519,7 +51528,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 240:                                              ; preds = %237
   %241 = call i32 @stbi__err(ptr noundef @.str.61)
   store i32 %241, ptr %4, align 4
-  br label %747
+  br label %750
 
 242:                                              ; preds = %237
   %243 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 0
@@ -51530,7 +51539,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 246:                                              ; preds = %242
   %247 = call i32 @stbi__err(ptr noundef @.str.62)
   store i32 %247, ptr %4, align 4
-  br label %747
+  br label %750
 
 248:                                              ; preds = %242
   %249 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 0
@@ -51547,7 +51556,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 257:                                              ; preds = %248
   %258 = call i32 @stbi__err(ptr noundef @.str.62)
   store i32 %258, ptr %4, align 4
-  br label %747
+  br label %750
 
 259:                                              ; preds = %248
   store i32 0, ptr %15, align 4
@@ -51599,7 +51608,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
   br label %260, !llvm.loop !248
 
 294:                                              ; preds = %260
-  br label %744
+  br label %747
 
 295:                                              ; preds = %48
   %296 = load i32, ptr %17, align 4
@@ -51609,7 +51618,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 298:                                              ; preds = %295
   %299 = call i32 @stbi__err(ptr noundef @.str.61)
   store i32 %299, ptr %4, align 4
-  br label %747
+  br label %750
 
 300:                                              ; preds = %295
   %301 = load ptr, ptr %5, align 8
@@ -51621,7 +51630,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 305:                                              ; preds = %300
   %306 = call i32 @stbi__err(ptr noundef @.str.63)
   store i32 %306, ptr %4, align 4
-  br label %747
+  br label %750
 
 307:                                              ; preds = %300
   %308 = load i8, ptr %9, align 1
@@ -51638,7 +51647,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
   %315 = getelementptr inbounds %struct.stbi__context, ptr %314, i32 0, i32 2
   store i32 4, ptr %315, align 8
   store i32 1, ptr %4, align 4
-  br label %747
+  br label %750
 
 316:                                              ; preds = %310
   %317 = load i32, ptr %16, align 4
@@ -51648,7 +51657,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 319:                                              ; preds = %316
   %320 = call i32 @stbi__err(ptr noundef @.str.64)
   store i32 %320, ptr %4, align 4
-  br label %747
+  br label %750
 
 321:                                              ; preds = %316
   %322 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 0
@@ -51660,7 +51669,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 326:                                              ; preds = %321
   %327 = call i32 @stbi__err(ptr noundef @.str.65)
   store i32 %327, ptr %4, align 4
-  br label %747
+  br label %750
 
 328:                                              ; preds = %321
   store i8 4, ptr %9, align 1
@@ -51705,7 +51714,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 352:                                              ; preds = %346
   %353 = call i32 @stbi__err(ptr noundef @.str.66)
   store i32 %353, ptr %4, align 4
-  br label %747
+  br label %750
 
 354:                                              ; preds = %346
   %355 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 0
@@ -51720,7 +51729,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 362:                                              ; preds = %354
   %363 = call i32 @stbi__err(ptr noundef @.str.65)
   store i32 %363, ptr %4, align 4
-  br label %747
+  br label %750
 
 364:                                              ; preds = %354
   store i8 1, ptr %10, align 1
@@ -51807,7 +51816,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
   br label %417
 
 417:                                              ; preds = %416, %345
-  br label %744
+  br label %747
 
 418:                                              ; preds = %48
   %419 = load i32, ptr %17, align 4
@@ -51817,7 +51826,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 421:                                              ; preds = %418
   %422 = call i32 @stbi__err(ptr noundef @.str.61)
   store i32 %422, ptr %4, align 4
-  br label %747
+  br label %750
 
 423:                                              ; preds = %418
   %424 = load i8, ptr %9, align 1
@@ -51833,7 +51842,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 430:                                              ; preds = %427
   %431 = call i32 @stbi__err(ptr noundef @.str.67)
   store i32 %431, ptr %4, align 4
-  br label %747
+  br label %750
 
 432:                                              ; preds = %427, %423
   %433 = load i32, ptr %6, align 4
@@ -51847,7 +51856,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
   %439 = getelementptr inbounds %struct.stbi__context, ptr %438, i32 0, i32 2
   store i32 %437, ptr %439, align 8
   store i32 1, ptr %4, align 4
-  br label %747
+  br label %750
 
 440:                                              ; preds = %432
   %441 = load i32, ptr %13, align 4
@@ -51860,7 +51869,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 
 447:                                              ; preds = %440
   store i32 0, ptr %4, align 4
-  br label %747
+  br label %750
 
 448:                                              ; preds = %440
   %449 = load i32, ptr %13, align 4
@@ -51930,7 +51939,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 489:                                              ; preds = %480
   %490 = call i32 @stbi__err(ptr noundef @.str.41)
   store i32 %490, ptr %4, align 4
-  br label %747
+  br label %750
 
 491:                                              ; preds = %480
   %492 = load ptr, ptr %27, align 8
@@ -51956,7 +51965,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 507:                                              ; preds = %495
   %508 = call i32 @stbi__err(ptr noundef @.str.68)
   store i32 %508, ptr %4, align 4
-  br label %747
+  br label %750
 
 509:                                              ; preds = %495
   %510 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 0
@@ -51964,7 +51973,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
   %512 = load i32, ptr %13, align 4
   %513 = add i32 %512, %511
   store i32 %513, ptr %13, align 4
-  br label %744
+  br label %747
 
 514:                                              ; preds = %48
   %515 = load i32, ptr %17, align 4
@@ -51974,7 +51983,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 517:                                              ; preds = %514
   %518 = call i32 @stbi__err(ptr noundef @.str.61)
   store i32 %518, ptr %4, align 4
-  br label %747
+  br label %750
 
 519:                                              ; preds = %514
   %520 = load i32, ptr %6, align 4
@@ -51983,7 +51992,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 
 522:                                              ; preds = %519
   store i32 1, ptr %4, align 4
-  br label %747
+  br label %750
 
 523:                                              ; preds = %519
   %524 = load ptr, ptr %5, align 8
@@ -51995,7 +52004,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 528:                                              ; preds = %523
   %529 = call i32 @stbi__err(ptr noundef @.str.69)
   store i32 %529, ptr %4, align 4
-  br label %747
+  br label %750
 
 530:                                              ; preds = %523
   %531 = load ptr, ptr %22, align 8
@@ -52043,7 +52052,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 
 569:                                              ; preds = %530
   store i32 0, ptr %4, align 4
-  br label %747
+  br label %750
 
 570:                                              ; preds = %530
   %571 = load ptr, ptr %5, align 8
@@ -52116,7 +52125,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 
 621:                                              ; preds = %605
   store i32 0, ptr %4, align 4
-  br label %747
+  br label %750
 
 622:                                              ; preds = %605
   %623 = load i8, ptr %10, align 1
@@ -52142,7 +52151,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 
 638:                                              ; preds = %630
   store i32 0, ptr %4, align 4
-  br label %747
+  br label %750
 
 639:                                              ; preds = %630
   br label %650
@@ -52159,7 +52168,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 
 648:                                              ; preds = %640
   store i32 0, ptr %4, align 4
-  br label %747
+  br label %750
 
 649:                                              ; preds = %640
   br label %650
@@ -52229,7 +52238,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 
 691:                                              ; preds = %682
   store i32 0, ptr %4, align 4
-  br label %747
+  br label %750
 
 692:                                              ; preds = %682
   br label %702
@@ -52259,7 +52268,7 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
   %707 = getelementptr inbounds %struct.stbi__png, ptr %706, i32 0, i32 2
   store ptr null, ptr %707, align 8
   store i32 1, ptr %4, align 4
-  br label %747
+  br label %750
 
 708:                                              ; preds = %48
   %709 = load i32, ptr %17, align 4
@@ -52269,14 +52278,14 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
 711:                                              ; preds = %708
   %712 = call i32 @stbi__err(ptr noundef @.str.61)
   store i32 %712, ptr %4, align 4
-  br label %747
+  br label %750
 
 713:                                              ; preds = %708
   %714 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 1
   %715 = load i32, ptr %714, align 4
   %716 = and i32 %715, 536870912
   %717 = icmp eq i32 %716, 0
-  br i1 %717, label %718, label %740
+  br i1 %717, label %718, label %743
 
 718:                                              ; preds = %713
   %719 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 1
@@ -52290,38 +52299,41 @@ define internal i32 @stbi__parse_png_file(ptr noundef %0, i32 noundef %1, i32 no
   %726 = lshr i32 %725, 16
   %727 = and i32 %726, 255
   %728 = trunc i32 %727 to i8
-  store i8 %728, ptr getelementptr inbounds ([25 x i8], ptr @stbi__parse_png_file.invalid_chunk, i64 0, i64 1), align 1
-  %729 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 1
-  %730 = load i32, ptr %729, align 4
-  %731 = lshr i32 %730, 8
-  %732 = and i32 %731, 255
-  %733 = trunc i32 %732 to i8
-  store i8 %733, ptr getelementptr inbounds ([25 x i8], ptr @stbi__parse_png_file.invalid_chunk, i64 0, i64 2), align 2
-  %734 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 1
-  %735 = load i32, ptr %734, align 4
-  %736 = lshr i32 %735, 0
-  %737 = and i32 %736, 255
-  %738 = trunc i32 %737 to i8
-  store i8 %738, ptr getelementptr inbounds ([25 x i8], ptr @stbi__parse_png_file.invalid_chunk, i64 0, i64 3), align 1
-  %739 = call i32 @stbi__err(ptr noundef @stbi__parse_png_file.invalid_chunk)
-  store i32 %739, ptr %4, align 4
+  %729 = getelementptr inbounds [25 x i8], ptr @stbi__parse_png_file.invalid_chunk, i64 0, i64 1
+  store i8 %728, ptr %729, align 1
+  %730 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 1
+  %731 = load i32, ptr %730, align 4
+  %732 = lshr i32 %731, 8
+  %733 = and i32 %732, 255
+  %734 = trunc i32 %733 to i8
+  %735 = getelementptr inbounds [25 x i8], ptr @stbi__parse_png_file.invalid_chunk, i64 0, i64 2
+  store i8 %734, ptr %735, align 2
+  %736 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 1
+  %737 = load i32, ptr %736, align 4
+  %738 = lshr i32 %737, 0
+  %739 = and i32 %738, 255
+  %740 = trunc i32 %739 to i8
+  %741 = getelementptr inbounds [25 x i8], ptr @stbi__parse_png_file.invalid_chunk, i64 0, i64 3
+  store i8 %740, ptr %741, align 1
+  %742 = call i32 @stbi__err(ptr noundef @stbi__parse_png_file.invalid_chunk)
+  store i32 %742, ptr %4, align 4
+  br label %750
+
+743:                                              ; preds = %713
+  %744 = load ptr, ptr %22, align 8
+  %745 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 0
+  %746 = load i32, ptr %745, align 4
+  call void @stbi__skip(ptr noundef %744, i32 noundef %746)
   br label %747
 
-740:                                              ; preds = %713
-  %741 = load ptr, ptr %22, align 8
-  %742 = getelementptr inbounds %struct.stbi__pngchunk, ptr %23, i32 0, i32 0
-  %743 = load i32, ptr %742, align 4
-  call void @stbi__skip(ptr noundef %741, i32 noundef %743)
-  br label %744
-
-744:                                              ; preds = %740, %509, %417, %294, %236, %53
-  %745 = load ptr, ptr %22, align 8
-  %746 = call i32 @stbi__get32be(ptr noundef %745)
+747:                                              ; preds = %743, %509, %417, %294, %236, %53
+  %748 = load ptr, ptr %22, align 8
+  %749 = call i32 @stbi__get32be(ptr noundef %748)
   br label %48
 
-747:                                              ; preds = %718, %711, %702, %691, %648, %638, %621, %569, %528, %522, %517, %507, %489, %447, %435, %430, %421, %362, %352, %326, %319, %313, %305, %298, %257, %246, %240, %233, %219, %214, %185, %173, %165, %157, %148, %138, %128, %120, %88, %77, %66, %60, %46, %42
-  %748 = load i32, ptr %4, align 4
-  ret i32 %748
+750:                                              ; preds = %718, %711, %702, %691, %648, %638, %621, %569, %528, %522, %517, %507, %489, %447, %435, %430, %421, %362, %352, %326, %319, %313, %305, %298, %257, %246, %240, %233, %219, %214, %185, %173, %165, %157, %148, %138, %128, %120, %88, %77, %66, %60, %46, %42
+  %751 = load i32, ptr %4, align 4
+  ret i32 %751
 }
 
 ; Function Attrs: nounwind uwtable
@@ -57276,7 +57288,7 @@ define internal ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef %1) #0 {
   %22 = ptrtoint ptr %21 to i64
   %23 = inttoptr i64 %22 to ptr
   store ptr %23, ptr %3, align 8
-  br label %286
+  br label %287
 
 24:                                               ; preds = %13
   %25 = load ptr, ptr %4, align 8
@@ -57339,7 +57351,7 @@ define internal ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef %1) #0 {
   %65 = ptrtoint ptr %64 to i64
   %66 = inttoptr i64 %65 to ptr
   store ptr %66, ptr %3, align 8
-  br label %286
+  br label %287
 
 67:                                               ; preds = %58, %55, %52, %49, %24
   %68 = load i32, ptr %6, align 4
@@ -57385,7 +57397,7 @@ define internal ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef %1) #0 {
   %96 = ptrtoint ptr %95 to i64
   %97 = inttoptr i64 %96 to ptr
   store ptr %97, ptr %3, align 8
-  br label %286
+  br label %287
 
 98:                                               ; preds = %88
   %99 = load ptr, ptr %4, align 8
@@ -57417,7 +57429,7 @@ define internal ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef %1) #0 {
   %117 = ptrtoint ptr %116 to i64
   %118 = inttoptr i64 %117 to ptr
   store ptr %118, ptr %3, align 8
-  br label %286
+  br label %287
 
 119:                                              ; preds = %110
   %120 = load ptr, ptr %4, align 8
@@ -57561,7 +57573,7 @@ define internal ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef %1) #0 {
   %219 = ptrtoint ptr %218 to i64
   %220 = inttoptr i64 %219 to ptr
   store ptr %220, ptr %3, align 8
-  br label %286
+  br label %287
 
 221:                                              ; preds = %207, %187
   br label %228
@@ -57573,7 +57585,7 @@ define internal ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef %1) #0 {
   %226 = ptrtoint ptr %225 to i64
   %227 = inttoptr i64 %226 to ptr
   store ptr %227, ptr %3, align 8
-  br label %286
+  br label %287
 
 228:                                              ; preds = %221
   br label %229
@@ -57601,7 +57613,7 @@ define internal ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef %1) #0 {
   %241 = ptrtoint ptr %240 to i64
   %242 = inttoptr i64 %241 to ptr
   store ptr %242, ptr %3, align 8
-  br label %286
+  br label %287
 
 243:                                              ; preds = %234, %231
   %244 = load ptr, ptr %4, align 8
@@ -57668,12 +57680,13 @@ define internal ptr @stbi__bmp_parse_header(ptr noundef %0, ptr noundef %1) #0 {
   br label %285
 
 285:                                              ; preds = %284, %98
-  store ptr inttoptr (i64 1 to ptr), ptr %3, align 8
-  br label %286
+  %286 = inttoptr i64 1 to ptr
+  store ptr %286, ptr %3, align 8
+  br label %287
 
-286:                                              ; preds = %285, %237, %222, %215, %113, %92, %61, %18
-  %287 = load ptr, ptr %3, align 8
-  ret ptr %287
+287:                                              ; preds = %285, %237, %222, %215, %113, %92, %61, %18
+  %288 = load ptr, ptr %3, align 8
+  ret ptr %288
 }
 
 ; Function Attrs: nounwind uwtable

@@ -154,44 +154,45 @@ define dso_local noundef i32 @acpi_ut_install_interface(ptr nocapture noundef re
   %5 = and i64 %4, 512
   %6 = icmp eq i64 %5, 0
   %7 = select i1 %6, i32 2336, i32 3520
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %9 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %8, i32 noundef %7, i64 noundef 24) #10
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %26, label %11
+  %8 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %9 = load ptr, ptr %8, align 8
+  %10 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %9, i32 noundef %7, i64 noundef 24) #10
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %27, label %12
 
-11:                                               ; preds = %1
-  %12 = call i64 @strlen(ptr noundef %0) #9
+12:                                               ; preds = %1
+  %13 = call i64 @strlen(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   store i64 0, ptr %2, align 8, !annotation !9
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #9, !srcloc !10
-  %13 = load i64, ptr %2, align 8
+  %14 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  %14 = and i64 %13, 512
-  %15 = icmp eq i64 %14, 0
-  %16 = select i1 %15, i32 2336, i32 3520
-  %17 = add i64 %12, 1
-  %18 = call noalias align 8 ptr @__kmalloc(i64 noundef %17, i32 noundef %16) #11
-  store ptr %18, ptr %9, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %21
+  %15 = and i64 %14, 512
+  %16 = icmp eq i64 %15, 0
+  %17 = select i1 %16, i32 2336, i32 3520
+  %18 = add i64 %13, 1
+  %19 = call noalias align 8 ptr @__kmalloc(i64 noundef %18, i32 noundef %17) #11
+  store ptr %19, ptr %10, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %11
-  call void @kfree(ptr noundef nonnull %9) #9
-  br label %26
+21:                                               ; preds = %12
+  call void @kfree(ptr noundef nonnull %10) #9
+  br label %27
 
-21:                                               ; preds = %11
-  %22 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef %0) #9
-  %23 = getelementptr inbounds i8, ptr %9, i64 16
-  store i8 2, ptr %23, align 8
-  %24 = load ptr, ptr @acpi_gbl_supported_interfaces, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %24, ptr %25, align 8
-  store ptr %9, ptr @acpi_gbl_supported_interfaces, align 8
-  br label %26
+22:                                               ; preds = %12
+  %23 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef %0) #9
+  %24 = getelementptr inbounds i8, ptr %10, i64 16
+  store i8 2, ptr %24, align 8
+  %25 = load ptr, ptr @acpi_gbl_supported_interfaces, align 8
+  %26 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %25, ptr %26, align 8
+  store ptr %10, ptr @acpi_gbl_supported_interfaces, align 8
+  br label %27
 
-26:                                               ; preds = %21, %20, %1
-  %27 = phi i32 [ 0, %21 ], [ 4, %20 ], [ 4, %1 ]
-  ret i32 %27
+27:                                               ; preds = %22, %21, %1
+  %28 = phi i32 [ 0, %22 ], [ 4, %21 ], [ 4, %1 ]
+  ret i32 %28
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)

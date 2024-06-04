@@ -28929,7 +28929,7 @@ lpad6028:                                         ; preds = %invoke.cont6024
 
 catch.dispatch:                                   ; preds = %lpad6028
   %sel = load i32, ptr %ehselector.slot, align 4
-  %3149 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3149 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches = icmp eq i32 %sel, %3149
   br i1 %matches, label %catch6038, label %catch
 
@@ -29240,7 +29240,7 @@ ehcleanup6115:                                    ; preds = %lpad6111, %lpad6109
 
 catch.dispatch6116:                               ; preds = %ehcleanup6115
   %sel6117 = load i32, ptr %ehselector.slot, align 4
-  %3194 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3194 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6118 = icmp eq i32 %sel6117, %3194
   br i1 %matches6118, label %catch6127, label %catch6119
 
@@ -29426,7 +29426,7 @@ ehcleanup6173:                                    ; preds = %lpad6169, %lpad6167
 
 catch.dispatch6174:                               ; preds = %ehcleanup6173
   %sel6175 = load i32, ptr %ehselector.slot, align 4
-  %3220 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3220 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6176 = icmp eq i32 %sel6175, %3220
   br i1 %matches6176, label %catch6185, label %catch6177
 
@@ -29612,7 +29612,7 @@ ehcleanup6231:                                    ; preds = %lpad6227, %lpad6225
 
 catch.dispatch6232:                               ; preds = %ehcleanup6231
   %sel6233 = load i32, ptr %ehselector.slot, align 4
-  %3246 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3246 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6234 = icmp eq i32 %sel6233, %3246
   br i1 %matches6234, label %catch6243, label %catch6235
 
@@ -29800,7 +29800,7 @@ ehcleanup6290:                                    ; preds = %lpad6286, %lpad6284
 
 catch.dispatch6291:                               ; preds = %ehcleanup6290
   %sel6292 = load i32, ptr %ehselector.slot, align 4
-  %3272 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3272 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6293 = icmp eq i32 %sel6292, %3272
   br i1 %matches6293, label %catch6302, label %catch6294
 
@@ -29986,7 +29986,7 @@ ehcleanup6348:                                    ; preds = %lpad6344, %lpad6342
 
 catch.dispatch6349:                               ; preds = %ehcleanup6348
   %sel6350 = load i32, ptr %ehselector.slot, align 4
-  %3298 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3298 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6351 = icmp eq i32 %sel6350, %3298
   br i1 %matches6351, label %catch6360, label %catch6352
 
@@ -30174,7 +30174,7 @@ ehcleanup6407:                                    ; preds = %lpad6403, %lpad6401
 
 catch.dispatch6408:                               ; preds = %ehcleanup6407
   %sel6409 = load i32, ptr %ehselector.slot, align 4
-  %3324 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3324 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6410 = icmp eq i32 %sel6409, %3324
   br i1 %matches6410, label %catch6419, label %catch6411
 
@@ -30364,7 +30364,7 @@ ehcleanup6467:                                    ; preds = %lpad6463, %lpad6461
 
 catch.dispatch6468:                               ; preds = %ehcleanup6467
   %sel6469 = load i32, ptr %ehselector.slot, align 4
-  %3350 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6470 = icmp eq i32 %sel6469, %3350
   br i1 %matches6470, label %catch6479, label %catch6471
 
@@ -30556,7 +30556,7 @@ ehcleanup6528:                                    ; preds = %lpad6524, %lpad6522
 
 catch.dispatch6529:                               ; preds = %ehcleanup6528
   %sel6530 = load i32, ptr %ehselector.slot, align 4
-  %3376 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3376 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6531 = icmp eq i32 %sel6530, %3376
   br i1 %matches6531, label %catch6540, label %catch6532
 
@@ -30742,7 +30742,7 @@ ehcleanup6586:                                    ; preds = %lpad6582, %lpad6580
 
 catch.dispatch6587:                               ; preds = %ehcleanup6586
   %sel6588 = load i32, ptr %ehselector.slot, align 4
-  %3402 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3402 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6589 = icmp eq i32 %sel6588, %3402
   br i1 %matches6589, label %catch6598, label %catch6590
 
@@ -30930,7 +30930,7 @@ ehcleanup6645:                                    ; preds = %lpad6641, %lpad6639
 
 catch.dispatch6646:                               ; preds = %ehcleanup6645
   %sel6647 = load i32, ptr %ehselector.slot, align 4
-  %3428 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3428 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6648 = icmp eq i32 %sel6647, %3428
   br i1 %matches6648, label %catch6657, label %catch6649
 
@@ -31120,7 +31120,7 @@ ehcleanup6705:                                    ; preds = %lpad6701, %lpad6699
 
 catch.dispatch6706:                               ; preds = %ehcleanup6705
   %sel6707 = load i32, ptr %ehselector.slot, align 4
-  %3454 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3454 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6708 = icmp eq i32 %sel6707, %3454
   br i1 %matches6708, label %catch6717, label %catch6709
 
@@ -31312,7 +31312,7 @@ ehcleanup6766:                                    ; preds = %lpad6762, %lpad6760
 
 catch.dispatch6767:                               ; preds = %ehcleanup6766
   %sel6768 = load i32, ptr %ehselector.slot, align 4
-  %3480 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3480 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6769 = icmp eq i32 %sel6768, %3480
   br i1 %matches6769, label %catch6778, label %catch6770
 
@@ -31506,7 +31506,7 @@ ehcleanup6828:                                    ; preds = %lpad6824, %lpad6822
 
 catch.dispatch6829:                               ; preds = %ehcleanup6828
   %sel6830 = load i32, ptr %ehselector.slot, align 4
-  %3506 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3506 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6831 = icmp eq i32 %sel6830, %3506
   br i1 %matches6831, label %catch6840, label %catch6832
 
@@ -31702,7 +31702,7 @@ ehcleanup6891:                                    ; preds = %lpad6887, %lpad6885
 
 catch.dispatch6892:                               ; preds = %ehcleanup6891
   %sel6893 = load i32, ptr %ehselector.slot, align 4
-  %3532 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3532 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6894 = icmp eq i32 %sel6893, %3532
   br i1 %matches6894, label %catch6903, label %catch6895
 
@@ -31900,7 +31900,7 @@ ehcleanup6955:                                    ; preds = %lpad6951, %lpad6949
 
 catch.dispatch6956:                               ; preds = %ehcleanup6955
   %sel6957 = load i32, ptr %ehselector.slot, align 4
-  %3558 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3558 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches6958 = icmp eq i32 %sel6957, %3558
   br i1 %matches6958, label %catch6967, label %catch6959
 
@@ -32100,7 +32100,7 @@ ehcleanup7020:                                    ; preds = %lpad7016, %lpad7014
 
 catch.dispatch7021:                               ; preds = %ehcleanup7020
   %sel7022 = load i32, ptr %ehselector.slot, align 4
-  %3584 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3584 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches7023 = icmp eq i32 %sel7022, %3584
   br i1 %matches7023, label %catch7032, label %catch7024
 
@@ -32290,7 +32290,7 @@ ehcleanup7080:                                    ; preds = %lpad7076, %lpad7074
 
 catch.dispatch7081:                               ; preds = %ehcleanup7080
   %sel7082 = load i32, ptr %ehselector.slot, align 4
-  %3610 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3610 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches7083 = icmp eq i32 %sel7082, %3610
   br i1 %matches7083, label %catch7092, label %catch7084
 
@@ -32478,7 +32478,7 @@ ehcleanup7139:                                    ; preds = %lpad7135, %lpad7133
 
 catch.dispatch7140:                               ; preds = %ehcleanup7139
   %sel7141 = load i32, ptr %ehselector.slot, align 4
-  %3636 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3636 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches7142 = icmp eq i32 %sel7141, %3636
   br i1 %matches7142, label %catch7151, label %catch7143
 
@@ -32668,7 +32668,7 @@ ehcleanup7199:                                    ; preds = %lpad7195, %lpad7193
 
 catch.dispatch7200:                               ; preds = %ehcleanup7199
   %sel7201 = load i32, ptr %ehselector.slot, align 4
-  %3662 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3662 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches7202 = icmp eq i32 %sel7201, %3662
   br i1 %matches7202, label %catch7211, label %catch7203
 
@@ -32856,7 +32856,7 @@ ehcleanup7258:                                    ; preds = %lpad7254, %lpad7252
 
 catch.dispatch7259:                               ; preds = %ehcleanup7258
   %sel7260 = load i32, ptr %ehselector.slot, align 4
-  %3688 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %3688 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches7261 = icmp eq i32 %sel7260, %3688
   br i1 %matches7261, label %catch7270, label %catch7262
 
@@ -35174,7 +35174,7 @@ ehcleanup8033:                                    ; preds = %lpad8029, %lpad8027
 
 catch.dispatch8034:                               ; preds = %ehcleanup8033
   %sel8035 = load i32, ptr %ehselector.slot, align 4
-  %4067 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %4067 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches8036 = icmp eq i32 %sel8035, %4067
   br i1 %matches8036, label %catch8045, label %catch8037
 
@@ -35448,7 +35448,7 @@ ehcleanup8121:                                    ; preds = %lpad8117, %lpad8115
 
 catch.dispatch8122:                               ; preds = %ehcleanup8121
   %sel8123 = load i32, ptr %ehselector.slot, align 4
-  %4110 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %4110 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches8124 = icmp eq i32 %sel8123, %4110
   br i1 %matches8124, label %catch8133, label %catch8125
 
@@ -35810,7 +35810,7 @@ ehcleanup8233:                                    ; preds = %lpad8229, %lpad8227
 
 catch.dispatch8234:                               ; preds = %ehcleanup8233
   %sel8235 = load i32, ptr %ehselector.slot, align 4
-  %4164 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %4164 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches8236 = icmp eq i32 %sel8235, %4164
   br i1 %matches8236, label %catch8245, label %catch8237
 
@@ -36306,7 +36306,7 @@ lpad8377:                                         ; preds = %invoke.cont8374
 
 catch.dispatch8380:                               ; preds = %lpad8377
   %sel8381 = load i32, ptr %ehselector.slot, align 4
-  %4246 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
+  %4246 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail11parse_errorE) #21
   %matches8382 = icmp eq i32 %sel8381, %4246
   br i1 %matches8382, label %catch8391, label %catch8383
 
@@ -39879,10 +39879,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -39897,10 +39898,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -39913,7 +39914,8 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -41568,10 +41570,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -41586,10 +41589,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -41867,10 +41870,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_1EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_1EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -41885,10 +41889,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -42018,10 +42022,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -42036,10 +42041,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -42186,10 +42191,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_3EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_3EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -42204,10 +42210,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -42376,10 +42382,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_4EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_4EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -42394,10 +42401,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -42566,10 +42573,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_5EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_5EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -42584,10 +42592,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -42609,10 +42617,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_6EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_6EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -42627,10 +42636,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -42904,10 +42913,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_7EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_7EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -42922,10 +42932,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -43193,10 +43203,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_8EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_8EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -43211,10 +43222,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -43546,10 +43557,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_9EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_9EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -43564,10 +43576,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -43661,10 +43673,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_10EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_10EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -43679,10 +43692,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -43704,10 +43717,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_11EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_11EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -43722,10 +43736,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -43747,10 +43761,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_12EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_12EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -43765,10 +43780,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -43915,10 +43930,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_13EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_13EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -43933,10 +43949,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -44083,10 +44099,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_14EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_14EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -44101,10 +44118,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -44811,10 +44828,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_15EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_15EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -44829,10 +44847,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -44854,10 +44872,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_16EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_16EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -44872,10 +44891,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -44998,10 +45017,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_17EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_17EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -45016,10 +45036,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -45041,10 +45061,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_18EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_18EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -45059,10 +45080,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -45843,10 +45864,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_19EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_19EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -45861,10 +45883,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -46418,10 +46440,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_20EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_20EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -46436,10 +46459,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -46596,10 +46619,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_21EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_21EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -46614,10 +46638,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -46639,10 +46663,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_22EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_22EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -46657,10 +46682,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -46682,10 +46707,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_23EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_23EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -46700,10 +46726,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -46725,10 +46751,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_24EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_24EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -46743,10 +46770,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -46768,10 +46795,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_25EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_25EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -46786,10 +46814,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -47181,9 +47209,6 @@ entry:
   call void @_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE16assert_invariantEb(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true) #21
   ret ptr %this1
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #9
 
 declare void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144)) #2
 
@@ -48222,13 +48247,13 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #10
+declare void @_ZSt28__throw_bad_array_new_lengthv() #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #10
+declare void @_ZSt17__throw_bad_allocv() #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS0_St6vectorS6_blmdSaNS8_14adl_serializerESA_IhSaIhEEvEESt4lessIS6_ESaISt4pairIKS6_SE_EEEZNSE_6createISL_JEEEPT_DpOT0_EUlPSL_E_Lb1ELb0EECI2St15__uniq_ptr_implISL_ST_EIRKST_EESS_OSN_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 comdat align 2 {
@@ -50659,7 +50684,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11other_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11other_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -50950,7 +50976,7 @@ entry:
   store ptr %rest3, ptr %rest.addr4, align 8
   store ptr %rest5, ptr %rest.addr6, align 8
   %0 = load ptr, ptr %cstr.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #20
+  %call = call i64 @strlen(ptr noundef %0) #19
   %1 = load ptr, ptr %rest.addr, align 8
   %2 = load ptr, ptr %rest.addr2, align 8
   %3 = load ptr, ptr %rest.addr4, align 8
@@ -50989,7 +51015,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #12
+declare i64 @strlen(ptr noundef) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN8nlohmann16json_abi_v3_11_36detail13concat_lengthINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJcS8_A3_cEEEmRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef nonnull align 1 dereferenceable(1) %rest, ptr noundef nonnull align 8 dereferenceable(32) %rest1, ptr noundef nonnull align 1 dereferenceable(3) %rest3) #4 comdat {
@@ -51051,7 +51077,7 @@ entry:
   %cstr.addr = alloca ptr, align 8
   store ptr %cstr, ptr %cstr.addr, align 8
   %0 = load ptr, ptr %cstr.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #20
+  %call = call i64 @strlen(ptr noundef %0) #19
   %call1 = call noundef i64 @_ZN8nlohmann16json_abi_v3_11_36detail13concat_lengthEv()
   %add = add i64 %call, %call1
   ret i64 %add
@@ -51343,25 +51369,26 @@ entry:
   store ptr %what_arg, ptr %what_arg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %id_.addr, align 4
-  store i32 %0, ptr %id, align 8
+  %1 = load i32, ptr %id_.addr, align 4
+  store i32 %1, ptr %id, align 8
   %m = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %what_arg.addr, align 8
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef %1)
+  %2 = load ptr, ptr %what_arg.addr, align 8
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #21
   br label %eh.resume
 
@@ -51401,7 +51428,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -51416,7 +51444,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 2
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m) #21
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #21
@@ -53583,7 +53612,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #20
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #19
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -53611,7 +53640,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm1EE4dataEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm1EE4dataEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53636,7 +53665,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm1EE5beginEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm1EE5beginEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53646,7 +53675,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm1EE3endEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm1EE3endEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53752,7 +53781,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm2EE4dataEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm2EE4dataEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53763,7 +53792,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm2EE5beginEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm2EE5beginEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53773,7 +53802,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm2EE3endEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm2EE3endEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53794,7 +53823,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm4EE4dataEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm4EE4dataEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53805,7 +53834,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm4EE5beginEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm4EE5beginEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53815,7 +53844,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm4EE3endEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm4EE3endEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53836,7 +53865,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm8EE4dataEv(ptr noundef nonnull align 1 dereferenceable(8) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm8EE4dataEv(ptr noundef nonnull align 1 dereferenceable(8) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53847,7 +53876,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm8EE5beginEv(ptr noundef nonnull align 1 dereferenceable(8) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm8EE5beginEv(ptr noundef nonnull align 1 dereferenceable(8) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -53857,7 +53886,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm8EE3endEv(ptr noundef nonnull align 1 dereferenceable(8) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm8EE3endEv(ptr noundef nonnull align 1 dereferenceable(8) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -54138,7 +54167,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #12
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12__shared_ptrIN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIhEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
@@ -54611,12 +54640,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #21
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #21
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #21
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEEJRSt6vectorIhS7_EEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(24) %0) #21
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEEJRSt6vectorIhS7_EEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(24) %1) #21
   ret void
 }
 
@@ -54786,7 +54816,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -54968,7 +54999,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #14
+declare void @llvm.trap() #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__tp) unnamed_addr #1 comdat align 2 {
@@ -55002,10 +55033,11 @@ entry:
   store ptr %vec, ptr %vec.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIhEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #21
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_vector_adapterIhSaIhEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %v = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::output_vector_adapter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %vec.addr, align 8
-  store ptr %0, ptr %v, align 8
+  %1 = load ptr, ptr %vec.addr, align 8
+  store ptr %1, ptr %v, align 8
   ret void
 }
 
@@ -55015,7 +55047,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIhEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIhEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -56484,7 +56517,7 @@ if.end6:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #15
+declare i1 @llvm.is.constant.i64(i64) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZSt18uninitialized_copyIPKhPhET0_T_S4_S3_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #4 comdat {
@@ -56572,7 +56605,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #10
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #1 comdat {
@@ -66093,7 +66126,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -66116,7 +66150,7 @@ entry:
   store ptr %cstr, ptr %cstr.addr, align 8
   store ptr %rest, ptr %rest.addr, align 8
   %0 = load ptr, ptr %cstr.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #20
+  %call = call i64 @strlen(ptr noundef %0) #19
   %1 = load ptr, ptr %rest.addr, align 8
   %call1 = call noundef i64 @_ZN8nlohmann16json_abi_v3_11_36detail13concat_lengthINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEmRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %add = add i64 %call, %call1
@@ -68091,7 +68125,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #20
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #19
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -68119,7 +68153,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #12
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSP_PSt13_Rb_tree_nodeISH_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef %__z) #4 comdat align 2 {
@@ -68822,7 +68856,7 @@ return:                                           ; preds = %for.end, %if.then
 declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #5
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm3EE4dataEv(ptr noundef nonnull align 1 dereferenceable(3) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm3EE4dataEv(ptr noundef nonnull align 1 dereferenceable(3) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -68833,7 +68867,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm3EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(3) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm3EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(3) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -82234,7 +82268,7 @@ entry:
   %value_float = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::lexer", ptr %this1, i32 0, i32 12
   store double 0.000000e+00, ptr %value_float, align 8
   %decimal_point_char = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::lexer", ptr %this1, i32 0, i32 13
-  %call3 = call noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS5_IcSA_EEEEEE17get_decimal_pointEv() #20
+  %call3 = call noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS5_IcSA_EEEEEE17get_decimal_pointEv() #19
   %conv = sext i8 %call3 to i32
   store i32 %conv, ptr %decimal_point_char, align 8
   ret void
@@ -83174,7 +83208,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail12out_of_rangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -83188,15 +83223,16 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %id = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %id2 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %id2, align 8
-  store i32 %3, ptr %id, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %id2 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %3, i32 0, i32 1
+  %4 = load i32, ptr %id2, align 8
+  store i32 %4, ptr %id, align 8
   %m = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %.addr, align 8
-  %m3 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %4, i32 0, i32 2
+  %5 = load ptr, ptr %.addr, align 8
+  %m3 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %5, i32 0, i32 2
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef nonnull align 8 dereferenceable(16) %m3) #21
   ret void
 }
@@ -83209,7 +83245,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -84356,7 +84393,7 @@ entry:
   store ptr %rest, ptr %rest.addr, align 8
   store ptr %rest1, ptr %rest.addr2, align 8
   %0 = load ptr, ptr %cstr.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #20
+  %call = call i64 @strlen(ptr noundef %0) #19
   %1 = load ptr, ptr %rest.addr, align 8
   %2 = load ptr, ptr %rest.addr2, align 8
   %call3 = call noundef i64 @_ZN8nlohmann16json_abi_v3_11_36detail13concat_lengthINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA41_cEEEmRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(41) %2)
@@ -85013,7 +85050,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #10
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxeqIPKmSt6vectorImSaImEEEEbRKNS_17__normal_iteratorIT_T0_EESB_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #1 comdat {
@@ -86066,7 +86103,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr dso_local noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS5_IcSA_EEEEEE17get_decimal_pointEv() #16 comdat align 2 {
+define linkonce_odr dso_local noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcS5_IcSA_EEEEEE17get_decimal_pointEv() #15 comdat align 2 {
 entry:
   %loc = alloca ptr, align 8
   %call = call ptr @localeconv() #21
@@ -86320,7 +86357,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm4EE4dataEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm4EE4dataEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -86331,7 +86368,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm4EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm4EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -86339,7 +86376,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm5EE4dataEv(ptr noundef nonnull align 1 dereferenceable(5) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm5EE4dataEv(ptr noundef nonnull align 1 dereferenceable(5) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -86350,7 +86387,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm5EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(5) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm5EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(5) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -88410,7 +88447,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #17
+declare ptr @__errno_location() #16
 
 ; Function Attrs: nounwind
 declare i64 @strtoull(ptr noundef, ptr noundef, i32 noundef) #5
@@ -88442,7 +88479,7 @@ entry:
 declare double @strtod(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm9EE4dataEv(ptr noundef nonnull align 1 dereferenceable(9) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm9EE4dataEv(ptr noundef nonnull align 1 dereferenceable(9) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -88453,7 +88490,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm9EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(9) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm9EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(9) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -89266,12 +89303,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %byte = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::parse_error", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %byte2 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::parse_error", ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %byte2, align 8
-  store i64 %3, ptr %byte, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %byte2 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::parse_error", ptr %3, i32 0, i32 1
+  %4 = load i64, ptr %byte2, align 8
+  store i64 %4, ptr %byte, align 8
   ret void
 }
 
@@ -89436,10 +89474,11 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11parse_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %byte = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::parse_error", ptr %this1, i32 0, i32 1
-  %2 = load i64, ptr %byte_.addr, align 8
-  store i64 %2, ptr %byte, align 8
+  %3 = load i64, ptr %byte_.addr, align 8
+  store i64 %3, ptr %byte, align 8
   ret void
 }
 
@@ -89515,7 +89554,7 @@ entry:
   store ptr %rest3, ptr %rest.addr4, align 8
   store ptr %rest5, ptr %rest.addr6, align 8
   %0 = load ptr, ptr %cstr.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #20
+  %call = call i64 @strlen(ptr noundef %0) #19
   %1 = load ptr, ptr %rest.addr, align 8
   %2 = load ptr, ptr %rest.addr2, align 8
   %3 = load ptr, ptr %rest.addr4, align 8
@@ -89557,7 +89596,7 @@ entry:
   store ptr %rest, ptr %rest.addr, align 8
   store ptr %rest1, ptr %rest.addr2, align 8
   %0 = load ptr, ptr %cstr.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #20
+  %call = call i64 @strlen(ptr noundef %0) #19
   %1 = load ptr, ptr %rest.addr, align 8
   %2 = load ptr, ptr %rest.addr2, align 8
   %call3 = call noundef i64 @_ZN8nlohmann16json_abi_v3_11_36detail13concat_lengthINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS8_EEEmRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -93774,14 +93813,14 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #20
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #19
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #12
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS6_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__x) unnamed_addr #1 comdat align 2 {
@@ -94242,7 +94281,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #18
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7doctest8toStringIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEETnNS_6detail5types9enable_ifIXntsr6detail35should_stringify_as_underlying_typeIT_EE5valueEbE4typeELb1EEENS_6StringERKSJ_(ptr noalias sret(%"class.doctest::String") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %value) #4 comdat {
@@ -95817,12 +95856,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #21
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.272", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #21
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #21
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEEJRSoEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEEJRSoEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1) #21
   ret void
 }
 
@@ -96132,10 +96172,11 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #21
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::output_stream_adapter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  store ptr %0, ptr %stream, align 8
+  %1 = load ptr, ptr %s.addr, align 8
+  store ptr %1, ptr %stream, align 8
   ret void
 }
 
@@ -96145,7 +96186,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -97905,7 +97947,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm512EE4dataEv(ptr noundef nonnull align 1 dereferenceable(512) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm512EE4dataEv(ptr noundef nonnull align 1 dereferenceable(512) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -97916,7 +97958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm512EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(512) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm512EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(512) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -98334,7 +98376,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -98361,7 +98404,7 @@ entry:
   store ptr %rest1, ptr %rest.addr2, align 8
   store ptr %rest3, ptr %rest.addr4, align 8
   %0 = load ptr, ptr %cstr.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #20
+  %call = call i64 @strlen(ptr noundef %0) #19
   %1 = load ptr, ptr %rest.addr, align 8
   %2 = load ptr, ptr %rest.addr2, align 8
   %3 = load ptr, ptr %rest.addr4, align 8
@@ -98474,7 +98517,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm64EE5beginEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm64EE5beginEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -98605,7 +98648,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm64EE4dataEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm64EE4dataEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -98823,7 +98866,7 @@ return:                                           ; preds = %if.end5, %if.then1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm64EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm64EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -100181,10 +100224,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.5", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -100844,10 +100888,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_1EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_1EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.10", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -101359,7 +101404,7 @@ entry:
   store ptr %cstr, ptr %cstr.addr, align 8
   store ptr %rest, ptr %rest.addr, align 8
   %0 = load ptr, ptr %cstr.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #20
+  %call = call i64 @strlen(ptr noundef %0) #19
   %1 = load ptr, ptr %rest.addr, align 8
   %2 = load ptr, ptr %1, align 8
   %call1 = call noundef i64 @_ZN8nlohmann16json_abi_v3_11_36detail13concat_lengthIJEEEmPKcDpRKT_(ptr noundef %2)
@@ -101561,10 +101606,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.14", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -101750,10 +101796,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_3EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_3EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.16", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -101980,10 +102027,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_4EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_4EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.21", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -102260,10 +102308,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_5EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_5EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.26", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -102477,10 +102526,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_6EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_6EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.30", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -102696,10 +102746,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_7EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_7EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.34", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -103617,10 +103668,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_8EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_8EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.42", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -104546,10 +104598,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_9EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_9EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.52", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -104895,10 +104948,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_10EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_10EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.56", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -105065,10 +105119,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_11EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_11EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.58", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -105152,10 +105207,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_12EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_12EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.60", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -105239,10 +105295,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_13EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_13EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.62", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -105369,10 +105426,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_14EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_14EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.64", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -105641,10 +105699,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_15EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_15EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.66", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -106372,10 +106431,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_16EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_16EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.72", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -106459,10 +106519,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_17EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_17EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.74", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -106880,10 +106941,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_18EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_18EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.78", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -109554,7 +109616,7 @@ entry:
   %value_float = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::lexer.292", ptr %this1, i32 0, i32 12
   store double 0.000000e+00, ptr %value_float, align 8
   %decimal_point_char = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::lexer.292", ptr %this1, i32 0, i32 13
-  %call3 = call noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE17get_decimal_pointEv() #20
+  %call3 = call noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE17get_decimal_pointEv() #19
   %conv = sext i8 %call3 to i32
   store i32 %conv, ptr %decimal_point_char, align 8
   ret void
@@ -109587,7 +109649,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr dso_local noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE17get_decimal_pointEv() #16 comdat align 2 {
+define linkonce_odr dso_local noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE17get_decimal_pointEv() #15 comdat align 2 {
 entry:
   %loc = alloca ptr, align 8
   %call = call ptr @localeconv() #21
@@ -119277,7 +119339,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() #10
+declare void @_ZSt25__throw_bad_function_callv() #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt4pairIbPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEEEC2IbDnTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISJ_SK_EEEbE4typeELb1EEEOSJ_OSK_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %__x, ptr noundef nonnull align 8 dereferenceable(8) %__y) unnamed_addr #1 comdat align 2 {
@@ -120581,7 +120643,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -121410,7 +121473,7 @@ entry:
   store ptr %rest, ptr %rest.addr, align 8
   store ptr %rest1, ptr %rest.addr2, align 8
   %0 = load ptr, ptr %cstr.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #20
+  %call = call i64 @strlen(ptr noundef %0) #19
   %1 = load ptr, ptr %rest.addr, align 8
   %2 = load ptr, ptr %rest.addr2, align 8
   %call3 = call noundef i64 @_ZN8nlohmann16json_abi_v3_11_36detail13concat_lengthINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJcEEEmRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2)
@@ -123124,7 +123187,7 @@ entry:
   store ptr %rest1, ptr %rest.addr2, align 8
   store ptr %rest3, ptr %rest.addr4, align 8
   %0 = load ptr, ptr %cstr.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #20
+  %call = call i64 @strlen(ptr noundef %0) #19
   %1 = load ptr, ptr %rest.addr, align 8
   %2 = load ptr, ptr %rest.addr2, align 8
   %3 = load ptr, ptr %rest.addr4, align 8
@@ -123404,7 +123467,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_36detail10lexer_baseINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEE15token_type_nameENSG_10token_typeE(i32 noundef %t) #13 comdat align 2 {
+define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_36detail10lexer_baseINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEE15token_type_nameENSG_10token_typeE(i32 noundef %t) #12 comdat align 2 {
 entry:
   %retval = alloca ptr, align 8
   %t.addr = alloca i32, align 4
@@ -123551,7 +123614,7 @@ entry:
   store ptr %rest1, ptr %rest.addr2, align 8
   store ptr %rest3, ptr %rest.addr4, align 8
   %0 = load ptr, ptr %cstr.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #20
+  %call = call i64 @strlen(ptr noundef %0) #19
   %1 = load ptr, ptr %rest.addr, align 8
   %arraydecay = getelementptr inbounds [15 x i8], ptr %1, i64 0, i64 0
   %2 = load ptr, ptr %rest.addr2, align 8
@@ -124392,10 +124455,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_19EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_19EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.81", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -125260,10 +125324,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_20EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_20EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.84", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -125948,10 +126013,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_21EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_21EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.86", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -126172,10 +126238,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_22EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_22EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.88", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -126259,10 +126326,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_23EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_23EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.90", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -126346,10 +126414,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_24EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_24EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.92", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -126433,10 +126502,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_25EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE4$_25EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.94", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -127752,7 +127822,7 @@ entry:
   %value_float = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::lexer.320", ptr %this1, i32 0, i32 10
   store double 0.000000e+00, ptr %value_float, align 8
   %decimal_point_char = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::lexer.320", ptr %this1, i32 0, i32 11
-  %call3 = call noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEE17get_decimal_pointEv() #20
+  %call3 = call noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEE17get_decimal_pointEv() #19
   %conv = sext i8 %call3 to i64
   store i64 %conv, ptr %decimal_point_char, align 8
   ret void
@@ -127785,7 +127855,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr dso_local noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEE17get_decimal_pointEv() #16 comdat align 2 {
+define linkonce_odr dso_local noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEE17get_decimal_pointEv() #15 comdat align 2 {
 entry:
   %loc = alloca ptr, align 8
   %call = call ptr @localeconv() #21
@@ -128194,7 +128264,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIhLm4EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIhLm4EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -128202,7 +128272,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm5EE4dataEv(ptr noundef nonnull align 1 dereferenceable(5) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIhLm5EE4dataEv(ptr noundef nonnull align 1 dereferenceable(5) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -128213,7 +128283,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIhLm5EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(5) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIhLm5EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(5) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -144419,13 +144489,16 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 112
   call void @_ZNSt9basic_iosIhSt11char_traitsIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0)
-  invoke void @_ZNSt13basic_ostreamIhSt11char_traitsIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_ostringstreamIhSt11char_traitsIhESaIhEEE, i64 0, i64 1))
+  %1 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt7__cxx1119basic_ostringstreamIhSt11char_traitsIhESaIhEEE, i64 0, i64 1
+  invoke void @_ZNSt13basic_ostreamIhSt11char_traitsIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1119basic_ostringstreamIhSt11char_traitsIhESaIhEEE, i32 0, i32 0, i32 3), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1119basic_ostringstreamIhSt11char_traitsIhESaIhEEE, i32 0, i32 0, i32 3
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 112
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1119basic_ostringstreamIhSt11char_traitsIhESaIhEEE, i32 0, i32 1, i32 3), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1119basic_ostringstreamIhSt11char_traitsIhESaIhEEE, i32 0, i32 1, i32 3
+  store ptr %3, ptr %add.ptr, align 8
   %_M_stringbuf = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt7__cxx1115basic_stringbufIhSt11char_traitsIhESaIhEEC2ESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(104) %_M_stringbuf, i32 noundef 16)
           to label %invoke.cont3 unwind label %lpad2
@@ -144443,40 +144516,41 @@ invoke.cont7:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  br label %ehcleanup8
-
-lpad2:                                            ; preds = %invoke.cont
   %4 = landingpad { ptr, i32 }
           cleanup
   %5 = extractvalue { ptr, i32 } %4, 0
   store ptr %5, ptr %exn.slot, align 8
   %6 = extractvalue { ptr, i32 } %4, 1
   store i32 %6, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  br label %ehcleanup8
 
-lpad6:                                            ; preds = %invoke.cont3
+lpad2:                                            ; preds = %invoke.cont
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = extractvalue { ptr, i32 } %7, 0
   store ptr %8, ptr %exn.slot, align 8
   %9 = extractvalue { ptr, i32 } %7, 1
   store i32 %9, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad6:                                            ; preds = %invoke.cont3
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1115basic_stringbufIhSt11char_traitsIhESaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %_M_stringbuf) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6, %lpad2
-  call void @_ZNSt13basic_ostreamIhSt11char_traitsIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_ostringstreamIhSt11char_traitsIhESaIhEEE, i64 0, i64 1)) #21
+  %13 = getelementptr inbounds [4 x ptr], ptr @_ZTTNSt7__cxx1119basic_ostringstreamIhSt11char_traitsIhESaIhEEE, i64 0, i64 1
+  call void @_ZNSt13basic_ostreamIhSt11char_traitsIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %13) #21
   br label %ehcleanup8
 
 ehcleanup8:                                       ; preds = %ehcleanup, %lpad
-  %10 = getelementptr inbounds i8, ptr %this1, i64 112
-  call void @_ZNSt9basic_iosIhSt11char_traitsIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %10) #21
+  %14 = getelementptr inbounds i8, ptr %this1, i64 112
+  call void @_ZNSt9basic_iosIhSt11char_traitsIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %14) #21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup8
@@ -145741,7 +145815,7 @@ entry:
   %value_float = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::lexer.342", ptr %this1, i32 0, i32 12
   store double 0.000000e+00, ptr %value_float, align 8
   %decimal_point_char = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::lexer.342", ptr %this1, i32 0, i32 13
-  %call3 = call noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_20input_stream_adapterEE17get_decimal_pointEv() #20
+  %call3 = call noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_20input_stream_adapterEE17get_decimal_pointEv() #19
   %conv = sext i8 %call3 to i32
   store i32 %conv, ptr %decimal_point_char, align 8
   ret void
@@ -145803,7 +145877,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr dso_local noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_20input_stream_adapterEE17get_decimal_pointEv() #16 comdat align 2 {
+define linkonce_odr dso_local noundef signext i8 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_20input_stream_adapterEE17get_decimal_pointEv() #15 comdat align 2 {
 entry:
   %loc = alloca ptr, align 8
   %call = call ptr @localeconv() #21
@@ -153262,7 +153336,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this1) #21
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVSt9basic_iosIhSt11char_traitsIhEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVSt9basic_iosIhSt11char_traitsIhEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_tie = getelementptr inbounds %"class.std::basic_ios.335", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_M_tie, align 8
   %_M_fill = getelementptr inbounds %"class.std::basic_ios.335", ptr %this1, i32 0, i32 2
@@ -153315,10 +153390,11 @@ entry:
   store i32 %__mode, ptr %__mode.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt15basic_streambufIhSt11char_traitsIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIhSt11char_traitsIhESaIhEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIhSt11char_traitsIhESaIhEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_mode = getelementptr inbounds %"class.std::__cxx11::basic_stringbuf.337", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %__mode.addr, align 4
-  store i32 %0, ptr %_M_mode, align 8
+  %1 = load i32, ptr %__mode.addr, align 4
+  store i32 %1, ptr %_M_mode, align 8
   %_M_string = getelementptr inbounds %"class.std::__cxx11::basic_stringbuf.337", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIhSt11char_traitsIhESaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_string) #21
   ret void
@@ -153360,7 +153436,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIhSt11char_traitsIhESaIhEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIhSt11char_traitsIhESaIhEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_string = getelementptr inbounds %"class.std::__cxx11::basic_stringbuf.337", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIhSt11char_traitsIhESaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_string) #21
   call void @_ZNSt15basic_streambufIhSt11char_traitsIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #21
@@ -153401,7 +153478,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZTv0_n24_NSt13basic_ostreamIhSt11char_traitsIhEED1Ev(ptr noundef %this) unnamed_addr #19 comdat align 2 {
+define linkonce_odr dso_local void @_ZTv0_n24_NSt13basic_ostreamIhSt11char_traitsIhEED1Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -153415,7 +153492,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZTv0_n24_NSt13basic_ostreamIhSt11char_traitsIhEED0Ev(ptr noundef %this) unnamed_addr #19 comdat align 2 {
+define linkonce_odr dso_local void @_ZTv0_n24_NSt13basic_ostreamIhSt11char_traitsIhEED0Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -153440,7 +153517,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZTv0_n24_NSt7__cxx1119basic_ostringstreamIhSt11char_traitsIhESaIhEED1Ev(ptr noundef %this) unnamed_addr #19 comdat align 2 {
+define linkonce_odr dso_local void @_ZTv0_n24_NSt7__cxx1119basic_ostringstreamIhSt11char_traitsIhESaIhEED1Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -153454,7 +153531,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZTv0_n24_NSt7__cxx1119basic_ostringstreamIhSt11char_traitsIhESaIhEED0Ev(ptr noundef %this) unnamed_addr #19 comdat align 2 {
+define linkonce_odr dso_local void @_ZTv0_n24_NSt7__cxx1119basic_ostringstreamIhSt11char_traitsIhESaIhEED0Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -153497,7 +153574,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIhSt11char_traitsIhEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVSt15basic_streambufIhSt11char_traitsIhEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_in_beg = getelementptr inbounds %"class.std::basic_streambuf.338", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_M_in_beg, align 8
   %_M_in_cur = getelementptr inbounds %"class.std::basic_streambuf.338", ptr %this1, i32 0, i32 2
@@ -154657,7 +154735,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIhSt11char_traitsIhEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVSt15basic_streambufIhSt11char_traitsIhEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_buf_locale = getelementptr inbounds %"class.std::basic_streambuf.338", ptr %this1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale) #21
   ret void
@@ -157032,10 +157111,10 @@ dynamic_cast.end:                                 ; preds = %if.end
 declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 dereferenceable(8)) #5
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #20
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #19
 
 ; Function Attrs: noreturn
-declare void @_ZSt16__throw_bad_castv() #10
+declare void @_ZSt16__throw_bad_castv() #9
 
 declare void @__cxa_bad_cast()
 
@@ -157269,12 +157348,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #21
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.357", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #21
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #21
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIhEEJRSt13basic_ostreamIhSt11char_traitsIhEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIhEEJRSt13basic_ostreamIhSt11char_traitsIhEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1) #21
   ret void
 }
 
@@ -157584,10 +157664,11 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIhEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #21
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIhEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIhEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::output_stream_adapter.359", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  store ptr %0, ptr %stream, align 8
+  %1 = load ptr, ptr %s.addr, align 8
+  store ptr %1, ptr %stream, align 8
   ret void
 }
 
@@ -157716,7 +157797,7 @@ lpad2:                                            ; preds = %if.then9, %invoke.c
 
 catch.dispatch:                                   ; preds = %lpad2
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN10__cxxabiv115__forced_unwindE) #21
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN10__cxxabiv115__forced_unwindE) #21
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch20, label %catch
 
@@ -158044,7 +158125,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %tobool, label %land.lhs.true, label %if.end27
 
 land.lhs.true:                                    ; preds = %invoke.cont
-  %call3 = call noundef zeroext i1 @_ZSt18uncaught_exceptionv() #20
+  %call3 = call noundef zeroext i1 @_ZSt18uncaught_exceptionv() #19
   br i1 %call3, label %if.end27, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -158197,7 +158278,7 @@ lpad8:                                            ; preds = %if.then13, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad8
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN10__cxxabiv115__forced_unwindE) #21
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN10__cxxabiv115__forced_unwindE) #21
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch24, label %catch
 
@@ -158399,7 +158480,7 @@ if.end9:                                          ; preds = %if.end
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_ios_failurePKc(ptr noundef) #10
+declare void @_ZSt19__throw_ios_failurePKc(ptr noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNKSt8ios_base5flagsEv(ptr noundef nonnull align 8 dereferenceable(216) %this) #1 comdat align 2 {
@@ -158413,7 +158494,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef zeroext i1 @_ZSt18uncaught_exceptionv() #12
+declare noundef zeroext i1 @_ZSt18uncaught_exceptionv() #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIhSt11char_traitsIhEE5writeEPKhl(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__s, i64 noundef %__n) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -158467,7 +158548,7 @@ lpad:                                             ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %7 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN10__cxxabiv115__forced_unwindE) #21
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN10__cxxabiv115__forced_unwindE) #21
   %matches = icmp eq i32 %sel, %7
   br i1 %matches, label %catch14, label %catch
 
@@ -174168,7 +174249,7 @@ if.end:                                           ; preds = %cond.end23, %cond.e
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm1EE4dataEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm1EE4dataEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -174193,7 +174274,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm1EE5beginEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm1EE5beginEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -174203,7 +174284,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm1EE3endEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm1EE3endEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -174309,7 +174390,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm2EE4dataEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm2EE4dataEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -174320,7 +174401,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm2EE5beginEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm2EE5beginEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -174330,7 +174411,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm2EE3endEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm2EE3endEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -174351,7 +174432,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm4EE5beginEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm4EE5beginEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -174361,7 +174442,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm4EE3endEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm4EE3endEv(ptr noundef nonnull align 1 dereferenceable(4) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -174372,7 +174453,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm8EE4dataEv(ptr noundef nonnull align 1 dereferenceable(8) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm8EE4dataEv(ptr noundef nonnull align 1 dereferenceable(8) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -174383,7 +174464,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm8EE5beginEv(ptr noundef nonnull align 1 dereferenceable(8) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm8EE5beginEv(ptr noundef nonnull align 1 dereferenceable(8) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -174393,7 +174474,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm8EE3endEv(ptr noundef nonnull align 1 dereferenceable(8) %this) #13 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm8EE3endEv(ptr noundef nonnull align 1 dereferenceable(8) %this) #12 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -174760,12 +174841,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #21
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.380", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESB_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #21
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #21
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRSC_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %0) #21
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRSC_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %1) #21
   ret void
 }
 
@@ -175075,10 +175157,11 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #21
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %str = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::output_string_adapter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  store ptr %0, ptr %str, align 8
+  %1 = load ptr, ptr %s.addr, align 8
+  store ptr %1, ptr %str, align 8
   ret void
 }
 
@@ -202943,10 +203026,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_1EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_1EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -202961,10 +203045,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -203109,10 +203193,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_2EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_2EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -203127,10 +203212,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -203281,10 +203366,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_3EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_3EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -203299,10 +203385,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -203483,10 +203569,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_5EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_5EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -203501,10 +203588,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -203514,10 +203601,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_4EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_4EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -203532,10 +203620,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -203545,10 +203633,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %need_to_destroy, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %need_to_destroy, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -203563,10 +203652,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 }
 
@@ -204057,7 +204146,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.431", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #20
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #19
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.431", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -204464,10 +204553,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_0EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.415", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -204825,10 +204915,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_1EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_1EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.417", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -204921,10 +205012,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_2EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_2EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.419", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -218009,10 +218101,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_3EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_3EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.421", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -231105,10 +231198,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_4EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_4EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.423", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -231386,10 +231480,11 @@ entry:
   store ptr %lambda, ptr %lambda.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_5EE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_163vE3$_5EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lambda_ = getelementptr inbounds %"class.doctest::detail::ContextScope.425", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lambda.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %0, i64 8, i1 false)
+  %1 = load ptr, ptr %lambda.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lambda_, ptr align 8 %1, i64 8, i1 false)
   ret void
 }
 
@@ -231647,6 +231742,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #20
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -231656,18 +231754,18 @@ attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind memory(none) }
-attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #16 = { mustprogress nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nounwind willreturn memory(read) }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #15 = { mustprogress nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind memory(none) }
 attributes #21 = { nounwind }
 attributes #22 = { noreturn nounwind }
 attributes #23 = { builtin nounwind }

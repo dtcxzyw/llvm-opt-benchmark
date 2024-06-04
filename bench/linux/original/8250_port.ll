@@ -258,72 +258,73 @@ define dso_local noundef i32 @serial8250_em485_config(ptr noundef %0, ptr nocapt
   %17 = getelementptr inbounds i8, ptr %0, i64 664
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %16, label %49, label %20
+  br i1 %16, label %50, label %20
 
 20:                                               ; preds = %13
-  br i1 %19, label %21, label %40
+  br i1 %19, label %21, label %41
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %23 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 2080, i64 noundef 152) #15
-  store ptr %23, ptr %17, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %56, label %25
+  %22 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %23 = load ptr, ptr %22, align 16
+  %24 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 2080, i64 noundef 152) #15
+  store ptr %24, ptr %17, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %57, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 64
-  tail call void @hrtimer_init(ptr noundef %26, i32 noundef 1, i32 noundef 1) #14
-  %27 = load ptr, ptr %17, align 8
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds i8, ptr %24, i64 64
   tail call void @hrtimer_init(ptr noundef %27, i32 noundef 1, i32 noundef 1) #14
   %28 = load ptr, ptr %17, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 104
-  store ptr @serial8250_em485_handle_stop_tx, ptr %29, align 8
-  %30 = load ptr, ptr %17, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 40
-  store ptr @serial8250_em485_handle_start_tx, ptr %31, align 8
-  %32 = load ptr, ptr %17, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 136
-  store ptr %0, ptr %33, align 8
-  %34 = load ptr, ptr %17, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 128
-  store ptr null, ptr %35, align 8
-  %36 = load ptr, ptr %17, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 144
-  %38 = load i8, ptr %37, align 8
-  %39 = or i8 %38, 1
-  store i8 %39, ptr %37, align 8
-  br label %40
+  tail call void @hrtimer_init(ptr noundef %28, i32 noundef 1, i32 noundef 1) #14
+  %29 = load ptr, ptr %17, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 104
+  store ptr @serial8250_em485_handle_stop_tx, ptr %30, align 8
+  %31 = load ptr, ptr %17, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  store ptr @serial8250_em485_handle_start_tx, ptr %32, align 8
+  %33 = load ptr, ptr %17, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 136
+  store ptr %0, ptr %34, align 8
+  %35 = load ptr, ptr %17, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 128
+  store ptr null, ptr %36, align 8
+  %37 = load ptr, ptr %17, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 144
+  %39 = load i8, ptr %38, align 8
+  %40 = or i8 %39, 1
+  store i8 %40, ptr %38, align 8
+  br label %41
 
-40:                                               ; preds = %25, %20
-  %41 = load ptr, ptr %17, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 144
-  %43 = load i8, ptr %42, align 8
-  %44 = and i8 %43, 1
-  %45 = icmp eq i8 %44, 0
-  br i1 %45, label %56, label %46
+41:                                               ; preds = %26, %20
+  %42 = load ptr, ptr %17, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 144
+  %44 = load i8, ptr %43, align 8
+  %45 = and i8 %44, 1
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %57, label %47
 
-46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %0, i64 680
-  %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef %0) #14
-  br label %56
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds i8, ptr %0, i64 680
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef %0) #14
+  br label %57
 
-49:                                               ; preds = %13
-  br i1 %19, label %56, label %50
+50:                                               ; preds = %13
+  br i1 %19, label %57, label %51
 
-50:                                               ; preds = %49
-  %51 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %18) #14
-  %52 = load ptr, ptr %17, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 64
-  %54 = tail call i32 @hrtimer_cancel(ptr noundef %53) #14
-  %55 = load ptr, ptr %17, align 8
-  tail call void @kfree(ptr noundef %55) #14
+51:                                               ; preds = %50
+  %52 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %18) #14
+  %53 = load ptr, ptr %17, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 64
+  %55 = tail call i32 @hrtimer_cancel(ptr noundef %54) #14
+  %56 = load ptr, ptr %17, align 8
+  tail call void @kfree(ptr noundef %56) #14
   store ptr null, ptr %17, align 8
-  br label %56
+  br label %57
 
-56:                                               ; preds = %50, %49, %46, %40, %21
-  %57 = phi i32 [ -12, %21 ], [ 0, %46 ], [ 0, %40 ], [ 0, %49 ], [ 0, %50 ]
-  ret i32 %57
+57:                                               ; preds = %51, %50, %47, %41, %21
+  %58 = phi i32 [ -12, %21 ], [ 0, %47 ], [ 0, %41 ], [ 0, %50 ], [ 0, %51 ]
+  ret i32 %58
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

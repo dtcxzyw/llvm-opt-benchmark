@@ -145,7 +145,7 @@ define dso_local void @early_iounmap(ptr noundef %0, i64 noundef %1) local_unnam
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 179, i32 2313, i64 12) #5, !srcloc !22
   tail call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_end\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #5, !srcloc !23
   tail call void asm sideeffect "439: nop\0A\09.pushsection .discard.instr_end\0A\09.long 439b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 439) #5, !srcloc !24
-  br label %53
+  br label %54
 
 17:                                               ; preds = %13
   %18 = zext nneg i32 %14 to i64
@@ -162,7 +162,7 @@ define dso_local void @early_iounmap(ptr noundef %0, i64 noundef %1) local_unnam
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 184, i32 2313, i64 12) #5, !srcloc !27
   tail call void asm sideeffect "442: nop\0A\09.pushsection .discard.instr_end\0A\09.long 442b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 442) #5, !srcloc !28
   tail call void asm sideeffect "443: nop\0A\09.pushsection .discard.instr_end\0A\09.long 443b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 443) #5, !srcloc !29
-  br label %53
+  br label %54
 
 24:                                               ; preds = %17
   %25 = load i1, ptr @early_ioremap_debug, align 4
@@ -178,56 +178,57 @@ define dso_local void @early_iounmap(ptr noundef %0, i64 noundef %1) local_unnam
   br label %27
 
 27:                                               ; preds = %26, %24
-  %28 = icmp ult ptr %0, inttoptr (i64 -14680064 to ptr)
-  br i1 %28, label %29, label %30, !prof !13
+  %28 = inttoptr i64 -14680064 to ptr
+  %29 = icmp ult ptr %0, %28
+  br i1 %29, label %30, label %31, !prof !13
 
-29:                                               ; preds = %27
+30:                                               ; preds = %27
   tail call void asm sideeffect "448: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 448b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 448) #5, !srcloc !35
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 191, i32 2305, i64 12) #5, !srcloc !36
   tail call void asm sideeffect "449: nop\0A\09.pushsection .discard.instr_end\0A\09.long 449b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 449) #5, !srcloc !37
-  br label %53
+  br label %54
 
-30:                                               ; preds = %27
-  %31 = ptrtoint ptr %0 to i64
-  %32 = and i64 %31, 4095
-  %33 = add i64 %1, 4095
-  %34 = add i64 %33, %32
-  %35 = lshr i64 %34, 12
-  %36 = trunc i64 %35 to i32
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %51, label %38
+31:                                               ; preds = %27
+  %32 = ptrtoint ptr %0 to i64
+  %33 = and i64 %32, 4095
+  %34 = add i64 %1, 4095
+  %35 = add i64 %34, %33
+  %36 = lshr i64 %35, 12
+  %37 = trunc i64 %36 to i32
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %52, label %39
 
-38:                                               ; preds = %30
-  %39 = shl i32 %14, 6
-  %40 = sub nsw i32 1535, %39
-  br label %41
+39:                                               ; preds = %31
+  %40 = shl i32 %14, 6
+  %41 = sub nsw i32 1535, %40
+  br label %42
 
-41:                                               ; preds = %47, %38
-  %42 = phi i32 [ %49, %47 ], [ %36, %38 ]
-  %43 = phi i32 [ %48, %47 ], [ %40, %38 ]
-  %44 = load i1, ptr @after_paging_init, align 4
-  br i1 %44, label %45, label %46
+42:                                               ; preds = %48, %39
+  %43 = phi i32 [ %50, %48 ], [ %37, %39 ]
+  %44 = phi i32 [ %49, %48 ], [ %41, %39 ]
+  %45 = load i1, ptr @after_paging_init, align 4
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %41
-  tail call void @native_set_fixmap(i32 noundef %43, i64 noundef 0, i64 0) #5
-  br label %47
+46:                                               ; preds = %42
+  tail call void @native_set_fixmap(i32 noundef %44, i64 noundef 0, i64 0) #5
+  br label %48
 
-46:                                               ; preds = %41
-  tail call void @__early_set_fixmap(i32 noundef %43, i64 noundef 0, i64 0) #5
-  br label %47
+47:                                               ; preds = %42
+  tail call void @__early_set_fixmap(i32 noundef %44, i64 noundef 0, i64 0) #5
+  br label %48
 
-47:                                               ; preds = %46, %45
-  %48 = add i32 %43, -1
-  %49 = add i32 %42, -1
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %41, !llvm.loop !38
+48:                                               ; preds = %47, %46
+  %49 = add i32 %44, -1
+  %50 = add i32 %43, -1
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %42, !llvm.loop !38
 
-51:                                               ; preds = %47, %30
-  %52 = getelementptr [8 x ptr], ptr @prev_map, i64 0, i64 %18
-  store ptr null, ptr %52, align 8
-  br label %53
+52:                                               ; preds = %48, %31
+  %53 = getelementptr [8 x ptr], ptr @prev_map, i64 0, i64 %18
+  store ptr null, ptr %53, align 8
+  br label %54
 
-53:                                               ; preds = %51, %29, %22, %16
+54:                                               ; preds = %52, %30, %22, %16
   ret void
 }
 

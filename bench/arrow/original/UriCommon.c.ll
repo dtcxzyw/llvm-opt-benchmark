@@ -1852,17 +1852,18 @@ if.end34:                                         ; preds = %if.end
   %39 = load ptr, ptr %segment, align 8
   %text39 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %39, i32 0, i32 0
   %afterLast40 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text39, i32 0, i32 1
-  store ptr getelementptr inbounds (i8, ptr @.str.1, i64 1), ptr %afterLast40, align 8
-  %40 = load ptr, ptr %segment, align 8
-  %41 = load ptr, ptr %uri.addr, align 8
-  %pathHead41 = getelementptr inbounds %struct.UriUriStructA, ptr %41, i32 0, i32 5
-  store ptr %40, ptr %pathHead41, align 8
+  %40 = getelementptr inbounds i8, ptr @.str.1, i64 1
+  store ptr %40, ptr %afterLast40, align 8
+  %41 = load ptr, ptr %segment, align 8
+  %42 = load ptr, ptr %uri.addr, align 8
+  %pathHead41 = getelementptr inbounds %struct.UriUriStructA, ptr %42, i32 0, i32 5
+  store ptr %41, ptr %pathHead41, align 8
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end34, %if.then33, %if.else
-  %42 = load i32, ptr %retval, align 4
-  ret i32 %42
+  %43 = load i32, ptr %retval, align 4
+  ret i32 %43
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3748,17 +3749,18 @@ if.end34:                                         ; preds = %if.end
   %39 = load ptr, ptr %segment, align 8
   %text39 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %39, i32 0, i32 0
   %afterLast40 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text39, i32 0, i32 1
-  store ptr getelementptr inbounds (i32, ptr @.str.4, i64 1), ptr %afterLast40, align 8
-  %40 = load ptr, ptr %segment, align 8
-  %41 = load ptr, ptr %uri.addr, align 8
-  %pathHead41 = getelementptr inbounds %struct.UriUriStructW, ptr %41, i32 0, i32 5
-  store ptr %40, ptr %pathHead41, align 8
+  %40 = getelementptr inbounds i32, ptr @.str.4, i64 1
+  store ptr %40, ptr %afterLast40, align 8
+  %41 = load ptr, ptr %segment, align 8
+  %42 = load ptr, ptr %uri.addr, align 8
+  %pathHead41 = getelementptr inbounds %struct.UriUriStructW, ptr %42, i32 0, i32 5
+  store ptr %41, ptr %pathHead41, align 8
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end34, %if.then33, %if.else
-  %42 = load i32, ptr %retval, align 4
-  ret i32 %42
+  %43 = load i32, ptr %retval, align 4
+  ret i32 %43
 }
 
 ; Function Attrs: nounwind uwtable

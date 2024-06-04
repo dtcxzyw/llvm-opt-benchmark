@@ -3161,7 +3161,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal19TestMetaFactoryBaseIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_152FailureSignalHandlerDeathTest_AbslFailureSignal_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_152FailureSignalHandlerDeathTest_AbslFailureSignal_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4602,10 +4603,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal26ParameterizedTestSuiteInfoINS0_13TestWithParamIiEEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal26ParameterizedTestSuiteInfoINS0_13TestWithParamIiEEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -4636,7 +4638,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -5005,7 +5008,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal19TestMetaFactoryBaseIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal19TestMetaFactoryBaseIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5091,10 +5095,11 @@ entry:
   store i32 %parameter, ptr %parameter.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_152FailureSignalHandlerDeathTest_AbslFailureSignal_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_152FailureSignalHandlerDeathTest_AbslFailureSignal_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %parameter_ = getelementptr inbounds %"class.testing::internal::ParameterizedTestFactory", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %parameter.addr, align 4
-  store i32 %0, ptr %parameter_, align 8
+  %1 = load i32, ptr %parameter.addr, align 4
+  store i32 %1, ptr %parameter_, align 8
   ret void
 }
 
@@ -5104,7 +5109,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5198,9 +5204,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing13TestWithParamIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_152FailureSignalHandlerDeathTest_AbslFailureSignal_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_152FailureSignalHandlerDeathTest_AbslFailureSignal_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_152FailureSignalHandlerDeathTest_AbslFailureSignal_TestE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_152FailureSignalHandlerDeathTest_AbslFailureSignal_TestE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   ret void
 }
 
@@ -5213,9 +5221,11 @@ entry:
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
   %0 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN7testing18WithParamInterfaceIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN7testing13TestWithParamIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN7testing13TestWithParamIiEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN7testing13TestWithParamIiEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN7testing13TestWithParamIiEE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   ret void
 }
 
@@ -5414,7 +5424,7 @@ lpad32:                                           ; preds = %if.then35, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad32
   %sel = load i32, ptr %ehselector.slot, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %25
   br i1 %matches, label %catch45, label %catch
 
@@ -5677,7 +5687,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing18WithParamInterfaceIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing18WithParamInterfaceIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5933,9 +5944,6 @@ entry:
   %call = call i32 @raise(i32 noundef %0) #3
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #14
 
 declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
 
@@ -6664,10 +6672,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.45", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -6778,10 +6787,11 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::MatchesRegexMatcher>::MonomorphicImpl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %impl.addr, align 8
-  call void @_ZN7testing8internal19MatchesRegexMatcherC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %impl_, ptr noundef nonnull align 8 dereferenceable(17) %0) #3
+  %1 = load ptr, ptr %impl.addr, align 8
+  call void @_ZN7testing8internal19MatchesRegexMatcherC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %impl_, ptr noundef nonnull align 8 dereferenceable(17) %1) #3
   ret void
 }
 
@@ -6795,7 +6805,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IS9_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6806,7 +6817,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6816,7 +6828,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::MatchesRegexMatcher>::MonomorphicImpl", ptr %this1, i32 0, i32 1
   call void @_ZN7testing8internal19MatchesRegexMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %impl_) #3
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -6885,7 +6898,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing25MatcherDescriberInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing25MatcherDescriberInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7273,7 +7287,8 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 2
@@ -7285,12 +7300,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -7450,7 +7465,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -7459,10 +7475,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #24
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #24
   unreachable
 }
 
@@ -8303,7 +8319,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
@@ -8847,7 +8863,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal19TestMetaFactoryBaseIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_163FailureSignalHandlerDeathTest_AbslFatalSignalsWithWriterFn_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestMetaFactoryIN12_GLOBAL__N_163FailureSignalHandlerDeathTest_AbslFatalSignalsWithWriterFn_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8916,10 +8933,11 @@ entry:
   store i32 %parameter, ptr %parameter.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_163FailureSignalHandlerDeathTest_AbslFatalSignalsWithWriterFn_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN12_GLOBAL__N_163FailureSignalHandlerDeathTest_AbslFatalSignalsWithWriterFn_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %parameter_ = getelementptr inbounds %"class.testing::internal::ParameterizedTestFactory.66", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %parameter.addr, align 4
-  store i32 %0, ptr %parameter_, align 8
+  %1 = load i32, ptr %parameter.addr, align 4
+  store i32 %1, ptr %parameter_, align 8
   ret void
 }
 
@@ -8986,9 +9004,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing13TestWithParamIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_163FailureSignalHandlerDeathTest_AbslFatalSignalsWithWriterFn_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_163FailureSignalHandlerDeathTest_AbslFatalSignalsWithWriterFn_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_163FailureSignalHandlerDeathTest_AbslFatalSignalsWithWriterFn_TestE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [8 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_163FailureSignalHandlerDeathTest_AbslFatalSignalsWithWriterFn_TestE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   ret void
 }
 
@@ -9266,7 +9286,7 @@ lpad46:                                           ; preds = %if.then49, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad46
   %sel = load i32, ptr %ehselector.slot, align 4
-  %32 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %32
   br i1 %matches, label %catch60, label %catch
 
@@ -10066,30 +10086,31 @@ entry:
   store ptr %agg.result, ptr %result.ptr, align 8
   store ptr @_ZZN12_GLOBAL__N_19GetTmpDirB5cxx11EvE11kTmpEnvVars, ptr %__range1, align 8
   store ptr @_ZZN12_GLOBAL__N_19GetTmpDirB5cxx11EvE11kTmpEnvVars, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (ptr, ptr @_ZZN12_GLOBAL__N_19GetTmpDirB5cxx11EvE11kTmpEnvVars, i64 5), ptr %__end1, align 8
+  %0 = getelementptr inbounds ptr, ptr @_ZZN12_GLOBAL__N_19GetTmpDirB5cxx11EvE11kTmpEnvVars, i64 5
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  %3 = load ptr, ptr %2, align 8
-  store ptr %3, ptr %var, align 8
-  %4 = load ptr, ptr %var, align 8
-  %call = call ptr @getenv(ptr noundef %4) #3
+  %3 = load ptr, ptr %__begin1, align 8
+  %4 = load ptr, ptr %3, align 8
+  store ptr %4, ptr %var, align 8
+  %5 = load ptr, ptr %var, align 8
+  %call = call ptr @getenv(ptr noundef %5) #3
   store ptr %call, ptr %tmp_dir, align 8
-  %5 = load ptr, ptr %tmp_dir, align 8
-  %cmp1 = icmp ne ptr %5, null
+  %6 = load ptr, ptr %tmp_dir, align 8
+  %cmp1 = icmp ne ptr %6, null
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %6 = load ptr, ptr %tmp_dir, align 8
+  %7 = load ptr, ptr %tmp_dir, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -10097,12 +10118,12 @@ invoke.cont:                                      ; preds = %if.then
   br label %return
 
 lpad:                                             ; preds = %if.then
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   br label %eh.resume
 
@@ -10110,8 +10131,8 @@ if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %10 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %10, i32 1
+  %11 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %11, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -10125,12 +10146,12 @@ invoke.cont4:                                     ; preds = %for.end
   br label %return
 
 lpad3:                                            ; preds = %for.end
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
   br label %eh.resume
 
@@ -11215,7 +11236,7 @@ entry:
 }
 
 ; Function Attrs: cold
-declare void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i64, ptr) unnamed_addr #16
+declare void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef, i64, ptr) unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage14InternalStreamEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 comdat align 2 {
@@ -11247,7 +11268,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #17
+declare void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN12_GLOBAL__N_116WriteToErrorFileEPKc(ptr noundef %msg) #4 {
@@ -11266,7 +11287,7 @@ if.then:                                          ; preds = %entry
 do.body:                                          ; preds = %if.then
   %1 = load ptr, ptr %msg.addr, align 8
   %2 = load ptr, ptr %msg.addr, align 8
-  %call = call i64 @strlen(ptr noundef %2) #18
+  %call = call i64 @strlen(ptr noundef %2) #17
   %3 = load ptr, ptr @_ZN12_GLOBAL__N_110error_fileE, align 8
   %call1 = call i64 @fwrite(ptr noundef %1, i64 noundef %call, i64 noundef 1, ptr noundef %3)
   %cmp2 = icmp eq i64 %call1, 1
@@ -11277,8 +11298,10 @@ if.then3:                                         ; preds = %do.body
   br label %do.body4
 
 do.body4:                                         ; preds = %if.then3
-  store ptr getelementptr (i8, ptr @.str.4, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str.4, i64 114), i32 noundef 68, ptr noundef @.str.46, ptr noundef @.str.47, ptr noundef @.str.48)
+  %4 = getelementptr i8, ptr @.str.4, i64 114
+  store ptr %4, ptr %absl_raw_log_internal_basename, align 8
+  %5 = getelementptr i8, ptr @.str.4, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %5, i32 noundef 68, ptr noundef @.str.46, ptr noundef @.str.47, ptr noundef @.str.48)
   br label %do.body5
 
 do.body5:                                         ; preds = %do.body4
@@ -11300,8 +11323,8 @@ if.end8:                                          ; preds = %do.end7, %entry
   br label %do.body9
 
 do.body9:                                         ; preds = %if.end8
-  %4 = load ptr, ptr @_ZN12_GLOBAL__N_110error_fileE, align 8
-  %call10 = call i32 @fflush(ptr noundef %4)
+  %6 = load ptr, ptr @_ZN12_GLOBAL__N_110error_fileE, align 8
+  %call10 = call i32 @fflush(ptr noundef %6)
   %cmp11 = icmp eq i32 %call10, 0
   %lnot12 = xor i1 %cmp11, true
   br i1 %lnot12, label %if.then13, label %if.end19
@@ -11310,8 +11333,10 @@ if.then13:                                        ; preds = %do.body9
   br label %do.body14
 
 do.body14:                                        ; preds = %if.then13
-  store ptr getelementptr (i8, ptr @.str.4, i64 114), ptr %absl_raw_log_internal_basename15, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str.4, i64 114), i32 noundef 70, ptr noundef @.str.46, ptr noundef @.str.49, ptr noundef @.str.50)
+  %7 = getelementptr i8, ptr @.str.4, i64 114
+  store ptr %7, ptr %absl_raw_log_internal_basename15, align 8
+  %8 = getelementptr i8, ptr @.str.4, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %8, i32 noundef 70, ptr noundef @.str.46, ptr noundef @.str.49, ptr noundef @.str.50)
   br label %do.body16
 
 do.body16:                                        ; preds = %do.body14
@@ -11856,10 +11881,11 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ss_ = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %this1, i32 0, i32 1
-  %0 = icmp eq ptr %ss_, null
-  br i1 %0, label %cast.end, label %cast.notnull
+  %1 = icmp eq ptr %ss_, null
+  br i1 %1, label %cast.end, label %cast.notnull
 
 cast.notnull:                                     ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %ss_, i64 16
@@ -11868,7 +11894,8 @@ cast.notnull:                                     ; preds = %entry
 cast.end:                                         ; preds = %cast.notnull, %entry
   %cast.result = phi ptr [ %add.ptr, %cast.notnull ], [ null, %entry ]
   call void @_ZN7testing19MatchResultListenerC2EPSo(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cast.result)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %ss_2 = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_2)
           to label %invoke.cont unwind label %lpad
@@ -11877,12 +11904,12 @@ invoke.cont:                                      ; preds = %cast.end
   ret void
 
 lpad:                                             ; preds = %cast.end
-  %1 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN7testing19MatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -12112,7 +12139,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ss_ = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_) #3
   call void @_ZN7testing19MatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -12206,22 +12234,23 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal17StartsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS8_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal17StartsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS8_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::StartsWithMatcher<std::__cxx11::basic_string<char>>>::MonomorphicImpl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %impl.addr, align 8
-  invoke void @_ZN7testing8internal17StartsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %impl_, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %impl.addr, align 8
+  invoke void @_ZN7testing8internal17StartsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %impl_, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -12239,7 +12268,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal17StartsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS8_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal17StartsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS8_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::StartsWithMatcher<std::__cxx11::basic_string<char>>>::MonomorphicImpl", ptr %this1, i32 0, i32 1
   call void @_ZN7testing8internal17StartsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %impl_) #3
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -12510,7 +12540,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing19MatchResultListenerC2EPSo(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12592,10 +12623,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %os, ptr %os.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing19MatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing19MatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.testing::MatchResultListener", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %os.addr, align 8
-  store ptr %0, ptr %stream_, align 8
+  %1 = load ptr, ptr %os.addr, align 8
+  store ptr %1, ptr %stream_, align 8
   ret void
 }
 
@@ -13467,22 +13499,23 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal16HasSubstrMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS8_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal16HasSubstrMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS8_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::HasSubstrMatcher<std::__cxx11::basic_string<char>>>::MonomorphicImpl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %impl.addr, align 8
-  invoke void @_ZN7testing8internal16HasSubstrMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %impl_, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %impl.addr, align 8
+  invoke void @_ZN7testing8internal16HasSubstrMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %impl_, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -13500,7 +13533,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal16HasSubstrMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS8_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal16HasSubstrMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS8_EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::HasSubstrMatcher<std::__cxx11::basic_string<char>>>::MonomorphicImpl", ptr %this1, i32 0, i32 1
   call void @_ZN7testing8internal16HasSubstrMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %impl_) #3
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -13687,12 +13721,13 @@ entry:
   store ptr %end, ptr %end.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal23ParamGeneratorInterfaceIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %container_ = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %begin.addr, align 8
-  %1 = load ptr, ptr %end.addr, align 8
+  %1 = load ptr, ptr %begin.addr, align 8
+  %2 = load ptr, ptr %end.addr, align 8
   call void @_ZNSaIiEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  invoke void @_ZNSt6vectorIiSaIiEEC2IPKivEET_S5_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %container_, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt6vectorIiSaIiEEC2IPKivEET_S5_RKS0_(ptr noundef nonnull align 8 dereferenceable(24) %container_, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -13700,12 +13735,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSaIiED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   call void @_ZN7testing8internal23ParamGeneratorInterfaceIiED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
@@ -13738,7 +13773,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal23ParamGeneratorInterfaceIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal23ParamGeneratorInterfaceIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13814,7 +13850,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %container_ = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %container_) #3
   call void @_ZN7testing8internal23ParamGeneratorInterfaceIiED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -14471,7 +14508,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__p, i64 noundef %__n) #4 comdat align 2 {
@@ -14639,10 +14676,11 @@ entry:
   store ptr %base, ptr %base.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal22ParamIteratorInterfaceIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIiE8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIiE8IteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base_ = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<int>::Iterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %base.addr, align 8
-  store ptr %0, ptr %base_, align 8
+  %1 = load ptr, ptr %base.addr, align 8
+  store ptr %1, ptr %base_, align 8
   %iterator_ = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<int>::Iterator", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %iterator_, ptr align 8 %iterator, i64 8, i1 false)
   %value_ = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<int>::Iterator", ptr %this1, i32 0, i32 3
@@ -14671,7 +14709,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal22ParamIteratorInterfaceIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7testing8internal22ParamIteratorInterfaceIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14693,7 +14732,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIiE8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIiE8IteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %value_ = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<int>::Iterator", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIKiSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %value_) #3
   call void @_ZN7testing8internal22ParamIteratorInterfaceIiED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -15204,15 +15244,16 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN7testing8internal22ParamIteratorInterfaceIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIiE8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIiE8IteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %base_ = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<int>::Iterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %base_2 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<int>::Iterator", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %base_2, align 8
-  store ptr %2, ptr %base_, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %base_2 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<int>::Iterator", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %base_2, align 8
+  store ptr %3, ptr %base_, align 8
   %iterator_ = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<int>::Iterator", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %other.addr, align 8
-  %iterator_3 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<int>::Iterator", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %other.addr, align 8
+  %iterator_3 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<int>::Iterator", ptr %4, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %iterator_, ptr align 8 %iterator_3, i64 8, i1 false)
   %value_ = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<int>::Iterator", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIKiSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %value_) #3
@@ -15394,7 +15435,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #18
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local ptr @_ZNKSt6vectorIiSaIiEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
@@ -15558,10 +15599,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal23ParamGeneratorInterfaceIiEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal23ParamGeneratorInterfaceIiEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.110", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -16312,7 +16354,7 @@ entry:
 declare void @_ZN7testing8internal26ReportInvalidTestSuiteTypeEPKcNS0_12CodeLocationE(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define linkonce_odr dso_local void @_ZN7testing8internal5posix5AbortEv() #19 comdat {
+define linkonce_odr dso_local void @_ZN7testing8internal5posix5AbortEv() #18 comdat {
 entry:
   call void @abort() #24
   unreachable
@@ -16414,11 +16456,12 @@ entry:
   store ptr %code_location, ptr %code_location.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal30ParameterizedTestSuiteInfoBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoINS_13TestWithParamIiEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoINS_13TestWithParamIiEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %test_suite_name_ = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %test_suite_name_, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %test_suite_name_, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -16435,22 +16478,22 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %test_suite_name_) #3
   br label %ehcleanup
 
@@ -16508,7 +16551,7 @@ entry:
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #2
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #17
+declare void @abort() #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal30ParameterizedTestSuiteInfoBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 {
@@ -16516,7 +16559,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal30ParameterizedTestSuiteInfoBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal30ParameterizedTestSuiteInfoBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16546,7 +16590,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoINS_13TestWithParamIiEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoINS_13TestWithParamIiEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %instantiations_ = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %this1, i32 0, i32 4
   call void @_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoINS0_13TestWithParamIiEEE17InstantiationInfoESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %instantiations_) #3
   %tests_ = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %this1, i32 0, i32 3
@@ -19042,7 +19087,7 @@ entry:
   store i8 %ch, ptr %ch.addr, align 1
   %0 = load i8, ptr %ch.addr, align 1
   %conv = zext i8 %0 to i32
-  %call = call i32 @isalnum(i32 noundef %conv) #18
+  %call = call i32 @isalnum(i32 noundef %conv) #17
   %cmp = icmp ne i32 %call, 0
   ret i1 %cmp
 }
@@ -19051,7 +19096,7 @@ entry:
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @isalnum(i32 noundef) #20
+declare i32 @isalnum(i32 noundef) #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZSteqRKSt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_(ptr noundef nonnull align 8 dereferenceable(8) %__x, ptr noundef nonnull align 8 dereferenceable(8) %__y) #5 comdat {
@@ -19767,7 +19812,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #17
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -19809,7 +19854,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #20
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE11_Alloc_nodeclIRKS5_EEPSt13_Rb_tree_nodeIS5_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %__arg) #4 comdat align 2 {
@@ -21793,6 +21838,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #20
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -21807,13 +21855,13 @@ attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #13 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nounwind memory(none) }
 attributes #21 = { builtin allocsize(0) }
 attributes #22 = { noreturn }
 attributes #23 = { builtin nounwind }

@@ -46,74 +46,89 @@ define internal i32 @mca_btl_self_component_open() #0 {
 
 2:                                                ; preds = %1
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %5 = icmp ne i32 %3, %4
-  br i1 %5, label %6, label %7
+  %4 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp ne i32 %3, %5
+  br i1 %6, label %7, label %8
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %7
-
-7:                                                ; preds = %6, %2
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4), align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4), i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4))
   br label %8
 
-8:                                                ; preds = %7
-  br label %9
+8:                                                ; preds = %7, %2
+  %9 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4
+  store ptr @opal_free_list_t_class, ptr %9, align 16
+  %10 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4
+  %11 = getelementptr inbounds %struct.opal_object_t, ptr %10, i32 0, i32 1
+  store volatile i32 1, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4
+  call void @opal_obj_run_constructors(ptr noundef %12)
+  br label %13
 
-9:                                                ; preds = %8
-  br label %10
+13:                                               ; preds = %8
+  br label %14
 
-10:                                               ; preds = %9
-  br label %11
+14:                                               ; preds = %13
+  br label %15
 
-11:                                               ; preds = %10
-  %12 = load i32, ptr @opal_class_init_epoch, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %14 = icmp ne i32 %12, %13
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %11
-  call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
+15:                                               ; preds = %14
   br label %16
 
-16:                                               ; preds = %15, %11
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5), align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5), i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5))
-  br label %17
+16:                                               ; preds = %15
+  %17 = load i32, ptr @opal_class_init_epoch, align 4
+  %18 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ne i32 %17, %19
+  br i1 %20, label %21, label %22
 
-17:                                               ; preds = %16
-  br label %18
-
-18:                                               ; preds = %17
-  br label %19
-
-19:                                               ; preds = %18
-  br label %20
-
-20:                                               ; preds = %19
-  %21 = load i32, ptr @opal_class_init_epoch, align 4
-  %22 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %23 = icmp ne i32 %21, %22
-  br i1 %23, label %24, label %25
-
-24:                                               ; preds = %20
+21:                                               ; preds = %16
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %25
+  br label %22
 
-25:                                               ; preds = %24, %20
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6), align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6), i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6))
-  br label %26
-
-26:                                               ; preds = %25
+22:                                               ; preds = %21, %16
+  %23 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5
+  store ptr @opal_free_list_t_class, ptr %23, align 16
+  %24 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5
+  %25 = getelementptr inbounds %struct.opal_object_t, ptr %24, i32 0, i32 1
+  store volatile i32 1, ptr %25, align 8
+  %26 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5
+  call void @opal_obj_run_constructors(ptr noundef %26)
   br label %27
 
-27:                                               ; preds = %26
+27:                                               ; preds = %22
+  br label %28
+
+28:                                               ; preds = %27
+  br label %29
+
+29:                                               ; preds = %28
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load i32, ptr @opal_class_init_epoch, align 4
+  %32 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp ne i32 %31, %33
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %30
+  call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
+  br label %36
+
+36:                                               ; preds = %35, %30
+  %37 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6
+  store ptr @opal_free_list_t_class, ptr %37, align 16
+  %38 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6
+  %39 = getelementptr inbounds %struct.opal_object_t, ptr %38, i32 0, i32 1
+  store volatile i32 1, ptr %39, align 8
+  %40 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6
+  call void @opal_obj_run_constructors(ptr noundef %40)
+  br label %41
+
+41:                                               ; preds = %36
+  br label %42
+
+42:                                               ; preds = %41
   ret i32 0
 }
 
@@ -122,50 +137,71 @@ define internal i32 @mca_btl_self_component_close() #0 {
   br label %1
 
 1:                                                ; preds = %0
-  call void @opal_obj_run_destructors(ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4))
-  br label %2
-
-2:                                                ; preds = %1
+  %2 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4
+  call void @opal_obj_run_destructors(ptr noundef %2)
   br label %3
 
-3:                                                ; preds = %2
-  call void @opal_obj_run_destructors(ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5))
+3:                                                ; preds = %1
   br label %4
 
 4:                                                ; preds = %3
-  br label %5
-
-5:                                                ; preds = %4
-  call void @opal_obj_run_destructors(ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6))
+  %5 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5
+  call void @opal_obj_run_destructors(ptr noundef %5)
   br label %6
 
-6:                                                ; preds = %5
+6:                                                ; preds = %4
+  br label %7
+
+7:                                                ; preds = %6
+  %8 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6
+  call void @opal_obj_run_destructors(ptr noundef %8)
+  br label %9
+
+9:                                                ; preds = %7
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mca_btl_self_component_register() #0 {
   %1 = call i32 @mca_base_var_group_component_register(ptr noundef @mca_btl_self_component, ptr noundef @.str)
-  store i32 0, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 1), align 8
-  %2 = call i32 @mca_base_component_var_register(ptr noundef @mca_btl_self_component, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 1))
-  store i32 64, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 2), align 4
-  %3 = call i32 @mca_base_component_var_register(ptr noundef @mca_btl_self_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 2))
-  store i32 8, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 3), align 16
-  %4 = call i32 @mca_base_component_var_register(ptr noundef @mca_btl_self_component, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 3))
-  store i32 65536, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 7), align 8
-  store i64 1024, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 1), align 8
-  store i64 131072, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 2), align 8
-  store i64 16384, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 3), align 8
-  store i64 2147483647, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 4), align 8
-  store i64 2147483647, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 5), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 6), align 8
-  store i32 15, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 10), align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 10), align 4
-  %6 = or i32 %5, 8388608
-  store i32 %6, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 10), align 4
-  store i32 100, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 9), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 8), align 4
-  %7 = call i32 @mca_btl_base_param_register(ptr noundef @mca_btl_self_component, ptr noundef @mca_btl_self)
+  %2 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 1
+  store i32 0, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 1
+  %4 = call i32 @mca_base_component_var_register(ptr noundef @mca_btl_self_component, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %3)
+  %5 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 2
+  store i32 64, ptr %5, align 4
+  %6 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 2
+  %7 = call i32 @mca_base_component_var_register(ptr noundef @mca_btl_self_component, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %6)
+  %8 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 3
+  store i32 8, ptr %8, align 16
+  %9 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 3
+  %10 = call i32 @mca_base_component_var_register(ptr noundef @mca_btl_self_component, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef %9)
+  %11 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 7
+  store i32 65536, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 1
+  store i64 1024, ptr %12, align 8
+  %13 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 2
+  store i64 131072, ptr %13, align 8
+  %14 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 3
+  store i64 16384, ptr %14, align 8
+  %15 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 4
+  store i64 2147483647, ptr %15, align 8
+  %16 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 5
+  store i64 2147483647, ptr %16, align 8
+  %17 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 6
+  store i64 0, ptr %17, align 8
+  %18 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 10
+  store i32 15, ptr %18, align 4
+  %19 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 10
+  %20 = load i32, ptr %19, align 4
+  %21 = or i32 %20, 8388608
+  %22 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 10
+  store i32 %21, ptr %22, align 4
+  %23 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 9
+  store i32 100, ptr %23, align 8
+  %24 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 8
+  store i32 0, ptr %24, align 4
+  %25 = call i32 @mca_btl_base_param_register(ptr noundef @mca_btl_self_component, ptr noundef @mca_btl_self)
   ret i32 0
 }
 
@@ -183,87 +219,101 @@ define internal ptr @mca_btl_self_component_init(ptr noundef %0, i1 noundef zero
   %11 = zext i1 %2 to i8
   store i8 %11, ptr %7, align 1
   store ptr null, ptr %8, align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 1), align 8
-  %13 = add i64 160, %12
-  %14 = load i32, ptr @opal_cache_line_size, align 4
-  %15 = sext i32 %14 to i64
-  %16 = load i32, ptr @opal_cache_line_size, align 4
-  %17 = sext i32 %16 to i64
-  %18 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 1), align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 2), align 4
-  %20 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 3), align 16
-  %21 = call i32 @opal_free_list_init(ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4), i64 noundef %13, i64 noundef %15, ptr noundef @mca_btl_self_frag_eager_t_class, i64 noundef 0, i64 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
-  store i32 %21, ptr %9, align 4
-  %22 = load i32, ptr %9, align 4
-  %23 = icmp ne i32 0, %22
-  br i1 %23, label %24, label %25
+  %12 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  %14 = add i64 160, %13
+  %15 = load i32, ptr @opal_cache_line_size, align 4
+  %16 = sext i32 %15 to i64
+  %17 = load i32, ptr @opal_cache_line_size, align 4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 2
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 3
+  %24 = load i32, ptr %23, align 16
+  %25 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 4
+  %26 = call i32 @opal_free_list_init(ptr noundef %25, i64 noundef %14, i64 noundef %16, ptr noundef @mca_btl_self_frag_eager_t_class, i64 noundef 0, i64 noundef %18, i32 noundef %20, i32 noundef %22, i32 noundef %24, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i32 %26, ptr %9, align 4
+  %27 = load i32, ptr %9, align 4
+  %28 = icmp ne i32 0, %27
+  br i1 %28, label %29, label %30
 
-24:                                               ; preds = %3
+29:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %61
+  br label %75
 
-25:                                               ; preds = %3
-  %26 = load i64, ptr getelementptr inbounds (%struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 3), align 8
-  %27 = add i64 160, %26
-  %28 = load i32, ptr @opal_cache_line_size, align 4
-  %29 = sext i32 %28 to i64
-  %30 = load i32, ptr @opal_cache_line_size, align 4
-  %31 = sext i32 %30 to i64
-  %32 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 1), align 8
-  %33 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 2), align 4
-  %34 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 3), align 16
-  %35 = call i32 @opal_free_list_init(ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5), i64 noundef %27, i64 noundef %29, ptr noundef @mca_btl_self_frag_send_t_class, i64 noundef 0, i64 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
-  store i32 %35, ptr %9, align 4
-  %36 = load i32, ptr %9, align 4
-  %37 = icmp ne i32 0, %36
-  br i1 %37, label %38, label %39
+30:                                               ; preds = %3
+  %31 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr @mca_btl_self, i32 0, i32 3
+  %32 = load i64, ptr %31, align 8
+  %33 = add i64 160, %32
+  %34 = load i32, ptr @opal_cache_line_size, align 4
+  %35 = sext i32 %34 to i64
+  %36 = load i32, ptr @opal_cache_line_size, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 1
+  %39 = load i32, ptr %38, align 8
+  %40 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 2
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 3
+  %43 = load i32, ptr %42, align 16
+  %44 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 5
+  %45 = call i32 @opal_free_list_init(ptr noundef %44, i64 noundef %33, i64 noundef %35, ptr noundef @mca_btl_self_frag_send_t_class, i64 noundef 0, i64 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i32 %45, ptr %9, align 4
+  %46 = load i32, ptr %9, align 4
+  %47 = icmp ne i32 0, %46
+  br i1 %47, label %48, label %49
 
-38:                                               ; preds = %25
+48:                                               ; preds = %30
   store ptr null, ptr %4, align 8
-  br label %61
+  br label %75
 
-39:                                               ; preds = %25
-  %40 = load i32, ptr @opal_cache_line_size, align 4
-  %41 = sext i32 %40 to i64
-  %42 = load i32, ptr @opal_cache_line_size, align 4
-  %43 = sext i32 %42 to i64
-  %44 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 1), align 8
-  %45 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 2), align 4
-  %46 = load i32, ptr getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 3), align 16
-  %47 = call i32 @opal_free_list_init(ptr noundef getelementptr inbounds (%struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6), i64 noundef 288, i64 noundef %41, ptr noundef @mca_btl_self_frag_rdma_t_class, i64 noundef 0, i64 noundef %43, i32 noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
-  store i32 %47, ptr %9, align 4
-  %48 = load i32, ptr %9, align 4
-  %49 = icmp ne i32 0, %48
-  br i1 %49, label %50, label %51
+49:                                               ; preds = %30
+  %50 = load i32, ptr @opal_cache_line_size, align 4
+  %51 = sext i32 %50 to i64
+  %52 = load i32, ptr @opal_cache_line_size, align 4
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 1
+  %55 = load i32, ptr %54, align 8
+  %56 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 2
+  %57 = load i32, ptr %56, align 4
+  %58 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 3
+  %59 = load i32, ptr %58, align 16
+  %60 = getelementptr inbounds %struct.mca_btl_self_component_t, ptr @mca_btl_self_component, i32 0, i32 6
+  %61 = call i32 @opal_free_list_init(ptr noundef %60, i64 noundef 288, i64 noundef %51, ptr noundef @mca_btl_self_frag_rdma_t_class, i64 noundef 0, i64 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i32 %61, ptr %9, align 4
+  %62 = load i32, ptr %9, align 4
+  %63 = icmp ne i32 0, %62
+  br i1 %63, label %64, label %65
 
-50:                                               ; preds = %39
+64:                                               ; preds = %49
   store ptr null, ptr %4, align 8
-  br label %61
+  br label %75
 
-51:                                               ; preds = %39
-  %52 = call noalias ptr @malloc(i64 noundef 8) #3
-  store ptr %52, ptr %8, align 8
-  %53 = load ptr, ptr %8, align 8
-  %54 = icmp eq ptr null, %53
-  br i1 %54, label %55, label %56
+65:                                               ; preds = %49
+  %66 = call noalias ptr @malloc(i64 noundef 8) #3
+  store ptr %66, ptr %8, align 8
+  %67 = load ptr, ptr %8, align 8
+  %68 = icmp eq ptr null, %67
+  br i1 %68, label %69, label %70
 
-55:                                               ; preds = %51
+69:                                               ; preds = %65
   store ptr null, ptr %4, align 8
-  br label %61
+  br label %75
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds ptr, ptr %57, i64 0
-  store ptr @mca_btl_self, ptr %58, align 8
-  %59 = load ptr, ptr %5, align 8
-  store i32 1, ptr %59, align 4
-  %60 = load ptr, ptr %8, align 8
-  store ptr %60, ptr %4, align 8
-  br label %61
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %8, align 8
+  %72 = getelementptr inbounds ptr, ptr %71, i64 0
+  store ptr @mca_btl_self, ptr %72, align 8
+  %73 = load ptr, ptr %5, align 8
+  store i32 1, ptr %73, align 4
+  %74 = load ptr, ptr %8, align 8
+  store ptr %74, ptr %4, align 8
+  br label %75
 
-61:                                               ; preds = %56, %55, %50, %38, %24
-  %62 = load ptr, ptr %4, align 8
-  ret ptr %62
+75:                                               ; preds = %70, %69, %64, %48, %29
+  %76 = load ptr, ptr %4, align 8
+  ret ptr %76
 }
 
 declare i32 @mca_base_var_group_component_register(ptr noundef, ptr noundef) #1

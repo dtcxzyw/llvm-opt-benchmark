@@ -94,41 +94,42 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool13, label %if.then14, label %if.end26
 
 if.then14:                                        ; preds = %if.end
-  %22 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %shr = lshr i32 %22, 22
+  %22 = getelementptr inbounds [4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %23 = load i32, ptr %22, align 4
+  %shr = lshr i32 %23, 22
   %and = and i32 %shr, 65
   %cmp = icmp eq i32 %and, 65
   br i1 %cmp, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.then14
-  %23 = load ptr, ptr %ctx.addr, align 8
-  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %23, i32 0, i32 6
-  %arraydecay16 = getelementptr inbounds [16 x %struct.u128], ptr %Htable, i64 0, i64 0
   %24 = load ptr, ptr %ctx.addr, align 8
-  %H17 = getelementptr inbounds %struct.gcm128_context, ptr %24, i32 0, i32 5
+  %Htable = getelementptr inbounds %struct.gcm128_context, ptr %24, i32 0, i32 6
+  %arraydecay16 = getelementptr inbounds [16 x %struct.u128], ptr %Htable, i64 0, i64 0
+  %25 = load ptr, ptr %ctx.addr, align 8
+  %H17 = getelementptr inbounds %struct.gcm128_context, ptr %25, i32 0, i32 5
   %arraydecay18 = getelementptr inbounds [2 x i64], ptr %H17, i64 0, i64 0
   call void @gcm_init_avx(ptr noundef %arraydecay16, ptr noundef %arraydecay18)
-  %25 = load ptr, ptr %ctx.addr, align 8
-  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %25, i32 0, i32 7
-  store ptr @gcm_gmult_avx, ptr %gmult, align 8
   %26 = load ptr, ptr %ctx.addr, align 8
-  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %26, i32 0, i32 8
+  %gmult = getelementptr inbounds %struct.gcm128_context, ptr %26, i32 0, i32 7
+  store ptr @gcm_gmult_avx, ptr %gmult, align 8
+  %27 = load ptr, ptr %ctx.addr, align 8
+  %ghash = getelementptr inbounds %struct.gcm128_context, ptr %27, i32 0, i32 8
   store ptr @gcm_ghash_avx, ptr %ghash, align 8
   br label %if.end25
 
 if.else:                                          ; preds = %if.then14
-  %27 = load ptr, ptr %ctx.addr, align 8
-  %Htable19 = getelementptr inbounds %struct.gcm128_context, ptr %27, i32 0, i32 6
-  %arraydecay20 = getelementptr inbounds [16 x %struct.u128], ptr %Htable19, i64 0, i64 0
   %28 = load ptr, ptr %ctx.addr, align 8
-  %H21 = getelementptr inbounds %struct.gcm128_context, ptr %28, i32 0, i32 5
+  %Htable19 = getelementptr inbounds %struct.gcm128_context, ptr %28, i32 0, i32 6
+  %arraydecay20 = getelementptr inbounds [16 x %struct.u128], ptr %Htable19, i64 0, i64 0
+  %29 = load ptr, ptr %ctx.addr, align 8
+  %H21 = getelementptr inbounds %struct.gcm128_context, ptr %29, i32 0, i32 5
   %arraydecay22 = getelementptr inbounds [2 x i64], ptr %H21, i64 0, i64 0
   call void @gcm_init_clmul(ptr noundef %arraydecay20, ptr noundef %arraydecay22)
-  %29 = load ptr, ptr %ctx.addr, align 8
-  %gmult23 = getelementptr inbounds %struct.gcm128_context, ptr %29, i32 0, i32 7
-  store ptr @gcm_gmult_clmul, ptr %gmult23, align 8
   %30 = load ptr, ptr %ctx.addr, align 8
-  %ghash24 = getelementptr inbounds %struct.gcm128_context, ptr %30, i32 0, i32 8
+  %gmult23 = getelementptr inbounds %struct.gcm128_context, ptr %30, i32 0, i32 7
+  store ptr @gcm_gmult_clmul, ptr %gmult23, align 8
+  %31 = load ptr, ptr %ctx.addr, align 8
+  %ghash24 = getelementptr inbounds %struct.gcm128_context, ptr %31, i32 0, i32 8
   store ptr @gcm_ghash_clmul, ptr %ghash24, align 8
   br label %if.end25
 
@@ -136,18 +137,18 @@ if.end25:                                         ; preds = %if.else, %if.then15
   br label %return
 
 if.end26:                                         ; preds = %if.end
-  %31 = load ptr, ptr %ctx.addr, align 8
-  %Htable27 = getelementptr inbounds %struct.gcm128_context, ptr %31, i32 0, i32 6
-  %arraydecay28 = getelementptr inbounds [16 x %struct.u128], ptr %Htable27, i64 0, i64 0
   %32 = load ptr, ptr %ctx.addr, align 8
-  %H29 = getelementptr inbounds %struct.gcm128_context, ptr %32, i32 0, i32 5
+  %Htable27 = getelementptr inbounds %struct.gcm128_context, ptr %32, i32 0, i32 6
+  %arraydecay28 = getelementptr inbounds [16 x %struct.u128], ptr %Htable27, i64 0, i64 0
+  %33 = load ptr, ptr %ctx.addr, align 8
+  %H29 = getelementptr inbounds %struct.gcm128_context, ptr %33, i32 0, i32 5
   %arraydecay30 = getelementptr inbounds [2 x i64], ptr %H29, i64 0, i64 0
   call void @gcm_init_4bit(ptr noundef %arraydecay28, ptr noundef %arraydecay30)
-  %33 = load ptr, ptr %ctx.addr, align 8
-  %gmult31 = getelementptr inbounds %struct.gcm128_context, ptr %33, i32 0, i32 7
-  store ptr @gcm_gmult_4bit, ptr %gmult31, align 8
   %34 = load ptr, ptr %ctx.addr, align 8
-  %ghash32 = getelementptr inbounds %struct.gcm128_context, ptr %34, i32 0, i32 8
+  %gmult31 = getelementptr inbounds %struct.gcm128_context, ptr %34, i32 0, i32 7
+  store ptr @gcm_gmult_4bit, ptr %gmult31, align 8
+  %35 = load ptr, ptr %ctx.addr, align 8
+  %ghash32 = getelementptr inbounds %struct.gcm128_context, ptr %35, i32 0, i32 8
   store ptr @gcm_ghash_4bit, ptr %ghash32, align 8
   br label %return
 
@@ -170,14 +171,15 @@ entry:
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and1 = and i32 %1, 2
+  %1 = getelementptr inbounds [4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1
+  %2 = load i32, ptr %1, align 4
+  %and1 = and i32 %2, 2
   %tobool2 = icmp ne i32 %and1, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %tobool2, %land.rhs ]
-  %land.ext = zext i1 %2 to i32
+  %3 = phi i1 [ false, %entry ], [ %tobool2, %land.rhs ]
+  %land.ext = zext i1 %3 to i32
   ret i32 %land.ext
 }
 

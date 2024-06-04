@@ -2423,7 +2423,7 @@ define dso_local void @pg_unicode_to_server(i32 noundef %0, ptr noundef %1) #0 {
   %29 = load ptr, ptr %4, align 8
   %30 = getelementptr i8, ptr %29, i64 1
   store i8 0, ptr %30, align 1
-  br label %81
+  br label %82
 
 31:                                               ; preds = %21
   %32 = call i32 @GetDatabaseEncoding()
@@ -2442,12 +2442,12 @@ define dso_local void @pg_unicode_to_server(i32 noundef %0, ptr noundef %1) #0 {
   %42 = sext i32 %41 to i64
   %43 = getelementptr i8, ptr %39, i64 %42
   store i8 0, ptr %43, align 1
-  br label %81
+  br label %82
 
 44:                                               ; preds = %31
   %45 = load ptr, ptr @Utf8ToServerConvProc, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %60
+  br i1 %46, label %47, label %61
 
 47:                                               ; preds = %44
   br label %48
@@ -2457,52 +2457,53 @@ define dso_local void @pg_unicode_to_server(i32 noundef %0, ptr noundef %1) #0 {
 
 49:                                               ; preds = %48
   %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  br i1 %50, label %53, label %58
+  br i1 %50, label %53, label %59
 
 51:                                               ; preds = %48
   %52 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %52, label %53, label %58
+  br i1 %52, label %53, label %59
 
 53:                                               ; preds = %51, %49
   %54 = call i32 @errcode(i32 noundef 1088)
-  %55 = load ptr, ptr getelementptr ([0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 6), align 8
-  %56 = call ptr @GetDatabaseEncodingName()
-  %57 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef %55, ptr noundef %56)
+  %55 = getelementptr [0 x %struct.pg_enc2name], ptr @pg_enc2name_tbl, i64 0, i64 6
+  %56 = load ptr, ptr %55, align 8
+  %57 = call ptr @GetDatabaseEncodingName()
+  %58 = call i32 (ptr, ...) @errmsg(ptr noundef @.str, ptr noundef %56, ptr noundef %57)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 903, ptr noundef @__func__.pg_unicode_to_server)
-  br label %58
+  br label %59
 
-58:                                               ; preds = %53, %51, %49
+59:                                               ; preds = %53, %51, %49
   unreachable
 
-59:                                               ; No predecessors!
-  br label %60
+60:                                               ; No predecessors!
+  br label %61
 
-60:                                               ; preds = %59, %44
-  %61 = load i32, ptr %3, align 4
-  %62 = getelementptr inbounds [5 x i8], ptr %5, i64 0, i64 0
-  %63 = call ptr @unicode_to_utf8(i32 noundef %61, ptr noundef %62)
-  %64 = getelementptr inbounds [5 x i8], ptr %5, i64 0, i64 0
-  %65 = call i32 @pg_utf_mblen_private(ptr noundef %64)
-  store i32 %65, ptr %6, align 4
-  %66 = load i32, ptr %6, align 4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr [5 x i8], ptr %5, i64 0, i64 %67
-  store i8 0, ptr %68, align 1
-  %69 = load ptr, ptr @Utf8ToServerConvProc, align 8
-  %70 = call i64 @Int32GetDatum(i32 noundef 6)
-  %71 = load i32, ptr %7, align 4
-  %72 = call i64 @Int32GetDatum(i32 noundef %71)
-  %73 = getelementptr inbounds [5 x i8], ptr %5, i64 0, i64 0
-  %74 = call i64 @CStringGetDatum(ptr noundef %73)
-  %75 = load ptr, ptr %4, align 8
-  %76 = call i64 @CStringGetDatum(ptr noundef %75)
-  %77 = load i32, ptr %6, align 4
-  %78 = call i64 @Int32GetDatum(i32 noundef %77)
-  %79 = call i64 @BoolGetDatum(i1 noundef zeroext false)
-  %80 = call i64 @FunctionCall6Coll(ptr noundef %69, i32 noundef 0, i64 noundef %70, i64 noundef %72, i64 noundef %74, i64 noundef %76, i64 noundef %78, i64 noundef %79)
-  br label %81
+61:                                               ; preds = %60, %44
+  %62 = load i32, ptr %3, align 4
+  %63 = getelementptr inbounds [5 x i8], ptr %5, i64 0, i64 0
+  %64 = call ptr @unicode_to_utf8(i32 noundef %62, ptr noundef %63)
+  %65 = getelementptr inbounds [5 x i8], ptr %5, i64 0, i64 0
+  %66 = call i32 @pg_utf_mblen_private(ptr noundef %65)
+  store i32 %66, ptr %6, align 4
+  %67 = load i32, ptr %6, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr [5 x i8], ptr %5, i64 0, i64 %68
+  store i8 0, ptr %69, align 1
+  %70 = load ptr, ptr @Utf8ToServerConvProc, align 8
+  %71 = call i64 @Int32GetDatum(i32 noundef 6)
+  %72 = load i32, ptr %7, align 4
+  %73 = call i64 @Int32GetDatum(i32 noundef %72)
+  %74 = getelementptr inbounds [5 x i8], ptr %5, i64 0, i64 0
+  %75 = call i64 @CStringGetDatum(ptr noundef %74)
+  %76 = load ptr, ptr %4, align 8
+  %77 = call i64 @CStringGetDatum(ptr noundef %76)
+  %78 = load i32, ptr %6, align 4
+  %79 = call i64 @Int32GetDatum(i32 noundef %78)
+  %80 = call i64 @BoolGetDatum(i1 noundef zeroext false)
+  %81 = call i64 @FunctionCall6Coll(ptr noundef %70, i32 noundef 0, i64 noundef %71, i64 noundef %73, i64 noundef %75, i64 noundef %77, i64 noundef %79, i64 noundef %80)
+  br label %82
 
-81:                                               ; preds = %60, %35, %24
+82:                                               ; preds = %61, %35, %24
   ret void
 }
 

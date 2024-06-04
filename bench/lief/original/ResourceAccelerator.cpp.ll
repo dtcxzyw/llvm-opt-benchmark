@@ -260,11 +260,12 @@ define void @_ZN4LIEF2PE19ResourceAcceleratorC2ERKS1_(ptr noundef nonnull align 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE19ResourceAcceleratorE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 8, i1 false)
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE19ResourceAcceleratorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 8, i1 false)
   ret void
 }
 
@@ -322,15 +323,16 @@ define void @_ZN4LIEF2PE19ResourceAcceleratorC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE19ResourceAcceleratorE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %3, i32 0, i32 1
-  store i16 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %3, i32 0, i32 2
-  store i16 0, ptr %5, align 2
-  %6 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %3, i32 0, i32 3
-  store i16 0, ptr %6, align 4
-  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %3, i32 0, i32 4
-  store i16 0, ptr %7, align 2
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE19ResourceAcceleratorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %3, i32 0, i32 1
+  store i16 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %3, i32 0, i32 2
+  store i16 0, ptr %6, align 2
+  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %3, i32 0, i32 3
+  store i16 0, ptr %7, align 4
+  %8 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %3, i32 0, i32 4
+  store i16 0, ptr %8, align 2
   ret void
 }
 
@@ -344,27 +346,28 @@ define void @_ZN4LIEF2PE19ResourceAcceleratorC2ERKNS0_7details27pe_resource_acce
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE19ResourceAcceleratorE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_acceltableentry", ptr %7, i32 0, i32 0
-  %9 = load i16, ptr %8, align 1
-  store i16 %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %5, i32 0, i32 2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_acceltableentry", ptr %11, i32 0, i32 1
-  %13 = load i16, ptr %12, align 1
-  store i16 %13, ptr %10, align 2
-  %14 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %5, i32 0, i32 3
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_acceltableentry", ptr %15, i32 0, i32 2
-  %17 = load i16, ptr %16, align 1
-  store i16 %17, ptr %14, align 4
-  %18 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %5, i32 0, i32 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_acceltableentry", ptr %19, i32 0, i32 3
-  %21 = load i16, ptr %20, align 1
-  store i16 %21, ptr %18, align 2
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF2PE19ResourceAcceleratorE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_acceltableentry", ptr %8, i32 0, i32 0
+  %10 = load i16, ptr %9, align 1
+  store i16 %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %5, i32 0, i32 2
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_acceltableentry", ptr %12, i32 0, i32 1
+  %14 = load i16, ptr %13, align 1
+  store i16 %14, ptr %11, align 2
+  %15 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %5, i32 0, i32 3
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_acceltableentry", ptr %16, i32 0, i32 2
+  %18 = load i16, ptr %17, align 1
+  store i16 %18, ptr %15, align 4
+  %19 = getelementptr inbounds %"class.LIEF::PE::ResourceAccelerator", ptr %5, i32 0, i32 4
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"struct.LIEF::PE::details::pe_resource_acceltableentry", ptr %20, i32 0, i32 3
+  %22 = load i16, ptr %21, align 1
+  store i16 %22, ptr %19, align 2
   ret void
 }
 

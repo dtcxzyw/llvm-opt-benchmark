@@ -532,56 +532,57 @@ define internal i64 @init_mat_mmap(ptr noundef %0, i32 noundef %1, ptr noundef %
   %33 = call ptr @mmap(ptr noundef null, i64 noundef %31, i32 noundef 1, i32 noundef 1, i32 noundef %32, i64 noundef 0) #6
   store ptr %33, ptr %14, align 8
   %34 = load ptr, ptr %14, align 8
-  %35 = icmp eq ptr %34, inttoptr (i64 -1 to ptr)
-  br i1 %35, label %36, label %44
+  %35 = inttoptr i64 -1 to ptr
+  %36 = icmp eq ptr %34, %35
+  br i1 %36, label %37, label %45
 
-36:                                               ; preds = %30
-  %37 = load i32, ptr %10, align 4
-  %38 = icmp uge i32 %37, 1
-  br i1 %38, label %39, label %43
+37:                                               ; preds = %30
+  %38 = load i32, ptr %10, align 4
+  %39 = icmp uge i32 %38, 1
+  br i1 %39, label %40, label %44
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr @stderr, align 8
-  %41 = load ptr, ptr %5, align 8
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.17, ptr noundef %41) #6
-  br label %43
+40:                                               ; preds = %37
+  %41 = load ptr, ptr @stderr, align 8
+  %42 = load ptr, ptr %5, align 8
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef @.str.17, ptr noundef %42) #6
+  br label %44
 
-43:                                               ; preds = %39, %36
+44:                                               ; preds = %40, %37
   call void @exit(i32 noundef -1) #7
   unreachable
 
-44:                                               ; preds = %30
+45:                                               ; preds = %30
   store i32 0, ptr %9, align 4
-  br label %45
+  br label %46
 
-45:                                               ; preds = %49, %44
-  %46 = load i32, ptr %9, align 4
-  %47 = load i32, ptr %6, align 4
-  %48 = icmp slt i32 %46, %47
-  br i1 %48, label %49, label %59
+46:                                               ; preds = %50, %45
+  %47 = load i32, ptr %9, align 4
+  %48 = load i32, ptr %6, align 4
+  %49 = icmp slt i32 %47, %48
+  br i1 %49, label %50, label %60
 
-49:                                               ; preds = %45
-  %50 = load i32, ptr %9, align 4
-  %51 = load ptr, ptr %7, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = load i32, ptr %6, align 4
-  %54 = load ptr, ptr %14, align 8
-  %55 = load ptr, ptr %5, align 8
-  %56 = call ptr @parse_line(i32 noundef %50, ptr noundef %51, ptr noundef %52, i32 noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %13)
-  store ptr %56, ptr %14, align 8
-  %57 = load i32, ptr %9, align 4
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %9, align 4
-  br label %45, !llvm.loop !12
+50:                                               ; preds = %46
+  %51 = load i32, ptr %9, align 4
+  %52 = load ptr, ptr %7, align 8
+  %53 = load ptr, ptr %8, align 8
+  %54 = load i32, ptr %6, align 4
+  %55 = load ptr, ptr %14, align 8
+  %56 = load ptr, ptr %5, align 8
+  %57 = call ptr @parse_line(i32 noundef %51, ptr noundef %52, ptr noundef %53, i32 noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef %13)
+  store ptr %57, ptr %14, align 8
+  %58 = load i32, ptr %9, align 4
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %9, align 4
+  br label %46, !llvm.loop !12
 
-59:                                               ; preds = %45
-  %60 = load ptr, ptr %14, align 8
-  %61 = load i64, ptr %11, align 8
-  %62 = call i32 @munmap(ptr noundef %60, i64 noundef %61) #6
-  %63 = load i32, ptr %12, align 4
-  %64 = call i32 @close(i32 noundef %63)
-  %65 = load i64, ptr %13, align 8
-  ret i64 %65
+60:                                               ; preds = %46
+  %61 = load ptr, ptr %14, align 8
+  %62 = load i64, ptr %11, align 8
+  %63 = call i32 @munmap(ptr noundef %61, i64 noundef %62) #6
+  %64 = load i32, ptr %12, align 4
+  %65 = call i32 @close(i32 noundef %64)
+  %66 = load i64, ptr %13, align 8
+  ret i64 %66
 }
 
 ; Function Attrs: nounwind uwtable

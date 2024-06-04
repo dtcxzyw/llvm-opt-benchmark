@@ -46219,16 +46219,17 @@ define available_externally hidden void @"_ZN10ockam_node14worker_builder22Worke
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %1, i64 296, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr %4)
   %6 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 0
-  store ptr inttoptr (i64 8 to ptr), ptr %6, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 1
-  store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %4, i32 0, i32 1
+  %7 = inttoptr i64 8 to ptr
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds { ptr, i64 }, ptr %4, i32 0, i32 1
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds { { { i64, ptr }, { i64, [4 x i64] }, { [8 x i8], i8, [7 x i8] }, ptr, { { { { ptr, i64 }, i64 } }, i16, [3 x i16] }, { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] } }, { ptr, ptr }, { ptr, [3 x i64] }, i16, i8, i8, i8, [3 x i8] }, { { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { ptr, ptr }, { ptr, ptr } }, { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %2, i64 88, i1 false)
+  %9 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %4, i32 0, i32 1
+  store i64 0, ptr %9, align 8
+  %10 = getelementptr inbounds { { { i64, ptr }, { i64, [4 x i64] }, { [8 x i8], i8, [7 x i8] }, ptr, { { { { ptr, i64 }, i64 } }, i16, [3 x i16] }, { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] } }, { ptr, ptr }, { ptr, [3 x i64] }, i16, i8, i8, i8, [3 x i8] }, { { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { ptr, ptr }, { ptr, ptr } }, { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %2, i64 88, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %5, i64 296, i1 false)
-  %10 = getelementptr inbounds { { { i64, ptr }, { i64, [4 x i64] }, { [8 x i8], i8, [7 x i8] }, ptr, { { { { ptr, i64 }, i64 } }, i16, [3 x i16] }, { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] } }, { ptr, ptr }, { ptr, [3 x i64] }, i16, i8, i8, i8, [3 x i8] }, { { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { ptr, ptr }, { ptr, ptr } }, { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %0, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %4, i64 24, i1 false)
+  %11 = getelementptr inbounds { { { i64, ptr }, { i64, [4 x i64] }, { [8 x i8], i8, [7 x i8] }, ptr, { { { { ptr, i64 }, i64 } }, i16, [3 x i16] }, { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] } }, { ptr, ptr }, { ptr, [3 x i64] }, i16, i8, i8, i8, [3 x i8] }, { { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { ptr, ptr }, { ptr, ptr } }, { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %0, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr %4)
   call void @llvm.lifetime.end.p0(i64 296, ptr %5)
   ret void

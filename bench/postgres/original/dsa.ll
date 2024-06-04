@@ -894,385 +894,387 @@ define dso_local i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef %1, i32 
 
 45:                                               ; preds = %44, %31, %27
   %46 = load i64, ptr %6, align 8
-  %47 = load i16, ptr getelementptr inbounds ([38 x i16], ptr @dsa_size_classes, i64 0, i64 37), align 2
-  %48 = zext i16 %47 to i64
-  %49 = icmp ugt i64 %46, %48
-  br i1 %49, label %50, label %192
+  %47 = getelementptr inbounds [38 x i16], ptr @dsa_size_classes, i64 0, i64 37
+  %48 = load i16, ptr %47, align 2
+  %49 = zext i16 %48 to i64
+  %50 = icmp ugt i64 %46, %49
+  br i1 %50, label %51, label %193
 
-50:                                               ; preds = %45
-  %51 = load i64, ptr %6, align 8
-  %52 = add i64 %51, 4096
-  %53 = sub i64 %52, 1
-  %54 = udiv i64 %53, 4096
-  store i64 %54, ptr %12, align 8
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.dsa_area, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct.dsa_area_control, ptr %57, i32 0, i32 4
-  %59 = getelementptr [38 x %struct.dsa_area_pool], ptr %58, i64 0, i64 1
-  store ptr %59, ptr %15, align 8
-  %60 = load ptr, ptr %5, align 8
-  %61 = call i64 @alloc_object(ptr noundef %60, i32 noundef 0)
-  store i64 %61, ptr %14, align 8
-  %62 = load i64, ptr %14, align 8
-  %63 = icmp ne i64 %62, 0
-  br i1 %63, label %82, label %64
+51:                                               ; preds = %45
+  %52 = load i64, ptr %6, align 8
+  %53 = add i64 %52, 4096
+  %54 = sub i64 %53, 1
+  %55 = udiv i64 %54, 4096
+  store i64 %55, ptr %12, align 8
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds %struct.dsa_area, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds %struct.dsa_area_control, ptr %58, i32 0, i32 4
+  %60 = getelementptr [38 x %struct.dsa_area_pool], ptr %59, i64 0, i64 1
+  store ptr %60, ptr %15, align 8
+  %61 = load ptr, ptr %5, align 8
+  %62 = call i64 @alloc_object(ptr noundef %61, i32 noundef 0)
+  store i64 %62, ptr %14, align 8
+  %63 = load i64, ptr %14, align 8
+  %64 = icmp ne i64 %63, 0
+  br i1 %64, label %83, label %65
 
-64:                                               ; preds = %50
-  %65 = load i32, ptr %7, align 4
-  %66 = and i32 %65, 2
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %81
+65:                                               ; preds = %51
+  %66 = load i32, ptr %7, align 4
+  %67 = and i32 %66, 2
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %82
 
-68:                                               ; preds = %64
-  br label %69
-
-69:                                               ; preds = %68
-  br i1 true, label %70, label %72
+69:                                               ; preds = %65
+  br label %70
 
 70:                                               ; preds = %69
-  %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %71, label %74, label %79
+  br i1 true, label %71, label %73
 
-72:                                               ; preds = %69
-  %73 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %73, label %74, label %79
+71:                                               ; preds = %70
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  br i1 %72, label %75, label %80
 
-74:                                               ; preds = %72, %70
-  %75 = call i32 @errcode(i32 noundef 8389)
-  %76 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.3)
-  %77 = load i64, ptr %6, align 8
-  %78 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.4, i64 noundef %77)
+73:                                               ; preds = %70
+  %74 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %74, label %75, label %80
+
+75:                                               ; preds = %73, %71
+  %76 = call i32 @errcode(i32 noundef 8389)
+  %77 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.3)
+  %78 = load i64, ptr %6, align 8
+  %79 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.4, i64 noundef %78)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 724, ptr noundef @__func__.dsa_allocate_extended)
-  br label %79
+  br label %80
 
-79:                                               ; preds = %74, %72, %70
+80:                                               ; preds = %75, %73, %71
   unreachable
 
-80:                                               ; No predecessors!
-  br label %81
+81:                                               ; No predecessors!
+  br label %82
 
-81:                                               ; preds = %80, %64
+82:                                               ; preds = %81, %65
   store i64 0, ptr %4, align 8
-  br label %278
+  br label %280
 
-82:                                               ; preds = %50
-  %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds %struct.dsa_area, ptr %83, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct.dsa_area_control, ptr %85, i32 0, i32 12
-  %87 = call zeroext i1 @LWLockAcquire(ptr noundef %86, i32 noundef 0)
-  %88 = load ptr, ptr %5, align 8
-  %89 = load i64, ptr %12, align 8
-  %90 = call ptr @get_best_segment(ptr noundef %88, i64 noundef %89)
-  store ptr %90, ptr %10, align 8
-  %91 = load ptr, ptr %10, align 8
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %97
+83:                                               ; preds = %51
+  %84 = load ptr, ptr %5, align 8
+  %85 = getelementptr inbounds %struct.dsa_area, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds %struct.dsa_area_control, ptr %86, i32 0, i32 12
+  %88 = call zeroext i1 @LWLockAcquire(ptr noundef %87, i32 noundef 0)
+  %89 = load ptr, ptr %5, align 8
+  %90 = load i64, ptr %12, align 8
+  %91 = call ptr @get_best_segment(ptr noundef %89, i64 noundef %90)
+  store ptr %91, ptr %10, align 8
+  %92 = load ptr, ptr %10, align 8
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %94, label %98
 
-93:                                               ; preds = %82
-  %94 = load ptr, ptr %5, align 8
-  %95 = load i64, ptr %12, align 8
-  %96 = call ptr @make_new_segment(ptr noundef %94, i64 noundef %95)
-  store ptr %96, ptr %10, align 8
-  br label %97
+94:                                               ; preds = %83
+  %95 = load ptr, ptr %5, align 8
+  %96 = load i64, ptr %12, align 8
+  %97 = call ptr @make_new_segment(ptr noundef %95, i64 noundef %96)
+  store ptr %97, ptr %10, align 8
+  br label %98
 
-97:                                               ; preds = %93, %82
-  %98 = load ptr, ptr %10, align 8
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %124
+98:                                               ; preds = %94, %83
+  %99 = load ptr, ptr %10, align 8
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %101, label %125
 
-100:                                              ; preds = %97
-  %101 = load ptr, ptr %5, align 8
-  %102 = getelementptr inbounds %struct.dsa_area, ptr %101, i32 0, i32 0
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct.dsa_area_control, ptr %103, i32 0, i32 12
-  call void @LWLockRelease(ptr noundef %104)
-  %105 = load ptr, ptr %5, align 8
-  %106 = load i64, ptr %14, align 8
-  call void @dsa_free(ptr noundef %105, i64 noundef %106)
-  %107 = load i32, ptr %7, align 4
-  %108 = and i32 %107, 2
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %123
+101:                                              ; preds = %98
+  %102 = load ptr, ptr %5, align 8
+  %103 = getelementptr inbounds %struct.dsa_area, ptr %102, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds %struct.dsa_area_control, ptr %104, i32 0, i32 12
+  call void @LWLockRelease(ptr noundef %105)
+  %106 = load ptr, ptr %5, align 8
+  %107 = load i64, ptr %14, align 8
+  call void @dsa_free(ptr noundef %106, i64 noundef %107)
+  %108 = load i32, ptr %7, align 4
+  %109 = and i32 %108, 2
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %124
 
-110:                                              ; preds = %100
-  br label %111
-
-111:                                              ; preds = %110
-  br i1 true, label %112, label %114
+111:                                              ; preds = %101
+  br label %112
 
 112:                                              ; preds = %111
-  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %113, label %116, label %121
+  br i1 true, label %113, label %115
 
-114:                                              ; preds = %111
-  %115 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %115, label %116, label %121
+113:                                              ; preds = %112
+  %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  br i1 %114, label %117, label %122
 
-116:                                              ; preds = %114, %112
-  %117 = call i32 @errcode(i32 noundef 8389)
-  %118 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.3)
-  %119 = load i64, ptr %6, align 8
-  %120 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.4, i64 noundef %119)
+115:                                              ; preds = %112
+  %116 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %116, label %117, label %122
+
+117:                                              ; preds = %115, %113
+  %118 = call i32 @errcode(i32 noundef 8389)
+  %119 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.3)
+  %120 = load i64, ptr %6, align 8
+  %121 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.4, i64 noundef %120)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 746, ptr noundef @__func__.dsa_allocate_extended)
-  br label %121
+  br label %122
 
-121:                                              ; preds = %116, %114, %112
+122:                                              ; preds = %117, %115, %113
   unreachable
 
-122:                                              ; No predecessors!
-  br label %123
+123:                                              ; No predecessors!
+  br label %124
 
-123:                                              ; preds = %122, %100
+124:                                              ; preds = %123, %101
   store i64 0, ptr %4, align 8
-  br label %278
+  br label %280
 
-124:                                              ; preds = %97
-  %125 = load ptr, ptr %10, align 8
-  %126 = getelementptr inbounds %struct.dsa_segment_map, ptr %125, i32 0, i32 3
-  %127 = load ptr, ptr %126, align 8
-  %128 = load i64, ptr %12, align 8
-  %129 = call zeroext i1 @FreePageManagerGet(ptr noundef %127, i64 noundef %128, ptr noundef %13)
-  br i1 %129, label %141, label %130
+125:                                              ; preds = %98
+  %126 = load ptr, ptr %10, align 8
+  %127 = getelementptr inbounds %struct.dsa_segment_map, ptr %126, i32 0, i32 3
+  %128 = load ptr, ptr %127, align 8
+  %129 = load i64, ptr %12, align 8
+  %130 = call zeroext i1 @FreePageManagerGet(ptr noundef %128, i64 noundef %129, ptr noundef %13)
+  br i1 %130, label %142, label %131
 
-130:                                              ; preds = %124
-  br label %131
-
-131:                                              ; preds = %130
-  br i1 true, label %132, label %134
+131:                                              ; preds = %125
+  br label %132
 
 132:                                              ; preds = %131
-  %133 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #5
-  br i1 %133, label %136, label %139
+  br i1 true, label %133, label %135
 
-134:                                              ; preds = %131
-  %135 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %135, label %136, label %139
+133:                                              ; preds = %132
+  %134 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #5
+  br i1 %134, label %137, label %140
 
-136:                                              ; preds = %134, %132
-  %137 = load i64, ptr %12, align 8
-  %138 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5, i64 noundef %137)
+135:                                              ; preds = %132
+  %136 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %136, label %137, label %140
+
+137:                                              ; preds = %135, %133
+  %138 = load i64, ptr %12, align 8
+  %139 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.5, i64 noundef %138)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 759, ptr noundef @__func__.dsa_allocate_extended)
-  br label %139
+  br label %140
 
-139:                                              ; preds = %136, %134, %132
+140:                                              ; preds = %137, %135, %133
   unreachable
 
-140:                                              ; No predecessors!
-  br label %141
+141:                                              ; No predecessors!
+  br label %142
 
-141:                                              ; preds = %140, %124
-  %142 = load ptr, ptr %5, align 8
-  %143 = getelementptr inbounds %struct.dsa_area, ptr %142, i32 0, i32 0
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds %struct.dsa_area_control, ptr %144, i32 0, i32 12
-  call void @LWLockRelease(ptr noundef %145)
-  %146 = load ptr, ptr %10, align 8
-  %147 = load ptr, ptr %5, align 8
-  %148 = getelementptr inbounds %struct.dsa_area, ptr %147, i32 0, i32 2
-  %149 = getelementptr [1024 x %struct.dsa_segment_map], ptr %148, i64 0, i64 0
-  %150 = ptrtoint ptr %146 to i64
-  %151 = ptrtoint ptr %149 to i64
-  %152 = sub i64 %150, %151
-  %153 = sdiv exact i64 %152, 40
-  %154 = shl i64 %153, 40
-  %155 = load i64, ptr %13, align 8
-  %156 = mul i64 %155, 4096
-  %157 = or i64 %154, %156
-  store i64 %157, ptr %9, align 8
-  %158 = load ptr, ptr %5, align 8
-  %159 = getelementptr inbounds %struct.dsa_area, ptr %158, i32 0, i32 0
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds %struct.dsa_area_control, ptr %160, i32 0, i32 4
-  %162 = getelementptr [38 x %struct.dsa_area_pool], ptr %161, i64 0, i64 1
-  %163 = getelementptr inbounds %struct.dsa_area_pool, ptr %162, i32 0, i32 0
-  %164 = call zeroext i1 @LWLockAcquire(ptr noundef %163, i32 noundef 0)
-  %165 = load ptr, ptr %5, align 8
-  %166 = load i64, ptr %14, align 8
-  %167 = load ptr, ptr %15, align 8
-  %168 = load i64, ptr %9, align 8
-  %169 = load i64, ptr %12, align 8
-  call void @init_span(ptr noundef %165, i64 noundef %166, ptr noundef %167, i64 noundef %168, i64 noundef %169, i16 noundef zeroext 1)
-  %170 = load i64, ptr %14, align 8
-  %171 = load ptr, ptr %10, align 8
-  %172 = getelementptr inbounds %struct.dsa_segment_map, ptr %171, i32 0, i32 4
-  %173 = load ptr, ptr %172, align 8
-  %174 = load i64, ptr %13, align 8
-  %175 = getelementptr i64, ptr %173, i64 %174
-  store i64 %170, ptr %175, align 8
-  %176 = load ptr, ptr %5, align 8
-  %177 = getelementptr inbounds %struct.dsa_area, ptr %176, i32 0, i32 0
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds %struct.dsa_area_control, ptr %178, i32 0, i32 4
-  %180 = getelementptr [38 x %struct.dsa_area_pool], ptr %179, i64 0, i64 1
-  %181 = getelementptr inbounds %struct.dsa_area_pool, ptr %180, i32 0, i32 0
-  call void @LWLockRelease(ptr noundef %181)
-  %182 = load i32, ptr %7, align 4
-  %183 = and i32 %182, 4
-  %184 = icmp ne i32 %183, 0
-  br i1 %184, label %185, label %190
+142:                                              ; preds = %141, %125
+  %143 = load ptr, ptr %5, align 8
+  %144 = getelementptr inbounds %struct.dsa_area, ptr %143, i32 0, i32 0
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds %struct.dsa_area_control, ptr %145, i32 0, i32 12
+  call void @LWLockRelease(ptr noundef %146)
+  %147 = load ptr, ptr %10, align 8
+  %148 = load ptr, ptr %5, align 8
+  %149 = getelementptr inbounds %struct.dsa_area, ptr %148, i32 0, i32 2
+  %150 = getelementptr [1024 x %struct.dsa_segment_map], ptr %149, i64 0, i64 0
+  %151 = ptrtoint ptr %147 to i64
+  %152 = ptrtoint ptr %150 to i64
+  %153 = sub i64 %151, %152
+  %154 = sdiv exact i64 %153, 40
+  %155 = shl i64 %154, 40
+  %156 = load i64, ptr %13, align 8
+  %157 = mul i64 %156, 4096
+  %158 = or i64 %155, %157
+  store i64 %158, ptr %9, align 8
+  %159 = load ptr, ptr %5, align 8
+  %160 = getelementptr inbounds %struct.dsa_area, ptr %159, i32 0, i32 0
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr inbounds %struct.dsa_area_control, ptr %161, i32 0, i32 4
+  %163 = getelementptr [38 x %struct.dsa_area_pool], ptr %162, i64 0, i64 1
+  %164 = getelementptr inbounds %struct.dsa_area_pool, ptr %163, i32 0, i32 0
+  %165 = call zeroext i1 @LWLockAcquire(ptr noundef %164, i32 noundef 0)
+  %166 = load ptr, ptr %5, align 8
+  %167 = load i64, ptr %14, align 8
+  %168 = load ptr, ptr %15, align 8
+  %169 = load i64, ptr %9, align 8
+  %170 = load i64, ptr %12, align 8
+  call void @init_span(ptr noundef %166, i64 noundef %167, ptr noundef %168, i64 noundef %169, i64 noundef %170, i16 noundef zeroext 1)
+  %171 = load i64, ptr %14, align 8
+  %172 = load ptr, ptr %10, align 8
+  %173 = getelementptr inbounds %struct.dsa_segment_map, ptr %172, i32 0, i32 4
+  %174 = load ptr, ptr %173, align 8
+  %175 = load i64, ptr %13, align 8
+  %176 = getelementptr i64, ptr %174, i64 %175
+  store i64 %171, ptr %176, align 8
+  %177 = load ptr, ptr %5, align 8
+  %178 = getelementptr inbounds %struct.dsa_area, ptr %177, i32 0, i32 0
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds %struct.dsa_area_control, ptr %179, i32 0, i32 4
+  %181 = getelementptr [38 x %struct.dsa_area_pool], ptr %180, i64 0, i64 1
+  %182 = getelementptr inbounds %struct.dsa_area_pool, ptr %181, i32 0, i32 0
+  call void @LWLockRelease(ptr noundef %182)
+  %183 = load i32, ptr %7, align 4
+  %184 = and i32 %183, 4
+  %185 = icmp ne i32 %184, 0
+  br i1 %185, label %186, label %191
 
-185:                                              ; preds = %141
-  %186 = load ptr, ptr %5, align 8
-  %187 = load i64, ptr %9, align 8
-  %188 = call ptr @dsa_get_address(ptr noundef %186, i64 noundef %187)
-  %189 = load i64, ptr %6, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %188, i8 0, i64 %189, i1 false)
-  br label %190
+186:                                              ; preds = %142
+  %187 = load ptr, ptr %5, align 8
+  %188 = load i64, ptr %9, align 8
+  %189 = call ptr @dsa_get_address(ptr noundef %187, i64 noundef %188)
+  %190 = load i64, ptr %6, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %189, i8 0, i64 %190, i1 false)
+  br label %191
 
-190:                                              ; preds = %185, %141
-  %191 = load i64, ptr %9, align 8
-  store i64 %191, ptr %4, align 8
-  br label %278
+191:                                              ; preds = %186, %142
+  %192 = load i64, ptr %9, align 8
+  store i64 %192, ptr %4, align 8
+  br label %280
 
-192:                                              ; preds = %45
-  %193 = load i64, ptr %6, align 8
-  %194 = icmp ult i64 %193, 1024
-  br i1 %194, label %195, label %207
+193:                                              ; preds = %45
+  %194 = load i64, ptr %6, align 8
+  %195 = icmp ult i64 %194, 1024
+  br i1 %195, label %196, label %208
 
-195:                                              ; preds = %192
-  %196 = load i64, ptr %6, align 8
-  %197 = add i64 %196, 8
-  %198 = sub i64 %197, 1
-  %199 = udiv i64 %198, 8
-  %200 = sub i64 %199, 1
-  %201 = trunc i64 %200 to i32
-  store i32 %201, ptr %16, align 4
-  %202 = load i32, ptr %16, align 4
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr [128 x i8], ptr @dsa_size_class_map, i64 0, i64 %203
-  %205 = load i8, ptr %204, align 1
-  %206 = zext i8 %205 to i16
-  store i16 %206, ptr %8, align 2
-  br label %242
+196:                                              ; preds = %193
+  %197 = load i64, ptr %6, align 8
+  %198 = add i64 %197, 8
+  %199 = sub i64 %198, 1
+  %200 = udiv i64 %199, 8
+  %201 = sub i64 %200, 1
+  %202 = trunc i64 %201 to i32
+  store i32 %202, ptr %16, align 4
+  %203 = load i32, ptr %16, align 4
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr [128 x i8], ptr @dsa_size_class_map, i64 0, i64 %204
+  %206 = load i8, ptr %205, align 1
+  %207 = zext i8 %206 to i16
+  store i16 %207, ptr %8, align 2
+  br label %244
 
-207:                                              ; preds = %192
-  %208 = load i8, ptr getelementptr inbounds ([128 x i8], ptr @dsa_size_class_map, i64 0, i64 127), align 1
-  %209 = zext i8 %208 to i16
-  store i16 %209, ptr %17, align 2
+208:                                              ; preds = %193
+  %209 = getelementptr inbounds [128 x i8], ptr @dsa_size_class_map, i64 0, i64 127
+  %210 = load i8, ptr %209, align 1
+  %211 = zext i8 %210 to i16
+  store i16 %211, ptr %17, align 2
   store i16 37, ptr %18, align 2
-  br label %210
+  br label %212
 
-210:                                              ; preds = %239, %207
-  %211 = load i16, ptr %17, align 2
-  %212 = zext i16 %211 to i32
-  %213 = load i16, ptr %18, align 2
+212:                                              ; preds = %241, %208
+  %213 = load i16, ptr %17, align 2
   %214 = zext i16 %213 to i32
-  %215 = icmp slt i32 %212, %214
-  br i1 %215, label %216, label %240
+  %215 = load i16, ptr %18, align 2
+  %216 = zext i16 %215 to i32
+  %217 = icmp slt i32 %214, %216
+  br i1 %217, label %218, label %242
 
-216:                                              ; preds = %210
-  %217 = load i16, ptr %17, align 2
-  %218 = zext i16 %217 to i32
-  %219 = load i16, ptr %18, align 2
+218:                                              ; preds = %212
+  %219 = load i16, ptr %17, align 2
   %220 = zext i16 %219 to i32
-  %221 = add i32 %218, %220
-  %222 = sdiv i32 %221, 2
-  %223 = trunc i32 %222 to i16
-  store i16 %223, ptr %19, align 2
-  %224 = load i16, ptr %19, align 2
-  %225 = zext i16 %224 to i64
-  %226 = getelementptr [38 x i16], ptr @dsa_size_classes, i64 0, i64 %225
-  %227 = load i16, ptr %226, align 2
-  store i16 %227, ptr %20, align 2
-  %228 = load i16, ptr %20, align 2
-  %229 = zext i16 %228 to i64
-  %230 = load i64, ptr %6, align 8
-  %231 = icmp ult i64 %229, %230
-  br i1 %231, label %232, label %237
+  %221 = load i16, ptr %18, align 2
+  %222 = zext i16 %221 to i32
+  %223 = add i32 %220, %222
+  %224 = sdiv i32 %223, 2
+  %225 = trunc i32 %224 to i16
+  store i16 %225, ptr %19, align 2
+  %226 = load i16, ptr %19, align 2
+  %227 = zext i16 %226 to i64
+  %228 = getelementptr [38 x i16], ptr @dsa_size_classes, i64 0, i64 %227
+  %229 = load i16, ptr %228, align 2
+  store i16 %229, ptr %20, align 2
+  %230 = load i16, ptr %20, align 2
+  %231 = zext i16 %230 to i64
+  %232 = load i64, ptr %6, align 8
+  %233 = icmp ult i64 %231, %232
+  br i1 %233, label %234, label %239
 
-232:                                              ; preds = %216
-  %233 = load i16, ptr %19, align 2
-  %234 = zext i16 %233 to i32
-  %235 = add i32 %234, 1
-  %236 = trunc i32 %235 to i16
-  store i16 %236, ptr %17, align 2
-  br label %239
+234:                                              ; preds = %218
+  %235 = load i16, ptr %19, align 2
+  %236 = zext i16 %235 to i32
+  %237 = add i32 %236, 1
+  %238 = trunc i32 %237 to i16
+  store i16 %238, ptr %17, align 2
+  br label %241
 
-237:                                              ; preds = %216
-  %238 = load i16, ptr %19, align 2
-  store i16 %238, ptr %18, align 2
-  br label %239
+239:                                              ; preds = %218
+  %240 = load i16, ptr %19, align 2
+  store i16 %240, ptr %18, align 2
+  br label %241
 
-239:                                              ; preds = %237, %232
-  br label %210, !llvm.loop !10
+241:                                              ; preds = %239, %234
+  br label %212, !llvm.loop !10
 
-240:                                              ; preds = %210
-  %241 = load i16, ptr %17, align 2
-  store i16 %241, ptr %8, align 2
-  br label %242
+242:                                              ; preds = %212
+  %243 = load i16, ptr %17, align 2
+  store i16 %243, ptr %8, align 2
+  br label %244
 
-242:                                              ; preds = %240, %195
-  %243 = load ptr, ptr %5, align 8
-  %244 = load i16, ptr %8, align 2
-  %245 = zext i16 %244 to i32
-  %246 = call i64 @alloc_object(ptr noundef %243, i32 noundef %245)
-  store i64 %246, ptr %11, align 8
-  %247 = load i64, ptr %11, align 8
-  %248 = icmp ne i64 %247, 0
-  br i1 %248, label %267, label %249
+244:                                              ; preds = %242, %196
+  %245 = load ptr, ptr %5, align 8
+  %246 = load i16, ptr %8, align 2
+  %247 = zext i16 %246 to i32
+  %248 = call i64 @alloc_object(ptr noundef %245, i32 noundef %247)
+  store i64 %248, ptr %11, align 8
+  %249 = load i64, ptr %11, align 8
+  %250 = icmp ne i64 %249, 0
+  br i1 %250, label %269, label %251
 
-249:                                              ; preds = %242
-  %250 = load i32, ptr %7, align 4
-  %251 = and i32 %250, 2
-  %252 = icmp eq i32 %251, 0
-  br i1 %252, label %253, label %266
+251:                                              ; preds = %244
+  %252 = load i32, ptr %7, align 4
+  %253 = and i32 %252, 2
+  %254 = icmp eq i32 %253, 0
+  br i1 %254, label %255, label %268
 
-253:                                              ; preds = %249
-  br label %254
+255:                                              ; preds = %251
+  br label %256
 
-254:                                              ; preds = %253
-  br i1 true, label %255, label %257
+256:                                              ; preds = %255
+  br i1 true, label %257, label %259
 
-255:                                              ; preds = %254
-  %256 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %256, label %259, label %264
+257:                                              ; preds = %256
+  %258 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  br i1 %258, label %261, label %266
 
-257:                                              ; preds = %254
-  %258 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %258, label %259, label %264
+259:                                              ; preds = %256
+  %260 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %260, label %261, label %266
 
-259:                                              ; preds = %257, %255
-  %260 = call i32 @errcode(i32 noundef 8389)
-  %261 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.3)
-  %262 = load i64, ptr %6, align 8
-  %263 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.4, i64 noundef %262)
+261:                                              ; preds = %259, %257
+  %262 = call i32 @errcode(i32 noundef 8389)
+  %263 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.3)
+  %264 = load i64, ptr %6, align 8
+  %265 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.4, i64 noundef %264)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 826, ptr noundef @__func__.dsa_allocate_extended)
-  br label %264
-
-264:                                              ; preds = %259, %257, %255
-  unreachable
-
-265:                                              ; No predecessors!
   br label %266
 
-266:                                              ; preds = %265, %249
+266:                                              ; preds = %261, %259, %257
+  unreachable
+
+267:                                              ; No predecessors!
+  br label %268
+
+268:                                              ; preds = %267, %251
   store i64 0, ptr %4, align 8
+  br label %280
+
+269:                                              ; preds = %244
+  %270 = load i32, ptr %7, align 4
+  %271 = and i32 %270, 4
+  %272 = icmp ne i32 %271, 0
+  br i1 %272, label %273, label %278
+
+273:                                              ; preds = %269
+  %274 = load ptr, ptr %5, align 8
+  %275 = load i64, ptr %11, align 8
+  %276 = call ptr @dsa_get_address(ptr noundef %274, i64 noundef %275)
+  %277 = load i64, ptr %6, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %276, i8 0, i64 %277, i1 false)
   br label %278
 
-267:                                              ; preds = %242
-  %268 = load i32, ptr %7, align 4
-  %269 = and i32 %268, 4
-  %270 = icmp ne i32 %269, 0
-  br i1 %270, label %271, label %276
+278:                                              ; preds = %273, %269
+  %279 = load i64, ptr %11, align 8
+  store i64 %279, ptr %4, align 8
+  br label %280
 
-271:                                              ; preds = %267
-  %272 = load ptr, ptr %5, align 8
-  %273 = load i64, ptr %11, align 8
-  %274 = call ptr @dsa_get_address(ptr noundef %272, i64 noundef %273)
-  %275 = load i64, ptr %6, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %274, i8 0, i64 %275, i1 false)
-  br label %276
-
-276:                                              ; preds = %271, %267
-  %277 = load i64, ptr %11, align 8
-  store i64 %277, ptr %4, align 8
-  br label %278
-
-278:                                              ; preds = %276, %266, %190, %123, %81
-  %279 = load i64, ptr %4, align 8
-  ret i64 %279
+280:                                              ; preds = %278, %268, %191, %124, %82
+  %281 = load i64, ptr %4, align 8
+  ret i64 %281
 }
 
 declare i32 @errmsg_internal(ptr noundef, ...) #1

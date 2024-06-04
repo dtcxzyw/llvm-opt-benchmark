@@ -1152,70 +1152,84 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i32 noundef 436207630)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 1), i32 noundef 1162669)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 2), i32 noundef 683672015)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 3), i32 noundef 50287021)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 4), i32 noundef 46137804)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 5), i32 noundef 4523437)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 6), i32 noundef 683680140)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 7), i32 noundef 1275068896)
+  %2 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 1
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %2, i32 noundef 1162669)
+  %3 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 2
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %3, i32 noundef 683672015)
+  %4 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 3
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %4, i32 noundef 50287021)
+  %5 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 4
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %5, i32 noundef 46137804)
+  %6 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 5
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %6, i32 noundef 4523437)
+  %7 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 6
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %7, i32 noundef 683680140)
+  %8 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 7
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %8, i32 noundef 1275068896)
   call void @__cxa_guard_release(ptr @_ZGVZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64) #3
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
-  %2 = load atomic i8, ptr @_ZGVZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32 acquire, align 8
-  %guard.uninitialized1 = icmp eq i8 %2, 0
+  %9 = load atomic i8, ptr @_ZGVZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32 acquire, align 8
+  %guard.uninitialized1 = icmp eq i8 %9, 0
   br i1 %guard.uninitialized1, label %init.check2, label %init.end5, !prof !4
 
 init.check2:                                      ; preds = %init.end
-  %3 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32) #3
-  %tobool3 = icmp ne i32 %3, 0
+  %10 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32) #3
+  %tobool3 = icmp ne i32 %10, 0
   br i1 %tobool3, label %init4, label %init.end5
 
 init4:                                            ; preds = %init.check2
   call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i32 noundef 436207630)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 1), i32 noundef 1129901)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 2), i32 noundef 679477711)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 3), i32 noundef 46092717)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 4), i32 noundef 41943500)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 5), i32 noundef 4491693)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 6), i32 noundef 679481740)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 7), i32 noundef 1275068896)
+  %11 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 1
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %11, i32 noundef 1129901)
+  %12 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 2
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %12, i32 noundef 679477711)
+  %13 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 3
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %13, i32 noundef 46092717)
+  %14 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 4
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %14, i32 noundef 41943500)
+  %15 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 5
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %15, i32 noundef 4491693)
+  %16 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 6
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %16, i32 noundef 679481740)
+  %17 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32, i64 7
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %17, i32 noundef 1275068896)
   call void @__cxa_guard_release(ptr @_ZGVZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_32) #3
   br label %init.end5
 
 init.end5:                                        ; preds = %init4, %init.check2, %init.end
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %gotplt6 = getelementptr inbounds %"struct.mold::elf::Context", ptr %4, i32 0, i32 49
-  %5 = load ptr, ptr %gotplt6, align 8
-  %shdr = getelementptr inbounds %"class.mold::elf::Chunk", ptr %5, i32 0, i32 2
+  %18 = load ptr, ptr %ctx.addr, align 8
+  %gotplt6 = getelementptr inbounds %"struct.mold::elf::Context", ptr %18, i32 0, i32 49
+  %19 = load ptr, ptr %gotplt6, align 8
+  %shdr = getelementptr inbounds %"class.mold::elf::Chunk", ptr %19, i32 0, i32 2
   %sh_addr = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %shdr, i32 0, i32 3
   %call = call noundef i64 @_ZNK4mold12LittleEndianImLi8EEcvmEv(ptr noundef nonnull align 1 dereferenceable(8) %sh_addr)
   store i64 %call, ptr %gotplt, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %plt7 = getelementptr inbounds %"struct.mold::elf::Context", ptr %6, i32 0, i32 59
-  %7 = load ptr, ptr %plt7, align 8
-  %shdr8 = getelementptr inbounds %"class.mold::elf::Chunk", ptr %7, i32 0, i32 2
+  %20 = load ptr, ptr %ctx.addr, align 8
+  %plt7 = getelementptr inbounds %"struct.mold::elf::Context", ptr %20, i32 0, i32 59
+  %21 = load ptr, ptr %plt7, align 8
+  %shdr8 = getelementptr inbounds %"class.mold::elf::Chunk", ptr %21, i32 0, i32 2
   %sh_addr9 = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %shdr8, i32 0, i32 3
   %call10 = call noundef i64 @_ZNK4mold12LittleEndianImLi8EEcvmEv(ptr noundef nonnull align 1 dereferenceable(8) %sh_addr9)
   store i64 %call10, ptr %plt, align 8
-  %8 = load ptr, ptr %buf.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 16 @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 32, i1 false)
-  %9 = load ptr, ptr %buf.addr, align 8
-  %10 = load i64, ptr %gotplt, align 8
-  %11 = load i64, ptr %plt, align 8
-  %call11 = call noundef i64 @_ZN4mold3elfL4hi20Emm(i64 noundef %10, i64 noundef %11)
+  %22 = load ptr, ptr %buf.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 16 @_ZZN4mold3elf16write_plt_headerINS0_11LOONGARCH64EEEvRNS0_7ContextIT_EEPhE7insn_64, i64 32, i1 false)
+  %23 = load ptr, ptr %buf.addr, align 8
+  %24 = load i64, ptr %gotplt, align 8
+  %25 = load i64, ptr %plt, align 8
+  %call11 = call noundef i64 @_ZN4mold3elfL4hi20Emm(i64 noundef %24, i64 noundef %25)
   %conv = trunc i64 %call11 to i32
-  call void @_ZN4mold3elfL9write_j20EPhj(ptr noundef %9, i32 noundef %conv)
-  %12 = load ptr, ptr %buf.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load i64, ptr %gotplt, align 8
-  %conv12 = trunc i64 %13 to i32
+  call void @_ZN4mold3elfL9write_j20EPhj(ptr noundef %23, i32 noundef %conv)
+  %26 = load ptr, ptr %buf.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = load i64, ptr %gotplt, align 8
+  %conv12 = trunc i64 %27 to i32
   call void @_ZN4mold3elfL9write_k12EPhj(ptr noundef %add.ptr, i32 noundef %conv12)
-  %14 = load ptr, ptr %buf.addr, align 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %14, i64 16
-  %15 = load i64, ptr %gotplt, align 8
-  %conv14 = trunc i64 %15 to i32
+  %28 = load ptr, ptr %buf.addr, align 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i64, ptr %gotplt, align 8
+  %conv14 = trunc i64 %29 to i32
   call void @_ZN4mold3elfL9write_k12EPhj(ptr noundef %add.ptr13, i32 noundef %conv14)
   ret void
 }
@@ -1309,9 +1323,12 @@ entry:
 define internal void @__cxx_global_var_init.4() #0 section ".text.startup" {
 entry:
   call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZN4mold3elfL12plt_entry_64E, i32 noundef 436207631)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZN4mold3elfL12plt_entry_64E, i64 1), i32 noundef 683672047)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZN4mold3elfL12plt_entry_64E, i64 2), i32 noundef 1275068909)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZN4mold3elfL12plt_entry_64E, i64 3), i32 noundef 54525952)
+  %0 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZN4mold3elfL12plt_entry_64E, i64 1
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %0, i32 noundef 683672047)
+  %1 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZN4mold3elfL12plt_entry_64E, i64 2
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %1, i32 noundef 1275068909)
+  %2 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZN4mold3elfL12plt_entry_64E, i64 3
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %2, i32 noundef 54525952)
   ret void
 }
 
@@ -1319,9 +1336,12 @@ entry:
 define internal void @__cxx_global_var_init.5() #0 section ".text.startup" {
 entry:
   call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZN4mold3elfL12plt_entry_32E, i32 noundef 436207631)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZN4mold3elfL12plt_entry_32E, i64 1), i32 noundef 679477743)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZN4mold3elfL12plt_entry_32E, i64 2), i32 noundef 1275068909)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZN4mold3elfL12plt_entry_32E, i64 3), i32 noundef 54525952)
+  %0 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZN4mold3elfL12plt_entry_32E, i64 1
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %0, i32 noundef 679477743)
+  %1 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZN4mold3elfL12plt_entry_32E, i64 2
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %1, i32 noundef 1275068909)
+  %2 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZN4mold3elfL12plt_entry_32E, i64 3
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %2, i32 noundef 54525952)
   ret void
 }
 
@@ -4864,41 +4884,42 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) @_ZZN4mold3elf5ThunkINS0_11LOONGARCH64EE8copy_bufERNS0_7ContextIS2_EEE4insn, i32 noundef 503316492)
-  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) getelementptr inbounds (%"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_11LOONGARCH64EE8copy_bufERNS0_7ContextIS2_EEE4insn, i64 1), i32 noundef 1275068800)
+  %2 = getelementptr inbounds %"class.mold::LittleEndian", ptr @_ZZN4mold3elf5ThunkINS0_11LOONGARCH64EE8copy_bufERNS0_7ContextIS2_EEE4insn, i64 1
+  call void @_ZN4mold12LittleEndianIjLi4EEC2Ej(ptr noundef nonnull align 1 dereferenceable(4) %2, i32 noundef 1275068800)
   call void @__cxa_guard_release(ptr @_ZGVZN4mold3elf5ThunkINS0_11LOONGARCH64EE8copy_bufERNS0_7ContextIS2_EEE4insn) #3
   br label %init.end
 
 init.end:                                         ; preds = %init, %init.check, %entry
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %buf2 = getelementptr inbounds %"struct.mold::elf::Context", ptr %2, i32 0, i32 37
-  %3 = load ptr, ptr %buf2, align 8
+  %3 = load ptr, ptr %ctx.addr, align 8
+  %buf2 = getelementptr inbounds %"struct.mold::elf::Context", ptr %3, i32 0, i32 37
+  %4 = load ptr, ptr %buf2, align 8
   %output_section = getelementptr inbounds %"class.mold::elf::Thunk", ptr %this1, i32 0, i32 0
-  %4 = load ptr, ptr %output_section, align 8
-  %shdr = getelementptr inbounds %"class.mold::elf::Chunk", ptr %4, i32 0, i32 2
+  %5 = load ptr, ptr %output_section, align 8
+  %shdr = getelementptr inbounds %"class.mold::elf::Chunk", ptr %5, i32 0, i32 2
   %sh_offset = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %shdr, i32 0, i32 4
   %call = call noundef i64 @_ZNK4mold12LittleEndianImLi8EEcvmEv(ptr noundef nonnull align 1 dereferenceable(8) %sh_offset)
-  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %call
+  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %call
   %offset = getelementptr inbounds %"class.mold::elf::Thunk", ptr %this1, i32 0, i32 1
-  %5 = load i64, ptr %offset, align 8
-  %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 %5
+  %6 = load i64, ptr %offset, align 8
+  %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 %6
   store ptr %add.ptr3, ptr %buf, align 8
   %output_section4 = getelementptr inbounds %"class.mold::elf::Thunk", ptr %this1, i32 0, i32 0
-  %6 = load ptr, ptr %output_section4, align 8
-  %shdr5 = getelementptr inbounds %"class.mold::elf::Chunk", ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %output_section4, align 8
+  %shdr5 = getelementptr inbounds %"class.mold::elf::Chunk", ptr %7, i32 0, i32 2
   %sh_addr = getelementptr inbounds %"struct.mold::elf::ElfShdr", ptr %shdr5, i32 0, i32 3
   %call6 = call noundef i64 @_ZNK4mold12LittleEndianImLi8EEcvmEv(ptr noundef nonnull align 1 dereferenceable(8) %sh_addr)
   %offset7 = getelementptr inbounds %"class.mold::elf::Thunk", ptr %this1, i32 0, i32 1
-  %7 = load i64, ptr %offset7, align 8
-  %add = add i64 %call6, %7
+  %8 = load i64, ptr %offset7, align 8
+  %add = add i64 %call6, %8
   store i64 %add, ptr %P, align 8
   %symbols = getelementptr inbounds %"class.mold::elf::Thunk", ptr %this1, i32 0, i32 3
   store ptr %symbols, ptr %__range2, align 8
-  %8 = load ptr, ptr %__range2, align 8
-  %call8 = call ptr @_ZNSt6vectorIPN4mold3elf6SymbolINS1_11LOONGARCH64EEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = load ptr, ptr %__range2, align 8
+  %call8 = call ptr @_ZNSt6vectorIPN4mold3elf6SymbolINS1_11LOONGARCH64EEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin2, i32 0, i32 0
   store ptr %call8, ptr %coerce.dive, align 8
-  %9 = load ptr, ptr %__range2, align 8
-  %call9 = call ptr @_ZNSt6vectorIPN4mold3elf6SymbolINS1_11LOONGARCH64EEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = load ptr, ptr %__range2, align 8
+  %call9 = call ptr @_ZNSt6vectorIPN4mold3elf6SymbolINS1_11LOONGARCH64EEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
   %coerce.dive10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end2, i32 0, i32 0
   store ptr %call9, ptr %coerce.dive10, align 8
   br label %for.cond
@@ -4910,35 +4931,35 @@ for.cond:                                         ; preds = %for.inc, %init.end
 
 for.body:                                         ; preds = %for.cond
   %call12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS2_11LOONGARCH64EEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #3
-  %10 = load ptr, ptr %call12, align 8
-  store ptr %10, ptr %sym, align 8
-  %11 = load ptr, ptr %sym, align 8
-  %12 = load ptr, ptr %ctx.addr, align 8
-  %call13 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_11LOONGARCH64EE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(4568) %12, i64 noundef 0)
+  %11 = load ptr, ptr %call12, align 8
+  store ptr %11, ptr %sym, align 8
+  %12 = load ptr, ptr %sym, align 8
+  %13 = load ptr, ptr %ctx.addr, align 8
+  %call13 = call noundef i64 @_ZNK4mold3elf6SymbolINS0_11LOONGARCH64EE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(4568) %13, i64 noundef 0)
   store i64 %call13, ptr %S, align 8
-  %13 = load ptr, ptr %buf, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 @_ZZN4mold3elf5ThunkINS0_11LOONGARCH64EE8copy_bufERNS0_7ContextIS2_EEE4insn, i64 8, i1 false)
   %14 = load ptr, ptr %buf, align 8
-  %15 = load i64, ptr %S, align 8
-  %16 = load i64, ptr %P, align 8
-  %sub = sub i64 %15, %16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 @_ZZN4mold3elf5ThunkINS0_11LOONGARCH64EE8copy_bufERNS0_7ContextIS2_EEE4insn, i64 8, i1 false)
+  %15 = load ptr, ptr %buf, align 8
+  %16 = load i64, ptr %S, align 8
+  %17 = load i64, ptr %P, align 8
+  %sub = sub i64 %16, %17
   %add14 = add i64 %sub, 131072
   %shr = lshr i64 %add14, 18
   %conv = trunc i64 %shr to i32
-  call void @_ZN4mold3elfL9write_j20EPhj(ptr noundef %14, i32 noundef %conv)
-  %17 = load ptr, ptr %buf, align 8
-  %add.ptr15 = getelementptr inbounds i8, ptr %17, i64 4
-  %18 = load i64, ptr %S, align 8
-  %19 = load i64, ptr %P, align 8
-  %sub16 = sub i64 %18, %19
+  call void @_ZN4mold3elfL9write_j20EPhj(ptr noundef %15, i32 noundef %conv)
+  %18 = load ptr, ptr %buf, align 8
+  %add.ptr15 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = load i64, ptr %S, align 8
+  %20 = load i64, ptr %P, align 8
+  %sub16 = sub i64 %19, %20
   %shr17 = lshr i64 %sub16, 2
   %conv18 = trunc i64 %shr17 to i32
   call void @_ZN4mold3elfL9write_k16EPhj(ptr noundef %add.ptr15, i32 noundef %conv18)
-  %20 = load ptr, ptr %buf, align 8
-  %add.ptr19 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load ptr, ptr %buf, align 8
+  %add.ptr19 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %add.ptr19, ptr %buf, align 8
-  %21 = load i64, ptr %P, align 8
-  %add20 = add i64 %21, 8
+  %22 = load i64, ptr %P, align 8
+  %add20 = add i64 %22, 8
   store i64 %add20, ptr %P, align 8
   br label %for.inc
 

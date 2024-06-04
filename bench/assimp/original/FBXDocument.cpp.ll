@@ -2213,13 +2213,13 @@ invoke.cont82:                                    ; preds = %invoke.cont80
   store i64 %sub.ptr.sub, ptr %length, align 8
   %59 = load ptr, ptr %obtype, align 8
   %60 = load i64, ptr %length, align 8
-  %call84 = call i32 @strncmp(ptr noundef %59, ptr noundef @.str.2, i64 noundef %60) #13
+  %call84 = call i32 @strncmp(ptr noundef %59, ptr noundef @.str.2, i64 noundef %60) #12
   %tobool85 = icmp ne i32 %call84, 0
   br i1 %tobool85, label %if.else, label %if.then86
 
 if.then86:                                        ; preds = %invoke.cont82
   %call87 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call88 = call i32 @strcmp(ptr noundef %call87, ptr noundef @.str.3) #13
+  %call88 = call i32 @strcmp(ptr noundef %call87, ptr noundef @.str.3) #12
   %tobool89 = icmp ne i32 %call88, 0
   br i1 %tobool89, label %if.end98, label %if.then90
 
@@ -2267,7 +2267,7 @@ lpad95:                                           ; preds = %invoke.cont92
 
 if.end98:                                         ; preds = %invoke.cont96, %if.then86
   %call99 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call100 = call i32 @strcmp(ptr noundef %call99, ptr noundef @.str.4) #13
+  %call100 = call i32 @strcmp(ptr noundef %call99, ptr noundef @.str.4) #12
   %tobool101 = icmp ne i32 %call100, 0
   br i1 %tobool101, label %if.end112, label %if.then102
 
@@ -2304,7 +2304,7 @@ lpad109:                                          ; preds = %invoke.cont104
 
 if.end112:                                        ; preds = %invoke.cont110, %if.end98
   %call113 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call114 = call i32 @strcmp(ptr noundef %call113, ptr noundef @.str.5) #13
+  %call114 = call i32 @strcmp(ptr noundef %call113, ptr noundef @.str.5) #12
   %tobool115 = icmp ne i32 %call114, 0
   br i1 %tobool115, label %if.end126, label %if.then116
 
@@ -2345,13 +2345,13 @@ if.end126:                                        ; preds = %invoke.cont124, %if
 if.else:                                          ; preds = %invoke.cont82
   %82 = load ptr, ptr %obtype, align 8
   %83 = load i64, ptr %length, align 8
-  %call127 = call i32 @strncmp(ptr noundef %82, ptr noundef @.str.6, i64 noundef %83) #13
+  %call127 = call i32 @strncmp(ptr noundef %82, ptr noundef @.str.6, i64 noundef %83) #12
   %tobool128 = icmp ne i32 %call127, 0
   br i1 %tobool128, label %if.else204, label %if.then129
 
 if.then129:                                       ; preds = %if.else
   %call130 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call131 = call i32 @strcmp(ptr noundef %call130, ptr noundef @.str.7) #13
+  %call131 = call i32 @strcmp(ptr noundef %call130, ptr noundef @.str.7) #12
   %tobool132 = icmp ne i32 %call131, 0
   br i1 %tobool132, label %if.else143, label %if.then133
 
@@ -2388,7 +2388,7 @@ lpad140:                                          ; preds = %invoke.cont135
 
 if.else143:                                       ; preds = %if.then129
   %call144 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call145 = call i32 @strcmp(ptr noundef %call144, ptr noundef @.str.8) #13
+  %call145 = call i32 @strcmp(ptr noundef %call144, ptr noundef @.str.8) #12
   %tobool146 = icmp ne i32 %call145, 0
   br i1 %tobool146, label %if.else157, label %if.then147
 
@@ -2425,7 +2425,7 @@ lpad154:                                          ; preds = %invoke.cont149
 
 if.else157:                                       ; preds = %if.else143
   %call158 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call159 = call i32 @strcmp(ptr noundef %call158, ptr noundef @.str.9) #13
+  %call159 = call i32 @strcmp(ptr noundef %call158, ptr noundef @.str.9) #12
   %tobool160 = icmp ne i32 %call159, 0
   br i1 %tobool160, label %if.else171, label %if.then161
 
@@ -2462,7 +2462,7 @@ lpad168:                                          ; preds = %invoke.cont163
 
 if.else171:                                       ; preds = %if.else157
   %call172 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call173 = call i32 @strcmp(ptr noundef %call172, ptr noundef @.str.10) #13
+  %call173 = call i32 @strcmp(ptr noundef %call172, ptr noundef @.str.10) #12
   %tobool174 = icmp ne i32 %call173, 0
   br i1 %tobool174, label %if.else185, label %if.then175
 
@@ -2499,7 +2499,7 @@ lpad182:                                          ; preds = %invoke.cont177
 
 if.else185:                                       ; preds = %if.else171
   %call186 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call187 = call i32 @strcmp(ptr noundef %call186, ptr noundef @.str.11) #13
+  %call187 = call i32 @strcmp(ptr noundef %call186, ptr noundef @.str.11) #12
   %tobool188 = icmp ne i32 %call187, 0
   br i1 %tobool188, label %if.end199, label %if.then189
 
@@ -2552,13 +2552,13 @@ if.end203:                                        ; preds = %if.end202, %invoke.
 if.else204:                                       ; preds = %if.else
   %114 = load ptr, ptr %obtype, align 8
   %115 = load i64, ptr %length, align 8
-  %call205 = call i32 @strncmp(ptr noundef %114, ptr noundef @.str.12, i64 noundef %115) #13
+  %call205 = call i32 @strncmp(ptr noundef %114, ptr noundef @.str.12, i64 noundef %115) #12
   %tobool206 = icmp ne i32 %call205, 0
   br i1 %tobool206, label %if.else267, label %if.then207
 
 if.then207:                                       ; preds = %if.else204
   %call208 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call209 = call i32 @strcmp(ptr noundef %call208, ptr noundef @.str.13) #13
+  %call209 = call i32 @strcmp(ptr noundef %call208, ptr noundef @.str.13) #12
   %tobool210 = icmp ne i32 %call209, 0
   br i1 %tobool210, label %if.else221, label %if.then211
 
@@ -2595,7 +2595,7 @@ lpad218:                                          ; preds = %invoke.cont213
 
 if.else221:                                       ; preds = %if.then207
   %call222 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call223 = call i32 @strcmp(ptr noundef %call222, ptr noundef @.str.14) #13
+  %call223 = call i32 @strcmp(ptr noundef %call222, ptr noundef @.str.14) #12
   %tobool224 = icmp ne i32 %call223, 0
   br i1 %tobool224, label %if.else235, label %if.then225
 
@@ -2632,7 +2632,7 @@ lpad232:                                          ; preds = %invoke.cont227
 
 if.else235:                                       ; preds = %if.else221
   %call236 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call237 = call i32 @strcmp(ptr noundef %call236, ptr noundef @.str.15) #13
+  %call237 = call i32 @strcmp(ptr noundef %call236, ptr noundef @.str.15) #12
   %tobool238 = icmp ne i32 %call237, 0
   br i1 %tobool238, label %if.else249, label %if.then239
 
@@ -2669,7 +2669,7 @@ lpad246:                                          ; preds = %invoke.cont241
 
 if.else249:                                       ; preds = %if.else235
   %call250 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call251 = call i32 @strcmp(ptr noundef %call250, ptr noundef @.str.16) #13
+  %call251 = call i32 @strcmp(ptr noundef %call250, ptr noundef @.str.16) #12
   %tobool252 = icmp ne i32 %call251, 0
   br i1 %tobool252, label %if.end263, label %if.then253
 
@@ -2719,19 +2719,19 @@ if.end266:                                        ; preds = %if.end265, %invoke.
 if.else267:                                       ; preds = %if.else204
   %140 = load ptr, ptr %obtype, align 8
   %141 = load i64, ptr %length, align 8
-  %call268 = call i32 @strncmp(ptr noundef %140, ptr noundef @.str.17, i64 noundef %141) #13
+  %call268 = call i32 @strncmp(ptr noundef %140, ptr noundef @.str.17, i64 noundef %141) #12
   %tobool269 = icmp ne i32 %call268, 0
   br i1 %tobool269, label %if.else289, label %if.then270
 
 if.then270:                                       ; preds = %if.else267
   %call271 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call272 = call i32 @strcmp(ptr noundef %call271, ptr noundef @.str.18) #13
+  %call272 = call i32 @strcmp(ptr noundef %call271, ptr noundef @.str.18) #12
   %tobool273 = icmp ne i32 %call272, 0
   br i1 %tobool273, label %land.lhs.true274, label %if.end288
 
 land.lhs.true274:                                 ; preds = %if.then270
   %call275 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call276 = call i32 @strcmp(ptr noundef %call275, ptr noundef @.str.19) #13
+  %call276 = call i32 @strcmp(ptr noundef %call275, ptr noundef @.str.19) #12
   %tobool277 = icmp ne i32 %call276, 0
   br i1 %tobool277, label %if.then278, label %if.end288
 
@@ -2772,7 +2772,7 @@ if.end288:                                        ; preds = %invoke.cont286, %la
 if.else289:                                       ; preds = %if.else267
   %148 = load ptr, ptr %obtype, align 8
   %149 = load i64, ptr %length, align 8
-  %call290 = call i32 @strncmp(ptr noundef %148, ptr noundef @.str.20, i64 noundef %149) #13
+  %call290 = call i32 @strncmp(ptr noundef %148, ptr noundef @.str.20, i64 noundef %149) #12
   %tobool291 = icmp ne i32 %call290, 0
   br i1 %tobool291, label %if.else302, label %if.then292
 
@@ -2810,7 +2810,7 @@ lpad299:                                          ; preds = %invoke.cont294
 if.else302:                                       ; preds = %if.else289
   %156 = load ptr, ptr %obtype, align 8
   %157 = load i64, ptr %length, align 8
-  %call303 = call i32 @strncmp(ptr noundef %156, ptr noundef @.str.21, i64 noundef %157) #13
+  %call303 = call i32 @strncmp(ptr noundef %156, ptr noundef @.str.21, i64 noundef %157) #12
   %tobool304 = icmp ne i32 %call303, 0
   br i1 %tobool304, label %if.else315, label %if.then305
 
@@ -2848,7 +2848,7 @@ lpad312:                                          ; preds = %invoke.cont307
 if.else315:                                       ; preds = %if.else302
   %164 = load ptr, ptr %obtype, align 8
   %165 = load i64, ptr %length, align 8
-  %call316 = call i32 @strncmp(ptr noundef %164, ptr noundef @.str.22, i64 noundef %165) #13
+  %call316 = call i32 @strncmp(ptr noundef %164, ptr noundef @.str.22, i64 noundef %165) #12
   %tobool317 = icmp ne i32 %call316, 0
   br i1 %tobool317, label %if.else328, label %if.then318
 
@@ -2886,7 +2886,7 @@ lpad325:                                          ; preds = %invoke.cont320
 if.else328:                                       ; preds = %if.else315
   %172 = load ptr, ptr %obtype, align 8
   %173 = load i64, ptr %length, align 8
-  %call329 = call i32 @strncmp(ptr noundef %172, ptr noundef @.str.23, i64 noundef %173) #13
+  %call329 = call i32 @strncmp(ptr noundef %172, ptr noundef @.str.23, i64 noundef %173) #12
   %tobool330 = icmp ne i32 %call329, 0
   br i1 %tobool330, label %if.else341, label %if.then331
 
@@ -2924,7 +2924,7 @@ lpad338:                                          ; preds = %invoke.cont333
 if.else341:                                       ; preds = %if.else328
   %180 = load ptr, ptr %obtype, align 8
   %181 = load i64, ptr %length, align 8
-  %call342 = call i32 @strncmp(ptr noundef %180, ptr noundef @.str.24, i64 noundef %181) #13
+  %call342 = call i32 @strncmp(ptr noundef %180, ptr noundef @.str.24, i64 noundef %181) #12
   %tobool343 = icmp ne i32 %call342, 0
   br i1 %tobool343, label %if.else354, label %if.then344
 
@@ -2962,7 +2962,7 @@ lpad351:                                          ; preds = %invoke.cont346
 if.else354:                                       ; preds = %if.else341
   %188 = load ptr, ptr %obtype, align 8
   %189 = load i64, ptr %length, align 8
-  %call355 = call i32 @strncmp(ptr noundef %188, ptr noundef @.str.25, i64 noundef %189) #13
+  %call355 = call i32 @strncmp(ptr noundef %188, ptr noundef @.str.25, i64 noundef %189) #12
   %tobool356 = icmp ne i32 %call355, 0
   br i1 %tobool356, label %if.else367, label %if.then357
 
@@ -3000,7 +3000,7 @@ lpad364:                                          ; preds = %invoke.cont359
 if.else367:                                       ; preds = %if.else354
   %196 = load ptr, ptr %obtype, align 8
   %197 = load i64, ptr %length, align 8
-  %call368 = call i32 @strncmp(ptr noundef %196, ptr noundef @.str.26, i64 noundef %197) #13
+  %call368 = call i32 @strncmp(ptr noundef %196, ptr noundef @.str.26, i64 noundef %197) #12
   %tobool369 = icmp ne i32 %call368, 0
   br i1 %tobool369, label %if.else380, label %if.then370
 
@@ -3038,7 +3038,7 @@ lpad377:                                          ; preds = %invoke.cont372
 if.else380:                                       ; preds = %if.else367
   %204 = load ptr, ptr %obtype, align 8
   %205 = load i64, ptr %length, align 8
-  %call381 = call i32 @strncmp(ptr noundef %204, ptr noundef @.str.27, i64 noundef %205) #13
+  %call381 = call i32 @strncmp(ptr noundef %204, ptr noundef @.str.27, i64 noundef %205) #12
   %tobool382 = icmp ne i32 %call381, 0
   br i1 %tobool382, label %if.end393, label %if.then383
 
@@ -3075,7 +3075,7 @@ lpad390:                                          ; preds = %invoke.cont385
 
 catch.dispatch:                                   ; preds = %lpad390, %lpad377, %lpad364, %lpad351, %lpad338, %lpad325, %lpad312, %lpad299, %lpad285, %lpad260, %lpad246, %lpad232, %lpad218, %lpad196, %lpad182, %lpad168, %lpad154, %lpad140, %lpad123, %lpad109, %lpad95, %lpad77
   %sel = load i32, ptr %ehselector.slot, align 4
-  %212 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #16
+  %212 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #16
   %matches = icmp eq i32 %sel, %212
   br i1 %matches, label %catch430, label %catch.fallthrough
 
@@ -3095,7 +3095,7 @@ catch430:                                         ; preds = %catch.dispatch
           to label %unreachable unwind label %lpad436
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %216 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #16
+  %216 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #16
   %matches405 = icmp eq i32 %sel, %216
   br i1 %matches405, label %catch, label %ehcleanup447
 
@@ -3661,9 +3661,6 @@ declare void @_ZN6Assimp3FBX14AnimationCurveC1EmRKNS0_7ElementERKNSt7__cxx1112ba
 
 declare void @_ZN6Assimp3FBX18AnimationCurveNodeC1EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8DocumentEPKPKcm(ptr noundef nonnull align 8 dereferenceable(168), i64 noundef, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, i64 noundef) unnamed_addr #5
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #9
-
 declare ptr @__cxa_begin_catch(ptr)
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3688,7 +3685,7 @@ declare void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenc
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #16
   call void @_ZSt9terminatev() #15
   unreachable
@@ -3708,16 +3705,17 @@ entry:
   store ptr %element, ptr %element.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %element2 = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %element.addr, align 8
-  store ptr %0, ptr %element2, align 8
+  %1 = load ptr, ptr %element.addr, align 8
+  store ptr %1, ptr %element2, align 8
   %name3 = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %name.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load ptr, ptr %name.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name3, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %id4 = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %id.addr, align 8
-  store i64 %2, ptr %id4, align 8
+  %3 = load i64, ptr %id.addr, align 8
+  store i64 %3, ptr %id4, align 8
   ret void
 }
 
@@ -5975,7 +5973,7 @@ if.end86:                                         ; preds = %invoke.cont81, %if.
   %68 = load ptr, ptr %el, align 8
   %first = getelementptr inbounds %"struct.std::pair.178", ptr %68, i32 0, i32 0
   %call91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %first) #16
-  %call92 = call i32 @strcmp(ptr noundef %call91, ptr noundef @.str.24) #13
+  %call92 = call i32 @strcmp(ptr noundef %call91, ptr noundef @.str.24) #12
   %tobool93 = icmp ne i32 %call92, 0
   br i1 %tobool93, label %if.end95, label %if.then94
 
@@ -6795,7 +6793,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #13
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #12
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -6881,7 +6879,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.165", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #13
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #12
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.165", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -7436,7 +7434,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #13
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #12
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -7465,7 +7463,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt11make_sharedIKN6Assimp3FBX13PropertyTableEJRKNS1_7ElementESt10shared_ptrIS3_EEES7_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1) #2 comdat {
@@ -8583,7 +8581,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.191", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #13
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #12
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.191", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -8787,7 +8785,7 @@ for.body:                                         ; preds = %for.cond
   %4 = load i64, ptr %i, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
   %5 = load ptr, ptr %arrayidx, align 8
-  %call = call i64 @strlen(ptr noundef %5) #13
+  %call = call i64 @strlen(ptr noundef %5) #12
   %6 = load i64, ptr %i, align 8
   %arrayidx2 = getelementptr inbounds [6 x i64], ptr %lengths, i64 0, i64 %6
   store i64 %call, ptr %arrayidx2, align 8
@@ -8919,7 +8917,7 @@ land.lhs.true:                                    ; preds = %invoke.cont36
   %29 = load i64, ptr %i28, align 8
   %arrayidx41 = getelementptr inbounds [6 x i64], ptr %lengths, i64 0, i64 %29
   %30 = load i64, ptr %arrayidx41, align 8
-  %call42 = call i32 @strncmp(ptr noundef %27, ptr noundef %28, i64 noundef %30) #13
+  %call42 = call i32 @strncmp(ptr noundef %27, ptr noundef %28, i64 noundef %30) #12
   %tobool43 = icmp ne i32 %call42, 0
   br i1 %tobool43, label %if.end, label %if.then
 
@@ -9020,7 +9018,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind willreturn memory(read)
 declare i64 @strlen(ptr noundef) #6
@@ -9326,7 +9324,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #16
   ret void
@@ -12091,7 +12090,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt16allocator_traitsISaIPhEE10deallocateERS1_PS0_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, i64 noundef %__n) #2 comdat align 2 {
@@ -13949,7 +13948,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKN6Assimp3FBX13PropertyTableESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKN6Assimp3FBX13PropertyTableESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIKN6Assimp3FBX13PropertyTableESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(120) %_M_impl) #16
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIKN6Assimp3FBX13PropertyTableESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(136) %this1) #16
@@ -13960,12 +13960,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #16
   br label %eh.resume
 
@@ -14143,7 +14143,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -15687,7 +15688,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #13
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #12
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -16969,10 +16970,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN6Assimp3FBX13PropertyTableELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN6Assimp3FBX13PropertyTableELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -17193,25 +17195,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKN6Assimp3FBX13PropertyTableESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKN6Assimp3FBX13PropertyTableESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIKN6Assimp3FBX13PropertyTableESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(120) %_M_impl) #16
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIKN6Assimp3FBX13PropertyTableESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(136) %this3) #16
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIKN6Assimp3FBX13PropertyTableEJRKNS4_7ElementESt10shared_ptrIS6_EEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIKN6Assimp3FBX13PropertyTableEJRKNS4_7ElementESt10shared_ptrIS6_EEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #16
   br label %eh.resume
 
@@ -18471,7 +18474,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.232", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #13
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #12
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.232", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -18485,7 +18488,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.232", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #13
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #12
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.232", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -19451,7 +19454,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #13
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIPKN6Assimp3FBX14AnimationStackEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
@@ -22229,7 +22232,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_T0_(ptr %__first.coerce, ptr %__last.coerce, i64 %__comp.coerce0, i64 %__comp.coerce1) #2 comdat {
@@ -22737,6 +22740,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #14
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -22746,12 +22752,12 @@ attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind memory(none) }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind memory(none) }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { nounwind }
 attributes #17 = { noreturn }

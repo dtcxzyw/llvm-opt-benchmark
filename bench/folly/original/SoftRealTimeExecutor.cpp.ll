@@ -43,19 +43,20 @@ _ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit: ; preds = %en
   %or.i.i.i = zext i1 %not.call.i to i64
   %1 = ptrtoint ptr %this to i64
   %spec.select.i = or disjoint i64 %or.i.i.i, %1
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 0, i32 0, i64 2), ptr %call.i34, align 8, !tbaa !7, !noalias !13
+  %2 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %call.i34, align 8, !tbaa !7, !noalias !13
   %keepAliveCount_.i.i = getelementptr inbounds i8, ptr %call.i34, i64 8
   store i64 1, ptr %keepAliveCount_.i.i, align 8, !tbaa !16, !noalias !13
   %deadline_.i.i = getelementptr inbounds i8, ptr %call.i34, i64 16
   store i64 %deadline, ptr %deadline_.i.i, align 8, !tbaa !20, !noalias !13
   %executor_.i.i = getelementptr inbounds i8, ptr %call.i34, i64 24
   store i64 %spec.select.i, ptr %executor_.i.i, align 8, !tbaa !25, !noalias !13
-  %2 = ptrtoint ptr %call.i34 to i64
-  store i64 %2, ptr %agg.result, align 8, !tbaa !26, !alias.scope !13
+  %3 = ptrtoint ptr %call.i34 to i64
+  store i64 %3, ptr %agg.result, align 8, !tbaa !26, !alias.scope !13
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br i1 %call.i, label %if.then5.i.i12, label %_ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit16
 
@@ -66,12 +67,12 @@ if.then5.i.i12:                                   ; preds = %lpad
   %add.ptr.i.i13 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i.i9
   %vtable6.i.i14 = load ptr, ptr %add.ptr.i.i13, align 8, !tbaa !7
   %vfn.i.i15 = getelementptr inbounds i8, ptr %vtable6.i.i14, i64 48
-  %4 = load ptr, ptr %vfn.i.i15, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i13) #11
+  %5 = load ptr, ptr %vfn.i.i15, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i13) #11
   br label %_ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit16
 
 _ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit16: ; preds = %if.then5.i.i12, %lpad
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %4
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -91,29 +92,30 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_116DeadlineExecutorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !7
   %executor_ = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load i64, ptr %executor_, align 8, !tbaa !28
-  %and.i.i.i = and i64 %0, -4
-  %1 = icmp eq i64 %and.i.i.i, 0
-  br i1 %1, label %_ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit, label %cast.end.i.i
+  %1 = load i64, ptr %executor_, align 8, !tbaa !28
+  %and.i.i.i = and i64 %1, -4
+  %2 = icmp eq i64 %and.i.i.i, 0
+  br i1 %2, label %_ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit, label %cast.end.i.i
 
 cast.end.i.i:                                     ; preds = %entry
-  %2 = inttoptr i64 %and.i.i.i to ptr
-  %vtable.i.i = load ptr, ptr %2, align 8, !tbaa !7
+  %3 = inttoptr i64 %and.i.i.i to ptr
+  %vtable.i.i = load ptr, ptr %3, align 8, !tbaa !7
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -72
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   store i64 0, ptr %executor_, align 8, !tbaa !28
-  %and.i.i = and i64 %0, 3
+  %and.i.i = and i64 %1, 3
   %tobool4.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %_ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit
 
 if.then5.i.i:                                     ; preds = %cast.end.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %vbase.offset.i.i
   %vtable6.i.i = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !7
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable6.i.i, i64 48
-  %3 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i) #11
+  %4 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i) #11
   br label %_ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit
 
 _ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit: ; preds = %if.then5.i.i, %cast.end.i.i, %entry
@@ -123,29 +125,30 @@ _ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit: ; preds = %if
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_116DeadlineExecutorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !7
   %executor_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load i64, ptr %executor_.i, align 8, !tbaa !28
-  %and.i.i.i.i = and i64 %0, -4
-  %1 = icmp eq i64 %and.i.i.i.i, 0
-  br i1 %1, label %_ZN5folly12_GLOBAL__N_116DeadlineExecutorD2Ev.exit, label %cast.end.i.i.i
+  %1 = load i64, ptr %executor_.i, align 8, !tbaa !28
+  %and.i.i.i.i = and i64 %1, -4
+  %2 = icmp eq i64 %and.i.i.i.i, 0
+  br i1 %2, label %_ZN5folly12_GLOBAL__N_116DeadlineExecutorD2Ev.exit, label %cast.end.i.i.i
 
 cast.end.i.i.i:                                   ; preds = %entry
-  %2 = inttoptr i64 %and.i.i.i.i to ptr
-  %vtable.i.i.i = load ptr, ptr %2, align 8, !tbaa !7
+  %3 = inttoptr i64 %and.i.i.i.i to ptr
+  %vtable.i.i.i = load ptr, ptr %3, align 8, !tbaa !7
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %vtable.i.i.i, i64 -72
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   store i64 0, ptr %executor_.i, align 8, !tbaa !28
-  %and.i.i.i = and i64 %0, 3
+  %and.i.i.i = and i64 %1, 3
   %tobool4.not.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool4.not.i.i.i, label %if.then5.i.i.i, label %_ZN5folly12_GLOBAL__N_116DeadlineExecutorD2Ev.exit
 
 if.then5.i.i.i:                                   ; preds = %cast.end.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %vbase.offset.i.i.i
   %vtable6.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !7
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable6.i.i.i, i64 48
-  %3 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i) #11
+  %4 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i) #11
   br label %_ZN5folly12_GLOBAL__N_116DeadlineExecutorD2Ev.exit
 
 _ZN5folly12_GLOBAL__N_116DeadlineExecutorD2Ev.exit: ; preds = %if.then5.i.i.i, %cast.end.i.i.i, %entry
@@ -302,7 +305,8 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #11
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !7
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2
+  store ptr %0, ptr %ref.tmp, align 8, !tbaa !7
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #14
           to label %invoke.cont unwind label %lpad
 
@@ -310,18 +314,19 @@ invoke.cont:                                      ; preds = %entry
   unreachable
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt17bad_function_callD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #11
-  resume { ptr, i32 } %0
+  resume { ptr, i32 } %1
 }
 
 ; Function Attrs: cold mustprogress noreturn optsize uwtable
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #8 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !7
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2
+  store ptr %0, ptr %exception, align 8, !tbaa !7
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #15
   unreachable
 }

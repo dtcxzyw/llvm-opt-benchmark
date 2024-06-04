@@ -204,582 +204,573 @@ define dso_local void @sema_trace_liveness() #0 {
   %49 = alloca i32, align 4
   %50 = alloca i32, align 4
   %51 = alloca ptr, align 8
-  %52 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 25), align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %56
+  %52 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 25
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %58
 
-54:                                               ; preds = %0
-  %55 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 25), align 8
-  call void @sema_trace_decl_liveness(ptr noundef %55)
-  br label %56
+55:                                               ; preds = %0
+  %56 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 25
+  %57 = load ptr, ptr %56, align 8
+  call void @sema_trace_decl_liveness(ptr noundef %57)
+  br label %58
 
-56:                                               ; preds = %54, %0
-  %57 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 33), align 2
-  %58 = trunc i8 %57 to i1
-  %59 = zext i1 %58 to i8
-  store i8 %59, ptr %22, align 1
-  %60 = load i8, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 32), align 1
+58:                                               ; preds = %55, %0
+  %59 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 33
+  %60 = load i8, ptr %59, align 2
   %61 = trunc i8 %60 to i1
   %62 = zext i1 %61 to i8
-  store i8 %62, ptr %23, align 1
-  %63 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 5), align 8
-  store ptr %63, ptr %24, align 8
-  %64 = load ptr, ptr %24, align 8
-  store ptr %64, ptr %2, align 8
-  %65 = load ptr, ptr %2, align 8
-  %66 = icmp ne ptr %65, null
-  br i1 %66, label %68, label %67
+  store i8 %62, ptr %22, align 1
+  %63 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 32
+  %64 = load i8, ptr %63, align 1
+  %65 = trunc i8 %64 to i1
+  %66 = zext i1 %65 to i8
+  store i8 %66, ptr %23, align 1
+  %67 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 5
+  %68 = load ptr, ptr %67, align 8
+  store ptr %68, ptr %24, align 8
+  %69 = load ptr, ptr %24, align 8
+  store ptr %69, ptr %2, align 8
+  %70 = load ptr, ptr %2, align 8
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %73, label %72
 
-67:                                               ; preds = %56
+72:                                               ; preds = %58
   store i32 0, ptr %1, align 4
-  br label %73
+  br label %78
 
-68:                                               ; preds = %56
-  %69 = load ptr, ptr %2, align 8
-  store ptr %69, ptr %3, align 8
-  %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds %struct.VHeader_, ptr %70, i64 -1
-  %72 = load i32, ptr %71, align 4
-  store i32 %72, ptr %1, align 4
-  br label %73
+73:                                               ; preds = %58
+  %74 = load ptr, ptr %2, align 8
+  store ptr %74, ptr %3, align 8
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds %struct.VHeader_, ptr %75, i64 -1
+  %77 = load i32, ptr %76, align 4
+  store i32 %77, ptr %1, align 4
+  br label %78
 
-73:                                               ; preds = %68, %67
-  %74 = load i32, ptr %1, align 4
-  store i32 %74, ptr %25, align 4
+78:                                               ; preds = %73, %72
+  %79 = load i32, ptr %1, align 4
+  store i32 %79, ptr %25, align 4
   store i32 0, ptr %26, align 4
-  br label %75
+  br label %80
 
-75:                                               ; preds = %115, %73
-  %76 = load i32, ptr %26, align 4
-  %77 = load i32, ptr %25, align 4
-  %78 = icmp ult i32 %76, %77
-  br i1 %78, label %79, label %118
-
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %24, align 8
+80:                                               ; preds = %120, %78
   %81 = load i32, ptr %26, align 4
-  %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds ptr, ptr %80, i64 %82
-  %84 = load ptr, ptr %83, align 8
-  store ptr %84, ptr %27, align 8
-  %85 = load ptr, ptr %27, align 8
-  %86 = getelementptr inbounds %struct.Decl_, ptr %85, i32 0, i32 11
-  %87 = getelementptr inbounds %struct.FuncDecl, ptr %86, i32 0, i32 5
-  %88 = load i16, ptr %87, align 8
-  %89 = lshr i16 %88, 11
-  %90 = and i16 %89, 1
-  %91 = trunc i16 %90 to i1
-  br i1 %91, label %92, label %98
+  %82 = load i32, ptr %25, align 4
+  %83 = icmp ult i32 %81, %82
+  br i1 %83, label %84, label %123
 
-92:                                               ; preds = %79
-  %93 = load ptr, ptr %27, align 8
-  %94 = getelementptr inbounds %struct.Decl_, ptr %93, i32 0, i32 3
-  %95 = load i64, ptr %94, align 8
-  %96 = and i64 %95, -1073741825
-  %97 = or i64 %96, 1073741824
-  store i64 %97, ptr %94, align 8
-  br label %98
+84:                                               ; preds = %80
+  %85 = load ptr, ptr %24, align 8
+  %86 = load i32, ptr %26, align 4
+  %87 = zext i32 %86 to i64
+  %88 = getelementptr inbounds ptr, ptr %85, i64 %87
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %27, align 8
+  %90 = load ptr, ptr %27, align 8
+  %91 = getelementptr inbounds %struct.Decl_, ptr %90, i32 0, i32 11
+  %92 = getelementptr inbounds %struct.FuncDecl, ptr %91, i32 0, i32 5
+  %93 = load i16, ptr %92, align 8
+  %94 = lshr i16 %93, 11
+  %95 = and i16 %94, 1
+  %96 = trunc i16 %95 to i1
+  br i1 %96, label %97, label %103
 
-98:                                               ; preds = %92, %79
-  %99 = load ptr, ptr %27, align 8
-  %100 = getelementptr inbounds %struct.Decl_, ptr %99, i32 0, i32 3
-  %101 = load i64, ptr %100, align 8
-  %102 = lshr i64 %101, 28
-  %103 = and i64 %102, 1
-  %104 = trunc i64 %103 to i1
-  br i1 %104, label %112, label %105
+97:                                               ; preds = %84
+  %98 = load ptr, ptr %27, align 8
+  %99 = getelementptr inbounds %struct.Decl_, ptr %98, i32 0, i32 3
+  %100 = load i64, ptr %99, align 8
+  %101 = and i64 %100, -1073741825
+  %102 = or i64 %101, 1073741824
+  store i64 %102, ptr %99, align 8
+  br label %103
 
-105:                                              ; preds = %98
-  %106 = load ptr, ptr %27, align 8
-  %107 = getelementptr inbounds %struct.Decl_, ptr %106, i32 0, i32 3
-  %108 = load i64, ptr %107, align 8
-  %109 = lshr i64 %108, 30
-  %110 = and i64 %109, 1
-  %111 = trunc i64 %110 to i1
-  br i1 %111, label %112, label %114
+103:                                              ; preds = %97, %84
+  %104 = load ptr, ptr %27, align 8
+  %105 = getelementptr inbounds %struct.Decl_, ptr %104, i32 0, i32 3
+  %106 = load i64, ptr %105, align 8
+  %107 = lshr i64 %106, 28
+  %108 = and i64 %107, 1
+  %109 = trunc i64 %108 to i1
+  br i1 %109, label %117, label %110
 
-112:                                              ; preds = %105, %98
-  %113 = load ptr, ptr %27, align 8
-  call void @sema_trace_decl_liveness(ptr noundef %113)
-  br label %114
+110:                                              ; preds = %103
+  %111 = load ptr, ptr %27, align 8
+  %112 = getelementptr inbounds %struct.Decl_, ptr %111, i32 0, i32 3
+  %113 = load i64, ptr %112, align 8
+  %114 = lshr i64 %113, 30
+  %115 = and i64 %114, 1
+  %116 = trunc i64 %115 to i1
+  br i1 %116, label %117, label %119
 
-114:                                              ; preds = %112, %105
-  br label %115
-
-115:                                              ; preds = %114
-  %116 = load i32, ptr %26, align 4
-  %117 = add i32 %116, 1
-  store i32 %117, ptr %26, align 4
-  br label %75, !llvm.loop !7
-
-118:                                              ; preds = %75
+117:                                              ; preds = %110, %103
+  %118 = load ptr, ptr %27, align 8
+  call void @sema_trace_decl_liveness(ptr noundef %118)
   br label %119
 
-119:                                              ; preds = %118
+119:                                              ; preds = %117, %110
   br label %120
 
 120:                                              ; preds = %119
-  %121 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i32 0, i32 2), align 8
-  store ptr %121, ptr %28, align 8
-  %122 = load ptr, ptr %28, align 8
-  store ptr %122, ptr %5, align 8
-  %123 = load ptr, ptr %5, align 8
-  %124 = icmp ne ptr %123, null
-  br i1 %124, label %126, label %125
+  %121 = load i32, ptr %26, align 4
+  %122 = add i32 %121, 1
+  store i32 %122, ptr %26, align 4
+  br label %80, !llvm.loop !7
 
-125:                                              ; preds = %120
+123:                                              ; preds = %80
+  br label %124
+
+124:                                              ; preds = %123
+  br label %125
+
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds %struct.GlobalContext, ptr @global_context, i32 0, i32 2
+  %127 = load ptr, ptr %126, align 8
+  store ptr %127, ptr %28, align 8
+  %128 = load ptr, ptr %28, align 8
+  store ptr %128, ptr %5, align 8
+  %129 = load ptr, ptr %5, align 8
+  %130 = icmp ne ptr %129, null
+  br i1 %130, label %132, label %131
+
+131:                                              ; preds = %125
   store i32 0, ptr %4, align 4
-  br label %131
+  br label %137
 
-126:                                              ; preds = %120
-  %127 = load ptr, ptr %5, align 8
-  store ptr %127, ptr %6, align 8
-  %128 = load ptr, ptr %6, align 8
-  %129 = getelementptr inbounds %struct.VHeader_, ptr %128, i64 -1
-  %130 = load i32, ptr %129, align 4
-  store i32 %130, ptr %4, align 4
-  br label %131
+132:                                              ; preds = %125
+  %133 = load ptr, ptr %5, align 8
+  store ptr %133, ptr %6, align 8
+  %134 = load ptr, ptr %6, align 8
+  %135 = getelementptr inbounds %struct.VHeader_, ptr %134, i64 -1
+  %136 = load i32, ptr %135, align 4
+  store i32 %136, ptr %4, align 4
+  br label %137
 
-131:                                              ; preds = %126, %125
-  %132 = load i32, ptr %4, align 4
-  store i32 %132, ptr %29, align 4
+137:                                              ; preds = %132, %131
+  %138 = load i32, ptr %4, align 4
+  store i32 %138, ptr %29, align 4
   store i32 0, ptr %30, align 4
-  br label %133
+  br label %139
 
-133:                                              ; preds = %395, %131
-  %134 = load i32, ptr %30, align 4
-  %135 = load i32, ptr %29, align 4
-  %136 = icmp ult i32 %134, %135
-  br i1 %136, label %137, label %398
+139:                                              ; preds = %401, %137
+  %140 = load i32, ptr %30, align 4
+  %141 = load i32, ptr %29, align 4
+  %142 = icmp ult i32 %140, %141
+  br i1 %142, label %143, label %404
 
-137:                                              ; preds = %133
-  %138 = load ptr, ptr %28, align 8
-  %139 = load i32, ptr %30, align 4
-  %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds ptr, ptr %138, i64 %140
-  %142 = load ptr, ptr %141, align 8
-  store ptr %142, ptr %31, align 8
-  %143 = load ptr, ptr %31, align 8
-  %144 = getelementptr inbounds %struct.Module_, ptr %143, i32 0, i32 7
-  %145 = load ptr, ptr %144, align 8
-  store ptr %145, ptr %32, align 8
-  %146 = load ptr, ptr %32, align 8
-  store ptr %146, ptr %8, align 8
-  %147 = load ptr, ptr %8, align 8
-  %148 = icmp ne ptr %147, null
-  br i1 %148, label %150, label %149
+143:                                              ; preds = %139
+  %144 = load ptr, ptr %28, align 8
+  %145 = load i32, ptr %30, align 4
+  %146 = zext i32 %145 to i64
+  %147 = getelementptr inbounds ptr, ptr %144, i64 %146
+  %148 = load ptr, ptr %147, align 8
+  store ptr %148, ptr %31, align 8
+  %149 = load ptr, ptr %31, align 8
+  %150 = getelementptr inbounds %struct.Module_, ptr %149, i32 0, i32 7
+  %151 = load ptr, ptr %150, align 8
+  store ptr %151, ptr %32, align 8
+  %152 = load ptr, ptr %32, align 8
+  store ptr %152, ptr %8, align 8
+  %153 = load ptr, ptr %8, align 8
+  %154 = icmp ne ptr %153, null
+  br i1 %154, label %156, label %155
 
-149:                                              ; preds = %137
+155:                                              ; preds = %143
   store i32 0, ptr %7, align 4
-  br label %155
+  br label %161
 
-150:                                              ; preds = %137
-  %151 = load ptr, ptr %8, align 8
-  store ptr %151, ptr %9, align 8
-  %152 = load ptr, ptr %9, align 8
-  %153 = getelementptr inbounds %struct.VHeader_, ptr %152, i64 -1
-  %154 = load i32, ptr %153, align 4
-  store i32 %154, ptr %7, align 4
-  br label %155
+156:                                              ; preds = %143
+  %157 = load ptr, ptr %8, align 8
+  store ptr %157, ptr %9, align 8
+  %158 = load ptr, ptr %9, align 8
+  %159 = getelementptr inbounds %struct.VHeader_, ptr %158, i64 -1
+  %160 = load i32, ptr %159, align 4
+  store i32 %160, ptr %7, align 4
+  br label %161
 
-155:                                              ; preds = %150, %149
-  %156 = load i32, ptr %7, align 4
-  store i32 %156, ptr %33, align 4
+161:                                              ; preds = %156, %155
+  %162 = load i32, ptr %7, align 4
+  store i32 %162, ptr %33, align 4
   store i32 0, ptr %34, align 4
-  br label %157
+  br label %163
 
-157:                                              ; preds = %389, %155
-  %158 = load i32, ptr %34, align 4
-  %159 = load i32, ptr %33, align 4
-  %160 = icmp ult i32 %158, %159
-  br i1 %160, label %161, label %392
+163:                                              ; preds = %395, %161
+  %164 = load i32, ptr %34, align 4
+  %165 = load i32, ptr %33, align 4
+  %166 = icmp ult i32 %164, %165
+  br i1 %166, label %167, label %398
 
-161:                                              ; preds = %157
-  %162 = load ptr, ptr %32, align 8
-  %163 = load i32, ptr %34, align 4
-  %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds ptr, ptr %162, i64 %164
-  %166 = load ptr, ptr %165, align 8
-  store ptr %166, ptr %35, align 8
-  %167 = load ptr, ptr %35, align 8
-  %168 = getelementptr inbounds %struct.CompilationUnit_, ptr %167, i32 0, i32 4
-  %169 = load ptr, ptr %168, align 8
-  store ptr %169, ptr %36, align 8
-  %170 = load ptr, ptr %36, align 8
-  store ptr %170, ptr %11, align 8
-  %171 = load ptr, ptr %11, align 8
-  %172 = icmp ne ptr %171, null
-  br i1 %172, label %174, label %173
+167:                                              ; preds = %163
+  %168 = load ptr, ptr %32, align 8
+  %169 = load i32, ptr %34, align 4
+  %170 = zext i32 %169 to i64
+  %171 = getelementptr inbounds ptr, ptr %168, i64 %170
+  %172 = load ptr, ptr %171, align 8
+  store ptr %172, ptr %35, align 8
+  %173 = load ptr, ptr %35, align 8
+  %174 = getelementptr inbounds %struct.CompilationUnit_, ptr %173, i32 0, i32 4
+  %175 = load ptr, ptr %174, align 8
+  store ptr %175, ptr %36, align 8
+  %176 = load ptr, ptr %36, align 8
+  store ptr %176, ptr %11, align 8
+  %177 = load ptr, ptr %11, align 8
+  %178 = icmp ne ptr %177, null
+  br i1 %178, label %180, label %179
 
-173:                                              ; preds = %161
+179:                                              ; preds = %167
   store i32 0, ptr %10, align 4
-  br label %179
+  br label %185
 
-174:                                              ; preds = %161
-  %175 = load ptr, ptr %11, align 8
-  store ptr %175, ptr %12, align 8
-  %176 = load ptr, ptr %12, align 8
-  %177 = getelementptr inbounds %struct.VHeader_, ptr %176, i64 -1
-  %178 = load i32, ptr %177, align 4
-  store i32 %178, ptr %10, align 4
-  br label %179
+180:                                              ; preds = %167
+  %181 = load ptr, ptr %11, align 8
+  store ptr %181, ptr %12, align 8
+  %182 = load ptr, ptr %12, align 8
+  %183 = getelementptr inbounds %struct.VHeader_, ptr %182, i64 -1
+  %184 = load i32, ptr %183, align 4
+  store i32 %184, ptr %10, align 4
+  br label %185
 
-179:                                              ; preds = %174, %173
-  %180 = load i32, ptr %10, align 4
-  store i32 %180, ptr %37, align 4
+185:                                              ; preds = %180, %179
+  %186 = load i32, ptr %10, align 4
+  store i32 %186, ptr %37, align 4
   store i32 0, ptr %38, align 4
-  br label %181
+  br label %187
 
-181:                                              ; preds = %245, %179
-  %182 = load i32, ptr %38, align 4
-  %183 = load i32, ptr %37, align 4
-  %184 = icmp ult i32 %182, %183
-  br i1 %184, label %185, label %248
+187:                                              ; preds = %251, %185
+  %188 = load i32, ptr %38, align 4
+  %189 = load i32, ptr %37, align 4
+  %190 = icmp ult i32 %188, %189
+  br i1 %190, label %191, label %254
 
-185:                                              ; preds = %181
-  %186 = load ptr, ptr %36, align 8
-  %187 = load i32, ptr %38, align 4
-  %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds ptr, ptr %186, i64 %188
-  %190 = load ptr, ptr %189, align 8
-  store ptr %190, ptr %39, align 8
-  %191 = load ptr, ptr %39, align 8
-  %192 = getelementptr inbounds %struct.Decl_, ptr %191, i32 0, i32 3
-  %193 = load i64, ptr %192, align 8
-  %194 = lshr i64 %193, 28
-  %195 = and i64 %194, 1
-  %196 = trunc i64 %195 to i1
-  br i1 %196, label %242, label %197
+191:                                              ; preds = %187
+  %192 = load ptr, ptr %36, align 8
+  %193 = load i32, ptr %38, align 4
+  %194 = zext i32 %193 to i64
+  %195 = getelementptr inbounds ptr, ptr %192, i64 %194
+  %196 = load ptr, ptr %195, align 8
+  store ptr %196, ptr %39, align 8
+  %197 = load ptr, ptr %39, align 8
+  %198 = getelementptr inbounds %struct.Decl_, ptr %197, i32 0, i32 3
+  %199 = load i64, ptr %198, align 8
+  %200 = lshr i64 %199, 28
+  %201 = and i64 %200, 1
+  %202 = trunc i64 %201 to i1
+  br i1 %202, label %248, label %203
 
-197:                                              ; preds = %185
-  %198 = load ptr, ptr %39, align 8
-  %199 = getelementptr inbounds %struct.Decl_, ptr %198, i32 0, i32 3
-  %200 = load i64, ptr %199, align 8
-  %201 = lshr i64 %200, 30
-  %202 = and i64 %201, 1
-  %203 = trunc i64 %202 to i1
-  br i1 %203, label %242, label %204
+203:                                              ; preds = %191
+  %204 = load ptr, ptr %39, align 8
+  %205 = getelementptr inbounds %struct.Decl_, ptr %204, i32 0, i32 3
+  %206 = load i64, ptr %205, align 8
+  %207 = lshr i64 %206, 30
+  %208 = and i64 %207, 1
+  %209 = trunc i64 %208 to i1
+  br i1 %209, label %248, label %210
 
-204:                                              ; preds = %197
-  %205 = load ptr, ptr %39, align 8
-  %206 = getelementptr inbounds %struct.Decl_, ptr %205, i32 0, i32 11
-  %207 = getelementptr inbounds %struct.FuncDecl, ptr %206, i32 0, i32 5
-  %208 = load i16, ptr %207, align 8
-  %209 = lshr i16 %208, 9
-  %210 = and i16 %209, 1
-  %211 = trunc i16 %210 to i1
-  br i1 %211, label %242, label %212
+210:                                              ; preds = %203
+  %211 = load ptr, ptr %39, align 8
+  %212 = getelementptr inbounds %struct.Decl_, ptr %211, i32 0, i32 11
+  %213 = getelementptr inbounds %struct.FuncDecl, ptr %212, i32 0, i32 5
+  %214 = load i16, ptr %213, align 8
+  %215 = lshr i16 %214, 9
+  %216 = and i16 %215, 1
+  %217 = trunc i16 %216 to i1
+  br i1 %217, label %248, label %218
 
-212:                                              ; preds = %204
-  %213 = load ptr, ptr %39, align 8
-  %214 = getelementptr inbounds %struct.Decl_, ptr %213, i32 0, i32 11
-  %215 = getelementptr inbounds %struct.FuncDecl, ptr %214, i32 0, i32 5
-  %216 = load i16, ptr %215, align 8
-  %217 = lshr i16 %216, 8
-  %218 = and i16 %217, 1
-  %219 = trunc i16 %218 to i1
-  br i1 %219, label %242, label %220
+218:                                              ; preds = %210
+  %219 = load ptr, ptr %39, align 8
+  %220 = getelementptr inbounds %struct.Decl_, ptr %219, i32 0, i32 11
+  %221 = getelementptr inbounds %struct.FuncDecl, ptr %220, i32 0, i32 5
+  %222 = load i16, ptr %221, align 8
+  %223 = lshr i16 %222, 8
+  %224 = and i16 %223, 1
+  %225 = trunc i16 %224 to i1
+  br i1 %225, label %248, label %226
 
-220:                                              ; preds = %212
-  %221 = load ptr, ptr %39, align 8
-  %222 = getelementptr inbounds %struct.Decl_, ptr %221, i32 0, i32 11
-  %223 = getelementptr inbounds %struct.FuncDecl, ptr %222, i32 0, i32 5
-  %224 = load i16, ptr %223, align 8
-  %225 = lshr i16 %224, 5
-  %226 = and i16 %225, 1
-  %227 = trunc i16 %226 to i1
-  br i1 %227, label %228, label %231
+226:                                              ; preds = %218
+  %227 = load ptr, ptr %39, align 8
+  %228 = getelementptr inbounds %struct.Decl_, ptr %227, i32 0, i32 11
+  %229 = getelementptr inbounds %struct.FuncDecl, ptr %228, i32 0, i32 5
+  %230 = load i16, ptr %229, align 8
+  %231 = lshr i16 %230, 5
+  %232 = and i16 %231, 1
+  %233 = trunc i16 %232 to i1
+  br i1 %233, label %234, label %237
 
-228:                                              ; preds = %220
-  %229 = load i8, ptr %22, align 1
-  %230 = trunc i8 %229 to i1
-  br i1 %230, label %242, label %231
+234:                                              ; preds = %226
+  %235 = load i8, ptr %22, align 1
+  %236 = trunc i8 %235 to i1
+  br i1 %236, label %248, label %237
 
-231:                                              ; preds = %228, %220
-  %232 = load ptr, ptr %39, align 8
-  %233 = getelementptr inbounds %struct.Decl_, ptr %232, i32 0, i32 11
-  %234 = getelementptr inbounds %struct.FuncDecl, ptr %233, i32 0, i32 5
-  %235 = load i16, ptr %234, align 8
-  %236 = lshr i16 %235, 4
-  %237 = and i16 %236, 1
-  %238 = trunc i16 %237 to i1
-  br i1 %238, label %239, label %244
+237:                                              ; preds = %234, %226
+  %238 = load ptr, ptr %39, align 8
+  %239 = getelementptr inbounds %struct.Decl_, ptr %238, i32 0, i32 11
+  %240 = getelementptr inbounds %struct.FuncDecl, ptr %239, i32 0, i32 5
+  %241 = load i16, ptr %240, align 8
+  %242 = lshr i16 %241, 4
+  %243 = and i16 %242, 1
+  %244 = trunc i16 %243 to i1
+  br i1 %244, label %245, label %250
 
-239:                                              ; preds = %231
-  %240 = load i8, ptr %23, align 1
-  %241 = trunc i8 %240 to i1
-  br i1 %241, label %242, label %244
+245:                                              ; preds = %237
+  %246 = load i8, ptr %23, align 1
+  %247 = trunc i8 %246 to i1
+  br i1 %247, label %248, label %250
 
-242:                                              ; preds = %239, %228, %212, %204, %197, %185
-  %243 = load ptr, ptr %39, align 8
-  call void @sema_trace_decl_liveness(ptr noundef %243)
-  br label %244
-
-244:                                              ; preds = %242, %239, %231
-  br label %245
-
-245:                                              ; preds = %244
-  %246 = load i32, ptr %38, align 4
-  %247 = add i32 %246, 1
-  store i32 %247, ptr %38, align 4
-  br label %181, !llvm.loop !9
-
-248:                                              ; preds = %181
-  br label %249
-
-249:                                              ; preds = %248
+248:                                              ; preds = %245, %234, %218, %210, %203, %191
+  %249 = load ptr, ptr %39, align 8
+  call void @sema_trace_decl_liveness(ptr noundef %249)
   br label %250
 
-250:                                              ; preds = %249
-  %251 = load ptr, ptr %35, align 8
-  %252 = getelementptr inbounds %struct.CompilationUnit_, ptr %251, i32 0, i32 23
-  %253 = load ptr, ptr %252, align 8
-  store ptr %253, ptr %40, align 8
-  %254 = load ptr, ptr %40, align 8
-  store ptr %254, ptr %14, align 8
-  %255 = load ptr, ptr %14, align 8
-  %256 = icmp ne ptr %255, null
-  br i1 %256, label %258, label %257
+250:                                              ; preds = %248, %245, %237
+  br label %251
 
-257:                                              ; preds = %250
+251:                                              ; preds = %250
+  %252 = load i32, ptr %38, align 4
+  %253 = add i32 %252, 1
+  store i32 %253, ptr %38, align 4
+  br label %187, !llvm.loop !9
+
+254:                                              ; preds = %187
+  br label %255
+
+255:                                              ; preds = %254
+  br label %256
+
+256:                                              ; preds = %255
+  %257 = load ptr, ptr %35, align 8
+  %258 = getelementptr inbounds %struct.CompilationUnit_, ptr %257, i32 0, i32 23
+  %259 = load ptr, ptr %258, align 8
+  store ptr %259, ptr %40, align 8
+  %260 = load ptr, ptr %40, align 8
+  store ptr %260, ptr %14, align 8
+  %261 = load ptr, ptr %14, align 8
+  %262 = icmp ne ptr %261, null
+  br i1 %262, label %264, label %263
+
+263:                                              ; preds = %256
   store i32 0, ptr %13, align 4
-  br label %263
+  br label %269
 
-258:                                              ; preds = %250
-  %259 = load ptr, ptr %14, align 8
-  store ptr %259, ptr %15, align 8
-  %260 = load ptr, ptr %15, align 8
-  %261 = getelementptr inbounds %struct.VHeader_, ptr %260, i64 -1
-  %262 = load i32, ptr %261, align 4
-  store i32 %262, ptr %13, align 4
-  br label %263
+264:                                              ; preds = %256
+  %265 = load ptr, ptr %14, align 8
+  store ptr %265, ptr %15, align 8
+  %266 = load ptr, ptr %15, align 8
+  %267 = getelementptr inbounds %struct.VHeader_, ptr %266, i64 -1
+  %268 = load i32, ptr %267, align 4
+  store i32 %268, ptr %13, align 4
+  br label %269
 
-263:                                              ; preds = %258, %257
-  %264 = load i32, ptr %13, align 4
-  store i32 %264, ptr %41, align 4
+269:                                              ; preds = %264, %263
+  %270 = load i32, ptr %13, align 4
+  store i32 %270, ptr %41, align 4
   store i32 0, ptr %42, align 4
-  br label %265
+  br label %271
 
-265:                                              ; preds = %291, %263
-  %266 = load i32, ptr %42, align 4
-  %267 = load i32, ptr %41, align 4
-  %268 = icmp ult i32 %266, %267
-  br i1 %268, label %269, label %294
+271:                                              ; preds = %297, %269
+  %272 = load i32, ptr %42, align 4
+  %273 = load i32, ptr %41, align 4
+  %274 = icmp ult i32 %272, %273
+  br i1 %274, label %275, label %300
 
-269:                                              ; preds = %265
-  %270 = load ptr, ptr %40, align 8
-  %271 = load i32, ptr %42, align 4
-  %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %270, i64 %272
-  %274 = load ptr, ptr %273, align 8
-  store ptr %274, ptr %43, align 8
-  %275 = load ptr, ptr %43, align 8
-  %276 = getelementptr inbounds %struct.Decl_, ptr %275, i32 0, i32 3
-  %277 = load i64, ptr %276, align 8
-  %278 = lshr i64 %277, 28
-  %279 = and i64 %278, 1
-  %280 = trunc i64 %279 to i1
-  br i1 %280, label %288, label %281
+275:                                              ; preds = %271
+  %276 = load ptr, ptr %40, align 8
+  %277 = load i32, ptr %42, align 4
+  %278 = zext i32 %277 to i64
+  %279 = getelementptr inbounds ptr, ptr %276, i64 %278
+  %280 = load ptr, ptr %279, align 8
+  store ptr %280, ptr %43, align 8
+  %281 = load ptr, ptr %43, align 8
+  %282 = getelementptr inbounds %struct.Decl_, ptr %281, i32 0, i32 3
+  %283 = load i64, ptr %282, align 8
+  %284 = lshr i64 %283, 28
+  %285 = and i64 %284, 1
+  %286 = trunc i64 %285 to i1
+  br i1 %286, label %294, label %287
 
-281:                                              ; preds = %269
-  %282 = load ptr, ptr %43, align 8
-  %283 = getelementptr inbounds %struct.Decl_, ptr %282, i32 0, i32 3
-  %284 = load i64, ptr %283, align 8
-  %285 = lshr i64 %284, 30
-  %286 = and i64 %285, 1
-  %287 = trunc i64 %286 to i1
-  br i1 %287, label %288, label %290
+287:                                              ; preds = %275
+  %288 = load ptr, ptr %43, align 8
+  %289 = getelementptr inbounds %struct.Decl_, ptr %288, i32 0, i32 3
+  %290 = load i64, ptr %289, align 8
+  %291 = lshr i64 %290, 30
+  %292 = and i64 %291, 1
+  %293 = trunc i64 %292 to i1
+  br i1 %293, label %294, label %296
 
-288:                                              ; preds = %281, %269
-  %289 = load ptr, ptr %43, align 8
-  call void @sema_trace_decl_liveness(ptr noundef %289)
-  br label %290
-
-290:                                              ; preds = %288, %281
-  br label %291
-
-291:                                              ; preds = %290
-  %292 = load i32, ptr %42, align 4
-  %293 = add i32 %292, 1
-  store i32 %293, ptr %42, align 4
-  br label %265, !llvm.loop !10
-
-294:                                              ; preds = %265
-  br label %295
-
-295:                                              ; preds = %294
+294:                                              ; preds = %287, %275
+  %295 = load ptr, ptr %43, align 8
+  call void @sema_trace_decl_liveness(ptr noundef %295)
   br label %296
 
-296:                                              ; preds = %295
-  %297 = load ptr, ptr %35, align 8
-  %298 = getelementptr inbounds %struct.CompilationUnit_, ptr %297, i32 0, i32 21
-  %299 = load ptr, ptr %298, align 8
-  store ptr %299, ptr %44, align 8
-  %300 = load ptr, ptr %44, align 8
-  store ptr %300, ptr %17, align 8
-  %301 = load ptr, ptr %17, align 8
-  %302 = icmp ne ptr %301, null
-  br i1 %302, label %304, label %303
+296:                                              ; preds = %294, %287
+  br label %297
 
-303:                                              ; preds = %296
+297:                                              ; preds = %296
+  %298 = load i32, ptr %42, align 4
+  %299 = add i32 %298, 1
+  store i32 %299, ptr %42, align 4
+  br label %271, !llvm.loop !10
+
+300:                                              ; preds = %271
+  br label %301
+
+301:                                              ; preds = %300
+  br label %302
+
+302:                                              ; preds = %301
+  %303 = load ptr, ptr %35, align 8
+  %304 = getelementptr inbounds %struct.CompilationUnit_, ptr %303, i32 0, i32 21
+  %305 = load ptr, ptr %304, align 8
+  store ptr %305, ptr %44, align 8
+  %306 = load ptr, ptr %44, align 8
+  store ptr %306, ptr %17, align 8
+  %307 = load ptr, ptr %17, align 8
+  %308 = icmp ne ptr %307, null
+  br i1 %308, label %310, label %309
+
+309:                                              ; preds = %302
   store i32 0, ptr %16, align 4
-  br label %309
+  br label %315
 
-304:                                              ; preds = %296
-  %305 = load ptr, ptr %17, align 8
-  store ptr %305, ptr %18, align 8
-  %306 = load ptr, ptr %18, align 8
-  %307 = getelementptr inbounds %struct.VHeader_, ptr %306, i64 -1
-  %308 = load i32, ptr %307, align 4
-  store i32 %308, ptr %16, align 4
-  br label %309
+310:                                              ; preds = %302
+  %311 = load ptr, ptr %17, align 8
+  store ptr %311, ptr %18, align 8
+  %312 = load ptr, ptr %18, align 8
+  %313 = getelementptr inbounds %struct.VHeader_, ptr %312, i64 -1
+  %314 = load i32, ptr %313, align 4
+  store i32 %314, ptr %16, align 4
+  br label %315
 
-309:                                              ; preds = %304, %303
-  %310 = load i32, ptr %16, align 4
-  store i32 %310, ptr %45, align 4
+315:                                              ; preds = %310, %309
+  %316 = load i32, ptr %16, align 4
+  store i32 %316, ptr %45, align 4
   store i32 0, ptr %46, align 4
-  br label %311
+  br label %317
 
-311:                                              ; preds = %337, %309
-  %312 = load i32, ptr %46, align 4
-  %313 = load i32, ptr %45, align 4
-  %314 = icmp ult i32 %312, %313
-  br i1 %314, label %315, label %340
+317:                                              ; preds = %343, %315
+  %318 = load i32, ptr %46, align 4
+  %319 = load i32, ptr %45, align 4
+  %320 = icmp ult i32 %318, %319
+  br i1 %320, label %321, label %346
 
-315:                                              ; preds = %311
-  %316 = load ptr, ptr %44, align 8
-  %317 = load i32, ptr %46, align 4
-  %318 = zext i32 %317 to i64
-  %319 = getelementptr inbounds ptr, ptr %316, i64 %318
-  %320 = load ptr, ptr %319, align 8
-  store ptr %320, ptr %47, align 8
-  %321 = load ptr, ptr %47, align 8
-  %322 = getelementptr inbounds %struct.Decl_, ptr %321, i32 0, i32 3
-  %323 = load i64, ptr %322, align 8
-  %324 = lshr i64 %323, 28
-  %325 = and i64 %324, 1
-  %326 = trunc i64 %325 to i1
-  br i1 %326, label %334, label %327
+321:                                              ; preds = %317
+  %322 = load ptr, ptr %44, align 8
+  %323 = load i32, ptr %46, align 4
+  %324 = zext i32 %323 to i64
+  %325 = getelementptr inbounds ptr, ptr %322, i64 %324
+  %326 = load ptr, ptr %325, align 8
+  store ptr %326, ptr %47, align 8
+  %327 = load ptr, ptr %47, align 8
+  %328 = getelementptr inbounds %struct.Decl_, ptr %327, i32 0, i32 3
+  %329 = load i64, ptr %328, align 8
+  %330 = lshr i64 %329, 28
+  %331 = and i64 %330, 1
+  %332 = trunc i64 %331 to i1
+  br i1 %332, label %340, label %333
 
-327:                                              ; preds = %315
-  %328 = load ptr, ptr %47, align 8
-  %329 = getelementptr inbounds %struct.Decl_, ptr %328, i32 0, i32 3
-  %330 = load i64, ptr %329, align 8
-  %331 = lshr i64 %330, 30
-  %332 = and i64 %331, 1
-  %333 = trunc i64 %332 to i1
-  br i1 %333, label %334, label %336
+333:                                              ; preds = %321
+  %334 = load ptr, ptr %47, align 8
+  %335 = getelementptr inbounds %struct.Decl_, ptr %334, i32 0, i32 3
+  %336 = load i64, ptr %335, align 8
+  %337 = lshr i64 %336, 30
+  %338 = and i64 %337, 1
+  %339 = trunc i64 %338 to i1
+  br i1 %339, label %340, label %342
 
-334:                                              ; preds = %327, %315
-  %335 = load ptr, ptr %47, align 8
-  call void @sema_trace_decl_liveness(ptr noundef %335)
-  br label %336
-
-336:                                              ; preds = %334, %327
-  br label %337
-
-337:                                              ; preds = %336
-  %338 = load i32, ptr %46, align 4
-  %339 = add i32 %338, 1
-  store i32 %339, ptr %46, align 4
-  br label %311, !llvm.loop !11
-
-340:                                              ; preds = %311
-  br label %341
-
-341:                                              ; preds = %340
+340:                                              ; preds = %333, %321
+  %341 = load ptr, ptr %47, align 8
+  call void @sema_trace_decl_liveness(ptr noundef %341)
   br label %342
 
-342:                                              ; preds = %341
-  %343 = load ptr, ptr %35, align 8
-  %344 = getelementptr inbounds %struct.CompilationUnit_, ptr %343, i32 0, i32 30
-  %345 = load ptr, ptr %344, align 8
-  store ptr %345, ptr %48, align 8
-  %346 = load ptr, ptr %48, align 8
-  store ptr %346, ptr %20, align 8
-  %347 = load ptr, ptr %20, align 8
-  %348 = icmp ne ptr %347, null
-  br i1 %348, label %350, label %349
+342:                                              ; preds = %340, %333
+  br label %343
 
-349:                                              ; preds = %342
+343:                                              ; preds = %342
+  %344 = load i32, ptr %46, align 4
+  %345 = add i32 %344, 1
+  store i32 %345, ptr %46, align 4
+  br label %317, !llvm.loop !11
+
+346:                                              ; preds = %317
+  br label %347
+
+347:                                              ; preds = %346
+  br label %348
+
+348:                                              ; preds = %347
+  %349 = load ptr, ptr %35, align 8
+  %350 = getelementptr inbounds %struct.CompilationUnit_, ptr %349, i32 0, i32 30
+  %351 = load ptr, ptr %350, align 8
+  store ptr %351, ptr %48, align 8
+  %352 = load ptr, ptr %48, align 8
+  store ptr %352, ptr %20, align 8
+  %353 = load ptr, ptr %20, align 8
+  %354 = icmp ne ptr %353, null
+  br i1 %354, label %356, label %355
+
+355:                                              ; preds = %348
   store i32 0, ptr %19, align 4
-  br label %355
+  br label %361
 
-350:                                              ; preds = %342
-  %351 = load ptr, ptr %20, align 8
-  store ptr %351, ptr %21, align 8
-  %352 = load ptr, ptr %21, align 8
-  %353 = getelementptr inbounds %struct.VHeader_, ptr %352, i64 -1
-  %354 = load i32, ptr %353, align 4
-  store i32 %354, ptr %19, align 4
-  br label %355
+356:                                              ; preds = %348
+  %357 = load ptr, ptr %20, align 8
+  store ptr %357, ptr %21, align 8
+  %358 = load ptr, ptr %21, align 8
+  %359 = getelementptr inbounds %struct.VHeader_, ptr %358, i64 -1
+  %360 = load i32, ptr %359, align 4
+  store i32 %360, ptr %19, align 4
+  br label %361
 
-355:                                              ; preds = %350, %349
-  %356 = load i32, ptr %19, align 4
-  store i32 %356, ptr %49, align 4
+361:                                              ; preds = %356, %355
+  %362 = load i32, ptr %19, align 4
+  store i32 %362, ptr %49, align 4
   store i32 0, ptr %50, align 4
-  br label %357
+  br label %363
 
-357:                                              ; preds = %383, %355
-  %358 = load i32, ptr %50, align 4
-  %359 = load i32, ptr %49, align 4
-  %360 = icmp ult i32 %358, %359
-  br i1 %360, label %361, label %386
+363:                                              ; preds = %389, %361
+  %364 = load i32, ptr %50, align 4
+  %365 = load i32, ptr %49, align 4
+  %366 = icmp ult i32 %364, %365
+  br i1 %366, label %367, label %392
 
-361:                                              ; preds = %357
-  %362 = load ptr, ptr %48, align 8
-  %363 = load i32, ptr %50, align 4
-  %364 = zext i32 %363 to i64
-  %365 = getelementptr inbounds ptr, ptr %362, i64 %364
-  %366 = load ptr, ptr %365, align 8
-  store ptr %366, ptr %51, align 8
-  %367 = load ptr, ptr %51, align 8
-  %368 = getelementptr inbounds %struct.Decl_, ptr %367, i32 0, i32 3
-  %369 = load i64, ptr %368, align 8
-  %370 = lshr i64 %369, 28
-  %371 = and i64 %370, 1
-  %372 = trunc i64 %371 to i1
-  br i1 %372, label %380, label %373
+367:                                              ; preds = %363
+  %368 = load ptr, ptr %48, align 8
+  %369 = load i32, ptr %50, align 4
+  %370 = zext i32 %369 to i64
+  %371 = getelementptr inbounds ptr, ptr %368, i64 %370
+  %372 = load ptr, ptr %371, align 8
+  store ptr %372, ptr %51, align 8
+  %373 = load ptr, ptr %51, align 8
+  %374 = getelementptr inbounds %struct.Decl_, ptr %373, i32 0, i32 3
+  %375 = load i64, ptr %374, align 8
+  %376 = lshr i64 %375, 28
+  %377 = and i64 %376, 1
+  %378 = trunc i64 %377 to i1
+  br i1 %378, label %386, label %379
 
-373:                                              ; preds = %361
-  %374 = load ptr, ptr %51, align 8
-  %375 = getelementptr inbounds %struct.Decl_, ptr %374, i32 0, i32 3
-  %376 = load i64, ptr %375, align 8
-  %377 = lshr i64 %376, 30
-  %378 = and i64 %377, 1
-  %379 = trunc i64 %378 to i1
-  br i1 %379, label %380, label %382
+379:                                              ; preds = %367
+  %380 = load ptr, ptr %51, align 8
+  %381 = getelementptr inbounds %struct.Decl_, ptr %380, i32 0, i32 3
+  %382 = load i64, ptr %381, align 8
+  %383 = lshr i64 %382, 30
+  %384 = and i64 %383, 1
+  %385 = trunc i64 %384 to i1
+  br i1 %385, label %386, label %388
 
-380:                                              ; preds = %373, %361
-  %381 = load ptr, ptr %51, align 8
-  call void @sema_trace_decl_liveness(ptr noundef %381)
-  br label %382
-
-382:                                              ; preds = %380, %373
-  br label %383
-
-383:                                              ; preds = %382
-  %384 = load i32, ptr %50, align 4
-  %385 = add i32 %384, 1
-  store i32 %385, ptr %50, align 4
-  br label %357, !llvm.loop !12
-
-386:                                              ; preds = %357
-  br label %387
-
-387:                                              ; preds = %386
+386:                                              ; preds = %379, %367
+  %387 = load ptr, ptr %51, align 8
+  call void @sema_trace_decl_liveness(ptr noundef %387)
   br label %388
 
-388:                                              ; preds = %387
+388:                                              ; preds = %386, %379
   br label %389
 
 389:                                              ; preds = %388
-  %390 = load i32, ptr %34, align 4
+  %390 = load i32, ptr %50, align 4
   %391 = add i32 %390, 1
-  store i32 %391, ptr %34, align 4
-  br label %157, !llvm.loop !13
+  store i32 %391, ptr %50, align 4
+  br label %363, !llvm.loop !12
 
-392:                                              ; preds = %157
+392:                                              ; preds = %363
   br label %393
 
 393:                                              ; preds = %392
@@ -789,18 +780,33 @@ define dso_local void @sema_trace_liveness() #0 {
   br label %395
 
 395:                                              ; preds = %394
-  %396 = load i32, ptr %30, align 4
+  %396 = load i32, ptr %34, align 4
   %397 = add i32 %396, 1
-  store i32 %397, ptr %30, align 4
-  br label %133, !llvm.loop !14
+  store i32 %397, ptr %34, align 4
+  br label %163, !llvm.loop !13
 
-398:                                              ; preds = %133
+398:                                              ; preds = %163
   br label %399
 
 399:                                              ; preds = %398
   br label %400
 
 400:                                              ; preds = %399
+  br label %401
+
+401:                                              ; preds = %400
+  %402 = load i32, ptr %30, align 4
+  %403 = add i32 %402, 1
+  store i32 %403, ptr %30, align 4
+  br label %139, !llvm.loop !14
+
+404:                                              ; preds = %139
+  br label %405
+
+405:                                              ; preds = %404
+  br label %406
+
+406:                                              ; preds = %405
   ret void
 }
 
@@ -1541,14 +1547,14 @@ define internal void @sema_trace_stmt_liveness(ptr noundef %0) #0 {
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %1
-  br label %357
+  br label %358
 
 34:                                               ; preds = %1
   %35 = load ptr, ptr %21, align 8
   %36 = getelementptr inbounds %struct.Ast_, ptr %35, i32 0, i32 2
   %37 = load i8, ptr %36, align 4
   %38 = zext i8 %37 to i32
-  switch i32 %38, label %355 [
+  switch i32 %38, label %356 [
     i32 0, label %39
     i32 9, label %39
     i32 10, label %39
@@ -1570,16 +1576,16 @@ define internal void @sema_trace_stmt_liveness(ptr noundef %0) #0 {
     i32 26, label %67
     i32 2, label %103
     i32 3, label %140
-    i32 16, label %154
-    i32 20, label %186
-    i32 23, label %231
-    i32 27, label %265
-    i32 22, label %265
-    i32 5, label %310
-    i32 17, label %335
-    i32 28, label %340
-    i32 4, label %350
-    i32 7, label %350
+    i32 16, label %155
+    i32 20, label %187
+    i32 23, label %232
+    i32 27, label %266
+    i32 22, label %266
+    i32 5, label %311
+    i32 17, label %336
+    i32 28, label %341
+    i32 4, label %351
+    i32 7, label %351
   ]
 
 39:                                               ; preds = %34, %34, %34, %34, %34, %34, %34, %34, %34, %34, %34
@@ -1598,7 +1604,7 @@ define internal void @sema_trace_stmt_liveness(ptr noundef %0) #0 {
   %45 = getelementptr inbounds %struct.AstAsmStmt, ptr %44, i32 0, i32 2
   %46 = load ptr, ptr %45, align 8
   call void @sema_trace_expr_list_liveness(ptr noundef %46)
-  br label %357
+  br label %358
 
 47:                                               ; preds = %34
   %48 = load ptr, ptr %21, align 8
@@ -1607,10 +1613,10 @@ define internal void @sema_trace_stmt_liveness(ptr noundef %0) #0 {
   %51 = load i32, ptr %50, align 4
   %52 = call ptr @astptr(i32 noundef %51)
   call void @sema_trace_stmt_liveness(ptr noundef %52)
-  br label %357
+  br label %358
 
 53:                                               ; preds = %34
-  br label %357
+  br label %358
 
 54:                                               ; preds = %34
   %55 = load ptr, ptr %21, align 8
@@ -1618,21 +1624,21 @@ define internal void @sema_trace_stmt_liveness(ptr noundef %0) #0 {
   %57 = getelementptr inbounds %struct.AstCompoundStmt, ptr %56, i32 0, i32 0
   %58 = load i32, ptr %57, align 8
   call void @sema_trace_stmt_chain_liveness(i32 noundef %58)
-  br label %357
+  br label %358
 
 59:                                               ; preds = %34
   %60 = load ptr, ptr %21, align 8
   %61 = getelementptr inbounds %struct.Ast_, ptr %60, i32 0, i32 3
   %62 = load ptr, ptr %61, align 8
   call void @sema_trace_expr_liveness(ptr noundef %62)
-  br label %357
+  br label %358
 
 63:                                               ; preds = %34
   %64 = load ptr, ptr %21, align 8
   %65 = getelementptr inbounds %struct.Ast_, ptr %64, i32 0, i32 3
   %66 = load ptr, ptr %65, align 8
   call void @sema_trace_decl_liveness(ptr noundef %66)
-  br label %357
+  br label %358
 
 67:                                               ; preds = %34, %34
   %68 = load ptr, ptr %21, align 8
@@ -1687,7 +1693,7 @@ define internal void @sema_trace_stmt_liveness(ptr noundef %0) #0 {
   br label %102
 
 102:                                              ; preds = %101, %81
-  br label %357
+  br label %358
 
 103:                                              ; preds = %34
   %104 = load ptr, ptr %21, align 8
@@ -1715,7 +1721,7 @@ define internal void @sema_trace_stmt_liveness(ptr noundef %0) #0 {
   br label %120
 
 120:                                              ; preds = %117, %110
-  br label %357
+  br label %358
 
 121:                                              ; preds = %103
   %122 = load ptr, ptr %21, align 8
@@ -1739,7 +1745,7 @@ define internal void @sema_trace_stmt_liveness(ptr noundef %0) #0 {
   %138 = getelementptr inbounds %struct.AsmInlineBlock, ptr %137, i32 0, i32 3
   %139 = load ptr, ptr %138, align 8
   call void @sema_trace_asm_arg_list(ptr noundef %139)
-  br label %357
+  br label %358
 
 140:                                              ; preds = %34
   %141 = load ptr, ptr %21, align 8
@@ -1748,369 +1754,370 @@ define internal void @sema_trace_stmt_liveness(ptr noundef %0) #0 {
   %144 = load i32, ptr %143, align 8
   %145 = call ptr @exprptr(i32 noundef %144)
   store ptr %145, ptr %22, align 8
-  %146 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 67, i32 2), align 8
-  %147 = icmp ne i32 %146, 0
-  br i1 %147, label %151, label %148
+  %146 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 67, i32 2
+  %147 = load i32, ptr %146, align 8
+  %148 = icmp ne i32 %147, 0
+  br i1 %148, label %152, label %149
 
-148:                                              ; preds = %140
-  %149 = load ptr, ptr %22, align 8
-  %150 = call zeroext i1 @expr_is_pure(ptr noundef %149)
-  br i1 %150, label %151, label %153
+149:                                              ; preds = %140
+  %150 = load ptr, ptr %22, align 8
+  %151 = call zeroext i1 @expr_is_pure(ptr noundef %150)
+  br i1 %151, label %152, label %154
 
-151:                                              ; preds = %148, %140
-  %152 = load ptr, ptr %22, align 8
-  call void @sema_trace_expr_liveness(ptr noundef %152)
-  br label %153
+152:                                              ; preds = %149, %140
+  %153 = load ptr, ptr %22, align 8
+  call void @sema_trace_expr_liveness(ptr noundef %153)
+  br label %154
 
-153:                                              ; preds = %151, %148
-  br label %357
+154:                                              ; preds = %152, %149
+  br label %358
 
-154:                                              ; preds = %34
-  %155 = load ptr, ptr %21, align 8
-  %156 = getelementptr inbounds %struct.Ast_, ptr %155, i32 0, i32 3
-  %157 = load ptr, ptr %156, align 8
-  store ptr %157, ptr %23, align 8
-  %158 = load ptr, ptr %23, align 8
-  store ptr %158, ptr %16, align 8
-  %159 = load ptr, ptr %16, align 8
-  %160 = icmp ne ptr %159, null
-  br i1 %160, label %162, label %161
+155:                                              ; preds = %34
+  %156 = load ptr, ptr %21, align 8
+  %157 = getelementptr inbounds %struct.Ast_, ptr %156, i32 0, i32 3
+  %158 = load ptr, ptr %157, align 8
+  store ptr %158, ptr %23, align 8
+  %159 = load ptr, ptr %23, align 8
+  store ptr %159, ptr %16, align 8
+  %160 = load ptr, ptr %16, align 8
+  %161 = icmp ne ptr %160, null
+  br i1 %161, label %163, label %162
 
-161:                                              ; preds = %154
+162:                                              ; preds = %155
   store i32 0, ptr %15, align 4
-  br label %167
+  br label %168
 
-162:                                              ; preds = %154
-  %163 = load ptr, ptr %16, align 8
-  store ptr %163, ptr %17, align 8
-  %164 = load ptr, ptr %17, align 8
-  %165 = getelementptr inbounds %struct.VHeader_, ptr %164, i64 -1
-  %166 = load i32, ptr %165, align 4
-  store i32 %166, ptr %15, align 4
-  br label %167
+163:                                              ; preds = %155
+  %164 = load ptr, ptr %16, align 8
+  store ptr %164, ptr %17, align 8
+  %165 = load ptr, ptr %17, align 8
+  %166 = getelementptr inbounds %struct.VHeader_, ptr %165, i64 -1
+  %167 = load i32, ptr %166, align 4
+  store i32 %167, ptr %15, align 4
+  br label %168
 
-167:                                              ; preds = %162, %161
-  %168 = load i32, ptr %15, align 4
-  store i32 %168, ptr %24, align 4
+168:                                              ; preds = %163, %162
+  %169 = load i32, ptr %15, align 4
+  store i32 %169, ptr %24, align 4
   store i32 0, ptr %25, align 4
-  br label %169
+  br label %170
 
-169:                                              ; preds = %180, %167
-  %170 = load i32, ptr %25, align 4
-  %171 = load i32, ptr %24, align 4
-  %172 = icmp ult i32 %170, %171
-  br i1 %172, label %173, label %183
+170:                                              ; preds = %181, %168
+  %171 = load i32, ptr %25, align 4
+  %172 = load i32, ptr %24, align 4
+  %173 = icmp ult i32 %171, %172
+  br i1 %173, label %174, label %184
 
-173:                                              ; preds = %169
-  %174 = load ptr, ptr %23, align 8
-  %175 = load i32, ptr %25, align 4
-  %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %174, i64 %176
-  %178 = load ptr, ptr %177, align 8
-  store ptr %178, ptr %26, align 8
-  %179 = load ptr, ptr %26, align 8
-  call void @sema_trace_decl_liveness(ptr noundef %179)
-  br label %180
+174:                                              ; preds = %170
+  %175 = load ptr, ptr %23, align 8
+  %176 = load i32, ptr %25, align 4
+  %177 = zext i32 %176 to i64
+  %178 = getelementptr inbounds ptr, ptr %175, i64 %177
+  %179 = load ptr, ptr %178, align 8
+  store ptr %179, ptr %26, align 8
+  %180 = load ptr, ptr %26, align 8
+  call void @sema_trace_decl_liveness(ptr noundef %180)
+  br label %181
 
-180:                                              ; preds = %173
-  %181 = load i32, ptr %25, align 4
-  %182 = add i32 %181, 1
-  store i32 %182, ptr %25, align 4
-  br label %169, !llvm.loop !17
+181:                                              ; preds = %174
+  %182 = load i32, ptr %25, align 4
+  %183 = add i32 %182, 1
+  store i32 %183, ptr %25, align 4
+  br label %170, !llvm.loop !17
 
-183:                                              ; preds = %169
-  br label %184
-
-184:                                              ; preds = %183
+184:                                              ; preds = %170
   br label %185
 
 185:                                              ; preds = %184
-  br label %357
+  br label %186
 
-186:                                              ; preds = %34
-  %187 = load ptr, ptr %21, align 8
-  %188 = getelementptr inbounds %struct.Ast_, ptr %187, i32 0, i32 3
-  %189 = getelementptr inbounds %struct.AstForStmt, ptr %188, i32 0, i32 1
-  %190 = getelementptr inbounds %struct.anon.75, ptr %189, i32 0, i32 0
-  %191 = load i32, ptr %190, align 8
-  store i32 %191, ptr %3, align 4
-  %192 = load i32, ptr %3, align 4
-  %193 = icmp ne i32 %192, 0
-  br i1 %193, label %194, label %197
+186:                                              ; preds = %185
+  br label %358
 
-194:                                              ; preds = %186
-  %195 = load i32, ptr %3, align 4
-  %196 = call ptr @exprptr(i32 noundef %195)
-  call void @sema_trace_expr_liveness(ptr noundef %196)
-  br label %197
+187:                                              ; preds = %34
+  %188 = load ptr, ptr %21, align 8
+  %189 = getelementptr inbounds %struct.Ast_, ptr %188, i32 0, i32 3
+  %190 = getelementptr inbounds %struct.AstForStmt, ptr %189, i32 0, i32 1
+  %191 = getelementptr inbounds %struct.anon.75, ptr %190, i32 0, i32 0
+  %192 = load i32, ptr %191, align 8
+  store i32 %192, ptr %3, align 4
+  %193 = load i32, ptr %3, align 4
+  %194 = icmp ne i32 %193, 0
+  br i1 %194, label %195, label %198
 
-197:                                              ; preds = %194, %186
-  %198 = load ptr, ptr %21, align 8
-  %199 = getelementptr inbounds %struct.Ast_, ptr %198, i32 0, i32 3
-  %200 = getelementptr inbounds %struct.AstForStmt, ptr %199, i32 0, i32 1
-  %201 = getelementptr inbounds %struct.anon.75, ptr %200, i32 0, i32 2
-  %202 = load i32, ptr %201, align 8
-  store i32 %202, ptr %4, align 4
-  %203 = load i32, ptr %4, align 4
-  %204 = icmp ne i32 %203, 0
-  br i1 %204, label %205, label %208
+195:                                              ; preds = %187
+  %196 = load i32, ptr %3, align 4
+  %197 = call ptr @exprptr(i32 noundef %196)
+  call void @sema_trace_expr_liveness(ptr noundef %197)
+  br label %198
 
-205:                                              ; preds = %197
-  %206 = load i32, ptr %4, align 4
-  %207 = call ptr @exprptr(i32 noundef %206)
-  call void @sema_trace_expr_liveness(ptr noundef %207)
-  br label %208
+198:                                              ; preds = %195, %187
+  %199 = load ptr, ptr %21, align 8
+  %200 = getelementptr inbounds %struct.Ast_, ptr %199, i32 0, i32 3
+  %201 = getelementptr inbounds %struct.AstForStmt, ptr %200, i32 0, i32 1
+  %202 = getelementptr inbounds %struct.anon.75, ptr %201, i32 0, i32 2
+  %203 = load i32, ptr %202, align 8
+  store i32 %203, ptr %4, align 4
+  %204 = load i32, ptr %4, align 4
+  %205 = icmp ne i32 %204, 0
+  br i1 %205, label %206, label %209
 
-208:                                              ; preds = %205, %197
-  %209 = load ptr, ptr %21, align 8
-  %210 = getelementptr inbounds %struct.Ast_, ptr %209, i32 0, i32 3
-  %211 = getelementptr inbounds %struct.AstForStmt, ptr %210, i32 0, i32 1
-  %212 = getelementptr inbounds %struct.anon.75, ptr %211, i32 0, i32 1
-  %213 = load i32, ptr %212, align 4
-  store i32 %213, ptr %5, align 4
-  %214 = load i32, ptr %5, align 4
-  %215 = icmp ne i32 %214, 0
-  br i1 %215, label %216, label %219
+206:                                              ; preds = %198
+  %207 = load i32, ptr %4, align 4
+  %208 = call ptr @exprptr(i32 noundef %207)
+  call void @sema_trace_expr_liveness(ptr noundef %208)
+  br label %209
 
-216:                                              ; preds = %208
-  %217 = load i32, ptr %5, align 4
-  %218 = call ptr @exprptr(i32 noundef %217)
-  call void @sema_trace_expr_liveness(ptr noundef %218)
-  br label %219
+209:                                              ; preds = %206, %198
+  %210 = load ptr, ptr %21, align 8
+  %211 = getelementptr inbounds %struct.Ast_, ptr %210, i32 0, i32 3
+  %212 = getelementptr inbounds %struct.AstForStmt, ptr %211, i32 0, i32 1
+  %213 = getelementptr inbounds %struct.anon.75, ptr %212, i32 0, i32 1
+  %214 = load i32, ptr %213, align 4
+  store i32 %214, ptr %5, align 4
+  %215 = load i32, ptr %5, align 4
+  %216 = icmp ne i32 %215, 0
+  br i1 %216, label %217, label %220
 
-219:                                              ; preds = %216, %208
-  %220 = load ptr, ptr %21, align 8
-  %221 = getelementptr inbounds %struct.Ast_, ptr %220, i32 0, i32 3
-  %222 = getelementptr inbounds %struct.AstForStmt, ptr %221, i32 0, i32 1
-  %223 = getelementptr inbounds %struct.anon.75, ptr %222, i32 0, i32 3
-  %224 = load i32, ptr %223, align 4
-  store i32 %224, ptr %12, align 4
-  %225 = load i32, ptr %12, align 4
-  %226 = icmp ne i32 %225, 0
-  br i1 %226, label %227, label %230
+217:                                              ; preds = %209
+  %218 = load i32, ptr %5, align 4
+  %219 = call ptr @exprptr(i32 noundef %218)
+  call void @sema_trace_expr_liveness(ptr noundef %219)
+  br label %220
 
-227:                                              ; preds = %219
-  %228 = load i32, ptr %12, align 4
-  %229 = call ptr @astptr(i32 noundef %228)
-  call void @sema_trace_stmt_liveness(ptr noundef %229)
-  br label %230
+220:                                              ; preds = %217, %209
+  %221 = load ptr, ptr %21, align 8
+  %222 = getelementptr inbounds %struct.Ast_, ptr %221, i32 0, i32 3
+  %223 = getelementptr inbounds %struct.AstForStmt, ptr %222, i32 0, i32 1
+  %224 = getelementptr inbounds %struct.anon.75, ptr %223, i32 0, i32 3
+  %225 = load i32, ptr %224, align 4
+  store i32 %225, ptr %12, align 4
+  %226 = load i32, ptr %12, align 4
+  %227 = icmp ne i32 %226, 0
+  br i1 %227, label %228, label %231
 
-230:                                              ; preds = %227, %219
-  br label %357
+228:                                              ; preds = %220
+  %229 = load i32, ptr %12, align 4
+  %230 = call ptr @astptr(i32 noundef %229)
+  call void @sema_trace_stmt_liveness(ptr noundef %230)
+  br label %231
 
-231:                                              ; preds = %34
-  %232 = load ptr, ptr %21, align 8
-  %233 = getelementptr inbounds %struct.Ast_, ptr %232, i32 0, i32 3
-  %234 = getelementptr inbounds %struct.AstIfStmt, ptr %233, i32 0, i32 1
-  %235 = getelementptr inbounds %struct.anon.78, ptr %234, i32 0, i32 0
-  %236 = load i32, ptr %235, align 8
-  store i32 %236, ptr %6, align 4
-  %237 = load i32, ptr %6, align 4
-  %238 = icmp ne i32 %237, 0
-  br i1 %238, label %239, label %242
+231:                                              ; preds = %228, %220
+  br label %358
 
-239:                                              ; preds = %231
-  %240 = load i32, ptr %6, align 4
-  %241 = call ptr @exprptr(i32 noundef %240)
-  call void @sema_trace_expr_liveness(ptr noundef %241)
-  br label %242
+232:                                              ; preds = %34
+  %233 = load ptr, ptr %21, align 8
+  %234 = getelementptr inbounds %struct.Ast_, ptr %233, i32 0, i32 3
+  %235 = getelementptr inbounds %struct.AstIfStmt, ptr %234, i32 0, i32 1
+  %236 = getelementptr inbounds %struct.anon.78, ptr %235, i32 0, i32 0
+  %237 = load i32, ptr %236, align 8
+  store i32 %237, ptr %6, align 4
+  %238 = load i32, ptr %6, align 4
+  %239 = icmp ne i32 %238, 0
+  br i1 %239, label %240, label %243
 
-242:                                              ; preds = %239, %231
-  %243 = load ptr, ptr %21, align 8
-  %244 = getelementptr inbounds %struct.Ast_, ptr %243, i32 0, i32 3
-  %245 = getelementptr inbounds %struct.AstIfStmt, ptr %244, i32 0, i32 1
-  %246 = getelementptr inbounds %struct.anon.78, ptr %245, i32 0, i32 1
-  %247 = load i32, ptr %246, align 4
-  store i32 %247, ptr %13, align 4
-  %248 = load i32, ptr %13, align 4
-  %249 = icmp ne i32 %248, 0
-  br i1 %249, label %250, label %253
+240:                                              ; preds = %232
+  %241 = load i32, ptr %6, align 4
+  %242 = call ptr @exprptr(i32 noundef %241)
+  call void @sema_trace_expr_liveness(ptr noundef %242)
+  br label %243
 
-250:                                              ; preds = %242
-  %251 = load i32, ptr %13, align 4
-  %252 = call ptr @astptr(i32 noundef %251)
-  call void @sema_trace_stmt_liveness(ptr noundef %252)
-  br label %253
+243:                                              ; preds = %240, %232
+  %244 = load ptr, ptr %21, align 8
+  %245 = getelementptr inbounds %struct.Ast_, ptr %244, i32 0, i32 3
+  %246 = getelementptr inbounds %struct.AstIfStmt, ptr %245, i32 0, i32 1
+  %247 = getelementptr inbounds %struct.anon.78, ptr %246, i32 0, i32 1
+  %248 = load i32, ptr %247, align 4
+  store i32 %248, ptr %13, align 4
+  %249 = load i32, ptr %13, align 4
+  %250 = icmp ne i32 %249, 0
+  br i1 %250, label %251, label %254
 
-253:                                              ; preds = %250, %242
-  %254 = load ptr, ptr %21, align 8
-  %255 = getelementptr inbounds %struct.Ast_, ptr %254, i32 0, i32 3
-  %256 = getelementptr inbounds %struct.AstIfStmt, ptr %255, i32 0, i32 1
-  %257 = getelementptr inbounds %struct.anon.78, ptr %256, i32 0, i32 2
-  %258 = load i32, ptr %257, align 8
-  store i32 %258, ptr %14, align 4
-  %259 = load i32, ptr %14, align 4
-  %260 = icmp ne i32 %259, 0
-  br i1 %260, label %261, label %264
+251:                                              ; preds = %243
+  %252 = load i32, ptr %13, align 4
+  %253 = call ptr @astptr(i32 noundef %252)
+  call void @sema_trace_stmt_liveness(ptr noundef %253)
+  br label %254
 
-261:                                              ; preds = %253
-  %262 = load i32, ptr %14, align 4
-  %263 = call ptr @astptr(i32 noundef %262)
-  call void @sema_trace_stmt_liveness(ptr noundef %263)
-  br label %264
+254:                                              ; preds = %251, %243
+  %255 = load ptr, ptr %21, align 8
+  %256 = getelementptr inbounds %struct.Ast_, ptr %255, i32 0, i32 3
+  %257 = getelementptr inbounds %struct.AstIfStmt, ptr %256, i32 0, i32 1
+  %258 = getelementptr inbounds %struct.anon.78, ptr %257, i32 0, i32 2
+  %259 = load i32, ptr %258, align 8
+  store i32 %259, ptr %14, align 4
+  %260 = load i32, ptr %14, align 4
+  %261 = icmp ne i32 %260, 0
+  br i1 %261, label %262, label %265
 
-264:                                              ; preds = %261, %253
-  br label %357
+262:                                              ; preds = %254
+  %263 = load i32, ptr %14, align 4
+  %264 = call ptr @astptr(i32 noundef %263)
+  call void @sema_trace_stmt_liveness(ptr noundef %264)
+  br label %265
 
-265:                                              ; preds = %34, %34
-  %266 = load ptr, ptr %21, align 8
-  %267 = getelementptr inbounds %struct.Ast_, ptr %266, i32 0, i32 3
-  %268 = getelementptr inbounds %struct.AstSwitchStmt, ptr %267, i32 0, i32 1
-  %269 = getelementptr inbounds %struct.anon.85, ptr %268, i32 0, i32 0
-  %270 = load i32, ptr %269, align 8
-  store i32 %270, ptr %7, align 4
-  %271 = load i32, ptr %7, align 4
-  %272 = icmp ne i32 %271, 0
-  br i1 %272, label %273, label %276
+265:                                              ; preds = %262, %254
+  br label %358
 
-273:                                              ; preds = %265
-  %274 = load i32, ptr %7, align 4
-  %275 = call ptr @exprptr(i32 noundef %274)
-  call void @sema_trace_expr_liveness(ptr noundef %275)
-  br label %276
+266:                                              ; preds = %34, %34
+  %267 = load ptr, ptr %21, align 8
+  %268 = getelementptr inbounds %struct.Ast_, ptr %267, i32 0, i32 3
+  %269 = getelementptr inbounds %struct.AstSwitchStmt, ptr %268, i32 0, i32 1
+  %270 = getelementptr inbounds %struct.anon.85, ptr %269, i32 0, i32 0
+  %271 = load i32, ptr %270, align 8
+  store i32 %271, ptr %7, align 4
+  %272 = load i32, ptr %7, align 4
+  %273 = icmp ne i32 %272, 0
+  br i1 %273, label %274, label %277
 
-276:                                              ; preds = %273, %265
-  %277 = load ptr, ptr %21, align 8
-  %278 = getelementptr inbounds %struct.Ast_, ptr %277, i32 0, i32 3
-  %279 = getelementptr inbounds %struct.AstSwitchStmt, ptr %278, i32 0, i32 1
-  %280 = getelementptr inbounds %struct.anon.85, ptr %279, i32 0, i32 2
-  %281 = load ptr, ptr %280, align 8
-  store ptr %281, ptr %27, align 8
-  %282 = load ptr, ptr %27, align 8
-  store ptr %282, ptr %19, align 8
-  %283 = load ptr, ptr %19, align 8
-  %284 = icmp ne ptr %283, null
-  br i1 %284, label %286, label %285
+274:                                              ; preds = %266
+  %275 = load i32, ptr %7, align 4
+  %276 = call ptr @exprptr(i32 noundef %275)
+  call void @sema_trace_expr_liveness(ptr noundef %276)
+  br label %277
 
-285:                                              ; preds = %276
+277:                                              ; preds = %274, %266
+  %278 = load ptr, ptr %21, align 8
+  %279 = getelementptr inbounds %struct.Ast_, ptr %278, i32 0, i32 3
+  %280 = getelementptr inbounds %struct.AstSwitchStmt, ptr %279, i32 0, i32 1
+  %281 = getelementptr inbounds %struct.anon.85, ptr %280, i32 0, i32 2
+  %282 = load ptr, ptr %281, align 8
+  store ptr %282, ptr %27, align 8
+  %283 = load ptr, ptr %27, align 8
+  store ptr %283, ptr %19, align 8
+  %284 = load ptr, ptr %19, align 8
+  %285 = icmp ne ptr %284, null
+  br i1 %285, label %287, label %286
+
+286:                                              ; preds = %277
   store i32 0, ptr %18, align 4
-  br label %291
+  br label %292
 
-286:                                              ; preds = %276
-  %287 = load ptr, ptr %19, align 8
-  store ptr %287, ptr %20, align 8
-  %288 = load ptr, ptr %20, align 8
-  %289 = getelementptr inbounds %struct.VHeader_, ptr %288, i64 -1
-  %290 = load i32, ptr %289, align 4
-  store i32 %290, ptr %18, align 4
-  br label %291
+287:                                              ; preds = %277
+  %288 = load ptr, ptr %19, align 8
+  store ptr %288, ptr %20, align 8
+  %289 = load ptr, ptr %20, align 8
+  %290 = getelementptr inbounds %struct.VHeader_, ptr %289, i64 -1
+  %291 = load i32, ptr %290, align 4
+  store i32 %291, ptr %18, align 4
+  br label %292
 
-291:                                              ; preds = %286, %285
-  %292 = load i32, ptr %18, align 4
-  store i32 %292, ptr %28, align 4
+292:                                              ; preds = %287, %286
+  %293 = load i32, ptr %18, align 4
+  store i32 %293, ptr %28, align 4
   store i32 0, ptr %29, align 4
-  br label %293
+  br label %294
 
-293:                                              ; preds = %304, %291
-  %294 = load i32, ptr %29, align 4
-  %295 = load i32, ptr %28, align 4
-  %296 = icmp ult i32 %294, %295
-  br i1 %296, label %297, label %307
+294:                                              ; preds = %305, %292
+  %295 = load i32, ptr %29, align 4
+  %296 = load i32, ptr %28, align 4
+  %297 = icmp ult i32 %295, %296
+  br i1 %297, label %298, label %308
 
-297:                                              ; preds = %293
-  %298 = load ptr, ptr %27, align 8
-  %299 = load i32, ptr %29, align 4
-  %300 = zext i32 %299 to i64
-  %301 = getelementptr inbounds ptr, ptr %298, i64 %300
-  %302 = load ptr, ptr %301, align 8
-  store ptr %302, ptr %30, align 8
-  %303 = load ptr, ptr %30, align 8
-  call void @sema_trace_stmt_liveness(ptr noundef %303)
-  br label %304
+298:                                              ; preds = %294
+  %299 = load ptr, ptr %27, align 8
+  %300 = load i32, ptr %29, align 4
+  %301 = zext i32 %300 to i64
+  %302 = getelementptr inbounds ptr, ptr %299, i64 %301
+  %303 = load ptr, ptr %302, align 8
+  store ptr %303, ptr %30, align 8
+  %304 = load ptr, ptr %30, align 8
+  call void @sema_trace_stmt_liveness(ptr noundef %304)
+  br label %305
 
-304:                                              ; preds = %297
-  %305 = load i32, ptr %29, align 4
-  %306 = add i32 %305, 1
-  store i32 %306, ptr %29, align 4
-  br label %293, !llvm.loop !18
+305:                                              ; preds = %298
+  %306 = load i32, ptr %29, align 4
+  %307 = add i32 %306, 1
+  store i32 %307, ptr %29, align 4
+  br label %294, !llvm.loop !18
 
-307:                                              ; preds = %293
-  br label %308
-
-308:                                              ; preds = %307
+308:                                              ; preds = %294
   br label %309
 
 309:                                              ; preds = %308
+  br label %310
+
+310:                                              ; preds = %309
+  br label %358
+
+311:                                              ; preds = %34
+  %312 = load ptr, ptr %21, align 8
+  %313 = getelementptr inbounds %struct.Ast_, ptr %312, i32 0, i32 3
+  %314 = getelementptr inbounds %struct.AstCaseStmt, ptr %313, i32 0, i32 0
+  %315 = load i32, ptr %314, align 8
+  store i32 %315, ptr %8, align 4
+  %316 = load i32, ptr %8, align 4
+  %317 = icmp ne i32 %316, 0
+  br i1 %317, label %318, label %321
+
+318:                                              ; preds = %311
+  %319 = load i32, ptr %8, align 4
+  %320 = call ptr @exprptr(i32 noundef %319)
+  call void @sema_trace_expr_liveness(ptr noundef %320)
+  br label %321
+
+321:                                              ; preds = %318, %311
+  %322 = load ptr, ptr %21, align 8
+  %323 = getelementptr inbounds %struct.Ast_, ptr %322, i32 0, i32 3
+  %324 = getelementptr inbounds %struct.AstCaseStmt, ptr %323, i32 0, i32 1
+  %325 = load i32, ptr %324, align 4
+  store i32 %325, ptr %9, align 4
+  %326 = load i32, ptr %9, align 4
+  %327 = icmp ne i32 %326, 0
+  br i1 %327, label %328, label %331
+
+328:                                              ; preds = %321
+  %329 = load i32, ptr %9, align 4
+  %330 = call ptr @exprptr(i32 noundef %329)
+  call void @sema_trace_expr_liveness(ptr noundef %330)
+  br label %331
+
+331:                                              ; preds = %328, %321
+  %332 = load ptr, ptr %21, align 8
+  %333 = getelementptr inbounds %struct.Ast_, ptr %332, i32 0, i32 3
+  %334 = getelementptr inbounds %struct.AstCaseStmt, ptr %333, i32 0, i32 2
+  %335 = load ptr, ptr %334, align 8
+  call void @sema_trace_stmt_liveness(ptr noundef %335)
+  br label %358
+
+336:                                              ; preds = %34
+  %337 = load ptr, ptr %21, align 8
+  %338 = getelementptr inbounds %struct.Ast_, ptr %337, i32 0, i32 3
+  %339 = getelementptr inbounds %struct.AstCaseStmt, ptr %338, i32 0, i32 2
+  %340 = load ptr, ptr %339, align 8
+  call void @sema_trace_stmt_liveness(ptr noundef %340)
+  br label %358
+
+341:                                              ; preds = %34
+  %342 = load ptr, ptr %21, align 8
+  %343 = getelementptr inbounds %struct.Ast_, ptr %342, i32 0, i32 3
+  %344 = getelementptr inbounds %struct.AstNextcaseStmt, ptr %343, i32 0, i32 0
+  %345 = load i32, ptr %344, align 8
+  call void @sema_trace_stmt_chain_liveness(i32 noundef %345)
+  %346 = load ptr, ptr %21, align 8
+  %347 = getelementptr inbounds %struct.Ast_, ptr %346, i32 0, i32 3
+  %348 = getelementptr inbounds %struct.AstNextcaseStmt, ptr %347, i32 0, i32 1
+  %349 = getelementptr inbounds %struct.anon.83, ptr %348, i32 0, i32 1
+  %350 = load ptr, ptr %349, align 8
+  call void @sema_trace_expr_liveness(ptr noundef %350)
+  br label %358
+
+351:                                              ; preds = %34, %34
+  %352 = load ptr, ptr %21, align 8
+  %353 = getelementptr inbounds %struct.Ast_, ptr %352, i32 0, i32 3
+  %354 = getelementptr inbounds %struct.AstContinueBreakStmt, ptr %353, i32 0, i32 1
+  %355 = load i32, ptr %354, align 4
+  call void @sema_trace_stmt_chain_liveness(i32 noundef %355)
+  br label %358
+
+356:                                              ; preds = %34
   br label %357
 
-310:                                              ; preds = %34
-  %311 = load ptr, ptr %21, align 8
-  %312 = getelementptr inbounds %struct.Ast_, ptr %311, i32 0, i32 3
-  %313 = getelementptr inbounds %struct.AstCaseStmt, ptr %312, i32 0, i32 0
-  %314 = load i32, ptr %313, align 8
-  store i32 %314, ptr %8, align 4
-  %315 = load i32, ptr %8, align 4
-  %316 = icmp ne i32 %315, 0
-  br i1 %316, label %317, label %320
-
-317:                                              ; preds = %310
-  %318 = load i32, ptr %8, align 4
-  %319 = call ptr @exprptr(i32 noundef %318)
-  call void @sema_trace_expr_liveness(ptr noundef %319)
-  br label %320
-
-320:                                              ; preds = %317, %310
-  %321 = load ptr, ptr %21, align 8
-  %322 = getelementptr inbounds %struct.Ast_, ptr %321, i32 0, i32 3
-  %323 = getelementptr inbounds %struct.AstCaseStmt, ptr %322, i32 0, i32 1
-  %324 = load i32, ptr %323, align 4
-  store i32 %324, ptr %9, align 4
-  %325 = load i32, ptr %9, align 4
-  %326 = icmp ne i32 %325, 0
-  br i1 %326, label %327, label %330
-
-327:                                              ; preds = %320
-  %328 = load i32, ptr %9, align 4
-  %329 = call ptr @exprptr(i32 noundef %328)
-  call void @sema_trace_expr_liveness(ptr noundef %329)
-  br label %330
-
-330:                                              ; preds = %327, %320
-  %331 = load ptr, ptr %21, align 8
-  %332 = getelementptr inbounds %struct.Ast_, ptr %331, i32 0, i32 3
-  %333 = getelementptr inbounds %struct.AstCaseStmt, ptr %332, i32 0, i32 2
-  %334 = load ptr, ptr %333, align 8
-  call void @sema_trace_stmt_liveness(ptr noundef %334)
-  br label %357
-
-335:                                              ; preds = %34
-  %336 = load ptr, ptr %21, align 8
-  %337 = getelementptr inbounds %struct.Ast_, ptr %336, i32 0, i32 3
-  %338 = getelementptr inbounds %struct.AstCaseStmt, ptr %337, i32 0, i32 2
-  %339 = load ptr, ptr %338, align 8
-  call void @sema_trace_stmt_liveness(ptr noundef %339)
-  br label %357
-
-340:                                              ; preds = %34
-  %341 = load ptr, ptr %21, align 8
-  %342 = getelementptr inbounds %struct.Ast_, ptr %341, i32 0, i32 3
-  %343 = getelementptr inbounds %struct.AstNextcaseStmt, ptr %342, i32 0, i32 0
-  %344 = load i32, ptr %343, align 8
-  call void @sema_trace_stmt_chain_liveness(i32 noundef %344)
-  %345 = load ptr, ptr %21, align 8
-  %346 = getelementptr inbounds %struct.Ast_, ptr %345, i32 0, i32 3
-  %347 = getelementptr inbounds %struct.AstNextcaseStmt, ptr %346, i32 0, i32 1
-  %348 = getelementptr inbounds %struct.anon.83, ptr %347, i32 0, i32 1
-  %349 = load ptr, ptr %348, align 8
-  call void @sema_trace_expr_liveness(ptr noundef %349)
-  br label %357
-
-350:                                              ; preds = %34, %34
-  %351 = load ptr, ptr %21, align 8
-  %352 = getelementptr inbounds %struct.Ast_, ptr %351, i32 0, i32 3
-  %353 = getelementptr inbounds %struct.AstContinueBreakStmt, ptr %352, i32 0, i32 1
-  %354 = load i32, ptr %353, align 4
-  call void @sema_trace_stmt_chain_liveness(i32 noundef %354)
-  br label %357
-
-355:                                              ; preds = %34
-  br label %356
-
-356:                                              ; preds = %355
+357:                                              ; preds = %356
   call void (ptr, ...) @error_exit(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__func__.sema_trace_stmt_liveness, ptr noundef @.str.2, i32 noundef 204) #4
   unreachable
 
-357:                                              ; preds = %350, %340, %335, %330, %309, %264, %230, %185, %153, %121, %120, %102, %63, %59, %54, %53, %47, %42, %33
+358:                                              ; preds = %351, %341, %336, %331, %310, %265, %231, %186, %154, %121, %120, %102, %63, %59, %54, %53, %47, %42, %33
   ret void
 }
 

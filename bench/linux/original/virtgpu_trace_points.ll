@@ -94,22 +94,23 @@ declare dso_local i32 @__SCT__tp_func_virtio_gpu_cmd_queue(ptr noundef, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_virtio_gpu_cmd_queue(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_virtio_gpu_cmd_queue, i64 0, i32 8), align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %15, label %7
+  %5 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_virtio_gpu_cmd_queue, i64 0, i32 8
+  %6 = load volatile ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %16, label %8
 
-7:                                                ; preds = %7, %4
-  %8 = phi ptr [ %12, %7 ], [ %5, %4 ]
-  %9 = load volatile ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void %9(ptr noundef %11, ptr noundef %1, ptr noundef %2, i32 noundef %3) #8
-  %12 = getelementptr i8, ptr %8, i64 24
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %7, !llvm.loop !5
+8:                                                ; preds = %8, %4
+  %9 = phi ptr [ %13, %8 ], [ %6, %4 ]
+  %10 = load volatile ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = load ptr, ptr %11, align 8
+  tail call void %10(ptr noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %3) #8
+  %13 = getelementptr i8, ptr %9, i64 24
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %8, !llvm.loop !5
 
-15:                                               ; preds = %7, %4
+16:                                               ; preds = %8, %4
   ret i32 0
 }
 
@@ -129,22 +130,23 @@ declare dso_local i32 @__SCT__tp_func_virtio_gpu_cmd_response(ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_virtio_gpu_cmd_response(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_virtio_gpu_cmd_response, i64 0, i32 8), align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %15, label %7
+  %5 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_virtio_gpu_cmd_response, i64 0, i32 8
+  %6 = load volatile ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %16, label %8
 
-7:                                                ; preds = %7, %4
-  %8 = phi ptr [ %12, %7 ], [ %5, %4 ]
-  %9 = load volatile ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void %9(ptr noundef %11, ptr noundef %1, ptr noundef %2, i32 noundef %3) #8
-  %12 = getelementptr i8, ptr %8, i64 24
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %7, !llvm.loop !8
+8:                                                ; preds = %8, %4
+  %9 = phi ptr [ %13, %8 ], [ %6, %4 ]
+  %10 = load volatile ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = load ptr, ptr %11, align 8
+  tail call void %10(ptr noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %3) #8
+  %13 = getelementptr i8, ptr %9, i64 24
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %8, !llvm.loop !8
 
-15:                                               ; preds = %7, %4
+16:                                               ; preds = %8, %4
   ret i32 0
 }
 

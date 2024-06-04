@@ -30,80 +30,81 @@ define internal noundef zeroext i1 @ch7017_init(ptr nocapture noundef %0, ptr no
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
   store i8 0, ptr %5, align 1, !annotation !5
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
-  %7 = tail call noalias noundef align 8 dereferenceable_or_null(1) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 1) #8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %37, label %9
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call noalias noundef align 8 dereferenceable_or_null(1) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 1) #8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %38, label %10
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %7, ptr %11, align 8
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %1, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %8, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 75, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
-  %13 = load i32, ptr %12, align 4
-  %14 = trunc i32 %13 to i16
-  store i16 %14, ptr %4, align 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 2
-  store i16 0, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %4, i64 4
-  store i16 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %3, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
-  store i16 %14, ptr %18, align 16
-  %19 = getelementptr inbounds i8, ptr %4, i64 18
-  store i16 1, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %4, i64 20
-  store i16 1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %5, ptr %21, align 8
-  %22 = call i32 @i2c_transfer(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 2) #7
-  %23 = icmp eq i32 %22, 2
+  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = load i32, ptr %13, align 4
+  %15 = trunc i32 %14 to i16
+  store i16 %15, ptr %4, align 16
+  %16 = getelementptr inbounds i8, ptr %4, i64 2
+  store i16 0, ptr %16, align 2
+  %17 = getelementptr inbounds i8, ptr %4, i64 4
+  store i16 1, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %3, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  store i16 %15, ptr %19, align 16
+  %20 = getelementptr inbounds i8, ptr %4, i64 18
+  store i16 1, ptr %20, align 2
+  %21 = getelementptr inbounds i8, ptr %4, i64 20
+  store i16 1, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %5, ptr %22, align 8
+  %23 = call i32 @i2c_transfer(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 2) #7
+  %24 = icmp eq i32 %23, 2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br i1 %23, label %24, label %36
+  br i1 %24, label %25, label %37
 
-24:                                               ; preds = %9
-  %25 = load i8, ptr %5, align 1
-  switch i8 %25, label %28 [
-    i8 27, label %32
-    i8 26, label %26
-    i8 25, label %27
+25:                                               ; preds = %10
+  %26 = load i8, ptr %5, align 1
+  switch i8 %26, label %29 [
+    i8 27, label %33
+    i8 26, label %27
+    i8 25, label %28
   ]
 
-26:                                               ; preds = %24
-  br label %32
+27:                                               ; preds = %25
+  br label %33
 
-27:                                               ; preds = %24
-  br label %32
+28:                                               ; preds = %25
+  br label %33
 
-28:                                               ; preds = %24
-  %29 = zext i8 %25 to i32
-  %30 = getelementptr inbounds i8, ptr %1, i64 852
-  %31 = load i32, ptr %12, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %29, ptr noundef %30, i32 noundef %31) #7
-  br label %36
-
-32:                                               ; preds = %27, %26, %24
-  %33 = phi ptr [ @.str.2, %27 ], [ @.str.1, %26 ], [ @.str, %24 ]
-  %34 = getelementptr inbounds i8, ptr %1, i64 852
-  %35 = load i32, ptr %12, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef nonnull %33, ptr noundef %34, i32 noundef %35) #7
+29:                                               ; preds = %25
+  %30 = zext i8 %26 to i32
+  %31 = getelementptr inbounds i8, ptr %1, i64 852
+  %32 = load i32, ptr %13, align 4
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %30, ptr noundef %31, i32 noundef %32) #7
   br label %37
 
-36:                                               ; preds = %28, %9
-  call void @kfree(ptr noundef nonnull %7) #7
-  br label %37
+33:                                               ; preds = %28, %27, %25
+  %34 = phi ptr [ @.str.2, %28 ], [ @.str.1, %27 ], [ @.str, %25 ]
+  %35 = getelementptr inbounds i8, ptr %1, i64 852
+  %36 = load i32, ptr %13, align 4
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef nonnull %34, ptr noundef %35, i32 noundef %36) #7
+  br label %38
 
-37:                                               ; preds = %36, %32, %2
-  %38 = phi i1 [ false, %36 ], [ true, %32 ], [ false, %2 ]
+37:                                               ; preds = %29, %10
+  call void @kfree(ptr noundef nonnull %8) #7
+  br label %38
+
+38:                                               ; preds = %37, %33, %2
+  %39 = phi i1 [ false, %37 ], [ true, %33 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  ret i1 %38
+  ret i1 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

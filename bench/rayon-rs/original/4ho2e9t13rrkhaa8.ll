@@ -282,109 +282,121 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN82_$LT$rayon..iter..once..Once$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17h12e61e3286d7618cE"(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, align 8, !range !7, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN82_$LT$rayon..iter..once..Once$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17h1fee72952dc92549E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, align 8, !range !7, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN82_$LT$rayon..iter..once..Once$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17h2502daa513ba767cE"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, align 8, !range !7, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN82_$LT$rayon..iter..once..Once$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17h8c76193555dd7663E"(ptr noalias noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, align 8, !range !7, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN82_$LT$rayon..iter..once..Once$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17h9897a2f1f26e8bffE"(ptr noalias noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, align 8, !range !7, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN82_$LT$rayon..iter..once..Once$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17hb24ece4cb9753b3cE"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, align 8, !range !7, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN82_$LT$rayon..iter..once..Once$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17hc61405dd900d74bdE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, align 8, !range !7, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN82_$LT$rayon..iter..once..Once$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17hded7022f7b938be0E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, align 8, !range !7, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN82_$LT$rayon..iter..once..Once$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17he383820469991679E"(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, align 8, !range !7, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN82_$LT$rayon..iter..once..Once$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17hef88692e35cfd1cbE"(ptr noalias noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, align 8, !range !7, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN82_$LT$rayon..iter..once..Once$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17hf28498935361e07fE"(ptr noalias noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, align 8, !range !7, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN82_$LT$rayon..iter..once..Once$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$7opt_len17hf5eab275c093c097E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, align 8, !range !7, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.2ba00f7b7c951107b1689381e2d2ac40.7.llvm.10518328448262610784, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable

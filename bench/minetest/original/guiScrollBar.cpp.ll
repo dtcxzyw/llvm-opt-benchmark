@@ -433,15 +433,16 @@ lpad:                                             ; preds = %if.then6.i, %invoke
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3irr14IEventReceiverE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
-  %0 = load ptr, ptr %vtt, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3irr14IEventReceiverE, i64 0, i32 0, i64 2
   store ptr %0, ptr %this, align 8, !tbaa !4
-  %1 = getelementptr inbounds i8, ptr %vtt, i64 8
-  %2 = load ptr, ptr %1, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -24
+  %1 = load ptr, ptr %vtt, align 8
+  store ptr %1, ptr %this, align 8, !tbaa !4
+  %2 = getelementptr inbounds i8, ptr %vtt, i64 8
+  %3 = load ptr, ptr %2, align 8
+  %vbase.offset.ptr = getelementptr i8, ptr %1, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
-  store ptr %2, ptr %add.ptr, align 8, !tbaa !4
+  store ptr %3, ptr %add.ptr, align 8, !tbaa !4
   %Children = getelementptr inbounds i8, ptr %this, i64 8
   %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %Children, ptr %_M_prev.i.i.i.i.i, align 8, !tbaa !67
@@ -467,23 +468,23 @@ invoke.cont3:
   %IsVisible = getelementptr inbounds i8, ptr %this, i64 160
   store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %IsVisible, align 8, !tbaa !72
   %Text = getelementptr inbounds i8, ptr %this, i64 168
-  %3 = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr %3, ptr %Text, align 8, !tbaa !73
+  %4 = getelementptr inbounds i8, ptr %this, i64 184
+  store ptr %4, ptr %Text, align 8, !tbaa !73
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !74
-  store i32 0, ptr %3, align 8, !tbaa !75
+  store i32 0, ptr %4, align 8, !tbaa !75
   %ToolTipText = getelementptr inbounds i8, ptr %this, i64 200
-  %4 = getelementptr inbounds i8, ptr %this, i64 216
-  store ptr %4, ptr %ToolTipText, align 8, !tbaa !73
+  %5 = getelementptr inbounds i8, ptr %this, i64 216
+  store ptr %5, ptr %ToolTipText, align 8, !tbaa !73
   %_M_string_length.i.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 208
   store i64 0, ptr %_M_string_length.i.i.i.i29, align 8, !tbaa !74
-  store i32 0, ptr %4, align 8, !tbaa !75
+  store i32 0, ptr %5, align 8, !tbaa !75
   %Name = getelementptr inbounds i8, ptr %this, i64 232
-  %5 = getelementptr inbounds i8, ptr %this, i64 248
-  store ptr %5, ptr %Name, align 8, !tbaa !77
+  %6 = getelementptr inbounds i8, ptr %this, i64 248
+  store ptr %6, ptr %Name, align 8, !tbaa !77
   %_M_string_length.i.i.i.i30 = getelementptr inbounds i8, ptr %this, i64 240
   store i64 0, ptr %_M_string_length.i.i.i.i30, align 8, !tbaa !78
-  store i8 0, ptr %5, align 8, !tbaa !79
+  store i8 0, ptr %6, align 8, !tbaa !79
   %ID = getelementptr inbounds i8, ptr %this, i64 264
   store i32 %id, ptr %ID, align 8, !tbaa !80
   %IsTabStop = getelementptr inbounds i8, ptr %this, i64 268
@@ -507,18 +508,18 @@ if.then:                                          ; preds = %invoke.cont3
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  %6 = load i32, ptr %ReferenceCounter.i.i, align 8, !tbaa !83
-  %inc.i.i = add nsw i32 %6, 1
+  %7 = load i32, ptr %ReferenceCounter.i.i, align 8, !tbaa !83
+  %inc.i.i = add nsw i32 %7, 1
   store i32 %inc.i.i, ptr %ReferenceCounter.i.i, align 8, !tbaa !83
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
-  %7 = load ptr, ptr %vfn.i, align 8
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(308) %this)
+  %8 = load ptr, ptr %vfn.i, align 8
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(308) %this)
           to label %.noexc unwind label %lpad16
 
 .noexc:                                           ; preds = %if.then
   %AbsoluteRect.i.i = getelementptr inbounds i8, ptr %parent, i64 64
-  %8 = load <2 x i64>, ptr %AbsoluteRect.i.i, align 8
-  store <2 x i64> %8, ptr %LastParentRect, align 8
+  %9 = load <2 x i64>, ptr %AbsoluteRect.i.i, align 8
+  store <2 x i64> %9, ptr %LastParentRect, align 8
   store ptr %parent, ptr %Parent, align 8, !tbaa !52
   %call5.i.i.i.i.i.i31 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %invoke.cont17 unwind label %lpad16
@@ -529,77 +530,77 @@ invoke.cont17:                                    ; preds = %.noexc
   store ptr %this, ptr %_M_storage.i.i.i.i, align 8, !tbaa !56
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i31, ptr noundef nonnull %Children.i) #22
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %parent, i64 24
-  %9 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !85
-  %add.i.i.i = add i64 %9, 1
+  %10 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !85
+  %add.i.i.i = add i64 %10, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8, !tbaa !85
   store ptr %call5.i.i.i.i.i.i31, ptr %ParentPos, align 8, !tbaa !56
   invoke void @_ZN3irr3gui11IGUIElement27recalculateAbsolutePositionEb(ptr noundef nonnull align 8 dereferenceable(308) %this, i1 noundef zeroext true)
           to label %if.end unwind label %lpad16
 
 lpad16:                                           ; preds = %invoke.cont17, %.noexc, %if.then
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = load ptr, ptr %Name, align 8, !tbaa !86
-  %cmp.i.i.i.i = icmp eq ptr %11, %5
+  %12 = load ptr, ptr %Name, align 8, !tbaa !86
+  %cmp.i.i.i.i = icmp eq ptr %12, %6
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %lpad16
-  %12 = load i64, ptr %_M_string_length.i.i.i.i30, align 8, !tbaa !78
-  %cmp3.i.i.i.i = icmp ult i64 %12, 16
+  %13 = load i64, ptr %_M_string_length.i.i.i.i30, align 8, !tbaa !78
+  %cmp3.i.i.i.i = icmp ult i64 %13, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %lpad16
-  tail call void @_ZdlPv(ptr noundef %11) #24
+  tail call void @_ZdlPv(ptr noundef %12) #24
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %13 = load ptr, ptr %ToolTipText, align 8, !tbaa !87
-  %cmp.i.i.i.i33 = icmp eq ptr %13, %4
+  %14 = load ptr, ptr %ToolTipText, align 8, !tbaa !87
+  %cmp.i.i.i.i33 = icmp eq ptr %14, %5
   br i1 %cmp.i.i.i.i33, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i34
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN3irr4core6stringIcED2Ev.exit
-  %14 = load i64, ptr %_M_string_length.i.i.i.i29, align 8, !tbaa !74
-  %cmp3.i.i.i.i36 = icmp ult i64 %14, 4
+  %15 = load i64, ptr %_M_string_length.i.i.i.i29, align 8, !tbaa !74
+  %cmp3.i.i.i.i36 = icmp ult i64 %15, 4
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i36)
   br label %_ZN3irr4core6stringIwED2Ev.exit
 
 if.then.i.i.i34:                                  ; preds = %_ZN3irr4core6stringIcED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %13) #24
+  tail call void @_ZdlPv(ptr noundef %14) #24
   br label %_ZN3irr4core6stringIwED2Ev.exit
 
 _ZN3irr4core6stringIwED2Ev.exit:                  ; preds = %if.then.i.i.i34, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i
-  %15 = load ptr, ptr %Text, align 8, !tbaa !87
-  %cmp.i.i.i.i37 = icmp eq ptr %15, %3
+  %16 = load ptr, ptr %Text, align 8, !tbaa !87
+  %cmp.i.i.i.i37 = icmp eq ptr %16, %4
   br i1 %cmp.i.i.i.i37, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i39, label %if.then.i.i.i38
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i39: ; preds = %_ZN3irr4core6stringIwED2Ev.exit
-  %16 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !74
-  %cmp3.i.i.i.i41 = icmp ult i64 %16, 4
+  %17 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !74
+  %cmp3.i.i.i.i41 = icmp ult i64 %17, 4
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i41)
   br label %ehcleanup20
 
 if.then.i.i.i38:                                  ; preds = %_ZN3irr4core6stringIwED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %15) #24
+  tail call void @_ZdlPv(ptr noundef %16) #24
   br label %ehcleanup20
 
 if.end:                                           ; preds = %invoke.cont17, %invoke.cont3
   ret void
 
 ehcleanup20:                                      ; preds = %if.then.i.i.i38, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i39
-  %17 = load ptr, ptr %Children, align 8, !tbaa !68
-  %cmp.not9.i.i = icmp eq ptr %17, %Children
+  %18 = load ptr, ptr %Children, align 8, !tbaa !68
+  %cmp.not9.i.i = icmp eq ptr %18, %Children
   br i1 %cmp.not9.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr3gui11IGUIElementESaIS4_EED2Ev.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %ehcleanup20
-  %__cur.010.i.i = phi ptr [ %18, %while.body.i.i ], [ %17, %ehcleanup20 ]
-  %18 = load ptr, ptr %__cur.010.i.i, align 8, !tbaa !68
+  %__cur.010.i.i = phi ptr [ %19, %while.body.i.i ], [ %18, %ehcleanup20 ]
+  %19 = load ptr, ptr %__cur.010.i.i, align 8, !tbaa !68
   tail call void @_ZdlPv(ptr noundef %__cur.010.i.i) #24
-  %cmp.not.i.i = icmp eq ptr %18, %Children
+  %cmp.not.i.i = icmp eq ptr %19, %Children
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr3gui11IGUIElementESaIS4_EED2Ev.exit, label %while.body.i.i, !llvm.loop !88
 
 _ZNSt7__cxx1110_List_baseIPN3irr3gui11IGUIElementESaIS4_EED2Ev.exit: ; preds = %while.body.i.i, %ehcleanup20
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %11
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -1571,16 +1572,20 @@ entry:
   %0 = getelementptr inbounds i8, ptr %rectangle, i64 8
   store i64 %rectangle.coerce1, ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 408
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %1, align 8, !tbaa !4
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %1, align 8, !tbaa !4
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 416
   store ptr null, ptr %DebugName.i, align 8, !tbaa !103
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 424
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !83
-  call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT12GUIScrollBar, i64 0, i64 1), i32 noundef 23, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle)
+  %3 = getelementptr inbounds [4 x ptr], ptr @_ZTT12GUIScrollBar, i64 0, i64 1
+  call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull %3, i32 noundef 23, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle)
   %frombool1 = zext i1 %auto_scale to i8
   %frombool = zext i1 %horizontal to i8
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV12GUIScrollBar, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !4
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV12GUIScrollBar, i64 0, i32 1, i64 3), ptr %1, align 8, !tbaa !4
+  %4 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTV12GUIScrollBar, i64 0, i32 0, i64 3
+  store ptr %4, ptr %this, align 8, !tbaa !4
+  %5 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTV12GUIScrollBar, i64 0, i32 1, i64 3
+  store ptr %5, ptr %1, align 8, !tbaa !4
   %up_button = getelementptr inbounds i8, ptr %this, i64 312
   %arrow_visibility = getelementptr inbounds i8, ptr %this, i64 328
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %up_button, i8 0, i64 16, i1 false)
@@ -1614,8 +1619,8 @@ invoke.cont9:                                     ; preds = %entry
   store i8 0, ptr %NoClip.i, align 1, !tbaa !46
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !4
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
-  %2 = load ptr, ptr %vfn.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(308) %this)
+  %6 = load ptr, ptr %vfn.i, align 8
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(308) %this)
           to label %invoke.cont10 unwind label %lpad6
 
 invoke.cont10:                                    ; preds = %invoke.cont9
@@ -1626,22 +1631,22 @@ invoke.cont10:                                    ; preds = %invoke.cont9
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %invoke.cont10
-  %ret.06.i.i = phi ptr [ %this, %invoke.cont10 ], [ %4, %while.body.i.i ]
+  %ret.06.i.i = phi ptr [ %this, %invoke.cont10 ], [ %8, %while.body.i.i ]
   %IsTabGroup.i.i.i = getelementptr inbounds i8, ptr %ret.06.i.i, i64 276
-  %3 = load i8, ptr %IsTabGroup.i.i.i, align 4, !tbaa !49, !range !50, !noundef !51
-  %tobool.i.not.i.i = icmp eq i8 %3, 0
+  %7 = load i8, ptr %IsTabGroup.i.i.i, align 4, !tbaa !49, !range !50, !noundef !51
+  %tobool.i.not.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i, label %while.body.i.i, label %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %Parent.i.i.i = getelementptr inbounds i8, ptr %ret.06.i.i, i64 32
-  %4 = load ptr, ptr %Parent.i.i.i, align 8, !tbaa !52
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %8 = load ptr, ptr %Parent.i.i.i, align 8, !tbaa !52
+  %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.thread.i, label %land.rhs.i.i, !llvm.loop !53
 
 _ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i:   ; preds = %land.rhs.i.i
   %IsTabGroup.i = getelementptr inbounds i8, ptr %this, i64 276
-  %5 = load i8, ptr %IsTabGroup.i, align 4, !tbaa !49, !range !50, !noundef !51
-  %tobool.not.not.i = icmp eq i8 %5, 0
+  %9 = load i8, ptr %IsTabGroup.i, align 4, !tbaa !49, !range !50, !noundef !51
+  %tobool.not.not.i = icmp eq i8 %9, 0
   br i1 %tobool.not.not.i, label %while.end.i, label %while.cond.i.preheader
 
 while.cond.i.preheader:                           ; preds = %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.thread.i, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i
@@ -1650,8 +1655,8 @@ while.cond.i.preheader:                           ; preds = %_ZN3irr3gui11IGUIEl
 
 _ZN3irr3gui11IGUIElement11getTabGroupEv.exit.thread.i: ; preds = %while.body.i.i
   %IsTabGroup36.i = getelementptr inbounds i8, ptr %this, i64 276
-  %6 = load i8, ptr %IsTabGroup36.i, align 4, !tbaa !49, !range !50, !noundef !51
-  %tobool.not37.not.i = icmp eq i8 %6, 0
+  %10 = load i8, ptr %IsTabGroup36.i, align 4, !tbaa !49, !range !50, !noundef !51
+  %tobool.not37.not.i = icmp eq i8 %10, 0
   br i1 %tobool.not37.not.i, label %while.end.thread41.i, label %while.cond.i.preheader
 
 while.end.thread41.i:                             ; preds = %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.thread.i
@@ -1660,7 +1665,7 @@ while.end.thread41.i:                             ; preds = %_ZN3irr3gui11IGUIEl
   br label %invoke.cont12
 
 while.cond.i:                                     ; preds = %land.rhs.i, %while.cond.i.preheader
-  %el.0.i = phi ptr [ %7, %land.rhs.i ], [ %el.0.i.ph, %while.cond.i.preheader ]
+  %el.0.i = phi ptr [ %11, %land.rhs.i ], [ %el.0.i.ph, %while.cond.i.preheader ]
   %tobool2.not.i = icmp eq ptr %el.0.i, null
   br i1 %tobool2.not.i, label %while.end.thread32.i, label %land.rhs.i
 
@@ -1671,8 +1676,8 @@ while.end.thread32.i:                             ; preds = %while.cond.i
 
 land.rhs.i:                                       ; preds = %while.cond.i
   %Parent.i = getelementptr inbounds i8, ptr %el.0.i, i64 32
-  %7 = load ptr, ptr %Parent.i, align 8, !tbaa !52
-  %tobool3.not.i = icmp eq ptr %7, null
+  %11 = load ptr, ptr %Parent.i, align 8, !tbaa !52
+  %tobool3.not.i = icmp eq ptr %11, null
   br i1 %tobool3.not.i, label %while.end.thread.i, label %while.cond.i, !llvm.loop !55
 
 while.end.thread.i:                               ; preds = %land.rhs.i
@@ -1695,41 +1700,41 @@ if.then6.i:                                       ; preds = %while.end.i, %while
           to label %call9.i.noexc unwind label %lpad6
 
 call9.i.noexc:                                    ; preds = %if.then6.i
-  %8 = load ptr, ptr %first.i, align 8, !tbaa !56
-  %tobool10.not.i = icmp eq ptr %8, null
+  %12 = load ptr, ptr %first.i, align 8, !tbaa !56
+  %tobool10.not.i = icmp eq ptr %12, null
   br i1 %tobool10.not.i, label %invoke.cont12, label %if.then11.i
 
 if.then11.i:                                      ; preds = %call9.i.noexc
-  %TabOrder.i.i = getelementptr inbounds i8, ptr %8, i64 272
-  %9 = load i32, ptr %TabOrder.i.i, align 8, !tbaa !48
-  %add.i = add nsw i32 %9, 1
+  %TabOrder.i.i = getelementptr inbounds i8, ptr %12, i64 272
+  %13 = load i32, ptr %TabOrder.i.i, align 8, !tbaa !48
+  %add.i = add nsw i32 %13, 1
   store i32 %add.i, ptr %TabOrder.i, align 8, !tbaa !48
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %if.then11.i, %call9.i.noexc, %while.end.thread32.i, %while.end.thread41.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %closest.i) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.i) #22
-  %10 = load i8, ptr %is_horizontal, align 1, !tbaa !39, !range !50, !noundef !51
-  %tobool.not.i = icmp eq i8 %10, 0
+  %14 = load i8, ptr %is_horizontal, align 1, !tbaa !39, !range !50, !noundef !51
+  %tobool.not.i = icmp eq i8 %14, 0
   %RelativeRect4.i = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load i32, ptr %border_size, align 8, !tbaa !57
-  %12 = shl i32 %11, 1
+  %15 = load i32, ptr %border_size, align 8, !tbaa !57
+  %16 = shl i32 %15, 1
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont12
   %Y.i.i = getelementptr inbounds i8, ptr %this, i64 60
-  %13 = load i32, ptr %Y.i.i, align 4, !tbaa !58
+  %17 = load i32, ptr %Y.i.i, align 4, !tbaa !58
   %Y2.i.i = getelementptr inbounds i8, ptr %this, i64 52
-  %14 = load i32, ptr %Y2.i.i, align 4, !tbaa !59
-  %sub.i.i = sub nsw i32 %13, %14
+  %18 = load i32, ptr %Y2.i.i, align 4, !tbaa !59
+  %sub.i.i = sub nsw i32 %17, %18
   %LowerRightCorner.i.i = getelementptr inbounds i8, ptr %this, i64 56
   br label %if.end.i
 
 if.else.i:                                        ; preds = %invoke.cont12
   %LowerRightCorner.i48.i = getelementptr inbounds i8, ptr %this, i64 56
-  %15 = load i32, ptr %LowerRightCorner.i48.i, align 8, !tbaa !60
-  %16 = load i32, ptr %RelativeRect4.i, align 8, !tbaa !61
-  %sub.i49.i = sub nsw i32 %15, %16
+  %19 = load i32, ptr %LowerRightCorner.i48.i, align 8, !tbaa !60
+  %20 = load i32, ptr %RelativeRect4.i, align 8, !tbaa !61
+  %sub.i49.i = sub nsw i32 %19, %20
   %Y.i50.i = getelementptr inbounds i8, ptr %this, i64 60
   %Y2.i51.i = getelementptr inbounds i8, ptr %this, i64 52
   br label %if.end.i
@@ -1739,11 +1744,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %.sink.in.i = phi ptr [ %Y.i50.i, %if.else.i ], [ %LowerRightCorner.i.i, %if.then.i ]
   %thumb_min.0.i = phi i32 [ %sub.i49.i, %if.else.i ], [ %sub.i.i, %if.then.i ]
   %.sink.i = load i32, ptr %.sink.in.i, align 4, !tbaa !43
-  %17 = load i32, ptr %Y2.i51.sink.i, align 4, !tbaa !43
-  %18 = add i32 %12, %17
-  %sub10.i = sub i32 %.sink.i, %18
-  %19 = load i8, ptr %is_auto_scaling, align 2, !tbaa !40, !range !50, !noundef !51
-  %tobool11.not.i = icmp eq i8 %19, 0
+  %21 = load i32, ptr %Y2.i51.sink.i, align 4, !tbaa !43
+  %22 = add i32 %16, %21
+  %sub10.i = sub i32 %.sink.i, %22
+  %23 = load i8, ptr %is_auto_scaling, align 2, !tbaa !40, !range !50, !noundef !51
+  %tobool11.not.i = icmp eq i8 %23, 0
   br i1 %tobool11.not.i, label %if.end.if.end20_crit_edge.i, label %if.then12.i
 
 if.end.if.end20_crit_edge.i:                      ; preds = %if.end.i
@@ -1753,52 +1758,53 @@ if.end.if.end20_crit_edge.i:                      ; preds = %if.end.i
 
 if.then12.i:                                      ; preds = %if.end.i
   %conv.i = sitofp i32 %sub10.i to float
-  %20 = load i32, ptr %page_size, align 4, !tbaa !44
-  %conv13.i = sitofp i32 %20 to float
-  %add.i20 = add nsw i32 %sub10.i, %12
+  %24 = load i32, ptr %page_size, align 4, !tbaa !44
+  %conv13.i = sitofp i32 %24 to float
+  %add.i20 = add nsw i32 %sub10.i, %16
   %conv16.i = sitofp i32 %add.i20 to float
   %div.i = fdiv nsz float %conv13.i, %conv16.i
   %div17.i = fdiv nsz float %conv.i, %div.i
   %conv1.i.i = fpext float %div17.i to double
-  %21 = call nsz noundef double @llvm.minnum.f64(double %conv1.i.i, double 0x41DFFFFFFFC00000)
-  %conv19.i = fptosi double %21 to i32
+  %25 = call nsz noundef double @llvm.minnum.f64(double %conv1.i.i, double 0x41DFFFFFFFC00000)
+  %conv19.i = fptosi double %25 to i32
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %if.then12.i, %if.end.if.end20_crit_edge.i
   %conv27.pre-phi.i = phi float [ %.pre61.i, %if.end.if.end20_crit_edge.i ], [ %conv.i, %if.then12.i ]
-  %22 = phi i32 [ %.pre.i, %if.end.if.end20_crit_edge.i ], [ %conv19.i, %if.then12.i ]
+  %26 = phi i32 [ %.pre.i, %if.end.if.end20_crit_edge.i ], [ %conv19.i, %if.then12.i ]
   %min_pos = getelementptr inbounds i8, ptr %this, i64 352
   %draw_center = getelementptr inbounds i8, ptr %this, i64 344
-  %23 = call i32 @llvm.smax.i32(i32 %22, i32 %thumb_min.0.i)
-  %24 = call noundef i32 @llvm.smin.i32(i32 %23, i32 %sub10.i)
-  store i32 %24, ptr %thumb_size, align 4, !tbaa !62
-  %25 = load i32, ptr %min_pos, align 8, !tbaa !63
-  %26 = load i32, ptr %max_pos, align 4, !tbaa !64
-  %27 = call i32 @llvm.smax.i32(i32 %25, i32 0)
-  %28 = call noundef i32 @llvm.smin.i32(i32 %27, i32 %26)
-  store i32 %28, ptr %scroll_pos, align 4, !tbaa !65
-  %sub.i53.i = sub nsw i32 %26, %25
+  %27 = call i32 @llvm.smax.i32(i32 %26, i32 %thumb_min.0.i)
+  %28 = call noundef i32 @llvm.smin.i32(i32 %27, i32 %sub10.i)
+  store i32 %28, ptr %thumb_size, align 4, !tbaa !62
+  %29 = load i32, ptr %min_pos, align 8, !tbaa !63
+  %30 = load i32, ptr %max_pos, align 4, !tbaa !64
+  %31 = call i32 @llvm.smax.i32(i32 %29, i32 0)
+  %32 = call noundef i32 @llvm.smin.i32(i32 %31, i32 %30)
+  store i32 %32, ptr %scroll_pos, align 4, !tbaa !65
+  %sub.i53.i = sub nsw i32 %30, %29
   %conv.i.i = sitofp i32 %sub.i53.i to float
-  %29 = call nsz float @llvm.fabs.f32(float %conv.i.i)
-  %cmp.i.i = fcmp nsz ogt float %29, 0x3EB0C6F7A0000000
-  %conv29.i = sitofp i32 %24 to float
+  %33 = call nsz float @llvm.fabs.f32(float %conv.i.i)
+  %cmp.i.i = fcmp nsz ogt float %33, 0x3EB0C6F7A0000000
+  %conv29.i = sitofp i32 %28 to float
   %sub30.i = fsub nsz float %conv27.pre-phi.i, %conv29.i
   %div32.i = fdiv nsz float %sub30.i, %conv.i.i
   %cond.i = select nsz i1 %cmp.i.i, float %div32.i, float 1.000000e+00
-  %sub35.i = sub nsw i32 %28, %25
+  %sub35.i = sub nsw i32 %32, %29
   %conv36.i = sitofp i32 %sub35.i to float
   %mul40.i = fmul nsz float %conv29.i, 5.000000e-01
-  %30 = call nsz float @llvm.fmuladd.f32(float %conv36.i, float %cond.i, float %mul40.i)
-  %conv41.i = fptosi float %30 to i32
-  %add43.i = add nsw i32 %11, %conv41.i
+  %34 = call nsz float @llvm.fmuladd.f32(float %conv36.i, float %cond.i, float %mul40.i)
+  %conv41.i = fptosi float %34 to i32
+  %add43.i = add nsw i32 %15, %conv41.i
   store i32 %add43.i, ptr %draw_center, align 8, !tbaa !66
   ret void
 
 lpad6:                                            ; preds = %if.then6.i, %invoke.cont9, %entry
-  %31 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT12GUIScrollBar, i64 0, i64 1)) #22
-  resume { ptr, i32 } %31
+  %36 = getelementptr inbounds [4 x ptr], ptr @_ZTT12GUIScrollBar, i64 0, i64 1
+  call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull %36) #22
+  resume { ptr, i32 } %35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4331,14 +4337,16 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12GUIScrollBarD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT12GUIScrollBar, i64 0, i64 1)) #22
+  %0 = getelementptr inbounds [4 x ptr], ptr @_ZTT12GUIScrollBar, i64 0, i64 1
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull %0) #22
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12GUIScrollBarD0Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT12GUIScrollBar, i64 0, i64 1)) #22
+  %0 = getelementptr inbounds [4 x ptr], ptr @_ZTT12GUIScrollBar, i64 0, i64 1
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
@@ -4350,7 +4358,8 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT12GUIScrollBar, i64 0, i64 1)) #22
+  %4 = getelementptr inbounds [4 x ptr], ptr @_ZTT12GUIScrollBar, i64 0, i64 1
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull %4) #22
   ret void
 }
 
@@ -4361,7 +4370,8 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT12GUIScrollBar, i64 0, i64 1)) #22
+  %4 = getelementptr inbounds [4 x ptr], ptr @_ZTT12GUIScrollBar, i64 0, i64 1
+  tail call void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull %4) #22
   tail call void @_ZdlPv(ptr noundef nonnull %3) #24
   ret void
 }

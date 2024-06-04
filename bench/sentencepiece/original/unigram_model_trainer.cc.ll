@@ -4986,71 +4986,72 @@ define void @_ZN13sentencepiece7unigram12TrainerModelC2ERKNS_11TrainerSpecERKNS_
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN13sentencepiece7unigram5ModelC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %9)
-  store ptr getelementptr inbounds inrange(-16, 200) ({ [27 x ptr] }, ptr @_ZTVN13sentencepiece7unigram12TrainerModelE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %9, i32 0, i32 1
-  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %9, i32 0, i32 2
-  %12 = load ptr, ptr %5, align 8
-  invoke void @_ZN13sentencepiece11TrainerSpecC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(336) %11, ptr noundef nonnull align 8 dereferenceable(336) %12)
-          to label %13 unwind label %19
+  %10 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN13sentencepiece7unigram12TrainerModelE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %9, i32 0, i32 1
+  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %9, i32 0, i32 2
+  %13 = load ptr, ptr %5, align 8
+  invoke void @_ZN13sentencepiece11TrainerSpecC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(336) %12, ptr noundef nonnull align 8 dereferenceable(336) %13)
+          to label %14 unwind label %20
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %6, align 8
-  invoke void @_ZN13sentencepiece14NormalizerSpecC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %15)
-          to label %16 unwind label %23
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %6, align 8
+  invoke void @_ZN13sentencepiece14NormalizerSpecC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(80) %16)
+          to label %17 unwind label %24
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %9, i32 0, i32 4
-  invoke void @_ZN13sentencepiece10ModelProtoC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %17)
-          to label %18 unwind label %27
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %9, i32 0, i32 4
+  invoke void @_ZN13sentencepiece10ModelProtoC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %18)
+          to label %19 unwind label %28
 
-18:                                               ; preds = %16
+19:                                               ; preds = %17
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %7, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %8, align 4
-  br label %32
-
-23:                                               ; preds = %13
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %7, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %8, align 4
-  br label %31
-
-27:                                               ; preds = %16
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %7, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %8, align 4
-  call void @_ZN13sentencepiece14NormalizerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #3
-  br label %31
-
-31:                                               ; preds = %27, %23
-  call void @_ZN13sentencepiece11TrainerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %11) #3
-  br label %32
-
-32:                                               ; preds = %31, %19
-  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  call void @_ZN13sentencepiece7unigram5ModelD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %9) #3
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %7, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %8, align 4
   br label %33
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %7, align 8
-  %35 = load i32, ptr %8, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+24:                                               ; preds = %14
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %7, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %8, align 4
+  br label %32
+
+28:                                               ; preds = %17
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %7, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %8, align 4
+  call void @_ZN13sentencepiece14NormalizerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #3
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZN13sentencepiece11TrainerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %12) #3
+  br label %33
+
+33:                                               ; preds = %32, %20
+  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  call void @_ZN13sentencepiece7unigram5ModelD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %9) #3
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %8, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5059,15 +5060,16 @@ define linkonce_odr void @_ZN13sentencepiece7unigram5ModelC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN13sentencepiece14ModelInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3)
-  store ptr getelementptr inbounds inrange(-16, 200) ({ [27 x ptr] }, ptr @_ZTVN13sentencepiece7unigram5ModelE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %3, i32 0, i32 1
-  store float 0.000000e+00, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %3, i32 0, i32 2
-  store float 0.000000e+00, ptr %5, align 4
-  %6 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5Darts15DoubleArrayImplIvvivEESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %3, i32 0, i32 5
-  store i32 0, ptr %7, align 4
+  %4 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN13sentencepiece7unigram5ModelE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %3, i32 0, i32 1
+  store float 0.000000e+00, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %3, i32 0, i32 2
+  store float 0.000000e+00, ptr %6, align 4
+  %7 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5Darts15DoubleArrayImplIvvivEESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %8 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %3, i32 0, i32 5
+  store i32 0, ptr %8, align 4
   ret void
 }
 
@@ -5136,15 +5138,16 @@ define void @_ZN13sentencepiece7unigram12TrainerModelD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) ({ [27 x ptr] }, ptr @_ZTVN13sentencepiece7unigram12TrainerModelE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %3, i32 0, i32 4
-  call void @_ZN13sentencepiece10ModelProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %4) #3
-  %5 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %3, i32 0, i32 3
-  call void @_ZN13sentencepiece14NormalizerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #3
-  %6 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %3, i32 0, i32 2
-  call void @_ZN13sentencepiece11TrainerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %6) #3
-  %7 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %4 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN13sentencepiece7unigram12TrainerModelE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %3, i32 0, i32 4
+  call void @_ZN13sentencepiece10ModelProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #3
+  %6 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %3, i32 0, i32 3
+  call void @_ZN13sentencepiece14NormalizerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #3
+  %7 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %3, i32 0, i32 2
+  call void @_ZN13sentencepiece11TrainerSpecD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %7) #3
+  %8 = getelementptr inbounds %"class.sentencepiece::unigram::TrainerModel", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
   call void @_ZN13sentencepiece7unigram5ModelD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %3) #3
   ret void
 }
@@ -16321,42 +16324,43 @@ define linkonce_odr void @_ZN13sentencepiece14ModelInterfaceC2Ev(ptr noundef non
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) ({ [27 x ptr] }, ptr @_ZTVN13sentencepiece14ModelInterfaceE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer13PrefixMatcherESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 3
-  call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
-  %9 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 4
+  %6 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN13sentencepiece14ModelInterfaceE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer13PrefixMatcherESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %9 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 3
   call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
-  %10 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 5
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 6
-  invoke void @_ZN13sentencepiece4util6StatusC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %1
-  ret void
+  %10 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 4
+  call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #3
+  %11 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 5
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 6
+  invoke void @_ZN13sentencepiece4util6StatusC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %3, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %4, align 4
-  call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
-  call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
-  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer13PrefixMatcherESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %3, align 8
-  %19 = load i32, ptr %4, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %1
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %3, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %4, align 4
+  call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #3
+  call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
+  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer13PrefixMatcherESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %3, align 8
+  %20 = load i32, ptr %4, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -18246,31 +18250,32 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8fu
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJSt8functionIFvvEEEEEC2IJRS4_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJSt8functionIFvvEEEEEC2IJRS4_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -18338,7 +18343,8 @@ define linkonce_odr void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -18363,9 +18369,10 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8fu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %3, i32 0, i32 1
-  call void @_ZNSt6thread8_InvokerISt5tupleIJSt8functionIFvvEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJSt8functionIFvvEEEEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %3, i32 0, i32 1
+  call void @_ZNSt6thread8_InvokerISt5tupleIJSt8functionIFvvEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -59628,9 +59635,10 @@ define linkonce_odr void @_ZN13sentencepiece10ThreadPoolC2Ei(ptr noundef nonnull
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece10ThreadPoolE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.sentencepiece::ThreadPool", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorISt6threadSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece10ThreadPoolE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.sentencepiece::ThreadPool", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorISt6threadSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   ret void
 }
 
@@ -59675,47 +59683,48 @@ define linkonce_odr void @_ZN13sentencepiece10ThreadPoolD2Ev(ptr noundef nonnull
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece10ThreadPoolE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.sentencepiece::ThreadPool", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call ptr @_ZNSt6vectorISt6threadSaIS0_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.204", ptr %4, i32 0, i32 0
-  store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = call ptr @_ZNSt6vectorISt6threadSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.204", ptr %5, i32 0, i32 0
-  store ptr %13, ptr %14, align 8
-  br label %15
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece10ThreadPoolE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.sentencepiece::ThreadPool", ptr %7, i32 0, i32 1
+  store ptr %9, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call ptr @_ZNSt6vectorISt6threadSaIS0_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.204", ptr %4, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = call ptr @_ZNSt6vectorISt6threadSaIS0_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.204", ptr %5, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  br label %16
 
-15:                                               ; preds = %21, %1
-  %16 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt6threadSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESB_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br i1 %16, label %17, label %23
+16:                                               ; preds = %22, %1
+  %17 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt6threadSt6vectorIS1_SaIS1_EEEEbRKNS_17__normal_iteratorIT_T0_EESB_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br i1 %17, label %18, label %24
 
-17:                                               ; preds = %15
-  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6threadSt6vectorIS1_SaIS1_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  store ptr %18, ptr %6, align 8
-  %19 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %20 unwind label %25
+18:                                               ; preds = %16
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt6threadSt6vectorIS1_SaIS1_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  store ptr %19, ptr %6, align 8
+  %20 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
+          to label %21 unwind label %26
 
-20:                                               ; preds = %17
-  br label %21
+21:                                               ; preds = %18
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt6threadSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  br label %15
+22:                                               ; preds = %21
+  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt6threadSt6vectorIS1_SaIS1_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  br label %16
 
-23:                                               ; preds = %15
-  %24 = getelementptr inbounds %"class.sentencepiece::ThreadPool", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorISt6threadSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
+24:                                               ; preds = %16
+  %25 = getelementptr inbounds %"class.sentencepiece::ThreadPool", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorISt6threadSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
   ret void
 
-25:                                               ; preds = %17
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %18
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #15
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #15
   unreachable
 }
 

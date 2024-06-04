@@ -130,90 +130,96 @@ define i32 @ompi_mpiinfo_init() #0 {
 
 3:                                                ; preds = %2
   %4 = load i32, ptr @opal_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_pointer_array_t_class, i32 0, i32 4), align 8
-  %6 = icmp ne i32 %4, %5
-  br i1 %6, label %7, label %8
+  %5 = getelementptr inbounds %struct.opal_class_t, ptr @opal_pointer_array_t_class, i32 0, i32 4
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp ne i32 %4, %6
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   call void @opal_class_initialize(ptr noundef @opal_pointer_array_t_class)
-  br label %8
-
-8:                                                ; preds = %7, %3
-  store ptr @opal_pointer_array_t_class, ptr @ompi_info_f_to_c_table, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @ompi_info_f_to_c_table, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @ompi_info_f_to_c_table)
   br label %9
 
-9:                                                ; preds = %8
-  br label %10
+9:                                                ; preds = %8, %3
+  store ptr @opal_pointer_array_t_class, ptr @ompi_info_f_to_c_table, align 8
+  %10 = getelementptr inbounds %struct.opal_object_t, ptr @ompi_info_f_to_c_table, i32 0, i32 1
+  store volatile i32 1, ptr %10, align 8
+  call void @opal_obj_run_constructors(ptr noundef @ompi_info_f_to_c_table)
+  br label %11
 
-10:                                               ; preds = %9
-  %11 = call i32 @opal_pointer_array_init(ptr noundef @ompi_info_f_to_c_table, i32 noundef 0, i32 noundef 2147483647, i32 noundef 16)
-  %12 = icmp ne i32 0, %11
-  br i1 %12, label %13, label %14
+11:                                               ; preds = %9
+  br label %12
 
-13:                                               ; preds = %10
+12:                                               ; preds = %11
+  %13 = call i32 @opal_pointer_array_init(ptr noundef @ompi_info_f_to_c_table, i32 noundef 0, i32 noundef 2147483647, i32 noundef 16)
+  %14 = icmp ne i32 0, %13
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
   store i32 -1, ptr %1, align 4
-  br label %33
+  br label %39
 
-14:                                               ; preds = %10
-  br label %15
+16:                                               ; preds = %12
+  br label %17
 
-15:                                               ; preds = %14
-  br label %16
+17:                                               ; preds = %16
+  br label %18
 
-16:                                               ; preds = %15
-  %17 = load i32, ptr @opal_class_init_epoch, align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_info_t_class, i32 0, i32 4), align 8
-  %19 = icmp ne i32 %17, %18
-  br i1 %19, label %20, label %21
+18:                                               ; preds = %17
+  %19 = load i32, ptr @opal_class_init_epoch, align 4
+  %20 = getelementptr inbounds %struct.opal_class_t, ptr @ompi_info_t_class, i32 0, i32 4
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp ne i32 %19, %21
+  br i1 %22, label %23, label %24
 
-20:                                               ; preds = %16
+23:                                               ; preds = %18
   call void @opal_class_initialize(ptr noundef @ompi_info_t_class)
-  br label %21
-
-21:                                               ; preds = %20, %16
-  store ptr @ompi_info_t_class, ptr @ompi_mpi_info_null, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @ompi_mpi_info_null, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @ompi_mpi_info_null)
-  br label %22
-
-22:                                               ; preds = %21
-  br label %23
-
-23:                                               ; preds = %22
   br label %24
 
-24:                                               ; preds = %23
-  br label %25
+24:                                               ; preds = %23, %18
+  store ptr @ompi_info_t_class, ptr @ompi_mpi_info_null, align 8
+  %25 = getelementptr inbounds %struct.opal_object_t, ptr @ompi_mpi_info_null, i32 0, i32 1
+  store volatile i32 1, ptr %25, align 8
+  call void @opal_obj_run_constructors(ptr noundef @ompi_mpi_info_null)
+  br label %26
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr @opal_class_init_epoch, align 4
-  %27 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_info_t_class, i32 0, i32 4), align 8
-  %28 = icmp ne i32 %26, %27
-  br i1 %28, label %29, label %30
+26:                                               ; preds = %24
+  br label %27
 
-29:                                               ; preds = %25
+27:                                               ; preds = %26
+  br label %28
+
+28:                                               ; preds = %27
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load i32, ptr @opal_class_init_epoch, align 4
+  %31 = getelementptr inbounds %struct.opal_class_t, ptr @ompi_info_t_class, i32 0, i32 4
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp ne i32 %30, %32
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %29
   call void @opal_class_initialize(ptr noundef @ompi_info_t_class)
-  br label %30
+  br label %35
 
-30:                                               ; preds = %29, %25
+35:                                               ; preds = %34, %29
   store ptr @ompi_info_t_class, ptr @ompi_mpi_info_env, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @ompi_mpi_info_env, i32 0, i32 1), align 8
+  %36 = getelementptr inbounds %struct.opal_object_t, ptr @ompi_mpi_info_env, i32 0, i32 1
+  store volatile i32 1, ptr %36, align 8
   call void @opal_obj_run_constructors(ptr noundef @ompi_mpi_info_env)
-  br label %31
+  br label %37
 
-31:                                               ; preds = %30
-  br label %32
+37:                                               ; preds = %35
+  br label %38
 
-32:                                               ; preds = %31
+38:                                               ; preds = %37
   call void @opal_finalize_append_cleanup(ptr noundef @ompi_mpiinfo_finalize, ptr noundef @.str.1, ptr noundef null)
   store i32 0, ptr %1, align 4
-  br label %33
+  br label %39
 
-33:                                               ; preds = %32, %13
-  %34 = load i32, ptr %1, align 4
-  ret i32 %34
+39:                                               ; preds = %38, %15
+  %40 = load i32, ptr %1, align 4
+  ret i32 %40
 }
 
 declare void @opal_class_initialize(ptr noundef) #1
@@ -525,230 +531,245 @@ define i32 @ompi_mpiinfo_init_env(i32 noundef %0, ptr noundef %1, ptr noundef %2
 12:                                               ; preds = %3
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %8, align 8
-  br label %21
+  br label %23
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 19), align 8
-  %16 = icmp ne ptr null, %15
-  br i1 %16, label %17, label %20
+  %15 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 19
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr null, %16
+  br i1 %17, label %18, label %22
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 19), align 8
-  %19 = call noalias ptr @opal_argv_split(ptr noundef %18, i32 noundef 32)
-  store ptr %19, ptr %8, align 8
-  br label %20
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 19
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noalias ptr @opal_argv_split(ptr noundef %20, i32 noundef 32)
+  store ptr %21, ptr %8, align 8
+  br label %22
 
-20:                                               ; preds = %17, %14
-  br label %21
+22:                                               ; preds = %18, %14
+  br label %23
 
-21:                                               ; preds = %20, %12
-  %22 = load ptr, ptr %8, align 8
-  %23 = icmp ne ptr null, %22
-  br i1 %23, label %24, label %70
+23:                                               ; preds = %22, %12
+  %24 = load ptr, ptr %8, align 8
+  %25 = icmp ne ptr null, %24
+  br i1 %25, label %26, label %72
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp ne ptr null, %27
-  br i1 %28, label %29, label %36
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %8, align 8
+  %28 = getelementptr inbounds ptr, ptr %27, i64 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp ne ptr null, %29
+  br i1 %30, label %31, label %38
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.ompi_info_t, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = call i32 @opal_info_set(ptr noundef %31, ptr noundef @.str.2, ptr noundef %34)
-  br label %36
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr inbounds %struct.ompi_info_t, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds ptr, ptr %34, i64 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = call i32 @opal_info_set(ptr noundef %33, ptr noundef @.str.2, ptr noundef %36)
+  br label %38
 
-36:                                               ; preds = %29, %24
-  %37 = load ptr, ptr %8, align 8
-  %38 = call i32 @opal_argv_count(ptr noundef %37)
-  %39 = icmp slt i32 1, %38
-  br i1 %39, label %40, label %44
+38:                                               ; preds = %31, %26
+  %39 = load ptr, ptr %8, align 8
+  %40 = call i32 @opal_argv_count(ptr noundef %39)
+  %41 = icmp slt i32 1, %40
+  br i1 %41, label %42, label %46
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 1
-  %43 = call noalias ptr @opal_argv_join(ptr noundef %42, i32 noundef 32)
-  store ptr %43, ptr %7, align 8
-  br label %55
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds ptr, ptr %43, i64 1
+  %45 = call noalias ptr @opal_argv_join(ptr noundef %44, i32 noundef 32)
+  store ptr %45, ptr %7, align 8
+  br label %57
 
-44:                                               ; preds = %36
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp ne ptr null, %47
-  br i1 %48, label %49, label %54
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %8, align 8
+  %48 = getelementptr inbounds ptr, ptr %47, i64 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp ne ptr null, %49
+  br i1 %50, label %51, label %56
 
-49:                                               ; preds = %44
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = call noalias ptr @strdup(ptr noundef %52) #4
-  store ptr %53, ptr %7, align 8
-  br label %54
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds ptr, ptr %52, i64 0
+  %54 = load ptr, ptr %53, align 8
+  %55 = call noalias ptr @strdup(ptr noundef %54) #4
+  store ptr %55, ptr %7, align 8
+  br label %56
 
-54:                                               ; preds = %49, %44
-  br label %55
+56:                                               ; preds = %51, %46
+  br label %57
 
-55:                                               ; preds = %54, %40
-  %56 = load ptr, ptr %5, align 8
-  %57 = icmp eq ptr null, %56
-  br i1 %57, label %58, label %60
+57:                                               ; preds = %56, %42
+  %58 = load ptr, ptr %5, align 8
+  %59 = icmp eq ptr null, %58
+  br i1 %59, label %60, label %62
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %8, align 8
-  call void @opal_argv_free(ptr noundef %59)
-  br label %60
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %8, align 8
+  call void @opal_argv_free(ptr noundef %61)
+  br label %62
 
-60:                                               ; preds = %58, %55
-  %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds %struct.ompi_info_t, ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %7, align 8
-  %64 = call i32 @opal_info_set(ptr noundef %62, ptr noundef @.str.3, ptr noundef %63)
+62:                                               ; preds = %60, %57
+  %63 = load ptr, ptr %6, align 8
+  %64 = getelementptr inbounds %struct.ompi_info_t, ptr %63, i32 0, i32 0
   %65 = load ptr, ptr %7, align 8
-  %66 = icmp ne ptr null, %65
-  br i1 %66, label %67, label %69
+  %66 = call i32 @opal_info_set(ptr noundef %64, ptr noundef @.str.3, ptr noundef %65)
+  %67 = load ptr, ptr %7, align 8
+  %68 = icmp ne ptr null, %67
+  br i1 %68, label %69, label %71
 
-67:                                               ; preds = %60
-  %68 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %68) #4
-  br label %69
+69:                                               ; preds = %62
+  %70 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %70) #4
+  br label %71
 
-69:                                               ; preds = %67, %60
-  br label %70
+71:                                               ; preds = %69, %62
+  br label %72
 
-70:                                               ; preds = %69, %21
-  %71 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 14), align 4
-  %72 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %7, ptr noundef @.str.4, i32 noundef %71)
-  %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds %struct.ompi_info_t, ptr %73, i32 0, i32 0
-  %75 = load ptr, ptr %7, align 8
-  %76 = call i32 @opal_info_set(ptr noundef %74, ptr noundef @.str.5, ptr noundef %75)
-  %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds %struct.ompi_info_t, ptr %77, i32 0, i32 0
-  %79 = load ptr, ptr %7, align 8
-  %80 = call i32 @opal_info_set(ptr noundef %78, ptr noundef @.str.6, ptr noundef %79)
-  %81 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %81) #4
-  %82 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 24), align 8
-  %83 = icmp ne ptr null, %82
-  br i1 %83, label %84, label %89
+72:                                               ; preds = %71, %23
+  %73 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 14
+  %74 = load i32, ptr %73, align 4
+  %75 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %7, ptr noundef @.str.4, i32 noundef %74)
+  %76 = load ptr, ptr %6, align 8
+  %77 = getelementptr inbounds %struct.ompi_info_t, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %7, align 8
+  %79 = call i32 @opal_info_set(ptr noundef %77, ptr noundef @.str.5, ptr noundef %78)
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds %struct.ompi_info_t, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %7, align 8
+  %83 = call i32 @opal_info_set(ptr noundef %81, ptr noundef @.str.6, ptr noundef %82)
+  %84 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %84) #4
+  %85 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 24
+  %86 = load ptr, ptr %85, align 8
+  %87 = icmp ne ptr null, %86
+  br i1 %87, label %88, label %94
 
-84:                                               ; preds = %70
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct.ompi_info_t, ptr %85, i32 0, i32 0
-  %87 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 24), align 8
-  %88 = call i32 @opal_info_set(ptr noundef %86, ptr noundef @.str.7, ptr noundef %87)
-  br label %89
+88:                                               ; preds = %72
+  %89 = load ptr, ptr %6, align 8
+  %90 = getelementptr inbounds %struct.ompi_info_t, ptr %89, i32 0, i32 0
+  %91 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 24
+  %92 = load ptr, ptr %91, align 8
+  %93 = call i32 @opal_info_set(ptr noundef %90, ptr noundef @.str.7, ptr noundef %92)
+  br label %94
 
-89:                                               ; preds = %84, %70
-  %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds %struct.ompi_info_t, ptr %90, i32 0, i32 0
-  %92 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %93 = call i32 @opal_info_set(ptr noundef %91, ptr noundef @.str.8, ptr noundef %92)
-  %94 = call i32 @uname(ptr noundef %9) #4
-  %95 = getelementptr inbounds %struct.utsname, ptr %9, i32 0, i32 4
-  %96 = getelementptr inbounds [65 x i8], ptr %95, i64 0, i64 0
-  store ptr %96, ptr %7, align 8
-  %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds %struct.ompi_info_t, ptr %97, i32 0, i32 0
-  %99 = load ptr, ptr %7, align 8
-  %100 = call i32 @opal_info_set(ptr noundef %98, ptr noundef @.str.9, ptr noundef %99)
-  %101 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 21), align 8
-  %102 = icmp ne ptr null, %101
-  br i1 %102, label %103, label %108
+94:                                               ; preds = %88, %72
+  %95 = load ptr, ptr %6, align 8
+  %96 = getelementptr inbounds %struct.ompi_info_t, ptr %95, i32 0, i32 0
+  %97 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %98 = load ptr, ptr %97, align 8
+  %99 = call i32 @opal_info_set(ptr noundef %96, ptr noundef @.str.8, ptr noundef %98)
+  %100 = call i32 @uname(ptr noundef %9) #4
+  %101 = getelementptr inbounds %struct.utsname, ptr %9, i32 0, i32 4
+  %102 = getelementptr inbounds [65 x i8], ptr %101, i64 0, i64 0
+  store ptr %102, ptr %7, align 8
+  %103 = load ptr, ptr %6, align 8
+  %104 = getelementptr inbounds %struct.ompi_info_t, ptr %103, i32 0, i32 0
+  %105 = load ptr, ptr %7, align 8
+  %106 = call i32 @opal_info_set(ptr noundef %104, ptr noundef @.str.9, ptr noundef %105)
+  %107 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 21
+  %108 = load ptr, ptr %107, align 8
+  %109 = icmp ne ptr null, %108
+  br i1 %109, label %110, label %116
 
-103:                                              ; preds = %89
-  %104 = load ptr, ptr %6, align 8
-  %105 = getelementptr inbounds %struct.ompi_info_t, ptr %104, i32 0, i32 0
-  %106 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 21), align 8
-  %107 = call i32 @opal_info_set(ptr noundef %105, ptr noundef @.str.10, ptr noundef %106)
-  br label %108
-
-108:                                              ; preds = %103, %89
-  %109 = load i32, ptr @ompi_mpi_thread_requested, align 4
-  switch i32 %109, label %126 [
-    i32 0, label %110
-    i32 1, label %114
-    i32 2, label %118
-    i32 3, label %122
-  ]
-
-110:                                              ; preds = %108
+110:                                              ; preds = %94
   %111 = load ptr, ptr %6, align 8
   %112 = getelementptr inbounds %struct.ompi_info_t, ptr %111, i32 0, i32 0
-  %113 = call i32 @opal_info_set(ptr noundef %112, ptr noundef @.str.11, ptr noundef @.str.12)
-  br label %127
+  %113 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 21
+  %114 = load ptr, ptr %113, align 8
+  %115 = call i32 @opal_info_set(ptr noundef %112, ptr noundef @.str.10, ptr noundef %114)
+  br label %116
 
-114:                                              ; preds = %108
-  %115 = load ptr, ptr %6, align 8
-  %116 = getelementptr inbounds %struct.ompi_info_t, ptr %115, i32 0, i32 0
-  %117 = call i32 @opal_info_set(ptr noundef %116, ptr noundef @.str.11, ptr noundef @.str.13)
-  br label %127
+116:                                              ; preds = %110, %94
+  %117 = load i32, ptr @ompi_mpi_thread_requested, align 4
+  switch i32 %117, label %134 [
+    i32 0, label %118
+    i32 1, label %122
+    i32 2, label %126
+    i32 3, label %130
+  ]
 
-118:                                              ; preds = %108
+118:                                              ; preds = %116
   %119 = load ptr, ptr %6, align 8
   %120 = getelementptr inbounds %struct.ompi_info_t, ptr %119, i32 0, i32 0
-  %121 = call i32 @opal_info_set(ptr noundef %120, ptr noundef @.str.11, ptr noundef @.str.14)
-  br label %127
+  %121 = call i32 @opal_info_set(ptr noundef %120, ptr noundef @.str.11, ptr noundef @.str.12)
+  br label %135
 
-122:                                              ; preds = %108
+122:                                              ; preds = %116
   %123 = load ptr, ptr %6, align 8
   %124 = getelementptr inbounds %struct.ompi_info_t, ptr %123, i32 0, i32 0
-  %125 = call i32 @opal_info_set(ptr noundef %124, ptr noundef @.str.11, ptr noundef @.str.15)
-  br label %127
+  %125 = call i32 @opal_info_set(ptr noundef %124, ptr noundef @.str.11, ptr noundef @.str.13)
+  br label %135
 
-126:                                              ; preds = %108
-  br label %127
+126:                                              ; preds = %116
+  %127 = load ptr, ptr %6, align 8
+  %128 = getelementptr inbounds %struct.ompi_info_t, ptr %127, i32 0, i32 0
+  %129 = call i32 @opal_info_set(ptr noundef %128, ptr noundef @.str.11, ptr noundef @.str.14)
+  br label %135
 
-127:                                              ; preds = %126, %122, %118, %114, %110
-  %128 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 20), align 8
-  %129 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %7, ptr noundef @.str.4, i32 noundef %128)
-  %130 = load ptr, ptr %6, align 8
-  %131 = getelementptr inbounds %struct.ompi_info_t, ptr %130, i32 0, i32 0
-  %132 = load ptr, ptr %7, align 8
-  %133 = call i32 @opal_info_set(ptr noundef %131, ptr noundef @.str.16, ptr noundef %132)
-  %134 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %134) #4
-  %135 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 18), align 8
-  %136 = icmp ne ptr null, %135
-  br i1 %136, label %137, label %142
+130:                                              ; preds = %116
+  %131 = load ptr, ptr %6, align 8
+  %132 = getelementptr inbounds %struct.ompi_info_t, ptr %131, i32 0, i32 0
+  %133 = call i32 @opal_info_set(ptr noundef %132, ptr noundef @.str.11, ptr noundef @.str.15)
+  br label %135
 
-137:                                              ; preds = %127
-  %138 = load ptr, ptr %6, align 8
-  %139 = getelementptr inbounds %struct.ompi_info_t, ptr %138, i32 0, i32 0
-  %140 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 18), align 8
-  %141 = call i32 @opal_info_set(ptr noundef %139, ptr noundef @.str.17, ptr noundef %140)
-  br label %142
+134:                                              ; preds = %116
+  br label %135
 
-142:                                              ; preds = %137, %127
-  %143 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 17), align 8
-  %144 = icmp ne ptr null, %143
-  br i1 %144, label %145, label %150
+135:                                              ; preds = %134, %130, %126, %122, %118
+  %136 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 20
+  %137 = load i32, ptr %136, align 8
+  %138 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %7, ptr noundef @.str.4, i32 noundef %137)
+  %139 = load ptr, ptr %6, align 8
+  %140 = getelementptr inbounds %struct.ompi_info_t, ptr %139, i32 0, i32 0
+  %141 = load ptr, ptr %7, align 8
+  %142 = call i32 @opal_info_set(ptr noundef %140, ptr noundef @.str.16, ptr noundef %141)
+  %143 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %143) #4
+  %144 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 18
+  %145 = load ptr, ptr %144, align 8
+  %146 = icmp ne ptr null, %145
+  br i1 %146, label %147, label %153
 
-145:                                              ; preds = %142
-  %146 = load ptr, ptr %6, align 8
-  %147 = getelementptr inbounds %struct.ompi_info_t, ptr %146, i32 0, i32 0
-  %148 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 17), align 8
-  %149 = call i32 @opal_info_set(ptr noundef %147, ptr noundef @.str.18, ptr noundef %148)
-  br label %150
+147:                                              ; preds = %135
+  %148 = load ptr, ptr %6, align 8
+  %149 = getelementptr inbounds %struct.ompi_info_t, ptr %148, i32 0, i32 0
+  %150 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 18
+  %151 = load ptr, ptr %150, align 8
+  %152 = call i32 @opal_info_set(ptr noundef %149, ptr noundef @.str.17, ptr noundef %151)
+  br label %153
 
-150:                                              ; preds = %145, %142
-  %151 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 6), align 8
-  %152 = icmp ne ptr null, %151
-  br i1 %152, label %153, label %158
+153:                                              ; preds = %147, %135
+  %154 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 17
+  %155 = load ptr, ptr %154, align 8
+  %156 = icmp ne ptr null, %155
+  br i1 %156, label %157, label %163
 
-153:                                              ; preds = %150
-  %154 = load ptr, ptr %6, align 8
-  %155 = getelementptr inbounds %struct.ompi_info_t, ptr %154, i32 0, i32 0
-  %156 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 6), align 8
-  %157 = call i32 @opal_info_set(ptr noundef %155, ptr noundef @.str.19, ptr noundef %156)
-  br label %158
+157:                                              ; preds = %153
+  %158 = load ptr, ptr %6, align 8
+  %159 = getelementptr inbounds %struct.ompi_info_t, ptr %158, i32 0, i32 0
+  %160 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 17
+  %161 = load ptr, ptr %160, align 8
+  %162 = call i32 @opal_info_set(ptr noundef %159, ptr noundef @.str.18, ptr noundef %161)
+  br label %163
 
-158:                                              ; preds = %153, %150
+163:                                              ; preds = %157, %153
+  %164 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 6
+  %165 = load ptr, ptr %164, align 8
+  %166 = icmp ne ptr null, %165
+  br i1 %166, label %167, label %173
+
+167:                                              ; preds = %163
+  %168 = load ptr, ptr %6, align 8
+  %169 = getelementptr inbounds %struct.ompi_info_t, ptr %168, i32 0, i32 0
+  %170 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 6
+  %171 = load ptr, ptr %170, align 8
+  %172 = call i32 @opal_info_set(ptr noundef %169, ptr noundef @.str.19, ptr noundef %171)
+  br label %173
+
+173:                                              ; preds = %167, %163
   ret i32 0
 }
 

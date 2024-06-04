@@ -92,13 +92,15 @@ entry:
   store ptr %aLocale, ptr %aLocale.addr, align 8
   store ptr %success, ptr %success.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7513DangiCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %aLocale.addr, align 8
-  %1 = load ptr, ptr %success.addr, align 8
-  %call = call noundef ptr @_ZNK6icu_7513DangiCalendar24getDangiCalZoneAstroCalcER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(632) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %0 = getelementptr inbounds { [66 x ptr] }, ptr @_ZTVN6icu_7513DangiCalendarE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %aLocale.addr, align 8
   %2 = load ptr, ptr %success.addr, align 8
-  call void @_ZN6icu_7515ChineseCalendarC2ERKNS_6LocaleEiPKNS_8TimeZoneER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(632) %this1, ptr noundef nonnull align 8 dereferenceable(217) %0, i32 noundef -2332, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7513DangiCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %call = call noundef ptr @_ZNK6icu_7513DangiCalendar24getDangiCalZoneAstroCalcER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(632) %this1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %3 = load ptr, ptr %success.addr, align 8
+  call void @_ZN6icu_7515ChineseCalendarC2ERKNS_6LocaleEiPKNS_8TimeZoneER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(632) %this1, ptr noundef nonnull align 8 dereferenceable(217) %1, i32 noundef -2332, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %4 = getelementptr inbounds { [66 x ptr] }, ptr @_ZTVN6icu_7513DangiCalendarE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   ret void
 }
 
@@ -127,7 +129,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_7515ChineseCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(632) %this1, ptr noundef nonnull align 8 dereferenceable(632) %0)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7513DangiCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [66 x ptr] }, ptr @_ZTVN6icu_7513DangiCalendarE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 

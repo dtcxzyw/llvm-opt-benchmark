@@ -1506,7 +1506,7 @@ define void @qasm_recordInitPlus(ptr noundef byval(%struct.Qureg) align 8 %0) #0
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %1
-  br label %23
+  br label %24
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds [1025 x i8], ptr %2, i64 0, i64 0
@@ -1515,24 +1515,25 @@ define void @qasm_recordInitPlus(ptr noundef byval(%struct.Qureg) align 8 %0) #0
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef byval(%struct.Qureg) align 8 %0, ptr noundef %13)
   call void @qasm_recordInitZero(ptr noundef byval(%struct.Qureg) align 8 %0)
   %14 = getelementptr inbounds [1025 x i8], ptr %2, i64 0, i64 0
-  %15 = load ptr, ptr getelementptr inbounds ([14 x ptr], ptr @qasmGateLabels, i64 0, i64 5), align 8
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %14, i64 noundef 1024, ptr noundef @.str.36, ptr noundef %15, ptr noundef @.str.1) #7
-  store i32 %16, ptr %3, align 4
-  %17 = load i32, ptr %3, align 4
-  %18 = icmp sge i32 %17, 1024
-  br i1 %18, label %19, label %20
+  %15 = getelementptr inbounds [14 x ptr], ptr @qasmGateLabels, i64 0, i64 5
+  %16 = load ptr, ptr %15, align 8
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %14, i64 noundef 1024, ptr noundef @.str.36, ptr noundef %16, ptr noundef @.str.1) #7
+  store i32 %17, ptr %3, align 4
+  %18 = load i32, ptr %3, align 4
+  %19 = icmp sge i32 %18, 1024
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %10
+20:                                               ; preds = %10
   call void @raiseQASMBufferOverflow(ptr noundef @__func__.qasm_recordInitPlus)
-  br label %20
+  br label %21
 
-20:                                               ; preds = %19, %10
-  %21 = getelementptr inbounds [1025 x i8], ptr %2, i64 0, i64 0
-  %22 = load i32, ptr %3, align 4
-  call void @addStringToQASM(ptr noundef byval(%struct.Qureg) align 8 %0, ptr noundef %21, i32 noundef %22)
-  br label %23
+21:                                               ; preds = %20, %10
+  %22 = getelementptr inbounds [1025 x i8], ptr %2, i64 0, i64 0
+  %23 = load i32, ptr %3, align 4
+  call void @addStringToQASM(ptr noundef byval(%struct.Qureg) align 8 %0, ptr noundef %22, i32 noundef %23)
+  br label %24
 
-23:                                               ; preds = %20, %9
+24:                                               ; preds = %21, %9
   ret void
 }
 

@@ -32,47 +32,48 @@ define hidden void @_ZN4core4sync6atomic5fence17hb407a3acb6347766E(i8 %0) unname
   unreachable
 
 8:                                                ; preds = %1
-  br i1 false, label %21, label %13
+  br i1 false, label %22, label %13
 
 9:                                                ; preds = %1
   fence release
-  br label %22
+  br label %23
 
 10:                                               ; preds = %1
   fence acquire
-  br label %22
+  br label %23
 
 11:                                               ; preds = %1
   fence acq_rel
-  br label %22
+  br label %23
 
 12:                                               ; preds = %1
   fence seq_cst
-  br label %22
+  br label %23
 
 13:                                               ; preds = %8
   store ptr @anon.b87d3252e6db9dedaecbbcbb80b8fc6f.1, ptr %3, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1, ptr %14, align 8
   %15 = load ptr, ptr @anon.b87d3252e6db9dedaecbbcbb80b8fc6f.3, align 8, !align !5, !noundef !4
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @anon.b87d3252e6db9dedaecbbcbb80b8fc6f.3, i64 8), align 8
-  %17 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %3, i32 0, i32 2
-  store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 %16, ptr %18, align 8
-  %19 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %3, i32 0, i32 1
-  store ptr @anon.b87d3252e6db9dedaecbbcbb80b8fc6f.2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  store i64 0, ptr %20, align 8
+  %16 = getelementptr inbounds i8, ptr @anon.b87d3252e6db9dedaecbbcbb80b8fc6f.3, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %3, i32 0, i32 2
+  store ptr %15, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 %17, ptr %19, align 8
+  %20 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %3, i32 0, i32 1
+  store ptr @anon.b87d3252e6db9dedaecbbcbb80b8fc6f.2, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 0, ptr %21, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %3, ptr align 8 @anon.b87d3252e6db9dedaecbbcbb80b8fc6f.5) #2
   unreachable
 
-21:                                               ; preds = %8
+22:                                               ; preds = %8
   call void @_ZN4core3fmt9Arguments9new_const17hb8486d0946ad5622E(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2, ptr align 8 @anon.b87d3252e6db9dedaecbbcbb80b8fc6f.7, i64 1)
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %2, ptr align 8 @anon.b87d3252e6db9dedaecbbcbb80b8fc6f.9) #2
   unreachable
 
-22:                                               ; preds = %12, %11, %10, %9
+23:                                               ; preds = %12, %11, %10, %9
   ret void
 }
 

@@ -951,7 +951,8 @@ entry:
   store ptr %delegate, ptr %delegate.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net30QuicSentPacketManagerInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net21QuicSentPacketManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [41 x ptr] }, ptr @_ZTVN3net21QuicSentPacketManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %unacked_packets_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 1
   invoke void @_ZN3net20QuicUnackedPacketMapC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets_)
           to label %invoke.cont unwind label %lpad
@@ -963,20 +964,20 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %perspective_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %perspective.addr, align 4
-  store i32 %0, ptr %perspective_, align 8
+  %1 = load i32, ptr %perspective.addr, align 4
+  store i32 %1, ptr %perspective_, align 8
   %path_id_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 4
-  %1 = load i8, ptr %path_id.addr, align 1
-  store i8 %1, ptr %path_id_, align 4
+  %2 = load i8, ptr %path_id.addr, align 1
+  store i8 %2, ptr %path_id_, align 4
   %clock_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %clock.addr, align 8
-  store ptr %2, ptr %clock_, align 8
+  %3 = load ptr, ptr %clock.addr, align 8
+  store ptr %3, ptr %clock_, align 8
   %stats_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 6
-  %3 = load ptr, ptr %stats.addr, align 8
-  store ptr %3, ptr %stats_, align 8
+  %4 = load ptr, ptr %stats.addr, align 8
+  store ptr %4, ptr %stats_, align 8
   %delegate_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 7
-  %4 = load ptr, ptr %delegate.addr, align 8
-  store ptr %4, ptr %delegate_, align 8
+  %5 = load ptr, ptr %delegate.addr, align 8
+  store ptr %5, ptr %delegate_, align 8
   %debug_delegate_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 8
   store ptr null, ptr %debug_delegate_, align 8
   %network_change_visitor_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 9
@@ -994,8 +995,8 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   %general_loss_algorithm_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 14
   store ptr %general_loss_algorithm_, ptr %loss_algorithm_, align 8
   %general_loss_algorithm_6 = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 14
-  %5 = load i32, ptr %loss_type.addr, align 4
-  invoke void @_ZN3net20GeneralLossAlgorithmC1ENS_17LossDetectionTypeE(ptr noundef nonnull align 8 dereferenceable(32) %general_loss_algorithm_6, i32 noundef %5)
+  %6 = load i32, ptr %loss_type.addr, align 4
+  invoke void @_ZN3net20GeneralLossAlgorithmC1ENS_17LossDetectionTypeE(ptr noundef nonnull align 8 dereferenceable(32) %general_loss_algorithm_6, i32 noundef %6)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
@@ -1045,65 +1046,65 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %6 = load i32, ptr %congestion_control_type.addr, align 4
-  invoke void @_ZN3net21QuicSentPacketManager16SetSendAlgorithmENS_21CongestionControlTypeE(ptr noundef nonnull align 8 dereferenceable(776) %this1, i32 noundef %6)
+  %7 = load i32, ptr %congestion_control_type.addr, align 4
+  invoke void @_ZN3net21QuicSentPacketManager16SetSendAlgorithmENS_21CongestionControlTypeE(ptr noundef nonnull align 8 dereferenceable(776) %this1, i32 noundef %7)
           to label %invoke.cont13 unwind label %lpad11
 
 invoke.cont13:                                    ; preds = %invoke.cont12
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup19
 
 lpad2:                                            ; preds = %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup18
 
 lpad4:                                            ; preds = %invoke.cont3
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup17
 
 lpad7:                                            ; preds = %invoke.cont5
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup16
 
 lpad9:                                            ; preds = %invoke.cont8
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont12, %invoke.cont10
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZN3net12PacingSenderD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %pacing_sender_) #11
   br label %ehcleanup
 
@@ -1143,7 +1144,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net30QuicSentPacketManagerInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [41 x ptr] }, ptr @_ZTVN3net30QuicSentPacketManagerInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1318,7 +1320,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net21QuicSentPacketManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [41 x ptr] }, ptr @_ZTVN3net21QuicSentPacketManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pacing_sender_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 33
   call void @_ZN3net12PacingSenderD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %pacing_sender_) #11
   %packets_lost_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 29

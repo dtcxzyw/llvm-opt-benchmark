@@ -77,7 +77,7 @@ define internal i32 @dissect_tplink_smarthome(ptr noundef %0, ptr noundef %1, pt
   %14 = load i32, ptr @proto_tplink_smarthome, align 4
   %15 = call ptr @conversation_get_proto_data(ptr noundef %13, i32 noundef %14)
   %16 = icmp ne ptr %15, null
-  br i1 %16, label %27, label %17
+  br i1 %16, label %28, label %17
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %7, align 8
@@ -89,28 +89,29 @@ define internal i32 @dissect_tplink_smarthome(ptr noundef %0, ptr noundef %1, pt
 
 23:                                               ; preds = %17
   store i32 0, ptr %5, align 4
-  br label %34
+  br label %35
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr %10, align 8
   %26 = load i32, ptr @proto_tplink_smarthome, align 4
-  call void @conversation_add_proto_data(ptr noundef %25, i32 noundef %26, ptr noundef inttoptr (i64 1 to ptr))
-  br label %27
+  %27 = inttoptr i64 1 to ptr
+  call void @conversation_add_proto_data(ptr noundef %25, i32 noundef %26, ptr noundef %27)
+  br label %28
 
-27:                                               ; preds = %24, %4
-  %28 = load ptr, ptr %6, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = load ptr, ptr %9, align 8
-  call void @tcp_dissect_pdus(ptr noundef %28, ptr noundef %29, ptr noundef %30, i32 noundef 1, i32 noundef 4, ptr noundef @get_tplink_smarthome_message_len, ptr noundef @dissect_tplink_smarthome_message, ptr noundef %31)
-  %32 = load ptr, ptr %6, align 8
-  %33 = call i32 @tvb_captured_length(ptr noundef %32)
-  store i32 %33, ptr %5, align 4
-  br label %34
+28:                                               ; preds = %24, %4
+  %29 = load ptr, ptr %6, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = load ptr, ptr %8, align 8
+  %32 = load ptr, ptr %9, align 8
+  call void @tcp_dissect_pdus(ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef 1, i32 noundef 4, ptr noundef @get_tplink_smarthome_message_len, ptr noundef @dissect_tplink_smarthome_message, ptr noundef %32)
+  %33 = load ptr, ptr %6, align 8
+  %34 = call i32 @tvb_captured_length(ptr noundef %33)
+  store i32 %34, ptr %5, align 4
+  br label %35
 
-34:                                               ; preds = %27, %23
-  %35 = load i32, ptr %5, align 4
-  ret i32 %35
+35:                                               ; preds = %28, %23
+  %36 = load i32, ptr %5, align 4
+  ret i32 %36
 }
 
 ; Function Attrs: nounwind uwtable

@@ -285,22 +285,24 @@ if.end6:                                          ; preds = %for.end, %entry
 
 land.lhs.true:                                    ; preds = %if.end6
   %10 = load ptr, ptr %code_length_bitdepth.addr, align 8
-  %11 = load i8, ptr getelementptr inbounds ([18 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kStorageOrder, i64 0, i64 1), align 1
-  %idxprom12 = zext i8 %11 to i64
+  %11 = getelementptr inbounds [18 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kStorageOrder, i64 0, i64 1
+  %12 = load i8, ptr %11, align 1
+  %idxprom12 = zext i8 %12 to i64
   %arrayidx13 = getelementptr inbounds i8, ptr %10, i64 %idxprom12
-  %12 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %12 to i32
+  %13 = load i8, ptr %arrayidx13, align 1
+  %conv14 = zext i8 %13 to i32
   %cmp15 = icmp eq i32 %conv14, 0
   br i1 %cmp15, label %if.then17, label %if.end25
 
 if.then17:                                        ; preds = %land.lhs.true
   store i64 2, ptr %skip_some, align 8
-  %13 = load ptr, ptr %code_length_bitdepth.addr, align 8
-  %14 = load i8, ptr getelementptr inbounds ([18 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kStorageOrder, i64 0, i64 2), align 2
-  %idxprom18 = zext i8 %14 to i64
-  %arrayidx19 = getelementptr inbounds i8, ptr %13, i64 %idxprom18
-  %15 = load i8, ptr %arrayidx19, align 1
-  %conv20 = zext i8 %15 to i32
+  %14 = load ptr, ptr %code_length_bitdepth.addr, align 8
+  %15 = getelementptr inbounds [18 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kStorageOrder, i64 0, i64 2
+  %16 = load i8, ptr %15, align 2
+  %idxprom18 = zext i8 %16 to i64
+  %arrayidx19 = getelementptr inbounds i8, ptr %14, i64 %idxprom18
+  %17 = load i8, ptr %arrayidx19, align 1
+  %conv20 = zext i8 %17 to i32
   %cmp21 = icmp eq i32 %conv20, 0
   br i1 %cmp21, label %if.then23, label %if.end24
 
@@ -312,114 +314,114 @@ if.end24:                                         ; preds = %if.then23, %if.then
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end24, %land.lhs.true, %if.end6
-  %16 = load i64, ptr %skip_some, align 8
-  %17 = load ptr, ptr %storage_ix.addr, align 8
-  %18 = load ptr, ptr %storage.addr, align 8
+  %18 = load i64, ptr %skip_some, align 8
+  %19 = load ptr, ptr %storage_ix.addr, align 8
+  %20 = load ptr, ptr %storage.addr, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   store i64 2, ptr %n_bits.addr.i40, align 8, !noalias !13
-  store i64 %16, ptr %bits.addr.i41, align 8, !noalias !13
-  store ptr %17, ptr %pos.addr.i42, align 8, !noalias !13
-  store ptr %18, ptr %array.addr.i43, align 8, !noalias !13
-  %19 = load ptr, ptr %array.addr.i43, align 8, !noalias !13
-  %20 = load ptr, ptr %pos.addr.i42, align 8, !noalias !13
-  %21 = load i64, ptr %20, align 8
-  %shr.i46 = lshr i64 %21, 3
-  %arrayidx.i47 = getelementptr inbounds i8, ptr %19, i64 %shr.i46
+  store i64 %18, ptr %bits.addr.i41, align 8, !noalias !13
+  store ptr %19, ptr %pos.addr.i42, align 8, !noalias !13
+  store ptr %20, ptr %array.addr.i43, align 8, !noalias !13
+  %21 = load ptr, ptr %array.addr.i43, align 8, !noalias !13
+  %22 = load ptr, ptr %pos.addr.i42, align 8, !noalias !13
+  %23 = load i64, ptr %22, align 8
+  %shr.i46 = lshr i64 %23, 3
+  %arrayidx.i47 = getelementptr inbounds i8, ptr %21, i64 %shr.i46
   store ptr %arrayidx.i47, ptr %p.i44, align 8, !noalias !13
-  %22 = load ptr, ptr %p.i44, align 8, !noalias !13
-  %23 = load i8, ptr %22, align 1
-  %conv.i48 = zext i8 %23 to i64
+  %24 = load ptr, ptr %p.i44, align 8, !noalias !13
+  %25 = load i8, ptr %24, align 1
+  %conv.i48 = zext i8 %25 to i64
   store i64 %conv.i48, ptr %v.i45, align 8, !noalias !13
-  %24 = load i64, ptr %bits.addr.i41, align 8, !noalias !13
-  %25 = load ptr, ptr %pos.addr.i42, align 8, !noalias !13
-  %26 = load i64, ptr %25, align 8
-  %and.i49 = and i64 %26, 7
-  %shl.i50 = shl i64 %24, %and.i49
-  %27 = load i64, ptr %v.i45, align 8, !noalias !13
-  %or.i51 = or i64 %27, %shl.i50
-  store i64 %or.i51, ptr %v.i45, align 8, !noalias !13
-  %28 = load ptr, ptr %p.i44, align 8, !noalias !13
+  %26 = load i64, ptr %bits.addr.i41, align 8, !noalias !13
+  %27 = load ptr, ptr %pos.addr.i42, align 8, !noalias !13
+  %28 = load i64, ptr %27, align 8
+  %and.i49 = and i64 %28, 7
+  %shl.i50 = shl i64 %26, %and.i49
   %29 = load i64, ptr %v.i45, align 8, !noalias !13
-  store ptr %28, ptr %p.addr.i, align 8
-  store i64 %29, ptr %v.addr.i, align 8
-  %30 = load ptr, ptr %p.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 8 %v.addr.i, i64 8, i1 false)
-  %31 = load i64, ptr %n_bits.addr.i40, align 8, !noalias !13
-  %32 = load ptr, ptr %pos.addr.i42, align 8, !noalias !13
-  %33 = load i64, ptr %32, align 8
-  %add.i52 = add i64 %33, %31
-  store i64 %add.i52, ptr %32, align 8
-  %34 = load i64, ptr %skip_some, align 8
-  store i64 %34, ptr %i, align 8
+  %or.i51 = or i64 %29, %shl.i50
+  store i64 %or.i51, ptr %v.i45, align 8, !noalias !13
+  %30 = load ptr, ptr %p.i44, align 8, !noalias !13
+  %31 = load i64, ptr %v.i45, align 8, !noalias !13
+  store ptr %30, ptr %p.addr.i, align 8
+  store i64 %31, ptr %v.addr.i, align 8
+  %32 = load ptr, ptr %p.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 8 %v.addr.i, i64 8, i1 false)
+  %33 = load i64, ptr %n_bits.addr.i40, align 8, !noalias !13
+  %34 = load ptr, ptr %pos.addr.i42, align 8, !noalias !13
+  %35 = load i64, ptr %34, align 8
+  %add.i52 = add i64 %35, %33
+  store i64 %add.i52, ptr %34, align 8
+  %36 = load i64, ptr %skip_some, align 8
+  store i64 %36, ptr %i, align 8
   br label %for.cond26
 
 for.cond26:                                       ; preds = %for.inc38, %if.end25
-  %35 = load i64, ptr %i, align 8
-  %36 = load i64, ptr %codes_to_store, align 8
-  %cmp27 = icmp ult i64 %35, %36
+  %37 = load i64, ptr %i, align 8
+  %38 = load i64, ptr %codes_to_store, align 8
+  %cmp27 = icmp ult i64 %37, %38
   br i1 %cmp27, label %for.body29, label %for.end39
 
 for.body29:                                       ; preds = %for.cond26
-  %37 = load ptr, ptr %code_length_bitdepth.addr, align 8
-  %38 = load i64, ptr %i, align 8
-  %arrayidx30 = getelementptr inbounds [18 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kStorageOrder, i64 0, i64 %38
-  %39 = load i8, ptr %arrayidx30, align 1
-  %idxprom31 = zext i8 %39 to i64
-  %arrayidx32 = getelementptr inbounds i8, ptr %37, i64 %idxprom31
-  %40 = load i8, ptr %arrayidx32, align 1
-  %conv33 = zext i8 %40 to i64
+  %39 = load ptr, ptr %code_length_bitdepth.addr, align 8
+  %40 = load i64, ptr %i, align 8
+  %arrayidx30 = getelementptr inbounds [18 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kStorageOrder, i64 0, i64 %40
+  %41 = load i8, ptr %arrayidx30, align 1
+  %idxprom31 = zext i8 %41 to i64
+  %arrayidx32 = getelementptr inbounds i8, ptr %39, i64 %idxprom31
+  %42 = load i8, ptr %arrayidx32, align 1
+  %conv33 = zext i8 %42 to i64
   store i64 %conv33, ptr %l, align 8
-  %41 = load i64, ptr %l, align 8
-  %arrayidx34 = getelementptr inbounds [6 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kHuffmanBitLengthHuffmanCodeBitLengths, i64 0, i64 %41
-  %42 = load i8, ptr %arrayidx34, align 1
-  %conv35 = zext i8 %42 to i64
   %43 = load i64, ptr %l, align 8
-  %arrayidx36 = getelementptr inbounds [6 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kHuffmanBitLengthHuffmanCodeSymbols, i64 0, i64 %43
-  %44 = load i8, ptr %arrayidx36, align 1
-  %conv37 = zext i8 %44 to i64
-  %45 = load ptr, ptr %storage_ix.addr, align 8
-  %46 = load ptr, ptr %storage.addr, align 8
+  %arrayidx34 = getelementptr inbounds [6 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kHuffmanBitLengthHuffmanCodeBitLengths, i64 0, i64 %43
+  %44 = load i8, ptr %arrayidx34, align 1
+  %conv35 = zext i8 %44 to i64
+  %45 = load i64, ptr %l, align 8
+  %arrayidx36 = getelementptr inbounds [6 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kHuffmanBitLengthHuffmanCodeSymbols, i64 0, i64 %45
+  %46 = load i8, ptr %arrayidx36, align 1
+  %conv37 = zext i8 %46 to i64
+  %47 = load ptr, ptr %storage_ix.addr, align 8
+  %48 = load ptr, ptr %storage.addr, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   store i64 %conv35, ptr %n_bits.addr.i, align 8, !noalias !19
   store i64 %conv37, ptr %bits.addr.i, align 8, !noalias !19
-  store ptr %45, ptr %pos.addr.i, align 8, !noalias !19
-  store ptr %46, ptr %array.addr.i, align 8, !noalias !19
-  %47 = load ptr, ptr %array.addr.i, align 8, !noalias !19
-  %48 = load ptr, ptr %pos.addr.i, align 8, !noalias !19
-  %49 = load i64, ptr %48, align 8
-  %shr.i = lshr i64 %49, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %47, i64 %shr.i
+  store ptr %47, ptr %pos.addr.i, align 8, !noalias !19
+  store ptr %48, ptr %array.addr.i, align 8, !noalias !19
+  %49 = load ptr, ptr %array.addr.i, align 8, !noalias !19
+  %50 = load ptr, ptr %pos.addr.i, align 8, !noalias !19
+  %51 = load i64, ptr %50, align 8
+  %shr.i = lshr i64 %51, 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %49, i64 %shr.i
   store ptr %arrayidx.i, ptr %p.i, align 8, !noalias !19
-  %50 = load ptr, ptr %p.i, align 8, !noalias !19
-  %51 = load i8, ptr %50, align 1
-  %conv.i = zext i8 %51 to i64
+  %52 = load ptr, ptr %p.i, align 8, !noalias !19
+  %53 = load i8, ptr %52, align 1
+  %conv.i = zext i8 %53 to i64
   store i64 %conv.i, ptr %v.i, align 8, !noalias !19
-  %52 = load i64, ptr %bits.addr.i, align 8, !noalias !19
-  %53 = load ptr, ptr %pos.addr.i, align 8, !noalias !19
-  %54 = load i64, ptr %53, align 8
-  %and.i = and i64 %54, 7
-  %shl.i = shl i64 %52, %and.i
-  %55 = load i64, ptr %v.i, align 8, !noalias !19
-  %or.i = or i64 %55, %shl.i
-  store i64 %or.i, ptr %v.i, align 8, !noalias !19
-  %56 = load ptr, ptr %p.i, align 8, !noalias !19
+  %54 = load i64, ptr %bits.addr.i, align 8, !noalias !19
+  %55 = load ptr, ptr %pos.addr.i, align 8, !noalias !19
+  %56 = load i64, ptr %55, align 8
+  %and.i = and i64 %56, 7
+  %shl.i = shl i64 %54, %and.i
   %57 = load i64, ptr %v.i, align 8, !noalias !19
-  store ptr %56, ptr %p.addr.i53, align 8
-  store i64 %57, ptr %v.addr.i54, align 8
-  %58 = load ptr, ptr %p.addr.i53, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 8 %v.addr.i54, i64 8, i1 false)
-  %59 = load i64, ptr %n_bits.addr.i, align 8, !noalias !19
-  %60 = load ptr, ptr %pos.addr.i, align 8, !noalias !19
-  %61 = load i64, ptr %60, align 8
-  %add.i = add i64 %61, %59
-  store i64 %add.i, ptr %60, align 8
+  %or.i = or i64 %57, %shl.i
+  store i64 %or.i, ptr %v.i, align 8, !noalias !19
+  %58 = load ptr, ptr %p.i, align 8, !noalias !19
+  %59 = load i64, ptr %v.i, align 8, !noalias !19
+  store ptr %58, ptr %p.addr.i53, align 8
+  store i64 %59, ptr %v.addr.i54, align 8
+  %60 = load ptr, ptr %p.addr.i53, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 8 %v.addr.i54, i64 8, i1 false)
+  %61 = load i64, ptr %n_bits.addr.i, align 8, !noalias !19
+  %62 = load ptr, ptr %pos.addr.i, align 8, !noalias !19
+  %63 = load i64, ptr %62, align 8
+  %add.i = add i64 %63, %61
+  store i64 %add.i, ptr %62, align 8
   br label %for.inc38
 
 for.inc38:                                        ; preds = %for.body29
-  %62 = load i64, ptr %i, align 8
-  %inc = add i64 %62, 1
+  %64 = load i64, ptr %i, align 8
+  %inc = add i64 %64, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond26, !llvm.loop !20
 

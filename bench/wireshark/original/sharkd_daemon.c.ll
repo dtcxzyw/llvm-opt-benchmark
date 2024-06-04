@@ -67,7 +67,7 @@ define hidden i32 @sharkd_init(i32 noundef %0, ptr noundef %1) #0 {
   %12 = load ptr, ptr @stderr, align 8
   call void @print_usage(ptr noundef %12)
   store i32 -1, ptr %3, align 4
-  br label %136
+  br label %137
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %5, align 8
@@ -95,214 +95,215 @@ define hidden i32 @sharkd_init(i32 noundef %0, ptr noundef %1) #0 {
   %32 = load i8, ptr %31, align 1
   %33 = sext i8 %32 to i32
   %34 = icmp eq i32 %33, 117
-  br i1 %34, label %35, label %54
+  br i1 %34, label %35, label %55
 
 35:                                               ; preds = %27, %19, %13
   store i32 1, ptr @mode, align 4
-  %36 = call ptr @signal(i32 noundef 17, ptr noundef inttoptr (i64 1 to ptr)) #8
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr ptr, ptr %37, i64 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = call i32 @strcmp(ptr noundef %39, ptr noundef @.str.4) #7
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %43, label %42
-
-42:                                               ; preds = %35
-  store i32 1, ptr @mode, align 4
-  br label %53
+  %36 = inttoptr i64 1 to ptr
+  %37 = call ptr @signal(i32 noundef 17, ptr noundef %36) #8
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr ptr, ptr %38, i64 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = call i32 @strcmp(ptr noundef %40, ptr noundef @.str.4) #7
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %44, label %43
 
 43:                                               ; preds = %35
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr ptr, ptr %44, i64 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = call i32 @socket_init(ptr noundef %46)
-  store i32 %47, ptr %8, align 4
-  %48 = load i32, ptr %8, align 4
-  %49 = icmp eq i32 %48, -1
-  br i1 %49, label %50, label %51
+  store i32 1, ptr @mode, align 4
+  br label %54
 
-50:                                               ; preds = %43
+44:                                               ; preds = %35
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr ptr, ptr %45, i64 1
+  %47 = load ptr, ptr %46, align 8
+  %48 = call i32 @socket_init(ptr noundef %47)
+  store i32 %48, ptr %8, align 4
+  %49 = load i32, ptr %8, align 4
+  %50 = icmp eq i32 %49, -1
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %44
   store i32 -1, ptr %3, align 4
-  br label %136
+  br label %137
 
-51:                                               ; preds = %43
-  %52 = load i32, ptr %8, align 4
-  store i32 %52, ptr @_server_fd, align 4
+52:                                               ; preds = %44
+  %53 = load i32, ptr %8, align 4
+  store i32 %53, ptr @_server_fd, align 4
   store i32 2, ptr @mode, align 4
-  br label %53
+  br label %54
 
-53:                                               ; preds = %51, %42
-  br label %55
+54:                                               ; preds = %52, %43
+  br label %56
 
-54:                                               ; preds = %27
+55:                                               ; preds = %27
   store i32 3, ptr @mode, align 4
-  br label %55
+  br label %56
 
-55:                                               ; preds = %54, %53
-  %56 = load i32, ptr @mode, align 4
-  %57 = icmp sge i32 %56, 3
-  br i1 %57, label %58, label %114
+56:                                               ; preds = %55, %54
+  %57 = load i32, ptr @mode, align 4
+  %58 = icmp sge i32 %57, 3
+  br i1 %58, label %59, label %115
 
-58:                                               ; preds = %55
-  br label %59
+59:                                               ; preds = %56
+  br label %60
 
-59:                                               ; preds = %110, %58
-  %60 = load i32, ptr @ws_optind, align 4
-  %61 = load i32, ptr %4, align 4
-  %62 = sub i32 %61, 1
-  %63 = icmp sgt i32 %60, %62
-  br i1 %63, label %64, label %65
+60:                                               ; preds = %111, %59
+  %61 = load i32, ptr @ws_optind, align 4
+  %62 = load i32, ptr %4, align 4
+  %63 = sub i32 %62, 1
+  %64 = icmp sgt i32 %61, %63
+  br i1 %64, label %65, label %66
 
-64:                                               ; preds = %59
-  br label %113
+65:                                               ; preds = %60
+  br label %114
 
-65:                                               ; preds = %59
-  %66 = load i32, ptr %4, align 4
-  %67 = load ptr, ptr %5, align 8
-  %68 = call i32 @ws_getopt_long(i32 noundef %66, ptr noundef %67, ptr noundef @sharkd_init.optstring, ptr noundef @sharkd_init.long_options, ptr noundef null)
-  store i32 %68, ptr %6, align 4
-  %69 = load i32, ptr %6, align 4
-  switch i32 %69, label %95 [
-    i32 67, label %70
-    i32 97, label %80
-    i32 104, label %91
-    i32 109, label %93
-    i32 118, label %94
+66:                                               ; preds = %60
+  %67 = load i32, ptr %4, align 4
+  %68 = load ptr, ptr %5, align 8
+  %69 = call i32 @ws_getopt_long(i32 noundef %67, ptr noundef %68, ptr noundef @sharkd_init.optstring, ptr noundef @sharkd_init.long_options, ptr noundef null)
+  store i32 %69, ptr %6, align 4
+  %70 = load i32, ptr %6, align 4
+  switch i32 %70, label %96 [
+    i32 67, label %71
+    i32 97, label %81
+    i32 104, label %92
+    i32 109, label %94
+    i32 118, label %95
   ]
 
-70:                                               ; preds = %65
-  %71 = load ptr, ptr @ws_optarg, align 8
-  %72 = call zeroext i1 @profile_exists(ptr noundef %71, i1 noundef zeroext false)
-  br i1 %72, label %73, label %75
+71:                                               ; preds = %66
+  %72 = load ptr, ptr @ws_optarg, align 8
+  %73 = call zeroext i1 @profile_exists(ptr noundef %72, i1 noundef zeroext false)
+  br i1 %73, label %74, label %76
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr @ws_optarg, align 8
-  call void @set_profile_name(ptr noundef %74)
-  br label %79
+74:                                               ; preds = %71
+  %75 = load ptr, ptr @ws_optarg, align 8
+  call void @set_profile_name(ptr noundef %75)
+  br label %80
 
-75:                                               ; preds = %70
-  %76 = load ptr, ptr @stderr, align 8
-  %77 = load ptr, ptr @ws_optarg, align 8
-  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.5, ptr noundef %77) #8
+76:                                               ; preds = %71
+  %77 = load ptr, ptr @stderr, align 8
+  %78 = load ptr, ptr @ws_optarg, align 8
+  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef @.str.5, ptr noundef %78) #8
   store i32 -1, ptr %3, align 4
-  br label %136
+  br label %137
 
-79:                                               ; preds = %73
-  br label %109
+80:                                               ; preds = %74
+  br label %110
 
-80:                                               ; preds = %65
-  %81 = load ptr, ptr @ws_optarg, align 8
-  %82 = call i32 @socket_init(ptr noundef %81)
-  store i32 %82, ptr %8, align 4
-  %83 = load i32, ptr %8, align 4
-  %84 = icmp eq i32 %83, -1
-  br i1 %84, label %85, label %86
+81:                                               ; preds = %66
+  %82 = load ptr, ptr @ws_optarg, align 8
+  %83 = call i32 @socket_init(ptr noundef %82)
+  store i32 %83, ptr %8, align 4
+  %84 = load i32, ptr %8, align 4
+  %85 = icmp eq i32 %84, -1
+  br i1 %85, label %86, label %87
 
-85:                                               ; preds = %80
+86:                                               ; preds = %81
   store i32 -1, ptr %3, align 4
-  br label %136
+  br label %137
 
-86:                                               ; preds = %80
-  %87 = load i32, ptr %8, align 4
-  store i32 %87, ptr @_server_fd, align 4
-  %88 = load ptr, ptr @stderr, align 8
-  %89 = load ptr, ptr @ws_optarg, align 8
-  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef @.str.6, ptr noundef %89) #8
+87:                                               ; preds = %81
+  %88 = load i32, ptr %8, align 4
+  store i32 %88, ptr @_server_fd, align 4
+  %89 = load ptr, ptr @stderr, align 8
+  %90 = load ptr, ptr @ws_optarg, align 8
+  %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef @.str.6, ptr noundef %90) #8
   store i32 4, ptr @mode, align 4
-  br label %109
+  br label %110
 
-91:                                               ; preds = %65
+92:                                               ; preds = %66
   call void @show_help_header(ptr noundef @.str.7)
-  %92 = load ptr, ptr @stderr, align 8
-  call void @print_usage(ptr noundef %92)
+  %93 = load ptr, ptr @stderr, align 8
+  call void @print_usage(ptr noundef %93)
   call void @exit(i32 noundef 0) #9
   unreachable
 
-93:                                               ; preds = %65
+94:                                               ; preds = %66
   store i32 3, ptr @mode, align 4
-  br label %109
+  br label %110
 
-94:                                               ; preds = %65
+95:                                               ; preds = %66
   call void @show_version()
   call void @exit(i32 noundef 0) #9
   unreachable
 
-95:                                               ; preds = %65
-  %96 = load i32, ptr @ws_optopt, align 4
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %106, label %98
+96:                                               ; preds = %66
+  %97 = load i32, ptr @ws_optopt, align 4
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %107, label %99
 
-98:                                               ; preds = %95
-  %99 = load ptr, ptr @stderr, align 8
-  %100 = load ptr, ptr %5, align 8
-  %101 = load i32, ptr @ws_optind, align 4
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr ptr, ptr %100, i64 %102
-  %104 = load ptr, ptr %103, align 8
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef @.str.8, ptr noundef %104) #8
-  br label %106
+99:                                               ; preds = %96
+  %100 = load ptr, ptr @stderr, align 8
+  %101 = load ptr, ptr %5, align 8
+  %102 = load i32, ptr @ws_optind, align 4
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr ptr, ptr %101, i64 %103
+  %105 = load ptr, ptr %104, align 8
+  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef @.str.8, ptr noundef %105) #8
+  br label %107
 
-106:                                              ; preds = %98, %95
-  %107 = load ptr, ptr @stderr, align 8
-  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef @.str.9) #8
+107:                                              ; preds = %99, %96
+  %108 = load ptr, ptr @stderr, align 8
+  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef @.str.9) #8
   call void @exit(i32 noundef 0) #9
   unreachable
 
-109:                                              ; preds = %93, %86, %79
-  br label %110
+110:                                              ; preds = %94, %87, %80
+  br label %111
 
-110:                                              ; preds = %109
-  %111 = load i32, ptr %6, align 4
-  %112 = icmp ne i32 %111, -1
-  br i1 %112, label %59, label %113, !llvm.loop !5
+111:                                              ; preds = %110
+  %112 = load i32, ptr %6, align 4
+  %113 = icmp ne i32 %112, -1
+  br i1 %113, label %60, label %114, !llvm.loop !5
 
-113:                                              ; preds = %110, %64
-  br label %114
+114:                                              ; preds = %111, %65
+  br label %115
 
-114:                                              ; preds = %113, %55
-  %115 = load i32, ptr @mode, align 4
-  %116 = icmp eq i32 %115, 2
-  br i1 %116, label %120, label %117
+115:                                              ; preds = %114, %56
+  %116 = load i32, ptr @mode, align 4
+  %117 = icmp eq i32 %116, 2
+  br i1 %117, label %121, label %118
 
-117:                                              ; preds = %114
-  %118 = load i32, ptr @mode, align 4
-  %119 = icmp eq i32 %118, 4
-  br i1 %119, label %120, label %135
+118:                                              ; preds = %115
+  %119 = load i32, ptr @mode, align 4
+  %120 = icmp eq i32 %119, 4
+  br i1 %120, label %121, label %136
 
-120:                                              ; preds = %117, %114
-  %121 = call i32 @fork() #8
-  store i32 %121, ptr %7, align 4
-  %122 = load i32, ptr %7, align 4
-  %123 = icmp eq i32 %122, -1
-  br i1 %123, label %124, label %130
+121:                                              ; preds = %118, %115
+  %122 = call i32 @fork() #8
+  store i32 %122, ptr %7, align 4
+  %123 = load i32, ptr %7, align 4
+  %124 = icmp eq i32 %123, -1
+  br i1 %124, label %125, label %131
 
-124:                                              ; preds = %120
-  %125 = load ptr, ptr @stderr, align 8
-  %126 = call ptr @__errno_location() #10
-  %127 = load i32, ptr %126, align 4
-  %128 = call ptr @g_strerror(i32 noundef %127) #10
-  %129 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef @.str.10, ptr noundef %128) #8
-  br label %130
+125:                                              ; preds = %121
+  %126 = load ptr, ptr @stderr, align 8
+  %127 = call ptr @__errno_location() #10
+  %128 = load i32, ptr %127, align 4
+  %129 = call ptr @g_strerror(i32 noundef %128) #10
+  %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef @.str.10, ptr noundef %129) #8
+  br label %131
 
-130:                                              ; preds = %124, %120
-  %131 = load i32, ptr %7, align 4
-  %132 = icmp ne i32 %131, 0
-  br i1 %132, label %133, label %134
+131:                                              ; preds = %125, %121
+  %132 = load i32, ptr %7, align 4
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %134, label %135
 
-133:                                              ; preds = %130
+134:                                              ; preds = %131
   call void @exit(i32 noundef 0) #9
   unreachable
 
-134:                                              ; preds = %130
-  br label %135
-
-135:                                              ; preds = %134, %117
-  store i32 0, ptr %3, align 4
+135:                                              ; preds = %131
   br label %136
 
-136:                                              ; preds = %135, %85, %75, %50, %11
-  %137 = load i32, ptr %3, align 4
-  ret i32 %137
+136:                                              ; preds = %135, %118
+  store i32 0, ptr %3, align 4
+  br label %137
+
+137:                                              ; preds = %136, %86, %76, %51, %11
+  %138 = load i32, ptr %3, align 4
+  ret i32 %138
 }
 
 ; Function Attrs: nounwind uwtable

@@ -3964,9 +3964,12 @@ if.else24:                                        ; preds = %if.else
   %17 = load ptr, ptr %tag.addr, align 8
   %arrayidx25 = getelementptr inbounds i8, ptr %17, i64 0
   %18 = load i8, ptr %arrayidx25, align 1
-  store i8 %18, ptr getelementptr inbounds ([4 x i8], ptr @get_tag.alttag, i64 0, i64 1), align 1
-  store i8 32, ptr getelementptr inbounds ([4 x i8], ptr @get_tag.alttag, i64 0, i64 2), align 1
-  store i8 0, ptr getelementptr inbounds ([4 x i8], ptr @get_tag.alttag, i64 0, i64 3), align 1
+  %19 = getelementptr inbounds [4 x i8], ptr @get_tag.alttag, i64 0, i64 1
+  store i8 %18, ptr %19, align 1
+  %20 = getelementptr inbounds [4 x i8], ptr @get_tag.alttag, i64 0, i64 2
+  store i8 32, ptr %20, align 1
+  %21 = getelementptr inbounds [4 x i8], ptr @get_tag.alttag, i64 0, i64 3
+  store i8 0, ptr %21, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.else24, %if.then23
@@ -3977,8 +3980,8 @@ if.end26:                                         ; preds = %if.end, %if.then15
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end26, %land.lhs.true7, %lor.lhs.false, %land.lhs.true, %entry
-  %19 = load ptr, ptr %tag.addr, align 8
-  ret ptr %19
+  %22 = load ptr, ptr %tag.addr, align 8
+  ret ptr %22
 }
 
 declare ptr @repo_find_unique_abbrev(ptr noundef, ptr noundef, i32 noundef) #2

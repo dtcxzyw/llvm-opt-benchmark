@@ -234,11 +234,12 @@ define linkonce_odr hidden void @_ZN4LIEF2PE13SpcSpOpusInfoD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF2PE13SpcSpOpusInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::PE::SpcSpOpusInfo", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
-  %5 = getelementptr inbounds %"class.LIEF::PE::SpcSpOpusInfo", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF2PE13SpcSpOpusInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::PE::SpcSpOpusInfo", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
+  %6 = getelementptr inbounds %"class.LIEF::PE::SpcSpOpusInfo", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   call void @_ZN4LIEF2PE9AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #7
   ret void
 }
@@ -327,52 +328,53 @@ define linkonce_odr hidden void @_ZN4LIEF2PE13SpcSpOpusInfoC2ERKS1_(ptr noundef 
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF2PE9AttributeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF2PE13SpcSpOpusInfoE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::SpcSpOpusInfo", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::PE::SpcSpOpusInfo", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %17
+  %9 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF2PE13SpcSpOpusInfoE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::SpcSpOpusInfo", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::PE::SpcSpOpusInfo", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %18
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.LIEF::PE::SpcSpOpusInfo", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.LIEF::PE::SpcSpOpusInfo", ptr %14, i32 0, i32 2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %16 unwind label %21
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.LIEF::PE::SpcSpOpusInfo", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.LIEF::PE::SpcSpOpusInfo", ptr %15, i32 0, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %17 unwind label %22
 
-16:                                               ; preds = %12
+17:                                               ; preds = %13
   ret void
 
-17:                                               ; preds = %2
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %5, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %6, align 4
-  br label %25
-
-21:                                               ; preds = %12
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %5, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #7
-  br label %25
-
-25:                                               ; preds = %21, %17
-  call void @_ZN4LIEF2PE9AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #7
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
   br label %26
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+22:                                               ; preds = %13
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
+  br label %26
+
+26:                                               ; preds = %22, %18
+  call void @_ZN4LIEF2PE9AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #7
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -407,12 +409,13 @@ define linkonce_odr hidden void @_ZN4LIEF2PE9AttributeC2ERKS1_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF2PE9AttributeE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::PE::Attribute", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::Attribute", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 8
+  %7 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF2PE9AttributeE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::PE::Attribute", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::Attribute", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 8
   ret void
 }
 

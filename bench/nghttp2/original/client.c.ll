@@ -89,15 +89,16 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr align 8 %act, i8 0, i64 152, i1 false)
   %__sigaction_handler = getelementptr inbounds %struct.sigaction, ptr %act, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %__sigaction_handler, align 8
+  %1 = inttoptr i64 1 to ptr
+  store ptr %1, ptr %__sigaction_handler, align 8
   %call = call i32 @sigaction(i32 noundef 13, ptr noundef %act, ptr noundef null) #11
-  %1 = load ptr, ptr %argv.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 1
-  %2 = load ptr, ptr %arrayidx, align 8
-  %call1 = call i32 @parse_uri(ptr noundef %uri, ptr noundef %2)
+  %2 = load ptr, ptr %argv.addr, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 1
+  %3 = load ptr, ptr %arrayidx, align 8
+  %call1 = call i32 @parse_uri(ptr noundef %uri, ptr noundef %3)
   store i32 %call1, ptr %rv, align 4
-  %3 = load i32, ptr %rv, align 4
-  %cmp2 = icmp ne i32 %3, 0
+  %4 = load i32, ptr %rv, align 4
+  %cmp2 = icmp ne i32 %4, 0
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end

@@ -54,9 +54,10 @@ define void @_ZN4LIEF5MachO15DyldEnvironmentC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldEnvironmentE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::DyldEnvironment", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldEnvironmentE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::DyldEnvironment", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   ret void
 }
 
@@ -128,32 +129,33 @@ define void @_ZN4LIEF5MachO15DyldEnvironmentC2ERKS1_(ptr noundef nonnull align 8
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldEnvironmentE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::DyldEnvironment", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::DyldEnvironment", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldEnvironmentE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::DyldEnvironment", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::DyldEnvironment", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #6
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #6
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 declare void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
@@ -168,9 +170,10 @@ define void @_ZN4LIEF5MachO15DyldEnvironmentD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldEnvironmentE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::DyldEnvironment", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldEnvironmentE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::DyldEnvironment", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #6
   ret void
 }
@@ -206,9 +209,10 @@ define void @_ZN4LIEF5MachO15DyldEnvironmentC2ERKNS0_7details16dylinker_commandE
   %11 = getelementptr inbounds %"struct.LIEF::MachO::details::dylinker_command", ptr %10, i32 0, i32 1
   %12 = load i32, ptr %11, align 4
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef %9, i32 noundef %12)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldEnvironmentE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::DyldEnvironment", ptr %5, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #6
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO15DyldEnvironmentE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::DyldEnvironment", ptr %5, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #6
   ret void
 }
 

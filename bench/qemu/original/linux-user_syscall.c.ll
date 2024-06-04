@@ -35690,12 +35690,13 @@ if.then:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.then
   %msg_name11 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 0
-  store ptr inttoptr (i64 -1 to ptr), ptr %msg_name11, align 8
+  %12 = inttoptr i64 -1 to ptr
+  store ptr %12, ptr %msg_name11, align 8
   br label %if.end14
 
 if.else:                                          ; preds = %if.then
-  %12 = load i64, ptr %ret, align 8
-  %tobool12 = icmp ne i64 %12, 0
+  %13 = load i64, ptr %ret, align 8
+  %tobool12 = icmp ne i64 %13, 0
   br i1 %tobool12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.else
@@ -35715,41 +35716,41 @@ if.else15:                                        ; preds = %entry
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else15, %if.end14
-  %13 = load ptr, ptr %msgp.addr, align 8
-  %msg_controllen = getelementptr inbounds %struct.target_msghdr, ptr %13, i32 0, i32 5
-  %14 = load i64, ptr %msg_controllen, align 8
-  %call19 = call i64 @tswapal(i64 noundef %14)
+  %14 = load ptr, ptr %msgp.addr, align 8
+  %msg_controllen = getelementptr inbounds %struct.target_msghdr, ptr %14, i32 0, i32 5
+  %15 = load i64, ptr %msg_controllen, align 8
+  %call19 = call i64 @tswapal(i64 noundef %15)
   %mul = mul i64 2, %call19
   %msg_controllen20 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 5
   store i64 %mul, ptr %msg_controllen20, align 8
   %msg_controllen21 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 5
-  %15 = load i64, ptr %msg_controllen21, align 8
-  %16 = alloca i8, i64 %15, align 16
+  %16 = load i64, ptr %msg_controllen21, align 8
+  %17 = alloca i8, i64 %16, align 16
   %msg_control = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 4
-  store ptr %16, ptr %msg_control, align 8
+  store ptr %17, ptr %msg_control, align 8
   %msg_control22 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 4
-  %17 = load ptr, ptr %msg_control22, align 8
+  %18 = load ptr, ptr %msg_control22, align 8
   %msg_controllen23 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 5
-  %18 = load i64, ptr %msg_controllen23, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %17, i8 0, i64 %18, i1 false)
-  %19 = load ptr, ptr %msgp.addr, align 8
-  %msg_flags = getelementptr inbounds %struct.target_msghdr, ptr %19, i32 0, i32 6
-  %20 = load i32, ptr %msg_flags, align 8
-  %call24 = call i32 @tswap32(i32 noundef %20)
+  %19 = load i64, ptr %msg_controllen23, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %18, i8 0, i64 %19, i1 false)
+  %20 = load ptr, ptr %msgp.addr, align 8
+  %msg_flags = getelementptr inbounds %struct.target_msghdr, ptr %20, i32 0, i32 6
+  %21 = load i32, ptr %msg_flags, align 8
+  %call24 = call i32 @tswap32(i32 noundef %21)
   %msg_flags25 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 6
   store i32 %call24, ptr %msg_flags25, align 8
-  %21 = load ptr, ptr %msgp.addr, align 8
-  %msg_iovlen = getelementptr inbounds %struct.target_msghdr, ptr %21, i32 0, i32 3
-  %22 = load i64, ptr %msg_iovlen, align 8
-  %call26 = call i64 @tswapal(i64 noundef %22)
+  %22 = load ptr, ptr %msgp.addr, align 8
+  %msg_iovlen = getelementptr inbounds %struct.target_msghdr, ptr %22, i32 0, i32 3
+  %23 = load i64, ptr %msg_iovlen, align 8
+  %call26 = call i64 @tswapal(i64 noundef %23)
   store i64 %call26, ptr %count, align 8
-  %23 = load ptr, ptr %msgp.addr, align 8
-  %msg_iov = getelementptr inbounds %struct.target_msghdr, ptr %23, i32 0, i32 2
-  %24 = load i64, ptr %msg_iov, align 8
-  %call27 = call i64 @tswapal(i64 noundef %24)
+  %24 = load ptr, ptr %msgp.addr, align 8
+  %msg_iov = getelementptr inbounds %struct.target_msghdr, ptr %24, i32 0, i32 2
+  %25 = load i64, ptr %msg_iov, align 8
+  %call27 = call i64 @tswapal(i64 noundef %25)
   store i64 %call27, ptr %target_vec, align 8
-  %25 = load i64, ptr %count, align 8
-  %cmp28 = icmp ugt i64 %25, 1024
+  %26 = load i64, ptr %count, align 8
+  %cmp28 = icmp ugt i64 %26, 1024
   br i1 %cmp28, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.end18
@@ -35757,32 +35758,32 @@ if.then30:                                        ; preds = %if.end18
   br label %out2
 
 if.end31:                                         ; preds = %if.end18
-  %26 = load i32, ptr %send.addr, align 4
-  %tobool32 = icmp ne i32 %26, 0
+  %27 = load i32, ptr %send.addr, align 4
+  %tobool32 = icmp ne i32 %27, 0
   %cond = select i1 %tobool32, i32 1, i32 3
-  %27 = load i64, ptr %target_vec, align 8
-  %28 = load i64, ptr %count, align 8
-  %29 = load i32, ptr %send.addr, align 4
-  %call33 = call ptr @lock_iovec(i32 noundef %cond, i64 noundef %27, i64 noundef %28, i32 noundef %29)
+  %28 = load i64, ptr %target_vec, align 8
+  %29 = load i64, ptr %count, align 8
+  %30 = load i32, ptr %send.addr, align 4
+  %call33 = call ptr @lock_iovec(i32 noundef %cond, i64 noundef %28, i64 noundef %29, i32 noundef %30)
   store ptr %call33, ptr %vec, align 8
-  %30 = load ptr, ptr %vec, align 8
-  %cmp34 = icmp eq ptr %30, null
+  %31 = load ptr, ptr %vec, align 8
+  %cmp34 = icmp eq ptr %31, null
   br i1 %cmp34, label %if.then36, label %if.end44
 
 if.then36:                                        ; preds = %if.end31
   %call37 = call ptr @__errno_location() #13
-  %31 = load i32, ptr %call37, align 4
-  %call38 = call i32 @host_to_target_errno(i32 noundef %31)
+  %32 = load i32, ptr %call37, align 4
+  %call38 = call i32 @host_to_target_errno(i32 noundef %32)
   %sub = sub i32 0, %call38
   %conv39 = sext i32 %sub to i64
   store i64 %conv39, ptr %ret, align 8
-  %32 = load i32, ptr %send.addr, align 4
-  %tobool40 = icmp ne i32 %32, 0
+  %33 = load i32, ptr %send.addr, align 4
+  %tobool40 = icmp ne i32 %33, 0
   br i1 %tobool40, label %lor.lhs.false, label %if.then42
 
 lor.lhs.false:                                    ; preds = %if.then36
-  %33 = load i64, ptr %ret, align 8
-  %tobool41 = icmp ne i64 %33, 0
+  %34 = load i64, ptr %ret, align 8
+  %tobool41 = icmp ne i64 %34, 0
   br i1 %tobool41, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %lor.lhs.false, %if.then36
@@ -35792,82 +35793,82 @@ if.end43:                                         ; preds = %lor.lhs.false
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end43, %if.end31
-  %34 = load i64, ptr %count, align 8
+  %35 = load i64, ptr %count, align 8
   %msg_iovlen45 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 3
-  store i64 %34, ptr %msg_iovlen45, align 8
-  %35 = load ptr, ptr %vec, align 8
+  store i64 %35, ptr %msg_iovlen45, align 8
+  %36 = load ptr, ptr %vec, align 8
   %msg_iov46 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 2
-  store ptr %35, ptr %msg_iov46, align 8
-  %36 = load i32, ptr %send.addr, align 4
-  %tobool47 = icmp ne i32 %36, 0
+  store ptr %36, ptr %msg_iov46, align 8
+  %37 = load i32, ptr %send.addr, align 4
+  %tobool47 = icmp ne i32 %37, 0
   br i1 %tobool47, label %if.then48, label %if.else78
 
 if.then48:                                        ; preds = %if.end44
-  %37 = load i32, ptr %fd.addr, align 4
-  %call49 = call ptr @fd_trans_target_to_host_data(i32 noundef %37)
+  %38 = load i32, ptr %fd.addr, align 4
+  %call49 = call ptr @fd_trans_target_to_host_data(i32 noundef %38)
   %tobool50 = icmp ne ptr %call49, null
   br i1 %tobool50, label %if.then51, label %if.else69
 
 if.then51:                                        ; preds = %if.then48
   %msg_iov52 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 2
-  %38 = load ptr, ptr %msg_iov52, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %38, i32 0, i32 1
-  %39 = load i64, ptr %iov_len, align 8
-  %call53 = call noalias ptr @g_malloc(i64 noundef %39) #16
+  %39 = load ptr, ptr %msg_iov52, align 8
+  %iov_len = getelementptr inbounds %struct.iovec, ptr %39, i32 0, i32 1
+  %40 = load i64, ptr %iov_len, align 8
+  %call53 = call noalias ptr @g_malloc(i64 noundef %40) #16
   store ptr %call53, ptr %host_msg, align 8
-  %40 = load ptr, ptr %host_msg, align 8
+  %41 = load ptr, ptr %host_msg, align 8
   %msg_iov54 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 2
-  %41 = load ptr, ptr %msg_iov54, align 8
-  %iov_base = getelementptr inbounds %struct.iovec, ptr %41, i32 0, i32 0
-  %42 = load ptr, ptr %iov_base, align 8
+  %42 = load ptr, ptr %msg_iov54, align 8
+  %iov_base = getelementptr inbounds %struct.iovec, ptr %42, i32 0, i32 0
+  %43 = load ptr, ptr %iov_base, align 8
   %msg_iov55 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 2
-  %43 = load ptr, ptr %msg_iov55, align 8
-  %iov_len56 = getelementptr inbounds %struct.iovec, ptr %43, i32 0, i32 1
-  %44 = load i64, ptr %iov_len56, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 1 %42, i64 %44, i1 false)
-  %45 = load i32, ptr %fd.addr, align 4
-  %call57 = call ptr @fd_trans_target_to_host_data(i32 noundef %45)
-  %46 = load ptr, ptr %host_msg, align 8
+  %44 = load ptr, ptr %msg_iov55, align 8
+  %iov_len56 = getelementptr inbounds %struct.iovec, ptr %44, i32 0, i32 1
+  %45 = load i64, ptr %iov_len56, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %43, i64 %45, i1 false)
+  %46 = load i32, ptr %fd.addr, align 4
+  %call57 = call ptr @fd_trans_target_to_host_data(i32 noundef %46)
+  %47 = load ptr, ptr %host_msg, align 8
   %msg_iov58 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 2
-  %47 = load ptr, ptr %msg_iov58, align 8
-  %iov_len59 = getelementptr inbounds %struct.iovec, ptr %47, i32 0, i32 1
-  %48 = load i64, ptr %iov_len59, align 8
-  %call60 = call i64 %call57(ptr noundef %46, i64 noundef %48)
+  %48 = load ptr, ptr %msg_iov58, align 8
+  %iov_len59 = getelementptr inbounds %struct.iovec, ptr %48, i32 0, i32 1
+  %49 = load i64, ptr %iov_len59, align 8
+  %call60 = call i64 %call57(ptr noundef %47, i64 noundef %49)
   store i64 %call60, ptr %ret, align 8
-  %49 = load i64, ptr %ret, align 8
-  %cmp61 = icmp sge i64 %49, 0
+  %50 = load i64, ptr %ret, align 8
+  %cmp61 = icmp sge i64 %50, 0
   br i1 %cmp61, label %if.then63, label %if.end68
 
 if.then63:                                        ; preds = %if.then51
-  %50 = load ptr, ptr %host_msg, align 8
+  %51 = load ptr, ptr %host_msg, align 8
   %msg_iov64 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 2
-  %51 = load ptr, ptr %msg_iov64, align 8
-  %iov_base65 = getelementptr inbounds %struct.iovec, ptr %51, i32 0, i32 0
-  store ptr %50, ptr %iov_base65, align 8
-  %52 = load i32, ptr %fd.addr, align 4
-  %53 = load i32, ptr %flags.addr, align 4
-  %call66 = call i64 @safe_sendmsg(i32 noundef %52, ptr noundef %msg, i32 noundef %53)
+  %52 = load ptr, ptr %msg_iov64, align 8
+  %iov_base65 = getelementptr inbounds %struct.iovec, ptr %52, i32 0, i32 0
+  store ptr %51, ptr %iov_base65, align 8
+  %53 = load i32, ptr %fd.addr, align 4
+  %54 = load i32, ptr %flags.addr, align 4
+  %call66 = call i64 @safe_sendmsg(i32 noundef %53, ptr noundef %msg, i32 noundef %54)
   %call67 = call i64 @get_errno(i64 noundef %call66)
   store i64 %call67, ptr %ret, align 8
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then63, %if.then51
-  %54 = load ptr, ptr %host_msg, align 8
-  call void @g_free(ptr noundef %54)
+  %55 = load ptr, ptr %host_msg, align 8
+  call void @g_free(ptr noundef %55)
   br label %if.end77
 
 if.else69:                                        ; preds = %if.then48
-  %55 = load ptr, ptr %msgp.addr, align 8
-  %call70 = call i64 @target_to_host_cmsg(ptr noundef %msg, ptr noundef %55)
+  %56 = load ptr, ptr %msgp.addr, align 8
+  %call70 = call i64 @target_to_host_cmsg(ptr noundef %msg, ptr noundef %56)
   store i64 %call70, ptr %ret, align 8
-  %56 = load i64, ptr %ret, align 8
-  %cmp71 = icmp eq i64 %56, 0
+  %57 = load i64, ptr %ret, align 8
+  %cmp71 = icmp eq i64 %57, 0
   br i1 %cmp71, label %if.then73, label %if.end76
 
 if.then73:                                        ; preds = %if.else69
-  %57 = load i32, ptr %fd.addr, align 4
-  %58 = load i32, ptr %flags.addr, align 4
-  %call74 = call i64 @safe_sendmsg(i32 noundef %57, ptr noundef %msg, i32 noundef %58)
+  %58 = load i32, ptr %fd.addr, align 4
+  %59 = load i32, ptr %flags.addr, align 4
+  %call74 = call i64 @safe_sendmsg(i32 noundef %58, ptr noundef %msg, i32 noundef %59)
   %call75 = call i64 @get_errno(i64 noundef %call74)
   store i64 %call75, ptr %ret, align 8
   br label %if.end76
@@ -35879,114 +35880,115 @@ if.end77:                                         ; preds = %if.end76, %if.end68
   br label %if.end129
 
 if.else78:                                        ; preds = %if.end44
-  %59 = load i32, ptr %fd.addr, align 4
-  %60 = load i32, ptr %flags.addr, align 4
-  %call79 = call i64 @safe_recvmsg(i32 noundef %59, ptr noundef %msg, i32 noundef %60)
+  %60 = load i32, ptr %fd.addr, align 4
+  %61 = load i32, ptr %flags.addr, align 4
+  %call79 = call i64 @safe_recvmsg(i32 noundef %60, ptr noundef %msg, i32 noundef %61)
   %call80 = call i64 @get_errno(i64 noundef %call79)
   store i64 %call80, ptr %ret, align 8
-  %61 = load i64, ptr %ret, align 8
-  %call81 = call i32 @is_error(i64 noundef %61)
+  %62 = load i64, ptr %ret, align 8
+  %call81 = call i32 @is_error(i64 noundef %62)
   %tobool82 = icmp ne i32 %call81, 0
   br i1 %tobool82, label %if.end128, label %if.then83
 
 if.then83:                                        ; preds = %if.else78
-  %62 = load i64, ptr %ret, align 8
-  store i64 %62, ptr %len, align 8
-  %63 = load i32, ptr %fd.addr, align 4
-  %call84 = call ptr @fd_trans_host_to_target_data(i32 noundef %63)
+  %63 = load i64, ptr %ret, align 8
+  store i64 %63, ptr %len, align 8
+  %64 = load i32, ptr %fd.addr, align 4
+  %call84 = call ptr @fd_trans_host_to_target_data(i32 noundef %64)
   %tobool85 = icmp ne ptr %call84, null
   br i1 %tobool85, label %if.then86, label %if.end96
 
 if.then86:                                        ; preds = %if.then83
-  %64 = load i32, ptr %fd.addr, align 4
-  %call87 = call ptr @fd_trans_host_to_target_data(i32 noundef %64)
+  %65 = load i32, ptr %fd.addr, align 4
+  %call87 = call ptr @fd_trans_host_to_target_data(i32 noundef %65)
   %msg_iov88 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 2
-  %65 = load ptr, ptr %msg_iov88, align 8
-  %iov_base89 = getelementptr inbounds %struct.iovec, ptr %65, i32 0, i32 0
-  %66 = load ptr, ptr %iov_base89, align 8
+  %66 = load ptr, ptr %msg_iov88, align 8
+  %iov_base89 = getelementptr inbounds %struct.iovec, ptr %66, i32 0, i32 0
+  %67 = load ptr, ptr %iov_base89, align 8
   %msg_iov90 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 2
-  %67 = load ptr, ptr %msg_iov90, align 8
-  %iov_len91 = getelementptr inbounds %struct.iovec, ptr %67, i32 0, i32 1
-  %68 = load i64, ptr %iov_len91, align 8
-  store i64 %68, ptr %_a8, align 8
-  %69 = load i64, ptr %len, align 8
-  store i64 %69, ptr %_b9, align 8
-  %70 = load i64, ptr %_a8, align 8
-  %71 = load i64, ptr %_b9, align 8
-  %cmp92 = icmp ult i64 %70, %71
+  %68 = load ptr, ptr %msg_iov90, align 8
+  %iov_len91 = getelementptr inbounds %struct.iovec, ptr %68, i32 0, i32 1
+  %69 = load i64, ptr %iov_len91, align 8
+  store i64 %69, ptr %_a8, align 8
+  %70 = load i64, ptr %len, align 8
+  store i64 %70, ptr %_b9, align 8
+  %71 = load i64, ptr %_a8, align 8
+  %72 = load i64, ptr %_b9, align 8
+  %cmp92 = icmp ult i64 %71, %72
   br i1 %cmp92, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then86
-  %72 = load i64, ptr %_a8, align 8
+  %73 = load i64, ptr %_a8, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then86
-  %73 = load i64, ptr %_b9, align 8
+  %74 = load i64, ptr %_b9, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond94 = phi i64 [ %72, %cond.true ], [ %73, %cond.false ]
+  %cond94 = phi i64 [ %73, %cond.true ], [ %74, %cond.false ]
   store i64 %cond94, ptr %tmp, align 8
-  %74 = load i64, ptr %tmp, align 8
-  %call95 = call i64 %call87(ptr noundef %66, i64 noundef %74)
+  %75 = load i64, ptr %tmp, align 8
+  %call95 = call i64 %call87(ptr noundef %67, i64 noundef %75)
   store i64 %call95, ptr %ret, align 8
   br label %if.end96
 
 if.end96:                                         ; preds = %cond.end, %if.then83
-  %75 = load i64, ptr %ret, align 8
-  %call97 = call i32 @is_error(i64 noundef %75)
+  %76 = load i64, ptr %ret, align 8
+  %call97 = call i32 @is_error(i64 noundef %76)
   %tobool98 = icmp ne i32 %call97, 0
   br i1 %tobool98, label %if.end101, label %if.then99
 
 if.then99:                                        ; preds = %if.end96
-  %76 = load ptr, ptr %msgp.addr, align 8
-  %call100 = call i64 @host_to_target_cmsg(ptr noundef %76, ptr noundef %msg)
+  %77 = load ptr, ptr %msgp.addr, align 8
+  %call100 = call i64 @host_to_target_cmsg(ptr noundef %77, ptr noundef %msg)
   store i64 %call100, ptr %ret, align 8
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then99, %if.end96
-  %77 = load i64, ptr %ret, align 8
-  %call102 = call i32 @is_error(i64 noundef %77)
+  %78 = load i64, ptr %ret, align 8
+  %call102 = call i32 @is_error(i64 noundef %78)
   %tobool103 = icmp ne i32 %call102, 0
   br i1 %tobool103, label %if.end127, label %if.then104
 
 if.then104:                                       ; preds = %if.end101
   %msg_namelen105 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 1
-  %78 = load i32, ptr %msg_namelen105, align 8
-  %call106 = call i32 @tswap32(i32 noundef %78)
-  %79 = load ptr, ptr %msgp.addr, align 8
-  %msg_namelen107 = getelementptr inbounds %struct.target_msghdr, ptr %79, i32 0, i32 1
+  %79 = load i32, ptr %msg_namelen105, align 8
+  %call106 = call i32 @tswap32(i32 noundef %79)
+  %80 = load ptr, ptr %msgp.addr, align 8
+  %msg_namelen107 = getelementptr inbounds %struct.target_msghdr, ptr %80, i32 0, i32 1
   store i32 %call106, ptr %msg_namelen107, align 8
   %msg_flags108 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 6
-  %80 = load i32, ptr %msg_flags108, align 8
-  %call109 = call i32 @tswap32(i32 noundef %80)
-  %81 = load ptr, ptr %msgp.addr, align 8
-  %msg_flags110 = getelementptr inbounds %struct.target_msghdr, ptr %81, i32 0, i32 6
+  %81 = load i32, ptr %msg_flags108, align 8
+  %call109 = call i32 @tswap32(i32 noundef %81)
+  %82 = load ptr, ptr %msgp.addr, align 8
+  %msg_flags110 = getelementptr inbounds %struct.target_msghdr, ptr %82, i32 0, i32 6
   store i32 %call109, ptr %msg_flags110, align 8
   %msg_name111 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 0
-  %82 = load ptr, ptr %msg_name111, align 8
-  %cmp112 = icmp ne ptr %82, null
+  %83 = load ptr, ptr %msg_name111, align 8
+  %cmp112 = icmp ne ptr %83, null
   br i1 %cmp112, label %land.lhs.true, label %if.end126
 
 land.lhs.true:                                    ; preds = %if.then104
   %msg_name114 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 0
-  %83 = load ptr, ptr %msg_name114, align 8
-  %cmp115 = icmp ne ptr %83, inttoptr (i64 -1 to ptr)
+  %84 = load ptr, ptr %msg_name114, align 8
+  %85 = inttoptr i64 -1 to ptr
+  %cmp115 = icmp ne ptr %84, %85
   br i1 %cmp115, label %if.then117, label %if.end126
 
 if.then117:                                       ; preds = %land.lhs.true
-  %84 = load ptr, ptr %msgp.addr, align 8
-  %msg_name118 = getelementptr inbounds %struct.target_msghdr, ptr %84, i32 0, i32 0
-  %85 = load i64, ptr %msg_name118, align 8
-  %call119 = call i64 @tswapal(i64 noundef %85)
+  %86 = load ptr, ptr %msgp.addr, align 8
+  %msg_name118 = getelementptr inbounds %struct.target_msghdr, ptr %86, i32 0, i32 0
+  %87 = load i64, ptr %msg_name118, align 8
+  %call119 = call i64 @tswapal(i64 noundef %87)
   %msg_name120 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 0
-  %86 = load ptr, ptr %msg_name120, align 8
+  %88 = load ptr, ptr %msg_name120, align 8
   %msg_namelen121 = getelementptr inbounds %struct.msghdr, ptr %msg, i32 0, i32 1
-  %87 = load i32, ptr %msg_namelen121, align 8
-  %call122 = call i64 @host_to_target_sockaddr(i64 noundef %call119, ptr noundef %86, i32 noundef %87)
+  %89 = load i32, ptr %msg_namelen121, align 8
+  %call122 = call i64 @host_to_target_sockaddr(i64 noundef %call119, ptr noundef %88, i32 noundef %89)
   store i64 %call122, ptr %ret, align 8
-  %88 = load i64, ptr %ret, align 8
-  %tobool123 = icmp ne i64 %88, 0
+  %90 = load i64, ptr %ret, align 8
+  %tobool123 = icmp ne i64 %90, 0
   br i1 %tobool123, label %if.then124, label %if.end125
 
 if.then124:                                       ; preds = %if.then117
@@ -35996,8 +35998,8 @@ if.end125:                                        ; preds = %if.then117
   br label %if.end126
 
 if.end126:                                        ; preds = %if.end125, %land.lhs.true, %if.then104
-  %89 = load i64, ptr %len, align 8
-  store i64 %89, ptr %ret, align 8
+  %91 = load i64, ptr %len, align 8
+  store i64 %91, ptr %ret, align 8
   br label %if.end127
 
 if.end127:                                        ; preds = %if.end126, %if.end101
@@ -36010,27 +36012,27 @@ if.end129:                                        ; preds = %if.end128, %if.end7
   br label %out
 
 out:                                              ; preds = %if.end129, %if.then124
-  %90 = load ptr, ptr %vec, align 8
-  %tobool130 = icmp ne ptr %90, null
+  %92 = load ptr, ptr %vec, align 8
+  %tobool130 = icmp ne ptr %92, null
   br i1 %tobool130, label %if.then131, label %if.end133
 
 if.then131:                                       ; preds = %out
-  %91 = load ptr, ptr %vec, align 8
-  %92 = load i64, ptr %target_vec, align 8
-  %93 = load i64, ptr %count, align 8
-  %94 = load i32, ptr %send.addr, align 4
-  %tobool132 = icmp ne i32 %94, 0
+  %93 = load ptr, ptr %vec, align 8
+  %94 = load i64, ptr %target_vec, align 8
+  %95 = load i64, ptr %count, align 8
+  %96 = load i32, ptr %send.addr, align 4
+  %tobool132 = icmp ne i32 %96, 0
   %lnot = xor i1 %tobool132, true
   %lnot.ext = zext i1 %lnot to i32
-  call void @unlock_iovec(ptr noundef %91, i64 noundef %92, i64 noundef %93, i32 noundef %lnot.ext)
+  call void @unlock_iovec(ptr noundef %93, i64 noundef %94, i64 noundef %95, i32 noundef %lnot.ext)
   br label %if.end133
 
 if.end133:                                        ; preds = %if.then131, %out
   br label %out2
 
 out2:                                             ; preds = %if.end133, %if.then42, %if.then30, %if.then13
-  %95 = load i64, ptr %ret, align 8
-  ret i64 %95
+  %97 = load i64, ptr %ret, align 8
+  ret i64 %97
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

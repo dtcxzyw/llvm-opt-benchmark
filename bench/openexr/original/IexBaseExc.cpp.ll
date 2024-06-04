@@ -1937,21 +1937,22 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27BaseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27BaseExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_message = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %s.addr, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %1 = load ptr, ptr %s.addr, align 8
+  %2 = load ptr, ptr %s.addr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %1, %cond.true ], [ @.str, %cond.false ]
+  %cond = phi ptr [ %2, %cond.true ], [ @.str, %cond.false ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %_message, ptr noundef %cond, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1959,13 +1960,13 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 invoke.cont:                                      ; preds = %cond.end
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
   %_stackTrace = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
-  %tobool2 = icmp ne ptr %2, null
+  %3 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
+  %tobool2 = icmp ne ptr %3, null
   br i1 %tobool2, label %cond.true3, label %cond.false6
 
 cond.true3:                                       ; preds = %invoke.cont
-  %3 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
-  invoke void %3(ptr sret(%"class.std::__cxx11::basic_string") align 8 %_stackTrace)
+  %4 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
+  invoke void %4(ptr sret(%"class.std::__cxx11::basic_string") align 8 %_stackTrace)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %cond.true3
@@ -1979,22 +1980,22 @@ cond.end7:                                        ; preds = %cond.false6, %invok
   ret void
 
 lpad:                                             ; preds = %cond.end
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
   br label %ehcleanup
 
 lpad4:                                            ; preds = %cond.true3
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message) #8
   br label %ehcleanup
 
@@ -2016,7 +2017,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2111,21 +2113,22 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27BaseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27BaseExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_message = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_message, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %s.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_message, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %_stackTrace = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont
-  %2 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
-  invoke void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %_stackTrace)
+  %3 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
+  invoke void %3(ptr sret(%"class.std::__cxx11::basic_string") align 8 %_stackTrace)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %cond.true
@@ -2139,21 +2142,21 @@ cond.end:                                         ; preds = %cond.false, %invoke
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %cond.true
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message) #8
   br label %ehcleanup
 
@@ -2182,18 +2185,19 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27BaseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27BaseExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_message = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_message, ptr noundef nonnull align 8 dereferenceable(32) %0) #8
+  %1 = load ptr, ptr %s.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_message, ptr noundef nonnull align 8 dereferenceable(32) %1) #8
   %_stackTrace = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
-  invoke void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %_stackTrace)
+  %3 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
+  invoke void %3(ptr sret(%"class.std::__cxx11::basic_string") align 8 %_stackTrace)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true
@@ -2207,12 +2211,12 @@ cond.end:                                         ; preds = %cond.false, %invoke
   ret void
 
 lpad:                                             ; preds = %cond.true
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message) #8
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
   br label %eh.resume
@@ -2239,21 +2243,22 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27BaseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27BaseExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_message = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %_message, ptr noundef nonnull align 8 dereferenceable(128) %0)
+  %1 = load ptr, ptr %s.addr, align 8
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %_message, ptr noundef nonnull align 8 dereferenceable(128) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %_stackTrace = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont
-  %2 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
-  invoke void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %_stackTrace)
+  %3 = load ptr, ptr @_ZN7Iex_3_212_GLOBAL__N_118currentStackTracerB5cxx11E, align 8
+  invoke void %3(ptr sret(%"class.std::__cxx11::basic_string") align 8 %_stackTrace)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %cond.true
@@ -2267,21 +2272,21 @@ cond.end:                                         ; preds = %cond.false, %invoke
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %cond.true
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message) #8
   br label %ehcleanup
 
@@ -2310,17 +2315,18 @@ entry:
   store ptr %be, ptr %be.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27BaseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27BaseExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_message = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %be.addr, align 8
-  %_message2 = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %be.addr, align 8
+  %_message2 = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %1, i32 0, i32 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_message, ptr noundef nonnull align 8 dereferenceable(32) %_message2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %_stackTrace = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %be.addr, align 8
-  %_stackTrace3 = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %1, i32 0, i32 2
+  %2 = load ptr, ptr %be.addr, align 8
+  %_stackTrace3 = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %2, i32 0, i32 2
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace, ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace3)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -2328,21 +2334,21 @@ invoke.cont5:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_message) #8
   br label %ehcleanup
 
@@ -2364,7 +2370,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27BaseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27BaseExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_stackTrace = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_stackTrace) #8
   %_message = getelementptr inbounds %"class.Iex_3_2::BaseExc", ptr %this1, i32 0, i32 1
@@ -2632,7 +2639,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2646,7 +2654,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2660,7 +2669,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2674,7 +2684,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2688,7 +2699,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2702,7 +2714,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2719,14 +2732,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26ArgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -2805,7 +2819,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2819,7 +2834,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2833,7 +2849,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2847,7 +2864,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2861,7 +2879,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2875,7 +2894,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2892,14 +2912,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28LogicExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -2967,7 +2988,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2981,7 +3003,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2995,7 +3018,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3009,7 +3033,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3023,7 +3048,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3037,7 +3063,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3054,14 +3081,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28InputExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -3129,7 +3157,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3143,7 +3172,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3157,7 +3187,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3171,7 +3202,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3185,7 +3217,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3199,7 +3232,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3216,14 +3250,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_25IoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -3291,7 +3326,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3305,7 +3341,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3319,7 +3356,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3333,7 +3371,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3347,7 +3386,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3361,7 +3401,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3378,14 +3419,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27MathExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -3453,7 +3495,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3467,7 +3510,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3481,7 +3525,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3495,7 +3540,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3509,7 +3555,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3523,7 +3570,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3540,14 +3588,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErrnoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -3615,7 +3664,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3629,7 +3679,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3643,7 +3694,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3657,7 +3709,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3671,7 +3724,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3685,7 +3739,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3702,14 +3757,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29NoImplExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -3777,7 +3833,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3791,7 +3848,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3805,7 +3863,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3819,7 +3878,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3833,7 +3893,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3847,7 +3908,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3864,14 +3926,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27NullExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -3939,7 +4002,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3953,7 +4017,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3967,7 +4032,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3981,7 +4047,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3995,7 +4062,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4009,7 +4077,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4026,14 +4095,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27TypeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -4101,7 +4171,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4115,7 +4186,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4129,7 +4201,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4143,7 +4216,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4157,7 +4231,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4171,7 +4246,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4188,14 +4264,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpermExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -4263,7 +4340,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4277,7 +4355,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4291,7 +4370,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4305,7 +4385,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4319,7 +4400,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4333,7 +4415,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4350,14 +4433,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoentExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -4425,7 +4509,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4439,7 +4524,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4453,7 +4539,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4467,7 +4554,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4481,7 +4569,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4495,7 +4584,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4512,14 +4602,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EsrchExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -4587,7 +4678,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4601,7 +4693,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4615,7 +4708,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4629,7 +4723,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4643,7 +4738,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4657,7 +4753,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4674,14 +4771,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EintrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -4749,7 +4847,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4763,7 +4862,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4777,7 +4877,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4791,7 +4892,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4805,7 +4907,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4819,7 +4922,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4836,14 +4940,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_26EioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -4911,7 +5016,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4925,7 +5031,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4939,7 +5046,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4953,7 +5061,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4967,7 +5076,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4981,7 +5091,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -4998,14 +5109,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnxioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -5073,7 +5185,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5087,7 +5200,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5101,7 +5215,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5115,7 +5230,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5129,7 +5245,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5143,7 +5260,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5160,14 +5278,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28E2bigExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -5235,7 +5354,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5249,7 +5369,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5263,7 +5384,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5277,7 +5399,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5291,7 +5414,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5305,7 +5429,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5322,14 +5447,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoexecExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -5397,7 +5523,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5411,7 +5538,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5425,7 +5553,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5439,7 +5568,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5453,7 +5583,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5467,7 +5598,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5484,14 +5616,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadfExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -5559,7 +5692,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5573,7 +5707,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5587,7 +5722,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5601,7 +5737,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5615,7 +5752,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5629,7 +5767,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5646,14 +5785,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchildExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -5721,7 +5861,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5735,7 +5876,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5749,7 +5891,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5763,7 +5906,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5777,7 +5921,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5791,7 +5936,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5808,14 +5954,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EagainExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -5883,7 +6030,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5897,7 +6045,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5911,7 +6060,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5925,7 +6075,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5939,7 +6090,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5953,7 +6105,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -5970,14 +6123,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomemExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -6045,7 +6199,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6059,7 +6214,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6073,7 +6229,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6087,7 +6244,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6101,7 +6259,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6115,7 +6274,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6132,14 +6292,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EaccesExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -6207,7 +6368,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6221,7 +6383,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6235,7 +6398,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6249,7 +6413,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6263,7 +6428,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6277,7 +6443,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6294,14 +6461,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EfaultExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -6369,7 +6537,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6383,7 +6552,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6397,7 +6567,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6411,7 +6582,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6425,7 +6597,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6439,7 +6612,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6456,14 +6630,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotblkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -6531,7 +6706,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6545,7 +6721,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6559,7 +6736,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6573,7 +6751,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6587,7 +6766,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6601,7 +6781,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6618,14 +6799,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbusyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -6693,7 +6875,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6707,7 +6890,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6721,7 +6905,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6735,7 +6920,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6749,7 +6935,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6763,7 +6950,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6780,14 +6968,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EexistExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -6855,7 +7044,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6869,7 +7059,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6883,7 +7074,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6897,7 +7089,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6911,7 +7104,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6925,7 +7119,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -6942,14 +7137,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ExdevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -7017,7 +7213,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7031,7 +7228,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7045,7 +7243,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7059,7 +7258,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7073,7 +7273,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7087,7 +7288,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7104,14 +7306,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnodevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -7179,7 +7382,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7193,7 +7397,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7207,7 +7412,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7221,7 +7427,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7235,7 +7442,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7249,7 +7457,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7266,14 +7475,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotdirExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -7341,7 +7551,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7355,7 +7566,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7369,7 +7581,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7383,7 +7596,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7397,7 +7611,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7411,7 +7626,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7428,14 +7644,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisdirExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -7503,7 +7720,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7517,7 +7735,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7531,7 +7750,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7545,7 +7765,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7559,7 +7780,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7573,7 +7795,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7590,14 +7813,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EinvalExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -7665,7 +7889,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7679,7 +7904,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7693,7 +7919,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7707,7 +7934,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7721,7 +7949,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7735,7 +7964,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7752,14 +7982,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -7827,7 +8058,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7841,7 +8073,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7855,7 +8088,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7869,7 +8103,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7883,7 +8118,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7897,7 +8133,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -7914,14 +8151,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -7989,7 +8227,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8003,7 +8242,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8017,7 +8257,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8031,7 +8272,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8045,7 +8287,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8059,7 +8302,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8076,14 +8320,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnottyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -8151,7 +8396,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8165,7 +8411,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8179,7 +8426,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8193,7 +8441,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8207,7 +8456,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8221,7 +8471,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8238,14 +8489,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EtxtbsyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -8313,7 +8565,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8327,7 +8580,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8341,7 +8595,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8355,7 +8610,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8369,7 +8625,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8383,7 +8640,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8400,14 +8658,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EfbigExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -8475,7 +8734,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8489,7 +8749,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8503,7 +8764,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8517,7 +8779,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8531,7 +8794,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8545,7 +8809,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8562,14 +8827,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnospcExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -8637,7 +8903,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8651,7 +8918,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8665,7 +8933,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8679,7 +8948,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8693,7 +8963,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8707,7 +8978,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8724,14 +8996,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EspipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -8799,7 +9072,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8813,7 +9087,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8827,7 +9102,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8841,7 +9117,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8855,7 +9132,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8869,7 +9147,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8886,14 +9165,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28ErofsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -8961,7 +9241,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8975,7 +9256,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8989,7 +9271,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9003,7 +9286,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9017,7 +9301,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9031,7 +9316,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9048,14 +9334,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EmlinkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -9123,7 +9410,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9137,7 +9425,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9151,7 +9440,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9165,7 +9455,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9179,7 +9470,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9193,7 +9485,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9210,14 +9503,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EpipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -9285,7 +9579,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9299,7 +9594,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9313,7 +9609,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9327,7 +9624,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9341,7 +9639,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9355,7 +9654,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9372,14 +9672,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EdomExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -9447,7 +9748,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9461,7 +9763,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9475,7 +9778,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9489,7 +9793,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9503,7 +9808,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9517,7 +9823,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9534,14 +9841,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ErangeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -9609,7 +9917,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9623,7 +9932,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9637,7 +9947,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9651,7 +9962,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9665,7 +9977,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9679,7 +9992,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9696,14 +10010,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnomsgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -9771,7 +10086,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9785,7 +10101,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9799,7 +10116,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9813,7 +10131,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9827,7 +10146,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9841,7 +10161,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9858,14 +10179,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EidrmExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -9933,7 +10255,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9947,7 +10270,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9961,7 +10285,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9975,7 +10300,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -9989,7 +10315,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10003,7 +10330,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10020,14 +10348,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EchrngExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -10095,7 +10424,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10109,7 +10439,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10123,7 +10454,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10137,7 +10469,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10151,7 +10484,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10165,7 +10499,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10182,14 +10517,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211El2nsyncExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -10257,7 +10593,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10271,7 +10608,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10285,7 +10623,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10299,7 +10638,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10313,7 +10653,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10327,7 +10668,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10344,14 +10686,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3hltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -10419,7 +10762,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10433,7 +10777,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10447,7 +10792,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10461,7 +10807,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10475,7 +10822,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10489,7 +10837,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10506,14 +10855,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El3rstExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -10581,7 +10931,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10595,7 +10946,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10609,7 +10961,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10623,7 +10976,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10637,7 +10991,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10651,7 +11006,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10668,14 +11024,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ElnrngExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -10743,7 +11100,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10757,7 +11115,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10771,7 +11130,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10785,7 +11145,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10799,7 +11160,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10813,7 +11175,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10830,14 +11193,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EunatchExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -10905,7 +11269,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10919,7 +11284,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10933,7 +11299,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10947,7 +11314,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10961,7 +11329,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10975,7 +11344,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10992,14 +11362,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnocsiExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -11067,7 +11438,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11081,7 +11453,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11095,7 +11468,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11109,7 +11483,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11123,7 +11498,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11137,7 +11513,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11154,14 +11531,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29El2hltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -11229,7 +11607,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11243,7 +11622,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11257,7 +11637,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11271,7 +11652,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11285,7 +11667,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11299,7 +11682,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11316,14 +11700,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EdeadlkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -11391,7 +11776,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11405,7 +11791,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11419,7 +11806,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11433,7 +11821,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11447,7 +11836,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11461,7 +11851,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11478,14 +11869,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnolckExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -11553,7 +11945,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11567,7 +11960,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11581,7 +11975,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11595,7 +11990,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11609,7 +12005,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11623,7 +12020,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11640,14 +12038,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -11715,7 +12114,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11729,7 +12129,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11743,7 +12144,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11757,7 +12159,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11771,7 +12174,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11785,7 +12189,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11802,14 +12207,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EbadrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -11877,7 +12283,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11891,7 +12298,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11905,7 +12313,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11919,7 +12328,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11933,7 +12343,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11947,7 +12358,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -11964,14 +12376,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29ExfullExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -12039,7 +12452,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12053,7 +12467,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12067,7 +12482,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12081,7 +12497,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12095,7 +12512,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12109,7 +12527,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12126,14 +12545,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnoanoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -12201,7 +12621,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12215,7 +12636,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12229,7 +12651,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12243,7 +12666,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12257,7 +12681,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12271,7 +12696,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12288,14 +12714,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadrqcExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -12363,7 +12790,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12377,7 +12805,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12391,7 +12820,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12405,7 +12835,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12419,7 +12850,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12433,7 +12865,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12450,14 +12883,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadsltExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -12525,7 +12959,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12539,7 +12974,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12553,7 +12989,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12567,7 +13004,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12581,7 +13019,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12595,7 +13034,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12612,14 +13052,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdeadlockExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -12687,7 +13128,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12701,7 +13143,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12715,7 +13158,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12729,7 +13173,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12743,7 +13188,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12757,7 +13203,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12774,14 +13221,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbfontExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -12849,7 +13297,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12863,7 +13312,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12877,7 +13327,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12891,7 +13342,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12905,7 +13357,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12919,7 +13372,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -12936,14 +13390,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnostrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -13011,7 +13466,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13025,7 +13481,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13039,7 +13496,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13053,7 +13511,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13067,7 +13526,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13081,7 +13541,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13098,14 +13559,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnodataExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -13173,7 +13635,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13187,7 +13650,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13201,7 +13665,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13215,7 +13680,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13229,7 +13695,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13243,7 +13710,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13260,14 +13728,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EtimeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -13335,7 +13804,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13349,7 +13819,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13363,7 +13834,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13377,7 +13849,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13391,7 +13864,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13405,7 +13879,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13422,14 +13897,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EnosrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -13497,7 +13973,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13511,7 +13988,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13525,7 +14003,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13539,7 +14018,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13553,7 +14033,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13567,7 +14048,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13584,14 +14066,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnonetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -13659,7 +14142,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13673,7 +14157,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13687,7 +14172,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13701,7 +14187,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13715,7 +14202,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13729,7 +14217,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13746,14 +14235,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnopkgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -13821,7 +14311,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13835,7 +14326,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13849,7 +14341,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13863,7 +14356,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13877,7 +14371,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13891,7 +14386,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -13908,14 +14404,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremoteExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -13983,7 +14480,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13997,7 +14495,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14011,7 +14510,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14025,7 +14525,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14039,7 +14540,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14053,7 +14555,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14070,14 +14573,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnolinkExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -14145,7 +14649,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14159,7 +14664,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14173,7 +14679,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14187,7 +14694,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14201,7 +14709,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14215,7 +14724,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14232,14 +14742,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_27EadvExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -14307,7 +14818,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14321,7 +14833,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14335,7 +14848,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14349,7 +14863,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14363,7 +14878,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14377,7 +14893,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14394,14 +14911,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EsrmntExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -14469,7 +14987,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14483,7 +15002,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14497,7 +15017,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14511,7 +15032,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14525,7 +15047,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14539,7 +15062,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14556,14 +15080,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EcommExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -14631,7 +15156,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14645,7 +15171,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14659,7 +15186,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14673,7 +15201,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14687,7 +15216,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14701,7 +15231,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14718,14 +15249,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EprotoExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -14793,7 +15325,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14807,7 +15340,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14821,7 +15355,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14835,7 +15370,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14849,7 +15385,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14863,7 +15400,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14880,14 +15418,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EmultihopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -14955,7 +15494,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14969,7 +15509,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14983,7 +15524,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -14997,7 +15539,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15011,7 +15554,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15025,7 +15569,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15042,14 +15587,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EbadmsgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -15117,7 +15663,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15131,7 +15678,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15145,7 +15693,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15159,7 +15708,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15173,7 +15723,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15187,7 +15738,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15204,14 +15756,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnametoolongExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -15279,7 +15832,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15293,7 +15847,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15307,7 +15862,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15321,7 +15877,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15335,7 +15892,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15349,7 +15907,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15366,14 +15925,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EoverflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -15441,7 +16001,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15455,7 +16016,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15469,7 +16031,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15483,7 +16046,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15497,7 +16061,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15511,7 +16076,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15528,14 +16094,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotuniqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -15603,7 +16170,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15617,7 +16185,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15631,7 +16200,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15645,7 +16215,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15659,7 +16230,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15673,7 +16245,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15690,14 +16263,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EbadfdExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -15765,7 +16339,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15779,7 +16354,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15793,7 +16369,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15807,7 +16384,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15821,7 +16399,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15835,7 +16414,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15852,14 +16432,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremchgExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -15927,7 +16508,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15941,7 +16523,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15955,7 +16538,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15969,7 +16553,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15983,7 +16568,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -15997,7 +16583,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16014,14 +16601,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibaccExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -16089,7 +16677,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16103,7 +16692,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16117,7 +16707,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16131,7 +16722,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16145,7 +16737,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16159,7 +16752,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16176,14 +16770,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibbadExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -16251,7 +16846,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16265,7 +16861,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16279,7 +16876,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16293,7 +16891,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16307,7 +16906,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16321,7 +16921,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16338,14 +16939,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibscnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -16413,7 +17015,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16427,7 +17030,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16441,7 +17045,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16455,7 +17060,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16469,7 +17075,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16483,7 +17090,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16500,14 +17108,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210ElibmaxExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -16575,7 +17184,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16589,7 +17199,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16603,7 +17214,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16617,7 +17229,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16631,7 +17244,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16645,7 +17259,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16662,14 +17277,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ElibexecExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -16737,7 +17353,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16751,7 +17368,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16765,7 +17383,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16779,7 +17398,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16793,7 +17413,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16807,7 +17428,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16824,14 +17446,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EilseqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -16899,7 +17522,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16913,7 +17537,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16927,7 +17552,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16941,7 +17567,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16955,7 +17582,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16969,7 +17597,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -16986,14 +17615,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EnosysExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -17061,7 +17691,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17075,7 +17706,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17089,7 +17721,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17103,7 +17736,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17117,7 +17751,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17131,7 +17766,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17148,14 +17784,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EloopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -17223,7 +17860,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17237,7 +17875,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17251,7 +17890,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17265,7 +17905,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17279,7 +17920,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17293,7 +17935,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17310,14 +17953,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211ErestartExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -17385,7 +18029,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17399,7 +18044,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17413,7 +18059,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17427,7 +18074,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17441,7 +18089,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17455,7 +18104,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17472,14 +18122,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EstrpipeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -17547,7 +18198,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17561,7 +18213,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17575,7 +18228,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17589,7 +18243,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17603,7 +18258,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17617,7 +18273,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17634,14 +18291,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnotemptyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -17709,7 +18367,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17723,7 +18382,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17737,7 +18397,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17751,7 +18412,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17765,7 +18427,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17779,7 +18442,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17796,14 +18460,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EusersExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -17871,7 +18536,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17885,7 +18551,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17899,7 +18566,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17913,7 +18581,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17927,7 +18596,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17941,7 +18611,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17958,14 +18629,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotsockExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -18033,7 +18705,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18047,7 +18720,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18061,7 +18735,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18075,7 +18750,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18089,7 +18765,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18103,7 +18780,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18120,14 +18798,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EdestaddrreqExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -18195,7 +18874,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18209,7 +18889,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18223,7 +18904,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18237,7 +18919,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18251,7 +18934,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18265,7 +18949,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18282,14 +18967,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmsgsizeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -18357,7 +19043,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18371,7 +19058,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18385,7 +19073,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18399,7 +19088,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18413,7 +19103,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18427,7 +19118,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18444,14 +19136,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EprototypeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -18519,7 +19212,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18533,7 +19227,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18547,7 +19242,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18561,7 +19257,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18575,7 +19272,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18589,7 +19287,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18606,14 +19305,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnoprotooptExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -18681,7 +19381,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18695,7 +19396,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18709,7 +19411,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18723,7 +19426,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18737,7 +19441,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18751,7 +19456,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18768,14 +19474,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EprotonosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -18843,7 +19550,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18857,7 +19565,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18871,7 +19580,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18885,7 +19595,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18899,7 +19610,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18913,7 +19625,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18930,14 +19643,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_218EsocktnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -19005,7 +19719,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19019,7 +19734,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19033,7 +19749,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19047,7 +19764,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19061,7 +19779,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19075,7 +19794,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19092,14 +19812,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EopnotsuppExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -19167,7 +19888,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19181,7 +19903,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19195,7 +19918,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19209,7 +19933,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19223,7 +19948,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19237,7 +19963,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19254,14 +19981,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EpfnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -19329,7 +20057,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19343,7 +20072,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19357,7 +20087,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19371,7 +20102,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19385,7 +20117,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19399,7 +20132,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19416,14 +20150,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EafnosupportExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -19491,7 +20226,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19505,7 +20241,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19519,7 +20256,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19533,7 +20271,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19547,7 +20286,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19561,7 +20301,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19578,14 +20319,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EaddrinuseExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -19653,7 +20395,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19667,7 +20410,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19681,7 +20425,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19695,7 +20440,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19709,7 +20455,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19723,7 +20470,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19740,14 +20488,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EaddrnotavailExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -19815,7 +20564,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19829,7 +20579,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19843,7 +20594,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19857,7 +20609,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19871,7 +20624,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19885,7 +20639,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -19902,14 +20657,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnetdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -19977,7 +20733,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19991,7 +20748,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20005,7 +20763,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20019,7 +20778,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20033,7 +20793,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20047,7 +20808,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20064,14 +20826,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnetunreachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -20139,7 +20902,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20153,7 +20917,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20167,7 +20932,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20181,7 +20947,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20195,7 +20962,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20209,7 +20977,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20226,14 +20995,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnetresetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -20301,7 +21071,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20315,7 +21086,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20329,7 +21101,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20343,7 +21116,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20357,7 +21131,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20371,7 +21146,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20388,14 +21164,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnabortedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -20463,7 +21240,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20477,7 +21255,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20491,7 +21270,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20505,7 +21285,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20519,7 +21300,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20533,7 +21315,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20550,14 +21333,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EconnresetExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -20625,7 +21409,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20639,7 +21424,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20653,7 +21439,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20667,7 +21454,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20681,7 +21469,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20695,7 +21484,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20712,14 +21502,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnobufsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -20787,7 +21578,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20801,7 +21593,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20815,7 +21608,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20829,7 +21623,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20843,7 +21638,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20857,7 +21653,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20874,14 +21671,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EisconnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -20949,7 +21747,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20963,7 +21762,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20977,7 +21777,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -20991,7 +21792,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21005,7 +21807,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21019,7 +21822,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21036,14 +21840,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnotconnExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -21111,7 +21916,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21125,7 +21931,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21139,7 +21946,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21153,7 +21961,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21167,7 +21976,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21181,7 +21991,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21198,14 +22009,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EshutdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -21273,7 +22085,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21287,7 +22100,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21301,7 +22115,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21315,7 +22130,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21329,7 +22145,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21343,7 +22160,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21360,14 +22178,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EtoomanyrefsExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -21435,7 +22254,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21449,7 +22269,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21463,7 +22284,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21477,7 +22299,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21491,7 +22314,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21505,7 +22329,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21522,14 +22347,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EtimedoutExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -21597,7 +22423,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21611,7 +22438,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21625,7 +22453,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21639,7 +22468,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21653,7 +22483,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21667,7 +22498,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21684,14 +22516,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EconnrefusedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -21759,7 +22592,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21773,7 +22607,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21787,7 +22622,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21801,7 +22637,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21815,7 +22652,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21829,7 +22667,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21846,14 +22685,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EhostdownExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -21921,7 +22761,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21935,7 +22776,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21949,7 +22791,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21963,7 +22806,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21977,7 +22821,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -21991,7 +22836,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22008,14 +22854,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EhostunreachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -22083,7 +22930,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22097,7 +22945,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22111,7 +22960,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22125,7 +22975,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22139,7 +22990,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22153,7 +23005,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22170,14 +23023,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EalreadyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -22245,7 +23099,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22259,7 +23114,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22273,7 +23129,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22287,7 +23144,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22301,7 +23159,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22315,7 +23174,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22332,14 +23192,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinprogressExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -22407,7 +23268,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22421,7 +23283,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22435,7 +23298,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22449,7 +23313,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22463,7 +23328,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22477,7 +23343,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22494,14 +23361,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EstaleExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -22569,7 +23437,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22583,7 +23452,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22597,7 +23467,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22611,7 +23482,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22625,7 +23497,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22639,7 +23512,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22656,14 +23530,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EioresidExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -22731,7 +23606,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22745,7 +23621,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22759,7 +23636,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22773,7 +23651,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22787,7 +23666,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22801,7 +23681,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22818,14 +23699,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EucleanExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -22893,7 +23775,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22907,7 +23790,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22921,7 +23805,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22935,7 +23820,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22949,7 +23835,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22963,7 +23850,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -22980,14 +23868,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotnamExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -23055,7 +23944,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -23069,7 +23959,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23083,7 +23974,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23097,7 +23989,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23111,7 +24004,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23125,7 +24019,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23142,14 +24037,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnavailExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -23217,7 +24113,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -23231,7 +24128,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23245,7 +24143,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23259,7 +24158,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23273,7 +24173,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23287,7 +24188,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23304,14 +24206,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EisnamExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -23379,7 +24282,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -23393,7 +24297,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23407,7 +24312,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23421,7 +24327,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23435,7 +24342,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23449,7 +24357,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23466,14 +24375,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EremoteioExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -23541,7 +24451,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -23555,7 +24466,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23569,7 +24481,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23583,7 +24496,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23597,7 +24511,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23611,7 +24526,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23628,14 +24544,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_28EinitExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -23703,7 +24620,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -23717,7 +24635,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23731,7 +24650,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23745,7 +24665,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23759,7 +24680,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23773,7 +24695,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23790,14 +24713,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EremdevExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -23865,7 +24789,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -23879,7 +24804,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23893,7 +24819,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23907,7 +24834,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23921,7 +24849,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23935,7 +24864,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -23952,14 +24882,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EcanceledExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -24027,7 +24958,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24041,7 +24973,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24055,7 +24988,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24069,7 +25003,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24083,7 +25018,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24097,7 +25033,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24114,14 +25051,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnolimfileExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -24189,7 +25127,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24203,7 +25142,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24217,7 +25157,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24231,7 +25172,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24245,7 +25187,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24259,7 +25202,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24276,14 +25220,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EproclimExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -24351,7 +25296,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24365,7 +25311,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24379,7 +25326,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24393,7 +25341,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24407,7 +25356,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24421,7 +25371,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24438,14 +25389,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EdisjointExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -24513,7 +25465,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24527,7 +25480,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24541,7 +25495,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24555,7 +25510,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24569,7 +25525,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24583,7 +25540,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24600,14 +25558,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnologinExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -24675,7 +25634,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24689,7 +25649,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24703,7 +25664,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24717,7 +25679,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24731,7 +25694,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24745,7 +25709,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24762,14 +25727,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EloginlimExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -24837,7 +25803,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24851,7 +25818,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24865,7 +25833,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24879,7 +25848,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24893,7 +25863,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24907,7 +25878,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -24924,14 +25896,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EgrouploopExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -24999,7 +25972,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -25013,7 +25987,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25027,7 +26002,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25041,7 +26017,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25055,7 +26032,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25069,7 +26047,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25086,14 +26065,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EnoattachExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -25161,7 +26141,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -25175,7 +26156,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25189,7 +26171,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25203,7 +26186,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25217,7 +26201,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25231,7 +26216,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25248,14 +26234,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnotsupExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -25323,7 +26310,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -25337,7 +26325,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25351,7 +26340,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25365,7 +26355,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25379,7 +26370,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25393,7 +26385,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25410,14 +26403,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoattrExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -25485,7 +26479,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -25499,7 +26494,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25513,7 +26509,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25527,7 +26524,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25541,7 +26539,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25555,7 +26554,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25572,14 +26572,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_216EdircorruptedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -25647,7 +26648,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -25661,7 +26663,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25675,7 +26678,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25689,7 +26693,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25703,7 +26708,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25717,7 +26723,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25734,14 +26741,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EdquotExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -25809,7 +26817,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -25823,7 +26832,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25837,7 +26847,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25851,7 +26862,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25865,7 +26877,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25879,7 +26892,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25896,14 +26910,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnfsremoteExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -25971,7 +26986,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -25985,7 +27001,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -25999,7 +27016,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26013,7 +27031,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26027,7 +27046,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26041,7 +27061,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26058,14 +27079,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -26133,7 +27155,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26147,7 +27170,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26161,7 +27185,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26175,7 +27200,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26189,7 +27215,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26203,7 +27230,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26220,14 +27248,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_217EnotcontrollerExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -26295,7 +27324,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26309,7 +27339,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26323,7 +27354,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26337,7 +27369,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26351,7 +27384,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26365,7 +27399,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26382,14 +27417,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -26457,7 +27493,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26471,7 +27508,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26485,7 +27523,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26499,7 +27538,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26513,7 +27553,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26527,7 +27568,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26544,14 +27586,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnotenqueuedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -26619,7 +27662,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26633,7 +27677,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26647,7 +27692,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26661,7 +27707,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26675,7 +27722,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26689,7 +27737,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26706,14 +27755,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -26781,7 +27831,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26795,7 +27846,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26809,7 +27861,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26823,7 +27876,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26837,7 +27891,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26851,7 +27906,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26868,14 +27924,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EnotjoinedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -26943,7 +28000,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26957,7 +28015,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26971,7 +28030,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26985,7 +28045,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26999,7 +28060,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27013,7 +28075,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27030,14 +28093,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210EnoprocExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -27105,7 +28169,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27119,7 +28184,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27133,7 +28199,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27147,7 +28214,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27161,7 +28229,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27175,7 +28244,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27192,14 +28262,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EmustrunExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -27267,7 +28338,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27281,7 +28353,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27295,7 +28368,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27309,7 +28383,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27323,7 +28398,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27337,7 +28413,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27354,14 +28431,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EnotstoppedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -27429,7 +28507,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27443,7 +28522,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27457,7 +28537,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27471,7 +28552,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27485,7 +28567,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27499,7 +28582,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27516,14 +28600,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212EclockcpuExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -27591,7 +28676,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27605,7 +28691,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27619,7 +28706,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27633,7 +28721,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27647,7 +28736,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27661,7 +28751,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27678,14 +28769,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EinvalstateExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -27753,7 +28845,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27767,7 +28860,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27781,7 +28875,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27795,7 +28890,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27809,7 +28905,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27823,7 +28920,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27840,14 +28938,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EnoexistExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -27915,7 +29014,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27929,7 +29029,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27943,7 +29044,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27957,7 +29059,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27971,7 +29074,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -27985,7 +29089,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28002,14 +29107,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EendofminorExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -28077,7 +29183,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28091,7 +29198,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28105,7 +29213,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28119,7 +29228,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28133,7 +29243,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28147,7 +29258,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28164,14 +29276,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211EbufsizeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -28239,7 +29352,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28253,7 +29367,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28267,7 +29382,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28281,7 +29397,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28295,7 +29412,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28309,7 +29427,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28326,14 +29445,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_29EemptyExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -28401,7 +29521,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28415,7 +29536,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28429,7 +29551,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28443,7 +29566,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28457,7 +29581,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28471,7 +29596,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28488,14 +29614,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_215EnointrgroupExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -28563,7 +29690,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28577,7 +29705,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28591,7 +29720,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28605,7 +29735,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28619,7 +29750,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28633,7 +29765,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28650,14 +29783,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvalmodeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -28725,7 +29859,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28739,7 +29874,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28753,7 +29889,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28767,7 +29904,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28781,7 +29919,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28795,7 +29934,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28812,14 +29952,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214EcantextentExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -28887,7 +30028,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28901,7 +30043,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28915,7 +30058,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28929,7 +30073,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28943,7 +30088,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28957,7 +30103,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28974,14 +30121,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EinvaltimeExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -29049,7 +30197,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29063,7 +30212,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29077,7 +30227,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29091,7 +30242,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29105,7 +30257,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29119,7 +30272,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_28ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29136,14 +30290,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_213EdestroyedExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -29211,7 +30366,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29225,7 +30381,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29239,7 +30396,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29253,7 +30411,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29267,7 +30426,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29281,7 +30441,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29298,14 +30459,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_211OverflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -29373,7 +30535,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29387,7 +30550,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29401,7 +30565,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29415,7 +30580,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29429,7 +30595,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29443,7 +30610,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29460,14 +30628,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_212UnderflowExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -29535,7 +30704,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29549,7 +30719,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29563,7 +30734,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29577,7 +30749,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29591,7 +30764,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29605,7 +30779,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29622,14 +30797,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210DivzeroExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -29697,7 +30873,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29711,7 +30888,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29725,7 +30903,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29739,7 +30918,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29753,7 +30933,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29767,7 +30948,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29784,14 +30966,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_210InexactExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 
@@ -29859,7 +31042,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29873,7 +31057,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29887,7 +31072,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29901,7 +31087,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29915,7 +31102,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %text.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29929,7 +31117,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN7Iex_3_27MathExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -29946,14 +31135,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Iex_3_214InvalidFpOpExcE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #11
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #11
   unreachable
 }
 

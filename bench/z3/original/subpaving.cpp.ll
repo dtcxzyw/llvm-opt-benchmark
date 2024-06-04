@@ -1152,37 +1152,38 @@ entry:
   %2 = load ptr, ptr %p.addr, align 8
   %3 = load ptr, ptr %a.addr, align 8
   call void @_ZN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEC2ER8reslimitR11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(1568) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(728) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %m_c = getelementptr inbounds %"class.subpaving::context_mpq_wrapper", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN15_scoped_numeralI11mpq_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(40) %m_c, ptr noundef nonnull align 8 dereferenceable(728) %4)
+  %5 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN15_scoped_numeralI11mpq_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(40) %m_c, ptr noundef nonnull align 8 dereferenceable(728) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_as = getelementptr inbounds %"class.subpaving::context_mpq_wrapper", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN22_scoped_numeral_vectorI11mpq_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_as, ptr noundef nonnull align 8 dereferenceable(728) %5)
+  %6 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN22_scoped_numeral_vectorI11mpq_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_as, ptr noundef nonnull align 8 dereferenceable(728) %6)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_c) #3
   br label %ehcleanup
 
@@ -1239,10 +1240,11 @@ entry:
   %2 = load ptr, ptr %p.addr, align 8
   %3 = load ptr, ptr %a.addr, align 8
   call void @_ZN9subpaving15context_wrapperINS_11context_mpfEEC2ER8reslimitR3f2nI11mpf_managerERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(1568) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpf_wrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpf_wrapperE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %m_qm = getelementptr inbounds %"class.subpaving::context_mpf_wrapper", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %fm.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(840) ptr @_ZNK3f2nI11mpf_managerE1mEv(ptr noundef nonnull align 8 dereferenceable(88) %4)
+  %5 = load ptr, ptr %fm.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(840) ptr @_ZNK3f2nI11mpf_managerE1mEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1252,8 +1254,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont2:                                     ; preds = %invoke.cont
   store ptr %call3, ptr %m_qm, align 8
   %m_c = getelementptr inbounds %"class.subpaving::context_mpf_wrapper", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %fm.addr, align 8
-  %call5 = invoke noundef nonnull align 8 dereferenceable(840) ptr @_ZNK3f2nI11mpf_managerE1mEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
+  %6 = load ptr, ptr %fm.addr, align 8
+  %call5 = invoke noundef nonnull align 8 dereferenceable(840) ptr @_ZNK3f2nI11mpf_managerE1mEv(ptr noundef nonnull align 8 dereferenceable(88) %6)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -1262,8 +1264,8 @@ invoke.cont4:                                     ; preds = %invoke.cont2
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   %m_as = getelementptr inbounds %"class.subpaving::context_mpf_wrapper", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %fm.addr, align 8
-  %call9 = invoke noundef nonnull align 8 dereferenceable(840) ptr @_ZNK3f2nI11mpf_managerE1mEv(ptr noundef nonnull align 8 dereferenceable(88) %6)
+  %7 = load ptr, ptr %fm.addr, align 8
+  %call9 = invoke noundef nonnull align 8 dereferenceable(840) ptr @_ZNK3f2nI11mpf_managerE1mEv(ptr noundef nonnull align 8 dereferenceable(88) %7)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -1273,54 +1275,54 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 invoke.cont10:                                    ; preds = %invoke.cont8
   %m_q1 = getelementptr inbounds %"class.subpaving::context_mpf_wrapper", ptr %this1, i32 0, i32 4
   %m_qm11 = getelementptr inbounds %"class.subpaving::context_mpf_wrapper", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %m_qm11, align 8
-  invoke void @_ZN15_scoped_numeralI11mpq_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(40) %m_q1, ptr noundef nonnull align 8 dereferenceable(728) %7)
+  %8 = load ptr, ptr %m_qm11, align 8
+  invoke void @_ZN15_scoped_numeralI11mpq_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(40) %m_q1, ptr noundef nonnull align 8 dereferenceable(728) %8)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
   %m_q2 = getelementptr inbounds %"class.subpaving::context_mpf_wrapper", ptr %this1, i32 0, i32 5
   %m_qm14 = getelementptr inbounds %"class.subpaving::context_mpf_wrapper", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %m_qm14, align 8
-  invoke void @_ZN15_scoped_numeralI11mpq_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(40) %m_q2, ptr noundef nonnull align 8 dereferenceable(728) %8)
+  %9 = load ptr, ptr %m_qm14, align 8
+  invoke void @_ZN15_scoped_numeralI11mpq_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(40) %m_q2, ptr noundef nonnull align 8 dereferenceable(728) %9)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup18
 
 lpad7:                                            ; preds = %invoke.cont8, %invoke.cont6
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup17
 
 lpad12:                                           ; preds = %invoke.cont10
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad15:                                           ; preds = %invoke.cont13
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_q1) #3
   br label %ehcleanup
 
@@ -1390,10 +1392,11 @@ entry:
   %2 = load ptr, ptr %p.addr, align 8
   %3 = load ptr, ptr %a.addr, align 8
   call void @_ZN9subpaving15context_wrapperINS_11context_hwfEEC2ER8reslimitR3f2nI11hwf_managerERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(848) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %m_qm = getelementptr inbounds %"class.subpaving::context_hwf_wrapper", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %qm.addr, align 8
-  store ptr %4, ptr %m_qm, align 8
+  %5 = load ptr, ptr %qm.addr, align 8
+  store ptr %5, ptr %m_qm, align 8
   %m_as = getelementptr inbounds %"class.subpaving::context_hwf_wrapper", ptr %this1, i32 0, i32 3
   invoke void @_ZN7svectorI3hwfjEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_as)
           to label %invoke.cont unwind label %lpad
@@ -1402,12 +1405,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN9subpaving15context_wrapperINS_11context_hwfEED2Ev(ptr noundef nonnull align 8 dereferenceable(848) %this1) #3
   br label %eh.resume
 
@@ -1465,72 +1468,73 @@ entry:
   %2 = load ptr, ptr %p.addr, align 8
   %3 = load ptr, ptr %a.addr, align 8
   call void @_ZN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEC2ER8reslimitR12mpff_managerRK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(792) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %m_qm = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %qm.addr, align 8
-  store ptr %4, ptr %m_qm, align 8
+  %5 = load ptr, ptr %qm.addr, align 8
+  store ptr %5, ptr %m_qm, align 8
   %m_c = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN15_scoped_numeralI12mpff_managerEC2ERS0_(ptr noundef nonnull align 8 dereferenceable(16) %m_c, ptr noundef nonnull align 8 dereferenceable(89) %5)
+  %6 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN15_scoped_numeralI12mpff_managerEC2ERS0_(ptr noundef nonnull align 8 dereferenceable(16) %m_c, ptr noundef nonnull align 8 dereferenceable(89) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_as = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN22_scoped_numeral_vectorI12mpff_managerEC2ERS0_(ptr noundef nonnull align 8 dereferenceable(16) %m_as, ptr noundef nonnull align 8 dereferenceable(89) %6)
+  %7 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN22_scoped_numeral_vectorI12mpff_managerEC2ERS0_(ptr noundef nonnull align 8 dereferenceable(16) %m_as, ptr noundef nonnull align 8 dereferenceable(89) %7)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %m_z1 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper", ptr %this1, i32 0, i32 4
   %m_qm4 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %m_qm4, align 8
-  invoke void @_ZN15_scoped_numeralI11mpz_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_z1, ptr noundef nonnull align 8 dereferenceable(600) %7)
+  %8 = load ptr, ptr %m_qm4, align 8
+  invoke void @_ZN15_scoped_numeralI11mpz_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_z1, ptr noundef nonnull align 8 dereferenceable(600) %8)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont3
   %m_z2 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper", ptr %this1, i32 0, i32 5
   %m_qm7 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %m_qm7, align 8
-  invoke void @_ZN15_scoped_numeralI11mpz_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_z2, ptr noundef nonnull align 8 dereferenceable(600) %8)
+  %9 = load ptr, ptr %m_qm7, align 8
+  invoke void @_ZN15_scoped_numeralI11mpz_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_z2, ptr noundef nonnull align 8 dereferenceable(600) %9)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup11
 
 lpad2:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup10
 
 lpad5:                                            ; preds = %invoke.cont3
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont6
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_z1) #3
   br label %ehcleanup
 
@@ -1600,72 +1604,73 @@ entry:
   %2 = load ptr, ptr %p.addr, align 8
   %3 = load ptr, ptr %a.addr, align 8
   call void @_ZN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEC2ER8reslimitR12mpfx_managerRK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(664) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(85) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %m_qm = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper.90", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %qm.addr, align 8
-  store ptr %4, ptr %m_qm, align 8
+  %5 = load ptr, ptr %qm.addr, align 8
+  store ptr %5, ptr %m_qm, align 8
   %m_c = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper.90", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN15_scoped_numeralI12mpfx_managerEC2ERS0_(ptr noundef nonnull align 8 dereferenceable(12) %m_c, ptr noundef nonnull align 8 dereferenceable(85) %5)
+  %6 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN15_scoped_numeralI12mpfx_managerEC2ERS0_(ptr noundef nonnull align 8 dereferenceable(12) %m_c, ptr noundef nonnull align 8 dereferenceable(85) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_as = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper.90", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN22_scoped_numeral_vectorI12mpfx_managerEC2ERS0_(ptr noundef nonnull align 8 dereferenceable(16) %m_as, ptr noundef nonnull align 8 dereferenceable(85) %6)
+  %7 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN22_scoped_numeral_vectorI12mpfx_managerEC2ERS0_(ptr noundef nonnull align 8 dereferenceable(16) %m_as, ptr noundef nonnull align 8 dereferenceable(85) %7)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %m_z1 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper.90", ptr %this1, i32 0, i32 4
   %m_qm4 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper.90", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %m_qm4, align 8
-  invoke void @_ZN15_scoped_numeralI11mpz_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_z1, ptr noundef nonnull align 8 dereferenceable(600) %7)
+  %8 = load ptr, ptr %m_qm4, align 8
+  invoke void @_ZN15_scoped_numeralI11mpz_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_z1, ptr noundef nonnull align 8 dereferenceable(600) %8)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont3
   %m_z2 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper.90", ptr %this1, i32 0, i32 5
   %m_qm7 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper.90", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %m_qm7, align 8
-  invoke void @_ZN15_scoped_numeralI11mpz_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_z2, ptr noundef nonnull align 8 dereferenceable(600) %8)
+  %9 = load ptr, ptr %m_qm7, align 8
+  invoke void @_ZN15_scoped_numeralI11mpz_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_z2, ptr noundef nonnull align 8 dereferenceable(600) %9)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup11
 
 lpad2:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup10
 
 lpad5:                                            ; preds = %invoke.cont3
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont6
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_z1) #3
   br label %ehcleanup
 
@@ -1707,29 +1712,30 @@ entry:
   store ptr %a, ptr %a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9subpaving7contextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lim.addr, align 8
-  %1 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN9subpaving10config_mpqC2ER11mpq_managerILb0EE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(728) %1)
+  %1 = load ptr, ptr %lim.addr, align 8
+  %2 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN9subpaving10config_mpqC2ER11mpq_managerILb0EE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(728) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %p.addr, align 8
-  %3 = load ptr, ptr %a.addr, align 8
-  invoke void @_ZN9subpaving9context_tINS_10config_mpqEEC1ER8reslimitRKS1_RK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
+  %3 = load ptr, ptr %p.addr, align 8
+  %4 = load ptr, ptr %a.addr, align 8
+  invoke void @_ZN9subpaving9context_tINS_10config_mpqEEC1ER8reslimitRKS1_RK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -1803,7 +1809,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_as = getelementptr inbounds %"class.subpaving::context_mpq_wrapper", ptr %this1, i32 0, i32 2
   call void @_ZN22_scoped_numeral_vectorI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_as) #3
   %m_c = getelementptr inbounds %"class.subpaving::context_mpq_wrapper", ptr %this1, i32 0, i32 1
@@ -2143,7 +2150,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving7contextE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving7contextE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2169,7 +2177,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper", ptr %this1, i32 0, i32 1
   call void @_ZN9subpaving9context_tINS_10config_mpqEED1Ev(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx) #3
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3114,10 +3123,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -3127,7 +3137,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3400,7 +3411,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4193,25 +4205,26 @@ entry:
   store ptr %a, ptr %a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9subpaving7contextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.22", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lim.addr, align 8
-  %1 = load ptr, ptr %m.addr, align 8
-  %2 = load ptr, ptr %p.addr, align 8
-  %3 = load ptr, ptr %a.addr, align 8
-  invoke void @_ZN9subpaving11context_mpfC2ER8reslimitR3f2nI11mpf_managerERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
+  %1 = load ptr, ptr %lim.addr, align 8
+  %2 = load ptr, ptr %m.addr, align 8
+  %3 = load ptr, ptr %p.addr, align 8
+  %4 = load ptr, ptr %a.addr, align 8
+  invoke void @_ZN9subpaving11context_mpfC2ER8reslimitR3f2nI11mpf_managerERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -4309,7 +4322,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpf_wrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpf_wrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_q2 = getelementptr inbounds %"class.subpaving::context_mpf_wrapper", ptr %this1, i32 0, i32 5
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_q2) #3
   %m_q1 = getelementptr inbounds %"class.subpaving::context_mpf_wrapper", ptr %this1, i32 0, i32 4
@@ -4466,7 +4480,7 @@ lpad:                                             ; preds = %invoke.cont11, %inv
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %11 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3f2nI11mpf_managerE9exceptionE) #3
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3f2nI11mpf_managerE9exceptionE) #3
   %matches = icmp eq i32 %sel, %11
   br i1 %matches, label %catch, label %eh.resume
 
@@ -4592,7 +4606,7 @@ lpad:                                             ; preds = %invoke.cont6, %if.e
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3f2nI11mpf_managerE9exceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3f2nI11mpf_managerE9exceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -4854,7 +4868,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.22", ptr %this1, i32 0, i32 1
   call void @_ZN9subpaving11context_mpfD2Ev(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx) #3
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -5277,9 +5292,6 @@ entry:
   %0 = load ptr, ptr %m_data, align 8
   ret ptr %0
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6vectorI3mpfLb0EjE6resizeEj(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %s) #4 comdat align 2 {
@@ -6516,25 +6528,26 @@ entry:
   store ptr %a, ptr %a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9subpaving7contextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.45", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lim.addr, align 8
-  %1 = load ptr, ptr %m.addr, align 8
-  %2 = load ptr, ptr %p.addr, align 8
-  %3 = load ptr, ptr %a.addr, align 8
-  invoke void @_ZN9subpaving11context_hwfC2ER8reslimitR3f2nI11hwf_managerERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(840) %m_ctx, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
+  %1 = load ptr, ptr %lim.addr, align 8
+  %2 = load ptr, ptr %m.addr, align 8
+  %3 = load ptr, ptr %p.addr, align 8
+  %4 = load ptr, ptr %a.addr, align 8
+  invoke void @_ZN9subpaving11context_hwfC2ER8reslimitR3f2nI11hwf_managerERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(840) %m_ctx, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -6564,7 +6577,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_as = getelementptr inbounds %"class.subpaving::context_hwf_wrapper", ptr %this1, i32 0, i32 3
   call void @_ZN7svectorI3hwfjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_as) #3
   call void @_ZN9subpaving15context_wrapperINS_11context_hwfEED2Ev(ptr noundef nonnull align 8 dereferenceable(848) %this1) #3
@@ -6718,7 +6732,7 @@ lpad:                                             ; preds = %invoke.cont8, %invo
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %11 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3f2nI11mpf_managerE9exceptionE) #3
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3f2nI11mpf_managerE9exceptionE) #3
   %matches = icmp eq i32 %sel, %11
   br i1 %matches, label %catch, label %eh.resume
 
@@ -6836,7 +6850,7 @@ lpad:                                             ; preds = %invoke.cont5, %if.e
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3f2nI11mpf_managerE9exceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3f2nI11mpf_managerE9exceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -7096,7 +7110,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.45", ptr %this1, i32 0, i32 1
   call void @_ZN9subpaving11context_hwfD2Ev(ptr noundef nonnull align 8 dereferenceable(840) %m_ctx) #3
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -7969,29 +7984,30 @@ entry:
   store ptr %a, ptr %a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9subpaving7contextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.67", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lim.addr, align 8
-  %1 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN9subpaving11config_mpffC2ER12mpff_manager(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %1)
+  %1 = load ptr, ptr %lim.addr, align 8
+  %2 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN9subpaving11config_mpffC2ER12mpff_manager(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(89) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %p.addr, align 8
-  %3 = load ptr, ptr %a.addr, align 8
-  invoke void @_ZN9subpaving9context_tINS_11config_mpffEEC1ER8reslimitRKS1_RK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(784) %m_ctx, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
+  %3 = load ptr, ptr %p.addr, align 8
+  %4 = load ptr, ptr %a.addr, align 8
+  invoke void @_ZN9subpaving9context_tINS_11config_mpffEEC1ER8reslimitRKS1_RK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(784) %m_ctx, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -8123,7 +8139,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_z2 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper", ptr %this1, i32 0, i32 5
   call void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_z2) #3
   %m_z1 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper", ptr %this1, i32 0, i32 4
@@ -8280,7 +8297,7 @@ lpad:                                             ; preds = %invoke.cont11, %inv
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %11 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN12mpff_manager9exceptionE) #3
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN12mpff_manager9exceptionE) #3
   %matches = icmp eq i32 %sel, %11
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8406,7 +8423,7 @@ lpad:                                             ; preds = %invoke.cont6, %if.e
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN12mpff_manager9exceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN12mpff_manager9exceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8662,7 +8679,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.67", ptr %this1, i32 0, i32 1
   call void @_ZN9subpaving9context_tINS_11config_mpffEED1Ev(ptr noundef nonnull align 8 dereferenceable(784) %m_ctx) #3
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -9470,29 +9488,30 @@ entry:
   store ptr %a, ptr %a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9subpaving7contextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.91", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lim.addr, align 8
-  %1 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN9subpaving11config_mpfxC2ER12mpfx_manager(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(85) %1)
+  %1 = load ptr, ptr %lim.addr, align 8
+  %2 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN9subpaving11config_mpfxC2ER12mpfx_manager(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(85) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %p.addr, align 8
-  %3 = load ptr, ptr %a.addr, align 8
-  invoke void @_ZN9subpaving9context_tINS_11config_mpfxEEC1ER8reslimitRKS1_RK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(656) %m_ctx, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
+  %3 = load ptr, ptr %p.addr, align 8
+  %4 = load ptr, ptr %a.addr, align 8
+  invoke void @_ZN9subpaving9context_tINS_11config_mpfxEEC1ER8reslimitRKS1_RK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(656) %m_ctx, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -9585,7 +9604,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_z2 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper.90", ptr %this1, i32 0, i32 5
   call void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_z2) #3
   %m_z1 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper.90", ptr %this1, i32 0, i32 4
@@ -9742,7 +9762,7 @@ lpad:                                             ; preds = %invoke.cont11, %inv
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %11 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN12mpfx_manager9exceptionE) #3
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN12mpfx_manager9exceptionE) #3
   %matches = icmp eq i32 %sel, %11
   br i1 %matches, label %catch, label %eh.resume
 
@@ -9868,7 +9888,7 @@ lpad:                                             ; preds = %invoke.cont6, %if.e
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN12mpfx_manager9exceptionE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN12mpfx_manager9exceptionE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -10124,7 +10144,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.91", ptr %this1, i32 0, i32 1
   call void @_ZN9subpaving9context_tINS_11config_mpfxEED1Ev(ptr noundef nonnull align 8 dereferenceable(656) %m_ctx) #3
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -10892,6 +10913,9 @@ entry:
   call void @__cxx_global_var_init()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

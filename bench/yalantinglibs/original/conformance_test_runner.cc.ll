@@ -4429,24 +4429,25 @@ entry:
   store i8 %frombool, ptr %performance.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf21ConformanceTestRunnerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf14ForkPipeRunnerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6google8protobuf14ForkPipeRunnerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %child_pid_ = getelementptr inbounds %"class.google::protobuf::ForkPipeRunner", ptr %this1, i32 0, i32 3
   store i32 -1, ptr %child_pid_, align 8
   %executable_ = getelementptr inbounds %"class.google::protobuf::ForkPipeRunner", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %executable.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %executable_, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %executable.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %executable_, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %executable_args_ = getelementptr inbounds %"class.google::protobuf::ForkPipeRunner", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %executable_args.addr, align 8
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %executable_args_, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %2 = load ptr, ptr %executable_args.addr, align 8
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %executable_args_, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %performance_ = getelementptr inbounds %"class.google::protobuf::ForkPipeRunner", ptr %this1, i32 0, i32 6
-  %2 = load i8, ptr %performance.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %3 = load i8, ptr %performance.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %performance_, align 8
   %current_test_name_ = getelementptr inbounds %"class.google::protobuf::ForkPipeRunner", ptr %this1, i32 0, i32 7
@@ -4454,21 +4455,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %executable_) #3
   br label %ehcleanup
 
@@ -4494,7 +4495,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf14ForkPipeRunnerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6google8protobuf14ForkPipeRunnerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %current_test_name_ = getelementptr inbounds %"class.google::protobuf::ForkPipeRunner", ptr %this1, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %current_test_name_) #3
   %executable_args_ = getelementptr inbounds %"class.google::protobuf::ForkPipeRunner", ptr %this1, i32 0, i32 5
@@ -4830,7 +4832,7 @@ lpad:                                             ; preds = %if.then
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12system_error) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12system_error) #3
   %matches = icmp eq i32 %sel, %9
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -9779,7 +9781,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf21ConformanceTestRunnerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6google8protobuf21ConformanceTestRunnerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12633,9 +12636,6 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #16
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZSteqRKSt10error_codeRKSt15error_condition(ptr noundef nonnull align 8 dereferenceable(16) %__lhs, ptr noundef nonnull align 8 dereferenceable(16) %__rhs) #6 comdat {
 entry:
@@ -13006,28 +13006,29 @@ entry:
   store ptr %__args7, ptr %__args.addr8, align 8
   %this9 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this9) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %this9, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this9, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this9, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESD_"(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl) #3
   %call = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(104) %this9) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  %4 = load ptr, ptr %__args.addr8, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iSB_mmEEEElEEJSC_RiRSB_RmSI_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  %5 = load ptr, ptr %__args.addr8, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iSB_mmEEEElEEJSC_RiRSB_RmSI_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this9) #3
   br label %eh.resume
 
@@ -13201,7 +13202,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -13438,7 +13440,8 @@ entry:
   store ptr %__args7, ptr %__args.addr8, align 8
   %this9 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt13__future_base21_Async_state_commonV2C2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this9) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @"_ZTVNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS7_mmEEEElEE", i32 0, i32 0, i32 2), ptr %this9, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @"_ZTVNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS7_mmEEEElEE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this9, align 8
   %_M_result = getelementptr inbounds %"class.std::__future_base::_Async_state_impl", ptr %this9, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #19
           to label %invoke.cont unwind label %lpad
@@ -13447,12 +13450,12 @@ invoke.cont:                                      ; preds = %entry
   call void @_ZNSt13__future_base7_ResultIlEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %call) #3
   call void @_ZNSt10unique_ptrINSt13__future_base7_ResultIlEENS0_12_Result_base8_DeleterEEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %_M_result, ptr noundef %call) #3
   %_M_fn = getelementptr inbounds %"class.std::__future_base::_Async_state_impl", ptr %this9, i32 0, i32 2
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  %4 = load ptr, ptr %__args.addr8, align 8
-  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS5_mmEEEC2IJS6_RiRS5_RmSC_EEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(32) %_M_fn, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  %5 = load ptr, ptr %__args.addr8, align 8
+  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS5_mmEEEC2IJS6_RiRS5_RmSC_EEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(32) %_M_fn, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont
@@ -13468,21 +13471,21 @@ invoke.cont14:                                    ; preds = %invoke.cont11
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont11, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrINSt13__future_base7_ResultIlEENS0_12_Result_base8_DeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_result) #3
   br label %ehcleanup
 
@@ -13505,7 +13508,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt13__future_base13_State_baseV2C2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base21_Async_state_commonV2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVNSt13__future_base21_Async_state_commonV2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_thread = getelementptr inbounds %"class.std::__future_base::_Async_state_commonV2", ptr %this1, i32 0, i32 2
   call void @_ZNSt6threadC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_thread) #3
   %_M_once = getelementptr inbounds %"class.std::__future_base::_Async_state_commonV2", ptr %this1, i32 0, i32 3
@@ -13523,16 +13527,17 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_initialized = getelementptr inbounds %"struct.std::__future_base::_Result", ptr %this1, i32 0, i32 2
   store i8 0, ptr %_M_initialized, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #18
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #18
   unreachable
 }
 
@@ -13640,7 +13645,7 @@ lpad2:                                            ; preds = %invoke.cont
 
 catch.dispatch:                                   ; preds = %lpad2, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %11 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN10__cxxabiv115__forced_unwindE) #3
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN10__cxxabiv115__forced_unwindE) #3
   %matches = icmp eq i32 %sel, %11
   br i1 %matches, label %catch, label %eh.resume
 
@@ -13922,7 +13927,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_result = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_result) #3
   %_M_status = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %this1, i32 0, i32 2
@@ -13937,10 +13943,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #18
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #18
   unreachable
 }
 
@@ -13972,7 +13978,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base21_Async_state_commonV2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVNSt13__future_base21_Async_state_commonV2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_thread = getelementptr inbounds %"class.std::__future_base::_Async_state_commonV2", ptr %this1, i32 0, i32 2
   call void @_ZNSt6threadD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_thread) #3
   call void @_ZNSt13__future_base13_State_baseV2D2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this1) #3
@@ -14050,7 +14057,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_result = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_result) #3
   ret void
@@ -14400,10 +14408,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_initialized = getelementptr inbounds %"struct.std::__future_base::_Result", ptr %this1, i32 0, i32 2
-  %0 = load i8, ptr %_M_initialized, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %_M_initialized, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -15269,7 +15278,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #17
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENKUlvE_cvPFvvEEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #6 comdat align 2 {
@@ -15694,7 +15703,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN10__cxxabiv115__forced_unwindE) #3
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN10__cxxabiv115__forced_unwindE) #3
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch8, label %catch
 
@@ -16654,10 +16663,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::future_error", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %_M_code2 = getelementptr inbounds %"class.std::future_error", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %_M_code2 = getelementptr inbounds %"class.std::future_error", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_M_code, ptr align 8 %_M_code2, i64 16, i1 false)
   ret void
 }
@@ -16707,27 +16717,28 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::future_error", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_M_code, ptr align 8 %__ec, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
@@ -16993,23 +17004,24 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS1_IS2_IJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEEFvvEPSC_EEEEEE", i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS1_IS2_IJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEEFvvEPSC_EEEEEE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this3, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS0_IS1_IJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS7_mmEEEElEEFvvEPSB_EEEC2IJSD_SE_EEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(24) %_M_func, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJMNSt13__future_base17_Async_state_implINS0_IS1_IJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS7_mmEEEElEEFvvEPSB_EEEC2IJSD_SE_EEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(24) %_M_func, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #3
   br label %eh.resume
 
@@ -17089,7 +17101,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18478,28 +18491,29 @@ entry:
   store ptr %__args7, ptr %__args.addr8, align 8
   %this9 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this9) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %this9, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this9, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.103", ptr %this9, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESD_"(ptr noundef nonnull align 8 dereferenceable(72) %_M_impl) #3
   %call = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS8_mmEEEElEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(88) %this9) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  %4 = load ptr, ptr %__args.addr8, align 8
-  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iSB_mmEEEElEEJSC_RiRSB_RmSI_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  %5 = load ptr, ptr %__args.addr8, align 8
+  invoke void @"_ZNSt16allocator_traitsISaIvEE9constructINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iSB_mmEEEElEEJSC_RiRSB_RmSI_EEEvRS0_PT_DpOT0_"(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this9) #3
   br label %eh.resume
 
@@ -18836,7 +18850,8 @@ entry:
   store ptr %__args7, ptr %__args.addr8, align 8
   %this9 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt13__future_base13_State_baseV2C2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this9) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @"_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS7_mmEEEElEE", i32 0, i32 0, i32 2), ptr %this9, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @"_ZTVNSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS7_mmEEEElEE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this9, align 8
   %_M_result = getelementptr inbounds %"class.std::__future_base::_Deferred_state", ptr %this9, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #19
           to label %invoke.cont unwind label %lpad
@@ -18845,33 +18860,33 @@ invoke.cont:                                      ; preds = %entry
   call void @_ZNSt13__future_base7_ResultIlEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %call) #3
   call void @_ZNSt10unique_ptrINSt13__future_base7_ResultIlEENS0_12_Result_base8_DeleterEEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %_M_result, ptr noundef %call) #3
   %_M_fn = getelementptr inbounds %"class.std::__future_base::_Deferred_state", ptr %this9, i32 0, i32 2
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  %4 = load ptr, ptr %__args.addr8, align 8
-  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS5_mmEEEC2IJS6_RiRS5_RmSC_EEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(32) %_M_fn, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  %5 = load ptr, ptr %__args.addr8, align 8
+  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS5_mmEEEC2IJS6_RiRS5_RmSC_EEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(32) %_M_fn, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrINSt13__future_base7_ResultIlEENS0_12_Result_base8_DeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_result) #3
   br label %ehcleanup
 
@@ -20888,6 +20903,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #17
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -20904,8 +20922,8 @@ attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #16 = { nounwind memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind memory(none) }
 attributes #18 = { noreturn nounwind }
 attributes #19 = { builtin allocsize(0) }
 attributes #20 = { nounwind willreturn memory(none) }

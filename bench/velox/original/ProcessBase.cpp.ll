@@ -1344,25 +1344,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.0", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbiRT_mENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbiRT_mENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #14
   unreachable
 }
 
@@ -1404,25 +1405,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKcRT_mENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #10
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKcRT_mENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #14
   unreachable
 }
 

@@ -91,7 +91,7 @@ define dso_local i32 @SysLogger_Start() #0 {
 
 6:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %133
+  br label %137
 
 7:                                                ; preds = %0
   %8 = load i32, ptr @syslogPipe, align 4
@@ -210,7 +210,7 @@ define dso_local i32 @SysLogger_Start() #0 {
 
 64:                                               ; preds = %63
   store i32 0, ptr %1, align 4
-  br label %133
+  br label %137
 
 65:                                               ; preds = %53
   call void @InitPostmasterChild()
@@ -223,7 +223,7 @@ define dso_local i32 @SysLogger_Start() #0 {
 66:                                               ; preds = %53
   %67 = load i8, ptr @redirection_done, align 1
   %68 = trunc i8 %67 to i1
-  br i1 %68, label %117, label %69
+  br i1 %68, label %121, label %69
 
 69:                                               ; preds = %66
   br label %70
@@ -252,111 +252,115 @@ define dso_local i32 @SysLogger_Start() #0 {
 80:                                               ; preds = %79
   %81 = load ptr, ptr @stdout, align 8
   %82 = call i32 @fflush(ptr noundef %81)
-  %83 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
-  %84 = call i32 @dup2(i32 noundef %83, i32 noundef 1) #10
-  %85 = icmp slt i32 %84, 0
-  br i1 %85, label %86, label %97
+  %83 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
+  %84 = load i32, ptr %83, align 4
+  %85 = call i32 @dup2(i32 noundef %84, i32 noundef 1) #10
+  %86 = icmp slt i32 %85, 0
+  br i1 %86, label %87, label %98
 
-86:                                               ; preds = %80
-  br label %87
-
-87:                                               ; preds = %86
-  br i1 true, label %88, label %90
+87:                                               ; preds = %80
+  br label %88
 
 88:                                               ; preds = %87
-  %89 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  br i1 %89, label %92, label %95
+  br i1 true, label %89, label %91
 
-90:                                               ; preds = %87
-  %91 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %91, label %92, label %95
+89:                                               ; preds = %88
+  %90 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
+  br i1 %90, label %93, label %96
 
-92:                                               ; preds = %90, %88
-  %93 = call i32 @errcode_for_file_access()
-  %94 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.8)
+91:                                               ; preds = %88
+  %92 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %92, label %93, label %96
+
+93:                                               ; preds = %91, %89
+  %94 = call i32 @errcode_for_file_access()
+  %95 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.8)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 722, ptr noundef @__func__.SysLogger_Start)
-  br label %95
+  br label %96
 
-95:                                               ; preds = %92, %90, %88
+96:                                               ; preds = %93, %91, %89
   unreachable
 
-96:                                               ; No predecessors!
-  br label %97
+97:                                               ; No predecessors!
+  br label %98
 
-97:                                               ; preds = %96, %80
-  %98 = load ptr, ptr @stderr, align 8
-  %99 = call i32 @fflush(ptr noundef %98)
-  %100 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
-  %101 = call i32 @dup2(i32 noundef %100, i32 noundef 2) #10
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %103, label %114
+98:                                               ; preds = %97, %80
+  %99 = load ptr, ptr @stderr, align 8
+  %100 = call i32 @fflush(ptr noundef %99)
+  %101 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
+  %102 = load i32, ptr %101, align 4
+  %103 = call i32 @dup2(i32 noundef %102, i32 noundef 2) #10
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %105, label %116
 
-103:                                              ; preds = %97
-  br label %104
+105:                                              ; preds = %98
+  br label %106
 
-104:                                              ; preds = %103
-  br i1 true, label %105, label %107
+106:                                              ; preds = %105
+  br i1 true, label %107, label %109
 
-105:                                              ; preds = %104
-  %106 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  br i1 %106, label %109, label %112
+107:                                              ; preds = %106
+  %108 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
+  br i1 %108, label %111, label %114
 
-107:                                              ; preds = %104
-  %108 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %108, label %109, label %112
+109:                                              ; preds = %106
+  %110 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %110, label %111, label %114
 
-109:                                              ; preds = %107, %105
-  %110 = call i32 @errcode_for_file_access()
-  %111 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.9)
+111:                                              ; preds = %109, %107
+  %112 = call i32 @errcode_for_file_access()
+  %113 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.9)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 727, ptr noundef @__func__.SysLogger_Start)
-  br label %112
-
-112:                                              ; preds = %109, %107, %105
-  unreachable
-
-113:                                              ; No predecessors!
   br label %114
 
-114:                                              ; preds = %113, %97
-  %115 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
-  %116 = call i32 @close(i32 noundef %115)
-  store i32 -1, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
+114:                                              ; preds = %111, %109, %107
+  unreachable
+
+115:                                              ; No predecessors!
+  br label %116
+
+116:                                              ; preds = %115, %98
+  %117 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
+  %118 = load i32, ptr %117, align 4
+  %119 = call i32 @close(i32 noundef %118)
+  %120 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
+  store i32 -1, ptr %120, align 4
   store i8 1, ptr @redirection_done, align 1
-  br label %117
+  br label %121
 
-117:                                              ; preds = %114, %66
-  %118 = load ptr, ptr @syslogFile, align 8
-  %119 = call i32 @fclose(ptr noundef %118)
+121:                                              ; preds = %116, %66
+  %122 = load ptr, ptr @syslogFile, align 8
+  %123 = call i32 @fclose(ptr noundef %122)
   store ptr null, ptr @syslogFile, align 8
-  %120 = load ptr, ptr @csvlogFile, align 8
-  %121 = icmp ne ptr %120, null
-  br i1 %121, label %122, label %125
+  %124 = load ptr, ptr @csvlogFile, align 8
+  %125 = icmp ne ptr %124, null
+  br i1 %125, label %126, label %129
 
-122:                                              ; preds = %117
-  %123 = load ptr, ptr @csvlogFile, align 8
-  %124 = call i32 @fclose(ptr noundef %123)
+126:                                              ; preds = %121
+  %127 = load ptr, ptr @csvlogFile, align 8
+  %128 = call i32 @fclose(ptr noundef %127)
   store ptr null, ptr @csvlogFile, align 8
-  br label %125
+  br label %129
 
-125:                                              ; preds = %122, %117
-  %126 = load ptr, ptr @jsonlogFile, align 8
-  %127 = icmp ne ptr %126, null
-  br i1 %127, label %128, label %131
+129:                                              ; preds = %126, %121
+  %130 = load ptr, ptr @jsonlogFile, align 8
+  %131 = icmp ne ptr %130, null
+  br i1 %131, label %132, label %135
 
-128:                                              ; preds = %125
-  %129 = load ptr, ptr @jsonlogFile, align 8
-  %130 = call i32 @fclose(ptr noundef %129)
+132:                                              ; preds = %129
+  %133 = load ptr, ptr @jsonlogFile, align 8
+  %134 = call i32 @fclose(ptr noundef %133)
   store ptr null, ptr @jsonlogFile, align 8
-  br label %131
+  br label %135
 
-131:                                              ; preds = %128, %125
-  %132 = load i32, ptr %2, align 4
-  store i32 %132, ptr %1, align 4
-  br label %133
+135:                                              ; preds = %132, %129
+  %136 = load i32, ptr %2, align 4
+  store i32 %136, ptr %1, align 4
+  br label %137
 
-133:                                              ; preds = %131, %64, %6
-  %134 = load i32, ptr %1, align 4
-  ret i32 %134
+137:                                              ; preds = %135, %64, %6
+  %138 = load i32, ptr %1, align 4
+  ret i32 %138
 }
 
 ; Function Attrs: nounwind
@@ -621,472 +625,481 @@ define internal void @SysLoggerMain(i32 noundef %0, ptr noundef %1) #4 {
   br label %37
 
 37:                                               ; preds = %36, %2
-  %38 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
-  %39 = icmp sge i32 %38, 0
-  br i1 %39, label %40, label %43
+  %38 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp sge i32 %39, 0
+  br i1 %40, label %41, label %45
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
-  %42 = call i32 @close(i32 noundef %41)
-  br label %43
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
+  %43 = load i32, ptr %42, align 4
+  %44 = call i32 @close(i32 noundef %43)
+  br label %45
 
-43:                                               ; preds = %40, %37
-  store i32 -1, ptr getelementptr inbounds ([2 x i32], ptr @syslogPipe, i64 0, i64 1), align 4
-  %44 = call ptr @pqsignal(i32 noundef 1, ptr noundef @SignalHandlerForConfigReload)
-  %45 = call ptr @pqsignal(i32 noundef 2, ptr noundef inttoptr (i64 1 to ptr))
-  %46 = call ptr @pqsignal(i32 noundef 15, ptr noundef inttoptr (i64 1 to ptr))
-  %47 = call ptr @pqsignal(i32 noundef 3, ptr noundef inttoptr (i64 1 to ptr))
-  %48 = call ptr @pqsignal(i32 noundef 14, ptr noundef inttoptr (i64 1 to ptr))
-  %49 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %50 = call ptr @pqsignal(i32 noundef 10, ptr noundef @sigUsr1Handler)
-  %51 = call ptr @pqsignal(i32 noundef 12, ptr noundef inttoptr (i64 1 to ptr))
-  %52 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
-  %53 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #10
-  %54 = load i64, ptr @first_syslogger_file_time, align 8
-  %55 = call ptr @logfile_getname(i64 noundef %54, ptr noundef null)
-  store ptr %55, ptr @last_sys_file_name, align 8
-  %56 = load ptr, ptr @csvlogFile, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %61
+45:                                               ; preds = %41, %37
+  %46 = getelementptr inbounds [2 x i32], ptr @syslogPipe, i64 0, i64 1
+  store i32 -1, ptr %46, align 4
+  %47 = call ptr @pqsignal(i32 noundef 1, ptr noundef @SignalHandlerForConfigReload)
+  %48 = inttoptr i64 1 to ptr
+  %49 = call ptr @pqsignal(i32 noundef 2, ptr noundef %48)
+  %50 = inttoptr i64 1 to ptr
+  %51 = call ptr @pqsignal(i32 noundef 15, ptr noundef %50)
+  %52 = inttoptr i64 1 to ptr
+  %53 = call ptr @pqsignal(i32 noundef 3, ptr noundef %52)
+  %54 = inttoptr i64 1 to ptr
+  %55 = call ptr @pqsignal(i32 noundef 14, ptr noundef %54)
+  %56 = inttoptr i64 1 to ptr
+  %57 = call ptr @pqsignal(i32 noundef 13, ptr noundef %56)
+  %58 = call ptr @pqsignal(i32 noundef 10, ptr noundef @sigUsr1Handler)
+  %59 = inttoptr i64 1 to ptr
+  %60 = call ptr @pqsignal(i32 noundef 12, ptr noundef %59)
+  %61 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
+  %62 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #10
+  %63 = load i64, ptr @first_syslogger_file_time, align 8
+  %64 = call ptr @logfile_getname(i64 noundef %63, ptr noundef null)
+  store ptr %64, ptr @last_sys_file_name, align 8
+  %65 = load ptr, ptr @csvlogFile, align 8
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %70
 
-58:                                               ; preds = %43
-  %59 = load i64, ptr @first_syslogger_file_time, align 8
-  %60 = call ptr @logfile_getname(i64 noundef %59, ptr noundef @.str.3)
-  store ptr %60, ptr @last_csv_file_name, align 8
-  br label %61
+67:                                               ; preds = %45
+  %68 = load i64, ptr @first_syslogger_file_time, align 8
+  %69 = call ptr @logfile_getname(i64 noundef %68, ptr noundef @.str.3)
+  store ptr %69, ptr @last_csv_file_name, align 8
+  br label %70
 
-61:                                               ; preds = %58, %43
-  %62 = load ptr, ptr @jsonlogFile, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %64, label %67
+70:                                               ; preds = %67, %45
+  %71 = load ptr, ptr @jsonlogFile, align 8
+  %72 = icmp ne ptr %71, null
+  br i1 %72, label %73, label %76
 
-64:                                               ; preds = %61
-  %65 = load i64, ptr @first_syslogger_file_time, align 8
-  %66 = call ptr @logfile_getname(i64 noundef %65, ptr noundef @.str.4)
-  store ptr %66, ptr @last_json_file_name, align 8
-  br label %67
+73:                                               ; preds = %70
+  %74 = load i64, ptr @first_syslogger_file_time, align 8
+  %75 = call ptr @logfile_getname(i64 noundef %74, ptr noundef @.str.4)
+  store ptr %75, ptr @last_json_file_name, align 8
+  br label %76
 
-67:                                               ; preds = %64, %61
-  %68 = load ptr, ptr @Log_directory, align 8
-  %69 = call ptr @pstrdup(ptr noundef %68)
-  store ptr %69, ptr %7, align 8
-  %70 = load ptr, ptr @Log_filename, align 8
-  %71 = call ptr @pstrdup(ptr noundef %70)
-  store ptr %71, ptr %8, align 8
-  %72 = load i32, ptr @Log_RotationAge, align 4
-  store i32 %72, ptr %9, align 4
+76:                                               ; preds = %73, %70
+  %77 = load ptr, ptr @Log_directory, align 8
+  %78 = call ptr @pstrdup(ptr noundef %77)
+  store ptr %78, ptr %7, align 8
+  %79 = load ptr, ptr @Log_filename, align 8
+  %80 = call ptr @pstrdup(ptr noundef %79)
+  store ptr %80, ptr %8, align 8
+  %81 = load i32, ptr @Log_RotationAge, align 4
+  store i32 %81, ptr %9, align 4
   call void @set_next_rotation_time()
   call void @update_metainfo_datafile()
   store i32 0, ptr @whereToSendOutput, align 4
-  %73 = call ptr @CreateWaitEventSet(ptr noundef null, i32 noundef 2)
-  store ptr %73, ptr %11, align 8
-  %74 = load ptr, ptr %11, align 8
-  %75 = load ptr, ptr @MyLatch, align 8
-  %76 = call i32 @AddWaitEventToSet(ptr noundef %74, i32 noundef 1, i32 noundef -1, ptr noundef %75, ptr noundef null)
-  %77 = load ptr, ptr %11, align 8
-  %78 = load i32, ptr @syslogPipe, align 4
-  %79 = call i32 @AddWaitEventToSet(ptr noundef %77, i32 noundef 2, i32 noundef %78, ptr noundef null, ptr noundef null)
-  br label %80
+  %82 = call ptr @CreateWaitEventSet(ptr noundef null, i32 noundef 2)
+  store ptr %82, ptr %11, align 8
+  %83 = load ptr, ptr %11, align 8
+  %84 = load ptr, ptr @MyLatch, align 8
+  %85 = call i32 @AddWaitEventToSet(ptr noundef %83, i32 noundef 1, i32 noundef -1, ptr noundef %84, ptr noundef null)
+  %86 = load ptr, ptr %11, align 8
+  %87 = load i32, ptr @syslogPipe, align 4
+  %88 = call i32 @AddWaitEventToSet(ptr noundef %86, i32 noundef 2, i32 noundef %87, ptr noundef null, ptr noundef null)
+  br label %89
 
-80:                                               ; preds = %294, %272, %67
+89:                                               ; preds = %303, %281, %76
   store i8 0, ptr %13, align 1
   store i32 0, ptr %14, align 4
-  %81 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %81)
-  %82 = load volatile i32, ptr @ConfigReloadPending, align 4
-  %83 = icmp ne i32 %82, 0
-  br i1 %83, label %84, label %135
+  %90 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %90)
+  %91 = load volatile i32, ptr @ConfigReloadPending, align 4
+  %92 = icmp ne i32 %91, 0
+  br i1 %92, label %93, label %144
 
-84:                                               ; preds = %80
+93:                                               ; preds = %89
   store volatile i32 0, ptr @ConfigReloadPending, align 4
   call void @ProcessConfigFile(i32 noundef 2)
-  %85 = load ptr, ptr @Log_directory, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = call i32 @strcmp(ptr noundef %85, ptr noundef %86) #13
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %89, label %95
+  %94 = load ptr, ptr @Log_directory, align 8
+  %95 = load ptr, ptr %7, align 8
+  %96 = call i32 @strcmp(ptr noundef %94, ptr noundef %95) #13
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %98, label %104
 
-89:                                               ; preds = %84
-  %90 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %90)
-  %91 = load ptr, ptr @Log_directory, align 8
-  %92 = call ptr @pstrdup(ptr noundef %91)
-  store ptr %92, ptr %7, align 8
+98:                                               ; preds = %93
+  %99 = load ptr, ptr %7, align 8
+  call void @pfree(ptr noundef %99)
+  %100 = load ptr, ptr @Log_directory, align 8
+  %101 = call ptr @pstrdup(ptr noundef %100)
+  store ptr %101, ptr %7, align 8
   store volatile i32 1, ptr @rotation_requested, align 4
-  %93 = load ptr, ptr @Log_directory, align 8
-  %94 = call i32 @MakePGDirectory(ptr noundef %93)
-  br label %95
-
-95:                                               ; preds = %89, %84
-  %96 = load ptr, ptr @Log_filename, align 8
-  %97 = load ptr, ptr %8, align 8
-  %98 = call i32 @strcmp(ptr noundef %96, ptr noundef %97) #13
-  %99 = icmp ne i32 %98, 0
-  br i1 %99, label %100, label %104
-
-100:                                              ; preds = %95
-  %101 = load ptr, ptr %8, align 8
-  call void @pfree(ptr noundef %101)
-  %102 = load ptr, ptr @Log_filename, align 8
-  %103 = call ptr @pstrdup(ptr noundef %102)
-  store ptr %103, ptr %8, align 8
-  store volatile i32 1, ptr @rotation_requested, align 4
+  %102 = load ptr, ptr @Log_directory, align 8
+  %103 = call i32 @MakePGDirectory(ptr noundef %102)
   br label %104
 
-104:                                              ; preds = %100, %95
-  %105 = load i32, ptr @Log_destination, align 4
-  %106 = and i32 %105, 8
-  %107 = icmp ne i32 %106, 0
-  %108 = zext i1 %107 to i32
-  %109 = load ptr, ptr @csvlogFile, align 8
-  %110 = icmp ne ptr %109, null
-  %111 = zext i1 %110 to i32
-  %112 = icmp ne i32 %108, %111
-  br i1 %112, label %113, label %114
+104:                                              ; preds = %98, %93
+  %105 = load ptr, ptr @Log_filename, align 8
+  %106 = load ptr, ptr %8, align 8
+  %107 = call i32 @strcmp(ptr noundef %105, ptr noundef %106) #13
+  %108 = icmp ne i32 %107, 0
+  br i1 %108, label %109, label %113
 
-113:                                              ; preds = %104
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %8, align 8
+  call void @pfree(ptr noundef %110)
+  %111 = load ptr, ptr @Log_filename, align 8
+  %112 = call ptr @pstrdup(ptr noundef %111)
+  store ptr %112, ptr %8, align 8
   store volatile i32 1, ptr @rotation_requested, align 4
-  br label %114
+  br label %113
 
-114:                                              ; preds = %113, %104
-  %115 = load i32, ptr @Log_destination, align 4
-  %116 = and i32 %115, 16
-  %117 = icmp ne i32 %116, 0
-  %118 = zext i1 %117 to i32
-  %119 = load ptr, ptr @jsonlogFile, align 8
-  %120 = icmp ne ptr %119, null
-  %121 = zext i1 %120 to i32
-  %122 = icmp ne i32 %118, %121
-  br i1 %122, label %123, label %124
+113:                                              ; preds = %109, %104
+  %114 = load i32, ptr @Log_destination, align 4
+  %115 = and i32 %114, 8
+  %116 = icmp ne i32 %115, 0
+  %117 = zext i1 %116 to i32
+  %118 = load ptr, ptr @csvlogFile, align 8
+  %119 = icmp ne ptr %118, null
+  %120 = zext i1 %119 to i32
+  %121 = icmp ne i32 %117, %120
+  br i1 %121, label %122, label %123
 
-123:                                              ; preds = %114
+122:                                              ; preds = %113
   store volatile i32 1, ptr @rotation_requested, align 4
-  br label %124
+  br label %123
 
-124:                                              ; preds = %123, %114
-  %125 = load i32, ptr %9, align 4
-  %126 = load i32, ptr @Log_RotationAge, align 4
-  %127 = icmp ne i32 %125, %126
-  br i1 %127, label %128, label %130
+123:                                              ; preds = %122, %113
+  %124 = load i32, ptr @Log_destination, align 4
+  %125 = and i32 %124, 16
+  %126 = icmp ne i32 %125, 0
+  %127 = zext i1 %126 to i32
+  %128 = load ptr, ptr @jsonlogFile, align 8
+  %129 = icmp ne ptr %128, null
+  %130 = zext i1 %129 to i32
+  %131 = icmp ne i32 %127, %130
+  br i1 %131, label %132, label %133
 
-128:                                              ; preds = %124
-  %129 = load i32, ptr @Log_RotationAge, align 4
-  store i32 %129, ptr %9, align 4
+132:                                              ; preds = %123
+  store volatile i32 1, ptr @rotation_requested, align 4
+  br label %133
+
+133:                                              ; preds = %132, %123
+  %134 = load i32, ptr %9, align 4
+  %135 = load i32, ptr @Log_RotationAge, align 4
+  %136 = icmp ne i32 %134, %135
+  br i1 %136, label %137, label %139
+
+137:                                              ; preds = %133
+  %138 = load i32, ptr @Log_RotationAge, align 4
+  store i32 %138, ptr %9, align 4
   call void @set_next_rotation_time()
-  br label %130
+  br label %139
 
-130:                                              ; preds = %128, %124
-  %131 = load i8, ptr @rotation_disabled, align 1
-  %132 = trunc i8 %131 to i1
-  br i1 %132, label %133, label %134
+139:                                              ; preds = %137, %133
+  %140 = load i8, ptr @rotation_disabled, align 1
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %142, label %143
 
-133:                                              ; preds = %130
+142:                                              ; preds = %139
   store i8 0, ptr @rotation_disabled, align 1
   store volatile i32 1, ptr @rotation_requested, align 4
-  br label %134
+  br label %143
 
-134:                                              ; preds = %133, %130
+143:                                              ; preds = %142, %139
   call void @update_metainfo_datafile()
-  br label %135
+  br label %144
 
-135:                                              ; preds = %134, %80
-  %136 = load i32, ptr @Log_RotationAge, align 4
-  %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %138, label %148
+144:                                              ; preds = %143, %89
+  %145 = load i32, ptr @Log_RotationAge, align 4
+  %146 = icmp sgt i32 %145, 0
+  br i1 %146, label %147, label %157
 
-138:                                              ; preds = %135
-  %139 = load i8, ptr @rotation_disabled, align 1
-  %140 = trunc i8 %139 to i1
-  br i1 %140, label %148, label %141
+147:                                              ; preds = %144
+  %148 = load i8, ptr @rotation_disabled, align 1
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %157, label %150
 
-141:                                              ; preds = %138
-  %142 = call i64 @time(ptr noundef null) #10
-  store i64 %142, ptr %10, align 8
-  %143 = load i64, ptr %10, align 8
-  %144 = load i64, ptr @next_rotation_time, align 8
-  %145 = icmp sge i64 %143, %144
-  br i1 %145, label %146, label %147
+150:                                              ; preds = %147
+  %151 = call i64 @time(ptr noundef null) #10
+  store i64 %151, ptr %10, align 8
+  %152 = load i64, ptr %10, align 8
+  %153 = load i64, ptr @next_rotation_time, align 8
+  %154 = icmp sge i64 %152, %153
+  br i1 %154, label %155, label %156
 
-146:                                              ; preds = %141
+155:                                              ; preds = %150
   store i8 1, ptr %13, align 1
   store volatile i32 1, ptr @rotation_requested, align 4
-  br label %147
+  br label %156
 
-147:                                              ; preds = %146, %141
-  br label %148
+156:                                              ; preds = %155, %150
+  br label %157
 
-148:                                              ; preds = %147, %138, %135
-  %149 = load volatile i32, ptr @rotation_requested, align 4
-  %150 = icmp ne i32 %149, 0
-  br i1 %150, label %194, label %151
+157:                                              ; preds = %156, %147, %144
+  %158 = load volatile i32, ptr @rotation_requested, align 4
+  %159 = icmp ne i32 %158, 0
+  br i1 %159, label %203, label %160
 
-151:                                              ; preds = %148
-  %152 = load i32, ptr @Log_RotationSize, align 4
-  %153 = icmp sgt i32 %152, 0
-  br i1 %153, label %154, label %194
+160:                                              ; preds = %157
+  %161 = load i32, ptr @Log_RotationSize, align 4
+  %162 = icmp sgt i32 %161, 0
+  br i1 %162, label %163, label %203
 
-154:                                              ; preds = %151
-  %155 = load i8, ptr @rotation_disabled, align 1
-  %156 = trunc i8 %155 to i1
-  br i1 %156, label %194, label %157
+163:                                              ; preds = %160
+  %164 = load i8, ptr @rotation_disabled, align 1
+  %165 = trunc i8 %164 to i1
+  br i1 %165, label %203, label %166
 
-157:                                              ; preds = %154
-  %158 = load ptr, ptr @syslogFile, align 8
-  %159 = call i64 @ftell(ptr noundef %158)
-  %160 = load i32, ptr @Log_RotationSize, align 4
-  %161 = sext i32 %160 to i64
-  %162 = mul i64 %161, 1024
-  %163 = icmp sge i64 %159, %162
-  br i1 %163, label %164, label %167
+166:                                              ; preds = %163
+  %167 = load ptr, ptr @syslogFile, align 8
+  %168 = call i64 @ftell(ptr noundef %167)
+  %169 = load i32, ptr @Log_RotationSize, align 4
+  %170 = sext i32 %169 to i64
+  %171 = mul i64 %170, 1024
+  %172 = icmp sge i64 %168, %171
+  br i1 %172, label %173, label %176
 
-164:                                              ; preds = %157
+173:                                              ; preds = %166
   store volatile i32 1, ptr @rotation_requested, align 4
-  %165 = load i32, ptr %14, align 4
-  %166 = or i32 %165, 1
-  store i32 %166, ptr %14, align 4
-  br label %167
+  %174 = load i32, ptr %14, align 4
+  %175 = or i32 %174, 1
+  store i32 %175, ptr %14, align 4
+  br label %176
 
-167:                                              ; preds = %164, %157
-  %168 = load ptr, ptr @csvlogFile, align 8
-  %169 = icmp ne ptr %168, null
-  br i1 %169, label %170, label %180
+176:                                              ; preds = %173, %166
+  %177 = load ptr, ptr @csvlogFile, align 8
+  %178 = icmp ne ptr %177, null
+  br i1 %178, label %179, label %189
 
-170:                                              ; preds = %167
-  %171 = load ptr, ptr @csvlogFile, align 8
-  %172 = call i64 @ftell(ptr noundef %171)
-  %173 = load i32, ptr @Log_RotationSize, align 4
-  %174 = sext i32 %173 to i64
-  %175 = mul i64 %174, 1024
-  %176 = icmp sge i64 %172, %175
-  br i1 %176, label %177, label %180
+179:                                              ; preds = %176
+  %180 = load ptr, ptr @csvlogFile, align 8
+  %181 = call i64 @ftell(ptr noundef %180)
+  %182 = load i32, ptr @Log_RotationSize, align 4
+  %183 = sext i32 %182 to i64
+  %184 = mul i64 %183, 1024
+  %185 = icmp sge i64 %181, %184
+  br i1 %185, label %186, label %189
 
-177:                                              ; preds = %170
+186:                                              ; preds = %179
   store volatile i32 1, ptr @rotation_requested, align 4
-  %178 = load i32, ptr %14, align 4
-  %179 = or i32 %178, 8
-  store i32 %179, ptr %14, align 4
-  br label %180
+  %187 = load i32, ptr %14, align 4
+  %188 = or i32 %187, 8
+  store i32 %188, ptr %14, align 4
+  br label %189
 
-180:                                              ; preds = %177, %170, %167
-  %181 = load ptr, ptr @jsonlogFile, align 8
-  %182 = icmp ne ptr %181, null
-  br i1 %182, label %183, label %193
+189:                                              ; preds = %186, %179, %176
+  %190 = load ptr, ptr @jsonlogFile, align 8
+  %191 = icmp ne ptr %190, null
+  br i1 %191, label %192, label %202
 
-183:                                              ; preds = %180
-  %184 = load ptr, ptr @jsonlogFile, align 8
-  %185 = call i64 @ftell(ptr noundef %184)
-  %186 = load i32, ptr @Log_RotationSize, align 4
-  %187 = sext i32 %186 to i64
-  %188 = mul i64 %187, 1024
-  %189 = icmp sge i64 %185, %188
-  br i1 %189, label %190, label %193
+192:                                              ; preds = %189
+  %193 = load ptr, ptr @jsonlogFile, align 8
+  %194 = call i64 @ftell(ptr noundef %193)
+  %195 = load i32, ptr @Log_RotationSize, align 4
+  %196 = sext i32 %195 to i64
+  %197 = mul i64 %196, 1024
+  %198 = icmp sge i64 %194, %197
+  br i1 %198, label %199, label %202
 
-190:                                              ; preds = %183
+199:                                              ; preds = %192
   store volatile i32 1, ptr @rotation_requested, align 4
-  %191 = load i32, ptr %14, align 4
-  %192 = or i32 %191, 16
-  store i32 %192, ptr %14, align 4
-  br label %193
+  %200 = load i32, ptr %14, align 4
+  %201 = or i32 %200, 16
+  store i32 %201, ptr %14, align 4
+  br label %202
 
-193:                                              ; preds = %190, %183, %180
-  br label %194
+202:                                              ; preds = %199, %192, %189
+  br label %203
 
-194:                                              ; preds = %193, %154, %151, %148
-  %195 = load volatile i32, ptr @rotation_requested, align 4
-  %196 = icmp ne i32 %195, 0
-  br i1 %196, label %197, label %208
+203:                                              ; preds = %202, %163, %160, %157
+  %204 = load volatile i32, ptr @rotation_requested, align 4
+  %205 = icmp ne i32 %204, 0
+  br i1 %205, label %206, label %217
 
-197:                                              ; preds = %194
-  %198 = load i8, ptr %13, align 1
-  %199 = trunc i8 %198 to i1
-  br i1 %199, label %204, label %200
+206:                                              ; preds = %203
+  %207 = load i8, ptr %13, align 1
+  %208 = trunc i8 %207 to i1
+  br i1 %208, label %213, label %209
 
-200:                                              ; preds = %197
-  %201 = load i32, ptr %14, align 4
-  %202 = icmp eq i32 %201, 0
-  br i1 %202, label %203, label %204
+209:                                              ; preds = %206
+  %210 = load i32, ptr %14, align 4
+  %211 = icmp eq i32 %210, 0
+  br i1 %211, label %212, label %213
 
-203:                                              ; preds = %200
+212:                                              ; preds = %209
   store i32 25, ptr %14, align 4
-  br label %204
+  br label %213
 
-204:                                              ; preds = %203, %200, %197
-  %205 = load i8, ptr %13, align 1
-  %206 = trunc i8 %205 to i1
-  %207 = load i32, ptr %14, align 4
-  call void @logfile_rotate(i1 noundef zeroext %206, i32 noundef %207)
-  br label %208
+213:                                              ; preds = %212, %209, %206
+  %214 = load i8, ptr %13, align 1
+  %215 = trunc i8 %214 to i1
+  %216 = load i32, ptr %14, align 4
+  call void @logfile_rotate(i1 noundef zeroext %215, i32 noundef %216)
+  br label %217
 
-208:                                              ; preds = %204, %194
-  %209 = load i32, ptr @Log_RotationAge, align 4
-  %210 = icmp sgt i32 %209, 0
-  br i1 %210, label %211, label %229
+217:                                              ; preds = %213, %203
+  %218 = load i32, ptr @Log_RotationAge, align 4
+  %219 = icmp sgt i32 %218, 0
+  br i1 %219, label %220, label %238
 
-211:                                              ; preds = %208
-  %212 = load i8, ptr @rotation_disabled, align 1
-  %213 = trunc i8 %212 to i1
-  br i1 %213, label %229, label %214
-
-214:                                              ; preds = %211
-  %215 = load i64, ptr @next_rotation_time, align 8
-  %216 = load i64, ptr %10, align 8
-  %217 = sub i64 %215, %216
-  store i64 %217, ptr %18, align 8
-  %218 = load i64, ptr %18, align 8
-  %219 = icmp sgt i64 %218, 0
-  br i1 %219, label %220, label %227
-
-220:                                              ; preds = %214
-  %221 = load i64, ptr %18, align 8
-  %222 = icmp sgt i64 %221, 2147483
-  br i1 %222, label %223, label %224
+220:                                              ; preds = %217
+  %221 = load i8, ptr @rotation_disabled, align 1
+  %222 = trunc i8 %221 to i1
+  br i1 %222, label %238, label %223
 
 223:                                              ; preds = %220
+  %224 = load i64, ptr @next_rotation_time, align 8
+  %225 = load i64, ptr %10, align 8
+  %226 = sub i64 %224, %225
+  store i64 %226, ptr %18, align 8
+  %227 = load i64, ptr %18, align 8
+  %228 = icmp sgt i64 %227, 0
+  br i1 %228, label %229, label %236
+
+229:                                              ; preds = %223
+  %230 = load i64, ptr %18, align 8
+  %231 = icmp sgt i64 %230, 2147483
+  br i1 %231, label %232, label %233
+
+232:                                              ; preds = %229
   store i64 2147483, ptr %18, align 8
-  br label %224
+  br label %233
 
-224:                                              ; preds = %223, %220
-  %225 = load i64, ptr %18, align 8
-  %226 = mul i64 %225, 1000
-  store i64 %226, ptr %15, align 8
-  br label %228
+233:                                              ; preds = %232, %229
+  %234 = load i64, ptr %18, align 8
+  %235 = mul i64 %234, 1000
+  store i64 %235, ptr %15, align 8
+  br label %237
 
-227:                                              ; preds = %214
+236:                                              ; preds = %223
   store i64 0, ptr %15, align 8
-  br label %228
+  br label %237
 
-228:                                              ; preds = %227, %224
-  br label %230
+237:                                              ; preds = %236, %233
+  br label %239
 
-229:                                              ; preds = %211, %208
+238:                                              ; preds = %220, %217
   store i64 -1, ptr %15, align 8
-  br label %230
+  br label %239
 
-230:                                              ; preds = %229, %228
-  %231 = load ptr, ptr %11, align 8
-  %232 = load i64, ptr %15, align 8
-  %233 = call i32 @WaitEventSetWait(ptr noundef %231, i64 noundef %232, ptr noundef %16, i32 noundef 1, i32 noundef 83886091)
-  store i32 %233, ptr %17, align 4
-  %234 = load i32, ptr %17, align 4
-  %235 = icmp eq i32 %234, 1
-  br i1 %235, label %236, label %281
+239:                                              ; preds = %238, %237
+  %240 = load ptr, ptr %11, align 8
+  %241 = load i64, ptr %15, align 8
+  %242 = call i32 @WaitEventSetWait(ptr noundef %240, i64 noundef %241, ptr noundef %16, i32 noundef 1, i32 noundef 83886091)
+  store i32 %242, ptr %17, align 4
+  %243 = load i32, ptr %17, align 4
+  %244 = icmp eq i32 %243, 1
+  br i1 %244, label %245, label %290
 
-236:                                              ; preds = %230
-  %237 = getelementptr inbounds %struct.WaitEvent, ptr %16, i32 0, i32 1
-  %238 = load i32, ptr %237, align 4
-  %239 = icmp eq i32 %238, 2
-  br i1 %239, label %240, label %281
+245:                                              ; preds = %239
+  %246 = getelementptr inbounds %struct.WaitEvent, ptr %16, i32 0, i32 1
+  %247 = load i32, ptr %246, align 4
+  %248 = icmp eq i32 %247, 2
+  br i1 %248, label %249, label %290
 
-240:                                              ; preds = %236
-  %241 = load i32, ptr @syslogPipe, align 4
-  %242 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 0
-  %243 = load i32, ptr %6, align 4
-  %244 = sext i32 %243 to i64
-  %245 = getelementptr i8, ptr %242, i64 %244
-  %246 = load i32, ptr %6, align 4
-  %247 = sext i32 %246 to i64
-  %248 = sub i64 8192, %247
-  %249 = call i64 @read(i32 noundef %241, ptr noundef %245, i64 noundef %248)
-  %250 = trunc i64 %249 to i32
-  store i32 %250, ptr %19, align 4
-  %251 = load i32, ptr %19, align 4
-  %252 = icmp slt i32 %251, 0
-  br i1 %252, label %253, label %269
+249:                                              ; preds = %245
+  %250 = load i32, ptr @syslogPipe, align 4
+  %251 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 0
+  %252 = load i32, ptr %6, align 4
+  %253 = sext i32 %252 to i64
+  %254 = getelementptr i8, ptr %251, i64 %253
+  %255 = load i32, ptr %6, align 4
+  %256 = sext i32 %255 to i64
+  %257 = sub i64 8192, %256
+  %258 = call i64 @read(i32 noundef %250, ptr noundef %254, i64 noundef %257)
+  %259 = trunc i64 %258 to i32
+  store i32 %259, ptr %19, align 4
+  %260 = load i32, ptr %19, align 4
+  %261 = icmp slt i32 %260, 0
+  br i1 %261, label %262, label %278
 
-253:                                              ; preds = %240
-  %254 = call ptr @__errno_location() #14
-  %255 = load i32, ptr %254, align 4
-  %256 = icmp ne i32 %255, 4
-  br i1 %256, label %257, label %268
+262:                                              ; preds = %249
+  %263 = call ptr @__errno_location() #14
+  %264 = load i32, ptr %263, align 4
+  %265 = icmp ne i32 %264, 4
+  br i1 %265, label %266, label %277
 
-257:                                              ; preds = %253
-  br label %258
-
-258:                                              ; preds = %257
-  br i1 false, label %259, label %261
-
-259:                                              ; preds = %258
-  %260 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %260, label %263, label %266
-
-261:                                              ; preds = %258
-  %262 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %262, label %263, label %266
-
-263:                                              ; preds = %261, %259
-  %264 = call i32 @errcode_for_socket_access()
-  %265 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.13)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 501, ptr noundef @__func__.SysLoggerMain)
-  br label %266
-
-266:                                              ; preds = %263, %261, %259
+266:                                              ; preds = %262
   br label %267
 
 267:                                              ; preds = %266
-  br label %268
+  br i1 false, label %268, label %270
 
-268:                                              ; preds = %267, %253
-  br label %280
+268:                                              ; preds = %267
+  %269 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
+  br i1 %269, label %272, label %275
 
-269:                                              ; preds = %240
-  %270 = load i32, ptr %19, align 4
-  %271 = icmp sgt i32 %270, 0
-  br i1 %271, label %272, label %277
+270:                                              ; preds = %267
+  %271 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %271, label %272, label %275
 
-272:                                              ; preds = %269
-  %273 = load i32, ptr %19, align 4
-  %274 = load i32, ptr %6, align 4
-  %275 = add i32 %274, %273
-  store i32 %275, ptr %6, align 4
-  %276 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 0
-  call void @process_pipe_input(ptr noundef %276, ptr noundef %6)
-  br label %80
+272:                                              ; preds = %270, %268
+  %273 = call i32 @errcode_for_socket_access()
+  %274 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.13)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 501, ptr noundef @__func__.SysLoggerMain)
+  br label %275
 
-277:                                              ; preds = %269
+275:                                              ; preds = %272, %270, %268
+  br label %276
+
+276:                                              ; preds = %275
+  br label %277
+
+277:                                              ; preds = %276, %262
+  br label %289
+
+278:                                              ; preds = %249
+  %279 = load i32, ptr %19, align 4
+  %280 = icmp sgt i32 %279, 0
+  br i1 %280, label %281, label %286
+
+281:                                              ; preds = %278
+  %282 = load i32, ptr %19, align 4
+  %283 = load i32, ptr %6, align 4
+  %284 = add i32 %283, %282
+  store i32 %284, ptr %6, align 4
+  %285 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 0
+  call void @process_pipe_input(ptr noundef %285, ptr noundef %6)
+  br label %89
+
+286:                                              ; preds = %278
   store i8 1, ptr @pipe_eof_seen, align 1
-  %278 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 0
-  call void @flush_pipe_input(ptr noundef %278, ptr noundef %6)
-  br label %279
+  %287 = getelementptr inbounds [8192 x i8], ptr %5, i64 0, i64 0
+  call void @flush_pipe_input(ptr noundef %287, ptr noundef %6)
+  br label %288
 
-279:                                              ; preds = %277
-  br label %280
+288:                                              ; preds = %286
+  br label %289
 
-280:                                              ; preds = %279, %268
-  br label %281
+289:                                              ; preds = %288, %277
+  br label %290
 
-281:                                              ; preds = %280, %236, %230
-  %282 = load i8, ptr @pipe_eof_seen, align 1
-  %283 = trunc i8 %282 to i1
-  br i1 %283, label %284, label %294
+290:                                              ; preds = %289, %245, %239
+  %291 = load i8, ptr @pipe_eof_seen, align 1
+  %292 = trunc i8 %291 to i1
+  br i1 %292, label %293, label %303
 
-284:                                              ; preds = %281
-  br label %285
+293:                                              ; preds = %290
+  br label %294
 
-285:                                              ; preds = %284
-  br i1 false, label %286, label %288
+294:                                              ; preds = %293
+  br i1 false, label %295, label %297
 
-286:                                              ; preds = %285
-  %287 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #11
-  br i1 %287, label %290, label %292
+295:                                              ; preds = %294
+  %296 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #11
+  br i1 %296, label %299, label %301
 
-288:                                              ; preds = %285
-  %289 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null)
-  br i1 %289, label %290, label %292
+297:                                              ; preds = %294
+  %298 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null)
+  br i1 %298, label %299, label %301
 
-290:                                              ; preds = %288, %286
-  %291 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.14)
+299:                                              ; preds = %297, %295
+  %300 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.14)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 549, ptr noundef @__func__.SysLoggerMain)
-  br label %292
+  br label %301
 
-292:                                              ; preds = %290, %288, %286
-  br label %293
+301:                                              ; preds = %299, %297, %295
+  br label %302
 
-293:                                              ; preds = %292
+302:                                              ; preds = %301
   call void @proc_exit(i32 noundef 0) #12
   unreachable
 
-294:                                              ; preds = %281
-  br label %80
+303:                                              ; preds = %290
+  br label %89
 }
 
 declare i32 @errhint(ptr noundef, ...) #3

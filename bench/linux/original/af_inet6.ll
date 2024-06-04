@@ -1030,17 +1030,17 @@ define dso_local i32 @inet6_recvmsg(ptr nocapture noundef readonly %0, ptr nound
   store i32 0, ptr %5, align 4
   %8 = and i32 %3, 8192
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %37, !prof !12
+  br i1 %9, label %10, label %38, !prof !12
 
 10:                                               ; preds = %4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @rfs_needed, i32 2) #15
-          to label %37 [label %11], !srcloc !21
+          to label %38 [label %11], !srcloc !21
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds i8, ptr %7, i64 18
   %13 = load volatile i8, ptr %12, align 2
   %14 = icmp eq i8 %13, 1
-  br i1 %14, label %15, label %37
+  br i1 %14, label %15, label %38
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %7, i64 132
@@ -1050,7 +1050,7 @@ define dso_local i32 @inet6_recvmsg(ptr nocapture noundef readonly %0, ptr nound
   %19 = icmp ne ptr %18, null
   %20 = icmp ne i32 %17, 0
   %21 = and i1 %20, %19
-  br i1 %21, label %22, label %36
+  br i1 %21, label %22, label %37
 
 22:                                               ; preds = %15
   %23 = load i32, ptr %18, align 64
@@ -1058,61 +1058,62 @@ define dso_local i32 @inet6_recvmsg(ptr nocapture noundef readonly %0, ptr nound
   %25 = load i32, ptr @rps_cpu_mask, align 4
   %26 = xor i32 %25, -1
   %27 = and i32 %17, %26
-  %28 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #15, !srcloc !22
-  %29 = or i32 %27, %28
-  %30 = getelementptr inbounds i8, ptr %18, i64 64
-  %31 = zext i32 %24 to i64
-  %32 = getelementptr [0 x i32], ptr %30, i64 0, i64 %31
-  %33 = load volatile i32, ptr %32, align 4
-  %34 = icmp eq i32 %33, %29
-  br i1 %34, label %36, label %35
+  %28 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %29 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %28) #15, !srcloc !22
+  %30 = or i32 %27, %29
+  %31 = getelementptr inbounds i8, ptr %18, i64 64
+  %32 = zext i32 %24 to i64
+  %33 = getelementptr [0 x i32], ptr %31, i64 0, i64 %32
+  %34 = load volatile i32, ptr %33, align 4
+  %35 = icmp eq i32 %34, %30
+  br i1 %35, label %37, label %36
 
-35:                                               ; preds = %22
-  store volatile i32 %29, ptr %32, align 4
-  br label %36
-
-36:                                               ; preds = %35, %22, %15
-  tail call void @__rcu_read_unlock() #15
+36:                                               ; preds = %22
+  store volatile i32 %30, ptr %33, align 4
   br label %37
 
-37:                                               ; preds = %36, %11, %10, %4
-  %38 = getelementptr inbounds i8, ptr %7, i64 40
-  %39 = load volatile ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 112
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, @tcp_recvmsg
-  br i1 %42, label %43, label %45, !prof !12
+37:                                               ; preds = %36, %22, %15
+  tail call void @__rcu_read_unlock() #15
+  br label %38
 
-43:                                               ; preds = %37
-  %44 = call i32 @tcp_recvmsg(ptr noundef %7, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %5) #15
-  br label %51
+38:                                               ; preds = %37, %11, %10, %4
+  %39 = getelementptr inbounds i8, ptr %7, i64 40
+  %40 = load volatile ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 112
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, @tcp_recvmsg
+  br i1 %43, label %44, label %46, !prof !12
 
-45:                                               ; preds = %37
-  %46 = icmp eq ptr %41, @udpv6_recvmsg
-  br i1 %46, label %47, label %49, !prof !12
+44:                                               ; preds = %38
+  %45 = call i32 @tcp_recvmsg(ptr noundef %7, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %5) #15
+  br label %52
 
-47:                                               ; preds = %45
-  %48 = call i32 @udpv6_recvmsg(ptr noundef %7, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %5) #15
-  br label %51
+46:                                               ; preds = %38
+  %47 = icmp eq ptr %42, @udpv6_recvmsg
+  br i1 %47, label %48, label %50, !prof !12
 
-49:                                               ; preds = %45
-  %50 = call i32 %41(ptr noundef %7, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %5) #15
-  br label %51
+48:                                               ; preds = %46
+  %49 = call i32 @udpv6_recvmsg(ptr noundef %7, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %5) #15
+  br label %52
 
-51:                                               ; preds = %49, %47, %43
-  %52 = phi i32 [ %44, %43 ], [ %48, %47 ], [ %50, %49 ]
-  %53 = icmp sgt i32 %52, -1
-  br i1 %53, label %54, label %57
+50:                                               ; preds = %46
+  %51 = call i32 %42(ptr noundef %7, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %5) #15
+  br label %52
 
-54:                                               ; preds = %51
-  %55 = load i32, ptr %5, align 4
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %55, ptr %56, align 8
-  br label %57
+52:                                               ; preds = %50, %48, %44
+  %53 = phi i32 [ %45, %44 ], [ %49, %48 ], [ %51, %50 ]
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %55, label %58
 
-57:                                               ; preds = %54, %51
+55:                                               ; preds = %52
+  %56 = load i32, ptr %5, align 4
+  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %56, ptr %57, align 8
+  br label %58
+
+58:                                               ; preds = %55, %52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  ret i32 %52
+  ret i32 %53
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1285,7 +1286,7 @@ define dso_local void @inet6_unregister_protosw(ptr nocapture noundef %0) #1 ali
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %9) #16
-  br label %16
+  br label %17
 
 11:                                               ; preds = %1
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @inetsw6_lock) #15
@@ -1295,12 +1296,13 @@ define dso_local void @inet6_unregister_protosw(ptr nocapture noundef %0) #1 ali
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %13, ptr %15, align 8
   store volatile ptr %14, ptr %13, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %12, align 8
+  %16 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %16, ptr %12, align 8
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @inetsw6_lock) #15
   tail call void @synchronize_net() #15
-  br label %16
+  br label %17
 
-16:                                               ; preds = %11, %6
+17:                                               ; preds = %11, %6
   ret void
 }
 
@@ -1330,7 +1332,7 @@ define dso_local i32 @inet6_sk_rebuild_header(ptr noundef %0) #1 align 16 {
   %16 = load i32, ptr %15, align 8
   %17 = tail call ptr @__sk_dst_check(ptr noundef %0, i32 noundef %16) #15
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %90
+  br i1 %18, label %19, label %91
 
 19:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
@@ -1379,84 +1381,85 @@ define dso_local i32 @inet6_sk_rebuild_header(ptr noundef %0) #1 align 16 {
   %47 = getelementptr inbounds i8, ptr %0, i64 48
   %48 = load ptr, ptr %47, align 8
   %49 = call ptr @ip6_dst_lookup_flow(ptr noundef %48, ptr noundef %0, ptr noundef nonnull %3, ptr noundef %46) #15
-  %50 = icmp ugt ptr %49, inttoptr (i64 -4096 to ptr)
-  br i1 %50, label %51, label %57
+  %50 = inttoptr i64 -4096 to ptr
+  %51 = icmp ugt ptr %49, %50
+  br i1 %51, label %52, label %58
 
-51:                                               ; preds = %19
-  %52 = getelementptr inbounds i8, ptr %0, i64 488
-  store i64 0, ptr %52, align 8
-  %53 = ptrtoint ptr %49 to i64
-  %54 = trunc i64 %53 to i32
-  %55 = sub i32 0, %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 548
-  store volatile i32 %55, ptr %56, align 4
-  br label %88
+52:                                               ; preds = %19
+  %53 = getelementptr inbounds i8, ptr %0, i64 488
+  store i64 0, ptr %53, align 8
+  %54 = ptrtoint ptr %49 to i64
+  %55 = trunc i64 %54 to i32
+  %56 = sub i32 0, %55
+  %57 = getelementptr inbounds i8, ptr %0, i64 548
+  store volatile i32 %56, ptr %57, align 4
+  br label %89
 
-57:                                               ; preds = %19
-  %58 = load volatile i8, ptr %4, align 2
-  %59 = zext nneg i8 %58 to i32
-  %60 = shl nuw i32 1, %59
-  %61 = and i32 %60, -4161
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %66, label %63
+58:                                               ; preds = %19
+  %59 = load volatile i8, ptr %4, align 2
+  %60 = zext nneg i8 %59 to i32
+  %61 = shl nuw i32 1, %60
+  %62 = and i32 %61, -4161
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %67, label %64
 
-63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %0, i64 744
-  %65 = load ptr, ptr %64, align 8
-  br label %66
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds i8, ptr %0, i64 744
+  %66 = load ptr, ptr %65, align 8
+  br label %67
 
-66:                                               ; preds = %63, %57
-  %67 = phi ptr [ %65, %63 ], [ null, %57 ]
-  %68 = getelementptr inbounds i8, ptr %49, i64 144
-  %69 = load i32, ptr %68, align 8
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %84
+67:                                               ; preds = %64, %58
+  %68 = phi ptr [ %66, %64 ], [ null, %58 ]
+  %69 = getelementptr inbounds i8, ptr %49, i64 144
+  %70 = load i32, ptr %69, align 8
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %85
 
-71:                                               ; preds = %66
+72:                                               ; preds = %67
   call void @__rcu_read_lock() #15
-  %72 = getelementptr inbounds i8, ptr %49, i64 136
-  %73 = load volatile ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %82, label %75
+  %73 = getelementptr inbounds i8, ptr %49, i64 136
+  %74 = load volatile ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %83, label %76
 
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %73, i64 16
-  %77 = load volatile ptr, ptr %76, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %82, label %79
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds i8, ptr %74, i64 16
+  %78 = load volatile ptr, ptr %77, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %83, label %80
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %77, i64 36
-  %81 = load volatile i32, ptr %80, align 4
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds i8, ptr %78, i64 36
+  %82 = load volatile i32, ptr %81, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !27
-  br label %82
+  br label %83
 
-82:                                               ; preds = %79, %75, %71
-  %83 = phi i32 [ 0, %71 ], [ %81, %79 ], [ 0, %75 ]
+83:                                               ; preds = %80, %76, %72
+  %84 = phi i32 [ 0, %72 ], [ %82, %80 ], [ 0, %76 ]
   call void @__rcu_read_unlock() #15
-  br label %84
+  br label %85
 
-84:                                               ; preds = %82, %66
-  %85 = phi i32 [ %83, %82 ], [ %69, %66 ]
-  %86 = getelementptr inbounds i8, ptr %67, i64 80
-  store i32 %85, ptr %86, align 8
+85:                                               ; preds = %83, %67
+  %86 = phi i32 [ %84, %83 ], [ %70, %67 ]
+  %87 = getelementptr inbounds i8, ptr %68, i64 80
+  store i32 %86, ptr %87, align 8
   call void @sk_setup_caps(ptr noundef %0, ptr noundef %49) #15
-  %87 = getelementptr inbounds i8, ptr %67, i64 40
-  store ptr null, ptr %87, align 8
-  br label %88
+  %88 = getelementptr inbounds i8, ptr %68, i64 40
+  store ptr null, ptr %88, align 8
+  br label %89
 
-88:                                               ; preds = %84, %51
-  %89 = phi i32 [ %54, %51 ], [ undef, %84 ]
+89:                                               ; preds = %85, %52
+  %90 = phi i32 [ %55, %52 ], [ undef, %85 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
-  br i1 %50, label %91, label %90
+  br i1 %51, label %92, label %91
 
-90:                                               ; preds = %88, %13
-  br label %91
+91:                                               ; preds = %89, %13
+  br label %92
 
-91:                                               ; preds = %90, %88
-  %92 = phi i32 [ 0, %90 ], [ %89, %88 ]
-  ret i32 %92
+92:                                               ; preds = %91, %89
+  %93 = phi i32 [ 0, %91 ], [ %90, %89 ]
+  ret i32 %93
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1565,356 +1568,358 @@ define internal i32 @inet6_init() #8 section ".init.text" align 16 {
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store volatile ptr %2, ptr %3, align 8
   %4 = getelementptr i8, ptr %2, i64 16
-  %5 = icmp ult ptr %4, getelementptr inbounds ([11 x %struct.list_head], ptr @inetsw6, i64 1, i64 0)
-  br i1 %5, label %1, label %6, !llvm.loop !28
+  %5 = getelementptr inbounds [11 x %struct.list_head], ptr @inetsw6, i64 1, i64 0
+  %6 = icmp ult ptr %4, %5
+  br i1 %6, label %1, label %7, !llvm.loop !28
 
-6:                                                ; preds = %1
+7:                                                ; preds = %1
   store i32 0, ptr @raw_v6_hashinfo, align 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(2048) getelementptr inbounds (%struct.raw_hashinfo, ptr @raw_v6_hashinfo, i64 0, i32 2, i64 0, i32 0), i8 0, i64 2048, i1 false)
-  %7 = load i32, ptr @disable_ipv6_mod, align 4
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %11, label %9
+  %8 = getelementptr inbounds %struct.raw_hashinfo, ptr @raw_v6_hashinfo, i64 0, i32 2, i64 0, i32 0
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(2048) %8, i8 0, i64 2048, i1 false)
+  %9 = load i32, ptr @disable_ipv6_mod, align 4
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %13, label %11
 
-9:                                                ; preds = %6
-  %10 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #16
-  br label %111
+11:                                               ; preds = %7
+  %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #16
+  br label %113
 
-11:                                               ; preds = %6
-  %12 = tail call i32 @proto_register(ptr noundef nonnull @tcpv6_prot, i32 noundef 1) #15
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %111
+13:                                               ; preds = %7
+  %14 = tail call i32 @proto_register(ptr noundef nonnull @tcpv6_prot, i32 noundef 1) #15
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %113
 
-14:                                               ; preds = %11
-  %15 = tail call i32 @proto_register(ptr noundef nonnull @udpv6_prot, i32 noundef 1) #15
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %175
+16:                                               ; preds = %13
+  %17 = tail call i32 @proto_register(ptr noundef nonnull @udpv6_prot, i32 noundef 1) #15
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %177
 
-17:                                               ; preds = %14
-  %18 = tail call i32 @proto_register(ptr noundef nonnull @udplitev6_prot, i32 noundef 1) #15
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %173
+19:                                               ; preds = %16
+  %20 = tail call i32 @proto_register(ptr noundef nonnull @udplitev6_prot, i32 noundef 1) #15
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %175
 
-20:                                               ; preds = %17
-  %21 = tail call i32 @proto_register(ptr noundef nonnull @rawv6_prot, i32 noundef 1) #15
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %171
+22:                                               ; preds = %19
+  %23 = tail call i32 @proto_register(ptr noundef nonnull @rawv6_prot, i32 noundef 1) #15
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %173
 
-23:                                               ; preds = %20
-  %24 = tail call i32 @proto_register(ptr noundef nonnull @pingv6_prot, i32 noundef 1) #15
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %169
+25:                                               ; preds = %22
+  %26 = tail call i32 @proto_register(ptr noundef nonnull @pingv6_prot, i32 noundef 1) #15
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %171
 
-26:                                               ; preds = %23
-  %27 = tail call i32 @rawv6_init() #15
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %167
+28:                                               ; preds = %25
+  %29 = tail call i32 @rawv6_init() #15
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %169
 
-29:                                               ; preds = %26
-  %30 = tail call i32 @sock_register(ptr noundef nonnull @inet6_family_ops) #15
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %165
+31:                                               ; preds = %28
+  %32 = tail call i32 @sock_register(ptr noundef nonnull @inet6_family_ops) #15
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %167
 
-32:                                               ; preds = %29
-  %33 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @inet6_net_ops) #15
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %163
+34:                                               ; preds = %31
+  %35 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @inet6_net_ops) #15
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %165
 
-35:                                               ; preds = %32
-  %36 = tail call i32 @icmpv6_init() #15
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %161
+37:                                               ; preds = %34
+  %38 = tail call i32 @icmpv6_init() #15
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %163
 
-38:                                               ; preds = %35
-  %39 = tail call i32 @ndisc_init() #15
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %159
+40:                                               ; preds = %37
+  %41 = tail call i32 @ndisc_init() #15
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %161
 
-41:                                               ; preds = %38
-  %42 = tail call i32 @igmp6_init() #15
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %157
+43:                                               ; preds = %40
+  %44 = tail call i32 @igmp6_init() #15
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %159
 
-44:                                               ; preds = %41
-  %45 = tail call i32 @ipv6_netfilter_init() #15
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %155
+46:                                               ; preds = %43
+  %47 = tail call i32 @ipv6_netfilter_init() #15
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %157
 
-47:                                               ; preds = %44
-  %48 = tail call i32 @raw6_proc_init() #15
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %153
+49:                                               ; preds = %46
+  %50 = tail call i32 @raw6_proc_init() #15
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %155
 
-50:                                               ; preds = %47
-  %51 = tail call i32 @udplite6_proc_init() #15
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %151
+52:                                               ; preds = %49
+  %53 = tail call i32 @udplite6_proc_init() #15
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %153
 
-53:                                               ; preds = %50
-  %54 = tail call i32 @ipv6_misc_proc_init() #15
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %149
+55:                                               ; preds = %52
+  %56 = tail call i32 @ipv6_misc_proc_init() #15
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %151
 
-56:                                               ; preds = %53
-  %57 = tail call i32 @if6_proc_init() #15
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %147
+58:                                               ; preds = %55
+  %59 = tail call i32 @if6_proc_init() #15
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %149
 
-59:                                               ; preds = %56
-  %60 = tail call i32 @ip6_route_init() #15
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %145
+61:                                               ; preds = %58
+  %62 = tail call i32 @ip6_route_init() #15
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %147
 
-62:                                               ; preds = %59
-  %63 = tail call i32 @ndisc_late_init() #15
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %143
+64:                                               ; preds = %61
+  %65 = tail call i32 @ndisc_late_init() #15
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %145
 
-65:                                               ; preds = %62
-  %66 = tail call i32 @ip6_flowlabel_init() #15
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %141
+67:                                               ; preds = %64
+  %68 = tail call i32 @ip6_flowlabel_init() #15
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %143
 
-68:                                               ; preds = %65
-  %69 = tail call i32 @ipv6_anycast_init() #15
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %139
+70:                                               ; preds = %67
+  %71 = tail call i32 @ipv6_anycast_init() #15
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %141
 
-71:                                               ; preds = %68
-  %72 = tail call i32 @addrconf_init() #15
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %137
+73:                                               ; preds = %70
+  %74 = tail call i32 @addrconf_init() #15
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %139
 
-74:                                               ; preds = %71
-  %75 = tail call i32 @ipv6_exthdrs_init() #15
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %135
+76:                                               ; preds = %73
+  %77 = tail call i32 @ipv6_exthdrs_init() #15
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %137
 
-77:                                               ; preds = %74
-  %78 = tail call i32 @ipv6_frag_init() #15
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %133
+79:                                               ; preds = %76
+  %80 = tail call i32 @ipv6_frag_init() #15
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %135
 
-80:                                               ; preds = %77
-  %81 = tail call i32 @udpv6_init() #15
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %131
+82:                                               ; preds = %79
+  %83 = tail call i32 @udpv6_init() #15
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %133
 
-83:                                               ; preds = %80
-  %84 = tail call i32 @udplitev6_init() #15
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %129
+85:                                               ; preds = %82
+  %86 = tail call i32 @udplitev6_init() #15
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %131
 
-86:                                               ; preds = %83
-  %87 = tail call i32 @udpv6_offload_init() #15
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %127
+88:                                               ; preds = %85
+  %89 = tail call i32 @udpv6_offload_init() #15
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %91, label %129
 
-89:                                               ; preds = %86
-  %90 = tail call i32 @tcpv6_init() #15
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %124
+91:                                               ; preds = %88
+  %92 = tail call i32 @tcpv6_init() #15
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %126
 
-92:                                               ; preds = %89
+94:                                               ; preds = %91
   tail call void @dev_add_pack(ptr noundef nonnull @ipv6_packet_type) #15
-  %93 = tail call i32 @pingv6_init() #16
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %122
+  %95 = tail call i32 @pingv6_init() #16
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %97, label %124
 
-95:                                               ; preds = %92
-  %96 = tail call i32 @calipso_init() #16
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %120
+97:                                               ; preds = %94
+  %98 = tail call i32 @calipso_init() #16
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %122
 
-98:                                               ; preds = %95
-  %99 = tail call i32 @seg6_init() #15
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %118
+100:                                              ; preds = %97
+  %101 = tail call i32 @seg6_init() #15
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %120
 
-101:                                              ; preds = %98
-  %102 = tail call i32 @ioam6_init() #15
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %116
+103:                                              ; preds = %100
+  %104 = tail call i32 @ioam6_init() #15
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %118
 
-104:                                              ; preds = %101
-  %105 = tail call i32 @igmp6_late_init() #15
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %114
+106:                                              ; preds = %103
+  %107 = tail call i32 @igmp6_late_init() #15
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %116
 
-107:                                              ; preds = %104
-  %108 = tail call i32 @ipv6_sysctl_register() #15
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %113
+109:                                              ; preds = %106
+  %110 = tail call i32 @ipv6_sysctl_register() #15
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %115
 
-110:                                              ; preds = %107
+112:                                              ; preds = %109
   tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !29
   store ptr @ipv6_stub_impl, ptr @ipv6_stub, align 8
   store ptr @ipv6_bpf_stub_impl, ptr @ipv6_bpf_stub, align 8
-  br label %111
+  br label %113
 
-111:                                              ; preds = %175, %110, %11, %9
-  %112 = phi i32 [ 0, %9 ], [ %12, %11 ], [ %176, %175 ], [ 0, %110 ]
-  ret i32 %112
+113:                                              ; preds = %177, %112, %13, %11
+  %114 = phi i32 [ 0, %11 ], [ %14, %13 ], [ %178, %177 ], [ 0, %112 ]
+  ret i32 %114
 
-113:                                              ; preds = %107
+115:                                              ; preds = %109
   tail call void @igmp6_late_cleanup() #15
-  br label %114
-
-114:                                              ; preds = %113, %104
-  %115 = phi i32 [ %105, %104 ], [ %108, %113 ]
-  tail call void @ioam6_exit() #15
   br label %116
 
-116:                                              ; preds = %114, %101
-  %117 = phi i32 [ %102, %101 ], [ %115, %114 ]
-  tail call void @seg6_exit() #15
+116:                                              ; preds = %115, %106
+  %117 = phi i32 [ %107, %106 ], [ %110, %115 ]
+  tail call void @ioam6_exit() #15
   br label %118
 
-118:                                              ; preds = %116, %98
-  %119 = phi i32 [ %99, %98 ], [ %117, %116 ]
-  tail call void @calipso_exit() #15
+118:                                              ; preds = %116, %103
+  %119 = phi i32 [ %104, %103 ], [ %117, %116 ]
+  tail call void @seg6_exit() #15
   br label %120
 
-120:                                              ; preds = %118, %95
-  %121 = phi i32 [ %96, %95 ], [ %119, %118 ]
-  tail call void @pingv6_exit() #15
+120:                                              ; preds = %118, %100
+  %121 = phi i32 [ %101, %100 ], [ %119, %118 ]
+  tail call void @calipso_exit() #15
   br label %122
 
-122:                                              ; preds = %120, %92
-  %123 = phi i32 [ %93, %92 ], [ %121, %120 ]
-  tail call void @dev_remove_pack(ptr noundef nonnull @ipv6_packet_type) #15
-  tail call void @tcpv6_exit() #15
+122:                                              ; preds = %120, %97
+  %123 = phi i32 [ %98, %97 ], [ %121, %120 ]
+  tail call void @pingv6_exit() #15
   br label %124
 
-124:                                              ; preds = %122, %89
-  %125 = phi i32 [ %90, %89 ], [ %123, %122 ]
-  %126 = tail call i32 @udpv6_offload_exit() #15
-  br label %127
+124:                                              ; preds = %122, %94
+  %125 = phi i32 [ %95, %94 ], [ %123, %122 ]
+  tail call void @dev_remove_pack(ptr noundef nonnull @ipv6_packet_type) #15
+  tail call void @tcpv6_exit() #15
+  br label %126
 
-127:                                              ; preds = %124, %86
-  %128 = phi i32 [ %87, %86 ], [ %125, %124 ]
-  tail call void @udplitev6_exit() #15
+126:                                              ; preds = %124, %91
+  %127 = phi i32 [ %92, %91 ], [ %125, %124 ]
+  %128 = tail call i32 @udpv6_offload_exit() #15
   br label %129
 
-129:                                              ; preds = %127, %83
-  %130 = phi i32 [ %84, %83 ], [ %128, %127 ]
-  tail call void @udpv6_exit() #15
+129:                                              ; preds = %126, %88
+  %130 = phi i32 [ %89, %88 ], [ %127, %126 ]
+  tail call void @udplitev6_exit() #15
   br label %131
 
-131:                                              ; preds = %129, %80
-  %132 = phi i32 [ %81, %80 ], [ %130, %129 ]
-  tail call void @ipv6_frag_exit() #15
+131:                                              ; preds = %129, %85
+  %132 = phi i32 [ %86, %85 ], [ %130, %129 ]
+  tail call void @udpv6_exit() #15
   br label %133
 
-133:                                              ; preds = %131, %77
-  %134 = phi i32 [ %78, %77 ], [ %132, %131 ]
-  tail call void @ipv6_exthdrs_exit() #15
+133:                                              ; preds = %131, %82
+  %134 = phi i32 [ %83, %82 ], [ %132, %131 ]
+  tail call void @ipv6_frag_exit() #15
   br label %135
 
-135:                                              ; preds = %133, %74
-  %136 = phi i32 [ %75, %74 ], [ %134, %133 ]
-  tail call void @addrconf_cleanup() #15
+135:                                              ; preds = %133, %79
+  %136 = phi i32 [ %80, %79 ], [ %134, %133 ]
+  tail call void @ipv6_exthdrs_exit() #15
   br label %137
 
-137:                                              ; preds = %135, %71
-  %138 = phi i32 [ %72, %71 ], [ %136, %135 ]
-  tail call void @ipv6_anycast_cleanup() #15
+137:                                              ; preds = %135, %76
+  %138 = phi i32 [ %77, %76 ], [ %136, %135 ]
+  tail call void @addrconf_cleanup() #15
   br label %139
 
-139:                                              ; preds = %137, %68
-  %140 = phi i32 [ %69, %68 ], [ %138, %137 ]
-  tail call void @ip6_flowlabel_cleanup() #15
+139:                                              ; preds = %137, %73
+  %140 = phi i32 [ %74, %73 ], [ %138, %137 ]
+  tail call void @ipv6_anycast_cleanup() #15
   br label %141
 
-141:                                              ; preds = %139, %65
-  %142 = phi i32 [ %66, %65 ], [ %140, %139 ]
-  tail call void @ndisc_late_cleanup() #15
+141:                                              ; preds = %139, %70
+  %142 = phi i32 [ %71, %70 ], [ %140, %139 ]
+  tail call void @ip6_flowlabel_cleanup() #15
   br label %143
 
-143:                                              ; preds = %141, %62
-  %144 = phi i32 [ %63, %62 ], [ %142, %141 ]
-  tail call void @ip6_route_cleanup() #15
+143:                                              ; preds = %141, %67
+  %144 = phi i32 [ %68, %67 ], [ %142, %141 ]
+  tail call void @ndisc_late_cleanup() #15
   br label %145
 
-145:                                              ; preds = %143, %59
-  %146 = phi i32 [ %60, %59 ], [ %144, %143 ]
-  tail call void @if6_proc_exit() #15
+145:                                              ; preds = %143, %64
+  %146 = phi i32 [ %65, %64 ], [ %144, %143 ]
+  tail call void @ip6_route_cleanup() #15
   br label %147
 
-147:                                              ; preds = %145, %56
-  %148 = phi i32 [ -12, %56 ], [ %146, %145 ]
-  tail call void @ipv6_misc_proc_exit() #15
+147:                                              ; preds = %145, %61
+  %148 = phi i32 [ %62, %61 ], [ %146, %145 ]
+  tail call void @if6_proc_exit() #15
   br label %149
 
-149:                                              ; preds = %147, %53
-  %150 = phi i32 [ -12, %53 ], [ %148, %147 ]
-  tail call void @udplite6_proc_exit() #15
+149:                                              ; preds = %147, %58
+  %150 = phi i32 [ -12, %58 ], [ %148, %147 ]
+  tail call void @ipv6_misc_proc_exit() #15
   br label %151
 
-151:                                              ; preds = %149, %50
-  %152 = phi i32 [ -12, %50 ], [ %150, %149 ]
-  tail call void @raw6_proc_exit() #15
+151:                                              ; preds = %149, %55
+  %152 = phi i32 [ -12, %55 ], [ %150, %149 ]
+  tail call void @udplite6_proc_exit() #15
   br label %153
 
-153:                                              ; preds = %151, %47
-  %154 = phi i32 [ -12, %47 ], [ %152, %151 ]
-  tail call void @ipv6_netfilter_fini() #15
+153:                                              ; preds = %151, %52
+  %154 = phi i32 [ -12, %52 ], [ %152, %151 ]
+  tail call void @raw6_proc_exit() #15
   br label %155
 
-155:                                              ; preds = %153, %44
-  %156 = phi i32 [ %45, %44 ], [ %154, %153 ]
-  tail call void @igmp6_cleanup() #15
+155:                                              ; preds = %153, %49
+  %156 = phi i32 [ -12, %49 ], [ %154, %153 ]
+  tail call void @ipv6_netfilter_fini() #15
   br label %157
 
-157:                                              ; preds = %155, %41
-  %158 = phi i32 [ %42, %41 ], [ %156, %155 ]
-  tail call void @ndisc_cleanup() #15
+157:                                              ; preds = %155, %46
+  %158 = phi i32 [ %47, %46 ], [ %156, %155 ]
+  tail call void @igmp6_cleanup() #15
   br label %159
 
-159:                                              ; preds = %157, %38
-  %160 = phi i32 [ %39, %38 ], [ %158, %157 ]
-  tail call void @icmpv6_cleanup() #15
+159:                                              ; preds = %157, %43
+  %160 = phi i32 [ %44, %43 ], [ %158, %157 ]
+  tail call void @ndisc_cleanup() #15
   br label %161
 
-161:                                              ; preds = %159, %35
-  %162 = phi i32 [ %36, %35 ], [ %160, %159 ]
-  tail call void @unregister_pernet_subsys(ptr noundef nonnull @inet6_net_ops) #15
+161:                                              ; preds = %159, %40
+  %162 = phi i32 [ %41, %40 ], [ %160, %159 ]
+  tail call void @icmpv6_cleanup() #15
   br label %163
 
-163:                                              ; preds = %161, %32
-  %164 = phi i32 [ %33, %32 ], [ %162, %161 ]
-  tail call void @sock_unregister(i32 noundef 10) #15
-  tail call void @rtnl_unregister_all(i32 noundef 10) #15
+163:                                              ; preds = %161, %37
+  %164 = phi i32 [ %38, %37 ], [ %162, %161 ]
+  tail call void @unregister_pernet_subsys(ptr noundef nonnull @inet6_net_ops) #15
   br label %165
 
-165:                                              ; preds = %163, %29
-  %166 = phi i32 [ %30, %29 ], [ %164, %163 ]
-  tail call void @rawv6_exit() #15
+165:                                              ; preds = %163, %34
+  %166 = phi i32 [ %35, %34 ], [ %164, %163 ]
+  tail call void @sock_unregister(i32 noundef 10) #15
+  tail call void @rtnl_unregister_all(i32 noundef 10) #15
   br label %167
 
-167:                                              ; preds = %165, %26
-  %168 = phi i32 [ %27, %26 ], [ %166, %165 ]
-  tail call void @proto_unregister(ptr noundef nonnull @pingv6_prot) #15
+167:                                              ; preds = %165, %31
+  %168 = phi i32 [ %32, %31 ], [ %166, %165 ]
+  tail call void @rawv6_exit() #15
   br label %169
 
-169:                                              ; preds = %167, %23
-  %170 = phi i32 [ %24, %23 ], [ %168, %167 ]
-  tail call void @proto_unregister(ptr noundef nonnull @rawv6_prot) #15
+169:                                              ; preds = %167, %28
+  %170 = phi i32 [ %29, %28 ], [ %168, %167 ]
+  tail call void @proto_unregister(ptr noundef nonnull @pingv6_prot) #15
   br label %171
 
-171:                                              ; preds = %169, %20
-  %172 = phi i32 [ %21, %20 ], [ %170, %169 ]
-  tail call void @proto_unregister(ptr noundef nonnull @udplitev6_prot) #15
+171:                                              ; preds = %169, %25
+  %172 = phi i32 [ %26, %25 ], [ %170, %169 ]
+  tail call void @proto_unregister(ptr noundef nonnull @rawv6_prot) #15
   br label %173
 
-173:                                              ; preds = %171, %17
-  %174 = phi i32 [ %18, %17 ], [ %172, %171 ]
-  tail call void @proto_unregister(ptr noundef nonnull @udpv6_prot) #15
+173:                                              ; preds = %171, %22
+  %174 = phi i32 [ %23, %22 ], [ %172, %171 ]
+  tail call void @proto_unregister(ptr noundef nonnull @udplitev6_prot) #15
   br label %175
 
-175:                                              ; preds = %173, %14
-  %176 = phi i32 [ %15, %14 ], [ %174, %173 ]
+175:                                              ; preds = %173, %19
+  %176 = phi i32 [ %20, %19 ], [ %174, %173 ]
+  tail call void @proto_unregister(ptr noundef nonnull @udpv6_prot) #15
+  br label %177
+
+177:                                              ; preds = %175, %16
+  %178 = phi i32 [ %17, %16 ], [ %176, %175 ]
   tail call void @proto_unregister(ptr noundef nonnull @tcpv6_prot) #15
-  br label %111
+  br label %113
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2529,21 +2534,21 @@ define internal i32 @inet6_net_init(ptr noundef %0) #1 align 16 {
   %24 = getelementptr inbounds i8, ptr %0, i64 448
   store ptr %23, ptr %24, align 8
   %25 = icmp eq ptr %23, null
-  br i1 %25, label %68, label %26
+  br i1 %25, label %69, label %26
 
 26:                                               ; preds = %1
   %27 = tail call noalias dereferenceable_or_null(80) ptr @__alloc_percpu(i64 noundef 80, i64 noundef 8) #17
   %28 = getelementptr inbounds i8, ptr %0, i64 464
   store ptr %27, ptr %28, align 8
   %29 = icmp eq ptr %27, null
-  br i1 %29, label %66, label %30
+  br i1 %29, label %67, label %30
 
 30:                                               ; preds = %26
   %31 = tail call noalias dereferenceable_or_null(304) ptr @__alloc_percpu(i64 noundef 304, i64 noundef 8) #17
   %32 = getelementptr inbounds i8, ptr %0, i64 416
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
-  br i1 %33, label %64, label %34
+  br i1 %33, label %65, label %34
 
 34:                                               ; preds = %30
   %35 = load i64, ptr @__cpu_possible_mask, align 8
@@ -2577,86 +2582,87 @@ define internal i32 @inet6_net_init(ptr noundef %0) #1 align 16 {
   %53 = getelementptr inbounds i8, ptr %0, i64 488
   store ptr %52, ptr %53, align 8
   %54 = icmp eq ptr %52, null
-  br i1 %54, label %62, label %55
+  br i1 %54, label %63, label %55
 
 55:                                               ; preds = %51
-  %56 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
-  %57 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %56, i32 noundef 3520, i64 noundef 4096) #19
-  %58 = getelementptr inbounds i8, ptr %0, i64 496
-  store ptr %57, ptr %58, align 8
-  %59 = icmp eq ptr %57, null
-  br i1 %59, label %60, label %68
+  %56 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12
+  %57 = load ptr, ptr %56, align 16
+  %58 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %57, i32 noundef 3520, i64 noundef 4096) #19
+  %59 = getelementptr inbounds i8, ptr %0, i64 496
+  store ptr %58, ptr %59, align 8
+  %60 = icmp eq ptr %58, null
+  br i1 %60, label %61, label %69
 
-60:                                               ; preds = %55
-  %61 = load ptr, ptr %53, align 8
-  tail call void @free_percpu(ptr noundef %61) #15
-  br label %62
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %53, align 8
+  tail call void @free_percpu(ptr noundef %62) #15
+  br label %63
 
-62:                                               ; preds = %60, %51
-  %63 = load ptr, ptr %32, align 8
-  tail call void @free_percpu(ptr noundef %63) #15
-  br label %64
+63:                                               ; preds = %61, %51
+  %64 = load ptr, ptr %32, align 8
+  tail call void @free_percpu(ptr noundef %64) #15
+  br label %65
 
-64:                                               ; preds = %62, %30
-  %65 = load ptr, ptr %28, align 8
-  tail call void @free_percpu(ptr noundef %65) #15
-  br label %66
+65:                                               ; preds = %63, %30
+  %66 = load ptr, ptr %28, align 8
+  tail call void @free_percpu(ptr noundef %66) #15
+  br label %67
 
-66:                                               ; preds = %64, %26
-  %67 = load ptr, ptr %24, align 8
-  tail call void @free_percpu(ptr noundef %67) #15
-  br label %68
+67:                                               ; preds = %65, %26
+  %68 = load ptr, ptr %24, align 8
+  tail call void @free_percpu(ptr noundef %68) #15
+  br label %69
 
-68:                                               ; preds = %66, %55, %1
-  %69 = phi i1 [ false, %66 ], [ false, %1 ], [ true, %55 ]
-  %70 = phi i32 [ -12, %66 ], [ -12, %1 ], [ 0, %55 ]
-  br i1 %69, label %71, label %94
+69:                                               ; preds = %67, %55, %1
+  %70 = phi i1 [ false, %67 ], [ false, %1 ], [ true, %55 ]
+  %71 = phi i32 [ -12, %67 ], [ -12, %1 ], [ 0, %55 ]
+  br i1 %70, label %72, label %95
 
-71:                                               ; preds = %68
-  %72 = tail call i32 @udp6_proc_init(ptr noundef %0) #15
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %83
+72:                                               ; preds = %69
+  %73 = tail call i32 @udp6_proc_init(ptr noundef %0) #15
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %84
 
-74:                                               ; preds = %71
-  %75 = tail call i32 @tcp6_proc_init(ptr noundef %0) #15
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %81
+75:                                               ; preds = %72
+  %76 = tail call i32 @tcp6_proc_init(ptr noundef %0) #15
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %82
 
-77:                                               ; preds = %74
-  %78 = tail call i32 @ac6_proc_init(ptr noundef %0) #15
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %94, label %80
+78:                                               ; preds = %75
+  %79 = tail call i32 @ac6_proc_init(ptr noundef %0) #15
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %95, label %81
 
-80:                                               ; preds = %77
+81:                                               ; preds = %78
   tail call void @tcp6_proc_exit(ptr noundef %0) #15
-  br label %81
+  br label %82
 
-81:                                               ; preds = %80, %74
-  %82 = phi i32 [ %75, %74 ], [ %78, %80 ]
+82:                                               ; preds = %81, %75
+  %83 = phi i32 [ %76, %75 ], [ %79, %81 ]
   tail call void @udp6_proc_exit(ptr noundef %0) #15
-  br label %83
+  br label %84
 
-83:                                               ; preds = %81, %71
-  %84 = phi i32 [ %72, %71 ], [ %82, %81 ]
-  %85 = load ptr, ptr %24, align 8
-  tail call void @free_percpu(ptr noundef %85) #15
-  %86 = getelementptr inbounds i8, ptr %0, i64 464
-  %87 = load ptr, ptr %86, align 8
-  tail call void @free_percpu(ptr noundef %87) #15
-  %88 = getelementptr inbounds i8, ptr %0, i64 416
-  %89 = load ptr, ptr %88, align 8
-  tail call void @free_percpu(ptr noundef %89) #15
-  %90 = getelementptr inbounds i8, ptr %0, i64 488
-  %91 = load ptr, ptr %90, align 8
-  tail call void @free_percpu(ptr noundef %91) #15
-  %92 = getelementptr inbounds i8, ptr %0, i64 496
-  %93 = load ptr, ptr %92, align 8
-  tail call void @kfree(ptr noundef %93) #15
-  br label %94
+84:                                               ; preds = %82, %72
+  %85 = phi i32 [ %73, %72 ], [ %83, %82 ]
+  %86 = load ptr, ptr %24, align 8
+  tail call void @free_percpu(ptr noundef %86) #15
+  %87 = getelementptr inbounds i8, ptr %0, i64 464
+  %88 = load ptr, ptr %87, align 8
+  tail call void @free_percpu(ptr noundef %88) #15
+  %89 = getelementptr inbounds i8, ptr %0, i64 416
+  %90 = load ptr, ptr %89, align 8
+  tail call void @free_percpu(ptr noundef %90) #15
+  %91 = getelementptr inbounds i8, ptr %0, i64 488
+  %92 = load ptr, ptr %91, align 8
+  tail call void @free_percpu(ptr noundef %92) #15
+  %93 = getelementptr inbounds i8, ptr %0, i64 496
+  %94 = load ptr, ptr %93, align 8
+  tail call void @kfree(ptr noundef %94) #15
+  br label %95
 
-94:                                               ; preds = %83, %77, %68
-  %95 = phi i32 [ %84, %83 ], [ %70, %68 ], [ 0, %77 ]
-  ret i32 %95
+95:                                               ; preds = %84, %78, %69
+  %96 = phi i32 [ %85, %84 ], [ %71, %69 ], [ 0, %78 ]
+  ret i32 %96
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

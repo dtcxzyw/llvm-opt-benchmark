@@ -4123,10 +4123,11 @@ entry:
   %1 = load ptr, ptr %write_options.addr, align 8
   %2 = load ptr, ptr %txn_options.addr, align 8
   call void @_ZN7rocksdb16WritePreparedTxnC2EPNS_18WritePreparedTxnDBERKNS_12WriteOptionsERKNS_18TransactionOptionsE(ptr noundef nonnull align 8 dereferenceable(584) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(56) %2)
-  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb18WriteUnpreparedTxnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [97 x ptr] }, ptr @_ZTVN7rocksdb18WriteUnpreparedTxnE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %wupt_db_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxn", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %txn_db.addr, align 8
-  store ptr %3, ptr %wupt_db_, align 8
+  %4 = load ptr, ptr %txn_db.addr, align 8
+  store ptr %4, ptr %wupt_db_, align 8
   %unprep_seqs_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxn", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %unprep_seqs_) #3
   %last_log_number_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxn", ptr %this1, i32 0, i32 4
@@ -4143,32 +4144,32 @@ entry:
   call void @_ZNSt6vectorIPN7rocksdb8IteratorESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %active_iterators_) #3
   %untracked_keys_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxn", ptr %this1, i32 0, i32 10
   call void @_ZNSt13unordered_mapIjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESt4hashIjESt8equal_toIjESaISt4pairIKjS8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %untracked_keys_) #3
-  %4 = load ptr, ptr %txn_options.addr, align 8
-  %write_batch_flush_threshold = getelementptr inbounds %"struct.rocksdb::TransactionOptions", ptr %4, i32 0, i32 9
-  %5 = load i64, ptr %write_batch_flush_threshold, align 8
-  %cmp = icmp slt i64 %5, 0
+  %5 = load ptr, ptr %txn_options.addr, align 8
+  %write_batch_flush_threshold = getelementptr inbounds %"struct.rocksdb::TransactionOptions", ptr %5, i32 0, i32 9
+  %6 = load i64, ptr %write_batch_flush_threshold, align 8
+  %cmp = icmp slt i64 %6, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %txn_db_impl_ = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this1, i32 0, i32 4
-  %6 = load ptr, ptr %txn_db_impl_, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(145) ptr @_ZNK7rocksdb24PessimisticTransactionDB15GetTxnDBOptionsEv(ptr noundef nonnull align 8 dereferenceable(480) %6)
+  %7 = load ptr, ptr %txn_db_impl_, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(145) ptr @_ZNK7rocksdb24PessimisticTransactionDB15GetTxnDBOptionsEv(ptr noundef nonnull align 8 dereferenceable(480) %7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   %default_write_batch_flush_threshold = getelementptr inbounds %"struct.rocksdb::TransactionDBOptions", ptr %call, i32 0, i32 13
-  %7 = load i64, ptr %default_write_batch_flush_threshold, align 8
+  %8 = load i64, ptr %default_write_batch_flush_threshold, align 8
   %write_batch_flush_threshold_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxn", ptr %this1, i32 0, i32 1
-  store i64 %7, ptr %write_batch_flush_threshold_, align 8
+  store i64 %8, ptr %write_batch_flush_threshold_, align 8
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZNSt13unordered_mapIjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESt4hashIjESt8equal_toIjESaISt4pairIKjS8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %untracked_keys_) #3
   call void @_ZNSt6vectorIPN7rocksdb8IteratorESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %active_iterators_) #3
   call void @_ZNSt10unique_ptrIN7rocksdb10autovectorImLm8EEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %unflushed_save_points_) #3
@@ -4178,11 +4179,11 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
-  %11 = load ptr, ptr %txn_options.addr, align 8
-  %write_batch_flush_threshold2 = getelementptr inbounds %"struct.rocksdb::TransactionOptions", ptr %11, i32 0, i32 9
-  %12 = load i64, ptr %write_batch_flush_threshold2, align 8
+  %12 = load ptr, ptr %txn_options.addr, align 8
+  %write_batch_flush_threshold2 = getelementptr inbounds %"struct.rocksdb::TransactionOptions", ptr %12, i32 0, i32 9
+  %13 = load i64, ptr %write_batch_flush_threshold2, align 8
   %write_batch_flush_threshold_3 = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxn", ptr %this1, i32 0, i32 1
-  store i64 %12, ptr %write_batch_flush_threshold_3, align 8
+  store i64 %13, ptr %write_batch_flush_threshold_3, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %invoke.cont
@@ -4410,7 +4411,8 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb18WriteUnpreparedTxnE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [97 x ptr] }, ptr @_ZTVN7rocksdb18WriteUnpreparedTxnE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %unprep_seqs_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxn", ptr %this1, i32 0, i32 3
   %call = call noundef zeroext i1 @_ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(48) %unprep_seqs_) #3
   br i1 %call, label %if.end20, label %if.then
@@ -4434,8 +4436,8 @@ invoke.cont3:                                     ; preds = %lor.lhs.false
 if.then6:                                         ; preds = %invoke.cont3, %invoke.cont
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 92
-  %0 = load ptr, ptr %vfn, align 8
-  invoke void %0(ptr sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 8 dereferenceable(768) %this1)
+  %1 = load ptr, ptr %vfn, align 8
+  invoke void %1(ptr sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 8 dereferenceable(768) %this1)
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %if.then6
@@ -4447,8 +4449,8 @@ invoke.cont8:                                     ; preds = %invoke.cont7
 
 if.then10:                                        ; preds = %invoke.cont8
   %wupt_db_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxn", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %wupt_db_, align 8
-  %info_log_ = getelementptr inbounds %"class.rocksdb::PessimisticTransactionDB", ptr %1, i32 0, i32 2
+  %2 = load ptr, ptr %wupt_db_, align 8
+  %info_log_ = getelementptr inbounds %"class.rocksdb::PessimisticTransactionDB", ptr %2, i32 0, i32 2
   %call12 = invoke noundef ptr @_Z23RocksLogShorterFileNamePKc(ptr noundef @.str.1)
           to label %invoke.cont11 unwind label %terminate.lpad
 
@@ -4467,14 +4469,14 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 
 if.end:                                           ; preds = %invoke.cont15, %invoke.cont8
   %dbimpl_ = getelementptr inbounds %"class.rocksdb::TransactionBaseImpl", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %dbimpl_, align 8
-  %call17 = invoke noundef ptr @_ZN7rocksdb6DBImpl22logs_with_prep_trackerEv(ptr noundef nonnull align 64 dereferenceable(6660) %2)
+  %3 = load ptr, ptr %dbimpl_, align 8
+  %call17 = invoke noundef ptr @_ZN7rocksdb6DBImpl22logs_with_prep_trackerEv(ptr noundef nonnull align 64 dereferenceable(6660) %3)
           to label %invoke.cont16 unwind label %terminate.lpad
 
 invoke.cont16:                                    ; preds = %if.end
   %log_number_ = getelementptr inbounds %"class.rocksdb::Transaction", ptr %this1, i32 0, i32 1
-  %3 = load i64, ptr %log_number_, align 8
-  invoke void @_ZN7rocksdb19LogsWithPrepTracker33MarkLogAsHavingPrepSectionFlushedEm(ptr noundef nonnull align 8 dereferenceable(160) %call17, i64 noundef %3)
+  %4 = load i64, ptr %log_number_, align 8
+  invoke void @_ZN7rocksdb19LogsWithPrepTracker33MarkLogAsHavingPrepSectionFlushedEm(ptr noundef nonnull align 8 dereferenceable(160) %call17, i64 noundef %4)
           to label %invoke.cont18 unwind label %terminate.lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont16
@@ -4486,8 +4488,8 @@ if.end19:                                         ; preds = %invoke.cont18, %inv
 
 if.end20:                                         ; preds = %if.end19, %entry
   %recovered_txn_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxn", ptr %this1, i32 0, i32 5
-  %4 = load i8, ptr %recovered_txn_, align 8
-  %tobool = trunc i8 %4 to i1
+  %5 = load i8, ptr %recovered_txn_, align 8
+  %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.then21, label %if.end26
 
 if.then21:                                        ; preds = %if.end20
@@ -4495,8 +4497,8 @@ if.then21:                                        ; preds = %if.end20
   %call22 = call noundef ptr @_ZNKSt10unique_ptrIN7rocksdb11LockTrackerESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %tracked_locks_) #3
   %vtable23 = load ptr, ptr %call22, align 8
   %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 10
-  %5 = load ptr, ptr %vfn24, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %call22)
+  %6 = load ptr, ptr %vfn24, align 8
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %call22)
           to label %invoke.cont25 unwind label %terminate.lpad
 
 invoke.cont25:                                    ; preds = %if.then21
@@ -4517,10 +4519,10 @@ if.end26:                                         ; preds = %invoke.cont25, %if.
   ret void
 
 terminate.lpad:                                   ; preds = %if.then21, %invoke.cont16, %if.end, %invoke.cont13, %invoke.cont11, %if.then10, %invoke.cont7, %if.then6, %lor.lhs.false, %if.then
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #17
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #17
   unreachable
 }
 
@@ -6008,13 +6010,14 @@ entry:
   store i8 %frombool, ptr %rollback_merge_operands.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb10WriteBatch7HandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb18WriteUnpreparedTxn21RebuildFromWriteBatchEPNS_10WriteBatchEE15TrackKeyHandler, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVZN7rocksdb18WriteUnpreparedTxn21RebuildFromWriteBatchEPNS_10WriteBatchEE15TrackKeyHandler, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %txn_ = getelementptr inbounds %struct.TrackKeyHandler, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %txn.addr, align 8
-  store ptr %0, ptr %txn_, align 8
+  %1 = load ptr, ptr %txn.addr, align 8
+  store ptr %1, ptr %txn_, align 8
   %rollback_merge_operands_ = getelementptr inbounds %struct.TrackKeyHandler, ptr %this1, i32 0, i32 2
-  %1 = load i8, ptr %rollback_merge_operands.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %rollback_merge_operands.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %rollback_merge_operands_, align 8
   ret void
@@ -6820,13 +6823,14 @@ entry:
   store i8 %frombool, ptr %rollback_merge_operands.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb10WriteBatch7HandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb18WriteUnpreparedTxn27FlushWriteBatchToDBInternalEbE19UntrackedKeyHandler, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVZN7rocksdb18WriteUnpreparedTxn27FlushWriteBatchToDBInternalEbE19UntrackedKeyHandler, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %txn_ = getelementptr inbounds %struct.UntrackedKeyHandler, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %txn.addr, align 8
-  store ptr %0, ptr %txn_, align 8
+  %1 = load ptr, ptr %txn.addr, align 8
+  store ptr %1, ptr %txn_, align 8
   %rollback_merge_operands_ = getelementptr inbounds %struct.UntrackedKeyHandler, ptr %this1, i32 0, i32 2
-  %1 = load i8, ptr %rollback_merge_operands.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %rollback_merge_operands.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %rollback_merge_operands_, align 8
   ret void
@@ -6887,24 +6891,25 @@ entry:
   store i8 %frombool1, ptr %first_prepare_batch.addr, align 1
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb18PreReleaseCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb19AddPreparedCallbackE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7rocksdb19AddPreparedCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %db_ = getelementptr inbounds %"class.rocksdb::AddPreparedCallback", ptr %this2, i32 0, i32 1
-  %0 = load ptr, ptr %db.addr, align 8
-  store ptr %0, ptr %db_, align 8
+  %1 = load ptr, ptr %db.addr, align 8
+  store ptr %1, ptr %db_, align 8
   %db_impl_ = getelementptr inbounds %"class.rocksdb::AddPreparedCallback", ptr %this2, i32 0, i32 2
-  %1 = load ptr, ptr %db_impl.addr, align 8
-  store ptr %1, ptr %db_impl_, align 8
+  %2 = load ptr, ptr %db_impl.addr, align 8
+  store ptr %2, ptr %db_impl_, align 8
   %sub_batch_cnt_ = getelementptr inbounds %"class.rocksdb::AddPreparedCallback", ptr %this2, i32 0, i32 3
-  %2 = load i64, ptr %sub_batch_cnt.addr, align 8
-  store i64 %2, ptr %sub_batch_cnt_, align 8
+  %3 = load i64, ptr %sub_batch_cnt.addr, align 8
+  store i64 %3, ptr %sub_batch_cnt_, align 8
   %two_write_queues_ = getelementptr inbounds %"class.rocksdb::AddPreparedCallback", ptr %this2, i32 0, i32 4
-  %3 = load i8, ptr %two_write_queues.addr, align 1
-  %tobool = trunc i8 %3 to i1
+  %4 = load i8, ptr %two_write_queues.addr, align 1
+  %tobool = trunc i8 %4 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %two_write_queues_, align 8
   %first_prepare_batch_ = getelementptr inbounds %"class.rocksdb::AddPreparedCallback", ptr %this2, i32 0, i32 5
-  %4 = load i8, ptr %first_prepare_batch.addr, align 1
-  %tobool4 = trunc i8 %4 to i1
+  %5 = load i8, ptr %first_prepare_batch.addr, align 1
+  %tobool4 = trunc i8 %5 to i1
   %frombool5 = zext i1 %tobool4 to i8
   store i8 %frombool5, ptr %first_prepare_batch_, align 1
   ret void
@@ -7121,13 +7126,14 @@ entry:
   store ptr %handles, ptr %handles.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb10WriteBatch7HandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb18WriteUnpreparedTxn32FlushWriteBatchWithSavePointToDBEvE21SavePointBatchHandler, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVZN7rocksdb18WriteUnpreparedTxn32FlushWriteBatchWithSavePointToDBEvE21SavePointBatchHandler, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %wb_ = getelementptr inbounds %struct.SavePointBatchHandler, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %wb.addr, align 8
-  store ptr %0, ptr %wb_, align 8
+  %1 = load ptr, ptr %wb.addr, align 8
+  store ptr %1, ptr %wb_, align 8
   %handles_ = getelementptr inbounds %struct.SavePointBatchHandler, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %handles.addr, align 8
-  store ptr %1, ptr %handles_, align 8
+  %2 = load ptr, ptr %handles.addr, align 8
+  store ptr %2, ptr %handles_, align 8
   ret void
 }
 
@@ -8049,10 +8055,11 @@ entry:
   store ptr %comparators, ptr %comparators.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb10WriteBatch7HandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb15SubBatchCounterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN7rocksdb15SubBatchCounterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %comparators_ = getelementptr inbounds %"struct.rocksdb::SubBatchCounter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %comparators.addr, align 8
-  store ptr %0, ptr %comparators_, align 8
+  %1 = load ptr, ptr %comparators.addr, align 8
+  store ptr %1, ptr %comparators_, align 8
   %keys_ = getelementptr inbounds %"struct.rocksdb::SubBatchCounter", ptr %this1, i32 0, i32 2
   call void @_ZNSt3mapIjSt3setIN7rocksdb5SliceENS1_13SetComparatorESaIS2_EESt4lessIjESaISt4pairIKjS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %keys_) #3
   %batches_ = getelementptr inbounds %"struct.rocksdb::SubBatchCounter", ptr %this1, i32 0, i32 3
@@ -8087,7 +8094,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb15SubBatchCounterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN7rocksdb15SubBatchCounterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %keys_ = getelementptr inbounds %"struct.rocksdb::SubBatchCounter", ptr %this1, i32 0, i32 2
   call void @_ZNSt3mapIjSt3setIN7rocksdb5SliceENS1_13SetComparatorESaIS2_EESt4lessIjESaISt4pairIKjS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %keys_) #3
   call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -8112,28 +8120,29 @@ entry:
   store i8 %frombool, ptr %publish_seq.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb18PreReleaseCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb44WriteUnpreparedCommitEntryPreReleaseCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7rocksdb44WriteUnpreparedCommitEntryPreReleaseCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %db_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedCommitEntryPreReleaseCallback", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %db.addr, align 8
-  store ptr %0, ptr %db_, align 8
+  %1 = load ptr, ptr %db.addr, align 8
+  store ptr %1, ptr %db_, align 8
   %db_impl_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedCommitEntryPreReleaseCallback", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %db_impl.addr, align 8
-  store ptr %1, ptr %db_impl_, align 8
+  %2 = load ptr, ptr %db_impl.addr, align 8
+  store ptr %2, ptr %db_impl_, align 8
   %unprep_seqs_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedCommitEntryPreReleaseCallback", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %unprep_seqs.addr, align 8
-  store ptr %2, ptr %unprep_seqs_, align 8
+  %3 = load ptr, ptr %unprep_seqs.addr, align 8
+  store ptr %3, ptr %unprep_seqs_, align 8
   %data_batch_cnt_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedCommitEntryPreReleaseCallback", ptr %this1, i32 0, i32 4
-  %3 = load i64, ptr %data_batch_cnt.addr, align 8
-  store i64 %3, ptr %data_batch_cnt_, align 8
+  %4 = load i64, ptr %data_batch_cnt.addr, align 8
+  store i64 %4, ptr %data_batch_cnt_, align 8
   %includes_data_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedCommitEntryPreReleaseCallback", ptr %this1, i32 0, i32 5
   %data_batch_cnt_2 = getelementptr inbounds %"class.rocksdb::WriteUnpreparedCommitEntryPreReleaseCallback", ptr %this1, i32 0, i32 4
-  %4 = load i64, ptr %data_batch_cnt_2, align 8
-  %cmp = icmp ugt i64 %4, 0
+  %5 = load i64, ptr %data_batch_cnt_2, align 8
+  %cmp = icmp ugt i64 %5, 0
   %frombool3 = zext i1 %cmp to i8
   store i8 %frombool3, ptr %includes_data_, align 8
   %publish_seq_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedCommitEntryPreReleaseCallback", ptr %this1, i32 0, i32 6
-  %5 = load i8, ptr %publish_seq.addr, align 1
-  %tobool = trunc i8 %5 to i1
+  %6 = load i8, ptr %publish_seq.addr, align 1
+  %tobool = trunc i8 %6 to i1
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %publish_seq_, align 1
   ret void
@@ -9663,10 +9672,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %snapshot.addr, align 8
   call void @_ZN7rocksdb12ReadCallbackC2Em(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %db_ = getelementptr inbounds %"class.rocksdb::WritePreparedTxnReadCallback", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %db.addr, align 8
-  store ptr %1, ptr %db_, align 8
+  %2 = load ptr, ptr %db.addr, align 8
+  store ptr %2, ptr %db_, align 8
   %backed_by_snapshot_ = getelementptr inbounds %"class.rocksdb::WritePreparedTxnReadCallback", ptr %this1, i32 0, i32 2
   store i8 1, ptr %backed_by_snapshot_, align 8
   %snap_released_ = getelementptr inbounds %"class.rocksdb::WritePreparedTxnReadCallback", ptr %this1, i32 0, i32 3
@@ -9703,7 +9713,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   call void @_ZN7rocksdb12ReadCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
   ret void
 }
@@ -10526,19 +10537,20 @@ entry:
   %call = call noundef i64 @_ZN7rocksdb30WriteUnpreparedTxnReadCallback17CalcMaxVisibleSeqERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1)
   %2 = load i64, ptr %min_uncommitted.addr, align 8
   call void @_ZN7rocksdb12ReadCallbackC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %call, i64 noundef %2)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb30WriteUnpreparedTxnReadCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb30WriteUnpreparedTxnReadCallbackE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %db_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxnReadCallback", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %db.addr, align 8
-  store ptr %3, ptr %db_, align 8
+  %4 = load ptr, ptr %db.addr, align 8
+  store ptr %4, ptr %db_, align 8
   %unprep_seqs_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxnReadCallback", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %unprep_seqs.addr, align 8
-  store ptr %4, ptr %unprep_seqs_, align 8
+  %5 = load ptr, ptr %unprep_seqs.addr, align 8
+  store ptr %5, ptr %unprep_seqs_, align 8
   %wup_snapshot_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxnReadCallback", ptr %this1, i32 0, i32 3
-  %5 = load i64, ptr %snapshot.addr, align 8
-  store i64 %5, ptr %wup_snapshot_, align 8
+  %6 = load i64, ptr %snapshot.addr, align 8
+  store i64 %6, ptr %wup_snapshot_, align 8
   %backed_by_snapshot_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxnReadCallback", ptr %this1, i32 0, i32 4
-  %6 = load i8, ptr %backed_by_snapshot.addr, align 1
-  %tobool = trunc i8 %6 to i1
+  %7 = load i8, ptr %backed_by_snapshot.addr, align 1
+  %tobool = trunc i8 %7 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %backed_by_snapshot_, align 8
   %snap_released_ = getelementptr inbounds %"class.rocksdb::WriteUnpreparedTxnReadCallback", ptr %this1, i32 0, i32 5
@@ -10586,7 +10598,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb30WriteUnpreparedTxnReadCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb30WriteUnpreparedTxnReadCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   call void @_ZN7rocksdb12ReadCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
   ret void
 }
@@ -12893,28 +12906,30 @@ declare void @_ZN7rocksdb16WritePreparedTxn19CommitBatchInternalEPNS_10WriteBatc
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb10perf_levelE() #10 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb10perf_levelE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  ret ptr %4
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() #10 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb12perf_contextE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16862,7 +16877,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb10WriteBatch7HandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN7rocksdb10WriteBatch7HandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19996,7 +20012,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb18PreReleaseCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7rocksdb18PreReleaseCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22474,10 +22491,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i64 %last_visible_seq, ptr %last_visible_seq.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb12ReadCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb12ReadCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %max_visible_seq_ = getelementptr inbounds %"class.rocksdb::ReadCallback", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %last_visible_seq.addr, align 8
-  store i64 %0, ptr %max_visible_seq_, align 8
+  %1 = load i64, ptr %last_visible_seq.addr, align 8
+  store i64 %1, ptr %max_visible_seq_, align 8
   %min_uncommitted_ = getelementptr inbounds %"class.rocksdb::ReadCallback", ptr %this1, i32 0, i32 2
   store i64 1, ptr %min_uncommitted_, align 8
   ret void
@@ -22623,13 +22641,14 @@ entry:
   store i64 %last_visible_seq, ptr %last_visible_seq.addr, align 8
   store i64 %min_uncommitted, ptr %min_uncommitted.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb12ReadCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7rocksdb12ReadCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %max_visible_seq_ = getelementptr inbounds %"class.rocksdb::ReadCallback", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %last_visible_seq.addr, align 8
-  store i64 %0, ptr %max_visible_seq_, align 8
+  %1 = load i64, ptr %last_visible_seq.addr, align 8
+  store i64 %1, ptr %max_visible_seq_, align 8
   %min_uncommitted_ = getelementptr inbounds %"class.rocksdb::ReadCallback", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %min_uncommitted.addr, align 8
-  store i64 %1, ptr %min_uncommitted_, align 8
+  %2 = load i64, ptr %min_uncommitted.addr, align 8
+  store i64 %2, ptr %min_uncommitted_, align 8
   ret void
 }
 

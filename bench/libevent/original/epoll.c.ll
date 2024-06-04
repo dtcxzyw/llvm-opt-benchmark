@@ -417,11 +417,12 @@ do.body3:                                         ; preds = %do.body
   br i1 %tobool, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %do.body3
-  %14 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5), align 8
-  %15 = load ptr, ptr %base.addr, align 8
-  %th_base_lock5 = getelementptr inbounds %struct.event_base, ptr %15, i32 0, i32 31
-  %16 = load ptr, ptr %th_base_lock5, align 8
-  %call6 = call i32 %14(i32 noundef 0, ptr noundef %16)
+  %14 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 5
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %base.addr, align 8
+  %th_base_lock5 = getelementptr inbounds %struct.event_base, ptr %16, i32 0, i32 31
+  %17 = load ptr, ptr %th_base_lock5, align 8
+  %call6 = call i32 %15(i32 noundef 0, ptr noundef %17)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %do.body3
@@ -431,15 +432,15 @@ do.end:                                           ; preds = %if.end7
   br label %do.end8
 
 do.end8:                                          ; preds = %do.end
-  %17 = load ptr, ptr %epollop, align 8
-  %epfd = getelementptr inbounds %struct.epollop, ptr %17, i32 0, i32 2
-  %18 = load i32, ptr %epfd, align 4
-  %19 = load ptr, ptr %events, align 8
-  %20 = load ptr, ptr %epollop, align 8
-  %nevents = getelementptr inbounds %struct.epollop, ptr %20, i32 0, i32 1
-  %21 = load i32, ptr %nevents, align 8
-  %22 = load ptr, ptr %tv.addr, align 8
-  %tobool9 = icmp ne ptr %22, null
+  %18 = load ptr, ptr %epollop, align 8
+  %epfd = getelementptr inbounds %struct.epollop, ptr %18, i32 0, i32 2
+  %19 = load i32, ptr %epfd, align 4
+  %20 = load ptr, ptr %events, align 8
+  %21 = load ptr, ptr %epollop, align 8
+  %nevents = getelementptr inbounds %struct.epollop, ptr %21, i32 0, i32 1
+  %22 = load i32, ptr %nevents, align 8
+  %23 = load ptr, ptr %tv.addr, align 8
+  %tobool9 = icmp ne ptr %23, null
   br i1 %tobool9, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %do.end8
@@ -450,7 +451,7 @@ cond.false:                                       ; preds = %do.end8
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %ts, %cond.true ], [ null, %cond.false ]
-  %call10 = call i32 @epoll_pwait2(i32 noundef %18, ptr noundef %19, i32 noundef %21, ptr noundef %cond, ptr noundef null)
+  %call10 = call i32 @epoll_pwait2(i32 noundef %19, ptr noundef %20, i32 noundef %22, ptr noundef %cond, ptr noundef null)
   store i32 %call10, ptr %res, align 4
   br label %do.body11
 
@@ -458,18 +459,19 @@ do.body11:                                        ; preds = %cond.end
   br label %do.body12
 
 do.body12:                                        ; preds = %do.body11
-  %23 = load ptr, ptr %base.addr, align 8
-  %th_base_lock13 = getelementptr inbounds %struct.event_base, ptr %23, i32 0, i32 31
-  %24 = load ptr, ptr %th_base_lock13, align 8
-  %tobool14 = icmp ne ptr %24, null
+  %24 = load ptr, ptr %base.addr, align 8
+  %th_base_lock13 = getelementptr inbounds %struct.event_base, ptr %24, i32 0, i32 31
+  %25 = load ptr, ptr %th_base_lock13, align 8
+  %tobool14 = icmp ne ptr %25, null
   br i1 %tobool14, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %do.body12
-  %25 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4), align 8
-  %26 = load ptr, ptr %base.addr, align 8
-  %th_base_lock16 = getelementptr inbounds %struct.event_base, ptr %26, i32 0, i32 31
-  %27 = load ptr, ptr %th_base_lock16, align 8
-  %call17 = call i32 %25(i32 noundef 0, ptr noundef %27)
+  %26 = getelementptr inbounds %struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i32 0, i32 4
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %base.addr, align 8
+  %th_base_lock16 = getelementptr inbounds %struct.event_base, ptr %28, i32 0, i32 31
+  %29 = load ptr, ptr %th_base_lock16, align 8
+  %call17 = call i32 %27(i32 noundef 0, ptr noundef %29)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %do.body12
@@ -479,14 +481,14 @@ do.end19:                                         ; preds = %if.end18
   br label %do.end20
 
 do.end20:                                         ; preds = %do.end19
-  %28 = load i32, ptr %res, align 4
-  %cmp21 = icmp eq i32 %28, -1
+  %30 = load i32, ptr %res, align 4
+  %cmp21 = icmp eq i32 %30, -1
   br i1 %cmp21, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %do.end20
   %call23 = call ptr @__errno_location() #6
-  %29 = load i32, ptr %call23, align 4
-  %cmp24 = icmp ne i32 %29, 4
+  %31 = load i32, ptr %call23, align 4
+  %cmp24 = icmp ne i32 %31, 4
   br i1 %cmp24, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %if.then22
@@ -502,13 +504,13 @@ if.end27:                                         ; preds = %do.end20
   br label %do.body28
 
 do.body28:                                        ; preds = %if.end27
-  %30 = load i32, ptr @event_debug_logging_mask_, align 4
-  %tobool29 = icmp ne i32 %30, 0
+  %32 = load i32, ptr @event_debug_logging_mask_, align 4
+  %tobool29 = icmp ne i32 %32, 0
   br i1 %tobool29, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %do.body28
-  %31 = load i32, ptr %res, align 4
-  call void (ptr, ...) @event_debugx_(ptr noundef @.str.19, ptr noundef @__func__.epoll_dispatch, i32 noundef %31)
+  %33 = load i32, ptr %res, align 4
+  call void (ptr, ...) @event_debugx_(ptr noundef @.str.19, ptr noundef @__func__.epoll_dispatch, i32 noundef %33)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %do.body28
@@ -525,22 +527,22 @@ do.end34:                                         ; preds = %do.body33
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %do.end34
-  %32 = load i32, ptr %i, align 4
-  %33 = load i32, ptr %res, align 4
-  %cmp35 = icmp slt i32 %32, %33
+  %34 = load i32, ptr %i, align 4
+  %35 = load i32, ptr %res, align 4
+  %cmp35 = icmp slt i32 %34, %35
   br i1 %cmp35, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %34 = load ptr, ptr %events, align 8
-  %35 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %35 to i64
-  %arrayidx = getelementptr inbounds %struct.epoll_event, ptr %34, i64 %idxprom
+  %36 = load ptr, ptr %events, align 8
+  %37 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %37 to i64
+  %arrayidx = getelementptr inbounds %struct.epoll_event, ptr %36, i64 %idxprom
   %events36 = getelementptr inbounds %struct.epoll_event, ptr %arrayidx, i32 0, i32 0
-  %36 = load i32, ptr %events36, align 1
-  store i32 %36, ptr %what, align 4
+  %38 = load i32, ptr %events36, align 1
+  store i32 %38, ptr %what, align 4
   store i16 0, ptr %ev, align 2
-  %37 = load i32, ptr %what, align 4
-  %and = and i32 %37, 8
+  %39 = load i32, ptr %what, align 4
+  %and = and i32 %39, 8
   %tobool37 = icmp ne i32 %and, 0
   br i1 %tobool37, label %if.then38, label %if.else
 
@@ -549,14 +551,14 @@ if.then38:                                        ; preds = %for.body
   br label %if.end65
 
 if.else:                                          ; preds = %for.body
-  %38 = load i32, ptr %what, align 4
-  %and39 = and i32 %38, 16
+  %40 = load i32, ptr %what, align 4
+  %and39 = and i32 %40, 16
   %tobool40 = icmp ne i32 %and39, 0
   br i1 %tobool40, label %land.lhs.true, label %if.else44
 
 land.lhs.true:                                    ; preds = %if.else
-  %39 = load i32, ptr %what, align 4
-  %and41 = and i32 %39, 8192
+  %41 = load i32, ptr %what, align 4
+  %and41 = and i32 %41, 8192
   %tobool42 = icmp ne i32 %and41, 0
   br i1 %tobool42, label %if.else44, label %if.then43
 
@@ -565,42 +567,42 @@ if.then43:                                        ; preds = %land.lhs.true
   br label %if.end64
 
 if.else44:                                        ; preds = %land.lhs.true, %if.else
-  %40 = load i32, ptr %what, align 4
-  %and45 = and i32 %40, 1
+  %42 = load i32, ptr %what, align 4
+  %and45 = and i32 %42, 1
   %tobool46 = icmp ne i32 %and45, 0
   br i1 %tobool46, label %if.then47, label %if.end49
 
 if.then47:                                        ; preds = %if.else44
-  %41 = load i16, ptr %ev, align 2
-  %conv = sext i16 %41 to i32
+  %43 = load i16, ptr %ev, align 2
+  %conv = sext i16 %43 to i32
   %or = or i32 %conv, 2
   %conv48 = trunc i32 %or to i16
   store i16 %conv48, ptr %ev, align 2
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then47, %if.else44
-  %42 = load i32, ptr %what, align 4
-  %and50 = and i32 %42, 4
+  %44 = load i32, ptr %what, align 4
+  %and50 = and i32 %44, 4
   %tobool51 = icmp ne i32 %and50, 0
   br i1 %tobool51, label %if.then52, label %if.end56
 
 if.then52:                                        ; preds = %if.end49
-  %43 = load i16, ptr %ev, align 2
-  %conv53 = sext i16 %43 to i32
+  %45 = load i16, ptr %ev, align 2
+  %conv53 = sext i16 %45 to i32
   %or54 = or i32 %conv53, 4
   %conv55 = trunc i32 %or54 to i16
   store i16 %conv55, ptr %ev, align 2
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then52, %if.end49
-  %44 = load i32, ptr %what, align 4
-  %and57 = and i32 %44, 8192
+  %46 = load i32, ptr %what, align 4
+  %and57 = and i32 %46, 8192
   %tobool58 = icmp ne i32 %and57, 0
   br i1 %tobool58, label %if.then59, label %if.end63
 
 if.then59:                                        ; preds = %if.end56
-  %45 = load i16, ptr %ev, align 2
-  %conv60 = sext i16 %45 to i32
+  %47 = load i16, ptr %ev, align 2
+  %conv60 = sext i16 %47 to i32
   %or61 = or i32 %conv60, 128
   %conv62 = trunc i32 %or61 to i16
   store i16 %conv62, ptr %ev, align 2
@@ -613,76 +615,76 @@ if.end64:                                         ; preds = %if.end63, %if.then4
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end64, %if.then38
-  %46 = load i16, ptr %ev, align 2
-  %tobool66 = icmp ne i16 %46, 0
+  %48 = load i16, ptr %ev, align 2
+  %tobool66 = icmp ne i16 %48, 0
   br i1 %tobool66, label %if.end68, label %if.then67
 
 if.then67:                                        ; preds = %if.end65
   br label %for.inc
 
 if.end68:                                         ; preds = %if.end65
-  %47 = load ptr, ptr %base.addr, align 8
-  %48 = load ptr, ptr %events, align 8
-  %49 = load i32, ptr %i, align 4
-  %idxprom69 = sext i32 %49 to i64
-  %arrayidx70 = getelementptr inbounds %struct.epoll_event, ptr %48, i64 %idxprom69
+  %49 = load ptr, ptr %base.addr, align 8
+  %50 = load ptr, ptr %events, align 8
+  %51 = load i32, ptr %i, align 4
+  %idxprom69 = sext i32 %51 to i64
+  %arrayidx70 = getelementptr inbounds %struct.epoll_event, ptr %50, i64 %idxprom69
   %data = getelementptr inbounds %struct.epoll_event, ptr %arrayidx70, i32 0, i32 1
-  %50 = load i32, ptr %data, align 1
-  %51 = load i16, ptr %ev, align 2
-  %conv71 = sext i16 %51 to i32
+  %52 = load i32, ptr %data, align 1
+  %53 = load i16, ptr %ev, align 2
+  %conv71 = sext i16 %53 to i32
   %or72 = or i32 %conv71, 32
   %conv73 = trunc i32 %or72 to i16
-  call void @evmap_io_active_(ptr noundef %47, i32 noundef %50, i16 noundef signext %conv73)
+  call void @evmap_io_active_(ptr noundef %49, i32 noundef %52, i16 noundef signext %conv73)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end68, %if.then67
-  %52 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %52, 1
+  %54 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %54, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
-  %53 = load i32, ptr %res, align 4
-  %54 = load ptr, ptr %epollop, align 8
-  %nevents74 = getelementptr inbounds %struct.epollop, ptr %54, i32 0, i32 1
-  %55 = load i32, ptr %nevents74, align 8
-  %cmp75 = icmp eq i32 %53, %55
+  %55 = load i32, ptr %res, align 4
+  %56 = load ptr, ptr %epollop, align 8
+  %nevents74 = getelementptr inbounds %struct.epollop, ptr %56, i32 0, i32 1
+  %57 = load i32, ptr %nevents74, align 8
+  %cmp75 = icmp eq i32 %55, %57
   br i1 %cmp75, label %land.lhs.true77, label %if.end93
 
 land.lhs.true77:                                  ; preds = %for.end
-  %56 = load ptr, ptr %epollop, align 8
-  %nevents78 = getelementptr inbounds %struct.epollop, ptr %56, i32 0, i32 1
-  %57 = load i32, ptr %nevents78, align 8
-  %cmp79 = icmp slt i32 %57, 4096
+  %58 = load ptr, ptr %epollop, align 8
+  %nevents78 = getelementptr inbounds %struct.epollop, ptr %58, i32 0, i32 1
+  %59 = load i32, ptr %nevents78, align 8
+  %cmp79 = icmp slt i32 %59, 4096
   br i1 %cmp79, label %if.then81, label %if.end93
 
 if.then81:                                        ; preds = %land.lhs.true77
-  %58 = load ptr, ptr %epollop, align 8
-  %nevents82 = getelementptr inbounds %struct.epollop, ptr %58, i32 0, i32 1
-  %59 = load i32, ptr %nevents82, align 8
-  %mul83 = mul nsw i32 %59, 2
-  store i32 %mul83, ptr %new_nevents, align 4
   %60 = load ptr, ptr %epollop, align 8
-  %events84 = getelementptr inbounds %struct.epollop, ptr %60, i32 0, i32 0
-  %61 = load ptr, ptr %events84, align 8
-  %62 = load i32, ptr %new_nevents, align 4
-  %conv85 = sext i32 %62 to i64
+  %nevents82 = getelementptr inbounds %struct.epollop, ptr %60, i32 0, i32 1
+  %61 = load i32, ptr %nevents82, align 8
+  %mul83 = mul nsw i32 %61, 2
+  store i32 %mul83, ptr %new_nevents, align 4
+  %62 = load ptr, ptr %epollop, align 8
+  %events84 = getelementptr inbounds %struct.epollop, ptr %62, i32 0, i32 0
+  %63 = load ptr, ptr %events84, align 8
+  %64 = load i32, ptr %new_nevents, align 4
+  %conv85 = sext i32 %64 to i64
   %mul86 = mul i64 %conv85, 12
-  %call87 = call ptr @event_mm_realloc_(ptr noundef %61, i64 noundef %mul86)
+  %call87 = call ptr @event_mm_realloc_(ptr noundef %63, i64 noundef %mul86)
   store ptr %call87, ptr %new_events, align 8
-  %63 = load ptr, ptr %new_events, align 8
-  %tobool88 = icmp ne ptr %63, null
+  %65 = load ptr, ptr %new_events, align 8
+  %tobool88 = icmp ne ptr %65, null
   br i1 %tobool88, label %if.then89, label %if.end92
 
 if.then89:                                        ; preds = %if.then81
-  %64 = load ptr, ptr %new_events, align 8
-  %65 = load ptr, ptr %epollop, align 8
-  %events90 = getelementptr inbounds %struct.epollop, ptr %65, i32 0, i32 0
-  store ptr %64, ptr %events90, align 8
-  %66 = load i32, ptr %new_nevents, align 4
+  %66 = load ptr, ptr %new_events, align 8
   %67 = load ptr, ptr %epollop, align 8
-  %nevents91 = getelementptr inbounds %struct.epollop, ptr %67, i32 0, i32 1
-  store i32 %66, ptr %nevents91, align 8
+  %events90 = getelementptr inbounds %struct.epollop, ptr %67, i32 0, i32 0
+  store ptr %66, ptr %events90, align 8
+  %68 = load i32, ptr %new_nevents, align 4
+  %69 = load ptr, ptr %epollop, align 8
+  %nevents91 = getelementptr inbounds %struct.epollop, ptr %69, i32 0, i32 1
+  store i32 %68, ptr %nevents91, align 8
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then89, %if.then81
@@ -693,8 +695,8 @@ if.end93:                                         ; preds = %if.end92, %land.lhs
   br label %return
 
 return:                                           ; preds = %if.end93, %if.end26, %if.then25
-  %68 = load i32, ptr %retval, align 4
-  ret i32 %68
+  %70 = load i32, ptr %retval, align 4
+  ret i32 %70
 }
 
 ; Function Attrs: nounwind uwtable

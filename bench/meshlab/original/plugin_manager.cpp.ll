@@ -9871,40 +9871,41 @@ define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull alig
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  %11 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 2
-  call void @_ZN10QByteArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  %12 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 1
-  invoke void @_ZNKR7QString11toLocal8BitEv(ptr dead_on_unwind writable sret(%class.QByteArray) align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %16
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  %12 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 2
+  call void @_ZN10QByteArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  %13 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 1
+  invoke void @_ZNKR7QString11toLocal8BitEv(ptr dead_on_unwind writable sret(%class.QByteArray) align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %14 unwind label %17
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 2
-  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN10QByteArrayaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 2
+  %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN10QByteArrayaSEOS_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   ret void
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %2
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %6, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %7, align 4
-  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %6, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %7, align 4
+  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  br label %20
+  br label %21
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %6, align 8
-  %22 = load i32, ptr %7, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i32, ptr %7, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9912,11 +9913,12 @@ define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.MLException, ptr %3, i32 0, i32 2
-  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %class.MLException, ptr %3, i32 0, i32 1
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.MLException, ptr %3, i32 0, i32 2
+  call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %class.MLException, ptr %3, i32 0, i32 1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -11029,7 +11031,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11600,7 +11603,7 @@ define void @_ZN13PluginManager11loadPluginsE4QDir(ptr noundef nonnull align 8 d
 
 72:                                               ; preds = %68, %64
   %73 = load i32, ptr %7, align 4
-  %74 = call i32 @llvm.eh.typeid.for(ptr @_ZTI11MLException) #3
+  %74 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI11MLException) #3
   %75 = icmp eq i32 %73, %74
   br i1 %75, label %76, label %111
 
@@ -12408,9 +12411,6 @@ define noundef ptr @_ZN13PluginManager10loadPluginERK7QString(ptr noundef nonnul
 }
 
 declare void @_ZNK4QDir16absoluteFilePathERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) #1
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx114listISt4pairI7QStringS2_ESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #5 comdat align 2 {
@@ -20767,6 +20767,9 @@ define internal void @_GLOBAL__sub_I_plugin_manager.cpp() #0 section ".text.star
   call void @__cxx_global_var_init.5()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #14
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

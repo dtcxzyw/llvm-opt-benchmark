@@ -54,17 +54,17 @@ define dso_local ptr @group_cpus_evenly(i32 noundef %0) #0 align 16 {
 18:                                               ; preds = %12, %9, %1
   %19 = phi ptr [ null, %1 ], [ %7, %9 ], [ %7, %12 ]
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %74, label %21
+  br i1 %20, label %75, label %21
 
 21:                                               ; preds = %18
   %22 = zext i32 %0 to i64
   %23 = shl nuw nsw i64 %22, 3
   %24 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %23, i32 noundef 3520) #8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %72, label %26
+  br i1 %25, label %73, label %26
 
 26:                                               ; preds = %41, %21
-  %27 = phi i64 [ %50, %41 ], [ 0, %21 ]
+  %27 = phi i64 [ %51, %41 ], [ 0, %21 ]
   %28 = and i64 %27, 4294967295
   %29 = icmp ugt i64 %28, 63
   br i1 %29, label %37, label %30, !prof !9
@@ -84,76 +84,77 @@ define dso_local ptr @group_cpus_evenly(i32 noundef %0) #0 align 16 {
   %38 = phi i64 [ 64, %26 ], [ %36, %35 ], [ 64, %30 ]
   %39 = and i64 %38, 4294967232
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %51
+  br i1 %40, label %41, label %52
 
 41:                                               ; preds = %37
   %42 = and i64 %38, 63
   %43 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %42
   %44 = load i64, ptr %43, align 8
-  %45 = add i64 %44, ptrtoint (ptr @numa_node to i64)
-  %46 = inttoptr i64 %45 to ptr
-  %47 = load i32, ptr %46, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr [1 x %struct.cpumask], ptr %19, i64 %48
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 %42) #7, !srcloc !11
-  %50 = add nuw nsw i64 %38, 1
+  %45 = ptrtoint ptr @numa_node to i64
+  %46 = add i64 %44, %45
+  %47 = inttoptr i64 %46 to ptr
+  %48 = load i32, ptr %47, align 4
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr [1 x %struct.cpumask], ptr %19, i64 %49
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %50, i64 %42) #7, !srcloc !11
+  %51 = add nuw nsw i64 %38, 1
   br label %26, !llvm.loop !12
 
-51:                                               ; preds = %37
-  %52 = load i64, ptr @__cpu_present_mask, align 8
-  store i64 %52, ptr %3, align 8
-  %53 = call fastcc i32 @__group_cpus_evenly(i32 noundef 0, i32 noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %24)
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %64, label %55
+52:                                               ; preds = %37
+  %53 = load i64, ptr @__cpu_present_mask, align 8
+  store i64 %53, ptr %3, align 8
+  %54 = call fastcc i32 @__group_cpus_evenly(i32 noundef 0, i32 noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %24)
+  %55 = icmp slt i32 %54, 0
+  br i1 %55, label %65, label %56
 
-55:                                               ; preds = %51
-  %56 = icmp ult i32 %53, %0
-  %57 = select i1 %56, i32 %53, i32 0
-  %58 = load i64, ptr @__cpu_possible_mask, align 8
-  %59 = xor i64 %52, -1
-  %60 = and i64 %58, %59
-  store i64 %60, ptr %3, align 8
-  %61 = call fastcc i32 @__group_cpus_evenly(i32 noundef %57, i32 noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %24)
-  %62 = icmp sgt i32 %61, -1
-  %63 = select i1 %62, i32 %61, i32 0
-  br label %64
+56:                                               ; preds = %52
+  %57 = icmp ult i32 %54, %0
+  %58 = select i1 %57, i32 %54, i32 0
+  %59 = load i64, ptr @__cpu_possible_mask, align 8
+  %60 = xor i64 %53, -1
+  %61 = and i64 %59, %60
+  store i64 %61, ptr %3, align 8
+  %62 = call fastcc i32 @__group_cpus_evenly(i32 noundef %58, i32 noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %24)
+  %63 = icmp sgt i32 %62, -1
+  %64 = select i1 %63, i32 %62, i32 0
+  br label %65
 
-64:                                               ; preds = %55, %51
-  %65 = phi i1 [ false, %51 ], [ %62, %55 ]
-  %66 = phi i32 [ 0, %51 ], [ %63, %55 ]
-  %67 = phi i32 [ 0, %51 ], [ %53, %55 ]
-  br i1 %65, label %68, label %72
+65:                                               ; preds = %56, %52
+  %66 = phi i1 [ false, %52 ], [ %63, %56 ]
+  %67 = phi i32 [ 0, %52 ], [ %64, %56 ]
+  %68 = phi i32 [ 0, %52 ], [ %54, %56 ]
+  br i1 %66, label %69, label %73
 
-68:                                               ; preds = %64
-  %69 = add nuw i32 %67, %66
-  %70 = icmp ult i32 %69, %0
-  br i1 %70, label %71, label %72, !prof !9
+69:                                               ; preds = %65
+  %70 = add nuw i32 %68, %67
+  %71 = icmp ult i32 %70, %0
+  br i1 %71, label %72, label %73, !prof !9
 
-71:                                               ; preds = %68
+72:                                               ; preds = %69
   call void asm sideeffect "321: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 321b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 321) #7, !srcloc !13
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 410, i32 2305, i64 12) #7, !srcloc !14
   call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_end\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #7, !srcloc !15
-  br label %72
+  br label %73
 
-72:                                               ; preds = %71, %68, %64, %21
-  %73 = phi i1 [ true, %64 ], [ true, %21 ], [ false, %71 ], [ false, %68 ]
+73:                                               ; preds = %72, %69, %65, %21
+  %74 = phi i1 [ true, %65 ], [ true, %21 ], [ false, %72 ], [ false, %69 ]
   call void @kfree(ptr noundef nonnull %19) #7
-  br label %74
+  br label %75
 
-74:                                               ; preds = %72, %18
-  %75 = phi i1 [ %73, %72 ], [ true, %18 ]
-  %76 = phi ptr [ %24, %72 ], [ null, %18 ]
-  br i1 %75, label %77, label %78
+75:                                               ; preds = %73, %18
+  %76 = phi i1 [ %74, %73 ], [ true, %18 ]
+  %77 = phi ptr [ %24, %73 ], [ null, %18 ]
+  br i1 %76, label %78, label %79
 
-77:                                               ; preds = %74
-  call void @kfree(ptr noundef %76) #7
-  br label %78
+78:                                               ; preds = %75
+  call void @kfree(ptr noundef %77) #7
+  br label %79
 
-78:                                               ; preds = %77, %74
-  %79 = phi ptr [ null, %77 ], [ %76, %74 ]
+79:                                               ; preds = %78, %75
+  %80 = phi ptr [ null, %78 ], [ %77, %75 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
-  ret ptr %79
+  ret ptr %80
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -169,7 +170,7 @@ define internal fastcc i32 @__group_cpus_evenly(i32 noundef %0, i32 noundef %1, 
   store i64 0, ptr %7, align 8
   %8 = load i64, ptr %3, align 8
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %292, label %10
+  br i1 %9, label %293, label %10
 
 10:                                               ; preds = %6
   %11 = load i64, ptr @node_states, align 16
@@ -245,7 +246,7 @@ define internal fastcc i32 @__group_cpus_evenly(i32 noundef %0, i32 noundef %1, 
 56:                                               ; preds = %53, %50
   %57 = phi i32 [ %55, %53 ], [ 64, %50 ]
   %58 = icmp ult i32 %57, 64
-  br i1 %58, label %59, label %292
+  br i1 %58, label %59, label %293
 
 59:                                               ; preds = %83, %56
   %60 = phi i32 [ %73, %83 ], [ %0, %56 ]
@@ -284,7 +285,7 @@ define internal fastcc i32 @__group_cpus_evenly(i32 noundef %0, i32 noundef %1, 
   %85 = trunc i64 %84 to i32
   %86 = call i32 @llvm.umin.i32(i32 %85, i32 64)
   %87 = icmp ult i32 %85, 64
-  br i1 %87, label %59, label %292, !llvm.loop !17
+  br i1 %87, label %59, label %293, !llvm.loop !17
 
 88:                                               ; preds = %47
   %89 = load i32, ptr @nr_node_ids, align 4
@@ -292,7 +293,7 @@ define internal fastcc i32 @__group_cpus_evenly(i32 noundef %0, i32 noundef %1, 
   %91 = shl nuw nsw i64 %90, 3
   %92 = call noalias align 8 ptr @__kmalloc(i64 noundef %91, i32 noundef 3520) #8
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %292, label %94
+  br i1 %93, label %293, label %94
 
 94:                                               ; preds = %88
   %95 = load i64, ptr %7, align 8
@@ -438,17 +439,17 @@ define internal fastcc i32 @__group_cpus_evenly(i32 noundef %0, i32 noundef %1, 
 181:                                              ; preds = %174, %145
   %182 = load i32, ptr @nr_node_ids, align 4
   %183 = icmp eq i32 %182, 0
-  br i1 %183, label %290, label %184
+  br i1 %183, label %291, label %184
 
-184:                                              ; preds = %283, %181
-  %185 = phi i64 [ %286, %283 ], [ 0, %181 ]
-  %186 = phi i32 [ %285, %283 ], [ %0, %181 ]
-  %187 = phi i32 [ %284, %283 ], [ 0, %181 ]
+184:                                              ; preds = %284, %181
+  %185 = phi i64 [ %287, %284 ], [ 0, %181 ]
+  %186 = phi i32 [ %286, %284 ], [ %0, %181 ]
+  %187 = phi i32 [ %285, %284 ], [ 0, %181 ]
   %188 = getelementptr %struct.node_groups, ptr %92, i64 %185
   %189 = getelementptr inbounds i8, ptr %188, i64 4
   %190 = load i32, ptr %189, align 4
   %191 = icmp eq i32 %190, -1
-  br i1 %191, label %283, label %192
+  br i1 %191, label %284, label %192
 
 192:                                              ; preds = %184
   %193 = load i32, ptr %188, align 8
@@ -462,7 +463,7 @@ define internal fastcc i32 @__group_cpus_evenly(i32 noundef %0, i32 noundef %1, 
   %200 = freeze i64 %199
   %201 = trunc i64 %200 to i32
   %202 = icmp eq i32 %201, 0
-  br i1 %202, label %283, label %203
+  br i1 %202, label %284, label %203
 
 203:                                              ; preds = %192
   %204 = icmp ugt i32 %190, %201
@@ -479,11 +480,11 @@ define internal fastcc i32 @__group_cpus_evenly(i32 noundef %0, i32 noundef %1, 
   %208 = urem i32 %201, %207
   br label %209
 
-209:                                              ; preds = %276, %206
-  %210 = phi i32 [ %279, %276 ], [ %207, %206 ]
-  %211 = phi i32 [ %277, %276 ], [ 0, %206 ]
-  %212 = phi i32 [ %278, %276 ], [ %186, %206 ]
-  %213 = phi i32 [ %218, %276 ], [ %208, %206 ]
+209:                                              ; preds = %277, %206
+  %210 = phi i32 [ %280, %277 ], [ %207, %206 ]
+  %211 = phi i32 [ %278, %277 ], [ 0, %206 ]
+  %212 = phi i32 [ %279, %277 ], [ %186, %206 ]
+  %213 = phi i32 [ %218, %277 ], [ %208, %206 ]
   %214 = udiv i32 %201, %210
   %215 = icmp ne i32 %213, 0
   %216 = zext i1 %215 to i32
@@ -494,10 +495,10 @@ define internal fastcc i32 @__group_cpus_evenly(i32 noundef %0, i32 noundef %1, 
   %221 = zext i32 %220 to i64
   %222 = getelementptr %struct.cpumask, ptr %5, i64 %221
   %223 = icmp eq i32 %217, 0
-  br i1 %223, label %276, label %224
+  br i1 %223, label %277, label %224
 
-224:                                              ; preds = %273, %209
-  %225 = phi i32 [ %274, %273 ], [ %217, %209 ]
+224:                                              ; preds = %274, %209
+  %225 = phi i32 [ %275, %274 ], [ %217, %209 ]
   %226 = load i64, ptr %4, align 8
   %227 = icmp eq i64 %226, 0
   br i1 %227, label %230, label %228
@@ -511,7 +512,7 @@ define internal fastcc i32 @__group_cpus_evenly(i32 noundef %0, i32 noundef %1, 
   %232 = trunc i64 %231 to i32
   %233 = load i32, ptr @nr_cpu_ids, align 4
   %234 = icmp ugt i32 %233, %232
-  br i1 %234, label %235, label %276
+  br i1 %234, label %235, label %277
 
 235:                                              ; preds = %230
   %236 = and i64 %231, 4294967295
@@ -522,89 +523,90 @@ define internal fastcc i32 @__group_cpus_evenly(i32 noundef %0, i32 noundef %1, 
   %239 = ashr exact i64 %238, 32
   %240 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %239
   %241 = load i64, ptr %240, align 8
-  %242 = add i64 %241, ptrtoint (ptr @cpu_sibling_map to i64)
-  %243 = inttoptr i64 %242 to ptr
-  %244 = icmp eq i32 %237, 0
-  br i1 %244, label %273, label %245
+  %242 = ptrtoint ptr @cpu_sibling_map to i64
+  %243 = add i64 %241, %242
+  %244 = inttoptr i64 %243 to ptr
+  %245 = icmp eq i32 %237, 0
+  br i1 %245, label %274, label %246
 
-245:                                              ; preds = %270, %235
-  %246 = phi i32 [ %271, %270 ], [ %237, %235 ]
-  %247 = phi i32 [ %260, %270 ], [ -1, %235 ]
-  %248 = add i32 %247, 1
-  %249 = icmp ugt i32 %248, 63
-  br i1 %249, label %258, label %250, !prof !9
+246:                                              ; preds = %271, %235
+  %247 = phi i32 [ %272, %271 ], [ %237, %235 ]
+  %248 = phi i32 [ %261, %271 ], [ -1, %235 ]
+  %249 = add i32 %248, 1
+  %250 = icmp ugt i32 %249, 63
+  br i1 %250, label %259, label %251, !prof !9
 
-250:                                              ; preds = %245
-  %251 = load i64, ptr %243, align 8
-  %252 = zext nneg i32 %248 to i64
-  %253 = shl nsw i64 -1, %252
-  %254 = and i64 %251, %253
-  %255 = icmp eq i64 %254, 0
-  br i1 %255, label %258, label %256
+251:                                              ; preds = %246
+  %252 = load i64, ptr %244, align 8
+  %253 = zext nneg i32 %249 to i64
+  %254 = shl nsw i64 -1, %253
+  %255 = and i64 %252, %254
+  %256 = icmp eq i64 %255, 0
+  br i1 %256, label %259, label %257
 
-256:                                              ; preds = %250
-  %257 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %254) #9, !srcloc !10
-  br label %258
+257:                                              ; preds = %251
+  %258 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %255) #9, !srcloc !10
+  br label %259
 
-258:                                              ; preds = %256, %250, %245
-  %259 = phi i64 [ 64, %245 ], [ %257, %256 ], [ 64, %250 ]
-  %260 = trunc i64 %259 to i32
-  %261 = load i32, ptr @nr_cpu_ids, align 4
-  %262 = icmp ugt i32 %261, %260
-  br i1 %262, label %263, label %273
+259:                                              ; preds = %257, %251, %246
+  %260 = phi i64 [ 64, %246 ], [ %258, %257 ], [ 64, %251 ]
+  %261 = trunc i64 %260 to i32
+  %262 = load i32, ptr @nr_cpu_ids, align 4
+  %263 = icmp ugt i32 %262, %261
+  br i1 %263, label %264, label %274
 
-263:                                              ; preds = %258
-  %264 = and i64 %259, 4294967295
-  %265 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %4, i64 %264, ptr elementtype(i64) %4) #7, !srcloc !32
-  %266 = icmp ult i8 %265, 2
-  call void @llvm.assume(i1 %266)
-  %267 = icmp eq i8 %265, 0
-  br i1 %267, label %270, label %268
+264:                                              ; preds = %259
+  %265 = and i64 %260, 4294967295
+  %266 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %4, i64 %265, ptr elementtype(i64) %4) #7, !srcloc !32
+  %267 = icmp ult i8 %266, 2
+  call void @llvm.assume(i1 %267)
+  %268 = icmp eq i8 %266, 0
+  br i1 %268, label %271, label %269
 
-268:                                              ; preds = %263
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %222, i64 %264) #7, !srcloc !11
-  %269 = add i32 %246, -1
-  br label %270
+269:                                              ; preds = %264
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %222, i64 %265) #7, !srcloc !11
+  %270 = add i32 %247, -1
+  br label %271
 
-270:                                              ; preds = %268, %263
-  %271 = phi i32 [ %269, %268 ], [ %246, %263 ]
-  %272 = icmp eq i32 %271, 0
-  br i1 %272, label %273, label %245, !llvm.loop !33
+271:                                              ; preds = %269, %264
+  %272 = phi i32 [ %270, %269 ], [ %247, %264 ]
+  %273 = icmp eq i32 %272, 0
+  br i1 %273, label %274, label %246, !llvm.loop !33
 
-273:                                              ; preds = %270, %258, %235
-  %274 = phi i32 [ %237, %235 ], [ %271, %270 ], [ %246, %258 ]
-  %275 = icmp eq i32 %274, 0
-  br i1 %275, label %276, label %224, !llvm.loop !34
+274:                                              ; preds = %271, %259, %235
+  %275 = phi i32 [ %237, %235 ], [ %272, %271 ], [ %247, %259 ]
+  %276 = icmp eq i32 %275, 0
+  br i1 %276, label %277, label %224, !llvm.loop !34
 
-276:                                              ; preds = %273, %230, %209
-  %277 = add nuw i32 %211, 1
-  %278 = add i32 %220, 1
-  %279 = load i32, ptr %189, align 4
-  %280 = icmp ult i32 %277, %279
-  br i1 %280, label %209, label %281, !llvm.loop !35
+277:                                              ; preds = %274, %230, %209
+  %278 = add nuw i32 %211, 1
+  %279 = add i32 %220, 1
+  %280 = load i32, ptr %189, align 4
+  %281 = icmp ult i32 %278, %280
+  br i1 %281, label %209, label %282, !llvm.loop !35
 
-281:                                              ; preds = %276
-  %282 = add i32 %279, %187
-  br label %283
+282:                                              ; preds = %277
+  %283 = add i32 %280, %187
+  br label %284
 
-283:                                              ; preds = %281, %192, %184
-  %284 = phi i32 [ %282, %281 ], [ %187, %184 ], [ %187, %192 ]
-  %285 = phi i32 [ %278, %281 ], [ %186, %184 ], [ %186, %192 ]
-  %286 = add nuw nsw i64 %185, 1
-  %287 = load i32, ptr @nr_node_ids, align 4
-  %288 = zext i32 %287 to i64
-  %289 = icmp ult i64 %286, %288
-  br i1 %289, label %184, label %290, !llvm.loop !36
+284:                                              ; preds = %282, %192, %184
+  %285 = phi i32 [ %283, %282 ], [ %187, %184 ], [ %187, %192 ]
+  %286 = phi i32 [ %279, %282 ], [ %186, %184 ], [ %186, %192 ]
+  %287 = add nuw nsw i64 %185, 1
+  %288 = load i32, ptr @nr_node_ids, align 4
+  %289 = zext i32 %288 to i64
+  %290 = icmp ult i64 %287, %289
+  br i1 %290, label %184, label %291, !llvm.loop !36
 
-290:                                              ; preds = %283, %181
-  %291 = phi i32 [ 0, %181 ], [ %284, %283 ]
+291:                                              ; preds = %284, %181
+  %292 = phi i32 [ 0, %181 ], [ %285, %284 ]
   call void @kfree(ptr noundef nonnull %92) #7
-  br label %292
+  br label %293
 
-292:                                              ; preds = %290, %88, %83, %56, %6
-  %293 = phi i32 [ %291, %290 ], [ 0, %6 ], [ -12, %88 ], [ %1, %56 ], [ %1, %83 ]
+293:                                              ; preds = %291, %88, %83, %56, %6
+  %294 = phi i32 [ %292, %291 ], [ 0, %6 ], [ -12, %88 ], [ %1, %56 ], [ %1, %83 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  ret i32 %293
+  ret i32 %294
 }
 
 ; Function Attrs: null_pointer_is_valid

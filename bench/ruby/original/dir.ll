@@ -153,26 +153,27 @@ define hidden i64 @rb_dir_getwd_ospath() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  %4 = call i64 @rb_data_object_wrap(i64 noundef 0, ptr noundef null, ptr noundef null, ptr noundef inttoptr (i64 -1 to ptr))
-  store i64 %4, ptr %3, align 8
-  %5 = call noalias nonnull ptr @ruby_getcwd()
-  store ptr %5, ptr %1, align 8
-  %6 = load ptr, ptr %1, align 8
-  %7 = load i64, ptr %3, align 8
-  %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds %struct.RData, ptr %8, i32 0, i32 3
-  store ptr %6, ptr %9, align 8
-  %10 = load ptr, ptr %1, align 8
-  %11 = call i64 @rb_str_new_cstr(ptr noundef %10)
-  store i64 %11, ptr %2, align 8
-  %12 = load i64, ptr %3, align 8
-  %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds %struct.RData, ptr %13, i32 0, i32 3
-  store ptr null, ptr %14, align 8
-  %15 = load ptr, ptr %1, align 8
-  call void @ruby_xfree(ptr noundef %15)
-  %16 = load i64, ptr %2, align 8
-  ret i64 %16
+  %4 = inttoptr i64 -1 to ptr
+  %5 = call i64 @rb_data_object_wrap(i64 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %4)
+  store i64 %5, ptr %3, align 8
+  %6 = call noalias nonnull ptr @ruby_getcwd()
+  store ptr %6, ptr %1, align 8
+  %7 = load ptr, ptr %1, align 8
+  %8 = load i64, ptr %3, align 8
+  %9 = inttoptr i64 %8 to ptr
+  %10 = getelementptr inbounds %struct.RData, ptr %9, i32 0, i32 3
+  store ptr %7, ptr %10, align 8
+  %11 = load ptr, ptr %1, align 8
+  %12 = call i64 @rb_str_new_cstr(ptr noundef %11)
+  store i64 %12, ptr %2, align 8
+  %13 = load i64, ptr %3, align 8
+  %14 = inttoptr i64 %13 to ptr
+  %15 = getelementptr inbounds %struct.RData, ptr %14, i32 0, i32 3
+  store ptr null, ptr %15, align 8
+  %16 = load ptr, ptr %1, align 8
+  call void @ruby_xfree(ptr noundef %16)
+  %17 = load i64, ptr %2, align 8
+  ret i64 %17
 }
 
 declare i64 @rb_data_object_wrap(i64 noundef, ptr noundef, ptr noundef, ptr noundef) #1
@@ -1711,41 +1712,42 @@ define internal i64 @dir_s_fchdir(i64 noundef %0, i64 noundef %1) #0 {
   %40 = ptrtoint ptr %7 to i64
   %41 = call i64 @rb_ensure(ptr noundef @fchdir_yield, i64 noundef %39, ptr noundef @fchdir_restore, i64 noundef %40)
   store i64 %41, ptr %3, align 8
-  br label %56
+  br label %57
 
 42:                                               ; preds = %25
-  %43 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_fchdir, ptr noundef %6, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %44 = ptrtoint ptr %43 to i64
-  %45 = trunc i64 %44 to i32
-  store i32 %45, ptr %8, align 4
-  %46 = load i32, ptr %8, align 4
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %48, label %54
+  %43 = inttoptr i64 -1 to ptr
+  %44 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_fchdir, ptr noundef %6, ptr noundef %43, ptr noundef null)
+  %45 = ptrtoint ptr %44 to i64
+  %46 = trunc i64 %45 to i32
+  store i32 %46, ptr %8, align 4
+  %47 = load i32, ptr %8, align 4
+  %48 = icmp slt i32 %47, 0
+  br i1 %48, label %49, label %55
 
-48:                                               ; preds = %42
-  br label %49
+49:                                               ; preds = %42
+  br label %50
 
-49:                                               ; preds = %48
-  %50 = call ptr @rb_errno_ptr()
-  %51 = load i32, ptr %50, align 4
-  store i32 %51, ptr %9, align 4
-  %52 = load i32, ptr %9, align 4
-  call void @rb_syserr_fail(i32 noundef %52, ptr noundef @.str.19) #24
+50:                                               ; preds = %49
+  %51 = call ptr @rb_errno_ptr()
+  %52 = load i32, ptr %51, align 4
+  store i32 %52, ptr %9, align 4
+  %53 = load i32, ptr %9, align 4
+  call void @rb_syserr_fail(i32 noundef %53, ptr noundef @.str.19) #24
   unreachable
 
-53:                                               ; No predecessors!
-  br label %54
-
-54:                                               ; preds = %53, %42
+54:                                               ; No predecessors!
   br label %55
 
-55:                                               ; preds = %54
-  store i64 1, ptr %3, align 8
+55:                                               ; preds = %54, %42
   br label %56
 
-56:                                               ; preds = %55, %28
-  %57 = load i64, ptr %3, align 8
-  ret i64 %57
+56:                                               ; preds = %55
+  store i64 1, ptr %3, align 8
+  br label %57
+
+57:                                               ; preds = %56, %28
+  %58 = load i64, ptr %3, align 8
+  ret i64 %58
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1889,30 +1891,31 @@ define internal i64 @dir_s_mkdir(i32 noundef %0, ptr noundef %1, i64 noundef %2)
   %26 = call ptr @RSTRING_PTR(i64 noundef %25)
   %27 = getelementptr inbounds %struct.mkdir_arg, ptr %7, i32 0, i32 0
   store ptr %26, ptr %27, align 8
-  %28 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_mkdir, ptr noundef %7, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %29 = ptrtoint ptr %28 to i64
-  %30 = trunc i64 %29 to i32
-  store i32 %30, ptr %10, align 4
-  %31 = load i32, ptr %10, align 4
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %33, label %40
+  %28 = inttoptr i64 -1 to ptr
+  %29 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_mkdir, ptr noundef %7, ptr noundef %28, ptr noundef null)
+  %30 = ptrtoint ptr %29 to i64
+  %31 = trunc i64 %30 to i32
+  store i32 %31, ptr %10, align 4
+  %32 = load i32, ptr %10, align 4
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %41
 
-33:                                               ; preds = %22
-  br label %34
+34:                                               ; preds = %22
+  br label %35
 
-34:                                               ; preds = %33
-  %35 = call ptr @rb_errno_ptr()
-  %36 = load i32, ptr %35, align 4
-  store i32 %36, ptr %11, align 4
-  %37 = load i32, ptr %11, align 4
-  %38 = load i64, ptr %8, align 8
-  call void @rb_syserr_fail_path_in(ptr noundef @__func__.dir_s_mkdir, i32 noundef %37, i64 noundef %38) #24
+35:                                               ; preds = %34
+  %36 = call ptr @rb_errno_ptr()
+  %37 = load i32, ptr %36, align 4
+  store i32 %37, ptr %11, align 4
+  %38 = load i32, ptr %11, align 4
+  %39 = load i64, ptr %8, align 8
+  call void @rb_syserr_fail_path_in(ptr noundef @__func__.dir_s_mkdir, i32 noundef %38, i64 noundef %39) #24
   unreachable
 
-39:                                               ; No predecessors!
-  br label %40
+40:                                               ; No predecessors!
+  br label %41
 
-40:                                               ; preds = %39, %22
+41:                                               ; preds = %40, %22
   ret i64 1
 }
 
@@ -1932,30 +1935,31 @@ define internal i64 @dir_s_rmdir(i64 noundef %0, i64 noundef %1) #0 {
   %11 = call ptr @RSTRING_PTR(i64 noundef %10)
   store ptr %11, ptr %5, align 8
   %12 = load ptr, ptr %5, align 8
-  %13 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_rmdir, ptr noundef %12, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %14 = ptrtoint ptr %13 to i64
-  %15 = trunc i64 %14 to i32
-  store i32 %15, ptr %6, align 4
-  %16 = load i32, ptr %6, align 4
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %25
+  %13 = inttoptr i64 -1 to ptr
+  %14 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_rmdir, ptr noundef %12, ptr noundef %13, ptr noundef null)
+  %15 = ptrtoint ptr %14 to i64
+  %16 = trunc i64 %15 to i32
+  store i32 %16, ptr %6, align 4
+  %17 = load i32, ptr %6, align 4
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %19, label %26
 
-18:                                               ; preds = %2
-  br label %19
+19:                                               ; preds = %2
+  br label %20
 
-19:                                               ; preds = %18
-  %20 = call ptr @rb_errno_ptr()
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr %7, align 4
-  %22 = load i32, ptr %7, align 4
-  %23 = load i64, ptr %4, align 8
-  call void @rb_syserr_fail_path_in(ptr noundef @__func__.dir_s_rmdir, i32 noundef %22, i64 noundef %23) #24
+20:                                               ; preds = %19
+  %21 = call ptr @rb_errno_ptr()
+  %22 = load i32, ptr %21, align 4
+  store i32 %22, ptr %7, align 4
+  %23 = load i32, ptr %7, align 4
+  %24 = load i64, ptr %4, align 8
+  call void @rb_syserr_fail_path_in(ptr noundef @__func__.dir_s_rmdir, i32 noundef %23, i64 noundef %24) #24
   unreachable
 
-24:                                               ; No predecessors!
-  br label %25
+25:                                               ; No predecessors!
+  br label %26
 
-25:                                               ; preds = %24, %2
+26:                                               ; preds = %25, %2
   ret i64 1
 }
 
@@ -2059,24 +2063,25 @@ define internal i64 @rb_dir_s_empty_p(i64 noundef %0, i64 noundef %1) #0 {
   %21 = call ptr @RSTRING_PTR(i64 noundef %20)
   store ptr %21, ptr %7, align 8
   %22 = load ptr, ptr %7, align 8
-  %23 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_dir_empty_p, ptr noundef %22, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %24 = ptrtoint ptr %23 to i64
-  store i64 %24, ptr %5, align 8
-  %25 = load i64, ptr %5, align 8
-  %26 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %25) #25
-  br i1 %26, label %27, label %32
+  %23 = inttoptr i64 -1 to ptr
+  %24 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_dir_empty_p, ptr noundef %22, ptr noundef %23, ptr noundef null)
+  %25 = ptrtoint ptr %24 to i64
+  store i64 %25, ptr %5, align 8
+  %26 = load i64, ptr %5, align 8
+  %27 = call zeroext i1 @RB_FIXNUM_P(i64 noundef %26) #25
+  br i1 %27, label %28, label %33
 
-27:                                               ; preds = %2
-  %28 = load i64, ptr %5, align 8
-  %29 = call i64 @rb_fix2long(i64 noundef %28) #25
-  %30 = trunc i64 %29 to i32
-  %31 = load i64, ptr %6, align 8
-  call void @rb_syserr_fail_path_in(ptr noundef @__func__.rb_dir_s_empty_p, i32 noundef %30, i64 noundef %31) #24
+28:                                               ; preds = %2
+  %29 = load i64, ptr %5, align 8
+  %30 = call i64 @rb_fix2long(i64 noundef %29) #25
+  %31 = trunc i64 %30 to i32
+  %32 = load i64, ptr %6, align 8
+  call void @rb_syserr_fail_path_in(ptr noundef @__func__.rb_dir_s_empty_p, i32 noundef %31, i64 noundef %32) #24
   unreachable
 
-32:                                               ; preds = %2
-  %33 = load i64, ptr %5, align 8
-  ret i64 %33
+33:                                               ; preds = %2
+  %34 = load i64, ptr %5, align 8
+  ret i64 %34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6075,21 +6080,22 @@ define internal ptr @opendir_at(i32 noundef %0, ptr noundef %1) #0 {
   store ptr %9, ptr %10, align 8
   %11 = load i64, ptr @rb_cThread, align 8
   %12 = icmp ne i64 %11, 0
-  br i1 %12, label %13, label %15
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
-  %14 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_opendir_at, ptr noundef %6, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  store ptr %14, ptr %3, align 8
-  br label %17
+  %14 = inttoptr i64 -1 to ptr
+  %15 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_opendir_at, ptr noundef %6, ptr noundef %14, ptr noundef null)
+  store ptr %15, ptr %3, align 8
+  br label %18
 
-15:                                               ; preds = %2
-  %16 = call ptr @nogvl_opendir_at(ptr noundef %6)
-  store ptr %16, ptr %3, align 8
-  br label %17
+16:                                               ; preds = %2
+  %17 = call ptr @nogvl_opendir_at(ptr noundef %6)
+  store ptr %17, ptr %3, align 8
+  br label %18
 
-17:                                               ; preds = %15, %13
-  %18 = load ptr, ptr %3, align 8
-  ret ptr %18
+18:                                               ; preds = %16, %13
+  %19 = load ptr, ptr %3, align 8
+  ret ptr %19
 }
 
 declare ptr @rb_thread_call_without_gvl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
@@ -9187,46 +9193,47 @@ define internal i64 @chdir_path(i64 noundef %0, i1 noundef zeroext %1) #0 {
   %39 = ptrtoint ptr %6 to i64
   %40 = call i64 @rb_ensure(ptr noundef @chdir_yield, i64 noundef %38, ptr noundef @chdir_restore, i64 noundef %39)
   store i64 %40, ptr %3, align 8
-  br label %59
+  br label %60
 
 41:                                               ; preds = %24
   %42 = load i64, ptr %4, align 8
   %43 = call ptr @RSTRING_PTR(i64 noundef %42)
   store ptr %43, ptr %7, align 8
   %44 = load ptr, ptr %7, align 8
-  %45 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_chdir, ptr noundef %44, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  %46 = ptrtoint ptr %45 to i64
-  %47 = trunc i64 %46 to i32
-  store i32 %47, ptr %8, align 4
-  %48 = load i32, ptr %8, align 4
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %50, label %57
+  %45 = inttoptr i64 -1 to ptr
+  %46 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_chdir, ptr noundef %44, ptr noundef %45, ptr noundef null)
+  %47 = ptrtoint ptr %46 to i64
+  %48 = trunc i64 %47 to i32
+  store i32 %48, ptr %8, align 4
+  %49 = load i32, ptr %8, align 4
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %51, label %58
 
-50:                                               ; preds = %41
-  br label %51
+51:                                               ; preds = %41
+  br label %52
 
-51:                                               ; preds = %50
-  %52 = call ptr @rb_errno_ptr()
-  %53 = load i32, ptr %52, align 4
-  store i32 %53, ptr %9, align 4
-  %54 = load i32, ptr %9, align 4
-  %55 = load i64, ptr %4, align 8
-  call void @rb_syserr_fail_path_in(ptr noundef @__func__.chdir_path, i32 noundef %54, i64 noundef %55) #24
+52:                                               ; preds = %51
+  %53 = call ptr @rb_errno_ptr()
+  %54 = load i32, ptr %53, align 4
+  store i32 %54, ptr %9, align 4
+  %55 = load i32, ptr %9, align 4
+  %56 = load i64, ptr %4, align 8
+  call void @rb_syserr_fail_path_in(ptr noundef @__func__.chdir_path, i32 noundef %55, i64 noundef %56) #24
   unreachable
 
-56:                                               ; No predecessors!
-  br label %57
-
-57:                                               ; preds = %56, %41
+57:                                               ; No predecessors!
   br label %58
 
-58:                                               ; preds = %57
-  store i64 1, ptr %3, align 8
+58:                                               ; preds = %57, %41
   br label %59
 
-59:                                               ; preds = %58, %27
-  %60 = load i64, ptr %3, align 8
-  ret i64 %60
+59:                                               ; preds = %58
+  store i64 1, ptr %3, align 8
+  br label %60
+
+60:                                               ; preds = %59, %27
+  %61 = load i64, ptr %3, align 8
+  ret i64 %61
 }
 
 ; Function Attrs: noreturn
@@ -9938,25 +9945,26 @@ define internal ptr @opendir_without_gvl(ptr noundef %0) #0 {
   store ptr %0, ptr %3, align 8
   %5 = load i64, ptr @rb_cThread, align 8
   %6 = icmp ne i64 %5, 0
-  br i1 %6, label %7, label %11
+  br i1 %6, label %7, label %12
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8
   store ptr %8, ptr %4, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_opendir, ptr noundef %9, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef null)
-  store ptr %10, ptr %2, align 8
-  br label %14
+  %10 = inttoptr i64 -1 to ptr
+  %11 = call ptr @rb_thread_call_without_gvl(ptr noundef @nogvl_opendir, ptr noundef %9, ptr noundef %10, ptr noundef null)
+  store ptr %11, ptr %2, align 8
+  br label %15
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = call ptr @opendir(ptr noundef %12)
-  store ptr %13, ptr %2, align 8
-  br label %14
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8
+  %14 = call ptr @opendir(ptr noundef %13)
+  store ptr %14, ptr %2, align 8
+  br label %15
 
-14:                                               ; preds = %11, %7
-  %15 = load ptr, ptr %2, align 8
-  ret ptr %15
+15:                                               ; preds = %12, %7
+  %16 = load ptr, ptr %2, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

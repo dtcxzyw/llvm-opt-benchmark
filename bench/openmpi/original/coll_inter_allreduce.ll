@@ -63,7 +63,7 @@ define i32 @mca_coll_inter_allreduce_inter(ptr noundef %0, ptr noundef %1, i32 n
 
 35:                                               ; preds = %7
   store i32 -2, ptr %8, align 4
-  br label %129
+  br label %130
 
 36:                                               ; preds = %7
   %37 = load ptr, ptr %19, align 8
@@ -72,132 +72,133 @@ define i32 @mca_coll_inter_allreduce_inter(ptr noundef %0, ptr noundef %1, i32 n
   %40 = getelementptr inbounds i8, ptr %37, i64 %39
   store ptr %40, ptr %20, align 8
   %41 = load ptr, ptr %9, align 8
-  %42 = icmp eq ptr inttoptr (i64 1 to ptr), %41
-  br i1 %42, label %43, label %45
+  %42 = inttoptr i64 1 to ptr
+  %43 = icmp eq ptr %42, %41
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %36
-  %44 = load ptr, ptr %10, align 8
-  br label %47
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %10, align 8
+  br label %48
 
-45:                                               ; preds = %36
-  %46 = load ptr, ptr %9, align 8
-  br label %47
+46:                                               ; preds = %36
+  %47 = load ptr, ptr %9, align 8
+  br label %48
 
-47:                                               ; preds = %45, %43
-  %48 = phi ptr [ %44, %43 ], [ %46, %45 ]
-  store ptr %48, ptr %21, align 8
-  %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr inbounds %struct.ompi_communicator_t, ptr %49, i32 0, i32 15
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct.ompi_communicator_t, ptr %51, i32 0, i32 23
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %53, i32 0, i32 22
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %21, align 8
-  %57 = load ptr, ptr %20, align 8
-  %58 = load i32, ptr %11, align 4
-  %59 = load ptr, ptr %12, align 8
-  %60 = load ptr, ptr %13, align 8
-  %61 = load i32, ptr %18, align 4
-  %62 = load ptr, ptr %14, align 8
-  %63 = getelementptr inbounds %struct.ompi_communicator_t, ptr %62, i32 0, i32 15
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %14, align 8
-  %66 = getelementptr inbounds %struct.ompi_communicator_t, ptr %65, i32 0, i32 15
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.ompi_communicator_t, ptr %67, i32 0, i32 23
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %69, i32 0, i32 23
-  %71 = load ptr, ptr %70, align 8
-  %72 = call i32 %55(ptr noundef %56, ptr noundef %57, i32 noundef %58, ptr noundef %59, ptr noundef %60, i32 noundef %61, ptr noundef %64, ptr noundef %71)
-  store i32 %72, ptr %16, align 4
-  %73 = load i32, ptr %16, align 4
-  %74 = icmp ne i32 0, %73
-  br i1 %74, label %75, label %76
+48:                                               ; preds = %46, %44
+  %49 = phi ptr [ %45, %44 ], [ %47, %46 ]
+  store ptr %49, ptr %21, align 8
+  %50 = load ptr, ptr %14, align 8
+  %51 = getelementptr inbounds %struct.ompi_communicator_t, ptr %50, i32 0, i32 15
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds %struct.ompi_communicator_t, ptr %52, i32 0, i32 23
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %54, i32 0, i32 22
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %21, align 8
+  %58 = load ptr, ptr %20, align 8
+  %59 = load i32, ptr %11, align 4
+  %60 = load ptr, ptr %12, align 8
+  %61 = load ptr, ptr %13, align 8
+  %62 = load i32, ptr %18, align 4
+  %63 = load ptr, ptr %14, align 8
+  %64 = getelementptr inbounds %struct.ompi_communicator_t, ptr %63, i32 0, i32 15
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %14, align 8
+  %67 = getelementptr inbounds %struct.ompi_communicator_t, ptr %66, i32 0, i32 15
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds %struct.ompi_communicator_t, ptr %68, i32 0, i32 23
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %70, i32 0, i32 23
+  %72 = load ptr, ptr %71, align 8
+  %73 = call i32 %56(ptr noundef %57, ptr noundef %58, i32 noundef %59, ptr noundef %60, ptr noundef %61, i32 noundef %62, ptr noundef %65, ptr noundef %72)
+  store i32 %73, ptr %16, align 4
+  %74 = load i32, ptr %16, align 4
+  %75 = icmp ne i32 0, %74
+  br i1 %75, label %76, label %77
 
-75:                                               ; preds = %47
-  br label %122
+76:                                               ; preds = %48
+  br label %123
 
-76:                                               ; preds = %47
-  %77 = load i32, ptr %17, align 4
-  %78 = load i32, ptr %18, align 4
-  %79 = icmp eq i32 %77, %78
-  br i1 %79, label %80, label %95
+77:                                               ; preds = %48
+  %78 = load i32, ptr %17, align 4
+  %79 = load i32, ptr %18, align 4
+  %80 = icmp eq i32 %78, %79
+  br i1 %80, label %81, label %96
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr %20, align 8
-  %82 = load i32, ptr %11, align 4
-  %83 = sext i32 %82 to i64
-  %84 = load ptr, ptr %12, align 8
-  %85 = load ptr, ptr %10, align 8
-  %86 = load i32, ptr %11, align 4
-  %87 = sext i32 %86 to i64
-  %88 = load ptr, ptr %12, align 8
-  %89 = load ptr, ptr %14, align 8
-  %90 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %81, i64 noundef %83, ptr noundef %84, i32 noundef 0, i32 noundef -12, ptr noundef %85, i64 noundef %87, ptr noundef %88, i32 noundef 0, i32 noundef -12, ptr noundef %89, ptr noundef null)
-  store i32 %90, ptr %16, align 4
-  %91 = load i32, ptr %16, align 4
-  %92 = icmp ne i32 0, %91
-  br i1 %92, label %93, label %94
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %20, align 8
+  %83 = load i32, ptr %11, align 4
+  %84 = sext i32 %83 to i64
+  %85 = load ptr, ptr %12, align 8
+  %86 = load ptr, ptr %10, align 8
+  %87 = load i32, ptr %11, align 4
+  %88 = sext i32 %87 to i64
+  %89 = load ptr, ptr %12, align 8
+  %90 = load ptr, ptr %14, align 8
+  %91 = call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %82, i64 noundef %84, ptr noundef %85, i32 noundef 0, i32 noundef -12, ptr noundef %86, i64 noundef %88, ptr noundef %89, i32 noundef 0, i32 noundef -12, ptr noundef %90, ptr noundef null)
+  store i32 %91, ptr %16, align 4
+  %92 = load i32, ptr %16, align 4
+  %93 = icmp ne i32 0, %92
+  br i1 %93, label %94, label %95
 
-93:                                               ; preds = %80
-  br label %122
+94:                                               ; preds = %81
+  br label %123
 
-94:                                               ; preds = %80
-  br label %95
+95:                                               ; preds = %81
+  br label %96
 
-95:                                               ; preds = %94, %76
-  %96 = load ptr, ptr %14, align 8
-  %97 = getelementptr inbounds %struct.ompi_communicator_t, ptr %96, i32 0, i32 15
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.ompi_communicator_t, ptr %98, i32 0, i32 23
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %100, i32 0, i32 14
-  %102 = load ptr, ptr %101, align 8
-  %103 = load ptr, ptr %10, align 8
-  %104 = load i32, ptr %11, align 4
-  %105 = load ptr, ptr %12, align 8
-  %106 = load i32, ptr %18, align 4
-  %107 = load ptr, ptr %14, align 8
-  %108 = getelementptr inbounds %struct.ompi_communicator_t, ptr %107, i32 0, i32 15
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %14, align 8
-  %111 = getelementptr inbounds %struct.ompi_communicator_t, ptr %110, i32 0, i32 15
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds %struct.ompi_communicator_t, ptr %112, i32 0, i32 23
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %114, i32 0, i32 15
-  %116 = load ptr, ptr %115, align 8
-  %117 = call i32 %102(ptr noundef %103, i32 noundef %104, ptr noundef %105, i32 noundef %106, ptr noundef %109, ptr noundef %116)
-  store i32 %117, ptr %16, align 4
-  %118 = load i32, ptr %16, align 4
-  %119 = icmp ne i32 0, %118
-  br i1 %119, label %120, label %121
+96:                                               ; preds = %95, %77
+  %97 = load ptr, ptr %14, align 8
+  %98 = getelementptr inbounds %struct.ompi_communicator_t, ptr %97, i32 0, i32 15
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds %struct.ompi_communicator_t, ptr %99, i32 0, i32 23
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %101, i32 0, i32 14
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %10, align 8
+  %105 = load i32, ptr %11, align 4
+  %106 = load ptr, ptr %12, align 8
+  %107 = load i32, ptr %18, align 4
+  %108 = load ptr, ptr %14, align 8
+  %109 = getelementptr inbounds %struct.ompi_communicator_t, ptr %108, i32 0, i32 15
+  %110 = load ptr, ptr %109, align 8
+  %111 = load ptr, ptr %14, align 8
+  %112 = getelementptr inbounds %struct.ompi_communicator_t, ptr %111, i32 0, i32 15
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds %struct.ompi_communicator_t, ptr %113, i32 0, i32 23
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %115, i32 0, i32 15
+  %117 = load ptr, ptr %116, align 8
+  %118 = call i32 %103(ptr noundef %104, i32 noundef %105, ptr noundef %106, i32 noundef %107, ptr noundef %110, ptr noundef %117)
+  store i32 %118, ptr %16, align 4
+  %119 = load i32, ptr %16, align 4
+  %120 = icmp ne i32 0, %119
+  br i1 %120, label %121, label %122
 
-120:                                              ; preds = %95
-  br label %122
+121:                                              ; preds = %96
+  br label %123
 
-121:                                              ; preds = %95
-  br label %122
+122:                                              ; preds = %96
+  br label %123
 
-122:                                              ; preds = %121, %120, %93, %75
-  %123 = load ptr, ptr %19, align 8
-  %124 = icmp ne ptr null, %123
-  br i1 %124, label %125, label %127
+123:                                              ; preds = %122, %121, %94, %76
+  %124 = load ptr, ptr %19, align 8
+  %125 = icmp ne ptr null, %124
+  br i1 %125, label %126, label %128
 
-125:                                              ; preds = %122
-  %126 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %126) #5
-  br label %127
+126:                                              ; preds = %123
+  %127 = load ptr, ptr %19, align 8
+  call void @free(ptr noundef %127) #5
+  br label %128
 
-127:                                              ; preds = %125, %122
-  %128 = load i32, ptr %16, align 4
-  store i32 %128, ptr %8, align 4
-  br label %129
+128:                                              ; preds = %126, %123
+  %129 = load i32, ptr %16, align 4
+  store i32 %129, ptr %8, align 4
+  br label %130
 
-129:                                              ; preds = %127, %35
-  %130 = load i32, ptr %8, align 4
-  ret i32 %130
+130:                                              ; preds = %128, %35
+  %131 = load i32, ptr %8, align 4
+  ret i32 %131
 }
 
 ; Function Attrs: nounwind uwtable

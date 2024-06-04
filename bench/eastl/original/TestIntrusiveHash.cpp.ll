@@ -5345,7 +5345,8 @@ entry:
   call void @llvm.memset.p0.i64(ptr align 8 %arraydecay, i8 0, i64 296, i1 false)
   %mBucketArray2 = getelementptr inbounds %"class.eastl::intrusive_hashtable", ptr %this1, i32 0, i32 0
   %arrayidx = getelementptr inbounds [38 x ptr], ptr %mBucketArray2, i64 0, i64 37
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %arrayidx, align 8
   ret void
 }
 
@@ -5914,7 +5915,8 @@ entry:
   call void @llvm.memset.p0.i64(ptr align 8 %arraydecay, i8 0, i64 296, i1 false)
   %mBucketArray2 = getelementptr inbounds %"class.eastl::intrusive_hashtable.2", ptr %this1, i32 0, i32 0
   %arrayidx = getelementptr inbounds [38 x ptr], ptr %mBucketArray2, i64 0, i64 37
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %arrayidx, align 8
   ret void
 }
 
@@ -7112,7 +7114,8 @@ entry:
   call void @llvm.memset.p0.i64(ptr align 8 %arraydecay, i8 0, i64 8, i1 false)
   %mBucketArray2 = getelementptr inbounds %"class.eastl::intrusive_hashtable.16", ptr %this1, i32 0, i32 0
   %arrayidx = getelementptr inbounds [2 x ptr], ptr %mBucketArray2, i64 0, i64 1
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %arrayidx, align 8
   ret void
 }
 

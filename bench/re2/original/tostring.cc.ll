@@ -485,10 +485,11 @@ entry:
   store ptr %t, ptr %t.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3re26Regexp6WalkerIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re214ToStringWalkerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re214ToStringWalkerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %t_ = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %t.addr, align 8
-  store ptr %0, ptr %t_, align 8
+  %1 = load ptr, ptr %t.addr, align 8
+  store ptr %1, ptr %t_, align 8
   ret void
 }
 
@@ -1944,7 +1945,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stack_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this1, i32 0, i32 1
   call void @_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %stack_)
   %stopped_early_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this1, i32 0, i32 2
@@ -1970,7 +1972,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1980,10 +1983,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 

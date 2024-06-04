@@ -73,108 +73,109 @@ define internal i32 @virtio_gpu_probe(ptr noundef %0) #2 align 16 {
   %5 = select i1 %2, i1 %4, i1 false
   %6 = icmp eq i32 %3, 0
   %7 = select i1 %5, i1 true, i1 %6
-  br i1 %7, label %68, label %8
+  br i1 %7, label %69, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @drm_dev_alloc(ptr noundef nonnull @driver, ptr noundef %10) #4
-  %12 = icmp ugt ptr %11, inttoptr (i64 -4096 to ptr)
-  br i1 %12, label %13, label %16
+  %12 = inttoptr i64 -4096 to ptr
+  %13 = icmp ugt ptr %11, %12
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %8
-  %14 = ptrtoint ptr %11 to i64
-  %15 = trunc i64 %14 to i32
-  br label %68
+14:                                               ; preds = %8
+  %15 = ptrtoint ptr %11 to i64
+  %16 = trunc i64 %15 to i32
+  br label %69
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 792
-  store ptr %11, ptr %17, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 96
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, @pci_bus_type
-  br i1 %21, label %22, label %48
+17:                                               ; preds = %8
+  %18 = getelementptr inbounds i8, ptr %0, i64 792
+  store ptr %11, ptr %18, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 96
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, @pci_bus_type
+  br i1 %22, label %23, label %49
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %11, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr i8, ptr %24, i64 -184
-  %26 = getelementptr inbounds i8, ptr %24, i64 80
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %31
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr i8, ptr %25, i64 -184
+  %27 = getelementptr inbounds i8, ptr %25, i64 80
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %22
-  %30 = load ptr, ptr %24, align 8
-  br label %31
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %25, align 8
+  br label %32
 
-31:                                               ; preds = %29, %22
-  %32 = phi ptr [ %30, %29 ], [ %27, %22 ]
-  %33 = getelementptr i8, ptr %24, i64 -116
-  %34 = load i32, ptr %33, align 4
-  %35 = lshr i32 %34, 8
-  %36 = icmp eq i32 %35, 768
-  %37 = icmp eq i32 %35, 1
-  %38 = or i1 %36, %37
-  %39 = select i1 %38, ptr @.str.4, ptr @.str.5
-  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef nonnull %39, ptr noundef %32) #5
-  switch i32 %35, label %44 [
-    i32 768, label %41
-    i32 1, label %41
+32:                                               ; preds = %30, %23
+  %33 = phi ptr [ %31, %30 ], [ %28, %23 ]
+  %34 = getelementptr i8, ptr %25, i64 -116
+  %35 = load i32, ptr %34, align 4
+  %36 = lshr i32 %35, 8
+  %37 = icmp eq i32 %36, 768
+  %38 = icmp eq i32 %36, 1
+  %39 = or i1 %37, %38
+  %40 = select i1 %39, ptr @.str.4, ptr @.str.5
+  %41 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef nonnull %40, ptr noundef %33) #5
+  switch i32 %36, label %45 [
+    i32 768, label %42
+    i32 1, label %42
   ]
 
-41:                                               ; preds = %31, %31
-  %42 = tail call i32 @drm_aperture_remove_conflicting_pci_framebuffers(ptr noundef %25, ptr noundef nonnull @driver) #4
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %45
+42:                                               ; preds = %32, %32
+  %43 = tail call i32 @drm_aperture_remove_conflicting_pci_framebuffers(ptr noundef %26, ptr noundef nonnull @driver) #4
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %41, %31
-  br label %45
+45:                                               ; preds = %42, %32
+  br label %46
 
-45:                                               ; preds = %44, %41
-  %46 = phi i32 [ 0, %44 ], [ %42, %41 ]
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %66
+46:                                               ; preds = %45, %42
+  %47 = phi i32 [ 0, %45 ], [ %43, %42 ]
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %67
 
-48:                                               ; preds = %45, %16
-  %49 = getelementptr inbounds i8, ptr %11, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call i64 @dma_max_mapping_size(ptr noundef %50) #4
-  %52 = getelementptr inbounds i8, ptr %50, i64 592
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %59, label %55
+49:                                               ; preds = %46, %17
+  %50 = getelementptr inbounds i8, ptr %11, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call i64 @dma_max_mapping_size(ptr noundef %51) #4
+  %53 = getelementptr inbounds i8, ptr %51, i64 592
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %60, label %56
 
-55:                                               ; preds = %48
-  %56 = icmp eq i64 %51, 0
-  %57 = trunc i64 %51 to i32
-  %58 = select i1 %56, i32 -1, i32 %57
-  store i32 %58, ptr %53, align 8
-  br label %59
+56:                                               ; preds = %49
+  %57 = icmp eq i64 %52, 0
+  %58 = trunc i64 %52 to i32
+  %59 = select i1 %57, i32 -1, i32 %58
+  store i32 %59, ptr %54, align 8
+  br label %60
 
-59:                                               ; preds = %55, %48
-  %60 = tail call i32 @virtio_gpu_init(ptr noundef %0, ptr noundef %11) #4
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %66
+60:                                               ; preds = %56, %49
+  %61 = tail call i32 @virtio_gpu_init(ptr noundef %0, ptr noundef %11) #4
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %67
 
-62:                                               ; preds = %59
-  %63 = tail call i32 @drm_dev_register(ptr noundef %11, i64 noundef 0) #4
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %68, label %65
+63:                                               ; preds = %60
+  %64 = tail call i32 @drm_dev_register(ptr noundef %11, i64 noundef 0) #4
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %69, label %66
 
-65:                                               ; preds = %62
+66:                                               ; preds = %63
   tail call void @virtio_gpu_deinit(ptr noundef %11) #4
-  br label %66
+  br label %67
 
-66:                                               ; preds = %65, %59, %45
-  %67 = phi i32 [ %46, %45 ], [ %60, %59 ], [ %63, %65 ]
+67:                                               ; preds = %66, %60, %46
+  %68 = phi i32 [ %47, %46 ], [ %61, %60 ], [ %64, %66 ]
   tail call void @drm_dev_put(ptr noundef %11) #4
-  br label %68
+  br label %69
 
-68:                                               ; preds = %66, %62, %13, %1
-  %69 = phi i32 [ %15, %13 ], [ %67, %66 ], [ -22, %1 ], [ 0, %62 ]
-  ret i32 %69
+69:                                               ; preds = %67, %63, %14, %1
+  %70 = phi i32 [ %16, %14 ], [ %68, %67 ], [ -22, %1 ], [ 0, %63 ]
+  ret i32 %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

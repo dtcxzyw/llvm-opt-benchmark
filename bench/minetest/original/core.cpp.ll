@@ -16,7 +16,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN13RenderingCoreC2EPN3irr14IrrlichtDeviceEP6ClientP3HudP14ShadowRendererP14RenderPipelineNS0_4core8vector2dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr noundef %_device, ptr noundef %_client, ptr noundef %_hud, ptr noundef %_shadow_renderer, ptr noundef %_pipeline, <2 x float> %_virtual_size_scale.coerce) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV13RenderingCore, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13RenderingCore, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !4
   %device = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %_device, ptr %device, align 8, !tbaa !7
   %client = getelementptr inbounds i8, ptr %this, i64 16
@@ -39,28 +40,29 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13RenderingCoreD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV13RenderingCore, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13RenderingCore, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !4
   %pipeline = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load ptr, ptr %pipeline, align 8, !tbaa !18
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %pipeline, align 8, !tbaa !18
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8, !tbaa !4
+  %vtable = load ptr, ptr %1, align 8, !tbaa !4
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(104) %0) #7
+  %2 = load ptr, ptr %vfn, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(104) %1) #7
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %shadow_renderer = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load ptr, ptr %shadow_renderer, align 8, !tbaa !17
-  %isnull2 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %shadow_renderer, align 8, !tbaa !17
+  %isnull2 = icmp eq ptr %3, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  tail call void @_ZN14ShadowRendererD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #7
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #8
+  tail call void @_ZN14ShadowRendererD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #7
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #8
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
@@ -76,28 +78,29 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13RenderingCoreD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV13RenderingCore, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13RenderingCore, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !4
   %pipeline.i = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load ptr, ptr %pipeline.i, align 8, !tbaa !18
-  %isnull.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %pipeline.i, align 8, !tbaa !18
+  %isnull.i = icmp eq ptr %1, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  %vtable.i = load ptr, ptr %0, align 8, !tbaa !4
+  %vtable.i = load ptr, ptr %1, align 8, !tbaa !4
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %1 = load ptr, ptr %vfn.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(104) %0) #7
+  %2 = load ptr, ptr %vfn.i, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(104) %1) #7
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %entry
   %shadow_renderer.i = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load ptr, ptr %shadow_renderer.i, align 8, !tbaa !17
-  %isnull2.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %shadow_renderer.i, align 8, !tbaa !17
+  %isnull2.i = icmp eq ptr %3, null
   br i1 %isnull2.i, label %_ZN13RenderingCoreD2Ev.exit, label %delete.notnull3.i
 
 delete.notnull3.i:                                ; preds = %delete.end.i
-  tail call void @_ZN14ShadowRendererD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #7
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #8
+  tail call void @_ZN14ShadowRendererD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #7
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #8
   br label %_ZN13RenderingCoreD2Ev.exit
 
 _ZN13RenderingCoreD2Ev.exit:                      ; preds = %delete.notnull3.i, %delete.end.i

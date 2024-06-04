@@ -271,7 +271,8 @@ arrayinit.body:                                   ; preds = %arrayinit.body, %en
   %arrayinit.cur = phi ptr [ @_ZN6hermes2vm8Metadata13metadataTableE, %entry ], [ %arrayinit.next, %arrayinit.body ]
   call void @_ZN6hermes2vm8MetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %arrayinit.cur)
   %arrayinit.next = getelementptr inbounds %"struct.hermes::vm::Metadata", ptr %arrayinit.cur, i64 1
-  %arrayinit.done = icmp eq ptr %arrayinit.next, getelementptr inbounds (%"struct.hermes::vm::Metadata", ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 79)
+  %0 = getelementptr inbounds %"struct.hermes::vm::Metadata", ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 79
+  %arrayinit.done = icmp eq ptr %arrayinit.next, %0
   br i1 %arrayinit.done, label %arrayinit.end, label %arrayinit.body
 
 arrayinit.end:                                    ; preds = %arrayinit.body

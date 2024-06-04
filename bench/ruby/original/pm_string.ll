@@ -106,7 +106,7 @@ define hidden zeroext i1 @pm_string_mapped_init(ptr noundef %0, ptr noundef %1) 
 
 17:                                               ; preds = %2
   store i1 false, ptr %3, align 1
-  br label %54
+  br label %55
 
 18:                                               ; preds = %2
   %19 = load i32, ptr %6, align 4
@@ -118,7 +118,7 @@ define hidden zeroext i1 @pm_string_mapped_init(ptr noundef %0, ptr noundef %1) 
   %23 = load i32, ptr %6, align 4
   %24 = call i32 @close(i32 noundef %23)
   store i1 false, ptr %3, align 1
-  br label %54
+  br label %55
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds %struct.stat, ptr %7, i32 0, i32 8
@@ -143,7 +143,7 @@ define hidden zeroext i1 @pm_string_mapped_init(ptr noundef %0, ptr noundef %1) 
   store i32 0, ptr %37, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %11, i64 24, i1 false)
   store i1 true, ptr %3, align 1
-  br label %54
+  br label %55
 
 38:                                               ; preds = %25
   %39 = load i64, ptr %8, align 8
@@ -151,32 +151,33 @@ define hidden zeroext i1 @pm_string_mapped_init(ptr noundef %0, ptr noundef %1) 
   %41 = call ptr @mmap(ptr noundef null, i64 noundef %39, i32 noundef 1, i32 noundef 2, i32 noundef %40, i64 noundef 0) #7
   store ptr %41, ptr %9, align 8
   %42 = load ptr, ptr %9, align 8
-  %43 = icmp eq ptr %42, inttoptr (i64 -1 to ptr)
-  br i1 %43, label %44, label %45
-
-44:                                               ; preds = %38
-  store i1 false, ptr %3, align 1
-  br label %54
+  %43 = inttoptr i64 -1 to ptr
+  %44 = icmp eq ptr %42, %43
+  br i1 %44, label %45, label %46
 
 45:                                               ; preds = %38
-  %46 = load i32, ptr %6, align 4
-  %47 = call i32 @close(i32 noundef %46)
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.pm_string_t, ptr %12, i32 0, i32 0
-  %50 = load ptr, ptr %9, align 8
-  store ptr %50, ptr %49, align 8
-  %51 = getelementptr inbounds %struct.pm_string_t, ptr %12, i32 0, i32 1
-  %52 = load i64, ptr %8, align 8
-  store i64 %52, ptr %51, align 8
-  %53 = getelementptr inbounds %struct.pm_string_t, ptr %12, i32 0, i32 2
-  store i32 3, ptr %53, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %12, i64 24, i1 false)
-  store i1 true, ptr %3, align 1
-  br label %54
+  store i1 false, ptr %3, align 1
+  br label %55
 
-54:                                               ; preds = %45, %44, %30, %22, %17
-  %55 = load i1, ptr %3, align 1
-  ret i1 %55
+46:                                               ; preds = %38
+  %47 = load i32, ptr %6, align 4
+  %48 = call i32 @close(i32 noundef %47)
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds %struct.pm_string_t, ptr %12, i32 0, i32 0
+  %51 = load ptr, ptr %9, align 8
+  store ptr %51, ptr %50, align 8
+  %52 = getelementptr inbounds %struct.pm_string_t, ptr %12, i32 0, i32 1
+  %53 = load i64, ptr %8, align 8
+  store i64 %53, ptr %52, align 8
+  %54 = getelementptr inbounds %struct.pm_string_t, ptr %12, i32 0, i32 2
+  store i32 3, ptr %54, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 8 %12, i64 24, i1 false)
+  store i1 true, ptr %3, align 1
+  br label %55
+
+55:                                               ; preds = %46, %45, %30, %22, %17
+  %56 = load i1, ptr %3, align 1
+  ret i1 %56
 }
 
 declare i32 @open(ptr noundef, i32 noundef, ...) #2

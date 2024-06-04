@@ -32,18 +32,21 @@ do.body:                                          ; preds = %entry
   %4 = load ptr, ptr %re, align 8
   %entry3 = getelementptr inbounds %struct.QEMUResetEntry, ptr %4, i32 0, i32 0
   store ptr null, ptr %entry3, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1), align 8
-  %6 = load ptr, ptr %re, align 8
-  %entry4 = getelementptr inbounds %struct.QEMUResetEntry, ptr %6, i32 0, i32 0
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %entry4, i32 0, i32 1
-  store ptr %5, ptr %tql_prev, align 8
+  %5 = getelementptr inbounds %struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %re, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %8, i32 0, i32 0
-  store ptr %7, ptr %tql_next, align 8
-  %9 = load ptr, ptr %re, align 8
-  %entry5 = getelementptr inbounds %struct.QEMUResetEntry, ptr %9, i32 0, i32 0
-  store ptr %entry5, ptr getelementptr inbounds (%struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1), align 8
+  %entry4 = getelementptr inbounds %struct.QEMUResetEntry, ptr %7, i32 0, i32 0
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %entry4, i32 0, i32 1
+  store ptr %6, ptr %tql_prev, align 8
+  %8 = load ptr, ptr %re, align 8
+  %9 = getelementptr inbounds %struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %10, i32 0, i32 0
+  store ptr %8, ptr %tql_next, align 8
+  %11 = load ptr, ptr %re, align 8
+  %entry5 = getelementptr inbounds %struct.QEMUResetEntry, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds %struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1
+  store ptr %entry5, ptr %12, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -80,18 +83,21 @@ do.body:                                          ; preds = %entry
   %5 = load ptr, ptr %re, align 8
   %entry3 = getelementptr inbounds %struct.QEMUResetEntry, ptr %5, i32 0, i32 0
   store ptr null, ptr %entry3, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1), align 8
-  %7 = load ptr, ptr %re, align 8
-  %entry4 = getelementptr inbounds %struct.QEMUResetEntry, ptr %7, i32 0, i32 0
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %entry4, i32 0, i32 1
-  store ptr %6, ptr %tql_prev, align 8
+  %6 = getelementptr inbounds %struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %re, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %9, i32 0, i32 0
-  store ptr %8, ptr %tql_next, align 8
-  %10 = load ptr, ptr %re, align 8
-  %entry5 = getelementptr inbounds %struct.QEMUResetEntry, ptr %10, i32 0, i32 0
-  store ptr %entry5, ptr getelementptr inbounds (%struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1), align 8
+  %entry4 = getelementptr inbounds %struct.QEMUResetEntry, ptr %8, i32 0, i32 0
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %entry4, i32 0, i32 1
+  store ptr %7, ptr %tql_prev, align 8
+  %9 = load ptr, ptr %re, align 8
+  %10 = getelementptr inbounds %struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %11, i32 0, i32 0
+  store ptr %9, ptr %tql_next, align 8
+  %12 = load ptr, ptr %re, align 8
+  %entry5 = getelementptr inbounds %struct.QEMUResetEntry, ptr %12, i32 0, i32 0
+  %13 = getelementptr inbounds %struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1
+  store ptr %entry5, ptr %13, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -159,45 +165,46 @@ if.else:                                          ; preds = %do.body
   %entry11 = getelementptr inbounds %struct.QEMUResetEntry, ptr %14, i32 0, i32 0
   %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %entry11, i32 0, i32 1
   %15 = load ptr, ptr %tql_prev12, align 8
-  store ptr %15, ptr getelementptr inbounds (%struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1), align 8
+  %16 = getelementptr inbounds %struct.QTailQLink, ptr @reset_handlers, i32 0, i32 1
+  store ptr %15, ptr %16, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then6
-  %16 = load ptr, ptr %re, align 8
-  %entry13 = getelementptr inbounds %struct.QEMUResetEntry, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %entry13, align 8
-  %18 = load ptr, ptr %re, align 8
-  %entry14 = getelementptr inbounds %struct.QEMUResetEntry, ptr %18, i32 0, i32 0
+  %17 = load ptr, ptr %re, align 8
+  %entry13 = getelementptr inbounds %struct.QEMUResetEntry, ptr %17, i32 0, i32 0
+  %18 = load ptr, ptr %entry13, align 8
+  %19 = load ptr, ptr %re, align 8
+  %entry14 = getelementptr inbounds %struct.QEMUResetEntry, ptr %19, i32 0, i32 0
   %tql_prev15 = getelementptr inbounds %struct.QTailQLink, ptr %entry14, i32 0, i32 1
-  %19 = load ptr, ptr %tql_prev15, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %19, i32 0, i32 0
-  store ptr %17, ptr %tql_next, align 8
-  %20 = load ptr, ptr %re, align 8
-  %entry16 = getelementptr inbounds %struct.QEMUResetEntry, ptr %20, i32 0, i32 0
+  %20 = load ptr, ptr %tql_prev15, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %20, i32 0, i32 0
+  store ptr %18, ptr %tql_next, align 8
+  %21 = load ptr, ptr %re, align 8
+  %entry16 = getelementptr inbounds %struct.QEMUResetEntry, ptr %21, i32 0, i32 0
   %tql_prev17 = getelementptr inbounds %struct.QTailQLink, ptr %entry16, i32 0, i32 1
   store ptr null, ptr %tql_prev17, align 8
-  %21 = load ptr, ptr %re, align 8
-  %entry18 = getelementptr inbounds %struct.QEMUResetEntry, ptr %21, i32 0, i32 0
+  %22 = load ptr, ptr %re, align 8
+  %entry18 = getelementptr inbounds %struct.QEMUResetEntry, ptr %22, i32 0, i32 0
   %tql_next19 = getelementptr inbounds %struct.QTailQLink, ptr %entry18, i32 0, i32 0
   store ptr null, ptr %tql_next19, align 8
-  %22 = load ptr, ptr %re, align 8
-  %entry20 = getelementptr inbounds %struct.QEMUResetEntry, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %re, align 8
+  %entry20 = getelementptr inbounds %struct.QEMUResetEntry, ptr %23, i32 0, i32 0
   store ptr null, ptr %entry20, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %23 = load ptr, ptr %re, align 8
-  call void @g_free(ptr noundef %23)
+  %24 = load ptr, ptr %re, align 8
+  call void @g_free(ptr noundef %24)
   br label %for.end
 
 if.end21:                                         ; preds = %land.lhs.true, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end21
-  %24 = load ptr, ptr %re, align 8
-  %entry22 = getelementptr inbounds %struct.QEMUResetEntry, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %entry22, align 8
-  store ptr %25, ptr %re, align 8
+  %25 = load ptr, ptr %re, align 8
+  %entry22 = getelementptr inbounds %struct.QEMUResetEntry, ptr %25, i32 0, i32 0
+  %26 = load ptr, ptr %entry22, align 8
+  store ptr %26, ptr %re, align 8
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %do.end, %for.cond

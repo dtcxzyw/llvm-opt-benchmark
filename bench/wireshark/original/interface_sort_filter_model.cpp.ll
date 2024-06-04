@@ -685,35 +685,36 @@ define void @_ZN24InterfaceSortFilterModelC2EP7QObject(ptr noundef nonnull align
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV24InterfaceSortFilterModel, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %7, i32 0, i32 6
-  call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  %10 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %7, i32 0, i32 7
-  call void @_ZN5QListI20InterfaceTreeColumnsEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
+  %9 = getelementptr inbounds { [59 x ptr] }, ptr @_ZTV24InterfaceSortFilterModel, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %7, i32 0, i32 6
+  call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
+  %11 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %7, i32 0, i32 7
+  call void @_ZN5QListI20InterfaceTreeColumnsEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
   invoke void @_ZN24InterfaceSortFilterModel14resetAllFilterEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
-          to label %11 unwind label %12
-
-11:                                               ; preds = %2
-  ret void
+          to label %12 unwind label %13
 
 12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %5, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %6, align 4
-  call void @_ZN5QListI20InterfaceTreeColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
-  call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
-  br label %16
+  ret void
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %5, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %6, align 4
+  call void @_ZN5QListI20InterfaceTreeColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
+  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
+  call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -952,114 +953,115 @@ define void @_ZN24InterfaceSortFilterModel19resetPreferenceDataEv(ptr noundef no
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %12, i32 0, i32 6
   call void @_ZN5QListIiE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
-  %14 = load ptr, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 49), align 8
-  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %14)
-  %15 = invoke noundef i64 @_ZNK7QString6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %16 unwind label %44
+  %14 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 49
+  %15 = load ptr, ptr %14, align 8
+  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %15)
+  %16 = invoke noundef i64 @_ZNK7QString6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %17 unwind label %45
 
-16:                                               ; preds = %1
-  %17 = icmp sgt i64 %15, 0
-  br i1 %17, label %18, label %56
+17:                                               ; preds = %1
+  %18 = icmp sgt i64 %16, 0
+  br i1 %18, label %19, label %57
 
-18:                                               ; preds = %16
+19:                                               ; preds = %17
   call void @_ZN5QCharC2Ec(ptr noundef nonnull align 2 dereferenceable(2) %7, i8 noundef signext 44) #12
   call void @_ZN6QFlagsIN2Qt18SplitBehaviorFlagsEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %8, i32 noundef 0) #12
-  %19 = getelementptr inbounds %class.QChar, ptr %7, i32 0, i32 0
-  %20 = load i16, ptr %19, align 2
-  %21 = getelementptr inbounds %class.QFlags, ptr %8, i32 0, i32 0
-  %22 = load i32, ptr %21, align 4
-  invoke void @_ZNK7QString5splitE5QChar6QFlagsIN2Qt18SplitBehaviorFlagsEENS2_15CaseSensitivityE(ptr dead_on_unwind writable sret(%class.QList.5) align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %3, i16 %20, i32 %22, i32 noundef 1)
-          to label %23 unwind label %44
+  %20 = getelementptr inbounds %class.QChar, ptr %7, i32 0, i32 0
+  %21 = load i16, ptr %20, align 2
+  %22 = getelementptr inbounds %class.QFlags, ptr %8, i32 0, i32 0
+  %23 = load i32, ptr %22, align 4
+  invoke void @_ZNK7QString5splitE5QChar6QFlagsIN2Qt18SplitBehaviorFlagsEENS2_15CaseSensitivityE(ptr dead_on_unwind writable sret(%class.QList.5) align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %3, i16 %21, i32 %23, i32 noundef 1)
+          to label %24 unwind label %45
 
-23:                                               ; preds = %18
-  %24 = call ptr @_ZNK5QListI7QStringE10constBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
-  %25 = getelementptr inbounds %"class.QList<QString>::const_iterator", ptr %9, i32 0, i32 0
-  store ptr %24, ptr %25, align 8
-  br label %26
+24:                                               ; preds = %19
+  %25 = call ptr @_ZNK5QListI7QStringE10constBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
+  %26 = getelementptr inbounds %"class.QList<QString>::const_iterator", ptr %9, i32 0, i32 0
+  store ptr %25, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %54, %23
-  %27 = call ptr @_ZNK5QListI7QStringE8constEndEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
-  %28 = getelementptr inbounds %"class.QList<QString>::const_iterator", ptr %10, i32 0, i32 0
-  store ptr %27, ptr %28, align 8
+27:                                               ; preds = %55, %24
+  %28 = call ptr @_ZNK5QListI7QStringE8constEndEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   %29 = getelementptr inbounds %"class.QList<QString>::const_iterator", ptr %10, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = invoke noundef zeroext i1 @_ZNK5QListI7QStringE14const_iteratorneES2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr %30)
-          to label %32 unwind label %48
+  store ptr %28, ptr %29, align 8
+  %30 = getelementptr inbounds %"class.QList<QString>::const_iterator", ptr %10, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = invoke noundef zeroext i1 @_ZNK5QListI7QStringE14const_iteratorneES2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr %31)
+          to label %33 unwind label %49
 
-32:                                               ; preds = %26
-  br i1 %31, label %33, label %55
+33:                                               ; preds = %27
+  br i1 %32, label %34, label %56
 
-33:                                               ; preds = %32
-  %34 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5QListI7QStringE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %35 unwind label %48
+34:                                               ; preds = %33
+  %35 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5QListI7QStringE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %36 unwind label %49
 
-35:                                               ; preds = %33
-  %36 = invoke noundef i32 @_ZNK7QString5toIntEPbi(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef null, i32 noundef 10)
-          to label %37 unwind label %48
+36:                                               ; preds = %34
+  %37 = invoke noundef i32 @_ZNK7QString5toIntEPbi(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef null, i32 noundef 10)
+          to label %38 unwind label %49
 
-37:                                               ; preds = %35
-  store i32 %36, ptr %11, align 4
-  %38 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %12, i32 0, i32 6
-  %39 = call noundef zeroext i1 @_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 4 dereferenceable(4) %11) #12
-  br i1 %39, label %52, label %40
+38:                                               ; preds = %36
+  store i32 %37, ptr %11, align 4
+  %39 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %12, i32 0, i32 6
+  %40 = call noundef zeroext i1 @_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_(ptr noundef nonnull align 1 dereferenceable(1) %39, ptr noundef nonnull align 4 dereferenceable(4) %11) #12
+  br i1 %40, label %53, label %41
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %12, i32 0, i32 6
-  %42 = load i32, ptr %11, align 4
-  invoke void @_ZN5QListIiE6appendEi(ptr noundef nonnull align 8 dereferenceable(24) %41, i32 noundef %42)
-          to label %43 unwind label %48
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %12, i32 0, i32 6
+  %43 = load i32, ptr %11, align 4
+  invoke void @_ZN5QListIiE6appendEi(ptr noundef nonnull align 8 dereferenceable(24) %42, i32 noundef %43)
+          to label %44 unwind label %49
 
-43:                                               ; preds = %40
-  br label %52
+44:                                               ; preds = %41
+  br label %53
 
-44:                                               ; preds = %56, %18, %1
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %57, %19, %1
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %4, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %5, align 4
-  br label %58
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %4, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %5, align 4
+  br label %59
 
-48:                                               ; preds = %52, %40, %35, %33, %26
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %53, %41, %36, %34, %27
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %4, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %5, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %4, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %5, align 4
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
-  br label %58
+  br label %59
 
-52:                                               ; preds = %43, %37
-  %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListI7QStringE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %54 unwind label %48
+53:                                               ; preds = %44, %38
+  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListI7QStringE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %55 unwind label %49
 
-54:                                               ; preds = %52
-  br label %26, !llvm.loop !6
+55:                                               ; preds = %53
+  br label %27, !llvm.loop !6
 
-55:                                               ; preds = %32
+56:                                               ; preds = %33
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %16
+57:                                               ; preds = %56, %17
   invoke void @_ZN21QSortFilterProxyModel10invalidateEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %57 unwind label %44
+          to label %58 unwind label %45
 
-57:                                               ; preds = %56
+58:                                               ; preds = %57
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   ret void
 
-58:                                               ; preds = %48, %44
+59:                                               ; preds = %49, %45
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
-  br label %59
+  br label %60
 
-59:                                               ; preds = %58
-  %60 = load ptr, ptr %4, align 8
-  %61 = load i32, ptr %5, align 4
-  %62 = insertvalue { ptr, i32 } poison, ptr %60, 0
-  %63 = insertvalue { ptr, i32 } %62, i32 %61, 1
-  resume { ptr, i32 } %63
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %4, align 8
+  %62 = load i32, ptr %5, align 4
+  %63 = insertvalue { ptr, i32 } poison, ptr %61, 0
+  %64 = insertvalue { ptr, i32 } %63, i32 %62, 1
+  resume { ptr, i32 } %64
 }
 
 ; Function Attrs: nounwind
@@ -1435,7 +1437,7 @@ define void @_ZN24InterfaceSortFilterModel18toggleFilterHiddenEv(ptr noundef non
   %10 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %3, i32 0, i32 4
   %11 = load i8, ptr %10, align 1
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %19
+  br i1 %12, label %13, label %20
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %3, i32 0, i32 1
@@ -1443,11 +1445,12 @@ define void @_ZN24InterfaceSortFilterModel18toggleFilterHiddenEv(ptr noundef non
   %16 = trunc i8 %15 to i1
   %17 = xor i1 %16, true
   %18 = zext i1 %17 to i32
-  store i32 %18, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 50), align 8
+  %19 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 50
+  store i32 %18, ptr %19, align 8
   call void @prefs_main_write()
-  br label %19
+  br label %20
 
-19:                                               ; preds = %13, %1
+20:                                               ; preds = %13, %1
   call void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @_ZN21QSortFilterProxyModel10invalidateEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret void
@@ -1745,7 +1748,7 @@ define void @_ZN24InterfaceSortFilterModel23setInterfaceTypeVisibleEib(ptr nound
   br label %38
 
 37:                                               ; preds = %31, %28
-  br label %102
+  br label %103
 
 38:                                               ; preds = %34
   br label %39
@@ -1754,7 +1757,7 @@ define void @_ZN24InterfaceSortFilterModel23setInterfaceTypeVisibleEib(ptr nound
   %40 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %19, i32 0, i32 4
   %41 = load i8, ptr %40, align 1
   %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %101
+  br i1 %42, label %43, label %102
 
 43:                                               ; preds = %39
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
@@ -1816,7 +1819,7 @@ define void @_ZN24InterfaceSortFilterModel23setInterfaceTypeVisibleEib(ptr nound
   store ptr %71, ptr %10, align 8
   %72 = extractvalue { ptr, i32 } %70, 1
   store i32 %72, ptr %11, align 4
-  br label %100
+  br label %101
 
 73:                                               ; preds = %58, %56
   %74 = landingpad { ptr, i32 }
@@ -1839,7 +1842,7 @@ define void @_ZN24InterfaceSortFilterModel23setInterfaceTypeVisibleEib(ptr nound
 
 81:                                               ; preds = %77, %73
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #12
-  br label %100
+  br label %101
 
 82:                                               ; preds = %54
   %83 = invoke noundef i64 @_ZNK7QString6lengthEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
@@ -1866,46 +1869,47 @@ define void @_ZN24InterfaceSortFilterModel23setInterfaceTypeVisibleEib(ptr nound
 92:                                               ; preds = %90, %84
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %7) #12
   %93 = invoke noundef ptr @_Z14qstring_strdup7QString(ptr noundef %17)
-          to label %94 unwind label %96
+          to label %94 unwind label %97
 
 94:                                               ; preds = %92
-  store ptr %93, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 49), align 8
+  %95 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 49
+  store ptr %93, ptr %95, align 8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
   invoke void @prefs_main_write()
-          to label %95 unwind label %69
+          to label %96 unwind label %69
 
-95:                                               ; preds = %94
+96:                                               ; preds = %94
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  br label %101
-
-96:                                               ; preds = %92
-  %97 = landingpad { ptr, i32 }
-          cleanup
-  %98 = extractvalue { ptr, i32 } %97, 0
-  store ptr %98, ptr %10, align 8
-  %99 = extractvalue { ptr, i32 } %97, 1
-  store i32 %99, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
-  br label %100
-
-100:                                              ; preds = %96, %81, %69
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  br label %103
-
-101:                                              ; preds = %95, %39
-  call void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
-  call void @_ZN21QSortFilterProxyModel10invalidateEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
   br label %102
 
-102:                                              ; preds = %101, %37
+97:                                               ; preds = %92
+  %98 = landingpad { ptr, i32 }
+          cleanup
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %10, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #12
+  br label %101
+
+101:                                              ; preds = %97, %81, %69
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
+  br label %104
+
+102:                                              ; preds = %96, %39
+  call void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
+  call void @_ZN21QSortFilterProxyModel10invalidateEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
+  br label %103
+
+103:                                              ; preds = %102, %37
   ret void
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr %10, align 8
-  %105 = load i32, ptr %11, align 4
-  %106 = insertvalue { ptr, i32 } poison, ptr %104, 0
-  %107 = insertvalue { ptr, i32 } %106, i32 %105, 1
-  resume { ptr, i32 } %107
+104:                                              ; preds = %101
+  %105 = load ptr, ptr %10, align 8
+  %106 = load i32, ptr %11, align 4
+  %107 = insertvalue { ptr, i32 } poison, ptr %105, 0
+  %108 = insertvalue { ptr, i32 } %107, i32 %106, 1
+  resume { ptr, i32 } %108
 }
 
 ; Function Attrs: mustprogress uwtable

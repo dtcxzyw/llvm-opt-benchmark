@@ -12971,10 +12971,11 @@ entry:
   store ptr %__reason, ptr %__reason.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__reason.addr, align 8
-  store ptr %0, ptr %_M_reason, align 8
+  %1 = load ptr, ptr %__reason.addr, align 8
+  store ptr %1, ptr %_M_reason, align 8
   ret void
 }
 
@@ -12996,7 +12997,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29049,10 +29051,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #4
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #4
   ret void
 }
 
@@ -29062,7 +29065,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -31240,10 +31244,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter.155", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #4
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #4
   ret void
 }
 
@@ -34517,24 +34522,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow9NullArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow9NullArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow9NullArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl) #4
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow9NullArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %this1) #4
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow9NullArrayEJRlEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow9NullArrayEJRlEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #4
   br label %eh.resume
 
@@ -35867,7 +35873,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15DictionaryArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow15DictionaryArrayE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dictionary_ = getelementptr inbounds %"class.arrow::DictionaryArray", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %dictionary_) #4
   %indices_ = getelementptr inbounds %"class.arrow::DictionaryArray", ptr %this1, i32 0, i32 2
@@ -40360,7 +40367,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.arrow::Array", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data_) #4
   ret void
@@ -40397,7 +40405,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow14ExtensionArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow14ExtensionArrayE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %storage_ = getelementptr inbounds %"class.arrow::ExtensionArray", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %storage_) #4
   call void @_ZN5arrow5ArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
@@ -40829,7 +40838,8 @@ entry:
   store ptr %options, ptr %options.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow7compute11KernelStateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow7compute8internal14OptionsWrapperINS0_11TakeOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow7compute8internal14OptionsWrapperINS0_11TakeOptionsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options2 = getelementptr inbounds %"struct.arrow::compute::internal::OptionsWrapper.255", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow7compute11TakeOptionsC2EOS1_(ptr noundef nonnull align 8 dereferenceable(17) %options2, ptr noundef nonnull align 8 dereferenceable(17) %options) #4
   ret void
@@ -41108,7 +41118,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow7compute8internal14OptionsWrapperINS0_11TakeOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow7compute8internal14OptionsWrapperINS0_11TakeOptionsEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options = getelementptr inbounds %"struct.arrow::compute::internal::OptionsWrapper.255", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow7compute11TakeOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %options) #4
   call void @_ZN5arrow7compute11KernelStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
@@ -41231,7 +41242,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow7compute11KernelStateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow7compute11KernelStateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -41245,12 +41257,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5arrow7compute15FunctionOptionsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow7compute11TakeOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow7compute11TakeOptionsE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %boundscheck = getelementptr inbounds %"class.arrow::compute::TakeOptions", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %boundscheck2 = getelementptr inbounds %"class.arrow::compute::TakeOptions", ptr %2, i32 0, i32 1
-  %3 = load i8, ptr %boundscheck2, align 8
-  %tobool = trunc i8 %3 to i1
+  %3 = load ptr, ptr %.addr, align 8
+  %boundscheck2 = getelementptr inbounds %"class.arrow::compute::TakeOptions", ptr %3, i32 0, i32 1
+  %4 = load i8, ptr %boundscheck2, align 8
+  %tobool = trunc i8 %4 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %boundscheck, align 8
   ret void
@@ -41294,12 +41307,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow7compute15FunctionOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5arrow7compute15FunctionOptionsE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %options_type_ = getelementptr inbounds %"class.arrow::compute::FunctionOptions", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %options_type_2 = getelementptr inbounds %"class.arrow::compute::FunctionOptions", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %options_type_2, align 8
-  store ptr %2, ptr %options_type_, align 8
+  %2 = load ptr, ptr %.addr, align 8
+  %options_type_2 = getelementptr inbounds %"class.arrow::compute::FunctionOptions", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %options_type_2, align 8
+  store ptr %3, ptr %options_type_, align 8
   ret void
 }
 
@@ -43894,34 +43908,35 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   call void @_ZN5arrow7compute11FunctionDocD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %agg.tmp5) #4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #4
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_118FilterMetaFunctionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_118FilterMetaFunctionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup11
 
 lpad3:                                            ; preds = %invoke.cont4, %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont8, %invoke.cont6
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN5arrow7compute11FunctionDocD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %agg.tmp5) #4
   br label %ehcleanup
 
@@ -44090,16 +44105,17 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZN5arrow7compute11FunctionDocD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %agg.tmp2) #4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #4
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5arrow7compute12MetaFunctionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN5arrow7compute12MetaFunctionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN5arrow7compute11FunctionDocD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %agg.tmp2) #4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #4
   br label %eh.resume
@@ -45054,20 +45070,21 @@ entry:
   store ptr %doc, ptr %doc.indirect_addr, align 8
   store ptr %default_options, ptr %default_options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5arrow7compute8FunctionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5arrow7compute8FunctionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.arrow::compute::Function", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %name) #4
   %kind_ = getelementptr inbounds %"class.arrow::compute::Function", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %kind.addr, align 4
-  store i32 %0, ptr %kind_, align 8
+  %1 = load i32, ptr %kind.addr, align 4
+  store i32 %1, ptr %kind_, align 8
   %arity_ = getelementptr inbounds %"class.arrow::compute::Function", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %arity.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arity_, ptr align 4 %1, i64 8, i1 false)
+  %2 = load ptr, ptr %arity.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arity_, ptr align 4 %2, i64 8, i1 false)
   %doc_ = getelementptr inbounds %"class.arrow::compute::Function", ptr %this1, i32 0, i32 5
   call void @_ZN5arrow7compute11FunctionDocC2EOS1_(ptr noundef nonnull align 8 dereferenceable(121) %doc_, ptr noundef nonnull align 8 dereferenceable(121) %doc) #4
   %default_options_ = getelementptr inbounds %"class.arrow::compute::Function", ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %default_options.addr, align 8
-  store ptr %2, ptr %default_options_, align 8
+  %3 = load ptr, ptr %default_options.addr, align 8
+  store ptr %3, ptr %default_options_, align 8
   ret void
 }
 
@@ -45087,7 +45104,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5arrow7compute8FunctionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5arrow7compute8FunctionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %doc_ = getelementptr inbounds %"class.arrow::compute::Function", ptr %this1, i32 0, i32 5
   call void @_ZN5arrow7compute11FunctionDocD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %doc_) #4
   %name_ = getelementptr inbounds %"class.arrow::compute::Function", ptr %this1, i32 0, i32 1
@@ -53104,25 +53122,26 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.322", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl) #4
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %this3) #4
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow12ChunkedArrayEJSt6vectorISt10shared_ptrINS3_5ArrayEESaIS8_EERKS6_INS3_8DataTypeEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5arrow12ChunkedArrayEJSt6vectorISt10shared_ptrINS3_5ArrayEESaIS8_EERKS6_INS3_8DataTypeEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #4
   br label %eh.resume
 

@@ -14783,7 +14783,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %p.addr, align 8
-  %cmp1 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp1 = icmp eq ptr %1, %2
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -14791,95 +14792,95 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %2 = load ptr, ptr %s.addr, align 8
-  %info = getelementptr inbounds %struct.CType, ptr %2, i32 0, i32 0
-  %3 = load i32, ptr %info, align 8
-  %and = and i32 %3, 67108864
+  %3 = load ptr, ptr %s.addr, align 8
+  %info = getelementptr inbounds %struct.CType, ptr %3, i32 0, i32 0
+  %4 = load i32, ptr %info, align 8
+  %and = and i32 %4, 67108864
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then4, label %if.else12
 
 if.then4:                                         ; preds = %if.end3
-  %4 = load ptr, ptr %s.addr, align 8
-  %size = getelementptr inbounds %struct.CType, ptr %4, i32 0, i32 1
-  %5 = load i32, ptr %size, align 4
-  %conv = zext i32 %5 to i64
+  %5 = load ptr, ptr %s.addr, align 8
+  %size = getelementptr inbounds %struct.CType, ptr %5, i32 0, i32 1
+  %6 = load i32, ptr %size, align 4
+  %conv = zext i32 %6 to i64
   %cmp5 = icmp eq i64 %conv, 4
   br i1 %cmp5, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.then4
-  %6 = load ptr, ptr %p.addr, align 8
-  %7 = load float, ptr %6, align 4
-  %cmp8 = fcmp une float %7, 0.000000e+00
+  %7 = load ptr, ptr %p.addr, align 8
+  %8 = load float, ptr %7, align 4
+  %cmp8 = fcmp une float %8, 0.000000e+00
   %conv9 = zext i1 %cmp8 to i32
   store i32 %conv9, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %if.then4
-  %8 = load ptr, ptr %p.addr, align 8
-  %9 = load double, ptr %8, align 8
-  %cmp10 = fcmp une double %9, 0.000000e+00
+  %9 = load ptr, ptr %p.addr, align 8
+  %10 = load double, ptr %9, align 8
+  %cmp10 = fcmp une double %10, 0.000000e+00
   %conv11 = zext i1 %cmp10 to i32
   store i32 %conv11, ptr %retval, align 4
   br label %return
 
 if.else12:                                        ; preds = %if.end3
-  %10 = load ptr, ptr %s.addr, align 8
-  %size13 = getelementptr inbounds %struct.CType, ptr %10, i32 0, i32 1
-  %11 = load i32, ptr %size13, align 4
-  %cmp14 = icmp eq i32 %11, 1
+  %11 = load ptr, ptr %s.addr, align 8
+  %size13 = getelementptr inbounds %struct.CType, ptr %11, i32 0, i32 1
+  %12 = load i32, ptr %size13, align 4
+  %cmp14 = icmp eq i32 %12, 1
   br i1 %cmp14, label %if.then16, label %if.else20
 
 if.then16:                                        ; preds = %if.else12
-  %12 = load ptr, ptr %p.addr, align 8
-  %13 = load i8, ptr %12, align 1
-  %conv17 = zext i8 %13 to i32
+  %13 = load ptr, ptr %p.addr, align 8
+  %14 = load i8, ptr %13, align 1
+  %conv17 = zext i8 %14 to i32
   %cmp18 = icmp ne i32 %conv17, 0
   %conv19 = zext i1 %cmp18 to i32
   store i32 %conv19, ptr %retval, align 4
   br label %return
 
 if.else20:                                        ; preds = %if.else12
-  %14 = load ptr, ptr %s.addr, align 8
-  %size21 = getelementptr inbounds %struct.CType, ptr %14, i32 0, i32 1
-  %15 = load i32, ptr %size21, align 4
-  %cmp22 = icmp eq i32 %15, 2
+  %15 = load ptr, ptr %s.addr, align 8
+  %size21 = getelementptr inbounds %struct.CType, ptr %15, i32 0, i32 1
+  %16 = load i32, ptr %size21, align 4
+  %cmp22 = icmp eq i32 %16, 2
   br i1 %cmp22, label %if.then24, label %if.else28
 
 if.then24:                                        ; preds = %if.else20
-  %16 = load ptr, ptr %p.addr, align 8
-  %17 = load i16, ptr %16, align 2
-  %conv25 = zext i16 %17 to i32
+  %17 = load ptr, ptr %p.addr, align 8
+  %18 = load i16, ptr %17, align 2
+  %conv25 = zext i16 %18 to i32
   %cmp26 = icmp ne i32 %conv25, 0
   %conv27 = zext i1 %cmp26 to i32
   store i32 %conv27, ptr %retval, align 4
   br label %return
 
 if.else28:                                        ; preds = %if.else20
-  %18 = load ptr, ptr %s.addr, align 8
-  %size29 = getelementptr inbounds %struct.CType, ptr %18, i32 0, i32 1
-  %19 = load i32, ptr %size29, align 4
-  %cmp30 = icmp eq i32 %19, 4
+  %19 = load ptr, ptr %s.addr, align 8
+  %size29 = getelementptr inbounds %struct.CType, ptr %19, i32 0, i32 1
+  %20 = load i32, ptr %size29, align 4
+  %cmp30 = icmp eq i32 %20, 4
   br i1 %cmp30, label %if.then32, label %if.else35
 
 if.then32:                                        ; preds = %if.else28
-  %20 = load ptr, ptr %p.addr, align 8
-  %21 = load i32, ptr %20, align 4
-  %cmp33 = icmp ne i32 %21, 0
+  %21 = load ptr, ptr %p.addr, align 8
+  %22 = load i32, ptr %21, align 4
+  %cmp33 = icmp ne i32 %22, 0
   %conv34 = zext i1 %cmp33 to i32
   store i32 %conv34, ptr %retval, align 4
   br label %return
 
 if.else35:                                        ; preds = %if.else28
-  %22 = load ptr, ptr %p.addr, align 8
-  %23 = load i64, ptr %22, align 8
-  %cmp36 = icmp ne i64 %23, 0
+  %23 = load ptr, ptr %p.addr, align 8
+  %24 = load i64, ptr %23, align 8
+  %cmp36 = icmp ne i64 %24, 0
   %conv37 = zext i1 %cmp36 to i32
   store i32 %conv37, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.else35, %if.then32, %if.then24, %if.then16, %if.else, %if.then7, %if.then2, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+  %25 = load i32, ptr %retval, align 4
+  ret i32 %25
 }
 
 declare hidden i32 @lj_opt_narrow_toint(ptr noundef, i32 noundef) #1

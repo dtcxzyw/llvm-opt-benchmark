@@ -10208,15 +10208,16 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6common8Subfield11PathElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #28
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield11NestedFieldE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield11NestedFieldE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.facebook::velox::common::Subfield::NestedField", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %name.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %name.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %name.addr, align 8
-  %call = invoke noundef zeroext i1 @_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.11)
+  %2 = load ptr, ptr %name.addr, align 8
+  %call = invoke noundef zeroext i1 @_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.11)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -10228,21 +10229,21 @@ if.then:                                          ; preds = %invoke.cont3
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_) #28
   br label %ehcleanup
 
@@ -10291,7 +10292,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield11PathElementE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN8facebook5velox6common8Subfield11PathElementE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12070,7 +12072,7 @@ lpad33:                                           ; preds = %invoke.cont29
 
 catch.dispatch:                                   ; preds = %lpad33
   %sel = load i32, ptr %ehselector.slot, align 4
-  %28 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8facebook5velox14VeloxUserErrorE) #28
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8facebook5velox14VeloxUserErrorE) #28
   %matches = icmp eq i32 %sel, %28
   br i1 %matches, label %catch, label %ehcleanup37
 
@@ -12871,7 +12873,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont19:                                    ; preds = %invoke.cont
   call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3) #28
   call void @_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #28
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN8facebook5velox9RowVectorE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %6 = getelementptr inbounds { [46 x ptr] }, ptr @_ZTVN8facebook5velox9RowVectorE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this2, align 8
   %childrenSize_ = getelementptr inbounds %"class.facebook::velox::RowVector", ptr %this2, i32 0, i32 2
   %call = call noundef i64 @_ZNKSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %children) #28
   store i64 %call, ptr %childrenSize_, align 8
@@ -12884,8 +12887,8 @@ invoke.cont19:                                    ; preds = %invoke.cont
   %call22 = call noundef ptr @_ZNKSt19__shared_ptr_accessIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %type) #28
   %vtable = load ptr, ptr %call22, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %6 = load ptr, ptr %vfn, align 8
-  %call25 = invoke noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %call22)
+  %7 = load ptr, ptr %vfn, align 8
+  %call25 = invoke noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %call22)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont19
@@ -12899,21 +12902,21 @@ if.then:                                          ; preds = %invoke.cont24
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad18:                                           ; preds = %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3) #28
   br label %ehcleanup
 
@@ -12922,37 +12925,37 @@ ehcleanup:                                        ; preds = %lpad18, %lpad
   br label %eh.resume
 
 lpad23:                                           ; preds = %for.end, %invoke.cont19
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #28
   call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this2) #28
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then, %invoke.cont24
   %call27 = call noundef ptr @_ZNKSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %type) #28
-  %16 = icmp eq ptr %call27, null
-  br i1 %16, label %dynamic_cast.null, label %dynamic_cast.notnull
+  %17 = icmp eq ptr %call27, null
+  br i1 %17, label %dynamic_cast.null, label %dynamic_cast.notnull
 
 dynamic_cast.notnull:                             ; preds = %if.end
-  %17 = call ptr @__dynamic_cast(ptr %call27, ptr @_ZTIN8facebook5velox4TypeE, ptr @_ZTIN8facebook5velox7RowTypeE, i64 0) #28
+  %18 = call ptr @__dynamic_cast(ptr %call27, ptr @_ZTIN8facebook5velox4TypeE, ptr @_ZTIN8facebook5velox7RowTypeE, i64 0) #28
   br label %dynamic_cast.end
 
 dynamic_cast.null:                                ; preds = %if.end
   br label %dynamic_cast.end
 
 dynamic_cast.end:                                 ; preds = %dynamic_cast.null, %dynamic_cast.notnull
-  %18 = phi ptr [ %17, %dynamic_cast.notnull ], [ null, %dynamic_cast.null ]
-  store ptr %18, ptr %rowType, align 8
+  %19 = phi ptr [ %18, %dynamic_cast.notnull ], [ null, %dynamic_cast.null ]
+  store ptr %19, ptr %rowType, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %dynamic_cast.end
-  %19 = load i32, ptr %i, align 4
-  %conv28 = sext i32 %19 to i64
+  %20 = load i32, ptr %i, align 4
+  %conv28 = sext i32 %20 to i64
   %children_29 = getelementptr inbounds %"class.facebook::velox::RowVector", ptr %this2, i32 0, i32 3
   %call30 = call noundef i64 @_ZNKSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %children_29) #28
   %cmp31 = icmp ult i64 %conv28, %call30
@@ -12960,12 +12963,12 @@ for.cond:                                         ; preds = %for.inc, %dynamic_c
 
 for.body:                                         ; preds = %for.cond
   %children_32 = getelementptr inbounds %"class.facebook::velox::RowVector", ptr %this2, i32 0, i32 3
-  %20 = load i32, ptr %i, align 4
-  %conv33 = sext i32 %20 to i64
+  %21 = load i32, ptr %i, align 4
+  %conv33 = sext i32 %21 to i64
   %call34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %children_32, i64 noundef %conv33) #28
   store ptr %call34, ptr %child, align 8
-  %21 = load ptr, ptr %child, align 8
-  %call35 = call noundef zeroext i1 @_ZNKSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #28
+  %22 = load ptr, ptr %child, align 8
+  %call35 = call noundef zeroext i1 @_ZNKSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #28
   br i1 %call35, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %for.body
@@ -12975,8 +12978,8 @@ if.end37:                                         ; preds = %if.then36, %for.bod
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end37
-  %22 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %22, 1
+  %23 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %23, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !11
 
@@ -13234,9 +13237,6 @@ entry:
   ret ptr %call
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
-
 declare void @__cxa_end_catch()
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13269,7 +13269,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN8facebook5velox9RowVectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [46 x ptr] }, ptr @_ZTVN8facebook5velox9RowVectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %children_ = getelementptr inbounds %"class.facebook::velox::RowVector", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #28
   call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this1) #28
@@ -13798,7 +13799,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN8facebook5velox10BaseVectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [46 x ptr] }, ptr @_ZTVN8facebook5velox10BaseVectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %nulls_ = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %this1, i32 0, i32 5
   call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %nulls_) #28
   %type_ = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %this1, i32 0, i32 1
@@ -19857,12 +19859,13 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this2, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 18)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10MultiRangeE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10MultiRangeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this2, align 8
   %filters_ = getelementptr inbounds %"class.facebook::velox::common::MultiRange", ptr %this2, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox6common6FilterESt14default_deleteIS4_EESaIS7_EEC2EOS9_(ptr noundef nonnull align 8 dereferenceable(24) %filters_, ptr noundef nonnull align 8 dereferenceable(24) %filters) #28
   %nanAllowed_ = getelementptr inbounds %"class.facebook::velox::common::MultiRange", ptr %this2, i32 0, i32 2
-  %1 = load i8, ptr %nanAllowed.addr, align 1
-  %tobool3 = trunc i8 %1 to i1
+  %2 = load i8, ptr %nanAllowed.addr, align 1
+  %tobool3 = trunc i8 %2 to i1
   %frombool4 = zext i1 %tobool3 to i8
   store i8 %frombool4, ptr %nanAllowed_, align 8
   ret void
@@ -19995,20 +19998,21 @@ entry:
   store i32 %kind, ptr %kind.addr, align 4
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox13ISerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #28
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6FilterE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6FilterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %nullAllowed_ = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %this2, i32 0, i32 1
-  %0 = load i8, ptr %nullAllowed.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %nullAllowed.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %nullAllowed_, align 8
   %deterministic_ = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %this2, i32 0, i32 2
-  %1 = load i8, ptr %deterministic.addr, align 1
-  %tobool4 = trunc i8 %1 to i1
+  %2 = load i8, ptr %deterministic.addr, align 1
+  %tobool4 = trunc i8 %2 to i1
   %frombool5 = zext i1 %tobool4 to i8
   store i8 %frombool5, ptr %deterministic_, align 1
   %kind_ = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %this2, i32 0, i32 3
-  %2 = load i32, ptr %kind.addr, align 4
-  store i32 %2, ptr %kind_, align 4
+  %3 = load i32, ptr %kind.addr, align 4
+  store i32 %3, ptr %kind_, align 4
   ret void
 }
 
@@ -20018,7 +20022,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21374,10 +21379,11 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this2, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9BoolValueE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9BoolValueE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this2, align 8
   %value_ = getelementptr inbounds %"class.facebook::velox::common::BoolValue", ptr %this2, i32 0, i32 1
-  %1 = load i8, ptr %value.addr, align 1
-  %tobool3 = trunc i8 %1 to i1
+  %2 = load i8, ptr %value.addr, align 1
+  %tobool3 = trunc i8 %2 to i1
   %frombool4 = zext i1 %tobool3 to i8
   store i8 %frombool4, ptr %value_, align 8
   ret void
@@ -21865,13 +21871,14 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BigintRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BigintRangeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %lower.addr, align 8
-  store i64 %1, ptr %lower_, align 8
+  %2 = load i64, ptr %lower.addr, align 8
+  store i64 %2, ptr %lower_, align 8
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 2
-  %2 = load i64, ptr %upper.addr, align 8
-  store i64 %2, ptr %upper_, align 8
+  %3 = load i64, ptr %upper.addr, align 8
+  store i64 %3, ptr %upper_, align 8
   %lower32_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 3
   %call = call noundef i32 @_ZNSt14numeric_limitsIiE3minEv() #28
   %conv = sext i32 %call to i64
@@ -21880,8 +21887,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load i64, ptr %call2, align 8
-  %conv3 = trunc i64 %3 to i32
+  %4 = load i64, ptr %call2, align 8
+  %conv3 = trunc i64 %4 to i32
   store i32 %conv3, ptr %lower32_, align 8
   %upper32_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 4
   %call5 = call noundef i32 @_ZNSt14numeric_limitsIiE3maxEv() #28
@@ -21891,8 +21898,8 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %4 = load i64, ptr %call8, align 8
-  %conv9 = trunc i64 %4 to i32
+  %5 = load i64, ptr %call8, align 8
+  %conv9 = trunc i64 %5 to i32
   store i32 %conv9, ptr %upper32_, align 4
   %lower16_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 5
   %call11 = call noundef signext i16 @_ZNSt14numeric_limitsIsE3minEv() #28
@@ -21902,8 +21909,8 @@ invoke.cont7:                                     ; preds = %invoke.cont
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont7
-  %5 = load i64, ptr %call14, align 8
-  %conv15 = trunc i64 %5 to i16
+  %6 = load i64, ptr %call14, align 8
+  %conv15 = trunc i64 %6 to i16
   store i16 %conv15, ptr %lower16_, align 8
   %upper16_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 6
   %call17 = call noundef signext i16 @_ZNSt14numeric_limitsIsE3maxEv() #28
@@ -21913,26 +21920,26 @@ invoke.cont13:                                    ; preds = %invoke.cont7
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont13
-  %6 = load i64, ptr %call20, align 8
-  %conv21 = trunc i64 %6 to i16
+  %7 = load i64, ptr %call20, align 8
+  %conv21 = trunc i64 %7 to i16
   store i16 %conv21, ptr %upper16_, align 2
   %isSingleValue_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 7
   %upper_22 = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 2
-  %7 = load i64, ptr %upper_22, align 8
+  %8 = load i64, ptr %upper_22, align 8
   %lower_23 = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 1
-  %8 = load i64, ptr %lower_23, align 8
-  %cmp = icmp eq i64 %7, %8
+  %9 = load i64, ptr %lower_23, align 8
+  %cmp = icmp eq i64 %8, %9
   %frombool24 = zext i1 %cmp to i8
   store i8 %frombool24, ptr %isSingleValue_, align 4
   ret void
 
 lpad:                                             ; preds = %invoke.cont13, %invoke.cont7, %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #28
   br label %eh.resume
 
@@ -22336,13 +22343,14 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this3, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 19)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common12HugeintRangeE, i32 0, i32 0, i32 2), ptr %this3, align 16
+  %5 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common12HugeintRangeE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this3, align 16
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::HugeintRange", ptr %this3, i32 0, i32 1
-  %5 = load i128, ptr %lower.addr, align 16
-  store i128 %5, ptr %lower_, align 16
+  %6 = load i128, ptr %lower.addr, align 16
+  store i128 %6, ptr %lower_, align 16
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::HugeintRange", ptr %this3, i32 0, i32 2
-  %6 = load i128, ptr %upper.addr, align 16
-  store i128 %6, ptr %upper_, align 16
+  %7 = load i128, ptr %upper.addr, align 16
+  store i128 %7, ptr %upper_, align 16
   ret void
 }
 
@@ -22893,7 +22901,8 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 15)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #28
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 2
@@ -22902,8 +22911,8 @@ entry:
   call void @_ZN5folly10F14FastSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS6_vEENS_26HeterogeneousAccessEqualToIS6_vEESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %values_) #28
   %lengths_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 4
   call void @_ZN5folly10F14FastSetIjNS_23HeterogeneousAccessHashIjvEENS_26HeterogeneousAccessEqualToIjvEESaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lengths_) #28
-  %1 = load ptr, ptr %values.addr, align 8
-  %call = call noundef zeroext i1 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #28
+  %2 = load ptr, ptr %values.addr, align 8
+  %call = call noundef zeroext i1 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #28
   %lnot = xor i1 %call, true
   %lnot2 = xor i1 %lnot, true
   br i1 %lnot2, label %if.then, label %if.end
@@ -22913,14 +22922,14 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %2 = load ptr, ptr %values.addr, align 8
-  store ptr %2, ptr %__range3, align 8
-  %3 = load ptr, ptr %__range3, align 8
-  %call3 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
+  %3 = load ptr, ptr %values.addr, align 8
+  store ptr %3, ptr %__range3, align 8
+  %4 = load ptr, ptr %__range3, align 8
+  %call3 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.304", ptr %__begin3, i32 0, i32 0
   store ptr %call3, ptr %coerce.dive, align 8
-  %4 = load ptr, ptr %__range3, align 8
-  %call4 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
+  %5 = load ptr, ptr %__range3, align 8
+  %call4 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
   %coerce.dive5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.304", ptr %__end3, i32 0, i32 0
   store ptr %call4, ptr %coerce.dive5, align 8
   br label %for.cond
@@ -22933,8 +22942,8 @@ for.body:                                         ; preds = %for.cond
   %call7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin3) #28
   store ptr %call7, ptr %value, align 8
   %lengths_8 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %value, align 8
-  %call9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
+  %6 = load ptr, ptr %value, align 8
+  %call9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   %conv = trunc i64 %call9 to i32
   store i32 %conv, ptr %ref.tmp, align 4
   invoke void @_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIjvvvvEEE6insertEOj(ptr sret(%"struct.std::pair.305") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(32) %lengths_8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
@@ -22942,8 +22951,8 @@ for.body:                                         ; preds = %for.cond
 
 invoke.cont:                                      ; preds = %for.body
   %values_10 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %value, align 8
-  invoke void @_ZN5folly3f146detail11F14BasicSetINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE6insertERKS9_(ptr sret(%"struct.std::pair.307") align 8 %tmp11, ptr noundef nonnull align 8 dereferenceable(24) %values_10, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = load ptr, ptr %value, align 8
+  invoke void @_ZN5folly3f146detail11F14BasicSetINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE6insertERKS9_(ptr sret(%"struct.std::pair.307") align 8 %tmp11, ptr noundef nonnull align 8 dereferenceable(24) %values_10, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont
@@ -22954,12 +22963,12 @@ for.inc:                                          ; preds = %invoke.cont12
   br label %for.cond
 
 lpad:                                             ; preds = %invoke.cont40, %invoke.cont38, %invoke.cont36, %invoke.cont32, %invoke.cont27, %invoke.cont24, %invoke.cont22, %invoke.cont20, %invoke.cont16, %for.end, %invoke.cont, %for.body
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN5folly10F14FastSetIjNS_23HeterogeneousAccessHashIjvEENS_26HeterogeneousAccessEqualToIjvEESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lengths_) #28
   call void @_ZN5folly10F14FastSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS6_vEENS_26HeterogeneousAccessEqualToIS6_vEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %values_) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %upper_) #28
@@ -22973,41 +22982,41 @@ for.end:                                          ; preds = %for.cond
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %for.end
-  %10 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %11 = extractvalue { ptr, ptr } %call17, 0
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %13 = extractvalue { ptr, ptr } %call17, 1
-  store ptr %13, ptr %12, align 8
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %12 = extractvalue { ptr, ptr } %call17, 0
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %14 = extractvalue { ptr, ptr } %call17, 1
+  store ptr %14, ptr %13, align 8
   %values_19 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 3
   %call21 = invoke { ptr, ptr } @_ZN5folly3f146detail16F14VectorSetImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_ESt17integral_constantIbLb1EEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %values_19)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont16
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 0
-  %15 = extractvalue { ptr, ptr } %call21, 0
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 1
-  %17 = extractvalue { ptr, ptr } %call21, 1
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %call23 = invoke { ptr, ptr } @_ZSt11min_elementIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SD_SD_(ptr %19, ptr %21, ptr %23, ptr %25)
+  %15 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 0
+  %16 = extractvalue { ptr, ptr } %call21, 0
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 1
+  %18 = extractvalue { ptr, ptr } %call21, 1
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp18, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %call23 = invoke { ptr, ptr } @_ZSt11min_elementIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SD_SD_(ptr %20, ptr %22, ptr %24, ptr %26)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont20
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp14, i32 0, i32 0
-  %27 = extractvalue { ptr, ptr } %call23, 0
-  store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp14, i32 0, i32 1
-  %29 = extractvalue { ptr, ptr } %call23, 1
-  store ptr %29, ptr %28, align 8
+  %27 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp14, i32 0, i32 0
+  %28 = extractvalue { ptr, ptr } %call23, 0
+  store ptr %28, ptr %27, align 8
+  %29 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp14, i32 0, i32 1
+  %30 = extractvalue { ptr, ptr } %call23, 1
+  store ptr %30, ptr %29, align 8
   %call25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14)
           to label %invoke.cont24 unwind label %lpad
 
@@ -23022,41 +23031,41 @@ invoke.cont27:                                    ; preds = %invoke.cont24
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %invoke.cont27
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp30, i32 0, i32 0
-  %31 = extractvalue { ptr, ptr } %call33, 0
-  store ptr %31, ptr %30, align 8
-  %32 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp30, i32 0, i32 1
-  %33 = extractvalue { ptr, ptr } %call33, 1
-  store ptr %33, ptr %32, align 8
+  %31 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp30, i32 0, i32 0
+  %32 = extractvalue { ptr, ptr } %call33, 0
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp30, i32 0, i32 1
+  %34 = extractvalue { ptr, ptr } %call33, 1
+  store ptr %34, ptr %33, align 8
   %values_35 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 3
   %call37 = invoke { ptr, ptr } @_ZN5folly3f146detail16F14VectorSetImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_ESt17integral_constantIbLb1EEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %values_35)
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %invoke.cont32
-  %34 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp34, i32 0, i32 0
-  %35 = extractvalue { ptr, ptr } %call37, 0
-  store ptr %35, ptr %34, align 8
-  %36 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp34, i32 0, i32 1
-  %37 = extractvalue { ptr, ptr } %call37, 1
-  store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp30, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp30, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp34, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp34, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %call39 = invoke { ptr, ptr } @_ZSt11max_elementIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SD_SD_(ptr %39, ptr %41, ptr %43, ptr %45)
+  %35 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp34, i32 0, i32 0
+  %36 = extractvalue { ptr, ptr } %call37, 0
+  store ptr %36, ptr %35, align 8
+  %37 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp34, i32 0, i32 1
+  %38 = extractvalue { ptr, ptr } %call37, 1
+  store ptr %38, ptr %37, align 8
+  %39 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp30, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp30, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp34, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp34, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  %call39 = invoke { ptr, ptr } @_ZSt11max_elementIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SD_SD_(ptr %40, ptr %42, ptr %44, ptr %46)
           to label %invoke.cont38 unwind label %lpad
 
 invoke.cont38:                                    ; preds = %invoke.cont36
-  %46 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp29, i32 0, i32 0
-  %47 = extractvalue { ptr, ptr } %call39, 0
-  store ptr %47, ptr %46, align 8
-  %48 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp29, i32 0, i32 1
-  %49 = extractvalue { ptr, ptr } %call39, 1
-  store ptr %49, ptr %48, align 8
+  %47 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp29, i32 0, i32 0
+  %48 = extractvalue { ptr, ptr } %call39, 0
+  store ptr %48, ptr %47, align 8
+  %49 = getelementptr inbounds { ptr, ptr }, ptr %ref.tmp29, i32 0, i32 1
+  %50 = extractvalue { ptr, ptr } %call39, 1
+  store ptr %50, ptr %49, align 8
   %call41 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp29)
           to label %invoke.cont40 unwind label %lpad
 
@@ -23856,7 +23865,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #1 comdat {
@@ -24373,7 +24382,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare i64 @llvm.x86.sse42.crc32.64.64(i64, i64) #14
+declare i64 @llvm.x86.sse42.crc32.64.64(i64, i64) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt4pairImmEC2IRmS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS4_S5_EEEbE4typeELb1EEEOS4_OS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %__x, ptr noundef nonnull align 8 dereferenceable(8) %__y) unnamed_addr #1 comdat align 2 {
@@ -24885,7 +24894,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr i32 @_ZNK5folly3f146detail8F14ChunkIjE12tagMatchIterEm(ptr noundef nonnull align 16 dereferenceable(64) %this, i64 noundef %needle) #15 comdat align 2 {
+define linkonce_odr i32 @_ZNK5folly3f146detail8F14ChunkIjE12tagMatchIterEm(ptr noundef nonnull align 16 dereferenceable(64) %this, i64 noundef %needle) #14 comdat align 2 {
 entry:
   %__b15.addr.i = alloca i8, align 1
   %__b14.addr.i = alloca i8, align 1
@@ -25135,7 +25144,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #16
+declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayINSt15aligned_storageILm4ELm4EE4typeELm12EEixEm(ptr noundef nonnull align 4 dereferenceable(48) %this, i64 noundef %__n) #1 comdat align 2 {
@@ -25217,10 +25226,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.sse2.pmovmskb.128(<16 x i8>) #14
+declare i32 @llvm.x86.sse2.pmovmskb.128(<16 x i8>) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #17
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5folly3f146detail10BasePolicyIjvvvvjE8keyEqualEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #0 comdat align 2 {
@@ -26244,7 +26253,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #17
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK5folly14to_unsigned_fnclIJEmEENSt13make_unsignedIT0_E4typeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %t) #1 comdat align 2 {
@@ -26259,7 +26268,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #18 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #17 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
   %exn.slot = alloca ptr, align 8
@@ -26290,7 +26299,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) #18 comdat {
+define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) #17 comdat {
 entry:
   %ex.addr = alloca ptr, align 8
   store ptr %ex, ptr %ex.addr, align 8
@@ -26308,7 +26317,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26327,7 +26337,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -26341,7 +26352,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26351,7 +26363,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26769,7 +26782,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %this) #19 comdat align 2 {
+define linkonce_odr noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %this) #18 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -26777,7 +26790,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %this) #19 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %this) #18 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -27686,7 +27699,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5folly3f146detail8F14ChunkIjE12occupiedMaskEv(ptr noundef nonnull align 16 dereferenceable(64) %this) #20 comdat align 2 {
+define linkonce_odr noundef i32 @_ZNK5folly3f146detail8F14ChunkIjE12occupiedMaskEv(ptr noundef nonnull align 16 dereferenceable(64) %this) #19 comdat align 2 {
 entry:
   %__a.addr.i = alloca <2 x i64>, align 16
   %__p.addr.i = alloca ptr, align 8
@@ -27727,7 +27740,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind
-declare void @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef, ...) #21
+declare void @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef, ...) #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyIjvvvvEEE10rehashImplEmmmmmEUlvE0_Lb1EE7executeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -27739,30 +27752,31 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.329", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #29
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #29
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN5folly6detail18ScopeGuardImplBase9terminateEv() #22
+declare void @_ZN5folly6detail18ScopeGuardImplBase9terminateEv() #21
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -27853,25 +27867,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #28
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIjvvvvEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %3) #28
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #29
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #29
   unreachable
 }
 
@@ -30914,25 +30929,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.339", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmmENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #29
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #29
   unreachable
 }
 
@@ -30995,25 +31011,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.337", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #28
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmmENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(88) %3) #28
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #29
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #29
   unreachable
 }
 
@@ -33553,17 +33570,18 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 20)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common14TimestampRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common14TimestampRangeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %lower.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lower_, ptr align 8 %1, i64 16, i1 false)
+  %2 = load ptr, ptr %lower.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lower_, ptr align 8 %2, i64 16, i1 false)
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %upper.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %upper_, ptr align 8 %2, i64 16, i1 false)
+  %3 = load ptr, ptr %upper.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %upper_, ptr align 8 %3, i64 16, i1 false)
   %singleValue_ = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %this1, i32 0, i32 3
   %lower_2 = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %upper.addr, align 8
-  %call = invoke noundef zeroext i1 @_ZNK8facebook5velox9TimestampeqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %lower_2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %4 = load ptr, ptr %upper.addr, align 8
+  %call = invoke noundef zeroext i1 @_ZNK8facebook5velox9TimestampeqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %lower_2, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -33572,12 +33590,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #28
   br label %eh.resume
 
@@ -34668,21 +34686,22 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool9 = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this5, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool6, i1 noundef zeroext %tobool7, i1 noundef zeroext %tobool8, i1 noundef zeroext %tobool9, i32 noundef 11)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %5 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this5, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this5, i32 0, i32 1
-  %5 = load double, ptr %lower.addr, align 8
-  store double %5, ptr %lower_, align 8
+  %6 = load double, ptr %lower.addr, align 8
+  store double %6, ptr %lower_, align 8
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this5, i32 0, i32 2
-  %6 = load double, ptr %upper.addr, align 8
-  store double %6, ptr %upper_, align 8
-  %7 = load i8, ptr %lowerUnbounded.addr, align 1
-  %tobool10 = trunc i8 %7 to i1
+  %7 = load double, ptr %upper.addr, align 8
+  store double %7, ptr %upper_, align 8
+  %8 = load i8, ptr %lowerUnbounded.addr, align 1
+  %tobool10 = trunc i8 %8 to i1
   br i1 %tobool10, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %lower_11 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this5, i32 0, i32 1
-  %8 = load double, ptr %lower_11, align 8
-  %call = invoke noundef zeroext i1 @_ZSt5isnand(double noundef %8)
+  %9 = load double, ptr %lower_11, align 8
+  %call = invoke noundef zeroext i1 @_ZSt5isnand(double noundef %9)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %lor.rhs
@@ -34690,8 +34709,8 @@ invoke.cont:                                      ; preds = %lor.rhs
   br label %lor.end
 
 lor.end:                                          ; preds = %invoke.cont, %entry
-  %9 = phi i1 [ true, %entry ], [ %lnot, %invoke.cont ]
-  %lnot12 = xor i1 %9, true
+  %10 = phi i1 [ true, %entry ], [ %lnot, %invoke.cont ]
+  %lnot12 = xor i1 %10, true
   br i1 %lnot12, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.end
@@ -34699,24 +34718,24 @@ if.then:                                          ; preds = %lor.end
   br label %if.end
 
 lpad:                                             ; preds = %lor.rhs14, %lor.rhs
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common13AbstractRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this5) #28
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then, %lor.end
-  %13 = load i8, ptr %upperUnbounded.addr, align 1
-  %tobool13 = trunc i8 %13 to i1
+  %14 = load i8, ptr %upperUnbounded.addr, align 1
+  %tobool13 = trunc i8 %14 to i1
   br i1 %tobool13, label %lor.end19, label %lor.rhs14
 
 lor.rhs14:                                        ; preds = %if.end
   %upper_15 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this5, i32 0, i32 2
-  %14 = load double, ptr %upper_15, align 8
-  %call17 = invoke noundef zeroext i1 @_ZSt5isnand(double noundef %14)
+  %15 = load double, ptr %upper_15, align 8
+  %call17 = invoke noundef zeroext i1 @_ZSt5isnand(double noundef %15)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %lor.rhs14
@@ -34724,8 +34743,8 @@ invoke.cont16:                                    ; preds = %lor.rhs14
   br label %lor.end19
 
 lor.end19:                                        ; preds = %invoke.cont16, %if.end
-  %15 = phi i1 [ true, %if.end ], [ %lnot18, %invoke.cont16 ]
-  %lnot20 = xor i1 %15, true
+  %16 = phi i1 [ true, %if.end ], [ %lnot18, %invoke.cont16 ]
+  %lnot20 = xor i1 %16, true
   br i1 %lnot20, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %lor.end19
@@ -34794,42 +34813,43 @@ entry:
   %tobool = trunc i8 %0 to i1
   %1 = load i32, ptr %kind.addr, align 4
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this5, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common13AbstractRangeE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common13AbstractRangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this5, align 8
   %lowerUnbounded_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 1
-  %2 = load i8, ptr %lowerUnbounded.addr, align 1
-  %tobool6 = trunc i8 %2 to i1
+  %3 = load i8, ptr %lowerUnbounded.addr, align 1
+  %tobool6 = trunc i8 %3 to i1
   %frombool7 = zext i1 %tobool6 to i8
   store i8 %frombool7, ptr %lowerUnbounded_, align 8
   %lowerExclusive_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 2
-  %3 = load i8, ptr %lowerExclusive.addr, align 1
-  %tobool8 = trunc i8 %3 to i1
+  %4 = load i8, ptr %lowerExclusive.addr, align 1
+  %tobool8 = trunc i8 %4 to i1
   %frombool9 = zext i1 %tobool8 to i8
   store i8 %frombool9, ptr %lowerExclusive_, align 1
   %upperUnbounded_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 3
-  %4 = load i8, ptr %upperUnbounded.addr, align 1
-  %tobool10 = trunc i8 %4 to i1
+  %5 = load i8, ptr %upperUnbounded.addr, align 1
+  %tobool10 = trunc i8 %5 to i1
   %frombool11 = zext i1 %tobool10 to i8
   store i8 %frombool11, ptr %upperUnbounded_, align 2
   %upperExclusive_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 4
-  %5 = load i8, ptr %upperExclusive.addr, align 1
-  %tobool12 = trunc i8 %5 to i1
+  %6 = load i8, ptr %upperExclusive.addr, align 1
+  %tobool12 = trunc i8 %6 to i1
   %frombool13 = zext i1 %tobool12 to i8
   store i8 %frombool13, ptr %upperExclusive_, align 1
   %lowerUnbounded_14 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 1
-  %6 = load i8, ptr %lowerUnbounded_14, align 8
-  %tobool15 = trunc i8 %6 to i1
+  %7 = load i8, ptr %lowerUnbounded_14, align 8
+  %tobool15 = trunc i8 %7 to i1
   br i1 %tobool15, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
   %upperUnbounded_16 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 3
-  %7 = load i8, ptr %upperUnbounded_16, align 2
-  %tobool17 = trunc i8 %7 to i1
+  %8 = load i8, ptr %upperUnbounded_16, align 2
+  %tobool17 = trunc i8 %8 to i1
   %lnot = xor i1 %tobool17, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %8 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
-  %lnot18 = xor i1 %8, true
+  %9 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
+  %lnot18 = xor i1 %9, true
   br i1 %lnot18, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.end
@@ -35054,7 +35074,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %x.coerce) unnamed_addr #23 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %x.coerce) unnamed_addr #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %x = alloca %"class.xsimd::batch", align 32
@@ -35091,7 +35111,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIiNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %x.coerce) unnamed_addr #23 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIiNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %x.coerce) unnamed_addr #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.404", align 32
   %x = alloca %"class.xsimd::batch.408", align 32
@@ -35128,7 +35148,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIsNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %x.coerce) unnamed_addr #23 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIsNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %x.coerce) unnamed_addr #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.410", align 32
   %x = alloca %"class.xsimd::batch.414", align 32
@@ -35165,7 +35185,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <4 x double> @_ZNK8facebook5velox6common18FloatingPointRangeIdE10testValuesEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, <4 x double> %x.coerce) unnamed_addr #23 comdat align 2 {
+define linkonce_odr <4 x double> @_ZNK8facebook5velox6common18FloatingPointRangeIdE10testValuesEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, <4 x double> %x.coerce) unnamed_addr #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %x = alloca %"class.xsimd::batch.420", align 32
@@ -35199,7 +35219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNK8facebook5velox6common18FloatingPointRangeIdE10testValuesEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, <8 x float> %.coerce) unnamed_addr #24 comdat align 2 {
+define linkonce_odr <8 x float> @_ZNK8facebook5velox6common18FloatingPointRangeIdE10testValuesEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, <8 x float> %.coerce) unnamed_addr #23 comdat align 2 {
 entry:
   %0 = alloca %"class.xsimd::batch.426", align 32
   %this.addr = alloca ptr, align 8
@@ -35269,7 +35289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter11testLengthsEN5xsimd5batchIiNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %lengths.coerce) unnamed_addr #23 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter11testLengthsEN5xsimd5batchIiNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %lengths.coerce) unnamed_addr #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.404", align 32
   %lengths = alloca %"class.xsimd::batch.408", align 32
@@ -35753,7 +35773,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <4 x double> @_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIdNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x double> %x.coerce) unnamed_addr #23 comdat align 2 {
+define linkonce_odr <4 x double> @_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIdNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x double> %x.coerce) unnamed_addr #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %x = alloca %"class.xsimd::batch.420", align 32
@@ -35790,7 +35810,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <8 x float> @_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIfNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, <8 x float> %x.coerce) unnamed_addr #23 comdat align 2 {
+define linkonce_odr <8 x float> @_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIfNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, <8 x float> %x.coerce) unnamed_addr #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %x = alloca %"class.xsimd::batch.426", align 32
@@ -35856,7 +35876,7 @@ entry:
 declare void @_ZNK8facebook5velox6common6Filter8toStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <4 x double> @_ZNK8facebook5velox6common6Filter17genericTestValuesIdZNKS2_10testValuesEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEEEUldE_EENS4_10batch_boolIT_S8_EENS5_ISC_S8_EEOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x double> %batch.coerce, ptr noundef nonnull align 8 dereferenceable(8) %testValue) #23 comdat align 2 {
+define linkonce_odr <4 x double> @_ZNK8facebook5velox6common6Filter17genericTestValuesIdZNKS2_10testValuesEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEEEUldE_EENS4_10batch_boolIT_S8_EENS5_ISC_S8_EEOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x double> %batch.coerce, ptr noundef nonnull align 8 dereferenceable(8) %testValue) #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %batch = alloca %"class.xsimd::batch.420", align 32
@@ -35980,7 +36000,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimdneERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimdneERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %self.addr = alloca ptr, align 8
@@ -36004,7 +36024,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd9broadcastIdNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(double noundef %v) #24 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd9broadcastIdNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(double noundef %v) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch.420", align 32
   %v.addr = alloca double, align 8
@@ -36026,7 +36046,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd12load_alignedINS_4fma3INS_4avx2EEEdEENS_5batchIT0_T_EEPKS5_(ptr noundef %ptr) #24 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd12load_alignedINS_4fma3INS_4avx2EEEdEENS_5batchIT0_T_EEPKS5_(ptr noundef %ptr) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch.420", align 32
   %ptr.addr = alloca ptr, align 8
@@ -36054,7 +36074,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd6kernel13store_alignedINS_4fma3INS_4avx2EEEEEvPdRKNS_5batchIdT_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5xsimd6kernel13store_alignedINS_4fma3INS_4avx2EEEEEvPdRKNS_5batchIdT_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %__a.addr.i = alloca <4 x double>, align 32
@@ -36086,7 +36106,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef <4 x double> @_ZNK5xsimd5types13simd_registerIdNS_3avxEEcvDv4_dEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #24 comdat align 2 {
+define linkonce_odr noundef <4 x double> @_ZNK5xsimd5types13simd_registerIdNS_3avxEEcvDv4_dEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -36097,7 +36117,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd7details3neqIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd7details3neqIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %self.addr = alloca ptr, align 8
@@ -36123,7 +36143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %self.addr = alloca ptr, align 8
@@ -36149,7 +36169,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd10batch_boolIdNS_4fma3INS_4avx2EEEEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd10batch_boolIdNS_4fma3INS_4avx2EEEEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x double>, align 32
@@ -36164,7 +36184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIdNS_4fma3INS_4avx2EEEEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIdNS_4fma3INS_4avx2EEEEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x double>, align 32
@@ -36177,7 +36197,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIdNS_4avx2EEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIdNS_4avx2EEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x double>, align 32
@@ -36191,7 +36211,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEE9broadcastIdEES4_T_(double noundef %val) #24 comdat align 2 {
+define linkonce_odr <4 x double> @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEE9broadcastIdEES4_T_(double noundef %val) #23 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.420", align 32
   %val.addr = alloca double, align 8
@@ -36208,7 +36228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEEC2Ed(ptr noundef nonnull align 32 dereferenceable(32) %this, double noundef %val) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEEC2Ed(ptr noundef nonnull align 32 dereferenceable(32) %this, double noundef %val) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %val.addr = alloca double, align 8
@@ -36230,7 +36250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEEENS_5batchIdT_EEdRKNS_3avxE(double noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEEENS_5batchIdT_EEdRKNS_3avxE(double noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca double, align 8
   %__b.addr.i = alloca double, align 8
@@ -36283,7 +36303,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIdNS_4fma3INS_4avx2EEEEC2EDv4_d(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x double> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x double>, align 32
@@ -36299,7 +36319,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd7load_asIdNS_4fma3INS_4avx2EEEdEENS_6detail21simd_return_type_implIT1_T_T0_E4typeEPKS6_NS_12aligned_modeE(ptr noundef %ptr) #24 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd7load_asIdNS_4fma3INS_4avx2EEEdEENS_6detail21simd_return_type_implIT1_T_T0_E4typeEPKS6_NS_12aligned_modeE(ptr noundef %ptr) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch.420", align 32
   %ptr.addr = alloca ptr, align 8
@@ -36323,7 +36343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel12load_alignedINS_4fma3INS_4avx2EEEEENS_5batchIdT_EEPKdNS0_7convertIdEERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel12load_alignedINS_4fma3INS_4avx2EEEEENS_5batchIdT_EEPKdNS0_7convertIdEERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %retval = alloca %"class.xsimd::batch.420", align 32
@@ -36355,7 +36375,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <8 x float> @_ZNK8facebook5velox6common6Filter17genericTestValuesIfZNKS2_10testValuesEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEEEUlfE_EENS4_10batch_boolIT_S8_EENS5_ISC_S8_EEOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, <8 x float> %batch.coerce, ptr noundef nonnull align 8 dereferenceable(8) %testValue) #23 comdat align 2 {
+define linkonce_odr <8 x float> @_ZNK8facebook5velox6common6Filter17genericTestValuesIfZNKS2_10testValuesEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEEEUlfE_EENS4_10batch_boolIT_S8_EENS5_ISC_S8_EEOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, <8 x float> %batch.coerce, ptr noundef nonnull align 8 dereferenceable(8) %testValue) #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %batch = alloca %"class.xsimd::batch.426", align 32
@@ -36479,7 +36499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimdneERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimdneERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %self.addr = alloca ptr, align 8
@@ -36503,7 +36523,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd9broadcastIfNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(float noundef %v) #24 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd9broadcastIfNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(float noundef %v) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch.426", align 32
   %v.addr = alloca float, align 4
@@ -36525,7 +36545,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd12load_alignedINS_4fma3INS_4avx2EEEfEENS_5batchIT0_T_EEPKS5_(ptr noundef %ptr) #24 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd12load_alignedINS_4fma3INS_4avx2EEEfEENS_5batchIT0_T_EEPKS5_(ptr noundef %ptr) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch.426", align 32
   %ptr.addr = alloca ptr, align 8
@@ -36553,7 +36573,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd6kernel13store_alignedINS_4fma3INS_4avx2EEEEEvPfRKNS_5batchIfT_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5xsimd6kernel13store_alignedINS_4fma3INS_4avx2EEEEEvPfRKNS_5batchIfT_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %__a.addr.i = alloca <8 x float>, align 32
@@ -36585,7 +36605,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef <8 x float> @_ZNK5xsimd5types13simd_registerIfNS_3avxEEcvDv8_fEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #24 comdat align 2 {
+define linkonce_odr noundef <8 x float> @_ZNK5xsimd5types13simd_registerIfNS_3avxEEcvDv8_fEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -36596,7 +36616,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd7details3neqIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd7details3neqIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %self.addr = alloca ptr, align 8
@@ -36622,7 +36642,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %self.addr = alloca ptr, align 8
@@ -36648,7 +36668,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd10batch_boolIfNS_4fma3INS_4avx2EEEEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd10batch_boolIfNS_4fma3INS_4avx2EEEEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <8 x float>, align 32
@@ -36663,7 +36683,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIfNS_4fma3INS_4avx2EEEEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIfNS_4fma3INS_4avx2EEEEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <8 x float>, align 32
@@ -36676,7 +36696,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIfNS_4avx2EEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIfNS_4avx2EEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <8 x float>, align 32
@@ -36690,7 +36710,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEE9broadcastIfEES4_T_(float noundef %val) #24 comdat align 2 {
+define linkonce_odr <8 x float> @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEE9broadcastIfEES4_T_(float noundef %val) #23 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.426", align 32
   %val.addr = alloca float, align 4
@@ -36707,7 +36727,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEEC2Ef(ptr noundef nonnull align 32 dereferenceable(32) %this, float noundef %val) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEEC2Ef(ptr noundef nonnull align 32 dereferenceable(32) %this, float noundef %val) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %val.addr = alloca float, align 4
@@ -36729,7 +36749,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEEENS_5batchIfT_EEfRKNS_3avxE(float noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEEENS_5batchIfT_EEfRKNS_3avxE(float noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca float, align 4
   %__b.addr.i = alloca float, align 4
@@ -36802,7 +36822,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIfNS_4fma3INS_4avx2EEEEC2EDv8_f(ptr noundef nonnull align 32 dereferenceable(32) %this, <8 x float> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <8 x float>, align 32
@@ -36818,7 +36838,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd7load_asIfNS_4fma3INS_4avx2EEEfEENS_6detail21simd_return_type_implIT1_T_T0_E4typeEPKS6_NS_12aligned_modeE(ptr noundef %ptr) #24 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd7load_asIfNS_4fma3INS_4avx2EEEfEENS_6detail21simd_return_type_implIT1_T_T0_E4typeEPKS6_NS_12aligned_modeE(ptr noundef %ptr) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch.426", align 32
   %ptr.addr = alloca ptr, align 8
@@ -36842,7 +36862,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel12load_alignedINS_4fma3INS_4avx2EEEEENS_5batchIfT_EEPKfNS0_7convertIfEERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel12load_alignedINS_4fma3INS_4avx2EEEEENS_5batchIfT_EEPKfNS0_7convertIfEERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %retval = alloca %"class.xsimd::batch.426", align 32
@@ -36874,7 +36894,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #17
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNKSt8optionalIbEcvbEv(ptr noundef nonnull align 1 dereferenceable(2) %this) #1 comdat align 2 {
@@ -37002,32 +37022,33 @@ entry:
   %8 = load i8, ptr %nullAllowed.addr, align 1
   %tobool5 = trunc i8 %8 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2, i1 noundef zeroext %tobool3, i1 noundef zeroext %tobool4, i1 noundef zeroext %tobool5, i32 noundef 11)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %9 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %other.addr, align 8
-  %lower_6 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %9, i32 0, i32 1
-  %10 = load double, ptr %lower_6, align 8
-  store double %10, ptr %lower_, align 8
+  %10 = load ptr, ptr %other.addr, align 8
+  %lower_6 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %10, i32 0, i32 1
+  %11 = load double, ptr %lower_6, align 8
+  store double %11, ptr %lower_, align 8
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this1, i32 0, i32 2
-  %11 = load ptr, ptr %other.addr, align 8
-  %upper_7 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %11, i32 0, i32 2
-  %12 = load double, ptr %upper_7, align 8
-  store double %12, ptr %upper_, align 8
+  %12 = load ptr, ptr %other.addr, align 8
+  %upper_7 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %12, i32 0, i32 2
+  %13 = load double, ptr %upper_7, align 8
+  store double %13, ptr %upper_, align 8
   %lowerUnbounded_8 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this1, i32 0, i32 1
-  %13 = load i8, ptr %lowerUnbounded_8, align 8
-  %tobool9 = trunc i8 %13 to i1
+  %14 = load i8, ptr %lowerUnbounded_8, align 8
+  %tobool9 = trunc i8 %14 to i1
   br i1 %tobool9, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %lower_10 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this1, i32 0, i32 1
-  %14 = load double, ptr %lower_10, align 8
-  %call = call noundef zeroext i1 @_ZSt5isnand(double noundef %14)
+  %15 = load double, ptr %lower_10, align 8
+  %call = call noundef zeroext i1 @_ZSt5isnand(double noundef %15)
   %lnot = xor i1 %call, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %15 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
-  %lnot11 = xor i1 %15, true
+  %16 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
+  %lnot11 = xor i1 %16, true
   br i1 %lnot11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.end
@@ -37036,20 +37057,20 @@ if.then:                                          ; preds = %lor.end
 
 if.end:                                           ; preds = %if.then, %lor.end
   %upperUnbounded_12 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this1, i32 0, i32 3
-  %16 = load i8, ptr %upperUnbounded_12, align 2
-  %tobool13 = trunc i8 %16 to i1
+  %17 = load i8, ptr %upperUnbounded_12, align 2
+  %tobool13 = trunc i8 %17 to i1
   br i1 %tobool13, label %lor.end18, label %lor.rhs14
 
 lor.rhs14:                                        ; preds = %if.end
   %upper_15 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this1, i32 0, i32 2
-  %17 = load double, ptr %upper_15, align 8
-  %call16 = call noundef zeroext i1 @_ZSt5isnand(double noundef %17)
+  %18 = load double, ptr %upper_15, align 8
+  %call16 = call noundef zeroext i1 @_ZSt5isnand(double noundef %18)
   %lnot17 = xor i1 %call16, true
   br label %lor.end18
 
 lor.end18:                                        ; preds = %lor.rhs14, %if.end
-  %18 = phi i1 [ true, %if.end ], [ %lnot17, %lor.rhs14 ]
-  %lnot19 = xor i1 %18, true
+  %19 = phi i1 [ true, %if.end ], [ %lnot17, %lor.rhs14 ]
+  %lnot19 = xor i1 %19, true
   br i1 %lnot19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %lor.end18
@@ -37081,7 +37102,7 @@ do.end:                                           ; preds = %do.cond
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() #25 comdat {
+define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() #24 comdat {
 entry:
   %exception = call ptr @__cxa_allocate_exception(i64 8) #28
   call void @llvm.memset.p0.i64(ptr align 16 %exception, i8 0, i64 8, i1 false)
@@ -37107,7 +37128,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -37153,10 +37175,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common13AbstractRangeC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(20) %this1, ptr noundef nonnull align 8 dereferenceable(20) %1) #28
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lower_, ptr align 8 %lower_2, i64 16, i1 false)
   ret void
 }
@@ -37171,10 +37194,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #28
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common13AbstractRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common13AbstractRangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %lowerUnbounded_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %lowerUnbounded_2 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %lowerUnbounded_2 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lowerUnbounded_, ptr align 8 %lowerUnbounded_2, i64 4, i1 false)
   ret void
 }
@@ -37189,10 +37213,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox13ISerializableC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #28
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6FilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6FilterE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %nullAllowed_ = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %nullAllowed_2 = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %nullAllowed_2 = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %nullAllowed_, ptr align 8 %nullAllowed_2, i64 8, i1 false)
   ret void
 }
@@ -37205,7 +37230,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -37310,7 +37336,7 @@ return:                                           ; preds = %if.end22, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter17genericTestValuesIlZNKS2_10testValuesEN5xsimd5batchIlNS4_4fma3INS4_4avx2EEEEEEUllE_EENS4_10batch_boolIT_S8_EENS5_ISC_S8_EEOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %batch.coerce, ptr noundef nonnull align 8 dereferenceable(8) %testValue) #23 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter17genericTestValuesIlZNKS2_10testValuesEN5xsimd5batchIlNS4_4fma3INS4_4avx2EEEEEEUllE_EENS4_10batch_boolIT_S8_EENS5_ISC_S8_EEOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %batch.coerce, ptr noundef nonnull align 8 dereferenceable(8) %testValue) #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %batch = alloca %"class.xsimd::batch", align 32
@@ -37434,7 +37460,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -37458,7 +37484,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIlNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i64 noundef %v) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIlNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i64 noundef %v) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %v.addr = alloca i64, align 8
@@ -37480,7 +37506,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd12load_alignedINS_4fma3INS_4avx2EEElEENS_5batchIT0_T_EEPKS5_(ptr noundef %ptr) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd12load_alignedINS_4fma3INS_4avx2EEElEENS_5batchIT0_T_EEPKS5_(ptr noundef %ptr) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %ptr.addr = alloca ptr, align 8
@@ -37508,7 +37534,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd6kernel13store_alignedINS_4fma3INS_4avx2EEElvEEvPT0_RKNS_5batchIS5_T_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5xsimd6kernel13store_alignedINS_4fma3INS_4avx2EEElvEEvPT0_RKNS_5batchIS5_T_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %__a.addr.i = alloca <4 x i64>, align 32
@@ -37540,7 +37566,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIlNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #24 comdat align 2 {
+define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIlNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -37551,7 +37577,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -37577,7 +37603,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -37610,7 +37636,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIlNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -37634,7 +37660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #24 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #23 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %this.addr = alloca ptr, align 8
@@ -37660,7 +37686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIlNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool", align 32
   %self.addr = alloca ptr, align 8
@@ -37686,7 +37712,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -37727,7 +37753,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -37742,7 +37768,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIlNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIlNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -37755,7 +37781,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIlNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIlNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -37769,7 +37795,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEElvEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__i0.addr.i = alloca i32, align 4
   %__i1.addr.i = alloca i32, align 4
@@ -37854,7 +37880,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEE9broadcastIlEES4_T_(i64 noundef %val) #24 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEE9broadcastIlEES4_T_(i64 noundef %val) #23 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %val.addr = alloca i64, align 8
@@ -37871,7 +37897,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEEC2El(ptr noundef nonnull align 32 dereferenceable(32) %this, i64 noundef %val) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEEC2El(ptr noundef nonnull align 32 dereferenceable(32) %this, i64 noundef %val) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %val.addr = alloca i64, align 8
@@ -37893,7 +37919,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEElvEENS_5batchIT0_T_EES6_RKNS_3avxE(i64 noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEElvEENS_5batchIT0_T_EES6_RKNS_3avxE(i64 noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca i64, align 8
   %__b.addr.i = alloca i64, align 8
@@ -37946,7 +37972,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIlNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -37962,7 +37988,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7load_asIlNS_4fma3INS_4avx2EEElEENS_6detail21simd_return_type_implIT1_T_T0_E4typeEPKS6_NS_12aligned_modeE(ptr noundef %ptr) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7load_asIlNS_4fma3INS_4avx2EEElEENS_6detail21simd_return_type_implIT1_T_T0_E4typeEPKS6_NS_12aligned_modeE(ptr noundef %ptr) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch", align 32
   %ptr.addr = alloca ptr, align 8
@@ -37986,7 +38012,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel12load_alignedINS_4fma3INS_4avx2EEElvEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel12load_alignedINS_4fma3INS_4avx2EEElvEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %retval = alloca %"class.xsimd::batch", align 32
@@ -38018,7 +38044,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter17genericTestValuesIiZNKS2_10testValuesEN5xsimd5batchIiNS4_4fma3INS4_4avx2EEEEEEUliE_EENS4_10batch_boolIT_S8_EENS5_ISC_S8_EEOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %batch.coerce, ptr noundef nonnull align 8 dereferenceable(8) %testValue) #23 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter17genericTestValuesIiZNKS2_10testValuesEN5xsimd5batchIiNS4_4fma3INS4_4avx2EEEEEEUliE_EENS4_10batch_boolIT_S8_EENS5_ISC_S8_EEOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %batch.coerce, ptr noundef nonnull align 8 dereferenceable(8) %testValue) #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.404", align 32
   %batch = alloca %"class.xsimd::batch.408", align 32
@@ -38143,7 +38169,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.404", align 32
   %self.addr = alloca ptr, align 8
@@ -38167,7 +38193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIiNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i32 noundef %v) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIiNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i32 noundef %v) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch.408", align 32
   %v.addr = alloca i32, align 4
@@ -38189,7 +38215,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd12load_alignedINS_4fma3INS_4avx2EEEiEENS_5batchIT0_T_EEPKS5_(ptr noundef %ptr) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd12load_alignedINS_4fma3INS_4avx2EEEiEENS_5batchIT0_T_EEPKS5_(ptr noundef %ptr) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch.408", align 32
   %ptr.addr = alloca ptr, align 8
@@ -38217,7 +38243,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd6kernel13store_alignedINS_4fma3INS_4avx2EEEivEEvPT0_RKNS_5batchIS5_T_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr void @_ZN5xsimd6kernel13store_alignedINS_4fma3INS_4avx2EEEivEEvPT0_RKNS_5batchIS5_T_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %__a.addr.i = alloca <4 x i64>, align 32
@@ -38239,7 +38265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIiNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #24 comdat align 2 {
+define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIiNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -38250,7 +38276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.404", align 32
   %self.addr = alloca ptr, align 8
@@ -38276,7 +38302,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.404", align 32
   %self.addr = alloca ptr, align 8
@@ -38309,7 +38335,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIiNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.404", align 32
   %self.addr = alloca ptr, align 8
@@ -38333,7 +38359,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #24 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #23 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.404", align 32
   %this.addr = alloca ptr, align 8
@@ -38359,7 +38385,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIiNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.404", align 32
   %self.addr = alloca ptr, align 8
@@ -38385,7 +38411,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -38429,7 +38455,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -38444,7 +38470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIiNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIiNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -38457,7 +38483,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIiNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIiNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -38471,7 +38497,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEEivEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__i0.addr.i = alloca i32, align 4
   %__i1.addr.i = alloca i32, align 4
@@ -38553,7 +38579,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEE9broadcastIiEES4_T_(i32 noundef %val) #24 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEE9broadcastIiEES4_T_(i32 noundef %val) #23 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.408", align 32
   %val.addr = alloca i32, align 4
@@ -38570,7 +38596,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEEC2Ei(ptr noundef nonnull align 32 dereferenceable(32) %this, i32 noundef %val) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEEC2Ei(ptr noundef nonnull align 32 dereferenceable(32) %this, i32 noundef %val) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %val.addr = alloca i32, align 4
@@ -38592,7 +38618,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEivEENS_5batchIT0_T_EES6_RKNS_3avxE(i32 noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEivEENS_5batchIT0_T_EES6_RKNS_3avxE(i32 noundef %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__i0.addr.i = alloca i32, align 4
   %__i1.addr.i = alloca i32, align 4
@@ -38666,7 +38692,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIiNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -38682,7 +38708,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7load_asIiNS_4fma3INS_4avx2EEEiEENS_6detail21simd_return_type_implIT1_T_T0_E4typeEPKS6_NS_12aligned_modeE(ptr noundef %ptr) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7load_asIiNS_4fma3INS_4avx2EEEiEENS_6detail21simd_return_type_implIT1_T_T0_E4typeEPKS6_NS_12aligned_modeE(ptr noundef %ptr) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch.408", align 32
   %ptr.addr = alloca ptr, align 8
@@ -38706,7 +38732,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel12load_alignedINS_4fma3INS_4avx2EEEivEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel12load_alignedINS_4fma3INS_4avx2EEEivEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %retval = alloca %"class.xsimd::batch.408", align 32
@@ -38728,7 +38754,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter17genericTestValuesIsZNKS2_10testValuesEN5xsimd5batchIsNS4_4fma3INS4_4avx2EEEEEEUlsE_EENS4_10batch_boolIT_S8_EENS5_ISC_S8_EEOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %batch.coerce, ptr noundef nonnull align 8 dereferenceable(8) %testValue) #23 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter17genericTestValuesIsZNKS2_10testValuesEN5xsimd5batchIsNS4_4fma3INS4_4avx2EEEEEEUlsE_EENS4_10batch_boolIT_S8_EENS5_ISC_S8_EEOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %batch.coerce, ptr noundef nonnull align 8 dereferenceable(8) %testValue) #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.410", align 32
   %batch = alloca %"class.xsimd::batch.414", align 32
@@ -38853,7 +38879,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdneERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.410", align 32
   %self.addr = alloca ptr, align 8
@@ -38877,7 +38903,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIsNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i16 noundef signext %v) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd9broadcastIsNS_4fma3INS_4avx2EEEEENS_5batchIT_T0_EES5_(i16 noundef signext %v) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch.414", align 32
   %v.addr = alloca i16, align 2
@@ -38899,7 +38925,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd12load_alignedINS_4fma3INS_4avx2EEEsEENS_5batchIT0_T_EEPKS5_(ptr noundef %ptr) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd12load_alignedINS_4fma3INS_4avx2EEEsEENS_5batchIT0_T_EEPKS5_(ptr noundef %ptr) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch.414", align 32
   %ptr.addr = alloca ptr, align 8
@@ -38927,7 +38953,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd6kernel13store_alignedINS_4fma3INS_4avx2EEEsvEEvPT0_RKNS_5batchIS5_T_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr void @_ZN5xsimd6kernel13store_alignedINS_4fma3INS_4avx2EEEsvEEvPT0_RKNS_5batchIS5_T_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %__a.addr.i = alloca <4 x i64>, align 32
@@ -38949,7 +38975,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIsNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #24 comdat align 2 {
+define linkonce_odr noundef <4 x i64> @_ZNK5xsimd5types13simd_registerIsNS_3avxEEcvDv4_xEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -38960,7 +38986,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details3neqIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.410", align 32
   %self.addr = alloca ptr, align 8
@@ -38986,7 +39012,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel3neqINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.410", align 32
   %self.addr = alloca ptr, align 8
@@ -39019,7 +39045,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimdeqERKNS_5batchIsNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.410", align 32
   %self.addr = alloca ptr, align 8
@@ -39043,7 +39069,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIsNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #24 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK5xsimd10batch_boolIsNS_4fma3INS_4avx2EEEEcoEv(ptr noundef nonnull align 32 dereferenceable(32) %this) #23 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.410", align 32
   %this.addr = alloca ptr, align 8
@@ -39069,7 +39095,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7details2eqIsNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.410", align 32
   %self.addr = alloca ptr, align 8
@@ -39095,7 +39121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel2eqINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKNS_5batchIS6_S7_EESC_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x i64>, align 32
   %__b.addr.i = alloca <4 x i64>, align 32
@@ -39139,7 +39165,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd10batch_boolIsNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd10batch_boolIsNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -39154,7 +39180,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIsNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIsNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -39167,7 +39193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5types13simd_registerIsNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5types13simd_registerIsNS_4avx2EEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -39181,7 +39207,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel11bitwise_notINS_4fma3INS_4avx2EEEsvEENS_10batch_boolIT0_T_EERKS8_RKS3_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__i0.addr.i = alloca i32, align 4
   %__i1.addr.i = alloca i32, align 4
@@ -39263,7 +39289,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEE9broadcastIsEES4_T_(i16 noundef signext %val) #24 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEE9broadcastIsEES4_T_(i16 noundef signext %val) #23 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch.414", align 32
   %val.addr = alloca i16, align 2
@@ -39280,7 +39306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEEC2Es(ptr noundef nonnull align 32 dereferenceable(32) %this, i16 noundef signext %val) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEEC2Es(ptr noundef nonnull align 32 dereferenceable(32) %this, i16 noundef signext %val) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %val.addr = alloca i16, align 2
@@ -39302,7 +39328,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEsvEENS_5batchIT0_T_EES6_RKNS_3avxE(i16 noundef signext %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel9broadcastINS_4fma3INS_4avx2EEEsvEENS_5batchIT0_T_EES6_RKNS_3avxE(i16 noundef signext %val, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__w15.addr.i = alloca i16, align 2
   %__w14.addr.i = alloca i16, align 2
@@ -39416,7 +39442,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #24 comdat align 2 {
+define linkonce_odr void @_ZN5xsimd5batchIsNS_4fma3INS_4avx2EEEEC2EDv4_x(ptr noundef nonnull align 32 dereferenceable(32) %this, <4 x i64> noundef %reg) unnamed_addr #23 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %reg.addr = alloca <4 x i64>, align 32
@@ -39432,7 +39458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd7load_asIsNS_4fma3INS_4avx2EEEsEENS_6detail21simd_return_type_implIT1_T_T0_E4typeEPKS6_NS_12aligned_modeE(ptr noundef %ptr) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd7load_asIsNS_4fma3INS_4avx2EEEsEENS_6detail21simd_return_type_implIT1_T_T0_E4typeEPKS6_NS_12aligned_modeE(ptr noundef %ptr) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch.414", align 32
   %ptr.addr = alloca ptr, align 8
@@ -39456,7 +39482,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x i64> @_ZN5xsimd6kernel12load_alignedINS_4fma3INS_4avx2EEEsvEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr <4 x i64> @_ZN5xsimd6kernel12load_alignedINS_4fma3INS_4avx2EEEsvEENS_5batchIT0_T_EEPKS6_NS0_7convertIS6_EERKNS_3avxE(ptr noundef %mem, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %__p.addr.i = alloca ptr, align 8
   %retval = alloca %"class.xsimd::batch.414", align 32
@@ -39478,7 +39504,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, <4 x double> %values.coerce) #24 comdat align 2 {
+define linkonce_odr <4 x double> @_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, <4 x double> %values.coerce) #23 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %values = alloca %"class.xsimd::batch.420", align 32
@@ -39645,7 +39671,7 @@ if.end83:                                         ; preds = %if.end82, %if.end57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimdltERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimdltERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %self.addr = alloca ptr, align 8
@@ -39669,7 +39695,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimdleERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimdleERKNS_5batchIdNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %self.addr = alloca ptr, align 8
@@ -39693,7 +39719,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNK5xsimd10batch_boolIdNS_4fma3INS_4avx2EEEEanERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat align 2 {
+define linkonce_odr <4 x double> @_ZNK5xsimd10batch_boolIdNS_4fma3INS_4avx2EEEEanERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %this.addr = alloca ptr, align 8
@@ -39722,7 +39748,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd7details2ltIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd7details2ltIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %self.addr = alloca ptr, align 8
@@ -39748,7 +39774,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %self.addr = alloca ptr, align 8
@@ -39774,7 +39800,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd7details2leIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd7details2leIdNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %self.addr = alloca ptr, align 8
@@ -39800,7 +39826,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKNS_5batchIdS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.416", align 32
   %self.addr = alloca ptr, align 8
@@ -39826,7 +39852,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZN5xsimd6kernel11bitwise_andINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKS7_S9_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <4 x double> @_ZN5xsimd6kernel11bitwise_andINS_4fma3INS_4avx2EEEEENS_10batch_boolIdT_EERKS7_S9_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <4 x double>, align 32
   %__b.addr.i = alloca <4 x double>, align 32
@@ -39869,7 +39895,7 @@ terminate.lpad:                                   ; No predecessors!
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter17genericTestValuesIiZNKS2_11testLengthsEN5xsimd5batchIiNS4_4fma3INS4_4avx2EEEEEEUliE_EENS4_10batch_boolIT_S8_EENS5_ISC_S8_EEOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %batch.coerce, ptr noundef nonnull align 8 dereferenceable(8) %testValue) #23 comdat align 2 {
+define linkonce_odr <4 x i64> @_ZNK8facebook5velox6common6Filter17genericTestValuesIiZNKS2_11testLengthsEN5xsimd5batchIiNS4_4fma3INS4_4avx2EEEEEEUliE_EENS4_10batch_boolIT_S8_EENS5_ISC_S8_EEOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, <4 x i64> %batch.coerce, ptr noundef nonnull align 8 dereferenceable(8) %testValue) #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.404", align 32
   %batch = alloca %"class.xsimd::batch.408", align 32
@@ -40308,7 +40334,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -40483,7 +40510,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -41723,7 +41751,7 @@ entry:
   %1 = alloca i8, i64 %mul, align 16
   store ptr %1, ptr %__s, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %__args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %2 = load ptr, ptr %__convf.addr, align 8
   %3 = load ptr, ptr %__s, align 8
   %4 = load i64, ptr %__n.addr, align 8
@@ -41732,7 +41760,7 @@ entry:
   %call = call noundef i32 %2(ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %arraydecay1)
   store i32 %call, ptr %__len, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %__args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %6 = load ptr, ptr %__s, align 8
   %7 = load ptr, ptr %__s, align 8
   %8 = load i32, ptr %__len, align 4
@@ -41766,12 +41794,6 @@ eh.resume:                                        ; preds = %lpad
 
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #26
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #26
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -42681,21 +42703,22 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool9 = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this5, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool6, i1 noundef zeroext %tobool7, i1 noundef zeroext %tobool8, i1 noundef zeroext %tobool9, i32 noundef 12)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %5 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this5, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %this5, i32 0, i32 1
-  %5 = load float, ptr %lower.addr, align 4
-  store float %5, ptr %lower_, align 4
+  %6 = load float, ptr %lower.addr, align 4
+  store float %6, ptr %lower_, align 4
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %this5, i32 0, i32 2
-  %6 = load float, ptr %upper.addr, align 4
-  store float %6, ptr %upper_, align 8
-  %7 = load i8, ptr %lowerUnbounded.addr, align 1
-  %tobool10 = trunc i8 %7 to i1
+  %7 = load float, ptr %upper.addr, align 4
+  store float %7, ptr %upper_, align 8
+  %8 = load i8, ptr %lowerUnbounded.addr, align 1
+  %tobool10 = trunc i8 %8 to i1
   br i1 %tobool10, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %lower_11 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %this5, i32 0, i32 1
-  %8 = load float, ptr %lower_11, align 4
-  %call = invoke noundef zeroext i1 @_ZSt5isnanf(float noundef %8)
+  %9 = load float, ptr %lower_11, align 4
+  %call = invoke noundef zeroext i1 @_ZSt5isnanf(float noundef %9)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %lor.rhs
@@ -42703,8 +42726,8 @@ invoke.cont:                                      ; preds = %lor.rhs
   br label %lor.end
 
 lor.end:                                          ; preds = %invoke.cont, %entry
-  %9 = phi i1 [ true, %entry ], [ %lnot, %invoke.cont ]
-  %lnot12 = xor i1 %9, true
+  %10 = phi i1 [ true, %entry ], [ %lnot, %invoke.cont ]
+  %lnot12 = xor i1 %10, true
   br i1 %lnot12, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.end
@@ -42712,24 +42735,24 @@ if.then:                                          ; preds = %lor.end
   br label %if.end
 
 lpad:                                             ; preds = %lor.rhs14, %lor.rhs
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common13AbstractRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this5) #28
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then, %lor.end
-  %13 = load i8, ptr %upperUnbounded.addr, align 1
-  %tobool13 = trunc i8 %13 to i1
+  %14 = load i8, ptr %upperUnbounded.addr, align 1
+  %tobool13 = trunc i8 %14 to i1
   br i1 %tobool13, label %lor.end19, label %lor.rhs14
 
 lor.rhs14:                                        ; preds = %if.end
   %upper_15 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %this5, i32 0, i32 2
-  %14 = load float, ptr %upper_15, align 8
-  %call17 = invoke noundef zeroext i1 @_ZSt5isnanf(float noundef %14)
+  %15 = load float, ptr %upper_15, align 8
+  %call17 = invoke noundef zeroext i1 @_ZSt5isnanf(float noundef %15)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %lor.rhs14
@@ -42737,8 +42760,8 @@ invoke.cont16:                                    ; preds = %lor.rhs14
   br label %lor.end19
 
 lor.end19:                                        ; preds = %invoke.cont16, %if.end
-  %15 = phi i1 [ true, %if.end ], [ %lnot18, %invoke.cont16 ]
-  %lnot20 = xor i1 %15, true
+  %16 = phi i1 [ true, %if.end ], [ %lnot18, %invoke.cont16 ]
+  %lnot20 = xor i1 %16, true
   br i1 %lnot20, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %lor.end19
@@ -42920,7 +42943,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <4 x double> @_ZNK8facebook5velox6common18FloatingPointRangeIfE10testValuesEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, <4 x double> %.coerce) unnamed_addr #24 comdat align 2 {
+define linkonce_odr <4 x double> @_ZNK8facebook5velox6common18FloatingPointRangeIfE10testValuesEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, <4 x double> %.coerce) unnamed_addr #23 comdat align 2 {
 entry:
   %0 = alloca %"class.xsimd::batch.420", align 32
   %this.addr = alloca ptr, align 8
@@ -42936,7 +42959,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr <8 x float> @_ZNK8facebook5velox6common18FloatingPointRangeIfE10testValuesEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, <8 x float> %x.coerce) unnamed_addr #23 comdat align 2 {
+define linkonce_odr <8 x float> @_ZNK8facebook5velox6common18FloatingPointRangeIfE10testValuesEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, <8 x float> %x.coerce) unnamed_addr #22 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %x = alloca %"class.xsimd::batch.426", align 32
@@ -43310,7 +43333,7 @@ eh.resume:                                        ; preds = %ehcleanup
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #17
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt11make_uniqueIN8facebook5velox6common18FloatingPointRangeIfEEJRKS4_RbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.380") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1) #0 comdat personality ptr @__gxx_personality_v0 {
@@ -43397,32 +43420,33 @@ entry:
   %8 = load i8, ptr %nullAllowed.addr, align 1
   %tobool5 = trunc i8 %8 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2, i1 noundef zeroext %tobool3, i1 noundef zeroext %tobool4, i1 noundef zeroext %tobool5, i32 noundef 12)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %9 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %other.addr, align 8
-  %lower_6 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %9, i32 0, i32 1
-  %10 = load float, ptr %lower_6, align 4
-  store float %10, ptr %lower_, align 4
+  %10 = load ptr, ptr %other.addr, align 8
+  %lower_6 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %10, i32 0, i32 1
+  %11 = load float, ptr %lower_6, align 4
+  store float %11, ptr %lower_, align 4
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %this1, i32 0, i32 2
-  %11 = load ptr, ptr %other.addr, align 8
-  %upper_7 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %11, i32 0, i32 2
-  %12 = load float, ptr %upper_7, align 8
-  store float %12, ptr %upper_, align 8
+  %12 = load ptr, ptr %other.addr, align 8
+  %upper_7 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %12, i32 0, i32 2
+  %13 = load float, ptr %upper_7, align 8
+  store float %13, ptr %upper_, align 8
   %lowerUnbounded_8 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this1, i32 0, i32 1
-  %13 = load i8, ptr %lowerUnbounded_8, align 8
-  %tobool9 = trunc i8 %13 to i1
+  %14 = load i8, ptr %lowerUnbounded_8, align 8
+  %tobool9 = trunc i8 %14 to i1
   br i1 %tobool9, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %lower_10 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %this1, i32 0, i32 1
-  %14 = load float, ptr %lower_10, align 4
-  %call = call noundef zeroext i1 @_ZSt5isnanf(float noundef %14)
+  %15 = load float, ptr %lower_10, align 4
+  %call = call noundef zeroext i1 @_ZSt5isnanf(float noundef %15)
   %lnot = xor i1 %call, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %15 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
-  %lnot11 = xor i1 %15, true
+  %16 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
+  %lnot11 = xor i1 %16, true
   br i1 %lnot11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.end
@@ -43431,20 +43455,20 @@ if.then:                                          ; preds = %lor.end
 
 if.end:                                           ; preds = %if.then, %lor.end
   %upperUnbounded_12 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this1, i32 0, i32 3
-  %16 = load i8, ptr %upperUnbounded_12, align 2
-  %tobool13 = trunc i8 %16 to i1
+  %17 = load i8, ptr %upperUnbounded_12, align 2
+  %tobool13 = trunc i8 %17 to i1
   br i1 %tobool13, label %lor.end18, label %lor.rhs14
 
 lor.rhs14:                                        ; preds = %if.end
   %upper_15 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %this1, i32 0, i32 2
-  %17 = load float, ptr %upper_15, align 8
-  %call16 = call noundef zeroext i1 @_ZSt5isnanf(float noundef %17)
+  %18 = load float, ptr %upper_15, align 8
+  %call16 = call noundef zeroext i1 @_ZSt5isnanf(float noundef %18)
   %lnot17 = xor i1 %call16, true
   br label %lor.end18
 
 lor.end18:                                        ; preds = %lor.rhs14, %if.end
-  %18 = phi i1 [ true, %if.end ], [ %lnot17, %lor.rhs14 ]
-  %lnot19 = xor i1 %18, true
+  %19 = phi i1 [ true, %if.end ], [ %lnot17, %lor.rhs14 ]
+  %lnot19 = xor i1 %19, true
   br i1 %lnot19, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %lor.end18
@@ -43465,10 +43489,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common13AbstractRangeC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(20) %this1, ptr noundef nonnull align 8 dereferenceable(20) %1) #28
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.477", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %lower_, ptr align 4 %lower_2, i64 8, i1 false)
   ret void
 }
@@ -43574,7 +43599,7 @@ return:                                           ; preds = %if.end22, %if.then2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, <8 x float> %values.coerce) #24 comdat align 2 {
+define linkonce_odr <8 x float> @_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, <8 x float> %values.coerce) #23 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %values = alloca %"class.xsimd::batch.426", align 32
@@ -43741,7 +43766,7 @@ if.end83:                                         ; preds = %if.end82, %if.end57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimdltERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimdltERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %self.addr = alloca ptr, align 8
@@ -43765,7 +43790,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimdleERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimdleERKNS_5batchIfNS_4fma3INS_4avx2EEEEES6_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %self.addr = alloca ptr, align 8
@@ -43789,7 +43814,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZNK5xsimd10batch_boolIfNS_4fma3INS_4avx2EEEEanERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat align 2 {
+define linkonce_odr <8 x float> @_ZNK5xsimd10batch_boolIfNS_4fma3INS_4avx2EEEEanERKS4_(ptr noundef nonnull align 32 dereferenceable(32) %this, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat align 2 {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %this.addr = alloca ptr, align 8
@@ -43818,7 +43843,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd7details2ltIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd7details2ltIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %self.addr = alloca ptr, align 8
@@ -43844,7 +43869,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel2ltINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %self.addr = alloca ptr, align 8
@@ -43870,7 +43895,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd7details2leIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #24 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd7details2leIfNS_4fma3INS_4avx2EEEEENS_10batch_boolIT_T0_EERKNS_5batchIS6_S7_EESC_(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %self.addr = alloca ptr, align 8
@@ -43896,7 +43921,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel2leINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKNS_5batchIfS6_EESB_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat {
 entry:
   %retval = alloca %"class.xsimd::batch_bool.422", align 32
   %self.addr = alloca ptr, align 8
@@ -43922,7 +43947,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr <8 x float> @_ZN5xsimd6kernel11bitwise_andINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKS7_S9_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #24 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr <8 x float> @_ZN5xsimd6kernel11bitwise_andINS_4fma3INS_4avx2EEEEENS_10batch_boolIfT_EERKS7_S9_RKNS_3avxE(ptr noundef nonnull align 32 dereferenceable(32) %self, ptr noundef nonnull align 32 dereferenceable(32) %other, ptr noundef nonnull align 1 dereferenceable(1) %0) #23 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %__a.addr.i = alloca <8 x float>, align 32
   %__b.addr.i = alloca <8 x float>, align 32
@@ -44984,41 +45009,42 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool9 = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this5, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool6, i1 noundef zeroext %tobool7, i1 noundef zeroext %tobool8, i1 noundef zeroext %tobool9, i32 noundef 13)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %5 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this5, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this5, i32 0, i32 2
-  %5 = load ptr, ptr %lower.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %lower_, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %6 = load ptr, ptr %lower.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %lower_, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this5, i32 0, i32 3
-  %6 = load ptr, ptr %upper.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper_, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = load ptr, ptr %upper.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper_, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont
   %singleValue_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this5, i32 0, i32 4
   %lowerExclusive_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 2
-  %7 = load i8, ptr %lowerExclusive_, align 1
-  %tobool12 = trunc i8 %7 to i1
+  %8 = load i8, ptr %lowerExclusive_, align 1
+  %tobool12 = trunc i8 %8 to i1
   br i1 %tobool12, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont11
   %upperExclusive_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 4
-  %8 = load i8, ptr %upperExclusive_, align 1
-  %tobool13 = trunc i8 %8 to i1
+  %9 = load i8, ptr %upperExclusive_, align 1
+  %tobool13 = trunc i8 %9 to i1
   br i1 %tobool13, label %land.end, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %land.lhs.true
   %lowerUnbounded_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 1
-  %9 = load i8, ptr %lowerUnbounded_, align 8
-  %tobool15 = trunc i8 %9 to i1
+  %10 = load i8, ptr %lowerUnbounded_, align 8
+  %tobool15 = trunc i8 %10 to i1
   br i1 %tobool15, label %land.end, label %land.lhs.true16
 
 land.lhs.true16:                                  ; preds = %land.lhs.true14
   %upperUnbounded_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 3
-  %10 = load i8, ptr %upperUnbounded_, align 2
-  %tobool17 = trunc i8 %10 to i1
+  %11 = load i8, ptr %upperUnbounded_, align 2
+  %tobool17 = trunc i8 %11 to i1
   br i1 %tobool17, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true16
@@ -45028,24 +45054,24 @@ land.rhs:                                         ; preds = %land.lhs.true16
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true16, %land.lhs.true14, %land.lhs.true, %invoke.cont11
-  %11 = phi i1 [ false, %land.lhs.true16 ], [ false, %land.lhs.true14 ], [ false, %land.lhs.true ], [ false, %invoke.cont11 ], [ %call, %land.rhs ]
-  %frombool20 = zext i1 %11 to i8
+  %12 = phi i1 [ false, %land.lhs.true16 ], [ false, %land.lhs.true14 ], [ false, %land.lhs.true ], [ false, %invoke.cont11 ], [ %call, %land.rhs ]
+  %frombool20 = zext i1 %12 to i8
   store i8 %frombool20, ptr %singleValue_, align 8
   %lowerUnbounded_21 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 1
-  %12 = load i8, ptr %lowerUnbounded_21, align 8
-  %tobool22 = trunc i8 %12 to i1
+  %13 = load i8, ptr %lowerUnbounded_21, align 8
+  %tobool22 = trunc i8 %13 to i1
   br i1 %tobool22, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %land.end
   %upperUnbounded_23 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 3
-  %13 = load i8, ptr %upperUnbounded_23, align 2
-  %tobool24 = trunc i8 %13 to i1
+  %14 = load i8, ptr %upperUnbounded_23, align 2
+  %tobool24 = trunc i8 %14 to i1
   %lnot = xor i1 %tobool24, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.end
-  %14 = phi i1 [ true, %land.end ], [ %lnot, %lor.rhs ]
-  %lnot25 = xor i1 %14, true
+  %15 = phi i1 [ true, %land.end ], [ %lnot, %lor.rhs ]
+  %lnot25 = xor i1 %15, true
   br i1 %lnot25, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.end
@@ -45053,21 +45079,21 @@ if.then:                                          ; preds = %lor.end
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #28
   br label %ehcleanup
 
@@ -47103,10 +47129,11 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 8)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBigintRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBigintRangeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintRange", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %nullAllowed.addr, align 1
-  %tobool2 = trunc i8 %1 to i1
+  %2 = load i8, ptr %nullAllowed.addr, align 1
+  %tobool2 = trunc i8 %2 to i1
   %lnot = xor i1 %tobool2, true
   %frombool3 = zext i1 %lnot to i8
   store i8 %frombool3, ptr %ref.tmp, align 1
@@ -47117,12 +47144,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #28
   br label %eh.resume
 
@@ -47844,12 +47871,13 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this5, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 14)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common17NegatedBytesRangeE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common17NegatedBytesRangeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this5, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesRange", ptr %this5, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN8facebook5velox6common10BytesRangeESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #28
-  %1 = load ptr, ptr %lower.addr, align 8
-  %2 = load ptr, ptr %upper.addr, align 8
-  invoke void @_ZSt11make_uniqueIN8facebook5velox6common10BytesRangeEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbSC_SB_SC_SC_SC_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.388") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %lowerUnbounded.addr, ptr noundef nonnull align 1 dereferenceable(1) %lowerExclusive.addr, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 1 dereferenceable(1) %upperUnbounded.addr, ptr noundef nonnull align 1 dereferenceable(1) %upperExclusive.addr, ptr noundef nonnull align 1 dereferenceable(1) %nullAllowed.addr)
+  %2 = load ptr, ptr %lower.addr, align 8
+  %3 = load ptr, ptr %upper.addr, align 8
+  invoke void @_ZSt11make_uniqueIN8facebook5velox6common10BytesRangeEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbSC_SB_SC_SC_SC_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.388") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 1 dereferenceable(1) %lowerUnbounded.addr, ptr noundef nonnull align 1 dereferenceable(1) %lowerExclusive.addr, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(1) %upperUnbounded.addr, ptr noundef nonnull align 1 dereferenceable(1) %upperExclusive.addr, ptr noundef nonnull align 1 dereferenceable(1) %nullAllowed.addr)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -47859,12 +47887,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN8facebook5velox6common10BytesRangeESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #28
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this5) #28
   br label %eh.resume
@@ -50421,11 +50449,12 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 16)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBytesValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBytesValuesE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesValues", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN8facebook5velox6common11BytesValuesESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #28
-  %1 = load ptr, ptr %values.addr, align 8
-  %call = call noundef zeroext i1 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #28
+  %2 = load ptr, ptr %values.addr, align 8
+  %call = call noundef zeroext i1 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #28
   %lnot = xor i1 %call, true
   %lnot2 = xor i1 %lnot, true
   br i1 %lnot2, label %if.then, label %if.end
@@ -50435,13 +50464,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %2 = load ptr, ptr %values.addr, align 8
-  %3 = load i8, ptr %nullAllowed.addr, align 1
-  %tobool4 = trunc i8 %3 to i1
+  %3 = load ptr, ptr %values.addr, align 8
+  %4 = load i8, ptr %nullAllowed.addr, align 1
+  %tobool4 = trunc i8 %4 to i1
   %lnot5 = xor i1 %tobool4, true
   %frombool6 = zext i1 %lnot5 to i8
   store i8 %frombool6, ptr %ref.tmp3, align 1
-  invoke void @_ZSt11make_uniqueIN8facebook5velox6common11BytesValuesEJRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.221") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+  invoke void @_ZSt11make_uniqueIN8facebook5velox6common11BytesValuesEJRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr.221") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -50451,12 +50480,12 @@ invoke.cont:                                      ; preds = %if.end
   ret void
 
 lpad:                                             ; preds = %if.end
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN8facebook5velox6common11BytesValuesESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #28
   call void @_ZN8facebook5velox6common6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #28
   br label %eh.resume
@@ -51093,7 +51122,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 3)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9IsNotNullE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9IsNotNullE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -51933,10 +51963,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #28
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BigintRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BigintRangeE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lower_, ptr align 8 %lower_2, i64 29, i1 false)
   ret void
 }
@@ -54713,7 +54744,16 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #27
+declare void @llvm.experimental.noalias.scope.decl(metadata) #25
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #26
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #27
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #27
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -54727,22 +54767,22 @@ attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { nounwind memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #15 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #21 = { cold noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #22 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #23 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #25 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #26 = { nocallback nofree nosync nounwind willreturn }
-attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #14 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #20 = { cold noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #21 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #22 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #24 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #26 = { nounwind memory(none) }
+attributes #27 = { nocallback nofree nosync nounwind willreturn }
 attributes #28 = { nounwind }
 attributes #29 = { noreturn nounwind }
 attributes #30 = { builtin allocsize(0) }

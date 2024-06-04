@@ -1176,18 +1176,19 @@ define void @_ZN3gmx23NeighborSearchSignallerC2ESt6vectorISt8functionIFvldEESaIS
   store double %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN3gmx10ISignallerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #10
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx23NeighborSearchSignallerE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.gmx::NeighborSearchSignaller", ptr %11, i32 0, i32 1
-  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
-  %13 = getelementptr inbounds %"class.gmx::NeighborSearchSignaller", ptr %11, i32 0, i32 2
-  %14 = load i64, ptr %8, align 8
-  store i64 %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"class.gmx::NeighborSearchSignaller", ptr %11, i32 0, i32 3
-  %16 = load i64, ptr %9, align 8
-  store i64 %16, ptr %15, align 8
-  %17 = getelementptr inbounds %"class.gmx::NeighborSearchSignaller", ptr %11, i32 0, i32 4
-  %18 = load double, ptr %10, align 8
-  store double %18, ptr %17, align 8
+  %12 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx23NeighborSearchSignallerE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.gmx::NeighborSearchSignaller", ptr %11, i32 0, i32 1
+  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
+  %14 = getelementptr inbounds %"class.gmx::NeighborSearchSignaller", ptr %11, i32 0, i32 2
+  %15 = load i64, ptr %8, align 8
+  store i64 %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.gmx::NeighborSearchSignaller", ptr %11, i32 0, i32 3
+  %17 = load i64, ptr %9, align 8
+  store i64 %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"class.gmx::NeighborSearchSignaller", ptr %11, i32 0, i32 4
+  %19 = load double, ptr %10, align 8
+  store double %19, ptr %18, align 8
   ret void
 }
 
@@ -1196,7 +1197,8 @@ define linkonce_odr void @_ZN3gmx10ISignallerC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx10ISignallerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx10ISignallerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1532,25 +1534,27 @@ define void @_ZN3gmx17LastStepSignallerC2ESt6vectorISt8functionIFvldEESaIS4_EEll
   call void @_ZN3gmx10ISignallerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #10
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   call void @_ZN3gmx30INeighborSearchSignallerClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx17LastStepSignallerE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx17LastStepSignallerE, i32 0, i32 1, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"class.gmx::LastStepSignaller", ptr %11, i32 0, i32 2
-  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
-  %15 = getelementptr inbounds %"class.gmx::LastStepSignaller", ptr %11, i32 0, i32 3
-  %16 = load i64, ptr %9, align 8
-  %17 = load i64, ptr %8, align 8
-  %18 = add nsw i64 %16, %17
-  store i64 %18, ptr %15, align 8
-  %19 = getelementptr inbounds %"class.gmx::LastStepSignaller", ptr %11, i32 0, i32 4
-  store i8 0, ptr %19, align 8
-  %20 = getelementptr inbounds %"class.gmx::LastStepSignaller", ptr %11, i32 0, i32 6
-  %21 = load ptr, ptr %10, align 8
-  store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.gmx::LastStepSignaller", ptr %11, i32 0, i32 7
-  store i64 -1, ptr %22, align 8
-  %23 = getelementptr inbounds %"class.gmx::LastStepSignaller", ptr %11, i32 0, i32 8
-  store i8 0, ptr %23, align 8
+  %13 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx17LastStepSignallerE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx17LastStepSignallerE, i32 0, i32 1, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.gmx::LastStepSignaller", ptr %11, i32 0, i32 2
+  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
+  %17 = getelementptr inbounds %"class.gmx::LastStepSignaller", ptr %11, i32 0, i32 3
+  %18 = load i64, ptr %9, align 8
+  %19 = load i64, ptr %8, align 8
+  %20 = add nsw i64 %18, %19
+  store i64 %20, ptr %17, align 8
+  %21 = getelementptr inbounds %"class.gmx::LastStepSignaller", ptr %11, i32 0, i32 4
+  store i8 0, ptr %21, align 8
+  %22 = getelementptr inbounds %"class.gmx::LastStepSignaller", ptr %11, i32 0, i32 6
+  %23 = load ptr, ptr %10, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"class.gmx::LastStepSignaller", ptr %11, i32 0, i32 7
+  store i64 -1, ptr %24, align 8
+  %25 = getelementptr inbounds %"class.gmx::LastStepSignaller", ptr %11, i32 0, i32 8
+  store i8 0, ptr %25, align 8
   ret void
 }
 
@@ -1559,7 +1563,8 @@ define linkonce_odr void @_ZN3gmx30INeighborSearchSignallerClientC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx30INeighborSearchSignallerClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx30INeighborSearchSignallerClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2125,24 +2130,26 @@ define void @_ZN3gmx16LoggingSignallerC2ESt6vectorISt8functionIFvldEESaIS4_EEllN
   call void @_ZN3gmx10ISignallerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #10
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   call void @_ZN3gmx24ILastStepSignallerClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx16LoggingSignallerE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx16LoggingSignallerE, i32 0, i32 1, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"class.gmx::LoggingSignaller", ptr %11, i32 0, i32 2
-  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
-  %15 = getelementptr inbounds %"class.gmx::LoggingSignaller", ptr %11, i32 0, i32 3
-  %16 = load i64, ptr %8, align 8
-  store i64 %16, ptr %15, align 8
-  %17 = getelementptr inbounds %"class.gmx::LoggingSignaller", ptr %11, i32 0, i32 4
-  %18 = load i64, ptr %9, align 8
+  %13 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx16LoggingSignallerE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx16LoggingSignallerE, i32 0, i32 1, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.gmx::LoggingSignaller", ptr %11, i32 0, i32 2
+  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
+  %17 = getelementptr inbounds %"class.gmx::LoggingSignaller", ptr %11, i32 0, i32 3
+  %18 = load i64, ptr %8, align 8
   store i64 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %"class.gmx::LoggingSignaller", ptr %11, i32 0, i32 5
-  %20 = load i32, ptr %10, align 4
-  store i32 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.gmx::LoggingSignaller", ptr %11, i32 0, i32 7
-  store i64 -1, ptr %21, align 8
-  %22 = getelementptr inbounds %"class.gmx::LoggingSignaller", ptr %11, i32 0, i32 8
-  store i8 0, ptr %22, align 8
+  %19 = getelementptr inbounds %"class.gmx::LoggingSignaller", ptr %11, i32 0, i32 4
+  %20 = load i64, ptr %9, align 8
+  store i64 %20, ptr %19, align 8
+  %21 = getelementptr inbounds %"class.gmx::LoggingSignaller", ptr %11, i32 0, i32 5
+  %22 = load i32, ptr %10, align 4
+  store i32 %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.gmx::LoggingSignaller", ptr %11, i32 0, i32 7
+  store i64 -1, ptr %23, align 8
+  %24 = getelementptr inbounds %"class.gmx::LoggingSignaller", ptr %11, i32 0, i32 8
+  store i8 0, ptr %24, align 8
   ret void
 }
 
@@ -2151,7 +2158,8 @@ define linkonce_odr void @_ZN3gmx24ILastStepSignallerClientC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx24ILastStepSignallerClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx24ILastStepSignallerClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2591,44 +2599,46 @@ define void @_ZN3gmx19TrajectorySignallerC2ESt6vectorISt8functionIFvldEESaIS4_EE
   call void @_ZN3gmx10ISignallerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #10
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   call void @_ZN3gmx24ILastStepSignallerClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #10
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx19TrajectorySignallerE, i32 0, i32 0, i32 2), ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx19TrajectorySignallerE, i32 0, i32 1, i32 2), ptr %27, align 8
-  %28 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 2
-  %29 = load i32, ptr %16, align 4
-  store i32 %29, ptr %28, align 8
-  %30 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 3
-  %31 = load i32, ptr %17, align 4
-  store i32 %31, ptr %30, align 4
-  %32 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 4
-  %33 = load i32, ptr %18, align 4
-  store i32 %33, ptr %32, align 8
-  %34 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 5
-  %35 = load i32, ptr %19, align 4
-  store i32 %35, ptr %34, align 4
-  %36 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 6
-  %37 = load i32, ptr %20, align 4
-  store i32 %37, ptr %36, align 8
-  %38 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 7
-  %39 = load i32, ptr %21, align 4
-  store i32 %39, ptr %38, align 4
-  %40 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 8
-  %41 = load i32, ptr %22, align 4
-  store i32 %41, ptr %40, align 8
-  %42 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 9
-  %43 = load i32, ptr %23, align 4
-  store i32 %43, ptr %42, align 4
-  %44 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 10
-  %45 = load i32, ptr %24, align 4
-  store i32 %45, ptr %44, align 8
-  %46 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 12
-  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
-  %47 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 13
-  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %2) #10
-  %48 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 14
-  store i64 -1, ptr %48, align 8
-  %49 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 15
-  store i8 0, ptr %49, align 8
+  %27 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx19TrajectorySignallerE, i32 0, i32 0, i32 2
+  store ptr %27, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx19TrajectorySignallerE, i32 0, i32 1, i32 2
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 2
+  %31 = load i32, ptr %16, align 4
+  store i32 %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 3
+  %33 = load i32, ptr %17, align 4
+  store i32 %33, ptr %32, align 4
+  %34 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 4
+  %35 = load i32, ptr %18, align 4
+  store i32 %35, ptr %34, align 8
+  %36 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 5
+  %37 = load i32, ptr %19, align 4
+  store i32 %37, ptr %36, align 4
+  %38 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 6
+  %39 = load i32, ptr %20, align 4
+  store i32 %39, ptr %38, align 8
+  %40 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 7
+  %41 = load i32, ptr %21, align 4
+  store i32 %41, ptr %40, align 4
+  %42 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 8
+  %43 = load i32, ptr %22, align 4
+  store i32 %43, ptr %42, align 8
+  %44 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 9
+  %45 = load i32, ptr %23, align 4
+  store i32 %45, ptr %44, align 4
+  %46 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 10
+  %47 = load i32, ptr %24, align 4
+  store i32 %47, ptr %46, align 8
+  %48 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 12
+  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
+  %49 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 13
+  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %2) #10
+  %50 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 14
+  store i64 -1, ptr %50, align 8
+  %51 = getelementptr inbounds %"class.gmx::TrajectorySignaller", ptr %25, i32 0, i32 15
+  store i8 0, ptr %51, align 8
   ret void
 }
 
@@ -3136,37 +3146,40 @@ define void @_ZN3gmx15EnergySignallerC2ESt6vectorISt8functionIFvldEESaIS4_EES6_S
   call void @_ZN3gmx26ITrajectorySignallerClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #10
   %19 = getelementptr inbounds i8, ptr %17, i64 16
   call void @_ZN3gmx23ILoggingSignallerClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #10
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx15EnergySignallerE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx15EnergySignallerE, i32 0, i32 1, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [8 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx15EnergySignallerE, i32 0, i32 2, i32 2), ptr %21, align 8
-  %22 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 3
-  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
-  %23 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 4
-  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %2) #10
-  %24 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 5
-  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %3) #10
-  %25 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 6
-  %26 = load i32, ptr %13, align 4
-  store i32 %26, ptr %25, align 8
-  %27 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 7
-  %28 = load i32, ptr %14, align 4
-  store i32 %28, ptr %27, align 4
-  %29 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 8
-  %30 = load i32, ptr %15, align 4
-  store i32 %30, ptr %29, align 8
-  %31 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 9
-  %32 = load i32, ptr %16, align 4
-  store i32 %32, ptr %31, align 4
-  %33 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 10
-  store i64 -1, ptr %33, align 8
-  %34 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 11
-  store i8 0, ptr %34, align 8
-  %35 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 13
-  store i64 -1, ptr %35, align 8
-  %36 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 14
-  store i8 0, ptr %36, align 8
+  %20 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx15EnergySignallerE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %17, align 8
+  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx15EnergySignallerE, i32 0, i32 1, i32 2
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %17, i64 16
+  %24 = getelementptr inbounds { [8 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN3gmx15EnergySignallerE, i32 0, i32 2, i32 2
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 3
+  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
+  %26 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 4
+  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %2) #10
+  %27 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 5
+  call void @_ZNSt6vectorISt8functionIFvldEESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %3) #10
+  %28 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 6
+  %29 = load i32, ptr %13, align 4
+  store i32 %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 7
+  %31 = load i32, ptr %14, align 4
+  store i32 %31, ptr %30, align 4
+  %32 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 8
+  %33 = load i32, ptr %15, align 4
+  store i32 %33, ptr %32, align 8
+  %34 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 9
+  %35 = load i32, ptr %16, align 4
+  store i32 %35, ptr %34, align 4
+  %36 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 10
+  store i64 -1, ptr %36, align 8
+  %37 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 11
+  store i8 0, ptr %37, align 8
+  %38 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 13
+  store i64 -1, ptr %38, align 8
+  %39 = getelementptr inbounds %"class.gmx::EnergySignaller", ptr %17, i32 0, i32 14
+  store i8 0, ptr %39, align 8
   ret void
 }
 
@@ -3175,7 +3188,8 @@ define linkonce_odr void @_ZN3gmx26ITrajectorySignallerClientC2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx26ITrajectorySignallerClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx26ITrajectorySignallerClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3184,7 +3198,8 @@ define linkonce_odr void @_ZN3gmx23ILoggingSignallerClientC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3gmx23ILoggingSignallerClientE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3gmx23ILoggingSignallerClientE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

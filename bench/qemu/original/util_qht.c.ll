@@ -2810,12 +2810,16 @@ while.end:                                        ; preds = %while.cond
 do.end13:                                         ; preds = %while.end
   %18 = load ptr, ptr %old, align 8
   call void @qht_map_unlock_buckets(ptr noundef %18)
-  store i8 trunc (i64 sub (i64 ptrtoint (ptr @qht_map_destroy to i64), i64 ptrtoint (ptr @qht_map_destroy to i64)) to i8), ptr %func_type_invalid, align 1
-  %19 = load ptr, ptr %old, align 8
-  %rcu = getelementptr inbounds %struct.qht_map, ptr %19, i32 0, i32 0
+  %19 = ptrtoint ptr @qht_map_destroy to i64
+  %20 = ptrtoint ptr @qht_map_destroy to i64
+  %21 = sub i64 %19, %20
+  %22 = trunc i64 %21 to i8
+  store i8 %22, ptr %func_type_invalid, align 1
+  %23 = load ptr, ptr %old, align 8
+  %rcu = getelementptr inbounds %struct.qht_map, ptr %23, i32 0, i32 0
   store ptr %rcu, ptr %tmp, align 8
-  %20 = load ptr, ptr %tmp, align 8
-  call void @call_rcu1(ptr noundef %20, ptr noundef @qht_map_destroy)
+  %24 = load ptr, ptr %tmp, align 8
+  call void @call_rcu1(ptr noundef %24, ptr noundef @qht_map_destroy)
   br label %return
 
 return:                                           ; preds = %do.end13, %if.then1

@@ -42,34 +42,35 @@ define void @_ZN21AudioSilenceGeneratorC2EP7QObject(ptr noundef nonnull align 8 
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN9QIODeviceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV21AudioSilenceGenerator, i32 0, i32 0, i32 2), ptr %8, align 8
-  %10 = getelementptr inbounds %class.AudioSilenceGenerator, ptr %8, i32 0, i32 1
-  store i64 0, ptr %10, align 8
+  %10 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTV21AudioSilenceGenerator, i32 0, i32 0, i32 2
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds %class.AudioSilenceGenerator, ptr %8, i32 0, i32 1
+  store i64 0, ptr %11, align 8
   call void @_ZN6QFlagsIN13QIODeviceBase12OpenModeFlagEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 1) #6
-  %11 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
-  %12 = load i32, ptr %11, align 4
-  %13 = invoke noundef zeroext i1 @_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 %12)
-          to label %14 unwind label %15
-
-14:                                               ; preds = %2
-  ret void
+  %12 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
+  %13 = load i32, ptr %12, align 4
+  %14 = invoke noundef zeroext i1 @_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 %13)
+          to label %15 unwind label %16
 
 15:                                               ; preds = %2
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %6, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %7, align 4
-  call void @_ZN9QIODeviceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #6
-  br label %19
+  ret void
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %6, align 8
-  %21 = load i32, ptr %7, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+16:                                               ; preds = %2
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %6, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %7, align 4
+  call void @_ZN9QIODeviceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #6
+  br label %20
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %6, align 8
+  %22 = load i32, ptr %7, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 declare void @_ZN9QIODeviceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1

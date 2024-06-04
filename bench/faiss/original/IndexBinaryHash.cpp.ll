@@ -1507,9 +1507,10 @@ define linkonce_odr void @_ZN5faiss15IndexBinaryHashD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss15IndexBinaryHashE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %3, i32 0, i32 1
-  call void @_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5faiss15IndexBinaryHashE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %3, i32 0, i32 1
+  call void @_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
   call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   ret void
 }
@@ -1697,7 +1698,7 @@ define void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParameters
 
 43:                                               ; preds = %39
   invoke void @__cxa_throw(ptr %42, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #19
-          to label %106 unwind label %44
+          to label %112 unwind label %44
 
 44:                                               ; preds = %43, %37, %32
   %45 = landingpad { ptr, i32 }
@@ -1720,7 +1721,7 @@ define void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParameters
 
 52:                                               ; preds = %48, %44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
-  br label %101
+  br label %107
 
 53:                                               ; No predecessors!
   br label %54
@@ -1762,7 +1763,7 @@ define void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParameters
 
 71:                                               ; preds = %67
   invoke void @__cxa_throw(ptr %70, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #19
-          to label %106 unwind label %72
+          to label %112 unwind label %72
 
 72:                                               ; preds = %71, %65, %60
   %73 = landingpad { ptr, i32 }
@@ -1785,7 +1786,7 @@ define void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParameters
 
 80:                                               ; preds = %76, %72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
-  br label %101
+  br label %107
 
 81:                                               ; No predecessors!
   br label %82
@@ -1819,27 +1820,33 @@ define void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchParameters
   %91 = add i64 %90, %89
   store i64 %91, ptr @_ZN5faiss21indexBinaryHash_statsE, align 8
   %92 = load i64, ptr %23, align 8
-  %93 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1), align 8
-  %94 = add i64 %93, %92
-  store i64 %94, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1), align 8
-  %95 = load i64, ptr %21, align 8
-  %96 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2), align 8
-  %97 = add i64 %96, %95
-  store i64 %97, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2), align 8
-  %98 = load i64, ptr %22, align 8
-  %99 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3), align 8
-  %100 = add i64 %99, %98
-  store i64 %100, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3), align 8
+  %93 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1
+  %94 = load i64, ptr %93, align 8
+  %95 = add i64 %94, %92
+  %96 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1
+  store i64 %95, ptr %96, align 8
+  %97 = load i64, ptr %21, align 8
+  %98 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2
+  %99 = load i64, ptr %98, align 8
+  %100 = add i64 %99, %97
+  %101 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2
+  store i64 %100, ptr %101, align 8
+  %102 = load i64, ptr %22, align 8
+  %103 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3
+  %104 = load i64, ptr %103, align 8
+  %105 = add i64 %104, %102
+  %106 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3
+  store i64 %105, ptr %106, align 8
   ret void
 
-101:                                              ; preds = %80, %52
-  %102 = load ptr, ptr %17, align 8
-  %103 = load i32, ptr %18, align 4
-  %104 = insertvalue { ptr, i32 } poison, ptr %102, 0
-  %105 = insertvalue { ptr, i32 } %104, i32 %103, 1
-  resume { ptr, i32 } %105
+107:                                              ; preds = %80, %52
+  %108 = load ptr, ptr %17, align 8
+  %109 = load i32, ptr %18, align 4
+  %110 = insertvalue { ptr, i32 } poison, ptr %108, 0
+  %111 = insertvalue { ptr, i32 } %110, i32 %109, 1
+  resume { ptr, i32 } %111
 
-106:                                              ; preds = %71, %43
+112:                                              ; preds = %71, %43
   unreachable
 }
 
@@ -1901,7 +1908,7 @@ define void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchRes
 
 39:                                               ; preds = %35
   invoke void @__cxa_throw(ptr %38, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #19
-          to label %74 unwind label %40
+          to label %80 unwind label %40
 
 40:                                               ; preds = %39, %33, %28
   %41 = landingpad { ptr, i32 }
@@ -1924,7 +1931,7 @@ define void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchRes
 
 48:                                               ; preds = %44, %40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
-  br label %69
+  br label %75
 
 49:                                               ; No predecessors!
   br label %50
@@ -1958,27 +1965,33 @@ define void @_ZNK5faiss15IndexBinaryHash12range_searchElPKhiPNS_17RangeSearchRes
   %59 = add i64 %58, %57
   store i64 %59, ptr @_ZN5faiss21indexBinaryHash_statsE, align 8
   %60 = load i64, ptr %19, align 8
-  %61 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1), align 8
-  %62 = add i64 %61, %60
-  store i64 %62, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1), align 8
-  %63 = load i64, ptr %17, align 8
-  %64 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2), align 8
-  %65 = add i64 %64, %63
-  store i64 %65, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2), align 8
-  %66 = load i64, ptr %18, align 8
-  %67 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3), align 8
-  %68 = add i64 %67, %66
-  store i64 %68, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3), align 8
+  %61 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8
+  %63 = add i64 %62, %60
+  %64 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1
+  store i64 %63, ptr %64, align 8
+  %65 = load i64, ptr %17, align 8
+  %66 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2
+  %67 = load i64, ptr %66, align 8
+  %68 = add i64 %67, %65
+  %69 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2
+  store i64 %68, ptr %69, align 8
+  %70 = load i64, ptr %18, align 8
+  %71 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3
+  %72 = load i64, ptr %71, align 8
+  %73 = add i64 %72, %70
+  %74 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3
+  store i64 %73, ptr %74, align 8
   ret void
 
-69:                                               ; preds = %48
-  %70 = load ptr, ptr %15, align 8
-  %71 = load i32, ptr %16, align 4
-  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
-  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
-  resume { ptr, i32 } %73
+75:                                               ; preds = %48
+  %76 = load ptr, ptr %15, align 8
+  %77 = load i32, ptr %16, align 4
+  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
+  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
+  resume { ptr, i32 } %79
 
-74:                                               ; preds = %39
+80:                                               ; preds = %39
   unreachable
 }
 
@@ -2200,7 +2213,7 @@ define void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParam
 
 43:                                               ; preds = %39
   invoke void @__cxa_throw(ptr %42, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #19
-          to label %106 unwind label %44
+          to label %112 unwind label %44
 
 44:                                               ; preds = %43, %37, %32
   %45 = landingpad { ptr, i32 }
@@ -2223,7 +2236,7 @@ define void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParam
 
 52:                                               ; preds = %48, %44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
-  br label %101
+  br label %107
 
 53:                                               ; No predecessors!
   br label %54
@@ -2265,7 +2278,7 @@ define void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParam
 
 71:                                               ; preds = %67
   invoke void @__cxa_throw(ptr %70, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #19
-          to label %106 unwind label %72
+          to label %112 unwind label %72
 
 72:                                               ; preds = %71, %65, %60
   %73 = landingpad { ptr, i32 }
@@ -2288,7 +2301,7 @@ define void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParam
 
 80:                                               ; preds = %76, %72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
-  br label %101
+  br label %107
 
 81:                                               ; No predecessors!
   br label %82
@@ -2322,27 +2335,33 @@ define void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16SearchParam
   %91 = add i64 %90, %89
   store i64 %91, ptr @_ZN5faiss21indexBinaryHash_statsE, align 8
   %92 = load i64, ptr %23, align 8
-  %93 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1), align 8
-  %94 = add i64 %93, %92
-  store i64 %94, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1), align 8
-  %95 = load i64, ptr %21, align 8
-  %96 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2), align 8
-  %97 = add i64 %96, %95
-  store i64 %97, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2), align 8
-  %98 = load i64, ptr %22, align 8
-  %99 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3), align 8
-  %100 = add i64 %99, %98
-  store i64 %100, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3), align 8
+  %93 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1
+  %94 = load i64, ptr %93, align 8
+  %95 = add i64 %94, %92
+  %96 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1
+  store i64 %95, ptr %96, align 8
+  %97 = load i64, ptr %21, align 8
+  %98 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2
+  %99 = load i64, ptr %98, align 8
+  %100 = add i64 %99, %97
+  %101 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2
+  store i64 %100, ptr %101, align 8
+  %102 = load i64, ptr %22, align 8
+  %103 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3
+  %104 = load i64, ptr %103, align 8
+  %105 = add i64 %104, %102
+  %106 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3
+  store i64 %105, ptr %106, align 8
   ret void
 
-101:                                              ; preds = %80, %52
-  %102 = load ptr, ptr %17, align 8
-  %103 = load i32, ptr %18, align 4
-  %104 = insertvalue { ptr, i32 } poison, ptr %102, 0
-  %105 = insertvalue { ptr, i32 } %104, i32 %103, 1
-  resume { ptr, i32 } %105
+107:                                              ; preds = %80, %52
+  %108 = load ptr, ptr %17, align 8
+  %109 = load i32, ptr %18, align 4
+  %110 = insertvalue { ptr, i32 } poison, ptr %108, 0
+  %111 = insertvalue { ptr, i32 } %110, i32 %109, 1
+  resume { ptr, i32 } %111
 
-106:                                              ; preds = %71, %43
+112:                                              ; preds = %71, %43
   unreachable
 }
 
@@ -2404,7 +2423,7 @@ define void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSear
 
 39:                                               ; preds = %35
   invoke void @__cxa_throw(ptr %38, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #19
-          to label %74 unwind label %40
+          to label %80 unwind label %40
 
 40:                                               ; preds = %39, %33, %28
   %41 = landingpad { ptr, i32 }
@@ -2427,7 +2446,7 @@ define void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSear
 
 48:                                               ; preds = %44, %40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
-  br label %69
+  br label %75
 
 49:                                               ; No predecessors!
   br label %50
@@ -2461,27 +2480,33 @@ define void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSear
   %59 = add i64 %58, %57
   store i64 %59, ptr @_ZN5faiss21indexBinaryHash_statsE, align 8
   %60 = load i64, ptr %19, align 8
-  %61 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1), align 8
-  %62 = add i64 %61, %60
-  store i64 %62, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1), align 8
-  %63 = load i64, ptr %17, align 8
-  %64 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2), align 8
-  %65 = add i64 %64, %63
-  store i64 %65, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2), align 8
-  %66 = load i64, ptr %18, align 8
-  %67 = load i64, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3), align 8
-  %68 = add i64 %67, %66
-  store i64 %68, ptr getelementptr inbounds (%"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3), align 8
+  %61 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8
+  %63 = add i64 %62, %60
+  %64 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 1
+  store i64 %63, ptr %64, align 8
+  %65 = load i64, ptr %17, align 8
+  %66 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2
+  %67 = load i64, ptr %66, align 8
+  %68 = add i64 %67, %65
+  %69 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 2
+  store i64 %68, ptr %69, align 8
+  %70 = load i64, ptr %18, align 8
+  %71 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3
+  %72 = load i64, ptr %71, align 8
+  %73 = add i64 %72, %70
+  %74 = getelementptr inbounds %"struct.faiss::IndexBinaryHashStats", ptr @_ZN5faiss21indexBinaryHash_statsE, i32 0, i32 3
+  store i64 %73, ptr %74, align 8
   ret void
 
-69:                                               ; preds = %48
-  %70 = load ptr, ptr %15, align 8
-  %71 = load i32, ptr %16, align 4
-  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
-  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
-  resume { ptr, i32 } %73
+75:                                               ; preds = %48
+  %76 = load ptr, ptr %15, align 8
+  %77 = load i32, ptr %16, align 4
+  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
+  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
+  resume { ptr, i32 } %79
 
-74:                                               ; preds = %39
+80:                                               ; preds = %39
   unreachable
 }
 
@@ -4886,16 +4911,17 @@ define void @_ZN5faiss15IndexBinaryHashC2Eii(ptr noundef nonnull align 8 derefer
   %8 = load i32, ptr %5, align 4
   %9 = sext i32 %8 to i64
   call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %9, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss15IndexBinaryHashE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %7, i32 0, i32 1
-  call void @_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #13
-  %11 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %7, i32 0, i32 2
-  %12 = load i32, ptr %6, align 4
-  store i32 %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %7, i32 0, i32 3
-  store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %7, i32 0, i32 5
-  store i8 1, ptr %14, align 1
+  %10 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5faiss15IndexBinaryHashE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %7, i32 0, i32 1
+  call void @_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #13
+  %12 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %7, i32 0, i32 2
+  %13 = load i32, ptr %6, align 4
+  store i32 %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %7, i32 0, i32 3
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %7, i32 0, i32 5
+  store i8 1, ptr %15, align 1
   ret void
 }
 
@@ -5032,15 +5058,16 @@ define void @_ZN5faiss15IndexBinaryHashC2Ev(ptr noundef nonnull align 8 derefere
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss15IndexBinaryHashE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %3, i32 0, i32 1
-  call void @_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
-  %5 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %3, i32 0, i32 2
-  store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %3, i32 0, i32 3
-  store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %3, i32 0, i32 5
-  store i8 1, ptr %7, align 1
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5faiss15IndexBinaryHashE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %3, i32 0, i32 1
+  call void @_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
+  %6 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %3, i32 0, i32 3
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %3, i32 0, i32 5
+  store i8 1, ptr %8, align 1
   ret void
 }
 
@@ -7274,9 +7301,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -7913,36 +7941,37 @@ define linkonce_odr void @_ZN5faiss15IndexBinaryHashC2ERKS0_(ptr noundef nonnull
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5faiss11IndexBinaryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss15IndexBinaryHashE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(56) %11)
-          to label %12 unwind label %16
+  %9 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5faiss15IndexBinaryHashE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %12)
+          to label %13 unwind label %17
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %7, i32 0, i32 2
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %14, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 8, i1 false)
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"struct.faiss::IndexBinaryHash", ptr %15, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %16, i64 8, i1 false)
   ret void
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %2
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %5, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %6, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %5, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %6, align 4
   call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
-  br label %20
+  br label %21
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i32, ptr %6, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10661,11 +10690,12 @@ define linkonce_odr void @_ZN5faiss11IndexBinaryC2ERKS0_(ptr noundef nonnull ali
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss11IndexBinaryE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %7, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %8, i64 24, i1 false)
+  %6 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5faiss11IndexBinaryE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.faiss::IndexBinary", ptr %8, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 24, i1 false)
   ret void
 }
 
@@ -15206,156 +15236,157 @@ define void @_ZN5faiss20IndexBinaryMultiHashC2Eiii(ptr noundef nonnull align 8 d
   %15 = load i32, ptr %6, align 4
   %16 = sext i32 %15 to i64
   call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %16, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryMultiHashE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %17 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %14, i32 0, i32 1
-  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #21
-          to label %19 unwind label %52
+  %17 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryMultiHashE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %14, align 8
+  %18 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %14, i32 0, i32 1
+  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #21
+          to label %20 unwind label %53
 
-19:                                               ; preds = %4
-  %20 = load i32, ptr %6, align 4
-  %21 = sext i32 %20 to i64
-  invoke void @_ZN5faiss15IndexBinaryFlatC1El(ptr noundef nonnull align 8 dereferenceable(76) %18, i64 noundef %21)
-          to label %22 unwind label %56
+20:                                               ; preds = %4
+  %21 = load i32, ptr %6, align 4
+  %22 = sext i32 %21 to i64
+  invoke void @_ZN5faiss15IndexBinaryFlatC1El(ptr noundef nonnull align 8 dereferenceable(76) %19, i64 noundef %22)
+          to label %23 unwind label %57
 
-22:                                               ; preds = %19
-  store ptr %18, ptr %17, align 8
-  %23 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %14, i32 0, i32 2
-  store i8 1, ptr %23, align 8
-  %24 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %14, i32 0, i32 4
-  %25 = load i32, ptr %7, align 4
-  %26 = sext i32 %25 to i64
+23:                                               ; preds = %20
+  store ptr %19, ptr %18, align 8
+  %24 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %14, i32 0, i32 2
+  store i8 1, ptr %24, align 8
+  %25 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %14, i32 0, i32 4
+  %26 = load i32, ptr %7, align 4
+  %27 = sext i32 %26 to i64
   call void @_ZNSaISt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
-  invoke void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EEC2EmRKSC_(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %27 unwind label %60
+  invoke void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EEC2EmRKSC_(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %28 unwind label %61
 
-27:                                               ; preds = %22
+28:                                               ; preds = %23
   call void @_ZNSaISt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
-  %28 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %14, i32 0, i32 5
-  %29 = load i32, ptr %7, align 4
-  store i32 %29, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %14, i32 0, i32 6
-  %31 = load i32, ptr %8, align 4
-  store i32 %31, ptr %30, align 4
-  %32 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %14, i32 0, i32 7
-  store i32 0, ptr %32, align 8
-  br label %33
+  %29 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %14, i32 0, i32 5
+  %30 = load i32, ptr %7, align 4
+  store i32 %30, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %14, i32 0, i32 6
+  %32 = load i32, ptr %8, align 4
+  store i32 %32, ptr %31, align 4
+  %33 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %14, i32 0, i32 7
+  store i32 0, ptr %33, align 8
+  br label %34
 
-33:                                               ; preds = %27
-  %34 = load i32, ptr %7, align 4
-  %35 = load i32, ptr %8, align 4
-  %36 = mul nsw i32 %34, %35
-  %37 = load i32, ptr %6, align 4
-  %38 = icmp sle i32 %36, %37
-  br i1 %38, label %75, label %39
+34:                                               ; preds = %28
+  %35 = load i32, ptr %7, align 4
+  %36 = load i32, ptr %8, align 4
+  %37 = mul nsw i32 %35, %36
+  %38 = load i32, ptr %6, align 4
+  %39 = icmp sle i32 %37, %38
+  br i1 %39, label %76, label %40
 
-39:                                               ; preds = %33
-  br label %40
+40:                                               ; preds = %34
+  br label %41
 
-40:                                               ; preds = %39
+41:                                               ; preds = %40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.5, ptr noundef @.str.10) #13
-  store i32 %41, ptr %13, align 4
-  %42 = load i32, ptr %13, align 4
-  %43 = add nsw i32 %42, 1
-  %44 = sext i32 %43 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %44)
-          to label %45 unwind label %64
+  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str.5, ptr noundef @.str.10) #13
+  store i32 %42, ptr %13, align 4
+  %43 = load i32, ptr %13, align 4
+  %44 = add nsw i32 %43, 1
+  %45 = sext i32 %44 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %45)
+          to label %46 unwind label %65
 
-45:                                               ; preds = %40
-  %46 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0)
-          to label %47 unwind label %64
+46:                                               ; preds = %41
+  %47 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0)
+          to label %48 unwind label %65
 
-47:                                               ; preds = %45
-  %48 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
-  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %46, i64 noundef %48, ptr noundef @.str.5, ptr noundef @.str.10) #13
-  %50 = call ptr @__cxa_allocate_exception(i64 40) #13
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss20IndexBinaryMultiHashC2Eiii, ptr noundef @.str.4, i32 noundef 298)
-          to label %51 unwind label %68
+48:                                               ; preds = %46
+  %49 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
+  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %47, i64 noundef %49, ptr noundef @.str.5, ptr noundef @.str.10) #13
+  %51 = call ptr @__cxa_allocate_exception(i64 40) #13
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss20IndexBinaryMultiHashC2Eiii, ptr noundef @.str.4, i32 noundef 298)
+          to label %52 unwind label %69
 
-51:                                               ; preds = %47
-  invoke void @__cxa_throw(ptr %50, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #19
-          to label %84 unwind label %64
+52:                                               ; preds = %48
+  invoke void @__cxa_throw(ptr %51, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #19
+          to label %85 unwind label %65
 
-52:                                               ; preds = %4
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %4
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %9, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %10, align 4
-  br label %78
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %9, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %10, align 4
+  br label %79
 
-56:                                               ; preds = %19
-  %57 = landingpad { ptr, i32 }
+57:                                               ; preds = %20
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %9, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %10, align 4
-  call void @_ZdlPv(ptr noundef %18) #18
-  br label %78
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %9, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %10, align 4
+  call void @_ZdlPv(ptr noundef %19) #18
+  br label %79
 
-60:                                               ; preds = %22
-  %61 = landingpad { ptr, i32 }
+61:                                               ; preds = %23
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %9, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %10, align 4
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %9, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %10, align 4
   call void @_ZNSaISt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
-  br label %78
+  br label %79
 
-64:                                               ; preds = %51, %45, %40
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %52, %46, %41
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %9, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %10, align 4
-  br label %72
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %9, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %10, align 4
+  br label %73
 
-68:                                               ; preds = %47
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %48
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %9, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %10, align 4
-  call void @__cxa_free_exception(ptr %50) #13
-  br label %72
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %9, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %10, align 4
+  call void @__cxa_free_exception(ptr %51) #13
+  br label %73
 
-72:                                               ; preds = %68, %64
+73:                                               ; preds = %69, %65
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
-  call void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
-  br label %78
+  call void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #13
+  br label %79
 
-73:                                               ; No predecessors!
-  br label %74
-
-74:                                               ; preds = %73
+74:                                               ; No predecessors!
   br label %75
 
-75:                                               ; preds = %74, %33
+75:                                               ; preds = %74
   br label %76
 
-76:                                               ; preds = %75
+76:                                               ; preds = %75, %34
   br label %77
 
 77:                                               ; preds = %76
+  br label %78
+
+78:                                               ; preds = %77
   ret void
 
-78:                                               ; preds = %72, %60, %56, %52
+79:                                               ; preds = %73, %61, %57, %53
   call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  br label %79
+  br label %80
 
-79:                                               ; preds = %78
-  %80 = load ptr, ptr %9, align 8
-  %81 = load i32, ptr %10, align 4
-  %82 = insertvalue { ptr, i32 } poison, ptr %80, 0
-  %83 = insertvalue { ptr, i32 } %82, i32 %81, 1
-  resume { ptr, i32 } %83
+80:                                               ; preds = %79
+  %81 = load ptr, ptr %9, align 8
+  %82 = load i32, ptr %10, align 4
+  %83 = insertvalue { ptr, i32 } poison, ptr %81, 0
+  %84 = insertvalue { ptr, i32 } %83, i32 %82, 1
+  resume { ptr, i32 } %84
 
-84:                                               ; preds = %51
+85:                                               ; preds = %52
   unreachable
 }
 
@@ -16520,19 +16551,20 @@ define void @_ZN5faiss20IndexBinaryMultiHashC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryMultiHashE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 2
-  store i8 1, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
-  %7 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 5
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 6
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 7
-  store i32 0, ptr %9, align 8
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryMultiHashE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 2
+  store i8 1, ptr %6, align 8
+  %7 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  %8 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 5
+  store i32 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 6
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 7
+  store i32 0, ptr %10, align 8
   ret void
 }
 
@@ -16570,31 +16602,32 @@ define void @_ZN5faiss20IndexBinaryMultiHashD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryMultiHashE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 2
-  %5 = load i8, ptr %4, align 8
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %16
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5faiss20IndexBinaryMultiHashE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 2
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %17
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %15, label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %16, label %12
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 1
-  %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(76) %9) #13
-  br label %15
-
-15:                                               ; preds = %11, %7
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %10, align 8
+  %14 = getelementptr inbounds ptr, ptr %13, i64 1
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(76) %10) #13
   br label %16
 
-16:                                               ; preds = %15, %1
-  %17 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
+16:                                               ; preds = %12, %8
+  br label %17
+
+17:                                               ; preds = %16, %1
+  %18 = getelementptr inbounds %"struct.faiss::IndexBinaryMultiHash", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorISt13unordered_mapIlS_IlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_EEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   ret void
 }

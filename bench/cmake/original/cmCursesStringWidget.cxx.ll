@@ -57,75 +57,76 @@ define dso_local void @_ZN20cmCursesStringWidgetC2Eiiii(ptr noundef nonnull alig
   %16 = load i32, ptr %9, align 4
   %17 = load i32, ptr %10, align 4
   call void @_ZN14cmCursesWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(60) %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV20cmCursesStringWidget, i32 0, i32 0, i32 2), ptr %13, align 8
-  %18 = getelementptr inbounds %class.cmCursesStringWidget, ptr %13, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #6
-  %19 = getelementptr inbounds %class.cmCursesStringWidget, ptr %13, i32 0, i32 1
-  store i8 0, ptr %19, align 4
-  %20 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 1
-  store i32 3, ptr %20, align 8
-  %21 = invoke noundef zeroext i1 @_ZN13cmCursesColor9HasColorsEv()
-          to label %22 unwind label %32
+  %18 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV20cmCursesStringWidget, i32 0, i32 0, i32 2
+  store ptr %18, ptr %13, align 8
+  %19 = getelementptr inbounds %class.cmCursesStringWidget, ptr %13, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #6
+  %20 = getelementptr inbounds %class.cmCursesStringWidget, ptr %13, i32 0, i32 1
+  store i8 0, ptr %20, align 4
+  %21 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 1
+  store i32 3, ptr %21, align 8
+  %22 = invoke noundef zeroext i1 @_ZN13cmCursesColor9HasColorsEv()
+          to label %23 unwind label %33
 
-22:                                               ; preds = %5
-  br i1 %21, label %23, label %36
+23:                                               ; preds = %5
+  br i1 %22, label %24, label %37
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 4
-  %25 = load ptr, ptr %24, align 8
-  %26 = invoke i32 @set_field_fore(ptr noundef %25, i32 noundef 768)
-          to label %27 unwind label %32
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 4
+  %26 = load ptr, ptr %25, align 8
+  %27 = invoke i32 @set_field_fore(ptr noundef %26, i32 noundef 768)
+          to label %28 unwind label %33
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 4
-  %29 = load ptr, ptr %28, align 8
-  %30 = invoke i32 @set_field_back(ptr noundef %29, i32 noundef 768)
-          to label %31 unwind label %32
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 4
+  %30 = load ptr, ptr %29, align 8
+  %31 = invoke i32 @set_field_back(ptr noundef %30, i32 noundef 768)
+          to label %32 unwind label %33
 
-31:                                               ; preds = %27
-  br label %45
+32:                                               ; preds = %28
+  br label %46
 
-32:                                               ; preds = %45, %40, %36, %27, %23, %5
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %46, %41, %37, %28, %24, %5
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %11, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %12, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #6
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %11, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %12, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #6
   call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %13) #6
-  br label %50
+  br label %51
 
-36:                                               ; preds = %22
-  %37 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 4
-  %38 = load ptr, ptr %37, align 8
-  %39 = invoke i32 @set_field_fore(ptr noundef %38, i32 noundef 0)
-          to label %40 unwind label %32
+37:                                               ; preds = %23
+  %38 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 4
+  %39 = load ptr, ptr %38, align 8
+  %40 = invoke i32 @set_field_fore(ptr noundef %39, i32 noundef 0)
+          to label %41 unwind label %33
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 4
-  %42 = load ptr, ptr %41, align 8
-  %43 = invoke i32 @set_field_back(ptr noundef %42, i32 noundef 65536)
-          to label %44 unwind label %32
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 4
+  %43 = load ptr, ptr %42, align 8
+  %44 = invoke i32 @set_field_back(ptr noundef %43, i32 noundef 65536)
+          to label %45 unwind label %33
 
-44:                                               ; preds = %40
-  br label %45
+45:                                               ; preds = %41
+  br label %46
 
-45:                                               ; preds = %44, %31
-  %46 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 4
-  %47 = load ptr, ptr %46, align 8
-  %48 = invoke i32 @field_opts_off(ptr noundef %47, i32 noundef 512)
-          to label %49 unwind label %32
+46:                                               ; preds = %45, %32
+  %47 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 4
+  %48 = load ptr, ptr %47, align 8
+  %49 = invoke i32 @field_opts_off(ptr noundef %48, i32 noundef 512)
+          to label %50 unwind label %33
 
-49:                                               ; preds = %45
+50:                                               ; preds = %46
   ret void
 
-50:                                               ; preds = %32
-  %51 = load ptr, ptr %11, align 8
-  %52 = load i32, ptr %12, align 4
-  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
-  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
-  resume { ptr, i32 } %54
+51:                                               ; preds = %33
+  %52 = load ptr, ptr %11, align 8
+  %53 = load i32, ptr %12, align 4
+  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
+  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
+  resume { ptr, i32 } %55
 }
 
 declare void @_ZN14cmCursesWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(60), i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #1
@@ -979,9 +980,10 @@ define linkonce_odr dso_local void @_ZN20cmCursesStringWidgetD2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV20cmCursesStringWidget, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCursesStringWidget, ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV20cmCursesStringWidget, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCursesStringWidget, ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
   call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %3) #6
   ret void
 }

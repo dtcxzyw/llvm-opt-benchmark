@@ -9730,9 +9730,10 @@ define internal void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..defau
   %2 = getelementptr inbounds { i64, ptr }, ptr %0, i32 0, i32 0
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds { i64, ptr }, ptr %0, i32 0, i32 1
-  store ptr inttoptr (i64 4 to ptr), ptr %3, align 8
-  %4 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %4, align 8
+  %4 = inttoptr i64 4 to ptr
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %5, align 8
   ret void
 }
 

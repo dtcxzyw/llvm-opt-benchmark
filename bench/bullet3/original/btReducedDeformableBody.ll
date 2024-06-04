@@ -550,51 +550,63 @@ entry:
   store float 0.000000e+00, ptr %ref.tmp3, align 4
   store float 1.000000e+00, ptr %ref.tmp4, align 4
   store float 0.000000e+00, ptr %ref.tmp5, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 1), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
+  %0 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 1
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
   store float 0.000000e+00, ptr %ref.tmp6, align 4
   store float 0.000000e+00, ptr %ref.tmp7, align 4
   store float 1.000000e+00, ptr %ref.tmp8, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 2), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
+  %1 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 2
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
   store float 1.000000e+00, ptr %ref.tmp9, align 4
   store float 1.000000e+00, ptr %ref.tmp10, align 4
   store float 0.000000e+00, ptr %ref.tmp11, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 3), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11)
+  %2 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 3
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11)
   store float 1.000000e+00, ptr %ref.tmp12, align 4
   store float 0.000000e+00, ptr %ref.tmp13, align 4
   store float 1.000000e+00, ptr %ref.tmp14, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 4), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14)
+  %3 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 4
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14)
   store float 0.000000e+00, ptr %ref.tmp15, align 4
   store float 1.000000e+00, ptr %ref.tmp16, align 4
   store float 1.000000e+00, ptr %ref.tmp17, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 5), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17)
+  %4 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 5
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17)
   store float 1.000000e+00, ptr %ref.tmp18, align 4
   store float -1.000000e+00, ptr %ref.tmp19, align 4
   store float 0.000000e+00, ptr %ref.tmp20, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 6), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
+  %5 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 6
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
   store float 1.000000e+00, ptr %ref.tmp21, align 4
   store float 0.000000e+00, ptr %ref.tmp22, align 4
   store float -1.000000e+00, ptr %ref.tmp23, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 7), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23)
+  %6 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 7
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23)
   store float 0.000000e+00, ptr %ref.tmp24, align 4
   store float 1.000000e+00, ptr %ref.tmp25, align 4
   store float -1.000000e+00, ptr %ref.tmp26, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 8), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp24, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp26)
+  %7 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 8
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp24, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp26)
   store float 1.000000e+00, ptr %ref.tmp27, align 4
   store float 1.000000e+00, ptr %ref.tmp28, align 4
   store float 1.000000e+00, ptr %ref.tmp29, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 9), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29)
+  %8 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 9
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29)
   store float 1.000000e+00, ptr %ref.tmp30, align 4
   store float -1.000000e+00, ptr %ref.tmp31, align 4
   store float 1.000000e+00, ptr %ref.tmp32, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 10), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32)
+  %9 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 10
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32)
   store float 1.000000e+00, ptr %ref.tmp33, align 4
   store float 1.000000e+00, ptr %ref.tmp34, align 4
   store float -1.000000e+00, ptr %ref.tmp35, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 11), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp33, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35)
+  %10 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 11
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp33, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35)
   store float 1.000000e+00, ptr %ref.tmp36, align 4
   store float -1.000000e+00, ptr %ref.tmp37, align 4
   store float -1.000000e+00, ptr %ref.tmp38, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 12), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp38)
+  %11 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 12
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp38)
   ret void
 }
 
@@ -674,7 +686,8 @@ entry:
   %2 = load ptr, ptr %x.addr, align 8
   %3 = load ptr, ptr %m.addr, align 8
   call void @_ZN10btSoftBodyC2EP19btSoftBodyWorldInfoiPK9btVector3PKf(ptr noundef nonnull align 8 dereferenceable(2064) %this1, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV23btReducedDeformableBody, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV23btReducedDeformableBody, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %m_rigidOnly = getelementptr inbounds %class.btReducedDeformableBody, ptr %this1, i32 0, i32 1
   store i8 0, ptr %m_rigidOnly, align 8
   %m_projPA = getelementptr inbounds %class.btReducedDeformableBody, ptr %this1, i32 0, i32 6
@@ -937,192 +950,192 @@ invoke.cont80:                                    ; preds = %invoke.cont78
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup99
 
 lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup98
 
 lpad4:                                            ; preds = %invoke.cont3
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup97
 
 lpad6:                                            ; preds = %invoke.cont5
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup96
 
 lpad8:                                            ; preds = %invoke.cont7
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup95
 
 lpad10:                                           ; preds = %invoke.cont12, %invoke.cont11, %invoke.cont9
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup94
 
 lpad14:                                           ; preds = %invoke.cont27, %invoke.cont26, %invoke.cont25, %invoke.cont24, %invoke.cont23, %invoke.cont22, %invoke.cont21, %invoke.cont20, %invoke.cont19, %invoke.cont18, %invoke.cont17, %invoke.cont16, %invoke.cont15, %invoke.cont13
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   br label %ehcleanup93
 
 lpad29:                                           ; preds = %invoke.cont28
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   br label %ehcleanup92
 
 lpad31:                                           ; preds = %invoke.cont30
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %exn.slot, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %ehselector.slot, align 4
   br label %ehcleanup91
 
 lpad33:                                           ; preds = %invoke.cont32
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   br label %ehcleanup90
 
 lpad35:                                           ; preds = %invoke.cont34
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
   br label %ehcleanup89
 
 lpad37:                                           ; preds = %invoke.cont36
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   br label %ehcleanup88
 
 lpad39:                                           ; preds = %invoke.cont38
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %exn.slot, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %ehselector.slot, align 4
   br label %ehcleanup87
 
 lpad41:                                           ; preds = %invoke.cont40
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %exn.slot, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %ehselector.slot, align 4
   br label %ehcleanup86
 
 lpad43:                                           ; preds = %invoke.cont42
-  %46 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %exn.slot, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %ehselector.slot, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %exn.slot, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %ehselector.slot, align 4
   br label %ehcleanup85
 
 lpad45:                                           ; preds = %invoke.cont44
-  %49 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %exn.slot, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %ehselector.slot, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %exn.slot, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %ehselector.slot, align 4
   br label %ehcleanup84
 
 lpad47:                                           ; preds = %invoke.cont46
-  %52 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %exn.slot, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %ehselector.slot, align 4
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %exn.slot, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %ehselector.slot, align 4
   br label %ehcleanup83
 
 lpad49:                                           ; preds = %invoke.cont48
-  %55 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %exn.slot, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %ehselector.slot, align 4
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %exn.slot, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %ehselector.slot, align 4
   br label %ehcleanup82
 
 lpad51:                                           ; preds = %invoke.cont50
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %exn.slot, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %ehselector.slot, align 4
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %exn.slot, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %ehselector.slot, align 4
   br label %ehcleanup81
 
 lpad53:                                           ; preds = %invoke.cont52
-  %61 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %exn.slot, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %ehselector.slot, align 4
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %exn.slot, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad56:                                           ; preds = %invoke.cont78, %invoke.cont76, %invoke.cont71, %invoke.cont67, %invoke.cont65, %invoke.cont63, %invoke.cont61, %invoke.cont59, %invoke.cont57, %invoke.cont54
-  %64 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %exn.slot, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %ehselector.slot, align 4
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %exn.slot, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_contactNodesList) #4
   br label %ehcleanup
 
@@ -7914,7 +7927,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV23btReducedDeformableBody, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV23btReducedDeformableBody, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_contactNodesList = getelementptr inbounds %class.btReducedDeformableBody, ptr %this1, i32 0, i32 50
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_contactNodesList) #4
   %m_fixedNodes = getelementptr inbounds %class.btReducedDeformableBody, ptr %this1, i32 0, i32 47

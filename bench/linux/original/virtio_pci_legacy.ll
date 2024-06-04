@@ -59,65 +59,68 @@ define internal ptr @setup_vq(ptr noundef %0, ptr nocapture noundef writeonly %1
   %9 = trunc i32 %2 to i16
   %10 = tail call zeroext i16 @vp_legacy_get_queue_size(ptr noundef %8, i16 noundef zeroext %9) #3
   %11 = icmp eq i16 %10, 0
-  br i1 %11, label %43, label %12
+  %12 = inttoptr i64 -2 to ptr
+  br i1 %11, label %46, label %13
 
-12:                                               ; preds = %7
-  %13 = tail call zeroext i1 @vp_legacy_get_queue_enable(ptr noundef %8, i16 noundef zeroext %9) #3
-  br i1 %13, label %43, label %14
+13:                                               ; preds = %7
+  %14 = tail call zeroext i1 @vp_legacy_get_queue_enable(ptr noundef %8, i16 noundef zeroext %9) #3
+  %15 = inttoptr i64 -2 to ptr
+  br i1 %14, label %46, label %16
 
-14:                                               ; preds = %12
-  %15 = zext i16 %6 to i32
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
-  store i32 %15, ptr %16, align 8
-  %17 = zext i16 %10 to i32
-  %18 = tail call ptr @vring_create_virtqueue(i32 noundef %2, i32 noundef %17, i32 noundef 4096, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %5, ptr noundef nonnull @vp_notify, ptr noundef %3, ptr noundef %4) #3
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %43, label %20
+16:                                               ; preds = %13
+  %17 = zext i16 %6 to i32
+  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  store i32 %17, ptr %18, align 8
+  %19 = zext i16 %10 to i32
+  %20 = tail call ptr @vring_create_virtqueue(i32 noundef %2, i32 noundef %19, i32 noundef 4096, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %5, ptr noundef nonnull @vp_notify, ptr noundef %3, ptr noundef %4) #3
+  %21 = icmp eq ptr %20, null
+  %22 = inttoptr i64 -12 to ptr
+  br i1 %21, label %46, label %23
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %18, i64 48
-  store i32 %17, ptr %21, align 8
-  %22 = tail call i64 @virtqueue_get_desc_addr(ptr noundef nonnull %18) #3
-  %23 = icmp ult i64 %22, 17592186044416
-  br i1 %23, label %28, label %24
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds i8, ptr %20, i64 48
+  store i32 %19, ptr %24, align 8
+  %25 = tail call i64 @virtqueue_get_desc_addr(ptr noundef nonnull %20) #3
+  %26 = icmp ult i64 %25, 17592186044416
+  br i1 %26, label %31, label %27
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 800
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %27, ptr noundef nonnull @.str.1, i64 noundef 16384) #4
-  br label %40
-
-28:                                               ; preds = %20
-  %29 = lshr i64 %22, 12
-  %30 = trunc i64 %29 to i32
-  tail call void @vp_legacy_set_queue_address(ptr noundef %8, i16 noundef zeroext %9, i32 noundef %30) #3
-  %31 = getelementptr inbounds i8, ptr %0, i64 824
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr i8, ptr %32, i64 16
-  %34 = getelementptr inbounds i8, ptr %18, i64 56
-  store ptr %33, ptr %34, align 8
-  %35 = icmp eq i16 %6, -1
-  br i1 %35, label %43, label %36
-
-36:                                               ; preds = %28
-  %37 = tail call zeroext i16 @vp_legacy_queue_vector(ptr noundef %8, i16 noundef zeroext %9, i16 noundef zeroext %6) #3
-  %38 = icmp eq i16 %37, -1
-  br i1 %38, label %39, label %43
-
-39:                                               ; preds = %36
-  tail call void @vp_legacy_set_queue_address(ptr noundef %8, i16 noundef zeroext %9, i32 noundef 0) #3
-  br label %40
-
-40:                                               ; preds = %39, %24
-  %41 = phi i64 [ -7, %24 ], [ -16, %39 ]
-  tail call void @vring_del_virtqueue(ptr noundef nonnull %18) #3
-  %42 = inttoptr i64 %41 to ptr
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds i8, ptr %0, i64 800
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %30, ptr noundef nonnull @.str.1, i64 noundef 16384) #4
   br label %43
 
-43:                                               ; preds = %40, %36, %28, %14, %12, %7
-  %44 = phi ptr [ %42, %40 ], [ %18, %36 ], [ %18, %28 ], [ inttoptr (i64 -2 to ptr), %12 ], [ inttoptr (i64 -2 to ptr), %7 ], [ inttoptr (i64 -12 to ptr), %14 ]
-  ret ptr %44
+31:                                               ; preds = %23
+  %32 = lshr i64 %25, 12
+  %33 = trunc i64 %32 to i32
+  tail call void @vp_legacy_set_queue_address(ptr noundef %8, i16 noundef zeroext %9, i32 noundef %33) #3
+  %34 = getelementptr inbounds i8, ptr %0, i64 824
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr i8, ptr %35, i64 16
+  %37 = getelementptr inbounds i8, ptr %20, i64 56
+  store ptr %36, ptr %37, align 8
+  %38 = icmp eq i16 %6, -1
+  br i1 %38, label %46, label %39
+
+39:                                               ; preds = %31
+  %40 = tail call zeroext i16 @vp_legacy_queue_vector(ptr noundef %8, i16 noundef zeroext %9, i16 noundef zeroext %6) #3
+  %41 = icmp eq i16 %40, -1
+  br i1 %41, label %42, label %46
+
+42:                                               ; preds = %39
+  tail call void @vp_legacy_set_queue_address(ptr noundef %8, i16 noundef zeroext %9, i32 noundef 0) #3
+  br label %43
+
+43:                                               ; preds = %42, %27
+  %44 = phi i64 [ -7, %27 ], [ -16, %42 ]
+  tail call void @vring_del_virtqueue(ptr noundef nonnull %20) #3
+  %45 = inttoptr i64 %44 to ptr
+  br label %46
+
+46:                                               ; preds = %43, %39, %31, %16, %13, %7
+  %47 = phi ptr [ %45, %43 ], [ %20, %39 ], [ %20, %31 ], [ %15, %13 ], [ %12, %7 ], [ %22, %16 ]
+  ret ptr %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

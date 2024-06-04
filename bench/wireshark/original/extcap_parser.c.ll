@@ -850,7 +850,7 @@ define internal ptr @extcap_parse_arg_sentence(ptr noundef %0, ptr noundef %1) #
 14:                                               ; preds = %2
   %15 = load ptr, ptr %7, align 8
   store ptr %15, ptr %3, align 8
-  br label %418
+  br label %433
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %5, align 8
@@ -882,7 +882,7 @@ define internal ptr @extcap_parse_arg_sentence(ptr noundef %0, ptr noundef %1) #
 31:                                               ; preds = %30, %22
   %32 = load i32, ptr %10, align 4
   %33 = icmp eq i32 %32, 1
-  br i1 %33, label %34, label %383
+  br i1 %33, label %34, label %398
 
 34:                                               ; preds = %31
   %35 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #6
@@ -896,647 +896,662 @@ define internal ptr @extcap_parse_arg_sentence(ptr noundef %0, ptr noundef %1) #
   %40 = load ptr, ptr %5, align 8
   %41 = getelementptr inbounds %struct._extcap_token_sentence, ptr %40, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
-  %43 = call ptr @g_hash_table_lookup(ptr noundef %42, ptr noundef inttoptr (i64 1 to ptr))
-  store ptr %43, ptr %6, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %47
+  %43 = inttoptr i64 1 to ptr
+  %44 = call ptr @g_hash_table_lookup(ptr noundef %42, ptr noundef %43)
+  store ptr %44, ptr %6, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %34
-  %46 = load ptr, ptr %7, align 8
-  call void @extcap_free_arg(ptr noundef %46)
+46:                                               ; preds = %34
+  %47 = load ptr, ptr %7, align 8
+  call void @extcap_free_arg(ptr noundef %47)
   store ptr null, ptr %3, align 8
-  br label %418
+  br label %433
 
-47:                                               ; preds = %34
-  %48 = load ptr, ptr %6, align 8
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct._extcap_arg, ptr %49, i32 0, i32 0
-  %51 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %48, ptr noundef @.str.31, ptr noundef %50) #7
-  %52 = icmp ne i32 %51, 1
-  br i1 %52, label %53, label %55
+48:                                               ; preds = %34
+  %49 = load ptr, ptr %6, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds %struct._extcap_arg, ptr %50, i32 0, i32 0
+  %52 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %49, ptr noundef @.str.31, ptr noundef %51) #7
+  %53 = icmp ne i32 %52, 1
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %47
-  %54 = load ptr, ptr %7, align 8
-  call void @extcap_free_arg(ptr noundef %54)
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %7, align 8
+  call void @extcap_free_arg(ptr noundef %55)
   store ptr null, ptr %3, align 8
-  br label %418
+  br label %433
 
-55:                                               ; preds = %47
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %struct._extcap_token_sentence, ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @g_hash_table_lookup(ptr noundef %58, ptr noundef inttoptr (i64 2 to ptr))
-  store ptr %59, ptr %6, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %63
+56:                                               ; preds = %48
+  %57 = load ptr, ptr %5, align 8
+  %58 = getelementptr inbounds %struct._extcap_token_sentence, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = inttoptr i64 2 to ptr
+  %61 = call ptr @g_hash_table_lookup(ptr noundef %59, ptr noundef %60)
+  store ptr %61, ptr %6, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %63, label %65
 
-61:                                               ; preds = %55
-  %62 = load ptr, ptr %7, align 8
-  call void @extcap_free_arg(ptr noundef %62)
+63:                                               ; preds = %56
+  %64 = load ptr, ptr %7, align 8
+  call void @extcap_free_arg(ptr noundef %64)
   store ptr null, ptr %3, align 8
-  br label %418
+  br label %433
 
-63:                                               ; preds = %55
-  %64 = load ptr, ptr %6, align 8
-  %65 = call noalias ptr @g_strdup(ptr noundef %64)
-  %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds %struct._extcap_arg, ptr %66, i32 0, i32 1
-  store ptr %65, ptr %67, align 8
+65:                                               ; preds = %56
+  %66 = load ptr, ptr %6, align 8
+  %67 = call noalias ptr @g_strdup(ptr noundef %66)
   %68 = load ptr, ptr %7, align 8
   %69 = getelementptr inbounds %struct._extcap_arg, ptr %68, i32 0, i32 1
-  %70 = load ptr, ptr %69, align 8
-  %71 = call i64 @strlen(ptr noundef %70) #8
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %75
+  store ptr %67, ptr %69, align 8
+  %70 = load ptr, ptr %7, align 8
+  %71 = getelementptr inbounds %struct._extcap_arg, ptr %70, i32 0, i32 1
+  %72 = load ptr, ptr %71, align 8
+  %73 = call i64 @strlen(ptr noundef %72) #8
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %75, label %77
 
-73:                                               ; preds = %63
-  %74 = load ptr, ptr %7, align 8
-  call void @extcap_free_arg(ptr noundef %74)
+75:                                               ; preds = %65
+  %76 = load ptr, ptr %7, align 8
+  call void @extcap_free_arg(ptr noundef %76)
   store ptr null, ptr %3, align 8
-  br label %418
+  br label %433
 
-75:                                               ; preds = %63
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds %struct._extcap_token_sentence, ptr %76, i32 0, i32 1
-  %78 = load ptr, ptr %77, align 8
-  %79 = call ptr @g_hash_table_lookup(ptr noundef %78, ptr noundef inttoptr (i64 3 to ptr))
-  store ptr %79, ptr %6, align 8
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %83
+77:                                               ; preds = %65
+  %78 = load ptr, ptr %5, align 8
+  %79 = getelementptr inbounds %struct._extcap_token_sentence, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = inttoptr i64 3 to ptr
+  %82 = call ptr @g_hash_table_lookup(ptr noundef %80, ptr noundef %81)
+  store ptr %82, ptr %6, align 8
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %84, label %86
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr %7, align 8
-  call void @extcap_free_arg(ptr noundef %82)
+84:                                               ; preds = %77
+  %85 = load ptr, ptr %7, align 8
+  call void @extcap_free_arg(ptr noundef %85)
   store ptr null, ptr %3, align 8
-  br label %418
+  br label %433
 
-83:                                               ; preds = %75
-  %84 = load ptr, ptr %6, align 8
-  %85 = call noalias ptr @g_strdup(ptr noundef %84)
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds %struct._extcap_arg, ptr %86, i32 0, i32 2
-  store ptr %85, ptr %87, align 8
-  %88 = load ptr, ptr %5, align 8
-  %89 = getelementptr inbounds %struct._extcap_token_sentence, ptr %88, i32 0, i32 1
-  %90 = load ptr, ptr %89, align 8
-  %91 = call ptr @g_hash_table_lookup(ptr noundef %90, ptr noundef inttoptr (i64 9 to ptr))
-  store ptr %91, ptr %6, align 8
-  %92 = icmp ne ptr %91, null
-  br i1 %92, label %93, label %98
+86:                                               ; preds = %77
+  %87 = load ptr, ptr %6, align 8
+  %88 = call noalias ptr @g_strdup(ptr noundef %87)
+  %89 = load ptr, ptr %7, align 8
+  %90 = getelementptr inbounds %struct._extcap_arg, ptr %89, i32 0, i32 2
+  store ptr %88, ptr %90, align 8
+  %91 = load ptr, ptr %5, align 8
+  %92 = getelementptr inbounds %struct._extcap_token_sentence, ptr %91, i32 0, i32 1
+  %93 = load ptr, ptr %92, align 8
+  %94 = inttoptr i64 9 to ptr
+  %95 = call ptr @g_hash_table_lookup(ptr noundef %93, ptr noundef %94)
+  store ptr %95, ptr %6, align 8
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %97, label %102
 
-93:                                               ; preds = %83
-  %94 = load ptr, ptr %6, align 8
-  %95 = call noalias ptr @g_strdup(ptr noundef %94)
-  %96 = load ptr, ptr %7, align 8
-  %97 = getelementptr inbounds %struct._extcap_arg, ptr %96, i32 0, i32 3
-  store ptr %95, ptr %97, align 8
-  br label %98
+97:                                               ; preds = %86
+  %98 = load ptr, ptr %6, align 8
+  %99 = call noalias ptr @g_strdup(ptr noundef %98)
+  %100 = load ptr, ptr %7, align 8
+  %101 = getelementptr inbounds %struct._extcap_arg, ptr %100, i32 0, i32 3
+  store ptr %99, ptr %101, align 8
+  br label %102
 
-98:                                               ; preds = %93, %83
-  %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr inbounds %struct._extcap_token_sentence, ptr %99, i32 0, i32 1
-  %101 = load ptr, ptr %100, align 8
-  %102 = call ptr @g_hash_table_lookup(ptr noundef %101, ptr noundef inttoptr (i64 10 to ptr))
-  store ptr %102, ptr %6, align 8
-  %103 = icmp ne ptr %102, null
-  br i1 %103, label %104, label %109
+102:                                              ; preds = %97, %86
+  %103 = load ptr, ptr %5, align 8
+  %104 = getelementptr inbounds %struct._extcap_token_sentence, ptr %103, i32 0, i32 1
+  %105 = load ptr, ptr %104, align 8
+  %106 = inttoptr i64 10 to ptr
+  %107 = call ptr @g_hash_table_lookup(ptr noundef %105, ptr noundef %106)
+  store ptr %107, ptr %6, align 8
+  %108 = icmp ne ptr %107, null
+  br i1 %108, label %109, label %114
 
-104:                                              ; preds = %98
-  %105 = load ptr, ptr %6, align 8
-  %106 = call noalias ptr @g_strdup(ptr noundef %105)
-  %107 = load ptr, ptr %7, align 8
-  %108 = getelementptr inbounds %struct._extcap_arg, ptr %107, i32 0, i32 4
-  store ptr %106, ptr %108, align 8
-  br label %109
+109:                                              ; preds = %102
+  %110 = load ptr, ptr %6, align 8
+  %111 = call noalias ptr @g_strdup(ptr noundef %110)
+  %112 = load ptr, ptr %7, align 8
+  %113 = getelementptr inbounds %struct._extcap_arg, ptr %112, i32 0, i32 4
+  store ptr %111, ptr %113, align 8
+  br label %114
 
-109:                                              ; preds = %104, %98
-  %110 = load ptr, ptr %5, align 8
-  %111 = getelementptr inbounds %struct._extcap_token_sentence, ptr %110, i32 0, i32 1
-  %112 = load ptr, ptr %111, align 8
-  %113 = call ptr @g_hash_table_lookup(ptr noundef %112, ptr noundef inttoptr (i64 13 to ptr))
-  store ptr %113, ptr %6, align 8
-  %114 = icmp ne ptr %113, null
-  br i1 %114, label %115, label %120
+114:                                              ; preds = %109, %102
+  %115 = load ptr, ptr %5, align 8
+  %116 = getelementptr inbounds %struct._extcap_token_sentence, ptr %115, i32 0, i32 1
+  %117 = load ptr, ptr %116, align 8
+  %118 = inttoptr i64 13 to ptr
+  %119 = call ptr @g_hash_table_lookup(ptr noundef %117, ptr noundef %118)
+  store ptr %119, ptr %6, align 8
+  %120 = icmp ne ptr %119, null
+  br i1 %120, label %121, label %126
 
-115:                                              ; preds = %109
-  %116 = load ptr, ptr %6, align 8
-  %117 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %116)
-  %118 = load ptr, ptr %7, align 8
-  %119 = getelementptr inbounds %struct._extcap_arg, ptr %118, i32 0, i32 6
-  store i32 %117, ptr %119, align 8
-  br label %120
+121:                                              ; preds = %114
+  %122 = load ptr, ptr %6, align 8
+  %123 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %122)
+  %124 = load ptr, ptr %7, align 8
+  %125 = getelementptr inbounds %struct._extcap_arg, ptr %124, i32 0, i32 6
+  store i32 %123, ptr %125, align 8
+  br label %126
 
-120:                                              ; preds = %115, %109
-  %121 = load ptr, ptr %5, align 8
-  %122 = getelementptr inbounds %struct._extcap_token_sentence, ptr %121, i32 0, i32 1
-  %123 = load ptr, ptr %122, align 8
-  %124 = call ptr @g_hash_table_lookup(ptr noundef %123, ptr noundef inttoptr (i64 14 to ptr))
-  store ptr %124, ptr %6, align 8
-  %125 = icmp ne ptr %124, null
-  br i1 %125, label %126, label %131
+126:                                              ; preds = %121, %114
+  %127 = load ptr, ptr %5, align 8
+  %128 = getelementptr inbounds %struct._extcap_token_sentence, ptr %127, i32 0, i32 1
+  %129 = load ptr, ptr %128, align 8
+  %130 = inttoptr i64 14 to ptr
+  %131 = call ptr @g_hash_table_lookup(ptr noundef %129, ptr noundef %130)
+  store ptr %131, ptr %6, align 8
+  %132 = icmp ne ptr %131, null
+  br i1 %132, label %133, label %138
 
-126:                                              ; preds = %120
-  %127 = load ptr, ptr %6, align 8
-  %128 = call noalias ptr @g_strdup(ptr noundef %127)
-  %129 = load ptr, ptr %7, align 8
-  %130 = getelementptr inbounds %struct._extcap_arg, ptr %129, i32 0, i32 5
-  store ptr %128, ptr %130, align 8
-  br label %131
+133:                                              ; preds = %126
+  %134 = load ptr, ptr %6, align 8
+  %135 = call noalias ptr @g_strdup(ptr noundef %134)
+  %136 = load ptr, ptr %7, align 8
+  %137 = getelementptr inbounds %struct._extcap_arg, ptr %136, i32 0, i32 5
+  store ptr %135, ptr %137, align 8
+  br label %138
 
-131:                                              ; preds = %126, %120
-  %132 = load ptr, ptr %5, align 8
-  %133 = getelementptr inbounds %struct._extcap_token_sentence, ptr %132, i32 0, i32 1
-  %134 = load ptr, ptr %133, align 8
-  %135 = call ptr @g_hash_table_lookup(ptr noundef %134, ptr noundef inttoptr (i64 20 to ptr))
-  store ptr %135, ptr %6, align 8
-  %136 = icmp ne ptr %135, null
-  br i1 %136, label %137, label %142
+138:                                              ; preds = %133, %126
+  %139 = load ptr, ptr %5, align 8
+  %140 = getelementptr inbounds %struct._extcap_token_sentence, ptr %139, i32 0, i32 1
+  %141 = load ptr, ptr %140, align 8
+  %142 = inttoptr i64 20 to ptr
+  %143 = call ptr @g_hash_table_lookup(ptr noundef %141, ptr noundef %142)
+  store ptr %143, ptr %6, align 8
+  %144 = icmp ne ptr %143, null
+  br i1 %144, label %145, label %150
 
-137:                                              ; preds = %131
-  %138 = load ptr, ptr %6, align 8
-  %139 = call noalias ptr @g_strdup(ptr noundef %138)
-  %140 = load ptr, ptr %7, align 8
-  %141 = getelementptr inbounds %struct._extcap_arg, ptr %140, i32 0, i32 10
-  store ptr %139, ptr %141, align 8
-  br label %142
+145:                                              ; preds = %138
+  %146 = load ptr, ptr %6, align 8
+  %147 = call noalias ptr @g_strdup(ptr noundef %146)
+  %148 = load ptr, ptr %7, align 8
+  %149 = getelementptr inbounds %struct._extcap_arg, ptr %148, i32 0, i32 10
+  store ptr %147, ptr %149, align 8
+  br label %150
 
-142:                                              ; preds = %137, %131
-  %143 = load ptr, ptr %5, align 8
-  %144 = getelementptr inbounds %struct._extcap_token_sentence, ptr %143, i32 0, i32 1
-  %145 = load ptr, ptr %144, align 8
-  %146 = call ptr @g_hash_table_lookup(ptr noundef %145, ptr noundef inttoptr (i64 15 to ptr))
-  store ptr %146, ptr %6, align 8
-  %147 = icmp ne ptr %146, null
-  br i1 %147, label %148, label %153
+150:                                              ; preds = %145, %138
+  %151 = load ptr, ptr %5, align 8
+  %152 = getelementptr inbounds %struct._extcap_token_sentence, ptr %151, i32 0, i32 1
+  %153 = load ptr, ptr %152, align 8
+  %154 = inttoptr i64 15 to ptr
+  %155 = call ptr @g_hash_table_lookup(ptr noundef %153, ptr noundef %154)
+  store ptr %155, ptr %6, align 8
+  %156 = icmp ne ptr %155, null
+  br i1 %156, label %157, label %162
 
-148:                                              ; preds = %142
-  %149 = load ptr, ptr %6, align 8
-  %150 = call noalias ptr @g_strdup(ptr noundef %149)
-  %151 = load ptr, ptr %7, align 8
-  %152 = getelementptr inbounds %struct._extcap_arg, ptr %151, i32 0, i32 11
-  store ptr %150, ptr %152, align 8
-  br label %153
+157:                                              ; preds = %150
+  %158 = load ptr, ptr %6, align 8
+  %159 = call noalias ptr @g_strdup(ptr noundef %158)
+  %160 = load ptr, ptr %7, align 8
+  %161 = getelementptr inbounds %struct._extcap_arg, ptr %160, i32 0, i32 11
+  store ptr %159, ptr %161, align 8
+  br label %162
 
-153:                                              ; preds = %148, %142
-  %154 = load ptr, ptr %5, align 8
-  %155 = getelementptr inbounds %struct._extcap_token_sentence, ptr %154, i32 0, i32 1
-  %156 = load ptr, ptr %155, align 8
-  %157 = call ptr @g_hash_table_lookup(ptr noundef %156, ptr noundef inttoptr (i64 17 to ptr))
-  store ptr %157, ptr %6, align 8
-  %158 = icmp ne ptr %157, null
-  br i1 %158, label %159, label %164
+162:                                              ; preds = %157, %150
+  %163 = load ptr, ptr %5, align 8
+  %164 = getelementptr inbounds %struct._extcap_token_sentence, ptr %163, i32 0, i32 1
+  %165 = load ptr, ptr %164, align 8
+  %166 = inttoptr i64 17 to ptr
+  %167 = call ptr @g_hash_table_lookup(ptr noundef %165, ptr noundef %166)
+  store ptr %167, ptr %6, align 8
+  %168 = icmp ne ptr %167, null
+  br i1 %168, label %169, label %174
 
-159:                                              ; preds = %153
-  %160 = load ptr, ptr %6, align 8
-  %161 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %160)
-  %162 = load ptr, ptr %7, align 8
-  %163 = getelementptr inbounds %struct._extcap_arg, ptr %162, i32 0, i32 7
-  store i32 %161, ptr %163, align 4
-  br label %164
+169:                                              ; preds = %162
+  %170 = load ptr, ptr %6, align 8
+  %171 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %170)
+  %172 = load ptr, ptr %7, align 8
+  %173 = getelementptr inbounds %struct._extcap_arg, ptr %172, i32 0, i32 7
+  store i32 %171, ptr %173, align 4
+  br label %174
 
-164:                                              ; preds = %159, %153
-  %165 = load ptr, ptr %5, align 8
-  %166 = getelementptr inbounds %struct._extcap_token_sentence, ptr %165, i32 0, i32 1
-  %167 = load ptr, ptr %166, align 8
-  %168 = call ptr @g_hash_table_lookup(ptr noundef %167, ptr noundef inttoptr (i64 4 to ptr))
-  store ptr %168, ptr %6, align 8
-  %169 = icmp eq ptr %168, null
-  br i1 %169, label %170, label %172
+174:                                              ; preds = %169, %162
+  %175 = load ptr, ptr %5, align 8
+  %176 = getelementptr inbounds %struct._extcap_token_sentence, ptr %175, i32 0, i32 1
+  %177 = load ptr, ptr %176, align 8
+  %178 = inttoptr i64 4 to ptr
+  %179 = call ptr @g_hash_table_lookup(ptr noundef %177, ptr noundef %178)
+  store ptr %179, ptr %6, align 8
+  %180 = icmp eq ptr %179, null
+  br i1 %180, label %181, label %183
 
-170:                                              ; preds = %164
-  %171 = load ptr, ptr %7, align 8
-  call void @extcap_free_arg(ptr noundef %171)
+181:                                              ; preds = %174
+  %182 = load ptr, ptr %7, align 8
+  call void @extcap_free_arg(ptr noundef %182)
   store ptr null, ptr %3, align 8
-  br label %418
+  br label %433
 
-172:                                              ; preds = %164
-  %173 = load ptr, ptr %6, align 8
-  %174 = call i32 @g_ascii_strcasecmp(ptr noundef %173, ptr noundef @.str.32)
-  %175 = icmp eq i32 %174, 0
-  br i1 %175, label %176, label %179
+183:                                              ; preds = %174
+  %184 = load ptr, ptr %6, align 8
+  %185 = call i32 @g_ascii_strcasecmp(ptr noundef %184, ptr noundef @.str.32)
+  %186 = icmp eq i32 %185, 0
+  br i1 %186, label %187, label %190
 
-176:                                              ; preds = %172
-  %177 = load ptr, ptr %7, align 8
-  %178 = getelementptr inbounds %struct._extcap_arg, ptr %177, i32 0, i32 12
-  store i32 1, ptr %178, align 8
-  br label %287
-
-179:                                              ; preds = %172
-  %180 = load ptr, ptr %6, align 8
-  %181 = call i32 @g_ascii_strcasecmp(ptr noundef %180, ptr noundef @.str.33)
-  %182 = icmp eq i32 %181, 0
-  br i1 %182, label %183, label %186
-
-183:                                              ; preds = %179
-  %184 = load ptr, ptr %7, align 8
-  %185 = getelementptr inbounds %struct._extcap_arg, ptr %184, i32 0, i32 12
-  store i32 2, ptr %185, align 8
-  br label %286
-
-186:                                              ; preds = %179
-  %187 = load ptr, ptr %6, align 8
-  %188 = call i32 @g_ascii_strcasecmp(ptr noundef %187, ptr noundef @.str.34)
-  %189 = icmp eq i32 %188, 0
-  br i1 %189, label %190, label %193
-
-190:                                              ; preds = %186
-  %191 = load ptr, ptr %7, align 8
-  %192 = getelementptr inbounds %struct._extcap_arg, ptr %191, i32 0, i32 12
-  store i32 3, ptr %192, align 8
-  br label %285
-
-193:                                              ; preds = %186
-  %194 = load ptr, ptr %6, align 8
-  %195 = call i32 @g_ascii_strcasecmp(ptr noundef %194, ptr noundef @.str.35)
-  %196 = icmp eq i32 %195, 0
-  br i1 %196, label %197, label %200
-
-197:                                              ; preds = %193
-  %198 = load ptr, ptr %7, align 8
-  %199 = getelementptr inbounds %struct._extcap_arg, ptr %198, i32 0, i32 12
-  store i32 4, ptr %199, align 8
-  br label %284
-
-200:                                              ; preds = %193
-  %201 = load ptr, ptr %6, align 8
-  %202 = call i32 @g_ascii_strcasecmp(ptr noundef %201, ptr noundef @.str.36)
-  %203 = icmp eq i32 %202, 0
-  br i1 %203, label %204, label %207
-
-204:                                              ; preds = %200
-  %205 = load ptr, ptr %7, align 8
-  %206 = getelementptr inbounds %struct._extcap_arg, ptr %205, i32 0, i32 12
-  store i32 5, ptr %206, align 8
-  br label %283
-
-207:                                              ; preds = %200
-  %208 = load ptr, ptr %6, align 8
-  %209 = call i32 @g_ascii_strcasecmp(ptr noundef %208, ptr noundef @.str.37)
-  %210 = icmp eq i32 %209, 0
-  br i1 %210, label %211, label %214
-
-211:                                              ; preds = %207
-  %212 = load ptr, ptr %7, align 8
-  %213 = getelementptr inbounds %struct._extcap_arg, ptr %212, i32 0, i32 12
-  store i32 6, ptr %213, align 8
-  br label %282
-
-214:                                              ; preds = %207
-  %215 = load ptr, ptr %6, align 8
-  %216 = call i32 @g_ascii_strcasecmp(ptr noundef %215, ptr noundef @.str.38)
-  %217 = icmp eq i32 %216, 0
-  br i1 %217, label %218, label %221
-
-218:                                              ; preds = %214
-  %219 = load ptr, ptr %7, align 8
-  %220 = getelementptr inbounds %struct._extcap_arg, ptr %219, i32 0, i32 12
-  store i32 9, ptr %220, align 8
-  br label %281
-
-221:                                              ; preds = %214
-  %222 = load ptr, ptr %6, align 8
-  %223 = call i32 @g_ascii_strcasecmp(ptr noundef %222, ptr noundef @.str.39)
-  %224 = icmp eq i32 %223, 0
-  br i1 %224, label %225, label %228
-
-225:                                              ; preds = %221
-  %226 = load ptr, ptr %7, align 8
-  %227 = getelementptr inbounds %struct._extcap_arg, ptr %226, i32 0, i32 12
-  store i32 10, ptr %227, align 8
-  br label %280
-
-228:                                              ; preds = %221
-  %229 = load ptr, ptr %6, align 8
-  %230 = call i32 @g_ascii_strcasecmp(ptr noundef %229, ptr noundef @.str.40)
-  %231 = icmp eq i32 %230, 0
-  br i1 %231, label %232, label %235
-
-232:                                              ; preds = %228
-  %233 = load ptr, ptr %7, align 8
-  %234 = getelementptr inbounds %struct._extcap_arg, ptr %233, i32 0, i32 12
-  store i32 11, ptr %234, align 8
-  br label %279
-
-235:                                              ; preds = %228
-  %236 = load ptr, ptr %6, align 8
-  %237 = call i32 @g_ascii_strcasecmp(ptr noundef %236, ptr noundef @.str.41)
-  %238 = icmp eq i32 %237, 0
-  br i1 %238, label %239, label %242
-
-239:                                              ; preds = %235
-  %240 = load ptr, ptr %7, align 8
-  %241 = getelementptr inbounds %struct._extcap_arg, ptr %240, i32 0, i32 12
-  store i32 7, ptr %241, align 8
-  br label %278
-
-242:                                              ; preds = %235
-  %243 = load ptr, ptr %6, align 8
-  %244 = call i32 @g_ascii_strcasecmp(ptr noundef %243, ptr noundef @.str.42)
-  %245 = icmp eq i32 %244, 0
-  br i1 %245, label %246, label %249
-
-246:                                              ; preds = %242
-  %247 = load ptr, ptr %7, align 8
-  %248 = getelementptr inbounds %struct._extcap_arg, ptr %247, i32 0, i32 12
-  store i32 8, ptr %248, align 8
-  br label %277
-
-249:                                              ; preds = %242
-  %250 = load ptr, ptr %6, align 8
-  %251 = call i32 @g_ascii_strcasecmp(ptr noundef %250, ptr noundef @.str.43)
-  %252 = icmp eq i32 %251, 0
-  br i1 %252, label %253, label %256
-
-253:                                              ; preds = %249
-  %254 = load ptr, ptr %7, align 8
-  %255 = getelementptr inbounds %struct._extcap_arg, ptr %254, i32 0, i32 12
-  store i32 13, ptr %255, align 8
-  br label %276
-
-256:                                              ; preds = %249
-  %257 = load ptr, ptr %6, align 8
-  %258 = call i32 @g_ascii_strcasecmp(ptr noundef %257, ptr noundef @.str.44)
-  %259 = icmp eq i32 %258, 0
-  br i1 %259, label %260, label %263
-
-260:                                              ; preds = %256
-  %261 = load ptr, ptr %7, align 8
-  %262 = getelementptr inbounds %struct._extcap_arg, ptr %261, i32 0, i32 12
-  store i32 12, ptr %262, align 8
-  br label %275
-
-263:                                              ; preds = %256
-  %264 = load ptr, ptr %6, align 8
-  %265 = call i32 @g_ascii_strcasecmp(ptr noundef %264, ptr noundef @.str.45)
-  %266 = icmp eq i32 %265, 0
-  br i1 %266, label %267, label %270
-
-267:                                              ; preds = %263
-  %268 = load ptr, ptr %7, align 8
-  %269 = getelementptr inbounds %struct._extcap_arg, ptr %268, i32 0, i32 12
-  store i32 14, ptr %269, align 8
-  br label %274
-
-270:                                              ; preds = %263
-  %271 = load ptr, ptr %6, align 8
-  %272 = call i32 (ptr, ...) @printf(ptr noundef @.str.46, ptr noundef %271)
-  %273 = load ptr, ptr %7, align 8
-  call void @extcap_free_arg(ptr noundef %273)
-  store ptr null, ptr %3, align 8
-  br label %418
-
-274:                                              ; preds = %267
-  br label %275
-
-275:                                              ; preds = %274, %260
-  br label %276
-
-276:                                              ; preds = %275, %253
-  br label %277
-
-277:                                              ; preds = %276, %246
-  br label %278
-
-278:                                              ; preds = %277, %239
-  br label %279
-
-279:                                              ; preds = %278, %232
-  br label %280
-
-280:                                              ; preds = %279, %225
-  br label %281
-
-281:                                              ; preds = %280, %218
-  br label %282
-
-282:                                              ; preds = %281, %211
-  br label %283
-
-283:                                              ; preds = %282, %204
-  br label %284
-
-284:                                              ; preds = %283, %197
-  br label %285
-
-285:                                              ; preds = %284, %190
-  br label %286
-
-286:                                              ; preds = %285, %183
-  br label %287
-
-287:                                              ; preds = %286, %176
-  %288 = load ptr, ptr %5, align 8
-  %289 = getelementptr inbounds %struct._extcap_token_sentence, ptr %288, i32 0, i32 1
-  %290 = load ptr, ptr %289, align 8
-  %291 = call ptr @g_hash_table_lookup(ptr noundef %290, ptr noundef inttoptr (i64 19 to ptr))
-  store ptr %291, ptr %6, align 8
-  %292 = icmp ne ptr %291, null
-  br i1 %292, label %293, label %298
-
-293:                                              ; preds = %287
-  %294 = load ptr, ptr %6, align 8
-  %295 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %294)
-  %296 = load ptr, ptr %7, align 8
-  %297 = getelementptr inbounds %struct._extcap_arg, ptr %296, i32 0, i32 8
-  store i32 %295, ptr %297, align 8
+187:                                              ; preds = %183
+  %188 = load ptr, ptr %7, align 8
+  %189 = getelementptr inbounds %struct._extcap_arg, ptr %188, i32 0, i32 12
+  store i32 1, ptr %189, align 8
   br label %298
 
-298:                                              ; preds = %293, %287
+190:                                              ; preds = %183
+  %191 = load ptr, ptr %6, align 8
+  %192 = call i32 @g_ascii_strcasecmp(ptr noundef %191, ptr noundef @.str.33)
+  %193 = icmp eq i32 %192, 0
+  br i1 %193, label %194, label %197
+
+194:                                              ; preds = %190
+  %195 = load ptr, ptr %7, align 8
+  %196 = getelementptr inbounds %struct._extcap_arg, ptr %195, i32 0, i32 12
+  store i32 2, ptr %196, align 8
+  br label %297
+
+197:                                              ; preds = %190
+  %198 = load ptr, ptr %6, align 8
+  %199 = call i32 @g_ascii_strcasecmp(ptr noundef %198, ptr noundef @.str.34)
+  %200 = icmp eq i32 %199, 0
+  br i1 %200, label %201, label %204
+
+201:                                              ; preds = %197
+  %202 = load ptr, ptr %7, align 8
+  %203 = getelementptr inbounds %struct._extcap_arg, ptr %202, i32 0, i32 12
+  store i32 3, ptr %203, align 8
+  br label %296
+
+204:                                              ; preds = %197
+  %205 = load ptr, ptr %6, align 8
+  %206 = call i32 @g_ascii_strcasecmp(ptr noundef %205, ptr noundef @.str.35)
+  %207 = icmp eq i32 %206, 0
+  br i1 %207, label %208, label %211
+
+208:                                              ; preds = %204
+  %209 = load ptr, ptr %7, align 8
+  %210 = getelementptr inbounds %struct._extcap_arg, ptr %209, i32 0, i32 12
+  store i32 4, ptr %210, align 8
+  br label %295
+
+211:                                              ; preds = %204
+  %212 = load ptr, ptr %6, align 8
+  %213 = call i32 @g_ascii_strcasecmp(ptr noundef %212, ptr noundef @.str.36)
+  %214 = icmp eq i32 %213, 0
+  br i1 %214, label %215, label %218
+
+215:                                              ; preds = %211
+  %216 = load ptr, ptr %7, align 8
+  %217 = getelementptr inbounds %struct._extcap_arg, ptr %216, i32 0, i32 12
+  store i32 5, ptr %217, align 8
+  br label %294
+
+218:                                              ; preds = %211
+  %219 = load ptr, ptr %6, align 8
+  %220 = call i32 @g_ascii_strcasecmp(ptr noundef %219, ptr noundef @.str.37)
+  %221 = icmp eq i32 %220, 0
+  br i1 %221, label %222, label %225
+
+222:                                              ; preds = %218
+  %223 = load ptr, ptr %7, align 8
+  %224 = getelementptr inbounds %struct._extcap_arg, ptr %223, i32 0, i32 12
+  store i32 6, ptr %224, align 8
+  br label %293
+
+225:                                              ; preds = %218
+  %226 = load ptr, ptr %6, align 8
+  %227 = call i32 @g_ascii_strcasecmp(ptr noundef %226, ptr noundef @.str.38)
+  %228 = icmp eq i32 %227, 0
+  br i1 %228, label %229, label %232
+
+229:                                              ; preds = %225
+  %230 = load ptr, ptr %7, align 8
+  %231 = getelementptr inbounds %struct._extcap_arg, ptr %230, i32 0, i32 12
+  store i32 9, ptr %231, align 8
+  br label %292
+
+232:                                              ; preds = %225
+  %233 = load ptr, ptr %6, align 8
+  %234 = call i32 @g_ascii_strcasecmp(ptr noundef %233, ptr noundef @.str.39)
+  %235 = icmp eq i32 %234, 0
+  br i1 %235, label %236, label %239
+
+236:                                              ; preds = %232
+  %237 = load ptr, ptr %7, align 8
+  %238 = getelementptr inbounds %struct._extcap_arg, ptr %237, i32 0, i32 12
+  store i32 10, ptr %238, align 8
+  br label %291
+
+239:                                              ; preds = %232
+  %240 = load ptr, ptr %6, align 8
+  %241 = call i32 @g_ascii_strcasecmp(ptr noundef %240, ptr noundef @.str.40)
+  %242 = icmp eq i32 %241, 0
+  br i1 %242, label %243, label %246
+
+243:                                              ; preds = %239
+  %244 = load ptr, ptr %7, align 8
+  %245 = getelementptr inbounds %struct._extcap_arg, ptr %244, i32 0, i32 12
+  store i32 11, ptr %245, align 8
+  br label %290
+
+246:                                              ; preds = %239
+  %247 = load ptr, ptr %6, align 8
+  %248 = call i32 @g_ascii_strcasecmp(ptr noundef %247, ptr noundef @.str.41)
+  %249 = icmp eq i32 %248, 0
+  br i1 %249, label %250, label %253
+
+250:                                              ; preds = %246
+  %251 = load ptr, ptr %7, align 8
+  %252 = getelementptr inbounds %struct._extcap_arg, ptr %251, i32 0, i32 12
+  store i32 7, ptr %252, align 8
+  br label %289
+
+253:                                              ; preds = %246
+  %254 = load ptr, ptr %6, align 8
+  %255 = call i32 @g_ascii_strcasecmp(ptr noundef %254, ptr noundef @.str.42)
+  %256 = icmp eq i32 %255, 0
+  br i1 %256, label %257, label %260
+
+257:                                              ; preds = %253
+  %258 = load ptr, ptr %7, align 8
+  %259 = getelementptr inbounds %struct._extcap_arg, ptr %258, i32 0, i32 12
+  store i32 8, ptr %259, align 8
+  br label %288
+
+260:                                              ; preds = %253
+  %261 = load ptr, ptr %6, align 8
+  %262 = call i32 @g_ascii_strcasecmp(ptr noundef %261, ptr noundef @.str.43)
+  %263 = icmp eq i32 %262, 0
+  br i1 %263, label %264, label %267
+
+264:                                              ; preds = %260
+  %265 = load ptr, ptr %7, align 8
+  %266 = getelementptr inbounds %struct._extcap_arg, ptr %265, i32 0, i32 12
+  store i32 13, ptr %266, align 8
+  br label %287
+
+267:                                              ; preds = %260
+  %268 = load ptr, ptr %6, align 8
+  %269 = call i32 @g_ascii_strcasecmp(ptr noundef %268, ptr noundef @.str.44)
+  %270 = icmp eq i32 %269, 0
+  br i1 %270, label %271, label %274
+
+271:                                              ; preds = %267
+  %272 = load ptr, ptr %7, align 8
+  %273 = getelementptr inbounds %struct._extcap_arg, ptr %272, i32 0, i32 12
+  store i32 12, ptr %273, align 8
+  br label %286
+
+274:                                              ; preds = %267
+  %275 = load ptr, ptr %6, align 8
+  %276 = call i32 @g_ascii_strcasecmp(ptr noundef %275, ptr noundef @.str.45)
+  %277 = icmp eq i32 %276, 0
+  br i1 %277, label %278, label %281
+
+278:                                              ; preds = %274
+  %279 = load ptr, ptr %7, align 8
+  %280 = getelementptr inbounds %struct._extcap_arg, ptr %279, i32 0, i32 12
+  store i32 14, ptr %280, align 8
+  br label %285
+
+281:                                              ; preds = %274
+  %282 = load ptr, ptr %6, align 8
+  %283 = call i32 (ptr, ...) @printf(ptr noundef @.str.46, ptr noundef %282)
+  %284 = load ptr, ptr %7, align 8
+  call void @extcap_free_arg(ptr noundef %284)
+  store ptr null, ptr %3, align 8
+  br label %433
+
+285:                                              ; preds = %278
+  br label %286
+
+286:                                              ; preds = %285, %271
+  br label %287
+
+287:                                              ; preds = %286, %264
+  br label %288
+
+288:                                              ; preds = %287, %257
+  br label %289
+
+289:                                              ; preds = %288, %250
+  br label %290
+
+290:                                              ; preds = %289, %243
+  br label %291
+
+291:                                              ; preds = %290, %236
+  br label %292
+
+292:                                              ; preds = %291, %229
+  br label %293
+
+293:                                              ; preds = %292, %222
+  br label %294
+
+294:                                              ; preds = %293, %215
+  br label %295
+
+295:                                              ; preds = %294, %208
+  br label %296
+
+296:                                              ; preds = %295, %201
+  br label %297
+
+297:                                              ; preds = %296, %194
+  br label %298
+
+298:                                              ; preds = %297, %187
   %299 = load ptr, ptr %5, align 8
   %300 = getelementptr inbounds %struct._extcap_token_sentence, ptr %299, i32 0, i32 1
   %301 = load ptr, ptr %300, align 8
-  %302 = call ptr @g_hash_table_lookup(ptr noundef %301, ptr noundef inttoptr (i64 18 to ptr))
-  store ptr %302, ptr %6, align 8
-  %303 = icmp ne ptr %302, null
-  br i1 %303, label %304, label %309
+  %302 = inttoptr i64 19 to ptr
+  %303 = call ptr @g_hash_table_lookup(ptr noundef %301, ptr noundef %302)
+  store ptr %303, ptr %6, align 8
+  %304 = icmp ne ptr %303, null
+  br i1 %304, label %305, label %310
 
-304:                                              ; preds = %298
-  %305 = load ptr, ptr %6, align 8
-  %306 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %305)
-  %307 = load ptr, ptr %7, align 8
-  %308 = getelementptr inbounds %struct._extcap_arg, ptr %307, i32 0, i32 9
-  store i32 %306, ptr %308, align 4
-  br label %309
+305:                                              ; preds = %298
+  %306 = load ptr, ptr %6, align 8
+  %307 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %306)
+  %308 = load ptr, ptr %7, align 8
+  %309 = getelementptr inbounds %struct._extcap_arg, ptr %308, i32 0, i32 8
+  store i32 %307, ptr %309, align 8
+  br label %310
 
-309:                                              ; preds = %304, %298
-  %310 = load ptr, ptr %5, align 8
-  %311 = getelementptr inbounds %struct._extcap_token_sentence, ptr %310, i32 0, i32 1
-  %312 = load ptr, ptr %311, align 8
-  %313 = call ptr @g_hash_table_lookup(ptr noundef %312, ptr noundef inttoptr (i64 8 to ptr))
-  store ptr %313, ptr %6, align 8
-  %314 = icmp ne ptr %313, null
-  br i1 %314, label %315, label %352
+310:                                              ; preds = %305, %298
+  %311 = load ptr, ptr %5, align 8
+  %312 = getelementptr inbounds %struct._extcap_token_sentence, ptr %311, i32 0, i32 1
+  %313 = load ptr, ptr %312, align 8
+  %314 = inttoptr i64 18 to ptr
+  %315 = call ptr @g_hash_table_lookup(ptr noundef %313, ptr noundef %314)
+  store ptr %315, ptr %6, align 8
+  %316 = icmp ne ptr %315, null
+  br i1 %316, label %317, label %322
 
-315:                                              ; preds = %309
-  %316 = load ptr, ptr %6, align 8
-  %317 = call ptr @g_strstr_len(ptr noundef %316, i64 noundef -1, ptr noundef @.str.47)
-  store ptr %317, ptr %11, align 8
-  %318 = load ptr, ptr %11, align 8
-  %319 = icmp eq ptr %318, null
-  br i1 %319, label %320, label %324
+317:                                              ; preds = %310
+  %318 = load ptr, ptr %6, align 8
+  %319 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %318)
+  %320 = load ptr, ptr %7, align 8
+  %321 = getelementptr inbounds %struct._extcap_arg, ptr %320, i32 0, i32 9
+  store i32 %319, ptr %321, align 4
+  br label %322
 
-320:                                              ; preds = %315
-  %321 = load ptr, ptr %6, align 8
-  %322 = call i32 (ptr, ...) @printf(ptr noundef @.str.48, ptr noundef %321)
-  %323 = load ptr, ptr %7, align 8
-  call void @extcap_free_arg(ptr noundef %323)
+322:                                              ; preds = %317, %310
+  %323 = load ptr, ptr %5, align 8
+  %324 = getelementptr inbounds %struct._extcap_token_sentence, ptr %323, i32 0, i32 1
+  %325 = load ptr, ptr %324, align 8
+  %326 = inttoptr i64 8 to ptr
+  %327 = call ptr @g_hash_table_lookup(ptr noundef %325, ptr noundef %326)
+  store ptr %327, ptr %6, align 8
+  %328 = icmp ne ptr %327, null
+  br i1 %328, label %329, label %366
+
+329:                                              ; preds = %322
+  %330 = load ptr, ptr %6, align 8
+  %331 = call ptr @g_strstr_len(ptr noundef %330, i64 noundef -1, ptr noundef @.str.47)
+  store ptr %331, ptr %11, align 8
+  %332 = load ptr, ptr %11, align 8
+  %333 = icmp eq ptr %332, null
+  br i1 %333, label %334, label %338
+
+334:                                              ; preds = %329
+  %335 = load ptr, ptr %6, align 8
+  %336 = call i32 (ptr, ...) @printf(ptr noundef @.str.48, ptr noundef %335)
+  %337 = load ptr, ptr %7, align 8
+  call void @extcap_free_arg(ptr noundef %337)
   store ptr null, ptr %3, align 8
-  br label %418
+  br label %433
 
-324:                                              ; preds = %315
-  %325 = load ptr, ptr %7, align 8
-  %326 = getelementptr inbounds %struct._extcap_arg, ptr %325, i32 0, i32 12
-  %327 = load i32, ptr %326, align 8
-  %328 = load ptr, ptr %6, align 8
-  %329 = call ptr @extcap_parse_complex(i32 noundef %327, ptr noundef %328)
-  %330 = load ptr, ptr %7, align 8
-  %331 = getelementptr inbounds %struct._extcap_arg, ptr %330, i32 0, i32 13
-  store ptr %329, ptr %331, align 8
-  %332 = icmp eq ptr %329, null
-  br i1 %332, label %333, label %337
-
-333:                                              ; preds = %324
-  %334 = load ptr, ptr %6, align 8
-  %335 = call i32 (ptr, ...) @printf(ptr noundef @.str.48, ptr noundef %334)
-  %336 = load ptr, ptr %7, align 8
-  call void @extcap_free_arg(ptr noundef %336)
-  store ptr null, ptr %3, align 8
-  br label %418
-
-337:                                              ; preds = %324
-  %338 = load ptr, ptr %7, align 8
-  %339 = getelementptr inbounds %struct._extcap_arg, ptr %338, i32 0, i32 12
-  %340 = load i32, ptr %339, align 8
-  %341 = load ptr, ptr %11, align 8
-  %342 = getelementptr i8, ptr %341, i64 1
-  %343 = call ptr @extcap_parse_complex(i32 noundef %340, ptr noundef %342)
+338:                                              ; preds = %329
+  %339 = load ptr, ptr %7, align 8
+  %340 = getelementptr inbounds %struct._extcap_arg, ptr %339, i32 0, i32 12
+  %341 = load i32, ptr %340, align 8
+  %342 = load ptr, ptr %6, align 8
+  %343 = call ptr @extcap_parse_complex(i32 noundef %341, ptr noundef %342)
   %344 = load ptr, ptr %7, align 8
-  %345 = getelementptr inbounds %struct._extcap_arg, ptr %344, i32 0, i32 14
+  %345 = getelementptr inbounds %struct._extcap_arg, ptr %344, i32 0, i32 13
   store ptr %343, ptr %345, align 8
   %346 = icmp eq ptr %343, null
   br i1 %346, label %347, label %351
 
-347:                                              ; preds = %337
+347:                                              ; preds = %338
   %348 = load ptr, ptr %6, align 8
   %349 = call i32 (ptr, ...) @printf(ptr noundef @.str.48, ptr noundef %348)
   %350 = load ptr, ptr %7, align 8
   call void @extcap_free_arg(ptr noundef %350)
   store ptr null, ptr %3, align 8
-  br label %418
+  br label %433
 
-351:                                              ; preds = %337
-  br label %352
+351:                                              ; preds = %338
+  %352 = load ptr, ptr %7, align 8
+  %353 = getelementptr inbounds %struct._extcap_arg, ptr %352, i32 0, i32 12
+  %354 = load i32, ptr %353, align 8
+  %355 = load ptr, ptr %11, align 8
+  %356 = getelementptr i8, ptr %355, i64 1
+  %357 = call ptr @extcap_parse_complex(i32 noundef %354, ptr noundef %356)
+  %358 = load ptr, ptr %7, align 8
+  %359 = getelementptr inbounds %struct._extcap_arg, ptr %358, i32 0, i32 14
+  store ptr %357, ptr %359, align 8
+  %360 = icmp eq ptr %357, null
+  br i1 %360, label %361, label %365
 
-352:                                              ; preds = %351, %309
-  %353 = load ptr, ptr %5, align 8
-  %354 = getelementptr inbounds %struct._extcap_token_sentence, ptr %353, i32 0, i32 1
-  %355 = load ptr, ptr %354, align 8
-  %356 = call ptr @g_hash_table_lookup(ptr noundef %355, ptr noundef inttoptr (i64 6 to ptr))
-  store ptr %356, ptr %6, align 8
-  %357 = icmp ne ptr %356, null
-  br i1 %357, label %358, label %382
-
-358:                                              ; preds = %352
-  %359 = load ptr, ptr %7, align 8
-  %360 = getelementptr inbounds %struct._extcap_arg, ptr %359, i32 0, i32 12
-  %361 = load i32, ptr %360, align 8
-  %362 = icmp ne i32 %361, 12
-  br i1 %362, label %363, label %381
-
-363:                                              ; preds = %358
+361:                                              ; preds = %351
+  %362 = load ptr, ptr %6, align 8
+  %363 = call i32 (ptr, ...) @printf(ptr noundef @.str.48, ptr noundef %362)
   %364 = load ptr, ptr %7, align 8
-  %365 = getelementptr inbounds %struct._extcap_arg, ptr %364, i32 0, i32 12
-  %366 = load i32, ptr %365, align 8
-  %367 = icmp ne i32 %366, 9
-  br i1 %367, label %368, label %381
+  call void @extcap_free_arg(ptr noundef %364)
+  store ptr null, ptr %3, align 8
+  br label %433
 
-368:                                              ; preds = %363
-  %369 = load ptr, ptr %7, align 8
-  %370 = getelementptr inbounds %struct._extcap_arg, ptr %369, i32 0, i32 12
-  %371 = load i32, ptr %370, align 8
-  %372 = load ptr, ptr %6, align 8
-  %373 = call ptr @extcap_parse_complex(i32 noundef %371, ptr noundef %372)
+365:                                              ; preds = %351
+  br label %366
+
+366:                                              ; preds = %365, %322
+  %367 = load ptr, ptr %5, align 8
+  %368 = getelementptr inbounds %struct._extcap_token_sentence, ptr %367, i32 0, i32 1
+  %369 = load ptr, ptr %368, align 8
+  %370 = inttoptr i64 6 to ptr
+  %371 = call ptr @g_hash_table_lookup(ptr noundef %369, ptr noundef %370)
+  store ptr %371, ptr %6, align 8
+  %372 = icmp ne ptr %371, null
+  br i1 %372, label %373, label %397
+
+373:                                              ; preds = %366
   %374 = load ptr, ptr %7, align 8
-  %375 = getelementptr inbounds %struct._extcap_arg, ptr %374, i32 0, i32 15
-  store ptr %373, ptr %375, align 8
-  %376 = icmp eq ptr %373, null
-  br i1 %376, label %377, label %380
+  %375 = getelementptr inbounds %struct._extcap_arg, ptr %374, i32 0, i32 12
+  %376 = load i32, ptr %375, align 8
+  %377 = icmp ne i32 %376, 12
+  br i1 %377, label %378, label %396
 
-377:                                              ; preds = %368
-  %378 = load ptr, ptr %6, align 8
-  %379 = call i32 (ptr, ...) @printf(ptr noundef @.str.49, ptr noundef %378)
-  br label %380
+378:                                              ; preds = %373
+  %379 = load ptr, ptr %7, align 8
+  %380 = getelementptr inbounds %struct._extcap_arg, ptr %379, i32 0, i32 12
+  %381 = load i32, ptr %380, align 8
+  %382 = icmp ne i32 %381, 9
+  br i1 %382, label %383, label %396
 
-380:                                              ; preds = %377, %368
-  br label %381
+383:                                              ; preds = %378
+  %384 = load ptr, ptr %7, align 8
+  %385 = getelementptr inbounds %struct._extcap_arg, ptr %384, i32 0, i32 12
+  %386 = load i32, ptr %385, align 8
+  %387 = load ptr, ptr %6, align 8
+  %388 = call ptr @extcap_parse_complex(i32 noundef %386, ptr noundef %387)
+  %389 = load ptr, ptr %7, align 8
+  %390 = getelementptr inbounds %struct._extcap_arg, ptr %389, i32 0, i32 15
+  store ptr %388, ptr %390, align 8
+  %391 = icmp eq ptr %388, null
+  br i1 %391, label %392, label %395
 
-381:                                              ; preds = %380, %363, %358
-  br label %382
+392:                                              ; preds = %383
+  %393 = load ptr, ptr %6, align 8
+  %394 = call i32 (ptr, ...) @printf(ptr noundef @.str.49, ptr noundef %393)
+  br label %395
 
-382:                                              ; preds = %381, %352
-  br label %416
+395:                                              ; preds = %392, %383
+  br label %396
 
-383:                                              ; preds = %31
-  %384 = load i32, ptr %10, align 4
-  %385 = icmp eq i32 %384, 2
-  br i1 %385, label %386, label %415
+396:                                              ; preds = %395, %378, %373
+  br label %397
 
-386:                                              ; preds = %383
-  %387 = load ptr, ptr %5, align 8
-  %388 = call ptr @extcap_parse_value_sentence(ptr noundef %387)
-  store ptr %388, ptr %8, align 8
-  %389 = load ptr, ptr %8, align 8
-  %390 = icmp eq ptr %389, null
-  br i1 %390, label %391, label %392
+397:                                              ; preds = %396, %366
+  br label %431
 
-391:                                              ; preds = %386
+398:                                              ; preds = %31
+  %399 = load i32, ptr %10, align 4
+  %400 = icmp eq i32 %399, 2
+  br i1 %400, label %401, label %430
+
+401:                                              ; preds = %398
+  %402 = load ptr, ptr %5, align 8
+  %403 = call ptr @extcap_parse_value_sentence(ptr noundef %402)
+  store ptr %403, ptr %8, align 8
+  %404 = load ptr, ptr %8, align 8
+  %405 = icmp eq ptr %404, null
+  br i1 %405, label %406, label %407
+
+406:                                              ; preds = %401
   store ptr null, ptr %3, align 8
-  br label %418
+  br label %433
 
-392:                                              ; preds = %386
-  %393 = load ptr, ptr %4, align 8
-  %394 = load ptr, ptr %8, align 8
-  %395 = getelementptr inbounds %struct._extcap_value, ptr %394, i32 0, i32 0
-  %396 = call ptr @g_list_find_custom(ptr noundef %393, ptr noundef %395, ptr noundef @glist_find_numbered_arg)
-  store ptr %396, ptr %9, align 8
-  %397 = icmp eq ptr %396, null
-  br i1 %397, label %398, label %403
-
-398:                                              ; preds = %392
-  %399 = load ptr, ptr %8, align 8
-  %400 = getelementptr inbounds %struct._extcap_value, ptr %399, i32 0, i32 0
-  %401 = load i32, ptr %400, align 8
-  %402 = call i32 (ptr, ...) @printf(ptr noundef @.str.50, i32 noundef %401)
-  store ptr null, ptr %3, align 8
-  br label %418
-
-403:                                              ; preds = %392
-  %404 = load ptr, ptr %9, align 8
-  %405 = getelementptr inbounds %struct._GList, ptr %404, i32 0, i32 0
-  %406 = load ptr, ptr %405, align 8
-  %407 = getelementptr inbounds %struct._extcap_arg, ptr %406, i32 0, i32 18
-  %408 = load ptr, ptr %407, align 8
+407:                                              ; preds = %401
+  %408 = load ptr, ptr %4, align 8
   %409 = load ptr, ptr %8, align 8
-  %410 = call ptr @g_list_append(ptr noundef %408, ptr noundef %409)
-  %411 = load ptr, ptr %9, align 8
-  %412 = getelementptr inbounds %struct._GList, ptr %411, i32 0, i32 0
-  %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr inbounds %struct._extcap_arg, ptr %413, i32 0, i32 18
-  store ptr %410, ptr %414, align 8
+  %410 = getelementptr inbounds %struct._extcap_value, ptr %409, i32 0, i32 0
+  %411 = call ptr @g_list_find_custom(ptr noundef %408, ptr noundef %410, ptr noundef @glist_find_numbered_arg)
+  store ptr %411, ptr %9, align 8
+  %412 = icmp eq ptr %411, null
+  br i1 %412, label %413, label %418
+
+413:                                              ; preds = %407
+  %414 = load ptr, ptr %8, align 8
+  %415 = getelementptr inbounds %struct._extcap_value, ptr %414, i32 0, i32 0
+  %416 = load i32, ptr %415, align 8
+  %417 = call i32 (ptr, ...) @printf(ptr noundef @.str.50, i32 noundef %416)
   store ptr null, ptr %3, align 8
-  br label %418
+  br label %433
 
-415:                                              ; preds = %383
-  br label %416
+418:                                              ; preds = %407
+  %419 = load ptr, ptr %9, align 8
+  %420 = getelementptr inbounds %struct._GList, ptr %419, i32 0, i32 0
+  %421 = load ptr, ptr %420, align 8
+  %422 = getelementptr inbounds %struct._extcap_arg, ptr %421, i32 0, i32 18
+  %423 = load ptr, ptr %422, align 8
+  %424 = load ptr, ptr %8, align 8
+  %425 = call ptr @g_list_append(ptr noundef %423, ptr noundef %424)
+  %426 = load ptr, ptr %9, align 8
+  %427 = getelementptr inbounds %struct._GList, ptr %426, i32 0, i32 0
+  %428 = load ptr, ptr %427, align 8
+  %429 = getelementptr inbounds %struct._extcap_arg, ptr %428, i32 0, i32 18
+  store ptr %425, ptr %429, align 8
+  store ptr null, ptr %3, align 8
+  br label %433
 
-416:                                              ; preds = %415, %382
-  %417 = load ptr, ptr %7, align 8
-  store ptr %417, ptr %3, align 8
-  br label %418
+430:                                              ; preds = %398
+  br label %431
 
-418:                                              ; preds = %416, %403, %398, %391, %347, %333, %320, %270, %170, %81, %73, %61, %53, %45, %14
-  %419 = load ptr, ptr %3, align 8
-  ret ptr %419
+431:                                              ; preds = %430, %397
+  %432 = load ptr, ptr %7, align 8
+  store ptr %432, ptr %3, align 8
+  br label %433
+
+433:                                              ; preds = %431, %418, %413, %406, %361, %347, %334, %281, %181, %84, %75, %63, %54, %46, %14
+  %434 = load ptr, ptr %3, align 8
+  ret ptr %434
 }
 
 declare ptr @g_list_append(ptr noundef, ptr noundef) #1
@@ -1650,7 +1665,7 @@ define internal ptr @extcap_parse_value_sentence(ptr noundef %0) #0 {
 9:                                                ; preds = %1
   %10 = load ptr, ptr %4, align 8
   store ptr %10, ptr %2, align 8
-  br label %95
+  br label %101
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %3, align 8
@@ -1658,141 +1673,147 @@ define internal ptr @extcap_parse_value_sentence(ptr noundef %0) #0 {
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @g_ascii_strcasecmp(ptr noundef %14, ptr noundef @.str.5)
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %93
+  br i1 %16, label %17, label %99
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds %struct._extcap_token_sentence, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
-  %21 = call ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef inttoptr (i64 5 to ptr))
-  store ptr %21, ptr %5, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %25
+  %21 = inttoptr i64 5 to ptr
+  %22 = call ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef %21)
+  store ptr %22, ptr %5, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %17
-  %24 = call i32 (ptr, ...) @printf(ptr noundef @.str.51)
+24:                                               ; preds = %17
+  %25 = call i32 (ptr, ...) @printf(ptr noundef @.str.51)
   store ptr null, ptr %2, align 8
-  br label %95
+  br label %101
 
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %5, align 8
-  %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %26, ptr noundef @.str.31, ptr noundef %6) #7
-  %28 = icmp ne i32 %27, 1
-  br i1 %28, label %29, label %31
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %5, align 8
+  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %27, ptr noundef @.str.31, ptr noundef %6) #7
+  %29 = icmp ne i32 %28, 1
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %25
-  %30 = call i32 (ptr, ...) @printf(ptr noundef @.str.52)
+30:                                               ; preds = %26
+  %31 = call i32 (ptr, ...) @printf(ptr noundef @.str.52)
   store ptr null, ptr %2, align 8
-  br label %95
+  br label %101
 
-31:                                               ; preds = %25
-  %32 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #6
-  store ptr %32, ptr %4, align 8
-  %33 = load i32, ptr %6, align 4
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct._extcap_value, ptr %34, i32 0, i32 0
-  store i32 %33, ptr %35, align 8
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct._extcap_token_sentence, ptr %36, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8
-  %39 = call ptr @g_hash_table_lookup(ptr noundef %38, ptr noundef inttoptr (i64 7 to ptr))
-  store ptr %39, ptr %5, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %43
+32:                                               ; preds = %26
+  %33 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #6
+  store ptr %33, ptr %4, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct._extcap_value, ptr %35, i32 0, i32 0
+  store i32 %34, ptr %36, align 8
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds %struct._extcap_token_sentence, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  %40 = inttoptr i64 7 to ptr
+  %41 = call ptr @g_hash_table_lookup(ptr noundef %39, ptr noundef %40)
+  store ptr %41, ptr %5, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %45
 
-41:                                               ; preds = %31
-  %42 = load ptr, ptr %4, align 8
-  call void @extcap_free_value(ptr noundef %42)
+43:                                               ; preds = %32
+  %44 = load ptr, ptr %4, align 8
+  call void @extcap_free_value(ptr noundef %44)
   store ptr null, ptr %2, align 8
-  br label %95
+  br label %101
 
-43:                                               ; preds = %31
-  %44 = load ptr, ptr %5, align 8
-  %45 = call noalias ptr @g_strdup(ptr noundef %44)
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct._extcap_value, ptr %46, i32 0, i32 1
-  store ptr %45, ptr %47, align 8
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct._extcap_token_sentence, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = call ptr @g_hash_table_lookup(ptr noundef %50, ptr noundef inttoptr (i64 3 to ptr))
-  store ptr %51, ptr %5, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %55
+45:                                               ; preds = %32
+  %46 = load ptr, ptr %5, align 8
+  %47 = call noalias ptr @g_strdup(ptr noundef %46)
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds %struct._extcap_value, ptr %48, i32 0, i32 1
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds %struct._extcap_token_sentence, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8
+  %53 = inttoptr i64 3 to ptr
+  %54 = call ptr @g_hash_table_lookup(ptr noundef %52, ptr noundef %53)
+  store ptr %54, ptr %5, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %58
 
-53:                                               ; preds = %43
-  %54 = load ptr, ptr %4, align 8
-  call void @extcap_free_value(ptr noundef %54)
+56:                                               ; preds = %45
+  %57 = load ptr, ptr %4, align 8
+  call void @extcap_free_value(ptr noundef %57)
   store ptr null, ptr %2, align 8
-  br label %95
+  br label %101
 
-55:                                               ; preds = %43
-  %56 = load ptr, ptr %5, align 8
-  %57 = call noalias ptr @g_strdup(ptr noundef %56)
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %struct._extcap_value, ptr %58, i32 0, i32 2
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct._extcap_token_sentence, ptr %60, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = call ptr @g_hash_table_lookup(ptr noundef %62, ptr noundef inttoptr (i64 16 to ptr))
-  store ptr %63, ptr %5, align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %65, label %70
+58:                                               ; preds = %45
+  %59 = load ptr, ptr %5, align 8
+  %60 = call noalias ptr @g_strdup(ptr noundef %59)
+  %61 = load ptr, ptr %4, align 8
+  %62 = getelementptr inbounds %struct._extcap_value, ptr %61, i32 0, i32 2
+  store ptr %60, ptr %62, align 8
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds %struct._extcap_token_sentence, ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8
+  %66 = inttoptr i64 16 to ptr
+  %67 = call ptr @g_hash_table_lookup(ptr noundef %65, ptr noundef %66)
+  store ptr %67, ptr %5, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %74
 
-65:                                               ; preds = %55
-  %66 = load ptr, ptr %5, align 8
-  %67 = call noalias ptr @g_strdup(ptr noundef %66)
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct._extcap_value, ptr %68, i32 0, i32 5
-  store ptr %67, ptr %69, align 8
-  br label %70
+69:                                               ; preds = %58
+  %70 = load ptr, ptr %5, align 8
+  %71 = call noalias ptr @g_strdup(ptr noundef %70)
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds %struct._extcap_value, ptr %72, i32 0, i32 5
+  store ptr %71, ptr %73, align 8
+  br label %74
 
-70:                                               ; preds = %65, %55
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct._extcap_token_sentence, ptr %71, i32 0, i32 1
-  %73 = load ptr, ptr %72, align 8
-  %74 = call ptr @g_hash_table_lookup(ptr noundef %73, ptr noundef inttoptr (i64 6 to ptr))
-  store ptr %74, ptr %5, align 8
-  %75 = icmp ne ptr %74, null
-  br i1 %75, label %76, label %81
+74:                                               ; preds = %69, %58
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds %struct._extcap_token_sentence, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = inttoptr i64 6 to ptr
+  %79 = call ptr @g_hash_table_lookup(ptr noundef %77, ptr noundef %78)
+  store ptr %79, ptr %5, align 8
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %86
 
-76:                                               ; preds = %70
-  %77 = load ptr, ptr %5, align 8
-  %78 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %77)
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct._extcap_value, ptr %79, i32 0, i32 4
-  store i32 %78, ptr %80, align 4
-  br label %81
+81:                                               ; preds = %74
+  %82 = load ptr, ptr %5, align 8
+  %83 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %82)
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds %struct._extcap_value, ptr %84, i32 0, i32 4
+  store i32 %83, ptr %85, align 4
+  br label %86
 
-81:                                               ; preds = %76, %70
-  %82 = load ptr, ptr %3, align 8
-  %83 = getelementptr inbounds %struct._extcap_token_sentence, ptr %82, i32 0, i32 1
-  %84 = load ptr, ptr %83, align 8
-  %85 = call ptr @g_hash_table_lookup(ptr noundef %84, ptr noundef inttoptr (i64 12 to ptr))
-  store ptr %85, ptr %5, align 8
-  %86 = icmp ne ptr %85, null
-  br i1 %86, label %87, label %92
+86:                                               ; preds = %81, %74
+  %87 = load ptr, ptr %3, align 8
+  %88 = getelementptr inbounds %struct._extcap_token_sentence, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8
+  %90 = inttoptr i64 12 to ptr
+  %91 = call ptr @g_hash_table_lookup(ptr noundef %89, ptr noundef %90)
+  store ptr %91, ptr %5, align 8
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %98
 
-87:                                               ; preds = %81
-  %88 = load ptr, ptr %5, align 8
-  %89 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %88)
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct._extcap_value, ptr %90, i32 0, i32 3
-  store i32 %89, ptr %91, align 8
-  br label %92
+93:                                               ; preds = %86
+  %94 = load ptr, ptr %5, align 8
+  %95 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %94)
+  %96 = load ptr, ptr %4, align 8
+  %97 = getelementptr inbounds %struct._extcap_value, ptr %96, i32 0, i32 3
+  store i32 %95, ptr %97, align 8
+  br label %98
 
-92:                                               ; preds = %87, %81
-  br label %93
+98:                                               ; preds = %93, %86
+  br label %99
 
-93:                                               ; preds = %92, %11
-  %94 = load ptr, ptr %4, align 8
-  store ptr %94, ptr %2, align 8
-  br label %95
+99:                                               ; preds = %98, %11
+  %100 = load ptr, ptr %4, align 8
+  store ptr %100, ptr %2, align 8
+  br label %101
 
-95:                                               ; preds = %93, %53, %41, %29, %23, %9
-  %96 = load ptr, ptr %2, align 8
-  ret ptr %96
+101:                                              ; preds = %99, %56, %43, %30, %24, %9
+  %102 = load ptr, ptr %2, align 8
+  ret ptr %102
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1958,7 +1979,7 @@ define internal ptr @extcap_parse_interface_sentence(ptr noundef %0) #0 {
 
 9:                                                ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %92
+  br label %96
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %3, align 8
@@ -1994,7 +2015,7 @@ define internal ptr @extcap_parse_interface_sentence(ptr noundef %0) #0 {
 
 28:                                               ; preds = %25
   store ptr null, ptr %2, align 8
-  br label %92
+  br label %96
 
 29:                                               ; preds = %25
   %30 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #6
@@ -2006,100 +2027,104 @@ define internal ptr @extcap_parse_interface_sentence(ptr noundef %0) #0 {
   %34 = load ptr, ptr %3, align 8
   %35 = getelementptr inbounds %struct._extcap_token_sentence, ptr %34, i32 0, i32 1
   %36 = load ptr, ptr %35, align 8
-  %37 = call ptr @g_hash_table_lookup(ptr noundef %36, ptr noundef inttoptr (i64 7 to ptr))
-  store ptr %37, ptr %5, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %45
+  %37 = inttoptr i64 7 to ptr
+  %38 = call ptr @g_hash_table_lookup(ptr noundef %36, ptr noundef %37)
+  store ptr %38, ptr %5, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %29
-  %40 = load i32, ptr %4, align 4
-  %41 = icmp eq i32 %40, 4
-  br i1 %41, label %42, label %45
+40:                                               ; preds = %29
+  %41 = load i32, ptr %4, align 4
+  %42 = icmp eq i32 %41, 4
+  br i1 %42, label %43, label %46
 
-42:                                               ; preds = %39
-  %43 = call i32 (ptr, ...) @printf(ptr noundef @.str.53)
-  %44 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %44)
+43:                                               ; preds = %40
+  %44 = call i32 (ptr, ...) @printf(ptr noundef @.str.53)
+  %45 = load ptr, ptr %6, align 8
+  call void @g_free(ptr noundef %45)
   store ptr null, ptr %2, align 8
-  br label %92
+  br label %96
 
-45:                                               ; preds = %39, %29
-  %46 = load ptr, ptr %5, align 8
-  %47 = call noalias ptr @g_strdup(ptr noundef %46)
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct._extcap_interface, ptr %48, i32 0, i32 0
-  store ptr %47, ptr %49, align 8
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct._extcap_token_sentence, ptr %50, i32 0, i32 1
-  %52 = load ptr, ptr %51, align 8
-  %53 = call ptr @g_hash_table_lookup(ptr noundef %52, ptr noundef inttoptr (i64 3 to ptr))
-  store ptr %53, ptr %5, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %64
+46:                                               ; preds = %40, %29
+  %47 = load ptr, ptr %5, align 8
+  %48 = call noalias ptr @g_strdup(ptr noundef %47)
+  %49 = load ptr, ptr %6, align 8
+  %50 = getelementptr inbounds %struct._extcap_interface, ptr %49, i32 0, i32 0
+  store ptr %48, ptr %50, align 8
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds %struct._extcap_token_sentence, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8
+  %54 = inttoptr i64 3 to ptr
+  %55 = call ptr @g_hash_table_lookup(ptr noundef %53, ptr noundef %54)
+  store ptr %55, ptr %5, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %66
 
-55:                                               ; preds = %45
-  %56 = load i32, ptr %4, align 4
-  %57 = icmp eq i32 %56, 4
-  br i1 %57, label %58, label %64
+57:                                               ; preds = %46
+  %58 = load i32, ptr %4, align 4
+  %59 = icmp eq i32 %58, 4
+  br i1 %59, label %60, label %66
 
-58:                                               ; preds = %55
-  %59 = call i32 (ptr, ...) @printf(ptr noundef @.str.54)
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct._extcap_interface, ptr %60, i32 0, i32 0
-  %62 = load ptr, ptr %61, align 8
-  call void @g_free(ptr noundef %62)
-  %63 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %63)
+60:                                               ; preds = %57
+  %61 = call i32 (ptr, ...) @printf(ptr noundef @.str.54)
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr inbounds %struct._extcap_interface, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  call void @g_free(ptr noundef %64)
+  %65 = load ptr, ptr %6, align 8
+  call void @g_free(ptr noundef %65)
   store ptr null, ptr %2, align 8
-  br label %92
+  br label %96
 
-64:                                               ; preds = %55, %45
-  %65 = load ptr, ptr %5, align 8
-  %66 = call noalias ptr @g_strdup(ptr noundef %65)
-  %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds %struct._extcap_interface, ptr %67, i32 0, i32 1
-  store ptr %66, ptr %68, align 8
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct._extcap_token_sentence, ptr %69, i32 0, i32 1
-  %71 = load ptr, ptr %70, align 8
-  %72 = call ptr @g_hash_table_lookup(ptr noundef %71, ptr noundef inttoptr (i64 21 to ptr))
-  store ptr %72, ptr %5, align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %74, label %79
+66:                                               ; preds = %57, %46
+  %67 = load ptr, ptr %5, align 8
+  %68 = call noalias ptr @g_strdup(ptr noundef %67)
+  %69 = load ptr, ptr %6, align 8
+  %70 = getelementptr inbounds %struct._extcap_interface, ptr %69, i32 0, i32 1
+  store ptr %68, ptr %70, align 8
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds %struct._extcap_token_sentence, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  %74 = inttoptr i64 21 to ptr
+  %75 = call ptr @g_hash_table_lookup(ptr noundef %73, ptr noundef %74)
+  store ptr %75, ptr %5, align 8
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %77, label %82
 
-74:                                               ; preds = %64
-  %75 = load ptr, ptr %5, align 8
-  %76 = call noalias ptr @g_strdup(ptr noundef %75)
-  %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds %struct._extcap_interface, ptr %77, i32 0, i32 2
-  store ptr %76, ptr %78, align 8
-  br label %79
+77:                                               ; preds = %66
+  %78 = load ptr, ptr %5, align 8
+  %79 = call noalias ptr @g_strdup(ptr noundef %78)
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds %struct._extcap_interface, ptr %80, i32 0, i32 2
+  store ptr %79, ptr %81, align 8
+  br label %82
 
-79:                                               ; preds = %74, %64
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds %struct._extcap_token_sentence, ptr %80, i32 0, i32 1
-  %82 = load ptr, ptr %81, align 8
-  %83 = call ptr @g_hash_table_lookup(ptr noundef %82, ptr noundef inttoptr (i64 22 to ptr))
-  store ptr %83, ptr %5, align 8
-  %84 = icmp ne ptr %83, null
-  br i1 %84, label %85, label %90
+82:                                               ; preds = %77, %66
+  %83 = load ptr, ptr %3, align 8
+  %84 = getelementptr inbounds %struct._extcap_token_sentence, ptr %83, i32 0, i32 1
+  %85 = load ptr, ptr %84, align 8
+  %86 = inttoptr i64 22 to ptr
+  %87 = call ptr @g_hash_table_lookup(ptr noundef %85, ptr noundef %86)
+  store ptr %87, ptr %5, align 8
+  %88 = icmp ne ptr %87, null
+  br i1 %88, label %89, label %94
 
-85:                                               ; preds = %79
-  %86 = load ptr, ptr %5, align 8
-  %87 = call noalias ptr @g_strdup(ptr noundef %86)
-  %88 = load ptr, ptr %6, align 8
-  %89 = getelementptr inbounds %struct._extcap_interface, ptr %88, i32 0, i32 3
-  store ptr %87, ptr %89, align 8
-  br label %90
+89:                                               ; preds = %82
+  %90 = load ptr, ptr %5, align 8
+  %91 = call noalias ptr @g_strdup(ptr noundef %90)
+  %92 = load ptr, ptr %6, align 8
+  %93 = getelementptr inbounds %struct._extcap_interface, ptr %92, i32 0, i32 3
+  store ptr %91, ptr %93, align 8
+  br label %94
 
-90:                                               ; preds = %85, %79
-  %91 = load ptr, ptr %6, align 8
-  store ptr %91, ptr %2, align 8
-  br label %92
+94:                                               ; preds = %89, %82
+  %95 = load ptr, ptr %6, align 8
+  store ptr %95, ptr %2, align 8
+  br label %96
 
-92:                                               ; preds = %90, %58, %42, %28, %9
-  %93 = load ptr, ptr %2, align 8
-  ret ptr %93
+96:                                               ; preds = %94, %60, %43, %28, %9
+  %97 = load ptr, ptr %2, align 8
+  ret ptr %97
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2129,7 +2154,7 @@ define internal ptr @extcap_parse_control_sentence(ptr noundef %0, ptr noundef %
 
 16:                                               ; preds = %2
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %5, align 8
@@ -2165,12 +2190,12 @@ define internal ptr @extcap_parse_control_sentence(ptr noundef %0, ptr noundef %
 
 35:                                               ; preds = %32
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
 36:                                               ; preds = %32
   %37 = load i32, ptr %6, align 4
   %38 = icmp eq i32 %37, 6
-  br i1 %38, label %39, label %244
+  br i1 %38, label %39, label %253
 
 39:                                               ; preds = %36
   %40 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #6
@@ -2181,488 +2206,501 @@ define internal ptr @extcap_parse_control_sentence(ptr noundef %0, ptr noundef %
   %43 = load ptr, ptr %5, align 8
   %44 = getelementptr inbounds %struct._extcap_token_sentence, ptr %43, i32 0, i32 1
   %45 = load ptr, ptr %44, align 8
-  %46 = call ptr @g_hash_table_lookup(ptr noundef %45, ptr noundef inttoptr (i64 1 to ptr))
-  store ptr %46, ptr %7, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %51
+  %46 = inttoptr i64 1 to ptr
+  %47 = call ptr @g_hash_table_lookup(ptr noundef %45, ptr noundef %46)
+  store ptr %47, ptr %7, align 8
+  %48 = load ptr, ptr %7, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %52
 
-49:                                               ; preds = %39
-  %50 = load ptr, ptr %8, align 8
-  call void @extcap_free_toolbar_control(ptr noundef %50)
+50:                                               ; preds = %39
+  %51 = load ptr, ptr %8, align 8
+  call void @extcap_free_toolbar_control(ptr noundef %51)
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
-51:                                               ; preds = %39
-  %52 = load ptr, ptr %7, align 8
-  %53 = call zeroext i1 @ws_strtou32(ptr noundef %52, ptr noundef null, ptr noundef %11)
-  br i1 %53, label %56, label %54
+52:                                               ; preds = %39
+  %53 = load ptr, ptr %7, align 8
+  %54 = call zeroext i1 @ws_strtou32(ptr noundef %53, ptr noundef null, ptr noundef %11)
+  br i1 %54, label %57, label %55
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %8, align 8
-  call void @extcap_free_toolbar_control(ptr noundef %55)
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %8, align 8
+  call void @extcap_free_toolbar_control(ptr noundef %56)
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
-56:                                               ; preds = %51
-  %57 = load i32, ptr %11, align 4
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct._iface_toolbar_control, ptr %58, i32 0, i32 0
-  store i32 %57, ptr %59, align 8
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct._extcap_token_sentence, ptr %60, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = call ptr @g_hash_table_lookup(ptr noundef %62, ptr noundef inttoptr (i64 3 to ptr))
-  store ptr %63, ptr %7, align 8
-  %64 = load ptr, ptr %7, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %68
+57:                                               ; preds = %52
+  %58 = load i32, ptr %11, align 4
+  %59 = load ptr, ptr %8, align 8
+  %60 = getelementptr inbounds %struct._iface_toolbar_control, ptr %59, i32 0, i32 0
+  store i32 %58, ptr %60, align 8
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds %struct._extcap_token_sentence, ptr %61, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8
+  %64 = inttoptr i64 3 to ptr
+  %65 = call ptr @g_hash_table_lookup(ptr noundef %63, ptr noundef %64)
+  store ptr %65, ptr %7, align 8
+  %66 = load ptr, ptr %7, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %68, label %70
 
-66:                                               ; preds = %56
-  %67 = load ptr, ptr %8, align 8
-  call void @extcap_free_toolbar_control(ptr noundef %67)
+68:                                               ; preds = %57
+  %69 = load ptr, ptr %8, align 8
+  call void @extcap_free_toolbar_control(ptr noundef %69)
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
-68:                                               ; preds = %56
-  %69 = load ptr, ptr %7, align 8
-  %70 = call noalias ptr @g_strdup(ptr noundef %69)
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds %struct._iface_toolbar_control, ptr %71, i32 0, i32 3
-  store ptr %70, ptr %72, align 8
-  %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds %struct._extcap_token_sentence, ptr %73, i32 0, i32 1
-  %75 = load ptr, ptr %74, align 8
-  %76 = call ptr @g_hash_table_lookup(ptr noundef %75, ptr noundef inttoptr (i64 20 to ptr))
-  store ptr %76, ptr %7, align 8
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %78, label %83
+70:                                               ; preds = %57
+  %71 = load ptr, ptr %7, align 8
+  %72 = call noalias ptr @g_strdup(ptr noundef %71)
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds %struct._iface_toolbar_control, ptr %73, i32 0, i32 3
+  store ptr %72, ptr %74, align 8
+  %75 = load ptr, ptr %5, align 8
+  %76 = getelementptr inbounds %struct._extcap_token_sentence, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = inttoptr i64 20 to ptr
+  %79 = call ptr @g_hash_table_lookup(ptr noundef %77, ptr noundef %78)
+  store ptr %79, ptr %7, align 8
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %86
 
-78:                                               ; preds = %68
-  %79 = load ptr, ptr %7, align 8
-  %80 = call noalias ptr @g_strdup(ptr noundef %79)
-  %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds %struct._iface_toolbar_control, ptr %81, i32 0, i32 4
-  store ptr %80, ptr %82, align 8
-  br label %83
+81:                                               ; preds = %70
+  %82 = load ptr, ptr %7, align 8
+  %83 = call noalias ptr @g_strdup(ptr noundef %82)
+  %84 = load ptr, ptr %8, align 8
+  %85 = getelementptr inbounds %struct._iface_toolbar_control, ptr %84, i32 0, i32 4
+  store ptr %83, ptr %85, align 8
+  br label %86
 
-83:                                               ; preds = %78, %68
-  %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds %struct._extcap_token_sentence, ptr %84, i32 0, i32 1
-  %86 = load ptr, ptr %85, align 8
-  %87 = call ptr @g_hash_table_lookup(ptr noundef %86, ptr noundef inttoptr (i64 17 to ptr))
-  store ptr %87, ptr %7, align 8
-  %88 = icmp ne ptr %87, null
-  br i1 %88, label %89, label %94
+86:                                               ; preds = %81, %70
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds %struct._extcap_token_sentence, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8
+  %90 = inttoptr i64 17 to ptr
+  %91 = call ptr @g_hash_table_lookup(ptr noundef %89, ptr noundef %90)
+  store ptr %91, ptr %7, align 8
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %98
 
-89:                                               ; preds = %83
-  %90 = load ptr, ptr %7, align 8
-  %91 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %90)
-  %92 = load ptr, ptr %8, align 8
-  %93 = getelementptr inbounds %struct._iface_toolbar_control, ptr %92, i32 0, i32 5
-  store i32 %91, ptr %93, align 8
-  br label %94
+93:                                               ; preds = %86
+  %94 = load ptr, ptr %7, align 8
+  %95 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %94)
+  %96 = load ptr, ptr %8, align 8
+  %97 = getelementptr inbounds %struct._iface_toolbar_control, ptr %96, i32 0, i32 5
+  store i32 %95, ptr %97, align 8
+  br label %98
 
-94:                                               ; preds = %89, %83
-  %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds %struct._extcap_token_sentence, ptr %95, i32 0, i32 1
-  %97 = load ptr, ptr %96, align 8
-  %98 = call ptr @g_hash_table_lookup(ptr noundef %97, ptr noundef inttoptr (i64 9 to ptr))
-  store ptr %98, ptr %7, align 8
-  %99 = load ptr, ptr %7, align 8
-  %100 = call noalias ptr @g_strdup(ptr noundef %99)
-  %101 = load ptr, ptr %8, align 8
-  %102 = getelementptr inbounds %struct._iface_toolbar_control, ptr %101, i32 0, i32 6
-  store ptr %100, ptr %102, align 8
-  %103 = load ptr, ptr %5, align 8
-  %104 = getelementptr inbounds %struct._extcap_token_sentence, ptr %103, i32 0, i32 1
-  %105 = load ptr, ptr %104, align 8
-  %106 = call ptr @g_hash_table_lookup(ptr noundef %105, ptr noundef inttoptr (i64 10 to ptr))
-  store ptr %106, ptr %7, align 8
-  %107 = load ptr, ptr %7, align 8
-  %108 = call noalias ptr @g_strdup(ptr noundef %107)
-  %109 = load ptr, ptr %8, align 8
-  %110 = getelementptr inbounds %struct._iface_toolbar_control, ptr %109, i32 0, i32 7
-  store ptr %108, ptr %110, align 8
-  %111 = load ptr, ptr %5, align 8
-  %112 = getelementptr inbounds %struct._extcap_token_sentence, ptr %111, i32 0, i32 1
-  %113 = load ptr, ptr %112, align 8
-  %114 = call ptr @g_hash_table_lookup(ptr noundef %113, ptr noundef inttoptr (i64 4 to ptr))
-  store ptr %114, ptr %7, align 8
-  %115 = load ptr, ptr %7, align 8
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %117, label %119
+98:                                               ; preds = %93, %86
+  %99 = load ptr, ptr %5, align 8
+  %100 = getelementptr inbounds %struct._extcap_token_sentence, ptr %99, i32 0, i32 1
+  %101 = load ptr, ptr %100, align 8
+  %102 = inttoptr i64 9 to ptr
+  %103 = call ptr @g_hash_table_lookup(ptr noundef %101, ptr noundef %102)
+  store ptr %103, ptr %7, align 8
+  %104 = load ptr, ptr %7, align 8
+  %105 = call noalias ptr @g_strdup(ptr noundef %104)
+  %106 = load ptr, ptr %8, align 8
+  %107 = getelementptr inbounds %struct._iface_toolbar_control, ptr %106, i32 0, i32 6
+  store ptr %105, ptr %107, align 8
+  %108 = load ptr, ptr %5, align 8
+  %109 = getelementptr inbounds %struct._extcap_token_sentence, ptr %108, i32 0, i32 1
+  %110 = load ptr, ptr %109, align 8
+  %111 = inttoptr i64 10 to ptr
+  %112 = call ptr @g_hash_table_lookup(ptr noundef %110, ptr noundef %111)
+  store ptr %112, ptr %7, align 8
+  %113 = load ptr, ptr %7, align 8
+  %114 = call noalias ptr @g_strdup(ptr noundef %113)
+  %115 = load ptr, ptr %8, align 8
+  %116 = getelementptr inbounds %struct._iface_toolbar_control, ptr %115, i32 0, i32 7
+  store ptr %114, ptr %116, align 8
+  %117 = load ptr, ptr %5, align 8
+  %118 = getelementptr inbounds %struct._extcap_token_sentence, ptr %117, i32 0, i32 1
+  %119 = load ptr, ptr %118, align 8
+  %120 = inttoptr i64 4 to ptr
+  %121 = call ptr @g_hash_table_lookup(ptr noundef %119, ptr noundef %120)
+  store ptr %121, ptr %7, align 8
+  %122 = load ptr, ptr %7, align 8
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %124, label %126
 
-117:                                              ; preds = %94
-  %118 = load ptr, ptr %8, align 8
-  call void @extcap_free_toolbar_control(ptr noundef %118)
+124:                                              ; preds = %98
+  %125 = load ptr, ptr %8, align 8
+  call void @extcap_free_toolbar_control(ptr noundef %125)
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
-119:                                              ; preds = %94
+126:                                              ; preds = %98
   store i32 0, ptr %12, align 4
-  %120 = load ptr, ptr %7, align 8
-  %121 = call i32 @g_ascii_strcasecmp(ptr noundef %120, ptr noundef @.str.36)
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %126
-
-123:                                              ; preds = %119
-  %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds %struct._iface_toolbar_control, ptr %124, i32 0, i32 1
-  store i32 1, ptr %125, align 4
-  store i32 5, ptr %12, align 4
-  br label %154
-
-126:                                              ; preds = %119
   %127 = load ptr, ptr %7, align 8
-  %128 = call i32 @g_ascii_strcasecmp(ptr noundef %127, ptr noundef @.str.55)
+  %128 = call i32 @g_ascii_strcasecmp(ptr noundef %127, ptr noundef @.str.36)
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %126
   %131 = load ptr, ptr %8, align 8
   %132 = getelementptr inbounds %struct._iface_toolbar_control, ptr %131, i32 0, i32 1
-  store i32 2, ptr %132, align 4
-  br label %153
+  store i32 1, ptr %132, align 4
+  store i32 5, ptr %12, align 4
+  br label %161
 
 133:                                              ; preds = %126
   %134 = load ptr, ptr %7, align 8
-  %135 = call i32 @g_ascii_strcasecmp(ptr noundef %134, ptr noundef @.str.38)
+  %135 = call i32 @g_ascii_strcasecmp(ptr noundef %134, ptr noundef @.str.55)
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %133
   %138 = load ptr, ptr %8, align 8
   %139 = getelementptr inbounds %struct._iface_toolbar_control, ptr %138, i32 0, i32 1
-  store i32 3, ptr %139, align 4
-  br label %152
+  store i32 2, ptr %139, align 4
+  br label %160
 
 140:                                              ; preds = %133
   %141 = load ptr, ptr %7, align 8
-  %142 = call i32 @g_ascii_strcasecmp(ptr noundef %141, ptr noundef @.str.41)
+  %142 = call i32 @g_ascii_strcasecmp(ptr noundef %141, ptr noundef @.str.38)
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %147
 
 144:                                              ; preds = %140
   %145 = load ptr, ptr %8, align 8
   %146 = getelementptr inbounds %struct._iface_toolbar_control, ptr %145, i32 0, i32 1
-  store i32 4, ptr %146, align 4
-  store i32 7, ptr %12, align 4
-  br label %151
+  store i32 3, ptr %146, align 4
+  br label %159
 
 147:                                              ; preds = %140
   %148 = load ptr, ptr %7, align 8
-  %149 = call i32 (ptr, ...) @printf(ptr noundef @.str.56, ptr noundef %148)
-  %150 = load ptr, ptr %8, align 8
-  call void @extcap_free_toolbar_control(ptr noundef %150)
+  %149 = call i32 @g_ascii_strcasecmp(ptr noundef %148, ptr noundef @.str.41)
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %151, label %154
+
+151:                                              ; preds = %147
+  %152 = load ptr, ptr %8, align 8
+  %153 = getelementptr inbounds %struct._iface_toolbar_control, ptr %152, i32 0, i32 1
+  store i32 4, ptr %153, align 4
+  store i32 7, ptr %12, align 4
+  br label %158
+
+154:                                              ; preds = %147
+  %155 = load ptr, ptr %7, align 8
+  %156 = call i32 (ptr, ...) @printf(ptr noundef @.str.56, ptr noundef %155)
+  %157 = load ptr, ptr %8, align 8
+  call void @extcap_free_toolbar_control(ptr noundef %157)
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
-151:                                              ; preds = %144
-  br label %152
+158:                                              ; preds = %151
+  br label %159
 
-152:                                              ; preds = %151, %137
-  br label %153
+159:                                              ; preds = %158, %144
+  br label %160
 
-153:                                              ; preds = %152, %130
-  br label %154
+160:                                              ; preds = %159, %137
+  br label %161
 
-154:                                              ; preds = %153, %123
-  %155 = load ptr, ptr %5, align 8
-  %156 = getelementptr inbounds %struct._extcap_token_sentence, ptr %155, i32 0, i32 1
-  %157 = load ptr, ptr %156, align 8
-  %158 = call ptr @g_hash_table_lookup(ptr noundef %157, ptr noundef inttoptr (i64 24 to ptr))
-  store ptr %158, ptr %7, align 8
-  %159 = load ptr, ptr %7, align 8
-  %160 = icmp ne ptr %159, null
-  br i1 %160, label %161, label %198
+161:                                              ; preds = %160, %130
+  %162 = load ptr, ptr %5, align 8
+  %163 = getelementptr inbounds %struct._extcap_token_sentence, ptr %162, i32 0, i32 1
+  %164 = load ptr, ptr %163, align 8
+  %165 = inttoptr i64 24 to ptr
+  %166 = call ptr @g_hash_table_lookup(ptr noundef %164, ptr noundef %165)
+  store ptr %166, ptr %7, align 8
+  %167 = load ptr, ptr %7, align 8
+  %168 = icmp ne ptr %167, null
+  br i1 %168, label %169, label %206
 
-161:                                              ; preds = %154
-  %162 = load ptr, ptr %7, align 8
-  %163 = call i32 @g_ascii_strcasecmp(ptr noundef %162, ptr noundef @.str.4)
-  %164 = icmp eq i32 %163, 0
-  br i1 %164, label %165, label %168
+169:                                              ; preds = %161
+  %170 = load ptr, ptr %7, align 8
+  %171 = call i32 @g_ascii_strcasecmp(ptr noundef %170, ptr noundef @.str.4)
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %173, label %176
 
-165:                                              ; preds = %161
-  %166 = load ptr, ptr %8, align 8
-  %167 = getelementptr inbounds %struct._iface_toolbar_control, ptr %166, i32 0, i32 2
-  store i32 1, ptr %167, align 8
-  br label %197
+173:                                              ; preds = %169
+  %174 = load ptr, ptr %8, align 8
+  %175 = getelementptr inbounds %struct._iface_toolbar_control, ptr %174, i32 0, i32 2
+  store i32 1, ptr %175, align 8
+  br label %205
 
-168:                                              ; preds = %161
-  %169 = load ptr, ptr %7, align 8
-  %170 = call i32 @g_ascii_strcasecmp(ptr noundef %169, ptr noundef @.str.29)
-  %171 = icmp eq i32 %170, 0
-  br i1 %171, label %172, label %175
+176:                                              ; preds = %169
+  %177 = load ptr, ptr %7, align 8
+  %178 = call i32 @g_ascii_strcasecmp(ptr noundef %177, ptr noundef @.str.29)
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %180, label %183
 
-172:                                              ; preds = %168
-  %173 = load ptr, ptr %8, align 8
-  %174 = getelementptr inbounds %struct._iface_toolbar_control, ptr %173, i32 0, i32 2
-  store i32 2, ptr %174, align 8
-  br label %196
+180:                                              ; preds = %176
+  %181 = load ptr, ptr %8, align 8
+  %182 = getelementptr inbounds %struct._iface_toolbar_control, ptr %181, i32 0, i32 2
+  store i32 2, ptr %182, align 8
+  br label %204
 
-175:                                              ; preds = %168
-  %176 = load ptr, ptr %7, align 8
-  %177 = call i32 @g_ascii_strcasecmp(ptr noundef %176, ptr noundef @.str.57)
-  %178 = icmp eq i32 %177, 0
-  br i1 %178, label %179, label %182
+183:                                              ; preds = %176
+  %184 = load ptr, ptr %7, align 8
+  %185 = call i32 @g_ascii_strcasecmp(ptr noundef %184, ptr noundef @.str.57)
+  %186 = icmp eq i32 %185, 0
+  br i1 %186, label %187, label %190
 
-179:                                              ; preds = %175
-  %180 = load ptr, ptr %8, align 8
-  %181 = getelementptr inbounds %struct._iface_toolbar_control, ptr %180, i32 0, i32 2
-  store i32 3, ptr %181, align 8
-  br label %195
+187:                                              ; preds = %183
+  %188 = load ptr, ptr %8, align 8
+  %189 = getelementptr inbounds %struct._iface_toolbar_control, ptr %188, i32 0, i32 2
+  store i32 3, ptr %189, align 8
+  br label %203
 
-182:                                              ; preds = %175
-  %183 = load ptr, ptr %7, align 8
-  %184 = call i32 @g_ascii_strcasecmp(ptr noundef %183, ptr noundef @.str.58)
-  %185 = icmp eq i32 %184, 0
-  br i1 %185, label %186, label %189
+190:                                              ; preds = %183
+  %191 = load ptr, ptr %7, align 8
+  %192 = call i32 @g_ascii_strcasecmp(ptr noundef %191, ptr noundef @.str.58)
+  %193 = icmp eq i32 %192, 0
+  br i1 %193, label %194, label %197
 
-186:                                              ; preds = %182
-  %187 = load ptr, ptr %8, align 8
-  %188 = getelementptr inbounds %struct._iface_toolbar_control, ptr %187, i32 0, i32 2
-  store i32 4, ptr %188, align 8
-  br label %194
+194:                                              ; preds = %190
+  %195 = load ptr, ptr %8, align 8
+  %196 = getelementptr inbounds %struct._iface_toolbar_control, ptr %195, i32 0, i32 2
+  store i32 4, ptr %196, align 8
+  br label %202
 
-189:                                              ; preds = %182
-  %190 = load ptr, ptr %7, align 8
-  %191 = call i32 (ptr, ...) @printf(ptr noundef @.str.59, ptr noundef %190)
-  %192 = load ptr, ptr %8, align 8
-  %193 = getelementptr inbounds %struct._iface_toolbar_control, ptr %192, i32 0, i32 2
-  store i32 0, ptr %193, align 8
-  br label %194
+197:                                              ; preds = %190
+  %198 = load ptr, ptr %7, align 8
+  %199 = call i32 (ptr, ...) @printf(ptr noundef @.str.59, ptr noundef %198)
+  %200 = load ptr, ptr %8, align 8
+  %201 = getelementptr inbounds %struct._iface_toolbar_control, ptr %200, i32 0, i32 2
+  store i32 0, ptr %201, align 8
+  br label %202
 
-194:                                              ; preds = %189, %186
-  br label %195
+202:                                              ; preds = %197, %194
+  br label %203
 
-195:                                              ; preds = %194, %179
-  br label %196
+203:                                              ; preds = %202, %187
+  br label %204
 
-196:                                              ; preds = %195, %172
-  br label %197
+204:                                              ; preds = %203, %180
+  br label %205
 
-197:                                              ; preds = %196, %165
-  br label %201
+205:                                              ; preds = %204, %173
+  br label %209
 
-198:                                              ; preds = %154
-  %199 = load ptr, ptr %8, align 8
-  %200 = getelementptr inbounds %struct._iface_toolbar_control, ptr %199, i32 0, i32 2
-  store i32 1, ptr %200, align 8
-  br label %201
+206:                                              ; preds = %161
+  %207 = load ptr, ptr %8, align 8
+  %208 = getelementptr inbounds %struct._iface_toolbar_control, ptr %207, i32 0, i32 2
+  store i32 1, ptr %208, align 8
+  br label %209
 
-201:                                              ; preds = %198, %197
-  %202 = load ptr, ptr %5, align 8
-  %203 = getelementptr inbounds %struct._extcap_token_sentence, ptr %202, i32 0, i32 1
-  %204 = load ptr, ptr %203, align 8
-  %205 = call ptr @g_hash_table_lookup(ptr noundef %204, ptr noundef inttoptr (i64 6 to ptr))
-  store ptr %205, ptr %7, align 8
-  %206 = load ptr, ptr %7, align 8
-  %207 = icmp ne ptr %206, null
-  br i1 %207, label %208, label %243
-
-208:                                              ; preds = %201
-  %209 = load i32, ptr %12, align 4
-  %210 = icmp ne i32 %209, 0
-  br i1 %210, label %211, label %242
-
-211:                                              ; preds = %208
-  %212 = load i32, ptr %12, align 4
-  %213 = load ptr, ptr %7, align 8
-  %214 = call ptr @extcap_parse_complex(i32 noundef %212, ptr noundef %213)
-  store ptr %214, ptr %13, align 8
-  %215 = load ptr, ptr %13, align 8
+209:                                              ; preds = %206, %205
+  %210 = load ptr, ptr %5, align 8
+  %211 = getelementptr inbounds %struct._extcap_token_sentence, ptr %210, i32 0, i32 1
+  %212 = load ptr, ptr %211, align 8
+  %213 = inttoptr i64 6 to ptr
+  %214 = call ptr @g_hash_table_lookup(ptr noundef %212, ptr noundef %213)
+  store ptr %214, ptr %7, align 8
+  %215 = load ptr, ptr %7, align 8
   %216 = icmp ne ptr %215, null
-  br i1 %216, label %217, label %238
+  br i1 %216, label %217, label %252
 
-217:                                              ; preds = %211
+217:                                              ; preds = %209
   %218 = load i32, ptr %12, align 4
-  %219 = icmp eq i32 %218, 5
-  br i1 %219, label %220, label %225
+  %219 = icmp ne i32 %218, 0
+  br i1 %219, label %220, label %251
 
 220:                                              ; preds = %217
-  %221 = load ptr, ptr %13, align 8
-  %222 = call i32 @extcap_complex_get_bool(ptr noundef %221)
-  %223 = load ptr, ptr %8, align 8
-  %224 = getelementptr inbounds %struct._iface_toolbar_control, ptr %223, i32 0, i32 8
-  store i32 %222, ptr %224, align 8
-  br label %236
+  %221 = load i32, ptr %12, align 4
+  %222 = load ptr, ptr %7, align 8
+  %223 = call ptr @extcap_parse_complex(i32 noundef %221, ptr noundef %222)
+  store ptr %223, ptr %13, align 8
+  %224 = load ptr, ptr %13, align 8
+  %225 = icmp ne ptr %224, null
+  br i1 %225, label %226, label %247
 
-225:                                              ; preds = %217
-  %226 = load i32, ptr %12, align 4
-  %227 = icmp eq i32 %226, 7
-  br i1 %227, label %228, label %235
+226:                                              ; preds = %220
+  %227 = load i32, ptr %12, align 4
+  %228 = icmp eq i32 %227, 5
+  br i1 %228, label %229, label %234
 
-228:                                              ; preds = %225
-  %229 = load ptr, ptr %13, align 8
-  %230 = getelementptr inbounds %struct._extcap_complex, ptr %229, i32 0, i32 1
-  %231 = load ptr, ptr %230, align 8
-  %232 = call noalias ptr @g_strdup(ptr noundef %231)
-  %233 = load ptr, ptr %8, align 8
-  %234 = getelementptr inbounds %struct._iface_toolbar_control, ptr %233, i32 0, i32 8
-  store ptr %232, ptr %234, align 8
-  br label %235
+229:                                              ; preds = %226
+  %230 = load ptr, ptr %13, align 8
+  %231 = call i32 @extcap_complex_get_bool(ptr noundef %230)
+  %232 = load ptr, ptr %8, align 8
+  %233 = getelementptr inbounds %struct._iface_toolbar_control, ptr %232, i32 0, i32 8
+  store i32 %231, ptr %233, align 8
+  br label %245
 
-235:                                              ; preds = %228, %225
-  br label %236
+234:                                              ; preds = %226
+  %235 = load i32, ptr %12, align 4
+  %236 = icmp eq i32 %235, 7
+  br i1 %236, label %237, label %244
 
-236:                                              ; preds = %235, %220
-  %237 = load ptr, ptr %13, align 8
-  call void @extcap_free_complex(ptr noundef %237)
-  br label %241
+237:                                              ; preds = %234
+  %238 = load ptr, ptr %13, align 8
+  %239 = getelementptr inbounds %struct._extcap_complex, ptr %238, i32 0, i32 1
+  %240 = load ptr, ptr %239, align 8
+  %241 = call noalias ptr @g_strdup(ptr noundef %240)
+  %242 = load ptr, ptr %8, align 8
+  %243 = getelementptr inbounds %struct._iface_toolbar_control, ptr %242, i32 0, i32 8
+  store ptr %241, ptr %243, align 8
+  br label %244
 
-238:                                              ; preds = %211
-  %239 = load ptr, ptr %7, align 8
-  %240 = call i32 (ptr, ...) @printf(ptr noundef @.str.49, ptr noundef %239)
-  br label %241
+244:                                              ; preds = %237, %234
+  br label %245
 
-241:                                              ; preds = %238, %236
-  br label %242
+245:                                              ; preds = %244, %229
+  %246 = load ptr, ptr %13, align 8
+  call void @extcap_free_complex(ptr noundef %246)
+  br label %250
 
-242:                                              ; preds = %241, %208
-  br label %243
+247:                                              ; preds = %220
+  %248 = load ptr, ptr %7, align 8
+  %249 = call i32 (ptr, ...) @printf(ptr noundef @.str.49, ptr noundef %248)
+  br label %250
 
-243:                                              ; preds = %242, %201
-  br label %323
+250:                                              ; preds = %247, %245
+  br label %251
 
-244:                                              ; preds = %36
-  %245 = load i32, ptr %6, align 4
-  %246 = icmp eq i32 %245, 2
-  br i1 %246, label %247, label %322
+251:                                              ; preds = %250, %217
+  br label %252
 
-247:                                              ; preds = %244
-  %248 = load ptr, ptr %5, align 8
-  %249 = getelementptr inbounds %struct._extcap_token_sentence, ptr %248, i32 0, i32 1
-  %250 = load ptr, ptr %249, align 8
-  %251 = call ptr @g_hash_table_lookup(ptr noundef %250, ptr noundef inttoptr (i64 23 to ptr))
-  store ptr %251, ptr %7, align 8
-  %252 = load ptr, ptr %7, align 8
-  %253 = icmp eq ptr %252, null
-  br i1 %253, label %254, label %256
+252:                                              ; preds = %251, %209
+  br label %336
 
-254:                                              ; preds = %247
-  %255 = call i32 (ptr, ...) @printf(ptr noundef @.str.60)
+253:                                              ; preds = %36
+  %254 = load i32, ptr %6, align 4
+  %255 = icmp eq i32 %254, 2
+  br i1 %255, label %256, label %335
+
+256:                                              ; preds = %253
+  %257 = load ptr, ptr %5, align 8
+  %258 = getelementptr inbounds %struct._extcap_token_sentence, ptr %257, i32 0, i32 1
+  %259 = load ptr, ptr %258, align 8
+  %260 = inttoptr i64 23 to ptr
+  %261 = call ptr @g_hash_table_lookup(ptr noundef %259, ptr noundef %260)
+  store ptr %261, ptr %7, align 8
+  %262 = load ptr, ptr %7, align 8
+  %263 = icmp eq ptr %262, null
+  br i1 %263, label %264, label %266
+
+264:                                              ; preds = %256
+  %265 = call i32 (ptr, ...) @printf(ptr noundef @.str.60)
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
-256:                                              ; preds = %247
-  %257 = load ptr, ptr %7, align 8
-  %258 = call zeroext i1 @ws_strtou32(ptr noundef %257, ptr noundef null, ptr noundef %11)
-  br i1 %258, label %261, label %259
+266:                                              ; preds = %256
+  %267 = load ptr, ptr %7, align 8
+  %268 = call zeroext i1 @ws_strtou32(ptr noundef %267, ptr noundef null, ptr noundef %11)
+  br i1 %268, label %271, label %269
 
-259:                                              ; preds = %256
-  %260 = load ptr, ptr %8, align 8
-  call void @extcap_free_toolbar_control(ptr noundef %260)
+269:                                              ; preds = %266
+  %270 = load ptr, ptr %8, align 8
+  call void @extcap_free_toolbar_control(ptr noundef %270)
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
-261:                                              ; preds = %256
-  %262 = load ptr, ptr %4, align 8
-  %263 = call ptr @g_list_find_custom(ptr noundef %262, ptr noundef %11, ptr noundef @glist_find_numbered_control)
-  store ptr %263, ptr %10, align 8
-  %264 = load ptr, ptr %10, align 8
-  %265 = icmp eq ptr %264, null
-  br i1 %265, label %266, label %269
+271:                                              ; preds = %266
+  %272 = load ptr, ptr %4, align 8
+  %273 = call ptr @g_list_find_custom(ptr noundef %272, ptr noundef %11, ptr noundef @glist_find_numbered_control)
+  store ptr %273, ptr %10, align 8
+  %274 = load ptr, ptr %10, align 8
+  %275 = icmp eq ptr %274, null
+  br i1 %275, label %276, label %279
 
-266:                                              ; preds = %261
-  %267 = load i32, ptr %11, align 4
-  %268 = call i32 (ptr, ...) @printf(ptr noundef @.str.61, i32 noundef %267)
+276:                                              ; preds = %271
+  %277 = load i32, ptr %11, align 4
+  %278 = call i32 (ptr, ...) @printf(ptr noundef @.str.61, i32 noundef %277)
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
-269:                                              ; preds = %261
-  %270 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #6
-  store ptr %270, ptr %9, align 8
-  %271 = load i32, ptr %11, align 4
-  %272 = load ptr, ptr %9, align 8
-  %273 = getelementptr inbounds %struct._iface_toolbar_value, ptr %272, i32 0, i32 0
-  store i32 %271, ptr %273, align 8
-  %274 = load ptr, ptr %5, align 8
-  %275 = getelementptr inbounds %struct._extcap_token_sentence, ptr %274, i32 0, i32 1
-  %276 = load ptr, ptr %275, align 8
-  %277 = call ptr @g_hash_table_lookup(ptr noundef %276, ptr noundef inttoptr (i64 7 to ptr))
-  store ptr %277, ptr %7, align 8
-  %278 = load ptr, ptr %7, align 8
-  %279 = icmp eq ptr %278, null
-  br i1 %279, label %280, label %282
+279:                                              ; preds = %271
+  %280 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #6
+  store ptr %280, ptr %9, align 8
+  %281 = load i32, ptr %11, align 4
+  %282 = load ptr, ptr %9, align 8
+  %283 = getelementptr inbounds %struct._iface_toolbar_value, ptr %282, i32 0, i32 0
+  store i32 %281, ptr %283, align 8
+  %284 = load ptr, ptr %5, align 8
+  %285 = getelementptr inbounds %struct._extcap_token_sentence, ptr %284, i32 0, i32 1
+  %286 = load ptr, ptr %285, align 8
+  %287 = inttoptr i64 7 to ptr
+  %288 = call ptr @g_hash_table_lookup(ptr noundef %286, ptr noundef %287)
+  store ptr %288, ptr %7, align 8
+  %289 = load ptr, ptr %7, align 8
+  %290 = icmp eq ptr %289, null
+  br i1 %290, label %291, label %293
 
-280:                                              ; preds = %269
-  %281 = load ptr, ptr %9, align 8
-  call void @extcap_free_toolbar_value(ptr noundef %281)
+291:                                              ; preds = %279
+  %292 = load ptr, ptr %9, align 8
+  call void @extcap_free_toolbar_value(ptr noundef %292)
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
-282:                                              ; preds = %269
-  %283 = load ptr, ptr %7, align 8
-  %284 = call noalias ptr @g_strdup(ptr noundef %283)
-  %285 = load ptr, ptr %9, align 8
-  %286 = getelementptr inbounds %struct._iface_toolbar_value, ptr %285, i32 0, i32 1
-  store ptr %284, ptr %286, align 8
-  %287 = load ptr, ptr %5, align 8
-  %288 = getelementptr inbounds %struct._extcap_token_sentence, ptr %287, i32 0, i32 1
-  %289 = load ptr, ptr %288, align 8
-  %290 = call ptr @g_hash_table_lookup(ptr noundef %289, ptr noundef inttoptr (i64 3 to ptr))
-  store ptr %290, ptr %7, align 8
-  %291 = load ptr, ptr %7, align 8
-  %292 = icmp eq ptr %291, null
-  br i1 %292, label %293, label %295
+293:                                              ; preds = %279
+  %294 = load ptr, ptr %7, align 8
+  %295 = call noalias ptr @g_strdup(ptr noundef %294)
+  %296 = load ptr, ptr %9, align 8
+  %297 = getelementptr inbounds %struct._iface_toolbar_value, ptr %296, i32 0, i32 1
+  store ptr %295, ptr %297, align 8
+  %298 = load ptr, ptr %5, align 8
+  %299 = getelementptr inbounds %struct._extcap_token_sentence, ptr %298, i32 0, i32 1
+  %300 = load ptr, ptr %299, align 8
+  %301 = inttoptr i64 3 to ptr
+  %302 = call ptr @g_hash_table_lookup(ptr noundef %300, ptr noundef %301)
+  store ptr %302, ptr %7, align 8
+  %303 = load ptr, ptr %7, align 8
+  %304 = icmp eq ptr %303, null
+  br i1 %304, label %305, label %307
 
-293:                                              ; preds = %282
-  %294 = load ptr, ptr %9, align 8
-  call void @extcap_free_toolbar_value(ptr noundef %294)
+305:                                              ; preds = %293
+  %306 = load ptr, ptr %9, align 8
+  call void @extcap_free_toolbar_value(ptr noundef %306)
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
-295:                                              ; preds = %282
-  %296 = load ptr, ptr %7, align 8
-  %297 = call noalias ptr @g_strdup(ptr noundef %296)
-  %298 = load ptr, ptr %9, align 8
-  %299 = getelementptr inbounds %struct._iface_toolbar_value, ptr %298, i32 0, i32 2
-  store ptr %297, ptr %299, align 8
-  %300 = load ptr, ptr %5, align 8
-  %301 = getelementptr inbounds %struct._extcap_token_sentence, ptr %300, i32 0, i32 1
-  %302 = load ptr, ptr %301, align 8
-  %303 = call ptr @g_hash_table_lookup(ptr noundef %302, ptr noundef inttoptr (i64 6 to ptr))
-  store ptr %303, ptr %7, align 8
-  %304 = load ptr, ptr %7, align 8
-  %305 = icmp ne ptr %304, null
-  br i1 %305, label %306, label %311
-
-306:                                              ; preds = %295
-  %307 = load ptr, ptr %7, align 8
-  %308 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %307)
-  %309 = load ptr, ptr %9, align 8
-  %310 = getelementptr inbounds %struct._iface_toolbar_value, ptr %309, i32 0, i32 3
-  store i32 %308, ptr %310, align 8
-  br label %311
-
-311:                                              ; preds = %306, %295
-  %312 = load ptr, ptr %10, align 8
-  %313 = getelementptr inbounds %struct._GList, ptr %312, i32 0, i32 0
+307:                                              ; preds = %293
+  %308 = load ptr, ptr %7, align 8
+  %309 = call noalias ptr @g_strdup(ptr noundef %308)
+  %310 = load ptr, ptr %9, align 8
+  %311 = getelementptr inbounds %struct._iface_toolbar_value, ptr %310, i32 0, i32 2
+  store ptr %309, ptr %311, align 8
+  %312 = load ptr, ptr %5, align 8
+  %313 = getelementptr inbounds %struct._extcap_token_sentence, ptr %312, i32 0, i32 1
   %314 = load ptr, ptr %313, align 8
-  store ptr %314, ptr %8, align 8
-  %315 = load ptr, ptr %8, align 8
-  %316 = getelementptr inbounds %struct._iface_toolbar_control, ptr %315, i32 0, i32 9
-  %317 = load ptr, ptr %316, align 8
-  %318 = load ptr, ptr %9, align 8
-  %319 = call ptr @g_list_append(ptr noundef %317, ptr noundef %318)
-  %320 = load ptr, ptr %8, align 8
-  %321 = getelementptr inbounds %struct._iface_toolbar_control, ptr %320, i32 0, i32 9
-  store ptr %319, ptr %321, align 8
+  %315 = inttoptr i64 6 to ptr
+  %316 = call ptr @g_hash_table_lookup(ptr noundef %314, ptr noundef %315)
+  store ptr %316, ptr %7, align 8
+  %317 = load ptr, ptr %7, align 8
+  %318 = icmp ne ptr %317, null
+  br i1 %318, label %319, label %324
+
+319:                                              ; preds = %307
+  %320 = load ptr, ptr %7, align 8
+  %321 = call i32 @matches_regex(ptr noundef @.str.1, ptr noundef %320)
+  %322 = load ptr, ptr %9, align 8
+  %323 = getelementptr inbounds %struct._iface_toolbar_value, ptr %322, i32 0, i32 3
+  store i32 %321, ptr %323, align 8
+  br label %324
+
+324:                                              ; preds = %319, %307
+  %325 = load ptr, ptr %10, align 8
+  %326 = getelementptr inbounds %struct._GList, ptr %325, i32 0, i32 0
+  %327 = load ptr, ptr %326, align 8
+  store ptr %327, ptr %8, align 8
+  %328 = load ptr, ptr %8, align 8
+  %329 = getelementptr inbounds %struct._iface_toolbar_control, ptr %328, i32 0, i32 9
+  %330 = load ptr, ptr %329, align 8
+  %331 = load ptr, ptr %9, align 8
+  %332 = call ptr @g_list_append(ptr noundef %330, ptr noundef %331)
+  %333 = load ptr, ptr %8, align 8
+  %334 = getelementptr inbounds %struct._iface_toolbar_control, ptr %333, i32 0, i32 9
+  store ptr %332, ptr %334, align 8
   store ptr null, ptr %3, align 8
-  br label %325
+  br label %338
 
-322:                                              ; preds = %244
-  br label %323
+335:                                              ; preds = %253
+  br label %336
 
-323:                                              ; preds = %322, %243
-  %324 = load ptr, ptr %8, align 8
-  store ptr %324, ptr %3, align 8
-  br label %325
+336:                                              ; preds = %335, %252
+  %337 = load ptr, ptr %8, align 8
+  store ptr %337, ptr %3, align 8
+  br label %338
 
-325:                                              ; preds = %323, %311, %293, %280, %266, %259, %254, %147, %117, %66, %54, %49, %35, %16
-  %326 = load ptr, ptr %3, align 8
-  ret ptr %326
+338:                                              ; preds = %336, %324, %305, %291, %276, %269, %264, %154, %124, %68, %55, %50, %35, %16
+  %339 = load ptr, ptr %3, align 8
+  ret ptr %339
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2749,7 +2787,7 @@ define internal ptr @extcap_parse_dlt_sentence(ptr noundef %0) #0 {
 9:                                                ; preds = %1
   %10 = load ptr, ptr %6, align 8
   store ptr %10, ptr %2, align 8
-  br label %79
+  br label %82
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %3, align 8
@@ -2771,7 +2809,7 @@ define internal ptr @extcap_parse_dlt_sentence(ptr noundef %0) #0 {
 21:                                               ; preds = %18
   %22 = load ptr, ptr %6, align 8
   store ptr %22, ptr %2, align 8
-  br label %79
+  br label %82
 
 23:                                               ; preds = %18
   %24 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #6
@@ -2788,87 +2826,90 @@ define internal ptr @extcap_parse_dlt_sentence(ptr noundef %0) #0 {
   %31 = load ptr, ptr %3, align 8
   %32 = getelementptr inbounds %struct._extcap_token_sentence, ptr %31, i32 0, i32 1
   %33 = load ptr, ptr %32, align 8
-  %34 = call ptr @g_hash_table_lookup(ptr noundef %33, ptr noundef inttoptr (i64 1 to ptr))
-  store ptr %34, ptr %4, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %39
+  %34 = inttoptr i64 1 to ptr
+  %35 = call ptr @g_hash_table_lookup(ptr noundef %33, ptr noundef %34)
+  store ptr %35, ptr %4, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %23
-  %37 = call i32 (ptr, ...) @printf(ptr noundef @.str.63)
-  %38 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %38)
+37:                                               ; preds = %23
+  %38 = call i32 (ptr, ...) @printf(ptr noundef @.str.63)
+  %39 = load ptr, ptr %6, align 8
+  call void @g_free(ptr noundef %39)
   store ptr null, ptr %2, align 8
-  br label %79
+  br label %82
 
-39:                                               ; preds = %23
-  %40 = load ptr, ptr %4, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct._extcap_dlt, ptr %41, i32 0, i32 0
-  %43 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %40, ptr noundef @.str.31, ptr noundef %42) #7
-  %44 = icmp ne i32 %43, 1
-  br i1 %44, label %45, label %48
+40:                                               ; preds = %23
+  %41 = load ptr, ptr %4, align 8
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds %struct._extcap_dlt, ptr %42, i32 0, i32 0
+  %44 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %41, ptr noundef @.str.31, ptr noundef %43) #7
+  %45 = icmp ne i32 %44, 1
+  br i1 %45, label %46, label %49
 
-45:                                               ; preds = %39
-  %46 = call i32 (ptr, ...) @printf(ptr noundef @.str.64)
-  %47 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %47)
+46:                                               ; preds = %40
+  %47 = call i32 (ptr, ...) @printf(ptr noundef @.str.64)
+  %48 = load ptr, ptr %6, align 8
+  call void @g_free(ptr noundef %48)
   store ptr null, ptr %2, align 8
-  br label %79
+  br label %82
 
-48:                                               ; preds = %39
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct._extcap_token_sentence, ptr %49, i32 0, i32 1
-  %51 = load ptr, ptr %50, align 8
-  %52 = call ptr @g_hash_table_lookup(ptr noundef %51, ptr noundef inttoptr (i64 11 to ptr))
-  store ptr %52, ptr %4, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %57
+49:                                               ; preds = %40
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds %struct._extcap_token_sentence, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8
+  %53 = inttoptr i64 11 to ptr
+  %54 = call ptr @g_hash_table_lookup(ptr noundef %52, ptr noundef %53)
+  store ptr %54, ptr %4, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %59
 
-54:                                               ; preds = %48
-  %55 = call i32 (ptr, ...) @printf(ptr noundef @.str.65)
-  %56 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %56)
+56:                                               ; preds = %49
+  %57 = call i32 (ptr, ...) @printf(ptr noundef @.str.65)
+  %58 = load ptr, ptr %6, align 8
+  call void @g_free(ptr noundef %58)
   store ptr null, ptr %2, align 8
-  br label %79
+  br label %82
 
-57:                                               ; preds = %48
-  %58 = load ptr, ptr %4, align 8
-  %59 = call noalias ptr @g_strdup(ptr noundef %58)
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct._extcap_dlt, ptr %60, i32 0, i32 1
-  store ptr %59, ptr %61, align 8
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct._extcap_token_sentence, ptr %62, i32 0, i32 1
-  %64 = load ptr, ptr %63, align 8
-  %65 = call ptr @g_hash_table_lookup(ptr noundef %64, ptr noundef inttoptr (i64 3 to ptr))
-  store ptr %65, ptr %4, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %67, label %73
+59:                                               ; preds = %49
+  %60 = load ptr, ptr %4, align 8
+  %61 = call noalias ptr @g_strdup(ptr noundef %60)
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr inbounds %struct._extcap_dlt, ptr %62, i32 0, i32 1
+  store ptr %61, ptr %63, align 8
+  %64 = load ptr, ptr %3, align 8
+  %65 = getelementptr inbounds %struct._extcap_token_sentence, ptr %64, i32 0, i32 1
+  %66 = load ptr, ptr %65, align 8
+  %67 = inttoptr i64 3 to ptr
+  %68 = call ptr @g_hash_table_lookup(ptr noundef %66, ptr noundef %67)
+  store ptr %68, ptr %4, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %70, label %76
 
-67:                                               ; preds = %57
-  %68 = call i32 (ptr, ...) @printf(ptr noundef @.str.66)
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct._extcap_dlt, ptr %69, i32 0, i32 1
-  %71 = load ptr, ptr %70, align 8
-  call void @g_free(ptr noundef %71)
+70:                                               ; preds = %59
+  %71 = call i32 (ptr, ...) @printf(ptr noundef @.str.66)
   %72 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %72)
+  %73 = getelementptr inbounds %struct._extcap_dlt, ptr %72, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8
+  call void @g_free(ptr noundef %74)
+  %75 = load ptr, ptr %6, align 8
+  call void @g_free(ptr noundef %75)
   store ptr null, ptr %2, align 8
-  br label %79
+  br label %82
 
-73:                                               ; preds = %57
-  %74 = load ptr, ptr %4, align 8
-  %75 = call noalias ptr @g_strdup(ptr noundef %74)
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct._extcap_dlt, ptr %76, i32 0, i32 2
-  store ptr %75, ptr %77, align 8
-  %78 = load ptr, ptr %6, align 8
-  store ptr %78, ptr %2, align 8
-  br label %79
+76:                                               ; preds = %59
+  %77 = load ptr, ptr %4, align 8
+  %78 = call noalias ptr @g_strdup(ptr noundef %77)
+  %79 = load ptr, ptr %6, align 8
+  %80 = getelementptr inbounds %struct._extcap_dlt, ptr %79, i32 0, i32 2
+  store ptr %78, ptr %80, align 8
+  %81 = load ptr, ptr %6, align 8
+  store ptr %81, ptr %2, align 8
+  br label %82
 
-79:                                               ; preds = %73, %67, %54, %45, %36, %21, %9
-  %80 = load ptr, ptr %2, align 8
-  ret ptr %80
+82:                                               ; preds = %76, %70, %56, %46, %37, %21, %9
+  %83 = load ptr, ptr %2, align 8
+  ret ptr %83
 }
 
 declare i32 @g_utf8_validate(ptr noundef, i64 noundef, ptr noundef) #1

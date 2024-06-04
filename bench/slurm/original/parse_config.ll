@@ -3420,7 +3420,7 @@ define internal i32 @_parse_include_directive(ptr noundef %0, ptr noundef %1, pt
   %25 = load ptr, ptr %11, align 8
   %26 = call i32 @xstrncasecmp(ptr noundef @.str.39, ptr noundef %25, i64 noundef 7)
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %156
+  br i1 %27, label %28, label %157
 
 28:                                               ; preds = %7
   %29 = load ptr, ptr %11, align 8
@@ -3441,7 +3441,7 @@ define internal i32 @_parse_include_directive(ptr noundef %0, ptr noundef %1, pt
 
 42:                                               ; preds = %28
   store i32 0, ptr %8, align 4
-  br label %157
+  br label %158
 
 43:                                               ; preds = %28
   br label %44
@@ -3516,7 +3516,7 @@ define internal i32 @_parse_include_directive(ptr noundef %0, ptr noundef %1, pt
 
 92:                                               ; preds = %77
   store i32 -1, ptr %8, align 4
-  br label %157
+  br label %158
 
 93:                                               ; preds = %77
   %94 = load ptr, ptr %19, align 8
@@ -3561,78 +3561,79 @@ define internal i32 @_parse_include_directive(ptr noundef %0, ptr noundef %1, pt
   %120 = load ptr, ptr %19, align 8
   %121 = call ptr @xstrstr(ptr noundef %120, ptr noundef @.str.41)
   %122 = icmp ne ptr %121, null
-  br i1 %122, label %123, label %135
+  br i1 %122, label %123, label %136
 
 123:                                              ; preds = %119
   %124 = load ptr, ptr %15, align 8
   %125 = call i32 @xstrcasecmp(ptr noundef %124, ptr noundef @.str.42)
   %126 = icmp ne i32 %125, 0
-  br i1 %126, label %127, label %131
+  br i1 %126, label %127, label %132
 
 127:                                              ; preds = %123
-  %128 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %129 = and i64 %128, 8388608
-  %130 = icmp ne i64 %129, 0
-  br i1 %130, label %135, label %131
+  %128 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %129 = load i64, ptr %128, align 8
+  %130 = and i64 %129, 8388608
+  %131 = icmp ne i64 %130, 0
+  br i1 %131, label %136, label %132
 
-131:                                              ; preds = %127, %123
-  %132 = load ptr, ptr %20, align 8
-  %133 = load ptr, ptr %15, align 8
-  %134 = call i32 (ptr, ...) @error(ptr noundef @.str.43, ptr noundef %132, ptr noundef %133)
+132:                                              ; preds = %127, %123
+  %133 = load ptr, ptr %20, align 8
+  %134 = load ptr, ptr %15, align 8
+  %135 = call i32 (ptr, ...) @error(ptr noundef @.str.43, ptr noundef %133, ptr noundef %134)
   call void @slurm_xfree(ptr noundef %20)
   call void @slurm_xfree(ptr noundef %19)
   store i32 -1, ptr %8, align 4
-  br label %157
+  br label %158
 
-135:                                              ; preds = %127, %119
-  %136 = load ptr, ptr %9, align 8
-  %137 = load ptr, ptr %10, align 8
-  %138 = load ptr, ptr %20, align 8
-  %139 = load i32, ptr %13, align 4
-  %140 = load ptr, ptr %15, align 8
-  %141 = call i32 @s_p_parse_file(ptr noundef %136, ptr noundef %137, ptr noundef %138, i32 noundef %139, ptr noundef %140)
-  store i32 %141, ptr %22, align 4
-  br label %142
+136:                                              ; preds = %127, %119
+  %137 = load ptr, ptr %9, align 8
+  %138 = load ptr, ptr %10, align 8
+  %139 = load ptr, ptr %20, align 8
+  %140 = load i32, ptr %13, align 4
+  %141 = load ptr, ptr %15, align 8
+  %142 = call i32 @s_p_parse_file(ptr noundef %137, ptr noundef %138, ptr noundef %139, i32 noundef %140, ptr noundef %141)
+  store i32 %142, ptr %22, align 4
+  br label %143
 
-142:                                              ; preds = %135
+143:                                              ; preds = %136
   call void @slurm_xfree(ptr noundef %20)
-  %143 = load i32, ptr %22, align 4
-  %144 = icmp eq i32 %143, 0
-  br i1 %144, label %145, label %155
+  %144 = load i32, ptr %22, align 4
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %146, label %156
 
-145:                                              ; preds = %142
-  %146 = load ptr, ptr %19, align 8
-  %147 = call ptr @xstrstr(ptr noundef %146, ptr noundef @.str.44)
-  %148 = icmp ne ptr %147, null
-  br i1 %148, label %154, label %149
+146:                                              ; preds = %143
+  %147 = load ptr, ptr %19, align 8
+  %148 = call ptr @xstrstr(ptr noundef %147, ptr noundef @.str.44)
+  %149 = icmp ne ptr %148, null
+  br i1 %149, label %155, label %150
 
-149:                                              ; preds = %145
-  %150 = call zeroext i1 @running_in_slurmctld()
-  br i1 %150, label %151, label %154
+150:                                              ; preds = %146
+  %151 = call zeroext i1 @running_in_slurmctld()
+  br i1 %151, label %152, label %155
 
-151:                                              ; preds = %149
-  %152 = load ptr, ptr %19, align 8
-  %153 = load ptr, ptr %15, align 8
-  call void @_handle_include(ptr noundef %152, ptr noundef %153)
-  br label %154
+152:                                              ; preds = %150
+  %153 = load ptr, ptr %19, align 8
+  %154 = load ptr, ptr %15, align 8
+  call void @_handle_include(ptr noundef %153, ptr noundef %154)
+  br label %155
 
-154:                                              ; preds = %151, %149, %145
+155:                                              ; preds = %152, %150, %146
   call void @slurm_xfree(ptr noundef %19)
   store i32 1, ptr %8, align 4
-  br label %157
+  br label %158
 
-155:                                              ; preds = %142
+156:                                              ; preds = %143
   call void @slurm_xfree(ptr noundef %19)
   store i32 -1, ptr %8, align 4
-  br label %157
+  br label %158
 
-156:                                              ; preds = %7
+157:                                              ; preds = %7
   store i32 0, ptr %8, align 4
-  br label %157
+  br label %158
 
-157:                                              ; preds = %156, %155, %154, %131, %92, %42
-  %158 = load i32, ptr %8, align 4
-  ret i32 %158
+158:                                              ; preds = %157, %156, %155, %132, %92, %42
+  %159 = load i32, ptr %8, align 4
+  ret i32 %159
 }
 
 ; Function Attrs: nounwind uwtable

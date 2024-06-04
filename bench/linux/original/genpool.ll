@@ -201,29 +201,30 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local i32 @mce_gen_pool_init() local_unnamed_addr #0 align 16 {
   %1 = load ptr, ptr @mce_evt_pool, align 8
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %3, label %11
+  br i1 %2, label %3, label %12
 
 3:                                                ; preds = %0
   %4 = tail call ptr @gen_pool_create(i32 noundef 7, i32 noundef -1) #6
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %11, label %6
+  br i1 %5, label %12, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @gen_pool_add_owner(ptr noundef nonnull %4, i64 noundef ptrtoint (ptr @gen_pool_buf to i64), i64 noundef -1, i64 noundef 8192, i32 noundef -1, ptr noundef null) #6
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %6
-  tail call void @gen_pool_destroy(ptr noundef nonnull %4) #6
-  br label %11
+  %7 = ptrtoint ptr @gen_pool_buf to i64
+  %8 = tail call i32 @gen_pool_add_owner(ptr noundef nonnull %4, i64 noundef %7, i64 noundef -1, i64 noundef 8192, i32 noundef -1, ptr noundef null) #6
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6
-  store ptr %4, ptr @mce_evt_pool, align 8
-  br label %11
+  tail call void @gen_pool_destroy(ptr noundef nonnull %4) #6
+  br label %12
 
-11:                                               ; preds = %10, %9, %3, %0
-  %12 = phi i32 [ 0, %0 ], [ %7, %9 ], [ 0, %10 ], [ -12, %3 ]
-  ret i32 %12
+11:                                               ; preds = %6
+  store ptr %4, ptr @mce_evt_pool, align 8
+  br label %12
+
+12:                                               ; preds = %11, %10, %3, %0
+  %13 = phi i32 [ 0, %0 ], [ %8, %10 ], [ 0, %11 ], [ -12, %3 ]
+  ret i32 %13
 }
 
 ; Function Attrs: null_pointer_is_valid

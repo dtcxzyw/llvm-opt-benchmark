@@ -2352,7 +2352,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN4cvc58internal6theory5arith6linear13TempVarMallocD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedureE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedureE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %d_scores = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FCSimplexDecisionProcedure", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal13DenseMultisetC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %d_scores)
           to label %invoke.cont5 unwind label %lpad4
@@ -2361,8 +2362,8 @@ invoke.cont5:                                     ; preds = %invoke.cont
   %d_focusSize = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FCSimplexDecisionProcedure", ptr %this1, i32 0, i32 2
   store i32 0, ptr %d_focusSize, align 8
   %d_focusErrorVar = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FCSimplexDecisionProcedure", ptr %this1, i32 0, i32 3
-  %4 = load i32, ptr @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, align 4
-  store i32 %4, ptr %d_focusErrorVar, align 4
+  %5 = load i32, ptr @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, align 4
+  store i32 %5, ptr %d_focusErrorVar, align 4
   %d_focusCoefficients = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FCSimplexDecisionProcedure", ptr %this1, i32 0, i32 4
   invoke void @_ZN4cvc58internal8DenseMapIPKNS0_8RationalEEC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %d_focusCoefficients)
           to label %invoke.cont7 unwind label %lpad6
@@ -2402,67 +2403,67 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory5arith6linear13TempVarMallocD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2) #3
   br label %eh.resume
 
 lpad4:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup21
 
 lpad6:                                            ; preds = %invoke.cont5
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup20
 
 lpad8:                                            ; preds = %invoke.cont7
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup19
 
 lpad10:                                           ; preds = %invoke.cont9
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   br label %ehcleanup17
 
 lpad13:                                           ; preds = %invoke.cont11
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad15:                                           ; preds = %invoke.cont14
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
@@ -2508,12 +2509,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN4cvc58internal6theory5arith6linear14ArithVarMallocC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear13TempVarMallocE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear13TempVarMallocE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %d_ta = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TempVarMalloc", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %d_ta2 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TempVarMalloc", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %d_ta2, align 8
-  store ptr %3, ptr %d_ta, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %d_ta2 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::TempVarMalloc", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %d_ta2, align 8
+  store ptr %4, ptr %d_ta, align 8
   ret void
 }
 
@@ -11955,7 +11957,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedureE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedureE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_statistics = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FCSimplexDecisionProcedure", ptr %this1, i32 0, i32 10
   call void @_ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure10StatisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %d_statistics) #3
   %d_sgnDisagreements = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::FCSimplexDecisionProcedure", ptr %this1, i32 0, i32 9
@@ -12148,7 +12151,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear14ArithVarMallocE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear14ArithVarMallocE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -17518,7 +17522,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17540,7 +17545,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22380,7 +22386,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal18StatisticBaseValueC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal23StatisticReferenceValueIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal23StatisticReferenceValueIjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_value = getelementptr inbounds %"struct.cvc5::internal::StatisticReferenceValue", ptr %this1, i32 0, i32 1
   store ptr null, ptr %d_value, align 8
   %d_committed = getelementptr inbounds %"struct.cvc5::internal::StatisticReferenceValue", ptr %this1, i32 0, i32 2
@@ -22418,7 +22425,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal18StatisticBaseValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal18StatisticBaseValueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_internal = getelementptr inbounds %"struct.cvc5::internal::StatisticBaseValue", ptr %this1, i32 0, i32 1
   store i8 1, ptr %d_internal, align 8
   ret void

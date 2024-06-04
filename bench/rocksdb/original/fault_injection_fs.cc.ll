@@ -3455,30 +3455,31 @@ entry:
   store ptr %fs, ptr %fs.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb14FSWritableFileC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb18TestFSWritableFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN7rocksdb18TestFSWritableFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %state_ = getelementptr inbounds %"class.rocksdb::TestFSWritableFile", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fname.addr, align 8
-  invoke void @_ZN7rocksdb11FSFileStateC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %state_, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %fname.addr, align 8
+  invoke void @_ZN7rocksdb11FSFileStateC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %state_, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %file_opts_ = getelementptr inbounds %"class.rocksdb::TestFSWritableFile", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %file_opts.addr, align 8
-  invoke void @_ZN7rocksdb11FileOptionsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(146) %file_opts_, ptr noundef nonnull align 8 dereferenceable(146) %1)
+  %2 = load ptr, ptr %file_opts.addr, align 8
+  invoke void @_ZN7rocksdb11FileOptionsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(146) %file_opts_, ptr noundef nonnull align 8 dereferenceable(146) %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %target_ = getelementptr inbounds %"class.rocksdb::TestFSWritableFile", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %f.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %target_, ptr noundef nonnull align 8 dereferenceable(8) %2) #3
+  %3 = load ptr, ptr %f.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %target_, ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   %writable_file_opened_ = getelementptr inbounds %"class.rocksdb::TestFSWritableFile", ptr %this1, i32 0, i32 4
   store i8 1, ptr %writable_file_opened_, align 8
   %fs_ = getelementptr inbounds %"class.rocksdb::TestFSWritableFile", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %fs.addr, align 8
-  store ptr %3, ptr %fs_, align 8
+  %4 = load ptr, ptr %fs.addr, align 8
+  store ptr %4, ptr %fs_, align 8
   %mutex_ = getelementptr inbounds %"class.rocksdb::TestFSWritableFile", ptr %this1, i32 0, i32 6
-  %4 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
-  %tobool = trunc i8 %4 to i1
+  %5 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
+  %tobool = trunc i8 %5 to i1
   invoke void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %mutex_, i1 noundef zeroext %tobool)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -3489,30 +3490,30 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup7
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont3
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %target_) #3
   call void @_ZN7rocksdb11FileOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(146) %file_opts_) #3
   br label %ehcleanup
@@ -3539,7 +3540,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb14FSWritableFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN7rocksdb14FSWritableFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %last_preallocated_block_ = getelementptr inbounds %"class.rocksdb::FSWritableFile", ptr %this1, i32 0, i32 1
   store i64 0, ptr %last_preallocated_block_, align 8
   %preallocation_block_size_ = getelementptr inbounds %"class.rocksdb::FSWritableFile", ptr %this1, i32 0, i32 2
@@ -3689,10 +3691,11 @@ entry:
   %ref.tmp2 = alloca %"struct.rocksdb::IOOptions", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb18TestFSWritableFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN7rocksdb18TestFSWritableFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %writable_file_opened_ = getelementptr inbounds %"class.rocksdb::TestFSWritableFile", ptr %this1, i32 0, i32 4
-  %0 = load i8, ptr %writable_file_opened_, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %writable_file_opened_, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -3702,8 +3705,8 @@ if.then:                                          ; preds = %entry
 invoke.cont:                                      ; preds = %if.then
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
-  %1 = load ptr, ptr %vfn, align 8
-  invoke void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(344) %this1, ptr noundef nonnull align 8 dereferenceable(83) %ref.tmp2, ptr noundef null)
+  %2 = load ptr, ptr %vfn, align 8
+  invoke void %2(ptr sret(%"class.rocksdb::IOStatus") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(344) %this1, ptr noundef nonnull align 8 dereferenceable(83) %ref.tmp2, ptr noundef null)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -3728,10 +3731,10 @@ if.end:                                           ; preds = %invoke.cont4, %entr
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont3, %invoke.cont, %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #16
   unreachable
 }
 
@@ -6277,15 +6280,16 @@ entry:
   store ptr %fs, ptr %fs.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb14FSRandomRWFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb18TestFSRandomRWFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN7rocksdb18TestFSRandomRWFileE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::TestFSRandomRWFile", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %f.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb14FSRandomRWFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %target_, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  %2 = load ptr, ptr %f.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb14FSRandomRWFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %target_, ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   %file_opened_ = getelementptr inbounds %"class.rocksdb::TestFSRandomRWFile", ptr %this1, i32 0, i32 2
   store i8 1, ptr %file_opened_, align 8
   %fs_ = getelementptr inbounds %"class.rocksdb::TestFSRandomRWFile", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %fs.addr, align 8
-  store ptr %2, ptr %fs_, align 8
+  %3 = load ptr, ptr %fs.addr, align 8
+  store ptr %3, ptr %fs_, align 8
   ret void
 }
 
@@ -6295,7 +6299,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb14FSRandomRWFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN7rocksdb14FSRandomRWFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6322,10 +6327,11 @@ entry:
   %ref.tmp2 = alloca %"struct.rocksdb::IOOptions", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb18TestFSRandomRWFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN7rocksdb18TestFSRandomRWFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %file_opened_ = getelementptr inbounds %"class.rocksdb::TestFSRandomRWFile", ptr %this1, i32 0, i32 2
-  %0 = load i8, ptr %file_opened_, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %file_opened_, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -6335,8 +6341,8 @@ if.then:                                          ; preds = %entry
 invoke.cont:                                      ; preds = %if.then
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
-  %1 = load ptr, ptr %vfn, align 8
-  invoke void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(83) %ref.tmp2, ptr noundef null)
+  %2 = load ptr, ptr %vfn, align 8
+  invoke void %2(ptr sret(%"class.rocksdb::IOStatus") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(83) %ref.tmp2, ptr noundef null)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -6355,10 +6361,10 @@ if.end:                                           ; preds = %invoke.cont4, %entr
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont3, %invoke.cont, %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #16
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #16
   unreachable
 }
 
@@ -6644,13 +6650,14 @@ entry:
   store ptr %fs, ptr %fs.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb18FSRandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb22TestFSRandomAccessFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN7rocksdb22TestFSRandomAccessFileE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::TestFSRandomAccessFile", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %f.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %target_, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  %2 = load ptr, ptr %f.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %target_, ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   %fs_ = getelementptr inbounds %"class.rocksdb::TestFSRandomAccessFile", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %fs.addr, align 8
-  store ptr %2, ptr %fs_, align 8
+  %3 = load ptr, ptr %fs.addr, align 8
+  store ptr %3, ptr %fs_, align 8
   ret void
 }
 
@@ -6660,7 +6667,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb18FSRandomAccessFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN7rocksdb18FSRandomAccessFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8312,27 +8320,28 @@ entry:
   store ptr %dir, ptr %dir.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb11FSDirectoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb15TestFSDirectoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7rocksdb15TestFSDirectoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fs_ = getelementptr inbounds %"class.rocksdb::TestFSDirectory", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fs.addr, align 8
-  store ptr %0, ptr %fs_, align 8
+  %1 = load ptr, ptr %fs.addr, align 8
+  store ptr %1, ptr %fs_, align 8
   %dirname_ = getelementptr inbounds %"class.rocksdb::TestFSDirectory", ptr %this1, i32 0, i32 2
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %dirname_, ptr noundef nonnull align 8 dereferenceable(32) %dirname)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %dir_ = getelementptr inbounds %"class.rocksdb::TestFSDirectory", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %dir.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %dir_, ptr noundef %1) #3
+  %2 = load ptr, ptr %dir.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %dir_, ptr noundef %2) #3
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb11FSDirectoryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -10031,10 +10040,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %f.addr, align 8
   call void @_ZN7rocksdb28FSSequentialFileOwnerWrapperC2EOSt10unique_ptrINS_16FSSequentialFileESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb20TestFSSequentialFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb20TestFSSequentialFileE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fs_ = getelementptr inbounds %"class.rocksdb::TestFSSequentialFile", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %fs.addr, align 8
-  store ptr %1, ptr %fs_, align 8
+  %2 = load ptr, ptr %fs.addr, align 8
+  store ptr %2, ptr %fs_, align 8
   ret void
 }
 
@@ -12774,7 +12784,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb22TestFSRandomAccessFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN7rocksdb22TestFSRandomAccessFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::TestFSRandomAccessFile", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %target_) #3
   call void @_ZN7rocksdb18FSRandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -12997,7 +13008,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb15TestFSDirectoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7rocksdb15TestFSDirectoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dir_ = getelementptr inbounds %"class.rocksdb::TestFSDirectory", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %dir_) #3
   %dirname_ = getelementptr inbounds %"class.rocksdb::TestFSDirectory", ptr %this1, i32 0, i32 2
@@ -13035,7 +13047,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [63 x ptr] }, ptr @_ZTVN7rocksdb20FaultInjectionTestFSE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [63 x ptr] }, ptr @_ZTVN7rocksdb20FaultInjectionTestFSE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %error_ = getelementptr inbounds %"class.rocksdb::FaultInjectionTestFS", ptr %this1, i32 0, i32 8
   call void @_ZNK7rocksdb6Status20PermitUncheckedErrorEv(ptr noundef nonnull align 8 dereferenceable(16) %error_)
   %direct_writable_types_ = getelementptr inbounds %"class.rocksdb::FaultInjectionTestFS", ptr %this1, i32 0, i32 20
@@ -19741,7 +19754,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb11FSDirectoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7rocksdb11FSDirectoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20308,10 +20322,11 @@ entry:
   %0 = load ptr, ptr %t.addr, align 8
   %call = call noundef ptr @_ZNKSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
   call void @_ZN7rocksdb23FSSequentialFileWrapperC2EPNS_16FSSequentialFileE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %call)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %guard_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileOwnerWrapper", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %t.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %guard_, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  %2 = load ptr, ptr %t.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %guard_, ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   ret void
 }
 
@@ -20335,10 +20350,11 @@ entry:
   store ptr %t, ptr %t.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb16FSSequentialFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb23FSSequentialFileWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb23FSSequentialFileWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileWrapper", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %t.addr, align 8
-  store ptr %0, ptr %target_, align 8
+  %1 = load ptr, ptr %t.addr, align 8
+  store ptr %1, ptr %target_, align 8
   ret void
 }
 
@@ -20363,7 +20379,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %guard_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileOwnerWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %guard_) #3
   call void @_ZN7rocksdb23FSSequentialFileWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -20506,7 +20523,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb16FSSequentialFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb16FSSequentialFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21587,7 +21605,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [63 x ptr] }, ptr @_ZTVN7rocksdb17FileSystemWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [63 x ptr] }, ptr @_ZTVN7rocksdb17FileSystemWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::FileSystemWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb10FileSystemEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %target_) #3
   call void @_ZN7rocksdb10FileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3

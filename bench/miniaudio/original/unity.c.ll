@@ -3542,7 +3542,7 @@ if.then2.i35:                                     ; preds = %if.end.i33
   br label %ma_zero_memory_default.exit37
 
 ma_zero_memory_default.exit37:                    ; preds = %if.then2.i35, %if.end.i33, %if.then.i36
-  %call = call i64 @wcsrtombs(ptr noundef null, ptr noundef %pFilePathTemp, i64 noundef 0, ptr noundef %mbs) #12
+  %call = call i64 @wcsrtombs(ptr noundef null, ptr noundef %pFilePathTemp, i64 noundef 0, ptr noundef %mbs) #11
   store i64 %call, ptr %lenMB, align 8
   %10 = load i64, ptr %lenMB, align 8
   %cmp7 = icmp eq i64 %10, -1
@@ -3596,7 +3596,7 @@ ma_zero_memory_default.exit:                      ; preds = %if.then2.i, %if.end
   %20 = load ptr, ptr %pFilePathMB, align 8
   %21 = load i64, ptr %lenMB, align 8
   %add16 = add i64 %21, 1
-  %call17 = call i64 @wcsrtombs(ptr noundef %20, ptr noundef %pFilePathTemp, i64 noundef %add16, ptr noundef %mbs) #12
+  %call17 = call i64 @wcsrtombs(ptr noundef %20, ptr noundef %pFilePathTemp, i64 noundef %add16, ptr noundef %mbs) #11
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -4366,7 +4366,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %arraydecay = getelementptr inbounds [1024 x i8], ptr %pFormattedMessageStack, i64 0, i64 0
   %2 = load ptr, ptr %pFormat.addr, align 8
   %3 = load ptr, ptr %args.addr, align 8
-  %call = call i32 @vsnprintf(ptr noundef %arraydecay, i64 noundef 1024, ptr noundef %2, ptr noundef %3) #12
+  %call = call i32 @vsnprintf(ptr noundef %arraydecay, i64 noundef 1024, ptr noundef %2, ptr noundef %3) #11
   store i32 %call, ptr %length, align 4
   %4 = load i32, ptr %length, align 4
   %cmp2 = icmp slt i32 %4, 0
@@ -4413,7 +4413,7 @@ if.end15:                                         ; preds = %if.else
   %conv17 = sext i32 %add16 to i64
   %13 = load ptr, ptr %pFormat.addr, align 8
   %14 = load ptr, ptr %args.addr, align 8
-  %call18 = call i32 @vsnprintf(ptr noundef %11, i64 noundef %conv17, ptr noundef %13, ptr noundef %14) #12
+  %call18 = call i32 @vsnprintf(ptr noundef %11, i64 noundef %conv17, ptr noundef %13, ptr noundef %14) #11
   store i32 %call18, ptr %length, align 4
   %15 = load i32, ptr %length, align 4
   %cmp19 = icmp slt i32 %15, 0
@@ -4479,7 +4479,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.end:                                           ; preds = %lor.lhs.false
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %2 = load ptr, ptr %pLog.addr, align 8
   %3 = load i32, ptr %level.addr, align 4
   %4 = load ptr, ptr %pFormat.addr, align 8
@@ -4487,7 +4487,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %call = call i32 @ma_log_postv(ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %arraydecay2)
   store i32 %call, ptr %result, align 4
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %5 = load i32, ptr %result, align 4
   store i32 %5, ptr %retval, align 4
   br label %return
@@ -4496,12 +4496,6 @@ return:                                           ; preds = %if.end, %if.then
   %6 = load i32, ptr %retval, align 4
   ret i32 %6
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define i64 @ma_calculate_frame_count_after_resampling(i32 noundef %sampleRateOut, i32 noundef %sampleRateIn, i64 noundef %frameCountIn) #0 {
@@ -4650,7 +4644,7 @@ while.body.i:                                     ; preds = %while.cond.i
   br i1 %tobool.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %while.body.i
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %while.body.i
@@ -4720,7 +4714,7 @@ while.body.i:                                     ; preds = %while.cond.i
   br i1 %tobool.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %while.body.i
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %while.body.i
@@ -4803,7 +4797,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 ma_zero_memory_default.exit:                      ; preds = %if.then2.i, %if.end.i, %if.then.i
   %6 = load ptr, ptr %pMutex.addr, align 8
-  %call = call i32 @pthread_mutex_init(ptr noundef %6, ptr noundef null) #12
+  %call = call i32 @pthread_mutex_init(ptr noundef %6, ptr noundef null) #11
   store i32 %call, ptr %result, align 4
   %7 = load i32, ptr %result, align 4
   %cmp1 = icmp ne i32 %7, 0
@@ -4830,7 +4824,7 @@ entry:
   %pMutex.addr = alloca ptr, align 8
   store ptr %pMutex, ptr %pMutex.addr, align 8
   %0 = load ptr, ptr %pMutex.addr, align 8
-  %call = call i32 @pthread_mutex_destroy(ptr noundef %0) #12
+  %call = call i32 @pthread_mutex_destroy(ptr noundef %0) #11
   ret void
 }
 
@@ -4861,7 +4855,7 @@ entry:
   %pMutex.addr = alloca ptr, align 8
   store ptr %pMutex, ptr %pMutex.addr, align 8
   %0 = load ptr, ptr %pMutex.addr, align 8
-  %call = call i32 @pthread_mutex_lock(ptr noundef %0) #12
+  %call = call i32 @pthread_mutex_lock(ptr noundef %0) #11
   ret void
 }
 
@@ -4892,7 +4886,7 @@ entry:
   %pMutex.addr = alloca ptr, align 8
   store ptr %pMutex, ptr %pMutex.addr, align 8
   %0 = load ptr, ptr %pMutex.addr, align 8
-  %call = call i32 @pthread_mutex_unlock(ptr noundef %0) #12
+  %call = call i32 @pthread_mutex_unlock(ptr noundef %0) #11
   ret void
 }
 
@@ -4930,7 +4924,7 @@ entry:
   store ptr %pEvent, ptr %pEvent.addr, align 8
   %0 = load ptr, ptr %pEvent.addr, align 8
   %lock = getelementptr inbounds %struct.ma_event, ptr %0, i32 0, i32 1
-  %call = call i32 @pthread_mutex_init(ptr noundef %lock, ptr noundef null) #12
+  %call = call i32 @pthread_mutex_init(ptr noundef %lock, ptr noundef null) #11
   store i32 %call, ptr %result, align 4
   %1 = load i32, ptr %result, align 4
   %cmp = icmp ne i32 %1, 0
@@ -4945,7 +4939,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %pEvent.addr, align 8
   %cond = getelementptr inbounds %struct.ma_event, ptr %3, i32 0, i32 2
-  %call2 = call i32 @pthread_cond_init(ptr noundef %cond, ptr noundef null) #12
+  %call2 = call i32 @pthread_cond_init(ptr noundef %cond, ptr noundef null) #11
   store i32 %call2, ptr %result, align 4
   %4 = load i32, ptr %result, align 4
   %cmp3 = icmp ne i32 %4, 0
@@ -4954,7 +4948,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %5 = load ptr, ptr %pEvent.addr, align 8
   %lock5 = getelementptr inbounds %struct.ma_event, ptr %5, i32 0, i32 1
-  %call6 = call i32 @pthread_mutex_destroy(ptr noundef %lock5) #12
+  %call6 = call i32 @pthread_mutex_destroy(ptr noundef %lock5) #11
   %6 = load i32, ptr %result, align 4
   %call7 = call i32 @ma_result_from_errno(i32 noundef %6)
   store i32 %call7, ptr %retval, align 4
@@ -5000,10 +4994,10 @@ entry:
   store ptr %pEvent, ptr %pEvent.addr, align 8
   %0 = load ptr, ptr %pEvent.addr, align 8
   %cond = getelementptr inbounds %struct.ma_event, ptr %0, i32 0, i32 2
-  %call = call i32 @pthread_cond_destroy(ptr noundef %cond) #12
+  %call = call i32 @pthread_cond_destroy(ptr noundef %cond) #11
   %1 = load ptr, ptr %pEvent.addr, align 8
   %lock = getelementptr inbounds %struct.ma_event, ptr %1, i32 0, i32 1
-  %call1 = call i32 @pthread_mutex_destroy(ptr noundef %lock) #12
+  %call1 = call i32 @pthread_mutex_destroy(ptr noundef %lock) #11
   ret void
 }
 
@@ -5039,7 +5033,7 @@ entry:
   store ptr %pEvent, ptr %pEvent.addr, align 8
   %0 = load ptr, ptr %pEvent.addr, align 8
   %lock = getelementptr inbounds %struct.ma_event, ptr %0, i32 0, i32 1
-  %call = call i32 @pthread_mutex_lock(ptr noundef %lock) #12
+  %call = call i32 @pthread_mutex_lock(ptr noundef %lock) #11
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -5063,7 +5057,7 @@ while.end:                                        ; preds = %while.cond
   store i32 0, ptr %value3, align 8
   %6 = load ptr, ptr %pEvent.addr, align 8
   %lock4 = getelementptr inbounds %struct.ma_event, ptr %6, i32 0, i32 1
-  %call5 = call i32 @pthread_mutex_unlock(ptr noundef %lock4) #12
+  %call5 = call i32 @pthread_mutex_unlock(ptr noundef %lock4) #11
   ret i32 0
 }
 
@@ -5099,16 +5093,16 @@ entry:
   store ptr %pEvent, ptr %pEvent.addr, align 8
   %0 = load ptr, ptr %pEvent.addr, align 8
   %lock = getelementptr inbounds %struct.ma_event, ptr %0, i32 0, i32 1
-  %call = call i32 @pthread_mutex_lock(ptr noundef %lock) #12
+  %call = call i32 @pthread_mutex_lock(ptr noundef %lock) #11
   %1 = load ptr, ptr %pEvent.addr, align 8
   %value = getelementptr inbounds %struct.ma_event, ptr %1, i32 0, i32 0
   store i32 1, ptr %value, align 8
   %2 = load ptr, ptr %pEvent.addr, align 8
   %cond = getelementptr inbounds %struct.ma_event, ptr %2, i32 0, i32 2
-  %call1 = call i32 @pthread_cond_signal(ptr noundef %cond) #12
+  %call1 = call i32 @pthread_cond_signal(ptr noundef %cond) #11
   %3 = load ptr, ptr %pEvent.addr, align 8
   %lock2 = getelementptr inbounds %struct.ma_event, ptr %3, i32 0, i32 1
-  %call3 = call i32 @pthread_mutex_unlock(ptr noundef %lock2) #12
+  %call3 = call i32 @pthread_mutex_unlock(ptr noundef %lock2) #11
   ret i32 0
 }
 
@@ -5164,7 +5158,7 @@ if.end:                                           ; preds = %entry
   store i32 %1, ptr %value, align 8
   %3 = load ptr, ptr %pSemaphore.addr, align 8
   %lock = getelementptr inbounds %struct.ma_semaphore, ptr %3, i32 0, i32 1
-  %call = call i32 @pthread_mutex_init(ptr noundef %lock, ptr noundef null) #12
+  %call = call i32 @pthread_mutex_init(ptr noundef %lock, ptr noundef null) #11
   store i32 %call, ptr %result, align 4
   %4 = load i32, ptr %result, align 4
   %cmp1 = icmp ne i32 %4, 0
@@ -5179,7 +5173,7 @@ if.then2:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   %6 = load ptr, ptr %pSemaphore.addr, align 8
   %cond = getelementptr inbounds %struct.ma_semaphore, ptr %6, i32 0, i32 2
-  %call5 = call i32 @pthread_cond_init(ptr noundef %cond, ptr noundef null) #12
+  %call5 = call i32 @pthread_cond_init(ptr noundef %cond, ptr noundef null) #11
   store i32 %call5, ptr %result, align 4
   %7 = load i32, ptr %result, align 4
   %cmp6 = icmp ne i32 %7, 0
@@ -5188,7 +5182,7 @@ if.end4:                                          ; preds = %if.end
 if.then7:                                         ; preds = %if.end4
   %8 = load ptr, ptr %pSemaphore.addr, align 8
   %lock8 = getelementptr inbounds %struct.ma_semaphore, ptr %8, i32 0, i32 1
-  %call9 = call i32 @pthread_mutex_destroy(ptr noundef %lock8) #12
+  %call9 = call i32 @pthread_mutex_destroy(ptr noundef %lock8) #11
   %9 = load i32, ptr %result, align 4
   %call10 = call i32 @ma_result_from_errno(i32 noundef %9)
   store i32 %call10, ptr %retval, align 4
@@ -5239,10 +5233,10 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %pSemaphore.addr, align 8
   %cond = getelementptr inbounds %struct.ma_semaphore, ptr %1, i32 0, i32 2
-  %call = call i32 @pthread_cond_destroy(ptr noundef %cond) #12
+  %call = call i32 @pthread_cond_destroy(ptr noundef %cond) #11
   %2 = load ptr, ptr %pSemaphore.addr, align 8
   %lock = getelementptr inbounds %struct.ma_semaphore, ptr %2, i32 0, i32 1
-  %call1 = call i32 @pthread_mutex_destroy(ptr noundef %lock) #12
+  %call1 = call i32 @pthread_mutex_destroy(ptr noundef %lock) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -5291,7 +5285,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %pSemaphore.addr, align 8
   %lock = getelementptr inbounds %struct.ma_semaphore, ptr %1, i32 0, i32 1
-  %call = call i32 @pthread_mutex_lock(ptr noundef %lock) #12
+  %call = call i32 @pthread_mutex_lock(ptr noundef %lock) #11
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end
@@ -5317,7 +5311,7 @@ while.end:                                        ; preds = %while.cond
   store i32 %sub, ptr %value4, align 8
   %8 = load ptr, ptr %pSemaphore.addr, align 8
   %lock5 = getelementptr inbounds %struct.ma_semaphore, ptr %8, i32 0, i32 1
-  %call6 = call i32 @pthread_mutex_unlock(ptr noundef %lock5) #12
+  %call6 = call i32 @pthread_mutex_unlock(ptr noundef %lock5) #11
   store i32 0, ptr %retval, align 4
   br label %return
 
@@ -5368,7 +5362,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %pSemaphore.addr, align 8
   %lock = getelementptr inbounds %struct.ma_semaphore, ptr %1, i32 0, i32 1
-  %call = call i32 @pthread_mutex_lock(ptr noundef %lock) #12
+  %call = call i32 @pthread_mutex_lock(ptr noundef %lock) #11
   %2 = load ptr, ptr %pSemaphore.addr, align 8
   %value = getelementptr inbounds %struct.ma_semaphore, ptr %2, i32 0, i32 0
   %3 = load i32, ptr %value, align 8
@@ -5376,10 +5370,10 @@ if.end:                                           ; preds = %entry
   store i32 %add, ptr %value, align 8
   %4 = load ptr, ptr %pSemaphore.addr, align 8
   %cond = getelementptr inbounds %struct.ma_semaphore, ptr %4, i32 0, i32 2
-  %call1 = call i32 @pthread_cond_signal(ptr noundef %cond) #12
+  %call1 = call i32 @pthread_cond_signal(ptr noundef %cond) #11
   %5 = load ptr, ptr %pSemaphore.addr, align 8
   %lock2 = getelementptr inbounds %struct.ma_semaphore, ptr %5, i32 0, i32 1
-  %call3 = call i32 @pthread_mutex_unlock(ptr noundef %lock2) #12
+  %call3 = call i32 @pthread_mutex_unlock(ptr noundef %lock2) #11
   store i32 0, ptr %retval, align 4
   br label %return
 
@@ -6639,7 +6633,7 @@ for.end34:                                        ; preds = %ma_slot_allocator_c
   br i1 %cmp37, label %if.then39, label %if.else
 
 if.then39:                                        ; preds = %for.end34
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   br label %if.end40
 
 if.else:                                          ; preds = %for.end34
@@ -8030,7 +8024,7 @@ entry:
   %1 = load ptr, ptr %filename.addr, align 8
   %call = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %0, i32 noundef 4, ptr noundef @.str.5, ptr noundef %1)
   %2 = load ptr, ptr %filename.addr, align 8
-  %call1 = call ptr @dlopen(ptr noundef %2, i32 noundef 2) #12
+  %call1 = call ptr @dlopen(ptr noundef %2, i32 noundef 2) #11
   store ptr %call1, ptr %handle, align 8
   %3 = load ptr, ptr %handle, align 8
   %cmp = icmp eq ptr %3, null
@@ -8058,7 +8052,7 @@ entry:
   store ptr %pLog, ptr %pLog.addr, align 8
   store ptr %handle, ptr %handle.addr, align 8
   %0 = load ptr, ptr %handle.addr, align 8
-  %call = call i32 @dlclose(ptr noundef %0) #12
+  %call = call i32 @dlclose(ptr noundef %0) #11
   ret void
 }
 
@@ -8080,7 +8074,7 @@ entry:
   %call = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %0, i32 noundef 4, ptr noundef @.str.7, ptr noundef %1)
   %2 = load ptr, ptr %handle.addr, align 8
   %3 = load ptr, ptr %symbol.addr, align 8
-  %call1 = call ptr @dlsym(ptr noundef %2, ptr noundef %3) #12
+  %call1 = call ptr @dlsym(ptr noundef %2, ptr noundef %3) #11
   store ptr %call1, ptr %proc, align 8
   %4 = load ptr, ptr %proc, align 8
   %cmp = icmp eq ptr %4, null
@@ -17426,7 +17420,7 @@ entry:
   store double %conv1.i, ptr %y.addr.i2, align 8
   %3 = load double, ptr %x.addr.i1, align 8
   %4 = load double, ptr %y.addr.i2, align 8
-  %call.i3 = call double @pow(double noundef %3, double noundef %4) #12
+  %call.i3 = call double @pow(double noundef %3, double noundef %4) #11
   %conv2.i = fptrunc double %call.i3 to float
   ret float %conv2.i
 }
@@ -17493,7 +17487,7 @@ entry:
   %2 = load double, ptr %x.addr.i1, align 8
   store double %2, ptr %x.addr.i3, align 8
   %3 = load double, ptr %x.addr.i3, align 8
-  %call.i = call double @log(double noundef %3) #12
+  %call.i = call double @log(double noundef %3) #11
   %mul.i = fmul double %call.i, 0x3FDBCB7B1526E50E
   %conv1.i = fptrunc double %mul.i to float
   %mul = fmul float 2.000000e+01, %conv1.i
@@ -28480,7 +28474,7 @@ if.end:                                           ; preds = %ma_pcm_f32_to_u8__r
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_pcm_f32_to_s16(ptr noundef %dst, ptr noundef %src, i64 noundef %count, i32 noundef %ditherMode) #8 {
+define void @ma_pcm_f32_to_s16(ptr noundef %dst, ptr noundef %src, i64 noundef %count, i32 noundef %ditherMode) #7 {
 entry:
   %__a.addr.i1721 = alloca <4 x float>, align 16
   %__a.addr.i1720 = alloca <4 x float>, align 16
@@ -36072,7 +36066,7 @@ if.end21:                                         ; preds = %land.lhs.true16, %i
   %div = fdiv double %mul, %conv
   store double %div, ptr %x.addr.i, align 8
   %28 = load double, ptr %x.addr.i, align 8
-  %call.i = call double @exp(double noundef %28) #12
+  %call.i = call double @exp(double noundef %28) #11
   store double %call.i, ptr %a, align 8
   %29 = load ptr, ptr %pConfig.addr, align 8
   %format26 = getelementptr inbounds %struct.ma_lpf1_config, ptr %29, i32 0, i32 0
@@ -36634,7 +36628,7 @@ entry:
   %7 = load double, ptr %w.i, align 8, !noalias !131
   store double %7, ptr %x.addr.i, align 8, !noalias !131
   %8 = load double, ptr %x.addr.i, align 8, !noalias !131
-  %call.i1 = call double @sin(double noundef %8) #12, !noalias !131
+  %call.i1 = call double @sin(double noundef %8) #11, !noalias !131
   store double %call.i1, ptr %s.i, align 8, !noalias !131
   %9 = load double, ptr %w.i, align 8, !noalias !131
   store double %9, ptr %x.addr.i2, align 8, !noalias !131
@@ -36642,7 +36636,7 @@ entry:
   %sub.i3 = fsub double 0x3FF921FB54442D18, %10
   store double %sub.i3, ptr %x.addr.i.i, align 8, !noalias !131
   %11 = load double, ptr %x.addr.i.i, align 8, !noalias !131
-  %call.i.i = call double @sin(double noundef %11) #12, !noalias !131
+  %call.i.i = call double @sin(double noundef %11) #11, !noalias !131
   store double %call.i.i, ptr %c.i, align 8, !noalias !131
   %12 = load double, ptr %s.i, align 8, !noalias !131
   %13 = load double, ptr %q.i, align 8, !noalias !131
@@ -36773,7 +36767,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %14 = load double, ptr %w.i, align 8, !noalias !134
   store double %14, ptr %x.addr.i, align 8, !noalias !134
   %15 = load double, ptr %x.addr.i, align 8, !noalias !134
-  %call.i7 = call double @sin(double noundef %15) #12, !noalias !134
+  %call.i7 = call double @sin(double noundef %15) #11, !noalias !134
   store double %call.i7, ptr %s.i, align 8, !noalias !134
   %16 = load double, ptr %w.i, align 8, !noalias !134
   store double %16, ptr %x.addr.i8, align 8, !noalias !134
@@ -36781,7 +36775,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %sub.i9 = fsub double 0x3FF921FB54442D18, %17
   store double %sub.i9, ptr %x.addr.i.i, align 8, !noalias !134
   %18 = load double, ptr %x.addr.i.i, align 8, !noalias !134
-  %call.i.i = call double @sin(double noundef %18) #12, !noalias !134
+  %call.i.i = call double @sin(double noundef %18) #11, !noalias !134
   store double %call.i.i, ptr %c.i, align 8, !noalias !134
   %19 = load double, ptr %s.i, align 8, !noalias !134
   %20 = load double, ptr %q.i, align 8, !noalias !134
@@ -37006,7 +37000,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %9 = load double, ptr %w.i, align 8, !noalias !137
   store double %9, ptr %x.addr.i, align 8, !noalias !137
   %10 = load double, ptr %x.addr.i, align 8, !noalias !137
-  %call.i5 = call double @sin(double noundef %10) #12, !noalias !137
+  %call.i5 = call double @sin(double noundef %10) #11, !noalias !137
   store double %call.i5, ptr %s.i, align 8, !noalias !137
   %11 = load double, ptr %w.i, align 8, !noalias !137
   store double %11, ptr %x.addr.i6, align 8, !noalias !137
@@ -37014,7 +37008,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.i7 = fsub double 0x3FF921FB54442D18, %12
   store double %sub.i7, ptr %x.addr.i.i, align 8, !noalias !137
   %13 = load double, ptr %x.addr.i.i, align 8, !noalias !137
-  %call.i.i = call double @sin(double noundef %13) #12, !noalias !137
+  %call.i.i = call double @sin(double noundef %13) #11, !noalias !137
   store double %call.i.i, ptr %c.i, align 8, !noalias !137
   %14 = load double, ptr %s.i, align 8, !noalias !137
   %15 = load double, ptr %q.i, align 8, !noalias !137
@@ -37949,7 +37943,7 @@ if.end102:                                        ; preds = %if.else93, %if.then
   %sub.i = fsub double 0x3FF921FB54442D18, %93
   store double %sub.i, ptr %x.addr.i.i, align 8
   %94 = load double, ptr %x.addr.i.i, align 8
-  %call.i.i = call double @sin(double noundef %94) #12
+  %call.i.i = call double @sin(double noundef %94) #11
   %mul104 = fmul double 2.000000e+00, %call.i.i
   %div105 = fdiv double 1.000000e+00, %mul104
   store double %div105, ptr %q, align 8
@@ -39771,7 +39765,7 @@ if.end21:                                         ; preds = %land.lhs.true16, %i
   %div = fdiv double %mul, %conv
   store double %div, ptr %x.addr.i, align 8
   %28 = load double, ptr %x.addr.i, align 8
-  %call.i = call double @exp(double noundef %28) #12
+  %call.i = call double @exp(double noundef %28) #11
   store double %call.i, ptr %a, align 8
   %29 = load ptr, ptr %pConfig.addr, align 8
   %format26 = getelementptr inbounds %struct.ma_hpf1_config, ptr %29, i32 0, i32 0
@@ -40294,7 +40288,7 @@ entry:
   %7 = load double, ptr %w.i, align 8, !noalias !163
   store double %7, ptr %x.addr.i, align 8, !noalias !163
   %8 = load double, ptr %x.addr.i, align 8, !noalias !163
-  %call.i1 = call double @sin(double noundef %8) #12, !noalias !163
+  %call.i1 = call double @sin(double noundef %8) #11, !noalias !163
   store double %call.i1, ptr %s.i, align 8, !noalias !163
   %9 = load double, ptr %w.i, align 8, !noalias !163
   store double %9, ptr %x.addr.i2, align 8, !noalias !163
@@ -40302,7 +40296,7 @@ entry:
   %sub.i3 = fsub double 0x3FF921FB54442D18, %10
   store double %sub.i3, ptr %x.addr.i.i, align 8, !noalias !163
   %11 = load double, ptr %x.addr.i.i, align 8, !noalias !163
-  %call.i.i = call double @sin(double noundef %11) #12, !noalias !163
+  %call.i.i = call double @sin(double noundef %11) #11, !noalias !163
   store double %call.i.i, ptr %c.i, align 8, !noalias !163
   %12 = load double, ptr %s.i, align 8, !noalias !163
   %13 = load double, ptr %q.i, align 8, !noalias !163
@@ -40434,7 +40428,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %14 = load double, ptr %w.i, align 8, !noalias !166
   store double %14, ptr %x.addr.i, align 8, !noalias !166
   %15 = load double, ptr %x.addr.i, align 8, !noalias !166
-  %call.i7 = call double @sin(double noundef %15) #12, !noalias !166
+  %call.i7 = call double @sin(double noundef %15) #11, !noalias !166
   store double %call.i7, ptr %s.i, align 8, !noalias !166
   %16 = load double, ptr %w.i, align 8, !noalias !166
   store double %16, ptr %x.addr.i8, align 8, !noalias !166
@@ -40442,7 +40436,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %sub.i9 = fsub double 0x3FF921FB54442D18, %17
   store double %sub.i9, ptr %x.addr.i.i, align 8, !noalias !166
   %18 = load double, ptr %x.addr.i.i, align 8, !noalias !166
-  %call.i.i = call double @sin(double noundef %18) #12, !noalias !166
+  %call.i.i = call double @sin(double noundef %18) #11, !noalias !166
   store double %call.i.i, ptr %c.i, align 8, !noalias !166
   %19 = load double, ptr %s.i, align 8, !noalias !166
   %20 = load double, ptr %q.i, align 8, !noalias !166
@@ -40668,7 +40662,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %9 = load double, ptr %w.i, align 8, !noalias !169
   store double %9, ptr %x.addr.i, align 8, !noalias !169
   %10 = load double, ptr %x.addr.i, align 8, !noalias !169
-  %call.i5 = call double @sin(double noundef %10) #12, !noalias !169
+  %call.i5 = call double @sin(double noundef %10) #11, !noalias !169
   store double %call.i5, ptr %s.i, align 8, !noalias !169
   %11 = load double, ptr %w.i, align 8, !noalias !169
   store double %11, ptr %x.addr.i6, align 8, !noalias !169
@@ -40676,7 +40670,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.i7 = fsub double 0x3FF921FB54442D18, %12
   store double %sub.i7, ptr %x.addr.i.i, align 8, !noalias !169
   %13 = load double, ptr %x.addr.i.i, align 8, !noalias !169
-  %call.i.i = call double @sin(double noundef %13) #12, !noalias !169
+  %call.i.i = call double @sin(double noundef %13) #11, !noalias !169
   store double %call.i.i, ptr %c.i, align 8, !noalias !169
   %14 = load double, ptr %s.i, align 8, !noalias !169
   %15 = load double, ptr %q.i, align 8, !noalias !169
@@ -41586,7 +41580,7 @@ if.end102:                                        ; preds = %if.else93, %if.then
   %sub.i = fsub double 0x3FF921FB54442D18, %93
   store double %sub.i, ptr %x.addr.i.i, align 8
   %94 = load double, ptr %x.addr.i.i, align 8
-  %call.i.i = call double @sin(double noundef %94) #12
+  %call.i.i = call double @sin(double noundef %94) #11
   %mul104 = fmul double 2.000000e+00, %call.i.i
   %div105 = fdiv double 1.000000e+00, %mul104
   store double %div105, ptr %q, align 8
@@ -42967,7 +42961,7 @@ entry:
   %7 = load double, ptr %w.i, align 8, !noalias !189
   store double %7, ptr %x.addr.i, align 8, !noalias !189
   %8 = load double, ptr %x.addr.i, align 8, !noalias !189
-  %call.i1 = call double @sin(double noundef %8) #12, !noalias !189
+  %call.i1 = call double @sin(double noundef %8) #11, !noalias !189
   store double %call.i1, ptr %s.i, align 8, !noalias !189
   %9 = load double, ptr %w.i, align 8, !noalias !189
   store double %9, ptr %x.addr.i2, align 8, !noalias !189
@@ -42975,7 +42969,7 @@ entry:
   %sub.i3 = fsub double 0x3FF921FB54442D18, %10
   store double %sub.i3, ptr %x.addr.i.i, align 8, !noalias !189
   %11 = load double, ptr %x.addr.i.i, align 8, !noalias !189
-  %call.i.i = call double @sin(double noundef %11) #12, !noalias !189
+  %call.i.i = call double @sin(double noundef %11) #11, !noalias !189
   store double %call.i.i, ptr %c.i, align 8, !noalias !189
   %12 = load double, ptr %s.i, align 8, !noalias !189
   %13 = load double, ptr %q.i, align 8, !noalias !189
@@ -43105,7 +43099,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %14 = load double, ptr %w.i, align 8, !noalias !192
   store double %14, ptr %x.addr.i, align 8, !noalias !192
   %15 = load double, ptr %x.addr.i, align 8, !noalias !192
-  %call.i7 = call double @sin(double noundef %15) #12, !noalias !192
+  %call.i7 = call double @sin(double noundef %15) #11, !noalias !192
   store double %call.i7, ptr %s.i, align 8, !noalias !192
   %16 = load double, ptr %w.i, align 8, !noalias !192
   store double %16, ptr %x.addr.i8, align 8, !noalias !192
@@ -43113,7 +43107,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %sub.i9 = fsub double 0x3FF921FB54442D18, %17
   store double %sub.i9, ptr %x.addr.i.i, align 8, !noalias !192
   %18 = load double, ptr %x.addr.i.i, align 8, !noalias !192
-  %call.i.i = call double @sin(double noundef %18) #12, !noalias !192
+  %call.i.i = call double @sin(double noundef %18) #11, !noalias !192
   store double %call.i.i, ptr %c.i, align 8, !noalias !192
   %19 = load double, ptr %s.i, align 8, !noalias !192
   %20 = load double, ptr %q.i, align 8, !noalias !192
@@ -43337,7 +43331,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %9 = load double, ptr %w.i, align 8, !noalias !195
   store double %9, ptr %x.addr.i, align 8, !noalias !195
   %10 = load double, ptr %x.addr.i, align 8, !noalias !195
-  %call.i5 = call double @sin(double noundef %10) #12, !noalias !195
+  %call.i5 = call double @sin(double noundef %10) #11, !noalias !195
   store double %call.i5, ptr %s.i, align 8, !noalias !195
   %11 = load double, ptr %w.i, align 8, !noalias !195
   store double %11, ptr %x.addr.i6, align 8, !noalias !195
@@ -43345,7 +43339,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.i7 = fsub double 0x3FF921FB54442D18, %12
   store double %sub.i7, ptr %x.addr.i.i, align 8, !noalias !195
   %13 = load double, ptr %x.addr.i.i, align 8, !noalias !195
-  %call.i.i = call double @sin(double noundef %13) #12, !noalias !195
+  %call.i.i = call double @sin(double noundef %13) #11, !noalias !195
   store double %call.i.i, ptr %c.i, align 8, !noalias !195
   %14 = load double, ptr %s.i, align 8, !noalias !195
   %15 = load double, ptr %q.i, align 8, !noalias !195
@@ -45040,7 +45034,7 @@ entry:
   %7 = load double, ptr %w.i, align 8, !noalias !206
   store double %7, ptr %x.addr.i, align 8, !noalias !206
   %8 = load double, ptr %x.addr.i, align 8, !noalias !206
-  %call.i1 = call double @sin(double noundef %8) #12, !noalias !206
+  %call.i1 = call double @sin(double noundef %8) #11, !noalias !206
   store double %call.i1, ptr %s.i, align 8, !noalias !206
   %9 = load double, ptr %w.i, align 8, !noalias !206
   store double %9, ptr %x.addr.i2, align 8, !noalias !206
@@ -45048,7 +45042,7 @@ entry:
   %sub.i3 = fsub double 0x3FF921FB54442D18, %10
   store double %sub.i3, ptr %x.addr.i.i, align 8, !noalias !206
   %11 = load double, ptr %x.addr.i.i, align 8, !noalias !206
-  %call.i.i = call double @sin(double noundef %11) #12, !noalias !206
+  %call.i.i = call double @sin(double noundef %11) #11, !noalias !206
   store double %call.i.i, ptr %c.i, align 8, !noalias !206
   %12 = load double, ptr %s.i, align 8, !noalias !206
   %13 = load double, ptr %q.i, align 8, !noalias !206
@@ -45173,7 +45167,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %14 = load double, ptr %w.i, align 8, !noalias !209
   store double %14, ptr %x.addr.i, align 8, !noalias !209
   %15 = load double, ptr %x.addr.i, align 8, !noalias !209
-  %call.i7 = call double @sin(double noundef %15) #12, !noalias !209
+  %call.i7 = call double @sin(double noundef %15) #11, !noalias !209
   store double %call.i7, ptr %s.i, align 8, !noalias !209
   %16 = load double, ptr %w.i, align 8, !noalias !209
   store double %16, ptr %x.addr.i8, align 8, !noalias !209
@@ -45181,7 +45175,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %sub.i9 = fsub double 0x3FF921FB54442D18, %17
   store double %sub.i9, ptr %x.addr.i.i, align 8, !noalias !209
   %18 = load double, ptr %x.addr.i.i, align 8, !noalias !209
-  %call.i.i = call double @sin(double noundef %18) #12, !noalias !209
+  %call.i.i = call double @sin(double noundef %18) #11, !noalias !209
   store double %call.i.i, ptr %c.i, align 8, !noalias !209
   %19 = load double, ptr %s.i, align 8, !noalias !209
   %20 = load double, ptr %q.i, align 8, !noalias !209
@@ -45400,7 +45394,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %9 = load double, ptr %w.i, align 8, !noalias !212
   store double %9, ptr %x.addr.i, align 8, !noalias !212
   %10 = load double, ptr %x.addr.i, align 8, !noalias !212
-  %call.i5 = call double @sin(double noundef %10) #12, !noalias !212
+  %call.i5 = call double @sin(double noundef %10) #11, !noalias !212
   store double %call.i5, ptr %s.i, align 8, !noalias !212
   %11 = load double, ptr %w.i, align 8, !noalias !212
   store double %11, ptr %x.addr.i6, align 8, !noalias !212
@@ -45408,7 +45402,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.i7 = fsub double 0x3FF921FB54442D18, %12
   store double %sub.i7, ptr %x.addr.i.i, align 8, !noalias !212
   %13 = load double, ptr %x.addr.i.i, align 8, !noalias !212
-  %call.i.i = call double @sin(double noundef %13) #12, !noalias !212
+  %call.i.i = call double @sin(double noundef %13) #11, !noalias !212
   store double %call.i.i, ptr %c.i, align 8, !noalias !212
   %14 = load double, ptr %s.i, align 8, !noalias !212
   %15 = load double, ptr %q.i, align 8, !noalias !212
@@ -45638,7 +45632,7 @@ entry:
   %7 = load double, ptr %w.i, align 8, !noalias !215
   store double %7, ptr %x.addr.i2, align 8, !noalias !215
   %8 = load double, ptr %x.addr.i2, align 8, !noalias !215
-  %call.i3 = call double @sin(double noundef %8) #12, !noalias !215
+  %call.i3 = call double @sin(double noundef %8) #11, !noalias !215
   store double %call.i3, ptr %s.i, align 8, !noalias !215
   %9 = load double, ptr %w.i, align 8, !noalias !215
   store double %9, ptr %x.addr.i4, align 8, !noalias !215
@@ -45646,7 +45640,7 @@ entry:
   %sub.i5 = fsub double 0x3FF921FB54442D18, %10
   store double %sub.i5, ptr %x.addr.i.i, align 8, !noalias !215
   %11 = load double, ptr %x.addr.i.i, align 8, !noalias !215
-  %call.i.i = call double @sin(double noundef %11) #12, !noalias !215
+  %call.i.i = call double @sin(double noundef %11) #11, !noalias !215
   store double %call.i.i, ptr %c.i, align 8, !noalias !215
   %12 = load double, ptr %s.i, align 8, !noalias !215
   %13 = load double, ptr %q.i, align 8, !noalias !215
@@ -45661,7 +45655,7 @@ entry:
   store double %div5.i, ptr %y.addr.i, align 8, !noalias !215
   %16 = load double, ptr %x.addr.i, align 8, !noalias !215
   %17 = load double, ptr %y.addr.i, align 8, !noalias !215
-  %call.i1 = call double @pow(double noundef %16, double noundef %17) #12, !noalias !215
+  %call.i1 = call double @pow(double noundef %16, double noundef %17) #11, !noalias !215
   store double %call.i1, ptr %A.i, align 8, !noalias !215
   %18 = load double, ptr %a.i, align 8, !noalias !215
   %19 = load double, ptr %A.i, align 8, !noalias !215
@@ -45795,7 +45789,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %14 = load double, ptr %w.i, align 8, !noalias !218
   store double %14, ptr %x.addr.i8, align 8, !noalias !218
   %15 = load double, ptr %x.addr.i8, align 8, !noalias !218
-  %call.i9 = call double @sin(double noundef %15) #12, !noalias !218
+  %call.i9 = call double @sin(double noundef %15) #11, !noalias !218
   store double %call.i9, ptr %s.i, align 8, !noalias !218
   %16 = load double, ptr %w.i, align 8, !noalias !218
   store double %16, ptr %x.addr.i10, align 8, !noalias !218
@@ -45803,7 +45797,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %sub.i11 = fsub double 0x3FF921FB54442D18, %17
   store double %sub.i11, ptr %x.addr.i.i, align 8, !noalias !218
   %18 = load double, ptr %x.addr.i.i, align 8, !noalias !218
-  %call.i.i = call double @sin(double noundef %18) #12, !noalias !218
+  %call.i.i = call double @sin(double noundef %18) #11, !noalias !218
   store double %call.i.i, ptr %c.i, align 8, !noalias !218
   %19 = load double, ptr %s.i, align 8, !noalias !218
   %20 = load double, ptr %q.i, align 8, !noalias !218
@@ -45818,7 +45812,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   store double %div5.i, ptr %y.addr.i, align 8, !noalias !218
   %23 = load double, ptr %x.addr.i, align 8, !noalias !218
   %24 = load double, ptr %y.addr.i, align 8, !noalias !218
-  %call.i7 = call double @pow(double noundef %23, double noundef %24) #12, !noalias !218
+  %call.i7 = call double @pow(double noundef %23, double noundef %24) #11, !noalias !218
   store double %call.i7, ptr %A.i, align 8, !noalias !218
   %25 = load double, ptr %a.i, align 8, !noalias !218
   %26 = load double, ptr %A.i, align 8, !noalias !218
@@ -46046,7 +46040,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %9 = load double, ptr %w.i, align 8, !noalias !221
   store double %9, ptr %x.addr.i6, align 8, !noalias !221
   %10 = load double, ptr %x.addr.i6, align 8, !noalias !221
-  %call.i7 = call double @sin(double noundef %10) #12, !noalias !221
+  %call.i7 = call double @sin(double noundef %10) #11, !noalias !221
   store double %call.i7, ptr %s.i, align 8, !noalias !221
   %11 = load double, ptr %w.i, align 8, !noalias !221
   store double %11, ptr %x.addr.i8, align 8, !noalias !221
@@ -46054,7 +46048,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.i9 = fsub double 0x3FF921FB54442D18, %12
   store double %sub.i9, ptr %x.addr.i.i, align 8, !noalias !221
   %13 = load double, ptr %x.addr.i.i, align 8, !noalias !221
-  %call.i.i = call double @sin(double noundef %13) #12, !noalias !221
+  %call.i.i = call double @sin(double noundef %13) #11, !noalias !221
   store double %call.i.i, ptr %c.i, align 8, !noalias !221
   %14 = load double, ptr %s.i, align 8, !noalias !221
   %15 = load double, ptr %q.i, align 8, !noalias !221
@@ -46069,7 +46063,7 @@ if.end:                                           ; preds = %lor.lhs.false
   store double %div5.i, ptr %y.addr.i, align 8, !noalias !221
   %18 = load double, ptr %x.addr.i, align 8, !noalias !221
   %19 = load double, ptr %y.addr.i, align 8, !noalias !221
-  %call.i5 = call double @pow(double noundef %18, double noundef %19) #12, !noalias !221
+  %call.i5 = call double @pow(double noundef %18, double noundef %19) #11, !noalias !221
   store double %call.i5, ptr %A.i, align 8, !noalias !221
   %20 = load double, ptr %a.i, align 8, !noalias !221
   %21 = load double, ptr %A.i, align 8, !noalias !221
@@ -46293,7 +46287,7 @@ entry:
   %5 = load double, ptr %w.i, align 8, !noalias !224
   store double %5, ptr %x.addr.i6, align 8, !noalias !224
   %6 = load double, ptr %x.addr.i6, align 8, !noalias !224
-  %call.i7 = call double @sin(double noundef %6) #12, !noalias !224
+  %call.i7 = call double @sin(double noundef %6) #11, !noalias !224
   store double %call.i7, ptr %s.i, align 8, !noalias !224
   %7 = load double, ptr %w.i, align 8, !noalias !224
   store double %7, ptr %x.addr.i8, align 8, !noalias !224
@@ -46301,7 +46295,7 @@ entry:
   %sub.i9 = fsub double 0x3FF921FB54442D18, %8
   store double %sub.i9, ptr %x.addr.i.i, align 8, !noalias !224
   %9 = load double, ptr %x.addr.i.i, align 8, !noalias !224
-  %call.i.i = call double @sin(double noundef %9) #12, !noalias !224
+  %call.i.i = call double @sin(double noundef %9) #11, !noalias !224
   store double %call.i.i, ptr %c.i, align 8, !noalias !224
   %10 = load ptr, ptr %pConfig.addr.i, align 8, !noalias !224
   %gainDB.i = getelementptr inbounds %struct.ma_loshelf2_config, ptr %10, i32 0, i32 3
@@ -46311,7 +46305,7 @@ entry:
   store double %div2.i, ptr %y.addr.i, align 8, !noalias !224
   %12 = load double, ptr %x.addr.i4, align 8, !noalias !224
   %13 = load double, ptr %y.addr.i, align 8, !noalias !224
-  %call.i5 = call double @pow(double noundef %12, double noundef %13) #12, !noalias !224
+  %call.i5 = call double @pow(double noundef %12, double noundef %13) #11, !noalias !224
   store double %call.i5, ptr %A.i, align 8, !noalias !224
   %14 = load ptr, ptr %pConfig.addr.i, align 8, !noalias !224
   %shelfSlope.i = getelementptr inbounds %struct.ma_loshelf2_config, ptr %14, i32 0, i32 4
@@ -46329,13 +46323,13 @@ entry:
   %20 = call double @llvm.fmuladd.f64(double %add.i, double %sub.i, double 2.000000e+00)
   store double %20, ptr %x.addr.i2, align 8, !noalias !224
   %21 = load double, ptr %x.addr.i2, align 8, !noalias !224
-  %call.i3 = call double @sqrt(double noundef %21) #12, !noalias !224
+  %call.i3 = call double @sqrt(double noundef %21) #11, !noalias !224
   %mul9.i = fmul double %div4.i, %call.i3
   store double %mul9.i, ptr %a.i, align 8, !noalias !224
   %22 = load double, ptr %A.i, align 8, !noalias !224
   store double %22, ptr %x.addr.i, align 8, !noalias !224
   %23 = load double, ptr %x.addr.i, align 8, !noalias !224
-  %call.i1 = call double @sqrt(double noundef %23) #12, !noalias !224
+  %call.i1 = call double @sqrt(double noundef %23) #11, !noalias !224
   %mul11.i = fmul double 2.000000e+00, %call.i1
   %24 = load double, ptr %a.i, align 8, !noalias !224
   %mul12.i = fmul double %mul11.i, %24
@@ -46507,7 +46501,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %12 = load double, ptr %w.i, align 8, !noalias !227
   store double %12, ptr %x.addr.i12, align 8, !noalias !227
   %13 = load double, ptr %x.addr.i12, align 8, !noalias !227
-  %call.i13 = call double @sin(double noundef %13) #12, !noalias !227
+  %call.i13 = call double @sin(double noundef %13) #11, !noalias !227
   store double %call.i13, ptr %s.i, align 8, !noalias !227
   %14 = load double, ptr %w.i, align 8, !noalias !227
   store double %14, ptr %x.addr.i14, align 8, !noalias !227
@@ -46515,7 +46509,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %sub.i15 = fsub double 0x3FF921FB54442D18, %15
   store double %sub.i15, ptr %x.addr.i.i, align 8, !noalias !227
   %16 = load double, ptr %x.addr.i.i, align 8, !noalias !227
-  %call.i.i = call double @sin(double noundef %16) #12, !noalias !227
+  %call.i.i = call double @sin(double noundef %16) #11, !noalias !227
   store double %call.i.i, ptr %c.i, align 8, !noalias !227
   %17 = load ptr, ptr %pConfig.addr.i, align 8, !noalias !227
   %gainDB.i = getelementptr inbounds %struct.ma_loshelf2_config, ptr %17, i32 0, i32 3
@@ -46525,7 +46519,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   store double %div2.i, ptr %y.addr.i, align 8, !noalias !227
   %19 = load double, ptr %x.addr.i10, align 8, !noalias !227
   %20 = load double, ptr %y.addr.i, align 8, !noalias !227
-  %call.i11 = call double @pow(double noundef %19, double noundef %20) #12, !noalias !227
+  %call.i11 = call double @pow(double noundef %19, double noundef %20) #11, !noalias !227
   store double %call.i11, ptr %A.i, align 8, !noalias !227
   %21 = load ptr, ptr %pConfig.addr.i, align 8, !noalias !227
   %shelfSlope.i = getelementptr inbounds %struct.ma_loshelf2_config, ptr %21, i32 0, i32 4
@@ -46543,13 +46537,13 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %27 = call double @llvm.fmuladd.f64(double %add.i, double %sub.i, double 2.000000e+00)
   store double %27, ptr %x.addr.i8, align 8, !noalias !227
   %28 = load double, ptr %x.addr.i8, align 8, !noalias !227
-  %call.i9 = call double @sqrt(double noundef %28) #12, !noalias !227
+  %call.i9 = call double @sqrt(double noundef %28) #11, !noalias !227
   %mul9.i = fmul double %div4.i, %call.i9
   store double %mul9.i, ptr %a.i, align 8, !noalias !227
   %29 = load double, ptr %A.i, align 8, !noalias !227
   store double %29, ptr %x.addr.i, align 8, !noalias !227
   %30 = load double, ptr %x.addr.i, align 8, !noalias !227
-  %call.i7 = call double @sqrt(double noundef %30) #12, !noalias !227
+  %call.i7 = call double @sqrt(double noundef %30) #11, !noalias !227
   %mul11.i = fmul double 2.000000e+00, %call.i7
   %31 = load double, ptr %a.i, align 8, !noalias !227
   %mul12.i = fmul double %mul11.i, %31
@@ -46815,7 +46809,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %7 = load double, ptr %w.i, align 8, !noalias !230
   store double %7, ptr %x.addr.i10, align 8, !noalias !230
   %8 = load double, ptr %x.addr.i10, align 8, !noalias !230
-  %call.i11 = call double @sin(double noundef %8) #12, !noalias !230
+  %call.i11 = call double @sin(double noundef %8) #11, !noalias !230
   store double %call.i11, ptr %s.i, align 8, !noalias !230
   %9 = load double, ptr %w.i, align 8, !noalias !230
   store double %9, ptr %x.addr.i12, align 8, !noalias !230
@@ -46823,7 +46817,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.i13 = fsub double 0x3FF921FB54442D18, %10
   store double %sub.i13, ptr %x.addr.i.i, align 8, !noalias !230
   %11 = load double, ptr %x.addr.i.i, align 8, !noalias !230
-  %call.i.i = call double @sin(double noundef %11) #12, !noalias !230
+  %call.i.i = call double @sin(double noundef %11) #11, !noalias !230
   store double %call.i.i, ptr %c.i, align 8, !noalias !230
   %12 = load ptr, ptr %pConfig.addr.i, align 8, !noalias !230
   %gainDB.i = getelementptr inbounds %struct.ma_loshelf2_config, ptr %12, i32 0, i32 3
@@ -46833,7 +46827,7 @@ if.end:                                           ; preds = %lor.lhs.false
   store double %div2.i, ptr %y.addr.i, align 8, !noalias !230
   %14 = load double, ptr %x.addr.i8, align 8, !noalias !230
   %15 = load double, ptr %y.addr.i, align 8, !noalias !230
-  %call.i9 = call double @pow(double noundef %14, double noundef %15) #12, !noalias !230
+  %call.i9 = call double @pow(double noundef %14, double noundef %15) #11, !noalias !230
   store double %call.i9, ptr %A.i, align 8, !noalias !230
   %16 = load ptr, ptr %pConfig.addr.i, align 8, !noalias !230
   %shelfSlope.i = getelementptr inbounds %struct.ma_loshelf2_config, ptr %16, i32 0, i32 4
@@ -46851,13 +46845,13 @@ if.end:                                           ; preds = %lor.lhs.false
   %22 = call double @llvm.fmuladd.f64(double %add.i, double %sub.i, double 2.000000e+00)
   store double %22, ptr %x.addr.i6, align 8, !noalias !230
   %23 = load double, ptr %x.addr.i6, align 8, !noalias !230
-  %call.i7 = call double @sqrt(double noundef %23) #12, !noalias !230
+  %call.i7 = call double @sqrt(double noundef %23) #11, !noalias !230
   %mul9.i = fmul double %div4.i, %call.i7
   store double %mul9.i, ptr %a.i, align 8, !noalias !230
   %24 = load double, ptr %A.i, align 8, !noalias !230
   store double %24, ptr %x.addr.i, align 8, !noalias !230
   %25 = load double, ptr %x.addr.i, align 8, !noalias !230
-  %call.i5 = call double @sqrt(double noundef %25) #12, !noalias !230
+  %call.i5 = call double @sqrt(double noundef %25) #11, !noalias !230
   %mul11.i = fmul double 2.000000e+00, %call.i5
   %26 = load double, ptr %a.i, align 8, !noalias !230
   %mul12.i = fmul double %mul11.i, %26
@@ -47120,7 +47114,7 @@ entry:
   %5 = load double, ptr %w.i, align 8, !noalias !233
   store double %5, ptr %x.addr.i6, align 8, !noalias !233
   %6 = load double, ptr %x.addr.i6, align 8, !noalias !233
-  %call.i7 = call double @sin(double noundef %6) #12, !noalias !233
+  %call.i7 = call double @sin(double noundef %6) #11, !noalias !233
   store double %call.i7, ptr %s.i, align 8, !noalias !233
   %7 = load double, ptr %w.i, align 8, !noalias !233
   store double %7, ptr %x.addr.i8, align 8, !noalias !233
@@ -47128,7 +47122,7 @@ entry:
   %sub.i9 = fsub double 0x3FF921FB54442D18, %8
   store double %sub.i9, ptr %x.addr.i.i, align 8, !noalias !233
   %9 = load double, ptr %x.addr.i.i, align 8, !noalias !233
-  %call.i.i = call double @sin(double noundef %9) #12, !noalias !233
+  %call.i.i = call double @sin(double noundef %9) #11, !noalias !233
   store double %call.i.i, ptr %c.i, align 8, !noalias !233
   %10 = load ptr, ptr %pConfig.addr.i, align 8, !noalias !233
   %gainDB.i = getelementptr inbounds %struct.ma_hishelf2_config, ptr %10, i32 0, i32 3
@@ -47138,7 +47132,7 @@ entry:
   store double %div2.i, ptr %y.addr.i, align 8, !noalias !233
   %12 = load double, ptr %x.addr.i4, align 8, !noalias !233
   %13 = load double, ptr %y.addr.i, align 8, !noalias !233
-  %call.i5 = call double @pow(double noundef %12, double noundef %13) #12, !noalias !233
+  %call.i5 = call double @pow(double noundef %12, double noundef %13) #11, !noalias !233
   store double %call.i5, ptr %A.i, align 8, !noalias !233
   %14 = load ptr, ptr %pConfig.addr.i, align 8, !noalias !233
   %shelfSlope.i = getelementptr inbounds %struct.ma_hishelf2_config, ptr %14, i32 0, i32 4
@@ -47156,13 +47150,13 @@ entry:
   %20 = call double @llvm.fmuladd.f64(double %add.i, double %sub.i, double 2.000000e+00)
   store double %20, ptr %x.addr.i2, align 8, !noalias !233
   %21 = load double, ptr %x.addr.i2, align 8, !noalias !233
-  %call.i3 = call double @sqrt(double noundef %21) #12, !noalias !233
+  %call.i3 = call double @sqrt(double noundef %21) #11, !noalias !233
   %mul9.i = fmul double %div4.i, %call.i3
   store double %mul9.i, ptr %a.i, align 8, !noalias !233
   %22 = load double, ptr %A.i, align 8, !noalias !233
   store double %22, ptr %x.addr.i, align 8, !noalias !233
   %23 = load double, ptr %x.addr.i, align 8, !noalias !233
-  %call.i1 = call double @sqrt(double noundef %23) #12, !noalias !233
+  %call.i1 = call double @sqrt(double noundef %23) #11, !noalias !233
   %mul11.i = fmul double 2.000000e+00, %call.i1
   %24 = load double, ptr %a.i, align 8, !noalias !233
   %mul12.i = fmul double %mul11.i, %24
@@ -47334,7 +47328,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %12 = load double, ptr %w.i, align 8, !noalias !236
   store double %12, ptr %x.addr.i12, align 8, !noalias !236
   %13 = load double, ptr %x.addr.i12, align 8, !noalias !236
-  %call.i13 = call double @sin(double noundef %13) #12, !noalias !236
+  %call.i13 = call double @sin(double noundef %13) #11, !noalias !236
   store double %call.i13, ptr %s.i, align 8, !noalias !236
   %14 = load double, ptr %w.i, align 8, !noalias !236
   store double %14, ptr %x.addr.i14, align 8, !noalias !236
@@ -47342,7 +47336,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %sub.i15 = fsub double 0x3FF921FB54442D18, %15
   store double %sub.i15, ptr %x.addr.i.i, align 8, !noalias !236
   %16 = load double, ptr %x.addr.i.i, align 8, !noalias !236
-  %call.i.i = call double @sin(double noundef %16) #12, !noalias !236
+  %call.i.i = call double @sin(double noundef %16) #11, !noalias !236
   store double %call.i.i, ptr %c.i, align 8, !noalias !236
   %17 = load ptr, ptr %pConfig.addr.i, align 8, !noalias !236
   %gainDB.i = getelementptr inbounds %struct.ma_hishelf2_config, ptr %17, i32 0, i32 3
@@ -47352,7 +47346,7 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   store double %div2.i, ptr %y.addr.i, align 8, !noalias !236
   %19 = load double, ptr %x.addr.i10, align 8, !noalias !236
   %20 = load double, ptr %y.addr.i, align 8, !noalias !236
-  %call.i11 = call double @pow(double noundef %19, double noundef %20) #12, !noalias !236
+  %call.i11 = call double @pow(double noundef %19, double noundef %20) #11, !noalias !236
   store double %call.i11, ptr %A.i, align 8, !noalias !236
   %21 = load ptr, ptr %pConfig.addr.i, align 8, !noalias !236
   %shelfSlope.i = getelementptr inbounds %struct.ma_hishelf2_config, ptr %21, i32 0, i32 4
@@ -47370,13 +47364,13 @@ if.end3:                                          ; preds = %ma_zero_memory_defa
   %27 = call double @llvm.fmuladd.f64(double %add.i, double %sub.i, double 2.000000e+00)
   store double %27, ptr %x.addr.i8, align 8, !noalias !236
   %28 = load double, ptr %x.addr.i8, align 8, !noalias !236
-  %call.i9 = call double @sqrt(double noundef %28) #12, !noalias !236
+  %call.i9 = call double @sqrt(double noundef %28) #11, !noalias !236
   %mul9.i = fmul double %div4.i, %call.i9
   store double %mul9.i, ptr %a.i, align 8, !noalias !236
   %29 = load double, ptr %A.i, align 8, !noalias !236
   store double %29, ptr %x.addr.i, align 8, !noalias !236
   %30 = load double, ptr %x.addr.i, align 8, !noalias !236
-  %call.i7 = call double @sqrt(double noundef %30) #12, !noalias !236
+  %call.i7 = call double @sqrt(double noundef %30) #11, !noalias !236
   %mul11.i = fmul double 2.000000e+00, %call.i7
   %31 = load double, ptr %a.i, align 8, !noalias !236
   %mul12.i = fmul double %mul11.i, %31
@@ -47642,7 +47636,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %7 = load double, ptr %w.i, align 8, !noalias !239
   store double %7, ptr %x.addr.i10, align 8, !noalias !239
   %8 = load double, ptr %x.addr.i10, align 8, !noalias !239
-  %call.i11 = call double @sin(double noundef %8) #12, !noalias !239
+  %call.i11 = call double @sin(double noundef %8) #11, !noalias !239
   store double %call.i11, ptr %s.i, align 8, !noalias !239
   %9 = load double, ptr %w.i, align 8, !noalias !239
   store double %9, ptr %x.addr.i12, align 8, !noalias !239
@@ -47650,7 +47644,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.i13 = fsub double 0x3FF921FB54442D18, %10
   store double %sub.i13, ptr %x.addr.i.i, align 8, !noalias !239
   %11 = load double, ptr %x.addr.i.i, align 8, !noalias !239
-  %call.i.i = call double @sin(double noundef %11) #12, !noalias !239
+  %call.i.i = call double @sin(double noundef %11) #11, !noalias !239
   store double %call.i.i, ptr %c.i, align 8, !noalias !239
   %12 = load ptr, ptr %pConfig.addr.i, align 8, !noalias !239
   %gainDB.i = getelementptr inbounds %struct.ma_hishelf2_config, ptr %12, i32 0, i32 3
@@ -47660,7 +47654,7 @@ if.end:                                           ; preds = %lor.lhs.false
   store double %div2.i, ptr %y.addr.i, align 8, !noalias !239
   %14 = load double, ptr %x.addr.i8, align 8, !noalias !239
   %15 = load double, ptr %y.addr.i, align 8, !noalias !239
-  %call.i9 = call double @pow(double noundef %14, double noundef %15) #12, !noalias !239
+  %call.i9 = call double @pow(double noundef %14, double noundef %15) #11, !noalias !239
   store double %call.i9, ptr %A.i, align 8, !noalias !239
   %16 = load ptr, ptr %pConfig.addr.i, align 8, !noalias !239
   %shelfSlope.i = getelementptr inbounds %struct.ma_hishelf2_config, ptr %16, i32 0, i32 4
@@ -47678,13 +47672,13 @@ if.end:                                           ; preds = %lor.lhs.false
   %22 = call double @llvm.fmuladd.f64(double %add.i, double %sub.i, double 2.000000e+00)
   store double %22, ptr %x.addr.i6, align 8, !noalias !239
   %23 = load double, ptr %x.addr.i6, align 8, !noalias !239
-  %call.i7 = call double @sqrt(double noundef %23) #12, !noalias !239
+  %call.i7 = call double @sqrt(double noundef %23) #11, !noalias !239
   %mul9.i = fmul double %div4.i, %call.i7
   store double %mul9.i, ptr %a.i, align 8, !noalias !239
   %24 = load double, ptr %A.i, align 8, !noalias !239
   store double %24, ptr %x.addr.i, align 8, !noalias !239
   %25 = load double, ptr %x.addr.i, align 8, !noalias !239
-  %call.i5 = call double @sqrt(double noundef %25) #12, !noalias !239
+  %call.i5 = call double @sqrt(double noundef %25) #11, !noalias !239
   %mul11.i = fmul double 2.000000e+00, %call.i5
   %26 = load double, ptr %a.i, align 8, !noalias !239
   %mul12.i = fmul double %mul11.i, %26
@@ -48300,7 +48294,7 @@ return:                                           ; preds = %for.end63, %if.then
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: nounwind uwtable
 define void @ma_delay_set_wet(ptr noundef %pDelay, float noundef %value) #0 {
@@ -48968,7 +48962,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_gainer_process_pcm_frames_internal(ptr noundef %pGainer, ptr noalias noundef %pFramesOut, ptr noalias noundef %pFramesIn, i64 noundef %frameCount) #8 {
+define internal i32 @ma_gainer_process_pcm_frames_internal(ptr noundef %pGainer, ptr noalias noundef %pFramesOut, ptr noalias noundef %pFramesIn, i64 noundef %frameCount) #7 {
 entry:
   %__p.addr.i646 = alloca ptr, align 8
   %__a.addr.i647 = alloca <4 x float>, align 16
@@ -52063,7 +52057,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_vec3f_sub(<2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) #10 {
+define { <2 x float>, float } @ma_vec3f_sub(<2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %a = alloca %struct.ma_vec3f, align 4
@@ -52106,7 +52100,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_vec3f_neg(<2 x float> %a.coerce0, float %a.coerce1) #10 {
+define { <2 x float>, float } @ma_vec3f_neg(<2 x float> %a.coerce0, float %a.coerce1) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %a = alloca %struct.ma_vec3f, align 4
@@ -52136,7 +52130,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define float @ma_vec3f_dot(<2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) #10 {
+define float @ma_vec3f_dot(<2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) #9 {
 entry:
   %a = alloca %struct.ma_vec3f, align 4
   %coerce = alloca { <2 x float>, float }, align 4
@@ -52171,7 +52165,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define float @ma_vec3f_len2(<2 x float> %v.coerce0, float %v.coerce1) #10 {
+define float @ma_vec3f_len2(<2 x float> %v.coerce0, float %v.coerce1) #9 {
 entry:
   %v = alloca %struct.ma_vec3f, align 4
   %coerce = alloca { <2 x float>, float }, align 4
@@ -52197,7 +52191,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define float @ma_vec3f_len(<2 x float> %v.coerce0, float %v.coerce1) #10 {
+define float @ma_vec3f_len(<2 x float> %v.coerce0, float %v.coerce1) #9 {
 entry:
   %x.addr.i = alloca double, align 8
   %v = alloca %struct.ma_vec3f, align 4
@@ -52217,13 +52211,13 @@ entry:
   %conv = fpext float %call to double
   store double %conv, ptr %x.addr.i, align 8
   %6 = load double, ptr %x.addr.i, align 8
-  %call.i = call double @sqrt(double noundef %6) #12
+  %call.i = call double @sqrt(double noundef %6) #11
   %conv2 = fptrunc double %call.i to float
   ret float %conv2
 }
 
 ; Function Attrs: nounwind uwtable
-define float @ma_vec3f_dist(<2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) #10 {
+define float @ma_vec3f_dist(<2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) #9 {
 entry:
   %a = alloca %struct.ma_vec3f, align 4
   %coerce = alloca { <2 x float>, float }, align 4
@@ -52267,7 +52261,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_vec3f_normalize(<2 x float> %v.coerce0, float %v.coerce1) #10 {
+define { <2 x float>, float } @ma_vec3f_normalize(<2 x float> %v.coerce0, float %v.coerce1) #9 {
 entry:
   %x.addr.i = alloca float, align 4
   %result.i = alloca float, align 4
@@ -52305,7 +52299,7 @@ if.end:                                           ; preds = %entry
   %7 = load float, ptr %len2, align 4
   store float %7, ptr %x.addr.i, align 4
   %8 = load float, ptr %x.addr.i, align 4
-  %9 = call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %8) #12, !srcloc !269
+  %9 = call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %8) #11, !srcloc !269
   store float %9, ptr %result.i, align 4
   %10 = load float, ptr %result.i, align 4
   store float %10, ptr %invLen, align 4
@@ -52334,7 +52328,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_vec3f_cross(<2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) #10 {
+define { <2 x float>, float } @ma_vec3f_cross(<2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %a = alloca %struct.ma_vec3f, align 4
@@ -52395,7 +52389,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_atomic_vec3f_init(ptr noundef %v, <2 x float> %value.coerce0, float %value.coerce1) #10 {
+define void @ma_atomic_vec3f_init(ptr noundef %v, <2 x float> %value.coerce0, float %value.coerce1) #9 {
 entry:
   %value = alloca %struct.ma_vec3f, align 4
   %coerce = alloca { <2 x float>, float }, align 4
@@ -52416,7 +52410,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_atomic_vec3f_set(ptr noundef %v, <2 x float> %value.coerce0, float %value.coerce1) #10 {
+define void @ma_atomic_vec3f_set(ptr noundef %v, <2 x float> %value.coerce0, float %value.coerce1) #9 {
 entry:
   %value = alloca %struct.ma_vec3f, align 4
   %coerce = alloca { <2 x float>, float }, align 4
@@ -52461,7 +52455,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_spatializer_listener_config_init(ptr noalias sret(%struct.ma_spatializer_listener_config) align 8 %agg.result, i32 noundef %channelsOut) #10 {
+define void @ma_spatializer_listener_config_init(ptr noalias sret(%struct.ma_spatializer_listener_config) align 8 %agg.result, i32 noundef %channelsOut) #9 {
 entry:
   %p.addr.i = alloca ptr, align 8
   %sz.addr.i = alloca i64, align 8
@@ -52641,7 +52635,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_spatializer_listener_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pListener) #10 {
+define i32 @ma_spatializer_listener_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pListener) #9 {
 entry:
   %p.addr.i34 = alloca ptr, align 8
   %sz.addr.i35 = alloca i64, align 8
@@ -52870,7 +52864,7 @@ return:                                           ; preds = %if.end33, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_spatializer_listener_get_direction(ptr noundef %pListener) #10 {
+define { <2 x float>, float } @ma_spatializer_listener_get_direction(ptr noundef %pListener) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pListener.addr = alloca ptr, align 8
@@ -52903,7 +52897,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_spatializer_listener_set_direction(ptr noundef %pListener, float noundef %x, float noundef %y, float noundef %z) #10 {
+define void @ma_spatializer_listener_set_direction(ptr noundef %pListener, float noundef %x, float noundef %y, float noundef %z) #9 {
 entry:
   %pListener.addr = alloca ptr, align 8
   %x.addr = alloca float, align 4
@@ -53222,7 +53216,7 @@ if.end11:                                         ; preds = %if.then9, %if.end7,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_spatializer_listener_set_position(ptr noundef %pListener, float noundef %x, float noundef %y, float noundef %z) #10 {
+define void @ma_spatializer_listener_set_position(ptr noundef %pListener, float noundef %x, float noundef %y, float noundef %z) #9 {
 entry:
   %pListener.addr = alloca ptr, align 8
   %x.addr = alloca float, align 4
@@ -53264,7 +53258,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_spatializer_listener_get_position(ptr noundef %pListener) #10 {
+define { <2 x float>, float } @ma_spatializer_listener_get_position(ptr noundef %pListener) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pListener.addr = alloca ptr, align 8
@@ -53297,7 +53291,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_spatializer_listener_set_velocity(ptr noundef %pListener, float noundef %x, float noundef %y, float noundef %z) #10 {
+define void @ma_spatializer_listener_set_velocity(ptr noundef %pListener, float noundef %x, float noundef %y, float noundef %z) #9 {
 entry:
   %pListener.addr = alloca ptr, align 8
   %x.addr = alloca float, align 4
@@ -53339,7 +53333,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_spatializer_listener_get_velocity(ptr noundef %pListener) #10 {
+define { <2 x float>, float } @ma_spatializer_listener_get_velocity(ptr noundef %pListener) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pListener.addr = alloca ptr, align 8
@@ -53425,7 +53419,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_spatializer_listener_set_world_up(ptr noundef %pListener, float noundef %x, float noundef %y, float noundef %z) #10 {
+define void @ma_spatializer_listener_set_world_up(ptr noundef %pListener, float noundef %x, float noundef %y, float noundef %z) #9 {
 entry:
   %pListener.addr = alloca ptr, align 8
   %x.addr = alloca float, align 4
@@ -53462,7 +53456,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_spatializer_listener_get_world_up(ptr noundef %pListener) #10 {
+define { <2 x float>, float } @ma_spatializer_listener_get_world_up(ptr noundef %pListener) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pListener.addr = alloca ptr, align 8
@@ -53809,7 +53803,7 @@ return:                                           ; preds = %if.end23, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_spatializer_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pSpatializer) #10 {
+define i32 @ma_spatializer_init_preallocated(ptr noundef %pConfig, ptr noundef %pHeap, ptr noundef %pSpatializer) #9 {
 entry:
   %p.addr.i57 = alloca ptr, align 8
   %sz.addr.i58 = alloca i64, align 8
@@ -54163,7 +54157,7 @@ return:                                           ; preds = %if.end56, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_spatializer_get_direction(ptr noundef %pSpatializer) #10 {
+define { <2 x float>, float } @ma_spatializer_get_direction(ptr noundef %pSpatializer) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pSpatializer.addr = alloca ptr, align 8
@@ -54196,7 +54190,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_spatializer_set_direction(ptr noundef %pSpatializer, float noundef %x, float noundef %y, float noundef %z) #10 {
+define void @ma_spatializer_set_direction(ptr noundef %pSpatializer, float noundef %x, float noundef %y, float noundef %z) #9 {
 entry:
   %pSpatializer.addr = alloca ptr, align 8
   %x.addr = alloca float, align 4
@@ -54373,7 +54367,7 @@ if.end2:                                          ; preds = %if.then1, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_spatializer_process_pcm_frames(ptr noundef %pSpatializer, ptr noundef %pListener, ptr noundef %pFramesOut, ptr noundef %pFramesIn, i64 noundef %frameCount) #10 {
+define i32 @ma_spatializer_process_pcm_frames(ptr noundef %pSpatializer, ptr noundef %pListener, ptr noundef %pFramesOut, ptr noundef %pFramesIn, i64 noundef %frameCount) #9 {
 entry:
   %x.addr.i = alloca float, align 4
   %y.addr.i = alloca float, align 4
@@ -56605,7 +56599,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_spatializer_get_position(ptr noundef %pSpatializer) #10 {
+define { <2 x float>, float } @ma_spatializer_get_position(ptr noundef %pSpatializer) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pSpatializer.addr = alloca ptr, align 8
@@ -56638,7 +56632,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_spatializer_get_relative_position_and_direction(ptr noundef %pSpatializer, ptr noundef %pListener, ptr noundef %pRelativePos, ptr noundef %pRelativeDir) #10 {
+define void @ma_spatializer_get_relative_position_and_direction(ptr noundef %pSpatializer, ptr noundef %pListener, ptr noundef %pRelativePos, ptr noundef %pRelativeDir) #9 {
 entry:
   %pSpatializer.addr = alloca ptr, align 8
   %pListener.addr = alloca ptr, align 8
@@ -57430,7 +57424,7 @@ cond.end10:                                       ; preds = %cond.end8, %cond.tr
   store double %conv12, ptr %y.addr.i, align 8
   %14 = load double, ptr %x.addr.i, align 8
   %15 = load double, ptr %y.addr.i, align 8
-  %call.i = call double @pow(double noundef %14, double noundef %15) #12
+  %call.i = call double @pow(double noundef %14, double noundef %15) #11
   %conv13 = fptrunc double %call.i to float
   store float %conv13, ptr %retval, align 4
   br label %return
@@ -57598,7 +57592,7 @@ if.end11:                                         ; preds = %ma_atomic_load_expl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal float @ma_calculate_angular_gain(<2 x float> %dirA.coerce0, float %dirA.coerce1, <2 x float> %dirB.coerce0, float %dirB.coerce1, float noundef %coneInnerAngleInRadians, float noundef %coneOuterAngleInRadians, float noundef %coneOuterGain) #10 {
+define internal float @ma_calculate_angular_gain(<2 x float> %dirA.coerce0, float %dirA.coerce1, <2 x float> %dirB.coerce0, float %dirB.coerce1, float noundef %coneInnerAngleInRadians, float noundef %coneOuterAngleInRadians, float noundef %coneOuterGain) #9 {
 entry:
   %x.addr.i.i21 = alloca double, align 8
   %x.addr.i22 = alloca double, align 8
@@ -57648,7 +57642,7 @@ if.then:                                          ; preds = %entry
   %sub.i23 = fsub double 0x3FF921FB54442D18, %6
   store double %sub.i23, ptr %x.addr.i.i21, align 8
   %7 = load double, ptr %x.addr.i.i21, align 8
-  %call.i.i24 = call double @sin(double noundef %7) #12
+  %call.i.i24 = call double @sin(double noundef %7) #11
   %conv2 = fptrunc double %call.i.i24 to float
   store float %conv2, ptr %cutoffInner, align 4
   %8 = load float, ptr %coneOuterAngleInRadians.addr, align 4
@@ -57659,7 +57653,7 @@ if.then:                                          ; preds = %entry
   %sub.i20 = fsub double 0x3FF921FB54442D18, %9
   store double %sub.i20, ptr %x.addr.i.i, align 8
   %10 = load double, ptr %x.addr.i.i, align 8
-  %call.i.i = call double @sin(double noundef %10) #12
+  %call.i.i = call double @sin(double noundef %10) #11
   %conv6 = fptrunc double %call.i.i to float
   store float %conv6, ptr %cutoffOuter, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %dirA.coerce, ptr align 4 %dirA, i64 12, i1 false)
@@ -57981,7 +57975,7 @@ return:                                           ; preds = %for.end, %if.then23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { <2 x float>, float } @ma_get_channel_direction(i8 noundef zeroext %channel) #10 {
+define internal { <2 x float>, float } @ma_get_channel_direction(i8 noundef zeroext %channel) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %channel.addr = alloca i8, align 1
@@ -58071,7 +58065,7 @@ return:                                           ; preds = %ma_atomic_load_expl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal float @ma_doppler_pitch(<2 x float> %relativePosition.coerce0, float %relativePosition.coerce1, <2 x float> %sourceVelocity.coerce0, float %sourceVelocity.coerce1, <2 x float> %listenVelocity.coerce0, float %listenVelocity.coerce1, float noundef %speedOfSound, float noundef %dopplerFactor) #10 {
+define internal float @ma_doppler_pitch(<2 x float> %relativePosition.coerce0, float %relativePosition.coerce1, <2 x float> %sourceVelocity.coerce0, float %sourceVelocity.coerce1, <2 x float> %listenVelocity.coerce0, float %listenVelocity.coerce1, float noundef %speedOfSound, float noundef %dopplerFactor) #9 {
 entry:
   %retval = alloca float, align 4
   %relativePosition = alloca %struct.ma_vec3f, align 4
@@ -58211,7 +58205,7 @@ return:                                           ; preds = %cond.end16, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_spatializer_get_velocity(ptr noundef %pSpatializer) #10 {
+define { <2 x float>, float } @ma_spatializer_get_velocity(ptr noundef %pSpatializer) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pSpatializer.addr = alloca ptr, align 8
@@ -59186,7 +59180,7 @@ return:                                           ; preds = %ma_atomic_exchange_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_spatializer_set_position(ptr noundef %pSpatializer, float noundef %x, float noundef %y, float noundef %z) #10 {
+define void @ma_spatializer_set_position(ptr noundef %pSpatializer, float noundef %x, float noundef %y, float noundef %z) #9 {
 entry:
   %pSpatializer.addr = alloca ptr, align 8
   %x.addr = alloca float, align 4
@@ -59228,7 +59222,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_spatializer_set_velocity(ptr noundef %pSpatializer, float noundef %x, float noundef %y, float noundef %z) #10 {
+define void @ma_spatializer_set_velocity(ptr noundef %pSpatializer, float noundef %x, float noundef %y, float noundef %z) #9 {
 entry:
   %pSpatializer.addr = alloca ptr, align 8
   %x.addr = alloca float, align 4
@@ -73847,7 +73841,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   store ptr %pUserData, ptr %pUserData.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
-  call void @free(ptr noundef %0) #12
+  call void @free(ptr noundef %0) #11
   ret void
 }
 
@@ -84160,7 +84154,7 @@ return:                                           ; preds = %if.end30, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ma_dr_flac_read_pcm_frames_f32(ptr noundef %pFlac, i64 noundef %framesToRead, ptr noundef %pBufferOut) #8 {
+define i64 @ma_dr_flac_read_pcm_frames_f32(ptr noundef %pFlac, i64 noundef %framesToRead, ptr noundef %pBufferOut) #7 {
 entry:
   %pFlac.addr.i534 = alloca ptr, align 8
   %frameCount.addr.i535 = alloca i64, align 8
@@ -87675,7 +87669,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ma_dr_flac_read_pcm_frames_s16(ptr noundef %pFlac, i64 noundef %framesToRead, ptr noundef %pBufferOut) #8 {
+define i64 @ma_dr_flac_read_pcm_frames_s16(ptr noundef %pFlac, i64 noundef %framesToRead, ptr noundef %pBufferOut) #7 {
 entry:
   %pFlac.addr.i459 = alloca ptr, align 8
   %frameCount.addr.i460 = alloca i64, align 8
@@ -91130,7 +91124,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ma_dr_flac_read_pcm_frames_s32(ptr noundef %pFlac, i64 noundef %framesToRead, ptr noundef %pBufferOut) #8 {
+define i64 @ma_dr_flac_read_pcm_frames_s32(ptr noundef %pFlac, i64 noundef %framesToRead, ptr noundef %pBufferOut) #7 {
 entry:
   %pFlac.addr.i479 = alloca ptr, align 8
   %frameCount.addr.i480 = alloca i64, align 8
@@ -98227,7 +98221,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 ma_zero_memory_default.exit:                      ; preds = %if.then2.i, %if.end.i, %if.then.i
   %arraydecay = getelementptr inbounds [4096 x i8], ptr %ext1MB, i64 0, i64 0
-  %call2 = call i64 @wcsrtombs(ptr noundef %arraydecay, ptr noundef %pext1, i64 noundef 4096, ptr noundef %mbs1) #12
+  %call2 = call i64 @wcsrtombs(ptr noundef %arraydecay, ptr noundef %pext1, i64 noundef 4096, ptr noundef %mbs1) #11
   %cmp3 = icmp eq i64 %call2, -1
   br i1 %cmp3, label %if.then4, label %if.end5
 
@@ -98237,7 +98231,7 @@ if.then4:                                         ; preds = %ma_zero_memory_defa
 
 if.end5:                                          ; preds = %ma_zero_memory_default.exit
   %arraydecay6 = getelementptr inbounds [4096 x i8], ptr %ext2MB, i64 0, i64 0
-  %call7 = call i64 @wcsrtombs(ptr noundef %arraydecay6, ptr noundef %pext2, i64 noundef 4096, ptr noundef %mbs2) #12
+  %call7 = call i64 @wcsrtombs(ptr noundef %arraydecay6, ptr noundef %pext2, i64 noundef 4096, ptr noundef %mbs2) #11
   %cmp8 = icmp eq i64 %call7, -1
   br i1 %cmp8, label %if.then9, label %if.end10
 
@@ -102979,7 +102973,7 @@ if.end92:                                         ; preds = %if.end, %for.end22
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: nounwind uwtable
 define i32 @ma_waveform_seek_to_pcm_frame(ptr noundef %pWaveform, i64 noundef %frameIndex) #0 {
@@ -116587,7 +116581,7 @@ while.cond:                                       ; preds = %while.body, %ma_ato
   br i1 %cmp14, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   br label %while.cond, !llvm.loop !515
 
 while.end:                                        ; preds = %while.cond
@@ -116603,7 +116597,7 @@ while.cond15:                                     ; preds = %while.body17, %whil
   br i1 %cmp16, label %while.body17, label %while.end18
 
 while.body17:                                     ; preds = %while.cond15
-  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
+  call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   br label %while.cond15, !llvm.loop !516
 
 while.end18:                                      ; preds = %while.cond15
@@ -122834,7 +122828,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_engine_find_closest_listener(ptr noundef %pEngine, float noundef %absolutePosX, float noundef %absolutePosY, float noundef %absolutePosZ) #10 {
+define i32 @ma_engine_find_closest_listener(ptr noundef %pEngine, float noundef %absolutePosX, float noundef %absolutePosY, float noundef %absolutePosZ) #9 {
 entry:
   %retval = alloca i32, align 4
   %pEngine.addr = alloca ptr, align 8
@@ -123047,7 +123041,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_engine_listener_get_position(ptr noundef %pEngine, i32 noundef %listenerIndex) #10 {
+define { <2 x float>, float } @ma_engine_listener_get_position(ptr noundef %pEngine, i32 noundef %listenerIndex) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pEngine.addr = alloca ptr, align 8
@@ -123137,7 +123131,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_engine_listener_get_direction(ptr noundef %pEngine, i32 noundef %listenerIndex) #10 {
+define { <2 x float>, float } @ma_engine_listener_get_direction(ptr noundef %pEngine, i32 noundef %listenerIndex) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pEngine.addr = alloca ptr, align 8
@@ -123227,7 +123221,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_engine_listener_get_velocity(ptr noundef %pEngine, i32 noundef %listenerIndex) #10 {
+define { <2 x float>, float } @ma_engine_listener_get_velocity(ptr noundef %pEngine, i32 noundef %listenerIndex) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pEngine.addr = alloca ptr, align 8
@@ -123435,7 +123429,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_engine_listener_get_world_up(ptr noundef %pEngine, i32 noundef %listenerIndex) #10 {
+define { <2 x float>, float } @ma_engine_listener_get_world_up(ptr noundef %pEngine, i32 noundef %listenerIndex) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pEngine.addr = alloca ptr, align 8
@@ -125759,7 +125753,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_sound_get_listener_index(ptr noundef %pSound) #10 {
+define i32 @ma_sound_get_listener_index(ptr noundef %pSound) #9 {
 entry:
   %retval = alloca i32, align 4
   %pSound.addr = alloca ptr, align 8
@@ -125811,7 +125805,7 @@ return:                                           ; preds = %if.end6, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_sound_get_position(ptr noundef %pSound) #10 {
+define { <2 x float>, float } @ma_sound_get_position(ptr noundef %pSound) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pSound.addr = alloca ptr, align 8
@@ -125845,7 +125839,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_sound_get_direction_to_listener(ptr noundef %pSound) #10 {
+define { <2 x float>, float } @ma_sound_get_direction_to_listener(ptr noundef %pSound) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pSound.addr = alloca ptr, align 8
@@ -125984,7 +125978,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_sound_get_direction(ptr noundef %pSound) #10 {
+define { <2 x float>, float } @ma_sound_get_direction(ptr noundef %pSound) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pSound.addr = alloca ptr, align 8
@@ -126050,7 +126044,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_sound_get_velocity(ptr noundef %pSound) #10 {
+define { <2 x float>, float } @ma_sound_get_velocity(ptr noundef %pSound) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pSound.addr = alloca ptr, align 8
@@ -127916,7 +127910,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_sound_group_get_direction_to_listener(ptr noundef %pGroup) #10 {
+define { <2 x float>, float } @ma_sound_group_get_direction_to_listener(ptr noundef %pGroup) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pGroup.addr = alloca ptr, align 8
@@ -127952,7 +127946,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_sound_group_get_position(ptr noundef %pGroup) #10 {
+define { <2 x float>, float } @ma_sound_group_get_position(ptr noundef %pGroup) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pGroup.addr = alloca ptr, align 8
@@ -127988,7 +127982,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_sound_group_get_direction(ptr noundef %pGroup) #10 {
+define { <2 x float>, float } @ma_sound_group_get_direction(ptr noundef %pGroup) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pGroup.addr = alloca ptr, align 8
@@ -128024,7 +128018,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, float } @ma_sound_group_get_velocity(ptr noundef %pGroup) #10 {
+define { <2 x float>, float } @ma_sound_group_get_velocity(ptr noundef %pGroup) #9 {
 entry:
   %retval = alloca %struct.ma_vec3f, align 4
   %pGroup.addr = alloca ptr, align 8
@@ -143415,7 +143409,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   store ptr %pUserData, ptr %pUserData.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
-  call void @free(ptr noundef %0) #12
+  call void @free(ptr noundef %0) #11
   ret void
 }
 
@@ -147806,7 +147800,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   store ptr %pUserData, ptr %pUserData.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
-  call void @free(ptr noundef %0) #12
+  call void @free(ptr noundef %0) #11
   ret void
 }
 
@@ -150855,7 +150849,7 @@ for.end31:                                        ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ma_dr_mp3dec_f32_to_s16(ptr noundef %in, ptr noundef %out, i64 noundef %num_samples) #8 {
+define void @ma_dr_mp3dec_f32_to_s16(ptr noundef %in, ptr noundef %out, i64 noundef %num_samples) #7 {
 entry:
   %__a.addr.i98 = alloca <4 x float>, align 16
   %__b.addr.i99 = alloca <4 x float>, align 16
@@ -153377,7 +153371,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   store ptr %pUserData, ptr %pUserData.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
-  call void @free(ptr noundef %0) #12
+  call void @free(ptr noundef %0) #11
   ret void
 }
 
@@ -156392,7 +156386,7 @@ entry:
   store ptr %entryProc, ptr %entryProc.addr, align 8
   store ptr %pData, ptr %pData.addr, align 8
   store ptr null, ptr %pAttr, align 8
-  %call = call i32 @pthread_attr_init(ptr noundef %attr) #12
+  %call = call i32 @pthread_attr_init(ptr noundef %attr) #11
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end47
 
@@ -156412,7 +156406,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp3, label %if.then4, label %if.else8
 
 if.then4:                                         ; preds = %if.else
-  %call5 = call i32 @pthread_attr_setschedpolicy(ptr noundef %attr, i32 noundef 1) #12
+  %call5 = call i32 @pthread_attr_setschedpolicy(ptr noundef %attr, i32 noundef 1) #11
   %cmp6 = icmp eq i32 %call5, 0
   br i1 %cmp6, label %if.then7, label %if.end
 
@@ -156424,7 +156418,7 @@ if.end:                                           ; preds = %if.then7, %if.then4
   br label %if.end10
 
 if.else8:                                         ; preds = %if.else
-  %call9 = call i32 @sched_getscheduler(i32 noundef 0) #12
+  %call9 = call i32 @sched_getscheduler(i32 noundef 0) #11
   store i32 %call9, ptr %scheduler, align 4
   br label %if.end10
 
@@ -156438,7 +156432,7 @@ if.end11:                                         ; preds = %if.end10, %if.then2
 
 if.then13:                                        ; preds = %if.end11
   %3 = load i64, ptr %stackSize.addr, align 8
-  %call14 = call i32 @pthread_attr_setstacksize(ptr noundef %attr, i64 noundef %3) #12
+  %call14 = call i32 @pthread_attr_setstacksize(ptr noundef %attr, i64 noundef %3) #11
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %if.end11
@@ -156448,17 +156442,17 @@ if.end15:                                         ; preds = %if.then13, %if.end1
 
 if.then17:                                        ; preds = %if.end15
   %5 = load i32, ptr %scheduler, align 4
-  %call18 = call i32 @sched_get_priority_min(i32 noundef %5) #12
+  %call18 = call i32 @sched_get_priority_min(i32 noundef %5) #11
   store i32 %call18, ptr %priorityMin, align 4
   %6 = load i32, ptr %scheduler, align 4
-  %call19 = call i32 @sched_get_priority_max(i32 noundef %6) #12
+  %call19 = call i32 @sched_get_priority_max(i32 noundef %6) #11
   store i32 %call19, ptr %priorityMax, align 4
   %7 = load i32, ptr %priorityMax, align 4
   %8 = load i32, ptr %priorityMin, align 4
   %sub = sub nsw i32 %7, %8
   %div = sdiv i32 %sub, 7
   store i32 %div, ptr %priorityStep, align 4
-  %call20 = call i32 @pthread_attr_getschedparam(ptr noundef %attr, ptr noundef %sched) #12
+  %call20 = call i32 @pthread_attr_getschedparam(ptr noundef %attr, ptr noundef %sched) #11
   %cmp21 = icmp eq i32 %call20, 0
   br i1 %cmp21, label %if.then22, label %if.end45
 
@@ -156525,7 +156519,7 @@ if.end42:                                         ; preds = %if.end41, %if.then2
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end42, %if.then24
-  %call44 = call i32 @pthread_attr_setschedparam(ptr noundef %attr, ptr noundef %sched) #12
+  %call44 = call i32 @pthread_attr_setschedparam(ptr noundef %attr, ptr noundef %sched) #11
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end43, %if.then17
@@ -156539,7 +156533,7 @@ if.end47:                                         ; preds = %if.end46, %entry
   %23 = load ptr, ptr %pAttr, align 8
   %24 = load ptr, ptr %entryProc.addr, align 8
   %25 = load ptr, ptr %pData.addr, align 8
-  %call48 = call i32 @pthread_create(ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25) #12
+  %call48 = call i32 @pthread_create(ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25) #11
   store i32 %call48, ptr %result, align 4
   %26 = load ptr, ptr %pAttr, align 8
   %cmp49 = icmp ne ptr %26, null
@@ -156547,7 +156541,7 @@ if.end47:                                         ; preds = %if.end46, %entry
 
 if.then50:                                        ; preds = %if.end47
   %27 = load ptr, ptr %pAttr, align 8
-  %call51 = call i32 @pthread_attr_destroy(ptr noundef %27) #12
+  %call51 = call i32 @pthread_attr_destroy(ptr noundef %27) #11
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then50, %if.end47
@@ -161957,11 +161951,11 @@ if.end133:                                        ; preds = %if.then132, %if.end
 
 next_device:                                      ; preds = %if.end133, %if.then45, %if.then40
   %93 = load ptr, ptr %NAME, align 8
-  call void @free(ptr noundef %93) #12
+  call void @free(ptr noundef %93) #11
   %94 = load ptr, ptr %DESC, align 8
-  call void @free(ptr noundef %94) #12
+  call void @free(ptr noundef %94) #11
   %95 = load ptr, ptr %IOID, align 8
-  call void @free(ptr noundef %95) #12
+  call void @free(ptr noundef %95) #11
   %96 = load ptr, ptr %ppNextDeviceHint, align 8
   %add.ptr134 = getelementptr inbounds ptr, ptr %96, i64 1
   store ptr %add.ptr134, ptr %ppNextDeviceHint, align 8
@@ -165889,7 +165883,7 @@ if.end369:                                        ; preds = %if.then367, %for.en
 
 if.end370:                                        ; preds = %if.end369, %for.end326
   %412 = load ptr, ptr %pChmap, align 8
-  call void @free(ptr noundef %412) #12
+  call void @free(ptr noundef %412) #11
   store ptr null, ptr %pChmap, align 8
   br label %if.end373
 
@@ -165959,7 +165953,7 @@ if.then393:                                       ; preds = %if.end384
   br label %return
 
 if.end399:                                        ; preds = %if.end384
-  %call400 = call i32 @eventfd(i32 noundef 0, i32 noundef 0) #12
+  %call400 = call i32 @eventfd(i32 noundef 0, i32 noundef 0) #11
   store i32 %call400, ptr %wakeupfd, align 4
   %436 = load i32, ptr %wakeupfd, align 4
   %cmp401 = icmp slt i32 %436, 0
@@ -169875,7 +169869,7 @@ entry:
   %pTimer.addr = alloca ptr, align 8
   %newTime = alloca %struct.timespec, align 8
   store ptr %pTimer, ptr %pTimer.addr, align 8
-  %call = call i32 @clock_gettime(i32 noundef 1, ptr noundef %newTime) #12
+  %call = call i32 @clock_gettime(i32 noundef 1, ptr noundef %newTime) #11
   %tv_sec = getelementptr inbounds %struct.timespec, ptr %newTime, i32 0, i32 0
   %0 = load i64, ptr %tv_sec, align 8
   %mul = mul nsw i64 %0, 1000000000
@@ -169895,7 +169889,7 @@ entry:
   %oldTimeCounter = alloca i64, align 8
   %newTime = alloca %struct.timespec, align 8
   store ptr %pTimer, ptr %pTimer.addr, align 8
-  %call = call i32 @clock_gettime(i32 noundef 1, ptr noundef %newTime) #12
+  %call = call i32 @clock_gettime(i32 noundef 1, ptr noundef %newTime) #11
   %tv_sec = getelementptr inbounds %struct.timespec, ptr %newTime, i32 0, i32 0
   %0 = load i64, ptr %tv_sec, align 8
   %mul = mul nsw i64 %0, 1000000000
@@ -171402,10 +171396,10 @@ if.end157:                                        ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind memory(argmem: write)
-declare void @llvm.x86.sse.stmxcsr(ptr) #11
+declare void @llvm.x86.sse.stmxcsr(ptr) #10
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse.ldmxcsr(ptr) #12
+declare void @llvm.x86.sse.ldmxcsr(ptr) #11
 
 ; Function Attrs: nounwind uwtable
 define internal void @ma_device__on_data_inner(ptr noundef %pDevice, ptr noundef %pFramesOut, ptr noundef %pFramesIn, i32 noundef %frameCount) #0 {
@@ -171463,7 +171457,7 @@ declare double @log(double noundef) #5
 declare double @pow(double noundef, double noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #13
+declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #12
 
 ; Function Attrs: nounwind uwtable
 define internal void @ma_pcm_interleave_f32__reference(ptr noundef %dst, ptr noundef %src, i64 noundef %frameCount, i32 noundef %channels) #0 {
@@ -171622,7 +171616,7 @@ for.end10:                                        ; preds = %for.cond
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nounwind
 declare double @exp(double noundef) #5
@@ -175403,7 +175397,7 @@ return:                                           ; preds = %if.end37, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ma_channel_map_apply_mono_in_f32(ptr noalias noundef %pFramesOut, ptr noundef %pChannelMapOut, i32 noundef %channelsOut, ptr noalias noundef %pFramesIn, i64 noundef %frameCount, i32 noundef %monoExpansionMode) #8 {
+define internal i32 @ma_channel_map_apply_mono_in_f32(ptr noalias noundef %pFramesOut, ptr noundef %pChannelMapOut, i32 noundef %channelsOut, ptr noalias noundef %pFramesIn, i64 noundef %frameCount, i32 noundef %monoExpansionMode) #7 {
 entry:
   %__p.addr.i402 = alloca ptr, align 8
   %__a.addr.i403 = alloca <4 x float>, align 16
@@ -179730,10 +179724,10 @@ if.end10:                                         ; preds = %if.then8, %if.end6
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #15
+declare noalias ptr @malloc(i64 noundef) #14
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #16
+declare ptr @realloc(ptr noundef, i64 noundef) #15
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ma_audio_buffer_ref__data_source_on_read(ptr noundef %pDataSource, ptr noundef %pFramesOut, i64 noundef %frameCount, ptr noundef %pFramesRead) #0 {
@@ -180187,7 +180181,7 @@ if.then2:                                         ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.then2
   %9 = load ptr, ptr %file.addr, align 8
-  %call4 = call i32 @feof(ptr noundef %9) #12
+  %call4 = call i32 @feof(ptr noundef %9) #11
   %tobool = icmp ne i32 %call4, 0
   br i1 %tobool, label %if.then5, label %if.else
 
@@ -180197,7 +180191,7 @@ if.then5:                                         ; preds = %land.lhs.true
 
 if.else:                                          ; preds = %land.lhs.true, %if.then2
   %10 = load ptr, ptr %file.addr, align 8
-  %call6 = call i32 @ferror(ptr noundef %10) #12
+  %call6 = call i32 @ferror(ptr noundef %10) #11
   %call7 = call i32 @ma_result_from_errno(i32 noundef %call6)
   store i32 %call7, ptr %retval, align 4
   br label %return
@@ -180257,7 +180251,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then2:                                         ; preds = %if.end
   %8 = load ptr, ptr %file.addr, align 8
-  %call3 = call i32 @ferror(ptr noundef %8) #12
+  %call3 = call i32 @ferror(ptr noundef %8) #11
   %call4 = call i32 @ma_result_from_errno(i32 noundef %call3)
   store i32 %call4, ptr %retval, align 4
   br label %return
@@ -180370,10 +180364,10 @@ entry:
   store ptr %file, ptr %file.addr, align 8
   store ptr %pInfo, ptr %pInfo.addr, align 8
   %0 = load ptr, ptr %file.addr, align 8
-  %call = call i32 @fileno(ptr noundef %0) #12
+  %call = call i32 @fileno(ptr noundef %0) #11
   store i32 %call, ptr %fd, align 4
   %1 = load i32, ptr %fd, align 4
-  %call1 = call i32 @fstat(i32 noundef %1, ptr noundef %info) #12
+  %call1 = call i32 @fstat(i32 noundef %1, ptr noundef %info) #11
   %cmp = icmp ne i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -182934,7 +182928,7 @@ entry:
   %mul = fmul double 0x401921FB54442D18, %0
   store double %mul, ptr %x.addr.i, align 8
   %1 = load double, ptr %x.addr.i, align 8
-  %call.i = call double @sin(double noundef %1) #12
+  %call.i = call double @sin(double noundef %1) #11
   %2 = load double, ptr %amplitude.addr, align 8
   %mul1 = fmul double %call.i, %2
   %conv = fptrunc double %mul1 to float
@@ -184570,7 +184564,7 @@ sw.epilog:                                        ; preds = %sw.bb15, %for.end
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #9
+declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ma_resource_manager_data_buffer_node_insert_point(ptr noundef %pResourceManager, i32 noundef %hashedName32, ptr noundef %ppInsertPoint) #0 {
@@ -186774,7 +186768,7 @@ if.end4:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ma_engine_node_process_pcm_frames__general(ptr noundef %pEngineNode, ptr noundef %ppFramesIn, ptr noundef %pFrameCountIn, ptr noundef %ppFramesOut, ptr noundef %pFrameCountOut) #10 {
+define internal void @ma_engine_node_process_pcm_frames__general(ptr noundef %pEngineNode, ptr noundef %ppFramesIn, ptr noundef %pFrameCountIn, ptr noundef %ppFramesOut, ptr noundef %pFrameCountOut) #9 {
 entry:
   %p.addr.i156 = alloca ptr, align 8
   %offsetInFrames.addr.i157 = alloca i64, align 8
@@ -193030,7 +193024,7 @@ return:                                           ; preds = %if.end657, %if.then
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #9
+declare i16 @llvm.bswap.i16(i16) #8
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @ma_dr_wav__write_or_count(ptr noundef %pWav, ptr noundef %pData, i64 noundef %dataSize) #0 {
@@ -193779,7 +193773,7 @@ return:                                           ; preds = %if.end19, %if.end18
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #9
+declare i64 @llvm.bswap.i64(i64) #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @ma_dr_wav__pcm_to_s16(ptr noundef %pOut, ptr noundef %pIn, i64 noundef %totalSampleCount, i32 noundef %bytesPerSample) #0 {
@@ -195382,7 +195376,7 @@ for.cond:                                         ; preds = %if.end412, %entry
   store i32 0, ptr %2, align 4
   %3 = load ptr, ptr %onRead.addr.i, align 8
   %4 = load ptr, ptr %pUserData.addr.i, align 8
-  %call.i484 = call i64 %3(ptr noundef %4, ptr noundef %blockHeader.i, i64 noundef 4) #12
+  %call.i484 = call i64 %3(ptr noundef %4, ptr noundef %blockHeader.i, i64 noundef 4) #11
   %cmp.i = icmp ne i64 %call.i484, 4
   br i1 %cmp.i, label %if.then.i486, label %if.end.i485
 
@@ -201227,7 +201221,7 @@ entry:
   %3 = load ptr, ptr %info.addr, align 8
   %arrayidx3 = getelementptr inbounds i32, ptr %3, i64 3
   %4 = load i32, ptr %fid.addr, align 4
-  %5 = call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %4, i32 0) #12, !srcloc !772
+  %5 = call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %4, i32 0) #11, !srcloc !772
   %asmresult = extractvalue { i32, i32, i32, i32 } %5, 0
   %asmresult4 = extractvalue { i32, i32, i32, i32 } %5, 1
   %asmresult5 = extractvalue { i32, i32, i32, i32 } %5, 2
@@ -201321,7 +201315,7 @@ entry:
   store i32 0, ptr %3, align 4
   %4 = load ptr, ptr %onRead.addr.i, align 8
   %5 = load ptr, ptr %pUserData.addr.i, align 8
-  %call.i = call i64 %4(ptr noundef %5, ptr noundef %blockHeader.i, i64 noundef 4) #12
+  %call.i = call i64 %4(ptr noundef %5, ptr noundef %blockHeader.i, i64 noundef 4) #11
   %cmp.i = icmp ne i64 %call.i, 4
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -201828,7 +201822,7 @@ if.then83:                                        ; preds = %land.lhs.true78
   store i32 0, ptr %43, align 4
   %44 = load ptr, ptr %onRead.addr.i, align 8
   %45 = load ptr, ptr %pUserData.addr.i, align 8
-  %call.i = call i64 %44(ptr noundef %45, ptr noundef %blockHeader.i, i64 noundef 4) #12
+  %call.i = call i64 %44(ptr noundef %45, ptr noundef %blockHeader.i, i64 noundef 4) #11
   %cmp.i = icmp ne i64 %call.i, 4
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -203898,7 +203892,7 @@ if.then.i71:                                      ; preds = %if.end16.i
   %41 = load i64, ptr %x.addr.i, align 8
   store i64 %41, ptr %x.addr.i72, align 8
   %42 = load i64, ptr %x.addr.i72, align 8
-  %43 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %42) #12, !srcloc !779
+  %43 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %42) #11, !srcloc !779
   store i64 %43, ptr %r.i, align 8
   %44 = load i64, ptr %r.i, align 8
   %conv.i73 = trunc i64 %44 to i32
@@ -205027,7 +205021,7 @@ if.end6.i:                                        ; preds = %if.end.i37
   %128 = load ptr, ptr %pUserData.i, align 8
   %129 = load ptr, ptr %bs.addr.i34, align 8
   %cacheL27.i = getelementptr inbounds %struct.ma_dr_flac_bs, ptr %129, i32 0, i32 7
-  %call.i38 = call i64 %126(ptr noundef %128, ptr noundef %cacheL27.i, i64 noundef 4096) #12
+  %call.i38 = call i64 %126(ptr noundef %128, ptr noundef %cacheL27.i, i64 noundef 4096) #11
   store i64 %call.i38, ptr %bytesRead.i, align 8
   %130 = load ptr, ptr %bs.addr.i34, align 8
   %nextL2Line8.i = getelementptr inbounds %struct.ma_dr_flac_bs, ptr %130, i32 0, i32 5
@@ -208172,7 +208166,7 @@ if.then.i106.i6915:                               ; preds = %while.body
   %35 = load i64, ptr %x.addr.i101.i6163, align 8
   store i64 %35, ptr %x.addr.i691.i6084, align 8
   %36 = load i64, ptr %x.addr.i691.i6084, align 8
-  %37 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %36) #12, !srcloc !779
+  %37 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %36) #11, !srcloc !779
   store i64 %37, ptr %r.i.i6085, align 8
   %38 = load i64, ptr %r.i.i6085, align 8
   %conv.i692.i6916 = trunc i64 %38 to i32
@@ -209480,7 +209474,7 @@ if.then.i99.i6600:                                ; preds = %if.end75.i6225
   %364 = load i64, ptr %x.addr.i.i6165, align 8
   store i64 %364, ptr %x.addr.i693.i6082, align 8
   %365 = load i64, ptr %x.addr.i693.i6082, align 8
-  %366 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %365) #12, !srcloc !779
+  %366 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %365) #11, !srcloc !779
   store i64 %366, ptr %r.i694.i6083, align 8
   %367 = load i64, ptr %r.i694.i6083, align 8
   %conv.i695.i6601 = trunc i64 %367 to i32
@@ -209652,7 +209646,7 @@ if.then.i106.i6073:                               ; preds = %lor.lhs.false
   %407 = load i64, ptr %x.addr.i101.i5321, align 8
   store i64 %407, ptr %x.addr.i691.i5242, align 8
   %408 = load i64, ptr %x.addr.i691.i5242, align 8
-  %409 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %408) #12, !srcloc !779
+  %409 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %408) #11, !srcloc !779
   store i64 %409, ptr %r.i.i5243, align 8
   %410 = load i64, ptr %r.i.i5243, align 8
   %conv.i692.i6074 = trunc i64 %410 to i32
@@ -210960,7 +210954,7 @@ if.then.i99.i5758:                                ; preds = %if.end75.i5383
   %736 = load i64, ptr %x.addr.i.i5323, align 8
   store i64 %736, ptr %x.addr.i693.i5240, align 8
   %737 = load i64, ptr %x.addr.i693.i5240, align 8
-  %738 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %737) #12, !srcloc !779
+  %738 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %737) #11, !srcloc !779
   store i64 %738, ptr %r.i694.i5241, align 8
   %739 = load i64, ptr %r.i694.i5241, align 8
   %conv.i695.i5759 = trunc i64 %739 to i32
@@ -211132,7 +211126,7 @@ if.then.i106.i5231:                               ; preds = %lor.lhs.false10
   %779 = load i64, ptr %x.addr.i101.i4479, align 8
   store i64 %779, ptr %x.addr.i691.i4400, align 8
   %780 = load i64, ptr %x.addr.i691.i4400, align 8
-  %781 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %780) #12, !srcloc !779
+  %781 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %780) #11, !srcloc !779
   store i64 %781, ptr %r.i.i4401, align 8
   %782 = load i64, ptr %r.i.i4401, align 8
   %conv.i692.i5232 = trunc i64 %782 to i32
@@ -212440,7 +212434,7 @@ if.then.i99.i4916:                                ; preds = %if.end75.i4541
   %1108 = load i64, ptr %x.addr.i.i4481, align 8
   store i64 %1108, ptr %x.addr.i693.i4398, align 8
   %1109 = load i64, ptr %x.addr.i693.i4398, align 8
-  %1110 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1109) #12, !srcloc !779
+  %1110 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1109) #11, !srcloc !779
   store i64 %1110, ptr %r.i694.i4399, align 8
   %1111 = load i64, ptr %r.i694.i4399, align 8
   %conv.i695.i4917 = trunc i64 %1111 to i32
@@ -212612,7 +212606,7 @@ if.then.i106.i4389:                               ; preds = %lor.lhs.false13
   %1151 = load i64, ptr %x.addr.i101.i3637, align 8
   store i64 %1151, ptr %x.addr.i691.i3558, align 8
   %1152 = load i64, ptr %x.addr.i691.i3558, align 8
-  %1153 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1152) #12, !srcloc !779
+  %1153 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1152) #11, !srcloc !779
   store i64 %1153, ptr %r.i.i3559, align 8
   %1154 = load i64, ptr %r.i.i3559, align 8
   %conv.i692.i4390 = trunc i64 %1154 to i32
@@ -213920,7 +213914,7 @@ if.then.i99.i4074:                                ; preds = %if.end75.i3699
   %1480 = load i64, ptr %x.addr.i.i3639, align 8
   store i64 %1480, ptr %x.addr.i693.i3556, align 8
   %1481 = load i64, ptr %x.addr.i693.i3556, align 8
-  %1482 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1481) #12, !srcloc !779
+  %1482 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %1481) #11, !srcloc !779
   store i64 %1482, ptr %r.i694.i3557, align 8
   %1483 = load i64, ptr %r.i694.i3557, align 8
   %conv.i695.i4075 = trunc i64 %1483 to i32
@@ -216338,7 +216332,7 @@ if.then.i106.i3547:                               ; preds = %while.body68
   %2234 = load i64, ptr %x.addr.i101.i2795, align 8
   store i64 %2234, ptr %x.addr.i691.i2716, align 8
   %2235 = load i64, ptr %x.addr.i691.i2716, align 8
-  %2236 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %2235) #12, !srcloc !779
+  %2236 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %2235) #11, !srcloc !779
   store i64 %2236, ptr %r.i.i2717, align 8
   %2237 = load i64, ptr %r.i.i2717, align 8
   %conv.i692.i3548 = trunc i64 %2237 to i32
@@ -217646,7 +217640,7 @@ if.then.i99.i3232:                                ; preds = %if.end75.i2857
   %2563 = load i64, ptr %x.addr.i.i2797, align 8
   store i64 %2563, ptr %x.addr.i693.i2714, align 8
   %2564 = load i64, ptr %x.addr.i693.i2714, align 8
-  %2565 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %2564) #12, !srcloc !779
+  %2565 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %2564) #11, !srcloc !779
   store i64 %2565, ptr %r.i694.i2715, align 8
   %2566 = load i64, ptr %r.i694.i2715, align 8
   %conv.i695.i3233 = trunc i64 %2566 to i32
@@ -217818,7 +217812,7 @@ if.then.i106.i2705:                               ; preds = %lor.lhs.false71
   %2606 = load i64, ptr %x.addr.i101.i1953, align 8
   store i64 %2606, ptr %x.addr.i691.i1874, align 8
   %2607 = load i64, ptr %x.addr.i691.i1874, align 8
-  %2608 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %2607) #12, !srcloc !779
+  %2608 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %2607) #11, !srcloc !779
   store i64 %2608, ptr %r.i.i1875, align 8
   %2609 = load i64, ptr %r.i.i1875, align 8
   %conv.i692.i2706 = trunc i64 %2609 to i32
@@ -219126,7 +219120,7 @@ if.then.i99.i2390:                                ; preds = %if.end75.i2015
   %2935 = load i64, ptr %x.addr.i.i1955, align 8
   store i64 %2935, ptr %x.addr.i693.i1872, align 8
   %2936 = load i64, ptr %x.addr.i693.i1872, align 8
-  %2937 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %2936) #12, !srcloc !779
+  %2937 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %2936) #11, !srcloc !779
   store i64 %2937, ptr %r.i694.i1873, align 8
   %2938 = load i64, ptr %r.i694.i1873, align 8
   %conv.i695.i2391 = trunc i64 %2938 to i32
@@ -219298,7 +219292,7 @@ if.then.i106.i1863:                               ; preds = %lor.lhs.false74
   %2978 = load i64, ptr %x.addr.i101.i1111, align 8
   store i64 %2978, ptr %x.addr.i691.i1032, align 8
   %2979 = load i64, ptr %x.addr.i691.i1032, align 8
-  %2980 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %2979) #12, !srcloc !779
+  %2980 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %2979) #11, !srcloc !779
   store i64 %2980, ptr %r.i.i1033, align 8
   %2981 = load i64, ptr %r.i.i1033, align 8
   %conv.i692.i1864 = trunc i64 %2981 to i32
@@ -220606,7 +220600,7 @@ if.then.i99.i1548:                                ; preds = %if.end75.i1173
   %3307 = load i64, ptr %x.addr.i.i1113, align 8
   store i64 %3307, ptr %x.addr.i693.i1030, align 8
   %3308 = load i64, ptr %x.addr.i693.i1030, align 8
-  %3309 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3308) #12, !srcloc !779
+  %3309 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3308) #11, !srcloc !779
   store i64 %3309, ptr %r.i694.i1031, align 8
   %3310 = load i64, ptr %r.i694.i1031, align 8
   %conv.i695.i1549 = trunc i64 %3310 to i32
@@ -220778,7 +220772,7 @@ if.then.i106.i1021:                               ; preds = %lor.lhs.false77
   %3350 = load i64, ptr %x.addr.i101.i269, align 8
   store i64 %3350, ptr %x.addr.i691.i190, align 8
   %3351 = load i64, ptr %x.addr.i691.i190, align 8
-  %3352 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3351) #12, !srcloc !779
+  %3352 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3351) #11, !srcloc !779
   store i64 %3352, ptr %r.i.i191, align 8
   %3353 = load i64, ptr %r.i.i191, align 8
   %conv.i692.i1022 = trunc i64 %3353 to i32
@@ -222086,7 +222080,7 @@ if.then.i99.i706:                                 ; preds = %if.end75.i331
   %3679 = load i64, ptr %x.addr.i.i271, align 8
   store i64 %3679, ptr %x.addr.i693.i188, align 8
   %3680 = load i64, ptr %x.addr.i693.i188, align 8
-  %3681 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3680) #12, !srcloc !779
+  %3681 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3680) #11, !srcloc !779
   store i64 %3681, ptr %r.i694.i189, align 8
   %3682 = load i64, ptr %r.i694.i189, align 8
   %conv.i695.i707 = trunc i64 %3682 to i32
@@ -224243,7 +224237,7 @@ if.then.i106.i:                                   ; preds = %while.body141
   %4434 = load i64, ptr %x.addr.i101.i, align 8
   store i64 %4434, ptr %x.addr.i691.i, align 8
   %4435 = load i64, ptr %x.addr.i691.i, align 8
-  %4436 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %4435) #12, !srcloc !779
+  %4436 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %4435) #11, !srcloc !779
   store i64 %4436, ptr %r.i.i, align 8
   %4437 = load i64, ptr %r.i.i, align 8
   %conv.i692.i = trunc i64 %4437 to i32
@@ -225551,7 +225545,7 @@ if.then.i99.i:                                    ; preds = %if.end75.i
   %4763 = load i64, ptr %x.addr.i.i, align 8
   store i64 %4763, ptr %x.addr.i693.i, align 8
   %4764 = load i64, ptr %x.addr.i693.i, align 8
-  %4765 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %4764) #12, !srcloc !779
+  %4765 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %4764) #11, !srcloc !779
   store i64 %4765, ptr %r.i694.i, align 8
   %4766 = load i64, ptr %r.i694.i, align 8
   %conv.i695.i = trunc i64 %4766 to i32
@@ -226967,7 +226961,7 @@ if.then.i106.i:                                   ; preds = %while.body
   %14 = load i64, ptr %x.addr.i101.i, align 8
   store i64 %14, ptr %x.addr.i691.i, align 8
   %15 = load i64, ptr %x.addr.i691.i, align 8
-  %16 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %15) #12, !srcloc !779
+  %16 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %15) #11, !srcloc !779
   store i64 %16, ptr %r.i.i, align 8
   %17 = load i64, ptr %r.i.i, align 8
   %conv.i692.i = trunc i64 %17 to i32
@@ -228275,7 +228269,7 @@ if.then.i99.i:                                    ; preds = %if.end75.i
   %343 = load i64, ptr %x.addr.i.i, align 8
   store i64 %343, ptr %x.addr.i693.i, align 8
   %344 = load i64, ptr %x.addr.i693.i, align 8
-  %345 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %344) #12, !srcloc !779
+  %345 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %344) #11, !srcloc !779
   store i64 %345, ptr %r.i694.i, align 8
   %346 = load i64, ptr %r.i694.i, align 8
   %conv.i695.i = trunc i64 %346 to i32
@@ -229679,10 +229673,10 @@ return:                                           ; preds = %if.end4, %if.then3,
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pslli.d(<4 x i32>, i32) #13
+declare <4 x i32> @llvm.x86.sse2.pslli.d(<4 x i32>, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.psrai.d(<4 x i32>, i32) #13
+declare <4 x i32> @llvm.x86.sse2.psrai.d(<4 x i32>, i32) #12
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ma_dr_flac__seek_to_byte(ptr noundef %bs, i64 noundef %offsetFromStart) #0 {
@@ -231518,7 +231512,7 @@ if.then.i86.i:                                    ; preds = %for.body
   %12 = load i64, ptr %x.addr.i81.i, align 8
   store i64 %12, ptr %x.addr.i671.i, align 8
   %13 = load i64, ptr %x.addr.i671.i, align 8
-  %14 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %13) #12, !srcloc !779
+  %14 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %13) #11, !srcloc !779
   store i64 %14, ptr %r.i.i, align 8
   %15 = load i64, ptr %r.i.i, align 8
   %conv.i672.i = trunc i64 %15 to i32
@@ -232793,7 +232787,7 @@ if.then.i79.i:                                    ; preds = %if.end57.i
   %328 = load i64, ptr %x.addr.i.i, align 8
   store i64 %328, ptr %x.addr.i673.i, align 8
   %329 = load i64, ptr %x.addr.i673.i, align 8
-  %330 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %329) #12, !srcloc !779
+  %330 = call i64 asm sideeffect "lzcnt$( $1, $0$| $0, $1$)", "=r,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %329) #11, !srcloc !779
   store i64 %330, ptr %r.i674.i, align 8
   %331 = load i64, ptr %r.i674.i, align 8
   %conv.i675.i = trunc i64 %331 to i32
@@ -235209,7 +235203,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ma_dr_mp3_L3_midside_stereo(ptr noundef %left, i32 noundef %n) #8 {
+define internal void @ma_dr_mp3_L3_midside_stereo(ptr noundef %left, i32 noundef %n) #7 {
 entry:
   %__a.addr.i37 = alloca <4 x float>, align 16
   %__b.addr.i38 = alloca <4 x float>, align 16
@@ -235485,7 +235479,7 @@ for.end18:                                        ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ma_dr_mp3_L3_antialias(ptr noundef %grbuf, i32 noundef %nbands) #8 {
+define internal void @ma_dr_mp3_L3_antialias(ptr noundef %grbuf, i32 noundef %nbands) #7 {
 entry:
   %__a.addr.i51 = alloca <4 x float>, align 16
   %__b.addr.i52 = alloca <4 x float>, align 16
@@ -235566,83 +235560,84 @@ for.body3:                                        ; preds = %for.cond1
   store <4 x float> %12, ptr %vc0, align 16
   %13 = load i32, ptr %i, align 4
   %idx.ext13 = sext i32 %13 to i64
-  %add.ptr14 = getelementptr inbounds float, ptr getelementptr inbounds ([2 x [8 x float]], ptr @ma_dr_mp3_L3_antialias.g_aa, i64 0, i64 1), i64 %idx.ext13
+  %14 = getelementptr inbounds [2 x [8 x float]], ptr @ma_dr_mp3_L3_antialias.g_aa, i64 0, i64 1
+  %add.ptr14 = getelementptr inbounds float, ptr %14, i64 %idx.ext13
   store ptr %add.ptr14, ptr %__p.addr.i, align 8
-  %14 = load ptr, ptr %__p.addr.i, align 8
-  %15 = load <4 x float>, ptr %14, align 1
-  store <4 x float> %15, ptr %vc1, align 16
-  %16 = load <4 x float>, ptr %vd, align 16
+  %15 = load ptr, ptr %__p.addr.i, align 8
+  %16 = load <4 x float>, ptr %15, align 1
+  store <4 x float> %16, ptr %vc1, align 16
   %17 = load <4 x float>, ptr %vd, align 16
-  %shufp = shufflevector <4 x float> %16, <4 x float> %17, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
+  %18 = load <4 x float>, ptr %vd, align 16
+  %shufp = shufflevector <4 x float> %17, <4 x float> %18, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
   store <4 x float> %shufp, ptr %vd, align 16
-  %18 = load ptr, ptr %grbuf.addr, align 8
-  %add.ptr16 = getelementptr inbounds float, ptr %18, i64 18
-  %19 = load i32, ptr %i, align 4
-  %idx.ext17 = sext i32 %19 to i64
+  %19 = load ptr, ptr %grbuf.addr, align 8
+  %add.ptr16 = getelementptr inbounds float, ptr %19, i64 18
+  %20 = load i32, ptr %i, align 4
+  %idx.ext17 = sext i32 %20 to i64
   %add.ptr18 = getelementptr inbounds float, ptr %add.ptr16, i64 %idx.ext17
-  %20 = load <4 x float>, ptr %vu, align 16
-  %21 = load <4 x float>, ptr %vc0, align 16
-  store <4 x float> %20, ptr %__a.addr.i39, align 16
-  store <4 x float> %21, ptr %__b.addr.i40, align 16
-  %22 = load <4 x float>, ptr %__a.addr.i39, align 16
-  %23 = load <4 x float>, ptr %__b.addr.i40, align 16
-  %mul.i41 = fmul <4 x float> %22, %23
-  %24 = load <4 x float>, ptr %vd, align 16
-  %25 = load <4 x float>, ptr %vc1, align 16
-  store <4 x float> %24, ptr %__a.addr.i36, align 16
-  store <4 x float> %25, ptr %__b.addr.i37, align 16
-  %26 = load <4 x float>, ptr %__a.addr.i36, align 16
-  %27 = load <4 x float>, ptr %__b.addr.i37, align 16
-  %mul.i38 = fmul <4 x float> %26, %27
+  %21 = load <4 x float>, ptr %vu, align 16
+  %22 = load <4 x float>, ptr %vc0, align 16
+  store <4 x float> %21, ptr %__a.addr.i39, align 16
+  store <4 x float> %22, ptr %__b.addr.i40, align 16
+  %23 = load <4 x float>, ptr %__a.addr.i39, align 16
+  %24 = load <4 x float>, ptr %__b.addr.i40, align 16
+  %mul.i41 = fmul <4 x float> %23, %24
+  %25 = load <4 x float>, ptr %vd, align 16
+  %26 = load <4 x float>, ptr %vc1, align 16
+  store <4 x float> %25, ptr %__a.addr.i36, align 16
+  store <4 x float> %26, ptr %__b.addr.i37, align 16
+  %27 = load <4 x float>, ptr %__a.addr.i36, align 16
+  %28 = load <4 x float>, ptr %__b.addr.i37, align 16
+  %mul.i38 = fmul <4 x float> %27, %28
   store <4 x float> %mul.i41, ptr %__a.addr.i51, align 16
   store <4 x float> %mul.i38, ptr %__b.addr.i52, align 16
-  %28 = load <4 x float>, ptr %__a.addr.i51, align 16
-  %29 = load <4 x float>, ptr %__b.addr.i52, align 16
-  %sub.i = fsub <4 x float> %28, %29
+  %29 = load <4 x float>, ptr %__a.addr.i51, align 16
+  %30 = load <4 x float>, ptr %__b.addr.i52, align 16
+  %sub.i = fsub <4 x float> %29, %30
   store ptr %add.ptr18, ptr %__p.addr.i49, align 8
   store <4 x float> %sub.i, ptr %__a.addr.i50, align 16
-  %30 = load <4 x float>, ptr %__a.addr.i50, align 16
-  %31 = load ptr, ptr %__p.addr.i49, align 8
-  store <4 x float> %30, ptr %31, align 1
-  %32 = load <4 x float>, ptr %vu, align 16
-  %33 = load <4 x float>, ptr %vc1, align 16
-  store <4 x float> %32, ptr %__a.addr.i33, align 16
-  store <4 x float> %33, ptr %__b.addr.i34, align 16
-  %34 = load <4 x float>, ptr %__a.addr.i33, align 16
-  %35 = load <4 x float>, ptr %__b.addr.i34, align 16
-  %mul.i35 = fmul <4 x float> %34, %35
-  %36 = load <4 x float>, ptr %vd, align 16
-  %37 = load <4 x float>, ptr %vc0, align 16
-  store <4 x float> %36, ptr %__a.addr.i, align 16
-  store <4 x float> %37, ptr %__b.addr.i, align 16
-  %38 = load <4 x float>, ptr %__a.addr.i, align 16
-  %39 = load <4 x float>, ptr %__b.addr.i, align 16
-  %mul.i = fmul <4 x float> %38, %39
+  %31 = load <4 x float>, ptr %__a.addr.i50, align 16
+  %32 = load ptr, ptr %__p.addr.i49, align 8
+  store <4 x float> %31, ptr %32, align 1
+  %33 = load <4 x float>, ptr %vu, align 16
+  %34 = load <4 x float>, ptr %vc1, align 16
+  store <4 x float> %33, ptr %__a.addr.i33, align 16
+  store <4 x float> %34, ptr %__b.addr.i34, align 16
+  %35 = load <4 x float>, ptr %__a.addr.i33, align 16
+  %36 = load <4 x float>, ptr %__b.addr.i34, align 16
+  %mul.i35 = fmul <4 x float> %35, %36
+  %37 = load <4 x float>, ptr %vd, align 16
+  %38 = load <4 x float>, ptr %vc0, align 16
+  store <4 x float> %37, ptr %__a.addr.i, align 16
+  store <4 x float> %38, ptr %__b.addr.i, align 16
+  %39 = load <4 x float>, ptr %__a.addr.i, align 16
+  %40 = load <4 x float>, ptr %__b.addr.i, align 16
+  %mul.i = fmul <4 x float> %39, %40
   store <4 x float> %mul.i35, ptr %__a.addr.i45, align 16
   store <4 x float> %mul.i, ptr %__b.addr.i46, align 16
-  %40 = load <4 x float>, ptr %__a.addr.i45, align 16
-  %41 = load <4 x float>, ptr %__b.addr.i46, align 16
-  %add.i = fadd <4 x float> %40, %41
+  %41 = load <4 x float>, ptr %__a.addr.i45, align 16
+  %42 = load <4 x float>, ptr %__b.addr.i46, align 16
+  %add.i = fadd <4 x float> %41, %42
   store <4 x float> %add.i, ptr %vd, align 16
-  %42 = load ptr, ptr %grbuf.addr, align 8
-  %add.ptr25 = getelementptr inbounds float, ptr %42, i64 14
-  %43 = load i32, ptr %i, align 4
-  %idx.ext26 = sext i32 %43 to i64
+  %43 = load ptr, ptr %grbuf.addr, align 8
+  %add.ptr25 = getelementptr inbounds float, ptr %43, i64 14
+  %44 = load i32, ptr %i, align 4
+  %idx.ext26 = sext i32 %44 to i64
   %idx.neg27 = sub i64 0, %idx.ext26
   %add.ptr28 = getelementptr inbounds float, ptr %add.ptr25, i64 %idx.neg27
-  %44 = load <4 x float>, ptr %vd, align 16
   %45 = load <4 x float>, ptr %vd, align 16
-  %shufp29 = shufflevector <4 x float> %44, <4 x float> %45, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
+  %46 = load <4 x float>, ptr %vd, align 16
+  %shufp29 = shufflevector <4 x float> %45, <4 x float> %46, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
   store ptr %add.ptr28, ptr %__p.addr.i47, align 8
   store <4 x float> %shufp29, ptr %__a.addr.i48, align 16
-  %46 = load <4 x float>, ptr %__a.addr.i48, align 16
-  %47 = load ptr, ptr %__p.addr.i47, align 8
-  store <4 x float> %46, ptr %47, align 1
+  %47 = load <4 x float>, ptr %__a.addr.i48, align 16
+  %48 = load ptr, ptr %__p.addr.i47, align 8
+  store <4 x float> %47, ptr %48, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body3
-  %48 = load i32, ptr %i, align 4
-  %add = add nsw i32 %48, 4
+  %49 = load i32, ptr %i, align 4
+  %add = add nsw i32 %49, 4
   store i32 %add, ptr %i, align 4
   br label %for.cond1, !llvm.loop !822
 
@@ -235653,11 +235648,11 @@ if.end:                                           ; preds = %for.end, %for.body
   br label %for.inc30
 
 for.inc30:                                        ; preds = %if.end
-  %49 = load i32, ptr %nbands.addr, align 4
-  %dec = add nsw i32 %49, -1
+  %50 = load i32, ptr %nbands.addr, align 4
+  %dec = add nsw i32 %50, -1
   store i32 %dec, ptr %nbands.addr, align 4
-  %50 = load ptr, ptr %grbuf.addr, align 8
-  %add.ptr31 = getelementptr inbounds float, ptr %50, i64 18
+  %51 = load ptr, ptr %grbuf.addr, align 8
+  %add.ptr31 = getelementptr inbounds float, ptr %51, i64 18
   store ptr %add.ptr31, ptr %grbuf.addr, align 8
   br label %for.cond, !llvm.loop !823
 
@@ -236473,10 +236468,10 @@ entry:
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i32(i32) #17
+declare i1 @llvm.is.constant.i32(i32) #16
 
 ; Function Attrs: nounwind uwtable
-define internal void @ma_dr_mp3_L3_imdct36(ptr noundef %grbuf, ptr noundef %overlap, ptr noundef %window, i32 noundef %nbands) #8 {
+define internal void @ma_dr_mp3_L3_imdct36(ptr noundef %grbuf, ptr noundef %overlap, ptr noundef %window, i32 noundef %nbands) #7 {
 entry:
   %__a.addr.i217 = alloca <4 x float>, align 16
   %__b.addr.i218 = alloca <4 x float>, align 16
@@ -236732,143 +236727,144 @@ for.body71:                                       ; preds = %for.cond69
   store <4 x float> %53, ptr %vr0, align 16
   %54 = load i32, ptr %i, align 4
   %idx.ext84 = sext i32 %54 to i64
-  %add.ptr85 = getelementptr inbounds float, ptr getelementptr inbounds (float, ptr @ma_dr_mp3_L3_imdct36.g_twid9, i64 9), i64 %idx.ext84
+  %55 = getelementptr inbounds float, ptr @ma_dr_mp3_L3_imdct36.g_twid9, i64 9
+  %add.ptr85 = getelementptr inbounds float, ptr %55, i64 %idx.ext84
   store ptr %add.ptr85, ptr %__p.addr.i199, align 8
-  %55 = load ptr, ptr %__p.addr.i199, align 8
-  %56 = load <4 x float>, ptr %55, align 1
-  store <4 x float> %56, ptr %vr1, align 16
-  %57 = load ptr, ptr %window.addr, align 8
-  %58 = load i32, ptr %i, align 4
-  %idx.ext87 = sext i32 %58 to i64
-  %add.ptr88 = getelementptr inbounds float, ptr %57, i64 %idx.ext87
+  %56 = load ptr, ptr %__p.addr.i199, align 8
+  %57 = load <4 x float>, ptr %56, align 1
+  store <4 x float> %57, ptr %vr1, align 16
+  %58 = load ptr, ptr %window.addr, align 8
+  %59 = load i32, ptr %i, align 4
+  %idx.ext87 = sext i32 %59 to i64
+  %add.ptr88 = getelementptr inbounds float, ptr %58, i64 %idx.ext87
   store ptr %add.ptr88, ptr %__p.addr.i198, align 8
-  %59 = load ptr, ptr %__p.addr.i198, align 8
-  %60 = load <4 x float>, ptr %59, align 1
-  store <4 x float> %60, ptr %vw0, align 16
-  %61 = load ptr, ptr %window.addr, align 8
-  %add.ptr90 = getelementptr inbounds float, ptr %61, i64 9
-  %62 = load i32, ptr %i, align 4
-  %idx.ext91 = sext i32 %62 to i64
+  %60 = load ptr, ptr %__p.addr.i198, align 8
+  %61 = load <4 x float>, ptr %60, align 1
+  store <4 x float> %61, ptr %vw0, align 16
+  %62 = load ptr, ptr %window.addr, align 8
+  %add.ptr90 = getelementptr inbounds float, ptr %62, i64 9
+  %63 = load i32, ptr %i, align 4
+  %idx.ext91 = sext i32 %63 to i64
   %add.ptr92 = getelementptr inbounds float, ptr %add.ptr90, i64 %idx.ext91
   store ptr %add.ptr92, ptr %__p.addr.i, align 8
-  %63 = load ptr, ptr %__p.addr.i, align 8
-  %64 = load <4 x float>, ptr %63, align 1
-  store <4 x float> %64, ptr %vw1, align 16
-  %65 = load <4 x float>, ptr %vc, align 16
-  %66 = load <4 x float>, ptr %vr1, align 16
-  store <4 x float> %65, ptr %__a.addr.i195, align 16
-  store <4 x float> %66, ptr %__b.addr.i196, align 16
-  %67 = load <4 x float>, ptr %__a.addr.i195, align 16
-  %68 = load <4 x float>, ptr %__b.addr.i196, align 16
-  %mul.i197 = fmul <4 x float> %67, %68
-  %69 = load <4 x float>, ptr %vs, align 16
-  %70 = load <4 x float>, ptr %vr0, align 16
-  store <4 x float> %69, ptr %__a.addr.i192, align 16
-  store <4 x float> %70, ptr %__b.addr.i193, align 16
-  %71 = load <4 x float>, ptr %__a.addr.i192, align 16
-  %72 = load <4 x float>, ptr %__b.addr.i193, align 16
-  %mul.i194 = fmul <4 x float> %71, %72
+  %64 = load ptr, ptr %__p.addr.i, align 8
+  %65 = load <4 x float>, ptr %64, align 1
+  store <4 x float> %65, ptr %vw1, align 16
+  %66 = load <4 x float>, ptr %vc, align 16
+  %67 = load <4 x float>, ptr %vr1, align 16
+  store <4 x float> %66, ptr %__a.addr.i195, align 16
+  store <4 x float> %67, ptr %__b.addr.i196, align 16
+  %68 = load <4 x float>, ptr %__a.addr.i195, align 16
+  %69 = load <4 x float>, ptr %__b.addr.i196, align 16
+  %mul.i197 = fmul <4 x float> %68, %69
+  %70 = load <4 x float>, ptr %vs, align 16
+  %71 = load <4 x float>, ptr %vr0, align 16
+  store <4 x float> %70, ptr %__a.addr.i192, align 16
+  store <4 x float> %71, ptr %__b.addr.i193, align 16
+  %72 = load <4 x float>, ptr %__a.addr.i192, align 16
+  %73 = load <4 x float>, ptr %__b.addr.i193, align 16
+  %mul.i194 = fmul <4 x float> %72, %73
   store <4 x float> %mul.i197, ptr %__a.addr.i206, align 16
   store <4 x float> %mul.i194, ptr %__b.addr.i207, align 16
-  %73 = load <4 x float>, ptr %__a.addr.i206, align 16
-  %74 = load <4 x float>, ptr %__b.addr.i207, align 16
-  %add.i208 = fadd <4 x float> %73, %74
+  %74 = load <4 x float>, ptr %__a.addr.i206, align 16
+  %75 = load <4 x float>, ptr %__b.addr.i207, align 16
+  %add.i208 = fadd <4 x float> %74, %75
   store <4 x float> %add.i208, ptr %vsum, align 16
-  %75 = load ptr, ptr %overlap.addr, align 8
-  %76 = load i32, ptr %i, align 4
-  %idx.ext97 = sext i32 %76 to i64
-  %add.ptr98 = getelementptr inbounds float, ptr %75, i64 %idx.ext97
-  %77 = load <4 x float>, ptr %vc, align 16
-  %78 = load <4 x float>, ptr %vr0, align 16
-  store <4 x float> %77, ptr %__a.addr.i189, align 16
-  store <4 x float> %78, ptr %__b.addr.i190, align 16
-  %79 = load <4 x float>, ptr %__a.addr.i189, align 16
-  %80 = load <4 x float>, ptr %__b.addr.i190, align 16
-  %mul.i191 = fmul <4 x float> %79, %80
-  %81 = load <4 x float>, ptr %vs, align 16
-  %82 = load <4 x float>, ptr %vr1, align 16
-  store <4 x float> %81, ptr %__a.addr.i186, align 16
-  store <4 x float> %82, ptr %__b.addr.i187, align 16
-  %83 = load <4 x float>, ptr %__a.addr.i186, align 16
-  %84 = load <4 x float>, ptr %__b.addr.i187, align 16
-  %mul.i188 = fmul <4 x float> %83, %84
+  %76 = load ptr, ptr %overlap.addr, align 8
+  %77 = load i32, ptr %i, align 4
+  %idx.ext97 = sext i32 %77 to i64
+  %add.ptr98 = getelementptr inbounds float, ptr %76, i64 %idx.ext97
+  %78 = load <4 x float>, ptr %vc, align 16
+  %79 = load <4 x float>, ptr %vr0, align 16
+  store <4 x float> %78, ptr %__a.addr.i189, align 16
+  store <4 x float> %79, ptr %__b.addr.i190, align 16
+  %80 = load <4 x float>, ptr %__a.addr.i189, align 16
+  %81 = load <4 x float>, ptr %__b.addr.i190, align 16
+  %mul.i191 = fmul <4 x float> %80, %81
+  %82 = load <4 x float>, ptr %vs, align 16
+  %83 = load <4 x float>, ptr %vr1, align 16
+  store <4 x float> %82, ptr %__a.addr.i186, align 16
+  store <4 x float> %83, ptr %__b.addr.i187, align 16
+  %84 = load <4 x float>, ptr %__a.addr.i186, align 16
+  %85 = load <4 x float>, ptr %__b.addr.i187, align 16
+  %mul.i188 = fmul <4 x float> %84, %85
   store <4 x float> %mul.i191, ptr %__a.addr.i217, align 16
   store <4 x float> %mul.i188, ptr %__b.addr.i218, align 16
-  %85 = load <4 x float>, ptr %__a.addr.i217, align 16
-  %86 = load <4 x float>, ptr %__b.addr.i218, align 16
-  %sub.i219 = fsub <4 x float> %85, %86
+  %86 = load <4 x float>, ptr %__a.addr.i217, align 16
+  %87 = load <4 x float>, ptr %__b.addr.i218, align 16
+  %sub.i219 = fsub <4 x float> %86, %87
   store ptr %add.ptr98, ptr %__p.addr.i213, align 8
   store <4 x float> %sub.i219, ptr %__a.addr.i214, align 16
-  %87 = load <4 x float>, ptr %__a.addr.i214, align 16
-  %88 = load ptr, ptr %__p.addr.i213, align 8
-  store <4 x float> %87, ptr %88, align 1
-  %89 = load ptr, ptr %grbuf.addr, align 8
-  %90 = load i32, ptr %i, align 4
-  %idx.ext102 = sext i32 %90 to i64
-  %add.ptr103 = getelementptr inbounds float, ptr %89, i64 %idx.ext102
-  %91 = load <4 x float>, ptr %vovl, align 16
-  %92 = load <4 x float>, ptr %vw0, align 16
-  store <4 x float> %91, ptr %__a.addr.i183, align 16
-  store <4 x float> %92, ptr %__b.addr.i184, align 16
-  %93 = load <4 x float>, ptr %__a.addr.i183, align 16
-  %94 = load <4 x float>, ptr %__b.addr.i184, align 16
-  %mul.i185 = fmul <4 x float> %93, %94
-  %95 = load <4 x float>, ptr %vsum, align 16
-  %96 = load <4 x float>, ptr %vw1, align 16
-  store <4 x float> %95, ptr %__a.addr.i180, align 16
-  store <4 x float> %96, ptr %__b.addr.i181, align 16
-  %97 = load <4 x float>, ptr %__a.addr.i180, align 16
-  %98 = load <4 x float>, ptr %__b.addr.i181, align 16
-  %mul.i182 = fmul <4 x float> %97, %98
+  %88 = load <4 x float>, ptr %__a.addr.i214, align 16
+  %89 = load ptr, ptr %__p.addr.i213, align 8
+  store <4 x float> %88, ptr %89, align 1
+  %90 = load ptr, ptr %grbuf.addr, align 8
+  %91 = load i32, ptr %i, align 4
+  %idx.ext102 = sext i32 %91 to i64
+  %add.ptr103 = getelementptr inbounds float, ptr %90, i64 %idx.ext102
+  %92 = load <4 x float>, ptr %vovl, align 16
+  %93 = load <4 x float>, ptr %vw0, align 16
+  store <4 x float> %92, ptr %__a.addr.i183, align 16
+  store <4 x float> %93, ptr %__b.addr.i184, align 16
+  %94 = load <4 x float>, ptr %__a.addr.i183, align 16
+  %95 = load <4 x float>, ptr %__b.addr.i184, align 16
+  %mul.i185 = fmul <4 x float> %94, %95
+  %96 = load <4 x float>, ptr %vsum, align 16
+  %97 = load <4 x float>, ptr %vw1, align 16
+  store <4 x float> %96, ptr %__a.addr.i180, align 16
+  store <4 x float> %97, ptr %__b.addr.i181, align 16
+  %98 = load <4 x float>, ptr %__a.addr.i180, align 16
+  %99 = load <4 x float>, ptr %__b.addr.i181, align 16
+  %mul.i182 = fmul <4 x float> %98, %99
   store <4 x float> %mul.i185, ptr %__a.addr.i215, align 16
   store <4 x float> %mul.i182, ptr %__b.addr.i216, align 16
-  %99 = load <4 x float>, ptr %__a.addr.i215, align 16
-  %100 = load <4 x float>, ptr %__b.addr.i216, align 16
-  %sub.i = fsub <4 x float> %99, %100
+  %100 = load <4 x float>, ptr %__a.addr.i215, align 16
+  %101 = load <4 x float>, ptr %__b.addr.i216, align 16
+  %sub.i = fsub <4 x float> %100, %101
   store ptr %add.ptr103, ptr %__p.addr.i211, align 8
   store <4 x float> %sub.i, ptr %__a.addr.i212, align 16
-  %101 = load <4 x float>, ptr %__a.addr.i212, align 16
-  %102 = load ptr, ptr %__p.addr.i211, align 8
-  store <4 x float> %101, ptr %102, align 1
-  %103 = load <4 x float>, ptr %vovl, align 16
-  %104 = load <4 x float>, ptr %vw1, align 16
-  store <4 x float> %103, ptr %__a.addr.i177, align 16
-  store <4 x float> %104, ptr %__b.addr.i178, align 16
-  %105 = load <4 x float>, ptr %__a.addr.i177, align 16
-  %106 = load <4 x float>, ptr %__b.addr.i178, align 16
-  %mul.i179 = fmul <4 x float> %105, %106
-  %107 = load <4 x float>, ptr %vsum, align 16
-  %108 = load <4 x float>, ptr %vw0, align 16
-  store <4 x float> %107, ptr %__a.addr.i, align 16
-  store <4 x float> %108, ptr %__b.addr.i, align 16
-  %109 = load <4 x float>, ptr %__a.addr.i, align 16
-  %110 = load <4 x float>, ptr %__b.addr.i, align 16
-  %mul.i = fmul <4 x float> %109, %110
+  %102 = load <4 x float>, ptr %__a.addr.i212, align 16
+  %103 = load ptr, ptr %__p.addr.i211, align 8
+  store <4 x float> %102, ptr %103, align 1
+  %104 = load <4 x float>, ptr %vovl, align 16
+  %105 = load <4 x float>, ptr %vw1, align 16
+  store <4 x float> %104, ptr %__a.addr.i177, align 16
+  store <4 x float> %105, ptr %__b.addr.i178, align 16
+  %106 = load <4 x float>, ptr %__a.addr.i177, align 16
+  %107 = load <4 x float>, ptr %__b.addr.i178, align 16
+  %mul.i179 = fmul <4 x float> %106, %107
+  %108 = load <4 x float>, ptr %vsum, align 16
+  %109 = load <4 x float>, ptr %vw0, align 16
+  store <4 x float> %108, ptr %__a.addr.i, align 16
+  store <4 x float> %109, ptr %__b.addr.i, align 16
+  %110 = load <4 x float>, ptr %__a.addr.i, align 16
+  %111 = load <4 x float>, ptr %__b.addr.i, align 16
+  %mul.i = fmul <4 x float> %110, %111
   store <4 x float> %mul.i179, ptr %__a.addr.i204, align 16
   store <4 x float> %mul.i, ptr %__b.addr.i205, align 16
-  %111 = load <4 x float>, ptr %__a.addr.i204, align 16
-  %112 = load <4 x float>, ptr %__b.addr.i205, align 16
-  %add.i = fadd <4 x float> %111, %112
+  %112 = load <4 x float>, ptr %__a.addr.i204, align 16
+  %113 = load <4 x float>, ptr %__b.addr.i205, align 16
+  %add.i = fadd <4 x float> %112, %113
   store <4 x float> %add.i, ptr %vsum, align 16
-  %113 = load ptr, ptr %grbuf.addr, align 8
-  %add.ptr110 = getelementptr inbounds float, ptr %113, i64 14
-  %114 = load i32, ptr %i, align 4
-  %idx.ext111 = sext i32 %114 to i64
+  %114 = load ptr, ptr %grbuf.addr, align 8
+  %add.ptr110 = getelementptr inbounds float, ptr %114, i64 14
+  %115 = load i32, ptr %i, align 4
+  %idx.ext111 = sext i32 %115 to i64
   %idx.neg = sub i64 0, %idx.ext111
   %add.ptr112 = getelementptr inbounds float, ptr %add.ptr110, i64 %idx.neg
-  %115 = load <4 x float>, ptr %vsum, align 16
   %116 = load <4 x float>, ptr %vsum, align 16
-  %shufp = shufflevector <4 x float> %115, <4 x float> %116, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
+  %117 = load <4 x float>, ptr %vsum, align 16
+  %shufp = shufflevector <4 x float> %116, <4 x float> %117, <4 x i32> <i32 3, i32 2, i32 5, i32 4>
   store ptr %add.ptr112, ptr %__p.addr.i209, align 8
   store <4 x float> %shufp, ptr %__a.addr.i210, align 16
-  %117 = load <4 x float>, ptr %__a.addr.i210, align 16
-  %118 = load ptr, ptr %__p.addr.i209, align 8
-  store <4 x float> %117, ptr %118, align 1
+  %118 = load <4 x float>, ptr %__a.addr.i210, align 16
+  %119 = load ptr, ptr %__p.addr.i209, align 8
+  store <4 x float> %118, ptr %119, align 1
   br label %for.inc113
 
 for.inc113:                                       ; preds = %for.body71
-  %119 = load i32, ptr %i, align 4
-  %add114 = add nsw i32 %119, 4
+  %120 = load i32, ptr %i, align 4
+  %add114 = add nsw i32 %120, 4
   store i32 %add114, ptr %i, align 4
   br label %for.cond69, !llvm.loop !834
 
@@ -236879,113 +236875,113 @@ if.end:                                           ; preds = %for.end115, %for.en
   br label %for.cond116
 
 for.cond116:                                      ; preds = %for.inc169, %if.end
-  %120 = load i32, ptr %i, align 4
-  %cmp117 = icmp slt i32 %120, 9
+  %121 = load i32, ptr %i, align 4
+  %cmp117 = icmp slt i32 %121, 9
   br i1 %cmp117, label %for.body118, label %for.end171
 
 for.body118:                                      ; preds = %for.cond116
-  %121 = load ptr, ptr %overlap.addr, align 8
-  %122 = load i32, ptr %i, align 4
-  %idxprom119 = sext i32 %122 to i64
-  %arrayidx120 = getelementptr inbounds float, ptr %121, i64 %idxprom119
-  %123 = load float, ptr %arrayidx120, align 4
-  store float %123, ptr %ovl, align 4
-  %124 = load i32, ptr %i, align 4
-  %idxprom121 = sext i32 %124 to i64
+  %122 = load ptr, ptr %overlap.addr, align 8
+  %123 = load i32, ptr %i, align 4
+  %idxprom119 = sext i32 %123 to i64
+  %arrayidx120 = getelementptr inbounds float, ptr %122, i64 %idxprom119
+  %124 = load float, ptr %arrayidx120, align 4
+  store float %124, ptr %ovl, align 4
+  %125 = load i32, ptr %i, align 4
+  %idxprom121 = sext i32 %125 to i64
   %arrayidx122 = getelementptr inbounds [9 x float], ptr %co, i64 0, i64 %idxprom121
-  %125 = load float, ptr %arrayidx122, align 4
-  %126 = load i32, ptr %i, align 4
-  %add123 = add nsw i32 9, %126
+  %126 = load float, ptr %arrayidx122, align 4
+  %127 = load i32, ptr %i, align 4
+  %add123 = add nsw i32 9, %127
   %idxprom124 = sext i32 %add123 to i64
   %arrayidx125 = getelementptr inbounds [18 x float], ptr @ma_dr_mp3_L3_imdct36.g_twid9, i64 0, i64 %idxprom124
-  %127 = load float, ptr %arrayidx125, align 4
-  %128 = load i32, ptr %i, align 4
-  %idxprom127 = sext i32 %128 to i64
+  %128 = load float, ptr %arrayidx125, align 4
+  %129 = load i32, ptr %i, align 4
+  %idxprom127 = sext i32 %129 to i64
   %arrayidx128 = getelementptr inbounds [9 x float], ptr %si, i64 0, i64 %idxprom127
-  %129 = load float, ptr %arrayidx128, align 4
-  %130 = load i32, ptr %i, align 4
-  %add129 = add nsw i32 0, %130
+  %130 = load float, ptr %arrayidx128, align 4
+  %131 = load i32, ptr %i, align 4
+  %add129 = add nsw i32 0, %131
   %idxprom130 = sext i32 %add129 to i64
   %arrayidx131 = getelementptr inbounds [18 x float], ptr @ma_dr_mp3_L3_imdct36.g_twid9, i64 0, i64 %idxprom130
-  %131 = load float, ptr %arrayidx131, align 4
-  %mul132 = fmul float %129, %131
-  %132 = call float @llvm.fmuladd.f32(float %125, float %127, float %mul132)
-  store float %132, ptr %sum, align 4
-  %133 = load i32, ptr %i, align 4
-  %idxprom133 = sext i32 %133 to i64
+  %132 = load float, ptr %arrayidx131, align 4
+  %mul132 = fmul float %130, %132
+  %133 = call float @llvm.fmuladd.f32(float %126, float %128, float %mul132)
+  store float %133, ptr %sum, align 4
+  %134 = load i32, ptr %i, align 4
+  %idxprom133 = sext i32 %134 to i64
   %arrayidx134 = getelementptr inbounds [9 x float], ptr %co, i64 0, i64 %idxprom133
-  %134 = load float, ptr %arrayidx134, align 4
-  %135 = load i32, ptr %i, align 4
-  %add135 = add nsw i32 0, %135
+  %135 = load float, ptr %arrayidx134, align 4
+  %136 = load i32, ptr %i, align 4
+  %add135 = add nsw i32 0, %136
   %idxprom136 = sext i32 %add135 to i64
   %arrayidx137 = getelementptr inbounds [18 x float], ptr @ma_dr_mp3_L3_imdct36.g_twid9, i64 0, i64 %idxprom136
-  %136 = load float, ptr %arrayidx137, align 4
-  %137 = load i32, ptr %i, align 4
-  %idxprom139 = sext i32 %137 to i64
+  %137 = load float, ptr %arrayidx137, align 4
+  %138 = load i32, ptr %i, align 4
+  %idxprom139 = sext i32 %138 to i64
   %arrayidx140 = getelementptr inbounds [9 x float], ptr %si, i64 0, i64 %idxprom139
-  %138 = load float, ptr %arrayidx140, align 4
-  %139 = load i32, ptr %i, align 4
-  %add141 = add nsw i32 9, %139
+  %139 = load float, ptr %arrayidx140, align 4
+  %140 = load i32, ptr %i, align 4
+  %add141 = add nsw i32 9, %140
   %idxprom142 = sext i32 %add141 to i64
   %arrayidx143 = getelementptr inbounds [18 x float], ptr @ma_dr_mp3_L3_imdct36.g_twid9, i64 0, i64 %idxprom142
-  %140 = load float, ptr %arrayidx143, align 4
-  %mul144 = fmul float %138, %140
+  %141 = load float, ptr %arrayidx143, align 4
+  %mul144 = fmul float %139, %141
   %neg = fneg float %mul144
-  %141 = call float @llvm.fmuladd.f32(float %134, float %136, float %neg)
-  %142 = load ptr, ptr %overlap.addr, align 8
-  %143 = load i32, ptr %i, align 4
-  %idxprom145 = sext i32 %143 to i64
-  %arrayidx146 = getelementptr inbounds float, ptr %142, i64 %idxprom145
-  store float %141, ptr %arrayidx146, align 4
-  %144 = load float, ptr %ovl, align 4
-  %145 = load ptr, ptr %window.addr, align 8
-  %146 = load i32, ptr %i, align 4
-  %add147 = add nsw i32 0, %146
+  %142 = call float @llvm.fmuladd.f32(float %135, float %137, float %neg)
+  %143 = load ptr, ptr %overlap.addr, align 8
+  %144 = load i32, ptr %i, align 4
+  %idxprom145 = sext i32 %144 to i64
+  %arrayidx146 = getelementptr inbounds float, ptr %143, i64 %idxprom145
+  store float %142, ptr %arrayidx146, align 4
+  %145 = load float, ptr %ovl, align 4
+  %146 = load ptr, ptr %window.addr, align 8
+  %147 = load i32, ptr %i, align 4
+  %add147 = add nsw i32 0, %147
   %idxprom148 = sext i32 %add147 to i64
-  %arrayidx149 = getelementptr inbounds float, ptr %145, i64 %idxprom148
-  %147 = load float, ptr %arrayidx149, align 4
-  %148 = load float, ptr %sum, align 4
-  %149 = load ptr, ptr %window.addr, align 8
-  %150 = load i32, ptr %i, align 4
-  %add151 = add nsw i32 9, %150
+  %arrayidx149 = getelementptr inbounds float, ptr %146, i64 %idxprom148
+  %148 = load float, ptr %arrayidx149, align 4
+  %149 = load float, ptr %sum, align 4
+  %150 = load ptr, ptr %window.addr, align 8
+  %151 = load i32, ptr %i, align 4
+  %add151 = add nsw i32 9, %151
   %idxprom152 = sext i32 %add151 to i64
-  %arrayidx153 = getelementptr inbounds float, ptr %149, i64 %idxprom152
-  %151 = load float, ptr %arrayidx153, align 4
-  %mul154 = fmul float %148, %151
+  %arrayidx153 = getelementptr inbounds float, ptr %150, i64 %idxprom152
+  %152 = load float, ptr %arrayidx153, align 4
+  %mul154 = fmul float %149, %152
   %neg155 = fneg float %mul154
-  %152 = call float @llvm.fmuladd.f32(float %144, float %147, float %neg155)
-  %153 = load ptr, ptr %grbuf.addr, align 8
-  %154 = load i32, ptr %i, align 4
-  %idxprom156 = sext i32 %154 to i64
-  %arrayidx157 = getelementptr inbounds float, ptr %153, i64 %idxprom156
-  store float %152, ptr %arrayidx157, align 4
-  %155 = load float, ptr %ovl, align 4
-  %156 = load ptr, ptr %window.addr, align 8
-  %157 = load i32, ptr %i, align 4
-  %add158 = add nsw i32 9, %157
+  %153 = call float @llvm.fmuladd.f32(float %145, float %148, float %neg155)
+  %154 = load ptr, ptr %grbuf.addr, align 8
+  %155 = load i32, ptr %i, align 4
+  %idxprom156 = sext i32 %155 to i64
+  %arrayidx157 = getelementptr inbounds float, ptr %154, i64 %idxprom156
+  store float %153, ptr %arrayidx157, align 4
+  %156 = load float, ptr %ovl, align 4
+  %157 = load ptr, ptr %window.addr, align 8
+  %158 = load i32, ptr %i, align 4
+  %add158 = add nsw i32 9, %158
   %idxprom159 = sext i32 %add158 to i64
-  %arrayidx160 = getelementptr inbounds float, ptr %156, i64 %idxprom159
-  %158 = load float, ptr %arrayidx160, align 4
-  %159 = load float, ptr %sum, align 4
-  %160 = load ptr, ptr %window.addr, align 8
-  %161 = load i32, ptr %i, align 4
-  %add162 = add nsw i32 0, %161
+  %arrayidx160 = getelementptr inbounds float, ptr %157, i64 %idxprom159
+  %159 = load float, ptr %arrayidx160, align 4
+  %160 = load float, ptr %sum, align 4
+  %161 = load ptr, ptr %window.addr, align 8
+  %162 = load i32, ptr %i, align 4
+  %add162 = add nsw i32 0, %162
   %idxprom163 = sext i32 %add162 to i64
-  %arrayidx164 = getelementptr inbounds float, ptr %160, i64 %idxprom163
-  %162 = load float, ptr %arrayidx164, align 4
-  %mul165 = fmul float %159, %162
-  %163 = call float @llvm.fmuladd.f32(float %155, float %158, float %mul165)
-  %164 = load ptr, ptr %grbuf.addr, align 8
-  %165 = load i32, ptr %i, align 4
-  %sub166 = sub nsw i32 17, %165
+  %arrayidx164 = getelementptr inbounds float, ptr %161, i64 %idxprom163
+  %163 = load float, ptr %arrayidx164, align 4
+  %mul165 = fmul float %160, %163
+  %164 = call float @llvm.fmuladd.f32(float %156, float %159, float %mul165)
+  %165 = load ptr, ptr %grbuf.addr, align 8
+  %166 = load i32, ptr %i, align 4
+  %sub166 = sub nsw i32 17, %166
   %idxprom167 = sext i32 %sub166 to i64
-  %arrayidx168 = getelementptr inbounds float, ptr %164, i64 %idxprom167
-  store float %163, ptr %arrayidx168, align 4
+  %arrayidx168 = getelementptr inbounds float, ptr %165, i64 %idxprom167
+  store float %164, ptr %arrayidx168, align 4
   br label %for.inc169
 
 for.inc169:                                       ; preds = %for.body118
-  %166 = load i32, ptr %i, align 4
-  %inc170 = add nsw i32 %166, 1
+  %167 = load i32, ptr %i, align 4
+  %inc170 = add nsw i32 %167, 1
   store i32 %inc170, ptr %i, align 4
   br label %for.cond116, !llvm.loop !835
 
@@ -236993,14 +236989,14 @@ for.end171:                                       ; preds = %for.cond116
   br label %for.inc172
 
 for.inc172:                                       ; preds = %for.end171
-  %167 = load i32, ptr %j, align 4
-  %inc173 = add nsw i32 %167, 1
+  %168 = load i32, ptr %j, align 4
+  %inc173 = add nsw i32 %168, 1
   store i32 %inc173, ptr %j, align 4
-  %168 = load ptr, ptr %grbuf.addr, align 8
-  %add.ptr174 = getelementptr inbounds float, ptr %168, i64 18
+  %169 = load ptr, ptr %grbuf.addr, align 8
+  %add.ptr174 = getelementptr inbounds float, ptr %169, i64 18
   store ptr %add.ptr174, ptr %grbuf.addr, align 8
-  %169 = load ptr, ptr %overlap.addr, align 8
-  %add.ptr175 = getelementptr inbounds float, ptr %169, i64 9
+  %170 = load ptr, ptr %overlap.addr, align 8
+  %add.ptr175 = getelementptr inbounds float, ptr %170, i64 9
   store ptr %add.ptr175, ptr %overlap.addr, align 8
   br label %for.cond, !llvm.loop !836
 
@@ -237489,7 +237485,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ma_dr_mp3d_DCT_II(ptr noundef %grbuf, i32 noundef %n) #8 {
+define internal void @ma_dr_mp3d_DCT_II(ptr noundef %grbuf, i32 noundef %n) #7 {
 entry:
   %__p.addr.i567 = alloca ptr, align 8
   %__a.addr.i568 = alloca <4 x float>, align 16
@@ -238816,7 +238812,7 @@ if.end253:                                        ; preds = %if.else252, %for.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ma_dr_mp3d_synth(ptr noundef %xl, ptr noundef %dstl, i32 noundef %nch, ptr noundef %lins) #8 {
+define internal void @ma_dr_mp3d_synth(ptr noundef %xl, ptr noundef %dstl, i32 noundef %nch, ptr noundef %lins) #7 {
 entry:
   %__a.addr.i652 = alloca <4 x float>, align 16
   %__b.addr.i653 = alloca <4 x float>, align 16
@@ -240752,16 +240748,16 @@ for.end16:                                        ; preds = %for.cond
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #13
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float>) #13
+declare <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float>) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #13
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #13
+declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #12
 
 ; Function Attrs: nounwind uwtable
 define internal void @ma_dr_mp3_copy_allocation_callbacks_or_defaults(ptr noalias sret(%struct.ma_allocation_callbacks) align 8 %agg.result, ptr noundef %pAllocationCallbacks) #0 {
@@ -241754,7 +241750,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #18
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #18
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -241763,18 +241765,18 @@ attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-tra
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind memory(argmem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind memory(argmem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn }
 attributes #19 = { nounwind willreturn memory(read) }
 attributes #20 = { nounwind willreturn memory(none) }
 attributes #21 = { nounwind allocsize(0) }

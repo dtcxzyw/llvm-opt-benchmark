@@ -313,35 +313,36 @@ define linkonce_odr hidden void @_ZN6google12base_logging12LogStreamBufC2EPci(pt
   store i32 %2, ptr %6, align 4
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6google12base_logging12LogStreamBufE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6google12base_logging12LogStreamBufE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = load i32, ptr %6, align 4
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 -2
-  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef %10, ptr noundef %15)
-          to label %16 unwind label %17
-
-16:                                               ; preds = %3
-  ret void
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i32, ptr %6, align 4
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i8, ptr %12, i64 %14
+  %16 = getelementptr inbounds i8, ptr %15, i64 -2
+  invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef %11, ptr noundef %16)
+          to label %17 unwind label %18
 
 17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %7, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %8, align 4
-  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #12
-  br label %21
+  ret void
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr %8, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
+  call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #12
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -375,79 +376,83 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamC1EPcil(ptr nou
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 88
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %12)
-  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN6google10LogMessage9LogStreamE, i64 0, i64 1), ptr noundef null)
-          to label %13 unwind label %29
+  %13 = getelementptr inbounds [4 x ptr], ptr @_ZTTN6google10LogMessage9LogStreamE, i64 0, i64 1
+  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %13, ptr noundef null)
+          to label %14 unwind label %32
 
-13:                                               ; preds = %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6google10LogMessage9LogStreamE, i32 0, i32 0, i32 3), ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 88
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6google10LogMessage9LogStreamE, i32 0, i32 1, i32 3), ptr %14, align 8
-  %15 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 1
-  %16 = load ptr, ptr %6, align 8
-  %17 = load i32, ptr %7, align 4
-  invoke void @_ZN6google12base_logging12LogStreamBufC2EPci(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %16, i32 noundef %17)
-          to label %18 unwind label %33
+14:                                               ; preds = %4
+  %15 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN6google10LogMessage9LogStreamE, i32 0, i32 0, i32 3
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds i8, ptr %11, i64 88
+  %17 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN6google10LogMessage9LogStreamE, i32 0, i32 1, i32 3
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 1
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  invoke void @_ZN6google12base_logging12LogStreamBufC2EPci(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef %19, i32 noundef %20)
+          to label %21 unwind label %36
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 2
-  %20 = load i64, ptr %8, align 8
-  store i64 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 3
-  store ptr %11, ptr %21, align 8
-  %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr i8, ptr %22, i64 -24
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 %24
-  %26 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 1
-  %27 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %25, ptr noundef %26)
-          to label %28 unwind label %37
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 2
+  %23 = load i64, ptr %8, align 8
+  store i64 %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 3
+  store ptr %11, ptr %24, align 8
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr i8, ptr %25, i64 -24
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %11, i64 %27
+  %29 = getelementptr inbounds %"class.google::LogMessage::LogStream", ptr %11, i32 0, i32 1
+  %30 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %28, ptr noundef %29)
+          to label %31 unwind label %40
 
-28:                                               ; preds = %18
+31:                                               ; preds = %21
   ret void
 
-29:                                               ; preds = %4
-  %30 = landingpad { ptr, i32 }
+32:                                               ; preds = %4
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %9, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %10, align 4
-  br label %42
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %9, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %10, align 4
+  br label %46
 
-33:                                               ; preds = %13
-  %34 = landingpad { ptr, i32 }
+36:                                               ; preds = %14
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %9, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %10, align 4
-  br label %41
-
-37:                                               ; preds = %18
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %9, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %10, align 4
-  call void @_ZN6google12base_logging12LogStreamBufD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #12
-  br label %41
-
-41:                                               ; preds = %37, %33
-  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN6google10LogMessage9LogStreamE, i64 0, i64 1)) #12
-  br label %42
-
-42:                                               ; preds = %41, %29
-  %43 = getelementptr inbounds i8, ptr %11, i64 88
-  call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %43) #12
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %9, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %10, align 4
   br label %44
 
-44:                                               ; preds = %42
-  %45 = load ptr, ptr %9, align 8
-  %46 = load i32, ptr %10, align 4
-  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
-  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
-  resume { ptr, i32 } %48
+40:                                               ; preds = %21
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %9, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %10, align 4
+  call void @_ZN6google12base_logging12LogStreamBufD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %18) #12
+  br label %44
+
+44:                                               ; preds = %40, %36
+  %45 = getelementptr inbounds [4 x ptr], ptr @_ZTTN6google10LogMessage9LogStreamE, i64 0, i64 1
+  call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %45) #12
+  br label %46
+
+46:                                               ; preds = %44, %32
+  %47 = getelementptr inbounds i8, ptr %11, i64 88
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %47) #12
+  br label %48
+
+48:                                               ; preds = %46
+  %49 = load ptr, ptr %9, align 8
+  %50 = load i32, ptr %10, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264)) unnamed_addr #1
@@ -528,96 +533,97 @@ define void @_ZN6google27InstallFailureSignalHandlerEv() #0 personality ptr @__g
   store ptr @_ZN6google12_GLOBAL__N_120FailureSignalHandlerEiP9siginfo_tPv, ptr %17, align 8
   store ptr @_ZN6google12_GLOBAL__N_115kFailureSignalsE, ptr %2, align 8
   store ptr @_ZN6google12_GLOBAL__N_115kFailureSignalsE, ptr %3, align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @_ZN6google12_GLOBAL__N_115kFailureSignalsE, i64 6), ptr %4, align 8
-  br label %18
+  %18 = getelementptr inbounds %struct.anon, ptr @_ZN6google12_GLOBAL__N_115kFailureSignalsE, i64 6
+  store ptr %18, ptr %4, align 8
+  br label %19
 
-18:                                               ; preds = %38, %0
-  %19 = load ptr, ptr %3, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = icmp ne ptr %19, %20
-  br i1 %21, label %22, label %49
+19:                                               ; preds = %39, %0
+  %20 = load ptr, ptr %3, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = icmp ne ptr %20, %21
+  br i1 %22, label %23, label %50
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %23, i64 16, i1 false)
-  %24 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %25 = load i32, ptr %24, align 8
-  %26 = call i32 @sigaction(i32 noundef %25, ptr noundef %1, ptr noundef null) #12
-  %27 = icmp eq i32 %26, -1
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %24, i64 16, i1 false)
+  %25 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
+  %26 = load i32, ptr %25, align 8
+  %27 = call i32 @sigaction(i32 noundef %26, ptr noundef %1, ptr noundef null) #12
+  %28 = icmp eq i32 %27, -1
   store i1 false, ptr %9, align 1
-  br i1 %27, label %29, label %28
+  br i1 %28, label %30, label %29
 
-28:                                               ; preds = %22
-  br label %34
+29:                                               ; preds = %23
+  br label %35
 
-29:                                               ; preds = %22
+30:                                               ; preds = %23
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), i64 0 }, ptr %8, align 8
   call void @_ZN6google15ErrnoLogMessageC1EPKciNS_11LogSeverityElMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef @.str, i32 noundef 385, i32 noundef 3, i64 noundef 0, ptr noundef byval({ i64, i64 }) align 8 %8)
   store i1 true, ptr %9, align 1
-  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
-          to label %31 unwind label %41
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
+          to label %32 unwind label %42
 
-31:                                               ; preds = %29
-  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef @.str.1)
-          to label %33 unwind label %41
+32:                                               ; preds = %30
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef @.str.1)
+          to label %34 unwind label %42
 
-33:                                               ; preds = %31
-  call void @_ZN6google7logging8internal17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %32) #12
-  br label %34
+34:                                               ; preds = %32
+  call void @_ZN6google7logging8internal17LogMessageVoidifyanERSo(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %33) #12
+  br label %35
 
-34:                                               ; preds = %33, %28
-  %35 = load i1, ptr %9, align 1
-  br i1 %35, label %36, label %37
+35:                                               ; preds = %34, %29
+  %36 = load i1, ptr %9, align 1
+  br i1 %36, label %37, label %38
 
-36:                                               ; preds = %34
+37:                                               ; preds = %35
   call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7)
-  br label %37
-
-37:                                               ; preds = %36, %34
   br label %38
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.anon, ptr %39, i32 1
-  store ptr %40, ptr %3, align 8
-  br label %18
+38:                                               ; preds = %37, %35
+  br label %39
 
-41:                                               ; preds = %31, %29
-  %42 = landingpad { ptr, i32 }
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %3, align 8
+  %41 = getelementptr inbounds %struct.anon, ptr %40, i32 1
+  store ptr %41, ptr %3, align 8
+  br label %19
+
+42:                                               ; preds = %32, %30
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %10, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %11, align 4
-  %45 = load i1, ptr %9, align 1
-  br i1 %45, label %46, label %48
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %10, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %11, align 4
+  %46 = load i1, ptr %9, align 1
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %41
+47:                                               ; preds = %42
   invoke void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7)
-          to label %47 unwind label %55
+          to label %48 unwind label %56
 
-47:                                               ; preds = %46
-  br label %48
+48:                                               ; preds = %47
+  br label %49
 
-48:                                               ; preds = %47, %41
-  br label %50
+49:                                               ; preds = %48, %42
+  br label %51
 
-49:                                               ; preds = %18
+50:                                               ; preds = %19
   store i8 1, ptr @_ZN6google12_GLOBAL__N_130kFailureSignalHandlerInstalledE, align 1
   ret void
 
-50:                                               ; preds = %48
-  %51 = load ptr, ptr %10, align 8
-  %52 = load i32, ptr %11, align 4
-  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
-  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
-  resume { ptr, i32 } %54
+51:                                               ; preds = %49
+  %52 = load ptr, ptr %10, align 8
+  %53 = load i32, ptr %11, align 4
+  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
+  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
+  resume { ptr, i32 } %55
 
-55:                                               ; preds = %46
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %47
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #13
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #13
   unreachable
 }
 
@@ -1171,137 +1177,138 @@ define internal void @_ZN6google12_GLOBAL__N_114DumpSignalInfoEiP9siginfo_t(i32 
   store ptr null, ptr %5, align 8
   store ptr @_ZN6google12_GLOBAL__N_115kFailureSignalsE, ptr %6, align 8
   store ptr @_ZN6google12_GLOBAL__N_115kFailureSignalsE, ptr %7, align 8
-  store ptr getelementptr inbounds (%struct.anon, ptr @_ZN6google12_GLOBAL__N_115kFailureSignalsE, i64 6), ptr %8, align 8
-  br label %17
+  %17 = getelementptr inbounds %struct.anon, ptr @_ZN6google12_GLOBAL__N_115kFailureSignalsE, i64 6
+  store ptr %17, ptr %8, align 8
+  br label %18
 
-17:                                               ; preds = %31, %2
-  %18 = load ptr, ptr %7, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = icmp ne ptr %18, %19
-  br i1 %20, label %21, label %34
+18:                                               ; preds = %32, %2
+  %19 = load ptr, ptr %7, align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = icmp ne ptr %19, %20
+  br i1 %21, label %22, label %35
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %22, i64 16, i1 false)
-  %23 = load i32, ptr %3, align 4
-  %24 = getelementptr inbounds %struct.anon, ptr %9, i32 0, i32 0
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %23, %25
-  br i1 %26, label %27, label %30
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %23, i64 16, i1 false)
+  %24 = load i32, ptr %3, align 4
+  %25 = getelementptr inbounds %struct.anon, ptr %9, i32 0, i32 0
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp eq i32 %24, %26
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds %struct.anon, ptr %9, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %5, align 8
-  br label %30
-
-30:                                               ; preds = %27, %21
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds %struct.anon, ptr %9, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %5, align 8
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds %struct.anon, ptr %32, i32 1
-  store ptr %33, ptr %7, align 8
-  br label %17
+31:                                               ; preds = %28, %22
+  br label %32
 
-34:                                               ; preds = %17
-  %35 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 0
-  call void @_ZN6google12_GLOBAL__N_116MinimalFormatterC2EPcm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %35, i64 noundef 256)
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %7, align 8
+  %34 = getelementptr inbounds %struct.anon, ptr %33, i32 1
+  store ptr %34, ptr %7, align 8
+  br label %18
+
+35:                                               ; preds = %18
+  %36 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 0
+  call void @_ZN6google12_GLOBAL__N_116MinimalFormatterC2EPcm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %36, i64 noundef 256)
   call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.13)
-  %36 = load ptr, ptr %5, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %40
+  %37 = load ptr, ptr %5, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %5, align 8
-  call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %39)
-  br label %43
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %5, align 8
+  call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %40)
+  br label %44
 
-40:                                               ; preds = %34
+41:                                               ; preds = %35
   call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.14)
-  %41 = load i32, ptr %3, align 4
-  %42 = sext i32 %41 to i64
-  call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %42, i32 noundef 10)
-  br label %43
+  %42 = load i32, ptr %3, align 4
+  %43 = sext i32 %42 to i64
+  call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %43, i32 noundef 10)
+  br label %44
 
-43:                                               ; preds = %40, %38
+44:                                               ; preds = %41, %39
   call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.15)
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.siginfo_t, ptr %44, i32 0, i32 4
-  %46 = getelementptr inbounds %struct.anon.9, ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = ptrtoint ptr %47 to i64
-  call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %48, i32 noundef 16)
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %struct.siginfo_t, ptr %45, i32 0, i32 4
+  %47 = getelementptr inbounds %struct.anon.9, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = ptrtoint ptr %48 to i64
+  call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %49, i32 noundef 16)
   call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.16)
   call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.17)
-  %49 = call i32 @getpid() #12
-  %50 = sext i32 %49 to i64
-  call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %50, i32 noundef 10)
+  %50 = call i32 @getpid() #12
+  %51 = sext i32 %50 to i64
+  call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %51, i32 noundef 10)
   call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.18)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12)
-  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef @_ZSt8showbaseRSt8ios_base)
-          to label %52 unwind label %73
+  %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef @_ZSt8showbaseRSt8ios_base)
+          to label %53 unwind label %74
 
-52:                                               ; preds = %43
-  %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef @_ZSt3hexRSt8ios_base)
-          to label %54 unwind label %73
+53:                                               ; preds = %44
+  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef @_ZSt3hexRSt8ios_base)
+          to label %55 unwind label %74
 
-54:                                               ; preds = %52
-  %55 = call i64 @_ZNSt11this_thread6get_idEv() #12
-  %56 = getelementptr inbounds %"class.std::thread::id", ptr %15, i32 0, i32 0
-  store i64 %55, ptr %56, align 8
+55:                                               ; preds = %53
+  %56 = call i64 @_ZNSt11this_thread6get_idEv() #12
   %57 = getelementptr inbounds %"class.std::thread::id", ptr %15, i32 0, i32 0
-  %58 = load i64, ptr %57, align 8
-  %59 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_NSt6thread2idE(ptr noundef nonnull align 8 dereferenceable(8) %53, i64 %58)
-          to label %60 unwind label %73
+  store i64 %56, ptr %57, align 8
+  %58 = getelementptr inbounds %"class.std::thread::id", ptr %15, i32 0, i32 0
+  %59 = load i64, ptr %58, align 8
+  %60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_NSt6thread2idE(ptr noundef nonnull align 8 dereferenceable(8) %54, i64 %59)
+          to label %61 unwind label %74
 
-60:                                               ; preds = %54
+61:                                               ; preds = %55
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(112) %12)
-          to label %61 unwind label %73
+          to label %62 unwind label %74
 
-61:                                               ; preds = %60
-  %62 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #12
-  call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %62)
+62:                                               ; preds = %61
+  %63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #12
+  call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %63)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #12
   call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.19)
   call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.20)
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct.siginfo_t, ptr %63, i32 0, i32 4
-  %65 = getelementptr inbounds %struct.anon.5, ptr %64, i32 0, i32 0
-  %66 = load i32, ptr %65, align 8
-  %67 = sext i32 %66 to i64
-  invoke void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %67, i32 noundef 10)
-          to label %68 unwind label %73
+  %64 = load ptr, ptr %4, align 8
+  %65 = getelementptr inbounds %struct.siginfo_t, ptr %64, i32 0, i32 4
+  %66 = getelementptr inbounds %struct.anon.5, ptr %65, i32 0, i32 0
+  %67 = load i32, ptr %66, align 8
+  %68 = sext i32 %67 to i64
+  invoke void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %68, i32 noundef 10)
+          to label %69 unwind label %74
 
-68:                                               ; preds = %61
+69:                                               ; preds = %62
   call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.21)
   call void @_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef @.str.22)
-  %69 = load ptr, ptr @_ZN6google12_GLOBAL__N_116g_failure_writerE, align 8
-  %70 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 0
-  %71 = call noundef i64 @_ZNK6google12_GLOBAL__N_116MinimalFormatter17num_bytes_writtenEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
-  invoke void %69(ptr noundef %70, i64 noundef %71)
-          to label %72 unwind label %73
+  %70 = load ptr, ptr @_ZN6google12_GLOBAL__N_116g_failure_writerE, align 8
+  %71 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 0
+  %72 = call noundef i64 @_ZNK6google12_GLOBAL__N_116MinimalFormatter17num_bytes_writtenEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void %70(ptr noundef %71, i64 noundef %72)
+          to label %73 unwind label %74
 
-72:                                               ; preds = %68
+73:                                               ; preds = %69
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #12
   ret void
 
-73:                                               ; preds = %68, %61, %60, %54, %52, %43
-  %74 = landingpad { ptr, i32 }
+74:                                               ; preds = %69, %62, %61, %55, %53, %44
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %13, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %14, align 4
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %13, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %14, align 4
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #12
-  br label %77
+  br label %78
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr %13, align 8
-  %79 = load i32, ptr %14, align 4
-  %80 = insertvalue { ptr, i32 } poison, ptr %78, 0
-  %81 = insertvalue { ptr, i32 } %80, i32 %79, 1
-  resume { ptr, i32 } %81
+78:                                               ; preds = %74
+  %79 = load ptr, ptr %13, align 8
+  %80 = load i32, ptr %14, align 4
+  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
+  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
+  resume { ptr, i32 } %82
 }
 
 declare void @_ZN6google19FlushLogFilesUnsafeENS_11LogSeverityE(i32 noundef) #1

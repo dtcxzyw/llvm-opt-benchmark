@@ -47,7 +47,7 @@ define i32 @PMPI_File_set_errhandler(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %9, align 8
   %11 = load i8, ptr @ompi_mpi_param_check, align 1
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %60
+  br i1 %12, label %13, label %62
 
 13:                                               ; preds = %2
   %14 = load volatile i32, ptr @ompi_instance_count, align 4
@@ -67,150 +67,152 @@ define i32 @PMPI_File_set_errhandler(ptr noundef %0, ptr noundef %1) #0 {
 24:                                               ; preds = %21, %13
   %25 = load ptr, ptr %8, align 8
   %26 = icmp eq ptr null, %25
-  br i1 %26, label %27, label %32
+  br i1 %26, label %27, label %34
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr getelementptr inbounds (%struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 6), align 8
-  %29 = load i32, ptr getelementptr inbounds (%struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 7), align 8
-  %30 = call i32 @ompi_errcode_get_mpi_code(i32 noundef 30)
-  %31 = call i32 @ompi_errhandler_invoke(ptr noundef %28, ptr noundef @ompi_mpi_file_null, i32 noundef %29, i32 noundef %30, ptr noundef @FUNC_NAME)
-  store i32 %31, ptr %7, align 4
-  br label %110
+  %28 = getelementptr inbounds %struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 6
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %struct.ompi_file_t, ptr @ompi_mpi_file_null, i32 0, i32 7
+  %31 = load i32, ptr %30, align 8
+  %32 = call i32 @ompi_errcode_get_mpi_code(i32 noundef 30)
+  %33 = call i32 @ompi_errhandler_invoke(ptr noundef %29, ptr noundef @ompi_mpi_file_null, i32 noundef %31, i32 noundef %32, ptr noundef @FUNC_NAME)
+  store i32 %33, ptr %7, align 4
+  br label %112
 
-32:                                               ; preds = %24
-  %33 = load ptr, ptr %9, align 8
-  %34 = icmp eq ptr null, %33
-  br i1 %34, label %48, label %35
+34:                                               ; preds = %24
+  %35 = load ptr, ptr %9, align 8
+  %36 = icmp eq ptr null, %35
+  br i1 %36, label %50, label %37
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %9, align 8
-  %37 = icmp eq ptr @ompi_mpi_errhandler_null, %36
-  br i1 %37, label %48, label %38
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %9, align 8
+  %39 = icmp eq ptr @ompi_mpi_errhandler_null, %38
+  br i1 %39, label %50, label %40
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds %struct.ompi_errhandler_t, ptr %39, i32 0, i32 2
-  %41 = load i32, ptr %40, align 8
-  %42 = icmp ne i32 3, %41
-  br i1 %42, label %43, label %58
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds %struct.ompi_errhandler_t, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp ne i32 3, %43
+  br i1 %44, label %45, label %60
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr inbounds %struct.ompi_errhandler_t, ptr %44, i32 0, i32 2
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp ne i32 0, %46
-  br i1 %47, label %48, label %58
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds %struct.ompi_errhandler_t, ptr %46, i32 0, i32 2
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp ne i32 0, %48
+  br i1 %49, label %50, label %60
 
-48:                                               ; preds = %43, %35, %32
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.ompi_file_t, ptr %49, i32 0, i32 6
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds %struct.ompi_file_t, ptr %53, i32 0, i32 7
-  %55 = load i32, ptr %54, align 8
-  %56 = call i32 @ompi_errcode_get_mpi_code(i32 noundef 13)
-  %57 = call i32 @ompi_errhandler_invoke(ptr noundef %51, ptr noundef %52, i32 noundef %55, i32 noundef %56, ptr noundef @FUNC_NAME)
-  store i32 %57, ptr %7, align 4
-  br label %110
+50:                                               ; preds = %45, %37, %34
+  %51 = load ptr, ptr %8, align 8
+  %52 = getelementptr inbounds %struct.ompi_file_t, ptr %51, i32 0, i32 6
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %8, align 8
+  %55 = load ptr, ptr %8, align 8
+  %56 = getelementptr inbounds %struct.ompi_file_t, ptr %55, i32 0, i32 7
+  %57 = load i32, ptr %56, align 8
+  %58 = call i32 @ompi_errcode_get_mpi_code(i32 noundef 13)
+  %59 = call i32 @ompi_errhandler_invoke(ptr noundef %53, ptr noundef %54, i32 noundef %57, i32 noundef %58, ptr noundef @FUNC_NAME)
+  store i32 %59, ptr %7, align 4
+  br label %112
 
-58:                                               ; preds = %43, %38
-  br label %59
+60:                                               ; preds = %45, %40
+  br label %61
 
-59:                                               ; preds = %58
-  br label %60
+61:                                               ; preds = %60
+  br label %62
 
-60:                                               ; preds = %59, %2
-  %61 = load ptr, ptr %9, align 8
-  store ptr %61, ptr %3, align 8
+62:                                               ; preds = %61, %2
+  %63 = load ptr, ptr %9, align 8
+  store ptr %63, ptr %3, align 8
   store i32 1, ptr %4, align 4
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.opal_object_t, ptr %62, i32 0, i32 1
-  %64 = load i32, ptr %4, align 4
-  %65 = call i32 @opal_thread_add_fetch_32(ptr noundef %63, i32 noundef %64)
-  br label %66
+  %64 = load ptr, ptr %3, align 8
+  %65 = getelementptr inbounds %struct.opal_object_t, ptr %64, i32 0, i32 1
+  %66 = load i32, ptr %4, align 4
+  %67 = call i32 @opal_thread_add_fetch_32(ptr noundef %65, i32 noundef %66)
+  br label %68
 
-66:                                               ; preds = %60
-  %67 = load i8, ptr @opal_uses_threads, align 1
-  %68 = trunc i8 %67 to i1
-  %69 = xor i1 %68, true
-  %70 = xor i1 %69, true
-  %71 = zext i1 %70 to i32
-  %72 = sext i32 %71 to i64
-  %73 = icmp ne i64 %72, 0
-  br i1 %73, label %74, label %77
+68:                                               ; preds = %62
+  %69 = load i8, ptr @opal_uses_threads, align 1
+  %70 = trunc i8 %69 to i1
+  %71 = xor i1 %70, true
+  %72 = xor i1 %71, true
+  %73 = zext i1 %72 to i32
+  %74 = sext i32 %73 to i64
+  %75 = icmp ne i64 %74, 0
+  br i1 %75, label %76, label %79
 
-74:                                               ; preds = %66
-  %75 = load ptr, ptr %8, align 8
-  %76 = getelementptr inbounds %struct.ompi_file_t, ptr %75, i32 0, i32 9
-  call void @opal_mutex_lock(ptr noundef %76)
-  br label %77
+76:                                               ; preds = %68
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds %struct.ompi_file_t, ptr %77, i32 0, i32 9
+  call void @opal_mutex_lock(ptr noundef %78)
+  br label %79
 
-77:                                               ; preds = %74, %66
-  br label %78
+79:                                               ; preds = %76, %68
+  br label %80
 
-78:                                               ; preds = %77
-  %79 = load ptr, ptr %8, align 8
-  %80 = getelementptr inbounds %struct.ompi_file_t, ptr %79, i32 0, i32 6
-  %81 = load ptr, ptr %80, align 8
-  store ptr %81, ptr %10, align 8
-  %82 = load ptr, ptr %9, align 8
-  %83 = load ptr, ptr %8, align 8
-  %84 = getelementptr inbounds %struct.ompi_file_t, ptr %83, i32 0, i32 6
-  store ptr %82, ptr %84, align 8
-  br label %85
+80:                                               ; preds = %79
+  %81 = load ptr, ptr %8, align 8
+  %82 = getelementptr inbounds %struct.ompi_file_t, ptr %81, i32 0, i32 6
+  %83 = load ptr, ptr %82, align 8
+  store ptr %83, ptr %10, align 8
+  %84 = load ptr, ptr %9, align 8
+  %85 = load ptr, ptr %8, align 8
+  %86 = getelementptr inbounds %struct.ompi_file_t, ptr %85, i32 0, i32 6
+  store ptr %84, ptr %86, align 8
+  br label %87
 
-85:                                               ; preds = %78
-  %86 = load ptr, ptr %10, align 8
-  store ptr %86, ptr %5, align 8
+87:                                               ; preds = %80
+  %88 = load ptr, ptr %10, align 8
+  store ptr %88, ptr %5, align 8
   store i32 -1, ptr %6, align 4
-  %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds %struct.opal_object_t, ptr %87, i32 0, i32 1
-  %89 = load i32, ptr %6, align 4
-  %90 = call i32 @opal_thread_add_fetch_32(ptr noundef %88, i32 noundef %89)
-  %91 = icmp eq i32 0, %90
-  br i1 %91, label %92, label %95
+  %89 = load ptr, ptr %5, align 8
+  %90 = getelementptr inbounds %struct.opal_object_t, ptr %89, i32 0, i32 1
+  %91 = load i32, ptr %6, align 4
+  %92 = call i32 @opal_thread_add_fetch_32(ptr noundef %90, i32 noundef %91)
+  %93 = icmp eq i32 0, %92
+  br i1 %93, label %94, label %97
 
-92:                                               ; preds = %85
-  %93 = load ptr, ptr %10, align 8
-  call void @opal_obj_run_destructors(ptr noundef %93)
-  %94 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %94) #3
+94:                                               ; preds = %87
+  %95 = load ptr, ptr %10, align 8
+  call void @opal_obj_run_destructors(ptr noundef %95)
+  %96 = load ptr, ptr %10, align 8
+  call void @free(ptr noundef %96) #3
   store ptr null, ptr %10, align 8
-  br label %95
-
-95:                                               ; preds = %92, %85
-  br label %96
-
-96:                                               ; preds = %95
   br label %97
 
-97:                                               ; preds = %96
-  %98 = load i8, ptr @opal_uses_threads, align 1
-  %99 = trunc i8 %98 to i1
-  %100 = xor i1 %99, true
-  %101 = xor i1 %100, true
-  %102 = zext i1 %101 to i32
-  %103 = sext i32 %102 to i64
-  %104 = icmp ne i64 %103, 0
-  br i1 %104, label %105, label %108
+97:                                               ; preds = %94, %87
+  br label %98
 
-105:                                              ; preds = %97
-  %106 = load ptr, ptr %8, align 8
-  %107 = getelementptr inbounds %struct.ompi_file_t, ptr %106, i32 0, i32 9
-  call void @opal_mutex_unlock(ptr noundef %107)
-  br label %108
+98:                                               ; preds = %97
+  br label %99
 
-108:                                              ; preds = %105, %97
-  br label %109
+99:                                               ; preds = %98
+  %100 = load i8, ptr @opal_uses_threads, align 1
+  %101 = trunc i8 %100 to i1
+  %102 = xor i1 %101, true
+  %103 = xor i1 %102, true
+  %104 = zext i1 %103 to i32
+  %105 = sext i32 %104 to i64
+  %106 = icmp ne i64 %105, 0
+  br i1 %106, label %107, label %110
 
-109:                                              ; preds = %108
-  store i32 0, ptr %7, align 4
+107:                                              ; preds = %99
+  %108 = load ptr, ptr %8, align 8
+  %109 = getelementptr inbounds %struct.ompi_file_t, ptr %108, i32 0, i32 9
+  call void @opal_mutex_unlock(ptr noundef %109)
   br label %110
 
-110:                                              ; preds = %109, %48, %27
-  %111 = load i32, ptr %7, align 4
-  ret i32 %111
+110:                                              ; preds = %107, %99
+  br label %111
+
+111:                                              ; preds = %110
+  store i32 0, ptr %7, align 4
+  br label %112
+
+112:                                              ; preds = %111, %50, %27
+  %113 = load i32, ptr %7, align 4
+  ret i32 %113
 }
 
 declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1

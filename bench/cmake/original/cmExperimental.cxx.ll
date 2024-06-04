@@ -119,31 +119,38 @@ define internal void @__cxx_global_var_init.1() #0 section ".text.startup" perso
   store ptr @_ZN12_GLOBAL__N_111LookupTableE, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_111LookupTableE, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %2)
-          to label %12 unwind label %17
+          to label %12 unwind label %24
 
 12:                                               ; preds = %0
   store i1 true, ptr %8, align 1
   store i1 true, ptr %9, align 1
   store i1 true, ptr %10, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 1), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %13 unwind label %21
+  %13 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %14 unwind label %28
 
-13:                                               ; preds = %12
+14:                                               ; preds = %12
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 2), ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %14 unwind label %25
+  %15 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %16 unwind label %32
 
-14:                                               ; preds = %13
+16:                                               ; preds = %14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 3), ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %15 unwind label %29
+  %17 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %18 unwind label %36
 
-15:                                               ; preds = %14
-  call void @llvm.memset.p0.i64(ptr align 16 getelementptr inbounds (%"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 4)) #3
-  store i32 0, ptr getelementptr inbounds (%"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 5), align 8
-  store i8 0, ptr getelementptr inbounds (%"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 6), align 4
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 16 %19, i8 0, i64 24, i1 false)
+  %20 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
+  %21 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 5
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 6
+  store i8 0, ptr %22, align 4
   store i1 false, ptr %8, align 1
   store i1 false, ptr %9, align 1
   store i1 false, ptr %10, align 1
@@ -152,107 +159,109 @@ define internal void @__cxx_global_var_init.1() #0 section ".text.startup" perso
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
-  %16 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
+  %23 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #3
   ret void
 
-17:                                               ; preds = %0
-  %18 = landingpad { ptr, i32 }
+24:                                               ; preds = %0
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %3, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %4, align 4
+  br label %53
+
+28:                                               ; preds = %12
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %3, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %4, align 4
+  br label %49
+
+32:                                               ; preds = %14
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %3, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %4, align 4
   br label %44
 
-21:                                               ; preds = %12
-  %22 = landingpad { ptr, i32 }
+36:                                               ; preds = %16
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %3, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %4, align 4
-  br label %40
-
-25:                                               ; preds = %13
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %3, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %4, align 4
-  br label %36
-
-29:                                               ; preds = %14
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %3, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %4, align 4
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %3, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %4, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  %33 = load i1, ptr %8, align 1
-  br i1 %33, label %34, label %35
+  %40 = load i1, ptr %8, align 1
+  br i1 %40, label %41, label %43
 
-34:                                               ; preds = %29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 2)) #3
-  br label %35
-
-35:                                               ; preds = %34, %29
-  br label %36
-
-36:                                               ; preds = %35, %25
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  %37 = load i1, ptr %9, align 1
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %36
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 1)) #3
-  br label %39
-
-39:                                               ; preds = %38, %36
-  br label %40
-
-40:                                               ; preds = %39, %21
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
-  %41 = load i1, ptr %10, align 1
-  br i1 %41, label %42, label %43
-
-42:                                               ; preds = %40
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_111LookupTableE) #3
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #3
   br label %43
 
-43:                                               ; preds = %42, %40
+43:                                               ; preds = %41, %36
   br label %44
 
-44:                                               ; preds = %43, %17
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
-  %45 = load i1, ptr %11, align 1
-  br i1 %45, label %46, label %54
+44:                                               ; preds = %43, %32
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  %45 = load i1, ptr %9, align 1
+  br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44
-  %47 = load ptr, ptr %1, align 8
-  %48 = icmp eq ptr @_ZN12_GLOBAL__N_111LookupTableE, %47
-  br i1 %48, label %53, label %49
+  %47 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #3
+  br label %48
 
-49:                                               ; preds = %49, %46
-  %50 = phi ptr [ %47, %46 ], [ %51, %49 ]
-  %51 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr %50, i64 -1
-  call void @_ZN14cmExperimental11FeatureDataD2Ev(ptr noundef nonnull align 8 dereferenceable(157) %51) #3
-  %52 = icmp eq ptr %51, @_ZN12_GLOBAL__N_111LookupTableE
-  br i1 %52, label %53, label %49
+48:                                               ; preds = %46, %44
+  br label %49
 
-53:                                               ; preds = %49, %46
-  br label %54
+49:                                               ; preds = %48, %28
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  %50 = load i1, ptr %10, align 1
+  br i1 %50, label %51, label %52
 
-54:                                               ; preds = %53, %44
-  br label %55
+51:                                               ; preds = %49
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_111LookupTableE) #3
+  br label %52
 
-55:                                               ; preds = %54
-  %56 = load ptr, ptr %3, align 8
-  %57 = load i32, ptr %4, align 4
-  %58 = insertvalue { ptr, i32 } poison, ptr %56, 0
-  %59 = insertvalue { ptr, i32 } %58, i32 %57, 1
-  resume { ptr, i32 } %59
+52:                                               ; preds = %51, %49
+  br label %53
+
+53:                                               ; preds = %52, %24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  %54 = load i1, ptr %11, align 1
+  br i1 %54, label %55, label %63
+
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %1, align 8
+  %57 = icmp eq ptr @_ZN12_GLOBAL__N_111LookupTableE, %56
+  br i1 %57, label %62, label %58
+
+58:                                               ; preds = %58, %55
+  %59 = phi ptr [ %56, %55 ], [ %60, %58 ]
+  %60 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr %59, i64 -1
+  call void @_ZN14cmExperimental11FeatureDataD2Ev(ptr noundef nonnull align 8 dereferenceable(157) %60) #3
+  %61 = icmp eq ptr %60, @_ZN12_GLOBAL__N_111LookupTableE
+  br i1 %61, label %62, label %58
+
+62:                                               ; preds = %58, %55
+  br label %63
+
+63:                                               ; preds = %62, %53
+  br label %64
+
+64:                                               ; preds = %63
+  %65 = load ptr, ptr %3, align 8
+  %66 = load i32, ptr %4, align 4
+  %67 = insertvalue { ptr, i32 } poison, ptr %65, 0
+  %68 = insertvalue { ptr, i32 } %67, i32 %66, 1
+  resume { ptr, i32 } %68
 }
 
 ; Function Attrs: nounwind
@@ -362,16 +371,17 @@ define linkonce_odr dso_local void @_ZN14cmExperimental11FeatureDataD2Ev(ptr nou
 define internal void @__cxx_global_array_dtor(ptr noundef %0) #0 section ".text.startup" {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  br label %3
+  %3 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1
+  br label %4
 
-3:                                                ; preds = %3, %1
-  %4 = phi ptr [ getelementptr inbounds (%"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 1), %1 ], [ %5, %3 ]
-  %5 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr %4, i64 -1
-  call void @_ZN14cmExperimental11FeatureDataD2Ev(ptr noundef nonnull align 8 dereferenceable(157) %5) #3
-  %6 = icmp eq ptr %5, @_ZN12_GLOBAL__N_111LookupTableE
-  br i1 %6, label %7, label %3
+4:                                                ; preds = %4, %1
+  %5 = phi ptr [ %3, %1 ], [ %6, %4 ]
+  %6 = getelementptr inbounds %"struct.cmExperimental::FeatureData", ptr %5, i64 -1
+  call void @_ZN14cmExperimental11FeatureDataD2Ev(ptr noundef nonnull align 8 dereferenceable(157) %6) #3
+  %7 = icmp eq ptr %6, @_ZN12_GLOBAL__N_111LookupTableE
+  br i1 %7, label %8, label %4
 
-7:                                                ; preds = %3
+8:                                                ; preds = %4
   ret void
 }
 

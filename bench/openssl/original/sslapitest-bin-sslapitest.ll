@@ -31719,15 +31719,16 @@ entry:
   store ptr %al, ptr %al.addr, align 8
   store ptr %parse_arg, ptr %parse_arg.addr, align 8
   store i64 7, ptr %len, align 8
-  store ptr getelementptr inbounds ([7 x i8], ptr @serverinfo_custom_v1, i64 0, i64 4), ptr %si, align 8
-  %0 = load ptr, ptr %parse_arg.addr, align 8
-  store ptr %0, ptr %p_cb_result, align 8
-  %1 = load ptr, ptr %in.addr, align 8
-  %2 = load i64, ptr %inlen.addr, align 8
-  %3 = load ptr, ptr %si, align 8
-  %call = call i32 @test_mem_eq(ptr noundef @.str.14, i32 noundef 6230, ptr noundef @.str.901, ptr noundef @.str.1151, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef 3)
-  %4 = load ptr, ptr %p_cb_result, align 8
-  store i32 %call, ptr %4, align 4
+  %0 = getelementptr inbounds [7 x i8], ptr @serverinfo_custom_v1, i64 0, i64 4
+  store ptr %0, ptr %si, align 8
+  %1 = load ptr, ptr %parse_arg.addr, align 8
+  store ptr %1, ptr %p_cb_result, align 8
+  %2 = load ptr, ptr %in.addr, align 8
+  %3 = load i64, ptr %inlen.addr, align 8
+  %4 = load ptr, ptr %si, align 8
+  %call = call i32 @test_mem_eq(ptr noundef @.str.14, i32 noundef 6230, ptr noundef @.str.901, ptr noundef @.str.1151, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef 3)
+  %5 = load ptr, ptr %p_cb_result, align 8
+  store i32 %call, ptr %5, align 4
   ret i32 1
 }
 

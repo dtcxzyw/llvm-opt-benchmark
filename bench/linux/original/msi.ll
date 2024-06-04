@@ -112,9 +112,10 @@ define dso_local ptr @native_create_pci_msi_domain() local_unnamed_addr #2 secti
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @x86_create_pci_msi_domain() local_unnamed_addr #3 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.x86_init_ops, ptr @x86_init, i64 0, i32 2, i32 4), align 8
-  %2 = tail call ptr %1() #8
-  store ptr %2, ptr @x86_pci_msi_default_domain, align 8
+  %1 = getelementptr inbounds %struct.x86_init_ops, ptr @x86_init, i64 0, i32 2, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = tail call ptr %2() #8
+  store ptr %3, ptr @x86_pci_msi_default_domain, align 8
   ret void
 }
 
@@ -326,7 +327,7 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   %28 = icmp slt i32 %27, 0
   %29 = icmp eq i32 %27, 2
   %30 = or i1 %28, %29
-  br i1 %30, label %100, label %31
+  br i1 %30, label %102, label %31
 
 31:                                               ; preds = %20
   %32 = load ptr, ptr %12, align 8
@@ -364,87 +365,89 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef %0, ptr noundef nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
-  br label %100
+  br label %102
 
 56:                                               ; preds = %47
-  %57 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #9, !srcloc !19
-  %58 = icmp eq i32 %57, %21
-  br i1 %58, label %64, label %59, !prof !8
+  %57 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %58 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %57) #9, !srcloc !19
+  %59 = icmp eq i32 %58, %21
+  br i1 %59, label %65, label %60, !prof !8
 
-59:                                               ; preds = %56
+60:                                               ; preds = %56
   tail call void asm sideeffect "374: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 374b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 374) #8, !srcloc !20
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 78, i32 2307, i64 12) #8, !srcloc !21
   tail call void asm sideeffect "375: nop\0A\09.pushsection .discard.instr_end\0A\09.long 375b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 375) #8, !srcloc !22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @__irq_msi_compose_msg(ptr noundef %9, ptr noundef nonnull %6, i1 noundef zeroext false) #8
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 192
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef %0, ptr noundef nonnull %6) #8
+  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 192
+  %64 = load ptr, ptr %63, align 8
+  call void %64(ptr noundef %0, ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
-  br label %100
+  br label %102
 
-64:                                               ; preds = %56
+65:                                               ; preds = %56
   tail call void @lock_vector_lock() #8
-  %65 = load i32, ptr %37, align 4
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr [256 x ptr], ptr @vector_irq, i64 0, i64 %66
-  %68 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %67) #8, !srcloc !23
-  %69 = inttoptr i64 %68 to ptr
-  %70 = icmp eq i64 %68, 0
-  %71 = icmp ugt ptr %69, inttoptr (i64 -4096 to ptr)
-  %72 = or i1 %70, %71
-  br i1 %72, label %73, label %77
+  %66 = load i32, ptr %37, align 4
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr [256 x ptr], ptr @vector_irq, i64 0, i64 %67
+  %69 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %68) #8, !srcloc !23
+  %70 = inttoptr i64 %69 to ptr
+  %71 = icmp eq i64 %69, 0
+  %72 = inttoptr i64 -4096 to ptr
+  %73 = icmp ugt ptr %70, %72
+  %74 = or i1 %71, %73
+  br i1 %74, label %75, label %79
 
-73:                                               ; preds = %64
-  %74 = load i32, ptr %37, align 4
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr [256 x ptr], ptr @vector_irq, i64 0, i64 %75
-  tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %76, i64 -2, ptr elementtype(ptr) %76) #8, !srcloc !24
-  br label %77
+75:                                               ; preds = %65
+  %76 = load i32, ptr %37, align 4
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr [256 x ptr], ptr @vector_irq, i64 0, i64 %77
+  tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %78, i64 -2, ptr elementtype(ptr) %78) #8, !srcloc !24
+  br label %79
 
-77:                                               ; preds = %73, %64
-  %78 = load i32, ptr %37, align 4
-  store i32 %78, ptr %39, align 4
+79:                                               ; preds = %75, %65
+  %80 = load i32, ptr %37, align 4
+  store i32 %80, ptr %39, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @__irq_msi_compose_msg(ptr noundef nonnull %8, ptr noundef nonnull %5, i1 noundef zeroext false) #8
-  %79 = getelementptr inbounds i8, ptr %0, i64 24
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 192
+  %81 = getelementptr inbounds i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8
-  call void %82(ptr noundef %0, ptr noundef nonnull %5) #8
+  %83 = getelementptr inbounds i8, ptr %82, i64 192
+  %84 = load ptr, ptr %83, align 8
+  call void %84(ptr noundef %0, ptr noundef nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @__irq_msi_compose_msg(ptr noundef %9, ptr noundef nonnull %4, i1 noundef zeroext false) #8
-  %83 = load ptr, ptr %79, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 192
-  %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef %0, ptr noundef nonnull %4) #8
+  %85 = load ptr, ptr %81, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 192
+  %87 = load ptr, ptr %86, align 8
+  call void %87(ptr noundef %0, ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
   call void @unlock_vector_lock() #8
-  %86 = load i32, ptr %37, align 4
-  %87 = lshr i32 %86, 1
-  %88 = and i32 %87, 2147483632
-  %89 = add nuw i32 %88, 512
-  %90 = call i32 @__SCT__apic_call_read(i32 noundef %89) #8
-  %91 = and i32 %86, 31
-  %92 = shl nuw i32 1, %91
-  %93 = and i32 %92, %90
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %100, label %95
+  %88 = load i32, ptr %37, align 4
+  %89 = lshr i32 %88, 1
+  %90 = and i32 %89, 2147483632
+  %91 = add nuw i32 %90, 512
+  %92 = call i32 @__SCT__apic_call_read(i32 noundef %91) #8
+  %93 = and i32 %88, 31
+  %94 = shl nuw i32 1, %93
+  %95 = and i32 %94, %92
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %102, label %97
 
-95:                                               ; preds = %77
-  %96 = load ptr, ptr %79, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 88
-  %98 = load ptr, ptr %97, align 8
-  %99 = call i32 %98(ptr noundef %0) #8
-  br label %100
+97:                                               ; preds = %79
+  %98 = load ptr, ptr %81, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 88
+  %100 = load ptr, ptr %99, align 8
+  %101 = call i32 %100(ptr noundef %0) #8
+  br label %102
 
-100:                                              ; preds = %95, %77, %59, %51, %20
+102:                                              ; preds = %97, %79, %60, %51, %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   ret i32 %27
 }

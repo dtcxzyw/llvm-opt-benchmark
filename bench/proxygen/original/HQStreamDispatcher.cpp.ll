@@ -622,15 +622,16 @@ entry:
   store i8 %direction, ptr %direction.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4quic10QuicSocket12PeekCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen22HQStreamDispatcherBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN8proxygen22HQStreamDispatcherBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pendingStreams_ = getelementptr inbounds %"class.proxygen::HQStreamDispatcherBase", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapImN8proxygen22HQStreamDispatcherBase15DispatchTimeoutESt4hashImESt8equal_toImESaISt4pairIKmS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %pendingStreams_) #4
   %callback_ = getelementptr inbounds %"class.proxygen::HQStreamDispatcherBase", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %callback.addr, align 8
-  store ptr %0, ptr %callback_, align 8
+  %1 = load ptr, ptr %callback.addr, align 8
+  store ptr %1, ptr %callback_, align 8
   %direction_ = getelementptr inbounds %"class.proxygen::HQStreamDispatcherBase", ptr %this1, i32 0, i32 3
-  %1 = load i8, ptr %direction.addr, align 1
-  store i8 %1, ptr %direction_, align 8
+  %2 = load i8, ptr %direction.addr, align 1
+  store i8 %2, ptr %direction_, align 8
   ret void
 }
 
@@ -640,7 +641,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4quic10QuicSocket12PeekCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4quic10QuicSocket12PeekCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2378,7 +2380,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen22HQStreamDispatcherBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN8proxygen22HQStreamDispatcherBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pendingStreams_ = getelementptr inbounds %"class.proxygen::HQStreamDispatcherBase", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapImN8proxygen22HQStreamDispatcherBase15DispatchTimeoutESt4hashImESt8equal_toImESaISt4pairIKmS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %pendingStreams_) #4
   call void @_ZN4quic10QuicSocket12PeekCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
@@ -2923,7 +2926,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef @.str.13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2949,7 +2953,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -4914,35 +4919,36 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  invoke void @"_ZZN8proxygen22HQStreamDispatcherBase15onDataAvailableEmRKN5folly5RangeISt15_Deque_iteratorIN4quic12StreamBufferERKS5_PS6_EEEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %3 = load ptr, ptr %t.addr.i, align 8
+  invoke void @"_ZZN8proxygen22HQStreamDispatcherBase15onDataAvailableEmRKN5folly5RangeISt15_Deque_iteratorIN4quic12StreamBufferERKS5_PS6_EEEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
   br label %"_ZN5folly15catch_exceptionIRZN8proxygen22HQStreamDispatcherBase15onDataAvailableEmRKNS_5RangeISt15_Deque_iteratorIN4quic12StreamBufferERKS6_PS7_EEEE3$_0RPFvvEJEvEET2_OT_OT0_DpOT1_.exit"
 
 lpad.i:                                           ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot.i, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot.i, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot.i, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot.i, align 4
   %exn.i = load ptr, ptr %exn.slot.i, align 8
-  %6 = call ptr @__cxa_begin_catch(ptr %exn.i) #4
-  %7 = load ptr, ptr %c.addr.i, align 8
-  store ptr %7, ptr %f.addr.i, align 8
-  %8 = load ptr, ptr %f.addr.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  invoke void %9()
+  %7 = call ptr @__cxa_begin_catch(ptr %exn.i) #4
+  %8 = load ptr, ptr %c.addr.i, align 8
+  store ptr %8, ptr %f.addr.i, align 8
+  %9 = load ptr, ptr %f.addr.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  invoke void %10()
           to label %_ZN5folly11invoke_coldIRPFvvEJES1_TnNSt9enable_ifIXsr3std11is_functionIT1_EE5valueEiE4typeELi0EvEET3_OT_DpOT0_.exit unwind label %lpad1.i
 
 _ZN5folly11invoke_coldIRPFvvEJES1_TnNSt9enable_ifIXsr3std11is_functionIT1_EE5valueEiE4typeELi0EvEET3_OT_DpOT0_.exit: ; preds = %lpad.i
@@ -4956,13 +4962,13 @@ invoke.cont2.i:                                   ; preds = %_ZN5folly11invoke_c
   br label %"_ZN5folly15catch_exceptionIRZN8proxygen22HQStreamDispatcherBase15onDataAvailableEmRKNS_5RangeISt15_Deque_iteratorIN4quic12StreamBufferERKS6_PS7_EEEE3$_0RPFvvEJEvEET2_OT_OT0_DpOT1_.exit"
 
 lpad1.i:                                          ; preds = %lpad.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot.i, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot.i, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot.i, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot.i, align 4
   invoke void @__cxa_end_catch()
           to label %invoke.cont3.i unwind label %terminate.lpad.i
 
@@ -4974,11 +4980,11 @@ invoke.cont3.i:                                   ; preds = %lpad1.i
   br label %terminate.lpad.body
 
 terminate.lpad.i:                                 ; preds = %lpad1.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #14
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #14
   unreachable
 
 "_ZN5folly15catch_exceptionIRZN8proxygen22HQStreamDispatcherBase15onDataAvailableEmRKNS_5RangeISt15_Deque_iteratorIN4quic12StreamBufferERKS6_PS7_EEEE3$_0RPFvvEJEvEET2_OT_OT0_DpOT1_.exit": ; preds = %.noexc, %invoke.cont.i
@@ -4988,14 +4994,14 @@ invoke.cont:                                      ; preds = %"_ZN5folly15catch_e
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont2.i
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %terminate.lpad, %invoke.cont3.i
-  %eh.lpad-body = phi { ptr, i32 } [ %15, %terminate.lpad ], [ %lpad.val5.i, %invoke.cont3.i ]
-  %16 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %16) #14
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %terminate.lpad ], [ %lpad.val5.i, %invoke.cont3.i ]
+  %17 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %17) #14
   unreachable
 }
 

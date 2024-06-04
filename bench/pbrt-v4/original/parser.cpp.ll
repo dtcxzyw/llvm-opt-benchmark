@@ -4972,14 +4972,15 @@ if.end61:                                         ; preds = %if.end49
   %call62 = call ptr @mmap(ptr noundef null, i64 noundef %48, i32 noundef 1, i32 noundef 16386, i32 noundef %49, i64 noundef 0) #5
   store ptr %call62, ptr %ptr, align 8
   %50 = load ptr, ptr %ptr, align 8
-  %cmp63 = icmp eq ptr %50, inttoptr (i64 -1 to ptr)
+  %51 = inttoptr i64 -1 to ptr
+  %cmp63 = icmp eq ptr %50, %51
   br i1 %cmp63, label %if.then64, label %if.end75
 
 if.then64:                                        ; preds = %if.end61
-  %51 = load ptr, ptr %filename.addr, align 8
+  %52 = load ptr, ptr %filename.addr, align 8
   %call67 = call noundef i32 @_ZN4pbrt9LastErrorEv()
   call void @_ZN4pbrt11ErrorStringB5cxx11Ei(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp66, i32 noundef %call67)
-  invoke void @_ZN4pbrt12StringPrintfIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEES6_PKcDpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp65, ptr noundef @.str.26, ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66)
+  invoke void @_ZN4pbrt12StringPrintfIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEES6_PKcDpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp65, ptr noundef @.str.26, ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66)
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %if.then64
@@ -4993,21 +4994,21 @@ invoke.cont72:                                    ; preds = %invoke.cont69
   br label %if.end75
 
 lpad68:                                           ; preds = %if.then64
-  %52 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %exn.slot, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %ehselector.slot, align 4
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %exn.slot, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %ehselector.slot, align 4
   br label %ehcleanup74
 
 lpad71:                                           ; preds = %invoke.cont69
-  %55 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %exn.slot, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %ehselector.slot, align 4
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %exn.slot, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp65) #5
   br label %ehcleanup74
 
@@ -5016,16 +5017,16 @@ ehcleanup74:                                      ; preds = %lpad71, %lpad68
   br label %eh.resume
 
 if.end75:                                         ; preds = %invoke.cont72, %if.end61
-  %58 = load i32, ptr %fd, align 4
-  %call76 = call i32 @close(i32 noundef %58)
+  %59 = load i32, ptr %fd, align 4
+  %call76 = call i32 @close(i32 noundef %59)
   %cmp77 = icmp ne i32 %call76, 0
   br i1 %cmp77, label %if.then78, label %if.end89
 
 if.then78:                                        ; preds = %if.end75
-  %59 = load ptr, ptr %filename.addr, align 8
+  %60 = load ptr, ptr %filename.addr, align 8
   %call81 = call noundef i32 @_ZN4pbrt9LastErrorEv()
   call void @_ZN4pbrt11ErrorStringB5cxx11Ei(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp80, i32 noundef %call81)
-  invoke void @_ZN4pbrt12StringPrintfIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEES6_PKcDpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp79, ptr noundef @.str.26, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80)
+  invoke void @_ZN4pbrt12StringPrintfIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEES6_PKcDpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp79, ptr noundef @.str.26, ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80)
           to label %invoke.cont83 unwind label %lpad82
 
 invoke.cont83:                                    ; preds = %if.then78
@@ -5040,21 +5041,21 @@ invoke.cont86:                                    ; preds = %invoke.cont83
   br label %return
 
 lpad82:                                           ; preds = %if.then78
-  %60 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %exn.slot, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %ehselector.slot, align 4
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %exn.slot, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %ehselector.slot, align 4
   br label %ehcleanup88
 
 lpad85:                                           ; preds = %invoke.cont83
-  %63 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %exn.slot, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %ehselector.slot, align 4
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %exn.slot, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #5
   br label %ehcleanup88
 
@@ -5063,8 +5064,8 @@ ehcleanup88:                                      ; preds = %lpad85, %lpad82
   br label %eh.resume
 
 if.end89:                                         ; preds = %if.end75
-  %66 = load ptr, ptr %filename.addr, align 8
-  call void @_ZSt11make_uniqueIN4pbrt9TokenizerEJRPvRmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvPKcPKNS0_7FileLocEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ptr, ptr noundef nonnull align 8 dereferenceable(8) %len, ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %errorCallback)
+  %67 = load ptr, ptr %filename.addr, align 8
+  call void @_ZSt11make_uniqueIN4pbrt9TokenizerEJRPvRmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvPKcPKNS0_7FileLocEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ptr, ptr noundef nonnull align 8 dereferenceable(8) %len, ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %errorCallback)
   br label %return
 
 return:                                           ; preds = %if.end89, %invoke.cont86, %invoke.cont59, %invoke.cont46, %invoke.cont32, %invoke.cont18, %invoke.cont3
@@ -14043,10 +14044,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt22FormattingParserTargetE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [43 x ptr] }, ptr @_ZTVN4pbrt22FormattingParserTargetE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %errorExit = getelementptr inbounds %"class.pbrt::ParserTarget", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %errorExit, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %errorExit, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -14069,10 +14071,10 @@ if.end:                                           ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #18
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #18
   unreachable
 }
 
@@ -31486,7 +31488,8 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFivEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob", ptr %this1, i32 0, i32 2
@@ -33480,7 +33483,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %activeWorkers = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this1, i32 0, i32 1
   store i32 0, ptr %activeWorkers, align 8
   %prev = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this1, i32 0, i32 3
@@ -33564,7 +33568,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob", ptr %this1, i32 0, i32 4
@@ -33669,7 +33674,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry

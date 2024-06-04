@@ -326,7 +326,7 @@ define dso_local void @reserve_crashkernel_generic(ptr nocapture noundef readnon
 
 22:                                               ; preds = %21
   %23 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #20
-  br label %50
+  br label %51
 
 24:                                               ; preds = %21
   %25 = icmp ne i64 %18, 4294967296
@@ -346,7 +346,7 @@ define dso_local void @reserve_crashkernel_generic(ptr nocapture noundef readnon
 
 34:                                               ; preds = %31
   %35 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i64 noundef %1) #20
-  br label %50
+  br label %51
 
 36:                                               ; preds = %16
   %37 = icmp ugt i64 %19, 4294967295
@@ -361,7 +361,7 @@ define dso_local void @reserve_crashkernel_generic(ptr nocapture noundef readnon
 
 43:                                               ; preds = %40
   %44 = tail call i32 @memblock_phys_free(i64 noundef %19, i64 noundef %1) #19
-  br label %50
+  br label %51
 
 45:                                               ; preds = %40, %36
   %46 = add i64 %19, %1
@@ -369,10 +369,11 @@ define dso_local void @reserve_crashkernel_generic(ptr nocapture noundef readnon
   %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i64 noundef %19, i64 noundef %46, i64 noundef %47) #20
   store i64 %19, ptr @crashk_res, align 8
   %49 = add i64 %46, -1
-  store i64 %49, ptr getelementptr inbounds (%struct.resource, ptr @crashk_res, i64 0, i32 1), align 8
-  br label %50
+  %50 = getelementptr inbounds %struct.resource, ptr @crashk_res, i64 0, i32 1
+  store i64 %49, ptr %50, align 8
+  br label %51
 
-50:                                               ; preds = %45, %43, %34, %22
+51:                                               ; preds = %45, %43, %34, %22
   ret void
 }
 
@@ -390,7 +391,7 @@ define internal fastcc noundef i32 @reserve_crashkernel_low(i64 noundef %0) unna
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i64 noundef %0) #20
-  br label %11
+  br label %12
 
 6:                                                ; preds = %1
   %7 = add i64 %2, %0
@@ -398,12 +399,13 @@ define internal fastcc noundef i32 @reserve_crashkernel_low(i64 noundef %0) unna
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, i64 noundef %2, i64 noundef %7, i64 noundef %8) #20
   store i64 %2, ptr @crashk_low_res, align 8
   %10 = add i64 %7, -1
-  store i64 %10, ptr getelementptr inbounds (%struct.resource, ptr @crashk_low_res, i64 0, i32 1), align 8
-  br label %11
+  %11 = getelementptr inbounds %struct.resource, ptr @crashk_low_res, i64 0, i32 1
+  store i64 %10, ptr %11, align 8
+  br label %12
 
-11:                                               ; preds = %6, %4
-  %12 = phi i32 [ 0, %6 ], [ -12, %4 ]
-  ret i32 %12
+12:                                               ; preds = %6, %4
+  %13 = phi i32 [ 0, %6 ], [ -12, %4 ]
+  ret i32 %13
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -412,25 +414,27 @@ declare dso_local i32 @memblock_phys_free(i64 noundef, i64 noundef) local_unname
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @insert_crashkernel_resources() #0 section ".init.text" align 16 {
   %1 = load i64, ptr @crashk_res, align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @crashk_res, i64 0, i32 1), align 8
-  %3 = icmp ult i64 %1, %2
-  br i1 %3, label %4, label %6
+  %2 = getelementptr inbounds %struct.resource, ptr @crashk_res, i64 0, i32 1
+  %3 = load i64, ptr %2, align 8
+  %4 = icmp ult i64 %1, %3
+  br i1 %4, label %5, label %7
 
-4:                                                ; preds = %0
-  %5 = tail call i32 @insert_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull @crashk_res) #19
-  br label %6
+5:                                                ; preds = %0
+  %6 = tail call i32 @insert_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull @crashk_res) #19
+  br label %7
 
-6:                                                ; preds = %4, %0
-  %7 = load i64, ptr @crashk_low_res, align 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @crashk_low_res, i64 0, i32 1), align 8
-  %9 = icmp ult i64 %7, %8
-  br i1 %9, label %10, label %12
+7:                                                ; preds = %5, %0
+  %8 = load i64, ptr @crashk_low_res, align 8
+  %9 = getelementptr inbounds %struct.resource, ptr @crashk_low_res, i64 0, i32 1
+  %10 = load i64, ptr %9, align 8
+  %11 = icmp ult i64 %8, %10
+  br i1 %11, label %12, label %14
 
-10:                                               ; preds = %6
-  %11 = tail call i32 @insert_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull @crashk_low_res) #19
-  br label %12
+12:                                               ; preds = %7
+  %13 = tail call i32 @insert_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull @crashk_low_res) #19
+  br label %14
 
-12:                                               ; preds = %10, %6
+14:                                               ; preds = %12, %7
   ret i32 0
 }
 
@@ -449,7 +453,7 @@ define dso_local noundef i32 @crash_prepare_elf64_headers(ptr nocapture noundef 
   %15 = and i64 %14, 2199023251456
   %16 = tail call noalias ptr @vzalloc(i64 noundef %15) #22
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %120, label %18
+  br i1 %17, label %129, label %18
 
 18:                                               ; preds = %4
   %19 = getelementptr i8, ptr %16, i64 64
@@ -544,84 +548,93 @@ define dso_local noundef i32 @crash_prepare_elf64_headers(ptr nocapture noundef 
   store i16 %73, ptr %71, align 8
   %74 = getelementptr i8, ptr %34, i64 56
   %75 = icmp eq i32 %1, 0
-  br i1 %75, label %88, label %76
+  br i1 %75, label %97, label %76
 
 76:                                               ; preds = %65
   store i32 1, ptr %74, align 8
   %77 = getelementptr i8, ptr %34, i64 60
   store i32 7, ptr %77, align 4
   %78 = getelementptr i8, ptr %34, i64 72
-  store i64 ptrtoint (ptr @_text to i64), ptr %78, align 8
-  %79 = getelementptr i8, ptr %34, i64 96
-  store i64 sub (i64 ptrtoint (ptr @_end to i64), i64 ptrtoint (ptr @_text to i64)), ptr %79, align 8
-  %80 = getelementptr i8, ptr %34, i64 88
-  store i64 sub (i64 ptrtoint (ptr @_end to i64), i64 ptrtoint (ptr @_text to i64)), ptr %80, align 8
-  %81 = load i64, ptr @phys_base, align 8
-  %82 = add i64 %81, sub (i64 ptrtoint (ptr @_text to i64), i64 -2147483648)
-  %83 = getelementptr i8, ptr %34, i64 80
-  store i64 %82, ptr %83, align 8
-  %84 = getelementptr i8, ptr %34, i64 64
-  store i64 %82, ptr %84, align 8
-  %85 = load i16, ptr %71, align 8
-  %86 = add i16 %85, 1
-  store i16 %86, ptr %71, align 8
-  %87 = getelementptr i8, ptr %34, i64 112
-  br label %88
+  %79 = ptrtoint ptr @_text to i64
+  store i64 %79, ptr %78, align 8
+  %80 = getelementptr i8, ptr %34, i64 96
+  %81 = ptrtoint ptr @_end to i64
+  %82 = ptrtoint ptr @_text to i64
+  %83 = sub i64 %81, %82
+  store i64 %83, ptr %80, align 8
+  %84 = getelementptr i8, ptr %34, i64 88
+  %85 = ptrtoint ptr @_end to i64
+  %86 = ptrtoint ptr @_text to i64
+  %87 = sub i64 %85, %86
+  store i64 %87, ptr %84, align 8
+  %88 = load i64, ptr @phys_base, align 8
+  %89 = ptrtoint ptr @_text to i64
+  %90 = sub i64 %89, -2147483648
+  %91 = add i64 %88, %90
+  %92 = getelementptr i8, ptr %34, i64 80
+  store i64 %91, ptr %92, align 8
+  %93 = getelementptr i8, ptr %34, i64 64
+  store i64 %91, ptr %93, align 8
+  %94 = load i16, ptr %71, align 8
+  %95 = add i16 %94, 1
+  store i16 %95, ptr %71, align 8
+  %96 = getelementptr i8, ptr %34, i64 112
+  br label %97
 
-88:                                               ; preds = %76, %65
-  %89 = phi ptr [ %87, %76 ], [ %74, %65 ]
-  %90 = load i32, ptr %9, align 4
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %119, label %92
+97:                                               ; preds = %76, %65
+  %98 = phi ptr [ %96, %76 ], [ %74, %65 ]
+  %99 = load i32, ptr %9, align 4
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %128, label %101
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %94
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %103
 
-94:                                               ; preds = %94, %92
-  %95 = phi i64 [ 0, %92 ], [ %115, %94 ]
-  %96 = phi ptr [ %89, %92 ], [ %114, %94 ]
-  %97 = getelementptr [0 x %struct.range], ptr %93, i64 0, i64 %95
-  %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %97, i64 8
-  %100 = load i64, ptr %99, align 8
-  store i32 1, ptr %96, align 8
-  %101 = getelementptr inbounds i8, ptr %96, i64 4
-  store i32 7, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %96, i64 8
-  store i64 %98, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %96, i64 24
-  store i64 %98, ptr %103, align 8
-  %104 = load i64, ptr @page_offset_base, align 8
-  %105 = add i64 %104, %98
-  %106 = getelementptr inbounds i8, ptr %96, i64 16
-  store i64 %105, ptr %106, align 8
-  %107 = sub i64 %100, %98
-  %108 = add i64 %107, 1
-  %109 = getelementptr inbounds i8, ptr %96, i64 40
-  store i64 %108, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %96, i64 32
-  store i64 %108, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %96, i64 48
-  store i64 0, ptr %111, align 8
-  %112 = load i16, ptr %71, align 8
-  %113 = add i16 %112, 1
-  store i16 %113, ptr %71, align 8
-  %114 = getelementptr i8, ptr %96, i64 56
-  %115 = add nuw nsw i64 %95, 1
-  %116 = load i32, ptr %9, align 4
-  %117 = zext i32 %116 to i64
-  %118 = icmp ult i64 %115, %117
-  br i1 %118, label %94, label %119, !llvm.loop !15
+103:                                              ; preds = %103, %101
+  %104 = phi i64 [ 0, %101 ], [ %124, %103 ]
+  %105 = phi ptr [ %98, %101 ], [ %123, %103 ]
+  %106 = getelementptr [0 x %struct.range], ptr %102, i64 0, i64 %104
+  %107 = load i64, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %106, i64 8
+  %109 = load i64, ptr %108, align 8
+  store i32 1, ptr %105, align 8
+  %110 = getelementptr inbounds i8, ptr %105, i64 4
+  store i32 7, ptr %110, align 4
+  %111 = getelementptr inbounds i8, ptr %105, i64 8
+  store i64 %107, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %105, i64 24
+  store i64 %107, ptr %112, align 8
+  %113 = load i64, ptr @page_offset_base, align 8
+  %114 = add i64 %113, %107
+  %115 = getelementptr inbounds i8, ptr %105, i64 16
+  store i64 %114, ptr %115, align 8
+  %116 = sub i64 %109, %107
+  %117 = add i64 %116, 1
+  %118 = getelementptr inbounds i8, ptr %105, i64 40
+  store i64 %117, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %105, i64 32
+  store i64 %117, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %105, i64 48
+  store i64 0, ptr %120, align 8
+  %121 = load i16, ptr %71, align 8
+  %122 = add i16 %121, 1
+  store i16 %122, ptr %71, align 8
+  %123 = getelementptr i8, ptr %105, i64 56
+  %124 = add nuw nsw i64 %104, 1
+  %125 = load i32, ptr %9, align 4
+  %126 = zext i32 %125 to i64
+  %127 = icmp ult i64 %124, %126
+  br i1 %127, label %103, label %128, !llvm.loop !15
 
-119:                                              ; preds = %94, %88
+128:                                              ; preds = %103, %97
   store ptr %16, ptr %2, align 8
   store i64 %15, ptr %3, align 8
-  br label %120
+  br label %129
 
-120:                                              ; preds = %119, %4
-  %121 = phi i32 [ 0, %119 ], [ -12, %4 ]
-  ret i32 %121
+129:                                              ; preds = %128, %4
+  %130 = phi i32 [ 0, %128 ], [ -12, %4 ]
+  ret i32 %130
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
@@ -641,13 +654,14 @@ define weak dso_local i64 @paddr_vmcoreinfo_note() #5 align 16 {
   %1 = load ptr, ptr @vmcoreinfo_note, align 8
   %2 = ptrtoint ptr %1 to i64
   %3 = add i64 %2, 2147483648
-  %4 = icmp ugt ptr %1, inttoptr (i64 -2147483649 to ptr)
-  %5 = load i64, ptr @phys_base, align 8
-  %6 = load i64, ptr @page_offset_base, align 8
-  %7 = sub i64 -2147483648, %6
-  %8 = select i1 %4, i64 %5, i64 %7
-  %9 = add i64 %3, %8
-  ret i64 %9
+  %4 = inttoptr i64 -2147483649 to ptr
+  %5 = icmp ugt ptr %1, %4
+  %6 = load i64, ptr @phys_base, align 8
+  %7 = load i64, ptr @page_offset_base, align 8
+  %8 = sub i64 -2147483648, %7
+  %9 = select i1 %5, i64 %6, i64 %8
+  %10 = add i64 %3, %9
+  ret i64 %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
@@ -861,10 +875,10 @@ define dso_local void @vmcoreinfo_append_str(ptr noundef %0, ...) local_unnamed_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false), !annotation !17
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !17
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %4 = call i32 @vscnprintf(ptr noundef nonnull %3, i64 noundef 80, ptr noundef %0, ptr noundef nonnull %2) #19
   %5 = sext i32 %4 to i64
-  call void @llvm.va_end(ptr %2)
+  call void @llvm.va_end.p0(ptr %2)
   %6 = load i64, ptr @vmcoreinfo_size, align 8
   %7 = sub i64 4096, %6
   %8 = call i64 @llvm.umin.i64(i64 %7, i64 %5)
@@ -898,14 +912,8 @@ define dso_local void @vmcoreinfo_append_str(ptr noundef %0, ...) local_unnamed_
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @ktime_get_real_seconds() local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @vscnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
@@ -925,7 +933,7 @@ define internal noundef i32 @crash_save_vmcoreinfo_init() #0 section ".init.text
 
 4:                                                ; preds = %0
   %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25) #20
-  br label %35
+  br label %50
 
 6:                                                ; preds = %0
   %7 = tail call noalias dereferenceable_or_null(4132) ptr @alloc_pages_exact(i64 noundef 4132, i32 noundef 3520) #22
@@ -939,42 +947,51 @@ define internal noundef i32 @crash_save_vmcoreinfo_init() #0 section ".init.text
   tail call void @free_pages(i64 noundef %11, i32 noundef 0) #19
   store ptr null, ptr @vmcoreinfo_data, align 8
   %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26) #20
-  br label %35
+  br label %50
 
 13:                                               ; preds = %6
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds (%struct.uts_namespace, ptr @init_uts_ns, i64 0, i32 0, i32 2))
+  %14 = getelementptr inbounds %struct.uts_namespace, ptr @init_uts_ns, i64 0, i32 0, i32 2
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.27, ptr noundef nonnull %14)
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.28, ptr noundef nonnull @vmlinux_build_id)
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.29, i64 noundef 4096)
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef ptrtoint (ptr @init_uts_ns to i64))
+  %15 = ptrtoint ptr @init_uts_ns to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef %15)
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i64 noundef 0)
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.35, i64 noundef ptrtoint (ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1) to i64))
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.36, i64 noundef ptrtoint (ptr @init_top_pgt to i64))
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.37, i64 noundef ptrtoint (ptr @_stext to i64))
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.38, i64 noundef ptrtoint (ptr @vmap_area_list to i64))
-  %14 = load ptr, ptr @mem_section, align 8
-  %15 = ptrtoint ptr %14 to i64
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.39, i64 noundef %15)
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58)) #19
-          to label %17 [label %17, label %16], !srcloc !24
+  %16 = getelementptr inbounds [6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1
+  %17 = ptrtoint ptr %16 to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.35, i64 noundef %17)
+  %18 = ptrtoint ptr @init_top_pgt to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.36, i64 noundef %18)
+  %19 = ptrtoint ptr @_stext to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.37, i64 noundef %19)
+  %20 = ptrtoint ptr @vmap_area_list to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.38, i64 noundef %20)
+  %21 = load ptr, ptr @mem_section, align 8
+  %22 = ptrtoint ptr %21 to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.39, i64 noundef %22)
+  %23 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull %23) #19
+          to label %25 [label %25, label %24], !srcloc !24
 
-16:                                               ; preds = %13
-  br label %17
+24:                                               ; preds = %13
+  br label %25
 
-17:                                               ; preds = %16, %13, %13
-  %18 = phi i64 [ 2048, %16 ], [ 131072, %13 ], [ 131072, %13 ]
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i64 noundef %18)
+25:                                               ; preds = %24, %13, %13
+  %26 = phi i64 [ 2048, %24 ], [ 131072, %13 ], [ 131072, %13 ]
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i64 noundef %26)
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.39, i64 noundef 16)
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.42, i64 noundef 0)
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i64 noundef 27)
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58)) #19
-          to label %20 [label %20, label %19], !srcloc !24
+  %27 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 58
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull %27) #19
+          to label %29 [label %29, label %28], !srcloc !24
 
-19:                                               ; preds = %17
-  br label %20
+28:                                               ; preds = %25
+  br label %29
 
-20:                                               ; preds = %19, %17, %17
-  %21 = phi i64 [ 46, %19 ], [ 52, %17 ], [ 52, %17 ]
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.45, i64 noundef %21)
+29:                                               ; preds = %28, %25, %25
+  %30 = phi i64 [ 46, %28 ], [ 52, %25 ], [ 52, %25 ]
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.45, i64 noundef %30)
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.46, i64 noundef 64)
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.47, i64 noundef 14016)
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.48, i64 noundef 1216)
@@ -1014,39 +1031,45 @@ define internal noundef i32 @crash_save_vmcoreinfo_init() #0 section ".init.text
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.81, i64 noundef -129)
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.82, i64 noundef 8)
   tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.83, i64 noundef -257)
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.84, i64 noundef ptrtoint (ptr @kallsyms_names to i64))
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.85, i64 noundef ptrtoint (ptr @kallsyms_num_syms to i64))
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.86, i64 noundef ptrtoint (ptr @kallsyms_token_table to i64))
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.87, i64 noundef ptrtoint (ptr @kallsyms_token_index to i64))
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.88, i64 noundef ptrtoint (ptr @kallsyms_offsets to i64))
-  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.89, i64 noundef ptrtoint (ptr @kallsyms_relative_base to i64))
+  %31 = ptrtoint ptr @kallsyms_names to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.84, i64 noundef %31)
+  %32 = ptrtoint ptr @kallsyms_num_syms to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.85, i64 noundef %32)
+  %33 = ptrtoint ptr @kallsyms_token_table to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.86, i64 noundef %33)
+  %34 = ptrtoint ptr @kallsyms_token_index to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.87, i64 noundef %34)
+  %35 = ptrtoint ptr @kallsyms_offsets to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.88, i64 noundef %35)
+  %36 = ptrtoint ptr @kallsyms_relative_base to i64
+  tail call void (ptr, ...) @vmcoreinfo_append_str(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.89, i64 noundef %36)
   tail call void @arch_crash_save_vmcoreinfo()
-  %22 = load i64, ptr @vmcoreinfo_size, align 8
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %35, label %24
+  %37 = load i64, ptr @vmcoreinfo_size, align 8
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %50, label %39
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr @vmcoreinfo_note, align 8
-  %26 = load ptr, ptr @vmcoreinfo_data, align 8
-  store i32 11, ptr %25, align 4
-  %27 = trunc i64 %22 to i32
-  %28 = getelementptr inbounds i8, ptr %25, i64 4
-  store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %25, i64 8
-  store i32 0, ptr %29, align 4
-  %30 = getelementptr i8, ptr %25, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(11) %30, ptr noundef nonnull align 1 dereferenceable(11) @.str.24, i64 11, i1 false)
-  %31 = getelementptr i8, ptr %25, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %31, ptr align 1 %26, i64 %22, i1 false)
-  %32 = add i64 %22, 3
-  %33 = lshr i64 %32, 2
-  %34 = getelementptr i32, ptr %31, i64 %33
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %34, i8 0, i64 12, i1 false)
-  br label %35
+39:                                               ; preds = %29
+  %40 = load ptr, ptr @vmcoreinfo_note, align 8
+  %41 = load ptr, ptr @vmcoreinfo_data, align 8
+  store i32 11, ptr %40, align 4
+  %42 = trunc i64 %37 to i32
+  %43 = getelementptr inbounds i8, ptr %40, i64 4
+  store i32 %42, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %40, i64 8
+  store i32 0, ptr %44, align 4
+  %45 = getelementptr i8, ptr %40, i64 12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(11) %45, ptr noundef nonnull align 1 dereferenceable(11) @.str.24, i64 11, i1 false)
+  %46 = getelementptr i8, ptr %40, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %46, ptr align 1 %41, i64 %37, i1 false)
+  %47 = add i64 %37, 3
+  %48 = lshr i64 %47, 2
+  %49 = getelementptr i32, ptr %46, i64 %48
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %49, i8 0, i64 12, i1 false)
+  br label %50
 
-35:                                               ; preds = %24, %20, %9, %4
-  %36 = phi i32 [ -12, %9 ], [ -12, %4 ], [ 0, %20 ], [ 0, %24 ]
-  ret i32 %36
+50:                                               ; preds = %39, %29, %9, %4
+  %51 = phi i32 [ -12, %9 ], [ -12, %4 ], [ 0, %29 ], [ 0, %39 ]
+  ret i32 %51
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -1119,7 +1142,7 @@ define internal i32 @crash_hotplug_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree nounwind null_pointer_is_valid optsize memory(read, inaccessiblemem: none)
-define internal fastcc ptr @get_last_crashkernel(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #15 section ".init.text" align 16 {
+define internal fastcc ptr @get_last_crashkernel(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #14 section ".init.text" align 16 {
   %3 = tail call ptr @strstr(ptr noundef %0, ptr noundef nonnull dereferenceable(1) @.str.9) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %41, label %5
@@ -1575,13 +1598,19 @@ declare dso_local void @arch_crash_handle_hotplug_event(ptr noundef) local_unnam
 declare dso_local void @arch_kexec_protect_crashkres() local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #17
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -1597,10 +1626,10 @@ attributes #10 = { fn_ret_thunk_extern mustprogress nofree nounwind null_pointer
 attributes #11 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #12 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #13 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind willreturn }
-attributes #15 = { cold fn_ret_thunk_extern nofree nounwind null_pointer_is_valid optsize memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { cold fn_ret_thunk_extern nofree nounwind null_pointer_is_valid optsize memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn }
 attributes #18 = { cold }
 attributes #19 = { nounwind }
 attributes #20 = { cold nounwind }

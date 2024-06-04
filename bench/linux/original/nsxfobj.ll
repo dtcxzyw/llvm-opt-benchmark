@@ -13,41 +13,42 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_get_nex
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_get_type(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %20, label %4
+  br i1 %3, label %21, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp eq ptr %0, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %4
-  store i32 0, ptr %1, align 4
-  br label %20
+  %5 = inttoptr i64 -1 to ptr
+  %6 = icmp eq ptr %0, %5
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 1) #2
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %20
+  store i32 0, ptr %1, align 4
+  br label %21
 
-10:                                               ; preds = %7
-  %11 = tail call ptr @acpi_ns_validate_handle(ptr noundef %0) #2
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %15
+8:                                                ; preds = %4
+  %9 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 1) #2
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %21
 
-13:                                               ; preds = %10
-  %14 = tail call i32 @acpi_ut_release_mutex(i32 noundef 1) #2
-  br label %20
+11:                                               ; preds = %8
+  %12 = tail call ptr @acpi_ns_validate_handle(ptr noundef %0) #2
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %16
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %11, i64 9
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  store i32 %18, ptr %1, align 4
-  %19 = tail call i32 @acpi_ut_release_mutex(i32 noundef 1) #2
-  br label %20
+14:                                               ; preds = %11
+  %15 = tail call i32 @acpi_ut_release_mutex(i32 noundef 1) #2
+  br label %21
 
-20:                                               ; preds = %15, %13, %7, %6, %2
-  %21 = phi i32 [ 0, %6 ], [ %19, %15 ], [ 4097, %13 ], [ 4097, %2 ], [ %8, %7 ]
-  ret i32 %21
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %12, i64 9
+  %18 = load i8, ptr %17, align 1
+  %19 = zext i8 %18 to i32
+  store i32 %19, ptr %1, align 4
+  %20 = tail call i32 @acpi_ut_release_mutex(i32 noundef 1) #2
+  br label %21
+
+21:                                               ; preds = %16, %14, %8, %7, %2
+  %22 = phi i32 [ 0, %7 ], [ %20, %16 ], [ 4097, %14 ], [ 4097, %2 ], [ %9, %8 ]
+  ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -62,38 +63,39 @@ declare dso_local i32 @acpi_ut_release_mutex(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_get_parent(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %20, label %4
+  br i1 %3, label %21, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp eq ptr %0, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %20, label %6
+  %5 = inttoptr i64 -1 to ptr
+  %6 = icmp eq ptr %0, %5
+  br i1 %6, label %21, label %7
 
-6:                                                ; preds = %4
-  %7 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 1) #2
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %20
+7:                                                ; preds = %4
+  %8 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 1) #2
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %21
 
-9:                                                ; preds = %6
-  %10 = tail call ptr @acpi_ns_validate_handle(ptr noundef %0) #2
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %12
+10:                                               ; preds = %7
+  %11 = tail call ptr @acpi_ns_validate_handle(ptr noundef %0) #2
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %18, label %13
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %1, align 8
-  %15 = icmp eq ptr %14, null
-  %16 = select i1 %15, i32 10, i32 0
-  br label %17
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %1, align 8
+  %16 = icmp eq ptr %15, null
+  %17 = select i1 %16, i32 10, i32 0
+  br label %18
 
-17:                                               ; preds = %12, %9
-  %18 = phi i32 [ 4097, %9 ], [ %16, %12 ]
-  %19 = tail call i32 @acpi_ut_release_mutex(i32 noundef 1) #2
-  br label %20
+18:                                               ; preds = %13, %10
+  %19 = phi i32 [ 4097, %10 ], [ %17, %13 ]
+  %20 = tail call i32 @acpi_ut_release_mutex(i32 noundef 1) #2
+  br label %21
 
-20:                                               ; preds = %17, %6, %4, %2
-  %21 = phi i32 [ %18, %17 ], [ 4097, %2 ], [ 10, %4 ], [ %7, %6 ]
-  ret i32 %21
+21:                                               ; preds = %18, %7, %4, %2
+  %22 = phi i32 [ %19, %18 ], [ 4097, %2 ], [ 10, %4 ], [ %8, %7 ]
+  ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

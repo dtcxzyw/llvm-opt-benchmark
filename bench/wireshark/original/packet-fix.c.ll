@@ -7752,53 +7752,62 @@ define internal ptr @fix_param(ptr noundef %0, i32 noundef %1) #0 {
   %7 = load ptr, ptr %4, align 8
   %8 = load i32, ptr %5, align 4
   %9 = call i32 @tvb_find_guint8(ptr noundef %7, i32 noundef %8, i32 noundef -1, i8 noundef zeroext 1)
-  store i32 %9, ptr getelementptr inbounds (%struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 4), align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 4), align 4
-  %11 = icmp eq i32 %10, -1
-  br i1 %11, label %12, label %13
+  %10 = getelementptr inbounds %struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 4
+  store i32 %9, ptr %10, align 4
+  %11 = getelementptr inbounds %struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 4
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp eq i32 %12, -1
+  br i1 %13, label %14, label %15
 
-12:                                               ; preds = %2
+14:                                               ; preds = %2
   store ptr null, ptr %3, align 8
-  br label %35
+  br label %44
 
-13:                                               ; preds = %2
-  %14 = load i32, ptr getelementptr inbounds (%struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 4), align 4
-  %15 = load i32, ptr %5, align 4
-  %16 = sub i32 %14, %15
-  %17 = add i32 %16, 1
-  store i32 %17, ptr @fix_param.ret, align 4
-  %18 = load ptr, ptr %4, align 8
-  %19 = load i32, ptr %5, align 4
-  %20 = load i32, ptr @fix_param.ret, align 4
-  %21 = call i32 @tvb_find_guint8(ptr noundef %18, i32 noundef %19, i32 noundef %20, i8 noundef zeroext 61)
-  store i32 %21, ptr %6, align 4
-  %22 = load i32, ptr %6, align 4
-  %23 = icmp eq i32 %22, -1
-  br i1 %23, label %24, label %25
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds %struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 4
+  %17 = load i32, ptr %16, align 4
+  %18 = load i32, ptr %5, align 4
+  %19 = sub i32 %17, %18
+  %20 = add i32 %19, 1
+  store i32 %20, ptr @fix_param.ret, align 4
+  %21 = load ptr, ptr %4, align 8
+  %22 = load i32, ptr %5, align 4
+  %23 = load i32, ptr @fix_param.ret, align 4
+  %24 = call i32 @tvb_find_guint8(ptr noundef %21, i32 noundef %22, i32 noundef %23, i8 noundef zeroext 61)
+  store i32 %24, ptr %6, align 4
+  %25 = load i32, ptr %6, align 4
+  %26 = icmp eq i32 %25, -1
+  br i1 %26, label %27, label %28
 
-24:                                               ; preds = %13
+27:                                               ; preds = %15
   store ptr null, ptr %3, align 8
-  br label %35
+  br label %44
 
-25:                                               ; preds = %13
-  %26 = load i32, ptr %6, align 4
-  %27 = add i32 %26, 1
-  store i32 %27, ptr getelementptr inbounds (%struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 2), align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 2), align 4
-  %29 = load i32, ptr %5, align 4
-  %30 = sub i32 %28, %29
-  %31 = sub i32 %30, 1
-  store i32 %31, ptr getelementptr inbounds (%struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 1), align 4
-  %32 = load i32, ptr getelementptr inbounds (%struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 4), align 4
-  %33 = load i32, ptr getelementptr inbounds (%struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 2), align 4
-  %34 = sub i32 %32, %33
-  store i32 %34, ptr getelementptr inbounds (%struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 3), align 4
+28:                                               ; preds = %15
+  %29 = load i32, ptr %6, align 4
+  %30 = add i32 %29, 1
+  %31 = getelementptr inbounds %struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 2
+  store i32 %30, ptr %31, align 4
+  %32 = getelementptr inbounds %struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 2
+  %33 = load i32, ptr %32, align 4
+  %34 = load i32, ptr %5, align 4
+  %35 = sub i32 %33, %34
+  %36 = sub i32 %35, 1
+  %37 = getelementptr inbounds %struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 1
+  store i32 %36, ptr %37, align 4
+  %38 = getelementptr inbounds %struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 4
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr inbounds %struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 2
+  %41 = load i32, ptr %40, align 4
+  %42 = sub i32 %39, %41
+  %43 = getelementptr inbounds %struct._fix_parameter, ptr @fix_param.ret, i32 0, i32 3
+  store i32 %42, ptr %43, align 4
   store ptr @fix_param.ret, ptr %3, align 8
-  br label %35
+  br label %44
 
-35:                                               ; preds = %25, %24, %12
-  %36 = load ptr, ptr %3, align 8
-  ret ptr %36
+44:                                               ; preds = %28, %27, %14
+  %45 = load ptr, ptr %3, align 8
+  ret ptr %45
 }
 
 declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #1

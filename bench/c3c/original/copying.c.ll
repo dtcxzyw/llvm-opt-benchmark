@@ -194,9 +194,12 @@ define dso_local ptr @copy_ast_single(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @copy_begin() #0 {
-  store ptr @copy_struct, ptr getelementptr inbounds (%struct.CopyStruct_, ptr @copy_struct, i32 0, i32 1), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.CopyStruct_, ptr @copy_struct, i32 0, i32 3), align 1
-  store i8 0, ptr getelementptr inbounds (%struct.CopyStruct_, ptr @copy_struct, i32 0, i32 2), align 8
+  %1 = getelementptr inbounds %struct.CopyStruct_, ptr @copy_struct, i32 0, i32 1
+  store ptr @copy_struct, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.CopyStruct_, ptr @copy_struct, i32 0, i32 3
+  store i8 1, ptr %2, align 1
+  %3 = getelementptr inbounds %struct.CopyStruct_, ptr @copy_struct, i32 0, i32 2
+  store i8 0, ptr %3, align 8
   ret void
 }
 
@@ -1771,7 +1774,8 @@ define internal ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @copy_end() #0 {
-  store i8 0, ptr getelementptr inbounds (%struct.CopyStruct_, ptr @copy_struct, i32 0, i32 3), align 1
+  %1 = getelementptr inbounds %struct.CopyStruct_, ptr @copy_struct, i32 0, i32 3
+  store i8 0, ptr %1, align 1
   ret void
 }
 
@@ -1972,13 +1976,14 @@ define dso_local ptr @copy_ast_defer(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   call void @copy_begin()
-  store i8 1, ptr getelementptr inbounds (%struct.CopyStruct_, ptr @copy_struct, i32 0, i32 2), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call ptr @copy_ast_macro(ptr noundef %4)
-  store ptr %5, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.CopyStruct_, ptr @copy_struct, i32 0, i32 2
+  store i8 1, ptr %4, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call ptr @copy_ast_macro(ptr noundef %5)
+  store ptr %6, ptr %3, align 8
   call void @copy_end()
-  %6 = load ptr, ptr %3, align 8
-  ret ptr %6
+  %7 = load ptr, ptr %3, align 8
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2102,7 +2107,7 @@ define internal ptr @copy_expr(ptr noundef %0, ptr noundef %1) #0 {
 
 102:                                              ; preds = %2
   store ptr null, ptr %96, align 8
-  br label %1244
+  br label %1245
 
 103:                                              ; preds = %2
   %104 = load ptr, ptr %98, align 8
@@ -2113,7 +2118,7 @@ define internal ptr @copy_expr(ptr noundef %0, ptr noundef %1) #0 {
   %108 = load i16, ptr %107, align 8
   %109 = and i16 %108, 255
   %110 = zext i16 %109 to i32
-  switch i32 %110, label %1242 [
+  switch i32 %110, label %1243 [
     i32 64, label %111
     i32 42, label %114
     i32 26, label %125
@@ -2121,66 +2126,66 @@ define internal ptr @copy_expr(ptr noundef %0, ptr noundef %1) #0 {
     i32 39, label %175
     i32 66, label %214
     i32 36, label %234
-    i32 52, label %247
-    i32 40, label %268
-    i32 6, label %268
-    i32 46, label %268
-    i32 41, label %268
-    i32 65, label %270
-    i32 16, label %275
-    i32 43, label %296
-    i32 7, label %336
-    i32 23, label %357
-    i32 17, label %366
-    i32 58, label %379
-    i32 59, label %455
-    i32 10, label %464
-    i32 34, label %486
-    i32 22, label %512
-    i32 33, label %512
-    i32 56, label %514
-    i32 57, label %514
-    i32 11, label %514
-    i32 37, label %514
-    i32 25, label %516
-    i32 62, label %536
-    i32 48, label %545
-    i32 49, label %545
-    i32 54, label %585
-    i32 47, label %588
-    i32 51, label %588
-    i32 53, label %588
-    i32 2, label %613
-    i32 18, label %645
-    i32 15, label %685
-    i32 30, label %696
-    i32 29, label %696
-    i32 32, label %696
-    i32 50, label %696
-    i32 21, label %696
-    i32 19, label %696
-    i32 20, label %705
-    i32 61, label %714
-    i32 13, label %735
-    i32 38, label %744
-    i32 12, label %783
-    i32 28, label %803
-    i32 0, label %824
-    i32 45, label %826
-    i32 14, label %837
-    i32 3, label %896
-    i32 5, label %896
-    i32 55, label %936
-    i32 63, label %995
-    i32 44, label %995
-    i32 60, label %1006
-    i32 8, label %1015
-    i32 4, label %1131
-    i32 1, label %1131
-    i32 35, label %1175
-    i32 24, label %1184
-    i32 27, label %1193
-    i32 9, label %1202
+    i32 52, label %248
+    i32 40, label %269
+    i32 6, label %269
+    i32 46, label %269
+    i32 41, label %269
+    i32 65, label %271
+    i32 16, label %276
+    i32 43, label %297
+    i32 7, label %337
+    i32 23, label %358
+    i32 17, label %367
+    i32 58, label %380
+    i32 59, label %456
+    i32 10, label %465
+    i32 34, label %487
+    i32 22, label %513
+    i32 33, label %513
+    i32 56, label %515
+    i32 57, label %515
+    i32 11, label %515
+    i32 37, label %515
+    i32 25, label %517
+    i32 62, label %537
+    i32 48, label %546
+    i32 49, label %546
+    i32 54, label %586
+    i32 47, label %589
+    i32 51, label %589
+    i32 53, label %589
+    i32 2, label %614
+    i32 18, label %646
+    i32 15, label %686
+    i32 30, label %697
+    i32 29, label %697
+    i32 32, label %697
+    i32 50, label %697
+    i32 21, label %697
+    i32 19, label %697
+    i32 20, label %706
+    i32 61, label %715
+    i32 13, label %736
+    i32 38, label %745
+    i32 12, label %784
+    i32 28, label %804
+    i32 0, label %825
+    i32 45, label %827
+    i32 14, label %838
+    i32 3, label %897
+    i32 5, label %897
+    i32 55, label %937
+    i32 63, label %996
+    i32 44, label %996
+    i32 60, label %1007
+    i32 8, label %1016
+    i32 4, label %1132
+    i32 1, label %1132
+    i32 35, label %1176
+    i32 24, label %1185
+    i32 27, label %1194
+    i32 9, label %1203
   ]
 
 111:                                              ; preds = %103
@@ -2206,7 +2211,7 @@ define internal ptr @copy_expr(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %120, ptr %123, align 8
   %124 = load ptr, ptr %99, align 8
   store ptr %124, ptr %96, align 8
-  br label %1244
+  br label %1245
 
 125:                                              ; preds = %103
   %126 = load ptr, ptr %97, align 8
@@ -2231,7 +2236,7 @@ define internal ptr @copy_expr(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %140, ptr %143, align 8
   %144 = load ptr, ptr %99, align 8
   store ptr %144, ptr %96, align 8
-  br label %1244
+  br label %1245
 
 145:                                              ; preds = %103
   %146 = load ptr, ptr %97, align 8
@@ -2276,7 +2281,7 @@ define internal ptr @copy_expr(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %170, ptr %173, align 8
   %174 = load ptr, ptr %99, align 8
   store ptr %174, ptr %96, align 8
-  br label %1244
+  br label %1245
 
 175:                                              ; preds = %103
   %176 = load ptr, ptr %97, align 8
@@ -2331,7 +2336,7 @@ define internal ptr @copy_expr(ptr noundef %0, ptr noundef %1) #0 {
   store i32 %209, ptr %212, align 8
   %213 = load ptr, ptr %99, align 8
   store ptr %213, ptr %96, align 8
-  br label %1244
+  br label %1245
 
 214:                                              ; preds = %103
   %215 = load ptr, ptr %97, align 8
@@ -2356,1588 +2361,1589 @@ define internal ptr @copy_expr(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %229, ptr %232, align 8
   %233 = load ptr, ptr %99, align 8
   store ptr %233, ptr %96, align 8
-  br label %1244
+  br label %1245
 
 234:                                              ; preds = %103
-  %235 = load i8, ptr getelementptr inbounds (%struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4), align 2
-  %236 = trunc i8 %235 to i1
-  br i1 %236, label %237, label %245
+  %235 = getelementptr inbounds %struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4
+  %236 = load i8, ptr %235, align 2
+  %237 = trunc i8 %236 to i1
+  br i1 %237, label %238, label %246
 
-237:                                              ; preds = %234
-  %238 = load ptr, ptr %97, align 8
-  %239 = load ptr, ptr %99, align 8
-  %240 = getelementptr inbounds %struct.Expr_, ptr %239, i32 0, i32 3
-  %241 = load ptr, ptr %240, align 8
-  %242 = call ptr @copy_decl(ptr noundef %238, ptr noundef %241)
-  %243 = load ptr, ptr %99, align 8
-  %244 = getelementptr inbounds %struct.Expr_, ptr %243, i32 0, i32 3
-  store ptr %242, ptr %244, align 8
-  br label %245
+238:                                              ; preds = %234
+  %239 = load ptr, ptr %97, align 8
+  %240 = load ptr, ptr %99, align 8
+  %241 = getelementptr inbounds %struct.Expr_, ptr %240, i32 0, i32 3
+  %242 = load ptr, ptr %241, align 8
+  %243 = call ptr @copy_decl(ptr noundef %239, ptr noundef %242)
+  %244 = load ptr, ptr %99, align 8
+  %245 = getelementptr inbounds %struct.Expr_, ptr %244, i32 0, i32 3
+  store ptr %243, ptr %245, align 8
+  br label %246
 
-245:                                              ; preds = %237, %234
-  %246 = load ptr, ptr %99, align 8
-  store ptr %246, ptr %96, align 8
-  br label %1244
+246:                                              ; preds = %238, %234
+  %247 = load ptr, ptr %99, align 8
+  store ptr %247, ptr %96, align 8
+  br label %1245
 
-247:                                              ; preds = %103
-  %248 = load ptr, ptr %97, align 8
-  %249 = load ptr, ptr %99, align 8
-  %250 = getelementptr inbounds %struct.Expr_, ptr %249, i32 0, i32 3
-  %251 = getelementptr inbounds %struct.ExprSwizzle, ptr %250, i32 0, i32 0
-  %252 = load i32, ptr %251, align 8
-  store ptr %248, ptr %40, align 8
-  store i32 %252, ptr %41, align 4
-  %253 = load i32, ptr %41, align 4
-  %254 = icmp ne i32 %253, 0
-  br i1 %254, label %256, label %255
+248:                                              ; preds = %103
+  %249 = load ptr, ptr %97, align 8
+  %250 = load ptr, ptr %99, align 8
+  %251 = getelementptr inbounds %struct.Expr_, ptr %250, i32 0, i32 3
+  %252 = getelementptr inbounds %struct.ExprSwizzle, ptr %251, i32 0, i32 0
+  %253 = load i32, ptr %252, align 8
+  store ptr %249, ptr %40, align 8
+  store i32 %253, ptr %41, align 4
+  %254 = load i32, ptr %41, align 4
+  %255 = icmp ne i32 %254, 0
+  br i1 %255, label %257, label %256
 
-255:                                              ; preds = %247
+256:                                              ; preds = %248
   store i32 0, ptr %39, align 4
-  br label %262
+  br label %263
 
-256:                                              ; preds = %247
-  %257 = load ptr, ptr %40, align 8
-  %258 = load i32, ptr %41, align 4
-  %259 = call ptr @exprptr(i32 noundef %258)
-  %260 = call ptr @copy_expr(ptr noundef %257, ptr noundef %259)
-  %261 = call i32 @exprid(ptr noundef %260)
-  store i32 %261, ptr %39, align 4
-  br label %262
+257:                                              ; preds = %248
+  %258 = load ptr, ptr %40, align 8
+  %259 = load i32, ptr %41, align 4
+  %260 = call ptr @exprptr(i32 noundef %259)
+  %261 = call ptr @copy_expr(ptr noundef %258, ptr noundef %260)
+  %262 = call i32 @exprid(ptr noundef %261)
+  store i32 %262, ptr %39, align 4
+  br label %263
 
-262:                                              ; preds = %256, %255
-  %263 = load i32, ptr %39, align 4
-  %264 = load ptr, ptr %99, align 8
-  %265 = getelementptr inbounds %struct.Expr_, ptr %264, i32 0, i32 3
-  %266 = getelementptr inbounds %struct.ExprSwizzle, ptr %265, i32 0, i32 0
-  store i32 %263, ptr %266, align 8
-  %267 = load ptr, ptr %99, align 8
-  store ptr %267, ptr %96, align 8
-  br label %1244
+263:                                              ; preds = %257, %256
+  %264 = load i32, ptr %39, align 4
+  %265 = load ptr, ptr %99, align 8
+  %266 = getelementptr inbounds %struct.Expr_, ptr %265, i32 0, i32 3
+  %267 = getelementptr inbounds %struct.ExprSwizzle, ptr %266, i32 0, i32 0
+  store i32 %264, ptr %267, align 8
+  %268 = load ptr, ptr %99, align 8
+  store ptr %268, ptr %96, align 8
+  br label %1245
 
-268:                                              ; preds = %103, %103, %103, %103
-  %269 = load ptr, ptr %99, align 8
-  store ptr %269, ptr %96, align 8
-  br label %1244
+269:                                              ; preds = %103, %103, %103, %103
+  %270 = load ptr, ptr %99, align 8
+  store ptr %270, ptr %96, align 8
+  br label %1245
 
-270:                                              ; preds = %103
-  %271 = load ptr, ptr %97, align 8
-  %272 = load ptr, ptr %99, align 8
-  %273 = getelementptr inbounds %struct.Expr_, ptr %272, i32 0, i32 3
-  call void @copy_range(ptr noundef %271, ptr noundef %273)
-  %274 = load ptr, ptr %99, align 8
-  store ptr %274, ptr %96, align 8
-  br label %1244
+271:                                              ; preds = %103
+  %272 = load ptr, ptr %97, align 8
+  %273 = load ptr, ptr %99, align 8
+  %274 = getelementptr inbounds %struct.Expr_, ptr %273, i32 0, i32 3
+  call void @copy_range(ptr noundef %272, ptr noundef %274)
+  %275 = load ptr, ptr %99, align 8
+  store ptr %275, ptr %96, align 8
+  br label %1245
 
-275:                                              ; preds = %103
-  %276 = load ptr, ptr %97, align 8
-  %277 = load ptr, ptr %99, align 8
-  %278 = getelementptr inbounds %struct.Expr_, ptr %277, i32 0, i32 3
-  %279 = getelementptr inbounds %struct.ExprCtArg, ptr %278, i32 0, i32 1
-  %280 = load i32, ptr %279, align 4
-  store ptr %276, ptr %43, align 8
-  store i32 %280, ptr %44, align 4
-  %281 = load i32, ptr %44, align 4
-  %282 = icmp ne i32 %281, 0
-  br i1 %282, label %284, label %283
+276:                                              ; preds = %103
+  %277 = load ptr, ptr %97, align 8
+  %278 = load ptr, ptr %99, align 8
+  %279 = getelementptr inbounds %struct.Expr_, ptr %278, i32 0, i32 3
+  %280 = getelementptr inbounds %struct.ExprCtArg, ptr %279, i32 0, i32 1
+  %281 = load i32, ptr %280, align 4
+  store ptr %277, ptr %43, align 8
+  store i32 %281, ptr %44, align 4
+  %282 = load i32, ptr %44, align 4
+  %283 = icmp ne i32 %282, 0
+  br i1 %283, label %285, label %284
 
-283:                                              ; preds = %275
+284:                                              ; preds = %276
   store i32 0, ptr %42, align 4
-  br label %290
+  br label %291
 
-284:                                              ; preds = %275
-  %285 = load ptr, ptr %43, align 8
-  %286 = load i32, ptr %44, align 4
-  %287 = call ptr @exprptr(i32 noundef %286)
-  %288 = call ptr @copy_expr(ptr noundef %285, ptr noundef %287)
-  %289 = call i32 @exprid(ptr noundef %288)
-  store i32 %289, ptr %42, align 4
-  br label %290
+285:                                              ; preds = %276
+  %286 = load ptr, ptr %43, align 8
+  %287 = load i32, ptr %44, align 4
+  %288 = call ptr @exprptr(i32 noundef %287)
+  %289 = call ptr @copy_expr(ptr noundef %286, ptr noundef %288)
+  %290 = call i32 @exprid(ptr noundef %289)
+  store i32 %290, ptr %42, align 4
+  br label %291
 
-290:                                              ; preds = %284, %283
-  %291 = load i32, ptr %42, align 4
-  %292 = load ptr, ptr %99, align 8
-  %293 = getelementptr inbounds %struct.Expr_, ptr %292, i32 0, i32 3
-  %294 = getelementptr inbounds %struct.ExprCtArg, ptr %293, i32 0, i32 1
-  store i32 %291, ptr %294, align 4
-  %295 = load ptr, ptr %99, align 8
-  store ptr %295, ptr %96, align 8
-  br label %1244
+291:                                              ; preds = %285, %284
+  %292 = load i32, ptr %42, align 4
+  %293 = load ptr, ptr %99, align 8
+  %294 = getelementptr inbounds %struct.Expr_, ptr %293, i32 0, i32 3
+  %295 = getelementptr inbounds %struct.ExprCtArg, ptr %294, i32 0, i32 1
+  store i32 %292, ptr %295, align 4
+  %296 = load ptr, ptr %99, align 8
+  store ptr %296, ptr %96, align 8
+  br label %1245
 
-296:                                              ; preds = %103
-  %297 = load ptr, ptr %97, align 8
-  %298 = load ptr, ptr %99, align 8
-  %299 = getelementptr inbounds %struct.Expr_, ptr %298, i32 0, i32 3
-  %300 = getelementptr inbounds %struct.ExprPointerOffset, ptr %299, i32 0, i32 2
-  %301 = load i32, ptr %300, align 8
-  store ptr %297, ptr %46, align 8
-  store i32 %301, ptr %47, align 4
-  %302 = load i32, ptr %47, align 4
-  %303 = icmp ne i32 %302, 0
-  br i1 %303, label %305, label %304
+297:                                              ; preds = %103
+  %298 = load ptr, ptr %97, align 8
+  %299 = load ptr, ptr %99, align 8
+  %300 = getelementptr inbounds %struct.Expr_, ptr %299, i32 0, i32 3
+  %301 = getelementptr inbounds %struct.ExprPointerOffset, ptr %300, i32 0, i32 2
+  %302 = load i32, ptr %301, align 8
+  store ptr %298, ptr %46, align 8
+  store i32 %302, ptr %47, align 4
+  %303 = load i32, ptr %47, align 4
+  %304 = icmp ne i32 %303, 0
+  br i1 %304, label %306, label %305
 
-304:                                              ; preds = %296
+305:                                              ; preds = %297
   store i32 0, ptr %45, align 4
-  br label %311
+  br label %312
 
-305:                                              ; preds = %296
-  %306 = load ptr, ptr %46, align 8
-  %307 = load i32, ptr %47, align 4
-  %308 = call ptr @exprptr(i32 noundef %307)
-  %309 = call ptr @copy_expr(ptr noundef %306, ptr noundef %308)
-  %310 = call i32 @exprid(ptr noundef %309)
-  store i32 %310, ptr %45, align 4
-  br label %311
+306:                                              ; preds = %297
+  %307 = load ptr, ptr %46, align 8
+  %308 = load i32, ptr %47, align 4
+  %309 = call ptr @exprptr(i32 noundef %308)
+  %310 = call ptr @copy_expr(ptr noundef %307, ptr noundef %309)
+  %311 = call i32 @exprid(ptr noundef %310)
+  store i32 %311, ptr %45, align 4
+  br label %312
 
-311:                                              ; preds = %305, %304
-  %312 = load i32, ptr %45, align 4
-  %313 = load ptr, ptr %99, align 8
-  %314 = getelementptr inbounds %struct.Expr_, ptr %313, i32 0, i32 3
-  %315 = getelementptr inbounds %struct.ExprPointerOffset, ptr %314, i32 0, i32 2
-  store i32 %312, ptr %315, align 8
-  %316 = load ptr, ptr %97, align 8
-  %317 = load ptr, ptr %99, align 8
-  %318 = getelementptr inbounds %struct.Expr_, ptr %317, i32 0, i32 3
-  %319 = getelementptr inbounds %struct.ExprPointerOffset, ptr %318, i32 0, i32 1
-  %320 = load i32, ptr %319, align 4
-  store ptr %316, ptr %49, align 8
-  store i32 %320, ptr %50, align 4
-  %321 = load i32, ptr %50, align 4
-  %322 = icmp ne i32 %321, 0
-  br i1 %322, label %324, label %323
+312:                                              ; preds = %306, %305
+  %313 = load i32, ptr %45, align 4
+  %314 = load ptr, ptr %99, align 8
+  %315 = getelementptr inbounds %struct.Expr_, ptr %314, i32 0, i32 3
+  %316 = getelementptr inbounds %struct.ExprPointerOffset, ptr %315, i32 0, i32 2
+  store i32 %313, ptr %316, align 8
+  %317 = load ptr, ptr %97, align 8
+  %318 = load ptr, ptr %99, align 8
+  %319 = getelementptr inbounds %struct.Expr_, ptr %318, i32 0, i32 3
+  %320 = getelementptr inbounds %struct.ExprPointerOffset, ptr %319, i32 0, i32 1
+  %321 = load i32, ptr %320, align 4
+  store ptr %317, ptr %49, align 8
+  store i32 %321, ptr %50, align 4
+  %322 = load i32, ptr %50, align 4
+  %323 = icmp ne i32 %322, 0
+  br i1 %323, label %325, label %324
 
-323:                                              ; preds = %311
+324:                                              ; preds = %312
   store i32 0, ptr %48, align 4
-  br label %330
+  br label %331
 
-324:                                              ; preds = %311
-  %325 = load ptr, ptr %49, align 8
-  %326 = load i32, ptr %50, align 4
-  %327 = call ptr @exprptr(i32 noundef %326)
-  %328 = call ptr @copy_expr(ptr noundef %325, ptr noundef %327)
-  %329 = call i32 @exprid(ptr noundef %328)
-  store i32 %329, ptr %48, align 4
-  br label %330
+325:                                              ; preds = %312
+  %326 = load ptr, ptr %49, align 8
+  %327 = load i32, ptr %50, align 4
+  %328 = call ptr @exprptr(i32 noundef %327)
+  %329 = call ptr @copy_expr(ptr noundef %326, ptr noundef %328)
+  %330 = call i32 @exprid(ptr noundef %329)
+  store i32 %330, ptr %48, align 4
+  br label %331
 
-330:                                              ; preds = %324, %323
-  %331 = load i32, ptr %48, align 4
-  %332 = load ptr, ptr %99, align 8
-  %333 = getelementptr inbounds %struct.Expr_, ptr %332, i32 0, i32 3
-  %334 = getelementptr inbounds %struct.ExprPointerOffset, ptr %333, i32 0, i32 1
-  store i32 %331, ptr %334, align 4
-  %335 = load ptr, ptr %99, align 8
-  store ptr %335, ptr %96, align 8
-  br label %1244
+331:                                              ; preds = %325, %324
+  %332 = load i32, ptr %48, align 4
+  %333 = load ptr, ptr %99, align 8
+  %334 = getelementptr inbounds %struct.Expr_, ptr %333, i32 0, i32 3
+  %335 = getelementptr inbounds %struct.ExprPointerOffset, ptr %334, i32 0, i32 1
+  store i32 %332, ptr %335, align 4
+  %336 = load ptr, ptr %99, align 8
+  store ptr %336, ptr %96, align 8
+  br label %1245
 
-336:                                              ; preds = %103
-  %337 = load ptr, ptr %97, align 8
-  %338 = load ptr, ptr %99, align 8
-  %339 = getelementptr inbounds %struct.Expr_, ptr %338, i32 0, i32 3
-  %340 = getelementptr inbounds %struct.ExprBuiltinAccess, ptr %339, i32 0, i32 1
-  %341 = load i32, ptr %340, align 4
-  store ptr %337, ptr %52, align 8
-  store i32 %341, ptr %53, align 4
-  %342 = load i32, ptr %53, align 4
-  %343 = icmp ne i32 %342, 0
-  br i1 %343, label %345, label %344
+337:                                              ; preds = %103
+  %338 = load ptr, ptr %97, align 8
+  %339 = load ptr, ptr %99, align 8
+  %340 = getelementptr inbounds %struct.Expr_, ptr %339, i32 0, i32 3
+  %341 = getelementptr inbounds %struct.ExprBuiltinAccess, ptr %340, i32 0, i32 1
+  %342 = load i32, ptr %341, align 4
+  store ptr %338, ptr %52, align 8
+  store i32 %342, ptr %53, align 4
+  %343 = load i32, ptr %53, align 4
+  %344 = icmp ne i32 %343, 0
+  br i1 %344, label %346, label %345
 
-344:                                              ; preds = %336
+345:                                              ; preds = %337
   store i32 0, ptr %51, align 4
-  br label %351
+  br label %352
 
-345:                                              ; preds = %336
-  %346 = load ptr, ptr %52, align 8
-  %347 = load i32, ptr %53, align 4
-  %348 = call ptr @exprptr(i32 noundef %347)
-  %349 = call ptr @copy_expr(ptr noundef %346, ptr noundef %348)
-  %350 = call i32 @exprid(ptr noundef %349)
-  store i32 %350, ptr %51, align 4
-  br label %351
+346:                                              ; preds = %337
+  %347 = load ptr, ptr %52, align 8
+  %348 = load i32, ptr %53, align 4
+  %349 = call ptr @exprptr(i32 noundef %348)
+  %350 = call ptr @copy_expr(ptr noundef %347, ptr noundef %349)
+  %351 = call i32 @exprid(ptr noundef %350)
+  store i32 %351, ptr %51, align 4
+  br label %352
 
-351:                                              ; preds = %345, %344
-  %352 = load i32, ptr %51, align 4
-  %353 = load ptr, ptr %99, align 8
-  %354 = getelementptr inbounds %struct.Expr_, ptr %353, i32 0, i32 3
-  %355 = getelementptr inbounds %struct.ExprBuiltinAccess, ptr %354, i32 0, i32 1
-  store i32 %352, ptr %355, align 4
-  %356 = load ptr, ptr %99, align 8
-  store ptr %356, ptr %96, align 8
-  br label %1244
+352:                                              ; preds = %346, %345
+  %353 = load i32, ptr %51, align 4
+  %354 = load ptr, ptr %99, align 8
+  %355 = getelementptr inbounds %struct.Expr_, ptr %354, i32 0, i32 3
+  %356 = getelementptr inbounds %struct.ExprBuiltinAccess, ptr %355, i32 0, i32 1
+  store i32 %353, ptr %356, align 4
+  %357 = load ptr, ptr %99, align 8
+  store ptr %357, ptr %96, align 8
+  br label %1245
 
-357:                                              ; preds = %103
-  %358 = load ptr, ptr %97, align 8
-  %359 = load ptr, ptr %99, align 8
-  %360 = getelementptr inbounds %struct.Expr_, ptr %359, i32 0, i32 3
-  %361 = load ptr, ptr %360, align 8
-  %362 = call ptr @copy_decl(ptr noundef %358, ptr noundef %361)
-  %363 = load ptr, ptr %99, align 8
-  %364 = getelementptr inbounds %struct.Expr_, ptr %363, i32 0, i32 3
-  store ptr %362, ptr %364, align 8
-  %365 = load ptr, ptr %99, align 8
-  store ptr %365, ptr %96, align 8
-  br label %1244
+358:                                              ; preds = %103
+  %359 = load ptr, ptr %97, align 8
+  %360 = load ptr, ptr %99, align 8
+  %361 = getelementptr inbounds %struct.Expr_, ptr %360, i32 0, i32 3
+  %362 = load ptr, ptr %361, align 8
+  %363 = call ptr @copy_decl(ptr noundef %359, ptr noundef %362)
+  %364 = load ptr, ptr %99, align 8
+  %365 = getelementptr inbounds %struct.Expr_, ptr %364, i32 0, i32 3
+  store ptr %363, ptr %365, align 8
+  %366 = load ptr, ptr %99, align 8
+  store ptr %366, ptr %96, align 8
+  br label %1245
 
-366:                                              ; preds = %103
-  %367 = load ptr, ptr %97, align 8
-  %368 = load ptr, ptr %99, align 8
-  %369 = getelementptr inbounds %struct.Expr_, ptr %368, i32 0, i32 3
-  %370 = getelementptr inbounds %struct.ExprCtCall, ptr %369, i32 0, i32 1
-  %371 = getelementptr inbounds %struct.anon.69, ptr %370, i32 0, i32 0
-  %372 = load ptr, ptr %371, align 8
-  %373 = call ptr @copy_expr(ptr noundef %367, ptr noundef %372)
-  %374 = load ptr, ptr %99, align 8
-  %375 = getelementptr inbounds %struct.Expr_, ptr %374, i32 0, i32 3
-  %376 = getelementptr inbounds %struct.ExprCtCall, ptr %375, i32 0, i32 1
-  %377 = getelementptr inbounds %struct.anon.69, ptr %376, i32 0, i32 0
-  store ptr %373, ptr %377, align 8
-  %378 = load ptr, ptr %99, align 8
-  store ptr %378, ptr %96, align 8
-  br label %1244
+367:                                              ; preds = %103
+  %368 = load ptr, ptr %97, align 8
+  %369 = load ptr, ptr %99, align 8
+  %370 = getelementptr inbounds %struct.Expr_, ptr %369, i32 0, i32 3
+  %371 = getelementptr inbounds %struct.ExprCtCall, ptr %370, i32 0, i32 1
+  %372 = getelementptr inbounds %struct.anon.69, ptr %371, i32 0, i32 0
+  %373 = load ptr, ptr %372, align 8
+  %374 = call ptr @copy_expr(ptr noundef %368, ptr noundef %373)
+  %375 = load ptr, ptr %99, align 8
+  %376 = getelementptr inbounds %struct.Expr_, ptr %375, i32 0, i32 3
+  %377 = getelementptr inbounds %struct.ExprCtCall, ptr %376, i32 0, i32 1
+  %378 = getelementptr inbounds %struct.anon.69, ptr %377, i32 0, i32 0
+  store ptr %374, ptr %378, align 8
+  %379 = load ptr, ptr %99, align 8
+  store ptr %379, ptr %96, align 8
+  br label %1245
 
-379:                                              ; preds = %103
-  %380 = load ptr, ptr %99, align 8
-  %381 = getelementptr inbounds %struct.Expr_, ptr %380, i32 0, i32 2
-  %382 = load i16, ptr %381, align 8
-  %383 = lshr i16 %382, 8
-  %384 = and i16 %383, 15
-  %385 = zext i16 %384 to i32
-  %386 = icmp ne i32 %385, 2
-  br i1 %386, label %387, label %410
+380:                                              ; preds = %103
+  %381 = load ptr, ptr %99, align 8
+  %382 = getelementptr inbounds %struct.Expr_, ptr %381, i32 0, i32 2
+  %383 = load i16, ptr %382, align 8
+  %384 = lshr i16 %383, 8
+  %385 = and i16 %384, 15
+  %386 = zext i16 %385 to i32
+  %387 = icmp ne i32 %386, 2
+  br i1 %387, label %388, label %411
 
-387:                                              ; preds = %379
-  %388 = load ptr, ptr %97, align 8
-  %389 = load ptr, ptr %99, align 8
-  %390 = getelementptr inbounds %struct.Expr_, ptr %389, i32 0, i32 3
-  %391 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %390, i32 0, i32 0
-  %392 = getelementptr inbounds %struct.anon.75, ptr %391, i32 0, i32 2
-  %393 = load ptr, ptr %392, align 8
-  %394 = call ptr @copy_expr(ptr noundef %388, ptr noundef %393)
-  %395 = load ptr, ptr %99, align 8
-  %396 = getelementptr inbounds %struct.Expr_, ptr %395, i32 0, i32 3
-  %397 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %396, i32 0, i32 0
-  %398 = getelementptr inbounds %struct.anon.75, ptr %397, i32 0, i32 2
-  store ptr %394, ptr %398, align 8
-  %399 = load ptr, ptr %97, align 8
-  %400 = load ptr, ptr %99, align 8
-  %401 = getelementptr inbounds %struct.Expr_, ptr %400, i32 0, i32 3
-  %402 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %401, i32 0, i32 0
-  %403 = getelementptr inbounds %struct.anon.75, ptr %402, i32 0, i32 1
-  %404 = load ptr, ptr %403, align 8
-  %405 = call ptr @copy_type_info(ptr noundef %399, ptr noundef %404)
-  %406 = load ptr, ptr %99, align 8
-  %407 = getelementptr inbounds %struct.Expr_, ptr %406, i32 0, i32 3
-  %408 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %407, i32 0, i32 0
-  %409 = getelementptr inbounds %struct.anon.75, ptr %408, i32 0, i32 1
-  store ptr %405, ptr %409, align 8
+388:                                              ; preds = %380
+  %389 = load ptr, ptr %97, align 8
+  %390 = load ptr, ptr %99, align 8
+  %391 = getelementptr inbounds %struct.Expr_, ptr %390, i32 0, i32 3
+  %392 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %391, i32 0, i32 0
+  %393 = getelementptr inbounds %struct.anon.75, ptr %392, i32 0, i32 2
+  %394 = load ptr, ptr %393, align 8
+  %395 = call ptr @copy_expr(ptr noundef %389, ptr noundef %394)
+  %396 = load ptr, ptr %99, align 8
+  %397 = getelementptr inbounds %struct.Expr_, ptr %396, i32 0, i32 3
+  %398 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %397, i32 0, i32 0
+  %399 = getelementptr inbounds %struct.anon.75, ptr %398, i32 0, i32 2
+  store ptr %395, ptr %399, align 8
+  %400 = load ptr, ptr %97, align 8
+  %401 = load ptr, ptr %99, align 8
+  %402 = getelementptr inbounds %struct.Expr_, ptr %401, i32 0, i32 3
+  %403 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %402, i32 0, i32 0
+  %404 = getelementptr inbounds %struct.anon.75, ptr %403, i32 0, i32 1
+  %405 = load ptr, ptr %404, align 8
+  %406 = call ptr @copy_type_info(ptr noundef %400, ptr noundef %405)
+  %407 = load ptr, ptr %99, align 8
+  %408 = getelementptr inbounds %struct.Expr_, ptr %407, i32 0, i32 3
+  %409 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %408, i32 0, i32 0
+  %410 = getelementptr inbounds %struct.anon.75, ptr %409, i32 0, i32 1
+  store ptr %406, ptr %410, align 8
+  br label %454
+
+411:                                              ; preds = %380
+  %412 = load ptr, ptr %97, align 8
+  %413 = load ptr, ptr %99, align 8
+  %414 = getelementptr inbounds %struct.Expr_, ptr %413, i32 0, i32 3
+  %415 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %414, i32 0, i32 0
+  %416 = getelementptr inbounds %struct.anon.76, ptr %415, i32 0, i32 1
+  %417 = load ptr, ptr %416, align 8
+  %418 = call ptr @copy_expr(ptr noundef %412, ptr noundef %417)
+  %419 = load ptr, ptr %99, align 8
+  %420 = getelementptr inbounds %struct.Expr_, ptr %419, i32 0, i32 3
+  %421 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %420, i32 0, i32 0
+  %422 = getelementptr inbounds %struct.anon.76, ptr %421, i32 0, i32 1
+  store ptr %418, ptr %422, align 8
+  %423 = load ptr, ptr %99, align 8
+  %424 = getelementptr inbounds %struct.Expr_, ptr %423, i32 0, i32 3
+  %425 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %424, i32 0, i32 0
+  %426 = load i8, ptr %425, align 8
+  %427 = and i8 %426, 1
+  %428 = trunc i8 %427 to i1
+  br i1 %428, label %429, label %441
+
+429:                                              ; preds = %411
+  %430 = load ptr, ptr %97, align 8
+  %431 = load ptr, ptr %99, align 8
+  %432 = getelementptr inbounds %struct.Expr_, ptr %431, i32 0, i32 3
+  %433 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %432, i32 0, i32 0
+  %434 = getelementptr inbounds %struct.anon.76, ptr %433, i32 0, i32 2
+  %435 = load ptr, ptr %434, align 8
+  %436 = call ptr @copy_expr(ptr noundef %430, ptr noundef %435)
+  %437 = load ptr, ptr %99, align 8
+  %438 = getelementptr inbounds %struct.Expr_, ptr %437, i32 0, i32 3
+  %439 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %438, i32 0, i32 0
+  %440 = getelementptr inbounds %struct.anon.76, ptr %439, i32 0, i32 2
+  store ptr %436, ptr %440, align 8
   br label %453
 
-410:                                              ; preds = %379
-  %411 = load ptr, ptr %97, align 8
-  %412 = load ptr, ptr %99, align 8
-  %413 = getelementptr inbounds %struct.Expr_, ptr %412, i32 0, i32 3
-  %414 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %413, i32 0, i32 0
-  %415 = getelementptr inbounds %struct.anon.76, ptr %414, i32 0, i32 1
-  %416 = load ptr, ptr %415, align 8
-  %417 = call ptr @copy_expr(ptr noundef %411, ptr noundef %416)
-  %418 = load ptr, ptr %99, align 8
-  %419 = getelementptr inbounds %struct.Expr_, ptr %418, i32 0, i32 3
-  %420 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %419, i32 0, i32 0
-  %421 = getelementptr inbounds %struct.anon.76, ptr %420, i32 0, i32 1
-  store ptr %417, ptr %421, align 8
-  %422 = load ptr, ptr %99, align 8
-  %423 = getelementptr inbounds %struct.Expr_, ptr %422, i32 0, i32 3
-  %424 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %423, i32 0, i32 0
-  %425 = load i8, ptr %424, align 8
-  %426 = and i8 %425, 1
-  %427 = trunc i8 %426 to i1
-  br i1 %427, label %428, label %440
-
-428:                                              ; preds = %410
-  %429 = load ptr, ptr %97, align 8
-  %430 = load ptr, ptr %99, align 8
-  %431 = getelementptr inbounds %struct.Expr_, ptr %430, i32 0, i32 3
-  %432 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %431, i32 0, i32 0
-  %433 = getelementptr inbounds %struct.anon.76, ptr %432, i32 0, i32 2
-  %434 = load ptr, ptr %433, align 8
-  %435 = call ptr @copy_expr(ptr noundef %429, ptr noundef %434)
-  %436 = load ptr, ptr %99, align 8
-  %437 = getelementptr inbounds %struct.Expr_, ptr %436, i32 0, i32 3
-  %438 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %437, i32 0, i32 0
-  %439 = getelementptr inbounds %struct.anon.76, ptr %438, i32 0, i32 2
-  store ptr %435, ptr %439, align 8
-  br label %452
-
-440:                                              ; preds = %410
-  %441 = load ptr, ptr %97, align 8
-  %442 = load ptr, ptr %99, align 8
-  %443 = getelementptr inbounds %struct.Expr_, ptr %442, i32 0, i32 3
-  %444 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %443, i32 0, i32 0
-  %445 = getelementptr inbounds %struct.anon.76, ptr %444, i32 0, i32 2
-  %446 = load ptr, ptr %445, align 8
-  %447 = call ptr @copy_decl(ptr noundef %441, ptr noundef %446)
-  %448 = load ptr, ptr %99, align 8
-  %449 = getelementptr inbounds %struct.Expr_, ptr %448, i32 0, i32 3
-  %450 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %449, i32 0, i32 0
-  %451 = getelementptr inbounds %struct.anon.76, ptr %450, i32 0, i32 2
-  store ptr %447, ptr %451, align 8
-  br label %452
-
-452:                                              ; preds = %440, %428
+441:                                              ; preds = %411
+  %442 = load ptr, ptr %97, align 8
+  %443 = load ptr, ptr %99, align 8
+  %444 = getelementptr inbounds %struct.Expr_, ptr %443, i32 0, i32 3
+  %445 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %444, i32 0, i32 0
+  %446 = getelementptr inbounds %struct.anon.76, ptr %445, i32 0, i32 2
+  %447 = load ptr, ptr %446, align 8
+  %448 = call ptr @copy_decl(ptr noundef %442, ptr noundef %447)
+  %449 = load ptr, ptr %99, align 8
+  %450 = getelementptr inbounds %struct.Expr_, ptr %449, i32 0, i32 3
+  %451 = getelementptr inbounds %struct.ExprTryUnwrap, ptr %450, i32 0, i32 0
+  %452 = getelementptr inbounds %struct.anon.76, ptr %451, i32 0, i32 2
+  store ptr %448, ptr %452, align 8
   br label %453
 
-453:                                              ; preds = %452, %387
-  %454 = load ptr, ptr %99, align 8
-  store ptr %454, ptr %96, align 8
-  br label %1244
+453:                                              ; preds = %441, %429
+  br label %454
 
-455:                                              ; preds = %103
-  %456 = load ptr, ptr %97, align 8
-  %457 = load ptr, ptr %99, align 8
-  %458 = getelementptr inbounds %struct.Expr_, ptr %457, i32 0, i32 3
-  %459 = load ptr, ptr %458, align 8
-  %460 = call ptr @copy_expr_list(ptr noundef %456, ptr noundef %459)
-  %461 = load ptr, ptr %99, align 8
-  %462 = getelementptr inbounds %struct.Expr_, ptr %461, i32 0, i32 3
-  store ptr %460, ptr %462, align 8
-  %463 = load ptr, ptr %99, align 8
-  store ptr %463, ptr %96, align 8
-  br label %1244
+454:                                              ; preds = %453, %388
+  %455 = load ptr, ptr %99, align 8
+  store ptr %455, ptr %96, align 8
+  br label %1245
 
-464:                                              ; preds = %103
-  %465 = load ptr, ptr %97, align 8
-  %466 = load ptr, ptr %99, align 8
-  %467 = getelementptr inbounds %struct.Expr_, ptr %466, i32 0, i32 3
-  %468 = getelementptr inbounds %struct.ExprCatchUnwrap, ptr %467, i32 0, i32 1
-  %469 = load ptr, ptr %468, align 8
-  %470 = call ptr @copy_expr_list(ptr noundef %465, ptr noundef %469)
-  %471 = load ptr, ptr %99, align 8
-  %472 = getelementptr inbounds %struct.Expr_, ptr %471, i32 0, i32 3
-  %473 = getelementptr inbounds %struct.ExprCatchUnwrap, ptr %472, i32 0, i32 1
-  store ptr %470, ptr %473, align 8
-  %474 = load ptr, ptr %97, align 8
-  %475 = load ptr, ptr %99, align 8
-  %476 = getelementptr inbounds %struct.Expr_, ptr %475, i32 0, i32 3
-  %477 = getelementptr inbounds %struct.ExprCatchUnwrap, ptr %476, i32 0, i32 0
-  %478 = getelementptr inbounds %struct.anon.63, ptr %477, i32 0, i32 1
-  %479 = load ptr, ptr %478, align 8
-  %480 = call ptr @copy_type_info(ptr noundef %474, ptr noundef %479)
-  %481 = load ptr, ptr %99, align 8
-  %482 = getelementptr inbounds %struct.Expr_, ptr %481, i32 0, i32 3
-  %483 = getelementptr inbounds %struct.ExprCatchUnwrap, ptr %482, i32 0, i32 0
-  %484 = getelementptr inbounds %struct.anon.63, ptr %483, i32 0, i32 1
-  store ptr %480, ptr %484, align 8
-  %485 = load ptr, ptr %99, align 8
-  store ptr %485, ptr %96, align 8
-  br label %1244
+456:                                              ; preds = %103
+  %457 = load ptr, ptr %97, align 8
+  %458 = load ptr, ptr %99, align 8
+  %459 = getelementptr inbounds %struct.Expr_, ptr %458, i32 0, i32 3
+  %460 = load ptr, ptr %459, align 8
+  %461 = call ptr @copy_expr_list(ptr noundef %457, ptr noundef %460)
+  %462 = load ptr, ptr %99, align 8
+  %463 = getelementptr inbounds %struct.Expr_, ptr %462, i32 0, i32 3
+  store ptr %461, ptr %463, align 8
+  %464 = load ptr, ptr %99, align 8
+  store ptr %464, ptr %96, align 8
+  br label %1245
 
-486:                                              ; preds = %103
-  %487 = load ptr, ptr %99, align 8
-  %488 = getelementptr inbounds %struct.Expr_, ptr %487, i32 0, i32 2
-  %489 = load i16, ptr %488, align 8
-  %490 = lshr i16 %489, 8
-  %491 = and i16 %490, 15
-  %492 = zext i16 %491 to i32
-  %493 = icmp eq i32 %492, 2
-  br i1 %493, label %494, label %510
+465:                                              ; preds = %103
+  %466 = load ptr, ptr %97, align 8
+  %467 = load ptr, ptr %99, align 8
+  %468 = getelementptr inbounds %struct.Expr_, ptr %467, i32 0, i32 3
+  %469 = getelementptr inbounds %struct.ExprCatchUnwrap, ptr %468, i32 0, i32 1
+  %470 = load ptr, ptr %469, align 8
+  %471 = call ptr @copy_expr_list(ptr noundef %466, ptr noundef %470)
+  %472 = load ptr, ptr %99, align 8
+  %473 = getelementptr inbounds %struct.Expr_, ptr %472, i32 0, i32 3
+  %474 = getelementptr inbounds %struct.ExprCatchUnwrap, ptr %473, i32 0, i32 1
+  store ptr %471, ptr %474, align 8
+  %475 = load ptr, ptr %97, align 8
+  %476 = load ptr, ptr %99, align 8
+  %477 = getelementptr inbounds %struct.Expr_, ptr %476, i32 0, i32 3
+  %478 = getelementptr inbounds %struct.ExprCatchUnwrap, ptr %477, i32 0, i32 0
+  %479 = getelementptr inbounds %struct.anon.63, ptr %478, i32 0, i32 1
+  %480 = load ptr, ptr %479, align 8
+  %481 = call ptr @copy_type_info(ptr noundef %475, ptr noundef %480)
+  %482 = load ptr, ptr %99, align 8
+  %483 = getelementptr inbounds %struct.Expr_, ptr %482, i32 0, i32 3
+  %484 = getelementptr inbounds %struct.ExprCatchUnwrap, ptr %483, i32 0, i32 0
+  %485 = getelementptr inbounds %struct.anon.63, ptr %484, i32 0, i32 1
+  store ptr %481, ptr %485, align 8
+  %486 = load ptr, ptr %99, align 8
+  store ptr %486, ptr %96, align 8
+  br label %1245
 
-494:                                              ; preds = %486
-  %495 = load ptr, ptr %97, align 8
-  %496 = load ptr, ptr %99, align 8
-  %497 = getelementptr inbounds %struct.Expr_, ptr %496, i32 0, i32 3
-  %498 = getelementptr inbounds %struct.ExprIdentifier, ptr %497, i32 0, i32 0
-  %499 = getelementptr inbounds %struct.anon.73, ptr %498, i32 0, i32 0
-  store ptr %495, ptr %21, align 8
-  store ptr %499, ptr %22, align 8
-  %500 = load ptr, ptr %21, align 8
-  %501 = load ptr, ptr %22, align 8
-  %502 = load ptr, ptr %501, align 8
-  %503 = call ptr @fixup(ptr noundef %500, ptr noundef %502)
-  store ptr %503, ptr %23, align 8
-  %504 = load ptr, ptr %23, align 8
-  %505 = icmp ne ptr %504, null
-  br i1 %505, label %506, label %509
+487:                                              ; preds = %103
+  %488 = load ptr, ptr %99, align 8
+  %489 = getelementptr inbounds %struct.Expr_, ptr %488, i32 0, i32 2
+  %490 = load i16, ptr %489, align 8
+  %491 = lshr i16 %490, 8
+  %492 = and i16 %491, 15
+  %493 = zext i16 %492 to i32
+  %494 = icmp eq i32 %493, 2
+  br i1 %494, label %495, label %511
 
-506:                                              ; preds = %494
-  %507 = load ptr, ptr %23, align 8
-  %508 = load ptr, ptr %22, align 8
-  store ptr %507, ptr %508, align 8
-  br label %509
+495:                                              ; preds = %487
+  %496 = load ptr, ptr %97, align 8
+  %497 = load ptr, ptr %99, align 8
+  %498 = getelementptr inbounds %struct.Expr_, ptr %497, i32 0, i32 3
+  %499 = getelementptr inbounds %struct.ExprIdentifier, ptr %498, i32 0, i32 0
+  %500 = getelementptr inbounds %struct.anon.73, ptr %499, i32 0, i32 0
+  store ptr %496, ptr %21, align 8
+  store ptr %500, ptr %22, align 8
+  %501 = load ptr, ptr %21, align 8
+  %502 = load ptr, ptr %22, align 8
+  %503 = load ptr, ptr %502, align 8
+  %504 = call ptr @fixup(ptr noundef %501, ptr noundef %503)
+  store ptr %504, ptr %23, align 8
+  %505 = load ptr, ptr %23, align 8
+  %506 = icmp ne ptr %505, null
+  br i1 %506, label %507, label %510
 
-509:                                              ; preds = %506, %494
+507:                                              ; preds = %495
+  %508 = load ptr, ptr %23, align 8
+  %509 = load ptr, ptr %22, align 8
+  store ptr %508, ptr %509, align 8
   br label %510
 
-510:                                              ; preds = %509, %486
-  %511 = load ptr, ptr %99, align 8
-  store ptr %511, ptr %96, align 8
-  br label %1244
+510:                                              ; preds = %507, %495
+  br label %511
 
-512:                                              ; preds = %103, %103
-  %513 = load ptr, ptr %99, align 8
-  store ptr %513, ptr %96, align 8
-  br label %1244
+511:                                              ; preds = %510, %487
+  %512 = load ptr, ptr %99, align 8
+  store ptr %512, ptr %96, align 8
+  br label %1245
 
-514:                                              ; preds = %103, %103, %103, %103
-  %515 = load ptr, ptr %99, align 8
-  store ptr %515, ptr %96, align 8
-  br label %1244
+513:                                              ; preds = %103, %103
+  %514 = load ptr, ptr %99, align 8
+  store ptr %514, ptr %96, align 8
+  br label %1245
 
-516:                                              ; preds = %103
-  %517 = load ptr, ptr %97, align 8
-  %518 = load ptr, ptr %99, align 8
-  %519 = getelementptr inbounds %struct.Expr_, ptr %518, i32 0, i32 3
-  %520 = getelementptr inbounds %struct.ExprDesignator, ptr %519, i32 0, i32 0
-  %521 = load ptr, ptr %520, align 8
-  %522 = call ptr @macro_copy_designator_list(ptr noundef %517, ptr noundef %521)
-  %523 = load ptr, ptr %99, align 8
-  %524 = getelementptr inbounds %struct.Expr_, ptr %523, i32 0, i32 3
-  %525 = getelementptr inbounds %struct.ExprDesignator, ptr %524, i32 0, i32 0
-  store ptr %522, ptr %525, align 8
-  %526 = load ptr, ptr %97, align 8
-  %527 = load ptr, ptr %99, align 8
-  %528 = getelementptr inbounds %struct.Expr_, ptr %527, i32 0, i32 3
-  %529 = getelementptr inbounds %struct.ExprDesignator, ptr %528, i32 0, i32 1
-  %530 = load ptr, ptr %529, align 8
-  %531 = call ptr @copy_expr(ptr noundef %526, ptr noundef %530)
-  %532 = load ptr, ptr %99, align 8
-  %533 = getelementptr inbounds %struct.Expr_, ptr %532, i32 0, i32 3
-  %534 = getelementptr inbounds %struct.ExprDesignator, ptr %533, i32 0, i32 1
-  store ptr %531, ptr %534, align 8
-  %535 = load ptr, ptr %99, align 8
-  store ptr %535, ptr %96, align 8
-  br label %1244
+515:                                              ; preds = %103, %103, %103, %103
+  %516 = load ptr, ptr %99, align 8
+  store ptr %516, ptr %96, align 8
+  br label %1245
 
-536:                                              ; preds = %103
-  %537 = load ptr, ptr %97, align 8
-  %538 = load ptr, ptr %99, align 8
-  %539 = getelementptr inbounds %struct.Expr_, ptr %538, i32 0, i32 3
-  %540 = load ptr, ptr %539, align 8
-  %541 = call ptr @copy_type_info(ptr noundef %537, ptr noundef %540)
-  %542 = load ptr, ptr %99, align 8
-  %543 = getelementptr inbounds %struct.Expr_, ptr %542, i32 0, i32 3
-  store ptr %541, ptr %543, align 8
-  %544 = load ptr, ptr %99, align 8
-  store ptr %544, ptr %96, align 8
-  br label %1244
+517:                                              ; preds = %103
+  %518 = load ptr, ptr %97, align 8
+  %519 = load ptr, ptr %99, align 8
+  %520 = getelementptr inbounds %struct.Expr_, ptr %519, i32 0, i32 3
+  %521 = getelementptr inbounds %struct.ExprDesignator, ptr %520, i32 0, i32 0
+  %522 = load ptr, ptr %521, align 8
+  %523 = call ptr @macro_copy_designator_list(ptr noundef %518, ptr noundef %522)
+  %524 = load ptr, ptr %99, align 8
+  %525 = getelementptr inbounds %struct.Expr_, ptr %524, i32 0, i32 3
+  %526 = getelementptr inbounds %struct.ExprDesignator, ptr %525, i32 0, i32 0
+  store ptr %523, ptr %526, align 8
+  %527 = load ptr, ptr %97, align 8
+  %528 = load ptr, ptr %99, align 8
+  %529 = getelementptr inbounds %struct.Expr_, ptr %528, i32 0, i32 3
+  %530 = getelementptr inbounds %struct.ExprDesignator, ptr %529, i32 0, i32 1
+  %531 = load ptr, ptr %530, align 8
+  %532 = call ptr @copy_expr(ptr noundef %527, ptr noundef %531)
+  %533 = load ptr, ptr %99, align 8
+  %534 = getelementptr inbounds %struct.Expr_, ptr %533, i32 0, i32 3
+  %535 = getelementptr inbounds %struct.ExprDesignator, ptr %534, i32 0, i32 1
+  store ptr %532, ptr %535, align 8
+  %536 = load ptr, ptr %99, align 8
+  store ptr %536, ptr %96, align 8
+  br label %1245
 
-545:                                              ; preds = %103, %103
-  %546 = load ptr, ptr %97, align 8
-  %547 = load ptr, ptr %99, align 8
-  %548 = getelementptr inbounds %struct.Expr_, ptr %547, i32 0, i32 3
-  %549 = getelementptr inbounds %struct.ExprSliceAssign, ptr %548, i32 0, i32 0
-  %550 = load i32, ptr %549, align 8
-  store ptr %546, ptr %55, align 8
-  store i32 %550, ptr %56, align 4
-  %551 = load i32, ptr %56, align 4
-  %552 = icmp ne i32 %551, 0
-  br i1 %552, label %554, label %553
+537:                                              ; preds = %103
+  %538 = load ptr, ptr %97, align 8
+  %539 = load ptr, ptr %99, align 8
+  %540 = getelementptr inbounds %struct.Expr_, ptr %539, i32 0, i32 3
+  %541 = load ptr, ptr %540, align 8
+  %542 = call ptr @copy_type_info(ptr noundef %538, ptr noundef %541)
+  %543 = load ptr, ptr %99, align 8
+  %544 = getelementptr inbounds %struct.Expr_, ptr %543, i32 0, i32 3
+  store ptr %542, ptr %544, align 8
+  %545 = load ptr, ptr %99, align 8
+  store ptr %545, ptr %96, align 8
+  br label %1245
 
-553:                                              ; preds = %545
+546:                                              ; preds = %103, %103
+  %547 = load ptr, ptr %97, align 8
+  %548 = load ptr, ptr %99, align 8
+  %549 = getelementptr inbounds %struct.Expr_, ptr %548, i32 0, i32 3
+  %550 = getelementptr inbounds %struct.ExprSliceAssign, ptr %549, i32 0, i32 0
+  %551 = load i32, ptr %550, align 8
+  store ptr %547, ptr %55, align 8
+  store i32 %551, ptr %56, align 4
+  %552 = load i32, ptr %56, align 4
+  %553 = icmp ne i32 %552, 0
+  br i1 %553, label %555, label %554
+
+554:                                              ; preds = %546
   store i32 0, ptr %54, align 4
-  br label %560
+  br label %561
 
-554:                                              ; preds = %545
-  %555 = load ptr, ptr %55, align 8
-  %556 = load i32, ptr %56, align 4
-  %557 = call ptr @exprptr(i32 noundef %556)
-  %558 = call ptr @copy_expr(ptr noundef %555, ptr noundef %557)
-  %559 = call i32 @exprid(ptr noundef %558)
-  store i32 %559, ptr %54, align 4
-  br label %560
+555:                                              ; preds = %546
+  %556 = load ptr, ptr %55, align 8
+  %557 = load i32, ptr %56, align 4
+  %558 = call ptr @exprptr(i32 noundef %557)
+  %559 = call ptr @copy_expr(ptr noundef %556, ptr noundef %558)
+  %560 = call i32 @exprid(ptr noundef %559)
+  store i32 %560, ptr %54, align 4
+  br label %561
 
-560:                                              ; preds = %554, %553
-  %561 = load i32, ptr %54, align 4
-  %562 = load ptr, ptr %99, align 8
-  %563 = getelementptr inbounds %struct.Expr_, ptr %562, i32 0, i32 3
-  %564 = getelementptr inbounds %struct.ExprSliceAssign, ptr %563, i32 0, i32 0
-  store i32 %561, ptr %564, align 8
-  %565 = load ptr, ptr %97, align 8
-  %566 = load ptr, ptr %99, align 8
-  %567 = getelementptr inbounds %struct.Expr_, ptr %566, i32 0, i32 3
-  %568 = getelementptr inbounds %struct.ExprSliceAssign, ptr %567, i32 0, i32 1
-  %569 = load i32, ptr %568, align 4
-  store ptr %565, ptr %58, align 8
-  store i32 %569, ptr %59, align 4
-  %570 = load i32, ptr %59, align 4
-  %571 = icmp ne i32 %570, 0
-  br i1 %571, label %573, label %572
+561:                                              ; preds = %555, %554
+  %562 = load i32, ptr %54, align 4
+  %563 = load ptr, ptr %99, align 8
+  %564 = getelementptr inbounds %struct.Expr_, ptr %563, i32 0, i32 3
+  %565 = getelementptr inbounds %struct.ExprSliceAssign, ptr %564, i32 0, i32 0
+  store i32 %562, ptr %565, align 8
+  %566 = load ptr, ptr %97, align 8
+  %567 = load ptr, ptr %99, align 8
+  %568 = getelementptr inbounds %struct.Expr_, ptr %567, i32 0, i32 3
+  %569 = getelementptr inbounds %struct.ExprSliceAssign, ptr %568, i32 0, i32 1
+  %570 = load i32, ptr %569, align 4
+  store ptr %566, ptr %58, align 8
+  store i32 %570, ptr %59, align 4
+  %571 = load i32, ptr %59, align 4
+  %572 = icmp ne i32 %571, 0
+  br i1 %572, label %574, label %573
 
-572:                                              ; preds = %560
+573:                                              ; preds = %561
   store i32 0, ptr %57, align 4
-  br label %579
+  br label %580
 
-573:                                              ; preds = %560
-  %574 = load ptr, ptr %58, align 8
-  %575 = load i32, ptr %59, align 4
-  %576 = call ptr @exprptr(i32 noundef %575)
-  %577 = call ptr @copy_expr(ptr noundef %574, ptr noundef %576)
-  %578 = call i32 @exprid(ptr noundef %577)
-  store i32 %578, ptr %57, align 4
-  br label %579
+574:                                              ; preds = %561
+  %575 = load ptr, ptr %58, align 8
+  %576 = load i32, ptr %59, align 4
+  %577 = call ptr @exprptr(i32 noundef %576)
+  %578 = call ptr @copy_expr(ptr noundef %575, ptr noundef %577)
+  %579 = call i32 @exprid(ptr noundef %578)
+  store i32 %579, ptr %57, align 4
+  br label %580
 
-579:                                              ; preds = %573, %572
-  %580 = load i32, ptr %57, align 4
-  %581 = load ptr, ptr %99, align 8
-  %582 = getelementptr inbounds %struct.Expr_, ptr %581, i32 0, i32 3
-  %583 = getelementptr inbounds %struct.ExprSliceAssign, ptr %582, i32 0, i32 1
-  store i32 %580, ptr %583, align 4
-  %584 = load ptr, ptr %99, align 8
-  store ptr %584, ptr %96, align 8
-  br label %1244
+580:                                              ; preds = %574, %573
+  %581 = load i32, ptr %57, align 4
+  %582 = load ptr, ptr %99, align 8
+  %583 = getelementptr inbounds %struct.Expr_, ptr %582, i32 0, i32 3
+  %584 = getelementptr inbounds %struct.ExprSliceAssign, ptr %583, i32 0, i32 1
+  store i32 %581, ptr %584, align 4
+  %585 = load ptr, ptr %99, align 8
+  store ptr %585, ptr %96, align 8
+  br label %1245
 
-585:                                              ; preds = %103
-  br label %586
+586:                                              ; preds = %103
+  br label %587
 
-586:                                              ; preds = %585
+587:                                              ; preds = %586
   call void (ptr, ...) @error_exit(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__func__.copy_expr, ptr noundef @.str.2, i32 noundef 406) #4
   unreachable
 
-587:                                              ; No predecessors!
-  br label %588
+588:                                              ; No predecessors!
+  br label %589
 
-588:                                              ; preds = %587, %103, %103, %103
-  %589 = load ptr, ptr %97, align 8
-  %590 = load ptr, ptr %99, align 8
-  %591 = getelementptr inbounds %struct.Expr_, ptr %590, i32 0, i32 3
-  %592 = getelementptr inbounds %struct.ExprSubscript, ptr %591, i32 0, i32 0
-  %593 = load i32, ptr %592, align 8
-  store ptr %589, ptr %61, align 8
-  store i32 %593, ptr %62, align 4
-  %594 = load i32, ptr %62, align 4
-  %595 = icmp ne i32 %594, 0
-  br i1 %595, label %597, label %596
+589:                                              ; preds = %588, %103, %103, %103
+  %590 = load ptr, ptr %97, align 8
+  %591 = load ptr, ptr %99, align 8
+  %592 = getelementptr inbounds %struct.Expr_, ptr %591, i32 0, i32 3
+  %593 = getelementptr inbounds %struct.ExprSubscript, ptr %592, i32 0, i32 0
+  %594 = load i32, ptr %593, align 8
+  store ptr %590, ptr %61, align 8
+  store i32 %594, ptr %62, align 4
+  %595 = load i32, ptr %62, align 4
+  %596 = icmp ne i32 %595, 0
+  br i1 %596, label %598, label %597
 
-596:                                              ; preds = %588
+597:                                              ; preds = %589
   store i32 0, ptr %60, align 4
-  br label %603
+  br label %604
 
-597:                                              ; preds = %588
-  %598 = load ptr, ptr %61, align 8
-  %599 = load i32, ptr %62, align 4
-  %600 = call ptr @exprptr(i32 noundef %599)
-  %601 = call ptr @copy_expr(ptr noundef %598, ptr noundef %600)
-  %602 = call i32 @exprid(ptr noundef %601)
-  store i32 %602, ptr %60, align 4
-  br label %603
+598:                                              ; preds = %589
+  %599 = load ptr, ptr %61, align 8
+  %600 = load i32, ptr %62, align 4
+  %601 = call ptr @exprptr(i32 noundef %600)
+  %602 = call ptr @copy_expr(ptr noundef %599, ptr noundef %601)
+  %603 = call i32 @exprid(ptr noundef %602)
+  store i32 %603, ptr %60, align 4
+  br label %604
 
-603:                                              ; preds = %597, %596
-  %604 = load i32, ptr %60, align 4
-  %605 = load ptr, ptr %99, align 8
-  %606 = getelementptr inbounds %struct.Expr_, ptr %605, i32 0, i32 3
-  %607 = getelementptr inbounds %struct.ExprSubscript, ptr %606, i32 0, i32 0
-  store i32 %604, ptr %607, align 8
-  %608 = load ptr, ptr %97, align 8
-  %609 = load ptr, ptr %99, align 8
-  %610 = getelementptr inbounds %struct.Expr_, ptr %609, i32 0, i32 3
-  %611 = getelementptr inbounds %struct.ExprSubscript, ptr %610, i32 0, i32 1
-  call void @copy_range(ptr noundef %608, ptr noundef %611)
-  %612 = load ptr, ptr %99, align 8
-  store ptr %612, ptr %96, align 8
-  br label %1244
+604:                                              ; preds = %598, %597
+  %605 = load i32, ptr %60, align 4
+  %606 = load ptr, ptr %99, align 8
+  %607 = getelementptr inbounds %struct.Expr_, ptr %606, i32 0, i32 3
+  %608 = getelementptr inbounds %struct.ExprSubscript, ptr %607, i32 0, i32 0
+  store i32 %605, ptr %608, align 8
+  %609 = load ptr, ptr %97, align 8
+  %610 = load ptr, ptr %99, align 8
+  %611 = getelementptr inbounds %struct.Expr_, ptr %610, i32 0, i32 3
+  %612 = getelementptr inbounds %struct.ExprSubscript, ptr %611, i32 0, i32 1
+  call void @copy_range(ptr noundef %609, ptr noundef %612)
+  %613 = load ptr, ptr %99, align 8
+  store ptr %613, ptr %96, align 8
+  br label %1245
 
-613:                                              ; preds = %103
-  %614 = load ptr, ptr %99, align 8
-  %615 = getelementptr inbounds %struct.Expr_, ptr %614, i32 0, i32 3
-  %616 = load i64, ptr %615, align 8
-  %617 = and i64 %616, 255
-  %618 = trunc i64 %617 to i32
-  switch i32 %618, label %642 [
-    i32 0, label %619
-    i32 3, label %619
-    i32 2, label %619
-    i32 6, label %619
-    i32 4, label %619
-    i32 5, label %621
-    i32 1, label %621
+614:                                              ; preds = %103
+  %615 = load ptr, ptr %99, align 8
+  %616 = getelementptr inbounds %struct.Expr_, ptr %615, i32 0, i32 3
+  %617 = load i64, ptr %616, align 8
+  %618 = and i64 %617, 255
+  %619 = trunc i64 %618 to i32
+  switch i32 %619, label %643 [
+    i32 0, label %620
+    i32 3, label %620
+    i32 2, label %620
+    i32 6, label %620
+    i32 4, label %620
+    i32 5, label %622
+    i32 1, label %622
   ]
 
-619:                                              ; preds = %613, %613, %613, %613, %613
-  %620 = load ptr, ptr %99, align 8
-  store ptr %620, ptr %96, align 8
-  br label %1244
+620:                                              ; preds = %614, %614, %614, %614, %614
+  %621 = load ptr, ptr %99, align 8
+  store ptr %621, ptr %96, align 8
+  br label %1245
 
-621:                                              ; preds = %613, %613
-  %622 = load ptr, ptr %97, align 8
-  %623 = load ptr, ptr %99, align 8
-  %624 = getelementptr inbounds %struct.Expr_, ptr %623, i32 0, i32 3
-  %625 = getelementptr inbounds %struct.ExprAsmArg, ptr %624, i32 0, i32 1
-  %626 = load i32, ptr %625, align 8
-  store ptr %622, ptr %64, align 8
-  store i32 %626, ptr %65, align 4
-  %627 = load i32, ptr %65, align 4
-  %628 = icmp ne i32 %627, 0
-  br i1 %628, label %630, label %629
+622:                                              ; preds = %614, %614
+  %623 = load ptr, ptr %97, align 8
+  %624 = load ptr, ptr %99, align 8
+  %625 = getelementptr inbounds %struct.Expr_, ptr %624, i32 0, i32 3
+  %626 = getelementptr inbounds %struct.ExprAsmArg, ptr %625, i32 0, i32 1
+  %627 = load i32, ptr %626, align 8
+  store ptr %623, ptr %64, align 8
+  store i32 %627, ptr %65, align 4
+  %628 = load i32, ptr %65, align 4
+  %629 = icmp ne i32 %628, 0
+  br i1 %629, label %631, label %630
 
-629:                                              ; preds = %621
+630:                                              ; preds = %622
   store i32 0, ptr %63, align 4
-  br label %636
+  br label %637
 
-630:                                              ; preds = %621
-  %631 = load ptr, ptr %64, align 8
-  %632 = load i32, ptr %65, align 4
-  %633 = call ptr @exprptr(i32 noundef %632)
-  %634 = call ptr @copy_expr(ptr noundef %631, ptr noundef %633)
-  %635 = call i32 @exprid(ptr noundef %634)
-  store i32 %635, ptr %63, align 4
-  br label %636
+631:                                              ; preds = %622
+  %632 = load ptr, ptr %64, align 8
+  %633 = load i32, ptr %65, align 4
+  %634 = call ptr @exprptr(i32 noundef %633)
+  %635 = call ptr @copy_expr(ptr noundef %632, ptr noundef %634)
+  %636 = call i32 @exprid(ptr noundef %635)
+  store i32 %636, ptr %63, align 4
+  br label %637
 
-636:                                              ; preds = %630, %629
-  %637 = load i32, ptr %63, align 4
-  %638 = load ptr, ptr %99, align 8
-  %639 = getelementptr inbounds %struct.Expr_, ptr %638, i32 0, i32 3
-  %640 = getelementptr inbounds %struct.ExprAsmArg, ptr %639, i32 0, i32 1
-  store i32 %637, ptr %640, align 8
-  %641 = load ptr, ptr %99, align 8
-  store ptr %641, ptr %96, align 8
-  br label %1244
+637:                                              ; preds = %631, %630
+  %638 = load i32, ptr %63, align 4
+  %639 = load ptr, ptr %99, align 8
+  %640 = getelementptr inbounds %struct.Expr_, ptr %639, i32 0, i32 3
+  %641 = getelementptr inbounds %struct.ExprAsmArg, ptr %640, i32 0, i32 1
+  store i32 %638, ptr %641, align 8
+  %642 = load ptr, ptr %99, align 8
+  store ptr %642, ptr %96, align 8
+  br label %1245
 
-642:                                              ; preds = %613
-  br label %643
+643:                                              ; preds = %614
+  br label %644
 
-643:                                              ; preds = %642
+644:                                              ; preds = %643
   call void (ptr, ...) @error_exit(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__func__.copy_expr, ptr noundef @.str.2, i32 noundef 427) #4
   unreachable
 
-644:                                              ; No predecessors!
-  br label %645
+645:                                              ; No predecessors!
+  br label %646
 
-645:                                              ; preds = %644, %103
-  %646 = load ptr, ptr %97, align 8
-  %647 = load ptr, ptr %99, align 8
-  %648 = getelementptr inbounds %struct.Expr_, ptr %647, i32 0, i32 3
-  %649 = getelementptr inbounds %struct.ExprCastable, ptr %648, i32 0, i32 1
-  %650 = load i32, ptr %649, align 4
-  store ptr %646, ptr %67, align 8
-  store i32 %650, ptr %68, align 4
-  %651 = load i32, ptr %68, align 4
-  %652 = icmp ne i32 %651, 0
-  br i1 %652, label %654, label %653
+646:                                              ; preds = %645, %103
+  %647 = load ptr, ptr %97, align 8
+  %648 = load ptr, ptr %99, align 8
+  %649 = getelementptr inbounds %struct.Expr_, ptr %648, i32 0, i32 3
+  %650 = getelementptr inbounds %struct.ExprCastable, ptr %649, i32 0, i32 1
+  %651 = load i32, ptr %650, align 4
+  store ptr %647, ptr %67, align 8
+  store i32 %651, ptr %68, align 4
+  %652 = load i32, ptr %68, align 4
+  %653 = icmp ne i32 %652, 0
+  br i1 %653, label %655, label %654
 
-653:                                              ; preds = %645
+654:                                              ; preds = %646
   store i32 0, ptr %66, align 4
-  br label %660
+  br label %661
 
-654:                                              ; preds = %645
-  %655 = load ptr, ptr %67, align 8
-  %656 = load i32, ptr %68, align 4
-  %657 = call ptr @exprptr(i32 noundef %656)
-  %658 = call ptr @copy_expr(ptr noundef %655, ptr noundef %657)
-  %659 = call i32 @exprid(ptr noundef %658)
-  store i32 %659, ptr %66, align 4
-  br label %660
+655:                                              ; preds = %646
+  %656 = load ptr, ptr %67, align 8
+  %657 = load i32, ptr %68, align 4
+  %658 = call ptr @exprptr(i32 noundef %657)
+  %659 = call ptr @copy_expr(ptr noundef %656, ptr noundef %658)
+  %660 = call i32 @exprid(ptr noundef %659)
+  store i32 %660, ptr %66, align 4
+  br label %661
 
-660:                                              ; preds = %654, %653
-  %661 = load i32, ptr %66, align 4
-  %662 = load ptr, ptr %99, align 8
-  %663 = getelementptr inbounds %struct.Expr_, ptr %662, i32 0, i32 3
-  %664 = getelementptr inbounds %struct.ExprCastable, ptr %663, i32 0, i32 1
-  store i32 %661, ptr %664, align 4
-  %665 = load ptr, ptr %97, align 8
-  %666 = load ptr, ptr %99, align 8
-  %667 = getelementptr inbounds %struct.Expr_, ptr %666, i32 0, i32 3
-  %668 = getelementptr inbounds %struct.ExprCastable, ptr %667, i32 0, i32 2
-  %669 = load i32, ptr %668, align 8
-  store ptr %665, ptr %16, align 8
-  store i32 %669, ptr %17, align 4
-  %670 = load i32, ptr %17, align 4
-  %671 = icmp ne i32 %670, 0
-  br i1 %671, label %673, label %672
+661:                                              ; preds = %655, %654
+  %662 = load i32, ptr %66, align 4
+  %663 = load ptr, ptr %99, align 8
+  %664 = getelementptr inbounds %struct.Expr_, ptr %663, i32 0, i32 3
+  %665 = getelementptr inbounds %struct.ExprCastable, ptr %664, i32 0, i32 1
+  store i32 %662, ptr %665, align 4
+  %666 = load ptr, ptr %97, align 8
+  %667 = load ptr, ptr %99, align 8
+  %668 = getelementptr inbounds %struct.Expr_, ptr %667, i32 0, i32 3
+  %669 = getelementptr inbounds %struct.ExprCastable, ptr %668, i32 0, i32 2
+  %670 = load i32, ptr %669, align 8
+  store ptr %666, ptr %16, align 8
+  store i32 %670, ptr %17, align 4
+  %671 = load i32, ptr %17, align 4
+  %672 = icmp ne i32 %671, 0
+  br i1 %672, label %674, label %673
 
-672:                                              ; preds = %660
+673:                                              ; preds = %661
   store i32 0, ptr %15, align 4
-  br label %679
+  br label %680
 
-673:                                              ; preds = %660
-  %674 = load ptr, ptr %16, align 8
-  %675 = load i32, ptr %17, align 4
-  %676 = call ptr @type_infoptr(i32 noundef %675)
-  %677 = call ptr @copy_type_info(ptr noundef %674, ptr noundef %676)
-  %678 = call i32 @type_infoid(ptr noundef %677)
-  store i32 %678, ptr %15, align 4
-  br label %679
+674:                                              ; preds = %661
+  %675 = load ptr, ptr %16, align 8
+  %676 = load i32, ptr %17, align 4
+  %677 = call ptr @type_infoptr(i32 noundef %676)
+  %678 = call ptr @copy_type_info(ptr noundef %675, ptr noundef %677)
+  %679 = call i32 @type_infoid(ptr noundef %678)
+  store i32 %679, ptr %15, align 4
+  br label %680
 
-679:                                              ; preds = %673, %672
-  %680 = load i32, ptr %15, align 4
-  %681 = load ptr, ptr %99, align 8
-  %682 = getelementptr inbounds %struct.Expr_, ptr %681, i32 0, i32 3
-  %683 = getelementptr inbounds %struct.ExprCastable, ptr %682, i32 0, i32 2
-  store i32 %680, ptr %683, align 8
-  %684 = load ptr, ptr %99, align 8
-  store ptr %684, ptr %96, align 8
-  br label %1244
+680:                                              ; preds = %674, %673
+  %681 = load i32, ptr %15, align 4
+  %682 = load ptr, ptr %99, align 8
+  %683 = getelementptr inbounds %struct.Expr_, ptr %682, i32 0, i32 3
+  %684 = getelementptr inbounds %struct.ExprCastable, ptr %683, i32 0, i32 2
+  store i32 %681, ptr %684, align 8
+  %685 = load ptr, ptr %99, align 8
+  store ptr %685, ptr %96, align 8
+  br label %1245
 
-685:                                              ; preds = %103
-  %686 = load ptr, ptr %97, align 8
-  %687 = load ptr, ptr %99, align 8
-  %688 = getelementptr inbounds %struct.Expr_, ptr %687, i32 0, i32 3
-  %689 = getelementptr inbounds %struct.ExprCtAndOr, ptr %688, i32 0, i32 1
-  %690 = load ptr, ptr %689, align 8
-  %691 = call ptr @copy_expr_list(ptr noundef %686, ptr noundef %690)
-  %692 = load ptr, ptr %99, align 8
-  %693 = getelementptr inbounds %struct.Expr_, ptr %692, i32 0, i32 3
-  %694 = getelementptr inbounds %struct.ExprCtAndOr, ptr %693, i32 0, i32 1
-  store ptr %691, ptr %694, align 8
-  %695 = load ptr, ptr %99, align 8
-  store ptr %695, ptr %96, align 8
-  br label %1244
+686:                                              ; preds = %103
+  %687 = load ptr, ptr %97, align 8
+  %688 = load ptr, ptr %99, align 8
+  %689 = getelementptr inbounds %struct.Expr_, ptr %688, i32 0, i32 3
+  %690 = getelementptr inbounds %struct.ExprCtAndOr, ptr %689, i32 0, i32 1
+  %691 = load ptr, ptr %690, align 8
+  %692 = call ptr @copy_expr_list(ptr noundef %687, ptr noundef %691)
+  %693 = load ptr, ptr %99, align 8
+  %694 = getelementptr inbounds %struct.Expr_, ptr %693, i32 0, i32 3
+  %695 = getelementptr inbounds %struct.ExprCtAndOr, ptr %694, i32 0, i32 1
+  store ptr %692, ptr %695, align 8
+  %696 = load ptr, ptr %99, align 8
+  store ptr %696, ptr %96, align 8
+  br label %1245
 
-696:                                              ; preds = %103, %103, %103, %103, %103, %103
-  %697 = load ptr, ptr %97, align 8
-  %698 = load ptr, ptr %99, align 8
-  %699 = getelementptr inbounds %struct.Expr_, ptr %698, i32 0, i32 3
-  %700 = load ptr, ptr %699, align 8
-  %701 = call ptr @copy_expr(ptr noundef %697, ptr noundef %700)
-  %702 = load ptr, ptr %99, align 8
-  %703 = getelementptr inbounds %struct.Expr_, ptr %702, i32 0, i32 3
-  store ptr %701, ptr %703, align 8
-  %704 = load ptr, ptr %99, align 8
-  store ptr %704, ptr %96, align 8
-  br label %1244
+697:                                              ; preds = %103, %103, %103, %103, %103, %103
+  %698 = load ptr, ptr %97, align 8
+  %699 = load ptr, ptr %99, align 8
+  %700 = getelementptr inbounds %struct.Expr_, ptr %699, i32 0, i32 3
+  %701 = load ptr, ptr %700, align 8
+  %702 = call ptr @copy_expr(ptr noundef %698, ptr noundef %701)
+  %703 = load ptr, ptr %99, align 8
+  %704 = getelementptr inbounds %struct.Expr_, ptr %703, i32 0, i32 3
+  store ptr %702, ptr %704, align 8
+  %705 = load ptr, ptr %99, align 8
+  store ptr %705, ptr %96, align 8
+  br label %1245
 
-705:                                              ; preds = %103
-  %706 = load ptr, ptr %97, align 8
-  %707 = load ptr, ptr %99, align 8
-  %708 = getelementptr inbounds %struct.Expr_, ptr %707, i32 0, i32 3
-  %709 = load ptr, ptr %708, align 8
-  %710 = call ptr @copy_expr_list(ptr noundef %706, ptr noundef %709)
-  %711 = load ptr, ptr %99, align 8
-  %712 = getelementptr inbounds %struct.Expr_, ptr %711, i32 0, i32 3
-  store ptr %710, ptr %712, align 8
-  %713 = load ptr, ptr %99, align 8
-  store ptr %713, ptr %96, align 8
-  br label %1244
+706:                                              ; preds = %103
+  %707 = load ptr, ptr %97, align 8
+  %708 = load ptr, ptr %99, align 8
+  %709 = getelementptr inbounds %struct.Expr_, ptr %708, i32 0, i32 3
+  %710 = load ptr, ptr %709, align 8
+  %711 = call ptr @copy_expr_list(ptr noundef %707, ptr noundef %710)
+  %712 = load ptr, ptr %99, align 8
+  %713 = getelementptr inbounds %struct.Expr_, ptr %712, i32 0, i32 3
+  store ptr %711, ptr %713, align 8
+  %714 = load ptr, ptr %99, align 8
+  store ptr %714, ptr %96, align 8
+  br label %1245
 
-714:                                              ; preds = %103
-  %715 = load ptr, ptr %97, align 8
-  %716 = load ptr, ptr %99, align 8
-  %717 = getelementptr inbounds %struct.Expr_, ptr %716, i32 0, i32 3
-  %718 = getelementptr inbounds %struct.ExprTypeidInfo, ptr %717, i32 0, i32 0
-  %719 = load i32, ptr %718, align 8
-  store ptr %715, ptr %70, align 8
-  store i32 %719, ptr %71, align 4
-  %720 = load i32, ptr %71, align 4
-  %721 = icmp ne i32 %720, 0
-  br i1 %721, label %723, label %722
+715:                                              ; preds = %103
+  %716 = load ptr, ptr %97, align 8
+  %717 = load ptr, ptr %99, align 8
+  %718 = getelementptr inbounds %struct.Expr_, ptr %717, i32 0, i32 3
+  %719 = getelementptr inbounds %struct.ExprTypeidInfo, ptr %718, i32 0, i32 0
+  %720 = load i32, ptr %719, align 8
+  store ptr %716, ptr %70, align 8
+  store i32 %720, ptr %71, align 4
+  %721 = load i32, ptr %71, align 4
+  %722 = icmp ne i32 %721, 0
+  br i1 %722, label %724, label %723
 
-722:                                              ; preds = %714
+723:                                              ; preds = %715
   store i32 0, ptr %69, align 4
-  br label %729
+  br label %730
 
-723:                                              ; preds = %714
-  %724 = load ptr, ptr %70, align 8
-  %725 = load i32, ptr %71, align 4
-  %726 = call ptr @exprptr(i32 noundef %725)
-  %727 = call ptr @copy_expr(ptr noundef %724, ptr noundef %726)
-  %728 = call i32 @exprid(ptr noundef %727)
-  store i32 %728, ptr %69, align 4
-  br label %729
+724:                                              ; preds = %715
+  %725 = load ptr, ptr %70, align 8
+  %726 = load i32, ptr %71, align 4
+  %727 = call ptr @exprptr(i32 noundef %726)
+  %728 = call ptr @copy_expr(ptr noundef %725, ptr noundef %727)
+  %729 = call i32 @exprid(ptr noundef %728)
+  store i32 %729, ptr %69, align 4
+  br label %730
 
-729:                                              ; preds = %723, %722
-  %730 = load i32, ptr %69, align 4
-  %731 = load ptr, ptr %99, align 8
-  %732 = getelementptr inbounds %struct.Expr_, ptr %731, i32 0, i32 3
-  %733 = getelementptr inbounds %struct.ExprTypeidInfo, ptr %732, i32 0, i32 0
-  store i32 %730, ptr %733, align 8
-  %734 = load ptr, ptr %99, align 8
-  store ptr %734, ptr %96, align 8
-  br label %1244
+730:                                              ; preds = %724, %723
+  %731 = load i32, ptr %69, align 4
+  %732 = load ptr, ptr %99, align 8
+  %733 = getelementptr inbounds %struct.Expr_, ptr %732, i32 0, i32 3
+  %734 = getelementptr inbounds %struct.ExprTypeidInfo, ptr %733, i32 0, i32 0
+  store i32 %731, ptr %734, align 8
+  %735 = load ptr, ptr %99, align 8
+  store ptr %735, ptr %96, align 8
+  br label %1245
 
-735:                                              ; preds = %103
-  %736 = load ptr, ptr %97, align 8
-  %737 = load ptr, ptr %99, align 8
-  %738 = getelementptr inbounds %struct.Expr_, ptr %737, i32 0, i32 3
-  %739 = load ptr, ptr %738, align 8
-  %740 = call ptr @copy_expr_list(ptr noundef %736, ptr noundef %739)
-  %741 = load ptr, ptr %99, align 8
-  %742 = getelementptr inbounds %struct.Expr_, ptr %741, i32 0, i32 3
-  store ptr %740, ptr %742, align 8
-  %743 = load ptr, ptr %99, align 8
-  store ptr %743, ptr %96, align 8
-  br label %1244
+736:                                              ; preds = %103
+  %737 = load ptr, ptr %97, align 8
+  %738 = load ptr, ptr %99, align 8
+  %739 = getelementptr inbounds %struct.Expr_, ptr %738, i32 0, i32 3
+  %740 = load ptr, ptr %739, align 8
+  %741 = call ptr @copy_expr_list(ptr noundef %737, ptr noundef %740)
+  %742 = load ptr, ptr %99, align 8
+  %743 = getelementptr inbounds %struct.Expr_, ptr %742, i32 0, i32 3
+  store ptr %741, ptr %743, align 8
+  %744 = load ptr, ptr %99, align 8
+  store ptr %744, ptr %96, align 8
+  br label %1245
 
-744:                                              ; preds = %103
-  %745 = load ptr, ptr %97, align 8
-  %746 = load ptr, ptr %99, align 8
-  %747 = getelementptr inbounds %struct.Expr_, ptr %746, i32 0, i32 3
-  %748 = getelementptr inbounds %struct.ExprMacroBlock, ptr %747, i32 0, i32 2
-  %749 = load ptr, ptr %748, align 8
-  %750 = call ptr @copy_decl_list(ptr noundef %745, ptr noundef %749)
-  %751 = load ptr, ptr %99, align 8
-  %752 = getelementptr inbounds %struct.Expr_, ptr %751, i32 0, i32 3
-  %753 = getelementptr inbounds %struct.ExprMacroBlock, ptr %752, i32 0, i32 2
-  store ptr %750, ptr %753, align 8
-  %754 = load ptr, ptr %97, align 8
-  %755 = load ptr, ptr %99, align 8
-  %756 = getelementptr inbounds %struct.Expr_, ptr %755, i32 0, i32 3
-  %757 = getelementptr inbounds %struct.ExprMacroBlock, ptr %756, i32 0, i32 0
-  %758 = load i32, ptr %757, align 8
-  store ptr %754, ptr %31, align 8
-  store i32 %758, ptr %32, align 4
-  %759 = load i32, ptr %32, align 4
-  %760 = icmp ne i32 %759, 0
-  br i1 %760, label %762, label %761
+745:                                              ; preds = %103
+  %746 = load ptr, ptr %97, align 8
+  %747 = load ptr, ptr %99, align 8
+  %748 = getelementptr inbounds %struct.Expr_, ptr %747, i32 0, i32 3
+  %749 = getelementptr inbounds %struct.ExprMacroBlock, ptr %748, i32 0, i32 2
+  %750 = load ptr, ptr %749, align 8
+  %751 = call ptr @copy_decl_list(ptr noundef %746, ptr noundef %750)
+  %752 = load ptr, ptr %99, align 8
+  %753 = getelementptr inbounds %struct.Expr_, ptr %752, i32 0, i32 3
+  %754 = getelementptr inbounds %struct.ExprMacroBlock, ptr %753, i32 0, i32 2
+  store ptr %751, ptr %754, align 8
+  %755 = load ptr, ptr %97, align 8
+  %756 = load ptr, ptr %99, align 8
+  %757 = getelementptr inbounds %struct.Expr_, ptr %756, i32 0, i32 3
+  %758 = getelementptr inbounds %struct.ExprMacroBlock, ptr %757, i32 0, i32 0
+  %759 = load i32, ptr %758, align 8
+  store ptr %755, ptr %31, align 8
+  store i32 %759, ptr %32, align 4
+  %760 = load i32, ptr %32, align 4
+  %761 = icmp ne i32 %760, 0
+  br i1 %761, label %763, label %762
 
-761:                                              ; preds = %744
+762:                                              ; preds = %745
   store i32 0, ptr %30, align 4
-  br label %768
+  br label %769
 
-762:                                              ; preds = %744
-  %763 = load ptr, ptr %31, align 8
-  %764 = load i32, ptr %32, align 4
-  %765 = call ptr @astptr(i32 noundef %764)
-  %766 = call ptr @ast_copy_deep(ptr noundef %763, ptr noundef %765)
-  %767 = call i32 @astid(ptr noundef %766)
-  store i32 %767, ptr %30, align 4
-  br label %768
+763:                                              ; preds = %745
+  %764 = load ptr, ptr %31, align 8
+  %765 = load i32, ptr %32, align 4
+  %766 = call ptr @astptr(i32 noundef %765)
+  %767 = call ptr @ast_copy_deep(ptr noundef %764, ptr noundef %766)
+  %768 = call i32 @astid(ptr noundef %767)
+  store i32 %768, ptr %30, align 4
+  br label %769
 
-768:                                              ; preds = %762, %761
-  %769 = load i32, ptr %30, align 4
-  %770 = load ptr, ptr %99, align 8
-  %771 = getelementptr inbounds %struct.Expr_, ptr %770, i32 0, i32 3
-  %772 = getelementptr inbounds %struct.ExprMacroBlock, ptr %771, i32 0, i32 0
-  store i32 %769, ptr %772, align 8
-  %773 = load ptr, ptr %97, align 8
-  %774 = load ptr, ptr %99, align 8
-  %775 = getelementptr inbounds %struct.Expr_, ptr %774, i32 0, i32 3
-  %776 = getelementptr inbounds %struct.ExprMacroBlock, ptr %775, i32 0, i32 3
-  %777 = load ptr, ptr %776, align 8
-  %778 = call ptr @copy_decl(ptr noundef %773, ptr noundef %777)
-  %779 = load ptr, ptr %99, align 8
-  %780 = getelementptr inbounds %struct.Expr_, ptr %779, i32 0, i32 3
-  %781 = getelementptr inbounds %struct.ExprMacroBlock, ptr %780, i32 0, i32 3
-  store ptr %778, ptr %781, align 8
-  %782 = load ptr, ptr %99, align 8
-  store ptr %782, ptr %96, align 8
-  br label %1244
+769:                                              ; preds = %763, %762
+  %770 = load i32, ptr %30, align 4
+  %771 = load ptr, ptr %99, align 8
+  %772 = getelementptr inbounds %struct.Expr_, ptr %771, i32 0, i32 3
+  %773 = getelementptr inbounds %struct.ExprMacroBlock, ptr %772, i32 0, i32 0
+  store i32 %770, ptr %773, align 8
+  %774 = load ptr, ptr %97, align 8
+  %775 = load ptr, ptr %99, align 8
+  %776 = getelementptr inbounds %struct.Expr_, ptr %775, i32 0, i32 3
+  %777 = getelementptr inbounds %struct.ExprMacroBlock, ptr %776, i32 0, i32 3
+  %778 = load ptr, ptr %777, align 8
+  %779 = call ptr @copy_decl(ptr noundef %774, ptr noundef %778)
+  %780 = load ptr, ptr %99, align 8
+  %781 = getelementptr inbounds %struct.Expr_, ptr %780, i32 0, i32 3
+  %782 = getelementptr inbounds %struct.ExprMacroBlock, ptr %781, i32 0, i32 3
+  store ptr %779, ptr %782, align 8
+  %783 = load ptr, ptr %99, align 8
+  store ptr %783, ptr %96, align 8
+  br label %1245
 
-783:                                              ; preds = %103
-  %784 = load ptr, ptr %97, align 8
-  %785 = load ptr, ptr %99, align 8
-  %786 = getelementptr inbounds %struct.Expr_, ptr %785, i32 0, i32 3
-  %787 = getelementptr inbounds %struct.ExprCompoundLiteral, ptr %786, i32 0, i32 0
-  %788 = load ptr, ptr %787, align 8
-  %789 = call ptr @copy_expr(ptr noundef %784, ptr noundef %788)
-  %790 = load ptr, ptr %99, align 8
-  %791 = getelementptr inbounds %struct.Expr_, ptr %790, i32 0, i32 3
-  %792 = getelementptr inbounds %struct.ExprCompoundLiteral, ptr %791, i32 0, i32 0
-  store ptr %789, ptr %792, align 8
-  %793 = load ptr, ptr %97, align 8
-  %794 = load ptr, ptr %99, align 8
-  %795 = getelementptr inbounds %struct.Expr_, ptr %794, i32 0, i32 3
-  %796 = getelementptr inbounds %struct.ExprCompoundLiteral, ptr %795, i32 0, i32 1
-  %797 = load ptr, ptr %796, align 8
-  %798 = call ptr @copy_type_info(ptr noundef %793, ptr noundef %797)
-  %799 = load ptr, ptr %99, align 8
-  %800 = getelementptr inbounds %struct.Expr_, ptr %799, i32 0, i32 3
-  %801 = getelementptr inbounds %struct.ExprCompoundLiteral, ptr %800, i32 0, i32 1
-  store ptr %798, ptr %801, align 8
-  %802 = load ptr, ptr %99, align 8
-  store ptr %802, ptr %96, align 8
-  br label %1244
+784:                                              ; preds = %103
+  %785 = load ptr, ptr %97, align 8
+  %786 = load ptr, ptr %99, align 8
+  %787 = getelementptr inbounds %struct.Expr_, ptr %786, i32 0, i32 3
+  %788 = getelementptr inbounds %struct.ExprCompoundLiteral, ptr %787, i32 0, i32 0
+  %789 = load ptr, ptr %788, align 8
+  %790 = call ptr @copy_expr(ptr noundef %785, ptr noundef %789)
+  %791 = load ptr, ptr %99, align 8
+  %792 = getelementptr inbounds %struct.Expr_, ptr %791, i32 0, i32 3
+  %793 = getelementptr inbounds %struct.ExprCompoundLiteral, ptr %792, i32 0, i32 0
+  store ptr %790, ptr %793, align 8
+  %794 = load ptr, ptr %97, align 8
+  %795 = load ptr, ptr %99, align 8
+  %796 = getelementptr inbounds %struct.Expr_, ptr %795, i32 0, i32 3
+  %797 = getelementptr inbounds %struct.ExprCompoundLiteral, ptr %796, i32 0, i32 1
+  %798 = load ptr, ptr %797, align 8
+  %799 = call ptr @copy_type_info(ptr noundef %794, ptr noundef %798)
+  %800 = load ptr, ptr %99, align 8
+  %801 = getelementptr inbounds %struct.Expr_, ptr %800, i32 0, i32 3
+  %802 = getelementptr inbounds %struct.ExprCompoundLiteral, ptr %801, i32 0, i32 1
+  store ptr %799, ptr %802, align 8
+  %803 = load ptr, ptr %99, align 8
+  store ptr %803, ptr %96, align 8
+  br label %1245
 
-803:                                              ; preds = %103
-  %804 = load ptr, ptr %97, align 8
-  %805 = load ptr, ptr %99, align 8
-  %806 = getelementptr inbounds %struct.Expr_, ptr %805, i32 0, i32 3
-  %807 = getelementptr inbounds %struct.ExprFuncBlock, ptr %806, i32 0, i32 0
-  %808 = load i32, ptr %807, align 8
-  store ptr %804, ptr %34, align 8
-  store i32 %808, ptr %35, align 4
-  %809 = load i32, ptr %35, align 4
-  %810 = icmp ne i32 %809, 0
-  br i1 %810, label %812, label %811
+804:                                              ; preds = %103
+  %805 = load ptr, ptr %97, align 8
+  %806 = load ptr, ptr %99, align 8
+  %807 = getelementptr inbounds %struct.Expr_, ptr %806, i32 0, i32 3
+  %808 = getelementptr inbounds %struct.ExprFuncBlock, ptr %807, i32 0, i32 0
+  %809 = load i32, ptr %808, align 8
+  store ptr %805, ptr %34, align 8
+  store i32 %809, ptr %35, align 4
+  %810 = load i32, ptr %35, align 4
+  %811 = icmp ne i32 %810, 0
+  br i1 %811, label %813, label %812
 
-811:                                              ; preds = %803
+812:                                              ; preds = %804
   store i32 0, ptr %33, align 4
-  br label %818
+  br label %819
 
-812:                                              ; preds = %803
-  %813 = load ptr, ptr %34, align 8
-  %814 = load i32, ptr %35, align 4
-  %815 = call ptr @astptr(i32 noundef %814)
-  %816 = call ptr @ast_copy_deep(ptr noundef %813, ptr noundef %815)
-  %817 = call i32 @astid(ptr noundef %816)
-  store i32 %817, ptr %33, align 4
-  br label %818
+813:                                              ; preds = %804
+  %814 = load ptr, ptr %34, align 8
+  %815 = load i32, ptr %35, align 4
+  %816 = call ptr @astptr(i32 noundef %815)
+  %817 = call ptr @ast_copy_deep(ptr noundef %814, ptr noundef %816)
+  %818 = call i32 @astid(ptr noundef %817)
+  store i32 %818, ptr %33, align 4
+  br label %819
 
-818:                                              ; preds = %812, %811
-  %819 = load i32, ptr %33, align 4
-  %820 = load ptr, ptr %99, align 8
-  %821 = getelementptr inbounds %struct.Expr_, ptr %820, i32 0, i32 3
-  %822 = getelementptr inbounds %struct.ExprFuncBlock, ptr %821, i32 0, i32 0
-  store i32 %819, ptr %822, align 8
-  %823 = load ptr, ptr %99, align 8
-  store ptr %823, ptr %96, align 8
-  br label %1244
+819:                                              ; preds = %813, %812
+  %820 = load i32, ptr %33, align 4
+  %821 = load ptr, ptr %99, align 8
+  %822 = getelementptr inbounds %struct.Expr_, ptr %821, i32 0, i32 3
+  %823 = getelementptr inbounds %struct.ExprFuncBlock, ptr %822, i32 0, i32 0
+  store i32 %820, ptr %823, align 8
+  %824 = load ptr, ptr %99, align 8
+  store ptr %824, ptr %96, align 8
+  br label %1245
 
-824:                                              ; preds = %103
-  %825 = load ptr, ptr %98, align 8
-  store ptr %825, ptr %96, align 8
-  br label %1244
+825:                                              ; preds = %103
+  %826 = load ptr, ptr %98, align 8
+  store ptr %826, ptr %96, align 8
+  br label %1245
 
-826:                                              ; preds = %103
-  %827 = load ptr, ptr %97, align 8
-  %828 = load ptr, ptr %99, align 8
-  %829 = getelementptr inbounds %struct.Expr_, ptr %828, i32 0, i32 3
-  %830 = getelementptr inbounds %struct.ExprGuard, ptr %829, i32 0, i32 0
-  %831 = load ptr, ptr %830, align 8
-  %832 = call ptr @copy_expr(ptr noundef %827, ptr noundef %831)
-  %833 = load ptr, ptr %99, align 8
-  %834 = getelementptr inbounds %struct.Expr_, ptr %833, i32 0, i32 3
-  %835 = getelementptr inbounds %struct.ExprGuard, ptr %834, i32 0, i32 0
-  store ptr %832, ptr %835, align 8
-  %836 = load ptr, ptr %99, align 8
-  store ptr %836, ptr %96, align 8
-  br label %1244
+827:                                              ; preds = %103
+  %828 = load ptr, ptr %97, align 8
+  %829 = load ptr, ptr %99, align 8
+  %830 = getelementptr inbounds %struct.Expr_, ptr %829, i32 0, i32 3
+  %831 = getelementptr inbounds %struct.ExprGuard, ptr %830, i32 0, i32 0
+  %832 = load ptr, ptr %831, align 8
+  %833 = call ptr @copy_expr(ptr noundef %828, ptr noundef %832)
+  %834 = load ptr, ptr %99, align 8
+  %835 = getelementptr inbounds %struct.Expr_, ptr %834, i32 0, i32 3
+  %836 = getelementptr inbounds %struct.ExprGuard, ptr %835, i32 0, i32 0
+  store ptr %833, ptr %836, align 8
+  %837 = load ptr, ptr %99, align 8
+  store ptr %837, ptr %96, align 8
+  br label %1245
 
-837:                                              ; preds = %103
-  %838 = load ptr, ptr %97, align 8
-  %839 = load ptr, ptr %99, align 8
-  store ptr %838, ptr %13, align 8
-  store ptr %839, ptr %14, align 8
-  %840 = load ptr, ptr %14, align 8
-  %841 = getelementptr inbounds %struct.Expr_, ptr %840, i32 0, i32 3
-  %842 = load i16, ptr %841, align 8
-  %843 = and i16 %842, 255
-  %844 = zext i16 %843 to i32
-  switch i32 %844, label %894 [
-    i32 0, label %845
-    i32 1, label %845
-    i32 2, label %845
-    i32 3, label %846
-    i32 4, label %846
-    i32 5, label %861
-    i32 6, label %861
-    i32 7, label %862
-    i32 8, label %862
-    i32 9, label %863
-    i32 10, label %868
-    i32 11, label %878
+838:                                              ; preds = %103
+  %839 = load ptr, ptr %97, align 8
+  %840 = load ptr, ptr %99, align 8
+  store ptr %839, ptr %13, align 8
+  store ptr %840, ptr %14, align 8
+  %841 = load ptr, ptr %14, align 8
+  %842 = getelementptr inbounds %struct.Expr_, ptr %841, i32 0, i32 3
+  %843 = load i16, ptr %842, align 8
+  %844 = and i16 %843, 255
+  %845 = zext i16 %844 to i32
+  switch i32 %845, label %895 [
+    i32 0, label %846
+    i32 1, label %846
+    i32 2, label %846
+    i32 3, label %847
+    i32 4, label %847
+    i32 5, label %862
+    i32 6, label %862
+    i32 7, label %863
+    i32 8, label %863
+    i32 9, label %864
+    i32 10, label %869
+    i32 11, label %879
   ]
 
-845:                                              ; preds = %837, %837, %837
+846:                                              ; preds = %838, %838, %838
+  br label %895
+
+847:                                              ; preds = %838, %838
+  %848 = load ptr, ptr %13, align 8
+  %849 = load ptr, ptr %14, align 8
+  %850 = getelementptr inbounds %struct.Expr_, ptr %849, i32 0, i32 3
+  %851 = getelementptr inbounds %struct.ExprConst, ptr %850, i32 0, i32 1
+  store ptr %848, ptr %7, align 8
+  store ptr %851, ptr %8, align 8
+  %852 = load ptr, ptr %7, align 8
+  %853 = load ptr, ptr %8, align 8
+  %854 = load ptr, ptr %853, align 8
+  %855 = call ptr @fixup(ptr noundef %852, ptr noundef %854)
+  store ptr %855, ptr %9, align 8
+  %856 = load ptr, ptr %9, align 8
+  %857 = icmp ne ptr %856, null
+  br i1 %857, label %858, label %861
+
+858:                                              ; preds = %847
+  %859 = load ptr, ptr %9, align 8
+  %860 = load ptr, ptr %8, align 8
+  store ptr %859, ptr %860, align 8
+  br label %861
+
+861:                                              ; preds = %858, %847
+  br label %895
+
+862:                                              ; preds = %838, %838
+  br label %895
+
+863:                                              ; preds = %838, %838
+  br label %895
+
+864:                                              ; preds = %838
+  %865 = load ptr, ptr %13, align 8
+  %866 = load ptr, ptr %14, align 8
+  %867 = getelementptr inbounds %struct.Expr_, ptr %866, i32 0, i32 3
+  %868 = getelementptr inbounds %struct.ExprConst, ptr %867, i32 0, i32 1
+  call void @copy_const_initializer(ptr noundef %865, ptr noundef %868)
+  br label %895
+
+869:                                              ; preds = %838
+  %870 = load ptr, ptr %13, align 8
+  %871 = load ptr, ptr %14, align 8
+  %872 = getelementptr inbounds %struct.Expr_, ptr %871, i32 0, i32 3
+  %873 = getelementptr inbounds %struct.ExprConst, ptr %872, i32 0, i32 1
+  %874 = load ptr, ptr %873, align 8
+  %875 = call ptr @copy_expr_list(ptr noundef %870, ptr noundef %874)
+  %876 = load ptr, ptr %14, align 8
+  %877 = getelementptr inbounds %struct.Expr_, ptr %876, i32 0, i32 3
+  %878 = getelementptr inbounds %struct.ExprConst, ptr %877, i32 0, i32 1
+  store ptr %875, ptr %878, align 8
+  br label %895
+
+879:                                              ; preds = %838
+  %880 = load ptr, ptr %13, align 8
+  %881 = load ptr, ptr %14, align 8
+  %882 = getelementptr inbounds %struct.Expr_, ptr %881, i32 0, i32 3
+  %883 = getelementptr inbounds %struct.ExprConst, ptr %882, i32 0, i32 1
+  %884 = getelementptr inbounds %struct.anon.67, ptr %883, i32 0, i32 2
+  store ptr %880, ptr %10, align 8
+  store ptr %884, ptr %11, align 8
+  %885 = load ptr, ptr %10, align 8
+  %886 = load ptr, ptr %11, align 8
+  %887 = load ptr, ptr %886, align 8
+  %888 = call ptr @fixup(ptr noundef %885, ptr noundef %887)
+  store ptr %888, ptr %12, align 8
+  %889 = load ptr, ptr %12, align 8
+  %890 = icmp ne ptr %889, null
+  br i1 %890, label %891, label %894
+
+891:                                              ; preds = %879
+  %892 = load ptr, ptr %12, align 8
+  %893 = load ptr, ptr %11, align 8
+  store ptr %892, ptr %893, align 8
   br label %894
 
-846:                                              ; preds = %837, %837
-  %847 = load ptr, ptr %13, align 8
-  %848 = load ptr, ptr %14, align 8
-  %849 = getelementptr inbounds %struct.Expr_, ptr %848, i32 0, i32 3
-  %850 = getelementptr inbounds %struct.ExprConst, ptr %849, i32 0, i32 1
-  store ptr %847, ptr %7, align 8
-  store ptr %850, ptr %8, align 8
-  %851 = load ptr, ptr %7, align 8
-  %852 = load ptr, ptr %8, align 8
-  %853 = load ptr, ptr %852, align 8
-  %854 = call ptr @fixup(ptr noundef %851, ptr noundef %853)
-  store ptr %854, ptr %9, align 8
-  %855 = load ptr, ptr %9, align 8
-  %856 = icmp ne ptr %855, null
-  br i1 %856, label %857, label %860
+894:                                              ; preds = %891, %879
+  br label %895
 
-857:                                              ; preds = %846
-  %858 = load ptr, ptr %9, align 8
-  %859 = load ptr, ptr %8, align 8
-  store ptr %858, ptr %859, align 8
-  br label %860
+895:                                              ; preds = %894, %869, %864, %863, %862, %861, %846, %838
+  %896 = load ptr, ptr %14, align 8
+  store ptr %896, ptr %96, align 8
+  br label %1245
 
-860:                                              ; preds = %857, %846
-  br label %894
+897:                                              ; preds = %103, %103
+  %898 = load ptr, ptr %97, align 8
+  %899 = load ptr, ptr %99, align 8
+  %900 = getelementptr inbounds %struct.Expr_, ptr %899, i32 0, i32 3
+  %901 = getelementptr inbounds %struct.ExprBinary, ptr %900, i32 0, i32 0
+  %902 = load i32, ptr %901, align 8
+  store ptr %898, ptr %73, align 8
+  store i32 %902, ptr %74, align 4
+  %903 = load i32, ptr %74, align 4
+  %904 = icmp ne i32 %903, 0
+  br i1 %904, label %906, label %905
 
-861:                                              ; preds = %837, %837
-  br label %894
-
-862:                                              ; preds = %837, %837
-  br label %894
-
-863:                                              ; preds = %837
-  %864 = load ptr, ptr %13, align 8
-  %865 = load ptr, ptr %14, align 8
-  %866 = getelementptr inbounds %struct.Expr_, ptr %865, i32 0, i32 3
-  %867 = getelementptr inbounds %struct.ExprConst, ptr %866, i32 0, i32 1
-  call void @copy_const_initializer(ptr noundef %864, ptr noundef %867)
-  br label %894
-
-868:                                              ; preds = %837
-  %869 = load ptr, ptr %13, align 8
-  %870 = load ptr, ptr %14, align 8
-  %871 = getelementptr inbounds %struct.Expr_, ptr %870, i32 0, i32 3
-  %872 = getelementptr inbounds %struct.ExprConst, ptr %871, i32 0, i32 1
-  %873 = load ptr, ptr %872, align 8
-  %874 = call ptr @copy_expr_list(ptr noundef %869, ptr noundef %873)
-  %875 = load ptr, ptr %14, align 8
-  %876 = getelementptr inbounds %struct.Expr_, ptr %875, i32 0, i32 3
-  %877 = getelementptr inbounds %struct.ExprConst, ptr %876, i32 0, i32 1
-  store ptr %874, ptr %877, align 8
-  br label %894
-
-878:                                              ; preds = %837
-  %879 = load ptr, ptr %13, align 8
-  %880 = load ptr, ptr %14, align 8
-  %881 = getelementptr inbounds %struct.Expr_, ptr %880, i32 0, i32 3
-  %882 = getelementptr inbounds %struct.ExprConst, ptr %881, i32 0, i32 1
-  %883 = getelementptr inbounds %struct.anon.67, ptr %882, i32 0, i32 2
-  store ptr %879, ptr %10, align 8
-  store ptr %883, ptr %11, align 8
-  %884 = load ptr, ptr %10, align 8
-  %885 = load ptr, ptr %11, align 8
-  %886 = load ptr, ptr %885, align 8
-  %887 = call ptr @fixup(ptr noundef %884, ptr noundef %886)
-  store ptr %887, ptr %12, align 8
-  %888 = load ptr, ptr %12, align 8
-  %889 = icmp ne ptr %888, null
-  br i1 %889, label %890, label %893
-
-890:                                              ; preds = %878
-  %891 = load ptr, ptr %12, align 8
-  %892 = load ptr, ptr %11, align 8
-  store ptr %891, ptr %892, align 8
-  br label %893
-
-893:                                              ; preds = %890, %878
-  br label %894
-
-894:                                              ; preds = %893, %868, %863, %862, %861, %860, %845, %837
-  %895 = load ptr, ptr %14, align 8
-  store ptr %895, ptr %96, align 8
-  br label %1244
-
-896:                                              ; preds = %103, %103
-  %897 = load ptr, ptr %97, align 8
-  %898 = load ptr, ptr %99, align 8
-  %899 = getelementptr inbounds %struct.Expr_, ptr %898, i32 0, i32 3
-  %900 = getelementptr inbounds %struct.ExprBinary, ptr %899, i32 0, i32 0
-  %901 = load i32, ptr %900, align 8
-  store ptr %897, ptr %73, align 8
-  store i32 %901, ptr %74, align 4
-  %902 = load i32, ptr %74, align 4
-  %903 = icmp ne i32 %902, 0
-  br i1 %903, label %905, label %904
-
-904:                                              ; preds = %896
+905:                                              ; preds = %897
   store i32 0, ptr %72, align 4
-  br label %911
+  br label %912
 
-905:                                              ; preds = %896
-  %906 = load ptr, ptr %73, align 8
-  %907 = load i32, ptr %74, align 4
-  %908 = call ptr @exprptr(i32 noundef %907)
-  %909 = call ptr @copy_expr(ptr noundef %906, ptr noundef %908)
-  %910 = call i32 @exprid(ptr noundef %909)
-  store i32 %910, ptr %72, align 4
-  br label %911
+906:                                              ; preds = %897
+  %907 = load ptr, ptr %73, align 8
+  %908 = load i32, ptr %74, align 4
+  %909 = call ptr @exprptr(i32 noundef %908)
+  %910 = call ptr @copy_expr(ptr noundef %907, ptr noundef %909)
+  %911 = call i32 @exprid(ptr noundef %910)
+  store i32 %911, ptr %72, align 4
+  br label %912
 
-911:                                              ; preds = %905, %904
-  %912 = load i32, ptr %72, align 4
-  %913 = load ptr, ptr %99, align 8
-  %914 = getelementptr inbounds %struct.Expr_, ptr %913, i32 0, i32 3
-  %915 = getelementptr inbounds %struct.ExprBinary, ptr %914, i32 0, i32 0
-  store i32 %912, ptr %915, align 8
-  %916 = load ptr, ptr %97, align 8
-  %917 = load ptr, ptr %99, align 8
-  %918 = getelementptr inbounds %struct.Expr_, ptr %917, i32 0, i32 3
-  %919 = getelementptr inbounds %struct.ExprBinary, ptr %918, i32 0, i32 1
-  %920 = load i32, ptr %919, align 4
-  store ptr %916, ptr %76, align 8
-  store i32 %920, ptr %77, align 4
-  %921 = load i32, ptr %77, align 4
-  %922 = icmp ne i32 %921, 0
-  br i1 %922, label %924, label %923
+912:                                              ; preds = %906, %905
+  %913 = load i32, ptr %72, align 4
+  %914 = load ptr, ptr %99, align 8
+  %915 = getelementptr inbounds %struct.Expr_, ptr %914, i32 0, i32 3
+  %916 = getelementptr inbounds %struct.ExprBinary, ptr %915, i32 0, i32 0
+  store i32 %913, ptr %916, align 8
+  %917 = load ptr, ptr %97, align 8
+  %918 = load ptr, ptr %99, align 8
+  %919 = getelementptr inbounds %struct.Expr_, ptr %918, i32 0, i32 3
+  %920 = getelementptr inbounds %struct.ExprBinary, ptr %919, i32 0, i32 1
+  %921 = load i32, ptr %920, align 4
+  store ptr %917, ptr %76, align 8
+  store i32 %921, ptr %77, align 4
+  %922 = load i32, ptr %77, align 4
+  %923 = icmp ne i32 %922, 0
+  br i1 %923, label %925, label %924
 
-923:                                              ; preds = %911
+924:                                              ; preds = %912
   store i32 0, ptr %75, align 4
-  br label %930
+  br label %931
 
-924:                                              ; preds = %911
-  %925 = load ptr, ptr %76, align 8
-  %926 = load i32, ptr %77, align 4
-  %927 = call ptr @exprptr(i32 noundef %926)
-  %928 = call ptr @copy_expr(ptr noundef %925, ptr noundef %927)
-  %929 = call i32 @exprid(ptr noundef %928)
-  store i32 %929, ptr %75, align 4
-  br label %930
+925:                                              ; preds = %912
+  %926 = load ptr, ptr %76, align 8
+  %927 = load i32, ptr %77, align 4
+  %928 = call ptr @exprptr(i32 noundef %927)
+  %929 = call ptr @copy_expr(ptr noundef %926, ptr noundef %928)
+  %930 = call i32 @exprid(ptr noundef %929)
+  store i32 %930, ptr %75, align 4
+  br label %931
 
-930:                                              ; preds = %924, %923
-  %931 = load i32, ptr %75, align 4
-  %932 = load ptr, ptr %99, align 8
-  %933 = getelementptr inbounds %struct.Expr_, ptr %932, i32 0, i32 3
-  %934 = getelementptr inbounds %struct.ExprBinary, ptr %933, i32 0, i32 1
-  store i32 %931, ptr %934, align 4
-  %935 = load ptr, ptr %99, align 8
-  store ptr %935, ptr %96, align 8
-  br label %1244
+931:                                              ; preds = %925, %924
+  %932 = load i32, ptr %75, align 4
+  %933 = load ptr, ptr %99, align 8
+  %934 = getelementptr inbounds %struct.Expr_, ptr %933, i32 0, i32 3
+  %935 = getelementptr inbounds %struct.ExprBinary, ptr %934, i32 0, i32 1
+  store i32 %932, ptr %935, align 4
+  %936 = load ptr, ptr %99, align 8
+  store ptr %936, ptr %96, align 8
+  br label %1245
 
-936:                                              ; preds = %103
-  %937 = load ptr, ptr %97, align 8
-  %938 = load ptr, ptr %99, align 8
-  %939 = getelementptr inbounds %struct.Expr_, ptr %938, i32 0, i32 3
-  %940 = getelementptr inbounds %struct.ExprTernary, ptr %939, i32 0, i32 0
-  %941 = load i32, ptr %940, align 8
-  store ptr %937, ptr %79, align 8
-  store i32 %941, ptr %80, align 4
-  %942 = load i32, ptr %80, align 4
-  %943 = icmp ne i32 %942, 0
-  br i1 %943, label %945, label %944
+937:                                              ; preds = %103
+  %938 = load ptr, ptr %97, align 8
+  %939 = load ptr, ptr %99, align 8
+  %940 = getelementptr inbounds %struct.Expr_, ptr %939, i32 0, i32 3
+  %941 = getelementptr inbounds %struct.ExprTernary, ptr %940, i32 0, i32 0
+  %942 = load i32, ptr %941, align 8
+  store ptr %938, ptr %79, align 8
+  store i32 %942, ptr %80, align 4
+  %943 = load i32, ptr %80, align 4
+  %944 = icmp ne i32 %943, 0
+  br i1 %944, label %946, label %945
 
-944:                                              ; preds = %936
+945:                                              ; preds = %937
   store i32 0, ptr %78, align 4
-  br label %951
+  br label %952
 
-945:                                              ; preds = %936
-  %946 = load ptr, ptr %79, align 8
-  %947 = load i32, ptr %80, align 4
-  %948 = call ptr @exprptr(i32 noundef %947)
-  %949 = call ptr @copy_expr(ptr noundef %946, ptr noundef %948)
-  %950 = call i32 @exprid(ptr noundef %949)
-  store i32 %950, ptr %78, align 4
-  br label %951
+946:                                              ; preds = %937
+  %947 = load ptr, ptr %79, align 8
+  %948 = load i32, ptr %80, align 4
+  %949 = call ptr @exprptr(i32 noundef %948)
+  %950 = call ptr @copy_expr(ptr noundef %947, ptr noundef %949)
+  %951 = call i32 @exprid(ptr noundef %950)
+  store i32 %951, ptr %78, align 4
+  br label %952
 
-951:                                              ; preds = %945, %944
-  %952 = load i32, ptr %78, align 4
-  %953 = load ptr, ptr %99, align 8
-  %954 = getelementptr inbounds %struct.Expr_, ptr %953, i32 0, i32 3
-  %955 = getelementptr inbounds %struct.ExprTernary, ptr %954, i32 0, i32 0
-  store i32 %952, ptr %955, align 8
-  %956 = load ptr, ptr %97, align 8
-  %957 = load ptr, ptr %99, align 8
-  %958 = getelementptr inbounds %struct.Expr_, ptr %957, i32 0, i32 3
-  %959 = getelementptr inbounds %struct.ExprTernary, ptr %958, i32 0, i32 1
-  %960 = load i32, ptr %959, align 4
-  store ptr %956, ptr %82, align 8
-  store i32 %960, ptr %83, align 4
-  %961 = load i32, ptr %83, align 4
-  %962 = icmp ne i32 %961, 0
-  br i1 %962, label %964, label %963
+952:                                              ; preds = %946, %945
+  %953 = load i32, ptr %78, align 4
+  %954 = load ptr, ptr %99, align 8
+  %955 = getelementptr inbounds %struct.Expr_, ptr %954, i32 0, i32 3
+  %956 = getelementptr inbounds %struct.ExprTernary, ptr %955, i32 0, i32 0
+  store i32 %953, ptr %956, align 8
+  %957 = load ptr, ptr %97, align 8
+  %958 = load ptr, ptr %99, align 8
+  %959 = getelementptr inbounds %struct.Expr_, ptr %958, i32 0, i32 3
+  %960 = getelementptr inbounds %struct.ExprTernary, ptr %959, i32 0, i32 1
+  %961 = load i32, ptr %960, align 4
+  store ptr %957, ptr %82, align 8
+  store i32 %961, ptr %83, align 4
+  %962 = load i32, ptr %83, align 4
+  %963 = icmp ne i32 %962, 0
+  br i1 %963, label %965, label %964
 
-963:                                              ; preds = %951
+964:                                              ; preds = %952
   store i32 0, ptr %81, align 4
-  br label %970
+  br label %971
 
-964:                                              ; preds = %951
-  %965 = load ptr, ptr %82, align 8
-  %966 = load i32, ptr %83, align 4
-  %967 = call ptr @exprptr(i32 noundef %966)
-  %968 = call ptr @copy_expr(ptr noundef %965, ptr noundef %967)
-  %969 = call i32 @exprid(ptr noundef %968)
-  store i32 %969, ptr %81, align 4
-  br label %970
+965:                                              ; preds = %952
+  %966 = load ptr, ptr %82, align 8
+  %967 = load i32, ptr %83, align 4
+  %968 = call ptr @exprptr(i32 noundef %967)
+  %969 = call ptr @copy_expr(ptr noundef %966, ptr noundef %968)
+  %970 = call i32 @exprid(ptr noundef %969)
+  store i32 %970, ptr %81, align 4
+  br label %971
 
-970:                                              ; preds = %964, %963
-  %971 = load i32, ptr %81, align 4
-  %972 = load ptr, ptr %99, align 8
-  %973 = getelementptr inbounds %struct.Expr_, ptr %972, i32 0, i32 3
-  %974 = getelementptr inbounds %struct.ExprTernary, ptr %973, i32 0, i32 1
-  store i32 %971, ptr %974, align 4
-  %975 = load ptr, ptr %97, align 8
-  %976 = load ptr, ptr %99, align 8
-  %977 = getelementptr inbounds %struct.Expr_, ptr %976, i32 0, i32 3
-  %978 = getelementptr inbounds %struct.ExprTernary, ptr %977, i32 0, i32 2
-  %979 = load i32, ptr %978, align 8
-  store ptr %975, ptr %85, align 8
-  store i32 %979, ptr %86, align 4
-  %980 = load i32, ptr %86, align 4
-  %981 = icmp ne i32 %980, 0
-  br i1 %981, label %983, label %982
+971:                                              ; preds = %965, %964
+  %972 = load i32, ptr %81, align 4
+  %973 = load ptr, ptr %99, align 8
+  %974 = getelementptr inbounds %struct.Expr_, ptr %973, i32 0, i32 3
+  %975 = getelementptr inbounds %struct.ExprTernary, ptr %974, i32 0, i32 1
+  store i32 %972, ptr %975, align 4
+  %976 = load ptr, ptr %97, align 8
+  %977 = load ptr, ptr %99, align 8
+  %978 = getelementptr inbounds %struct.Expr_, ptr %977, i32 0, i32 3
+  %979 = getelementptr inbounds %struct.ExprTernary, ptr %978, i32 0, i32 2
+  %980 = load i32, ptr %979, align 8
+  store ptr %976, ptr %85, align 8
+  store i32 %980, ptr %86, align 4
+  %981 = load i32, ptr %86, align 4
+  %982 = icmp ne i32 %981, 0
+  br i1 %982, label %984, label %983
 
-982:                                              ; preds = %970
+983:                                              ; preds = %971
   store i32 0, ptr %84, align 4
-  br label %989
+  br label %990
 
-983:                                              ; preds = %970
-  %984 = load ptr, ptr %85, align 8
-  %985 = load i32, ptr %86, align 4
-  %986 = call ptr @exprptr(i32 noundef %985)
-  %987 = call ptr @copy_expr(ptr noundef %984, ptr noundef %986)
-  %988 = call i32 @exprid(ptr noundef %987)
-  store i32 %988, ptr %84, align 4
-  br label %989
+984:                                              ; preds = %971
+  %985 = load ptr, ptr %85, align 8
+  %986 = load i32, ptr %86, align 4
+  %987 = call ptr @exprptr(i32 noundef %986)
+  %988 = call ptr @copy_expr(ptr noundef %985, ptr noundef %987)
+  %989 = call i32 @exprid(ptr noundef %988)
+  store i32 %989, ptr %84, align 4
+  br label %990
 
-989:                                              ; preds = %983, %982
-  %990 = load i32, ptr %84, align 4
-  %991 = load ptr, ptr %99, align 8
-  %992 = getelementptr inbounds %struct.Expr_, ptr %991, i32 0, i32 3
-  %993 = getelementptr inbounds %struct.ExprTernary, ptr %992, i32 0, i32 2
-  store i32 %990, ptr %993, align 8
-  %994 = load ptr, ptr %99, align 8
-  store ptr %994, ptr %96, align 8
-  br label %1244
+990:                                              ; preds = %984, %983
+  %991 = load i32, ptr %84, align 4
+  %992 = load ptr, ptr %99, align 8
+  %993 = getelementptr inbounds %struct.Expr_, ptr %992, i32 0, i32 3
+  %994 = getelementptr inbounds %struct.ExprTernary, ptr %993, i32 0, i32 2
+  store i32 %991, ptr %994, align 8
+  %995 = load ptr, ptr %99, align 8
+  store ptr %995, ptr %96, align 8
+  br label %1245
 
-995:                                              ; preds = %103, %103
-  %996 = load ptr, ptr %97, align 8
-  %997 = load ptr, ptr %99, align 8
-  %998 = getelementptr inbounds %struct.Expr_, ptr %997, i32 0, i32 3
-  %999 = getelementptr inbounds %struct.ExprUnary, ptr %998, i32 0, i32 0
-  %1000 = load ptr, ptr %999, align 8
-  %1001 = call ptr @copy_expr(ptr noundef %996, ptr noundef %1000)
-  %1002 = load ptr, ptr %99, align 8
-  %1003 = getelementptr inbounds %struct.Expr_, ptr %1002, i32 0, i32 3
-  %1004 = getelementptr inbounds %struct.ExprUnary, ptr %1003, i32 0, i32 0
-  store ptr %1001, ptr %1004, align 8
-  %1005 = load ptr, ptr %99, align 8
-  store ptr %1005, ptr %96, align 8
-  br label %1244
+996:                                              ; preds = %103, %103
+  %997 = load ptr, ptr %97, align 8
+  %998 = load ptr, ptr %99, align 8
+  %999 = getelementptr inbounds %struct.Expr_, ptr %998, i32 0, i32 3
+  %1000 = getelementptr inbounds %struct.ExprUnary, ptr %999, i32 0, i32 0
+  %1001 = load ptr, ptr %1000, align 8
+  %1002 = call ptr @copy_expr(ptr noundef %997, ptr noundef %1001)
+  %1003 = load ptr, ptr %99, align 8
+  %1004 = getelementptr inbounds %struct.Expr_, ptr %1003, i32 0, i32 3
+  %1005 = getelementptr inbounds %struct.ExprUnary, ptr %1004, i32 0, i32 0
+  store ptr %1002, ptr %1005, align 8
+  %1006 = load ptr, ptr %99, align 8
+  store ptr %1006, ptr %96, align 8
+  br label %1245
 
-1006:                                             ; preds = %103
-  %1007 = load ptr, ptr %97, align 8
-  %1008 = load ptr, ptr %99, align 8
-  %1009 = getelementptr inbounds %struct.Expr_, ptr %1008, i32 0, i32 3
-  %1010 = load ptr, ptr %1009, align 8
-  %1011 = call ptr @copy_type_info(ptr noundef %1007, ptr noundef %1010)
-  %1012 = load ptr, ptr %99, align 8
-  %1013 = getelementptr inbounds %struct.Expr_, ptr %1012, i32 0, i32 3
-  store ptr %1011, ptr %1013, align 8
-  %1014 = load ptr, ptr %99, align 8
-  store ptr %1014, ptr %96, align 8
-  br label %1244
+1007:                                             ; preds = %103
+  %1008 = load ptr, ptr %97, align 8
+  %1009 = load ptr, ptr %99, align 8
+  %1010 = getelementptr inbounds %struct.Expr_, ptr %1009, i32 0, i32 3
+  %1011 = load ptr, ptr %1010, align 8
+  %1012 = call ptr @copy_type_info(ptr noundef %1008, ptr noundef %1011)
+  %1013 = load ptr, ptr %99, align 8
+  %1014 = getelementptr inbounds %struct.Expr_, ptr %1013, i32 0, i32 3
+  store ptr %1012, ptr %1014, align 8
+  %1015 = load ptr, ptr %99, align 8
+  store ptr %1015, ptr %96, align 8
+  br label %1245
 
-1015:                                             ; preds = %103
-  %1016 = load ptr, ptr %99, align 8
-  %1017 = getelementptr inbounds %struct.Expr_, ptr %1016, i32 0, i32 3
-  %1018 = getelementptr inbounds %struct.ExprCall, ptr %1017, i32 0, i32 2
-  %1019 = load i16, ptr %1018, align 8
-  %1020 = lshr i16 %1019, 6
-  %1021 = and i16 %1020, 1
-  %1022 = trunc i16 %1021 to i1
-  br i1 %1022, label %1023, label %1046
+1016:                                             ; preds = %103
+  %1017 = load ptr, ptr %99, align 8
+  %1018 = getelementptr inbounds %struct.Expr_, ptr %1017, i32 0, i32 3
+  %1019 = getelementptr inbounds %struct.ExprCall, ptr %1018, i32 0, i32 2
+  %1020 = load i16, ptr %1019, align 8
+  %1021 = lshr i16 %1020, 6
+  %1022 = and i16 %1021, 1
+  %1023 = trunc i16 %1022 to i1
+  br i1 %1023, label %1024, label %1047
 
-1023:                                             ; preds = %1015
-  %1024 = load ptr, ptr %97, align 8
-  %1025 = load ptr, ptr %99, align 8
-  %1026 = getelementptr inbounds %struct.Expr_, ptr %1025, i32 0, i32 3
-  %1027 = getelementptr inbounds %struct.ExprCall, ptr %1026, i32 0, i32 0
-  store ptr %1024, ptr %3, align 8
-  store ptr %1027, ptr %4, align 8
-  %1028 = load ptr, ptr %4, align 8
-  %1029 = load i32, ptr %1028, align 4
-  store i32 %1029, ptr %5, align 4
-  %1030 = load i32, ptr %5, align 4
-  %1031 = icmp ne i32 %1030, 0
-  br i1 %1031, label %1033, label %1032
+1024:                                             ; preds = %1016
+  %1025 = load ptr, ptr %97, align 8
+  %1026 = load ptr, ptr %99, align 8
+  %1027 = getelementptr inbounds %struct.Expr_, ptr %1026, i32 0, i32 3
+  %1028 = getelementptr inbounds %struct.ExprCall, ptr %1027, i32 0, i32 0
+  store ptr %1025, ptr %3, align 8
+  store ptr %1028, ptr %4, align 8
+  %1029 = load ptr, ptr %4, align 8
+  %1030 = load i32, ptr %1029, align 4
+  store i32 %1030, ptr %5, align 4
+  %1031 = load i32, ptr %5, align 4
+  %1032 = icmp ne i32 %1031, 0
+  br i1 %1032, label %1034, label %1033
 
-1032:                                             ; preds = %1023
-  br label %1045
+1033:                                             ; preds = %1024
+  br label %1046
 
-1033:                                             ; preds = %1023
-  %1034 = load i32, ptr %5, align 4
-  %1035 = call ptr @declptr(i32 noundef %1034)
-  store ptr %1035, ptr %6, align 8
-  %1036 = load ptr, ptr %3, align 8
-  %1037 = load ptr, ptr %6, align 8
-  %1038 = call ptr @fixup(ptr noundef %1036, ptr noundef %1037)
-  store ptr %1038, ptr %6, align 8
-  %1039 = load ptr, ptr %6, align 8
-  %1040 = icmp ne ptr %1039, null
-  br i1 %1040, label %1041, label %1045
+1034:                                             ; preds = %1024
+  %1035 = load i32, ptr %5, align 4
+  %1036 = call ptr @declptr(i32 noundef %1035)
+  store ptr %1036, ptr %6, align 8
+  %1037 = load ptr, ptr %3, align 8
+  %1038 = load ptr, ptr %6, align 8
+  %1039 = call ptr @fixup(ptr noundef %1037, ptr noundef %1038)
+  store ptr %1039, ptr %6, align 8
+  %1040 = load ptr, ptr %6, align 8
+  %1041 = icmp ne ptr %1040, null
+  br i1 %1041, label %1042, label %1046
 
-1041:                                             ; preds = %1033
-  %1042 = load ptr, ptr %6, align 8
-  %1043 = call i32 @declid(ptr noundef %1042)
-  %1044 = load ptr, ptr %4, align 8
-  store i32 %1043, ptr %1044, align 4
-  br label %1045
+1042:                                             ; preds = %1034
+  %1043 = load ptr, ptr %6, align 8
+  %1044 = call i32 @declid(ptr noundef %1043)
+  %1045 = load ptr, ptr %4, align 8
+  store i32 %1044, ptr %1045, align 4
+  br label %1046
 
-1045:                                             ; preds = %1041, %1033, %1032
-  br label %1066
+1046:                                             ; preds = %1042, %1034, %1033
+  br label %1067
 
-1046:                                             ; preds = %1015
-  %1047 = load ptr, ptr %97, align 8
-  %1048 = load ptr, ptr %99, align 8
-  %1049 = getelementptr inbounds %struct.Expr_, ptr %1048, i32 0, i32 3
-  %1050 = getelementptr inbounds %struct.ExprCall, ptr %1049, i32 0, i32 0
-  %1051 = load i32, ptr %1050, align 8
-  store ptr %1047, ptr %88, align 8
-  store i32 %1051, ptr %89, align 4
-  %1052 = load i32, ptr %89, align 4
-  %1053 = icmp ne i32 %1052, 0
-  br i1 %1053, label %1055, label %1054
+1047:                                             ; preds = %1016
+  %1048 = load ptr, ptr %97, align 8
+  %1049 = load ptr, ptr %99, align 8
+  %1050 = getelementptr inbounds %struct.Expr_, ptr %1049, i32 0, i32 3
+  %1051 = getelementptr inbounds %struct.ExprCall, ptr %1050, i32 0, i32 0
+  %1052 = load i32, ptr %1051, align 8
+  store ptr %1048, ptr %88, align 8
+  store i32 %1052, ptr %89, align 4
+  %1053 = load i32, ptr %89, align 4
+  %1054 = icmp ne i32 %1053, 0
+  br i1 %1054, label %1056, label %1055
 
-1054:                                             ; preds = %1046
+1055:                                             ; preds = %1047
   store i32 0, ptr %87, align 4
-  br label %1061
+  br label %1062
 
-1055:                                             ; preds = %1046
-  %1056 = load ptr, ptr %88, align 8
-  %1057 = load i32, ptr %89, align 4
-  %1058 = call ptr @exprptr(i32 noundef %1057)
-  %1059 = call ptr @copy_expr(ptr noundef %1056, ptr noundef %1058)
-  %1060 = call i32 @exprid(ptr noundef %1059)
-  store i32 %1060, ptr %87, align 4
-  br label %1061
+1056:                                             ; preds = %1047
+  %1057 = load ptr, ptr %88, align 8
+  %1058 = load i32, ptr %89, align 4
+  %1059 = call ptr @exprptr(i32 noundef %1058)
+  %1060 = call ptr @copy_expr(ptr noundef %1057, ptr noundef %1059)
+  %1061 = call i32 @exprid(ptr noundef %1060)
+  store i32 %1061, ptr %87, align 4
+  br label %1062
 
-1061:                                             ; preds = %1055, %1054
-  %1062 = load i32, ptr %87, align 4
-  %1063 = load ptr, ptr %99, align 8
-  %1064 = getelementptr inbounds %struct.Expr_, ptr %1063, i32 0, i32 3
-  %1065 = getelementptr inbounds %struct.ExprCall, ptr %1064, i32 0, i32 0
-  store i32 %1062, ptr %1065, align 8
-  br label %1066
+1062:                                             ; preds = %1056, %1055
+  %1063 = load i32, ptr %87, align 4
+  %1064 = load ptr, ptr %99, align 8
+  %1065 = getelementptr inbounds %struct.Expr_, ptr %1064, i32 0, i32 3
+  %1066 = getelementptr inbounds %struct.ExprCall, ptr %1065, i32 0, i32 0
+  store i32 %1063, ptr %1066, align 8
+  br label %1067
 
-1066:                                             ; preds = %1061, %1045
-  %1067 = load ptr, ptr %97, align 8
-  %1068 = load ptr, ptr %99, align 8
-  %1069 = getelementptr inbounds %struct.Expr_, ptr %1068, i32 0, i32 3
-  %1070 = getelementptr inbounds %struct.ExprCall, ptr %1069, i32 0, i32 1
-  %1071 = load i32, ptr %1070, align 4
-  store ptr %1067, ptr %91, align 8
-  store i32 %1071, ptr %92, align 4
-  %1072 = load i32, ptr %92, align 4
-  %1073 = icmp ne i32 %1072, 0
-  br i1 %1073, label %1075, label %1074
+1067:                                             ; preds = %1062, %1046
+  %1068 = load ptr, ptr %97, align 8
+  %1069 = load ptr, ptr %99, align 8
+  %1070 = getelementptr inbounds %struct.Expr_, ptr %1069, i32 0, i32 3
+  %1071 = getelementptr inbounds %struct.ExprCall, ptr %1070, i32 0, i32 1
+  %1072 = load i32, ptr %1071, align 4
+  store ptr %1068, ptr %91, align 8
+  store i32 %1072, ptr %92, align 4
+  %1073 = load i32, ptr %92, align 4
+  %1074 = icmp ne i32 %1073, 0
+  br i1 %1074, label %1076, label %1075
 
-1074:                                             ; preds = %1066
+1075:                                             ; preds = %1067
   store i32 0, ptr %90, align 4
-  br label %1081
+  br label %1082
 
-1075:                                             ; preds = %1066
-  %1076 = load ptr, ptr %91, align 8
-  %1077 = load i32, ptr %92, align 4
-  %1078 = call ptr @exprptr(i32 noundef %1077)
-  %1079 = call ptr @copy_expr(ptr noundef %1076, ptr noundef %1078)
-  %1080 = call i32 @exprid(ptr noundef %1079)
-  store i32 %1080, ptr %90, align 4
-  br label %1081
+1076:                                             ; preds = %1067
+  %1077 = load ptr, ptr %91, align 8
+  %1078 = load i32, ptr %92, align 4
+  %1079 = call ptr @exprptr(i32 noundef %1078)
+  %1080 = call ptr @copy_expr(ptr noundef %1077, ptr noundef %1079)
+  %1081 = call i32 @exprid(ptr noundef %1080)
+  store i32 %1081, ptr %90, align 4
+  br label %1082
 
-1081:                                             ; preds = %1075, %1074
-  %1082 = load i32, ptr %90, align 4
-  %1083 = load ptr, ptr %99, align 8
-  %1084 = getelementptr inbounds %struct.Expr_, ptr %1083, i32 0, i32 3
-  %1085 = getelementptr inbounds %struct.ExprCall, ptr %1084, i32 0, i32 1
-  store i32 %1082, ptr %1085, align 4
-  %1086 = load ptr, ptr %97, align 8
-  %1087 = load ptr, ptr %99, align 8
-  %1088 = getelementptr inbounds %struct.Expr_, ptr %1087, i32 0, i32 3
-  %1089 = getelementptr inbounds %struct.ExprCall, ptr %1088, i32 0, i32 3
-  %1090 = load ptr, ptr %1089, align 8
-  %1091 = call ptr @copy_expr_list(ptr noundef %1086, ptr noundef %1090)
-  %1092 = load ptr, ptr %99, align 8
-  %1093 = getelementptr inbounds %struct.Expr_, ptr %1092, i32 0, i32 3
-  %1094 = getelementptr inbounds %struct.ExprCall, ptr %1093, i32 0, i32 3
-  store ptr %1091, ptr %1094, align 8
-  %1095 = load ptr, ptr %99, align 8
-  %1096 = getelementptr inbounds %struct.Expr_, ptr %1095, i32 0, i32 3
-  %1097 = getelementptr inbounds %struct.ExprCall, ptr %1096, i32 0, i32 4
-  %1098 = load ptr, ptr %1097, align 8
-  %1099 = icmp ne ptr %1098, null
-  br i1 %1099, label %1100, label %1129
+1082:                                             ; preds = %1076, %1075
+  %1083 = load i32, ptr %90, align 4
+  %1084 = load ptr, ptr %99, align 8
+  %1085 = getelementptr inbounds %struct.Expr_, ptr %1084, i32 0, i32 3
+  %1086 = getelementptr inbounds %struct.ExprCall, ptr %1085, i32 0, i32 1
+  store i32 %1083, ptr %1086, align 4
+  %1087 = load ptr, ptr %97, align 8
+  %1088 = load ptr, ptr %99, align 8
+  %1089 = getelementptr inbounds %struct.Expr_, ptr %1088, i32 0, i32 3
+  %1090 = getelementptr inbounds %struct.ExprCall, ptr %1089, i32 0, i32 3
+  %1091 = load ptr, ptr %1090, align 8
+  %1092 = call ptr @copy_expr_list(ptr noundef %1087, ptr noundef %1091)
+  %1093 = load ptr, ptr %99, align 8
+  %1094 = getelementptr inbounds %struct.Expr_, ptr %1093, i32 0, i32 3
+  %1095 = getelementptr inbounds %struct.ExprCall, ptr %1094, i32 0, i32 3
+  store ptr %1092, ptr %1095, align 8
+  %1096 = load ptr, ptr %99, align 8
+  %1097 = getelementptr inbounds %struct.Expr_, ptr %1096, i32 0, i32 3
+  %1098 = getelementptr inbounds %struct.ExprCall, ptr %1097, i32 0, i32 4
+  %1099 = load ptr, ptr %1098, align 8
+  %1100 = icmp ne ptr %1099, null
+  br i1 %1100, label %1101, label %1130
 
-1100:                                             ; preds = %1081
-  %1101 = load ptr, ptr %99, align 8
-  %1102 = getelementptr inbounds %struct.Expr_, ptr %1101, i32 0, i32 3
-  %1103 = getelementptr inbounds %struct.ExprCall, ptr %1102, i32 0, i32 2
-  %1104 = load i16, ptr %1103, align 8
-  %1105 = lshr i16 %1104, 2
-  %1106 = and i16 %1105, 1
-  %1107 = trunc i16 %1106 to i1
-  br i1 %1107, label %1108, label %1118
+1101:                                             ; preds = %1082
+  %1102 = load ptr, ptr %99, align 8
+  %1103 = getelementptr inbounds %struct.Expr_, ptr %1102, i32 0, i32 3
+  %1104 = getelementptr inbounds %struct.ExprCall, ptr %1103, i32 0, i32 2
+  %1105 = load i16, ptr %1104, align 8
+  %1106 = lshr i16 %1105, 2
+  %1107 = and i16 %1106, 1
+  %1108 = trunc i16 %1107 to i1
+  br i1 %1108, label %1109, label %1119
 
-1108:                                             ; preds = %1100
-  %1109 = load ptr, ptr %97, align 8
-  %1110 = load ptr, ptr %99, align 8
-  %1111 = getelementptr inbounds %struct.Expr_, ptr %1110, i32 0, i32 3
-  %1112 = getelementptr inbounds %struct.ExprCall, ptr %1111, i32 0, i32 4
-  %1113 = load ptr, ptr %1112, align 8
-  %1114 = call ptr @copy_expr(ptr noundef %1109, ptr noundef %1113)
-  %1115 = load ptr, ptr %99, align 8
-  %1116 = getelementptr inbounds %struct.Expr_, ptr %1115, i32 0, i32 3
-  %1117 = getelementptr inbounds %struct.ExprCall, ptr %1116, i32 0, i32 4
-  store ptr %1114, ptr %1117, align 8
-  br label %1128
-
-1118:                                             ; preds = %1100
-  %1119 = load ptr, ptr %97, align 8
-  %1120 = load ptr, ptr %99, align 8
-  %1121 = getelementptr inbounds %struct.Expr_, ptr %1120, i32 0, i32 3
-  %1122 = getelementptr inbounds %struct.ExprCall, ptr %1121, i32 0, i32 4
-  %1123 = load ptr, ptr %1122, align 8
-  %1124 = call ptr @copy_expr_list(ptr noundef %1119, ptr noundef %1123)
-  %1125 = load ptr, ptr %99, align 8
-  %1126 = getelementptr inbounds %struct.Expr_, ptr %1125, i32 0, i32 3
-  %1127 = getelementptr inbounds %struct.ExprCall, ptr %1126, i32 0, i32 4
-  store ptr %1124, ptr %1127, align 8
-  br label %1128
-
-1128:                                             ; preds = %1118, %1108
+1109:                                             ; preds = %1101
+  %1110 = load ptr, ptr %97, align 8
+  %1111 = load ptr, ptr %99, align 8
+  %1112 = getelementptr inbounds %struct.Expr_, ptr %1111, i32 0, i32 3
+  %1113 = getelementptr inbounds %struct.ExprCall, ptr %1112, i32 0, i32 4
+  %1114 = load ptr, ptr %1113, align 8
+  %1115 = call ptr @copy_expr(ptr noundef %1110, ptr noundef %1114)
+  %1116 = load ptr, ptr %99, align 8
+  %1117 = getelementptr inbounds %struct.Expr_, ptr %1116, i32 0, i32 3
+  %1118 = getelementptr inbounds %struct.ExprCall, ptr %1117, i32 0, i32 4
+  store ptr %1115, ptr %1118, align 8
   br label %1129
 
-1129:                                             ; preds = %1128, %1081
-  %1130 = load ptr, ptr %99, align 8
-  store ptr %1130, ptr %96, align 8
-  br label %1244
+1119:                                             ; preds = %1101
+  %1120 = load ptr, ptr %97, align 8
+  %1121 = load ptr, ptr %99, align 8
+  %1122 = getelementptr inbounds %struct.Expr_, ptr %1121, i32 0, i32 3
+  %1123 = getelementptr inbounds %struct.ExprCall, ptr %1122, i32 0, i32 4
+  %1124 = load ptr, ptr %1123, align 8
+  %1125 = call ptr @copy_expr_list(ptr noundef %1120, ptr noundef %1124)
+  %1126 = load ptr, ptr %99, align 8
+  %1127 = getelementptr inbounds %struct.Expr_, ptr %1126, i32 0, i32 3
+  %1128 = getelementptr inbounds %struct.ExprCall, ptr %1127, i32 0, i32 4
+  store ptr %1125, ptr %1128, align 8
+  br label %1129
 
-1131:                                             ; preds = %103, %103
-  %1132 = load ptr, ptr %97, align 8
-  %1133 = load ptr, ptr %99, align 8
-  %1134 = getelementptr inbounds %struct.Expr_, ptr %1133, i32 0, i32 3
-  %1135 = getelementptr inbounds %struct.ExprAccess, ptr %1134, i32 0, i32 0
-  %1136 = load ptr, ptr %1135, align 8
-  %1137 = call ptr @copy_expr(ptr noundef %1132, ptr noundef %1136)
-  %1138 = load ptr, ptr %99, align 8
-  %1139 = getelementptr inbounds %struct.Expr_, ptr %1138, i32 0, i32 3
-  %1140 = getelementptr inbounds %struct.ExprAccess, ptr %1139, i32 0, i32 0
-  store ptr %1137, ptr %1140, align 8
-  %1141 = load ptr, ptr %99, align 8
-  %1142 = getelementptr inbounds %struct.Expr_, ptr %1141, i32 0, i32 2
-  %1143 = load i16, ptr %1142, align 8
-  %1144 = lshr i16 %1143, 8
-  %1145 = and i16 %1144, 15
-  %1146 = zext i16 %1145 to i32
-  %1147 = icmp eq i32 %1146, 2
-  br i1 %1147, label %1148, label %1163
+1129:                                             ; preds = %1119, %1109
+  br label %1130
 
-1148:                                             ; preds = %1131
-  %1149 = load ptr, ptr %97, align 8
-  %1150 = load ptr, ptr %99, align 8
-  %1151 = getelementptr inbounds %struct.Expr_, ptr %1150, i32 0, i32 3
-  %1152 = getelementptr inbounds %struct.ExprAccess, ptr %1151, i32 0, i32 1
-  store ptr %1149, ptr %24, align 8
-  store ptr %1152, ptr %25, align 8
-  %1153 = load ptr, ptr %24, align 8
-  %1154 = load ptr, ptr %25, align 8
-  %1155 = load ptr, ptr %1154, align 8
-  %1156 = call ptr @fixup(ptr noundef %1153, ptr noundef %1155)
-  store ptr %1156, ptr %26, align 8
-  %1157 = load ptr, ptr %26, align 8
-  %1158 = icmp ne ptr %1157, null
-  br i1 %1158, label %1159, label %1162
+1130:                                             ; preds = %1129, %1082
+  %1131 = load ptr, ptr %99, align 8
+  store ptr %1131, ptr %96, align 8
+  br label %1245
 
-1159:                                             ; preds = %1148
-  %1160 = load ptr, ptr %26, align 8
-  %1161 = load ptr, ptr %25, align 8
-  store ptr %1160, ptr %1161, align 8
-  br label %1162
+1132:                                             ; preds = %103, %103
+  %1133 = load ptr, ptr %97, align 8
+  %1134 = load ptr, ptr %99, align 8
+  %1135 = getelementptr inbounds %struct.Expr_, ptr %1134, i32 0, i32 3
+  %1136 = getelementptr inbounds %struct.ExprAccess, ptr %1135, i32 0, i32 0
+  %1137 = load ptr, ptr %1136, align 8
+  %1138 = call ptr @copy_expr(ptr noundef %1133, ptr noundef %1137)
+  %1139 = load ptr, ptr %99, align 8
+  %1140 = getelementptr inbounds %struct.Expr_, ptr %1139, i32 0, i32 3
+  %1141 = getelementptr inbounds %struct.ExprAccess, ptr %1140, i32 0, i32 0
+  store ptr %1138, ptr %1141, align 8
+  %1142 = load ptr, ptr %99, align 8
+  %1143 = getelementptr inbounds %struct.Expr_, ptr %1142, i32 0, i32 2
+  %1144 = load i16, ptr %1143, align 8
+  %1145 = lshr i16 %1144, 8
+  %1146 = and i16 %1145, 15
+  %1147 = zext i16 %1146 to i32
+  %1148 = icmp eq i32 %1147, 2
+  br i1 %1148, label %1149, label %1164
 
-1162:                                             ; preds = %1159, %1148
-  br label %1173
+1149:                                             ; preds = %1132
+  %1150 = load ptr, ptr %97, align 8
+  %1151 = load ptr, ptr %99, align 8
+  %1152 = getelementptr inbounds %struct.Expr_, ptr %1151, i32 0, i32 3
+  %1153 = getelementptr inbounds %struct.ExprAccess, ptr %1152, i32 0, i32 1
+  store ptr %1150, ptr %24, align 8
+  store ptr %1153, ptr %25, align 8
+  %1154 = load ptr, ptr %24, align 8
+  %1155 = load ptr, ptr %25, align 8
+  %1156 = load ptr, ptr %1155, align 8
+  %1157 = call ptr @fixup(ptr noundef %1154, ptr noundef %1156)
+  store ptr %1157, ptr %26, align 8
+  %1158 = load ptr, ptr %26, align 8
+  %1159 = icmp ne ptr %1158, null
+  br i1 %1159, label %1160, label %1163
 
-1163:                                             ; preds = %1131
-  %1164 = load ptr, ptr %97, align 8
-  %1165 = load ptr, ptr %99, align 8
-  %1166 = getelementptr inbounds %struct.Expr_, ptr %1165, i32 0, i32 3
-  %1167 = getelementptr inbounds %struct.ExprAccess, ptr %1166, i32 0, i32 1
-  %1168 = load ptr, ptr %1167, align 8
-  %1169 = call ptr @copy_expr(ptr noundef %1164, ptr noundef %1168)
-  %1170 = load ptr, ptr %99, align 8
-  %1171 = getelementptr inbounds %struct.Expr_, ptr %1170, i32 0, i32 3
-  %1172 = getelementptr inbounds %struct.ExprAccess, ptr %1171, i32 0, i32 1
-  store ptr %1169, ptr %1172, align 8
-  br label %1173
+1160:                                             ; preds = %1149
+  %1161 = load ptr, ptr %26, align 8
+  %1162 = load ptr, ptr %25, align 8
+  store ptr %1161, ptr %1162, align 8
+  br label %1163
 
-1173:                                             ; preds = %1163, %1162
-  %1174 = load ptr, ptr %99, align 8
-  store ptr %1174, ptr %96, align 8
-  br label %1244
+1163:                                             ; preds = %1160, %1149
+  br label %1174
 
-1175:                                             ; preds = %103
-  %1176 = load ptr, ptr %97, align 8
-  %1177 = load ptr, ptr %99, align 8
-  %1178 = getelementptr inbounds %struct.Expr_, ptr %1177, i32 0, i32 3
-  %1179 = load ptr, ptr %1178, align 8
-  %1180 = call ptr @copy_expr_list(ptr noundef %1176, ptr noundef %1179)
-  %1181 = load ptr, ptr %99, align 8
-  %1182 = getelementptr inbounds %struct.Expr_, ptr %1181, i32 0, i32 3
-  store ptr %1180, ptr %1182, align 8
-  %1183 = load ptr, ptr %99, align 8
-  store ptr %1183, ptr %96, align 8
-  br label %1244
+1164:                                             ; preds = %1132
+  %1165 = load ptr, ptr %97, align 8
+  %1166 = load ptr, ptr %99, align 8
+  %1167 = getelementptr inbounds %struct.Expr_, ptr %1166, i32 0, i32 3
+  %1168 = getelementptr inbounds %struct.ExprAccess, ptr %1167, i32 0, i32 1
+  %1169 = load ptr, ptr %1168, align 8
+  %1170 = call ptr @copy_expr(ptr noundef %1165, ptr noundef %1169)
+  %1171 = load ptr, ptr %99, align 8
+  %1172 = getelementptr inbounds %struct.Expr_, ptr %1171, i32 0, i32 3
+  %1173 = getelementptr inbounds %struct.ExprAccess, ptr %1172, i32 0, i32 1
+  store ptr %1170, ptr %1173, align 8
+  br label %1174
 
-1184:                                             ; preds = %103
-  %1185 = load ptr, ptr %97, align 8
-  %1186 = load ptr, ptr %99, align 8
-  %1187 = getelementptr inbounds %struct.Expr_, ptr %1186, i32 0, i32 3
-  %1188 = load ptr, ptr %1187, align 8
-  %1189 = call ptr @copy_expr_list(ptr noundef %1185, ptr noundef %1188)
-  %1190 = load ptr, ptr %99, align 8
-  %1191 = getelementptr inbounds %struct.Expr_, ptr %1190, i32 0, i32 3
-  store ptr %1189, ptr %1191, align 8
-  %1192 = load ptr, ptr %99, align 8
-  store ptr %1192, ptr %96, align 8
-  br label %1244
+1174:                                             ; preds = %1164, %1163
+  %1175 = load ptr, ptr %99, align 8
+  store ptr %1175, ptr %96, align 8
+  br label %1245
 
-1193:                                             ; preds = %103
-  %1194 = load ptr, ptr %97, align 8
-  %1195 = load ptr, ptr %99, align 8
-  %1196 = getelementptr inbounds %struct.Expr_, ptr %1195, i32 0, i32 3
-  %1197 = load ptr, ptr %1196, align 8
-  %1198 = call ptr @copy_expr_list(ptr noundef %1194, ptr noundef %1197)
-  %1199 = load ptr, ptr %99, align 8
-  %1200 = getelementptr inbounds %struct.Expr_, ptr %1199, i32 0, i32 3
-  store ptr %1198, ptr %1200, align 8
-  %1201 = load ptr, ptr %99, align 8
-  store ptr %1201, ptr %96, align 8
-  br label %1244
+1176:                                             ; preds = %103
+  %1177 = load ptr, ptr %97, align 8
+  %1178 = load ptr, ptr %99, align 8
+  %1179 = getelementptr inbounds %struct.Expr_, ptr %1178, i32 0, i32 3
+  %1180 = load ptr, ptr %1179, align 8
+  %1181 = call ptr @copy_expr_list(ptr noundef %1177, ptr noundef %1180)
+  %1182 = load ptr, ptr %99, align 8
+  %1183 = getelementptr inbounds %struct.Expr_, ptr %1182, i32 0, i32 3
+  store ptr %1181, ptr %1183, align 8
+  %1184 = load ptr, ptr %99, align 8
+  store ptr %1184, ptr %96, align 8
+  br label %1245
 
-1202:                                             ; preds = %103
-  %1203 = load ptr, ptr %97, align 8
-  %1204 = load ptr, ptr %99, align 8
-  %1205 = getelementptr inbounds %struct.Expr_, ptr %1204, i32 0, i32 3
-  %1206 = getelementptr inbounds %struct.ExprCast, ptr %1205, i32 0, i32 1
-  %1207 = load i32, ptr %1206, align 4
-  store ptr %1203, ptr %94, align 8
-  store i32 %1207, ptr %95, align 4
-  %1208 = load i32, ptr %95, align 4
-  %1209 = icmp ne i32 %1208, 0
-  br i1 %1209, label %1211, label %1210
+1185:                                             ; preds = %103
+  %1186 = load ptr, ptr %97, align 8
+  %1187 = load ptr, ptr %99, align 8
+  %1188 = getelementptr inbounds %struct.Expr_, ptr %1187, i32 0, i32 3
+  %1189 = load ptr, ptr %1188, align 8
+  %1190 = call ptr @copy_expr_list(ptr noundef %1186, ptr noundef %1189)
+  %1191 = load ptr, ptr %99, align 8
+  %1192 = getelementptr inbounds %struct.Expr_, ptr %1191, i32 0, i32 3
+  store ptr %1190, ptr %1192, align 8
+  %1193 = load ptr, ptr %99, align 8
+  store ptr %1193, ptr %96, align 8
+  br label %1245
 
-1210:                                             ; preds = %1202
+1194:                                             ; preds = %103
+  %1195 = load ptr, ptr %97, align 8
+  %1196 = load ptr, ptr %99, align 8
+  %1197 = getelementptr inbounds %struct.Expr_, ptr %1196, i32 0, i32 3
+  %1198 = load ptr, ptr %1197, align 8
+  %1199 = call ptr @copy_expr_list(ptr noundef %1195, ptr noundef %1198)
+  %1200 = load ptr, ptr %99, align 8
+  %1201 = getelementptr inbounds %struct.Expr_, ptr %1200, i32 0, i32 3
+  store ptr %1199, ptr %1201, align 8
+  %1202 = load ptr, ptr %99, align 8
+  store ptr %1202, ptr %96, align 8
+  br label %1245
+
+1203:                                             ; preds = %103
+  %1204 = load ptr, ptr %97, align 8
+  %1205 = load ptr, ptr %99, align 8
+  %1206 = getelementptr inbounds %struct.Expr_, ptr %1205, i32 0, i32 3
+  %1207 = getelementptr inbounds %struct.ExprCast, ptr %1206, i32 0, i32 1
+  %1208 = load i32, ptr %1207, align 4
+  store ptr %1204, ptr %94, align 8
+  store i32 %1208, ptr %95, align 4
+  %1209 = load i32, ptr %95, align 4
+  %1210 = icmp ne i32 %1209, 0
+  br i1 %1210, label %1212, label %1211
+
+1211:                                             ; preds = %1203
   store i32 0, ptr %93, align 4
-  br label %1217
+  br label %1218
 
-1211:                                             ; preds = %1202
-  %1212 = load ptr, ptr %94, align 8
-  %1213 = load i32, ptr %95, align 4
-  %1214 = call ptr @exprptr(i32 noundef %1213)
-  %1215 = call ptr @copy_expr(ptr noundef %1212, ptr noundef %1214)
-  %1216 = call i32 @exprid(ptr noundef %1215)
-  store i32 %1216, ptr %93, align 4
-  br label %1217
+1212:                                             ; preds = %1203
+  %1213 = load ptr, ptr %94, align 8
+  %1214 = load i32, ptr %95, align 4
+  %1215 = call ptr @exprptr(i32 noundef %1214)
+  %1216 = call ptr @copy_expr(ptr noundef %1213, ptr noundef %1215)
+  %1217 = call i32 @exprid(ptr noundef %1216)
+  store i32 %1217, ptr %93, align 4
+  br label %1218
 
-1217:                                             ; preds = %1211, %1210
-  %1218 = load i32, ptr %93, align 4
-  %1219 = load ptr, ptr %99, align 8
-  %1220 = getelementptr inbounds %struct.Expr_, ptr %1219, i32 0, i32 3
-  %1221 = getelementptr inbounds %struct.ExprCast, ptr %1220, i32 0, i32 1
-  store i32 %1218, ptr %1221, align 4
-  %1222 = load ptr, ptr %97, align 8
-  %1223 = load ptr, ptr %99, align 8
-  %1224 = getelementptr inbounds %struct.Expr_, ptr %1223, i32 0, i32 3
-  %1225 = getelementptr inbounds %struct.ExprCast, ptr %1224, i32 0, i32 2
-  %1226 = load i32, ptr %1225, align 8
-  store ptr %1222, ptr %19, align 8
-  store i32 %1226, ptr %20, align 4
-  %1227 = load i32, ptr %20, align 4
-  %1228 = icmp ne i32 %1227, 0
-  br i1 %1228, label %1230, label %1229
+1218:                                             ; preds = %1212, %1211
+  %1219 = load i32, ptr %93, align 4
+  %1220 = load ptr, ptr %99, align 8
+  %1221 = getelementptr inbounds %struct.Expr_, ptr %1220, i32 0, i32 3
+  %1222 = getelementptr inbounds %struct.ExprCast, ptr %1221, i32 0, i32 1
+  store i32 %1219, ptr %1222, align 4
+  %1223 = load ptr, ptr %97, align 8
+  %1224 = load ptr, ptr %99, align 8
+  %1225 = getelementptr inbounds %struct.Expr_, ptr %1224, i32 0, i32 3
+  %1226 = getelementptr inbounds %struct.ExprCast, ptr %1225, i32 0, i32 2
+  %1227 = load i32, ptr %1226, align 8
+  store ptr %1223, ptr %19, align 8
+  store i32 %1227, ptr %20, align 4
+  %1228 = load i32, ptr %20, align 4
+  %1229 = icmp ne i32 %1228, 0
+  br i1 %1229, label %1231, label %1230
 
-1229:                                             ; preds = %1217
+1230:                                             ; preds = %1218
   store i32 0, ptr %18, align 4
-  br label %1236
+  br label %1237
 
-1230:                                             ; preds = %1217
-  %1231 = load ptr, ptr %19, align 8
-  %1232 = load i32, ptr %20, align 4
-  %1233 = call ptr @type_infoptr(i32 noundef %1232)
-  %1234 = call ptr @copy_type_info(ptr noundef %1231, ptr noundef %1233)
-  %1235 = call i32 @type_infoid(ptr noundef %1234)
-  store i32 %1235, ptr %18, align 4
-  br label %1236
+1231:                                             ; preds = %1218
+  %1232 = load ptr, ptr %19, align 8
+  %1233 = load i32, ptr %20, align 4
+  %1234 = call ptr @type_infoptr(i32 noundef %1233)
+  %1235 = call ptr @copy_type_info(ptr noundef %1232, ptr noundef %1234)
+  %1236 = call i32 @type_infoid(ptr noundef %1235)
+  store i32 %1236, ptr %18, align 4
+  br label %1237
 
-1236:                                             ; preds = %1230, %1229
-  %1237 = load i32, ptr %18, align 4
-  %1238 = load ptr, ptr %99, align 8
-  %1239 = getelementptr inbounds %struct.Expr_, ptr %1238, i32 0, i32 3
-  %1240 = getelementptr inbounds %struct.ExprCast, ptr %1239, i32 0, i32 2
-  store i32 %1237, ptr %1240, align 8
-  %1241 = load ptr, ptr %99, align 8
-  store ptr %1241, ptr %96, align 8
+1237:                                             ; preds = %1231, %1230
+  %1238 = load i32, ptr %18, align 4
+  %1239 = load ptr, ptr %99, align 8
+  %1240 = getelementptr inbounds %struct.Expr_, ptr %1239, i32 0, i32 3
+  %1241 = getelementptr inbounds %struct.ExprCast, ptr %1240, i32 0, i32 2
+  store i32 %1238, ptr %1241, align 8
+  %1242 = load ptr, ptr %99, align 8
+  store ptr %1242, ptr %96, align 8
+  br label %1245
+
+1243:                                             ; preds = %103
   br label %1244
 
-1242:                                             ; preds = %103
-  br label %1243
-
-1243:                                             ; preds = %1242
+1244:                                             ; preds = %1243
   call void (ptr, ...) @error_exit(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__func__.copy_expr, ptr noundef @.str.2, i32 noundef 538) #4
   unreachable
 
-1244:                                             ; preds = %1236, %1193, %1184, %1175, %1173, %1129, %1006, %995, %989, %930, %894, %826, %824, %818, %783, %768, %735, %729, %705, %696, %685, %679, %636, %619, %603, %579, %536, %516, %514, %512, %510, %464, %455, %453, %366, %357, %351, %330, %290, %270, %268, %262, %245, %214, %208, %160, %125, %114, %102
-  %1245 = load ptr, ptr %96, align 8
-  ret ptr %1245
+1245:                                             ; preds = %1237, %1194, %1185, %1176, %1174, %1130, %1007, %996, %990, %931, %895, %827, %825, %819, %784, %769, %736, %730, %706, %697, %686, %680, %637, %620, %604, %580, %537, %517, %515, %513, %511, %465, %456, %454, %367, %358, %352, %331, %291, %271, %269, %263, %246, %214, %208, %160, %125, %114, %102
+  %1246 = load ptr, ptr %96, align 8
+  ret ptr %1246
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4453,22 +4459,25 @@ define dso_local ptr @copy_decl_list_single_for_unit(ptr noundef %0) #0 {
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %5 = load i8, ptr getelementptr inbounds (%struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4), align 2
-  %6 = trunc i8 %5 to i1
-  %7 = zext i1 %6 to i8
-  store i8 %7, ptr %3, align 1
-  store i8 1, ptr getelementptr inbounds (%struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4), align 2
+  %5 = getelementptr inbounds %struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4
+  %6 = load i8, ptr %5, align 2
+  %7 = trunc i8 %6 to i1
+  %8 = zext i1 %7 to i8
+  store i8 %8, ptr %3, align 1
+  %9 = getelementptr inbounds %struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4
+  store i8 1, ptr %9, align 2
   call void @copy_begin()
-  %8 = load ptr, ptr %2, align 8
-  %9 = call ptr @copy_decl_list_macro(ptr noundef %8)
-  store ptr %9, ptr %4, align 8
+  %10 = load ptr, ptr %2, align 8
+  %11 = call ptr @copy_decl_list_macro(ptr noundef %10)
+  store ptr %11, ptr %4, align 8
   call void @copy_end()
-  %10 = load i8, ptr %3, align 1
-  %11 = trunc i8 %10 to i1
-  %12 = zext i1 %11 to i8
-  store i8 %12, ptr getelementptr inbounds (%struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4), align 2
-  %13 = load ptr, ptr %4, align 8
-  ret ptr %13
+  %12 = load i8, ptr %3, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  %15 = getelementptr inbounds %struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4
+  store i8 %14, ptr %15, align 2
+  %16 = load ptr, ptr %4, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4477,22 +4486,25 @@ define dso_local ptr @copy_lambda_deep(ptr noundef %0) #0 {
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %5 = load i8, ptr getelementptr inbounds (%struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4), align 2
-  %6 = trunc i8 %5 to i1
-  %7 = zext i1 %6 to i8
-  store i8 %7, ptr %3, align 1
-  store i8 1, ptr getelementptr inbounds (%struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4), align 2
+  %5 = getelementptr inbounds %struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4
+  %6 = load i8, ptr %5, align 2
+  %7 = trunc i8 %6 to i1
+  %8 = zext i1 %7 to i8
+  store i8 %8, ptr %3, align 1
+  %9 = getelementptr inbounds %struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4
+  store i8 1, ptr %9, align 2
   call void @copy_begin()
-  %8 = load ptr, ptr %2, align 8
-  %9 = call ptr @copy_decl(ptr noundef @copy_struct, ptr noundef %8)
-  store ptr %9, ptr %4, align 8
+  %10 = load ptr, ptr %2, align 8
+  %11 = call ptr @copy_decl(ptr noundef @copy_struct, ptr noundef %10)
+  store ptr %11, ptr %4, align 8
   call void @copy_end()
-  %10 = load i8, ptr %3, align 1
-  %11 = trunc i8 %10 to i1
-  %12 = zext i1 %11 to i8
-  store i8 %12, ptr getelementptr inbounds (%struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4), align 2
-  %13 = load ptr, ptr %4, align 8
-  ret ptr %13
+  %12 = load i8, ptr %3, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  %15 = getelementptr inbounds %struct.CopyStruct_, ptr @copy_struct, i32 0, i32 4
+  store i8 %14, ptr %15, align 2
+  %16 = load ptr, ptr %4, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable

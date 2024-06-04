@@ -325,7 +325,7 @@ define dso_local void @pg_send_history(ptr noundef %0) #0 {
   store i8 0, ptr %34, align 1
   %35 = load i8, ptr @useHistory, align 1
   %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %74
+  br i1 %36, label %37, label %76
 
 37:                                               ; preds = %29
   %38 = load ptr, ptr %3, align 8
@@ -333,62 +333,64 @@ define dso_local void @pg_send_history(ptr noundef %0) #0 {
   %40 = load i8, ptr %39, align 1
   %41 = sext i8 %40 to i32
   %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %74
+  br i1 %42, label %43, label %76
 
 43:                                               ; preds = %37
-  %44 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 44), align 4
-  %45 = and i32 %44, 1
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %53
+  %44 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 44
+  %45 = load i32, ptr %44, align 4
+  %46 = and i32 %45, 1
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %54
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr i8, ptr %48, i64 0
-  %50 = load i8, ptr %49, align 1
-  %51 = sext i8 %50 to i32
-  %52 = icmp eq i32 %51, 32
-  br i1 %52, label %65, label %53
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %3, align 8
+  %50 = getelementptr i8, ptr %49, i64 0
+  %51 = load i8, ptr %50, align 1
+  %52 = sext i8 %51 to i32
+  %53 = icmp eq i32 %52, 32
+  br i1 %53, label %67, label %54
 
-53:                                               ; preds = %47, %43
-  %54 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 44), align 4
-  %55 = and i32 %54, 2
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %66
+54:                                               ; preds = %48, %43
+  %55 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 44
+  %56 = load i32, ptr %55, align 4
+  %57 = and i32 %56, 2
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %68
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr @pg_send_history.prev_hist, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %66
+59:                                               ; preds = %54
+  %60 = load ptr, ptr @pg_send_history.prev_hist, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %68
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %3, align 8
-  %62 = load ptr, ptr @pg_send_history.prev_hist, align 8
-  %63 = call i32 @strcmp(ptr noundef %61, ptr noundef %62) #5
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %66
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %3, align 8
+  %64 = load ptr, ptr @pg_send_history.prev_hist, align 8
+  %65 = call i32 @strcmp(ptr noundef %63, ptr noundef %64) #5
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %68
 
-65:                                               ; preds = %60, %47
-  br label %73
+67:                                               ; preds = %62, %48
+  br label %75
 
-66:                                               ; preds = %60, %57, %53
-  %67 = load ptr, ptr @pg_send_history.prev_hist, align 8
-  call void @free(ptr noundef %67) #4
-  %68 = load ptr, ptr %3, align 8
-  %69 = call ptr @pg_strdup(ptr noundef %68)
-  store ptr %69, ptr @pg_send_history.prev_hist, align 8
+68:                                               ; preds = %62, %59, %54
+  %69 = load ptr, ptr @pg_send_history.prev_hist, align 8
+  call void @free(ptr noundef %69) #4
   %70 = load ptr, ptr %3, align 8
-  call void @add_history(ptr noundef %70)
-  %71 = load i32, ptr @history_lines_added, align 4
-  %72 = add i32 %71, 1
-  store i32 %72, ptr @history_lines_added, align 4
-  br label %73
+  %71 = call ptr @pg_strdup(ptr noundef %70)
+  store ptr %71, ptr @pg_send_history.prev_hist, align 8
+  %72 = load ptr, ptr %3, align 8
+  call void @add_history(ptr noundef %72)
+  %73 = load i32, ptr @history_lines_added, align 4
+  %74 = add i32 %73, 1
+  store i32 %74, ptr @history_lines_added, align 4
+  br label %75
 
-73:                                               ; preds = %66, %65
-  br label %74
+75:                                               ; preds = %68, %67
+  br label %76
 
-74:                                               ; preds = %73, %37, %29
-  %75 = load ptr, ptr %2, align 8
-  call void @resetPQExpBuffer(ptr noundef %75)
+76:                                               ; preds = %75, %37, %29
+  %77 = load ptr, ptr %2, align 8
+  call void @resetPQExpBuffer(ptr noundef %77)
   ret void
 }
 
@@ -423,7 +425,7 @@ define dso_local void @initializeInput(i32 noundef %0) #0 {
   %6 = load i32, ptr %2, align 4
   %7 = and i32 %6, 1
   %8 = icmp ne i32 %7, 0
-  br i1 %8, label %9, label %47
+  br i1 %8, label %9, label %48
 
 9:                                                ; preds = %1
   store i8 1, ptr @useReadline, align 1
@@ -433,76 +435,77 @@ define dso_local void @initializeInput(i32 noundef %0) #0 {
   store i8 1, ptr @useHistory, align 1
   call void @using_history()
   store i32 0, ptr @history_lines_added, align 4
-  %12 = load ptr, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 28), align 8
-  %13 = call ptr @GetVariable(ptr noundef %12, ptr noundef @.str.4)
-  store ptr %13, ptr %3, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %27
+  %12 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 28
+  %13 = load ptr, ptr %12, align 8
+  %14 = call ptr @GetVariable(ptr noundef %13, ptr noundef @.str.4)
+  store ptr %14, ptr %3, align 8
+  %15 = load ptr, ptr %3, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %28
 
-16:                                               ; preds = %9
-  %17 = call ptr @getenv(ptr noundef @.str.5) #4
-  store ptr %17, ptr %5, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %26
+17:                                               ; preds = %9
+  %18 = call ptr @getenv(ptr noundef @.str.5) #4
+  store ptr %18, ptr %5, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %27
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %5, align 8
-  %22 = call i64 @strlen(ptr noundef %21) #5
-  %23 = icmp ugt i64 %22, 0
-  br i1 %23, label %24, label %26
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8
+  %23 = call i64 @strlen(ptr noundef %22) #5
+  %24 = icmp ugt i64 %23, 0
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %5, align 8
-  store ptr %25, ptr %3, align 8
-  br label %26
-
-26:                                               ; preds = %24, %20, %16
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %5, align 8
+  store ptr %26, ptr %3, align 8
   br label %27
 
-27:                                               ; preds = %26, %9
-  %28 = load ptr, ptr %3, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %37
+27:                                               ; preds = %25, %21, %17
+  br label %28
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %32 = call zeroext i1 @get_home_path(ptr noundef %31)
-  br i1 %32, label %33, label %36
+28:                                               ; preds = %27, %9
+  %29 = load ptr, ptr %3, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %38
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %35 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.6, ptr noundef %34, ptr noundef @.str.7)
-  store ptr %35, ptr @psql_history, align 8
-  br label %36
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %33 = call zeroext i1 @get_home_path(ptr noundef %32)
+  br i1 %33, label %34, label %37
 
-36:                                               ; preds = %33, %30
-  br label %40
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %36 = call ptr (ptr, ...) @psprintf(ptr noundef @.str.6, ptr noundef %35, ptr noundef @.str.7)
+  store ptr %36, ptr @psql_history, align 8
+  br label %37
 
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %3, align 8
-  %39 = call ptr @pg_strdup(ptr noundef %38)
-  store ptr %39, ptr @psql_history, align 8
+37:                                               ; preds = %34, %31
+  br label %41
+
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %3, align 8
+  %40 = call ptr @pg_strdup(ptr noundef %39)
+  store ptr %40, ptr @psql_history, align 8
   call void @expand_tilde(ptr noundef @psql_history)
-  br label %40
+  br label %41
 
-40:                                               ; preds = %37, %36
-  %41 = load ptr, ptr @psql_history, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %46
+41:                                               ; preds = %38, %37
+  %42 = load ptr, ptr @psql_history, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %47
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr @psql_history, align 8
-  %45 = call i32 @read_history(ptr noundef %44)
+44:                                               ; preds = %41
+  %45 = load ptr, ptr @psql_history, align 8
+  %46 = call i32 @read_history(ptr noundef %45)
   call void @decode_history()
-  br label %46
-
-46:                                               ; preds = %43, %40
   br label %47
 
-47:                                               ; preds = %46, %1
-  %48 = call i32 @atexit(ptr noundef @finishInput) #4
+47:                                               ; preds = %44, %41
+  br label %48
+
+48:                                               ; preds = %47, %1
+  %49 = call i32 @atexit(ptr noundef @finishInput) #4
   ret void
 }
 
@@ -619,23 +622,24 @@ declare i32 @atexit(ptr noundef) #3
 define internal void @finishInput() #0 {
   %1 = load i8, ptr @useHistory, align 1
   %2 = trunc i8 %1 to i1
-  br i1 %2, label %3, label %11
+  br i1 %2, label %3, label %12
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @psql_history, align 8
   %5 = icmp ne ptr %4, null
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %12
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @psql_history, align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 38), align 4
-  %9 = call zeroext i1 @saveHistory(ptr noundef %7, i32 noundef %8)
-  %10 = load ptr, ptr @psql_history, align 8
-  call void @free(ptr noundef %10) #4
+  %8 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 38
+  %9 = load i32, ptr %8, align 4
+  %10 = call zeroext i1 @saveHistory(ptr noundef %7, i32 noundef %9)
+  %11 = load ptr, ptr @psql_history, align 8
+  call void @free(ptr noundef %11) #4
   store ptr null, ptr @psql_history, align 8
-  br label %11
+  br label %12
 
-11:                                               ; preds = %6, %3, %0
+12:                                               ; preds = %6, %3, %0
   ret void
 }
 
@@ -656,111 +660,112 @@ define dso_local zeroext i1 @printHistory(ptr noundef %0, i16 noundef zeroext %1
 
 12:                                               ; preds = %2
   store i1 false, ptr %3, align 1
-  br label %66
+  br label %67
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %4, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %22
+  br i1 %15, label %16, label %23
 
 16:                                               ; preds = %13
   %17 = load i16, ptr %5, align 2
   %18 = zext i16 %17 to i32
   %19 = icmp ne i32 %18, 0
-  %20 = select i1 %19, ptr getelementptr inbounds (%struct._psqlSettings, ptr @pset, i32 0, i32 6), ptr null
-  %21 = call ptr @PageOutput(i32 noundef 2147483647, ptr noundef %20)
-  store ptr %21, ptr %6, align 8
+  %20 = getelementptr inbounds %struct._psqlSettings, ptr @pset, i32 0, i32 6
+  %21 = select i1 %19, ptr %20, ptr null
+  %22 = call ptr @PageOutput(i32 noundef 2147483647, ptr noundef %21)
+  store ptr %22, ptr %6, align 8
   store i8 1, ptr %7, align 1
-  br label %30
-
-22:                                               ; preds = %13
-  %23 = load ptr, ptr %4, align 8
-  %24 = call noalias ptr @fopen(ptr noundef %23, ptr noundef @.str.8)
-  store ptr %24, ptr %6, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %29
-
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %4, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.9, ptr noundef %28)
-  store i1 false, ptr %3, align 1
-  br label %66
-
-29:                                               ; preds = %22
-  store i8 0, ptr %7, align 1
-  br label %30
-
-30:                                               ; preds = %29, %16
   br label %31
 
-31:                                               ; preds = %30
-  %32 = call i32 @history_set_pos(i32 noundef 0)
-  %33 = call ptr @previous_history()
-  %34 = icmp ne ptr %33, null
-  %35 = zext i1 %34 to i8
-  store i8 %35, ptr %9, align 1
-  %36 = call i32 @history_set_pos(i32 noundef 0)
-  %37 = call ptr @current_history()
-  store ptr %37, ptr %8, align 8
-  br label %38
+23:                                               ; preds = %13
+  %24 = load ptr, ptr %4, align 8
+  %25 = call noalias ptr @fopen(ptr noundef %24, ptr noundef @.str.8)
+  store ptr %25, ptr %6, align 8
+  %26 = load ptr, ptr %6, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-38:                                               ; preds = %54, %31
-  %39 = load ptr, ptr %8, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %56
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %4, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef @.str.9, ptr noundef %29)
+  store i1 false, ptr %3, align 1
+  br label %67
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %6, align 8
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct._hist_entry, ptr %43, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %42, ptr noundef @.str.10, ptr noundef %45)
-  br label %47
+30:                                               ; preds = %23
+  store i8 0, ptr %7, align 1
+  br label %31
 
-47:                                               ; preds = %41
-  %48 = load i8, ptr %9, align 1
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %52
+31:                                               ; preds = %30, %16
+  br label %32
 
-50:                                               ; preds = %47
-  %51 = call ptr @previous_history()
-  br label %54
+32:                                               ; preds = %31
+  %33 = call i32 @history_set_pos(i32 noundef 0)
+  %34 = call ptr @previous_history()
+  %35 = icmp ne ptr %34, null
+  %36 = zext i1 %35 to i8
+  store i8 %36, ptr %9, align 1
+  %37 = call i32 @history_set_pos(i32 noundef 0)
+  %38 = call ptr @current_history()
+  store ptr %38, ptr %8, align 8
+  br label %39
 
-52:                                               ; preds = %47
-  %53 = call ptr @next_history()
-  br label %54
+39:                                               ; preds = %55, %32
+  %40 = load ptr, ptr %8, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %57
 
-54:                                               ; preds = %52, %50
-  %55 = phi ptr [ %51, %50 ], [ %53, %52 ]
-  store ptr %55, ptr %8, align 8
-  br label %38, !llvm.loop !9
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %6, align 8
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds %struct._hist_entry, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  %47 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %43, ptr noundef @.str.10, ptr noundef %46)
+  br label %48
 
-56:                                               ; preds = %38
-  br label %57
+48:                                               ; preds = %42
+  %49 = load i8, ptr %9, align 1
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %53
 
-57:                                               ; preds = %56
-  %58 = load i8, ptr %7, align 1
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %60, label %62
+51:                                               ; preds = %48
+  %52 = call ptr @previous_history()
+  br label %55
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %6, align 8
-  call void @ClosePager(ptr noundef %61)
-  br label %65
+53:                                               ; preds = %48
+  %54 = call ptr @next_history()
+  br label %55
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %6, align 8
-  %64 = call i32 @fclose(ptr noundef %63)
-  br label %65
+55:                                               ; preds = %53, %51
+  %56 = phi ptr [ %52, %51 ], [ %54, %53 ]
+  store ptr %56, ptr %8, align 8
+  br label %39, !llvm.loop !9
 
-65:                                               ; preds = %62, %60
-  store i1 true, ptr %3, align 1
+57:                                               ; preds = %39
+  br label %58
+
+58:                                               ; preds = %57
+  %59 = load i8, ptr %7, align 1
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %63
+
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %6, align 8
+  call void @ClosePager(ptr noundef %62)
   br label %66
 
-66:                                               ; preds = %65, %27, %12
-  %67 = load i1, ptr %3, align 1
-  ret i1 %67
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %6, align 8
+  %65 = call i32 @fclose(ptr noundef %64)
+  br label %66
+
+66:                                               ; preds = %63, %61
+  store i1 true, ptr %3, align 1
+  br label %67
+
+67:                                               ; preds = %66, %28, %12
+  %68 = load i1, ptr %3, align 1
+  ret i1 %68
 }
 
 declare ptr @PageOutput(i32 noundef, ptr noundef) #1

@@ -1202,10 +1202,11 @@ define internal void @"_ZN121_$LT$diesel..query_builder..insert_statement..Defau
 ; Function Attrs: nonlazybind uwtable
 define internal { i64, i64 } @"_ZN127_$LT$diesel..query_builder..insert_statement..DefaultValues$u20$as$u20$diesel..insertable..CanInsertInSingleQuery$LT$DB$GT$$GT$14rows_to_insert17he6ac0d7d488fe08aE"(ptr noalias noundef nonnull readonly align 1 %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.caca8be588b922eb4ccacb60ae10df9c.0, align 8, !range !7, !noundef !5
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.caca8be588b922eb4ccacb60ae10df9c.0, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.caca8be588b922eb4ccacb60ae10df9c.0, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10094,9 +10095,10 @@ define internal void @"_ZN92_$LT$diesel..sqlite..query_builder..SqliteQueryBuild
   %4 = getelementptr inbounds { i64, ptr }, ptr %2, i32 0, i32 0
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds { i64, ptr }, ptr %2, i32 0, i32 1
-  store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
-  %6 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %2, i32 0, i32 1
-  store i64 0, ptr %6, align 8
+  %6 = inttoptr i64 1 to ptr
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %2, i32 0, i32 1
+  store i64 0, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr %2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %3, i64 24, i1 false)
@@ -10402,10 +10404,11 @@ define available_externally hidden void @"_ZN122_$LT$diesel..insertable..ColumnI
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden { i64, i64 } @"_ZN123_$LT$diesel..insertable..ColumnInsertValue$LT$T$C$U$GT$$u20$as$u20$diesel..insertable..CanInsertInSingleQuery$LT$DB$GT$$GT$14rows_to_insert17he91cb82947e03c21E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, align 8, !range !7, !noundef !5
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10494,10 +10497,11 @@ define available_externally hidden void @"_ZN296_$LT$diesel..insertable..Default
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden { i64, i64 } @"_ZN130_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$V$GT$$u20$as$u20$diesel..insertable..CanInsertInSingleQuery$LT$DB$GT$$GT$14rows_to_insert17hd21bf49508ef5588E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, align 8, !range !7, !noundef !5
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10700,28 +10704,31 @@ define available_externally hidden void @"_ZN264_$LT$diesel..insertable..Default
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden { i64, i64 } @"_ZN6diesel10type_impls6tuples100_$LT$impl$u20$diesel..insertable..CanInsertInSingleQuery$LT$__DB$GT$$u20$for$u20$$LP$T0$C$T1$RP$$GT$14rows_to_insert17h2eed1f5eaad2833cE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, align 8, !range !7, !noundef !5
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden { i64, i64 } @"_ZN6diesel10type_impls6tuples100_$LT$impl$u20$diesel..insertable..CanInsertInSingleQuery$LT$__DB$GT$$u20$for$u20$$LP$T0$C$T1$RP$$GT$14rows_to_insert17h56415f05d3ceab3cE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, align 8, !range !7, !noundef !5
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden { i64, i64 } @"_ZN6diesel10type_impls6tuples100_$LT$impl$u20$diesel..insertable..CanInsertInSingleQuery$LT$__DB$GT$$u20$for$u20$$LP$T0$C$T1$RP$$GT$14rows_to_insert17h6822535ba245116fE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, align 8, !range !7, !noundef !5
-  %3 = load i64, ptr getelementptr inbounds ({ i64, i64 }, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, i32 0, i32 1), align 8
-  %4 = insertvalue { i64, i64 } poison, i64 %2, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %3, 1
-  ret { i64, i64 } %5
+  %3 = getelementptr inbounds { i64, i64 }, ptr @anon.15b93e9d0898b2011b4c49dad804a8b5.0.llvm.11978665099207668901, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = insertvalue { i64, i64 } poison, i64 %2, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %4, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable

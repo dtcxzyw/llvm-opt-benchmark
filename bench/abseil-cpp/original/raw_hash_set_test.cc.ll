@@ -10793,7 +10793,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Util_NormalizeCapacity_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Util_NormalizeCapacity_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10928,7 +10929,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Util_GrowthAndCapacity_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Util_GrowthAndCapacity_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11043,7 +11045,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Util_probe_seq_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Util_probe_seq_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11158,7 +11161,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118BitMask_Smoke_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118BitMask_Smoke_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11273,7 +11277,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122BitMask_WithShift_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122BitMask_WithShift_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11388,7 +11393,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_128BitMask_LeadingTrailing_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_128BitMask_LeadingTrailing_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11503,7 +11509,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Group_EmptyGroup_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Group_EmptyGroup_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11618,7 +11625,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Group_Match_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Group_Match_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11733,7 +11741,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Group_MaskEmpty_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Group_MaskEmpty_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11848,7 +11857,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Group_MaskFull_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Group_MaskFull_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11963,7 +11973,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Group_MaskEmptyOrDeleted_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Group_MaskEmptyOrDeleted_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12078,7 +12089,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Batch_DropDeletes_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Batch_DropDeletes_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12193,7 +12205,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Group_CountLeadingEmptyOrDeleted_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Group_CountLeadingEmptyOrDeleted_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12308,7 +12321,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_135Table_EmptyFunctorOptimization_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_135Table_EmptyFunctorOptimization_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12423,7 +12437,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Empty_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Empty_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12538,7 +12553,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_LookupEmpty_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_LookupEmpty_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12653,7 +12669,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118Table_Insert1_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118Table_Insert1_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12768,7 +12785,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118Table_Insert2_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118Table_Insert2_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12883,7 +12901,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126Table_InsertCollision_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126Table_InsertCollision_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12998,7 +13017,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_InsertCollisionAndFindAfterDelete_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_InsertCollisionAndFindAfterDelete_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13113,7 +13133,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_InsertWithinCapacity_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_InsertWithinCapacity_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13757,7 +13778,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_LazyEmplace_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_LazyEmplace_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13872,7 +13894,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_ContainsEmpty_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_ContainsEmpty_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13987,7 +14010,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Contains1_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Contains1_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14102,7 +14126,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Contains2_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Contains2_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14217,7 +14242,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Decompose_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Decompose_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14332,7 +14358,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Table_RehashWithNoResize_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Table_RehashWithNoResize_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14447,7 +14474,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_InsertEraseStressTest_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_InsertEraseStressTest_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14562,7 +14590,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126Table_InsertOverloads_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126Table_InsertOverloads_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14677,7 +14706,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_LargeTable_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_LargeTable_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14792,7 +14822,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Table_EnsureNonQuadraticAsInRust_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Table_EnsureNonQuadraticAsInRust_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14907,7 +14938,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Table_ClearBug_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Table_ClearBug_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15022,7 +15054,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Erase_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Erase_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15137,7 +15170,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_138Table_EraseMaintainsValidIterator_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_138Table_EraseMaintainsValidIterator_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15252,7 +15286,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_EraseBeginEnd_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_EraseBeginEnd_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15367,7 +15402,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_165Table_DISABLED_EnsureNonQuadraticTopNXorSeedByProbeSeqLength_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_165Table_DISABLED_EnsureNonQuadraticTopNXorSeedByProbeSeqLength_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15482,7 +15518,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_173Table_DISABLED_EnsureNonQuadraticTopNLinearTransformByProbeSeqLength_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_173Table_DISABLED_EnsureNonQuadraticTopNLinearTransformByProbeSeqLength_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15597,7 +15634,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_EraseCollision_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_EraseCollision_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15712,7 +15750,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Table_EraseInsertProbing_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Table_EraseInsertProbing_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15827,7 +15866,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Clear_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Clear_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15942,7 +15982,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_115Table_Swap_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_115Table_Swap_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16057,7 +16098,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_117Table_Rehash_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_117Table_Rehash_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16172,7 +16214,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_146Table_RehashDoesNotRehashWhenNotNecessary_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_146Table_RehashDoesNotRehashWhenNotNecessary_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16287,7 +16330,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_148Table_RehashZeroDoesNotAllocateOnEmptyTable_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_148Table_RehashZeroDoesNotAllocateOnEmptyTable_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16402,7 +16446,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142Table_RehashZeroDeallocatesEmptyTable_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142Table_RehashZeroDeallocatesEmptyTable_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16517,7 +16562,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_RehashZeroForcesRehash_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_RehashZeroForcesRehash_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16632,7 +16678,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_ConstructFromInitList_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_ConstructFromInitList_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16747,7 +16794,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_CopyConstruct_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_CopyConstruct_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16862,7 +16910,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_CopyConstructWithAlloc_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_CopyConstructWithAlloc_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -16977,7 +17026,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_AllocWithExplicitCtor_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_AllocWithExplicitCtor_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17092,7 +17142,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_MoveConstruct_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_MoveConstruct_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17207,7 +17258,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_MoveConstructWithAlloc_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_MoveConstructWithAlloc_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17322,7 +17374,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_CopyAssign_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_CopyAssign_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17437,7 +17490,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_CopySelfAssign_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_CopySelfAssign_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17552,7 +17606,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_MoveAssign_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_MoveAssign_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17667,7 +17722,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_MoveSelfAssign_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_MoveSelfAssign_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17782,7 +17838,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Table_Equality_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Table_Equality_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17897,7 +17954,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Equality2_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Equality2_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18012,7 +18070,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Equality3_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Equality3_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18127,7 +18186,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_NumDeletedRegression_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_NumDeletedRegression_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18242,7 +18302,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_136Table_FindFullDeletedRegression_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_136Table_FindFullDeletedRegression_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18357,7 +18418,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_ReplacingDeletedSlotDoesNotRehash_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_ReplacingDeletedSlotDoesNotRehash_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18472,7 +18534,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_NoThrowMoveConstruct_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_NoThrowMoveConstruct_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18587,7 +18650,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_128Table_NoThrowMoveAssign_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_128Table_NoThrowMoveAssign_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18702,7 +18766,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Table_NoThrowSwappable_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Table_NoThrowSwappable_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18817,7 +18882,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_130Table_HeterogeneousLookup_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_130Table_HeterogeneousLookup_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18932,7 +18998,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_139Table_HeterogeneousLookupOverloads_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_139Table_HeterogeneousLookupOverloads_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19047,7 +19114,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_136Iterator_IsDefaultConstructible_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_136Iterator_IsDefaultConstructible_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19162,7 +19230,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_141ConstIterator_IsDefaultConstructible_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_141ConstIterator_IsDefaultConstructible_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19277,7 +19346,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Iterator_ConvertsToConstIterator_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Iterator_ConvertsToConstIterator_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19392,7 +19462,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Iterator_Iterates_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Iterator_Iterates_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19507,7 +19578,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Merge_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Merge_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19622,7 +19694,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19737,7 +19810,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Nodes_EmptyNodeType_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Nodes_EmptyNodeType_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19852,7 +19926,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Nodes_ExtractInsert_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Nodes_ExtractInsert_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -19967,7 +20042,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Nodes_HintInsert_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Nodes_HintInsert_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20082,7 +20158,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142Table_IterationOrderChangesByInstance_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142Table_IterationOrderChangesByInstance_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20197,7 +20274,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_140Table_IterationOrderChangesOnRehash_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_140Table_IterationOrderChangesOnRehash_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20312,7 +20390,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Table_UnstablePointers_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Table_UnstablePointers_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20427,7 +20506,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142TableDeathTest_InvalidIteratorAsserts_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142TableDeathTest_InvalidIteratorAsserts_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20542,7 +20622,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_158TableDeathTest_IteratorInvalidAssertsEqualityOperator_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_158TableDeathTest_IteratorInvalidAssertsEqualityOperator_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20657,7 +20738,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21191,7 +21273,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_145Iterator_InvalidUseCrashesWithSanitizers_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_145Iterator_InvalidUseCrashesWithSanitizers_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21306,7 +21389,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_156Iterator_InvalidUseWithReserveCrashesWithSanitizers_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_156Iterator_InvalidUseWithReserveCrashesWithSanitizers_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21421,7 +21505,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_153Iterator_InvalidUseWithMoveCrashesWithSanitizers_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_153Iterator_InvalidUseWithMoveCrashesWithSanitizers_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21536,7 +21621,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151Table_ReservedGrowthUpdatesWhenTableDoesntGrow_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151Table_ReservedGrowthUpdatesWhenTableDoesntGrow_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21651,7 +21737,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_EraseBeginEndResetsReservedGrowth_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_EraseBeginEndResetsReservedGrowth_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21766,7 +21853,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_138Table_GenerationInfoResetsOnClear_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_138Table_GenerationInfoResetsOnClear_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21881,7 +21969,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151Table_InvalidReferenceUseCrashesWithSanitizers_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151Table_InvalidReferenceUseCrashesWithSanitizers_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21996,7 +22085,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_146Iterator_InvalidComparisonDifferentTables_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_146Iterator_InvalidComparisonDifferentTables_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22111,7 +22201,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_AllocatorPropagation_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_AllocatorPropagation_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22226,7 +22317,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_CountedHash_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_CountedHash_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22238,7 +22330,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -22324,7 +22417,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_127Util_NormalizeCapacity_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_127Util_NormalizeCapacity_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24259,7 +24353,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_127Util_GrowthAndCapacity_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_127Util_GrowthAndCapacity_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26230,10 +26325,11 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ss_ = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %this1, i32 0, i32 1
-  %0 = icmp eq ptr %ss_, null
-  br i1 %0, label %cast.end, label %cast.notnull
+  %1 = icmp eq ptr %ss_, null
+  br i1 %1, label %cast.end, label %cast.notnull
 
 cast.notnull:                                     ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %ss_, i64 16
@@ -26242,7 +26338,8 @@ cast.notnull:                                     ; preds = %entry
 cast.end:                                         ; preds = %cast.notnull, %entry
   %cast.result = phi ptr [ %add.ptr, %cast.notnull ], [ null, %entry ]
   call void @_ZN7testing19MatchResultListenerC2EPSo(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cast.result)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %ss_2 = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_2)
           to label %invoke.cont unwind label %lpad
@@ -26251,12 +26348,12 @@ invoke.cont:                                      ; preds = %cast.end
   ret void
 
 lpad:                                             ; preds = %cast.end
-  %1 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN7testing19MatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -26477,7 +26574,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ss_ = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_) #3
   call void @_ZN7testing19MatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -26540,7 +26638,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKmEC2IRKNS0_9GeMatcherImEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -26555,25 +26654,26 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 8 %buffer_, i8 0, i64 8, i1 false)
-  %0 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN7testing8internal11MatcherBaseIRKmE4InitIRKNS0_9GeMatcherImEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN7testing8internal11MatcherBaseIRKmE4InitIRKNS0_9GeMatcherImEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -26662,7 +26762,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing25MatcherDescriberInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing25MatcherDescriberInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26696,7 +26797,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKmE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -26705,10 +26807,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -27274,7 +27376,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing19MatchResultListenerC2EPSo(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27356,10 +27459,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %os, ptr %os.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing19MatchResultListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7testing19MatchResultListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.testing::MatchResultListener", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %os.addr, align 8
-  store ptr %0, ptr %stream_, align 8
+  %1 = load ptr, ptr %os.addr, align 8
+  store ptr %1, ptr %stream_, align 8
   ret void
 }
 
@@ -28075,7 +28179,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKmEC2IRKNS0_9EqMatcherImEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28090,25 +28195,26 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 8 %buffer_, i8 0, i64 8, i1 false)
-  %0 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN7testing8internal11MatcherBaseIRKmE4InitIRKNS0_9EqMatcherImEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN7testing8internal11MatcherBaseIRKmE4InitIRKNS0_9EqMatcherImEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -28559,7 +28665,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKmEC2IRKNS0_9LtMatcherImEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -28574,25 +28681,26 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 8 %buffer_, i8 0, i64 8, i1 false)
-  %0 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN7testing8internal11MatcherBaseIRKmE4InitIRKNS0_9LtMatcherImEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN7testing8internal11MatcherBaseIRKmE4InitIRKNS0_9LtMatcherImEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -29532,7 +29640,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_119Util_probe_seq_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_119Util_probe_seq_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -32005,7 +32114,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing16MatcherInterfaceIRKSt6vectorImSaImEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKSt6vectorImSaImEEEE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKSt6vectorImSaImEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::ElementsAreMatcherImpl", ptr %this2, i32 0, i32 1
   call void @_ZNSt6vectorIN7testing7MatcherIRKmEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
   br label %while.cond
@@ -32032,21 +32142,21 @@ invoke.cont9:                                     ; preds = %invoke.cont
   br label %while.cond, !llvm.loop !11
 
 lpad:                                             ; preds = %while.body
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
@@ -32076,7 +32186,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEC2IS6_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt6vectorImSaImEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt6vectorImSaImEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -32678,7 +32789,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKmEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -32693,35 +32805,36 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %vtable_2, align 8
-  store ptr %1, ptr %vtable_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %vtable_2, align 8
+  store ptr %2, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %other.addr, align 8
+  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
   %call = call noundef zeroext i1 @_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %buffer_4 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %buffer_4, align 8
-  invoke void @_ZN7testing8internal17SharedPayloadBase3RefEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %4 = load ptr, ptr %buffer_4, align 8
+  invoke void @_ZN7testing8internal17SharedPayloadBase3RefEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -33133,10 +33246,11 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKmEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %value.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %call = invoke i64 @_ZN7testing2EqImEENS_8internal9EqMatcherIT_EES3_(i64 noundef %1)
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  %2 = load i64, ptr %1, align 8
+  %call = invoke i64 @_ZN7testing2EqImEENS_8internal9EqMatcherIT_EES3_(i64 noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -33155,21 +33269,21 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont4
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
@@ -33192,7 +33306,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 2
@@ -33210,7 +33325,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKmEC2INS0_9EqMatcherImEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -33238,25 +33354,26 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 8 %buffer_, i8 0, i64 8, i1 false)
-  %0 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN7testing8internal11MatcherBaseIRKmE4InitINS0_9EqMatcherImEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN7testing8internal11MatcherBaseIRKmE4InitINS0_9EqMatcherImEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -33659,7 +33776,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKmEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKmEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -33672,18 +33790,19 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %vtable_2, align 8
-  store ptr %1, ptr %vtable_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %vtable_2, align 8
+  store ptr %2, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %2, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
   %3 = load ptr, ptr %other.addr, align 8
-  %vtable_4 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %3, i32 0, i32 1
+  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %3, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
+  %4 = load ptr, ptr %other.addr, align 8
+  %vtable_4 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %4, i32 0, i32 1
   store ptr null, ptr %vtable_4, align 8
   ret void
 }
@@ -34579,7 +34698,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKSt6vectorImSaImEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKSt6vectorImSaImEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -34639,7 +34759,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKSt6vectorImSaImEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKSt6vectorImSaImEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::ElementsAreMatcherImpl", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7testing7MatcherIRKmEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
   call void @_ZN7testing16MatcherInterfaceIRKSt6vectorImSaImEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -36541,7 +36662,8 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.167", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.167", ptr %this1, i32 0, i32 2
@@ -36553,12 +36675,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -36661,7 +36783,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -36670,10 +36793,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -37936,7 +38059,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_118BitMask_Smoke_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_118BitMask_Smoke_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -40446,7 +40570,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::ElementsAreMatcherImpl.232", ptr %this2, i32 0, i32 1
   call void @_ZNSt6vectorIN7testing7MatcherIRKiEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
   br label %while.cond
@@ -40473,21 +40598,21 @@ invoke.cont9:                                     ; preds = %invoke.cont
   br label %while.cond, !llvm.loop !21
 
 lpad:                                             ; preds = %while.body
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
@@ -40517,7 +40642,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEC2IS7_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -41115,7 +41241,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKiEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -41130,15 +41257,16 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %vtable_2, align 8
-  store ptr %1, ptr %vtable_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %vtable_2, align 8
+  store ptr %2, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %other.addr, align 8
+  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
   %call = invoke noundef zeroext i1 @_ZNK7testing8internal11MatcherBaseIRKiE8IsSharedEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %lpad
@@ -41148,17 +41276,17 @@ invoke.cont:                                      ; preds = %entry
 
 if.then:                                          ; preds = %invoke.cont
   %buffer_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %buffer_4, align 8
-  call void @_ZN7testing8internal17SharedPayloadBase3RefEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %4 = load ptr, ptr %buffer_4, align 8
+  call void @_ZN7testing8internal17SharedPayloadBase3RefEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -41338,7 +41466,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKiE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -41347,10 +41476,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -41543,7 +41672,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -41627,7 +41757,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::ElementsAreMatcherImpl.232", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7testing7MatcherIRKiEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
   call void @_ZN7testing16MatcherInterfaceIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -42577,7 +42708,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKiEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -42590,18 +42722,19 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %vtable_2, align 8
-  store ptr %1, ptr %vtable_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %vtable_2, align 8
+  store ptr %2, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %2, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
   %3 = load ptr, ptr %other.addr, align 8
-  %vtable_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %3, i32 0, i32 1
+  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %3, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
+  %4 = load ptr, ptr %other.addr, align 8
+  %vtable_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %4, i32 0, i32 1
   store ptr null, ptr %vtable_4, align 8
   ret void
 }
@@ -43108,7 +43241,8 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.222", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.222", ptr %this1, i32 0, i32 2
@@ -43120,12 +43254,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -43228,7 +43362,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal7BitMaskIhLi8ELi0EEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -43237,10 +43372,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -44888,10 +45023,11 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %value.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = invoke i32 @_ZN7testing2EqIiEENS_8internal9EqMatcherIT_EES3_(i32 noundef %1)
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  %2 = load i32, ptr %1, align 4
+  %call = invoke i32 @_ZN7testing2EqIiEENS_8internal9EqMatcherIT_EES3_(i32 noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -44910,21 +45046,21 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont4
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
@@ -44947,7 +45083,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %this1, i32 0, i32 2
@@ -44978,7 +45115,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKiEC2INS0_9EqMatcherIiEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKiEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -45034,25 +45172,26 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.236", ptr %this1, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 8 %buffer_, i8 0, i64 8, i1 false)
-  %0 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN7testing8internal11MatcherBaseIRKiE4InitINS0_9EqMatcherIiEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN7testing8internal11MatcherBaseIRKiE4InitINS0_9EqMatcherIiEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -46737,7 +46876,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122BitMask_WithShift_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122BitMask_WithShift_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -47530,7 +47670,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_128BitMask_LeadingTrailing_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_128BitMask_LeadingTrailing_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -48728,7 +48869,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_121Group_EmptyGroup_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_121Group_EmptyGroup_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -48892,7 +49034,8 @@ eh.resume:                                        ; preds = %ehcleanup19
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN4absl18container_internal10EmptyGroupEv() #7 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -49130,7 +49273,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_116Group_Match_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_116Group_Match_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -50736,7 +50880,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::ElementsAreMatcherImpl.294", ptr %this2, i32 0, i32 1
   call void @_ZNSt6vectorIN7testing7MatcherIRKiEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
   br label %while.cond
@@ -50763,21 +50908,21 @@ invoke.cont9:                                     ; preds = %invoke.cont
   br label %while.cond, !llvm.loop !30
 
 lpad:                                             ; preds = %while.body
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
@@ -50807,7 +50952,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEC2IS7_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -50818,7 +50964,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -50828,7 +50975,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::ElementsAreMatcherImpl.294", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7testing7MatcherIRKiEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
   call void @_ZN7testing16MatcherInterfaceIRKN4absl18container_internal7BitMaskItLi16ELi0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -51693,7 +51841,8 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.291", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.291", ptr %this1, i32 0, i32 2
@@ -51705,12 +51854,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -51813,7 +51962,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal7BitMaskItLi16ELi0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal7BitMaskItLi16ELi0EEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -51822,10 +51972,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -54053,7 +54203,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120Group_MaskEmpty_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120Group_MaskEmpty_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -54991,10 +55142,11 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKjEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %value.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = invoke i32 @_ZN7testing2EqIjEENS_8internal9EqMatcherIT_EES3_(i32 noundef %1)
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  %2 = load i32, ptr %1, align 4
+  %call = invoke i32 @_ZN7testing2EqIjEENS_8internal9EqMatcherIT_EES3_(i32 noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -55013,21 +55165,21 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont4
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
@@ -55050,7 +55202,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.324", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.324", ptr %this1, i32 0, i32 2
@@ -55081,7 +55234,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKjEC2INS0_9EqMatcherIjEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKjEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -55172,7 +55326,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKjE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -55181,10 +55336,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -55238,25 +55393,26 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.324", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.324", ptr %this1, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 8 %buffer_, i8 0, i64 8, i1 false)
-  %0 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN7testing8internal11MatcherBaseIRKjE4InitINS0_9EqMatcherIjEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN7testing8internal11MatcherBaseIRKjE4InitINS0_9EqMatcherIjEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -55920,7 +56076,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_119Group_MaskFull_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_119Group_MaskFull_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -57830,7 +57987,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_129Group_MaskEmptyOrDeleted_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_129Group_MaskEmptyOrDeleted_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -58277,7 +58435,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122Batch_DropDeletes_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122Batch_DropDeletes_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -60249,7 +60408,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_137Group_CountLeadingEmptyOrDeleted_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_137Group_CountLeadingEmptyOrDeleted_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -61334,7 +61494,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_135Table_EmptyFunctorOptimization_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_135Table_EmptyFunctorOptimization_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -61586,7 +61747,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_116Table_Empty_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_116Table_Empty_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -62864,7 +63026,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122Table_LookupEmpty_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122Table_LookupEmpty_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -63605,20 +63768,21 @@ entry:
   %value.addr = alloca i64, align 8
   store i64 %value, ptr %value.addr, align 8
   %0 = load i64, ptr %value.addr, align 8
-  store i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), ptr %state.addr.i, align 8
+  %1 = ptrtoint ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64
+  store i64 %1, ptr %state.addr.i, align 8
   store i64 %0, ptr %v.addr.i, align 8
-  %1 = load i64, ptr %state.addr.i, align 8
-  %2 = load i64, ptr %v.addr.i, align 8
-  %add.i = add i64 %1, %2
+  %2 = load i64, ptr %state.addr.i, align 8
+  %3 = load i64, ptr %v.addr.i, align 8
+  %add.i = add i64 %2, %3
   %conv.i = zext i64 %add.i to i128
   store i128 %conv.i, ptr %m.i, align 16
-  %3 = load i128, ptr %m.i, align 16
-  %mul.i = mul i128 %3, 11376068507788127593
-  store i128 %mul.i, ptr %m.i, align 16
   %4 = load i128, ptr %m.i, align 16
+  %mul.i = mul i128 %4, 11376068507788127593
+  store i128 %mul.i, ptr %m.i, align 16
   %5 = load i128, ptr %m.i, align 16
-  %shr.i = lshr i128 %5, 64
-  %xor.i = xor i128 %4, %shr.i
+  %6 = load i128, ptr %m.i, align 16
+  %shr.i = lshr i128 %6, 64
+  %xor.i = xor i128 %5, %shr.i
   %conv1.i = trunc i128 %xor.i to i64
   ret i64 %conv1.i
 }
@@ -63744,7 +63908,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_118Table_Insert1_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_118Table_Insert1_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -67048,10 +67213,11 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKlEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %value.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %call = invoke i64 @_ZN7testing2EqIlEENS_8internal9EqMatcherIT_EES3_(i64 noundef %1)
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  %2 = load i64, ptr %1, align 8
+  %call = invoke i64 @_ZN7testing2EqIlEENS_8internal9EqMatcherIT_EES3_(i64 noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -67070,21 +67236,21 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont4
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKlED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
@@ -67107,7 +67273,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %this1, i32 0, i32 2
@@ -67138,7 +67305,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKlEC2INS0_9EqMatcherIlEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKlEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -67229,7 +67397,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKlE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -67238,10 +67407,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -67295,25 +67464,26 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %this1, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 8 %buffer_, i8 0, i64 8, i1 false)
-  %0 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN7testing8internal11MatcherBaseIRKlE4InitINS0_9EqMatcherIlEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN7testing8internal11MatcherBaseIRKlE4InitINS0_9EqMatcherIlEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -67991,7 +68161,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_118Table_Insert2_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_118Table_Insert2_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -69082,7 +69253,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_126Table_InsertCollision_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_126Table_InsertCollision_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -72373,7 +72545,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_144Table_InsertCollisionAndFindAfterDelete_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_144Table_InsertCollisionAndFindAfterDelete_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -74244,7 +74417,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_131Table_InsertWithinCapacity_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_131Table_InsertWithinCapacity_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -77957,7 +78131,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122Table_LazyEmplace_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122Table_LazyEmplace_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -79480,7 +79655,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -82104,7 +82280,8 @@ entry:
   store ptr %second_matcher, ptr %second_matcher.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing16MatcherInterfaceIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal15PairMatcherImplIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal15PairMatcherImplIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %first_matcher_ = getelementptr inbounds %"class.testing::internal::PairMatcherImpl", ptr %this1, i32 0, i32 1
   invoke void @_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENS_7MatcherIT_EERKT0_(ptr sret(%"class.testing::Matcher.454") align 8 %first_matcher_, ptr noundef nonnull align 8 dereferenceable(8) %first_matcher.addr)
           to label %invoke.cont unwind label %lpad
@@ -82118,21 +82295,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %first_matcher_) #3
   br label %ehcleanup
 
@@ -82158,7 +82335,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEC2ISB_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -82169,7 +82347,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -82201,7 +82380,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal15PairMatcherImplIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal15PairMatcherImplIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %second_matcher_ = getelementptr inbounds %"class.testing::internal::PairMatcherImpl", ptr %this1, i32 0, i32 2
   call void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %second_matcher_) #3
   %first_matcher_ = getelementptr inbounds %"class.testing::internal::PairMatcherImpl", ptr %this1, i32 0, i32 1
@@ -82581,7 +82761,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -82590,10 +82771,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -83107,7 +83288,8 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %this1, i32 0, i32 2
@@ -83119,12 +83301,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -83227,7 +83409,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -83236,10 +83419,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -84461,7 +84644,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_124Table_ContainsEmpty_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_124Table_ContainsEmpty_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -84862,7 +85046,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120Table_Contains1_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120Table_Contains1_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -85583,7 +85768,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120Table_Contains2_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120Table_Contains2_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -86139,7 +86325,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120Table_Decompose_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120Table_Decompose_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -110468,7 +110655,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_129Table_RehashWithNoResize_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_129Table_RehashWithNoResize_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -114839,7 +115027,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_132Table_InsertEraseStressTest_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_132Table_InsertEraseStressTest_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -116837,7 +117026,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_126Table_InsertOverloads_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_126Table_InsertOverloads_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -119493,7 +119683,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this2, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl", ptr %this2, i32 0, i32 2
   call void @_ZNSt6vectorIN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEESaISC_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
   br label %for.cond
@@ -119521,42 +119712,42 @@ for.inc:                                          ; preds = %invoke.cont8
   br label %for.cond, !llvm.loop !116
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup29
 
 lpad5:                                            ; preds = %invoke.cont22, %invoke.cont19, %for.body17, %for.body
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont6
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.cond
   %matchers_10 = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl", ptr %this2, i32 0, i32 2
   store ptr %matchers_10, ptr %__range3, align 8
-  %11 = load ptr, ptr %__range3, align 8
-  %call11 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEESaISC_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = load ptr, ptr %__range3, align 8
+  %call11 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEESaISC_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
   %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.571", ptr %__begin0, i32 0, i32 0
   store ptr %call11, ptr %coerce.dive12, align 8
-  %12 = load ptr, ptr %__range3, align 8
-  %call13 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEESaISC_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = load ptr, ptr %__range3, align 8
+  %call13 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEESaISC_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
   %coerce.dive14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.571", ptr %__end0, i32 0, i32 0
   store ptr %call13, ptr %coerce.dive14, align 8
   br label %for.cond15
@@ -119573,8 +119764,8 @@ for.body17:                                       ; preds = %for.cond15
           to label %invoke.cont19 unwind label %lpad5
 
 invoke.cont19:                                    ; preds = %for.body17
-  %13 = load ptr, ptr %m, align 8
-  %call23 = invoke noundef ptr @_ZNK7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EE12GetDescriberEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = load ptr, ptr %m, align 8
+  %call23 = invoke noundef ptr @_ZNK7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EE12GetDescriberEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %invoke.cont22 unwind label %lpad5
 
 invoke.cont22:                                    ; preds = %invoke.cont19
@@ -119594,8 +119785,8 @@ for.end27:                                        ; preds = %for.cond15
 
 ehcleanup:                                        ; preds = %lpad7, %lpad5
   call void @_ZNSt6vectorIN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
-  %14 = getelementptr inbounds i8, ptr %this2, i64 8
-  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  %15 = getelementptr inbounds i8, ptr %this2, i64 8
+  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %ehcleanup, %lpad
@@ -119620,7 +119811,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEC2IS7_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -120218,7 +120410,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEC2ERKSC_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -120231,23 +120424,24 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %vtable_2, align 8
-  store ptr %1, ptr %vtable_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %vtable_2, align 8
+  store ptr %2, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %other.addr, align 8
+  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
   %call = call noundef zeroext i1 @_ZNK7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EE8IsSharedEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %buffer_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %buffer_4, align 8
-  call void @_ZN7testing8internal17SharedPayloadBase3RefEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %4 = load ptr, ptr %buffer_4, align 8
+  call void @_ZN7testing8internal17SharedPayloadBase3RefEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -120868,7 +121062,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEC2EOSC_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -120881,18 +121076,19 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %vtable_2, align 8
-  store ptr %1, ptr %vtable_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %vtable_2, align 8
+  store ptr %2, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %2, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
   %3 = load ptr, ptr %other.addr, align 8
-  %vtable_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %3, i32 0, i32 1
+  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %3, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
+  %4 = load ptr, ptr %other.addr, align 8
+  %vtable_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.450", ptr %4, i32 0, i32 1
   store ptr null, ptr %vtable_4, align 8
   ret void
 }
@@ -121258,7 +121454,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -121390,11 +121587,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   call void @_ZN7testing16MatcherInterfaceIRKN4absl18container_internal12_GLOBAL__N_111StringTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 }
@@ -125097,7 +125295,8 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.555", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.555", ptr %this1, i32 0, i32 2
@@ -125109,12 +125308,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -125217,7 +125416,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -125226,10 +125426,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -126424,7 +126624,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_121Table_LargeTable_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_121Table_LargeTable_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -127211,7 +127412,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_137Table_EnsureNonQuadraticAsInRust_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_137Table_EnsureNonQuadraticAsInRust_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -127981,7 +128183,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_119Table_ClearBug_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_119Table_ClearBug_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -128609,7 +128812,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_116Table_Erase_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_116Table_Erase_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -129232,7 +129436,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_138Table_EraseMaintainsValidIterator_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_138Table_EraseMaintainsValidIterator_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -129909,7 +130114,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_124Table_EraseBeginEnd_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_124Table_EraseBeginEnd_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -130675,7 +130881,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_165Table_DISABLED_EnsureNonQuadraticTopNXorSeedByProbeSeqLength_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_165Table_DISABLED_EnsureNonQuadraticTopNXorSeedByProbeSeqLength_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -143583,7 +143790,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_173Table_DISABLED_EnsureNonQuadraticTopNLinearTransformByProbeSeqLength_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_173Table_DISABLED_EnsureNonQuadraticTopNLinearTransformByProbeSeqLength_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -145101,7 +145309,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_125Table_EraseCollision_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_125Table_EraseCollision_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -146895,7 +147104,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_129Table_EraseInsertProbing_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_129Table_EraseInsertProbing_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -148415,7 +148625,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this2, i64 8
   %1 = load i32, ptr %matcher_flags.addr, align 4
   call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseC2ENS0_23UnorderedMatcherRequire5FlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this2, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl.669", ptr %this2, i32 0, i32 2
   call void @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
   br label %for.cond
@@ -148443,33 +148654,33 @@ for.inc:                                          ; preds = %invoke.cont6
   br label %for.cond, !llvm.loop !170
 
 lpad:                                             ; preds = %invoke.cont19, %for.body15, %for.body
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKlED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.cond
   %matchers_8 = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl.669", ptr %this2, i32 0, i32 2
   store ptr %matchers_8, ptr %__range3, align 8
-  %8 = load ptr, ptr %__range3, align 8
-  %call9 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = load ptr, ptr %__range3, align 8
+  %call9 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   %coerce.dive10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.671", ptr %__begin0, i32 0, i32 0
   store ptr %call9, ptr %coerce.dive10, align 8
-  %9 = load ptr, ptr %__range3, align 8
-  %call11 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = load ptr, ptr %__range3, align 8
+  %call11 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
   %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.671", ptr %__end0, i32 0, i32 0
   store ptr %call11, ptr %coerce.dive12, align 8
   br label %for.cond13
@@ -148483,8 +148694,8 @@ for.body15:                                       ; preds = %for.cond13
   store ptr %call16, ptr %m, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this2, i64 8
   %call17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8internal35UnorderedElementsAreMatcherImplBase18matcher_describersEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr)
-  %10 = load ptr, ptr %m, align 8
-  %call20 = invoke noundef ptr @_ZNK7testing8internal11MatcherBaseIRKlE12GetDescriberEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %11 = load ptr, ptr %m, align 8
+  %call20 = invoke noundef ptr @_ZNK7testing8internal11MatcherBaseIRKlE12GetDescriberEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %for.body15
@@ -148504,8 +148715,8 @@ for.end24:                                        ; preds = %for.cond13
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
   call void @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
-  %11 = getelementptr inbounds i8, ptr %this2, i64 8
-  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  %12 = getelementptr inbounds i8, ptr %this2, i64 8
+  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
   call void @_ZN7testing16MatcherInterfaceIRKN4absl18container_internal12_GLOBAL__N_18BadTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
   br label %eh.resume
 
@@ -148527,7 +148738,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEC2IS7_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -149125,7 +149337,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKlEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKlEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -149138,23 +149351,24 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %vtable_2, align 8
-  store ptr %1, ptr %vtable_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %vtable_2, align 8
+  store ptr %2, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %other.addr, align 8
+  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
   %call = call noundef zeroext i1 @_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %buffer_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %buffer_4, align 8
-  call void @_ZN7testing8internal17SharedPayloadBase3RefEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %4 = load ptr, ptr %buffer_4, align 8
+  call void @_ZN7testing8internal17SharedPayloadBase3RefEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -149765,7 +149979,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKlEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKlEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -149778,18 +149993,19 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %vtable_2, align 8
-  store ptr %1, ptr %vtable_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %vtable_2, align 8
+  store ptr %2, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %2, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
   %3 = load ptr, ptr %other.addr, align 8
-  %vtable_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %3, i32 0, i32 1
+  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %3, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
+  %4 = load ptr, ptr %other.addr, align 8
+  %vtable_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.380", ptr %4, i32 0, i32 1
   store ptr null, ptr %vtable_4, align 8
   ret void
 }
@@ -150315,7 +150531,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -150397,11 +150614,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl.669", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   call void @_ZN7testing16MatcherInterfaceIRKN4absl18container_internal12_GLOBAL__N_18BadTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 }
@@ -151073,7 +151291,8 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.659", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.659", ptr %this1, i32 0, i32 2
@@ -151085,12 +151304,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -151193,7 +151412,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -151202,10 +151422,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -152400,7 +152620,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_116Table_Clear_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_116Table_Clear_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -153139,7 +153360,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_115Table_Swap_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_115Table_Swap_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -154022,7 +154244,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_117Table_Rehash_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_117Table_Rehash_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -154696,7 +154919,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_146Table_RehashDoesNotRehashWhenNotNecessary_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_146Table_RehashDoesNotRehashWhenNotNecessary_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -155236,7 +155460,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_148Table_RehashZeroDoesNotAllocateOnEmptyTable_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_148Table_RehashZeroDoesNotAllocateOnEmptyTable_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -155438,7 +155663,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_142Table_RehashZeroDeallocatesEmptyTable_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_142Table_RehashZeroDeallocatesEmptyTable_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -155894,7 +156120,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133Table_RehashZeroForcesRehash_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133Table_RehashZeroForcesRehash_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -156302,7 +156529,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_132Table_ConstructFromInitList_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_132Table_ConstructFromInitList_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -156890,7 +157118,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_124Table_CopyConstruct_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_124Table_CopyConstruct_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -158244,7 +158473,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133Table_CopyConstructWithAlloc_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133Table_CopyConstructWithAlloc_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -159797,7 +160027,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_132Table_AllocWithExplicitCtor_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_132Table_AllocWithExplicitCtor_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -160647,7 +160878,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_124Table_MoveConstruct_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_124Table_MoveConstruct_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -161964,7 +162196,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133Table_MoveConstructWithAlloc_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133Table_MoveConstructWithAlloc_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -162663,7 +162896,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_121Table_CopyAssign_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_121Table_CopyAssign_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -163406,7 +163640,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_125Table_CopySelfAssign_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_125Table_CopySelfAssign_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -163807,7 +164042,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_121Table_MoveAssign_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_121Table_MoveAssign_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -164313,7 +164549,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_125Table_MoveSelfAssign_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_125Table_MoveSelfAssign_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -164517,7 +164754,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_119Table_Equality_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_119Table_Equality_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -166686,7 +166924,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120Table_Equality2_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120Table_Equality2_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -167282,7 +167521,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120Table_Equality3_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120Table_Equality3_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -167704,7 +167944,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_131Table_NumDeletedRegression_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_131Table_NumDeletedRegression_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -167858,7 +168099,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_136Table_FindFullDeletedRegression_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_136Table_FindFullDeletedRegression_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -168103,7 +168345,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_144Table_ReplacingDeletedSlotDoesNotRehash_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_144Table_ReplacingDeletedSlotDoesNotRehash_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -168516,7 +168759,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_131Table_NoThrowMoveConstruct_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_131Table_NoThrowMoveConstruct_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -169001,7 +169245,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_128Table_NoThrowMoveAssign_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_128Table_NoThrowMoveAssign_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -169583,7 +169828,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_127Table_NoThrowSwappable_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_127Table_NoThrowSwappable_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -170108,7 +170354,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_130Table_HeterogeneousLookup_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_130Table_HeterogeneousLookup_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -175108,7 +175355,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_139Table_HeterogeneousLookupOverloads_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_139Table_HeterogeneousLookupOverloads_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -176211,7 +176459,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_136Iterator_IsDefaultConstructible_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_136Iterator_IsDefaultConstructible_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -176418,7 +176667,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_141ConstIterator_IsDefaultConstructible_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_141ConstIterator_IsDefaultConstructible_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -176625,7 +176875,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_137Iterator_ConvertsToConstIterator_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_137Iterator_ConvertsToConstIterator_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -176829,7 +177080,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122Iterator_Iterates_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122Iterator_Iterates_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -177885,7 +178137,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this2, i64 8
   %1 = load i32, ptr %matcher_flags.addr, align 4
   call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseC2ENS0_23UnorderedMatcherRequire5FlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this2, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl.751", ptr %this2, i32 0, i32 2
   call void @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
   br label %for.cond
@@ -177913,33 +178166,33 @@ for.inc:                                          ; preds = %invoke.cont6
   br label %for.cond, !llvm.loop !200
 
 lpad:                                             ; preds = %invoke.cont19, %for.body15, %for.body
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKlED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.cond
   %matchers_8 = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl.751", ptr %this2, i32 0, i32 2
   store ptr %matchers_8, ptr %__range3, align 8
-  %8 = load ptr, ptr %__range3, align 8
-  %call9 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = load ptr, ptr %__range3, align 8
+  %call9 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   %coerce.dive10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.671", ptr %__begin0, i32 0, i32 0
   store ptr %call9, ptr %coerce.dive10, align 8
-  %9 = load ptr, ptr %__range3, align 8
-  %call11 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = load ptr, ptr %__range3, align 8
+  %call11 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
   %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.671", ptr %__end0, i32 0, i32 0
   store ptr %call11, ptr %coerce.dive12, align 8
   br label %for.cond13
@@ -177953,8 +178206,8 @@ for.body15:                                       ; preds = %for.cond13
   store ptr %call16, ptr %m, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this2, i64 8
   %call17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8internal35UnorderedElementsAreMatcherImplBase18matcher_describersEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr)
-  %10 = load ptr, ptr %m, align 8
-  %call20 = invoke noundef ptr @_ZNK7testing8internal11MatcherBaseIRKlE12GetDescriberEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %11 = load ptr, ptr %m, align 8
+  %call20 = invoke noundef ptr @_ZNK7testing8internal11MatcherBaseIRKlE12GetDescriberEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %for.body15
@@ -177974,8 +178227,8 @@ for.end24:                                        ; preds = %for.cond13
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
   call void @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
-  %11 = getelementptr inbounds i8, ptr %this2, i64 8
-  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  %12 = getelementptr inbounds i8, ptr %this2, i64 8
+  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
   call void @_ZN7testing16MatcherInterfaceIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
   br label %eh.resume
 
@@ -177997,7 +178250,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEC2IS8_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -178317,7 +178571,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -178327,11 +178582,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl.751", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN7testing7MatcherIRKlEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   call void @_ZN7testing16MatcherInterfaceIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 }
@@ -178783,7 +179039,8 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.748", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.748", ptr %this1, i32 0, i32 2
@@ -178795,12 +179052,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -178903,7 +179160,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -178912,10 +179170,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -180047,7 +180305,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_116Table_Merge_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_116Table_Merge_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -182803,7 +183062,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -186834,7 +187094,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this2, i64 8
   %1 = load i32, ptr %matcher_flags.addr, align 4
   call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseC2ENS0_23UnorderedMatcherRequire5FlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this2, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl.838", ptr %this2, i32 0, i32 2
   call void @_ZNSt6vectorIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
   br label %for.cond
@@ -186862,33 +187123,33 @@ for.inc:                                          ; preds = %invoke.cont6
   br label %for.cond, !llvm.loop !211
 
 lpad:                                             ; preds = %invoke.cont19, %for.body15, %for.body
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.cond
   %matchers_8 = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl.838", ptr %this2, i32 0, i32 2
   store ptr %matchers_8, ptr %__range3, align 8
-  %8 = load ptr, ptr %__range3, align 8
-  %call9 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = load ptr, ptr %__range3, align 8
+  %call9 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   %coerce.dive10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.840", ptr %__begin0, i32 0, i32 0
   store ptr %call9, ptr %coerce.dive10, align 8
-  %9 = load ptr, ptr %__range3, align 8
-  %call11 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = load ptr, ptr %__range3, align 8
+  %call11 = call ptr @_ZNSt6vectorIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
   %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.840", ptr %__end0, i32 0, i32 0
   store ptr %call11, ptr %coerce.dive12, align 8
   br label %for.cond13
@@ -186902,8 +187163,8 @@ for.body15:                                       ; preds = %for.cond13
   store ptr %call16, ptr %m, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this2, i64 8
   %call17 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8internal35UnorderedElementsAreMatcherImplBase18matcher_describersEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr)
-  %10 = load ptr, ptr %m, align 8
-  %call20 = invoke noundef ptr @_ZNK7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueE12GetDescriberEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %11 = load ptr, ptr %m, align 8
+  %call20 = invoke noundef ptr @_ZNK7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueE12GetDescriberEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %for.body15
@@ -186923,8 +187184,8 @@ for.end24:                                        ; preds = %for.cond13
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
   call void @_ZNSt6vectorIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
-  %11 = getelementptr inbounds i8, ptr %this2, i64 8
-  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  %12 = getelementptr inbounds i8, ptr %this2, i64 8
+  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
   call void @_ZN7testing16MatcherInterfaceIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
   br label %eh.resume
 
@@ -186946,7 +187207,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEC2IS8_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -187544,7 +187806,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -187559,15 +187822,16 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %vtable_2, align 8
-  store ptr %1, ptr %vtable_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %vtable_2, align 8
+  store ptr %2, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %other.addr, align 8
+  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
   %call = invoke noundef zeroext i1 @_ZNK7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueE8IsSharedEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %lpad
@@ -187577,17 +187841,17 @@ invoke.cont:                                      ; preds = %entry
 
 if.then:                                          ; preds = %invoke.cont
   %buffer_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %buffer_4, align 8
-  call void @_ZN7testing8internal17SharedPayloadBase3RefEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %4 = load ptr, ptr %buffer_4, align 8
+  call void @_ZN7testing8internal17SharedPayloadBase3RefEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -187767,7 +188031,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -187776,10 +188041,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -188156,9 +188421,10 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %value.addr, align 8
-  invoke void @_ZZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvEN5ValueC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  invoke void @_ZZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvEN5ValueC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -188180,39 +188446,39 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup10
 
 lpad3:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup9
 
 lpad5:                                            ; preds = %invoke.cont4
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad7:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
   br label %ehcleanup
 
@@ -188243,7 +188509,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %this1, i32 0, i32 2
@@ -188272,7 +188539,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEC2INS0_9EqMatcherIS6_EEvEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -188337,25 +188605,26 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %this1, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr align 8 %buffer_, i8 0, i64 8, i1 false)
-  %0 = load ptr, ptr %m.addr, align 8
-  invoke void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueE4InitINS0_9EqMatcherIS6_EEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %m.addr, align 8
+  invoke void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueE4InitINS0_9EqMatcherIS6_EEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -189278,7 +189547,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEC2EOS9_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -189291,18 +189561,19 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %vtable_2, align 8
-  store ptr %1, ptr %vtable_, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %vtable_2 = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %vtable_2, align 8
+  store ptr %2, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %2, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
   %3 = load ptr, ptr %other.addr, align 8
-  %vtable_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %3, i32 0, i32 1
+  %buffer_3 = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %3, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buffer_, ptr align 8 %buffer_3, i64 8, i1 false)
+  %4 = load ptr, ptr %other.addr, align 8
+  %vtable_4 = getelementptr inbounds %"class.testing::internal::MatcherBase.842", ptr %4, i32 0, i32 1
   store ptr null, ptr %vtable_4, align 8
   ret void
 }
@@ -189668,7 +189939,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -189750,11 +190022,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %matchers_ = getelementptr inbounds %"class.testing::internal::UnorderedElementsAreMatcherImpl.838", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchers_) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   call void @_ZN7testing16MatcherInterfaceIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 }
@@ -190699,7 +190972,8 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.828", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.828", ptr %this1, i32 0, i32 2
@@ -190711,12 +190985,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -190819,7 +191093,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -190828,10 +191103,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #28
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #28
   unreachable
 }
 
@@ -194307,7 +194582,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_124Nodes_EmptyNodeType_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_124Nodes_EmptyNodeType_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -195078,7 +195354,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_124Nodes_ExtractInsert_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_124Nodes_ExtractInsert_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -199441,7 +199718,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_121Nodes_HintInsert_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_121Nodes_HintInsert_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -202453,7 +202731,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_142Table_IterationOrderChangesByInstance_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_142Table_IterationOrderChangesByInstance_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -204967,7 +205246,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_140Table_IterationOrderChangesOnRehash_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_140Table_IterationOrderChangesOnRehash_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -205252,7 +205532,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_127Table_UnstablePointers_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_127Table_UnstablePointers_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -205534,7 +205815,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_142TableDeathTest_InvalidIteratorAsserts_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_142TableDeathTest_InvalidIteratorAsserts_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -205793,7 +206075,7 @@ lpad36:                                           ; preds = %invoke.cont41, %if.
 
 catch.dispatch:                                   ; preds = %lpad36
   %sel = load i32, ptr %ehselector.slot, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %35
   br i1 %matches, label %catch53, label %catch
 
@@ -206120,7 +206402,7 @@ lpad131:                                          ; preds = %if.then134, %invoke
 
 catch.dispatch139:                                ; preds = %lpad131
   %sel140 = load i32, ptr %ehselector.slot, align 4
-  %84 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %84 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches141 = icmp eq i32 %sel140, %84
   br i1 %matches141, label %catch152, label %catch142
 
@@ -206470,7 +206752,7 @@ lpad243:                                          ; preds = %if.then246, %invoke
 
 catch.dispatch251:                                ; preds = %lpad243
   %sel252 = load i32, ptr %ehselector.slot, align 4
-  %141 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %141 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches253 = icmp eq i32 %sel252, %141
   br i1 %matches253, label %catch264, label %catch254
 
@@ -206805,9 +207087,6 @@ entry:
   store ptr %0, ptr %test_, align 8
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal9DeathTest14ReturnSentinelD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -207429,10 +207708,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -207445,7 +207725,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -207824,10 +208105,11 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::MatchesRegexMatcher>::MonomorphicImpl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %impl.addr, align 8
-  call void @_ZN7testing8internal19MatchesRegexMatcherC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %impl_, ptr noundef nonnull align 8 dereferenceable(17) %0) #3
+  %1 = load ptr, ptr %impl.addr, align 8
+  call void @_ZN7testing8internal19MatchesRegexMatcherC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %impl_, ptr noundef nonnull align 8 dereferenceable(17) %1) #3
   ret void
 }
 
@@ -207841,7 +208123,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IS9_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -207852,7 +208135,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -207862,7 +208146,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::MatchesRegexMatcher>::MonomorphicImpl", ptr %this1, i32 0, i32 1
   call void @_ZN7testing8internal19MatchesRegexMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %impl_) #3
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -208244,7 +208529,8 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %vtable_ = getelementptr inbounds %"class.testing::internal::MatcherBase.455", ptr %this1, i32 0, i32 1
   store ptr null, ptr %vtable_, align 8
   %buffer_ = getelementptr inbounds %"class.testing::internal::MatcherBase.455", ptr %this1, i32 0, i32 2
@@ -208256,12 +208542,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -209371,7 +209657,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_158TableDeathTest_IteratorInvalidAssertsEqualityOperator_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_158TableDeathTest_IteratorInvalidAssertsEqualityOperator_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -209896,7 +210183,7 @@ lpad96:                                           ; preds = %if.then99, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad96
   %sel = load i32, ptr %ehselector.slot, align 4
-  %69 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %69 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %69
   br i1 %matches, label %catch112, label %catch
 
@@ -210220,7 +210507,7 @@ lpad193:                                          ; preds = %if.then196, %invoke
 
 catch.dispatch201:                                ; preds = %lpad193
   %sel202 = load i32, ptr %ehselector.slot, align 4
-  %118 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %118 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches203 = icmp eq i32 %sel202, %118
   br i1 %matches203, label %catch214, label %catch204
 
@@ -210553,7 +210840,7 @@ lpad300:                                          ; preds = %if.then303, %invoke
 
 catch.dispatch308:                                ; preds = %lpad300
   %sel309 = load i32, ptr %ehselector.slot, align 4
-  %171 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %171 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches310 = icmp eq i32 %sel309, %171
   br i1 %matches310, label %catch321, label %catch311
 
@@ -210921,7 +211208,7 @@ lpad418:                                          ; preds = %if.then421, %invoke
 
 catch.dispatch426:                                ; preds = %lpad418
   %sel427 = load i32, ptr %ehselector.slot, align 4
-  %231 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %231 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches428 = icmp eq i32 %sel427, %231
   br i1 %matches428, label %catch439, label %catch429
 
@@ -211245,7 +211532,7 @@ lpad523:                                          ; preds = %if.then526, %invoke
 
 catch.dispatch531:                                ; preds = %lpad523
   %sel532 = load i32, ptr %ehselector.slot, align 4
-  %280 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %280 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches533 = icmp eq i32 %sel532, %280
   br i1 %matches533, label %catch544, label %catch534
 
@@ -211602,7 +211889,7 @@ lpad631:                                          ; preds = %invoke.cont636, %if
 
 catch.dispatch642:                                ; preds = %lpad631
   %sel643 = load i32, ptr %ehselector.slot, align 4
-  %335 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %335 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches644 = icmp eq i32 %sel643, %335
   br i1 %matches644, label %catch655, label %catch645
 
@@ -212295,7 +212582,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -216837,7 +217125,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_145Iterator_InvalidUseCrashesWithSanitizers_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_145Iterator_InvalidUseCrashesWithSanitizers_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -217068,7 +217357,7 @@ lpad32:                                           ; preds = %if.then35, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad32
   %sel = load i32, ptr %ehselector.slot, align 4
-  %30 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %30
   br i1 %matches, label %catch47, label %catch
 
@@ -217392,7 +217681,7 @@ lpad121:                                          ; preds = %invoke.cont126, %if
 
 catch.dispatch132:                                ; preds = %lpad121
   %sel133 = load i32, ptr %ehselector.slot, align 4
-  %83 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %83 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches134 = icmp eq i32 %sel133, %83
   br i1 %matches134, label %catch145, label %catch135
 
@@ -217696,7 +217985,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_156Iterator_InvalidUseWithReserveCrashesWithSanitizers_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_156Iterator_InvalidUseWithReserveCrashesWithSanitizers_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -217908,7 +218198,7 @@ lpad30:                                           ; preds = %if.then33, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad30
   %sel = load i32, ptr %ehselector.slot, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %25
   br i1 %matches, label %catch45, label %catch
 
@@ -218232,7 +218522,7 @@ lpad119:                                          ; preds = %invoke.cont124, %if
 
 catch.dispatch130:                                ; preds = %lpad119
   %sel131 = load i32, ptr %ehselector.slot, align 4
-  %78 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %78 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches132 = icmp eq i32 %sel131, %78
   br i1 %matches132, label %catch143, label %catch133
 
@@ -218510,7 +218800,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_153Iterator_InvalidUseWithMoveCrashesWithSanitizers_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_153Iterator_InvalidUseWithMoveCrashesWithSanitizers_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -218722,7 +219013,7 @@ lpad30:                                           ; preds = %if.then33, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad30
   %sel = load i32, ptr %ehselector.slot, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %25
   br i1 %matches, label %catch45, label %catch
 
@@ -219046,7 +219337,7 @@ lpad119:                                          ; preds = %invoke.cont124, %if
 
 catch.dispatch130:                                ; preds = %lpad119
   %sel131 = load i32, ptr %ehselector.slot, align 4
-  %78 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %78 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches132 = icmp eq i32 %sel131, %78
   br i1 %matches132, label %catch143, label %catch133
 
@@ -219324,7 +219615,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_151Table_ReservedGrowthUpdatesWhenTableDoesntGrow_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_151Table_ReservedGrowthUpdatesWhenTableDoesntGrow_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -219690,7 +219982,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_144Table_EraseBeginEndResetsReservedGrowth_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_144Table_EraseBeginEndResetsReservedGrowth_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -223741,7 +224034,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_138Table_GenerationInfoResetsOnClear_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_138Table_GenerationInfoResetsOnClear_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -223943,7 +224237,7 @@ lpad30:                                           ; preds = %if.then33, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad30
   %sel = load i32, ptr %ehselector.slot, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %25
   br i1 %matches, label %catch45, label %catch
 
@@ -224220,7 +224514,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_151Table_InvalidReferenceUseCrashesWithSanitizers_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_151Table_InvalidReferenceUseCrashesWithSanitizers_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -224450,7 +224745,7 @@ lpad36:                                           ; preds = %if.then39, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad36
   %sel = load i32, ptr %ehselector.slot, align 4
-  %32 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %32
   br i1 %matches, label %catch51, label %catch
 
@@ -224757,7 +225052,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_146Iterator_InvalidComparisonDifferentTables_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_146Iterator_InvalidComparisonDifferentTables_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -225035,7 +225331,7 @@ lpad30:                                           ; preds = %invoke.cont38, %inv
 
 catch.dispatch:                                   ; preds = %lpad30
   %sel = load i32, ptr %ehselector.slot, align 4
-  %33 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %33
   br i1 %matches, label %catch51, label %catch
 
@@ -225359,7 +225655,7 @@ lpad125:                                          ; preds = %invoke.cont130, %if
 
 catch.dispatch136:                                ; preds = %lpad125
   %sel137 = load i32, ptr %ehselector.slot, align 4
-  %86 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %86 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches138 = icmp eq i32 %sel137, %86
   br i1 %matches138, label %catch149, label %catch139
 
@@ -225696,7 +225992,7 @@ lpad231:                                          ; preds = %invoke.cont239, %in
 
 catch.dispatch245:                                ; preds = %lpad231
   %sel246 = load i32, ptr %ehselector.slot, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches247 = icmp eq i32 %sel246, %143
   br i1 %matches247, label %catch258, label %catch248
 
@@ -226021,7 +226317,7 @@ lpad339:                                          ; preds = %invoke.cont344, %if
 
 catch.dispatch350:                                ; preds = %lpad339
   %sel351 = load i32, ptr %ehselector.slot, align 4
-  %196 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %196 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches352 = icmp eq i32 %sel351, %196
   br i1 %matches352, label %catch363, label %catch353
 
@@ -226358,7 +226654,7 @@ lpad446:                                          ; preds = %invoke.cont454, %in
 
 catch.dispatch460:                                ; preds = %lpad446
   %sel461 = load i32, ptr %ehselector.slot, align 4
-  %253 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %253 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches462 = icmp eq i32 %sel461, %253
   br i1 %matches462, label %catch473, label %catch463
 
@@ -226693,7 +226989,7 @@ lpad554:                                          ; preds = %invoke.cont562, %in
 
 catch.dispatch568:                                ; preds = %lpad554
   %sel569 = load i32, ptr %ehselector.slot, align 4
-  %310 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %310 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches570 = icmp eq i32 %sel569, %310
   br i1 %matches570, label %catch581, label %catch571
 
@@ -226971,7 +227267,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_131Table_AllocatorPropagation_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_131Table_AllocatorPropagation_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -231626,7 +231923,7 @@ lpad333:                                          ; preds = %if.then336, %invoke
 
 catch.dispatch:                                   ; preds = %lpad333
   %sel = load i32, ptr %ehselector.slot, align 4
-  %183 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %183 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %183
   br i1 %matches, label %catch348, label %catch
 
@@ -245837,7 +246134,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122Table_CountedHash_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_122Table_CountedHash_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -251436,7 +251734,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS4_10ValueTableIlLb0EEEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS4_10ValueTableIlLb0EEEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -251787,7 +252086,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl18container_internal12_GLOBAL__N_120SmallTableResizeTestINS1_10ValueTableIlLb0EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS1_10ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS1_10ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -251798,7 +252098,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120SmallTableResizeTestINS1_10ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120SmallTableResizeTestINS1_10ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -252456,7 +252757,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS4_10ValueTableIlLb1EEEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS4_10ValueTableIlLb1EEEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -252538,7 +252840,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl18container_internal12_GLOBAL__N_120SmallTableResizeTestINS1_10ValueTableIlLb1EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS1_10ValueTableIlLb1EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS1_10ValueTableIlLb1EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -252549,7 +252852,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120SmallTableResizeTestINS1_10ValueTableIlLb1EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_120SmallTableResizeTestINS1_10ValueTableIlLb1EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -255483,7 +255787,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS4_10ValueTableIlLb0EEEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS4_10ValueTableIlLb0EEEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -255829,7 +256134,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl18container_internal12_GLOBAL__N_120SmallTableResizeTestINS1_10ValueTableIlLb0EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS1_10ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS1_10ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -256494,7 +256800,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS4_10ValueTableIlLb1EEEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS4_10ValueTableIlLb1EEEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -256576,7 +256883,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl18container_internal12_GLOBAL__N_120SmallTableResizeTestINS1_10ValueTableIlLb1EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS1_10ValueTableIlLb1EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS1_10ValueTableIlLb1EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -257805,7 +258113,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS4_10ValueTableIlLb0EEEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS4_10ValueTableIlLb0EEEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -258151,7 +258460,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl18container_internal12_GLOBAL__N_120SmallTableResizeTestINS1_10ValueTableIlLb0EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS1_10ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS1_10ValueTableIlLb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -258727,7 +259037,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS4_10ValueTableIlLb1EEEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS4_10ValueTableIlLb1EEEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -258809,7 +259120,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl18container_internal12_GLOBAL__N_120SmallTableResizeTestINS1_10ValueTableIlLb1EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS1_10ValueTableIlLb1EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS1_10ValueTableIlLb1EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -259557,7 +259869,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS4_10ValueTableIhLb0EEEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS4_10ValueTableIhLb0EEEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -259906,7 +260219,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl18container_internal12_GLOBAL__N_112AlignOneTestINS1_10ValueTableIhLb0EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS1_10ValueTableIhLb0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS1_10ValueTableIhLb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -259917,7 +260231,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_112AlignOneTestINS1_10ValueTableIhLb0EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_112AlignOneTestINS1_10ValueTableIhLb0EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -261807,20 +262122,21 @@ entry:
   store i8 %value, ptr %value.addr, align 1
   %0 = load i8, ptr %value.addr, align 1
   %conv = zext i8 %0 to i64
-  store i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64), ptr %state.addr.i, align 8
+  %1 = ptrtoint ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64
+  store i64 %1, ptr %state.addr.i, align 8
   store i64 %conv, ptr %v.addr.i, align 8
-  %1 = load i64, ptr %state.addr.i, align 8
-  %2 = load i64, ptr %v.addr.i, align 8
-  %add.i = add i64 %1, %2
+  %2 = load i64, ptr %state.addr.i, align 8
+  %3 = load i64, ptr %v.addr.i, align 8
+  %add.i = add i64 %2, %3
   %conv.i = zext i64 %add.i to i128
   store i128 %conv.i, ptr %m.i, align 16
-  %3 = load i128, ptr %m.i, align 16
-  %mul.i = mul i128 %3, 11376068507788127593
-  store i128 %mul.i, ptr %m.i, align 16
   %4 = load i128, ptr %m.i, align 16
+  %mul.i = mul i128 %4, 11376068507788127593
+  store i128 %mul.i, ptr %m.i, align 16
   %5 = load i128, ptr %m.i, align 16
-  %shr.i = lshr i128 %5, 64
-  %xor.i = xor i128 %4, %shr.i
+  %6 = load i128, ptr %m.i, align 16
+  %shr.i = lshr i128 %6, 64
+  %xor.i = xor i128 %5, %shr.i
   %conv1.i = trunc i128 %xor.i to i64
   ret i64 %conv1.i
 }
@@ -266999,7 +267315,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS4_26MinimumAlignmentUint8TableEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS4_26MinimumAlignmentUint8TableEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -267081,7 +267398,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl18container_internal12_GLOBAL__N_112AlignOneTestINS1_26MinimumAlignmentUint8TableEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS1_26MinimumAlignmentUint8TableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS1_26MinimumAlignmentUint8TableEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -267092,7 +267410,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_112AlignOneTestINS1_26MinimumAlignmentUint8TableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_112AlignOneTestINS1_26MinimumAlignmentUint8TableEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -270578,6 +270897,9 @@ entry:
   call void @__cxx_global_var_init.208()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #24
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

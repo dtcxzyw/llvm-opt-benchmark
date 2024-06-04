@@ -281,124 +281,127 @@ define dso_local void @_ZN5vcpkg25get_all_commands_metadataEv(ptr dead_on_unwind
   call void @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
   store ptr @_ZN5vcpkgL22basic_commands_storageE, ptr %4, align 8
   store ptr @_ZN5vcpkgL22basic_commands_storageE, ptr %5, align 8
-  store ptr getelementptr inbounds (%"struct.vcpkg::CommandRegistration", ptr @_ZN5vcpkgL22basic_commands_storageE, i64 8), ptr %6, align 8
-  br label %21
+  %21 = getelementptr inbounds %"struct.vcpkg::CommandRegistration", ptr @_ZN5vcpkgL22basic_commands_storageE, i64 8
+  store ptr %21, ptr %6, align 8
+  br label %22
 
-21:                                               ; preds = %31, %1
-  %22 = load ptr, ptr %5, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = icmp ne ptr %22, %23
-  br i1 %24, label %25, label %38
+22:                                               ; preds = %32, %1
+  %23 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = icmp ne ptr %23, %24
+  br i1 %25, label %26, label %39
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %5, align 8
-  store ptr %26, ptr %7, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %"struct.vcpkg::CommandRegistration", ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %8, align 8
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %5, align 8
+  store ptr %27, ptr %7, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds %"struct.vcpkg::CommandRegistration", ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %8, align 8
   invoke void @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %30 unwind label %34
+          to label %31 unwind label %35
 
-30:                                               ; preds = %25
-  br label %31
+31:                                               ; preds = %26
+  br label %32
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %"struct.vcpkg::CommandRegistration", ptr %32, i32 1
-  store ptr %33, ptr %5, align 8
-  br label %21
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds %"struct.vcpkg::CommandRegistration", ptr %33, i32 1
+  store ptr %34, ptr %5, align 8
+  br label %22
 
-34:                                               ; preds = %57, %43, %25
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %60, %45, %26
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %9, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %10, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %9, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %10, align 4
   call void @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
-  br label %70
+  br label %73
 
-38:                                               ; preds = %21
+39:                                               ; preds = %22
   store ptr @_ZN5vcpkgL22paths_commands_storageE, ptr %11, align 8
   store ptr @_ZN5vcpkgL22paths_commands_storageE, ptr %12, align 8
-  store ptr getelementptr inbounds (%"struct.vcpkg::CommandRegistration.0", ptr @_ZN5vcpkgL22paths_commands_storageE, i64 32), ptr %13, align 8
-  br label %39
+  %40 = getelementptr inbounds %"struct.vcpkg::CommandRegistration.0", ptr @_ZN5vcpkgL22paths_commands_storageE, i64 32
+  store ptr %40, ptr %13, align 8
+  br label %41
 
-39:                                               ; preds = %49, %38
-  %40 = load ptr, ptr %12, align 8
-  %41 = load ptr, ptr %13, align 8
-  %42 = icmp ne ptr %40, %41
-  br i1 %42, label %43, label %52
+41:                                               ; preds = %51, %39
+  %42 = load ptr, ptr %12, align 8
+  %43 = load ptr, ptr %13, align 8
+  %44 = icmp ne ptr %42, %43
+  br i1 %44, label %45, label %54
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %12, align 8
-  store ptr %44, ptr %14, align 8
-  %45 = load ptr, ptr %14, align 8
-  %46 = getelementptr inbounds %"struct.vcpkg::CommandRegistration.0", ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  store ptr %47, ptr %15, align 8
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %12, align 8
+  store ptr %46, ptr %14, align 8
+  %47 = load ptr, ptr %14, align 8
+  %48 = getelementptr inbounds %"struct.vcpkg::CommandRegistration.0", ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  store ptr %49, ptr %15, align 8
   invoke void @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %48 unwind label %34
+          to label %50 unwind label %35
 
-48:                                               ; preds = %43
-  br label %49
+50:                                               ; preds = %45
+  br label %51
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds %"struct.vcpkg::CommandRegistration.0", ptr %50, i32 1
-  store ptr %51, ptr %12, align 8
-  br label %39
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %12, align 8
+  %53 = getelementptr inbounds %"struct.vcpkg::CommandRegistration.0", ptr %52, i32 1
+  store ptr %53, ptr %12, align 8
+  br label %41
 
-52:                                               ; preds = %39
+54:                                               ; preds = %41
   store ptr @_ZN5vcpkgL24triplet_commands_storageE, ptr %16, align 8
   store ptr @_ZN5vcpkgL24triplet_commands_storageE, ptr %17, align 8
-  store ptr getelementptr inbounds (%"struct.vcpkg::CommandRegistration.2", ptr @_ZN5vcpkgL24triplet_commands_storageE, i64 12), ptr %18, align 8
-  br label %53
+  %55 = getelementptr inbounds %"struct.vcpkg::CommandRegistration.2", ptr @_ZN5vcpkgL24triplet_commands_storageE, i64 12
+  store ptr %55, ptr %18, align 8
+  br label %56
 
-53:                                               ; preds = %63, %52
-  %54 = load ptr, ptr %17, align 8
-  %55 = load ptr, ptr %18, align 8
-  %56 = icmp ne ptr %54, %55
-  br i1 %56, label %57, label %66
+56:                                               ; preds = %66, %54
+  %57 = load ptr, ptr %17, align 8
+  %58 = load ptr, ptr %18, align 8
+  %59 = icmp ne ptr %57, %58
+  br i1 %59, label %60, label %69
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %17, align 8
-  store ptr %58, ptr %19, align 8
-  %59 = load ptr, ptr %19, align 8
-  %60 = getelementptr inbounds %"struct.vcpkg::CommandRegistration.2", ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  store ptr %61, ptr %20, align 8
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %17, align 8
+  store ptr %61, ptr %19, align 8
+  %62 = load ptr, ptr %19, align 8
+  %63 = getelementptr inbounds %"struct.vcpkg::CommandRegistration.2", ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  store ptr %64, ptr %20, align 8
   invoke void @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %62 unwind label %34
+          to label %65 unwind label %35
 
-62:                                               ; preds = %57
-  br label %63
+65:                                               ; preds = %60
+  br label %66
 
-63:                                               ; preds = %62
-  %64 = load ptr, ptr %17, align 8
-  %65 = getelementptr inbounds %"struct.vcpkg::CommandRegistration.2", ptr %64, i32 1
-  store ptr %65, ptr %17, align 8
-  br label %53
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %17, align 8
+  %68 = getelementptr inbounds %"struct.vcpkg::CommandRegistration.2", ptr %67, i32 1
+  store ptr %68, ptr %17, align 8
+  br label %56
 
-66:                                               ; preds = %53
+69:                                               ; preds = %56
   store i1 true, ptr %3, align 1
-  %67 = load i1, ptr %3, align 1
-  br i1 %67, label %69, label %68
+  %70 = load i1, ptr %3, align 1
+  br i1 %70, label %72, label %71
 
-68:                                               ; preds = %66
+71:                                               ; preds = %69
   call void @_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
-  br label %69
+  br label %72
 
-69:                                               ; preds = %68, %66
+72:                                               ; preds = %71, %69
   ret void
 
-70:                                               ; preds = %34
-  %71 = load ptr, ptr %9, align 8
-  %72 = load i32, ptr %10, align 4
-  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
-  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
-  resume { ptr, i32 } %74
+73:                                               ; preds = %35
+  %74 = load ptr, ptr %9, align 8
+  %75 = load i32, ptr %10, align 4
+  %76 = insertvalue { ptr, i32 } poison, ptr %74, 0
+  %77 = insertvalue { ptr, i32 } %76, i32 %75, 1
+  resume { ptr, i32 } %77
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

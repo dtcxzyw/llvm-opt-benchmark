@@ -2122,10 +2122,10 @@ define internal void @rtp_draw(ptr noundef %0) #0 {
   store ptr %19, ptr %4, align 8
   br label %20
 
-20:                                               ; preds = %277, %1
+20:                                               ; preds = %278, %1
   %21 = load ptr, ptr %4, align 8
   %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %279
+  br i1 %22, label %23, label %280
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %4, align 8
@@ -2156,333 +2156,334 @@ define internal void @rtp_draw(ptr noundef %0) #0 {
 43:                                               ; preds = %31, %23
   %44 = load ptr, ptr %6, align 8
   %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %269
+  br i1 %45, label %46, label %270
 
 46:                                               ; preds = %43
   store ptr @.str.29, ptr %11, align 8
   %47 = load ptr, ptr %11, align 8
-  %48 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 99), align 4
-  %49 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef %47, i32 noundef %48)
-  store ptr %49, ptr %12, align 8
-  %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds %struct._seq_analysis_item, ptr %50, i32 0, i32 8
-  %52 = load i16, ptr %51, align 8
-  store i16 %52, ptr %8, align 2
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %53, i32 0, i32 12
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct._seq_analysis_info, ptr %55, i32 0, i32 4
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct._rtpstream_info, ptr %58, i32 0, i32 11
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._frame_data, ptr %60, i32 0, i32 0
-  %62 = load i32, ptr %61, align 8
-  %63 = zext i32 %62 to i64
-  %64 = inttoptr i64 %63 to ptr
-  %65 = call ptr @g_hash_table_lookup(ptr noundef %57, ptr noundef %64)
-  store ptr %65, ptr %6, align 8
-  %66 = load ptr, ptr %6, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %97
+  %48 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 99
+  %49 = load i32, ptr %48, align 4
+  %50 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef %47, i32 noundef %49)
+  store ptr %50, ptr %12, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = getelementptr inbounds %struct._seq_analysis_item, ptr %51, i32 0, i32 8
+  %53 = load i16, ptr %52, align 8
+  store i16 %53, ptr %8, align 2
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %54, i32 0, i32 12
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds %struct._seq_analysis_info, ptr %56, i32 0, i32 4
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds %struct._rtpstream_info, ptr %59, i32 0, i32 11
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds %struct._frame_data, ptr %61, i32 0, i32 0
+  %63 = load i32, ptr %62, align 8
+  %64 = zext i32 %63 to i64
+  %65 = inttoptr i64 %64 to ptr
+  %66 = call ptr @g_hash_table_lookup(ptr noundef %58, ptr noundef %65)
+  store ptr %66, ptr %6, align 8
+  %67 = load ptr, ptr %6, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %98
 
-68:                                               ; preds = %46
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct._rtpstream_info, ptr %69, i32 0, i32 14
-  %71 = call double @nstime_to_msec(ptr noundef %70)
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds %struct._rtpstream_info, ptr %72, i32 0, i32 13
-  %74 = call double @nstime_to_msec(ptr noundef %73)
-  %75 = fsub double %71, %74
-  store double %75, ptr %9, align 8
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct._seq_analysis_item, ptr %76, i32 0, i32 7
-  %78 = load ptr, ptr %77, align 8
-  call void @g_free(ptr noundef %78)
-  %79 = load ptr, ptr %12, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct._rtpstream_info, ptr %80, i32 0, i32 5
-  %82 = load i32, ptr %81, align 8
-  %83 = icmp ne i32 %82, 0
-  %84 = select i1 %83, ptr @.str.30, ptr @.str.31
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %struct._rtpstream_info, ptr %85, i32 0, i32 6
-  %87 = load i32, ptr %86, align 4
-  %88 = load double, ptr %9, align 8
-  %89 = fdiv double %88, 1.000000e+03
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct._rtpstream_info, ptr %90, i32 0, i32 0
-  %92 = getelementptr inbounds %struct._rtpstream_id, ptr %91, i32 0, i32 4
-  %93 = load i32, ptr %92, align 4
-  %94 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef %79, ptr noundef %84, i32 noundef %87, double noundef %89, i32 noundef %93)
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct._seq_analysis_item, ptr %95, i32 0, i32 7
-  store ptr %94, ptr %96, align 8
-  br label %267
+69:                                               ; preds = %46
+  %70 = load ptr, ptr %5, align 8
+  %71 = getelementptr inbounds %struct._rtpstream_info, ptr %70, i32 0, i32 14
+  %72 = call double @nstime_to_msec(ptr noundef %71)
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds %struct._rtpstream_info, ptr %73, i32 0, i32 13
+  %75 = call double @nstime_to_msec(ptr noundef %74)
+  %76 = fsub double %72, %75
+  store double %76, ptr %9, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr inbounds %struct._seq_analysis_item, ptr %77, i32 0, i32 7
+  %79 = load ptr, ptr %78, align 8
+  call void @g_free(ptr noundef %79)
+  %80 = load ptr, ptr %12, align 8
+  %81 = load ptr, ptr %5, align 8
+  %82 = getelementptr inbounds %struct._rtpstream_info, ptr %81, i32 0, i32 5
+  %83 = load i32, ptr %82, align 8
+  %84 = icmp ne i32 %83, 0
+  %85 = select i1 %84, ptr @.str.30, ptr @.str.31
+  %86 = load ptr, ptr %5, align 8
+  %87 = getelementptr inbounds %struct._rtpstream_info, ptr %86, i32 0, i32 6
+  %88 = load i32, ptr %87, align 4
+  %89 = load double, ptr %9, align 8
+  %90 = fdiv double %89, 1.000000e+03
+  %91 = load ptr, ptr %5, align 8
+  %92 = getelementptr inbounds %struct._rtpstream_info, ptr %91, i32 0, i32 0
+  %93 = getelementptr inbounds %struct._rtpstream_id, ptr %92, i32 0, i32 4
+  %94 = load i32, ptr %93, align 4
+  %95 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef %80, ptr noundef %85, i32 noundef %88, double noundef %90, i32 noundef %94)
+  %96 = load ptr, ptr %6, align 8
+  %97 = getelementptr inbounds %struct._seq_analysis_item, ptr %96, i32 0, i32 7
+  store ptr %95, ptr %97, align 8
+  br label %268
 
-97:                                               ; preds = %46
-  %98 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 144) #8
-  store ptr %98, ptr %7, align 8
-  %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr inbounds %struct._rtpstream_info, ptr %99, i32 0, i32 11
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds %struct._frame_data, ptr %101, i32 0, i32 0
-  %103 = load i32, ptr %102, align 8
-  %104 = load ptr, ptr %7, align 8
-  %105 = getelementptr inbounds %struct._seq_analysis_item, ptr %104, i32 0, i32 0
-  store i32 %103, ptr %105, align 8
-  %106 = load ptr, ptr %7, align 8
-  %107 = getelementptr inbounds %struct._seq_analysis_item, ptr %106, i32 0, i32 1
-  %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds %struct._rtpstream_info, ptr %108, i32 0, i32 0
-  %110 = getelementptr inbounds %struct._rtpstream_id, ptr %109, i32 0, i32 0
-  call void @copy_address(ptr noundef %107, ptr noundef %110)
-  %111 = load ptr, ptr %7, align 8
-  %112 = getelementptr inbounds %struct._seq_analysis_item, ptr %111, i32 0, i32 3
-  %113 = load ptr, ptr %5, align 8
-  %114 = getelementptr inbounds %struct._rtpstream_info, ptr %113, i32 0, i32 0
-  %115 = getelementptr inbounds %struct._rtpstream_id, ptr %114, i32 0, i32 2
-  call void @copy_address(ptr noundef %112, ptr noundef %115)
-  %116 = load ptr, ptr %5, align 8
-  %117 = getelementptr inbounds %struct._rtpstream_info, ptr %116, i32 0, i32 0
-  %118 = getelementptr inbounds %struct._rtpstream_id, ptr %117, i32 0, i32 1
-  %119 = load i16, ptr %118, align 8
-  %120 = load ptr, ptr %7, align 8
-  %121 = getelementptr inbounds %struct._seq_analysis_item, ptr %120, i32 0, i32 2
-  store i16 %119, ptr %121, align 8
-  %122 = load ptr, ptr %5, align 8
-  %123 = getelementptr inbounds %struct._rtpstream_info, ptr %122, i32 0, i32 0
-  %124 = getelementptr inbounds %struct._rtpstream_id, ptr %123, i32 0, i32 3
-  %125 = load i16, ptr %124, align 8
-  %126 = load ptr, ptr %7, align 8
-  %127 = getelementptr inbounds %struct._seq_analysis_item, ptr %126, i32 0, i32 4
-  store i16 %125, ptr %127, align 8
-  %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds %struct._rtpstream_info, ptr %128, i32 0, i32 14
-  %130 = call double @nstime_to_msec(ptr noundef %129)
-  %131 = load ptr, ptr %5, align 8
-  %132 = getelementptr inbounds %struct._rtpstream_info, ptr %131, i32 0, i32 13
-  %133 = call double @nstime_to_msec(ptr noundef %132)
-  %134 = fsub double %130, %133
-  store double %134, ptr %9, align 8
-  %135 = load ptr, ptr %5, align 8
-  %136 = getelementptr inbounds %struct._rtpstream_info, ptr %135, i32 0, i32 5
-  %137 = load i32, ptr %136, align 8
-  %138 = icmp ne i32 %137, 0
-  %139 = select i1 %138, ptr @.str.30, ptr @.str.31
-  %140 = load ptr, ptr %5, align 8
-  %141 = getelementptr inbounds %struct._rtpstream_info, ptr %140, i32 0, i32 2
-  %142 = load ptr, ptr %141, align 8
-  %143 = load ptr, ptr %5, align 8
-  %144 = getelementptr inbounds %struct._rtpstream_info, ptr %143, i32 0, i32 8
-  %145 = load i32, ptr %144, align 4
-  %146 = icmp eq i32 %145, -1
-  br i1 %146, label %147, label %148
+98:                                               ; preds = %46
+  %99 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 144) #8
+  store ptr %99, ptr %7, align 8
+  %100 = load ptr, ptr %5, align 8
+  %101 = getelementptr inbounds %struct._rtpstream_info, ptr %100, i32 0, i32 11
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds %struct._frame_data, ptr %102, i32 0, i32 0
+  %104 = load i32, ptr %103, align 8
+  %105 = load ptr, ptr %7, align 8
+  %106 = getelementptr inbounds %struct._seq_analysis_item, ptr %105, i32 0, i32 0
+  store i32 %104, ptr %106, align 8
+  %107 = load ptr, ptr %7, align 8
+  %108 = getelementptr inbounds %struct._seq_analysis_item, ptr %107, i32 0, i32 1
+  %109 = load ptr, ptr %5, align 8
+  %110 = getelementptr inbounds %struct._rtpstream_info, ptr %109, i32 0, i32 0
+  %111 = getelementptr inbounds %struct._rtpstream_id, ptr %110, i32 0, i32 0
+  call void @copy_address(ptr noundef %108, ptr noundef %111)
+  %112 = load ptr, ptr %7, align 8
+  %113 = getelementptr inbounds %struct._seq_analysis_item, ptr %112, i32 0, i32 3
+  %114 = load ptr, ptr %5, align 8
+  %115 = getelementptr inbounds %struct._rtpstream_info, ptr %114, i32 0, i32 0
+  %116 = getelementptr inbounds %struct._rtpstream_id, ptr %115, i32 0, i32 2
+  call void @copy_address(ptr noundef %113, ptr noundef %116)
+  %117 = load ptr, ptr %5, align 8
+  %118 = getelementptr inbounds %struct._rtpstream_info, ptr %117, i32 0, i32 0
+  %119 = getelementptr inbounds %struct._rtpstream_id, ptr %118, i32 0, i32 1
+  %120 = load i16, ptr %119, align 8
+  %121 = load ptr, ptr %7, align 8
+  %122 = getelementptr inbounds %struct._seq_analysis_item, ptr %121, i32 0, i32 2
+  store i16 %120, ptr %122, align 8
+  %123 = load ptr, ptr %5, align 8
+  %124 = getelementptr inbounds %struct._rtpstream_info, ptr %123, i32 0, i32 0
+  %125 = getelementptr inbounds %struct._rtpstream_id, ptr %124, i32 0, i32 3
+  %126 = load i16, ptr %125, align 8
+  %127 = load ptr, ptr %7, align 8
+  %128 = getelementptr inbounds %struct._seq_analysis_item, ptr %127, i32 0, i32 4
+  store i16 %126, ptr %128, align 8
+  %129 = load ptr, ptr %5, align 8
+  %130 = getelementptr inbounds %struct._rtpstream_info, ptr %129, i32 0, i32 14
+  %131 = call double @nstime_to_msec(ptr noundef %130)
+  %132 = load ptr, ptr %5, align 8
+  %133 = getelementptr inbounds %struct._rtpstream_info, ptr %132, i32 0, i32 13
+  %134 = call double @nstime_to_msec(ptr noundef %133)
+  %135 = fsub double %131, %134
+  store double %135, ptr %9, align 8
+  %136 = load ptr, ptr %5, align 8
+  %137 = getelementptr inbounds %struct._rtpstream_info, ptr %136, i32 0, i32 5
+  %138 = load i32, ptr %137, align 8
+  %139 = icmp ne i32 %138, 0
+  %140 = select i1 %139, ptr @.str.30, ptr @.str.31
+  %141 = load ptr, ptr %5, align 8
+  %142 = getelementptr inbounds %struct._rtpstream_info, ptr %141, i32 0, i32 2
+  %143 = load ptr, ptr %142, align 8
+  %144 = load ptr, ptr %5, align 8
+  %145 = getelementptr inbounds %struct._rtpstream_info, ptr %144, i32 0, i32 8
+  %146 = load i32, ptr %145, align 4
+  %147 = icmp eq i32 %146, -1
+  br i1 %147, label %148, label %149
 
-147:                                              ; preds = %97
-  br label %153
+148:                                              ; preds = %98
+  br label %154
 
-148:                                              ; preds = %97
-  %149 = load ptr, ptr %5, align 8
-  %150 = getelementptr inbounds %struct._rtpstream_info, ptr %149, i32 0, i32 8
-  %151 = load i32, ptr %150, align 4
-  %152 = call ptr @val_to_str_ext_const(i32 noundef %151, ptr noundef @rtp_event_type_values_ext, ptr noundef @.str.33)
-  br label %153
+149:                                              ; preds = %98
+  %150 = load ptr, ptr %5, align 8
+  %151 = getelementptr inbounds %struct._rtpstream_info, ptr %150, i32 0, i32 8
+  %152 = load i32, ptr %151, align 4
+  %153 = call ptr @val_to_str_ext_const(i32 noundef %152, ptr noundef @rtp_event_type_values_ext, ptr noundef @.str.33)
+  br label %154
 
-153:                                              ; preds = %148, %147
-  %154 = phi ptr [ @.str, %147 ], [ %152, %148 ]
-  %155 = load ptr, ptr %5, align 8
-  %156 = getelementptr inbounds %struct._rtpstream_info, ptr %155, i32 0, i32 21
-  %157 = load ptr, ptr %156, align 8
-  %158 = icmp ne ptr %157, null
-  %159 = select i1 %158, ptr @.str.34, ptr @.str
-  %160 = load ptr, ptr %5, align 8
-  %161 = getelementptr inbounds %struct._rtpstream_info, ptr %160, i32 0, i32 21
-  %162 = load ptr, ptr %161, align 8
-  %163 = icmp ne ptr %162, null
-  br i1 %163, label %164, label %168
+154:                                              ; preds = %149, %148
+  %155 = phi ptr [ @.str, %148 ], [ %153, %149 ]
+  %156 = load ptr, ptr %5, align 8
+  %157 = getelementptr inbounds %struct._rtpstream_info, ptr %156, i32 0, i32 21
+  %158 = load ptr, ptr %157, align 8
+  %159 = icmp ne ptr %158, null
+  %160 = select i1 %159, ptr @.str.34, ptr @.str
+  %161 = load ptr, ptr %5, align 8
+  %162 = getelementptr inbounds %struct._rtpstream_info, ptr %161, i32 0, i32 21
+  %163 = load ptr, ptr %162, align 8
+  %164 = icmp ne ptr %163, null
+  br i1 %164, label %165, label %169
 
-164:                                              ; preds = %153
-  %165 = load ptr, ptr %5, align 8
-  %166 = getelementptr inbounds %struct._rtpstream_info, ptr %165, i32 0, i32 21
-  %167 = load ptr, ptr %166, align 8
-  br label %169
+165:                                              ; preds = %154
+  %166 = load ptr, ptr %5, align 8
+  %167 = getelementptr inbounds %struct._rtpstream_info, ptr %166, i32 0, i32 21
+  %168 = load ptr, ptr %167, align 8
+  br label %170
 
-168:                                              ; preds = %153
-  br label %169
+169:                                              ; preds = %154
+  br label %170
 
-169:                                              ; preds = %168, %164
-  %170 = phi ptr [ %167, %164 ], [ @.str, %168 ]
-  %171 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.32, ptr noundef %139, ptr noundef %142, ptr noundef %154, ptr noundef %159, ptr noundef %170)
-  %172 = load ptr, ptr %7, align 8
-  %173 = getelementptr inbounds %struct._seq_analysis_item, ptr %172, i32 0, i32 5
-  store ptr %171, ptr %173, align 8
-  %174 = load ptr, ptr %12, align 8
-  %175 = load ptr, ptr %5, align 8
-  %176 = getelementptr inbounds %struct._rtpstream_info, ptr %175, i32 0, i32 5
-  %177 = load i32, ptr %176, align 8
-  %178 = icmp ne i32 %177, 0
-  %179 = select i1 %178, ptr @.str.30, ptr @.str.31
-  %180 = load ptr, ptr %5, align 8
-  %181 = getelementptr inbounds %struct._rtpstream_info, ptr %180, i32 0, i32 6
-  %182 = load i32, ptr %181, align 4
-  %183 = load double, ptr %9, align 8
-  %184 = fdiv double %183, 1.000000e+03
-  %185 = load ptr, ptr %5, align 8
-  %186 = getelementptr inbounds %struct._rtpstream_info, ptr %185, i32 0, i32 0
-  %187 = getelementptr inbounds %struct._rtpstream_id, ptr %186, i32 0, i32 4
-  %188 = load i32, ptr %187, align 4
-  %189 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef %174, ptr noundef %179, i32 noundef %182, double noundef %184, i32 noundef %188)
-  %190 = load ptr, ptr %7, align 8
-  %191 = getelementptr inbounds %struct._seq_analysis_item, ptr %190, i32 0, i32 7
-  store ptr %189, ptr %191, align 8
-  %192 = load ptr, ptr %7, align 8
-  %193 = getelementptr inbounds %struct._seq_analysis_item, ptr %192, i32 0, i32 16
-  store i32 1, ptr %193, align 8
-  %194 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #8
-  store ptr %194, ptr %13, align 8
-  %195 = load ptr, ptr %13, align 8
-  %196 = load ptr, ptr %7, align 8
-  %197 = getelementptr inbounds %struct._seq_analysis_item, ptr %196, i32 0, i32 17
-  store ptr %195, ptr %197, align 8
-  %198 = load ptr, ptr %13, align 8
-  call void @rtpstream_info_init(ptr noundef %198)
-  %199 = load ptr, ptr %5, align 8
-  %200 = getelementptr inbounds %struct._rtpstream_info, ptr %199, i32 0, i32 0
-  %201 = load ptr, ptr %13, align 8
-  %202 = getelementptr inbounds %struct._rtpstream_info, ptr %201, i32 0, i32 0
-  call void @rtpstream_id_copy(ptr noundef %200, ptr noundef %202)
-  %203 = load ptr, ptr %5, align 8
-  %204 = getelementptr inbounds %struct._rtpstream_info, ptr %203, i32 0, i32 6
-  %205 = load i32, ptr %204, align 4
-  %206 = load ptr, ptr %13, align 8
-  %207 = getelementptr inbounds %struct._rtpstream_info, ptr %206, i32 0, i32 6
-  store i32 %205, ptr %207, align 4
-  %208 = load ptr, ptr %5, align 8
-  %209 = getelementptr inbounds %struct._rtpstream_info, ptr %208, i32 0, i32 10
-  %210 = load i32, ptr %209, align 4
-  %211 = load ptr, ptr %13, align 8
-  %212 = getelementptr inbounds %struct._rtpstream_info, ptr %211, i32 0, i32 10
-  store i32 %210, ptr %212, align 4
-  %213 = load ptr, ptr %13, align 8
-  %214 = getelementptr inbounds %struct._rtpstream_info, ptr %213, i32 0, i32 19
-  %215 = load ptr, ptr %5, align 8
-  %216 = getelementptr inbounds %struct._rtpstream_info, ptr %215, i32 0, i32 19
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %214, ptr align 8 %216, i64 5048, i1 false)
-  %217 = load ptr, ptr %13, align 8
-  %218 = getelementptr inbounds %struct._rtpstream_info, ptr %217, i32 0, i32 13
-  %219 = load ptr, ptr %5, align 8
-  %220 = getelementptr inbounds %struct._rtpstream_info, ptr %219, i32 0, i32 13
-  call void @nstime_copy(ptr noundef %218, ptr noundef %220)
-  %221 = load ptr, ptr %13, align 8
-  %222 = getelementptr inbounds %struct._rtpstream_info, ptr %221, i32 0, i32 14
-  %223 = load ptr, ptr %5, align 8
-  %224 = getelementptr inbounds %struct._rtpstream_info, ptr %223, i32 0, i32 14
-  call void @nstime_copy(ptr noundef %222, ptr noundef %224)
-  %225 = load ptr, ptr %13, align 8
-  %226 = getelementptr inbounds %struct._rtpstream_info, ptr %225, i32 0, i32 15
-  %227 = load ptr, ptr %5, align 8
-  %228 = getelementptr inbounds %struct._rtpstream_info, ptr %227, i32 0, i32 15
-  call void @nstime_copy(ptr noundef %226, ptr noundef %228)
-  %229 = load i16, ptr %8, align 2
-  %230 = load ptr, ptr %7, align 8
-  %231 = getelementptr inbounds %struct._seq_analysis_item, ptr %230, i32 0, i32 8
-  store i16 %229, ptr %231, align 8
-  %232 = load ptr, ptr %3, align 8
-  %233 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %232, i32 0, i32 13
-  %234 = load ptr, ptr %233, align 8
-  %235 = load ptr, ptr %5, align 8
-  %236 = getelementptr inbounds %struct._rtpstream_info, ptr %235, i32 0, i32 11
-  %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds [2048 x i8], ptr %10, i64 0, i64 0
-  call void @set_fd_time(ptr noundef %234, ptr noundef %237, ptr noundef %238)
+170:                                              ; preds = %169, %165
+  %171 = phi ptr [ %168, %165 ], [ @.str, %169 ]
+  %172 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.32, ptr noundef %140, ptr noundef %143, ptr noundef %155, ptr noundef %160, ptr noundef %171)
+  %173 = load ptr, ptr %7, align 8
+  %174 = getelementptr inbounds %struct._seq_analysis_item, ptr %173, i32 0, i32 5
+  store ptr %172, ptr %174, align 8
+  %175 = load ptr, ptr %12, align 8
+  %176 = load ptr, ptr %5, align 8
+  %177 = getelementptr inbounds %struct._rtpstream_info, ptr %176, i32 0, i32 5
+  %178 = load i32, ptr %177, align 8
+  %179 = icmp ne i32 %178, 0
+  %180 = select i1 %179, ptr @.str.30, ptr @.str.31
+  %181 = load ptr, ptr %5, align 8
+  %182 = getelementptr inbounds %struct._rtpstream_info, ptr %181, i32 0, i32 6
+  %183 = load i32, ptr %182, align 4
+  %184 = load double, ptr %9, align 8
+  %185 = fdiv double %184, 1.000000e+03
+  %186 = load ptr, ptr %5, align 8
+  %187 = getelementptr inbounds %struct._rtpstream_info, ptr %186, i32 0, i32 0
+  %188 = getelementptr inbounds %struct._rtpstream_id, ptr %187, i32 0, i32 4
+  %189 = load i32, ptr %188, align 4
+  %190 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef %175, ptr noundef %180, i32 noundef %183, double noundef %185, i32 noundef %189)
+  %191 = load ptr, ptr %7, align 8
+  %192 = getelementptr inbounds %struct._seq_analysis_item, ptr %191, i32 0, i32 7
+  store ptr %190, ptr %192, align 8
+  %193 = load ptr, ptr %7, align 8
+  %194 = getelementptr inbounds %struct._seq_analysis_item, ptr %193, i32 0, i32 16
+  store i32 1, ptr %194, align 8
+  %195 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 7304) #8
+  store ptr %195, ptr %13, align 8
+  %196 = load ptr, ptr %13, align 8
+  %197 = load ptr, ptr %7, align 8
+  %198 = getelementptr inbounds %struct._seq_analysis_item, ptr %197, i32 0, i32 17
+  store ptr %196, ptr %198, align 8
+  %199 = load ptr, ptr %13, align 8
+  call void @rtpstream_info_init(ptr noundef %199)
+  %200 = load ptr, ptr %5, align 8
+  %201 = getelementptr inbounds %struct._rtpstream_info, ptr %200, i32 0, i32 0
+  %202 = load ptr, ptr %13, align 8
+  %203 = getelementptr inbounds %struct._rtpstream_info, ptr %202, i32 0, i32 0
+  call void @rtpstream_id_copy(ptr noundef %201, ptr noundef %203)
+  %204 = load ptr, ptr %5, align 8
+  %205 = getelementptr inbounds %struct._rtpstream_info, ptr %204, i32 0, i32 6
+  %206 = load i32, ptr %205, align 4
+  %207 = load ptr, ptr %13, align 8
+  %208 = getelementptr inbounds %struct._rtpstream_info, ptr %207, i32 0, i32 6
+  store i32 %206, ptr %208, align 4
+  %209 = load ptr, ptr %5, align 8
+  %210 = getelementptr inbounds %struct._rtpstream_info, ptr %209, i32 0, i32 10
+  %211 = load i32, ptr %210, align 4
+  %212 = load ptr, ptr %13, align 8
+  %213 = getelementptr inbounds %struct._rtpstream_info, ptr %212, i32 0, i32 10
+  store i32 %211, ptr %213, align 4
+  %214 = load ptr, ptr %13, align 8
+  %215 = getelementptr inbounds %struct._rtpstream_info, ptr %214, i32 0, i32 19
+  %216 = load ptr, ptr %5, align 8
+  %217 = getelementptr inbounds %struct._rtpstream_info, ptr %216, i32 0, i32 19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %215, ptr align 8 %217, i64 5048, i1 false)
+  %218 = load ptr, ptr %13, align 8
+  %219 = getelementptr inbounds %struct._rtpstream_info, ptr %218, i32 0, i32 13
+  %220 = load ptr, ptr %5, align 8
+  %221 = getelementptr inbounds %struct._rtpstream_info, ptr %220, i32 0, i32 13
+  call void @nstime_copy(ptr noundef %219, ptr noundef %221)
+  %222 = load ptr, ptr %13, align 8
+  %223 = getelementptr inbounds %struct._rtpstream_info, ptr %222, i32 0, i32 14
+  %224 = load ptr, ptr %5, align 8
+  %225 = getelementptr inbounds %struct._rtpstream_info, ptr %224, i32 0, i32 14
+  call void @nstime_copy(ptr noundef %223, ptr noundef %225)
+  %226 = load ptr, ptr %13, align 8
+  %227 = getelementptr inbounds %struct._rtpstream_info, ptr %226, i32 0, i32 15
+  %228 = load ptr, ptr %5, align 8
+  %229 = getelementptr inbounds %struct._rtpstream_info, ptr %228, i32 0, i32 15
+  call void @nstime_copy(ptr noundef %227, ptr noundef %229)
+  %230 = load i16, ptr %8, align 2
+  %231 = load ptr, ptr %7, align 8
+  %232 = getelementptr inbounds %struct._seq_analysis_item, ptr %231, i32 0, i32 8
+  store i16 %230, ptr %232, align 8
+  %233 = load ptr, ptr %3, align 8
+  %234 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %233, i32 0, i32 13
+  %235 = load ptr, ptr %234, align 8
+  %236 = load ptr, ptr %5, align 8
+  %237 = getelementptr inbounds %struct._rtpstream_info, ptr %236, i32 0, i32 11
+  %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds [2048 x i8], ptr %10, i64 0, i64 0
-  %240 = call noalias ptr @g_strdup(ptr noundef %239)
-  %241 = load ptr, ptr %7, align 8
-  %242 = getelementptr inbounds %struct._seq_analysis_item, ptr %241, i32 0, i32 6
-  store ptr %240, ptr %242, align 8
-  %243 = load ptr, ptr %7, align 8
-  %244 = getelementptr inbounds %struct._seq_analysis_item, ptr %243, i32 0, i32 12
-  store i32 0, ptr %244, align 8
-  %245 = load ptr, ptr %7, align 8
-  %246 = getelementptr inbounds %struct._seq_analysis_item, ptr %245, i32 0, i32 15
-  store i16 2, ptr %246, align 4
-  %247 = load ptr, ptr %3, align 8
-  %248 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %247, i32 0, i32 12
-  %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds %struct._seq_analysis_info, ptr %249, i32 0, i32 3
-  %251 = load ptr, ptr %250, align 8
-  %252 = load ptr, ptr %7, align 8
-  call void @g_queue_push_tail(ptr noundef %251, ptr noundef %252)
-  %253 = load ptr, ptr %3, align 8
-  %254 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %253, i32 0, i32 12
-  %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds %struct._seq_analysis_info, ptr %255, i32 0, i32 4
-  %257 = load ptr, ptr %256, align 8
-  %258 = load ptr, ptr %5, align 8
-  %259 = getelementptr inbounds %struct._rtpstream_info, ptr %258, i32 0, i32 11
-  %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds %struct._frame_data, ptr %260, i32 0, i32 0
-  %262 = load i32, ptr %261, align 8
-  %263 = zext i32 %262 to i64
-  %264 = inttoptr i64 %263 to ptr
-  %265 = load ptr, ptr %7, align 8
-  %266 = call i32 @g_hash_table_insert(ptr noundef %257, ptr noundef %264, ptr noundef %265)
-  br label %267
+  call void @set_fd_time(ptr noundef %235, ptr noundef %238, ptr noundef %239)
+  %240 = getelementptr inbounds [2048 x i8], ptr %10, i64 0, i64 0
+  %241 = call noalias ptr @g_strdup(ptr noundef %240)
+  %242 = load ptr, ptr %7, align 8
+  %243 = getelementptr inbounds %struct._seq_analysis_item, ptr %242, i32 0, i32 6
+  store ptr %241, ptr %243, align 8
+  %244 = load ptr, ptr %7, align 8
+  %245 = getelementptr inbounds %struct._seq_analysis_item, ptr %244, i32 0, i32 12
+  store i32 0, ptr %245, align 8
+  %246 = load ptr, ptr %7, align 8
+  %247 = getelementptr inbounds %struct._seq_analysis_item, ptr %246, i32 0, i32 15
+  store i16 2, ptr %247, align 4
+  %248 = load ptr, ptr %3, align 8
+  %249 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %248, i32 0, i32 12
+  %250 = load ptr, ptr %249, align 8
+  %251 = getelementptr inbounds %struct._seq_analysis_info, ptr %250, i32 0, i32 3
+  %252 = load ptr, ptr %251, align 8
+  %253 = load ptr, ptr %7, align 8
+  call void @g_queue_push_tail(ptr noundef %252, ptr noundef %253)
+  %254 = load ptr, ptr %3, align 8
+  %255 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %254, i32 0, i32 12
+  %256 = load ptr, ptr %255, align 8
+  %257 = getelementptr inbounds %struct._seq_analysis_info, ptr %256, i32 0, i32 4
+  %258 = load ptr, ptr %257, align 8
+  %259 = load ptr, ptr %5, align 8
+  %260 = getelementptr inbounds %struct._rtpstream_info, ptr %259, i32 0, i32 11
+  %261 = load ptr, ptr %260, align 8
+  %262 = getelementptr inbounds %struct._frame_data, ptr %261, i32 0, i32 0
+  %263 = load i32, ptr %262, align 8
+  %264 = zext i32 %263 to i64
+  %265 = inttoptr i64 %264 to ptr
+  %266 = load ptr, ptr %7, align 8
+  %267 = call i32 @g_hash_table_insert(ptr noundef %258, ptr noundef %265, ptr noundef %266)
+  br label %268
 
-267:                                              ; preds = %169, %68
-  %268 = load ptr, ptr %12, align 8
-  call void @g_free(ptr noundef %268)
-  br label %269
+268:                                              ; preds = %170, %69
+  %269 = load ptr, ptr %12, align 8
+  call void @g_free(ptr noundef %269)
+  br label %270
 
-269:                                              ; preds = %267, %43
-  %270 = load ptr, ptr %4, align 8
-  %271 = icmp ne ptr %270, null
-  br i1 %271, label %272, label %276
+270:                                              ; preds = %268, %43
+  %271 = load ptr, ptr %4, align 8
+  %272 = icmp ne ptr %271, null
+  br i1 %272, label %273, label %277
 
-272:                                              ; preds = %269
-  %273 = load ptr, ptr %4, align 8
-  %274 = getelementptr inbounds %struct._GList, ptr %273, i32 0, i32 1
-  %275 = load ptr, ptr %274, align 8
-  br label %277
+273:                                              ; preds = %270
+  %274 = load ptr, ptr %4, align 8
+  %275 = getelementptr inbounds %struct._GList, ptr %274, i32 0, i32 1
+  %276 = load ptr, ptr %275, align 8
+  br label %278
 
-276:                                              ; preds = %269
-  br label %277
+277:                                              ; preds = %270
+  br label %278
 
-277:                                              ; preds = %276, %272
-  %278 = phi ptr [ %275, %272 ], [ null, %276 ]
-  store ptr %278, ptr %4, align 8
+278:                                              ; preds = %277, %273
+  %279 = phi ptr [ %276, %273 ], [ null, %277 ]
+  store ptr %279, ptr %4, align 8
   br label %20, !llvm.loop !9
 
-279:                                              ; preds = %20
-  %280 = load ptr, ptr %3, align 8
-  %281 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %280, i32 0, i32 2
-  %282 = load ptr, ptr %281, align 8
-  %283 = icmp ne ptr %282, null
-  br i1 %283, label %284, label %299
+280:                                              ; preds = %20
+  %281 = load ptr, ptr %3, align 8
+  %282 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %281, i32 0, i32 2
+  %283 = load ptr, ptr %282, align 8
+  %284 = icmp ne ptr %283, null
+  br i1 %284, label %285, label %300
 
-284:                                              ; preds = %279
-  %285 = load ptr, ptr %3, align 8
-  %286 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %285, i32 0, i32 40
-  %287 = load i32, ptr %286, align 8
-  %288 = and i32 %287, 2048
-  %289 = icmp ne i32 %288, 0
-  br i1 %289, label %290, label %299
+285:                                              ; preds = %280
+  %286 = load ptr, ptr %3, align 8
+  %287 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %286, i32 0, i32 40
+  %288 = load i32, ptr %287, align 8
+  %289 = and i32 %288, 2048
+  %290 = icmp ne i32 %289, 0
+  br i1 %290, label %291, label %300
 
-290:                                              ; preds = %284
-  %291 = load ptr, ptr %3, align 8
-  %292 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %291, i32 0, i32 2
-  %293 = load ptr, ptr %292, align 8
-  %294 = load ptr, ptr %3, align 8
-  call void %293(ptr noundef %294)
+291:                                              ; preds = %285
+  %292 = load ptr, ptr %3, align 8
+  %293 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %292, i32 0, i32 2
+  %294 = load ptr, ptr %293, align 8
   %295 = load ptr, ptr %3, align 8
-  %296 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %295, i32 0, i32 40
-  %297 = load i32, ptr %296, align 8
-  %298 = and i32 %297, -2049
-  store i32 %298, ptr %296, align 8
-  br label %299
+  call void %294(ptr noundef %295)
+  %296 = load ptr, ptr %3, align 8
+  %297 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %296, i32 0, i32 40
+  %298 = load i32, ptr %297, align 8
+  %299 = and i32 %298, -2049
+  store i32 %299, ptr %297, align 8
+  br label %300
 
-299:                                              ; preds = %290, %284, %279
+300:                                              ; preds = %291, %285, %280
   ret void
 }
 
@@ -2707,7 +2708,7 @@ define internal i32 @t38_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 45:                                               ; preds = %36
   store i32 0, ptr %6, align 4
-  br label %358
+  br label %359
 
 46:                                               ; preds = %36, %5
   %47 = load ptr, ptr %26, align 8
@@ -2959,7 +2960,7 @@ define internal i32 @t38_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 209:                                              ; preds = %206
   store i32 0, ptr %6, align 4
-  br label %358
+  br label %359
 
 210:                                              ; preds = %206
   %211 = load ptr, ptr %26, align 8
@@ -2983,20 +2984,20 @@ define internal i32 @t38_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %224 = load ptr, ptr %21, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %224)
   store i16 1, ptr %23, align 2
-  br label %325
+  br label %326
 
 225:                                              ; preds = %210
   %226 = load ptr, ptr %26, align 8
   %227 = getelementptr inbounds %struct._t38_packet_info, ptr %226, i32 0, i32 1
   %228 = load i32, ptr %227, align 4
   %229 = icmp eq i32 %228, 1
-  br i1 %229, label %230, label %324
+  br i1 %229, label %230, label %325
 
 230:                                              ; preds = %225
   %231 = load ptr, ptr %26, align 8
   %232 = getelementptr inbounds %struct._t38_packet_info, ptr %231, i32 0, i32 5
   %233 = load i32, ptr %232, align 4
-  switch i32 %233, label %323 [
+  switch i32 %233, label %324 [
     i32 0, label %234
     i32 2, label %235
     i32 4, label %235
@@ -3006,7 +3007,7 @@ define internal i32 @t38_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   ]
 
 234:                                              ; preds = %230
-  br label %323
+  br label %324
 
 235:                                              ; preds = %230, %230
   %236 = load ptr, ptr %26, align 8
@@ -3044,7 +3045,7 @@ define internal i32 @t38_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   call void @wmem_free(ptr noundef null, ptr noundef %261)
   %262 = load ptr, ptr %22, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %262)
-  br label %323
+  br label %324
 
 263:                                              ; preds = %230, %230
   %264 = load ptr, ptr %26, align 8
@@ -3069,7 +3070,7 @@ define internal i32 @t38_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   store ptr %280, ptr %18, align 8
   %281 = load ptr, ptr %21, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %281)
-  br label %323
+  br label %324
 
 282:                                              ; preds = %230
   %283 = load ptr, ptr %8, align 8
@@ -3090,96 +3091,97 @@ define internal i32 @t38_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   store ptr %295, ptr %17, align 8
   store ptr @.str.45, ptr %27, align 8
   %296 = load ptr, ptr %27, align 8
-  %297 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 99), align 4
-  %298 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef %296, i32 noundef %297)
-  store ptr %298, ptr %28, align 8
-  %299 = load ptr, ptr %28, align 8
-  %300 = load ptr, ptr %21, align 8
-  %301 = load double, ptr %24, align 8
-  %302 = load ptr, ptr %26, align 8
-  %303 = getelementptr inbounds %struct._t38_packet_info, ptr %302, i32 0, i32 8
-  %304 = getelementptr inbounds [128 x i8], ptr %303, i64 0, i64 0
-  %305 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef %299, ptr noundef %300, double noundef %301, ptr noundef %304)
-  store ptr %305, ptr %18, align 8
-  %306 = load ptr, ptr %12, align 8
-  %307 = load ptr, ptr %8, align 8
-  %308 = load ptr, ptr %9, align 8
-  %309 = load ptr, ptr %17, align 8
-  %310 = load ptr, ptr %18, align 8
-  %311 = load i32, ptr %25, align 4
-  %312 = trunc i32 %311 to i16
-  %313 = load ptr, ptr %8, align 8
-  %314 = getelementptr inbounds %struct._packet_info, ptr %313, i32 0, i32 16
-  %315 = load ptr, ptr %8, align 8
-  %316 = getelementptr inbounds %struct._packet_info, ptr %315, i32 0, i32 17
-  %317 = load i16, ptr %23, align 2
-  %318 = load ptr, ptr %26, align 8
-  %319 = getelementptr inbounds %struct._t38_packet_info, ptr %318, i32 0, i32 10
-  %320 = load i32, ptr %319, align 8
-  call void @insert_to_graph_t38(ptr noundef %306, ptr noundef %307, ptr noundef %308, ptr noundef %309, ptr noundef %310, i16 noundef zeroext %312, ptr noundef %314, ptr noundef %316, i16 noundef zeroext %317, i32 noundef %320)
-  %321 = load ptr, ptr %28, align 8
-  call void @g_free(ptr noundef %321)
-  %322 = load ptr, ptr %21, align 8
-  call void @wmem_free(ptr noundef null, ptr noundef %322)
-  br label %323
-
-323:                                              ; preds = %282, %263, %235, %234, %230
+  %297 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 99
+  %298 = load i32, ptr %297, align 4
+  %299 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef %296, i32 noundef %298)
+  store ptr %299, ptr %28, align 8
+  %300 = load ptr, ptr %28, align 8
+  %301 = load ptr, ptr %21, align 8
+  %302 = load double, ptr %24, align 8
+  %303 = load ptr, ptr %26, align 8
+  %304 = getelementptr inbounds %struct._t38_packet_info, ptr %303, i32 0, i32 8
+  %305 = getelementptr inbounds [128 x i8], ptr %304, i64 0, i64 0
+  %306 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef %300, ptr noundef %301, double noundef %302, ptr noundef %305)
+  store ptr %306, ptr %18, align 8
+  %307 = load ptr, ptr %12, align 8
+  %308 = load ptr, ptr %8, align 8
+  %309 = load ptr, ptr %9, align 8
+  %310 = load ptr, ptr %17, align 8
+  %311 = load ptr, ptr %18, align 8
+  %312 = load i32, ptr %25, align 4
+  %313 = trunc i32 %312 to i16
+  %314 = load ptr, ptr %8, align 8
+  %315 = getelementptr inbounds %struct._packet_info, ptr %314, i32 0, i32 16
+  %316 = load ptr, ptr %8, align 8
+  %317 = getelementptr inbounds %struct._packet_info, ptr %316, i32 0, i32 17
+  %318 = load i16, ptr %23, align 2
+  %319 = load ptr, ptr %26, align 8
+  %320 = getelementptr inbounds %struct._t38_packet_info, ptr %319, i32 0, i32 10
+  %321 = load i32, ptr %320, align 8
+  call void @insert_to_graph_t38(ptr noundef %307, ptr noundef %308, ptr noundef %309, ptr noundef %310, ptr noundef %311, i16 noundef zeroext %313, ptr noundef %315, ptr noundef %317, i16 noundef zeroext %318, i32 noundef %321)
+  %322 = load ptr, ptr %28, align 8
+  call void @g_free(ptr noundef %322)
+  %323 = load ptr, ptr %21, align 8
+  call void @wmem_free(ptr noundef null, ptr noundef %323)
   br label %324
 
-324:                                              ; preds = %323, %225
+324:                                              ; preds = %282, %263, %235, %234, %230
   br label %325
 
-325:                                              ; preds = %324, %215
-  %326 = load ptr, ptr %17, align 8
-  %327 = icmp ne ptr %326, null
-  br i1 %327, label %328, label %351
+325:                                              ; preds = %324, %225
+  br label %326
 
-328:                                              ; preds = %325
-  %329 = load ptr, ptr %26, align 8
-  %330 = getelementptr inbounds %struct._t38_packet_info, ptr %329, i32 0, i32 5
-  %331 = load i32, ptr %330, align 4
-  %332 = icmp eq i32 %331, 7
-  br i1 %332, label %333, label %338
+326:                                              ; preds = %325, %215
+  %327 = load ptr, ptr %17, align 8
+  %328 = icmp ne ptr %327, null
+  br i1 %328, label %329, label %352
 
-333:                                              ; preds = %328
-  %334 = load ptr, ptr %26, align 8
-  %335 = getelementptr inbounds %struct._t38_packet_info, ptr %334, i32 0, i32 1
-  %336 = load i32, ptr %335, align 4
-  %337 = icmp eq i32 %336, 1
-  br i1 %337, label %351, label %338
+329:                                              ; preds = %326
+  %330 = load ptr, ptr %26, align 8
+  %331 = getelementptr inbounds %struct._t38_packet_info, ptr %330, i32 0, i32 5
+  %332 = load i32, ptr %331, align 4
+  %333 = icmp eq i32 %332, 7
+  br i1 %333, label %334, label %339
 
-338:                                              ; preds = %333, %328
-  %339 = load ptr, ptr %12, align 8
-  %340 = load ptr, ptr %8, align 8
-  %341 = load ptr, ptr %9, align 8
-  %342 = load ptr, ptr %17, align 8
-  %343 = load ptr, ptr %18, align 8
-  %344 = load i32, ptr %25, align 4
-  %345 = trunc i32 %344 to i16
-  %346 = load ptr, ptr %8, align 8
-  %347 = getelementptr inbounds %struct._packet_info, ptr %346, i32 0, i32 16
-  %348 = load ptr, ptr %8, align 8
-  %349 = getelementptr inbounds %struct._packet_info, ptr %348, i32 0, i32 17
-  %350 = load i16, ptr %23, align 2
-  call void @add_to_graph(ptr noundef %339, ptr noundef %340, ptr noundef %341, ptr noundef %342, ptr noundef %343, i16 noundef zeroext %345, ptr noundef %347, ptr noundef %349, i16 noundef zeroext %350)
-  br label %351
+334:                                              ; preds = %329
+  %335 = load ptr, ptr %26, align 8
+  %336 = getelementptr inbounds %struct._t38_packet_info, ptr %335, i32 0, i32 1
+  %337 = load i32, ptr %336, align 4
+  %338 = icmp eq i32 %337, 1
+  br i1 %338, label %352, label %339
 
-351:                                              ; preds = %338, %333, %325
-  %352 = load ptr, ptr %18, align 8
-  call void @g_free(ptr noundef %352)
-  %353 = load ptr, ptr %17, align 8
+339:                                              ; preds = %334, %329
+  %340 = load ptr, ptr %12, align 8
+  %341 = load ptr, ptr %8, align 8
+  %342 = load ptr, ptr %9, align 8
+  %343 = load ptr, ptr %17, align 8
+  %344 = load ptr, ptr %18, align 8
+  %345 = load i32, ptr %25, align 4
+  %346 = trunc i32 %345 to i16
+  %347 = load ptr, ptr %8, align 8
+  %348 = getelementptr inbounds %struct._packet_info, ptr %347, i32 0, i32 16
+  %349 = load ptr, ptr %8, align 8
+  %350 = getelementptr inbounds %struct._packet_info, ptr %349, i32 0, i32 17
+  %351 = load i16, ptr %23, align 2
+  call void @add_to_graph(ptr noundef %340, ptr noundef %341, ptr noundef %342, ptr noundef %343, ptr noundef %344, i16 noundef zeroext %346, ptr noundef %348, ptr noundef %350, i16 noundef zeroext %351)
+  br label %352
+
+352:                                              ; preds = %339, %334, %326
+  %353 = load ptr, ptr %18, align 8
   call void @g_free(ptr noundef %353)
-  %354 = load ptr, ptr %12, align 8
-  %355 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %354, i32 0, i32 40
-  %356 = load i32, ptr %355, align 8
-  %357 = or i32 %356, 262144
-  store i32 %357, ptr %355, align 8
+  %354 = load ptr, ptr %17, align 8
+  call void @g_free(ptr noundef %354)
+  %355 = load ptr, ptr %12, align 8
+  %356 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %355, i32 0, i32 40
+  %357 = load i32, ptr %356, align 8
+  %358 = or i32 %357, 262144
+  store i32 %358, ptr %356, align 8
   store i32 1, ptr %6, align 4
-  br label %358
+  br label %359
 
-358:                                              ; preds = %351, %209, %45
-  %359 = load i32, ptr %6, align 4
-  ret i32 %359
+359:                                              ; preds = %352, %209, %45
+  %360 = load i32, ptr %6, align 4
+  ret i32 %360
 }
 
 ; Function Attrs: nounwind uwtable

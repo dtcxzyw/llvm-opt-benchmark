@@ -890,9 +890,11 @@ define void @_ZN6casadi24CSparseCholeskyInterfaceC2ERKNSt7__cxx1112basic_stringI
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN6casadi14LinsolInternalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(184) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [27 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 168
-  store ptr getelementptr inbounds ({ [27 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i32 0, i32 1, i32 2), ptr %10, align 8
+  %10 = getelementptr inbounds { [27 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 168
+  %12 = getelementptr inbounds { [27 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i32 0, i32 1, i32 2
+  store ptr %12, ptr %11, align 8
   ret void
 }
 
@@ -903,21 +905,23 @@ define void @_ZN6casadi24CSparseCholeskyInterfaceD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 168
-  store ptr getelementptr inbounds ({ [27 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i32 0, i32 1, i32 2), ptr %4, align 8
+  %4 = getelementptr inbounds { [27 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 168
+  %6 = getelementptr inbounds { [27 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %3)
-          to label %5 unwind label %6
+          to label %7 unwind label %8
 
-5:                                                ; preds = %1
+7:                                                ; preds = %1
   call void @_ZN6casadi14LinsolInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %3) #3
   ret void
 
-6:                                                ; preds = %1
-  %7 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #16
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #16
   unreachable
 }
 
@@ -2506,31 +2510,32 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2538,9 +2543,10 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -3117,9 +3123,11 @@ define linkonce_odr hidden void @_ZN6casadi24CSparseCholeskyInterfaceC2ERNS_19De
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi14LinsolInternalC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(184) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [27 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 168
-  store ptr getelementptr inbounds ({ [27 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i32 0, i32 1, i32 2), ptr %7, align 8
+  %7 = getelementptr inbounds { [27 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 168
+  %9 = getelementptr inbounds { [27 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i32 0, i32 1, i32 2
+  store ptr %9, ptr %8, align 8
   ret void
 }
 
@@ -3745,7 +3753,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

@@ -801,7 +801,7 @@ define internal i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %89
+  br label %90
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %3, align 8
@@ -809,7 +809,7 @@ define internal i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %0) #0 {
   %13 = load ptr, ptr %3, align 8
   %14 = call ptr @Abc_ObjGetPath(ptr noundef %13)
   %15 = icmp ne ptr %14, null
-  br i1 %15, label %51, label %16
+  br i1 %15, label %52, label %16
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %3, align 8
@@ -818,137 +818,138 @@ define internal i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %0) #0 {
   %20 = lshr i32 %19, 4
   %21 = and i32 %20, 1
   %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %26
+  br i1 %22, label %23, label %27
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr %3, align 8
-  %25 = call i32 @Abc_ObjSetPath(ptr noundef %24, ptr noundef inttoptr (i64 1 to ptr))
-  store i32 %25, ptr %2, align 4
-  br label %89
+  %25 = inttoptr i64 1 to ptr
+  %26 = call i32 @Abc_ObjSetPath(ptr noundef %24, ptr noundef %25)
+  store i32 %26, ptr %2, align 4
+  br label %90
 
-26:                                               ; preds = %16
+27:                                               ; preds = %16
   store i32 0, ptr %6, align 4
-  br label %27
+  br label %28
 
-27:                                               ; preds = %47, %26
-  %28 = load i32, ptr %6, align 4
-  %29 = load ptr, ptr %3, align 8
-  %30 = call i32 @Abc_ObjFanoutNum(ptr noundef %29)
-  %31 = icmp slt i32 %28, %30
-  br i1 %31, label %32, label %36
+28:                                               ; preds = %48, %27
+  %29 = load i32, ptr %6, align 4
+  %30 = load ptr, ptr %3, align 8
+  %31 = call i32 @Abc_ObjFanoutNum(ptr noundef %30)
+  %32 = icmp slt i32 %29, %31
+  br i1 %32, label %33, label %37
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %3, align 8
-  %34 = load i32, ptr %6, align 4
-  %35 = call ptr @Abc_ObjFanout(ptr noundef %33, i32 noundef %34)
-  store ptr %35, ptr %4, align 8
-  br label %36
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %3, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = call ptr @Abc_ObjFanout(ptr noundef %34, i32 noundef %35)
+  store ptr %36, ptr %4, align 8
+  br label %37
 
-36:                                               ; preds = %32, %27
-  %37 = phi i1 [ false, %27 ], [ true, %32 ]
-  br i1 %37, label %38, label %50
+37:                                               ; preds = %33, %28
+  %38 = phi i1 [ false, %28 ], [ true, %33 ]
+  br i1 %38, label %39, label %51
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %4, align 8
-  %40 = call i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %39)
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %46
+39:                                               ; preds = %37
+  %40 = load ptr, ptr %4, align 8
+  %41 = call i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %40)
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %47
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %3, align 8
-  %44 = load ptr, ptr %4, align 8
-  %45 = call i32 @Abc_ObjSetPath(ptr noundef %43, ptr noundef %44)
-  store i32 %45, ptr %2, align 4
-  br label %89
+43:                                               ; preds = %39
+  %44 = load ptr, ptr %3, align 8
+  %45 = load ptr, ptr %4, align 8
+  %46 = call i32 @Abc_ObjSetPath(ptr noundef %44, ptr noundef %45)
+  store i32 %46, ptr %2, align 4
+  br label %90
 
-46:                                               ; preds = %38
-  br label %47
+47:                                               ; preds = %39
+  br label %48
 
-47:                                               ; preds = %46
-  %48 = load i32, ptr %6, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %6, align 4
-  br label %27, !llvm.loop !12
+48:                                               ; preds = %47
+  %49 = load i32, ptr %6, align 4
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %6, align 4
+  br label %28, !llvm.loop !12
 
-50:                                               ; preds = %36
+51:                                               ; preds = %37
   store i32 0, ptr %2, align 4
-  br label %89
+  br label %90
 
-51:                                               ; preds = %11
-  %52 = load ptr, ptr %3, align 8
-  %53 = call ptr @Abc_ObjGetFaninPath(ptr noundef %52)
-  store ptr %53, ptr %5, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %57
+52:                                               ; preds = %11
+  %53 = load ptr, ptr %3, align 8
+  %54 = call ptr @Abc_ObjGetFaninPath(ptr noundef %53)
+  store ptr %54, ptr %5, align 8
+  %55 = load ptr, ptr %5, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %51
+57:                                               ; preds = %52
   store i32 0, ptr %2, align 4
-  br label %89
+  br label %90
 
-57:                                               ; preds = %51
+58:                                               ; preds = %52
   store i32 0, ptr %6, align 4
-  br label %58
+  br label %59
 
-58:                                               ; preds = %78, %57
-  %59 = load i32, ptr %6, align 4
-  %60 = load ptr, ptr %5, align 8
-  %61 = call i32 @Abc_ObjFanoutNum(ptr noundef %60)
-  %62 = icmp slt i32 %59, %61
-  br i1 %62, label %63, label %67
+59:                                               ; preds = %79, %58
+  %60 = load i32, ptr %6, align 4
+  %61 = load ptr, ptr %5, align 8
+  %62 = call i32 @Abc_ObjFanoutNum(ptr noundef %61)
+  %63 = icmp slt i32 %60, %62
+  br i1 %63, label %64, label %68
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %5, align 8
-  %65 = load i32, ptr %6, align 4
-  %66 = call ptr @Abc_ObjFanout(ptr noundef %64, i32 noundef %65)
-  store ptr %66, ptr %4, align 8
-  br label %67
+64:                                               ; preds = %59
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i32, ptr %6, align 4
+  %67 = call ptr @Abc_ObjFanout(ptr noundef %65, i32 noundef %66)
+  store ptr %67, ptr %4, align 8
+  br label %68
 
-67:                                               ; preds = %63, %58
-  %68 = phi i1 [ false, %58 ], [ true, %63 ]
-  br i1 %68, label %69, label %81
+68:                                               ; preds = %64, %59
+  %69 = phi i1 [ false, %59 ], [ true, %64 ]
+  br i1 %69, label %70, label %82
 
-69:                                               ; preds = %67
-  %70 = load ptr, ptr %4, align 8
-  %71 = call i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %70)
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %77
+70:                                               ; preds = %68
+  %71 = load ptr, ptr %4, align 8
+  %72 = call i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %71)
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %78
 
-73:                                               ; preds = %69
-  %74 = load ptr, ptr %5, align 8
-  %75 = load ptr, ptr %4, align 8
-  %76 = call i32 @Abc_ObjSetPath(ptr noundef %74, ptr noundef %75)
-  store i32 %76, ptr %2, align 4
-  br label %89
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %5, align 8
+  %76 = load ptr, ptr %4, align 8
+  %77 = call i32 @Abc_ObjSetPath(ptr noundef %75, ptr noundef %76)
+  store i32 %77, ptr %2, align 4
+  br label %90
 
-77:                                               ; preds = %69
-  br label %78
+78:                                               ; preds = %70
+  br label %79
 
-78:                                               ; preds = %77
-  %79 = load i32, ptr %6, align 4
-  %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %6, align 4
-  br label %58, !llvm.loop !13
+79:                                               ; preds = %78
+  %80 = load i32, ptr %6, align 4
+  %81 = add nsw i32 %80, 1
+  store i32 %81, ptr %6, align 4
+  br label %59, !llvm.loop !13
 
-81:                                               ; preds = %67
-  %82 = load ptr, ptr %5, align 8
-  %83 = call i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %82)
-  %84 = icmp ne i32 %83, 0
-  br i1 %84, label %85, label %88
+82:                                               ; preds = %68
+  %83 = load ptr, ptr %5, align 8
+  %84 = call i32 @Abc_NtkMaxFlowFwdPath2_rec(ptr noundef %83)
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %89
 
-85:                                               ; preds = %81
-  %86 = load ptr, ptr %5, align 8
-  %87 = call i32 @Abc_ObjSetPath(ptr noundef %86, ptr noundef null)
-  store i32 %87, ptr %2, align 4
-  br label %89
+86:                                               ; preds = %82
+  %87 = load ptr, ptr %5, align 8
+  %88 = call i32 @Abc_ObjSetPath(ptr noundef %87, ptr noundef null)
+  store i32 %88, ptr %2, align 4
+  br label %90
 
-88:                                               ; preds = %81
+89:                                               ; preds = %82
   store i32 0, ptr %2, align 4
-  br label %89
+  br label %90
 
-89:                                               ; preds = %88, %85, %73, %56, %50, %42, %23, %10
-  %90 = load i32, ptr %2, align 4
-  ret i32 %90
+90:                                               ; preds = %89, %86, %74, %57, %51, %43, %23, %10
+  %91 = load i32, ptr %2, align 4
+  ret i32 %91
 }
 
 ; Function Attrs: nounwind uwtable
@@ -966,7 +967,7 @@ define internal i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %89
+  br label %90
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %3, align 8
@@ -974,7 +975,7 @@ define internal i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %0) #0 {
   %13 = load ptr, ptr %3, align 8
   %14 = call ptr @Abc_ObjGetPath(ptr noundef %13)
   %15 = icmp ne ptr %14, null
-  br i1 %15, label %51, label %16
+  br i1 %15, label %52, label %16
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %3, align 8
@@ -983,137 +984,138 @@ define internal i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %0) #0 {
   %20 = lshr i32 %19, 4
   %21 = and i32 %20, 1
   %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %26
+  br i1 %22, label %23, label %27
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr %3, align 8
-  %25 = call i32 @Abc_ObjSetPath(ptr noundef %24, ptr noundef inttoptr (i64 1 to ptr))
-  store i32 %25, ptr %2, align 4
-  br label %89
+  %25 = inttoptr i64 1 to ptr
+  %26 = call i32 @Abc_ObjSetPath(ptr noundef %24, ptr noundef %25)
+  store i32 %26, ptr %2, align 4
+  br label %90
 
-26:                                               ; preds = %16
+27:                                               ; preds = %16
   store i32 0, ptr %6, align 4
-  br label %27
+  br label %28
 
-27:                                               ; preds = %47, %26
-  %28 = load i32, ptr %6, align 4
-  %29 = load ptr, ptr %3, align 8
-  %30 = call i32 @Abc_ObjFaninNum(ptr noundef %29)
-  %31 = icmp slt i32 %28, %30
-  br i1 %31, label %32, label %36
+28:                                               ; preds = %48, %27
+  %29 = load i32, ptr %6, align 4
+  %30 = load ptr, ptr %3, align 8
+  %31 = call i32 @Abc_ObjFaninNum(ptr noundef %30)
+  %32 = icmp slt i32 %29, %31
+  br i1 %32, label %33, label %37
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %3, align 8
-  %34 = load i32, ptr %6, align 4
-  %35 = call ptr @Abc_ObjFanin(ptr noundef %33, i32 noundef %34)
-  store ptr %35, ptr %5, align 8
-  br label %36
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %3, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = call ptr @Abc_ObjFanin(ptr noundef %34, i32 noundef %35)
+  store ptr %36, ptr %5, align 8
+  br label %37
 
-36:                                               ; preds = %32, %27
-  %37 = phi i1 [ false, %27 ], [ true, %32 ]
-  br i1 %37, label %38, label %50
+37:                                               ; preds = %33, %28
+  %38 = phi i1 [ false, %28 ], [ true, %33 ]
+  br i1 %38, label %39, label %51
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %5, align 8
-  %40 = call i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %39)
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %46
+39:                                               ; preds = %37
+  %40 = load ptr, ptr %5, align 8
+  %41 = call i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %40)
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %47
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %3, align 8
-  %44 = load ptr, ptr %5, align 8
-  %45 = call i32 @Abc_ObjSetPath(ptr noundef %43, ptr noundef %44)
-  store i32 %45, ptr %2, align 4
-  br label %89
+43:                                               ; preds = %39
+  %44 = load ptr, ptr %3, align 8
+  %45 = load ptr, ptr %5, align 8
+  %46 = call i32 @Abc_ObjSetPath(ptr noundef %44, ptr noundef %45)
+  store i32 %46, ptr %2, align 4
+  br label %90
 
-46:                                               ; preds = %38
-  br label %47
+47:                                               ; preds = %39
+  br label %48
 
-47:                                               ; preds = %46
-  %48 = load i32, ptr %6, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %6, align 4
-  br label %27, !llvm.loop !14
+48:                                               ; preds = %47
+  %49 = load i32, ptr %6, align 4
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %6, align 4
+  br label %28, !llvm.loop !14
 
-50:                                               ; preds = %36
+51:                                               ; preds = %37
   store i32 0, ptr %2, align 4
-  br label %89
+  br label %90
 
-51:                                               ; preds = %11
-  %52 = load ptr, ptr %3, align 8
-  %53 = call ptr @Abc_ObjGetFanoutPath(ptr noundef %52)
-  store ptr %53, ptr %4, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %57
+52:                                               ; preds = %11
+  %53 = load ptr, ptr %3, align 8
+  %54 = call ptr @Abc_ObjGetFanoutPath(ptr noundef %53)
+  store ptr %54, ptr %4, align 8
+  %55 = load ptr, ptr %4, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %51
+57:                                               ; preds = %52
   store i32 0, ptr %2, align 4
-  br label %89
+  br label %90
 
-57:                                               ; preds = %51
+58:                                               ; preds = %52
   store i32 0, ptr %6, align 4
-  br label %58
+  br label %59
 
-58:                                               ; preds = %78, %57
-  %59 = load i32, ptr %6, align 4
-  %60 = load ptr, ptr %4, align 8
-  %61 = call i32 @Abc_ObjFaninNum(ptr noundef %60)
-  %62 = icmp slt i32 %59, %61
-  br i1 %62, label %63, label %67
+59:                                               ; preds = %79, %58
+  %60 = load i32, ptr %6, align 4
+  %61 = load ptr, ptr %4, align 8
+  %62 = call i32 @Abc_ObjFaninNum(ptr noundef %61)
+  %63 = icmp slt i32 %60, %62
+  br i1 %63, label %64, label %68
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %4, align 8
-  %65 = load i32, ptr %6, align 4
-  %66 = call ptr @Abc_ObjFanin(ptr noundef %64, i32 noundef %65)
-  store ptr %66, ptr %5, align 8
-  br label %67
+64:                                               ; preds = %59
+  %65 = load ptr, ptr %4, align 8
+  %66 = load i32, ptr %6, align 4
+  %67 = call ptr @Abc_ObjFanin(ptr noundef %65, i32 noundef %66)
+  store ptr %67, ptr %5, align 8
+  br label %68
 
-67:                                               ; preds = %63, %58
-  %68 = phi i1 [ false, %58 ], [ true, %63 ]
-  br i1 %68, label %69, label %81
+68:                                               ; preds = %64, %59
+  %69 = phi i1 [ false, %59 ], [ true, %64 ]
+  br i1 %69, label %70, label %82
 
-69:                                               ; preds = %67
-  %70 = load ptr, ptr %5, align 8
-  %71 = call i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %70)
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %77
+70:                                               ; preds = %68
+  %71 = load ptr, ptr %5, align 8
+  %72 = call i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %71)
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %78
 
-73:                                               ; preds = %69
-  %74 = load ptr, ptr %4, align 8
-  %75 = load ptr, ptr %5, align 8
-  %76 = call i32 @Abc_ObjSetPath(ptr noundef %74, ptr noundef %75)
-  store i32 %76, ptr %2, align 4
-  br label %89
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %4, align 8
+  %76 = load ptr, ptr %5, align 8
+  %77 = call i32 @Abc_ObjSetPath(ptr noundef %75, ptr noundef %76)
+  store i32 %77, ptr %2, align 4
+  br label %90
 
-77:                                               ; preds = %69
-  br label %78
+78:                                               ; preds = %70
+  br label %79
 
-78:                                               ; preds = %77
-  %79 = load i32, ptr %6, align 4
-  %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %6, align 4
-  br label %58, !llvm.loop !15
+79:                                               ; preds = %78
+  %80 = load i32, ptr %6, align 4
+  %81 = add nsw i32 %80, 1
+  store i32 %81, ptr %6, align 4
+  br label %59, !llvm.loop !15
 
-81:                                               ; preds = %67
-  %82 = load ptr, ptr %4, align 8
-  %83 = call i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %82)
-  %84 = icmp ne i32 %83, 0
-  br i1 %84, label %85, label %88
+82:                                               ; preds = %68
+  %83 = load ptr, ptr %4, align 8
+  %84 = call i32 @Abc_NtkMaxFlowBwdPath2_rec(ptr noundef %83)
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %89
 
-85:                                               ; preds = %81
-  %86 = load ptr, ptr %4, align 8
-  %87 = call i32 @Abc_ObjSetPath(ptr noundef %86, ptr noundef null)
-  store i32 %87, ptr %2, align 4
-  br label %89
+86:                                               ; preds = %82
+  %87 = load ptr, ptr %4, align 8
+  %88 = call i32 @Abc_ObjSetPath(ptr noundef %87, ptr noundef null)
+  store i32 %88, ptr %2, align 4
+  br label %90
 
-88:                                               ; preds = %81
+89:                                               ; preds = %82
   store i32 0, ptr %2, align 4
-  br label %89
+  br label %90
 
-89:                                               ; preds = %88, %85, %73, %56, %50, %42, %23, %10
-  %90 = load i32, ptr %2, align 4
-  ret i32 %90
+90:                                               ; preds = %89, %86, %74, %57, %51, %43, %23, %10
+  %91 = load i32, ptr %2, align 4
+  ret i32 %91
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1131,7 +1133,7 @@ define internal i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %161
+  br label %162
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %3, align 8
@@ -1142,7 +1144,7 @@ define internal i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %0) #0 {
   %15 = load ptr, ptr %3, align 8
   %16 = call ptr @Abc_ObjGetPath(ptr noundef %15)
   %17 = icmp ne ptr %16, null
-  br i1 %17, label %93, label %18
+  br i1 %17, label %94, label %18
 
 18:                                               ; preds = %11
   %19 = load ptr, ptr %3, align 8
@@ -1151,258 +1153,259 @@ define internal i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %0) #0 {
   %22 = lshr i32 %21, 4
   %23 = and i32 %22, 1
   %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %28
+  br i1 %24, label %25, label %29
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %3, align 8
-  %27 = call i32 @Abc_ObjSetPath(ptr noundef %26, ptr noundef inttoptr (i64 1 to ptr))
-  store i32 %27, ptr %2, align 4
-  br label %161
+  %27 = inttoptr i64 1 to ptr
+  %28 = call i32 @Abc_ObjSetPath(ptr noundef %26, ptr noundef %27)
+  store i32 %28, ptr %2, align 4
+  br label %162
 
-28:                                               ; preds = %18
+29:                                               ; preds = %18
   store i32 0, ptr %6, align 4
-  br label %29
+  br label %30
 
-29:                                               ; preds = %57, %28
-  %30 = load i32, ptr %6, align 4
-  %31 = load ptr, ptr %3, align 8
-  %32 = call i32 @Abc_ObjFanoutNum(ptr noundef %31)
-  %33 = icmp slt i32 %30, %32
-  br i1 %33, label %34, label %38
+30:                                               ; preds = %58, %29
+  %31 = load i32, ptr %6, align 4
+  %32 = load ptr, ptr %3, align 8
+  %33 = call i32 @Abc_ObjFanoutNum(ptr noundef %32)
+  %34 = icmp slt i32 %31, %33
+  br i1 %34, label %35, label %39
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %3, align 8
-  %36 = load i32, ptr %6, align 4
-  %37 = call ptr @Abc_ObjFanout(ptr noundef %35, i32 noundef %36)
-  store ptr %37, ptr %4, align 8
-  br label %38
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %3, align 8
+  %37 = load i32, ptr %6, align 4
+  %38 = call ptr @Abc_ObjFanout(ptr noundef %36, i32 noundef %37)
+  store ptr %38, ptr %4, align 8
+  br label %39
 
-38:                                               ; preds = %34, %29
-  %39 = phi i1 [ false, %29 ], [ true, %34 ]
-  br i1 %39, label %40, label %60
+39:                                               ; preds = %35, %30
+  %40 = phi i1 [ false, %30 ], [ true, %35 ]
+  br i1 %40, label %41, label %61
 
-40:                                               ; preds = %38
-  %41 = load ptr, ptr %4, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = icmp ne ptr %41, %42
-  br i1 %43, label %44, label %56
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %4, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = icmp ne ptr %42, %43
+  br i1 %44, label %45, label %57
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %4, align 8
-  %46 = call i32 @Abc_ObjIsLatch(ptr noundef %45)
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %56, label %48
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %4, align 8
+  %47 = call i32 @Abc_ObjIsLatch(ptr noundef %46)
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %57, label %49
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %4, align 8
-  %50 = call i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %49)
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %56
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %4, align 8
+  %51 = call i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %50)
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %57
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %3, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = call i32 @Abc_ObjSetPath(ptr noundef %53, ptr noundef %54)
-  store i32 %55, ptr %2, align 4
-  br label %161
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %3, align 8
+  %55 = load ptr, ptr %4, align 8
+  %56 = call i32 @Abc_ObjSetPath(ptr noundef %54, ptr noundef %55)
+  store i32 %56, ptr %2, align 4
+  br label %162
 
-56:                                               ; preds = %48, %44, %40
-  br label %57
+57:                                               ; preds = %49, %45, %41
+  br label %58
 
-57:                                               ; preds = %56
-  %58 = load i32, ptr %6, align 4
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %6, align 4
-  br label %29, !llvm.loop !16
+58:                                               ; preds = %57
+  %59 = load i32, ptr %6, align 4
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %6, align 4
+  br label %30, !llvm.loop !16
 
-60:                                               ; preds = %38
+61:                                               ; preds = %39
   store i32 0, ptr %6, align 4
-  br label %61
+  br label %62
 
-61:                                               ; preds = %89, %60
-  %62 = load i32, ptr %6, align 4
-  %63 = load ptr, ptr %3, align 8
-  %64 = call i32 @Abc_ObjFaninNum(ptr noundef %63)
-  %65 = icmp slt i32 %62, %64
-  br i1 %65, label %66, label %70
+62:                                               ; preds = %90, %61
+  %63 = load i32, ptr %6, align 4
+  %64 = load ptr, ptr %3, align 8
+  %65 = call i32 @Abc_ObjFaninNum(ptr noundef %64)
+  %66 = icmp slt i32 %63, %65
+  br i1 %66, label %67, label %71
 
-66:                                               ; preds = %61
-  %67 = load ptr, ptr %3, align 8
-  %68 = load i32, ptr %6, align 4
-  %69 = call ptr @Abc_ObjFanin(ptr noundef %67, i32 noundef %68)
-  store ptr %69, ptr %4, align 8
-  br label %70
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %3, align 8
+  %69 = load i32, ptr %6, align 4
+  %70 = call ptr @Abc_ObjFanin(ptr noundef %68, i32 noundef %69)
+  store ptr %70, ptr %4, align 8
+  br label %71
 
-70:                                               ; preds = %66, %61
-  %71 = phi i1 [ false, %61 ], [ true, %66 ]
-  br i1 %71, label %72, label %92
+71:                                               ; preds = %67, %62
+  %72 = phi i1 [ false, %62 ], [ true, %67 ]
+  br i1 %72, label %73, label %93
 
-72:                                               ; preds = %70
-  %73 = load ptr, ptr %4, align 8
-  %74 = load ptr, ptr %5, align 8
-  %75 = icmp ne ptr %73, %74
-  br i1 %75, label %76, label %88
+73:                                               ; preds = %71
+  %74 = load ptr, ptr %4, align 8
+  %75 = load ptr, ptr %5, align 8
+  %76 = icmp ne ptr %74, %75
+  br i1 %76, label %77, label %89
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %4, align 8
-  %78 = call i32 @Abc_ObjIsLatch(ptr noundef %77)
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %88, label %80
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %4, align 8
+  %79 = call i32 @Abc_ObjIsLatch(ptr noundef %78)
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %89, label %81
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr %4, align 8
-  %82 = call i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %81)
-  %83 = icmp ne i32 %82, 0
-  br i1 %83, label %84, label %88
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %4, align 8
+  %83 = call i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %82)
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %89
 
-84:                                               ; preds = %80
-  %85 = load ptr, ptr %3, align 8
-  %86 = load ptr, ptr %4, align 8
-  %87 = call i32 @Abc_ObjSetPath(ptr noundef %85, ptr noundef %86)
-  store i32 %87, ptr %2, align 4
-  br label %161
+85:                                               ; preds = %81
+  %86 = load ptr, ptr %3, align 8
+  %87 = load ptr, ptr %4, align 8
+  %88 = call i32 @Abc_ObjSetPath(ptr noundef %86, ptr noundef %87)
+  store i32 %88, ptr %2, align 4
+  br label %162
 
-88:                                               ; preds = %80, %76, %72
-  br label %89
+89:                                               ; preds = %81, %77, %73
+  br label %90
 
-89:                                               ; preds = %88
-  %90 = load i32, ptr %6, align 4
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %6, align 4
-  br label %61, !llvm.loop !17
+90:                                               ; preds = %89
+  %91 = load i32, ptr %6, align 4
+  %92 = add nsw i32 %91, 1
+  store i32 %92, ptr %6, align 4
+  br label %62, !llvm.loop !17
 
-92:                                               ; preds = %70
+93:                                               ; preds = %71
   store i32 0, ptr %2, align 4
-  br label %161
+  br label %162
 
-93:                                               ; preds = %11
-  %94 = load ptr, ptr %5, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %97
+94:                                               ; preds = %11
+  %95 = load ptr, ptr %5, align 8
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %97, label %98
 
-96:                                               ; preds = %93
+97:                                               ; preds = %94
   store i32 0, ptr %2, align 4
-  br label %161
+  br label %162
 
-97:                                               ; preds = %93
+98:                                               ; preds = %94
   store i32 0, ptr %6, align 4
-  br label %98
+  br label %99
 
-98:                                               ; preds = %122, %97
-  %99 = load i32, ptr %6, align 4
-  %100 = load ptr, ptr %5, align 8
-  %101 = call i32 @Abc_ObjFanoutNum(ptr noundef %100)
-  %102 = icmp slt i32 %99, %101
-  br i1 %102, label %103, label %107
+99:                                               ; preds = %123, %98
+  %100 = load i32, ptr %6, align 4
+  %101 = load ptr, ptr %5, align 8
+  %102 = call i32 @Abc_ObjFanoutNum(ptr noundef %101)
+  %103 = icmp slt i32 %100, %102
+  br i1 %103, label %104, label %108
 
-103:                                              ; preds = %98
-  %104 = load ptr, ptr %5, align 8
-  %105 = load i32, ptr %6, align 4
-  %106 = call ptr @Abc_ObjFanout(ptr noundef %104, i32 noundef %105)
-  store ptr %106, ptr %4, align 8
-  br label %107
+104:                                              ; preds = %99
+  %105 = load ptr, ptr %5, align 8
+  %106 = load i32, ptr %6, align 4
+  %107 = call ptr @Abc_ObjFanout(ptr noundef %105, i32 noundef %106)
+  store ptr %107, ptr %4, align 8
+  br label %108
 
-107:                                              ; preds = %103, %98
-  %108 = phi i1 [ false, %98 ], [ true, %103 ]
-  br i1 %108, label %109, label %125
+108:                                              ; preds = %104, %99
+  %109 = phi i1 [ false, %99 ], [ true, %104 ]
+  br i1 %109, label %110, label %126
 
-109:                                              ; preds = %107
-  %110 = load ptr, ptr %4, align 8
-  %111 = call i32 @Abc_ObjIsLatch(ptr noundef %110)
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %121, label %113
+110:                                              ; preds = %108
+  %111 = load ptr, ptr %4, align 8
+  %112 = call i32 @Abc_ObjIsLatch(ptr noundef %111)
+  %113 = icmp ne i32 %112, 0
+  br i1 %113, label %122, label %114
 
-113:                                              ; preds = %109
-  %114 = load ptr, ptr %4, align 8
-  %115 = call i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %114)
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %117, label %121
+114:                                              ; preds = %110
+  %115 = load ptr, ptr %4, align 8
+  %116 = call i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %115)
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %118, label %122
 
-117:                                              ; preds = %113
-  %118 = load ptr, ptr %5, align 8
-  %119 = load ptr, ptr %4, align 8
-  %120 = call i32 @Abc_ObjSetPath(ptr noundef %118, ptr noundef %119)
-  store i32 %120, ptr %2, align 4
-  br label %161
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %5, align 8
+  %120 = load ptr, ptr %4, align 8
+  %121 = call i32 @Abc_ObjSetPath(ptr noundef %119, ptr noundef %120)
+  store i32 %121, ptr %2, align 4
+  br label %162
 
-121:                                              ; preds = %113, %109
-  br label %122
+122:                                              ; preds = %114, %110
+  br label %123
 
-122:                                              ; preds = %121
-  %123 = load i32, ptr %6, align 4
-  %124 = add nsw i32 %123, 1
-  store i32 %124, ptr %6, align 4
-  br label %98, !llvm.loop !18
+123:                                              ; preds = %122
+  %124 = load i32, ptr %6, align 4
+  %125 = add nsw i32 %124, 1
+  store i32 %125, ptr %6, align 4
+  br label %99, !llvm.loop !18
 
-125:                                              ; preds = %107
+126:                                              ; preds = %108
   store i32 0, ptr %6, align 4
-  br label %126
+  br label %127
 
-126:                                              ; preds = %150, %125
-  %127 = load i32, ptr %6, align 4
-  %128 = load ptr, ptr %5, align 8
-  %129 = call i32 @Abc_ObjFaninNum(ptr noundef %128)
-  %130 = icmp slt i32 %127, %129
-  br i1 %130, label %131, label %135
+127:                                              ; preds = %151, %126
+  %128 = load i32, ptr %6, align 4
+  %129 = load ptr, ptr %5, align 8
+  %130 = call i32 @Abc_ObjFaninNum(ptr noundef %129)
+  %131 = icmp slt i32 %128, %130
+  br i1 %131, label %132, label %136
 
-131:                                              ; preds = %126
-  %132 = load ptr, ptr %5, align 8
-  %133 = load i32, ptr %6, align 4
-  %134 = call ptr @Abc_ObjFanin(ptr noundef %132, i32 noundef %133)
-  store ptr %134, ptr %4, align 8
-  br label %135
+132:                                              ; preds = %127
+  %133 = load ptr, ptr %5, align 8
+  %134 = load i32, ptr %6, align 4
+  %135 = call ptr @Abc_ObjFanin(ptr noundef %133, i32 noundef %134)
+  store ptr %135, ptr %4, align 8
+  br label %136
 
-135:                                              ; preds = %131, %126
-  %136 = phi i1 [ false, %126 ], [ true, %131 ]
-  br i1 %136, label %137, label %153
+136:                                              ; preds = %132, %127
+  %137 = phi i1 [ false, %127 ], [ true, %132 ]
+  br i1 %137, label %138, label %154
 
-137:                                              ; preds = %135
-  %138 = load ptr, ptr %4, align 8
-  %139 = call i32 @Abc_ObjIsLatch(ptr noundef %138)
-  %140 = icmp ne i32 %139, 0
-  br i1 %140, label %149, label %141
+138:                                              ; preds = %136
+  %139 = load ptr, ptr %4, align 8
+  %140 = call i32 @Abc_ObjIsLatch(ptr noundef %139)
+  %141 = icmp ne i32 %140, 0
+  br i1 %141, label %150, label %142
 
-141:                                              ; preds = %137
-  %142 = load ptr, ptr %4, align 8
-  %143 = call i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %142)
-  %144 = icmp ne i32 %143, 0
-  br i1 %144, label %145, label %149
+142:                                              ; preds = %138
+  %143 = load ptr, ptr %4, align 8
+  %144 = call i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %143)
+  %145 = icmp ne i32 %144, 0
+  br i1 %145, label %146, label %150
 
-145:                                              ; preds = %141
-  %146 = load ptr, ptr %5, align 8
-  %147 = load ptr, ptr %4, align 8
-  %148 = call i32 @Abc_ObjSetPath(ptr noundef %146, ptr noundef %147)
-  store i32 %148, ptr %2, align 4
-  br label %161
+146:                                              ; preds = %142
+  %147 = load ptr, ptr %5, align 8
+  %148 = load ptr, ptr %4, align 8
+  %149 = call i32 @Abc_ObjSetPath(ptr noundef %147, ptr noundef %148)
+  store i32 %149, ptr %2, align 4
+  br label %162
 
-149:                                              ; preds = %141, %137
-  br label %150
+150:                                              ; preds = %142, %138
+  br label %151
 
-150:                                              ; preds = %149
-  %151 = load i32, ptr %6, align 4
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %6, align 4
-  br label %126, !llvm.loop !19
+151:                                              ; preds = %150
+  %152 = load i32, ptr %6, align 4
+  %153 = add nsw i32 %152, 1
+  store i32 %153, ptr %6, align 4
+  br label %127, !llvm.loop !19
 
-153:                                              ; preds = %135
-  %154 = load ptr, ptr %5, align 8
-  %155 = call i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %154)
-  %156 = icmp ne i32 %155, 0
-  br i1 %156, label %157, label %160
+154:                                              ; preds = %136
+  %155 = load ptr, ptr %5, align 8
+  %156 = call i32 @Abc_NtkMaxFlowFwdPath_rec(ptr noundef %155)
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %158, label %161
 
-157:                                              ; preds = %153
-  %158 = load ptr, ptr %5, align 8
-  %159 = call i32 @Abc_ObjSetPath(ptr noundef %158, ptr noundef null)
-  store i32 %159, ptr %2, align 4
-  br label %161
+158:                                              ; preds = %154
+  %159 = load ptr, ptr %5, align 8
+  %160 = call i32 @Abc_ObjSetPath(ptr noundef %159, ptr noundef null)
+  store i32 %160, ptr %2, align 4
+  br label %162
 
-160:                                              ; preds = %153
+161:                                              ; preds = %154
   store i32 0, ptr %2, align 4
-  br label %161
+  br label %162
 
-161:                                              ; preds = %160, %157, %145, %117, %96, %92, %84, %52, %25, %10
-  %162 = load i32, ptr %2, align 4
-  ret i32 %162
+162:                                              ; preds = %161, %158, %146, %118, %97, %93, %85, %53, %25, %10
+  %163 = load i32, ptr %2, align 4
+  ret i32 %163
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1420,7 +1423,7 @@ define internal i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %161
+  br label %162
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %3, align 8
@@ -1431,7 +1434,7 @@ define internal i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %0) #0 {
   %15 = load ptr, ptr %3, align 8
   %16 = call ptr @Abc_ObjGetPath(ptr noundef %15)
   %17 = icmp ne ptr %16, null
-  br i1 %17, label %93, label %18
+  br i1 %17, label %94, label %18
 
 18:                                               ; preds = %11
   %19 = load ptr, ptr %3, align 8
@@ -1440,258 +1443,259 @@ define internal i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %0) #0 {
   %22 = lshr i32 %21, 4
   %23 = and i32 %22, 1
   %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %28
+  br i1 %24, label %25, label %29
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %3, align 8
-  %27 = call i32 @Abc_ObjSetPath(ptr noundef %26, ptr noundef inttoptr (i64 1 to ptr))
-  store i32 %27, ptr %2, align 4
-  br label %161
+  %27 = inttoptr i64 1 to ptr
+  %28 = call i32 @Abc_ObjSetPath(ptr noundef %26, ptr noundef %27)
+  store i32 %28, ptr %2, align 4
+  br label %162
 
-28:                                               ; preds = %18
+29:                                               ; preds = %18
   store i32 0, ptr %6, align 4
-  br label %29
+  br label %30
 
-29:                                               ; preds = %57, %28
-  %30 = load i32, ptr %6, align 4
-  %31 = load ptr, ptr %3, align 8
-  %32 = call i32 @Abc_ObjFaninNum(ptr noundef %31)
-  %33 = icmp slt i32 %30, %32
-  br i1 %33, label %34, label %38
+30:                                               ; preds = %58, %29
+  %31 = load i32, ptr %6, align 4
+  %32 = load ptr, ptr %3, align 8
+  %33 = call i32 @Abc_ObjFaninNum(ptr noundef %32)
+  %34 = icmp slt i32 %31, %33
+  br i1 %34, label %35, label %39
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %3, align 8
-  %36 = load i32, ptr %6, align 4
-  %37 = call ptr @Abc_ObjFanin(ptr noundef %35, i32 noundef %36)
-  store ptr %37, ptr %4, align 8
-  br label %38
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %3, align 8
+  %37 = load i32, ptr %6, align 4
+  %38 = call ptr @Abc_ObjFanin(ptr noundef %36, i32 noundef %37)
+  store ptr %38, ptr %4, align 8
+  br label %39
 
-38:                                               ; preds = %34, %29
-  %39 = phi i1 [ false, %29 ], [ true, %34 ]
-  br i1 %39, label %40, label %60
+39:                                               ; preds = %35, %30
+  %40 = phi i1 [ false, %30 ], [ true, %35 ]
+  br i1 %40, label %41, label %61
 
-40:                                               ; preds = %38
-  %41 = load ptr, ptr %4, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = icmp ne ptr %41, %42
-  br i1 %43, label %44, label %56
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %4, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = icmp ne ptr %42, %43
+  br i1 %44, label %45, label %57
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %4, align 8
-  %46 = call i32 @Abc_ObjIsLatch(ptr noundef %45)
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %56, label %48
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %4, align 8
+  %47 = call i32 @Abc_ObjIsLatch(ptr noundef %46)
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %57, label %49
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %4, align 8
-  %50 = call i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %49)
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %56
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %4, align 8
+  %51 = call i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %50)
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %57
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %3, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = call i32 @Abc_ObjSetPath(ptr noundef %53, ptr noundef %54)
-  store i32 %55, ptr %2, align 4
-  br label %161
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %3, align 8
+  %55 = load ptr, ptr %4, align 8
+  %56 = call i32 @Abc_ObjSetPath(ptr noundef %54, ptr noundef %55)
+  store i32 %56, ptr %2, align 4
+  br label %162
 
-56:                                               ; preds = %48, %44, %40
-  br label %57
+57:                                               ; preds = %49, %45, %41
+  br label %58
 
-57:                                               ; preds = %56
-  %58 = load i32, ptr %6, align 4
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %6, align 4
-  br label %29, !llvm.loop !20
+58:                                               ; preds = %57
+  %59 = load i32, ptr %6, align 4
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %6, align 4
+  br label %30, !llvm.loop !20
 
-60:                                               ; preds = %38
+61:                                               ; preds = %39
   store i32 0, ptr %6, align 4
-  br label %61
+  br label %62
 
-61:                                               ; preds = %89, %60
-  %62 = load i32, ptr %6, align 4
-  %63 = load ptr, ptr %3, align 8
-  %64 = call i32 @Abc_ObjFanoutNum(ptr noundef %63)
-  %65 = icmp slt i32 %62, %64
-  br i1 %65, label %66, label %70
+62:                                               ; preds = %90, %61
+  %63 = load i32, ptr %6, align 4
+  %64 = load ptr, ptr %3, align 8
+  %65 = call i32 @Abc_ObjFanoutNum(ptr noundef %64)
+  %66 = icmp slt i32 %63, %65
+  br i1 %66, label %67, label %71
 
-66:                                               ; preds = %61
-  %67 = load ptr, ptr %3, align 8
-  %68 = load i32, ptr %6, align 4
-  %69 = call ptr @Abc_ObjFanout(ptr noundef %67, i32 noundef %68)
-  store ptr %69, ptr %4, align 8
-  br label %70
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %3, align 8
+  %69 = load i32, ptr %6, align 4
+  %70 = call ptr @Abc_ObjFanout(ptr noundef %68, i32 noundef %69)
+  store ptr %70, ptr %4, align 8
+  br label %71
 
-70:                                               ; preds = %66, %61
-  %71 = phi i1 [ false, %61 ], [ true, %66 ]
-  br i1 %71, label %72, label %92
+71:                                               ; preds = %67, %62
+  %72 = phi i1 [ false, %62 ], [ true, %67 ]
+  br i1 %72, label %73, label %93
 
-72:                                               ; preds = %70
-  %73 = load ptr, ptr %4, align 8
-  %74 = load ptr, ptr %5, align 8
-  %75 = icmp ne ptr %73, %74
-  br i1 %75, label %76, label %88
+73:                                               ; preds = %71
+  %74 = load ptr, ptr %4, align 8
+  %75 = load ptr, ptr %5, align 8
+  %76 = icmp ne ptr %74, %75
+  br i1 %76, label %77, label %89
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %4, align 8
-  %78 = call i32 @Abc_ObjIsLatch(ptr noundef %77)
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %88, label %80
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %4, align 8
+  %79 = call i32 @Abc_ObjIsLatch(ptr noundef %78)
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %89, label %81
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr %4, align 8
-  %82 = call i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %81)
-  %83 = icmp ne i32 %82, 0
-  br i1 %83, label %84, label %88
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %4, align 8
+  %83 = call i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %82)
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %89
 
-84:                                               ; preds = %80
-  %85 = load ptr, ptr %3, align 8
-  %86 = load ptr, ptr %4, align 8
-  %87 = call i32 @Abc_ObjSetPath(ptr noundef %85, ptr noundef %86)
-  store i32 %87, ptr %2, align 4
-  br label %161
+85:                                               ; preds = %81
+  %86 = load ptr, ptr %3, align 8
+  %87 = load ptr, ptr %4, align 8
+  %88 = call i32 @Abc_ObjSetPath(ptr noundef %86, ptr noundef %87)
+  store i32 %88, ptr %2, align 4
+  br label %162
 
-88:                                               ; preds = %80, %76, %72
-  br label %89
+89:                                               ; preds = %81, %77, %73
+  br label %90
 
-89:                                               ; preds = %88
-  %90 = load i32, ptr %6, align 4
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %6, align 4
-  br label %61, !llvm.loop !21
+90:                                               ; preds = %89
+  %91 = load i32, ptr %6, align 4
+  %92 = add nsw i32 %91, 1
+  store i32 %92, ptr %6, align 4
+  br label %62, !llvm.loop !21
 
-92:                                               ; preds = %70
+93:                                               ; preds = %71
   store i32 0, ptr %2, align 4
-  br label %161
+  br label %162
 
-93:                                               ; preds = %11
-  %94 = load ptr, ptr %5, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %97
+94:                                               ; preds = %11
+  %95 = load ptr, ptr %5, align 8
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %97, label %98
 
-96:                                               ; preds = %93
+97:                                               ; preds = %94
   store i32 0, ptr %2, align 4
-  br label %161
+  br label %162
 
-97:                                               ; preds = %93
+98:                                               ; preds = %94
   store i32 0, ptr %6, align 4
-  br label %98
+  br label %99
 
-98:                                               ; preds = %122, %97
-  %99 = load i32, ptr %6, align 4
-  %100 = load ptr, ptr %5, align 8
-  %101 = call i32 @Abc_ObjFaninNum(ptr noundef %100)
-  %102 = icmp slt i32 %99, %101
-  br i1 %102, label %103, label %107
+99:                                               ; preds = %123, %98
+  %100 = load i32, ptr %6, align 4
+  %101 = load ptr, ptr %5, align 8
+  %102 = call i32 @Abc_ObjFaninNum(ptr noundef %101)
+  %103 = icmp slt i32 %100, %102
+  br i1 %103, label %104, label %108
 
-103:                                              ; preds = %98
-  %104 = load ptr, ptr %5, align 8
-  %105 = load i32, ptr %6, align 4
-  %106 = call ptr @Abc_ObjFanin(ptr noundef %104, i32 noundef %105)
-  store ptr %106, ptr %4, align 8
-  br label %107
+104:                                              ; preds = %99
+  %105 = load ptr, ptr %5, align 8
+  %106 = load i32, ptr %6, align 4
+  %107 = call ptr @Abc_ObjFanin(ptr noundef %105, i32 noundef %106)
+  store ptr %107, ptr %4, align 8
+  br label %108
 
-107:                                              ; preds = %103, %98
-  %108 = phi i1 [ false, %98 ], [ true, %103 ]
-  br i1 %108, label %109, label %125
+108:                                              ; preds = %104, %99
+  %109 = phi i1 [ false, %99 ], [ true, %104 ]
+  br i1 %109, label %110, label %126
 
-109:                                              ; preds = %107
-  %110 = load ptr, ptr %4, align 8
-  %111 = call i32 @Abc_ObjIsLatch(ptr noundef %110)
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %121, label %113
+110:                                              ; preds = %108
+  %111 = load ptr, ptr %4, align 8
+  %112 = call i32 @Abc_ObjIsLatch(ptr noundef %111)
+  %113 = icmp ne i32 %112, 0
+  br i1 %113, label %122, label %114
 
-113:                                              ; preds = %109
-  %114 = load ptr, ptr %4, align 8
-  %115 = call i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %114)
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %117, label %121
+114:                                              ; preds = %110
+  %115 = load ptr, ptr %4, align 8
+  %116 = call i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %115)
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %118, label %122
 
-117:                                              ; preds = %113
-  %118 = load ptr, ptr %5, align 8
-  %119 = load ptr, ptr %4, align 8
-  %120 = call i32 @Abc_ObjSetPath(ptr noundef %118, ptr noundef %119)
-  store i32 %120, ptr %2, align 4
-  br label %161
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %5, align 8
+  %120 = load ptr, ptr %4, align 8
+  %121 = call i32 @Abc_ObjSetPath(ptr noundef %119, ptr noundef %120)
+  store i32 %121, ptr %2, align 4
+  br label %162
 
-121:                                              ; preds = %113, %109
-  br label %122
+122:                                              ; preds = %114, %110
+  br label %123
 
-122:                                              ; preds = %121
-  %123 = load i32, ptr %6, align 4
-  %124 = add nsw i32 %123, 1
-  store i32 %124, ptr %6, align 4
-  br label %98, !llvm.loop !22
+123:                                              ; preds = %122
+  %124 = load i32, ptr %6, align 4
+  %125 = add nsw i32 %124, 1
+  store i32 %125, ptr %6, align 4
+  br label %99, !llvm.loop !22
 
-125:                                              ; preds = %107
+126:                                              ; preds = %108
   store i32 0, ptr %6, align 4
-  br label %126
+  br label %127
 
-126:                                              ; preds = %150, %125
-  %127 = load i32, ptr %6, align 4
-  %128 = load ptr, ptr %5, align 8
-  %129 = call i32 @Abc_ObjFanoutNum(ptr noundef %128)
-  %130 = icmp slt i32 %127, %129
-  br i1 %130, label %131, label %135
+127:                                              ; preds = %151, %126
+  %128 = load i32, ptr %6, align 4
+  %129 = load ptr, ptr %5, align 8
+  %130 = call i32 @Abc_ObjFanoutNum(ptr noundef %129)
+  %131 = icmp slt i32 %128, %130
+  br i1 %131, label %132, label %136
 
-131:                                              ; preds = %126
-  %132 = load ptr, ptr %5, align 8
-  %133 = load i32, ptr %6, align 4
-  %134 = call ptr @Abc_ObjFanout(ptr noundef %132, i32 noundef %133)
-  store ptr %134, ptr %4, align 8
-  br label %135
+132:                                              ; preds = %127
+  %133 = load ptr, ptr %5, align 8
+  %134 = load i32, ptr %6, align 4
+  %135 = call ptr @Abc_ObjFanout(ptr noundef %133, i32 noundef %134)
+  store ptr %135, ptr %4, align 8
+  br label %136
 
-135:                                              ; preds = %131, %126
-  %136 = phi i1 [ false, %126 ], [ true, %131 ]
-  br i1 %136, label %137, label %153
+136:                                              ; preds = %132, %127
+  %137 = phi i1 [ false, %127 ], [ true, %132 ]
+  br i1 %137, label %138, label %154
 
-137:                                              ; preds = %135
-  %138 = load ptr, ptr %4, align 8
-  %139 = call i32 @Abc_ObjIsLatch(ptr noundef %138)
-  %140 = icmp ne i32 %139, 0
-  br i1 %140, label %149, label %141
+138:                                              ; preds = %136
+  %139 = load ptr, ptr %4, align 8
+  %140 = call i32 @Abc_ObjIsLatch(ptr noundef %139)
+  %141 = icmp ne i32 %140, 0
+  br i1 %141, label %150, label %142
 
-141:                                              ; preds = %137
-  %142 = load ptr, ptr %4, align 8
-  %143 = call i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %142)
-  %144 = icmp ne i32 %143, 0
-  br i1 %144, label %145, label %149
+142:                                              ; preds = %138
+  %143 = load ptr, ptr %4, align 8
+  %144 = call i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %143)
+  %145 = icmp ne i32 %144, 0
+  br i1 %145, label %146, label %150
 
-145:                                              ; preds = %141
-  %146 = load ptr, ptr %5, align 8
-  %147 = load ptr, ptr %4, align 8
-  %148 = call i32 @Abc_ObjSetPath(ptr noundef %146, ptr noundef %147)
-  store i32 %148, ptr %2, align 4
-  br label %161
+146:                                              ; preds = %142
+  %147 = load ptr, ptr %5, align 8
+  %148 = load ptr, ptr %4, align 8
+  %149 = call i32 @Abc_ObjSetPath(ptr noundef %147, ptr noundef %148)
+  store i32 %149, ptr %2, align 4
+  br label %162
 
-149:                                              ; preds = %141, %137
-  br label %150
+150:                                              ; preds = %142, %138
+  br label %151
 
-150:                                              ; preds = %149
-  %151 = load i32, ptr %6, align 4
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %6, align 4
-  br label %126, !llvm.loop !23
+151:                                              ; preds = %150
+  %152 = load i32, ptr %6, align 4
+  %153 = add nsw i32 %152, 1
+  store i32 %153, ptr %6, align 4
+  br label %127, !llvm.loop !23
 
-153:                                              ; preds = %135
-  %154 = load ptr, ptr %5, align 8
-  %155 = call i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %154)
-  %156 = icmp ne i32 %155, 0
-  br i1 %156, label %157, label %160
+154:                                              ; preds = %136
+  %155 = load ptr, ptr %5, align 8
+  %156 = call i32 @Abc_NtkMaxFlowBwdPath_rec(ptr noundef %155)
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %158, label %161
 
-157:                                              ; preds = %153
-  %158 = load ptr, ptr %5, align 8
-  %159 = call i32 @Abc_ObjSetPath(ptr noundef %158, ptr noundef null)
-  store i32 %159, ptr %2, align 4
-  br label %161
+158:                                              ; preds = %154
+  %159 = load ptr, ptr %5, align 8
+  %160 = call i32 @Abc_ObjSetPath(ptr noundef %159, ptr noundef null)
+  store i32 %160, ptr %2, align 4
+  br label %162
 
-160:                                              ; preds = %153
+161:                                              ; preds = %154
   store i32 0, ptr %2, align 4
-  br label %161
+  br label %162
 
-161:                                              ; preds = %160, %157, %145, %117, %96, %92, %84, %52, %25, %10
-  %162 = load i32, ptr %2, align 4
-  ret i32 %162
+162:                                              ; preds = %161, %158, %146, %118, %97, %93, %85, %53, %25, %10
+  %163 = load i32, ptr %2, align 4
+  ret i32 %163
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2423,7 +2427,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -2451,7 +2455,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -3120,19 +3124,13 @@ declare i32 @Abc_FrameIsBridgeMode(...) #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #6
+declare i64 @strlen(ptr noundef) #5
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @Abc_ObjGetPredecessorBwd(ptr noundef %0) #0 {
@@ -3823,13 +3821,19 @@ define internal void @Vec_PtrClear(ptr noundef %0) #0 {
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nounwind allocsize(1) }

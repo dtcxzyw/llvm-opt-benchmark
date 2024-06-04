@@ -2957,14 +2957,15 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith2nl19MonomialBoundsCheckE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith2nl19MonomialBoundsCheckE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_data = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::MonomialBoundsCheck", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %data.addr, align 8
-  store ptr %1, ptr %d_data, align 8
+  %2 = load ptr, ptr %data.addr, align 8
+  store ptr %2, ptr %d_data, align 8
   %d_cdb = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::MonomialBoundsCheck", ptr %this1, i32 0, i32 2
   %d_data2 = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::MonomialBoundsCheck", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %d_data2, align 8
-  %d_mdb = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::ExtState", ptr %2, i32 0, i32 12
+  %3 = load ptr, ptr %d_data2, align 8
+  %d_mdb = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::ExtState", ptr %3, i32 0, i32 12
   invoke void @_ZN4cvc58internal6theory5arith2nl12ConstraintDbC1ERNS3_10MonomialDbE(ptr noundef nonnull align 8 dereferenceable(128) %d_cdb, ptr noundef nonnull align 8 dereferenceable(440) %d_mdb)
           to label %invoke.cont unwind label %lpad
 
@@ -2978,12 +2979,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -16741,7 +16742,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith2nl19MonomialBoundsCheckE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith2nl19MonomialBoundsCheckE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_ci_max = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::MonomialBoundsCheck", ptr %this1, i32 0, i32 5
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_S_IS3_bSt4lessIS3_ESaISt4pairIKS3_bEEES5_SaIS6_IS7_SA_EEES5_SaIS6_IS7_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_ci_max) #3
   %d_ci_exp = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::MonomialBoundsCheck", ptr %this1, i32 0, i32 4

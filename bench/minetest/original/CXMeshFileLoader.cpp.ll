@@ -326,16 +326,18 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !26
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 160
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !28
-  store ptr getelementptr inbounds inrange(-24, 32) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %AnimatedMesh = getelementptr inbounds i8, ptr %this, i64 8
   %FilePath = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = getelementptr inbounds i8, ptr %this, i64 64
+  %3 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %AnimatedMesh, i8 0, i64 40, i1 false)
-  store ptr %1, ptr %FilePath, align 8, !tbaa !6
+  store ptr %3, ptr %FilePath, align 8, !tbaa !6
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %1, align 8, !tbaa !13
+  store i8 0, ptr %3, align 8, !tbaa !13
   %ErrorState = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %ErrorState, align 8, !tbaa !14
   %CurFrame = getelementptr inbounds i8, ptr %this, i64 88
@@ -14271,34 +14273,36 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene16CXMeshFileLoaderD1Ev(ptr noundef nonnull align 8 dereferenceable(138) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 32) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  %0 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 0, i64 3
+  store ptr %0, ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 144
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 1, i64 3), ptr %add.ptr.i, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 1, i64 3
+  store ptr %1, ptr %add.ptr.i, align 8, !tbaa !3
   %Meshes.i = getelementptr inbounds i8, ptr %this, i64 96
-  %0 = load ptr, ptr %Meshes.i, align 8, !tbaa !38
-  %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
+  %2 = load ptr, ptr %Meshes.i, align 8, !tbaa !38
+  %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
   br label %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i
 
 _ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %entry
   %FilePath.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load ptr, ptr %FilePath.i, align 8, !tbaa !29
-  %2 = getelementptr inbounds i8, ptr %this, i64 64
-  %cmp.i.i.i.i.i = icmp eq ptr %1, %2
+  %3 = load ptr, ptr %FilePath.i, align 8, !tbaa !29
+  %4 = getelementptr inbounds i8, ptr %this, i64 64
+  %cmp.i.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %3 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
-  %cmp3.i.i.i.i.i = icmp ult i64 %3, 16
+  %5 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i.i = icmp ult i64 %5, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
   br label %_ZN3irr5scene16CXMeshFileLoaderD2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef %1) #23
+  tail call void @_ZdlPv(ptr noundef %3) #23
   br label %_ZN3irr5scene16CXMeshFileLoaderD2Ev.exit
 
 _ZN3irr5scene16CXMeshFileLoaderD2Ev.exit:         ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
@@ -14308,34 +14312,36 @@ _ZN3irr5scene16CXMeshFileLoaderD2Ev.exit:         ; preds = %if.then.i.i.i.i, %_
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene16CXMeshFileLoaderD0Ev(ptr noundef nonnull align 8 dereferenceable(138) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 32) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  %0 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 0, i64 3
+  store ptr %0, ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 1, i64 3
+  store ptr %1, ptr %add.ptr.i.i, align 8, !tbaa !3
   %Meshes.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %0 = load ptr, ptr %Meshes.i.i, align 8, !tbaa !38
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
+  %2 = load ptr, ptr %Meshes.i.i, align 8, !tbaa !38
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
   br label %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i
 
 _ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %entry
   %FilePath.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load ptr, ptr %FilePath.i.i, align 8, !tbaa !29
-  %2 = getelementptr inbounds i8, ptr %this, i64 64
-  %cmp.i.i.i.i.i.i = icmp eq ptr %1, %2
+  %3 = load ptr, ptr %FilePath.i.i, align 8, !tbaa !29
+  %4 = getelementptr inbounds i8, ptr %this, i64 64
+  %cmp.i.i.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %3 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !10
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %3, 16
+  %5 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i.i.i = icmp ult i64 %5, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZN3irr5scene16CXMeshFileLoaderD1Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef %1) #23
+  tail call void @_ZdlPv(ptr noundef %3) #23
   br label %_ZN3irr5scene16CXMeshFileLoaderD1Ev.exit
 
 _ZN3irr5scene16CXMeshFileLoaderD1Ev.exit:         ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
@@ -14350,34 +14356,36 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 32) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 0, i64 3
+  store ptr %4, ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 144
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 1, i64 3
+  store ptr %5, ptr %add.ptr.i.i, align 8, !tbaa !3
   %Meshes.i.i = getelementptr inbounds i8, ptr %3, i64 96
-  %4 = load ptr, ptr %Meshes.i.i, align 8, !tbaa !38
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
+  %6 = load ptr, ptr %Meshes.i.i, align 8, !tbaa !38
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #23
   br label %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i
 
 _ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %entry
   %FilePath.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %5 = load ptr, ptr %FilePath.i.i, align 8, !tbaa !29
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
-  %cmp.i.i.i.i.i.i = icmp eq ptr %5, %6
+  %7 = load ptr, ptr %FilePath.i.i, align 8, !tbaa !29
+  %8 = getelementptr inbounds i8, ptr %3, i64 64
+  %cmp.i.i.i.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
-  %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !10
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %7, 16
+  %9 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i.i.i = icmp ult i64 %9, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZN3irr5scene16CXMeshFileLoaderD1Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef %5) #23
+  tail call void @_ZdlPv(ptr noundef %7) #23
   br label %_ZN3irr5scene16CXMeshFileLoaderD1Ev.exit
 
 _ZN3irr5scene16CXMeshFileLoaderD1Ev.exit:         ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
@@ -14391,34 +14399,36 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 32) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 0, i64 3
+  store ptr %4, ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 144
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 0, i32 1, i64 3
+  store ptr %5, ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Meshes.i.i.i = getelementptr inbounds i8, ptr %3, i64 96
-  %4 = load ptr, ptr %Meshes.i.i.i, align 8, !tbaa !38
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
+  %6 = load ptr, ptr %Meshes.i.i.i, align 8, !tbaa !38
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #23
   br label %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i.i
 
 _ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %entry
   %FilePath.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %5 = load ptr, ptr %FilePath.i.i.i, align 8, !tbaa !29
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %5, %6
+  %7 = load ptr, ptr %FilePath.i.i.i, align 8, !tbaa !29
+  %8 = getelementptr inbounds i8, ptr %3, i64 64
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i.i
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
-  %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !10
-  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %7, 16
+  %9 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %9, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   br label %_ZN3irr5scene16CXMeshFileLoaderD0Ev.exit
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN3irr4core5arrayIPNS_5scene16CXMeshFileLoader6SXMeshEED2Ev.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef %5) #23
+  tail call void @_ZdlPv(ptr noundef %7) #23
   br label %_ZN3irr5scene16CXMeshFileLoaderD0Ev.exit
 
 _ZN3irr5scene16CXMeshFileLoaderD0Ev.exit:         ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i

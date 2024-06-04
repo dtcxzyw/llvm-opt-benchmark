@@ -972,7 +972,7 @@ define internal void @_ZL31manage_number_of_openmp_threadsRKN3gmx8MDLoggerEPK9t_
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %41
-  br label %167
+  br label %173
 
 47:                                               ; preds = %41, %38
   store i32 1, ptr %19, align 4
@@ -1079,142 +1079,148 @@ define internal void @_ZL31manage_number_of_openmp_threadsRKN3gmx8MDLoggerEPK9t_
 97:                                               ; preds = %96, %94
   %98 = load i8, ptr %18, align 1
   %99 = trunc i8 %98 to i1
-  br i1 %99, label %100, label %108
+  br i1 %99, label %100, label %110
 
 100:                                              ; preds = %97
   %101 = load i32, ptr %15, align 4
   %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %103, label %105
+  br i1 %102, label %103, label %106
 
 103:                                              ; preds = %100
   %104 = load i32, ptr %15, align 4
-  store i32 %104, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1), align 4
-  br label %107
-
-105:                                              ; preds = %100
-  %106 = load i32, ptr %19, align 4
-  store i32 %106, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1), align 4
-  br label %107
-
-107:                                              ; preds = %105, %103
+  %105 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1
+  store i32 %104, ptr %105, align 4
   br label %109
 
-108:                                              ; preds = %97
-  store i32 0, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1), align 4
+106:                                              ; preds = %100
+  %107 = load i32, ptr %19, align 4
+  %108 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1
+  store i32 %107, ptr %108, align 4
   br label %109
 
-109:                                              ; preds = %108, %107
-  %110 = load i32, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1), align 4
-  %111 = icmp sgt i32 %110, 128
-  br i1 %111, label %112, label %113
+109:                                              ; preds = %106, %103
+  br label %112
 
-112:                                              ; preds = %109
-  store i32 128, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1), align 4
+110:                                              ; preds = %97
+  %111 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1
+  store i32 0, ptr %111, align 4
+  br label %112
+
+112:                                              ; preds = %110, %109
+  %113 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1
+  %114 = load i32, ptr %113, align 4
+  %115 = icmp sgt i32 %114, 128
+  br i1 %115, label %116, label %118
+
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1
+  store i32 128, ptr %117, align 4
   store i8 1, ptr %21, align 1
-  br label %113
+  br label %118
 
-113:                                              ; preds = %112, %109
-  %114 = load i8, ptr %21, align 1
-  %115 = trunc i8 %114 to i1
-  br i1 %115, label %116, label %133
+118:                                              ; preds = %116, %112
+  %119 = load i8, ptr %21, align 1
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %121, label %138
 
-116:                                              ; preds = %113
-  %117 = load ptr, ptr %10, align 8
-  %118 = getelementptr inbounds %"class.gmx::MDLogger", ptr %117, i32 0, i32 4
-  %119 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %118)
-  %120 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %22, i32 0, i32 0
-  store ptr %119, ptr %120, align 8
-  %121 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-  br i1 %121, label %122, label %123
+121:                                              ; preds = %118
+  %122 = load ptr, ptr %10, align 8
+  %123 = getelementptr inbounds %"class.gmx::MDLogger", ptr %122, i32 0, i32 4
+  %124 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %123)
+  %125 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %22, i32 0, i32 0
+  store ptr %124, ptr %125, align 8
+  %126 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
+  br i1 %126, label %127, label %128
 
-122:                                              ; preds = %116
-  br label %132
+127:                                              ; preds = %121
+  br label %137
 
-123:                                              ; preds = %116
+128:                                              ; preds = %121
   call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 40, i1 false)
   call void @_ZN3gmx14LogEntryWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23)
-  %124 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef @.str.13, i32 noundef 128)
-          to label %125 unwind label %128
+  %129 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef @.str.13, i32 noundef 128)
+          to label %130 unwind label %133
 
-125:                                              ; preds = %123
-  %126 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(40) %124)
-          to label %127 unwind label %128
+130:                                              ; preds = %128
+  %131 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(40) %129)
+          to label %132 unwind label %133
 
-127:                                              ; preds = %125
+132:                                              ; preds = %130
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #9
-  br label %132
+  br label %137
 
-128:                                              ; preds = %125, %123
-  %129 = landingpad { ptr, i32 }
+133:                                              ; preds = %130, %128
+  %134 = landingpad { ptr, i32 }
           cleanup
-  %130 = extractvalue { ptr, i32 } %129, 0
-  store ptr %130, ptr %24, align 8
-  %131 = extractvalue { ptr, i32 } %129, 1
-  store i32 %131, ptr %25, align 4
+  %135 = extractvalue { ptr, i32 } %134, 0
+  store ptr %135, ptr %24, align 8
+  %136 = extractvalue { ptr, i32 } %134, 1
+  store i32 %136, ptr %25, align 4
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #9
-  br label %168
+  br label %174
 
-132:                                              ; preds = %127, %122
-  br label %133
+137:                                              ; preds = %132, %127
+  br label %138
 
-133:                                              ; preds = %132, %113
-  %134 = load i32, ptr @_ZL5modth, align 4
-  %135 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx16EnumerationArrayI17ModuleMultiThreadiLS1_10EEixES1_(ptr noundef nonnull align 4 dereferenceable(40) getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 2), i32 noundef 0)
-  store i32 %134, ptr %135, align 4
-  %136 = load ptr, ptr %10, align 8
-  %137 = load i8, ptr %18, align 1
-  %138 = trunc i8 %137 to i1
-  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %136, i32 noundef 1, i1 noundef zeroext %138)
-  %139 = load ptr, ptr %10, align 8
-  %140 = load i8, ptr %18, align 1
-  %141 = trunc i8 %140 to i1
-  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %139, i32 noundef 2, i1 noundef zeroext %141)
+138:                                              ; preds = %137, %118
+  %139 = load i32, ptr @_ZL5modth, align 4
+  %140 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 2
+  %141 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx16EnumerationArrayI17ModuleMultiThreadiLS1_10EEixES1_(ptr noundef nonnull align 4 dereferenceable(40) %140, i32 noundef 0)
+  store i32 %139, ptr %141, align 4
   %142 = load ptr, ptr %10, align 8
   %143 = load i8, ptr %18, align 1
   %144 = trunc i8 %143 to i1
-  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %142, i32 noundef 3, i1 noundef zeroext %144)
+  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %142, i32 noundef 1, i1 noundef zeroext %144)
   %145 = load ptr, ptr %10, align 8
   %146 = load i8, ptr %18, align 1
   %147 = trunc i8 %146 to i1
-  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %145, i32 noundef 4, i1 noundef zeroext %147)
+  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %145, i32 noundef 2, i1 noundef zeroext %147)
   %148 = load ptr, ptr %10, align 8
   %149 = load i8, ptr %18, align 1
   %150 = trunc i8 %149 to i1
-  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %148, i32 noundef 5, i1 noundef zeroext %150)
+  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %148, i32 noundef 3, i1 noundef zeroext %150)
   %151 = load ptr, ptr %10, align 8
   %152 = load i8, ptr %18, align 1
   %153 = trunc i8 %152 to i1
-  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %151, i32 noundef 6, i1 noundef zeroext %153)
+  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %151, i32 noundef 4, i1 noundef zeroext %153)
   %154 = load ptr, ptr %10, align 8
   %155 = load i8, ptr %18, align 1
   %156 = trunc i8 %155 to i1
-  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %154, i32 noundef 7, i1 noundef zeroext %156)
+  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %154, i32 noundef 5, i1 noundef zeroext %156)
   %157 = load ptr, ptr %10, align 8
   %158 = load i8, ptr %18, align 1
   %159 = trunc i8 %158 to i1
-  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %157, i32 noundef 8, i1 noundef zeroext %159)
+  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %157, i32 noundef 6, i1 noundef zeroext %159)
   %160 = load ptr, ptr %10, align 8
   %161 = load i8, ptr %18, align 1
   %162 = trunc i8 %161 to i1
-  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %160, i32 noundef 9, i1 noundef zeroext %162)
-  %163 = load i8, ptr %12, align 1
-  %164 = trunc i8 %163 to i1
-  br i1 %164, label %165, label %167
+  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %160, i32 noundef 7, i1 noundef zeroext %162)
+  %163 = load ptr, ptr %10, align 8
+  %164 = load i8, ptr %18, align 1
+  %165 = trunc i8 %164 to i1
+  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %163, i32 noundef 8, i1 noundef zeroext %165)
+  %166 = load ptr, ptr %10, align 8
+  %167 = load i8, ptr %18, align 1
+  %168 = trunc i8 %167 to i1
+  call void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %166, i32 noundef 9, i1 noundef zeroext %168)
+  %169 = load i8, ptr %12, align 1
+  %170 = trunc i8 %169 to i1
+  br i1 %170, label %171, label %173
 
-165:                                              ; preds = %133
-  %166 = load i32, ptr %19, align 4
-  call void @_Z23gmx_omp_set_num_threadsi(i32 noundef %166)
-  br label %167
+171:                                              ; preds = %138
+  %172 = load i32, ptr %19, align 4
+  call void @_Z23gmx_omp_set_num_threadsi(i32 noundef %172)
+  br label %173
 
-167:                                              ; preds = %165, %133, %46
+173:                                              ; preds = %171, %138, %46
   ret void
 
-168:                                              ; preds = %128
-  %169 = load ptr, ptr %24, align 8
-  %170 = load i32, ptr %25, align 4
-  %171 = insertvalue { ptr, i32 } poison, ptr %169, 0
-  %172 = insertvalue { ptr, i32 } %171, i32 %170, 1
-  resume { ptr, i32 } %172
+174:                                              ; preds = %133
+  %175 = load ptr, ptr %24, align 8
+  %176 = load i32, ptr %25, align 4
+  %177 = insertvalue { ptr, i32 } poison, ptr %175, 0
+  %178 = insertvalue { ptr, i32 } %177, i32 %176, 1
+  resume { ptr, i32 } %178
 }
 
 declare noundef i32 @_Z12tMPI_BarrierP10tmpi_comm_(ptr noundef) #5
@@ -1256,14 +1262,14 @@ define internal void @_ZL20reportOpenmpSettingsRKN3gmx8MDLoggerEPK9t_commrecbb(p
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %4
-  br label %205
+  br label %209
 
 33:                                               ; preds = %4
   %34 = load ptr, ptr %6, align 8
   %35 = getelementptr inbounds %struct.t_commrec, ptr %34, i32 0, i32 1
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, 1
-  br i1 %37, label %38, label %66
+  br i1 %37, label %38, label %68
 
 38:                                               ; preds = %33
   %39 = load i32, ptr @_ZL5modth, align 4
@@ -1273,320 +1279,324 @@ define internal void @_ZL20reportOpenmpSettingsRKN3gmx8MDLoggerEPK9t_commrecbb(p
   %42 = load i32, ptr @_ZL5modth, align 4
   %43 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 1
   store i32 %42, ptr %43, align 4
-  %44 = load i32, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1), align 4
-  %45 = sub nsw i32 0, %44
-  %46 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 2
-  store i32 %45, ptr %46, align 8
-  %47 = load i32, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1), align 4
-  %48 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 3
-  store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 0
-  %50 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 0
-  %51 = load ptr, ptr @TMPI_INT, align 8
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct.t_commrec, ptr %52, i32 0, i32 4
-  %54 = load ptr, ptr %53, align 8
-  %55 = call noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef %49, ptr noundef %50, i32 noundef 4, ptr noundef %51, i32 noundef 0, ptr noundef %54)
-  %56 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 0
-  %57 = load i32, ptr %56, align 16
-  %58 = sub nsw i32 0, %57
-  store i32 %58, ptr %10, align 4
-  %59 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 1
-  %60 = load i32, ptr %59, align 4
-  store i32 %60, ptr %11, align 4
-  %61 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 2
-  %62 = load i32, ptr %61, align 8
-  %63 = sub nsw i32 0, %62
-  store i32 %63, ptr %12, align 4
-  %64 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 3
-  %65 = load i32, ptr %64, align 4
-  store i32 %65, ptr %13, align 4
-  br label %71
+  %44 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1
+  %45 = load i32, ptr %44, align 4
+  %46 = sub nsw i32 0, %45
+  %47 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 2
+  store i32 %46, ptr %47, align 8
+  %48 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 3
+  store i32 %49, ptr %50, align 4
+  %51 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 0
+  %52 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 0
+  %53 = load ptr, ptr @TMPI_INT, align 8
+  %54 = load ptr, ptr %6, align 8
+  %55 = getelementptr inbounds %struct.t_commrec, ptr %54, i32 0, i32 4
+  %56 = load ptr, ptr %55, align 8
+  %57 = call noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef %51, ptr noundef %52, i32 noundef 4, ptr noundef %53, i32 noundef 0, ptr noundef %56)
+  %58 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 0
+  %59 = load i32, ptr %58, align 16
+  %60 = sub nsw i32 0, %59
+  store i32 %60, ptr %10, align 4
+  %61 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 1
+  %62 = load i32, ptr %61, align 4
+  store i32 %62, ptr %11, align 4
+  %63 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 2
+  %64 = load i32, ptr %63, align 8
+  %65 = sub nsw i32 0, %64
+  store i32 %65, ptr %12, align 4
+  %66 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 3
+  %67 = load i32, ptr %66, align 4
+  store i32 %67, ptr %13, align 4
+  br label %75
 
-66:                                               ; preds = %33
-  %67 = load i32, ptr @_ZL5modth, align 4
-  store i32 %67, ptr %10, align 4
-  %68 = load i32, ptr @_ZL5modth, align 4
-  store i32 %68, ptr %11, align 4
-  %69 = load i32, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1), align 4
-  store i32 %69, ptr %12, align 4
-  %70 = load i32, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1), align 4
-  store i32 %70, ptr %13, align 4
-  br label %71
+68:                                               ; preds = %33
+  %69 = load i32, ptr @_ZL5modth, align 4
+  store i32 %69, ptr %10, align 4
+  %70 = load i32, ptr @_ZL5modth, align 4
+  store i32 %70, ptr %11, align 4
+  %71 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1
+  %72 = load i32, ptr %71, align 4
+  store i32 %72, ptr %12, align 4
+  %73 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1
+  %74 = load i32, ptr %73, align 4
+  store i32 %74, ptr %13, align 4
+  br label %75
 
-71:                                               ; preds = %66, %38
-  %72 = load i32, ptr %11, align 4
-  %73 = load i32, ptr %10, align 4
-  %74 = icmp eq i32 %72, %73
-  br i1 %74, label %75, label %105
+75:                                               ; preds = %68, %38
+  %76 = load i32, ptr %11, align 4
+  %77 = load i32, ptr %10, align 4
+  %78 = icmp eq i32 %76, %77
+  br i1 %78, label %79, label %109
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds %"class.gmx::MDLogger", ptr %76, i32 0, i32 0
-  %78 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %77)
-  %79 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %16, i32 0, i32 0
-  store ptr %78, ptr %79, align 8
-  %80 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
-  br i1 %80, label %81, label %82
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %5, align 8
+  %81 = getelementptr inbounds %"class.gmx::MDLogger", ptr %80, i32 0, i32 0
+  %82 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %81)
+  %83 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %16, i32 0, i32 0
+  store ptr %82, ptr %83, align 8
+  %84 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+  br i1 %84, label %85, label %86
 
-81:                                               ; preds = %75
-  br label %104
+85:                                               ; preds = %79
+  br label %108
 
-82:                                               ; preds = %75
+86:                                               ; preds = %79
   call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 40, i1 false)
   call void @_ZN3gmx14LogEntryWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17)
-  %83 = load i32, ptr %10, align 4
-  %84 = load i32, ptr %10, align 4
-  %85 = icmp sgt i32 %84, 1
-  %86 = select i1 %85, ptr @.str.38, ptr @.str.7
-  %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds %struct.t_commrec, ptr %87, i32 0, i32 1
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp sgt i32 %89, 1
-  br i1 %90, label %91, label %93
+  %87 = load i32, ptr %10, align 4
+  %88 = load i32, ptr %10, align 4
+  %89 = icmp sgt i32 %88, 1
+  %90 = select i1 %89, ptr @.str.38, ptr @.str.7
+  %91 = load ptr, ptr %6, align 8
+  %92 = getelementptr inbounds %struct.t_commrec, ptr %91, i32 0, i32 1
+  %93 = load i32, ptr %92, align 4
+  %94 = icmp sgt i32 %93, 1
+  br i1 %94, label %95, label %97
 
-91:                                               ; preds = %82
-  %92 = load ptr, ptr %9, align 8
-  br label %94
+95:                                               ; preds = %86
+  %96 = load ptr, ptr %9, align 8
+  br label %98
 
-93:                                               ; preds = %82
-  br label %94
+97:                                               ; preds = %86
+  br label %98
 
-94:                                               ; preds = %93, %91
-  %95 = phi ptr [ %92, %91 ], [ @.str.7, %93 ]
-  %96 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef @.str.37, i32 noundef %83, ptr noundef %86, ptr noundef %95)
-          to label %97 unwind label %100
+98:                                               ; preds = %97, %95
+  %99 = phi ptr [ %96, %95 ], [ @.str.7, %97 ]
+  %100 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef @.str.37, i32 noundef %87, ptr noundef %90, ptr noundef %99)
+          to label %101 unwind label %104
 
-97:                                               ; preds = %94
-  %98 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(40) %96)
-          to label %99 unwind label %100
+101:                                              ; preds = %98
+  %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(40) %100)
+          to label %103 unwind label %104
 
-99:                                               ; preds = %97
+103:                                              ; preds = %101
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #9
-  br label %104
+  br label %108
 
-100:                                              ; preds = %97, %94
-  %101 = landingpad { ptr, i32 }
+104:                                              ; preds = %101, %98
+  %105 = landingpad { ptr, i32 }
           cleanup
-  %102 = extractvalue { ptr, i32 } %101, 0
-  store ptr %102, ptr %18, align 8
-  %103 = extractvalue { ptr, i32 } %101, 1
-  store i32 %103, ptr %19, align 4
+  %106 = extractvalue { ptr, i32 } %105, 0
+  store ptr %106, ptr %18, align 8
+  %107 = extractvalue { ptr, i32 } %105, 1
+  store i32 %107, ptr %19, align 4
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #9
-  br label %206
+  br label %210
 
-104:                                              ; preds = %99, %81
-  br label %125
+108:                                              ; preds = %103, %85
+  br label %129
 
-105:                                              ; preds = %71
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds %"class.gmx::MDLogger", ptr %106, i32 0, i32 0
-  %108 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %107)
-  %109 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %20, i32 0, i32 0
-  store ptr %108, ptr %109, align 8
-  %110 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
-  br i1 %110, label %111, label %112
+109:                                              ; preds = %75
+  %110 = load ptr, ptr %5, align 8
+  %111 = getelementptr inbounds %"class.gmx::MDLogger", ptr %110, i32 0, i32 0
+  %112 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %111)
+  %113 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %20, i32 0, i32 0
+  store ptr %112, ptr %113, align 8
+  %114 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
+  br i1 %114, label %115, label %116
 
-111:                                              ; preds = %105
-  br label %124
+115:                                              ; preds = %109
+  br label %128
 
-112:                                              ; preds = %105
+116:                                              ; preds = %109
   call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 40, i1 false)
   call void @_ZN3gmx14LogEntryWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21)
-  %113 = load i32, ptr %10, align 4
-  %114 = load i32, ptr %11, align 4
-  %115 = load ptr, ptr %9, align 8
-  %116 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef @.str.39, i32 noundef %113, i32 noundef %114, ptr noundef %115)
-          to label %117 unwind label %120
+  %117 = load i32, ptr %10, align 4
+  %118 = load i32, ptr %11, align 4
+  %119 = load ptr, ptr %9, align 8
+  %120 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef @.str.39, i32 noundef %117, i32 noundef %118, ptr noundef %119)
+          to label %121 unwind label %124
 
-117:                                              ; preds = %112
-  %118 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(40) %116)
-          to label %119 unwind label %120
+121:                                              ; preds = %116
+  %122 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(40) %120)
+          to label %123 unwind label %124
 
-119:                                              ; preds = %117
+123:                                              ; preds = %121
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #9
-  br label %124
+  br label %128
 
-120:                                              ; preds = %117, %112
-  %121 = landingpad { ptr, i32 }
+124:                                              ; preds = %121, %116
+  %125 = landingpad { ptr, i32 }
           cleanup
-  %122 = extractvalue { ptr, i32 } %121, 0
-  store ptr %122, ptr %18, align 8
-  %123 = extractvalue { ptr, i32 } %121, 1
-  store i32 %123, ptr %19, align 4
+  %126 = extractvalue { ptr, i32 } %125, 0
+  store ptr %126, ptr %18, align 8
+  %127 = extractvalue { ptr, i32 } %125, 1
+  store i32 %127, ptr %19, align 4
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #9
-  br label %206
+  br label %210
 
-124:                                              ; preds = %119, %111
-  br label %125
+128:                                              ; preds = %123, %115
+  br label %129
 
-125:                                              ; preds = %124, %104
-  %126 = load i8, ptr %8, align 1
-  %127 = trunc i8 %126 to i1
-  br i1 %127, label %128, label %191
+129:                                              ; preds = %128, %108
+  %130 = load i8, ptr %8, align 1
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %132, label %195
 
-128:                                              ; preds = %125
-  %129 = load i32, ptr %12, align 4
-  %130 = load i32, ptr %10, align 4
-  %131 = icmp ne i32 %129, %130
-  br i1 %131, label %136, label %132
-
-132:                                              ; preds = %128
-  %133 = load i32, ptr %13, align 4
-  %134 = load i32, ptr %11, align 4
+132:                                              ; preds = %129
+  %133 = load i32, ptr %12, align 4
+  %134 = load i32, ptr %10, align 4
   %135 = icmp ne i32 %133, %134
-  br i1 %135, label %136, label %191
+  br i1 %135, label %140, label %136
 
-136:                                              ; preds = %132, %128
+136:                                              ; preds = %132
   %137 = load i32, ptr %13, align 4
-  %138 = load i32, ptr %12, align 4
-  %139 = icmp eq i32 %137, %138
-  br i1 %139, label %140, label %170
+  %138 = load i32, ptr %11, align 4
+  %139 = icmp ne i32 %137, %138
+  br i1 %139, label %140, label %195
 
-140:                                              ; preds = %136
-  %141 = load ptr, ptr %5, align 8
-  %142 = getelementptr inbounds %"class.gmx::MDLogger", ptr %141, i32 0, i32 0
-  %143 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %142)
-  %144 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %22, i32 0, i32 0
-  store ptr %143, ptr %144, align 8
-  %145 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-  br i1 %145, label %146, label %147
+140:                                              ; preds = %136, %132
+  %141 = load i32, ptr %13, align 4
+  %142 = load i32, ptr %12, align 4
+  %143 = icmp eq i32 %141, %142
+  br i1 %143, label %144, label %174
 
-146:                                              ; preds = %140
-  br label %169
+144:                                              ; preds = %140
+  %145 = load ptr, ptr %5, align 8
+  %146 = getelementptr inbounds %"class.gmx::MDLogger", ptr %145, i32 0, i32 0
+  %147 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %146)
+  %148 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %22, i32 0, i32 0
+  store ptr %147, ptr %148, align 8
+  %149 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
+  br i1 %149, label %150, label %151
 
-147:                                              ; preds = %140
+150:                                              ; preds = %144
+  br label %173
+
+151:                                              ; preds = %144
   call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 40, i1 false)
   call void @_ZN3gmx14LogEntryWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23)
-  %148 = load i32, ptr %12, align 4
-  %149 = load i32, ptr %12, align 4
-  %150 = icmp sgt i32 %149, 1
-  %151 = select i1 %150, ptr @.str.38, ptr @.str.7
-  %152 = load ptr, ptr %6, align 8
-  %153 = getelementptr inbounds %struct.t_commrec, ptr %152, i32 0, i32 1
-  %154 = load i32, ptr %153, align 4
-  %155 = icmp sgt i32 %154, 1
-  br i1 %155, label %156, label %158
+  %152 = load i32, ptr %12, align 4
+  %153 = load i32, ptr %12, align 4
+  %154 = icmp sgt i32 %153, 1
+  %155 = select i1 %154, ptr @.str.38, ptr @.str.7
+  %156 = load ptr, ptr %6, align 8
+  %157 = getelementptr inbounds %struct.t_commrec, ptr %156, i32 0, i32 1
+  %158 = load i32, ptr %157, align 4
+  %159 = icmp sgt i32 %158, 1
+  br i1 %159, label %160, label %162
 
-156:                                              ; preds = %147
-  %157 = load ptr, ptr %9, align 8
-  br label %159
+160:                                              ; preds = %151
+  %161 = load ptr, ptr %9, align 8
+  br label %163
 
-158:                                              ; preds = %147
-  br label %159
+162:                                              ; preds = %151
+  br label %163
 
-159:                                              ; preds = %158, %156
-  %160 = phi ptr [ %157, %156 ], [ @.str.7, %158 ]
-  %161 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef @.str.40, i32 noundef %148, ptr noundef %151, ptr noundef %160)
-          to label %162 unwind label %165
+163:                                              ; preds = %162, %160
+  %164 = phi ptr [ %161, %160 ], [ @.str.7, %162 ]
+  %165 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef @.str.40, i32 noundef %152, ptr noundef %155, ptr noundef %164)
+          to label %166 unwind label %169
 
-162:                                              ; preds = %159
-  %163 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(40) %161)
-          to label %164 unwind label %165
+166:                                              ; preds = %163
+  %167 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(40) %165)
+          to label %168 unwind label %169
 
-164:                                              ; preds = %162
+168:                                              ; preds = %166
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #9
-  br label %169
+  br label %173
 
-165:                                              ; preds = %162, %159
-  %166 = landingpad { ptr, i32 }
+169:                                              ; preds = %166, %163
+  %170 = landingpad { ptr, i32 }
           cleanup
-  %167 = extractvalue { ptr, i32 } %166, 0
-  store ptr %167, ptr %18, align 8
-  %168 = extractvalue { ptr, i32 } %166, 1
-  store i32 %168, ptr %19, align 4
+  %171 = extractvalue { ptr, i32 } %170, 0
+  store ptr %171, ptr %18, align 8
+  %172 = extractvalue { ptr, i32 } %170, 1
+  store i32 %172, ptr %19, align 4
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #9
-  br label %206
+  br label %210
 
-169:                                              ; preds = %164, %146
-  br label %190
+173:                                              ; preds = %168, %150
+  br label %194
 
-170:                                              ; preds = %136
-  %171 = load ptr, ptr %5, align 8
-  %172 = getelementptr inbounds %"class.gmx::MDLogger", ptr %171, i32 0, i32 0
-  %173 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %172)
-  %174 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %24, i32 0, i32 0
-  store ptr %173, ptr %174, align 8
-  %175 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
-  br i1 %175, label %176, label %177
+174:                                              ; preds = %140
+  %175 = load ptr, ptr %5, align 8
+  %176 = getelementptr inbounds %"class.gmx::MDLogger", ptr %175, i32 0, i32 0
+  %177 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %176)
+  %178 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %24, i32 0, i32 0
+  store ptr %177, ptr %178, align 8
+  %179 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
+  br i1 %179, label %180, label %181
 
-176:                                              ; preds = %170
-  br label %189
+180:                                              ; preds = %174
+  br label %193
 
-177:                                              ; preds = %170
+181:                                              ; preds = %174
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 40, i1 false)
   call void @_ZN3gmx14LogEntryWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25)
-  %178 = load i32, ptr %12, align 4
-  %179 = load i32, ptr %13, align 4
-  %180 = load ptr, ptr %9, align 8
-  %181 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef @.str.41, i32 noundef %178, i32 noundef %179, ptr noundef %180)
-          to label %182 unwind label %185
+  %182 = load i32, ptr %12, align 4
+  %183 = load i32, ptr %13, align 4
+  %184 = load ptr, ptr %9, align 8
+  %185 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef @.str.41, i32 noundef %182, i32 noundef %183, ptr noundef %184)
+          to label %186 unwind label %189
 
-182:                                              ; preds = %177
-  %183 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(40) %181)
-          to label %184 unwind label %185
+186:                                              ; preds = %181
+  %187 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(40) %185)
+          to label %188 unwind label %189
 
-184:                                              ; preds = %182
+188:                                              ; preds = %186
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #9
-  br label %189
+  br label %193
 
-185:                                              ; preds = %182, %177
-  %186 = landingpad { ptr, i32 }
+189:                                              ; preds = %186, %181
+  %190 = landingpad { ptr, i32 }
           cleanup
-  %187 = extractvalue { ptr, i32 } %186, 0
-  store ptr %187, ptr %18, align 8
-  %188 = extractvalue { ptr, i32 } %186, 1
-  store i32 %188, ptr %19, align 4
+  %191 = extractvalue { ptr, i32 } %190, 0
+  store ptr %191, ptr %18, align 8
+  %192 = extractvalue { ptr, i32 } %190, 1
+  store i32 %192, ptr %19, align 4
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #9
-  br label %206
+  br label %210
 
-189:                                              ; preds = %184, %176
-  br label %190
+193:                                              ; preds = %188, %180
+  br label %194
 
-190:                                              ; preds = %189, %169
-  br label %191
+194:                                              ; preds = %193, %173
+  br label %195
 
-191:                                              ; preds = %190, %132, %125
-  %192 = load ptr, ptr %5, align 8
-  %193 = getelementptr inbounds %"class.gmx::MDLogger", ptr %192, i32 0, i32 0
-  %194 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %193)
-  %195 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %26, i32 0, i32 0
-  store ptr %194, ptr %195, align 8
-  %196 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
-  br i1 %196, label %197, label %198
+195:                                              ; preds = %194, %136, %129
+  %196 = load ptr, ptr %5, align 8
+  %197 = getelementptr inbounds %"class.gmx::MDLogger", ptr %196, i32 0, i32 0
+  %198 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %197)
+  %199 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %26, i32 0, i32 0
+  store ptr %198, ptr %199, align 8
+  %200 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
+  br i1 %200, label %201, label %202
 
-197:                                              ; preds = %191
-  br label %205
+201:                                              ; preds = %195
+  br label %209
 
-198:                                              ; preds = %191
+202:                                              ; preds = %195
   call void @llvm.memset.p0.i64(ptr align 8 %27, i8 0, i64 40, i1 false)
   call void @_ZN3gmx14LogEntryWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %27)
-  %199 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(40) %27)
-          to label %200 unwind label %201
+  %203 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(40) %27)
+          to label %204 unwind label %205
 
-200:                                              ; preds = %198
+204:                                              ; preds = %202
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %27) #9
-  br label %205
+  br label %209
 
-201:                                              ; preds = %198
-  %202 = landingpad { ptr, i32 }
+205:                                              ; preds = %202
+  %206 = landingpad { ptr, i32 }
           cleanup
-  %203 = extractvalue { ptr, i32 } %202, 0
-  store ptr %203, ptr %18, align 8
-  %204 = extractvalue { ptr, i32 } %202, 1
-  store i32 %204, ptr %19, align 4
+  %207 = extractvalue { ptr, i32 } %206, 0
+  store ptr %207, ptr %18, align 8
+  %208 = extractvalue { ptr, i32 } %206, 1
+  store i32 %208, ptr %19, align 4
   call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %27) #9
-  br label %206
+  br label %210
 
-205:                                              ; preds = %200, %197, %32
+209:                                              ; preds = %204, %201, %32
   ret void
 
-206:                                              ; preds = %201, %185, %165, %120, %100
-  %207 = load ptr, ptr %18, align 8
-  %208 = load i32, ptr %19, align 4
-  %209 = insertvalue { ptr, i32 } poison, ptr %207, 0
-  %210 = insertvalue { ptr, i32 } %209, i32 %208, 1
-  resume { ptr, i32 } %210
+210:                                              ; preds = %205, %189, %169, %124, %104
+  %211 = load ptr, ptr %18, align 8
+  %212 = load i32, ptr %19, align 4
+  %213 = insertvalue { ptr, i32 } poison, ptr %211, 0
+  %214 = insertvalue { ptr, i32 } %213, i32 %212, 1
+  resume { ptr, i32 } %214
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1644,7 +1654,7 @@ define internal void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThr
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %3
-  br label %88
+  br label %90
 
 18:                                               ; preds = %3
   %19 = load i32, ptr %5, align 4
@@ -1652,7 +1662,7 @@ define internal void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThr
   %21 = call ptr @getenv(ptr noundef %20) #9
   store ptr %21, ptr %7, align 8
   %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %73
+  br i1 %22, label %23, label %74
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %7, align 8
@@ -1671,120 +1681,122 @@ define internal void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThr
 32:                                               ; preds = %28, %23
   %33 = load i8, ptr %6, align 1
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %35, label %42
+  br i1 %34, label %35, label %43
 
 35:                                               ; preds = %32
   %36 = load i32, ptr %5, align 4
   %37 = icmp eq i32 %36, 5
-  br i1 %37, label %38, label %42
+  br i1 %37, label %38, label %43
 
 38:                                               ; preds = %35
   %39 = load i32, ptr %8, align 4
-  %40 = load i32, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1), align 4
-  %41 = icmp ne i32 %39, %40
-  br i1 %41, label %46, label %42
+  %40 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp ne i32 %39, %41
+  br i1 %42, label %47, label %43
 
-42:                                               ; preds = %38, %35, %32
-  %43 = load i32, ptr %8, align 4
-  %44 = load i32, ptr @_ZL5modth, align 4
-  %45 = icmp ne i32 %43, %44
-  br i1 %45, label %46, label %72
+43:                                               ; preds = %38, %35, %32
+  %44 = load i32, ptr %8, align 4
+  %45 = load i32, ptr @_ZL5modth, align 4
+  %46 = icmp ne i32 %44, %45
+  br i1 %46, label %47, label %73
 
-46:                                               ; preds = %42, %38
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %"class.gmx::MDLogger", ptr %47, i32 0, i32 0
-  %49 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %48)
-  %50 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %10, i32 0, i32 0
-  store ptr %49, ptr %50, align 8
-  %51 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  br i1 %51, label %52, label %53
+47:                                               ; preds = %43, %38
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds %"class.gmx::MDLogger", ptr %48, i32 0, i32 0
+  %50 = call ptr @_ZNK3gmx14LogLevelHelpercvNS_14LogWriteHelperEEv(ptr noundef nonnull align 8 dereferenceable(8) %49)
+  %51 = getelementptr inbounds %"class.gmx::LogWriteHelper", ptr %10, i32 0, i32 0
+  store ptr %50, ptr %51, align 8
+  %52 = call noundef zeroext i1 @_ZNK3gmx14LogWriteHelpercvbEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  br i1 %52, label %53, label %54
 
-52:                                               ; preds = %46
-  br label %71
-
-53:                                               ; preds = %46
-  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 40, i1 false)
-  call void @_ZN3gmx14LogEntryWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %54 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN3gmx14LogEntryWriter11asParagraphEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
-          to label %55 unwind label %67
-
-55:                                               ; preds = %53
-  %56 = load i32, ptr %5, align 4
-  %57 = invoke noundef ptr @_ZL28enumValueToEnvVariableString17ModuleMultiThread(i32 noundef %56)
-          to label %58 unwind label %67
-
-58:                                               ; preds = %55
-  %59 = load i32, ptr %8, align 4
-  %60 = load i32, ptr %5, align 4
-  %61 = invoke noundef ptr @_ZL17enumValueToString17ModuleMultiThread(i32 noundef %60)
-          to label %62 unwind label %67
-
-62:                                               ; preds = %58
-  %63 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef @.str.15, ptr noundef %57, i32 noundef %59, ptr noundef %61)
-          to label %64 unwind label %67
-
-64:                                               ; preds = %62
-  %65 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(40) %63)
-          to label %66 unwind label %67
-
-66:                                               ; preds = %64
-  call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #9
-  br label %71
-
-67:                                               ; preds = %64, %62, %58, %55, %53
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %12, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %13, align 4
-  call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #9
-  br label %89
-
-71:                                               ; preds = %66, %52
+53:                                               ; preds = %47
   br label %72
 
-72:                                               ; preds = %71, %42
+54:                                               ; preds = %47
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 40, i1 false)
+  call void @_ZN3gmx14LogEntryWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11)
+  %55 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN3gmx14LogEntryWriter11asParagraphEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
+          to label %56 unwind label %68
+
+56:                                               ; preds = %54
+  %57 = load i32, ptr %5, align 4
+  %58 = invoke noundef ptr @_ZL28enumValueToEnvVariableString17ModuleMultiThread(i32 noundef %57)
+          to label %59 unwind label %68
+
+59:                                               ; preds = %56
+  %60 = load i32, ptr %8, align 4
+  %61 = load i32, ptr %5, align 4
+  %62 = invoke noundef ptr @_ZL17enumValueToString17ModuleMultiThread(i32 noundef %61)
+          to label %63 unwind label %68
+
+63:                                               ; preds = %59
+  %64 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef @.str.15, ptr noundef %58, i32 noundef %60, ptr noundef %62)
+          to label %65 unwind label %68
+
+65:                                               ; preds = %63
+  %66 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(40) %64)
+          to label %67 unwind label %68
+
+67:                                               ; preds = %65
+  call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #9
+  br label %72
+
+68:                                               ; preds = %65, %63, %59, %56, %54
+  %69 = landingpad { ptr, i32 }
+          cleanup
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %12, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %13, align 4
+  call void @_ZN3gmx14LogEntryWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #9
+  br label %91
+
+72:                                               ; preds = %67, %53
+  br label %73
+
+73:                                               ; preds = %72, %43
+  br label %87
+
+74:                                               ; preds = %18
+  %75 = load i8, ptr %6, align 1
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %83
+
+77:                                               ; preds = %74
+  %78 = load i32, ptr %5, align 4
+  %79 = icmp eq i32 %78, 5
+  br i1 %79, label %80, label %83
+
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1
+  %82 = load i32, ptr %81, align 4
   br label %85
 
-73:                                               ; preds = %18
-  %74 = load i8, ptr %6, align 1
-  %75 = trunc i8 %74 to i1
-  br i1 %75, label %76, label %81
-
-76:                                               ; preds = %73
-  %77 = load i32, ptr %5, align 4
-  %78 = icmp eq i32 %77, 5
-  br i1 %78, label %79, label %81
-
-79:                                               ; preds = %76
-  %80 = load i32, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 1), align 4
-  br label %83
-
-81:                                               ; preds = %76, %73
-  %82 = load i32, ptr @_ZL5modth, align 4
-  br label %83
-
-83:                                               ; preds = %81, %79
-  %84 = phi i32 [ %80, %79 ], [ %82, %81 ]
-  store i32 %84, ptr %8, align 4
+83:                                               ; preds = %77, %74
+  %84 = load i32, ptr @_ZL5modth, align 4
   br label %85
 
-85:                                               ; preds = %83, %72
-  %86 = load i32, ptr %5, align 4
-  %87 = load i32, ptr %8, align 4
-  call void @_Z20gmx_omp_nthreads_set17ModuleMultiThreadi(i32 noundef %86, i32 noundef %87)
-  br label %88
+85:                                               ; preds = %83, %80
+  %86 = phi i32 [ %82, %80 ], [ %84, %83 ]
+  store i32 %86, ptr %8, align 4
+  br label %87
 
-88:                                               ; preds = %85, %17
+87:                                               ; preds = %85, %73
+  %88 = load i32, ptr %5, align 4
+  %89 = load i32, ptr %8, align 4
+  call void @_Z20gmx_omp_nthreads_set17ModuleMultiThreadi(i32 noundef %88, i32 noundef %89)
+  br label %90
+
+90:                                               ; preds = %87, %17
   ret void
 
-89:                                               ; preds = %67
-  %90 = load ptr, ptr %12, align 8
-  %91 = load i32, ptr %13, align 4
-  %92 = insertvalue { ptr, i32 } poison, ptr %90, 0
-  %93 = insertvalue { ptr, i32 } %92, i32 %91, 1
-  resume { ptr, i32 } %93
+91:                                               ; preds = %68
+  %92 = load ptr, ptr %12, align 8
+  %93 = load i32, ptr %13, align 4
+  %94 = insertvalue { ptr, i32 } poison, ptr %92, 0
+  %95 = insertvalue { ptr, i32 } %94, i32 %93, 1
+  resume { ptr, i32 } %95
 }
 
 declare void @_Z23gmx_omp_set_num_threadsi(i32 noundef) #5
@@ -1850,8 +1862,9 @@ define void @_Z20gmx_omp_nthreads_set17ModuleMultiThreadi(i32 noundef %0, i32 no
 13:                                               ; preds = %12, %11
   %14 = load i32, ptr %4, align 4
   %15 = load i32, ptr %3, align 4
-  %16 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx16EnumerationArrayI17ModuleMultiThreadiLS1_10EEixES1_(ptr noundef nonnull align 4 dereferenceable(40) getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 2), i32 noundef %15)
-  store i32 %14, ptr %16, align 4
+  %16 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 2
+  %17 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx16EnumerationArrayI17ModuleMultiThreadiLS1_10EEixES1_(ptr noundef nonnull align 4 dereferenceable(40) %16, i32 noundef %15)
+  store i32 %14, ptr %17, align 4
   ret void
 }
 
@@ -1887,18 +1900,19 @@ define noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef %0) 
 
 9:                                                ; preds = %6, %1
   store i32 -1, ptr %2, align 4
-  br label %14
+  br label %15
 
 10:                                               ; preds = %6
   %11 = load i32, ptr %3, align 4
-  %12 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx16EnumerationArrayI17ModuleMultiThreadiLS1_10EEixES1_(ptr noundef nonnull align 4 dereferenceable(40) getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 2), i32 noundef %11)
-  %13 = load i32, ptr %12, align 4
-  store i32 %13, ptr %2, align 4
-  br label %14
+  %12 = getelementptr inbounds %struct.omp_module_nthreads_t, ptr @_ZL5modth, i32 0, i32 2
+  %13 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN3gmx16EnumerationArrayI17ModuleMultiThreadiLS1_10EEixES1_(ptr noundef nonnull align 4 dereferenceable(40) %12, i32 noundef %11)
+  %14 = load i32, ptr %13, align 4
+  store i32 %14, ptr %2, align 4
+  br label %15
 
-14:                                               ; preds = %10, %9
-  %15 = load i32, ptr %2, align 4
-  ret i32 %15
+15:                                               ; preds = %10, %9
+  %16 = load i32, ptr %2, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: mustprogress uwtable

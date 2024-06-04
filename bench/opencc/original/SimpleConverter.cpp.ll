@@ -209,7 +209,7 @@ define void @_ZN6opencc15SimpleConverterC2ERKNSt7__cxx1112basic_stringIcSt11char
 
 40:                                               ; preds = %39, %19
   %41 = load i32, ptr %7, align 4
-  %42 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6opencc9ExceptionE) #3
+  %42 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6opencc9ExceptionE) #3
   %43 = icmp eq i32 %41, %42
   br i1 %43, label %44, label %65
 
@@ -312,9 +312,6 @@ declare void @_ZdlPv(ptr noundef) #7
 ; Function Attrs: nounwind
 declare void @_ZN6opencc6ConfigD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #8
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare ptr @__cxa_allocate_exception(i64)
@@ -331,7 +328,7 @@ declare void @__cxa_throw(ptr, ptr, ptr)
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #14
   unreachable
@@ -405,7 +402,7 @@ define void @_ZNK6opencc15SimpleConverter7ConvertERKNSt7__cxx1112basic_stringIcS
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %9, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6opencc9ExceptionE) #3
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6opencc9ExceptionE) #3
   %26 = icmp eq i32 %24, %25
   br i1 %26, label %27, label %48
 
@@ -486,7 +483,7 @@ define linkonce_odr noundef ptr @_ZNKSt19__shared_ptr_accessIN6opencc9ConverterE
 declare void @_ZNK6opencc9Converter7ConvertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32)) #2
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #10
+declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6opencc15SimpleConverter7ConvertB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -725,7 +722,7 @@ define noundef i64 @_ZNK6opencc15SimpleConverter7ConvertEPKcPc(ptr noundef nonnu
 
 25:                                               ; preds = %21
   %26 = load i32, ptr %9, align 4
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6opencc9ExceptionE) #3
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6opencc9ExceptionE) #3
   %28 = icmp eq i32 %26, %27
   br i1 %28, label %29, label %50
 
@@ -913,7 +910,7 @@ define noundef ptr @_Z20opencc_open_internalPKc(ptr noundef %0) #4 personality p
   store ptr %15, ptr %4, align 8
   %20 = load ptr, ptr %4, align 8
   store ptr %20, ptr %2, align 8
-  br label %57
+  br label %58
 
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
@@ -959,9 +956,9 @@ define noundef ptr @_Z20opencc_open_internalPKc(ptr noundef %0) #4 personality p
 
 37:                                               ; preds = %36, %21
   %38 = load i32, ptr %6, align 4
-  %39 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt13runtime_error) #3
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt13runtime_error) #3
   %40 = icmp eq i32 %38, %39
-  br i1 %40, label %41, label %59
+  br i1 %40, label %41, label %60
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %5, align 8
@@ -973,46 +970,47 @@ define noundef ptr @_Z20opencc_open_internalPKc(ptr noundef %0) #4 personality p
   %47 = load ptr, ptr %46, align 8
   %48 = call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(16) %44) #3
   %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZL6cErrorB5cxx11, ptr noundef %48)
-          to label %50 unwind label %51
+          to label %50 unwind label %52
 
 50:                                               ; preds = %41
-  store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
+  %51 = inttoptr i64 -1 to ptr
+  store ptr %51, ptr %2, align 8
   call void @__cxa_end_catch()
-  br label %57
+  br label %58
 
-51:                                               ; preds = %41
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %41
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %5, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %6, align 4
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %5, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %6, align 4
   invoke void @__cxa_end_catch()
-          to label %55 unwind label %64
+          to label %56 unwind label %65
 
-55:                                               ; preds = %51
-  br label %59
+56:                                               ; preds = %52
+  br label %60
 
-56:                                               ; No predecessors!
+57:                                               ; No predecessors!
   call void @llvm.trap()
   unreachable
 
-57:                                               ; preds = %50, %19
-  %58 = load ptr, ptr %2, align 8
-  ret ptr %58
+58:                                               ; preds = %50, %19
+  %59 = load ptr, ptr %2, align 8
+  ret ptr %59
 
-59:                                               ; preds = %55, %37
-  %60 = load ptr, ptr %5, align 8
-  %61 = load i32, ptr %6, align 4
-  %62 = insertvalue { ptr, i32 } poison, ptr %60, 0
-  %63 = insertvalue { ptr, i32 } %62, i32 %61, 1
-  resume { ptr, i32 } %63
+60:                                               ; preds = %56, %37
+  %61 = load ptr, ptr %5, align 8
+  %62 = load i32, ptr %6, align 4
+  %63 = insertvalue { ptr, i32 } poison, ptr %61, 0
+  %64 = insertvalue { ptr, i32 } %63, i32 %62, 1
+  resume { ptr, i32 } %64
 
-64:                                               ; preds = %51
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %52
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #14
+  %67 = extractvalue { ptr, i32 } %66, 0
+  call void @__clang_call_terminate(ptr %67) #14
   unreachable
 }
 
@@ -1086,7 +1084,7 @@ define i64 @opencc_convert_utf8_to_buffer(ptr noundef %0, ptr noundef %1, i64 no
 
 25:                                               ; preds = %21
   %26 = load i32, ptr %12, align 4
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt13runtime_error) #3
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt13runtime_error) #3
   %28 = icmp eq i32 %26, %27
   br i1 %28, label %29, label %47
 
@@ -1209,7 +1207,7 @@ define ptr @opencc_convert_utf8(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
 
 39:                                               ; preds = %35, %31
   %40 = load i32, ptr %11, align 4
-  %41 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt13runtime_error) #3
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt13runtime_error) #3
   %42 = icmp eq i32 %40, %41
   br i1 %42, label %43, label %61
 
@@ -1684,6 +1682,9 @@ define internal void @_GLOBAL__sub_I_SimpleConverter.cpp() #0 section ".text.sta
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #10
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1692,9 +1693,9 @@ attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind memory(none) }
-attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #10 = { nounwind memory(none) }
 attributes #11 = { builtin allocsize(0) }
 attributes #12 = { builtin nounwind }
 attributes #13 = { noreturn }

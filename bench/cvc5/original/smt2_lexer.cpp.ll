@@ -496,17 +496,18 @@ entry:
   store i8 %frombool1, ptr %isSygus.addr, align 1
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser5LexerC2Ev(ptr noundef nonnull align 8 dereferenceable(32892) %this2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2LexerE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2LexerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %d_token = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 2
   call void @_ZNSt6vectorIcSaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_token) #1
   %d_isStrict = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 3
-  %0 = load i8, ptr %isStrict.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %isStrict.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool3 = zext i1 %tobool to i8
   store i8 %frombool3, ptr %d_isStrict, align 8
   %d_isSygus = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 4
-  %1 = load i8, ptr %isSygus.addr, align 1
-  %tobool4 = trunc i8 %1 to i1
+  %2 = load i8, ptr %isSygus.addr, align 1
+  %tobool4 = trunc i8 %2 to i1
   %frombool5 = zext i1 %tobool4 to i8
   store i8 %frombool5, ptr %d_isSygus, align 1
   %d_charClass = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
@@ -516,34 +517,34 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %ch, align 4
-  %cmp = icmp sle i32 %2, 122
+  %3 = load i32, ptr %ch, align 4
+  %cmp = icmp sle i32 %3, 122
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %d_charClass6 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
-  %3 = load i32, ptr %ch, align 4
-  %conv = sext i32 %3 to i64
+  %4 = load i32, ptr %ch, align 4
+  %conv = sext i32 %4 to i64
   %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass6, i64 noundef %conv) #1
-  %4 = load i8, ptr %call, align 1
-  %conv7 = zext i8 %4 to i32
+  %5 = load i8, ptr %call, align 1
+  %conv7 = zext i8 %5 to i32
   %or = or i32 %conv7, 16
   %conv8 = trunc i32 %or to i8
   store i8 %conv8, ptr %call, align 1
   %d_charClass9 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
-  %5 = load i32, ptr %ch, align 4
-  %conv10 = sext i32 %5 to i64
+  %6 = load i32, ptr %ch, align 4
+  %conv10 = sext i32 %6 to i64
   %call11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass9, i64 noundef %conv10) #1
-  %6 = load i8, ptr %call11, align 1
-  %conv12 = zext i8 %6 to i32
+  %7 = load i8, ptr %call11, align 1
+  %conv12 = zext i8 %7 to i32
   %or13 = or i32 %conv12, 32
   %conv14 = trunc i32 %or13 to i8
   store i8 %conv14, ptr %call11, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %7 = load i32, ptr %ch, align 4
-  %inc = add nsw i32 %7, 1
+  %8 = load i32, ptr %ch, align 4
+  %inc = add nsw i32 %8, 1
   store i32 %inc, ptr %ch, align 4
   br label %for.cond, !llvm.loop !4
 
@@ -552,25 +553,25 @@ for.end:                                          ; preds = %for.cond
   br label %for.cond16
 
 for.cond16:                                       ; preds = %for.inc25, %for.end
-  %8 = load i32, ptr %ch15, align 4
-  %cmp17 = icmp sle i32 %8, 102
+  %9 = load i32, ptr %ch15, align 4
+  %cmp17 = icmp sle i32 %9, 102
   br i1 %cmp17, label %for.body18, label %for.end27
 
 for.body18:                                       ; preds = %for.cond16
   %d_charClass19 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
-  %9 = load i32, ptr %ch15, align 4
-  %conv20 = sext i32 %9 to i64
+  %10 = load i32, ptr %ch15, align 4
+  %conv20 = sext i32 %10 to i64
   %call21 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass19, i64 noundef %conv20) #1
-  %10 = load i8, ptr %call21, align 1
-  %conv22 = zext i8 %10 to i32
+  %11 = load i8, ptr %call21, align 1
+  %conv22 = zext i8 %11 to i32
   %or23 = or i32 %conv22, 4
   %conv24 = trunc i32 %or23 to i8
   store i8 %conv24, ptr %call21, align 1
   br label %for.inc25
 
 for.inc25:                                        ; preds = %for.body18
-  %11 = load i32, ptr %ch15, align 4
-  %inc26 = add nsw i32 %11, 1
+  %12 = load i32, ptr %ch15, align 4
+  %inc26 = add nsw i32 %12, 1
   store i32 %inc26, ptr %ch15, align 4
   br label %for.cond16, !llvm.loop !6
 
@@ -579,34 +580,34 @@ for.end27:                                        ; preds = %for.cond16
   br label %for.cond29
 
 for.cond29:                                       ; preds = %for.inc44, %for.end27
-  %12 = load i32, ptr %ch28, align 4
-  %cmp30 = icmp sle i32 %12, 90
+  %13 = load i32, ptr %ch28, align 4
+  %cmp30 = icmp sle i32 %13, 90
   br i1 %cmp30, label %for.body31, label %for.end46
 
 for.body31:                                       ; preds = %for.cond29
   %d_charClass32 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
-  %13 = load i32, ptr %ch28, align 4
-  %conv33 = sext i32 %13 to i64
+  %14 = load i32, ptr %ch28, align 4
+  %conv33 = sext i32 %14 to i64
   %call34 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass32, i64 noundef %conv33) #1
-  %14 = load i8, ptr %call34, align 1
-  %conv35 = zext i8 %14 to i32
+  %15 = load i8, ptr %call34, align 1
+  %conv35 = zext i8 %15 to i32
   %or36 = or i32 %conv35, 16
   %conv37 = trunc i32 %or36 to i8
   store i8 %conv37, ptr %call34, align 1
   %d_charClass38 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
-  %15 = load i32, ptr %ch28, align 4
-  %conv39 = sext i32 %15 to i64
+  %16 = load i32, ptr %ch28, align 4
+  %conv39 = sext i32 %16 to i64
   %call40 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass38, i64 noundef %conv39) #1
-  %16 = load i8, ptr %call40, align 1
-  %conv41 = zext i8 %16 to i32
+  %17 = load i8, ptr %call40, align 1
+  %conv41 = zext i8 %17 to i32
   %or42 = or i32 %conv41, 32
   %conv43 = trunc i32 %or42 to i8
   store i8 %conv43, ptr %call40, align 1
   br label %for.inc44
 
 for.inc44:                                        ; preds = %for.body31
-  %17 = load i32, ptr %ch28, align 4
-  %inc45 = add nsw i32 %17, 1
+  %18 = load i32, ptr %ch28, align 4
+  %inc45 = add nsw i32 %18, 1
   store i32 %inc45, ptr %ch28, align 4
   br label %for.cond29, !llvm.loop !7
 
@@ -615,25 +616,25 @@ for.end46:                                        ; preds = %for.cond29
   br label %for.cond48
 
 for.cond48:                                       ; preds = %for.inc57, %for.end46
-  %18 = load i32, ptr %ch47, align 4
-  %cmp49 = icmp sle i32 %18, 70
+  %19 = load i32, ptr %ch47, align 4
+  %cmp49 = icmp sle i32 %19, 70
   br i1 %cmp49, label %for.body50, label %for.end59
 
 for.body50:                                       ; preds = %for.cond48
   %d_charClass51 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
-  %19 = load i32, ptr %ch47, align 4
-  %conv52 = sext i32 %19 to i64
+  %20 = load i32, ptr %ch47, align 4
+  %conv52 = sext i32 %20 to i64
   %call53 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass51, i64 noundef %conv52) #1
-  %20 = load i8, ptr %call53, align 1
-  %conv54 = zext i8 %20 to i32
+  %21 = load i8, ptr %call53, align 1
+  %conv54 = zext i8 %21 to i32
   %or55 = or i32 %conv54, 4
   %conv56 = trunc i32 %or55 to i8
   store i8 %conv56, ptr %call53, align 1
   br label %for.inc57
 
 for.inc57:                                        ; preds = %for.body50
-  %21 = load i32, ptr %ch47, align 4
-  %inc58 = add nsw i32 %21, 1
+  %22 = load i32, ptr %ch47, align 4
+  %inc58 = add nsw i32 %22, 1
   store i32 %inc58, ptr %ch47, align 4
   br label %for.cond48, !llvm.loop !8
 
@@ -642,58 +643,58 @@ for.end59:                                        ; preds = %for.cond48
   br label %for.cond61
 
 for.cond61:                                       ; preds = %for.inc82, %for.end59
-  %22 = load i32, ptr %ch60, align 4
-  %cmp62 = icmp sle i32 %22, 57
+  %23 = load i32, ptr %ch60, align 4
+  %cmp62 = icmp sle i32 %23, 57
   br i1 %cmp62, label %for.body63, label %for.end84
 
 for.body63:                                       ; preds = %for.cond61
   %d_charClass64 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
-  %23 = load i32, ptr %ch60, align 4
-  %conv65 = sext i32 %23 to i64
+  %24 = load i32, ptr %ch60, align 4
+  %conv65 = sext i32 %24 to i64
   %call66 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass64, i64 noundef %conv65) #1
-  %24 = load i8, ptr %call66, align 1
-  %conv67 = zext i8 %24 to i32
+  %25 = load i8, ptr %call66, align 1
+  %conv67 = zext i8 %25 to i32
   %or68 = or i32 %conv67, 4
   %conv69 = trunc i32 %or68 to i8
   store i8 %conv69, ptr %call66, align 1
   %d_charClass70 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
-  %25 = load i32, ptr %ch60, align 4
-  %conv71 = sext i32 %25 to i64
+  %26 = load i32, ptr %ch60, align 4
+  %conv71 = sext i32 %26 to i64
   %call72 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass70, i64 noundef %conv71) #1
-  %26 = load i8, ptr %call72, align 1
-  %conv73 = zext i8 %26 to i32
+  %27 = load i8, ptr %call72, align 1
+  %conv73 = zext i8 %27 to i32
   %or74 = or i32 %conv73, 2
   %conv75 = trunc i32 %or74 to i8
   store i8 %conv75, ptr %call72, align 1
   %d_charClass76 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
-  %27 = load i32, ptr %ch60, align 4
-  %conv77 = sext i32 %27 to i64
+  %28 = load i32, ptr %ch60, align 4
+  %conv77 = sext i32 %28 to i64
   %call78 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass76, i64 noundef %conv77) #1
-  %28 = load i8, ptr %call78, align 1
-  %conv79 = zext i8 %28 to i32
+  %29 = load i8, ptr %call78, align 1
+  %conv79 = zext i8 %29 to i32
   %or80 = or i32 %conv79, 32
   %conv81 = trunc i32 %or80 to i8
   store i8 %conv81, ptr %call78, align 1
   br label %for.inc82
 
 for.inc82:                                        ; preds = %for.body63
-  %29 = load i32, ptr %ch60, align 4
-  %inc83 = add nsw i32 %29, 1
+  %30 = load i32, ptr %ch60, align 4
+  %inc83 = add nsw i32 %30, 1
   store i32 %inc83, ptr %ch60, align 4
   br label %for.cond61, !llvm.loop !9
 
 for.end84:                                        ; preds = %for.cond61
   %d_charClass85 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
   %call86 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass85, i64 noundef 48) #1
-  %30 = load i8, ptr %call86, align 1
-  %conv87 = zext i8 %30 to i32
+  %31 = load i8, ptr %call86, align 1
+  %conv87 = zext i8 %31 to i32
   %or88 = or i32 %conv87, 8
   %conv89 = trunc i32 %or88 to i8
   store i8 %conv89, ptr %call86, align 1
   %d_charClass90 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
   %call91 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass90, i64 noundef 49) #1
-  %31 = load i8, ptr %call91, align 1
-  %conv92 = zext i8 %31 to i32
+  %32 = load i8, ptr %call91, align 1
+  %conv92 = zext i8 %32 to i32
   %or93 = or i32 %conv92, 8
   %conv94 = trunc i32 %or93 to i8
   store i8 %conv94, ptr %call91, align 1
@@ -712,24 +713,24 @@ for.cond98:                                       ; preds = %for.inc116, %for.en
 
 for.body100:                                      ; preds = %for.cond98
   %call102 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #1
-  %32 = load i8, ptr %call102, align 1
-  %conv103 = sext i8 %32 to i32
+  %33 = load i8, ptr %call102, align 1
+  %conv103 = sext i8 %33 to i32
   store i32 %conv103, ptr %ch101, align 4
   %d_charClass104 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
-  %33 = load i32, ptr %ch101, align 4
-  %conv105 = sext i32 %33 to i64
+  %34 = load i32, ptr %ch101, align 4
+  %conv105 = sext i32 %34 to i64
   %call106 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass104, i64 noundef %conv105) #1
-  %34 = load i8, ptr %call106, align 1
-  %conv107 = zext i8 %34 to i32
+  %35 = load i8, ptr %call106, align 1
+  %conv107 = zext i8 %35 to i32
   %or108 = or i32 %conv107, 16
   %conv109 = trunc i32 %or108 to i8
   store i8 %conv109, ptr %call106, align 1
   %d_charClass110 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
-  %35 = load i32, ptr %ch101, align 4
-  %conv111 = sext i32 %35 to i64
+  %36 = load i32, ptr %ch101, align 4
+  %conv111 = sext i32 %36 to i64
   %call112 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass110, i64 noundef %conv111) #1
-  %36 = load i8, ptr %call112, align 1
-  %conv113 = zext i8 %36 to i32
+  %37 = load i8, ptr %call112, align 1
+  %conv113 = zext i8 %37 to i32
   %or114 = or i32 %conv113, 32
   %conv115 = trunc i32 %or114 to i8
   store i8 %conv115, ptr %call112, align 1
@@ -755,15 +756,15 @@ for.cond126:                                      ; preds = %for.inc138, %for.en
 
 for.body128:                                      ; preds = %for.cond126
   %call130 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2120) #1
-  %37 = load i8, ptr %call130, align 1
-  %conv131 = sext i8 %37 to i32
+  %38 = load i8, ptr %call130, align 1
+  %conv131 = sext i8 %38 to i32
   store i32 %conv131, ptr %ch129, align 4
   %d_charClass132 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
-  %38 = load i32, ptr %ch129, align 4
-  %conv133 = sext i32 %38 to i64
+  %39 = load i32, ptr %ch129, align 4
+  %conv133 = sext i32 %39 to i64
   %call134 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass132, i64 noundef %conv133) #1
-  %39 = load i8, ptr %call134, align 1
-  %conv135 = zext i8 %39 to i32
+  %40 = load i8, ptr %call134, align 1
+  %conv135 = zext i8 %40 to i32
   %or136 = or i32 %conv135, 64
   %conv137 = trunc i32 %or136 to i8
   store i8 %conv137, ptr %call134, align 1
@@ -776,29 +777,29 @@ for.inc138:                                       ; preds = %for.body128
 for.end140:                                       ; preds = %for.cond126
   %d_charClass141 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
   %call142 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass141, i64 noundef 32) #1
-  %40 = load i8, ptr %call142, align 1
-  %conv143 = zext i8 %40 to i32
+  %41 = load i8, ptr %call142, align 1
+  %conv143 = zext i8 %41 to i32
   %or144 = or i32 %conv143, 1
   %conv145 = trunc i32 %or144 to i8
   store i8 %conv145, ptr %call142, align 1
   %d_charClass146 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
   %call147 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass146, i64 noundef 9) #1
-  %41 = load i8, ptr %call147, align 1
-  %conv148 = zext i8 %41 to i32
+  %42 = load i8, ptr %call147, align 1
+  %conv148 = zext i8 %42 to i32
   %or149 = or i32 %conv148, 1
   %conv150 = trunc i32 %or149 to i8
   store i8 %conv150, ptr %call147, align 1
   %d_charClass151 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
   %call152 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass151, i64 noundef 13) #1
-  %42 = load i8, ptr %call152, align 1
-  %conv153 = zext i8 %42 to i32
+  %43 = load i8, ptr %call152, align 1
+  %conv153 = zext i8 %43 to i32
   %or154 = or i32 %conv153, 1
   %conv155 = trunc i32 %or154 to i8
   store i8 %conv155, ptr %call152, align 1
   %d_charClass156 = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this2, i32 0, i32 5
   %call157 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm256EEixEm(ptr noundef nonnull align 1 dereferenceable(256) %d_charClass156, i64 noundef 10) #1
-  %43 = load i8, ptr %call157, align 1
-  %conv158 = zext i8 %43 to i32
+  %44 = load i8, ptr %call157, align 1
+  %conv158 = zext i8 %44 to i32
   %or159 = or i32 %conv158, 1
   %conv160 = trunc i32 %or159 to i8
   store i8 %conv160, ptr %call157, align 1
@@ -2620,7 +2621,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2LexerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2LexerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_token = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_token) #1
   call void @_ZN4cvc56parser5LexerD2Ev(ptr noundef nonnull align 8 dereferenceable(32892) %this1) #1
@@ -2870,7 +2872,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser5LexerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc56parser5LexerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_peeked = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN4cvc56parser5TokenESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_peeked) #1
   %d_inputName = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this1, i32 0, i32 2

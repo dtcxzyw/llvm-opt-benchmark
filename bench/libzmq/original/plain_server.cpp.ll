@@ -237,18 +237,21 @@ entry:
   %3 = load ptr, ptr %session_.addr, align 8
   %4 = load ptr, ptr %peer_address_.addr, align 8
   %5 = load ptr, ptr %options_.addr, align 8
-  invoke void @_ZN3zmq29zap_client_common_handshake_tC2EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tENS0_7state_tE(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN3zmq14plain_server_tE, i64 0, i64 1), ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(1336) %5, i32 noundef 1)
+  %6 = getelementptr inbounds [6 x ptr], ptr @_ZTTN3zmq14plain_server_tE, i64 0, i64 1
+  invoke void @_ZN3zmq29zap_client_common_handshake_tC2EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tENS0_7state_tE(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %6, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(1336) %5, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [11 x ptr], [19 x ptr] }, ptr @_ZTVN3zmq14plain_server_tE, i32 0, i32 0, i32 3), ptr %this1, align 8
+  %7 = getelementptr inbounds { [11 x ptr], [19 x ptr] }, ptr @_ZTVN3zmq14plain_server_tE, i32 0, i32 0, i32 3
+  store ptr %7, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 80
-  store ptr getelementptr inbounds ({ [11 x ptr], [19 x ptr] }, ptr @_ZTVN3zmq14plain_server_tE, i32 0, i32 1, i32 10), ptr %add.ptr, align 8
+  %8 = getelementptr inbounds { [11 x ptr], [19 x ptr] }, ptr @_ZTVN3zmq14plain_server_tE, i32 0, i32 1, i32 10
+  store ptr %8, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 80
   %options = getelementptr inbounds %"class.zmq::mechanism_t", ptr %add.ptr2, i32 0, i32 1
   %zap_enforce_domain = getelementptr inbounds %"struct.zmq::options_t", ptr %options, i32 0, i32 64
-  %6 = load i8, ptr %zap_enforce_domain, align 8
-  %tobool = trunc i8 %6 to i1
+  %9 = load i8, ptr %zap_enforce_domain, align 8
+  %tobool = trunc i8 %9 to i1
   br i1 %tobool, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %invoke.cont
@@ -264,13 +267,13 @@ invoke.cont5:                                     ; preds = %do.body
   br i1 %lnot, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %invoke.cont5
-  %7 = load ptr, ptr @stderr, align 8
-  %call8 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 27)
+  %10 = load ptr, ptr @stderr, align 8
+  %call8 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 27)
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %if.then6
-  %8 = load ptr, ptr @stderr, align 8
-  %call10 = invoke i32 @fflush(ptr noundef %8)
+  %11 = load ptr, ptr @stderr, align 8
+  %call10 = invoke i32 @fflush(ptr noundef %11)
           to label %invoke.cont9 unwind label %lpad4
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -281,22 +284,23 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad4:                                            ; preds = %invoke.cont9, %invoke.cont7, %if.then6, %do.body
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = extractvalue { ptr, i32 } %12, 0
   store ptr %13, ptr %exn.slot, align 8
   %14 = extractvalue { ptr, i32 } %12, 1
   store i32 %14, ptr %ehselector.slot, align 4
-  call void @_ZN3zmq29zap_client_common_handshake_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN3zmq14plain_server_tE, i64 0, i64 1)) #11
+  br label %ehcleanup
+
+lpad4:                                            ; preds = %invoke.cont9, %invoke.cont7, %if.then6, %do.body
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
+  %18 = getelementptr inbounds [6 x ptr], ptr @_ZTTN3zmq14plain_server_tE, i64 0, i64 1
+  call void @_ZN3zmq29zap_client_common_handshake_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %18) #11
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont11, %invoke.cont5
@@ -312,8 +316,8 @@ if.end12:                                         ; preds = %do.end, %invoke.con
   ret void
 
 ehcleanup:                                        ; preds = %lpad4, %lpad
-  %15 = getelementptr inbounds i8, ptr %this1, i64 80
-  call void @_ZN3zmq16mechanism_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %15) #11
+  %19 = getelementptr inbounds i8, ptr %this1, i64 80
+  call void @_ZN3zmq16mechanism_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %19) #11
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup

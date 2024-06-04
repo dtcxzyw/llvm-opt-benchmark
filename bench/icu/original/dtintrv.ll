@@ -46,13 +46,14 @@ entry:
   store double %to, ptr %to.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512DateIntervalE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7512DateIntervalE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fromDate = getelementptr inbounds %"class.icu_75::DateInterval", ptr %this1, i32 0, i32 1
-  %0 = load double, ptr %from.addr, align 8
-  store double %0, ptr %fromDate, align 8
+  %1 = load double, ptr %from.addr, align 8
+  store double %1, ptr %fromDate, align 8
   %toDate = getelementptr inbounds %"class.icu_75::DateInterval", ptr %this1, i32 0, i32 2
-  %1 = load double, ptr %to.addr, align 8
-  store double %1, ptr %toDate, align 8
+  %2 = load double, ptr %to.addr, align 8
+  store double %2, ptr %toDate, align 8
   ret void
 }
 
@@ -62,7 +63,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -105,21 +107,22 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512DateIntervalE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %other.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7512DateIntervalaSERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7512DateIntervalE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7512DateIntervalaSERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -139,7 +142,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 

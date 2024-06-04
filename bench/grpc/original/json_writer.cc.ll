@@ -1025,10 +1025,11 @@ entry:
   store ptr %__reason, ptr %__reason.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__reason.addr, align 8
-  store ptr %0, ptr %_M_reason, align 8
+  %1 = load ptr, ptr %__reason.addr, align 8
+  store ptr %1, ptr %_M_reason, align 8
   ret void
 }
 
@@ -1050,7 +1051,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2070,15 +2072,16 @@ if.end8:                                          ; preds = %while.end
   %11 = load i32, ptr %spaces, align 4
   %idx.ext = zext i32 %11 to i64
   %idx.neg = sub i64 0, %idx.ext
-  %add.ptr = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputIndentEvE9spacesstr, i64 64), i64 %idx.neg
-  %12 = load i32, ptr %spaces, align 4
-  %conv10 = zext i32 %12 to i64
+  %12 = getelementptr inbounds i8, ptr @_ZZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputIndentEvE9spacesstr, i64 64
+  %add.ptr = getelementptr inbounds i8, ptr %12, i64 %idx.neg
+  %13 = load i32, ptr %spaces, align 4
+  %conv10 = zext i32 %13 to i64
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9, ptr noundef %add.ptr, i64 noundef %conv10) #8
-  %13 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp9, i32 0, i32 0
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp9, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  call void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(48) %this1, i64 %14, ptr %16)
+  %14 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp9, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp9, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  call void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(48) %this1, i64 %15, ptr %17)
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then7, %if.then3, %if.then

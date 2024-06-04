@@ -25,36 +25,38 @@ define i32 @pmix_pstat_base_select() #0 {
   store i32 0, ptr %2, align 4
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pstat_base_framework, i32 0, i32 11), align 4
-  %6 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %5, ptr noundef getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pstat_base_framework, i32 0, i32 12), ptr noundef %4, ptr noundef %3, ptr noundef null)
-  %7 = icmp ne i32 0, %6
-  br i1 %7, label %8, label %9
+  %5 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pstat_base_framework, i32 0, i32 11
+  %6 = load i32, ptr %5, align 4
+  %7 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pstat_base_framework, i32 0, i32 12
+  %8 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %6, ptr noundef %7, ptr noundef %4, ptr noundef %3, ptr noundef null)
+  %9 = icmp ne i32 0, %8
+  br i1 %9, label %10, label %11
 
-8:                                                ; preds = %0
-  br label %18
+10:                                               ; preds = %0
+  br label %20
 
-9:                                                ; preds = %0
-  %10 = load ptr, ptr %3, align 8
-  store ptr %10, ptr @pmix_pstat_base_component, align 8
-  %11 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @pmix_pstat, ptr align 8 %11, i64 24, i1 false)
-  %12 = load ptr, ptr @pmix_pstat, align 8
-  %13 = call i32 %12()
-  store i32 %13, ptr %1, align 4
-  %14 = icmp ne i32 0, %13
-  br i1 %14, label %15, label %17
+11:                                               ; preds = %0
+  %12 = load ptr, ptr %3, align 8
+  store ptr %12, ptr @pmix_pstat_base_component, align 8
+  %13 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @pmix_pstat, ptr align 8 %13, i64 24, i1 false)
+  %14 = load ptr, ptr @pmix_pstat, align 8
+  %15 = call i32 %14()
+  store i32 %15, ptr %1, align 4
+  %16 = icmp ne i32 0, %15
+  br i1 %16, label %17, label %19
 
-15:                                               ; preds = %9
-  %16 = load i32, ptr %1, align 4
-  store i32 %16, ptr %2, align 4
-  br label %18
+17:                                               ; preds = %11
+  %18 = load i32, ptr %1, align 4
+  store i32 %18, ptr %2, align 4
+  br label %20
 
-17:                                               ; preds = %9
-  br label %18
+19:                                               ; preds = %11
+  br label %20
 
-18:                                               ; preds = %17, %15, %8
-  %19 = load i32, ptr %2, align 4
-  ret i32 %19
+20:                                               ; preds = %19, %17, %10
+  %21 = load i32, ptr %2, align 4
+  ret i32 %21
 }
 
 declare i32 @pmix_mca_base_select(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1

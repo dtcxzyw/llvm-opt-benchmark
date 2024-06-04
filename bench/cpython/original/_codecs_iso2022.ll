@@ -6924,13 +6924,14 @@ if.then:                                          ; preds = %sw.bb
 
 if.then2:                                         ; preds = %if.then
   %6 = load ptr, ptr %config.addr, align 8
-  %cmp3 = icmp eq ptr %6, inttoptr (i64 2000 to ptr)
+  %7 = inttoptr i64 2000 to ptr
+  %cmp3 = icmp eq ptr %6, %7
   br i1 %cmp3, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then2
-  %7 = load ptr, ptr %data.addr, align 8
-  %8 = load i32, ptr %7, align 4
-  %cmp4 = icmp eq i32 %8, 134047
+  %8 = load ptr, ptr %data.addr, align 8
+  %9 = load i32, ptr %8, align 4
+  %cmp4 = icmp eq i32 %9, 134047
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %land.lhs.true
@@ -6938,110 +6939,110 @@ if.then5:                                         ; preds = %land.lhs.true
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %if.then2
-  %9 = load ptr, ptr %codec.addr, align 8
-  %modstate = getelementptr inbounds %struct._multibyte_codec, ptr %9, i32 0, i32 9
-  %10 = load ptr, ptr %modstate, align 8
-  %jisx0213_emp_encmap = getelementptr inbounds %struct._cjk_mod_state, ptr %10, i32 0, i32 12
-  %11 = load ptr, ptr %jisx0213_emp_encmap, align 8
-  %12 = load ptr, ptr %data.addr, align 8
-  %13 = load i32, ptr %12, align 4
-  %and = and i32 %13, 65535
+  %10 = load ptr, ptr %codec.addr, align 8
+  %modstate = getelementptr inbounds %struct._multibyte_codec, ptr %10, i32 0, i32 9
+  %11 = load ptr, ptr %modstate, align 8
+  %jisx0213_emp_encmap = getelementptr inbounds %struct._cjk_mod_state, ptr %11, i32 0, i32 12
+  %12 = load ptr, ptr %jisx0213_emp_encmap, align 8
+  %13 = load ptr, ptr %data.addr, align 8
+  %14 = load i32, ptr %13, align 4
+  %and = and i32 %14, 65535
   %shr6 = lshr i32 %and, 8
   %idxprom = zext i32 %shr6 to i64
-  %arrayidx = getelementptr %struct.unim_index, ptr %11, i64 %idxprom
+  %arrayidx = getelementptr %struct.unim_index, ptr %12, i64 %idxprom
   %map = getelementptr inbounds %struct.unim_index, ptr %arrayidx, i32 0, i32 0
-  %14 = load ptr, ptr %map, align 8
-  %cmp7 = icmp ne ptr %14, null
+  %15 = load ptr, ptr %map, align 8
+  %cmp7 = icmp ne ptr %15, null
   br i1 %cmp7, label %land.lhs.true8, label %if.end
 
 land.lhs.true8:                                   ; preds = %if.else
-  %15 = load ptr, ptr %data.addr, align 8
-  %16 = load i32, ptr %15, align 4
-  %and9 = and i32 %16, 65535
+  %16 = load ptr, ptr %data.addr, align 8
+  %17 = load i32, ptr %16, align 4
+  %and9 = and i32 %17, 65535
   %and10 = and i32 %and9, 255
-  %17 = load ptr, ptr %codec.addr, align 8
-  %modstate11 = getelementptr inbounds %struct._multibyte_codec, ptr %17, i32 0, i32 9
-  %18 = load ptr, ptr %modstate11, align 8
-  %jisx0213_emp_encmap12 = getelementptr inbounds %struct._cjk_mod_state, ptr %18, i32 0, i32 12
-  %19 = load ptr, ptr %jisx0213_emp_encmap12, align 8
-  %20 = load ptr, ptr %data.addr, align 8
-  %21 = load i32, ptr %20, align 4
-  %and13 = and i32 %21, 65535
+  %18 = load ptr, ptr %codec.addr, align 8
+  %modstate11 = getelementptr inbounds %struct._multibyte_codec, ptr %18, i32 0, i32 9
+  %19 = load ptr, ptr %modstate11, align 8
+  %jisx0213_emp_encmap12 = getelementptr inbounds %struct._cjk_mod_state, ptr %19, i32 0, i32 12
+  %20 = load ptr, ptr %jisx0213_emp_encmap12, align 8
+  %21 = load ptr, ptr %data.addr, align 8
+  %22 = load i32, ptr %21, align 4
+  %and13 = and i32 %22, 65535
   %shr14 = lshr i32 %and13, 8
   %idxprom15 = zext i32 %shr14 to i64
-  %arrayidx16 = getelementptr %struct.unim_index, ptr %19, i64 %idxprom15
+  %arrayidx16 = getelementptr %struct.unim_index, ptr %20, i64 %idxprom15
   %bottom = getelementptr inbounds %struct.unim_index, ptr %arrayidx16, i32 0, i32 1
-  %22 = load i8, ptr %bottom, align 8
-  %conv = zext i8 %22 to i32
+  %23 = load i8, ptr %bottom, align 8
+  %conv = zext i8 %23 to i32
   %cmp17 = icmp uge i32 %and10, %conv
   br i1 %cmp17, label %land.lhs.true19, label %if.end
 
 land.lhs.true19:                                  ; preds = %land.lhs.true8
-  %23 = load ptr, ptr %data.addr, align 8
-  %24 = load i32, ptr %23, align 4
-  %and20 = and i32 %24, 65535
+  %24 = load ptr, ptr %data.addr, align 8
+  %25 = load i32, ptr %24, align 4
+  %and20 = and i32 %25, 65535
   %and21 = and i32 %and20, 255
-  %25 = load ptr, ptr %codec.addr, align 8
-  %modstate22 = getelementptr inbounds %struct._multibyte_codec, ptr %25, i32 0, i32 9
-  %26 = load ptr, ptr %modstate22, align 8
-  %jisx0213_emp_encmap23 = getelementptr inbounds %struct._cjk_mod_state, ptr %26, i32 0, i32 12
-  %27 = load ptr, ptr %jisx0213_emp_encmap23, align 8
-  %28 = load ptr, ptr %data.addr, align 8
-  %29 = load i32, ptr %28, align 4
-  %and24 = and i32 %29, 65535
+  %26 = load ptr, ptr %codec.addr, align 8
+  %modstate22 = getelementptr inbounds %struct._multibyte_codec, ptr %26, i32 0, i32 9
+  %27 = load ptr, ptr %modstate22, align 8
+  %jisx0213_emp_encmap23 = getelementptr inbounds %struct._cjk_mod_state, ptr %27, i32 0, i32 12
+  %28 = load ptr, ptr %jisx0213_emp_encmap23, align 8
+  %29 = load ptr, ptr %data.addr, align 8
+  %30 = load i32, ptr %29, align 4
+  %and24 = and i32 %30, 65535
   %shr25 = lshr i32 %and24, 8
   %idxprom26 = zext i32 %shr25 to i64
-  %arrayidx27 = getelementptr %struct.unim_index, ptr %27, i64 %idxprom26
+  %arrayidx27 = getelementptr %struct.unim_index, ptr %28, i64 %idxprom26
   %top = getelementptr inbounds %struct.unim_index, ptr %arrayidx27, i32 0, i32 2
-  %30 = load i8, ptr %top, align 1
-  %conv28 = zext i8 %30 to i32
+  %31 = load i8, ptr %top, align 1
+  %conv28 = zext i8 %31 to i32
   %cmp29 = icmp ule i32 %and21, %conv28
   br i1 %cmp29, label %land.lhs.true31, label %if.end
 
 land.lhs.true31:                                  ; preds = %land.lhs.true19
-  %31 = load ptr, ptr %codec.addr, align 8
-  %modstate32 = getelementptr inbounds %struct._multibyte_codec, ptr %31, i32 0, i32 9
-  %32 = load ptr, ptr %modstate32, align 8
-  %jisx0213_emp_encmap33 = getelementptr inbounds %struct._cjk_mod_state, ptr %32, i32 0, i32 12
-  %33 = load ptr, ptr %jisx0213_emp_encmap33, align 8
-  %34 = load ptr, ptr %data.addr, align 8
-  %35 = load i32, ptr %34, align 4
-  %and34 = and i32 %35, 65535
+  %32 = load ptr, ptr %codec.addr, align 8
+  %modstate32 = getelementptr inbounds %struct._multibyte_codec, ptr %32, i32 0, i32 9
+  %33 = load ptr, ptr %modstate32, align 8
+  %jisx0213_emp_encmap33 = getelementptr inbounds %struct._cjk_mod_state, ptr %33, i32 0, i32 12
+  %34 = load ptr, ptr %jisx0213_emp_encmap33, align 8
+  %35 = load ptr, ptr %data.addr, align 8
+  %36 = load i32, ptr %35, align 4
+  %and34 = and i32 %36, 65535
   %shr35 = lshr i32 %and34, 8
   %idxprom36 = zext i32 %shr35 to i64
-  %arrayidx37 = getelementptr %struct.unim_index, ptr %33, i64 %idxprom36
+  %arrayidx37 = getelementptr %struct.unim_index, ptr %34, i64 %idxprom36
   %map38 = getelementptr inbounds %struct.unim_index, ptr %arrayidx37, i32 0, i32 0
-  %36 = load ptr, ptr %map38, align 8
-  %37 = load ptr, ptr %data.addr, align 8
-  %38 = load i32, ptr %37, align 4
-  %and39 = and i32 %38, 65535
+  %37 = load ptr, ptr %map38, align 8
+  %38 = load ptr, ptr %data.addr, align 8
+  %39 = load i32, ptr %38, align 4
+  %and39 = and i32 %39, 65535
   %and40 = and i32 %and39, 255
-  %39 = load ptr, ptr %codec.addr, align 8
-  %modstate41 = getelementptr inbounds %struct._multibyte_codec, ptr %39, i32 0, i32 9
-  %40 = load ptr, ptr %modstate41, align 8
-  %jisx0213_emp_encmap42 = getelementptr inbounds %struct._cjk_mod_state, ptr %40, i32 0, i32 12
-  %41 = load ptr, ptr %jisx0213_emp_encmap42, align 8
-  %42 = load ptr, ptr %data.addr, align 8
-  %43 = load i32, ptr %42, align 4
-  %and43 = and i32 %43, 65535
+  %40 = load ptr, ptr %codec.addr, align 8
+  %modstate41 = getelementptr inbounds %struct._multibyte_codec, ptr %40, i32 0, i32 9
+  %41 = load ptr, ptr %modstate41, align 8
+  %jisx0213_emp_encmap42 = getelementptr inbounds %struct._cjk_mod_state, ptr %41, i32 0, i32 12
+  %42 = load ptr, ptr %jisx0213_emp_encmap42, align 8
+  %43 = load ptr, ptr %data.addr, align 8
+  %44 = load i32, ptr %43, align 4
+  %and43 = and i32 %44, 65535
   %shr44 = lshr i32 %and43, 8
   %idxprom45 = zext i32 %shr44 to i64
-  %arrayidx46 = getelementptr %struct.unim_index, ptr %41, i64 %idxprom45
+  %arrayidx46 = getelementptr %struct.unim_index, ptr %42, i64 %idxprom45
   %bottom47 = getelementptr inbounds %struct.unim_index, ptr %arrayidx46, i32 0, i32 1
-  %44 = load i8, ptr %bottom47, align 8
-  %conv48 = zext i8 %44 to i32
+  %45 = load i8, ptr %bottom47, align 8
+  %conv48 = zext i8 %45 to i32
   %sub = sub i32 %and40, %conv48
   %idxprom49 = zext i32 %sub to i64
-  %arrayidx50 = getelementptr i16, ptr %36, i64 %idxprom49
-  %45 = load i16, ptr %arrayidx50, align 2
-  store i16 %45, ptr %coded, align 2
-  %conv51 = zext i16 %45 to i32
+  %arrayidx50 = getelementptr i16, ptr %37, i64 %idxprom49
+  %46 = load i16, ptr %arrayidx50, align 2
+  store i16 %46, ptr %coded, align 2
+  %conv51 = zext i16 %46 to i32
   %cmp52 = icmp ne i32 %conv51, 65535
   br i1 %cmp52, label %if.then54, label %if.end
 
 if.then54:                                        ; preds = %land.lhs.true31
-  %46 = load i16, ptr %coded, align 2
-  store i16 %46, ptr %retval, align 2
+  %47 = load i16, ptr %coded, align 2
+  store i16 %47, ptr %retval, align 2
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true31, %land.lhs.true19, %land.lhs.true8, %if.else
@@ -7055,68 +7056,69 @@ if.end56:                                         ; preds = %if.end55, %if.then
   br label %return
 
 if.end57:                                         ; preds = %sw.bb
-  %47 = load ptr, ptr %config.addr, align 8
-  %cmp58 = icmp eq ptr %47, inttoptr (i64 2000 to ptr)
+  %48 = load ptr, ptr %config.addr, align 8
+  %49 = inttoptr i64 2000 to ptr
+  %cmp58 = icmp eq ptr %48, %49
   br i1 %cmp58, label %land.lhs.true60, label %if.else90
 
 land.lhs.true60:                                  ; preds = %if.end57
-  %48 = load ptr, ptr %data.addr, align 8
-  %49 = load i32, ptr %48, align 4
-  %cmp61 = icmp eq i32 %49, 39708
+  %50 = load ptr, ptr %data.addr, align 8
+  %51 = load i32, ptr %50, align 4
+  %cmp61 = icmp eq i32 %51, 39708
   br i1 %cmp61, label %if.then89, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true60
-  %50 = load ptr, ptr %data.addr, align 8
-  %51 = load i32, ptr %50, align 4
-  %cmp63 = icmp eq i32 %51, 20465
+  %52 = load ptr, ptr %data.addr, align 8
+  %53 = load i32, ptr %52, align 4
+  %cmp63 = icmp eq i32 %53, 20465
   br i1 %cmp63, label %if.then89, label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %lor.lhs.false
-  %52 = load ptr, ptr %data.addr, align 8
-  %53 = load i32, ptr %52, align 4
-  %cmp66 = icmp eq i32 %53, 21085
+  %54 = load ptr, ptr %data.addr, align 8
+  %55 = load i32, ptr %54, align 4
+  %cmp66 = icmp eq i32 %55, 21085
   br i1 %cmp66, label %if.then89, label %lor.lhs.false68
 
 lor.lhs.false68:                                  ; preds = %lor.lhs.false65
-  %54 = load ptr, ptr %data.addr, align 8
-  %55 = load i32, ptr %54, align 4
-  %cmp69 = icmp eq i32 %55, 21534
+  %56 = load ptr, ptr %data.addr, align 8
+  %57 = load i32, ptr %56, align 4
+  %cmp69 = icmp eq i32 %57, 21534
   br i1 %cmp69, label %if.then89, label %lor.lhs.false71
 
 lor.lhs.false71:                                  ; preds = %lor.lhs.false68
-  %56 = load ptr, ptr %data.addr, align 8
-  %57 = load i32, ptr %56, align 4
-  %cmp72 = icmp eq i32 %57, 22099
+  %58 = load ptr, ptr %data.addr, align 8
+  %59 = load i32, ptr %58, align 4
+  %cmp72 = icmp eq i32 %59, 22099
   br i1 %cmp72, label %if.then89, label %lor.lhs.false74
 
 lor.lhs.false74:                                  ; preds = %lor.lhs.false71
-  %58 = load ptr, ptr %data.addr, align 8
-  %59 = load i32, ptr %58, align 4
-  %cmp75 = icmp eq i32 %59, 23032
+  %60 = load ptr, ptr %data.addr, align 8
+  %61 = load i32, ptr %60, align 4
+  %cmp75 = icmp eq i32 %61, 23032
   br i1 %cmp75, label %if.then89, label %lor.lhs.false77
 
 lor.lhs.false77:                                  ; preds = %lor.lhs.false74
-  %60 = load ptr, ptr %data.addr, align 8
-  %61 = load i32, ptr %60, align 4
-  %cmp78 = icmp eq i32 %61, 23643
+  %62 = load ptr, ptr %data.addr, align 8
+  %63 = load i32, ptr %62, align 4
+  %cmp78 = icmp eq i32 %63, 23643
   br i1 %cmp78, label %if.then89, label %lor.lhs.false80
 
 lor.lhs.false80:                                  ; preds = %lor.lhs.false77
-  %62 = load ptr, ptr %data.addr, align 8
-  %63 = load i32, ptr %62, align 4
-  %cmp81 = icmp eq i32 %63, 24183
+  %64 = load ptr, ptr %data.addr, align 8
+  %65 = load i32, ptr %64, align 4
+  %cmp81 = icmp eq i32 %65, 24183
   br i1 %cmp81, label %if.then89, label %lor.lhs.false83
 
 lor.lhs.false83:                                  ; preds = %lor.lhs.false80
-  %64 = load ptr, ptr %data.addr, align 8
-  %65 = load i32, ptr %64, align 4
-  %cmp84 = icmp eq i32 %65, 30246
+  %66 = load ptr, ptr %data.addr, align 8
+  %67 = load i32, ptr %66, align 4
+  %cmp84 = icmp eq i32 %67, 30246
   br i1 %cmp84, label %if.then89, label %lor.lhs.false86
 
 lor.lhs.false86:                                  ; preds = %lor.lhs.false83
-  %66 = load ptr, ptr %data.addr, align 8
-  %67 = load i32, ptr %66, align 4
-  %cmp87 = icmp eq i32 %67, 32363
+  %68 = load ptr, ptr %data.addr, align 8
+  %69 = load i32, ptr %68, align 4
+  %cmp87 = icmp eq i32 %69, 32363
   br i1 %cmp87, label %if.then89, label %if.else90
 
 if.then89:                                        ; preds = %lor.lhs.false86, %lor.lhs.false83, %lor.lhs.false80, %lor.lhs.false77, %lor.lhs.false74, %lor.lhs.false71, %lor.lhs.false68, %lor.lhs.false65, %lor.lhs.false, %land.lhs.true60
@@ -7124,14 +7126,15 @@ if.then89:                                        ; preds = %lor.lhs.false86, %l
   br label %return
 
 if.else90:                                        ; preds = %lor.lhs.false86, %if.end57
-  %68 = load ptr, ptr %config.addr, align 8
-  %cmp91 = icmp eq ptr %68, inttoptr (i64 2000 to ptr)
+  %70 = load ptr, ptr %config.addr, align 8
+  %71 = inttoptr i64 2000 to ptr
+  %cmp91 = icmp eq ptr %70, %71
   br i1 %cmp91, label %land.lhs.true93, label %if.else97
 
 land.lhs.true93:                                  ; preds = %if.else90
-  %69 = load ptr, ptr %data.addr, align 8
-  %70 = load i32, ptr %69, align 4
-  %cmp94 = icmp eq i32 %70, 39709
+  %72 = load ptr, ptr %data.addr, align 8
+  %73 = load i32, ptr %72, align 4
+  %cmp94 = icmp eq i32 %73, 39709
   br i1 %cmp94, label %if.then96, label %if.else97
 
 if.then96:                                        ; preds = %land.lhs.true93
@@ -7139,102 +7142,102 @@ if.then96:                                        ; preds = %land.lhs.true93
   br label %if.end213
 
 if.else97:                                        ; preds = %land.lhs.true93, %if.else90
-  %71 = load ptr, ptr %codec.addr, align 8
-  %modstate98 = getelementptr inbounds %struct._multibyte_codec, ptr %71, i32 0, i32 9
-  %72 = load ptr, ptr %modstate98, align 8
-  %jisx0213_bmp_encmap = getelementptr inbounds %struct._cjk_mod_state, ptr %72, i32 0, i32 9
-  %73 = load ptr, ptr %jisx0213_bmp_encmap, align 8
-  %74 = load ptr, ptr %data.addr, align 8
-  %75 = load i32, ptr %74, align 4
-  %shr99 = lshr i32 %75, 8
+  %74 = load ptr, ptr %codec.addr, align 8
+  %modstate98 = getelementptr inbounds %struct._multibyte_codec, ptr %74, i32 0, i32 9
+  %75 = load ptr, ptr %modstate98, align 8
+  %jisx0213_bmp_encmap = getelementptr inbounds %struct._cjk_mod_state, ptr %75, i32 0, i32 9
+  %76 = load ptr, ptr %jisx0213_bmp_encmap, align 8
+  %77 = load ptr, ptr %data.addr, align 8
+  %78 = load i32, ptr %77, align 4
+  %shr99 = lshr i32 %78, 8
   %idxprom100 = zext i32 %shr99 to i64
-  %arrayidx101 = getelementptr %struct.unim_index, ptr %73, i64 %idxprom100
+  %arrayidx101 = getelementptr %struct.unim_index, ptr %76, i64 %idxprom100
   %map102 = getelementptr inbounds %struct.unim_index, ptr %arrayidx101, i32 0, i32 0
-  %76 = load ptr, ptr %map102, align 8
-  %cmp103 = icmp ne ptr %76, null
+  %79 = load ptr, ptr %map102, align 8
+  %cmp103 = icmp ne ptr %79, null
   br i1 %cmp103, label %land.lhs.true105, label %if.else154
 
 land.lhs.true105:                                 ; preds = %if.else97
-  %77 = load ptr, ptr %data.addr, align 8
-  %78 = load i32, ptr %77, align 4
-  %and106 = and i32 %78, 255
-  %79 = load ptr, ptr %codec.addr, align 8
-  %modstate107 = getelementptr inbounds %struct._multibyte_codec, ptr %79, i32 0, i32 9
-  %80 = load ptr, ptr %modstate107, align 8
-  %jisx0213_bmp_encmap108 = getelementptr inbounds %struct._cjk_mod_state, ptr %80, i32 0, i32 9
-  %81 = load ptr, ptr %jisx0213_bmp_encmap108, align 8
-  %82 = load ptr, ptr %data.addr, align 8
-  %83 = load i32, ptr %82, align 4
-  %shr109 = lshr i32 %83, 8
+  %80 = load ptr, ptr %data.addr, align 8
+  %81 = load i32, ptr %80, align 4
+  %and106 = and i32 %81, 255
+  %82 = load ptr, ptr %codec.addr, align 8
+  %modstate107 = getelementptr inbounds %struct._multibyte_codec, ptr %82, i32 0, i32 9
+  %83 = load ptr, ptr %modstate107, align 8
+  %jisx0213_bmp_encmap108 = getelementptr inbounds %struct._cjk_mod_state, ptr %83, i32 0, i32 9
+  %84 = load ptr, ptr %jisx0213_bmp_encmap108, align 8
+  %85 = load ptr, ptr %data.addr, align 8
+  %86 = load i32, ptr %85, align 4
+  %shr109 = lshr i32 %86, 8
   %idxprom110 = zext i32 %shr109 to i64
-  %arrayidx111 = getelementptr %struct.unim_index, ptr %81, i64 %idxprom110
+  %arrayidx111 = getelementptr %struct.unim_index, ptr %84, i64 %idxprom110
   %bottom112 = getelementptr inbounds %struct.unim_index, ptr %arrayidx111, i32 0, i32 1
-  %84 = load i8, ptr %bottom112, align 8
-  %conv113 = zext i8 %84 to i32
+  %87 = load i8, ptr %bottom112, align 8
+  %conv113 = zext i8 %87 to i32
   %cmp114 = icmp uge i32 %and106, %conv113
   br i1 %cmp114, label %land.lhs.true116, label %if.else154
 
 land.lhs.true116:                                 ; preds = %land.lhs.true105
-  %85 = load ptr, ptr %data.addr, align 8
-  %86 = load i32, ptr %85, align 4
-  %and117 = and i32 %86, 255
-  %87 = load ptr, ptr %codec.addr, align 8
-  %modstate118 = getelementptr inbounds %struct._multibyte_codec, ptr %87, i32 0, i32 9
-  %88 = load ptr, ptr %modstate118, align 8
-  %jisx0213_bmp_encmap119 = getelementptr inbounds %struct._cjk_mod_state, ptr %88, i32 0, i32 9
-  %89 = load ptr, ptr %jisx0213_bmp_encmap119, align 8
-  %90 = load ptr, ptr %data.addr, align 8
-  %91 = load i32, ptr %90, align 4
-  %shr120 = lshr i32 %91, 8
+  %88 = load ptr, ptr %data.addr, align 8
+  %89 = load i32, ptr %88, align 4
+  %and117 = and i32 %89, 255
+  %90 = load ptr, ptr %codec.addr, align 8
+  %modstate118 = getelementptr inbounds %struct._multibyte_codec, ptr %90, i32 0, i32 9
+  %91 = load ptr, ptr %modstate118, align 8
+  %jisx0213_bmp_encmap119 = getelementptr inbounds %struct._cjk_mod_state, ptr %91, i32 0, i32 9
+  %92 = load ptr, ptr %jisx0213_bmp_encmap119, align 8
+  %93 = load ptr, ptr %data.addr, align 8
+  %94 = load i32, ptr %93, align 4
+  %shr120 = lshr i32 %94, 8
   %idxprom121 = zext i32 %shr120 to i64
-  %arrayidx122 = getelementptr %struct.unim_index, ptr %89, i64 %idxprom121
+  %arrayidx122 = getelementptr %struct.unim_index, ptr %92, i64 %idxprom121
   %top123 = getelementptr inbounds %struct.unim_index, ptr %arrayidx122, i32 0, i32 2
-  %92 = load i8, ptr %top123, align 1
-  %conv124 = zext i8 %92 to i32
+  %95 = load i8, ptr %top123, align 1
+  %conv124 = zext i8 %95 to i32
   %cmp125 = icmp ule i32 %and117, %conv124
   br i1 %cmp125, label %land.lhs.true127, label %if.else154
 
 land.lhs.true127:                                 ; preds = %land.lhs.true116
-  %93 = load ptr, ptr %codec.addr, align 8
-  %modstate128 = getelementptr inbounds %struct._multibyte_codec, ptr %93, i32 0, i32 9
-  %94 = load ptr, ptr %modstate128, align 8
-  %jisx0213_bmp_encmap129 = getelementptr inbounds %struct._cjk_mod_state, ptr %94, i32 0, i32 9
-  %95 = load ptr, ptr %jisx0213_bmp_encmap129, align 8
-  %96 = load ptr, ptr %data.addr, align 8
-  %97 = load i32, ptr %96, align 4
-  %shr130 = lshr i32 %97, 8
-  %idxprom131 = zext i32 %shr130 to i64
-  %arrayidx132 = getelementptr %struct.unim_index, ptr %95, i64 %idxprom131
-  %map133 = getelementptr inbounds %struct.unim_index, ptr %arrayidx132, i32 0, i32 0
-  %98 = load ptr, ptr %map133, align 8
+  %96 = load ptr, ptr %codec.addr, align 8
+  %modstate128 = getelementptr inbounds %struct._multibyte_codec, ptr %96, i32 0, i32 9
+  %97 = load ptr, ptr %modstate128, align 8
+  %jisx0213_bmp_encmap129 = getelementptr inbounds %struct._cjk_mod_state, ptr %97, i32 0, i32 9
+  %98 = load ptr, ptr %jisx0213_bmp_encmap129, align 8
   %99 = load ptr, ptr %data.addr, align 8
   %100 = load i32, ptr %99, align 4
-  %and134 = and i32 %100, 255
-  %101 = load ptr, ptr %codec.addr, align 8
-  %modstate135 = getelementptr inbounds %struct._multibyte_codec, ptr %101, i32 0, i32 9
-  %102 = load ptr, ptr %modstate135, align 8
-  %jisx0213_bmp_encmap136 = getelementptr inbounds %struct._cjk_mod_state, ptr %102, i32 0, i32 9
-  %103 = load ptr, ptr %jisx0213_bmp_encmap136, align 8
-  %104 = load ptr, ptr %data.addr, align 8
-  %105 = load i32, ptr %104, align 4
-  %shr137 = lshr i32 %105, 8
+  %shr130 = lshr i32 %100, 8
+  %idxprom131 = zext i32 %shr130 to i64
+  %arrayidx132 = getelementptr %struct.unim_index, ptr %98, i64 %idxprom131
+  %map133 = getelementptr inbounds %struct.unim_index, ptr %arrayidx132, i32 0, i32 0
+  %101 = load ptr, ptr %map133, align 8
+  %102 = load ptr, ptr %data.addr, align 8
+  %103 = load i32, ptr %102, align 4
+  %and134 = and i32 %103, 255
+  %104 = load ptr, ptr %codec.addr, align 8
+  %modstate135 = getelementptr inbounds %struct._multibyte_codec, ptr %104, i32 0, i32 9
+  %105 = load ptr, ptr %modstate135, align 8
+  %jisx0213_bmp_encmap136 = getelementptr inbounds %struct._cjk_mod_state, ptr %105, i32 0, i32 9
+  %106 = load ptr, ptr %jisx0213_bmp_encmap136, align 8
+  %107 = load ptr, ptr %data.addr, align 8
+  %108 = load i32, ptr %107, align 4
+  %shr137 = lshr i32 %108, 8
   %idxprom138 = zext i32 %shr137 to i64
-  %arrayidx139 = getelementptr %struct.unim_index, ptr %103, i64 %idxprom138
+  %arrayidx139 = getelementptr %struct.unim_index, ptr %106, i64 %idxprom138
   %bottom140 = getelementptr inbounds %struct.unim_index, ptr %arrayidx139, i32 0, i32 1
-  %106 = load i8, ptr %bottom140, align 8
-  %conv141 = zext i8 %106 to i32
+  %109 = load i8, ptr %bottom140, align 8
+  %conv141 = zext i8 %109 to i32
   %sub142 = sub i32 %and134, %conv141
   %idxprom143 = zext i32 %sub142 to i64
-  %arrayidx144 = getelementptr i16, ptr %98, i64 %idxprom143
-  %107 = load i16, ptr %arrayidx144, align 2
-  store i16 %107, ptr %coded, align 2
-  %conv145 = zext i16 %107 to i32
+  %arrayidx144 = getelementptr i16, ptr %101, i64 %idxprom143
+  %110 = load i16, ptr %arrayidx144, align 2
+  store i16 %110, ptr %coded, align 2
+  %conv145 = zext i16 %110 to i32
   %cmp146 = icmp ne i32 %conv145, 65535
   br i1 %cmp146, label %if.then148, label %if.else154
 
 if.then148:                                       ; preds = %land.lhs.true127
-  %108 = load i16, ptr %coded, align 2
-  %conv149 = zext i16 %108 to i32
+  %111 = load i16, ptr %coded, align 2
+  %conv149 = zext i16 %111 to i32
   %cmp150 = icmp eq i32 %conv149, 65534
   br i1 %cmp150, label %if.then152, label %if.end153
 
@@ -7246,102 +7249,102 @@ if.end153:                                        ; preds = %if.then148
   br label %if.end212
 
 if.else154:                                       ; preds = %land.lhs.true127, %land.lhs.true116, %land.lhs.true105, %if.else97
-  %109 = load ptr, ptr %codec.addr, align 8
-  %modstate155 = getelementptr inbounds %struct._multibyte_codec, ptr %109, i32 0, i32 9
-  %110 = load ptr, ptr %modstate155, align 8
-  %jisxcommon_encmap = getelementptr inbounds %struct._cjk_mod_state, ptr %110, i32 0, i32 6
-  %111 = load ptr, ptr %jisxcommon_encmap, align 8
-  %112 = load ptr, ptr %data.addr, align 8
-  %113 = load i32, ptr %112, align 4
-  %shr156 = lshr i32 %113, 8
+  %112 = load ptr, ptr %codec.addr, align 8
+  %modstate155 = getelementptr inbounds %struct._multibyte_codec, ptr %112, i32 0, i32 9
+  %113 = load ptr, ptr %modstate155, align 8
+  %jisxcommon_encmap = getelementptr inbounds %struct._cjk_mod_state, ptr %113, i32 0, i32 6
+  %114 = load ptr, ptr %jisxcommon_encmap, align 8
+  %115 = load ptr, ptr %data.addr, align 8
+  %116 = load i32, ptr %115, align 4
+  %shr156 = lshr i32 %116, 8
   %idxprom157 = zext i32 %shr156 to i64
-  %arrayidx158 = getelementptr %struct.unim_index, ptr %111, i64 %idxprom157
+  %arrayidx158 = getelementptr %struct.unim_index, ptr %114, i64 %idxprom157
   %map159 = getelementptr inbounds %struct.unim_index, ptr %arrayidx158, i32 0, i32 0
-  %114 = load ptr, ptr %map159, align 8
-  %cmp160 = icmp ne ptr %114, null
+  %117 = load ptr, ptr %map159, align 8
+  %cmp160 = icmp ne ptr %117, null
   br i1 %cmp160, label %land.lhs.true162, label %if.else210
 
 land.lhs.true162:                                 ; preds = %if.else154
-  %115 = load ptr, ptr %data.addr, align 8
-  %116 = load i32, ptr %115, align 4
-  %and163 = and i32 %116, 255
-  %117 = load ptr, ptr %codec.addr, align 8
-  %modstate164 = getelementptr inbounds %struct._multibyte_codec, ptr %117, i32 0, i32 9
-  %118 = load ptr, ptr %modstate164, align 8
-  %jisxcommon_encmap165 = getelementptr inbounds %struct._cjk_mod_state, ptr %118, i32 0, i32 6
-  %119 = load ptr, ptr %jisxcommon_encmap165, align 8
-  %120 = load ptr, ptr %data.addr, align 8
-  %121 = load i32, ptr %120, align 4
-  %shr166 = lshr i32 %121, 8
+  %118 = load ptr, ptr %data.addr, align 8
+  %119 = load i32, ptr %118, align 4
+  %and163 = and i32 %119, 255
+  %120 = load ptr, ptr %codec.addr, align 8
+  %modstate164 = getelementptr inbounds %struct._multibyte_codec, ptr %120, i32 0, i32 9
+  %121 = load ptr, ptr %modstate164, align 8
+  %jisxcommon_encmap165 = getelementptr inbounds %struct._cjk_mod_state, ptr %121, i32 0, i32 6
+  %122 = load ptr, ptr %jisxcommon_encmap165, align 8
+  %123 = load ptr, ptr %data.addr, align 8
+  %124 = load i32, ptr %123, align 4
+  %shr166 = lshr i32 %124, 8
   %idxprom167 = zext i32 %shr166 to i64
-  %arrayidx168 = getelementptr %struct.unim_index, ptr %119, i64 %idxprom167
+  %arrayidx168 = getelementptr %struct.unim_index, ptr %122, i64 %idxprom167
   %bottom169 = getelementptr inbounds %struct.unim_index, ptr %arrayidx168, i32 0, i32 1
-  %122 = load i8, ptr %bottom169, align 8
-  %conv170 = zext i8 %122 to i32
+  %125 = load i8, ptr %bottom169, align 8
+  %conv170 = zext i8 %125 to i32
   %cmp171 = icmp uge i32 %and163, %conv170
   br i1 %cmp171, label %land.lhs.true173, label %if.else210
 
 land.lhs.true173:                                 ; preds = %land.lhs.true162
-  %123 = load ptr, ptr %data.addr, align 8
-  %124 = load i32, ptr %123, align 4
-  %and174 = and i32 %124, 255
-  %125 = load ptr, ptr %codec.addr, align 8
-  %modstate175 = getelementptr inbounds %struct._multibyte_codec, ptr %125, i32 0, i32 9
-  %126 = load ptr, ptr %modstate175, align 8
-  %jisxcommon_encmap176 = getelementptr inbounds %struct._cjk_mod_state, ptr %126, i32 0, i32 6
-  %127 = load ptr, ptr %jisxcommon_encmap176, align 8
-  %128 = load ptr, ptr %data.addr, align 8
-  %129 = load i32, ptr %128, align 4
-  %shr177 = lshr i32 %129, 8
+  %126 = load ptr, ptr %data.addr, align 8
+  %127 = load i32, ptr %126, align 4
+  %and174 = and i32 %127, 255
+  %128 = load ptr, ptr %codec.addr, align 8
+  %modstate175 = getelementptr inbounds %struct._multibyte_codec, ptr %128, i32 0, i32 9
+  %129 = load ptr, ptr %modstate175, align 8
+  %jisxcommon_encmap176 = getelementptr inbounds %struct._cjk_mod_state, ptr %129, i32 0, i32 6
+  %130 = load ptr, ptr %jisxcommon_encmap176, align 8
+  %131 = load ptr, ptr %data.addr, align 8
+  %132 = load i32, ptr %131, align 4
+  %shr177 = lshr i32 %132, 8
   %idxprom178 = zext i32 %shr177 to i64
-  %arrayidx179 = getelementptr %struct.unim_index, ptr %127, i64 %idxprom178
+  %arrayidx179 = getelementptr %struct.unim_index, ptr %130, i64 %idxprom178
   %top180 = getelementptr inbounds %struct.unim_index, ptr %arrayidx179, i32 0, i32 2
-  %130 = load i8, ptr %top180, align 1
-  %conv181 = zext i8 %130 to i32
+  %133 = load i8, ptr %top180, align 1
+  %conv181 = zext i8 %133 to i32
   %cmp182 = icmp ule i32 %and174, %conv181
   br i1 %cmp182, label %land.lhs.true184, label %if.else210
 
 land.lhs.true184:                                 ; preds = %land.lhs.true173
-  %131 = load ptr, ptr %codec.addr, align 8
-  %modstate185 = getelementptr inbounds %struct._multibyte_codec, ptr %131, i32 0, i32 9
-  %132 = load ptr, ptr %modstate185, align 8
-  %jisxcommon_encmap186 = getelementptr inbounds %struct._cjk_mod_state, ptr %132, i32 0, i32 6
-  %133 = load ptr, ptr %jisxcommon_encmap186, align 8
-  %134 = load ptr, ptr %data.addr, align 8
-  %135 = load i32, ptr %134, align 4
-  %shr187 = lshr i32 %135, 8
-  %idxprom188 = zext i32 %shr187 to i64
-  %arrayidx189 = getelementptr %struct.unim_index, ptr %133, i64 %idxprom188
-  %map190 = getelementptr inbounds %struct.unim_index, ptr %arrayidx189, i32 0, i32 0
-  %136 = load ptr, ptr %map190, align 8
+  %134 = load ptr, ptr %codec.addr, align 8
+  %modstate185 = getelementptr inbounds %struct._multibyte_codec, ptr %134, i32 0, i32 9
+  %135 = load ptr, ptr %modstate185, align 8
+  %jisxcommon_encmap186 = getelementptr inbounds %struct._cjk_mod_state, ptr %135, i32 0, i32 6
+  %136 = load ptr, ptr %jisxcommon_encmap186, align 8
   %137 = load ptr, ptr %data.addr, align 8
   %138 = load i32, ptr %137, align 4
-  %and191 = and i32 %138, 255
-  %139 = load ptr, ptr %codec.addr, align 8
-  %modstate192 = getelementptr inbounds %struct._multibyte_codec, ptr %139, i32 0, i32 9
-  %140 = load ptr, ptr %modstate192, align 8
-  %jisxcommon_encmap193 = getelementptr inbounds %struct._cjk_mod_state, ptr %140, i32 0, i32 6
-  %141 = load ptr, ptr %jisxcommon_encmap193, align 8
-  %142 = load ptr, ptr %data.addr, align 8
-  %143 = load i32, ptr %142, align 4
-  %shr194 = lshr i32 %143, 8
+  %shr187 = lshr i32 %138, 8
+  %idxprom188 = zext i32 %shr187 to i64
+  %arrayidx189 = getelementptr %struct.unim_index, ptr %136, i64 %idxprom188
+  %map190 = getelementptr inbounds %struct.unim_index, ptr %arrayidx189, i32 0, i32 0
+  %139 = load ptr, ptr %map190, align 8
+  %140 = load ptr, ptr %data.addr, align 8
+  %141 = load i32, ptr %140, align 4
+  %and191 = and i32 %141, 255
+  %142 = load ptr, ptr %codec.addr, align 8
+  %modstate192 = getelementptr inbounds %struct._multibyte_codec, ptr %142, i32 0, i32 9
+  %143 = load ptr, ptr %modstate192, align 8
+  %jisxcommon_encmap193 = getelementptr inbounds %struct._cjk_mod_state, ptr %143, i32 0, i32 6
+  %144 = load ptr, ptr %jisxcommon_encmap193, align 8
+  %145 = load ptr, ptr %data.addr, align 8
+  %146 = load i32, ptr %145, align 4
+  %shr194 = lshr i32 %146, 8
   %idxprom195 = zext i32 %shr194 to i64
-  %arrayidx196 = getelementptr %struct.unim_index, ptr %141, i64 %idxprom195
+  %arrayidx196 = getelementptr %struct.unim_index, ptr %144, i64 %idxprom195
   %bottom197 = getelementptr inbounds %struct.unim_index, ptr %arrayidx196, i32 0, i32 1
-  %144 = load i8, ptr %bottom197, align 8
-  %conv198 = zext i8 %144 to i32
+  %147 = load i8, ptr %bottom197, align 8
+  %conv198 = zext i8 %147 to i32
   %sub199 = sub i32 %and191, %conv198
   %idxprom200 = zext i32 %sub199 to i64
-  %arrayidx201 = getelementptr i16, ptr %136, i64 %idxprom200
-  %145 = load i16, ptr %arrayidx201, align 2
-  store i16 %145, ptr %coded, align 2
-  %conv202 = zext i16 %145 to i32
+  %arrayidx201 = getelementptr i16, ptr %139, i64 %idxprom200
+  %148 = load i16, ptr %arrayidx201, align 2
+  store i16 %148, ptr %coded, align 2
+  %conv202 = zext i16 %148 to i32
   %cmp203 = icmp ne i32 %conv202, 65535
   br i1 %cmp203, label %if.then205, label %if.else210
 
 if.then205:                                       ; preds = %land.lhs.true184
-  %146 = load i16, ptr %coded, align 2
-  %conv206 = zext i16 %146 to i32
+  %149 = load i16, ptr %coded, align 2
+  %conv206 = zext i16 %149 to i32
   %and207 = and i32 %conv206, 32768
   %tobool = icmp ne i32 %and207, 0
   br i1 %tobool, label %if.then208, label %if.end209
@@ -7367,47 +7370,47 @@ if.end213:                                        ; preds = %if.end212, %if.then
   br label %if.end214
 
 if.end214:                                        ; preds = %if.end213
-  %147 = load i16, ptr %coded, align 2
-  store i16 %147, ptr %retval, align 2
+  %150 = load i16, ptr %coded, align 2
+  store i16 %150, ptr %retval, align 2
   br label %return
 
 sw.bb215:                                         ; preds = %entry
-  %148 = load ptr, ptr %data.addr, align 8
-  %arrayidx216 = getelementptr i32, ptr %148, i64 0
-  %149 = load i32, ptr %arrayidx216, align 4
-  %conv217 = trunc i32 %149 to i16
-  %150 = load ptr, ptr %data.addr, align 8
-  %arrayidx218 = getelementptr i32, ptr %150, i64 1
-  %151 = load i32, ptr %arrayidx218, align 4
-  %conv219 = trunc i32 %151 to i16
-  %152 = load ptr, ptr @jisx0213_pair_encmap, align 8
-  %call = call zeroext i16 @find_pairencmap(i16 noundef zeroext %conv217, i16 noundef zeroext %conv219, ptr noundef %152, i32 noundef 46)
+  %151 = load ptr, ptr %data.addr, align 8
+  %arrayidx216 = getelementptr i32, ptr %151, i64 0
+  %152 = load i32, ptr %arrayidx216, align 4
+  %conv217 = trunc i32 %152 to i16
+  %153 = load ptr, ptr %data.addr, align 8
+  %arrayidx218 = getelementptr i32, ptr %153, i64 1
+  %154 = load i32, ptr %arrayidx218, align 4
+  %conv219 = trunc i32 %154 to i16
+  %155 = load ptr, ptr @jisx0213_pair_encmap, align 8
+  %call = call zeroext i16 @find_pairencmap(i16 noundef zeroext %conv217, i16 noundef zeroext %conv219, ptr noundef %155, i32 noundef 46)
   store i16 %call, ptr %coded, align 2
-  %153 = load i16, ptr %coded, align 2
-  %conv220 = zext i16 %153 to i32
+  %156 = load i16, ptr %coded, align 2
+  %conv220 = zext i16 %156 to i32
   %cmp221 = icmp ne i32 %conv220, 65533
   br i1 %cmp221, label %if.then223, label %if.end224
 
 if.then223:                                       ; preds = %sw.bb215
-  %154 = load i16, ptr %coded, align 2
-  store i16 %154, ptr %retval, align 2
+  %157 = load i16, ptr %coded, align 2
+  store i16 %157, ptr %retval, align 2
   br label %return
 
 if.end224:                                        ; preds = %sw.bb215
   br label %sw.bb225
 
 sw.bb225:                                         ; preds = %if.end224, %entry
-  %155 = load ptr, ptr %length.addr, align 8
-  store i64 1, ptr %155, align 8
-  %156 = load ptr, ptr %data.addr, align 8
-  %arrayidx226 = getelementptr i32, ptr %156, i64 0
-  %157 = load i32, ptr %arrayidx226, align 4
-  %conv227 = trunc i32 %157 to i16
-  %158 = load ptr, ptr @jisx0213_pair_encmap, align 8
-  %call228 = call zeroext i16 @find_pairencmap(i16 noundef zeroext %conv227, i16 noundef zeroext 0, ptr noundef %158, i32 noundef 46)
+  %158 = load ptr, ptr %length.addr, align 8
+  store i64 1, ptr %158, align 8
+  %159 = load ptr, ptr %data.addr, align 8
+  %arrayidx226 = getelementptr i32, ptr %159, i64 0
+  %160 = load i32, ptr %arrayidx226, align 4
+  %conv227 = trunc i32 %160 to i16
+  %161 = load ptr, ptr @jisx0213_pair_encmap, align 8
+  %call228 = call zeroext i16 @find_pairencmap(i16 noundef zeroext %conv227, i16 noundef zeroext 0, ptr noundef %161, i32 noundef 46)
   store i16 %call228, ptr %coded, align 2
-  %159 = load i16, ptr %coded, align 2
-  %conv229 = zext i16 %159 to i32
+  %162 = load i16, ptr %coded, align 2
+  %conv229 = zext i16 %162 to i32
   %cmp230 = icmp eq i32 %conv229, 65533
   br i1 %cmp230, label %if.then232, label %if.else233
 
@@ -7416,8 +7419,8 @@ if.then232:                                       ; preds = %sw.bb225
   br label %return
 
 if.else233:                                       ; preds = %sw.bb225
-  %160 = load i16, ptr %coded, align 2
-  store i16 %160, ptr %retval, align 2
+  %163 = load i16, ptr %coded, align 2
+  store i16 %163, ptr %retval, align 2
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -7425,8 +7428,8 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.default, %if.else233, %if.then232, %if.then223, %if.end214, %if.else210, %if.then208, %if.then152, %if.then89, %if.end56, %if.then54, %if.then5
-  %161 = load i16, ptr %retval, align 2
-  ret i16 %161
+  %164 = load i16, ptr %retval, align 2
+  ret i16 %164
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8181,17 +8184,18 @@ entry:
   %2 = load ptr, ptr %codec.addr, align 8
   %3 = load ptr, ptr %data.addr, align 8
   %4 = load ptr, ptr %length.addr, align 8
-  %call = call zeroext i16 @jisx0213_encoder(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef inttoptr (i64 2000 to ptr))
+  %5 = inttoptr i64 2000 to ptr
+  %call = call zeroext i16 @jisx0213_encoder(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   store i16 %call, ptr %coded, align 2
-  %5 = load i64, ptr %ilength, align 8
-  switch i64 %5, label %sw.default [
+  %6 = load i64, ptr %ilength, align 8
+  switch i64 %6, label %sw.default [
     i64 1, label %sw.bb
     i64 2, label %sw.bb2
   ]
 
 sw.bb:                                            ; preds = %entry
-  %6 = load i16, ptr %coded, align 2
-  %conv = zext i16 %6 to i32
+  %7 = load i16, ptr %coded, align 2
+  %conv = zext i16 %7 to i32
   %cmp = icmp eq i32 %conv, 65534
   br i1 %cmp, label %if.then, label %if.else
 
@@ -8204,9 +8208,9 @@ if.else:                                          ; preds = %sw.bb
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %7 = load ptr, ptr %length.addr, align 8
-  %8 = load i64, ptr %7, align 8
-  %cmp3 = icmp ne i64 %8, 2
+  %8 = load ptr, ptr %length.addr, align 8
+  %9 = load i64, ptr %8, align 8
+  %cmp3 = icmp ne i64 %9, 2
   br i1 %cmp3, label %if.then5, label %if.else6
 
 if.then5:                                         ; preds = %sw.bb2
@@ -8214,8 +8218,8 @@ if.then5:                                         ; preds = %sw.bb2
   br label %return
 
 if.else6:                                         ; preds = %sw.bb2
-  %9 = load i16, ptr %coded, align 2
-  store i16 %9, ptr %retval, align 2
+  %10 = load i16, ptr %coded, align 2
+  store i16 %10, ptr %retval, align 2
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -8223,8 +8227,8 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.default, %if.else6, %if.then5, %if.else, %if.then
-  %10 = load i16, ptr %retval, align 2
-  ret i16 %10
+  %11 = load i16, ptr %retval, align 2
+  ret i16 %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8241,27 +8245,28 @@ entry:
   %0 = load ptr, ptr %codec.addr, align 8
   %1 = load ptr, ptr %data.addr, align 8
   %2 = load ptr, ptr %length.addr, align 8
-  %call = call zeroext i16 @jisx0213_encoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef inttoptr (i64 2000 to ptr))
+  %3 = inttoptr i64 2000 to ptr
+  %call = call zeroext i16 @jisx0213_encoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   store i16 %call, ptr %coded, align 2
-  %3 = load i16, ptr %coded, align 2
-  %conv = zext i16 %3 to i32
+  %4 = load i16, ptr %coded, align 2
+  %conv = zext i16 %4 to i32
   %cmp = icmp eq i32 %conv, 65535
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %4 = load i16, ptr %coded, align 2
-  %conv2 = zext i16 %4 to i32
+  %5 = load i16, ptr %coded, align 2
+  %conv2 = zext i16 %5 to i32
   %cmp3 = icmp eq i32 %conv2, 65534
   br i1 %cmp3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %5 = load i16, ptr %coded, align 2
-  store i16 %5, ptr %retval, align 2
+  %6 = load i16, ptr %coded, align 2
+  store i16 %6, ptr %retval, align 2
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %6 = load i16, ptr %coded, align 2
-  %conv5 = zext i16 %6 to i32
+  %7 = load i16, ptr %coded, align 2
+  %conv5 = zext i16 %7 to i32
   %and = and i32 %conv5, 32768
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then6, label %if.else7
@@ -8271,13 +8276,13 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else7:                                         ; preds = %if.else
-  %7 = load i16, ptr %coded, align 2
-  store i16 %7, ptr %retval, align 2
+  %8 = load i16, ptr %coded, align 2
+  store i16 %8, ptr %retval, align 2
   br label %return
 
 return:                                           ; preds = %if.else7, %if.then6, %if.then
-  %8 = load i16, ptr %retval, align 2
-  ret i16 %8
+  %9 = load i16, ptr %retval, align 2
+  ret i16 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8542,34 +8547,35 @@ entry:
   %0 = load ptr, ptr %codec.addr, align 8
   %1 = load ptr, ptr %data.addr, align 8
   %2 = load ptr, ptr %length.addr, align 8
-  %call = call zeroext i16 @jisx0213_encoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef inttoptr (i64 2000 to ptr))
+  %3 = inttoptr i64 2000 to ptr
+  %call = call zeroext i16 @jisx0213_encoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   store i16 %call, ptr %coded, align 2
-  %3 = load i16, ptr %coded, align 2
-  %conv = zext i16 %3 to i32
+  %4 = load i16, ptr %coded, align 2
+  %conv = zext i16 %4 to i32
   %cmp = icmp eq i32 %conv, 65535
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %4 = load i16, ptr %coded, align 2
-  %conv2 = zext i16 %4 to i32
+  %5 = load i16, ptr %coded, align 2
+  %conv2 = zext i16 %5 to i32
   %cmp3 = icmp eq i32 %conv2, 65534
   br i1 %cmp3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %5 = load i16, ptr %coded, align 2
-  store i16 %5, ptr %retval, align 2
+  %6 = load i16, ptr %coded, align 2
+  store i16 %6, ptr %retval, align 2
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %6 = load i16, ptr %coded, align 2
-  %conv5 = zext i16 %6 to i32
+  %7 = load i16, ptr %coded, align 2
+  %conv5 = zext i16 %7 to i32
   %and = and i32 %conv5, 32768
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then6, label %if.else10
 
 if.then6:                                         ; preds = %if.else
-  %7 = load i16, ptr %coded, align 2
-  %conv7 = zext i16 %7 to i32
+  %8 = load i16, ptr %coded, align 2
+  %conv7 = zext i16 %8 to i32
   %and8 = and i32 %conv7, 32767
   %conv9 = trunc i32 %and8 to i16
   store i16 %conv9, ptr %retval, align 2
@@ -8580,8 +8586,8 @@ if.else10:                                        ; preds = %if.else
   br label %return
 
 return:                                           ; preds = %if.else10, %if.then6, %if.then
-  %8 = load i16, ptr %retval, align 2
-  ret i16 %8
+  %9 = load i16, ptr %retval, align 2
+  ret i16 %9
 }
 
 ; Function Attrs: nounwind uwtable

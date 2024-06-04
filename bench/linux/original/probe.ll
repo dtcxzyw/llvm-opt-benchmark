@@ -18,33 +18,33 @@ define dso_local i64 @perf_msr_probe(ptr nocapture noundef readonly %0, i32 noun
   %5 = icmp slt i32 %1, 64
   %6 = icmp ne i32 %1, 0
   %7 = and i1 %5, %6
-  br i1 %7, label %8, label %62
+  br i1 %7, label %8, label %63
 
 8:                                                ; preds = %4
   %9 = zext i32 %1 to i64
   br label %10
 
-10:                                               ; preds = %58, %8
-  %11 = phi i64 [ 0, %8 ], [ %60, %58 ]
-  %12 = phi i64 [ 0, %8 ], [ %59, %58 ]
+10:                                               ; preds = %59, %8
+  %11 = phi i64 [ 0, %8 ], [ %61, %59 ]
+  %12 = phi i64 [ 0, %8 ], [ %60, %59 ]
   %13 = getelementptr %struct.perf_msr, ptr %0, i64 %11
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load i8, ptr %14, align 8, !range !5, !noundef !6
   %16 = icmp eq i8 %15, 0
-  br i1 %16, label %17, label %55
+  br i1 %16, label %17, label %56
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds i8, ptr %13, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %58, label %21
+  br i1 %20, label %59, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr @not_visible, ptr %22, align 8
   %23 = load i64, ptr %13, align 8
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %58, label %25
+  br i1 %24, label %59, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %13, i64 16
@@ -55,7 +55,7 @@ define dso_local i64 @perf_msr_probe(ptr nocapture noundef readonly %0, i32 noun
 29:                                               ; preds = %25
   %30 = trunc i64 %11 to i32
   %31 = tail call zeroext i1 %27(i32 noundef %30, ptr noundef %3) #3
-  br i1 %31, label %32, label %58
+  br i1 %31, label %32, label %59
 
 32:                                               ; preds = %29, %25
   %33 = load i64, ptr %13, align 8
@@ -64,51 +64,52 @@ define dso_local i64 @perf_msr_probe(ptr nocapture noundef readonly %0, i32 noun
   %36 = extractvalue { i32, i64, i64 } %35, 0
   %37 = extractvalue { i32, i64, i64 } %35, 1
   %38 = extractvalue { i32, i64, i64 } %35, 2
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #3
-          to label %42 [label %39], !srcloc !8
+  %39 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %39, i32 2) #3
+          to label %43 [label %40], !srcloc !8
 
-39:                                               ; preds = %32
-  %40 = shl i64 %38, 32
-  %41 = or i64 %40, %37
-  tail call void @do_trace_read_msr(i32 noundef %34, i64 noundef %41, i32 noundef %36) #3
-  br label %42
+40:                                               ; preds = %32
+  %41 = shl i64 %38, 32
+  %42 = or i64 %41, %37
+  tail call void @do_trace_read_msr(i32 noundef %34, i64 noundef %42, i32 noundef %36) #3
+  br label %43
 
-42:                                               ; preds = %39, %32
-  %43 = shl i64 %38, 32
-  %44 = or i64 %43, %37
-  %45 = icmp eq i32 %36, 0
-  br i1 %45, label %46, label %58
+43:                                               ; preds = %40, %32
+  %44 = shl i64 %38, 32
+  %45 = or i64 %44, %37
+  %46 = icmp eq i32 %36, 0
+  br i1 %46, label %47, label %59
 
-46:                                               ; preds = %42
-  br i1 %2, label %54, label %47
+47:                                               ; preds = %43
+  br i1 %2, label %55, label %48
 
-47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %13, i64 32
-  %49 = load i64, ptr %48, align 8
-  %50 = icmp eq i64 %49, 0
-  %51 = select i1 %50, i64 -1, i64 %49
-  %52 = and i64 %51, %44
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %58, label %54
+48:                                               ; preds = %47
+  %49 = getelementptr inbounds i8, ptr %13, i64 32
+  %50 = load i64, ptr %49, align 8
+  %51 = icmp eq i64 %50, 0
+  %52 = select i1 %51, i64 -1, i64 %50
+  %53 = and i64 %52, %45
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %59, label %55
 
-54:                                               ; preds = %47, %46
+55:                                               ; preds = %48, %47
   store ptr null, ptr %22, align 8
-  br label %55
+  br label %56
 
-55:                                               ; preds = %54, %10
-  %56 = shl nuw i64 1, %11
-  %57 = or i64 %56, %12
-  br label %58
+56:                                               ; preds = %55, %10
+  %57 = shl nuw i64 1, %11
+  %58 = or i64 %57, %12
+  br label %59
 
-58:                                               ; preds = %55, %47, %42, %29, %21, %17
-  %59 = phi i64 [ %57, %55 ], [ %12, %47 ], [ %12, %42 ], [ %12, %29 ], [ %12, %21 ], [ %12, %17 ]
-  %60 = add nuw nsw i64 %11, 1
-  %61 = icmp eq i64 %60, %9
-  br i1 %61, label %62, label %10, !llvm.loop !9
+59:                                               ; preds = %56, %48, %43, %29, %21, %17
+  %60 = phi i64 [ %58, %56 ], [ %12, %48 ], [ %12, %43 ], [ %12, %29 ], [ %12, %21 ], [ %12, %17 ]
+  %61 = add nuw nsw i64 %11, 1
+  %62 = icmp eq i64 %61, %9
+  br i1 %62, label %63, label %10, !llvm.loop !9
 
-62:                                               ; preds = %58, %4
-  %63 = phi i64 [ 0, %4 ], [ %59, %58 ]
-  ret i64 %63
+63:                                               ; preds = %59, %4
+  %64 = phi i64 [ 0, %4 ], [ %60, %59 ]
+  ret i64 %64
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

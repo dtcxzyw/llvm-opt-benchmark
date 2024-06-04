@@ -1301,7 +1301,8 @@ if.end:                                           ; preds = %if.then, %_ZNSt13__
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN19grpc_slice_refcount12NoopRefcountEv() #1 comdat align 2 {
 entry:
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

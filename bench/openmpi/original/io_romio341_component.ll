@@ -54,24 +54,26 @@ define internal i32 @open_component() #0 {
 
 2:                                                ; preds = %1
   %3 = load i32, ptr @opal_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %5 = icmp ne i32 %3, %4
-  br i1 %5, label %6, label %7
+  %4 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp ne i32 %3, %5
+  br i1 %6, label %7, label %8
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %7
-
-7:                                                ; preds = %6, %2
-  store ptr @opal_mutex_t_class, ptr @mca_io_romio341_mutex, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_io_romio341_mutex, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_io_romio341_mutex)
   br label %8
 
-8:                                                ; preds = %7
-  br label %9
+8:                                                ; preds = %7, %2
+  store ptr @opal_mutex_t_class, ptr @mca_io_romio341_mutex, align 8
+  %9 = getelementptr inbounds %struct.opal_object_t, ptr @mca_io_romio341_mutex, i32 0, i32 1
+  store volatile i32 1, ptr %9, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_io_romio341_mutex)
+  br label %10
 
-9:                                                ; preds = %8
+10:                                               ; preds = %8
+  br label %11
+
+11:                                               ; preds = %10
   ret i32 0
 }
 
@@ -210,82 +212,83 @@ define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 11:                                               ; preds = %10
   %12 = load i32, ptr @opal_class_init_epoch, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_info_t_class, i32 0, i32 4), align 8
-  %14 = icmp ne i32 %12, %13
-  br i1 %14, label %15, label %16
+  %13 = getelementptr inbounds %struct.opal_class_t, ptr @ompi_info_t_class, i32 0, i32 4
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp ne i32 %12, %14
+  br i1 %15, label %16, label %17
 
-15:                                               ; preds = %11
+16:                                               ; preds = %11
   call void @opal_class_initialize(ptr noundef @ompi_info_t_class)
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %11
-  %17 = getelementptr inbounds %struct.opal_object_t, ptr %8, i32 0, i32 0
-  store ptr @ompi_info_t_class, ptr %17, align 8
-  %18 = getelementptr inbounds %struct.opal_object_t, ptr %8, i32 0, i32 1
-  store volatile i32 1, ptr %18, align 8
+17:                                               ; preds = %16, %11
+  %18 = getelementptr inbounds %struct.opal_object_t, ptr %8, i32 0, i32 0
+  store ptr @ompi_info_t_class, ptr %18, align 8
+  %19 = getelementptr inbounds %struct.opal_object_t, ptr %8, i32 0, i32 1
+  store volatile i32 1, ptr %19, align 8
   call void @opal_obj_run_constructors(ptr noundef %8)
-  br label %19
-
-19:                                               ; preds = %16
   br label %20
 
-20:                                               ; preds = %19
-  %21 = getelementptr inbounds %struct.ompi_info_t, ptr %8, i32 0, i32 0
-  store ptr %21, ptr %9, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = call i32 @opal_info_dup(ptr noundef %22, ptr noundef %9)
-  br label %24
+20:                                               ; preds = %17
+  br label %21
 
-24:                                               ; preds = %20
-  %25 = load i8, ptr @opal_uses_threads, align 1
-  %26 = trunc i8 %25 to i1
-  %27 = xor i1 %26, true
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds %struct.ompi_info_t, ptr %8, i32 0, i32 0
+  store ptr %22, ptr %9, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = call i32 @opal_info_dup(ptr noundef %23, ptr noundef %9)
+  br label %25
+
+25:                                               ; preds = %21
+  %26 = load i8, ptr @opal_uses_threads, align 1
+  %27 = trunc i8 %26 to i1
   %28 = xor i1 %27, true
-  %29 = zext i1 %28 to i32
-  %30 = sext i32 %29 to i64
-  %31 = icmp ne i64 %30, 0
-  br i1 %31, label %32, label %33
+  %29 = xor i1 %28, true
+  %30 = zext i1 %29 to i32
+  %31 = sext i32 %30 to i64
+  %32 = icmp ne i64 %31, 0
+  br i1 %32, label %33, label %34
 
-32:                                               ; preds = %24
+33:                                               ; preds = %25
   call void @opal_mutex_lock(ptr noundef @mca_io_romio341_mutex)
-  br label %33
-
-33:                                               ; preds = %32, %24
   br label %34
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %4, align 8
-  %36 = call i32 @mca_io_romio_dist_MPI_File_delete(ptr noundef %35, ptr noundef %8)
-  store i32 %36, ptr %7, align 4
-  br label %37
+34:                                               ; preds = %33, %25
+  br label %35
 
-37:                                               ; preds = %34
-  %38 = load i8, ptr @opal_uses_threads, align 1
-  %39 = trunc i8 %38 to i1
-  %40 = xor i1 %39, true
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %4, align 8
+  %37 = call i32 @mca_io_romio_dist_MPI_File_delete(ptr noundef %36, ptr noundef %8)
+  store i32 %37, ptr %7, align 4
+  br label %38
+
+38:                                               ; preds = %35
+  %39 = load i8, ptr @opal_uses_threads, align 1
+  %40 = trunc i8 %39 to i1
   %41 = xor i1 %40, true
-  %42 = zext i1 %41 to i32
-  %43 = sext i32 %42 to i64
-  %44 = icmp ne i64 %43, 0
-  br i1 %44, label %45, label %46
+  %42 = xor i1 %41, true
+  %43 = zext i1 %42 to i32
+  %44 = sext i32 %43 to i64
+  %45 = icmp ne i64 %44, 0
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %37
+46:                                               ; preds = %38
   call void @opal_mutex_unlock(ptr noundef @mca_io_romio341_mutex)
-  br label %46
-
-46:                                               ; preds = %45, %37
   br label %47
 
-47:                                               ; preds = %46
+47:                                               ; preds = %46, %38
   br label %48
 
 48:                                               ; preds = %47
-  call void @opal_obj_run_destructors(ptr noundef %8)
   br label %49
 
 49:                                               ; preds = %48
-  %50 = load i32, ptr %7, align 4
-  ret i32 %50
+  call void @opal_obj_run_destructors(ptr noundef %8)
+  br label %50
+
+50:                                               ; preds = %49
+  %51 = load i32, ptr %7, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable

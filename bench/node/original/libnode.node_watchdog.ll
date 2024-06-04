@@ -1169,13 +1169,14 @@ entry:
   store ptr %received_signal, ptr %received_signal.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node18SigintWatchdogBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14SigintWatchdogE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14SigintWatchdogE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %isolate_ = getelementptr inbounds %"class.node::SigintWatchdog", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %isolate.addr, align 8
-  store ptr %0, ptr %isolate_, align 8
+  %1 = load ptr, ptr %isolate.addr, align 8
+  store ptr %1, ptr %isolate_, align 8
   %received_signal_ = getelementptr inbounds %"class.node::SigintWatchdog", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %received_signal.addr, align 8
-  store ptr %1, ptr %received_signal_, align 8
+  %2 = load ptr, ptr %received_signal.addr, align 8
+  store ptr %2, ptr %received_signal_, align 8
   %call = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4node20SigintWatchdogHelper22GetInstanceActionMutexEv()
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEE10ScopedLockC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %lock, ptr noundef nonnull align 8 dereferenceable(40) %call)
   %call2 = call noundef ptr @_ZN4node20SigintWatchdogHelper11GetInstanceEv()
@@ -1192,7 +1193,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node18SigintWatchdogBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node18SigintWatchdogBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1419,7 +1421,8 @@ entry:
   %lock = alloca %"class.node::MutexBase<node::LibuvMutexTraits>::ScopedLock", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14SigintWatchdogE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node14SigintWatchdogE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4node20SigintWatchdogHelper22GetInstanceActionMutexEv()
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEE10ScopedLockC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %lock, ptr noundef nonnull align 8 dereferenceable(40) %call)
   %call2 = call noundef ptr @_ZN4node20SigintWatchdogHelper11GetInstanceEv()
@@ -2633,28 +2636,32 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %env, ptr %env.addr, align 8
   %this3 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 88
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
-  %0 = load ptr, ptr %env.addr, align 8
+  %1 = getelementptr inbounds { [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
+  %2 = load ptr, ptr %env.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %object, i64 8, i1 false)
   %handle_ = getelementptr inbounds %"class.node::TraceSigintWatchdog", ptr %this3, i32 0, i32 4
   %coerce.dive4 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive5 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive4, i32 0, i32 0
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive6, align 8
-  call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %this3, ptr noundef %0, ptr %1, ptr noundef %handle_, i32 noundef 44)
-  %2 = getelementptr inbounds i8, ptr %this3, i64 88
-  call void @_ZN4node18SigintWatchdogBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %3 = load ptr, ptr %coerce.dive6, align 8
+  call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %this3, ptr noundef %2, ptr %3, ptr noundef %handle_, i32 noundef 44)
+  %4 = getelementptr inbounds i8, ptr %this3, i64 88
+  call void @_ZN4node18SigintWatchdogBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %5 = getelementptr inbounds { [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this3, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this3, i64 88
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, i32 1, i32 2), ptr %add.ptr7, align 8
+  %6 = getelementptr inbounds { [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %add.ptr7, align 8
   %interrupting = getelementptr inbounds %"class.node::TraceSigintWatchdog", ptr %this3, i32 0, i32 2
   store i8 0, ptr %interrupting, align 8
   %signal_flag_ = getelementptr inbounds %"class.node::TraceSigintWatchdog", ptr %this3, i32 0, i32 5
   store i32 0, ptr %signal_flag_, align 8
-  %3 = load ptr, ptr %env.addr, align 8
-  %call = call noundef ptr @_ZNK4node11Environment10event_loopEv(ptr noundef nonnull align 8 dereferenceable(2872) %3)
+  %7 = load ptr, ptr %env.addr, align 8
+  %call = call noundef ptr @_ZNK4node11Environment10event_loopEv(ptr noundef nonnull align 8 dereferenceable(2872) %7)
   %handle_9 = getelementptr inbounds %"class.node::TraceSigintWatchdog", ptr %this3, i32 0, i32 4
   %call10 = call noundef ptr @"_ZZN4node19TraceSigintWatchdogC1EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEENK3$_0cvPFvP10uv_async_sEEv"(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   %call11 = call i32 @uv_async_init(ptr noundef %call, ptr noundef %handle_9, ptr noundef %call10)
@@ -2662,8 +2669,8 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %4 = load i32, ptr %r, align 4
-  %cmp = icmp eq i32 %4, 0
+  %8 = load i32, ptr %r, align 4
+  %cmp = icmp eq i32 %8, 0
   %lnot = xor i1 %cmp, true
   %lnot12 = xor i1 %lnot, true
   %lnot13 = xor i1 %lnot12, true
@@ -2892,15 +2899,16 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
-  call void @uv_sem_wait(ptr noundef getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 8))
+  %0 = getelementptr inbounds %"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 8
+  call void @uv_sem_wait(ptr noundef %0)
   %call = call noundef zeroext i1 @_ZN4node20SigintWatchdogHelper26InformWatchdogsAboutSignalEv()
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %is_stopping, align 1
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %0 = load i8, ptr %is_stopping, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %is_stopping, align 1
+  %tobool = trunc i8 %1 to i1
   %lnot = xor i1 %tobool, true
   br i1 %lnot, label %do.body, label %do.end, !llvm.loop !5
 
@@ -2919,43 +2927,49 @@ entry:
   %ref.tmp = alloca %"class.std::reverse_iterator", align 8
   %wp = alloca i32, align 4
   %tmp = alloca %"class.std::reverse_iterator", align 8
-  call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEE10ScopedLockC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %list_lock, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 3))
+  %0 = getelementptr inbounds %"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 3
+  call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEE10ScopedLockC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %list_lock, ptr noundef nonnull align 8 dereferenceable(40) %0)
   store i8 0, ptr %is_stopping, align 1
-  %0 = load i8, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 10), align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = getelementptr inbounds %"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 10
+  %2 = load i8, ptr %1, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %is_stopping, align 1
-  %call = call noundef zeroext i1 @_ZNKSt6vectorIPN4node18SigintWatchdogBaseESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 4)) #3
+  %3 = getelementptr inbounds %"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 4
+  %call = call noundef zeroext i1 @_ZNKSt6vectorIPN4node18SigintWatchdogBaseESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   br i1 %call, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = load i8, ptr %is_stopping, align 1
-  %tobool1 = trunc i8 %1 to i1
+  %4 = load i8, ptr %is_stopping, align 1
+  %tobool1 = trunc i8 %4 to i1
   br i1 %tobool1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  store i8 1, ptr getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 5), align 8
+  %5 = getelementptr inbounds %"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 5
+  store i8 1, ptr %5, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  call void @_ZNSt6vectorIPN4node18SigintWatchdogBaseESaIS2_EE6rbeginEv(ptr sret(%"class.std::reverse_iterator") align 8 %it, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 4)) #3
+  %6 = getelementptr inbounds %"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 4
+  call void @_ZNSt6vectorIPN4node18SigintWatchdogBaseESaIS2_EE6rbeginEv(ptr sret(%"class.std::reverse_iterator") align 8 %it, ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  call void @_ZNSt6vectorIPN4node18SigintWatchdogBaseESaIS2_EE4rendEv(ptr sret(%"class.std::reverse_iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 4)) #3
+  %7 = getelementptr inbounds %"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 4
+  call void @_ZNSt6vectorIPN4node18SigintWatchdogBaseESaIS2_EE4rendEv(ptr sret(%"class.std::reverse_iterator") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   %call2 = call noundef zeroext i1 @_ZStneIN9__gnu_cxx17__normal_iteratorIPPN4node18SigintWatchdogBaseESt6vectorIS4_SaIS4_EEEEEbRKSt16reverse_iteratorIT_ESE_(ptr noundef nonnull align 8 dereferenceable(8) %it, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   br i1 %call2, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN4node18SigintWatchdogBaseESt6vectorIS4_SaIS4_EEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %it)
-  %2 = load ptr, ptr %call3, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %8 = load ptr, ptr %call3, align 8
+  %vtable = load ptr, ptr %8, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  %call4 = call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %9 = load ptr, ptr %vfn, align 8
+  %call4 = call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
   store i32 %call4, ptr %wp, align 4
-  %4 = load i32, ptr %wp, align 4
-  %cmp = icmp eq i32 %4, 1
+  %10 = load i32, ptr %wp, align 4
+  %cmp = icmp eq i32 %10, 1
   br i1 %cmp, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %for.body
@@ -2969,8 +2983,8 @@ for.inc:                                          ; preds = %if.end6
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %if.then5, %for.cond
-  %5 = load i8, ptr %is_stopping, align 1
-  %tobool7 = trunc i8 %5 to i1
+  %11 = load i8, ptr %is_stopping, align 1
+  %tobool7 = trunc i8 %11 to i1
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEE10ScopedLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %list_lock) #3
   ret i1 %tobool7
 }
@@ -2984,7 +2998,8 @@ entry:
   store i32 %signum, ptr %signum.addr, align 4
   store ptr %info, ptr %info.addr, align 8
   store ptr %ucontext, ptr %ucontext.addr, align 8
-  call void @uv_sem_post(ptr noundef getelementptr inbounds (%"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 8))
+  %0 = getelementptr inbounds %"class.node::SigintWatchdogHelper", ptr @_ZN4node20SigintWatchdogHelper8instanceE, i32 0, i32 8
+  call void @uv_sem_post(ptr noundef %0)
   ret void
 }
 
@@ -4517,7 +4532,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %handle_wrap_queue_ = getelementptr inbounds %"class.node::HandleWrap", ptr %this1, i32 0, i32 2
   call void @_ZN4node8ListNodeINS_10HandleWrapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %handle_wrap_queue_) #3
   call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
@@ -4767,7 +4783,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -4778,14 +4795,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8
@@ -4840,7 +4857,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

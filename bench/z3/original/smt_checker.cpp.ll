@@ -3548,12 +3548,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_map<expr, bool>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key3 = getelementptr inbounds %"struct.obj_map<expr, bool>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4537,12 +4538,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_map<expr, smt::enode *>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key3 = getelementptr inbounds %"struct.obj_map<expr, smt::enode *>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

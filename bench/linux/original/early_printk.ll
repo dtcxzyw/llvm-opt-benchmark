@@ -59,7 +59,7 @@ define internal noundef i32 @setup_early_printk(ptr noundef %0) #0 section ".ini
   %3 = load ptr, ptr @early_console, align 8
   %4 = icmp eq ptr %3, null
   %5 = select i1 %2, i1 %4, i1 false
-  br i1 %5, label %6, label %59
+  br i1 %5, label %6, label %63
 
 6:                                                ; preds = %1
   %7 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str) #6
@@ -67,10 +67,10 @@ define internal noundef i32 @setup_early_printk(ptr noundef %0) #0 section ".ini
   %9 = zext i1 %8 to i32
   %10 = load i8, ptr %0, align 1
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %59, label %12
+  br i1 %11, label %63, label %12
 
-12:                                               ; preds = %55, %6
-  %13 = phi ptr [ %56, %55 ], [ %0, %6 ]
+12:                                               ; preds = %59, %6
+  %13 = phi ptr [ %60, %59 ], [ %0, %6 ]
   %14 = tail call i32 @strncmp(ptr noundef %13, ptr noundef nonnull dereferenceable(7) @.str.1, i64 noundef 6) #6
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %22
@@ -112,46 +112,50 @@ define internal noundef i32 @setup_early_printk(ptr noundef %0) #0 section ".ini
   %34 = phi ptr [ %23, %28 ], [ %32, %31 ]
   %35 = tail call i32 @strncmp(ptr noundef %34, ptr noundef nonnull dereferenceable(4) @.str.5, i64 noundef 3) #6
   %36 = icmp eq i32 %35, 0
-  %37 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 11), align 1
-  %38 = icmp eq i8 %37, 1
-  %39 = select i1 %36, i1 %38, i1 false
-  br i1 %39, label %40, label %47
+  %37 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 11
+  %38 = load i8, ptr %37, align 1
+  %39 = icmp eq i8 %38, 1
+  %40 = select i1 %36, i1 %39, i1 false
+  br i1 %40, label %41, label %51
 
-40:                                               ; preds = %33
-  %41 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 5), align 1
-  %42 = zext i8 %41 to i32
-  store i32 %42, ptr @max_xpos, align 4
-  %43 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 10), align 1
+41:                                               ; preds = %33
+  %42 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 5
+  %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
-  store i32 %44, ptr @max_ypos, align 4
-  %45 = load i8, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 1), align 1
-  %46 = zext i8 %45 to i32
-  store i32 %46, ptr @current_ypos, align 4
+  store i32 %44, ptr @max_xpos, align 4
+  %45 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 10
+  %46 = load i8, ptr %45, align 1
+  %47 = zext i8 %46 to i32
+  store i32 %47, ptr @max_ypos, align 4
+  %48 = getelementptr inbounds %struct.boot_params, ptr @boot_params, i64 0, i32 0, i32 1
+  %49 = load i8, ptr %48, align 1
+  %50 = zext i8 %49 to i32
+  store i32 %50, ptr @current_ypos, align 4
   tail call fastcc void @early_console_register(ptr noundef nonnull @early_vga_console, i32 noundef %9)
-  br label %47
+  br label %51
 
-47:                                               ; preds = %40, %33
-  %48 = tail call i32 @strncmp(ptr noundef %34, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #6
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %55
-
-50:                                               ; preds = %47
-  %51 = getelementptr i8, ptr %34, i64 4
-  %52 = tail call i32 @early_dbgp_init(ptr noundef %51) #6
+51:                                               ; preds = %41, %33
+  %52 = tail call i32 @strncmp(ptr noundef %34, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #6
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %55
+  br i1 %53, label %54, label %59
 
-54:                                               ; preds = %50
+54:                                               ; preds = %51
+  %55 = getelementptr i8, ptr %34, i64 4
+  %56 = tail call i32 @early_dbgp_init(ptr noundef %55) #6
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %59
+
+58:                                               ; preds = %54
   tail call fastcc void @early_console_register(ptr noundef nonnull @early_dbgp_console, i32 noundef %9)
-  br label %55
+  br label %59
 
-55:                                               ; preds = %54, %50, %47
-  %56 = getelementptr i8, ptr %34, i64 1
-  %57 = load i8, ptr %56, align 1
-  %58 = icmp eq i8 %57, 0
-  br i1 %58, label %59, label %12, !llvm.loop !5
+59:                                               ; preds = %58, %54, %51
+  %60 = getelementptr i8, ptr %34, i64 1
+  %61 = load i8, ptr %60, align 1
+  %62 = icmp eq i8 %61, 0
+  br i1 %62, label %63, label %12, !llvm.loop !5
 
-59:                                               ; preds = %55, %6, %1
+63:                                               ; preds = %59, %6, %1
   ret i32 0
 }
 

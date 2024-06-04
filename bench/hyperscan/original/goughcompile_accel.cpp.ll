@@ -4742,7 +4742,7 @@ lpad:                                             ; preds = %invoke.cont2, %invo
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3ue215found_back_edgeE) #1
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3ue215found_back_edgeE) #1
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -11310,16 +11310,21 @@ entry:
   %vbase.offset.ptr3 = getelementptr i8, ptr %vtable2, i64 -32
   %vbase.offset4 = load i64, ptr %vbase.offset.ptr3, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %1, i64 %vbase.offset4
-  call void @_ZN5boost12graph_detail21forward_container_tagC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN5boost12graph_detail27back_insertion_sequence_tagE, i64 0, i64 5), ptr noundef nonnull align 8 dereferenceable(8) %add.ptr5) #1
-  %2 = load ptr, ptr %.addr, align 8
-  %vtable6 = load ptr, ptr %2, align 8
+  %2 = getelementptr inbounds [6 x ptr], ptr @_ZTTN5boost12graph_detail27back_insertion_sequence_tagE, i64 0, i64 5
+  call void @_ZN5boost12graph_detail21forward_container_tagC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr5) #1
+  %3 = load ptr, ptr %.addr, align 8
+  %vtable6 = load ptr, ptr %3, align 8
   %vbase.offset.ptr7 = getelementptr i8, ptr %vtable6, i64 -40
   %vbase.offset8 = load i64, ptr %vbase.offset.ptr7, align 8
-  %add.ptr9 = getelementptr inbounds i8, ptr %2, i64 %vbase.offset8
-  call void @_ZN5boost12graph_detail12sequence_tagC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN5boost12graph_detail27back_insertion_sequence_tagE, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %add.ptr9) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5), ptr %this1, align 8
+  %add.ptr9 = getelementptr inbounds i8, ptr %3, i64 %vbase.offset8
+  %4 = getelementptr inbounds [6 x ptr], ptr @_ZTTN5boost12graph_detail27back_insertion_sequence_tagE, i64 0, i64 3
+  call void @_ZN5boost12graph_detail12sequence_tagC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr9) #1
+  %5 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5
+  store ptr %5, ptr %this1, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5
+  store ptr %6, ptr %this1, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5
+  store ptr %7, ptr %this1, align 8
   ret void
 }
 
@@ -11682,19 +11687,28 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN5boost12graph_detail21forward_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 7)) #1
-  call void @_ZN5boost12graph_detail24reversible_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 5)) #1
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN5boost12graph_detail12sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef getelementptr inbounds ([13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 11)) #1
-  %1 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN5boost12graph_detail27back_insertion_sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef getelementptr inbounds ([13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 8)) #1
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7), ptr %this1, align 8
+  %0 = getelementptr inbounds [13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 7
+  call void @_ZN5boost12graph_detail21forward_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %0) #1
+  %1 = getelementptr inbounds [13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 5
+  call void @_ZN5boost12graph_detail24reversible_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1) #1
+  %2 = getelementptr inbounds i8, ptr %this1, i64 8
+  %3 = getelementptr inbounds [13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 11
+  call void @_ZN5boost12graph_detail12sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #1
+  %4 = getelementptr inbounds i8, ptr %this1, i64 8
+  %5 = getelementptr inbounds [13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 8
+  call void @_ZN5boost12graph_detail27back_insertion_sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5) #1
+  %6 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7
+  store ptr %6, ptr %this1, align 8
+  %7 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7
+  store ptr %7, ptr %this1, align 8
+  %8 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7
+  store ptr %8, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 1, i32 5), ptr %add.ptr, align 8
+  %9 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 1, i32 5
+  store ptr %9, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 1, i32 5), ptr %add.ptr2, align 8
+  %10 = getelementptr inbounds { [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 1, i32 5
+  store ptr %10, ptr %add.ptr2, align 8
   ret void
 }
 
@@ -12529,21 +12543,32 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN5boost12graph_detail21forward_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 11)) #1
-  call void @_ZN5boost12graph_detail24reversible_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 9)) #1
-  call void @_ZN5boost12graph_detail27random_access_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 6)) #1
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN5boost12graph_detail12sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef getelementptr inbounds ([17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 15)) #1
-  %1 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN5boost12graph_detail27back_insertion_sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef getelementptr inbounds ([17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 12)) #1
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8), ptr %this1, align 8
+  %0 = getelementptr inbounds [17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 11
+  call void @_ZN5boost12graph_detail21forward_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %0) #1
+  %1 = getelementptr inbounds [17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 9
+  call void @_ZN5boost12graph_detail24reversible_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %1) #1
+  %2 = getelementptr inbounds [17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 6
+  call void @_ZN5boost12graph_detail27random_access_container_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %2) #1
+  %3 = getelementptr inbounds i8, ptr %this1, i64 8
+  %4 = getelementptr inbounds [17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 15
+  call void @_ZN5boost12graph_detail12sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4) #1
+  %5 = getelementptr inbounds i8, ptr %this1, i64 8
+  %6 = getelementptr inbounds [17 x ptr], ptr @_ZTTN5boost12graph_detail10vector_tagE, i64 0, i64 12
+  call void @_ZN5boost12graph_detail27back_insertion_sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6) #1
+  %7 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8
+  store ptr %7, ptr %this1, align 8
+  %8 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8
+  store ptr %8, ptr %this1, align 8
+  %9 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8
+  store ptr %9, ptr %this1, align 8
+  %10 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 0, i32 8
+  store ptr %10, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 1, i32 5), ptr %add.ptr, align 8
+  %11 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 1, i32 5
+  store ptr %11, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 1, i32 5), ptr %add.ptr2, align 8
+  %12 = getelementptr inbounds { [8 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail10vector_tagE, i32 0, i32 1, i32 5
+  store ptr %12, ptr %add.ptr2, align 8
   ret void
 }
 
@@ -13728,9 +13753,6 @@ entry:
   store i8 %frombool2, ptr %ignore_self, align 1
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost6detail37convert_bgl_params_to_boost_parameterINS_16bgl_named_paramsIN3ue217detect_back_edgesENS_15graph_visitor_tENS_11no_propertyEEEE4convERKS7_(ptr noalias sret(%"class.boost::parameter::aux::arg_list") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(3) %x) #3 comdat align 2 {
@@ -18107,7 +18129,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #15
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #14
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) #6
@@ -18234,10 +18256,11 @@ entry:
   store ptr %d, ptr %d.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5boost6detail15sp_counted_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_18default_color_typeENS_21checked_array_deleterIS2_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_18default_color_typeENS_21checked_array_deleterIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr, align 8
   ret void
 }
 
@@ -18259,7 +18282,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %use_count_ = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %use_count_, align 8
   %weak_count_ = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %this1, i32 0, i32 2
@@ -20189,7 +20213,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIyLm4EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #16 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIyLm4EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #15 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -20245,7 +20269,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #15
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNKSt3mapIN3ue213gough_edge_idESt6vectorI9gough_insSaIS3_EESt4lessIS1_ESaISt4pairIKS1_S5_EEE11lower_boundERS9_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(12) %__x) #3 comdat align 2 {
@@ -23995,6 +24019,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -24009,9 +24036,9 @@ attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nounwind memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind memory(none) }
 attributes #17 = { builtin allocsize(0) }
 attributes #18 = { noreturn nounwind }
 attributes #19 = { builtin nounwind }

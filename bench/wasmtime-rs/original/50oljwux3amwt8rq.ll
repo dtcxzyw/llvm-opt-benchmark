@@ -308,9 +308,9 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 
 25:                                               ; preds = %26
   invoke void @"_ZN4core3ptr158drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$wasmtime_wit_bindgen..TrappableError$C$alloc..alloc..Global$GT$$GT$17h24981acfb10ea63cE"(ptr align 8 %15) #6
-          to label %90 unwind label %88
+          to label %91 unwind label %89
 
-26:                                               ; preds = %84, %82, %56, %3
+26:                                               ; preds = %85, %83, %57, %3
   %27 = landingpad { ptr, i32 }
           cleanup
   %28 = extractvalue { ptr, i32 } %27, 0
@@ -356,100 +356,101 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %14, i64 32, i1 false)
   br label %48
 
-48:                                               ; preds = %86, %38
+48:                                               ; preds = %87, %38
   %49 = getelementptr inbounds { { { ptr, ptr, {} }, i64 }, i64 }, ptr %11, i32 0, i32 1
   %50 = load i64, ptr %49, align 8, !noundef !3
   %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %56
+  br i1 %51, label %52, label %57
 
 52:                                               ; preds = %48
   %53 = load i64, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.0, align 8
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.0, i64 8), align 8, !align !4, !noundef !3
+  %54 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.0, i64 8
+  %55 = load ptr, ptr %54, align 8, !align !4, !noundef !3
   store i64 %53, ptr %10, align 8
-  %55 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %54, ptr %55, align 8
-  br label %62
+  %56 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %55, ptr %56, align 8
+  br label %63
 
-56:                                               ; preds = %48
-  %57 = getelementptr inbounds { { { ptr, ptr, {} }, i64 }, i64 }, ptr %11, i32 0, i32 1
+57:                                               ; preds = %48
   %58 = getelementptr inbounds { { { ptr, ptr, {} }, i64 }, i64 }, ptr %11, i32 0, i32 1
-  %59 = load i64, ptr %58, align 8, !noundef !3
-  %60 = sub i64 %59, 1
-  store i64 %60, ptr %57, align 8
-  %61 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h260bd5ddcc5d576bE"(ptr align 8 %11)
-          to label %69 unwind label %26
+  %59 = getelementptr inbounds { { { ptr, ptr, {} }, i64 }, i64 }, ptr %11, i32 0, i32 1
+  %60 = load i64, ptr %59, align 8, !noundef !3
+  %61 = sub i64 %60, 1
+  store i64 %61, ptr %58, align 8
+  %62 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h260bd5ddcc5d576bE"(ptr align 8 %11)
+          to label %70 unwind label %26
 
-62:                                               ; preds = %69, %52
-  %63 = getelementptr inbounds i8, ptr %10, i64 8
-  %64 = load ptr, ptr %63, align 8, !noundef !3
-  %65 = ptrtoint ptr %64 to i64
-  %66 = icmp eq i64 %65, 0
-  %67 = select i1 %66, i64 0, i64 1
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %73, label %75
+63:                                               ; preds = %70, %52
+  %64 = getelementptr inbounds i8, ptr %10, i64 8
+  %65 = load ptr, ptr %64, align 8, !noundef !3
+  %66 = ptrtoint ptr %65 to i64
+  %67 = icmp eq i64 %66, 0
+  %68 = select i1 %67, i64 0, i64 1
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %74, label %76
 
-69:                                               ; preds = %56
-  %70 = extractvalue { i64, ptr } %61, 0
-  %71 = extractvalue { i64, ptr } %61, 1
-  store i64 %70, ptr %10, align 8
-  %72 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %71, ptr %72, align 8
-  br label %62
+70:                                               ; preds = %57
+  %71 = extractvalue { i64, ptr } %62, 0
+  %72 = extractvalue { i64, ptr } %62, 1
+  store i64 %71, ptr %10, align 8
+  %73 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %72, ptr %73, align 8
+  br label %63
 
-73:                                               ; preds = %62
-  %74 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %16, i32 0, i32 1
-  store i64 %2, ptr %74, align 8
+74:                                               ; preds = %63
+  %75 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %16, i32 0, i32 1
+  store i64 %2, ptr %75, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %16, i64 24, i1 false)
   ret void
 
-75:                                               ; preds = %62
-  %76 = load i64, ptr %10, align 8, !noundef !3
-  %77 = getelementptr inbounds i8, ptr %10, i64 8
-  %78 = load ptr, ptr %77, align 8, !nonnull !3, !align !4, !noundef !3
-  %79 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 %76, ptr %79, align 8
-  %80 = icmp ult i64 %76, %33
-  %81 = call i1 @llvm.expect.i1(i1 %80, i1 true)
-  br i1 %81, label %82, label %84
+76:                                               ; preds = %63
+  %77 = load i64, ptr %10, align 8, !noundef !3
+  %78 = getelementptr inbounds i8, ptr %10, i64 8
+  %79 = load ptr, ptr %78, align 8, !nonnull !3, !align !4, !noundef !3
+  %80 = getelementptr inbounds i8, ptr %15, i64 8
+  store i64 %77, ptr %80, align 8
+  %81 = icmp ult i64 %77, %33
+  %82 = call i1 @llvm.expect.i1(i1 %81, i1 true)
+  br i1 %82, label %83, label %85
 
-82:                                               ; preds = %75
-  %83 = getelementptr inbounds [0 x { [6 x i64] }], ptr %32, i64 0, i64 %76
-  invoke void @"_ZN75_$LT$wasmtime_wit_bindgen..TrappableError$u20$as$u20$core..clone..Clone$GT$5clone17h106e592b638a7915E"(ptr sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }) align 8 %9, ptr align 8 %78)
+83:                                               ; preds = %76
+  %84 = getelementptr inbounds [0 x { [6 x i64] }], ptr %32, i64 0, i64 %77
+  invoke void @"_ZN75_$LT$wasmtime_wit_bindgen..TrappableError$u20$as$u20$core..clone..Clone$GT$5clone17h106e592b638a7915E"(ptr sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }) align 8 %9, ptr align 8 %79)
+          to label %87 unwind label %26
+
+85:                                               ; preds = %76
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %77, i64 %33, ptr align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.2) #7
           to label %86 unwind label %26
 
-84:                                               ; preds = %75
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %76, i64 %33, ptr align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.2) #7
-          to label %85 unwind label %26
-
-85:                                               ; preds = %84
+86:                                               ; preds = %85
   unreachable
 
-86:                                               ; preds = %82
+87:                                               ; preds = %83
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %9, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %5, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %83, ptr align 8 %6, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %84, ptr align 8 %6, i64 48, i1 false)
   br label %48
 
-87:                                               ; No predecessors!
+88:                                               ; No predecessors!
   unreachable
 
-88:                                               ; preds = %90, %25
-  %89 = landingpad { ptr, i32 }
+89:                                               ; preds = %91, %25
+  %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
-90:                                               ; preds = %25
+91:                                               ; preds = %25
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_wit_bindgen..TrappableError$GT$$GT$17h2c62437afe9ca97cE"(ptr align 8 %16) #6
-          to label %91 unwind label %88
+          to label %92 unwind label %89
 
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %4, align 8, !noundef !3
-  %93 = getelementptr inbounds i8, ptr %4, i64 8
-  %94 = load i32, ptr %93, align 8, !noundef !3
-  %95 = insertvalue { ptr, i32 } poison, ptr %92, 0
-  %96 = insertvalue { ptr, i32 } %95, i32 %94, 1
-  resume { ptr, i32 } %96
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %4, align 8, !noundef !3
+  %94 = getelementptr inbounds i8, ptr %4, i64 8
+  %95 = load i32, ptr %94, align 8, !noundef !3
+  %96 = insertvalue { ptr, i32 } poison, ptr %93, 0
+  %97 = insertvalue { ptr, i32 } %96, i32 %95, 1
+  resume { ptr, i32 } %97
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -549,7 +550,7 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0
   call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_tyid17h70df38da76330361E(ptr align 8 %0, i64 %32, i32 %34, ptr align 1 %35, i64 %37)
   br label %38
 
-38:                                               ; preds = %60, %39, %30, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
+38:                                               ; preds = %61, %39, %30, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
   ret void
 
 39:                                               ; preds = %24
@@ -568,34 +569,35 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0
   %46 = getelementptr inbounds i8, ptr %7, i64 8
   %47 = load i64, ptr %46, align 8, !noundef !3
   %48 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.18, align 8, !nonnull !3, !align !5, !noundef !3
-  %49 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.18, i64 8), align 8, !noundef !3
+  %49 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.18, i64 8
+  %50 = load i64, ptr %49, align 8, !noundef !3
   store ptr %45, ptr %6, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %47, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %47, ptr %51, align 8
   store ptr %48, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %49, ptr %51, align 8
-  %52 = load ptr, ptr %6, align 8, !nonnull !3, !align !5, !noundef !3
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
-  %54 = load i64, ptr %53, align 8, !noundef !3
-  %55 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
-  %56 = getelementptr inbounds i8, ptr %5, i64 8
-  %57 = load i64, ptr %56, align 8, !noundef !3
-  %58 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bc60faabaabfb09E"(ptr align 1 %52, i64 %54, ptr align 1 %55, i64 %57)
-  %59 = xor i1 %58, true
-  br i1 %59, label %61, label %60
+  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %50, ptr %52, align 8
+  %53 = load ptr, ptr %6, align 8, !nonnull !3, !align !5, !noundef !3
+  %54 = getelementptr inbounds i8, ptr %6, i64 8
+  %55 = load i64, ptr %54, align 8, !noundef !3
+  %56 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
+  %57 = getelementptr inbounds i8, ptr %5, i64 8
+  %58 = load i64, ptr %57, align 8, !noundef !3
+  %59 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bc60faabaabfb09E"(ptr align 1 %53, i64 %55, ptr align 1 %56, i64 %58)
+  %60 = xor i1 %59, true
+  br i1 %60, label %62, label %61
 
-60:                                               ; preds = %61, %40
+61:                                               ; preds = %62, %40
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.20, i64 3)
   br label %38
 
-61:                                               ; preds = %40
-  %62 = load ptr, ptr %7, align 8, !nonnull !3, !align !5, !noundef !3
-  %63 = getelementptr inbounds i8, ptr %7, i64 8
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 %62, i64 %64)
+62:                                               ; preds = %40
+  %63 = load ptr, ptr %7, align 8, !nonnull !3, !align !5, !noundef !3
+  %64 = getelementptr inbounds i8, ptr %7, i64 8
+  %65 = load i64, ptr %64, align 8, !noundef !3
+  call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 %63, i64 %65)
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.19, i64 1)
-  br label %60
+  br label %61
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -688,30 +690,30 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_tyid17h70df38d
 54:                                               ; preds = %5
   %55 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
   %56 = load i64, ptr %55, align 8, !range !6, !noundef !3
-  switch i64 %56, label %146 [
-    i64 0, label %147
-    i64 1, label %155
-    i64 2, label %156
-    i64 3, label %159
-    i64 4, label %167
-    i64 5, label %191
-    i64 6, label %199
-    i64 7, label %207
-    i64 8, label %213
-    i64 9, label %220
-    i64 10, label %226
-    i64 11, label %233
-    i64 12, label %240
-    i64 13, label %246
+  switch i64 %56, label %147 [
+    i64 0, label %148
+    i64 1, label %157
+    i64 2, label %158
+    i64 3, label %161
+    i64 4, label %170
+    i64 5, label %194
+    i64 6, label %203
+    i64 7, label %212
+    i64 8, label %218
+    i64 9, label %225
+    i64 10, label %231
+    i64 11, label %238
+    i64 12, label %245
+    i64 13, label %251
   ]
 
-57:                                               ; preds = %96, %76, %70, %63, %50
+57:                                               ; preds = %97, %76, %70, %63, %50
   %58 = load ptr, ptr %30, align 8, !noundef !3
   %59 = ptrtoint ptr %58 to i64
   %60 = icmp eq i64 %59, 0
   %61 = select i1 %60, i64 0, i64 1
   %62 = icmp eq i64 %61, 1
-  br i1 %62, label %100, label %101
+  br i1 %62, label %101, label %102
 
 63:                                               ; preds = %50
   %64 = load ptr, ptr %30, align 8, !noundef !3
@@ -742,436 +744,441 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_tyid17h70df38d
   %82 = getelementptr inbounds i8, ptr %29, i64 8
   %83 = load i64, ptr %82, align 8, !noundef !3
   %84 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.18, align 8, !nonnull !3, !align !5, !noundef !3
-  %85 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.18, i64 8), align 8, !noundef !3
+  %85 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.18, i64 8
+  %86 = load i64, ptr %85, align 8, !noundef !3
   store ptr %81, ptr %14, align 8
-  %86 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 %83, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %14, i64 8
+  store i64 %83, ptr %87, align 8
   store ptr %84, ptr %13, align 8
-  %87 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 %85, ptr %87, align 8
-  %88 = load ptr, ptr %14, align 8, !nonnull !3, !align !5, !noundef !3
-  %89 = getelementptr inbounds i8, ptr %14, i64 8
-  %90 = load i64, ptr %89, align 8, !noundef !3
-  %91 = load ptr, ptr %13, align 8, !nonnull !3, !align !5, !noundef !3
-  %92 = getelementptr inbounds i8, ptr %13, i64 8
-  %93 = load i64, ptr %92, align 8, !noundef !3
-  %94 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bc60faabaabfb09E"(ptr align 1 %88, i64 %90, ptr align 1 %91, i64 %93)
-  %95 = xor i1 %94, true
-  br i1 %95, label %96, label %57
+  %88 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 %86, ptr %88, align 8
+  %89 = load ptr, ptr %14, align 8, !nonnull !3, !align !5, !noundef !3
+  %90 = getelementptr inbounds i8, ptr %14, i64 8
+  %91 = load i64, ptr %90, align 8, !noundef !3
+  %92 = load ptr, ptr %13, align 8, !nonnull !3, !align !5, !noundef !3
+  %93 = getelementptr inbounds i8, ptr %13, i64 8
+  %94 = load i64, ptr %93, align 8, !noundef !3
+  %95 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bc60faabaabfb09E"(ptr align 1 %89, i64 %91, ptr align 1 %92, i64 %94)
+  %96 = xor i1 %95, true
+  br i1 %96, label %97, label %57
 
-96:                                               ; preds = %76
-  %97 = load ptr, ptr %29, align 8, !nonnull !3, !align !5, !noundef !3
-  %98 = getelementptr inbounds i8, ptr %29, i64 8
-  %99 = load i64, ptr %98, align 8, !noundef !3
-  call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 %97, i64 %99)
+97:                                               ; preds = %76
+  %98 = load ptr, ptr %29, align 8, !nonnull !3, !align !5, !noundef !3
+  %99 = getelementptr inbounds i8, ptr %29, i64 8
+  %100 = load i64, ptr %99, align 8, !noundef !3
+  call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 %98, i64 %100)
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.19, i64 1)
   br label %57
 
-100:                                              ; preds = %57
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10param_name17hc8791f34864d463fE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %28, ptr align 8 %0, i64 %1, i32 %2)
-  br label %102
-
 101:                                              ; preds = %57
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10param_name17hc8791f34864d463fE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %28, ptr align 8 %0, i64 %1, i32 %2)
+  br label %103
+
+102:                                              ; preds = %57
   call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator11result_name17hafe827f1a0e67acaE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %28, ptr align 8 %0, i64 %1, i32 %2)
-  br label %102
+  br label %103
 
-102:                                              ; preds = %101, %100
+103:                                              ; preds = %102, %101
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %44, i64 24, i1 false)
-  %103 = getelementptr inbounds i8, ptr %28, i64 8
-  %104 = load ptr, ptr %103, align 8, !nonnull !3, !noundef !3
-  %105 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %28, i32 0, i32 1
-  %106 = load i64, ptr %105, align 8, !noundef !3
-  store ptr %104, ptr %11, align 8
-  %107 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %106, ptr %107, align 8
-  %108 = load ptr, ptr %11, align 8, !noundef !3
-  %109 = getelementptr inbounds i8, ptr %11, i64 8
-  %110 = load i64, ptr %109, align 8, !noundef !3
-  store ptr %108, ptr %12, align 8
-  %111 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %110, ptr %111, align 8
-  %112 = load ptr, ptr %12, align 8, !noundef !3
-  %113 = getelementptr inbounds i8, ptr %12, i64 8
-  %114 = load i64, ptr %113, align 8, !noundef !3
-  invoke void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator28print_type_name_in_interface17ha1efa70b0c280a9aE(ptr align 8 %0, ptr align 8 %27, ptr align 1 %112, i64 %114)
-          to label %121 unwind label %116
+  %104 = getelementptr inbounds i8, ptr %28, i64 8
+  %105 = load ptr, ptr %104, align 8, !nonnull !3, !noundef !3
+  %106 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %28, i32 0, i32 1
+  %107 = load i64, ptr %106, align 8, !noundef !3
+  store ptr %105, ptr %11, align 8
+  %108 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %107, ptr %108, align 8
+  %109 = load ptr, ptr %11, align 8, !noundef !3
+  %110 = getelementptr inbounds i8, ptr %11, i64 8
+  %111 = load i64, ptr %110, align 8, !noundef !3
+  store ptr %109, ptr %12, align 8
+  %112 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 %111, ptr %112, align 8
+  %113 = load ptr, ptr %12, align 8, !noundef !3
+  %114 = getelementptr inbounds i8, ptr %12, i64 8
+  %115 = load i64, ptr %114, align 8, !noundef !3
+  invoke void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator28print_type_name_in_interface17ha1efa70b0c280a9aE(ptr align 8 %0, ptr align 8 %27, ptr align 1 %113, i64 %115)
+          to label %122 unwind label %117
 
-115:                                              ; preds = %116
+116:                                              ; preds = %117
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr align 8 %28) #6
-          to label %140 unwind label %138
+          to label %141 unwind label %139
 
-116:                                              ; preds = %132, %128, %126, %102
-  %117 = landingpad { ptr, i32 }
+117:                                              ; preds = %133, %129, %127, %103
+  %118 = landingpad { ptr, i32 }
           cleanup
-  %118 = extractvalue { ptr, i32 } %117, 0
-  %119 = extractvalue { ptr, i32 } %117, 1
-  store ptr %118, ptr %6, align 8
-  %120 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %119, ptr %120, align 8
-  br label %115
+  %119 = extractvalue { ptr, i32 } %118, 0
+  %120 = extractvalue { ptr, i32 } %118, 1
+  store ptr %119, ptr %6, align 8
+  %121 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %120, ptr %121, align 8
+  br label %116
 
-121:                                              ; preds = %102
-  %122 = getelementptr inbounds { i8, i8, i8, i8, i8 }, ptr %31, i32 0, i32 3
-  %123 = load i8, ptr %122, align 1, !range !8, !noundef !3
-  %124 = trunc i8 %123 to i1
-  br i1 %124, label %126, label %125
+122:                                              ; preds = %103
+  %123 = getelementptr inbounds { i8, i8, i8, i8, i8 }, ptr %31, i32 0, i32 3
+  %124 = load i8, ptr %123, align 1, !range !8, !noundef !3
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %127, label %126
 
-125:                                              ; preds = %136, %131, %121
+126:                                              ; preds = %137, %132, %122
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr align 8 %28)
-  br label %137
+  br label %138
 
-126:                                              ; preds = %121
-  %127 = invoke align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr align 8 %0)
-          to label %128 unwind label %116
+127:                                              ; preds = %122
+  %128 = invoke align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr align 8 %0)
+          to label %129 unwind label %117
 
-128:                                              ; preds = %126
-  %129 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %130 = invoke zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_tyid14needs_generics17h6238b148dbc42c8eE(ptr align 8 %127, ptr align 8 %129)
-          to label %131 unwind label %116
+129:                                              ; preds = %127
+  %130 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %131 = invoke zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_tyid14needs_generics17h6238b148dbc42c8eE(ptr align 8 %128, ptr align 8 %130)
+          to label %132 unwind label %117
 
-131:                                              ; preds = %128
-  br i1 %130, label %132, label %125
+132:                                              ; preds = %129
+  br i1 %131, label %133, label %126
 
-132:                                              ; preds = %131
-  %133 = load ptr, ptr %30, align 8, !align !5, !noundef !3
-  %134 = getelementptr inbounds i8, ptr %30, i64 8
-  %135 = load i64, ptr %134, align 8
-  invoke void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759E(ptr align 8 %0, ptr align 1 %133, i64 %135)
-          to label %136 unwind label %116
+133:                                              ; preds = %132
+  %134 = load ptr, ptr %30, align 8, !align !5, !noundef !3
+  %135 = getelementptr inbounds i8, ptr %30, i64 8
+  %136 = load i64, ptr %135, align 8
+  invoke void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759E(ptr align 8 %0, ptr align 1 %134, i64 %136)
+          to label %137 unwind label %117
 
-136:                                              ; preds = %132
-  br label %125
+137:                                              ; preds = %133
+  br label %126
 
-137:                                              ; preds = %316, %290, %281, %254, %240, %220, %207, %156, %125
+138:                                              ; preds = %321, %295, %286, %259, %245, %225, %212, %158, %126
   ret void
 
-138:                                              ; preds = %115
-  %139 = landingpad { ptr, i32 }
+139:                                              ; preds = %116
+  %140 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
-140:                                              ; preds = %115
-  %141 = load ptr, ptr %6, align 8, !noundef !3
-  %142 = getelementptr inbounds i8, ptr %6, i64 8
-  %143 = load i32, ptr %142, align 8, !noundef !3
-  %144 = insertvalue { ptr, i32 } poison, ptr %141, 0
-  %145 = insertvalue { ptr, i32 } %144, i32 %143, 1
-  resume { ptr, i32 } %145
-
-146:                                              ; preds = %54
-  unreachable
+141:                                              ; preds = %116
+  %142 = load ptr, ptr %6, align 8, !noundef !3
+  %143 = getelementptr inbounds i8, ptr %6, i64 8
+  %144 = load i32, ptr %143, align 8, !noundef !3
+  %145 = insertvalue { ptr, i32 } poison, ptr %142, 0
+  %146 = insertvalue { ptr, i32 } %145, i32 %144, 1
+  resume { ptr, i32 } %146
 
 147:                                              ; preds = %54
+  unreachable
+
+148:                                              ; preds = %54
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.25, ptr %20, align 8
-  %148 = getelementptr inbounds i8, ptr %20, i64 8
-  store i64 1, ptr %148, align 8
-  %149 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !4, !noundef !3
-  %150 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
-  %151 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %20, i32 0, i32 2
-  store ptr %149, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
-  store i64 %150, ptr %152, align 8
-  %153 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %20, i32 0, i32 1
-  store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.26, ptr %153, align 8
+  %149 = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 1, ptr %149, align 8
+  %150 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !4, !noundef !3
+  %151 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %152 = load i64, ptr %151, align 8
+  %153 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %20, i32 0, i32 2
+  store ptr %150, ptr %153, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 8
-  store i64 0, ptr %154, align 8
+  store i64 %152, ptr %154, align 8
+  %155 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %20, i32 0, i32 1
+  store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.26, ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 8
+  store i64 0, ptr %156, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %20, ptr align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.28) #7
   unreachable
 
-155:                                              ; preds = %54
+157:                                              ; preds = %54
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.29, i64 40, ptr align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.30) #7
   unreachable
 
-156:                                              ; preds = %54
-  %157 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %158 = getelementptr inbounds { [1 x i64], { i64, [2 x i64] } }, ptr %157, i32 0, i32 1
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12print_handle17hdfad5d7fb59e4f89E(ptr align 8 %0, ptr align 8 %158)
-  br label %137
+158:                                              ; preds = %54
+  %159 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %160 = getelementptr inbounds { [1 x i64], { i64, [2 x i64] } }, ptr %159, i32 0, i32 1
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12print_handle17hdfad5d7fb59e4f89E(ptr align 8 %0, ptr align 8 %160)
+  br label %138
 
-159:                                              ; preds = %54
+161:                                              ; preds = %54
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.32, ptr %19, align 8
-  %160 = getelementptr inbounds i8, ptr %19, i64 8
-  store i64 1, ptr %160, align 8
-  %161 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !4, !noundef !3
-  %162 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
-  %163 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %19, i32 0, i32 2
-  store ptr %161, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 8
-  store i64 %162, ptr %164, align 8
-  %165 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %19, i32 0, i32 1
-  store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.26, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
-  store i64 0, ptr %166, align 8
+  %162 = getelementptr inbounds i8, ptr %19, i64 8
+  store i64 1, ptr %162, align 8
+  %163 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !4, !noundef !3
+  %164 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %165 = load i64, ptr %164, align 8
+  %166 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %19, i32 0, i32 2
+  store ptr %163, ptr %166, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 8
+  store i64 %165, ptr %167, align 8
+  %168 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %19, i32 0, i32 1
+  store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.26, ptr %168, align 8
+  %169 = getelementptr inbounds i8, ptr %168, i64 8
+  store i64 0, ptr %169, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %19, ptr align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.33) #7
   unreachable
 
-167:                                              ; preds = %54
+170:                                              ; preds = %54
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.34, i64 1)
-  %168 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %169 = getelementptr inbounds { [1 x i64], { { { i64, ptr, {} }, i64 } } }, ptr %168, i32 0, i32 1
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
-  %171 = load ptr, ptr %170, align 8, !nonnull !3, !noundef !3
-  %172 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %173 = getelementptr inbounds { [1 x i64], { { { i64, ptr, {} }, i64 } } }, ptr %172, i32 0, i32 1
-  %174 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %173, i32 0, i32 1
-  %175 = load i64, ptr %174, align 8, !noundef !3
-  store ptr %171, ptr %9, align 8
-  %176 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %175, ptr %176, align 8
-  %177 = load ptr, ptr %9, align 8, !noundef !3
-  %178 = getelementptr inbounds i8, ptr %9, i64 8
-  %179 = load i64, ptr %178, align 8, !noundef !3
-  store ptr %177, ptr %10, align 8
-  %180 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %179, ptr %180, align 8
-  %181 = load ptr, ptr %10, align 8, !noundef !3
-  %182 = getelementptr inbounds i8, ptr %10, i64 8
-  %183 = load i64, ptr %182, align 8, !noundef !3
-  %184 = getelementptr inbounds { i64, [2 x i64] }, ptr %181, i64 %183
-  store ptr %181, ptr %8, align 8
-  %185 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  store ptr %185, ptr %23, align 8
-  %186 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr %184, ptr %186, align 8
-  %187 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
-  %188 = getelementptr inbounds i8, ptr %23, i64 8
-  %189 = load ptr, ptr %188, align 8, !noundef !3
-  store ptr %187, ptr %22, align 8
-  %190 = getelementptr inbounds i8, ptr %22, i64 8
-  store ptr %189, ptr %190, align 8
-  br label %247
+  %171 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %172 = getelementptr inbounds { [1 x i64], { { { i64, ptr, {} }, i64 } } }, ptr %171, i32 0, i32 1
+  %173 = getelementptr inbounds i8, ptr %172, i64 8
+  %174 = load ptr, ptr %173, align 8, !nonnull !3, !noundef !3
+  %175 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %176 = getelementptr inbounds { [1 x i64], { { { i64, ptr, {} }, i64 } } }, ptr %175, i32 0, i32 1
+  %177 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %176, i32 0, i32 1
+  %178 = load i64, ptr %177, align 8, !noundef !3
+  store ptr %174, ptr %9, align 8
+  %179 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %178, ptr %179, align 8
+  %180 = load ptr, ptr %9, align 8, !noundef !3
+  %181 = getelementptr inbounds i8, ptr %9, i64 8
+  %182 = load i64, ptr %181, align 8, !noundef !3
+  store ptr %180, ptr %10, align 8
+  %183 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 %182, ptr %183, align 8
+  %184 = load ptr, ptr %10, align 8, !noundef !3
+  %185 = getelementptr inbounds i8, ptr %10, i64 8
+  %186 = load i64, ptr %185, align 8, !noundef !3
+  %187 = getelementptr inbounds { i64, [2 x i64] }, ptr %184, i64 %186
+  store ptr %184, ptr %8, align 8
+  %188 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
+  store ptr %188, ptr %23, align 8
+  %189 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr %187, ptr %189, align 8
+  %190 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
+  %191 = getelementptr inbounds i8, ptr %23, i64 8
+  %192 = load ptr, ptr %191, align 8, !noundef !3
+  store ptr %190, ptr %22, align 8
+  %193 = getelementptr inbounds i8, ptr %22, i64 8
+  store ptr %192, ptr %193, align 8
+  br label %252
 
-191:                                              ; preds = %54
+194:                                              ; preds = %54
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.38, ptr %24, align 8
-  %192 = getelementptr inbounds i8, ptr %24, i64 8
-  store i64 1, ptr %192, align 8
-  %193 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !4, !noundef !3
-  %194 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
-  %195 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %24, i32 0, i32 2
-  store ptr %193, ptr %195, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 8
-  store i64 %194, ptr %196, align 8
-  %197 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %24, i32 0, i32 1
-  store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.26, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 8
-  store i64 0, ptr %198, align 8
+  %195 = getelementptr inbounds i8, ptr %24, i64 8
+  store i64 1, ptr %195, align 8
+  %196 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !4, !noundef !3
+  %197 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %198 = load i64, ptr %197, align 8
+  %199 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %24, i32 0, i32 2
+  store ptr %196, ptr %199, align 8
+  %200 = getelementptr inbounds i8, ptr %199, i64 8
+  store i64 %198, ptr %200, align 8
+  %201 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %24, i32 0, i32 1
+  store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.26, ptr %201, align 8
+  %202 = getelementptr inbounds i8, ptr %201, i64 8
+  store i64 0, ptr %202, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %24, ptr align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.39) #7
   unreachable
 
-199:                                              ; preds = %54
+203:                                              ; preds = %54
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.41, ptr %18, align 8
-  %200 = getelementptr inbounds i8, ptr %18, i64 8
-  store i64 1, ptr %200, align 8
-  %201 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !4, !noundef !3
-  %202 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
-  %203 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %18, i32 0, i32 2
-  store ptr %201, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 8
-  store i64 %202, ptr %204, align 8
-  %205 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %18, i32 0, i32 1
-  store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.26, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 8
-  store i64 0, ptr %206, align 8
+  %204 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 1, ptr %204, align 8
+  %205 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !4, !noundef !3
+  %206 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %207 = load i64, ptr %206, align 8
+  %208 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %18, i32 0, i32 2
+  store ptr %205, ptr %208, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 8
+  store i64 %207, ptr %209, align 8
+  %210 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %18, i32 0, i32 1
+  store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.26, ptr %210, align 8
+  %211 = getelementptr inbounds i8, ptr %210, i64 8
+  store i64 0, ptr %211, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %18, ptr align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.42) #7
   unreachable
 
-207:                                              ; preds = %54
+212:                                              ; preds = %54
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.43, i64 7)
-  %208 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %209 = getelementptr inbounds { [1 x i64], { i64, [2 x i64] } }, ptr %208, i32 0, i32 1
-  %210 = load ptr, ptr %32, align 8, !align !5, !noundef !3
-  %211 = getelementptr inbounds i8, ptr %32, i64 8
-  %212 = load i64, ptr %211, align 8
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr align 8 %209, ptr align 1 %210, i64 %212)
+  %213 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %214 = getelementptr inbounds { [1 x i64], { i64, [2 x i64] } }, ptr %213, i32 0, i32 1
+  %215 = load ptr, ptr %32, align 8, !align !5, !noundef !3
+  %216 = getelementptr inbounds i8, ptr %32, i64 8
+  %217 = load i64, ptr %216, align 8
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr align 8 %214, ptr align 1 %215, i64 %217)
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.44, i64 1)
-  br label %137
+  br label %138
 
-213:                                              ; preds = %54
+218:                                              ; preds = %54
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.45, i64 7)
-  %214 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %215 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %214, i32 0, i32 1
-  %216 = load i64, ptr %215, align 8, !range !9, !noundef !3
-  %217 = icmp eq i64 %216, 14
-  %218 = select i1 %217, i64 0, i64 1
-  %219 = icmp eq i64 %218, 0
-  br i1 %219, label %260, label %261
+  %219 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %220 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %219, i32 0, i32 1
+  %221 = load i64, ptr %220, align 8, !range !9, !noundef !3
+  %222 = icmp eq i64 %221, 14
+  %223 = select i1 %222, i64 0, i64 1
+  %224 = icmp eq i64 %223, 0
+  br i1 %224, label %265, label %266
 
-220:                                              ; preds = %54
-  %221 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %222 = getelementptr inbounds { [1 x i64], { i64, [2 x i64] } }, ptr %221, i32 0, i32 1
-  %223 = load ptr, ptr %32, align 8, !align !5, !noundef !3
-  %224 = getelementptr inbounds i8, ptr %32, i64 8
-  %225 = load i64, ptr %224, align 8
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_list17h468cacc57d27acedE(ptr align 8 %0, ptr align 8 %222, ptr align 1 %223, i64 %225)
-  br label %137
+225:                                              ; preds = %54
+  %226 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %227 = getelementptr inbounds { [1 x i64], { i64, [2 x i64] } }, ptr %226, i32 0, i32 1
+  %228 = load ptr, ptr %32, align 8, !align !5, !noundef !3
+  %229 = getelementptr inbounds i8, ptr %32, i64 8
+  %230 = load i64, ptr %229, align 8
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_list17h468cacc57d27acedE(ptr align 8 %0, ptr align 8 %227, ptr align 1 %228, i64 %230)
+  br label %138
 
-226:                                              ; preds = %54
+231:                                              ; preds = %54
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.46, i64 7)
-  %227 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %228 = getelementptr inbounds { [1 x i64], { i64, [2 x i64] } }, ptr %227, i32 0, i32 1
-  %229 = load i64, ptr %228, align 8, !range !9, !noundef !3
-  %230 = icmp eq i64 %229, 14
-  %231 = select i1 %230, i64 0, i64 1
-  %232 = icmp eq i64 %231, 0
-  br i1 %232, label %286, label %287
+  %232 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %233 = getelementptr inbounds { [1 x i64], { i64, [2 x i64] } }, ptr %232, i32 0, i32 1
+  %234 = load i64, ptr %233, align 8, !range !9, !noundef !3
+  %235 = icmp eq i64 %234, 14
+  %236 = select i1 %235, i64 0, i64 1
+  %237 = icmp eq i64 %236, 0
+  br i1 %237, label %291, label %292
 
-233:                                              ; preds = %54
+238:                                              ; preds = %54
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.47, i64 7)
-  %234 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %235 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %234, i32 0, i32 1
-  %236 = load i64, ptr %235, align 8, !range !9, !noundef !3
-  %237 = icmp eq i64 %236, 14
-  %238 = select i1 %237, i64 0, i64 1
-  %239 = icmp eq i64 %238, 0
-  br i1 %239, label %295, label %296
+  %239 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %240 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %239, i32 0, i32 1
+  %241 = load i64, ptr %240, align 8, !range !9, !noundef !3
+  %242 = icmp eq i64 %241, 14
+  %243 = select i1 %242, i64 0, i64 1
+  %244 = icmp eq i64 %243, 0
+  br i1 %244, label %300, label %301
 
-240:                                              ; preds = %54
-  %241 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %242 = getelementptr inbounds { [1 x i64], { i64, [2 x i64] } }, ptr %241, i32 0, i32 1
-  %243 = load ptr, ptr %32, align 8, !align !5, !noundef !3
-  %244 = getelementptr inbounds i8, ptr %32, i64 8
-  %245 = load i64, ptr %244, align 8
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr align 8 %242, ptr align 1 %243, i64 %245)
-  br label %137
+245:                                              ; preds = %54
+  %246 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %247 = getelementptr inbounds { [1 x i64], { i64, [2 x i64] } }, ptr %246, i32 0, i32 1
+  %248 = load ptr, ptr %32, align 8, !align !5, !noundef !3
+  %249 = getelementptr inbounds i8, ptr %32, i64 8
+  %250 = load i64, ptr %249, align 8
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr align 8 %247, ptr align 1 %248, i64 %250)
+  br label %138
 
-246:                                              ; preds = %54
+251:                                              ; preds = %54
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.29, i64 40, ptr align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.48) #7
   unreachable
 
-247:                                              ; preds = %255, %167
-  %248 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2454e89c1de15270E"(ptr align 8 %22)
-  store ptr %248, ptr %21, align 8
-  %249 = load ptr, ptr %21, align 8, !noundef !3
-  %250 = ptrtoint ptr %249 to i64
-  %251 = icmp eq i64 %250, 0
-  %252 = select i1 %251, i64 0, i64 1
-  %253 = icmp eq i64 %252, 0
-  br i1 %253, label %254, label %255
+252:                                              ; preds = %260, %170
+  %253 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2454e89c1de15270E"(ptr align 8 %22)
+  store ptr %253, ptr %21, align 8
+  %254 = load ptr, ptr %21, align 8, !noundef !3
+  %255 = ptrtoint ptr %254 to i64
+  %256 = icmp eq i64 %255, 0
+  %257 = select i1 %256, i64 0, i64 1
+  %258 = icmp eq i64 %257, 0
+  br i1 %258, label %259, label %260
 
-254:                                              ; preds = %247
+259:                                              ; preds = %252
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.35, i64 1)
-  br label %137
+  br label %138
 
-255:                                              ; preds = %247
-  %256 = load ptr, ptr %21, align 8, !nonnull !3, !align !4, !noundef !3
-  %257 = load ptr, ptr %32, align 8, !align !5, !noundef !3
-  %258 = getelementptr inbounds i8, ptr %32, i64 8
-  %259 = load i64, ptr %258, align 8
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr align 8 %256, ptr align 1 %257, i64 %259)
+260:                                              ; preds = %252
+  %261 = load ptr, ptr %21, align 8, !nonnull !3, !align !4, !noundef !3
+  %262 = load ptr, ptr %32, align 8, !align !5, !noundef !3
+  %263 = getelementptr inbounds i8, ptr %32, i64 8
+  %264 = load i64, ptr %263, align 8
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr align 8 %261, ptr align 1 %262, i64 %264)
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.36, i64 1)
-  br label %247
+  br label %252
 
-260:                                              ; preds = %213
+265:                                              ; preds = %218
   store ptr null, ptr %26, align 8
-  br label %264
+  br label %269
 
-261:                                              ; preds = %213
-  %262 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %263 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %262, i32 0, i32 1
-  store ptr %263, ptr %26, align 8
-  br label %264
+266:                                              ; preds = %218
+  %267 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %268 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %267, i32 0, i32 1
+  store ptr %268, ptr %26, align 8
+  br label %269
 
-264:                                              ; preds = %261, %260
-  %265 = load ptr, ptr %26, align 8, !align !4, !noundef !3
-  %266 = load ptr, ptr %32, align 8, !align !5, !noundef !3
-  %267 = getelementptr inbounds i8, ptr %32, i64 8
-  %268 = load i64, ptr %267, align 8
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E(ptr align 8 %0, ptr align 8 %265, ptr align 1 %266, i64 %268)
+269:                                              ; preds = %266, %265
+  %270 = load ptr, ptr %26, align 8, !align !4, !noundef !3
+  %271 = load ptr, ptr %32, align 8, !align !5, !noundef !3
+  %272 = getelementptr inbounds i8, ptr %32, i64 8
+  %273 = load i64, ptr %272, align 8
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E(ptr align 8 %0, ptr align 8 %270, ptr align 1 %271, i64 %273)
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.36, i64 1)
-  %269 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %270 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %269, i32 0, i32 1
-  %271 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %270, i32 0, i32 1
-  %272 = load i64, ptr %271, align 8, !range !9, !noundef !3
-  %273 = icmp eq i64 %272, 14
-  %274 = select i1 %273, i64 0, i64 1
-  %275 = icmp eq i64 %274, 0
-  br i1 %275, label %276, label %277
+  %274 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %275 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %274, i32 0, i32 1
+  %276 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %275, i32 0, i32 1
+  %277 = load i64, ptr %276, align 8, !range !9, !noundef !3
+  %278 = icmp eq i64 %277, 14
+  %279 = select i1 %278, i64 0, i64 1
+  %280 = icmp eq i64 %279, 0
+  br i1 %280, label %281, label %282
 
-276:                                              ; preds = %264
+281:                                              ; preds = %269
   store ptr null, ptr %25, align 8
-  br label %281
+  br label %286
 
-277:                                              ; preds = %264
-  %278 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %279 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %278, i32 0, i32 1
-  %280 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %279, i32 0, i32 1
-  store ptr %280, ptr %25, align 8
-  br label %281
+282:                                              ; preds = %269
+  %283 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %284 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %283, i32 0, i32 1
+  %285 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %284, i32 0, i32 1
+  store ptr %285, ptr %25, align 8
+  br label %286
 
-281:                                              ; preds = %277, %276
-  %282 = load ptr, ptr %25, align 8, !align !4, !noundef !3
-  %283 = load ptr, ptr %32, align 8, !align !5, !noundef !3
-  %284 = getelementptr inbounds i8, ptr %32, i64 8
-  %285 = load i64, ptr %284, align 8
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E(ptr align 8 %0, ptr align 8 %282, ptr align 1 %283, i64 %285)
+286:                                              ; preds = %282, %281
+  %287 = load ptr, ptr %25, align 8, !align !4, !noundef !3
+  %288 = load ptr, ptr %32, align 8, !align !5, !noundef !3
+  %289 = getelementptr inbounds i8, ptr %32, i64 8
+  %290 = load i64, ptr %289, align 8
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E(ptr align 8 %0, ptr align 8 %287, ptr align 1 %288, i64 %290)
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.44, i64 1)
-  br label %137
+  br label %138
 
-286:                                              ; preds = %226
+291:                                              ; preds = %231
   store ptr null, ptr %17, align 8
-  br label %290
+  br label %295
 
-287:                                              ; preds = %226
-  %288 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %289 = getelementptr inbounds { [1 x i64], { i64, [2 x i64] } }, ptr %288, i32 0, i32 1
-  store ptr %289, ptr %17, align 8
-  br label %290
+292:                                              ; preds = %231
+  %293 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %294 = getelementptr inbounds { [1 x i64], { i64, [2 x i64] } }, ptr %293, i32 0, i32 1
+  store ptr %294, ptr %17, align 8
+  br label %295
 
-290:                                              ; preds = %287, %286
-  %291 = load ptr, ptr %17, align 8, !align !4, !noundef !3
-  %292 = load ptr, ptr %32, align 8, !align !5, !noundef !3
-  %293 = getelementptr inbounds i8, ptr %32, i64 8
-  %294 = load i64, ptr %293, align 8
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E(ptr align 8 %0, ptr align 8 %291, ptr align 1 %292, i64 %294)
+295:                                              ; preds = %292, %291
+  %296 = load ptr, ptr %17, align 8, !align !4, !noundef !3
+  %297 = load ptr, ptr %32, align 8, !align !5, !noundef !3
+  %298 = getelementptr inbounds i8, ptr %32, i64 8
+  %299 = load i64, ptr %298, align 8
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E(ptr align 8 %0, ptr align 8 %296, ptr align 1 %297, i64 %299)
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.44, i64 1)
-  br label %137
+  br label %138
 
-295:                                              ; preds = %233
+300:                                              ; preds = %238
   store ptr null, ptr %16, align 8
-  br label %299
+  br label %304
 
-296:                                              ; preds = %233
-  %297 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %298 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %297, i32 0, i32 1
-  store ptr %298, ptr %16, align 8
-  br label %299
+301:                                              ; preds = %238
+  %302 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %303 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %302, i32 0, i32 1
+  store ptr %303, ptr %16, align 8
+  br label %304
 
-299:                                              ; preds = %296, %295
-  %300 = load ptr, ptr %16, align 8, !align !4, !noundef !3
-  %301 = load ptr, ptr %32, align 8, !align !5, !noundef !3
-  %302 = getelementptr inbounds i8, ptr %32, i64 8
-  %303 = load i64, ptr %302, align 8
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E(ptr align 8 %0, ptr align 8 %300, ptr align 1 %301, i64 %303)
+304:                                              ; preds = %301, %300
+  %305 = load ptr, ptr %16, align 8, !align !4, !noundef !3
+  %306 = load ptr, ptr %32, align 8, !align !5, !noundef !3
+  %307 = getelementptr inbounds i8, ptr %32, i64 8
+  %308 = load i64, ptr %307, align 8
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E(ptr align 8 %0, ptr align 8 %305, ptr align 1 %306, i64 %308)
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.36, i64 1)
-  %304 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %305 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %304, i32 0, i32 1
-  %306 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %305, i32 0, i32 1
-  %307 = load i64, ptr %306, align 8, !range !9, !noundef !3
-  %308 = icmp eq i64 %307, 14
-  %309 = select i1 %308, i64 0, i64 1
-  %310 = icmp eq i64 %309, 0
-  br i1 %310, label %311, label %312
+  %309 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %310 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %309, i32 0, i32 1
+  %311 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %310, i32 0, i32 1
+  %312 = load i64, ptr %311, align 8, !range !9, !noundef !3
+  %313 = icmp eq i64 %312, 14
+  %314 = select i1 %313, i64 0, i64 1
+  %315 = icmp eq i64 %314, 0
+  br i1 %315, label %316, label %317
 
-311:                                              ; preds = %299
+316:                                              ; preds = %304
   store ptr null, ptr %15, align 8
-  br label %316
+  br label %321
 
-312:                                              ; preds = %299
-  %313 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
-  %314 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %313, i32 0, i32 1
-  %315 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %314, i32 0, i32 1
-  store ptr %315, ptr %15, align 8
-  br label %316
+317:                                              ; preds = %304
+  %318 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %44, i32 0, i32 1
+  %319 = getelementptr inbounds { [1 x i64], { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %318, i32 0, i32 1
+  %320 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %319, i32 0, i32 1
+  store ptr %320, ptr %15, align 8
+  br label %321
 
-316:                                              ; preds = %312, %311
-  %317 = load ptr, ptr %15, align 8, !align !4, !noundef !3
-  %318 = load ptr, ptr %32, align 8, !align !5, !noundef !3
-  %319 = getelementptr inbounds i8, ptr %32, i64 8
-  %320 = load i64, ptr %319, align 8
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E(ptr align 8 %0, ptr align 8 %317, ptr align 1 %318, i64 %320)
+321:                                              ; preds = %317, %316
+  %322 = load ptr, ptr %15, align 8, !align !4, !noundef !3
+  %323 = load ptr, ptr %32, align 8, !align !5, !noundef !3
+  %324 = getelementptr inbounds i8, ptr %32, i64 8
+  %325 = load i64, ptr %324, align 8
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E(ptr align 8 %0, ptr align 8 %322, ptr align 1 %323, i64 %325)
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.44, i64 1)
-  br label %137
+  br label %138
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1295,92 +1302,94 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_list17h468cacc
   %14 = icmp eq i8 %13, 2
   %15 = select i1 %14, i64 0, i64 1
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %21
+  br i1 %16, label %17, label %22
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
+  %19 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %20 = load i64, ptr %19, align 8
   store ptr %18, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %19, ptr %20, align 8
-  br label %26
+  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %20, ptr %21, align 8
+  br label %27
 
-21:                                               ; preds = %4
-  %22 = load ptr, ptr %10, align 8, !align !5, !noundef !3
-  %23 = getelementptr inbounds i8, ptr %10, i64 8
-  %24 = load i64, ptr %23, align 8
-  store ptr %22, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %24, ptr %25, align 8
-  br label %26
+22:                                               ; preds = %4
+  %23 = load ptr, ptr %10, align 8, !align !5, !noundef !3
+  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %25 = load i64, ptr %24, align 8
+  store ptr %23, ptr %7, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %25, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %21, %17
-  %27 = load ptr, ptr %10, align 8, !noundef !3
-  %28 = ptrtoint ptr %27 to i64
-  %29 = icmp eq i64 %28, 0
-  %30 = select i1 %29, i64 0, i64 1
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %36
+27:                                               ; preds = %22, %17
+  %28 = load ptr, ptr %10, align 8, !noundef !3
+  %29 = ptrtoint ptr %28 to i64
+  %30 = icmp eq i64 %29, 0
+  %31 = select i1 %30, i64 0, i64 1
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %33, label %37
 
-32:                                               ; preds = %26
+33:                                               ; preds = %27
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.50, i64 4)
-  %33 = load ptr, ptr %7, align 8, !align !5, !noundef !3
-  %34 = getelementptr inbounds i8, ptr %7, i64 8
-  %35 = load i64, ptr %34, align 8
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr align 8 %1, ptr align 1 %33, i64 %35)
+  %34 = load ptr, ptr %7, align 8, !align !5, !noundef !3
+  %35 = getelementptr inbounds i8, ptr %7, i64 8
+  %36 = load i64, ptr %35, align 8
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr align 8 %1, ptr align 1 %34, i64 %36)
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.44, i64 1)
-  br label %56
+  br label %58
 
-36:                                               ; preds = %26
-  %37 = load ptr, ptr %10, align 8, !nonnull !3, !align !5, !noundef !3
-  %38 = getelementptr inbounds i8, ptr %10, i64 8
-  %39 = load i64, ptr %38, align 8, !noundef !3
-  store ptr %37, ptr %8, align 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %39, ptr %40, align 8
+37:                                               ; preds = %27
+  %38 = load ptr, ptr %10, align 8, !nonnull !3, !align !5, !noundef !3
+  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  %40 = load i64, ptr %39, align 8, !noundef !3
+  store ptr %38, ptr %8, align 8
+  %41 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %40, ptr %41, align 8
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.16, i64 1)
-  %41 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
-  %42 = getelementptr inbounds i8, ptr %8, i64 8
-  %43 = load i64, ptr %42, align 8, !noundef !3
-  %44 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.18, align 8, !nonnull !3, !align !5, !noundef !3
-  %45 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.18, i64 8), align 8, !noundef !3
-  store ptr %41, ptr %6, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %43, ptr %46, align 8
-  store ptr %44, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %45, ptr %47, align 8
-  %48 = load ptr, ptr %6, align 8, !nonnull !3, !align !5, !noundef !3
-  %49 = getelementptr inbounds i8, ptr %6, i64 8
-  %50 = load i64, ptr %49, align 8, !noundef !3
-  %51 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
-  %53 = load i64, ptr %52, align 8, !noundef !3
-  %54 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bc60faabaabfb09E"(ptr align 1 %48, i64 %50, ptr align 1 %51, i64 %53)
-  %55 = xor i1 %54, true
-  br i1 %55, label %61, label %57
+  %42 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
+  %43 = getelementptr inbounds i8, ptr %8, i64 8
+  %44 = load i64, ptr %43, align 8, !noundef !3
+  %45 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.18, align 8, !nonnull !3, !align !5, !noundef !3
+  %46 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.18, i64 8
+  %47 = load i64, ptr %46, align 8, !noundef !3
+  store ptr %42, ptr %6, align 8
+  %48 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %44, ptr %48, align 8
+  store ptr %45, ptr %5, align 8
+  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %47, ptr %49, align 8
+  %50 = load ptr, ptr %6, align 8, !nonnull !3, !align !5, !noundef !3
+  %51 = getelementptr inbounds i8, ptr %6, i64 8
+  %52 = load i64, ptr %51, align 8, !noundef !3
+  %53 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
+  %54 = getelementptr inbounds i8, ptr %5, i64 8
+  %55 = load i64, ptr %54, align 8, !noundef !3
+  %56 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bc60faabaabfb09E"(ptr align 1 %50, i64 %52, ptr align 1 %53, i64 %55)
+  %57 = xor i1 %56, true
+  br i1 %57, label %63, label %59
 
-56:                                               ; preds = %57, %32
+58:                                               ; preds = %59, %33
   ret void
 
-57:                                               ; preds = %61, %36
+59:                                               ; preds = %63, %37
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.51, i64 1)
-  %58 = load ptr, ptr %7, align 8, !align !5, !noundef !3
-  %59 = getelementptr inbounds i8, ptr %7, i64 8
-  %60 = load i64, ptr %59, align 8
-  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr align 8 %1, ptr align 1 %58, i64 %60)
+  %60 = load ptr, ptr %7, align 8, !align !5, !noundef !3
+  %61 = getelementptr inbounds i8, ptr %7, i64 8
+  %62 = load i64, ptr %61, align 8
+  call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr align 8 %1, ptr align 1 %60, i64 %62)
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.52, i64 1)
-  br label %56
+  br label %58
 
-61:                                               ; preds = %36
-  %62 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
-  %63 = getelementptr inbounds i8, ptr %8, i64 8
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 %62, i64 %64)
+63:                                               ; preds = %37
+  %64 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
+  %65 = getelementptr inbounds i8, ptr %8, i64 8
+  %66 = load i64, ptr %65, align 8, !noundef !3
+  call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 %64, i64 %66)
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.19, i64 1)
-  br label %57
+  br label %59
 
-65:                                               ; No predecessors!
+67:                                               ; No predecessors!
   unreachable
 }
 
@@ -1624,151 +1633,154 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8modes_of17hbef7543a83
 20:                                               ; preds = %4
   %21 = load i8, ptr %15, align 1, !range !8, !noundef !3
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %29
+  br i1 %22, label %23, label %30
 
 23:                                               ; preds = %20, %4
   store i64 0, ptr %14, align 8
   %24 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %24, align 8
-  %25 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %14, i32 0, i32 1
-  store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds { i8, i8, i8, i8, i8 }, ptr %15, i32 0, i32 1
-  %27 = load i8, ptr %26, align 1, !range !8, !noundef !3
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %36, label %33
+  %25 = inttoptr i64 8 to ptr
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %14, i32 0, i32 1
+  store i64 0, ptr %26, align 8
+  %27 = getelementptr inbounds { i8, i8, i8, i8, i8 }, ptr %15, i32 0, i32 1
+  %28 = load i8, ptr %27, align 1, !range !8, !noundef !3
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %38, label %35
 
-29:                                               ; preds = %20
+30:                                               ; preds = %20
   store i64 0, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %30, align 8
-  %31 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %0, i32 0, i32 1
-  store i64 0, ptr %31, align 8
-  br label %32
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = inttoptr i64 8 to ptr
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %0, i32 0, i32 1
+  store i64 0, ptr %33, align 8
+  br label %34
 
-32:                                               ; preds = %70, %29
+34:                                               ; preds = %73, %30
   ret void
 
-33:                                               ; preds = %23
-  %34 = load i8, ptr %15, align 1, !range !8, !noundef !3
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %40, label %36
+35:                                               ; preds = %23
+  %36 = load i8, ptr %15, align 1, !range !8, !noundef !3
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %43, label %38
 
-36:                                               ; preds = %48, %33, %23
-  %37 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
-  store ptr %37, ptr %10, align 8
-  %39 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %38, ptr %39, align 8
-  br label %59
+38:                                               ; preds = %51, %35, %23
+  %39 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
+  %40 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %41 = load i64, ptr %40, align 8
+  store ptr %39, ptr %10, align 8
+  %42 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 %41, ptr %42, align 8
+  br label %62
 
-40:                                               ; preds = %33
-  %41 = invoke i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %1)
-          to label %48 unwind label %43, !range !11
+43:                                               ; preds = %35
+  %44 = invoke i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %1)
+          to label %51 unwind label %46, !range !11
 
-42:                                               ; preds = %43
+45:                                               ; preds = %46
   invoke void @"_ZN4core3ptr112drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$wasmtime_wit_bindgen..rust..TypeMode$RP$$GT$$GT$17h0158f830e82c94fcE"(ptr align 8 %14) #6
-          to label %82 unwind label %80
+          to label %85 unwind label %83
 
-43:                                               ; preds = %72, %71, %67, %61, %59, %58, %53, %40
-  %44 = landingpad { ptr, i32 }
+46:                                               ; preds = %75, %74, %70, %64, %62, %61, %56, %43
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store ptr %45, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %46, ptr %47, align 8
-  br label %42
+  %48 = extractvalue { ptr, i32 } %47, 0
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store ptr %48, ptr %5, align 8
+  %50 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %49, ptr %50, align 8
+  br label %45
 
-48:                                               ; preds = %40
-  store i8 %41, ptr %13, align 1
-  %49 = load i8, ptr %13, align 1, !range !11, !noundef !3
-  %50 = icmp eq i8 %49, 2
-  %51 = select i1 %50, i64 0, i64 1
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %36, label %53
+51:                                               ; preds = %43
+  store i8 %44, ptr %13, align 1
+  %52 = load i8, ptr %13, align 1, !range !11, !noundef !3
+  %53 = icmp eq i8 %52, 2
+  %54 = select i1 %53, i64 0, i64 1
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %38, label %56
 
-53:                                               ; preds = %48
-  %54 = invoke zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE(ptr align 8 %1, ptr align 1 %15)
-          to label %55 unwind label %43
+56:                                               ; preds = %51
+  %57 = invoke zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE(ptr align 8 %1, ptr align 1 %15)
+          to label %58 unwind label %46
 
-55:                                               ; preds = %53
-  br i1 %54, label %58, label %56
+58:                                               ; preds = %56
+  br i1 %57, label %61, label %59
 
-56:                                               ; preds = %55
+59:                                               ; preds = %58
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.59, ptr %10, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 2, ptr %57, align 8
-  br label %59
+  %60 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 2, ptr %60, align 8
+  br label %62
 
-58:                                               ; preds = %55
+61:                                               ; preds = %58
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.60, i64 45, ptr align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.61) #7
-          to label %60 unwind label %43
+          to label %63 unwind label %46
 
-59:                                               ; preds = %56, %36
+62:                                               ; preds = %59, %38
   invoke void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator11result_name17hafe827f1a0e67acaE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %11, ptr align 8 %1, i64 %2, i32 %3)
-          to label %61 unwind label %43
+          to label %64 unwind label %46
 
-60:                                               ; preds = %58
+63:                                               ; preds = %61
   unreachable
 
-61:                                               ; preds = %59
+64:                                               ; preds = %62
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %11, i64 24, i1 false)
-  %62 = load ptr, ptr %10, align 8, !align !5, !noundef !3
-  %63 = getelementptr inbounds i8, ptr %10, i64 8
-  %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { ptr, [1 x i64] } }, ptr %12, i32 0, i32 1
-  store ptr %62, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
-  store i64 %64, ptr %66, align 8
+  %65 = load ptr, ptr %10, align 8, !align !5, !noundef !3
+  %66 = getelementptr inbounds i8, ptr %10, i64 8
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { ptr, [1 x i64] } }, ptr %12, i32 0, i32 1
+  store ptr %65, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  store i64 %67, ptr %69, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h38c9e3050d4be4caE"(ptr align 8 %14, ptr align 8 %12)
-          to label %67 unwind label %43
+          to label %70 unwind label %46
 
-67:                                               ; preds = %61
-  %68 = invoke zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE(ptr align 8 %1, ptr align 1 %15)
-          to label %69 unwind label %43
+70:                                               ; preds = %64
+  %71 = invoke zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE(ptr align 8 %1, ptr align 1 %15)
+          to label %72 unwind label %46
 
-69:                                               ; preds = %67
-  br i1 %68, label %71, label %70
+72:                                               ; preds = %70
+  br i1 %71, label %74, label %73
 
-70:                                               ; preds = %79, %69
+73:                                               ; preds = %82, %72
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %14, i64 24, i1 false)
-  br label %32
+  br label %34
 
-71:                                               ; preds = %69
+74:                                               ; preds = %72
   invoke void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10param_name17hc8791f34864d463fE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %8, ptr align 8 %1, i64 %2, i32 %3)
-          to label %72 unwind label %43
+          to label %75 unwind label %46
 
-72:                                               ; preds = %71
+75:                                               ; preds = %74
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.59, ptr %7, align 8
-  %73 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 2, ptr %73, align 8
+  %76 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 2, ptr %76, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %8, i64 24, i1 false)
-  %74 = load ptr, ptr %7, align 8, !align !5, !noundef !3
-  %75 = getelementptr inbounds i8, ptr %7, i64 8
-  %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { ptr, [1 x i64] } }, ptr %9, i32 0, i32 1
-  store ptr %74, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
-  store i64 %76, ptr %78, align 8
+  %77 = load ptr, ptr %7, align 8, !align !5, !noundef !3
+  %78 = getelementptr inbounds i8, ptr %7, i64 8
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { ptr, [1 x i64] } }, ptr %9, i32 0, i32 1
+  store ptr %77, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  store i64 %79, ptr %81, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h38c9e3050d4be4caE"(ptr align 8 %14, ptr align 8 %9)
-          to label %79 unwind label %43
+          to label %82 unwind label %46
 
-79:                                               ; preds = %72
-  br label %70
+82:                                               ; preds = %75
+  br label %73
 
-80:                                               ; preds = %42
-  %81 = landingpad { ptr, i32 }
+83:                                               ; preds = %45
+  %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
-82:                                               ; preds = %42
-  %83 = load ptr, ptr %5, align 8, !noundef !3
-  %84 = getelementptr inbounds i8, ptr %5, i64 8
-  %85 = load i32, ptr %84, align 8, !noundef !3
-  %86 = insertvalue { ptr, i32 } poison, ptr %83, 0
-  %87 = insertvalue { ptr, i32 } %86, i32 %85, 1
-  resume { ptr, i32 } %87
+85:                                               ; preds = %45
+  %86 = load ptr, ptr %5, align 8, !noundef !3
+  %87 = getelementptr inbounds i8, ptr %5, i64 8
+  %88 = load i32, ptr %87, align 8, !noundef !3
+  %89 = insertvalue { ptr, i32 } poison, ptr %86, 0
+  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
+  resume { ptr, i32 } %90
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2121,85 +2133,89 @@ define { ptr, i64 } @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for
   %11 = icmp eq i8 %10, 2
   %12 = select i1 %11, i64 0, i64 1
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %18
+  br i1 %13, label %14, label %19
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
+  %16 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %17 = load i64, ptr %16, align 8
   store ptr %15, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %16, ptr %17, align 8
-  br label %24
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %17, ptr %18, align 8
+  br label %25
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8, !noundef !3
-  %20 = ptrtoint ptr %19 to i64
-  %21 = icmp eq i64 %20, 0
-  %22 = select i1 %21, i64 0, i64 1
-  %23 = icmp eq i64 %22, 1
-  br i1 %23, label %30, label %37
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8, !noundef !3
+  %21 = ptrtoint ptr %20 to i64
+  %22 = icmp eq i64 %21, 0
+  %23 = select i1 %22, i64 0, i64 1
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %31, label %38
 
-24:                                               ; preds = %52, %50, %41, %37, %14
-  %25 = load ptr, ptr %6, align 8, !align !5, !noundef !3
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
-  %27 = load i64, ptr %26, align 8
-  %28 = insertvalue { ptr, i64 } poison, ptr %25, 0
-  %29 = insertvalue { ptr, i64 } %28, i64 %27, 1
-  ret { ptr, i64 } %29
+25:                                               ; preds = %55, %53, %43, %38, %14
+  %26 = load ptr, ptr %6, align 8, !align !5, !noundef !3
+  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %28 = load i64, ptr %27, align 8
+  %29 = insertvalue { ptr, i64 } poison, ptr %26, 0
+  %30 = insertvalue { ptr, i64 } %29, i64 %28, 1
+  ret { ptr, i64 } %30
 
-30:                                               ; preds = %18
-  %31 = load ptr, ptr %7, align 8, !nonnull !3, !align !5, !noundef !3
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
-  %33 = load i64, ptr %32, align 8, !noundef !3
-  %34 = getelementptr inbounds { i8, i8, i8, i8, i8 }, ptr %1, i32 0, i32 3
-  %35 = load i8, ptr %34, align 1, !range !8, !noundef !3
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %45, label %41
+31:                                               ; preds = %19
+  %32 = load ptr, ptr %7, align 8, !nonnull !3, !align !5, !noundef !3
+  %33 = getelementptr inbounds i8, ptr %7, i64 8
+  %34 = load i64, ptr %33, align 8, !noundef !3
+  %35 = getelementptr inbounds { i8, i8, i8, i8, i8 }, ptr %1, i32 0, i32 3
+  %36 = load i8, ptr %35, align 1, !range !8, !noundef !3
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %48, label %43
 
-37:                                               ; preds = %18
-  %38 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
-  store ptr %38, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %39, ptr %40, align 8
-  br label %24
+38:                                               ; preds = %19
+  %39 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
+  %40 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %41 = load i64, ptr %40, align 8
+  store ptr %39, ptr %6, align 8
+  %42 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %41, ptr %42, align 8
+  br label %25
 
-41:                                               ; preds = %30
-  %42 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
-  store ptr %42, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %43, ptr %44, align 8
-  br label %24
+43:                                               ; preds = %31
+  %44 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
+  %45 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %46 = load i64, ptr %45, align 8
+  store ptr %44, ptr %6, align 8
+  %47 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %46, ptr %47, align 8
+  br label %25
 
-45:                                               ; preds = %30
-  %46 = call zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE(ptr align 8 %0, ptr align 1 %1)
-  br i1 %46, label %50, label %47
+48:                                               ; preds = %31
+  %49 = call zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE(ptr align 8 %0, ptr align 1 %1)
+  br i1 %49, label %53, label %50
 
-47:                                               ; preds = %45
-  %48 = load i8, ptr %1, align 1, !range !8, !noundef !3
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %56, label %52
+50:                                               ; preds = %48
+  %51 = load i8, ptr %1, align 1, !range !8, !noundef !3
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %60, label %55
 
-50:                                               ; preds = %56, %45
-  store ptr %31, ptr %6, align 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %33, ptr %51, align 8
-  br label %24
+53:                                               ; preds = %60, %48
+  store ptr %32, ptr %6, align 8
+  %54 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %34, ptr %54, align 8
+  br label %25
 
-52:                                               ; preds = %56, %47
-  %53 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
-  %54 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
-  store ptr %53, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %54, ptr %55, align 8
-  br label %24
+55:                                               ; preds = %60, %50
+  %56 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
+  %57 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %58 = load i64, ptr %57, align 8
+  store ptr %56, ptr %6, align 8
+  %59 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %58, ptr %59, align 8
+  br label %25
 
-56:                                               ; preds = %47
-  %57 = getelementptr inbounds { i8, i8, i8, i8, i8 }, ptr %1, i32 0, i32 1
-  %58 = load i8, ptr %57, align 1, !range !8, !noundef !3
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %52, label %50
+60:                                               ; preds = %50
+  %61 = getelementptr inbounds { i8, i8, i8, i8, i8 }, ptr %1, i32 0, i32 1
+  %62 = load i8, ptr %61, align 1, !range !8, !noundef !3
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %55, label %53
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4104,23 +4120,24 @@ define { ptr, i64 } @"_ZN20wasmtime_wit_bindgen13get_resources28_$u7b$$u7b$closu
   store ptr %26, ptr %6, align 8
   %29 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %28, ptr %29, align 8
-  br label %34
+  br label %35
 
 30:                                               ; preds = %3
   %31 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
+  %32 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %33 = load i64, ptr %32, align 8
   store ptr %31, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %32, ptr %33, align 8
-  br label %34
+  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %33, ptr %34, align 8
+  br label %35
 
-34:                                               ; preds = %30, %16
-  %35 = load ptr, ptr %6, align 8, !align !5, !noundef !3
-  %36 = getelementptr inbounds i8, ptr %6, i64 8
-  %37 = load i64, ptr %36, align 8
-  %38 = insertvalue { ptr, i64 } poison, ptr %35, 0
-  %39 = insertvalue { ptr, i64 } %38, i64 %37, 1
-  ret { ptr, i64 } %39
+35:                                               ; preds = %30, %16
+  %36 = load ptr, ptr %6, align 8, !align !5, !noundef !3
+  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  %38 = load i64, ptr %37, align 8
+  %39 = insertvalue { ptr, i64 } poison, ptr %36, 0
+  %40 = insertvalue { ptr, i64 } %39, i64 %38, 1
+  ret { ptr, i64 } %40
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4146,66 +4163,68 @@ define { ptr, i64 } @"_ZN20wasmtime_wit_bindgen19get_world_resources28_$u7b$$u7b
   %20 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [6 x i64] }, { i64, [2 x i64] }, { { i64, [2 x i64] } } }, ptr %19, i32 0, i32 1
   %21 = load i64, ptr %20, align 8, !range !6, !noundef !3
   %22 = icmp eq i64 %21, 1
-  br i1 %22, label %27, label %32
+  br i1 %22, label %28, label %33
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
+  %25 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %26 = load i64, ptr %25, align 8
   store ptr %24, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %25, ptr %26, align 8
-  br label %51
+  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %26, ptr %27, align 8
+  br label %53
 
-27:                                               ; preds = %12
-  %28 = load i64, ptr %1, align 8, !range !7, !noundef !3
-  %29 = icmp eq i64 %28, -9223372036854775808
-  %30 = select i1 %29, i64 1, i64 0
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %36, label %50
+28:                                               ; preds = %12
+  %29 = load i64, ptr %1, align 8, !range !7, !noundef !3
+  %30 = icmp eq i64 %29, -9223372036854775808
+  %31 = select i1 %30, i64 1, i64 0
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %38, label %52
 
-32:                                               ; preds = %12
-  %33 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8), align 8
-  store ptr %33, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %34, ptr %35, align 8
-  br label %51
+33:                                               ; preds = %12
+  %34 = load ptr, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, align 8, !align !5, !noundef !3
+  %35 = getelementptr inbounds i8, ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.27, i64 8
+  %36 = load i64, ptr %35, align 8
+  store ptr %34, ptr %6, align 8
+  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %36, ptr %37, align 8
+  br label %53
 
-36:                                               ; preds = %27
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8, !nonnull !3, !noundef !3
-  %39 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %1, i32 0, i32 1
-  %40 = load i64, ptr %39, align 8, !noundef !3
-  store ptr %38, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %40, ptr %41, align 8
-  %42 = load ptr, ptr %4, align 8, !noundef !3
+38:                                               ; preds = %28
+  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = load ptr, ptr %39, align 8, !nonnull !3, !noundef !3
+  %41 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %1, i32 0, i32 1
+  %42 = load i64, ptr %41, align 8, !noundef !3
+  store ptr %40, ptr %4, align 8
   %43 = getelementptr inbounds i8, ptr %4, i64 8
-  %44 = load i64, ptr %43, align 8, !noundef !3
-  store ptr %42, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %44, ptr %45, align 8
-  %46 = load ptr, ptr %5, align 8, !noundef !3
+  store i64 %42, ptr %43, align 8
+  %44 = load ptr, ptr %4, align 8, !noundef !3
+  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  %46 = load i64, ptr %45, align 8, !noundef !3
+  store ptr %44, ptr %5, align 8
   %47 = getelementptr inbounds i8, ptr %5, i64 8
-  %48 = load i64, ptr %47, align 8, !noundef !3
-  store ptr %46, ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %48, ptr %49, align 8
-  br label %51
+  store i64 %46, ptr %47, align 8
+  %48 = load ptr, ptr %5, align 8, !noundef !3
+  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %50 = load i64, ptr %49, align 8, !noundef !3
+  store ptr %48, ptr %6, align 8
+  %51 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %50, ptr %51, align 8
+  br label %53
 
-50:                                               ; preds = %27
+52:                                               ; preds = %28
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.29, i64 40, ptr align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.110) #7
   unreachable
 
-51:                                               ; preds = %36, %32, %23
-  %52 = load ptr, ptr %6, align 8, !align !5, !noundef !3
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
-  %54 = load i64, ptr %53, align 8
-  %55 = insertvalue { ptr, i64 } poison, ptr %52, 0
-  %56 = insertvalue { ptr, i64 } %55, i64 %54, 1
-  ret { ptr, i64 } %56
+53:                                               ; preds = %38, %33, %23
+  %54 = load ptr, ptr %6, align 8, !align !5, !noundef !3
+  %55 = getelementptr inbounds i8, ptr %6, i64 8
+  %56 = load i64, ptr %55, align 8
+  %57 = insertvalue { ptr, i64 } poison, ptr %54, 0
+  %58 = insertvalue { ptr, i64 } %57, i64 %56, 1
+  ret { ptr, i64 } %58
 
-57:                                               ; No predecessors!
+59:                                               ; No predecessors!
   unreachable
 }
 

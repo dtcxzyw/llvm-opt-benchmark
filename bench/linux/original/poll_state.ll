@@ -90,13 +90,15 @@ define internal noundef i32 @poll_idle(ptr noundef %0, ptr noundef %1, i32 nound
   %35 = load volatile i64, ptr %8, align 8
   %36 = and i64 %35, 8
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %39, label %38
+  br i1 %37, label %41, label %38
 
 38:                                               ; preds = %34
-  tail call void asm "andl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 2147483647, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #5, !srcloc !15
-  br label %39
+  %39 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %40 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  tail call void asm "andl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %39, i32 2147483647, ptr nonnull elementtype(i32) %40) #5, !srcloc !15
+  br label %41
 
-39:                                               ; preds = %38, %34
+41:                                               ; preds = %38, %34
   ret i32 %2
 }
 

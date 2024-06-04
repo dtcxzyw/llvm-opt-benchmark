@@ -16,30 +16,31 @@ define hidden { i64, i64 } @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$
   %4 = load i64, ptr %0, align 8, !noundef !3
   %5 = load i64, ptr %1, align 8, !noundef !3
   %6 = icmp ule i64 %4, %5
-  br i1 %6, label %11, label %7
+  br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
   %8 = load i64, ptr @anon.8a9dcdee72a29fcaaf3209db8764285e.0, align 8, !range !4, !noundef !3
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @anon.8a9dcdee72a29fcaaf3209db8764285e.0, i64 8), align 8
+  %9 = getelementptr inbounds i8, ptr @anon.8a9dcdee72a29fcaaf3209db8764285e.0, i64 8
+  %10 = load i64, ptr %9, align 8
   store i64 %8, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %9, ptr %10, align 8
-  br label %14
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %10, ptr %11, align 8
+  br label %15
 
-11:                                               ; preds = %2
-  %12 = sub i64 %5, %4
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %12, ptr %13, align 8
+12:                                               ; preds = %2
+  %13 = sub i64 %5, %4
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %13, ptr %14, align 8
   store i64 1, ptr %3, align 8
-  br label %14
+  br label %15
 
-14:                                               ; preds = %11, %7
-  %15 = load i64, ptr %3, align 8, !range !4, !noundef !3
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = insertvalue { i64, i64 } poison, i64 %15, 0
-  %19 = insertvalue { i64, i64 } %18, i64 %17, 1
-  ret { i64, i64 } %19
+15:                                               ; preds = %12, %7
+  %16 = load i64, ptr %3, align 8, !range !4, !noundef !3
+  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = insertvalue { i64, i64 } poison, i64 %16, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %18, 1
+  ret { i64, i64 } %20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

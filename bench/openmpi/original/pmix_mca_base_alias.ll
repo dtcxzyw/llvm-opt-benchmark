@@ -39,38 +39,39 @@ define internal void @pmix_mca_base_alias_init(ptr noundef %0) #0 {
 
 5:                                                ; preds = %4
   %6 = load i32, ptr @pmix_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4), align 8
-  %8 = icmp ne i32 %6, %7
-  br i1 %8, label %9, label %10
+  %7 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp ne i32 %6, %8
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %5
+10:                                               ; preds = %5
   call void @pmix_class_initialize(ptr noundef @pmix_list_t_class)
-  br label %10
+  br label %11
 
-10:                                               ; preds = %9, %5
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.pmix_mca_base_alias_t, ptr %11, i32 0, i32 1
-  %13 = getelementptr inbounds %struct.pmix_object_t, ptr %12, i32 0, i32 1
-  store ptr @pmix_list_t_class, ptr %13, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.pmix_mca_base_alias_t, ptr %14, i32 0, i32 1
-  %16 = getelementptr inbounds %struct.pmix_object_t, ptr %15, i32 0, i32 2
-  store i32 1, ptr %16, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.pmix_mca_base_alias_t, ptr %17, i32 0, i32 1
-  call void @pmix_obj_construct_tma(ptr noundef %18, ptr noundef null)
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.pmix_mca_base_alias_t, ptr %19, i32 0, i32 1
-  call void @pmix_obj_run_constructors(ptr noundef %20)
-  br label %21
-
-21:                                               ; preds = %10
+11:                                               ; preds = %10, %5
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds %struct.pmix_mca_base_alias_t, ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds %struct.pmix_object_t, ptr %13, i32 0, i32 1
+  store ptr @pmix_list_t_class, ptr %14, align 8
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds %struct.pmix_mca_base_alias_t, ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds %struct.pmix_object_t, ptr %16, i32 0, i32 2
+  store i32 1, ptr %17, align 8
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds %struct.pmix_mca_base_alias_t, ptr %18, i32 0, i32 1
+  call void @pmix_obj_construct_tma(ptr noundef %19, ptr noundef null)
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds %struct.pmix_mca_base_alias_t, ptr %20, i32 0, i32 1
+  call void @pmix_obj_run_constructors(ptr noundef %21)
   br label %22
 
-22:                                               ; preds = %21
+22:                                               ; preds = %11
   br label %23
 
 23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
   ret void
 }
 

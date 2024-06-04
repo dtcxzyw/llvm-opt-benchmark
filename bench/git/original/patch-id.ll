@@ -815,7 +815,8 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @hash_algos to i64)
+  %1 = ptrtoint ptr @hash_algos to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv

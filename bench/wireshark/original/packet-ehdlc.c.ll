@@ -169,12 +169,12 @@ define internal i32 @dissect_ehdlc(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void @col_clear(ptr noundef %29, i32 noundef 25)
   br label %30
 
-30:                                               ; preds = %273, %160, %139, %4
+30:                                               ; preds = %277, %161, %139, %4
   %31 = load ptr, ptr %5, align 8
   %32 = load i32, ptr %9, align 4
   %33 = call i32 @tvb_reported_length_remaining(ptr noundef %31, i32 noundef %32)
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %278
+  br i1 %34, label %35, label %282
 
 35:                                               ; preds = %30
   store ptr null, ptr %10, align 8
@@ -314,7 +314,7 @@ define internal i32 @dissect_ehdlc(ptr noundef %0, ptr noundef %1, ptr noundef %
   %136 = load i8, ptr %16, align 1
   %137 = zext i8 %136 to i32
   %138 = icmp eq i32 %137, 11
-  br i1 %138, label %139, label %156
+  br i1 %138, label %139, label %157
 
 139:                                              ; preds = %135, %131
   %140 = load ptr, ptr %5, align 8
@@ -325,198 +325,202 @@ define internal i32 @dissect_ehdlc(ptr noundef %0, ptr noundef %1, ptr noundef %
   %145 = sub i32 %144, 2
   %146 = call ptr @tvb_new_subset_length(ptr noundef %140, i32 noundef %142, i32 noundef %145)
   store ptr %146, ptr %19, align 8
-  %147 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 2), align 16
-  %148 = load ptr, ptr %19, align 8
-  %149 = load ptr, ptr %6, align 8
-  %150 = load ptr, ptr %7, align 8
-  %151 = call i32 @call_dissector(ptr noundef %147, ptr noundef %148, ptr noundef %149, ptr noundef %150)
-  %152 = load i16, ptr %12, align 2
-  %153 = zext i16 %152 to i32
-  %154 = load i32, ptr %9, align 4
-  %155 = add i32 %154, %153
-  store i32 %155, ptr %9, align 4
+  %147 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 2
+  %148 = load ptr, ptr %147, align 16
+  %149 = load ptr, ptr %19, align 8
+  %150 = load ptr, ptr %6, align 8
+  %151 = load ptr, ptr %7, align 8
+  %152 = call i32 @call_dissector(ptr noundef %148, ptr noundef %149, ptr noundef %150, ptr noundef %151)
+  %153 = load i16, ptr %12, align 2
+  %154 = zext i16 %153 to i32
+  %155 = load i32, ptr %9, align 4
+  %156 = add i32 %155, %154
+  store i32 %156, ptr %9, align 4
   br label %30, !llvm.loop !4
 
-156:                                              ; preds = %135
-  %157 = load i8, ptr %16, align 1
-  %158 = zext i8 %157 to i32
-  %159 = icmp eq i32 %158, 12
-  br i1 %159, label %160, label %177
+157:                                              ; preds = %135
+  %158 = load i8, ptr %16, align 1
+  %159 = zext i8 %158 to i32
+  %160 = icmp eq i32 %159, 12
+  br i1 %160, label %161, label %179
 
-160:                                              ; preds = %156
-  %161 = load ptr, ptr %5, align 8
-  %162 = load i32, ptr %9, align 4
-  %163 = add i32 %162, 2
-  %164 = load i16, ptr %12, align 2
-  %165 = zext i16 %164 to i32
-  %166 = sub i32 %165, 2
-  %167 = call ptr @tvb_new_subset_length(ptr noundef %161, i32 noundef %163, i32 noundef %166)
-  store ptr %167, ptr %19, align 8
-  %168 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 3), align 8
-  %169 = load ptr, ptr %19, align 8
-  %170 = load ptr, ptr %6, align 8
-  %171 = load ptr, ptr %7, align 8
-  %172 = call i32 @call_dissector(ptr noundef %168, ptr noundef %169, ptr noundef %170, ptr noundef %171)
-  %173 = load i16, ptr %12, align 2
-  %174 = zext i16 %173 to i32
-  %175 = load i32, ptr %9, align 4
-  %176 = add i32 %175, %174
-  store i32 %176, ptr %9, align 4
+161:                                              ; preds = %157
+  %162 = load ptr, ptr %5, align 8
+  %163 = load i32, ptr %9, align 4
+  %164 = add i32 %163, 2
+  %165 = load i16, ptr %12, align 2
+  %166 = zext i16 %165 to i32
+  %167 = sub i32 %166, 2
+  %168 = call ptr @tvb_new_subset_length(ptr noundef %162, i32 noundef %164, i32 noundef %167)
+  store ptr %168, ptr %19, align 8
+  %169 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 3
+  %170 = load ptr, ptr %169, align 8
+  %171 = load ptr, ptr %19, align 8
+  %172 = load ptr, ptr %6, align 8
+  %173 = load ptr, ptr %7, align 8
+  %174 = call i32 @call_dissector(ptr noundef %170, ptr noundef %171, ptr noundef %172, ptr noundef %173)
+  %175 = load i16, ptr %12, align 2
+  %176 = zext i16 %175 to i32
+  %177 = load i32, ptr %9, align 4
+  %178 = add i32 %177, %176
+  store i32 %178, ptr %9, align 4
   br label %30, !llvm.loop !4
 
-177:                                              ; preds = %156
-  br label %178
+179:                                              ; preds = %157
+  br label %180
 
-178:                                              ; preds = %177
-  %179 = load ptr, ptr %5, align 8
-  %180 = load i32, ptr %9, align 4
-  %181 = add i32 %180, 2
-  %182 = load ptr, ptr %6, align 8
-  %183 = load ptr, ptr %11, align 8
-  %184 = load i32, ptr @hf_ehdlc_control, align 4
-  %185 = load i32, ptr @ett_ehdlc_control, align 4
-  %186 = load i32, ptr %21, align 4
-  %187 = load i32, ptr %22, align 4
-  %188 = call i32 @dissect_xdlc_control(ptr noundef %179, i32 noundef %181, ptr noundef %182, ptr noundef %183, i32 noundef %184, i32 noundef %185, ptr noundef @ehdlc_cf_items, ptr noundef @ehdlc_cf_items_ext, ptr noundef null, ptr noundef null, i32 noundef %186, i32 noundef %187, i32 noundef 0)
-  %189 = trunc i32 %188 to i16
-  store i16 %189, ptr %20, align 2
-  %190 = load i16, ptr %20, align 2
-  %191 = zext i16 %190 to i32
-  %192 = and i32 %191, 3
-  %193 = icmp eq i32 %192, 3
-  br i1 %193, label %198, label %194
+180:                                              ; preds = %179
+  %181 = load ptr, ptr %5, align 8
+  %182 = load i32, ptr %9, align 4
+  %183 = add i32 %182, 2
+  %184 = load ptr, ptr %6, align 8
+  %185 = load ptr, ptr %11, align 8
+  %186 = load i32, ptr @hf_ehdlc_control, align 4
+  %187 = load i32, ptr @ett_ehdlc_control, align 4
+  %188 = load i32, ptr %21, align 4
+  %189 = load i32, ptr %22, align 4
+  %190 = call i32 @dissect_xdlc_control(ptr noundef %181, i32 noundef %183, ptr noundef %184, ptr noundef %185, i32 noundef %186, i32 noundef %187, ptr noundef @ehdlc_cf_items, ptr noundef @ehdlc_cf_items_ext, ptr noundef null, ptr noundef null, i32 noundef %188, i32 noundef %189, i32 noundef 0)
+  %191 = trunc i32 %190 to i16
+  store i16 %191, ptr %20, align 2
+  %192 = load i16, ptr %20, align 2
+  %193 = zext i16 %192 to i32
+  %194 = and i32 %193, 3
+  %195 = icmp eq i32 %194, 3
+  br i1 %195, label %200, label %196
 
-194:                                              ; preds = %178
-  %195 = load i32, ptr %22, align 4
-  %196 = icmp ne i32 %195, 0
-  %197 = xor i1 %196, true
-  br label %198
+196:                                              ; preds = %180
+  %197 = load i32, ptr %22, align 4
+  %198 = icmp ne i32 %197, 0
+  %199 = xor i1 %198, true
+  br label %200
 
-198:                                              ; preds = %194, %178
-  %199 = phi i1 [ true, %178 ], [ %197, %194 ]
-  %200 = select i1 %199, i32 1, i32 2
-  %201 = load i32, ptr %23, align 4
-  %202 = add i32 %201, %200
-  store i32 %202, ptr %23, align 4
-  %203 = load i16, ptr %20, align 2
-  %204 = zext i16 %203 to i32
-  %205 = and i32 %204, 1
-  %206 = icmp eq i32 %205, 0
-  br i1 %206, label %211, label %207
+200:                                              ; preds = %196, %180
+  %201 = phi i1 [ true, %180 ], [ %199, %196 ]
+  %202 = select i1 %201, i32 1, i32 2
+  %203 = load i32, ptr %23, align 4
+  %204 = add i32 %203, %202
+  store i32 %204, ptr %23, align 4
+  %205 = load i16, ptr %20, align 2
+  %206 = zext i16 %205 to i32
+  %207 = and i32 %206, 1
+  %208 = icmp eq i32 %207, 0
+  br i1 %208, label %213, label %209
 
-207:                                              ; preds = %198
-  %208 = load i16, ptr %20, align 2
-  %209 = zext i16 %208 to i32
-  %210 = icmp eq i32 %209, 3
-  br i1 %210, label %211, label %252
+209:                                              ; preds = %200
+  %210 = load i16, ptr %20, align 2
+  %211 = zext i16 %210 to i32
+  %212 = icmp eq i32 %211, 3
+  br i1 %212, label %213, label %256
 
-211:                                              ; preds = %207, %198
-  %212 = load ptr, ptr %5, align 8
-  %213 = load i32, ptr %9, align 4
-  %214 = load i32, ptr %23, align 4
-  %215 = add i32 %213, %214
-  %216 = load i16, ptr %12, align 2
-  %217 = zext i16 %216 to i32
-  %218 = load i32, ptr %23, align 4
-  %219 = sub i32 %217, %218
-  %220 = call ptr @tvb_new_subset_length(ptr noundef %212, i32 noundef %215, i32 noundef %219)
-  store ptr %220, ptr %19, align 8
-  %221 = load i8, ptr %16, align 1
-  %222 = zext i8 %221 to i32
-  switch i32 %222, label %245 [
-    i32 0, label %223
-    i32 62, label %234
+213:                                              ; preds = %209, %200
+  %214 = load ptr, ptr %5, align 8
+  %215 = load i32, ptr %9, align 4
+  %216 = load i32, ptr %23, align 4
+  %217 = add i32 %215, %216
+  %218 = load i16, ptr %12, align 2
+  %219 = zext i16 %218 to i32
+  %220 = load i32, ptr %23, align 4
+  %221 = sub i32 %219, %220
+  %222 = call ptr @tvb_new_subset_length(ptr noundef %214, i32 noundef %217, i32 noundef %221)
+  store ptr %222, ptr %19, align 8
+  %223 = load i8, ptr %16, align 1
+  %224 = zext i8 %223 to i32
+  switch i32 %224, label %248 [
+    i32 0, label %225
+    i32 62, label %236
   ]
 
-223:                                              ; preds = %211
-  %224 = load i16, ptr %12, align 2
-  %225 = zext i16 %224 to i32
-  %226 = icmp sle i32 %225, 4
-  br i1 %226, label %227, label %228
+225:                                              ; preds = %213
+  %226 = load i16, ptr %12, align 2
+  %227 = zext i16 %226 to i32
+  %228 = icmp sle i32 %227, 4
+  br i1 %228, label %229, label %230
 
-227:                                              ; preds = %223
-  br label %251
+229:                                              ; preds = %225
+  br label %255
 
-228:                                              ; preds = %223
-  %229 = load ptr, ptr @sub_handles, align 16
-  %230 = load ptr, ptr %19, align 8
-  %231 = load ptr, ptr %6, align 8
-  %232 = load ptr, ptr %7, align 8
-  %233 = call i32 @call_dissector(ptr noundef %229, ptr noundef %230, ptr noundef %231, ptr noundef %232)
-  br label %251
+230:                                              ; preds = %225
+  %231 = load ptr, ptr @sub_handles, align 16
+  %232 = load ptr, ptr %19, align 8
+  %233 = load ptr, ptr %6, align 8
+  %234 = load ptr, ptr %7, align 8
+  %235 = call i32 @call_dissector(ptr noundef %231, ptr noundef %232, ptr noundef %233, ptr noundef %234)
+  br label %255
 
-234:                                              ; preds = %211
-  %235 = load i16, ptr %12, align 2
-  %236 = zext i16 %235 to i32
-  %237 = icmp sle i32 %236, 4
-  br i1 %237, label %238, label %239
+236:                                              ; preds = %213
+  %237 = load i16, ptr %12, align 2
+  %238 = zext i16 %237 to i32
+  %239 = icmp sle i32 %238, 4
+  br i1 %239, label %240, label %241
 
-238:                                              ; preds = %234
-  br label %251
+240:                                              ; preds = %236
+  br label %255
 
-239:                                              ; preds = %234
-  %240 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 1), align 8
-  %241 = load ptr, ptr %19, align 8
-  %242 = load ptr, ptr %6, align 8
-  %243 = load ptr, ptr %7, align 8
-  %244 = call i32 @call_dissector(ptr noundef %240, ptr noundef %241, ptr noundef %242, ptr noundef %243)
-  br label %251
+241:                                              ; preds = %236
+  %242 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 1
+  %243 = load ptr, ptr %242, align 8
+  %244 = load ptr, ptr %19, align 8
+  %245 = load ptr, ptr %6, align 8
+  %246 = load ptr, ptr %7, align 8
+  %247 = call i32 @call_dissector(ptr noundef %243, ptr noundef %244, ptr noundef %245, ptr noundef %246)
+  br label %255
 
-245:                                              ; preds = %211
-  %246 = load ptr, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 4), align 16
-  %247 = load ptr, ptr %19, align 8
-  %248 = load ptr, ptr %6, align 8
-  %249 = load ptr, ptr %7, align 8
-  %250 = call i32 @call_dissector(ptr noundef %246, ptr noundef %247, ptr noundef %248, ptr noundef %249)
-  br label %251
+248:                                              ; preds = %213
+  %249 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 4
+  %250 = load ptr, ptr %249, align 16
+  %251 = load ptr, ptr %19, align 8
+  %252 = load ptr, ptr %6, align 8
+  %253 = load ptr, ptr %7, align 8
+  %254 = call i32 @call_dissector(ptr noundef %250, ptr noundef %251, ptr noundef %252, ptr noundef %253)
+  br label %255
 
-251:                                              ; preds = %245, %239, %238, %228, %227
-  br label %268
+255:                                              ; preds = %248, %241, %240, %230, %229
+  br label %272
 
-252:                                              ; preds = %207
-  %253 = load i16, ptr %20, align 2
-  %254 = zext i16 %253 to i32
-  %255 = icmp eq i32 %254, 175
-  br i1 %255, label %256, label %267
+256:                                              ; preds = %209
+  %257 = load i16, ptr %20, align 2
+  %258 = zext i16 %257 to i32
+  %259 = icmp eq i32 %258, 175
+  br i1 %259, label %260, label %271
 
-256:                                              ; preds = %252
-  %257 = load ptr, ptr %11, align 8
-  %258 = load ptr, ptr %5, align 8
-  %259 = load i32, ptr %9, align 4
-  %260 = load i32, ptr %23, align 4
-  %261 = add i32 %259, %260
-  %262 = load i16, ptr %12, align 2
-  %263 = zext i16 %262 to i32
+260:                                              ; preds = %256
+  %261 = load ptr, ptr %11, align 8
+  %262 = load ptr, ptr %5, align 8
+  %263 = load i32, ptr %9, align 4
   %264 = load i32, ptr %23, align 4
-  %265 = sub i32 %263, %264
-  %266 = call i32 @dissect_ehdlc_xid(ptr noundef %257, ptr noundef %258, i32 noundef %261, i32 noundef %265)
-  br label %267
+  %265 = add i32 %263, %264
+  %266 = load i16, ptr %12, align 2
+  %267 = zext i16 %266 to i32
+  %268 = load i32, ptr %23, align 4
+  %269 = sub i32 %267, %268
+  %270 = call i32 @dissect_ehdlc_xid(ptr noundef %261, ptr noundef %262, i32 noundef %265, i32 noundef %269)
+  br label %271
 
-267:                                              ; preds = %256, %252
-  br label %268
+271:                                              ; preds = %260, %256
+  br label %272
 
-268:                                              ; preds = %267, %251
-  %269 = load i16, ptr %12, align 2
-  %270 = zext i16 %269 to i32
-  %271 = icmp eq i32 %270, 0
-  br i1 %271, label %272, label %273
+272:                                              ; preds = %271, %255
+  %273 = load i16, ptr %12, align 2
+  %274 = zext i16 %273 to i32
+  %275 = icmp eq i32 %274, 0
+  br i1 %275, label %276, label %277
 
-272:                                              ; preds = %268
+276:                                              ; preds = %272
   store i16 1, ptr %12, align 2
-  br label %273
+  br label %277
 
-273:                                              ; preds = %272, %268
-  %274 = load i16, ptr %12, align 2
-  %275 = zext i16 %274 to i32
-  %276 = load i32, ptr %9, align 4
-  %277 = add i32 %276, %275
-  store i32 %277, ptr %9, align 4
+277:                                              ; preds = %276, %272
+  %278 = load i16, ptr %12, align 2
+  %279 = zext i16 %278 to i32
+  %280 = load i32, ptr %9, align 4
+  %281 = add i32 %280, %279
+  store i32 %281, ptr %9, align 4
   br label %30, !llvm.loop !4
 
-278:                                              ; preds = %30
-  %279 = load ptr, ptr %5, align 8
-  %280 = call i32 @tvb_captured_length(ptr noundef %279)
-  ret i32 %280
+282:                                              ; preds = %30
+  %283 = load ptr, ptr %5, align 8
+  %284 = call i32 @tvb_captured_length(ptr noundef %283)
+  ret i32 %284
 }
 
 ; Function Attrs: nounwind uwtable
@@ -526,17 +530,21 @@ define hidden void @proto_reg_handoff_ehdlc() #0 {
   store ptr %2, ptr @sub_handles, align 16
   %3 = load i32, ptr @proto_ehdlc, align 4
   %4 = call ptr @find_dissector_add_dependency(ptr noundef @.str.49, i32 noundef %3)
-  store ptr %4, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 1), align 8
-  %5 = load i32, ptr @proto_ehdlc, align 4
-  %6 = call ptr @find_dissector_add_dependency(ptr noundef @.str.50, i32 noundef %5)
-  store ptr %6, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 2), align 16
-  %7 = load i32, ptr @proto_ehdlc, align 4
-  %8 = call ptr @find_dissector_add_dependency(ptr noundef @.str.51, i32 noundef %7)
-  store ptr %8, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 3), align 8
-  %9 = call ptr @find_dissector(ptr noundef @.str.52)
-  store ptr %9, ptr getelementptr inbounds ([5 x ptr], ptr @sub_handles, i64 0, i64 4), align 16
-  %10 = load ptr, ptr @ehdlc_handle, align 8
-  call void @dissector_add_for_decode_as(ptr noundef @.str.53, ptr noundef %10)
+  %5 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 1
+  store ptr %4, ptr %5, align 8
+  %6 = load i32, ptr @proto_ehdlc, align 4
+  %7 = call ptr @find_dissector_add_dependency(ptr noundef @.str.50, i32 noundef %6)
+  %8 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 2
+  store ptr %7, ptr %8, align 16
+  %9 = load i32, ptr @proto_ehdlc, align 4
+  %10 = call ptr @find_dissector_add_dependency(ptr noundef @.str.51, i32 noundef %9)
+  %11 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 3
+  store ptr %10, ptr %11, align 8
+  %12 = call ptr @find_dissector(ptr noundef @.str.52)
+  %13 = getelementptr inbounds [5 x ptr], ptr @sub_handles, i64 0, i64 4
+  store ptr %12, ptr %13, align 16
+  %14 = load ptr, ptr @ehdlc_handle, align 8
+  call void @dissector_add_for_decode_as(ptr noundef @.str.53, ptr noundef %14)
   ret void
 }
 

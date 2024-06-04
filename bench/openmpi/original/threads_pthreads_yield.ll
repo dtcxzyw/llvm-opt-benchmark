@@ -77,25 +77,27 @@ define i32 @opal_threads_pthreads_yield_init(ptr noundef %0) #0 {
 25:                                               ; preds = %24
   %26 = load i64, ptr @yield_nsleep_time, align 8
   %27 = sitofp i64 %26 to double
-  %28 = load i64, ptr getelementptr inbounds (%struct.timespec, ptr @yield_nsleep_time, i32 0, i32 1), align 8
-  %29 = sitofp i64 %28 to double
-  %30 = call double @llvm.fmuladd.f64(double %27, double 1.000000e+09, double %29)
-  %31 = fptoui double %30 to i64
-  store i64 %31, ptr @yield_nsleep_nanosecs, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = call i32 @mca_base_component_var_register(ptr noundef %32, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 13, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, ptr noundef @yield_nsleep_nanosecs)
-  %34 = load i64, ptr @yield_nsleep_nanosecs, align 8
-  %35 = uitofp i64 %34 to double
-  %36 = fdiv double %35, 1.000000e+09
-  %37 = fptosi double %36 to i64
-  store i64 %37, ptr @yield_nsleep_time, align 8
-  %38 = load i64, ptr @yield_nsleep_nanosecs, align 8
-  %39 = load i64, ptr @yield_nsleep_time, align 8
-  %40 = sitofp i64 %39 to double
-  %41 = fmul double %40, 1.000000e+09
-  %42 = fptoui double %41 to i64
-  %43 = sub i64 %38, %42
-  store i64 %43, ptr getelementptr inbounds (%struct.timespec, ptr @yield_nsleep_time, i32 0, i32 1), align 8
+  %28 = getelementptr inbounds %struct.timespec, ptr @yield_nsleep_time, i32 0, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = sitofp i64 %29 to double
+  %31 = call double @llvm.fmuladd.f64(double %27, double 1.000000e+09, double %30)
+  %32 = fptoui double %31 to i64
+  store i64 %32, ptr @yield_nsleep_nanosecs, align 8
+  %33 = load ptr, ptr %4, align 8
+  %34 = call i32 @mca_base_component_var_register(ptr noundef %33, ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 13, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, ptr noundef @yield_nsleep_nanosecs)
+  %35 = load i64, ptr @yield_nsleep_nanosecs, align 8
+  %36 = uitofp i64 %35 to double
+  %37 = fdiv double %36, 1.000000e+09
+  %38 = fptosi double %37 to i64
+  store i64 %38, ptr @yield_nsleep_time, align 8
+  %39 = load i64, ptr @yield_nsleep_nanosecs, align 8
+  %40 = load i64, ptr @yield_nsleep_time, align 8
+  %41 = sitofp i64 %40 to double
+  %42 = fmul double %41, 1.000000e+09
+  %43 = fptoui double %42 to i64
+  %44 = sub i64 %39, %43
+  %45 = getelementptr inbounds %struct.timespec, ptr @yield_nsleep_time, i32 0, i32 1
+  store i64 %44, ptr %45, align 8
   ret i32 0
 }
 

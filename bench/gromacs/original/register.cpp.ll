@@ -491,46 +491,47 @@ define void @_ZN3gmx22ProcessFrameConversionC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN3gmx15IFrameConverterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx22ProcessFrameConversionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorIN3gmx22ProcessFrameConversion11FrameModuleESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #10
-  %7 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %5, i32 0, i32 2
-  call void @_ZNSt10unique_ptrI10t_trxframeSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
-  %8 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %5, i32 0, i32 3
-  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
-  %9 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %5, i32 0, i32 4
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx22ProcessFrameConversionE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorIN3gmx22ProcessFrameConversion11FrameModuleESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
+  %8 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %5, i32 0, i32 2
+  call void @_ZNSt10unique_ptrI10t_trxframeSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #10
+  %9 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %5, i32 0, i32 3
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
-  %10 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %5, i32 0, i32 5
+  %10 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %5, i32 0, i32 4
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #10
-  %11 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %5, i32 0, i32 6
-  %12 = invoke noundef i64 @_ZN3gmx11convertFlagENS_19FrameConverterFlagsE(i64 noundef 1)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %1
-  store i64 %12, ptr %11, align 8
-  ret void
+  %11 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %5, i32 0, i32 5
+  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #10
+  %12 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %5, i32 0, i32 6
+  %13 = invoke noundef i64 @_ZN3gmx11convertFlagENS_19FrameConverterFlagsE(i64 noundef 1)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %1
-  %15 = landingpad { ptr, i32 }
+  store i64 %13, ptr %12, align 8
+  ret void
+
+15:                                               ; preds = %1
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %3, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %4, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %3, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %4, align 4
+  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #10
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #10
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
-  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
-  call void @_ZNSt10unique_ptrI10t_trxframeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
-  call void @_ZNSt6vectorIN3gmx22ProcessFrameConversion11FrameModuleESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #10
+  call void @_ZNSt10unique_ptrI10t_trxframeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #10
+  call void @_ZNSt6vectorIN3gmx22ProcessFrameConversion11FrameModuleESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
   call void @_ZN3gmx15IFrameConverterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  br label %18
+  br label %19
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %3, align 8
-  %20 = load i32, ptr %4, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %3, align 8
+  %21 = load i32, ptr %4, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -538,7 +539,8 @@ define linkonce_odr void @_ZN3gmx15IFrameConverterC2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx15IFrameConverterE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx15IFrameConverterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1515,17 +1517,18 @@ define void @_ZN3gmx22ProcessFrameConversionD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx22ProcessFrameConversionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
-  %5 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx22ProcessFrameConversionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
-  %6 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %3, i32 0, i32 3
+  %6 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #10
-  %7 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrI10t_trxframeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
-  %8 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN3gmx22ProcessFrameConversion11FrameModuleESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
+  %7 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
+  %8 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrI10t_trxframeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #10
+  %9 = getelementptr inbounds %"class.gmx::ProcessFrameConversion", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN3gmx22ProcessFrameConversion11FrameModuleESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
   call void @_ZN3gmx15IFrameConverterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret void
 }

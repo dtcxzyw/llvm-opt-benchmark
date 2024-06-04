@@ -1525,34 +1525,35 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %options.addr, align 8
   call void @_ZN6google8protobuf8compiler6csharp19SourceGeneratorBaseC2EPKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp24ReflectionClassGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp24ReflectionClassGeneratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %file_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::ReflectionClassGenerator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %file.addr, align 8
-  store ptr %1, ptr %file_, align 8
+  %2 = load ptr, ptr %file.addr, align 8
+  store ptr %2, ptr %file_, align 8
   %namespace_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::ReflectionClassGenerator", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %namespace_) #3
   %reflectionClassname_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::ReflectionClassGenerator", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %reflectionClassname_) #3
   %extensionClassname_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::ReflectionClassGenerator", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extensionClassname_) #3
-  %2 = load ptr, ptr %file.addr, align 8
-  invoke void @_ZN6google8protobuf8compiler6csharp16GetFileNamespaceB5cxx11EPKNS0_14FileDescriptorE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %2)
+  %3 = load ptr, ptr %file.addr, align 8
+  invoke void @_ZN6google8protobuf8compiler6csharp16GetFileNamespaceB5cxx11EPKNS0_14FileDescriptorE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %namespace_2 = getelementptr inbounds %"class.google::protobuf::compiler::csharp::ReflectionClassGenerator", ptr %this1, i32 0, i32 2
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %namespace_2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
-  %3 = load ptr, ptr %file.addr, align 8
-  invoke void @_ZN6google8protobuf8compiler6csharp33GetReflectionClassUnqualifiedNameB5cxx11EPKNS0_14FileDescriptorE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef %3)
+  %4 = load ptr, ptr %file.addr, align 8
+  invoke void @_ZN6google8protobuf8compiler6csharp33GetReflectionClassUnqualifiedNameB5cxx11EPKNS0_14FileDescriptorE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef %4)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %reflectionClassname_5 = getelementptr inbounds %"class.google::protobuf::compiler::csharp::ReflectionClassGenerator", ptr %this1, i32 0, i32 3
   %call6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reflectionClassname_5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #3
-  %4 = load ptr, ptr %file.addr, align 8
-  invoke void @_ZN6google8protobuf8compiler6csharp32GetExtensionClassUnqualifiedNameB5cxx11EPKNS0_14FileDescriptorE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, ptr noundef %4)
+  %5 = load ptr, ptr %file.addr, align 8
+  invoke void @_ZN6google8protobuf8compiler6csharp32GetExtensionClassUnqualifiedNameB5cxx11EPKNS0_14FileDescriptorE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, ptr noundef %5)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
@@ -1562,12 +1563,12 @@ invoke.cont8:                                     ; preds = %invoke.cont4
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extensionClassname_) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %reflectionClassname_) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %namespace_) #3
@@ -1610,7 +1611,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp24ReflectionClassGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp24ReflectionClassGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %extensionClassname_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::ReflectionClassGenerator", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extensionClassname_) #3
   %reflectionClassname_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::ReflectionClassGenerator", ptr %this1, i32 0, i32 3
@@ -5466,7 +5468,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7217,7 +7220,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 

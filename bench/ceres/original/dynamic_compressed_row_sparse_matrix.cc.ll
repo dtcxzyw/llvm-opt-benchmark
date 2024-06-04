@@ -686,45 +686,46 @@ define hidden void @_ZN5ceres8internal32DynamicCompressedRowSparseMatrixC2Eiii(p
   %13 = load i32, ptr %7, align 4
   %14 = load i32, ptr %8, align 4
   call void @_ZN5ceres8internal25CompressedRowSparseMatrixC2Eiii(ptr noundef nonnull align 8 dereferenceable(144) %11, i32 noundef %12, i32 noundef %13, i32 noundef %14)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal32DynamicCompressedRowSparseMatrixE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"class.ceres::internal::DynamicCompressedRowSparseMatrix", ptr %11, i32 0, i32 1
-  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
-  %16 = getelementptr inbounds %"class.ceres::internal::DynamicCompressedRowSparseMatrix", ptr %11, i32 0, i32 2
-  call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
-  %17 = getelementptr inbounds %"class.ceres::internal::DynamicCompressedRowSparseMatrix", ptr %11, i32 0, i32 1
-  %18 = load i32, ptr %6, align 4
-  %19 = sext i32 %18 to i64
-  invoke void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %19)
-          to label %20 unwind label %25
+  %15 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5ceres8internal32DynamicCompressedRowSparseMatrixE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.ceres::internal::DynamicCompressedRowSparseMatrix", ptr %11, i32 0, i32 1
+  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
+  %17 = getelementptr inbounds %"class.ceres::internal::DynamicCompressedRowSparseMatrix", ptr %11, i32 0, i32 2
+  call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
+  %18 = getelementptr inbounds %"class.ceres::internal::DynamicCompressedRowSparseMatrix", ptr %11, i32 0, i32 1
+  %19 = load i32, ptr %6, align 4
+  %20 = sext i32 %19 to i64
+  invoke void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %20)
+          to label %21 unwind label %26
 
-20:                                               ; preds = %4
-  %21 = getelementptr inbounds %"class.ceres::internal::DynamicCompressedRowSparseMatrix", ptr %11, i32 0, i32 2
-  %22 = load i32, ptr %6, align 4
-  %23 = sext i32 %22 to i64
-  invoke void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %23)
-          to label %24 unwind label %25
+21:                                               ; preds = %4
+  %22 = getelementptr inbounds %"class.ceres::internal::DynamicCompressedRowSparseMatrix", ptr %11, i32 0, i32 2
+  %23 = load i32, ptr %6, align 4
+  %24 = sext i32 %23 to i64
+  invoke void @_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %24)
+          to label %25 unwind label %26
 
-24:                                               ; preds = %20
+25:                                               ; preds = %21
   ret void
 
-25:                                               ; preds = %20, %4
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %21, %4
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %9, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %10, align 4
-  call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
-  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %9, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %10, align 4
+  call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #13
+  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #13
   call void @_ZN5ceres8internal25CompressedRowSparseMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %11) #13
-  br label %29
+  br label %30
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %9, align 8
-  %31 = load i32, ptr %10, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %9, align 8
+  %32 = load i32, ptr %10, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 declare void @_ZN5ceres8internal25CompressedRowSparseMatrixC2Eiii(ptr noundef nonnull align 8 dereferenceable(144), i32 noundef, i32 noundef, i32 noundef) unnamed_addr #3

@@ -874,12 +874,14 @@ entry:
   call void @_ZN3net15QuicSpdySessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2057) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %2 = getelementptr inbounds i8, ptr %this1, i64 2064
   call void @_ZN3net22QuicCryptoClientStream12ProofHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
-  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 2064
-  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %push_promise_index_ = getelementptr inbounds %"class.net::QuicClientSessionBase", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %push_promise_index.addr, align 8
-  store ptr %3, ptr %push_promise_index_, align 8
+  %5 = load ptr, ptr %push_promise_index.addr, align 8
+  store ptr %5, ptr %push_promise_index_, align 8
   %promised_by_id_ = getelementptr inbounds %"class.net::QuicClientSessionBase", ptr %this1, i32 0, i32 4
   call void @_ZNSt13unordered_mapIjSt10unique_ptrIN3net22QuicClientPromisedInfoESt14default_deleteIS2_EESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %promised_by_id_) #12
   %largest_promised_stream_id_ = getelementptr inbounds %"class.net::QuicClientSessionBase", ptr %this1, i32 0, i32 5
@@ -895,7 +897,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStream12ProofHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStream12ProofHandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -921,18 +924,20 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 2064
-  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %promised_by_id_ = getelementptr inbounds %"class.net::QuicClientSessionBase", ptr %this1, i32 0, i32 4
   store ptr %promised_by_id_, ptr %__range1, align 8
-  %0 = load ptr, ptr %__range1, align 8
-  %call = call ptr @_ZNSt13unordered_mapIjSt10unique_ptrIN3net22QuicClientPromisedInfoESt14default_deleteIS2_EESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
+  %2 = load ptr, ptr %__range1, align 8
+  %call = call ptr @_ZNSt13unordered_mapIjSt10unique_ptrIN3net22QuicClientPromisedInfoESt14default_deleteIS2_EESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #12
   %coerce.dive = getelementptr inbounds %"struct.std::__detail::_Node_iterator", ptr %__begin1, i32 0, i32 0
   %coerce.dive2 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %coerce.dive, i32 0, i32 0
   store ptr %call, ptr %coerce.dive2, align 8
-  %1 = load ptr, ptr %__range1, align 8
-  %call3 = call ptr @_ZNSt13unordered_mapIjSt10unique_ptrIN3net22QuicClientPromisedInfoESt14default_deleteIS2_EESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
+  %3 = load ptr, ptr %__range1, align 8
+  %call3 = call ptr @_ZNSt13unordered_mapIjSt10unique_ptrIN3net22QuicClientPromisedInfoESt14default_deleteIS2_EESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #12
   %coerce.dive4 = getelementptr inbounds %"struct.std::__detail::_Node_iterator", ptr %__end1, i32 0, i32 0
   %coerce.dive5 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %coerce.dive4, i32 0, i32 0
   store ptr %call3, ptr %coerce.dive5, align 8
@@ -946,13 +951,13 @@ for.body:                                         ; preds = %for.cond
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8__detail14_Node_iteratorISt4pairIKjSt10unique_ptrIN3net22QuicClientPromisedInfoESt14default_deleteIS5_EEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin1) #12
   store ptr %call7, ptr %it, align 8
   %push_promise_index_ = getelementptr inbounds %"class.net::QuicClientSessionBase", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %push_promise_index_, align 8
-  %call8 = invoke noundef ptr @_ZN3net26QuicClientPushPromiseIndex15promised_by_urlB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
+  %4 = load ptr, ptr %push_promise_index_, align 8
+  %call8 = invoke noundef ptr @_ZN3net26QuicClientPushPromiseIndex15promised_by_urlB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(64) %4)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %for.body
-  %3 = load ptr, ptr %it, align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %it, align 8
+  %second = getelementptr inbounds %"struct.std::pair", ptr %5, i32 0, i32 1
   %call9 = call noundef ptr @_ZNKSt10unique_ptrIN3net22QuicClientPromisedInfoESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %second) #12
   invoke void @_ZNK3net22QuicClientPromisedInfo3urlB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(96) %call9)
           to label %invoke.cont10 unwind label %terminate.lpad
@@ -980,23 +985,23 @@ invoke.cont14:                                    ; preds = %for.end
 delete.notnull:                                   ; preds = %invoke.cont14
   %vtable = load ptr, ptr %call15, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %4 = load ptr, ptr %vfn, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(3372) %call15) #12
+  %6 = load ptr, ptr %vfn, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(3372) %call15) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont14
   %promised_by_id_16 = getelementptr inbounds %"class.net::QuicClientSessionBase", ptr %this1, i32 0, i32 4
   call void @_ZNSt13unordered_mapIjSt10unique_ptrIN3net22QuicClientPromisedInfoESt14default_deleteIS2_EESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %promised_by_id_16) #12
-  %5 = getelementptr inbounds i8, ptr %this1, i64 2064
-  call void @_ZN3net22QuicCryptoClientStream12ProofHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %7 = getelementptr inbounds i8, ptr %this1, i64 2064
+  call void @_ZN3net22QuicCryptoClientStream12ProofHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
   call void @_ZN3net15QuicSpdySessionD2Ev(ptr noundef nonnull align 8 dereferenceable(2057) %this1) #12
   ret void
 
 terminate.lpad:                                   ; preds = %for.end, %invoke.cont10, %invoke.cont, %for.body
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #13
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #13
   unreachable
 }
 

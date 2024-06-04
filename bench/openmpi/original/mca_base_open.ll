@@ -72,138 +72,139 @@ define i32 @mca_base_open() #0 {
 
 11:                                               ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %80
+  br label %81
 
 12:                                               ; preds = %0
-  %13 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15), align 8
-  %14 = call noalias ptr @strdup(ptr noundef %13) #5
-  store ptr %14, ptr @mca_base_system_default_path, align 8
-  %15 = call ptr @opal_home_directory()
-  %16 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef @mca_base_user_default_path, ptr noundef @.str, ptr noundef %15)
-  %17 = load ptr, ptr @mca_base_user_default_path, align 8
-  %18 = icmp eq ptr null, %17
-  br i1 %18, label %19, label %22
+  %13 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 15
+  %14 = load ptr, ptr %13, align 8
+  %15 = call noalias ptr @strdup(ptr noundef %14) #5
+  store ptr %15, ptr @mca_base_system_default_path, align 8
+  %16 = call ptr @opal_home_directory()
+  %17 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef @mca_base_user_default_path, ptr noundef @.str, ptr noundef %16)
+  %18 = load ptr, ptr @mca_base_user_default_path, align 8
+  %19 = icmp eq ptr null, %18
+  br i1 %19, label %20, label %23
 
-19:                                               ; preds = %12
-  %20 = load ptr, ptr @mca_base_system_default_path, align 8
-  %21 = call noalias ptr @strdup(ptr noundef %20) #5
-  store ptr %21, ptr %2, align 8
-  br label %26
+20:                                               ; preds = %12
+  %21 = load ptr, ptr @mca_base_system_default_path, align 8
+  %22 = call noalias ptr @strdup(ptr noundef %21) #5
+  store ptr %22, ptr %2, align 8
+  br label %27
 
-22:                                               ; preds = %12
-  %23 = load ptr, ptr @mca_base_system_default_path, align 8
-  %24 = load ptr, ptr @mca_base_user_default_path, align 8
-  %25 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %2, ptr noundef @.str.1, ptr noundef %23, i32 noundef 58, ptr noundef %24)
-  br label %26
+23:                                               ; preds = %12
+  %24 = load ptr, ptr @mca_base_system_default_path, align 8
+  %25 = load ptr, ptr @mca_base_user_default_path, align 8
+  %26 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %2, ptr noundef @.str.1, ptr noundef %24, i32 noundef 58, ptr noundef %25)
+  br label %27
 
-26:                                               ; preds = %22, %19
-  %27 = load ptr, ptr %2, align 8
-  store ptr %27, ptr @mca_base_component_path, align 8
-  %28 = call i32 @mca_base_var_register(ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_base_component_path)
-  store i32 %28, ptr %5, align 4
-  %29 = load i32, ptr %5, align 4
-  %30 = call i32 @mca_base_var_register_synonym(i32 noundef %29, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef null, ptr noundef @.str.5, i32 noundef 1)
-  %31 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %31) #5
+27:                                               ; preds = %23, %20
+  %28 = load ptr, ptr %2, align 8
+  store ptr %28, ptr @mca_base_component_path, align 8
+  %29 = call i32 @mca_base_var_register(ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_base_component_path)
+  store i32 %29, ptr %5, align 4
+  %30 = load i32, ptr %5, align 4
+  %31 = call i32 @mca_base_var_register_synonym(i32 noundef %30, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef null, ptr noundef @.str.5, i32 noundef 1)
+  %32 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %32) #5
   store ptr @.str.7, ptr @mca_base_component_show_load_errors, align 8
-  %32 = call i32 @mca_base_var_register(ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_base_component_show_load_errors)
-  store i32 %32, ptr %5, align 4
-  %33 = load i32, ptr %5, align 4
-  %34 = call i32 @mca_base_var_register_synonym(i32 noundef %33, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef null, ptr noundef @.str.8, i32 noundef 1)
-  %35 = call i32 @mca_base_show_load_errors_init()
-  store i32 %35, ptr %6, align 4
-  %36 = load i32, ptr %6, align 4
-  %37 = icmp ne i32 0, %36
-  br i1 %37, label %38, label %40
+  %33 = call i32 @mca_base_var_register(ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_base_component_show_load_errors)
+  store i32 %33, ptr %5, align 4
+  %34 = load i32, ptr %5, align 4
+  %35 = call i32 @mca_base_var_register_synonym(i32 noundef %34, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef null, ptr noundef @.str.8, i32 noundef 1)
+  %36 = call i32 @mca_base_show_load_errors_init()
+  store i32 %36, ptr %6, align 4
+  %37 = load i32, ptr %6, align 4
+  %38 = icmp ne i32 0, %37
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %26
-  %39 = load i32, ptr %6, align 4
-  store i32 %39, ptr %1, align 4
-  br label %80
+39:                                               ; preds = %27
+  %40 = load i32, ptr %6, align 4
+  store i32 %40, ptr %1, align 4
+  br label %81
 
-40:                                               ; preds = %26
+41:                                               ; preds = %27
   store i8 0, ptr @mca_base_component_track_load_errors, align 1
-  %41 = call i32 @mca_base_var_register(ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_base_component_track_load_errors)
-  store i32 %41, ptr %5, align 4
-  store i8 0, ptr @mca_base_component_disable_dlopen, align 1
-  %42 = call i32 @mca_base_var_register(ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_base_component_disable_dlopen)
+  %42 = call i32 @mca_base_var_register(ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_base_component_track_load_errors)
   store i32 %42, ptr %5, align 4
-  %43 = load i32, ptr %5, align 4
-  %44 = call i32 @mca_base_var_register_synonym(i32 noundef %43, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef null, ptr noundef @.str.12, i32 noundef 1)
-  %45 = call ptr @getenv(ptr noundef @.str.14) #5
-  store ptr %45, ptr %7, align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = icmp ne ptr null, %46
-  br i1 %47, label %48, label %55
+  store i8 0, ptr @mca_base_component_disable_dlopen, align 1
+  %43 = call i32 @mca_base_var_register(ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_base_component_disable_dlopen)
+  store i32 %43, ptr %5, align 4
+  %44 = load i32, ptr %5, align 4
+  %45 = call i32 @mca_base_var_register_synonym(i32 noundef %44, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef null, ptr noundef @.str.12, i32 noundef 1)
+  %46 = call ptr @getenv(ptr noundef @.str.14) #5
+  store ptr %46, ptr %7, align 8
+  %47 = load ptr, ptr %7, align 8
+  %48 = icmp ne ptr null, %47
+  br i1 %48, label %49, label %56
 
-48:                                               ; preds = %40
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 0
-  %51 = load i8, ptr %50, align 1
-  %52 = sext i8 %51 to i32
-  %53 = icmp eq i32 %52, 49
-  br i1 %53, label %54, label %55
+49:                                               ; preds = %41
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 0
+  %52 = load i8, ptr %51, align 1
+  %53 = sext i8 %52 to i32
+  %54 = icmp eq i32 %53, 49
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %48
+55:                                               ; preds = %49
   store ptr @.str.15, ptr @mca_base_verbose, align 8
-  br label %56
+  br label %57
 
-55:                                               ; preds = %48, %40
+56:                                               ; preds = %49, %41
   store ptr @.str.16, ptr @mca_base_verbose, align 8
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %54
-  %57 = call i32 @mca_base_var_register(ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_base_verbose)
-  store i32 %57, ptr %5, align 4
-  %58 = load i32, ptr %5, align 4
-  %59 = call i32 @mca_base_var_register_synonym(i32 noundef %58, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef null, ptr noundef @.str.17, i32 noundef 1)
+57:                                               ; preds = %56, %55
+  %58 = call i32 @mca_base_var_register(ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.17, ptr noundef @.str.18, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef @mca_base_verbose)
+  store i32 %58, ptr %5, align 4
+  %59 = load i32, ptr %5, align 4
+  %60 = call i32 @mca_base_var_register_synonym(i32 noundef %59, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef null, ptr noundef @.str.17, i32 noundef 1)
   call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 64, i1 false)
-  %60 = load ptr, ptr @mca_base_verbose, align 8
-  %61 = icmp ne ptr null, %60
-  br i1 %61, label %62, label %64
+  %61 = load ptr, ptr @mca_base_verbose, align 8
+  %62 = icmp ne ptr null, %61
+  br i1 %62, label %63, label %65
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr @mca_base_verbose, align 8
-  call void @parse_verbose(ptr noundef %63, ptr noundef %3)
-  br label %65
+63:                                               ; preds = %57
+  %64 = load ptr, ptr @mca_base_verbose, align 8
+  call void @parse_verbose(ptr noundef %64, ptr noundef %3)
+  br label %66
 
-64:                                               ; preds = %56
+65:                                               ; preds = %57
   call void @set_defaults(ptr noundef %3)
-  br label %65
+  br label %66
 
-65:                                               ; preds = %64, %62
-  %66 = call ptr @opal_gethostname()
-  store ptr %66, ptr %4, align 8
-  %67 = getelementptr inbounds %struct.opal_output_stream_t, ptr %3, i32 0, i32 4
-  %68 = load ptr, ptr %4, align 8
-  %69 = call i32 @getpid() #5
-  %70 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %67, ptr noundef @.str.19, ptr noundef %68, i32 noundef %69)
-  %71 = call i32 @opal_output_reopen(i32 noundef 0, ptr noundef %3)
-  br label %72
+66:                                               ; preds = %65, %63
+  %67 = call ptr @opal_gethostname()
+  store ptr %67, ptr %4, align 8
+  %68 = getelementptr inbounds %struct.opal_output_stream_t, ptr %3, i32 0, i32 4
+  %69 = load ptr, ptr %4, align 8
+  %70 = call i32 @getpid() #5
+  %71 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %68, ptr noundef @.str.19, ptr noundef %69, i32 noundef %70)
+  %72 = call i32 @opal_output_reopen(i32 noundef 0, ptr noundef %3)
+  br label %73
 
-72:                                               ; preds = %65
-  %73 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef 0)
-  br i1 %73, label %74, label %75
+73:                                               ; preds = %66
+  %74 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef 0)
+  br i1 %74, label %75, label %76
 
-74:                                               ; preds = %72
+75:                                               ; preds = %73
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.20)
-  br label %75
-
-75:                                               ; preds = %74, %72
   br label %76
 
-76:                                               ; preds = %75
-  %77 = getelementptr inbounds %struct.opal_output_stream_t, ptr %3, i32 0, i32 4
-  %78 = load ptr, ptr %77, align 8
-  call void @free(ptr noundef %78) #5
-  call void @opal_finalize_append_cleanup(ptr noundef @mca_base_close, ptr noundef @.str.21, ptr noundef null)
-  %79 = call i32 @mca_base_component_repository_init()
-  store i32 %79, ptr %1, align 4
-  br label %80
+76:                                               ; preds = %75, %73
+  br label %77
 
-80:                                               ; preds = %76, %38, %11
-  %81 = load i32, ptr %1, align 4
-  ret i32 %81
+77:                                               ; preds = %76
+  %78 = getelementptr inbounds %struct.opal_output_stream_t, ptr %3, i32 0, i32 4
+  %79 = load ptr, ptr %78, align 8
+  call void @free(ptr noundef %79) #5
+  call void @opal_finalize_append_cleanup(ptr noundef @mca_base_close, ptr noundef @.str.21, ptr noundef null)
+  %80 = call i32 @mca_base_component_repository_init()
+  store i32 %80, ptr %1, align 4
+  br label %81
+
+81:                                               ; preds = %77, %39, %11
+  %82 = load i32, ptr %1, align 4
+  ret i32 %82
 }
 
 ; Function Attrs: nounwind
@@ -548,54 +549,57 @@ define internal void @set_defaults(ptr noundef %0) #0 {
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_output_stream_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_output_stream_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_output_stream_t_class)
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.opal_object_t, ptr %10, i32 0, i32 0
-  store ptr @opal_output_stream_t_class, ptr %11, align 8
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.opal_object_t, ptr %12, i32 0, i32 1
-  store volatile i32 1, ptr %13, align 8
-  %14 = load ptr, ptr %2, align 8
-  call void @opal_obj_run_constructors(ptr noundef %14)
-  br label %15
-
-15:                                               ; preds = %9
+10:                                               ; preds = %9, %4
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.opal_object_t, ptr %11, i32 0, i32 0
+  store ptr @opal_output_stream_t_class, ptr %12, align 8
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds %struct.opal_object_t, ptr %13, i32 0, i32 1
+  store volatile i32 1, ptr %14, align 8
+  %15 = load ptr, ptr %2, align 8
+  call void @opal_obj_run_constructors(ptr noundef %15)
   br label %16
 
-16:                                               ; preds = %15
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.opal_output_stream_t, ptr %17, i32 0, i32 2
-  store i32 6, ptr %18, align 4
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.opal_output_stream_t, ptr %19, i32 0, i32 3
-  store ptr @.str.22, ptr %20, align 8
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.opal_output_stream_t, ptr %21, i32 0, i32 9
-  store i8 1, ptr %22, align 1
+16:                                               ; preds = %10
+  br label %17
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds %struct.opal_output_stream_t, ptr %18, i32 0, i32 2
+  store i32 6, ptr %19, align 4
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds %struct.opal_output_stream_t, ptr %20, i32 0, i32 3
+  store ptr @.str.22, ptr %21, align 8
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds %struct.opal_output_stream_t, ptr %22, i32 0, i32 9
+  store i8 1, ptr %23, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @opal_gethostname() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  %2 = icmp eq ptr null, %1
-  br i1 %2, label %3, label %5
+  %1 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %2 = load ptr, ptr %1, align 8
+  %3 = icmp eq ptr null, %2
+  br i1 %3, label %4, label %6
 
-3:                                                ; preds = %0
-  %4 = call i32 @opal_init_gethostname()
-  br label %5
+4:                                                ; preds = %0
+  %5 = call i32 @opal_init_gethostname()
+  br label %6
 
-5:                                                ; preds = %3, %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3), align 8
-  ret ptr %6
+6:                                                ; preds = %4, %0
+  %7 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind

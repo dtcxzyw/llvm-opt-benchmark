@@ -3621,7 +3621,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30GraphTest_MissingImplicit_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30GraphTest_MissingImplicit_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4530,7 +4531,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI31Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31GraphTest_ModifiedImplicit_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31GraphTest_ModifiedImplicit_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5347,7 +5349,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI32Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32GraphTest_FunkyMakefilePath_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32GraphTest_FunkyMakefilePath_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6212,7 +6215,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI31Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31GraphTest_ExplicitImplicit_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31GraphTest_ExplicitImplicit_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7137,7 +7141,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI34Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34GraphTest_ImplicitOutputParse_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34GraphTest_ImplicitOutputParse_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8001,7 +8006,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI36Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36GraphTest_ImplicitOutputMissing_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36GraphTest_ImplicitOutputMissing_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8878,7 +8884,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI38Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38GraphTest_ImplicitOutputOutOfDate_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38GraphTest_ImplicitOutputOutOfDate_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9817,7 +9824,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI38Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38GraphTest_ImplicitOutputOnlyParse_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38GraphTest_ImplicitOutputOnlyParse_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10452,7 +10460,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI40Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40GraphTest_ImplicitOutputOnlyMissing_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40GraphTest_ImplicitOutputOnlyMissing_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11135,7 +11144,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI42Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42GraphTest_ImplicitOutputOnlyOutOfDate_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42GraphTest_ImplicitOutputOnlyOutOfDate_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11880,7 +11890,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI39Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39GraphTest_PathWithCurrentDirectory_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39GraphTest_PathWithCurrentDirectory_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -12684,7 +12695,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI24Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24GraphTest_RootNodes_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24GraphTest_RootNodes_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13234,7 +13246,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI28Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28GraphTest_CollectInputs_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28GraphTest_CollectInputs_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -14631,7 +14644,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI35Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35GraphTest_VarInOutPathEscaping_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35GraphTest_VarInOutPathEscaping_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -15028,7 +15042,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI45Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45GraphTest_DepfileWithCanonicalizablePath_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45GraphTest_DepfileWithCanonicalizablePath_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -15832,7 +15847,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI29Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29GraphTest_DepfileRemoved_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29GraphTest_DepfileRemoved_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -17099,7 +17115,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI35Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35GraphTest_RuleVariablesInScope_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35GraphTest_RuleVariablesInScope_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -17494,7 +17511,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30GraphTest_DepfileOverride_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30GraphTest_DepfileOverride_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -17929,7 +17947,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI36Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36GraphTest_DepfileOverrideParent_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36GraphTest_DepfileOverrideParent_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -18342,7 +18361,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI36Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36GraphTest_NestedPhonyPrintsDone_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36GraphTest_NestedPhonyPrintsDone_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -19215,7 +19235,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI38Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38GraphTest_PhonySelfReferenceError_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38GraphTest_PhonySelfReferenceError_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -19631,7 +19652,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30GraphTest_DependencyCycle_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30GraphTest_DependencyCycle_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -20041,7 +20063,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI41Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41GraphTest_CycleInEdgesButNotInNodes1_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41GraphTest_CycleInEdgesButNotInNodes1_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -20454,7 +20477,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI41Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41GraphTest_CycleInEdgesButNotInNodes2_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41GraphTest_CycleInEdgesButNotInNodes2_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -20954,7 +20978,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI41Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41GraphTest_CycleInEdgesButNotInNodes3_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41GraphTest_CycleInEdgesButNotInNodes3_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -21474,7 +21499,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI41Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41GraphTest_CycleInEdgesButNotInNodes4_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41GraphTest_CycleInEdgesButNotInNodes4_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -21994,7 +22020,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI45Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45GraphTest_CycleWithLengthZeroFromDepfile_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45GraphTest_CycleWithLengthZeroFromDepfile_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -22651,7 +22678,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI44Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44GraphTest_CycleWithLengthOneFromDepfile_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44GraphTest_CycleWithLengthOneFromDepfile_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -23308,7 +23336,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI54Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI54GraphTest_CycleWithLengthOneFromDepfileOneHopAway_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI54GraphTest_CycleWithLengthOneFromDepfileOneHopAway_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -23965,7 +23994,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI32Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32GraphTest_DyndepLoadTrivial_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32GraphTest_DyndepLoadTrivial_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -25505,7 +25535,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33GraphTest_DyndepLoadImplicit_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33GraphTest_DyndepLoadImplicit_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -27093,7 +27124,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI36Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36GraphTest_DyndepLoadMissingFile_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36GraphTest_DyndepLoadMissingFile_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -27617,7 +27649,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI37Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37GraphTest_DyndepLoadMissingEntry_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37GraphTest_DyndepLoadMissingEntry_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -28221,7 +28254,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI35Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35GraphTest_DyndepLoadExtraEntry_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35GraphTest_DyndepLoadExtraEntry_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -28825,7 +28859,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI49Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49GraphTest_DyndepLoadOutputWithMultipleRules1_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49GraphTest_DyndepLoadOutputWithMultipleRules1_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -29429,7 +29464,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI49Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49GraphTest_DyndepLoadOutputWithMultipleRules2_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49GraphTest_DyndepLoadOutputWithMultipleRules2_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30428,7 +30464,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33GraphTest_DyndepLoadMultiple_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33GraphTest_DyndepLoadMultiple_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -33695,7 +33732,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI32Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32GraphTest_DyndepFileMissing_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32GraphTest_DyndepFileMissing_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -34085,7 +34123,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30GraphTest_DyndepFileError_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30GraphTest_DyndepFileError_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -34535,7 +34574,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI39Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39GraphTest_DyndepImplicitInputNewer_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39GraphTest_DyndepImplicitInputNewer_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -35510,7 +35550,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30GraphTest_DyndepFileReady_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30GraphTest_DyndepFileReady_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -36694,7 +36735,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33GraphTest_DyndepFileNotClean_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33GraphTest_DyndepFileNotClean_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -37812,7 +37854,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33GraphTest_DyndepFileNotReady_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33GraphTest_DyndepFileNotReady_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -38931,7 +38974,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI39Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39GraphTest_DyndepFileSecondNotReady_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39GraphTest_DyndepFileSecondNotReady_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -40443,7 +40487,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33GraphTest_DyndepFileCircular_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33GraphTest_DyndepFileCircular_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -41584,7 +41629,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI25Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25GraphTest_Validation_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25GraphTest_Validation_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -42626,7 +42672,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30GraphTest_PhonyDepsMtimes_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30GraphTest_PhonyDepsMtimes_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -44229,7 +44276,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI32Grap
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32GraphTest_EdgeQueuePriority_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32GraphTest_EdgeQueuePriority_TestEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -46140,7 +46188,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -46220,7 +46269,8 @@ define linkonce_odr dso_local void @_ZN30GraphTest_MissingImplicit_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30GraphTest_MissingImplicit_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV30GraphTest_MissingImplicit_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -46232,50 +46282,51 @@ define linkonce_odr dso_local void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN25StateTestWithBuiltinRulesC2Ev(ptr noundef nonnull align 8 dereferenceable(280) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9GraphTest, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %struct.GraphTest, ptr %5, i32 0, i32 1
-  invoke void @_ZN17VirtualFileSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(204) %6)
-          to label %7 unwind label %12
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV9GraphTest, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.GraphTest, ptr %5, i32 0, i32 1
+  invoke void @_ZN17VirtualFileSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(204) %7)
+          to label %8 unwind label %13
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %struct.GraphTest, ptr %5, i32 0, i32 2
-  %9 = getelementptr inbounds %struct.StateTestWithBuiltinRules, ptr %5, i32 0, i32 1
-  %10 = getelementptr inbounds %struct.GraphTest, ptr %5, i32 0, i32 1
-  invoke void @_ZN14DependencyScanC2EP5StateP8BuildLogP7DepsLogP13DiskInterfacePK20DepfileParserOptions(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef null, ptr noundef null, ptr noundef %10, ptr noundef null)
-          to label %11 unwind label %16
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %struct.GraphTest, ptr %5, i32 0, i32 2
+  %10 = getelementptr inbounds %struct.StateTestWithBuiltinRules, ptr %5, i32 0, i32 1
+  %11 = getelementptr inbounds %struct.GraphTest, ptr %5, i32 0, i32 1
+  invoke void @_ZN14DependencyScanC2EP5StateP8BuildLogP7DepsLogP13DiskInterfacePK20DepfileParserOptions(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %10, ptr noundef null, ptr noundef null, ptr noundef %11, ptr noundef null)
+          to label %12 unwind label %17
 
-11:                                               ; preds = %7
+12:                                               ; preds = %8
   ret void
 
-12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  br label %20
-
-16:                                               ; preds = %7
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %3, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %4, align 4
-  call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %6) #3
-  br label %20
-
-20:                                               ; preds = %16, %12
-  call void @_ZN25StateTestWithBuiltinRulesD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %5) #3
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %3, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %4, align 4
   br label %21
 
-21:                                               ; preds = %20
-  %22 = load ptr, ptr %3, align 8
-  %23 = load i32, ptr %4, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+17:                                               ; preds = %8
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %3, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %4, align 4
+  call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %7) #3
+  br label %21
+
+21:                                               ; preds = %17, %13
+  call void @_ZN25StateTestWithBuiltinRulesD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %5) #3
+  br label %22
+
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %3, align 8
+  %24 = load i32, ptr %4, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 declare void @_ZN25StateTestWithBuiltinRulesC2Ev(ptr noundef nonnull align 8 dereferenceable(280)) unnamed_addr #1
@@ -46286,19 +46337,20 @@ define linkonce_odr dso_local void @_ZN17VirtualFileSystemC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN13DiskInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17VirtualFileSystem5EntryESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 4
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  %8 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 5
+  %6 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17VirtualFileSystem5EntryESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 4
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
-  %9 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 6
-  store i32 1, ptr %9, align 8
+  %9 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 5
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
+  %10 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 6
+  store i32 1, ptr %10, align 8
   ret void
 }
 
@@ -46341,17 +46393,18 @@ define linkonce_odr dso_local void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 5
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 5
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
-  %6 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17VirtualFileSystem5EntryESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 1
+  %6 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 4
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  %7 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17VirtualFileSystem5EntryESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   call void @_ZN13DiskInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -46361,9 +46414,10 @@ define linkonce_odr dso_local void @_ZN9GraphTestD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9GraphTest, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.GraphTest, ptr %3, i32 0, i32 1
-  call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV9GraphTest, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.GraphTest, ptr %3, i32 0, i32 1
+  call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %5) #3
   call void @_ZN25StateTestWithBuiltinRulesD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %3) #3
   ret void
 }
@@ -46382,7 +46436,8 @@ define linkonce_odr dso_local void @_ZN13DiskInterfaceC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10FileReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DiskInterface, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTV13DiskInterface, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -46411,7 +46466,8 @@ define linkonce_odr dso_local void @_ZN10FileReaderC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10FileReader, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV10FileReader, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -46597,19 +46653,20 @@ define linkonce_odr dso_local void @_ZN17ImplicitDepLoaderC2EP5StateP7DepsLogP13
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV17ImplicitDepLoader, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %struct.ImplicitDepLoader, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.ImplicitDepLoader, ptr %11, i32 0, i32 2
-  %15 = load ptr, ptr %9, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.ImplicitDepLoader, ptr %11, i32 0, i32 3
-  %17 = load ptr, ptr %8, align 8
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.ImplicitDepLoader, ptr %11, i32 0, i32 4
-  %19 = load ptr, ptr %10, align 8
-  store ptr %19, ptr %18, align 8
+  %12 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV17ImplicitDepLoader, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.ImplicitDepLoader, ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.ImplicitDepLoader, ptr %11, i32 0, i32 2
+  %16 = load ptr, ptr %9, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %struct.ImplicitDepLoader, ptr %11, i32 0, i32 3
+  %18 = load ptr, ptr %8, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.ImplicitDepLoader, ptr %11, i32 0, i32 4
+  %20 = load ptr, ptr %10, align 8
+  store ptr %20, ptr %19, align 8
   ret void
 }
 
@@ -47241,9 +47298,10 @@ define linkonce_odr dso_local void @_ZN25StateTestWithBuiltinRulesD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25StateTestWithBuiltinRules, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.StateTestWithBuiltinRules, ptr %3, i32 0, i32 1
-  call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV25StateTestWithBuiltinRules, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.StateTestWithBuiltinRules, ptr %3, i32 0, i32 1
+  call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #3
   call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }
@@ -47261,11 +47319,12 @@ define linkonce_odr dso_local void @_ZN10BindingEnvD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 2
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 2
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
   call void @_ZN3EnvD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -49245,7 +49304,8 @@ define linkonce_odr dso_local void @_ZN31GraphTest_ModifiedImplicit_TestC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31GraphTest_ModifiedImplicit_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV31GraphTest_ModifiedImplicit_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49305,7 +49365,8 @@ define linkonce_odr dso_local void @_ZN32GraphTest_FunkyMakefilePath_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32GraphTest_FunkyMakefilePath_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV32GraphTest_FunkyMakefilePath_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49365,7 +49426,8 @@ define linkonce_odr dso_local void @_ZN31GraphTest_ExplicitImplicit_TestC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31GraphTest_ExplicitImplicit_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV31GraphTest_ExplicitImplicit_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49425,7 +49487,8 @@ define linkonce_odr dso_local void @_ZN34GraphTest_ImplicitOutputParse_TestC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34GraphTest_ImplicitOutputParse_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV34GraphTest_ImplicitOutputParse_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49485,7 +49548,8 @@ define linkonce_odr dso_local void @_ZN36GraphTest_ImplicitOutputMissing_TestC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36GraphTest_ImplicitOutputMissing_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV36GraphTest_ImplicitOutputMissing_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49545,7 +49609,8 @@ define linkonce_odr dso_local void @_ZN38GraphTest_ImplicitOutputOutOfDate_TestC
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV38GraphTest_ImplicitOutputOutOfDate_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV38GraphTest_ImplicitOutputOutOfDate_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49605,7 +49670,8 @@ define linkonce_odr dso_local void @_ZN38GraphTest_ImplicitOutputOnlyParse_TestC
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV38GraphTest_ImplicitOutputOnlyParse_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV38GraphTest_ImplicitOutputOnlyParse_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49665,7 +49731,8 @@ define linkonce_odr dso_local void @_ZN40GraphTest_ImplicitOutputOnlyMissing_Tes
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV40GraphTest_ImplicitOutputOnlyMissing_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV40GraphTest_ImplicitOutputOnlyMissing_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49725,7 +49792,8 @@ define linkonce_odr dso_local void @_ZN42GraphTest_ImplicitOutputOnlyOutOfDate_T
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV42GraphTest_ImplicitOutputOnlyOutOfDate_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV42GraphTest_ImplicitOutputOnlyOutOfDate_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49785,7 +49853,8 @@ define linkonce_odr dso_local void @_ZN39GraphTest_PathWithCurrentDirectory_Test
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39GraphTest_PathWithCurrentDirectory_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV39GraphTest_PathWithCurrentDirectory_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49845,7 +49914,8 @@ define linkonce_odr dso_local void @_ZN24GraphTest_RootNodes_TestC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24GraphTest_RootNodes_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV24GraphTest_RootNodes_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49905,7 +49975,8 @@ define linkonce_odr dso_local void @_ZN28GraphTest_CollectInputs_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28GraphTest_CollectInputs_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV28GraphTest_CollectInputs_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -50015,7 +50086,8 @@ define linkonce_odr dso_local void @_ZN35GraphTest_VarInOutPathEscaping_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35GraphTest_VarInOutPathEscaping_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV35GraphTest_VarInOutPathEscaping_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -50075,7 +50147,8 @@ define linkonce_odr dso_local void @_ZN45GraphTest_DepfileWithCanonicalizablePat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV45GraphTest_DepfileWithCanonicalizablePath_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV45GraphTest_DepfileWithCanonicalizablePath_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -50135,7 +50208,8 @@ define linkonce_odr dso_local void @_ZN29GraphTest_DepfileRemoved_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29GraphTest_DepfileRemoved_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV29GraphTest_DepfileRemoved_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -50195,7 +50269,8 @@ define linkonce_odr dso_local void @_ZN35GraphTest_RuleVariablesInScope_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35GraphTest_RuleVariablesInScope_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV35GraphTest_RuleVariablesInScope_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -50255,7 +50330,8 @@ define linkonce_odr dso_local void @_ZN30GraphTest_DepfileOverride_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30GraphTest_DepfileOverride_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV30GraphTest_DepfileOverride_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -50315,7 +50391,8 @@ define linkonce_odr dso_local void @_ZN36GraphTest_DepfileOverrideParent_TestC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36GraphTest_DepfileOverrideParent_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV36GraphTest_DepfileOverrideParent_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -50375,7 +50452,8 @@ define linkonce_odr dso_local void @_ZN36GraphTest_NestedPhonyPrintsDone_TestC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36GraphTest_NestedPhonyPrintsDone_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV36GraphTest_NestedPhonyPrintsDone_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -50895,7 +50973,8 @@ define linkonce_odr dso_local void @_ZN38GraphTest_PhonySelfReferenceError_TestC
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV38GraphTest_PhonySelfReferenceError_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV38GraphTest_PhonySelfReferenceError_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -50955,7 +51034,8 @@ define linkonce_odr dso_local void @_ZN30GraphTest_DependencyCycle_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30GraphTest_DependencyCycle_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV30GraphTest_DependencyCycle_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51015,7 +51095,8 @@ define linkonce_odr dso_local void @_ZN41GraphTest_CycleInEdgesButNotInNodes1_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41GraphTest_CycleInEdgesButNotInNodes1_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV41GraphTest_CycleInEdgesButNotInNodes1_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51075,7 +51156,8 @@ define linkonce_odr dso_local void @_ZN41GraphTest_CycleInEdgesButNotInNodes2_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41GraphTest_CycleInEdgesButNotInNodes2_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV41GraphTest_CycleInEdgesButNotInNodes2_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51135,7 +51217,8 @@ define linkonce_odr dso_local void @_ZN41GraphTest_CycleInEdgesButNotInNodes3_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41GraphTest_CycleInEdgesButNotInNodes3_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV41GraphTest_CycleInEdgesButNotInNodes3_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51195,7 +51278,8 @@ define linkonce_odr dso_local void @_ZN41GraphTest_CycleInEdgesButNotInNodes4_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41GraphTest_CycleInEdgesButNotInNodes4_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV41GraphTest_CycleInEdgesButNotInNodes4_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51255,7 +51339,8 @@ define linkonce_odr dso_local void @_ZN45GraphTest_CycleWithLengthZeroFromDepfil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV45GraphTest_CycleWithLengthZeroFromDepfile_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV45GraphTest_CycleWithLengthZeroFromDepfile_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51315,7 +51400,8 @@ define linkonce_odr dso_local void @_ZN44GraphTest_CycleWithLengthOneFromDepfile
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV44GraphTest_CycleWithLengthOneFromDepfile_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV44GraphTest_CycleWithLengthOneFromDepfile_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51375,7 +51461,8 @@ define linkonce_odr dso_local void @_ZN54GraphTest_CycleWithLengthOneFromDepfile
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV54GraphTest_CycleWithLengthOneFromDepfileOneHopAway_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV54GraphTest_CycleWithLengthOneFromDepfileOneHopAway_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51435,7 +51522,8 @@ define linkonce_odr dso_local void @_ZN32GraphTest_DyndepLoadTrivial_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32GraphTest_DyndepLoadTrivial_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV32GraphTest_DyndepLoadTrivial_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51495,7 +51583,8 @@ define linkonce_odr dso_local void @_ZN33GraphTest_DyndepLoadImplicit_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33GraphTest_DyndepLoadImplicit_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV33GraphTest_DyndepLoadImplicit_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51555,7 +51644,8 @@ define linkonce_odr dso_local void @_ZN36GraphTest_DyndepLoadMissingFile_TestC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36GraphTest_DyndepLoadMissingFile_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV36GraphTest_DyndepLoadMissingFile_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51615,7 +51705,8 @@ define linkonce_odr dso_local void @_ZN37GraphTest_DyndepLoadMissingEntry_TestC2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV37GraphTest_DyndepLoadMissingEntry_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV37GraphTest_DyndepLoadMissingEntry_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51675,7 +51766,8 @@ define linkonce_odr dso_local void @_ZN35GraphTest_DyndepLoadExtraEntry_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35GraphTest_DyndepLoadExtraEntry_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV35GraphTest_DyndepLoadExtraEntry_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51735,7 +51827,8 @@ define linkonce_odr dso_local void @_ZN49GraphTest_DyndepLoadOutputWithMultipleR
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV49GraphTest_DyndepLoadOutputWithMultipleRules1_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV49GraphTest_DyndepLoadOutputWithMultipleRules1_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51795,7 +51888,8 @@ define linkonce_odr dso_local void @_ZN49GraphTest_DyndepLoadOutputWithMultipleR
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV49GraphTest_DyndepLoadOutputWithMultipleRules2_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV49GraphTest_DyndepLoadOutputWithMultipleRules2_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51855,7 +51949,8 @@ define linkonce_odr dso_local void @_ZN33GraphTest_DyndepLoadMultiple_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33GraphTest_DyndepLoadMultiple_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV33GraphTest_DyndepLoadMultiple_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51915,7 +52010,8 @@ define linkonce_odr dso_local void @_ZN32GraphTest_DyndepFileMissing_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32GraphTest_DyndepFileMissing_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV32GraphTest_DyndepFileMissing_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51975,7 +52071,8 @@ define linkonce_odr dso_local void @_ZN30GraphTest_DyndepFileError_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30GraphTest_DyndepFileError_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV30GraphTest_DyndepFileError_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -52035,7 +52132,8 @@ define linkonce_odr dso_local void @_ZN39GraphTest_DyndepImplicitInputNewer_Test
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39GraphTest_DyndepImplicitInputNewer_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV39GraphTest_DyndepImplicitInputNewer_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -52095,7 +52193,8 @@ define linkonce_odr dso_local void @_ZN30GraphTest_DyndepFileReady_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30GraphTest_DyndepFileReady_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV30GraphTest_DyndepFileReady_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -52155,7 +52254,8 @@ define linkonce_odr dso_local void @_ZN33GraphTest_DyndepFileNotClean_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33GraphTest_DyndepFileNotClean_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV33GraphTest_DyndepFileNotClean_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -52215,7 +52315,8 @@ define linkonce_odr dso_local void @_ZN33GraphTest_DyndepFileNotReady_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33GraphTest_DyndepFileNotReady_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV33GraphTest_DyndepFileNotReady_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -52275,7 +52376,8 @@ define linkonce_odr dso_local void @_ZN39GraphTest_DyndepFileSecondNotReady_Test
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39GraphTest_DyndepFileSecondNotReady_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV39GraphTest_DyndepFileSecondNotReady_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -52335,7 +52437,8 @@ define linkonce_odr dso_local void @_ZN33GraphTest_DyndepFileCircular_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33GraphTest_DyndepFileCircular_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV33GraphTest_DyndepFileCircular_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -52395,7 +52498,8 @@ define linkonce_odr dso_local void @_ZN25GraphTest_Validation_TestC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25GraphTest_Validation_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV25GraphTest_Validation_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -52505,7 +52609,8 @@ define linkonce_odr dso_local void @_ZN30GraphTest_PhonyDepsMtimes_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30GraphTest_PhonyDepsMtimes_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV30GraphTest_PhonyDepsMtimes_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -52565,7 +52670,8 @@ define linkonce_odr dso_local void @_ZN32GraphTest_EdgeQueuePriority_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9GraphTestC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32GraphTest_EdgeQueuePriority_Test, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV32GraphTest_EdgeQueuePriority_Test, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

@@ -1962,53 +1962,55 @@ define internal void @fsnotify_mark_destroy_workfn(ptr nocapture readnone %0) #0
   store ptr %3, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @destroy_list, i64 0, i32 1), align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %5, ptr %6, align 8
-  store ptr %2, ptr %5, align 8
+  %5 = getelementptr inbounds %struct.list_head, ptr @destroy_list, i64 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %6, ptr %7, align 8
+  store ptr %2, ptr %6, align 8
   store volatile ptr @destroy_list, ptr @destroy_list, align 8
-  store volatile ptr @destroy_list, ptr getelementptr inbounds (%struct.list_head, ptr @destroy_list, i64 0, i32 1), align 8
+  %8 = getelementptr inbounds %struct.list_head, ptr @destroy_list, i64 0, i32 1
+  store volatile ptr @destroy_list, ptr %8, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull @destroy_lock) #6
   call void @synchronize_srcu(ptr noundef nonnull @fsnotify_mark_srcu) #6
-  %7 = load ptr, ptr %2, align 8
-  %8 = icmp eq ptr %7, %2
-  br i1 %8, label %26, label %9
+  %9 = load ptr, ptr %2, align 8
+  %10 = icmp eq ptr %9, %2
+  br i1 %10, label %28, label %11
 
-9:                                                ; preds = %24, %1
-  %10 = phi ptr [ %11, %24 ], [ %7, %1 ]
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+11:                                               ; preds = %26, %1
+  %12 = phi ptr [ %13, %26 ], [ %9, %1 ]
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %13, ptr %14, align 8
-  store volatile ptr %11, ptr %13, align 8
-  store volatile ptr %10, ptr %10, align 8
-  store volatile ptr %10, ptr %12, align 8
-  %15 = getelementptr i8, ptr %10, i64 -8
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %19, !prof !5
+  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %15, ptr %16, align 8
+  store volatile ptr %13, ptr %15, align 8
+  store volatile ptr %12, ptr %12, align 8
+  store volatile ptr %12, ptr %14, align 8
+  %17 = getelementptr i8, ptr %12, i64 -8
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21, !prof !5
 
-18:                                               ; preds = %9
+20:                                               ; preds = %11
   call void asm sideeffect "372: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 372b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 372) #6, !srcloc !22
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 276, i32 2307, i64 12) #6, !srcloc !23
   call void asm sideeffect "373: nop\0A\09.pushsection .discard.instr_end\0A\09.long 373b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 373) #6, !srcloc !24
-  br label %24
+  br label %26
 
-19:                                               ; preds = %9
-  %20 = getelementptr i8, ptr %10, i64 -16
-  %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
-  %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef %20) #6
-  call void @fsnotify_put_group(ptr noundef nonnull %16) #6
-  br label %24
+21:                                               ; preds = %11
+  %22 = getelementptr i8, ptr %12, i64 -16
+  %23 = load ptr, ptr %18, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %25 = load ptr, ptr %24, align 8
+  call void %25(ptr noundef %22) #6
+  call void @fsnotify_put_group(ptr noundef nonnull %18) #6
+  br label %26
 
-24:                                               ; preds = %19, %18
-  %25 = icmp eq ptr %11, %2
-  br i1 %25, label %26, label %9, !llvm.loop !64
+26:                                               ; preds = %21, %20
+  %27 = icmp eq ptr %13, %2
+  br i1 %27, label %28, label %11, !llvm.loop !64
 
-26:                                               ; preds = %24, %1
+28:                                               ; preds = %26, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
   ret void
 }

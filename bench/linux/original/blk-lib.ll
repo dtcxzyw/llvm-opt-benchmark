@@ -382,7 +382,7 @@ define internal fastcc noundef i32 @__blkdev_issue_zero_pages(ptr noundef %0, i6
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %63
+  br i1 %9, label %10, label %69
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %0, i64 16
@@ -392,23 +392,23 @@ define internal fastcc noundef i32 @__blkdev_issue_zero_pages(ptr noundef %0, i6
   %15 = getelementptr inbounds i8, ptr %14, i64 48
   %16 = load i8, ptr %15, align 8, !range !5, !noundef !6
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %18, label %63
+  br i1 %17, label %18, label %69
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds i8, ptr %12, i64 352
   %20 = load volatile i64, ptr %19, align 8
   %21 = and i64 %20, 2
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %63
+  br i1 %22, label %23, label %69
 
 23:                                               ; preds = %18
   %24 = icmp eq i64 %2, 0
-  br i1 %24, label %61, label %25
+  br i1 %24, label %67, label %25
 
-25:                                               ; preds = %58, %23
-  %26 = phi i64 [ %54, %58 ], [ %1, %23 ]
-  %27 = phi i64 [ %53, %58 ], [ %2, %23 ]
-  %28 = phi ptr [ %33, %58 ], [ %6, %23 ]
+25:                                               ; preds = %64, %23
+  %26 = phi i64 [ %60, %64 ], [ %1, %23 ]
+  %27 = phi i64 [ %59, %64 ], [ %2, %23 ]
+  %28 = phi ptr [ %33, %64 ], [ %6, %23 ]
   %29 = add i64 %27, 7
   %30 = lshr i64 %29, 3
   %31 = tail call i64 @llvm.umin.i64(i64 %30, i64 256)
@@ -419,8 +419,8 @@ define internal fastcc noundef i32 @__blkdev_issue_zero_pages(ptr noundef %0, i6
   br label %35
 
 35:                                               ; preds = %35, %25
-  %36 = phi i64 [ %27, %25 ], [ %53, %35 ]
-  %37 = phi i64 [ %26, %25 ], [ %54, %35 ]
+  %36 = phi i64 [ %27, %25 ], [ %59, %35 ]
+  %37 = phi i64 [ %26, %25 ], [ %60, %35 ]
   %38 = shl i64 %36, 9
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4096)
   %40 = trunc i64 %39 to i32
@@ -429,33 +429,39 @@ define internal fastcc noundef i32 @__blkdev_issue_zero_pages(ptr noundef %0, i6
   %43 = load i64, ptr @phys_base, align 8
   %44 = load i64, ptr @page_offset_base, align 8
   %45 = sub i64 -2147483648, %44
-  %46 = select i1 icmp ugt (i64 ptrtoint (ptr @empty_zero_page to i64), i64 sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)), i64 %43, i64 %45
-  %47 = add i64 %46, sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
-  %48 = lshr i64 %47, 12
-  %49 = getelementptr %struct.page, ptr %42, i64 %48
-  %50 = tail call i32 @bio_add_page(ptr noundef %33, ptr noundef %49, i32 noundef %40, i32 noundef 0) #6
-  %51 = ashr i32 %50, 9
-  %52 = sext i32 %51 to i64
-  %53 = sub i64 %36, %52
-  %54 = add i64 %37, %52
-  %55 = icmp uge i32 %50, %40
-  %56 = icmp ne i64 %53, 0
-  %57 = select i1 %55, i1 %56, i1 false
-  br i1 %57, label %35, label %58, !llvm.loop !18
+  %46 = ptrtoint ptr @empty_zero_page to i64
+  %47 = ptrtoint ptr @empty_zero_page to i64
+  %48 = sub i64 %47, -2147483648
+  %49 = icmp ugt i64 %46, %48
+  %50 = select i1 %49, i64 %43, i64 %45
+  %51 = ptrtoint ptr @empty_zero_page to i64
+  %52 = sub i64 %51, -2147483648
+  %53 = add i64 %50, %52
+  %54 = lshr i64 %53, 12
+  %55 = getelementptr %struct.page, ptr %42, i64 %54
+  %56 = tail call i32 @bio_add_page(ptr noundef %33, ptr noundef %55, i32 noundef %40, i32 noundef 0) #6
+  %57 = ashr i32 %56, 9
+  %58 = sext i32 %57 to i64
+  %59 = sub i64 %36, %58
+  %60 = add i64 %37, %58
+  %61 = icmp uge i32 %56, %40
+  %62 = icmp ne i64 %59, 0
+  %63 = select i1 %61, i1 %62, i1 false
+  br i1 %63, label %35, label %64, !llvm.loop !18
 
-58:                                               ; preds = %35
-  %59 = tail call i32 @__SCT__cond_resched() #6
-  %60 = icmp eq i64 %53, 0
-  br i1 %60, label %61, label %25, !llvm.loop !19
+64:                                               ; preds = %35
+  %65 = tail call i32 @__SCT__cond_resched() #6
+  %66 = icmp eq i64 %59, 0
+  br i1 %66, label %67, label %25, !llvm.loop !19
 
-61:                                               ; preds = %58, %23
-  %62 = phi ptr [ %6, %23 ], [ %33, %58 ]
-  store ptr %62, ptr %4, align 8
-  br label %63
+67:                                               ; preds = %64, %23
+  %68 = phi ptr [ %6, %23 ], [ %33, %64 ]
+  store ptr %68, ptr %4, align 8
+  br label %69
 
-63:                                               ; preds = %61, %18, %10, %5
-  %64 = phi i32 [ 0, %61 ], [ -1, %18 ], [ -1, %10 ], [ -1, %5 ]
-  ret i32 %64
+69:                                               ; preds = %67, %18, %10, %5
+  %70 = phi i32 [ 0, %67 ], [ -1, %18 ], [ -1, %10 ], [ -1, %5 ]
+  ret i32 %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

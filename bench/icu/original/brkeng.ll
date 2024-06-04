@@ -867,7 +867,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7519LanguageBreakEngineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7519LanguageBreakEngineE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -877,7 +878,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -912,7 +914,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520LanguageBreakFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7520LanguageBreakFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -942,7 +945,8 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7515UnhandledEngineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7515UnhandledEngineE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fHandled = getelementptr inbounds %"class.icu_75::UnhandledEngine", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fHandled, align 8
   ret void
@@ -954,15 +958,16 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7515UnhandledEngineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7515UnhandledEngineE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fHandled = getelementptr inbounds %"class.icu_75::UnhandledEngine", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fHandled, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %fHandled, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %0) #8
+  call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %1) #8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %1) #8
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -1220,7 +1225,8 @@ entry:
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7520LanguageBreakFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7523ICULanguageBreakFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7523ICULanguageBreakFactoryE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fEngines = getelementptr inbounds %"class.icu_75::ICULanguageBreakFactory", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fEngines, align 8
   ret void
@@ -1232,23 +1238,24 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7523ICULanguageBreakFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_7523ICULanguageBreakFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fEngines = getelementptr inbounds %"class.icu_75::ICULanguageBreakFactory", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fEngines, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %fEngines, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %fEngines2 = getelementptr inbounds %"class.icu_75::ICULanguageBreakFactory", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %fEngines2, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %fEngines2, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(40) %1) #8
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(40) %2) #8
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -2685,16 +2692,17 @@ entry:
   store ptr %f, ptr %f.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517DictionaryMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7522BytesDictionaryMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7522BytesDictionaryMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %characters = getelementptr inbounds %"class.icu_75::BytesDictionaryMatcher", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %c.addr, align 8
-  store ptr %0, ptr %characters, align 8
+  %1 = load ptr, ptr %c.addr, align 8
+  store ptr %1, ptr %characters, align 8
   %transformConstant = getelementptr inbounds %"class.icu_75::BytesDictionaryMatcher", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %t.addr, align 4
-  store i32 %1, ptr %transformConstant, align 8
+  %2 = load i32, ptr %t.addr, align 4
+  store i32 %2, ptr %transformConstant, align 8
   %file = getelementptr inbounds %"class.icu_75::BytesDictionaryMatcher", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %f.addr, align 8
-  store ptr %2, ptr %file, align 8
+  %3 = load ptr, ptr %f.addr, align 8
+  store ptr %3, ptr %file, align 8
   ret void
 }
 
@@ -2709,13 +2717,14 @@ entry:
   store ptr %f, ptr %f.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517DictionaryMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7523UCharsDictionaryMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7523UCharsDictionaryMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %characters = getelementptr inbounds %"class.icu_75::UCharsDictionaryMatcher", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %c.addr, align 8
-  store ptr %0, ptr %characters, align 8
+  %1 = load ptr, ptr %c.addr, align 8
+  store ptr %1, ptr %characters, align 8
   %file = getelementptr inbounds %"class.icu_75::UCharsDictionaryMatcher", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %f.addr, align 8
-  store ptr %1, ptr %file, align 8
+  %2 = load ptr, ptr %f.addr, align 8
+  store ptr %2, ptr %file, align 8
   ret void
 }
 
@@ -3035,23 +3044,24 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7519LanguageBreakEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7518BreakEngineWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7518BreakEngineWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %delegate = getelementptr inbounds %"class.icu_75::BreakEngineWrapper", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %engine.addr, align 8
-  %1 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512LocalPointerINS_19ExternalBreakEngineEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %delegate, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %1 = load ptr, ptr %engine.addr, align 8
+  %2 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512LocalPointerINS_19ExternalBreakEngineEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %delegate, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
   br label %eh.resume
 
@@ -3069,7 +3079,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7518BreakEngineWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7518BreakEngineWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %delegate = getelementptr inbounds %"class.icu_75::BreakEngineWrapper", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7512LocalPointerINS_19ExternalBreakEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delegate) #8
   call void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
@@ -3378,7 +3389,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7517DictionaryMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7517DictionaryMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

@@ -181,15 +181,17 @@ define dso_local i32 @update_persistent_clock64(i64 %0, i64 %1) local_unnamed_ad
   store i64 %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 3), align 8
-  %6 = call i32 %5(ptr noundef nonnull %3) #6
-  ret i32 %6
+  %5 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  %7 = call i32 %6(ptr noundef nonnull %3) #6
+  ret i32 %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @read_persistent_clock64(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 2), align 8
-  tail call void %2(ptr noundef %0) #6
+  %2 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 2
+  %3 = load ptr, ptr %2, align 8
+  tail call void %3(ptr noundef %0) #6
   ret void
 }
 
@@ -221,21 +223,23 @@ define internal noundef i32 @add_rtc_cmos() #5 section ".init.text" align 16 {
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @compare_pnp_id(ptr noundef %14, ptr noundef %16) #6
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %9, label %24
+  br i1 %18, label %9, label %26
 
 19:                                               ; preds = %3, %0
-  %20 = load i32, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1), align 4
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %24, label %22
+  %20 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11, i32 1
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %26, label %23
 
-22:                                               ; preds = %19
-  %23 = tail call i32 @platform_device_register(ptr noundef nonnull @rtc_device) #6
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull getelementptr inbounds (%struct.platform_device, ptr @rtc_device, i64 0, i32 3), ptr noundef nonnull @.str.6) #7
-  br label %24
+23:                                               ; preds = %19
+  %24 = tail call i32 @platform_device_register(ptr noundef nonnull @rtc_device) #6
+  %25 = getelementptr inbounds %struct.platform_device, ptr @rtc_device, i64 0, i32 3
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %25, ptr noundef nonnull @.str.6) #7
+  br label %26
 
-24:                                               ; preds = %22, %19, %12
-  %25 = phi i32 [ 0, %22 ], [ -19, %19 ], [ 0, %12 ]
-  ret i32 %25
+26:                                               ; preds = %23, %19, %12
+  %27 = phi i32 [ 0, %23 ], [ -19, %19 ], [ 0, %12 ]
+  ret i32 %27
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -616,11 +616,12 @@ define dso_local void @_ZN26cmBinUtilsMacOSMachOLinkerC2EP26cmRuntimeDependencyA
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN16cmBinUtilsLinkerC2EP26cmRuntimeDependencyArchive(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV26cmBinUtilsMacOSMachOLinker, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.cmBinUtilsMacOSMachOLinker, ptr %5, i32 0, i32 1
-  call void @_ZNSt10unique_ptrI46cmBinUtilsMacOSMachOGetRuntimeDependenciesToolSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %class.cmBinUtilsMacOSMachOLinker, ptr %5, i32 0, i32 2
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN26cmBinUtilsMacOSMachOLinker8FileInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV26cmBinUtilsMacOSMachOLinker, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.cmBinUtilsMacOSMachOLinker, ptr %5, i32 0, i32 1
+  call void @_ZNSt10unique_ptrI46cmBinUtilsMacOSMachOGetRuntimeDependenciesToolSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %9 = getelementptr inbounds %class.cmBinUtilsMacOSMachOLinker, ptr %5, i32 0, i32 2
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN26cmBinUtilsMacOSMachOLinker8FileInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
   ret void
 }
 
@@ -2517,11 +2518,12 @@ define linkonce_odr dso_local void @_ZN26cmBinUtilsMacOSMachOLinkerD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV26cmBinUtilsMacOSMachOLinker, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmBinUtilsMacOSMachOLinker, ptr %3, i32 0, i32 2
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN26cmBinUtilsMacOSMachOLinker8FileInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #3
-  %5 = getelementptr inbounds %class.cmBinUtilsMacOSMachOLinker, ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrI46cmBinUtilsMacOSMachOGetRuntimeDependenciesToolSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV26cmBinUtilsMacOSMachOLinker, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmBinUtilsMacOSMachOLinker, ptr %3, i32 0, i32 2
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN26cmBinUtilsMacOSMachOLinker8FileInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  %6 = getelementptr inbounds %class.cmBinUtilsMacOSMachOLinker, ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrI46cmBinUtilsMacOSMachOGetRuntimeDependenciesToolSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN16cmBinUtilsLinkerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }

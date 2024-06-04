@@ -125,7 +125,7 @@ define void @gres_filter_sock_core(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %16
-  br label %1728
+  br label %1739
 
 92:                                               ; preds = %16
   %93 = load i16, ptr %20, align 2
@@ -199,12 +199,12 @@ define void @gres_filter_sock_core(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %141, ptr %33, align 8
   br label %142
 
-142:                                              ; preds = %1674, %1021, %197, %130
+142:                                              ; preds = %1684, %1022, %197, %130
   %143 = load ptr, ptr %33, align 8
   %144 = call ptr @list_next(ptr noundef %143)
   store ptr %144, ptr %34, align 8
   %145 = icmp ne ptr %144, null
-  br i1 %145, label %146, label %1675
+  br i1 %145, label %146, label %1685
 
 146:                                              ; preds = %142
   store i64 0, ptr %49, align 8
@@ -421,7 +421,7 @@ define void @gres_filter_sock_core(ptr noundef %0, ptr noundef %1, ptr noundef %
 283:                                              ; preds = %274, %268
   %284 = load ptr, ptr %25, align 8
   store i32 0, ptr %284, align 4
-  br label %1675
+  br label %1685
 
 285:                                              ; preds = %274, %264
   %286 = load ptr, ptr %45, align 8
@@ -469,7 +469,7 @@ define void @gres_filter_sock_core(ptr noundef %0, ptr noundef %1, ptr noundef %
 317:                                              ; preds = %311, %305, %295
   %318 = load ptr, ptr %25, align 8
   store i32 0, ptr %318, align 4
-  br label %1675
+  br label %1685
 
 319:                                              ; preds = %311
   %320 = load ptr, ptr %25, align 8
@@ -1324,7 +1324,7 @@ define void @gres_filter_sock_core(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %894, label %895, label %896
 
 895:                                              ; preds = %877
-  br label %1675
+  br label %1685
 
 896:                                              ; preds = %877
   %897 = load i32, ptr %56, align 4
@@ -1456,7 +1456,7 @@ define void @gres_filter_sock_core(ptr noundef %0, ptr noundef %1, ptr noundef %
   %977 = load ptr, ptr %25, align 8
   %978 = load i32, ptr %977, align 4
   %979 = icmp eq i32 %978, -2
-  br i1 %979, label %980, label %1022
+  br i1 %979, label %980, label %1023
 
 980:                                              ; preds = %976
   %981 = load i16, ptr %52, align 2
@@ -1501,1192 +1501,1203 @@ define void @gres_filter_sock_core(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %1008
 
 1008:                                             ; preds = %1007
-  %1009 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %1010 = and i64 %1009, 1
-  %1011 = icmp ne i64 %1010, 0
-  br i1 %1011, label %1012, label %1020
+  %1009 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %1010 = load i64, ptr %1009, align 8
+  %1011 = and i64 %1010, 1
+  %1012 = icmp ne i64 %1011, 0
+  br i1 %1012, label %1013, label %1021
 
-1012:                                             ; preds = %1008
-  br label %1013
+1013:                                             ; preds = %1008
+  br label %1014
 
-1013:                                             ; preds = %1012
-  %1014 = call i32 @get_log_level()
-  %1015 = icmp sge i32 %1014, 4
-  br i1 %1015, label %1016, label %1018
+1014:                                             ; preds = %1013
+  %1015 = call i32 @get_log_level()
+  %1016 = icmp sge i32 %1015, 4
+  br i1 %1016, label %1017, label %1019
 
-1016:                                             ; preds = %1013
-  %1017 = load ptr, ptr %31, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.1, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1017)
-  br label %1018
-
-1018:                                             ; preds = %1016, %1013
+1017:                                             ; preds = %1014
+  %1018 = load ptr, ptr %31, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.1, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1018)
   br label %1019
 
-1019:                                             ; preds = %1018
+1019:                                             ; preds = %1017, %1014
   br label %1020
 
-1020:                                             ; preds = %1019, %1008
+1020:                                             ; preds = %1019
   br label %1021
 
-1021:                                             ; preds = %1020
+1021:                                             ; preds = %1020, %1008
+  br label %1022
+
+1022:                                             ; preds = %1021
   br label %142, !llvm.loop !8
 
-1022:                                             ; preds = %976
-  %1023 = load ptr, ptr %25, align 8
-  %1024 = load i32, ptr %1023, align 4
-  %1025 = load ptr, ptr %24, align 8
-  %1026 = load i32, ptr %1025, align 4
-  %1027 = icmp ult i32 %1024, %1026
-  br i1 %1027, label %1028, label %1035
+1023:                                             ; preds = %976
+  %1024 = load ptr, ptr %25, align 8
+  %1025 = load i32, ptr %1024, align 4
+  %1026 = load ptr, ptr %24, align 8
+  %1027 = load i32, ptr %1026, align 4
+  %1028 = icmp ult i32 %1025, %1027
+  br i1 %1028, label %1029, label %1036
 
-1028:                                             ; preds = %1022
-  %1029 = load ptr, ptr %31, align 8
-  %1030 = load ptr, ptr %24, align 8
-  %1031 = load i32, ptr %1030, align 4
-  %1032 = load ptr, ptr %25, align 8
-  %1033 = load i32, ptr %1032, align 4
-  %1034 = call i32 (ptr, ...) @error(ptr noundef @.str.2, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1029, i32 noundef %1031, i32 noundef %1033)
-  br label %1035
+1029:                                             ; preds = %1023
+  %1030 = load ptr, ptr %31, align 8
+  %1031 = load ptr, ptr %24, align 8
+  %1032 = load i32, ptr %1031, align 4
+  %1033 = load ptr, ptr %25, align 8
+  %1034 = load i32, ptr %1033, align 4
+  %1035 = call i32 (ptr, ...) @error(ptr noundef @.str.2, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1030, i32 noundef %1032, i32 noundef %1034)
+  br label %1036
 
-1035:                                             ; preds = %1028, %1022
-  %1036 = load ptr, ptr %25, align 8
-  %1037 = load i32, ptr %1036, align 4
-  store i32 %1037, ptr %54, align 4
+1036:                                             ; preds = %1029, %1023
+  %1037 = load ptr, ptr %25, align 8
+  %1038 = load i32, ptr %1037, align 4
+  store i32 %1038, ptr %54, align 4
   store i32 0, ptr %40, align 4
-  %1038 = load ptr, ptr %18, align 8
-  %1039 = getelementptr inbounds %struct.gres_mc_data, ptr %1038, i32 0, i32 5
-  %1040 = load i16, ptr %1039, align 2
-  %1041 = zext i16 %1040 to i32
-  store i32 %1041, ptr %41, align 4
-  %1042 = load ptr, ptr %18, align 8
-  %1043 = getelementptr inbounds %struct.gres_mc_data, ptr %1042, i32 0, i32 10
-  %1044 = load i16, ptr %1043, align 2
-  %1045 = zext i16 %1044 to i32
-  %1046 = icmp eq i32 %1045, 1
-  br i1 %1046, label %1047, label %1061
+  %1039 = load ptr, ptr %18, align 8
+  %1040 = getelementptr inbounds %struct.gres_mc_data, ptr %1039, i32 0, i32 5
+  %1041 = load i16, ptr %1040, align 2
+  %1042 = zext i16 %1041 to i32
+  store i32 %1042, ptr %41, align 4
+  %1043 = load ptr, ptr %18, align 8
+  %1044 = getelementptr inbounds %struct.gres_mc_data, ptr %1043, i32 0, i32 10
+  %1045 = load i16, ptr %1044, align 2
+  %1046 = zext i16 %1045 to i32
+  %1047 = icmp eq i32 %1046, 1
+  br i1 %1047, label %1048, label %1062
 
-1047:                                             ; preds = %1035
-  %1048 = load i32, ptr %41, align 4
-  %1049 = load i32, ptr %57, align 4
-  %1050 = srem i32 %1048, %1049
-  %1051 = icmp ne i32 %1050, 0
-  br i1 %1051, label %1052, label %1061
+1048:                                             ; preds = %1036
+  %1049 = load i32, ptr %41, align 4
+  %1050 = load i32, ptr %57, align 4
+  %1051 = srem i32 %1049, %1050
+  %1052 = icmp ne i32 %1051, 0
+  br i1 %1052, label %1053, label %1062
 
-1052:                                             ; preds = %1047
-  %1053 = load i32, ptr %57, align 4
-  %1054 = load i32, ptr %41, align 4
-  %1055 = sdiv i32 %1054, %1053
-  store i32 %1055, ptr %41, align 4
-  %1056 = load i32, ptr %41, align 4
-  %1057 = add nsw i32 %1056, 1
-  store i32 %1057, ptr %41, align 4
-  %1058 = load i32, ptr %57, align 4
-  %1059 = load i32, ptr %41, align 4
-  %1060 = mul nsw i32 %1059, %1058
-  store i32 %1060, ptr %41, align 4
-  br label %1061
+1053:                                             ; preds = %1048
+  %1054 = load i32, ptr %57, align 4
+  %1055 = load i32, ptr %41, align 4
+  %1056 = sdiv i32 %1055, %1054
+  store i32 %1056, ptr %41, align 4
+  %1057 = load i32, ptr %41, align 4
+  %1058 = add nsw i32 %1057, 1
+  store i32 %1058, ptr %41, align 4
+  %1059 = load i32, ptr %57, align 4
+  %1060 = load i32, ptr %41, align 4
+  %1061 = mul nsw i32 %1060, %1059
+  store i32 %1061, ptr %41, align 4
+  br label %1062
 
-1061:                                             ; preds = %1052, %1047, %1035
-  %1062 = load i32, ptr %41, align 4
-  %1063 = load i32, ptr %54, align 4
-  %1064 = mul nsw i32 %1063, %1062
-  store i32 %1064, ptr %54, align 4
-  br label %1065
+1062:                                             ; preds = %1053, %1048, %1036
+  %1063 = load i32, ptr %41, align 4
+  %1064 = load i32, ptr %54, align 4
+  %1065 = mul nsw i32 %1064, %1063
+  store i32 %1065, ptr %54, align 4
+  br label %1066
 
-1065:                                             ; preds = %1115, %1061
-  %1066 = load ptr, ptr %25, align 8
-  %1067 = load i32, ptr %1066, align 4
-  %1068 = load ptr, ptr %24, align 8
-  %1069 = load i32, ptr %1068, align 4
-  %1070 = icmp uge i32 %1067, %1069
-  br i1 %1070, label %1071, label %1126
+1066:                                             ; preds = %1117, %1062
+  %1067 = load ptr, ptr %25, align 8
+  %1068 = load i32, ptr %1067, align 4
+  %1069 = load ptr, ptr %24, align 8
+  %1070 = load i32, ptr %1069, align 4
+  %1071 = icmp uge i32 %1068, %1070
+  br i1 %1071, label %1072, label %1128
 
-1071:                                             ; preds = %1065
-  %1072 = load i32, ptr %54, align 4
-  %1073 = load i32, ptr %57, align 4
-  %1074 = sub nsw i32 %1073, 1
-  %1075 = add nsw i32 %1072, %1074
-  %1076 = load i32, ptr %57, align 4
-  %1077 = sdiv i32 %1075, %1076
-  store i32 %1077, ptr %54, align 4
-  %1078 = load i32, ptr %54, align 4
-  %1079 = load i16, ptr %51, align 2
-  %1080 = zext i16 %1079 to i32
-  %1081 = icmp sle i32 %1078, %1080
-  br i1 %1081, label %1082, label %1115
+1072:                                             ; preds = %1066
+  %1073 = load i32, ptr %54, align 4
+  %1074 = load i32, ptr %57, align 4
+  %1075 = sub nsw i32 %1074, 1
+  %1076 = add nsw i32 %1073, %1075
+  %1077 = load i32, ptr %57, align 4
+  %1078 = sdiv i32 %1076, %1077
+  store i32 %1078, ptr %54, align 4
+  %1079 = load i32, ptr %54, align 4
+  %1080 = load i16, ptr %51, align 2
+  %1081 = zext i16 %1080 to i32
+  %1082 = icmp sle i32 %1079, %1081
+  br i1 %1082, label %1083, label %1117
 
-1082:                                             ; preds = %1071
-  %1083 = load i32, ptr %40, align 4
-  %1084 = icmp ne i32 %1083, 0
-  br i1 %1084, label %1085, label %1114
+1083:                                             ; preds = %1072
+  %1084 = load i32, ptr %40, align 4
+  %1085 = icmp ne i32 %1084, 0
+  br i1 %1085, label %1086, label %1116
 
-1085:                                             ; preds = %1082
-  br label %1086
+1086:                                             ; preds = %1083
+  br label %1087
 
-1086:                                             ; preds = %1085
-  %1087 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %1088 = and i64 %1087, 1
-  %1089 = icmp ne i64 %1088, 0
-  br i1 %1089, label %1090, label %1112
+1087:                                             ; preds = %1086
+  %1088 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %1089 = load i64, ptr %1088, align 8
+  %1090 = and i64 %1089, 1
+  %1091 = icmp ne i64 %1090, 0
+  br i1 %1091, label %1092, label %1114
 
-1090:                                             ; preds = %1086
-  br label %1091
+1092:                                             ; preds = %1087
+  br label %1093
 
-1091:                                             ; preds = %1090
-  %1092 = call i32 @get_log_level()
-  %1093 = icmp sge i32 %1092, 4
-  br i1 %1093, label %1094, label %1110
+1093:                                             ; preds = %1092
+  %1094 = call i32 @get_log_level()
+  %1095 = icmp sge i32 %1094, 4
+  br i1 %1095, label %1096, label %1112
 
-1094:                                             ; preds = %1091
-  %1095 = load ptr, ptr %31, align 8
-  %1096 = load i32, ptr %54, align 4
-  %1097 = load ptr, ptr %25, align 8
-  %1098 = load i32, ptr %1097, align 4
-  %1099 = load i32, ptr %40, align 4
-  %1100 = load ptr, ptr %18, align 8
-  %1101 = getelementptr inbounds %struct.gres_mc_data, ptr %1100, i32 0, i32 5
-  %1102 = load i16, ptr %1101, align 2
-  %1103 = zext i16 %1102 to i32
-  %1104 = load i16, ptr %22, align 2
+1096:                                             ; preds = %1093
+  %1097 = load ptr, ptr %31, align 8
+  %1098 = load i32, ptr %54, align 4
+  %1099 = load ptr, ptr %25, align 8
+  %1100 = load i32, ptr %1099, align 4
+  %1101 = load i32, ptr %40, align 4
+  %1102 = load ptr, ptr %18, align 8
+  %1103 = getelementptr inbounds %struct.gres_mc_data, ptr %1102, i32 0, i32 5
+  %1104 = load i16, ptr %1103, align 2
   %1105 = zext i16 %1104 to i32
-  %1106 = load ptr, ptr %18, align 8
-  %1107 = getelementptr inbounds %struct.gres_mc_data, ptr %1106, i32 0, i32 4
-  %1108 = load i16, ptr %1107, align 4
-  %1109 = zext i16 %1108 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.3, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1095, i32 noundef %1096, i32 noundef %1098, i32 noundef %1099, i32 noundef %1103, i32 noundef %1105, i32 noundef %1109)
-  br label %1110
-
-1110:                                             ; preds = %1094, %1091
-  br label %1111
-
-1111:                                             ; preds = %1110
+  %1106 = load i16, ptr %22, align 2
+  %1107 = zext i16 %1106 to i32
+  %1108 = load ptr, ptr %18, align 8
+  %1109 = getelementptr inbounds %struct.gres_mc_data, ptr %1108, i32 0, i32 4
+  %1110 = load i16, ptr %1109, align 4
+  %1111 = zext i16 %1110 to i32
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.3, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1097, i32 noundef %1098, i32 noundef %1100, i32 noundef %1101, i32 noundef %1105, i32 noundef %1107, i32 noundef %1111)
   br label %1112
 
-1112:                                             ; preds = %1111, %1086
+1112:                                             ; preds = %1096, %1093
   br label %1113
 
 1113:                                             ; preds = %1112
   br label %1114
 
-1114:                                             ; preds = %1113, %1082
-  br label %1126
+1114:                                             ; preds = %1113, %1087
+  br label %1115
 
-1115:                                             ; preds = %1071
-  %1116 = load i32, ptr %40, align 4
-  %1117 = add nsw i32 %1116, 1
-  store i32 %1117, ptr %40, align 4
-  %1118 = load ptr, ptr %25, align 8
-  %1119 = load i32, ptr %1118, align 4
-  %1120 = add i32 %1119, -1
-  store i32 %1120, ptr %1118, align 4
-  %1121 = load ptr, ptr %25, align 8
-  %1122 = load i32, ptr %1121, align 4
-  store i32 %1122, ptr %54, align 4
-  %1123 = load i32, ptr %41, align 4
-  %1124 = load i32, ptr %54, align 4
-  %1125 = mul nsw i32 %1124, %1123
-  store i32 %1125, ptr %54, align 4
-  br label %1065, !llvm.loop !14
+1115:                                             ; preds = %1114
+  br label %1116
 
-1126:                                             ; preds = %1114, %1065
-  %1127 = load i16, ptr %52, align 2
-  %1128 = icmp ne i16 %1127, 0
-  br i1 %1128, label %1129, label %1316
+1116:                                             ; preds = %1115, %1083
+  br label %1128
 
-1129:                                             ; preds = %1126
-  %1130 = load ptr, ptr %45, align 8
-  %1131 = getelementptr inbounds %struct.gres_job_state, ptr %1130, i32 0, i32 5
-  %1132 = load i64, ptr %1131, align 8
-  %1133 = icmp ne i64 %1132, 0
-  br i1 %1133, label %1134, label %1156
+1117:                                             ; preds = %1072
+  %1118 = load i32, ptr %40, align 4
+  %1119 = add nsw i32 %1118, 1
+  store i32 %1119, ptr %40, align 4
+  %1120 = load ptr, ptr %25, align 8
+  %1121 = load i32, ptr %1120, align 4
+  %1122 = add i32 %1121, -1
+  store i32 %1122, ptr %1120, align 4
+  %1123 = load ptr, ptr %25, align 8
+  %1124 = load i32, ptr %1123, align 4
+  store i32 %1124, ptr %54, align 4
+  %1125 = load i32, ptr %41, align 4
+  %1126 = load i32, ptr %54, align 4
+  %1127 = mul nsw i32 %1126, %1125
+  store i32 %1127, ptr %54, align 4
+  br label %1066, !llvm.loop !14
 
-1134:                                             ; preds = %1129
-  %1135 = load ptr, ptr %45, align 8
-  %1136 = getelementptr inbounds %struct.gres_job_state, ptr %1135, i32 0, i32 5
-  %1137 = load i64, ptr %1136, align 8
-  %1138 = trunc i64 %1137 to i32
-  store i32 %1138, ptr %74, align 4
-  br label %1139
+1128:                                             ; preds = %1116, %1066
+  %1129 = load i16, ptr %52, align 2
+  %1130 = icmp ne i16 %1129, 0
+  br i1 %1130, label %1131, label %1324
 
-1139:                                             ; preds = %1134
-  %1140 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %1141 = and i64 %1140, 1
-  %1142 = icmp ne i64 %1141, 0
-  br i1 %1142, label %1143, label %1154
+1131:                                             ; preds = %1128
+  %1132 = load ptr, ptr %45, align 8
+  %1133 = getelementptr inbounds %struct.gres_job_state, ptr %1132, i32 0, i32 5
+  %1134 = load i64, ptr %1133, align 8
+  %1135 = icmp ne i64 %1134, 0
+  br i1 %1135, label %1136, label %1159
 
-1143:                                             ; preds = %1139
-  br label %1144
+1136:                                             ; preds = %1131
+  %1137 = load ptr, ptr %45, align 8
+  %1138 = getelementptr inbounds %struct.gres_job_state, ptr %1137, i32 0, i32 5
+  %1139 = load i64, ptr %1138, align 8
+  %1140 = trunc i64 %1139 to i32
+  store i32 %1140, ptr %74, align 4
+  br label %1141
 
-1144:                                             ; preds = %1143
-  %1145 = call i32 @get_log_level()
-  %1146 = icmp sge i32 %1145, 4
-  br i1 %1146, label %1147, label %1152
+1141:                                             ; preds = %1136
+  %1142 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %1143 = load i64, ptr %1142, align 8
+  %1144 = and i64 %1143, 1
+  %1145 = icmp ne i64 %1144, 0
+  br i1 %1145, label %1146, label %1157
 
-1147:                                             ; preds = %1144
-  %1148 = load ptr, ptr %31, align 8
-  %1149 = load ptr, ptr %45, align 8
-  %1150 = getelementptr inbounds %struct.gres_job_state, ptr %1149, i32 0, i32 5
-  %1151 = load i64, ptr %1150, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.4, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1148, i64 noundef %1151)
-  br label %1152
+1146:                                             ; preds = %1141
+  br label %1147
 
-1152:                                             ; preds = %1147, %1144
-  br label %1153
+1147:                                             ; preds = %1146
+  %1148 = call i32 @get_log_level()
+  %1149 = icmp sge i32 %1148, 4
+  br i1 %1149, label %1150, label %1155
 
-1153:                                             ; preds = %1152
-  br label %1154
-
-1154:                                             ; preds = %1153, %1139
+1150:                                             ; preds = %1147
+  %1151 = load ptr, ptr %31, align 8
+  %1152 = load ptr, ptr %45, align 8
+  %1153 = getelementptr inbounds %struct.gres_job_state, ptr %1152, i32 0, i32 5
+  %1154 = load i64, ptr %1153, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.4, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1151, i64 noundef %1154)
   br label %1155
 
-1155:                                             ; preds = %1154
-  br label %1258
+1155:                                             ; preds = %1150, %1147
+  br label %1156
 
-1156:                                             ; preds = %1129
-  %1157 = load ptr, ptr %45, align 8
-  %1158 = getelementptr inbounds %struct.gres_job_state, ptr %1157, i32 0, i32 6
-  %1159 = load i64, ptr %1158, align 8
-  %1160 = icmp ne i64 %1159, 0
-  br i1 %1160, label %1161, label %1186
+1156:                                             ; preds = %1155
+  br label %1157
 
-1161:                                             ; preds = %1156
-  %1162 = load ptr, ptr %45, align 8
-  %1163 = getelementptr inbounds %struct.gres_job_state, ptr %1162, i32 0, i32 6
-  %1164 = load i64, ptr %1163, align 8
-  %1165 = load i32, ptr %56, align 4
-  %1166 = sext i32 %1165 to i64
-  %1167 = mul i64 %1164, %1166
-  %1168 = trunc i64 %1167 to i32
-  store i32 %1168, ptr %74, align 4
-  br label %1169
+1157:                                             ; preds = %1156, %1141
+  br label %1158
 
-1169:                                             ; preds = %1161
-  %1170 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %1171 = and i64 %1170, 1
-  %1172 = icmp ne i64 %1171, 0
-  br i1 %1172, label %1173, label %1184
+1158:                                             ; preds = %1157
+  br label %1265
 
-1173:                                             ; preds = %1169
-  br label %1174
+1159:                                             ; preds = %1131
+  %1160 = load ptr, ptr %45, align 8
+  %1161 = getelementptr inbounds %struct.gres_job_state, ptr %1160, i32 0, i32 6
+  %1162 = load i64, ptr %1161, align 8
+  %1163 = icmp ne i64 %1162, 0
+  br i1 %1163, label %1164, label %1190
 
-1174:                                             ; preds = %1173
-  %1175 = call i32 @get_log_level()
-  %1176 = icmp sge i32 %1175, 4
-  br i1 %1176, label %1177, label %1182
+1164:                                             ; preds = %1159
+  %1165 = load ptr, ptr %45, align 8
+  %1166 = getelementptr inbounds %struct.gres_job_state, ptr %1165, i32 0, i32 6
+  %1167 = load i64, ptr %1166, align 8
+  %1168 = load i32, ptr %56, align 4
+  %1169 = sext i32 %1168 to i64
+  %1170 = mul i64 %1167, %1169
+  %1171 = trunc i64 %1170 to i32
+  store i32 %1171, ptr %74, align 4
+  br label %1172
 
-1177:                                             ; preds = %1174
-  %1178 = load ptr, ptr %31, align 8
-  %1179 = load ptr, ptr %45, align 8
-  %1180 = getelementptr inbounds %struct.gres_job_state, ptr %1179, i32 0, i32 6
-  %1181 = load i64, ptr %1180, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.5, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1178, i64 noundef %1181)
-  br label %1182
+1172:                                             ; preds = %1164
+  %1173 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %1174 = load i64, ptr %1173, align 8
+  %1175 = and i64 %1174, 1
+  %1176 = icmp ne i64 %1175, 0
+  br i1 %1176, label %1177, label %1188
 
-1182:                                             ; preds = %1177, %1174
-  br label %1183
+1177:                                             ; preds = %1172
+  br label %1178
 
-1183:                                             ; preds = %1182
-  br label %1184
+1178:                                             ; preds = %1177
+  %1179 = call i32 @get_log_level()
+  %1180 = icmp sge i32 %1179, 4
+  br i1 %1180, label %1181, label %1186
 
-1184:                                             ; preds = %1183, %1169
-  br label %1185
+1181:                                             ; preds = %1178
+  %1182 = load ptr, ptr %31, align 8
+  %1183 = load ptr, ptr %45, align 8
+  %1184 = getelementptr inbounds %struct.gres_job_state, ptr %1183, i32 0, i32 6
+  %1185 = load i64, ptr %1184, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.5, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1182, i64 noundef %1185)
+  br label %1186
 
-1185:                                             ; preds = %1184
-  br label %1257
+1186:                                             ; preds = %1181, %1178
+  br label %1187
 
-1186:                                             ; preds = %1156
-  %1187 = load ptr, ptr %45, align 8
-  %1188 = getelementptr inbounds %struct.gres_job_state, ptr %1187, i32 0, i32 7
-  %1189 = load i64, ptr %1188, align 8
-  %1190 = icmp ne i64 %1189, 0
-  br i1 %1190, label %1191, label %1219
+1187:                                             ; preds = %1186
+  br label %1188
 
-1191:                                             ; preds = %1186
-  %1192 = load ptr, ptr %45, align 8
-  %1193 = getelementptr inbounds %struct.gres_job_state, ptr %1192, i32 0, i32 7
-  %1194 = load i64, ptr %1193, align 8
-  %1195 = load ptr, ptr %25, align 8
-  %1196 = load i32, ptr %1195, align 4
-  %1197 = zext i32 %1196 to i64
-  %1198 = mul i64 %1194, %1197
-  %1199 = trunc i64 %1198 to i32
-  store i32 %1199, ptr %74, align 4
-  br label %1200
+1188:                                             ; preds = %1187, %1172
+  br label %1189
 
-1200:                                             ; preds = %1191
-  %1201 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %1202 = and i64 %1201, 1
-  %1203 = icmp ne i64 %1202, 0
-  br i1 %1203, label %1204, label %1217
+1189:                                             ; preds = %1188
+  br label %1264
 
-1204:                                             ; preds = %1200
-  br label %1205
+1190:                                             ; preds = %1159
+  %1191 = load ptr, ptr %45, align 8
+  %1192 = getelementptr inbounds %struct.gres_job_state, ptr %1191, i32 0, i32 7
+  %1193 = load i64, ptr %1192, align 8
+  %1194 = icmp ne i64 %1193, 0
+  br i1 %1194, label %1195, label %1224
 
-1205:                                             ; preds = %1204
-  %1206 = call i32 @get_log_level()
-  %1207 = icmp sge i32 %1206, 4
-  br i1 %1207, label %1208, label %1215
+1195:                                             ; preds = %1190
+  %1196 = load ptr, ptr %45, align 8
+  %1197 = getelementptr inbounds %struct.gres_job_state, ptr %1196, i32 0, i32 7
+  %1198 = load i64, ptr %1197, align 8
+  %1199 = load ptr, ptr %25, align 8
+  %1200 = load i32, ptr %1199, align 4
+  %1201 = zext i32 %1200 to i64
+  %1202 = mul i64 %1198, %1201
+  %1203 = trunc i64 %1202 to i32
+  store i32 %1203, ptr %74, align 4
+  br label %1204
 
-1208:                                             ; preds = %1205
-  %1209 = load ptr, ptr %31, align 8
-  %1210 = load ptr, ptr %25, align 8
-  %1211 = load i32, ptr %1210, align 4
-  %1212 = load ptr, ptr %45, align 8
-  %1213 = getelementptr inbounds %struct.gres_job_state, ptr %1212, i32 0, i32 7
-  %1214 = load i64, ptr %1213, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.6, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1209, i32 noundef %1211, i64 noundef %1214)
-  br label %1215
+1204:                                             ; preds = %1195
+  %1205 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %1206 = load i64, ptr %1205, align 8
+  %1207 = and i64 %1206, 1
+  %1208 = icmp ne i64 %1207, 0
+  br i1 %1208, label %1209, label %1222
 
-1215:                                             ; preds = %1208, %1205
-  br label %1216
+1209:                                             ; preds = %1204
+  br label %1210
 
-1216:                                             ; preds = %1215
-  br label %1217
+1210:                                             ; preds = %1209
+  %1211 = call i32 @get_log_level()
+  %1212 = icmp sge i32 %1211, 4
+  br i1 %1212, label %1213, label %1220
 
-1217:                                             ; preds = %1216, %1200
-  br label %1218
+1213:                                             ; preds = %1210
+  %1214 = load ptr, ptr %31, align 8
+  %1215 = load ptr, ptr %25, align 8
+  %1216 = load i32, ptr %1215, align 4
+  %1217 = load ptr, ptr %45, align 8
+  %1218 = getelementptr inbounds %struct.gres_job_state, ptr %1217, i32 0, i32 7
+  %1219 = load i64, ptr %1218, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.6, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1214, i32 noundef %1216, i64 noundef %1219)
+  br label %1220
 
-1218:                                             ; preds = %1217
-  br label %1256
+1220:                                             ; preds = %1213, %1210
+  br label %1221
 
-1219:                                             ; preds = %1186
-  %1220 = load i64, ptr %47, align 8
-  %1221 = icmp ne i64 %1220, 0
-  br i1 %1221, label %1222, label %1240
+1221:                                             ; preds = %1220
+  br label %1222
 
-1222:                                             ; preds = %1219
-  %1223 = load i64, ptr %47, align 8
-  %1224 = trunc i64 %1223 to i32
-  store i32 %1224, ptr %74, align 4
-  br label %1225
+1222:                                             ; preds = %1221, %1204
+  br label %1223
 
-1225:                                             ; preds = %1222
-  %1226 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %1227 = and i64 %1226, 1
-  %1228 = icmp ne i64 %1227, 0
-  br i1 %1228, label %1229, label %1238
+1223:                                             ; preds = %1222
+  br label %1263
 
-1229:                                             ; preds = %1225
+1224:                                             ; preds = %1190
+  %1225 = load i64, ptr %47, align 8
+  %1226 = icmp ne i64 %1225, 0
+  br i1 %1226, label %1227, label %1246
+
+1227:                                             ; preds = %1224
+  %1228 = load i64, ptr %47, align 8
+  %1229 = trunc i64 %1228 to i32
+  store i32 %1229, ptr %74, align 4
   br label %1230
 
-1230:                                             ; preds = %1229
-  %1231 = call i32 @get_log_level()
-  %1232 = icmp sge i32 %1231, 4
-  br i1 %1232, label %1233, label %1236
+1230:                                             ; preds = %1227
+  %1231 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %1232 = load i64, ptr %1231, align 8
+  %1233 = and i64 %1232, 1
+  %1234 = icmp ne i64 %1233, 0
+  br i1 %1234, label %1235, label %1244
 
-1233:                                             ; preds = %1230
-  %1234 = load ptr, ptr %31, align 8
-  %1235 = load i64, ptr %47, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.7, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1234, i64 noundef %1235)
+1235:                                             ; preds = %1230
   br label %1236
 
-1236:                                             ; preds = %1233, %1230
-  br label %1237
+1236:                                             ; preds = %1235
+  %1237 = call i32 @get_log_level()
+  %1238 = icmp sge i32 %1237, 4
+  br i1 %1238, label %1239, label %1242
 
-1237:                                             ; preds = %1236
-  br label %1238
+1239:                                             ; preds = %1236
+  %1240 = load ptr, ptr %31, align 8
+  %1241 = load i64, ptr %47, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.7, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1240, i64 noundef %1241)
+  br label %1242
 
-1238:                                             ; preds = %1237, %1225
-  br label %1239
+1242:                                             ; preds = %1239, %1236
+  br label %1243
 
-1239:                                             ; preds = %1238
-  br label %1255
+1243:                                             ; preds = %1242
+  br label %1244
 
-1240:                                             ; preds = %1219
+1244:                                             ; preds = %1243, %1230
+  br label %1245
+
+1245:                                             ; preds = %1244
+  br label %1262
+
+1246:                                             ; preds = %1224
   store i32 1, ptr %74, align 4
-  br label %1241
+  br label %1247
 
-1241:                                             ; preds = %1240
-  %1242 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %1243 = and i64 %1242, 1
-  %1244 = icmp ne i64 %1243, 0
-  br i1 %1244, label %1245, label %1253
+1247:                                             ; preds = %1246
+  %1248 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %1249 = load i64, ptr %1248, align 8
+  %1250 = and i64 %1249, 1
+  %1251 = icmp ne i64 %1250, 0
+  br i1 %1251, label %1252, label %1260
 
-1245:                                             ; preds = %1241
-  br label %1246
-
-1246:                                             ; preds = %1245
-  %1247 = call i32 @get_log_level()
-  %1248 = icmp sge i32 %1247, 4
-  br i1 %1248, label %1249, label %1251
-
-1249:                                             ; preds = %1246
-  %1250 = load ptr, ptr %31, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.8, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1250)
-  br label %1251
-
-1251:                                             ; preds = %1249, %1246
-  br label %1252
-
-1252:                                             ; preds = %1251
+1252:                                             ; preds = %1247
   br label %1253
 
-1253:                                             ; preds = %1252, %1241
-  br label %1254
+1253:                                             ; preds = %1252
+  %1254 = call i32 @get_log_level()
+  %1255 = icmp sge i32 %1254, 4
+  br i1 %1255, label %1256, label %1258
 
-1254:                                             ; preds = %1253
-  br label %1255
-
-1255:                                             ; preds = %1254, %1239
-  br label %1256
-
-1256:                                             ; preds = %1255, %1218
-  br label %1257
-
-1257:                                             ; preds = %1256, %1185
+1256:                                             ; preds = %1253
+  %1257 = load ptr, ptr %31, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.8, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1257)
   br label %1258
 
-1258:                                             ; preds = %1257, %1155
-  %1259 = load i16, ptr %52, align 2
-  %1260 = zext i16 %1259 to i32
-  %1261 = load i32, ptr %74, align 4
-  %1262 = mul nsw i32 %1261, %1260
-  store i32 %1262, ptr %74, align 4
-  %1263 = load i32, ptr %74, align 4
-  %1264 = load ptr, ptr %25, align 8
-  %1265 = load i32, ptr %1264, align 4
-  %1266 = icmp ult i32 %1263, %1265
-  br i1 %1266, label %1267, label %1269
+1258:                                             ; preds = %1256, %1253
+  br label %1259
 
-1267:                                             ; preds = %1258
+1259:                                             ; preds = %1258
+  br label %1260
+
+1260:                                             ; preds = %1259, %1247
+  br label %1261
+
+1261:                                             ; preds = %1260
+  br label %1262
+
+1262:                                             ; preds = %1261, %1245
+  br label %1263
+
+1263:                                             ; preds = %1262, %1223
+  br label %1264
+
+1264:                                             ; preds = %1263, %1189
+  br label %1265
+
+1265:                                             ; preds = %1264, %1158
+  %1266 = load i16, ptr %52, align 2
+  %1267 = zext i16 %1266 to i32
   %1268 = load i32, ptr %74, align 4
-  br label %1272
+  %1269 = mul nsw i32 %1268, %1267
+  store i32 %1269, ptr %74, align 4
+  %1270 = load i32, ptr %74, align 4
+  %1271 = load ptr, ptr %25, align 8
+  %1272 = load i32, ptr %1271, align 4
+  %1273 = icmp ult i32 %1270, %1272
+  br i1 %1273, label %1274, label %1276
 
-1269:                                             ; preds = %1258
-  %1270 = load ptr, ptr %25, align 8
-  %1271 = load i32, ptr %1270, align 4
-  br label %1272
-
-1272:                                             ; preds = %1269, %1267
-  %1273 = phi i32 [ %1268, %1267 ], [ %1271, %1269 ]
-  %1274 = load ptr, ptr %25, align 8
-  store i32 %1273, ptr %1274, align 4
+1274:                                             ; preds = %1265
   %1275 = load i32, ptr %74, align 4
-  %1276 = load i16, ptr %22, align 2
-  %1277 = zext i16 %1276 to i32
-  %1278 = add nsw i32 %1275, %1277
-  %1279 = sub nsw i32 %1278, 1
-  %1280 = load i16, ptr %22, align 2
-  %1281 = zext i16 %1280 to i32
-  %1282 = sdiv i32 %1279, %1281
-  store i32 %1282, ptr %74, align 4
-  %1283 = load i32, ptr %54, align 4
-  %1284 = load i32, ptr %74, align 4
-  %1285 = icmp slt i32 %1283, %1284
-  br i1 %1285, label %1286, label %1306
+  br label %1279
 
-1286:                                             ; preds = %1272
-  br label %1287
+1276:                                             ; preds = %1265
+  %1277 = load ptr, ptr %25, align 8
+  %1278 = load i32, ptr %1277, align 4
+  br label %1279
 
-1287:                                             ; preds = %1286
-  %1288 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %1289 = and i64 %1288, 1
-  %1290 = icmp ne i64 %1289, 0
-  br i1 %1290, label %1291, label %1304
+1279:                                             ; preds = %1276, %1274
+  %1280 = phi i32 [ %1275, %1274 ], [ %1278, %1276 ]
+  %1281 = load ptr, ptr %25, align 8
+  store i32 %1280, ptr %1281, align 4
+  %1282 = load i32, ptr %74, align 4
+  %1283 = load i16, ptr %22, align 2
+  %1284 = zext i16 %1283 to i32
+  %1285 = add nsw i32 %1282, %1284
+  %1286 = sub nsw i32 %1285, 1
+  %1287 = load i16, ptr %22, align 2
+  %1288 = zext i16 %1287 to i32
+  %1289 = sdiv i32 %1286, %1288
+  store i32 %1289, ptr %74, align 4
+  %1290 = load i32, ptr %54, align 4
+  %1291 = load i32, ptr %74, align 4
+  %1292 = icmp slt i32 %1290, %1291
+  br i1 %1292, label %1293, label %1314
 
-1291:                                             ; preds = %1287
-  br label %1292
+1293:                                             ; preds = %1279
+  br label %1294
 
-1292:                                             ; preds = %1291
-  %1293 = call i32 @get_log_level()
-  %1294 = icmp sge i32 %1293, 4
-  br i1 %1294, label %1295, label %1302
+1294:                                             ; preds = %1293
+  %1295 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %1296 = load i64, ptr %1295, align 8
+  %1297 = and i64 %1296, 1
+  %1298 = icmp ne i64 %1297, 0
+  br i1 %1298, label %1299, label %1312
 
-1295:                                             ; preds = %1292
-  %1296 = load ptr, ptr %31, align 8
-  %1297 = load i32, ptr %74, align 4
-  %1298 = load i16, ptr %52, align 2
-  %1299 = zext i16 %1298 to i32
-  %1300 = load i16, ptr %22, align 2
-  %1301 = zext i16 %1300 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.9, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1296, i32 noundef %1297, i32 noundef %1299, i32 noundef %1301)
-  br label %1302
+1299:                                             ; preds = %1294
+  br label %1300
 
-1302:                                             ; preds = %1295, %1292
-  br label %1303
+1300:                                             ; preds = %1299
+  %1301 = call i32 @get_log_level()
+  %1302 = icmp sge i32 %1301, 4
+  br i1 %1302, label %1303, label %1310
 
-1303:                                             ; preds = %1302
-  br label %1304
+1303:                                             ; preds = %1300
+  %1304 = load ptr, ptr %31, align 8
+  %1305 = load i32, ptr %74, align 4
+  %1306 = load i16, ptr %52, align 2
+  %1307 = zext i16 %1306 to i32
+  %1308 = load i16, ptr %22, align 2
+  %1309 = zext i16 %1308 to i32
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.9, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1304, i32 noundef %1305, i32 noundef %1307, i32 noundef %1309)
+  br label %1310
 
-1304:                                             ; preds = %1303, %1287
-  br label %1305
+1310:                                             ; preds = %1303, %1300
+  br label %1311
 
-1305:                                             ; preds = %1304
-  br label %1306
+1311:                                             ; preds = %1310
+  br label %1312
 
-1306:                                             ; preds = %1305, %1272
-  %1307 = load i32, ptr %54, align 4
-  %1308 = load i32, ptr %74, align 4
-  %1309 = icmp sgt i32 %1307, %1308
-  br i1 %1309, label %1310, label %1312
+1312:                                             ; preds = %1311, %1294
+  br label %1313
 
-1310:                                             ; preds = %1306
-  %1311 = load i32, ptr %54, align 4
+1313:                                             ; preds = %1312
   br label %1314
 
-1312:                                             ; preds = %1306
-  %1313 = load i32, ptr %74, align 4
-  br label %1314
+1314:                                             ; preds = %1313, %1279
+  %1315 = load i32, ptr %54, align 4
+  %1316 = load i32, ptr %74, align 4
+  %1317 = icmp sgt i32 %1315, %1316
+  br i1 %1317, label %1318, label %1320
 
-1314:                                             ; preds = %1312, %1310
-  %1315 = phi i32 [ %1311, %1310 ], [ %1313, %1312 ]
-  store i32 %1315, ptr %54, align 4
-  br label %1316
+1318:                                             ; preds = %1314
+  %1319 = load i32, ptr %54, align 4
+  br label %1322
 
-1316:                                             ; preds = %1314, %1126
-  %1317 = load i8, ptr %28, align 1
-  %1318 = trunc i8 %1317 to i1
-  br i1 %1318, label %1319, label %1325
+1320:                                             ; preds = %1314
+  %1321 = load i32, ptr %74, align 4
+  br label %1322
 
-1319:                                             ; preds = %1316
-  %1320 = load i32, ptr %54, align 4
-  %1321 = load i32, ptr %56, align 4
-  %1322 = icmp slt i32 %1320, %1321
-  br i1 %1322, label %1323, label %1325
+1322:                                             ; preds = %1320, %1318
+  %1323 = phi i32 [ %1319, %1318 ], [ %1321, %1320 ]
+  store i32 %1323, ptr %54, align 4
+  br label %1324
 
-1323:                                             ; preds = %1319
-  %1324 = load i32, ptr %56, align 4
-  store i32 %1324, ptr %54, align 4
-  br label %1325
+1324:                                             ; preds = %1322, %1128
+  %1325 = load i8, ptr %28, align 1
+  %1326 = trunc i8 %1325 to i1
+  br i1 %1326, label %1327, label %1333
 
-1325:                                             ; preds = %1323, %1319, %1316
-  %1326 = load i32, ptr %54, align 4
-  %1327 = load i16, ptr %51, align 2
-  %1328 = zext i16 %1327 to i32
-  %1329 = icmp sgt i32 %1326, %1328
-  br i1 %1329, label %1330, label %1349
+1327:                                             ; preds = %1324
+  %1328 = load i32, ptr %54, align 4
+  %1329 = load i32, ptr %56, align 4
+  %1330 = icmp slt i32 %1328, %1329
+  br i1 %1330, label %1331, label %1333
 
-1330:                                             ; preds = %1325
-  br label %1331
+1331:                                             ; preds = %1327
+  %1332 = load i32, ptr %56, align 4
+  store i32 %1332, ptr %54, align 4
+  br label %1333
 
-1331:                                             ; preds = %1330
-  %1332 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %1333 = and i64 %1332, 1
-  %1334 = icmp ne i64 %1333, 0
-  br i1 %1334, label %1335, label %1346
+1333:                                             ; preds = %1331, %1327, %1324
+  %1334 = load i32, ptr %54, align 4
+  %1335 = load i16, ptr %51, align 2
+  %1336 = zext i16 %1335 to i32
+  %1337 = icmp sgt i32 %1334, %1336
+  br i1 %1337, label %1338, label %1358
 
-1335:                                             ; preds = %1331
-  br label %1336
+1338:                                             ; preds = %1333
+  br label %1339
 
-1336:                                             ; preds = %1335
-  %1337 = call i32 @get_log_level()
-  %1338 = icmp sge i32 %1337, 4
-  br i1 %1338, label %1339, label %1344
+1339:                                             ; preds = %1338
+  %1340 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %1341 = load i64, ptr %1340, align 8
+  %1342 = and i64 %1341, 1
+  %1343 = icmp ne i64 %1342, 0
+  br i1 %1343, label %1344, label %1355
 
-1339:                                             ; preds = %1336
-  %1340 = load ptr, ptr %31, align 8
-  %1341 = load i32, ptr %54, align 4
-  %1342 = load i16, ptr %51, align 2
-  %1343 = zext i16 %1342 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.10, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1340, i32 noundef %1341, i32 noundef %1343)
-  br label %1344
-
-1344:                                             ; preds = %1339, %1336
+1344:                                             ; preds = %1339
   br label %1345
 
 1345:                                             ; preds = %1344
-  br label %1346
+  %1346 = call i32 @get_log_level()
+  %1347 = icmp sge i32 %1346, 4
+  br i1 %1347, label %1348, label %1353
 
-1346:                                             ; preds = %1345, %1331
-  br label %1347
+1348:                                             ; preds = %1345
+  %1349 = load ptr, ptr %31, align 8
+  %1350 = load i32, ptr %54, align 4
+  %1351 = load i16, ptr %51, align 2
+  %1352 = zext i16 %1351 to i32
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.10, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1349, i32 noundef %1350, i32 noundef %1352)
+  br label %1353
 
-1347:                                             ; preds = %1346
-  %1348 = load ptr, ptr %25, align 8
-  store i32 0, ptr %1348, align 4
-  br label %1675
+1353:                                             ; preds = %1348, %1345
+  br label %1354
 
-1349:                                             ; preds = %1325
-  %1350 = load i8, ptr %28, align 1
-  %1351 = trunc i8 %1350 to i1
-  br i1 %1351, label %1352, label %1384
+1354:                                             ; preds = %1353
+  br label %1355
 
-1352:                                             ; preds = %1349
-  %1353 = load i32, ptr %54, align 4
-  %1354 = load i32, ptr %57, align 4
-  %1355 = mul nsw i32 %1353, %1354
-  %1356 = load ptr, ptr %23, align 8
-  %1357 = load i16, ptr %1356, align 2
-  %1358 = zext i16 %1357 to i32
-  %1359 = icmp sgt i32 %1355, %1358
-  br i1 %1359, label %1360, label %1384
+1355:                                             ; preds = %1354, %1339
+  br label %1356
 
-1360:                                             ; preds = %1352
-  br label %1361
+1356:                                             ; preds = %1355
+  %1357 = load ptr, ptr %25, align 8
+  store i32 0, ptr %1357, align 4
+  br label %1685
 
-1361:                                             ; preds = %1360
-  %1362 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38), align 8
-  %1363 = and i64 %1362, 1
-  %1364 = icmp ne i64 %1363, 0
-  br i1 %1364, label %1365, label %1381
+1358:                                             ; preds = %1333
+  %1359 = load i8, ptr %28, align 1
+  %1360 = trunc i8 %1359 to i1
+  br i1 %1360, label %1361, label %1394
 
-1365:                                             ; preds = %1361
-  br label %1366
+1361:                                             ; preds = %1358
+  %1362 = load i32, ptr %54, align 4
+  %1363 = load i32, ptr %57, align 4
+  %1364 = mul nsw i32 %1362, %1363
+  %1365 = load ptr, ptr %23, align 8
+  %1366 = load i16, ptr %1365, align 2
+  %1367 = zext i16 %1366 to i32
+  %1368 = icmp sgt i32 %1364, %1367
+  br i1 %1368, label %1369, label %1394
 
-1366:                                             ; preds = %1365
-  %1367 = call i32 @get_log_level()
-  %1368 = icmp sge i32 %1367, 4
-  br i1 %1368, label %1369, label %1379
+1369:                                             ; preds = %1361
+  br label %1370
 
-1369:                                             ; preds = %1366
-  %1370 = load ptr, ptr %31, align 8
-  %1371 = load ptr, ptr %23, align 8
-  %1372 = load i16, ptr %1371, align 2
-  %1373 = zext i16 %1372 to i32
-  %1374 = load i32, ptr %54, align 4
-  %1375 = load i32, ptr %57, align 4
-  %1376 = mul nsw i32 %1374, %1375
-  %1377 = load i32, ptr %54, align 4
-  %1378 = load i32, ptr %57, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.11, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1370, i32 noundef %1373, i32 noundef %1376, i32 noundef %1377, i32 noundef %1378)
-  br label %1379
+1370:                                             ; preds = %1369
+  %1371 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
+  %1372 = load i64, ptr %1371, align 8
+  %1373 = and i64 %1372, 1
+  %1374 = icmp ne i64 %1373, 0
+  br i1 %1374, label %1375, label %1391
 
-1379:                                             ; preds = %1369, %1366
-  br label %1380
+1375:                                             ; preds = %1370
+  br label %1376
 
-1380:                                             ; preds = %1379
-  br label %1381
+1376:                                             ; preds = %1375
+  %1377 = call i32 @get_log_level()
+  %1378 = icmp sge i32 %1377, 4
+  br i1 %1378, label %1379, label %1389
 
-1381:                                             ; preds = %1380, %1361
-  br label %1382
+1379:                                             ; preds = %1376
+  %1380 = load ptr, ptr %31, align 8
+  %1381 = load ptr, ptr %23, align 8
+  %1382 = load i16, ptr %1381, align 2
+  %1383 = zext i16 %1382 to i32
+  %1384 = load i32, ptr %54, align 4
+  %1385 = load i32, ptr %57, align 4
+  %1386 = mul nsw i32 %1384, %1385
+  %1387 = load i32, ptr %54, align 4
+  %1388 = load i32, ptr %57, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef @.str.11, ptr noundef @plugin_type, ptr noundef @__func__.gres_filter_sock_core, ptr noundef %1380, i32 noundef %1383, i32 noundef %1386, i32 noundef %1387, i32 noundef %1388)
+  br label %1389
 
-1382:                                             ; preds = %1381
-  %1383 = load ptr, ptr %25, align 8
-  store i32 0, ptr %1383, align 4
-  br label %1675
+1389:                                             ; preds = %1379, %1376
+  br label %1390
 
-1384:                                             ; preds = %1352, %1349
-  %1385 = load i16, ptr %32, align 2
-  %1386 = zext i16 %1385 to i32
-  %1387 = and i32 %1386, 2
-  %1388 = icmp ne i32 %1387, 0
-  br i1 %1388, label %1486, label %1389
+1390:                                             ; preds = %1389
+  br label %1391
 
-1389:                                             ; preds = %1384
-  %1390 = load i16, ptr %51, align 2
-  %1391 = zext i16 %1390 to i32
-  %1392 = load i32, ptr %54, align 4
-  %1393 = icmp sgt i32 %1391, %1392
-  br i1 %1393, label %1394, label %1486
+1391:                                             ; preds = %1390, %1370
+  br label %1392
 
-1394:                                             ; preds = %1389
-  %1395 = load i8, ptr %28, align 1
-  %1396 = trunc i8 %1395 to i1
-  br i1 %1396, label %1486, label %1397
+1392:                                             ; preds = %1391
+  %1393 = load ptr, ptr %25, align 8
+  store i32 0, ptr %1393, align 4
+  br label %1685
 
-1397:                                             ; preds = %1394
-  %1398 = load i8, ptr %29, align 1
-  %1399 = trunc i8 %1398 to i1
-  br i1 %1399, label %1486, label %1400
+1394:                                             ; preds = %1361, %1358
+  %1395 = load i16, ptr %32, align 2
+  %1396 = zext i16 %1395 to i32
+  %1397 = and i32 %1396, 2
+  %1398 = icmp ne i32 %1397, 0
+  br i1 %1398, label %1496, label %1399
 
-1400:                                             ; preds = %1397
-  %1401 = load i32, ptr %56, align 4
-  %1402 = load i16, ptr %20, align 2
-  %1403 = zext i16 %1402 to i32
-  %1404 = icmp ne i32 %1401, %1403
-  br i1 %1404, label %1405, label %1486
+1399:                                             ; preds = %1394
+  %1400 = load i16, ptr %51, align 2
+  %1401 = zext i16 %1400 to i32
+  %1402 = load i32, ptr %54, align 4
+  %1403 = icmp sgt i32 %1401, %1402
+  br i1 %1403, label %1404, label %1496
 
-1405:                                             ; preds = %1400
-  store i32 0, ptr %75, align 4
-  br label %1406
+1404:                                             ; preds = %1399
+  %1405 = load i8, ptr %28, align 1
+  %1406 = trunc i8 %1405 to i1
+  br i1 %1406, label %1496, label %1407
 
-1406:                                             ; preds = %1482, %1405
-  %1407 = load i32, ptr %75, align 4
-  %1408 = load i16, ptr %20, align 2
-  %1409 = zext i16 %1408 to i32
-  %1410 = icmp slt i32 %1407, %1409
-  br i1 %1410, label %1411, label %1485
+1407:                                             ; preds = %1404
+  %1408 = load i8, ptr %29, align 1
+  %1409 = trunc i8 %1408 to i1
+  br i1 %1409, label %1496, label %1410
 
-1411:                                             ; preds = %1406
-  %1412 = load i16, ptr %51, align 2
+1410:                                             ; preds = %1407
+  %1411 = load i32, ptr %56, align 4
+  %1412 = load i16, ptr %20, align 2
   %1413 = zext i16 %1412 to i32
-  %1414 = load i32, ptr %54, align 4
-  %1415 = icmp eq i32 %1413, %1414
-  br i1 %1415, label %1416, label %1417
+  %1414 = icmp ne i32 %1411, %1413
+  br i1 %1414, label %1415, label %1496
 
-1416:                                             ; preds = %1411
-  br label %1485
+1415:                                             ; preds = %1410
+  store i32 0, ptr %75, align 4
+  br label %1416
 
-1417:                                             ; preds = %1411
-  %1418 = load ptr, ptr %37, align 8
-  %1419 = load i32, ptr %75, align 4
-  %1420 = sext i32 %1419 to i64
-  %1421 = getelementptr inbounds i8, ptr %1418, i64 %1420
-  %1422 = load i8, ptr %1421, align 1
-  %1423 = trunc i8 %1422 to i1
-  br i1 %1423, label %1424, label %1425
+1416:                                             ; preds = %1492, %1415
+  %1417 = load i32, ptr %75, align 4
+  %1418 = load i16, ptr %20, align 2
+  %1419 = zext i16 %1418 to i32
+  %1420 = icmp slt i32 %1417, %1419
+  br i1 %1420, label %1421, label %1495
 
-1424:                                             ; preds = %1417
-  br label %1482
+1421:                                             ; preds = %1416
+  %1422 = load i16, ptr %51, align 2
+  %1423 = zext i16 %1422 to i32
+  %1424 = load i32, ptr %54, align 4
+  %1425 = icmp eq i32 %1423, %1424
+  br i1 %1425, label %1426, label %1427
 
-1425:                                             ; preds = %1417
-  %1426 = load i16, ptr %21, align 2
-  %1427 = zext i16 %1426 to i32
-  %1428 = sub nsw i32 %1427, 1
-  store i32 %1428, ptr %76, align 4
-  br label %1429
+1426:                                             ; preds = %1421
+  br label %1495
 
-1429:                                             ; preds = %1478, %1425
-  %1430 = load i32, ptr %76, align 4
-  %1431 = icmp sge i32 %1430, 0
-  br i1 %1431, label %1432, label %1481
+1427:                                             ; preds = %1421
+  %1428 = load ptr, ptr %37, align 8
+  %1429 = load i32, ptr %75, align 4
+  %1430 = sext i32 %1429 to i64
+  %1431 = getelementptr inbounds i8, ptr %1428, i64 %1430
+  %1432 = load i8, ptr %1431, align 1
+  %1433 = trunc i8 %1432 to i1
+  br i1 %1433, label %1434, label %1435
 
-1432:                                             ; preds = %1429
-  %1433 = load i32, ptr %75, align 4
-  %1434 = load i16, ptr %21, align 2
-  %1435 = zext i16 %1434 to i32
-  %1436 = mul nsw i32 %1433, %1435
-  %1437 = load i32, ptr %76, align 4
-  %1438 = add nsw i32 %1436, %1437
-  store i32 %1438, ptr %77, align 4
-  %1439 = load ptr, ptr %30, align 8
-  %1440 = load i32, ptr %77, align 4
-  %1441 = sext i32 %1440 to i64
-  %1442 = call i32 @bit_test(ptr noundef %1439, i64 noundef %1441)
-  %1443 = icmp ne i32 %1442, 0
-  br i1 %1443, label %1445, label %1444
+1434:                                             ; preds = %1427
+  br label %1492
 
-1444:                                             ; preds = %1432
-  br label %1478
+1435:                                             ; preds = %1427
+  %1436 = load i16, ptr %21, align 2
+  %1437 = zext i16 %1436 to i32
+  %1438 = sub nsw i32 %1437, 1
+  store i32 %1438, ptr %76, align 4
+  br label %1439
 
-1445:                                             ; preds = %1432
-  %1446 = load ptr, ptr %30, align 8
-  %1447 = load i32, ptr %77, align 4
-  %1448 = sext i32 %1447 to i64
-  call void @bit_clear(ptr noundef %1446, i64 noundef %1448)
-  %1449 = load i16, ptr %51, align 2
-  %1450 = add i16 %1449, -1
-  store i16 %1450, ptr %51, align 2
-  %1451 = load ptr, ptr @avail_cores_per_sock, align 8
-  %1452 = load i32, ptr %75, align 4
-  %1453 = sext i32 %1452 to i64
-  %1454 = getelementptr inbounds i16, ptr %1451, i64 %1453
-  %1455 = load i16, ptr %1454, align 2
-  %1456 = add i16 %1455, -1
-  store i16 %1456, ptr %1454, align 2
-  %1457 = load i16, ptr %51, align 2
-  %1458 = zext i16 %1457 to i32
-  %1459 = load i16, ptr %22, align 2
-  %1460 = zext i16 %1459 to i32
-  %1461 = mul nsw i32 %1458, %1460
-  store i32 %1461, ptr %78, align 4
-  %1462 = load i32, ptr %78, align 4
-  %1463 = load ptr, ptr %23, align 8
-  %1464 = load i16, ptr %1463, align 2
-  %1465 = zext i16 %1464 to i32
-  %1466 = icmp slt i32 %1462, %1465
-  br i1 %1466, label %1467, label %1471
+1439:                                             ; preds = %1488, %1435
+  %1440 = load i32, ptr %76, align 4
+  %1441 = icmp sge i32 %1440, 0
+  br i1 %1441, label %1442, label %1491
 
-1467:                                             ; preds = %1445
-  %1468 = load i32, ptr %78, align 4
-  %1469 = trunc i32 %1468 to i16
-  %1470 = load ptr, ptr %23, align 8
-  store i16 %1469, ptr %1470, align 2
-  br label %1471
+1442:                                             ; preds = %1439
+  %1443 = load i32, ptr %75, align 4
+  %1444 = load i16, ptr %21, align 2
+  %1445 = zext i16 %1444 to i32
+  %1446 = mul nsw i32 %1443, %1445
+  %1447 = load i32, ptr %76, align 4
+  %1448 = add nsw i32 %1446, %1447
+  store i32 %1448, ptr %77, align 4
+  %1449 = load ptr, ptr %30, align 8
+  %1450 = load i32, ptr %77, align 4
+  %1451 = sext i32 %1450 to i64
+  %1452 = call i32 @bit_test(ptr noundef %1449, i64 noundef %1451)
+  %1453 = icmp ne i32 %1452, 0
+  br i1 %1453, label %1455, label %1454
 
-1471:                                             ; preds = %1467, %1445
-  %1472 = load i16, ptr %51, align 2
-  %1473 = zext i16 %1472 to i32
-  %1474 = load i32, ptr %54, align 4
-  %1475 = icmp eq i32 %1473, %1474
-  br i1 %1475, label %1476, label %1477
+1454:                                             ; preds = %1442
+  br label %1488
 
-1476:                                             ; preds = %1471
+1455:                                             ; preds = %1442
+  %1456 = load ptr, ptr %30, align 8
+  %1457 = load i32, ptr %77, align 4
+  %1458 = sext i32 %1457 to i64
+  call void @bit_clear(ptr noundef %1456, i64 noundef %1458)
+  %1459 = load i16, ptr %51, align 2
+  %1460 = add i16 %1459, -1
+  store i16 %1460, ptr %51, align 2
+  %1461 = load ptr, ptr @avail_cores_per_sock, align 8
+  %1462 = load i32, ptr %75, align 4
+  %1463 = sext i32 %1462 to i64
+  %1464 = getelementptr inbounds i16, ptr %1461, i64 %1463
+  %1465 = load i16, ptr %1464, align 2
+  %1466 = add i16 %1465, -1
+  store i16 %1466, ptr %1464, align 2
+  %1467 = load i16, ptr %51, align 2
+  %1468 = zext i16 %1467 to i32
+  %1469 = load i16, ptr %22, align 2
+  %1470 = zext i16 %1469 to i32
+  %1471 = mul nsw i32 %1468, %1470
+  store i32 %1471, ptr %78, align 4
+  %1472 = load i32, ptr %78, align 4
+  %1473 = load ptr, ptr %23, align 8
+  %1474 = load i16, ptr %1473, align 2
+  %1475 = zext i16 %1474 to i32
+  %1476 = icmp slt i32 %1472, %1475
+  br i1 %1476, label %1477, label %1481
+
+1477:                                             ; preds = %1455
+  %1478 = load i32, ptr %78, align 4
+  %1479 = trunc i32 %1478 to i16
+  %1480 = load ptr, ptr %23, align 8
+  store i16 %1479, ptr %1480, align 2
   br label %1481
 
-1477:                                             ; preds = %1471
-  br label %1478
+1481:                                             ; preds = %1477, %1455
+  %1482 = load i16, ptr %51, align 2
+  %1483 = zext i16 %1482 to i32
+  %1484 = load i32, ptr %54, align 4
+  %1485 = icmp eq i32 %1483, %1484
+  br i1 %1485, label %1486, label %1487
 
-1478:                                             ; preds = %1477, %1444
-  %1479 = load i32, ptr %76, align 4
-  %1480 = add nsw i32 %1479, -1
-  store i32 %1480, ptr %76, align 4
-  br label %1429, !llvm.loop !15
+1486:                                             ; preds = %1481
+  br label %1491
 
-1481:                                             ; preds = %1476, %1429
-  br label %1482
+1487:                                             ; preds = %1481
+  br label %1488
 
-1482:                                             ; preds = %1481, %1424
-  %1483 = load i32, ptr %75, align 4
-  %1484 = add nsw i32 %1483, 1
-  store i32 %1484, ptr %75, align 4
-  br label %1406, !llvm.loop !16
+1488:                                             ; preds = %1487, %1454
+  %1489 = load i32, ptr %76, align 4
+  %1490 = add nsw i32 %1489, -1
+  store i32 %1490, ptr %76, align 4
+  br label %1439, !llvm.loop !15
 
-1485:                                             ; preds = %1416, %1406
-  br label %1486
+1491:                                             ; preds = %1486, %1439
+  br label %1492
 
-1486:                                             ; preds = %1485, %1400, %1397, %1394, %1389, %1384
-  br label %1487
+1492:                                             ; preds = %1491, %1434
+  %1493 = load i32, ptr %75, align 4
+  %1494 = add nsw i32 %1493, 1
+  store i32 %1494, ptr %75, align 4
+  br label %1416, !llvm.loop !16
 
-1487:                                             ; preds = %1609, %1486
-  %1488 = load i16, ptr %32, align 2
-  %1489 = zext i16 %1488 to i32
-  %1490 = and i32 %1489, 2
-  %1491 = icmp ne i32 %1490, 0
-  br i1 %1491, label %1502, label %1492
+1495:                                             ; preds = %1426, %1416
+  br label %1496
 
-1492:                                             ; preds = %1487
-  %1493 = load i32, ptr %56, align 4
-  %1494 = icmp ne i32 %1493, 0
-  br i1 %1494, label %1495, label %1500
+1496:                                             ; preds = %1495, %1410, %1407, %1404, %1399, %1394
+  br label %1497
 
-1495:                                             ; preds = %1492
-  %1496 = load i16, ptr %51, align 2
-  %1497 = zext i16 %1496 to i32
-  %1498 = load i32, ptr %54, align 4
-  %1499 = icmp sgt i32 %1497, %1498
-  br label %1500
+1497:                                             ; preds = %1619, %1496
+  %1498 = load i16, ptr %32, align 2
+  %1499 = zext i16 %1498 to i32
+  %1500 = and i32 %1499, 2
+  %1501 = icmp ne i32 %1500, 0
+  br i1 %1501, label %1512, label %1502
 
-1500:                                             ; preds = %1495, %1492
-  %1501 = phi i1 [ false, %1492 ], [ %1499, %1495 ]
-  br label %1502
+1502:                                             ; preds = %1497
+  %1503 = load i32, ptr %56, align 4
+  %1504 = icmp ne i32 %1503, 0
+  br i1 %1504, label %1505, label %1510
 
-1502:                                             ; preds = %1500, %1487
-  %1503 = phi i1 [ false, %1487 ], [ %1501, %1500 ]
-  br i1 %1503, label %1504, label %1610
+1505:                                             ; preds = %1502
+  %1506 = load i16, ptr %51, align 2
+  %1507 = zext i16 %1506 to i32
+  %1508 = load i32, ptr %54, align 4
+  %1509 = icmp sgt i32 %1507, %1508
+  br label %1510
 
-1504:                                             ; preds = %1502
+1510:                                             ; preds = %1505, %1502
+  %1511 = phi i1 [ false, %1502 ], [ %1509, %1505 ]
+  br label %1512
+
+1512:                                             ; preds = %1510, %1497
+  %1513 = phi i1 [ false, %1497 ], [ %1511, %1510 ]
+  br i1 %1513, label %1514, label %1620
+
+1514:                                             ; preds = %1512
   store i32 -1, ptr %79, align 4
   store i32 0, ptr %80, align 4
-  br label %1505
+  br label %1515
 
-1505:                                             ; preds = %1552, %1504
-  %1506 = load i32, ptr %80, align 4
-  %1507 = load i16, ptr %20, align 2
-  %1508 = zext i16 %1507 to i32
-  %1509 = icmp slt i32 %1506, %1508
-  br i1 %1509, label %1510, label %1555
+1515:                                             ; preds = %1562, %1514
+  %1516 = load i32, ptr %80, align 4
+  %1517 = load i16, ptr %20, align 2
+  %1518 = zext i16 %1517 to i32
+  %1519 = icmp slt i32 %1516, %1518
+  br i1 %1519, label %1520, label %1565
 
-1510:                                             ; preds = %1505
-  %1511 = load i16, ptr %51, align 2
-  %1512 = zext i16 %1511 to i32
-  %1513 = load i32, ptr %54, align 4
-  %1514 = icmp eq i32 %1512, %1513
-  br i1 %1514, label %1515, label %1516
+1520:                                             ; preds = %1515
+  %1521 = load i16, ptr %51, align 2
+  %1522 = zext i16 %1521 to i32
+  %1523 = load i32, ptr %54, align 4
+  %1524 = icmp eq i32 %1522, %1523
+  br i1 %1524, label %1525, label %1526
 
-1515:                                             ; preds = %1510
-  br label %1555
+1525:                                             ; preds = %1520
+  br label %1565
 
-1516:                                             ; preds = %1510
-  %1517 = load ptr, ptr %37, align 8
-  %1518 = load i32, ptr %80, align 4
-  %1519 = sext i32 %1518 to i64
-  %1520 = getelementptr inbounds i8, ptr %1517, i64 %1519
-  %1521 = load i8, ptr %1520, align 1
-  %1522 = trunc i8 %1521 to i1
-  br i1 %1522, label %1523, label %1531
+1526:                                             ; preds = %1520
+  %1527 = load ptr, ptr %37, align 8
+  %1528 = load i32, ptr %80, align 4
+  %1529 = sext i32 %1528 to i64
+  %1530 = getelementptr inbounds i8, ptr %1527, i64 %1529
+  %1531 = load i8, ptr %1530, align 1
+  %1532 = trunc i8 %1531 to i1
+  br i1 %1532, label %1533, label %1541
 
-1523:                                             ; preds = %1516
-  %1524 = load ptr, ptr @avail_cores_per_sock, align 8
-  %1525 = load i32, ptr %80, align 4
-  %1526 = sext i32 %1525 to i64
-  %1527 = getelementptr inbounds i16, ptr %1524, i64 %1526
-  %1528 = load i16, ptr %1527, align 2
-  %1529 = zext i16 %1528 to i32
-  %1530 = icmp eq i32 %1529, 0
-  br i1 %1530, label %1531, label %1532
+1533:                                             ; preds = %1526
+  %1534 = load ptr, ptr @avail_cores_per_sock, align 8
+  %1535 = load i32, ptr %80, align 4
+  %1536 = sext i32 %1535 to i64
+  %1537 = getelementptr inbounds i16, ptr %1534, i64 %1536
+  %1538 = load i16, ptr %1537, align 2
+  %1539 = zext i16 %1538 to i32
+  %1540 = icmp eq i32 %1539, 0
+  br i1 %1540, label %1541, label %1542
 
-1531:                                             ; preds = %1523, %1516
-  br label %1552
+1541:                                             ; preds = %1533, %1526
+  br label %1562
 
-1532:                                             ; preds = %1523
-  %1533 = load i32, ptr %79, align 4
-  %1534 = icmp eq i32 %1533, -1
-  br i1 %1534, label %1549, label %1535
+1542:                                             ; preds = %1533
+  %1543 = load i32, ptr %79, align 4
+  %1544 = icmp eq i32 %1543, -1
+  br i1 %1544, label %1559, label %1545
 
-1535:                                             ; preds = %1532
-  %1536 = load ptr, ptr @avail_cores_per_sock, align 8
-  %1537 = load i32, ptr %79, align 4
-  %1538 = sext i32 %1537 to i64
-  %1539 = getelementptr inbounds i16, ptr %1536, i64 %1538
-  %1540 = load i16, ptr %1539, align 2
-  %1541 = zext i16 %1540 to i32
-  %1542 = load ptr, ptr @avail_cores_per_sock, align 8
-  %1543 = load i32, ptr %80, align 4
-  %1544 = sext i32 %1543 to i64
-  %1545 = getelementptr inbounds i16, ptr %1542, i64 %1544
-  %1546 = load i16, ptr %1545, align 2
-  %1547 = zext i16 %1546 to i32
-  %1548 = icmp slt i32 %1541, %1547
-  br i1 %1548, label %1549, label %1551
-
-1549:                                             ; preds = %1535, %1532
-  %1550 = load i32, ptr %80, align 4
-  store i32 %1550, ptr %79, align 4
-  br label %1551
-
-1551:                                             ; preds = %1549, %1535
-  br label %1552
-
-1552:                                             ; preds = %1551, %1531
+1545:                                             ; preds = %1542
+  %1546 = load ptr, ptr @avail_cores_per_sock, align 8
+  %1547 = load i32, ptr %79, align 4
+  %1548 = sext i32 %1547 to i64
+  %1549 = getelementptr inbounds i16, ptr %1546, i64 %1548
+  %1550 = load i16, ptr %1549, align 2
+  %1551 = zext i16 %1550 to i32
+  %1552 = load ptr, ptr @avail_cores_per_sock, align 8
   %1553 = load i32, ptr %80, align 4
-  %1554 = add nsw i32 %1553, 1
-  store i32 %1554, ptr %80, align 4
-  br label %1505, !llvm.loop !17
+  %1554 = sext i32 %1553 to i64
+  %1555 = getelementptr inbounds i16, ptr %1552, i64 %1554
+  %1556 = load i16, ptr %1555, align 2
+  %1557 = zext i16 %1556 to i32
+  %1558 = icmp slt i32 %1551, %1557
+  br i1 %1558, label %1559, label %1561
 
-1555:                                             ; preds = %1515, %1505
-  %1556 = load i32, ptr %79, align 4
-  %1557 = icmp eq i32 %1556, -1
-  br i1 %1557, label %1558, label %1559
+1559:                                             ; preds = %1545, %1542
+  %1560 = load i32, ptr %80, align 4
+  store i32 %1560, ptr %79, align 4
+  br label %1561
 
-1558:                                             ; preds = %1555
-  br label %1610
+1561:                                             ; preds = %1559, %1545
+  br label %1562
 
-1559:                                             ; preds = %1555
-  %1560 = load i16, ptr %21, align 2
-  %1561 = zext i16 %1560 to i32
-  %1562 = sub nsw i32 %1561, 1
-  store i32 %1562, ptr %81, align 4
-  br label %1563
+1562:                                             ; preds = %1561, %1541
+  %1563 = load i32, ptr %80, align 4
+  %1564 = add nsw i32 %1563, 1
+  store i32 %1564, ptr %80, align 4
+  br label %1515, !llvm.loop !17
 
-1563:                                             ; preds = %1606, %1559
-  %1564 = load i32, ptr %81, align 4
-  %1565 = icmp sge i32 %1564, 0
-  br i1 %1565, label %1566, label %1609
+1565:                                             ; preds = %1525, %1515
+  %1566 = load i32, ptr %79, align 4
+  %1567 = icmp eq i32 %1566, -1
+  br i1 %1567, label %1568, label %1569
 
-1566:                                             ; preds = %1563
-  %1567 = load i32, ptr %79, align 4
-  %1568 = load i16, ptr %21, align 2
-  %1569 = zext i16 %1568 to i32
-  %1570 = mul nsw i32 %1567, %1569
-  %1571 = load i32, ptr %81, align 4
-  %1572 = add nsw i32 %1570, %1571
-  store i32 %1572, ptr %82, align 4
-  %1573 = load ptr, ptr %30, align 8
-  %1574 = load i32, ptr %82, align 4
-  %1575 = sext i32 %1574 to i64
-  %1576 = call i32 @bit_test(ptr noundef %1573, i64 noundef %1575)
-  %1577 = icmp ne i32 %1576, 0
-  br i1 %1577, label %1579, label %1578
+1568:                                             ; preds = %1565
+  br label %1620
 
-1578:                                             ; preds = %1566
-  br label %1606
+1569:                                             ; preds = %1565
+  %1570 = load i16, ptr %21, align 2
+  %1571 = zext i16 %1570 to i32
+  %1572 = sub nsw i32 %1571, 1
+  store i32 %1572, ptr %81, align 4
+  br label %1573
 
-1579:                                             ; preds = %1566
-  %1580 = load ptr, ptr %30, align 8
-  %1581 = load i32, ptr %82, align 4
-  %1582 = sext i32 %1581 to i64
-  call void @bit_clear(ptr noundef %1580, i64 noundef %1582)
-  %1583 = load ptr, ptr @avail_cores_per_sock, align 8
-  %1584 = load i32, ptr %79, align 4
+1573:                                             ; preds = %1616, %1569
+  %1574 = load i32, ptr %81, align 4
+  %1575 = icmp sge i32 %1574, 0
+  br i1 %1575, label %1576, label %1619
+
+1576:                                             ; preds = %1573
+  %1577 = load i32, ptr %79, align 4
+  %1578 = load i16, ptr %21, align 2
+  %1579 = zext i16 %1578 to i32
+  %1580 = mul nsw i32 %1577, %1579
+  %1581 = load i32, ptr %81, align 4
+  %1582 = add nsw i32 %1580, %1581
+  store i32 %1582, ptr %82, align 4
+  %1583 = load ptr, ptr %30, align 8
+  %1584 = load i32, ptr %82, align 4
   %1585 = sext i32 %1584 to i64
-  %1586 = getelementptr inbounds i16, ptr %1583, i64 %1585
-  %1587 = load i16, ptr %1586, align 2
-  %1588 = add i16 %1587, -1
-  store i16 %1588, ptr %1586, align 2
-  %1589 = load i16, ptr %51, align 2
-  %1590 = add i16 %1589, -1
-  store i16 %1590, ptr %51, align 2
-  %1591 = load i16, ptr %51, align 2
-  %1592 = zext i16 %1591 to i32
-  %1593 = load i16, ptr %22, align 2
-  %1594 = zext i16 %1593 to i32
-  %1595 = mul nsw i32 %1592, %1594
-  store i32 %1595, ptr %83, align 4
-  %1596 = load i32, ptr %83, align 4
-  %1597 = load ptr, ptr %23, align 8
-  %1598 = load i16, ptr %1597, align 2
-  %1599 = zext i16 %1598 to i32
-  %1600 = icmp slt i32 %1596, %1599
-  br i1 %1600, label %1601, label %1605
+  %1586 = call i32 @bit_test(ptr noundef %1583, i64 noundef %1585)
+  %1587 = icmp ne i32 %1586, 0
+  br i1 %1587, label %1589, label %1588
 
-1601:                                             ; preds = %1579
-  %1602 = load i32, ptr %83, align 4
-  %1603 = trunc i32 %1602 to i16
-  %1604 = load ptr, ptr %23, align 8
-  store i16 %1603, ptr %1604, align 2
-  br label %1605
+1588:                                             ; preds = %1576
+  br label %1616
 
-1605:                                             ; preds = %1601, %1579
-  br label %1609
+1589:                                             ; preds = %1576
+  %1590 = load ptr, ptr %30, align 8
+  %1591 = load i32, ptr %82, align 4
+  %1592 = sext i32 %1591 to i64
+  call void @bit_clear(ptr noundef %1590, i64 noundef %1592)
+  %1593 = load ptr, ptr @avail_cores_per_sock, align 8
+  %1594 = load i32, ptr %79, align 4
+  %1595 = sext i32 %1594 to i64
+  %1596 = getelementptr inbounds i16, ptr %1593, i64 %1595
+  %1597 = load i16, ptr %1596, align 2
+  %1598 = add i16 %1597, -1
+  store i16 %1598, ptr %1596, align 2
+  %1599 = load i16, ptr %51, align 2
+  %1600 = add i16 %1599, -1
+  store i16 %1600, ptr %51, align 2
+  %1601 = load i16, ptr %51, align 2
+  %1602 = zext i16 %1601 to i32
+  %1603 = load i16, ptr %22, align 2
+  %1604 = zext i16 %1603 to i32
+  %1605 = mul nsw i32 %1602, %1604
+  store i32 %1605, ptr %83, align 4
+  %1606 = load i32, ptr %83, align 4
+  %1607 = load ptr, ptr %23, align 8
+  %1608 = load i16, ptr %1607, align 2
+  %1609 = zext i16 %1608 to i32
+  %1610 = icmp slt i32 %1606, %1609
+  br i1 %1610, label %1611, label %1615
 
-1606:                                             ; preds = %1578
-  %1607 = load i32, ptr %81, align 4
-  %1608 = add nsw i32 %1607, -1
-  store i32 %1608, ptr %81, align 4
-  br label %1563, !llvm.loop !18
-
-1609:                                             ; preds = %1605, %1563
-  br label %1487, !llvm.loop !19
-
-1610:                                             ; preds = %1558, %1502
-  %1611 = load i16, ptr %52, align 2
-  %1612 = icmp ne i16 %1611, 0
-  br i1 %1612, label %1613, label %1655
-
-1613:                                             ; preds = %1610
+1611:                                             ; preds = %1589
+  %1612 = load i32, ptr %83, align 4
+  %1613 = trunc i32 %1612 to i16
   %1614 = load ptr, ptr %23, align 8
-  %1615 = load i16, ptr %1614, align 2
-  %1616 = zext i16 %1615 to i32
-  %1617 = load i16, ptr %52, align 2
-  %1618 = zext i16 %1617 to i32
-  %1619 = sdiv i32 %1616, %1618
-  store i32 %1619, ptr %84, align 4
-  %1620 = load i32, ptr %84, align 4
-  %1621 = sext i32 %1620 to i64
-  %1622 = load ptr, ptr %34, align 8
-  %1623 = getelementptr inbounds %struct.sock_gres, ptr %1622, i32 0, i32 8
-  %1624 = load i64, ptr %1623, align 8
-  %1625 = icmp ult i64 %1621, %1624
-  br i1 %1625, label %1626, label %1629
+  store i16 %1613, ptr %1614, align 2
+  br label %1615
 
-1626:                                             ; preds = %1613
-  %1627 = load i32, ptr %84, align 4
-  %1628 = sext i32 %1627 to i64
-  br label %1633
+1615:                                             ; preds = %1611, %1589
+  br label %1619
 
-1629:                                             ; preds = %1613
-  %1630 = load ptr, ptr %34, align 8
-  %1631 = getelementptr inbounds %struct.sock_gres, ptr %1630, i32 0, i32 8
-  %1632 = load i64, ptr %1631, align 8
-  br label %1633
+1616:                                             ; preds = %1588
+  %1617 = load i32, ptr %81, align 4
+  %1618 = add nsw i32 %1617, -1
+  store i32 %1618, ptr %81, align 4
+  br label %1573, !llvm.loop !18
 
-1633:                                             ; preds = %1629, %1626
-  %1634 = phi i64 [ %1628, %1626 ], [ %1632, %1629 ]
-  %1635 = load ptr, ptr %34, align 8
-  %1636 = getelementptr inbounds %struct.sock_gres, ptr %1635, i32 0, i32 8
-  store i64 %1634, ptr %1636, align 8
-  %1637 = load ptr, ptr %45, align 8
-  %1638 = getelementptr inbounds %struct.gres_job_state, ptr %1637, i32 0, i32 5
-  %1639 = load i64, ptr %1638, align 8
+1619:                                             ; preds = %1615, %1573
+  br label %1497, !llvm.loop !19
+
+1620:                                             ; preds = %1568, %1512
+  %1621 = load i16, ptr %52, align 2
+  %1622 = icmp ne i16 %1621, 0
+  br i1 %1622, label %1623, label %1665
+
+1623:                                             ; preds = %1620
+  %1624 = load ptr, ptr %23, align 8
+  %1625 = load i16, ptr %1624, align 2
+  %1626 = zext i16 %1625 to i32
+  %1627 = load i16, ptr %52, align 2
+  %1628 = zext i16 %1627 to i32
+  %1629 = sdiv i32 %1626, %1628
+  store i32 %1629, ptr %84, align 4
+  %1630 = load i32, ptr %84, align 4
+  %1631 = sext i32 %1630 to i64
+  %1632 = load ptr, ptr %34, align 8
+  %1633 = getelementptr inbounds %struct.sock_gres, ptr %1632, i32 0, i32 8
+  %1634 = load i64, ptr %1633, align 8
+  %1635 = icmp ult i64 %1631, %1634
+  br i1 %1635, label %1636, label %1639
+
+1636:                                             ; preds = %1623
+  %1637 = load i32, ptr %84, align 4
+  %1638 = sext i32 %1637 to i64
+  br label %1643
+
+1639:                                             ; preds = %1623
   %1640 = load ptr, ptr %34, align 8
   %1641 = getelementptr inbounds %struct.sock_gres, ptr %1640, i32 0, i32 8
   %1642 = load i64, ptr %1641, align 8
-  %1643 = icmp ugt i64 %1639, %1642
-  br i1 %1643, label %1652, label %1644
+  br label %1643
 
-1644:                                             ; preds = %1633
-  %1645 = load ptr, ptr %45, align 8
-  %1646 = getelementptr inbounds %struct.gres_job_state, ptr %1645, i32 0, i32 7
-  %1647 = load i64, ptr %1646, align 8
-  %1648 = load ptr, ptr %34, align 8
-  %1649 = getelementptr inbounds %struct.sock_gres, ptr %1648, i32 0, i32 8
-  %1650 = load i64, ptr %1649, align 8
-  %1651 = icmp ugt i64 %1647, %1650
-  br i1 %1651, label %1652, label %1654
+1643:                                             ; preds = %1639, %1636
+  %1644 = phi i64 [ %1638, %1636 ], [ %1642, %1639 ]
+  %1645 = load ptr, ptr %34, align 8
+  %1646 = getelementptr inbounds %struct.sock_gres, ptr %1645, i32 0, i32 8
+  store i64 %1644, ptr %1646, align 8
+  %1647 = load ptr, ptr %45, align 8
+  %1648 = getelementptr inbounds %struct.gres_job_state, ptr %1647, i32 0, i32 5
+  %1649 = load i64, ptr %1648, align 8
+  %1650 = load ptr, ptr %34, align 8
+  %1651 = getelementptr inbounds %struct.sock_gres, ptr %1650, i32 0, i32 8
+  %1652 = load i64, ptr %1651, align 8
+  %1653 = icmp ugt i64 %1649, %1652
+  br i1 %1653, label %1662, label %1654
 
-1652:                                             ; preds = %1644, %1633
-  %1653 = load ptr, ptr %25, align 8
-  store i32 0, ptr %1653, align 4
-  br label %1654
+1654:                                             ; preds = %1643
+  %1655 = load ptr, ptr %45, align 8
+  %1656 = getelementptr inbounds %struct.gres_job_state, ptr %1655, i32 0, i32 7
+  %1657 = load i64, ptr %1656, align 8
+  %1658 = load ptr, ptr %34, align 8
+  %1659 = getelementptr inbounds %struct.sock_gres, ptr %1658, i32 0, i32 8
+  %1660 = load i64, ptr %1659, align 8
+  %1661 = icmp ugt i64 %1657, %1660
+  br i1 %1661, label %1662, label %1664
 
-1654:                                             ; preds = %1652, %1644
-  br label %1655
+1662:                                             ; preds = %1654, %1643
+  %1663 = load ptr, ptr %25, align 8
+  store i32 0, ptr %1663, align 4
+  br label %1664
 
-1655:                                             ; preds = %1654, %1610
-  %1656 = load i8, ptr %28, align 1
-  %1657 = trunc i8 %1656 to i1
-  br i1 %1657, label %1661, label %1658
+1664:                                             ; preds = %1662, %1654
+  br label %1665
 
-1658:                                             ; preds = %1655
-  %1659 = load i8, ptr %39, align 1
-  %1660 = trunc i8 %1659 to i1
-  br i1 %1660, label %1661, label %1674
+1665:                                             ; preds = %1664, %1620
+  %1666 = load i8, ptr %28, align 1
+  %1667 = trunc i8 %1666 to i1
+  br i1 %1667, label %1671, label %1668
 
-1661:                                             ; preds = %1658, %1655
-  %1662 = load ptr, ptr %26, align 8
-  %1663 = load i32, ptr %1662, align 4
-  %1664 = load i32, ptr %54, align 4
-  %1665 = icmp ult i32 %1663, %1664
-  br i1 %1665, label %1666, label %1669
+1668:                                             ; preds = %1665
+  %1669 = load i8, ptr %39, align 1
+  %1670 = trunc i8 %1669 to i1
+  br i1 %1670, label %1671, label %1684
 
-1666:                                             ; preds = %1661
-  %1667 = load ptr, ptr %26, align 8
-  %1668 = load i32, ptr %1667, align 4
-  br label %1671
+1671:                                             ; preds = %1668, %1665
+  %1672 = load ptr, ptr %26, align 8
+  %1673 = load i32, ptr %1672, align 4
+  %1674 = load i32, ptr %54, align 4
+  %1675 = icmp ult i32 %1673, %1674
+  br i1 %1675, label %1676, label %1679
 
-1669:                                             ; preds = %1661
-  %1670 = load i32, ptr %54, align 4
-  br label %1671
+1676:                                             ; preds = %1671
+  %1677 = load ptr, ptr %26, align 8
+  %1678 = load i32, ptr %1677, align 4
+  br label %1681
 
-1671:                                             ; preds = %1669, %1666
-  %1672 = phi i32 [ %1668, %1666 ], [ %1670, %1669 ]
-  %1673 = load ptr, ptr %26, align 8
-  store i32 %1672, ptr %1673, align 4
-  br label %1674
+1679:                                             ; preds = %1671
+  %1680 = load i32, ptr %54, align 4
+  br label %1681
 
-1674:                                             ; preds = %1671, %1658
+1681:                                             ; preds = %1679, %1676
+  %1682 = phi i32 [ %1678, %1676 ], [ %1680, %1679 ]
+  %1683 = load ptr, ptr %26, align 8
+  store i32 %1682, ptr %1683, align 4
+  br label %1684
+
+1684:                                             ; preds = %1681, %1668
   br label %142, !llvm.loop !8
 
-1675:                                             ; preds = %1382, %1347, %895, %317, %283, %142
-  %1676 = load ptr, ptr %33, align 8
-  call void @list_iterator_destroy(ptr noundef %1676)
+1685:                                             ; preds = %1392, %1356, %895, %317, %283, %142
+  %1686 = load ptr, ptr %33, align 8
+  call void @list_iterator_destroy(ptr noundef %1686)
   call void @slurm_xfree(ptr noundef @avail_cores_per_sock)
   call void @slurm_xfree(ptr noundef %37)
   call void @slurm_xfree(ptr noundef %38)
-  %1677 = load i8, ptr %39, align 1
-  %1678 = trunc i8 %1677 to i1
-  br i1 %1678, label %1718, label %1679
+  %1687 = load i8, ptr %39, align 1
+  %1688 = trunc i8 %1687 to i1
+  br i1 %1688, label %1729, label %1689
 
-1679:                                             ; preds = %1675
-  %1680 = load ptr, ptr %18, align 8
-  %1681 = getelementptr inbounds %struct.gres_mc_data, ptr %1680, i32 0, i32 5
-  %1682 = load i16, ptr %1681, align 2
-  %1683 = zext i16 %1682 to i32
-  %1684 = icmp sgt i32 %1683, 1
-  br i1 %1684, label %1690, label %1685
-
-1685:                                             ; preds = %1679
-  %1686 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 165), align 8
-  %1687 = zext i16 %1686 to i32
-  %1688 = and i32 %1687, 256
-  %1689 = icmp ne i32 %1688, 0
-  br i1 %1689, label %1718, label %1690
-
-1690:                                             ; preds = %1685, %1679
-  %1691 = load ptr, ptr %23, align 8
+1689:                                             ; preds = %1685
+  %1690 = load ptr, ptr %18, align 8
+  %1691 = getelementptr inbounds %struct.gres_mc_data, ptr %1690, i32 0, i32 5
   %1692 = load i16, ptr %1691, align 2
   %1693 = zext i16 %1692 to i32
-  %1694 = load ptr, ptr %25, align 8
-  %1695 = load i32, ptr %1694, align 4
-  %1696 = load ptr, ptr %18, align 8
-  %1697 = getelementptr inbounds %struct.gres_mc_data, ptr %1696, i32 0, i32 5
-  %1698 = load i16, ptr %1697, align 2
-  %1699 = zext i16 %1698 to i32
-  %1700 = mul i32 %1695, %1699
-  %1701 = icmp ult i32 %1693, %1700
-  br i1 %1701, label %1702, label %1706
+  %1694 = icmp sgt i32 %1693, 1
+  br i1 %1694, label %1701, label %1695
 
-1702:                                             ; preds = %1690
-  %1703 = load ptr, ptr %23, align 8
-  %1704 = load i16, ptr %1703, align 2
-  %1705 = zext i16 %1704 to i32
-  br label %1714
+1695:                                             ; preds = %1689
+  %1696 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 165
+  %1697 = load i16, ptr %1696, align 8
+  %1698 = zext i16 %1697 to i32
+  %1699 = and i32 %1698, 256
+  %1700 = icmp ne i32 %1699, 0
+  br i1 %1700, label %1729, label %1701
 
-1706:                                             ; preds = %1690
-  %1707 = load ptr, ptr %25, align 8
-  %1708 = load i32, ptr %1707, align 4
-  %1709 = load ptr, ptr %18, align 8
-  %1710 = getelementptr inbounds %struct.gres_mc_data, ptr %1709, i32 0, i32 5
-  %1711 = load i16, ptr %1710, align 2
-  %1712 = zext i16 %1711 to i32
-  %1713 = mul i32 %1708, %1712
-  br label %1714
+1701:                                             ; preds = %1695, %1689
+  %1702 = load ptr, ptr %23, align 8
+  %1703 = load i16, ptr %1702, align 2
+  %1704 = zext i16 %1703 to i32
+  %1705 = load ptr, ptr %25, align 8
+  %1706 = load i32, ptr %1705, align 4
+  %1707 = load ptr, ptr %18, align 8
+  %1708 = getelementptr inbounds %struct.gres_mc_data, ptr %1707, i32 0, i32 5
+  %1709 = load i16, ptr %1708, align 2
+  %1710 = zext i16 %1709 to i32
+  %1711 = mul i32 %1706, %1710
+  %1712 = icmp ult i32 %1704, %1711
+  br i1 %1712, label %1713, label %1717
 
-1714:                                             ; preds = %1706, %1702
-  %1715 = phi i32 [ %1705, %1702 ], [ %1713, %1706 ]
-  %1716 = trunc i32 %1715 to i16
-  %1717 = load ptr, ptr %23, align 8
-  store i16 %1716, ptr %1717, align 2
-  br label %1718
+1713:                                             ; preds = %1701
+  %1714 = load ptr, ptr %23, align 8
+  %1715 = load i16, ptr %1714, align 2
+  %1716 = zext i16 %1715 to i32
+  br label %1725
 
-1718:                                             ; preds = %1714, %1685, %1675
-  %1719 = load ptr, ptr %25, align 8
-  %1720 = load i32, ptr %1719, align 4
-  %1721 = icmp ne i32 %1720, 0
-  br i1 %1721, label %1722, label %1726
+1717:                                             ; preds = %1701
+  %1718 = load ptr, ptr %25, align 8
+  %1719 = load i32, ptr %1718, align 4
+  %1720 = load ptr, ptr %18, align 8
+  %1721 = getelementptr inbounds %struct.gres_mc_data, ptr %1720, i32 0, i32 5
+  %1722 = load i16, ptr %1721, align 2
+  %1723 = zext i16 %1722 to i32
+  %1724 = mul i32 %1719, %1723
+  br label %1725
 
-1722:                                             ; preds = %1718
-  %1723 = load ptr, ptr %26, align 8
-  %1724 = load i32, ptr %1723, align 4
-  %1725 = icmp eq i32 %1724, -2
-  br i1 %1725, label %1726, label %1728
+1725:                                             ; preds = %1717, %1713
+  %1726 = phi i32 [ %1716, %1713 ], [ %1724, %1717 ]
+  %1727 = trunc i32 %1726 to i16
+  %1728 = load ptr, ptr %23, align 8
+  store i16 %1727, ptr %1728, align 2
+  br label %1729
 
-1726:                                             ; preds = %1722, %1718
-  %1727 = load ptr, ptr %26, align 8
-  store i32 0, ptr %1727, align 4
-  br label %1728
+1729:                                             ; preds = %1725, %1695, %1685
+  %1730 = load ptr, ptr %25, align 8
+  %1731 = load i32, ptr %1730, align 4
+  %1732 = icmp ne i32 %1731, 0
+  br i1 %1732, label %1733, label %1737
 
-1728:                                             ; preds = %1726, %1722, %91
+1733:                                             ; preds = %1729
+  %1734 = load ptr, ptr %26, align 8
+  %1735 = load i32, ptr %1734, align 4
+  %1736 = icmp eq i32 %1735, -2
+  br i1 %1736, label %1737, label %1739
+
+1737:                                             ; preds = %1733, %1729
+  %1738 = load ptr, ptr %26, align 8
+  store i32 0, ptr %1738, align 4
+  br label %1739
+
+1739:                                             ; preds = %1737, %1733, %91
   ret void
 }
 
@@ -3062,14 +3073,14 @@ define internal i64 @_shared_gres_task_limit(ptr noundef %0, i1 noundef zeroext 
   store i32 0, ptr %9, align 4
   br label %11
 
-11:                                               ; preds = %99, %3
+11:                                               ; preds = %100, %3
   %12 = load i32, ptr %9, align 4
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr inbounds %struct.gres_node_state, ptr %13, i32 0, i32 9
   %15 = load i16, ptr %14, align 8
   %16 = zext i16 %15 to i32
   %17 = icmp slt i32 %12, %16
-  br i1 %17, label %18, label %102
+  br i1 %17, label %18, label %103
 
 18:                                               ; preds = %11
   %19 = load ptr, ptr %4, align 8
@@ -3093,7 +3104,7 @@ define internal i64 @_shared_gres_task_limit(ptr noundef %0, i1 noundef zeroext 
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %23
-  br label %99
+  br label %100
 
 36:                                               ; preds = %23, %18
   %37 = load ptr, ptr %6, align 8
@@ -3125,71 +3136,72 @@ define internal i64 @_shared_gres_task_limit(ptr noundef %0, i1 noundef zeroext 
   br label %59
 
 59:                                               ; preds = %47, %36
-  %60 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 165), align 8
-  %61 = zext i16 %60 to i32
-  %62 = and i32 %61, 32768
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %64, label %75
+  %60 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 165
+  %61 = load i16, ptr %60, align 8
+  %62 = zext i16 %61 to i32
+  %63 = and i32 %62, 32768
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %76
 
-64:                                               ; preds = %59
-  %65 = load i32, ptr %8, align 4
-  %66 = sext i32 %65 to i64
-  %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %struct.gres_job_state, ptr %67, i32 0, i32 7
-  %69 = load i64, ptr %68, align 8
-  %70 = udiv i64 %66, %69
-  %71 = load i32, ptr %7, align 4
-  %72 = sext i32 %71 to i64
-  %73 = add i64 %72, %70
-  %74 = trunc i64 %73 to i32
-  store i32 %74, ptr %7, align 4
-  br label %98
-
-75:                                               ; preds = %59
-  %76 = load i32, ptr %7, align 4
-  %77 = sext i32 %76 to i64
-  %78 = load i32, ptr %8, align 4
-  %79 = sext i32 %78 to i64
-  %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds %struct.gres_job_state, ptr %80, i32 0, i32 7
-  %82 = load i64, ptr %81, align 8
-  %83 = udiv i64 %79, %82
-  %84 = icmp ugt i64 %77, %83
-  br i1 %84, label %85, label %88
-
-85:                                               ; preds = %75
-  %86 = load i32, ptr %7, align 4
-  %87 = sext i32 %86 to i64
-  br label %95
-
-88:                                               ; preds = %75
-  %89 = load i32, ptr %8, align 4
-  %90 = sext i32 %89 to i64
-  %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds %struct.gres_job_state, ptr %91, i32 0, i32 7
-  %93 = load i64, ptr %92, align 8
-  %94 = udiv i64 %90, %93
-  br label %95
-
-95:                                               ; preds = %88, %85
-  %96 = phi i64 [ %87, %85 ], [ %94, %88 ]
-  %97 = trunc i64 %96 to i32
-  store i32 %97, ptr %7, align 4
-  br label %98
-
-98:                                               ; preds = %95, %64
+65:                                               ; preds = %59
+  %66 = load i32, ptr %8, align 4
+  %67 = sext i32 %66 to i64
+  %68 = load ptr, ptr %4, align 8
+  %69 = getelementptr inbounds %struct.gres_job_state, ptr %68, i32 0, i32 7
+  %70 = load i64, ptr %69, align 8
+  %71 = udiv i64 %67, %70
+  %72 = load i32, ptr %7, align 4
+  %73 = sext i32 %72 to i64
+  %74 = add i64 %73, %71
+  %75 = trunc i64 %74 to i32
+  store i32 %75, ptr %7, align 4
   br label %99
 
-99:                                               ; preds = %98, %35
-  %100 = load i32, ptr %9, align 4
-  %101 = add nsw i32 %100, 1
-  store i32 %101, ptr %9, align 4
+76:                                               ; preds = %59
+  %77 = load i32, ptr %7, align 4
+  %78 = sext i32 %77 to i64
+  %79 = load i32, ptr %8, align 4
+  %80 = sext i32 %79 to i64
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds %struct.gres_job_state, ptr %81, i32 0, i32 7
+  %83 = load i64, ptr %82, align 8
+  %84 = udiv i64 %80, %83
+  %85 = icmp ugt i64 %78, %84
+  br i1 %85, label %86, label %89
+
+86:                                               ; preds = %76
+  %87 = load i32, ptr %7, align 4
+  %88 = sext i32 %87 to i64
+  br label %96
+
+89:                                               ; preds = %76
+  %90 = load i32, ptr %8, align 4
+  %91 = sext i32 %90 to i64
+  %92 = load ptr, ptr %4, align 8
+  %93 = getelementptr inbounds %struct.gres_job_state, ptr %92, i32 0, i32 7
+  %94 = load i64, ptr %93, align 8
+  %95 = udiv i64 %91, %94
+  br label %96
+
+96:                                               ; preds = %89, %86
+  %97 = phi i64 [ %88, %86 ], [ %95, %89 ]
+  %98 = trunc i64 %97 to i32
+  store i32 %98, ptr %7, align 4
+  br label %99
+
+99:                                               ; preds = %96, %65
+  br label %100
+
+100:                                              ; preds = %99, %35
+  %101 = load i32, ptr %9, align 4
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %9, align 4
   br label %11, !llvm.loop !20
 
-102:                                              ; preds = %11
-  %103 = load i32, ptr %7, align 4
-  %104 = sext i32 %103 to i64
-  ret i64 %104
+103:                                              ; preds = %11
+  %104 = load i32, ptr %7, align 4
+  %105 = sext i32 %104 to i64
+  ret i64 %105
 }
 
 declare i32 @get_log_level() #1

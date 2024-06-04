@@ -6936,9 +6936,11 @@ entry:
   call void @_ZN6hermes2vm15HandleRootOwnerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #16
   %0 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN6hermes2vm6GCBase11GCCallbacksC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
-  store ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr] }, ptr @_ZTVN6hermes2vm7RuntimeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [17 x ptr], [17 x ptr] }, ptr @_ZTVN6hermes2vm7RuntimeE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr] }, ptr @_ZTVN6hermes2vm7RuntimeE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [17 x ptr], [17 x ptr] }, ptr @_ZTVN6hermes2vm7RuntimeE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %objectPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 2
   call void @_ZN6hermes2vm17PinnedHermesValueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %objectPrototype)
   %errorConstructor = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 3
@@ -7122,52 +7124,52 @@ entry:
   %regExpLastMatch = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 92
   call void @_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %regExpLastMatch)
   %enableEval = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 93
-  %1 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig13getEnableEvalEv(ptr noundef nonnull align 8 dereferenceable(373) %1)
-  %2 = zext i1 %call to i8
+  %3 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig13getEnableEvalEv(ptr noundef nonnull align 8 dereferenceable(373) %3)
+  %4 = zext i1 %call to i8
   %bf.load = load i8, ptr %enableEval, align 8
   %bf.clear = and i8 %bf.load, -2
-  %bf.set = or i8 %bf.clear, %2
+  %bf.set = or i8 %bf.clear, %4
   store i8 %bf.set, ptr %enableEval, align 8
   %verifyEvalIR = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 93
-  %3 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call2 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig15getVerifyEvalIREv(ptr noundef nonnull align 8 dereferenceable(373) %3)
-  %4 = zext i1 %call2 to i8
+  %5 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call2 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig15getVerifyEvalIREv(ptr noundef nonnull align 8 dereferenceable(373) %5)
+  %6 = zext i1 %call2 to i8
   %bf.load3 = load i8, ptr %verifyEvalIR, align 8
-  %bf.shl = shl i8 %4, 1
+  %bf.shl = shl i8 %6, 1
   %bf.clear4 = and i8 %bf.load3, -3
   %bf.set5 = or i8 %bf.clear4, %bf.shl
   store i8 %bf.set5, ptr %verifyEvalIR, align 8
   %optimizedEval = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 93
-  %5 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call6 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig16getOptimizedEvalEv(ptr noundef nonnull align 8 dereferenceable(373) %5)
-  %6 = zext i1 %call6 to i8
+  %7 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call6 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig16getOptimizedEvalEv(ptr noundef nonnull align 8 dereferenceable(373) %7)
+  %8 = zext i1 %call6 to i8
   %bf.load7 = load i8, ptr %optimizedEval, align 8
-  %bf.shl8 = shl i8 %6, 2
+  %bf.shl8 = shl i8 %8, 2
   %bf.clear9 = and i8 %bf.load7, -5
   %bf.set10 = or i8 %bf.clear9, %bf.shl8
   store i8 %bf.set10, ptr %optimizedEval, align 8
   %asyncBreakCheckInEval = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 93
-  %7 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call11 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig24getAsyncBreakCheckInEvalEv(ptr noundef nonnull align 8 dereferenceable(373) %7)
-  %8 = zext i1 %call11 to i8
+  %9 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call11 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig24getAsyncBreakCheckInEvalEv(ptr noundef nonnull align 8 dereferenceable(373) %9)
+  %10 = zext i1 %call11 to i8
   %bf.load12 = load i8, ptr %asyncBreakCheckInEval, align 8
-  %bf.shl13 = shl i8 %8, 3
+  %bf.shl13 = shl i8 %10, 3
   %bf.clear14 = and i8 %bf.load12, -9
   %bf.set15 = or i8 %bf.clear14, %bf.shl13
   store i8 %bf.set15, ptr %asyncBreakCheckInEval, align 8
   %enableBlockScopingInEval = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 93
-  %9 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call16 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig21getEnableBlockScopingEv(ptr noundef nonnull align 8 dereferenceable(373) %9)
-  %10 = zext i1 %call16 to i8
+  %11 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call16 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig21getEnableBlockScopingEv(ptr noundef nonnull align 8 dereferenceable(373) %11)
+  %12 = zext i1 %call16 to i8
   %bf.load17 = load i8, ptr %enableBlockScopingInEval, align 8
-  %bf.shl18 = shl i8 %10, 4
+  %bf.shl18 = shl i8 %12, 4
   %bf.clear19 = and i8 %bf.load17, -17
   %bf.set20 = or i8 %bf.clear19, %bf.shl18
   store i8 %bf.set20, ptr %enableBlockScopingInEval, align 8
   %traceMode = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 94
-  %11 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call21 = call noundef signext i8 @_ZNK6hermes2vm13RuntimeConfig17getSynthTraceModeEv(ptr noundef nonnull align 8 dereferenceable(373) %11)
+  %13 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call21 = call noundef signext i8 @_ZNK6hermes2vm13RuntimeConfig17getSynthTraceModeEv(ptr noundef nonnull align 8 dereferenceable(373) %13)
   store i8 %call21, ptr %traceMode, align 1
   %samplingProfiler = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 95
   call void @_ZNSt10unique_ptrIN6hermes2vm16SamplingProfilerESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %samplingProfiler) #16
@@ -7175,13 +7177,13 @@ entry:
   call void @_ZNSt10shared_ptrIN6hermes2vm16TimeLimitMonitorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %timeLimitMonitor) #16
   %heapStorage_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 97
   %add.ptr22 = getelementptr inbounds i8, ptr %this1, i64 16
-  %12 = load ptr, ptr %runtimeConfig.addr, align 8
-  call void @_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv(ptr sret(%"class.hermes::vm::GCConfig") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(373) %12)
-  %13 = load ptr, ptr %runtimeConfig.addr, align 8
-  call void @_ZNK6hermes2vm13RuntimeConfig11getCrashMgrEv(ptr sret(%"class.std::shared_ptr.7") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(373) %13)
-  call void @_ZNSt10shared_ptrIN6hermes2vm15StorageProviderEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(16) %provider) #16
   %14 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call24 = call noundef i32 @_ZNK6hermes2vm13RuntimeConfig20getVMExperimentFlagsEv(ptr noundef nonnull align 8 dereferenceable(373) %14)
+  call void @_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv(ptr sret(%"class.hermes::vm::GCConfig") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(373) %14)
+  %15 = load ptr, ptr %runtimeConfig.addr, align 8
+  call void @_ZNK6hermes2vm13RuntimeConfig11getCrashMgrEv(ptr sret(%"class.std::shared_ptr.7") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(373) %15)
+  call void @_ZNSt10shared_ptrIN6hermes2vm15StorageProviderEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(16) %provider) #16
+  %16 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call24 = call noundef i32 @_ZNK6hermes2vm13RuntimeConfig20getVMExperimentFlagsEv(ptr noundef nonnull align 8 dereferenceable(373) %16)
   call void @_ZN6hermes2vm9GCStorageC2ERNS0_6GCBase11GCCallbacksERNS0_11PointerBaseERKNS0_8GCConfigESt10shared_ptrINS0_12CrashManagerEESA_INS0_15StorageProviderEEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr22, ptr noundef nonnull align 1 dereferenceable(1) %this1, ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp, ptr noundef %agg.tmp, ptr noundef %agg.tmp23, i32 noundef %call24)
   call void @_ZNSt10shared_ptrIN6hermes2vm15StorageProviderEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp23) #16
   call void @_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #16
@@ -7195,55 +7197,55 @@ entry:
   %customSnapshotEdgeFuncs_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 101
   call void @_ZNSt6vectorISt8functionIFvRN6hermes2vm12HeapSnapshotEEESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %customSnapshotEdgeFuncs_) #16
   %hasES6Promise_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 102
-  %15 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call25 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig13getES6PromiseEv(ptr noundef nonnull align 8 dereferenceable(373) %15)
+  %17 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call25 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig13getES6PromiseEv(ptr noundef nonnull align 8 dereferenceable(373) %17)
   %frombool = zext i1 %call25 to i8
   store i8 %frombool, ptr %hasES6Promise_, align 8
   %hasES6Proxy_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 103
-  %16 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call26 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig11getES6ProxyEv(ptr noundef nonnull align 8 dereferenceable(373) %16)
+  %18 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call26 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig11getES6ProxyEv(ptr noundef nonnull align 8 dereferenceable(373) %18)
   %frombool27 = zext i1 %call26 to i8
   store i8 %frombool27, ptr %hasES6Proxy_, align 1
   %hasES6Class_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 104
-  %17 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call28 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig11getES6ClassEv(ptr noundef nonnull align 8 dereferenceable(373) %17)
+  %19 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call28 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig11getES6ClassEv(ptr noundef nonnull align 8 dereferenceable(373) %19)
   %frombool29 = zext i1 %call28 to i8
   store i8 %frombool29, ptr %hasES6Class_, align 2
   %hasIntl_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 105
-  %18 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call30 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig7getIntlEv(ptr noundef nonnull align 8 dereferenceable(373) %18)
+  %20 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call30 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig7getIntlEv(ptr noundef nonnull align 8 dereferenceable(373) %20)
   %frombool31 = zext i1 %call30 to i8
   store i8 %frombool31, ptr %hasIntl_, align 1
   %hasArrayBuffer_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 106
-  %19 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call32 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig14getArrayBufferEv(ptr noundef nonnull align 8 dereferenceable(373) %19)
+  %21 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call32 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig14getArrayBufferEv(ptr noundef nonnull align 8 dereferenceable(373) %21)
   %frombool33 = zext i1 %call32 to i8
   store i8 %frombool33, ptr %hasArrayBuffer_, align 4
   %hasMicrotaskQueue_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 107
-  %20 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call34 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig17getMicrotaskQueueEv(ptr noundef nonnull align 8 dereferenceable(373) %20)
+  %22 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call34 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig17getMicrotaskQueueEv(ptr noundef nonnull align 8 dereferenceable(373) %22)
   %frombool35 = zext i1 %call34 to i8
   store i8 %frombool35, ptr %hasMicrotaskQueue_, align 1
   %shouldRandomizeMemoryLayout_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 108
-  %21 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call36 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig24getRandomizeMemoryLayoutEv(ptr noundef nonnull align 8 dereferenceable(373) %21)
+  %23 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call36 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig24getRandomizeMemoryLayoutEv(ptr noundef nonnull align 8 dereferenceable(373) %23)
   %frombool37 = zext i1 %call36 to i8
   store i8 %frombool37, ptr %shouldRandomizeMemoryLayout_, align 2
   %bytecodeWarmupPercent_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 109
-  %22 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call38 = call noundef i32 @_ZNK6hermes2vm13RuntimeConfig24getBytecodeWarmupPercentEv(ptr noundef nonnull align 8 dereferenceable(373) %22)
+  %24 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call38 = call noundef i32 @_ZNK6hermes2vm13RuntimeConfig24getBytecodeWarmupPercentEv(ptr noundef nonnull align 8 dereferenceable(373) %24)
   %conv = trunc i32 %call38 to i8
   store i8 %conv, ptr %bytecodeWarmupPercent_, align 1
   %trackIO_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 110
-  %23 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call39 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig10getTrackIOEv(ptr noundef nonnull align 8 dereferenceable(373) %23)
+  %25 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call39 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig10getTrackIOEv(ptr noundef nonnull align 8 dereferenceable(373) %25)
   %frombool40 = zext i1 %call39 to i8
   store i8 %frombool40, ptr %trackIO_, align 8
   %formattingStackTrace_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 111
   store i8 0, ptr %formattingStackTrace_, align 1
   %vmExperimentFlags_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 112
-  %24 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call41 = call noundef i32 @_ZNK6hermes2vm13RuntimeConfig20getVMExperimentFlagsEv(ptr noundef nonnull align 8 dereferenceable(373) %24)
+  %26 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call41 = call noundef i32 @_ZNK6hermes2vm13RuntimeConfig20getVMExperimentFlagsEv(ptr noundef nonnull align 8 dereferenceable(373) %26)
   store i32 %call41, ptr %vmExperimentFlags_, align 4
   %startOfMarkRoots_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 113
   call void @_ZNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %startOfMarkRoots_)
@@ -7284,14 +7286,14 @@ arrayinit.end42:                                  ; preds = %arrayinit.body
   %stackPointer_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 129
   store ptr null, ptr %stackPointer_, align 8
   %crashMgr_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 130
-  %25 = load ptr, ptr %runtimeConfig.addr, align 8
-  call void @_ZNK6hermes2vm13RuntimeConfig11getCrashMgrEv(ptr sret(%"class.std::shared_ptr.7") align 8 %crashMgr_, ptr noundef nonnull align 8 dereferenceable(373) %25)
+  %27 = load ptr, ptr %runtimeConfig.addr, align 8
+  call void @_ZNK6hermes2vm13RuntimeConfig11getCrashMgrEv(ptr sret(%"class.std::shared_ptr.7") align 8 %crashMgr_, ptr noundef nonnull align 8 dereferenceable(373) %27)
   %currentFrame_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 131
   store ptr %currentFrame_, ptr %this.addr.i, align 8
   store ptr null, ptr %frame.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %26 = load ptr, ptr %frame.addr.i, align 8
-  store ptr %26, ptr %this1.i, align 8
+  %28 = load ptr, ptr %frame.addr.i, align 8
+  store ptr %28, ptr %this1.i, align 8
   %nativeCallFrameDepth_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 132
   store i32 0, ptr %nativeCallFrameDepth_, align 8
   %rootClazzes_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 133
@@ -7328,13 +7330,13 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   %crashCallbackKey_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 141
   %crashMgr_43 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 130
   %call44 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN6hermes2vm12CrashManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %crashMgr_43) #16
-  %27 = getelementptr inbounds %class.anon, ptr %ref.tmp46, i32 0, i32 0
-  store ptr %this1, ptr %27, align 8
+  %29 = getelementptr inbounds %class.anon, ptr %ref.tmp46, i32 0, i32 0
+  store ptr %this1, ptr %29, align 8
   call void @"_ZNSt8functionIFviEEC2IZN6hermes2vm7RuntimeC1ESt10shared_ptrINS4_15StorageProviderEERKNS4_13RuntimeConfigEE3$_0vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp45, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp46) #16
   %vtable = load ptr, ptr %call44, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
-  %28 = load ptr, ptr %vfn, align 8
-  %call47 = call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(8) %call44, ptr noundef %agg.tmp45)
+  %30 = load ptr, ptr %vfn, align 8
+  %call47 = call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(8) %call44, ptr noundef %agg.tmp45)
   call void @_ZNSt8functionIFviEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp45) #16
   store i32 %call47, ptr %crashCallbackKey_, align 4
   %codeCoverageProfiler_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 142
@@ -7344,8 +7346,8 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   %persistentBCProviders_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 144
   call void @_ZNSt6vectorISt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %persistentBCProviders_) #16
   %gcEventCallback_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 145
-  %29 = load ptr, ptr %runtimeConfig.addr, align 8
-  call void @_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv(ptr sret(%"class.hermes::vm::GCConfig") align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(373) %29)
+  %31 = load ptr, ptr %runtimeConfig.addr, align 8
+  call void @_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv(ptr sret(%"class.hermes::vm::GCConfig") align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(373) %31)
   call void @_ZNK6hermes2vm8GCConfig11getCallbackEv(ptr sret(%"class.std::function.3") align 8 %gcEventCallback_, ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp48)
   call void @_ZN6hermes2vm8GCConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp48) #16
   %currentIP_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 146
@@ -7354,13 +7356,13 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   %call50 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN6hermes2vm12CrashManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %crashMgr_49) #16
   %vtable51 = load ptr, ptr %call50, align 8
   %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 0
-  %30 = load ptr, ptr %vfn52, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(8) %call50, ptr noundef %this1, i64 noundef 9832)
-  %31 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call53 = call noundef i32 @_ZNK6hermes2vm13RuntimeConfig18getMaxNumRegistersEv(ptr noundef nonnull align 8 dereferenceable(373) %31)
+  %32 = load ptr, ptr %vfn52, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %call50, ptr noundef %this1, i64 noundef 9832)
+  %33 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call53 = call noundef i32 @_ZNK6hermes2vm13RuntimeConfig18getMaxNumRegistersEv(ptr noundef nonnull align 8 dereferenceable(373) %33)
   store i32 %call53, ptr %maxNumRegisters, align 4
-  %32 = load i32, ptr %maxNumRegisters, align 4
-  %cmp = icmp ugt i32 %32, 536870911
+  %34 = load i32, ptr %maxNumRegisters, align 4
+  %cmp = icmp ugt i32 %34, 536870911
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %arrayctor.cont
@@ -7368,25 +7370,25 @@ if.then:                                          ; preds = %arrayctor.cont
   unreachable
 
 if.end:                                           ; preds = %arrayctor.cont
-  %33 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call55 = call noundef ptr @_ZNK6hermes2vm13RuntimeConfig16getRegisterStackEv(ptr noundef nonnull align 8 dereferenceable(373) %33)
+  %35 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call55 = call noundef ptr @_ZNK6hermes2vm13RuntimeConfig16getRegisterStackEv(ptr noundef nonnull align 8 dereferenceable(373) %35)
   %registerStackStart_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 127
   store ptr %call55, ptr %registerStackStart_, align 8
   %registerStackStart_56 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 127
-  %34 = load ptr, ptr %registerStackStart_56, align 8
-  %tobool = icmp ne ptr %34, null
+  %36 = load ptr, ptr %registerStackStart_56, align 8
+  %tobool = icmp ne ptr %36, null
   br i1 %tobool, label %if.end81, label %if.then57
 
 if.then57:                                        ; preds = %if.end
-  %35 = load i32, ptr %maxNumRegisters, align 4
-  %conv58 = zext i32 %35 to i64
+  %37 = load i32, ptr %maxNumRegisters, align 4
+  %conv58 = zext i32 %37 to i64
   %mul = mul i64 8, %conv58
   %call59 = call noundef i64 @_ZN6hermes8oscompat9page_sizeEv()
   %call60 = call noundef i64 @_ZN4llvh7alignToEmmm(i64 noundef %mul, i64 noundef %call59, i64 noundef 0)
   %conv61 = trunc i64 %call60 to i32
   store i32 %conv61, ptr %numBytesForRegisters, align 4
-  %36 = load i32, ptr %numBytesForRegisters, align 4
-  %conv62 = zext i32 %36 to i64
+  %38 = load i32, ptr %numBytesForRegisters, align 4
+  %conv62 = zext i32 %38 to i64
   call void @_ZN6hermes8oscompat11vm_allocateEmPv(ptr sret(%"class.llvh::ErrorOr") align 8 %result, i64 noundef %conv62, ptr noundef null)
   %call63 = call noundef zeroext i1 @_ZNK4llvh7ErrorOrIPvEcvbEv(ptr noundef nonnull align 8 dereferenceable(17) %result)
   br i1 %call63, label %if.end68, label %if.then64
@@ -7395,16 +7397,16 @@ if.then64:                                        ; preds = %if.then57
   store ptr %agg.tmp65, ptr %this.addr.i220, align 8
   store ptr @.str.1, ptr %Str.addr.i, align 8
   %this1.i221 = load ptr, ptr %this.addr.i220, align 8
-  %37 = load ptr, ptr %Str.addr.i, align 8
-  store ptr %37, ptr %this1.i221, align 8
+  %39 = load ptr, ptr %Str.addr.i, align 8
+  store ptr %39, ptr %this1.i221, align 8
   %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i221, i32 0, i32 1
-  %38 = load ptr, ptr %Str.addr.i, align 8
-  %tobool.i = icmp ne ptr %38, null
+  %40 = load ptr, ptr %Str.addr.i, align 8
+  %tobool.i = icmp ne ptr %40, null
   br i1 %tobool.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.then64
-  %39 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %39) #19
+  %41 = load ptr, ptr %Str.addr.i, align 8
+  %call.i = call i64 @strlen(ptr noundef %41) #19
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %if.then64
@@ -7414,59 +7416,59 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %cond.i = phi i64 [ %call.i, %cond.true.i ], [ 0, %cond.false.i ]
   store i64 %cond.i, ptr %Length.i, align 8
   %call67 = call { i32, ptr } @_ZNK4llvh7ErrorOrIPvE8getErrorEv(ptr noundef nonnull align 8 dereferenceable(17) %result)
-  %40 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp66, i32 0, i32 0
-  %41 = extractvalue { i32, ptr } %call67, 0
-  store i32 %41, ptr %40, align 8
-  %42 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp66, i32 0, i32 1
-  %43 = extractvalue { i32, ptr } %call67, 1
-  store ptr %43, ptr %42, align 8
-  %44 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp66, i32 0, i32 0
-  %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp66, i32 0, i32 1
-  %51 = load ptr, ptr %50, align 8
-  call void @_ZN6hermes12hermes_fatalEN4llvh9StringRefESt10error_code(ptr %45, i64 %47, i32 %49, ptr %51) #18
+  %42 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp66, i32 0, i32 0
+  %43 = extractvalue { i32, ptr } %call67, 0
+  store i32 %43, ptr %42, align 8
+  %44 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp66, i32 0, i32 1
+  %45 = extractvalue { i32, ptr } %call67, 1
+  store ptr %45, ptr %44, align 8
+  %46 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i32 0, i32 1
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp66, i32 0, i32 0
+  %51 = load i32, ptr %50, align 8
+  %52 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp66, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8
+  call void @_ZN6hermes12hermes_fatalEN4llvh9StringRefESt10error_code(ptr %47, i64 %49, i32 %51, ptr %53) #18
   unreachable
 
 if.end68:                                         ; preds = %if.then57
   %call69 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvh7ErrorOrIPvE3getEv(ptr noundef nonnull align 8 dereferenceable(17) %result)
-  %52 = load ptr, ptr %call69, align 8
+  %54 = load ptr, ptr %call69, align 8
   %registerStackStart_70 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 127
-  store ptr %52, ptr %registerStackStart_70, align 8
+  store ptr %54, ptr %registerStackStart_70, align 8
   %registerStackStart_72 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 127
-  %53 = load ptr, ptr %registerStackStart_72, align 8
-  %54 = load i32, ptr %numBytesForRegisters, align 4
-  %conv73 = zext i32 %54 to i64
-  call void @_ZN4llvh15MutableArrayRefIN6hermes2vm17PinnedHermesValueEEC2EPS3_m(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp71, ptr noundef %53, i64 noundef %conv73)
+  %55 = load ptr, ptr %registerStackStart_72, align 8
+  %56 = load i32, ptr %numBytesForRegisters, align 4
+  %conv73 = zext i32 %56 to i64
+  call void @_ZN4llvh15MutableArrayRefIN6hermes2vm17PinnedHermesValueEEC2EPS3_m(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp71, ptr noundef %55, i64 noundef %conv73)
   %registerStackAllocation_74 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 126
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %registerStackAllocation_74, ptr align 8 %ref.tmp71, i64 16, i1 false)
   %crashMgr_75 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 130
   %call76 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN6hermes2vm12CrashManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %crashMgr_75) #16
   %registerStackStart_77 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 127
-  %55 = load ptr, ptr %registerStackStart_77, align 8
-  %56 = load i32, ptr %numBytesForRegisters, align 4
-  %conv78 = zext i32 %56 to i64
+  %57 = load ptr, ptr %registerStackStart_77, align 8
+  %58 = load i32, ptr %numBytesForRegisters, align 4
+  %conv78 = zext i32 %58 to i64
   %vtable79 = load ptr, ptr %call76, align 8
   %vfn80 = getelementptr inbounds ptr, ptr %vtable79, i64 0
-  %57 = load ptr, ptr %vfn80, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(8) %call76, ptr noundef %55, i64 noundef %conv78)
+  %59 = load ptr, ptr %vfn80, align 8
+  call void %59(ptr noundef nonnull align 8 dereferenceable(8) %call76, ptr noundef %57, i64 noundef %conv78)
   call void @_ZN4llvh7ErrorOrIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %result) #16
   br label %if.end81
 
 if.end81:                                         ; preds = %if.end68, %if.end
   %registerStackStart_82 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 127
-  %58 = load ptr, ptr %registerStackStart_82, align 8
-  %59 = load i32, ptr %maxNumRegisters, align 4
-  %idx.ext = zext i32 %59 to i64
-  %add.ptr83 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %58, i64 %idx.ext
+  %60 = load ptr, ptr %registerStackStart_82, align 8
+  %61 = load i32, ptr %maxNumRegisters, align 4
+  %idx.ext = zext i32 %61 to i64
+  %add.ptr83 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %60, i64 %idx.ext
   %registerStackEnd_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 128
   store ptr %add.ptr83, ptr %registerStackEnd_, align 8
   %shouldRandomizeMemoryLayout_84 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 108
-  %60 = load i8, ptr %shouldRandomizeMemoryLayout_84, align 2
-  %tobool85 = trunc i8 %60 to i1
+  %62 = load i8, ptr %shouldRandomizeMemoryLayout_84, align 2
+  %tobool85 = trunc i8 %62 to i1
   br i1 %tobool85, label %if.then86, label %if.end95
 
 if.then86:                                        ; preds = %if.end81
@@ -7478,20 +7480,20 @@ if.then86:                                        ; preds = %if.end81
   %conv91 = trunc i64 %rem to i32
   call void @_ZNSt13random_deviceD2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp87) #16
   store i32 %conv91, ptr %bytesOff, align 4
-  %61 = load i32, ptr %bytesOff, align 4
-  %conv92 = zext i32 %61 to i64
+  %63 = load i32, ptr %bytesOff, align 4
+  %conv92 = zext i32 %63 to i64
   %div = udiv i64 %conv92, 8
   %registerStackStart_93 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 127
-  %62 = load ptr, ptr %registerStackStart_93, align 8
-  %add.ptr94 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %62, i64 %div
+  %64 = load ptr, ptr %registerStackStart_93, align 8
+  %add.ptr94 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %64, i64 %div
   store ptr %add.ptr94, ptr %registerStackStart_93, align 8
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then86, %if.end81
   %registerStackStart_96 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 127
-  %63 = load ptr, ptr %registerStackStart_96, align 8
+  %65 = load ptr, ptr %registerStackStart_96, align 8
   %stackPointer_97 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 129
-  store ptr %63, ptr %stackPointer_97, align 8
+  store ptr %65, ptr %stackPointer_97, align 8
   %call98 = call ptr @_ZN6hermes2vm7Runtime27setCurrentFrameToTopOfStackEv(ptr noundef nonnull align 8 dereferenceable(9832) %this1)
   %coerce.dive = getelementptr inbounds %"class.hermes::vm::StackFramePtrT", ptr %coerce, i32 0, i32 0
   store ptr %call98, ptr %coerce.dive, align 8
@@ -7499,8 +7501,8 @@ if.end95:                                         ; preds = %if.then86, %if.end8
   %coerce.dive101 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp99, i32 0, i32 0
   store i64 %call100, ptr %coerce.dive101, align 8
   %coerce.dive102 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp99, i32 0, i32 0
-  %64 = load i64, ptr %coerce.dive102, align 8
-  call void @_ZN6hermes2vm7Runtime10allocStackEjNS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(9832) %this1, i32 noundef 1, i64 %64)
+  %66 = load i64, ptr %coerce.dive102, align 8
+  call void @_ZN6hermes2vm7Runtime10allocStackEjNS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(9832) %this1, i32 noundef 1, i64 %66)
   call void @_ZN6hermes2vm7Runtime21initPredefinedStringsEv(ptr noundef nonnull align 8 dereferenceable(9832) %this1)
   call void @_ZN6hermes2vm18RuntimeModuleFlagsC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %flags)
   %bf.load103 = load i8, ptr %flags, align 1
@@ -7523,54 +7525,54 @@ if.end95:                                         ; preds = %if.then86, %if.end8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %agg.tmp119, ptr align 1 %flags, i64 1, i1 false)
   %coerce.dive120 = getelementptr inbounds %"class.hermes::vm::Handle.190", ptr %agg.tmp114, i32 0, i32 0
   %coerce.dive121 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive120, i32 0, i32 0
-  %65 = load ptr, ptr %coerce.dive121, align 8
+  %67 = load ptr, ptr %coerce.dive121, align 8
   %coerce.dive122 = getelementptr inbounds %"union.hermes::vm::RuntimeModuleFlags", ptr %agg.tmp119, i32 0, i32 0
   %coerce.dive123 = getelementptr inbounds %struct.anon.188, ptr %coerce.dive122, i32 0, i32 0
-  %66 = load i8, ptr %coerce.dive123, align 1
-  %call124 = call noundef ptr @_ZN6hermes2vm13RuntimeModule19createUninitializedERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS0_18RuntimeModuleFlagsEj(ptr noundef nonnull align 8 dereferenceable(9832) %this1, ptr %65, i8 %66, i32 noundef -1)
+  %68 = load i8, ptr %coerce.dive123, align 1
+  %call124 = call noundef ptr @_ZN6hermes2vm13RuntimeModule19createUninitializedERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS0_18RuntimeModuleFlagsEj(ptr noundef nonnull align 8 dereferenceable(9832) %this1, ptr %67, i8 %68, i32 noundef -1)
   %specialCodeBlockRuntimeModule_125 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 123
   store ptr %call124, ptr %specialCodeBlockRuntimeModule_125, align 8
   call void @_ZN6hermes2vm7Runtime20initCharacterStringsEv(ptr noundef nonnull align 8 dereferenceable(9832) %this1)
   call void @_ZN6hermes2vm7GCScopeC2ERNS0_15HandleRootOwnerEPKcj(ptr noundef nonnull align 8 dereferenceable(212) %scope, ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i32 noundef 48)
   %specialCodeBlockRuntimeModule_126 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 123
-  %67 = load ptr, ptr %specialCodeBlockRuntimeModule_126, align 8
+  %69 = load ptr, ptr %specialCodeBlockRuntimeModule_126, align 8
   call void @_ZN6hermes2vm7Runtime30generateSpecialRuntimeBytecodeEv(ptr sret(%"class.std::unique_ptr.233") align 8 %ref.tmp130)
   call void @_ZNSt10unique_ptrIKN6hermes6BufferESt14default_deleteIS2_EEC2IS1_S3_IS1_EvEEOS_IT_T0_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp129, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp130) #16
   call void @_ZN6hermes3hbc20BCProviderFromBuffer26createBCProviderFromBufferB5cxx11ESt10unique_ptrIKNS_6BufferESt14default_deleteIS4_EENS0_12BytecodeFormE(ptr sret(%"struct.std::pair") align 8 %ref.tmp128, ptr noundef %agg.tmp129, i32 noundef 0)
   %first = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp128, i32 0, i32 0
   call void @_ZNSt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp127, ptr noundef nonnull align 8 dereferenceable(8) %first)
-  call void @_ZN6hermes2vm13RuntimeModule38initializeWithoutCJSModulesMayAllocateEOSt10shared_ptrINS_3hbc20BCProviderFromBufferEE(ptr noundef nonnull align 8 dereferenceable(192) %67, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp127)
+  call void @_ZN6hermes2vm13RuntimeModule38initializeWithoutCJSModulesMayAllocateEOSt10shared_ptrINS_3hbc20BCProviderFromBufferEE(ptr noundef nonnull align 8 dereferenceable(192) %69, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp127)
   call void @_ZNSt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp127) #16
   call void @_ZNSt4pairISt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp128) #16
   call void @_ZNSt10unique_ptrIKN6hermes6BufferESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp129) #16
   call void @_ZNSt10unique_ptrIN6hermes6BufferESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp130) #16
   %specialCodeBlockRuntimeModule_131 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 123
-  %68 = load ptr, ptr %specialCodeBlockRuntimeModule_131, align 8
-  %call132 = call noundef ptr @_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj(ptr noundef nonnull align 8 dereferenceable(192) %68, i32 noundef 0)
+  %70 = load ptr, ptr %specialCodeBlockRuntimeModule_131, align 8
+  %call132 = call noundef ptr @_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj(ptr noundef nonnull align 8 dereferenceable(192) %70, i32 noundef 0)
   %emptyCodeBlock_133 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 121
   store ptr %call132, ptr %emptyCodeBlock_133, align 8
   %specialCodeBlockRuntimeModule_134 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 123
-  %69 = load ptr, ptr %specialCodeBlockRuntimeModule_134, align 8
-  %call135 = call noundef ptr @_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj(ptr noundef nonnull align 8 dereferenceable(192) %69, i32 noundef 1)
+  %71 = load ptr, ptr %specialCodeBlockRuntimeModule_134, align 8
+  %call135 = call noundef ptr @_ZN6hermes2vm13RuntimeModule23getCodeBlockMayAllocateEj(ptr noundef nonnull align 8 dereferenceable(192) %71, i32 noundef 1)
   %returnThisCodeBlock_136 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 122
   store ptr %call135, ptr %returnThisCodeBlock_136, align 8
   %call139 = call { i32, i64 } @_ZN6hermes2vm11HiddenClass10createRootERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %this1)
-  %70 = getelementptr inbounds { i32, i64 }, ptr %agg.tmp138, i32 0, i32 0
-  %71 = extractvalue { i32, i64 } %call139, 0
-  store i32 %71, ptr %70, align 8
-  %72 = getelementptr inbounds { i32, i64 }, ptr %agg.tmp138, i32 0, i32 1
-  %73 = extractvalue { i32, i64 } %call139, 1
-  store i64 %73, ptr %72, align 8
-  %74 = getelementptr inbounds { i32, i64 }, ptr %agg.tmp138, i32 0, i32 0
-  %75 = load i32, ptr %74, align 8
-  %76 = getelementptr inbounds { i32, i64 }, ptr %agg.tmp138, i32 0, i32 1
-  %77 = load i64, ptr %76, align 8
-  %call140 = call i64 @_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this1, i32 %75, i64 %77)
+  %72 = getelementptr inbounds { i32, i64 }, ptr %agg.tmp138, i32 0, i32 0
+  %73 = extractvalue { i32, i64 } %call139, 0
+  store i32 %73, ptr %72, align 8
+  %74 = getelementptr inbounds { i32, i64 }, ptr %agg.tmp138, i32 0, i32 1
+  %75 = extractvalue { i32, i64 } %call139, 1
+  store i64 %75, ptr %74, align 8
+  %76 = getelementptr inbounds { i32, i64 }, ptr %agg.tmp138, i32 0, i32 0
+  %77 = load i32, ptr %76, align 8
+  %78 = getelementptr inbounds { i32, i64 }, ptr %agg.tmp138, i32 0, i32 1
+  %79 = load i64, ptr %78, align 8
+  %call140 = call i64 @_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this1, i32 %77, i64 %79)
   %coerce.dive141 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp137, i32 0, i32 0
   store i64 %call140, ptr %coerce.dive141, align 8
   %coerce.dive142 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp137, i32 0, i32 0
-  %78 = load i64, ptr %coerce.dive142, align 8
-  %call143 = call noundef ptr @_ZN6hermes2vm6vmcastINS0_11HiddenClassEEEPT_NS0_11HermesValueE(i64 %78)
+  %80 = load i64, ptr %coerce.dive142, align 8
+  %call143 = call noundef ptr @_ZN6hermes2vm6vmcastINS0_11HiddenClassEEEPT_NS0_11HermesValueE(i64 %80)
   call void @_ZN6hermes2vm13MutableHandleINS0_11HiddenClassEEC2ERNS0_15HandleRootOwnerEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %clazz, ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %call143)
   %call145 = call i64 @_ZNK6hermes2vm10HandleBase14getHermesValueEv(ptr noundef nonnull align 8 dereferenceable(8) %clazz)
   %coerce.dive146 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %ref.tmp144, i32 0, i32 0
@@ -7582,16 +7584,16 @@ if.end95:                                         ; preds = %if.then86, %if.end8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end95
-  %79 = load i32, ptr %i, align 4
-  %cmp150 = icmp ule i32 %79, 7
+  %81 = load i32, ptr %i, align 4
+  %cmp150 = icmp ule i32 %81, 7
   br i1 %cmp150, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp151, ptr align 8 %clazz, i64 8, i1 false)
   %coerce.dive152 = getelementptr inbounds %"class.hermes::vm::Handle.241", ptr %agg.tmp151, i32 0, i32 0
   %coerce.dive153 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive152, i32 0, i32 0
-  %80 = load ptr, ptr %coerce.dive153, align 8
-  call void @_ZN6hermes2vm11HiddenClass11reserveSlotENS0_6HandleIS1_EERNS0_7RuntimeE(ptr sret(%"class.hermes::vm::CallResult.243") align 8 %addResult, ptr %80, ptr noundef nonnull align 8 dereferenceable(9832) %this1)
+  %82 = load ptr, ptr %coerce.dive153, align 8
+  call void @_ZN6hermes2vm11HiddenClass11reserveSlotENS0_6HandleIS1_EERNS0_7RuntimeE(ptr sret(%"class.hermes::vm::CallResult.243") align 8 %addResult, ptr %82, ptr noundef nonnull align 8 dereferenceable(9832) %this1)
   %call154 = call noundef ptr @_ZN6hermes2vm10CallResultISt4pairINS0_6HandleINS0_11HiddenClassEEEjELNS0_6detail20CallResultSpecializeE0EEptEv(ptr noundef nonnull align 8 dereferenceable(24) %addResult)
   %first155 = getelementptr inbounds %"struct.std::pair.245", ptr %call154, i32 0, i32 0
   %call156 = call noundef ptr @_ZNK6hermes2vm6HandleINS0_11HiddenClassEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %first155)
@@ -7600,15 +7602,15 @@ for.body:                                         ; preds = %for.cond
   %coerce.dive160 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %ref.tmp158, i32 0, i32 0
   store i64 %call159, ptr %coerce.dive160, align 8
   %rootClazzes_161 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 133
-  %81 = load i32, ptr %i, align 4
-  %conv162 = zext i32 %81 to i64
+  %83 = load i32, ptr %i, align 4
+  %conv162 = zext i32 %83 to i64
   %call163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5arrayIN6hermes2vm17PinnedHermesValueELm8EEixEm(ptr noundef nonnull align 8 dereferenceable(64) %rootClazzes_161, i64 noundef %conv162) #16
   %call164 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6hermes2vm17PinnedHermesValueaSERKNS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(8) %call163, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp158)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %82 = load i32, ptr %i, align 4
-  %inc = add i32 %82, 1
+  %84 = load i32, ptr %i, align 4
+  %inc = add i32 %84, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
@@ -7619,8 +7621,8 @@ for.end:                                          ; preds = %for.cond
   store ptr %call168, ptr %coerce.dive170, align 8
   %coerce.dive171 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp167, i32 0, i32 0
   %coerce.dive172 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive171, i32 0, i32 0
-  %83 = load ptr, ptr %coerce.dive172, align 8
-  %call173 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %this1, ptr %83)
+  %85 = load ptr, ptr %coerce.dive172, align 8
+  %call173 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %this1, ptr %85)
   %coerce.dive174 = getelementptr inbounds %"class.hermes::vm::PseudoHandle.174", ptr %ref.tmp166, i32 0, i32 0
   store ptr %call173, ptr %coerce.dive174, align 8
   %call175 = call i64 @_ZNK6hermes2vm12PseudoHandleINS0_8JSObjectEE14getHermesValueEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp166)
@@ -7632,13 +7634,13 @@ for.end:                                          ; preds = %for.cond
   store i8 1, ptr %enableHermesInternal, align 1
   %enableHermesInternalTestMethods = getelementptr inbounds %"class.hermes::vm::JSLibFlags", ptr %jsLibFlags, i32 0, i32 1
   store i8 0, ptr %enableHermesInternalTestMethods, align 1
-  %84 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call179 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig23getEnableHermesInternalEv(ptr noundef nonnull align 8 dereferenceable(373) %84)
+  %86 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call179 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig23getEnableHermesInternalEv(ptr noundef nonnull align 8 dereferenceable(373) %86)
   %enableHermesInternal180 = getelementptr inbounds %"class.hermes::vm::JSLibFlags", ptr %jsLibFlags, i32 0, i32 0
   %frombool181 = zext i1 %call179 to i8
   store i8 %frombool181, ptr %enableHermesInternal180, align 1
-  %85 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call182 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig34getEnableHermesInternalTestMethodsEv(ptr noundef nonnull align 8 dereferenceable(373) %85)
+  %87 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call182 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig34getEnableHermesInternalTestMethodsEv(ptr noundef nonnull align 8 dereferenceable(373) %87)
   %enableHermesInternalTestMethods183 = getelementptr inbounds %"class.hermes::vm::JSLibFlags", ptr %jsLibFlags, i32 0, i32 1
   %frombool184 = zext i1 %call182 to i8
   store i8 %frombool184, ptr %enableHermesInternalTestMethods183, align 1
@@ -7647,24 +7649,24 @@ for.end:                                          ; preds = %for.cond
   %global_187 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 86
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp186, ptr align 8 %global_187, i64 8, i1 false)
   %coerce.dive188 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp186, i32 0, i32 0
-  %86 = load i64, ptr %coerce.dive188, align 8
-  %call189 = call noundef ptr @_ZN6hermes2vm6vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE(i64 %86)
+  %88 = load i64, ptr %coerce.dive188, align 8
+  %call189 = call noundef ptr @_ZN6hermes2vm6vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE(i64 %88)
   %objectPrototype191 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp190, ptr align 8 %objectPrototype191, i64 8, i1 false)
   %coerce.dive192 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp190, i32 0, i32 0
-  %87 = load i64, ptr %coerce.dive192, align 8
-  %call193 = call noundef ptr @_ZN6hermes2vm6vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE(i64 %87)
+  %89 = load i64, ptr %coerce.dive192, align 8
+  %call193 = call noundef ptr @_ZN6hermes2vm6vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE(i64 %89)
   call void @llvm.memset.p0.i64(ptr align 4 %ref.tmp195, i8 0, i64 4, i1 false)
   call void @_ZN6hermes2vm11PropOpFlagsC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp195) #16
   %call196 = call i32 @_ZNK6hermes2vm11PropOpFlags16plusThrowOnErrorEv(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp195)
   %coerce.dive197 = getelementptr inbounds %"union.hermes::vm::PropOpFlags", ptr %agg.tmp194, i32 0, i32 0
   store i32 %call196, ptr %coerce.dive197, align 4
   %coerce.dive198 = getelementptr inbounds %"union.hermes::vm::PropOpFlags", ptr %agg.tmp194, i32 0, i32 0
-  %88 = load i32, ptr %coerce.dive198, align 4
-  %call199 = call i32 @_ZN6hermes2vm8JSObject9setParentEPS1_RNS0_7RuntimeES2_NS0_11PropOpFlagsE(ptr noundef %call189, ptr noundef nonnull align 8 dereferenceable(9832) %this1, ptr noundef %call193, i32 %88)
+  %90 = load i32, ptr %coerce.dive198, align 4
+  %call199 = call i32 @_ZN6hermes2vm8JSObject9setParentEPS1_RNS0_7RuntimeES2_NS0_11PropOpFlagsE(ptr noundef %call189, ptr noundef nonnull align 8 dereferenceable(9832) %this1, ptr noundef %call193, i32 %90)
   store i32 %call199, ptr %agg.tmp185, align 4
-  %89 = load i32, ptr %agg.tmp185, align 4
-  %call200 = call noundef zeroext i1 @_ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6detail23GetCallResultSpecializeIS3_EE5valueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this1, i32 %89)
+  %91 = load i32, ptr %agg.tmp185, align 4
+  %call200 = call noundef zeroext i1 @_ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6detail23GetCallResultSpecializeIS3_EE5valueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this1, i32 %91)
   %symbolRegistry_201 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 119
   call void @_ZN6hermes2vm14SymbolRegistry4initERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(32) %symbolRegistry_201, ptr noundef nonnull align 8 dereferenceable(9832) %this1)
   %codeCoverageProfiler_202 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 142
@@ -7680,16 +7682,16 @@ for.end:                                          ; preds = %for.cond
   %builtins_210 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 137
   call void @_ZN4llvh15MutableArrayRefIPN6hermes2vm8CallableEEC2ERSt6vectorIS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp209, ptr noundef nonnull align 8 dereferenceable(24) %builtins_210)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp211, ptr align 8 %jsBuiltinsObj, i64 8, i1 false)
-  %90 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp209, i32 0, i32 0
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp209, i32 0, i32 1
-  %93 = load i64, ptr %92, align 8
+  %92 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp209, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp209, i32 0, i32 1
+  %95 = load i64, ptr %94, align 8
   %coerce.dive212 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp211, i32 0, i32 0
   %coerce.dive213 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive212, i32 0, i32 0
-  %94 = load ptr, ptr %coerce.dive213, align 8
-  call void @_ZN6hermes2vm7Runtime14initJSBuiltinsEN4llvh15MutableArrayRefIPNS0_8CallableEEENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this1, ptr %91, i64 %93, ptr %94)
-  %95 = load ptr, ptr %runtimeConfig.addr, align 8
-  %call214 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig24getEnableSampleProfilingEv(ptr noundef nonnull align 8 dereferenceable(373) %95)
+  %96 = load ptr, ptr %coerce.dive213, align 8
+  call void @_ZN6hermes2vm7Runtime14initJSBuiltinsEN4llvh15MutableArrayRefIPNS0_8CallableEEENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this1, ptr %93, i64 %95, ptr %96)
+  %97 = load ptr, ptr %runtimeConfig.addr, align 8
+  %call214 = call noundef zeroext i1 @_ZNK6hermes2vm13RuntimeConfig24getEnableSampleProfilingEv(ptr noundef nonnull align 8 dereferenceable(373) %97)
   br i1 %call214, label %if.then215, label %if.end219
 
 if.then215:                                       ; preds = %for.end
@@ -7727,7 +7729,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm15HandleRootOwnerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes2vm15HandleRootOwnerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %topGCScope_ = getelementptr inbounds %"class.hermes::vm::HandleRootOwner", ptr %this1, i32 0, i32 1
   store ptr null, ptr %topGCScope_, align 8
   ret void
@@ -7739,7 +7742,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6hermes2vm6GCBase11GCCallbacksE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN6hermes2vm6GCBase11GCCallbacksE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9552,29 +9556,30 @@ entry:
   %this2 = load ptr, ptr %this.addr, align 8
   store ptr @_ZN6hermes2vmL10jsBuiltinsE, ptr %__range2, align 8
   store ptr @_ZN6hermes2vmL10jsBuiltinsE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (%"struct.hermes::vm::JSBuiltin", ptr @_ZN6hermes2vmL10jsBuiltinsE, i64 1), ptr %__end2, align 8
+  %2 = getelementptr inbounds %"struct.hermes::vm::JSBuiltin", ptr @_ZN6hermes2vmL10jsBuiltinsE, i64 1
+  store ptr %2, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %__begin2, align 8
-  %3 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %2, %3
+  %3 = load ptr, ptr %__begin2, align 8
+  %4 = load ptr, ptr %__end2, align 8
+  %cmp = icmp ne ptr %3, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__begin2, align 8
-  store ptr %4, ptr %jsBuiltin, align 8
-  %5 = load ptr, ptr %jsBuiltin, align 8
-  %symID3 = getelementptr inbounds %"struct.hermes::vm::JSBuiltin", ptr %5, i32 0, i32 0
-  %6 = load i16, ptr %symID3, align 2
-  store i16 %6, ptr %symID, align 2
-  %7 = load ptr, ptr %jsBuiltin, align 8
-  %builtinIndex4 = getelementptr inbounds %"struct.hermes::vm::JSBuiltin", ptr %7, i32 0, i32 1
-  %8 = load i16, ptr %builtinIndex4, align 2
-  store i16 %8, ptr %builtinIndex, align 2
+  %5 = load ptr, ptr %__begin2, align 8
+  store ptr %5, ptr %jsBuiltin, align 8
+  %6 = load ptr, ptr %jsBuiltin, align 8
+  %symID3 = getelementptr inbounds %"struct.hermes::vm::JSBuiltin", ptr %6, i32 0, i32 0
+  %7 = load i16, ptr %symID3, align 2
+  store i16 %7, ptr %symID, align 2
+  %8 = load ptr, ptr %jsBuiltin, align 8
+  %builtinIndex4 = getelementptr inbounds %"struct.hermes::vm::JSBuiltin", ptr %8, i32 0, i32 1
+  %9 = load i16, ptr %builtinIndex4, align 2
+  store i16 %9, ptr %builtinIndex, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %jsBuiltinsObj, i64 8, i1 false)
-  %9 = load i16, ptr %symID, align 2
-  %conv = zext i16 %9 to i32
+  %10 = load i16, ptr %symID, align 2
+  %conv = zext i16 %10 to i32
   %call = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef %conv)
   %coerce.dive6 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp5, i32 0, i32 0
   store i32 %call, ptr %coerce.dive6, align 4
@@ -9582,36 +9587,36 @@ for.body:                                         ; preds = %for.cond
   call void @_ZN6hermes2vm11PropOpFlagsC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %agg.tmp7) #16
   %coerce.dive8 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive9 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive8, i32 0, i32 0
-  %10 = load ptr, ptr %coerce.dive9, align 8
+  %11 = load ptr, ptr %coerce.dive9, align 8
   %coerce.dive10 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp5, i32 0, i32 0
-  %11 = load i32, ptr %coerce.dive10, align 4
+  %12 = load i32, ptr %coerce.dive10, align 4
   %coerce.dive11 = getelementptr inbounds %"union.hermes::vm::PropOpFlags", ptr %agg.tmp7, i32 0, i32 0
-  %12 = load i32, ptr %coerce.dive11, align 4
-  %call12 = call { i32, i64 } @_ZN6hermes2vm8JSObject12getNamed_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_11PropOpFlagsEPNS0_18PropertyCacheEntryE(ptr %10, ptr noundef nonnull align 8 dereferenceable(9832) %this2, i32 %11, i32 %12, ptr noundef null)
-  %13 = getelementptr inbounds { i32, i64 }, ptr %getRes, i32 0, i32 0
-  %14 = extractvalue { i32, i64 } %call12, 0
-  store i32 %14, ptr %13, align 8
-  %15 = getelementptr inbounds { i32, i64 }, ptr %getRes, i32 0, i32 1
-  %16 = extractvalue { i32, i64 } %call12, 1
-  store i64 %16, ptr %15, align 8
+  %13 = load i32, ptr %coerce.dive11, align 4
+  %call12 = call { i32, i64 } @_ZN6hermes2vm8JSObject12getNamed_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_11PropOpFlagsEPNS0_18PropertyCacheEntryE(ptr %11, ptr noundef nonnull align 8 dereferenceable(9832) %this2, i32 %12, i32 %13, ptr noundef null)
+  %14 = getelementptr inbounds { i32, i64 }, ptr %getRes, i32 0, i32 0
+  %15 = extractvalue { i32, i64 } %call12, 0
+  store i32 %15, ptr %14, align 8
+  %16 = getelementptr inbounds { i32, i64 }, ptr %getRes, i32 0, i32 1
+  %17 = extractvalue { i32, i64 } %call12, 1
+  store i64 %17, ptr %16, align 8
   %call14 = call noundef ptr @_ZN6hermes2vm10CallResultINS0_12PseudoHandleINS0_11HermesValueEEELNS0_6detail20CallResultSpecializeE5EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %getRes)
   %call15 = call i64 @_ZNK6hermes2vm12PseudoHandleINS0_11HermesValueEE14getHermesValueEv(ptr noundef nonnull align 8 dereferenceable(8) %call14)
   %coerce.dive16 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp13, i32 0, i32 0
   store i64 %call15, ptr %coerce.dive16, align 8
   %coerce.dive17 = getelementptr inbounds %"class.hermes::vm::HermesValue", ptr %agg.tmp13, i32 0, i32 0
-  %17 = load i64, ptr %coerce.dive17, align 8
-  %call18 = call noundef ptr @_ZN6hermes2vm6vmcastINS0_10JSFunctionEEEPT_NS0_11HermesValueE(i64 %17)
+  %18 = load i64, ptr %coerce.dive17, align 8
+  %call18 = call noundef ptr @_ZN6hermes2vm6vmcastINS0_10JSFunctionEEEPT_NS0_11HermesValueE(i64 %18)
   store ptr %call18, ptr %jsFunc, align 8
-  %18 = load ptr, ptr %jsFunc, align 8
-  %19 = load i16, ptr %builtinIndex, align 2
-  %conv19 = zext i16 %19 to i64
+  %19 = load ptr, ptr %jsFunc, align 8
+  %20 = load i16, ptr %builtinIndex, align 2
+  %conv19 = zext i16 %20 to i64
   %call20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvh15MutableArrayRefIPN6hermes2vm8CallableEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %builtins, i64 noundef %conv19)
-  store ptr %18, ptr %call20, align 8
+  store ptr %19, ptr %call20, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %20 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.hermes::vm::JSBuiltin", ptr %20, i32 1
+  %21 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.hermes::vm::JSBuiltin", ptr %21, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
@@ -9702,9 +9707,11 @@ entry:
   %module = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr] }, ptr @_ZTVN6hermes2vm7RuntimeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr], [17 x ptr] }, ptr @_ZTVN6hermes2vm7RuntimeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr] }, ptr @_ZTVN6hermes2vm7RuntimeE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [17 x ptr], [17 x ptr] }, ptr @_ZTVN6hermes2vm7RuntimeE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %samplingProfiler = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 95
   call void @_ZNSt10unique_ptrIN6hermes2vm16SamplingProfilerESt14default_deleteIS2_EE5resetEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %samplingProfiler, ptr noundef null) #16
   %call = call noundef nonnull align 8 dereferenceable(8152) ptr @_ZN6hermes2vm7Runtime7getHeapEv(ptr noundef nonnull align 8 dereferenceable(9832) %this1)
@@ -9712,11 +9719,11 @@ entry:
   %crashMgr_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 130
   %call2 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN6hermes2vm12CrashManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %crashMgr_) #16
   %crashCallbackKey_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 141
-  %0 = load i32, ptr %crashCallbackKey_, align 4
+  %2 = load i32, ptr %crashCallbackKey_, align 4
   %vtable = load ptr, ptr %call2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %call2, i32 noundef %0)
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %call2, i32 noundef %2)
   %registerStackAllocation_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 126
   %call3 = call noundef zeroext i1 @_ZNK4llvh8ArrayRefIN6hermes2vm17PinnedHermesValueEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %registerStackAllocation_)
   br i1 %call3, label %if.end, label %if.then
@@ -9728,8 +9735,8 @@ if.then:                                          ; preds = %entry
   %call7 = call noundef ptr @_ZNK4llvh15MutableArrayRefIN6hermes2vm17PinnedHermesValueEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %registerStackAllocation_6)
   %vtable8 = load ptr, ptr %call5, align 8
   %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 1
-  %2 = load ptr, ptr %vfn9, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef %call7)
+  %4 = load ptr, ptr %vfn9, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef %call7)
   %registerStackAllocation_10 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 126
   %call11 = call noundef ptr @_ZNK4llvh15MutableArrayRefIN6hermes2vm17PinnedHermesValueEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %registerStackAllocation_10)
   %registerStackAllocation_12 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 126
@@ -9740,12 +9747,12 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %runtimeModuleList_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 124
   store ptr %runtimeModuleList_, ptr %__range2, align 8
-  %3 = load ptr, ptr %__range2, align 8
-  %call14 = call ptr @_ZN4llvh12simple_ilistIN6hermes2vm13RuntimeModuleEJEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = load ptr, ptr %__range2, align 8
+  %call14 = call ptr @_ZN4llvh12simple_ilistIN6hermes2vm13RuntimeModuleEJEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %coerce.dive = getelementptr inbounds %"class.llvh::ilist_iterator", ptr %__begin2, i32 0, i32 0
   store ptr %call14, ptr %coerce.dive, align 8
-  %4 = load ptr, ptr %__range2, align 8
-  %call15 = call ptr @_ZN4llvh12simple_ilistIN6hermes2vm13RuntimeModuleEJEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %6 = load ptr, ptr %__range2, align 8
+  %call15 = call ptr @_ZN4llvh12simple_ilistIN6hermes2vm13RuntimeModuleEJEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %coerce.dive16 = getelementptr inbounds %"class.llvh::ilist_iterator", ptr %__end2, i32 0, i32 0
   store ptr %call15, ptr %coerce.dive16, align 8
   br label %for.cond
@@ -9757,8 +9764,8 @@ for.cond:                                         ; preds = %for.inc, %if.end
 for.body:                                         ; preds = %for.cond
   %call18 = call noundef nonnull align 8 dereferenceable(192) ptr @_ZNK4llvh14ilist_iteratorINS_12ilist_detail12node_optionsIN6hermes2vm13RuntimeModuleELb0ELb0EvEELb0ELb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2)
   store ptr %call18, ptr %module, align 8
-  %5 = load ptr, ptr %module, align 8
-  call void @_ZN6hermes2vm13RuntimeModule25prepareForRuntimeShutdownEv(ptr noundef nonnull align 8 dereferenceable(192) %5)
+  %7 = load ptr, ptr %module, align 8
+  call void @_ZN6hermes2vm13RuntimeModule25prepareForRuntimeShutdownEv(ptr noundef nonnull align 8 dereferenceable(192) %7)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -9804,8 +9811,8 @@ if.end28:                                         ; preds = %if.then25, %while.e
   %call30 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN6hermes2vm12CrashManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %crashMgr_29) #16
   %vtable31 = load ptr, ptr %call30, align 8
   %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 1
-  %6 = load ptr, ptr %vfn32, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %call30, ptr noundef %this1)
+  %8 = load ptr, ptr %vfn32, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %call30, ptr noundef %this1)
   %gcEventCallback_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 145
   call void @_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %gcEventCallback_) #16
   %persistentBCProviders_ = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 144
@@ -9844,8 +9851,8 @@ if.end28:                                         ; preds = %if.then25, %while.e
   call void @_ZNSt10unique_ptrIN6hermes2vm16SamplingProfilerESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %samplingProfiler35) #16
   %regExpLastMatch = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %this1, i32 0, i32 92
   call void @_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %regExpLastMatch) #16
-  %7 = getelementptr inbounds i8, ptr %this1, i64 16
-  call void @_ZN6hermes2vm6GCBase11GCCallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #16
+  %9 = getelementptr inbounds i8, ptr %this1, i64 16
+  call void @_ZN6hermes2vm6GCBase11GCCallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
   call void @_ZN6hermes2vm15HandleRootOwnerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #16
   ret void
 }
@@ -28035,7 +28042,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %errstr_ = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %this1, i32 0, i32 20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errstr_) #16
   ret void
@@ -38547,10 +38555,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6hermes2vm15StorageProviderESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6hermes2vm15StorageProviderESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN6hermes2vm15StorageProviderESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN6hermes2vm15StorageProviderESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   ret void
 }
 
@@ -38560,7 +38569,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -39086,10 +39096,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6hermes2vm11HeapRuntimeINS1_7RuntimeEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6hermes2vm11HeapRuntimeINS1_7RuntimeEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -45718,10 +45729,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter.568", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   ret void
 }
 
@@ -47615,13 +47627,14 @@ entry:
   store ptr %data, ptr %data.addr, align 8
   store i64 %size, ptr %size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes6BufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6hermes6BufferE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.hermes::Buffer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %data.addr, align 8
-  store ptr %0, ptr %data_, align 8
+  %1 = load ptr, ptr %data.addr, align 8
+  store ptr %1, ptr %data_, align 8
   %size_ = getelementptr inbounds %"class.hermes::Buffer", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %size.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %size.addr, align 8
+  store i64 %2, ptr %size_, align 8
   ret void
 }
 
@@ -56374,10 +56387,11 @@ entry:
   store ptr %O, ptr %O.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11raw_ostreamC2Eb(ptr noundef nonnull align 8 dereferenceable(36) %this1, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %OS = getelementptr inbounds %"class.llvh::raw_string_ostream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %O.addr, align 8
-  store ptr %0, ptr %OS, align 8
+  %1 = load ptr, ptr %O.addr, align 8
+  store ptr %1, ptr %OS, align 8
   ret void
 }
 
@@ -56416,10 +56430,11 @@ entry:
   %frombool = zext i1 %unbuffered to i8
   store i8 %frombool, ptr %unbuffered.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %BufferMode = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this1, i32 0, i32 4
-  %0 = load i8, ptr %unbuffered.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %unbuffered.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %cond = select i1 %tobool, i32 0, i32 1
   store i32 %cond, ptr %BufferMode, align 8
   %OutBufCur = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this1, i32 0, i32 3

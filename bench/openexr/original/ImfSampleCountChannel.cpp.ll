@@ -75,7 +75,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %level.addr, align 8
   call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Imf_3_218SampleCountChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7Imf_3_218SampleCountChannelE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_numSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_numSamples, align 8
   %_base = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this1, i32 0, i32 2
@@ -92,20 +93,20 @@ entry:
   store i64 0, ptr %_sampleBufferSize, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %1 = load ptr, ptr %vfn, align 8
-  invoke void %1(ptr noundef nonnull align 8 dereferenceable(104) %this1)
+  %2 = load ptr, ptr %vfn, align 8
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(104) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
   br label %eh.resume
 
@@ -130,34 +131,35 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Imf_3_218SampleCountChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7Imf_3_218SampleCountChannelE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_numSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_numSamples, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %_numSamples, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #10
+  call void @_ZdaPv(ptr noundef %1) #10
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %_sampleListSizes = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %_sampleListSizes, align 8
-  %isnull2 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %_sampleListSizes, align 8
+  %isnull2 = icmp eq ptr %2, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  call void @_ZdaPv(ptr noundef %1) #10
+  call void @_ZdaPv(ptr noundef %2) #10
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
   %_sampleListPositions = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %_sampleListPositions, align 8
-  %isnull5 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %_sampleListPositions, align 8
+  %isnull5 = icmp eq ptr %3, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
 
 delete.notnull6:                                  ; preds = %delete.end4
-  call void @_ZdaPv(ptr noundef %2) #10
+  call void @_ZdaPv(ptr noundef %3) #10
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull6, %delete.end4

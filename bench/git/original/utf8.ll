@@ -1675,12 +1675,12 @@ entry:
   store ptr %format, ptr %format.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buf, ptr align 8 @__const.utf8_fprintf.buf, i64 24, i1 false)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arg, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %format.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arg, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %buf, ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %arg, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %buf3 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 2
   %1 = load ptr, ptr %buf3, align 8
   %2 = load ptr, ptr %stream.addr, align 8
@@ -1706,13 +1706,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 declare i32 @fputs(ptr noundef, ptr noundef) #2
 
@@ -1867,7 +1861,7 @@ declare ptr @xmalloc(i64 noundef) #2
 declare i64 @iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #6
+declare ptr @__errno_location() #5
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @st_mult(i64 noundef %a, i64 noundef %b) #0 {
@@ -1973,22 +1967,24 @@ if.end11:                                         ; preds = %if.end10, %if.then6
   %call12 = call ptr @iconv_open(ptr noundef %4, ptr noundef %5)
   store ptr %call12, ptr %conv, align 8
   %6 = load ptr, ptr %conv, align 8
-  %cmp = icmp eq ptr %6, inttoptr (i64 -1 to ptr)
+  %7 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %6, %7
   br i1 %cmp, label %if.then14, label %if.end22
 
 if.then14:                                        ; preds = %if.end11
-  %7 = load ptr, ptr %in_encoding.addr, align 8
-  %call15 = call ptr @fallback_encoding(ptr noundef %7)
+  %8 = load ptr, ptr %in_encoding.addr, align 8
+  %call15 = call ptr @fallback_encoding(ptr noundef %8)
   store ptr %call15, ptr %in_encoding.addr, align 8
-  %8 = load ptr, ptr %out_encoding.addr, align 8
-  %call16 = call ptr @fallback_encoding(ptr noundef %8)
-  store ptr %call16, ptr %out_encoding.addr, align 8
   %9 = load ptr, ptr %out_encoding.addr, align 8
-  %10 = load ptr, ptr %in_encoding.addr, align 8
-  %call17 = call ptr @iconv_open(ptr noundef %9, ptr noundef %10)
+  %call16 = call ptr @fallback_encoding(ptr noundef %9)
+  store ptr %call16, ptr %out_encoding.addr, align 8
+  %10 = load ptr, ptr %out_encoding.addr, align 8
+  %11 = load ptr, ptr %in_encoding.addr, align 8
+  %call17 = call ptr @iconv_open(ptr noundef %10, ptr noundef %11)
   store ptr %call17, ptr %conv, align 8
-  %11 = load ptr, ptr %conv, align 8
-  %cmp18 = icmp eq ptr %11, inttoptr (i64 -1 to ptr)
+  %12 = load ptr, ptr %conv, align 8
+  %13 = inttoptr i64 -1 to ptr
+  %cmp18 = icmp eq ptr %12, %13
   br i1 %cmp18, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.then14
@@ -1999,44 +1995,44 @@ if.end21:                                         ; preds = %if.then14
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end21, %if.end11
-  %12 = load ptr, ptr %in.addr, align 8
-  %13 = load i64, ptr %insz.addr, align 8
-  %14 = load ptr, ptr %conv, align 8
-  %15 = load i64, ptr %bom_len, align 8
-  %16 = load ptr, ptr %outsz.addr, align 8
-  %call23 = call ptr @reencode_string_iconv(ptr noundef %12, i64 noundef %13, ptr noundef %14, i64 noundef %15, ptr noundef %16)
+  %14 = load ptr, ptr %in.addr, align 8
+  %15 = load i64, ptr %insz.addr, align 8
+  %16 = load ptr, ptr %conv, align 8
+  %17 = load i64, ptr %bom_len, align 8
+  %18 = load ptr, ptr %outsz.addr, align 8
+  %call23 = call ptr @reencode_string_iconv(ptr noundef %14, i64 noundef %15, ptr noundef %16, i64 noundef %17, ptr noundef %18)
   store ptr %call23, ptr %out, align 8
-  %17 = load ptr, ptr %conv, align 8
-  %call24 = call i32 @iconv_close(ptr noundef %17)
-  %18 = load ptr, ptr %out, align 8
-  %tobool25 = icmp ne ptr %18, null
+  %19 = load ptr, ptr %conv, align 8
+  %call24 = call i32 @iconv_close(ptr noundef %19)
+  %20 = load ptr, ptr %out, align 8
+  %tobool25 = icmp ne ptr %20, null
   br i1 %tobool25, label %land.lhs.true, label %if.end30
 
 land.lhs.true:                                    ; preds = %if.end22
-  %19 = load ptr, ptr %bom_str, align 8
-  %tobool26 = icmp ne ptr %19, null
+  %21 = load ptr, ptr %bom_str, align 8
+  %tobool26 = icmp ne ptr %21, null
   br i1 %tobool26, label %land.lhs.true27, label %if.end30
 
 land.lhs.true27:                                  ; preds = %land.lhs.true
-  %20 = load i64, ptr %bom_len, align 8
-  %tobool28 = icmp ne i64 %20, 0
+  %22 = load i64, ptr %bom_len, align 8
+  %tobool28 = icmp ne i64 %22, 0
   br i1 %tobool28, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %land.lhs.true27
-  %21 = load ptr, ptr %out, align 8
-  %22 = load ptr, ptr %bom_str, align 8
-  %23 = load i64, ptr %bom_len, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %22, i64 %23, i1 false)
+  %23 = load ptr, ptr %out, align 8
+  %24 = load ptr, ptr %bom_str, align 8
+  %25 = load i64, ptr %bom_len, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %24, i64 %25, i1 false)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then29, %land.lhs.true27, %land.lhs.true, %if.end22
-  %24 = load ptr, ptr %out, align 8
-  store ptr %24, ptr %retval, align 8
+  %26 = load ptr, ptr %out, align 8
+  store ptr %26, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end30, %if.then20, %if.then
-  %25 = load ptr, ptr %retval, align 8
-  ret ptr %25
+  %27 = load ptr, ptr %retval, align 8
+  ret ptr %27
 }
 
 declare ptr @iconv_open(ptr noundef, ptr noundef) #2
@@ -2670,7 +2666,7 @@ return:                                           ; preds = %while.end, %if.else
 }
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) #7
+declare void @die(ptr noundef, ...) #6
 
 ; Function Attrs: nounwind willreturn memory(read)
 declare ptr @strchrnul(ptr noundef, i32 noundef) #1
@@ -2708,7 +2704,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 declare void @strbuf_grow(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #7
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @skip_iprefix(ptr noundef %str, ptr noundef %prefix, ptr noundef %out) #0 {
@@ -3004,14 +3000,20 @@ entry:
   ret i32 %conv
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
 attributes #8 = { noreturn }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nounwind }

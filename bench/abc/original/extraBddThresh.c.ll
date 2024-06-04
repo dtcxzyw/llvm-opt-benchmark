@@ -4528,85 +4528,96 @@ define void @Extra_ThreshCheckTest() #0 {
   %7 = alloca i32, align 4
   store i32 6, ptr %1, align 4
   %8 = load i64, ptr @s_Truths6, align 16
-  %9 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %10 = and i64 %8, %9
-  %11 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 2), align 16
-  %12 = and i64 %10, %11
-  %13 = load i64, ptr @s_Truths6, align 16
-  %14 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %15 = and i64 %13, %14
-  %16 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 3), align 8
-  %17 = and i64 %15, %16
-  %18 = or i64 %12, %17
-  %19 = load i64, ptr @s_Truths6, align 16
-  %20 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %21 = and i64 %19, %20
-  %22 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 4), align 16
-  %23 = and i64 %21, %22
-  %24 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 5), align 8
-  %25 = and i64 %23, %24
-  %26 = or i64 %18, %25
-  %27 = load i64, ptr @s_Truths6, align 16
-  %28 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 2), align 16
-  %29 = and i64 %27, %28
-  %30 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 3), align 8
-  %31 = and i64 %29, %30
-  %32 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 4), align 16
-  %33 = and i64 %31, %32
-  %34 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 5), align 8
-  %35 = and i64 %33, %34
-  %36 = or i64 %26, %35
-  store i64 %36, ptr %6, align 8
+  %9 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %10 = load i64, ptr %9, align 8
+  %11 = and i64 %8, %10
+  %12 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 2
+  %13 = load i64, ptr %12, align 16
+  %14 = and i64 %11, %13
+  %15 = load i64, ptr @s_Truths6, align 16
+  %16 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %17 = load i64, ptr %16, align 8
+  %18 = and i64 %15, %17
+  %19 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 3
+  %20 = load i64, ptr %19, align 8
+  %21 = and i64 %18, %20
+  %22 = or i64 %14, %21
+  %23 = load i64, ptr @s_Truths6, align 16
+  %24 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %23, %25
+  %27 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 4
+  %28 = load i64, ptr %27, align 16
+  %29 = and i64 %26, %28
+  %30 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 5
+  %31 = load i64, ptr %30, align 8
+  %32 = and i64 %29, %31
+  %33 = or i64 %22, %32
+  %34 = load i64, ptr @s_Truths6, align 16
+  %35 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 2
+  %36 = load i64, ptr %35, align 16
+  %37 = and i64 %34, %36
+  %38 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 3
+  %39 = load i64, ptr %38, align 8
+  %40 = and i64 %37, %39
+  %41 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 4
+  %42 = load i64, ptr %41, align 16
+  %43 = and i64 %40, %42
+  %44 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 5
+  %45 = load i64, ptr %44, align 8
+  %46 = and i64 %43, %45
+  %47 = or i64 %33, %46
+  store i64 %47, ptr %6, align 8
   store i32 0, ptr %7, align 4
-  br label %37
+  br label %48
 
-37:                                               ; preds = %50, %0
-  %38 = load i32, ptr %7, align 4
-  %39 = load i32, ptr %1, align 4
-  %40 = icmp slt i32 %38, %39
-  br i1 %40, label %41, label %53
+48:                                               ; preds = %61, %0
+  %49 = load i32, ptr %7, align 4
+  %50 = load i32, ptr %1, align 4
+  %51 = icmp slt i32 %49, %50
+  br i1 %51, label %52, label %64
 
-41:                                               ; preds = %37
-  %42 = load i32, ptr %7, align 4
-  %43 = load i32, ptr %1, align 4
-  %44 = load i32, ptr %7, align 4
-  %45 = call i32 @Abc_TtPosVar(ptr noundef %6, i32 noundef %43, i32 noundef %44)
-  %46 = load i32, ptr %1, align 4
-  %47 = load i32, ptr %7, align 4
-  %48 = call i32 @Abc_TtNegVar(ptr noundef %6, i32 noundef %46, i32 noundef %47)
-  %49 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, i32 noundef %42, i32 noundef %45, i32 noundef %48)
-  br label %50
-
-50:                                               ; preds = %41
-  %51 = load i32, ptr %7, align 4
-  %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %7, align 4
-  br label %37, !llvm.loop !92
-
-53:                                               ; preds = %37
+52:                                               ; preds = %48
+  %53 = load i32, ptr %7, align 4
   %54 = load i32, ptr %1, align 4
-  %55 = getelementptr inbounds [16 x i32], ptr %4, i64 0, i64 0
-  %56 = call i32 @Extra_ThreshComputeChow(ptr noundef %6, i32 noundef %54, ptr noundef %55)
-  store i32 %56, ptr %3, align 4
+  %55 = load i32, ptr %7, align 4
+  %56 = call i32 @Abc_TtPosVar(ptr noundef %6, i32 noundef %54, i32 noundef %55)
   %57 = load i32, ptr %1, align 4
-  %58 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 0
-  %59 = call i32 @Extra_ThreshCheck(ptr noundef %6, i32 noundef %57, ptr noundef %58)
-  store i32 %59, ptr %2, align 4
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %61, label %65
+  %58 = load i32, ptr %7, align 4
+  %59 = call i32 @Abc_TtNegVar(ptr noundef %6, i32 noundef %57, i32 noundef %58)
+  %60 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, i32 noundef %53, i32 noundef %56, i32 noundef %59)
+  br label %61
 
-61:                                               ; preds = %53
-  %62 = load i32, ptr %2, align 4
-  %63 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 0
-  %64 = load i32, ptr %1, align 4
-  call void @Extra_ThreshPrintChow(i32 noundef %62, ptr noundef %63, i32 noundef %64)
-  br label %67
+61:                                               ; preds = %52
+  %62 = load i32, ptr %7, align 4
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %7, align 4
+  br label %48, !llvm.loop !92
 
-65:                                               ; preds = %53
-  %66 = call i32 (ptr, ...) @printf(ptr noundef @.str.8)
-  br label %67
+64:                                               ; preds = %48
+  %65 = load i32, ptr %1, align 4
+  %66 = getelementptr inbounds [16 x i32], ptr %4, i64 0, i64 0
+  %67 = call i32 @Extra_ThreshComputeChow(ptr noundef %6, i32 noundef %65, ptr noundef %66)
+  store i32 %67, ptr %3, align 4
+  %68 = load i32, ptr %1, align 4
+  %69 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 0
+  %70 = call i32 @Extra_ThreshCheck(ptr noundef %6, i32 noundef %68, ptr noundef %69)
+  store i32 %70, ptr %2, align 4
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %76
 
-67:                                               ; preds = %65, %61
+72:                                               ; preds = %64
+  %73 = load i32, ptr %2, align 4
+  %74 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 0
+  %75 = load i32, ptr %1, align 4
+  call void @Extra_ThreshPrintChow(i32 noundef %73, ptr noundef %74, i32 noundef %75)
+  br label %78
+
+76:                                               ; preds = %64
+  %77 = call i32 (ptr, ...) @printf(ptr noundef @.str.8)
+  br label %78
+
+78:                                               ; preds = %76, %72
   ret void
 }
 
@@ -4989,45 +5000,56 @@ define void @Extra_ThreshHeuristicTest() #0 {
   %5 = alloca ptr, align 8
   store i32 6, ptr %1, align 4
   %6 = load i64, ptr @s_Truths6, align 16
-  %7 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %8 = and i64 %6, %7
-  %9 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 2), align 16
-  %10 = and i64 %8, %9
-  %11 = load i64, ptr @s_Truths6, align 16
-  %12 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %13 = and i64 %11, %12
-  %14 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 3), align 8
-  %15 = and i64 %13, %14
-  %16 = or i64 %10, %15
-  %17 = load i64, ptr @s_Truths6, align 16
-  %18 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %19 = and i64 %17, %18
-  %20 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 4), align 16
-  %21 = and i64 %19, %20
-  %22 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 5), align 8
-  %23 = and i64 %21, %22
-  %24 = or i64 %16, %23
-  %25 = load i64, ptr @s_Truths6, align 16
-  %26 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 2), align 16
-  %27 = and i64 %25, %26
-  %28 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 3), align 8
-  %29 = and i64 %27, %28
-  %30 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 4), align 16
-  %31 = and i64 %29, %30
-  %32 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 5), align 8
-  %33 = and i64 %31, %32
-  %34 = or i64 %24, %33
-  store i64 %34, ptr %4, align 8
+  %7 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %8 = load i64, ptr %7, align 8
+  %9 = and i64 %6, %8
+  %10 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 2
+  %11 = load i64, ptr %10, align 16
+  %12 = and i64 %9, %11
+  %13 = load i64, ptr @s_Truths6, align 16
+  %14 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %15 = load i64, ptr %14, align 8
+  %16 = and i64 %13, %15
+  %17 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 3
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %16, %18
+  %20 = or i64 %12, %19
+  %21 = load i64, ptr @s_Truths6, align 16
+  %22 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %23 = load i64, ptr %22, align 8
+  %24 = and i64 %21, %23
+  %25 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 4
+  %26 = load i64, ptr %25, align 16
+  %27 = and i64 %24, %26
+  %28 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 5
+  %29 = load i64, ptr %28, align 8
+  %30 = and i64 %27, %29
+  %31 = or i64 %20, %30
+  %32 = load i64, ptr @s_Truths6, align 16
+  %33 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 2
+  %34 = load i64, ptr %33, align 16
+  %35 = and i64 %32, %34
+  %36 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 3
+  %37 = load i64, ptr %36, align 8
+  %38 = and i64 %35, %37
+  %39 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 4
+  %40 = load i64, ptr %39, align 16
+  %41 = and i64 %38, %40
+  %42 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 5
+  %43 = load i64, ptr %42, align 8
+  %44 = and i64 %41, %43
+  %45 = or i64 %31, %44
+  store i64 %45, ptr %4, align 8
   store ptr %4, ptr %5, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = load i32, ptr %1, align 4
-  %37 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 0
-  %38 = call i32 @Extra_ThreshHeuristic(ptr noundef %35, i32 noundef %36, ptr noundef %37)
-  store i32 %38, ptr %2, align 4
-  %39 = load i32, ptr %2, align 4
-  %40 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 0
-  %41 = load i32, ptr %1, align 4
-  call void @Extra_ThreshPrintWeights(i32 noundef %39, ptr noundef %40, i32 noundef %41)
+  %46 = load ptr, ptr %5, align 8
+  %47 = load i32, ptr %1, align 4
+  %48 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 0
+  %49 = call i32 @Extra_ThreshHeuristic(ptr noundef %46, i32 noundef %47, ptr noundef %48)
+  store i32 %49, ptr %2, align 4
+  %50 = load i32, ptr %2, align 4
+  %51 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 0
+  %52 = load i32, ptr %1, align 4
+  call void @Extra_ThreshPrintWeights(i32 noundef %50, ptr noundef %51, i32 noundef %52)
   ret void
 }
 

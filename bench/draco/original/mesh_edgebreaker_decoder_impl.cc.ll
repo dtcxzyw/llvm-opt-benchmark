@@ -4061,104 +4061,105 @@ define weak_odr void @_ZN5draco26MeshEdgebreakerDecoderImplINS_31MeshEdgebreaker
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5draco26MeshEdgebreakerDecoderImplINS_31MeshEdgebreakerTraversalDecoderEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 3
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %9 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %10 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 5
-  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 6
-  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 7
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
-  %13 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 8
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  %14 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 9
-  store i32 -1, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 10
-  store i32 -1, ptr %15, align 4
-  %16 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 11
-  store i32 -1, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 12
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #3
-  %18 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 13
+  %6 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN5draco26MeshEdgebreakerDecoderImplINS_31MeshEdgebreakerTraversalDecoderEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %9 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 3
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 4
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %11 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 5
+  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 6
+  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 7
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+  %14 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 8
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %15 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 9
+  store i32 -1, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 10
+  store i32 -1, ptr %16, align 4
+  %17 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 11
+  store i32 -1, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 12
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #3
-  %19 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 14
+  %19 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 13
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
-  %20 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 15
-  store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 16
-  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #3
-  %22 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 17
-  store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 18
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  %24 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 19
+  %20 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 14
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
+  %21 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 15
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 16
+  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #3
+  %23 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 17
+  store i32 0, ptr %23, align 8
+  %24 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 18
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  %25 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 20
-  invoke void @_ZN5draco32MeshAttributeIndicesEncodingDataC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %25)
-          to label %26 unwind label %31
+  %25 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 19
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  %26 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 20
+  invoke void @_ZN5draco32MeshAttributeIndicesEncodingDataC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %26)
+          to label %27 unwind label %32
 
-26:                                               ; preds = %1
-  %27 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 21
-  store i32 -1, ptr %27, align 8
-  %28 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 22
-  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_31MeshEdgebreakerTraversalDecoderEE13AttributeDataESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  %29 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 23
-  invoke void @_ZN5draco31MeshEdgebreakerTraversalDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %29)
-          to label %30 unwind label %35
+27:                                               ; preds = %1
+  %28 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 21
+  store i32 -1, ptr %28, align 8
+  %29 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 22
+  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_31MeshEdgebreakerTraversalDecoderEE13AttributeDataESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  %30 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %5, i32 0, i32 23
+  invoke void @_ZN5draco31MeshEdgebreakerTraversalDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %30)
+          to label %31 unwind label %36
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   ret void
 
-31:                                               ; preds = %1
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %1
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %3, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %4, align 4
-  br label %39
-
-35:                                               ; preds = %26
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %3, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %4, align 4
-  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_31MeshEdgebreakerTraversalDecoderEE13AttributeDataESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  call void @_ZN5draco32MeshAttributeIndicesEncodingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %25) #3
-  br label %39
-
-39:                                               ; preds = %35, %31
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #3
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
-  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  call void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %3, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %4, align 4
   br label %40
 
-40:                                               ; preds = %39
-  %41 = load ptr, ptr %3, align 8
-  %42 = load i32, ptr %4, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+36:                                               ; preds = %27
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %3, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %4, align 4
+  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_31MeshEdgebreakerTraversalDecoderEE13AttributeDataESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  call void @_ZN5draco32MeshAttributeIndicesEncodingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %26) #3
+  br label %40
+
+40:                                               ; preds = %36, %32
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
+  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #3
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %3, align 8
+  %43 = load i32, ptr %4, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4166,7 +4167,8 @@ define linkonce_odr void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceC2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5draco35MeshEdgebreakerDecoderImplInterfaceE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN5draco35MeshEdgebreakerDecoderImplInterfaceE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5642,38 +5644,39 @@ define linkonce_odr void @_ZN5draco22MeshTraversalSequencerINS_19DepthFirstTrave
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5draco15PointsSequencerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5draco22MeshTraversalSequencerINS_19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS2_EEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.draco::MeshTraversalSequencer", ptr %9, i32 0, i32 1
-  invoke void @_ZN5draco19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %10)
-          to label %11 unwind label %17
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5draco22MeshTraversalSequencerINS_19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS2_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.draco::MeshTraversalSequencer", ptr %9, i32 0, i32 1
+  invoke void @_ZN5draco19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %11)
+          to label %12 unwind label %18
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds %"class.draco::MeshTraversalSequencer", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.draco::MeshTraversalSequencer", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %6, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.draco::MeshTraversalSequencer", ptr %9, i32 0, i32 4
-  store ptr null, ptr %16, align 8
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds %"class.draco::MeshTraversalSequencer", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.draco::MeshTraversalSequencer", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.draco::MeshTraversalSequencer", ptr %9, i32 0, i32 4
+  store ptr null, ptr %17, align 8
   ret void
 
-17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %7, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %8, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
   call void @_ZN5draco15PointsSequencerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr %8, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -5746,9 +5749,10 @@ define linkonce_odr void @_ZN5draco19DepthFirstTraverserINS_24MeshAttributeCorne
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco13TraverserBaseINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::DepthFirstTraverser", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5draco19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::DepthFirstTraverser", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   ret void
 }
 
@@ -5830,9 +5834,10 @@ define linkonce_odr void @_ZN5draco19DepthFirstTraverserINS_24MeshAttributeCorne
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::DepthFirstTraverser", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5draco19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::DepthFirstTraverser", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN5draco13TraverserBaseINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -13728,104 +13733,105 @@ define weak_odr void @_ZN5draco26MeshEdgebreakerDecoderImplINS_41MeshEdgebreaker
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5draco26MeshEdgebreakerDecoderImplINS_41MeshEdgebreakerTraversalPredictiveDecoderEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 3
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %9 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %10 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 5
-  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 6
-  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 7
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
-  %13 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 8
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  %14 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 9
-  store i32 -1, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 10
-  store i32 -1, ptr %15, align 4
-  %16 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 11
-  store i32 -1, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 12
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #3
-  %18 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 13
+  %6 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN5draco26MeshEdgebreakerDecoderImplINS_41MeshEdgebreakerTraversalPredictiveDecoderEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %9 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 3
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 4
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %11 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 5
+  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 6
+  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 7
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+  %14 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 8
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %15 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 9
+  store i32 -1, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 10
+  store i32 -1, ptr %16, align 4
+  %17 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 11
+  store i32 -1, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 12
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #3
-  %19 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 14
+  %19 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 13
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
-  %20 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 15
-  store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 16
-  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #3
-  %22 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 17
-  store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 18
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  %24 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 19
+  %20 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 14
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
+  %21 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 15
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 16
+  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #3
+  %23 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 17
+  store i32 0, ptr %23, align 8
+  %24 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 18
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  %25 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 20
-  invoke void @_ZN5draco32MeshAttributeIndicesEncodingDataC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %25)
-          to label %26 unwind label %31
+  %25 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 19
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  %26 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 20
+  invoke void @_ZN5draco32MeshAttributeIndicesEncodingDataC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %26)
+          to label %27 unwind label %32
 
-26:                                               ; preds = %1
-  %27 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 21
-  store i32 -1, ptr %27, align 8
-  %28 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 22
-  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_41MeshEdgebreakerTraversalPredictiveDecoderEE13AttributeDataESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  %29 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 23
-  invoke void @_ZN5draco41MeshEdgebreakerTraversalPredictiveDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %29)
-          to label %30 unwind label %35
+27:                                               ; preds = %1
+  %28 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 21
+  store i32 -1, ptr %28, align 8
+  %29 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 22
+  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_41MeshEdgebreakerTraversalPredictiveDecoderEE13AttributeDataESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  %30 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %5, i32 0, i32 23
+  invoke void @_ZN5draco41MeshEdgebreakerTraversalPredictiveDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %30)
+          to label %31 unwind label %36
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   ret void
 
-31:                                               ; preds = %1
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %1
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %3, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %4, align 4
-  br label %39
-
-35:                                               ; preds = %26
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %3, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %4, align 4
-  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_41MeshEdgebreakerTraversalPredictiveDecoderEE13AttributeDataESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  call void @_ZN5draco32MeshAttributeIndicesEncodingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %25) #3
-  br label %39
-
-39:                                               ; preds = %35, %31
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #3
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
-  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  call void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %3, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %4, align 4
   br label %40
 
-40:                                               ; preds = %39
-  %41 = load ptr, ptr %3, align 8
-  %42 = load i32, ptr %4, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+36:                                               ; preds = %27
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %3, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %4, align 4
+  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_41MeshEdgebreakerTraversalPredictiveDecoderEE13AttributeDataESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  call void @_ZN5draco32MeshAttributeIndicesEncodingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %26) #3
+  br label %40
+
+40:                                               ; preds = %36, %32
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
+  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #3
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %3, align 8
+  %43 = load i32, ptr %4, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20396,104 +20402,105 @@ define weak_odr void @_ZN5draco26MeshEdgebreakerDecoderImplINS_38MeshEdgebreaker
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5draco26MeshEdgebreakerDecoderImplINS_38MeshEdgebreakerTraversalValenceDecoderEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 3
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %9 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %10 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 5
-  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 6
-  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %12 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 7
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
-  %13 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 8
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  %14 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 9
-  store i32 -1, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 10
-  store i32 -1, ptr %15, align 4
-  %16 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 11
-  store i32 -1, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 12
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #3
-  %18 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 13
+  %6 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN5draco26MeshEdgebreakerDecoderImplINS_38MeshEdgebreakerTraversalValenceDecoderEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %9 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 3
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 4
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %11 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 5
+  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 6
+  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 7
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+  %14 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 8
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %15 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 9
+  store i32 -1, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 10
+  store i32 -1, ptr %16, align 4
+  %17 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 11
+  store i32 -1, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 12
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #3
-  %19 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 14
+  %19 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 13
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
-  %20 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 15
-  store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 16
-  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #3
-  %22 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 17
-  store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 18
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  %24 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 19
+  %20 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 14
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
+  %21 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 15
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 16
+  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #3
+  %23 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 17
+  store i32 0, ptr %23, align 8
+  %24 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 18
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  %25 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 20
-  invoke void @_ZN5draco32MeshAttributeIndicesEncodingDataC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %25)
-          to label %26 unwind label %31
+  %25 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 19
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  %26 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 20
+  invoke void @_ZN5draco32MeshAttributeIndicesEncodingDataC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %26)
+          to label %27 unwind label %32
 
-26:                                               ; preds = %1
-  %27 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 21
-  store i32 -1, ptr %27, align 8
-  %28 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 22
-  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_38MeshEdgebreakerTraversalValenceDecoderEE13AttributeDataESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  %29 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 23
-  invoke void @_ZN5draco38MeshEdgebreakerTraversalValenceDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %29)
-          to label %30 unwind label %35
+27:                                               ; preds = %1
+  %28 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 21
+  store i32 -1, ptr %28, align 8
+  %29 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 22
+  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_38MeshEdgebreakerTraversalValenceDecoderEE13AttributeDataESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  %30 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %5, i32 0, i32 23
+  invoke void @_ZN5draco38MeshEdgebreakerTraversalValenceDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %30)
+          to label %31 unwind label %36
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   ret void
 
-31:                                               ; preds = %1
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %1
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %3, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %4, align 4
-  br label %39
-
-35:                                               ; preds = %26
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %3, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %4, align 4
-  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_38MeshEdgebreakerTraversalValenceDecoderEE13AttributeDataESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  call void @_ZN5draco32MeshAttributeIndicesEncodingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %25) #3
-  br label %39
-
-39:                                               ; preds = %35, %31
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #3
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
-  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  call void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %3, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %4, align 4
   br label %40
 
-40:                                               ; preds = %39
-  %41 = load ptr, ptr %3, align 8
-  %42 = load i32, ptr %4, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+36:                                               ; preds = %27
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %3, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %4, align 4
+  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_38MeshEdgebreakerTraversalValenceDecoderEE13AttributeDataESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  call void @_ZN5draco32MeshAttributeIndicesEncodingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %26) #3
+  br label %40
+
+40:                                               ; preds = %36, %32
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
+  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #3
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br label %41
+
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %3, align 8
+  %43 = load i32, ptr %4, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -27261,39 +27268,40 @@ define linkonce_odr void @_ZN5draco26MeshEdgebreakerDecoderImplINS_31MeshEdgebre
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5draco26MeshEdgebreakerDecoderImplINS_31MeshEdgebreakerTraversalDecoderEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 23
-  call void @_ZN5draco31MeshEdgebreakerTraversalDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %4) #3
-  %5 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 22
-  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_31MeshEdgebreakerTraversalDecoderEE13AttributeDataESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 20
-  call void @_ZN5draco32MeshAttributeIndicesEncodingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %6) #3
-  %7 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 19
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 18
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN5draco26MeshEdgebreakerDecoderImplINS_31MeshEdgebreakerTraversalDecoderEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 23
+  call void @_ZN5draco31MeshEdgebreakerTraversalDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %5) #3
+  %6 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 22
+  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_31MeshEdgebreakerTraversalDecoderEE13AttributeDataESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 20
+  call void @_ZN5draco32MeshAttributeIndicesEncodingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %7) #3
+  %8 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 19
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %9 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 16
-  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
-  %10 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 14
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #3
-  %11 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 13
+  %9 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 18
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 16
+  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #3
+  %11 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 14
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #3
-  %12 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 12
+  %12 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 13
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
-  %13 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  %14 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #3
-  %15 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  %16 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  %17 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  %18 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  %19 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  %13 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 12
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+  %14 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %15 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #3
+  %16 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %17 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %18 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  %19 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  %20 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
   call void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -27313,39 +27321,40 @@ define linkonce_odr void @_ZN5draco26MeshEdgebreakerDecoderImplINS_41MeshEdgebre
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5draco26MeshEdgebreakerDecoderImplINS_41MeshEdgebreakerTraversalPredictiveDecoderEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 23
-  call void @_ZN5draco41MeshEdgebreakerTraversalPredictiveDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %4) #3
-  %5 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 22
-  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_41MeshEdgebreakerTraversalPredictiveDecoderEE13AttributeDataESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 20
-  call void @_ZN5draco32MeshAttributeIndicesEncodingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %6) #3
-  %7 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 19
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 18
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN5draco26MeshEdgebreakerDecoderImplINS_41MeshEdgebreakerTraversalPredictiveDecoderEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 23
+  call void @_ZN5draco41MeshEdgebreakerTraversalPredictiveDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %5) #3
+  %6 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 22
+  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_41MeshEdgebreakerTraversalPredictiveDecoderEE13AttributeDataESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 20
+  call void @_ZN5draco32MeshAttributeIndicesEncodingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %7) #3
+  %8 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 19
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %9 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 16
-  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
-  %10 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 14
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #3
-  %11 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 13
+  %9 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 18
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 16
+  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #3
+  %11 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 14
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #3
-  %12 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 12
+  %12 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 13
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
-  %13 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  %14 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #3
-  %15 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  %16 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  %17 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  %18 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  %19 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  %13 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 12
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+  %14 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %15 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #3
+  %16 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %17 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %18 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  %19 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  %20 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.157", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
   call void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -27365,39 +27374,40 @@ define linkonce_odr void @_ZN5draco26MeshEdgebreakerDecoderImplINS_38MeshEdgebre
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5draco26MeshEdgebreakerDecoderImplINS_38MeshEdgebreakerTraversalValenceDecoderEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 23
-  call void @_ZN5draco38MeshEdgebreakerTraversalValenceDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %4) #3
-  %5 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 22
-  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_38MeshEdgebreakerTraversalValenceDecoderEE13AttributeDataESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 20
-  call void @_ZN5draco32MeshAttributeIndicesEncodingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %6) #3
-  %7 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 19
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 18
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN5draco26MeshEdgebreakerDecoderImplINS_38MeshEdgebreakerTraversalValenceDecoderEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 23
+  call void @_ZN5draco38MeshEdgebreakerTraversalValenceDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %5) #3
+  %6 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 22
+  call void @_ZNSt6vectorIN5draco26MeshEdgebreakerDecoderImplINS0_38MeshEdgebreakerTraversalValenceDecoderEE13AttributeDataESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 20
+  call void @_ZN5draco32MeshAttributeIndicesEncodingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %7) #3
+  %8 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 19
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %9 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 16
-  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
-  %10 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 14
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #3
-  %11 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 13
+  %9 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 18
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 16
+  call void @_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #3
+  %11 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 14
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #3
-  %12 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 12
+  %12 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 13
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
-  %13 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  %14 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #3
-  %15 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  %16 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  %17 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
-  %18 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  %19 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #3
+  %13 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 12
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+  %14 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %15 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #3
+  %16 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIN5draco13HoleEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %17 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIN5draco22TopologySplitEventDataESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %18 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  %19 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  %20 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoderImpl.163", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5draco11CornerTableESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
   call void @_ZN5draco35MeshEdgebreakerDecoderImplInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -28845,11 +28855,12 @@ define linkonce_odr void @_ZN5draco13TraverserBaseINS_24MeshAttributeCornerTable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco13TraverserBaseINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::TraverserBase", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
-  %5 = getelementptr inbounds %"class.draco::TraverserBase", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5draco13TraverserBaseINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::TraverserBase", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
+  %6 = getelementptr inbounds %"class.draco::TraverserBase", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #3
   ret void
 }
 
@@ -40285,38 +40296,39 @@ define linkonce_odr void @_ZN5draco22MeshTraversalSequencerINS_28MaxPredictionDe
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5draco15PointsSequencerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5draco22MeshTraversalSequencerINS_28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS2_EEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.204", ptr %9, i32 0, i32 1
-  invoke void @_ZN5draco28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %10)
-          to label %11 unwind label %17
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5draco22MeshTraversalSequencerINS_28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS2_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.204", ptr %9, i32 0, i32 1
+  invoke void @_ZN5draco28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %11)
+          to label %12 unwind label %18
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.204", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.204", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %6, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.204", ptr %9, i32 0, i32 4
-  store ptr null, ptr %16, align 8
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.204", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.204", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.204", ptr %9, i32 0, i32 4
+  store ptr null, ptr %17, align 8
   ret void
 
-17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %7, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %8, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
   call void @_ZN5draco15PointsSequencerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr %8, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -40388,55 +40400,56 @@ define linkonce_odr void @_ZN5draco28MaxPredictionDegreeTraverserINS_11CornerTab
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.draco::MaxPredictionDegreeTraverser", ptr %5, i32 0, i32 1
-  %7 = getelementptr inbounds [3 x %"class.std::vector"], ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"class.std::vector", ptr %7, i64 3
-  br label %9
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5draco28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.draco::MaxPredictionDegreeTraverser", ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds [3 x %"class.std::vector"], ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds %"class.std::vector", ptr %8, i64 3
+  br label %10
 
-9:                                                ; preds = %9, %1
-  %10 = phi ptr [ %7, %1 ], [ %11, %9 ]
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %"class.std::vector", ptr %10, i64 1
-  %12 = icmp eq ptr %11, %8
-  br i1 %12, label %13, label %9
+10:                                               ; preds = %10, %1
+  %11 = phi ptr [ %8, %1 ], [ %12, %10 ]
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = getelementptr inbounds %"class.std::vector", ptr %11, i64 1
+  %13 = icmp eq ptr %12, %9
+  br i1 %13, label %14, label %10
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds %"class.draco::MaxPredictionDegreeTraverser", ptr %5, i32 0, i32 3
-  invoke void @_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %15 unwind label %16
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds %"class.draco::MaxPredictionDegreeTraverser", ptr %5, i32 0, i32 3
+  invoke void @_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %16 unwind label %17
 
-15:                                               ; preds = %13
+16:                                               ; preds = %14
   ret void
 
-16:                                               ; preds = %13
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %14
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %3, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %4, align 4
-  %20 = getelementptr inbounds [3 x %"class.std::vector"], ptr %6, i32 0, i32 0
-  %21 = getelementptr inbounds %"class.std::vector", ptr %20, i64 3
-  br label %22
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %3, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %4, align 4
+  %21 = getelementptr inbounds [3 x %"class.std::vector"], ptr %7, i32 0, i32 0
+  %22 = getelementptr inbounds %"class.std::vector", ptr %21, i64 3
+  br label %23
 
-22:                                               ; preds = %22, %16
-  %23 = phi ptr [ %21, %16 ], [ %24, %22 ]
-  %24 = getelementptr inbounds %"class.std::vector", ptr %23, i64 -1
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  %25 = icmp eq ptr %24, %20
-  br i1 %25, label %26, label %22
+23:                                               ; preds = %23, %17
+  %24 = phi ptr [ %22, %17 ], [ %25, %23 ]
+  %25 = getelementptr inbounds %"class.std::vector", ptr %24, i64 -1
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  %26 = icmp eq ptr %25, %21
+  br i1 %26, label %27, label %23
 
-26:                                               ; preds = %22
+27:                                               ; preds = %23
   call void @_ZN5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
-  br label %27
+  br label %28
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %3, align 8
-  %29 = load i32, ptr %4, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %3, align 8
+  %30 = load i32, ptr %4, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -40522,22 +40535,23 @@ define linkonce_odr void @_ZN5draco28MaxPredictionDegreeTraverserINS_11CornerTab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MaxPredictionDegreeTraverser", ptr %3, i32 0, i32 3
-  call void @_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.draco::MaxPredictionDegreeTraverser", ptr %3, i32 0, i32 1
-  %6 = getelementptr inbounds [3 x %"class.std::vector"], ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"class.std::vector", ptr %6, i64 3
-  br label %8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5draco28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MaxPredictionDegreeTraverser", ptr %3, i32 0, i32 3
+  call void @_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.draco::MaxPredictionDegreeTraverser", ptr %3, i32 0, i32 1
+  %7 = getelementptr inbounds [3 x %"class.std::vector"], ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds %"class.std::vector", ptr %7, i64 3
+  br label %9
 
-8:                                                ; preds = %8, %1
-  %9 = phi ptr [ %7, %1 ], [ %10, %8 ]
-  %10 = getelementptr inbounds %"class.std::vector", ptr %9, i64 -1
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = icmp eq ptr %10, %6
-  br i1 %11, label %12, label %8
+9:                                                ; preds = %9, %1
+  %10 = phi ptr [ %8, %1 ], [ %11, %9 ]
+  %11 = getelementptr inbounds %"class.std::vector", ptr %10, i64 -1
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = icmp eq ptr %11, %7
+  br i1 %12, label %13, label %9
 
-12:                                               ; preds = %8
+13:                                               ; preds = %9
   call void @_ZN5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -40584,9 +40598,10 @@ define linkonce_odr void @_ZN5draco15PointsSequencerC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5draco15PointsSequencerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::PointsSequencer", ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5draco15PointsSequencerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::PointsSequencer", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
   ret void
 }
 
@@ -40595,9 +40610,10 @@ define linkonce_odr void @_ZN5draco22MeshTraversalSequencerINS_28MaxPredictionDe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5draco22MeshTraversalSequencerINS_28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS2_EEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.204", ptr %3, i32 0, i32 1
-  call void @_ZN5draco28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(232) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5draco22MeshTraversalSequencerINS_28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS2_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.204", ptr %3, i32 0, i32 1
+  call void @_ZN5draco28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(232) %5) #3
   call void @_ZN5draco15PointsSequencerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }
@@ -44498,15 +44514,16 @@ define linkonce_odr void @_ZN5draco13TraverserBaseINS_11CornerTableENS_36MeshAtt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::TraverserBase.205", ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.draco::TraverserBase.205", ptr %3, i32 0, i32 2
-  call void @_ZN5draco36MeshAttributeIndicesEncodingObserverINS_11CornerTableEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5)
-  %6 = getelementptr inbounds %"class.draco::TraverserBase.205", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #3
-  %7 = getelementptr inbounds %"class.draco::TraverserBase.205", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::TraverserBase.205", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.draco::TraverserBase.205", ptr %3, i32 0, i32 2
+  call void @_ZN5draco36MeshAttributeIndicesEncodingObserverINS_11CornerTableEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = getelementptr inbounds %"class.draco::TraverserBase.205", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #3
+  %8 = getelementptr inbounds %"class.draco::TraverserBase.205", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #3
   ret void
 }
 
@@ -44541,11 +44558,12 @@ define linkonce_odr void @_ZN5draco13TraverserBaseINS_11CornerTableENS_36MeshAtt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::TraverserBase.205", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
-  %5 = getelementptr inbounds %"class.draco::TraverserBase.205", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::TraverserBase.205", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
+  %6 = getelementptr inbounds %"class.draco::TraverserBase.205", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #3
   ret void
 }
 
@@ -47915,38 +47933,39 @@ define linkonce_odr void @_ZN5draco22MeshTraversalSequencerINS_19DepthFirstTrave
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5draco15PointsSequencerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5draco22MeshTraversalSequencerINS_19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS2_EEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.241", ptr %9, i32 0, i32 1
-  invoke void @_ZN5draco19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %10)
-          to label %11 unwind label %17
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5draco22MeshTraversalSequencerINS_19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS2_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.241", ptr %9, i32 0, i32 1
+  invoke void @_ZN5draco19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %11)
+          to label %12 unwind label %18
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.241", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.241", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %6, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.241", ptr %9, i32 0, i32 4
-  store ptr null, ptr %16, align 8
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.241", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %5, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.241", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.241", ptr %9, i32 0, i32 4
+  store ptr null, ptr %17, align 8
   ret void
 
-17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %7, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %8, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
   call void @_ZN5draco15PointsSequencerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr %8, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -47988,9 +48007,10 @@ define linkonce_odr void @_ZN5draco19DepthFirstTraverserINS_11CornerTableENS_36M
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::DepthFirstTraverser.242", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5draco19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::DepthFirstTraverser.242", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   ret void
 }
 
@@ -48047,9 +48067,10 @@ define linkonce_odr void @_ZN5draco19DepthFirstTraverserINS_11CornerTableENS_36M
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::DepthFirstTraverser.242", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5draco19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::DepthFirstTraverser.242", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #3
   ret void
 }
@@ -48096,9 +48117,10 @@ define linkonce_odr void @_ZN5draco22MeshTraversalSequencerINS_19DepthFirstTrave
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5draco22MeshTraversalSequencerINS_19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS2_EEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.241", ptr %3, i32 0, i32 1
-  call void @_ZN5draco19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5draco22MeshTraversalSequencerINS_19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS2_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshTraversalSequencer.241", ptr %3, i32 0, i32 1
+  call void @_ZN5draco19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #3
   call void @_ZN5draco15PointsSequencerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }
@@ -49268,9 +49290,10 @@ define linkonce_odr void @_ZN5draco22MeshTraversalSequencerINS_19DepthFirstTrave
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5draco22MeshTraversalSequencerINS_19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS2_EEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshTraversalSequencer", ptr %3, i32 0, i32 1
-  call void @_ZN5draco19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5draco22MeshTraversalSequencerINS_19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS2_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshTraversalSequencer", ptr %3, i32 0, i32 1
+  call void @_ZN5draco19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #3
   call void @_ZN5draco15PointsSequencerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }
@@ -50689,15 +50712,16 @@ define linkonce_odr void @_ZN5draco13TraverserBaseINS_24MeshAttributeCornerTable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco13TraverserBaseINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::TraverserBase", ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.draco::TraverserBase", ptr %3, i32 0, i32 2
-  call void @_ZN5draco36MeshAttributeIndicesEncodingObserverINS_24MeshAttributeCornerTableEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5)
-  %6 = getelementptr inbounds %"class.draco::TraverserBase", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #3
-  %7 = getelementptr inbounds %"class.draco::TraverserBase", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5draco13TraverserBaseINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::TraverserBase", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.draco::TraverserBase", ptr %3, i32 0, i32 2
+  call void @_ZN5draco36MeshAttributeIndicesEncodingObserverINS_24MeshAttributeCornerTableEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = getelementptr inbounds %"class.draco::TraverserBase", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #3
+  %8 = getelementptr inbounds %"class.draco::TraverserBase", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #3
   ret void
 }
 

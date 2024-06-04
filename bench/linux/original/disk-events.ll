@@ -506,56 +506,57 @@ define dso_local noundef i32 @disk_alloc_events(ptr noundef %0) local_unnamed_ad
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %31, label %7
+  br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 44
   %9 = load i16, ptr %8, align 4
   %10 = icmp eq i16 %9, 0
-  br i1 %10, label %31, label %11
+  br i1 %10, label %32, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %13 = tail call noalias noundef align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 176) #10
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %18
+  %12 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %13 = load ptr, ptr %12, align 16
+  %14 = tail call noalias noundef align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 176) #10
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %19
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
-  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %16) #11
-  br label %31
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %17) #11
+  br label %32
 
-18:                                               ; preds = %11
-  store volatile ptr %13, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 8
-  store volatile ptr %13, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr %0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 24
-  store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 32
-  tail call void @__mutex_init(ptr noundef %22, ptr noundef nonnull @.str.4, ptr noundef nonnull @disk_alloc_events.__key) #9
-  %23 = getelementptr inbounds i8, ptr %13, i64 64
-  store i32 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 80
-  store i64 -1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %13, i64 88
-  store i64 68719476704, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 96
-  store volatile ptr %26, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %13, i64 104
-  store volatile ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %13, i64 112
-  store ptr @disk_events_workfn, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %13, i64 120
-  tail call void @init_timer_key(ptr noundef %29, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #9
-  %30 = getelementptr inbounds i8, ptr %0, i64 512
-  store ptr %13, ptr %30, align 8
-  br label %31
+19:                                               ; preds = %11
+  store volatile ptr %14, ptr %14, align 8
+  %20 = getelementptr inbounds i8, ptr %14, i64 8
+  store volatile ptr %14, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %14, i64 16
+  store ptr %0, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %14, i64 24
+  store i32 0, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %14, i64 32
+  tail call void @__mutex_init(ptr noundef %23, ptr noundef nonnull @.str.4, ptr noundef nonnull @disk_alloc_events.__key) #9
+  %24 = getelementptr inbounds i8, ptr %14, i64 64
+  store i32 1, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %14, i64 80
+  store i64 -1, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %14, i64 88
+  store i64 68719476704, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %14, i64 96
+  store volatile ptr %27, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %14, i64 104
+  store volatile ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %14, i64 112
+  store ptr @disk_events_workfn, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %14, i64 120
+  tail call void @init_timer_key(ptr noundef %30, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #9
+  %31 = getelementptr inbounds i8, ptr %0, i64 512
+  store ptr %14, ptr %31, align 8
+  br label %32
 
-31:                                               ; preds = %18, %15, %7, %1
-  %32 = phi i32 [ 0, %18 ], [ -12, %15 ], [ 0, %7 ], [ 0, %1 ]
-  ret i32 %32
+32:                                               ; preds = %19, %16, %7, %1
+  %33 = phi i32 [ 0, %19 ], [ -12, %16 ], [ 0, %7 ], [ 0, %1 ]
+  ret i32 %33
 }
 
 ; Function Attrs: cold null_pointer_is_valid
@@ -583,22 +584,24 @@ define dso_local void @disk_add_events(ptr nocapture noundef readonly %0) local_
   %2 = getelementptr inbounds i8, ptr %0, i64 512
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %9, label %5
+  br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @disk_events_mutex) #9
   %6 = load ptr, ptr %2, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @disk_events, i64 0, i32 1), align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.list_head, ptr @disk_events, i64 0, i32 1), align 8
+  %7 = getelementptr inbounds %struct.list_head, ptr @disk_events, i64 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.list_head, ptr @disk_events, i64 0, i32 1
+  store ptr %6, ptr %9, align 8
   store ptr @disk_events, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %7, ptr %8, align 8
-  store volatile ptr %6, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %8, ptr %10, align 8
+  store volatile ptr %6, ptr %8, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @disk_events_mutex) #9
   tail call fastcc void @__disk_unblock_events(ptr noundef %0, i1 noundef zeroext true)
-  br label %9
+  br label %11
 
-9:                                                ; preds = %5, %1
+11:                                               ; preds = %5, %1
   ret void
 }
 

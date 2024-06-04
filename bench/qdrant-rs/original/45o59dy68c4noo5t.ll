@@ -116,437 +116,440 @@ define internal i8 @_ZN4core3str7pattern13simd_contains17hf79408dc36f91aefE(ptr 
   store i64 %79, ptr %80, align 8
   %81 = load i64, ptr %20, align 8, !range !5, !noundef !3
   %82 = icmp eq i64 %81, 0
-  br i1 %82, label %86, label %90
+  br i1 %82, label %86, label %91
 
-83:                                               ; preds = %97, %63
+83:                                               ; preds = %98, %63
   %84 = add i64 16, %58
   %85 = icmp ult i64 %3, %84
-  br i1 %85, label %112, label %101
+  br i1 %85, label %113, label %102
 
 86:                                               ; preds = %64
   %87 = load i64, ptr @anon.a688733adaf4d551fc6e2bc5b38f81b3.2, align 8, !range !5, !noundef !3
-  %88 = load i64, ptr getelementptr inbounds (i8, ptr @anon.a688733adaf4d551fc6e2bc5b38f81b3.2, i64 8), align 8
+  %88 = getelementptr inbounds i8, ptr @anon.a688733adaf4d551fc6e2bc5b38f81b3.2, i64 8
+  %89 = load i64, ptr %88, align 8
   store i64 %87, ptr %42, align 8
-  %89 = getelementptr inbounds i8, ptr %42, i64 8
-  store i64 %88, ptr %89, align 8
-  br label %94
+  %90 = getelementptr inbounds i8, ptr %42, i64 8
+  store i64 %89, ptr %90, align 8
+  br label %95
 
-90:                                               ; preds = %64
-  %91 = getelementptr inbounds i8, ptr %20, i64 8
-  %92 = load i64, ptr %91, align 8, !noundef !3
-  %93 = getelementptr inbounds i8, ptr %42, i64 8
-  store i64 %92, ptr %93, align 8
+91:                                               ; preds = %64
+  %92 = getelementptr inbounds i8, ptr %20, i64 8
+  %93 = load i64, ptr %92, align 8, !noundef !3
+  %94 = getelementptr inbounds i8, ptr %42, i64 8
+  store i64 %93, ptr %94, align 8
   store i64 1, ptr %42, align 8
-  br label %94
+  br label %95
 
-94:                                               ; preds = %90, %86
-  %95 = load i64, ptr %42, align 8, !range !5, !noundef !3
-  %96 = icmp eq i64 %95, 1
-  br i1 %96, label %97, label %100
+95:                                               ; preds = %91, %86
+  %96 = load i64, ptr %42, align 8, !range !5, !noundef !3
+  %97 = icmp eq i64 %96, 1
+  br i1 %97, label %98, label %101
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %42, i64 8
-  %99 = load i64, ptr %98, align 8, !noundef !3
-  store i64 %99, ptr %43, align 8
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds i8, ptr %42, i64 8
+  %100 = load i64, ptr %99, align 8, !noundef !3
+  store i64 %100, ptr %43, align 8
   br label %83
 
-100:                                              ; preds = %94
+101:                                              ; preds = %95
   store i8 2, ptr %46, align 1
-  br label %328
+  br label %331
 
-101:                                              ; preds = %83
-  %102 = load i8, ptr %44, align 1, !noundef !3
-  %103 = getelementptr inbounds [1 x i8], ptr %14, i64 0, i64 0
-  store i8 %102, ptr %103, align 1
-  %104 = load i8, ptr %14, align 1
-  store i8 %104, ptr %13, align 1
+102:                                              ; preds = %83
+  %103 = load i8, ptr %44, align 1, !noundef !3
+  %104 = getelementptr inbounds [1 x i8], ptr %14, i64 0, i64 0
+  store i8 %103, ptr %104, align 1
+  %105 = load i8, ptr %14, align 1
+  store i8 %105, ptr %13, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %13, i64 1, i1 false)
-  %105 = load <1 x i8>, ptr %12, align 1
-  %106 = shufflevector <1 x i8> %105, <1 x i8> %105, <16 x i32> zeroinitializer
-  store <16 x i8> %106, ptr %37, align 16
-  %107 = load i64, ptr %43, align 8, !noundef !3
-  %108 = getelementptr inbounds i8, ptr %45, i64 8
-  %109 = load i64, ptr %108, align 8, !noundef !3
-  %110 = icmp ult i64 %107, %109
-  %111 = call i1 @llvm.expect.i1(i1 %110, i1 true)
-  br i1 %111, label %116, label %128
+  %106 = load <1 x i8>, ptr %12, align 1
+  %107 = shufflevector <1 x i8> %106, <1 x i8> %106, <16 x i32> zeroinitializer
+  store <16 x i8> %107, ptr %37, align 16
+  %108 = load i64, ptr %43, align 8, !noundef !3
+  %109 = getelementptr inbounds i8, ptr %45, i64 8
+  %110 = load i64, ptr %109, align 8, !noundef !3
+  %111 = icmp ult i64 %108, %110
+  %112 = call i1 @llvm.expect.i1(i1 %111, i1 true)
+  br i1 %112, label %117, label %129
 
-112:                                              ; preds = %83
-  %113 = getelementptr inbounds i8, ptr %45, i64 8
-  %114 = load i64, ptr %113, align 8, !noundef !3
-  %115 = icmp eq i64 %114, 0
-  br i1 %115, label %309, label %310
+113:                                              ; preds = %83
+  %114 = getelementptr inbounds i8, ptr %45, i64 8
+  %115 = load i64, ptr %114, align 8, !noundef !3
+  %116 = icmp eq i64 %115, 0
+  br i1 %116, label %312, label %313
 
-116:                                              ; preds = %101
-  %117 = load ptr, ptr %45, align 8, !nonnull !3, !align !4, !noundef !3
-  %118 = getelementptr inbounds [0 x i8], ptr %117, i64 0, i64 %107
-  %119 = load i8, ptr %118, align 1, !noundef !3
-  %120 = getelementptr inbounds [1 x i8], ptr %11, i64 0, i64 0
-  store i8 %119, ptr %120, align 1
-  %121 = load i8, ptr %11, align 1
-  store i8 %121, ptr %10, align 1
+117:                                              ; preds = %102
+  %118 = load ptr, ptr %45, align 8, !nonnull !3, !align !4, !noundef !3
+  %119 = getelementptr inbounds [0 x i8], ptr %118, i64 0, i64 %108
+  %120 = load i8, ptr %119, align 1, !noundef !3
+  %121 = getelementptr inbounds [1 x i8], ptr %11, i64 0, i64 0
+  store i8 %120, ptr %121, align 1
+  %122 = load i8, ptr %11, align 1
+  store i8 %122, ptr %10, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %10, i64 1, i1 false)
-  %122 = load <1 x i8>, ptr %9, align 1
-  %123 = shufflevector <1 x i8> %122, <1 x i8> %122, <16 x i32> zeroinitializer
-  store <16 x i8> %123, ptr %36, align 16
-  %124 = load ptr, ptr %45, align 8, !nonnull !3, !align !4, !noundef !3
-  %125 = getelementptr inbounds i8, ptr %45, i64 8
-  %126 = load i64, ptr %125, align 8, !noundef !3
-  %127 = icmp ugt i64 1, %126
-  br i1 %127, label %150, label %129
+  %123 = load <1 x i8>, ptr %9, align 1
+  %124 = shufflevector <1 x i8> %123, <1 x i8> %123, <16 x i32> zeroinitializer
+  store <16 x i8> %124, ptr %36, align 16
+  %125 = load ptr, ptr %45, align 8, !nonnull !3, !align !4, !noundef !3
+  %126 = getelementptr inbounds i8, ptr %45, i64 8
+  %127 = load i64, ptr %126, align 8, !noundef !3
+  %128 = icmp ugt i64 1, %127
+  br i1 %128, label %151, label %130
 
-128:                                              ; preds = %101
-  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 %107, i64 %109, ptr align 8 @anon.a688733adaf4d551fc6e2bc5b38f81b3.3) #8
+129:                                              ; preds = %102
+  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 %108, i64 %110, ptr align 8 @anon.a688733adaf4d551fc6e2bc5b38f81b3.3) #8
   unreachable
 
-129:                                              ; preds = %116
-  store ptr %124, ptr %8, align 8
-  %130 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %126, ptr %130, align 8
+130:                                              ; preds = %117
+  store ptr %125, ptr %8, align 8
   %131 = getelementptr inbounds i8, ptr %8, i64 8
-  %132 = load i64, ptr %131, align 8, !noundef !3
-  %133 = sub nuw i64 %132, 1
-  %134 = getelementptr inbounds i8, ptr %124, i64 1
-  store ptr %134, ptr %6, align 8
-  %135 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %133, ptr %135, align 8
-  %136 = load ptr, ptr %6, align 8, !noundef !3
-  %137 = getelementptr inbounds i8, ptr %6, i64 8
-  %138 = load i64, ptr %137, align 8, !noundef !3
-  store ptr %136, ptr %7, align 8
-  %139 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %138, ptr %139, align 8
-  %140 = load ptr, ptr %7, align 8, !noundef !3
-  %141 = getelementptr inbounds i8, ptr %7, i64 8
-  %142 = load i64, ptr %141, align 8, !noundef !3
+  store i64 %127, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %8, i64 8
+  %133 = load i64, ptr %132, align 8, !noundef !3
+  %134 = sub nuw i64 %133, 1
+  %135 = getelementptr inbounds i8, ptr %125, i64 1
+  store ptr %135, ptr %6, align 8
+  %136 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %134, ptr %136, align 8
+  %137 = load ptr, ptr %6, align 8, !noundef !3
+  %138 = getelementptr inbounds i8, ptr %6, i64 8
+  %139 = load i64, ptr %138, align 8, !noundef !3
+  store ptr %137, ptr %7, align 8
+  %140 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %139, ptr %140, align 8
+  %141 = load ptr, ptr %7, align 8, !noundef !3
+  %142 = getelementptr inbounds i8, ptr %7, i64 8
+  %143 = load i64, ptr %142, align 8, !noundef !3
   store ptr %2, ptr %35, align 8
-  %143 = getelementptr inbounds i8, ptr %35, i64 8
-  store i64 %3, ptr %143, align 8
-  %144 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %35, i32 0, i32 1
-  store ptr %140, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 8
-  store i64 %142, ptr %145, align 8
+  %144 = getelementptr inbounds i8, ptr %35, i64 8
+  store i64 %3, ptr %144, align 8
+  %145 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %35, i32 0, i32 1
+  store ptr %141, ptr %145, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 8
+  store i64 %143, ptr %146, align 8
   store ptr %2, ptr %34, align 8
-  %146 = getelementptr inbounds i8, ptr %34, i64 8
-  store i64 %3, ptr %146, align 8
-  %147 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %34, i32 0, i32 1
-  store ptr %43, ptr %147, align 8
-  %148 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %34, i32 0, i32 2
-  store ptr %37, ptr %148, align 8
-  %149 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %34, i32 0, i32 3
-  store ptr %36, ptr %149, align 8
+  %147 = getelementptr inbounds i8, ptr %34, i64 8
+  store i64 %3, ptr %147, align 8
+  %148 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %34, i32 0, i32 1
+  store ptr %43, ptr %148, align 8
+  %149 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %34, i32 0, i32 2
+  store ptr %37, ptr %149, align 8
+  %150 = getelementptr inbounds { { ptr, i64 }, ptr, ptr, ptr }, ptr %34, i32 0, i32 3
+  store ptr %36, ptr %150, align 8
   store i64 0, ptr %33, align 8
   store i8 0, ptr %32, align 1
-  br label %151
+  br label %152
 
-150:                                              ; preds = %116
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 1, i64 %126, ptr align 8 @anon.a688733adaf4d551fc6e2bc5b38f81b3.6) #8
+151:                                              ; preds = %117
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 1, i64 %127, ptr align 8 @anon.a688733adaf4d551fc6e2bc5b38f81b3.6) #8
   unreachable
 
-151:                                              ; preds = %208, %129
-  %152 = load i64, ptr %33, align 8, !noundef !3
-  %153 = add i64 %152, %58
-  %154 = add i64 %153, 64
-  %155 = icmp ult i64 %154, %3
-  br i1 %155, label %157, label %156
+152:                                              ; preds = %211, %130
+  %153 = load i64, ptr %33, align 8, !noundef !3
+  %154 = add i64 %153, %58
+  %155 = add i64 %154, 64
+  %156 = icmp ult i64 %155, %3
+  br i1 %156, label %158, label %157
 
-156:                                              ; preds = %151
-  br label %160
+157:                                              ; preds = %152
+  br label %161
 
-157:                                              ; preds = %151
-  %158 = load i8, ptr %32, align 1, !range !6, !noundef !3
-  %159 = trunc i8 %158 to i1
-  br i1 %159, label %160, label %161
+158:                                              ; preds = %152
+  %159 = load i8, ptr %32, align 1, !range !6, !noundef !3
+  %160 = trunc i8 %159 to i1
+  br i1 %160, label %161, label %162
 
-160:                                              ; preds = %157, %156
-  br label %245
+161:                                              ; preds = %158, %157
+  br label %248
 
-161:                                              ; preds = %157
-  %162 = getelementptr inbounds [4 x i16], ptr %31, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 2 %162, i8 0, i64 8, i1 false)
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds [4 x i16], ptr %31, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 2 %163, i8 0, i64 8, i1 false)
   store i64 0, ptr %30, align 8
-  %163 = getelementptr inbounds i8, ptr %30, i64 8
-  store i64 4, ptr %163, align 8
-  br label %164
+  %164 = getelementptr inbounds i8, ptr %30, i64 8
+  store i64 4, ptr %164, align 8
+  br label %165
 
-164:                                              ; preds = %242, %161
-  %165 = load i64, ptr %30, align 8, !noundef !3
-  %166 = getelementptr inbounds i8, ptr %30, i64 8
-  %167 = load i64, ptr %166, align 8, !noundef !3
-  %168 = icmp ult i64 %165, %167
-  br i1 %168, label %173, label %169
+165:                                              ; preds = %245, %162
+  %166 = load i64, ptr %30, align 8, !noundef !3
+  %167 = getelementptr inbounds i8, ptr %30, i64 8
+  %168 = load i64, ptr %167, align 8, !noundef !3
+  %169 = icmp ult i64 %166, %168
+  br i1 %169, label %175, label %170
 
-169:                                              ; preds = %164
-  %170 = load i64, ptr @anon.a688733adaf4d551fc6e2bc5b38f81b3.2, align 8, !range !5, !noundef !3
-  %171 = load i64, ptr getelementptr inbounds (i8, ptr @anon.a688733adaf4d551fc6e2bc5b38f81b3.2, i64 8), align 8
-  store i64 %170, ptr %29, align 8
-  %172 = getelementptr inbounds i8, ptr %29, i64 8
-  store i64 %171, ptr %172, align 8
-  br label %177
+170:                                              ; preds = %165
+  %171 = load i64, ptr @anon.a688733adaf4d551fc6e2bc5b38f81b3.2, align 8, !range !5, !noundef !3
+  %172 = getelementptr inbounds i8, ptr @anon.a688733adaf4d551fc6e2bc5b38f81b3.2, i64 8
+  %173 = load i64, ptr %172, align 8
+  store i64 %171, ptr %29, align 8
+  %174 = getelementptr inbounds i8, ptr %29, i64 8
+  store i64 %173, ptr %174, align 8
+  br label %179
 
-173:                                              ; preds = %164
-  %174 = load i64, ptr %30, align 8, !noundef !3
-  %175 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h3a214a5ecf7f8240E"(i64 %174, i64 1)
-  store i64 %175, ptr %30, align 8
-  %176 = getelementptr inbounds i8, ptr %29, i64 8
-  store i64 %174, ptr %176, align 8
+175:                                              ; preds = %165
+  %176 = load i64, ptr %30, align 8, !noundef !3
+  %177 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h3a214a5ecf7f8240E"(i64 %176, i64 1)
+  store i64 %177, ptr %30, align 8
+  %178 = getelementptr inbounds i8, ptr %29, i64 8
+  store i64 %176, ptr %178, align 8
   store i64 1, ptr %29, align 8
-  br label %177
+  br label %179
 
-177:                                              ; preds = %173, %169
-  %178 = load i64, ptr %29, align 8, !range !5, !noundef !3
-  %179 = icmp eq i64 %178, 0
-  br i1 %179, label %180, label %182
+179:                                              ; preds = %175, %170
+  %180 = load i64, ptr %29, align 8, !range !5, !noundef !3
+  %181 = icmp eq i64 %180, 0
+  br i1 %181, label %182, label %184
 
-180:                                              ; preds = %177
+182:                                              ; preds = %179
   store i64 0, ptr %27, align 8
-  %181 = getelementptr inbounds i8, ptr %27, i64 8
-  store i64 4, ptr %181, align 8
-  br label %192
+  %183 = getelementptr inbounds i8, ptr %27, i64 8
+  store i64 4, ptr %183, align 8
+  br label %194
 
-182:                                              ; preds = %177
-  %183 = getelementptr inbounds i8, ptr %29, i64 8
-  %184 = load i64, ptr %183, align 8, !noundef !3
-  %185 = load i64, ptr %33, align 8, !noundef !3
-  %186 = mul i64 %184, 16
-  %187 = add i64 %185, %186
-  store i64 %187, ptr %28, align 8
-  %188 = load i64, ptr %28, align 8, !noundef !3
-  %189 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr align 8 %34, i64 %188)
-  %190 = icmp ult i64 %184, 4
-  %191 = call i1 @llvm.expect.i1(i1 %190, i1 true)
-  br i1 %191, label %242, label %244
+184:                                              ; preds = %179
+  %185 = getelementptr inbounds i8, ptr %29, i64 8
+  %186 = load i64, ptr %185, align 8, !noundef !3
+  %187 = load i64, ptr %33, align 8, !noundef !3
+  %188 = mul i64 %186, 16
+  %189 = add i64 %187, %188
+  store i64 %189, ptr %28, align 8
+  %190 = load i64, ptr %28, align 8, !noundef !3
+  %191 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr align 8 %34, i64 %190)
+  %192 = icmp ult i64 %186, 4
+  %193 = call i1 @llvm.expect.i1(i1 %192, i1 true)
+  br i1 %193, label %245, label %247
 
-192:                                              ; preds = %221, %180
-  %193 = load i64, ptr %27, align 8, !noundef !3
-  %194 = getelementptr inbounds i8, ptr %27, i64 8
-  %195 = load i64, ptr %194, align 8, !noundef !3
-  %196 = icmp ult i64 %193, %195
-  br i1 %196, label %201, label %197
+194:                                              ; preds = %224, %182
+  %195 = load i64, ptr %27, align 8, !noundef !3
+  %196 = getelementptr inbounds i8, ptr %27, i64 8
+  %197 = load i64, ptr %196, align 8, !noundef !3
+  %198 = icmp ult i64 %195, %197
+  br i1 %198, label %204, label %199
 
-197:                                              ; preds = %192
-  %198 = load i64, ptr @anon.a688733adaf4d551fc6e2bc5b38f81b3.2, align 8, !range !5, !noundef !3
-  %199 = load i64, ptr getelementptr inbounds (i8, ptr @anon.a688733adaf4d551fc6e2bc5b38f81b3.2, i64 8), align 8
-  store i64 %198, ptr %26, align 8
-  %200 = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 %199, ptr %200, align 8
-  br label %205
+199:                                              ; preds = %194
+  %200 = load i64, ptr @anon.a688733adaf4d551fc6e2bc5b38f81b3.2, align 8, !range !5, !noundef !3
+  %201 = getelementptr inbounds i8, ptr @anon.a688733adaf4d551fc6e2bc5b38f81b3.2, i64 8
+  %202 = load i64, ptr %201, align 8
+  store i64 %200, ptr %26, align 8
+  %203 = getelementptr inbounds i8, ptr %26, i64 8
+  store i64 %202, ptr %203, align 8
+  br label %208
 
-201:                                              ; preds = %192
-  %202 = load i64, ptr %27, align 8, !noundef !3
-  %203 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h3a214a5ecf7f8240E"(i64 %202, i64 1)
-  store i64 %203, ptr %27, align 8
-  %204 = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 %202, ptr %204, align 8
+204:                                              ; preds = %194
+  %205 = load i64, ptr %27, align 8, !noundef !3
+  %206 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h3a214a5ecf7f8240E"(i64 %205, i64 1)
+  store i64 %206, ptr %27, align 8
+  %207 = getelementptr inbounds i8, ptr %26, i64 8
+  store i64 %205, ptr %207, align 8
   store i64 1, ptr %26, align 8
-  br label %205
+  br label %208
 
-205:                                              ; preds = %201, %197
-  %206 = load i64, ptr %26, align 8, !range !5, !noundef !3
-  %207 = icmp eq i64 %206, 0
-  br i1 %207, label %208, label %211
+208:                                              ; preds = %204, %199
+  %209 = load i64, ptr %26, align 8, !range !5, !noundef !3
+  %210 = icmp eq i64 %209, 0
+  br i1 %210, label %211, label %214
 
-208:                                              ; preds = %205
-  %209 = load i64, ptr %33, align 8, !noundef !3
-  %210 = add i64 %209, 64
-  store i64 %210, ptr %33, align 8
-  br label %151
+211:                                              ; preds = %208
+  %212 = load i64, ptr %33, align 8, !noundef !3
+  %213 = add i64 %212, 64
+  store i64 %213, ptr %33, align 8
+  br label %152
 
-211:                                              ; preds = %205
-  %212 = getelementptr inbounds i8, ptr %26, i64 8
-  %213 = load i64, ptr %212, align 8, !noundef !3
-  %214 = icmp ult i64 %213, 4
-  %215 = call i1 @llvm.expect.i1(i1 %214, i1 true)
-  br i1 %215, label %216, label %220
+214:                                              ; preds = %208
+  %215 = getelementptr inbounds i8, ptr %26, i64 8
+  %216 = load i64, ptr %215, align 8, !noundef !3
+  %217 = icmp ult i64 %216, 4
+  %218 = call i1 @llvm.expect.i1(i1 %217, i1 true)
+  br i1 %218, label %219, label %223
 
-216:                                              ; preds = %211
-  %217 = getelementptr inbounds [4 x i16], ptr %31, i64 0, i64 %213
-  %218 = load i16, ptr %217, align 2, !noundef !3
-  %219 = icmp eq i16 %218, 0
-  br i1 %219, label %221, label %222
+219:                                              ; preds = %214
+  %220 = getelementptr inbounds [4 x i16], ptr %31, i64 0, i64 %216
+  %221 = load i16, ptr %220, align 2, !noundef !3
+  %222 = icmp eq i16 %221, 0
+  br i1 %222, label %224, label %225
 
-220:                                              ; preds = %211
-  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 %213, i64 4, ptr align 8 @anon.a688733adaf4d551fc6e2bc5b38f81b3.4) #8
+223:                                              ; preds = %214
+  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 %216, i64 4, ptr align 8 @anon.a688733adaf4d551fc6e2bc5b38f81b3.4) #8
   unreachable
 
-221:                                              ; preds = %222, %216
-  br label %192
+224:                                              ; preds = %225, %219
+  br label %194
 
-222:                                              ; preds = %216
-  %223 = load i64, ptr %33, align 8, !noundef !3
-  %224 = mul i64 %213, 16
-  %225 = add i64 %223, %224
-  %226 = load i8, ptr %32, align 1, !range !6, !noundef !3
-  %227 = trunc i8 %226 to i1
-  store i64 %225, ptr %25, align 8
-  %228 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %25, i32 0, i32 1
-  store i16 %218, ptr %228, align 8
-  %229 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %25, i32 0, i32 2
-  %230 = zext i1 %227 to i8
-  store i8 %230, ptr %229, align 2
-  %231 = load i64, ptr %25, align 8, !noundef !3
-  %232 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %25, i32 0, i32 1
-  %233 = load i16, ptr %232, align 8, !noundef !3
-  %234 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %25, i32 0, i32 2
-  %235 = load i8, ptr %234, align 2, !range !6, !noundef !3
-  %236 = trunc i8 %235 to i1
-  %237 = call zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h73c50115580c4f64E"(ptr align 8 %35, i64 %231, i16 %233, i1 zeroext %236)
-  %238 = load i8, ptr %32, align 1, !range !6, !noundef !3
+225:                                              ; preds = %219
+  %226 = load i64, ptr %33, align 8, !noundef !3
+  %227 = mul i64 %216, 16
+  %228 = add i64 %226, %227
+  %229 = load i8, ptr %32, align 1, !range !6, !noundef !3
+  %230 = trunc i8 %229 to i1
+  store i64 %228, ptr %25, align 8
+  %231 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %25, i32 0, i32 1
+  store i16 %221, ptr %231, align 8
+  %232 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %25, i32 0, i32 2
+  %233 = zext i1 %230 to i8
+  store i8 %233, ptr %232, align 2
+  %234 = load i64, ptr %25, align 8, !noundef !3
+  %235 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %25, i32 0, i32 1
+  %236 = load i16, ptr %235, align 8, !noundef !3
+  %237 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %25, i32 0, i32 2
+  %238 = load i8, ptr %237, align 2, !range !6, !noundef !3
   %239 = trunc i8 %238 to i1
-  %240 = or i1 %239, %237
-  %241 = zext i1 %240 to i8
-  store i8 %241, ptr %32, align 1
-  br label %221
+  %240 = call zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h73c50115580c4f64E"(ptr align 8 %35, i64 %234, i16 %236, i1 zeroext %239)
+  %241 = load i8, ptr %32, align 1, !range !6, !noundef !3
+  %242 = trunc i8 %241 to i1
+  %243 = or i1 %242, %240
+  %244 = zext i1 %243 to i8
+  store i8 %244, ptr %32, align 1
+  br label %224
 
-242:                                              ; preds = %182
-  %243 = getelementptr inbounds [4 x i16], ptr %31, i64 0, i64 %184
-  store i16 %189, ptr %243, align 2
-  br label %164
+245:                                              ; preds = %184
+  %246 = getelementptr inbounds [4 x i16], ptr %31, i64 0, i64 %186
+  store i16 %191, ptr %246, align 2
+  br label %165
 
-244:                                              ; preds = %182
-  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 %184, i64 4, ptr align 8 @anon.a688733adaf4d551fc6e2bc5b38f81b3.5) #8
+247:                                              ; preds = %184
+  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 %186, i64 4, ptr align 8 @anon.a688733adaf4d551fc6e2bc5b38f81b3.5) #8
   unreachable
 
-245:                                              ; preds = %265, %160
-  %246 = load i64, ptr %33, align 8, !noundef !3
-  %247 = add i64 %246, %58
-  %248 = add i64 %247, 16
-  %249 = icmp ult i64 %248, %3
-  br i1 %249, label %251, label %250
+248:                                              ; preds = %268, %161
+  %249 = load i64, ptr %33, align 8, !noundef !3
+  %250 = add i64 %249, %58
+  %251 = add i64 %250, 16
+  %252 = icmp ult i64 %251, %3
+  br i1 %252, label %254, label %253
 
-250:                                              ; preds = %245
-  br label %254
+253:                                              ; preds = %248
+  br label %257
 
-251:                                              ; preds = %245
-  %252 = load i8, ptr %32, align 1, !range !6, !noundef !3
-  %253 = trunc i8 %252 to i1
-  br i1 %253, label %254, label %260
+254:                                              ; preds = %248
+  %255 = load i8, ptr %32, align 1, !range !6, !noundef !3
+  %256 = trunc i8 %255 to i1
+  br i1 %256, label %257, label %263
 
-254:                                              ; preds = %251, %250
-  %255 = sub i64 %3, %58
-  %256 = sub i64 %255, 16
-  store i64 %256, ptr %22, align 8
-  %257 = load i64, ptr %22, align 8, !noundef !3
-  %258 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr align 8 %34, i64 %257)
-  %259 = icmp eq i16 %258, 0
-  br i1 %259, label %286, label %290
+257:                                              ; preds = %254, %253
+  %258 = sub i64 %3, %58
+  %259 = sub i64 %258, 16
+  store i64 %259, ptr %22, align 8
+  %260 = load i64, ptr %22, align 8, !noundef !3
+  %261 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr align 8 %34, i64 %260)
+  %262 = icmp eq i16 %261, 0
+  br i1 %262, label %289, label %293
 
-260:                                              ; preds = %251
-  %261 = load i64, ptr %33, align 8, !noundef !3
-  store i64 %261, ptr %24, align 8
-  %262 = load i64, ptr %24, align 8, !noundef !3
-  %263 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr align 8 %34, i64 %262)
-  %264 = icmp eq i16 %263, 0
-  br i1 %264, label %265, label %268
+263:                                              ; preds = %254
+  %264 = load i64, ptr %33, align 8, !noundef !3
+  store i64 %264, ptr %24, align 8
+  %265 = load i64, ptr %24, align 8, !noundef !3
+  %266 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr align 8 %34, i64 %265)
+  %267 = icmp eq i16 %266, 0
+  br i1 %267, label %268, label %271
 
-265:                                              ; preds = %268, %260
-  %266 = load i64, ptr %33, align 8, !noundef !3
-  %267 = add i64 %266, 16
-  store i64 %267, ptr %33, align 8
-  br label %245
-
-268:                                              ; preds = %260
+268:                                              ; preds = %271, %263
   %269 = load i64, ptr %33, align 8, !noundef !3
-  %270 = load i8, ptr %32, align 1, !range !6, !noundef !3
-  %271 = trunc i8 %270 to i1
-  store i64 %269, ptr %23, align 8
-  %272 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %23, i32 0, i32 1
-  store i16 %263, ptr %272, align 8
-  %273 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %23, i32 0, i32 2
-  %274 = zext i1 %271 to i8
-  store i8 %274, ptr %273, align 2
-  %275 = load i64, ptr %23, align 8, !noundef !3
-  %276 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %23, i32 0, i32 1
-  %277 = load i16, ptr %276, align 8, !noundef !3
-  %278 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %23, i32 0, i32 2
-  %279 = load i8, ptr %278, align 2, !range !6, !noundef !3
-  %280 = trunc i8 %279 to i1
-  %281 = call zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h73c50115580c4f64E"(ptr align 8 %35, i64 %275, i16 %277, i1 zeroext %280)
-  %282 = load i8, ptr %32, align 1, !range !6, !noundef !3
+  %270 = add i64 %269, 16
+  store i64 %270, ptr %33, align 8
+  br label %248
+
+271:                                              ; preds = %263
+  %272 = load i64, ptr %33, align 8, !noundef !3
+  %273 = load i8, ptr %32, align 1, !range !6, !noundef !3
+  %274 = trunc i8 %273 to i1
+  store i64 %272, ptr %23, align 8
+  %275 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %23, i32 0, i32 1
+  store i16 %266, ptr %275, align 8
+  %276 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %23, i32 0, i32 2
+  %277 = zext i1 %274 to i8
+  store i8 %277, ptr %276, align 2
+  %278 = load i64, ptr %23, align 8, !noundef !3
+  %279 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %23, i32 0, i32 1
+  %280 = load i16, ptr %279, align 8, !noundef !3
+  %281 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %23, i32 0, i32 2
+  %282 = load i8, ptr %281, align 2, !range !6, !noundef !3
   %283 = trunc i8 %282 to i1
-  %284 = or i1 %283, %281
-  %285 = zext i1 %284 to i8
-  store i8 %285, ptr %32, align 1
-  br label %265
+  %284 = call zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h73c50115580c4f64E"(ptr align 8 %35, i64 %278, i16 %280, i1 zeroext %283)
+  %285 = load i8, ptr %32, align 1, !range !6, !noundef !3
+  %286 = trunc i8 %285 to i1
+  %287 = or i1 %286, %284
+  %288 = zext i1 %287 to i8
+  store i8 %288, ptr %32, align 1
+  br label %268
 
-286:                                              ; preds = %290, %254
-  %287 = load i8, ptr %32, align 1, !range !6, !noundef !3
-  %288 = trunc i8 %287 to i1
-  %289 = zext i1 %288 to i8
-  store i8 %289, ptr %46, align 1
-  br label %307
+289:                                              ; preds = %293, %257
+  %290 = load i8, ptr %32, align 1, !range !6, !noundef !3
+  %291 = trunc i8 %290 to i1
+  %292 = zext i1 %291 to i8
+  store i8 %292, ptr %46, align 1
+  br label %310
 
-290:                                              ; preds = %254
-  %291 = load i8, ptr %32, align 1, !range !6, !noundef !3
-  %292 = trunc i8 %291 to i1
-  store i64 %256, ptr %21, align 8
-  %293 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %21, i32 0, i32 1
-  store i16 %258, ptr %293, align 8
-  %294 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %21, i32 0, i32 2
-  %295 = zext i1 %292 to i8
-  store i8 %295, ptr %294, align 2
-  %296 = load i64, ptr %21, align 8, !noundef !3
-  %297 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %21, i32 0, i32 1
-  %298 = load i16, ptr %297, align 8, !noundef !3
-  %299 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %21, i32 0, i32 2
-  %300 = load i8, ptr %299, align 2, !range !6, !noundef !3
-  %301 = trunc i8 %300 to i1
-  %302 = call zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h73c50115580c4f64E"(ptr align 8 %35, i64 %296, i16 %298, i1 zeroext %301)
-  %303 = load i8, ptr %32, align 1, !range !6, !noundef !3
+293:                                              ; preds = %257
+  %294 = load i8, ptr %32, align 1, !range !6, !noundef !3
+  %295 = trunc i8 %294 to i1
+  store i64 %259, ptr %21, align 8
+  %296 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %21, i32 0, i32 1
+  store i16 %261, ptr %296, align 8
+  %297 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %21, i32 0, i32 2
+  %298 = zext i1 %295 to i8
+  store i8 %298, ptr %297, align 2
+  %299 = load i64, ptr %21, align 8, !noundef !3
+  %300 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %21, i32 0, i32 1
+  %301 = load i16, ptr %300, align 8, !noundef !3
+  %302 = getelementptr inbounds { i64, i16, i8, [5 x i8] }, ptr %21, i32 0, i32 2
+  %303 = load i8, ptr %302, align 2, !range !6, !noundef !3
   %304 = trunc i8 %303 to i1
-  %305 = or i1 %304, %302
-  %306 = zext i1 %305 to i8
-  store i8 %306, ptr %32, align 1
-  br label %286
+  %305 = call zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h73c50115580c4f64E"(ptr align 8 %35, i64 %299, i16 %301, i1 zeroext %304)
+  %306 = load i8, ptr %32, align 1, !range !6, !noundef !3
+  %307 = trunc i8 %306 to i1
+  %308 = or i1 %307, %305
+  %309 = zext i1 %308 to i8
+  store i8 %309, ptr %32, align 1
+  br label %289
 
-307:                                              ; preds = %328, %286
-  %308 = load i8, ptr %46, align 1, !range !7, !noundef !3
-  ret i8 %308
+310:                                              ; preds = %331, %289
+  %311 = load i8, ptr %46, align 1, !range !7, !noundef !3
+  ret i8 %311
 
-309:                                              ; preds = %112
+312:                                              ; preds = %113
   store i64 0, ptr %18, align 8
-  br label %312
+  br label %315
 
-310:                                              ; preds = %112
-  store i64 %114, ptr %17, align 8
-  %311 = load i64, ptr %17, align 8, !range !8, !noundef !3
-  store i64 %311, ptr %18, align 8
-  br label %312
+313:                                              ; preds = %113
+  store i64 %115, ptr %17, align 8
+  %314 = load i64, ptr %17, align 8, !range !8, !noundef !3
+  store i64 %314, ptr %18, align 8
+  br label %315
 
-312:                                              ; preds = %310, %309
-  %313 = load i64, ptr %18, align 8, !noundef !3
-  %314 = icmp eq i64 %313, 0
-  %315 = select i1 %314, i64 0, i64 1
-  %316 = icmp eq i64 %315, 0
-  br i1 %316, label %317, label %318
+315:                                              ; preds = %313, %312
+  %316 = load i64, ptr %18, align 8, !noundef !3
+  %317 = icmp eq i64 %316, 0
+  %318 = select i1 %317, i64 0, i64 1
+  %319 = icmp eq i64 %318, 0
+  br i1 %319, label %320, label %321
 
-317:                                              ; preds = %312
+320:                                              ; preds = %315
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr align 1 @anon.a688733adaf4d551fc6e2bc5b38f81b3.7, i64 28, ptr align 8 @anon.a688733adaf4d551fc6e2bc5b38f81b3.8) #8
   unreachable
 
-318:                                              ; preds = %312
-  %319 = load i64, ptr %18, align 8, !range !8, !noundef !3
+321:                                              ; preds = %315
+  %322 = load i64, ptr %18, align 8, !range !8, !noundef !3
   store ptr %2, ptr %39, align 8
-  %320 = getelementptr inbounds i8, ptr %39, i64 8
-  store i64 %3, ptr %320, align 8
-  %321 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %39, i32 0, i32 1
-  store i64 %319, ptr %321, align 8
+  %323 = getelementptr inbounds i8, ptr %39, i64 8
+  store i64 %3, ptr %323, align 8
+  %324 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %39, i32 0, i32 1
+  store i64 %322, ptr %324, align 8
   store ptr %45, ptr %38, align 8
-  %322 = load ptr, ptr %38, align 8, !nonnull !3, !align !9, !noundef !3
-  store ptr %322, ptr %15, align 8
-  %323 = load ptr, ptr %15, align 8, !nonnull !3, !align !9, !noundef !3
-  %324 = call zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1651a4b0bb9cf37bE(ptr align 8 %39, ptr align 8 %323)
-  %325 = zext i1 %324 to i8
-  store i8 %325, ptr %16, align 1
-  %326 = call zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h03a5216db8623c18E"(ptr align 1 %16, ptr align 1 @anon.a688733adaf4d551fc6e2bc5b38f81b3.9)
-  %327 = zext i1 %326 to i8
-  store i8 %327, ptr %46, align 1
-  br label %328
+  %325 = load ptr, ptr %38, align 8, !nonnull !3, !align !9, !noundef !3
+  store ptr %325, ptr %15, align 8
+  %326 = load ptr, ptr %15, align 8, !nonnull !3, !align !9, !noundef !3
+  %327 = call zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1651a4b0bb9cf37bE(ptr align 8 %39, ptr align 8 %326)
+  %328 = zext i1 %327 to i8
+  store i8 %328, ptr %16, align 1
+  %329 = call zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h03a5216db8623c18E"(ptr align 1 %16, ptr align 1 @anon.a688733adaf4d551fc6e2bc5b38f81b3.9)
+  %330 = zext i1 %329 to i8
+  store i8 %330, ptr %46, align 1
+  br label %331
 
-328:                                              ; preds = %318, %100
-  br label %307
+331:                                              ; preds = %321, %101
+  br label %310
 
-329:                                              ; No predecessors!
+332:                                              ; No predecessors!
   unreachable
 }
 

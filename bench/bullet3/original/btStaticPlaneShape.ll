@@ -120,7 +120,8 @@ entry:
   store float %planeConstant, ptr %planeConstant.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV18btStaticPlaneShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV18btStaticPlaneShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_localAabbMin = getelementptr inbounds %class.btStaticPlaneShape, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin)
           to label %invoke.cont unwind label %lpad
@@ -132,21 +133,21 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_planeNormal = getelementptr inbounds %class.btStaticPlaneShape, ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %planeNormal.addr, align 8
-  %call = invoke { <2 x float>, <2 x float> } @_ZNK9btVector310normalizedEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
+  %1 = load ptr, ptr %planeNormal.addr, align 8
+  %call = invoke { <2 x float>, <2 x float> } @_ZNK9btVector310normalizedEv(ptr noundef nonnull align 4 dereferenceable(16) %1)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   %coerce.dive = getelementptr inbounds %class.btVector3, ptr %m_planeNormal, i32 0, i32 0
-  %1 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
-  %2 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  store <2 x float> %2, ptr %1, align 4
-  %3 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
-  %4 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %4, ptr %3, align 4
+  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 0
+  %3 = extractvalue { <2 x float>, <2 x float> } %call, 0
+  store <2 x float> %3, ptr %2, align 4
+  %4 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive, i32 0, i32 1
+  %5 = extractvalue { <2 x float>, <2 x float> } %call, 1
+  store <2 x float> %5, ptr %4, align 4
   %m_planeConstant = getelementptr inbounds %class.btStaticPlaneShape, ptr %this1, i32 0, i32 4
-  %5 = load float, ptr %planeConstant.addr, align 4
-  store float %5, ptr %m_planeConstant, align 4
+  %6 = load float, ptr %planeConstant.addr, align 4
+  store float %6, ptr %m_planeConstant, align 4
   %m_localScaling = getelementptr inbounds %class.btStaticPlaneShape, ptr %this1, i32 0, i32 5
   store float 1.000000e+00, ptr %ref.tmp, align 4
   store float 1.000000e+00, ptr %ref.tmp4, align 4
@@ -160,12 +161,12 @@ invoke.cont6:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1) #9
   br label %eh.resume
 

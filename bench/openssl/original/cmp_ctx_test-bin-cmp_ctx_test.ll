@@ -5039,13 +5039,15 @@ entry:
   store ptr %1, ptr %ctx, align 8
   store ptr @OSSL_CMP_CTX_set_http_cb_arg, ptr %set_fn, align 8
   store ptr @OSSL_CMP_CTX_get_http_cb_arg, ptr %get_fn, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %val1_to_free, align 8
-  %2 = load ptr, ptr %val1_to_free, align 8
-  store ptr %2, ptr %val1, align 8
+  %2 = inttoptr i64 1 to ptr
+  store ptr %2, ptr %val1_to_free, align 8
+  %3 = load ptr, ptr %val1_to_free, align 8
+  store ptr %3, ptr %val1, align 8
   store ptr null, ptr %val1_read, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %val2_to_free, align 8
-  %3 = load ptr, ptr %val2_to_free, align 8
-  store ptr %3, ptr %val2, align 8
+  %4 = inttoptr i64 1 to ptr
+  store ptr %4, ptr %val2_to_free, align 8
+  %5 = load ptr, ptr %val2_to_free, align 8
+  store ptr %5, ptr %val2, align 8
   store ptr null, ptr %val2_read, align 8
   store ptr null, ptr %val3_read, align 8
   store i32 1, ptr %res, align 4
@@ -5060,9 +5062,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load ptr, ptr %set_fn, align 8
-  %5 = load ptr, ptr %val1, align 8
-  %call3 = call i32 %4(ptr noundef null, ptr noundef %5)
+  %6 = load ptr, ptr %set_fn, align 8
+  %7 = load ptr, ptr %val1, align 8
+  %call3 = call i32 %6(ptr noundef null, ptr noundef %7)
   %tobool4 = icmp ne i32 %call3, 0
   br i1 %tobool4, label %if.then7, label %lor.lhs.false
 
@@ -5078,8 +5080,8 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
 
 if.end8:                                          ; preds = %if.then7, %lor.lhs.false
   call void @ERR_clear_error()
-  %6 = load ptr, ptr %get_fn, align 8
-  %call9 = call ptr %6(ptr noundef null)
+  %8 = load ptr, ptr %get_fn, align 8
+  %call9 = call ptr %8(ptr noundef null)
   %cmp10 = icmp ne ptr %call9, null
   br i1 %cmp10, label %if.then16, label %lor.lhs.false12
 
@@ -5095,12 +5097,12 @@ if.then16:                                        ; preds = %lor.lhs.false12, %i
 
 if.end17:                                         ; preds = %if.then16, %lor.lhs.false12
   call void @ERR_clear_error()
-  %7 = load ptr, ptr %get_fn, align 8
-  %8 = load ptr, ptr %ctx, align 8
-  %call18 = call ptr %7(ptr noundef %8)
+  %9 = load ptr, ptr %get_fn, align 8
+  %10 = load ptr, ptr %ctx, align 8
+  %call18 = call ptr %9(ptr noundef %10)
   store ptr %call18, ptr %val1_read, align 8
-  %9 = load ptr, ptr %val1_read, align 8
-  %cmp19 = icmp eq ptr %9, null
+  %11 = load ptr, ptr %val1_read, align 8
+  %cmp19 = icmp eq ptr %11, null
   br i1 %cmp19, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %if.end17
@@ -5109,10 +5111,10 @@ if.then21:                                        ; preds = %if.end17
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then21, %if.end17
-  %10 = load ptr, ptr %set_fn, align 8
-  %11 = load ptr, ptr %ctx, align 8
-  %12 = load ptr, ptr %val1, align 8
-  %call23 = call i32 %10(ptr noundef %11, ptr noundef %12)
+  %12 = load ptr, ptr %set_fn, align 8
+  %13 = load ptr, ptr %ctx, align 8
+  %14 = load ptr, ptr %val1, align 8
+  %call23 = call i32 %12(ptr noundef %13, ptr noundef %14)
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %if.end26, label %if.then25
 
@@ -5123,13 +5125,13 @@ if.then25:                                        ; preds = %if.end22
 
 if.end26:                                         ; preds = %if.then25, %if.end22
   store ptr null, ptr %val1_to_free, align 8
-  %13 = load ptr, ptr %get_fn, align 8
-  %14 = load ptr, ptr %ctx, align 8
-  %call27 = call ptr %13(ptr noundef %14)
+  %15 = load ptr, ptr %get_fn, align 8
+  %16 = load ptr, ptr %ctx, align 8
+  %call27 = call ptr %15(ptr noundef %16)
   store ptr %call27, ptr %val1_read, align 8
-  %15 = load ptr, ptr %val1_read, align 8
-  %16 = load ptr, ptr %val1, align 8
-  %cmp28 = icmp ne ptr %15, %16
+  %17 = load ptr, ptr %val1_read, align 8
+  %18 = load ptr, ptr %val1, align 8
+  %cmp28 = icmp ne ptr %17, %18
   br i1 %cmp28, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.end26
@@ -5138,10 +5140,10 @@ if.then30:                                        ; preds = %if.end26
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %if.end26
-  %17 = load ptr, ptr %set_fn, align 8
-  %18 = load ptr, ptr %ctx, align 8
-  %19 = load ptr, ptr %val2, align 8
-  %call32 = call i32 %17(ptr noundef %18, ptr noundef %19)
+  %19 = load ptr, ptr %set_fn, align 8
+  %20 = load ptr, ptr %ctx, align 8
+  %21 = load ptr, ptr %val2, align 8
+  %call32 = call i32 %19(ptr noundef %20, ptr noundef %21)
   %tobool33 = icmp ne i32 %call32, 0
   br i1 %tobool33, label %if.end35, label %if.then34
 
@@ -5152,12 +5154,12 @@ if.then34:                                        ; preds = %if.end31
 
 if.end35:                                         ; preds = %if.then34, %if.end31
   store ptr null, ptr %val2_to_free, align 8
-  %20 = load ptr, ptr %get_fn, align 8
-  %21 = load ptr, ptr %ctx, align 8
-  %call36 = call ptr %20(ptr noundef %21)
+  %22 = load ptr, ptr %get_fn, align 8
+  %23 = load ptr, ptr %ctx, align 8
+  %call36 = call ptr %22(ptr noundef %23)
   store ptr %call36, ptr %val2_read, align 8
-  %22 = load ptr, ptr %val2_read, align 8
-  %cmp37 = icmp eq ptr %22, null
+  %24 = load ptr, ptr %val2_read, align 8
+  %cmp37 = icmp eq ptr %24, null
   br i1 %cmp37, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %if.end35
@@ -5166,9 +5168,9 @@ if.then39:                                        ; preds = %if.end35
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then39, %if.end35
-  %23 = load ptr, ptr %val2_read, align 8
-  %24 = load ptr, ptr %val2, align 8
-  %cmp41 = icmp ne ptr %23, %24
+  %25 = load ptr, ptr %val2_read, align 8
+  %26 = load ptr, ptr %val2, align 8
+  %cmp41 = icmp ne ptr %25, %26
   br i1 %cmp41, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.end40
@@ -5177,12 +5179,12 @@ if.then43:                                        ; preds = %if.end40
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then43, %if.end40
-  %25 = load ptr, ptr %get_fn, align 8
-  %26 = load ptr, ptr %ctx, align 8
-  %call45 = call ptr %25(ptr noundef %26)
+  %27 = load ptr, ptr %get_fn, align 8
+  %28 = load ptr, ptr %ctx, align 8
+  %call45 = call ptr %27(ptr noundef %28)
   store ptr %call45, ptr %val3_read, align 8
-  %27 = load ptr, ptr %val3_read, align 8
-  %cmp46 = icmp eq ptr %27, null
+  %29 = load ptr, ptr %val3_read, align 8
+  %cmp46 = icmp eq ptr %29, null
   br i1 %cmp46, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %if.end44
@@ -5191,9 +5193,9 @@ if.then48:                                        ; preds = %if.end44
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then48, %if.end44
-  %28 = load ptr, ptr %val3_read, align 8
-  %29 = load ptr, ptr %val2_read, align 8
-  %cmp50 = icmp ne ptr %28, %29
+  %30 = load ptr, ptr %val3_read, align 8
+  %31 = load ptr, ptr %val2_read, align 8
+  %cmp50 = icmp ne ptr %30, %31
   br i1 %cmp50, label %if.then52, label %if.end53
 
 if.then52:                                        ; preds = %if.end49
@@ -5213,8 +5215,8 @@ if.then58:                                        ; preds = %if.end53
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then58, %if.end53
-  %30 = load i32, ptr %res, align 4
-  %cmp60 = icmp ne i32 %30, 0
+  %32 = load i32, ptr %res, align 4
+  %cmp60 = icmp ne i32 %32, 0
   %conv61 = zext i1 %cmp60 to i32
   %call62 = call i32 @test_true(ptr noundef @.str, i32 noundef 758, ptr noundef @.str.74, i32 noundef %conv61)
   ret i32 %call62
@@ -5490,13 +5492,15 @@ entry:
   store ptr %1, ptr %ctx, align 8
   store ptr @OSSL_CMP_CTX_set_transfer_cb_arg, ptr %set_fn, align 8
   store ptr @OSSL_CMP_CTX_get_transfer_cb_arg, ptr %get_fn, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %val1_to_free, align 8
-  %2 = load ptr, ptr %val1_to_free, align 8
-  store ptr %2, ptr %val1, align 8
+  %2 = inttoptr i64 1 to ptr
+  store ptr %2, ptr %val1_to_free, align 8
+  %3 = load ptr, ptr %val1_to_free, align 8
+  store ptr %3, ptr %val1, align 8
   store ptr null, ptr %val1_read, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %val2_to_free, align 8
-  %3 = load ptr, ptr %val2_to_free, align 8
-  store ptr %3, ptr %val2, align 8
+  %4 = inttoptr i64 1 to ptr
+  store ptr %4, ptr %val2_to_free, align 8
+  %5 = load ptr, ptr %val2_to_free, align 8
+  store ptr %5, ptr %val2, align 8
   store ptr null, ptr %val2_read, align 8
   store ptr null, ptr %val3_read, align 8
   store i32 1, ptr %res, align 4
@@ -5511,9 +5515,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load ptr, ptr %set_fn, align 8
-  %5 = load ptr, ptr %val1, align 8
-  %call3 = call i32 %4(ptr noundef null, ptr noundef %5)
+  %6 = load ptr, ptr %set_fn, align 8
+  %7 = load ptr, ptr %val1, align 8
+  %call3 = call i32 %6(ptr noundef null, ptr noundef %7)
   %tobool4 = icmp ne i32 %call3, 0
   br i1 %tobool4, label %if.then7, label %lor.lhs.false
 
@@ -5529,8 +5533,8 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
 
 if.end8:                                          ; preds = %if.then7, %lor.lhs.false
   call void @ERR_clear_error()
-  %6 = load ptr, ptr %get_fn, align 8
-  %call9 = call ptr %6(ptr noundef null)
+  %8 = load ptr, ptr %get_fn, align 8
+  %call9 = call ptr %8(ptr noundef null)
   %cmp10 = icmp ne ptr %call9, null
   br i1 %cmp10, label %if.then16, label %lor.lhs.false12
 
@@ -5546,12 +5550,12 @@ if.then16:                                        ; preds = %lor.lhs.false12, %i
 
 if.end17:                                         ; preds = %if.then16, %lor.lhs.false12
   call void @ERR_clear_error()
-  %7 = load ptr, ptr %get_fn, align 8
-  %8 = load ptr, ptr %ctx, align 8
-  %call18 = call ptr %7(ptr noundef %8)
+  %9 = load ptr, ptr %get_fn, align 8
+  %10 = load ptr, ptr %ctx, align 8
+  %call18 = call ptr %9(ptr noundef %10)
   store ptr %call18, ptr %val1_read, align 8
-  %9 = load ptr, ptr %val1_read, align 8
-  %cmp19 = icmp eq ptr %9, null
+  %11 = load ptr, ptr %val1_read, align 8
+  %cmp19 = icmp eq ptr %11, null
   br i1 %cmp19, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %if.end17
@@ -5560,10 +5564,10 @@ if.then21:                                        ; preds = %if.end17
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then21, %if.end17
-  %10 = load ptr, ptr %set_fn, align 8
-  %11 = load ptr, ptr %ctx, align 8
-  %12 = load ptr, ptr %val1, align 8
-  %call23 = call i32 %10(ptr noundef %11, ptr noundef %12)
+  %12 = load ptr, ptr %set_fn, align 8
+  %13 = load ptr, ptr %ctx, align 8
+  %14 = load ptr, ptr %val1, align 8
+  %call23 = call i32 %12(ptr noundef %13, ptr noundef %14)
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %if.end26, label %if.then25
 
@@ -5574,13 +5578,13 @@ if.then25:                                        ; preds = %if.end22
 
 if.end26:                                         ; preds = %if.then25, %if.end22
   store ptr null, ptr %val1_to_free, align 8
-  %13 = load ptr, ptr %get_fn, align 8
-  %14 = load ptr, ptr %ctx, align 8
-  %call27 = call ptr %13(ptr noundef %14)
+  %15 = load ptr, ptr %get_fn, align 8
+  %16 = load ptr, ptr %ctx, align 8
+  %call27 = call ptr %15(ptr noundef %16)
   store ptr %call27, ptr %val1_read, align 8
-  %15 = load ptr, ptr %val1_read, align 8
-  %16 = load ptr, ptr %val1, align 8
-  %cmp28 = icmp ne ptr %15, %16
+  %17 = load ptr, ptr %val1_read, align 8
+  %18 = load ptr, ptr %val1, align 8
+  %cmp28 = icmp ne ptr %17, %18
   br i1 %cmp28, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.end26
@@ -5589,10 +5593,10 @@ if.then30:                                        ; preds = %if.end26
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %if.end26
-  %17 = load ptr, ptr %set_fn, align 8
-  %18 = load ptr, ptr %ctx, align 8
-  %19 = load ptr, ptr %val2, align 8
-  %call32 = call i32 %17(ptr noundef %18, ptr noundef %19)
+  %19 = load ptr, ptr %set_fn, align 8
+  %20 = load ptr, ptr %ctx, align 8
+  %21 = load ptr, ptr %val2, align 8
+  %call32 = call i32 %19(ptr noundef %20, ptr noundef %21)
   %tobool33 = icmp ne i32 %call32, 0
   br i1 %tobool33, label %if.end35, label %if.then34
 
@@ -5603,12 +5607,12 @@ if.then34:                                        ; preds = %if.end31
 
 if.end35:                                         ; preds = %if.then34, %if.end31
   store ptr null, ptr %val2_to_free, align 8
-  %20 = load ptr, ptr %get_fn, align 8
-  %21 = load ptr, ptr %ctx, align 8
-  %call36 = call ptr %20(ptr noundef %21)
+  %22 = load ptr, ptr %get_fn, align 8
+  %23 = load ptr, ptr %ctx, align 8
+  %call36 = call ptr %22(ptr noundef %23)
   store ptr %call36, ptr %val2_read, align 8
-  %22 = load ptr, ptr %val2_read, align 8
-  %cmp37 = icmp eq ptr %22, null
+  %24 = load ptr, ptr %val2_read, align 8
+  %cmp37 = icmp eq ptr %24, null
   br i1 %cmp37, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %if.end35
@@ -5617,9 +5621,9 @@ if.then39:                                        ; preds = %if.end35
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then39, %if.end35
-  %23 = load ptr, ptr %val2_read, align 8
-  %24 = load ptr, ptr %val2, align 8
-  %cmp41 = icmp ne ptr %23, %24
+  %25 = load ptr, ptr %val2_read, align 8
+  %26 = load ptr, ptr %val2, align 8
+  %cmp41 = icmp ne ptr %25, %26
   br i1 %cmp41, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.end40
@@ -5628,12 +5632,12 @@ if.then43:                                        ; preds = %if.end40
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then43, %if.end40
-  %25 = load ptr, ptr %get_fn, align 8
-  %26 = load ptr, ptr %ctx, align 8
-  %call45 = call ptr %25(ptr noundef %26)
+  %27 = load ptr, ptr %get_fn, align 8
+  %28 = load ptr, ptr %ctx, align 8
+  %call45 = call ptr %27(ptr noundef %28)
   store ptr %call45, ptr %val3_read, align 8
-  %27 = load ptr, ptr %val3_read, align 8
-  %cmp46 = icmp eq ptr %27, null
+  %29 = load ptr, ptr %val3_read, align 8
+  %cmp46 = icmp eq ptr %29, null
   br i1 %cmp46, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %if.end44
@@ -5642,9 +5646,9 @@ if.then48:                                        ; preds = %if.end44
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then48, %if.end44
-  %28 = load ptr, ptr %val3_read, align 8
-  %29 = load ptr, ptr %val2_read, align 8
-  %cmp50 = icmp ne ptr %28, %29
+  %30 = load ptr, ptr %val3_read, align 8
+  %31 = load ptr, ptr %val2_read, align 8
+  %cmp50 = icmp ne ptr %30, %31
   br i1 %cmp50, label %if.then52, label %if.end53
 
 if.then52:                                        ; preds = %if.end49
@@ -5664,8 +5668,8 @@ if.then58:                                        ; preds = %if.end53
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then58, %if.end53
-  %30 = load i32, ptr %res, align 4
-  %cmp60 = icmp ne i32 %30, 0
+  %32 = load i32, ptr %res, align 4
+  %cmp60 = icmp ne i32 %32, 0
   %conv61 = zext i1 %cmp60 to i32
   %call62 = call i32 @test_true(ptr noundef @.str, i32 noundef 761, ptr noundef @.str.74, i32 noundef %conv61)
   ret i32 %call62
@@ -11162,13 +11166,15 @@ entry:
   store ptr %1, ptr %ctx, align 8
   store ptr @OSSL_CMP_CTX_set_certConf_cb_arg, ptr %set_fn, align 8
   store ptr @OSSL_CMP_CTX_get_certConf_cb_arg, ptr %get_fn, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %val1_to_free, align 8
-  %2 = load ptr, ptr %val1_to_free, align 8
-  store ptr %2, ptr %val1, align 8
+  %2 = inttoptr i64 1 to ptr
+  store ptr %2, ptr %val1_to_free, align 8
+  %3 = load ptr, ptr %val1_to_free, align 8
+  store ptr %3, ptr %val1, align 8
   store ptr null, ptr %val1_read, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %val2_to_free, align 8
-  %3 = load ptr, ptr %val2_to_free, align 8
-  store ptr %3, ptr %val2, align 8
+  %4 = inttoptr i64 1 to ptr
+  store ptr %4, ptr %val2_to_free, align 8
+  %5 = load ptr, ptr %val2_to_free, align 8
+  store ptr %5, ptr %val2, align 8
   store ptr null, ptr %val2_read, align 8
   store ptr null, ptr %val3_read, align 8
   store i32 1, ptr %res, align 4
@@ -11183,9 +11189,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load ptr, ptr %set_fn, align 8
-  %5 = load ptr, ptr %val1, align 8
-  %call3 = call i32 %4(ptr noundef null, ptr noundef %5)
+  %6 = load ptr, ptr %set_fn, align 8
+  %7 = load ptr, ptr %val1, align 8
+  %call3 = call i32 %6(ptr noundef null, ptr noundef %7)
   %tobool4 = icmp ne i32 %call3, 0
   br i1 %tobool4, label %if.then7, label %lor.lhs.false
 
@@ -11201,8 +11207,8 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
 
 if.end8:                                          ; preds = %if.then7, %lor.lhs.false
   call void @ERR_clear_error()
-  %6 = load ptr, ptr %get_fn, align 8
-  %call9 = call ptr %6(ptr noundef null)
+  %8 = load ptr, ptr %get_fn, align 8
+  %call9 = call ptr %8(ptr noundef null)
   %cmp10 = icmp ne ptr %call9, null
   br i1 %cmp10, label %if.then16, label %lor.lhs.false12
 
@@ -11218,12 +11224,12 @@ if.then16:                                        ; preds = %lor.lhs.false12, %i
 
 if.end17:                                         ; preds = %if.then16, %lor.lhs.false12
   call void @ERR_clear_error()
-  %7 = load ptr, ptr %get_fn, align 8
-  %8 = load ptr, ptr %ctx, align 8
-  %call18 = call ptr %7(ptr noundef %8)
+  %9 = load ptr, ptr %get_fn, align 8
+  %10 = load ptr, ptr %ctx, align 8
+  %call18 = call ptr %9(ptr noundef %10)
   store ptr %call18, ptr %val1_read, align 8
-  %9 = load ptr, ptr %val1_read, align 8
-  %cmp19 = icmp eq ptr %9, null
+  %11 = load ptr, ptr %val1_read, align 8
+  %cmp19 = icmp eq ptr %11, null
   br i1 %cmp19, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %if.end17
@@ -11232,10 +11238,10 @@ if.then21:                                        ; preds = %if.end17
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then21, %if.end17
-  %10 = load ptr, ptr %set_fn, align 8
-  %11 = load ptr, ptr %ctx, align 8
-  %12 = load ptr, ptr %val1, align 8
-  %call23 = call i32 %10(ptr noundef %11, ptr noundef %12)
+  %12 = load ptr, ptr %set_fn, align 8
+  %13 = load ptr, ptr %ctx, align 8
+  %14 = load ptr, ptr %val1, align 8
+  %call23 = call i32 %12(ptr noundef %13, ptr noundef %14)
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %if.end26, label %if.then25
 
@@ -11246,13 +11252,13 @@ if.then25:                                        ; preds = %if.end22
 
 if.end26:                                         ; preds = %if.then25, %if.end22
   store ptr null, ptr %val1_to_free, align 8
-  %13 = load ptr, ptr %get_fn, align 8
-  %14 = load ptr, ptr %ctx, align 8
-  %call27 = call ptr %13(ptr noundef %14)
+  %15 = load ptr, ptr %get_fn, align 8
+  %16 = load ptr, ptr %ctx, align 8
+  %call27 = call ptr %15(ptr noundef %16)
   store ptr %call27, ptr %val1_read, align 8
-  %15 = load ptr, ptr %val1_read, align 8
-  %16 = load ptr, ptr %val1, align 8
-  %cmp28 = icmp ne ptr %15, %16
+  %17 = load ptr, ptr %val1_read, align 8
+  %18 = load ptr, ptr %val1, align 8
+  %cmp28 = icmp ne ptr %17, %18
   br i1 %cmp28, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.end26
@@ -11261,10 +11267,10 @@ if.then30:                                        ; preds = %if.end26
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %if.end26
-  %17 = load ptr, ptr %set_fn, align 8
-  %18 = load ptr, ptr %ctx, align 8
-  %19 = load ptr, ptr %val2, align 8
-  %call32 = call i32 %17(ptr noundef %18, ptr noundef %19)
+  %19 = load ptr, ptr %set_fn, align 8
+  %20 = load ptr, ptr %ctx, align 8
+  %21 = load ptr, ptr %val2, align 8
+  %call32 = call i32 %19(ptr noundef %20, ptr noundef %21)
   %tobool33 = icmp ne i32 %call32, 0
   br i1 %tobool33, label %if.end35, label %if.then34
 
@@ -11275,12 +11281,12 @@ if.then34:                                        ; preds = %if.end31
 
 if.end35:                                         ; preds = %if.then34, %if.end31
   store ptr null, ptr %val2_to_free, align 8
-  %20 = load ptr, ptr %get_fn, align 8
-  %21 = load ptr, ptr %ctx, align 8
-  %call36 = call ptr %20(ptr noundef %21)
+  %22 = load ptr, ptr %get_fn, align 8
+  %23 = load ptr, ptr %ctx, align 8
+  %call36 = call ptr %22(ptr noundef %23)
   store ptr %call36, ptr %val2_read, align 8
-  %22 = load ptr, ptr %val2_read, align 8
-  %cmp37 = icmp eq ptr %22, null
+  %24 = load ptr, ptr %val2_read, align 8
+  %cmp37 = icmp eq ptr %24, null
   br i1 %cmp37, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %if.end35
@@ -11289,9 +11295,9 @@ if.then39:                                        ; preds = %if.end35
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then39, %if.end35
-  %23 = load ptr, ptr %val2_read, align 8
-  %24 = load ptr, ptr %val2, align 8
-  %cmp41 = icmp ne ptr %23, %24
+  %25 = load ptr, ptr %val2_read, align 8
+  %26 = load ptr, ptr %val2, align 8
+  %cmp41 = icmp ne ptr %25, %26
   br i1 %cmp41, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.end40
@@ -11300,12 +11306,12 @@ if.then43:                                        ; preds = %if.end40
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then43, %if.end40
-  %25 = load ptr, ptr %get_fn, align 8
-  %26 = load ptr, ptr %ctx, align 8
-  %call45 = call ptr %25(ptr noundef %26)
+  %27 = load ptr, ptr %get_fn, align 8
+  %28 = load ptr, ptr %ctx, align 8
+  %call45 = call ptr %27(ptr noundef %28)
   store ptr %call45, ptr %val3_read, align 8
-  %27 = load ptr, ptr %val3_read, align 8
-  %cmp46 = icmp eq ptr %27, null
+  %29 = load ptr, ptr %val3_read, align 8
+  %cmp46 = icmp eq ptr %29, null
   br i1 %cmp46, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %if.end44
@@ -11314,9 +11320,9 @@ if.then48:                                        ; preds = %if.end44
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then48, %if.end44
-  %28 = load ptr, ptr %val3_read, align 8
-  %29 = load ptr, ptr %val2_read, align 8
-  %cmp50 = icmp ne ptr %28, %29
+  %30 = load ptr, ptr %val3_read, align 8
+  %31 = load ptr, ptr %val2_read, align 8
+  %cmp50 = icmp ne ptr %30, %31
   br i1 %cmp50, label %if.then52, label %if.end53
 
 if.then52:                                        ; preds = %if.end49
@@ -11336,8 +11342,8 @@ if.then58:                                        ; preds = %if.end53
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then58, %if.end53
-  %30 = load i32, ptr %res, align 4
-  %cmp60 = icmp ne i32 %30, 0
+  %32 = load i32, ptr %res, align 4
+  %cmp60 = icmp ne i32 %32, 0
   %conv61 = zext i1 %cmp60 to i32
   %call62 = call i32 @test_true(ptr noundef @.str, i32 noundef 799, ptr noundef @.str.74, i32 noundef %conv61)
   ret i32 %call62

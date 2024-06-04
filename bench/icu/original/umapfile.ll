@@ -72,7 +72,8 @@ if.end9:                                          ; preds = %if.end4
   %10 = load i32, ptr %fd, align 4
   %call12 = call i32 @close(i32 noundef %10)
   %11 = load ptr, ptr %data, align 8
-  %cmp13 = icmp eq ptr %11, inttoptr (i64 -1 to ptr)
+  %12 = inttoptr i64 -1 to ptr
+  %cmp13 = icmp eq ptr %11, %12
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end9
@@ -80,27 +81,27 @@ if.then14:                                        ; preds = %if.end9
   br label %return
 
 if.end15:                                         ; preds = %if.end9
-  %12 = load ptr, ptr %data, align 8
-  %13 = load i32, ptr %length, align 4
-  %idx.ext = sext i32 %13 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %12, i64 %idx.ext
-  %14 = load ptr, ptr %pData.addr, align 8
-  %map = getelementptr inbounds %struct.UDataMemory, ptr %14, i32 0, i32 5
+  %13 = load ptr, ptr %data, align 8
+  %14 = load i32, ptr %length, align 4
+  %idx.ext = sext i32 %14 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %13, i64 %idx.ext
+  %15 = load ptr, ptr %pData.addr, align 8
+  %map = getelementptr inbounds %struct.UDataMemory, ptr %15, i32 0, i32 5
   store ptr %add.ptr, ptr %map, align 8
-  %15 = load ptr, ptr %data, align 8
-  %16 = load ptr, ptr %pData.addr, align 8
-  %pHeader = getelementptr inbounds %struct.UDataMemory, ptr %16, i32 0, i32 1
-  store ptr %15, ptr %pHeader, align 8
-  %17 = load ptr, ptr %data, align 8
-  %18 = load ptr, ptr %pData.addr, align 8
-  %mapAddr = getelementptr inbounds %struct.UDataMemory, ptr %18, i32 0, i32 4
-  store ptr %17, ptr %mapAddr, align 8
+  %16 = load ptr, ptr %data, align 8
+  %17 = load ptr, ptr %pData.addr, align 8
+  %pHeader = getelementptr inbounds %struct.UDataMemory, ptr %17, i32 0, i32 1
+  store ptr %16, ptr %pHeader, align 8
+  %18 = load ptr, ptr %data, align 8
+  %19 = load ptr, ptr %pData.addr, align 8
+  %mapAddr = getelementptr inbounds %struct.UDataMemory, ptr %19, i32 0, i32 4
+  store ptr %18, ptr %mapAddr, align 8
   store i8 1, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %if.end15, %if.then14, %if.then8, %if.then3, %if.then
-  %19 = load i8, ptr %retval, align 1
-  ret i8 %19
+  %20 = load i8, ptr %retval, align 1
+  ret i8 %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

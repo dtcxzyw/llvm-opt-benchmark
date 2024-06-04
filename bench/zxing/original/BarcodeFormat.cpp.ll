@@ -63,28 +63,28 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind no
   %7 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %6
   %8 = load i32, ptr %7, align 16, !tbaa !3
   %9 = icmp eq i32 %8, %1
-  br i1 %9, label %35, label %10
+  br i1 %9, label %39, label %10
 
 10:                                               ; preds = %4
   %11 = or disjoint i64 %6, 24
   %12 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %11
   %13 = load i32, ptr %12, align 8, !tbaa !3
   %14 = icmp eq i32 %13, %1
-  br i1 %14, label %35, label %15
+  br i1 %14, label %39, label %15
 
 15:                                               ; preds = %10
   %16 = add nuw nsw i64 %6, 48
   %17 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %16
   %18 = load i32, ptr %17, align 16, !tbaa !3
   %19 = icmp eq i32 %18, %1
-  br i1 %19, label %38, label %20
+  br i1 %19, label %42, label %20
 
 20:                                               ; preds = %15
   %21 = add nuw nsw i64 %6, 72
   %22 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %21
   %23 = load i32, ptr %22, align 8, !tbaa !3
   %24 = icmp eq i32 %23, %1
-  br i1 %24, label %35, label %25
+  br i1 %24, label %39, label %25
 
 25:                                               ; preds = %20
   %26 = add nuw nsw i64 %6, 96
@@ -93,45 +93,49 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind no
   br i1 %28, label %4, label %29, !llvm.loop !11
 
 29:                                               ; preds = %25
-  %30 = load i32, ptr getelementptr inbounds ([22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 0, i64 20, i32 0), align 16, !tbaa !3
-  %31 = icmp eq i32 %30, %1
-  br i1 %31, label %44, label %32
+  %30 = getelementptr inbounds [22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 0, i64 20, i32 0
+  %31 = load i32, ptr %30, align 16, !tbaa !3
+  %32 = icmp eq i32 %31, %1
+  %33 = getelementptr inbounds [22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 0, i64 20, i32 0
+  br i1 %32, label %48, label %34
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr getelementptr inbounds ([22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 0, i64 21, i32 0), align 8, !tbaa !3
-  %34 = icmp eq i32 %33, %1
-  br i1 %34, label %44, label %41
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds [22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 0, i64 21, i32 0
+  %36 = load i32, ptr %35, align 8, !tbaa !3
+  %37 = icmp eq i32 %36, %1
+  %38 = getelementptr inbounds [22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 0, i64 21, i32 0
+  br i1 %37, label %48, label %45
 
-35:                                               ; preds = %20, %10, %4
-  %36 = phi i64 [ %21, %20 ], [ %11, %10 ], [ %6, %4 ]
-  %37 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %36
-  br label %44
+39:                                               ; preds = %20, %10, %4
+  %40 = phi i64 [ %21, %20 ], [ %11, %10 ], [ %6, %4 ]
+  %41 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %40
+  br label %48
 
-38:                                               ; preds = %15
-  %39 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %16
-  %40 = icmp eq i64 %16, 528
-  br i1 %40, label %41, label %44
+42:                                               ; preds = %15
+  %43 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %16
+  %44 = icmp eq i64 %16, 528
+  br i1 %44, label %45, label %48
 
-41:                                               ; preds = %38, %32
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %42, ptr %0, align 8, !tbaa !13
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %43, align 8, !tbaa !15
-  store i8 0, ptr %42, align 8, !tbaa !17
-  br label %50
+45:                                               ; preds = %42, %34
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %46, ptr %0, align 8, !tbaa !13
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %47, align 8, !tbaa !15
+  store i8 0, ptr %46, align 8, !tbaa !17
+  br label %54
 
-44:                                               ; preds = %38, %35, %32, %29
-  %45 = phi ptr [ %39, %38 ], [ getelementptr inbounds ([22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 0, i64 20, i32 0), %29 ], [ getelementptr inbounds ([22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 0, i64 21, i32 0), %32 ], [ %37, %35 ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+48:                                               ; preds = %42, %39, %34, %29
+  %49 = phi ptr [ %43, %42 ], [ %33, %29 ], [ %38, %34 ], [ %41, %39 ]
+  %50 = getelementptr inbounds i8, ptr %49, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #13
-  %47 = load i64, ptr %46, align 8, !tbaa !18
-  %48 = getelementptr inbounds i8, ptr %45, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %49, i64 noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %51 = load i64, ptr %50, align 8, !tbaa !18
+  %52 = getelementptr inbounds i8, ptr %49, i64 16
+  %53 = load ptr, ptr %52, align 8, !tbaa !19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %53, i64 noundef %51, ptr noundef nonnull align 1 dereferenceable(1) %3) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #13
-  br label %50
+  br label %54
 
-50:                                               ; preds = %44, %41
+54:                                               ; preds = %48, %45
   ret void
 }
 
@@ -465,7 +469,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %16 = load i64, ptr %15, align 8, !tbaa !15
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %14, ptr noundef %17) #14
-          to label %18 unwind label %184
+          to label %18 unwind label %188
 
 18:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -477,7 +481,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %22 = load i64, ptr %21, align 8, !tbaa !15
   %23 = getelementptr inbounds i8, ptr %20, i64 %22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %20, ptr noundef %23) #14
-          to label %24 unwind label %161
+          to label %24 unwind label %164
 
 24:                                               ; preds = %18
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
@@ -489,7 +493,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %28 = load i64, ptr %27, align 8, !tbaa !15, !noalias !26
   %29 = getelementptr inbounds i8, ptr %26, i64 %28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %26, ptr noundef %29) #14
-          to label %30 unwind label %134
+          to label %30 unwind label %137
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %4, i64 16
@@ -527,11 +531,11 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %48 = load i64, ptr %33, align 8, !tbaa !15, !noalias !26
   %49 = icmp ult i64 %48, 16
   call void @llvm.assume(i1 %49)
-  br label %146
+  br label %149
 
 50:                                               ; preds = %43
   call void @_ZdlPv(ptr noundef %45) #15
-  br label %146
+  br label %149
 
 51:                                               ; preds = %42, %39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -543,40 +547,40 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %55 = load i64, ptr %54, align 8, !tbaa !15
   %56 = getelementptr inbounds i8, ptr %53, i64 %55
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %53, ptr noundef %56) #14
-          to label %57 unwind label %136
+          to label %57 unwind label %139
 
 57:                                               ; preds = %74, %51
   %58 = phi i64 [ %76, %74 ], [ 5, %51 ]
   %59 = phi ptr [ %75, %74 ], [ @_ZN5ZXingL5NAMESE, %51 ]
   %60 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %59) #14
-          to label %61 unwind label %107
+          to label %61 unwind label %110
 
 61:                                               ; preds = %57
-  br i1 %60, label %98, label %62
+  br i1 %60, label %101, label %62
 
 62:                                               ; preds = %61
   %63 = getelementptr inbounds i8, ptr %59, i64 24
   %64 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %63) #14
-          to label %65 unwind label %107
+          to label %65 unwind label %110
 
 65:                                               ; preds = %62
-  br i1 %64, label %98, label %66
+  br i1 %64, label %101, label %66
 
 66:                                               ; preds = %65
   %67 = getelementptr inbounds i8, ptr %59, i64 48
   %68 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %67) #14
-          to label %69 unwind label %107
+          to label %69 unwind label %110
 
 69:                                               ; preds = %66
-  br i1 %68, label %98, label %70
+  br i1 %68, label %101, label %70
 
 70:                                               ; preds = %69
   %71 = getelementptr inbounds i8, ptr %59, i64 72
   %72 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %71) #14
-          to label %73 unwind label %107
+          to label %73 unwind label %110
 
 73:                                               ; preds = %70
-  br i1 %72, label %98, label %74
+  br i1 %72, label %101, label %74
 
 74:                                               ; preds = %73
   %75 = getelementptr inbounds i8, ptr %59, i64 96
@@ -586,254 +590,258 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
 
 78:                                               ; preds = %74
   %79 = ptrtoint ptr %75 to i64
-  %80 = sub i64 ptrtoint (ptr getelementptr inbounds ([22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 1, i64 0, i32 0) to i64), %79
-  %81 = sdiv exact i64 %80, 24
-  switch i64 %81, label %97 [
-    i64 3, label %82
-    i64 2, label %87
-    i64 1, label %93
+  %80 = getelementptr inbounds [22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 1, i64 0, i32 0
+  %81 = ptrtoint ptr %80 to i64
+  %82 = sub i64 %81, %79
+  %83 = sdiv exact i64 %82, 24
+  switch i64 %83, label %99 [
+    i64 3, label %84
+    i64 2, label %89
+    i64 1, label %95
   ]
 
-82:                                               ; preds = %78
-  %83 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %75) #14
-          to label %84 unwind label %109
+84:                                               ; preds = %78
+  %85 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %75) #14
+          to label %86 unwind label %112
 
-84:                                               ; preds = %82
-  br i1 %83, label %98, label %85
+86:                                               ; preds = %84
+  br i1 %85, label %101, label %87
 
-85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %59, i64 120
-  br label %87
+87:                                               ; preds = %86
+  %88 = getelementptr inbounds i8, ptr %59, i64 120
+  br label %89
 
-87:                                               ; preds = %85, %78
-  %88 = phi ptr [ %75, %78 ], [ %86, %85 ]
-  %89 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %88) #14
-          to label %90 unwind label %109
+89:                                               ; preds = %87, %78
+  %90 = phi ptr [ %75, %78 ], [ %88, %87 ]
+  %91 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %90) #14
+          to label %92 unwind label %112
 
-90:                                               ; preds = %87
-  br i1 %89, label %98, label %91
+92:                                               ; preds = %89
+  br i1 %91, label %101, label %93
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %88, i64 24
-  br label %93
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds i8, ptr %90, i64 24
+  br label %95
 
-93:                                               ; preds = %91, %78
-  %94 = phi ptr [ %75, %78 ], [ %92, %91 ]
-  %95 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %94) #14
-          to label %96 unwind label %109
+95:                                               ; preds = %93, %78
+  %96 = phi ptr [ %75, %78 ], [ %94, %93 ]
+  %97 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EclIPNS2_17BarcodeFormatNameEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %96) #14
+          to label %98 unwind label %112
 
-96:                                               ; preds = %93
-  br i1 %95, label %98, label %97
+98:                                               ; preds = %95
+  br i1 %97, label %101, label %99
 
-97:                                               ; preds = %96, %78
-  br label %98
+99:                                               ; preds = %98, %78
+  %100 = getelementptr inbounds [22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 1, i64 0, i32 0
+  br label %101
 
-98:                                               ; preds = %97, %96, %90, %84, %73, %69, %65, %61
-  %99 = phi ptr [ getelementptr inbounds ([22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 1, i64 0, i32 0), %97 ], [ %75, %84 ], [ %88, %90 ], [ %94, %96 ], [ %71, %73 ], [ %67, %69 ], [ %63, %65 ], [ %59, %61 ]
-  %100 = load ptr, ptr %2, align 8, !tbaa !24
-  %101 = icmp eq ptr %100, %52
-  br i1 %101, label %102, label %106
+101:                                              ; preds = %99, %98, %92, %86, %73, %69, %65, %61
+  %102 = phi ptr [ %100, %99 ], [ %75, %86 ], [ %90, %92 ], [ %96, %98 ], [ %71, %73 ], [ %67, %69 ], [ %63, %65 ], [ %59, %61 ]
+  %103 = load ptr, ptr %2, align 8, !tbaa !24
+  %104 = icmp eq ptr %103, %52
+  br i1 %104, label %105, label %109
 
-102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %2, i64 8
-  %104 = load i64, ptr %103, align 8, !tbaa !15
-  %105 = icmp ult i64 %104, 16
-  call void @llvm.assume(i1 %105)
-  br label %120
+105:                                              ; preds = %101
+  %106 = getelementptr inbounds i8, ptr %2, i64 8
+  %107 = load i64, ptr %106, align 8, !tbaa !15
+  %108 = icmp ult i64 %107, 16
+  call void @llvm.assume(i1 %108)
+  br label %123
 
-106:                                              ; preds = %98
-  call void @_ZdlPv(ptr noundef %100) #15
-  br label %120
+109:                                              ; preds = %101
+  call void @_ZdlPv(ptr noundef %103) #15
+  br label %123
 
-107:                                              ; preds = %70, %66, %62, %57
-  %108 = landingpad { ptr, i32 }
+110:                                              ; preds = %70, %66, %62, %57
+  %111 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %114
 
-109:                                              ; preds = %93, %87, %82
-  %110 = landingpad { ptr, i32 }
+112:                                              ; preds = %95, %89, %84
+  %113 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %114
 
-111:                                              ; preds = %109, %107
-  %112 = phi { ptr, i32 } [ %108, %107 ], [ %110, %109 ]
-  %113 = load ptr, ptr %2, align 8, !tbaa !24
-  %114 = icmp eq ptr %113, %52
-  br i1 %114, label %115, label %119
+114:                                              ; preds = %112, %110
+  %115 = phi { ptr, i32 } [ %111, %110 ], [ %113, %112 ]
+  %116 = load ptr, ptr %2, align 8, !tbaa !24
+  %117 = icmp eq ptr %116, %52
+  br i1 %117, label %118, label %122
 
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %2, i64 8
-  %117 = load i64, ptr %116, align 8, !tbaa !15
-  %118 = icmp ult i64 %117, 16
-  call void @llvm.assume(i1 %118)
-  br label %138
+118:                                              ; preds = %114
+  %119 = getelementptr inbounds i8, ptr %2, i64 8
+  %120 = load i64, ptr %119, align 8, !tbaa !15
+  %121 = icmp ult i64 %120, 16
+  call void @llvm.assume(i1 %121)
+  br label %141
 
-119:                                              ; preds = %111
-  call void @_ZdlPv(ptr noundef %113) #15
-  br label %138
+122:                                              ; preds = %114
+  call void @_ZdlPv(ptr noundef %116) #15
+  br label %141
 
-120:                                              ; preds = %106, %102
+123:                                              ; preds = %109, %105
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  %121 = load ptr, ptr %4, align 8, !tbaa !24
-  %122 = icmp eq ptr %121, %31
-  br i1 %122, label %123, label %126
+  %124 = load ptr, ptr %4, align 8, !tbaa !24
+  %125 = icmp eq ptr %124, %31
+  br i1 %125, label %126, label %129
 
-123:                                              ; preds = %120
-  %124 = load i64, ptr %54, align 8, !tbaa !15
-  %125 = icmp ult i64 %124, 16
-  call void @llvm.assume(i1 %125)
-  br label %127
+126:                                              ; preds = %123
+  %127 = load i64, ptr %54, align 8, !tbaa !15
+  %128 = icmp ult i64 %127, 16
+  call void @llvm.assume(i1 %128)
+  br label %130
 
-126:                                              ; preds = %120
-  call void @_ZdlPv(ptr noundef %121) #15
-  br label %127
+129:                                              ; preds = %123
+  call void @_ZdlPv(ptr noundef %124) #15
+  br label %130
 
-127:                                              ; preds = %126, %123
-  %128 = load ptr, ptr %5, align 8, !tbaa !24
-  %129 = icmp eq ptr %128, %19
-  br i1 %129, label %130, label %133
+130:                                              ; preds = %129, %126
+  %131 = load ptr, ptr %5, align 8, !tbaa !24
+  %132 = icmp eq ptr %131, %19
+  br i1 %132, label %133, label %136
 
-130:                                              ; preds = %127
-  %131 = load i64, ptr %27, align 8, !tbaa !15
-  %132 = icmp ult i64 %131, 16
-  call void @llvm.assume(i1 %132)
-  br label %154
+133:                                              ; preds = %130
+  %134 = load i64, ptr %27, align 8, !tbaa !15
+  %135 = icmp ult i64 %134, 16
+  call void @llvm.assume(i1 %135)
+  br label %157
 
-133:                                              ; preds = %127
-  call void @_ZdlPv(ptr noundef %128) #15
-  br label %154
+136:                                              ; preds = %130
+  call void @_ZdlPv(ptr noundef %131) #15
+  br label %157
 
-134:                                              ; preds = %24
-  %135 = landingpad { ptr, i32 }
+137:                                              ; preds = %24
+  %138 = landingpad { ptr, i32 }
           cleanup
-  br label %146
+  br label %149
 
-136:                                              ; preds = %51
-  %137 = landingpad { ptr, i32 }
+139:                                              ; preds = %51
+  %140 = landingpad { ptr, i32 }
           cleanup
-  br label %138
+  br label %141
 
-138:                                              ; preds = %136, %119, %115
-  %139 = phi { ptr, i32 } [ %137, %136 ], [ %112, %119 ], [ %112, %115 ]
-  %140 = load ptr, ptr %4, align 8, !tbaa !24
-  %141 = icmp eq ptr %140, %31
-  br i1 %141, label %142, label %145
+141:                                              ; preds = %139, %122, %118
+  %142 = phi { ptr, i32 } [ %140, %139 ], [ %115, %122 ], [ %115, %118 ]
+  %143 = load ptr, ptr %4, align 8, !tbaa !24
+  %144 = icmp eq ptr %143, %31
+  br i1 %144, label %145, label %148
 
-142:                                              ; preds = %138
-  %143 = load i64, ptr %54, align 8, !tbaa !15
-  %144 = icmp ult i64 %143, 16
-  call void @llvm.assume(i1 %144)
-  br label %146
+145:                                              ; preds = %141
+  %146 = load i64, ptr %54, align 8, !tbaa !15
+  %147 = icmp ult i64 %146, 16
+  call void @llvm.assume(i1 %147)
+  br label %149
 
-145:                                              ; preds = %138
-  call void @_ZdlPv(ptr noundef %140) #15
-  br label %146
+148:                                              ; preds = %141
+  call void @_ZdlPv(ptr noundef %143) #15
+  br label %149
 
-146:                                              ; preds = %145, %142, %134, %50, %47
-  %147 = phi { ptr, i32 } [ %135, %134 ], [ %44, %50 ], [ %44, %47 ], [ %139, %142 ], [ %139, %145 ]
-  %148 = load ptr, ptr %5, align 8, !tbaa !24
-  %149 = icmp eq ptr %148, %19
-  br i1 %149, label %150, label %153
+149:                                              ; preds = %148, %145, %137, %50, %47
+  %150 = phi { ptr, i32 } [ %138, %137 ], [ %44, %50 ], [ %44, %47 ], [ %142, %145 ], [ %142, %148 ]
+  %151 = load ptr, ptr %5, align 8, !tbaa !24
+  %152 = icmp eq ptr %151, %19
+  br i1 %152, label %153, label %156
 
-150:                                              ; preds = %146
-  %151 = load i64, ptr %27, align 8, !tbaa !15
-  %152 = icmp ult i64 %151, 16
-  call void @llvm.assume(i1 %152)
-  br label %163
+153:                                              ; preds = %149
+  %154 = load i64, ptr %27, align 8, !tbaa !15
+  %155 = icmp ult i64 %154, 16
+  call void @llvm.assume(i1 %155)
+  br label %166
 
-153:                                              ; preds = %146
-  call void @_ZdlPv(ptr noundef %148) #15
-  br label %163
+156:                                              ; preds = %149
+  call void @_ZdlPv(ptr noundef %151) #15
+  br label %166
 
-154:                                              ; preds = %133, %130
+157:                                              ; preds = %136, %133
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %155 = load ptr, ptr %6, align 8, !tbaa !24
-  %156 = icmp eq ptr %155, %13
-  br i1 %156, label %157, label %160
+  %158 = load ptr, ptr %6, align 8, !tbaa !24
+  %159 = icmp eq ptr %158, %13
+  br i1 %159, label %160, label %163
 
-157:                                              ; preds = %154
-  %158 = load i64, ptr %21, align 8, !tbaa !15
-  %159 = icmp ult i64 %158, 16
-  call void @llvm.assume(i1 %159)
-  br label %171
+160:                                              ; preds = %157
+  %161 = load i64, ptr %21, align 8, !tbaa !15
+  %162 = icmp ult i64 %161, 16
+  call void @llvm.assume(i1 %162)
+  br label %174
 
-160:                                              ; preds = %154
-  call void @_ZdlPv(ptr noundef %155) #15
-  br label %171
+163:                                              ; preds = %157
+  call void @_ZdlPv(ptr noundef %158) #15
+  br label %174
 
-161:                                              ; preds = %18
-  %162 = landingpad { ptr, i32 }
+164:                                              ; preds = %18
+  %165 = landingpad { ptr, i32 }
           cleanup
-  br label %163
+  br label %166
 
-163:                                              ; preds = %161, %153, %150
-  %164 = phi { ptr, i32 } [ %162, %161 ], [ %147, %153 ], [ %147, %150 ]
-  %165 = load ptr, ptr %6, align 8, !tbaa !24
-  %166 = icmp eq ptr %165, %13
-  br i1 %166, label %167, label %170
+166:                                              ; preds = %164, %156, %153
+  %167 = phi { ptr, i32 } [ %165, %164 ], [ %150, %156 ], [ %150, %153 ]
+  %168 = load ptr, ptr %6, align 8, !tbaa !24
+  %169 = icmp eq ptr %168, %13
+  br i1 %169, label %170, label %173
 
-167:                                              ; preds = %163
-  %168 = load i64, ptr %21, align 8, !tbaa !15
-  %169 = icmp ult i64 %168, 16
-  call void @llvm.assume(i1 %169)
-  br label %186
+170:                                              ; preds = %166
+  %171 = load i64, ptr %21, align 8, !tbaa !15
+  %172 = icmp ult i64 %171, 16
+  call void @llvm.assume(i1 %172)
+  br label %190
 
-170:                                              ; preds = %163
-  call void @_ZdlPv(ptr noundef %165) #15
-  br label %186
+173:                                              ; preds = %166
+  call void @_ZdlPv(ptr noundef %168) #15
+  br label %190
 
-171:                                              ; preds = %160, %157
+174:                                              ; preds = %163, %160
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %172 = load ptr, ptr %7, align 8, !tbaa !24
-  %173 = icmp eq ptr %172, %8
-  br i1 %173, label %174, label %177
+  %175 = load ptr, ptr %7, align 8, !tbaa !24
+  %176 = icmp eq ptr %175, %8
+  br i1 %176, label %177, label %180
 
-174:                                              ; preds = %171
-  %175 = load i64, ptr %15, align 8, !tbaa !15
-  %176 = icmp ult i64 %175, 16
-  call void @llvm.assume(i1 %176)
-  br label %178
+177:                                              ; preds = %174
+  %178 = load i64, ptr %15, align 8, !tbaa !15
+  %179 = icmp ult i64 %178, 16
+  call void @llvm.assume(i1 %179)
+  br label %181
 
-177:                                              ; preds = %171
-  call void @_ZdlPv(ptr noundef %172) #15
-  br label %178
+180:                                              ; preds = %174
+  call void @_ZdlPv(ptr noundef %175) #15
+  br label %181
 
-178:                                              ; preds = %177, %174
-  %179 = icmp eq ptr %99, getelementptr inbounds ([22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 1, i64 0, i32 0)
-  br i1 %179, label %182, label %180
+181:                                              ; preds = %180, %177
+  %182 = getelementptr inbounds [22 x %"struct.ZXing::BarcodeFormatName"], ptr @_ZN5ZXingL5NAMESE, i64 1, i64 0, i32 0
+  %183 = icmp eq ptr %102, %182
+  br i1 %183, label %186, label %184
 
-180:                                              ; preds = %178
-  %181 = load i32, ptr %99, align 8, !tbaa !3
-  br label %182
-
-182:                                              ; preds = %180, %178
-  %183 = phi i32 [ %181, %180 ], [ 0, %178 ]
-  ret i32 %183
-
-184:                                              ; preds = %1
-  %185 = landingpad { ptr, i32 }
-          cleanup
+184:                                              ; preds = %181
+  %185 = load i32, ptr %102, align 8, !tbaa !3
   br label %186
 
-186:                                              ; preds = %184, %170, %167
-  %187 = phi { ptr, i32 } [ %185, %184 ], [ %164, %170 ], [ %164, %167 ]
-  %188 = load ptr, ptr %7, align 8, !tbaa !24
-  %189 = icmp eq ptr %188, %8
-  br i1 %189, label %190, label %193
+186:                                              ; preds = %184, %181
+  %187 = phi i32 [ %185, %184 ], [ 0, %181 ]
+  ret i32 %187
 
-190:                                              ; preds = %186
-  %191 = load i64, ptr %15, align 8, !tbaa !15
-  %192 = icmp ult i64 %191, 16
-  call void @llvm.assume(i1 %192)
-  br label %194
+188:                                              ; preds = %1
+  %189 = landingpad { ptr, i32 }
+          cleanup
+  br label %190
 
-193:                                              ; preds = %186
-  call void @_ZdlPv(ptr noundef %188) #15
-  br label %194
+190:                                              ; preds = %188, %173, %170
+  %191 = phi { ptr, i32 } [ %189, %188 ], [ %167, %173 ], [ %167, %170 ]
+  %192 = load ptr, ptr %7, align 8, !tbaa !24
+  %193 = icmp eq ptr %192, %8
+  br i1 %193, label %194, label %197
 
-194:                                              ; preds = %193, %190
-  resume { ptr, i32 } %187
+194:                                              ; preds = %190
+  %195 = load i64, ptr %15, align 8, !tbaa !15
+  %196 = icmp ult i64 %195, 16
+  call void @llvm.assume(i1 %196)
+  br label %198
+
+197:                                              ; preds = %190
+  call void @_ZdlPv(ptr noundef %192) #15
+  br label %198
+
+198:                                              ; preds = %197, %194
+  resume { ptr, i32 } %191
 }
 
 ; Function Attrs: mustprogress optsize uwtable

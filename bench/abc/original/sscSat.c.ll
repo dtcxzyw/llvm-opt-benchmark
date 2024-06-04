@@ -525,38 +525,39 @@ define ptr @Ssc_ManFindPivotSat(ptr noundef %0) #0 {
   store i32 %15, ptr %5, align 4
   %16 = load i32, ptr %5, align 4
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %18, label %19
+  br i1 %17, label %18, label %20
 
 18:                                               ; preds = %1
-  store ptr inttoptr (i64 1 to ptr), ptr %2, align 8
-  br label %32
+  %19 = inttoptr i64 1 to ptr
+  store ptr %19, ptr %2, align 8
+  br label %33
 
-19:                                               ; preds = %1
-  %20 = load i32, ptr %5, align 4
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %23
+20:                                               ; preds = %1
+  %21 = load i32, ptr %5, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %19
+23:                                               ; preds = %20
   store ptr null, ptr %2, align 8
-  br label %32
+  br label %33
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %24, i32 0, i32 3
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 @Gia_ManCiNum(ptr noundef %26)
-  %28 = call ptr @Vec_IntAlloc(i32 noundef %27)
-  store ptr %28, ptr %4, align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = load ptr, ptr %4, align 8
-  call void @Ssc_ManCollectSatPattern(ptr noundef %29, ptr noundef %30)
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8
+  %26 = getelementptr inbounds %struct.Ssc_Man_t_, ptr %25, i32 0, i32 3
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 @Gia_ManCiNum(ptr noundef %27)
+  %29 = call ptr @Vec_IntAlloc(i32 noundef %28)
+  store ptr %29, ptr %4, align 8
+  %30 = load ptr, ptr %3, align 8
   %31 = load ptr, ptr %4, align 8
-  store ptr %31, ptr %2, align 8
-  br label %32
+  call void @Ssc_ManCollectSatPattern(ptr noundef %30, ptr noundef %31)
+  %32 = load ptr, ptr %4, align 8
+  store ptr %32, ptr %2, align 8
+  br label %33
 
-32:                                               ; preds = %23, %22, %18
-  %33 = load ptr, ptr %2, align 8
-  ret ptr %33
+33:                                               ; preds = %24, %23, %18
+  %34 = load ptr, ptr %2, align 8
+  ret ptr %34
 }
 
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) #1

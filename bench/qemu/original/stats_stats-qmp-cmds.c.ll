@@ -50,18 +50,21 @@ do.body:                                          ; preds = %entry
   %6 = load ptr, ptr %entry1, align 8
   %next = getelementptr inbounds %struct.StatsCallbacks, ptr %6, i32 0, i32 3
   store ptr null, ptr %next, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @stats_callbacks, i32 0, i32 1), align 8
-  %8 = load ptr, ptr %entry1, align 8
-  %next3 = getelementptr inbounds %struct.StatsCallbacks, ptr %8, i32 0, i32 3
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next3, i32 0, i32 1
-  store ptr %7, ptr %tql_prev, align 8
+  %7 = getelementptr inbounds %struct.QTailQLink, ptr @stats_callbacks, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %entry1, align 8
-  %10 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @stats_callbacks, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %10, i32 0, i32 0
-  store ptr %9, ptr %tql_next, align 8
-  %11 = load ptr, ptr %entry1, align 8
-  %next4 = getelementptr inbounds %struct.StatsCallbacks, ptr %11, i32 0, i32 3
-  store ptr %next4, ptr getelementptr inbounds (%struct.QTailQLink, ptr @stats_callbacks, i32 0, i32 1), align 8
+  %next3 = getelementptr inbounds %struct.StatsCallbacks, ptr %9, i32 0, i32 3
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next3, i32 0, i32 1
+  store ptr %8, ptr %tql_prev, align 8
+  %10 = load ptr, ptr %entry1, align 8
+  %11 = getelementptr inbounds %struct.QTailQLink, ptr @stats_callbacks, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %12, i32 0, i32 0
+  store ptr %10, ptr %tql_next, align 8
+  %13 = load ptr, ptr %entry1, align 8
+  %next4 = getelementptr inbounds %struct.StatsCallbacks, ptr %13, i32 0, i32 3
+  %14 = getelementptr inbounds %struct.QTailQLink, ptr @stats_callbacks, i32 0, i32 1
+  store ptr %next4, ptr %14, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body

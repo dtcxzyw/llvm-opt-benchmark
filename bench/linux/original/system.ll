@@ -116,38 +116,39 @@ define internal fastcc void @reserve_range(ptr noundef %0, ptr noundef %1, i32 n
   %11 = load i64, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %15 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3264, i64 noundef 16) #7
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %32, label %17
+  %14 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %15 = load ptr, ptr %14, align 16
+  %16 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 16) #7
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %33, label %18
 
-17:                                               ; preds = %9
-  %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 16, ptr noundef nonnull @.str.1, ptr noundef %10) #6
-  %19 = icmp eq i32 %2, 0
-  %20 = sub i64 %13, %11
-  %21 = add i64 %20, 1
-  %22 = select i1 %19, ptr @iomem_resource, ptr @ioport_resource
-  %23 = tail call ptr @__request_region(ptr noundef nonnull %22, i64 noundef %11, i64 noundef %21, ptr noundef nonnull %15, i32 noundef 0) #6
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %29, label %25
+18:                                               ; preds = %9
+  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 16, ptr noundef nonnull @.str.1, ptr noundef %10) #6
+  %20 = icmp eq i32 %2, 0
+  %21 = sub i64 %13, %11
+  %22 = add i64 %21, 1
+  %23 = select i1 %20, ptr @iomem_resource, ptr @ioport_resource
+  %24 = tail call ptr @__request_region(ptr noundef nonnull %23, i64 noundef %11, i64 noundef %22, ptr noundef nonnull %16, i32 noundef 0) #6
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %30, label %26
 
-25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %23, i64 24
-  %27 = load i64, ptr %26, align 8
-  %28 = and i64 %27, 2147483647
-  store i64 %28, ptr %26, align 8
-  br label %30
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds i8, ptr %24, i64 24
+  %28 = load i64, ptr %27, align 8
+  %29 = and i64 %28, 2147483647
+  store i64 %29, ptr %27, align 8
+  br label %31
 
-29:                                               ; preds = %17
-  tail call void @kfree(ptr noundef nonnull %15) #6
-  br label %30
+30:                                               ; preds = %18
+  tail call void @kfree(ptr noundef nonnull %16) #6
+  br label %31
 
-30:                                               ; preds = %29, %25
-  %31 = phi ptr [ @.str.3, %25 ], [ @.str.4, %29 ]
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef nonnull %31) #8
-  br label %32
+31:                                               ; preds = %30, %26
+  %32 = phi ptr [ @.str.3, %26 ], [ @.str.4, %30 ]
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef nonnull %32) #8
+  br label %33
 
-32:                                               ; preds = %30, %9
+33:                                               ; preds = %31, %9
   ret void
 }
 

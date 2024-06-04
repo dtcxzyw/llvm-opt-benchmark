@@ -1127,17 +1127,20 @@ define internal void @addstring(i1 noundef zeroext %0, ptr noundef %1, i32 nound
   %11 = add i32 %10, 1
   call void @resizeString(i1 noundef zeroext %9, i32 noundef %11)
   %12 = load ptr, ptr @scanstring, align 8
-  %13 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = sext i32 %17 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %16, i64 %18, i1 false)
-  %19 = load i32, ptr %6, align 4
-  %20 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  %21 = add i32 %20, %19
-  store i32 %21, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
+  %13 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr i8, ptr %12, i64 %15
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = sext i32 %18 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %17, i64 %19, i1 false)
+  %20 = load i32, ptr %6, align 4
+  %21 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  %22 = load i32, ptr %21, align 8
+  %23 = add i32 %22, %20
+  %24 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  store i32 %23, ptr %24, align 8
   ret void
 }
 
@@ -1154,133 +1157,139 @@ define internal i32 @checkKeyword() #0 {
   %6 = alloca ptr, align 8
   store i32 265, ptr %2, align 4
   store ptr @keywords, ptr %4, align 8
-  store ptr getelementptr (%struct.JsonPathKeyword, ptr @keywords, i64 33), ptr %5, align 8
-  %7 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  %8 = icmp sgt i32 %7, 12
-  br i1 %8, label %9, label %11
-
-9:                                                ; preds = %0
-  %10 = load i32, ptr %2, align 4
-  store i32 %10, ptr %1, align 4
-  br label %83
+  %7 = getelementptr %struct.JsonPathKeyword, ptr @keywords, i64 33
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp sgt i32 %9, 12
+  br i1 %10, label %11, label %13
 
 11:                                               ; preds = %0
-  br label %12
+  %12 = load i32, ptr %2, align 4
+  store i32 %12, ptr %1, align 4
+  br label %89
 
-12:                                               ; preds = %80, %11
-  %13 = load ptr, ptr %4, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = icmp ult ptr %13, %14
-  br i1 %15, label %16, label %81
+13:                                               ; preds = %0
+  br label %14
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr %5, align 8
+14:                                               ; preds = %86, %13
+  %15 = load ptr, ptr %4, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = icmp ult ptr %15, %16
+  br i1 %17, label %18, label %87
+
+18:                                               ; preds = %14
   %19 = load ptr, ptr %4, align 8
-  %20 = ptrtoint ptr %18 to i64
-  %21 = ptrtoint ptr %19 to i64
-  %22 = sub i64 %20, %21
-  %23 = sdiv exact i64 %22, 16
-  %24 = ashr i64 %23, 1
-  %25 = getelementptr %struct.JsonPathKeyword, ptr %17, i64 %24
-  store ptr %25, ptr %6, align 8
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.JsonPathKeyword, ptr %26, i32 0, i32 0
-  %28 = load i16, ptr %27, align 8
-  %29 = sext i16 %28 to i32
-  %30 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  %31 = icmp eq i32 %29, %30
-  br i1 %31, label %32, label %40
+  %20 = load ptr, ptr %5, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = ptrtoint ptr %20 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = sub i64 %22, %23
+  %25 = sdiv exact i64 %24, 16
+  %26 = ashr i64 %25, 1
+  %27 = getelementptr %struct.JsonPathKeyword, ptr %19, i64 %26
+  store ptr %27, ptr %6, align 8
+  %28 = load ptr, ptr %6, align 8
+  %29 = getelementptr inbounds %struct.JsonPathKeyword, ptr %28, i32 0, i32 0
+  %30 = load i16, ptr %29, align 8
+  %31 = sext i16 %30 to i32
+  %32 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp eq i32 %31, %33
+  br i1 %34, label %35, label %44
 
-32:                                               ; preds = %16
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.JsonPathKeyword, ptr %33, i32 0, i32 3
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr @scanstring, align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  %38 = sext i32 %37 to i64
-  %39 = call i32 @pg_strncasecmp(ptr noundef %35, ptr noundef %36, i64 noundef %38)
-  store i32 %39, ptr %3, align 4
-  br label %47
+35:                                               ; preds = %18
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds %struct.JsonPathKeyword, ptr %36, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr @scanstring, align 8
+  %40 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  %41 = load i32, ptr %40, align 8
+  %42 = sext i32 %41 to i64
+  %43 = call i32 @pg_strncasecmp(ptr noundef %38, ptr noundef %39, i64 noundef %42)
+  store i32 %43, ptr %3, align 4
+  br label %52
 
-40:                                               ; preds = %16
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.JsonPathKeyword, ptr %41, i32 0, i32 0
-  %43 = load i16, ptr %42, align 8
-  %44 = sext i16 %43 to i32
-  %45 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  %46 = sub i32 %44, %45
-  store i32 %46, ptr %3, align 4
-  br label %47
+44:                                               ; preds = %18
+  %45 = load ptr, ptr %6, align 8
+  %46 = getelementptr inbounds %struct.JsonPathKeyword, ptr %45, i32 0, i32 0
+  %47 = load i16, ptr %46, align 8
+  %48 = sext i16 %47 to i32
+  %49 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  %50 = load i32, ptr %49, align 8
+  %51 = sub i32 %48, %50
+  store i32 %51, ptr %3, align 4
+  br label %52
 
-47:                                               ; preds = %40, %32
-  %48 = load i32, ptr %3, align 4
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %50, label %53
+52:                                               ; preds = %44, %35
+  %53 = load i32, ptr %3, align 4
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %55, label %58
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr %struct.JsonPathKeyword, ptr %51, i64 1
-  store ptr %52, ptr %4, align 8
-  br label %80
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr %struct.JsonPathKeyword, ptr %56, i64 1
+  store ptr %57, ptr %4, align 8
+  br label %86
 
-53:                                               ; preds = %47
-  %54 = load i32, ptr %3, align 4
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %56, label %58
+58:                                               ; preds = %52
+  %59 = load i32, ptr %3, align 4
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %61, label %63
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %6, align 8
-  store ptr %57, ptr %5, align 8
-  br label %79
-
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct.JsonPathKeyword, ptr %59, i32 0, i32 1
-  %61 = load i8, ptr %60, align 2
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %71
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %6, align 8
+  store ptr %62, ptr %5, align 8
+  br label %85
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct.JsonPathKeyword, ptr %64, i32 0, i32 3
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr @scanstring, align 8
-  %68 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  %69 = sext i32 %68 to i64
-  %70 = call i32 @strncmp(ptr noundef %66, ptr noundef %67, i64 noundef %69) #11
-  store i32 %70, ptr %3, align 4
-  br label %71
+  %65 = getelementptr inbounds %struct.JsonPathKeyword, ptr %64, i32 0, i32 1
+  %66 = load i8, ptr %65, align 2
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %77
 
-71:                                               ; preds = %63, %58
-  %72 = load i32, ptr %3, align 4
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %78
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %6, align 8
+  %70 = getelementptr inbounds %struct.JsonPathKeyword, ptr %69, i32 0, i32 3
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr @scanstring, align 8
+  %73 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  %74 = load i32, ptr %73, align 8
+  %75 = sext i32 %74 to i64
+  %76 = call i32 @strncmp(ptr noundef %71, ptr noundef %72, i64 noundef %75) #11
+  store i32 %76, ptr %3, align 4
+  br label %77
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %6, align 8
-  %76 = getelementptr inbounds %struct.JsonPathKeyword, ptr %75, i32 0, i32 2
-  %77 = load i32, ptr %76, align 4
-  store i32 %77, ptr %2, align 4
-  br label %78
+77:                                               ; preds = %68, %63
+  %78 = load i32, ptr %3, align 4
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %84
 
-78:                                               ; preds = %74, %71
-  br label %81
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %6, align 8
+  %82 = getelementptr inbounds %struct.JsonPathKeyword, ptr %81, i32 0, i32 2
+  %83 = load i32, ptr %82, align 4
+  store i32 %83, ptr %2, align 4
+  br label %84
 
-79:                                               ; preds = %56
-  br label %80
+84:                                               ; preds = %80, %77
+  br label %87
 
-80:                                               ; preds = %79, %50
-  br label %12, !llvm.loop !7
+85:                                               ; preds = %61
+  br label %86
 
-81:                                               ; preds = %78, %12
-  %82 = load i32, ptr %2, align 4
-  store i32 %82, ptr %1, align 4
-  br label %83
+86:                                               ; preds = %85, %55
+  br label %14, !llvm.loop !7
 
-83:                                               ; preds = %81, %9
-  %84 = load i32, ptr %1, align 4
-  ret i32 %84
+87:                                               ; preds = %84, %14
+  %88 = load i32, ptr %2, align 4
+  store i32 %88, ptr %1, align 4
+  br label %89
+
+89:                                               ; preds = %87, %11
+  %90 = load i32, ptr %1, align 4
+  ret i32 %90
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1295,22 +1304,25 @@ define internal void @addchar(i1 noundef zeroext %0, i8 noundef signext %1) #0 {
   call void @resizeString(i1 noundef zeroext %7, i32 noundef 1)
   %8 = load i8, ptr %4, align 1
   %9 = load ptr, ptr @scanstring, align 8
-  %10 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr i8, ptr %9, i64 %11
-  store i8 %8, ptr %12, align 1
-  %13 = load i8, ptr %4, align 1
-  %14 = sext i8 %13 to i32
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %16, label %19
+  %10 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr i8, ptr %9, i64 %12
+  store i8 %8, ptr %13, align 1
+  %14 = load i8, ptr %4, align 1
+  %15 = sext i8 %14 to i32
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %22
 
-16:                                               ; preds = %2
-  %17 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  %18 = add i32 %17, 1
-  store i32 %18, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  br label %19
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  %19 = load i32, ptr %18, align 8
+  %20 = add i32 %19, 1
+  %21 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  store i32 %20, ptr %21, align 8
+  br label %22
 
-19:                                               ; preds = %16, %2
+22:                                               ; preds = %17, %2
   ret void
 }
 
@@ -3388,7 +3400,7 @@ define internal void @resizeString(i1 noundef zeroext %0, i32 noundef %1) #0 {
   store i32 %1, ptr %4, align 4
   %6 = load i8, ptr %3, align 1
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %19
+  br i1 %7, label %8, label %22
 
 8:                                                ; preds = %2
   %9 = load i32, ptr %4, align 4
@@ -3404,51 +3416,61 @@ define internal void @resizeString(i1 noundef zeroext %0, i32 noundef %1) #0 {
 
 14:                                               ; preds = %12, %11
   %15 = phi i32 [ 32, %11 ], [ %13, %12 ]
-  store i32 %15, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 2), align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 2), align 4
-  %17 = sext i32 %16 to i64
-  %18 = call ptr @palloc(i64 noundef %17)
-  store ptr %18, ptr @scanstring, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  br label %41
+  %16 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 2
+  store i32 %15, ptr %16, align 4
+  %17 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 2
+  %18 = load i32, ptr %17, align 4
+  %19 = sext i32 %18 to i64
+  %20 = call ptr @palloc(i64 noundef %19)
+  store ptr %20, ptr @scanstring, align 8
+  %21 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  store i32 0, ptr %21, align 8
+  br label %51
 
-19:                                               ; preds = %2
-  %20 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  %21 = load i32, ptr %4, align 4
-  %22 = add i32 %20, %21
-  %23 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 2), align 4
-  %24 = icmp sge i32 %22, %23
-  br i1 %24, label %25, label %40
+22:                                               ; preds = %2
+  %23 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  %25 = load i32, ptr %4, align 4
+  %26 = add i32 %24, %25
+  %27 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 2
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp sge i32 %26, %28
+  br i1 %29, label %30, label %50
 
-25:                                               ; preds = %19
-  br label %26
+30:                                               ; preds = %22
+  br label %31
 
-26:                                               ; preds = %32, %25
-  %27 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 1), align 8
-  %28 = load i32, ptr %4, align 4
-  %29 = add i32 %27, %28
-  %30 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 2), align 4
-  %31 = icmp sge i32 %29, %30
-  br i1 %31, label %32, label %35
+31:                                               ; preds = %39, %30
+  %32 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 1
+  %33 = load i32, ptr %32, align 8
+  %34 = load i32, ptr %4, align 4
+  %35 = add i32 %33, %34
+  %36 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 2
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp sge i32 %35, %37
+  br i1 %38, label %39, label %44
 
-32:                                               ; preds = %26
-  %33 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 2), align 4
-  %34 = mul i32 %33, 2
-  store i32 %34, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 2), align 4
-  br label %26, !llvm.loop !18
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 2
+  %41 = load i32, ptr %40, align 4
+  %42 = mul i32 %41, 2
+  %43 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 2
+  store i32 %42, ptr %43, align 4
+  br label %31, !llvm.loop !18
 
-35:                                               ; preds = %26
-  %36 = load ptr, ptr @scanstring, align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct.JsonPathString, ptr @scanstring, i32 0, i32 2), align 4
-  %38 = sext i32 %37 to i64
-  %39 = call ptr @repalloc(ptr noundef %36, i64 noundef %38)
-  store ptr %39, ptr @scanstring, align 8
-  br label %40
+44:                                               ; preds = %31
+  %45 = load ptr, ptr @scanstring, align 8
+  %46 = getelementptr inbounds %struct.JsonPathString, ptr @scanstring, i32 0, i32 2
+  %47 = load i32, ptr %46, align 4
+  %48 = sext i32 %47 to i64
+  %49 = call ptr @repalloc(ptr noundef %45, i64 noundef %48)
+  store ptr %49, ptr @scanstring, align 8
+  br label %50
 
-40:                                               ; preds = %35, %19
-  br label %41
+50:                                               ; preds = %44, %22
+  br label %51
 
-41:                                               ; preds = %40, %14
+51:                                               ; preds = %50, %14
   ret void
 }
 

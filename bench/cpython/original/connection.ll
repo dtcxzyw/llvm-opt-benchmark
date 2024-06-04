@@ -6352,18 +6352,19 @@ if.end31:                                         ; preds = %if.end28
   %18 = load ptr, ptr %str, align 8
   %19 = load i64, ptr %sz, align 8
   %conv = trunc i64 %19 to i32
-  call void @sqlite3_result_text(ptr noundef %17, ptr noundef %18, i32 noundef %conv, ptr noundef inttoptr (i64 -1 to ptr))
+  %20 = inttoptr i64 -1 to ptr
+  call void @sqlite3_result_text(ptr noundef %17, ptr noundef %18, i32 noundef %conv, ptr noundef %20)
   br label %if.end52
 
 if.else32:                                        ; preds = %if.else20
-  %20 = load ptr, ptr %py_val.addr, align 8
-  %call33 = call i32 @PyObject_CheckBuffer(ptr noundef %20)
+  %21 = load ptr, ptr %py_val.addr, align 8
+  %call33 = call i32 @PyObject_CheckBuffer(ptr noundef %21)
   %tobool34 = icmp ne i32 %call33, 0
   br i1 %tobool34, label %if.then35, label %if.else47
 
 if.then35:                                        ; preds = %if.else32
-  %21 = load ptr, ptr %py_val.addr, align 8
-  %call36 = call i32 @PyObject_GetBuffer(ptr noundef %21, ptr noundef %view, i32 noundef 0)
+  %22 = load ptr, ptr %py_val.addr, align 8
+  %call36 = call i32 @PyObject_GetBuffer(ptr noundef %22, ptr noundef %view, i32 noundef 0)
   %cmp37 = icmp ne i32 %call36, 0
   br i1 %cmp37, label %if.then39, label %if.end40
 
@@ -6373,42 +6374,43 @@ if.then39:                                        ; preds = %if.then35
 
 if.end40:                                         ; preds = %if.then35
   %len = getelementptr inbounds %struct.Py_buffer, ptr %view, i32 0, i32 2
-  %22 = load i64, ptr %len, align 8
-  %cmp41 = icmp sgt i64 %22, 2147483647
+  %23 = load i64, ptr %len, align 8
+  %cmp41 = icmp sgt i64 %23, 2147483647
   br i1 %cmp41, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.end40
-  %23 = load ptr, ptr @PyExc_OverflowError, align 8
-  call void @PyErr_SetString(ptr noundef %23, ptr noundef @.str.57)
+  %24 = load ptr, ptr @PyExc_OverflowError, align 8
+  call void @PyErr_SetString(ptr noundef %24, ptr noundef @.str.57)
   call void @PyBuffer_Release(ptr noundef %view)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end44:                                         ; preds = %if.end40
-  %24 = load ptr, ptr %context.addr, align 8
+  %25 = load ptr, ptr %context.addr, align 8
   %buf = getelementptr inbounds %struct.Py_buffer, ptr %view, i32 0, i32 0
-  %25 = load ptr, ptr %buf, align 8
+  %26 = load ptr, ptr %buf, align 8
   %len45 = getelementptr inbounds %struct.Py_buffer, ptr %view, i32 0, i32 2
-  %26 = load i64, ptr %len45, align 8
-  %conv46 = trunc i64 %26 to i32
-  call void @sqlite3_result_blob(ptr noundef %24, ptr noundef %25, i32 noundef %conv46, ptr noundef inttoptr (i64 -1 to ptr))
+  %27 = load i64, ptr %len45, align 8
+  %conv46 = trunc i64 %27 to i32
+  %28 = inttoptr i64 -1 to ptr
+  call void @sqlite3_result_blob(ptr noundef %25, ptr noundef %26, i32 noundef %conv46, ptr noundef %28)
   call void @PyBuffer_Release(ptr noundef %view)
   br label %if.end51
 
 if.else47:                                        ; preds = %if.else32
-  %27 = load ptr, ptr %context.addr, align 8
-  %call48 = call ptr @sqlite3_user_data(ptr noundef %27)
+  %29 = load ptr, ptr %context.addr, align 8
+  %call48 = call ptr @sqlite3_user_data(ptr noundef %29)
   store ptr %call48, ptr %ctx, align 8
-  %28 = load ptr, ptr %ctx, align 8
-  %state = getelementptr inbounds %struct._callback_context, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %state, align 8
-  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %29, i32 0, i32 8
-  %30 = load ptr, ptr %ProgrammingError, align 8
-  %31 = load ptr, ptr %py_val.addr, align 8
-  %call49 = call ptr @Py_TYPE(ptr noundef %31)
+  %30 = load ptr, ptr %ctx, align 8
+  %state = getelementptr inbounds %struct._callback_context, ptr %30, i32 0, i32 2
+  %31 = load ptr, ptr %state, align 8
+  %ProgrammingError = getelementptr inbounds %struct.pysqlite_state, ptr %31, i32 0, i32 8
+  %32 = load ptr, ptr %ProgrammingError, align 8
+  %33 = load ptr, ptr %py_val.addr, align 8
+  %call49 = call ptr @Py_TYPE(ptr noundef %33)
   %tp_name = getelementptr inbounds %struct._typeobject, ptr %call49, i32 0, i32 1
-  %32 = load ptr, ptr %tp_name, align 8
-  %call50 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %30, ptr noundef @.str.58, ptr noundef %32)
+  %34 = load ptr, ptr %tp_name, align 8
+  %call50 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %32, ptr noundef @.str.58, ptr noundef %34)
   store i32 -1, ptr %retval, align 4
   br label %return
 
@@ -6429,8 +6431,8 @@ if.end55:                                         ; preds = %if.end54, %if.then
   br label %return
 
 return:                                           ; preds = %if.end55, %if.else47, %if.then43, %if.then39, %if.then30, %if.then27, %if.then18, %if.then7
-  %33 = load i32, ptr %retval, align 4
-  ret i32 %33
+  %35 = load i32, ptr %retval, align 4
+  ret i32 %35
 }
 
 declare void @_PyErr_ChainExceptions1(ptr noundef) #1

@@ -1550,51 +1550,63 @@ entry:
   store float 0.000000e+00, ptr %ref.tmp3, align 4
   store float 1.000000e+00, ptr %ref.tmp4, align 4
   store float 0.000000e+00, ptr %ref.tmp5, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 1), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
+  %0 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 1
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5)
   store float 0.000000e+00, ptr %ref.tmp6, align 4
   store float 0.000000e+00, ptr %ref.tmp7, align 4
   store float 1.000000e+00, ptr %ref.tmp8, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 2), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
+  %1 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 2
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8)
   store float 1.000000e+00, ptr %ref.tmp9, align 4
   store float 1.000000e+00, ptr %ref.tmp10, align 4
   store float 0.000000e+00, ptr %ref.tmp11, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 3), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11)
+  %2 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 3
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp11)
   store float 1.000000e+00, ptr %ref.tmp12, align 4
   store float 0.000000e+00, ptr %ref.tmp13, align 4
   store float 1.000000e+00, ptr %ref.tmp14, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 4), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14)
+  %3 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 4
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp14)
   store float 0.000000e+00, ptr %ref.tmp15, align 4
   store float 1.000000e+00, ptr %ref.tmp16, align 4
   store float 1.000000e+00, ptr %ref.tmp17, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 5), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17)
+  %4 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 5
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp17)
   store float 1.000000e+00, ptr %ref.tmp18, align 4
   store float -1.000000e+00, ptr %ref.tmp19, align 4
   store float 0.000000e+00, ptr %ref.tmp20, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 6), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
+  %5 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 6
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20)
   store float 1.000000e+00, ptr %ref.tmp21, align 4
   store float 0.000000e+00, ptr %ref.tmp22, align 4
   store float -1.000000e+00, ptr %ref.tmp23, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 7), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23)
+  %6 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 7
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23)
   store float 0.000000e+00, ptr %ref.tmp24, align 4
   store float 1.000000e+00, ptr %ref.tmp25, align 4
   store float -1.000000e+00, ptr %ref.tmp26, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 8), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp24, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp26)
+  %7 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 8
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp24, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp26)
   store float 1.000000e+00, ptr %ref.tmp27, align 4
   store float 1.000000e+00, ptr %ref.tmp28, align 4
   store float 1.000000e+00, ptr %ref.tmp29, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 9), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29)
+  %8 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 9
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp29)
   store float 1.000000e+00, ptr %ref.tmp30, align 4
   store float -1.000000e+00, ptr %ref.tmp31, align 4
   store float 1.000000e+00, ptr %ref.tmp32, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 10), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32)
+  %9 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 10
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp30, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp32)
   store float 1.000000e+00, ptr %ref.tmp33, align 4
   store float 1.000000e+00, ptr %ref.tmp34, align 4
   store float -1.000000e+00, ptr %ref.tmp35, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 11), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp33, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35)
+  %10 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 11
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp33, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp34, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp35)
   store float 1.000000e+00, ptr %ref.tmp36, align 4
   store float -1.000000e+00, ptr %ref.tmp37, align 4
   store float -1.000000e+00, ptr %ref.tmp38, align 4
-  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZL3dop, i64 12), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp38)
+  %11 = getelementptr inbounds %class.btVector3, ptr @_ZL3dop, i64 12
+  call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp38)
   ret void
 }
 
@@ -2583,14 +2595,16 @@ invoke.cont250:                                   ; preds = %init
   store float 0.000000e+00, ptr %ref.tmp251, align 4
   store float 1.000000e+00, ptr %ref.tmp252, align 4
   store float 0.000000e+00, ptr %ref.tmp253, align 4
-  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawiE4axis, i64 1), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp251, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp252, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp253)
+  %154 = getelementptr inbounds %class.btVector3, ptr @_ZZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawiE4axis, i64 1
+  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %154, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp251, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp252, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp253)
           to label %invoke.cont254 unwind label %lpad249
 
 invoke.cont254:                                   ; preds = %invoke.cont250
   store float 0.000000e+00, ptr %ref.tmp255, align 4
   store float 0.000000e+00, ptr %ref.tmp256, align 4
   store float 1.000000e+00, ptr %ref.tmp257, align 4
-  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btVector3, ptr @_ZZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawiE4axis, i64 2), ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp255, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp256, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp257)
+  %155 = getelementptr inbounds %class.btVector3, ptr @_ZZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawiE4axis, i64 2
+  invoke void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %155, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp255, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp256, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp257)
           to label %invoke.cont258 unwind label %lpad249
 
 invoke.cont258:                                   ; preds = %invoke.cont254
@@ -2602,226 +2616,226 @@ init.end:                                         ; preds = %invoke.cont258, %in
   br label %for.cond260
 
 for.cond260:                                      ; preds = %for.inc343, %init.end
-  %154 = load i32, ptr %i, align 4
-  %155 = load ptr, ptr %psb.addr, align 8
-  %m_rcontacts = getelementptr inbounds %class.btSoftBody, ptr %155, i32 0, i32 21
+  %156 = load i32, ptr %i, align 4
+  %157 = load ptr, ptr %psb.addr, align 8
+  %m_rcontacts = getelementptr inbounds %class.btSoftBody, ptr %157, i32 0, i32 21
   %call261 = call noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody8RContactEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_rcontacts)
-  %cmp262 = icmp slt i32 %154, %call261
+  %cmp262 = icmp slt i32 %156, %call261
   br i1 %cmp262, label %for.body263, label %for.end345
 
 for.body263:                                      ; preds = %for.cond260
-  %156 = load ptr, ptr %psb.addr, align 8
-  %m_rcontacts264 = getelementptr inbounds %class.btSoftBody, ptr %156, i32 0, i32 21
-  %157 = load i32, ptr %i, align 4
-  %call265 = call noundef nonnull align 8 dereferenceable(808) ptr @_ZN20btAlignedObjectArrayIN10btSoftBody8RContactEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_rcontacts264, i32 noundef %157)
+  %158 = load ptr, ptr %psb.addr, align 8
+  %m_rcontacts264 = getelementptr inbounds %class.btSoftBody, ptr %158, i32 0, i32 21
+  %159 = load i32, ptr %i, align 4
+  %call265 = call noundef nonnull align 8 dereferenceable(808) ptr @_ZN20btAlignedObjectArrayIN10btSoftBody8RContactEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_rcontacts264, i32 noundef %159)
   store ptr %call265, ptr %c, align 8
-  %158 = load ptr, ptr %c, align 8
-  %m_node = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %158, i32 0, i32 1
-  %159 = load ptr, ptr %m_node, align 8
-  %m_x266 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %159, i32 0, i32 1
   %160 = load ptr, ptr %c, align 8
-  %m_cti = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %160, i32 0, i32 0
+  %m_node = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %160, i32 0, i32 1
+  %161 = load ptr, ptr %m_node, align 8
+  %m_x266 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %161, i32 0, i32 1
+  %162 = load ptr, ptr %c, align 8
+  %m_cti = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %162, i32 0, i32 0
   %m_normal = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti, i32 0, i32 1
-  %161 = load ptr, ptr %c, align 8
-  %m_node269 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %161, i32 0, i32 1
-  %162 = load ptr, ptr %m_node269, align 8
-  %m_x270 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %162, i32 0, i32 1
   %163 = load ptr, ptr %c, align 8
-  %m_cti271 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %163, i32 0, i32 0
+  %m_node269 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %163, i32 0, i32 1
+  %164 = load ptr, ptr %m_node269, align 8
+  %m_x270 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %164, i32 0, i32 1
+  %165 = load ptr, ptr %c, align 8
+  %m_cti271 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %165, i32 0, i32 0
   %m_normal272 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti271, i32 0, i32 1
   %call273 = call noundef float @_Z5btDotRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_x270, ptr noundef nonnull align 4 dereferenceable(16) %m_normal272)
-  %164 = load ptr, ptr %c, align 8
-  %m_cti274 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %164, i32 0, i32 0
+  %166 = load ptr, ptr %c, align 8
+  %m_cti274 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %166, i32 0, i32 0
   %m_offset = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti274, i32 0, i32 3
-  %165 = load float, ptr %m_offset, align 8
-  %add = fadd float %call273, %165
+  %167 = load float, ptr %m_offset, align 8
+  %add = fadd float %call273, %167
   store float %add, ptr %ref.tmp268, align 4
   %call275 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %m_normal, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp268)
   %coerce.dive276 = getelementptr inbounds %class.btVector3, ptr %ref.tmp267, i32 0, i32 0
-  %166 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive276, i32 0, i32 0
-  %167 = extractvalue { <2 x float>, <2 x float> } %call275, 0
-  store <2 x float> %167, ptr %166, align 4
-  %168 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive276, i32 0, i32 1
-  %169 = extractvalue { <2 x float>, <2 x float> } %call275, 1
+  %168 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive276, i32 0, i32 0
+  %169 = extractvalue { <2 x float>, <2 x float> } %call275, 0
   store <2 x float> %169, ptr %168, align 4
+  %170 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive276, i32 0, i32 1
+  %171 = extractvalue { <2 x float>, <2 x float> } %call275, 1
+  store <2 x float> %171, ptr %170, align 4
   %call277 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_x266, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp267)
   %coerce.dive278 = getelementptr inbounds %class.btVector3, ptr %o, i32 0, i32 0
-  %170 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive278, i32 0, i32 0
-  %171 = extractvalue { <2 x float>, <2 x float> } %call277, 0
-  store <2 x float> %171, ptr %170, align 4
-  %172 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive278, i32 0, i32 1
-  %173 = extractvalue { <2 x float>, <2 x float> } %call277, 1
+  %172 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive278, i32 0, i32 0
+  %173 = extractvalue { <2 x float>, <2 x float> } %call277, 0
   store <2 x float> %173, ptr %172, align 4
-  %174 = load ptr, ptr %c, align 8
-  %m_cti280 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %174, i32 0, i32 0
+  %174 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive278, i32 0, i32 1
+  %175 = extractvalue { <2 x float>, <2 x float> } %call277, 1
+  store <2 x float> %175, ptr %174, align 4
+  %176 = load ptr, ptr %c, align 8
+  %m_cti280 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %176, i32 0, i32 0
   %m_normal281 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti280, i32 0, i32 1
-  %175 = load ptr, ptr %c, align 8
-  %m_cti282 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %175, i32 0, i32 0
+  %177 = load ptr, ptr %c, align 8
+  %m_cti282 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %177, i32 0, i32 0
   %m_normal283 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti282, i32 0, i32 1
   %call284 = call noundef i32 @_ZNK9btVector37minAxisEv(ptr noundef nonnull align 4 dereferenceable(16) %m_normal283)
   %idxprom = sext i32 %call284 to i64
   %arrayidx285 = getelementptr inbounds [3 x %class.btVector3], ptr @_ZZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawiE4axis, i64 0, i64 %idxprom
   %call286 = call { <2 x float>, <2 x float> } @_Z7btCrossRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %m_normal281, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx285)
   %coerce.dive287 = getelementptr inbounds %class.btVector3, ptr %ref.tmp279, i32 0, i32 0
-  %176 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive287, i32 0, i32 0
-  %177 = extractvalue { <2 x float>, <2 x float> } %call286, 0
-  store <2 x float> %177, ptr %176, align 4
-  %178 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive287, i32 0, i32 1
-  %179 = extractvalue { <2 x float>, <2 x float> } %call286, 1
+  %178 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive287, i32 0, i32 0
+  %179 = extractvalue { <2 x float>, <2 x float> } %call286, 0
   store <2 x float> %179, ptr %178, align 4
+  %180 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive287, i32 0, i32 1
+  %181 = extractvalue { <2 x float>, <2 x float> } %call286, 1
+  store <2 x float> %181, ptr %180, align 4
   %call288 = call { <2 x float>, <2 x float> } @_ZNK9btVector310normalizedEv(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp279)
   %coerce.dive289 = getelementptr inbounds %class.btVector3, ptr %x, i32 0, i32 0
-  %180 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive289, i32 0, i32 0
-  %181 = extractvalue { <2 x float>, <2 x float> } %call288, 0
-  store <2 x float> %181, ptr %180, align 4
-  %182 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive289, i32 0, i32 1
-  %183 = extractvalue { <2 x float>, <2 x float> } %call288, 1
+  %182 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive289, i32 0, i32 0
+  %183 = extractvalue { <2 x float>, <2 x float> } %call288, 0
   store <2 x float> %183, ptr %182, align 4
-  %184 = load ptr, ptr %c, align 8
-  %m_cti291 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %184, i32 0, i32 0
+  %184 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive289, i32 0, i32 1
+  %185 = extractvalue { <2 x float>, <2 x float> } %call288, 1
+  store <2 x float> %185, ptr %184, align 4
+  %186 = load ptr, ptr %c, align 8
+  %m_cti291 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %186, i32 0, i32 0
   %m_normal292 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti291, i32 0, i32 1
   %call293 = call { <2 x float>, <2 x float> } @_Z7btCrossRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %x, ptr noundef nonnull align 4 dereferenceable(16) %m_normal292)
   %coerce.dive294 = getelementptr inbounds %class.btVector3, ptr %ref.tmp290, i32 0, i32 0
-  %185 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive294, i32 0, i32 0
-  %186 = extractvalue { <2 x float>, <2 x float> } %call293, 0
-  store <2 x float> %186, ptr %185, align 4
-  %187 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive294, i32 0, i32 1
-  %188 = extractvalue { <2 x float>, <2 x float> } %call293, 1
+  %187 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive294, i32 0, i32 0
+  %188 = extractvalue { <2 x float>, <2 x float> } %call293, 0
   store <2 x float> %188, ptr %187, align 4
+  %189 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive294, i32 0, i32 1
+  %190 = extractvalue { <2 x float>, <2 x float> } %call293, 1
+  store <2 x float> %190, ptr %189, align 4
   %call295 = call { <2 x float>, <2 x float> } @_ZNK9btVector310normalizedEv(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp290)
   %coerce.dive296 = getelementptr inbounds %class.btVector3, ptr %y, i32 0, i32 0
-  %189 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive296, i32 0, i32 0
-  %190 = extractvalue { <2 x float>, <2 x float> } %call295, 0
-  store <2 x float> %190, ptr %189, align 4
-  %191 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive296, i32 0, i32 1
-  %192 = extractvalue { <2 x float>, <2 x float> } %call295, 1
+  %191 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive296, i32 0, i32 0
+  %192 = extractvalue { <2 x float>, <2 x float> } %call295, 0
   store <2 x float> %192, ptr %191, align 4
-  %193 = load ptr, ptr %idraw.addr, align 8
+  %193 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive296, i32 0, i32 1
+  %194 = extractvalue { <2 x float>, <2 x float> } %call295, 1
+  store <2 x float> %194, ptr %193, align 4
+  %195 = load ptr, ptr %idraw.addr, align 8
   %call299 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %x, ptr noundef nonnull align 4 dereferenceable(4) %nscl)
   %coerce.dive300 = getelementptr inbounds %class.btVector3, ptr %ref.tmp298, i32 0, i32 0
-  %194 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive300, i32 0, i32 0
-  %195 = extractvalue { <2 x float>, <2 x float> } %call299, 0
-  store <2 x float> %195, ptr %194, align 4
-  %196 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive300, i32 0, i32 1
-  %197 = extractvalue { <2 x float>, <2 x float> } %call299, 1
+  %196 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive300, i32 0, i32 0
+  %197 = extractvalue { <2 x float>, <2 x float> } %call299, 0
   store <2 x float> %197, ptr %196, align 4
+  %198 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive300, i32 0, i32 1
+  %199 = extractvalue { <2 x float>, <2 x float> } %call299, 1
+  store <2 x float> %199, ptr %198, align 4
   %call301 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %o, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp298)
   %coerce.dive302 = getelementptr inbounds %class.btVector3, ptr %ref.tmp297, i32 0, i32 0
-  %198 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive302, i32 0, i32 0
-  %199 = extractvalue { <2 x float>, <2 x float> } %call301, 0
-  store <2 x float> %199, ptr %198, align 4
-  %200 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive302, i32 0, i32 1
-  %201 = extractvalue { <2 x float>, <2 x float> } %call301, 1
+  %200 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive302, i32 0, i32 0
+  %201 = extractvalue { <2 x float>, <2 x float> } %call301, 0
   store <2 x float> %201, ptr %200, align 4
+  %202 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive302, i32 0, i32 1
+  %203 = extractvalue { <2 x float>, <2 x float> } %call301, 1
+  store <2 x float> %203, ptr %202, align 4
   %call305 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %x, ptr noundef nonnull align 4 dereferenceable(4) %nscl)
   %coerce.dive306 = getelementptr inbounds %class.btVector3, ptr %ref.tmp304, i32 0, i32 0
-  %202 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive306, i32 0, i32 0
-  %203 = extractvalue { <2 x float>, <2 x float> } %call305, 0
-  store <2 x float> %203, ptr %202, align 4
-  %204 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive306, i32 0, i32 1
-  %205 = extractvalue { <2 x float>, <2 x float> } %call305, 1
+  %204 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive306, i32 0, i32 0
+  %205 = extractvalue { <2 x float>, <2 x float> } %call305, 0
   store <2 x float> %205, ptr %204, align 4
+  %206 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive306, i32 0, i32 1
+  %207 = extractvalue { <2 x float>, <2 x float> } %call305, 1
+  store <2 x float> %207, ptr %206, align 4
   %call307 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %o, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp304)
   %coerce.dive308 = getelementptr inbounds %class.btVector3, ptr %ref.tmp303, i32 0, i32 0
-  %206 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive308, i32 0, i32 0
-  %207 = extractvalue { <2 x float>, <2 x float> } %call307, 0
-  store <2 x float> %207, ptr %206, align 4
-  %208 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive308, i32 0, i32 1
-  %209 = extractvalue { <2 x float>, <2 x float> } %call307, 1
+  %208 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive308, i32 0, i32 0
+  %209 = extractvalue { <2 x float>, <2 x float> } %call307, 0
   store <2 x float> %209, ptr %208, align 4
-  %vtable309 = load ptr, ptr %193, align 8
+  %210 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive308, i32 0, i32 1
+  %211 = extractvalue { <2 x float>, <2 x float> } %call307, 1
+  store <2 x float> %211, ptr %210, align 4
+  %vtable309 = load ptr, ptr %195, align 8
   %vfn310 = getelementptr inbounds ptr, ptr %vtable309, i64 4
-  %210 = load ptr, ptr %vfn310, align 8
-  call void %210(ptr noundef nonnull align 8 dereferenceable(8) %193, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp297, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp303, ptr noundef nonnull align 4 dereferenceable(16) %ccolor)
-  %211 = load ptr, ptr %idraw.addr, align 8
+  %212 = load ptr, ptr %vfn310, align 8
+  call void %212(ptr noundef nonnull align 8 dereferenceable(8) %195, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp297, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp303, ptr noundef nonnull align 4 dereferenceable(16) %ccolor)
+  %213 = load ptr, ptr %idraw.addr, align 8
   %call313 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %y, ptr noundef nonnull align 4 dereferenceable(4) %nscl)
   %coerce.dive314 = getelementptr inbounds %class.btVector3, ptr %ref.tmp312, i32 0, i32 0
-  %212 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive314, i32 0, i32 0
-  %213 = extractvalue { <2 x float>, <2 x float> } %call313, 0
-  store <2 x float> %213, ptr %212, align 4
-  %214 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive314, i32 0, i32 1
-  %215 = extractvalue { <2 x float>, <2 x float> } %call313, 1
+  %214 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive314, i32 0, i32 0
+  %215 = extractvalue { <2 x float>, <2 x float> } %call313, 0
   store <2 x float> %215, ptr %214, align 4
+  %216 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive314, i32 0, i32 1
+  %217 = extractvalue { <2 x float>, <2 x float> } %call313, 1
+  store <2 x float> %217, ptr %216, align 4
   %call315 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %o, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp312)
   %coerce.dive316 = getelementptr inbounds %class.btVector3, ptr %ref.tmp311, i32 0, i32 0
-  %216 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive316, i32 0, i32 0
-  %217 = extractvalue { <2 x float>, <2 x float> } %call315, 0
-  store <2 x float> %217, ptr %216, align 4
-  %218 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive316, i32 0, i32 1
-  %219 = extractvalue { <2 x float>, <2 x float> } %call315, 1
+  %218 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive316, i32 0, i32 0
+  %219 = extractvalue { <2 x float>, <2 x float> } %call315, 0
   store <2 x float> %219, ptr %218, align 4
+  %220 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive316, i32 0, i32 1
+  %221 = extractvalue { <2 x float>, <2 x float> } %call315, 1
+  store <2 x float> %221, ptr %220, align 4
   %call319 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %y, ptr noundef nonnull align 4 dereferenceable(4) %nscl)
   %coerce.dive320 = getelementptr inbounds %class.btVector3, ptr %ref.tmp318, i32 0, i32 0
-  %220 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive320, i32 0, i32 0
-  %221 = extractvalue { <2 x float>, <2 x float> } %call319, 0
-  store <2 x float> %221, ptr %220, align 4
-  %222 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive320, i32 0, i32 1
-  %223 = extractvalue { <2 x float>, <2 x float> } %call319, 1
+  %222 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive320, i32 0, i32 0
+  %223 = extractvalue { <2 x float>, <2 x float> } %call319, 0
   store <2 x float> %223, ptr %222, align 4
+  %224 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive320, i32 0, i32 1
+  %225 = extractvalue { <2 x float>, <2 x float> } %call319, 1
+  store <2 x float> %225, ptr %224, align 4
   %call321 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %o, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp318)
   %coerce.dive322 = getelementptr inbounds %class.btVector3, ptr %ref.tmp317, i32 0, i32 0
-  %224 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive322, i32 0, i32 0
-  %225 = extractvalue { <2 x float>, <2 x float> } %call321, 0
-  store <2 x float> %225, ptr %224, align 4
-  %226 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive322, i32 0, i32 1
-  %227 = extractvalue { <2 x float>, <2 x float> } %call321, 1
+  %226 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive322, i32 0, i32 0
+  %227 = extractvalue { <2 x float>, <2 x float> } %call321, 0
   store <2 x float> %227, ptr %226, align 4
-  %vtable323 = load ptr, ptr %211, align 8
+  %228 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive322, i32 0, i32 1
+  %229 = extractvalue { <2 x float>, <2 x float> } %call321, 1
+  store <2 x float> %229, ptr %228, align 4
+  %vtable323 = load ptr, ptr %213, align 8
   %vfn324 = getelementptr inbounds ptr, ptr %vtable323, i64 4
-  %228 = load ptr, ptr %vfn324, align 8
-  call void %228(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp311, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp317, ptr noundef nonnull align 4 dereferenceable(16) %ccolor)
-  %229 = load ptr, ptr %idraw.addr, align 8
-  %230 = load ptr, ptr %c, align 8
-  %m_cti328 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %230, i32 0, i32 0
+  %230 = load ptr, ptr %vfn324, align 8
+  call void %230(ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp311, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp317, ptr noundef nonnull align 4 dereferenceable(16) %ccolor)
+  %231 = load ptr, ptr %idraw.addr, align 8
+  %232 = load ptr, ptr %c, align 8
+  %m_cti328 = getelementptr inbounds %"struct.btSoftBody::RContact", ptr %232, i32 0, i32 0
   %m_normal329 = getelementptr inbounds %"struct.btSoftBody::sCti", ptr %m_cti328, i32 0, i32 1
   %call330 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %m_normal329, ptr noundef nonnull align 4 dereferenceable(4) %nscl)
   %coerce.dive331 = getelementptr inbounds %class.btVector3, ptr %ref.tmp327, i32 0, i32 0
-  %231 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive331, i32 0, i32 0
-  %232 = extractvalue { <2 x float>, <2 x float> } %call330, 0
-  store <2 x float> %232, ptr %231, align 4
-  %233 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive331, i32 0, i32 1
-  %234 = extractvalue { <2 x float>, <2 x float> } %call330, 1
+  %233 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive331, i32 0, i32 0
+  %234 = extractvalue { <2 x float>, <2 x float> } %call330, 0
   store <2 x float> %234, ptr %233, align 4
+  %235 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive331, i32 0, i32 1
+  %236 = extractvalue { <2 x float>, <2 x float> } %call330, 1
+  store <2 x float> %236, ptr %235, align 4
   store float 3.000000e+00, ptr %ref.tmp332, align 4
   %call333 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp327, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp332)
   %coerce.dive334 = getelementptr inbounds %class.btVector3, ptr %ref.tmp326, i32 0, i32 0
-  %235 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive334, i32 0, i32 0
-  %236 = extractvalue { <2 x float>, <2 x float> } %call333, 0
-  store <2 x float> %236, ptr %235, align 4
-  %237 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive334, i32 0, i32 1
-  %238 = extractvalue { <2 x float>, <2 x float> } %call333, 1
+  %237 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive334, i32 0, i32 0
+  %238 = extractvalue { <2 x float>, <2 x float> } %call333, 0
   store <2 x float> %238, ptr %237, align 4
+  %239 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive334, i32 0, i32 1
+  %240 = extractvalue { <2 x float>, <2 x float> } %call333, 1
+  store <2 x float> %240, ptr %239, align 4
   %call335 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %o, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp326)
   %coerce.dive336 = getelementptr inbounds %class.btVector3, ptr %ref.tmp325, i32 0, i32 0
-  %239 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive336, i32 0, i32 0
-  %240 = extractvalue { <2 x float>, <2 x float> } %call335, 0
-  store <2 x float> %240, ptr %239, align 4
-  %241 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive336, i32 0, i32 1
-  %242 = extractvalue { <2 x float>, <2 x float> } %call335, 1
+  %241 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive336, i32 0, i32 0
+  %242 = extractvalue { <2 x float>, <2 x float> } %call335, 0
   store <2 x float> %242, ptr %241, align 4
+  %243 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive336, i32 0, i32 1
+  %244 = extractvalue { <2 x float>, <2 x float> } %call335, 1
+  store <2 x float> %244, ptr %243, align 4
   store float 1.000000e+00, ptr %ref.tmp338, align 4
   store float 1.000000e+00, ptr %ref.tmp339, align 4
   store float 0.000000e+00, ptr %ref.tmp340, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp337, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp338, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp339, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp340)
-  %vtable341 = load ptr, ptr %229, align 8
+  %vtable341 = load ptr, ptr %231, align 8
   %vfn342 = getelementptr inbounds ptr, ptr %vtable341, i64 4
-  %243 = load ptr, ptr %vfn342, align 8
-  call void %243(ptr noundef nonnull align 8 dereferenceable(8) %229, ptr noundef nonnull align 4 dereferenceable(16) %o, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp325, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp337)
+  %245 = load ptr, ptr %vfn342, align 8
+  call void %245(ptr noundef nonnull align 8 dereferenceable(8) %231, ptr noundef nonnull align 4 dereferenceable(16) %o, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp325, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp337)
   br label %for.inc343
 
 for.inc343:                                       ; preds = %for.body263
-  %244 = load i32, ptr %i, align 4
-  %inc344 = add nsw i32 %244, 1
+  %246 = load i32, ptr %i, align 4
+  %inc344 = add nsw i32 %246, 1
   store i32 %inc344, ptr %i, align 4
   br label %for.cond260, !llvm.loop !14
 
 lpad249:                                          ; preds = %invoke.cont254, %invoke.cont250, %init
-  %245 = landingpad { ptr, i32 }
+  %247 = landingpad { ptr, i32 }
           cleanup
-  %246 = extractvalue { ptr, i32 } %245, 0
-  store ptr %246, ptr %exn.slot, align 8
-  %247 = extractvalue { ptr, i32 } %245, 1
-  store i32 %247, ptr %ehselector.slot, align 4
+  %248 = extractvalue { ptr, i32 } %247, 0
+  store ptr %248, ptr %exn.slot, align 8
+  %249 = extractvalue { ptr, i32 } %247, 1
+  store i32 %249, ptr %ehselector.slot, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawiE4axis) #4
   br label %eh.resume
 
@@ -2829,8 +2843,8 @@ for.end345:                                       ; preds = %for.cond260
   br label %if.end346
 
 if.end346:                                        ; preds = %for.end345, %if.end241
-  %248 = load i32, ptr %drawflags.addr, align 4
-  %and347 = and i32 %248, 4
+  %250 = load i32, ptr %drawflags.addr, align 4
+  %and347 = and i32 %250, 4
   %cmp348 = icmp ne i32 0, %and347
   br i1 %cmp348, label %if.then349, label %if.end425
 
@@ -2845,25 +2859,25 @@ if.then349:                                       ; preds = %if.end346
   br label %for.cond354
 
 for.cond354:                                      ; preds = %for.inc422, %if.then349
-  %249 = load i32, ptr %i, align 4
-  %250 = load ptr, ptr %psb.addr, align 8
-  %m_faces = getelementptr inbounds %class.btSoftBody, ptr %250, i32 0, i32 14
+  %251 = load i32, ptr %i, align 4
+  %252 = load ptr, ptr %psb.addr, align 8
+  %m_faces = getelementptr inbounds %class.btSoftBody, ptr %252, i32 0, i32 14
   %call355 = call noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody4FaceEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_faces)
-  %cmp356 = icmp slt i32 %249, %call355
+  %cmp356 = icmp slt i32 %251, %call355
   br i1 %cmp356, label %for.body357, label %for.end424
 
 for.body357:                                      ; preds = %for.cond354
-  %251 = load ptr, ptr %psb.addr, align 8
-  %m_faces358 = getelementptr inbounds %class.btSoftBody, ptr %251, i32 0, i32 14
-  %252 = load i32, ptr %i, align 4
-  %call359 = call noundef nonnull align 8 dereferenceable(140) ptr @_ZN20btAlignedObjectArrayIN10btSoftBody4FaceEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_faces358, i32 noundef %252)
+  %253 = load ptr, ptr %psb.addr, align 8
+  %m_faces358 = getelementptr inbounds %class.btSoftBody, ptr %253, i32 0, i32 14
+  %254 = load i32, ptr %i, align 4
+  %call359 = call noundef nonnull align 8 dereferenceable(140) ptr @_ZN20btAlignedObjectArrayIN10btSoftBody4FaceEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_faces358, i32 noundef %254)
   store ptr %call359, ptr %f, align 8
-  %253 = load ptr, ptr %f, align 8
-  %m_material360 = getelementptr inbounds %"struct.btSoftBody::Feature", ptr %253, i32 0, i32 1
-  %254 = load ptr, ptr %m_material360, align 8
-  %m_flags361 = getelementptr inbounds %"struct.btSoftBody::Material", ptr %254, i32 0, i32 4
-  %255 = load i32, ptr %m_flags361, align 4
-  %and362 = and i32 %255, 1
+  %255 = load ptr, ptr %f, align 8
+  %m_material360 = getelementptr inbounds %"struct.btSoftBody::Feature", ptr %255, i32 0, i32 1
+  %256 = load ptr, ptr %m_material360, align 8
+  %m_flags361 = getelementptr inbounds %"struct.btSoftBody::Material", ptr %256, i32 0, i32 4
+  %257 = load i32, ptr %m_flags361, align 4
+  %and362 = and i32 %257, 1
   %cmp363 = icmp eq i32 0, %and362
   br i1 %cmp363, label %if.then364, label %if.end365
 
@@ -2872,139 +2886,139 @@ if.then364:                                       ; preds = %for.body357
 
 if.end365:                                        ; preds = %for.body357
   %arrayinit.begin = getelementptr inbounds [3 x %class.btVector3], ptr %x366, i64 0, i64 0
-  %256 = load ptr, ptr %f, align 8
-  %m_n367 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %256, i32 0, i32 1
+  %258 = load ptr, ptr %f, align 8
+  %m_n367 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %258, i32 0, i32 1
   %arrayidx368 = getelementptr inbounds [3 x ptr], ptr %m_n367, i64 0, i64 0
-  %257 = load ptr, ptr %arrayidx368, align 8
-  %m_x369 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %257, i32 0, i32 1
+  %259 = load ptr, ptr %arrayidx368, align 8
+  %m_x369 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %259, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayinit.begin, ptr align 8 %m_x369, i64 16, i1 false)
   %arrayinit.element = getelementptr inbounds %class.btVector3, ptr %arrayinit.begin, i64 1
-  %258 = load ptr, ptr %f, align 8
-  %m_n370 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %258, i32 0, i32 1
+  %260 = load ptr, ptr %f, align 8
+  %m_n370 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %260, i32 0, i32 1
   %arrayidx371 = getelementptr inbounds [3 x ptr], ptr %m_n370, i64 0, i64 1
-  %259 = load ptr, ptr %arrayidx371, align 8
-  %m_x372 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %259, i32 0, i32 1
+  %261 = load ptr, ptr %arrayidx371, align 8
+  %m_x372 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %261, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayinit.element, ptr align 8 %m_x372, i64 16, i1 false)
   %arrayinit.element373 = getelementptr inbounds %class.btVector3, ptr %arrayinit.element, i64 1
-  %260 = load ptr, ptr %f, align 8
-  %m_n374 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %260, i32 0, i32 1
+  %262 = load ptr, ptr %f, align 8
+  %m_n374 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %262, i32 0, i32 1
   %arrayidx375 = getelementptr inbounds [3 x ptr], ptr %m_n374, i64 0, i64 2
-  %261 = load ptr, ptr %arrayidx375, align 8
-  %m_x376 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %261, i32 0, i32 1
+  %263 = load ptr, ptr %arrayidx375, align 8
+  %m_x376 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %263, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayinit.element373, ptr align 8 %m_x376, i64 16, i1 false)
   %arrayidx380 = getelementptr inbounds [3 x %class.btVector3], ptr %x366, i64 0, i64 0
   %arrayidx381 = getelementptr inbounds [3 x %class.btVector3], ptr %x366, i64 0, i64 1
   %call382 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx380, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx381)
   %coerce.dive383 = getelementptr inbounds %class.btVector3, ptr %ref.tmp379, i32 0, i32 0
-  %262 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive383, i32 0, i32 0
-  %263 = extractvalue { <2 x float>, <2 x float> } %call382, 0
-  store <2 x float> %263, ptr %262, align 4
-  %264 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive383, i32 0, i32 1
-  %265 = extractvalue { <2 x float>, <2 x float> } %call382, 1
+  %264 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive383, i32 0, i32 0
+  %265 = extractvalue { <2 x float>, <2 x float> } %call382, 0
   store <2 x float> %265, ptr %264, align 4
+  %266 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive383, i32 0, i32 1
+  %267 = extractvalue { <2 x float>, <2 x float> } %call382, 1
+  store <2 x float> %267, ptr %266, align 4
   %arrayidx384 = getelementptr inbounds [3 x %class.btVector3], ptr %x366, i64 0, i64 2
   %call385 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp379, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx384)
   %coerce.dive386 = getelementptr inbounds %class.btVector3, ptr %ref.tmp378, i32 0, i32 0
-  %266 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive386, i32 0, i32 0
-  %267 = extractvalue { <2 x float>, <2 x float> } %call385, 0
-  store <2 x float> %267, ptr %266, align 4
-  %268 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive386, i32 0, i32 1
-  %269 = extractvalue { <2 x float>, <2 x float> } %call385, 1
+  %268 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive386, i32 0, i32 0
+  %269 = extractvalue { <2 x float>, <2 x float> } %call385, 0
   store <2 x float> %269, ptr %268, align 4
+  %270 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive386, i32 0, i32 1
+  %271 = extractvalue { <2 x float>, <2 x float> } %call385, 1
+  store <2 x float> %271, ptr %270, align 4
   store float 3.000000e+00, ptr %ref.tmp387, align 4
   %call388 = call { <2 x float>, <2 x float> } @_ZdvRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp378, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp387)
   %coerce.dive389 = getelementptr inbounds %class.btVector3, ptr %c377, i32 0, i32 0
-  %270 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive389, i32 0, i32 0
-  %271 = extractvalue { <2 x float>, <2 x float> } %call388, 0
-  store <2 x float> %271, ptr %270, align 4
-  %272 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive389, i32 0, i32 1
-  %273 = extractvalue { <2 x float>, <2 x float> } %call388, 1
+  %272 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive389, i32 0, i32 0
+  %273 = extractvalue { <2 x float>, <2 x float> } %call388, 0
   store <2 x float> %273, ptr %272, align 4
-  %274 = load ptr, ptr %idraw.addr, align 8
+  %274 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive389, i32 0, i32 1
+  %275 = extractvalue { <2 x float>, <2 x float> } %call388, 1
+  store <2 x float> %275, ptr %274, align 4
+  %276 = load ptr, ptr %idraw.addr, align 8
   %arrayidx393 = getelementptr inbounds [3 x %class.btVector3], ptr %x366, i64 0, i64 0
   %call394 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx393, ptr noundef nonnull align 4 dereferenceable(16) %c377)
   %coerce.dive395 = getelementptr inbounds %class.btVector3, ptr %ref.tmp392, i32 0, i32 0
-  %275 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive395, i32 0, i32 0
-  %276 = extractvalue { <2 x float>, <2 x float> } %call394, 0
-  store <2 x float> %276, ptr %275, align 4
-  %277 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive395, i32 0, i32 1
-  %278 = extractvalue { <2 x float>, <2 x float> } %call394, 1
+  %277 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive395, i32 0, i32 0
+  %278 = extractvalue { <2 x float>, <2 x float> } %call394, 0
   store <2 x float> %278, ptr %277, align 4
+  %279 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive395, i32 0, i32 1
+  %280 = extractvalue { <2 x float>, <2 x float> } %call394, 1
+  store <2 x float> %280, ptr %279, align 4
   %call396 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp392, ptr noundef nonnull align 4 dereferenceable(4) %scl350)
   %coerce.dive397 = getelementptr inbounds %class.btVector3, ptr %ref.tmp391, i32 0, i32 0
-  %279 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive397, i32 0, i32 0
-  %280 = extractvalue { <2 x float>, <2 x float> } %call396, 0
-  store <2 x float> %280, ptr %279, align 4
-  %281 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive397, i32 0, i32 1
-  %282 = extractvalue { <2 x float>, <2 x float> } %call396, 1
+  %281 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive397, i32 0, i32 0
+  %282 = extractvalue { <2 x float>, <2 x float> } %call396, 0
   store <2 x float> %282, ptr %281, align 4
+  %283 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive397, i32 0, i32 1
+  %284 = extractvalue { <2 x float>, <2 x float> } %call396, 1
+  store <2 x float> %284, ptr %283, align 4
   %call398 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp391, ptr noundef nonnull align 4 dereferenceable(16) %c377)
   %coerce.dive399 = getelementptr inbounds %class.btVector3, ptr %ref.tmp390, i32 0, i32 0
-  %283 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive399, i32 0, i32 0
-  %284 = extractvalue { <2 x float>, <2 x float> } %call398, 0
-  store <2 x float> %284, ptr %283, align 4
-  %285 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive399, i32 0, i32 1
-  %286 = extractvalue { <2 x float>, <2 x float> } %call398, 1
+  %285 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive399, i32 0, i32 0
+  %286 = extractvalue { <2 x float>, <2 x float> } %call398, 0
   store <2 x float> %286, ptr %285, align 4
+  %287 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive399, i32 0, i32 1
+  %288 = extractvalue { <2 x float>, <2 x float> } %call398, 1
+  store <2 x float> %288, ptr %287, align 4
   %arrayidx403 = getelementptr inbounds [3 x %class.btVector3], ptr %x366, i64 0, i64 1
   %call404 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx403, ptr noundef nonnull align 4 dereferenceable(16) %c377)
   %coerce.dive405 = getelementptr inbounds %class.btVector3, ptr %ref.tmp402, i32 0, i32 0
-  %287 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive405, i32 0, i32 0
-  %288 = extractvalue { <2 x float>, <2 x float> } %call404, 0
-  store <2 x float> %288, ptr %287, align 4
-  %289 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive405, i32 0, i32 1
-  %290 = extractvalue { <2 x float>, <2 x float> } %call404, 1
+  %289 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive405, i32 0, i32 0
+  %290 = extractvalue { <2 x float>, <2 x float> } %call404, 0
   store <2 x float> %290, ptr %289, align 4
+  %291 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive405, i32 0, i32 1
+  %292 = extractvalue { <2 x float>, <2 x float> } %call404, 1
+  store <2 x float> %292, ptr %291, align 4
   %call406 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp402, ptr noundef nonnull align 4 dereferenceable(4) %scl350)
   %coerce.dive407 = getelementptr inbounds %class.btVector3, ptr %ref.tmp401, i32 0, i32 0
-  %291 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive407, i32 0, i32 0
-  %292 = extractvalue { <2 x float>, <2 x float> } %call406, 0
-  store <2 x float> %292, ptr %291, align 4
-  %293 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive407, i32 0, i32 1
-  %294 = extractvalue { <2 x float>, <2 x float> } %call406, 1
+  %293 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive407, i32 0, i32 0
+  %294 = extractvalue { <2 x float>, <2 x float> } %call406, 0
   store <2 x float> %294, ptr %293, align 4
+  %295 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive407, i32 0, i32 1
+  %296 = extractvalue { <2 x float>, <2 x float> } %call406, 1
+  store <2 x float> %296, ptr %295, align 4
   %call408 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp401, ptr noundef nonnull align 4 dereferenceable(16) %c377)
   %coerce.dive409 = getelementptr inbounds %class.btVector3, ptr %ref.tmp400, i32 0, i32 0
-  %295 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive409, i32 0, i32 0
-  %296 = extractvalue { <2 x float>, <2 x float> } %call408, 0
-  store <2 x float> %296, ptr %295, align 4
-  %297 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive409, i32 0, i32 1
-  %298 = extractvalue { <2 x float>, <2 x float> } %call408, 1
+  %297 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive409, i32 0, i32 0
+  %298 = extractvalue { <2 x float>, <2 x float> } %call408, 0
   store <2 x float> %298, ptr %297, align 4
+  %299 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive409, i32 0, i32 1
+  %300 = extractvalue { <2 x float>, <2 x float> } %call408, 1
+  store <2 x float> %300, ptr %299, align 4
   %arrayidx413 = getelementptr inbounds [3 x %class.btVector3], ptr %x366, i64 0, i64 2
   %call414 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx413, ptr noundef nonnull align 4 dereferenceable(16) %c377)
   %coerce.dive415 = getelementptr inbounds %class.btVector3, ptr %ref.tmp412, i32 0, i32 0
-  %299 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive415, i32 0, i32 0
-  %300 = extractvalue { <2 x float>, <2 x float> } %call414, 0
-  store <2 x float> %300, ptr %299, align 4
-  %301 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive415, i32 0, i32 1
-  %302 = extractvalue { <2 x float>, <2 x float> } %call414, 1
+  %301 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive415, i32 0, i32 0
+  %302 = extractvalue { <2 x float>, <2 x float> } %call414, 0
   store <2 x float> %302, ptr %301, align 4
+  %303 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive415, i32 0, i32 1
+  %304 = extractvalue { <2 x float>, <2 x float> } %call414, 1
+  store <2 x float> %304, ptr %303, align 4
   %call416 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp412, ptr noundef nonnull align 4 dereferenceable(4) %scl350)
   %coerce.dive417 = getelementptr inbounds %class.btVector3, ptr %ref.tmp411, i32 0, i32 0
-  %303 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive417, i32 0, i32 0
-  %304 = extractvalue { <2 x float>, <2 x float> } %call416, 0
-  store <2 x float> %304, ptr %303, align 4
-  %305 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive417, i32 0, i32 1
-  %306 = extractvalue { <2 x float>, <2 x float> } %call416, 1
+  %305 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive417, i32 0, i32 0
+  %306 = extractvalue { <2 x float>, <2 x float> } %call416, 0
   store <2 x float> %306, ptr %305, align 4
+  %307 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive417, i32 0, i32 1
+  %308 = extractvalue { <2 x float>, <2 x float> } %call416, 1
+  store <2 x float> %308, ptr %307, align 4
   %call418 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp411, ptr noundef nonnull align 4 dereferenceable(16) %c377)
   %coerce.dive419 = getelementptr inbounds %class.btVector3, ptr %ref.tmp410, i32 0, i32 0
-  %307 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive419, i32 0, i32 0
-  %308 = extractvalue { <2 x float>, <2 x float> } %call418, 0
-  store <2 x float> %308, ptr %307, align 4
-  %309 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive419, i32 0, i32 1
-  %310 = extractvalue { <2 x float>, <2 x float> } %call418, 1
+  %309 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive419, i32 0, i32 0
+  %310 = extractvalue { <2 x float>, <2 x float> } %call418, 0
   store <2 x float> %310, ptr %309, align 4
-  %vtable420 = load ptr, ptr %274, align 8
+  %311 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive419, i32 0, i32 1
+  %312 = extractvalue { <2 x float>, <2 x float> } %call418, 1
+  store <2 x float> %312, ptr %311, align 4
+  %vtable420 = load ptr, ptr %276, align 8
   %vfn421 = getelementptr inbounds ptr, ptr %vtable420, i64 9
-  %311 = load ptr, ptr %vfn421, align 8
-  call void %311(ptr noundef nonnull align 8 dereferenceable(8) %274, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp390, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp400, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp410, ptr noundef nonnull align 4 dereferenceable(16) %col, float noundef 1.000000e+00)
+  %313 = load ptr, ptr %vfn421, align 8
+  call void %313(ptr noundef nonnull align 8 dereferenceable(8) %276, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp390, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp400, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp410, ptr noundef nonnull align 4 dereferenceable(16) %col, float noundef 1.000000e+00)
   br label %for.inc422
 
 for.inc422:                                       ; preds = %if.end365, %if.then364
-  %312 = load i32, ptr %i, align 4
-  %inc423 = add nsw i32 %312, 1
+  %314 = load i32, ptr %i, align 4
+  %inc423 = add nsw i32 %314, 1
   store i32 %inc423, ptr %i, align 4
   br label %for.cond354, !llvm.loop !15
 
@@ -3012,8 +3026,8 @@ for.end424:                                       ; preds = %for.cond354
   br label %if.end425
 
 if.end425:                                        ; preds = %for.end424, %if.end346
-  %313 = load i32, ptr %drawflags.addr, align 4
-  %and426 = and i32 %313, 8
+  %315 = load i32, ptr %drawflags.addr, align 4
+  %and426 = and i32 %315, 8
   %cmp427 = icmp ne i32 0, %and426
   br i1 %cmp427, label %if.then428, label %if.end613
 
@@ -3028,25 +3042,25 @@ if.then428:                                       ; preds = %if.end425
   br label %for.cond436
 
 for.cond436:                                      ; preds = %for.inc610, %if.then428
-  %314 = load i32, ptr %i435, align 4
-  %315 = load ptr, ptr %psb.addr, align 8
-  %m_tetras = getelementptr inbounds %class.btSoftBody, ptr %315, i32 0, i32 16
+  %316 = load i32, ptr %i435, align 4
+  %317 = load ptr, ptr %psb.addr, align 8
+  %m_tetras = getelementptr inbounds %class.btSoftBody, ptr %317, i32 0, i32 16
   %call437 = call noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody5TetraEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_tetras)
-  %cmp438 = icmp slt i32 %314, %call437
+  %cmp438 = icmp slt i32 %316, %call437
   br i1 %cmp438, label %for.body439, label %for.end612
 
 for.body439:                                      ; preds = %for.cond436
-  %316 = load ptr, ptr %psb.addr, align 8
-  %m_tetras440 = getelementptr inbounds %class.btSoftBody, ptr %316, i32 0, i32 16
-  %317 = load i32, ptr %i435, align 4
-  %call441 = call noundef nonnull align 8 dereferenceable(284) ptr @_ZN20btAlignedObjectArrayIN10btSoftBody5TetraEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tetras440, i32 noundef %317)
+  %318 = load ptr, ptr %psb.addr, align 8
+  %m_tetras440 = getelementptr inbounds %class.btSoftBody, ptr %318, i32 0, i32 16
+  %319 = load i32, ptr %i435, align 4
+  %call441 = call noundef nonnull align 8 dereferenceable(284) ptr @_ZN20btAlignedObjectArrayIN10btSoftBody5TetraEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tetras440, i32 noundef %319)
   store ptr %call441, ptr %t, align 8
-  %318 = load ptr, ptr %t, align 8
-  %m_material442 = getelementptr inbounds %"struct.btSoftBody::Feature", ptr %318, i32 0, i32 1
-  %319 = load ptr, ptr %m_material442, align 8
-  %m_flags443 = getelementptr inbounds %"struct.btSoftBody::Material", ptr %319, i32 0, i32 4
-  %320 = load i32, ptr %m_flags443, align 4
-  %and444 = and i32 %320, 1
+  %320 = load ptr, ptr %t, align 8
+  %m_material442 = getelementptr inbounds %"struct.btSoftBody::Feature", ptr %320, i32 0, i32 1
+  %321 = load ptr, ptr %m_material442, align 8
+  %m_flags443 = getelementptr inbounds %"struct.btSoftBody::Material", ptr %321, i32 0, i32 4
+  %322 = load i32, ptr %m_flags443, align 4
+  %and444 = and i32 %322, 1
   %cmp445 = icmp eq i32 0, %and444
   br i1 %cmp445, label %if.then446, label %if.end447
 
@@ -3055,395 +3069,395 @@ if.then446:                                       ; preds = %for.body439
 
 if.end447:                                        ; preds = %for.body439
   %arrayinit.begin449 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 0
-  %321 = load ptr, ptr %t, align 8
-  %m_n450 = getelementptr inbounds %"struct.btSoftBody::Tetra", ptr %321, i32 0, i32 1
+  %323 = load ptr, ptr %t, align 8
+  %m_n450 = getelementptr inbounds %"struct.btSoftBody::Tetra", ptr %323, i32 0, i32 1
   %arrayidx451 = getelementptr inbounds [4 x ptr], ptr %m_n450, i64 0, i64 0
-  %322 = load ptr, ptr %arrayidx451, align 8
-  %m_x452 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %322, i32 0, i32 1
+  %324 = load ptr, ptr %arrayidx451, align 8
+  %m_x452 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %324, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayinit.begin449, ptr align 8 %m_x452, i64 16, i1 false)
   %arrayinit.element453 = getelementptr inbounds %class.btVector3, ptr %arrayinit.begin449, i64 1
-  %323 = load ptr, ptr %t, align 8
-  %m_n454 = getelementptr inbounds %"struct.btSoftBody::Tetra", ptr %323, i32 0, i32 1
+  %325 = load ptr, ptr %t, align 8
+  %m_n454 = getelementptr inbounds %"struct.btSoftBody::Tetra", ptr %325, i32 0, i32 1
   %arrayidx455 = getelementptr inbounds [4 x ptr], ptr %m_n454, i64 0, i64 1
-  %324 = load ptr, ptr %arrayidx455, align 8
-  %m_x456 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %324, i32 0, i32 1
+  %326 = load ptr, ptr %arrayidx455, align 8
+  %m_x456 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %326, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayinit.element453, ptr align 8 %m_x456, i64 16, i1 false)
   %arrayinit.element457 = getelementptr inbounds %class.btVector3, ptr %arrayinit.element453, i64 1
-  %325 = load ptr, ptr %t, align 8
-  %m_n458 = getelementptr inbounds %"struct.btSoftBody::Tetra", ptr %325, i32 0, i32 1
+  %327 = load ptr, ptr %t, align 8
+  %m_n458 = getelementptr inbounds %"struct.btSoftBody::Tetra", ptr %327, i32 0, i32 1
   %arrayidx459 = getelementptr inbounds [4 x ptr], ptr %m_n458, i64 0, i64 2
-  %326 = load ptr, ptr %arrayidx459, align 8
-  %m_x460 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %326, i32 0, i32 1
+  %328 = load ptr, ptr %arrayidx459, align 8
+  %m_x460 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %328, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayinit.element457, ptr align 8 %m_x460, i64 16, i1 false)
   %arrayinit.element461 = getelementptr inbounds %class.btVector3, ptr %arrayinit.element457, i64 1
-  %327 = load ptr, ptr %t, align 8
-  %m_n462 = getelementptr inbounds %"struct.btSoftBody::Tetra", ptr %327, i32 0, i32 1
+  %329 = load ptr, ptr %t, align 8
+  %m_n462 = getelementptr inbounds %"struct.btSoftBody::Tetra", ptr %329, i32 0, i32 1
   %arrayidx463 = getelementptr inbounds [4 x ptr], ptr %m_n462, i64 0, i64 3
-  %328 = load ptr, ptr %arrayidx463, align 8
-  %m_x464 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %328, i32 0, i32 1
+  %330 = load ptr, ptr %arrayidx463, align 8
+  %m_x464 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %330, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayinit.element461, ptr align 8 %m_x464, i64 16, i1 false)
   %arrayidx469 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 0
   %arrayidx470 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 1
   %call471 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx469, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx470)
   %coerce.dive472 = getelementptr inbounds %class.btVector3, ptr %ref.tmp468, i32 0, i32 0
-  %329 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive472, i32 0, i32 0
-  %330 = extractvalue { <2 x float>, <2 x float> } %call471, 0
-  store <2 x float> %330, ptr %329, align 4
-  %331 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive472, i32 0, i32 1
-  %332 = extractvalue { <2 x float>, <2 x float> } %call471, 1
+  %331 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive472, i32 0, i32 0
+  %332 = extractvalue { <2 x float>, <2 x float> } %call471, 0
   store <2 x float> %332, ptr %331, align 4
+  %333 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive472, i32 0, i32 1
+  %334 = extractvalue { <2 x float>, <2 x float> } %call471, 1
+  store <2 x float> %334, ptr %333, align 4
   %arrayidx473 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 2
   %call474 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp468, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx473)
   %coerce.dive475 = getelementptr inbounds %class.btVector3, ptr %ref.tmp467, i32 0, i32 0
-  %333 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive475, i32 0, i32 0
-  %334 = extractvalue { <2 x float>, <2 x float> } %call474, 0
-  store <2 x float> %334, ptr %333, align 4
-  %335 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive475, i32 0, i32 1
-  %336 = extractvalue { <2 x float>, <2 x float> } %call474, 1
+  %335 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive475, i32 0, i32 0
+  %336 = extractvalue { <2 x float>, <2 x float> } %call474, 0
   store <2 x float> %336, ptr %335, align 4
+  %337 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive475, i32 0, i32 1
+  %338 = extractvalue { <2 x float>, <2 x float> } %call474, 1
+  store <2 x float> %338, ptr %337, align 4
   %arrayidx476 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 3
   %call477 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp467, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx476)
   %coerce.dive478 = getelementptr inbounds %class.btVector3, ptr %ref.tmp466, i32 0, i32 0
-  %337 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive478, i32 0, i32 0
-  %338 = extractvalue { <2 x float>, <2 x float> } %call477, 0
-  store <2 x float> %338, ptr %337, align 4
-  %339 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive478, i32 0, i32 1
-  %340 = extractvalue { <2 x float>, <2 x float> } %call477, 1
+  %339 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive478, i32 0, i32 0
+  %340 = extractvalue { <2 x float>, <2 x float> } %call477, 0
   store <2 x float> %340, ptr %339, align 4
+  %341 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive478, i32 0, i32 1
+  %342 = extractvalue { <2 x float>, <2 x float> } %call477, 1
+  store <2 x float> %342, ptr %341, align 4
   store float 4.000000e+00, ptr %ref.tmp479, align 4
   %call480 = call { <2 x float>, <2 x float> } @_ZdvRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp466, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp479)
   %coerce.dive481 = getelementptr inbounds %class.btVector3, ptr %c465, i32 0, i32 0
-  %341 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive481, i32 0, i32 0
-  %342 = extractvalue { <2 x float>, <2 x float> } %call480, 0
-  store <2 x float> %342, ptr %341, align 4
-  %343 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive481, i32 0, i32 1
-  %344 = extractvalue { <2 x float>, <2 x float> } %call480, 1
+  %343 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive481, i32 0, i32 0
+  %344 = extractvalue { <2 x float>, <2 x float> } %call480, 0
   store <2 x float> %344, ptr %343, align 4
-  %345 = load ptr, ptr %idraw.addr, align 8
+  %345 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive481, i32 0, i32 1
+  %346 = extractvalue { <2 x float>, <2 x float> } %call480, 1
+  store <2 x float> %346, ptr %345, align 4
+  %347 = load ptr, ptr %idraw.addr, align 8
   %arrayidx485 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 0
   %call486 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx485, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive487 = getelementptr inbounds %class.btVector3, ptr %ref.tmp484, i32 0, i32 0
-  %346 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive487, i32 0, i32 0
-  %347 = extractvalue { <2 x float>, <2 x float> } %call486, 0
-  store <2 x float> %347, ptr %346, align 4
-  %348 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive487, i32 0, i32 1
-  %349 = extractvalue { <2 x float>, <2 x float> } %call486, 1
+  %348 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive487, i32 0, i32 0
+  %349 = extractvalue { <2 x float>, <2 x float> } %call486, 0
   store <2 x float> %349, ptr %348, align 4
+  %350 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive487, i32 0, i32 1
+  %351 = extractvalue { <2 x float>, <2 x float> } %call486, 1
+  store <2 x float> %351, ptr %350, align 4
   %call488 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp484, ptr noundef nonnull align 4 dereferenceable(4) %scl429)
   %coerce.dive489 = getelementptr inbounds %class.btVector3, ptr %ref.tmp483, i32 0, i32 0
-  %350 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive489, i32 0, i32 0
-  %351 = extractvalue { <2 x float>, <2 x float> } %call488, 0
-  store <2 x float> %351, ptr %350, align 4
-  %352 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive489, i32 0, i32 1
-  %353 = extractvalue { <2 x float>, <2 x float> } %call488, 1
+  %352 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive489, i32 0, i32 0
+  %353 = extractvalue { <2 x float>, <2 x float> } %call488, 0
   store <2 x float> %353, ptr %352, align 4
+  %354 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive489, i32 0, i32 1
+  %355 = extractvalue { <2 x float>, <2 x float> } %call488, 1
+  store <2 x float> %355, ptr %354, align 4
   %call490 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp483, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive491 = getelementptr inbounds %class.btVector3, ptr %ref.tmp482, i32 0, i32 0
-  %354 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive491, i32 0, i32 0
-  %355 = extractvalue { <2 x float>, <2 x float> } %call490, 0
-  store <2 x float> %355, ptr %354, align 4
-  %356 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive491, i32 0, i32 1
-  %357 = extractvalue { <2 x float>, <2 x float> } %call490, 1
+  %356 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive491, i32 0, i32 0
+  %357 = extractvalue { <2 x float>, <2 x float> } %call490, 0
   store <2 x float> %357, ptr %356, align 4
+  %358 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive491, i32 0, i32 1
+  %359 = extractvalue { <2 x float>, <2 x float> } %call490, 1
+  store <2 x float> %359, ptr %358, align 4
   %arrayidx495 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 1
   %call496 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx495, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive497 = getelementptr inbounds %class.btVector3, ptr %ref.tmp494, i32 0, i32 0
-  %358 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive497, i32 0, i32 0
-  %359 = extractvalue { <2 x float>, <2 x float> } %call496, 0
-  store <2 x float> %359, ptr %358, align 4
-  %360 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive497, i32 0, i32 1
-  %361 = extractvalue { <2 x float>, <2 x float> } %call496, 1
+  %360 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive497, i32 0, i32 0
+  %361 = extractvalue { <2 x float>, <2 x float> } %call496, 0
   store <2 x float> %361, ptr %360, align 4
+  %362 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive497, i32 0, i32 1
+  %363 = extractvalue { <2 x float>, <2 x float> } %call496, 1
+  store <2 x float> %363, ptr %362, align 4
   %call498 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp494, ptr noundef nonnull align 4 dereferenceable(4) %scl429)
   %coerce.dive499 = getelementptr inbounds %class.btVector3, ptr %ref.tmp493, i32 0, i32 0
-  %362 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive499, i32 0, i32 0
-  %363 = extractvalue { <2 x float>, <2 x float> } %call498, 0
-  store <2 x float> %363, ptr %362, align 4
-  %364 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive499, i32 0, i32 1
-  %365 = extractvalue { <2 x float>, <2 x float> } %call498, 1
+  %364 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive499, i32 0, i32 0
+  %365 = extractvalue { <2 x float>, <2 x float> } %call498, 0
   store <2 x float> %365, ptr %364, align 4
+  %366 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive499, i32 0, i32 1
+  %367 = extractvalue { <2 x float>, <2 x float> } %call498, 1
+  store <2 x float> %367, ptr %366, align 4
   %call500 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp493, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive501 = getelementptr inbounds %class.btVector3, ptr %ref.tmp492, i32 0, i32 0
-  %366 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive501, i32 0, i32 0
-  %367 = extractvalue { <2 x float>, <2 x float> } %call500, 0
-  store <2 x float> %367, ptr %366, align 4
-  %368 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive501, i32 0, i32 1
-  %369 = extractvalue { <2 x float>, <2 x float> } %call500, 1
+  %368 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive501, i32 0, i32 0
+  %369 = extractvalue { <2 x float>, <2 x float> } %call500, 0
   store <2 x float> %369, ptr %368, align 4
+  %370 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive501, i32 0, i32 1
+  %371 = extractvalue { <2 x float>, <2 x float> } %call500, 1
+  store <2 x float> %371, ptr %370, align 4
   %arrayidx505 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 2
   %call506 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx505, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive507 = getelementptr inbounds %class.btVector3, ptr %ref.tmp504, i32 0, i32 0
-  %370 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive507, i32 0, i32 0
-  %371 = extractvalue { <2 x float>, <2 x float> } %call506, 0
-  store <2 x float> %371, ptr %370, align 4
-  %372 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive507, i32 0, i32 1
-  %373 = extractvalue { <2 x float>, <2 x float> } %call506, 1
+  %372 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive507, i32 0, i32 0
+  %373 = extractvalue { <2 x float>, <2 x float> } %call506, 0
   store <2 x float> %373, ptr %372, align 4
+  %374 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive507, i32 0, i32 1
+  %375 = extractvalue { <2 x float>, <2 x float> } %call506, 1
+  store <2 x float> %375, ptr %374, align 4
   %call508 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp504, ptr noundef nonnull align 4 dereferenceable(4) %scl429)
   %coerce.dive509 = getelementptr inbounds %class.btVector3, ptr %ref.tmp503, i32 0, i32 0
-  %374 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive509, i32 0, i32 0
-  %375 = extractvalue { <2 x float>, <2 x float> } %call508, 0
-  store <2 x float> %375, ptr %374, align 4
-  %376 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive509, i32 0, i32 1
-  %377 = extractvalue { <2 x float>, <2 x float> } %call508, 1
+  %376 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive509, i32 0, i32 0
+  %377 = extractvalue { <2 x float>, <2 x float> } %call508, 0
   store <2 x float> %377, ptr %376, align 4
+  %378 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive509, i32 0, i32 1
+  %379 = extractvalue { <2 x float>, <2 x float> } %call508, 1
+  store <2 x float> %379, ptr %378, align 4
   %call510 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp503, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive511 = getelementptr inbounds %class.btVector3, ptr %ref.tmp502, i32 0, i32 0
-  %378 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive511, i32 0, i32 0
-  %379 = extractvalue { <2 x float>, <2 x float> } %call510, 0
-  store <2 x float> %379, ptr %378, align 4
-  %380 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive511, i32 0, i32 1
-  %381 = extractvalue { <2 x float>, <2 x float> } %call510, 1
+  %380 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive511, i32 0, i32 0
+  %381 = extractvalue { <2 x float>, <2 x float> } %call510, 0
   store <2 x float> %381, ptr %380, align 4
-  %vtable512 = load ptr, ptr %345, align 8
+  %382 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive511, i32 0, i32 1
+  %383 = extractvalue { <2 x float>, <2 x float> } %call510, 1
+  store <2 x float> %383, ptr %382, align 4
+  %vtable512 = load ptr, ptr %347, align 8
   %vfn513 = getelementptr inbounds ptr, ptr %vtable512, i64 9
-  %382 = load ptr, ptr %vfn513, align 8
-  call void %382(ptr noundef nonnull align 8 dereferenceable(8) %345, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp482, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp492, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp502, ptr noundef nonnull align 4 dereferenceable(16) %col431, float noundef 1.000000e+00)
-  %383 = load ptr, ptr %idraw.addr, align 8
+  %384 = load ptr, ptr %vfn513, align 8
+  call void %384(ptr noundef nonnull align 8 dereferenceable(8) %347, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp482, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp492, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp502, ptr noundef nonnull align 4 dereferenceable(16) %col431, float noundef 1.000000e+00)
+  %385 = load ptr, ptr %idraw.addr, align 8
   %arrayidx517 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 0
   %call518 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx517, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive519 = getelementptr inbounds %class.btVector3, ptr %ref.tmp516, i32 0, i32 0
-  %384 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive519, i32 0, i32 0
-  %385 = extractvalue { <2 x float>, <2 x float> } %call518, 0
-  store <2 x float> %385, ptr %384, align 4
-  %386 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive519, i32 0, i32 1
-  %387 = extractvalue { <2 x float>, <2 x float> } %call518, 1
+  %386 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive519, i32 0, i32 0
+  %387 = extractvalue { <2 x float>, <2 x float> } %call518, 0
   store <2 x float> %387, ptr %386, align 4
+  %388 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive519, i32 0, i32 1
+  %389 = extractvalue { <2 x float>, <2 x float> } %call518, 1
+  store <2 x float> %389, ptr %388, align 4
   %call520 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp516, ptr noundef nonnull align 4 dereferenceable(4) %scl429)
   %coerce.dive521 = getelementptr inbounds %class.btVector3, ptr %ref.tmp515, i32 0, i32 0
-  %388 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive521, i32 0, i32 0
-  %389 = extractvalue { <2 x float>, <2 x float> } %call520, 0
-  store <2 x float> %389, ptr %388, align 4
-  %390 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive521, i32 0, i32 1
-  %391 = extractvalue { <2 x float>, <2 x float> } %call520, 1
+  %390 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive521, i32 0, i32 0
+  %391 = extractvalue { <2 x float>, <2 x float> } %call520, 0
   store <2 x float> %391, ptr %390, align 4
+  %392 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive521, i32 0, i32 1
+  %393 = extractvalue { <2 x float>, <2 x float> } %call520, 1
+  store <2 x float> %393, ptr %392, align 4
   %call522 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp515, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive523 = getelementptr inbounds %class.btVector3, ptr %ref.tmp514, i32 0, i32 0
-  %392 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive523, i32 0, i32 0
-  %393 = extractvalue { <2 x float>, <2 x float> } %call522, 0
-  store <2 x float> %393, ptr %392, align 4
-  %394 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive523, i32 0, i32 1
-  %395 = extractvalue { <2 x float>, <2 x float> } %call522, 1
+  %394 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive523, i32 0, i32 0
+  %395 = extractvalue { <2 x float>, <2 x float> } %call522, 0
   store <2 x float> %395, ptr %394, align 4
+  %396 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive523, i32 0, i32 1
+  %397 = extractvalue { <2 x float>, <2 x float> } %call522, 1
+  store <2 x float> %397, ptr %396, align 4
   %arrayidx527 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 1
   %call528 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx527, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive529 = getelementptr inbounds %class.btVector3, ptr %ref.tmp526, i32 0, i32 0
-  %396 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive529, i32 0, i32 0
-  %397 = extractvalue { <2 x float>, <2 x float> } %call528, 0
-  store <2 x float> %397, ptr %396, align 4
-  %398 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive529, i32 0, i32 1
-  %399 = extractvalue { <2 x float>, <2 x float> } %call528, 1
+  %398 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive529, i32 0, i32 0
+  %399 = extractvalue { <2 x float>, <2 x float> } %call528, 0
   store <2 x float> %399, ptr %398, align 4
+  %400 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive529, i32 0, i32 1
+  %401 = extractvalue { <2 x float>, <2 x float> } %call528, 1
+  store <2 x float> %401, ptr %400, align 4
   %call530 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp526, ptr noundef nonnull align 4 dereferenceable(4) %scl429)
   %coerce.dive531 = getelementptr inbounds %class.btVector3, ptr %ref.tmp525, i32 0, i32 0
-  %400 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive531, i32 0, i32 0
-  %401 = extractvalue { <2 x float>, <2 x float> } %call530, 0
-  store <2 x float> %401, ptr %400, align 4
-  %402 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive531, i32 0, i32 1
-  %403 = extractvalue { <2 x float>, <2 x float> } %call530, 1
+  %402 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive531, i32 0, i32 0
+  %403 = extractvalue { <2 x float>, <2 x float> } %call530, 0
   store <2 x float> %403, ptr %402, align 4
+  %404 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive531, i32 0, i32 1
+  %405 = extractvalue { <2 x float>, <2 x float> } %call530, 1
+  store <2 x float> %405, ptr %404, align 4
   %call532 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp525, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive533 = getelementptr inbounds %class.btVector3, ptr %ref.tmp524, i32 0, i32 0
-  %404 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive533, i32 0, i32 0
-  %405 = extractvalue { <2 x float>, <2 x float> } %call532, 0
-  store <2 x float> %405, ptr %404, align 4
-  %406 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive533, i32 0, i32 1
-  %407 = extractvalue { <2 x float>, <2 x float> } %call532, 1
+  %406 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive533, i32 0, i32 0
+  %407 = extractvalue { <2 x float>, <2 x float> } %call532, 0
   store <2 x float> %407, ptr %406, align 4
+  %408 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive533, i32 0, i32 1
+  %409 = extractvalue { <2 x float>, <2 x float> } %call532, 1
+  store <2 x float> %409, ptr %408, align 4
   %arrayidx537 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 3
   %call538 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx537, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive539 = getelementptr inbounds %class.btVector3, ptr %ref.tmp536, i32 0, i32 0
-  %408 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive539, i32 0, i32 0
-  %409 = extractvalue { <2 x float>, <2 x float> } %call538, 0
-  store <2 x float> %409, ptr %408, align 4
-  %410 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive539, i32 0, i32 1
-  %411 = extractvalue { <2 x float>, <2 x float> } %call538, 1
+  %410 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive539, i32 0, i32 0
+  %411 = extractvalue { <2 x float>, <2 x float> } %call538, 0
   store <2 x float> %411, ptr %410, align 4
+  %412 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive539, i32 0, i32 1
+  %413 = extractvalue { <2 x float>, <2 x float> } %call538, 1
+  store <2 x float> %413, ptr %412, align 4
   %call540 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp536, ptr noundef nonnull align 4 dereferenceable(4) %scl429)
   %coerce.dive541 = getelementptr inbounds %class.btVector3, ptr %ref.tmp535, i32 0, i32 0
-  %412 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive541, i32 0, i32 0
-  %413 = extractvalue { <2 x float>, <2 x float> } %call540, 0
-  store <2 x float> %413, ptr %412, align 4
-  %414 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive541, i32 0, i32 1
-  %415 = extractvalue { <2 x float>, <2 x float> } %call540, 1
+  %414 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive541, i32 0, i32 0
+  %415 = extractvalue { <2 x float>, <2 x float> } %call540, 0
   store <2 x float> %415, ptr %414, align 4
+  %416 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive541, i32 0, i32 1
+  %417 = extractvalue { <2 x float>, <2 x float> } %call540, 1
+  store <2 x float> %417, ptr %416, align 4
   %call542 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp535, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive543 = getelementptr inbounds %class.btVector3, ptr %ref.tmp534, i32 0, i32 0
-  %416 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive543, i32 0, i32 0
-  %417 = extractvalue { <2 x float>, <2 x float> } %call542, 0
-  store <2 x float> %417, ptr %416, align 4
-  %418 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive543, i32 0, i32 1
-  %419 = extractvalue { <2 x float>, <2 x float> } %call542, 1
+  %418 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive543, i32 0, i32 0
+  %419 = extractvalue { <2 x float>, <2 x float> } %call542, 0
   store <2 x float> %419, ptr %418, align 4
-  %vtable544 = load ptr, ptr %383, align 8
+  %420 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive543, i32 0, i32 1
+  %421 = extractvalue { <2 x float>, <2 x float> } %call542, 1
+  store <2 x float> %421, ptr %420, align 4
+  %vtable544 = load ptr, ptr %385, align 8
   %vfn545 = getelementptr inbounds ptr, ptr %vtable544, i64 9
-  %420 = load ptr, ptr %vfn545, align 8
-  call void %420(ptr noundef nonnull align 8 dereferenceable(8) %383, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp514, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp524, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp534, ptr noundef nonnull align 4 dereferenceable(16) %col431, float noundef 1.000000e+00)
-  %421 = load ptr, ptr %idraw.addr, align 8
+  %422 = load ptr, ptr %vfn545, align 8
+  call void %422(ptr noundef nonnull align 8 dereferenceable(8) %385, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp514, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp524, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp534, ptr noundef nonnull align 4 dereferenceable(16) %col431, float noundef 1.000000e+00)
+  %423 = load ptr, ptr %idraw.addr, align 8
   %arrayidx549 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 1
   %call550 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx549, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive551 = getelementptr inbounds %class.btVector3, ptr %ref.tmp548, i32 0, i32 0
-  %422 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive551, i32 0, i32 0
-  %423 = extractvalue { <2 x float>, <2 x float> } %call550, 0
-  store <2 x float> %423, ptr %422, align 4
-  %424 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive551, i32 0, i32 1
-  %425 = extractvalue { <2 x float>, <2 x float> } %call550, 1
+  %424 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive551, i32 0, i32 0
+  %425 = extractvalue { <2 x float>, <2 x float> } %call550, 0
   store <2 x float> %425, ptr %424, align 4
+  %426 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive551, i32 0, i32 1
+  %427 = extractvalue { <2 x float>, <2 x float> } %call550, 1
+  store <2 x float> %427, ptr %426, align 4
   %call552 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp548, ptr noundef nonnull align 4 dereferenceable(4) %scl429)
   %coerce.dive553 = getelementptr inbounds %class.btVector3, ptr %ref.tmp547, i32 0, i32 0
-  %426 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive553, i32 0, i32 0
-  %427 = extractvalue { <2 x float>, <2 x float> } %call552, 0
-  store <2 x float> %427, ptr %426, align 4
-  %428 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive553, i32 0, i32 1
-  %429 = extractvalue { <2 x float>, <2 x float> } %call552, 1
+  %428 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive553, i32 0, i32 0
+  %429 = extractvalue { <2 x float>, <2 x float> } %call552, 0
   store <2 x float> %429, ptr %428, align 4
+  %430 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive553, i32 0, i32 1
+  %431 = extractvalue { <2 x float>, <2 x float> } %call552, 1
+  store <2 x float> %431, ptr %430, align 4
   %call554 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp547, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive555 = getelementptr inbounds %class.btVector3, ptr %ref.tmp546, i32 0, i32 0
-  %430 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive555, i32 0, i32 0
-  %431 = extractvalue { <2 x float>, <2 x float> } %call554, 0
-  store <2 x float> %431, ptr %430, align 4
-  %432 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive555, i32 0, i32 1
-  %433 = extractvalue { <2 x float>, <2 x float> } %call554, 1
+  %432 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive555, i32 0, i32 0
+  %433 = extractvalue { <2 x float>, <2 x float> } %call554, 0
   store <2 x float> %433, ptr %432, align 4
+  %434 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive555, i32 0, i32 1
+  %435 = extractvalue { <2 x float>, <2 x float> } %call554, 1
+  store <2 x float> %435, ptr %434, align 4
   %arrayidx559 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 2
   %call560 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx559, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive561 = getelementptr inbounds %class.btVector3, ptr %ref.tmp558, i32 0, i32 0
-  %434 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive561, i32 0, i32 0
-  %435 = extractvalue { <2 x float>, <2 x float> } %call560, 0
-  store <2 x float> %435, ptr %434, align 4
-  %436 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive561, i32 0, i32 1
-  %437 = extractvalue { <2 x float>, <2 x float> } %call560, 1
+  %436 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive561, i32 0, i32 0
+  %437 = extractvalue { <2 x float>, <2 x float> } %call560, 0
   store <2 x float> %437, ptr %436, align 4
+  %438 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive561, i32 0, i32 1
+  %439 = extractvalue { <2 x float>, <2 x float> } %call560, 1
+  store <2 x float> %439, ptr %438, align 4
   %call562 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp558, ptr noundef nonnull align 4 dereferenceable(4) %scl429)
   %coerce.dive563 = getelementptr inbounds %class.btVector3, ptr %ref.tmp557, i32 0, i32 0
-  %438 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive563, i32 0, i32 0
-  %439 = extractvalue { <2 x float>, <2 x float> } %call562, 0
-  store <2 x float> %439, ptr %438, align 4
-  %440 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive563, i32 0, i32 1
-  %441 = extractvalue { <2 x float>, <2 x float> } %call562, 1
+  %440 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive563, i32 0, i32 0
+  %441 = extractvalue { <2 x float>, <2 x float> } %call562, 0
   store <2 x float> %441, ptr %440, align 4
+  %442 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive563, i32 0, i32 1
+  %443 = extractvalue { <2 x float>, <2 x float> } %call562, 1
+  store <2 x float> %443, ptr %442, align 4
   %call564 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp557, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive565 = getelementptr inbounds %class.btVector3, ptr %ref.tmp556, i32 0, i32 0
-  %442 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive565, i32 0, i32 0
-  %443 = extractvalue { <2 x float>, <2 x float> } %call564, 0
-  store <2 x float> %443, ptr %442, align 4
-  %444 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive565, i32 0, i32 1
-  %445 = extractvalue { <2 x float>, <2 x float> } %call564, 1
+  %444 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive565, i32 0, i32 0
+  %445 = extractvalue { <2 x float>, <2 x float> } %call564, 0
   store <2 x float> %445, ptr %444, align 4
+  %446 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive565, i32 0, i32 1
+  %447 = extractvalue { <2 x float>, <2 x float> } %call564, 1
+  store <2 x float> %447, ptr %446, align 4
   %arrayidx569 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 3
   %call570 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx569, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive571 = getelementptr inbounds %class.btVector3, ptr %ref.tmp568, i32 0, i32 0
-  %446 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive571, i32 0, i32 0
-  %447 = extractvalue { <2 x float>, <2 x float> } %call570, 0
-  store <2 x float> %447, ptr %446, align 4
-  %448 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive571, i32 0, i32 1
-  %449 = extractvalue { <2 x float>, <2 x float> } %call570, 1
+  %448 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive571, i32 0, i32 0
+  %449 = extractvalue { <2 x float>, <2 x float> } %call570, 0
   store <2 x float> %449, ptr %448, align 4
+  %450 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive571, i32 0, i32 1
+  %451 = extractvalue { <2 x float>, <2 x float> } %call570, 1
+  store <2 x float> %451, ptr %450, align 4
   %call572 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp568, ptr noundef nonnull align 4 dereferenceable(4) %scl429)
   %coerce.dive573 = getelementptr inbounds %class.btVector3, ptr %ref.tmp567, i32 0, i32 0
-  %450 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive573, i32 0, i32 0
-  %451 = extractvalue { <2 x float>, <2 x float> } %call572, 0
-  store <2 x float> %451, ptr %450, align 4
-  %452 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive573, i32 0, i32 1
-  %453 = extractvalue { <2 x float>, <2 x float> } %call572, 1
+  %452 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive573, i32 0, i32 0
+  %453 = extractvalue { <2 x float>, <2 x float> } %call572, 0
   store <2 x float> %453, ptr %452, align 4
+  %454 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive573, i32 0, i32 1
+  %455 = extractvalue { <2 x float>, <2 x float> } %call572, 1
+  store <2 x float> %455, ptr %454, align 4
   %call574 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp567, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive575 = getelementptr inbounds %class.btVector3, ptr %ref.tmp566, i32 0, i32 0
-  %454 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive575, i32 0, i32 0
-  %455 = extractvalue { <2 x float>, <2 x float> } %call574, 0
-  store <2 x float> %455, ptr %454, align 4
-  %456 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive575, i32 0, i32 1
-  %457 = extractvalue { <2 x float>, <2 x float> } %call574, 1
+  %456 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive575, i32 0, i32 0
+  %457 = extractvalue { <2 x float>, <2 x float> } %call574, 0
   store <2 x float> %457, ptr %456, align 4
-  %vtable576 = load ptr, ptr %421, align 8
+  %458 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive575, i32 0, i32 1
+  %459 = extractvalue { <2 x float>, <2 x float> } %call574, 1
+  store <2 x float> %459, ptr %458, align 4
+  %vtable576 = load ptr, ptr %423, align 8
   %vfn577 = getelementptr inbounds ptr, ptr %vtable576, i64 9
-  %458 = load ptr, ptr %vfn577, align 8
-  call void %458(ptr noundef nonnull align 8 dereferenceable(8) %421, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp546, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp556, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp566, ptr noundef nonnull align 4 dereferenceable(16) %col431, float noundef 1.000000e+00)
-  %459 = load ptr, ptr %idraw.addr, align 8
+  %460 = load ptr, ptr %vfn577, align 8
+  call void %460(ptr noundef nonnull align 8 dereferenceable(8) %423, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp546, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp556, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp566, ptr noundef nonnull align 4 dereferenceable(16) %col431, float noundef 1.000000e+00)
+  %461 = load ptr, ptr %idraw.addr, align 8
   %arrayidx581 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 2
   %call582 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx581, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive583 = getelementptr inbounds %class.btVector3, ptr %ref.tmp580, i32 0, i32 0
-  %460 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive583, i32 0, i32 0
-  %461 = extractvalue { <2 x float>, <2 x float> } %call582, 0
-  store <2 x float> %461, ptr %460, align 4
-  %462 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive583, i32 0, i32 1
-  %463 = extractvalue { <2 x float>, <2 x float> } %call582, 1
+  %462 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive583, i32 0, i32 0
+  %463 = extractvalue { <2 x float>, <2 x float> } %call582, 0
   store <2 x float> %463, ptr %462, align 4
+  %464 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive583, i32 0, i32 1
+  %465 = extractvalue { <2 x float>, <2 x float> } %call582, 1
+  store <2 x float> %465, ptr %464, align 4
   %call584 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp580, ptr noundef nonnull align 4 dereferenceable(4) %scl429)
   %coerce.dive585 = getelementptr inbounds %class.btVector3, ptr %ref.tmp579, i32 0, i32 0
-  %464 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive585, i32 0, i32 0
-  %465 = extractvalue { <2 x float>, <2 x float> } %call584, 0
-  store <2 x float> %465, ptr %464, align 4
-  %466 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive585, i32 0, i32 1
-  %467 = extractvalue { <2 x float>, <2 x float> } %call584, 1
+  %466 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive585, i32 0, i32 0
+  %467 = extractvalue { <2 x float>, <2 x float> } %call584, 0
   store <2 x float> %467, ptr %466, align 4
+  %468 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive585, i32 0, i32 1
+  %469 = extractvalue { <2 x float>, <2 x float> } %call584, 1
+  store <2 x float> %469, ptr %468, align 4
   %call586 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp579, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive587 = getelementptr inbounds %class.btVector3, ptr %ref.tmp578, i32 0, i32 0
-  %468 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive587, i32 0, i32 0
-  %469 = extractvalue { <2 x float>, <2 x float> } %call586, 0
-  store <2 x float> %469, ptr %468, align 4
-  %470 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive587, i32 0, i32 1
-  %471 = extractvalue { <2 x float>, <2 x float> } %call586, 1
+  %470 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive587, i32 0, i32 0
+  %471 = extractvalue { <2 x float>, <2 x float> } %call586, 0
   store <2 x float> %471, ptr %470, align 4
+  %472 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive587, i32 0, i32 1
+  %473 = extractvalue { <2 x float>, <2 x float> } %call586, 1
+  store <2 x float> %473, ptr %472, align 4
   %arrayidx591 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 0
   %call592 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx591, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive593 = getelementptr inbounds %class.btVector3, ptr %ref.tmp590, i32 0, i32 0
-  %472 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive593, i32 0, i32 0
-  %473 = extractvalue { <2 x float>, <2 x float> } %call592, 0
-  store <2 x float> %473, ptr %472, align 4
-  %474 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive593, i32 0, i32 1
-  %475 = extractvalue { <2 x float>, <2 x float> } %call592, 1
+  %474 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive593, i32 0, i32 0
+  %475 = extractvalue { <2 x float>, <2 x float> } %call592, 0
   store <2 x float> %475, ptr %474, align 4
+  %476 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive593, i32 0, i32 1
+  %477 = extractvalue { <2 x float>, <2 x float> } %call592, 1
+  store <2 x float> %477, ptr %476, align 4
   %call594 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp590, ptr noundef nonnull align 4 dereferenceable(4) %scl429)
   %coerce.dive595 = getelementptr inbounds %class.btVector3, ptr %ref.tmp589, i32 0, i32 0
-  %476 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive595, i32 0, i32 0
-  %477 = extractvalue { <2 x float>, <2 x float> } %call594, 0
-  store <2 x float> %477, ptr %476, align 4
-  %478 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive595, i32 0, i32 1
-  %479 = extractvalue { <2 x float>, <2 x float> } %call594, 1
+  %478 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive595, i32 0, i32 0
+  %479 = extractvalue { <2 x float>, <2 x float> } %call594, 0
   store <2 x float> %479, ptr %478, align 4
+  %480 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive595, i32 0, i32 1
+  %481 = extractvalue { <2 x float>, <2 x float> } %call594, 1
+  store <2 x float> %481, ptr %480, align 4
   %call596 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp589, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive597 = getelementptr inbounds %class.btVector3, ptr %ref.tmp588, i32 0, i32 0
-  %480 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive597, i32 0, i32 0
-  %481 = extractvalue { <2 x float>, <2 x float> } %call596, 0
-  store <2 x float> %481, ptr %480, align 4
-  %482 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive597, i32 0, i32 1
-  %483 = extractvalue { <2 x float>, <2 x float> } %call596, 1
+  %482 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive597, i32 0, i32 0
+  %483 = extractvalue { <2 x float>, <2 x float> } %call596, 0
   store <2 x float> %483, ptr %482, align 4
+  %484 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive597, i32 0, i32 1
+  %485 = extractvalue { <2 x float>, <2 x float> } %call596, 1
+  store <2 x float> %485, ptr %484, align 4
   %arrayidx601 = getelementptr inbounds [4 x %class.btVector3], ptr %x448, i64 0, i64 3
   %call602 = call { <2 x float>, <2 x float> } @_ZmiRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx601, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive603 = getelementptr inbounds %class.btVector3, ptr %ref.tmp600, i32 0, i32 0
-  %484 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive603, i32 0, i32 0
-  %485 = extractvalue { <2 x float>, <2 x float> } %call602, 0
-  store <2 x float> %485, ptr %484, align 4
-  %486 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive603, i32 0, i32 1
-  %487 = extractvalue { <2 x float>, <2 x float> } %call602, 1
+  %486 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive603, i32 0, i32 0
+  %487 = extractvalue { <2 x float>, <2 x float> } %call602, 0
   store <2 x float> %487, ptr %486, align 4
+  %488 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive603, i32 0, i32 1
+  %489 = extractvalue { <2 x float>, <2 x float> } %call602, 1
+  store <2 x float> %489, ptr %488, align 4
   %call604 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp600, ptr noundef nonnull align 4 dereferenceable(4) %scl429)
   %coerce.dive605 = getelementptr inbounds %class.btVector3, ptr %ref.tmp599, i32 0, i32 0
-  %488 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive605, i32 0, i32 0
-  %489 = extractvalue { <2 x float>, <2 x float> } %call604, 0
-  store <2 x float> %489, ptr %488, align 4
-  %490 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive605, i32 0, i32 1
-  %491 = extractvalue { <2 x float>, <2 x float> } %call604, 1
+  %490 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive605, i32 0, i32 0
+  %491 = extractvalue { <2 x float>, <2 x float> } %call604, 0
   store <2 x float> %491, ptr %490, align 4
+  %492 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive605, i32 0, i32 1
+  %493 = extractvalue { <2 x float>, <2 x float> } %call604, 1
+  store <2 x float> %493, ptr %492, align 4
   %call606 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp599, ptr noundef nonnull align 4 dereferenceable(16) %c465)
   %coerce.dive607 = getelementptr inbounds %class.btVector3, ptr %ref.tmp598, i32 0, i32 0
-  %492 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive607, i32 0, i32 0
-  %493 = extractvalue { <2 x float>, <2 x float> } %call606, 0
-  store <2 x float> %493, ptr %492, align 4
-  %494 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive607, i32 0, i32 1
-  %495 = extractvalue { <2 x float>, <2 x float> } %call606, 1
+  %494 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive607, i32 0, i32 0
+  %495 = extractvalue { <2 x float>, <2 x float> } %call606, 0
   store <2 x float> %495, ptr %494, align 4
-  %vtable608 = load ptr, ptr %459, align 8
+  %496 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive607, i32 0, i32 1
+  %497 = extractvalue { <2 x float>, <2 x float> } %call606, 1
+  store <2 x float> %497, ptr %496, align 4
+  %vtable608 = load ptr, ptr %461, align 8
   %vfn609 = getelementptr inbounds ptr, ptr %vtable608, i64 9
-  %496 = load ptr, ptr %vfn609, align 8
-  call void %496(ptr noundef nonnull align 8 dereferenceable(8) %459, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp578, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp588, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp598, ptr noundef nonnull align 4 dereferenceable(16) %col431, float noundef 1.000000e+00)
+  %498 = load ptr, ptr %vfn609, align 8
+  call void %498(ptr noundef nonnull align 8 dereferenceable(8) %461, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp578, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp588, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp598, ptr noundef nonnull align 4 dereferenceable(16) %col431, float noundef 1.000000e+00)
   br label %for.inc610
 
 for.inc610:                                       ; preds = %if.end447, %if.then446
-  %497 = load i32, ptr %i435, align 4
-  %inc611 = add nsw i32 %497, 1
+  %499 = load i32, ptr %i435, align 4
+  %inc611 = add nsw i32 %499, 1
   store i32 %inc611, ptr %i435, align 4
   br label %for.cond436, !llvm.loop !16
 
@@ -3454,8 +3468,8 @@ if.end613:                                        ; preds = %for.end612, %if.end
   br label %if.end614
 
 if.end614:                                        ; preds = %if.end613, %for.end96
-  %498 = load i32, ptr %drawflags.addr, align 4
-  %and615 = and i32 %498, 64
+  %500 = load i32, ptr %drawflags.addr, align 4
+  %and615 = and i32 %500, 64
   %cmp616 = icmp ne i32 0, %and615
   br i1 %cmp616, label %if.then617, label %if.end673
 
@@ -3464,67 +3478,67 @@ if.then617:                                       ; preds = %if.end614
   br label %for.cond618
 
 for.cond618:                                      ; preds = %for.inc645, %if.then617
-  %499 = load i32, ptr %i, align 4
-  %500 = load ptr, ptr %psb.addr, align 8
-  %m_anchors = getelementptr inbounds %class.btSoftBody, ptr %500, i32 0, i32 19
+  %501 = load i32, ptr %i, align 4
+  %502 = load ptr, ptr %psb.addr, align 8
+  %m_anchors = getelementptr inbounds %class.btSoftBody, ptr %502, i32 0, i32 19
   %call619 = call noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody6AnchorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_anchors)
-  %cmp620 = icmp slt i32 %499, %call619
+  %cmp620 = icmp slt i32 %501, %call619
   br i1 %cmp620, label %for.body621, label %for.end647
 
 for.body621:                                      ; preds = %for.cond618
-  %501 = load ptr, ptr %psb.addr, align 8
-  %m_anchors622 = getelementptr inbounds %class.btSoftBody, ptr %501, i32 0, i32 19
-  %502 = load i32, ptr %i, align 4
-  %call623 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN20btAlignedObjectArrayIN10btSoftBody6AnchorEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_anchors622, i32 noundef %502)
+  %503 = load ptr, ptr %psb.addr, align 8
+  %m_anchors622 = getelementptr inbounds %class.btSoftBody, ptr %503, i32 0, i32 19
+  %504 = load i32, ptr %i, align 4
+  %call623 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN20btAlignedObjectArrayIN10btSoftBody6AnchorEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_anchors622, i32 noundef %504)
   store ptr %call623, ptr %a, align 8
-  %503 = load ptr, ptr %a, align 8
-  %m_body = getelementptr inbounds %"struct.btSoftBody::Anchor", ptr %503, i32 0, i32 2
-  %504 = load ptr, ptr %m_body, align 8
-  %call624 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN17btCollisionObject17getWorldTransformEv(ptr noundef nonnull align 8 dereferenceable(372) %504)
   %505 = load ptr, ptr %a, align 8
-  %m_local = getelementptr inbounds %"struct.btSoftBody::Anchor", ptr %505, i32 0, i32 1
+  %m_body = getelementptr inbounds %"struct.btSoftBody::Anchor", ptr %505, i32 0, i32 2
+  %506 = load ptr, ptr %m_body, align 8
+  %call624 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN17btCollisionObject17getWorldTransformEv(ptr noundef nonnull align 8 dereferenceable(372) %506)
+  %507 = load ptr, ptr %a, align 8
+  %m_local = getelementptr inbounds %"struct.btSoftBody::Anchor", ptr %507, i32 0, i32 1
   %call625 = call { <2 x float>, <2 x float> } @_ZNK11btTransformmlERK9btVector3(ptr noundef nonnull align 4 dereferenceable(64) %call624, ptr noundef nonnull align 4 dereferenceable(16) %m_local)
   %coerce.dive626 = getelementptr inbounds %class.btVector3, ptr %q, i32 0, i32 0
-  %506 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive626, i32 0, i32 0
-  %507 = extractvalue { <2 x float>, <2 x float> } %call625, 0
-  store <2 x float> %507, ptr %506, align 4
-  %508 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive626, i32 0, i32 1
-  %509 = extractvalue { <2 x float>, <2 x float> } %call625, 1
+  %508 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive626, i32 0, i32 0
+  %509 = extractvalue { <2 x float>, <2 x float> } %call625, 0
   store <2 x float> %509, ptr %508, align 4
-  %510 = load ptr, ptr %idraw.addr, align 8
-  %511 = load ptr, ptr %a, align 8
-  %m_node627 = getelementptr inbounds %"struct.btSoftBody::Anchor", ptr %511, i32 0, i32 0
-  %512 = load ptr, ptr %m_node627, align 8
-  %m_x628 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %512, i32 0, i32 1
+  %510 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive626, i32 0, i32 1
+  %511 = extractvalue { <2 x float>, <2 x float> } %call625, 1
+  store <2 x float> %511, ptr %510, align 4
+  %512 = load ptr, ptr %idraw.addr, align 8
+  %513 = load ptr, ptr %a, align 8
+  %m_node627 = getelementptr inbounds %"struct.btSoftBody::Anchor", ptr %513, i32 0, i32 0
+  %514 = load ptr, ptr %m_node627, align 8
+  %m_x628 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %514, i32 0, i32 1
   store float 1.000000e+00, ptr %ref.tmp630, align 4
   store float 0.000000e+00, ptr %ref.tmp631, align 4
   store float 0.000000e+00, ptr %ref.tmp632, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp629, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp630, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp631, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp632)
-  call void @_ZL10drawVertexP12btIDebugDrawRK9btVector3fS3_(ptr noundef %510, ptr noundef nonnull align 4 dereferenceable(16) %m_x628, float noundef 2.500000e-01, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp629)
-  %513 = load ptr, ptr %idraw.addr, align 8
+  call void @_ZL10drawVertexP12btIDebugDrawRK9btVector3fS3_(ptr noundef %512, ptr noundef nonnull align 4 dereferenceable(16) %m_x628, float noundef 2.500000e-01, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp629)
+  %515 = load ptr, ptr %idraw.addr, align 8
   store float 0.000000e+00, ptr %ref.tmp634, align 4
   store float 1.000000e+00, ptr %ref.tmp635, align 4
   store float 0.000000e+00, ptr %ref.tmp636, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp633, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp634, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp635, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp636)
-  call void @_ZL10drawVertexP12btIDebugDrawRK9btVector3fS3_(ptr noundef %513, ptr noundef nonnull align 4 dereferenceable(16) %q, float noundef 2.500000e-01, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp633)
-  %514 = load ptr, ptr %idraw.addr, align 8
-  %515 = load ptr, ptr %a, align 8
-  %m_node637 = getelementptr inbounds %"struct.btSoftBody::Anchor", ptr %515, i32 0, i32 0
-  %516 = load ptr, ptr %m_node637, align 8
-  %m_x638 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %516, i32 0, i32 1
+  call void @_ZL10drawVertexP12btIDebugDrawRK9btVector3fS3_(ptr noundef %515, ptr noundef nonnull align 4 dereferenceable(16) %q, float noundef 2.500000e-01, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp633)
+  %516 = load ptr, ptr %idraw.addr, align 8
+  %517 = load ptr, ptr %a, align 8
+  %m_node637 = getelementptr inbounds %"struct.btSoftBody::Anchor", ptr %517, i32 0, i32 0
+  %518 = load ptr, ptr %m_node637, align 8
+  %m_x638 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %518, i32 0, i32 1
   store float 1.000000e+00, ptr %ref.tmp640, align 4
   store float 1.000000e+00, ptr %ref.tmp641, align 4
   store float 1.000000e+00, ptr %ref.tmp642, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp639, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp640, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp641, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp642)
-  %vtable643 = load ptr, ptr %514, align 8
+  %vtable643 = load ptr, ptr %516, align 8
   %vfn644 = getelementptr inbounds ptr, ptr %vtable643, i64 4
-  %517 = load ptr, ptr %vfn644, align 8
-  call void %517(ptr noundef nonnull align 8 dereferenceable(8) %514, ptr noundef nonnull align 4 dereferenceable(16) %m_x638, ptr noundef nonnull align 4 dereferenceable(16) %q, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp639)
+  %519 = load ptr, ptr %vfn644, align 8
+  call void %519(ptr noundef nonnull align 8 dereferenceable(8) %516, ptr noundef nonnull align 4 dereferenceable(16) %m_x638, ptr noundef nonnull align 4 dereferenceable(16) %q, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp639)
   br label %for.inc645
 
 for.inc645:                                       ; preds = %for.body621
-  %518 = load i32, ptr %i, align 4
-  %inc646 = add nsw i32 %518, 1
+  %520 = load i32, ptr %i, align 4
+  %inc646 = add nsw i32 %520, 1
   store i32 %inc646, ptr %i, align 4
   br label %for.cond618, !llvm.loop !17
 
@@ -3533,25 +3547,25 @@ for.end647:                                       ; preds = %for.cond618
   br label %for.cond648
 
 for.cond648:                                      ; preds = %for.inc670, %for.end647
-  %519 = load i32, ptr %i, align 4
-  %520 = load ptr, ptr %psb.addr, align 8
-  %m_nodes649 = getelementptr inbounds %class.btSoftBody, ptr %520, i32 0, i32 11
+  %521 = load i32, ptr %i, align 4
+  %522 = load ptr, ptr %psb.addr, align 8
+  %m_nodes649 = getelementptr inbounds %class.btSoftBody, ptr %522, i32 0, i32 11
   %call650 = call noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody4NodeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_nodes649)
-  %cmp651 = icmp slt i32 %519, %call650
+  %cmp651 = icmp slt i32 %521, %call650
   br i1 %cmp651, label %for.body652, label %for.end672
 
 for.body652:                                      ; preds = %for.cond648
-  %521 = load ptr, ptr %psb.addr, align 8
-  %m_nodes654 = getelementptr inbounds %class.btSoftBody, ptr %521, i32 0, i32 11
-  %522 = load i32, ptr %i, align 4
-  %call655 = call noundef nonnull align 8 dereferenceable(252) ptr @_ZN20btAlignedObjectArrayIN10btSoftBody4NodeEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_nodes654, i32 noundef %522)
+  %523 = load ptr, ptr %psb.addr, align 8
+  %m_nodes654 = getelementptr inbounds %class.btSoftBody, ptr %523, i32 0, i32 11
+  %524 = load i32, ptr %i, align 4
+  %call655 = call noundef nonnull align 8 dereferenceable(252) ptr @_ZN20btAlignedObjectArrayIN10btSoftBody4NodeEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_nodes654, i32 noundef %524)
   store ptr %call655, ptr %n653, align 8
-  %523 = load ptr, ptr %n653, align 8
-  %m_material656 = getelementptr inbounds %"struct.btSoftBody::Feature", ptr %523, i32 0, i32 1
-  %524 = load ptr, ptr %m_material656, align 8
-  %m_flags657 = getelementptr inbounds %"struct.btSoftBody::Material", ptr %524, i32 0, i32 4
-  %525 = load i32, ptr %m_flags657, align 4
-  %and658 = and i32 %525, 1
+  %525 = load ptr, ptr %n653, align 8
+  %m_material656 = getelementptr inbounds %"struct.btSoftBody::Feature", ptr %525, i32 0, i32 1
+  %526 = load ptr, ptr %m_material656, align 8
+  %m_flags657 = getelementptr inbounds %"struct.btSoftBody::Material", ptr %526, i32 0, i32 4
+  %527 = load i32, ptr %m_flags657, align 4
+  %and658 = and i32 %527, 1
   %cmp659 = icmp eq i32 0, %and658
   br i1 %cmp659, label %if.then660, label %if.end661
 
@@ -3559,29 +3573,29 @@ if.then660:                                       ; preds = %for.body652
   br label %for.inc670
 
 if.end661:                                        ; preds = %for.body652
-  %526 = load ptr, ptr %n653, align 8
-  %m_im = getelementptr inbounds %"struct.btSoftBody::Node", ptr %526, i32 0, i32 7
-  %527 = load float, ptr %m_im, align 8
-  %cmp662 = fcmp ole float %527, 0.000000e+00
+  %528 = load ptr, ptr %n653, align 8
+  %m_im = getelementptr inbounds %"struct.btSoftBody::Node", ptr %528, i32 0, i32 7
+  %529 = load float, ptr %m_im, align 8
+  %cmp662 = fcmp ole float %529, 0.000000e+00
   br i1 %cmp662, label %if.then663, label %if.end669
 
 if.then663:                                       ; preds = %if.end661
-  %528 = load ptr, ptr %idraw.addr, align 8
-  %529 = load ptr, ptr %n653, align 8
-  %m_x664 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %529, i32 0, i32 1
+  %530 = load ptr, ptr %idraw.addr, align 8
+  %531 = load ptr, ptr %n653, align 8
+  %m_x664 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %531, i32 0, i32 1
   store float 1.000000e+00, ptr %ref.tmp666, align 4
   store float 0.000000e+00, ptr %ref.tmp667, align 4
   store float 0.000000e+00, ptr %ref.tmp668, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp665, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp666, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp667, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp668)
-  call void @_ZL10drawVertexP12btIDebugDrawRK9btVector3fS3_(ptr noundef %528, ptr noundef nonnull align 4 dereferenceable(16) %m_x664, float noundef 2.500000e-01, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp665)
+  call void @_ZL10drawVertexP12btIDebugDrawRK9btVector3fS3_(ptr noundef %530, ptr noundef nonnull align 4 dereferenceable(16) %m_x664, float noundef 2.500000e-01, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp665)
   br label %if.end669
 
 if.end669:                                        ; preds = %if.then663, %if.end661
   br label %for.inc670
 
 for.inc670:                                       ; preds = %if.end669, %if.then660
-  %530 = load i32, ptr %i, align 4
-  %inc671 = add nsw i32 %530, 1
+  %532 = load i32, ptr %i, align 4
+  %inc671 = add nsw i32 %532, 1
   store i32 %inc671, ptr %i, align 4
   br label %for.cond648, !llvm.loop !18
 
@@ -3589,8 +3603,8 @@ for.end672:                                       ; preds = %for.cond648
   br label %if.end673
 
 if.end673:                                        ; preds = %for.end672, %if.end614
-  %531 = load i32, ptr %drawflags.addr, align 4
-  %and674 = and i32 %531, 128
+  %533 = load i32, ptr %drawflags.addr, align 4
+  %and674 = and i32 %533, 128
   %cmp675 = icmp ne i32 0, %and674
   br i1 %cmp675, label %if.then676, label %if.end707
 
@@ -3599,77 +3613,77 @@ if.then676:                                       ; preds = %if.end673
   br label %for.cond677
 
 for.cond677:                                      ; preds = %for.inc704, %if.then676
-  %532 = load i32, ptr %i, align 4
-  %533 = load ptr, ptr %psb.addr, align 8
-  %m_notes = getelementptr inbounds %class.btSoftBody, ptr %533, i32 0, i32 10
+  %534 = load i32, ptr %i, align 4
+  %535 = load ptr, ptr %psb.addr, align 8
+  %m_notes = getelementptr inbounds %class.btSoftBody, ptr %535, i32 0, i32 10
   %call678 = call noundef i32 @_ZNK20btAlignedObjectArrayIN10btSoftBody4NoteEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_notes)
-  %cmp679 = icmp slt i32 %532, %call678
+  %cmp679 = icmp slt i32 %534, %call678
   br i1 %cmp679, label %for.body680, label %for.end706
 
 for.body680:                                      ; preds = %for.cond677
-  %534 = load ptr, ptr %psb.addr, align 8
-  %m_notes682 = getelementptr inbounds %class.btSoftBody, ptr %534, i32 0, i32 10
-  %535 = load i32, ptr %i, align 4
-  %call683 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN20btAlignedObjectArrayIN10btSoftBody4NoteEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_notes682, i32 noundef %535)
+  %536 = load ptr, ptr %psb.addr, align 8
+  %m_notes682 = getelementptr inbounds %class.btSoftBody, ptr %536, i32 0, i32 10
+  %537 = load i32, ptr %i, align 4
+  %call683 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN20btAlignedObjectArrayIN10btSoftBody4NoteEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_notes682, i32 noundef %537)
   store ptr %call683, ptr %n681, align 8
-  %536 = load ptr, ptr %n681, align 8
-  %m_offset684 = getelementptr inbounds %"struct.btSoftBody::Note", ptr %536, i32 0, i32 2
+  %538 = load ptr, ptr %n681, align 8
+  %m_offset684 = getelementptr inbounds %"struct.btSoftBody::Note", ptr %538, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %p, ptr align 8 %m_offset684, i64 16, i1 false)
   store i32 0, ptr %j685, align 4
   br label %for.cond686
 
 for.cond686:                                      ; preds = %for.inc699, %for.body680
-  %537 = load i32, ptr %j685, align 4
-  %538 = load ptr, ptr %n681, align 8
-  %m_rank = getelementptr inbounds %"struct.btSoftBody::Note", ptr %538, i32 0, i32 3
-  %539 = load i32, ptr %m_rank, align 8
-  %cmp687 = icmp slt i32 %537, %539
+  %539 = load i32, ptr %j685, align 4
+  %540 = load ptr, ptr %n681, align 8
+  %m_rank = getelementptr inbounds %"struct.btSoftBody::Note", ptr %540, i32 0, i32 3
+  %541 = load i32, ptr %m_rank, align 8
+  %cmp687 = icmp slt i32 %539, %541
   br i1 %cmp687, label %for.body688, label %for.end701
 
 for.body688:                                      ; preds = %for.cond686
-  %540 = load ptr, ptr %n681, align 8
-  %m_nodes690 = getelementptr inbounds %"struct.btSoftBody::Note", ptr %540, i32 0, i32 4
-  %541 = load i32, ptr %j685, align 4
-  %idxprom691 = sext i32 %541 to i64
+  %542 = load ptr, ptr %n681, align 8
+  %m_nodes690 = getelementptr inbounds %"struct.btSoftBody::Note", ptr %542, i32 0, i32 4
+  %543 = load i32, ptr %j685, align 4
+  %idxprom691 = sext i32 %543 to i64
   %arrayidx692 = getelementptr inbounds [4 x ptr], ptr %m_nodes690, i64 0, i64 %idxprom691
-  %542 = load ptr, ptr %arrayidx692, align 8
-  %m_x693 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %542, i32 0, i32 1
-  %543 = load ptr, ptr %n681, align 8
-  %m_coords = getelementptr inbounds %"struct.btSoftBody::Note", ptr %543, i32 0, i32 5
-  %544 = load i32, ptr %j685, align 4
-  %idxprom694 = sext i32 %544 to i64
+  %544 = load ptr, ptr %arrayidx692, align 8
+  %m_x693 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %544, i32 0, i32 1
+  %545 = load ptr, ptr %n681, align 8
+  %m_coords = getelementptr inbounds %"struct.btSoftBody::Note", ptr %545, i32 0, i32 5
+  %546 = load i32, ptr %j685, align 4
+  %idxprom694 = sext i32 %546 to i64
   %arrayidx695 = getelementptr inbounds [4 x float], ptr %m_coords, i64 0, i64 %idxprom694
   %call696 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %m_x693, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx695)
   %coerce.dive697 = getelementptr inbounds %class.btVector3, ptr %ref.tmp689, i32 0, i32 0
-  %545 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive697, i32 0, i32 0
-  %546 = extractvalue { <2 x float>, <2 x float> } %call696, 0
-  store <2 x float> %546, ptr %545, align 4
-  %547 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive697, i32 0, i32 1
-  %548 = extractvalue { <2 x float>, <2 x float> } %call696, 1
+  %547 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive697, i32 0, i32 0
+  %548 = extractvalue { <2 x float>, <2 x float> } %call696, 0
   store <2 x float> %548, ptr %547, align 4
+  %549 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive697, i32 0, i32 1
+  %550 = extractvalue { <2 x float>, <2 x float> } %call696, 1
+  store <2 x float> %550, ptr %549, align 4
   %call698 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN9btVector3pLERKS_(ptr noundef nonnull align 4 dereferenceable(16) %p, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp689)
   br label %for.inc699
 
 for.inc699:                                       ; preds = %for.body688
-  %549 = load i32, ptr %j685, align 4
-  %inc700 = add nsw i32 %549, 1
+  %551 = load i32, ptr %j685, align 4
+  %inc700 = add nsw i32 %551, 1
   store i32 %inc700, ptr %j685, align 4
   br label %for.cond686, !llvm.loop !19
 
 for.end701:                                       ; preds = %for.cond686
-  %550 = load ptr, ptr %idraw.addr, align 8
-  %551 = load ptr, ptr %n681, align 8
-  %m_text = getelementptr inbounds %"struct.btSoftBody::Note", ptr %551, i32 0, i32 1
-  %552 = load ptr, ptr %m_text, align 8
-  %vtable702 = load ptr, ptr %550, align 8
+  %552 = load ptr, ptr %idraw.addr, align 8
+  %553 = load ptr, ptr %n681, align 8
+  %m_text = getelementptr inbounds %"struct.btSoftBody::Note", ptr %553, i32 0, i32 1
+  %554 = load ptr, ptr %m_text, align 8
+  %vtable702 = load ptr, ptr %552, align 8
   %vfn703 = getelementptr inbounds ptr, ptr %vtable702, i64 12
-  %553 = load ptr, ptr %vfn703, align 8
-  call void %553(ptr noundef nonnull align 8 dereferenceable(8) %550, ptr noundef nonnull align 4 dereferenceable(16) %p, ptr noundef %552)
+  %555 = load ptr, ptr %vfn703, align 8
+  call void %555(ptr noundef nonnull align 8 dereferenceable(8) %552, ptr noundef nonnull align 4 dereferenceable(16) %p, ptr noundef %554)
   br label %for.inc704
 
 for.inc704:                                       ; preds = %for.end701
-  %554 = load i32, ptr %i, align 4
-  %inc705 = add nsw i32 %554, 1
+  %556 = load i32, ptr %i, align 4
+  %inc705 = add nsw i32 %556, 1
   store i32 %inc705, ptr %i, align 4
   br label %for.cond677, !llvm.loop !20
 
@@ -3677,44 +3691,44 @@ for.end706:                                       ; preds = %for.cond677
   br label %if.end707
 
 if.end707:                                        ; preds = %for.end706, %if.end673
-  %555 = load i32, ptr %drawflags.addr, align 4
-  %and708 = and i32 %555, 512
+  %557 = load i32, ptr %drawflags.addr, align 4
+  %and708 = and i32 %557, 512
   %cmp709 = icmp ne i32 0, %and708
   br i1 %cmp709, label %if.then710, label %if.end711
 
 if.then710:                                       ; preds = %if.end707
-  %556 = load ptr, ptr %psb.addr, align 8
-  %557 = load ptr, ptr %idraw.addr, align 8
-  call void @_ZN17btSoftBodyHelpers12DrawNodeTreeEP10btSoftBodyP12btIDebugDrawii(ptr noundef %556, ptr noundef %557, i32 noundef 0, i32 noundef -1)
+  %558 = load ptr, ptr %psb.addr, align 8
+  %559 = load ptr, ptr %idraw.addr, align 8
+  call void @_ZN17btSoftBodyHelpers12DrawNodeTreeEP10btSoftBodyP12btIDebugDrawii(ptr noundef %558, ptr noundef %559, i32 noundef 0, i32 noundef -1)
   br label %if.end711
 
 if.end711:                                        ; preds = %if.then710, %if.end707
-  %558 = load i32, ptr %drawflags.addr, align 4
-  %and712 = and i32 %558, 1024
+  %560 = load i32, ptr %drawflags.addr, align 4
+  %and712 = and i32 %560, 1024
   %cmp713 = icmp ne i32 0, %and712
   br i1 %cmp713, label %if.then714, label %if.end715
 
 if.then714:                                       ; preds = %if.end711
-  %559 = load ptr, ptr %psb.addr, align 8
-  %560 = load ptr, ptr %idraw.addr, align 8
-  call void @_ZN17btSoftBodyHelpers12DrawFaceTreeEP10btSoftBodyP12btIDebugDrawii(ptr noundef %559, ptr noundef %560, i32 noundef 0, i32 noundef -1)
+  %561 = load ptr, ptr %psb.addr, align 8
+  %562 = load ptr, ptr %idraw.addr, align 8
+  call void @_ZN17btSoftBodyHelpers12DrawFaceTreeEP10btSoftBodyP12btIDebugDrawii(ptr noundef %561, ptr noundef %562, i32 noundef 0, i32 noundef -1)
   br label %if.end715
 
 if.end715:                                        ; preds = %if.then714, %if.end711
-  %561 = load i32, ptr %drawflags.addr, align 4
-  %and716 = and i32 %561, 2048
+  %563 = load i32, ptr %drawflags.addr, align 4
+  %and716 = and i32 %563, 2048
   %cmp717 = icmp ne i32 0, %and716
   br i1 %cmp717, label %if.then718, label %if.end719
 
 if.then718:                                       ; preds = %if.end715
-  %562 = load ptr, ptr %psb.addr, align 8
-  %563 = load ptr, ptr %idraw.addr, align 8
-  call void @_ZN17btSoftBodyHelpers15DrawClusterTreeEP10btSoftBodyP12btIDebugDrawii(ptr noundef %562, ptr noundef %563, i32 noundef 0, i32 noundef -1)
+  %564 = load ptr, ptr %psb.addr, align 8
+  %565 = load ptr, ptr %idraw.addr, align 8
+  call void @_ZN17btSoftBodyHelpers15DrawClusterTreeEP10btSoftBodyP12btIDebugDrawii(ptr noundef %564, ptr noundef %565, i32 noundef 0, i32 noundef -1)
   br label %if.end719
 
 if.end719:                                        ; preds = %if.then718, %if.end715
-  %564 = load i32, ptr %drawflags.addr, align 4
-  %and720 = and i32 %564, 4096
+  %566 = load i32, ptr %drawflags.addr, align 4
+  %and720 = and i32 %566, 4096
   %cmp721 = icmp ne i32 0, %and720
   br i1 %cmp721, label %if.then722, label %if.end854
 
@@ -3723,66 +3737,66 @@ if.then722:                                       ; preds = %if.end719
   br label %for.cond723
 
 for.cond723:                                      ; preds = %for.inc851, %if.then722
-  %565 = load i32, ptr %i, align 4
-  %566 = load ptr, ptr %psb.addr, align 8
-  %m_joints = getelementptr inbounds %class.btSoftBody, ptr %566, i32 0, i32 27
+  %567 = load i32, ptr %i, align 4
+  %568 = load ptr, ptr %psb.addr, align 8
+  %m_joints = getelementptr inbounds %class.btSoftBody, ptr %568, i32 0, i32 27
   %call724 = call noundef i32 @_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_joints)
-  %cmp725 = icmp slt i32 %565, %call724
+  %cmp725 = icmp slt i32 %567, %call724
   br i1 %cmp725, label %for.body726, label %for.end853
 
 for.body726:                                      ; preds = %for.cond723
-  %567 = load ptr, ptr %psb.addr, align 8
-  %m_joints727 = getelementptr inbounds %class.btSoftBody, ptr %567, i32 0, i32 27
-  %568 = load i32, ptr %i, align 4
-  %call728 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN10btSoftBody5JointEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_joints727, i32 noundef %568)
-  %569 = load ptr, ptr %call728, align 8
-  store ptr %569, ptr %pj, align 8
-  %570 = load ptr, ptr %pj, align 8
-  %vtable729 = load ptr, ptr %570, align 8
+  %569 = load ptr, ptr %psb.addr, align 8
+  %m_joints727 = getelementptr inbounds %class.btSoftBody, ptr %569, i32 0, i32 27
+  %570 = load i32, ptr %i, align 4
+  %call728 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN20btAlignedObjectArrayIPN10btSoftBody5JointEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_joints727, i32 noundef %570)
+  %571 = load ptr, ptr %call728, align 8
+  store ptr %571, ptr %pj, align 8
+  %572 = load ptr, ptr %pj, align 8
+  %vtable729 = load ptr, ptr %572, align 8
   %vfn730 = getelementptr inbounds ptr, ptr %vtable729, i64 5
-  %571 = load ptr, ptr %vfn730, align 8
-  %call731 = call noundef i32 %571(ptr noundef nonnull align 8 dereferenceable(181) %570)
+  %573 = load ptr, ptr %vfn730, align 8
+  %call731 = call noundef i32 %573(ptr noundef nonnull align 8 dereferenceable(181) %572)
   switch i32 %call731, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb772
   ]
 
 sw.bb:                                            ; preds = %for.body726
-  %572 = load ptr, ptr %pj, align 8
-  store ptr %572, ptr %pjl, align 8
-  %573 = load ptr, ptr %pj, align 8
-  %m_bodies = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %573, i32 0, i32 1
+  %574 = load ptr, ptr %pj, align 8
+  store ptr %574, ptr %pjl, align 8
+  %575 = load ptr, ptr %pj, align 8
+  %m_bodies = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %575, i32 0, i32 1
   %arrayidx732 = getelementptr inbounds [2 x %"struct.btSoftBody::Body"], ptr %m_bodies, i64 0, i64 0
   %call733 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZNK10btSoftBody4Body5xformEv(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx732)
-  %574 = load ptr, ptr %pjl, align 8
-  %m_refs = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %574, i32 0, i32 2
+  %576 = load ptr, ptr %pjl, align 8
+  %m_refs = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %576, i32 0, i32 2
   %arrayidx734 = getelementptr inbounds [2 x %class.btVector3], ptr %m_refs, i64 0, i64 0
   %call735 = call { <2 x float>, <2 x float> } @_ZNK11btTransformmlERK9btVector3(ptr noundef nonnull align 4 dereferenceable(64) %call733, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx734)
   %coerce.dive736 = getelementptr inbounds %class.btVector3, ptr %a0, i32 0, i32 0
-  %575 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive736, i32 0, i32 0
-  %576 = extractvalue { <2 x float>, <2 x float> } %call735, 0
-  store <2 x float> %576, ptr %575, align 4
-  %577 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive736, i32 0, i32 1
-  %578 = extractvalue { <2 x float>, <2 x float> } %call735, 1
+  %577 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive736, i32 0, i32 0
+  %578 = extractvalue { <2 x float>, <2 x float> } %call735, 0
   store <2 x float> %578, ptr %577, align 4
-  %579 = load ptr, ptr %pj, align 8
-  %m_bodies737 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %579, i32 0, i32 1
+  %579 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive736, i32 0, i32 1
+  %580 = extractvalue { <2 x float>, <2 x float> } %call735, 1
+  store <2 x float> %580, ptr %579, align 4
+  %581 = load ptr, ptr %pj, align 8
+  %m_bodies737 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %581, i32 0, i32 1
   %arrayidx738 = getelementptr inbounds [2 x %"struct.btSoftBody::Body"], ptr %m_bodies737, i64 0, i64 1
   %call739 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZNK10btSoftBody4Body5xformEv(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx738)
-  %580 = load ptr, ptr %pjl, align 8
-  %m_refs740 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %580, i32 0, i32 2
+  %582 = load ptr, ptr %pjl, align 8
+  %m_refs740 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %582, i32 0, i32 2
   %arrayidx741 = getelementptr inbounds [2 x %class.btVector3], ptr %m_refs740, i64 0, i64 1
   %call742 = call { <2 x float>, <2 x float> } @_ZNK11btTransformmlERK9btVector3(ptr noundef nonnull align 4 dereferenceable(64) %call739, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx741)
   %coerce.dive743 = getelementptr inbounds %class.btVector3, ptr %a1, i32 0, i32 0
-  %581 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive743, i32 0, i32 0
-  %582 = extractvalue { <2 x float>, <2 x float> } %call742, 0
-  store <2 x float> %582, ptr %581, align 4
-  %583 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive743, i32 0, i32 1
-  %584 = extractvalue { <2 x float>, <2 x float> } %call742, 1
+  %583 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive743, i32 0, i32 0
+  %584 = extractvalue { <2 x float>, <2 x float> } %call742, 0
   store <2 x float> %584, ptr %583, align 4
-  %585 = load ptr, ptr %idraw.addr, align 8
-  %586 = load ptr, ptr %pj, align 8
-  %m_bodies744 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %586, i32 0, i32 1
+  %585 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive743, i32 0, i32 1
+  %586 = extractvalue { <2 x float>, <2 x float> } %call742, 1
+  store <2 x float> %586, ptr %585, align 4
+  %587 = load ptr, ptr %idraw.addr, align 8
+  %588 = load ptr, ptr %pj, align 8
+  %m_bodies744 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %588, i32 0, i32 1
   %arrayidx745 = getelementptr inbounds [2 x %"struct.btSoftBody::Body"], ptr %m_bodies744, i64 0, i64 0
   %call746 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZNK10btSoftBody4Body5xformEv(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx745)
   %call747 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btTransform9getOriginEv(ptr noundef nonnull align 4 dereferenceable(64) %call746)
@@ -3790,13 +3804,13 @@ sw.bb:                                            ; preds = %for.body726
   store float 1.000000e+00, ptr %ref.tmp750, align 4
   store float 0.000000e+00, ptr %ref.tmp751, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp748, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp749, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp750, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp751)
-  %vtable752 = load ptr, ptr %585, align 8
+  %vtable752 = load ptr, ptr %587, align 8
   %vfn753 = getelementptr inbounds ptr, ptr %vtable752, i64 4
-  %587 = load ptr, ptr %vfn753, align 8
-  call void %587(ptr noundef nonnull align 8 dereferenceable(8) %585, ptr noundef nonnull align 4 dereferenceable(16) %call747, ptr noundef nonnull align 4 dereferenceable(16) %a0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp748)
-  %588 = load ptr, ptr %idraw.addr, align 8
-  %589 = load ptr, ptr %pj, align 8
-  %m_bodies754 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %589, i32 0, i32 1
+  %589 = load ptr, ptr %vfn753, align 8
+  call void %589(ptr noundef nonnull align 8 dereferenceable(8) %587, ptr noundef nonnull align 4 dereferenceable(16) %call747, ptr noundef nonnull align 4 dereferenceable(16) %a0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp748)
+  %590 = load ptr, ptr %idraw.addr, align 8
+  %591 = load ptr, ptr %pj, align 8
+  %m_bodies754 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %591, i32 0, i32 1
   %arrayidx755 = getelementptr inbounds [2 x %"struct.btSoftBody::Body"], ptr %m_bodies754, i64 0, i64 1
   %call756 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZNK10btSoftBody4Body5xformEv(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx755)
   %call757 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btTransform9getOriginEv(ptr noundef nonnull align 4 dereferenceable(64) %call756)
@@ -3804,173 +3818,173 @@ sw.bb:                                            ; preds = %for.body726
   store float 1.000000e+00, ptr %ref.tmp760, align 4
   store float 1.000000e+00, ptr %ref.tmp761, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp758, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp759, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp760, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp761)
-  %vtable762 = load ptr, ptr %588, align 8
+  %vtable762 = load ptr, ptr %590, align 8
   %vfn763 = getelementptr inbounds ptr, ptr %vtable762, i64 4
-  %590 = load ptr, ptr %vfn763, align 8
-  call void %590(ptr noundef nonnull align 8 dereferenceable(8) %588, ptr noundef nonnull align 4 dereferenceable(16) %call757, ptr noundef nonnull align 4 dereferenceable(16) %a1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp758)
-  %591 = load ptr, ptr %idraw.addr, align 8
+  %592 = load ptr, ptr %vfn763, align 8
+  call void %592(ptr noundef nonnull align 8 dereferenceable(8) %590, ptr noundef nonnull align 4 dereferenceable(16) %call757, ptr noundef nonnull align 4 dereferenceable(16) %a1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp758)
+  %593 = load ptr, ptr %idraw.addr, align 8
   store float 1.000000e+00, ptr %ref.tmp765, align 4
   store float 1.000000e+00, ptr %ref.tmp766, align 4
   store float 0.000000e+00, ptr %ref.tmp767, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp764, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp765, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp766, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp767)
-  call void @_ZL10drawVertexP12btIDebugDrawRK9btVector3fS3_(ptr noundef %591, ptr noundef nonnull align 4 dereferenceable(16) %a0, float noundef 2.500000e-01, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp764)
-  %592 = load ptr, ptr %idraw.addr, align 8
+  call void @_ZL10drawVertexP12btIDebugDrawRK9btVector3fS3_(ptr noundef %593, ptr noundef nonnull align 4 dereferenceable(16) %a0, float noundef 2.500000e-01, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp764)
+  %594 = load ptr, ptr %idraw.addr, align 8
   store float 0.000000e+00, ptr %ref.tmp769, align 4
   store float 1.000000e+00, ptr %ref.tmp770, align 4
   store float 1.000000e+00, ptr %ref.tmp771, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp768, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp769, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp770, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp771)
-  call void @_ZL10drawVertexP12btIDebugDrawRK9btVector3fS3_(ptr noundef %592, ptr noundef nonnull align 4 dereferenceable(16) %a1, float noundef 2.500000e-01, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp768)
+  call void @_ZL10drawVertexP12btIDebugDrawRK9btVector3fS3_(ptr noundef %594, ptr noundef nonnull align 4 dereferenceable(16) %a1, float noundef 2.500000e-01, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp768)
   br label %sw.epilog
 
 sw.bb772:                                         ; preds = %for.body726
-  %593 = load ptr, ptr %pj, align 8
-  %m_bodies773 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %593, i32 0, i32 1
+  %595 = load ptr, ptr %pj, align 8
+  %m_bodies773 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %595, i32 0, i32 1
   %arrayidx774 = getelementptr inbounds [2 x %"struct.btSoftBody::Body"], ptr %m_bodies773, i64 0, i64 0
   %call775 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZNK10btSoftBody4Body5xformEv(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx774)
   %call776 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btTransform9getOriginEv(ptr noundef nonnull align 4 dereferenceable(64) %call775)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %o0, ptr align 4 %call776, i64 16, i1 false)
-  %594 = load ptr, ptr %pj, align 8
-  %m_bodies777 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %594, i32 0, i32 1
+  %596 = load ptr, ptr %pj, align 8
+  %m_bodies777 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %596, i32 0, i32 1
   %arrayidx778 = getelementptr inbounds [2 x %"struct.btSoftBody::Body"], ptr %m_bodies777, i64 0, i64 1
   %call779 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZNK10btSoftBody4Body5xformEv(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx778)
   %call780 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11btTransform9getOriginEv(ptr noundef nonnull align 4 dereferenceable(64) %call779)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %o1, ptr align 4 %call780, i64 16, i1 false)
-  %595 = load ptr, ptr %pj, align 8
-  %m_bodies782 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %595, i32 0, i32 1
+  %597 = load ptr, ptr %pj, align 8
+  %m_bodies782 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %597, i32 0, i32 1
   %arrayidx783 = getelementptr inbounds [2 x %"struct.btSoftBody::Body"], ptr %m_bodies782, i64 0, i64 0
   %call784 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZNK10btSoftBody4Body5xformEv(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx783)
   %call785 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNK11btTransform8getBasisEv(ptr noundef nonnull align 4 dereferenceable(64) %call784)
-  %596 = load ptr, ptr %pj, align 8
-  %m_refs786 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %596, i32 0, i32 2
+  %598 = load ptr, ptr %pj, align 8
+  %m_refs786 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %598, i32 0, i32 2
   %arrayidx787 = getelementptr inbounds [2 x %class.btVector3], ptr %m_refs786, i64 0, i64 0
   %call788 = call { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %call785, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx787)
   %coerce.dive789 = getelementptr inbounds %class.btVector3, ptr %a0781, i32 0, i32 0
-  %597 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive789, i32 0, i32 0
-  %598 = extractvalue { <2 x float>, <2 x float> } %call788, 0
-  store <2 x float> %598, ptr %597, align 4
-  %599 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive789, i32 0, i32 1
-  %600 = extractvalue { <2 x float>, <2 x float> } %call788, 1
+  %599 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive789, i32 0, i32 0
+  %600 = extractvalue { <2 x float>, <2 x float> } %call788, 0
   store <2 x float> %600, ptr %599, align 4
-  %601 = load ptr, ptr %pj, align 8
-  %m_bodies791 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %601, i32 0, i32 1
+  %601 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive789, i32 0, i32 1
+  %602 = extractvalue { <2 x float>, <2 x float> } %call788, 1
+  store <2 x float> %602, ptr %601, align 4
+  %603 = load ptr, ptr %pj, align 8
+  %m_bodies791 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %603, i32 0, i32 1
   %arrayidx792 = getelementptr inbounds [2 x %"struct.btSoftBody::Body"], ptr %m_bodies791, i64 0, i64 1
   %call793 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZNK10btSoftBody4Body5xformEv(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx792)
   %call794 = call noundef nonnull align 4 dereferenceable(48) ptr @_ZNK11btTransform8getBasisEv(ptr noundef nonnull align 4 dereferenceable(64) %call793)
-  %602 = load ptr, ptr %pj, align 8
-  %m_refs795 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %602, i32 0, i32 2
+  %604 = load ptr, ptr %pj, align 8
+  %m_refs795 = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %604, i32 0, i32 2
   %arrayidx796 = getelementptr inbounds [2 x %class.btVector3], ptr %m_refs795, i64 0, i64 1
   %call797 = call { <2 x float>, <2 x float> } @_ZmlRK11btMatrix3x3RK9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %call794, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx796)
   %coerce.dive798 = getelementptr inbounds %class.btVector3, ptr %a1790, i32 0, i32 0
-  %603 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive798, i32 0, i32 0
-  %604 = extractvalue { <2 x float>, <2 x float> } %call797, 0
-  store <2 x float> %604, ptr %603, align 4
-  %605 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive798, i32 0, i32 1
-  %606 = extractvalue { <2 x float>, <2 x float> } %call797, 1
+  %605 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive798, i32 0, i32 0
+  %606 = extractvalue { <2 x float>, <2 x float> } %call797, 0
   store <2 x float> %606, ptr %605, align 4
-  %607 = load ptr, ptr %idraw.addr, align 8
+  %607 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive798, i32 0, i32 1
+  %608 = extractvalue { <2 x float>, <2 x float> } %call797, 1
+  store <2 x float> %608, ptr %607, align 4
+  %609 = load ptr, ptr %idraw.addr, align 8
   store float 1.000000e+01, ptr %ref.tmp801, align 4
   %call802 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %a0781, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp801)
   %coerce.dive803 = getelementptr inbounds %class.btVector3, ptr %ref.tmp800, i32 0, i32 0
-  %608 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive803, i32 0, i32 0
-  %609 = extractvalue { <2 x float>, <2 x float> } %call802, 0
-  store <2 x float> %609, ptr %608, align 4
-  %610 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive803, i32 0, i32 1
-  %611 = extractvalue { <2 x float>, <2 x float> } %call802, 1
+  %610 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive803, i32 0, i32 0
+  %611 = extractvalue { <2 x float>, <2 x float> } %call802, 0
   store <2 x float> %611, ptr %610, align 4
+  %612 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive803, i32 0, i32 1
+  %613 = extractvalue { <2 x float>, <2 x float> } %call802, 1
+  store <2 x float> %613, ptr %612, align 4
   %call804 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %o0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp800)
   %coerce.dive805 = getelementptr inbounds %class.btVector3, ptr %ref.tmp799, i32 0, i32 0
-  %612 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive805, i32 0, i32 0
-  %613 = extractvalue { <2 x float>, <2 x float> } %call804, 0
-  store <2 x float> %613, ptr %612, align 4
-  %614 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive805, i32 0, i32 1
-  %615 = extractvalue { <2 x float>, <2 x float> } %call804, 1
+  %614 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive805, i32 0, i32 0
+  %615 = extractvalue { <2 x float>, <2 x float> } %call804, 0
   store <2 x float> %615, ptr %614, align 4
+  %616 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive805, i32 0, i32 1
+  %617 = extractvalue { <2 x float>, <2 x float> } %call804, 1
+  store <2 x float> %617, ptr %616, align 4
   store float 1.000000e+00, ptr %ref.tmp807, align 4
   store float 1.000000e+00, ptr %ref.tmp808, align 4
   store float 0.000000e+00, ptr %ref.tmp809, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp806, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp807, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp808, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp809)
-  %vtable810 = load ptr, ptr %607, align 8
+  %vtable810 = load ptr, ptr %609, align 8
   %vfn811 = getelementptr inbounds ptr, ptr %vtable810, i64 4
-  %616 = load ptr, ptr %vfn811, align 8
-  call void %616(ptr noundef nonnull align 8 dereferenceable(8) %607, ptr noundef nonnull align 4 dereferenceable(16) %o0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp799, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp806)
-  %617 = load ptr, ptr %idraw.addr, align 8
+  %618 = load ptr, ptr %vfn811, align 8
+  call void %618(ptr noundef nonnull align 8 dereferenceable(8) %609, ptr noundef nonnull align 4 dereferenceable(16) %o0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp799, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp806)
+  %619 = load ptr, ptr %idraw.addr, align 8
   store float 1.000000e+01, ptr %ref.tmp814, align 4
   %call815 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %a1790, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp814)
   %coerce.dive816 = getelementptr inbounds %class.btVector3, ptr %ref.tmp813, i32 0, i32 0
-  %618 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive816, i32 0, i32 0
-  %619 = extractvalue { <2 x float>, <2 x float> } %call815, 0
-  store <2 x float> %619, ptr %618, align 4
-  %620 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive816, i32 0, i32 1
-  %621 = extractvalue { <2 x float>, <2 x float> } %call815, 1
+  %620 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive816, i32 0, i32 0
+  %621 = extractvalue { <2 x float>, <2 x float> } %call815, 0
   store <2 x float> %621, ptr %620, align 4
+  %622 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive816, i32 0, i32 1
+  %623 = extractvalue { <2 x float>, <2 x float> } %call815, 1
+  store <2 x float> %623, ptr %622, align 4
   %call817 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %o0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp813)
   %coerce.dive818 = getelementptr inbounds %class.btVector3, ptr %ref.tmp812, i32 0, i32 0
-  %622 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive818, i32 0, i32 0
-  %623 = extractvalue { <2 x float>, <2 x float> } %call817, 0
-  store <2 x float> %623, ptr %622, align 4
-  %624 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive818, i32 0, i32 1
-  %625 = extractvalue { <2 x float>, <2 x float> } %call817, 1
+  %624 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive818, i32 0, i32 0
+  %625 = extractvalue { <2 x float>, <2 x float> } %call817, 0
   store <2 x float> %625, ptr %624, align 4
+  %626 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive818, i32 0, i32 1
+  %627 = extractvalue { <2 x float>, <2 x float> } %call817, 1
+  store <2 x float> %627, ptr %626, align 4
   store float 1.000000e+00, ptr %ref.tmp820, align 4
   store float 1.000000e+00, ptr %ref.tmp821, align 4
   store float 0.000000e+00, ptr %ref.tmp822, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp819, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp820, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp821, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp822)
-  %vtable823 = load ptr, ptr %617, align 8
+  %vtable823 = load ptr, ptr %619, align 8
   %vfn824 = getelementptr inbounds ptr, ptr %vtable823, i64 4
-  %626 = load ptr, ptr %vfn824, align 8
-  call void %626(ptr noundef nonnull align 8 dereferenceable(8) %617, ptr noundef nonnull align 4 dereferenceable(16) %o0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp812, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp819)
-  %627 = load ptr, ptr %idraw.addr, align 8
+  %628 = load ptr, ptr %vfn824, align 8
+  call void %628(ptr noundef nonnull align 8 dereferenceable(8) %619, ptr noundef nonnull align 4 dereferenceable(16) %o0, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp812, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp819)
+  %629 = load ptr, ptr %idraw.addr, align 8
   store float 1.000000e+01, ptr %ref.tmp827, align 4
   %call828 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %a0781, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp827)
   %coerce.dive829 = getelementptr inbounds %class.btVector3, ptr %ref.tmp826, i32 0, i32 0
-  %628 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive829, i32 0, i32 0
-  %629 = extractvalue { <2 x float>, <2 x float> } %call828, 0
-  store <2 x float> %629, ptr %628, align 4
-  %630 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive829, i32 0, i32 1
-  %631 = extractvalue { <2 x float>, <2 x float> } %call828, 1
+  %630 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive829, i32 0, i32 0
+  %631 = extractvalue { <2 x float>, <2 x float> } %call828, 0
   store <2 x float> %631, ptr %630, align 4
+  %632 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive829, i32 0, i32 1
+  %633 = extractvalue { <2 x float>, <2 x float> } %call828, 1
+  store <2 x float> %633, ptr %632, align 4
   %call830 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %o1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp826)
   %coerce.dive831 = getelementptr inbounds %class.btVector3, ptr %ref.tmp825, i32 0, i32 0
-  %632 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive831, i32 0, i32 0
-  %633 = extractvalue { <2 x float>, <2 x float> } %call830, 0
-  store <2 x float> %633, ptr %632, align 4
-  %634 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive831, i32 0, i32 1
-  %635 = extractvalue { <2 x float>, <2 x float> } %call830, 1
+  %634 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive831, i32 0, i32 0
+  %635 = extractvalue { <2 x float>, <2 x float> } %call830, 0
   store <2 x float> %635, ptr %634, align 4
+  %636 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive831, i32 0, i32 1
+  %637 = extractvalue { <2 x float>, <2 x float> } %call830, 1
+  store <2 x float> %637, ptr %636, align 4
   store float 0.000000e+00, ptr %ref.tmp833, align 4
   store float 1.000000e+00, ptr %ref.tmp834, align 4
   store float 1.000000e+00, ptr %ref.tmp835, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp832, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp833, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp834, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp835)
-  %vtable836 = load ptr, ptr %627, align 8
+  %vtable836 = load ptr, ptr %629, align 8
   %vfn837 = getelementptr inbounds ptr, ptr %vtable836, i64 4
-  %636 = load ptr, ptr %vfn837, align 8
-  call void %636(ptr noundef nonnull align 8 dereferenceable(8) %627, ptr noundef nonnull align 4 dereferenceable(16) %o1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp825, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp832)
-  %637 = load ptr, ptr %idraw.addr, align 8
+  %638 = load ptr, ptr %vfn837, align 8
+  call void %638(ptr noundef nonnull align 8 dereferenceable(8) %629, ptr noundef nonnull align 4 dereferenceable(16) %o1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp825, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp832)
+  %639 = load ptr, ptr %idraw.addr, align 8
   store float 1.000000e+01, ptr %ref.tmp840, align 4
   %call841 = call { <2 x float>, <2 x float> } @_ZmlRK9btVector3RKf(ptr noundef nonnull align 4 dereferenceable(16) %a1790, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp840)
   %coerce.dive842 = getelementptr inbounds %class.btVector3, ptr %ref.tmp839, i32 0, i32 0
-  %638 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive842, i32 0, i32 0
-  %639 = extractvalue { <2 x float>, <2 x float> } %call841, 0
-  store <2 x float> %639, ptr %638, align 4
-  %640 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive842, i32 0, i32 1
-  %641 = extractvalue { <2 x float>, <2 x float> } %call841, 1
+  %640 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive842, i32 0, i32 0
+  %641 = extractvalue { <2 x float>, <2 x float> } %call841, 0
   store <2 x float> %641, ptr %640, align 4
+  %642 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive842, i32 0, i32 1
+  %643 = extractvalue { <2 x float>, <2 x float> } %call841, 1
+  store <2 x float> %643, ptr %642, align 4
   %call843 = call { <2 x float>, <2 x float> } @_ZplRK9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(16) %o1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp839)
   %coerce.dive844 = getelementptr inbounds %class.btVector3, ptr %ref.tmp838, i32 0, i32 0
-  %642 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive844, i32 0, i32 0
-  %643 = extractvalue { <2 x float>, <2 x float> } %call843, 0
-  store <2 x float> %643, ptr %642, align 4
-  %644 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive844, i32 0, i32 1
-  %645 = extractvalue { <2 x float>, <2 x float> } %call843, 1
+  %644 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive844, i32 0, i32 0
+  %645 = extractvalue { <2 x float>, <2 x float> } %call843, 0
   store <2 x float> %645, ptr %644, align 4
+  %646 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %coerce.dive844, i32 0, i32 1
+  %647 = extractvalue { <2 x float>, <2 x float> } %call843, 1
+  store <2 x float> %647, ptr %646, align 4
   store float 0.000000e+00, ptr %ref.tmp846, align 4
   store float 1.000000e+00, ptr %ref.tmp847, align 4
   store float 1.000000e+00, ptr %ref.tmp848, align 4
   call void @_ZN9btVector3C2ERKfS1_S1_(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp845, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp846, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp847, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp848)
-  %vtable849 = load ptr, ptr %637, align 8
+  %vtable849 = load ptr, ptr %639, align 8
   %vfn850 = getelementptr inbounds ptr, ptr %vtable849, i64 4
-  %646 = load ptr, ptr %vfn850, align 8
-  call void %646(ptr noundef nonnull align 8 dereferenceable(8) %637, ptr noundef nonnull align 4 dereferenceable(16) %o1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp838, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp845)
+  %648 = load ptr, ptr %vfn850, align 8
+  call void %648(ptr noundef nonnull align 8 dereferenceable(8) %639, ptr noundef nonnull align 4 dereferenceable(16) %o1, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp838, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp845)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %for.body726
@@ -3980,8 +3994,8 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb7
   br label %for.inc851
 
 for.inc851:                                       ; preds = %sw.epilog
-  %647 = load i32, ptr %i, align 4
-  %inc852 = add nsw i32 %647, 1
+  %649 = load i32, ptr %i, align 4
+  %inc852 = add nsw i32 %649, 1
   store i32 %inc852, ptr %i, align 4
   br label %for.cond723, !llvm.loop !21
 

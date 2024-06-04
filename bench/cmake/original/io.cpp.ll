@@ -876,13 +876,13 @@ define dso_local noundef zeroext i1 @_ZN3dap6writefERKSt10shared_ptrINS_6WriterE
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %11 = call i32 @vsnprintf(ptr noundef %8, i64 noundef 2048, ptr noundef %9, ptr noundef %10) #15
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %12)
+  call void @llvm.va_end.p0(ptr %12)
   %13 = load ptr, ptr %3, align 8
   %14 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3dap6WriterELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %13) #15
   %15 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 0
@@ -895,14 +895,8 @@ define dso_local noundef zeroext i1 @_ZN3dap6writefERKSt10shared_ptrINS_6WriterE
   ret i1 %21
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 ; Function Attrs: nounwind
-declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
+declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt19__shared_ptr_accessIN3dap6WriterELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
@@ -914,7 +908,7 @@ define linkonce_odr dso_local noundef ptr @_ZNKSt19__shared_ptr_accessIN3dap6Wri
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #5
+declare i64 @strlen(ptr noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt12__shared_ptrIN12_GLOBAL__N_12RWELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 {
@@ -1065,7 +1059,7 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #15
   call void @_ZSt9terminatev() #17
   unreachable
@@ -1281,7 +1275,7 @@ define internal void @_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEEC2ISaIvEJRKS_IN3dap6
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt12__shared_ptrIN12_GLOBAL__N_12RWELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJRKSt10shared_ptrIN3dap6ReaderEERKS7_INS8_6WriterEEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
@@ -1452,34 +1446,35 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_12RWESaIvELN9
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_12RWESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %10, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_12RWESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(48) %11) #15
-  %12 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_12RWESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(64) %10) #15
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_12RWEJRKSt10shared_ptrIN3dap6ReaderEERKS5_INS6_6WriterEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14)
-          to label %15 unwind label %16
-
-15:                                               ; preds = %3
-  ret void
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_12RWESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %10, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_12RWESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(48) %12) #15
+  %13 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_12RWESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(64) %10) #15
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_12RWEJRKSt10shared_ptrIN3dap6ReaderEERKS5_INS6_6WriterEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %16 unwind label %17
 
 16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %8, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %9, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
-  br label %20
+  ret void
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %9, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1625,13 +1620,13 @@ define internal noundef i64 @_ZNKSt15__new_allocatorISt23_Sp_counted_ptr_inplace
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #8
+declare void @_ZSt28__throw_bad_array_new_lengthv() #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #8
+declare void @_ZSt17__throw_bad_allocv() #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @_ZSt12__to_addressISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_12RWESaIvELN9__gnu_cxx12_Lock_policyE2EEEPT_S8_(ptr noundef %0) #1 {
@@ -1646,11 +1641,12 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -1811,7 +1807,7 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #10
+declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt14_Sp_ebo_helperILi0ESaIvELb1EEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #1 comdat align 2 {
@@ -1847,17 +1843,21 @@ define internal void @_ZN12_GLOBAL__N_12RWC1ERKSt10shared_ptrIN3dap6ReaderEERKS1
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
-  call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN12_GLOBAL__N_12RWE, i64 0, i64 1)) #15
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_12RWE, i32 0, i32 0, i32 6), ptr %7, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_12RWE, i32 0, i32 0, i32 6), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_12RWE, i32 0, i32 1, i32 6), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.(anonymous namespace)::RW", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %5, align 8
-  call void @_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10) #15
-  %11 = getelementptr inbounds %"class.(anonymous namespace)::RW", ptr %7, i32 0, i32 2
-  %12 = load ptr, ptr %6, align 8
-  call void @_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12) #15
+  %8 = getelementptr inbounds [10 x ptr], ptr @_ZTTN12_GLOBAL__N_12RWE, i64 0, i64 1
+  call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8) #15
+  %9 = getelementptr inbounds { [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_12RWE, i32 0, i32 0, i32 6
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds { [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_12RWE, i32 0, i32 0, i32 6
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds { [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_12RWE, i32 0, i32 1, i32 6
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::RW", ptr %7, i32 0, i32 1
+  %14 = load ptr, ptr %5, align 8
+  call void @_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14) #15
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::RW", ptr %7, i32 0, i32 2
+  %16 = load ptr, ptr %6, align 8
+  call void @_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16) #15
   ret void
 }
 
@@ -1866,7 +1866,8 @@ define linkonce_odr dso_local void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dap8ClosableE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3dap8ClosableE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1940,7 +1941,7 @@ define linkonce_odr dso_local void @_ZN3dap12ReaderWriterD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZThn8_N3dap12ReaderWriterD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr dso_local void @_ZThn8_N3dap12ReaderWriterD1Ev(ptr noundef %0) unnamed_addr #10 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1950,7 +1951,7 @@ define linkonce_odr dso_local void @_ZThn8_N3dap12ReaderWriterD1Ev(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZThn8_N3dap12ReaderWriterD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr dso_local void @_ZThn8_N3dap12ReaderWriterD0Ev(ptr noundef %0) unnamed_addr #10 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1992,7 +1993,7 @@ define linkonce_odr dso_local void @_ZN3dap6WriterD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZTv0_n24_N3dap6WriterD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr dso_local void @_ZTv0_n24_N3dap6WriterD1Ev(ptr noundef %0) unnamed_addr #10 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2005,7 +2006,7 @@ define linkonce_odr dso_local void @_ZTv0_n24_N3dap6WriterD1Ev(ptr noundef %0) u
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZTv0_n24_N3dap6WriterD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr dso_local void @_ZTv0_n24_N3dap6WriterD0Ev(ptr noundef %0) unnamed_addr #10 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2141,7 +2142,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_12RW5writeEPKvm(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N12_GLOBAL__N_12RWD1Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZThn8_N12_GLOBAL__N_12RWD1Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2151,7 +2152,7 @@ define internal void @_ZThn8_N12_GLOBAL__N_12RWD1Ev(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N12_GLOBAL__N_12RWD0Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZThn8_N12_GLOBAL__N_12RWD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2161,7 +2162,7 @@ define internal void @_ZThn8_N12_GLOBAL__N_12RWD0Ev(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: uwtable
-define internal noundef zeroext i1 @_ZThn8_N12_GLOBAL__N_12RW5writeEPKvm(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #12 align 2 {
+define internal noundef zeroext i1 @_ZThn8_N12_GLOBAL__N_12RW5writeEPKvm(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #11 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -2356,7 +2357,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrIN3dap6WriterELN9__gnu_cx
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZTv0_n24_N3dap12ReaderWriterD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr dso_local void @_ZTv0_n24_N3dap12ReaderWriterD1Ev(ptr noundef %0) unnamed_addr #10 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2369,7 +2370,7 @@ define linkonce_odr dso_local void @_ZTv0_n24_N3dap12ReaderWriterD1Ev(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZTv0_n24_N3dap12ReaderWriterD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr dso_local void @_ZTv0_n24_N3dap12ReaderWriterD0Ev(ptr noundef %0) unnamed_addr #10 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2382,7 +2383,7 @@ define linkonce_odr dso_local void @_ZTv0_n24_N3dap12ReaderWriterD0Ev(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZTv0_n24_N3dap6ReaderD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr dso_local void @_ZTv0_n24_N3dap6ReaderD1Ev(ptr noundef %0) unnamed_addr #10 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2395,7 +2396,7 @@ define linkonce_odr dso_local void @_ZTv0_n24_N3dap6ReaderD1Ev(ptr noundef %0) u
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr dso_local void @_ZTv0_n24_N3dap6ReaderD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr dso_local void @_ZTv0_n24_N3dap6ReaderD0Ev(ptr noundef %0) unnamed_addr #10 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2438,7 +2439,7 @@ define internal void @_ZN12_GLOBAL__N_12RWD2Ev(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZTv0_n24_N12_GLOBAL__N_12RWD1Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZTv0_n24_N12_GLOBAL__N_12RWD1Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2523,10 +2524,10 @@ define linkonce_odr dso_local void @_ZN3dap6ReaderD2Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #13
+declare void @_ZdlPv(ptr noundef) #12
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZTv0_n24_N12_GLOBAL__N_12RWD0Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZTv0_n24_N12_GLOBAL__N_12RWD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2548,7 +2549,7 @@ define linkonce_odr dso_local noundef ptr @_ZNKSt19__shared_ptr_accessIN3dap6Rea
 }
 
 ; Function Attrs: uwtable
-define internal noundef zeroext i1 @_ZTv0_n32_N12_GLOBAL__N_12RW6isOpenEv(ptr noundef %0) unnamed_addr #12 align 2 {
+define internal noundef zeroext i1 @_ZTv0_n32_N12_GLOBAL__N_12RW6isOpenEv(ptr noundef %0) unnamed_addr #11 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2580,7 +2581,7 @@ define linkonce_odr dso_local noundef ptr @_ZNKSt12__shared_ptrIN3dap6ReaderELN9
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZTv0_n40_N12_GLOBAL__N_12RW5closeEv(ptr noundef %0) unnamed_addr #12 align 2 {
+define internal void @_ZTv0_n40_N12_GLOBAL__N_12RW5closeEv(ptr noundef %0) unnamed_addr #11 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2706,7 +2707,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr no
 }
 
 ; Function Attrs: nounwind
-declare i32 @strcmp(ptr noundef, ptr noundef) #4
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
@@ -3006,32 +3007,33 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14PipeESaIvEL
   store ptr %0, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14PipeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.26", ptr %6, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14PipeESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(192) %7) #15
-  %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14PipeESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(208) %6) #15
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_14PipeEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %8)
-          to label %9 unwind label %10
-
-9:                                                ; preds = %1
-  ret void
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14PipeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.26", ptr %6, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14PipeESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(192) %8) #15
+  %9 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14PipeESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(208) %6) #15
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_14PipeEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %9)
+          to label %10 unwind label %11
 
 10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %4, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %5, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
-  br label %14
+  ret void
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %4, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %5, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
+  br label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8
+  %17 = load i32, ptr %5, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3299,7 +3301,7 @@ define internal void @_ZSt10_ConstructIN12_GLOBAL__N_14PipeEJEEvPT_DpOT0_(ptr no
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN12_GLOBAL__N_14PipeC1Ev(ptr noundef nonnull align 8 dereferenceable(185) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -3309,42 +3311,47 @@ define internal void @_ZN12_GLOBAL__N_14PipeC1Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN12_GLOBAL__N_14PipeE, i64 0, i64 1)) #15
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14PipeE, i32 0, i32 0, i32 6), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14PipeE, i32 0, i32 0, i32 6), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14PipeE, i32 0, i32 1, i32 6), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.(anonymous namespace)::Pipe", ptr %5, i32 0, i32 1
-  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #15
-  %8 = getelementptr inbounds %"class.(anonymous namespace)::Pipe", ptr %5, i32 0, i32 2
-  call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #15
-  %9 = getelementptr inbounds %"class.(anonymous namespace)::Pipe", ptr %5, i32 0, i32 3
-  invoke void @_ZNSt5dequeIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %9)
-          to label %10 unwind label %12
+  %6 = getelementptr inbounds [10 x ptr], ptr @_ZTTN12_GLOBAL__N_14PipeE, i64 0, i64 1
+  call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6) #15
+  %7 = getelementptr inbounds { [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14PipeE, i32 0, i32 0, i32 6
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds { [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14PipeE, i32 0, i32 0, i32 6
+  store ptr %8, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds { [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14PipeE, i32 0, i32 1, i32 6
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.(anonymous namespace)::Pipe", ptr %5, i32 0, i32 1
+  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #15
+  %12 = getelementptr inbounds %"class.(anonymous namespace)::Pipe", ptr %5, i32 0, i32 2
+  call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #15
+  %13 = getelementptr inbounds %"class.(anonymous namespace)::Pipe", ptr %5, i32 0, i32 3
+  invoke void @_ZNSt5dequeIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %13)
+          to label %14 unwind label %16
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds %"class.(anonymous namespace)::Pipe", ptr %5, i32 0, i32 4
-  store i8 0, ptr %11, align 8
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::Pipe", ptr %5, i32 0, i32 4
+  store i8 0, ptr %15, align 8
   ret void
 
-12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #15
-  call void @_ZN3dap12ReaderWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN12_GLOBAL__N_14PipeE, i64 0, i64 1)) #15
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
+  call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #15
+  %20 = getelementptr inbounds [10 x ptr], ptr @_ZTTN12_GLOBAL__N_14PipeE, i64 0, i64 1
+  call void @_ZN3dap12ReaderWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %20) #15
   call void @_ZN3dap8ClosableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  br label %16
+  br label %21
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %3, align 8
+  %23 = load i32, ptr %4, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3357,7 +3364,7 @@ define linkonce_odr dso_local void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #4
+declare void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 {
@@ -3369,7 +3376,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIhSaIhEEC2Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #4
+declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_14PipeD1Ev(ptr noundef nonnull align 8 dereferenceable(185) %0) unnamed_addr #1 align 2 {
@@ -3658,7 +3665,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_14Pipe5writeEPKvm(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N12_GLOBAL__N_14PipeD1Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZThn8_N12_GLOBAL__N_14PipeD1Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -3668,7 +3675,7 @@ define internal void @_ZThn8_N12_GLOBAL__N_14PipeD1Ev(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N12_GLOBAL__N_14PipeD0Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZThn8_N12_GLOBAL__N_14PipeD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -3678,7 +3685,7 @@ define internal void @_ZThn8_N12_GLOBAL__N_14PipeD0Ev(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: uwtable
-define internal noundef zeroext i1 @_ZThn8_N12_GLOBAL__N_14Pipe5writeEPKvm(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #12 align 2 {
+define internal noundef zeroext i1 @_ZThn8_N12_GLOBAL__N_14Pipe5writeEPKvm(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #11 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -4529,7 +4536,7 @@ define internal void @_ZN12_GLOBAL__N_14PipeD2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZTv0_n24_N12_GLOBAL__N_14PipeD1Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZTv0_n24_N12_GLOBAL__N_14PipeD1Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -4682,7 +4689,7 @@ define linkonce_odr dso_local void @_ZNSt15_Deque_iteratorIhRhPhEC2ERKS2_(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZTv0_n24_N12_GLOBAL__N_14PipeD0Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZTv0_n24_N12_GLOBAL__N_14PipeD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -4741,7 +4748,7 @@ define linkonce_odr dso_local void @_ZNSt11unique_lockISt5mutexED2Ev(ptr noundef
 }
 
 ; Function Attrs: uwtable
-define internal noundef zeroext i1 @_ZTv0_n32_N12_GLOBAL__N_14Pipe6isOpenEv(ptr noundef %0) unnamed_addr #12 align 2 {
+define internal noundef zeroext i1 @_ZTv0_n32_N12_GLOBAL__N_14Pipe6isOpenEv(ptr noundef %0) unnamed_addr #11 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -4793,7 +4800,7 @@ define linkonce_odr dso_local void @_ZNSt11unique_lockISt5mutexE4lockEv(ptr noun
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) #8
+declare void @_ZSt20__throw_system_errori(i32 noundef) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #0 comdat align 2 {
@@ -4847,7 +4854,7 @@ define internal noundef i32 @_ZL18__gthread_active_pv() #1 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) #4
+declare i32 @pthread_mutex_lock(ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11unique_lockISt5mutexE6unlockEv(ptr noundef nonnull align 8 dereferenceable(9) %0) #0 comdat align 2 {
@@ -4919,13 +4926,13 @@ define internal noundef i32 @_ZL22__gthread_mutex_unlockP15pthread_mutex_t(ptr n
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) #4
+declare i32 @pthread_mutex_unlock(ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48)) #4
+declare void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48)) #3
 
 ; Function Attrs: uwtable
-define internal void @_ZTv0_n40_N12_GLOBAL__N_14Pipe5closeEv(ptr noundef %0) unnamed_addr #12 align 2 {
+define internal void @_ZTv0_n40_N12_GLOBAL__N_14Pipe5closeEv(ptr noundef %0) unnamed_addr #11 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -5324,7 +5331,7 @@ define linkonce_odr dso_local noundef i64 @_ZNKSt5dequeIhSaIhEE8max_sizeEv(ptr n
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIhSaIhEE22_M_reserve_map_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) #0 comdat align 2 {
@@ -5765,7 +5772,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt11__copy_moveILb0ELb1ESt26random
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZSt22__copy_move_backward_aILb0EPPhS1_ET1_T0_S3_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat {
@@ -6196,34 +6203,35 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvEL
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.41", ptr %10, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(120) %11) #15
-  %12 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(136) %10) #15
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_14FileEJRP8_IO_FILERbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %15 unwind label %16
-
-15:                                               ; preds = %3
-  ret void
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.41", ptr %10, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(120) %12) #15
+  %13 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(136) %10) #15
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_14FileEJRP8_IO_FILERbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %16 unwind label %17
 
 16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %8, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %9, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
-  br label %20
+  ret void
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %9, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6515,25 +6523,29 @@ define internal void @_ZN12_GLOBAL__N_14FileC1EP8_IO_FILEb(ptr noundef nonnull a
   store i8 %7, ptr %6, align 1
   %8 = load ptr, ptr %4, align 8
   call void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
-  call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN12_GLOBAL__N_14FileE, i64 0, i64 1)) #15
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14FileE, i32 0, i32 0, i32 6), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14FileE, i32 0, i32 0, i32 6), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14FileE, i32 0, i32 1, i32 6), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::File", ptr %8, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::File", ptr %8, i32 0, i32 2
-  %13 = load i8, ptr %6, align 1
-  %14 = trunc i8 %13 to i1
-  %15 = zext i1 %14 to i8
-  store i8 %15, ptr %12, align 8
-  %16 = getelementptr inbounds %"class.(anonymous namespace)::File", ptr %8, i32 0, i32 4
-  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #15
-  %17 = getelementptr inbounds %"class.(anonymous namespace)::File", ptr %8, i32 0, i32 5
-  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #15
-  %18 = getelementptr inbounds %"class.(anonymous namespace)::File", ptr %8, i32 0, i32 6
-  call void @_ZNSt6atomicIbEC2Eb(ptr noundef nonnull align 1 dereferenceable(1) %18, i1 noundef zeroext false) #15
+  %9 = getelementptr inbounds [10 x ptr], ptr @_ZTTN12_GLOBAL__N_14FileE, i64 0, i64 1
+  call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9) #15
+  %10 = getelementptr inbounds { [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14FileE, i32 0, i32 0, i32 6
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds { [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14FileE, i32 0, i32 0, i32 6
+  store ptr %11, ptr %8, align 8
+  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds { [12 x ptr], [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_14FileE, i32 0, i32 1, i32 6
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.(anonymous namespace)::File", ptr %8, i32 0, i32 1
+  %15 = load ptr, ptr %5, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.(anonymous namespace)::File", ptr %8, i32 0, i32 2
+  %17 = load i8, ptr %6, align 1
+  %18 = trunc i8 %17 to i1
+  %19 = zext i1 %18 to i8
+  store i8 %19, ptr %16, align 8
+  %20 = getelementptr inbounds %"class.(anonymous namespace)::File", ptr %8, i32 0, i32 4
+  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #15
+  %21 = getelementptr inbounds %"class.(anonymous namespace)::File", ptr %8, i32 0, i32 5
+  call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #15
+  %22 = getelementptr inbounds %"class.(anonymous namespace)::File", ptr %8, i32 0, i32 6
+  call void @_ZNSt6atomicIbEC2Eb(ptr noundef nonnull align 1 dereferenceable(1) %22, i1 noundef zeroext false) #15
   ret void
 }
 
@@ -6771,7 +6783,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_14File5writeEPKvm(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N12_GLOBAL__N_14FileD1Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZThn8_N12_GLOBAL__N_14FileD1Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -6781,7 +6793,7 @@ define internal void @_ZThn8_N12_GLOBAL__N_14FileD1Ev(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N12_GLOBAL__N_14FileD0Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZThn8_N12_GLOBAL__N_14FileD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -6791,7 +6803,7 @@ define internal void @_ZThn8_N12_GLOBAL__N_14FileD0Ev(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: uwtable
-define internal noundef zeroext i1 @_ZThn8_N12_GLOBAL__N_14File5writeEPKvm(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #12 align 2 {
+define internal noundef zeroext i1 @_ZThn8_N12_GLOBAL__N_14File5writeEPKvm(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #11 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -6863,7 +6875,7 @@ define internal void @_ZN12_GLOBAL__N_14FileD2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZTv0_n24_N12_GLOBAL__N_14FileD1Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZTv0_n24_N12_GLOBAL__N_14FileD1Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -6876,7 +6888,7 @@ define internal void @_ZTv0_n24_N12_GLOBAL__N_14FileD1Ev(ptr noundef %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZTv0_n24_N12_GLOBAL__N_14FileD0Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZTv0_n24_N12_GLOBAL__N_14FileD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -6943,7 +6955,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNKSt6atomicIbEcvbEv(ptr noun
 }
 
 ; Function Attrs: uwtable
-define internal noundef zeroext i1 @_ZTv0_n32_N12_GLOBAL__N_14File6isOpenEv(ptr noundef %0) unnamed_addr #12 align 2 {
+define internal noundef zeroext i1 @_ZTv0_n32_N12_GLOBAL__N_14File6isOpenEv(ptr noundef %0) unnamed_addr #11 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -7043,7 +7055,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt6atomicIbE8exchangeEbSt12
 declare i32 @fclose(ptr noundef) #2
 
 ; Function Attrs: uwtable
-define internal void @_ZTv0_n40_N12_GLOBAL__N_14File5closeEv(ptr noundef %0) unnamed_addr #12 align 2 {
+define internal void @_ZTv0_n40_N12_GLOBAL__N_14File5closeEv(ptr noundef %0) unnamed_addr #11 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -7324,34 +7336,35 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvEL
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.41", ptr %10, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(120) %11) #15
-  %12 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(136) %10) #15
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_14FileEJRP8_IO_FILEbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %15 unwind label %16
-
-15:                                               ; preds = %3
-  ret void
+  %11 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.41", ptr %10, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(120) %12) #15
+  %13 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_14FileESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(136) %10) #15
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_14FileEJRP8_IO_FILEbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %16 unwind label %17
 
 16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %8, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %9, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
-  br label %20
+  ret void
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %9, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %8, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %9, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7591,35 +7604,36 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19ReaderSpyES
   store ptr %3, ptr %9, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19ReaderSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.49", ptr %12, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19ReaderSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(72) %13) #15
-  %14 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19ReaderSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(88) %12) #15
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_19ReaderSpyEJRKSt10shared_ptrIN3dap6ReaderEERKS5_INS6_6WriterEERPKcEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %18 unwind label %19
-
-18:                                               ; preds = %4
-  ret void
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19ReaderSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.49", ptr %12, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19ReaderSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(72) %14) #15
+  %15 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19ReaderSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(88) %12) #15
+  %16 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_19ReaderSpyEJRKSt10shared_ptrIN3dap6ReaderEERKS5_INS6_6WriterEERPKcEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %19 unwind label %20
 
 19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %10, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %11, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #15
-  br label %23
+  ret void
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %10, align 8
-  %25 = load i32, ptr %11, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %10, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %11, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #15
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %10, align 8
+  %26 = load i32, ptr %11, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7949,7 +7963,7 @@ define internal void @_ZSt10_ConstructIN12_GLOBAL__N_19ReaderSpyEJRKSt10shared_p
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8027,56 +8041,60 @@ define internal void @_ZN12_GLOBAL__N_19ReaderSpyC1ERKSt10shared_ptrIN3dap6Reade
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
-  call void @_ZN3dap6ReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN12_GLOBAL__N_19ReaderSpyE, i64 0, i64 1)) #15
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19ReaderSpyE, i32 0, i32 0, i32 6), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19ReaderSpyE, i32 0, i32 0, i32 6), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::ReaderSpy", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %6, align 8
-  call void @_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13) #15
-  %14 = getelementptr inbounds %"class.(anonymous namespace)::ReaderSpy", ptr %11, i32 0, i32 2
-  %15 = load ptr, ptr %7, align 8
-  call void @_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15) #15
-  %16 = getelementptr inbounds %"class.(anonymous namespace)::ReaderSpy", ptr %11, i32 0, i32 3
-  %17 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %18 unwind label %19
+  %12 = getelementptr inbounds [4 x ptr], ptr @_ZTTN12_GLOBAL__N_19ReaderSpyE, i64 0, i64 1
+  call void @_ZN3dap6ReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12) #15
+  %13 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19ReaderSpyE, i32 0, i32 0, i32 6
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19ReaderSpyE, i32 0, i32 0, i32 6
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::ReaderSpy", ptr %11, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8
+  call void @_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16) #15
+  %17 = getelementptr inbounds %"class.(anonymous namespace)::ReaderSpy", ptr %11, i32 0, i32 2
+  %18 = load ptr, ptr %7, align 8
+  call void @_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18) #15
+  %19 = getelementptr inbounds %"class.(anonymous namespace)::ReaderSpy", ptr %11, i32 0, i32 3
+  %20 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
+          to label %21 unwind label %22
 
-18:                                               ; preds = %4
+21:                                               ; preds = %4
   ret void
 
-19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
+22:                                               ; preds = %4
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %9, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %10, align 4
-  call void @_ZNSt10shared_ptrIN3dap6WriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #15
-  call void @_ZNSt10shared_ptrIN3dap6ReaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #15
-  call void @_ZN3dap6ReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN12_GLOBAL__N_19ReaderSpyE, i64 0, i64 1)) #15
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %9, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %10, align 4
+  call void @_ZNSt10shared_ptrIN3dap6WriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #15
+  call void @_ZNSt10shared_ptrIN3dap6ReaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #15
+  %26 = getelementptr inbounds [4 x ptr], ptr @_ZTTN12_GLOBAL__N_19ReaderSpyE, i64 0, i64 1
+  call void @_ZN3dap6ReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %26) #15
   call void @_ZN3dap8ClosableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
-  br label %23
+  br label %27
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %9, align 8
-  %25 = load i32, ptr %10, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %9, align 8
+  %29 = load i32, ptr %10, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #8
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #1 comdat align 2 {
@@ -8211,7 +8229,7 @@ define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_trait
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #3
 
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
 
@@ -8271,7 +8289,7 @@ define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPKcENSt15iterator_
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
@@ -8436,7 +8454,7 @@ define internal void @_ZN12_GLOBAL__N_19ReaderSpyD2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZTv0_n24_N12_GLOBAL__N_19ReaderSpyD1Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZTv0_n24_N12_GLOBAL__N_19ReaderSpyD1Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -8449,7 +8467,7 @@ define internal void @_ZTv0_n24_N12_GLOBAL__N_19ReaderSpyD1Ev(ptr noundef %0) un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZTv0_n24_N12_GLOBAL__N_19ReaderSpyD0Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZTv0_n24_N12_GLOBAL__N_19ReaderSpyD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -8462,7 +8480,7 @@ define internal void @_ZTv0_n24_N12_GLOBAL__N_19ReaderSpyD0Ev(ptr noundef %0) un
 }
 
 ; Function Attrs: uwtable
-define internal noundef zeroext i1 @_ZTv0_n32_N12_GLOBAL__N_19ReaderSpy6isOpenEv(ptr noundef %0) unnamed_addr #12 align 2 {
+define internal noundef zeroext i1 @_ZTv0_n32_N12_GLOBAL__N_19ReaderSpy6isOpenEv(ptr noundef %0) unnamed_addr #11 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -8475,7 +8493,7 @@ define internal noundef zeroext i1 @_ZTv0_n32_N12_GLOBAL__N_19ReaderSpy6isOpenEv
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZTv0_n40_N12_GLOBAL__N_19ReaderSpy5closeEv(ptr noundef %0) unnamed_addr #12 align 2 {
+define internal void @_ZTv0_n40_N12_GLOBAL__N_19ReaderSpy5closeEv(ptr noundef %0) unnamed_addr #11 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -8519,15 +8537,15 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32), ptr, ptr, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IPcvEERKNS0_IT_S8_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 comdat align 2 {
@@ -8874,35 +8892,36 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19WriterSpyES
   store ptr %3, ptr %9, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19WriterSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.61", ptr %12, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19WriterSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(72) %13) #15
-  %14 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19WriterSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(88) %12) #15
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_19WriterSpyEJRKSt10shared_ptrIN3dap6WriterEESA_RPKcEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %18 unwind label %19
-
-18:                                               ; preds = %4
-  ret void
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19WriterSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.61", ptr %12, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19WriterSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(72) %14) #15
+  %15 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19WriterSpyESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(88) %12) #15
+  %16 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN12_GLOBAL__N_19WriterSpyEJRKSt10shared_ptrIN3dap6WriterEESA_RPKcEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %19 unwind label %20
 
 19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %10, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %11, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #15
-  br label %23
+  ret void
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %10, align 8
-  %25 = load i32, ptr %11, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %10, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %11, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #15
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %10, align 8
+  %26 = load i32, ptr %11, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9245,42 +9264,46 @@ define internal void @_ZN12_GLOBAL__N_19WriterSpyC1ERKSt10shared_ptrIN3dap6Write
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
-  call void @_ZN3dap6WriterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN12_GLOBAL__N_19WriterSpyE, i64 0, i64 1)) #15
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19WriterSpyE, i32 0, i32 0, i32 6), ptr %11, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19WriterSpyE, i32 0, i32 0, i32 6), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::WriterSpy", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %6, align 8
-  call void @_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13) #15
-  %14 = getelementptr inbounds %"class.(anonymous namespace)::WriterSpy", ptr %11, i32 0, i32 2
-  %15 = load ptr, ptr %7, align 8
-  call void @_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15) #15
-  %16 = getelementptr inbounds %"class.(anonymous namespace)::WriterSpy", ptr %11, i32 0, i32 3
-  %17 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %18 unwind label %19
+  %12 = getelementptr inbounds [4 x ptr], ptr @_ZTTN12_GLOBAL__N_19WriterSpyE, i64 0, i64 1
+  call void @_ZN3dap6WriterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12) #15
+  %13 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19WriterSpyE, i32 0, i32 0, i32 6
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19WriterSpyE, i32 0, i32 0, i32 6
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"class.(anonymous namespace)::WriterSpy", ptr %11, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8
+  call void @_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16) #15
+  %17 = getelementptr inbounds %"class.(anonymous namespace)::WriterSpy", ptr %11, i32 0, i32 2
+  %18 = load ptr, ptr %7, align 8
+  call void @_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18) #15
+  %19 = getelementptr inbounds %"class.(anonymous namespace)::WriterSpy", ptr %11, i32 0, i32 3
+  %20 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
+          to label %21 unwind label %22
 
-18:                                               ; preds = %4
+21:                                               ; preds = %4
   ret void
 
-19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
+22:                                               ; preds = %4
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %9, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %10, align 4
-  call void @_ZNSt10shared_ptrIN3dap6WriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #15
-  call void @_ZNSt10shared_ptrIN3dap6WriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #15
-  call void @_ZN3dap6WriterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN12_GLOBAL__N_19WriterSpyE, i64 0, i64 1)) #15
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %9, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %10, align 4
+  call void @_ZNSt10shared_ptrIN3dap6WriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #15
+  call void @_ZNSt10shared_ptrIN3dap6WriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #15
+  %26 = getelementptr inbounds [4 x ptr], ptr @_ZTTN12_GLOBAL__N_19WriterSpyE, i64 0, i64 1
+  call void @_ZN3dap6WriterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %26) #15
   call void @_ZN3dap8ClosableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
-  br label %23
+  br label %27
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %9, align 8
-  %25 = load i32, ptr %10, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %9, align 8
+  %29 = load i32, ptr %10, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9446,7 +9469,7 @@ define internal void @_ZN12_GLOBAL__N_19WriterSpyD2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZTv0_n24_N12_GLOBAL__N_19WriterSpyD1Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZTv0_n24_N12_GLOBAL__N_19WriterSpyD1Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -9459,7 +9482,7 @@ define internal void @_ZTv0_n24_N12_GLOBAL__N_19WriterSpyD1Ev(ptr noundef %0) un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZTv0_n24_N12_GLOBAL__N_19WriterSpyD0Ev(ptr noundef %0) unnamed_addr #11 align 2 {
+define internal void @_ZTv0_n24_N12_GLOBAL__N_19WriterSpyD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -9472,7 +9495,7 @@ define internal void @_ZTv0_n24_N12_GLOBAL__N_19WriterSpyD0Ev(ptr noundef %0) un
 }
 
 ; Function Attrs: uwtable
-define internal noundef zeroext i1 @_ZTv0_n32_N12_GLOBAL__N_19WriterSpy6isOpenEv(ptr noundef %0) unnamed_addr #12 align 2 {
+define internal noundef zeroext i1 @_ZTv0_n32_N12_GLOBAL__N_19WriterSpy6isOpenEv(ptr noundef %0) unnamed_addr #11 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -9485,7 +9508,7 @@ define internal noundef zeroext i1 @_ZTv0_n32_N12_GLOBAL__N_19WriterSpy6isOpenEv
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZTv0_n40_N12_GLOBAL__N_19WriterSpy5closeEv(ptr noundef %0) unnamed_addr #12 align 2 {
+define internal void @_ZTv0_n40_N12_GLOBAL__N_19WriterSpy5closeEv(ptr noundef %0) unnamed_addr #11 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -9616,21 +9639,27 @@ define internal void @_ZNSt12__shared_ptrIN3dap6WriterELN9__gnu_cxx12_Lock_polic
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #11 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #10 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind willreturn memory(read) }
 attributes #17 = { noreturn nounwind }

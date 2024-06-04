@@ -271,7 +271,7 @@ define ptr @mmap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3,
 37:                                               ; preds = %26
   %38 = load ptr, ptr %15, align 8
   store ptr %38, ptr %7, align 8
-  br label %45
+  br label %46
 
 39:                                               ; preds = %36, %25
   br label %40
@@ -284,12 +284,13 @@ define ptr @mmap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3,
   br label %44
 
 44:                                               ; preds = %40
-  store ptr inttoptr (i64 -1 to ptr), ptr %7, align 8
-  br label %45
+  %45 = inttoptr i64 -1 to ptr
+  store ptr %45, ptr %7, align 8
+  br label %46
 
-45:                                               ; preds = %44, %37
-  %46 = load ptr, ptr %7, align 8
-  ret ptr %46
+46:                                               ; preds = %44, %37
+  %47 = load ptr, ptr %7, align 8
+  ret ptr %47
 }
 
 declare i32 @fs_getfilep(i32 noundef, ptr noundef) #1

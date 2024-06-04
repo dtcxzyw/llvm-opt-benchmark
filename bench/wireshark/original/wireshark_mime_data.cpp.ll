@@ -239,14 +239,15 @@ define void @_ZN20ToolbarEntryMimeDataC2E7QStringi(ptr noundef nonnull align 8 d
   %8 = getelementptr inbounds i8, ptr %7, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 16, i1 false)
   call void @_ZN17WiresharkMimeDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV20ToolbarEntryMimeData, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %class.ToolbarEntryMimeData, ptr %7, i32 0, i32 1
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  %10 = getelementptr inbounds %class.ToolbarEntryMimeData, ptr %7, i32 0, i32 2
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %class.ToolbarEntryMimeData, ptr %7, i32 0, i32 3
-  %12 = load i32, ptr %6, align 4
-  store i32 %12, ptr %11, align 8
+  %9 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV20ToolbarEntryMimeData, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.ToolbarEntryMimeData, ptr %7, i32 0, i32 1
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
+  %11 = getelementptr inbounds %class.ToolbarEntryMimeData, ptr %7, i32 0, i32 2
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = getelementptr inbounds %class.ToolbarEntryMimeData, ptr %7, i32 0, i32 3
+  %13 = load i32, ptr %6, align 4
+  store i32 %13, ptr %12, align 8
   ret void
 }
 
@@ -259,7 +260,8 @@ define linkonce_odr void @_ZN17WiresharkMimeDataC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9QMimeDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17WiresharkMimeData, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV17WiresharkMimeData, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

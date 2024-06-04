@@ -2510,7 +2510,8 @@ entry:
   store i8 %frombool, ptr %.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %"class.nlsat::justification", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_data, align 8
+  %1 = inttoptr i64 1 to ptr
+  store ptr %1, ptr %m_data, align 8
   ret void
 }
 
@@ -7054,10 +7055,11 @@ entry:
   store ptr %_m, ptr %_m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN10polynomial9var2valueIN17algebraic_numbers7managerENS1_4anumEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5nlsat10assignmentE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5nlsat10assignmentE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_values = getelementptr inbounds %"class.nlsat::assignment", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_m.addr, align 8
-  invoke void @_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_values, ptr noundef nonnull align 8 dereferenceable(17) %0)
+  %1 = load ptr, ptr %_m.addr, align 8
+  invoke void @_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_values, ptr noundef nonnull align 8 dereferenceable(17) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -7069,21 +7071,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_values) #3
   br label %ehcleanup
 
@@ -7298,10 +7300,11 @@ entry:
   store ptr %perm, ptr %perm.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN10polynomial16display_var_procC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5nlsat6solver3imp21perm_display_var_procE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5nlsat6solver3imp21perm_display_var_procE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_perm = getelementptr inbounds %"struct.nlsat::solver::imp::perm_display_var_proc", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %perm.addr, align 8
-  store ptr %0, ptr %m_perm, align 8
+  %1 = load ptr, ptr %perm.addr, align 8
+  store ptr %1, ptr %m_perm, align 8
   %m_default_display_var = getelementptr inbounds %"struct.nlsat::solver::imp::perm_display_var_proc", ptr %this1, i32 0, i32 2
   call void @_ZN10polynomial16display_var_procC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_default_display_var) #3
   %m_proc = getelementptr inbounds %"struct.nlsat::solver::imp::perm_display_var_proc", ptr %this1, i32 0, i32 3
@@ -7653,7 +7656,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5nlsat10assignmentE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5nlsat10assignmentE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_assigned = getelementptr inbounds %"class.nlsat::assignment", ptr %this1, i32 0, i32 2
   call void @_ZN7svectorIbjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_assigned) #3
   %m_values = getelementptr inbounds %"class.nlsat::assignment", ptr %this1, i32 0, i32 1
@@ -7708,7 +7712,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN10polynomial9var2valueIN17algebraic_numbers7managerENS1_4anumEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN10polynomial9var2valueIN17algebraic_numbers7managerENS1_4anumEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8136,7 +8141,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %m_next = getelementptr inbounds %"struct.chashtable<nlsat::ineq_atom *, nlsat::ineq_atom::hash_proc, nlsat::ineq_atom::eq_proc>::cell", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_next, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_next, align 8
   ret void
 }
 
@@ -8241,7 +8247,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %m_next = getelementptr inbounds %"struct.chashtable<nlsat::root_atom *, nlsat::root_atom::hash_proc, nlsat::root_atom::eq_proc>::cell", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_next, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_next, align 8
   ret void
 }
 
@@ -8380,7 +8387,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10polynomial16display_var_procE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN10polynomial16display_var_procE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13655,10 +13663,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -13668,7 +13677,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -13906,7 +13916,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -37117,13 +37128,14 @@ entry:
   store ptr %lits, ptr %lits.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5nlsat23display_assumption_procC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5nlsat6solver3imp26display_literal_assumptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5nlsat6solver3imp26display_literal_assumptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %i2 = getelementptr inbounds %"struct.nlsat::solver::imp::display_literal_assumption", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %i.addr, align 8
-  store ptr %0, ptr %i2, align 8
+  %1 = load ptr, ptr %i.addr, align 8
+  store ptr %1, ptr %i2, align 8
   %lits3 = getelementptr inbounds %"struct.nlsat::solver::imp::display_literal_assumption", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %lits.addr, align 8
-  store ptr %1, ptr %lits3, align 8
+  %2 = load ptr, ptr %lits.addr, align 8
+  store ptr %2, ptr %lits3, align 8
   ret void
 }
 
@@ -37355,7 +37367,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5nlsat23display_assumption_procE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5nlsat23display_assumption_procE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

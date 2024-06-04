@@ -162,7 +162,7 @@ define internal i32 @env_set_name() #0 {
 
 8:                                                ; preds = %6
   store i32 -13, ptr %1, align 4
-  br label %39
+  br label %45
 
 9:                                                ; preds = %0
   %10 = load ptr, ptr @prte_ess_base_nspace, align 8
@@ -181,7 +181,7 @@ define internal i32 @env_set_name() #0 {
 
 16:                                               ; preds = %14
   store i32 -13, ptr %1, align 4
-  br label %39
+  br label %45
 
 17:                                               ; preds = %9
   %18 = load ptr, ptr @prte_ess_base_vpid, align 8
@@ -189,40 +189,46 @@ define internal i32 @env_set_name() #0 {
   %20 = trunc i64 %19 to i32
   store i32 %20, ptr %2, align 4
   %21 = load i32, ptr %2, align 4
-  store i32 %21, ptr getelementptr inbounds (%struct.pmix_proc, ptr @prte_process_info, i32 0, i32 1), align 8
-  %22 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i32 0, i32 11), align 4
-  %23 = icmp sge i32 %22, 0
-  br i1 %23, label %24, label %37
+  %22 = getelementptr inbounds %struct.pmix_proc, ptr @prte_process_info, i32 0, i32 1
+  store i32 %21, ptr %22, align 8
+  %23 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i32 0, i32 11
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp sge i32 %24, 0
+  br i1 %25, label %26, label %42
 
-24:                                               ; preds = %17
-  %25 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i32 0, i32 11), align 4
-  %26 = icmp slt i32 %25, 64
-  br i1 %26, label %27, label %37
+26:                                               ; preds = %17
+  %27 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i32 0, i32 11
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp slt i32 %28, 64
+  br i1 %29, label %30, label %42
 
-27:                                               ; preds = %24
-  %28 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i32 0, i32 11), align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %29
-  %31 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %30, i32 0, i32 2
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i32 0, i32 11
   %32 = load i32, ptr %31, align 4
-  %33 = icmp sge i32 %32, 1
-  br i1 %33, label %34, label %37
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %33
+  %35 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %34, i32 0, i32 2
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp sge i32 %36, 1
+  br i1 %37, label %38, label %42
 
-34:                                               ; preds = %27
-  %35 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i32 0, i32 11), align 4
-  %36 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %35, ptr noundef @.str.6, ptr noundef %36)
-  br label %37
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_ess_base_framework, i32 0, i32 11
+  %40 = load i32, ptr %39, align 4
+  %41 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %40, ptr noundef @.str.6, ptr noundef %41)
+  br label %42
 
-37:                                               ; preds = %34, %27, %24, %17
-  %38 = load i32, ptr @prte_ess_base_num_procs, align 4
-  store i32 %38, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 5), align 8
+42:                                               ; preds = %38, %30, %26, %17
+  %43 = load i32, ptr @prte_ess_base_num_procs, align 4
+  %44 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 5
+  store i32 %43, ptr %44, align 8
   store i32 0, ptr %1, align 4
-  br label %39
+  br label %45
 
-39:                                               ; preds = %37, %16, %8
-  %40 = load i32, ptr %1, align 4
-  ret i32 %40
+45:                                               ; preds = %42, %16, %8
+  %46 = load i32, ptr %1, align 4
+  ret i32 %46
 }
 
 declare i32 @prte_ess_base_prted_setup() #1

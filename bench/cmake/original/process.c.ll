@@ -1603,10 +1603,10 @@ define internal void @uv__process_child_init(ptr noundef %0, i32 noundef %1, ptr
   store i32 1, ptr %13, align 4
   br label %21
 
-21:                                               ; preds = %38, %4
+21:                                               ; preds = %39, %4
   %22 = load i32, ptr %13, align 4
   %23 = icmp slt i32 %22, 32
-  br i1 %23, label %24, label %41
+  br i1 %23, label %24, label %42
 
 24:                                               ; preds = %21
   %25 = load i32, ptr %13, align 4
@@ -1619,465 +1619,466 @@ define internal void @uv__process_child_init(ptr noundef %0, i32 noundef %1, ptr
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %27, %24
-  br label %38
+  br label %39
 
 31:                                               ; preds = %27
   %32 = load i32, ptr %13, align 4
   %33 = call ptr @signal(i32 noundef %32, ptr noundef null) #10
-  %34 = icmp ne ptr inttoptr (i64 -1 to ptr), %33
-  br i1 %34, label %35, label %36
-
-35:                                               ; preds = %31
-  br label %38
+  %34 = inttoptr i64 -1 to ptr
+  %35 = icmp ne ptr %34, %33
+  br i1 %35, label %36, label %37
 
 36:                                               ; preds = %31
-  %37 = load i32, ptr %8, align 4
-  call void @uv__write_errno(i32 noundef %37)
-  br label %38
+  br label %39
 
-38:                                               ; preds = %36, %35, %30
-  %39 = load i32, ptr %13, align 4
-  %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %13, align 4
+37:                                               ; preds = %31
+  %38 = load i32, ptr %8, align 4
+  call void @uv__write_errno(i32 noundef %38)
+  br label %39
+
+39:                                               ; preds = %37, %36, %30
+  %40 = load i32, ptr %13, align 4
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %13, align 4
   br label %21, !llvm.loop !17
 
-41:                                               ; preds = %21
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.uv_process_options_s, ptr %42, i32 0, i32 5
-  %44 = load i32, ptr %43, align 8
-  %45 = and i32 %44, 8
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %49
+42:                                               ; preds = %21
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds %struct.uv_process_options_s, ptr %43, i32 0, i32 5
+  %45 = load i32, ptr %44, align 8
+  %46 = and i32 %45, 8
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %50
 
-47:                                               ; preds = %41
-  %48 = call i32 @setsid() #10
-  br label %49
-
-49:                                               ; preds = %47, %41
-  store i32 0, ptr %12, align 4
+48:                                               ; preds = %42
+  %49 = call i32 @setsid() #10
   br label %50
 
-50:                                               ; preds = %87, %49
-  %51 = load i32, ptr %12, align 4
-  %52 = load i32, ptr %6, align 4
-  %53 = icmp slt i32 %51, %52
-  br i1 %53, label %54, label %90
-
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %7, align 8
-  %56 = load i32, ptr %12, align 4
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [2 x i32], ptr %55, i64 %57
-  %59 = getelementptr inbounds [2 x i32], ptr %58, i64 0, i64 1
-  %60 = load i32, ptr %59, align 4
-  store i32 %60, ptr %11, align 4
-  %61 = load i32, ptr %11, align 4
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %67, label %63
-
-63:                                               ; preds = %54
-  %64 = load i32, ptr %11, align 4
-  %65 = load i32, ptr %12, align 4
-  %66 = icmp sge i32 %64, %65
-  br i1 %66, label %67, label %68
-
-67:                                               ; preds = %63, %54
-  br label %87
-
-68:                                               ; preds = %63
-  %69 = load i32, ptr %11, align 4
-  %70 = load i32, ptr %6, align 4
-  %71 = call i32 (i32, i32, ...) @fcntl(i32 noundef %69, i32 noundef 1030, i32 noundef %70)
-  %72 = load ptr, ptr %7, align 8
-  %73 = load i32, ptr %12, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [2 x i32], ptr %72, i64 %74
-  %76 = getelementptr inbounds [2 x i32], ptr %75, i64 0, i64 1
-  store i32 %71, ptr %76, align 4
-  %77 = load ptr, ptr %7, align 8
-  %78 = load i32, ptr %12, align 4
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [2 x i32], ptr %77, i64 %79
-  %81 = getelementptr inbounds [2 x i32], ptr %80, i64 0, i64 1
-  %82 = load i32, ptr %81, align 4
-  %83 = icmp eq i32 %82, -1
-  br i1 %83, label %84, label %86
-
-84:                                               ; preds = %68
-  %85 = load i32, ptr %8, align 4
-  call void @uv__write_errno(i32 noundef %85)
-  br label %86
-
-86:                                               ; preds = %84, %68
-  br label %87
-
-87:                                               ; preds = %86, %67
-  %88 = load i32, ptr %12, align 4
-  %89 = add nsw i32 %88, 1
-  store i32 %89, ptr %12, align 4
-  br label %50, !llvm.loop !18
-
-90:                                               ; preds = %50
+50:                                               ; preds = %48, %42
   store i32 0, ptr %12, align 4
-  br label %91
+  br label %51
 
-91:                                               ; preds = %165, %90
-  %92 = load i32, ptr %12, align 4
-  %93 = load i32, ptr %6, align 4
-  %94 = icmp slt i32 %92, %93
-  br i1 %94, label %95, label %168
+51:                                               ; preds = %88, %50
+  %52 = load i32, ptr %12, align 4
+  %53 = load i32, ptr %6, align 4
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %55, label %91
 
-95:                                               ; preds = %91
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %7, align 8
+  %57 = load i32, ptr %12, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds [2 x i32], ptr %56, i64 %58
+  %60 = getelementptr inbounds [2 x i32], ptr %59, i64 0, i64 1
+  %61 = load i32, ptr %60, align 4
+  store i32 %61, ptr %11, align 4
+  %62 = load i32, ptr %11, align 4
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %68, label %64
+
+64:                                               ; preds = %55
+  %65 = load i32, ptr %11, align 4
+  %66 = load i32, ptr %12, align 4
+  %67 = icmp sge i32 %65, %66
+  br i1 %67, label %68, label %69
+
+68:                                               ; preds = %64, %55
+  br label %88
+
+69:                                               ; preds = %64
+  %70 = load i32, ptr %11, align 4
+  %71 = load i32, ptr %6, align 4
+  %72 = call i32 (i32, i32, ...) @fcntl(i32 noundef %70, i32 noundef 1030, i32 noundef %71)
+  %73 = load ptr, ptr %7, align 8
+  %74 = load i32, ptr %12, align 4
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds [2 x i32], ptr %73, i64 %75
+  %77 = getelementptr inbounds [2 x i32], ptr %76, i64 0, i64 1
+  store i32 %72, ptr %77, align 4
+  %78 = load ptr, ptr %7, align 8
+  %79 = load i32, ptr %12, align 4
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds [2 x i32], ptr %78, i64 %80
+  %82 = getelementptr inbounds [2 x i32], ptr %81, i64 0, i64 1
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp eq i32 %83, -1
+  br i1 %84, label %85, label %87
+
+85:                                               ; preds = %69
+  %86 = load i32, ptr %8, align 4
+  call void @uv__write_errno(i32 noundef %86)
+  br label %87
+
+87:                                               ; preds = %85, %69
+  br label %88
+
+88:                                               ; preds = %87, %68
+  %89 = load i32, ptr %12, align 4
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %12, align 4
+  br label %51, !llvm.loop !18
+
+91:                                               ; preds = %51
+  store i32 0, ptr %12, align 4
+  br label %92
+
+92:                                               ; preds = %166, %91
+  %93 = load i32, ptr %12, align 4
+  %94 = load i32, ptr %6, align 4
+  %95 = icmp slt i32 %93, %94
+  br i1 %95, label %96, label %169
+
+96:                                               ; preds = %92
   store i32 -1, ptr %10, align 4
-  %96 = load ptr, ptr %7, align 8
-  %97 = load i32, ptr %12, align 4
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds [2 x i32], ptr %96, i64 %98
-  %100 = getelementptr inbounds [2 x i32], ptr %99, i64 0, i64 1
-  %101 = load i32, ptr %100, align 4
-  store i32 %101, ptr %11, align 4
-  %102 = load i32, ptr %11, align 4
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %104, label %122
+  %97 = load ptr, ptr %7, align 8
+  %98 = load i32, ptr %12, align 4
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds [2 x i32], ptr %97, i64 %99
+  %101 = getelementptr inbounds [2 x i32], ptr %100, i64 0, i64 1
+  %102 = load i32, ptr %101, align 4
+  store i32 %102, ptr %11, align 4
+  %103 = load i32, ptr %11, align 4
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %105, label %123
 
-104:                                              ; preds = %95
-  %105 = load i32, ptr %12, align 4
-  %106 = icmp sge i32 %105, 3
-  br i1 %106, label %107, label %108
+105:                                              ; preds = %96
+  %106 = load i32, ptr %12, align 4
+  %107 = icmp sge i32 %106, 3
+  br i1 %107, label %108, label %109
 
-107:                                              ; preds = %104
-  br label %165
+108:                                              ; preds = %105
+  br label %166
 
-108:                                              ; preds = %104
-  %109 = load i32, ptr %12, align 4
-  %110 = call i32 @uv__close_nocheckstdio(i32 noundef %109)
-  %111 = load i32, ptr %12, align 4
-  %112 = icmp eq i32 %111, 0
-  %113 = select i1 %112, i32 0, i32 2
-  %114 = call i32 (ptr, i32, ...) @open(ptr noundef @.str, i32 noundef %113)
-  store i32 %114, ptr %11, align 4
-  %115 = load i32, ptr %11, align 4
-  store i32 %115, ptr %10, align 4
+109:                                              ; preds = %105
+  %110 = load i32, ptr %12, align 4
+  %111 = call i32 @uv__close_nocheckstdio(i32 noundef %110)
+  %112 = load i32, ptr %12, align 4
+  %113 = icmp eq i32 %112, 0
+  %114 = select i1 %113, i32 0, i32 2
+  %115 = call i32 (ptr, i32, ...) @open(ptr noundef @.str, i32 noundef %114)
+  store i32 %115, ptr %11, align 4
   %116 = load i32, ptr %11, align 4
-  %117 = icmp slt i32 %116, 0
-  br i1 %117, label %118, label %120
+  store i32 %116, ptr %10, align 4
+  %117 = load i32, ptr %11, align 4
+  %118 = icmp slt i32 %117, 0
+  br i1 %118, label %119, label %121
 
-118:                                              ; preds = %108
-  %119 = load i32, ptr %8, align 4
-  call void @uv__write_errno(i32 noundef %119)
-  br label %120
-
-120:                                              ; preds = %118, %108
+119:                                              ; preds = %109
+  %120 = load i32, ptr %8, align 4
+  call void @uv__write_errno(i32 noundef %120)
   br label %121
 
-121:                                              ; preds = %120
+121:                                              ; preds = %119, %109
   br label %122
 
-122:                                              ; preds = %121, %95
-  %123 = load i32, ptr %12, align 4
-  %124 = load i32, ptr %11, align 4
-  %125 = icmp eq i32 %123, %124
-  br i1 %125, label %126, label %139
+122:                                              ; preds = %121
+  br label %123
 
-126:                                              ; preds = %122
-  %127 = load i32, ptr %10, align 4
-  %128 = icmp eq i32 %127, -1
-  br i1 %128, label %129, label %138
+123:                                              ; preds = %122, %96
+  %124 = load i32, ptr %12, align 4
+  %125 = load i32, ptr %11, align 4
+  %126 = icmp eq i32 %124, %125
+  br i1 %126, label %127, label %140
 
-129:                                              ; preds = %126
-  %130 = load i32, ptr %11, align 4
-  %131 = call i32 @uv__cloexec(i32 noundef %130, i32 noundef 0)
-  store i32 %131, ptr %13, align 4
-  %132 = load i32, ptr %13, align 4
-  %133 = icmp ne i32 %132, 0
-  br i1 %133, label %134, label %137
+127:                                              ; preds = %123
+  %128 = load i32, ptr %10, align 4
+  %129 = icmp eq i32 %128, -1
+  br i1 %129, label %130, label %139
 
-134:                                              ; preds = %129
-  %135 = load i32, ptr %8, align 4
-  %136 = load i32, ptr %13, align 4
-  call void @uv__write_int(i32 noundef %135, i32 noundef %136)
-  br label %137
+130:                                              ; preds = %127
+  %131 = load i32, ptr %11, align 4
+  %132 = call i32 @uv__cloexec(i32 noundef %131, i32 noundef 0)
+  store i32 %132, ptr %13, align 4
+  %133 = load i32, ptr %13, align 4
+  %134 = icmp ne i32 %133, 0
+  br i1 %134, label %135, label %138
 
-137:                                              ; preds = %134, %129
+135:                                              ; preds = %130
+  %136 = load i32, ptr %8, align 4
+  %137 = load i32, ptr %13, align 4
+  call void @uv__write_int(i32 noundef %136, i32 noundef %137)
   br label %138
 
-138:                                              ; preds = %137, %126
-  br label %143
+138:                                              ; preds = %135, %130
+  br label %139
 
-139:                                              ; preds = %122
-  %140 = load i32, ptr %11, align 4
-  %141 = load i32, ptr %12, align 4
-  %142 = call i32 @dup2(i32 noundef %140, i32 noundef %141) #10
-  store i32 %142, ptr %12, align 4
-  br label %143
+139:                                              ; preds = %138, %127
+  br label %144
 
-143:                                              ; preds = %139, %138
-  %144 = load i32, ptr %12, align 4
-  %145 = icmp eq i32 %144, -1
-  br i1 %145, label %146, label %148
+140:                                              ; preds = %123
+  %141 = load i32, ptr %11, align 4
+  %142 = load i32, ptr %12, align 4
+  %143 = call i32 @dup2(i32 noundef %141, i32 noundef %142) #10
+  store i32 %143, ptr %12, align 4
+  br label %144
 
-146:                                              ; preds = %143
-  %147 = load i32, ptr %8, align 4
-  call void @uv__write_errno(i32 noundef %147)
-  br label %148
+144:                                              ; preds = %140, %139
+  %145 = load i32, ptr %12, align 4
+  %146 = icmp eq i32 %145, -1
+  br i1 %146, label %147, label %149
 
-148:                                              ; preds = %146, %143
-  %149 = load i32, ptr %12, align 4
-  %150 = icmp sle i32 %149, 2
-  br i1 %150, label %151, label %157
+147:                                              ; preds = %144
+  %148 = load i32, ptr %8, align 4
+  call void @uv__write_errno(i32 noundef %148)
+  br label %149
 
-151:                                              ; preds = %148
-  %152 = load i32, ptr %10, align 4
-  %153 = icmp eq i32 %152, -1
-  br i1 %153, label %154, label %157
+149:                                              ; preds = %147, %144
+  %150 = load i32, ptr %12, align 4
+  %151 = icmp sle i32 %150, 2
+  br i1 %151, label %152, label %158
 
-154:                                              ; preds = %151
-  %155 = load i32, ptr %12, align 4
-  %156 = call i32 @uv__nonblock_fcntl(i32 noundef %155, i32 noundef 0)
-  br label %157
+152:                                              ; preds = %149
+  %153 = load i32, ptr %10, align 4
+  %154 = icmp eq i32 %153, -1
+  br i1 %154, label %155, label %158
 
-157:                                              ; preds = %154, %151, %148
-  %158 = load i32, ptr %10, align 4
-  %159 = load i32, ptr %6, align 4
-  %160 = icmp sge i32 %158, %159
-  br i1 %160, label %161, label %164
+155:                                              ; preds = %152
+  %156 = load i32, ptr %12, align 4
+  %157 = call i32 @uv__nonblock_fcntl(i32 noundef %156, i32 noundef 0)
+  br label %158
 
-161:                                              ; preds = %157
-  %162 = load i32, ptr %10, align 4
-  %163 = call i32 @uv__close(i32 noundef %162)
-  br label %164
+158:                                              ; preds = %155, %152, %149
+  %159 = load i32, ptr %10, align 4
+  %160 = load i32, ptr %6, align 4
+  %161 = icmp sge i32 %159, %160
+  br i1 %161, label %162, label %165
 
-164:                                              ; preds = %161, %157
+162:                                              ; preds = %158
+  %163 = load i32, ptr %10, align 4
+  %164 = call i32 @uv__close(i32 noundef %163)
   br label %165
 
-165:                                              ; preds = %164, %107
-  %166 = load i32, ptr %12, align 4
-  %167 = add nsw i32 %166, 1
-  store i32 %167, ptr %12, align 4
-  br label %91, !llvm.loop !19
+165:                                              ; preds = %162, %158
+  br label %166
 
-168:                                              ; preds = %91
-  %169 = load ptr, ptr %5, align 8
-  %170 = getelementptr inbounds %struct.uv_process_options_s, ptr %169, i32 0, i32 4
-  %171 = load ptr, ptr %170, align 8
-  %172 = icmp ne ptr %171, null
-  br i1 %172, label %173, label %181
+166:                                              ; preds = %165, %108
+  %167 = load i32, ptr %12, align 4
+  %168 = add nsw i32 %167, 1
+  store i32 %168, ptr %12, align 4
+  br label %92, !llvm.loop !19
 
-173:                                              ; preds = %168
-  %174 = load ptr, ptr %5, align 8
-  %175 = getelementptr inbounds %struct.uv_process_options_s, ptr %174, i32 0, i32 4
-  %176 = load ptr, ptr %175, align 8
-  %177 = call i32 @chdir(ptr noundef %176) #10
-  %178 = icmp ne i32 %177, 0
-  br i1 %178, label %179, label %181
+169:                                              ; preds = %92
+  %170 = load ptr, ptr %5, align 8
+  %171 = getelementptr inbounds %struct.uv_process_options_s, ptr %170, i32 0, i32 4
+  %172 = load ptr, ptr %171, align 8
+  %173 = icmp ne ptr %172, null
+  br i1 %173, label %174, label %182
 
-179:                                              ; preds = %173
-  %180 = load i32, ptr %8, align 4
-  call void @uv__write_errno(i32 noundef %180)
-  br label %181
+174:                                              ; preds = %169
+  %175 = load ptr, ptr %5, align 8
+  %176 = getelementptr inbounds %struct.uv_process_options_s, ptr %175, i32 0, i32 4
+  %177 = load ptr, ptr %176, align 8
+  %178 = call i32 @chdir(ptr noundef %177) #10
+  %179 = icmp ne i32 %178, 0
+  br i1 %179, label %180, label %182
 
-181:                                              ; preds = %179, %173, %168
-  %182 = load ptr, ptr %5, align 8
-  %183 = getelementptr inbounds %struct.uv_process_options_s, ptr %182, i32 0, i32 5
-  %184 = load i32, ptr %183, align 8
-  %185 = and i32 %184, 3
-  %186 = icmp ne i32 %185, 0
-  br i1 %186, label %187, label %197
+180:                                              ; preds = %174
+  %181 = load i32, ptr %8, align 4
+  call void @uv__write_errno(i32 noundef %181)
+  br label %182
 
-187:                                              ; preds = %181
-  br label %188
+182:                                              ; preds = %180, %174, %169
+  %183 = load ptr, ptr %5, align 8
+  %184 = getelementptr inbounds %struct.uv_process_options_s, ptr %183, i32 0, i32 5
+  %185 = load i32, ptr %184, align 8
+  %186 = and i32 %185, 3
+  %187 = icmp ne i32 %186, 0
+  br i1 %187, label %188, label %198
 
-188:                                              ; preds = %187
-  %189 = call ptr @__errno_location() #8
-  %190 = load i32, ptr %189, align 4
-  store i32 %190, ptr %18, align 4
-  br label %191
+188:                                              ; preds = %182
+  br label %189
 
-191:                                              ; preds = %188
-  %192 = call i32 @setgroups(i64 noundef 0, ptr noundef null) #10
-  br label %193
+189:                                              ; preds = %188
+  %190 = call ptr @__errno_location() #8
+  %191 = load i32, ptr %190, align 4
+  store i32 %191, ptr %18, align 4
+  br label %192
 
-193:                                              ; preds = %191
-  %194 = load i32, ptr %18, align 4
-  %195 = call ptr @__errno_location() #8
-  store i32 %194, ptr %195, align 4
-  br label %196
+192:                                              ; preds = %189
+  %193 = call i32 @setgroups(i64 noundef 0, ptr noundef null) #10
+  br label %194
 
-196:                                              ; preds = %193
+194:                                              ; preds = %192
+  %195 = load i32, ptr %18, align 4
+  %196 = call ptr @__errno_location() #8
+  store i32 %195, ptr %196, align 4
   br label %197
 
-197:                                              ; preds = %196, %181
-  %198 = load ptr, ptr %5, align 8
-  %199 = getelementptr inbounds %struct.uv_process_options_s, ptr %198, i32 0, i32 5
-  %200 = load i32, ptr %199, align 8
-  %201 = and i32 %200, 2
-  %202 = icmp ne i32 %201, 0
-  br i1 %202, label %203, label %211
+197:                                              ; preds = %194
+  br label %198
 
-203:                                              ; preds = %197
-  %204 = load ptr, ptr %5, align 8
-  %205 = getelementptr inbounds %struct.uv_process_options_s, ptr %204, i32 0, i32 9
-  %206 = load i32, ptr %205, align 4
-  %207 = call i32 @setgid(i32 noundef %206) #10
-  %208 = icmp ne i32 %207, 0
-  br i1 %208, label %209, label %211
+198:                                              ; preds = %197, %182
+  %199 = load ptr, ptr %5, align 8
+  %200 = getelementptr inbounds %struct.uv_process_options_s, ptr %199, i32 0, i32 5
+  %201 = load i32, ptr %200, align 8
+  %202 = and i32 %201, 2
+  %203 = icmp ne i32 %202, 0
+  br i1 %203, label %204, label %212
 
-209:                                              ; preds = %203
-  %210 = load i32, ptr %8, align 4
-  call void @uv__write_errno(i32 noundef %210)
-  br label %211
+204:                                              ; preds = %198
+  %205 = load ptr, ptr %5, align 8
+  %206 = getelementptr inbounds %struct.uv_process_options_s, ptr %205, i32 0, i32 9
+  %207 = load i32, ptr %206, align 4
+  %208 = call i32 @setgid(i32 noundef %207) #10
+  %209 = icmp ne i32 %208, 0
+  br i1 %209, label %210, label %212
 
-211:                                              ; preds = %209, %203, %197
-  %212 = load ptr, ptr %5, align 8
-  %213 = getelementptr inbounds %struct.uv_process_options_s, ptr %212, i32 0, i32 5
-  %214 = load i32, ptr %213, align 8
-  %215 = and i32 %214, 1
-  %216 = icmp ne i32 %215, 0
-  br i1 %216, label %217, label %225
+210:                                              ; preds = %204
+  %211 = load i32, ptr %8, align 4
+  call void @uv__write_errno(i32 noundef %211)
+  br label %212
 
-217:                                              ; preds = %211
-  %218 = load ptr, ptr %5, align 8
-  %219 = getelementptr inbounds %struct.uv_process_options_s, ptr %218, i32 0, i32 8
-  %220 = load i32, ptr %219, align 8
-  %221 = call i32 @setuid(i32 noundef %220) #10
-  %222 = icmp ne i32 %221, 0
-  br i1 %222, label %223, label %225
+212:                                              ; preds = %210, %204, %198
+  %213 = load ptr, ptr %5, align 8
+  %214 = getelementptr inbounds %struct.uv_process_options_s, ptr %213, i32 0, i32 5
+  %215 = load i32, ptr %214, align 8
+  %216 = and i32 %215, 1
+  %217 = icmp ne i32 %216, 0
+  br i1 %217, label %218, label %226
 
-223:                                              ; preds = %217
-  %224 = load i32, ptr %8, align 4
-  call void @uv__write_errno(i32 noundef %224)
-  br label %225
+218:                                              ; preds = %212
+  %219 = load ptr, ptr %5, align 8
+  %220 = getelementptr inbounds %struct.uv_process_options_s, ptr %219, i32 0, i32 8
+  %221 = load i32, ptr %220, align 8
+  %222 = call i32 @setuid(i32 noundef %221) #10
+  %223 = icmp ne i32 %222, 0
+  br i1 %223, label %224, label %226
 
-225:                                              ; preds = %223, %217, %211
-  %226 = load ptr, ptr %5, align 8
-  %227 = getelementptr inbounds %struct.uv_process_options_s, ptr %226, i32 0, i32 10
-  %228 = load ptr, ptr %227, align 8
-  %229 = icmp ne ptr %228, null
-  br i1 %229, label %230, label %281
+224:                                              ; preds = %218
+  %225 = load i32, ptr %8, align 4
+  call void @uv__write_errno(i32 noundef %225)
+  br label %226
 
-230:                                              ; preds = %225
-  %231 = call i32 @uv_cpumask_size()
-  store i32 %231, ptr %16, align 4
-  br label %232
+226:                                              ; preds = %224, %218, %212
+  %227 = load ptr, ptr %5, align 8
+  %228 = getelementptr inbounds %struct.uv_process_options_s, ptr %227, i32 0, i32 10
+  %229 = load ptr, ptr %228, align 8
+  %230 = icmp ne ptr %229, null
+  br i1 %230, label %231, label %282
 
-232:                                              ; preds = %230
-  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 128, i1 false)
+231:                                              ; preds = %226
+  %232 = call i32 @uv_cpumask_size()
+  store i32 %232, ptr %16, align 4
   br label %233
 
-233:                                              ; preds = %232
-  store i32 0, ptr %15, align 4
+233:                                              ; preds = %231
+  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 128, i1 false)
   br label %234
 
-234:                                              ; preds = %268, %233
-  %235 = load i32, ptr %15, align 4
-  %236 = load i32, ptr %16, align 4
-  %237 = icmp slt i32 %235, %236
-  br i1 %237, label %238, label %271
+234:                                              ; preds = %233
+  store i32 0, ptr %15, align 4
+  br label %235
 
-238:                                              ; preds = %234
-  %239 = load ptr, ptr %5, align 8
-  %240 = getelementptr inbounds %struct.uv_process_options_s, ptr %239, i32 0, i32 10
-  %241 = load ptr, ptr %240, align 8
-  %242 = load i32, ptr %15, align 4
-  %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds i8, ptr %241, i64 %243
-  %245 = load i8, ptr %244, align 1
-  %246 = icmp ne i8 %245, 0
-  br i1 %246, label %247, label %267
+235:                                              ; preds = %269, %234
+  %236 = load i32, ptr %15, align 4
+  %237 = load i32, ptr %16, align 4
+  %238 = icmp slt i32 %236, %237
+  br i1 %238, label %239, label %272
 
-247:                                              ; preds = %238
-  %248 = load i32, ptr %15, align 4
-  %249 = sext i32 %248 to i64
-  store i64 %249, ptr %19, align 8
-  %250 = load i64, ptr %19, align 8
-  %251 = udiv i64 %250, 8
-  %252 = icmp ult i64 %251, 128
-  br i1 %252, label %253, label %264
+239:                                              ; preds = %235
+  %240 = load ptr, ptr %5, align 8
+  %241 = getelementptr inbounds %struct.uv_process_options_s, ptr %240, i32 0, i32 10
+  %242 = load ptr, ptr %241, align 8
+  %243 = load i32, ptr %15, align 4
+  %244 = sext i32 %243 to i64
+  %245 = getelementptr inbounds i8, ptr %242, i64 %244
+  %246 = load i8, ptr %245, align 1
+  %247 = icmp ne i8 %246, 0
+  br i1 %247, label %248, label %268
 
-253:                                              ; preds = %247
-  %254 = load i64, ptr %19, align 8
-  %255 = urem i64 %254, 64
-  %256 = shl i64 1, %255
-  %257 = getelementptr inbounds %struct.cpu_set_t, ptr %17, i32 0, i32 0
-  %258 = getelementptr inbounds [16 x i64], ptr %257, i64 0, i64 0
-  %259 = load i64, ptr %19, align 8
-  %260 = udiv i64 %259, 64
-  %261 = getelementptr inbounds i64, ptr %258, i64 %260
-  %262 = load i64, ptr %261, align 8
-  %263 = or i64 %262, %256
-  store i64 %263, ptr %261, align 8
-  br label %265
+248:                                              ; preds = %239
+  %249 = load i32, ptr %15, align 4
+  %250 = sext i32 %249 to i64
+  store i64 %250, ptr %19, align 8
+  %251 = load i64, ptr %19, align 8
+  %252 = udiv i64 %251, 8
+  %253 = icmp ult i64 %252, 128
+  br i1 %253, label %254, label %265
 
-264:                                              ; preds = %247
-  br label %265
+254:                                              ; preds = %248
+  %255 = load i64, ptr %19, align 8
+  %256 = urem i64 %255, 64
+  %257 = shl i64 1, %256
+  %258 = getelementptr inbounds %struct.cpu_set_t, ptr %17, i32 0, i32 0
+  %259 = getelementptr inbounds [16 x i64], ptr %258, i64 0, i64 0
+  %260 = load i64, ptr %19, align 8
+  %261 = udiv i64 %260, 64
+  %262 = getelementptr inbounds i64, ptr %259, i64 %261
+  %263 = load i64, ptr %262, align 8
+  %264 = or i64 %263, %257
+  store i64 %264, ptr %262, align 8
+  br label %266
 
-265:                                              ; preds = %264, %253
-  %266 = phi i64 [ %263, %253 ], [ 0, %264 ]
-  store i64 %266, ptr %20, align 8
-  br label %267
+265:                                              ; preds = %248
+  br label %266
 
-267:                                              ; preds = %265, %238
+266:                                              ; preds = %265, %254
+  %267 = phi i64 [ %264, %254 ], [ 0, %265 ]
+  store i64 %267, ptr %20, align 8
   br label %268
 
-268:                                              ; preds = %267
-  %269 = load i32, ptr %15, align 4
-  %270 = add nsw i32 %269, 1
-  store i32 %270, ptr %15, align 4
-  br label %234, !llvm.loop !20
+268:                                              ; preds = %266, %239
+  br label %269
 
-271:                                              ; preds = %234
-  %272 = call i64 @pthread_self() #8
-  %273 = call i32 @pthread_setaffinity_np(i64 noundef %272, i64 noundef 128, ptr noundef %17) #10
-  %274 = sub nsw i32 0, %273
-  store i32 %274, ptr %14, align 4
-  %275 = load i32, ptr %14, align 4
-  %276 = icmp ne i32 %275, 0
-  br i1 %276, label %277, label %280
+269:                                              ; preds = %268
+  %270 = load i32, ptr %15, align 4
+  %271 = add nsw i32 %270, 1
+  store i32 %271, ptr %15, align 4
+  br label %235, !llvm.loop !20
 
-277:                                              ; preds = %271
-  %278 = load i32, ptr %8, align 4
-  %279 = load i32, ptr %14, align 4
-  call void @uv__write_int(i32 noundef %278, i32 noundef %279)
+272:                                              ; preds = %235
+  %273 = call i64 @pthread_self() #8
+  %274 = call i32 @pthread_setaffinity_np(i64 noundef %273, i64 noundef 128, ptr noundef %17) #10
+  %275 = sub nsw i32 0, %274
+  store i32 %275, ptr %14, align 4
+  %276 = load i32, ptr %14, align 4
+  %277 = icmp ne i32 %276, 0
+  br i1 %277, label %278, label %281
+
+278:                                              ; preds = %272
+  %279 = load i32, ptr %8, align 4
+  %280 = load i32, ptr %14, align 4
+  call void @uv__write_int(i32 noundef %279, i32 noundef %280)
   call void @_exit(i32 noundef 127) #11
   unreachable
 
-280:                                              ; preds = %271
-  br label %281
+281:                                              ; preds = %272
+  br label %282
 
-281:                                              ; preds = %280, %225
-  %282 = load ptr, ptr %5, align 8
-  %283 = getelementptr inbounds %struct.uv_process_options_s, ptr %282, i32 0, i32 3
-  %284 = load ptr, ptr %283, align 8
-  %285 = icmp ne ptr %284, null
-  br i1 %285, label %286, label %290
+282:                                              ; preds = %281, %226
+  %283 = load ptr, ptr %5, align 8
+  %284 = getelementptr inbounds %struct.uv_process_options_s, ptr %283, i32 0, i32 3
+  %285 = load ptr, ptr %284, align 8
+  %286 = icmp ne ptr %285, null
+  br i1 %286, label %287, label %291
 
-286:                                              ; preds = %281
-  %287 = load ptr, ptr %5, align 8
-  %288 = getelementptr inbounds %struct.uv_process_options_s, ptr %287, i32 0, i32 3
-  %289 = load ptr, ptr %288, align 8
-  store ptr %289, ptr @environ, align 8
-  br label %290
+287:                                              ; preds = %282
+  %288 = load ptr, ptr %5, align 8
+  %289 = getelementptr inbounds %struct.uv_process_options_s, ptr %288, i32 0, i32 3
+  %290 = load ptr, ptr %289, align 8
+  store ptr %290, ptr @environ, align 8
+  br label %291
 
-290:                                              ; preds = %286, %281
-  %291 = call i32 @sigemptyset(ptr noundef %9) #10
-  %292 = call i32 @sigprocmask(i32 noundef 2, ptr noundef %9, ptr noundef null) #10
-  %293 = icmp ne i32 %292, 0
-  br i1 %293, label %294, label %295
+291:                                              ; preds = %287, %282
+  %292 = call i32 @sigemptyset(ptr noundef %9) #10
+  %293 = call i32 @sigprocmask(i32 noundef 2, ptr noundef %9, ptr noundef null) #10
+  %294 = icmp ne i32 %293, 0
+  br i1 %294, label %295, label %296
 
-294:                                              ; preds = %290
+295:                                              ; preds = %291
   call void @abort() #9
   unreachable
 
-295:                                              ; preds = %290
-  %296 = load ptr, ptr %5, align 8
-  %297 = getelementptr inbounds %struct.uv_process_options_s, ptr %296, i32 0, i32 1
-  %298 = load ptr, ptr %297, align 8
-  %299 = load ptr, ptr %5, align 8
-  %300 = getelementptr inbounds %struct.uv_process_options_s, ptr %299, i32 0, i32 2
-  %301 = load ptr, ptr %300, align 8
-  %302 = call i32 @execvp(ptr noundef %298, ptr noundef %301) #10
-  %303 = load i32, ptr %8, align 4
-  call void @uv__write_errno(i32 noundef %303)
+296:                                              ; preds = %291
+  %297 = load ptr, ptr %5, align 8
+  %298 = getelementptr inbounds %struct.uv_process_options_s, ptr %297, i32 0, i32 1
+  %299 = load ptr, ptr %298, align 8
+  %300 = load ptr, ptr %5, align 8
+  %301 = getelementptr inbounds %struct.uv_process_options_s, ptr %300, i32 0, i32 2
+  %302 = load ptr, ptr %301, align 8
+  %303 = call i32 @execvp(ptr noundef %299, ptr noundef %302) #10
+  %304 = load i32, ptr %8, align 4
+  call void @uv__write_errno(i32 noundef %304)
   ret void
 }
 

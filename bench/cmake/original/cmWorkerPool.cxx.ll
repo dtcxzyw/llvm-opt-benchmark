@@ -16991,33 +16991,34 @@ define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tu
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJM20cmWorkerPoolInternalFvjEPS3_jEEEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJM20cmWorkerPoolInternalFvjEPS2_jEEEC2IJS4_S5_RjEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
-          to label %16 unwind label %17
-
-16:                                               ; preds = %4
-  ret void
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJM20cmWorkerPoolInternalFvjEPS3_jEEEEEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJM20cmWorkerPoolInternalFvjEPS2_jEEEC2IJS4_S5_RjEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %17 unwind label %18
 
 17:                                               ; preds = %4
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %9, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %10, align 4
-  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
-  br label %21
+  ret void
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %9, align 8
-  %23 = load i32, ptr %10, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+18:                                               ; preds = %4
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %9, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %10, align 4
+  call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i32, ptr %10, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -17085,7 +17086,8 @@ define linkonce_odr dso_local void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

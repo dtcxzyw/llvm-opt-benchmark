@@ -4430,9 +4430,11 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [33 x ptr], [5 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransactionE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %1 = getelementptr inbounds { [33 x ptr], [5 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransactionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this2, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this2, i64 64
-  store ptr getelementptr inbounds ({ [33 x ptr], [5 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransactionE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [33 x ptr], [5 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransactionE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %rateLimitCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 2
   invoke void @_ZN8proxygen15HTTPTransaction17RateLimitCallbackC2ERS0_(ptr noundef nonnull align 8 dereferenceable(72) %rateLimitCallback_, ptr noundef nonnull align 8 dereferenceable(912) %this2)
           to label %invoke.cont4 unwind label %lpad3
@@ -4454,8 +4456,8 @@ invoke.cont7:                                     ; preds = %invoke.cont6
   %deferredBufferMeta_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 5
   call void @_ZN8proxygen15HTTPTransaction10BufferMetaC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %deferredBufferMeta_) #3
   %direction_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 6
-  %1 = load i8, ptr %direction.addr, align 1
-  store i8 %1, ptr %direction_, align 8
+  %3 = load i8, ptr %direction.addr, align 1
+  store i8 %3, ptr %direction_, align 8
   %egressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 7
   %call10 = invoke noundef zeroext i8 @_ZN8proxygen12StateMachineINS_27HTTPTransactionEgressSMDataEE14getNewInstanceEv()
           to label %invoke.cont9 unwind label %lpad8
@@ -4471,35 +4473,35 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   %recvToAck_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 9
   store i32 0, ptr %recvToAck_, align 4
   %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 10
-  %2 = load i64, ptr %id.addr, align 8
-  store i64 %2, ptr %id_, align 8
+  %4 = load i64, ptr %id.addr, align 8
+  store i64 %4, ptr %id_, align 8
   %seqNo_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 11
-  %3 = load i32, ptr %seqNo.addr, align 4
-  store i32 %3, ptr %seqNo_, align 8
+  %5 = load i32, ptr %seqNo.addr, align 4
+  store i32 %5, ptr %seqNo_, align 8
   %maxDeferredIngress_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 12
   store i32 0, ptr %maxDeferredIngress_, align 4
   %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 13
   store ptr null, ptr %handler_, align 8
   %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 14
-  %4 = load ptr, ptr %transport.addr, align 8
-  store ptr %4, ptr %transport_, align 8
+  %6 = load ptr, ptr %transport.addr, align 8
+  store ptr %6, ptr %transport_, align 8
   %stats_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 15
-  %5 = load ptr, ptr %stats.addr, align 8
-  store ptr %5, ptr %stats_, align 8
+  %7 = load ptr, ptr %stats.addr, align 8
+  store ptr %7, ptr %stats_, align 8
   %tableInfo_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 16
   invoke void @_ZN8proxygen15CompressionInfoC2Ev(ptr noundef nonnull align 4 dereferenceable(56) %tableInfo_)
           to label %invoke.cont13 unwind label %lpad8
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   %recvWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 17
-  %6 = load i32, ptr %receiveInitialWindowSize.addr, align 4
-  invoke void @_ZN8proxygen6WindowC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %recvWindow_, i32 noundef %6)
+  %8 = load i32, ptr %receiveInitialWindowSize.addr, align 4
+  invoke void @_ZN8proxygen6WindowC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %recvWindow_, i32 noundef %8)
           to label %invoke.cont14 unwind label %lpad8
 
 invoke.cont14:                                    ; preds = %invoke.cont13
   %sendWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 18
-  %7 = load i32, ptr %sendInitialWindowSize.addr, align 4
-  invoke void @_ZN8proxygen6WindowC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_, i32 noundef %7)
+  %9 = load i32, ptr %sendInitialWindowSize.addr, align 4
+  invoke void @_ZN8proxygen6WindowC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_, i32 noundef %9)
           to label %invoke.cont15 unwind label %lpad8
 
 invoke.cont15:                                    ; preds = %invoke.cont14
@@ -4510,8 +4512,8 @@ invoke.cont15:                                    ; preds = %invoke.cont14
   %chunkHeaders_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 21
   call void @_ZNSt7__cxx114listIN8proxygen15HTTPTransaction5ChunkESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %chunkHeaders_) #3
   %egressQueue_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 22
-  %8 = load ptr, ptr %egressQueue.addr, align 8
-  store ptr %8, ptr %egressQueue_, align 8
+  %10 = load ptr, ptr %egressQueue.addr, align 8
+  store ptr %10, ptr %egressQueue_, align 8
   %queueHandle_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 23
   store ptr null, ptr %queueHandle_, align 8
   %assocStreamId_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 24
@@ -4573,11 +4575,11 @@ invoke.cont15:                                    ; preds = %invoke.cont14
   %bf.set28 = or i32 %bf.clear27, 0
   store i32 %bf.set28, ptr %egressRateLimited_, align 8
   %useFlowControl_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 40
-  %9 = load i8, ptr %useFlowControl.addr, align 1
-  %tobool = trunc i8 %9 to i1
-  %10 = zext i1 %tobool to i32
+  %11 = load i8, ptr %useFlowControl.addr, align 1
+  %tobool = trunc i8 %11 to i1
+  %12 = zext i1 %tobool to i32
   %bf.load29 = load i32, ptr %useFlowControl_, align 8
-  %bf.shl = shl i32 %10, 5
+  %bf.shl = shl i32 %12, 5
   %bf.clear30 = and i32 %bf.load29, -33
   %bf.set31 = or i32 %bf.clear30, %bf.shl
   store i32 %bf.set31, ptr %useFlowControl_, align 8
@@ -4663,16 +4665,16 @@ invoke.cont75:                                    ; preds = %invoke.cont15
   %numLimitedBytesEgressed_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 44
   store i64 0, ptr %numLimitedBytesEgressed_, align 8
   %idleTimeout_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 45
-  %11 = load ptr, ptr %defaultIdleTimeout.addr, align 8
-  call void @_ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %idleTimeout_, ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  %13 = load ptr, ptr %defaultIdleTimeout.addr, align 8
+  call void @_ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %idleTimeout_, ptr noundef nonnull align 8 dereferenceable(16) %13) #3
   %timer_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 46
-  %12 = load ptr, ptr %timer.addr, align 8
-  store ptr %12, ptr %timer_, align 8
+  %14 = load ptr, ptr %timer.addr, align 8
+  store ptr %14, ptr %timer_, align 8
   %ingressBodyOffset_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 47
   store i64 0, ptr %ingressBodyOffset_, align 8
   %setIngressTimeoutAfterEom_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 48
-  %13 = load i8, ptr %setIngressTimeoutAfterEom.addr, align 1
-  %tobool76 = trunc i8 %13 to i1
+  %15 = load i8, ptr %setIngressTimeoutAfterEom.addr, align 1
+  %tobool76 = trunc i8 %15 to i1
   %frombool77 = zext i1 %tobool76 to i8
   store i8 %frombool77, ptr %setIngressTimeoutAfterEom_, align 8
   %wtEgressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 49
@@ -4701,66 +4703,66 @@ if.then85:                                        ; preds = %invoke.cont83
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup151
 
 lpad3:                                            ; preds = %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup150
 
 lpad5:                                            ; preds = %invoke.cont6, %invoke.cont4
-  %20 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %ehcleanup148
 
 lpad8:                                            ; preds = %invoke.cont14, %invoke.cont13, %invoke.cont11, %invoke.cont9, %invoke.cont7
-  %23 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   br label %ehcleanup147
 
 lpad74:                                           ; preds = %invoke.cont15
-  %26 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
   br label %ehcleanup142
 
 lpad78:                                           ; preds = %invoke.cont75
-  %29 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %exn.slot, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad82:                                           ; preds = %if.end126, %if.then117, %lor.lhs.false, %if.end107, %if.then98, %invoke.cont92, %if.then90, %if.then
-  %32 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %exn.slot, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %ehselector.slot, align 4
   call void @_ZN8proxygen15HTTPTransaction15TxnWebTransportD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %webTransport_) #3
   br label %ehcleanup
 
@@ -4788,8 +4790,8 @@ invoke.cont92:                                    ; preds = %if.then90
 
 invoke.cont95:                                    ; preds = %invoke.cont92
   %unidirectional = getelementptr inbounds %"struct.proxygen::HTTPCodec::ExAttributes", ptr %call96, i32 0, i32 1
-  %35 = load i8, ptr %unidirectional, align 8
-  %tobool97 = trunc i8 %35 to i1
+  %37 = load i8, ptr %unidirectional, align 8
+  %tobool97 = trunc i8 %37 to i1
   br i1 %tobool97, label %if.then98, label %if.end106
 
 if.then98:                                        ; preds = %invoke.cont95
@@ -4821,23 +4823,23 @@ if.end107:                                        ; preds = %if.end106, %if.end8
 
 invoke.cont108:                                   ; preds = %if.end107
   %stats_109 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 15
-  %36 = load ptr, ptr %stats_109, align 8
-  %tobool110 = icmp ne ptr %36, null
+  %38 = load ptr, ptr %stats_109, align 8
+  %tobool110 = icmp ne ptr %38, null
   br i1 %tobool110, label %if.then111, label %if.end113
 
 if.then111:                                       ; preds = %invoke.cont108
   %stats_112 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 15
-  %37 = load ptr, ptr %stats_112, align 8
-  %vtable = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %stats_112, align 8
+  %vtable = load ptr, ptr %39, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
-  %38 = load ptr, ptr %vfn, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %37) #3
+  %40 = load ptr, ptr %vfn, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %39) #3
   br label %if.end113
 
 if.end113:                                        ; preds = %if.then111, %invoke.cont108
   %direction_114 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 6
-  %39 = load i8, ptr %direction_114, align 8
-  %cmp = icmp eq i8 %39, 0
+  %41 = load i8, ptr %direction_114, align 8
+  %cmp = icmp eq i8 %41, 0
   br i1 %cmp, label %if.then117, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end113
@@ -4849,19 +4851,19 @@ invoke.cont115:                                   ; preds = %lor.lhs.false
 
 if.then117:                                       ; preds = %invoke.cont115, %if.end113
   %egressQueue_118 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 22
-  %40 = load ptr, ptr %egressQueue_118, align 8
+  %42 = load ptr, ptr %egressQueue_118, align 8
   %id_119 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 10
-  %41 = load i64, ptr %id_119, align 8
+  %43 = load i64, ptr %id_119, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %priority, i64 16, i1 false)
   %insertDepth_120 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 29
-  %42 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %44 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 0
   %45 = load i64, ptr %44, align 8
-  %vtable121 = load ptr, ptr %40, align 8
+  %46 = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %47 = load i64, ptr %46, align 8
+  %vtable121 = load ptr, ptr %42, align 8
   %vfn122 = getelementptr inbounds ptr, ptr %vtable121, i64 3
-  %46 = load ptr, ptr %vfn122, align 8
-  %call124 = invoke noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %41, i64 %43, i64 %45, ptr noundef %this2, i1 noundef zeroext false, ptr noundef %insertDepth_120)
+  %48 = load ptr, ptr %vfn122, align 8
+  %call124 = invoke noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(16) %42, i64 noundef %43, i64 %45, i64 %47, ptr noundef %this2, i1 noundef zeroext false, ptr noundef %insertDepth_120)
           to label %invoke.cont123 unwind label %lpad82
 
 invoke.cont123:                                   ; preds = %if.then117
@@ -4871,20 +4873,20 @@ invoke.cont123:                                   ; preds = %if.then117
 
 if.end126:                                        ; preds = %invoke.cont123, %invoke.cont115
   %streamDependency = getelementptr inbounds %"struct.proxygen::http2::PriorityUpdate", ptr %priority, i32 0, i32 0
-  %47 = load i64, ptr %streamDependency, align 8
+  %49 = load i64, ptr %streamDependency, align 8
   %egressQueue_127 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 22
-  %48 = load ptr, ptr %egressQueue_127, align 8
-  %call129 = invoke noundef i64 @_ZN8proxygen22HTTP2PriorityQueueBase9getRootIdEv(ptr noundef nonnull align 8 dereferenceable(16) %48)
+  %50 = load ptr, ptr %egressQueue_127, align 8
+  %call129 = invoke noundef i64 @_ZN8proxygen22HTTP2PriorityQueueBase9getRootIdEv(ptr noundef nonnull align 8 dereferenceable(16) %50)
           to label %invoke.cont128 unwind label %lpad82
 
 invoke.cont128:                                   ; preds = %if.end126
-  %cmp130 = icmp ne i64 %47, %call129
+  %cmp130 = icmp ne i64 %49, %call129
   br i1 %cmp130, label %land.lhs.true, label %if.end138
 
 land.lhs.true:                                    ; preds = %invoke.cont128
   %insertDepth_131 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 29
-  %49 = load i64, ptr %insertDepth_131, align 8
-  %cmp132 = icmp eq i64 %49, 1
+  %51 = load i64, ptr %insertDepth_131, align 8
+  %cmp132 = icmp eq i64 %51, 1
   br i1 %cmp132, label %if.then133, label %if.end138
 
 if.then133:                                       ; preds = %land.lhs.true
@@ -4897,9 +4899,9 @@ if.then133:                                       ; preds = %land.lhs.true
 
 if.end138:                                        ; preds = %if.then133, %land.lhs.true, %invoke.cont128
   %insertDepth_139 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 29
-  %50 = load i64, ptr %insertDepth_139, align 8
+  %52 = load i64, ptr %insertDepth_139, align 8
   %currentDepth_140 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this2, i32 0, i32 30
-  store i64 %50, ptr %currentDepth_140, align 8
+  store i64 %52, ptr %currentDepth_140, align 8
   ret void
 
 ehcleanup:                                        ; preds = %lpad82, %lpad78
@@ -4925,8 +4927,8 @@ ehcleanup148:                                     ; preds = %ehcleanup147, %lpad
   br label %ehcleanup150
 
 ehcleanup150:                                     ; preds = %ehcleanup148, %lpad3
-  %51 = getelementptr inbounds i8, ptr %this2, i64 64
-  call void @_ZN5folly22DelayedDestructionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %51) #3
+  %53 = getelementptr inbounds i8, ptr %this2, i64 64
+  call void @_ZN5folly22DelayedDestructionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %53) #3
   br label %ehcleanup151
 
 ehcleanup151:                                     ; preds = %ehcleanup150, %lpad
@@ -4949,7 +4951,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22DelayedDestructionBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22DelayedDestructionBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %guardCount_ = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %this1, i32 0, i32 1
   store i32 0, ptr %guardCount_, align 8
   ret void
@@ -4966,10 +4969,11 @@ entry:
   store ptr %txn, ptr %txn.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction17RateLimitCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction17RateLimitCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::RateLimitCallback", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %txn.addr, align 8
-  store ptr %0, ptr %txn_, align 8
+  %1 = load ptr, ptr %txn.addr, align 8
+  store ptr %1, ptr %txn_, align 8
   ret void
 }
 
@@ -5277,10 +5281,11 @@ entry:
   store ptr %txn, ptr %txn.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen12WebTransportC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction15TxnWebTransportE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction15TxnWebTransportE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnWebTransport", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %txn.addr, align 8
-  store ptr %0, ptr %txn_, align 8
+  %1 = load ptr, ptr %txn.addr, align 8
+  store ptr %1, ptr %txn_, align 8
   ret void
 }
 
@@ -6567,9 +6572,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [33 x ptr], [5 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransactionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [33 x ptr], [5 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransactionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 64
-  store ptr getelementptr inbounds ({ [33 x ptr], [5 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransactionE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [33 x ptr], [5 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransactionE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %call = invoke noundef zeroext i1 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback11isScheduledEv(ptr noundef nonnull align 8 dereferenceable(64) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -6585,17 +6592,17 @@ invoke.cont2:                                     ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont2, %invoke.cont
   %stats_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this1, i32 0, i32 15
-  %0 = load ptr, ptr %stats_, align 8
-  %tobool = icmp ne ptr %0, null
+  %2 = load ptr, ptr %stats_, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
   %stats_4 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this1, i32 0, i32 15
-  %1 = load ptr, ptr %stats_4, align 8
-  %vtable = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr %stats_4, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
@@ -6614,19 +6621,19 @@ invoke.cont9:                                     ; preds = %if.then8
 
 if.end10:                                         ; preds = %invoke.cont9, %invoke.cont6
   %queueHandle_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this1, i32 0, i32 23
-  %3 = load ptr, ptr %queueHandle_, align 8
-  %tobool11 = icmp ne ptr %3, null
+  %5 = load ptr, ptr %queueHandle_, align 8
+  %tobool11 = icmp ne ptr %5, null
   br i1 %tobool11, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.end10
   %egressQueue_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this1, i32 0, i32 22
-  %4 = load ptr, ptr %egressQueue_, align 8
+  %6 = load ptr, ptr %egressQueue_, align 8
   %queueHandle_13 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this1, i32 0, i32 23
-  %5 = load ptr, ptr %queueHandle_13, align 8
-  %vtable14 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %queueHandle_13, align 8
+  %vtable14 = load ptr, ptr %6, align 8
   %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 5
-  %6 = load ptr, ptr %vfn15, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %5)
+  %8 = load ptr, ptr %vfn15, align 8
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %7)
           to label %invoke.cont16 unwind label %terminate.lpad
 
 invoke.cont16:                                    ; preds = %if.then12
@@ -6655,16 +6662,16 @@ if.end17:                                         ; preds = %invoke.cont16, %if.
   call void @_ZNSt10unique_ptrISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEESt14default_deleteIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %deferredIngress_) #3
   %rateLimitCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this1, i32 0, i32 2
   call void @_ZN8proxygen15HTTPTransaction17RateLimitCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %rateLimitCallback_) #3
-  %7 = getelementptr inbounds i8, ptr %this1, i64 64
-  call void @_ZN5folly22DelayedDestructionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #3
+  %9 = getelementptr inbounds i8, ptr %this1, i64 64
+  call void @_ZN5folly22DelayedDestructionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #3
   call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #3
   ret void
 
 terminate.lpad:                                   ; preds = %if.then12, %if.then8, %if.end5, %if.then, %entry
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #20
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #20
   unreachable
 }
 
@@ -7108,7 +7115,7 @@ lpad79:                                           ; preds = %invoke.cont80, %if.
 
 catch.dispatch:                                   ; preds = %lpad79
   %sel = load i32, ptr %ehselector.slot, align 4
-  %16 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5folly15ConversionErrorE) #3
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5folly15ConversionErrorE) #3
   %matches = icmp eq i32 %sel, %16
   br i1 %matches, label %catch, label %ehcleanup174
 
@@ -7889,9 +7896,6 @@ entry:
   call void @_ZN5folly8OptionalImE6assignEOm(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret ptr %this1
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #10
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) #1
 
@@ -9080,7 +9084,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %partialMsg_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 7
   call void @_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %partialMsg_) #3
   %currentIngressBuf_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 6
@@ -13333,7 +13338,7 @@ declare noundef ptr @_ZNK8proxygen9Exception4whatEv(ptr noundef nonnull align 8 
 declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #11
+declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen13HTTPException18setCodecStatusCodeENS_9ErrorCodeE(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 noundef zeroext %statusCode) #4 comdat align 2 {
@@ -15739,7 +15744,7 @@ lpad45:                                           ; preds = %invoke.cont46, %if.
 
 catch.dispatch:                                   ; preds = %lpad45
   %sel = load i32, ptr %ehselector.slot, align 4
-  %21 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5folly15ConversionErrorE) #3
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5folly15ConversionErrorE) #3
   %matches = icmp eq i32 %sel, %21
   br i1 %matches, label %catch, label %eh.resume
 
@@ -25527,10 +25532,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12HTTPPriorityE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN8proxygen12HTTPPriorityE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %urgency = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %urgency2 = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %.addr, align 8
+  %urgency2 = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %2, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %urgency, ptr align 8 %urgency2, i64 8, i1 false)
   ret void
 }
@@ -26534,19 +26540,20 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %error = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %inError.addr, align 4
-  store i32 %0, ptr %error, align 8
+  %1 = load i32, ptr %inError.addr, align 4
+  store i32 %1, ptr %error, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %eh.resume
 
@@ -28013,7 +28020,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction20TxnStreamWriteHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction20TxnStreamWriteHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cancellationSource_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this1, i32 0, i32 4
   %call = call noundef zeroext i1 @_ZNK5folly18CancellationSource19requestCancellationEv(ptr noundef nonnull align 8 dereferenceable(8) %cancellationSource_) #3
   %cancellationSource_2 = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this1, i32 0, i32 4
@@ -28087,7 +28095,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction19TxnStreamReadHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction19TxnStreamReadHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cancellationSource_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this1, i32 0, i32 8
   call void @_ZN5folly18CancellationSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %cancellationSource_) #3
   %buf_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this1, i32 0, i32 4
@@ -28846,7 +28855,7 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction17RateLimitCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 {
@@ -28890,7 +28899,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__uniq_ptr_dataISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEESt14default_deleteIS6_ELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 {
@@ -29477,7 +29486,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN8proxygen12WebTransportE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN8proxygen12WebTransportE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30064,7 +30074,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly7futures6detail4CoreINS_4UnitEEC2EONS_3TryIS3_EE(ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #4 comdat align 2 {
@@ -30077,11 +30087,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 136
   call void @_ZN5folly7futures6detail12ResultHolderINS_4UnitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @_ZN5folly7futures6detail8CoreBaseC2ENS1_5StateEh(ptr noundef nonnull align 16 dereferenceable(136) %this1, i8 noundef zeroext 2, i8 noundef zeroext 1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 136
-  %1 = getelementptr inbounds %"class.folly::futures::detail::ResultHolder", ptr %add.ptr, i32 0, i32 0
-  %2 = load ptr, ptr %t.addr, align 8
-  call void @_ZN5folly3TryINS_4UnitEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #3
+  %2 = getelementptr inbounds %"class.folly::futures::detail::ResultHolder", ptr %add.ptr, i32 0, i32 0
+  %3 = load ptr, ptr %t.addr, align 8
+  call void @_ZN5folly3TryINS_4UnitEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }
 
@@ -30103,15 +30114,16 @@ entry:
   store i8 %state, ptr %state.addr, align 1
   store i8 %attached, ptr %attached.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail8CoreBaseE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly7futures6detail8CoreBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %callback_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this1, i32 0, i32 2
   call void @_ZN5folly8FunctionIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS5_EEPNS_17exception_wrapperEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(64) %callback_) #3
   %state_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this1, i32 0, i32 3
-  %0 = load i8, ptr %state.addr, align 1
-  call void @_ZNSt6atomicIN5folly7futures6detail5StateEEC2ES3_(ptr noundef nonnull align 1 dereferenceable(1) %state_, i8 noundef zeroext %0) #3
+  %1 = load i8, ptr %state.addr, align 1
+  call void @_ZNSt6atomicIN5folly7futures6detail5StateEEC2ES3_(ptr noundef nonnull align 1 dereferenceable(1) %state_, i8 noundef zeroext %1) #3
   %attached_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this1, i32 0, i32 4
-  %1 = load i8, ptr %attached.addr, align 1
-  call void @_ZNSt6atomicIhEC2Eh(ptr noundef nonnull align 1 dereferenceable(1) %attached_, i8 noundef zeroext %1) #3
+  %2 = load i8, ptr %attached.addr, align 1
+  call void @_ZNSt6atomicIhEC2Eh(ptr noundef nonnull align 1 dereferenceable(1) %attached_, i8 noundef zeroext %2) #3
   %callbackReferences_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this1, i32 0, i32 5
   call void @_ZNSt6atomicIhEC2Eh(ptr noundef nonnull align 1 dereferenceable(1) %callbackReferences_, i8 noundef zeroext 0) #3
   %executor_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this1, i32 0, i32 6
@@ -30361,7 +30373,7 @@ _ZN5folly15throw_exceptionISt17bad_function_callJEEEvDpOT0_.exit: ; No predecess
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   %exn.slot = alloca ptr, align 8
@@ -30393,7 +30405,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) #15 comdat {
+define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) #14 comdat {
 entry:
   %ex.addr = alloca ptr, align 8
   store ptr %ex, ptr %ex.addr, align 8
@@ -30411,7 +30423,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30430,7 +30443,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -30444,7 +30458,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -30454,7 +30469,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30763,7 +30779,7 @@ entry:
 declare void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136)) #2
 
 ; Function Attrs: cold mustprogress noreturn nounwind uwtable
-define linkonce_odr void @_ZN5folly6detail15terminate_with_ISt11logic_errorJPKcEEEvDpT0_(ptr noundef %args) #16 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail15terminate_with_ISt11logic_errorJPKcEEEvDpT0_(ptr noundef %args) #15 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %args.addr = alloca ptr, align 8
   %ref.tmp = alloca %"class.std::logic_error", align 8
@@ -30788,7 +30804,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionISt11logic_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ex) #15 comdat {
+define linkonce_odr void @_ZN5folly15throw_exceptionISt11logic_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ex) #14 comdat {
 entry:
   %ex.addr = alloca ptr, align 8
   store ptr %ex, ptr %ex.addr, align 8
@@ -31042,7 +31058,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_13FutureInvalidEJEEEvDpT0_() #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_13FutureInvalidEJEEEvDpT0_() #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::FutureInvalid", align 8
   %exn.slot = alloca ptr, align 8
@@ -31073,7 +31089,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_13FutureInvalidEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ex) #15 comdat {
+define linkonce_odr void @_ZN5folly15throw_exceptionINS_13FutureInvalidEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ex) #14 comdat {
 entry:
   %ex.addr = alloca ptr, align 8
   store ptr %ex, ptr %ex.addr, align 8
@@ -31091,7 +31107,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5folly15FutureExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef @.str.151)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13FutureInvalidE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly13FutureInvalidE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -31115,7 +31132,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly15FutureExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13FutureInvalidE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly13FutureInvalidE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -31129,7 +31147,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly21static_what_exceptionISt11logic_errorEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15FutureExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly15FutureExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -31179,12 +31198,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %msg_ = getelementptr inbounds %"class.folly::static_what_exception", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %msg_2 = getelementptr inbounds %"class.folly::static_what_exception", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %msg_2, align 8
-  store ptr %3, ptr %msg_, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %msg_2 = getelementptr inbounds %"class.folly::static_what_exception", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %msg_2, align 8
+  store ptr %4, ptr %msg_, align 8
   ret void
 }
 
@@ -31249,7 +31269,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly21static_what_exceptionISt11logic_errorEC2ENS2_15static_lifetimeEPKc(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15FutureExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly15FutureExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -31270,19 +31291,20 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %msg_ = getelementptr inbounds %"class.folly::static_what_exception", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  store ptr %0, ptr %msg_, align 8
+  %1 = load ptr, ptr %msg.addr, align 8
+  store ptr %1, ptr %msg_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %eh.resume
 
@@ -32000,7 +32022,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::OptionalEmptyException", align 8
   %exn.slot = alloca ptr, align 8
@@ -32031,7 +32053,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ex) #15 comdat {
+define linkonce_odr void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ex) #14 comdat {
 entry:
   %ex.addr = alloca ptr, align 8
   store ptr %ex, ptr %ex.addr, align 8
@@ -32049,7 +32071,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef @.str.153)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -32073,7 +32096,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -34225,7 +34249,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #17
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE22_M_reserve_map_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add) #4 comdat align 2 {
@@ -35112,10 +35136,10 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #17
+declare void @_ZSt28__throw_bad_array_new_lengthv() #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #17
+declare void @_ZSt17__throw_bad_allocv() #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__new_allocatorIPN8proxygen9HTTPEventEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #5 comdat align 2 {
@@ -35562,7 +35586,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %msg_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -38915,35 +38940,36 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.279", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  invoke void @_ZZN5folly10IOBufQueue11updateGuardEvENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %3 = load ptr, ptr %t.addr.i, align 8
+  invoke void @_ZZN5folly10IOBufQueue11updateGuardEvENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
   br label %_ZN5folly15catch_exceptionIRZNS_10IOBufQueue11updateGuardEvEUlvE_RPFvvEJEvEET2_OT_OT0_DpOT1_.exit
 
 lpad.i:                                           ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot.i, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot.i, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot.i, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot.i, align 4
   %exn.i = load ptr, ptr %exn.slot.i, align 8
-  %6 = call ptr @__cxa_begin_catch(ptr %exn.i) #3
-  %7 = load ptr, ptr %c.addr.i, align 8
-  store ptr %7, ptr %f.addr.i, align 8
-  %8 = load ptr, ptr %f.addr.i, align 8
-  %9 = load ptr, ptr %8, align 8
-  invoke void %9()
+  %7 = call ptr @__cxa_begin_catch(ptr %exn.i) #3
+  %8 = load ptr, ptr %c.addr.i, align 8
+  store ptr %8, ptr %f.addr.i, align 8
+  %9 = load ptr, ptr %f.addr.i, align 8
+  %10 = load ptr, ptr %9, align 8
+  invoke void %10()
           to label %_ZN5folly11invoke_coldIRPFvvEJES1_TnNSt9enable_ifIXsr3std11is_functionIT1_EE5valueEiE4typeELi0EvEET3_OT_DpOT0_.exit unwind label %lpad1.i
 
 _ZN5folly11invoke_coldIRPFvvEJES1_TnNSt9enable_ifIXsr3std11is_functionIT1_EE5valueEiE4typeELi0EvEET3_OT_DpOT0_.exit: ; preds = %lpad.i
@@ -38957,13 +38983,13 @@ invoke.cont2.i:                                   ; preds = %_ZN5folly11invoke_c
   br label %_ZN5folly15catch_exceptionIRZNS_10IOBufQueue11updateGuardEvEUlvE_RPFvvEJEvEET2_OT_OT0_DpOT1_.exit
 
 lpad1.i:                                          ; preds = %lpad.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot.i, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot.i, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot.i, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot.i, align 4
   invoke void @__cxa_end_catch()
           to label %invoke.cont3.i unwind label %terminate.lpad.i
 
@@ -38975,11 +39001,11 @@ invoke.cont3.i:                                   ; preds = %lpad1.i
   br label %terminate.lpad.body
 
 terminate.lpad.i:                                 ; preds = %lpad1.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #20
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #20
   unreachable
 
 _ZN5folly15catch_exceptionIRZNS_10IOBufQueue11updateGuardEvEUlvE_RPFvvEJEvEET2_OT_OT0_DpOT1_.exit: ; preds = %.noexc, %invoke.cont.i
@@ -38989,19 +39015,19 @@ invoke.cont:                                      ; preds = %_ZN5folly15catch_ex
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont2.i
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %terminate.lpad, %invoke.cont3.i
-  %eh.lpad-body = phi { ptr, i32 } [ %15, %terminate.lpad ], [ %lpad.val5.i, %invoke.cont3.i ]
-  %16 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %16) #20
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %terminate.lpad ], [ %lpad.val5.i, %invoke.cont3.i ]
+  %17 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %17) #20
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN5folly6detail18ScopeGuardImplBase9terminateEv() #11
+declare void @_ZN5folly6detail18ScopeGuardImplBase9terminateEv() #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZN5folly10IOBufQueue11updateGuardEvENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
@@ -39791,7 +39817,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly10UnexpectedIN8proxygen12WebTransport9ErrorCodeEEC2EOS3_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %err) unnamed_addr #18 comdat align 2 {
+define linkonce_odr void @_ZN5folly10UnexpectedIN8proxygen12WebTransport9ErrorCodeEEC2EOS3_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %err) unnamed_addr #17 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %err.addr = alloca ptr, align 8
@@ -40792,7 +40818,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) #2
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly10UnexpectedIN8proxygen12WebTransport9ErrorCodeEEC2ERKS3_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %err) unnamed_addr #18 comdat align 2 {
+define linkonce_odr void @_ZN5folly10UnexpectedIN8proxygen12WebTransport9ErrorCodeEEC2ERKS3_(ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %err) unnamed_addr #17 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %err.addr = alloca ptr, align 8
@@ -41009,7 +41035,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %call = call noundef ptr @_ZN5folly13BrokenPromise13error_messageINS_4UnitEEEPKcv()
   call void @_ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %call)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -41284,7 +41311,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly21static_what_exceptionISt11logic_errorEC2ENS2_15static_lifetimeEPKc(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly16PromiseExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly16PromiseExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -41375,7 +41403,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly16PromiseExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -41405,7 +41434,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly16PromiseExceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -41422,7 +41452,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly21static_what_exceptionISt11logic_errorEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly16PromiseExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly16PromiseExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -41436,12 +41467,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %msg_ = getelementptr inbounds %"class.folly::static_what_exception", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %msg_2 = getelementptr inbounds %"class.folly::static_what_exception", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %msg_2, align 8
-  store ptr %3, ptr %msg_, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %msg_2 = getelementptr inbounds %"class.folly::static_what_exception", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %msg_2, align 8
+  store ptr %4, ptr %msg_, align 8
   ret void
 }
 
@@ -41458,7 +41490,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly21static_what_exceptionISt11logic_errorEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly16PromiseExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly16PromiseExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -43091,7 +43124,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %call = call noundef ptr @_ZN5folly13BrokenPromise13error_messageIN8proxygen12WebTransport10StreamDataEEEPKcv()
   call void @_ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %call)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -44215,7 +44249,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #17
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #5 comdat align 2 {
@@ -45455,7 +45489,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #19
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNKSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11_Alloc_nodeclImEEPSt13_Rb_tree_nodeImEOT_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__arg) #4 comdat align 2 {
@@ -46303,7 +46337,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #19
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -46525,7 +46559,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #19
+declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_ENKUlSA_E_clESA_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %value) #5 comdat align 2 {
@@ -46952,7 +46986,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess", align 8
   %exn.slot = alloca ptr, align 8
@@ -46984,7 +47018,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ex.addr = alloca ptr, align 8
   %exn.slot = alloca ptr, align 8
@@ -47024,7 +47058,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -47047,7 +47082,8 @@ entry:
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -47206,7 +47242,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly10UnexpectedINS_14ConversionCodeEEC2EOS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %err) unnamed_addr #18 comdat align 2 {
+define linkonce_odr void @_ZN5folly10UnexpectedINS_14ConversionCodeEEC2EOS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %err) unnamed_addr #17 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %err.addr = alloca ptr, align 8
@@ -47551,10 +47587,10 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @isspace(i32 noundef) #19
+declare i32 @isspace(i32 noundef) #18
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly10UnexpectedINS_14ConversionCodeEEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %err) unnamed_addr #18 comdat align 2 {
+define linkonce_odr void @_ZN5folly10UnexpectedINS_14ConversionCodeEEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %err) unnamed_addr #17 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   %err.addr = alloca ptr, align 8
@@ -47601,7 +47637,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ex) #15 comdat {
+define linkonce_odr void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ex) #14 comdat {
 entry:
   %ex.addr = alloca ptr, align 8
   store ptr %ex, ptr %ex.addr, align 8
@@ -47634,12 +47670,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly19ConversionErrorBaseC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %code_ = getelementptr inbounds %"class.folly::ConversionError", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %code_2 = getelementptr inbounds %"class.folly::ConversionError", ptr %2, i32 0, i32 1
-  %3 = load i8, ptr %code_2, align 8
-  store i8 %3, ptr %code_, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %code_2 = getelementptr inbounds %"class.folly::ConversionError", ptr %3, i32 0, i32 1
+  %4 = load i8, ptr %code_2, align 8
+  store i8 %4, ptr %code_, align 8
   ret void
 }
 
@@ -47653,7 +47690,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11range_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly19ConversionErrorBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly19ConversionErrorBaseE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -47678,7 +47716,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11range_error, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt11range_error, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -47707,7 +47746,7 @@ entry:
 declare void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %args) #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %args) #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %args.addr = alloca i8, align 1
   %ref.tmp = alloca %"class.folly::BadExpectedAccess.320", align 8
@@ -47741,7 +47780,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ex) #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ex) #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ex.addr = alloca ptr, align 8
   %exn.slot = alloca ptr, align 8
@@ -47783,10 +47822,11 @@ entry:
   store i8 %error, ptr %error.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5folly17BadExpectedAccessIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %error_ = getelementptr inbounds %"class.folly::BadExpectedAccess.320", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %error.addr, align 1
-  store i8 %0, ptr %error_, align 8
+  %1 = load i8, ptr %error.addr, align 1
+  store i8 %1, ptr %error_, align 8
   ret void
 }
 
@@ -47810,12 +47850,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly17BadExpectedAccessIvEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %error_ = getelementptr inbounds %"class.folly::BadExpectedAccess.320", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %error_2 = getelementptr inbounds %"class.folly::BadExpectedAccess.320", ptr %2, i32 0, i32 1
-  %3 = load i8, ptr %error_2, align 8
-  store i8 %3, ptr %error_, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %error_2 = getelementptr inbounds %"class.folly::BadExpectedAccess.320", ptr %3, i32 0, i32 1
+  %4 = load i8, ptr %error_2, align 8
+  store i8 %4, ptr %error_, align 8
   ret void
 }
 
@@ -53155,7 +53196,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEEJS5_EEEvDpT0_(i32 noundef %args) #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEEJS5_EEEvDpT0_(i32 noundef %args) #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %args.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.folly::BadExpectedAccess.342", align 8
@@ -53189,7 +53230,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(12) %ex) #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(12) %ex) #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ex.addr = alloca ptr, align 8
   %exn.slot = alloca ptr, align 8
@@ -53231,10 +53272,11 @@ entry:
   store i32 %error, ptr %error.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5folly17BadExpectedAccessIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %error_ = getelementptr inbounds %"class.folly::BadExpectedAccess.342", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %error.addr, align 4
-  store i32 %0, ptr %error_, align 8
+  %1 = load i32, ptr %error.addr, align 4
+  store i32 %1, ptr %error_, align 8
   ret void
 }
 
@@ -53258,12 +53300,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly17BadExpectedAccessIvEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %error_ = getelementptr inbounds %"class.folly::BadExpectedAccess.342", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %error_2 = getelementptr inbounds %"class.folly::BadExpectedAccess.342", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %error_2, align 8
-  store i32 %3, ptr %error_, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %error_2 = getelementptr inbounds %"class.folly::BadExpectedAccess.342", ptr %3, i32 0, i32 1
+  %4 = load i32, ptr %error_2, align 8
+  store i32 %4, ptr %error_, align 8
   ret void
 }
 
@@ -53968,13 +54011,14 @@ entry:
   store i64 %id, ptr %id.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen12WebTransport16StreamReadHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction19TxnStreamReadHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction19TxnStreamReadHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %txn.addr, align 8
-  store ptr %0, ptr %txn_, align 8
+  %1 = load ptr, ptr %txn.addr, align 8
+  store ptr %1, ptr %txn_, align 8
   %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %id.addr, align 8
-  store i64 %1, ptr %id_, align 8
+  %2 = load i64, ptr %id.addr, align 8
+  store i64 %2, ptr %id_, align 8
   %readPromise_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this1, i32 0, i32 3
   call void @_ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %readPromise_) #3
   %buf_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this1, i32 0, i32 4
@@ -54000,21 +54044,21 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont2
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %buf_) #3
   br label %ehcleanup
 
@@ -54132,7 +54176,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen12WebTransport16StreamHandleBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen12WebTransport16StreamReadHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN8proxygen12WebTransport16StreamReadHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -54195,7 +54240,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen12WebTransport16StreamHandleBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8proxygen12WebTransport16StreamHandleBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -54278,7 +54324,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly6detail17CancellationStateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly6detail17CancellationStateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %state_ = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this1, i32 0, i32 1
   call void @_ZNSt6atomicImEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %state_, i64 noundef 17179869184) #3
   %head_ = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %this1, i32 0, i32 2
@@ -55112,13 +55159,14 @@ entry:
   store i64 %id, ptr %id.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen12WebTransport17StreamWriteHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction20TxnStreamWriteHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction20TxnStreamWriteHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %txn.addr, align 8
-  store ptr %0, ptr %txn_, align 8
+  %1 = load ptr, ptr %txn.addr, align 8
+  store ptr %1, ptr %txn_, align 8
   %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %id.addr, align 8
-  store i64 %1, ptr %id_, align 8
+  %2 = load i64, ptr %id.addr, align 8
+  store i64 %2, ptr %id_, align 8
   %writePromise_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this1, i32 0, i32 3
   call void @_ZN5folly8OptionalINS_7PromiseINS_4UnitEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %writePromise_) #3
   %cancellationSource_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this1, i32 0, i32 4
@@ -55129,12 +55177,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN5folly8OptionalINS_7PromiseINS_4UnitEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %writePromise_) #3
   call void @_ZN8proxygen12WebTransport17StreamWriteHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
@@ -55154,7 +55202,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen12WebTransport16StreamHandleBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen12WebTransport17StreamWriteHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN8proxygen12WebTransport17StreamWriteHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stopSendingErrorCode_ = getelementptr inbounds %"class.proxygen::WebTransport::StreamWriteHandle", ptr %this1, i32 0, i32 1
   call void @_ZN5folly8OptionalIjEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %stopSendingErrorCode_) #3
   ret void
@@ -55697,7 +55746,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #19
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %__x) #4 comdat align 2 {
@@ -56161,25 +56210,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @"_ZZN8proxygen15HTTPTransaction13resumeIngressEvENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @"_ZZN8proxygen15HTTPTransaction13resumeIngressEvENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #20
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #20
   unreachable
 }
 
@@ -56324,25 +56374,26 @@ entry:
   %catcher = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store i64 ptrtoint (ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64), ptr %catcher_word, align 8
-  %0 = load i64, ptr %catcher_word, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %catcher, align 8
+  %0 = ptrtoint ptr @_ZN5folly6detail18ScopeGuardImplBase9terminateEv to i64
+  store i64 %0, ptr %catcher_word, align 8
+  %1 = load i64, ptr %catcher_word, align 8
+  %2 = inttoptr i64 %1 to ptr
+  store ptr %2, ptr %catcher, align 8
   %function_ = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.191", ptr %this1, i32 0, i32 1
   store ptr %function_, ptr %t.addr.i, align 8
   store ptr %catcher, ptr %c.addr.i, align 8
-  %2 = load ptr, ptr %t.addr.i, align 8
-  call void @"_ZZN8proxygen15HTTPTransaction13resumeIngressEvENK3$_1clEv"(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
+  %3 = load ptr, ptr %t.addr.i, align 8
+  call void @"_ZZN8proxygen15HTTPTransaction13resumeIngressEvENK3$_1clEv"(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; No predecessors!
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #20
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #20
   unreachable
 }
 
@@ -57016,12 +57067,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %error = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %error2 = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %error2, align 8
-  store i32 %3, ptr %error, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %error2 = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %3, i32 0, i32 1
+  %4 = load i32, ptr %error2, align 8
+  store i32 %4, ptr %error, align 8
   ret void
 }
 
@@ -57250,7 +57302,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 136
   call void @_ZN5folly7futures6detail12ResultHolderINS_4UnitEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @_ZN5folly7futures6detail8CoreBaseC2ENS1_5StateEh(ptr noundef nonnull align 16 dereferenceable(136) %this1, i8 noundef zeroext 1, i8 noundef zeroext 2) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 16
   ret void
 }
 
@@ -57267,7 +57320,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_22FutureAlreadyRetrievedEJEEEvDpT0_() #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_22FutureAlreadyRetrievedEJEEEvDpT0_() #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::FutureAlreadyRetrieved", align 8
   %exn.slot = alloca ptr, align 8
@@ -57298,7 +57351,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_22FutureAlreadyRetrievedEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ex) #15 comdat {
+define linkonce_odr void @_ZN5folly15throw_exceptionINS_22FutureAlreadyRetrievedEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ex) #14 comdat {
 entry:
   %ex.addr = alloca ptr, align 8
   store ptr %ex, ptr %ex.addr, align 8
@@ -57316,7 +57369,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef @.str.198)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22FutureAlreadyRetrievedE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22FutureAlreadyRetrievedE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -57340,7 +57394,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly16PromiseExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22FutureAlreadyRetrievedE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly22FutureAlreadyRetrievedE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -57377,7 +57432,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_14PromiseInvalidEJEEEvDpT0_() #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_14PromiseInvalidEJEEEvDpT0_() #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::PromiseInvalid", align 8
   %exn.slot = alloca ptr, align 8
@@ -57408,7 +57463,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_14PromiseInvalidEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ex) #15 comdat {
+define linkonce_odr void @_ZN5folly15throw_exceptionINS_14PromiseInvalidEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ex) #14 comdat {
 entry:
   %ex.addr = alloca ptr, align 8
   store ptr %ex, ptr %ex.addr, align 8
@@ -57426,7 +57481,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef @.str.199)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly14PromiseInvalidE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly14PromiseInvalidE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -57450,7 +57506,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly16PromiseExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly14PromiseInvalidE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly14PromiseInvalidE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -57721,7 +57778,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_23PromiseAlreadySatisfiedEJEEEvDpT0_() #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_23PromiseAlreadySatisfiedEJEEEvDpT0_() #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::PromiseAlreadySatisfied", align 8
   %exn.slot = alloca ptr, align 8
@@ -57752,7 +57809,7 @@ eh.resume:                                        ; preds = %lpad
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5folly15throw_exceptionINS_23PromiseAlreadySatisfiedEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ex) #15 comdat {
+define linkonce_odr void @_ZN5folly15throw_exceptionINS_23PromiseAlreadySatisfiedEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ex) #14 comdat {
 entry:
   %ex.addr = alloca ptr, align 8
   store ptr %ex, ptr %ex.addr, align 8
@@ -57770,7 +57827,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef @.str.200)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -57794,7 +57852,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly16PromiseExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -57849,12 +57908,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %error = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %error2 = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %error2, align 8
-  store i32 %3, ptr %error, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %error2 = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %3, i32 0, i32 1
+  %4 = load i32, ptr %error2, align 8
+  store i32 %4, ptr %error, align 8
   ret void
 }
 
@@ -58153,11 +58213,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 136
   call void @_ZN5folly7futures6detail12ResultHolderIN8proxygen12WebTransport10StreamDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
   call void @_ZN5folly7futures6detail8CoreBaseC2ENS1_5StateEh(ptr noundef nonnull align 16 dereferenceable(136) %this1, i8 noundef zeroext 2, i8 noundef zeroext 1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreIN8proxygen12WebTransport10StreamDataEEE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreIN8proxygen12WebTransport10StreamDataEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 136
-  %1 = getelementptr inbounds %"class.folly::futures::detail::ResultHolder.245", ptr %add.ptr, i32 0, i32 0
-  %2 = load ptr, ptr %t.addr, align 8
-  call void @_ZN5folly3TryIN8proxygen12WebTransport10StreamDataEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #3
+  %2 = getelementptr inbounds %"class.folly::futures::detail::ResultHolder.245", ptr %add.ptr, i32 0, i32 0
+  %3 = load ptr, ptr %t.addr, align 8
+  call void @_ZN5folly3TryIN8proxygen12WebTransport10StreamDataEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   ret void
 }
 
@@ -58420,7 +58481,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 136
   call void @_ZN5folly7futures6detail12ResultHolderIN8proxygen12WebTransport10StreamDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
   call void @_ZN5folly7futures6detail8CoreBaseC2ENS1_5StateEh(ptr noundef nonnull align 16 dereferenceable(136) %this1, i8 noundef zeroext 1, i8 noundef zeroext 2) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreIN8proxygen12WebTransport10StreamDataEEE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreIN8proxygen12WebTransport10StreamDataEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 16
   ret void
 }
 
@@ -58641,6 +58703,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #19
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -58651,16 +58716,16 @@ attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind memory(none) }
-attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { cold mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { cold mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { cold mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nounwind memory(none) }
 attributes #20 = { noreturn nounwind }
 attributes #21 = { nounwind willreturn memory(read) }
 attributes #22 = { builtin nounwind }

@@ -17,14 +17,15 @@ define i32 @mca_pml_monitoring_iprobe(i32 noundef %0, i32 noundef %1, ptr nounde
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 13), align 8
-  %12 = load i32, ptr %6, align 4
-  %13 = load i32, ptr %7, align 4
-  %14 = load ptr, ptr %8, align 8
-  %15 = load ptr, ptr %9, align 8
-  %16 = load ptr, ptr %10, align 8
-  %17 = call i32 %11(i32 noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
-  ret i32 %17
+  %11 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 13
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i32, ptr %6, align 4
+  %14 = load i32, ptr %7, align 4
+  %15 = load ptr, ptr %8, align 8
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = call i32 %12(i32 noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -37,13 +38,14 @@ define i32 @mca_pml_monitoring_probe(i32 noundef %0, i32 noundef %1, ptr noundef
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 14), align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = load i32, ptr %6, align 4
-  %12 = load ptr, ptr %7, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = call i32 %9(i32 noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef %13)
-  ret i32 %14
+  %9 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 14
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %5, align 4
+  %12 = load i32, ptr %6, align 4
+  %13 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = call i32 %10(i32 noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14)
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -60,15 +62,16 @@ define i32 @mca_pml_monitoring_improbe(i32 noundef %0, i32 noundef %1, ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
-  %13 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 16), align 8
-  %14 = load i32, ptr %7, align 4
-  %15 = load i32, ptr %8, align 4
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %10, align 8
-  %18 = load ptr, ptr %11, align 8
-  %19 = load ptr, ptr %12, align 8
-  %20 = call i32 %13(i32 noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19)
-  ret i32 %20
+  %13 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr %7, align 4
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = call i32 %14(i32 noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20)
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -83,14 +86,15 @@ define i32 @mca_pml_monitoring_mprobe(i32 noundef %0, i32 noundef %1, ptr nounde
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 17), align 8
-  %12 = load i32, ptr %6, align 4
-  %13 = load i32, ptr %7, align 4
-  %14 = load ptr, ptr %8, align 8
-  %15 = load ptr, ptr %9, align 8
-  %16 = load ptr, ptr %10, align 8
-  %17 = call i32 %11(i32 noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
-  ret i32 %17
+  %11 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @pml_selected_module, i32 0, i32 17
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i32, ptr %6, align 4
+  %14 = load i32, ptr %7, align 4
+  %15 = load ptr, ptr %8, align 8
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = call i32 %12(i32 noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  ret i32 %18
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

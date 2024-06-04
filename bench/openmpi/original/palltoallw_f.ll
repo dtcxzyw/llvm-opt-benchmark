@@ -166,80 +166,81 @@ define void @ompi_alltoallw_f(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 93:                                               ; preds = %75
   %94 = load ptr, ptr %11, align 8
   %95 = icmp eq ptr %94, @mpi_fortran_in_place_
-  br i1 %95, label %96, label %97
+  br i1 %95, label %96, label %98
 
 96:                                               ; preds = %93
-  br label %99
+  %97 = inttoptr i64 1 to ptr
+  br label %100
 
-97:                                               ; preds = %93
-  %98 = load ptr, ptr %11, align 8
-  br label %99
+98:                                               ; preds = %93
+  %99 = load ptr, ptr %11, align 8
+  br label %100
 
-99:                                               ; preds = %97, %96
-  %100 = phi ptr [ inttoptr (i64 1 to ptr), %96 ], [ %98, %97 ]
-  store ptr %100, ptr %11, align 8
-  %101 = load ptr, ptr %11, align 8
-  %102 = icmp eq ptr %101, @mpi_fortran_bottom_
-  br i1 %102, label %103, label %104
+100:                                              ; preds = %98, %96
+  %101 = phi ptr [ %97, %96 ], [ %99, %98 ]
+  store ptr %101, ptr %11, align 8
+  %102 = load ptr, ptr %11, align 8
+  %103 = icmp eq ptr %102, @mpi_fortran_bottom_
+  br i1 %103, label %104, label %105
 
-103:                                              ; preds = %99
-  br label %106
+104:                                              ; preds = %100
+  br label %107
 
-104:                                              ; preds = %99
-  %105 = load ptr, ptr %11, align 8
-  br label %106
+105:                                              ; preds = %100
+  %106 = load ptr, ptr %11, align 8
+  br label %107
 
-106:                                              ; preds = %104, %103
-  %107 = phi ptr [ null, %103 ], [ %105, %104 ]
-  store ptr %107, ptr %11, align 8
-  %108 = load ptr, ptr %15, align 8
-  %109 = icmp eq ptr %108, @mpi_fortran_bottom_
-  br i1 %109, label %110, label %111
+107:                                              ; preds = %105, %104
+  %108 = phi ptr [ null, %104 ], [ %106, %105 ]
+  store ptr %108, ptr %11, align 8
+  %109 = load ptr, ptr %15, align 8
+  %110 = icmp eq ptr %109, @mpi_fortran_bottom_
+  br i1 %110, label %111, label %112
 
-110:                                              ; preds = %106
-  br label %113
+111:                                              ; preds = %107
+  br label %114
 
-111:                                              ; preds = %106
-  %112 = load ptr, ptr %15, align 8
-  br label %113
+112:                                              ; preds = %107
+  %113 = load ptr, ptr %15, align 8
+  br label %114
 
-113:                                              ; preds = %111, %110
-  %114 = phi ptr [ null, %110 ], [ %112, %111 ]
-  store ptr %114, ptr %15, align 8
-  %115 = load ptr, ptr %11, align 8
-  %116 = load ptr, ptr %12, align 8
-  %117 = load ptr, ptr %13, align 8
-  %118 = load ptr, ptr %22, align 8
-  %119 = load ptr, ptr %15, align 8
-  %120 = load ptr, ptr %16, align 8
-  %121 = load ptr, ptr %17, align 8
-  %122 = load ptr, ptr %23, align 8
-  %123 = load ptr, ptr %21, align 8
-  %124 = call i32 @PMPI_Alltoallw(ptr noundef %115, ptr noundef %116, ptr noundef %117, ptr noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef %123)
-  store i32 %124, ptr %25, align 4
-  %125 = load ptr, ptr %20, align 8
-  %126 = icmp ne ptr null, %125
-  br i1 %126, label %127, label %130
+114:                                              ; preds = %112, %111
+  %115 = phi ptr [ null, %111 ], [ %113, %112 ]
+  store ptr %115, ptr %15, align 8
+  %116 = load ptr, ptr %11, align 8
+  %117 = load ptr, ptr %12, align 8
+  %118 = load ptr, ptr %13, align 8
+  %119 = load ptr, ptr %22, align 8
+  %120 = load ptr, ptr %15, align 8
+  %121 = load ptr, ptr %16, align 8
+  %122 = load ptr, ptr %17, align 8
+  %123 = load ptr, ptr %23, align 8
+  %124 = load ptr, ptr %21, align 8
+  %125 = call i32 @PMPI_Alltoallw(ptr noundef %116, ptr noundef %117, ptr noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef %123, ptr noundef %124)
+  store i32 %125, ptr %25, align 4
+  %126 = load ptr, ptr %20, align 8
+  %127 = icmp ne ptr null, %126
+  br i1 %127, label %128, label %131
 
-127:                                              ; preds = %113
-  %128 = load i32, ptr %25, align 4
-  %129 = load ptr, ptr %20, align 8
-  store i32 %128, ptr %129, align 4
-  br label %130
+128:                                              ; preds = %114
+  %129 = load i32, ptr %25, align 4
+  %130 = load ptr, ptr %20, align 8
+  store i32 %129, ptr %130, align 4
+  br label %131
 
-130:                                              ; preds = %127, %113
-  %131 = load ptr, ptr %22, align 8
-  %132 = icmp ne ptr null, %131
-  br i1 %132, label %133, label %135
+131:                                              ; preds = %128, %114
+  %132 = load ptr, ptr %22, align 8
+  %133 = icmp ne ptr null, %132
+  br i1 %133, label %134, label %136
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %134) #5
-  br label %135
+134:                                              ; preds = %131
+  %135 = load ptr, ptr %22, align 8
+  call void @free(ptr noundef %135) #5
+  br label %136
 
-135:                                              ; preds = %133, %130
-  %136 = load ptr, ptr %23, align 8
-  call void @free(ptr noundef %136) #5
+136:                                              ; preds = %134, %131
+  %137 = load ptr, ptr %23, align 8
+  call void @free(ptr noundef %137) #5
   ret void
 }
 

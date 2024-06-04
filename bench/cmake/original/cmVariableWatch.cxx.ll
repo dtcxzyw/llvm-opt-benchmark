@@ -759,51 +759,61 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN15cmVariabl
   store i32 %0, ptr %2, align 4
   %13 = load atomic i8, ptr @_ZGVZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11 acquire, align 8
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %15, label %26, !prof !5
+  br i1 %14, label %15, label %36, !prof !5
 
 15:                                               ; preds = %1
   %16 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11) #1
   %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %26
+  br i1 %17, label %18, label %36
 
 18:                                               ; preds = %15
   store i1 true, ptr %12, align 1
   store ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, ptr %3, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %19 unwind label %33
+          to label %19 unwind label %43
 
 19:                                               ; preds = %18
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 1), ptr %3, align 8
+  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 1
+  store ptr %20, ptr %3, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 1), ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %20 unwind label %37
+  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %22 unwind label %47
 
-20:                                               ; preds = %19
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 2), ptr %3, align 8
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 2
+  store ptr %23, ptr %3, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %21 unwind label %41
+  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %8)
+          to label %25 unwind label %51
 
-21:                                               ; preds = %20
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 3), ptr %3, align 8
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 3
+  store ptr %26, ptr %3, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 3), ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %22 unwind label %45
+  %27 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %28 unwind label %55
 
-22:                                               ; preds = %21
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 4), ptr %3, align 8
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 4
+  store ptr %29, ptr %3, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 4), ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %23 unwind label %49
+  %30 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 4
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %31 unwind label %59
 
-23:                                               ; preds = %22
-  store ptr getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 5), ptr %3, align 8
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 5
+  store ptr %32, ptr %3, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 5), ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %24 unwind label %53
+  %33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 5
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %34 unwind label %63
 
-24:                                               ; preds = %23
+34:                                               ; preds = %31
   store i1 false, ptr %12, align 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #1
@@ -811,131 +821,131 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN15cmVariabl
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #1
-  %25 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EED2Ev, ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, ptr @__dso_handle) #1
+  %35 = call i32 @__cxa_atexit(ptr @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EED2Ev, ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, ptr @__dso_handle) #1
   call void @__cxa_guard_release(ptr @_ZGVZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11) #1
-  br label %26
+  br label %36
 
-26:                                               ; preds = %24, %15, %1
-  %27 = load i32, ptr %2, align 4
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %32, label %29
+36:                                               ; preds = %34, %15, %1
+  %37 = load i32, ptr %2, align 4
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %42, label %39
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr %2, align 4
-  %31 = icmp sge i32 %30, 5
-  br i1 %31, label %32, label %72
+39:                                               ; preds = %36
+  %40 = load i32, ptr %2, align 4
+  %41 = icmp sge i32 %40, 5
+  br i1 %41, label %42, label %82
 
-32:                                               ; preds = %29, %26
+42:                                               ; preds = %39, %36
   store i32 5, ptr %2, align 4
-  br label %72
+  br label %82
 
-33:                                               ; preds = %18
-  %34 = landingpad { ptr, i32 }
+43:                                               ; preds = %18
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %5, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %6, align 4
-  br label %61
-
-37:                                               ; preds = %19
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %5, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %6, align 4
-  br label %60
-
-41:                                               ; preds = %20
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %5, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %6, align 4
-  br label %59
-
-45:                                               ; preds = %21
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %5, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %6, align 4
-  br label %58
-
-49:                                               ; preds = %22
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %5, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %6, align 4
-  br label %57
-
-53:                                               ; preds = %23
-  %54 = landingpad { ptr, i32 }
-          cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %5, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %6, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #1
-  br label %57
-
-57:                                               ; preds = %53, %49
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #1
-  br label %58
-
-58:                                               ; preds = %57, %45
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #1
-  br label %59
-
-59:                                               ; preds = %58, %41
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #1
-  br label %60
-
-60:                                               ; preds = %59, %37
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #1
-  br label %61
-
-61:                                               ; preds = %60, %33
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #1
-  %62 = load i1, ptr %12, align 1
-  br i1 %62, label %63, label %71
-
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %3, align 8
-  %65 = icmp eq ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, %64
-  br i1 %65, label %70, label %66
-
-66:                                               ; preds = %66, %63
-  %67 = phi ptr [ %64, %63 ], [ %68, %66 ]
-  %68 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %67, i64 -1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #1
-  %69 = icmp eq ptr %68, @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11
-  br i1 %69, label %70, label %66
-
-70:                                               ; preds = %66, %63
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %5, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %6, align 4
   br label %71
 
-71:                                               ; preds = %70, %61
+47:                                               ; preds = %19
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %5, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %6, align 4
+  br label %70
+
+51:                                               ; preds = %22
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %5, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %6, align 4
+  br label %69
+
+55:                                               ; preds = %25
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %5, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %6, align 4
+  br label %68
+
+59:                                               ; preds = %28
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %5, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %6, align 4
+  br label %67
+
+63:                                               ; preds = %31
+  %64 = landingpad { ptr, i32 }
+          cleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %5, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %6, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #1
+  br label %67
+
+67:                                               ; preds = %63, %59
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #1
+  br label %68
+
+68:                                               ; preds = %67, %55
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #1
+  br label %69
+
+69:                                               ; preds = %68, %51
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #1
+  br label %70
+
+70:                                               ; preds = %69, %47
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #1
+  br label %71
+
+71:                                               ; preds = %70, %43
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #1
+  %72 = load i1, ptr %12, align 1
+  br i1 %72, label %73, label %81
+
+73:                                               ; preds = %71
+  %74 = load ptr, ptr %3, align 8
+  %75 = icmp eq ptr @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, %74
+  br i1 %75, label %80, label %76
+
+76:                                               ; preds = %76, %73
+  %77 = phi ptr [ %74, %73 ], [ %78, %76 ]
+  %78 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %77, i64 -1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #1
+  %79 = icmp eq ptr %78, @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11
+  br i1 %79, label %80, label %76
+
+80:                                               ; preds = %76, %73
+  br label %81
+
+81:                                               ; preds = %80, %71
   call void @__cxa_guard_abort(ptr @_ZGVZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11) #1
-  br label %76
+  br label %86
 
-72:                                               ; preds = %32, %29
-  %73 = load i32, ptr %2, align 4
-  %74 = sext i32 %73 to i64
-  %75 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEixEm(ptr noundef nonnull align 8 dereferenceable(192) @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 noundef %74) #1
-  ret ptr %75
+82:                                               ; preds = %42, %39
+  %83 = load i32, ptr %2, align 4
+  %84 = sext i32 %83 to i64
+  %85 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEixEm(ptr noundef nonnull align 8 dereferenceable(192) @_ZZN15cmVariableWatch17GetAccessAsStringB5cxx11EiE28cmVariableWatchAccessStringsB5cxx11, i64 noundef %84) #1
+  ret ptr %85
 
-76:                                               ; preds = %71
-  %77 = load ptr, ptr %5, align 8
-  %78 = load i32, ptr %6, align 4
-  %79 = insertvalue { ptr, i32 } poison, ptr %77, 0
-  %80 = insertvalue { ptr, i32 } %79, i32 %78, 1
-  resume { ptr, i32 } %80
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %5, align 8
+  %88 = load i32, ptr %6, align 4
+  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
+  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
+  resume { ptr, i32 } %90
 }
 
 ; Function Attrs: nounwind
@@ -3198,11 +3208,12 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN15cmVariable
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN15cmVariableWatch4PairESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %4, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN15cmVariableWatch4PairESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %5) #1
-  %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN15cmVariableWatch4PairESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #1
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN15cmVariableWatch4PairEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %6) #1
+  %5 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN15cmVariableWatch4PairESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %4, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN15cmVariableWatch4PairESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %6) #1
+  %7 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN15cmVariableWatch4PairESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #1
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN15cmVariableWatch4PairEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %7) #1
   ret void
 }
 
@@ -3370,11 +3381,12 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 

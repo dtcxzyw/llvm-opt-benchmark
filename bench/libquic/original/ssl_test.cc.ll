@@ -1358,12 +1358,15 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %3 = load i64, ptr %2, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i32 0, i32 1), ptr %1, i64 %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  %4 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i32 0, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %1, i64 %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 1), ptr %arrayinit.endOfInit, align 8
-  store ptr @.str.1, ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 1), align 16
+  %5 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 1
+  store ptr %5, ptr %arrayinit.endOfInit, align 8
+  %6 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 1
+  store ptr @.str.1, ptr %6, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp3, ptr align 8 @constinit.2, i64 96, i1 false)
   %_M_array5 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp2, i32 0, i32 0
   %arraystart6 = getelementptr inbounds [6 x %struct.ExpectedCipher], ptr %ref.tmp3, i64 0, i64 0
@@ -1371,16 +1374,19 @@ invoke.cont:                                      ; preds = %entry
   %_M_len7 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp2, i32 0, i32 1
   store i64 6, ptr %_M_len7, align 8
   call void @_ZNSaI14ExpectedCipherEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #4
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 1, i32 1), ptr %5, i64 %7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
+  %7 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp2, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 1, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %8, i64 %10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 2), ptr %arrayinit.endOfInit, align 8
-  store ptr @.str.3, ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 2), align 16
+  %12 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 2
+  store ptr %12, ptr %arrayinit.endOfInit, align 8
+  %13 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 2
+  store ptr @.str.3, ptr %13, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp12, ptr align 8 @constinit.4, i64 48, i1 false)
   %_M_array14 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp11, i32 0, i32 0
   %arraystart15 = getelementptr inbounds [3 x %struct.ExpectedCipher], ptr %ref.tmp12, i64 0, i64 0
@@ -1388,16 +1394,19 @@ invoke.cont10:                                    ; preds = %invoke.cont
   %_M_len16 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp11, i32 0, i32 1
   store i64 3, ptr %_M_len16, align 8
   call void @_ZNSaI14ExpectedCipherEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #4
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp11, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp11, i32 0, i32 1
-  %11 = load i64, ptr %10, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 2, i32 1), ptr %9, i64 %11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17)
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp11, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp11, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 2, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr %15, i64 %17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont10
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 3), ptr %arrayinit.endOfInit, align 8
-  store ptr @.str.5, ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 3), align 16
+  %19 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 3
+  store ptr %19, ptr %arrayinit.endOfInit, align 8
+  %20 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 3
+  store ptr @.str.5, ptr %20, align 16
   %arrayinit.begin22 = getelementptr inbounds [1 x %struct.ExpectedCipher], ptr %ref.tmp21, i64 0, i64 0
   %id = getelementptr inbounds %struct.ExpectedCipher, ptr %arrayinit.begin22, i32 0, i32 0
   store i64 50331804, ptr %id, align 8
@@ -1409,16 +1418,19 @@ invoke.cont19:                                    ; preds = %invoke.cont10
   %_M_len25 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp20, i32 0, i32 1
   store i64 1, ptr %_M_len25, align 8
   call void @_ZNSaI14ExpectedCipherEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #4
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 1
-  %15 = load i64, ptr %14, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 3, i32 1), ptr %13, i64 %15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26)
+  %21 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp20, i32 0, i32 1
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 3, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr %22, i64 %24, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont19
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 4), ptr %arrayinit.endOfInit, align 8
-  store ptr @.str.6, ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 4), align 16
+  %26 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 4
+  store ptr %26, ptr %arrayinit.endOfInit, align 8
+  %27 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 4
+  store ptr @.str.6, ptr %27, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp30, ptr align 8 @constinit.7, i64 48, i1 false)
   %_M_array32 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp29, i32 0, i32 0
   %arraystart33 = getelementptr inbounds [3 x %struct.ExpectedCipher], ptr %ref.tmp30, i64 0, i64 0
@@ -1426,16 +1438,19 @@ invoke.cont28:                                    ; preds = %invoke.cont19
   %_M_len34 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp29, i32 0, i32 1
   store i64 3, ptr %_M_len34, align 8
   call void @_ZNSaI14ExpectedCipherEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #4
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp29, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp29, i32 0, i32 1
-  %19 = load i64, ptr %18, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 4, i32 1), ptr %17, i64 %19, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35)
+  %28 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp29, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp29, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 4, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr %29, i64 %31, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont28
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 5), ptr %arrayinit.endOfInit, align 8
-  store ptr @.str.8, ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 5), align 16
+  %33 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 5
+  store ptr %33, ptr %arrayinit.endOfInit, align 8
+  %34 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 5
+  store ptr @.str.8, ptr %34, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp39, ptr align 8 @constinit.9, i64 96, i1 false)
   %_M_array41 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp38, i32 0, i32 0
   %arraystart42 = getelementptr inbounds [6 x %struct.ExpectedCipher], ptr %ref.tmp39, i64 0, i64 0
@@ -1443,16 +1458,19 @@ invoke.cont37:                                    ; preds = %invoke.cont28
   %_M_len43 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp38, i32 0, i32 1
   store i64 6, ptr %_M_len43, align 8
   call void @_ZNSaI14ExpectedCipherEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #4
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp38, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp38, i32 0, i32 1
-  %23 = load i64, ptr %22, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 5, i32 1), ptr %21, i64 %23, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44)
+  %35 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp38, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp38, i32 0, i32 1
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 5, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr %36, i64 %38, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 6), ptr %arrayinit.endOfInit, align 8
-  store ptr @.str.10, ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 6), align 16
+  %40 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 6
+  store ptr %40, ptr %arrayinit.endOfInit, align 8
+  %41 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 6
+  store ptr @.str.10, ptr %41, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp48, ptr align 8 @constinit.11, i64 96, i1 false)
   %_M_array50 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp47, i32 0, i32 0
   %arraystart51 = getelementptr inbounds [6 x %struct.ExpectedCipher], ptr %ref.tmp48, i64 0, i64 0
@@ -1460,16 +1478,19 @@ invoke.cont46:                                    ; preds = %invoke.cont37
   %_M_len52 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp47, i32 0, i32 1
   store i64 6, ptr %_M_len52, align 8
   call void @_ZNSaI14ExpectedCipherEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53) #4
-  %24 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp47, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp47, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 6, i32 1), ptr %25, i64 %27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53)
+  %42 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp47, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp47, i32 0, i32 1
+  %45 = load i64, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 6, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr %43, i64 %45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53)
           to label %invoke.cont55 unwind label %lpad54
 
 invoke.cont55:                                    ; preds = %invoke.cont46
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 7), ptr %arrayinit.endOfInit, align 8
-  store ptr @.str.12, ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 7), align 16
+  %47 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 7
+  store ptr %47, ptr %arrayinit.endOfInit, align 8
+  %48 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 7
+  store ptr @.str.12, ptr %48, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp57, ptr align 8 @constinit.13, i64 128, i1 false)
   %_M_array59 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp56, i32 0, i32 0
   %arraystart60 = getelementptr inbounds [8 x %struct.ExpectedCipher], ptr %ref.tmp57, i64 0, i64 0
@@ -1477,16 +1498,19 @@ invoke.cont55:                                    ; preds = %invoke.cont46
   %_M_len61 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp56, i32 0, i32 1
   store i64 8, ptr %_M_len61, align 8
   call void @_ZNSaI14ExpectedCipherEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62) #4
-  %28 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i32 0, i32 1
-  %31 = load i64, ptr %30, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 7, i32 1), ptr %29, i64 %31, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62)
+  %49 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp56, i32 0, i32 1
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 7, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr %50, i64 %52, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62)
           to label %invoke.cont64 unwind label %lpad63
 
 invoke.cont64:                                    ; preds = %invoke.cont55
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 8), ptr %arrayinit.endOfInit, align 8
-  store ptr @.str.14, ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 8), align 16
+  %54 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 8
+  store ptr %54, ptr %arrayinit.endOfInit, align 8
+  %55 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 8
+  store ptr @.str.14, ptr %55, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp66, ptr align 8 @constinit.15, i64 32, i1 false)
   %_M_array68 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp65, i32 0, i32 0
   %arraystart69 = getelementptr inbounds [2 x %struct.ExpectedCipher], ptr %ref.tmp66, i64 0, i64 0
@@ -1494,16 +1518,19 @@ invoke.cont64:                                    ; preds = %invoke.cont55
   %_M_len70 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp65, i32 0, i32 1
   store i64 2, ptr %_M_len70, align 8
   call void @_ZNSaI14ExpectedCipherEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp71) #4
-  %32 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i32 0, i32 1
-  %35 = load i64, ptr %34, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 8, i32 1), ptr %33, i64 %35, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp71)
+  %56 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp65, i32 0, i32 1
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 8, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr %57, i64 %59, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp71)
           to label %invoke.cont73 unwind label %lpad72
 
 invoke.cont73:                                    ; preds = %invoke.cont64
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 9), ptr %arrayinit.endOfInit, align 8
-  store ptr @.str.16, ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 9), align 16
+  %61 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 9
+  store ptr %61, ptr %arrayinit.endOfInit, align 8
+  %62 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 9
+  store ptr @.str.16, ptr %62, align 16
   %arrayinit.begin76 = getelementptr inbounds [1 x %struct.ExpectedCipher], ptr %ref.tmp75, i64 0, i64 0
   %id77 = getelementptr inbounds %struct.ExpectedCipher, ptr %arrayinit.begin76, i32 0, i32 0
   store i64 50331708, ptr %id77, align 8
@@ -1515,16 +1542,19 @@ invoke.cont73:                                    ; preds = %invoke.cont64
   %_M_len81 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp74, i32 0, i32 1
   store i64 1, ptr %_M_len81, align 8
   call void @_ZNSaI14ExpectedCipherEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp82) #4
-  %36 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp74, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp74, i32 0, i32 1
-  %39 = load i64, ptr %38, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 9, i32 1), ptr %37, i64 %39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp82)
+  %63 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp74, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp74, i32 0, i32 1
+  %66 = load i64, ptr %65, align 8
+  %67 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 9, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr %64, i64 %66, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp82)
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %invoke.cont73
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 10), ptr %arrayinit.endOfInit, align 8
-  store ptr @.str.17, ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 10), align 16
+  %68 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 10
+  store ptr %68, ptr %arrayinit.endOfInit, align 8
+  %69 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 10
+  store ptr @.str.17, ptr %69, align 16
   %arrayinit.begin87 = getelementptr inbounds [1 x %struct.ExpectedCipher], ptr %ref.tmp86, i64 0, i64 0
   %id88 = getelementptr inbounds %struct.ExpectedCipher, ptr %arrayinit.begin87, i32 0, i32 0
   store i64 50331695, ptr %id88, align 8
@@ -1536,16 +1566,19 @@ invoke.cont84:                                    ; preds = %invoke.cont73
   %_M_len92 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp85, i32 0, i32 1
   store i64 1, ptr %_M_len92, align 8
   call void @_ZNSaI14ExpectedCipherEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp93) #4
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp85, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp85, i32 0, i32 1
-  %43 = load i64, ptr %42, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 10, i32 1), ptr %41, i64 %43, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp93)
+  %70 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp85, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp85, i32 0, i32 1
+  %73 = load i64, ptr %72, align 8
+  %74 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 10, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr %71, i64 %73, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp93)
           to label %invoke.cont95 unwind label %lpad94
 
 invoke.cont95:                                    ; preds = %invoke.cont84
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 11), ptr %arrayinit.endOfInit, align 8
-  store ptr @.str.18, ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 11), align 16
+  %75 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 11
+  store ptr %75, ptr %arrayinit.endOfInit, align 8
+  %76 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 11
+  store ptr @.str.18, ptr %76, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp97, ptr align 8 @constinit.19, i64 32, i1 false)
   %_M_array99 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp96, i32 0, i32 0
   %arraystart100 = getelementptr inbounds [2 x %struct.ExpectedCipher], ptr %ref.tmp97, i64 0, i64 0
@@ -1553,16 +1586,19 @@ invoke.cont95:                                    ; preds = %invoke.cont84
   %_M_len101 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp96, i32 0, i32 1
   store i64 2, ptr %_M_len101, align 8
   call void @_ZNSaI14ExpectedCipherEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp102) #4
-  %44 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp96, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp96, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 11, i32 1), ptr %45, i64 %47, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp102)
+  %77 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp96, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp96, i32 0, i32 1
+  %80 = load i64, ptr %79, align 8
+  %81 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 11, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr %78, i64 %80, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp102)
           to label %invoke.cont104 unwind label %lpad103
 
 invoke.cont104:                                   ; preds = %invoke.cont95
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 12), ptr %arrayinit.endOfInit, align 8
-  store ptr @.str.20, ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 12), align 16
+  %82 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 12
+  store ptr %82, ptr %arrayinit.endOfInit, align 8
+  %83 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 12
+  store ptr @.str.20, ptr %83, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp106, ptr align 8 @constinit.21, i64 64, i1 false)
   %_M_array108 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp105, i32 0, i32 0
   %arraystart109 = getelementptr inbounds [4 x %struct.ExpectedCipher], ptr %ref.tmp106, i64 0, i64 0
@@ -1570,11 +1606,12 @@ invoke.cont104:                                   ; preds = %invoke.cont95
   %_M_len110 = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp105, i32 0, i32 1
   store i64 4, ptr %_M_len110, align 8
   call void @_ZNSaI14ExpectedCipherEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp111) #4
-  %48 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp105, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp105, i32 0, i32 1
-  %51 = load i64, ptr %50, align 8
-  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 12, i32 1), ptr %49, i64 %51, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp111)
+  %84 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp105, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp105, i32 0, i32 1
+  %87 = load i64, ptr %86, align 8
+  %88 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 12, i32 1
+  invoke void @_ZNSt6vectorI14ExpectedCipherSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr %85, i64 %87, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp111)
           to label %invoke.cont113 unwind label %lpad112
 
 invoke.cont113:                                   ; preds = %invoke.cont104
@@ -1592,124 +1629,124 @@ invoke.cont113:                                   ; preds = %invoke.cont104
   call void @_ZNSaI14ExpectedCipherED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #4
   call void @_ZNSaI14ExpectedCipherED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #4
   call void @_ZNSaI14ExpectedCipherED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #4
-  %52 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #4
+  %89 = call i32 @__cxa_atexit(ptr @__cxx_global_array_dtor, ptr null, ptr @__dso_handle) #4
   ret void
 
 lpad:                                             ; preds = %entry
-  %53 = landingpad { ptr, i32 }
+  %90 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %exn.slot, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %ehselector.slot, align 4
+  %91 = extractvalue { ptr, i32 } %90, 0
+  store ptr %91, ptr %exn.slot, align 8
+  %92 = extractvalue { ptr, i32 } %90, 1
+  store i32 %92, ptr %ehselector.slot, align 4
   br label %ehcleanup124
 
 lpad9:                                            ; preds = %invoke.cont
-  %56 = landingpad { ptr, i32 }
+  %93 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %exn.slot, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %ehselector.slot, align 4
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %exn.slot, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %ehselector.slot, align 4
   br label %ehcleanup123
 
 lpad18:                                           ; preds = %invoke.cont10
-  %59 = landingpad { ptr, i32 }
+  %96 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %exn.slot, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %ehselector.slot, align 4
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %exn.slot, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %ehselector.slot, align 4
   br label %ehcleanup122
 
 lpad27:                                           ; preds = %invoke.cont19
-  %62 = landingpad { ptr, i32 }
+  %99 = landingpad { ptr, i32 }
           cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %exn.slot, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %ehselector.slot, align 4
+  %100 = extractvalue { ptr, i32 } %99, 0
+  store ptr %100, ptr %exn.slot, align 8
+  %101 = extractvalue { ptr, i32 } %99, 1
+  store i32 %101, ptr %ehselector.slot, align 4
   br label %ehcleanup121
 
 lpad36:                                           ; preds = %invoke.cont28
-  %65 = landingpad { ptr, i32 }
+  %102 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %exn.slot, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %ehselector.slot, align 4
+  %103 = extractvalue { ptr, i32 } %102, 0
+  store ptr %103, ptr %exn.slot, align 8
+  %104 = extractvalue { ptr, i32 } %102, 1
+  store i32 %104, ptr %ehselector.slot, align 4
   br label %ehcleanup120
 
 lpad45:                                           ; preds = %invoke.cont37
-  %68 = landingpad { ptr, i32 }
+  %105 = landingpad { ptr, i32 }
           cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %exn.slot, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %ehselector.slot, align 4
+  %106 = extractvalue { ptr, i32 } %105, 0
+  store ptr %106, ptr %exn.slot, align 8
+  %107 = extractvalue { ptr, i32 } %105, 1
+  store i32 %107, ptr %ehselector.slot, align 4
   br label %ehcleanup119
 
 lpad54:                                           ; preds = %invoke.cont46
-  %71 = landingpad { ptr, i32 }
+  %108 = landingpad { ptr, i32 }
           cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %exn.slot, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %ehselector.slot, align 4
+  %109 = extractvalue { ptr, i32 } %108, 0
+  store ptr %109, ptr %exn.slot, align 8
+  %110 = extractvalue { ptr, i32 } %108, 1
+  store i32 %110, ptr %ehselector.slot, align 4
   br label %ehcleanup118
 
 lpad63:                                           ; preds = %invoke.cont55
-  %74 = landingpad { ptr, i32 }
+  %111 = landingpad { ptr, i32 }
           cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %exn.slot, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %ehselector.slot, align 4
+  %112 = extractvalue { ptr, i32 } %111, 0
+  store ptr %112, ptr %exn.slot, align 8
+  %113 = extractvalue { ptr, i32 } %111, 1
+  store i32 %113, ptr %ehselector.slot, align 4
   br label %ehcleanup117
 
 lpad72:                                           ; preds = %invoke.cont64
-  %77 = landingpad { ptr, i32 }
+  %114 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %exn.slot, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %ehselector.slot, align 4
+  %115 = extractvalue { ptr, i32 } %114, 0
+  store ptr %115, ptr %exn.slot, align 8
+  %116 = extractvalue { ptr, i32 } %114, 1
+  store i32 %116, ptr %ehselector.slot, align 4
   br label %ehcleanup116
 
 lpad83:                                           ; preds = %invoke.cont73
-  %80 = landingpad { ptr, i32 }
+  %117 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %exn.slot, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %ehselector.slot, align 4
+  %118 = extractvalue { ptr, i32 } %117, 0
+  store ptr %118, ptr %exn.slot, align 8
+  %119 = extractvalue { ptr, i32 } %117, 1
+  store i32 %119, ptr %ehselector.slot, align 4
   br label %ehcleanup115
 
 lpad94:                                           ; preds = %invoke.cont84
-  %83 = landingpad { ptr, i32 }
+  %120 = landingpad { ptr, i32 }
           cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %exn.slot, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %ehselector.slot, align 4
+  %121 = extractvalue { ptr, i32 } %120, 0
+  store ptr %121, ptr %exn.slot, align 8
+  %122 = extractvalue { ptr, i32 } %120, 1
+  store i32 %122, ptr %ehselector.slot, align 4
   br label %ehcleanup114
 
 lpad103:                                          ; preds = %invoke.cont95
-  %86 = landingpad { ptr, i32 }
+  %123 = landingpad { ptr, i32 }
           cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %exn.slot, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %ehselector.slot, align 4
+  %124 = extractvalue { ptr, i32 } %123, 0
+  store ptr %124, ptr %exn.slot, align 8
+  %125 = extractvalue { ptr, i32 } %123, 1
+  store i32 %125, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad112:                                          ; preds = %invoke.cont104
-  %89 = landingpad { ptr, i32 }
+  %126 = landingpad { ptr, i32 }
           cleanup
-  %90 = extractvalue { ptr, i32 } %89, 0
-  store ptr %90, ptr %exn.slot, align 8
-  %91 = extractvalue { ptr, i32 } %89, 1
-  store i32 %91, ptr %ehselector.slot, align 4
+  %127 = extractvalue { ptr, i32 } %126, 0
+  store ptr %127, ptr %exn.slot, align 8
+  %128 = extractvalue { ptr, i32 } %126, 1
+  store i32 %128, ptr %ehselector.slot, align 4
   call void @_ZNSaI14ExpectedCipherED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp111) #4
   br label %ehcleanup
 
@@ -1763,12 +1800,12 @@ ehcleanup124:                                     ; preds = %ehcleanup123, %lpad
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %ehcleanup124
-  %92 = load ptr, ptr %arrayinit.endOfInit, align 8
-  %arraydestroy.isempty = icmp eq ptr @_ZL12kCipherTests, %92
+  %129 = load ptr, ptr %arrayinit.endOfInit, align 8
+  %arraydestroy.isempty = icmp eq ptr @_ZL12kCipherTests, %129
   br i1 %arraydestroy.isempty, label %arraydestroy.done126, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %cleanup.action
-  %arraydestroy.elementPast = phi ptr [ %92, %cleanup.action ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %129, %cleanup.action ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %struct.CipherTest, ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN10CipherTestD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #4
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZL12kCipherTests
@@ -1872,10 +1909,11 @@ define internal void @__cxx_global_array_dtor(ptr noundef %0) #0 section ".text.
 entry:
   %.addr = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
+  %1 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 13
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 13), %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %struct.CipherTest, ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN10CipherTestD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #4
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, @_ZL12kCipherTests
@@ -2017,20 +2055,21 @@ entry:
   %rule28 = alloca ptr, align 8
   store ptr @_ZL12kCipherTests, ptr %__range1, align 8
   store ptr @_ZL12kCipherTests, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.CipherTest, ptr @_ZL12kCipherTests, i64 13), ptr %__end1, align 8
+  %0 = getelementptr inbounds %struct.CipherTest, ptr @_ZL12kCipherTests, i64 13
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  store ptr %2, ptr %test, align 8
-  %3 = load ptr, ptr %test, align 8
-  %call = call noundef zeroext i1 @_ZL14TestCipherRuleRK10CipherTest(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %3 = load ptr, ptr %__begin1, align 8
+  store ptr %3, ptr %test, align 8
+  %4 = load ptr, ptr %test, align 8
+  %call = call noundef zeroext i1 @_ZL14TestCipherRuleRK10CipherTest(ptr noundef nonnull align 8 dereferenceable(32) %4)
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
@@ -2041,27 +2080,28 @@ if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %4 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.CipherTest, ptr %4, i32 1
+  %5 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.CipherTest, ptr %5, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond
   store ptr @_ZL9kBadRules, ptr %__range11, align 8
   store ptr @_ZL9kBadRules, ptr %__begin12, align 8
-  store ptr getelementptr inbounds (ptr, ptr @_ZL9kBadRules, i64 13), ptr %__end13, align 8
+  %6 = getelementptr inbounds ptr, ptr @_ZL9kBadRules, i64 13
+  store ptr %6, ptr %__end13, align 8
   br label %for.cond4
 
 for.cond4:                                        ; preds = %for.inc19, %for.end
-  %5 = load ptr, ptr %__begin12, align 8
-  %6 = load ptr, ptr %__end13, align 8
-  %cmp5 = icmp ne ptr %5, %6
+  %7 = load ptr, ptr %__begin12, align 8
+  %8 = load ptr, ptr %__end13, align 8
+  %cmp5 = icmp ne ptr %7, %8
   br i1 %cmp5, label %for.body6, label %for.end21
 
 for.body6:                                        ; preds = %for.cond4
-  %7 = load ptr, ptr %__begin12, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %rule, align 8
+  %9 = load ptr, ptr %__begin12, align 8
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %rule, align 8
   %call7 = call ptr @SSLv23_server_method()
   %call8 = call ptr @SSL_CTX_new(ptr noundef %call7)
   call void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEEC2IS2_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %ctx, ptr noundef %call8) #4
@@ -2075,8 +2115,8 @@ if.then10:                                        ; preds = %for.body6
 
 if.end11:                                         ; preds = %for.body6
   %call12 = call noundef ptr @_ZNKSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %ctx) #4
-  %9 = load ptr, ptr %rule, align 8
-  %call13 = invoke i32 @SSL_CTX_set_cipher_list(ptr noundef %call12, ptr noundef %9)
+  %11 = load ptr, ptr %rule, align 8
+  %call13 = invoke i32 @SSL_CTX_set_cipher_list(ptr noundef %call12, ptr noundef %11)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end11
@@ -2084,9 +2124,9 @@ invoke.cont:                                      ; preds = %if.end11
   br i1 %tobool, label %if.then14, label %if.end17
 
 if.then14:                                        ; preds = %invoke.cont
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = load ptr, ptr %rule, align 8
-  %call16 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.23, ptr noundef %11)
+  %12 = load ptr, ptr @stderr, align 8
+  %13 = load ptr, ptr %rule, align 8
+  %call16 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str.23, ptr noundef %13)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %if.then14
@@ -2095,12 +2135,12 @@ invoke.cont15:                                    ; preds = %if.then14
   br label %cleanup
 
 lpad:                                             ; preds = %if.end17, %if.then14, %if.end11
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ctx) #4
   br label %eh.resume
 
@@ -2124,29 +2164,30 @@ cleanup.cont:                                     ; preds = %cleanup
   br label %for.inc19
 
 for.inc19:                                        ; preds = %cleanup.cont
-  %15 = load ptr, ptr %__begin12, align 8
-  %incdec.ptr20 = getelementptr inbounds ptr, ptr %15, i32 1
+  %17 = load ptr, ptr %__begin12, align 8
+  %incdec.ptr20 = getelementptr inbounds ptr, ptr %17, i32 1
   store ptr %incdec.ptr20, ptr %__begin12, align 8
   br label %for.cond4
 
 for.end21:                                        ; preds = %for.cond4
   store ptr @_ZL19kMustNotIncludeNull, ptr %__range122, align 8
   store ptr @_ZL19kMustNotIncludeNull, ptr %__begin123, align 8
-  store ptr getelementptr inbounds (ptr, ptr @_ZL19kMustNotIncludeNull, i64 13), ptr %__end124, align 8
+  %18 = getelementptr inbounds ptr, ptr @_ZL19kMustNotIncludeNull, i64 13
+  store ptr %18, ptr %__end124, align 8
   br label %for.cond25
 
 for.cond25:                                       ; preds = %for.inc32, %for.end21
-  %16 = load ptr, ptr %__begin123, align 8
-  %17 = load ptr, ptr %__end124, align 8
-  %cmp26 = icmp ne ptr %16, %17
+  %19 = load ptr, ptr %__begin123, align 8
+  %20 = load ptr, ptr %__end124, align 8
+  %cmp26 = icmp ne ptr %19, %20
   br i1 %cmp26, label %for.body27, label %for.end34
 
 for.body27:                                       ; preds = %for.cond25
-  %18 = load ptr, ptr %__begin123, align 8
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %rule28, align 8
-  %20 = load ptr, ptr %rule28, align 8
-  %call29 = call noundef zeroext i1 @_ZL26TestRuleDoesNotIncludeNullPKc(ptr noundef %20)
+  %21 = load ptr, ptr %__begin123, align 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %rule28, align 8
+  %23 = load ptr, ptr %rule28, align 8
+  %call29 = call noundef zeroext i1 @_ZL26TestRuleDoesNotIncludeNullPKc(ptr noundef %23)
   br i1 %call29, label %if.end31, label %if.then30
 
 if.then30:                                        ; preds = %for.body27
@@ -2157,8 +2198,8 @@ if.end31:                                         ; preds = %for.body27
   br label %for.inc32
 
 for.inc32:                                        ; preds = %if.end31
-  %21 = load ptr, ptr %__begin123, align 8
-  %incdec.ptr33 = getelementptr inbounds ptr, ptr %21, i32 1
+  %24 = load ptr, ptr %__begin123, align 8
+  %incdec.ptr33 = getelementptr inbounds ptr, ptr %24, i32 1
   store ptr %incdec.ptr33, ptr %__begin123, align 8
   br label %for.cond25
 
@@ -2167,8 +2208,8 @@ for.end34:                                        ; preds = %for.cond25
   br label %return
 
 return:                                           ; preds = %for.end34, %if.then30, %cleanup, %if.then
-  %22 = load i1, ptr %retval, align 1
-  ret i1 %22
+  %25 = load i1, ptr %retval, align 1
+  ret i1 %25
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -2800,60 +2841,61 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store ptr @_ZL13kPaddingTests, ptr %__range1, align 8
   store ptr @_ZL13kPaddingTests, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%struct.PaddingTest, ptr @_ZL13kPaddingTests, i64 11), ptr %__end1, align 8
+  %1 = getelementptr inbounds %struct.PaddingTest, ptr @_ZL13kPaddingTests, i64 11
+  store ptr %1, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %1 = load ptr, ptr %__begin1, align 8
-  %2 = load ptr, ptr %__end1, align 8
-  %cmp1 = icmp ne ptr %1, %2
+  %2 = load ptr, ptr %__begin1, align 8
+  %3 = load ptr, ptr %__end1, align 8
+  %cmp1 = icmp ne ptr %2, %3
   br i1 %cmp1, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %__begin1, align 8
-  store ptr %3, ptr %test, align 8
-  %4 = load i64, ptr %base_len, align 8
-  %5 = load ptr, ptr %test, align 8
-  %input_len = getelementptr inbounds %struct.PaddingTest, ptr %5, i32 0, i32 0
-  %6 = load i64, ptr %input_len, align 8
-  %cmp2 = icmp ugt i64 %4, %6
+  %4 = load ptr, ptr %__begin1, align 8
+  store ptr %4, ptr %test, align 8
+  %5 = load i64, ptr %base_len, align 8
+  %6 = load ptr, ptr %test, align 8
+  %input_len = getelementptr inbounds %struct.PaddingTest, ptr %6, i32 0, i32 0
+  %7 = load i64, ptr %input_len, align 8
+  %cmp2 = icmp ugt i64 %5, %7
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %for.body
-  %7 = load ptr, ptr @stderr, align 8
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.90)
+  %8 = load ptr, ptr @stderr, align 8
+  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.90)
   store i1 false, ptr %retval, align 1
   br label %return
 
 if.end5:                                          ; preds = %for.body
-  %8 = load ptr, ptr %test, align 8
-  %input_len6 = getelementptr inbounds %struct.PaddingTest, ptr %8, i32 0, i32 0
-  %9 = load i64, ptr %input_len6, align 8
-  %add = add i64 1, %9
-  %10 = load i64, ptr %base_len, align 8
-  %sub = sub i64 %add, %10
+  %9 = load ptr, ptr %test, align 8
+  %input_len6 = getelementptr inbounds %struct.PaddingTest, ptr %9, i32 0, i32 0
+  %10 = load i64, ptr %input_len6, align 8
+  %add = add i64 1, %10
+  %11 = load i64, ptr %base_len, align 8
+  %sub = sub i64 %add, %11
   %call7 = call noundef i64 @_ZL17GetClientHelloLenm(i64 noundef %sub)
   store i64 %call7, ptr %padded_len, align 8
-  %11 = load i64, ptr %padded_len, align 8
-  %12 = load ptr, ptr %test, align 8
-  %padded_len8 = getelementptr inbounds %struct.PaddingTest, ptr %12, i32 0, i32 1
-  %13 = load i64, ptr %padded_len8, align 8
-  %cmp9 = icmp ne i64 %11, %13
+  %12 = load i64, ptr %padded_len, align 8
+  %13 = load ptr, ptr %test, align 8
+  %padded_len8 = getelementptr inbounds %struct.PaddingTest, ptr %13, i32 0, i32 1
+  %14 = load i64, ptr %padded_len8, align 8
+  %cmp9 = icmp ne i64 %12, %14
   br i1 %cmp9, label %if.then10, label %if.end16
 
 if.then10:                                        ; preds = %if.end5
-  %14 = load ptr, ptr @stderr, align 8
-  %15 = load ptr, ptr %test, align 8
-  %input_len11 = getelementptr inbounds %struct.PaddingTest, ptr %15, i32 0, i32 0
-  %16 = load i64, ptr %input_len11, align 8
-  %conv = trunc i64 %16 to i32
-  %17 = load i64, ptr %padded_len, align 8
-  %conv12 = trunc i64 %17 to i32
-  %18 = load ptr, ptr %test, align 8
-  %padded_len13 = getelementptr inbounds %struct.PaddingTest, ptr %18, i32 0, i32 1
-  %19 = load i64, ptr %padded_len13, align 8
-  %conv14 = trunc i64 %19 to i32
-  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.91, i32 noundef %conv, i32 noundef %conv12, i32 noundef %conv14)
+  %15 = load ptr, ptr @stderr, align 8
+  %16 = load ptr, ptr %test, align 8
+  %input_len11 = getelementptr inbounds %struct.PaddingTest, ptr %16, i32 0, i32 0
+  %17 = load i64, ptr %input_len11, align 8
+  %conv = trunc i64 %17 to i32
+  %18 = load i64, ptr %padded_len, align 8
+  %conv12 = trunc i64 %18 to i32
+  %19 = load ptr, ptr %test, align 8
+  %padded_len13 = getelementptr inbounds %struct.PaddingTest, ptr %19, i32 0, i32 1
+  %20 = load i64, ptr %padded_len13, align 8
+  %conv14 = trunc i64 %20 to i32
+  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.91, i32 noundef %conv, i32 noundef %conv12, i32 noundef %conv14)
   store i1 false, ptr %retval, align 1
   br label %return
 
@@ -2861,8 +2903,8 @@ if.end16:                                         ; preds = %if.end5
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %20 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %struct.PaddingTest, ptr %20, i32 1
+  %21 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %struct.PaddingTest, ptr %21, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -2871,8 +2913,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then10, %if.then3, %if.then
-  %21 = load i1, ptr %retval, align 1
-  ret i1 %21
+  %22 = load i1, ptr %retval, align 1
+  ret i1 %22
 }
 
 ; Function Attrs: mustprogress uwtable

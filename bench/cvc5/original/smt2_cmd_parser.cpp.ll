@@ -1963,16 +1963,17 @@ entry:
   store ptr %state, ptr %state.addr, align 8
   store ptr %tparser, ptr %tparser.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_lex = getelementptr inbounds %"class.cvc5::parser::Smt2CmdParser", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lex.addr, align 8
-  store ptr %0, ptr %d_lex, align 8
+  %1 = load ptr, ptr %lex.addr, align 8
+  store ptr %1, ptr %d_lex, align 8
   %d_state = getelementptr inbounds %"class.cvc5::parser::Smt2CmdParser", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %state.addr, align 8
-  store ptr %1, ptr %d_state, align 8
+  %2 = load ptr, ptr %state.addr, align 8
+  store ptr %2, ptr %d_state, align 8
   %d_tparser = getelementptr inbounds %"class.cvc5::parser::Smt2CmdParser", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %tparser.addr, align 8
-  store ptr %2, ptr %d_tparser, align 8
+  %3 = load ptr, ptr %tparser.addr, align 8
+  store ptr %3, ptr %d_tparser, align 8
   %d_table = getelementptr inbounds %"class.cvc5::parser::Smt2CmdParser", ptr %this1, i32 0, i32 4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc56parser5TokenESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_table) #1
   %d_table2 = getelementptr inbounds %"class.cvc5::parser::Smt2CmdParser", ptr %this1, i32 0, i32 4
@@ -2444,8 +2445,8 @@ invoke.cont352:                                   ; preds = %invoke.cont350
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp347) #1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp348) #1
   %d_lex356 = getelementptr inbounds %"class.cvc5::parser::Smt2CmdParser", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %d_lex356, align 8
-  %call359 = invoke noundef zeroext i1 @_ZNK4cvc56parser9Smt2Lexer8isStrictEv(ptr noundef nonnull align 8 dereferenceable(33178) %3)
+  %4 = load ptr, ptr %d_lex356, align 8
+  %call359 = invoke noundef zeroext i1 @_ZNK4cvc56parser9Smt2Lexer8isStrictEv(ptr noundef nonnull align 8 dereferenceable(33178) %4)
           to label %invoke.cont358 unwind label %lpad357
 
 invoke.cont358:                                   ; preds = %invoke.cont352
@@ -2676,21 +2677,21 @@ invoke.cont526:                                   ; preds = %invoke.cont524
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #1
   br label %ehcleanup
 
@@ -2699,21 +2700,21 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
   br label %ehcleanup625
 
 lpad9:                                            ; preds = %invoke.cont5
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad11:                                           ; preds = %invoke.cont10
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #1
   br label %ehcleanup15
 
@@ -2722,21 +2723,21 @@ ehcleanup15:                                      ; preds = %lpad11, %lpad9
   br label %ehcleanup625
 
 lpad19:                                           ; preds = %invoke.cont12
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup25
 
 lpad21:                                           ; preds = %invoke.cont20
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #1
   br label %ehcleanup25
 
@@ -2745,21 +2746,21 @@ ehcleanup25:                                      ; preds = %lpad21, %lpad19
   br label %ehcleanup625
 
 lpad29:                                           ; preds = %invoke.cont22
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   br label %ehcleanup35
 
 lpad31:                                           ; preds = %invoke.cont30
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #1
   br label %ehcleanup35
 
@@ -2768,21 +2769,21 @@ ehcleanup35:                                      ; preds = %lpad31, %lpad29
   br label %ehcleanup625
 
 lpad39:                                           ; preds = %invoke.cont32
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %exn.slot, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %ehselector.slot, align 4
   br label %ehcleanup45
 
 lpad41:                                           ; preds = %invoke.cont40
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #1
   br label %ehcleanup45
 
@@ -2791,21 +2792,21 @@ ehcleanup45:                                      ; preds = %lpad41, %lpad39
   br label %ehcleanup625
 
 lpad49:                                           ; preds = %invoke.cont42
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
   br label %ehcleanup55
 
 lpad51:                                           ; preds = %invoke.cont50
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #1
   br label %ehcleanup55
 
@@ -2814,21 +2815,21 @@ ehcleanup55:                                      ; preds = %lpad51, %lpad49
   br label %ehcleanup625
 
 lpad59:                                           ; preds = %invoke.cont52
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %exn.slot, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %ehselector.slot, align 4
   br label %ehcleanup65
 
 lpad61:                                           ; preds = %invoke.cont60
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %exn.slot, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #1
   br label %ehcleanup65
 
@@ -2837,21 +2838,21 @@ ehcleanup65:                                      ; preds = %lpad61, %lpad59
   br label %ehcleanup625
 
 lpad69:                                           ; preds = %invoke.cont62
-  %46 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %exn.slot, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %ehselector.slot, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %exn.slot, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %ehselector.slot, align 4
   br label %ehcleanup75
 
 lpad71:                                           ; preds = %invoke.cont70
-  %49 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %exn.slot, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %ehselector.slot, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %exn.slot, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #1
   br label %ehcleanup75
 
@@ -2860,21 +2861,21 @@ ehcleanup75:                                      ; preds = %lpad71, %lpad69
   br label %ehcleanup625
 
 lpad79:                                           ; preds = %invoke.cont72
-  %52 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %exn.slot, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %ehselector.slot, align 4
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %exn.slot, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %ehselector.slot, align 4
   br label %ehcleanup85
 
 lpad81:                                           ; preds = %invoke.cont80
-  %55 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %exn.slot, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %ehselector.slot, align 4
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %exn.slot, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77) #1
   br label %ehcleanup85
 
@@ -2883,21 +2884,21 @@ ehcleanup85:                                      ; preds = %lpad81, %lpad79
   br label %ehcleanup625
 
 lpad89:                                           ; preds = %invoke.cont82
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %exn.slot, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %ehselector.slot, align 4
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %exn.slot, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %ehselector.slot, align 4
   br label %ehcleanup95
 
 lpad91:                                           ; preds = %invoke.cont90
-  %61 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %exn.slot, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %ehselector.slot, align 4
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %exn.slot, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87) #1
   br label %ehcleanup95
 
@@ -2906,21 +2907,21 @@ ehcleanup95:                                      ; preds = %lpad91, %lpad89
   br label %ehcleanup625
 
 lpad99:                                           ; preds = %invoke.cont92
-  %64 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %exn.slot, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %ehselector.slot, align 4
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %exn.slot, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %ehselector.slot, align 4
   br label %ehcleanup105
 
 lpad101:                                          ; preds = %invoke.cont100
-  %67 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %exn.slot, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %ehselector.slot, align 4
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %exn.slot, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97) #1
   br label %ehcleanup105
 
@@ -2929,21 +2930,21 @@ ehcleanup105:                                     ; preds = %lpad101, %lpad99
   br label %ehcleanup625
 
 lpad109:                                          ; preds = %invoke.cont102
-  %70 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %exn.slot, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %ehselector.slot, align 4
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %exn.slot, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %ehselector.slot, align 4
   br label %ehcleanup115
 
 lpad111:                                          ; preds = %invoke.cont110
-  %73 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %exn.slot, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %ehselector.slot, align 4
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %exn.slot, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107) #1
   br label %ehcleanup115
 
@@ -2952,21 +2953,21 @@ ehcleanup115:                                     ; preds = %lpad111, %lpad109
   br label %ehcleanup625
 
 lpad119:                                          ; preds = %invoke.cont112
-  %76 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %exn.slot, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %ehselector.slot, align 4
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %exn.slot, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %ehselector.slot, align 4
   br label %ehcleanup125
 
 lpad121:                                          ; preds = %invoke.cont120
-  %79 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %exn.slot, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %ehselector.slot, align 4
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %exn.slot, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117) #1
   br label %ehcleanup125
 
@@ -2975,21 +2976,21 @@ ehcleanup125:                                     ; preds = %lpad121, %lpad119
   br label %ehcleanup625
 
 lpad129:                                          ; preds = %invoke.cont122
-  %82 = landingpad { ptr, i32 }
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %exn.slot, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %ehselector.slot, align 4
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %exn.slot, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %ehselector.slot, align 4
   br label %ehcleanup135
 
 lpad131:                                          ; preds = %invoke.cont130
-  %85 = landingpad { ptr, i32 }
+  %86 = landingpad { ptr, i32 }
           cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %exn.slot, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %ehselector.slot, align 4
+  %87 = extractvalue { ptr, i32 } %86, 0
+  store ptr %87, ptr %exn.slot, align 8
+  %88 = extractvalue { ptr, i32 } %86, 1
+  store i32 %88, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp127) #1
   br label %ehcleanup135
 
@@ -2998,21 +2999,21 @@ ehcleanup135:                                     ; preds = %lpad131, %lpad129
   br label %ehcleanup625
 
 lpad139:                                          ; preds = %invoke.cont132
-  %88 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %exn.slot, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %ehselector.slot, align 4
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %exn.slot, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %ehselector.slot, align 4
   br label %ehcleanup145
 
 lpad141:                                          ; preds = %invoke.cont140
-  %91 = landingpad { ptr, i32 }
+  %92 = landingpad { ptr, i32 }
           cleanup
-  %92 = extractvalue { ptr, i32 } %91, 0
-  store ptr %92, ptr %exn.slot, align 8
-  %93 = extractvalue { ptr, i32 } %91, 1
-  store i32 %93, ptr %ehselector.slot, align 4
+  %93 = extractvalue { ptr, i32 } %92, 0
+  store ptr %93, ptr %exn.slot, align 8
+  %94 = extractvalue { ptr, i32 } %92, 1
+  store i32 %94, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp137) #1
   br label %ehcleanup145
 
@@ -3021,21 +3022,21 @@ ehcleanup145:                                     ; preds = %lpad141, %lpad139
   br label %ehcleanup625
 
 lpad149:                                          ; preds = %invoke.cont142
-  %94 = landingpad { ptr, i32 }
+  %95 = landingpad { ptr, i32 }
           cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %exn.slot, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %ehselector.slot, align 4
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %exn.slot, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %ehselector.slot, align 4
   br label %ehcleanup155
 
 lpad151:                                          ; preds = %invoke.cont150
-  %97 = landingpad { ptr, i32 }
+  %98 = landingpad { ptr, i32 }
           cleanup
-  %98 = extractvalue { ptr, i32 } %97, 0
-  store ptr %98, ptr %exn.slot, align 8
-  %99 = extractvalue { ptr, i32 } %97, 1
-  store i32 %99, ptr %ehselector.slot, align 4
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %exn.slot, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp147) #1
   br label %ehcleanup155
 
@@ -3044,21 +3045,21 @@ ehcleanup155:                                     ; preds = %lpad151, %lpad149
   br label %ehcleanup625
 
 lpad159:                                          ; preds = %invoke.cont152
-  %100 = landingpad { ptr, i32 }
+  %101 = landingpad { ptr, i32 }
           cleanup
-  %101 = extractvalue { ptr, i32 } %100, 0
-  store ptr %101, ptr %exn.slot, align 8
-  %102 = extractvalue { ptr, i32 } %100, 1
-  store i32 %102, ptr %ehselector.slot, align 4
+  %102 = extractvalue { ptr, i32 } %101, 0
+  store ptr %102, ptr %exn.slot, align 8
+  %103 = extractvalue { ptr, i32 } %101, 1
+  store i32 %103, ptr %ehselector.slot, align 4
   br label %ehcleanup165
 
 lpad161:                                          ; preds = %invoke.cont160
-  %103 = landingpad { ptr, i32 }
+  %104 = landingpad { ptr, i32 }
           cleanup
-  %104 = extractvalue { ptr, i32 } %103, 0
-  store ptr %104, ptr %exn.slot, align 8
-  %105 = extractvalue { ptr, i32 } %103, 1
-  store i32 %105, ptr %ehselector.slot, align 4
+  %105 = extractvalue { ptr, i32 } %104, 0
+  store ptr %105, ptr %exn.slot, align 8
+  %106 = extractvalue { ptr, i32 } %104, 1
+  store i32 %106, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp157) #1
   br label %ehcleanup165
 
@@ -3067,21 +3068,21 @@ ehcleanup165:                                     ; preds = %lpad161, %lpad159
   br label %ehcleanup625
 
 lpad169:                                          ; preds = %invoke.cont162
-  %106 = landingpad { ptr, i32 }
+  %107 = landingpad { ptr, i32 }
           cleanup
-  %107 = extractvalue { ptr, i32 } %106, 0
-  store ptr %107, ptr %exn.slot, align 8
-  %108 = extractvalue { ptr, i32 } %106, 1
-  store i32 %108, ptr %ehselector.slot, align 4
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %exn.slot, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %ehselector.slot, align 4
   br label %ehcleanup175
 
 lpad171:                                          ; preds = %invoke.cont170
-  %109 = landingpad { ptr, i32 }
+  %110 = landingpad { ptr, i32 }
           cleanup
-  %110 = extractvalue { ptr, i32 } %109, 0
-  store ptr %110, ptr %exn.slot, align 8
-  %111 = extractvalue { ptr, i32 } %109, 1
-  store i32 %111, ptr %ehselector.slot, align 4
+  %111 = extractvalue { ptr, i32 } %110, 0
+  store ptr %111, ptr %exn.slot, align 8
+  %112 = extractvalue { ptr, i32 } %110, 1
+  store i32 %112, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp167) #1
   br label %ehcleanup175
 
@@ -3090,21 +3091,21 @@ ehcleanup175:                                     ; preds = %lpad171, %lpad169
   br label %ehcleanup625
 
 lpad179:                                          ; preds = %invoke.cont172
-  %112 = landingpad { ptr, i32 }
+  %113 = landingpad { ptr, i32 }
           cleanup
-  %113 = extractvalue { ptr, i32 } %112, 0
-  store ptr %113, ptr %exn.slot, align 8
-  %114 = extractvalue { ptr, i32 } %112, 1
-  store i32 %114, ptr %ehselector.slot, align 4
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %exn.slot, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %ehselector.slot, align 4
   br label %ehcleanup185
 
 lpad181:                                          ; preds = %invoke.cont180
-  %115 = landingpad { ptr, i32 }
+  %116 = landingpad { ptr, i32 }
           cleanup
-  %116 = extractvalue { ptr, i32 } %115, 0
-  store ptr %116, ptr %exn.slot, align 8
-  %117 = extractvalue { ptr, i32 } %115, 1
-  store i32 %117, ptr %ehselector.slot, align 4
+  %117 = extractvalue { ptr, i32 } %116, 0
+  store ptr %117, ptr %exn.slot, align 8
+  %118 = extractvalue { ptr, i32 } %116, 1
+  store i32 %118, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177) #1
   br label %ehcleanup185
 
@@ -3113,21 +3114,21 @@ ehcleanup185:                                     ; preds = %lpad181, %lpad179
   br label %ehcleanup625
 
 lpad189:                                          ; preds = %invoke.cont182
-  %118 = landingpad { ptr, i32 }
+  %119 = landingpad { ptr, i32 }
           cleanup
-  %119 = extractvalue { ptr, i32 } %118, 0
-  store ptr %119, ptr %exn.slot, align 8
-  %120 = extractvalue { ptr, i32 } %118, 1
-  store i32 %120, ptr %ehselector.slot, align 4
+  %120 = extractvalue { ptr, i32 } %119, 0
+  store ptr %120, ptr %exn.slot, align 8
+  %121 = extractvalue { ptr, i32 } %119, 1
+  store i32 %121, ptr %ehselector.slot, align 4
   br label %ehcleanup195
 
 lpad191:                                          ; preds = %invoke.cont190
-  %121 = landingpad { ptr, i32 }
+  %122 = landingpad { ptr, i32 }
           cleanup
-  %122 = extractvalue { ptr, i32 } %121, 0
-  store ptr %122, ptr %exn.slot, align 8
-  %123 = extractvalue { ptr, i32 } %121, 1
-  store i32 %123, ptr %ehselector.slot, align 4
+  %123 = extractvalue { ptr, i32 } %122, 0
+  store ptr %123, ptr %exn.slot, align 8
+  %124 = extractvalue { ptr, i32 } %122, 1
+  store i32 %124, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp187) #1
   br label %ehcleanup195
 
@@ -3136,21 +3137,21 @@ ehcleanup195:                                     ; preds = %lpad191, %lpad189
   br label %ehcleanup625
 
 lpad199:                                          ; preds = %invoke.cont192
-  %124 = landingpad { ptr, i32 }
+  %125 = landingpad { ptr, i32 }
           cleanup
-  %125 = extractvalue { ptr, i32 } %124, 0
-  store ptr %125, ptr %exn.slot, align 8
-  %126 = extractvalue { ptr, i32 } %124, 1
-  store i32 %126, ptr %ehselector.slot, align 4
+  %126 = extractvalue { ptr, i32 } %125, 0
+  store ptr %126, ptr %exn.slot, align 8
+  %127 = extractvalue { ptr, i32 } %125, 1
+  store i32 %127, ptr %ehselector.slot, align 4
   br label %ehcleanup205
 
 lpad201:                                          ; preds = %invoke.cont200
-  %127 = landingpad { ptr, i32 }
+  %128 = landingpad { ptr, i32 }
           cleanup
-  %128 = extractvalue { ptr, i32 } %127, 0
-  store ptr %128, ptr %exn.slot, align 8
-  %129 = extractvalue { ptr, i32 } %127, 1
-  store i32 %129, ptr %ehselector.slot, align 4
+  %129 = extractvalue { ptr, i32 } %128, 0
+  store ptr %129, ptr %exn.slot, align 8
+  %130 = extractvalue { ptr, i32 } %128, 1
+  store i32 %130, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp197) #1
   br label %ehcleanup205
 
@@ -3159,21 +3160,21 @@ ehcleanup205:                                     ; preds = %lpad201, %lpad199
   br label %ehcleanup625
 
 lpad209:                                          ; preds = %invoke.cont202
-  %130 = landingpad { ptr, i32 }
+  %131 = landingpad { ptr, i32 }
           cleanup
-  %131 = extractvalue { ptr, i32 } %130, 0
-  store ptr %131, ptr %exn.slot, align 8
-  %132 = extractvalue { ptr, i32 } %130, 1
-  store i32 %132, ptr %ehselector.slot, align 4
+  %132 = extractvalue { ptr, i32 } %131, 0
+  store ptr %132, ptr %exn.slot, align 8
+  %133 = extractvalue { ptr, i32 } %131, 1
+  store i32 %133, ptr %ehselector.slot, align 4
   br label %ehcleanup215
 
 lpad211:                                          ; preds = %invoke.cont210
-  %133 = landingpad { ptr, i32 }
+  %134 = landingpad { ptr, i32 }
           cleanup
-  %134 = extractvalue { ptr, i32 } %133, 0
-  store ptr %134, ptr %exn.slot, align 8
-  %135 = extractvalue { ptr, i32 } %133, 1
-  store i32 %135, ptr %ehselector.slot, align 4
+  %135 = extractvalue { ptr, i32 } %134, 0
+  store ptr %135, ptr %exn.slot, align 8
+  %136 = extractvalue { ptr, i32 } %134, 1
+  store i32 %136, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp207) #1
   br label %ehcleanup215
 
@@ -3182,21 +3183,21 @@ ehcleanup215:                                     ; preds = %lpad211, %lpad209
   br label %ehcleanup625
 
 lpad219:                                          ; preds = %invoke.cont212
-  %136 = landingpad { ptr, i32 }
+  %137 = landingpad { ptr, i32 }
           cleanup
-  %137 = extractvalue { ptr, i32 } %136, 0
-  store ptr %137, ptr %exn.slot, align 8
-  %138 = extractvalue { ptr, i32 } %136, 1
-  store i32 %138, ptr %ehselector.slot, align 4
+  %138 = extractvalue { ptr, i32 } %137, 0
+  store ptr %138, ptr %exn.slot, align 8
+  %139 = extractvalue { ptr, i32 } %137, 1
+  store i32 %139, ptr %ehselector.slot, align 4
   br label %ehcleanup225
 
 lpad221:                                          ; preds = %invoke.cont220
-  %139 = landingpad { ptr, i32 }
+  %140 = landingpad { ptr, i32 }
           cleanup
-  %140 = extractvalue { ptr, i32 } %139, 0
-  store ptr %140, ptr %exn.slot, align 8
-  %141 = extractvalue { ptr, i32 } %139, 1
-  store i32 %141, ptr %ehselector.slot, align 4
+  %141 = extractvalue { ptr, i32 } %140, 0
+  store ptr %141, ptr %exn.slot, align 8
+  %142 = extractvalue { ptr, i32 } %140, 1
+  store i32 %142, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp217) #1
   br label %ehcleanup225
 
@@ -3205,21 +3206,21 @@ ehcleanup225:                                     ; preds = %lpad221, %lpad219
   br label %ehcleanup625
 
 lpad229:                                          ; preds = %invoke.cont222
-  %142 = landingpad { ptr, i32 }
+  %143 = landingpad { ptr, i32 }
           cleanup
-  %143 = extractvalue { ptr, i32 } %142, 0
-  store ptr %143, ptr %exn.slot, align 8
-  %144 = extractvalue { ptr, i32 } %142, 1
-  store i32 %144, ptr %ehselector.slot, align 4
+  %144 = extractvalue { ptr, i32 } %143, 0
+  store ptr %144, ptr %exn.slot, align 8
+  %145 = extractvalue { ptr, i32 } %143, 1
+  store i32 %145, ptr %ehselector.slot, align 4
   br label %ehcleanup235
 
 lpad231:                                          ; preds = %invoke.cont230
-  %145 = landingpad { ptr, i32 }
+  %146 = landingpad { ptr, i32 }
           cleanup
-  %146 = extractvalue { ptr, i32 } %145, 0
-  store ptr %146, ptr %exn.slot, align 8
-  %147 = extractvalue { ptr, i32 } %145, 1
-  store i32 %147, ptr %ehselector.slot, align 4
+  %147 = extractvalue { ptr, i32 } %146, 0
+  store ptr %147, ptr %exn.slot, align 8
+  %148 = extractvalue { ptr, i32 } %146, 1
+  store i32 %148, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp227) #1
   br label %ehcleanup235
 
@@ -3228,21 +3229,21 @@ ehcleanup235:                                     ; preds = %lpad231, %lpad229
   br label %ehcleanup625
 
 lpad239:                                          ; preds = %invoke.cont232
-  %148 = landingpad { ptr, i32 }
+  %149 = landingpad { ptr, i32 }
           cleanup
-  %149 = extractvalue { ptr, i32 } %148, 0
-  store ptr %149, ptr %exn.slot, align 8
-  %150 = extractvalue { ptr, i32 } %148, 1
-  store i32 %150, ptr %ehselector.slot, align 4
+  %150 = extractvalue { ptr, i32 } %149, 0
+  store ptr %150, ptr %exn.slot, align 8
+  %151 = extractvalue { ptr, i32 } %149, 1
+  store i32 %151, ptr %ehselector.slot, align 4
   br label %ehcleanup245
 
 lpad241:                                          ; preds = %invoke.cont240
-  %151 = landingpad { ptr, i32 }
+  %152 = landingpad { ptr, i32 }
           cleanup
-  %152 = extractvalue { ptr, i32 } %151, 0
-  store ptr %152, ptr %exn.slot, align 8
-  %153 = extractvalue { ptr, i32 } %151, 1
-  store i32 %153, ptr %ehselector.slot, align 4
+  %153 = extractvalue { ptr, i32 } %152, 0
+  store ptr %153, ptr %exn.slot, align 8
+  %154 = extractvalue { ptr, i32 } %152, 1
+  store i32 %154, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp237) #1
   br label %ehcleanup245
 
@@ -3251,21 +3252,21 @@ ehcleanup245:                                     ; preds = %lpad241, %lpad239
   br label %ehcleanup625
 
 lpad249:                                          ; preds = %invoke.cont242
-  %154 = landingpad { ptr, i32 }
+  %155 = landingpad { ptr, i32 }
           cleanup
-  %155 = extractvalue { ptr, i32 } %154, 0
-  store ptr %155, ptr %exn.slot, align 8
-  %156 = extractvalue { ptr, i32 } %154, 1
-  store i32 %156, ptr %ehselector.slot, align 4
+  %156 = extractvalue { ptr, i32 } %155, 0
+  store ptr %156, ptr %exn.slot, align 8
+  %157 = extractvalue { ptr, i32 } %155, 1
+  store i32 %157, ptr %ehselector.slot, align 4
   br label %ehcleanup255
 
 lpad251:                                          ; preds = %invoke.cont250
-  %157 = landingpad { ptr, i32 }
+  %158 = landingpad { ptr, i32 }
           cleanup
-  %158 = extractvalue { ptr, i32 } %157, 0
-  store ptr %158, ptr %exn.slot, align 8
-  %159 = extractvalue { ptr, i32 } %157, 1
-  store i32 %159, ptr %ehselector.slot, align 4
+  %159 = extractvalue { ptr, i32 } %158, 0
+  store ptr %159, ptr %exn.slot, align 8
+  %160 = extractvalue { ptr, i32 } %158, 1
+  store i32 %160, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp247) #1
   br label %ehcleanup255
 
@@ -3274,21 +3275,21 @@ ehcleanup255:                                     ; preds = %lpad251, %lpad249
   br label %ehcleanup625
 
 lpad259:                                          ; preds = %invoke.cont252
-  %160 = landingpad { ptr, i32 }
+  %161 = landingpad { ptr, i32 }
           cleanup
-  %161 = extractvalue { ptr, i32 } %160, 0
-  store ptr %161, ptr %exn.slot, align 8
-  %162 = extractvalue { ptr, i32 } %160, 1
-  store i32 %162, ptr %ehselector.slot, align 4
+  %162 = extractvalue { ptr, i32 } %161, 0
+  store ptr %162, ptr %exn.slot, align 8
+  %163 = extractvalue { ptr, i32 } %161, 1
+  store i32 %163, ptr %ehselector.slot, align 4
   br label %ehcleanup265
 
 lpad261:                                          ; preds = %invoke.cont260
-  %163 = landingpad { ptr, i32 }
+  %164 = landingpad { ptr, i32 }
           cleanup
-  %164 = extractvalue { ptr, i32 } %163, 0
-  store ptr %164, ptr %exn.slot, align 8
-  %165 = extractvalue { ptr, i32 } %163, 1
-  store i32 %165, ptr %ehselector.slot, align 4
+  %165 = extractvalue { ptr, i32 } %164, 0
+  store ptr %165, ptr %exn.slot, align 8
+  %166 = extractvalue { ptr, i32 } %164, 1
+  store i32 %166, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp257) #1
   br label %ehcleanup265
 
@@ -3297,21 +3298,21 @@ ehcleanup265:                                     ; preds = %lpad261, %lpad259
   br label %ehcleanup625
 
 lpad269:                                          ; preds = %invoke.cont262
-  %166 = landingpad { ptr, i32 }
+  %167 = landingpad { ptr, i32 }
           cleanup
-  %167 = extractvalue { ptr, i32 } %166, 0
-  store ptr %167, ptr %exn.slot, align 8
-  %168 = extractvalue { ptr, i32 } %166, 1
-  store i32 %168, ptr %ehselector.slot, align 4
+  %168 = extractvalue { ptr, i32 } %167, 0
+  store ptr %168, ptr %exn.slot, align 8
+  %169 = extractvalue { ptr, i32 } %167, 1
+  store i32 %169, ptr %ehselector.slot, align 4
   br label %ehcleanup275
 
 lpad271:                                          ; preds = %invoke.cont270
-  %169 = landingpad { ptr, i32 }
+  %170 = landingpad { ptr, i32 }
           cleanup
-  %170 = extractvalue { ptr, i32 } %169, 0
-  store ptr %170, ptr %exn.slot, align 8
-  %171 = extractvalue { ptr, i32 } %169, 1
-  store i32 %171, ptr %ehselector.slot, align 4
+  %171 = extractvalue { ptr, i32 } %170, 0
+  store ptr %171, ptr %exn.slot, align 8
+  %172 = extractvalue { ptr, i32 } %170, 1
+  store i32 %172, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp267) #1
   br label %ehcleanup275
 
@@ -3320,21 +3321,21 @@ ehcleanup275:                                     ; preds = %lpad271, %lpad269
   br label %ehcleanup625
 
 lpad279:                                          ; preds = %invoke.cont272
-  %172 = landingpad { ptr, i32 }
+  %173 = landingpad { ptr, i32 }
           cleanup
-  %173 = extractvalue { ptr, i32 } %172, 0
-  store ptr %173, ptr %exn.slot, align 8
-  %174 = extractvalue { ptr, i32 } %172, 1
-  store i32 %174, ptr %ehselector.slot, align 4
+  %174 = extractvalue { ptr, i32 } %173, 0
+  store ptr %174, ptr %exn.slot, align 8
+  %175 = extractvalue { ptr, i32 } %173, 1
+  store i32 %175, ptr %ehselector.slot, align 4
   br label %ehcleanup285
 
 lpad281:                                          ; preds = %invoke.cont280
-  %175 = landingpad { ptr, i32 }
+  %176 = landingpad { ptr, i32 }
           cleanup
-  %176 = extractvalue { ptr, i32 } %175, 0
-  store ptr %176, ptr %exn.slot, align 8
-  %177 = extractvalue { ptr, i32 } %175, 1
-  store i32 %177, ptr %ehselector.slot, align 4
+  %177 = extractvalue { ptr, i32 } %176, 0
+  store ptr %177, ptr %exn.slot, align 8
+  %178 = extractvalue { ptr, i32 } %176, 1
+  store i32 %178, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp277) #1
   br label %ehcleanup285
 
@@ -3343,21 +3344,21 @@ ehcleanup285:                                     ; preds = %lpad281, %lpad279
   br label %ehcleanup625
 
 lpad289:                                          ; preds = %invoke.cont282
-  %178 = landingpad { ptr, i32 }
+  %179 = landingpad { ptr, i32 }
           cleanup
-  %179 = extractvalue { ptr, i32 } %178, 0
-  store ptr %179, ptr %exn.slot, align 8
-  %180 = extractvalue { ptr, i32 } %178, 1
-  store i32 %180, ptr %ehselector.slot, align 4
+  %180 = extractvalue { ptr, i32 } %179, 0
+  store ptr %180, ptr %exn.slot, align 8
+  %181 = extractvalue { ptr, i32 } %179, 1
+  store i32 %181, ptr %ehselector.slot, align 4
   br label %ehcleanup295
 
 lpad291:                                          ; preds = %invoke.cont290
-  %181 = landingpad { ptr, i32 }
+  %182 = landingpad { ptr, i32 }
           cleanup
-  %182 = extractvalue { ptr, i32 } %181, 0
-  store ptr %182, ptr %exn.slot, align 8
-  %183 = extractvalue { ptr, i32 } %181, 1
-  store i32 %183, ptr %ehselector.slot, align 4
+  %183 = extractvalue { ptr, i32 } %182, 0
+  store ptr %183, ptr %exn.slot, align 8
+  %184 = extractvalue { ptr, i32 } %182, 1
+  store i32 %184, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp287) #1
   br label %ehcleanup295
 
@@ -3366,21 +3367,21 @@ ehcleanup295:                                     ; preds = %lpad291, %lpad289
   br label %ehcleanup625
 
 lpad299:                                          ; preds = %invoke.cont292
-  %184 = landingpad { ptr, i32 }
+  %185 = landingpad { ptr, i32 }
           cleanup
-  %185 = extractvalue { ptr, i32 } %184, 0
-  store ptr %185, ptr %exn.slot, align 8
-  %186 = extractvalue { ptr, i32 } %184, 1
-  store i32 %186, ptr %ehselector.slot, align 4
+  %186 = extractvalue { ptr, i32 } %185, 0
+  store ptr %186, ptr %exn.slot, align 8
+  %187 = extractvalue { ptr, i32 } %185, 1
+  store i32 %187, ptr %ehselector.slot, align 4
   br label %ehcleanup305
 
 lpad301:                                          ; preds = %invoke.cont300
-  %187 = landingpad { ptr, i32 }
+  %188 = landingpad { ptr, i32 }
           cleanup
-  %188 = extractvalue { ptr, i32 } %187, 0
-  store ptr %188, ptr %exn.slot, align 8
-  %189 = extractvalue { ptr, i32 } %187, 1
-  store i32 %189, ptr %ehselector.slot, align 4
+  %189 = extractvalue { ptr, i32 } %188, 0
+  store ptr %189, ptr %exn.slot, align 8
+  %190 = extractvalue { ptr, i32 } %188, 1
+  store i32 %190, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp297) #1
   br label %ehcleanup305
 
@@ -3389,21 +3390,21 @@ ehcleanup305:                                     ; preds = %lpad301, %lpad299
   br label %ehcleanup625
 
 lpad309:                                          ; preds = %invoke.cont302
-  %190 = landingpad { ptr, i32 }
+  %191 = landingpad { ptr, i32 }
           cleanup
-  %191 = extractvalue { ptr, i32 } %190, 0
-  store ptr %191, ptr %exn.slot, align 8
-  %192 = extractvalue { ptr, i32 } %190, 1
-  store i32 %192, ptr %ehselector.slot, align 4
+  %192 = extractvalue { ptr, i32 } %191, 0
+  store ptr %192, ptr %exn.slot, align 8
+  %193 = extractvalue { ptr, i32 } %191, 1
+  store i32 %193, ptr %ehselector.slot, align 4
   br label %ehcleanup315
 
 lpad311:                                          ; preds = %invoke.cont310
-  %193 = landingpad { ptr, i32 }
+  %194 = landingpad { ptr, i32 }
           cleanup
-  %194 = extractvalue { ptr, i32 } %193, 0
-  store ptr %194, ptr %exn.slot, align 8
-  %195 = extractvalue { ptr, i32 } %193, 1
-  store i32 %195, ptr %ehselector.slot, align 4
+  %195 = extractvalue { ptr, i32 } %194, 0
+  store ptr %195, ptr %exn.slot, align 8
+  %196 = extractvalue { ptr, i32 } %194, 1
+  store i32 %196, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp307) #1
   br label %ehcleanup315
 
@@ -3412,21 +3413,21 @@ ehcleanup315:                                     ; preds = %lpad311, %lpad309
   br label %ehcleanup625
 
 lpad319:                                          ; preds = %invoke.cont312
-  %196 = landingpad { ptr, i32 }
+  %197 = landingpad { ptr, i32 }
           cleanup
-  %197 = extractvalue { ptr, i32 } %196, 0
-  store ptr %197, ptr %exn.slot, align 8
-  %198 = extractvalue { ptr, i32 } %196, 1
-  store i32 %198, ptr %ehselector.slot, align 4
+  %198 = extractvalue { ptr, i32 } %197, 0
+  store ptr %198, ptr %exn.slot, align 8
+  %199 = extractvalue { ptr, i32 } %197, 1
+  store i32 %199, ptr %ehselector.slot, align 4
   br label %ehcleanup325
 
 lpad321:                                          ; preds = %invoke.cont320
-  %199 = landingpad { ptr, i32 }
+  %200 = landingpad { ptr, i32 }
           cleanup
-  %200 = extractvalue { ptr, i32 } %199, 0
-  store ptr %200, ptr %exn.slot, align 8
-  %201 = extractvalue { ptr, i32 } %199, 1
-  store i32 %201, ptr %ehselector.slot, align 4
+  %201 = extractvalue { ptr, i32 } %200, 0
+  store ptr %201, ptr %exn.slot, align 8
+  %202 = extractvalue { ptr, i32 } %200, 1
+  store i32 %202, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp317) #1
   br label %ehcleanup325
 
@@ -3435,21 +3436,21 @@ ehcleanup325:                                     ; preds = %lpad321, %lpad319
   br label %ehcleanup625
 
 lpad329:                                          ; preds = %invoke.cont322
-  %202 = landingpad { ptr, i32 }
+  %203 = landingpad { ptr, i32 }
           cleanup
-  %203 = extractvalue { ptr, i32 } %202, 0
-  store ptr %203, ptr %exn.slot, align 8
-  %204 = extractvalue { ptr, i32 } %202, 1
-  store i32 %204, ptr %ehselector.slot, align 4
+  %204 = extractvalue { ptr, i32 } %203, 0
+  store ptr %204, ptr %exn.slot, align 8
+  %205 = extractvalue { ptr, i32 } %203, 1
+  store i32 %205, ptr %ehselector.slot, align 4
   br label %ehcleanup335
 
 lpad331:                                          ; preds = %invoke.cont330
-  %205 = landingpad { ptr, i32 }
+  %206 = landingpad { ptr, i32 }
           cleanup
-  %206 = extractvalue { ptr, i32 } %205, 0
-  store ptr %206, ptr %exn.slot, align 8
-  %207 = extractvalue { ptr, i32 } %205, 1
-  store i32 %207, ptr %ehselector.slot, align 4
+  %207 = extractvalue { ptr, i32 } %206, 0
+  store ptr %207, ptr %exn.slot, align 8
+  %208 = extractvalue { ptr, i32 } %206, 1
+  store i32 %208, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp327) #1
   br label %ehcleanup335
 
@@ -3458,21 +3459,21 @@ ehcleanup335:                                     ; preds = %lpad331, %lpad329
   br label %ehcleanup625
 
 lpad339:                                          ; preds = %invoke.cont332
-  %208 = landingpad { ptr, i32 }
+  %209 = landingpad { ptr, i32 }
           cleanup
-  %209 = extractvalue { ptr, i32 } %208, 0
-  store ptr %209, ptr %exn.slot, align 8
-  %210 = extractvalue { ptr, i32 } %208, 1
-  store i32 %210, ptr %ehselector.slot, align 4
+  %210 = extractvalue { ptr, i32 } %209, 0
+  store ptr %210, ptr %exn.slot, align 8
+  %211 = extractvalue { ptr, i32 } %209, 1
+  store i32 %211, ptr %ehselector.slot, align 4
   br label %ehcleanup345
 
 lpad341:                                          ; preds = %invoke.cont340
-  %211 = landingpad { ptr, i32 }
+  %212 = landingpad { ptr, i32 }
           cleanup
-  %212 = extractvalue { ptr, i32 } %211, 0
-  store ptr %212, ptr %exn.slot, align 8
-  %213 = extractvalue { ptr, i32 } %211, 1
-  store i32 %213, ptr %ehselector.slot, align 4
+  %213 = extractvalue { ptr, i32 } %212, 0
+  store ptr %213, ptr %exn.slot, align 8
+  %214 = extractvalue { ptr, i32 } %212, 1
+  store i32 %214, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp337) #1
   br label %ehcleanup345
 
@@ -3481,21 +3482,21 @@ ehcleanup345:                                     ; preds = %lpad341, %lpad339
   br label %ehcleanup625
 
 lpad349:                                          ; preds = %invoke.cont342
-  %214 = landingpad { ptr, i32 }
+  %215 = landingpad { ptr, i32 }
           cleanup
-  %215 = extractvalue { ptr, i32 } %214, 0
-  store ptr %215, ptr %exn.slot, align 8
-  %216 = extractvalue { ptr, i32 } %214, 1
-  store i32 %216, ptr %ehselector.slot, align 4
+  %216 = extractvalue { ptr, i32 } %215, 0
+  store ptr %216, ptr %exn.slot, align 8
+  %217 = extractvalue { ptr, i32 } %215, 1
+  store i32 %217, ptr %ehselector.slot, align 4
   br label %ehcleanup355
 
 lpad351:                                          ; preds = %invoke.cont350
-  %217 = landingpad { ptr, i32 }
+  %218 = landingpad { ptr, i32 }
           cleanup
-  %218 = extractvalue { ptr, i32 } %217, 0
-  store ptr %218, ptr %exn.slot, align 8
-  %219 = extractvalue { ptr, i32 } %217, 1
-  store i32 %219, ptr %ehselector.slot, align 4
+  %219 = extractvalue { ptr, i32 } %218, 0
+  store ptr %219, ptr %exn.slot, align 8
+  %220 = extractvalue { ptr, i32 } %218, 1
+  store i32 %220, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp347) #1
   br label %ehcleanup355
 
@@ -3504,30 +3505,30 @@ ehcleanup355:                                     ; preds = %lpad351, %lpad349
   br label %ehcleanup625
 
 lpad357:                                          ; preds = %if.end, %invoke.cont352
-  %220 = landingpad { ptr, i32 }
+  %221 = landingpad { ptr, i32 }
           cleanup
-  %221 = extractvalue { ptr, i32 } %220, 0
-  store ptr %221, ptr %exn.slot, align 8
-  %222 = extractvalue { ptr, i32 } %220, 1
-  store i32 %222, ptr %ehselector.slot, align 4
+  %222 = extractvalue { ptr, i32 } %221, 0
+  store ptr %222, ptr %exn.slot, align 8
+  %223 = extractvalue { ptr, i32 } %221, 1
+  store i32 %223, ptr %ehselector.slot, align 4
   br label %ehcleanup625
 
 lpad363:                                          ; preds = %if.then
-  %223 = landingpad { ptr, i32 }
+  %224 = landingpad { ptr, i32 }
           cleanup
-  %224 = extractvalue { ptr, i32 } %223, 0
-  store ptr %224, ptr %exn.slot, align 8
-  %225 = extractvalue { ptr, i32 } %223, 1
-  store i32 %225, ptr %ehselector.slot, align 4
+  %225 = extractvalue { ptr, i32 } %224, 0
+  store ptr %225, ptr %exn.slot, align 8
+  %226 = extractvalue { ptr, i32 } %224, 1
+  store i32 %226, ptr %ehselector.slot, align 4
   br label %ehcleanup369
 
 lpad365:                                          ; preds = %invoke.cont364
-  %226 = landingpad { ptr, i32 }
+  %227 = landingpad { ptr, i32 }
           cleanup
-  %227 = extractvalue { ptr, i32 } %226, 0
-  store ptr %227, ptr %exn.slot, align 8
-  %228 = extractvalue { ptr, i32 } %226, 1
-  store i32 %228, ptr %ehselector.slot, align 4
+  %228 = extractvalue { ptr, i32 } %227, 0
+  store ptr %228, ptr %exn.slot, align 8
+  %229 = extractvalue { ptr, i32 } %227, 1
+  store i32 %229, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp361) #1
   br label %ehcleanup369
 
@@ -3536,21 +3537,21 @@ ehcleanup369:                                     ; preds = %lpad365, %lpad363
   br label %ehcleanup625
 
 lpad373:                                          ; preds = %invoke.cont366
-  %229 = landingpad { ptr, i32 }
+  %230 = landingpad { ptr, i32 }
           cleanup
-  %230 = extractvalue { ptr, i32 } %229, 0
-  store ptr %230, ptr %exn.slot, align 8
-  %231 = extractvalue { ptr, i32 } %229, 1
-  store i32 %231, ptr %ehselector.slot, align 4
+  %231 = extractvalue { ptr, i32 } %230, 0
+  store ptr %231, ptr %exn.slot, align 8
+  %232 = extractvalue { ptr, i32 } %230, 1
+  store i32 %232, ptr %ehselector.slot, align 4
   br label %ehcleanup379
 
 lpad375:                                          ; preds = %invoke.cont374
-  %232 = landingpad { ptr, i32 }
+  %233 = landingpad { ptr, i32 }
           cleanup
-  %233 = extractvalue { ptr, i32 } %232, 0
-  store ptr %233, ptr %exn.slot, align 8
-  %234 = extractvalue { ptr, i32 } %232, 1
-  store i32 %234, ptr %ehselector.slot, align 4
+  %234 = extractvalue { ptr, i32 } %233, 0
+  store ptr %234, ptr %exn.slot, align 8
+  %235 = extractvalue { ptr, i32 } %233, 1
+  store i32 %235, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp371) #1
   br label %ehcleanup379
 
@@ -3559,21 +3560,21 @@ ehcleanup379:                                     ; preds = %lpad375, %lpad373
   br label %ehcleanup625
 
 lpad383:                                          ; preds = %invoke.cont376
-  %235 = landingpad { ptr, i32 }
+  %236 = landingpad { ptr, i32 }
           cleanup
-  %236 = extractvalue { ptr, i32 } %235, 0
-  store ptr %236, ptr %exn.slot, align 8
-  %237 = extractvalue { ptr, i32 } %235, 1
-  store i32 %237, ptr %ehselector.slot, align 4
+  %237 = extractvalue { ptr, i32 } %236, 0
+  store ptr %237, ptr %exn.slot, align 8
+  %238 = extractvalue { ptr, i32 } %236, 1
+  store i32 %238, ptr %ehselector.slot, align 4
   br label %ehcleanup389
 
 lpad385:                                          ; preds = %invoke.cont384
-  %238 = landingpad { ptr, i32 }
+  %239 = landingpad { ptr, i32 }
           cleanup
-  %239 = extractvalue { ptr, i32 } %238, 0
-  store ptr %239, ptr %exn.slot, align 8
-  %240 = extractvalue { ptr, i32 } %238, 1
-  store i32 %240, ptr %ehselector.slot, align 4
+  %240 = extractvalue { ptr, i32 } %239, 0
+  store ptr %240, ptr %exn.slot, align 8
+  %241 = extractvalue { ptr, i32 } %239, 1
+  store i32 %241, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp381) #1
   br label %ehcleanup389
 
@@ -3582,21 +3583,21 @@ ehcleanup389:                                     ; preds = %lpad385, %lpad383
   br label %ehcleanup625
 
 lpad393:                                          ; preds = %invoke.cont386
-  %241 = landingpad { ptr, i32 }
+  %242 = landingpad { ptr, i32 }
           cleanup
-  %242 = extractvalue { ptr, i32 } %241, 0
-  store ptr %242, ptr %exn.slot, align 8
-  %243 = extractvalue { ptr, i32 } %241, 1
-  store i32 %243, ptr %ehselector.slot, align 4
+  %243 = extractvalue { ptr, i32 } %242, 0
+  store ptr %243, ptr %exn.slot, align 8
+  %244 = extractvalue { ptr, i32 } %242, 1
+  store i32 %244, ptr %ehselector.slot, align 4
   br label %ehcleanup399
 
 lpad395:                                          ; preds = %invoke.cont394
-  %244 = landingpad { ptr, i32 }
+  %245 = landingpad { ptr, i32 }
           cleanup
-  %245 = extractvalue { ptr, i32 } %244, 0
-  store ptr %245, ptr %exn.slot, align 8
-  %246 = extractvalue { ptr, i32 } %244, 1
-  store i32 %246, ptr %ehselector.slot, align 4
+  %246 = extractvalue { ptr, i32 } %245, 0
+  store ptr %246, ptr %exn.slot, align 8
+  %247 = extractvalue { ptr, i32 } %245, 1
+  store i32 %247, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp391) #1
   br label %ehcleanup399
 
@@ -3605,21 +3606,21 @@ ehcleanup399:                                     ; preds = %lpad395, %lpad393
   br label %ehcleanup625
 
 lpad403:                                          ; preds = %invoke.cont396
-  %247 = landingpad { ptr, i32 }
+  %248 = landingpad { ptr, i32 }
           cleanup
-  %248 = extractvalue { ptr, i32 } %247, 0
-  store ptr %248, ptr %exn.slot, align 8
-  %249 = extractvalue { ptr, i32 } %247, 1
-  store i32 %249, ptr %ehselector.slot, align 4
+  %249 = extractvalue { ptr, i32 } %248, 0
+  store ptr %249, ptr %exn.slot, align 8
+  %250 = extractvalue { ptr, i32 } %248, 1
+  store i32 %250, ptr %ehselector.slot, align 4
   br label %ehcleanup409
 
 lpad405:                                          ; preds = %invoke.cont404
-  %250 = landingpad { ptr, i32 }
+  %251 = landingpad { ptr, i32 }
           cleanup
-  %251 = extractvalue { ptr, i32 } %250, 0
-  store ptr %251, ptr %exn.slot, align 8
-  %252 = extractvalue { ptr, i32 } %250, 1
-  store i32 %252, ptr %ehselector.slot, align 4
+  %252 = extractvalue { ptr, i32 } %251, 0
+  store ptr %252, ptr %exn.slot, align 8
+  %253 = extractvalue { ptr, i32 } %251, 1
+  store i32 %253, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp401) #1
   br label %ehcleanup409
 
@@ -3628,21 +3629,21 @@ ehcleanup409:                                     ; preds = %lpad405, %lpad403
   br label %ehcleanup625
 
 lpad413:                                          ; preds = %invoke.cont406
-  %253 = landingpad { ptr, i32 }
+  %254 = landingpad { ptr, i32 }
           cleanup
-  %254 = extractvalue { ptr, i32 } %253, 0
-  store ptr %254, ptr %exn.slot, align 8
-  %255 = extractvalue { ptr, i32 } %253, 1
-  store i32 %255, ptr %ehselector.slot, align 4
+  %255 = extractvalue { ptr, i32 } %254, 0
+  store ptr %255, ptr %exn.slot, align 8
+  %256 = extractvalue { ptr, i32 } %254, 1
+  store i32 %256, ptr %ehselector.slot, align 4
   br label %ehcleanup419
 
 lpad415:                                          ; preds = %invoke.cont414
-  %256 = landingpad { ptr, i32 }
+  %257 = landingpad { ptr, i32 }
           cleanup
-  %257 = extractvalue { ptr, i32 } %256, 0
-  store ptr %257, ptr %exn.slot, align 8
-  %258 = extractvalue { ptr, i32 } %256, 1
-  store i32 %258, ptr %ehselector.slot, align 4
+  %258 = extractvalue { ptr, i32 } %257, 0
+  store ptr %258, ptr %exn.slot, align 8
+  %259 = extractvalue { ptr, i32 } %257, 1
+  store i32 %259, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp411) #1
   br label %ehcleanup419
 
@@ -3651,21 +3652,21 @@ ehcleanup419:                                     ; preds = %lpad415, %lpad413
   br label %ehcleanup625
 
 lpad423:                                          ; preds = %invoke.cont416
-  %259 = landingpad { ptr, i32 }
+  %260 = landingpad { ptr, i32 }
           cleanup
-  %260 = extractvalue { ptr, i32 } %259, 0
-  store ptr %260, ptr %exn.slot, align 8
-  %261 = extractvalue { ptr, i32 } %259, 1
-  store i32 %261, ptr %ehselector.slot, align 4
+  %261 = extractvalue { ptr, i32 } %260, 0
+  store ptr %261, ptr %exn.slot, align 8
+  %262 = extractvalue { ptr, i32 } %260, 1
+  store i32 %262, ptr %ehselector.slot, align 4
   br label %ehcleanup429
 
 lpad425:                                          ; preds = %invoke.cont424
-  %262 = landingpad { ptr, i32 }
+  %263 = landingpad { ptr, i32 }
           cleanup
-  %263 = extractvalue { ptr, i32 } %262, 0
-  store ptr %263, ptr %exn.slot, align 8
-  %264 = extractvalue { ptr, i32 } %262, 1
-  store i32 %264, ptr %ehselector.slot, align 4
+  %264 = extractvalue { ptr, i32 } %263, 0
+  store ptr %264, ptr %exn.slot, align 8
+  %265 = extractvalue { ptr, i32 } %263, 1
+  store i32 %265, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp421) #1
   br label %ehcleanup429
 
@@ -3674,21 +3675,21 @@ ehcleanup429:                                     ; preds = %lpad425, %lpad423
   br label %ehcleanup625
 
 lpad433:                                          ; preds = %invoke.cont426
-  %265 = landingpad { ptr, i32 }
+  %266 = landingpad { ptr, i32 }
           cleanup
-  %266 = extractvalue { ptr, i32 } %265, 0
-  store ptr %266, ptr %exn.slot, align 8
-  %267 = extractvalue { ptr, i32 } %265, 1
-  store i32 %267, ptr %ehselector.slot, align 4
+  %267 = extractvalue { ptr, i32 } %266, 0
+  store ptr %267, ptr %exn.slot, align 8
+  %268 = extractvalue { ptr, i32 } %266, 1
+  store i32 %268, ptr %ehselector.slot, align 4
   br label %ehcleanup439
 
 lpad435:                                          ; preds = %invoke.cont434
-  %268 = landingpad { ptr, i32 }
+  %269 = landingpad { ptr, i32 }
           cleanup
-  %269 = extractvalue { ptr, i32 } %268, 0
-  store ptr %269, ptr %exn.slot, align 8
-  %270 = extractvalue { ptr, i32 } %268, 1
-  store i32 %270, ptr %ehselector.slot, align 4
+  %270 = extractvalue { ptr, i32 } %269, 0
+  store ptr %270, ptr %exn.slot, align 8
+  %271 = extractvalue { ptr, i32 } %269, 1
+  store i32 %271, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp431) #1
   br label %ehcleanup439
 
@@ -3697,21 +3698,21 @@ ehcleanup439:                                     ; preds = %lpad435, %lpad433
   br label %ehcleanup625
 
 lpad443:                                          ; preds = %invoke.cont436
-  %271 = landingpad { ptr, i32 }
+  %272 = landingpad { ptr, i32 }
           cleanup
-  %272 = extractvalue { ptr, i32 } %271, 0
-  store ptr %272, ptr %exn.slot, align 8
-  %273 = extractvalue { ptr, i32 } %271, 1
-  store i32 %273, ptr %ehselector.slot, align 4
+  %273 = extractvalue { ptr, i32 } %272, 0
+  store ptr %273, ptr %exn.slot, align 8
+  %274 = extractvalue { ptr, i32 } %272, 1
+  store i32 %274, ptr %ehselector.slot, align 4
   br label %ehcleanup449
 
 lpad445:                                          ; preds = %invoke.cont444
-  %274 = landingpad { ptr, i32 }
+  %275 = landingpad { ptr, i32 }
           cleanup
-  %275 = extractvalue { ptr, i32 } %274, 0
-  store ptr %275, ptr %exn.slot, align 8
-  %276 = extractvalue { ptr, i32 } %274, 1
-  store i32 %276, ptr %ehselector.slot, align 4
+  %276 = extractvalue { ptr, i32 } %275, 0
+  store ptr %276, ptr %exn.slot, align 8
+  %277 = extractvalue { ptr, i32 } %275, 1
+  store i32 %277, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp441) #1
   br label %ehcleanup449
 
@@ -3720,21 +3721,21 @@ ehcleanup449:                                     ; preds = %lpad445, %lpad443
   br label %ehcleanup625
 
 lpad453:                                          ; preds = %invoke.cont446
-  %277 = landingpad { ptr, i32 }
+  %278 = landingpad { ptr, i32 }
           cleanup
-  %278 = extractvalue { ptr, i32 } %277, 0
-  store ptr %278, ptr %exn.slot, align 8
-  %279 = extractvalue { ptr, i32 } %277, 1
-  store i32 %279, ptr %ehselector.slot, align 4
+  %279 = extractvalue { ptr, i32 } %278, 0
+  store ptr %279, ptr %exn.slot, align 8
+  %280 = extractvalue { ptr, i32 } %278, 1
+  store i32 %280, ptr %ehselector.slot, align 4
   br label %ehcleanup459
 
 lpad455:                                          ; preds = %invoke.cont454
-  %280 = landingpad { ptr, i32 }
+  %281 = landingpad { ptr, i32 }
           cleanup
-  %281 = extractvalue { ptr, i32 } %280, 0
-  store ptr %281, ptr %exn.slot, align 8
-  %282 = extractvalue { ptr, i32 } %280, 1
-  store i32 %282, ptr %ehselector.slot, align 4
+  %282 = extractvalue { ptr, i32 } %281, 0
+  store ptr %282, ptr %exn.slot, align 8
+  %283 = extractvalue { ptr, i32 } %281, 1
+  store i32 %283, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp451) #1
   br label %ehcleanup459
 
@@ -3743,21 +3744,21 @@ ehcleanup459:                                     ; preds = %lpad455, %lpad453
   br label %ehcleanup625
 
 lpad463:                                          ; preds = %invoke.cont456
-  %283 = landingpad { ptr, i32 }
+  %284 = landingpad { ptr, i32 }
           cleanup
-  %284 = extractvalue { ptr, i32 } %283, 0
-  store ptr %284, ptr %exn.slot, align 8
-  %285 = extractvalue { ptr, i32 } %283, 1
-  store i32 %285, ptr %ehselector.slot, align 4
+  %285 = extractvalue { ptr, i32 } %284, 0
+  store ptr %285, ptr %exn.slot, align 8
+  %286 = extractvalue { ptr, i32 } %284, 1
+  store i32 %286, ptr %ehselector.slot, align 4
   br label %ehcleanup469
 
 lpad465:                                          ; preds = %invoke.cont464
-  %286 = landingpad { ptr, i32 }
+  %287 = landingpad { ptr, i32 }
           cleanup
-  %287 = extractvalue { ptr, i32 } %286, 0
-  store ptr %287, ptr %exn.slot, align 8
-  %288 = extractvalue { ptr, i32 } %286, 1
-  store i32 %288, ptr %ehselector.slot, align 4
+  %288 = extractvalue { ptr, i32 } %287, 0
+  store ptr %288, ptr %exn.slot, align 8
+  %289 = extractvalue { ptr, i32 } %287, 1
+  store i32 %289, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp461) #1
   br label %ehcleanup469
 
@@ -3766,21 +3767,21 @@ ehcleanup469:                                     ; preds = %lpad465, %lpad463
   br label %ehcleanup625
 
 lpad473:                                          ; preds = %invoke.cont466
-  %289 = landingpad { ptr, i32 }
+  %290 = landingpad { ptr, i32 }
           cleanup
-  %290 = extractvalue { ptr, i32 } %289, 0
-  store ptr %290, ptr %exn.slot, align 8
-  %291 = extractvalue { ptr, i32 } %289, 1
-  store i32 %291, ptr %ehselector.slot, align 4
+  %291 = extractvalue { ptr, i32 } %290, 0
+  store ptr %291, ptr %exn.slot, align 8
+  %292 = extractvalue { ptr, i32 } %290, 1
+  store i32 %292, ptr %ehselector.slot, align 4
   br label %ehcleanup479
 
 lpad475:                                          ; preds = %invoke.cont474
-  %292 = landingpad { ptr, i32 }
+  %293 = landingpad { ptr, i32 }
           cleanup
-  %293 = extractvalue { ptr, i32 } %292, 0
-  store ptr %293, ptr %exn.slot, align 8
-  %294 = extractvalue { ptr, i32 } %292, 1
-  store i32 %294, ptr %ehselector.slot, align 4
+  %294 = extractvalue { ptr, i32 } %293, 0
+  store ptr %294, ptr %exn.slot, align 8
+  %295 = extractvalue { ptr, i32 } %293, 1
+  store i32 %295, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp471) #1
   br label %ehcleanup479
 
@@ -3789,21 +3790,21 @@ ehcleanup479:                                     ; preds = %lpad475, %lpad473
   br label %ehcleanup625
 
 lpad483:                                          ; preds = %invoke.cont476
-  %295 = landingpad { ptr, i32 }
+  %296 = landingpad { ptr, i32 }
           cleanup
-  %296 = extractvalue { ptr, i32 } %295, 0
-  store ptr %296, ptr %exn.slot, align 8
-  %297 = extractvalue { ptr, i32 } %295, 1
-  store i32 %297, ptr %ehselector.slot, align 4
+  %297 = extractvalue { ptr, i32 } %296, 0
+  store ptr %297, ptr %exn.slot, align 8
+  %298 = extractvalue { ptr, i32 } %296, 1
+  store i32 %298, ptr %ehselector.slot, align 4
   br label %ehcleanup489
 
 lpad485:                                          ; preds = %invoke.cont484
-  %298 = landingpad { ptr, i32 }
+  %299 = landingpad { ptr, i32 }
           cleanup
-  %299 = extractvalue { ptr, i32 } %298, 0
-  store ptr %299, ptr %exn.slot, align 8
-  %300 = extractvalue { ptr, i32 } %298, 1
-  store i32 %300, ptr %ehselector.slot, align 4
+  %300 = extractvalue { ptr, i32 } %299, 0
+  store ptr %300, ptr %exn.slot, align 8
+  %301 = extractvalue { ptr, i32 } %299, 1
+  store i32 %301, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp481) #1
   br label %ehcleanup489
 
@@ -3812,21 +3813,21 @@ ehcleanup489:                                     ; preds = %lpad485, %lpad483
   br label %ehcleanup625
 
 lpad493:                                          ; preds = %invoke.cont486
-  %301 = landingpad { ptr, i32 }
+  %302 = landingpad { ptr, i32 }
           cleanup
-  %302 = extractvalue { ptr, i32 } %301, 0
-  store ptr %302, ptr %exn.slot, align 8
-  %303 = extractvalue { ptr, i32 } %301, 1
-  store i32 %303, ptr %ehselector.slot, align 4
+  %303 = extractvalue { ptr, i32 } %302, 0
+  store ptr %303, ptr %exn.slot, align 8
+  %304 = extractvalue { ptr, i32 } %302, 1
+  store i32 %304, ptr %ehselector.slot, align 4
   br label %ehcleanup499
 
 lpad495:                                          ; preds = %invoke.cont494
-  %304 = landingpad { ptr, i32 }
+  %305 = landingpad { ptr, i32 }
           cleanup
-  %305 = extractvalue { ptr, i32 } %304, 0
-  store ptr %305, ptr %exn.slot, align 8
-  %306 = extractvalue { ptr, i32 } %304, 1
-  store i32 %306, ptr %ehselector.slot, align 4
+  %306 = extractvalue { ptr, i32 } %305, 0
+  store ptr %306, ptr %exn.slot, align 8
+  %307 = extractvalue { ptr, i32 } %305, 1
+  store i32 %307, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp491) #1
   br label %ehcleanup499
 
@@ -3835,21 +3836,21 @@ ehcleanup499:                                     ; preds = %lpad495, %lpad493
   br label %ehcleanup625
 
 lpad503:                                          ; preds = %invoke.cont496
-  %307 = landingpad { ptr, i32 }
+  %308 = landingpad { ptr, i32 }
           cleanup
-  %308 = extractvalue { ptr, i32 } %307, 0
-  store ptr %308, ptr %exn.slot, align 8
-  %309 = extractvalue { ptr, i32 } %307, 1
-  store i32 %309, ptr %ehselector.slot, align 4
+  %309 = extractvalue { ptr, i32 } %308, 0
+  store ptr %309, ptr %exn.slot, align 8
+  %310 = extractvalue { ptr, i32 } %308, 1
+  store i32 %310, ptr %ehselector.slot, align 4
   br label %ehcleanup509
 
 lpad505:                                          ; preds = %invoke.cont504
-  %310 = landingpad { ptr, i32 }
+  %311 = landingpad { ptr, i32 }
           cleanup
-  %311 = extractvalue { ptr, i32 } %310, 0
-  store ptr %311, ptr %exn.slot, align 8
-  %312 = extractvalue { ptr, i32 } %310, 1
-  store i32 %312, ptr %ehselector.slot, align 4
+  %312 = extractvalue { ptr, i32 } %311, 0
+  store ptr %312, ptr %exn.slot, align 8
+  %313 = extractvalue { ptr, i32 } %311, 1
+  store i32 %313, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp501) #1
   br label %ehcleanup509
 
@@ -3858,21 +3859,21 @@ ehcleanup509:                                     ; preds = %lpad505, %lpad503
   br label %ehcleanup625
 
 lpad513:                                          ; preds = %invoke.cont506
-  %313 = landingpad { ptr, i32 }
+  %314 = landingpad { ptr, i32 }
           cleanup
-  %314 = extractvalue { ptr, i32 } %313, 0
-  store ptr %314, ptr %exn.slot, align 8
-  %315 = extractvalue { ptr, i32 } %313, 1
-  store i32 %315, ptr %ehselector.slot, align 4
+  %315 = extractvalue { ptr, i32 } %314, 0
+  store ptr %315, ptr %exn.slot, align 8
+  %316 = extractvalue { ptr, i32 } %314, 1
+  store i32 %316, ptr %ehselector.slot, align 4
   br label %ehcleanup519
 
 lpad515:                                          ; preds = %invoke.cont514
-  %316 = landingpad { ptr, i32 }
+  %317 = landingpad { ptr, i32 }
           cleanup
-  %317 = extractvalue { ptr, i32 } %316, 0
-  store ptr %317, ptr %exn.slot, align 8
-  %318 = extractvalue { ptr, i32 } %316, 1
-  store i32 %318, ptr %ehselector.slot, align 4
+  %318 = extractvalue { ptr, i32 } %317, 0
+  store ptr %318, ptr %exn.slot, align 8
+  %319 = extractvalue { ptr, i32 } %317, 1
+  store i32 %319, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp511) #1
   br label %ehcleanup519
 
@@ -3881,21 +3882,21 @@ ehcleanup519:                                     ; preds = %lpad515, %lpad513
   br label %ehcleanup625
 
 lpad523:                                          ; preds = %invoke.cont516
-  %319 = landingpad { ptr, i32 }
+  %320 = landingpad { ptr, i32 }
           cleanup
-  %320 = extractvalue { ptr, i32 } %319, 0
-  store ptr %320, ptr %exn.slot, align 8
-  %321 = extractvalue { ptr, i32 } %319, 1
-  store i32 %321, ptr %ehselector.slot, align 4
+  %321 = extractvalue { ptr, i32 } %320, 0
+  store ptr %321, ptr %exn.slot, align 8
+  %322 = extractvalue { ptr, i32 } %320, 1
+  store i32 %322, ptr %ehselector.slot, align 4
   br label %ehcleanup529
 
 lpad525:                                          ; preds = %invoke.cont524
-  %322 = landingpad { ptr, i32 }
+  %323 = landingpad { ptr, i32 }
           cleanup
-  %323 = extractvalue { ptr, i32 } %322, 0
-  store ptr %323, ptr %exn.slot, align 8
-  %324 = extractvalue { ptr, i32 } %322, 1
-  store i32 %324, ptr %ehselector.slot, align 4
+  %324 = extractvalue { ptr, i32 } %323, 0
+  store ptr %324, ptr %exn.slot, align 8
+  %325 = extractvalue { ptr, i32 } %323, 1
+  store i32 %325, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp521) #1
   br label %ehcleanup529
 
@@ -3905,8 +3906,8 @@ ehcleanup529:                                     ; preds = %lpad525, %lpad523
 
 if.end:                                           ; preds = %invoke.cont526, %invoke.cont358
   %d_lex530 = getelementptr inbounds %"class.cvc5::parser::Smt2CmdParser", ptr %this1, i32 0, i32 1
-  %325 = load ptr, ptr %d_lex530, align 8
-  %call532 = invoke noundef zeroext i1 @_ZNK4cvc56parser9Smt2Lexer7isSygusEv(ptr noundef nonnull align 8 dereferenceable(33178) %325)
+  %326 = load ptr, ptr %d_lex530, align 8
+  %call532 = invoke noundef zeroext i1 @_ZNK4cvc56parser9Smt2Lexer7isSygusEv(ptr noundef nonnull align 8 dereferenceable(33178) %326)
           to label %invoke.cont531 unwind label %lpad357
 
 invoke.cont531:                                   ; preds = %if.end
@@ -4033,21 +4034,21 @@ invoke.cont620:                                   ; preds = %invoke.cont618
   br label %if.end624
 
 lpad537:                                          ; preds = %if.then533
-  %326 = landingpad { ptr, i32 }
+  %327 = landingpad { ptr, i32 }
           cleanup
-  %327 = extractvalue { ptr, i32 } %326, 0
-  store ptr %327, ptr %exn.slot, align 8
-  %328 = extractvalue { ptr, i32 } %326, 1
-  store i32 %328, ptr %ehselector.slot, align 4
+  %328 = extractvalue { ptr, i32 } %327, 0
+  store ptr %328, ptr %exn.slot, align 8
+  %329 = extractvalue { ptr, i32 } %327, 1
+  store i32 %329, ptr %ehselector.slot, align 4
   br label %ehcleanup543
 
 lpad539:                                          ; preds = %invoke.cont538
-  %329 = landingpad { ptr, i32 }
+  %330 = landingpad { ptr, i32 }
           cleanup
-  %330 = extractvalue { ptr, i32 } %329, 0
-  store ptr %330, ptr %exn.slot, align 8
-  %331 = extractvalue { ptr, i32 } %329, 1
-  store i32 %331, ptr %ehselector.slot, align 4
+  %331 = extractvalue { ptr, i32 } %330, 0
+  store ptr %331, ptr %exn.slot, align 8
+  %332 = extractvalue { ptr, i32 } %330, 1
+  store i32 %332, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp535) #1
   br label %ehcleanup543
 
@@ -4056,21 +4057,21 @@ ehcleanup543:                                     ; preds = %lpad539, %lpad537
   br label %ehcleanup625
 
 lpad547:                                          ; preds = %invoke.cont540
-  %332 = landingpad { ptr, i32 }
+  %333 = landingpad { ptr, i32 }
           cleanup
-  %333 = extractvalue { ptr, i32 } %332, 0
-  store ptr %333, ptr %exn.slot, align 8
-  %334 = extractvalue { ptr, i32 } %332, 1
-  store i32 %334, ptr %ehselector.slot, align 4
+  %334 = extractvalue { ptr, i32 } %333, 0
+  store ptr %334, ptr %exn.slot, align 8
+  %335 = extractvalue { ptr, i32 } %333, 1
+  store i32 %335, ptr %ehselector.slot, align 4
   br label %ehcleanup553
 
 lpad549:                                          ; preds = %invoke.cont548
-  %335 = landingpad { ptr, i32 }
+  %336 = landingpad { ptr, i32 }
           cleanup
-  %336 = extractvalue { ptr, i32 } %335, 0
-  store ptr %336, ptr %exn.slot, align 8
-  %337 = extractvalue { ptr, i32 } %335, 1
-  store i32 %337, ptr %ehselector.slot, align 4
+  %337 = extractvalue { ptr, i32 } %336, 0
+  store ptr %337, ptr %exn.slot, align 8
+  %338 = extractvalue { ptr, i32 } %336, 1
+  store i32 %338, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp545) #1
   br label %ehcleanup553
 
@@ -4079,21 +4080,21 @@ ehcleanup553:                                     ; preds = %lpad549, %lpad547
   br label %ehcleanup625
 
 lpad557:                                          ; preds = %invoke.cont550
-  %338 = landingpad { ptr, i32 }
+  %339 = landingpad { ptr, i32 }
           cleanup
-  %339 = extractvalue { ptr, i32 } %338, 0
-  store ptr %339, ptr %exn.slot, align 8
-  %340 = extractvalue { ptr, i32 } %338, 1
-  store i32 %340, ptr %ehselector.slot, align 4
+  %340 = extractvalue { ptr, i32 } %339, 0
+  store ptr %340, ptr %exn.slot, align 8
+  %341 = extractvalue { ptr, i32 } %339, 1
+  store i32 %341, ptr %ehselector.slot, align 4
   br label %ehcleanup563
 
 lpad559:                                          ; preds = %invoke.cont558
-  %341 = landingpad { ptr, i32 }
+  %342 = landingpad { ptr, i32 }
           cleanup
-  %342 = extractvalue { ptr, i32 } %341, 0
-  store ptr %342, ptr %exn.slot, align 8
-  %343 = extractvalue { ptr, i32 } %341, 1
-  store i32 %343, ptr %ehselector.slot, align 4
+  %343 = extractvalue { ptr, i32 } %342, 0
+  store ptr %343, ptr %exn.slot, align 8
+  %344 = extractvalue { ptr, i32 } %342, 1
+  store i32 %344, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp555) #1
   br label %ehcleanup563
 
@@ -4102,21 +4103,21 @@ ehcleanup563:                                     ; preds = %lpad559, %lpad557
   br label %ehcleanup625
 
 lpad567:                                          ; preds = %invoke.cont560
-  %344 = landingpad { ptr, i32 }
+  %345 = landingpad { ptr, i32 }
           cleanup
-  %345 = extractvalue { ptr, i32 } %344, 0
-  store ptr %345, ptr %exn.slot, align 8
-  %346 = extractvalue { ptr, i32 } %344, 1
-  store i32 %346, ptr %ehselector.slot, align 4
+  %346 = extractvalue { ptr, i32 } %345, 0
+  store ptr %346, ptr %exn.slot, align 8
+  %347 = extractvalue { ptr, i32 } %345, 1
+  store i32 %347, ptr %ehselector.slot, align 4
   br label %ehcleanup573
 
 lpad569:                                          ; preds = %invoke.cont568
-  %347 = landingpad { ptr, i32 }
+  %348 = landingpad { ptr, i32 }
           cleanup
-  %348 = extractvalue { ptr, i32 } %347, 0
-  store ptr %348, ptr %exn.slot, align 8
-  %349 = extractvalue { ptr, i32 } %347, 1
-  store i32 %349, ptr %ehselector.slot, align 4
+  %349 = extractvalue { ptr, i32 } %348, 0
+  store ptr %349, ptr %exn.slot, align 8
+  %350 = extractvalue { ptr, i32 } %348, 1
+  store i32 %350, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp565) #1
   br label %ehcleanup573
 
@@ -4125,21 +4126,21 @@ ehcleanup573:                                     ; preds = %lpad569, %lpad567
   br label %ehcleanup625
 
 lpad577:                                          ; preds = %invoke.cont570
-  %350 = landingpad { ptr, i32 }
+  %351 = landingpad { ptr, i32 }
           cleanup
-  %351 = extractvalue { ptr, i32 } %350, 0
-  store ptr %351, ptr %exn.slot, align 8
-  %352 = extractvalue { ptr, i32 } %350, 1
-  store i32 %352, ptr %ehselector.slot, align 4
+  %352 = extractvalue { ptr, i32 } %351, 0
+  store ptr %352, ptr %exn.slot, align 8
+  %353 = extractvalue { ptr, i32 } %351, 1
+  store i32 %353, ptr %ehselector.slot, align 4
   br label %ehcleanup583
 
 lpad579:                                          ; preds = %invoke.cont578
-  %353 = landingpad { ptr, i32 }
+  %354 = landingpad { ptr, i32 }
           cleanup
-  %354 = extractvalue { ptr, i32 } %353, 0
-  store ptr %354, ptr %exn.slot, align 8
-  %355 = extractvalue { ptr, i32 } %353, 1
-  store i32 %355, ptr %ehselector.slot, align 4
+  %355 = extractvalue { ptr, i32 } %354, 0
+  store ptr %355, ptr %exn.slot, align 8
+  %356 = extractvalue { ptr, i32 } %354, 1
+  store i32 %356, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp575) #1
   br label %ehcleanup583
 
@@ -4148,21 +4149,21 @@ ehcleanup583:                                     ; preds = %lpad579, %lpad577
   br label %ehcleanup625
 
 lpad587:                                          ; preds = %invoke.cont580
-  %356 = landingpad { ptr, i32 }
+  %357 = landingpad { ptr, i32 }
           cleanup
-  %357 = extractvalue { ptr, i32 } %356, 0
-  store ptr %357, ptr %exn.slot, align 8
-  %358 = extractvalue { ptr, i32 } %356, 1
-  store i32 %358, ptr %ehselector.slot, align 4
+  %358 = extractvalue { ptr, i32 } %357, 0
+  store ptr %358, ptr %exn.slot, align 8
+  %359 = extractvalue { ptr, i32 } %357, 1
+  store i32 %359, ptr %ehselector.slot, align 4
   br label %ehcleanup593
 
 lpad589:                                          ; preds = %invoke.cont588
-  %359 = landingpad { ptr, i32 }
+  %360 = landingpad { ptr, i32 }
           cleanup
-  %360 = extractvalue { ptr, i32 } %359, 0
-  store ptr %360, ptr %exn.slot, align 8
-  %361 = extractvalue { ptr, i32 } %359, 1
-  store i32 %361, ptr %ehselector.slot, align 4
+  %361 = extractvalue { ptr, i32 } %360, 0
+  store ptr %361, ptr %exn.slot, align 8
+  %362 = extractvalue { ptr, i32 } %360, 1
+  store i32 %362, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp585) #1
   br label %ehcleanup593
 
@@ -4171,21 +4172,21 @@ ehcleanup593:                                     ; preds = %lpad589, %lpad587
   br label %ehcleanup625
 
 lpad597:                                          ; preds = %invoke.cont590
-  %362 = landingpad { ptr, i32 }
+  %363 = landingpad { ptr, i32 }
           cleanup
-  %363 = extractvalue { ptr, i32 } %362, 0
-  store ptr %363, ptr %exn.slot, align 8
-  %364 = extractvalue { ptr, i32 } %362, 1
-  store i32 %364, ptr %ehselector.slot, align 4
+  %364 = extractvalue { ptr, i32 } %363, 0
+  store ptr %364, ptr %exn.slot, align 8
+  %365 = extractvalue { ptr, i32 } %363, 1
+  store i32 %365, ptr %ehselector.slot, align 4
   br label %ehcleanup603
 
 lpad599:                                          ; preds = %invoke.cont598
-  %365 = landingpad { ptr, i32 }
+  %366 = landingpad { ptr, i32 }
           cleanup
-  %366 = extractvalue { ptr, i32 } %365, 0
-  store ptr %366, ptr %exn.slot, align 8
-  %367 = extractvalue { ptr, i32 } %365, 1
-  store i32 %367, ptr %ehselector.slot, align 4
+  %367 = extractvalue { ptr, i32 } %366, 0
+  store ptr %367, ptr %exn.slot, align 8
+  %368 = extractvalue { ptr, i32 } %366, 1
+  store i32 %368, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp595) #1
   br label %ehcleanup603
 
@@ -4194,21 +4195,21 @@ ehcleanup603:                                     ; preds = %lpad599, %lpad597
   br label %ehcleanup625
 
 lpad607:                                          ; preds = %invoke.cont600
-  %368 = landingpad { ptr, i32 }
+  %369 = landingpad { ptr, i32 }
           cleanup
-  %369 = extractvalue { ptr, i32 } %368, 0
-  store ptr %369, ptr %exn.slot, align 8
-  %370 = extractvalue { ptr, i32 } %368, 1
-  store i32 %370, ptr %ehselector.slot, align 4
+  %370 = extractvalue { ptr, i32 } %369, 0
+  store ptr %370, ptr %exn.slot, align 8
+  %371 = extractvalue { ptr, i32 } %369, 1
+  store i32 %371, ptr %ehselector.slot, align 4
   br label %ehcleanup613
 
 lpad609:                                          ; preds = %invoke.cont608
-  %371 = landingpad { ptr, i32 }
+  %372 = landingpad { ptr, i32 }
           cleanup
-  %372 = extractvalue { ptr, i32 } %371, 0
-  store ptr %372, ptr %exn.slot, align 8
-  %373 = extractvalue { ptr, i32 } %371, 1
-  store i32 %373, ptr %ehselector.slot, align 4
+  %373 = extractvalue { ptr, i32 } %372, 0
+  store ptr %373, ptr %exn.slot, align 8
+  %374 = extractvalue { ptr, i32 } %372, 1
+  store i32 %374, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp605) #1
   br label %ehcleanup613
 
@@ -4217,21 +4218,21 @@ ehcleanup613:                                     ; preds = %lpad609, %lpad607
   br label %ehcleanup625
 
 lpad617:                                          ; preds = %invoke.cont610
-  %374 = landingpad { ptr, i32 }
+  %375 = landingpad { ptr, i32 }
           cleanup
-  %375 = extractvalue { ptr, i32 } %374, 0
-  store ptr %375, ptr %exn.slot, align 8
-  %376 = extractvalue { ptr, i32 } %374, 1
-  store i32 %376, ptr %ehselector.slot, align 4
+  %376 = extractvalue { ptr, i32 } %375, 0
+  store ptr %376, ptr %exn.slot, align 8
+  %377 = extractvalue { ptr, i32 } %375, 1
+  store i32 %377, ptr %ehselector.slot, align 4
   br label %ehcleanup623
 
 lpad619:                                          ; preds = %invoke.cont618
-  %377 = landingpad { ptr, i32 }
+  %378 = landingpad { ptr, i32 }
           cleanup
-  %378 = extractvalue { ptr, i32 } %377, 0
-  store ptr %378, ptr %exn.slot, align 8
-  %379 = extractvalue { ptr, i32 } %377, 1
-  store i32 %379, ptr %ehselector.slot, align 4
+  %379 = extractvalue { ptr, i32 } %378, 0
+  store ptr %379, ptr %exn.slot, align 8
+  %380 = extractvalue { ptr, i32 } %378, 1
+  store i32 %380, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp615) #1
   br label %ehcleanup623
 
@@ -10923,10 +10924,11 @@ entry:
   store i8 %frombool, ptr %isNext.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser17CheckSynthCommandE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc56parser17CheckSynthCommandE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_isNext = getelementptr inbounds %"class.cvc5::parser::CheckSynthCommand", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %isNext.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %isNext.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %d_isNext, align 8
   %d_result = getelementptr inbounds %"class.cvc5::parser::CheckSynthCommand", ptr %this1, i32 0, i32 2
@@ -10942,21 +10944,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN4cvc511SynthResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %d_result) #1
   br label %ehcleanup
 
@@ -12805,7 +12807,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser11QuitCommandE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc56parser11QuitCommandE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12826,13 +12829,14 @@ entry:
   store ptr %g, ptr %g.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser16FindSynthCommandE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc56parser16FindSynthCommandE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_fst = getelementptr inbounds %"class.cvc5::parser::FindSynthCommand", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %fst.addr, align 4
-  store i32 %0, ptr %d_fst, align 8
+  %1 = load i32, ptr %fst.addr, align 4
+  store i32 %1, ptr %d_fst, align 8
   %d_grammar = getelementptr inbounds %"class.cvc5::parser::FindSynthCommand", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %g.addr, align 8
-  store ptr %1, ptr %d_grammar, align 8
+  %2 = load ptr, ptr %g.addr, align 8
+  store ptr %2, ptr %d_grammar, align 8
   %d_result = getelementptr inbounds %"class.cvc5::parser::FindSynthCommand", ptr %this1, i32 0, i32 3
   invoke void @_ZN4cvc54TermC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_result)
           to label %invoke.cont unwind label %lpad
@@ -12841,12 +12845,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN4cvc56parser3CmdD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #1
   br label %eh.resume
 
@@ -12867,7 +12871,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser20FindSynthNextCommandE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc56parser20FindSynthNextCommandE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_result = getelementptr inbounds %"class.cvc5::parser::FindSynthNextCommand", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc54TermC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_result)
           to label %invoke.cont unwind label %lpad
@@ -12876,12 +12881,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN4cvc56parser3CmdD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #1
   br label %eh.resume
 
@@ -13026,7 +13031,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser12ResetCommandE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc56parser12ResetCommandE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13037,7 +13043,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser22ResetAssertionsCommandE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4cvc56parser22ResetAssertionsCommandE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13190,7 +13197,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_table = getelementptr inbounds %"class.cvc5::parser::Smt2CmdParser", ptr %this1, i32 0, i32 4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc56parser5TokenESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_table) #1
   ret void

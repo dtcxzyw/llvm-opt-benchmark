@@ -49,38 +49,39 @@ entry:
   store i32 %signo, ptr %signo.addr, align 4
   store ptr @_ZN4abslL19failure_signal_dataE, ptr %__range2, align 8
   store ptr @_ZN4abslL19failure_signal_dataE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (%"struct.absl::FailureSignalData", ptr @_ZN4abslL19failure_signal_dataE, i64 7), ptr %__end2, align 8
+  %0 = getelementptr inbounds %"struct.absl::FailureSignalData", ptr @_ZN4abslL19failure_signal_dataE, i64 7
+  store ptr %0, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin2, align 8
-  %1 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin2, align 8
+  %2 = load ptr, ptr %__end2, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin2, align 8
-  store ptr %2, ptr %it, align 8
-  %3 = load ptr, ptr %it, align 8
-  %signo1 = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %signo1, align 8
-  %5 = load i32, ptr %signo.addr, align 4
-  %cmp2 = icmp eq i32 %4, %5
+  %3 = load ptr, ptr %__begin2, align 8
+  store ptr %3, ptr %it, align 8
+  %4 = load ptr, ptr %it, align 8
+  %signo1 = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %4, i32 0, i32 0
+  %5 = load i32, ptr %signo1, align 8
+  %6 = load i32, ptr %signo.addr, align 4
+  %cmp2 = icmp eq i32 %5, %6
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %6 = load ptr, ptr %it, align 8
-  %as_string = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %as_string, align 8
-  store ptr %7, ptr %retval, align 8
+  %7 = load ptr, ptr %it, align 8
+  %as_string = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %as_string, align 8
+  store ptr %8, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %8 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %8, i32 1
+  %9 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %9, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
@@ -89,8 +90,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %9 = load ptr, ptr %retval, align 8
-  ret ptr %9
+  %10 = load ptr, ptr %retval, align 8
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -106,25 +107,26 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @_ZN4abslL11fsh_optionsE, ptr align 8 %0, i64 24, i1 false)
   store ptr @_ZN4abslL19failure_signal_dataE, ptr %__range1, align 8
   store ptr @_ZN4abslL19failure_signal_dataE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.absl::FailureSignalData", ptr @_ZN4abslL19failure_signal_dataE, i64 7), ptr %__end1, align 8
+  %1 = getelementptr inbounds %"struct.absl::FailureSignalData", ptr @_ZN4abslL19failure_signal_dataE, i64 7
+  store ptr %1, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr %__begin1, align 8
-  %2 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %1, %2
+  %2 = load ptr, ptr %__begin1, align 8
+  %3 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %2, %3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %__begin1, align 8
-  store ptr %3, ptr %it, align 8
-  %4 = load ptr, ptr %it, align 8
-  call void @_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE(ptr noundef %4, ptr noundef @_ZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPv)
+  %4 = load ptr, ptr %__begin1, align 8
+  store ptr %4, ptr %it, align 8
+  %5 = load ptr, ptr %it, align 8
+  call void @_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE(ptr noundef %5, ptr noundef @_ZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPv)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %5 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %5, i32 1
+  %6 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %6, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -155,31 +157,32 @@ entry:
   %1 = load i32, ptr %sa_flags1, align 8
   %or2 = or i32 %1, 1073741824
   store i32 %or2, ptr %sa_flags1, align 8
-  %2 = load i8, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 1), align 1
-  %tobool = trunc i8 %2 to i1
+  %2 = getelementptr inbounds %"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 1
+  %3 = load i8, ptr %2, align 1
+  %tobool = trunc i8 %3 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call3 = call noundef i32 @_ZN4abslL24MaybeSetupAlternateStackEv()
   %sa_flags4 = getelementptr inbounds %struct.sigaction, ptr %act, i32 0, i32 2
-  %3 = load i32, ptr %sa_flags4, align 8
-  %or5 = or i32 %3, %call3
+  %4 = load i32, ptr %sa_flags4, align 8
+  %or5 = or i32 %4, %call3
   store i32 %or5, ptr %sa_flags4, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load ptr, ptr %handler.addr, align 8
+  %5 = load ptr, ptr %handler.addr, align 8
   %__sigaction_handler = getelementptr inbounds %struct.sigaction, ptr %act, i32 0, i32 0
-  store ptr %4, ptr %__sigaction_handler, align 8
+  store ptr %5, ptr %__sigaction_handler, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.end
-  %5 = load ptr, ptr %data.addr, align 8
-  %signo = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %signo, align 8
-  %7 = load ptr, ptr %data.addr, align 8
-  %previous_action = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %7, i32 0, i32 2
-  %call6 = call i32 @sigaction(i32 noundef %6, ptr noundef %act, ptr noundef %previous_action) #6
+  %6 = load ptr, ptr %data.addr, align 8
+  %signo = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %6, i32 0, i32 0
+  %7 = load i32, ptr %signo, align 8
+  %8 = load ptr, ptr %data.addr, align 8
+  %previous_action = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %8, i32 0, i32 2
+  %call6 = call i32 @sigaction(i32 noundef %7, ptr noundef %act, ptr noundef %previous_action) #6
   %cmp = icmp eq i32 %call6, 0
   %lnot = xor i1 %cmp, true
   br i1 %lnot, label %if.then7, label %if.end11
@@ -188,8 +191,10 @@ if.then7:                                         ; preds = %do.body
   br label %do.body8
 
 do.body8:                                         ; preds = %if.then7
-  store ptr getelementptr (i8, ptr @.str.8, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str.8, i64 114), i32 noundef 226, ptr noundef @.str.9, ptr noundef @.str.10, ptr noundef @.str.11)
+  %9 = getelementptr i8, ptr @.str.8, i64 114
+  store ptr %9, ptr %absl_raw_log_internal_basename, align 8
+  %10 = getelementptr i8, ptr @.str.8, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %10, i32 noundef 226, ptr noundef @.str.9, ptr noundef @.str.10, ptr noundef @.str.11)
   br label %do.body9
 
 do.body9:                                         ; preds = %do.body8
@@ -566,23 +571,25 @@ if.then:                                          ; preds = %_ZNSt13__atomic_bas
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str.8, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  %82 = load i32, ptr %signo.addr, align 4
-  %83 = load ptr, ptr %ucontext.addr, align 8
-  %call2 = call noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv(ptr noundef %83)
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef getelementptr (i8, ptr @.str.8, i64 114), i32 noundef 348, ptr noundef @.str.14, i32 noundef %82, ptr noundef %call2)
+  %82 = getelementptr i8, ptr @.str.8, i64 114
+  store ptr %82, ptr %absl_raw_log_internal_basename, align 8
+  %83 = load i32, ptr %signo.addr, align 4
+  %84 = load ptr, ptr %ucontext.addr, align 8
+  %call2 = call noundef ptr @_ZN4absl18debugging_internal17GetProgramCounterEPv(ptr noundef %84)
+  %85 = getelementptr i8, ptr @.str.8, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 2, ptr noundef %85, i32 noundef 348, ptr noundef @.str.14, i32 noundef %83, ptr noundef %call2)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %84 = load i32, ptr %this_tid, align 4
-  %85 = load i32, ptr %previous_failed_tid, align 4
-  %cmp = icmp ne i32 %84, %85
+  %86 = load i32, ptr %this_tid, align 4
+  %87 = load i32, ptr %previous_failed_tid, align 4
+  %cmp = icmp ne i32 %86, %87
   br i1 %cmp, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %do.end
   call void @_ZN4abslL23PortableSleepForSecondsEi(i32 noundef 3)
-  %86 = load i32, ptr %signo.addr, align 4
-  call void @_ZN4abslL21RaiseToDefaultHandlerEi(i32 noundef %86)
+  %88 = load i32, ptr %signo.addr, align 4
+  call void @_ZN4abslL21RaiseToDefaultHandlerEi(i32 noundef %88)
   br label %if.end17
 
 if.end:                                           ; preds = %do.end
@@ -592,50 +599,56 @@ if.end4:                                          ; preds = %if.end, %_ZNSt13__a
   store i32 -1, ptr %my_cpu, align 4
   %call5 = call i32 @sched_getcpu() #6
   store i32 %call5, ptr %my_cpu, align 4
-  %87 = load i32, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 2), align 4
-  %cmp6 = icmp sgt i32 %87, 0
+  %89 = getelementptr inbounds %"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 2
+  %90 = load i32, ptr %89, align 4
+  %cmp6 = icmp sgt i32 %90, 0
   br i1 %cmp6, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %if.end4
   %call8 = call i32 @alarm(i32 noundef 0) #6
   %call9 = call ptr @signal(i32 noundef 14, ptr noundef @_ZN4abslL27ImmediateAbortSignalHandlerEi) #6
-  %88 = load i32, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 2), align 4
-  %call10 = call i32 @alarm(i32 noundef %88) #6
+  %91 = getelementptr inbounds %"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 2
+  %92 = load i32, ptr %91, align 4
+  %call10 = call i32 @alarm(i32 noundef %92) #6
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then7, %if.end4
-  %89 = load i32, ptr %signo.addr, align 4
-  %90 = load ptr, ptr %ucontext.addr, align 8
-  %91 = load i32, ptr %my_cpu, align 4
-  %call12 = call noundef ptr @"_ZZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPvENK3$_0cvPFvPKcEEv"(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #6
-  call void @_ZN4abslL16WriteFailureInfoEiPviPFvPKcE(i32 noundef %89, ptr noundef %90, i32 noundef %91, ptr noundef %call12)
-  %92 = load ptr, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 4), align 8
-  %cmp13 = icmp ne ptr %92, null
-  br i1 %cmp13, label %if.then14, label %if.end15
-
-if.then14:                                        ; preds = %if.end11
   %93 = load i32, ptr %signo.addr, align 4
   %94 = load ptr, ptr %ucontext.addr, align 8
   %95 = load i32, ptr %my_cpu, align 4
-  %96 = load ptr, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 4), align 8
-  call void @_ZN4abslL16WriteFailureInfoEiPviPFvPKcE(i32 noundef %93, ptr noundef %94, i32 noundef %95, ptr noundef %96)
-  %97 = load ptr, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 4), align 8
-  call void %97(ptr noundef null)
+  %call12 = call noundef ptr @"_ZZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPvENK3$_0cvPFvPKcEEv"(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #6
+  call void @_ZN4abslL16WriteFailureInfoEiPviPFvPKcE(i32 noundef %93, ptr noundef %94, i32 noundef %95, ptr noundef %call12)
+  %96 = getelementptr inbounds %"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 4
+  %97 = load ptr, ptr %96, align 8
+  %cmp13 = icmp ne ptr %97, null
+  br i1 %cmp13, label %if.then14, label %if.end15
+
+if.then14:                                        ; preds = %if.end11
+  %98 = load i32, ptr %signo.addr, align 4
+  %99 = load ptr, ptr %ucontext.addr, align 8
+  %100 = load i32, ptr %my_cpu, align 4
+  %101 = getelementptr inbounds %"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 4
+  %102 = load ptr, ptr %101, align 8
+  call void @_ZN4abslL16WriteFailureInfoEiPviPFvPKcE(i32 noundef %98, ptr noundef %99, i32 noundef %100, ptr noundef %102)
+  %103 = getelementptr inbounds %"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 4
+  %104 = load ptr, ptr %103, align 8
+  call void %104(ptr noundef null)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.end11
-  %98 = load i8, ptr getelementptr inbounds (%"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 3), align 8
-  %tobool = trunc i8 %98 to i1
+  %105 = getelementptr inbounds %"struct.absl::FailureSignalHandlerOptions", ptr @_ZN4abslL11fsh_optionsE, i32 0, i32 3
+  %106 = load i8, ptr %105, align 8
+  %tobool = trunc i8 %106 to i1
   br i1 %tobool, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.end15
-  %99 = load i32, ptr %signo.addr, align 4
-  call void @_ZN4abslL22RaiseToPreviousHandlerEi(i32 noundef %99)
+  %107 = load i32, ptr %signo.addr, align 4
+  call void @_ZN4abslL22RaiseToPreviousHandlerEi(i32 noundef %107)
   br label %if.end17
 
 if.else:                                          ; preds = %if.end15
-  %100 = load i32, ptr %signo.addr, align 4
-  call void @_ZN4abslL21RaiseToDefaultHandlerEi(i32 noundef %100)
+  %108 = load i32, ptr %signo.addr, align 4
+  call void @_ZN4abslL21RaiseToDefaultHandlerEi(i32 noundef %108)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else, %if.then16, %if.then3
@@ -736,15 +749,18 @@ entry:
   store ptr %call5, ptr %ss_sp, align 8
   %ss_sp6 = getelementptr inbounds %struct.stack_t, ptr %sigstk, i32 0, i32 0
   %5 = load ptr, ptr %ss_sp6, align 8
-  %cmp = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
+  %6 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %5, %6
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str.8, i64 114), ptr %absl_raw_log_internal_basename, align 8
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str.8, i64 114), i32 noundef 167, ptr noundef @.str.12)
+  %7 = getelementptr i8, ptr @.str.8, i64 114
+  store ptr %7, ptr %absl_raw_log_internal_basename, align 8
+  %8 = getelementptr i8, ptr @.str.8, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %8, i32 noundef 167, ptr noundef @.str.12)
   br label %do.body7
 
 do.body7:                                         ; preds = %do.body
@@ -765,10 +781,12 @@ if.then11:                                        ; preds = %if.end
   br label %do.body12
 
 do.body12:                                        ; preds = %if.then11
-  store ptr getelementptr (i8, ptr @.str.8, i64 114), ptr %absl_raw_log_internal_basename13, align 8
+  %9 = getelementptr i8, ptr @.str.8, i64 114
+  store ptr %9, ptr %absl_raw_log_internal_basename13, align 8
   %call14 = call ptr @__errno_location() #9
-  %6 = load i32, ptr %call14, align 4
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str.8, i64 114), i32 noundef 177, ptr noundef @.str.13, i32 noundef %6)
+  %10 = load i32, ptr %call14, align 4
+  %11 = getelementptr i8, ptr @.str.8, i64 114
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %11, i32 noundef 177, ptr noundef @.str.13, i32 noundef %10)
   br label %do.body15
 
 do.body15:                                        ; preds = %do.body12
@@ -949,46 +967,47 @@ entry:
   store i32 %signo, ptr %signo.addr, align 4
   store ptr @_ZN4abslL19failure_signal_dataE, ptr %__range1, align 8
   store ptr @_ZN4abslL19failure_signal_dataE, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.absl::FailureSignalData", ptr @_ZN4abslL19failure_signal_dataE, i64 7), ptr %__end1, align 8
+  %0 = getelementptr inbounds %"struct.absl::FailureSignalData", ptr @_ZN4abslL19failure_signal_dataE, i64 7
+  store ptr %0, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__begin1, align 8
-  %1 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %0, %1
+  %1 = load ptr, ptr %__begin1, align 8
+  %2 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %1, %2
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__begin1, align 8
-  store ptr %2, ptr %it, align 8
-  %3 = load ptr, ptr %it, align 8
-  %signo1 = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %signo1, align 8
-  %5 = load i32, ptr %signo.addr, align 4
-  %cmp2 = icmp eq i32 %4, %5
+  %3 = load ptr, ptr %__begin1, align 8
+  store ptr %3, ptr %it, align 8
+  %4 = load ptr, ptr %it, align 8
+  %signo1 = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %4, i32 0, i32 0
+  %5 = load i32, ptr %signo1, align 8
+  %6 = load i32, ptr %signo.addr, align 4
+  %cmp2 = icmp eq i32 %5, %6
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %6 = load i32, ptr %signo.addr, align 4
-  %7 = load ptr, ptr %it, align 8
-  %previous_action = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %7, i32 0, i32 2
-  %call = call i32 @sigaction(i32 noundef %6, ptr noundef %previous_action, ptr noundef null) #6
-  %8 = load i32, ptr %signo.addr, align 4
-  %call3 = call i32 @raise(i32 noundef %8) #6
+  %7 = load i32, ptr %signo.addr, align 4
+  %8 = load ptr, ptr %it, align 8
+  %previous_action = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %8, i32 0, i32 2
+  %call = call i32 @sigaction(i32 noundef %7, ptr noundef %previous_action, ptr noundef null) #6
+  %9 = load i32, ptr %signo.addr, align 4
+  %call3 = call i32 @raise(i32 noundef %9) #6
   br label %return
 
 if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %9 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %9, i32 1
+  %10 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.absl::FailureSignalData", ptr %10, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond
-  %10 = load i32, ptr %signo.addr, align 4
-  call void @_ZN4abslL21RaiseToDefaultHandlerEi(i32 noundef %10)
+  %11 = load i32, ptr %signo.addr, align 4
+  call void @_ZN4abslL21RaiseToDefaultHandlerEi(i32 noundef %11)
   br label %return
 
 return:                                           ; preds = %for.end, %if.then

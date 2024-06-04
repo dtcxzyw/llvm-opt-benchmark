@@ -276,10 +276,10 @@ define dso_local void @crypto_remove_spawns(ptr noundef readonly %0, ptr noundef
 101:                                              ; preds = %98
   %102 = load ptr, ptr %4, align 8
   %103 = icmp eq ptr %102, %4
-  br i1 %103, label %161, label %104
+  br i1 %103, label %163, label %104
 
-104:                                              ; preds = %159, %101
-  %105 = phi ptr [ %106, %159 ], [ %102, %101 ]
+104:                                              ; preds = %161, %101
+  %105 = phi ptr [ %106, %161 ], [ %102, %101 ]
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %105, i64 44
   %108 = load i8, ptr %107, align 4, !range !9, !noundef !10
@@ -301,13 +301,13 @@ define dso_local void @crypto_remove_spawns(ptr noundef readonly %0, ptr noundef
   store ptr %117, ptr %105, align 8
   store ptr %113, ptr %114, align 8
   store volatile ptr %105, ptr %113, align 8
-  br label %159
+  br label %161
 
 119:                                              ; preds = %104
   %120 = getelementptr inbounds i8, ptr %105, i64 45
   %121 = load i8, ptr %120, align 1, !range !9, !noundef !10
   %122 = icmp eq i8 %121, 0
-  br i1 %122, label %159, label %123
+  br i1 %122, label %161, label %123
 
 123:                                              ; preds = %119
   %124 = getelementptr inbounds i8, ptr %105, i64 24
@@ -318,19 +318,19 @@ define dso_local void @crypto_remove_spawns(ptr noundef readonly %0, ptr noundef
   %129 = load i32, ptr %128, align 8
   %130 = and i32 %129, 32
   %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %159
+  br i1 %131, label %132, label %161
 
 132:                                              ; preds = %123
   %133 = or disjoint i32 %129, 32
   store i32 %133, ptr %128, align 8
   %134 = icmp eq ptr %127, null
-  br i1 %134, label %159, label %135
+  br i1 %134, label %161, label %135
 
 135:                                              ; preds = %132
   %136 = getelementptr inbounds i8, ptr %127, i64 24
   %137 = load ptr, ptr %136, align 8
   %138 = call zeroext i1 @try_module_get(ptr noundef %137) #17
-  br i1 %138, label %139, label %159
+  br i1 %138, label %139, label %161
 
 139:                                              ; preds = %135
   %140 = getelementptr inbounds i8, ptr %125, i64 8
@@ -359,25 +359,27 @@ define dso_local void @crypto_remove_spawns(ptr noundef readonly %0, ptr noundef
   br label %153
 
 153:                                              ; preds = %151, %139
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %146, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %148, align 8
-  %154 = getelementptr inbounds i8, ptr %125, i64 368
-  store ptr @crypto_destroy_instance, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %125, i64 16
-  %156 = load volatile ptr, ptr %155, align 8
-  %157 = icmp eq ptr %156, %155
-  br i1 %157, label %159, label %158, !prof !15
+  %154 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %154, ptr %146, align 8
+  %155 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %155, ptr %148, align 8
+  %156 = getelementptr inbounds i8, ptr %125, i64 368
+  store ptr @crypto_destroy_instance, ptr %156, align 8
+  %157 = getelementptr inbounds i8, ptr %125, i64 16
+  %158 = load volatile ptr, ptr %157, align 8
+  %159 = icmp eq ptr %158, %157
+  br i1 %159, label %161, label %160, !prof !15
 
-158:                                              ; preds = %153
+160:                                              ; preds = %153
   call void asm sideeffect "510: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 510b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 510) #17, !srcloc !16
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 148, i32 0, i64 12) #17, !srcloc !17
   unreachable
 
-159:                                              ; preds = %153, %135, %132, %123, %119, %110
-  %160 = icmp eq ptr %106, %4
-  br i1 %160, label %161, label %104, !llvm.loop !18
+161:                                              ; preds = %153, %135, %132, %123, %119, %110
+  %162 = icmp eq ptr %106, %4
+  br i1 %162, label %163, label %104, !llvm.loop !18
 
-161:                                              ; preds = %159, %101
+163:                                              ; preds = %161, %101
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
@@ -578,7 +580,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 define internal fastcc void @crypto_alg_finish_registration(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr @crypto_alg_list, align 8
   %5 = icmp eq ptr %4, @crypto_alg_list
-  br i1 %5, label %65, label %6
+  br i1 %5, label %66, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 56
@@ -589,23 +591,23 @@ define internal fastcc void @crypto_alg_finish_registration(ptr noundef %0, i1 n
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   br label %13
 
-13:                                               ; preds = %62, %6
-  %14 = phi ptr [ %4, %6 ], [ %63, %62 ]
+13:                                               ; preds = %63, %6
+  %14 = phi ptr [ %4, %6 ], [ %64, %63 ]
   %15 = icmp eq ptr %14, %0
-  br i1 %15, label %62, label %16
+  br i1 %15, label %63, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %14, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 96
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %62
+  br i1 %20, label %21, label %63
 
 21:                                               ; preds = %16
   %22 = and i32 %18, 16
   %23 = icmp eq i32 %22, 0
   %24 = getelementptr inbounds i8, ptr %14, i64 56
-  br i1 %23, label %49, label %25
+  br i1 %23, label %50, label %25
 
 25:                                               ; preds = %21
   %26 = tail call i32 @strcmp(ptr noundef %7, ptr noundef %24) #17
@@ -615,13 +617,13 @@ define internal fastcc void @crypto_alg_finish_registration(ptr noundef %0, i1 n
 28:                                               ; preds = %25
   %29 = tail call i32 @strcmp(ptr noundef %8, ptr noundef %24) #17
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %62
+  br i1 %30, label %31, label %63
 
 31:                                               ; preds = %28, %25
   %32 = getelementptr inbounds i8, ptr %14, i64 384
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %62
+  br i1 %34, label %35, label %63
 
 35:                                               ; preds = %31
   %36 = load i32, ptr %9, align 8
@@ -630,7 +632,7 @@ define internal fastcc void @crypto_alg_finish_registration(ptr noundef %0, i1 n
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %37, %39
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %62
+  br i1 %41, label %42, label %63
 
 42:                                               ; preds = %35
   br i1 %1, label %43, label %46
@@ -638,45 +640,46 @@ define internal fastcc void @crypto_alg_finish_registration(ptr noundef %0, i1 n
 43:                                               ; preds = %42
   %44 = tail call ptr @crypto_mod_get(ptr noundef %0) #17
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %47
+  br i1 %45, label %46, label %48
 
 46:                                               ; preds = %43, %42
-  br label %47
+  %47 = inttoptr i64 -11 to ptr
+  br label %48
 
-47:                                               ; preds = %46, %43
-  %48 = phi ptr [ inttoptr (i64 -11 to ptr), %46 ], [ %0, %43 ]
-  store ptr %48, ptr %32, align 8
-  br label %62
+48:                                               ; preds = %46, %43
+  %49 = phi ptr [ %47, %46 ], [ %0, %43 ]
+  store ptr %49, ptr %32, align 8
+  br label %63
 
-49:                                               ; preds = %21
-  %50 = tail call i32 @strcmp(ptr noundef %10, ptr noundef %24) #17
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %62
+50:                                               ; preds = %21
+  %51 = tail call i32 @strcmp(ptr noundef %10, ptr noundef %24) #17
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %63
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %14, i64 184
-  %54 = tail call i32 @strcmp(ptr noundef %11, ptr noundef %53) #17
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %61, label %56
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %14, i64 184
+  %55 = tail call i32 @strcmp(ptr noundef %11, ptr noundef %54) #17
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %62, label %57
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %14, i64 48
-  %58 = load i32, ptr %57, align 8
-  %59 = load i32, ptr %12, align 8
-  %60 = icmp sgt i32 %58, %59
-  br i1 %60, label %62, label %61
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds i8, ptr %14, i64 48
+  %59 = load i32, ptr %58, align 8
+  %60 = load i32, ptr %12, align 8
+  %61 = icmp sgt i32 %59, %60
+  br i1 %61, label %63, label %62
 
-61:                                               ; preds = %56, %52
+62:                                               ; preds = %57, %53
   tail call void @crypto_remove_spawns(ptr noundef %14, ptr noundef %2, ptr noundef %0)
-  br label %62
+  br label %63
 
-62:                                               ; preds = %61, %56, %49, %47, %35, %31, %28, %16, %13
-  %63 = load ptr, ptr %14, align 8
-  %64 = icmp eq ptr %63, @crypto_alg_list
-  br i1 %64, label %65, label %13, !llvm.loop !24
+63:                                               ; preds = %62, %57, %50, %48, %35, %31, %28, %16, %13
+  %64 = load ptr, ptr %14, align 8
+  %65 = icmp eq ptr %64, @crypto_alg_list
+  br i1 %65, label %66, label %13, !llvm.loop !24
 
-65:                                               ; preds = %62, %3
-  %66 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @crypto_chain, i64 noundef 2, ptr noundef %0) #17
+66:                                               ; preds = %63, %3
+  %67 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @crypto_chain, i64 noundef 2, ptr noundef %0) #17
   ret void
 }
 
@@ -807,90 +810,91 @@ define dso_local noundef i32 @crypto_register_alg(ptr noundef %0) #0 align 16 {
 42:                                               ; preds = %40, %36, %32, %21, %14, %10, %1
   %43 = phi i1 [ true, %40 ], [ false, %10 ], [ false, %1 ], [ false, %14 ], [ false, %21 ], [ false, %32 ], [ false, %36 ]
   %44 = phi i32 [ 0, %40 ], [ -22, %10 ], [ -22, %1 ], [ -22, %14 ], [ -22, %21 ], [ -22, %32 ], [ -22, %36 ]
-  br i1 %43, label %45, label %82
+  br i1 %43, label %45, label %83
 
 45:                                               ; preds = %42
   call void @down_write(ptr noundef nonnull @crypto_alg_sem) #17
   %46 = call fastcc ptr @__crypto_register_alg(ptr noundef %0, ptr noundef nonnull %2)
   %47 = icmp eq ptr %46, null
-  %48 = icmp ugt ptr %46, inttoptr (i64 -4096 to ptr)
-  %49 = or i1 %47, %48
-  br i1 %49, label %52, label %50
+  %48 = inttoptr i64 -4096 to ptr
+  %49 = icmp ugt ptr %46, %48
+  %50 = or i1 %47, %49
+  br i1 %50, label %53, label %51
 
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %46, i64 428
-  store i8 1, ptr %51, align 4
-  br label %52
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds i8, ptr %46, i64 428
+  store i8 1, ptr %52, align 4
+  br label %53
 
-52:                                               ; preds = %50, %45
+53:                                               ; preds = %51, %45
   call void @up_write(ptr noundef nonnull @crypto_alg_sem) #17
-  br i1 %48, label %53, label %56
+  br i1 %49, label %54, label %57
 
-53:                                               ; preds = %52
-  %54 = ptrtoint ptr %46 to i64
-  %55 = trunc i64 %54 to i32
-  br label %82
+54:                                               ; preds = %53
+  %55 = ptrtoint ptr %46 to i64
+  %56 = trunc i64 %55 to i32
+  br label %83
 
-56:                                               ; preds = %52
-  br i1 %49, label %58, label %57
+57:                                               ; preds = %53
+  br i1 %50, label %59, label %58
 
-57:                                               ; preds = %56
+58:                                               ; preds = %57
   call void @crypto_wait_for_test(ptr noundef %46) #17
-  br label %58
+  br label %59
 
-58:                                               ; preds = %57, %56
-  %59 = load ptr, ptr %2, align 8
-  %60 = icmp eq ptr %59, %2
-  br i1 %60, label %82, label %61
+59:                                               ; preds = %58, %57
+  %60 = load ptr, ptr %2, align 8
+  %61 = icmp eq ptr %60, %2
+  br i1 %61, label %83, label %62
 
-61:                                               ; preds = %80, %58
-  %62 = phi ptr [ %63, %80 ], [ %59, %58 ]
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %62, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %63, i64 8
-  store ptr %65, ptr %66, align 8
+62:                                               ; preds = %81, %59
+  %63 = phi ptr [ %64, %81 ], [ %60, %59 ]
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %64, i64 8
+  store ptr %66, ptr %67, align 8
+  store volatile ptr %64, ptr %66, align 8
+  store volatile ptr %63, ptr %63, align 8
   store volatile ptr %63, ptr %65, align 8
-  store volatile ptr %62, ptr %62, align 8
-  store volatile ptr %62, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %62, i64 52
-  %68 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67, i32 -1, ptr elementtype(i32) %67) #17, !srcloc !21
-  %69 = icmp eq i32 %68, 1
-  br i1 %69, label %70, label %71
+  %68 = getelementptr inbounds i8, ptr %63, i64 52
+  %69 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %68, i32 -1, ptr elementtype(i32) %68) #17, !srcloc !21
+  %70 = icmp eq i32 %69, 1
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %61
+71:                                               ; preds = %62
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
-  br label %74
+  br label %75
 
-71:                                               ; preds = %61
-  %72 = icmp sgt i32 %68, 0
-  br i1 %72, label %74, label %73, !prof !15
+72:                                               ; preds = %62
+  %73 = icmp sgt i32 %69, 0
+  br i1 %73, label %75, label %74, !prof !15
 
-73:                                               ; preds = %71
-  call void @refcount_warn_saturate(ptr noundef %67, i32 noundef 3) #17
-  br label %74
+74:                                               ; preds = %72
+  call void @refcount_warn_saturate(ptr noundef %68, i32 noundef 3) #17
+  br label %75
 
-74:                                               ; preds = %73, %71, %70
-  br i1 %69, label %75, label %80
+75:                                               ; preds = %74, %72, %71
+  br i1 %70, label %76, label %81
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %62, i64 368
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %80, label %79
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds i8, ptr %63, i64 368
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %81, label %80
 
-79:                                               ; preds = %75
-  call void %77(ptr noundef %62) #17
-  br label %80
+80:                                               ; preds = %76
+  call void %78(ptr noundef %63) #17
+  br label %81
 
-80:                                               ; preds = %79, %75, %74
-  %81 = icmp eq ptr %63, %2
-  br i1 %81, label %82, label %61, !llvm.loop !23
+81:                                               ; preds = %80, %76, %75
+  %82 = icmp eq ptr %64, %2
+  br i1 %82, label %83, label %62, !llvm.loop !23
 
-82:                                               ; preds = %80, %58, %53, %42
-  %83 = phi i32 [ %55, %53 ], [ %44, %42 ], [ 0, %58 ], [ 0, %80 ]
+83:                                               ; preds = %81, %59, %54, %42
+  %84 = phi i32 [ %56, %54 ], [ %44, %42 ], [ 0, %59 ], [ 0, %81 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17
-  ret i32 %83
+  ret i32 %84
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1574,7 +1578,7 @@ define dso_local noundef i32 @crypto_register_instance(ptr noundef %0, ptr nound
 42:                                               ; preds = %40, %36, %32, %19, %12, %8, %2
   %43 = phi i1 [ true, %40 ], [ false, %8 ], [ false, %2 ], [ false, %12 ], [ false, %19 ], [ false, %32 ], [ false, %36 ]
   %44 = phi i32 [ 0, %40 ], [ -22, %8 ], [ -22, %2 ], [ -22, %12 ], [ -22, %19 ], [ -22, %32 ], [ -22, %36 ]
-  br i1 %43, label %45, label %126
+  br i1 %43, label %45, label %129
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1594,7 +1598,7 @@ define dso_local noundef i32 @crypto_register_instance(ptr noundef %0, ptr nound
   %55 = phi ptr [ %53, %45 ], [ %72, %71 ]
   %56 = phi i32 [ 0, %45 ], [ %73, %71 ]
   %57 = icmp eq ptr %55, null
-  br i1 %57, label %74, label %58
+  br i1 %57, label %75, label %58
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %55, i64 44
@@ -1619,118 +1623,121 @@ define dso_local noundef i32 @crypto_register_instance(ptr noundef %0, ptr nound
 71:                                               ; preds = %62, %58
   %72 = phi ptr [ %64, %62 ], [ %55, %58 ]
   %73 = phi i32 [ %70, %62 ], [ %56, %58 ]
-  br i1 %61, label %54, label %93
+  %74 = inttoptr i64 -11 to ptr
+  br i1 %61, label %54, label %95
 
-74:                                               ; preds = %54
-  %75 = and i32 %56, 131072
-  %76 = load i32, ptr %49, align 8
-  %77 = or i32 %76, %75
-  store i32 %77, ptr %49, align 8
-  %78 = call fastcc ptr @__crypto_register_alg(ptr noundef %1, ptr noundef nonnull %3)
-  %79 = icmp ugt ptr %78, inttoptr (i64 -4096 to ptr)
-  br i1 %79, label %93, label %80
+75:                                               ; preds = %54
+  %76 = and i32 %56, 131072
+  %77 = load i32, ptr %49, align 8
+  %78 = or i32 %77, %76
+  store i32 %78, ptr %49, align 8
+  %79 = call fastcc ptr @__crypto_register_alg(ptr noundef %1, ptr noundef nonnull %3)
+  %80 = inttoptr i64 -4096 to ptr
+  %81 = icmp ugt ptr %79, %80
+  br i1 %81, label %95, label %82
 
-80:                                               ; preds = %74
-  %81 = icmp eq ptr %78, null
-  br i1 %81, label %84, label %82
+82:                                               ; preds = %75
+  %83 = icmp eq ptr %79, null
+  br i1 %83, label %86, label %84
 
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %78, i64 428
-  store i8 1, ptr %83, align 4
-  br label %84
+84:                                               ; preds = %82
+  %85 = getelementptr inbounds i8, ptr %79, i64 428
+  store i8 1, ptr %85, align 4
+  br label %86
 
-84:                                               ; preds = %82, %80
-  %85 = getelementptr inbounds i8, ptr %0, i64 16
-  %86 = load ptr, ptr %85, align 8
-  store volatile ptr %86, ptr %52, align 8
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %90, label %88
+86:                                               ; preds = %84, %82
+  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  %88 = load ptr, ptr %87, align 8
+  store volatile ptr %88, ptr %52, align 8
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %92, label %90
 
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %86, i64 8
-  store volatile ptr %52, ptr %89, align 8
-  br label %90
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds i8, ptr %88, i64 8
+  store volatile ptr %52, ptr %91, align 8
+  br label %92
 
-90:                                               ; preds = %88, %84
-  store volatile ptr %52, ptr %85, align 8
-  %91 = getelementptr inbounds i8, ptr %1, i64 400
-  store volatile ptr %85, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %1, i64 384
-  store ptr %0, ptr %92, align 8
-  br label %93
+92:                                               ; preds = %90, %86
+  store volatile ptr %52, ptr %87, align 8
+  %93 = getelementptr inbounds i8, ptr %1, i64 400
+  store volatile ptr %87, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %1, i64 384
+  store ptr %0, ptr %94, align 8
+  br label %95
 
-93:                                               ; preds = %90, %74, %71
-  %94 = phi ptr [ %78, %74 ], [ %78, %90 ], [ inttoptr (i64 -11 to ptr), %71 ]
+95:                                               ; preds = %92, %75, %71
+  %96 = phi ptr [ %79, %75 ], [ %79, %92 ], [ %74, %71 ]
   call void @up_write(ptr noundef nonnull @crypto_alg_sem) #17
-  %95 = icmp ugt ptr %94, inttoptr (i64 -4096 to ptr)
-  br i1 %95, label %96, label %99
+  %97 = inttoptr i64 -4096 to ptr
+  %98 = icmp ugt ptr %96, %97
+  br i1 %98, label %99, label %102
 
-96:                                               ; preds = %93
-  %97 = ptrtoint ptr %94 to i64
-  %98 = trunc i64 %97 to i32
-  br label %126
+99:                                               ; preds = %95
+  %100 = ptrtoint ptr %96 to i64
+  %101 = trunc i64 %100 to i32
+  br label %129
 
-99:                                               ; preds = %93
-  %100 = icmp eq ptr %94, null
-  br i1 %100, label %102, label %101
+102:                                              ; preds = %95
+  %103 = icmp eq ptr %96, null
+  br i1 %103, label %105, label %104
 
-101:                                              ; preds = %99
-  call void @crypto_wait_for_test(ptr noundef nonnull %94) #17
-  br label %102
+104:                                              ; preds = %102
+  call void @crypto_wait_for_test(ptr noundef nonnull %96) #17
+  br label %105
 
-102:                                              ; preds = %101, %99
-  %103 = load ptr, ptr %3, align 8
-  %104 = icmp eq ptr %103, %3
-  br i1 %104, label %126, label %105
+105:                                              ; preds = %104, %102
+  %106 = load ptr, ptr %3, align 8
+  %107 = icmp eq ptr %106, %3
+  br i1 %107, label %129, label %108
 
-105:                                              ; preds = %124, %102
-  %106 = phi ptr [ %107, %124 ], [ %103, %102 ]
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %106, i64 8
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %107, i64 8
-  store ptr %109, ptr %110, align 8
-  store volatile ptr %107, ptr %109, align 8
-  store volatile ptr %106, ptr %106, align 8
-  store volatile ptr %106, ptr %108, align 8
-  %111 = getelementptr inbounds i8, ptr %106, i64 52
-  %112 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %111, i32 -1, ptr elementtype(i32) %111) #17, !srcloc !21
-  %113 = icmp eq i32 %112, 1
-  br i1 %113, label %114, label %115
+108:                                              ; preds = %127, %105
+  %109 = phi ptr [ %110, %127 ], [ %106, %105 ]
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %109, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %110, i64 8
+  store ptr %112, ptr %113, align 8
+  store volatile ptr %110, ptr %112, align 8
+  store volatile ptr %109, ptr %109, align 8
+  store volatile ptr %109, ptr %111, align 8
+  %114 = getelementptr inbounds i8, ptr %109, i64 52
+  %115 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %114, i32 -1, ptr elementtype(i32) %114) #17, !srcloc !21
+  %116 = icmp eq i32 %115, 1
+  br i1 %116, label %117, label %118
 
-114:                                              ; preds = %105
+117:                                              ; preds = %108
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
-  br label %118
+  br label %121
 
-115:                                              ; preds = %105
-  %116 = icmp sgt i32 %112, 0
-  br i1 %116, label %118, label %117, !prof !15
+118:                                              ; preds = %108
+  %119 = icmp sgt i32 %115, 0
+  br i1 %119, label %121, label %120, !prof !15
 
-117:                                              ; preds = %115
-  call void @refcount_warn_saturate(ptr noundef %111, i32 noundef 3) #17
-  br label %118
+120:                                              ; preds = %118
+  call void @refcount_warn_saturate(ptr noundef %114, i32 noundef 3) #17
+  br label %121
 
-118:                                              ; preds = %117, %115, %114
-  br i1 %113, label %119, label %124
+121:                                              ; preds = %120, %118, %117
+  br i1 %116, label %122, label %127
 
-119:                                              ; preds = %118
-  %120 = getelementptr inbounds i8, ptr %106, i64 368
-  %121 = load ptr, ptr %120, align 8
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %124, label %123
+122:                                              ; preds = %121
+  %123 = getelementptr inbounds i8, ptr %109, i64 368
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %127, label %126
 
-123:                                              ; preds = %119
-  call void %121(ptr noundef %106) #17
-  br label %124
+126:                                              ; preds = %122
+  call void %124(ptr noundef %109) #17
+  br label %127
 
-124:                                              ; preds = %123, %119, %118
-  %125 = icmp eq ptr %107, %3
-  br i1 %125, label %126, label %105, !llvm.loop !23
+127:                                              ; preds = %126, %122, %121
+  %128 = icmp eq ptr %110, %3
+  br i1 %128, label %129, label %108, !llvm.loop !23
 
-126:                                              ; preds = %124, %102, %96, %42
-  %127 = phi i32 [ %98, %96 ], [ %44, %42 ], [ 0, %102 ], [ 0, %124 ]
+129:                                              ; preds = %127, %105, %99, %42
+  %130 = phi i32 [ %101, %99 ], [ %44, %42 ], [ 0, %105 ], [ 0, %127 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  ret i32 %127
+  ret i32 %130
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1752,19 +1759,19 @@ define dso_local void @crypto_unregister_instance(ptr noundef %0) #0 align 16 {
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 32
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %37
+  br i1 %9, label %10, label %39
 
 10:                                               ; preds = %1
   %11 = or disjoint i32 %7, 32
   store i32 %11, ptr %6, align 8
   %12 = icmp eq ptr %5, null
-  br i1 %12, label %37, label %13
+  br i1 %12, label %39, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = call zeroext i1 @try_module_get(ptr noundef %15) #17
-  br i1 %16, label %17, label %37
+  br i1 %16, label %17, label %39
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1793,71 +1800,73 @@ define dso_local void @crypto_unregister_instance(ptr noundef %0) #0 align 16 {
   br label %31
 
 31:                                               ; preds = %29, %17
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %24, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 368
-  store ptr @crypto_destroy_instance, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
-  %34 = load volatile ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, %33
-  br i1 %35, label %37, label %36, !prof !15
+  %32 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %32, ptr %24, align 8
+  %33 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %33, ptr %26, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 368
+  store ptr @crypto_destroy_instance, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = load volatile ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, %35
+  br i1 %37, label %39, label %38, !prof !15
 
-36:                                               ; preds = %31
+38:                                               ; preds = %31
   call void asm sideeffect "510: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 510b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 510) #17, !srcloc !16
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 148, i32 0, i64 12) #17, !srcloc !17
   unreachable
 
-37:                                               ; preds = %31, %13, %10, %1
+39:                                               ; preds = %31, %13, %10, %1
   call void @up_write(ptr noundef nonnull @crypto_alg_sem) #17
-  %38 = load ptr, ptr %2, align 8
-  %39 = icmp eq ptr %38, %2
-  br i1 %39, label %61, label %40
+  %40 = load ptr, ptr %2, align 8
+  %41 = icmp eq ptr %40, %2
+  br i1 %41, label %63, label %42
 
-40:                                               ; preds = %59, %37
-  %41 = phi ptr [ %42, %59 ], [ %38, %37 ]
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+42:                                               ; preds = %61, %39
+  %43 = phi ptr [ %44, %61 ], [ %40, %39 ]
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr %44, ptr %45, align 8
-  store volatile ptr %42, ptr %44, align 8
-  store volatile ptr %41, ptr %41, align 8
-  store volatile ptr %41, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %41, i64 52
-  %47 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %46, i32 -1, ptr elementtype(i32) %46) #17, !srcloc !21
-  %48 = icmp eq i32 %47, 1
-  br i1 %48, label %49, label %50
+  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %44, i64 8
+  store ptr %46, ptr %47, align 8
+  store volatile ptr %44, ptr %46, align 8
+  store volatile ptr %43, ptr %43, align 8
+  store volatile ptr %43, ptr %45, align 8
+  %48 = getelementptr inbounds i8, ptr %43, i64 52
+  %49 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48, i32 -1, ptr elementtype(i32) %48) #17, !srcloc !21
+  %50 = icmp eq i32 %49, 1
+  br i1 %50, label %51, label %52
 
-49:                                               ; preds = %40
+51:                                               ; preds = %42
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
-  br label %53
+  br label %55
 
-50:                                               ; preds = %40
-  %51 = icmp sgt i32 %47, 0
-  br i1 %51, label %53, label %52, !prof !15
+52:                                               ; preds = %42
+  %53 = icmp sgt i32 %49, 0
+  br i1 %53, label %55, label %54, !prof !15
 
-52:                                               ; preds = %50
-  call void @refcount_warn_saturate(ptr noundef %46, i32 noundef 3) #17
-  br label %53
+54:                                               ; preds = %52
+  call void @refcount_warn_saturate(ptr noundef %48, i32 noundef 3) #17
+  br label %55
 
-53:                                               ; preds = %52, %50, %49
-  br i1 %48, label %54, label %59
+55:                                               ; preds = %54, %52, %51
+  br i1 %50, label %56, label %61
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %41, i64 368
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %59, label %58
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds i8, ptr %43, i64 368
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %61, label %60
 
-58:                                               ; preds = %54
-  call void %56(ptr noundef %41) #17
-  br label %59
+60:                                               ; preds = %56
+  call void %58(ptr noundef %43) #17
+  br label %61
 
-59:                                               ; preds = %58, %54, %53
-  %60 = icmp eq ptr %42, %2
-  br i1 %60, label %61, label %40, !llvm.loop !23
+61:                                               ; preds = %60, %56, %55
+  %62 = icmp eq ptr %44, %2
+  br i1 %62, label %63, label %42, !llvm.loop !23
 
-61:                                               ; preds = %59, %37
+63:                                               ; preds = %61, %39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17
   ret void
 }
@@ -1871,76 +1880,78 @@ define dso_local i32 @crypto_grab_spawn(ptr noundef %0, ptr noundef %1, ptr noun
   tail call void asm sideeffect "535: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 535b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 535) #17, !srcloc !50
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 730, i32 2307, i64 12) #17, !srcloc !51
   tail call void asm sideeffect "536: nop\0A\09.pushsection .discard.instr_end\0A\09.long 536b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 536) #17, !srcloc !52
-  br label %45
+  br label %47
 
 8:                                                ; preds = %5
-  %9 = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)
-  br i1 %9, label %10, label %13
+  %9 = inttoptr i64 -4096 to ptr
+  %10 = icmp ugt ptr %2, %9
+  br i1 %10, label %11, label %14
 
-10:                                               ; preds = %8
-  %11 = ptrtoint ptr %2 to i64
-  %12 = trunc i64 %11 to i32
-  br label %45
+11:                                               ; preds = %8
+  %12 = ptrtoint ptr %2 to i64
+  %13 = trunc i64 %12 to i32
+  br label %47
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8
-  %16 = or i32 %3, 131072
-  %17 = tail call ptr @crypto_find_alg(ptr noundef %2, ptr noundef %15, i32 noundef %16, i32 noundef %4) #17
-  %18 = icmp ugt ptr %17, inttoptr (i64 -4096 to ptr)
-  br i1 %18, label %19, label %22
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = or i32 %3, 131072
+  %18 = tail call ptr @crypto_find_alg(ptr noundef %2, ptr noundef %16, i32 noundef %17, i32 noundef %4) #17
+  %19 = inttoptr i64 -4096 to ptr
+  %20 = icmp ugt ptr %18, %19
+  br i1 %20, label %21, label %24
 
-19:                                               ; preds = %13
-  %20 = ptrtoint ptr %17 to i64
-  %21 = trunc i64 %20 to i32
-  br label %45
+21:                                               ; preds = %14
+  %22 = ptrtoint ptr %18 to i64
+  %23 = trunc i64 %22 to i32
+  br label %47
 
-22:                                               ; preds = %13
+24:                                               ; preds = %14
   tail call void @down_write(ptr noundef nonnull @crypto_alg_sem) #17
-  %23 = getelementptr inbounds i8, ptr %17, i64 32
-  %24 = load i32, ptr %23, align 8
-  %25 = and i32 %24, 96
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %42
+  %25 = getelementptr inbounds i8, ptr %18, i64 32
+  %26 = load i32, ptr %25, align 8
+  %27 = and i32 %26, 96
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %44
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %17, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr %0, ptr %30, align 8
-  store ptr %29, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %28, ptr %31, align 8
-  store volatile ptr %0, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %17, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %4, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 392
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %35, ptr %36, align 8
-  store ptr %0, ptr %34, align 8
-  %37 = load i32, ptr %23, align 8
-  %38 = and i32 %37, 65920
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
-  %40 = load i32, ptr %39, align 8
-  %41 = or i32 %40, %38
-  store i32 %41, ptr %39, align 8
-  br label %42
+29:                                               ; preds = %24
+  %30 = getelementptr inbounds i8, ptr %18, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  store ptr %0, ptr %32, align 8
+  store ptr %31, ptr %0, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %30, ptr %33, align 8
+  store volatile ptr %0, ptr %30, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %18, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 %4, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %1, i64 392
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %37, ptr %38, align 8
+  store ptr %0, ptr %36, align 8
+  %39 = load i32, ptr %25, align 8
+  %40 = and i32 %39, 65920
+  %41 = getelementptr inbounds i8, ptr %1, i64 32
+  %42 = load i32, ptr %41, align 8
+  %43 = or i32 %42, %40
+  store i32 %43, ptr %41, align 8
+  br label %44
 
-42:                                               ; preds = %27, %22
-  %43 = phi i32 [ -11, %22 ], [ 0, %27 ]
+44:                                               ; preds = %29, %24
+  %45 = phi i32 [ -11, %24 ], [ 0, %29 ]
   tail call void @up_write(ptr noundef nonnull @crypto_alg_sem) #17
-  br i1 %26, label %45, label %44
+  br i1 %28, label %47, label %46
 
-44:                                               ; preds = %42
-  tail call void @crypto_mod_put(ptr noundef %17) #17
-  br label %45
+46:                                               ; preds = %44
+  tail call void @crypto_mod_put(ptr noundef %18) #17
+  br label %47
 
-45:                                               ; preds = %44, %42, %19, %10, %7
-  %46 = phi i32 [ %12, %10 ], [ %21, %19 ], [ -22, %7 ], [ %43, %44 ], [ %43, %42 ]
-  ret i32 %46
+47:                                               ; preds = %46, %44, %21, %11, %7
+  %48 = phi i32 [ %13, %11 ], [ %23, %21 ], [ -22, %7 ], [ %45, %46 ], [ %45, %44 ]
+  ret i32 %48
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1951,14 +1962,14 @@ define dso_local void @crypto_drop_spawn(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %20, label %5
+  br i1 %4, label %22, label %5
 
 5:                                                ; preds = %1
   tail call void @down_write(ptr noundef nonnull @crypto_alg_sem) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   %7 = load i8, ptr %6, align 4, !range !9, !noundef !10
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %9, label %14
+  br i1 %8, label %9, label %16
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1967,53 +1978,58 @@ define dso_local void @crypto_drop_spawn(ptr nocapture noundef %0) #0 align 16 {
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %11, ptr %13, align 8
   store volatile ptr %12, ptr %11, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %10, align 8
-  br label %14
+  %14 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %14, ptr %0, align 8
+  %15 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %15, ptr %10, align 8
+  br label %16
 
-14:                                               ; preds = %9, %5
+16:                                               ; preds = %9, %5
   tail call void @up_write(ptr noundef nonnull @crypto_alg_sem) #17
-  %15 = getelementptr inbounds i8, ptr %0, i64 45
-  %16 = load i8, ptr %15, align 1, !range !9, !noundef !10
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %18, label %20
+  %17 = getelementptr inbounds i8, ptr %0, i64 45
+  %18 = load i8, ptr %17, align 1, !range !9, !noundef !10
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %22
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %2, align 8
-  tail call void @crypto_mod_put(ptr noundef %19) #17
-  br label %20
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %2, align 8
+  tail call void @crypto_mod_put(ptr noundef %21) #17
+  br label %22
 
-20:                                               ; preds = %18, %14, %1
+22:                                               ; preds = %20, %16, %1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @crypto_spawn_tfm(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = tail call fastcc ptr @crypto_spawn_alg(ptr noundef %0)
-  %5 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
-  br i1 %5, label %17, label %6
+  %5 = inttoptr i64 -4096 to ptr
+  %6 = icmp ugt ptr %4, %5
+  br i1 %6, label %20, label %7
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
-  %8 = load i32, ptr %7, align 8
-  %9 = xor i32 %8, %1
-  %10 = and i32 %9, %2
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %15, !prof !15
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = load i32, ptr %8, align 8
+  %10 = xor i32 %9, %1
+  %11 = and i32 %10, %2
+  %12 = icmp eq i32 %11, 0
+  %13 = inttoptr i64 -22 to ptr
+  br i1 %12, label %14, label %18, !prof !15
 
-12:                                               ; preds = %6
-  %13 = tail call ptr @__crypto_alloc_tfm(ptr noundef %4, i32 noundef %1, i32 noundef %2) #17
-  %14 = icmp ugt ptr %13, inttoptr (i64 -4096 to ptr)
-  br i1 %14, label %15, label %17
+14:                                               ; preds = %7
+  %15 = tail call ptr @__crypto_alloc_tfm(ptr noundef %4, i32 noundef %1, i32 noundef %2) #17
+  %16 = inttoptr i64 -4096 to ptr
+  %17 = icmp ugt ptr %15, %16
+  br i1 %17, label %18, label %20
 
-15:                                               ; preds = %12, %6
-  %16 = phi ptr [ inttoptr (i64 -22 to ptr), %6 ], [ %13, %12 ]
+18:                                               ; preds = %14, %7
+  %19 = phi ptr [ %13, %7 ], [ %15, %14 ]
   tail call void @crypto_mod_put(ptr noundef %4) #17
-  br label %17
+  br label %20
 
-17:                                               ; preds = %15, %12, %3
-  %18 = phi ptr [ %16, %15 ], [ %13, %12 ], [ %4, %3 ]
-  ret ptr %18
+20:                                               ; preds = %18, %14, %3
+  %21 = phi ptr [ %19, %18 ], [ %15, %14 ], [ %4, %3 ]
+  ret ptr %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2022,73 +2038,76 @@ define internal fastcc noundef ptr @crypto_spawn_alg(ptr nocapture noundef reado
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   %3 = load i8, ptr %2, align 4, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %20
+  %5 = inttoptr i64 -11 to ptr
+  br i1 %4, label %6, label %23
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @crypto_mod_get(ptr noundef %7) #17
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %20
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call ptr @crypto_mod_get(ptr noundef %8) #17
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %23
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 52
-  %12 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11, i32 1, ptr elementtype(i32) %11) #17, !srcloc !53
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %18, label %14, !prof !11
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %8, i64 52
+  %13 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12, i32 1, ptr elementtype(i32) %12) #17, !srcloc !53
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %20, label %15, !prof !11
 
-14:                                               ; preds = %10
-  %15 = add i32 %12, 1
-  %16 = or i32 %15, %12
-  %17 = icmp sgt i32 %16, -1
-  br i1 %17, label %20, label %18, !prof !15
+15:                                               ; preds = %11
+  %16 = add i32 %13, 1
+  %17 = or i32 %16, %13
+  %18 = icmp sgt i32 %17, -1
+  %19 = inttoptr i64 -11 to ptr
+  br i1 %18, label %23, label %20, !prof !15
 
-18:                                               ; preds = %14, %10
-  %19 = phi i32 [ 2, %10 ], [ 1, %14 ]
-  tail call void @refcount_warn_saturate(ptr noundef %11, i32 noundef %19) #17
-  br label %20
+20:                                               ; preds = %15, %11
+  %21 = phi i32 [ 2, %11 ], [ 1, %15 ]
+  tail call void @refcount_warn_saturate(ptr noundef %12, i32 noundef %21) #17
+  %22 = inttoptr i64 -11 to ptr
+  br label %23
 
-20:                                               ; preds = %18, %14, %5, %1
-  %21 = phi ptr [ inttoptr (i64 -11 to ptr), %1 ], [ %7, %5 ], [ inttoptr (i64 -11 to ptr), %14 ], [ inttoptr (i64 -11 to ptr), %18 ]
-  %22 = phi ptr [ null, %1 ], [ null, %5 ], [ %7, %14 ], [ %7, %18 ]
-  %23 = phi i1 [ false, %1 ], [ false, %5 ], [ true, %14 ], [ true, %18 ]
+23:                                               ; preds = %20, %15, %6, %1
+  %24 = phi ptr [ %5, %1 ], [ %8, %6 ], [ %19, %15 ], [ %22, %20 ]
+  %25 = phi ptr [ null, %1 ], [ null, %6 ], [ %8, %15 ], [ %8, %20 ]
+  %26 = phi i1 [ false, %1 ], [ false, %6 ], [ true, %15 ], [ true, %20 ]
   tail call void @up_read(ptr noundef nonnull @crypto_alg_sem) #17
-  br i1 %23, label %24, label %38
+  br i1 %26, label %27, label %41
 
-24:                                               ; preds = %20
-  tail call void @crypto_shoot_alg(ptr noundef %22) #17
-  %25 = getelementptr inbounds i8, ptr %22, i64 52
-  %26 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25, i32 -1, ptr elementtype(i32) %25) #17, !srcloc !21
-  %27 = icmp eq i32 %26, 1
-  br i1 %27, label %28, label %29
+27:                                               ; preds = %23
+  tail call void @crypto_shoot_alg(ptr noundef %25) #17
+  %28 = getelementptr inbounds i8, ptr %25, i64 52
+  %29 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, i32 -1, ptr elementtype(i32) %28) #17, !srcloc !21
+  %30 = icmp eq i32 %29, 1
+  br i1 %30, label %31, label %32
 
-28:                                               ; preds = %24
+31:                                               ; preds = %27
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
-  br label %32
+  br label %35
 
-29:                                               ; preds = %24
-  %30 = icmp sgt i32 %26, 0
-  br i1 %30, label %32, label %31, !prof !15
+32:                                               ; preds = %27
+  %33 = icmp sgt i32 %29, 0
+  br i1 %33, label %35, label %34, !prof !15
 
-31:                                               ; preds = %29
-  tail call void @refcount_warn_saturate(ptr noundef %25, i32 noundef 3) #17
-  br label %32
+34:                                               ; preds = %32
+  tail call void @refcount_warn_saturate(ptr noundef %28, i32 noundef 3) #17
+  br label %35
 
-32:                                               ; preds = %31, %29, %28
-  br i1 %27, label %33, label %38
+35:                                               ; preds = %34, %32, %31
+  br i1 %30, label %36, label %41
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %22, i64 368
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %38, label %37
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds i8, ptr %25, i64 368
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %41, label %40
 
-37:                                               ; preds = %33
-  tail call void %35(ptr noundef %22) #17
-  br label %38
+40:                                               ; preds = %36
+  tail call void %38(ptr noundef %25) #17
+  br label %41
 
-38:                                               ; preds = %37, %33, %32, %20
-  ret ptr %21
+41:                                               ; preds = %40, %36, %35, %23
+  ret ptr %24
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2097,23 +2116,25 @@ declare dso_local ptr @__crypto_alloc_tfm(ptr noundef, i32 noundef, i32 noundef)
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @crypto_spawn_tfm2(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = tail call fastcc ptr @crypto_spawn_alg(ptr noundef %0)
-  %3 = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)
-  br i1 %3, label %10, label %4
+  %3 = inttoptr i64 -4096 to ptr
+  %4 = icmp ugt ptr %2, %3
+  br i1 %4, label %12, label %5
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @crypto_create_tfm_node(ptr noundef %2, ptr noundef %6, i32 noundef -1) #17
-  %8 = icmp ugt ptr %7, inttoptr (i64 -4096 to ptr)
-  br i1 %8, label %9, label %10
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call ptr @crypto_create_tfm_node(ptr noundef %2, ptr noundef %7, i32 noundef -1) #17
+  %9 = inttoptr i64 -4096 to ptr
+  %10 = icmp ugt ptr %8, %9
+  br i1 %10, label %11, label %12
 
-9:                                                ; preds = %4
+11:                                               ; preds = %5
   tail call void @crypto_mod_put(ptr noundef %2) #17
-  br label %10
+  br label %12
 
-10:                                               ; preds = %9, %4, %1
-  %11 = phi ptr [ %7, %9 ], [ %7, %4 ], [ %2, %1 ]
-  ret ptr %11
+12:                                               ; preds = %11, %5, %1
+  %13 = phi ptr [ %8, %11 ], [ %8, %5 ], [ %2, %1 ]
+  ret ptr %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2138,111 +2159,121 @@ declare dso_local i32 @blocking_notifier_chain_unregister(ptr noundef, ptr nound
 define dso_local ptr @crypto_get_attr_type(ptr nocapture noundef readonly %0) #6 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %15, label %4
+  %4 = inttoptr i64 -2 to ptr
+  br i1 %3, label %18, label %5
 
-4:                                                ; preds = %1
-  %5 = load i16, ptr %2, align 2
-  %6 = zext i16 %5 to i64
-  %7 = add nsw i64 %6, -4
-  %8 = icmp ult i64 %7, 8
-  br i1 %8, label %15, label %9
+5:                                                ; preds = %1
+  %6 = load i16, ptr %2, align 2
+  %7 = zext i16 %6 to i64
+  %8 = add nsw i64 %7, -4
+  %9 = icmp ult i64 %8, 8
+  %10 = inttoptr i64 -22 to ptr
+  br i1 %9, label %18, label %11
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 2
-  %11 = load i16, ptr %10, align 2
-  %12 = icmp eq i16 %11, 2
-  br i1 %12, label %13, label %15
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %2, i64 2
+  %13 = load i16, ptr %12, align 2
+  %14 = icmp eq i16 %13, 2
+  %15 = inttoptr i64 -22 to ptr
+  br i1 %14, label %16, label %18
 
-13:                                               ; preds = %9
-  %14 = getelementptr i8, ptr %2, i64 4
-  br label %15
+16:                                               ; preds = %11
+  %17 = getelementptr i8, ptr %2, i64 4
+  br label %18
 
-15:                                               ; preds = %13, %9, %4, %1
-  %16 = phi ptr [ %14, %13 ], [ inttoptr (i64 -2 to ptr), %1 ], [ inttoptr (i64 -22 to ptr), %4 ], [ inttoptr (i64 -22 to ptr), %9 ]
-  ret ptr %16
+18:                                               ; preds = %16, %11, %5, %1
+  %19 = phi ptr [ %17, %16 ], [ %4, %1 ], [ %10, %5 ], [ %15, %11 ]
+  ret ptr %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local i32 @crypto_check_attr_type(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #7 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %17, label %6
+  %6 = inttoptr i64 -2 to ptr
+  br i1 %5, label %20, label %7
 
-6:                                                ; preds = %3
-  %7 = load i16, ptr %4, align 2
-  %8 = zext i16 %7 to i64
-  %9 = add nsw i64 %8, -4
-  %10 = icmp ult i64 %9, 8
-  br i1 %10, label %17, label %11
+7:                                                ; preds = %3
+  %8 = load i16, ptr %4, align 2
+  %9 = zext i16 %8 to i64
+  %10 = add nsw i64 %9, -4
+  %11 = icmp ult i64 %10, 8
+  %12 = inttoptr i64 -22 to ptr
+  br i1 %11, label %20, label %13
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %4, i64 2
-  %13 = load i16, ptr %12, align 2
-  %14 = icmp eq i16 %13, 2
-  br i1 %14, label %15, label %17
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds i8, ptr %4, i64 2
+  %15 = load i16, ptr %14, align 2
+  %16 = icmp eq i16 %15, 2
+  %17 = inttoptr i64 -22 to ptr
+  br i1 %16, label %18, label %20
 
-15:                                               ; preds = %11
-  %16 = getelementptr i8, ptr %4, i64 4
-  br label %17
+18:                                               ; preds = %13
+  %19 = getelementptr i8, ptr %4, i64 4
+  br label %20
 
-17:                                               ; preds = %15, %11, %6, %3
-  %18 = phi ptr [ %16, %15 ], [ inttoptr (i64 -2 to ptr), %3 ], [ inttoptr (i64 -22 to ptr), %6 ], [ inttoptr (i64 -22 to ptr), %11 ]
-  %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
-  br i1 %19, label %20, label %23
+20:                                               ; preds = %18, %13, %7, %3
+  %21 = phi ptr [ %19, %18 ], [ %6, %3 ], [ %12, %7 ], [ %17, %13 ]
+  %22 = inttoptr i64 -4096 to ptr
+  %23 = icmp ugt ptr %21, %22
+  br i1 %23, label %24, label %27
 
-20:                                               ; preds = %17
-  %21 = ptrtoint ptr %18 to i64
-  %22 = trunc i64 %21 to i32
-  br label %34
+24:                                               ; preds = %20
+  %25 = ptrtoint ptr %21 to i64
+  %26 = trunc i64 %25 to i32
+  br label %38
 
-23:                                               ; preds = %17
-  %24 = load i32, ptr %18, align 4
-  %25 = xor i32 %24, %1
-  %26 = getelementptr inbounds i8, ptr %18, i64 4
-  %27 = load i32, ptr %26, align 4
-  %28 = and i32 %25, %27
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %34
+27:                                               ; preds = %20
+  %28 = load i32, ptr %21, align 4
+  %29 = xor i32 %28, %1
+  %30 = getelementptr inbounds i8, ptr %21, i64 4
+  %31 = load i32, ptr %30, align 4
+  %32 = and i32 %29, %31
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %38
 
-30:                                               ; preds = %23
-  %31 = and i32 %24, 65920
-  %32 = xor i32 %31, 65920
-  %33 = and i32 %32, %27
-  store i32 %33, ptr %2, align 4
-  br label %34
+34:                                               ; preds = %27
+  %35 = and i32 %28, 65920
+  %36 = xor i32 %35, 65920
+  %37 = and i32 %36, %31
+  store i32 %37, ptr %2, align 4
+  br label %38
 
-34:                                               ; preds = %30, %23, %20
-  %35 = phi i32 [ %22, %20 ], [ 0, %30 ], [ -22, %23 ]
-  ret i32 %35
+38:                                               ; preds = %34, %27, %24
+  %39 = phi i32 [ %26, %24 ], [ 0, %34 ], [ -22, %27 ]
+  ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local noundef ptr @crypto_attr_alg_name(ptr noundef %0) #8 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %15, label %3
+  %3 = inttoptr i64 -2 to ptr
+  br i1 %2, label %18, label %4
 
-3:                                                ; preds = %1
-  %4 = load i16, ptr %0, align 2
-  %5 = zext i16 %4 to i64
-  %6 = add nsw i64 %5, -4
-  %7 = icmp ult i64 %6, 128
-  br i1 %7, label %15, label %8
+4:                                                ; preds = %1
+  %5 = load i16, ptr %0, align 2
+  %6 = zext i16 %5 to i64
+  %7 = add nsw i64 %6, -4
+  %8 = icmp ult i64 %7, 128
+  %9 = inttoptr i64 -22 to ptr
+  br i1 %8, label %18, label %10
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
-  %10 = load i16, ptr %9, align 2
-  %11 = icmp eq i16 %10, 1
-  br i1 %11, label %12, label %15
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = load i16, ptr %11, align 2
+  %13 = icmp eq i16 %12, 1
+  %14 = inttoptr i64 -22 to ptr
+  br i1 %13, label %15, label %18
 
-12:                                               ; preds = %8
-  %13 = getelementptr i8, ptr %0, i64 4
-  %14 = getelementptr i8, ptr %0, i64 131
-  store i8 0, ptr %14, align 1
-  br label %15
+15:                                               ; preds = %10
+  %16 = getelementptr i8, ptr %0, i64 4
+  %17 = getelementptr i8, ptr %0, i64 131
+  store i8 0, ptr %17, align 1
+  br label %18
 
-15:                                               ; preds = %12, %8, %3, %1
-  %16 = phi ptr [ %13, %12 ], [ inttoptr (i64 -2 to ptr), %1 ], [ inttoptr (i64 -22 to ptr), %3 ], [ inttoptr (i64 -22 to ptr), %8 ]
-  ret ptr %16
+18:                                               ; preds = %15, %10, %4, %1
+  %19 = phi ptr [ %16, %15 ], [ %3, %1 ], [ %9, %4 ], [ %14, %10 ]
+  ret ptr %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
@@ -2362,7 +2393,7 @@ define dso_local noundef ptr @crypto_dequeue_request(ptr noundef %0) #12 align 1
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %18, label %5, !prof !11
+  br i1 %4, label %20, label %5, !prof !11
 
 5:                                                ; preds = %1
   %6 = add i32 %3, -1
@@ -2385,13 +2416,15 @@ define dso_local noundef ptr @crypto_dequeue_request(ptr noundef %0) #12 align 1
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %15, ptr %17, align 8
   store volatile ptr %16, ptr %15, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %13, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %14, align 8
-  br label %18
+  %18 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %18, ptr %13, align 8
+  %19 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %19, ptr %14, align 8
+  br label %20
 
-18:                                               ; preds = %12, %1
-  %19 = phi ptr [ %13, %12 ], [ null, %1 ]
-  ret ptr %19
+20:                                               ; preds = %12, %1
+  %21 = phi ptr [ %13, %12 ], [ null, %1 ]
+  ret ptr %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
@@ -2465,16 +2498,17 @@ define dso_local i32 @crypto_alg_extsize(ptr nocapture noundef readonly %0) #15 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @crypto_type_has_alg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = tail call ptr @crypto_find_alg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #17
-  %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  br i1 %6, label %8, label %7
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %5, %6
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %4
+8:                                                ; preds = %4
   tail call void @crypto_mod_put(ptr noundef %5) #17
-  br label %8
+  br label %9
 
-8:                                                ; preds = %7, %4
-  %9 = phi i32 [ 0, %4 ], [ 1, %7 ]
-  ret i32 %9
+9:                                                ; preds = %8, %4
+  %10 = phi i32 [ 0, %4 ], [ 1, %8 ]
+  ret i32 %10
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

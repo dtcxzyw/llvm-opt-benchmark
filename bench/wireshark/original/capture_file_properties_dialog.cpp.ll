@@ -428,224 +428,226 @@ define void @_ZN27CaptureFilePropertiesDialogC2ER7QWidgetR11CaptureFile(ptr noun
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %6, align 8
   call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %17, ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(48) %19)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV27CaptureFilePropertiesDialog, i32 0, i32 0, i32 2), ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV27CaptureFilePropertiesDialog, i32 0, i32 1, i32 2), ptr %20, align 8
-  %21 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #14
-          to label %23 unwind label %53
-
-23:                                               ; preds = %3
+  %20 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV27CaptureFilePropertiesDialog, i32 0, i32 0, i32 2
+  store ptr %20, ptr %17, align 8
+  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV27CaptureFilePropertiesDialog, i32 0, i32 1, i32 2
   store ptr %22, ptr %21, align 8
-  %24 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  invoke void @_ZN30Ui_CaptureFilePropertiesDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef %17)
-          to label %26 unwind label %53
+  %23 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
+  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #14
+          to label %25 unwind label %55
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %5, align 8
-  %28 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %27)
-          to label %29 unwind label %53
+25:                                               ; preds = %3
+  store ptr %24, ptr %23, align 8
+  %26 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  invoke void @_ZN30Ui_CaptureFilePropertiesDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef %17)
+          to label %28 unwind label %55
 
-29:                                               ; preds = %26
-  %30 = mul i32 %28, 2
-  %31 = sdiv i32 %30, 3
-  %32 = load ptr, ptr %5, align 8
-  %33 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %32)
-          to label %34 unwind label %53
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %5, align 8
+  %30 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %29)
+          to label %31 unwind label %55
 
-34:                                               ; preds = %29
+31:                                               ; preds = %28
+  %32 = mul i32 %30, 2
+  %33 = sdiv i32 %32, 3
+  %34 = load ptr, ptr %5, align 8
+  %35 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %34)
+          to label %36 unwind label %55
+
+36:                                               ; preds = %31
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef %31, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %35 unwind label %57
+  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef %33, i32 noundef %35, ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %37 unwind label %59
 
-35:                                               ; preds = %34
+37:                                               ; preds = %36
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %36 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %37, i32 0, i32 5
+  %38 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
   %39 = load ptr, ptr %38, align 8
-  invoke void @_ZN9QTextEdit17setAcceptRichTextEb(ptr noundef nonnull align 8 dereferenceable(40) %39, i1 noundef zeroext true)
-          to label %40 unwind label %53
+  %40 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %39, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8
+  invoke void @_ZN9QTextEdit17setAcceptRichTextEb(ptr noundef nonnull align 8 dereferenceable(40) %41, i1 noundef zeroext true)
+          to label %42 unwind label %55
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %42, i32 0, i32 6
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
   %44 = load ptr, ptr %43, align 8
-  %45 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %44, i32 noundef 67108864)
-          to label %46 unwind label %53
+  %45 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %44, i32 0, i32 6
+  %46 = load ptr, ptr %45, align 8
+  %47 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %46, i32 noundef 67108864)
+          to label %48 unwind label %55
 
-46:                                               ; preds = %40
-  store ptr %45, ptr %10, align 8
-  %47 = load ptr, ptr %10, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %49, label %65
+48:                                               ; preds = %42
+  store ptr %47, ptr %10, align 8
+  %49 = load ptr, ptr %10, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %67
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %10, align 8
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %10, align 8
   invoke void @_ZN27CaptureFilePropertiesDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef @.str, ptr noundef null, i32 noundef -1)
-          to label %51 unwind label %53
+          to label %53 unwind label %55
 
-51:                                               ; preds = %49
-  invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %52 unwind label %61
+53:                                               ; preds = %51
+  invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(24) %11)
+          to label %54 unwind label %63
 
-52:                                               ; preds = %51
+54:                                               ; preds = %53
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #8
-  br label %65
+  br label %67
 
-53:                                               ; preds = %114, %112, %103, %94, %91, %82, %74, %65, %49, %40, %35, %29, %26, %23, %3
-  %54 = landingpad { ptr, i32 }
+55:                                               ; preds = %116, %114, %105, %96, %93, %84, %76, %67, %51, %42, %37, %31, %28, %25, %3
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %7, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %8, align 4
-  br label %120
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %7, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %8, align 4
+  br label %122
 
-57:                                               ; preds = %34
-  %58 = landingpad { ptr, i32 }
+59:                                               ; preds = %36
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %7, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %8, align 4
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %7, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %8, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  br label %120
+  br label %122
 
-61:                                               ; preds = %51
-  %62 = landingpad { ptr, i32 }
+63:                                               ; preds = %53
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %7, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %8, align 4
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %7, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %8, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #8
-  br label %120
+  br label %122
 
-65:                                               ; preds = %52, %46
-  %66 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %67, i32 0, i32 6
+67:                                               ; preds = %54, %48
+  %68 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
   %69 = load ptr, ptr %68, align 8
-  %70 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %69, i32 noundef 33554432)
-          to label %71 unwind label %53
+  %70 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %69, i32 0, i32 6
+  %71 = load ptr, ptr %70, align 8
+  %72 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %71, i32 noundef 33554432)
+          to label %73 unwind label %55
 
-71:                                               ; preds = %65
-  store ptr %70, ptr %10, align 8
-  %72 = load ptr, ptr %10, align 8
-  %73 = icmp ne ptr %72, null
-  br i1 %73, label %74, label %82
+73:                                               ; preds = %67
+  store ptr %72, ptr %10, align 8
+  %74 = load ptr, ptr %10, align 8
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %84
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %10, align 8
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %10, align 8
   invoke void @_ZN27CaptureFilePropertiesDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef @.str.1, ptr noundef null, i32 noundef -1)
-          to label %76 unwind label %53
-
-76:                                               ; preds = %74
-  invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %77 unwind label %78
-
-77:                                               ; preds = %76
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #8
-  br label %82
+          to label %78 unwind label %55
 
 78:                                               ; preds = %76
-  %79 = landingpad { ptr, i32 }
-          cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %7, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %8, align 4
+  invoke void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(24) %12)
+          to label %79 unwind label %80
+
+79:                                               ; preds = %78
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #8
-  br label %120
+  br label %84
 
-82:                                               ; preds = %77, %71
-  %83 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %84, i32 0, i32 6
+80:                                               ; preds = %78
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %7, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %8, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #8
+  br label %122
+
+84:                                               ; preds = %79, %73
+  %85 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
   %86 = load ptr, ptr %85, align 8
-  %87 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %86, i32 noundef 2097152)
-          to label %88 unwind label %53
+  %87 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %86, i32 0, i32 6
+  %88 = load ptr, ptr %87, align 8
+  %89 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %88, i32 noundef 2097152)
+          to label %90 unwind label %55
 
-88:                                               ; preds = %82
-  store ptr %87, ptr %10, align 8
-  %89 = load ptr, ptr %10, align 8
-  %90 = icmp ne ptr %89, null
-  br i1 %90, label %91, label %94
+90:                                               ; preds = %84
+  store ptr %89, ptr %10, align 8
+  %91 = load ptr, ptr %10, align 8
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %96
 
-91:                                               ; preds = %88
-  %92 = load ptr, ptr %10, align 8
-  invoke void @_ZN11QPushButton10setDefaultEb(ptr noundef nonnull align 8 dereferenceable(40) %92, i1 noundef zeroext true)
-          to label %93 unwind label %53
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %10, align 8
+  invoke void @_ZN11QPushButton10setDefaultEb(ptr noundef nonnull align 8 dereferenceable(40) %94, i1 noundef zeroext true)
+          to label %95 unwind label %55
 
-93:                                               ; preds = %91
-  br label %94
+95:                                               ; preds = %93
+  br label %96
 
-94:                                               ; preds = %93, %88
-  %95 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %96, i32 0, i32 6
+96:                                               ; preds = %95, %90
+  %97 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
+  %99 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %98, i32 0, i32 6
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %100, i32 0, i32 0
+  %101 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
   %102 = load ptr, ptr %101, align 8
-  invoke void @_ZN16QDialogButtonBox9addButtonEP15QAbstractButtonNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %98, ptr noundef %102, i32 noundef 3)
-          to label %103 unwind label %53
+  %103 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %102, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8
+  invoke void @_ZN16QDialogButtonBox9addButtonEP15QAbstractButtonNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %100, ptr noundef %104, i32 noundef 3)
+          to label %105 unwind label %55
 
-103:                                              ; preds = %94
-  %104 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %105, i32 0, i32 0
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %17, i32 0, i32 1
   %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds %class.Ui_CaptureFilePropertiesDialog, ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %14, align 8
-  %108 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 0
-  %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 1
+  %110 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 0
   %111 = load i64, ptr %110, align 8
+  %112 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 1
+  %113 = load i64, ptr %112, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN27CaptureFilePropertiesDialog17addCaptureCommentEv to i64), i64 0 }, ptr %15, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27CaptureFilePropertiesDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %13, ptr noundef %107, i64 %109, i64 %111, ptr noundef %17, ptr noundef byval({ i64, i64 }) align 8 %15, i32 noundef 0)
-          to label %112 unwind label %53
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27CaptureFilePropertiesDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %13, ptr noundef %109, i64 %111, i64 %113, ptr noundef %17, ptr noundef byval({ i64, i64 }) align 8 %15, i32 noundef 0)
+          to label %114 unwind label %55
 
-112:                                              ; preds = %103
+114:                                              ; preds = %105
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #8
   invoke void @_ZN27CaptureFilePropertiesDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %16, ptr noundef @.str.2, ptr noundef null, i32 noundef -1)
-          to label %113 unwind label %53
-
-113:                                              ; preds = %112
-  invoke void @_ZN15WiresharkDialog17setWindowSubtitleERK7QString(ptr noundef nonnull align 8 dereferenceable(133) %17, ptr noundef nonnull align 8 dereferenceable(24) %16)
-          to label %114 unwind label %116
-
-114:                                              ; preds = %113
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
-  invoke void @_ZN6QTimer10singleShotEiPK7QObjectPKc(i32 noundef 0, ptr noundef %17, ptr noundef @.str.3)
-          to label %115 unwind label %53
+          to label %115 unwind label %55
 
 115:                                              ; preds = %114
+  invoke void @_ZN15WiresharkDialog17setWindowSubtitleERK7QString(ptr noundef nonnull align 8 dereferenceable(133) %17, ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %116 unwind label %118
+
+116:                                              ; preds = %115
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
+  invoke void @_ZN6QTimer10singleShotEiPK7QObjectPKc(i32 noundef 0, ptr noundef %17, ptr noundef @.str.3)
+          to label %117 unwind label %55
+
+117:                                              ; preds = %116
   ret void
 
-116:                                              ; preds = %113
-  %117 = landingpad { ptr, i32 }
+118:                                              ; preds = %115
+  %119 = landingpad { ptr, i32 }
           cleanup
-  %118 = extractvalue { ptr, i32 } %117, 0
-  store ptr %118, ptr %7, align 8
-  %119 = extractvalue { ptr, i32 } %117, 1
-  store i32 %119, ptr %8, align 4
+  %120 = extractvalue { ptr, i32 } %119, 0
+  store ptr %120, ptr %7, align 8
+  %121 = extractvalue { ptr, i32 } %119, 1
+  store i32 %121, ptr %8, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
-  br label %120
+  br label %122
 
-120:                                              ; preds = %116, %78, %61, %57, %53
+122:                                              ; preds = %118, %80, %63, %59, %55
   call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %17) #8
-  br label %121
+  br label %123
 
-121:                                              ; preds = %120
-  %122 = load ptr, ptr %7, align 8
-  %123 = load i32, ptr %8, align 4
-  %124 = insertvalue { ptr, i32 } poison, ptr %122, 0
-  %125 = insertvalue { ptr, i32 } %124, i32 %123, 1
-  resume { ptr, i32 } %125
+123:                                              ; preds = %122
+  %124 = load ptr, ptr %7, align 8
+  %125 = load i32, ptr %8, align 4
+  %126 = insertvalue { ptr, i32 } poison, ptr %124, 0
+  %127 = insertvalue { ptr, i32 } %126, i32 %125, 1
+  resume { ptr, i32 } %127
 }
 
 declare void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
@@ -1354,13 +1356,15 @@ define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
-  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
-  %6 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
+  %4 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
+  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
+  %8 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #8
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #8
   ret void
 }
@@ -1370,19 +1374,21 @@ define void @_ZN27CaptureFilePropertiesDialogD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV27CaptureFilePropertiesDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV27CaptureFilePropertiesDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV27CaptureFilePropertiesDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV27CaptureFilePropertiesDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.CaptureFilePropertiesDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #15
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #15
+  br label %11
 
-9:                                                ; preds = %8, %1
+11:                                               ; preds = %10, %1
   call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %3) #8
   ret void
 }

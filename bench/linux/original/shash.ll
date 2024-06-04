@@ -393,7 +393,7 @@ define dso_local ptr @crypto_clone_shash(ptr noundef %0) #1 align 16 {
   %5 = getelementptr i8, ptr %4, i64 -48
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, @shash_no_setkey
-  br i1 %7, label %8, label %35
+  br i1 %7, label %8, label %37
 
 8:                                                ; preds = %1
   %9 = load volatile i32, ptr %2, align 4
@@ -433,56 +433,61 @@ define dso_local ptr @crypto_clone_shash(ptr noundef %0) #1 align 16 {
 
 30:                                               ; preds = %29, %24
   %31 = icmp eq i32 %25, 0
-  %32 = select i1 %31, ptr inttoptr (i64 -75 to ptr), ptr %2
-  %33 = icmp ugt ptr %32, inttoptr (i64 -4096 to ptr)
-  %34 = select i1 %33, ptr %32, ptr %0
-  br label %61
+  %32 = inttoptr i64 -75 to ptr
+  %33 = select i1 %31, ptr %32, ptr %2
+  %34 = inttoptr i64 -4096 to ptr
+  %35 = icmp ugt ptr %33, %34
+  %36 = select i1 %35, ptr %33, ptr %0
+  br label %66
 
-35:                                               ; preds = %1
-  %36 = getelementptr i8, ptr %4, i64 -24
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %47
+37:                                               ; preds = %1
+  %38 = getelementptr i8, ptr %4, i64 -24
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %51
 
-39:                                               ; preds = %35
-  %40 = getelementptr i8, ptr %4, i64 -40
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %61
+41:                                               ; preds = %37
+  %42 = getelementptr i8, ptr %4, i64 -40
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, null
+  %45 = inttoptr i64 -38 to ptr
+  br i1 %44, label %46, label %66
 
-43:                                               ; preds = %39
-  %44 = getelementptr i8, ptr %4, i64 352
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %61
+46:                                               ; preds = %41
+  %47 = getelementptr i8, ptr %4, i64 352
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  %50 = inttoptr i64 -38 to ptr
+  br i1 %49, label %51, label %66
 
-47:                                               ; preds = %43, %35
-  %48 = tail call ptr @crypto_clone_tfm(ptr noundef nonnull @crypto_shash_type, ptr noundef %2) #8
-  %49 = icmp ugt ptr %48, inttoptr (i64 -4096 to ptr)
-  br i1 %49, label %61, label %50
+51:                                               ; preds = %46, %37
+  %52 = tail call ptr @crypto_clone_tfm(ptr noundef nonnull @crypto_shash_type, ptr noundef %2) #8
+  %53 = inttoptr i64 -4096 to ptr
+  %54 = icmp ugt ptr %52, %53
+  br i1 %54, label %66, label %55
 
-50:                                               ; preds = %47
-  %51 = load i32, ptr %0, align 8
-  store i32 %51, ptr %48, align 8
-  %52 = load ptr, ptr %36, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %61, label %54
+55:                                               ; preds = %51
+  %56 = load i32, ptr %0, align 8
+  store i32 %56, ptr %52, align 8
+  %57 = load ptr, ptr %38, align 8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %66, label %59
 
-54:                                               ; preds = %50
-  %55 = tail call i32 %52(ptr noundef %48, ptr noundef %0) #8
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %61, label %57
+59:                                               ; preds = %55
+  %60 = tail call i32 %57(ptr noundef %52, ptr noundef %0) #8
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %66, label %62
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %48, i64 8
-  tail call void @crypto_destroy_tfm(ptr noundef %48, ptr noundef %58) #8
-  %59 = sext i32 %55 to i64
-  %60 = inttoptr i64 %59 to ptr
-  br label %61
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds i8, ptr %52, i64 8
+  tail call void @crypto_destroy_tfm(ptr noundef %52, ptr noundef %63) #8
+  %64 = sext i32 %60 to i64
+  %65 = inttoptr i64 %64 to ptr
+  br label %66
 
-61:                                               ; preds = %57, %54, %50, %47, %43, %39, %30
-  %62 = phi ptr [ %60, %57 ], [ %48, %47 ], [ %48, %54 ], [ %48, %50 ], [ %34, %30 ], [ inttoptr (i64 -38 to ptr), %43 ], [ inttoptr (i64 -38 to ptr), %39 ]
-  ret ptr %62
+66:                                               ; preds = %62, %59, %55, %51, %46, %41, %30
+  %67 = phi ptr [ %65, %62 ], [ %52, %51 ], [ %52, %59 ], [ %52, %55 ], [ %36, %30 ], [ %50, %46 ], [ %45, %41 ]
+  ret ptr %67
 }
 
 ; Function Attrs: null_pointer_is_valid

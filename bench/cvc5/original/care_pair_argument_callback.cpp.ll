@@ -96,10 +96,11 @@ entry:
   store ptr %t, ptr %t.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal31NodeTriePathPairProcessCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory24CarePairArgumentCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory24CarePairArgumentCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_theory = getelementptr inbounds %"class.cvc5::internal::theory::CarePairArgumentCallback", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %t.addr, align 8
-  store ptr %0, ptr %d_theory, align 8
+  %1 = load ptr, ptr %t.addr, align 8
+  store ptr %1, ptr %d_theory, align 8
   ret void
 }
 
@@ -109,7 +110,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal31NodeTriePathPairProcessCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal31NodeTriePathPairProcessCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

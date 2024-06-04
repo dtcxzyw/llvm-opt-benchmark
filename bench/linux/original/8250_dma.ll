@@ -623,182 +623,184 @@ define dso_local i32 @serial8250_request_dma(ptr nocapture noundef readonly %0) 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %37, ptr %3, align 8
   %38 = call ptr @dma_request_chan(ptr noundef %36, ptr noundef nonnull @.str) #6
-  %39 = icmp ugt ptr %38, inttoptr (i64 -4096 to ptr)
-  %40 = select i1 %39, ptr null, ptr %38
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %48
+  %39 = inttoptr i64 -4096 to ptr
+  %40 = icmp ugt ptr %38, %39
+  %41 = select i1 %40, ptr null, ptr %38
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %49
 
-42:                                               ; preds = %22
-  %43 = icmp ne ptr %32, null
-  %44 = icmp ne ptr %34, null
-  %45 = and i1 %43, %44
-  br i1 %45, label %46, label %48
+43:                                               ; preds = %22
+  %44 = icmp ne ptr %32, null
+  %45 = icmp ne ptr %34, null
+  %46 = and i1 %44, %45
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %42
-  %47 = call ptr @__dma_request_channel(ptr noundef nonnull %3, ptr noundef nonnull %32, ptr noundef nonnull %34, ptr noundef null) #6
-  br label %48
+47:                                               ; preds = %43
+  %48 = call ptr @__dma_request_channel(ptr noundef nonnull %3, ptr noundef nonnull %32, ptr noundef nonnull %34, ptr noundef null) #6
+  br label %49
 
-48:                                               ; preds = %46, %42, %22
-  %49 = phi ptr [ %47, %46 ], [ %40, %22 ], [ null, %42 ]
+49:                                               ; preds = %47, %43, %22
+  %50 = phi ptr [ %48, %47 ], [ %41, %22 ], [ null, %43 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %50 = getelementptr inbounds i8, ptr %7, i64 200
-  store ptr %49, ptr %50, align 8
-  %51 = icmp eq ptr %49, null
-  br i1 %51, label %150, label %52
+  %51 = getelementptr inbounds i8, ptr %7, i64 200
+  store ptr %50, ptr %51, align 8
+  %52 = icmp eq ptr %50, null
+  br i1 %52, label %152, label %53
 
-52:                                               ; preds = %48
-  %53 = call i32 @dma_get_slave_caps(ptr noundef nonnull %49, ptr noundef nonnull %5) #6
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %147
+53:                                               ; preds = %49
+  %54 = call i32 @dma_get_slave_caps(ptr noundef nonnull %50, ptr noundef nonnull %5) #6
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %149
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %5, i64 24
-  %57 = load i8, ptr %56, align 4, !range !5, !noundef !6
-  %58 = icmp eq i8 %57, 0
-  br i1 %58, label %147, label %59
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds i8, ptr %5, i64 24
+  %58 = load i8, ptr %57, align 4, !range !5, !noundef !6
+  %59 = icmp eq i8 %58, 0
+  br i1 %59, label %149, label %60
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %5, i64 26
-  %61 = load i8, ptr %60, align 2, !range !5, !noundef !6
-  %62 = icmp eq i8 %61, 0
-  %63 = getelementptr inbounds i8, ptr %5, i64 28
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp eq i32 %64, 0
-  %66 = select i1 %62, i1 true, i1 %65
-  br i1 %66, label %147, label %67
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds i8, ptr %5, i64 26
+  %62 = load i8, ptr %61, align 2, !range !5, !noundef !6
+  %63 = icmp eq i8 %62, 0
+  %64 = getelementptr inbounds i8, ptr %5, i64 28
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp eq i32 %65, 0
+  %67 = select i1 %63, i1 true, i1 %66
+  br i1 %67, label %149, label %68
 
-67:                                               ; preds = %59
-  %68 = load ptr, ptr %50, align 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 304
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %75, label %73
+68:                                               ; preds = %60
+  %69 = load ptr, ptr %51, align 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 304
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %76, label %74
 
-73:                                               ; preds = %67
-  %74 = call i32 %71(ptr noundef %68, ptr noundef %24) #6
-  br label %75
+74:                                               ; preds = %68
+  %75 = call i32 %72(ptr noundef %69, ptr noundef %24) #6
+  br label %76
 
-75:                                               ; preds = %73, %67
-  %76 = load ptr, ptr %31, align 8
-  %77 = getelementptr inbounds i8, ptr %7, i64 48
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %35, align 8
-  %80 = load i64, ptr %4, align 8
+76:                                               ; preds = %74, %68
+  %77 = load ptr, ptr %31, align 8
+  %78 = getelementptr inbounds i8, ptr %7, i64 48
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %35, align 8
+  %81 = load i64, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store i64 %80, ptr %2, align 8
-  %81 = call ptr @dma_request_chan(ptr noundef %79, ptr noundef nonnull @.str.1) #6
-  %82 = icmp ugt ptr %81, inttoptr (i64 -4096 to ptr)
-  %83 = select i1 %82, ptr null, ptr %81
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %85, label %91
+  store i64 %81, ptr %2, align 8
+  %82 = call ptr @dma_request_chan(ptr noundef %80, ptr noundef nonnull @.str.1) #6
+  %83 = inttoptr i64 -4096 to ptr
+  %84 = icmp ugt ptr %82, %83
+  %85 = select i1 %84, ptr null, ptr %82
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %87, label %93
 
-85:                                               ; preds = %75
-  %86 = icmp ne ptr %76, null
-  %87 = icmp ne ptr %78, null
-  %88 = and i1 %86, %87
-  br i1 %88, label %89, label %91
+87:                                               ; preds = %76
+  %88 = icmp ne ptr %77, null
+  %89 = icmp ne ptr %79, null
+  %90 = and i1 %88, %89
+  br i1 %90, label %91, label %93
 
-89:                                               ; preds = %85
-  %90 = call ptr @__dma_request_channel(ptr noundef nonnull %2, ptr noundef nonnull %76, ptr noundef nonnull %78, ptr noundef null) #6
-  br label %91
+91:                                               ; preds = %87
+  %92 = call ptr @__dma_request_channel(ptr noundef nonnull %2, ptr noundef nonnull %77, ptr noundef nonnull %79, ptr noundef null) #6
+  br label %93
 
-91:                                               ; preds = %89, %85, %75
-  %92 = phi ptr [ %90, %89 ], [ %83, %75 ], [ null, %85 ]
+93:                                               ; preds = %91, %87, %76
+  %94 = phi ptr [ %92, %91 ], [ %85, %76 ], [ null, %87 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %93 = getelementptr inbounds i8, ptr %7, i64 208
-  store ptr %92, ptr %93, align 8
-  %94 = icmp eq ptr %92, null
-  br i1 %94, label %147, label %95
+  %95 = getelementptr inbounds i8, ptr %7, i64 208
+  store ptr %94, ptr %95, align 8
+  %96 = icmp eq ptr %94, null
+  br i1 %96, label %149, label %97
 
-95:                                               ; preds = %91
-  %96 = call i32 @dma_get_slave_caps(ptr noundef nonnull %92, ptr noundef nonnull %5) #6
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %144
+97:                                               ; preds = %93
+  %98 = call i32 @dma_get_slave_caps(ptr noundef nonnull %94, ptr noundef nonnull %5) #6
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %146
 
-98:                                               ; preds = %95
-  %99 = load i8, ptr %60, align 2, !range !5, !noundef !6
-  %100 = icmp eq i8 %99, 0
-  br i1 %100, label %144, label %101
+100:                                              ; preds = %97
+  %101 = load i8, ptr %61, align 2, !range !5, !noundef !6
+  %102 = icmp eq i8 %101, 0
+  br i1 %102, label %146, label %103
 
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %93, align 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 304
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %95, align 8
   %105 = load ptr, ptr %104, align 8
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %109, label %107
+  %106 = getelementptr inbounds i8, ptr %105, i64 304
+  %107 = load ptr, ptr %106, align 8
+  %108 = icmp eq ptr %107, null
+  br i1 %108, label %111, label %109
 
-107:                                              ; preds = %101
-  %108 = call i32 %105(ptr noundef %102, ptr noundef %27) #6
-  br label %109
+109:                                              ; preds = %103
+  %110 = call i32 %107(ptr noundef %104, ptr noundef %27) #6
+  br label %111
 
-109:                                              ; preds = %107, %101
-  %110 = getelementptr inbounds i8, ptr %7, i64 264
-  %111 = load i64, ptr %110, align 8
-  %112 = icmp eq i64 %111, 0
-  br i1 %112, label %113, label %114
+111:                                              ; preds = %109, %103
+  %112 = getelementptr inbounds i8, ptr %7, i64 264
+  %113 = load i64, ptr %112, align 8
+  %114 = icmp eq i64 %113, 0
+  br i1 %114, label %115, label %116
 
-113:                                              ; preds = %109
-  store i64 4096, ptr %110, align 8
-  br label %114
+115:                                              ; preds = %111
+  store i64 4096, ptr %112, align 8
+  br label %116
 
-114:                                              ; preds = %113, %109
-  %115 = load ptr, ptr %50, align 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 112
+116:                                              ; preds = %115, %111
+  %117 = load ptr, ptr %51, align 8
   %118 = load ptr, ptr %117, align 8
-  %119 = load i64, ptr %110, align 8
-  %120 = getelementptr inbounds i8, ptr %7, i64 232
-  %121 = call ptr @dma_alloc_attrs(ptr noundef %118, i64 noundef %119, ptr noundef %120, i32 noundef 3264, i64 noundef 0) #6
-  %122 = getelementptr inbounds i8, ptr %7, i64 256
-  store ptr %121, ptr %122, align 8
-  %123 = icmp eq ptr %121, null
-  br i1 %123, label %144, label %124
+  %119 = getelementptr inbounds i8, ptr %118, i64 112
+  %120 = load ptr, ptr %119, align 8
+  %121 = load i64, ptr %112, align 8
+  %122 = getelementptr inbounds i8, ptr %7, i64 232
+  %123 = call ptr @dma_alloc_attrs(ptr noundef %120, i64 noundef %121, ptr noundef %122, i32 noundef 3264, i64 noundef 0) #6
+  %124 = getelementptr inbounds i8, ptr %7, i64 256
+  store ptr %123, ptr %124, align 8
+  %125 = icmp eq ptr %123, null
+  br i1 %125, label %146, label %126
 
-124:                                              ; preds = %114
-  %125 = load ptr, ptr %93, align 8
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 112
+126:                                              ; preds = %116
+  %127 = load ptr, ptr %95, align 8
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 208
+  %129 = getelementptr inbounds i8, ptr %128, i64 112
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 384
+  %131 = getelementptr inbounds i8, ptr %0, i64 208
   %132 = load ptr, ptr %131, align 8
-  %133 = call fastcc i64 @dma_map_single_attrs(ptr noundef %128, ptr noundef %132)
-  %134 = getelementptr inbounds i8, ptr %7, i64 240
-  store i64 %133, ptr %134, align 8
-  %135 = icmp eq i64 %133, -1
-  br i1 %135, label %136, label %150
+  %133 = getelementptr inbounds i8, ptr %132, i64 384
+  %134 = load ptr, ptr %133, align 8
+  %135 = call fastcc i64 @dma_map_single_attrs(ptr noundef %130, ptr noundef %134)
+  %136 = getelementptr inbounds i8, ptr %7, i64 240
+  store i64 %135, ptr %136, align 8
+  %137 = icmp eq i64 %135, -1
+  br i1 %137, label %138, label %152
 
-136:                                              ; preds = %124
-  %137 = load ptr, ptr %50, align 8
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 112
+138:                                              ; preds = %126
+  %139 = load ptr, ptr %51, align 8
   %140 = load ptr, ptr %139, align 8
-  %141 = load i64, ptr %110, align 8
-  %142 = load ptr, ptr %122, align 8
-  %143 = load i64, ptr %120, align 8
-  call void @dma_free_attrs(ptr noundef %140, i64 noundef %141, ptr noundef %142, i64 noundef %143, i64 noundef 0) #6
-  br label %144
+  %141 = getelementptr inbounds i8, ptr %140, i64 112
+  %142 = load ptr, ptr %141, align 8
+  %143 = load i64, ptr %112, align 8
+  %144 = load ptr, ptr %124, align 8
+  %145 = load i64, ptr %122, align 8
+  call void @dma_free_attrs(ptr noundef %142, i64 noundef %143, ptr noundef %144, i64 noundef %145, i64 noundef 0) #6
+  br label %146
 
-144:                                              ; preds = %136, %114, %98, %95
-  %145 = phi i32 [ %96, %95 ], [ -12, %136 ], [ -22, %98 ], [ -12, %114 ]
-  %146 = load ptr, ptr %93, align 8
-  call void @dma_release_channel(ptr noundef %146) #6
-  br label %147
+146:                                              ; preds = %138, %116, %100, %97
+  %147 = phi i32 [ %98, %97 ], [ -12, %138 ], [ -22, %100 ], [ -12, %116 ]
+  %148 = load ptr, ptr %95, align 8
+  call void @dma_release_channel(ptr noundef %148) #6
+  br label %149
 
-147:                                              ; preds = %144, %91, %59, %55, %52
-  %148 = phi i32 [ %53, %52 ], [ %145, %144 ], [ -22, %59 ], [ -22, %55 ], [ -19, %91 ]
-  %149 = load ptr, ptr %50, align 8
-  call void @dma_release_channel(ptr noundef %149) #6
-  br label %150
+149:                                              ; preds = %146, %93, %60, %56, %53
+  %150 = phi i32 [ %54, %53 ], [ %147, %146 ], [ -22, %60 ], [ -22, %56 ], [ -19, %93 ]
+  %151 = load ptr, ptr %51, align 8
+  call void @dma_release_channel(ptr noundef %151) #6
+  br label %152
 
-150:                                              ; preds = %147, %124, %48
-  %151 = phi i32 [ %148, %147 ], [ -19, %48 ], [ 0, %124 ]
+152:                                              ; preds = %149, %126, %49
+  %153 = phi i32 [ %150, %149 ], [ -19, %49 ], [ 0, %126 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  ret i32 %151
+  ret i32 %153
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -838,28 +840,29 @@ define internal fastcc i64 @dma_map_single_attrs(ptr noundef %0, ptr noundef %1)
   br label %16
 
 16:                                               ; preds = %14, %2
-  br i1 %3, label %32, label %17
+  br i1 %3, label %33, label %17
 
 17:                                               ; preds = %16
   %18 = load i64, ptr @vmemmap_base, align 8
   %19 = inttoptr i64 %18 to ptr
   %20 = ptrtoint ptr %1 to i64
   %21 = add i64 %20, 2147483648
-  %22 = icmp ugt ptr %1, inttoptr (i64 -2147483649 to ptr)
-  %23 = load i64, ptr @phys_base, align 8
-  %24 = load i64, ptr @page_offset_base, align 8
-  %25 = sub i64 -2147483648, %24
-  %26 = select i1 %22, i64 %23, i64 %25
-  %27 = add i64 %21, %26
-  %28 = lshr i64 %27, 12
-  %29 = getelementptr %struct.page, ptr %19, i64 %28
-  %30 = and i64 %20, 4095
-  %31 = tail call i64 @dma_map_page_attrs(ptr noundef %0, ptr noundef %29, i64 noundef %30, i64 noundef 4096, i32 noundef 1, i64 noundef 0) #6
-  br label %32
+  %22 = inttoptr i64 -2147483649 to ptr
+  %23 = icmp ugt ptr %1, %22
+  %24 = load i64, ptr @phys_base, align 8
+  %25 = load i64, ptr @page_offset_base, align 8
+  %26 = sub i64 -2147483648, %25
+  %27 = select i1 %23, i64 %24, i64 %26
+  %28 = add i64 %21, %27
+  %29 = lshr i64 %28, 12
+  %30 = getelementptr %struct.page, ptr %19, i64 %29
+  %31 = and i64 %20, 4095
+  %32 = tail call i64 @dma_map_page_attrs(ptr noundef %0, ptr noundef %30, i64 noundef %31, i64 noundef 4096, i32 noundef 1, i64 noundef 0) #6
+  br label %33
 
-32:                                               ; preds = %17, %16
-  %33 = phi i64 [ %31, %17 ], [ -1, %16 ]
-  ret i64 %33
+33:                                               ; preds = %17, %16
+  %34 = phi i64 [ %32, %17 ], [ -1, %16 ]
+  ret i64 %34
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -1570,7 +1570,8 @@ if.then:                                          ; preds = %entry
   %old_pipe_act9 = getelementptr inbounds %struct.sigpipe_ignore, ptr %4, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %action, ptr align 8 %old_pipe_act9, i64 152, i1 false)
   %__sigaction_handler = getelementptr inbounds %struct.sigaction, ptr %action, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %__sigaction_handler, align 8
+  %5 = inttoptr i64 1 to ptr
+  store ptr %5, ptr %__sigaction_handler, align 8
   %call10 = call i32 @sigaction(i32 noundef 13, ptr noundef %action, ptr noundef null) #6
   br label %if.end
 

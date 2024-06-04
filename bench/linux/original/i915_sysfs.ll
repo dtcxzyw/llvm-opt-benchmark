@@ -258,69 +258,70 @@ define internal noundef i64 @i915_l3_write(ptr nocapture readnone %0, ptr nocapt
 
 29:                                               ; preds = %26
   %30 = sext i32 %27 to i64
-  br label %67
+  br label %68
 
 31:                                               ; preds = %26
   %32 = icmp ult i64 %5, 4
-  br i1 %32, label %67, label %33
+  br i1 %32, label %68, label %33
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
-  %35 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 3520, i64 noundef 128) #10
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %67, label %37
+  %34 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %35, i32 noundef 3520, i64 noundef 128) #10
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %68, label %38
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %10, i64 9336
-  tail call void @_raw_spin_lock(ptr noundef %38) #8
-  %39 = getelementptr inbounds i8, ptr %10, i64 8640
-  %40 = shl i64 %13, 32
-  %41 = ashr exact i64 %40, 32
-  %42 = getelementptr [2 x ptr], ptr %39, i64 0, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %46
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds i8, ptr %10, i64 9336
+  tail call void @_raw_spin_lock(ptr noundef %39) #8
+  %40 = getelementptr inbounds i8, ptr %10, i64 8640
+  %41 = shl i64 %13, 32
+  %42 = ashr exact i64 %41, 32
+  %43 = getelementptr [2 x ptr], ptr %40, i64 0, i64 %42
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %37
-  store ptr %35, ptr %42, align 8
-  br label %46
+46:                                               ; preds = %38
+  store ptr %36, ptr %43, align 8
+  br label %47
 
-46:                                               ; preds = %45, %37
-  %47 = phi ptr [ %35, %45 ], [ %43, %37 ]
-  %48 = phi ptr [ null, %45 ], [ %35, %37 ]
-  %49 = and i64 %5, -4
-  %50 = lshr i64 %4, 2
-  %51 = getelementptr i32, ptr %47, i64 %50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %51, ptr align 1 %3, i64 %49, i1 false)
-  %52 = getelementptr inbounds i8, ptr %10, i64 9344
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, %52
-  br i1 %54, label %66, label %55
+47:                                               ; preds = %46, %38
+  %48 = phi ptr [ %36, %46 ], [ %44, %38 ]
+  %49 = phi ptr [ null, %46 ], [ %36, %38 ]
+  %50 = and i64 %5, -4
+  %51 = lshr i64 %4, 2
+  %52 = getelementptr i32, ptr %48, i64 %51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %52, ptr align 1 %3, i64 %50, i1 false)
+  %53 = getelementptr inbounds i8, ptr %10, i64 9344
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, %53
+  br i1 %55, label %67, label %56
 
-55:                                               ; preds = %46
-  %56 = and i64 %13, 4294967295
-  %57 = shl nuw i64 1, %56
-  %58 = trunc i64 %57 to i8
-  br label %59
+56:                                               ; preds = %47
+  %57 = and i64 %13, 4294967295
+  %58 = shl nuw i64 1, %57
+  %59 = trunc i64 %58 to i8
+  br label %60
 
-59:                                               ; preds = %59, %55
-  %60 = phi ptr [ %53, %55 ], [ %64, %59 ]
-  %61 = getelementptr i8, ptr %60, i64 192
-  %62 = load i8, ptr %61, align 8
-  %63 = or i8 %62, %58
-  store i8 %63, ptr %61, align 8
-  %64 = load ptr, ptr %60, align 8
-  %65 = icmp eq ptr %64, %52
-  br i1 %65, label %66, label %59, !llvm.loop !5
+60:                                               ; preds = %60, %56
+  %61 = phi ptr [ %54, %56 ], [ %65, %60 ]
+  %62 = getelementptr i8, ptr %61, i64 192
+  %63 = load i8, ptr %62, align 8
+  %64 = or i8 %63, %59
+  store i8 %64, ptr %62, align 8
+  %65 = load ptr, ptr %61, align 8
+  %66 = icmp eq ptr %65, %53
+  br i1 %66, label %67, label %60, !llvm.loop !5
 
-66:                                               ; preds = %59, %46
-  tail call void @_raw_spin_unlock(ptr noundef %38) #8
-  tail call void @kfree(ptr noundef %48) #8
-  br label %67
+67:                                               ; preds = %60, %47
+  tail call void @_raw_spin_unlock(ptr noundef %39) #8
+  tail call void @kfree(ptr noundef %49) #8
+  br label %68
 
-67:                                               ; preds = %66, %33, %31, %29
-  %68 = phi i64 [ %30, %29 ], [ %49, %66 ], [ -22, %31 ], [ -12, %33 ]
-  ret i64 %68
+68:                                               ; preds = %67, %33, %31, %29
+  %69 = phi i64 [ %30, %29 ], [ %50, %67 ], [ -22, %31 ], [ -12, %33 ]
+  ret i64 %69
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

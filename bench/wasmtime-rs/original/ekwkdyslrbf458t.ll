@@ -87,23 +87,24 @@ define hidden { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$11checked_add1
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %6, ptr %13, align 8
   store i64 1, ptr %4, align 8
-  br label %18
+  br label %19
 
 14:                                               ; preds = %2
   %15 = load i64, ptr @anon.e88f735c8d4f00530ca4d22090aa1dc4.0, align 8, !range !5, !noundef !3
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @anon.e88f735c8d4f00530ca4d22090aa1dc4.0, i64 8), align 8
+  %16 = getelementptr inbounds i8, ptr @anon.e88f735c8d4f00530ca4d22090aa1dc4.0, i64 8
+  %17 = load i64, ptr %16, align 8
   store i64 %15, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %16, ptr %17, align 8
-  br label %18
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %17, ptr %18, align 8
+  br label %19
 
-18:                                               ; preds = %14, %12
-  %19 = load i64, ptr %4, align 8, !range !5, !noundef !3
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = insertvalue { i64, i64 } poison, i64 %19, 0
-  %23 = insertvalue { i64, i64 } %22, i64 %21, 1
-  ret { i64, i64 } %23
+19:                                               ; preds = %14, %12
+  %20 = load i64, ptr %4, align 8, !range !5, !noundef !3
+  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = insertvalue { i64, i64 } poison, i64 %20, 0
+  %24 = insertvalue { i64, i64 } %23, i64 %22, 1
+  ret { i64, i64 } %24
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

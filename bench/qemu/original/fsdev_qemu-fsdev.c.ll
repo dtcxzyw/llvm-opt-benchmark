@@ -297,18 +297,21 @@ do.body:                                          ; preds = %if.end66
   %46 = load ptr, ptr %fsle, align 8
   %next = getelementptr inbounds %struct.FsDriverListEntry, ptr %46, i32 0, i32 1
   store ptr null, ptr %next, align 8
-  %47 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @fsdriver_entries, i32 0, i32 1), align 8
-  %48 = load ptr, ptr %fsle, align 8
-  %next67 = getelementptr inbounds %struct.FsDriverListEntry, ptr %48, i32 0, i32 1
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next67, i32 0, i32 1
-  store ptr %47, ptr %tql_prev, align 8
+  %47 = getelementptr inbounds %struct.QTailQLink, ptr @fsdriver_entries, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %fsle, align 8
-  %50 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @fsdriver_entries, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %50, i32 0, i32 0
-  store ptr %49, ptr %tql_next, align 8
-  %51 = load ptr, ptr %fsle, align 8
-  %next68 = getelementptr inbounds %struct.FsDriverListEntry, ptr %51, i32 0, i32 1
-  store ptr %next68, ptr getelementptr inbounds (%struct.QTailQLink, ptr @fsdriver_entries, i32 0, i32 1), align 8
+  %next67 = getelementptr inbounds %struct.FsDriverListEntry, ptr %49, i32 0, i32 1
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %next67, i32 0, i32 1
+  store ptr %48, ptr %tql_prev, align 8
+  %50 = load ptr, ptr %fsle, align 8
+  %51 = getelementptr inbounds %struct.QTailQLink, ptr @fsdriver_entries, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %52, i32 0, i32 0
+  store ptr %50, ptr %tql_next, align 8
+  %53 = load ptr, ptr %fsle, align 8
+  %next68 = getelementptr inbounds %struct.FsDriverListEntry, ptr %53, i32 0, i32 1
+  %54 = getelementptr inbounds %struct.QTailQLink, ptr @fsdriver_entries, i32 0, i32 1
+  store ptr %next68, ptr %54, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body
@@ -316,8 +319,8 @@ do.end:                                           ; preds = %do.body
   br label %return
 
 return:                                           ; preds = %do.end, %if.then62, %if.then26, %if.else, %if.then19, %if.then
-  %52 = load i32, ptr %retval, align 4
-  ret i32 %52
+  %55 = load i32, ptr %retval, align 4
+  ret i32 %55
 }
 
 declare ptr @qemu_opts_id(ptr noundef) #1

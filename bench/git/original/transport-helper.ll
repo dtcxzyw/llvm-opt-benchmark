@@ -5627,47 +5627,48 @@ if.end:                                           ; preds = %if.then3, %if.then
   br i1 %tobool4, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %call6 = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %7 = load ptr, ptr %data, align 8
-  %helper7 = getelementptr inbounds %struct.helper_data, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %helper7, align 8
-  %in = getelementptr inbounds %struct.child_process, ptr %8, i32 0, i32 7
-  %9 = load i32, ptr %in, align 8
-  %call8 = call i64 @xwrite(i32 noundef %9, ptr noundef @.str.92, i64 noundef 1)
+  %7 = inttoptr i64 1 to ptr
+  %call6 = call i32 @sigchain_push(i32 noundef 13, ptr noundef %7)
+  %8 = load ptr, ptr %data, align 8
+  %helper7 = getelementptr inbounds %struct.helper_data, ptr %8, i32 0, i32 1
+  %9 = load ptr, ptr %helper7, align 8
+  %in = getelementptr inbounds %struct.child_process, ptr %9, i32 0, i32 7
+  %10 = load i32, ptr %in, align 8
+  %call8 = call i64 @xwrite(i32 noundef %10, ptr noundef @.str.92, i64 noundef 1)
   %call9 = call i32 @sigchain_pop(i32 noundef 13)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then5, %if.end
-  %10 = load ptr, ptr %data, align 8
-  %helper11 = getelementptr inbounds %struct.helper_data, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %helper11, align 8
-  %in12 = getelementptr inbounds %struct.child_process, ptr %11, i32 0, i32 7
-  %12 = load i32, ptr %in12, align 8
-  %call13 = call i32 @close(i32 noundef %12)
-  %13 = load ptr, ptr %data, align 8
-  %helper14 = getelementptr inbounds %struct.helper_data, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %helper14, align 8
-  %out = getelementptr inbounds %struct.child_process, ptr %14, i32 0, i32 8
-  %15 = load i32, ptr %out, align 4
-  %call15 = call i32 @close(i32 noundef %15)
-  %16 = load ptr, ptr %data, align 8
-  %out16 = getelementptr inbounds %struct.helper_data, ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %out16, align 8
-  %call17 = call i32 @fclose(ptr noundef %17)
-  %18 = load ptr, ptr %data, align 8
-  %helper18 = getelementptr inbounds %struct.helper_data, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %helper18, align 8
-  %call19 = call i32 @finish_command(ptr noundef %19)
+  %11 = load ptr, ptr %data, align 8
+  %helper11 = getelementptr inbounds %struct.helper_data, ptr %11, i32 0, i32 1
+  %12 = load ptr, ptr %helper11, align 8
+  %in12 = getelementptr inbounds %struct.child_process, ptr %12, i32 0, i32 7
+  %13 = load i32, ptr %in12, align 8
+  %call13 = call i32 @close(i32 noundef %13)
+  %14 = load ptr, ptr %data, align 8
+  %helper14 = getelementptr inbounds %struct.helper_data, ptr %14, i32 0, i32 1
+  %15 = load ptr, ptr %helper14, align 8
+  %out = getelementptr inbounds %struct.child_process, ptr %15, i32 0, i32 8
+  %16 = load i32, ptr %out, align 4
+  %call15 = call i32 @close(i32 noundef %16)
+  %17 = load ptr, ptr %data, align 8
+  %out16 = getelementptr inbounds %struct.helper_data, ptr %17, i32 0, i32 2
+  %18 = load ptr, ptr %out16, align 8
+  %call17 = call i32 @fclose(ptr noundef %18)
+  %19 = load ptr, ptr %data, align 8
+  %helper18 = getelementptr inbounds %struct.helper_data, ptr %19, i32 0, i32 1
+  %20 = load ptr, ptr %helper18, align 8
+  %call19 = call i32 @finish_command(ptr noundef %20)
   store i32 %call19, ptr %res, align 4
   br label %do.body
 
 do.body:                                          ; preds = %if.end10
-  %20 = load ptr, ptr %data, align 8
-  %helper20 = getelementptr inbounds %struct.helper_data, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %helper20, align 8
-  call void @free(ptr noundef %21) #10
-  %22 = load ptr, ptr %data, align 8
-  %helper21 = getelementptr inbounds %struct.helper_data, ptr %22, i32 0, i32 1
+  %21 = load ptr, ptr %data, align 8
+  %helper20 = getelementptr inbounds %struct.helper_data, ptr %21, i32 0, i32 1
+  %22 = load ptr, ptr %helper20, align 8
+  call void @free(ptr noundef %22) #10
+  %23 = load ptr, ptr %data, align 8
+  %helper21 = getelementptr inbounds %struct.helper_data, ptr %23, i32 0, i32 1
   store ptr null, ptr %helper21, align 8
   br label %do.end
 
@@ -5675,8 +5676,8 @@ do.end:                                           ; preds = %do.body
   br label %if.end22
 
 if.end22:                                         ; preds = %do.end, %entry
-  %23 = load i32, ptr %res, align 4
-  ret i32 %23
+  %24 = load i32, ptr %res, align 4
+  ret i32 %24
 }
 
 declare i32 @sigchain_push(i32 noundef, ptr noundef) #1
@@ -6121,13 +6122,13 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay4 = getelementptr inbounds [8192 x i8], ptr %msgbuf, i64 0, i64 0
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   %call6 = call i32 @vsnprintf(ptr noundef %arraydecay4, i64 noundef 8192, ptr noundef %2, ptr noundef %arraydecay5) #10
   %arraydecay7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay7)
+  call void @llvm.va_end.p0(ptr %arraydecay7)
   %3 = load ptr, ptr @stderr, align 8
   %arraydecay8 = getelementptr inbounds [8192 x i8], ptr %msgbuf, i64 0, i64 0
   %call9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.163, ptr noundef %arraydecay8)
@@ -6147,14 +6148,8 @@ entry:
   ret i32 -1
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
@@ -6165,6 +6160,12 @@ declare i32 @shutdown(i32 noundef, i32 noundef) #2
 declare i32 @pthread_join(i64 noundef, ptr noundef) #1
 
 declare i32 @error(ptr noundef, ...) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -4589,7 +4589,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt9theory_bv4atomC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3smt9theory_bv8bit_atomE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3smt9theory_bv8bit_atomE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_occs = getelementptr inbounds %"struct.smt::theory_bv::bit_atom", ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_occs, align 8
   ret void
@@ -4653,13 +4654,14 @@ entry:
   store i32 %v, ptr %v.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3smt13mk_atom_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3smt13mk_atom_trailE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %th2 = getelementptr inbounds %"class.smt::mk_atom_trail", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %th.addr, align 8
-  store ptr %0, ptr %th2, align 8
+  %1 = load ptr, ptr %th.addr, align 8
+  store ptr %1, ptr %th2, align 8
   %m_var = getelementptr inbounds %"class.smt::mk_atom_trail", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %v.addr, align 4
-  store i32 %1, ptr %m_var, align 8
+  %2 = load i32, ptr %v.addr, align 4
+  store i32 %2, ptr %m_var, align 8
   ret void
 }
 
@@ -5525,10 +5527,11 @@ entry:
   store ptr %v, ptr %v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16push_back_vectorI7svectorIN3smt9theory_bv8bv_diseqEjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16push_back_vectorI7svectorIN3smt9theory_bv8bv_diseqEjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_vector = getelementptr inbounds %class.push_back_vector, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %v.addr, align 8
-  store ptr %0, ptr %m_vector, align 8
+  %1 = load ptr, ptr %v.addr, align 8
+  store ptr %1, ptr %m_vector, align 8
   ret void
 }
 
@@ -5974,16 +5977,17 @@ entry:
   store ptr %t, ptr %t.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt12relevancy_ehC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt17pair_relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3smt17pair_relevancy_ehE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_source1 = getelementptr inbounds %"class.smt::pair_relevancy_eh", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s1.addr, align 8
-  store ptr %0, ptr %m_source1, align 8
+  %1 = load ptr, ptr %s1.addr, align 8
+  store ptr %1, ptr %m_source1, align 8
   %m_source2 = getelementptr inbounds %"class.smt::pair_relevancy_eh", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %s2.addr, align 8
-  store ptr %1, ptr %m_source2, align 8
+  %2 = load ptr, ptr %s2.addr, align 8
+  store ptr %2, ptr %m_source2, align 8
   %m_target = getelementptr inbounds %"class.smt::pair_relevancy_eh", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %t.addr, align 8
-  store ptr %2, ptr %m_target, align 8
+  %3 = load ptr, ptr %t.addr, align 8
+  store ptr %3, ptr %m_target, align 8
   ret void
 }
 
@@ -6624,10 +6628,11 @@ entry:
   store ptr %a, ptr %a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3smt17add_var_pos_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3smt17add_var_pos_trailE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_atom = getelementptr inbounds %"class.smt::add_var_pos_trail", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %a.addr, align 8
-  store ptr %0, ptr %m_atom, align 8
+  %1 = load ptr, ptr %a.addr, align 8
+  store ptr %1, ptr %m_atom, align 8
   ret void
 }
 
@@ -8250,16 +8255,17 @@ entry:
   store i32 %v2, ptr %v2.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt13justificationC2Eb(ptr noundef nonnull align 8 dereferenceable(9) %this1, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt22fixed_eq_justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt22fixed_eq_justificationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_th = getelementptr inbounds %"class.smt::fixed_eq_justification", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %th.addr, align 8
-  store ptr %0, ptr %m_th, align 8
+  %1 = load ptr, ptr %th.addr, align 8
+  store ptr %1, ptr %m_th, align 8
   %m_var1 = getelementptr inbounds %"class.smt::fixed_eq_justification", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %v1.addr, align 4
-  store i32 %1, ptr %m_var1, align 8
+  %2 = load i32, ptr %v1.addr, align 4
+  store i32 %2, ptr %m_var1, align 8
   %m_var2 = getelementptr inbounds %"class.smt::fixed_eq_justification", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %v2.addr, align 4
-  store i32 %2, ptr %m_var2, align 4
+  %3 = load i32, ptr %v2.addr, align 4
+  store i32 %3, ptr %m_var2, align 4
   ret void
 }
 
@@ -9199,10 +9205,11 @@ entry:
   store ptr %v, ptr %v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16push_back_vectorI10ptr_vectorIN3smt5enodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16push_back_vectorI10ptr_vectorIN3smt5enodeEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_vector = getelementptr inbounds %class.push_back_vector.348, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %v.addr, align 8
-  store ptr %0, ptr %m_vector, align 8
+  %1 = load ptr, ptr %v.addr, align 8
+  store ptr %1, ptr %m_vector, align 8
   ret void
 }
 
@@ -14847,7 +14854,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %5 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %5
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -15011,9 +15018,6 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #8
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare noundef i32 @_Z19get_verbosity_levelv() #1
@@ -15033,7 +15037,7 @@ declare void @__cxa_rethrow()
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #16
   unreachable
@@ -15042,7 +15046,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comda
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #10
+declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN21scoped_suspend_rlimitD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #4 comdat align 2 {
@@ -15433,7 +15437,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt9theory_bv4atomC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3smt9theory_bv7le_atomE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3smt9theory_bv7le_atomE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %m_var = getelementptr inbounds %"struct.smt::theory_bv::le_atom", ptr %this2, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_var, ptr align 4 %v, i64 4, i1 false)
   %m_def = getelementptr inbounds %"struct.smt::theory_bv::le_atom", ptr %this2, i32 0, i32 2
@@ -17483,14 +17488,15 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIbE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIbE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %m_value, align 8
-  %m_old_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %value.addr, align 8
-  %2 = load i8, ptr %1, align 1
-  %tobool = trunc i8 %2 to i1
+  store ptr %1, ptr %m_value, align 8
+  %m_old_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %value.addr, align 8
+  %3 = load i8, ptr %2, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %m_old_value, align 8
   ret void
@@ -20339,15 +20345,16 @@ entry:
   %call = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %1)
   %call2 = call noundef i32 @_ZN11ast_manager12mk_family_idEPKc(ptr noundef nonnull align 8 dereferenceable(976) %call, ptr noundef @.str.12)
   call void @_ZN3smt6theoryC2ERNS_7contextEi(ptr noundef nonnull align 8 dereferenceable(53) %this1, ptr noundef nonnull align 8 dereferenceable(11616) %0, i32 noundef %call2)
-  store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTVN3smt9theory_bvE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [50 x ptr] }, ptr @_ZTVN3smt9theory_bvE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_stats = getelementptr inbounds %"class.smt::theory_bv", ptr %this1, i32 0, i32 1
   invoke void @_ZN3smt15theory_bv_statsC2Ev(ptr noundef nonnull align 4 dereferenceable(24) %m_stats)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_util = getelementptr inbounds %"class.smt::theory_bv", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %call4 = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %2)
+  %3 = load ptr, ptr %ctx.addr, align 8
+  %call4 = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %3)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -20356,8 +20363,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %m_autil = getelementptr inbounds %"class.smt::theory_bv", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %call7 = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %3)
+  %4 = load ptr, ptr %ctx.addr, align 8
+  %call7 = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %4)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont5
@@ -20366,13 +20373,13 @@ invoke.cont6:                                     ; preds = %invoke.cont5
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %m_bb = getelementptr inbounds %"class.smt::theory_bv", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %call10 = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %4)
+  %5 = load ptr, ptr %ctx.addr, align 8
+  %call10 = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %5)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont8
-  %5 = load ptr, ptr %ctx.addr, align 8
-  %call12 = invoke noundef nonnull align 8 dereferenceable(800) ptr @_ZN3smt7context11get_fparamsEv(ptr noundef nonnull align 8 dereferenceable(11616) %5)
+  %6 = load ptr, ptr %ctx.addr, align 8
+  %call12 = invoke noundef nonnull align 8 dereferenceable(800) ptr @_ZN3smt7context11get_fparamsEv(ptr noundef nonnull align 8 dereferenceable(11616) %6)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont9
@@ -20488,129 +20495,129 @@ invoke.cont48:                                    ; preds = %arrayctor.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont11, %invoke.cont9, %invoke.cont8, %invoke.cont6, %invoke.cont5, %invoke.cont3, %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup71
 
 lpad14:                                           ; preds = %invoke.cont13
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup70
 
 lpad16:                                           ; preds = %invoke.cont15
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup69
 
 lpad18:                                           ; preds = %invoke.cont17
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup67
 
 lpad20:                                           ; preds = %invoke.cont19
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup66
 
 lpad22:                                           ; preds = %invoke.cont21
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %ehcleanup64
 
 lpad24:                                           ; preds = %invoke.cont23
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   br label %ehcleanup63
 
 lpad28:                                           ; preds = %invoke.cont29, %invoke.cont25
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
   br label %ehcleanup62
 
 lpad32:                                           ; preds = %invoke.cont31
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %exn.slot, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %ehselector.slot, align 4
   br label %ehcleanup60
 
 lpad34:                                           ; preds = %invoke.cont33
-  %33 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %exn.slot, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %ehselector.slot, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %exn.slot, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %ehselector.slot, align 4
   br label %ehcleanup58
 
 lpad36:                                           ; preds = %invoke.cont35
-  %36 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %exn.slot, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %ehselector.slot, align 4
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %exn.slot, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %ehselector.slot, align 4
   br label %ehcleanup57
 
 lpad38:                                           ; preds = %invoke.cont37
-  %39 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %exn.slot, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %ehselector.slot, align 4
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %exn.slot, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %ehselector.slot, align 4
   br label %ehcleanup56
 
 lpad40:                                           ; preds = %invoke.cont39
-  %42 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %exn.slot, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %ehselector.slot, align 4
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %exn.slot, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %ehselector.slot, align 4
   br label %ehcleanup55
 
 lpad42:                                           ; preds = %arrayctor.loop
-  %45 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %exn.slot, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %ehselector.slot, align 4
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %exn.slot, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %ehselector.slot, align 4
   %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done44, label %arraydestroy.body
 
@@ -20625,18 +20632,18 @@ arraydestroy.done44:                              ; preds = %arraydestroy.body, 
   br label %ehcleanup
 
 lpad47:                                           ; preds = %arrayctor.cont
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %49 = extractvalue { ptr, i32 } %48, 0
-  store ptr %49, ptr %exn.slot, align 8
-  %50 = extractvalue { ptr, i32 } %48, 1
-  store i32 %50, ptr %ehselector.slot, align 4
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %exn.slot, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %ehselector.slot, align 4
   %array.begin49 = getelementptr inbounds [2 x %class.svector.17], ptr %m_merge_aux, i32 0, i32 0
-  %51 = getelementptr inbounds %class.svector.17, ptr %array.begin49, i64 2
+  %52 = getelementptr inbounds %class.svector.17, ptr %array.begin49, i64 2
   br label %arraydestroy.body50
 
 arraydestroy.body50:                              ; preds = %arraydestroy.body50, %lpad47
-  %arraydestroy.elementPast51 = phi ptr [ %51, %lpad47 ], [ %arraydestroy.element52, %arraydestroy.body50 ]
+  %arraydestroy.elementPast51 = phi ptr [ %52, %lpad47 ], [ %arraydestroy.element52, %arraydestroy.body50 ]
   %arraydestroy.element52 = getelementptr inbounds %class.svector.17, ptr %arraydestroy.elementPast51, i64 -1
   call void @_ZN7svectorIijED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element52) #3
   %arraydestroy.done53 = icmp eq ptr %arraydestroy.element52, %array.begin49
@@ -20758,7 +20765,7 @@ declare void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 deref
 declare void @_ZN11bit_blasterC1ER11ast_managerRK18bit_blaster_params(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 1 dereferenceable(2)) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN11trail_stackC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -21277,14 +21284,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTVN3smt9theory_bvE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [50 x ptr] }, ptr @_ZTVN3smt9theory_bvE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_merge_aux = getelementptr inbounds %"class.smt::theory_bv", ptr %this1, i32 0, i32 25
   %array.begin = getelementptr inbounds [2 x %class.svector.17], ptr %m_merge_aux, i32 0, i32 0
-  %0 = getelementptr inbounds %class.svector.17, ptr %array.begin, i64 2
+  %1 = getelementptr inbounds %class.svector.17, ptr %array.begin, i64 2
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %class.svector.17, ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN7svectorIijED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -21341,7 +21349,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #12
+declare void @_ZdlPv(ptr noundef) #11
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN3smt9theory_bv8mk_freshEPNS_7contextE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %new_ctx) unnamed_addr #5 align 2 {
@@ -22697,14 +22705,15 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail.356, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %m_value, align 8
-  %m_old_value = getelementptr inbounds %class.value_trail.356, ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %value.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  store i32 %2, ptr %m_old_value, align 8
+  store ptr %1, ptr %m_value, align 8
+  %m_old_value = getelementptr inbounds %class.value_trail.356, ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %value.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  store i32 %3, ptr %m_old_value, align 8
   ret void
 }
 
@@ -23434,10 +23443,11 @@ entry:
   store ptr %v, ptr %v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt16model_value_procC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt17expr_wrapper_procE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3smt17expr_wrapper_procE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_value = getelementptr inbounds %"class.smt::expr_wrapper_proc", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %v.addr, align 8
-  store ptr %0, ptr %m_value, align 8
+  %1 = load ptr, ptr %v.addr, align 8
+  store ptr %1, ptr %m_value, align 8
   ret void
 }
 
@@ -25555,10 +25565,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -25568,7 +25579,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -25592,7 +25604,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #13
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #4 comdat align 2 {
@@ -25806,7 +25818,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26266,7 +26279,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3smt9theory_bv4atomE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3smt9theory_bv4atomE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26689,7 +26703,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -26919,10 +26934,11 @@ entry:
   store ptr %__reason, ptr %__reason.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__reason.addr, align 8
-  store ptr %0, ptr %_M_reason, align 8
+  %1 = load ptr, ptr %__reason.addr, align 8
+  store ptr %1, ptr %_M_reason, align 8
   ret void
 }
 
@@ -26942,7 +26958,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -27494,7 +27511,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() #13
+declare void @_ZSt25__throw_bad_function_callv() #12
 
 declare void @_ZN3smt6theory23log_axiom_instantiationEP3appjjPKS2_jRK6vectorISt5tupleIJPNS_5enodeES8_EELb1EjE(ptr noundef nonnull align 8 dereferenceable(53), ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) #1
 
@@ -27695,7 +27712,7 @@ entry:
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #14
+declare i1 @llvm.is.constant.i64(i64) #13
 
 declare noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(11616)) #1
 
@@ -27705,7 +27722,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt12relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3smt12relevancy_ehE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28303,19 +28321,20 @@ entry:
   %frombool = zext i1 %in_region to i8
   store i8 %frombool, ptr %in_region.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt13justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt13justificationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_mark = getelementptr inbounds %"class.smt::justification", ptr %this1, i32 0, i32 1
   %bf.load = load i8, ptr %m_mark, align 8
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or i8 %bf.clear, 0
   store i8 %bf.set, ptr %m_mark, align 8
   %m_in_region = getelementptr inbounds %"class.smt::justification", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %in_region.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %in_region.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %conv = zext i1 %tobool to i32
-  %1 = trunc i32 %conv to i8
+  %2 = trunc i32 %conv to i8
   %bf.load2 = load i8, ptr %m_in_region, align 8
-  %bf.value = and i8 %1, 1
+  %bf.value = and i8 %2, 1
   %bf.shl = shl i8 %bf.value, 1
   %bf.clear3 = and i8 %bf.load2, -3
   %bf.set4 = or i8 %bf.clear3, %bf.shl
@@ -30458,7 +30477,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %m_data = getelementptr inbounds %"class.smt::b_justification", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 2 to ptr), ptr %m_data, align 8
+  %0 = inttoptr i64 2 to ptr
+  store ptr %0, ptr %m_data, align 8
   ret void
 }
 
@@ -31716,27 +31736,28 @@ entry:
   %6 = load i32, ptr %num_params.addr, align 4
   %7 = load ptr, ptr %params.addr, align 8
   call void @_ZN3smt31ext_theory_simple_justificationC2EiRNS_7contextEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EjP9parameter(ptr noundef nonnull align 8 dereferenceable(56) %this1, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(11616) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt39ext_theory_eq_propagation_justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %8 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt39ext_theory_eq_propagation_justificationE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %this1, align 8
   %m_lhs = getelementptr inbounds %"class.smt::ext_theory_eq_propagation_justification", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %lhs.addr, align 8
-  store ptr %8, ptr %m_lhs, align 8
+  %9 = load ptr, ptr %lhs.addr, align 8
+  store ptr %9, ptr %m_lhs, align 8
   %m_rhs = getelementptr inbounds %"class.smt::ext_theory_eq_propagation_justification", ptr %this1, i32 0, i32 2
-  %9 = load ptr, ptr %rhs.addr, align 8
-  store ptr %9, ptr %m_rhs, align 8
-  %10 = load ptr, ptr %ctx.addr, align 8
-  invoke void @_ZN3smt39ext_theory_eq_propagation_justification3logERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(11616) %10)
+  %10 = load ptr, ptr %rhs.addr, align 8
+  store ptr %10, ptr %m_rhs, align 8
+  %11 = load ptr, ptr %ctx.addr, align 8
+  invoke void @_ZN3smt39ext_theory_eq_propagation_justification3logERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef nonnull align 8 dereferenceable(11616) %11)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN3smt31ext_theory_simple_justificationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
   br label %eh.resume
 
@@ -32602,10 +32623,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3smt31ext_theory_simple_justificationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt39ext_theory_eq_propagation_justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt39ext_theory_eq_propagation_justificationE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_lhs = getelementptr inbounds %"class.smt::ext_theory_eq_propagation_justification", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_lhs2 = getelementptr inbounds %"class.smt::ext_theory_eq_propagation_justification", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_lhs2 = getelementptr inbounds %"class.smt::ext_theory_eq_propagation_justification", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_lhs, ptr align 8 %m_lhs2, i64 16, i1 false)
   ret void
 }
@@ -32672,15 +32694,16 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3smt24ext_simple_justificationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %1) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt31ext_theory_simple_justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt31ext_theory_simple_justificationE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_th_id = getelementptr inbounds %"class.smt::ext_theory_simple_justification", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_th_id2 = getelementptr inbounds %"class.smt::ext_theory_simple_justification", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %m_th_id2, align 8
-  store i32 %3, ptr %m_th_id, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %m_th_id2 = getelementptr inbounds %"class.smt::ext_theory_simple_justification", ptr %3, i32 0, i32 1
+  %4 = load i32, ptr %m_th_id2, align 8
+  store i32 %4, ptr %m_th_id, align 8
   %m_params = getelementptr inbounds %"class.smt::ext_theory_simple_justification", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %.addr, align 8
-  %m_params3 = getelementptr inbounds %"class.smt::ext_theory_simple_justification", ptr %4, i32 0, i32 2
+  %5 = load ptr, ptr %.addr, align 8
+  %m_params3 = getelementptr inbounds %"class.smt::ext_theory_simple_justification", ptr %5, i32 0, i32 2
   invoke void @_ZN6vectorI9parameterLb1EjEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %m_params, ptr noundef nonnull align 8 dereferenceable(8) %m_params3)
           to label %invoke.cont unwind label %lpad
 
@@ -32688,12 +32711,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN3smt24ext_simple_justificationD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   br label %eh.resume
 
@@ -32715,10 +32738,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3smt20simple_justificationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt24ext_simple_justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt24ext_simple_justificationE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_num_eqs = getelementptr inbounds %"class.smt::ext_simple_justification", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_num_eqs2 = getelementptr inbounds %"class.smt::ext_simple_justification", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_num_eqs2 = getelementptr inbounds %"class.smt::ext_simple_justification", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_num_eqs, ptr align 8 %m_num_eqs2, i64 16, i1 false)
   ret void
 }
@@ -32764,7 +32788,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt31ext_theory_simple_justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt31ext_theory_simple_justificationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_params = getelementptr inbounds %"class.smt::ext_theory_simple_justification", ptr %this1, i32 0, i32 2
   call void @_ZN6vectorI9parameterLb1EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params) #3
   call void @_ZN3smt24ext_simple_justificationD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
@@ -32836,10 +32861,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3smt13justificationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(9) %this1, ptr noundef nonnull align 8 dereferenceable(9) %1) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt20simple_justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt20simple_justificationE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_num_literals = getelementptr inbounds %"class.smt::simple_justification", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_num_literals2 = getelementptr inbounds %"class.smt::simple_justification", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_num_literals2 = getelementptr inbounds %"class.smt::simple_justification", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_num_literals, ptr align 4 %m_num_literals2, i64 12, i1 false)
   ret void
 }
@@ -32852,10 +32878,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt13justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt13justificationE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_mark = getelementptr inbounds %"class.smt::justification", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %m_mark2 = getelementptr inbounds %"class.smt::justification", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %.addr, align 8
+  %m_mark2 = getelementptr inbounds %"class.smt::justification", ptr %2, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_mark, ptr align 8 %m_mark2, i64 1, i1 false)
   ret void
 }
@@ -33708,26 +33735,27 @@ entry:
   %3 = load i32, ptr %num_eqs.addr, align 4
   %4 = load ptr, ptr %eqs.addr, align 8
   call void @_ZN3smt24ext_simple_justificationC2ERNS_7contextEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_E(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(11616) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt31ext_theory_simple_justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt31ext_theory_simple_justificationE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %m_th_id = getelementptr inbounds %"class.smt::ext_theory_simple_justification", ptr %this1, i32 0, i32 1
-  %5 = load i32, ptr %fid.addr, align 4
-  store i32 %5, ptr %m_th_id, align 8
+  %6 = load i32, ptr %fid.addr, align 4
+  store i32 %6, ptr %m_th_id, align 8
   %m_params = getelementptr inbounds %"class.smt::ext_theory_simple_justification", ptr %this1, i32 0, i32 2
-  %6 = load i32, ptr %num_params.addr, align 4
-  %7 = load ptr, ptr %params.addr, align 8
-  invoke void @_ZN6vectorI9parameterLb1EjEC2EjPKS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_params, i32 noundef %6, ptr noundef %7)
+  %7 = load i32, ptr %num_params.addr, align 4
+  %8 = load ptr, ptr %params.addr, align 8
+  invoke void @_ZN6vectorI9parameterLb1EjEC2EjPKS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_params, i32 noundef %7, ptr noundef %8)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN3smt24ext_simple_justificationD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   br label %eh.resume
 
@@ -34865,16 +34893,17 @@ entry:
   store ptr %v2, ptr %v2.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt13justificationC2Eb(ptr noundef nonnull align 8 dereferenceable(9) %this2, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt20bit_eq_justificationE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt20bit_eq_justificationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %m_v1 = getelementptr inbounds %"class.smt::bit_eq_justification", ptr %this2, i32 0, i32 2
-  %0 = load ptr, ptr %v1.addr, align 8
-  store ptr %0, ptr %m_v1, align 8
+  %1 = load ptr, ptr %v1.addr, align 8
+  store ptr %1, ptr %m_v1, align 8
   %m_v2 = getelementptr inbounds %"class.smt::bit_eq_justification", ptr %this2, i32 0, i32 3
-  %1 = load ptr, ptr %v2.addr, align 8
-  store ptr %1, ptr %m_v2, align 8
+  %2 = load ptr, ptr %v2.addr, align 8
+  store ptr %2, ptr %m_v2, align 8
   %m_th_id = getelementptr inbounds %"class.smt::bit_eq_justification", ptr %this2, i32 0, i32 4
-  %2 = load i32, ptr %th_id.addr, align 4
-  store i32 %2, ptr %m_th_id, align 8
+  %3 = load i32, ptr %th_id.addr, align 4
+  store i32 %3, ptr %m_th_id, align 8
   %m_consequent = getelementptr inbounds %"class.smt::bit_eq_justification", ptr %this2, i32 0, i32 5
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_consequent, ptr align 4 %c, i64 4, i1 false)
   %m_antecedent = getelementptr inbounds %"class.smt::bit_eq_justification", ptr %this2, i32 0, i32 6
@@ -34902,10 +34931,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3smt13justificationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(9) %this1, ptr noundef nonnull align 8 dereferenceable(9) %1) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt20bit_eq_justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt20bit_eq_justificationE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_v1 = getelementptr inbounds %"class.smt::bit_eq_justification", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %.addr, align 8
-  %m_v12 = getelementptr inbounds %"class.smt::bit_eq_justification", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %.addr, align 8
+  %m_v12 = getelementptr inbounds %"class.smt::bit_eq_justification", ptr %3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_v1, ptr align 8 %m_v12, i64 28, i1 false)
   ret void
 }
@@ -35925,7 +35955,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %m_next = getelementptr inbounds %"struct.chashtable<std::pair<smt::enode *, smt::enode *>, obj_pair_set<smt::enode, smt::enode>::hash_proc, obj_pair_set<smt::enode, smt::enode>::eq_proc>::cell", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %m_next, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %m_next, align 8
   %m_data = getelementptr inbounds %"struct.chashtable<std::pair<smt::enode *, smt::enode *>, obj_pair_set<smt::enode, smt::enode>::hash_proc, obj_pair_set<smt::enode, smt::enode>::eq_proc>::cell", ptr %this1, i32 0, i32 1
   call void @_ZNSt4pairIPN3smt5enodeES2_EC2IS2_S2_TnNSt9enable_ifIXsr6__and_ISt37__is_implicitly_default_constructibleIT_ES6_IT0_EEE5valueEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(16) %m_data)
   ret void
@@ -36382,7 +36413,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt16model_value_procE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3smt16model_value_procE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -39810,10 +39842,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3smt13mk_atom_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3smt13mk_atom_trailE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %th = getelementptr inbounds %"class.smt::mk_atom_trail", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %th2 = getelementptr inbounds %"class.smt::mk_atom_trail", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %th2 = getelementptr inbounds %"class.smt::mk_atom_trail", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %th, ptr align 8 %th2, i64 12, i1 false)
   ret void
 }
@@ -39826,7 +39859,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -40067,12 +40101,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16push_back_vectorI7svectorIN3smt9theory_bv8bv_diseqEjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16push_back_vectorI7svectorIN3smt9theory_bv8bv_diseqEjEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_vector = getelementptr inbounds %class.push_back_vector, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_vector2 = getelementptr inbounds %class.push_back_vector, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %m_vector2, align 8
-  store ptr %3, ptr %m_vector, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %m_vector2 = getelementptr inbounds %class.push_back_vector, ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %m_vector2, align 8
+  store ptr %4, ptr %m_vector, align 8
   ret void
 }
 
@@ -40178,7 +40213,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #15
+declare noundef nonnull ptr @_Znwm(i64 noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZNSt9_Any_data9_M_accessIPZN3smt9theory_bv22assert_new_diseq_axiomEiijE3$_0EERT_v"(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 align 2 {
@@ -40439,10 +40474,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3smt12relevancy_ehC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt17pair_relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3smt17pair_relevancy_ehE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_source1 = getelementptr inbounds %"class.smt::pair_relevancy_eh", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_source12 = getelementptr inbounds %"class.smt::pair_relevancy_eh", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_source12 = getelementptr inbounds %"class.smt::pair_relevancy_eh", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_source1, ptr align 8 %m_source12, i64 24, i1 false)
   ret void
 }
@@ -40455,7 +40491,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt12relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3smt12relevancy_ehE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -40631,12 +40668,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3smt17add_var_pos_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3smt17add_var_pos_trailE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_atom = getelementptr inbounds %"class.smt::add_var_pos_trail", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_atom2 = getelementptr inbounds %"class.smt::add_var_pos_trail", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %m_atom2, align 8
-  store ptr %3, ptr %m_atom, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %m_atom2 = getelementptr inbounds %"class.smt::add_var_pos_trail", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %m_atom2, align 8
+  store ptr %4, ptr %m_atom, align 8
   ret void
 }
 
@@ -41394,10 +41432,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3smt13justificationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(9) %this1, ptr noundef nonnull align 8 dereferenceable(9) %1) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3smt22fixed_eq_justificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3smt22fixed_eq_justificationE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_th = getelementptr inbounds %"class.smt::fixed_eq_justification", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_th2 = getelementptr inbounds %"class.smt::fixed_eq_justification", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_th2 = getelementptr inbounds %"class.smt::fixed_eq_justification", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_th, ptr align 8 %m_th2, i64 16, i1 false)
   ret void
 }
@@ -43419,12 +43458,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16push_back_vectorI10ptr_vectorIN3smt5enodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16push_back_vectorI10ptr_vectorIN3smt5enodeEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_vector = getelementptr inbounds %class.push_back_vector.348, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_vector2 = getelementptr inbounds %class.push_back_vector.348, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %m_vector2, align 8
-  store ptr %3, ptr %m_vector, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %m_vector2 = getelementptr inbounds %class.push_back_vector.348, ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %m_vector2, align 8
+  store ptr %4, ptr %m_vector, align 8
   ret void
 }
 
@@ -43505,10 +43545,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIbE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIbE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_value2 = getelementptr inbounds %class.value_trail, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_value2 = getelementptr inbounds %class.value_trail, ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %m_value2, i64 9, i1 false)
   ret void
 }
@@ -43564,13 +43605,14 @@ entry:
   store i32 %r1, ptr %r1.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10union_findIN3smt9theory_bvES1_E11merge_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN10union_findIN3smt9theory_bvES1_E11merge_trailE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_owner = getelementptr inbounds %"class.union_find<smt::theory_bv>::merge_trail", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %o.addr, align 8
-  store ptr %0, ptr %m_owner, align 8
+  %1 = load ptr, ptr %o.addr, align 8
+  store ptr %1, ptr %m_owner, align 8
   %m_r1 = getelementptr inbounds %"class.union_find<smt::theory_bv>::merge_trail", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %r1.addr, align 4
-  store i32 %1, ptr %m_r1, align 8
+  %2 = load i32, ptr %r1.addr, align 4
+  store i32 %2, ptr %m_r1, align 8
   ret void
 }
 
@@ -43610,10 +43652,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10union_findIN3smt9theory_bvES1_E11merge_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN10union_findIN3smt9theory_bvES1_E11merge_trailE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_owner = getelementptr inbounds %"class.union_find<smt::theory_bv>::merge_trail", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_owner2 = getelementptr inbounds %"class.union_find<smt::theory_bv>::merge_trail", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_owner2 = getelementptr inbounds %"class.union_find<smt::theory_bv>::merge_trail", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_owner, ptr align 8 %m_owner2, i64 12, i1 false)
   ret void
 }
@@ -46704,10 +46747,11 @@ entry:
   store ptr %o, ptr %o.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10union_findIN3smt9theory_bvES1_E12mk_var_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN10union_findIN3smt9theory_bvES1_E12mk_var_trailE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_owner = getelementptr inbounds %"class.union_find<smt::theory_bv>::mk_var_trail", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %o.addr, align 8
-  store ptr %0, ptr %m_owner, align 8
+  %1 = load ptr, ptr %o.addr, align 8
+  store ptr %1, ptr %m_owner, align 8
   ret void
 }
 
@@ -47201,10 +47245,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail.356, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_value2 = getelementptr inbounds %class.value_trail.356, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_value2 = getelementptr inbounds %class.value_trail.356, ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %m_value2, i64 12, i1 false)
   ret void
 }
@@ -47492,6 +47537,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -47500,14 +47548,14 @@ attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind memory(none) }
-attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind memory(none) }
 attributes #16 = { noreturn nounwind }
 attributes #17 = { noreturn }
 attributes #18 = { builtin nounwind }

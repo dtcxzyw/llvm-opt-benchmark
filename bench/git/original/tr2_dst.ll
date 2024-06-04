@@ -813,39 +813,40 @@ entry:
   store i32 %call, ptr %fd, align 4
   %1 = load ptr, ptr %buf_line.addr, align 8
   call void @strbuf_complete_line(ptr noundef %1)
-  %call1 = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %2 = load i32, ptr %fd, align 4
-  %3 = load ptr, ptr %buf_line.addr, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %buf, align 8
-  %5 = load ptr, ptr %buf_line.addr, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %5, i32 0, i32 1
-  %6 = load i64, ptr %len, align 8
-  %call2 = call i64 @write(i32 noundef %2, ptr noundef %4, i64 noundef %6)
+  %2 = inttoptr i64 1 to ptr
+  %call1 = call i32 @sigchain_push(i32 noundef 13, ptr noundef %2)
+  %3 = load i32, ptr %fd, align 4
+  %4 = load ptr, ptr %buf_line.addr, align 8
+  %buf = getelementptr inbounds %struct.strbuf, ptr %4, i32 0, i32 2
+  %5 = load ptr, ptr %buf, align 8
+  %6 = load ptr, ptr %buf_line.addr, align 8
+  %len = getelementptr inbounds %struct.strbuf, ptr %6, i32 0, i32 1
+  %7 = load i64, ptr %len, align 8
+  %call2 = call i64 @write(i32 noundef %3, ptr noundef %5, i64 noundef %7)
   store i64 %call2, ptr %bytes, align 8
   %call3 = call i32 @sigchain_pop(i32 noundef 13)
-  %7 = load i64, ptr %bytes, align 8
-  %cmp = icmp sge i64 %7, 0
+  %8 = load i64, ptr %bytes, align 8
+  %cmp = icmp sge i64 %8, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   br label %if.end9
 
 if.end:                                           ; preds = %entry
-  %8 = load ptr, ptr %dst.addr, align 8
-  call void @tr2_dst_trace_disable(ptr noundef %8)
+  %9 = load ptr, ptr %dst.addr, align 8
+  call void @tr2_dst_trace_disable(ptr noundef %9)
   %call4 = call i32 @tr2_dst_want_warning()
   %tobool = icmp ne i32 %call4, 0
   br i1 %tobool, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end
-  %9 = load ptr, ptr %dst.addr, align 8
-  %sysenv_var = getelementptr inbounds %struct.tr2_dst, ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %sysenv_var, align 4
-  %call6 = call ptr @tr2_sysenv_display_name(i32 noundef %10)
+  %10 = load ptr, ptr %dst.addr, align 8
+  %sysenv_var = getelementptr inbounds %struct.tr2_dst, ptr %10, i32 0, i32 0
+  %11 = load i32, ptr %sysenv_var, align 4
+  %call6 = call ptr @tr2_sysenv_display_name(i32 noundef %11)
   %call7 = call ptr @__errno_location() #8
-  %11 = load i32, ptr %call7, align 4
-  %call8 = call ptr @strerror(i32 noundef %11) #9
+  %12 = load i32, ptr %call7, align 4
+  %call8 = call ptr @strerror(i32 noundef %12) #9
   call void (ptr, ...) @warning(ptr noundef @.str.6, ptr noundef %call6, ptr noundef %call8)
   br label %if.end9
 

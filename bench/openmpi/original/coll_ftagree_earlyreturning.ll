@@ -345,98 +345,101 @@ define internal void @era_agreement_info_constructor(ptr noundef %0) #0 {
 
 21:                                               ; preds = %20
   %22 = load i32, ptr @opal_class_init_epoch, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %24 = icmp ne i32 %22, %23
-  br i1 %24, label %25, label %26
+  %23 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp ne i32 %22, %24
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %21
+26:                                               ; preds = %21
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %26
+  br label %27
 
-26:                                               ; preds = %25, %21
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %27, i32 0, i32 10
-  %29 = getelementptr inbounds %struct.opal_object_t, ptr %28, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %29, align 8
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %30, i32 0, i32 10
-  %32 = getelementptr inbounds %struct.opal_object_t, ptr %31, i32 0, i32 1
-  store volatile i32 1, ptr %32, align 8
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %33, i32 0, i32 10
-  call void @opal_obj_run_constructors(ptr noundef %34)
-  br label %35
-
-35:                                               ; preds = %26
+27:                                               ; preds = %26, %21
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %28, i32 0, i32 10
+  %30 = getelementptr inbounds %struct.opal_object_t, ptr %29, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %30, align 8
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %31, i32 0, i32 10
+  %33 = getelementptr inbounds %struct.opal_object_t, ptr %32, i32 0, i32 1
+  store volatile i32 1, ptr %33, align 8
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %34, i32 0, i32 10
+  call void @opal_obj_run_constructors(ptr noundef %35)
   br label %36
 
-36:                                               ; preds = %35
+36:                                               ; preds = %27
   br label %37
 
 37:                                               ; preds = %36
   br label %38
 
 38:                                               ; preds = %37
-  %39 = load i32, ptr @opal_class_init_epoch, align 4
-  %40 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %41 = icmp ne i32 %39, %40
-  br i1 %41, label %42, label %43
+  br label %39
 
-42:                                               ; preds = %38
+39:                                               ; preds = %38
+  %40 = load i32, ptr @opal_class_init_epoch, align 4
+  %41 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp ne i32 %40, %42
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %39
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %43
+  br label %45
 
-43:                                               ; preds = %42, %38
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %44, i32 0, i32 11
-  %46 = getelementptr inbounds %struct.opal_object_t, ptr %45, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %46, align 8
-  %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %47, i32 0, i32 11
-  %49 = getelementptr inbounds %struct.opal_object_t, ptr %48, i32 0, i32 1
-  store volatile i32 1, ptr %49, align 8
-  %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %50, i32 0, i32 11
-  call void @opal_obj_run_constructors(ptr noundef %51)
-  br label %52
-
-52:                                               ; preds = %43
-  br label %53
-
-53:                                               ; preds = %52
+45:                                               ; preds = %44, %39
+  %46 = load ptr, ptr %2, align 8
+  %47 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %46, i32 0, i32 11
+  %48 = getelementptr inbounds %struct.opal_object_t, ptr %47, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %48, align 8
+  %49 = load ptr, ptr %2, align 8
+  %50 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %49, i32 0, i32 11
+  %51 = getelementptr inbounds %struct.opal_object_t, ptr %50, i32 0, i32 1
+  store volatile i32 1, ptr %51, align 8
+  %52 = load ptr, ptr %2, align 8
+  %53 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %52, i32 0, i32 11
+  call void @opal_obj_run_constructors(ptr noundef %53)
   br label %54
 
-54:                                               ; preds = %53
+54:                                               ; preds = %45
   br label %55
 
 55:                                               ; preds = %54
-  %56 = load i32, ptr @opal_class_init_epoch, align 4
-  %57 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %58 = icmp ne i32 %56, %57
-  br i1 %58, label %59, label %60
+  br label %56
 
-59:                                               ; preds = %55
+56:                                               ; preds = %55
+  br label %57
+
+57:                                               ; preds = %56
+  %58 = load i32, ptr @opal_class_init_epoch, align 4
+  %59 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp ne i32 %58, %60
+  br i1 %61, label %62, label %63
+
+62:                                               ; preds = %57
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %60
+  br label %63
 
-60:                                               ; preds = %59, %55
-  %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %61, i32 0, i32 12
-  %63 = getelementptr inbounds %struct.opal_object_t, ptr %62, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %63, align 8
+63:                                               ; preds = %62, %57
   %64 = load ptr, ptr %2, align 8
   %65 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %64, i32 0, i32 12
-  %66 = getelementptr inbounds %struct.opal_object_t, ptr %65, i32 0, i32 1
-  store volatile i32 1, ptr %66, align 8
+  %66 = getelementptr inbounds %struct.opal_object_t, ptr %65, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %66, align 8
   %67 = load ptr, ptr %2, align 8
   %68 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %67, i32 0, i32 12
-  call void @opal_obj_run_constructors(ptr noundef %68)
-  br label %69
+  %69 = getelementptr inbounds %struct.opal_object_t, ptr %68, i32 0, i32 1
+  store volatile i32 1, ptr %69, align 8
+  %70 = load ptr, ptr %2, align 8
+  %71 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %70, i32 0, i32 12
+  call void @opal_obj_run_constructors(ptr noundef %71)
+  br label %72
 
-69:                                               ; preds = %60
-  br label %70
+72:                                               ; preds = %63
+  br label %73
 
-70:                                               ; preds = %69
+73:                                               ; preds = %72
   ret void
 }
 
@@ -861,7 +864,7 @@ define i32 @mca_coll_ftagree_era_init() #0 {
 
 4:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %85
+  br label %98
 
 5:                                                ; preds = %0
   %6 = load i32, ptr @mca_coll_ftagree_cur_era_topology, align 4
@@ -909,169 +912,182 @@ define i32 @mca_coll_ftagree_era_init() #0 {
 
 21:                                               ; preds = %20
   %22 = load i32, ptr @opal_class_init_epoch, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %24 = icmp ne i32 %22, %23
-  br i1 %24, label %25, label %26
+  %23 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp ne i32 %22, %24
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %21
+26:                                               ; preds = %21
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %26
-
-26:                                               ; preds = %25, %21
-  store ptr @opal_mutex_t_class, ptr @era_mutex, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @era_mutex, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @era_mutex)
   br label %27
 
-27:                                               ; preds = %26
-  br label %28
-
-28:                                               ; preds = %27
+27:                                               ; preds = %26, %21
+  store ptr @opal_mutex_t_class, ptr @era_mutex, align 8
+  %28 = getelementptr inbounds %struct.opal_object_t, ptr @era_mutex, i32 0, i32 1
+  store volatile i32 1, ptr %28, align 8
+  call void @opal_obj_run_constructors(ptr noundef @era_mutex)
   br label %29
 
-29:                                               ; preds = %28
+29:                                               ; preds = %27
   br label %30
 
 30:                                               ; preds = %29
-  %31 = load i32, ptr @opal_class_init_epoch, align 4
-  %32 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %33 = icmp ne i32 %31, %32
-  br i1 %33, label %34, label %35
+  br label %31
 
-34:                                               ; preds = %30
+31:                                               ; preds = %30
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load i32, ptr @opal_class_init_epoch, align 4
+  %34 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp ne i32 %33, %35
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %32
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %35
+  br label %38
 
-35:                                               ; preds = %34, %30
+38:                                               ; preds = %37, %32
   store ptr @opal_mutex_t_class, ptr @era_incomplete_msg_mutex, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @era_incomplete_msg_mutex, i32 0, i32 1), align 8
+  %39 = getelementptr inbounds %struct.opal_object_t, ptr @era_incomplete_msg_mutex, i32 0, i32 1
+  store volatile i32 1, ptr %39, align 8
   call void @opal_obj_run_constructors(ptr noundef @era_incomplete_msg_mutex)
-  br label %36
-
-36:                                               ; preds = %35
-  br label %37
-
-37:                                               ; preds = %36
-  %38 = load ptr, ptr getelementptr inbounds (%struct.mca_bml_base_module_t, ptr @mca_bml, i32 0, i32 7), align 8
-  %39 = call i32 %38(i8 noundef zeroext 49, ptr noundef @era_cb_fn, ptr noundef null)
   br label %40
 
-40:                                               ; preds = %37
+40:                                               ; preds = %38
   br label %41
 
 41:                                               ; preds = %40
-  %42 = load i32, ptr @opal_class_init_epoch, align 4
-  %43 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %44 = icmp ne i32 %42, %43
-  br i1 %44, label %45, label %46
+  %42 = getelementptr inbounds %struct.mca_bml_base_module_t, ptr @mca_bml, i32 0, i32 7
+  %43 = load ptr, ptr %42, align 8
+  %44 = call i32 %43(i8 noundef zeroext 49, ptr noundef @era_cb_fn, ptr noundef null)
+  br label %45
 
 45:                                               ; preds = %41
-  call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
   br label %46
 
-46:                                               ; preds = %45, %41
+46:                                               ; preds = %45
+  %47 = load i32, ptr @opal_class_init_epoch, align 4
+  %48 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp ne i32 %47, %49
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %46
+  call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
+  br label %52
+
+52:                                               ; preds = %51, %46
   store ptr @opal_free_list_t_class, ptr @era_iagree_requests, align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @era_iagree_requests, i32 0, i32 1), align 8
+  %53 = getelementptr inbounds %struct.opal_object_t, ptr @era_iagree_requests, i32 0, i32 1
+  store volatile i32 1, ptr %53, align 8
   call void @opal_obj_run_constructors(ptr noundef @era_iagree_requests)
-  br label %47
-
-47:                                               ; preds = %46
-  br label %48
-
-48:                                               ; preds = %47
-  %49 = load i32, ptr @opal_cache_line_size, align 4
-  %50 = sext i32 %49 to i64
-  %51 = load i32, ptr @opal_cache_line_size, align 4
-  %52 = sext i32 %51 to i64
-  %53 = call i32 @opal_free_list_init(ptr noundef @era_iagree_requests, i64 noundef 192, i64 noundef %50, ptr noundef @ompi_coll_ftagree_era_iagree_request_t_class, i64 noundef 0, i64 noundef %52, i32 noundef 0, i32 noundef 2147483647, i32 noundef 1, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %54
 
-54:                                               ; preds = %48
+54:                                               ; preds = %52
   br label %55
 
 55:                                               ; preds = %54
-  %56 = load i32, ptr @opal_class_init_epoch, align 4
-  %57 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i32 0, i32 4), align 8
-  %58 = icmp ne i32 %56, %57
-  br i1 %58, label %59, label %60
-
-59:                                               ; preds = %55
-  call void @opal_class_initialize(ptr noundef @opal_hash_table_t_class)
-  br label %60
-
-60:                                               ; preds = %59, %55
-  store ptr @opal_hash_table_t_class, ptr @era_passed_agreements, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @era_passed_agreements, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @era_passed_agreements)
+  %56 = load i32, ptr @opal_cache_line_size, align 4
+  %57 = sext i32 %56 to i64
+  %58 = load i32, ptr @opal_cache_line_size, align 4
+  %59 = sext i32 %58 to i64
+  %60 = call i32 @opal_free_list_init(ptr noundef @era_iagree_requests, i64 noundef 192, i64 noundef %57, ptr noundef @ompi_coll_ftagree_era_iagree_request_t_class, i64 noundef 0, i64 noundef %59, i32 noundef 0, i32 noundef 2147483647, i32 noundef 1, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %61
 
-61:                                               ; preds = %60
+61:                                               ; preds = %55
   br label %62
 
 62:                                               ; preds = %61
-  %63 = call i32 @opal_hash_table_init(ptr noundef @era_passed_agreements, i64 noundef 32)
-  br label %64
+  %63 = load i32, ptr @opal_class_init_epoch, align 4
+  %64 = getelementptr inbounds %struct.opal_class_t, ptr @opal_hash_table_t_class, i32 0, i32 4
+  %65 = load i32, ptr %64, align 8
+  %66 = icmp ne i32 %63, %65
+  br i1 %66, label %67, label %68
 
-64:                                               ; preds = %62
-  br label %65
-
-65:                                               ; preds = %64
-  %66 = load i32, ptr @opal_class_init_epoch, align 4
-  %67 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i32 0, i32 4), align 8
-  %68 = icmp ne i32 %66, %67
-  br i1 %68, label %69, label %70
-
-69:                                               ; preds = %65
+67:                                               ; preds = %62
   call void @opal_class_initialize(ptr noundef @opal_hash_table_t_class)
+  br label %68
+
+68:                                               ; preds = %67, %62
+  store ptr @opal_hash_table_t_class, ptr @era_passed_agreements, align 8
+  %69 = getelementptr inbounds %struct.opal_object_t, ptr @era_passed_agreements, i32 0, i32 1
+  store volatile i32 1, ptr %69, align 8
+  call void @opal_obj_run_constructors(ptr noundef @era_passed_agreements)
   br label %70
 
-70:                                               ; preds = %69, %65
-  store ptr @opal_hash_table_t_class, ptr @era_ongoing_agreements, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @era_ongoing_agreements, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @era_ongoing_agreements)
+70:                                               ; preds = %68
   br label %71
 
 71:                                               ; preds = %70
-  br label %72
+  %72 = call i32 @opal_hash_table_init(ptr noundef @era_passed_agreements, i64 noundef 32)
+  br label %73
 
-72:                                               ; preds = %71
-  %73 = call i32 @opal_hash_table_init(ptr noundef @era_ongoing_agreements, i64 noundef 16)
+73:                                               ; preds = %71
   br label %74
 
-74:                                               ; preds = %72
-  br label %75
-
-75:                                               ; preds = %74
-  %76 = load i32, ptr @opal_class_init_epoch, align 4
-  %77 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_hash_table_t_class, i32 0, i32 4), align 8
-  %78 = icmp ne i32 %76, %77
+74:                                               ; preds = %73
+  %75 = load i32, ptr @opal_class_init_epoch, align 4
+  %76 = getelementptr inbounds %struct.opal_class_t, ptr @opal_hash_table_t_class, i32 0, i32 4
+  %77 = load i32, ptr %76, align 8
+  %78 = icmp ne i32 %75, %77
   br i1 %78, label %79, label %80
 
-79:                                               ; preds = %75
+79:                                               ; preds = %74
   call void @opal_class_initialize(ptr noundef @opal_hash_table_t_class)
   br label %80
 
-80:                                               ; preds = %79, %75
-  store ptr @opal_hash_table_t_class, ptr @era_incomplete_messages, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @era_incomplete_messages, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @era_incomplete_messages)
-  br label %81
-
-81:                                               ; preds = %80
+80:                                               ; preds = %79, %74
+  store ptr @opal_hash_table_t_class, ptr @era_ongoing_agreements, align 8
+  %81 = getelementptr inbounds %struct.opal_object_t, ptr @era_ongoing_agreements, i32 0, i32 1
+  store volatile i32 1, ptr %81, align 8
+  call void @opal_obj_run_constructors(ptr noundef @era_ongoing_agreements)
   br label %82
 
-82:                                               ; preds = %81
-  %83 = call i32 @opal_hash_table_init(ptr noundef @era_incomplete_messages, i64 noundef 65536)
-  %84 = load ptr, ptr @ompi_rank_failure_cbfunc, align 8
-  store ptr %84, ptr @ompi_stacked_rank_failure_callback_fct, align 8
+82:                                               ; preds = %80
+  br label %83
+
+83:                                               ; preds = %82
+  %84 = call i32 @opal_hash_table_init(ptr noundef @era_ongoing_agreements, i64 noundef 16)
+  br label %85
+
+85:                                               ; preds = %83
+  br label %86
+
+86:                                               ; preds = %85
+  %87 = load i32, ptr @opal_class_init_epoch, align 4
+  %88 = getelementptr inbounds %struct.opal_class_t, ptr @opal_hash_table_t_class, i32 0, i32 4
+  %89 = load i32, ptr %88, align 8
+  %90 = icmp ne i32 %87, %89
+  br i1 %90, label %91, label %92
+
+91:                                               ; preds = %86
+  call void @opal_class_initialize(ptr noundef @opal_hash_table_t_class)
+  br label %92
+
+92:                                               ; preds = %91, %86
+  store ptr @opal_hash_table_t_class, ptr @era_incomplete_messages, align 8
+  %93 = getelementptr inbounds %struct.opal_object_t, ptr @era_incomplete_messages, i32 0, i32 1
+  store volatile i32 1, ptr %93, align 8
+  call void @opal_obj_run_constructors(ptr noundef @era_incomplete_messages)
+  br label %94
+
+94:                                               ; preds = %92
+  br label %95
+
+95:                                               ; preds = %94
+  %96 = call i32 @opal_hash_table_init(ptr noundef @era_incomplete_messages, i64 noundef 65536)
+  %97 = load ptr, ptr @ompi_rank_failure_cbfunc, align 8
+  store ptr %97, ptr @ompi_stacked_rank_failure_callback_fct, align 8
   store ptr @era_on_comm_rank_failure, ptr @ompi_rank_failure_cbfunc, align 8
   store i32 1, ptr @era_inited, align 4
   store i32 0, ptr %1, align 4
-  br label %85
+  br label %98
 
-85:                                               ; preds = %82, %4
-  %86 = load i32, ptr %1, align 4
-  ret i32 %86
+98:                                               ; preds = %95, %4
+  %99 = load i32, ptr %1, align 4
+  ret i32 %99
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2527,274 +2543,276 @@ define internal void @ompi_request_wait_completion(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %5 = load i8, ptr @opal_uses_threads, align 1
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %124
+  br i1 %6, label %7, label %125
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds %struct.ompi_request_t, ptr %8, i32 0, i32 3
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr inttoptr (i64 1 to ptr), %10
-  br i1 %11, label %123, label %12
+  %11 = inttoptr i64 1 to ptr
+  %12 = icmp eq ptr %11, %10
+  br i1 %12, label %124, label %13
 
-12:                                               ; preds = %7
-  br label %13
+13:                                               ; preds = %7
+  br label %14
 
-13:                                               ; preds = %104, %12
-  %14 = load i8, ptr @ompi_ftmpi_enabled, align 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %20
+14:                                               ; preds = %105, %13
+  %15 = load i8, ptr @ompi_ftmpi_enabled, align 1
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %21
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %2, align 8
-  %18 = call zeroext i1 @ompi_request_is_failed_fn(ptr noundef %17)
-  %19 = zext i1 %18 to i32
-  br label %21
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %2, align 8
+  %19 = call zeroext i1 @ompi_request_is_failed_fn(ptr noundef %18)
+  %20 = zext i1 %19 to i32
+  br label %22
 
-20:                                               ; preds = %13
-  br label %21
+21:                                               ; preds = %14
+  br label %22
 
-21:                                               ; preds = %20, %16
-  %22 = phi i32 [ %19, %16 ], [ 0, %20 ]
-  %23 = icmp ne i32 %22, 0
-  %24 = xor i1 %23, true
+22:                                               ; preds = %21, %17
+  %23 = phi i32 [ %20, %17 ], [ 0, %21 ]
+  %24 = icmp ne i32 %23, 0
   %25 = xor i1 %24, true
-  %26 = zext i1 %25 to i32
-  %27 = sext i32 %26 to i64
-  %28 = icmp ne i64 %27, 0
-  %29 = xor i1 %28, true
+  %26 = xor i1 %25, true
+  %27 = zext i1 %26 to i32
+  %28 = sext i32 %27 to i64
+  %29 = icmp ne i64 %28, 0
   %30 = xor i1 %29, true
-  %31 = zext i1 %30 to i32
-  %32 = sext i32 %31 to i64
-  %33 = icmp ne i64 %32, 0
-  br i1 %33, label %34, label %35
+  %31 = xor i1 %30, true
+  %32 = zext i1 %31 to i32
+  %33 = sext i32 %32 to i64
+  %34 = icmp ne i64 %33, 0
+  br i1 %34, label %35, label %36
 
-34:                                               ; preds = %21
-  br label %156
+35:                                               ; preds = %22
+  br label %158
 
-35:                                               ; preds = %21
+36:                                               ; preds = %22
   store ptr null, ptr %3, align 8
-  br label %36
+  br label %37
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 0
-  store volatile i32 1, ptr %37, align 8
-  %38 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 4
-  store ptr null, ptr %38, align 8
-  %39 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 5
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 0
+  store volatile i32 1, ptr %38, align 8
+  %39 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 4
   store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 1
-  store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 6
-  store volatile i8 1, ptr %41, align 8
-  %42 = load i8, ptr @opal_uses_threads, align 1
-  %43 = trunc i8 %42 to i1
-  br i1 %43, label %44, label %49
+  %40 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 5
+  store ptr null, ptr %40, align 8
+  %41 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 1
+  store i32 0, ptr %41, align 4
+  %42 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 6
+  store volatile i8 1, ptr %42, align 8
+  %43 = load i8, ptr @opal_uses_threads, align 1
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %50
 
-44:                                               ; preds = %36
-  %45 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 2
-  %46 = call i32 @opal_thread_internal_cond_init(ptr noundef %45)
-  %47 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 3
-  %48 = call i32 @opal_thread_internal_mutex_init(ptr noundef %47, i1 noundef zeroext false)
-  br label %49
-
-49:                                               ; preds = %44, %36
+45:                                               ; preds = %37
+  %46 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 2
+  %47 = call i32 @opal_thread_internal_cond_init(ptr noundef %46)
+  %48 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 3
+  %49 = call i32 @opal_thread_internal_mutex_init(ptr noundef %48, i1 noundef zeroext false)
   br label %50
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds %struct.ompi_request_t, ptr %51, i32 0, i32 3
-  %53 = ptrtoint ptr %4 to i64
-  %54 = call zeroext i1 @opal_thread_compare_exchange_strong_ptr(ptr noundef %52, ptr noundef %3, i64 noundef %53)
-  br i1 %54, label %55, label %63
+50:                                               ; preds = %45, %37
+  br label %51
 
-55:                                               ; preds = %50
-  %56 = load i8, ptr @opal_uses_threads, align 1
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %60
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %2, align 8
+  %53 = getelementptr inbounds %struct.ompi_request_t, ptr %52, i32 0, i32 3
+  %54 = ptrtoint ptr %4 to i64
+  %55 = call zeroext i1 @opal_thread_compare_exchange_strong_ptr(ptr noundef %53, ptr noundef %3, i64 noundef %54)
+  br i1 %55, label %56, label %64
 
-58:                                               ; preds = %55
-  %59 = call i32 @ompi_sync_wait_mt(ptr noundef %4)
-  br label %62
+56:                                               ; preds = %51
+  %57 = load i8, ptr @opal_uses_threads, align 1
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %61
 
-60:                                               ; preds = %55
-  %61 = call i32 @sync_wait_st(ptr noundef %4)
-  br label %62
+59:                                               ; preds = %56
+  %60 = call i32 @ompi_sync_wait_mt(ptr noundef %4)
+  br label %63
 
-62:                                               ; preds = %60, %58
-  br label %65
+61:                                               ; preds = %56
+  %62 = call i32 @sync_wait_st(ptr noundef %4)
+  br label %63
 
-63:                                               ; preds = %50
-  %64 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 6
-  store volatile i8 0, ptr %64, align 8
-  br label %65
+63:                                               ; preds = %61, %59
+  br label %66
 
-65:                                               ; preds = %63, %62
-  %66 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 1
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp ne i32 0, %67
-  %69 = xor i1 %68, true
+64:                                               ; preds = %51
+  %65 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 6
+  store volatile i8 0, ptr %65, align 8
+  br label %66
+
+66:                                               ; preds = %64, %63
+  %67 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 1
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp ne i32 0, %68
   %70 = xor i1 %69, true
-  %71 = zext i1 %70 to i32
-  %72 = sext i32 %71 to i64
-  %73 = icmp ne i64 %72, 0
-  br i1 %73, label %74, label %106
+  %71 = xor i1 %70, true
+  %72 = zext i1 %71 to i32
+  %73 = sext i32 %72 to i64
+  %74 = icmp ne i64 %73, 0
+  br i1 %74, label %75, label %107
 
-74:                                               ; preds = %65
+75:                                               ; preds = %66
   store ptr %4, ptr %3, align 8
-  %75 = load ptr, ptr %2, align 8
-  %76 = getelementptr inbounds %struct.ompi_request_t, ptr %75, i32 0, i32 3
-  %77 = call zeroext i1 @opal_thread_compare_exchange_strong_ptr(ptr noundef %76, ptr noundef %3, i64 noundef 0)
-  br i1 %77, label %78, label %105
+  %76 = load ptr, ptr %2, align 8
+  %77 = getelementptr inbounds %struct.ompi_request_t, ptr %76, i32 0, i32 3
+  %78 = call zeroext i1 @opal_thread_compare_exchange_strong_ptr(ptr noundef %77, ptr noundef %3, i64 noundef 0)
+  br i1 %78, label %79, label %106
 
-78:                                               ; preds = %74
-  br label %79
+79:                                               ; preds = %75
+  br label %80
 
-79:                                               ; preds = %78
-  %80 = load i32, ptr @ompi_ftmpi_output_handle, align 4
-  %81 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %80)
-  br i1 %81, label %82, label %87
+80:                                               ; preds = %79
+  %81 = load i32, ptr @ompi_ftmpi_output_handle, align 4
+  %82 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %81)
+  br i1 %82, label %83, label %88
 
-82:                                               ; preds = %79
-  %83 = load i32, ptr @ompi_ftmpi_output_handle, align 4
-  %84 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 1
-  %85 = load i32, ptr %84, align 4
-  %86 = load ptr, ptr %2, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %83, ptr noundef @.str.13, i32 noundef %85, ptr noundef %4, ptr noundef %86)
-  br label %87
-
-87:                                               ; preds = %82, %79
+83:                                               ; preds = %80
+  %84 = load i32, ptr @ompi_ftmpi_output_handle, align 4
+  %85 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 1
+  %86 = load i32, ptr %85, align 4
+  %87 = load ptr, ptr %2, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %84, ptr noundef @.str.13, i32 noundef %86, ptr noundef %4, ptr noundef %87)
   br label %88
 
-88:                                               ; preds = %87
-  %89 = load i8, ptr @opal_uses_threads, align 1
-  %90 = trunc i8 %89 to i1
-  br i1 %90, label %91, label %104
+88:                                               ; preds = %83, %80
+  br label %89
 
-91:                                               ; preds = %88
-  br label %92
+89:                                               ; preds = %88
+  %90 = load i8, ptr @opal_uses_threads, align 1
+  %91 = trunc i8 %90 to i1
+  br i1 %91, label %92, label %105
 
-92:                                               ; preds = %100, %91
-  %93 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 6
-  %94 = load volatile i8, ptr %93, align 8
-  %95 = trunc i8 %94 to i1
-  br i1 %95, label %96, label %101
+92:                                               ; preds = %89
+  br label %93
 
-96:                                               ; preds = %92
-  %97 = load i8, ptr @opal_progress_yield_when_idle, align 1
-  %98 = trunc i8 %97 to i1
-  br i1 %98, label %99, label %100
+93:                                               ; preds = %101, %92
+  %94 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 6
+  %95 = load volatile i8, ptr %94, align 8
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %97, label %102
 
-99:                                               ; preds = %96
+97:                                               ; preds = %93
+  %98 = load i8, ptr @opal_progress_yield_when_idle, align 1
+  %99 = trunc i8 %98 to i1
+  br i1 %99, label %100, label %101
+
+100:                                              ; preds = %97
   call void @opal_thread_yield()
-  br label %100
+  br label %101
 
-100:                                              ; preds = %99, %96
-  br label %92, !llvm.loop !19
+101:                                              ; preds = %100, %97
+  br label %93, !llvm.loop !19
 
-101:                                              ; preds = %92
-  %102 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 2
-  call void @opal_thread_internal_cond_destroy(ptr noundef %102)
-  %103 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 3
-  call void @opal_thread_internal_mutex_destroy(ptr noundef %103)
-  br label %104
+102:                                              ; preds = %93
+  %103 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 2
+  call void @opal_thread_internal_cond_destroy(ptr noundef %103)
+  %104 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 3
+  call void @opal_thread_internal_mutex_destroy(ptr noundef %104)
+  br label %105
 
-104:                                              ; preds = %101, %88
-  br label %13
+105:                                              ; preds = %102, %89
+  br label %14
 
-105:                                              ; preds = %74
-  br label %106
+106:                                              ; preds = %75
+  br label %107
 
-106:                                              ; preds = %105, %65
-  %107 = load i8, ptr @opal_uses_threads, align 1
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %109, label %122
+107:                                              ; preds = %106, %66
+  %108 = load i8, ptr @opal_uses_threads, align 1
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %123
 
-109:                                              ; preds = %106
-  br label %110
+110:                                              ; preds = %107
+  br label %111
 
-110:                                              ; preds = %118, %109
-  %111 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 6
-  %112 = load volatile i8, ptr %111, align 8
-  %113 = trunc i8 %112 to i1
-  br i1 %113, label %114, label %119
+111:                                              ; preds = %119, %110
+  %112 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 6
+  %113 = load volatile i8, ptr %112, align 8
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %115, label %120
 
-114:                                              ; preds = %110
-  %115 = load i8, ptr @opal_progress_yield_when_idle, align 1
-  %116 = trunc i8 %115 to i1
-  br i1 %116, label %117, label %118
+115:                                              ; preds = %111
+  %116 = load i8, ptr @opal_progress_yield_when_idle, align 1
+  %117 = trunc i8 %116 to i1
+  br i1 %117, label %118, label %119
 
-117:                                              ; preds = %114
+118:                                              ; preds = %115
   call void @opal_thread_yield()
-  br label %118
+  br label %119
 
-118:                                              ; preds = %117, %114
-  br label %110, !llvm.loop !20
+119:                                              ; preds = %118, %115
+  br label %111, !llvm.loop !20
 
-119:                                              ; preds = %110
-  %120 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 2
-  call void @opal_thread_internal_cond_destroy(ptr noundef %120)
-  %121 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 3
-  call void @opal_thread_internal_mutex_destroy(ptr noundef %121)
-  br label %122
-
-122:                                              ; preds = %119, %106
+120:                                              ; preds = %111
+  %121 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 2
+  call void @opal_thread_internal_cond_destroy(ptr noundef %121)
+  %122 = getelementptr inbounds %struct.ompi_wait_sync_t, ptr %4, i32 0, i32 3
+  call void @opal_thread_internal_mutex_destroy(ptr noundef %122)
   br label %123
 
-123:                                              ; preds = %122, %7
+123:                                              ; preds = %120, %107
+  br label %124
+
+124:                                              ; preds = %123, %7
   call void @opal_atomic_rmb()
-  br label %156
+  br label %158
 
-124:                                              ; preds = %1
-  br label %125
+125:                                              ; preds = %1
+  br label %126
 
-125:                                              ; preds = %154, %124
-  %126 = load ptr, ptr %2, align 8
-  %127 = getelementptr inbounds %struct.ompi_request_t, ptr %126, i32 0, i32 3
-  %128 = load ptr, ptr %127, align 8
-  %129 = icmp eq ptr inttoptr (i64 1 to ptr), %128
-  %130 = xor i1 %129, true
-  br i1 %130, label %131, label %155
+126:                                              ; preds = %156, %125
+  %127 = load ptr, ptr %2, align 8
+  %128 = getelementptr inbounds %struct.ompi_request_t, ptr %127, i32 0, i32 3
+  %129 = load ptr, ptr %128, align 8
+  %130 = inttoptr i64 1 to ptr
+  %131 = icmp eq ptr %130, %129
+  %132 = xor i1 %131, true
+  br i1 %132, label %133, label %157
 
-131:                                              ; preds = %125
-  %132 = call i32 @opal_progress()
-  %133 = load i8, ptr @ompi_ftmpi_enabled, align 1
-  %134 = trunc i8 %133 to i1
-  br i1 %134, label %135, label %139
+133:                                              ; preds = %126
+  %134 = call i32 @opal_progress()
+  %135 = load i8, ptr @ompi_ftmpi_enabled, align 1
+  %136 = trunc i8 %135 to i1
+  br i1 %136, label %137, label %141
 
-135:                                              ; preds = %131
-  %136 = load ptr, ptr %2, align 8
-  %137 = call zeroext i1 @ompi_request_is_failed_fn(ptr noundef %136)
-  %138 = zext i1 %137 to i32
-  br label %140
+137:                                              ; preds = %133
+  %138 = load ptr, ptr %2, align 8
+  %139 = call zeroext i1 @ompi_request_is_failed_fn(ptr noundef %138)
+  %140 = zext i1 %139 to i32
+  br label %142
 
-139:                                              ; preds = %131
-  br label %140
+141:                                              ; preds = %133
+  br label %142
 
-140:                                              ; preds = %139, %135
-  %141 = phi i32 [ %138, %135 ], [ 0, %139 ]
-  %142 = icmp ne i32 %141, 0
-  %143 = xor i1 %142, true
-  %144 = xor i1 %143, true
-  %145 = zext i1 %144 to i32
-  %146 = sext i32 %145 to i64
-  %147 = icmp ne i64 %146, 0
-  %148 = xor i1 %147, true
-  %149 = xor i1 %148, true
-  %150 = zext i1 %149 to i32
-  %151 = sext i32 %150 to i64
-  %152 = icmp ne i64 %151, 0
-  br i1 %152, label %153, label %154
+142:                                              ; preds = %141, %137
+  %143 = phi i32 [ %140, %137 ], [ 0, %141 ]
+  %144 = icmp ne i32 %143, 0
+  %145 = xor i1 %144, true
+  %146 = xor i1 %145, true
+  %147 = zext i1 %146 to i32
+  %148 = sext i32 %147 to i64
+  %149 = icmp ne i64 %148, 0
+  %150 = xor i1 %149, true
+  %151 = xor i1 %150, true
+  %152 = zext i1 %151 to i32
+  %153 = sext i32 %152 to i64
+  %154 = icmp ne i64 %153, 0
+  br i1 %154, label %155, label %156
 
-153:                                              ; preds = %140
-  br label %155
+155:                                              ; preds = %142
+  br label %157
 
-154:                                              ; preds = %140
-  br label %125, !llvm.loop !21
+156:                                              ; preds = %142
+  br label %126, !llvm.loop !21
 
-155:                                              ; preds = %153, %125
-  br label %156
+157:                                              ; preds = %155, %126
+  br label %158
 
-156:                                              ; preds = %155, %123, %34
+158:                                              ; preds = %157, %124, %35
   ret void
 }
 
@@ -3181,153 +3199,154 @@ define internal i32 @mca_coll_ftagree_era_prepare_agreement(ptr noundef %0, ptr 
 
 64:                                               ; preds = %63
   %65 = load i32, ptr @opal_class_init_epoch, align 4
-  %66 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_coll_ftagree_era_value_t_class, i32 0, i32 4), align 8
-  %67 = icmp ne i32 %65, %66
-  br i1 %67, label %68, label %69
+  %66 = getelementptr inbounds %struct.opal_class_t, ptr @ompi_coll_ftagree_era_value_t_class, i32 0, i32 4
+  %67 = load i32, ptr %66, align 8
+  %68 = icmp ne i32 %65, %67
+  br i1 %68, label %69, label %70
 
-68:                                               ; preds = %64
+69:                                               ; preds = %64
   call void @opal_class_initialize(ptr noundef @ompi_coll_ftagree_era_value_t_class)
-  br label %69
+  br label %70
 
-69:                                               ; preds = %68, %64
-  %70 = getelementptr inbounds %struct.opal_object_t, ptr %24, i32 0, i32 0
-  store ptr @ompi_coll_ftagree_era_value_t_class, ptr %70, align 8
-  %71 = getelementptr inbounds %struct.opal_object_t, ptr %24, i32 0, i32 1
-  store volatile i32 1, ptr %71, align 8
+70:                                               ; preds = %69, %64
+  %71 = getelementptr inbounds %struct.opal_object_t, ptr %24, i32 0, i32 0
+  store ptr @ompi_coll_ftagree_era_value_t_class, ptr %71, align 8
+  %72 = getelementptr inbounds %struct.opal_object_t, ptr %24, i32 0, i32 1
+  store volatile i32 1, ptr %72, align 8
   call void @opal_obj_run_constructors(ptr noundef %24)
-  br label %72
-
-72:                                               ; preds = %69
   br label %73
 
-73:                                               ; preds = %72
-  %74 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 1
-  %75 = getelementptr inbounds %struct.era_value_header_t, ptr %74, i32 0, i32 0
-  store i32 0, ptr %75, align 8
-  %76 = load ptr, ptr %14, align 8
-  %77 = getelementptr inbounds %struct.ompi_op_t, ptr %76, i32 0, i32 4
-  %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 1
-  %80 = getelementptr inbounds %struct.era_value_header_t, ptr %79, i32 0, i32 3
-  store i32 %78, ptr %80, align 8
-  %81 = load i32, ptr %16, align 4
-  %82 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 1
-  %83 = getelementptr inbounds %struct.era_value_header_t, ptr %82, i32 0, i32 4
-  store i32 %81, ptr %83, align 4
-  %84 = load ptr, ptr %15, align 8
-  %85 = getelementptr inbounds %struct.ompi_datatype_t, ptr %84, i32 0, i32 2
-  %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 1
-  %88 = getelementptr inbounds %struct.era_value_header_t, ptr %87, i32 0, i32 5
-  store i32 %86, ptr %88, align 8
-  %89 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 1
-  %90 = getelementptr inbounds %struct.era_value_header_t, ptr %89, i32 0, i32 6
-  store i32 0, ptr %90, align 4
-  %91 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
-  %92 = getelementptr inbounds %union.anon, ptr %91, i32 0, i32 0
-  %93 = load i64, ptr %92, align 8
-  %94 = call ptr @era_lookup_agreement_info(i64 %93)
-  store ptr %94, ptr %21, align 8
-  %95 = load ptr, ptr %21, align 8
-  %96 = icmp eq ptr null, %95
-  br i1 %96, label %97, label %103
+73:                                               ; preds = %70
+  br label %74
 
-97:                                               ; preds = %73
-  %98 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 1
-  %99 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
-  %100 = getelementptr inbounds %union.anon, ptr %99, i32 0, i32 0
-  %101 = load i64, ptr %100, align 8
-  %102 = call ptr @era_create_agreement_info(i64 %101, ptr noundef %98)
-  store ptr %102, ptr %21, align 8
-  br label %103
+74:                                               ; preds = %73
+  %75 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 1
+  %76 = getelementptr inbounds %struct.era_value_header_t, ptr %75, i32 0, i32 0
+  store i32 0, ptr %76, align 8
+  %77 = load ptr, ptr %14, align 8
+  %78 = getelementptr inbounds %struct.ompi_op_t, ptr %77, i32 0, i32 4
+  %79 = load i32, ptr %78, align 8
+  %80 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 1
+  %81 = getelementptr inbounds %struct.era_value_header_t, ptr %80, i32 0, i32 3
+  store i32 %79, ptr %81, align 8
+  %82 = load i32, ptr %16, align 4
+  %83 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 1
+  %84 = getelementptr inbounds %struct.era_value_header_t, ptr %83, i32 0, i32 4
+  store i32 %82, ptr %84, align 4
+  %85 = load ptr, ptr %15, align 8
+  %86 = getelementptr inbounds %struct.ompi_datatype_t, ptr %85, i32 0, i32 2
+  %87 = load i32, ptr %86, align 4
+  %88 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 1
+  %89 = getelementptr inbounds %struct.era_value_header_t, ptr %88, i32 0, i32 5
+  store i32 %87, ptr %89, align 8
+  %90 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 1
+  %91 = getelementptr inbounds %struct.era_value_header_t, ptr %90, i32 0, i32 6
+  store i32 0, ptr %91, align 4
+  %92 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
+  %93 = getelementptr inbounds %union.anon, ptr %92, i32 0, i32 0
+  %94 = load i64, ptr %93, align 8
+  %95 = call ptr @era_lookup_agreement_info(i64 %94)
+  store ptr %95, ptr %21, align 8
+  %96 = load ptr, ptr %21, align 8
+  %97 = icmp eq ptr null, %96
+  br i1 %97, label %98, label %104
 
-103:                                              ; preds = %97, %73
-  %104 = load ptr, ptr %21, align 8
-  %105 = load ptr, ptr %12, align 8
-  %106 = load ptr, ptr %13, align 8
-  call void @era_agreement_info_set_comm(ptr noundef %104, ptr noundef %105, ptr noundef %106)
-  %107 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
-  %108 = load i64, ptr %107, align 8
-  %109 = call i32 @opal_hash_table_get_value_uint64(ptr noundef @era_passed_agreements, i64 noundef %108, ptr noundef %23)
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %140
+98:                                               ; preds = %74
+  %99 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 1
+  %100 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
+  %101 = getelementptr inbounds %union.anon, ptr %100, i32 0, i32 0
+  %102 = load i64, ptr %101, align 8
+  %103 = call ptr @era_create_agreement_info(i64 %102, ptr noundef %99)
+  store ptr %103, ptr %21, align 8
+  br label %104
 
-111:                                              ; preds = %103
-  %112 = call ptr @ompi_pmix_print_name(ptr noundef @opal_process_info)
-  %113 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
-  %114 = getelementptr inbounds %struct.anon.0, ptr %113, i32 0, i32 1
-  %115 = load i16, ptr %114, align 2
-  %116 = zext i16 %115 to i32
-  %117 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
-  %118 = getelementptr inbounds %struct.anon.0, ptr %117, i32 0, i32 2
-  %119 = load i32, ptr %118, align 4
-  %120 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
-  %121 = getelementptr inbounds %struct.anon.0, ptr %120, i32 0, i32 0
-  %122 = load i16, ptr %121, align 8
-  %123 = zext i16 %122 to i32
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.14, ptr noundef %112, i32 noundef %116, i32 noundef %119, i32 noundef %123)
-  %124 = load ptr, ptr %23, align 8
-  store ptr %124, ptr %25, align 8
-  %125 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
-  %126 = load i64, ptr %125, align 8
-  %127 = call i32 @opal_hash_table_remove_value_uint64(ptr noundef @era_passed_agreements, i64 noundef %126)
-  br label %128
+104:                                              ; preds = %98, %74
+  %105 = load ptr, ptr %21, align 8
+  %106 = load ptr, ptr %12, align 8
+  %107 = load ptr, ptr %13, align 8
+  call void @era_agreement_info_set_comm(ptr noundef %105, ptr noundef %106, ptr noundef %107)
+  %108 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
+  %109 = load i64, ptr %108, align 8
+  %110 = call i32 @opal_hash_table_get_value_uint64(ptr noundef @era_passed_agreements, i64 noundef %109, ptr noundef %23)
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %141
 
-128:                                              ; preds = %111
-  %129 = load ptr, ptr %25, align 8
-  store ptr %129, ptr %10, align 8
+112:                                              ; preds = %104
+  %113 = call ptr @ompi_pmix_print_name(ptr noundef @opal_process_info)
+  %114 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
+  %115 = getelementptr inbounds %struct.anon.0, ptr %114, i32 0, i32 1
+  %116 = load i16, ptr %115, align 2
+  %117 = zext i16 %116 to i32
+  %118 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
+  %119 = getelementptr inbounds %struct.anon.0, ptr %118, i32 0, i32 2
+  %120 = load i32, ptr %119, align 4
+  %121 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
+  %122 = getelementptr inbounds %struct.anon.0, ptr %121, i32 0, i32 0
+  %123 = load i16, ptr %122, align 8
+  %124 = zext i16 %123 to i32
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.14, ptr noundef %113, i32 noundef %117, i32 noundef %120, i32 noundef %124)
+  %125 = load ptr, ptr %23, align 8
+  store ptr %125, ptr %25, align 8
+  %126 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
+  %127 = load i64, ptr %126, align 8
+  %128 = call i32 @opal_hash_table_remove_value_uint64(ptr noundef @era_passed_agreements, i64 noundef %127)
+  br label %129
+
+129:                                              ; preds = %112
+  %130 = load ptr, ptr %25, align 8
+  store ptr %130, ptr %10, align 8
   store i32 -1, ptr %11, align 4
-  %130 = load ptr, ptr %10, align 8
-  %131 = getelementptr inbounds %struct.opal_object_t, ptr %130, i32 0, i32 1
-  %132 = load i32, ptr %11, align 4
-  %133 = call i32 @opal_thread_add_fetch_32(ptr noundef %131, i32 noundef %132)
-  %134 = icmp eq i32 0, %133
-  br i1 %134, label %135, label %138
+  %131 = load ptr, ptr %10, align 8
+  %132 = getelementptr inbounds %struct.opal_object_t, ptr %131, i32 0, i32 1
+  %133 = load i32, ptr %11, align 4
+  %134 = call i32 @opal_thread_add_fetch_32(ptr noundef %132, i32 noundef %133)
+  %135 = icmp eq i32 0, %134
+  br i1 %135, label %136, label %139
 
-135:                                              ; preds = %128
-  %136 = load ptr, ptr %25, align 8
-  call void @opal_obj_run_destructors(ptr noundef %136)
+136:                                              ; preds = %129
   %137 = load ptr, ptr %25, align 8
-  call void @free(ptr noundef %137) #7
+  call void @opal_obj_run_destructors(ptr noundef %137)
+  %138 = load ptr, ptr %25, align 8
+  call void @free(ptr noundef %138) #7
   store ptr null, ptr %25, align 8
-  br label %138
-
-138:                                              ; preds = %135, %128
   br label %139
 
-139:                                              ; preds = %138
+139:                                              ; preds = %136, %129
   br label %140
 
-140:                                              ; preds = %139, %103
-  %141 = load ptr, ptr %17, align 8
-  %142 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 2
-  store ptr %141, ptr %142, align 8
-  %143 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
-  %144 = getelementptr inbounds %union.anon, ptr %143, i32 0, i32 0
-  %145 = load i64, ptr %144, align 8
-  call void @era_agreement_value_set_gcrange(i64 %145, ptr noundef %24)
-  %146 = load ptr, ptr %21, align 8
-  call void @era_combine_agreement_values(ptr noundef %146, ptr noundef %24)
-  %147 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 2
-  store ptr null, ptr %147, align 8
-  br label %148
+140:                                              ; preds = %139
+  br label %141
 
-148:                                              ; preds = %140
-  call void @opal_obj_run_destructors(ptr noundef %24)
+141:                                              ; preds = %140, %104
+  %142 = load ptr, ptr %17, align 8
+  %143 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 2
+  store ptr %142, ptr %143, align 8
+  %144 = getelementptr inbounds %struct.era_identifier_t, ptr %22, i32 0, i32 0
+  %145 = getelementptr inbounds %union.anon, ptr %144, i32 0, i32 0
+  %146 = load i64, ptr %145, align 8
+  call void @era_agreement_value_set_gcrange(i64 %146, ptr noundef %24)
+  %147 = load ptr, ptr %21, align 8
+  call void @era_combine_agreement_values(ptr noundef %147, ptr noundef %24)
+  %148 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %24, i32 0, i32 2
+  store ptr null, ptr %148, align 8
   br label %149
 
-149:                                              ; preds = %148
-  %150 = load ptr, ptr %21, align 8
-  %151 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %150, i32 0, i32 3
-  store i32 2, ptr %151, align 8
-  %152 = load ptr, ptr %21, align 8
-  call void @era_check_status(ptr noundef %152)
+149:                                              ; preds = %141
+  call void @opal_obj_run_destructors(ptr noundef %24)
+  br label %150
+
+150:                                              ; preds = %149
+  %151 = load ptr, ptr %21, align 8
+  %152 = getelementptr inbounds %struct.ompi_coll_ftagree_era_agreement_info_t, ptr %151, i32 0, i32 3
+  store i32 2, ptr %152, align 8
+  %153 = load ptr, ptr %21, align 8
+  call void @era_check_status(ptr noundef %153)
   call void @opal_mutex_unlock(ptr noundef @era_mutex)
-  %153 = load ptr, ptr %19, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %153, ptr align 8 %22, i64 8, i1 false)
-  %154 = load ptr, ptr %21, align 8
-  %155 = load ptr, ptr %20, align 8
-  store ptr %154, ptr %155, align 8
+  %154 = load ptr, ptr %19, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %154, ptr align 8 %22, i64 8, i1 false)
+  %155 = load ptr, ptr %21, align 8
+  %156 = load ptr, ptr %20, align 8
+  store ptr %155, ptr %156, align 8
   ret i32 0
 }
 
@@ -3471,7 +3490,7 @@ define internal i32 @ompi_request_complete(ptr noundef %0, i1 noundef zeroext %1
 22:                                               ; preds = %13, %2
   %23 = load i32, ptr %5, align 4
   %24 = icmp eq i32 0, %23
-  br i1 %24, label %25, label %51
+  br i1 %24, label %25, label %52
 
 25:                                               ; preds = %22
   %26 = load i8, ptr %4, align 1
@@ -3504,18 +3523,19 @@ define internal i32 @ompi_request_complete(ptr noundef %0, i1 noundef zeroext %1
   br label %46
 
 46:                                               ; preds = %40, %33
-  br label %50
+  br label %51
 
 47:                                               ; preds = %25
   %48 = load ptr, ptr %3, align 8
   %49 = getelementptr inbounds %struct.ompi_request_t, ptr %48, i32 0, i32 3
-  store ptr inttoptr (i64 1 to ptr), ptr %49, align 8
-  br label %50
-
-50:                                               ; preds = %47, %46
+  %50 = inttoptr i64 1 to ptr
+  store ptr %50, ptr %49, align 8
   br label %51
 
-51:                                               ; preds = %50, %22
+51:                                               ; preds = %47, %46
+  br label %52
+
+52:                                               ; preds = %51, %22
   ret i32 0
 }
 
@@ -3898,7 +3918,7 @@ define internal void @result_request(ptr noundef %0) #0 {
   %25 = getelementptr inbounds %union.anon, ptr %24, i32 0, i32 0
   %26 = load i64, ptr %25, align 8
   call void @send_msg(ptr noundef null, i32 noundef %18, ptr noundef %20, i64 %26, i32 noundef 2, ptr noundef %23, i32 noundef 0, ptr noundef null)
-  br label %120
+  br label %123
 
 27:                                               ; preds = %1
   %28 = load ptr, ptr %2, align 8
@@ -3933,7 +3953,7 @@ define internal void @result_request(ptr noundef %0) #0 {
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %41
-  br label %120
+  br label %123
 
 52:                                               ; preds = %41
   %53 = load i32, ptr %6, align 4
@@ -3959,7 +3979,7 @@ define internal void @result_request(ptr noundef %0) #0 {
   %72 = getelementptr inbounds %union.anon, ptr %71, i32 0, i32 0
   %73 = load i64, ptr %72, align 8
   call void @send_msg(ptr noundef %58, i32 noundef %59, ptr noundef null, i64 %73, i32 noundef 1, ptr noundef %64, i32 noundef %67, ptr noundef %70)
-  br label %120
+  br label %123
 
 74:                                               ; preds = %36, %27
   br label %75
@@ -3969,82 +3989,85 @@ define internal void @result_request(ptr noundef %0) #0 {
 
 76:                                               ; preds = %75
   %77 = load i32, ptr @opal_class_init_epoch, align 4
-  %78 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_coll_ftagree_era_value_t_class, i32 0, i32 4), align 8
-  %79 = icmp ne i32 %77, %78
-  br i1 %79, label %80, label %81
+  %78 = getelementptr inbounds %struct.opal_class_t, ptr @ompi_coll_ftagree_era_value_t_class, i32 0, i32 4
+  %79 = load i32, ptr %78, align 8
+  %80 = icmp ne i32 %77, %79
+  br i1 %80, label %81, label %82
 
-80:                                               ; preds = %76
+81:                                               ; preds = %76
   call void @opal_class_initialize(ptr noundef @ompi_coll_ftagree_era_value_t_class)
-  br label %81
+  br label %82
 
-81:                                               ; preds = %80, %76
-  %82 = getelementptr inbounds %struct.opal_object_t, ptr %7, i32 0, i32 0
-  store ptr @ompi_coll_ftagree_era_value_t_class, ptr %82, align 8
-  %83 = getelementptr inbounds %struct.opal_object_t, ptr %7, i32 0, i32 1
-  store volatile i32 1, ptr %83, align 8
+82:                                               ; preds = %81, %76
+  %83 = getelementptr inbounds %struct.opal_object_t, ptr %7, i32 0, i32 0
+  store ptr @ompi_coll_ftagree_era_value_t_class, ptr %83, align 8
+  %84 = getelementptr inbounds %struct.opal_object_t, ptr %7, i32 0, i32 1
+  store volatile i32 1, ptr %84, align 8
   call void @opal_obj_run_constructors(ptr noundef %7)
-  br label %84
-
-84:                                               ; preds = %81
   br label %85
 
-85:                                               ; preds = %84
-  %86 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 1
-  %87 = getelementptr inbounds %struct.era_value_header_t, ptr %86, i32 0, i32 0
-  store i32 0, ptr %87, align 8
-  %88 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 1
-  %89 = getelementptr inbounds %struct.era_value_header_t, ptr %88, i32 0, i32 4
-  store i32 0, ptr %89, align 4
-  %90 = load i32, ptr getelementptr inbounds (%struct.ompi_op_t, ptr @ompi_mpi_op_band, i32 0, i32 4), align 8
-  %91 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 1
-  %92 = getelementptr inbounds %struct.era_value_header_t, ptr %91, i32 0, i32 3
-  store i32 %90, ptr %92, align 8
-  %93 = load i32, ptr getelementptr inbounds (%struct.ompi_datatype_t, ptr @ompi_mpi_int, i32 0, i32 2), align 4
-  %94 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 1
-  %95 = getelementptr inbounds %struct.era_value_header_t, ptr %94, i32 0, i32 5
-  store i32 %93, ptr %95, align 8
-  %96 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 1
-  %97 = getelementptr inbounds %struct.era_value_header_t, ptr %96, i32 0, i32 6
-  store i32 0, ptr %97, align 4
-  %98 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 2
-  store ptr null, ptr %98, align 8
-  %99 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 3
-  store ptr null, ptr %99, align 8
-  %100 = load ptr, ptr %2, align 8
-  %101 = getelementptr inbounds %struct.era_msg_header_t, ptr %100, i32 0, i32 4
-  %102 = getelementptr inbounds %struct.era_value_header_t, ptr %101, i32 0, i32 4
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %118
+85:                                               ; preds = %82
+  br label %86
 
-105:                                              ; preds = %85
-  %106 = load ptr, ptr %2, align 8
-  %107 = getelementptr inbounds %struct.era_msg_header_t, ptr %106, i32 0, i32 2
-  %108 = load i32, ptr %107, align 8
+86:                                               ; preds = %85
+  %87 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 1
+  %88 = getelementptr inbounds %struct.era_value_header_t, ptr %87, i32 0, i32 0
+  store i32 0, ptr %88, align 8
+  %89 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 1
+  %90 = getelementptr inbounds %struct.era_value_header_t, ptr %89, i32 0, i32 4
+  store i32 0, ptr %90, align 4
+  %91 = getelementptr inbounds %struct.ompi_op_t, ptr @ompi_mpi_op_band, i32 0, i32 4
+  %92 = load i32, ptr %91, align 8
+  %93 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 1
+  %94 = getelementptr inbounds %struct.era_value_header_t, ptr %93, i32 0, i32 3
+  store i32 %92, ptr %94, align 8
+  %95 = getelementptr inbounds %struct.ompi_datatype_t, ptr @ompi_mpi_int, i32 0, i32 2
+  %96 = load i32, ptr %95, align 4
+  %97 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 1
+  %98 = getelementptr inbounds %struct.era_value_header_t, ptr %97, i32 0, i32 5
+  store i32 %96, ptr %98, align 8
+  %99 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 1
+  %100 = getelementptr inbounds %struct.era_value_header_t, ptr %99, i32 0, i32 6
+  store i32 0, ptr %100, align 4
+  %101 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 2
+  store ptr null, ptr %101, align 8
+  %102 = getelementptr inbounds %struct.ompi_coll_ftagree_era_value_t, ptr %7, i32 0, i32 3
+  store ptr null, ptr %102, align 8
+  %103 = load ptr, ptr %2, align 8
+  %104 = getelementptr inbounds %struct.era_msg_header_t, ptr %103, i32 0, i32 4
+  %105 = getelementptr inbounds %struct.era_value_header_t, ptr %104, i32 0, i32 4
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %108, label %121
+
+108:                                              ; preds = %86
   %109 = load ptr, ptr %2, align 8
-  %110 = getelementptr inbounds %struct.era_msg_header_t, ptr %109, i32 0, i32 3
-  %111 = load ptr, ptr %2, align 8
-  %112 = getelementptr inbounds %struct.era_msg_header_t, ptr %111, i32 0, i32 1
-  %113 = getelementptr inbounds %struct.era_identifier_t, ptr %112, i32 0, i32 0
-  %114 = getelementptr inbounds %union.anon, ptr %113, i32 0, i32 0
-  %115 = load i64, ptr %114, align 8
-  call void @send_msg(ptr noundef null, i32 noundef %108, ptr noundef %110, i64 %115, i32 noundef 2, ptr noundef %7, i32 noundef 0, ptr noundef null)
-  br label %116
-
-116:                                              ; preds = %105
-  call void @opal_obj_run_destructors(ptr noundef %7)
-  br label %117
-
-117:                                              ; preds = %116
+  %110 = getelementptr inbounds %struct.era_msg_header_t, ptr %109, i32 0, i32 2
+  %111 = load i32, ptr %110, align 8
+  %112 = load ptr, ptr %2, align 8
+  %113 = getelementptr inbounds %struct.era_msg_header_t, ptr %112, i32 0, i32 3
+  %114 = load ptr, ptr %2, align 8
+  %115 = getelementptr inbounds %struct.era_msg_header_t, ptr %114, i32 0, i32 1
+  %116 = getelementptr inbounds %struct.era_identifier_t, ptr %115, i32 0, i32 0
+  %117 = getelementptr inbounds %union.anon, ptr %116, i32 0, i32 0
+  %118 = load i64, ptr %117, align 8
+  call void @send_msg(ptr noundef null, i32 noundef %111, ptr noundef %113, i64 %118, i32 noundef 2, ptr noundef %7, i32 noundef 0, ptr noundef null)
   br label %119
 
-118:                                              ; preds = %85
+119:                                              ; preds = %108
+  call void @opal_obj_run_destructors(ptr noundef %7)
   br label %120
 
-119:                                              ; preds = %117
-  br label %120
+120:                                              ; preds = %119
+  br label %122
 
-120:                                              ; preds = %119, %118, %52, %51, %14
+121:                                              ; preds = %86
+  br label %123
+
+122:                                              ; preds = %120
+  br label %123
+
+123:                                              ; preds = %122, %121, %52, %51, %14
   ret void
 }
 
@@ -5146,7 +5169,7 @@ define internal ptr @mca_bml_base_get_endpoint(ptr noundef %0) #0 {
   %10 = zext i1 %9 to i32
   %11 = sext i32 %10 to i64
   %12 = icmp ne i64 %11, 0
-  br i1 %12, label %13, label %46
+  br i1 %12, label %13, label %47
 
 13:                                               ; preds = %1
   br label %14
@@ -5174,43 +5197,44 @@ define internal ptr @mca_bml_base_get_endpoint(ptr noundef %0) #0 {
   %27 = getelementptr inbounds [1 x ptr], ptr %26, i64 0, i64 0
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr null, %28
-  br i1 %29, label %30, label %34
+  br i1 %29, label %30, label %35
 
 30:                                               ; preds = %24
-  %31 = load ptr, ptr getelementptr inbounds (%struct.mca_bml_base_module_t, ptr @mca_bml, i32 0, i32 1), align 8
-  %32 = load ptr, ptr %2, align 8
-  %33 = call i32 %31(ptr noundef %32)
-  br label %34
-
-34:                                               ; preds = %30, %24
+  %31 = getelementptr inbounds %struct.mca_bml_base_module_t, ptr @mca_bml, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %2, align 8
+  %34 = call i32 %32(ptr noundef %33)
   br label %35
 
-35:                                               ; preds = %34
-  %36 = load i8, ptr @opal_uses_threads, align 1
-  %37 = trunc i8 %36 to i1
-  %38 = xor i1 %37, true
+35:                                               ; preds = %30, %24
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load i8, ptr @opal_uses_threads, align 1
+  %38 = trunc i8 %37 to i1
   %39 = xor i1 %38, true
-  %40 = zext i1 %39 to i32
-  %41 = sext i32 %40 to i64
-  %42 = icmp ne i64 %41, 0
-  br i1 %42, label %43, label %44
+  %40 = xor i1 %39, true
+  %41 = zext i1 %40 to i32
+  %42 = sext i32 %41 to i64
+  %43 = icmp ne i64 %42, 0
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %35
+44:                                               ; preds = %36
   call void @opal_mutex_unlock(ptr noundef @mca_bml_lock)
-  br label %44
-
-44:                                               ; preds = %43, %35
   br label %45
 
-45:                                               ; preds = %44
+45:                                               ; preds = %44, %36
   br label %46
 
-46:                                               ; preds = %45, %1
-  %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds %struct.ompi_proc_t, ptr %47, i32 0, i32 2
-  %49 = getelementptr inbounds [1 x ptr], ptr %48, i64 0, i64 0
-  %50 = load ptr, ptr %49, align 8
-  ret ptr %50
+46:                                               ; preds = %45
+  br label %47
+
+47:                                               ; preds = %46, %1
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds %struct.ompi_proc_t, ptr %48, i32 0, i32 2
+  %50 = getelementptr inbounds [1 x ptr], ptr %49, i64 0, i64 0
+  %51 = load ptr, ptr %50, align 8
+  ret ptr %51
 }
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) #2

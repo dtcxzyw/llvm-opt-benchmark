@@ -2580,50 +2580,52 @@ define internal void @set_authn_id(ptr noundef %0, ptr noundef %1) #0 {
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds %struct.HbaLine, ptr %26, i32 0, i32 12
   %28 = load i32, ptr %27, align 8
-  store i32 %28, ptr getelementptr inbounds (%struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i32 0, i32 1), align 8
-  %29 = load i8, ptr @Log_connections, align 1
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %54
+  %29 = getelementptr inbounds %struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i32 0, i32 1
+  store i32 %28, ptr %29, align 8
+  %30 = load i8, ptr @Log_connections, align 1
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %56
 
-31:                                               ; preds = %20
-  br label %32
-
-32:                                               ; preds = %31
-  br i1 false, label %33, label %35
+32:                                               ; preds = %20
+  br label %33
 
 33:                                               ; preds = %32
-  %34 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #10
-  br i1 %34, label %37, label %52
+  br i1 false, label %34, label %36
 
-35:                                               ; preds = %32
-  %36 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %36, label %37, label %52
+34:                                               ; preds = %33
+  %35 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #10
+  br i1 %35, label %38, label %54
 
-37:                                               ; preds = %35, %33
-  %38 = load ptr, ptr @MyClientConnectionInfo, align 8
-  %39 = load i32, ptr getelementptr inbounds (%struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i32 0, i32 1), align 8
-  %40 = call ptr @hba_authname(i32 noundef %39)
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.Port, ptr %41, i32 0, i32 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct.HbaLine, ptr %43, i32 0, i32 0
+36:                                               ; preds = %33
+  %37 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %37, label %38, label %54
+
+38:                                               ; preds = %36, %34
+  %39 = load ptr, ptr @MyClientConnectionInfo, align 8
+  %40 = getelementptr inbounds %struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i32 0, i32 1
+  %41 = load i32, ptr %40, align 8
+  %42 = call ptr @hba_authname(i32 noundef %41)
+  %43 = load ptr, ptr %3, align 8
+  %44 = getelementptr inbounds %struct.Port, ptr %43, i32 0, i32 16
   %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.Port, ptr %46, i32 0, i32 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct.HbaLine, ptr %48, i32 0, i32 1
-  %50 = load i32, ptr %49, align 8
-  %51 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.36, ptr noundef %38, ptr noundef %40, ptr noundef %45, i32 noundef %50)
+  %46 = getelementptr inbounds %struct.HbaLine, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds %struct.Port, ptr %48, i32 0, i32 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds %struct.HbaLine, ptr %50, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8
+  %53 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.36, ptr noundef %39, ptr noundef %42, ptr noundef %47, i32 noundef %52)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 374, ptr noundef @__func__.set_authn_id)
-  br label %52
-
-52:                                               ; preds = %37, %35, %33
-  br label %53
-
-53:                                               ; preds = %52
   br label %54
 
-54:                                               ; preds = %53, %20
+54:                                               ; preds = %38, %36, %34
+  br label %55
+
+55:                                               ; preds = %54
+  br label %56
+
+56:                                               ; preds = %55, %20
   ret void
 }
 

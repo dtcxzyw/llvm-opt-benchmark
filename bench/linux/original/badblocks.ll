@@ -1748,34 +1748,35 @@ define dso_local noundef i32 @badblocks_init(ptr nocapture noundef writeonly %0,
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = sext i1 %4 to i32
   store i32 %6, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
-  %8 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 4096) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %8, ptr %9, align 8
-  %10 = icmp eq ptr %8, null
-  br i1 %10, label %11, label %13
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12
+  %8 = load ptr, ptr %7, align 16
+  %9 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 4096) #11
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %9, ptr %10, align 8
+  %11 = icmp eq ptr %9, null
+  br i1 %11, label %12, label %14
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 -1, ptr %12, align 8
-  br label %16
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1, ptr %13, align 8
+  br label %17
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 36
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds i8, ptr %0, i64 36
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 0, ptr %16, align 4
   store i32 0, ptr %15, align 4
-  store i32 0, ptr %14, align 4
-  br label %16
+  br label %17
 
-16:                                               ; preds = %13, %11
-  %17 = phi i32 [ 0, %13 ], [ -12, %11 ]
-  ret i32 %17
+17:                                               ; preds = %14, %12
+  %18 = phi i32 [ 0, %14 ], [ -12, %12 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @devm_init_badblocks(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %21, label %4
+  br i1 %3, label %22, label %4
 
 4:                                                ; preds = %2
   store ptr %0, ptr %1, align 8
@@ -1788,34 +1789,35 @@ define dso_local noundef i32 @devm_init_badblocks(ptr noundef %0, ptr noundef %1
 
 8:                                                ; preds = %4
   %9 = tail call noalias noundef dereferenceable_or_null(4096) ptr @devm_kmalloc(ptr noundef nonnull %0, i64 noundef 4096, i32 noundef 3520) #12
-  br label %13
+  br label %14
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
-  %12 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 4096) #11
-  br label %13
+  %11 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12
+  %12 = load ptr, ptr %11, align 16
+  %13 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 4096) #11
+  br label %14
 
-13:                                               ; preds = %10, %8
-  %14 = phi ptr [ %12, %10 ], [ %9, %8 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
-  store ptr %14, ptr %15, align 8
-  %16 = icmp eq ptr %14, null
-  br i1 %16, label %17, label %18
+14:                                               ; preds = %10, %8
+  %15 = phi ptr [ %13, %10 ], [ %9, %8 ]
+  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  store ptr %15, ptr %16, align 8
+  %17 = icmp eq ptr %15, null
+  br i1 %17, label %18, label %19
 
-17:                                               ; preds = %13
+18:                                               ; preds = %14
   store i32 -1, ptr %6, align 8
-  br label %21
+  br label %22
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %1, i64 36
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %1, i64 36
+  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  store i32 0, ptr %21, align 4
   store i32 0, ptr %20, align 4
-  store i32 0, ptr %19, align 4
-  br label %21
+  br label %22
 
-21:                                               ; preds = %18, %17, %2
-  %22 = phi i32 [ -22, %2 ], [ 0, %18 ], [ -12, %17 ]
-  ret i32 %22
+22:                                               ; preds = %19, %18, %2
+  %23 = phi i32 [ -22, %2 ], [ 0, %19 ], [ -12, %18 ]
+  ret i32 %23
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

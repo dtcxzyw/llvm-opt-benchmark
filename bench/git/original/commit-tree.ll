@@ -147,7 +147,8 @@ entry:
   %callback34 = getelementptr inbounds %struct.option, ptr %arrayinit.element26, i32 0, i32 7
   store ptr null, ptr %callback34, align 8
   %defval35 = getelementptr inbounds %struct.option, ptr %arrayinit.element26, i32 0, i32 8
-  store i64 ptrtoint (ptr @.str.9 to i64), ptr %defval35, align 8
+  %0 = ptrtoint ptr @.str.9 to i64
+  store i64 %0, ptr %defval35, align 8
   %ll_callback36 = getelementptr inbounds %struct.option, ptr %arrayinit.element26, i32 0, i32 9
   store ptr null, ptr %ll_callback36, align 8
   %extra37 = getelementptr inbounds %struct.option, ptr %arrayinit.element26, i32 0, i32 10
@@ -159,15 +160,15 @@ entry:
   %type40 = getelementptr inbounds %struct.option, ptr %arrayinit.element39, i32 0, i32 0
   store i32 0, ptr %type40, align 8
   call void @git_config(ptr noundef @git_default_config, ptr noundef null)
-  %0 = load i32, ptr %argc.addr, align 4
-  %cmp = icmp slt i32 %0, 2
+  %1 = load i32, ptr %argc.addr, align 4
+  %cmp = icmp slt i32 %1, 2
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %argv.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 1
-  %2 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 @strcmp(ptr noundef %2, ptr noundef @.str.10) #6
+  %2 = load ptr, ptr %argv.addr, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 1
+  %3 = load ptr, ptr %arrayidx, align 8
+  %call = call i32 @strcmp(ptr noundef %3, ptr noundef @.str.10) #6
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.end, label %if.then
 
@@ -177,14 +178,14 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false
-  %3 = load i32, ptr %argc.addr, align 4
-  %4 = load ptr, ptr %argv.addr, align 8
-  %5 = load ptr, ptr %prefix.addr, align 8
+  %4 = load i32, ptr %argc.addr, align 4
+  %5 = load ptr, ptr %argv.addr, align 8
+  %6 = load ptr, ptr %prefix.addr, align 8
   %arraydecay52 = getelementptr inbounds [5 x %struct.option], ptr %options, i64 0, i64 0
-  %call53 = call i32 @parse_options(i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %arraydecay52, ptr noundef @commit_tree_usage, i32 noundef 0)
+  %call53 = call i32 @parse_options(i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %arraydecay52, ptr noundef @commit_tree_usage, i32 noundef 0)
   store i32 %call53, ptr %argc.addr, align 4
-  %6 = load i32, ptr %argc.addr, align 4
-  %cmp54 = icmp ne i32 %6, 1
+  %7 = load i32, ptr %argc.addr, align 4
+  %cmp54 = icmp ne i32 %7, 1
   br i1 %cmp54, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.end
@@ -193,25 +194,26 @@ if.then55:                                        ; preds = %if.end
   unreachable
 
 if.end57:                                         ; preds = %if.end
-  %7 = load ptr, ptr @the_repository, align 8
-  %8 = load ptr, ptr %argv.addr, align 8
-  %arrayidx58 = getelementptr inbounds ptr, ptr %8, i64 0
-  %9 = load ptr, ptr %arrayidx58, align 8
-  %call59 = call i32 @repo_get_oid_tree(ptr noundef %7, ptr noundef %9, ptr noundef %tree_oid)
+  %8 = load ptr, ptr @the_repository, align 8
+  %9 = load ptr, ptr %argv.addr, align 8
+  %arrayidx58 = getelementptr inbounds ptr, ptr %9, i64 0
+  %10 = load ptr, ptr %arrayidx58, align 8
+  %call59 = call i32 @repo_get_oid_tree(ptr noundef %8, ptr noundef %10, ptr noundef %tree_oid)
   %tobool60 = icmp ne i32 %call59, 0
   br i1 %tobool60, label %if.then61, label %if.end64
 
 if.then61:                                        ; preds = %if.end57
   %call62 = call ptr @_(ptr noundef @.str.12)
-  %10 = load ptr, ptr %argv.addr, align 8
-  %arrayidx63 = getelementptr inbounds ptr, ptr %10, i64 0
-  %11 = load ptr, ptr %arrayidx63, align 8
-  call void (ptr, ...) @die(ptr noundef %call62, ptr noundef %11) #7
+  %11 = load ptr, ptr %argv.addr, align 8
+  %arrayidx63 = getelementptr inbounds ptr, ptr %11, i64 0
+  %12 = load ptr, ptr %arrayidx63, align 8
+  call void (ptr, ...) @die(ptr noundef %call62, ptr noundef %12) #7
   unreachable
 
 if.end64:                                         ; preds = %if.end57
-  %12 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @cmd_commit_tree.buffer, i32 0, i32 1), align 8
-  %tobool65 = icmp ne i64 %12, 0
+  %13 = getelementptr inbounds %struct.strbuf, ptr @cmd_commit_tree.buffer, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8
+  %tobool65 = icmp ne i64 %14, 0
   br i1 %tobool65, label %if.end72, label %if.then66
 
 if.then66:                                        ; preds = %if.end64
@@ -228,11 +230,13 @@ if.end71:                                         ; preds = %if.then66
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end71, %if.end64
-  %13 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @cmd_commit_tree.buffer, i32 0, i32 2), align 8
-  %14 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @cmd_commit_tree.buffer, i32 0, i32 1), align 8
-  %15 = load ptr, ptr %parents, align 8
-  %16 = load ptr, ptr @sign_commit, align 8
-  %call73 = call i32 @commit_tree(ptr noundef %13, i64 noundef %14, ptr noundef %tree_oid, ptr noundef %15, ptr noundef %commit_oid, ptr noundef null, ptr noundef %16)
+  %15 = getelementptr inbounds %struct.strbuf, ptr @cmd_commit_tree.buffer, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds %struct.strbuf, ptr @cmd_commit_tree.buffer, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  %19 = load ptr, ptr %parents, align 8
+  %20 = load ptr, ptr @sign_commit, align 8
+  %call73 = call i32 @commit_tree(ptr noundef %16, i64 noundef %18, ptr noundef %tree_oid, ptr noundef %19, ptr noundef %commit_oid, ptr noundef null, ptr noundef %20)
   %tobool74 = icmp ne i32 %call73, 0
   br i1 %tobool74, label %if.then75, label %if.end76
 
@@ -249,8 +253,8 @@ if.end76:                                         ; preds = %if.end72
   br label %return
 
 return:                                           ; preds = %if.end76, %if.then75
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+  %21 = load i32, ptr %retval, align 4
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable

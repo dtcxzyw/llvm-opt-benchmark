@@ -148,109 +148,110 @@ define hidden void @_ZN7nanogui5GraphC2EPNS_6WidgetERKNSt7__cxx1112basic_stringI
   %13 = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %5, align 8
   call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui5GraphE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 1
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %37
+  %15 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui5GraphE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 1
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %38
 
-17:                                               ; preds = %3
-  %18 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #9
-  %19 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 3
+18:                                               ; preds = %3
+  %19 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #9
-  %20 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 4
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %20)
-          to label %21 unwind label %41
+  %20 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #9
+  %21 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 4
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %21)
+          to label %22 unwind label %42
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 5
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22)
-          to label %23 unwind label %41
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 5
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23)
+          to label %24 unwind label %42
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 6
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %24)
-          to label %25 unwind label %41
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 6
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %25)
+          to label %26 unwind label %42
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 7
-  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %26)
-          to label %27 unwind label %41
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 7
+  invoke void @_ZN7nanogui5ColorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %27)
+          to label %28 unwind label %42
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 8
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #9
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 8
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #9
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %9, i32 noundef 20, i32 noundef 128)
-          to label %29 unwind label %45
+          to label %30 unwind label %46
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 4 %9, i64 16, i1 false)
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 4 %9, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %10, i32 noundef 255, i32 noundef 192, i32 noundef 0, i32 noundef 128)
-          to label %31 unwind label %45
+          to label %32 unwind label %46
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 4 %10, i64 16, i1 false)
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 4 %10, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 100, i32 noundef 255)
-          to label %33 unwind label %45
+          to label %34 unwind label %46
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 4 %11, i64 16, i1 false)
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 4 %11, i64 16, i1 false)
   invoke void @_ZN7nanogui5ColorC2Eii(ptr noundef nonnull align 4 dereferenceable(16) %12, i32 noundef 240, i32 noundef 192)
-          to label %35 unwind label %45
+          to label %36 unwind label %46
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 4 %12, i64 16, i1 false)
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds %"class.nanogui::Graph", ptr %13, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 4 %12, i64 16, i1 false)
   ret void
 
-37:                                               ; preds = %3
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %3
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %7, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %8, align 4
-  br label %50
-
-41:                                               ; preds = %25, %23, %21, %17
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %7, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %8, align 4
-  br label %49
-
-45:                                               ; preds = %33, %31, %29, %27
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %7, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %8, align 4
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #9
-  br label %49
-
-49:                                               ; preds = %45, %41
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #9
-  br label %50
-
-50:                                               ; preds = %49, %37
-  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %13) #9
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %7, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %8, align 4
   br label %51
 
-51:                                               ; preds = %50
-  %52 = load ptr, ptr %7, align 8
-  %53 = load i32, ptr %8, align 4
-  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
-  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
-  resume { ptr, i32 } %55
+42:                                               ; preds = %26, %24, %22, %18
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %7, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %8, align 4
+  br label %50
+
+46:                                               ; preds = %34, %32, %30, %28
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %7, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %8, align 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #9
+  br label %50
+
+50:                                               ; preds = %46, %42
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
+  br label %51
+
+51:                                               ; preds = %50, %38
+  call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %13) #9
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %7, align 8
+  %54 = load i32, ptr %8, align 4
+  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
+  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
+  resume { ptr, i32 } %56
 }
 
 declare void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) unnamed_addr #1
@@ -859,15 +860,16 @@ define linkonce_odr hidden void @_ZN7nanogui5GraphD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui5GraphE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::Graph", ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
-  %5 = getelementptr inbounds %"class.nanogui::Graph", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
-  %6 = getelementptr inbounds %"class.nanogui::Graph", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN7nanogui5GraphE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::Graph", ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
+  %6 = getelementptr inbounds %"class.nanogui::Graph", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #9
-  %7 = getelementptr inbounds %"class.nanogui::Graph", ptr %3, i32 0, i32 1
+  %7 = getelementptr inbounds %"class.nanogui::Graph", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #9
+  %8 = getelementptr inbounds %"class.nanogui::Graph", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #9
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #9
   ret void
 }

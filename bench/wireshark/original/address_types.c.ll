@@ -1995,14 +1995,14 @@ define ptr @address_with_resolution_to_str(ptr noundef %0, ptr noundef %1) #0 {
   %20 = load ptr, ptr %4, align 8
   %21 = call noalias ptr @wmem_strdup(ptr noundef %20, ptr noundef @.str.30)
   store ptr %21, ptr %3, align 8
-  br label %77
+  br label %78
 
 22:                                               ; preds = %10
   %23 = load ptr, ptr %6, align 8
   %24 = getelementptr inbounds %struct._address_type_t, ptr %23, i32 0, i32 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %53, label %27
+  br i1 %26, label %54, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %5, align 8
@@ -2014,7 +2014,7 @@ define ptr @address_with_resolution_to_str(ptr noundef %0, ptr noundef %1) #0 {
 32:                                               ; preds = %27
   %33 = load i32, ptr @gbl_resolv_flags, align 4
   %34 = icmp ne i32 %33, 0
-  br i1 %34, label %35, label %53
+  br i1 %34, label %35, label %54
 
 35:                                               ; preds = %32, %27
   %36 = load ptr, ptr %5, align 8
@@ -2035,49 +2035,50 @@ define ptr @address_with_resolution_to_str(ptr noundef %0, ptr noundef %1) #0 {
   %47 = getelementptr inbounds %struct._address, ptr %46, i32 0, i32 0
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %50, label %57
+  br i1 %49, label %50, label %58
 
 50:                                               ; preds = %45, %40, %35
-  %51 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %57, label %53
+  %51 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %58, label %54
 
-53:                                               ; preds = %50, %32, %22
-  %54 = load ptr, ptr %4, align 8
-  %55 = load ptr, ptr %5, align 8
-  %56 = call ptr @address_to_str(ptr noundef %54, ptr noundef %55)
-  store ptr %56, ptr %3, align 8
-  br label %77
+54:                                               ; preds = %50, %32, %22
+  %55 = load ptr, ptr %4, align 8
+  %56 = load ptr, ptr %5, align 8
+  %57 = call ptr @address_to_str(ptr noundef %55, ptr noundef %56)
+  store ptr %57, ptr %3, align 8
+  br label %78
 
-57:                                               ; preds = %50, %45
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %struct._address_type_t, ptr %58, i32 0, i32 9
-  %60 = load ptr, ptr %59, align 8
-  %61 = call i32 %60()
-  %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds %struct._address_type_t, ptr %62, i32 0, i32 4
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = call i32 %64(ptr noundef %65)
-  %67 = add i32 %61, %66
-  %68 = add i32 %67, 4
-  store i32 %68, ptr %7, align 4
-  %69 = load ptr, ptr %4, align 8
-  %70 = load i32, ptr %7, align 4
-  %71 = sext i32 %70 to i64
-  %72 = call noalias ptr @wmem_alloc(ptr noundef %69, i64 noundef %71)
-  store ptr %72, ptr %8, align 8
-  %73 = load ptr, ptr %5, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = load i32, ptr %7, align 4
-  call void @address_with_resolution_to_str_buf(ptr noundef %73, ptr noundef %74, i32 noundef %75)
-  %76 = load ptr, ptr %8, align 8
-  store ptr %76, ptr %3, align 8
-  br label %77
+58:                                               ; preds = %50, %45
+  %59 = load ptr, ptr %6, align 8
+  %60 = getelementptr inbounds %struct._address_type_t, ptr %59, i32 0, i32 9
+  %61 = load ptr, ptr %60, align 8
+  %62 = call i32 %61()
+  %63 = load ptr, ptr %6, align 8
+  %64 = getelementptr inbounds %struct._address_type_t, ptr %63, i32 0, i32 4
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %5, align 8
+  %67 = call i32 %65(ptr noundef %66)
+  %68 = add i32 %62, %67
+  %69 = add i32 %68, 4
+  store i32 %69, ptr %7, align 4
+  %70 = load ptr, ptr %4, align 8
+  %71 = load i32, ptr %7, align 4
+  %72 = sext i32 %71 to i64
+  %73 = call noalias ptr @wmem_alloc(ptr noundef %70, i64 noundef %72)
+  store ptr %73, ptr %8, align 8
+  %74 = load ptr, ptr %5, align 8
+  %75 = load ptr, ptr %8, align 8
+  %76 = load i32, ptr %7, align 4
+  call void @address_with_resolution_to_str_buf(ptr noundef %74, ptr noundef %75, i32 noundef %76)
+  %77 = load ptr, ptr %8, align 8
+  store ptr %77, ptr %3, align 8
+  br label %78
 
-77:                                               ; preds = %57, %53, %19
-  %78 = load ptr, ptr %3, align 8
-  ret ptr %78
+78:                                               ; preds = %58, %54, %19
+  %79 = load ptr, ptr %3, align 8
+  ret ptr %79
 }
 
 ; Function Attrs: nounwind uwtable

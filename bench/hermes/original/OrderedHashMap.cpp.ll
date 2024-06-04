@@ -1074,7 +1074,8 @@ entry:
   store i32 %status, ptr %status.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   %valueOrStatus_ = getelementptr inbounds %"class.hermes::vm::CallResult.160", ptr %this1, i32 0, i32 0
-  %call = call ptr @_ZN6hermes2vm12PseudoHandleINS0_14OrderedHashMapEE6createEPS2_(ptr noundef inttoptr (i64 -1 to ptr))
+  %0 = inttoptr i64 -1 to ptr
+  %call = call ptr @_ZN6hermes2vm12PseudoHandleINS0_14OrderedHashMapEE6createEPS2_(ptr noundef %0)
   %coerce.dive = getelementptr inbounds %"class.hermes::vm::PseudoHandle.161", ptr %valueOrStatus_, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
   ret void

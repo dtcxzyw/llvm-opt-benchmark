@@ -14870,7 +14870,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem14find_from_PATHEN
   store i1 false, ptr %8, align 1
   call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   %32 = call noundef zeroext i1 @_ZNK5vcpkg4SpanIKNS_10StringViewEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
-  br i1 %32, label %120, label %33
+  br i1 %32, label %121, label %33
 
 33:                                               ; preds = %4
   %34 = load atomic i8, ptr @_ZGVZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases acquire, align 8
@@ -14884,7 +14884,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem14find_from_PATHEN
 
 39:                                               ; preds = %36
   invoke void @_ZN12_GLOBAL__N_120calculate_path_basesEv(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases)
-          to label %40 unwind label %91
+          to label %40 unwind label %92
 
 40:                                               ; preds = %39
   %41 = call i32 @__cxa_atexit(ptr @_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev, ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases, ptr @__dso_handle) #13
@@ -14901,9 +14901,9 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem14find_from_PATHEN
   store ptr %45, ptr %46, align 8
   br label %47
 
-47:                                               ; preds = %117, %42
+47:                                               ; preds = %118, %42
   %48 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKN5vcpkg4PathESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13) #13
-  br i1 %48, label %49, label %119
+  br i1 %48, label %49, label %120
 
 49:                                               ; preds = %47
   %50 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN5vcpkg4PathESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #13
@@ -14917,11 +14917,11 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem14find_from_PATHEN
   store ptr %54, ptr %17, align 8
   br label %55
 
-55:                                               ; preds = %112, %49
+55:                                               ; preds = %113, %49
   %56 = load ptr, ptr %16, align 8
   %57 = load ptr, ptr %17, align 8
   %58 = icmp ne ptr %56, %57
-  br i1 %58, label %59, label %116
+  br i1 %58, label %59, label %117
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %16, align 8
@@ -14934,159 +14934,160 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem14find_from_PATHEN
   %65 = getelementptr inbounds { ptr, i64 }, ptr %20, i32 0, i32 1
   %66 = load i64, ptr %65, align 8
   invoke void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Path") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %61, ptr %64, i64 %66)
-          to label %67 unwind label %95
+          to label %67 unwind label %96
 
 67:                                               ; preds = %59
   store ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10extensions, ptr %21, align 8
   store ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10extensions, ptr %22, align 8
-  store ptr getelementptr inbounds (%"struct.vcpkg::StringLiteral", ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10extensions, i64 1), ptr %23, align 8
-  br label %68
+  %68 = getelementptr inbounds %"struct.vcpkg::StringLiteral", ptr @_ZZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10extensions, i64 1
+  store ptr %68, ptr %23, align 8
+  br label %69
 
-68:                                               ; preds = %108, %67
-  %69 = load ptr, ptr %22, align 8
-  %70 = load ptr, ptr %23, align 8
-  %71 = icmp ne ptr %69, %70
-  br i1 %71, label %72, label %111
+69:                                               ; preds = %109, %67
+  %70 = load ptr, ptr %22, align 8
+  %71 = load ptr, ptr %23, align 8
+  %72 = icmp ne ptr %70, %71
+  br i1 %72, label %73, label %112
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %22, align 8
-  store ptr %73, ptr %24, align 8
-  %74 = load ptr, ptr %24, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %74, i64 16, i1 false)
-  %75 = getelementptr inbounds { ptr, i64 }, ptr %26, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds { ptr, i64 }, ptr %26, i32 0, i32 1
-  %78 = load i64, ptr %77, align 8
-  invoke void @_ZNKR5vcpkg4PathplENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Path") align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr %76, i64 %78)
-          to label %79 unwind label %99
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %22, align 8
+  store ptr %74, ptr %24, align 8
+  %75 = load ptr, ptr %24, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %75, i64 16, i1 false)
+  %76 = getelementptr inbounds { ptr, i64 }, ptr %26, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds { ptr, i64 }, ptr %26, i32 0, i32 1
+  %79 = load i64, ptr %78, align 8
+  invoke void @_ZNKR5vcpkg4PathplENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Path") align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr %77, i64 %79)
+          to label %80 unwind label %100
 
-79:                                               ; preds = %72
-  %80 = invoke noundef zeroext i1 @_ZN5vcpkg4Util7Vectors8containsISt6vectorINS_4PathESaIS4_EES4_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %25)
-          to label %81 unwind label %103
+80:                                               ; preds = %73
+  %81 = invoke noundef zeroext i1 @_ZN5vcpkg4Util7Vectors8containsISt6vectorINS_4PathESaIS4_EES4_EEbRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %25)
+          to label %82 unwind label %104
 
-81:                                               ; preds = %79
-  br i1 %80, label %86, label %82
+82:                                               ; preds = %80
+  br i1 %81, label %87, label %83
 
-82:                                               ; preds = %81
+83:                                               ; preds = %82
   call void @llvm.memset.p0.i64(ptr align 8 %27, i8 0, i64 16, i1 false)
   call void @_ZN5vcpkg12IgnoreErrorsC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #13
-  %83 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5vcpkg12IgnoreErrorscvRSt10error_codeEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
-  %84 = invoke noundef zeroext i1 @_ZNK5vcpkg18ReadOnlyFilesystem6existsERKNS_4PathERSt10error_code(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(16) %83)
-          to label %85 unwind label %103
+  %84 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5vcpkg12IgnoreErrorscvRSt10error_codeEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
+  %85 = invoke noundef zeroext i1 @_ZNK5vcpkg18ReadOnlyFilesystem6existsERKNS_4PathERSt10error_code(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(16) %84)
+          to label %86 unwind label %104
 
-85:                                               ; preds = %82
-  br label %86
+86:                                               ; preds = %83
+  br label %87
 
-86:                                               ; preds = %85, %81
-  %87 = phi i1 [ false, %81 ], [ %84, %85 ]
-  br i1 %87, label %88, label %107
+87:                                               ; preds = %86, %82
+  %88 = phi i1 [ false, %82 ], [ %85, %86 ]
+  br i1 %88, label %89, label %108
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   store i8 10, ptr %28, align 1
   invoke void @_ZN5vcpkg5Debug5printIJA13_cNS_4PathEcEEEvDpRKT_(ptr noundef nonnull align 1 dereferenceable(13) @.str.21, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 1 dereferenceable(1) %28)
-          to label %89 unwind label %103
-
-89:                                               ; preds = %88
-  invoke void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %25)
-          to label %90 unwind label %103
+          to label %90 unwind label %104
 
 90:                                               ; preds = %89
-  br label %107
+  invoke void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %25)
+          to label %91 unwind label %104
 
-91:                                               ; preds = %39
-  %92 = landingpad { ptr, i32 }
-          cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %9, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %10, align 4
-  call void @__cxa_guard_abort(ptr @_ZGVZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases) #13
-  br label %124
-
-95:                                               ; preds = %59
-  %96 = landingpad { ptr, i32 }
-          cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %9, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %10, align 4
-  br label %124
-
-99:                                               ; preds = %72
-  %100 = landingpad { ptr, i32 }
-          cleanup
-  %101 = extractvalue { ptr, i32 } %100, 0
-  store ptr %101, ptr %9, align 8
-  %102 = extractvalue { ptr, i32 } %100, 1
-  store i32 %102, ptr %10, align 4
-  br label %115
-
-103:                                              ; preds = %89, %88, %82, %79
-  %104 = landingpad { ptr, i32 }
-          cleanup
-  %105 = extractvalue { ptr, i32 } %104, 0
-  store ptr %105, ptr %9, align 8
-  %106 = extractvalue { ptr, i32 } %104, 1
-  store i32 %106, ptr %10, align 4
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #13
-  br label %115
-
-107:                                              ; preds = %90, %86
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #13
+91:                                               ; preds = %90
   br label %108
 
-108:                                              ; preds = %107
-  %109 = load ptr, ptr %22, align 8
-  %110 = getelementptr inbounds %"struct.vcpkg::StringLiteral", ptr %109, i32 1
-  store ptr %110, ptr %22, align 8
-  br label %68
-
-111:                                              ; preds = %68
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
-  br label %112
-
-112:                                              ; preds = %111
-  %113 = load ptr, ptr %16, align 8
-  %114 = getelementptr inbounds %"struct.vcpkg::StringView", ptr %113, i32 1
-  store ptr %114, ptr %16, align 8
-  br label %55
-
-115:                                              ; preds = %103, %99
-  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
-  br label %124
-
-116:                                              ; preds = %55
-  br label %117
-
-117:                                              ; preds = %116
-  %118 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN5vcpkg4PathESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #13
-  br label %47
-
-119:                                              ; preds = %47
-  br label %120
-
-120:                                              ; preds = %119, %4
-  store i1 true, ptr %8, align 1
-  %121 = load i1, ptr %8, align 1
-  br i1 %121, label %123, label %122
-
-122:                                              ; preds = %120
-  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
-  br label %123
-
-123:                                              ; preds = %122, %120
-  ret void
-
-124:                                              ; preds = %115, %95, %91
-  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
+92:                                               ; preds = %39
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %9, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %10, align 4
+  call void @__cxa_guard_abort(ptr @_ZGVZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEEE10path_bases) #13
   br label %125
 
-125:                                              ; preds = %124
-  %126 = load ptr, ptr %9, align 8
-  %127 = load i32, ptr %10, align 4
-  %128 = insertvalue { ptr, i32 } poison, ptr %126, 0
-  %129 = insertvalue { ptr, i32 } %128, i32 %127, 1
-  resume { ptr, i32 } %129
+96:                                               ; preds = %59
+  %97 = landingpad { ptr, i32 }
+          cleanup
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %9, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %10, align 4
+  br label %125
+
+100:                                              ; preds = %73
+  %101 = landingpad { ptr, i32 }
+          cleanup
+  %102 = extractvalue { ptr, i32 } %101, 0
+  store ptr %102, ptr %9, align 8
+  %103 = extractvalue { ptr, i32 } %101, 1
+  store i32 %103, ptr %10, align 4
+  br label %116
+
+104:                                              ; preds = %90, %89, %83, %80
+  %105 = landingpad { ptr, i32 }
+          cleanup
+  %106 = extractvalue { ptr, i32 } %105, 0
+  store ptr %106, ptr %9, align 8
+  %107 = extractvalue { ptr, i32 } %105, 1
+  store i32 %107, ptr %10, align 4
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #13
+  br label %116
+
+108:                                              ; preds = %91, %87
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #13
+  br label %109
+
+109:                                              ; preds = %108
+  %110 = load ptr, ptr %22, align 8
+  %111 = getelementptr inbounds %"struct.vcpkg::StringLiteral", ptr %110, i32 1
+  store ptr %111, ptr %22, align 8
+  br label %69
+
+112:                                              ; preds = %69
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
+  br label %113
+
+113:                                              ; preds = %112
+  %114 = load ptr, ptr %16, align 8
+  %115 = getelementptr inbounds %"struct.vcpkg::StringView", ptr %114, i32 1
+  store ptr %115, ptr %16, align 8
+  br label %55
+
+116:                                              ; preds = %104, %100
+  call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
+  br label %125
+
+117:                                              ; preds = %55
+  br label %118
+
+118:                                              ; preds = %117
+  %119 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN5vcpkg4PathESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #13
+  br label %47
+
+120:                                              ; preds = %47
+  br label %121
+
+121:                                              ; preds = %120, %4
+  store i1 true, ptr %8, align 1
+  %122 = load i1, ptr %8, align 1
+  br i1 %122, label %124, label %123
+
+123:                                              ; preds = %121
+  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
+  br label %124
+
+124:                                              ; preds = %123, %121
+  ret void
+
+125:                                              ; preds = %116, %96, %92
+  call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
+  br label %126
+
+126:                                              ; preds = %125
+  %127 = load ptr, ptr %9, align 8
+  %128 = load i32, ptr %10, align 4
+  %129 = insertvalue { ptr, i32 } poison, ptr %127, 0
+  %130 = insertvalue { ptr, i32 } %129, i32 %128, 1
+  resume { ptr, i32 } %130
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -23922,14 +23923,15 @@ define linkonce_odr dso_local void @_ZN5vcpkg14RealFilesystem17ExclusiveFileLock
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg18IExclusiveFileLockC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  %10 = call noundef ptr @_ZNK5vcpkg4Path5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #13
-  %11 = load ptr, ptr %6, align 8
-  call void @_ZN12_GLOBAL__N_17PosixFdC2EPKcijRSt10error_code(ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef %10, i32 noundef 66, i32 noundef 420, ptr noundef nonnull align 8 dereferenceable(16) %11) #13
-  %12 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %7, i32 0, i32 2
-  store i8 0, ptr %12, align 4
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  %11 = call noundef ptr @_ZNK5vcpkg4Path5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
+  %12 = load ptr, ptr %6, align 8
+  call void @_ZN12_GLOBAL__N_17PosixFdC2EPKcijRSt10error_code(ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef %11, i32 noundef 66, i32 noundef 420, ptr noundef nonnull align 8 dereferenceable(16) %12) #13
+  %13 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %7, i32 0, i32 2
+  store i8 0, ptr %13, align 4
   ret void
 }
 
@@ -23961,7 +23963,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg18IExclusiveFileLockC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg18IExclusiveFileLockE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5vcpkg18IExclusiveFileLockE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -23971,46 +23974,47 @@ define linkonce_odr dso_local void @_ZN5vcpkg14RealFilesystem17ExclusiveFileLock
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %4, i32 0, i32 2
-  %6 = load i8, ptr %5, align 4
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %20
+  %5 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %4, i32 0, i32 2
+  %7 = load i8, ptr %6, align 4
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %21
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %3, i32 0, i32 0
-  store i32 3746, ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %3, i32 0, i32 1
-  store ptr @.str.5, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %4, i32 0, i32 1
-  %12 = call noundef zeroext i1 @_ZNK12_GLOBAL__N_17PosixFdcvbEv(ptr noundef nonnull align 4 dereferenceable(4) %11) #13
-  br i1 %12, label %13, label %17
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %3, i32 0, i32 0
+  store i32 3746, ptr %10, align 8
+  %11 = getelementptr inbounds %"struct.vcpkg::LineInfo", ptr %3, i32 0, i32 1
+  store ptr @.str.5, ptr %11, align 8
+  %12 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %4, i32 0, i32 1
+  %13 = call noundef zeroext i1 @_ZNK12_GLOBAL__N_17PosixFdcvbEv(ptr noundef nonnull align 4 dereferenceable(4) %12) #13
+  br i1 %13, label %14, label %18
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %4, i32 0, i32 1
-  %15 = call noundef i32 @_ZNK12_GLOBAL__N_17PosixFd5flockEi(ptr noundef nonnull align 4 dereferenceable(4) %14, i32 noundef 8) #13
-  %16 = icmp eq i32 %15, 0
-  br label %17
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %4, i32 0, i32 1
+  %16 = call noundef i32 @_ZNK12_GLOBAL__N_17PosixFd5flockEi(ptr noundef nonnull align 4 dereferenceable(4) %15, i32 noundef 8) #13
+  %17 = icmp eq i32 %16, 0
+  br label %18
 
-17:                                               ; preds = %13, %8
-  %18 = phi i1 [ false, %8 ], [ %16, %13 ]
-  invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %18)
-          to label %19 unwind label %22
+18:                                               ; preds = %14, %9
+  %19 = phi i1 [ false, %9 ], [ %17, %14 ]
+  invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %19)
+          to label %20 unwind label %23
 
-19:                                               ; preds = %17
-  br label %20
+20:                                               ; preds = %18
+  br label %21
 
-20:                                               ; preds = %19, %1
-  %21 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %4, i32 0, i32 1
-  call void @_ZN12_GLOBAL__N_17PosixFdD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %21) #13
+21:                                               ; preds = %20, %1
+  %22 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %4, i32 0, i32 1
+  call void @_ZN12_GLOBAL__N_17PosixFdD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #13
   call void @_ZN5vcpkg18IExclusiveFileLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret void
 
-22:                                               ; preds = %17
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %18
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #16
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #16
   unreachable
 }
 

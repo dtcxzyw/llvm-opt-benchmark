@@ -595,7 +595,8 @@ entry:
   %8 = load ptr, ptr %coerce.dive20, align 8
   %coerce.dive21 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp16, i32 0, i32 0
   %9 = load i32, ptr %coerce.dive21, align 4
-  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %7, ptr %8, i32 %9, ptr noundef inttoptr (i64 1 to ptr), ptr noundef @_ZN6hermes2vm31generatorPrototypeReturnOrThrowEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
+  %10 = inttoptr i64 1 to ptr
+  call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %7, ptr %8, i32 %9, ptr noundef %10, ptr noundef @_ZN6hermes2vm31generatorPrototypeReturnOrThrowEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1)
   %call22 = call i32 @_ZN6hermes2vm19DefinePropertyFlags26getDefaultNewPropertyFlagsEv()
   %coerce.dive23 = getelementptr inbounds %"union.hermes::vm::DefinePropertyFlags", ptr %dpf, i32 0, i32 0
   store i32 %call22, ptr %coerce.dive23, align 4
@@ -607,33 +608,33 @@ entry:
   %bf.clear25 = and i16 %bf.load24, -2
   %bf.set26 = or i16 %bf.clear25, 0
   store i16 %bf.set26, ptr %dpf, align 4
-  %10 = load ptr, ptr %runtime.addr, align 8
+  %11 = load ptr, ptr %runtime.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp27, ptr align 8 %proto, i64 8, i1 false)
   %call29 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3StrE(i32 noundef 56)
   %coerce.dive30 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp28, i32 0, i32 0
   store i32 %call29, ptr %coerce.dive30, align 4
-  %11 = load ptr, ptr %runtime.addr, align 8
-  %generatorFunctionPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %11, i32 0, i32 79
+  %12 = load ptr, ptr %runtime.addr, align 8
+  %generatorFunctionPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %12, i32 0, i32 79
   call void @_ZN6hermes2vm6HandleINS0_11HermesValueEEC2EPKNS0_17PinnedHermesValueE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp31, ptr noundef %generatorFunctionPrototype)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp32, ptr align 4 %dpf, i64 4, i1 false)
   %coerce.dive33 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp27, i32 0, i32 0
   %coerce.dive34 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive33, i32 0, i32 0
-  %12 = load ptr, ptr %coerce.dive34, align 8
+  %13 = load ptr, ptr %coerce.dive34, align 8
   %coerce.dive35 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp28, i32 0, i32 0
-  %13 = load i32, ptr %coerce.dive35, align 4
+  %14 = load i32, ptr %coerce.dive35, align 4
   %coerce.dive36 = getelementptr inbounds %"class.hermes::vm::Handle.154", ptr %agg.tmp31, i32 0, i32 0
   %coerce.dive37 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive36, i32 0, i32 0
-  %14 = load ptr, ptr %coerce.dive37, align 8
+  %15 = load ptr, ptr %coerce.dive37, align 8
   %coerce.dive38 = getelementptr inbounds %"union.hermes::vm::DefinePropertyFlags", ptr %agg.tmp32, i32 0, i32 0
-  %15 = load i32, ptr %coerce.dive38, align 4
-  call void @_ZN6hermes2vm14definePropertyERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDENS3_INS0_11HermesValueEEENS0_19DefinePropertyFlagsE(ptr noundef nonnull align 8 dereferenceable(9832) %10, ptr %12, i32 %13, ptr %14, i32 %15)
-  %16 = load ptr, ptr %runtime.addr, align 8
+  %16 = load i32, ptr %coerce.dive38, align 4
+  call void @_ZN6hermes2vm14definePropertyERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDENS3_INS0_11HermesValueEEENS0_19DefinePropertyFlagsE(ptr noundef nonnull align 8 dereferenceable(9832) %11, ptr %13, i32 %14, ptr %15, i32 %16)
+  %17 = load ptr, ptr %runtime.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp39, ptr align 8 %proto, i64 8, i1 false)
   %call41 = call i32 @_ZN6hermes2vm10Predefined11getSymbolIDENS1_3SymE(i32 noundef 551)
   %coerce.dive42 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp40, i32 0, i32 0
   store i32 %call41, ptr %coerce.dive42, align 4
-  %17 = load ptr, ptr %runtime.addr, align 8
-  %call44 = call ptr @_ZN6hermes2vm7Runtime25getPredefinedStringHandleENS0_10Predefined3StrE(ptr noundef nonnull align 8 dereferenceable(9832) %17, i32 noundef 413)
+  %18 = load ptr, ptr %runtime.addr, align 8
+  %call44 = call ptr @_ZN6hermes2vm7Runtime25getPredefinedStringHandleENS0_10Predefined3StrE(ptr noundef nonnull align 8 dereferenceable(9832) %18, i32 noundef 413)
   %coerce.dive45 = getelementptr inbounds %"class.hermes::vm::Handle.155", ptr %ref.tmp, i32 0, i32 0
   %coerce.dive46 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive45, i32 0, i32 0
   store ptr %call44, ptr %coerce.dive46, align 8
@@ -641,15 +642,15 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp47, ptr align 4 %dpf, i64 4, i1 false)
   %coerce.dive48 = getelementptr inbounds %"class.hermes::vm::Handle", ptr %agg.tmp39, i32 0, i32 0
   %coerce.dive49 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive48, i32 0, i32 0
-  %18 = load ptr, ptr %coerce.dive49, align 8
+  %19 = load ptr, ptr %coerce.dive49, align 8
   %coerce.dive50 = getelementptr inbounds %"class.hermes::vm::SymbolID", ptr %agg.tmp40, i32 0, i32 0
-  %19 = load i32, ptr %coerce.dive50, align 4
+  %20 = load i32, ptr %coerce.dive50, align 4
   %coerce.dive51 = getelementptr inbounds %"class.hermes::vm::Handle.154", ptr %agg.tmp43, i32 0, i32 0
   %coerce.dive52 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive51, i32 0, i32 0
-  %20 = load ptr, ptr %coerce.dive52, align 8
+  %21 = load ptr, ptr %coerce.dive52, align 8
   %coerce.dive53 = getelementptr inbounds %"union.hermes::vm::DefinePropertyFlags", ptr %agg.tmp47, i32 0, i32 0
-  %21 = load i32, ptr %coerce.dive53, align 4
-  call void @_ZN6hermes2vm14definePropertyERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDENS3_INS0_11HermesValueEEENS0_19DefinePropertyFlagsE(ptr noundef nonnull align 8 dereferenceable(9832) %16, ptr %18, i32 %19, ptr %20, i32 %21)
+  %22 = load i32, ptr %coerce.dive53, align 4
+  call void @_ZN6hermes2vm14definePropertyERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDENS3_INS0_11HermesValueEEENS0_19DefinePropertyFlagsE(ptr noundef nonnull align 8 dereferenceable(9832) %17, ptr %19, i32 %20, ptr %21, i32 %22)
   ret void
 }
 
@@ -1970,7 +1971,8 @@ entry:
   store i32 %status, ptr %status.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   %valueOrStatus_ = getelementptr inbounds %"class.hermes::vm::CallResult.156", ptr %this1, i32 0, i32 0
-  %call = call ptr @_ZN6hermes2vm6HandleINS0_11JSGeneratorEE12unsafeCreateEPKNS0_17PinnedHermesValueE(ptr noundef inttoptr (i64 -1 to ptr))
+  %0 = inttoptr i64 -1 to ptr
+  %call = call ptr @_ZN6hermes2vm6HandleINS0_11JSGeneratorEE12unsafeCreateEPKNS0_17PinnedHermesValueE(ptr noundef %0)
   %coerce.dive = getelementptr inbounds %"class.hermes::vm::Handle.157", ptr %valueOrStatus_, i32 0, i32 0
   %coerce.dive2 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive, i32 0, i32 0
   store ptr %call, ptr %coerce.dive2, align 8
@@ -2556,7 +2558,8 @@ entry:
   store i32 %status, ptr %status.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   %valueOrStatus_ = getelementptr inbounds %"class.hermes::vm::CallResult.158", ptr %this1, i32 0, i32 0
-  %call = call ptr @_ZN6hermes2vm6HandleINS0_8JSObjectEE12unsafeCreateEPKNS0_17PinnedHermesValueE(ptr noundef inttoptr (i64 -1 to ptr))
+  %0 = inttoptr i64 -1 to ptr
+  %call = call ptr @_ZN6hermes2vm6HandleINS0_8JSObjectEE12unsafeCreateEPKNS0_17PinnedHermesValueE(ptr noundef %0)
   %coerce.dive = getelementptr inbounds %"class.hermes::vm::Handle", ptr %valueOrStatus_, i32 0, i32 0
   %coerce.dive2 = getelementptr inbounds %"class.hermes::vm::HandleBase", ptr %coerce.dive, i32 0, i32 0
   store ptr %call, ptr %coerce.dive2, align 8

@@ -121,37 +121,38 @@ define hidden void @_ZN7nanogui6WindowC2EPNS_6WidgetERKNSt7__cxx1112basic_string
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui6WindowE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"class.nanogui::Window", ptr %9, i32 0, i32 2
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %13 unwind label %17
+  %11 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7nanogui6WindowE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"class.nanogui::Window", ptr %9, i32 0, i32 2
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %14 unwind label %18
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.nanogui::Window", ptr %9, i32 0, i32 3
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.nanogui::Window", ptr %9, i32 0, i32 4
-  store i8 0, ptr %15, align 8
-  %16 = getelementptr inbounds %"class.nanogui::Window", ptr %9, i32 0, i32 5
-  store i8 0, ptr %16, align 1
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %"class.nanogui::Window", ptr %9, i32 0, i32 3
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.nanogui::Window", ptr %9, i32 0, i32 4
+  store i8 0, ptr %16, align 8
+  %17 = getelementptr inbounds %"class.nanogui::Window", ptr %9, i32 0, i32 5
+  store i8 0, ptr %17, align 1
   ret void
 
-17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %7, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %8, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %9) #9
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr %8, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 declare void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) unnamed_addr #1
@@ -1673,9 +1674,10 @@ define linkonce_odr hidden void @_ZN7nanogui6WindowD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui6WindowE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::Window", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
+  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7nanogui6WindowE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::Window", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #9
   ret void
 }

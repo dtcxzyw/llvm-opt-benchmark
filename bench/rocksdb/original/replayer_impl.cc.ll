@@ -645,10 +645,11 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN7rocksdb8ReplayerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb12ReplayerImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7rocksdb12ReplayerImplE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %trace_reader_ = getelementptr inbounds %"class.rocksdb::ReplayerImpl", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %reader.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb11TraceReaderESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %trace_reader_, ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  %2 = load ptr, ptr %reader.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb11TraceReaderESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %trace_reader_, ptr noundef nonnull align 8 dereferenceable(8) %2) #13
   %mutex_ = getelementptr inbounds %"class.rocksdb::ReplayerImpl", ptr %this1, i32 0, i32 2
   call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #13
   %prepared_ = getelementptr inbounds %"class.rocksdb::ReplayerImpl", ptr %this1, i32 0, i32 3
@@ -658,19 +659,19 @@ entry:
   %header_ts_ = getelementptr inbounds %"class.rocksdb::ReplayerImpl", ptr %this1, i32 0, i32 6
   store i64 0, ptr %header_ts_, align 8
   %exec_handler_ = getelementptr inbounds %"class.rocksdb::ReplayerImpl", ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %db.addr, align 8
-  %3 = load ptr, ptr %handles.addr, align 8
-  %call = invoke noundef ptr @_ZN7rocksdb11TraceRecord19NewExecutionHandlerEPNS_2DBERKSt6vectorIPNS_18ColumnFamilyHandleESaIS5_EE(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %3 = load ptr, ptr %db.addr, align 8
+  %4 = load ptr, ptr %handles.addr, align 8
+  %call = invoke noundef ptr @_ZN7rocksdb11TraceRecord19NewExecutionHandlerEPNS_2DBERKSt6vectorIPNS_18ColumnFamilyHandleESaIS5_EE(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10unique_ptrIN7rocksdb11TraceRecord7HandlerESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %exec_handler_, ptr noundef %call) #13
   %env_ = getelementptr inbounds %"class.rocksdb::ReplayerImpl", ptr %this1, i32 0, i32 8
-  %4 = load ptr, ptr %db.addr, align 8
-  %vtable = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %db.addr, align 8
+  %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 94
-  %5 = load ptr, ptr %vfn, align 8
-  %call4 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %6 = load ptr, ptr %vfn, align 8
+  %call4 = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -680,21 +681,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN7rocksdb11TraceRecord7HandlerESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %exec_handler_) #13
   br label %ehcleanup
 
@@ -720,7 +721,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb8ReplayerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7rocksdb8ReplayerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -875,7 +877,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb12ReplayerImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7rocksdb12ReplayerImplE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %exec_handler_ = getelementptr inbounds %"class.rocksdb::ReplayerImpl", ptr %this1, i32 0, i32 7
   call void @_ZNSt10unique_ptrIN7rocksdb11TraceRecord7HandlerESt14default_deleteIS2_EE5resetEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %exec_handler_, ptr noundef null) #13
   %trace_reader_ = getelementptr inbounds %"class.rocksdb::ReplayerImpl", ptr %this1, i32 0, i32 1

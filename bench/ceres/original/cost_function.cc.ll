@@ -92,16 +92,17 @@ define hidden void @_ZN5ceres12CostFunctionC2EOS0_(ptr noundef nonnull align 8 d
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres12CostFunctionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::CostFunction", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.ceres::CostFunction", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorIiSaIiEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #5
-  %9 = getelementptr inbounds %"class.ceres::CostFunction", ptr %5, i32 0, i32 2
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.ceres::CostFunction", ptr %10, i32 0, i32 2
-  %12 = load i32, ptr %11, align 8
-  store i32 %12, ptr %9, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres12CostFunctionE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::CostFunction", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"class.ceres::CostFunction", ptr %8, i32 0, i32 1
+  call void @_ZNSt6vectorIiSaIiEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9) #5
+  %10 = getelementptr inbounds %"class.ceres::CostFunction", ptr %5, i32 0, i32 2
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.ceres::CostFunction", ptr %11, i32 0, i32 2
+  %13 = load i32, ptr %12, align 8
+  store i32 %13, ptr %10, align 8
   ret void
 }
 
@@ -155,11 +156,12 @@ define hidden void @_ZN5ceres12CostFunctionC2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres12CostFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ceres::CostFunction", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #5
-  %5 = getelementptr inbounds %"class.ceres::CostFunction", ptr %3, i32 0, i32 2
-  store i32 0, ptr %5, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres12CostFunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ceres::CostFunction", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #5
+  %6 = getelementptr inbounds %"class.ceres::CostFunction", ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 8
   ret void
 }
 
@@ -177,9 +179,10 @@ define hidden void @_ZN5ceres12CostFunctionD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres12CostFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ceres::CostFunction", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres12CostFunctionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ceres::CostFunction", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #5
   ret void
 }
 

@@ -489,7 +489,7 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr noundef %1) #0 {
   %291 = load i32, ptr %42, align 4
   %292 = load ptr, ptr %41, align 8
   call void @zend_wrong_parameter_error(i32 noundef %288, i32 noundef %289, ptr noundef %290, i32 noundef %291, ptr noundef %292)
-  br label %327
+  br label %328
 
 293:                                              ; preds = %279
   br label %294
@@ -497,57 +497,58 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr noundef %1) #0 {
 294:                                              ; preds = %293
   %295 = load i64, ptr %34, align 8
   %296 = icmp slt i64 %295, 0
-  br i1 %296, label %297, label %302
+  br i1 %296, label %297, label %303
 
 297:                                              ; preds = %294
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef @.str)
   br label %298
 
 298:                                              ; preds = %297
-  %299 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %300 = icmp ne ptr %299, null
-  call void @llvm.assume(i1 %300)
-  br label %327
+  %299 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %300 = load ptr, ptr %299, align 8
+  %301 = icmp ne ptr %300, null
+  call void @llvm.assume(i1 %301)
+  br label %328
 
-301:                                              ; No predecessors!
-  br label %302
+302:                                              ; No predecessors!
+  br label %303
 
-302:                                              ; preds = %301, %294
-  %303 = load ptr, ptr %32, align 8
-  %304 = getelementptr inbounds %struct._zend_string, ptr %303, i32 0, i32 3
-  %305 = getelementptr inbounds [1 x i8], ptr %304, i64 0, i64 0
-  %306 = load ptr, ptr %32, align 8
-  %307 = getelementptr inbounds %struct._zend_string, ptr %306, i32 0, i32 2
-  %308 = load i64, ptr %307, align 8
-  %309 = load i64, ptr %34, align 8
-  call void @metaphone(ptr noundef %305, i64 noundef %308, i64 noundef %309, ptr noundef %33, i32 noundef 1)
-  br label %310
+303:                                              ; preds = %302, %294
+  %304 = load ptr, ptr %32, align 8
+  %305 = getelementptr inbounds %struct._zend_string, ptr %304, i32 0, i32 3
+  %306 = getelementptr inbounds [1 x i8], ptr %305, i64 0, i64 0
+  %307 = load ptr, ptr %32, align 8
+  %308 = getelementptr inbounds %struct._zend_string, ptr %307, i32 0, i32 2
+  %309 = load i64, ptr %308, align 8
+  %310 = load i64, ptr %34, align 8
+  call void @metaphone(ptr noundef %306, i64 noundef %309, i64 noundef %310, ptr noundef %33, i32 noundef 1)
+  br label %311
 
-310:                                              ; preds = %302
-  %311 = load ptr, ptr %31, align 8
-  store ptr %311, ptr %47, align 8
-  %312 = load ptr, ptr %33, align 8
-  store ptr %312, ptr %48, align 8
-  %313 = load ptr, ptr %48, align 8
-  %314 = load ptr, ptr %47, align 8
-  %315 = getelementptr inbounds %struct._zval_struct, ptr %314, i32 0, i32 0
-  store ptr %313, ptr %315, align 8
-  %316 = load ptr, ptr %48, align 8
-  %317 = getelementptr inbounds %struct._zend_string, ptr %316, i32 0, i32 0
-  %318 = getelementptr inbounds %struct._zend_refcounted_h, ptr %317, i32 0, i32 1
-  %319 = load i32, ptr %318, align 4
-  store i32 %319, ptr %20, align 4
-  %320 = load i32, ptr %20, align 4
-  %321 = and i32 %320, 1008
-  %322 = and i32 %321, 64
-  %323 = icmp ne i32 %322, 0
-  %324 = select i1 %323, i32 6, i32 262
-  %325 = load ptr, ptr %47, align 8
-  %326 = getelementptr inbounds %struct._zval_struct, ptr %325, i32 0, i32 1
-  store i32 %324, ptr %326, align 8
-  br label %327
+311:                                              ; preds = %303
+  %312 = load ptr, ptr %31, align 8
+  store ptr %312, ptr %47, align 8
+  %313 = load ptr, ptr %33, align 8
+  store ptr %313, ptr %48, align 8
+  %314 = load ptr, ptr %48, align 8
+  %315 = load ptr, ptr %47, align 8
+  %316 = getelementptr inbounds %struct._zval_struct, ptr %315, i32 0, i32 0
+  store ptr %314, ptr %316, align 8
+  %317 = load ptr, ptr %48, align 8
+  %318 = getelementptr inbounds %struct._zend_string, ptr %317, i32 0, i32 0
+  %319 = getelementptr inbounds %struct._zend_refcounted_h, ptr %318, i32 0, i32 1
+  %320 = load i32, ptr %319, align 4
+  store i32 %320, ptr %20, align 4
+  %321 = load i32, ptr %20, align 4
+  %322 = and i32 %321, 1008
+  %323 = and i32 %322, 64
+  %324 = icmp ne i32 %323, 0
+  %325 = select i1 %324, i32 6, i32 262
+  %326 = load ptr, ptr %47, align 8
+  %327 = getelementptr inbounds %struct._zval_struct, ptr %326, i32 0, i32 1
+  store i32 %325, ptr %327, align 8
+  br label %328
 
-327:                                              ; preds = %310, %298, %287
+328:                                              ; preds = %311, %298, %287
   ret void
 }
 

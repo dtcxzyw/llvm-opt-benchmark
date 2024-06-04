@@ -110,30 +110,31 @@ define void @_ZN15CacheProxyModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19QIdentityProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV15CacheProxyModel, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %class.CacheProxyModel, ptr %7, i32 0, i32 1
-  invoke void @_ZN18QStandardItemModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [56 x ptr] }, ptr @_ZTV15CacheProxyModel, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.CacheProxyModel, ptr %7, i32 0, i32 1
+  invoke void @_ZN18QStandardItemModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN19QIdentityProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN19QIdentityProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 declare void @_ZN19QIdentityProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1

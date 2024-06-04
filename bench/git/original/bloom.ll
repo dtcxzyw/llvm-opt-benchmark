@@ -619,11 +619,12 @@ if.else:                                          ; preds = %if.end19
 
 if.end28:                                         ; preds = %if.else, %if.then22
   call void @diffcore_std(ptr noundef %diffopt)
-  %31 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
-  %32 = load ptr, ptr %settings.addr, align 8
-  %max_changed_paths29 = getelementptr inbounds %struct.bloom_filter_settings, ptr %32, i32 0, i32 3
-  %33 = load i32, ptr %max_changed_paths29, align 4
-  %cmp = icmp ule i32 %31, %33
+  %31 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  %32 = load i32, ptr %31, align 4
+  %33 = load ptr, ptr %settings.addr, align 8
+  %max_changed_paths29 = getelementptr inbounds %struct.bloom_filter_settings, ptr %33, i32 0, i32 3
+  %34 = load i32, ptr %max_changed_paths29, align 4
+  %cmp = icmp ule i32 %32, %34
   br i1 %cmp, label %if.then30, label %if.else92
 
 if.then30:                                        ; preds = %if.end28
@@ -632,126 +633,127 @@ if.then30:                                        ; preds = %if.end28
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then30
-  %34 = load i32, ptr %i, align 4
-  %35 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
-  %cmp31 = icmp slt i32 %34, %35
+  %35 = load i32, ptr %i, align 4
+  %36 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  %37 = load i32, ptr %36, align 4
+  %cmp31 = icmp slt i32 %35, %37
   br i1 %cmp31, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %36 = load ptr, ptr @diff_queued_diff, align 8
-  %37 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %37 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %36, i64 %idxprom
-  %38 = load ptr, ptr %arrayidx, align 8
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %38, i32 0, i32 1
-  %39 = load ptr, ptr %two, align 8
-  %path32 = getelementptr inbounds %struct.diff_filespec, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %path32, align 8
-  store ptr %40, ptr %path, align 8
+  %38 = load ptr, ptr @diff_queued_diff, align 8
+  %39 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %39 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %38, i64 %idxprom
+  %40 = load ptr, ptr %arrayidx, align 8
+  %two = getelementptr inbounds %struct.diff_filepair, ptr %40, i32 0, i32 1
+  %41 = load ptr, ptr %two, align 8
+  %path32 = getelementptr inbounds %struct.diff_filespec, ptr %41, i32 0, i32 1
+  %42 = load ptr, ptr %path32, align 8
+  store ptr %42, ptr %path, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %for.body
-  %41 = load ptr, ptr %path, align 8
-  %call33 = call ptr @strrchr(ptr noundef %41, i32 noundef 47) #7
+  %43 = load ptr, ptr %path, align 8
+  %call33 = call ptr @strrchr(ptr noundef %43, i32 noundef 47) #7
   store ptr %call33, ptr %last_slash, align 8
   br label %do.body34
 
 do.body34:                                        ; preds = %do.body
-  %42 = load ptr, ptr %path, align 8
-  %call35 = call i64 @strlen(ptr noundef %42) #7
+  %44 = load ptr, ptr %path, align 8
+  %call35 = call i64 @strlen(ptr noundef %44) #7
   store i64 %call35, ptr %flex_array_len_, align 8
-  %43 = load i64, ptr %flex_array_len_, align 8
-  %call36 = call i64 @st_add(i64 noundef 16, i64 noundef %43)
+  %45 = load i64, ptr %flex_array_len_, align 8
+  %call36 = call i64 @st_add(i64 noundef 16, i64 noundef %45)
   %call37 = call i64 @st_add(i64 noundef %call36, i64 noundef 1)
   %call38 = call ptr @xcalloc(i64 noundef 1, i64 noundef %call37)
   store ptr %call38, ptr %e, align 8
-  %44 = load ptr, ptr %e, align 8
-  %path39 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %e, align 8
+  %path39 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %46, i32 0, i32 1
   %arraydecay = getelementptr inbounds [0 x i8], ptr %path39, i64 0, i64 0
-  %45 = load ptr, ptr %path, align 8
-  %46 = load i64, ptr %flex_array_len_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 1 %45, i64 %46, i1 false)
+  %47 = load ptr, ptr %path, align 8
+  %48 = load i64, ptr %flex_array_len_, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 1 %47, i64 %48, i1 false)
   br label %do.end
 
 do.end:                                           ; preds = %do.body34
-  %47 = load ptr, ptr %e, align 8
-  %entry40 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %47, i32 0, i32 0
-  %48 = load ptr, ptr %path, align 8
-  %call41 = call i32 @strhash(ptr noundef %48)
-  call void @hashmap_entry_init(ptr noundef %entry40, i32 noundef %call41)
   %49 = load ptr, ptr %e, align 8
-  %entry42 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %49, i32 0, i32 0
+  %entry40 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %49, i32 0, i32 0
+  %50 = load ptr, ptr %path, align 8
+  %call41 = call i32 @strhash(ptr noundef %50)
+  call void @hashmap_entry_init(ptr noundef %entry40, i32 noundef %call41)
+  %51 = load ptr, ptr %e, align 8
+  %entry42 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %51, i32 0, i32 0
   %call43 = call ptr @hashmap_get(ptr noundef %pathmap, ptr noundef %entry42, ptr noundef null)
   %tobool44 = icmp ne ptr %call43, null
   br i1 %tobool44, label %if.else47, label %if.then45
 
 if.then45:                                        ; preds = %do.end
-  %50 = load ptr, ptr %e, align 8
-  %entry46 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %e, align 8
+  %entry46 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %52, i32 0, i32 0
   call void @hashmap_add(ptr noundef %pathmap, ptr noundef %entry46)
   br label %if.end48
 
 if.else47:                                        ; preds = %do.end
-  %51 = load ptr, ptr %e, align 8
-  call void @free(ptr noundef %51) #6
+  %53 = load ptr, ptr %e, align 8
+  call void @free(ptr noundef %53) #6
   br label %if.end48
 
 if.end48:                                         ; preds = %if.else47, %if.then45
-  %52 = load ptr, ptr %last_slash, align 8
-  %tobool49 = icmp ne ptr %52, null
+  %54 = load ptr, ptr %last_slash, align 8
+  %tobool49 = icmp ne ptr %54, null
   br i1 %tobool49, label %if.end51, label %if.then50
 
 if.then50:                                        ; preds = %if.end48
-  %53 = load ptr, ptr %path, align 8
-  store ptr %53, ptr %last_slash, align 8
+  %55 = load ptr, ptr %path, align 8
+  store ptr %55, ptr %last_slash, align 8
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then50, %if.end48
-  %54 = load ptr, ptr %last_slash, align 8
-  store i8 0, ptr %54, align 1
+  %56 = load ptr, ptr %last_slash, align 8
+  store i8 0, ptr %56, align 1
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end51
-  %55 = load ptr, ptr %path, align 8
-  %56 = load i8, ptr %55, align 1
-  %tobool52 = icmp ne i8 %56, 0
+  %57 = load ptr, ptr %path, align 8
+  %58 = load i8, ptr %57, align 1
+  %tobool52 = icmp ne i8 %58, 0
   br i1 %tobool52, label %do.body, label %do.end53, !llvm.loop !9
 
 do.end53:                                         ; preds = %do.cond
-  %57 = load ptr, ptr @diff_queued_diff, align 8
-  %58 = load i32, ptr %i, align 4
-  %idxprom54 = sext i32 %58 to i64
-  %arrayidx55 = getelementptr inbounds ptr, ptr %57, i64 %idxprom54
-  %59 = load ptr, ptr %arrayidx55, align 8
-  call void @diff_free_filepair(ptr noundef %59)
+  %59 = load ptr, ptr @diff_queued_diff, align 8
+  %60 = load i32, ptr %i, align 4
+  %idxprom54 = sext i32 %60 to i64
+  %arrayidx55 = getelementptr inbounds ptr, ptr %59, i64 %idxprom54
+  %61 = load ptr, ptr %arrayidx55, align 8
+  call void @diff_free_filepair(ptr noundef %61)
   br label %for.inc
 
 for.inc:                                          ; preds = %do.end53
-  %60 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %60, 1
+  %62 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %62, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %for.cond
   %call56 = call i32 @hashmap_get_size(ptr noundef %pathmap)
-  %61 = load ptr, ptr %settings.addr, align 8
-  %max_changed_paths57 = getelementptr inbounds %struct.bloom_filter_settings, ptr %61, i32 0, i32 3
-  %62 = load i32, ptr %max_changed_paths57, align 4
-  %cmp58 = icmp ugt i32 %call56, %62
+  %63 = load ptr, ptr %settings.addr, align 8
+  %max_changed_paths57 = getelementptr inbounds %struct.bloom_filter_settings, ptr %63, i32 0, i32 3
+  %64 = load i32, ptr %max_changed_paths57, align 4
+  %cmp58 = icmp ugt i32 %call56, %64
   br i1 %cmp58, label %if.then59, label %if.end63
 
 if.then59:                                        ; preds = %for.end
-  %63 = load ptr, ptr %filter, align 8
-  call void @init_truncated_large_filter(ptr noundef %63)
-  %64 = load ptr, ptr %computed.addr, align 8
-  %tobool60 = icmp ne ptr %64, null
+  %65 = load ptr, ptr %filter, align 8
+  call void @init_truncated_large_filter(ptr noundef %65)
+  %66 = load ptr, ptr %computed.addr, align 8
+  %tobool60 = icmp ne ptr %66, null
   br i1 %tobool60, label %if.then61, label %if.end62
 
 if.then61:                                        ; preds = %if.then59
-  %65 = load ptr, ptr %computed.addr, align 8
-  %66 = load i32, ptr %65, align 4
-  %or = or i32 %66, 4
-  store i32 %or, ptr %65, align 4
+  %67 = load ptr, ptr %computed.addr, align 8
+  %68 = load i32, ptr %67, align 4
+  %or = or i32 %68, 4
+  store i32 %or, ptr %67, align 4
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then61, %if.then59
@@ -759,48 +761,48 @@ if.end62:                                         ; preds = %if.then61, %if.then
 
 if.end63:                                         ; preds = %for.end
   %call64 = call i32 @hashmap_get_size(ptr noundef %pathmap)
-  %67 = load ptr, ptr %settings.addr, align 8
-  %bits_per_entry = getelementptr inbounds %struct.bloom_filter_settings, ptr %67, i32 0, i32 2
-  %68 = load i32, ptr %bits_per_entry, align 4
-  %mul = mul i32 %call64, %68
+  %69 = load ptr, ptr %settings.addr, align 8
+  %bits_per_entry = getelementptr inbounds %struct.bloom_filter_settings, ptr %69, i32 0, i32 2
+  %70 = load i32, ptr %bits_per_entry, align 4
+  %mul = mul i32 %call64, %70
   %add = add i32 %mul, 8
   %sub = sub i32 %add, 1
   %div = udiv i32 %sub, 8
   %conv = zext i32 %div to i64
-  %69 = load ptr, ptr %filter, align 8
-  %len65 = getelementptr inbounds %struct.bloom_filter, ptr %69, i32 0, i32 1
+  %71 = load ptr, ptr %filter, align 8
+  %len65 = getelementptr inbounds %struct.bloom_filter, ptr %71, i32 0, i32 1
   store i64 %conv, ptr %len65, align 8
-  %70 = load ptr, ptr %filter, align 8
-  %len66 = getelementptr inbounds %struct.bloom_filter, ptr %70, i32 0, i32 1
-  %71 = load i64, ptr %len66, align 8
-  %tobool67 = icmp ne i64 %71, 0
+  %72 = load ptr, ptr %filter, align 8
+  %len66 = getelementptr inbounds %struct.bloom_filter, ptr %72, i32 0, i32 1
+  %73 = load i64, ptr %len66, align 8
+  %tobool67 = icmp ne i64 %73, 0
   br i1 %tobool67, label %if.end74, label %if.then68
 
 if.then68:                                        ; preds = %if.end63
-  %72 = load ptr, ptr %computed.addr, align 8
-  %tobool69 = icmp ne ptr %72, null
+  %74 = load ptr, ptr %computed.addr, align 8
+  %tobool69 = icmp ne ptr %74, null
   br i1 %tobool69, label %if.then70, label %if.end72
 
 if.then70:                                        ; preds = %if.then68
-  %73 = load ptr, ptr %computed.addr, align 8
-  %74 = load i32, ptr %73, align 4
-  %or71 = or i32 %74, 8
-  store i32 %or71, ptr %73, align 4
+  %75 = load ptr, ptr %computed.addr, align 8
+  %76 = load i32, ptr %75, align 4
+  %or71 = or i32 %76, 8
+  store i32 %or71, ptr %75, align 4
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then70, %if.then68
-  %75 = load ptr, ptr %filter, align 8
-  %len73 = getelementptr inbounds %struct.bloom_filter, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %filter, align 8
+  %len73 = getelementptr inbounds %struct.bloom_filter, ptr %77, i32 0, i32 1
   store i64 1, ptr %len73, align 8
   br label %if.end74
 
 if.end74:                                         ; preds = %if.end72, %if.end63
-  %76 = load ptr, ptr %filter, align 8
-  %len75 = getelementptr inbounds %struct.bloom_filter, ptr %76, i32 0, i32 1
-  %77 = load i64, ptr %len75, align 8
-  %call76 = call ptr @xcalloc(i64 noundef %77, i64 noundef 1)
   %78 = load ptr, ptr %filter, align 8
-  %data77 = getelementptr inbounds %struct.bloom_filter, ptr %78, i32 0, i32 0
+  %len75 = getelementptr inbounds %struct.bloom_filter, ptr %78, i32 0, i32 1
+  %79 = load i64, ptr %len75, align 8
+  %call76 = call ptr @xcalloc(i64 noundef %79, i64 noundef 1)
+  %80 = load ptr, ptr %filter, align 8
+  %data77 = getelementptr inbounds %struct.bloom_filter, ptr %80, i32 0, i32 0
   store ptr %call76, ptr %data77, align 8
   store ptr null, ptr %e, align 8
   %call78 = call ptr @hashmap_iter_first(ptr noundef %pathmap, ptr noundef %iter)
@@ -809,23 +811,23 @@ if.end74:                                         ; preds = %if.end72, %if.end63
   br label %for.cond80
 
 for.cond80:                                       ; preds = %for.inc88, %if.end74
-  %79 = load ptr, ptr %e, align 8
-  %tobool81 = icmp ne ptr %79, null
+  %81 = load ptr, ptr %e, align 8
+  %tobool81 = icmp ne ptr %81, null
   br i1 %tobool81, label %for.body82, label %for.end91
 
 for.body82:                                       ; preds = %for.cond80
-  %80 = load ptr, ptr %e, align 8
-  %path83 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %80, i32 0, i32 1
+  %82 = load ptr, ptr %e, align 8
+  %path83 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %82, i32 0, i32 1
   %arraydecay84 = getelementptr inbounds [0 x i8], ptr %path83, i64 0, i64 0
-  %81 = load ptr, ptr %e, align 8
-  %path85 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %e, align 8
+  %path85 = getelementptr inbounds %struct.pathmap_hash_entry, ptr %83, i32 0, i32 1
   %arraydecay86 = getelementptr inbounds [0 x i8], ptr %path85, i64 0, i64 0
   %call87 = call i64 @strlen(ptr noundef %arraydecay86) #7
-  %82 = load ptr, ptr %settings.addr, align 8
-  call void @fill_bloom_key(ptr noundef %arraydecay84, i64 noundef %call87, ptr noundef %key, ptr noundef %82)
-  %83 = load ptr, ptr %filter, align 8
   %84 = load ptr, ptr %settings.addr, align 8
-  call void @add_key_to_filter(ptr noundef %key, ptr noundef %83, ptr noundef %84)
+  call void @fill_bloom_key(ptr noundef %arraydecay84, i64 noundef %call87, ptr noundef %key, ptr noundef %84)
+  %85 = load ptr, ptr %filter, align 8
+  %86 = load ptr, ptr %settings.addr, align 8
+  call void @add_key_to_filter(ptr noundef %key, ptr noundef %85, ptr noundef %86)
   call void @clear_bloom_key(ptr noundef %key)
   br label %for.inc88
 
@@ -847,74 +849,77 @@ if.else92:                                        ; preds = %if.end28
   br label %for.cond93
 
 for.cond93:                                       ; preds = %for.inc99, %if.else92
-  %85 = load i32, ptr %i, align 4
-  %86 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
-  %cmp94 = icmp slt i32 %85, %86
+  %87 = load i32, ptr %i, align 4
+  %88 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  %89 = load i32, ptr %88, align 4
+  %cmp94 = icmp slt i32 %87, %89
   br i1 %cmp94, label %for.body96, label %for.end101
 
 for.body96:                                       ; preds = %for.cond93
-  %87 = load ptr, ptr @diff_queued_diff, align 8
-  %88 = load i32, ptr %i, align 4
-  %idxprom97 = sext i32 %88 to i64
-  %arrayidx98 = getelementptr inbounds ptr, ptr %87, i64 %idxprom97
-  %89 = load ptr, ptr %arrayidx98, align 8
-  call void @diff_free_filepair(ptr noundef %89)
+  %90 = load ptr, ptr @diff_queued_diff, align 8
+  %91 = load i32, ptr %i, align 4
+  %idxprom97 = sext i32 %91 to i64
+  %arrayidx98 = getelementptr inbounds ptr, ptr %90, i64 %idxprom97
+  %92 = load ptr, ptr %arrayidx98, align 8
+  call void @diff_free_filepair(ptr noundef %92)
   br label %for.inc99
 
 for.inc99:                                        ; preds = %for.body96
-  %90 = load i32, ptr %i, align 4
-  %inc100 = add nsw i32 %90, 1
+  %93 = load i32, ptr %i, align 4
+  %inc100 = add nsw i32 %93, 1
   store i32 %inc100, ptr %i, align 4
   br label %for.cond93, !llvm.loop !12
 
 for.end101:                                       ; preds = %for.cond93
-  %91 = load ptr, ptr %filter, align 8
-  call void @init_truncated_large_filter(ptr noundef %91)
-  %92 = load ptr, ptr %computed.addr, align 8
-  %tobool102 = icmp ne ptr %92, null
+  %94 = load ptr, ptr %filter, align 8
+  call void @init_truncated_large_filter(ptr noundef %94)
+  %95 = load ptr, ptr %computed.addr, align 8
+  %tobool102 = icmp ne ptr %95, null
   br i1 %tobool102, label %if.then103, label %if.end105
 
 if.then103:                                       ; preds = %for.end101
-  %93 = load ptr, ptr %computed.addr, align 8
-  %94 = load i32, ptr %93, align 4
-  %or104 = or i32 %94, 4
-  store i32 %or104, ptr %93, align 4
+  %96 = load ptr, ptr %computed.addr, align 8
+  %97 = load i32, ptr %96, align 4
+  %or104 = or i32 %97, 4
+  store i32 %or104, ptr %96, align 4
   br label %if.end105
 
 if.end105:                                        ; preds = %if.then103, %for.end101
   br label %if.end106
 
 if.end106:                                        ; preds = %if.end105, %cleanup
-  %95 = load ptr, ptr %computed.addr, align 8
-  %tobool107 = icmp ne ptr %95, null
+  %98 = load ptr, ptr %computed.addr, align 8
+  %tobool107 = icmp ne ptr %98, null
   br i1 %tobool107, label %if.then108, label %if.end110
 
 if.then108:                                       ; preds = %if.end106
-  %96 = load ptr, ptr %computed.addr, align 8
-  %97 = load i32, ptr %96, align 4
-  %or109 = or i32 %97, 2
-  store i32 %or109, ptr %96, align 4
+  %99 = load ptr, ptr %computed.addr, align 8
+  %100 = load i32, ptr %99, align 4
+  %or109 = or i32 %100, 2
+  store i32 %or109, ptr %99, align 4
   br label %if.end110
 
 if.end110:                                        ; preds = %if.then108, %if.end106
-  %98 = load ptr, ptr @diff_queued_diff, align 8
-  call void @free(ptr noundef %98) #6
+  %101 = load ptr, ptr @diff_queued_diff, align 8
+  call void @free(ptr noundef %101) #6
   br label %do.body111
 
 do.body111:                                       ; preds = %if.end110
   store ptr null, ptr @diff_queued_diff, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 1), align 8
-  store i32 0, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
+  %102 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 1
+  store i32 0, ptr %102, align 8
+  %103 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  store i32 0, ptr %103, align 4
   br label %do.end113
 
 do.end113:                                        ; preds = %do.body111
-  %99 = load ptr, ptr %filter, align 8
-  store ptr %99, ptr %retval, align 8
+  %104 = load ptr, ptr %filter, align 8
+  store ptr %104, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %do.end113, %if.then18, %if.then15, %if.then2
-  %100 = load ptr, ptr %retval, align 8
-  ret ptr %100
+  %105 = load ptr, ptr %retval, align 8
+  ret ptr %105
 }
 
 ; Function Attrs: nounwind uwtable

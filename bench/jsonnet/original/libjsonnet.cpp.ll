@@ -3884,7 +3884,7 @@ define ptr @jsonnet_make() #4 personality ptr @__gxx_personality_v0 {
 
 17:                                               ; preds = %13, %9
   %18 = load i32, ptr %3, align 4
-  %19 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #3
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #3
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %26
 
@@ -3904,7 +3904,7 @@ define ptr @jsonnet_make() #4 personality ptr @__gxx_personality_v0 {
   br label %53
 
 26:                                               ; preds = %17
-  %27 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %28 = icmp eq i32 %18, %27
   br i1 %28, label %29, label %55
 
@@ -4191,9 +4191,6 @@ define linkonce_odr void @_ZN9JsonnetVmC2Ev(ptr noundef nonnull align 8 derefere
   resume { ptr, i32 } %89
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #9
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #1
@@ -4203,12 +4200,12 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #1
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #10
+declare void @abort() #9
 
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #20
   unreachable
@@ -5479,7 +5476,7 @@ define void @jsonnet_jpath_add(ptr noundef %0, ptr noundef %1) #4 personality pt
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #12
+declare i64 @strlen(ptr noundef) #11
 
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
 
@@ -5715,7 +5712,7 @@ define ptr @jsonnet_fmt_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 
 
 88:                                               ; preds = %87, %48
   %89 = load i32, ptr %10, align 4
-  %90 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #3
+  %90 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #3
   %91 = icmp eq i32 %89, %90
   br i1 %91, label %92, label %97
 
@@ -5735,7 +5732,7 @@ define ptr @jsonnet_fmt_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 
   br label %124
 
 97:                                               ; preds = %88
-  %98 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %98 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %99 = icmp eq i32 %89, %98
   br i1 %99, label %100, label %126
 
@@ -5820,7 +5817,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(pt
 declare ptr @strerror(i32 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #13
+declare ptr @__errno_location() #12
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZL11from_stringP9JsonnetVmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 {
@@ -6100,7 +6097,7 @@ define internal noundef ptr @_ZL23jsonnet_fmt_snippet_auxP9JsonnetVmPKcS2_Pi(ptr
 
 73:                                               ; preds = %72
   %74 = load i32, ptr %18, align 4
-  %75 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7jsonnet8internal11StaticErrorE) #3
+  %75 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7jsonnet8internal11StaticErrorE) #3
   %76 = icmp eq i32 %74, %75
   br i1 %76, label %77, label %112
 
@@ -6246,7 +6243,7 @@ define ptr @jsonnet_fmt_snippet(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %11, align 4
-  %26 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #3
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #3
   %27 = icmp eq i32 %25, %26
   br i1 %27, label %28, label %33
 
@@ -6266,7 +6263,7 @@ define ptr @jsonnet_fmt_snippet(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %60
 
 33:                                               ; preds = %24
-  %34 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %35 = icmp eq i32 %25, %34
   br i1 %35, label %36, label %62
 
@@ -6374,7 +6371,7 @@ define ptr @jsonnet_evaluate_file(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %9, align 4
-  %23 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #3
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #3
   %24 = icmp eq i32 %22, %23
   br i1 %24, label %25, label %30
 
@@ -6394,7 +6391,7 @@ define ptr @jsonnet_evaluate_file(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %57
 
 30:                                               ; preds = %21
-  %31 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %32 = icmp eq i32 %22, %31
   br i1 %32, label %33, label %59
 
@@ -6670,7 +6667,7 @@ define ptr @jsonnet_evaluate_file_multi(ptr noundef %0, ptr noundef %1, ptr noun
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %9, align 4
-  %23 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #3
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #3
   %24 = icmp eq i32 %22, %23
   br i1 %24, label %25, label %30
 
@@ -6690,7 +6687,7 @@ define ptr @jsonnet_evaluate_file_multi(ptr noundef %0, ptr noundef %1, ptr noun
   br label %57
 
 30:                                               ; preds = %21
-  %31 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %32 = icmp eq i32 %22, %31
   br i1 %32, label %33, label %59
 
@@ -6798,7 +6795,7 @@ define ptr @jsonnet_evaluate_file_stream(ptr noundef %0, ptr noundef %1, ptr nou
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %9, align 4
-  %23 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #3
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #3
   %24 = icmp eq i32 %22, %23
   br i1 %24, label %25, label %30
 
@@ -6818,7 +6815,7 @@ define ptr @jsonnet_evaluate_file_stream(ptr noundef %0, ptr noundef %1, ptr nou
   br label %57
 
 30:                                               ; preds = %21
-  %31 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %32 = icmp eq i32 %22, %31
   br i1 %32, label %33, label %59
 
@@ -6929,7 +6926,7 @@ define ptr @jsonnet_evaluate_snippet(ptr noundef %0, ptr noundef %1, ptr noundef
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %11, align 4
-  %26 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #3
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #3
   %27 = icmp eq i32 %25, %26
   br i1 %27, label %28, label %33
 
@@ -6949,7 +6946,7 @@ define ptr @jsonnet_evaluate_snippet(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %60
 
 33:                                               ; preds = %24
-  %34 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %35 = icmp eq i32 %25, %34
   br i1 %35, label %36, label %62
 
@@ -7578,7 +7575,7 @@ define internal noundef ptr @_ZL28jsonnet_evaluate_snippet_auxP9JsonnetVmPKcS2_P
 
 343:                                              ; preds = %342
   %344 = load i32, ptr %18, align 4
-  %345 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7jsonnet8internal11StaticErrorE) #3
+  %345 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7jsonnet8internal11StaticErrorE) #3
   %346 = icmp eq i32 %344, %345
   br i1 %346, label %347, label %364
 
@@ -7623,7 +7620,7 @@ define internal noundef ptr @_ZL28jsonnet_evaluate_snippet_auxP9JsonnetVmPKcS2_P
   br label %485
 
 364:                                              ; preds = %343
-  %365 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7jsonnet8internal12RuntimeErrorE) #3
+  %365 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7jsonnet8internal12RuntimeErrorE) #3
   %366 = icmp eq i32 %344, %365
   br i1 %366, label %367, label %487
 
@@ -7918,7 +7915,7 @@ define ptr @jsonnet_evaluate_snippet_multi(ptr noundef %0, ptr noundef %1, ptr n
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %11, align 4
-  %26 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #3
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #3
   %27 = icmp eq i32 %25, %26
   br i1 %27, label %28, label %33
 
@@ -7938,7 +7935,7 @@ define ptr @jsonnet_evaluate_snippet_multi(ptr noundef %0, ptr noundef %1, ptr n
   br label %60
 
 33:                                               ; preds = %24
-  %34 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %35 = icmp eq i32 %25, %34
   br i1 %35, label %36, label %62
 
@@ -8049,7 +8046,7 @@ define ptr @jsonnet_evaluate_snippet_stream(ptr noundef %0, ptr noundef %1, ptr 
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %11, align 4
-  %26 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #3
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #3
   %27 = icmp eq i32 %25, %26
   br i1 %27, label %28, label %33
 
@@ -8069,7 +8066,7 @@ define ptr @jsonnet_evaluate_snippet_stream(ptr noundef %0, ptr noundef %1, ptr 
   br label %60
 
 33:                                               ; preds = %24
-  %34 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %35 = icmp eq i32 %25, %34
   br i1 %35, label %36, label %62
 
@@ -8218,13 +8215,13 @@ define ptr @jsonnet_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) #4 {
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #14
+declare noalias ptr @malloc(i64 noundef) #13
 
 ; Function Attrs: nounwind
 declare void @free(ptr noundef) #2
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #15
+declare ptr @realloc(ptr noundef, i64 noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3mapIN7jsonnet8internal8BinaryOpEiSt4lessIS2_ESaISt4pairIKS2_iEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 {
@@ -8596,7 +8593,7 @@ define linkonce_odr void @_ZSt16forward_as_tupleIJN7jsonnet8internal8BinaryOpEEE
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeIN7jsonnet8internal8BinaryOpESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE11lower_boundERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 {
@@ -9301,10 +9298,10 @@ define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nodeISt4pa
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #17
+declare void @_ZSt28__throw_bad_array_new_lengthv() #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #17
+declare void @_ZSt17__throw_bad_allocv() #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKN7jsonnet8internal8BinaryOpEiEEEE9constructIS6_JRKSt21piecewise_construct_tSt5tupleIJOS4_EESE_IJEEEEEvRS8_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) #4 comdat align 2 {
@@ -9761,10 +9758,10 @@ define linkonce_odr void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tre
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #12
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #11
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #12
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeIN7jsonnet8internal8BinaryOpESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSD_PSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #4 comdat align 2 {
@@ -14681,7 +14678,7 @@ define internal noundef i32 @_ZL8try_pathRKNSt7__cxx1112basic_stringIcSt11char_t
 
 90:                                               ; preds = %86
   %91 = load i32, ptr %14, align 4
-  %92 = call i32 @llvm.eh.typeid.for(ptr @_ZTINSt8ios_base7failureB5cxx11E) #3
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTINSt8ios_base7failureB5cxx11E) #3
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %130
 
@@ -15351,7 +15348,7 @@ define linkonce_odr noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11ch
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #17
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 comdat {
@@ -16573,7 +16570,8 @@ define internal void @_ZN12_GLOBAL__N_115ReEscapeStringsC2ERN7jsonnet8internal9A
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7jsonnet8internal12CompilerPassC2ERNS0_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(72) %6)
-  store ptr getelementptr inbounds inrange(-16, 312) ({ [41 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115ReEscapeStringsE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [41 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115ReEscapeStringsE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -16767,7 +16765,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN7jsonnet8inte
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #18
+declare void @llvm.trap() #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3mapINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEPKN7jsonnet8internal10IdentifierESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 {
@@ -17730,10 +17728,11 @@ define linkonce_odr void @_ZN7jsonnet8internal12CompilerPassC2ERNS0_9AllocatorE(
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 312) ({ [41 x ptr] }, ptr @_ZTVN7jsonnet8internal12CompilerPassE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.jsonnet::internal::CompilerPass", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [41 x ptr] }, ptr @_ZTVN7jsonnet8internal12CompilerPassE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.jsonnet::internal::CompilerPass", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -20799,7 +20798,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #17
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #5 comdat align 2 {
@@ -26172,6 +26171,9 @@ define internal void @_GLOBAL__sub_I_libjsonnet.cpp() #0 section ".text.startup"
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -26181,16 +26183,16 @@ attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind memory(none) }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #18 = { nounwind memory(none) }
 attributes #19 = { builtin allocsize(0) }
 attributes #20 = { noreturn nounwind }
 attributes #21 = { noreturn }

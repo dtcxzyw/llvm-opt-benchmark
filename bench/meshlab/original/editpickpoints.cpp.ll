@@ -7023,59 +7023,61 @@ define void @_ZN20EditPickPointsPluginC2Ev(ptr noundef nonnull align 8 dereferen
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   invoke void @_ZN8EditToolC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %7 unwind label %16
+          to label %7 unwind label %18
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr] }, ptr @_ZTV20EditPickPointsPlugin, i32 0, i32 0, i32 2), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr] }, ptr @_ZTV20EditPickPointsPlugin, i32 0, i32 1, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.EditPickPointsPlugin, ptr %5, i32 0, i32 2
-  invoke void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %9)
-          to label %10 unwind label %20
+  %8 = getelementptr inbounds { [20 x ptr], [20 x ptr] }, ptr @_ZTV20EditPickPointsPlugin, i32 0, i32 0, i32 2
+  store ptr %8, ptr %5, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds { [20 x ptr], [20 x ptr] }, ptr @_ZTV20EditPickPointsPlugin, i32 0, i32 1, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.EditPickPointsPlugin, ptr %5, i32 0, i32 2
+  invoke void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %11)
+          to label %12 unwind label %22
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds %class.EditPickPointsPlugin, ptr %5, i32 0, i32 3
-  store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds %class.EditPickPointsPlugin, ptr %5, i32 0, i32 4
-  store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds %class.EditPickPointsPlugin, ptr %5, i32 0, i32 6
-  store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %class.EditPickPointsPlugin, ptr %5, i32 0, i32 8
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds %class.EditPickPointsPlugin, ptr %5, i32 0, i32 9
-  store i32 0, ptr %15, align 8
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds %class.EditPickPointsPlugin, ptr %5, i32 0, i32 3
+  store i8 0, ptr %13, align 8
+  %14 = getelementptr inbounds %class.EditPickPointsPlugin, ptr %5, i32 0, i32 4
+  store i8 0, ptr %14, align 1
+  %15 = getelementptr inbounds %class.EditPickPointsPlugin, ptr %5, i32 0, i32 6
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds %class.EditPickPointsPlugin, ptr %5, i32 0, i32 8
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds %class.EditPickPointsPlugin, ptr %5, i32 0, i32 9
+  store i32 0, ptr %17, align 8
   ret void
 
-16:                                               ; preds = %1
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %3, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %4, align 4
-  br label %25
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
+  br label %27
 
-20:                                               ; preds = %7
-  %21 = landingpad { ptr, i32 }
+22:                                               ; preds = %7
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %3, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %4, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN8EditToolD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #3
-  br label %25
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  call void @_ZN8EditToolD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #3
+  br label %27
 
-25:                                               ; preds = %20, %16
+27:                                               ; preds = %22, %18
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  br label %26
+  br label %28
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %3, align 8
-  %28 = load i32, ptr %4, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %3, align 8
+  %30 = load i32, ptr %4, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -7086,7 +7088,8 @@ define linkonce_odr void @_ZN8EditToolC2Ev(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN19MeshLabPluginLoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV8EditTool, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV8EditTool, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

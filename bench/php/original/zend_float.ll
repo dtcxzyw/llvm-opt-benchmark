@@ -26,13 +26,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @zend_init_fpu() #0 {
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 62), align 8
+  %1 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 62
+  store ptr null, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @zend_shutdown_fpu() #0 {
-  store ptr null, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 62), align 8
+  %1 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 62
+  store ptr null, ptr %1, align 8
   ret void
 }
 

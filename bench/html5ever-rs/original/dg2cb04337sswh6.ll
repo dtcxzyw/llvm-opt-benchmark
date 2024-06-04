@@ -1158,50 +1158,51 @@ define available_externally hidden noundef align 8 dereferenceable_or_null(16) p
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds { { ptr, i64 }, { ptr } }, ptr %0, i32 0, i32 1
   %5 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h811edb334e38b6b5E.llvm.9547364939642047668(ptr noundef %4, i8 noundef 2)
-  %6 = icmp eq ptr %5, inttoptr (i64 2 to ptr)
-  br i1 %6, label %8, label %7
-
-7:                                                ; preds = %1
-  store ptr null, ptr %3, align 8
-  br label %13
+  %6 = inttoptr i64 2 to ptr
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %1
+  store ptr null, ptr %3, align 8
+  br label %14
+
+9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr %2)
-  %9 = load ptr, ptr %0, align 8, !noundef !4
-  %10 = ptrtoint ptr %9 to i64
-  %11 = icmp eq i64 %10, 0
-  %12 = select i1 %11, i64 0, i64 1
-  switch i64 %12, label %15 [
-    i64 0, label %16
-    i64 1, label %17
+  %10 = load ptr, ptr %0, align 8, !noundef !4
+  %11 = ptrtoint ptr %10 to i64
+  %12 = icmp eq i64 %11, 0
+  %13 = select i1 %12, i64 0, i64 1
+  switch i64 %13, label %16 [
+    i64 0, label %17
+    i64 1, label %18
   ]
 
-13:                                               ; preds = %18, %7
-  %14 = load ptr, ptr %3, align 8, !align !7, !noundef !4
-  ret ptr %14
+14:                                               ; preds = %19, %8
+  %15 = load ptr, ptr %3, align 8, !align !7, !noundef !4
+  ret ptr %15
 
-15:                                               ; preds = %8
+16:                                               ; preds = %9
   unreachable
 
-16:                                               ; preds = %8
+17:                                               ; preds = %9
   store ptr null, ptr %2, align 8
-  br label %18
+  br label %19
 
-17:                                               ; preds = %8
+18:                                               ; preds = %9
   store ptr %0, ptr %2, align 8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %17, %16
-  %19 = load ptr, ptr %2, align 8, !noundef !4
-  %20 = ptrtoint ptr %19 to i64
-  %21 = icmp eq i64 %20, 0
-  %22 = select i1 %21, i64 0, i64 1
-  %23 = icmp eq i64 %22, 1
-  call void @llvm.assume(i1 %23)
-  %24 = load ptr, ptr %2, align 8, !nonnull !4, !align !7, !noundef !4
+19:                                               ; preds = %18, %17
+  %20 = load ptr, ptr %2, align 8, !noundef !4
+  %21 = ptrtoint ptr %20 to i64
+  %22 = icmp eq i64 %21, 0
+  %23 = select i1 %22, i64 0, i64 1
+  %24 = icmp eq i64 %23, 1
+  call void @llvm.assume(i1 %24)
+  %25 = load ptr, ptr %2, align 8, !nonnull !4, !align !7, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr %2)
-  store ptr %24, ptr %3, align 8
-  br label %13
+  store ptr %25, ptr %3, align 8
+  br label %14
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)

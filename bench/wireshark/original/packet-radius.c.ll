@@ -4265,7 +4265,7 @@ define hidden void @radius_register_avp_dissector(i32 noundef %0, i32 noundef %1
   store i8 %18, ptr %19, align 4
   %20 = load i32, ptr %4, align 4
   %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %84
+  br i1 %21, label %22, label %85
 
 22:                                               ; preds = %16
   %23 = load ptr, ptr @dict, align 8
@@ -4278,7 +4278,7 @@ define hidden void @radius_register_avp_dissector(i32 noundef %0, i32 noundef %1
   store ptr %29, ptr %7, align 8
   %30 = load ptr, ptr %7, align 8
   %31 = icmp ne ptr %30, null
-  br i1 %31, label %73, label %32
+  br i1 %31, label %74, label %32
 
 32:                                               ; preds = %22
   %33 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #10
@@ -4298,130 +4298,134 @@ define hidden void @radius_register_avp_dissector(i32 noundef %0, i32 noundef %1
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %44, i32 0, i32 2
   store ptr %43, ptr %45, align 8
-  %46 = load i32, ptr getelementptr inbounds (%struct._radius_vendor_info_t, ptr @no_vendor, i32 0, i32 3), align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %47, i32 0, i32 3
-  store i32 %46, ptr %48, align 8
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %49, i32 0, i32 4
-  store i32 1, ptr %50, align 4
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %51, i32 0, i32 5
-  store i32 1, ptr %52, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %53, i32 0, i32 6
-  store i32 0, ptr %54, align 4
-  %55 = load ptr, ptr @dict, align 8
-  %56 = getelementptr inbounds %struct._radius_dictionary_t, ptr %55, i32 0, i32 2
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %58, i32 0, i32 1
-  %60 = load i32, ptr %59, align 8
-  %61 = zext i32 %60 to i64
-  %62 = inttoptr i64 %61 to ptr
-  %63 = load ptr, ptr %7, align 8
-  %64 = call i32 @g_hash_table_insert(ptr noundef %57, ptr noundef %62, ptr noundef %63)
-  %65 = load ptr, ptr @dict, align 8
-  %66 = getelementptr inbounds %struct._radius_dictionary_t, ptr %65, i32 0, i32 3
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %68, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %7, align 8
-  %72 = call i32 @g_hash_table_insert(ptr noundef %67, ptr noundef %70, ptr noundef %71)
-  br label %73
+  %46 = getelementptr inbounds %struct._radius_vendor_info_t, ptr @no_vendor, i32 0, i32 3
+  %47 = load i32, ptr %46, align 8
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %48, i32 0, i32 3
+  store i32 %47, ptr %49, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %50, i32 0, i32 4
+  store i32 1, ptr %51, align 4
+  %52 = load ptr, ptr %7, align 8
+  %53 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %52, i32 0, i32 5
+  store i32 1, ptr %53, align 8
+  %54 = load ptr, ptr %7, align 8
+  %55 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %54, i32 0, i32 6
+  store i32 0, ptr %55, align 4
+  %56 = load ptr, ptr @dict, align 8
+  %57 = getelementptr inbounds %struct._radius_dictionary_t, ptr %56, i32 0, i32 2
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %59, i32 0, i32 1
+  %61 = load i32, ptr %60, align 8
+  %62 = zext i32 %61 to i64
+  %63 = inttoptr i64 %62 to ptr
+  %64 = load ptr, ptr %7, align 8
+  %65 = call i32 @g_hash_table_insert(ptr noundef %58, ptr noundef %63, ptr noundef %64)
+  %66 = load ptr, ptr @dict, align 8
+  %67 = getelementptr inbounds %struct._radius_dictionary_t, ptr %66, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %7, align 8
+  %73 = call i32 @g_hash_table_insert(ptr noundef %68, ptr noundef %71, ptr noundef %72)
+  br label %74
 
-73:                                               ; preds = %32, %22
-  %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %74, i32 0, i32 2
-  %76 = load ptr, ptr %75, align 8
-  %77 = load i32, ptr %10, align 4
-  %78 = zext i32 %77 to i64
-  %79 = inttoptr i64 %78 to ptr
-  %80 = call ptr @g_hash_table_lookup(ptr noundef %76, ptr noundef %79)
-  store ptr %80, ptr %8, align 8
-  %81 = load ptr, ptr %7, align 8
-  %82 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %81, i32 0, i32 2
-  %83 = load ptr, ptr %82, align 8
-  store ptr %83, ptr %9, align 8
-  br label %95
+74:                                               ; preds = %32, %22
+  %75 = load ptr, ptr %7, align 8
+  %76 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i32, ptr %10, align 4
+  %79 = zext i32 %78 to i64
+  %80 = inttoptr i64 %79 to ptr
+  %81 = call ptr @g_hash_table_lookup(ptr noundef %77, ptr noundef %80)
+  store ptr %81, ptr %8, align 8
+  %82 = load ptr, ptr %7, align 8
+  %83 = getelementptr inbounds %struct._radius_vendor_info_t, ptr %82, i32 0, i32 2
+  %84 = load ptr, ptr %83, align 8
+  store ptr %84, ptr %9, align 8
+  br label %96
 
-84:                                               ; preds = %16
-  %85 = load ptr, ptr @dict, align 8
-  %86 = getelementptr inbounds %struct._radius_dictionary_t, ptr %85, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = load i32, ptr %10, align 4
-  %89 = zext i32 %88 to i64
-  %90 = inttoptr i64 %89 to ptr
-  %91 = call ptr @g_hash_table_lookup(ptr noundef %87, ptr noundef %90)
-  store ptr %91, ptr %8, align 8
-  %92 = load ptr, ptr @dict, align 8
-  %93 = getelementptr inbounds %struct._radius_dictionary_t, ptr %92, i32 0, i32 0
-  %94 = load ptr, ptr %93, align 8
-  store ptr %94, ptr %9, align 8
-  br label %95
+85:                                               ; preds = %16
+  %86 = load ptr, ptr @dict, align 8
+  %87 = getelementptr inbounds %struct._radius_dictionary_t, ptr %86, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  %89 = load i32, ptr %10, align 4
+  %90 = zext i32 %89 to i64
+  %91 = inttoptr i64 %90 to ptr
+  %92 = call ptr @g_hash_table_lookup(ptr noundef %88, ptr noundef %91)
+  store ptr %92, ptr %8, align 8
+  %93 = load ptr, ptr @dict, align 8
+  %94 = getelementptr inbounds %struct._radius_dictionary_t, ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %9, align 8
+  br label %96
 
-95:                                               ; preds = %84, %73
-  %96 = load ptr, ptr %8, align 8
-  %97 = icmp ne ptr %96, null
-  br i1 %97, label %135, label %98
+96:                                               ; preds = %85, %74
+  %97 = load ptr, ptr %8, align 8
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %139, label %99
 
-98:                                               ; preds = %95
-  %99 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 80) #10
-  store ptr %99, ptr %8, align 8
-  %100 = load i32, ptr %10, align 4
-  %101 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.58, i32 noundef %100)
-  %102 = load ptr, ptr %8, align 8
-  %103 = getelementptr inbounds %struct._radius_attr_info_t, ptr %102, i32 0, i32 0
-  store ptr %101, ptr %103, align 8
-  %104 = load ptr, ptr %8, align 8
-  %105 = getelementptr inbounds %struct._radius_attr_info_t, ptr %104, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %105, ptr align 4 %10, i64 4, i1 false)
-  %106 = load ptr, ptr %8, align 8
-  %107 = getelementptr inbounds %struct._radius_attr_info_t, ptr %106, i32 0, i32 2
-  store i32 0, ptr %107, align 4
-  %108 = load ptr, ptr %8, align 8
-  %109 = getelementptr inbounds %struct._radius_attr_info_t, ptr %108, i32 0, i32 4
-  store ptr null, ptr %109, align 8
-  %110 = load ptr, ptr %8, align 8
-  %111 = getelementptr inbounds %struct._radius_attr_info_t, ptr %110, i32 0, i32 6
-  store ptr null, ptr %111, align 8
-  %112 = load i32, ptr getelementptr inbounds (%struct._radius_attr_info_t, ptr @no_dictionary_entry, i32 0, i32 8), align 4
-  %113 = load ptr, ptr %8, align 8
-  %114 = getelementptr inbounds %struct._radius_attr_info_t, ptr %113, i32 0, i32 8
-  store i32 %112, ptr %114, align 4
+99:                                               ; preds = %96
+  %100 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 80) #10
+  store ptr %100, ptr %8, align 8
+  %101 = load i32, ptr %10, align 4
+  %102 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.58, i32 noundef %101)
+  %103 = load ptr, ptr %8, align 8
+  %104 = getelementptr inbounds %struct._radius_attr_info_t, ptr %103, i32 0, i32 0
+  store ptr %102, ptr %104, align 8
+  %105 = load ptr, ptr %8, align 8
+  %106 = getelementptr inbounds %struct._radius_attr_info_t, ptr %105, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %106, ptr align 4 %10, i64 4, i1 false)
+  %107 = load ptr, ptr %8, align 8
+  %108 = getelementptr inbounds %struct._radius_attr_info_t, ptr %107, i32 0, i32 2
+  store i32 0, ptr %108, align 4
+  %109 = load ptr, ptr %8, align 8
+  %110 = getelementptr inbounds %struct._radius_attr_info_t, ptr %109, i32 0, i32 4
+  store ptr null, ptr %110, align 8
+  %111 = load ptr, ptr %8, align 8
+  %112 = getelementptr inbounds %struct._radius_attr_info_t, ptr %111, i32 0, i32 6
+  store ptr null, ptr %112, align 8
+  %113 = getelementptr inbounds %struct._radius_attr_info_t, ptr @no_dictionary_entry, i32 0, i32 8
+  %114 = load i32, ptr %113, align 4
   %115 = load ptr, ptr %8, align 8
-  %116 = getelementptr inbounds %struct._radius_attr_info_t, ptr %115, i32 0, i32 3
-  store i32 0, ptr %116, align 8
+  %116 = getelementptr inbounds %struct._radius_attr_info_t, ptr %115, i32 0, i32 8
+  store i32 %114, ptr %116, align 4
   %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds %struct._radius_attr_info_t, ptr %117, i32 0, i32 11
-  store i32 -1, ptr %118, align 8
-  %119 = load i32, ptr getelementptr inbounds (%struct._radius_attr_info_t, ptr @no_dictionary_entry, i32 0, i32 12), align 4
-  %120 = load ptr, ptr %8, align 8
-  %121 = getelementptr inbounds %struct._radius_attr_info_t, ptr %120, i32 0, i32 12
-  store i32 %119, ptr %121, align 4
-  %122 = load i32, ptr getelementptr inbounds (%struct._radius_attr_info_t, ptr @no_dictionary_entry, i32 0, i32 7), align 8
+  %118 = getelementptr inbounds %struct._radius_attr_info_t, ptr %117, i32 0, i32 3
+  store i32 0, ptr %118, align 8
+  %119 = load ptr, ptr %8, align 8
+  %120 = getelementptr inbounds %struct._radius_attr_info_t, ptr %119, i32 0, i32 11
+  store i32 -1, ptr %120, align 8
+  %121 = getelementptr inbounds %struct._radius_attr_info_t, ptr @no_dictionary_entry, i32 0, i32 12
+  %122 = load i32, ptr %121, align 4
   %123 = load ptr, ptr %8, align 8
-  %124 = getelementptr inbounds %struct._radius_attr_info_t, ptr %123, i32 0, i32 7
-  store i32 %122, ptr %124, align 8
-  %125 = load ptr, ptr %8, align 8
-  %126 = getelementptr inbounds %struct._radius_attr_info_t, ptr %125, i32 0, i32 13
-  store ptr null, ptr %126, align 8
-  %127 = load ptr, ptr %9, align 8
-  %128 = load ptr, ptr %8, align 8
-  %129 = getelementptr inbounds %struct._radius_attr_info_t, ptr %128, i32 0, i32 1
-  %130 = load i32, ptr %129, align 8
-  %131 = zext i32 %130 to i64
-  %132 = inttoptr i64 %131 to ptr
-  %133 = load ptr, ptr %8, align 8
-  %134 = call i32 @g_hash_table_insert(ptr noundef %127, ptr noundef %132, ptr noundef %133)
-  br label %135
-
-135:                                              ; preds = %98, %95
-  %136 = load ptr, ptr %6, align 8
+  %124 = getelementptr inbounds %struct._radius_attr_info_t, ptr %123, i32 0, i32 12
+  store i32 %122, ptr %124, align 4
+  %125 = getelementptr inbounds %struct._radius_attr_info_t, ptr @no_dictionary_entry, i32 0, i32 7
+  %126 = load i32, ptr %125, align 8
+  %127 = load ptr, ptr %8, align 8
+  %128 = getelementptr inbounds %struct._radius_attr_info_t, ptr %127, i32 0, i32 7
+  store i32 %126, ptr %128, align 8
+  %129 = load ptr, ptr %8, align 8
+  %130 = getelementptr inbounds %struct._radius_attr_info_t, ptr %129, i32 0, i32 13
+  store ptr null, ptr %130, align 8
+  %131 = load ptr, ptr %9, align 8
+  %132 = load ptr, ptr %8, align 8
+  %133 = getelementptr inbounds %struct._radius_attr_info_t, ptr %132, i32 0, i32 1
+  %134 = load i32, ptr %133, align 8
+  %135 = zext i32 %134 to i64
+  %136 = inttoptr i64 %135 to ptr
   %137 = load ptr, ptr %8, align 8
-  %138 = getelementptr inbounds %struct._radius_attr_info_t, ptr %137, i32 0, i32 5
-  store ptr %136, ptr %138, align 8
+  %138 = call i32 @g_hash_table_insert(ptr noundef %131, ptr noundef %136, ptr noundef %137)
+  br label %139
+
+139:                                              ; preds = %99, %96
+  %140 = load ptr, ptr %6, align 8
+  %141 = load ptr, ptr %8, align 8
+  %142 = getelementptr inbounds %struct._radius_attr_info_t, ptr %141, i32 0, i32 5
+  store ptr %140, ptr %142, align 8
   ret void
 }
 

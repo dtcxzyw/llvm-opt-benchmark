@@ -229,47 +229,48 @@ define internal noundef zeroext i1 @mac_hid_emumouse_filter(ptr nocapture readno
 define internal i32 @mac_hid_emumouse_connect(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #2 align 16 {
   %4 = load ptr, ptr @mac_hid_emumouse_dev, align 8
   %5 = icmp eq ptr %4, %1
-  br i1 %5, label %25, label %6
+  br i1 %5, label %26, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %8 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 72) #6
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %25, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 72) #6
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %26, label %11
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr @.str.5, ptr %13, align 8
-  %14 = tail call i32 @input_register_handle(ptr noundef nonnull %8) #5
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %18, label %16
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr %1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %0, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr @.str.5, ptr %14, align 8
+  %15 = tail call i32 @input_register_handle(ptr noundef nonnull %9) #5
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %19, label %17
 
-16:                                               ; preds = %10
-  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %14) #7
-  br label %23
+17:                                               ; preds = %11
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %15) #7
+  br label %24
 
-18:                                               ; preds = %10
-  %19 = tail call i32 @input_open_device(ptr noundef nonnull %8) #5
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %25, label %21
+19:                                               ; preds = %11
+  %20 = tail call i32 @input_open_device(ptr noundef nonnull %9) #5
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %26, label %22
 
-21:                                               ; preds = %18
-  %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i32 noundef %19) #7
-  tail call void @input_unregister_handle(ptr noundef nonnull %8) #5
-  br label %23
+22:                                               ; preds = %19
+  %23 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i32 noundef %20) #7
+  tail call void @input_unregister_handle(ptr noundef nonnull %9) #5
+  br label %24
 
-23:                                               ; preds = %21, %16
-  %24 = phi i32 [ %14, %16 ], [ %19, %21 ]
-  tail call void @kfree(ptr noundef nonnull %8) #5
-  br label %25
+24:                                               ; preds = %22, %17
+  %25 = phi i32 [ %15, %17 ], [ %20, %22 ]
+  tail call void @kfree(ptr noundef nonnull %9) #5
+  br label %26
 
-25:                                               ; preds = %23, %18, %6, %3
-  %26 = phi i32 [ %24, %23 ], [ -19, %3 ], [ -12, %6 ], [ 0, %18 ]
-  ret i32 %26
+26:                                               ; preds = %24, %19, %6, %3
+  %27 = phi i32 [ %25, %24 ], [ -19, %3 ], [ -12, %6 ], [ 0, %19 ]
+  ret i32 %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

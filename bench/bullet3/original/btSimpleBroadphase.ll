@@ -226,16 +226,17 @@ entry:
   store ptr %overlappingPairCache, ptr %overlappingPairCache.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btBroadphaseInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV18btSimpleBroadphase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV18btSimpleBroadphase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pairCache = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %overlappingPairCache.addr, align 8
-  store ptr %0, ptr %m_pairCache, align 8
+  %1 = load ptr, ptr %overlappingPairCache.addr, align 8
+  store ptr %1, ptr %m_pairCache, align 8
   %m_ownsPairCache = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 8
   store i8 0, ptr %m_ownsPairCache, align 8
   %m_invalidPair = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 9
   store i32 0, ptr %m_invalidPair, align 4
-  %1 = load ptr, ptr %overlappingPairCache.addr, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr %overlappingPairCache.addr, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -244,8 +245,8 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   store ptr %call, ptr %mem, align 8
-  %2 = load ptr, ptr %mem, align 8
-  %call3 = invoke noundef ptr @_ZN28btHashedOverlappingPairCachenwEmPv(i64 noundef 120, ptr noundef %2)
+  %3 = load ptr, ptr %mem, align 8
+  %call3 = invoke noundef ptr @_ZN28btHashedOverlappingPairCachenwEmPv(i64 noundef 120, ptr noundef %3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -260,27 +261,27 @@ invoke.cont5:                                     ; preds = %invoke.cont2
   br label %if.end
 
 lpad:                                             ; preds = %for.end, %for.body, %invoke.cont8, %if.end, %invoke.cont, %if.then
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont2
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  call void @_ZN28btHashedOverlappingPairCachedlEPvS0_(ptr noundef %call3, ptr noundef %2) #9
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
+  call void @_ZN28btHashedOverlappingPairCachedlEPvS0_(ptr noundef %call3, ptr noundef %3) #9
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont5, %entry
-  %9 = load i32, ptr %maxProxies.addr, align 4
-  %conv = sext i32 %9 to i64
+  %10 = load i32, ptr %maxProxies.addr, align 4
+  %conv = sext i32 %10 to i64
   %mul = mul i64 56, %conv
   %call9 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul, i32 noundef 16)
           to label %invoke.cont8 unwind label %lpad
@@ -288,15 +289,15 @@ if.end:                                           ; preds = %invoke.cont5, %entr
 invoke.cont8:                                     ; preds = %if.end
   %m_pHandlesRawPtr = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 5
   store ptr %call9, ptr %m_pHandlesRawPtr, align 8
-  %10 = load i32, ptr %maxProxies.addr, align 4
-  %conv10 = sext i32 %10 to i64
-  %11 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv10, i64 56)
-  %12 = extractvalue { i64, i1 } %11, 1
-  %13 = extractvalue { i64, i1 } %11, 0
-  %14 = select i1 %12, i64 -1, i64 %13
+  %11 = load i32, ptr %maxProxies.addr, align 4
+  %conv10 = sext i32 %11 to i64
+  %12 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv10, i64 56)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = extractvalue { i64, i1 } %12, 0
+  %15 = select i1 %13, i64 -1, i64 %14
   %m_pHandlesRawPtr11 = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 5
-  %15 = load ptr, ptr %m_pHandlesRawPtr11, align 8
-  %call13 = invoke noundef ptr @_ZN17btBroadphaseProxynaEmPv(i64 noundef %14, ptr noundef %15)
+  %16 = load ptr, ptr %m_pHandlesRawPtr11, align 8
+  %call13 = invoke noundef ptr @_ZN17btBroadphaseProxynaEmPv(i64 noundef %15, ptr noundef %16)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont8
@@ -320,9 +321,9 @@ invoke.cont15:                                    ; preds = %arrayctor.loop
 arrayctor.cont:                                   ; preds = %invoke.cont15, %invoke.cont12
   %m_pHandles = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 4
   store ptr %call13, ptr %m_pHandles, align 8
-  %16 = load i32, ptr %maxProxies.addr, align 4
+  %17 = load i32, ptr %maxProxies.addr, align 4
   %m_maxHandles = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 2
-  store i32 %16, ptr %m_maxHandles, align 4
+  store i32 %17, ptr %m_maxHandles, align 4
   %m_numHandles = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numHandles, align 8
   %m_firstFreeHandle = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 6
@@ -330,62 +331,62 @@ arrayctor.cont:                                   ; preds = %invoke.cont15, %inv
   %m_LastHandleIndex = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 3
   store i32 -1, ptr %m_LastHandleIndex, align 8
   %m_firstFreeHandle16 = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 6
-  %17 = load i32, ptr %m_firstFreeHandle16, align 8
-  store i32 %17, ptr %i, align 4
+  %18 = load i32, ptr %m_firstFreeHandle16, align 8
+  store i32 %18, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %arrayctor.cont
-  %18 = load i32, ptr %i, align 4
-  %19 = load i32, ptr %maxProxies.addr, align 4
-  %cmp = icmp slt i32 %18, %19
+  %19 = load i32, ptr %i, align 4
+  %20 = load i32, ptr %maxProxies.addr, align 4
+  %cmp = icmp slt i32 %19, %20
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %m_pHandles17 = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 4
-  %20 = load ptr, ptr %m_pHandles17, align 8
-  %21 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %21 to i64
-  %arrayidx = getelementptr inbounds %struct.btSimpleBroadphaseProxy, ptr %20, i64 %idxprom
+  %21 = load ptr, ptr %m_pHandles17, align 8
   %22 = load i32, ptr %i, align 4
-  %add = add nsw i32 %22, 1
+  %idxprom = sext i32 %22 to i64
+  %arrayidx = getelementptr inbounds %struct.btSimpleBroadphaseProxy, ptr %21, i64 %idxprom
+  %23 = load i32, ptr %i, align 4
+  %add = add nsw i32 %23, 1
   invoke void @_ZN23btSimpleBroadphaseProxy11SetNextFreeEi(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx, i32 noundef %add)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %for.body
-  %23 = load i32, ptr %i, align 4
-  %add19 = add nsw i32 %23, 2
+  %24 = load i32, ptr %i, align 4
+  %add19 = add nsw i32 %24, 2
   %m_pHandles20 = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 4
-  %24 = load ptr, ptr %m_pHandles20, align 8
-  %25 = load i32, ptr %i, align 4
-  %idxprom21 = sext i32 %25 to i64
-  %arrayidx22 = getelementptr inbounds %struct.btSimpleBroadphaseProxy, ptr %24, i64 %idxprom21
+  %25 = load ptr, ptr %m_pHandles20, align 8
+  %26 = load i32, ptr %i, align 4
+  %idxprom21 = sext i32 %26 to i64
+  %arrayidx22 = getelementptr inbounds %struct.btSimpleBroadphaseProxy, ptr %25, i64 %idxprom21
   %m_uniqueId = getelementptr inbounds %struct.btBroadphaseProxy, ptr %arrayidx22, i32 0, i32 3
   store i32 %add19, ptr %m_uniqueId, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont18
-  %26 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %26, 1
+  %27 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %27, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !8
 
 lpad14:                                           ; preds = %arrayctor.loop
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
-  call void @_ZN17btBroadphaseProxydaEPvS0_(ptr noundef %call13, ptr noundef %15) #9
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
+  call void @_ZN17btBroadphaseProxydaEPvS0_(ptr noundef %call13, ptr noundef %16) #9
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.cond
   %m_pHandles23 = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 4
-  %30 = load ptr, ptr %m_pHandles23, align 8
-  %31 = load i32, ptr %maxProxies.addr, align 4
-  %sub = sub nsw i32 %31, 1
+  %31 = load ptr, ptr %m_pHandles23, align 8
+  %32 = load i32, ptr %maxProxies.addr, align 4
+  %sub = sub nsw i32 %32, 1
   %idxprom24 = sext i32 %sub to i64
-  %arrayidx25 = getelementptr inbounds %struct.btSimpleBroadphaseProxy, ptr %30, i64 %idxprom24
+  %arrayidx25 = getelementptr inbounds %struct.btSimpleBroadphaseProxy, ptr %31, i64 %idxprom24
   invoke void @_ZN23btSimpleBroadphaseProxy11SetNextFreeEi(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx25, i32 noundef 0)
           to label %invoke.cont26 unwind label %lpad
 
@@ -410,7 +411,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV21btBroadphaseInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV21btBroadphaseInterface, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -495,28 +497,29 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV18btSimpleBroadphase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV18btSimpleBroadphase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pHandlesRawPtr = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %m_pHandlesRawPtr, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
+  %1 = load ptr, ptr %m_pHandlesRawPtr, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_ownsPairCache = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 8
-  %1 = load i8, ptr %m_ownsPairCache, align 8
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %m_ownsPairCache, align 8
+  %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
   %m_pairCache = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %m_pairCache, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %m_pairCache, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #9
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   %m_pairCache2 = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 7
-  %4 = load ptr, ptr %m_pairCache2, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %4)
+  %5 = load ptr, ptr %m_pairCache2, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %5)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %if.then
@@ -527,10 +530,10 @@ if.end:                                           ; preds = %invoke.cont3, %invo
   ret void
 
 terminate.lpad:                                   ; preds = %if.then, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #10
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #10
   unreachable
 }
 

@@ -60,83 +60,87 @@ define i32 @site_factor_g_init() #0 {
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  br label %41
+  br label %45
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 166), align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %21, label %20
-
-20:                                               ; preds = %17
-  store i32 1, ptr @plugin_inited, align 4
-  br label %41
+  %18 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 166
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %2, align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 166), align 8
-  %24 = call ptr @plugin_context_create(ptr noundef %22, ptr noundef %23, ptr noundef @ops, ptr noundef @syms, i64 noundef 16)
-  store ptr %24, ptr @g_context, align 8
-  %25 = load ptr, ptr @g_context, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %31, label %27
+  store i32 1, ptr @plugin_inited, align 4
+  br label %45
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %2, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 166), align 8
-  %30 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %28, ptr noundef %29)
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 166
+  %25 = load ptr, ptr %24, align 8
+  %26 = call ptr @plugin_context_create(ptr noundef %23, ptr noundef %25, ptr noundef @ops, ptr noundef @syms, i64 noundef 16)
+  store ptr %26, ptr @g_context, align 8
+  %27 = load ptr, ptr @g_context, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %34, label %29
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 166
+  %32 = load ptr, ptr %31, align 8
+  %33 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %30, ptr noundef %32)
   store i32 -1, ptr %1, align 4
   store i32 0, ptr @plugin_inited, align 4
-  br label %41
+  br label %45
 
-31:                                               ; preds = %21
-  br label %32
+34:                                               ; preds = %22
+  br label %35
 
-32:                                               ; preds = %31
-  br label %33
+35:                                               ; preds = %34
+  br label %36
 
-33:                                               ; preds = %32
-  %34 = call i32 @get_log_level()
-  %35 = icmp sge i32 %34, 6
-  br i1 %35, label %36, label %38
+36:                                               ; preds = %35
+  %37 = call i32 @get_log_level()
+  %38 = icmp sge i32 %37, 6
+  br i1 %38, label %39, label %42
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 166), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.4, ptr noundef @__func__.site_factor_g_init, ptr noundef %37)
-  br label %38
-
-38:                                               ; preds = %36, %33
-  br label %39
-
-39:                                               ; preds = %38
-  br label %40
-
-40:                                               ; preds = %39
-  store i32 2, ptr @plugin_inited, align 4
-  br label %41
-
-41:                                               ; preds = %40, %27, %20, %16
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 166
+  %41 = load ptr, ptr %40, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.4, ptr noundef @__func__.site_factor_g_init, ptr noundef %41)
   br label %42
 
-42:                                               ; preds = %41
-  %43 = call i32 @pthread_mutex_unlock(ptr noundef @g_context_lock) #6
-  store i32 %43, ptr %4, align 4
-  %44 = load i32, ptr %4, align 4
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %49
+42:                                               ; preds = %39, %36
+  br label %43
 
-46:                                               ; preds = %42
-  %47 = load i32, ptr %4, align 4
-  %48 = call ptr @__errno_location() #7
-  store i32 %47, ptr %48, align 4
+43:                                               ; preds = %42
+  br label %44
+
+44:                                               ; preds = %43
+  store i32 2, ptr @plugin_inited, align 4
+  br label %45
+
+45:                                               ; preds = %44, %29, %21, %16
+  br label %46
+
+46:                                               ; preds = %45
+  %47 = call i32 @pthread_mutex_unlock(ptr noundef @g_context_lock) #6
+  store i32 %47, ptr %4, align 4
+  %48 = load i32, ptr %4, align 4
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %53
+
+50:                                               ; preds = %46
+  %51 = load i32, ptr %4, align 4
+  %52 = call ptr @__errno_location() #7
+  store i32 %51, ptr %52, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.5, ptr noundef @.str.2, i32 noundef 100, ptr noundef @__func__.site_factor_g_init) #8
   unreachable
 
-49:                                               ; preds = %42
-  br label %50
+53:                                               ; preds = %46
+  br label %54
 
-50:                                               ; preds = %49
-  %51 = load i32, ptr %1, align 4
-  ret i32 %51
+54:                                               ; preds = %53
+  %55 = load i32, ptr %1, align 4
+  ret i32 %55
 }
 
 ; Function Attrs: nounwind
@@ -277,21 +281,22 @@ define void @site_factor_g_update() #0 {
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %0
-  br label %14
+  br label %15
 
 8:                                                ; preds = %0
   %9 = call i32 @gettimeofday(ptr noundef %1, ptr noundef null) #6
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops, ptr @ops, i32 0, i32 1), align 8
-  call void %10()
-  br label %11
+  %10 = getelementptr inbounds %struct.slurm_ops, ptr @ops, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  call void %11()
+  br label %12
 
-11:                                               ; preds = %8
-  %12 = call i32 @gettimeofday(ptr noundef %2, ptr noundef null) #6
-  %13 = getelementptr inbounds [20 x i8], ptr %3, i64 0, i64 0
-  call void @slurm_diff_tv_str(ptr noundef %1, ptr noundef %2, ptr noundef %13, i32 noundef 20, ptr noundef @__func__.site_factor_g_update, i64 noundef 50000, ptr noundef %4)
-  br label %14
+12:                                               ; preds = %8
+  %13 = call i32 @gettimeofday(ptr noundef %2, ptr noundef null) #6
+  %14 = getelementptr inbounds [20 x i8], ptr %3, i64 0, i64 0
+  call void @slurm_diff_tv_str(ptr noundef %1, ptr noundef %2, ptr noundef %14, i32 noundef 20, ptr noundef @__func__.site_factor_g_update, i64 noundef 50000, ptr noundef %4)
+  br label %15
 
-14:                                               ; preds = %11, %7
+15:                                               ; preds = %12, %7
   ret void
 }
 

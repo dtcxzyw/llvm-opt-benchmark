@@ -41185,7 +41185,8 @@ if.end:                                           ; preds = %lor.lhs.false
   %idxprom = zext i32 %3 to i64
   %arrayidx = getelementptr [256 x ptr], ptr %ctrls, i64 0, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
-  %cmp1 = icmp eq ptr %4, inttoptr (i64 65535 to ptr)
+  %5 = inttoptr i64 65535 to ptr
+  %cmp1 = icmp eq ptr %4, %5
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -41193,18 +41194,18 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %5 = load ptr, ptr %subsys.addr, align 8
-  %ctrls4 = getelementptr inbounds %struct.NvmeSubsystem, ptr %5, i32 0, i32 4
-  %6 = load i32, ptr %cntlid.addr, align 4
-  %idxprom5 = zext i32 %6 to i64
+  %6 = load ptr, ptr %subsys.addr, align 8
+  %ctrls4 = getelementptr inbounds %struct.NvmeSubsystem, ptr %6, i32 0, i32 4
+  %7 = load i32, ptr %cntlid.addr, align 4
+  %idxprom5 = zext i32 %7 to i64
   %arrayidx6 = getelementptr [256 x ptr], ptr %ctrls4, i64 0, i64 %idxprom5
-  %7 = load ptr, ptr %arrayidx6, align 8
-  store ptr %7, ptr %retval, align 8
+  %8 = load ptr, ptr %arrayidx6, align 8
+  store ptr %8, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %9 = load ptr, ptr %retval, align 8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

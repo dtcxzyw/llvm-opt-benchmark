@@ -1524,7 +1524,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix51Pool_fres
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2256,7 +2257,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix34Pool_fres
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34Pool_freshPoolCanGetAResource_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34Pool_freshPoolCanGetAResource_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3405,7 +3407,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix34Pool_capa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34Pool_capacityCanBeIncremented_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34Pool_capacityCanBeIncremented_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3858,7 +3861,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix34Pool_capa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34Pool_capacityCanBeDecremented_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34Pool_capacityCanBeDecremented_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4311,7 +4315,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix42Pool_flus
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42Pool_flushBadDropsOutOfScopeResources_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42Pool_flushBadDropsOutOfScopeResources_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4863,7 +4868,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix23Pool_reus
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23Pool_reuseResource_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23Pool_reuseResource_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5262,7 +5268,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32Pool_badR
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32Pool_badResourceIsNotReused_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32Pool_badResourceIsNotReused_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6721,7 +6728,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6801,7 +6809,8 @@ define linkonce_odr void @_ZN3nix51Pool_freshPoolHasZeroCountAndSpecifiedCapacit
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix51Pool_freshPoolHasZeroCountAndSpecifiedCapacity_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7310,7 +7319,8 @@ define linkonce_odr void @_ZN3nix34Pool_freshPoolCanGetAResource_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34Pool_freshPoolCanGetAResource_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix34Pool_freshPoolCanGetAResource_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7370,7 +7380,8 @@ define linkonce_odr void @_ZN3nix34Pool_capacityCanBeIncremented_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34Pool_capacityCanBeIncremented_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix34Pool_capacityCanBeIncremented_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7430,7 +7441,8 @@ define linkonce_odr void @_ZN3nix34Pool_capacityCanBeDecremented_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34Pool_capacityCanBeDecremented_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix34Pool_capacityCanBeDecremented_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7490,7 +7502,8 @@ define linkonce_odr void @_ZN3nix42Pool_flushBadDropsOutOfScopeResources_TestC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix42Pool_flushBadDropsOutOfScopeResources_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix42Pool_flushBadDropsOutOfScopeResources_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7550,7 +7563,8 @@ define linkonce_odr void @_ZN3nix23Pool_reuseResource_TestC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix23Pool_reuseResource_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix23Pool_reuseResource_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7610,7 +7624,8 @@ define linkonce_odr void @_ZN3nix32Pool_badResourceIsNotReused_TestC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix32Pool_badResourceIsNotReused_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN3nix32Pool_badResourceIsNotReused_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8107,32 +8122,33 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix12TestResourceESaI
   store ptr %0, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix12TestResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix12TestResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 4 dereferenceable(12) %7) #3
-  %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix12TestResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3nix12TestResourceEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %8)
-          to label %9 unwind label %10
-
-9:                                                ; preds = %1
-  ret void
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix12TestResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix12TestResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 4 dereferenceable(12) %8) #3
+  %9 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix12TestResourceESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3nix12TestResourceEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %9)
+          to label %10 unwind label %11
 
 10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %4, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %5, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  br label %14
+  ret void
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %4, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %5, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  br label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8
+  %17 = load i32, ptr %5, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8287,11 +8303,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 

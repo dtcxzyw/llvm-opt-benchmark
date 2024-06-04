@@ -1546,22 +1546,23 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #14
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTVN7rocksdb25CacheWithSecondaryAdapterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTVN7rocksdb25CacheWithSecondaryAdapterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %secondary_cache_ = getelementptr inbounds %"class.rocksdb::CacheWithSecondaryAdapter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %secondary_cache_, ptr noundef nonnull align 8 dereferenceable(16) %secondary_cache) #14
   %adm_policy_ = getelementptr inbounds %"class.rocksdb::CacheWithSecondaryAdapter", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %adm_policy.addr, align 4
-  store i32 %0, ptr %adm_policy_, align 8
+  %1 = load i32, ptr %adm_policy.addr, align 4
+  store i32 %1, ptr %adm_policy_, align 8
   %distribute_cache_res_ = getelementptr inbounds %"class.rocksdb::CacheWithSecondaryAdapter", ptr %this1, i32 0, i32 3
-  %1 = load i8, ptr %distribute_cache_res.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %distribute_cache_res.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %distribute_cache_res_, align 4
   %pri_cache_res_ = getelementptr inbounds %"class.rocksdb::CacheWithSecondaryAdapter", ptr %this1, i32 0, i32 4
   call void @_ZNSt10shared_ptrIN7rocksdb33ConcurrentCacheReservationManagerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pri_cache_res_) #14
   %cache_res_mutex_ = getelementptr inbounds %"class.rocksdb::CacheWithSecondaryAdapter", ptr %this1, i32 0, i32 6
-  %2 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
-  %tobool3 = trunc i8 %2 to i1
+  %3 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
+  %tobool3 = trunc i8 %3 to i1
   invoke void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %cache_res_mutex_, i1 noundef zeroext %tobool3)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -1574,8 +1575,8 @@ invoke.cont5:                                     ; preds = %invoke.cont
   store i64 0, ptr %sec_reserved_, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::CacheWrapper", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %target_) #14
-  %3 = getelementptr inbounds %class.anon, ptr %ref.tmp6, i32 0, i32 0
-  store ptr %this1, ptr %3, align 8
+  %4 = getelementptr inbounds %class.anon, ptr %ref.tmp6, i32 0, i32 0
+  store ptr %this1, ptr %4, align 8
   call void @"_ZNSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEC2IZNS0_25CacheWithSecondaryAdapterC1ESt10shared_ptrIS4_ESB_INS0_14SecondaryCacheEENS0_21TieredAdmissionPolicyEbE3$_0vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6) #14
   invoke void @_ZN7rocksdb5Cache19SetEvictionCallbackEOSt8functionIFbRKNS_5SliceEPNS0_6HandleEbEE(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont8 unwind label %lpad7
@@ -1583,8 +1584,8 @@ invoke.cont5:                                     ; preds = %invoke.cont
 invoke.cont8:                                     ; preds = %invoke.cont5
   call void @_ZNSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   %distribute_cache_res_9 = getelementptr inbounds %"class.rocksdb::CacheWithSecondaryAdapter", ptr %this1, i32 0, i32 3
-  %4 = load i8, ptr %distribute_cache_res_9, align 4
-  %tobool10 = trunc i8 %4 to i1
+  %5 = load i8, ptr %distribute_cache_res_9, align 4
+  %tobool10 = trunc i8 %5 to i1
   br i1 %tobool10, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont8
@@ -1606,31 +1607,31 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   %call21 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN7rocksdb14SecondaryCacheELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %secondary_cache_20) #14
   %vtable = load ptr, ptr %call21, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
-  %5 = load ptr, ptr %vfn, align 8
-  invoke void %5(ptr sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 8 dereferenceable(32) %call21, ptr noundef nonnull align 8 dereferenceable(8) %sec_capacity)
+  %6 = load ptr, ptr %vfn, align 8
+  invoke void %6(ptr sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 8 dereferenceable(32) %call21, ptr noundef nonnull align 8 dereferenceable(8) %sec_capacity)
           to label %invoke.cont22 unwind label %lpad14
 
 invoke.cont22:                                    ; preds = %invoke.cont17
   %pri_cache_res_24 = getelementptr inbounds %"class.rocksdb::CacheWithSecondaryAdapter", ptr %this1, i32 0, i32 4
   %call25 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN7rocksdb33ConcurrentCacheReservationManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %pri_cache_res_24) #14
-  %6 = load i64, ptr %sec_capacity, align 8
+  %7 = load i64, ptr %sec_capacity, align 8
   %vtable26 = load ptr, ptr %call25, align 8
   %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 2
-  %7 = load ptr, ptr %vfn27, align 8
-  invoke void %7(ptr sret(%"class.rocksdb::Status") align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(80) %call25, i64 noundef %6)
+  %8 = load ptr, ptr %vfn27, align 8
+  invoke void %8(ptr sret(%"class.rocksdb::Status") align 8 %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(80) %call25, i64 noundef %7)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont22
   %call30 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb6StatusaSEOS0_(ptr noundef nonnull align 8 dereferenceable(16) %s, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #14
   call void @_ZN7rocksdb6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23) #14
-  %8 = load i64, ptr %sec_capacity, align 8
-  %conv = uitofp i64 %8 to double
+  %9 = load i64, ptr %sec_capacity, align 8
+  %conv = uitofp i64 %9 to double
   %target_31 = getelementptr inbounds %"class.rocksdb::CacheWrapper", ptr %this1, i32 0, i32 1
   %call32 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %target_31) #14
   %vtable33 = load ptr, ptr %call32, align 8
   %vfn34 = getelementptr inbounds ptr, ptr %vtable33, i64 14
-  %9 = load ptr, ptr %vfn34, align 8
-  %call36 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(56) %call32)
+  %10 = load ptr, ptr %vfn34, align 8
+  %call36 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %call32)
           to label %invoke.cont35 unwind label %lpad28
 
 invoke.cont35:                                    ; preds = %invoke.cont29
@@ -1642,60 +1643,60 @@ invoke.cont35:                                    ; preds = %invoke.cont29
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #14
   br label %eh.resume
 
 lpad4:                                            ; preds = %invoke.cont
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup38
 
 lpad7:                                            ; preds = %invoke.cont5
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZNSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %ehcleanup
 
 lpad14:                                           ; preds = %invoke.cont17, %if.then
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad16:                                           ; preds = %invoke.cont15
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12) #14
   br label %ehcleanup
 
 lpad28:                                           ; preds = %invoke.cont29, %invoke.cont22
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %s) #14
   br label %ehcleanup
 
@@ -1750,18 +1751,19 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #14
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTVN7rocksdb12CacheWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTVN7rocksdb12CacheWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::CacheWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb5CacheEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %target_, ptr noundef nonnull align 8 dereferenceable(16) %target) #14
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #14
   br label %eh.resume
 
@@ -2074,7 +2076,8 @@ entry:
   %ref.tmp = alloca %"class.std::function", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTVN7rocksdb25CacheWithSecondaryAdapterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTVN7rocksdb25CacheWithSecondaryAdapterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::CacheWrapper", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %target_) #14
   call void @_ZNSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
@@ -2093,10 +2096,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -2673,28 +2676,30 @@ if.end:                                           ; preds = %if.then, %entry
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb10perf_levelE() #6 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb10perf_levelE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  ret ptr %4
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() #6 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb12perf_contextE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5412,10 +5417,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7rocksdb19ShardedCacheOptionsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(68) %this1, ptr noundef nonnull align 8 dereferenceable(68) %1) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb15LRUCacheOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb15LRUCacheOptionsE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %high_pri_pool_ratio = getelementptr inbounds %"struct.rocksdb::LRUCacheOptions", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %.addr, align 8
-  %high_pri_pool_ratio2 = getelementptr inbounds %"struct.rocksdb::LRUCacheOptions", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %.addr, align 8
+  %high_pri_pool_ratio2 = getelementptr inbounds %"struct.rocksdb::LRUCacheOptions", ptr %3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %high_pri_pool_ratio, ptr align 8 %high_pri_pool_ratio2, i64 17, i1 false)
   ret void
 }
@@ -5492,10 +5498,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7rocksdb19ShardedCacheOptionsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(68) %this1, ptr noundef nonnull align 8 dereferenceable(68) %1) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb22HyperClockCacheOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb22HyperClockCacheOptionsE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %estimated_entry_charge = getelementptr inbounds %"struct.rocksdb::HyperClockCacheOptions", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %.addr, align 8
-  %estimated_entry_charge2 = getelementptr inbounds %"struct.rocksdb::HyperClockCacheOptions", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %.addr, align 8
+  %estimated_entry_charge2 = getelementptr inbounds %"struct.rocksdb::HyperClockCacheOptions", ptr %3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %estimated_entry_charge, ptr align 8 %estimated_entry_charge2, i64 20, i1 false)
   ret void
 }
@@ -6181,7 +6188,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTVN7rocksdb5CacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTVN7rocksdb5CacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %memory_allocator_ = getelementptr inbounds %"class.rocksdb::Cache", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %memory_allocator_, ptr noundef nonnull align 8 dereferenceable(16) %allocator) #14
   %eviction_callback_ = getelementptr inbounds %"class.rocksdb::Cache", ptr %this1, i32 0, i32 2
@@ -6205,7 +6213,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTVN7rocksdb12CacheWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTVN7rocksdb12CacheWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::CacheWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %target_) #14
   call void @_ZN7rocksdb5CacheD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #14
@@ -7420,7 +7429,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTVN7rocksdb5CacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTVN7rocksdb5CacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %eviction_callback_ = getelementptr inbounds %"class.rocksdb::Cache", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %eviction_callback_) #14
   %memory_allocator_ = getelementptr inbounds %"class.rocksdb::Cache", ptr %this1, i32 0, i32 1
@@ -7805,10 +7815,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN7rocksdb15LRUCacheOptionsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(89) %this1, ptr noundef nonnull align 8 dereferenceable(89) %1) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb31CompressedSecondaryCacheOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb31CompressedSecondaryCacheOptionsE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %compression_type = getelementptr inbounds %"struct.rocksdb::CompressedSecondaryCacheOptions", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %compression_type2 = getelementptr inbounds %"struct.rocksdb::CompressedSecondaryCacheOptions", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %compression_type2 = getelementptr inbounds %"struct.rocksdb::CompressedSecondaryCacheOptions", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %compression_type, ptr align 1 %compression_type2, i64 23, i1 false)
   ret void
 }
@@ -7855,29 +7866,30 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb19ShardedCacheOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb19ShardedCacheOptionsE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %capacity = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %capacity2 = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %.addr, align 8
+  %capacity2 = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %2, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %capacity, ptr align 8 %capacity2, i64 13, i1 false)
   %memory_allocator = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %.addr, align 8
-  %memory_allocator3 = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %2, i32 0, i32 5
+  %3 = load ptr, ptr %.addr, align 8
+  %memory_allocator3 = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %3, i32 0, i32 5
   call void @_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %memory_allocator, ptr noundef nonnull align 8 dereferenceable(16) %memory_allocator3) #14
   %metadata_charge_policy = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %this1, i32 0, i32 6
-  %3 = load ptr, ptr %.addr, align 8
-  %metadata_charge_policy4 = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %3, i32 0, i32 6
-  %4 = load i32, ptr %metadata_charge_policy4, align 8
-  store i32 %4, ptr %metadata_charge_policy, align 8
+  %4 = load ptr, ptr %.addr, align 8
+  %metadata_charge_policy4 = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %4, i32 0, i32 6
+  %5 = load i32, ptr %metadata_charge_policy4, align 8
+  store i32 %5, ptr %metadata_charge_policy, align 8
   %secondary_cache = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %this1, i32 0, i32 8
-  %5 = load ptr, ptr %.addr, align 8
-  %secondary_cache5 = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %5, i32 0, i32 8
+  %6 = load ptr, ptr %.addr, align 8
+  %secondary_cache5 = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %6, i32 0, i32 8
   call void @_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %secondary_cache, ptr noundef nonnull align 8 dereferenceable(16) %secondary_cache5) #14
   %hash_seed = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %this1, i32 0, i32 9
-  %6 = load ptr, ptr %.addr, align 8
-  %hash_seed6 = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %6, i32 0, i32 9
-  %7 = load i32, ptr %hash_seed6, align 8
-  store i32 %7, ptr %hash_seed, align 8
+  %7 = load ptr, ptr %.addr, align 8
+  %hash_seed6 = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %7, i32 0, i32 9
+  %8 = load i32, ptr %hash_seed6, align 8
+  store i32 %8, ptr %hash_seed, align 8
   ret void
 }
 
@@ -7911,7 +7923,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb19ShardedCacheOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb19ShardedCacheOptionsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %secondary_cache = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %this1, i32 0, i32 8
   call void @_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %secondary_cache) #14
   %memory_allocator = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %this1, i32 0, i32 5
@@ -9067,24 +9080,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(104) %_M_impl) #14
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb27CacheReservationManagerImplILNS0_14CacheEntryRoleE13EEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %this1) #14
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN7rocksdb27CacheReservationManagerImplILNS3_14CacheEntryRoleE13EEEJRSt10shared_ptrINS3_5CacheEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN7rocksdb27CacheReservationManagerImplILNS3_14CacheEntryRoleE13EEEJRSt10shared_ptrINS3_5CacheEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #14
   br label %eh.resume
 
@@ -9271,7 +9285,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -10167,24 +10182,25 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb33ConcurrentCacheReservationManagerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb33ConcurrentCacheReservationManagerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.67", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb33ConcurrentCacheReservationManagerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(80) %_M_impl) #14
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb33ConcurrentCacheReservationManagerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(96) %this1) #14
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN7rocksdb33ConcurrentCacheReservationManagerEJSt10shared_ptrINS3_27CacheReservationManagerImplILNS3_14CacheEntryRoleE13EEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN7rocksdb33ConcurrentCacheReservationManagerEJSt10shared_ptrINS3_27CacheReservationManagerImplILNS3_14CacheEntryRoleE13EEEEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #14
   br label %eh.resume
 
@@ -10532,7 +10548,8 @@ entry:
   call void @_ZN7rocksdb23CacheReservationManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZNSt23enable_shared_from_thisIN7rocksdb33ConcurrentCacheReservationManagerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb33ConcurrentCacheReservationManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7rocksdb33ConcurrentCacheReservationManagerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %cache_res_mgr_mu_ = getelementptr inbounds %"class.rocksdb::ConcurrentCacheReservationManager", ptr %this1, i32 0, i32 2
   call void @_ZNSt5mutexC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %cache_res_mgr_mu_) #14
   %cache_res_mgr_ = getelementptr inbounds %"class.rocksdb::ConcurrentCacheReservationManager", ptr %this1, i32 0, i32 3
@@ -10583,7 +10600,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb23CacheReservationManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7rocksdb23CacheReservationManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10637,11 +10655,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb33ConcurrentCacheReservationManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7rocksdb33ConcurrentCacheReservationManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cache_res_mgr_ = getelementptr inbounds %"class.rocksdb::ConcurrentCacheReservationManager", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIN7rocksdb23CacheReservationManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cache_res_mgr_) #14
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZNSt23enable_shared_from_thisIN7rocksdb33ConcurrentCacheReservationManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
+  %1 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZNSt23enable_shared_from_thisIN7rocksdb33ConcurrentCacheReservationManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   call void @_ZN7rocksdb23CacheReservationManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
   ret void
 }
@@ -11499,7 +11518,8 @@ entry:
   store ptr %cache_res_handle, ptr %cache_res_handle.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb23CacheReservationManager22CacheReservationHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb33ConcurrentCacheReservationManager22CacheReservationHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb33ConcurrentCacheReservationManager22CacheReservationHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cache_res_mgr_ = getelementptr inbounds %"class.rocksdb::ConcurrentCacheReservationManager::CacheReservationHandle", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb33ConcurrentCacheReservationManagerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cache_res_mgr_) #14
   %cache_res_handle_ = getelementptr inbounds %"class.rocksdb::ConcurrentCacheReservationManager::CacheReservationHandle", ptr %this1, i32 0, i32 2
@@ -11926,7 +11946,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -11941,7 +11962,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12020,7 +12042,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb23CacheReservationManager22CacheReservationHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb23CacheReservationManager22CacheReservationHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12059,7 +12082,8 @@ entry:
   %lock = alloca %"class.std::lock_guard", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb33ConcurrentCacheReservationManager22CacheReservationHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7rocksdb33ConcurrentCacheReservationManager22CacheReservationHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cache_res_mgr_ = getelementptr inbounds %"class.rocksdb::ConcurrentCacheReservationManager::CacheReservationHandle", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN7rocksdb33ConcurrentCacheReservationManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %cache_res_mgr_) #14
   %cache_res_mgr_mu_ = getelementptr inbounds %"class.rocksdb::ConcurrentCacheReservationManager", ptr %call, i32 0, i32 2
@@ -12078,10 +12102,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -14293,26 +14317,27 @@ entry:
   store ptr %__args3, ptr %__args.addr4, align 8
   %this5 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this5) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb20TieredSecondaryCacheESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this5, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb20TieredSecondaryCacheESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this5, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.87", ptr %this5, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb20TieredSecondaryCacheESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(80) %_M_impl) #14
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb20TieredSecondaryCacheESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(96) %this5) #14
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN7rocksdb20TieredSecondaryCacheEJRSt10shared_ptrINS3_14SecondaryCacheEES8_NS3_21TieredAdmissionPolicyEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN7rocksdb20TieredSecondaryCacheEJRSt10shared_ptrINS3_14SecondaryCacheEES8_NS3_21TieredAdmissionPolicyEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this5) #14
   br label %eh.resume
 
@@ -14674,7 +14699,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #14
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN7rocksdb20TieredSecondaryCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN7rocksdb20TieredSecondaryCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %comp_sec_cache_ = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %comp_sec_cache_) #14
   %nvm_sec_cache_ = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache", ptr %this1, i32 0, i32 2
@@ -14682,12 +14708,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #14
   br label %eh.resume
 
@@ -14708,7 +14734,8 @@ entry:
   store ptr %target, ptr %target.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb14SecondaryCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #14
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN7rocksdb21SecondaryCacheWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN7rocksdb21SecondaryCacheWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::SecondaryCacheWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %target_, ptr noundef nonnull align 8 dereferenceable(16) %target) #14
   ret void
@@ -14721,7 +14748,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12CustomizableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #14
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN7rocksdb14SecondaryCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN7rocksdb14SecondaryCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14731,7 +14759,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN7rocksdb21SecondaryCacheWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [31 x ptr] }, ptr @_ZTVN7rocksdb21SecondaryCacheWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::SecondaryCacheWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %target_) #14
   call void @_ZN7rocksdb14SecondaryCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #14
@@ -15237,7 +15266,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12ConfigurableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #14
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN7rocksdb12CustomizableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN7rocksdb12CustomizableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15318,7 +15348,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #14
   ret void
@@ -15405,7 +15436,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #14
   ret void
@@ -16551,27 +16583,28 @@ entry:
   store ptr %__args5, ptr %__args.addr6, align 8
   %this7 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this7) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb25CacheWithSecondaryAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this7, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb25CacheWithSecondaryAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this7, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.94", ptr %this7, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb25CacheWithSecondaryAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(184) %_M_impl) #14
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb25CacheWithSecondaryAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(200) %this7) #14
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN7rocksdb25CacheWithSecondaryAdapterEJRSt10shared_ptrINS3_5CacheEERS5_INS3_14SecondaryCacheEERNS3_21TieredAdmissionPolicyEbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN7rocksdb25CacheWithSecondaryAdapterEJRSt10shared_ptrINS3_5CacheEERS5_INS3_14SecondaryCacheEERNS3_21TieredAdmissionPolicyEbEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this7) #14
   br label %eh.resume
 

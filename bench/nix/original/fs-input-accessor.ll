@@ -2881,32 +2881,33 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorE
   store ptr %0, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(200) %7) #3
-  %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(216) %6) #3
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3nix15FSInputAccessorEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %8)
-          to label %9 unwind label %10
-
-9:                                                ; preds = %1
-  ret void
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(200) %8) #3
+  %9 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(216) %6) #3
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3nix15FSInputAccessorEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %9)
+          to label %10 unwind label %11
 
 10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %4, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %5, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  br label %14
+  ret void
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %4, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %5, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  br label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8
+  %17 = load i32, ptr %5, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3061,11 +3062,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -3252,37 +3254,43 @@ define linkonce_odr void @_ZN3nix15FSInputAccessorC1Ev(ptr noundef nonnull align
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 120
   call void @_ZN3nix14SourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6)
-  call void @_ZN3nix13InputAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef getelementptr inbounds ([7 x ptr], ptr @_ZTTN3nix15FSInputAccessorE, i64 0, i64 1)) #3
-  %7 = getelementptr inbounds i8, ptr %5, i64 64
-  invoke void @_ZN3nix19PosixSourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef getelementptr inbounds ([7 x ptr], ptr @_ZTTN3nix15FSInputAccessorE, i64 0, i64 3))
-          to label %8 unwind label %11
+  %7 = getelementptr inbounds [7 x ptr], ptr @_ZTTN3nix15FSInputAccessorE, i64 0, i64 1
+  call void @_ZN3nix13InputAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %7) #3
+  %8 = getelementptr inbounds i8, ptr %5, i64 64
+  %9 = getelementptr inbounds [7 x ptr], ptr @_ZTTN3nix15FSInputAccessorE, i64 0, i64 3
+  invoke void @_ZN3nix19PosixSourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %9)
+          to label %10 unwind label %16
 
-8:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 120
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 2, i32 12), ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 1, i32 3), ptr %10, align 8
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds { [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 0, i32 3
+  store ptr %11, ptr %5, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 120
+  %13 = getelementptr inbounds { [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 2, i32 12
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 64
+  %15 = getelementptr inbounds { [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 1, i32 3
+  store ptr %15, ptr %14, align 8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
-  call void @_ZN3nix13InputAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef getelementptr inbounds ([7 x ptr], ptr @_ZTTN3nix15FSInputAccessorE, i64 0, i64 1)) #3
-  %15 = getelementptr inbounds i8, ptr %5, i64 120
-  call void @_ZN3nix14SourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #3
-  br label %16
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
+  %20 = getelementptr inbounds [7 x ptr], ptr @_ZTTN3nix15FSInputAccessorE, i64 0, i64 1
+  call void @_ZN3nix13InputAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %20) #3
+  %21 = getelementptr inbounds i8, ptr %5, i64 120
+  call void @_ZN3nix14SourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %21) #3
+  br label %22
 
-16:                                               ; preds = %11
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %3, align 8
+  %24 = load i32, ptr %4, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 declare void @_ZN3nix14SourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #1
@@ -3342,11 +3350,12 @@ define linkonce_odr void @_ZN3nix14SourceAccessorD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.nix::SourceAccessor", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"struct.nix::SourceAccessor", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.nix::SourceAccessor", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %"struct.nix::SourceAccessor", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   ret void
 }
 
@@ -4714,33 +4723,34 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorE
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(200) %9) #3
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(216) %8) #3
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3nix15FSInputAccessorEJNSt10filesystem7__cxx114pathEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(40) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(200) %10) #3
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(216) %8) #3
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3nix15FSInputAccessorEJNSt10filesystem7__cxx114pathEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(40) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4780,38 +4790,44 @@ define linkonce_odr void @_ZN3nix15FSInputAccessorCI1NS_19PosixSourceAccessorEEO
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 120
   call void @_ZN3nix14SourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8)
-  call void @_ZN3nix13InputAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef getelementptr inbounds ([7 x ptr], ptr @_ZTTN3nix15FSInputAccessorE, i64 0, i64 1)) #3
-  %9 = getelementptr inbounds i8, ptr %7, i64 64
-  %10 = load ptr, ptr %4, align 8
-  invoke void @_ZN3nix19PosixSourceAccessorC2EONSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef getelementptr inbounds ([7 x ptr], ptr @_ZTTN3nix15FSInputAccessorE, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(40) %10)
-          to label %11 unwind label %14
+  %9 = getelementptr inbounds [7 x ptr], ptr @_ZTTN3nix15FSInputAccessorE, i64 0, i64 1
+  call void @_ZN3nix13InputAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %9) #3
+  %10 = getelementptr inbounds i8, ptr %7, i64 64
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds [7 x ptr], ptr @_ZTTN3nix15FSInputAccessorE, i64 0, i64 3
+  invoke void @_ZN3nix19PosixSourceAccessorC2EONSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(40) %11)
+          to label %13 unwind label %19
 
-11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 120
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 2, i32 12), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 1, i32 3), ptr %13, align 8
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds { [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 0, i32 3
+  store ptr %14, ptr %7, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 120
+  %16 = getelementptr inbounds { [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 2, i32 12
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 64
+  %18 = getelementptr inbounds { [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 1, i32 3
+  store ptr %18, ptr %17, align 8
   ret void
 
-14:                                               ; preds = %2
-  %15 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %5, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %6, align 4
-  call void @_ZN3nix13InputAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef getelementptr inbounds ([7 x ptr], ptr @_ZTTN3nix15FSInputAccessorE, i64 0, i64 1)) #3
-  %18 = getelementptr inbounds i8, ptr %7, i64 120
-  call void @_ZN3nix14SourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %18) #3
-  br label %19
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  %23 = getelementptr inbounds [7 x ptr], ptr @_ZTTN3nix15FSInputAccessorE, i64 0, i64 1
+  call void @_ZN3nix13InputAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %23) #3
+  %24 = getelementptr inbounds i8, ptr %7, i64 120
+  call void @_ZN3nix14SourceAccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %24) #3
+  br label %25
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i32, ptr %6, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 declare void @_ZN3nix19PosixSourceAccessorC2EONSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1

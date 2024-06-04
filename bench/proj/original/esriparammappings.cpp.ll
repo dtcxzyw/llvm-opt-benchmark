@@ -408,71 +408,72 @@ define hidden void @_ZN5osgeo4proj9operation19getMappingsFromESRIERKNSt7__cxx111
   call void @_ZNSt6vectorIPKN5osgeo4proj9operation17ESRIMethodMappingESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #8
   store ptr @_ZN5osgeo4proj9operationL12esriMappingsE, ptr %6, align 8
   store ptr @_ZN5osgeo4proj9operationL12esriMappingsE, ptr %7, align 8
-  store ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ESRIMethodMapping", ptr @_ZN5osgeo4proj9operationL12esriMappingsE, i64 82), ptr %8, align 8
-  br label %13
+  %13 = getelementptr inbounds %"struct.osgeo::proj::operation::ESRIMethodMapping", ptr @_ZN5osgeo4proj9operationL12esriMappingsE, i64 82
+  store ptr %13, ptr %8, align 8
+  br label %14
 
-13:                                               ; preds = %32, %2
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = icmp ne ptr %14, %15
-  br i1 %16, label %17, label %35
+14:                                               ; preds = %33, %2
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = icmp ne ptr %15, %16
+  br i1 %17, label %18, label %36
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %7, align 8
-  store ptr %18, ptr %9, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds %"struct.osgeo::proj::operation::ESRIMethodMapping", ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %22) #8
-  br i1 %23, label %24, label %31
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  store ptr %19, ptr %9, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %9, align 8
+  %22 = getelementptr inbounds %"struct.osgeo::proj::operation::ESRIMethodMapping", ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %23) #8
+  br i1 %24, label %25, label %32
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %9, align 8
-  store ptr %25, ptr %10, align 8
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %9, align 8
+  store ptr %26, ptr %10, align 8
   invoke void @_ZNSt6vectorIPKN5osgeo4proj9operation17ESRIMethodMappingESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %26 unwind label %27
+          to label %27 unwind label %28
 
-26:                                               ; preds = %24
-  br label %31
+27:                                               ; preds = %25
+  br label %32
 
-27:                                               ; preds = %24
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %25
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %11, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %12, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %11, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %12, align 4
+  call void @_ZNSt6vectorIPKN5osgeo4proj9operation17ESRIMethodMappingESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #8
+  br label %40
+
+32:                                               ; preds = %27, %18
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %7, align 8
+  %35 = getelementptr inbounds %"struct.osgeo::proj::operation::ESRIMethodMapping", ptr %34, i32 1
+  store ptr %35, ptr %7, align 8
+  br label %14
+
+36:                                               ; preds = %14
+  store i1 true, ptr %5, align 1
+  %37 = load i1, ptr %5, align 1
+  br i1 %37, label %39, label %38
+
+38:                                               ; preds = %36
   call void @_ZNSt6vectorIPKN5osgeo4proj9operation17ESRIMethodMappingESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #8
   br label %39
 
-31:                                               ; preds = %26, %17
-  br label %32
-
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds %"struct.osgeo::proj::operation::ESRIMethodMapping", ptr %33, i32 1
-  store ptr %34, ptr %7, align 8
-  br label %13
-
-35:                                               ; preds = %13
-  store i1 true, ptr %5, align 1
-  %36 = load i1, ptr %5, align 1
-  br i1 %36, label %38, label %37
-
-37:                                               ; preds = %35
-  call void @_ZNSt6vectorIPKN5osgeo4proj9operation17ESRIMethodMappingESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #8
-  br label %38
-
-38:                                               ; preds = %37, %35
+39:                                               ; preds = %38, %36
   ret void
 
-39:                                               ; preds = %27
-  %40 = load ptr, ptr %11, align 8
-  %41 = load i32, ptr %12, align 4
-  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
-  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
-  resume { ptr, i32 } %43
+40:                                               ; preds = %28
+  %41 = load ptr, ptr %11, align 8
+  %42 = load i32, ptr %12, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

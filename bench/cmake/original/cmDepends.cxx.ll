@@ -824,20 +824,21 @@ define dso_local void @_ZN9cmDependsC2EP29cmLocalUnixMakefileGenerator3NSt7__cxx
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV9cmDepends, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.cmDepends, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %class.cmDepends, ptr %7, i32 0, i32 2
-  store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds %class.cmDepends, ptr %7, i32 0, i32 3
-  store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds %class.cmDepends, ptr %7, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  %13 = getelementptr inbounds %class.cmDepends, ptr %7, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %2) #3
-  %14 = getelementptr inbounds %class.cmDepends, ptr %7, i32 0, i32 6
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %8 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV9cmDepends, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.cmDepends, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.cmDepends, ptr %7, i32 0, i32 2
+  store i8 0, ptr %11, align 8
+  %12 = getelementptr inbounds %class.cmDepends, ptr %7, i32 0, i32 3
+  store ptr null, ptr %12, align 8
+  %13 = getelementptr inbounds %class.cmDepends, ptr %7, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  %14 = getelementptr inbounds %class.cmDepends, ptr %7, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  %15 = getelementptr inbounds %class.cmDepends, ptr %7, i32 0, i32 6
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
   ret void
 }
 
@@ -861,13 +862,14 @@ define dso_local void @_ZN9cmDependsD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV9cmDepends, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmDepends, ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %class.cmDepends, ptr %3, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %class.cmDepends, ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV9cmDepends, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmDepends, ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %class.cmDepends, ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  %7 = getelementptr inbounds %class.cmDepends, ptr %3, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   ret void
 }
 

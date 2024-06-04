@@ -43,30 +43,36 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local i32 @efi_get_runtime_map_size() local_unnamed_addr #0 align 16 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 3), align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
-  %3 = trunc i64 %2 to i32
-  %4 = mul i32 %1, %3
-  ret i32 %4
+  %1 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 3
+  %2 = load i32, ptr %1, align 8
+  %3 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 5
+  %4 = load i64, ptr %3, align 8
+  %5 = trunc i64 %4 to i32
+  %6 = mul i32 %2, %5
+  ret i32 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local i32 @efi_get_runtime_map_desc_size() local_unnamed_addr #0 align 16 {
-  %1 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
-  %2 = trunc i64 %1 to i32
-  ret i32 %2
+  %1 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 5
+  %2 = load i64, ptr %1, align 8
+  %3 = trunc i64 %2 to i32
+  ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local noundef i32 @efi_runtime_map_copy(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
-  %3 = load i32, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 3), align 8
-  %4 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
-  %5 = trunc i64 %4 to i32
-  %6 = mul i32 %3, %5
-  %7 = sext i32 %6 to i64
-  %8 = tail call i64 @llvm.umin.i64(i64 %7, i64 %1)
-  %9 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 1), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %9, i64 %8, i1 false)
+  %3 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 3
+  %4 = load i32, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 5
+  %6 = load i64, ptr %5, align 8
+  %7 = trunc i64 %6 to i32
+  %8 = mul i32 %4, %7
+  %9 = sext i32 %8 to i64
+  %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %1)
+  %11 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 1
+  %12 = load ptr, ptr %11, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %12, i64 %10, i1 false)
   ret i32 0
 }
 
@@ -75,129 +81,140 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @efi_runtime_map_init() #3 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8
-  %2 = and i64 %1, 16
-  %3 = icmp ne i64 %2, 0
-  %4 = load ptr, ptr @efi_kobj, align 8
-  %5 = icmp ne ptr %4, null
-  %6 = select i1 %3, i1 %5, i1 false
-  br i1 %6, label %7, label %79
+  %1 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 28
+  %2 = load volatile i64, ptr %1, align 8
+  %3 = and i64 %2, 16
+  %4 = icmp ne i64 %3, 0
+  %5 = load ptr, ptr @efi_kobj, align 8
+  %6 = icmp ne ptr %5, null
+  %7 = select i1 %4, i1 %6, i1 false
+  br i1 %7, label %8, label %90
 
-7:                                                ; preds = %0
-  %8 = load i32, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 3), align 8
-  %9 = icmp slt i32 %8, 0
-  br i1 %9, label %14, label %10, !prof !5
+8:                                                ; preds = %0
+  %9 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 3
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %16, label %12, !prof !5
 
-10:                                               ; preds = %7
-  %11 = zext nneg i32 %8 to i64
-  %12 = shl nuw nsw i64 %11, 3
-  %13 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %12, i32 noundef 3520) #11
-  br label %14
+12:                                               ; preds = %8
+  %13 = zext nneg i32 %10 to i64
+  %14 = shl nuw nsw i64 %13, 3
+  %15 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %14, i32 noundef 3520) #11
+  br label %16
 
-14:                                               ; preds = %10, %7
-  %15 = phi ptr [ %13, %10 ], [ null, %7 ]
-  store ptr %15, ptr @map_entries, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %79, label %17
+16:                                               ; preds = %12, %8
+  %17 = phi ptr [ %15, %12 ], [ null, %8 ]
+  store ptr %17, ptr @map_entries, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %90, label %19
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 1), align 8
-  %19 = icmp ne ptr %18, null
-  %20 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
-  %21 = getelementptr i8, ptr %18, i64 %20
-  %22 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 2), align 8
-  %23 = icmp ule ptr %21, %22
-  %24 = select i1 %19, i1 %23, i1 false
-  br i1 %24, label %25, label %79
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  %23 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 5
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr i8, ptr %21, i64 %24
+  %26 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 2
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp ule ptr %25, %27
+  %29 = select i1 %22, i1 %28, i1 false
+  br i1 %29, label %30, label %90
 
-25:                                               ; preds = %58, %17
-  %26 = phi ptr [ %64, %58 ], [ %18, %17 ]
-  %27 = phi i32 [ %60, %58 ], [ 0, %17 ]
-  %28 = load ptr, ptr @map_kset, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %34
+30:                                               ; preds = %67, %19
+  %31 = phi ptr [ %74, %67 ], [ %21, %19 ]
+  %32 = phi i32 [ %69, %67 ], [ 0, %19 ]
+  %33 = load ptr, ptr @map_kset, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %40
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr @efi_kobj, align 8
-  %32 = tail call ptr @kset_create_and_add(ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef %31) #12
-  store ptr %32, ptr @map_kset, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %50, label %34
+35:                                               ; preds = %30
+  %36 = load ptr, ptr @efi_kobj, align 8
+  %37 = tail call ptr @kset_create_and_add(ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef %36) #12
+  store ptr %37, ptr @map_kset, align 8
+  %38 = icmp eq ptr %37, null
+  %39 = inttoptr i64 -12 to ptr
+  br i1 %38, label %58, label %40
 
-34:                                               ; preds = %30, %25
-  %35 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
-  %36 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %35, i32 noundef 3520, i64 noundef 104) #13
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %40
+40:                                               ; preds = %35, %30
+  %41 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %42, i32 noundef 3520, i64 noundef 104) #13
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %48
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr @map_kset, align 8
-  tail call void @kset_unregister(ptr noundef %39) #12
+45:                                               ; preds = %40
+  %46 = load ptr, ptr @map_kset, align 8
+  tail call void @kset_unregister(ptr noundef %46) #12
   store ptr null, ptr @map_kset, align 8
-  br label %50
+  %47 = inttoptr i64 -12 to ptr
+  br label %58
 
-40:                                               ; preds = %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %26, i64 40, i1 false)
-  %41 = getelementptr inbounds i8, ptr %36, i64 40
-  tail call void @kobject_init(ptr noundef %41, ptr noundef nonnull @map_ktype) #12
-  %42 = load ptr, ptr @map_kset, align 8
-  %43 = getelementptr inbounds i8, ptr %36, i64 72
-  store ptr %42, ptr %43, align 8
-  %44 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef %41, ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %27) #12
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %50, label %46
+48:                                               ; preds = %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %31, i64 40, i1 false)
+  %49 = getelementptr inbounds i8, ptr %43, i64 40
+  tail call void @kobject_init(ptr noundef %49, ptr noundef nonnull @map_ktype) #12
+  %50 = load ptr, ptr @map_kset, align 8
+  %51 = getelementptr inbounds i8, ptr %43, i64 72
+  store ptr %50, ptr %51, align 8
+  %52 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef %49, ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %32) #12
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %58, label %54
 
-46:                                               ; preds = %40
-  tail call void @kobject_put(ptr noundef %41) #12
-  %47 = load ptr, ptr @map_kset, align 8
-  tail call void @kset_unregister(ptr noundef %47) #12
+54:                                               ; preds = %48
+  tail call void @kobject_put(ptr noundef %49) #12
+  %55 = load ptr, ptr @map_kset, align 8
+  tail call void @kset_unregister(ptr noundef %55) #12
   store ptr null, ptr @map_kset, align 8
-  %48 = sext i32 %44 to i64
-  %49 = inttoptr i64 %48 to ptr
-  br label %50
+  %56 = sext i32 %52 to i64
+  %57 = inttoptr i64 %56 to ptr
+  br label %58
 
-50:                                               ; preds = %46, %40, %38, %30
-  %51 = phi ptr [ %49, %46 ], [ inttoptr (i64 -12 to ptr), %38 ], [ %36, %40 ], [ inttoptr (i64 -12 to ptr), %30 ]
-  %52 = icmp ugt ptr %51, inttoptr (i64 -4096 to ptr)
-  br i1 %52, label %53, label %58
+58:                                               ; preds = %54, %48, %45, %35
+  %59 = phi ptr [ %57, %54 ], [ %47, %45 ], [ %43, %48 ], [ %39, %35 ]
+  %60 = inttoptr i64 -4096 to ptr
+  %61 = icmp ugt ptr %59, %60
+  br i1 %61, label %62, label %67
 
-53:                                               ; preds = %50
-  %54 = ptrtoint ptr %51 to i64
-  %55 = trunc i64 %54 to i32
-  %56 = add i32 %27, -1
-  %57 = icmp sgt i32 %56, -1
-  br i1 %57, label %70, label %79
+62:                                               ; preds = %58
+  %63 = ptrtoint ptr %59 to i64
+  %64 = trunc i64 %63 to i32
+  %65 = add i32 %32, -1
+  %66 = icmp sgt i32 %65, -1
+  br i1 %66, label %81, label %90
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr @map_entries, align 8
-  %60 = add i32 %27, 1
-  %61 = sext i32 %27 to i64
-  %62 = getelementptr ptr, ptr %59, i64 %61
-  store ptr %51, ptr %62, align 8
-  %63 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 5), align 8
-  %64 = getelementptr i8, ptr %26, i64 %63
-  %65 = icmp ne ptr %64, null
-  %66 = getelementptr i8, ptr %64, i64 %63
-  %67 = load ptr, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 27, i32 2), align 8
-  %68 = icmp ule ptr %66, %67
-  %69 = select i1 %65, i1 %68, i1 false
-  br i1 %69, label %25, label %79, !llvm.loop !6
+67:                                               ; preds = %58
+  %68 = load ptr, ptr @map_entries, align 8
+  %69 = add i32 %32, 1
+  %70 = sext i32 %32 to i64
+  %71 = getelementptr ptr, ptr %68, i64 %70
+  store ptr %59, ptr %71, align 8
+  %72 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 5
+  %73 = load i64, ptr %72, align 8
+  %74 = getelementptr i8, ptr %31, i64 %73
+  %75 = icmp ne ptr %74, null
+  %76 = getelementptr i8, ptr %74, i64 %73
+  %77 = getelementptr inbounds %struct.efi, ptr @efi, i64 0, i32 27, i32 2
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp ule ptr %76, %78
+  %80 = select i1 %75, i1 %79, i1 false
+  br i1 %80, label %30, label %90, !llvm.loop !6
 
-70:                                               ; preds = %70, %53
-  %71 = phi i32 [ %77, %70 ], [ %56, %53 ]
-  %72 = load ptr, ptr @map_entries, align 8
-  %73 = zext nneg i32 %71 to i64
-  %74 = getelementptr ptr, ptr %72, i64 %73
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 40
-  tail call void @kobject_put(ptr noundef %76) #12
-  %77 = add nsw i32 %71, -1
-  %78 = icmp sgt i32 %71, 0
-  br i1 %78, label %70, label %79, !llvm.loop !9
+81:                                               ; preds = %81, %62
+  %82 = phi i32 [ %88, %81 ], [ %65, %62 ]
+  %83 = load ptr, ptr @map_entries, align 8
+  %84 = zext nneg i32 %82 to i64
+  %85 = getelementptr ptr, ptr %83, i64 %84
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 40
+  tail call void @kobject_put(ptr noundef %87) #12
+  %88 = add nsw i32 %82, -1
+  %89 = icmp sgt i32 %82, 0
+  br i1 %89, label %81, label %90, !llvm.loop !9
 
-79:                                               ; preds = %70, %58, %53, %17, %14, %0
-  %80 = phi i32 [ 0, %0 ], [ -12, %14 ], [ %55, %53 ], [ 0, %17 ], [ %55, %70 ], [ 0, %58 ]
-  ret i32 %80
+90:                                               ; preds = %81, %67, %62, %19, %16, %0
+  %91 = phi i32 [ 0, %0 ], [ -12, %16 ], [ %64, %62 ], [ 0, %19 ], [ %64, %81 ], [ 0, %67 ]
+  ret i32 %91
 }
 
 ; Function Attrs: null_pointer_is_valid

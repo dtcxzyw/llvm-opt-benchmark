@@ -428,12 +428,13 @@ define dso_local void @_ZN9AttributeC2ENSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV9Attribute, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.Attribute, ptr %7, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %9 = getelementptr inbounds %class.Attribute, ptr %7, i32 0, i32 2
-  %10 = load i32, ptr %6, align 4
-  store i32 %10, ptr %9, align 8
+  %8 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV9Attribute, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.Attribute, ptr %7, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %10 = getelementptr inbounds %class.Attribute, ptr %7, i32 0, i32 2
+  %11 = load i32, ptr %6, align 4
+  store i32 %11, ptr %10, align 8
   ret void
 }
 
@@ -454,29 +455,30 @@ define dso_local void @_ZN16BooleanAttributeC2ENSt7__cxx1112basic_stringIcSt11ch
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %11 = load i32, ptr %6, align 4
   invoke void @_ZN9AttributeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(44) %10, ptr noundef %7, i32 noundef %11)
-          to label %12 unwind label %13
+          to label %12 unwind label %14
 
 12:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV16BooleanAttribute, i32 0, i32 0, i32 2), ptr %10, align 8
+  %13 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV16BooleanAttribute, i32 0, i32 0, i32 2
+  store ptr %13, ptr %10, align 8
   ret void
 
-13:                                               ; preds = %3
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %8, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %9, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %8, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %9, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
-  br label %17
+  br label %18
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %8, align 8
-  %19 = load i32, ptr %9, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %8, align 8
+  %20 = load i32, ptr %9, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -556,44 +558,45 @@ define dso_local void @_ZN20MultiChoiceAttributeC2ENSt7__cxx1112basic_stringIcSt
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %13 = load i32, ptr %7, align 4
   invoke void @_ZN9AttributeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef %9, i32 noundef %13)
-          to label %14 unwind label %17
+          to label %14 unwind label %18
 
 14:                                               ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV20MultiChoiceAttribute, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.MultiChoiceAttribute, ptr %12, i32 0, i32 1
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %16 unwind label %21
+  %15 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV20MultiChoiceAttribute, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.MultiChoiceAttribute, ptr %12, i32 0, i32 1
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %17 unwind label %22
 
-16:                                               ; preds = %14
+17:                                               ; preds = %14
   ret void
 
-17:                                               ; preds = %4
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %4
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %10, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %11, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %10, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %11, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
-  br label %25
+  br label %26
 
-21:                                               ; preds = %14
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %14
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %10, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %11, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %10, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %11, align 4
   call void @_ZN9AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %12) #10
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21, %17
-  %26 = load ptr, ptr %10, align 8
-  %27 = load i32, ptr %11, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+26:                                               ; preds = %22, %18
+  %27 = load ptr, ptr %10, align 8
+  %28 = load i32, ptr %11, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -676,9 +679,10 @@ define linkonce_odr dso_local void @_ZN9AttributeD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV9Attribute, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.Attribute, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV9Attribute, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.Attribute, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
   ret void
 }
 
@@ -907,32 +911,33 @@ define dso_local void @_ZN16AlignedAttributeC2ENSt7__cxx1112basic_stringIcSt11ch
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %13 = load i32, ptr %7, align 4
   invoke void @_ZN9AttributeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef %9, i32 noundef %13)
-          to label %14 unwind label %17
+          to label %14 unwind label %18
 
 14:                                               ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV16AlignedAttribute, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.AlignedAttribute, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %8, align 4
-  store i32 %16, ptr %15, align 4
+  %15 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV16AlignedAttribute, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.AlignedAttribute, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %8, align 4
+  store i32 %17, ptr %16, align 4
   ret void
 
-17:                                               ; preds = %4
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %4
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %10, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %11, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %10, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %11, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
-  br label %21
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %10, align 8
-  %23 = load i32, ptr %11, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %10, align 8
+  %24 = load i32, ptr %11, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1150,29 +1155,30 @@ define dso_local void @_ZN16SectionAttributeC2ENSt7__cxx1112basic_stringIcSt11ch
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %11 = load i32, ptr %6, align 4
   invoke void @_ZN9AttributeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(44) %10, ptr noundef %7, i32 noundef %11)
-          to label %12 unwind label %13
+          to label %12 unwind label %14
 
 12:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV16SectionAttribute, i32 0, i32 0, i32 2), ptr %10, align 8
+  %13 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV16SectionAttribute, i32 0, i32 0, i32 2
+  store ptr %13, ptr %10, align 8
   ret void
 
-13:                                               ; preds = %3
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %8, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %9, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %8, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %9, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
-  br label %17
+  br label %18
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %8, align 8
-  %19 = load i32, ptr %9, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %8, align 8
+  %20 = load i32, ptr %9, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -29,18 +29,21 @@ define internal i32 @sysv_query(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i32 0, i32 1), align 8
-  %6 = load ptr, ptr %4, align 8
-  store i32 %5, ptr %6, align 4
-  %7 = load ptr, ptr %3, align 8
-  store ptr @opal_shmem_sysv_module, ptr %7, align 8
+  %5 = getelementptr inbounds %struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i32 0, i32 1
+  %6 = load i32, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  store i32 %6, ptr %7, align 4
+  %8 = load ptr, ptr %3, align 8
+  store ptr @opal_shmem_sysv_module, ptr %8, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @sysv_register() #0 {
-  store i32 30, ptr getelementptr inbounds (%struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i32 0, i32 1), align 8
-  %1 = call i32 @mca_base_component_var_register(ptr noundef @mca_shmem_sysv_component, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef getelementptr inbounds (%struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i32 0, i32 1))
+  %1 = getelementptr inbounds %struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i32 0, i32 1
+  store i32 30, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i32 0, i32 1
+  %3 = call i32 @mca_base_component_var_register(ptr noundef @mca_shmem_sysv_component, ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef %2)
   ret i32 0
 }
 
@@ -68,114 +71,119 @@ define internal i32 @sysv_runtime_query(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr null, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = icmp ne ptr null, %15
-  br i1 %16, label %17, label %28
+  br i1 %16, label %17, label %30
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr %7, align 8
-  %19 = call i32 @strcasecmp(ptr noundef %18, ptr noundef getelementptr inbounds (%struct.mca_base_component_2_1_0_t, ptr @mca_shmem_sysv_component, i32 0, i32 11)) #4
-  %20 = icmp eq i32 0, %19
-  br i1 %20, label %21, label %25
+  %19 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr @mca_shmem_sysv_component, i32 0, i32 11
+  %20 = call i32 @strcasecmp(ptr noundef %18, ptr noundef %19) #4
+  %21 = icmp eq i32 0, %20
+  br i1 %21, label %22, label %27
 
-21:                                               ; preds = %17
-  %22 = load i32, ptr getelementptr inbounds (%struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i32 0, i32 1), align 8
-  %23 = load ptr, ptr %6, align 8
-  store i32 %22, ptr %23, align 4
-  %24 = load ptr, ptr %5, align 8
-  store ptr @opal_shmem_sysv_module, ptr %24, align 8
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds %struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  %25 = load ptr, ptr %6, align 8
+  store i32 %24, ptr %25, align 4
+  %26 = load ptr, ptr %5, align 8
+  store ptr @opal_shmem_sysv_module, ptr %26, align 8
   store i32 0, ptr %4, align 4
-  br label %69
+  br label %74
 
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %6, align 8
-  store i32 0, ptr %26, align 4
-  %27 = load ptr, ptr %5, align 8
-  store ptr null, ptr %27, align 8
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %6, align 8
+  store i32 0, ptr %28, align 4
+  %29 = load ptr, ptr %5, align 8
+  store ptr null, ptr %29, align 8
   store i32 0, ptr %4, align 4
-  br label %69
+  br label %74
 
-28:                                               ; preds = %3
-  %29 = call i32 @opal_getpagesize()
-  %30 = sext i32 %29 to i64
-  %31 = call i32 @shmget(i32 noundef 0, i64 noundef %30, i32 noundef 1984) #5
-  store i32 %31, ptr %9, align 4
-  %32 = icmp eq i32 -1, %31
-  br i1 %32, label %33, label %34
+30:                                               ; preds = %3
+  %31 = call i32 @opal_getpagesize()
+  %32 = sext i32 %31 to i64
+  %33 = call i32 @shmget(i32 noundef 0, i64 noundef %32, i32 noundef 1984) #5
+  store i32 %33, ptr %9, align 4
+  %34 = icmp eq i32 -1, %33
+  br i1 %34, label %35, label %36
 
-33:                                               ; preds = %28
-  br label %59
+35:                                               ; preds = %30
+  br label %63
 
-34:                                               ; preds = %28
-  %35 = load i32, ptr %9, align 4
-  %36 = call ptr @shmat(i32 noundef %35, ptr noundef null, i32 noundef 0) #5
-  store ptr %36, ptr %11, align 8
-  %37 = icmp eq ptr inttoptr (i64 -1 to ptr), %36
-  br i1 %37, label %38, label %39
+36:                                               ; preds = %30
+  %37 = load i32, ptr %9, align 4
+  %38 = call ptr @shmat(i32 noundef %37, ptr noundef null, i32 noundef 0) #5
+  store ptr %38, ptr %11, align 8
+  %39 = inttoptr i64 -1 to ptr
+  %40 = icmp eq ptr %39, %38
+  br i1 %40, label %41, label %42
 
-38:                                               ; preds = %34
-  br label %59
+41:                                               ; preds = %36
+  br label %63
 
-39:                                               ; preds = %34
-  br label %40
+42:                                               ; preds = %36
+  br label %43
 
-40:                                               ; preds = %39
-  %41 = load ptr, ptr %11, align 8
-  store ptr %41, ptr %10, align 8
-  %42 = load i8, ptr %8, align 1
-  %43 = load ptr, ptr %10, align 8
-  store i8 %42, ptr %43, align 1
-  %44 = load i32, ptr %9, align 4
-  %45 = call i32 @shmctl(i32 noundef %44, i32 noundef 0, ptr noundef null) #5
-  %46 = icmp eq i32 -1, %45
-  br i1 %46, label %47, label %48
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %11, align 8
+  store ptr %44, ptr %10, align 8
+  %45 = load i8, ptr %8, align 1
+  %46 = load ptr, ptr %10, align 8
+  store i8 %45, ptr %46, align 1
+  %47 = load i32, ptr %9, align 4
+  %48 = call i32 @shmctl(i32 noundef %47, i32 noundef 0, ptr noundef null) #5
+  %49 = icmp eq i32 -1, %48
+  br i1 %49, label %50, label %51
 
-47:                                               ; preds = %40
-  br label %59
+50:                                               ; preds = %43
+  br label %63
 
-48:                                               ; preds = %40
-  %49 = load i32, ptr %9, align 4
-  %50 = call i32 @shmctl(i32 noundef %49, i32 noundef 2, ptr noundef %12) #5
-  %51 = icmp eq i32 -1, %50
-  br i1 %51, label %52, label %53
+51:                                               ; preds = %43
+  %52 = load i32, ptr %9, align 4
+  %53 = call i32 @shmctl(i32 noundef %52, i32 noundef 2, ptr noundef %12) #5
+  %54 = icmp eq i32 -1, %53
+  br i1 %54, label %55, label %56
 
-52:                                               ; preds = %48
-  br label %59
+55:                                               ; preds = %51
+  br label %63
 
-53:                                               ; preds = %48
-  %54 = load i32, ptr getelementptr inbounds (%struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i32 0, i32 1), align 8
-  %55 = load ptr, ptr %6, align 8
-  store i32 %54, ptr %55, align 4
-  %56 = load ptr, ptr %5, align 8
-  store ptr @opal_shmem_sysv_module, ptr %56, align 8
-  br label %57
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds %struct.opal_shmem_sysv_component_t, ptr @mca_shmem_sysv_component, i32 0, i32 1
+  %58 = load i32, ptr %57, align 8
+  %59 = load ptr, ptr %6, align 8
+  store i32 %58, ptr %59, align 4
+  %60 = load ptr, ptr %5, align 8
+  store ptr @opal_shmem_sysv_module, ptr %60, align 8
+  br label %61
 
-57:                                               ; preds = %53
-  br label %58
+61:                                               ; preds = %56
+  br label %62
 
-58:                                               ; preds = %57
-  br label %59
+62:                                               ; preds = %61
+  br label %63
 
-59:                                               ; preds = %58, %52, %47, %38, %33
-  %60 = load ptr, ptr %11, align 8
-  %61 = icmp ne ptr null, %60
-  br i1 %61, label %62, label %68
+63:                                               ; preds = %62, %55, %50, %41, %35
+  %64 = load ptr, ptr %11, align 8
+  %65 = icmp ne ptr null, %64
+  br i1 %65, label %66, label %73
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %11, align 8
-  %64 = icmp ne ptr inttoptr (i64 -1 to ptr), %63
-  br i1 %64, label %65, label %68
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %11, align 8
+  %68 = inttoptr i64 -1 to ptr
+  %69 = icmp ne ptr %68, %67
+  br i1 %69, label %70, label %73
 
-65:                                               ; preds = %62
-  %66 = load ptr, ptr %11, align 8
-  %67 = call i32 @shmdt(ptr noundef %66) #5
-  br label %68
+70:                                               ; preds = %66
+  %71 = load ptr, ptr %11, align 8
+  %72 = call i32 @shmdt(ptr noundef %71) #5
+  br label %73
 
-68:                                               ; preds = %65, %62, %59
+73:                                               ; preds = %70, %66, %63
   store i32 0, ptr %4, align 4
-  br label %69
+  br label %74
 
-69:                                               ; preds = %68, %25, %21
-  %70 = load i32, ptr %4, align 4
-  ret i32 %70
+74:                                               ; preds = %73, %27, %22
+  %75 = load i32, ptr %4, align 4
+  ret i32 %75
 }
 
 declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1

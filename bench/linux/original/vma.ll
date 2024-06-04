@@ -91,56 +91,59 @@ define dso_local noundef i32 @vdso_join_timens(ptr nocapture noundef readonly %0
   store ptr %6, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 1, ptr %7, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_start_locking, i64 0, i32 1), i32 2) #9
-          to label %9 [label %8], !srcloc !8
+  %8 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_mmap_lock_start_locking, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8, i32 2) #9
+          to label %10 [label %9], !srcloc !8
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   tail call void @__mmap_lock_do_trace_start_locking(ptr noundef %5, i1 noundef zeroext false) #9
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %2
-  %10 = getelementptr inbounds i8, ptr %5, i64 176
-  tail call void @down_read(ptr noundef %10) #9
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_acquire_returned, i64 0, i32 1), i32 2) #9
-          to label %12 [label %11], !srcloc !8
+10:                                               ; preds = %9, %2
+  %11 = getelementptr inbounds i8, ptr %5, i64 176
+  tail call void @down_read(ptr noundef %11) #9
+  %12 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_mmap_lock_acquire_returned, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, i32 2) #9
+          to label %14 [label %13], !srcloc !8
 
-11:                                               ; preds = %9
+13:                                               ; preds = %10
   tail call void @__mmap_lock_do_trace_acquire_returned(ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext true) #9
-  br label %12
+  br label %14
 
-12:                                               ; preds = %11, %9
-  %13 = call ptr @mas_find(ptr noundef nonnull %3, i64 noundef -1) #9
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %26, label %15
+14:                                               ; preds = %13, %10
+  %15 = call ptr @mas_find(ptr noundef nonnull %3, i64 noundef -1) #9
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %28, label %17
 
-15:                                               ; preds = %23, %12
-  %16 = phi ptr [ %24, %23 ], [ %13, %12 ]
-  %17 = call zeroext i1 @vma_is_special_mapping(ptr noundef nonnull %16, ptr noundef nonnull @vvar_mapping) #9
-  br i1 %17, label %18, label %23
+17:                                               ; preds = %25, %14
+  %18 = phi ptr [ %26, %25 ], [ %15, %14 ]
+  %19 = call zeroext i1 @vma_is_special_mapping(ptr noundef nonnull %18, ptr noundef nonnull @vvar_mapping) #9
+  br i1 %19, label %20, label %25
 
-18:                                               ; preds = %15
-  %19 = load i64, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = sub i64 %21, %19
-  call void @zap_page_range_single(ptr noundef nonnull %16, i64 noundef %19, i64 noundef %22, ptr noundef null) #9
-  br label %23
+20:                                               ; preds = %17
+  %21 = load i64, ptr %18, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = sub i64 %23, %21
+  call void @zap_page_range_single(ptr noundef nonnull %18, i64 noundef %21, i64 noundef %24, ptr noundef null) #9
+  br label %25
 
-23:                                               ; preds = %18, %15
-  %24 = call ptr @mas_find(ptr noundef nonnull %3, i64 noundef -1) #9
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %15, !llvm.loop !9
+25:                                               ; preds = %20, %17
+  %26 = call ptr @mas_find(ptr noundef nonnull %3, i64 noundef -1) #9
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %17, !llvm.loop !9
 
-26:                                               ; preds = %23, %12
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1), i32 2) #9
-          to label %28 [label %27], !srcloc !8
+28:                                               ; preds = %25, %14
+  %29 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %29, i32 2) #9
+          to label %31 [label %30], !srcloc !8
 
-27:                                               ; preds = %26
+30:                                               ; preds = %28
   call void @__mmap_lock_do_trace_released(ptr noundef %5, i1 noundef zeroext false) #9
-  br label %28
+  br label %31
 
-28:                                               ; preds = %27, %26
-  call void @up_read(ptr noundef %10) #9
+31:                                               ; preds = %30, %28
+  call void @up_read(ptr noundef %11) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
   ret i32 0
 }
@@ -170,78 +173,82 @@ define dso_local i32 @map_vdso_once(ptr noundef %0, i64 noundef %1) local_unname
   store ptr %8, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 1, ptr %9, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_start_locking, i64 0, i32 1), i32 2) #9
-          to label %11 [label %10], !srcloc !8
+  %10 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_mmap_lock_start_locking, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i32 2) #9
+          to label %12 [label %11], !srcloc !8
 
-10:                                               ; preds = %2
+11:                                               ; preds = %2
   tail call void @__mmap_lock_do_trace_start_locking(ptr noundef %7, i1 noundef zeroext true) #9
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %2
-  %12 = getelementptr inbounds i8, ptr %7, i64 176
-  tail call void @down_write(ptr noundef %12) #9
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_acquire_returned, i64 0, i32 1), i32 2) #9
-          to label %14 [label %13], !srcloc !8
+12:                                               ; preds = %11, %2
+  %13 = getelementptr inbounds i8, ptr %7, i64 176
+  tail call void @down_write(ptr noundef %13) #9
+  %14 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_mmap_lock_acquire_returned, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, i32 2) #9
+          to label %16 [label %15], !srcloc !8
 
-13:                                               ; preds = %11
+15:                                               ; preds = %12
   tail call void @__mmap_lock_do_trace_acquire_returned(ptr noundef %7, i1 noundef zeroext true, i1 noundef zeroext true) #9
-  br label %14
+  br label %16
 
-14:                                               ; preds = %13, %11
-  br label %15
+16:                                               ; preds = %15, %12
+  br label %17
 
-15:                                               ; preds = %20, %14
-  %16 = call ptr @mas_find(ptr noundef nonnull %3, i64 noundef -1) #9
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %28, label %18
+17:                                               ; preds = %22, %16
+  %18 = call ptr @mas_find(ptr noundef nonnull %3, i64 noundef -1) #9
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %31, label %20
 
-18:                                               ; preds = %15
-  %19 = call zeroext i1 @vma_is_special_mapping(ptr noundef nonnull %16, ptr noundef nonnull @vdso_mapping) #9
-  br i1 %19, label %22, label %20
+20:                                               ; preds = %17
+  %21 = call zeroext i1 @vma_is_special_mapping(ptr noundef nonnull %18, ptr noundef nonnull @vdso_mapping) #9
+  br i1 %21, label %24, label %22
 
-20:                                               ; preds = %18
-  %21 = call zeroext i1 @vma_is_special_mapping(ptr noundef nonnull %16, ptr noundef nonnull @vvar_mapping) #9
-  br i1 %21, label %22, label %15, !llvm.loop !13
+22:                                               ; preds = %20
+  %23 = call zeroext i1 @vma_is_special_mapping(ptr noundef nonnull %18, ptr noundef nonnull @vvar_mapping) #9
+  br i1 %23, label %24, label %17, !llvm.loop !13
 
-22:                                               ; preds = %20, %18
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1), i32 2) #9
-          to label %24 [label %23], !srcloc !8
+24:                                               ; preds = %22, %20
+  %25 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %25, i32 2) #9
+          to label %27 [label %26], !srcloc !8
 
-23:                                               ; preds = %22
+26:                                               ; preds = %24
   call void @__mmap_lock_do_trace_released(ptr noundef %7, i1 noundef zeroext true) #9
-  br label %24
+  br label %27
 
-24:                                               ; preds = %23, %22
+27:                                               ; preds = %26, %24
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
-  %25 = getelementptr inbounds i8, ptr %7, i64 232
-  %26 = load i32, ptr %25, align 8
-  %27 = add i32 %26, 1
-  store volatile i32 %27, ptr %25, align 8
-  call void @up_write(ptr noundef %12) #9
-  br label %35
+  %28 = getelementptr inbounds i8, ptr %7, i64 232
+  %29 = load i32, ptr %28, align 8
+  %30 = add i32 %29, 1
+  store volatile i32 %30, ptr %28, align 8
+  call void @up_write(ptr noundef %13) #9
+  br label %39
 
-28:                                               ; preds = %15
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1), i32 2) #9
-          to label %30 [label %29], !srcloc !8
+31:                                               ; preds = %17
+  %32 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %32, i32 2) #9
+          to label %34 [label %33], !srcloc !8
 
-29:                                               ; preds = %28
+33:                                               ; preds = %31
   call void @__mmap_lock_do_trace_released(ptr noundef %7, i1 noundef zeroext true) #9
-  br label %30
+  br label %34
 
-30:                                               ; preds = %29, %28
+34:                                               ; preds = %33, %31
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
-  %31 = getelementptr inbounds i8, ptr %7, i64 232
-  %32 = load i32, ptr %31, align 8
-  %33 = add i32 %32, 1
-  store volatile i32 %33, ptr %31, align 8
-  call void @up_write(ptr noundef %12) #9
-  %34 = call fastcc i32 @map_vdso(ptr noundef %0, i64 noundef %1)
-  br label %35
+  %35 = getelementptr inbounds i8, ptr %7, i64 232
+  %36 = load i32, ptr %35, align 8
+  %37 = add i32 %36, 1
+  store volatile i32 %37, ptr %35, align 8
+  call void @up_write(ptr noundef %13) #9
+  %38 = call fastcc i32 @map_vdso(ptr noundef %0, i64 noundef %1)
+  br label %39
 
-35:                                               ; preds = %30, %24
-  %36 = phi i32 [ -17, %24 ], [ %34, %30 ]
+39:                                               ; preds = %34, %27
+  %40 = phi i32 [ -17, %27 ], [ %38, %34 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
-  ret i32 %36
+  ret i32 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -250,107 +257,112 @@ define internal fastcc i32 @map_vdso(ptr noundef %0, i64 noundef %1) unnamed_add
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 1192
   %6 = load ptr, ptr %5, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_start_locking, i64 0, i32 1), i32 2) #9
-          to label %8 [label %7], !srcloc !8
+  %7 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_mmap_lock_start_locking, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7, i32 2) #9
+          to label %9 [label %8], !srcloc !8
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   tail call void @__mmap_lock_do_trace_start_locking(ptr noundef %6, i1 noundef zeroext true) #9
-  br label %8
+  br label %9
 
-8:                                                ; preds = %7, %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 176
-  %10 = tail call i32 @down_write_killable(ptr noundef %9) #9
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_acquire_returned, i64 0, i32 1), i32 2) #9
-          to label %13 [label %11], !srcloc !8
+9:                                                ; preds = %8, %2
+  %10 = getelementptr inbounds i8, ptr %6, i64 176
+  %11 = tail call i32 @down_write_killable(ptr noundef %10) #9
+  %12 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_mmap_lock_acquire_returned, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, i32 2) #9
+          to label %15 [label %13], !srcloc !8
 
-11:                                               ; preds = %8
-  %12 = icmp eq i32 %10, 0
-  tail call void @__mmap_lock_do_trace_acquire_returned(ptr noundef %6, i1 noundef zeroext true, i1 noundef zeroext %12) #9
-  br label %13
+13:                                               ; preds = %9
+  %14 = icmp eq i32 %11, 0
+  tail call void @__mmap_lock_do_trace_acquire_returned(ptr noundef %6, i1 noundef zeroext true, i1 noundef zeroext %14) #9
+  br label %15
 
-13:                                               ; preds = %11, %8
-  %14 = icmp eq i32 %10, 0
-  br i1 %14, label %15, label %57
+15:                                               ; preds = %13, %9
+  %16 = icmp eq i32 %11, 0
+  br i1 %16, label %17, label %62
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8
-  %20 = sub i64 %17, %19
-  %21 = tail call i64 @get_unmapped_area(ptr noundef null, i64 noundef %1, i64 noundef %20, i64 noundef 0, i64 noundef 0) #9
-  %22 = icmp ugt i64 %21, -4096
-  br i1 %22, label %23, label %25, !prof !15
+  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = load i64, ptr %20, align 8
+  %22 = sub i64 %19, %21
+  %23 = tail call i64 @get_unmapped_area(ptr noundef null, i64 noundef %1, i64 noundef %22, i64 noundef 0, i64 noundef 0) #9
+  %24 = icmp ugt i64 %23, -4096
+  br i1 %24, label %25, label %27, !prof !15
 
-23:                                               ; preds = %15
-  %24 = trunc i64 %21 to i32
-  br label %50
+25:                                               ; preds = %17
+  %26 = trunc i64 %23 to i32
+  br label %54
 
-25:                                               ; preds = %15
-  %26 = load i64, ptr %18, align 8
-  %27 = sub i64 %21, %26
-  %28 = load i64, ptr %16, align 8
-  %29 = tail call ptr @_install_special_mapping(ptr noundef %6, i64 noundef %27, i64 noundef %28, i64 noundef 117, ptr noundef nonnull @vdso_mapping) #9
-  %30 = icmp ugt ptr %29, inttoptr (i64 -4096 to ptr)
-  br i1 %30, label %31, label %34
+27:                                               ; preds = %17
+  %28 = load i64, ptr %20, align 8
+  %29 = sub i64 %23, %28
+  %30 = load i64, ptr %18, align 8
+  %31 = tail call ptr @_install_special_mapping(ptr noundef %6, i64 noundef %29, i64 noundef %30, i64 noundef 117, ptr noundef nonnull @vdso_mapping) #9
+  %32 = inttoptr i64 -4096 to ptr
+  %33 = icmp ugt ptr %31, %32
+  br i1 %33, label %34, label %37
 
-31:                                               ; preds = %25
-  %32 = ptrtoint ptr %29 to i64
-  %33 = trunc i64 %32 to i32
-  br label %50
+34:                                               ; preds = %27
+  %35 = ptrtoint ptr %31 to i64
+  %36 = trunc i64 %35 to i32
+  br label %54
 
-34:                                               ; preds = %25
-  %35 = load i64, ptr %18, align 8
-  %36 = sub i64 0, %35
-  %37 = tail call ptr @_install_special_mapping(ptr noundef %6, i64 noundef %21, i64 noundef %36, i64 noundef 67126289, ptr noundef nonnull @vvar_mapping) #9
-  %38 = icmp ugt ptr %37, inttoptr (i64 -4096 to ptr)
-  br i1 %38, label %39, label %44
+37:                                               ; preds = %27
+  %38 = load i64, ptr %20, align 8
+  %39 = sub i64 0, %38
+  %40 = tail call ptr @_install_special_mapping(ptr noundef %6, i64 noundef %23, i64 noundef %39, i64 noundef 67126289, ptr noundef nonnull @vvar_mapping) #9
+  %41 = inttoptr i64 -4096 to ptr
+  %42 = icmp ugt ptr %40, %41
+  br i1 %42, label %43, label %48
 
-39:                                               ; preds = %34
-  %40 = ptrtoint ptr %37 to i64
-  %41 = trunc i64 %40 to i32
-  %42 = load i64, ptr %16, align 8
-  %43 = tail call i32 @do_munmap(ptr noundef %6, i64 noundef %27, i64 noundef %42, ptr noundef null) #9
-  br label %50
+43:                                               ; preds = %37
+  %44 = ptrtoint ptr %40 to i64
+  %45 = trunc i64 %44 to i32
+  %46 = load i64, ptr %18, align 8
+  %47 = tail call i32 @do_munmap(ptr noundef %6, i64 noundef %29, i64 noundef %46, ptr noundef null) #9
+  br label %54
 
-44:                                               ; preds = %34
-  %45 = inttoptr i64 %27 to ptr
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1096
-  store ptr %45, ptr %47, align 8
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1104
-  store ptr %0, ptr %49, align 16
-  br label %50
+48:                                               ; preds = %37
+  %49 = inttoptr i64 %29 to ptr
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 1096
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 1104
+  store ptr %0, ptr %53, align 16
+  br label %54
 
-50:                                               ; preds = %44, %39, %31, %23
-  %51 = phi i32 [ %24, %23 ], [ %33, %31 ], [ %41, %39 ], [ 0, %44 ]
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1), i32 2) #9
-          to label %53 [label %52], !srcloc !8
+54:                                               ; preds = %48, %43, %34, %25
+  %55 = phi i32 [ %26, %25 ], [ %36, %34 ], [ %45, %43 ], [ 0, %48 ]
+  %56 = getelementptr inbounds %struct.tracepoint, ptr @__tracepoint_mmap_lock_released, i64 0, i32 1
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %56, i32 2) #9
+          to label %58 [label %57], !srcloc !8
 
-52:                                               ; preds = %50
+57:                                               ; preds = %54
   tail call void @__mmap_lock_do_trace_released(ptr noundef %6, i1 noundef zeroext true) #9
-  br label %53
+  br label %58
 
-53:                                               ; preds = %52, %50
+58:                                               ; preds = %57, %54
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
-  %54 = getelementptr inbounds i8, ptr %6, i64 232
-  %55 = load i32, ptr %54, align 8
-  %56 = add i32 %55, 1
-  store volatile i32 %56, ptr %54, align 8
-  tail call void @up_write(ptr noundef %9) #9
-  br label %57
+  %59 = getelementptr inbounds i8, ptr %6, i64 232
+  %60 = load i32, ptr %59, align 8
+  %61 = add i32 %60, 1
+  store volatile i32 %61, ptr %59, align 8
+  tail call void @up_write(ptr noundef %10) #9
+  br label %62
 
-57:                                               ; preds = %53, %13
-  %58 = phi i32 [ %51, %53 ], [ -4, %13 ]
-  ret i32 %58
+62:                                               ; preds = %58, %15
+  %63 = phi i32 [ %55, %58 ], [ -4, %15 ]
+  ret i32 %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @arch_setup_additional_pages(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
   %3 = load i32, ptr @vdso64_enabled, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %37, label %5
+  br i1 %4, label %39, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !12
@@ -359,40 +371,42 @@ define dso_local i32 @arch_setup_additional_pages(ptr nocapture noundef readnone
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 368
   %11 = load i64, ptr %10, align 16
-  %12 = load i64, ptr getelementptr inbounds (%struct.vdso_image, ptr @vdso_image_64, i64 0, i32 1), align 8
-  %13 = load i64, ptr getelementptr inbounds (%struct.vdso_image, ptr @vdso_image_64, i64 0, i32 7), align 8
-  %14 = sub i64 %12, %13
-  %15 = add i64 %11, 4095
-  %16 = and i64 %15, -4096
-  %17 = and i64 %14, 4294967295
-  %18 = add i64 %16, 2097151
-  %19 = add i64 %18, %17
-  %20 = and i64 %19, -2097152
-  %21 = tail call i64 @llvm.umin.i64(i64 %20, i64 140737488351232)
-  %22 = sub nsw i64 %21, %17
-  %23 = icmp ugt i64 %22, %16
-  br i1 %23, label %24, label %33
+  %12 = getelementptr inbounds %struct.vdso_image, ptr @vdso_image_64, i64 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds %struct.vdso_image, ptr @vdso_image_64, i64 0, i32 7
+  %15 = load i64, ptr %14, align 8
+  %16 = sub i64 %13, %15
+  %17 = add i64 %11, 4095
+  %18 = and i64 %17, -4096
+  %19 = and i64 %16, 4294967295
+  %20 = add i64 %18, 2097151
+  %21 = add i64 %20, %19
+  %22 = and i64 %21, -2097152
+  %23 = tail call i64 @llvm.umin.i64(i64 %22, i64 140737488351232)
+  %24 = sub nsw i64 %23, %19
+  %25 = icmp ugt i64 %24, %18
+  br i1 %25, label %26, label %35
 
-24:                                               ; preds = %5
-  %25 = sub i64 %22, %16
-  %26 = lshr i64 %25, 12
-  %27 = trunc i64 %26 to i32
-  %28 = add i32 %27, 1
-  %29 = tail call i32 @__get_random_u32_below(i32 noundef %28) #9
-  %30 = shl i32 %29, 12
-  %31 = zext i32 %30 to i64
-  %32 = add i64 %16, %31
-  br label %33
+26:                                               ; preds = %5
+  %27 = sub i64 %24, %18
+  %28 = lshr i64 %27, 12
+  %29 = trunc i64 %28 to i32
+  %30 = add i32 %29, 1
+  %31 = tail call i32 @__get_random_u32_below(i32 noundef %30) #9
+  %32 = shl i32 %31, 12
+  %33 = zext i32 %32 to i64
+  %34 = add i64 %18, %33
+  br label %35
 
-33:                                               ; preds = %24, %5
-  %34 = phi i64 [ %32, %24 ], [ %16, %5 ]
-  %35 = tail call i64 @align_vdso_addr(i64 noundef %34) #9
-  %36 = tail call fastcc i32 @map_vdso(ptr noundef nonnull @vdso_image_64, i64 noundef %35)
-  br label %37
+35:                                               ; preds = %26, %5
+  %36 = phi i64 [ %34, %26 ], [ %18, %5 ]
+  %37 = tail call i64 @align_vdso_addr(i64 noundef %36) #9
+  %38 = tail call fastcc i32 @map_vdso(ptr noundef nonnull @vdso_image_64, i64 noundef %37)
+  br label %39
 
-37:                                               ; preds = %33, %2
-  %38 = phi i32 [ %36, %33 ], [ 0, %2 ]
-  ret i32 %38
+39:                                               ; preds = %35, %2
+  %40 = phi i32 [ %38, %35 ], [ 0, %2 ]
+  ret i32 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -427,28 +441,30 @@ define dso_local noundef zeroext i1 @arch_syscall_is_vdso_sigreturn(ptr nocaptur
   %14 = icmp ne i32 %13, 0
   %15 = icmp eq ptr %7, @vdso_image_32
   %16 = select i1 %14, i1 %15, i1 false
-  br i1 %16, label %17, label %27
+  br i1 %16, label %17, label %29
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds i8, ptr %0, i64 128
   %19 = load i64, ptr %18, align 8
-  %20 = load i64, ptr getelementptr inbounds (%struct.vdso_image, ptr @vdso_image_32, i64 0, i32 17), align 8
-  %21 = add i64 %20, %10
-  %22 = icmp eq i64 %19, %21
-  br i1 %22, label %28, label %23
+  %20 = getelementptr inbounds %struct.vdso_image, ptr @vdso_image_32, i64 0, i32 17
+  %21 = load i64, ptr %20, align 8
+  %22 = add i64 %21, %10
+  %23 = icmp eq i64 %19, %22
+  br i1 %23, label %30, label %24
 
-23:                                               ; preds = %17
-  %24 = load i64, ptr getelementptr inbounds (%struct.vdso_image, ptr @vdso_image_32, i64 0, i32 18), align 8
-  %25 = add i64 %24, %10
-  %26 = icmp eq i64 %19, %25
-  br i1 %26, label %28, label %27
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds %struct.vdso_image, ptr @vdso_image_32, i64 0, i32 18
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, %10
+  %28 = icmp eq i64 %19, %27
+  br i1 %28, label %30, label %29
 
-27:                                               ; preds = %23, %1
-  br label %28
+29:                                               ; preds = %24, %1
+  br label %30
 
-28:                                               ; preds = %27, %23, %17
-  %29 = phi i1 [ false, %27 ], [ true, %23 ], [ true, %17 ]
-  ret i1 %29
+30:                                               ; preds = %29, %24, %17
+  %31 = phi i1 [ false, %29 ], [ true, %24 ], [ true, %17 ]
+  ret i1 %31
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -487,7 +503,7 @@ define internal i32 @vvar_fault(ptr nocapture readnone %0, ptr noundef %1, ptr n
   %6 = getelementptr inbounds i8, ptr %5, i64 1104
   %7 = load ptr, ptr %6, align 16
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %95, label %9
+  br i1 %8, label %100, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %2, i64 16
@@ -497,117 +513,122 @@ define internal i32 @vvar_fault(ptr nocapture readnone %0, ptr noundef %1, ptr n
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %12, %14
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %95, label %17
+  br i1 %16, label %100, label %17
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds i8, ptr %7, i64 64
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %15, %19
-  br i1 %20, label %21, label %47
+  br i1 %20, label %21, label %49
 
 21:                                               ; preds = %17
   %22 = tail call ptr @find_timens_vvar_page(ptr noundef %1) #9
   %23 = load i64, ptr @phys_base, align 8
-  %24 = add i64 %23, sub (i64 ptrtoint (ptr @__vvar_page to i64), i64 -2147483648)
-  %25 = lshr i64 %24, 12
-  %26 = icmp eq ptr %22, null
-  br i1 %26, label %42, label %27
+  %24 = ptrtoint ptr @__vvar_page to i64
+  %25 = sub i64 %24, -2147483648
+  %26 = add i64 %23, %25
+  %27 = lshr i64 %26, 12
+  %28 = icmp eq ptr %22, null
+  br i1 %28, label %44, label %29
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %2, i64 24
-  %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 88
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds i8, ptr %2, i64 24
   %31 = load i64, ptr %30, align 8
-  %32 = sub i64 %29, %15
-  %33 = add i64 %32, %31
-  %34 = tail call i32 @vmf_insert_pfn(ptr noundef %1, i64 noundef %33, i64 noundef %25) #9
-  %35 = and i32 %34, 2163
-  %36 = icmp eq i32 %35, 0
-  %37 = load i64, ptr @vmemmap_base, align 8
-  %38 = ptrtoint ptr %22 to i64
-  %39 = sub i64 %38, %37
-  %40 = ashr exact i64 %39, 6
-  %41 = select i1 %36, i64 %40, i64 %25, !prof !5
-  br i1 %36, label %42, label %95
+  %32 = getelementptr inbounds i8, ptr %7, i64 88
+  %33 = load i64, ptr %32, align 8
+  %34 = sub i64 %31, %15
+  %35 = add i64 %34, %33
+  %36 = tail call i32 @vmf_insert_pfn(ptr noundef %1, i64 noundef %35, i64 noundef %27) #9
+  %37 = and i32 %36, 2163
+  %38 = icmp eq i32 %37, 0
+  %39 = load i64, ptr @vmemmap_base, align 8
+  %40 = ptrtoint ptr %22 to i64
+  %41 = sub i64 %40, %39
+  %42 = ashr exact i64 %41, 6
+  %43 = select i1 %38, i64 %42, i64 %27, !prof !5
+  br i1 %38, label %44, label %100
 
-42:                                               ; preds = %27, %21
-  %43 = phi i64 [ %41, %27 ], [ %25, %21 ]
-  %44 = getelementptr inbounds i8, ptr %2, i64 24
-  %45 = load i64, ptr %44, align 8
-  %46 = tail call i32 @vmf_insert_pfn(ptr noundef %1, i64 noundef %45, i64 noundef %43) #9
-  br label %95
+44:                                               ; preds = %29, %21
+  %45 = phi i64 [ %43, %29 ], [ %27, %21 ]
+  %46 = getelementptr inbounds i8, ptr %2, i64 24
+  %47 = load i64, ptr %46, align 8
+  %48 = tail call i32 @vmf_insert_pfn(ptr noundef %1, i64 noundef %47, i64 noundef %45) #9
+  br label %100
 
-47:                                               ; preds = %17
-  %48 = getelementptr inbounds i8, ptr %7, i64 72
-  %49 = load i64, ptr %48, align 8
-  %50 = icmp eq i64 %15, %49
-  br i1 %50, label %51, label %76
+49:                                               ; preds = %17
+  %50 = getelementptr inbounds i8, ptr %7, i64 72
+  %51 = load i64, ptr %50, align 8
+  %52 = icmp eq i64 %15, %51
+  br i1 %52, label %53, label %79
 
-51:                                               ; preds = %47
-  %52 = tail call ptr @pvclock_get_pvti_cpu0_va() #9
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %73, label %54
+53:                                               ; preds = %49
+  %54 = tail call ptr @pvclock_get_pvti_cpu0_va() #9
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %76, label %56
 
-54:                                               ; preds = %51
-  %55 = load volatile i32, ptr @vclocks_used, align 4
-  %56 = and i32 %55, 4
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %73, label %58
+56:                                               ; preds = %53
+  %57 = load volatile i32, ptr @vclocks_used, align 4
+  %58 = and i32 %57, 4
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %76, label %60
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %2, i64 24
-  %60 = load i64, ptr %59, align 8
-  %61 = ptrtoint ptr %52 to i64
-  %62 = add i64 %61, 2147483648
-  %63 = icmp ugt ptr %52, inttoptr (i64 -2147483649 to ptr)
-  %64 = load i64, ptr @phys_base, align 8
-  %65 = load i64, ptr @page_offset_base, align 8
-  %66 = sub i64 -2147483648, %65
-  %67 = select i1 %63, i64 %64, i64 %66
-  %68 = add i64 %62, %67
-  %69 = lshr i64 %68, 12
-  %70 = getelementptr inbounds i8, ptr %1, i64 24
-  %71 = load i64, ptr %70, align 8
-  %72 = tail call i32 @vmf_insert_pfn_prot(ptr noundef %1, i64 noundef %60, i64 noundef %69, i64 %71) #9
-  br label %73
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds i8, ptr %2, i64 24
+  %62 = load i64, ptr %61, align 8
+  %63 = ptrtoint ptr %54 to i64
+  %64 = add i64 %63, 2147483648
+  %65 = inttoptr i64 -2147483649 to ptr
+  %66 = icmp ugt ptr %54, %65
+  %67 = load i64, ptr @phys_base, align 8
+  %68 = load i64, ptr @page_offset_base, align 8
+  %69 = sub i64 -2147483648, %68
+  %70 = select i1 %66, i64 %67, i64 %69
+  %71 = add i64 %64, %70
+  %72 = lshr i64 %71, 12
+  %73 = getelementptr inbounds i8, ptr %1, i64 24
+  %74 = load i64, ptr %73, align 8
+  %75 = tail call i32 @vmf_insert_pfn_prot(ptr noundef %1, i64 noundef %62, i64 noundef %72, i64 %74) #9
+  br label %76
 
-73:                                               ; preds = %58, %54, %51
-  %74 = phi i1 [ false, %58 ], [ true, %54 ], [ true, %51 ]
-  %75 = phi i32 [ %72, %58 ], [ undef, %54 ], [ undef, %51 ]
-  br i1 %74, label %94, label %95
+76:                                               ; preds = %60, %56, %53
+  %77 = phi i1 [ false, %60 ], [ true, %56 ], [ true, %53 ]
+  %78 = phi i32 [ %75, %60 ], [ undef, %56 ], [ undef, %53 ]
+  br i1 %77, label %99, label %100
 
-76:                                               ; preds = %47
-  %77 = getelementptr inbounds i8, ptr %7, i64 80
-  %78 = load i64, ptr %77, align 8
-  %79 = icmp eq i64 %15, %78
-  br i1 %79, label %94, label %80
+79:                                               ; preds = %49
+  %80 = getelementptr inbounds i8, ptr %7, i64 80
+  %81 = load i64, ptr %80, align 8
+  %82 = icmp eq i64 %15, %81
+  br i1 %82, label %99, label %83
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %7, i64 88
-  %82 = load i64, ptr %81, align 8
-  %83 = icmp eq i64 %15, %82
-  br i1 %83, label %84, label %94
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds i8, ptr %7, i64 88
+  %85 = load i64, ptr %84, align 8
+  %86 = icmp eq i64 %15, %85
+  br i1 %86, label %87, label %99
 
-84:                                               ; preds = %80
-  %85 = tail call ptr @find_timens_vvar_page(ptr noundef %1) #9
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %95, label %87
+87:                                               ; preds = %83
+  %88 = tail call ptr @find_timens_vvar_page(ptr noundef %1) #9
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %100, label %90
 
-87:                                               ; preds = %84
-  %88 = load i64, ptr @phys_base, align 8
-  %89 = add i64 %88, sub (i64 ptrtoint (ptr @__vvar_page to i64), i64 -2147483648)
-  %90 = lshr i64 %89, 12
-  %91 = getelementptr inbounds i8, ptr %2, i64 24
-  %92 = load i64, ptr %91, align 8
-  %93 = tail call i32 @vmf_insert_pfn(ptr noundef %1, i64 noundef %92, i64 noundef %90) #9
-  br label %95
+90:                                               ; preds = %87
+  %91 = load i64, ptr @phys_base, align 8
+  %92 = ptrtoint ptr @__vvar_page to i64
+  %93 = sub i64 %92, -2147483648
+  %94 = add i64 %91, %93
+  %95 = lshr i64 %94, 12
+  %96 = getelementptr inbounds i8, ptr %2, i64 24
+  %97 = load i64, ptr %96, align 8
+  %98 = tail call i32 @vmf_insert_pfn(ptr noundef %1, i64 noundef %97, i64 noundef %95) #9
+  br label %100
 
-94:                                               ; preds = %80, %76, %73
-  br label %95
+99:                                               ; preds = %83, %79, %76
+  br label %100
 
-95:                                               ; preds = %94, %87, %84, %73, %42, %27, %9, %3
-  %96 = phi i32 [ 2, %94 ], [ %75, %73 ], [ 2, %3 ], [ 2, %9 ], [ %46, %42 ], [ %34, %27 ], [ %93, %87 ], [ 2, %84 ]
-  ret i32 %96
+100:                                              ; preds = %99, %90, %87, %76, %44, %29, %9, %3
+  %101 = phi i32 [ 2, %99 ], [ %78, %76 ], [ 2, %3 ], [ 2, %9 ], [ %48, %44 ], [ %36, %29 ], [ %98, %90 ], [ 2, %87 ]
+  ret i32 %101
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -632,7 +653,7 @@ define internal noundef i32 @vdso_fault(ptr nocapture readnone %0, ptr nocapture
   %6 = getelementptr inbounds i8, ptr %5, i64 1104
   %7 = load ptr, ptr %6, align 16
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %60, label %9
+  br i1 %8, label %61, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %2, i64 16
@@ -641,7 +662,7 @@ define internal noundef i32 @vdso_fault(ptr nocapture readnone %0, ptr nocapture
   %13 = getelementptr inbounds i8, ptr %7, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp ult i64 %12, %14
-  br i1 %15, label %16, label %60
+  br i1 %15, label %16, label %61
 
 16:                                               ; preds = %9
   %17 = load i64, ptr @vmemmap_base, align 8
@@ -650,65 +671,66 @@ define internal noundef i32 @vdso_fault(ptr nocapture readnone %0, ptr nocapture
   %20 = getelementptr i8, ptr %19, i64 %12
   %21 = ptrtoint ptr %20 to i64
   %22 = add i64 %21, 2147483648
-  %23 = icmp ugt ptr %20, inttoptr (i64 -2147483649 to ptr)
-  %24 = load i64, ptr @phys_base, align 8
-  %25 = load i64, ptr @page_offset_base, align 8
-  %26 = sub i64 -2147483648, %25
-  %27 = select i1 %23, i64 %24, i64 %26
-  %28 = add i64 %22, %27
-  %29 = lshr i64 %28, 12
-  %30 = getelementptr %struct.page, ptr %18, i64 %29
-  %31 = getelementptr inbounds i8, ptr %2, i64 80
-  store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
-  %33 = load volatile i64, ptr %32, align 8
-  %34 = and i64 %33, 1
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %39, label %36, !prof !5
+  %23 = inttoptr i64 -2147483649 to ptr
+  %24 = icmp ugt ptr %20, %23
+  %25 = load i64, ptr @phys_base, align 8
+  %26 = load i64, ptr @page_offset_base, align 8
+  %27 = sub i64 -2147483648, %26
+  %28 = select i1 %24, i64 %25, i64 %27
+  %29 = add i64 %22, %28
+  %30 = lshr i64 %29, 12
+  %31 = getelementptr %struct.page, ptr %18, i64 %30
+  %32 = getelementptr inbounds i8, ptr %2, i64 80
+  store ptr %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = load volatile i64, ptr %33, align 8
+  %35 = and i64 %34, 1
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %40, label %37, !prof !5
 
-36:                                               ; preds = %16
-  %37 = add nsw i64 %33, -1
-  %38 = inttoptr i64 %37 to ptr
-  br label %57
+37:                                               ; preds = %16
+  %38 = add nsw i64 %34, -1
+  %39 = inttoptr i64 %38 to ptr
+  br label %58
 
-39:                                               ; preds = %16
+40:                                               ; preds = %16
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #9
-          to label %57 [label %40], !srcloc !8
+          to label %58 [label %41], !srcloc !8
 
-40:                                               ; preds = %39
-  %41 = ptrtoint ptr %30 to i64
-  %42 = and i64 %41, 4095
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %44, label %56
+41:                                               ; preds = %40
+  %42 = ptrtoint ptr %31 to i64
+  %43 = and i64 %42, 4095
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %45, label %57
 
-44:                                               ; preds = %40
-  %45 = load volatile i64, ptr %30, align 8
-  %46 = and i64 %45, 64
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %56, label %48
+45:                                               ; preds = %41
+  %46 = load volatile i64, ptr %31, align 8
+  %47 = and i64 %46, 64
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %57, label %49
 
-48:                                               ; preds = %44
-  %49 = getelementptr i8, ptr %30, i64 72
-  %50 = load volatile i64, ptr %49, align 8
-  %51 = and i64 %50, 1
-  %52 = icmp eq i64 %51, 0
-  %53 = add nsw i64 %50, -1
-  %54 = inttoptr i64 %53 to ptr
-  %55 = select i1 %52, ptr undef, ptr %54, !prof !15
-  br i1 %52, label %56, label %57
+49:                                               ; preds = %45
+  %50 = getelementptr i8, ptr %31, i64 72
+  %51 = load volatile i64, ptr %50, align 8
+  %52 = and i64 %51, 1
+  %53 = icmp eq i64 %52, 0
+  %54 = add nsw i64 %51, -1
+  %55 = inttoptr i64 %54 to ptr
+  %56 = select i1 %53, ptr undef, ptr %55, !prof !15
+  br i1 %53, label %57, label %58
 
-56:                                               ; preds = %48, %44, %40
-  br label %57
+57:                                               ; preds = %49, %45, %41
+  br label %58
 
-57:                                               ; preds = %56, %48, %39, %36
-  %58 = phi ptr [ %38, %36 ], [ %55, %48 ], [ %30, %56 ], [ %30, %39 ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 52
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %59, ptr elementtype(i32) %59) #9, !srcloc !16
-  br label %60
+58:                                               ; preds = %57, %49, %40, %37
+  %59 = phi ptr [ %39, %37 ], [ %56, %49 ], [ %31, %57 ], [ %31, %40 ]
+  %60 = getelementptr inbounds i8, ptr %59, i64 52
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %60, ptr elementtype(i32) %60) #9, !srcloc !16
+  br label %61
 
-60:                                               ; preds = %57, %9, %3
-  %61 = phi i32 [ 0, %57 ], [ 2, %9 ], [ 2, %3 ]
-  ret i32 %61
+61:                                               ; preds = %58, %9, %3
+  %62 = phi i32 [ 0, %58 ], [ 2, %9 ], [ 2, %3 ]
+  ret i32 %62
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
@@ -725,7 +747,7 @@ define internal noundef i32 @vdso_mremap(ptr nocapture readnone %0, ptr nocaptur
   %12 = icmp ne i32 %11, 0
   %13 = icmp eq ptr %8, @vdso_image_32
   %14 = and i1 %13, %12
-  br i1 %14, label %15, label %32
+  br i1 %14, label %15, label %33
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %4, i64 32
@@ -733,28 +755,29 @@ define internal noundef i32 @vdso_mremap(ptr nocapture readnone %0, ptr nocaptur
   %18 = ptrtoint ptr %17 to i64
   %19 = add i64 %18, 16384
   %20 = inttoptr i64 %19 to ptr
-  %21 = load i64, ptr getelementptr inbounds (%struct.vdso_image, ptr @vdso_image_32, i64 0, i32 16), align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 1096
-  %23 = load ptr, ptr %22, align 8
-  %24 = ptrtoint ptr %23 to i64
-  %25 = add i64 %21, %24
-  %26 = getelementptr i8, ptr %20, i64 -40
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp eq i64 %27, %25
-  br i1 %28, label %29, label %32
+  %21 = getelementptr inbounds %struct.vdso_image, ptr @vdso_image_32, i64 0, i32 16
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %6, i64 1096
+  %24 = load ptr, ptr %23, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %26 = add i64 %22, %25
+  %27 = getelementptr i8, ptr %20, i64 -40
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp eq i64 %28, %26
+  br i1 %29, label %30, label %33
 
-29:                                               ; preds = %15
-  %30 = load i64, ptr %1, align 8
-  %31 = add i64 %30, %21
-  store i64 %31, ptr %26, align 8
-  br label %32
+30:                                               ; preds = %15
+  %31 = load i64, ptr %1, align 8
+  %32 = add i64 %31, %22
+  store i64 %32, ptr %27, align 8
+  br label %33
 
-32:                                               ; preds = %29, %15, %2
-  %33 = load i64, ptr %1, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1096
-  store ptr %34, ptr %36, align 8
+33:                                               ; preds = %30, %15, %2
+  %34 = load i64, ptr %1, align 8
+  %35 = inttoptr i64 %34 to ptr
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 1096
+  store ptr %35, ptr %37, align 8
   ret i32 0
 }
 

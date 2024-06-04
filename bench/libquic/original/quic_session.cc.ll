@@ -1728,17 +1728,18 @@ entry:
   store ptr %config, ptr %config.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net30QuicConnectionVisitorInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN3net11QuicSessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [43 x ptr] }, ptr @_ZTVN3net11QuicSessionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %locally_closed_streams_highest_offset_ = getelementptr inbounds %"class.net::QuicSession", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIjmSt4lessIjESaISt4pairIKjmEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %locally_closed_streams_highest_offset_) #12
   %connection_ = getelementptr inbounds %"class.net::QuicSession", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %connection.addr, align 8
-  store ptr %0, ptr %connection_, align 8
+  %1 = load ptr, ptr %connection.addr, align 8
+  store ptr %1, ptr %connection_, align 8
   %closed_streams_ = getelementptr inbounds %"class.net::QuicSession", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %closed_streams_) #12
   %config_ = getelementptr inbounds %"class.net::QuicSession", ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %config.addr, align 8
-  invoke void @_ZN3net10QuicConfigC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(600) %config_, ptr noundef nonnull align 8 dereferenceable(600) %1)
+  %2 = load ptr, ptr %config.addr, align 8
+  invoke void @_ZN3net10QuicConfigC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(600) %config_, ptr noundef nonnull align 8 dereferenceable(600) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1797,7 +1798,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   store i32 0, ptr %error_, align 8
   %flow_controller_ = getelementptr inbounds %"class.net::QuicSession", ptr %this1, i32 0, i32 21
   %connection_18 = getelementptr inbounds %"class.net::QuicSession", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %connection_18, align 8
+  %3 = load ptr, ptr %connection_18, align 8
   %call20 = invoke noundef i32 @_ZNK3net11QuicSession11perspectiveEv(ptr noundef nonnull align 8 dereferenceable(2044) %this1)
           to label %invoke.cont19 unwind label %lpad13
 
@@ -1813,7 +1814,7 @@ invoke.cont22:                                    ; preds = %invoke.cont19
 
 invoke.cont25:                                    ; preds = %invoke.cont22
   %cmp27 = icmp eq i32 %call26, 0
-  invoke void @_ZN3net18QuicFlowControllerC1EPNS_14QuicConnectionEjNS_11PerspectiveEmmb(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, ptr noundef %2, i32 noundef 0, i32 noundef %call20, i64 noundef 16384, i64 noundef %conv24, i1 noundef zeroext %cmp27)
+  invoke void @_ZN3net18QuicFlowControllerC1EPNS_14QuicConnectionEjNS_11PerspectiveEmmb(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, ptr noundef %3, i32 noundef 0, i32 noundef %call20, i64 noundef 16384, i64 noundef %conv24, i1 noundef zeroext %cmp27)
           to label %invoke.cont28 unwind label %lpad13
 
 invoke.cont28:                                    ; preds = %invoke.cont25
@@ -1822,57 +1823,57 @@ invoke.cont28:                                    ; preds = %invoke.cont25
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup33
 
 lpad3:                                            ; preds = %invoke.cont4, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup32
 
 lpad6:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup31
 
 lpad8:                                            ; preds = %invoke.cont7
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup30
 
 lpad11:                                           ; preds = %invoke.cont9
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad13:                                           ; preds = %invoke.cont25, %invoke.cont22, %invoke.cont19, %invoke.cont14, %invoke.cont12
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZN3net20QuicWriteBlockedListD1Ev(ptr noundef nonnull align 8 dereferenceable(843) %write_blocked_streams_) #12
   br label %ehcleanup
 
@@ -1913,7 +1914,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3net30QuicConnectionVisitorInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN3net30QuicConnectionVisitorInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2336,7 +2338,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN3net11QuicSessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [43 x ptr] }, ptr @_ZTVN3net11QuicSessionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %closed_streams_ = getelementptr inbounds %"class.net::QuicSession", ptr %this1, i32 0, i32 3
   invoke void @_ZN4base17STLDeleteElementsISt6vectorIPN3net18ReliableQuicStreamESaIS4_EEEEvPT_(ptr noundef %closed_streams_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -2369,10 +2372,10 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #13
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #13
   unreachable
 }
 

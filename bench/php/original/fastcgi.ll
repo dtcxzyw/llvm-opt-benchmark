@@ -106,24 +106,18 @@ define weak hidden void @fcgi_log(i32 noundef %0, ptr noundef %1, ...) #0 {
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %6)
+  call void @llvm.va_start.p0(ptr %6)
   %7 = load ptr, ptr @stderr, align 8
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %10 = call i32 @vfprintf(ptr noundef %7, ptr noundef %8, ptr noundef %9) #13
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %11)
+  call void @llvm.va_end.p0(ptr %11)
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
-
 ; Function Attrs: nounwind
-declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
+declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @fcgi_init() #0 {
@@ -176,7 +170,7 @@ define hidden i32 @fcgi_init() #0 {
   ret i32 %22
 }
 
-declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) #3
+declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @fcgi_free_mgmt_var_cb(ptr noundef %0) #0 {
@@ -1626,10 +1620,10 @@ define hidden void @fcgi_set_mgmt_var(ptr noundef %0, i64 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #4
+declare ptr @__errno_location() #3
 
 ; Function Attrs: nounwind
-declare i32 @getpeername(i32 noundef, ptr, ptr noundef) #2
+declare i32 @getpeername(i32 noundef, ptr, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @fcgi_setup_signals() #0 {
@@ -1704,10 +1698,10 @@ define hidden void @fcgi_shutdown() #0 {
   ret void
 }
 
-declare void @zend_hash_destroy(ptr noundef) #3
+declare void @zend_hash_destroy(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @fcgi_listen(ptr noundef %0, i32 noundef %1) #0 {
@@ -1890,7 +1884,7 @@ define hidden i32 @fcgi_listen(ptr noundef %0, i32 noundef %1) #0 {
   %118 = getelementptr inbounds [4096 x i8], ptr %8, i64 0, i64 0
   call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef @.str.3, ptr noundef %118)
   store i32 -1, ptr %3, align 4
-  br label %295
+  br label %297
 
 119:                                              ; preds = %110
   %120 = load ptr, ptr %14, align 8
@@ -1905,7 +1899,7 @@ define hidden i32 @fcgi_listen(ptr noundef %0, i32 noundef %1) #0 {
   %127 = getelementptr inbounds [4096 x i8], ptr %8, i64 0, i64 0
   call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef @.str.4, ptr noundef %127)
   store i32 -1, ptr %3, align 4
-  br label %295
+  br label %297
 
 128:                                              ; preds = %119
   br label %129
@@ -1927,7 +1921,7 @@ define hidden i32 @fcgi_listen(ptr noundef %0, i32 noundef %1) #0 {
   br label %140
 
 140:                                              ; preds = %139, %85
-  br label %159
+  br label %161
 
 141:                                              ; preds = %70
   %142 = load ptr, ptr %4, align 8
@@ -1940,7 +1934,7 @@ define hidden i32 @fcgi_listen(ptr noundef %0, i32 noundef %1) #0 {
 146:                                              ; preds = %141
   call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef @.str.5)
   store i32 -1, ptr %3, align 4
-  br label %295
+  br label %297
 
 147:                                              ; preds = %141
   call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 110, i1 false)
@@ -1953,252 +1947,254 @@ define hidden i32 @fcgi_listen(ptr noundef %0, i32 noundef %1) #0 {
   %153 = add i64 %152, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %150, ptr align 1 %151, i64 %153, i1 false)
   %154 = load i64, ptr %15, align 8
-  %155 = add i64 ptrtoint (ptr getelementptr inbounds (%struct.sockaddr_un, ptr null, i32 0, i32 1) to i64), %154
-  %156 = trunc i64 %155 to i32
-  store i32 %156, ptr %12, align 4
-  %157 = load ptr, ptr %4, align 8
-  %158 = call i32 @unlink(ptr noundef %157) #13
-  br label %159
+  %155 = getelementptr inbounds %struct.sockaddr_un, ptr null, i32 0, i32 1
+  %156 = ptrtoint ptr %155 to i64
+  %157 = add i64 %156, %154
+  %158 = trunc i64 %157 to i32
+  store i32 %158, ptr %12, align 4
+  %159 = load ptr, ptr %4, align 8
+  %160 = call i32 @unlink(ptr noundef %159) #13
+  br label %161
 
-159:                                              ; preds = %147, %140
-  %160 = getelementptr inbounds %struct.sockaddr, ptr %11, i32 0, i32 0
-  %161 = load i16, ptr %160, align 4
-  %162 = zext i16 %161 to i32
-  %163 = call i32 @socket(i32 noundef %162, i32 noundef 1, i32 noundef 0) #13
-  store i32 %163, ptr %10, align 4
-  %164 = icmp slt i32 %163, 0
-  br i1 %164, label %181, label %165
+161:                                              ; preds = %147, %140
+  %162 = getelementptr inbounds %struct.sockaddr, ptr %11, i32 0, i32 0
+  %163 = load i16, ptr %162, align 4
+  %164 = zext i16 %163 to i32
+  %165 = call i32 @socket(i32 noundef %164, i32 noundef 1, i32 noundef 0) #13
+  store i32 %165, ptr %10, align 4
+  %166 = icmp slt i32 %165, 0
+  br i1 %166, label %183, label %167
 
-165:                                              ; preds = %159
-  %166 = load i32, ptr %10, align 4
-  %167 = call i32 @setsockopt(i32 noundef %166, i32 noundef 1, i32 noundef 2, ptr noundef %13, i32 noundef 4) #13
-  %168 = icmp slt i32 %167, 0
-  br i1 %168, label %181, label %169
+167:                                              ; preds = %161
+  %168 = load i32, ptr %10, align 4
+  %169 = call i32 @setsockopt(i32 noundef %168, i32 noundef 1, i32 noundef 2, ptr noundef %13, i32 noundef 4) #13
+  %170 = icmp slt i32 %169, 0
+  br i1 %170, label %183, label %171
 
-169:                                              ; preds = %165
-  %170 = load i32, ptr %10, align 4
+171:                                              ; preds = %167
+  %172 = load i32, ptr %10, align 4
   store ptr %11, ptr %16, align 8
-  %171 = load i32, ptr %12, align 4
-  %172 = getelementptr inbounds %union.__CONST_SOCKADDR_ARG, ptr %16, i32 0, i32 0
-  %173 = load ptr, ptr %172, align 8
-  %174 = call i32 @bind(i32 noundef %170, ptr %173, i32 noundef %171) #13
-  %175 = icmp slt i32 %174, 0
-  br i1 %175, label %181, label %176
+  %173 = load i32, ptr %12, align 4
+  %174 = getelementptr inbounds %union.__CONST_SOCKADDR_ARG, ptr %16, i32 0, i32 0
+  %175 = load ptr, ptr %174, align 8
+  %176 = call i32 @bind(i32 noundef %172, ptr %175, i32 noundef %173) #13
+  %177 = icmp slt i32 %176, 0
+  br i1 %177, label %183, label %178
 
-176:                                              ; preds = %169
-  %177 = load i32, ptr %10, align 4
-  %178 = load i32, ptr %5, align 4
-  %179 = call i32 @listen(i32 noundef %177, i32 noundef %178) #13
-  %180 = icmp slt i32 %179, 0
-  br i1 %180, label %181, label %189
+178:                                              ; preds = %171
+  %179 = load i32, ptr %10, align 4
+  %180 = load i32, ptr %5, align 4
+  %181 = call i32 @listen(i32 noundef %179, i32 noundef %180) #13
+  %182 = icmp slt i32 %181, 0
+  br i1 %182, label %183, label %191
 
-181:                                              ; preds = %176, %169, %165, %159
-  %182 = load i32, ptr %10, align 4
-  %183 = call i32 @close(i32 noundef %182)
-  %184 = call ptr @__errno_location() #14
-  %185 = load i32, ptr %184, align 4
+183:                                              ; preds = %178, %171, %167, %161
+  %184 = load i32, ptr %10, align 4
+  %185 = call i32 @close(i32 noundef %184)
   %186 = call ptr @__errno_location() #14
   %187 = load i32, ptr %186, align 4
-  %188 = call ptr @strerror(i32 noundef %187) #13
-  call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef @.str.6, i32 noundef %185, ptr noundef %188)
+  %188 = call ptr @__errno_location() #14
+  %189 = load i32, ptr %188, align 4
+  %190 = call ptr @strerror(i32 noundef %189) #13
+  call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef @.str.6, i32 noundef %187, ptr noundef %190)
   store i32 -1, ptr %3, align 4
+  br label %297
+
+191:                                              ; preds = %178
+  %192 = load i32, ptr %7, align 4
+  %193 = icmp ne i32 %192, 0
+  br i1 %193, label %197, label %194
+
+194:                                              ; preds = %191
+  %195 = load ptr, ptr %4, align 8
+  %196 = call i32 @chmod(ptr noundef %195, i32 noundef 511) #13
+  br label %290
+
+197:                                              ; preds = %191
+  %198 = call ptr @getenv(ptr noundef @.str.7) #13
+  store ptr %198, ptr %17, align 8
+  %199 = load ptr, ptr %17, align 8
+  %200 = icmp ne ptr %199, null
+  br i1 %200, label %201, label %289
+
+201:                                              ; preds = %197
+  %202 = load ptr, ptr %17, align 8
+  %203 = call noalias ptr @strdup(ptr noundef %202) #13
+  store ptr %203, ptr %17, align 8
+  %204 = load ptr, ptr %17, align 8
+  store ptr %204, ptr %18, align 8
+  store i32 0, ptr %20, align 4
+  br label %205
+
+205:                                              ; preds = %217, %201
+  %206 = load ptr, ptr %18, align 8
+  %207 = load i8, ptr %206, align 1
+  %208 = icmp ne i8 %207, 0
+  br i1 %208, label %209, label %220
+
+209:                                              ; preds = %205
+  %210 = load ptr, ptr %18, align 8
+  %211 = load i8, ptr %210, align 1
+  %212 = sext i8 %211 to i32
+  %213 = icmp eq i32 %212, 44
+  br i1 %213, label %214, label %217
+
+214:                                              ; preds = %209
+  %215 = load i32, ptr %20, align 4
+  %216 = add nsw i32 %215, 1
+  store i32 %216, ptr %20, align 4
+  br label %217
+
+217:                                              ; preds = %214, %209
+  %218 = load ptr, ptr %18, align 8
+  %219 = getelementptr inbounds i8, ptr %218, i32 1
+  store ptr %219, ptr %18, align 8
+  br label %205
+
+220:                                              ; preds = %205
+  %221 = load i32, ptr %20, align 4
+  %222 = add nsw i32 %221, 2
+  %223 = sext i32 %222 to i64
+  %224 = mul i64 112, %223
+  %225 = call noalias ptr @malloc(i64 noundef %224) #15
+  store ptr %225, ptr @allowed_clients, align 8
+  store i32 0, ptr %20, align 4
+  %226 = load ptr, ptr %17, align 8
+  store ptr %226, ptr %18, align 8
+  br label %227
+
+227:                                              ; preds = %276, %220
+  %228 = load ptr, ptr %18, align 8
+  %229 = icmp ne ptr %228, null
+  br i1 %229, label %230, label %278
+
+230:                                              ; preds = %227
+  %231 = load ptr, ptr %18, align 8
+  %232 = call ptr @strchr(ptr noundef %231, i32 noundef 44) #16
+  store ptr %232, ptr %19, align 8
+  %233 = load ptr, ptr %19, align 8
+  %234 = icmp ne ptr %233, null
+  br i1 %234, label %235, label %239
+
+235:                                              ; preds = %230
+  %236 = load ptr, ptr %19, align 8
+  store i8 0, ptr %236, align 1
+  %237 = load ptr, ptr %19, align 8
+  %238 = getelementptr inbounds i8, ptr %237, i32 1
+  store ptr %238, ptr %19, align 8
+  br label %239
+
+239:                                              ; preds = %235, %230
+  %240 = load ptr, ptr %18, align 8
+  %241 = load ptr, ptr @allowed_clients, align 8
+  %242 = load i32, ptr %20, align 4
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds %union._sa_t, ptr %241, i64 %243
+  %245 = getelementptr inbounds %struct.sockaddr_in, ptr %244, i32 0, i32 2
+  %246 = call i32 @inet_pton(i32 noundef 2, ptr noundef %240, ptr noundef %245) #13
+  %247 = icmp sgt i32 %246, 0
+  br i1 %247, label %248, label %256
+
+248:                                              ; preds = %239
+  %249 = load ptr, ptr @allowed_clients, align 8
+  %250 = load i32, ptr %20, align 4
+  %251 = sext i32 %250 to i64
+  %252 = getelementptr inbounds %union._sa_t, ptr %249, i64 %251
+  %253 = getelementptr inbounds %struct.sockaddr, ptr %252, i32 0, i32 0
+  store i16 2, ptr %253, align 4
+  %254 = load i32, ptr %20, align 4
+  %255 = add nsw i32 %254, 1
+  store i32 %255, ptr %20, align 4
+  br label %276
+
+256:                                              ; preds = %239
+  %257 = load ptr, ptr %18, align 8
+  %258 = load ptr, ptr @allowed_clients, align 8
+  %259 = load i32, ptr %20, align 4
+  %260 = sext i32 %259 to i64
+  %261 = getelementptr inbounds %union._sa_t, ptr %258, i64 %260
+  %262 = getelementptr inbounds %struct.sockaddr_in6, ptr %261, i32 0, i32 3
+  %263 = call i32 @inet_pton(i32 noundef 10, ptr noundef %257, ptr noundef %262) #13
+  %264 = icmp sgt i32 %263, 0
+  br i1 %264, label %265, label %273
+
+265:                                              ; preds = %256
+  %266 = load ptr, ptr @allowed_clients, align 8
+  %267 = load i32, ptr %20, align 4
+  %268 = sext i32 %267 to i64
+  %269 = getelementptr inbounds %union._sa_t, ptr %266, i64 %268
+  %270 = getelementptr inbounds %struct.sockaddr, ptr %269, i32 0, i32 0
+  store i16 10, ptr %270, align 4
+  %271 = load i32, ptr %20, align 4
+  %272 = add nsw i32 %271, 1
+  store i32 %272, ptr %20, align 4
+  br label %275
+
+273:                                              ; preds = %256
+  %274 = load ptr, ptr %18, align 8
+  call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef @.str.8, ptr noundef %274)
+  br label %275
+
+275:                                              ; preds = %273, %265
+  br label %276
+
+276:                                              ; preds = %275, %248
+  %277 = load ptr, ptr %19, align 8
+  store ptr %277, ptr %18, align 8
+  br label %227
+
+278:                                              ; preds = %227
+  %279 = load ptr, ptr @allowed_clients, align 8
+  %280 = load i32, ptr %20, align 4
+  %281 = sext i32 %280 to i64
+  %282 = getelementptr inbounds %union._sa_t, ptr %279, i64 %281
+  %283 = getelementptr inbounds %struct.sockaddr, ptr %282, i32 0, i32 0
+  store i16 0, ptr %283, align 4
+  %284 = load ptr, ptr %17, align 8
+  call void @free(ptr noundef %284) #13
+  %285 = load i32, ptr %20, align 4
+  %286 = icmp ne i32 %285, 0
+  br i1 %286, label %288, label %287
+
+287:                                              ; preds = %278
+  call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef @.str.9)
+  br label %288
+
+288:                                              ; preds = %287, %278
+  br label %289
+
+289:                                              ; preds = %288, %197
+  br label %290
+
+290:                                              ; preds = %289, %194
+  %291 = load i32, ptr @is_initialized, align 4
+  %292 = icmp ne i32 %291, 0
+  br i1 %292, label %295, label %293
+
+293:                                              ; preds = %290
+  %294 = call i32 @fcgi_init()
   br label %295
 
-189:                                              ; preds = %176
-  %190 = load i32, ptr %7, align 4
-  %191 = icmp ne i32 %190, 0
-  br i1 %191, label %195, label %192
-
-192:                                              ; preds = %189
-  %193 = load ptr, ptr %4, align 8
-  %194 = call i32 @chmod(ptr noundef %193, i32 noundef 511) #13
-  br label %288
-
-195:                                              ; preds = %189
-  %196 = call ptr @getenv(ptr noundef @.str.7) #13
-  store ptr %196, ptr %17, align 8
-  %197 = load ptr, ptr %17, align 8
-  %198 = icmp ne ptr %197, null
-  br i1 %198, label %199, label %287
-
-199:                                              ; preds = %195
-  %200 = load ptr, ptr %17, align 8
-  %201 = call noalias ptr @strdup(ptr noundef %200) #13
-  store ptr %201, ptr %17, align 8
-  %202 = load ptr, ptr %17, align 8
-  store ptr %202, ptr %18, align 8
-  store i32 0, ptr %20, align 4
-  br label %203
-
-203:                                              ; preds = %215, %199
-  %204 = load ptr, ptr %18, align 8
-  %205 = load i8, ptr %204, align 1
-  %206 = icmp ne i8 %205, 0
-  br i1 %206, label %207, label %218
-
-207:                                              ; preds = %203
-  %208 = load ptr, ptr %18, align 8
-  %209 = load i8, ptr %208, align 1
-  %210 = sext i8 %209 to i32
-  %211 = icmp eq i32 %210, 44
-  br i1 %211, label %212, label %215
-
-212:                                              ; preds = %207
-  %213 = load i32, ptr %20, align 4
-  %214 = add nsw i32 %213, 1
-  store i32 %214, ptr %20, align 4
-  br label %215
-
-215:                                              ; preds = %212, %207
-  %216 = load ptr, ptr %18, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i32 1
-  store ptr %217, ptr %18, align 8
-  br label %203
-
-218:                                              ; preds = %203
-  %219 = load i32, ptr %20, align 4
-  %220 = add nsw i32 %219, 2
-  %221 = sext i32 %220 to i64
-  %222 = mul i64 112, %221
-  %223 = call noalias ptr @malloc(i64 noundef %222) #15
-  store ptr %223, ptr @allowed_clients, align 8
-  store i32 0, ptr %20, align 4
-  %224 = load ptr, ptr %17, align 8
-  store ptr %224, ptr %18, align 8
-  br label %225
-
-225:                                              ; preds = %274, %218
-  %226 = load ptr, ptr %18, align 8
-  %227 = icmp ne ptr %226, null
-  br i1 %227, label %228, label %276
-
-228:                                              ; preds = %225
-  %229 = load ptr, ptr %18, align 8
-  %230 = call ptr @strchr(ptr noundef %229, i32 noundef 44) #16
-  store ptr %230, ptr %19, align 8
-  %231 = load ptr, ptr %19, align 8
-  %232 = icmp ne ptr %231, null
-  br i1 %232, label %233, label %237
-
-233:                                              ; preds = %228
-  %234 = load ptr, ptr %19, align 8
-  store i8 0, ptr %234, align 1
-  %235 = load ptr, ptr %19, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i32 1
-  store ptr %236, ptr %19, align 8
-  br label %237
-
-237:                                              ; preds = %233, %228
-  %238 = load ptr, ptr %18, align 8
-  %239 = load ptr, ptr @allowed_clients, align 8
-  %240 = load i32, ptr %20, align 4
-  %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds %union._sa_t, ptr %239, i64 %241
-  %243 = getelementptr inbounds %struct.sockaddr_in, ptr %242, i32 0, i32 2
-  %244 = call i32 @inet_pton(i32 noundef 2, ptr noundef %238, ptr noundef %243) #13
-  %245 = icmp sgt i32 %244, 0
-  br i1 %245, label %246, label %254
-
-246:                                              ; preds = %237
-  %247 = load ptr, ptr @allowed_clients, align 8
-  %248 = load i32, ptr %20, align 4
-  %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds %union._sa_t, ptr %247, i64 %249
-  %251 = getelementptr inbounds %struct.sockaddr, ptr %250, i32 0, i32 0
-  store i16 2, ptr %251, align 4
-  %252 = load i32, ptr %20, align 4
-  %253 = add nsw i32 %252, 1
-  store i32 %253, ptr %20, align 4
-  br label %274
-
-254:                                              ; preds = %237
-  %255 = load ptr, ptr %18, align 8
-  %256 = load ptr, ptr @allowed_clients, align 8
-  %257 = load i32, ptr %20, align 4
-  %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds %union._sa_t, ptr %256, i64 %258
-  %260 = getelementptr inbounds %struct.sockaddr_in6, ptr %259, i32 0, i32 3
-  %261 = call i32 @inet_pton(i32 noundef 10, ptr noundef %255, ptr noundef %260) #13
-  %262 = icmp sgt i32 %261, 0
-  br i1 %262, label %263, label %271
-
-263:                                              ; preds = %254
-  %264 = load ptr, ptr @allowed_clients, align 8
-  %265 = load i32, ptr %20, align 4
-  %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds %union._sa_t, ptr %264, i64 %266
-  %268 = getelementptr inbounds %struct.sockaddr, ptr %267, i32 0, i32 0
-  store i16 10, ptr %268, align 4
-  %269 = load i32, ptr %20, align 4
-  %270 = add nsw i32 %269, 1
-  store i32 %270, ptr %20, align 4
-  br label %273
-
-271:                                              ; preds = %254
-  %272 = load ptr, ptr %18, align 8
-  call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef @.str.8, ptr noundef %272)
-  br label %273
-
-273:                                              ; preds = %271, %263
-  br label %274
-
-274:                                              ; preds = %273, %246
-  %275 = load ptr, ptr %19, align 8
-  store ptr %275, ptr %18, align 8
-  br label %225
-
-276:                                              ; preds = %225
-  %277 = load ptr, ptr @allowed_clients, align 8
-  %278 = load i32, ptr %20, align 4
-  %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds %union._sa_t, ptr %277, i64 %279
-  %281 = getelementptr inbounds %struct.sockaddr, ptr %280, i32 0, i32 0
-  store i16 0, ptr %281, align 4
-  %282 = load ptr, ptr %17, align 8
-  call void @free(ptr noundef %282) #13
-  %283 = load i32, ptr %20, align 4
-  %284 = icmp ne i32 %283, 0
-  br i1 %284, label %286, label %285
-
-285:                                              ; preds = %276
-  call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef @.str.9)
-  br label %286
-
-286:                                              ; preds = %285, %276
-  br label %287
-
-287:                                              ; preds = %286, %195
-  br label %288
-
-288:                                              ; preds = %287, %192
-  %289 = load i32, ptr @is_initialized, align 4
-  %290 = icmp ne i32 %289, 0
-  br i1 %290, label %293, label %291
-
-291:                                              ; preds = %288
-  %292 = call i32 @fcgi_init()
-  br label %293
-
-293:                                              ; preds = %291, %288
+295:                                              ; preds = %293, %290
   store i32 1, ptr @is_fastcgi, align 4
   call void @fcgi_setup_signals()
-  %294 = load i32, ptr %10, align 4
-  store i32 %294, ptr %3, align 4
-  br label %295
+  %296 = load i32, ptr %10, align 4
+  store i32 %296, ptr %3, align 4
+  br label %297
 
-295:                                              ; preds = %293, %181, %146, %126, %117
-  %296 = load i32, ptr %3, align 4
-  ret i32 %296
+297:                                              ; preds = %295, %183, %146, %126, %117
+  %298 = load i32, ptr %3, align 4
+  ret i32 %298
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #5
+declare ptr @strchr(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #5
+declare i32 @atoi(ptr noundef) #4
 
 ; Function Attrs: nounwind
-declare ptr @strncpy(ptr noundef, ptr noundef, i64 noundef) #2
+declare ptr @strncpy(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @is_port_number(ptr noundef %0) #0 {
@@ -2247,59 +2243,59 @@ define internal i32 @is_port_number(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare zeroext i16 @htons(i16 noundef zeroext) #4
+declare zeroext i16 @htons(i16 noundef zeroext) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i32 @htonl(i32 noundef) #4
+declare i32 @htonl(i32 noundef) #3
 
 ; Function Attrs: nounwind
-declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #5
+declare i64 @strlen(ptr noundef) #4
 
-declare ptr @php_network_gethostbyname(ptr noundef) #3
+declare ptr @php_network_gethostbyname(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
-declare i32 @unlink(ptr noundef) #2
+declare i32 @unlink(ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) #2
+declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
+declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @bind(i32 noundef, ptr, i32 noundef) #2
+declare i32 @bind(i32 noundef, ptr, i32 noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @listen(i32 noundef, i32 noundef) #2
+declare i32 @listen(i32 noundef, i32 noundef) #1
 
-declare i32 @close(i32 noundef) #3
-
-; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) #2
+declare i32 @close(i32 noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @chmod(ptr noundef, i32 noundef) #2
+declare ptr @strerror(i32 noundef) #1
 
 ; Function Attrs: nounwind
-declare ptr @getenv(ptr noundef) #2
+declare i32 @chmod(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind
-declare noalias ptr @strdup(ptr noundef) #2
+declare ptr @getenv(ptr noundef) #1
+
+; Function Attrs: nounwind
+declare noalias ptr @strdup(ptr noundef) #1
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #8
+declare noalias ptr @malloc(i64 noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define hidden void @fcgi_set_allowed_clients(ptr noundef %0) #0 {
@@ -2560,7 +2556,7 @@ define hidden ptr @fcgi_init_request(i32 noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #9
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @fcgi_hook_dummy() #0 {
@@ -3215,9 +3211,9 @@ define internal void @fcgi_hash_clean(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @shutdown(i32 noundef, i32 noundef) #2
+declare i32 @shutdown(i32 noundef, i32 noundef) #1
 
-declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) #3
+declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @fcgi_is_closed(ptr noundef %0) #0 {
@@ -3485,7 +3481,7 @@ define hidden i32 @fcgi_accept_request(ptr noundef %0) #0 {
   ret i32 %149
 }
 
-declare i32 @accept(i32 noundef, ptr, ptr noundef) #3
+declare i32 @accept(i32 noundef, ptr, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fcgi_is_allowed() #0 {
@@ -3500,7 +3496,7 @@ define internal i32 @fcgi_is_allowed() #0 {
 
 8:                                                ; preds = %0
   store i32 1, ptr %1, align 4
-  br label %128
+  br label %133
 
 9:                                                ; preds = %0
   %10 = load ptr, ptr @allowed_clients, align 8
@@ -3509,19 +3505,19 @@ define internal i32 @fcgi_is_allowed() #0 {
 
 12:                                               ; preds = %9
   store i32 1, ptr %1, align 4
-  br label %128
+  br label %133
 
 13:                                               ; preds = %9
   %14 = load i16, ptr @client_sa, align 4
   %15 = zext i16 %14 to i32
   %16 = icmp eq i32 %15, 2
-  br i1 %16, label %17, label %49
+  br i1 %16, label %17, label %50
 
 17:                                               ; preds = %13
   store i32 0, ptr %2, align 4
   br label %18
 
-18:                                               ; preds = %45, %17
+18:                                               ; preds = %46, %17
   %19 = load ptr, ptr @allowed_clients, align 8
   %20 = load i32, ptr %2, align 4
   %21 = sext i32 %20 to i64
@@ -3529,7 +3525,7 @@ define internal i32 @fcgi_is_allowed() #0 {
   %23 = getelementptr inbounds %struct.sockaddr, ptr %22, i32 0, i32 0
   %24 = load i16, ptr %23, align 4
   %25 = icmp ne i16 %24, 0
-  br i1 %25, label %26, label %48
+  br i1 %25, label %26, label %49
 
 26:                                               ; preds = %18
   %27 = load ptr, ptr @allowed_clients, align 8
@@ -3540,7 +3536,7 @@ define internal i32 @fcgi_is_allowed() #0 {
   %32 = load i16, ptr %31, align 4
   %33 = zext i16 %32 to i32
   %34 = icmp eq i32 %33, 2
-  br i1 %34, label %35, label %44
+  br i1 %34, label %35, label %45
 
 35:                                               ; preds = %26
   %36 = load ptr, ptr @allowed_clients, align 8
@@ -3548,149 +3544,154 @@ define internal i32 @fcgi_is_allowed() #0 {
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds %union._sa_t, ptr %36, i64 %38
   %40 = getelementptr inbounds %struct.sockaddr_in, ptr %39, i32 0, i32 2
-  %41 = call i32 @memcmp(ptr noundef getelementptr inbounds (%struct.sockaddr_in, ptr @client_sa, i32 0, i32 2), ptr noundef %40, i64 noundef 4) #16
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %44, label %43
+  %41 = getelementptr inbounds %struct.sockaddr_in, ptr @client_sa, i32 0, i32 2
+  %42 = call i32 @memcmp(ptr noundef %41, ptr noundef %40, i64 noundef 4) #16
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %45, label %44
 
-43:                                               ; preds = %35
+44:                                               ; preds = %35
   store i32 1, ptr %1, align 4
-  br label %128
+  br label %133
 
-44:                                               ; preds = %35, %26
-  br label %45
+45:                                               ; preds = %35, %26
+  br label %46
 
-45:                                               ; preds = %44
-  %46 = load i32, ptr %2, align 4
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %2, align 4
+46:                                               ; preds = %45
+  %47 = load i32, ptr %2, align 4
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %2, align 4
   br label %18
 
-48:                                               ; preds = %18
-  br label %49
+49:                                               ; preds = %18
+  br label %50
 
-49:                                               ; preds = %48, %13
-  %50 = load i16, ptr @client_sa, align 4
-  %51 = zext i16 %50 to i32
-  %52 = icmp eq i32 %51, 10
-  br i1 %52, label %53, label %127
+50:                                               ; preds = %49, %13
+  %51 = load i16, ptr @client_sa, align 4
+  %52 = zext i16 %51 to i32
+  %53 = icmp eq i32 %52, 10
+  br i1 %53, label %54, label %132
 
-53:                                               ; preds = %49
+54:                                               ; preds = %50
   store i32 0, ptr %2, align 4
-  br label %54
+  br label %55
 
-54:                                               ; preds = %123, %53
-  %55 = load ptr, ptr @allowed_clients, align 8
-  %56 = load i32, ptr %2, align 4
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %union._sa_t, ptr %55, i64 %57
-  %59 = getelementptr inbounds %struct.sockaddr, ptr %58, i32 0, i32 0
-  %60 = load i16, ptr %59, align 4
-  %61 = icmp ne i16 %60, 0
-  br i1 %61, label %62, label %126
+55:                                               ; preds = %128, %54
+  %56 = load ptr, ptr @allowed_clients, align 8
+  %57 = load i32, ptr %2, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds %union._sa_t, ptr %56, i64 %58
+  %60 = getelementptr inbounds %struct.sockaddr, ptr %59, i32 0, i32 0
+  %61 = load i16, ptr %60, align 4
+  %62 = icmp ne i16 %61, 0
+  br i1 %62, label %63, label %131
 
-62:                                               ; preds = %54
-  %63 = load ptr, ptr @allowed_clients, align 8
-  %64 = load i32, ptr %2, align 4
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds %union._sa_t, ptr %63, i64 %65
-  %67 = getelementptr inbounds %struct.sockaddr, ptr %66, i32 0, i32 0
-  %68 = load i16, ptr %67, align 4
-  %69 = zext i16 %68 to i32
-  %70 = icmp eq i32 %69, 10
-  br i1 %70, label %71, label %80
+63:                                               ; preds = %55
+  %64 = load ptr, ptr @allowed_clients, align 8
+  %65 = load i32, ptr %2, align 4
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds %union._sa_t, ptr %64, i64 %66
+  %68 = getelementptr inbounds %struct.sockaddr, ptr %67, i32 0, i32 0
+  %69 = load i16, ptr %68, align 4
+  %70 = zext i16 %69 to i32
+  %71 = icmp eq i32 %70, 10
+  br i1 %71, label %72, label %82
 
-71:                                               ; preds = %62
-  %72 = load ptr, ptr @allowed_clients, align 8
-  %73 = load i32, ptr %2, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %union._sa_t, ptr %72, i64 %74
-  %76 = getelementptr inbounds %struct.sockaddr_in6, ptr %75, i32 0, i32 3
-  %77 = call i32 @memcmp(ptr noundef getelementptr inbounds (%struct.sockaddr_in6, ptr @client_sa, i32 0, i32 3), ptr noundef %76, i64 noundef 12) #16
-  %78 = icmp ne i32 %77, 0
-  br i1 %78, label %80, label %79
+72:                                               ; preds = %63
+  %73 = load ptr, ptr @allowed_clients, align 8
+  %74 = load i32, ptr %2, align 4
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds %union._sa_t, ptr %73, i64 %75
+  %77 = getelementptr inbounds %struct.sockaddr_in6, ptr %76, i32 0, i32 3
+  %78 = getelementptr inbounds %struct.sockaddr_in6, ptr @client_sa, i32 0, i32 3
+  %79 = call i32 @memcmp(ptr noundef %78, ptr noundef %77, i64 noundef 12) #16
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %82, label %81
 
-79:                                               ; preds = %71
+81:                                               ; preds = %72
   store i32 1, ptr %1, align 4
+  br label %133
+
+82:                                               ; preds = %72, %63
+  %83 = load ptr, ptr @allowed_clients, align 8
+  %84 = load i32, ptr %2, align 4
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds %union._sa_t, ptr %83, i64 %85
+  %87 = getelementptr inbounds %struct.sockaddr, ptr %86, i32 0, i32 0
+  %88 = load i16, ptr %87, align 4
+  %89 = zext i16 %88 to i32
+  %90 = icmp eq i32 %89, 2
+  br i1 %90, label %91, label %127
+
+91:                                               ; preds = %82
+  %92 = getelementptr inbounds %struct.sockaddr_in6, ptr @client_sa, i32 0, i32 3
+  store ptr %92, ptr %3, align 8
+  %93 = load ptr, ptr %3, align 8
+  %94 = getelementptr inbounds %struct.in6_addr, ptr %93, i32 0, i32 0
+  %95 = getelementptr inbounds [4 x i32], ptr %94, i64 0, i64 0
+  %96 = load i32, ptr %95, align 4
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %111
+
+98:                                               ; preds = %91
+  %99 = load ptr, ptr %3, align 8
+  %100 = getelementptr inbounds %struct.in6_addr, ptr %99, i32 0, i32 0
+  %101 = getelementptr inbounds [4 x i32], ptr %100, i64 0, i64 1
+  %102 = load i32, ptr %101, align 4
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %104, label %111
+
+104:                                              ; preds = %98
+  %105 = load ptr, ptr %3, align 8
+  %106 = getelementptr inbounds %struct.in6_addr, ptr %105, i32 0, i32 0
+  %107 = getelementptr inbounds [4 x i32], ptr %106, i64 0, i64 2
+  %108 = load i32, ptr %107, align 4
+  %109 = call i32 @htonl(i32 noundef 65535) #14
+  %110 = icmp eq i32 %108, %109
+  br label %111
+
+111:                                              ; preds = %104, %98, %91
+  %112 = phi i1 [ false, %98 ], [ false, %91 ], [ %110, %104 ]
+  %113 = zext i1 %112 to i32
+  store i32 %113, ptr %4, align 4
+  %114 = load i32, ptr %4, align 4
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %116, label %127
+
+116:                                              ; preds = %111
+  %117 = load ptr, ptr @allowed_clients, align 8
+  %118 = load i32, ptr %2, align 4
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds %union._sa_t, ptr %117, i64 %119
+  %121 = getelementptr inbounds %struct.sockaddr_in, ptr %120, i32 0, i32 2
+  %122 = getelementptr inbounds %struct.sockaddr_in6, ptr @client_sa, i32 0, i32 3
+  %123 = getelementptr inbounds i8, ptr %122, i64 12
+  %124 = call i32 @memcmp(ptr noundef %123, ptr noundef %121, i64 noundef 4) #16
+  %125 = icmp ne i32 %124, 0
+  br i1 %125, label %127, label %126
+
+126:                                              ; preds = %116
+  store i32 1, ptr %1, align 4
+  br label %133
+
+127:                                              ; preds = %116, %111, %82
   br label %128
 
-80:                                               ; preds = %71, %62
-  %81 = load ptr, ptr @allowed_clients, align 8
-  %82 = load i32, ptr %2, align 4
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds %union._sa_t, ptr %81, i64 %83
-  %85 = getelementptr inbounds %struct.sockaddr, ptr %84, i32 0, i32 0
-  %86 = load i16, ptr %85, align 4
-  %87 = zext i16 %86 to i32
-  %88 = icmp eq i32 %87, 2
-  br i1 %88, label %89, label %122
+128:                                              ; preds = %127
+  %129 = load i32, ptr %2, align 4
+  %130 = add nsw i32 %129, 1
+  store i32 %130, ptr %2, align 4
+  br label %55
 
-89:                                               ; preds = %80
-  store ptr getelementptr inbounds (%struct.sockaddr_in6, ptr @client_sa, i32 0, i32 3), ptr %3, align 8
-  %90 = load ptr, ptr %3, align 8
-  %91 = getelementptr inbounds %struct.in6_addr, ptr %90, i32 0, i32 0
-  %92 = getelementptr inbounds [4 x i32], ptr %91, i64 0, i64 0
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %108
+131:                                              ; preds = %55
+  br label %132
 
-95:                                               ; preds = %89
-  %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds %struct.in6_addr, ptr %96, i32 0, i32 0
-  %98 = getelementptr inbounds [4 x i32], ptr %97, i64 0, i64 1
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %108
-
-101:                                              ; preds = %95
-  %102 = load ptr, ptr %3, align 8
-  %103 = getelementptr inbounds %struct.in6_addr, ptr %102, i32 0, i32 0
-  %104 = getelementptr inbounds [4 x i32], ptr %103, i64 0, i64 2
-  %105 = load i32, ptr %104, align 4
-  %106 = call i32 @htonl(i32 noundef 65535) #14
-  %107 = icmp eq i32 %105, %106
-  br label %108
-
-108:                                              ; preds = %101, %95, %89
-  %109 = phi i1 [ false, %95 ], [ false, %89 ], [ %107, %101 ]
-  %110 = zext i1 %109 to i32
-  store i32 %110, ptr %4, align 4
-  %111 = load i32, ptr %4, align 4
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %113, label %122
-
-113:                                              ; preds = %108
-  %114 = load ptr, ptr @allowed_clients, align 8
-  %115 = load i32, ptr %2, align 4
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds %union._sa_t, ptr %114, i64 %116
-  %118 = getelementptr inbounds %struct.sockaddr_in, ptr %117, i32 0, i32 2
-  %119 = call i32 @memcmp(ptr noundef getelementptr inbounds (i8, ptr getelementptr inbounds (%struct.sockaddr_in6, ptr @client_sa, i32 0, i32 3), i64 12), ptr noundef %118, i64 noundef 4) #16
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %122, label %121
-
-121:                                              ; preds = %113
-  store i32 1, ptr %1, align 4
-  br label %128
-
-122:                                              ; preds = %113, %108, %80
-  br label %123
-
-123:                                              ; preds = %122
-  %124 = load i32, ptr %2, align 4
-  %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %2, align 4
-  br label %54
-
-126:                                              ; preds = %54
-  br label %127
-
-127:                                              ; preds = %126, %49
+132:                                              ; preds = %131, %50
   store i32 0, ptr %1, align 4
-  br label %128
+  br label %133
 
-128:                                              ; preds = %127, %121, %79, %43, %12, %8
-  %129 = load i32, ptr %1, align 4
-  ret i32 %129
+133:                                              ; preds = %132, %126, %81, %44, %12, %8
+  %134 = load i32, ptr %1, align 4
+  ret i32 %134
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3701,85 +3702,90 @@ define hidden ptr @fcgi_get_last_client_ip() #0 {
   %4 = load i16, ptr @client_sa, align 4
   %5 = zext i16 %4 to i32
   %6 = icmp eq i32 %5, 2
-  br i1 %6, label %7, label %11
+  br i1 %6, label %7, label %12
 
 7:                                                ; preds = %0
   %8 = load i16, ptr @client_sa, align 4
   %9 = zext i16 %8 to i32
-  %10 = call ptr @inet_ntop(i32 noundef %9, ptr noundef getelementptr inbounds (%struct.sockaddr_in, ptr @client_sa, i32 0, i32 2), ptr noundef @fcgi_get_last_client_ip.str, i32 noundef 46) #13
-  store ptr %10, ptr %1, align 8
-  br label %50
+  %10 = getelementptr inbounds %struct.sockaddr_in, ptr @client_sa, i32 0, i32 2
+  %11 = call ptr @inet_ntop(i32 noundef %9, ptr noundef %10, ptr noundef @fcgi_get_last_client_ip.str, i32 noundef 46) #13
+  store ptr %11, ptr %1, align 8
+  br label %55
 
-11:                                               ; preds = %0
-  %12 = load i16, ptr @client_sa, align 4
-  %13 = zext i16 %12 to i32
-  %14 = icmp eq i32 %13, 10
-  br i1 %14, label %15, label %41
+12:                                               ; preds = %0
+  %13 = load i16, ptr @client_sa, align 4
+  %14 = zext i16 %13 to i32
+  %15 = icmp eq i32 %14, 10
+  br i1 %15, label %16, label %45
 
-15:                                               ; preds = %11
-  store ptr getelementptr inbounds (%struct.sockaddr_in6, ptr @client_sa, i32 0, i32 3), ptr %2, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.in6_addr, ptr %16, i32 0, i32 0
-  %18 = getelementptr inbounds [4 x i32], ptr %17, i64 0, i64 0
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %34
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds %struct.sockaddr_in6, ptr @client_sa, i32 0, i32 3
+  store ptr %17, ptr %2, align 8
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds %struct.in6_addr, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds [4 x i32], ptr %19, i64 0, i64 0
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %36
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.in6_addr, ptr %22, i32 0, i32 0
-  %24 = getelementptr inbounds [4 x i32], ptr %23, i64 0, i64 1
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %34
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds %struct.in6_addr, ptr %24, i32 0, i32 0
+  %26 = getelementptr inbounds [4 x i32], ptr %25, i64 0, i64 1
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %36
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.in6_addr, ptr %28, i32 0, i32 0
-  %30 = getelementptr inbounds [4 x i32], ptr %29, i64 0, i64 2
-  %31 = load i32, ptr %30, align 4
-  %32 = call i32 @htonl(i32 noundef 65535) #14
-  %33 = icmp eq i32 %31, %32
-  br label %34
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds %struct.in6_addr, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds [4 x i32], ptr %31, i64 0, i64 2
+  %33 = load i32, ptr %32, align 4
+  %34 = call i32 @htonl(i32 noundef 65535) #14
+  %35 = icmp eq i32 %33, %34
+  br label %36
 
-34:                                               ; preds = %27, %21, %15
-  %35 = phi i1 [ false, %21 ], [ false, %15 ], [ %33, %27 ]
-  %36 = zext i1 %35 to i32
-  store i32 %36, ptr %3, align 4
-  %37 = load i32, ptr %3, align 4
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %41
+36:                                               ; preds = %29, %23, %16
+  %37 = phi i1 [ false, %23 ], [ false, %16 ], [ %35, %29 ]
+  %38 = zext i1 %37 to i32
+  store i32 %38, ptr %3, align 4
+  %39 = load i32, ptr %3, align 4
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %45
 
-39:                                               ; preds = %34
-  %40 = call ptr @inet_ntop(i32 noundef 2, ptr noundef getelementptr inbounds (i8, ptr getelementptr inbounds (%struct.sockaddr_in6, ptr @client_sa, i32 0, i32 3), i64 12), ptr noundef @fcgi_get_last_client_ip.str, i32 noundef 46) #13
-  store ptr %40, ptr %1, align 8
-  br label %50
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds %struct.sockaddr_in6, ptr @client_sa, i32 0, i32 3
+  %43 = getelementptr inbounds i8, ptr %42, i64 12
+  %44 = call ptr @inet_ntop(i32 noundef 2, ptr noundef %43, ptr noundef @fcgi_get_last_client_ip.str, i32 noundef 46) #13
+  store ptr %44, ptr %1, align 8
+  br label %55
 
-41:                                               ; preds = %34, %11
-  %42 = load i16, ptr @client_sa, align 4
-  %43 = zext i16 %42 to i32
-  %44 = icmp eq i32 %43, 10
-  br i1 %44, label %45, label %49
-
-45:                                               ; preds = %41
+45:                                               ; preds = %36, %12
   %46 = load i16, ptr @client_sa, align 4
   %47 = zext i16 %46 to i32
-  %48 = call ptr @inet_ntop(i32 noundef %47, ptr noundef getelementptr inbounds (%struct.sockaddr_in6, ptr @client_sa, i32 0, i32 3), ptr noundef @fcgi_get_last_client_ip.str, i32 noundef 46) #13
-  store ptr %48, ptr %1, align 8
-  br label %50
+  %48 = icmp eq i32 %47, 10
+  br i1 %48, label %49, label %54
 
-49:                                               ; preds = %41
+49:                                               ; preds = %45
+  %50 = load i16, ptr @client_sa, align 4
+  %51 = zext i16 %50 to i32
+  %52 = getelementptr inbounds %struct.sockaddr_in6, ptr @client_sa, i32 0, i32 3
+  %53 = call ptr @inet_ntop(i32 noundef %51, ptr noundef %52, ptr noundef @fcgi_get_last_client_ip.str, i32 noundef 46) #13
+  store ptr %53, ptr %1, align 8
+  br label %55
+
+54:                                               ; preds = %45
   store ptr null, ptr %1, align 8
-  br label %50
+  br label %55
 
-50:                                               ; preds = %49, %45, %39, %7
-  %51 = load ptr, ptr %1, align 8
-  ret ptr %51
+55:                                               ; preds = %54, %49, %41, %7
+  %56 = load ptr, ptr %1, align 8
+  ret ptr %56
 }
 
-declare i32 @fcntl(i32 noundef, i32 noundef, ...) #3
+declare i32 @fcntl(i32 noundef, i32 noundef, ...) #2
 
-declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) #3
+declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fcgi_read_request(ptr noundef %0) #0 {
@@ -3853,7 +3859,7 @@ define internal i32 @fcgi_read_request(ptr noundef %0) #0 {
 
 52:                                               ; preds = %47, %43
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 4
@@ -3902,7 +3908,7 @@ define internal i32 @fcgi_read_request(ptr noundef %0) #0 {
 
 84:                                               ; preds = %79, %75
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
 85:                                               ; preds = %79
   %86 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 4
@@ -3929,7 +3935,7 @@ define internal i32 @fcgi_read_request(ptr noundef %0) #0 {
 
 102:                                              ; preds = %97
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
 103:                                              ; preds = %97
   %104 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 2
@@ -3947,13 +3953,13 @@ define internal i32 @fcgi_read_request(ptr noundef %0) #0 {
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   %117 = icmp eq i32 %116, 1
-  br i1 %117, label %118, label %326
+  br i1 %117, label %118, label %335
 
 118:                                              ; preds = %103
   %119 = load i32, ptr %11, align 4
   %120 = sext i32 %119 to i64
   %121 = icmp eq i64 %120, 8
-  br i1 %121, label %122, label %326
+  br i1 %121, label %122, label %335
 
 122:                                              ; preds = %118
   %123 = load ptr, ptr %9, align 8
@@ -3972,7 +3978,7 @@ define internal i32 @fcgi_read_request(ptr noundef %0) #0 {
 
 135:                                              ; preds = %122
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
 136:                                              ; preds = %122
   %137 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
@@ -4027,526 +4033,535 @@ define internal i32 @fcgi_read_request(ptr noundef %0) #0 {
   %174 = load i8, ptr %173, align 1
   %175 = zext i8 %174 to i32
   %176 = add nsw i32 %171, %175
-  switch i32 %176, label %234 [
+  switch i32 %176, label %243 [
     i32 1, label %177
-    i32 2, label %196
-    i32 3, label %215
+    i32 2, label %199
+    i32 3, label %221
   ]
 
 177:                                              ; preds = %166
   %178 = load ptr, ptr %9, align 8
   %179 = getelementptr inbounds %struct._fcgi_request, ptr %178, i32 0, i32 15
-  %180 = load i8, ptr getelementptr inbounds ([10 x i8], ptr @.str.13, i64 0, i64 3), align 1
-  %181 = sext i8 %180 to i32
-  %182 = shl i32 %181, 2
-  %183 = load i8, ptr getelementptr inbounds ([10 x i8], ptr @.str.13, i64 0, i64 7), align 1
-  %184 = sext i8 %183 to i32
-  %185 = shl i32 %184, 4
-  %186 = add i32 %182, %185
-  %187 = load i8, ptr getelementptr inbounds ([10 x i8], ptr @.str.13, i64 0, i64 8), align 1
-  %188 = sext i8 %187 to i32
-  %189 = shl i32 %188, 2
-  %190 = add i32 %186, %189
-  %191 = zext i32 %190 to i64
-  %192 = add i64 %191, 10
-  %193 = sub i64 %192, 1
-  %194 = trunc i64 %193 to i32
-  %195 = call ptr @fcgi_hash_set(ptr noundef %179, i32 noundef %194, ptr noundef @.str.13, i32 noundef 9, ptr noundef @.str.14, i32 noundef 9)
-  br label %235
+  %180 = getelementptr inbounds [10 x i8], ptr @.str.13, i64 0, i64 3
+  %181 = load i8, ptr %180, align 1
+  %182 = sext i8 %181 to i32
+  %183 = shl i32 %182, 2
+  %184 = getelementptr inbounds [10 x i8], ptr @.str.13, i64 0, i64 7
+  %185 = load i8, ptr %184, align 1
+  %186 = sext i8 %185 to i32
+  %187 = shl i32 %186, 4
+  %188 = add i32 %183, %187
+  %189 = getelementptr inbounds [10 x i8], ptr @.str.13, i64 0, i64 8
+  %190 = load i8, ptr %189, align 1
+  %191 = sext i8 %190 to i32
+  %192 = shl i32 %191, 2
+  %193 = add i32 %188, %192
+  %194 = zext i32 %193 to i64
+  %195 = add i64 %194, 10
+  %196 = sub i64 %195, 1
+  %197 = trunc i64 %196 to i32
+  %198 = call ptr @fcgi_hash_set(ptr noundef %179, i32 noundef %197, ptr noundef @.str.13, i32 noundef 9, ptr noundef @.str.14, i32 noundef 9)
+  br label %244
 
-196:                                              ; preds = %166
-  %197 = load ptr, ptr %9, align 8
-  %198 = getelementptr inbounds %struct._fcgi_request, ptr %197, i32 0, i32 15
-  %199 = load i8, ptr getelementptr inbounds ([10 x i8], ptr @.str.13, i64 0, i64 3), align 1
-  %200 = sext i8 %199 to i32
-  %201 = shl i32 %200, 2
-  %202 = load i8, ptr getelementptr inbounds ([10 x i8], ptr @.str.13, i64 0, i64 7), align 1
-  %203 = sext i8 %202 to i32
-  %204 = shl i32 %203, 4
-  %205 = add i32 %201, %204
-  %206 = load i8, ptr getelementptr inbounds ([10 x i8], ptr @.str.13, i64 0, i64 8), align 1
-  %207 = sext i8 %206 to i32
-  %208 = shl i32 %207, 2
-  %209 = add i32 %205, %208
-  %210 = zext i32 %209 to i64
-  %211 = add i64 %210, 10
-  %212 = sub i64 %211, 1
-  %213 = trunc i64 %212 to i32
-  %214 = call ptr @fcgi_hash_set(ptr noundef %198, i32 noundef %213, ptr noundef @.str.13, i32 noundef 9, ptr noundef @.str.15, i32 noundef 10)
-  br label %235
+199:                                              ; preds = %166
+  %200 = load ptr, ptr %9, align 8
+  %201 = getelementptr inbounds %struct._fcgi_request, ptr %200, i32 0, i32 15
+  %202 = getelementptr inbounds [10 x i8], ptr @.str.13, i64 0, i64 3
+  %203 = load i8, ptr %202, align 1
+  %204 = sext i8 %203 to i32
+  %205 = shl i32 %204, 2
+  %206 = getelementptr inbounds [10 x i8], ptr @.str.13, i64 0, i64 7
+  %207 = load i8, ptr %206, align 1
+  %208 = sext i8 %207 to i32
+  %209 = shl i32 %208, 4
+  %210 = add i32 %205, %209
+  %211 = getelementptr inbounds [10 x i8], ptr @.str.13, i64 0, i64 8
+  %212 = load i8, ptr %211, align 1
+  %213 = sext i8 %212 to i32
+  %214 = shl i32 %213, 2
+  %215 = add i32 %210, %214
+  %216 = zext i32 %215 to i64
+  %217 = add i64 %216, 10
+  %218 = sub i64 %217, 1
+  %219 = trunc i64 %218 to i32
+  %220 = call ptr @fcgi_hash_set(ptr noundef %201, i32 noundef %219, ptr noundef @.str.13, i32 noundef 9, ptr noundef @.str.15, i32 noundef 10)
+  br label %244
 
-215:                                              ; preds = %166
-  %216 = load ptr, ptr %9, align 8
-  %217 = getelementptr inbounds %struct._fcgi_request, ptr %216, i32 0, i32 15
-  %218 = load i8, ptr getelementptr inbounds ([10 x i8], ptr @.str.13, i64 0, i64 3), align 1
-  %219 = sext i8 %218 to i32
-  %220 = shl i32 %219, 2
-  %221 = load i8, ptr getelementptr inbounds ([10 x i8], ptr @.str.13, i64 0, i64 7), align 1
-  %222 = sext i8 %221 to i32
-  %223 = shl i32 %222, 4
-  %224 = add i32 %220, %223
-  %225 = load i8, ptr getelementptr inbounds ([10 x i8], ptr @.str.13, i64 0, i64 8), align 1
+221:                                              ; preds = %166
+  %222 = load ptr, ptr %9, align 8
+  %223 = getelementptr inbounds %struct._fcgi_request, ptr %222, i32 0, i32 15
+  %224 = getelementptr inbounds [10 x i8], ptr @.str.13, i64 0, i64 3
+  %225 = load i8, ptr %224, align 1
   %226 = sext i8 %225 to i32
   %227 = shl i32 %226, 2
-  %228 = add i32 %224, %227
-  %229 = zext i32 %228 to i64
-  %230 = add i64 %229, 10
-  %231 = sub i64 %230, 1
-  %232 = trunc i64 %231 to i32
-  %233 = call ptr @fcgi_hash_set(ptr noundef %217, i32 noundef %232, ptr noundef @.str.13, i32 noundef 9, ptr noundef @.str.16, i32 noundef 6)
-  br label %235
+  %228 = getelementptr inbounds [10 x i8], ptr @.str.13, i64 0, i64 7
+  %229 = load i8, ptr %228, align 1
+  %230 = sext i8 %229 to i32
+  %231 = shl i32 %230, 4
+  %232 = add i32 %227, %231
+  %233 = getelementptr inbounds [10 x i8], ptr @.str.13, i64 0, i64 8
+  %234 = load i8, ptr %233, align 1
+  %235 = sext i8 %234 to i32
+  %236 = shl i32 %235, 2
+  %237 = add i32 %232, %236
+  %238 = zext i32 %237 to i64
+  %239 = add i64 %238, 10
+  %240 = sub i64 %239, 1
+  %241 = trunc i64 %240 to i32
+  %242 = call ptr @fcgi_hash_set(ptr noundef %223, i32 noundef %241, ptr noundef @.str.13, i32 noundef 9, ptr noundef @.str.16, i32 noundef 6)
+  br label %244
 
-234:                                              ; preds = %166
+243:                                              ; preds = %166
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
-235:                                              ; preds = %215, %196, %177
-  %236 = load ptr, ptr %9, align 8
-  %237 = call i64 @safe_read(ptr noundef %236, ptr noundef %10, i64 noundef 8)
-  %238 = icmp ne i64 %237, 8
-  br i1 %238, label %244, label %239
+244:                                              ; preds = %221, %199, %177
+  %245 = load ptr, ptr %9, align 8
+  %246 = call i64 @safe_read(ptr noundef %245, ptr noundef %10, i64 noundef 8)
+  %247 = icmp ne i64 %246, 8
+  br i1 %247, label %253, label %248
 
-239:                                              ; preds = %235
-  %240 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 0
-  %241 = load i8, ptr %240, align 1
-  %242 = zext i8 %241 to i32
-  %243 = icmp slt i32 %242, 1
-  br i1 %243, label %244, label %245
+248:                                              ; preds = %244
+  %249 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 0
+  %250 = load i8, ptr %249, align 1
+  %251 = zext i8 %250 to i32
+  %252 = icmp slt i32 %251, 1
+  br i1 %252, label %253, label %254
 
-244:                                              ; preds = %239, %235
+253:                                              ; preds = %248, %244
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
-245:                                              ; preds = %239
-  %246 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 4
-  %247 = load i8, ptr %246, align 1
-  %248 = zext i8 %247 to i32
-  %249 = shl i32 %248, 8
-  %250 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 5
-  %251 = load i8, ptr %250, align 1
-  %252 = zext i8 %251 to i32
-  %253 = or i32 %249, %252
-  store i32 %253, ptr %11, align 4
-  %254 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 6
-  %255 = load i8, ptr %254, align 1
-  %256 = zext i8 %255 to i32
-  store i32 %256, ptr %12, align 4
-  br label %257
+254:                                              ; preds = %248
+  %255 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 4
+  %256 = load i8, ptr %255, align 1
+  %257 = zext i8 %256 to i32
+  %258 = shl i32 %257, 8
+  %259 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 5
+  %260 = load i8, ptr %259, align 1
+  %261 = zext i8 %260 to i32
+  %262 = or i32 %258, %261
+  store i32 %262, ptr %11, align 4
+  %263 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 6
+  %264 = load i8, ptr %263, align 1
+  %265 = zext i8 %264 to i32
+  store i32 %265, ptr %12, align 4
+  br label %266
 
-257:                                              ; preds = %313, %245
-  %258 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 1
-  %259 = load i8, ptr %258, align 1
-  %260 = zext i8 %259 to i32
-  %261 = icmp eq i32 %260, 4
-  br i1 %261, label %262, label %265
+266:                                              ; preds = %322, %254
+  %267 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 1
+  %268 = load i8, ptr %267, align 1
+  %269 = zext i8 %268 to i32
+  %270 = icmp eq i32 %269, 4
+  br i1 %270, label %271, label %274
 
-262:                                              ; preds = %257
-  %263 = load i32, ptr %11, align 4
-  %264 = icmp sgt i32 %263, 0
-  br label %265
+271:                                              ; preds = %266
+  %272 = load i32, ptr %11, align 4
+  %273 = icmp sgt i32 %272, 0
+  br label %274
 
-265:                                              ; preds = %262, %257
-  %266 = phi i1 [ false, %257 ], [ %264, %262 ]
-  br i1 %266, label %267, label %325
+274:                                              ; preds = %271, %266
+  %275 = phi i1 [ false, %266 ], [ %273, %271 ]
+  br i1 %275, label %276, label %334
 
-267:                                              ; preds = %265
-  %268 = load i32, ptr %11, align 4
-  %269 = load i32, ptr %12, align 4
-  %270 = add nsw i32 %268, %269
-  %271 = icmp sgt i32 %270, 65535
-  br i1 %271, label %272, label %273
+276:                                              ; preds = %274
+  %277 = load i32, ptr %11, align 4
+  %278 = load i32, ptr %12, align 4
+  %279 = add nsw i32 %277, %278
+  %280 = icmp sgt i32 %279, 65535
+  br i1 %280, label %281, label %282
 
-272:                                              ; preds = %267
+281:                                              ; preds = %276
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
-273:                                              ; preds = %267
-  %274 = load ptr, ptr %9, align 8
-  %275 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
-  %276 = load i32, ptr %11, align 4
-  %277 = load i32, ptr %12, align 4
-  %278 = add nsw i32 %276, %277
-  %279 = sext i32 %278 to i64
-  %280 = call i64 @safe_read(ptr noundef %274, ptr noundef %275, i64 noundef %279)
-  %281 = load i32, ptr %11, align 4
-  %282 = load i32, ptr %12, align 4
-  %283 = add nsw i32 %281, %282
-  %284 = sext i32 %283 to i64
-  %285 = icmp ne i64 %280, %284
-  br i1 %285, label %286, label %289
+282:                                              ; preds = %276
+  %283 = load ptr, ptr %9, align 8
+  %284 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
+  %285 = load i32, ptr %11, align 4
+  %286 = load i32, ptr %12, align 4
+  %287 = add nsw i32 %285, %286
+  %288 = sext i32 %287 to i64
+  %289 = call i64 @safe_read(ptr noundef %283, ptr noundef %284, i64 noundef %288)
+  %290 = load i32, ptr %11, align 4
+  %291 = load i32, ptr %12, align 4
+  %292 = add nsw i32 %290, %291
+  %293 = sext i32 %292 to i64
+  %294 = icmp ne i64 %289, %293
+  br i1 %294, label %295, label %298
 
-286:                                              ; preds = %273
-  %287 = load ptr, ptr %9, align 8
-  %288 = getelementptr inbounds %struct._fcgi_request, ptr %287, i32 0, i32 4
-  store i32 0, ptr %288, align 8
+295:                                              ; preds = %282
+  %296 = load ptr, ptr %9, align 8
+  %297 = getelementptr inbounds %struct._fcgi_request, ptr %296, i32 0, i32 4
+  store i32 0, ptr %297, align 8
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
-289:                                              ; preds = %273
-  %290 = load ptr, ptr %9, align 8
-  %291 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
-  %292 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
-  %293 = load i32, ptr %11, align 4
-  %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds i8, ptr %292, i64 %294
-  %296 = call i32 @fcgi_get_params(ptr noundef %290, ptr noundef %291, ptr noundef %295)
-  %297 = icmp ne i32 %296, 0
-  br i1 %297, label %301, label %298
-
-298:                                              ; preds = %289
+298:                                              ; preds = %282
   %299 = load ptr, ptr %9, align 8
-  %300 = getelementptr inbounds %struct._fcgi_request, ptr %299, i32 0, i32 4
-  store i32 0, ptr %300, align 8
+  %300 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
+  %301 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
+  %302 = load i32, ptr %11, align 4
+  %303 = sext i32 %302 to i64
+  %304 = getelementptr inbounds i8, ptr %301, i64 %303
+  %305 = call i32 @fcgi_get_params(ptr noundef %299, ptr noundef %300, ptr noundef %304)
+  %306 = icmp ne i32 %305, 0
+  br i1 %306, label %310, label %307
+
+307:                                              ; preds = %298
+  %308 = load ptr, ptr %9, align 8
+  %309 = getelementptr inbounds %struct._fcgi_request, ptr %308, i32 0, i32 4
+  store i32 0, ptr %309, align 8
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
-301:                                              ; preds = %289
-  %302 = load ptr, ptr %9, align 8
-  %303 = call i64 @safe_read(ptr noundef %302, ptr noundef %10, i64 noundef 8)
-  %304 = icmp ne i64 %303, 8
-  br i1 %304, label %310, label %305
-
-305:                                              ; preds = %301
-  %306 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 0
-  %307 = load i8, ptr %306, align 1
-  %308 = zext i8 %307 to i32
-  %309 = icmp slt i32 %308, 1
-  br i1 %309, label %310, label %313
-
-310:                                              ; preds = %305, %301
+310:                                              ; preds = %298
   %311 = load ptr, ptr %9, align 8
-  %312 = getelementptr inbounds %struct._fcgi_request, ptr %311, i32 0, i32 4
-  store i32 0, ptr %312, align 8
+  %312 = call i64 @safe_read(ptr noundef %311, ptr noundef %10, i64 noundef 8)
+  %313 = icmp ne i64 %312, 8
+  br i1 %313, label %319, label %314
+
+314:                                              ; preds = %310
+  %315 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 0
+  %316 = load i8, ptr %315, align 1
+  %317 = zext i8 %316 to i32
+  %318 = icmp slt i32 %317, 1
+  br i1 %318, label %319, label %322
+
+319:                                              ; preds = %314, %310
+  %320 = load ptr, ptr %9, align 8
+  %321 = getelementptr inbounds %struct._fcgi_request, ptr %320, i32 0, i32 4
+  store i32 0, ptr %321, align 8
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
-313:                                              ; preds = %305
-  %314 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 4
-  %315 = load i8, ptr %314, align 1
-  %316 = zext i8 %315 to i32
-  %317 = shl i32 %316, 8
-  %318 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 5
-  %319 = load i8, ptr %318, align 1
-  %320 = zext i8 %319 to i32
-  %321 = or i32 %317, %320
-  store i32 %321, ptr %11, align 4
-  %322 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 6
-  %323 = load i8, ptr %322, align 1
-  %324 = zext i8 %323 to i32
-  store i32 %324, ptr %12, align 4
-  br label %257
-
-325:                                              ; preds = %265
-  br label %539
-
-326:                                              ; preds = %118, %103
-  %327 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 1
+322:                                              ; preds = %314
+  %323 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 4
+  %324 = load i8, ptr %323, align 1
+  %325 = zext i8 %324 to i32
+  %326 = shl i32 %325, 8
+  %327 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 5
   %328 = load i8, ptr %327, align 1
   %329 = zext i8 %328 to i32
-  %330 = icmp eq i32 %329, 9
-  br i1 %330, label %331, label %538
+  %330 = or i32 %326, %329
+  store i32 %330, ptr %11, align 4
+  %331 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 6
+  %332 = load i8, ptr %331, align 1
+  %333 = zext i8 %332 to i32
+  store i32 %333, ptr %12, align 4
+  br label %266
 
-331:                                              ; preds = %326
-  %332 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
-  %333 = getelementptr inbounds i8, ptr %332, i64 8
-  store ptr %333, ptr %16, align 8
-  %334 = load ptr, ptr %9, align 8
-  %335 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
-  %336 = load i32, ptr %11, align 4
-  %337 = load i32, ptr %12, align 4
-  %338 = add nsw i32 %336, %337
-  %339 = sext i32 %338 to i64
-  %340 = call i64 @safe_read(ptr noundef %334, ptr noundef %335, i64 noundef %339)
-  %341 = load i32, ptr %11, align 4
-  %342 = load i32, ptr %12, align 4
-  %343 = add nsw i32 %341, %342
-  %344 = sext i32 %343 to i64
-  %345 = icmp ne i64 %340, %344
-  br i1 %345, label %346, label %349
+334:                                              ; preds = %274
+  br label %548
 
-346:                                              ; preds = %331
-  %347 = load ptr, ptr %9, align 8
-  %348 = getelementptr inbounds %struct._fcgi_request, ptr %347, i32 0, i32 4
-  store i32 0, ptr %348, align 8
+335:                                              ; preds = %118, %103
+  %336 = getelementptr inbounds %struct._fcgi_header, ptr %10, i32 0, i32 1
+  %337 = load i8, ptr %336, align 1
+  %338 = zext i8 %337 to i32
+  %339 = icmp eq i32 %338, 9
+  br i1 %339, label %340, label %547
+
+340:                                              ; preds = %335
+  %341 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
+  %342 = getelementptr inbounds i8, ptr %341, i64 8
+  store ptr %342, ptr %16, align 8
+  %343 = load ptr, ptr %9, align 8
+  %344 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
+  %345 = load i32, ptr %11, align 4
+  %346 = load i32, ptr %12, align 4
+  %347 = add nsw i32 %345, %346
+  %348 = sext i32 %347 to i64
+  %349 = call i64 @safe_read(ptr noundef %343, ptr noundef %344, i64 noundef %348)
+  %350 = load i32, ptr %11, align 4
+  %351 = load i32, ptr %12, align 4
+  %352 = add nsw i32 %350, %351
+  %353 = sext i32 %352 to i64
+  %354 = icmp ne i64 %349, %353
+  br i1 %354, label %355, label %358
+
+355:                                              ; preds = %340
+  %356 = load ptr, ptr %9, align 8
+  %357 = getelementptr inbounds %struct._fcgi_request, ptr %356, i32 0, i32 4
+  store i32 0, ptr %357, align 8
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
-349:                                              ; preds = %331
-  %350 = load ptr, ptr %9, align 8
-  %351 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
-  %352 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
-  %353 = load i32, ptr %11, align 4
-  %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds i8, ptr %352, i64 %354
-  %356 = call i32 @fcgi_get_params(ptr noundef %350, ptr noundef %351, ptr noundef %355)
-  %357 = icmp ne i32 %356, 0
-  br i1 %357, label %361, label %358
-
-358:                                              ; preds = %349
+358:                                              ; preds = %340
   %359 = load ptr, ptr %9, align 8
-  %360 = getelementptr inbounds %struct._fcgi_request, ptr %359, i32 0, i32 4
-  store i32 0, ptr %360, align 8
+  %360 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
+  %361 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
+  %362 = load i32, ptr %11, align 4
+  %363 = sext i32 %362 to i64
+  %364 = getelementptr inbounds i8, ptr %361, i64 %363
+  %365 = call i32 @fcgi_get_params(ptr noundef %359, ptr noundef %360, ptr noundef %364)
+  %366 = icmp ne i32 %365, 0
+  br i1 %366, label %370, label %367
+
+367:                                              ; preds = %358
+  %368 = load ptr, ptr %9, align 8
+  %369 = getelementptr inbounds %struct._fcgi_request, ptr %368, i32 0, i32 4
+  store i32 0, ptr %369, align 8
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
-361:                                              ; preds = %349
-  %362 = load ptr, ptr %9, align 8
-  %363 = getelementptr inbounds %struct._fcgi_request, ptr %362, i32 0, i32 15
-  %364 = getelementptr inbounds %struct._fcgi_hash, ptr %363, i32 0, i32 1
-  %365 = load ptr, ptr %364, align 8
-  store ptr %365, ptr %19, align 8
-  br label %366
+370:                                              ; preds = %358
+  %371 = load ptr, ptr %9, align 8
+  %372 = getelementptr inbounds %struct._fcgi_request, ptr %371, i32 0, i32 15
+  %373 = getelementptr inbounds %struct._fcgi_hash, ptr %372, i32 0, i32 1
+  %374 = load ptr, ptr %373, align 8
+  store ptr %374, ptr %19, align 8
+  br label %375
 
-366:                                              ; preds = %483, %379, %361
-  %367 = load ptr, ptr %19, align 8
-  %368 = icmp ne ptr %367, null
-  br i1 %368, label %369, label %511
+375:                                              ; preds = %492, %388, %370
+  %376 = load ptr, ptr %19, align 8
+  %377 = icmp ne ptr %376, null
+  br i1 %377, label %378, label %520
 
-369:                                              ; preds = %366
-  %370 = load ptr, ptr %19, align 8
-  %371 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %370, i32 0, i32 2
-  %372 = load ptr, ptr %371, align 8
-  %373 = load ptr, ptr %19, align 8
-  %374 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %373, i32 0, i32 1
-  %375 = load i32, ptr %374, align 4
-  %376 = zext i32 %375 to i64
-  %377 = call ptr @zend_hash_str_find(ptr noundef @fcgi_mgmt_vars, ptr noundef %372, i64 noundef %376)
-  store ptr %377, ptr %17, align 8
-  %378 = icmp eq ptr %377, null
-  br i1 %378, label %379, label %383
+378:                                              ; preds = %375
+  %379 = load ptr, ptr %19, align 8
+  %380 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %379, i32 0, i32 2
+  %381 = load ptr, ptr %380, align 8
+  %382 = load ptr, ptr %19, align 8
+  %383 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %382, i32 0, i32 1
+  %384 = load i32, ptr %383, align 4
+  %385 = zext i32 %384 to i64
+  %386 = call ptr @zend_hash_str_find(ptr noundef @fcgi_mgmt_vars, ptr noundef %381, i64 noundef %385)
+  store ptr %386, ptr %17, align 8
+  %387 = icmp eq ptr %386, null
+  br i1 %387, label %388, label %392
 
-379:                                              ; preds = %369
-  %380 = load ptr, ptr %19, align 8
-  %381 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %380, i32 0, i32 6
-  %382 = load ptr, ptr %381, align 8
-  store ptr %382, ptr %19, align 8
-  br label %366
+388:                                              ; preds = %378
+  %389 = load ptr, ptr %19, align 8
+  %390 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %389, i32 0, i32 6
+  %391 = load ptr, ptr %390, align 8
+  store ptr %391, ptr %19, align 8
+  br label %375
 
-383:                                              ; preds = %369
-  %384 = load ptr, ptr %17, align 8
-  %385 = getelementptr inbounds %struct._zval_struct, ptr %384, i32 0, i32 0
-  %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds %struct._zend_string, ptr %386, i32 0, i32 2
-  %388 = load i64, ptr %387, align 8
-  %389 = trunc i64 %388 to i32
-  store i32 %389, ptr %18, align 4
-  %390 = load ptr, ptr %16, align 8
-  %391 = getelementptr inbounds i8, ptr %390, i64 4
-  %392 = getelementptr inbounds i8, ptr %391, i64 4
-  %393 = load ptr, ptr %19, align 8
-  %394 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %393, i32 0, i32 1
-  %395 = load i32, ptr %394, align 4
-  %396 = zext i32 %395 to i64
-  %397 = getelementptr inbounds i8, ptr %392, i64 %396
-  %398 = load i32, ptr %18, align 4
-  %399 = zext i32 %398 to i64
-  %400 = getelementptr inbounds i8, ptr %397, i64 %399
-  %401 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
-  %402 = getelementptr inbounds i8, ptr %401, i64 65543
-  %403 = icmp uge ptr %400, %402
-  br i1 %403, label %404, label %405
+392:                                              ; preds = %378
+  %393 = load ptr, ptr %17, align 8
+  %394 = getelementptr inbounds %struct._zval_struct, ptr %393, i32 0, i32 0
+  %395 = load ptr, ptr %394, align 8
+  %396 = getelementptr inbounds %struct._zend_string, ptr %395, i32 0, i32 2
+  %397 = load i64, ptr %396, align 8
+  %398 = trunc i64 %397 to i32
+  store i32 %398, ptr %18, align 4
+  %399 = load ptr, ptr %16, align 8
+  %400 = getelementptr inbounds i8, ptr %399, i64 4
+  %401 = getelementptr inbounds i8, ptr %400, i64 4
+  %402 = load ptr, ptr %19, align 8
+  %403 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %402, i32 0, i32 1
+  %404 = load i32, ptr %403, align 4
+  %405 = zext i32 %404 to i64
+  %406 = getelementptr inbounds i8, ptr %401, i64 %405
+  %407 = load i32, ptr %18, align 4
+  %408 = zext i32 %407 to i64
+  %409 = getelementptr inbounds i8, ptr %406, i64 %408
+  %410 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
+  %411 = getelementptr inbounds i8, ptr %410, i64 65543
+  %412 = icmp uge ptr %409, %411
+  br i1 %412, label %413, label %414
 
-404:                                              ; preds = %383
-  br label %511
+413:                                              ; preds = %392
+  br label %520
 
-405:                                              ; preds = %383
-  %406 = load ptr, ptr %19, align 8
-  %407 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %406, i32 0, i32 1
-  %408 = load i32, ptr %407, align 4
-  %409 = icmp ult i32 %408, 128
-  br i1 %409, label %410, label %417
+414:                                              ; preds = %392
+  %415 = load ptr, ptr %19, align 8
+  %416 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %415, i32 0, i32 1
+  %417 = load i32, ptr %416, align 4
+  %418 = icmp ult i32 %417, 128
+  br i1 %418, label %419, label %426
 
-410:                                              ; preds = %405
-  %411 = load ptr, ptr %19, align 8
-  %412 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %411, i32 0, i32 1
-  %413 = load i32, ptr %412, align 4
-  %414 = trunc i32 %413 to i8
-  %415 = load ptr, ptr %16, align 8
-  %416 = getelementptr inbounds i8, ptr %415, i32 1
-  store ptr %416, ptr %16, align 8
-  store i8 %414, ptr %415, align 1
-  br label %450
+419:                                              ; preds = %414
+  %420 = load ptr, ptr %19, align 8
+  %421 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %420, i32 0, i32 1
+  %422 = load i32, ptr %421, align 4
+  %423 = trunc i32 %422 to i8
+  %424 = load ptr, ptr %16, align 8
+  %425 = getelementptr inbounds i8, ptr %424, i32 1
+  store ptr %425, ptr %16, align 8
+  store i8 %423, ptr %424, align 1
+  br label %459
 
-417:                                              ; preds = %405
-  %418 = load ptr, ptr %19, align 8
-  %419 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %418, i32 0, i32 1
-  %420 = load i32, ptr %419, align 4
-  %421 = lshr i32 %420, 24
-  %422 = and i32 %421, 255
-  %423 = or i32 %422, 128
-  %424 = trunc i32 %423 to i8
-  %425 = load ptr, ptr %16, align 8
-  %426 = getelementptr inbounds i8, ptr %425, i32 1
-  store ptr %426, ptr %16, align 8
-  store i8 %424, ptr %425, align 1
+426:                                              ; preds = %414
   %427 = load ptr, ptr %19, align 8
   %428 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %427, i32 0, i32 1
   %429 = load i32, ptr %428, align 4
-  %430 = lshr i32 %429, 16
+  %430 = lshr i32 %429, 24
   %431 = and i32 %430, 255
-  %432 = trunc i32 %431 to i8
-  %433 = load ptr, ptr %16, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i32 1
-  store ptr %434, ptr %16, align 8
-  store i8 %432, ptr %433, align 1
-  %435 = load ptr, ptr %19, align 8
-  %436 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %435, i32 0, i32 1
-  %437 = load i32, ptr %436, align 4
-  %438 = lshr i32 %437, 8
-  %439 = and i32 %438, 255
-  %440 = trunc i32 %439 to i8
-  %441 = load ptr, ptr %16, align 8
-  %442 = getelementptr inbounds i8, ptr %441, i32 1
-  store ptr %442, ptr %16, align 8
-  store i8 %440, ptr %441, align 1
-  %443 = load ptr, ptr %19, align 8
-  %444 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %443, i32 0, i32 1
-  %445 = load i32, ptr %444, align 4
-  %446 = and i32 %445, 255
-  %447 = trunc i32 %446 to i8
-  %448 = load ptr, ptr %16, align 8
-  %449 = getelementptr inbounds i8, ptr %448, i32 1
-  store ptr %449, ptr %16, align 8
-  store i8 %447, ptr %448, align 1
-  br label %450
+  %432 = or i32 %431, 128
+  %433 = trunc i32 %432 to i8
+  %434 = load ptr, ptr %16, align 8
+  %435 = getelementptr inbounds i8, ptr %434, i32 1
+  store ptr %435, ptr %16, align 8
+  store i8 %433, ptr %434, align 1
+  %436 = load ptr, ptr %19, align 8
+  %437 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %436, i32 0, i32 1
+  %438 = load i32, ptr %437, align 4
+  %439 = lshr i32 %438, 16
+  %440 = and i32 %439, 255
+  %441 = trunc i32 %440 to i8
+  %442 = load ptr, ptr %16, align 8
+  %443 = getelementptr inbounds i8, ptr %442, i32 1
+  store ptr %443, ptr %16, align 8
+  store i8 %441, ptr %442, align 1
+  %444 = load ptr, ptr %19, align 8
+  %445 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %444, i32 0, i32 1
+  %446 = load i32, ptr %445, align 4
+  %447 = lshr i32 %446, 8
+  %448 = and i32 %447, 255
+  %449 = trunc i32 %448 to i8
+  %450 = load ptr, ptr %16, align 8
+  %451 = getelementptr inbounds i8, ptr %450, i32 1
+  store ptr %451, ptr %16, align 8
+  store i8 %449, ptr %450, align 1
+  %452 = load ptr, ptr %19, align 8
+  %453 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %452, i32 0, i32 1
+  %454 = load i32, ptr %453, align 4
+  %455 = and i32 %454, 255
+  %456 = trunc i32 %455 to i8
+  %457 = load ptr, ptr %16, align 8
+  %458 = getelementptr inbounds i8, ptr %457, i32 1
+  store ptr %458, ptr %16, align 8
+  store i8 %456, ptr %457, align 1
+  br label %459
 
-450:                                              ; preds = %417, %410
-  %451 = load i32, ptr %18, align 4
-  %452 = icmp ult i32 %451, 128
-  br i1 %452, label %453, label %458
+459:                                              ; preds = %426, %419
+  %460 = load i32, ptr %18, align 4
+  %461 = icmp ult i32 %460, 128
+  br i1 %461, label %462, label %467
 
-453:                                              ; preds = %450
-  %454 = load i32, ptr %18, align 4
-  %455 = trunc i32 %454 to i8
-  %456 = load ptr, ptr %16, align 8
-  %457 = getelementptr inbounds i8, ptr %456, i32 1
-  store ptr %457, ptr %16, align 8
-  store i8 %455, ptr %456, align 1
-  br label %483
+462:                                              ; preds = %459
+  %463 = load i32, ptr %18, align 4
+  %464 = trunc i32 %463 to i8
+  %465 = load ptr, ptr %16, align 8
+  %466 = getelementptr inbounds i8, ptr %465, i32 1
+  store ptr %466, ptr %16, align 8
+  store i8 %464, ptr %465, align 1
+  br label %492
 
-458:                                              ; preds = %450
-  %459 = load i32, ptr %18, align 4
-  %460 = lshr i32 %459, 24
-  %461 = and i32 %460, 255
-  %462 = or i32 %461, 128
-  %463 = trunc i32 %462 to i8
-  %464 = load ptr, ptr %16, align 8
-  %465 = getelementptr inbounds i8, ptr %464, i32 1
-  store ptr %465, ptr %16, align 8
-  store i8 %463, ptr %464, align 1
-  %466 = load i32, ptr %18, align 4
-  %467 = lshr i32 %466, 16
-  %468 = and i32 %467, 255
-  %469 = trunc i32 %468 to i8
-  %470 = load ptr, ptr %16, align 8
-  %471 = getelementptr inbounds i8, ptr %470, i32 1
-  store ptr %471, ptr %16, align 8
-  store i8 %469, ptr %470, align 1
-  %472 = load i32, ptr %18, align 4
-  %473 = lshr i32 %472, 8
-  %474 = and i32 %473, 255
-  %475 = trunc i32 %474 to i8
-  %476 = load ptr, ptr %16, align 8
-  %477 = getelementptr inbounds i8, ptr %476, i32 1
-  store ptr %477, ptr %16, align 8
-  store i8 %475, ptr %476, align 1
-  %478 = load i32, ptr %18, align 4
-  %479 = and i32 %478, 255
-  %480 = trunc i32 %479 to i8
-  %481 = load ptr, ptr %16, align 8
-  %482 = getelementptr inbounds i8, ptr %481, i32 1
-  store ptr %482, ptr %16, align 8
-  store i8 %480, ptr %481, align 1
-  br label %483
+467:                                              ; preds = %459
+  %468 = load i32, ptr %18, align 4
+  %469 = lshr i32 %468, 24
+  %470 = and i32 %469, 255
+  %471 = or i32 %470, 128
+  %472 = trunc i32 %471 to i8
+  %473 = load ptr, ptr %16, align 8
+  %474 = getelementptr inbounds i8, ptr %473, i32 1
+  store ptr %474, ptr %16, align 8
+  store i8 %472, ptr %473, align 1
+  %475 = load i32, ptr %18, align 4
+  %476 = lshr i32 %475, 16
+  %477 = and i32 %476, 255
+  %478 = trunc i32 %477 to i8
+  %479 = load ptr, ptr %16, align 8
+  %480 = getelementptr inbounds i8, ptr %479, i32 1
+  store ptr %480, ptr %16, align 8
+  store i8 %478, ptr %479, align 1
+  %481 = load i32, ptr %18, align 4
+  %482 = lshr i32 %481, 8
+  %483 = and i32 %482, 255
+  %484 = trunc i32 %483 to i8
+  %485 = load ptr, ptr %16, align 8
+  %486 = getelementptr inbounds i8, ptr %485, i32 1
+  store ptr %486, ptr %16, align 8
+  store i8 %484, ptr %485, align 1
+  %487 = load i32, ptr %18, align 4
+  %488 = and i32 %487, 255
+  %489 = trunc i32 %488 to i8
+  %490 = load ptr, ptr %16, align 8
+  %491 = getelementptr inbounds i8, ptr %490, i32 1
+  store ptr %491, ptr %16, align 8
+  store i8 %489, ptr %490, align 1
+  br label %492
 
-483:                                              ; preds = %458, %453
-  %484 = load ptr, ptr %16, align 8
-  %485 = load ptr, ptr %19, align 8
-  %486 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %485, i32 0, i32 2
-  %487 = load ptr, ptr %486, align 8
-  %488 = load ptr, ptr %19, align 8
-  %489 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %488, i32 0, i32 1
-  %490 = load i32, ptr %489, align 4
-  %491 = zext i32 %490 to i64
-  store ptr %484, ptr %2, align 8
-  store ptr %487, ptr %3, align 8
-  store i64 %491, ptr %4, align 8
-  %492 = load ptr, ptr %2, align 8
-  %493 = load ptr, ptr %3, align 8
-  %494 = load i64, ptr %4, align 8
-  %495 = call ptr @mempcpy(ptr noundef %492, ptr noundef %493, i64 noundef %494) #13
-  store ptr %495, ptr %16, align 8
-  %496 = load ptr, ptr %16, align 8
-  %497 = load ptr, ptr %17, align 8
-  %498 = getelementptr inbounds %struct._zval_struct, ptr %497, i32 0, i32 0
-  %499 = load ptr, ptr %498, align 8
-  %500 = getelementptr inbounds %struct._zend_string, ptr %499, i32 0, i32 3
-  %501 = getelementptr inbounds [1 x i8], ptr %500, i64 0, i64 0
-  %502 = load i32, ptr %18, align 4
-  %503 = zext i32 %502 to i64
-  store ptr %496, ptr %5, align 8
-  store ptr %501, ptr %6, align 8
-  store i64 %503, ptr %7, align 8
-  %504 = load ptr, ptr %5, align 8
-  %505 = load ptr, ptr %6, align 8
-  %506 = load i64, ptr %7, align 8
-  %507 = call ptr @mempcpy(ptr noundef %504, ptr noundef %505, i64 noundef %506) #13
-  store ptr %507, ptr %16, align 8
-  %508 = load ptr, ptr %19, align 8
-  %509 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %508, i32 0, i32 6
-  %510 = load ptr, ptr %509, align 8
-  store ptr %510, ptr %19, align 8
-  br label %366
+492:                                              ; preds = %467, %462
+  %493 = load ptr, ptr %16, align 8
+  %494 = load ptr, ptr %19, align 8
+  %495 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %494, i32 0, i32 2
+  %496 = load ptr, ptr %495, align 8
+  %497 = load ptr, ptr %19, align 8
+  %498 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %497, i32 0, i32 1
+  %499 = load i32, ptr %498, align 4
+  %500 = zext i32 %499 to i64
+  store ptr %493, ptr %2, align 8
+  store ptr %496, ptr %3, align 8
+  store i64 %500, ptr %4, align 8
+  %501 = load ptr, ptr %2, align 8
+  %502 = load ptr, ptr %3, align 8
+  %503 = load i64, ptr %4, align 8
+  %504 = call ptr @mempcpy(ptr noundef %501, ptr noundef %502, i64 noundef %503) #13
+  store ptr %504, ptr %16, align 8
+  %505 = load ptr, ptr %16, align 8
+  %506 = load ptr, ptr %17, align 8
+  %507 = getelementptr inbounds %struct._zval_struct, ptr %506, i32 0, i32 0
+  %508 = load ptr, ptr %507, align 8
+  %509 = getelementptr inbounds %struct._zend_string, ptr %508, i32 0, i32 3
+  %510 = getelementptr inbounds [1 x i8], ptr %509, i64 0, i64 0
+  %511 = load i32, ptr %18, align 4
+  %512 = zext i32 %511 to i64
+  store ptr %505, ptr %5, align 8
+  store ptr %510, ptr %6, align 8
+  store i64 %512, ptr %7, align 8
+  %513 = load ptr, ptr %5, align 8
+  %514 = load ptr, ptr %6, align 8
+  %515 = load i64, ptr %7, align 8
+  %516 = call ptr @mempcpy(ptr noundef %513, ptr noundef %514, i64 noundef %515) #13
+  store ptr %516, ptr %16, align 8
+  %517 = load ptr, ptr %19, align 8
+  %518 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %517, i32 0, i32 6
+  %519 = load ptr, ptr %518, align 8
+  store ptr %519, ptr %19, align 8
+  br label %375
 
-511:                                              ; preds = %404, %366
-  %512 = load ptr, ptr %16, align 8
-  %513 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
-  %514 = ptrtoint ptr %512 to i64
-  %515 = ptrtoint ptr %513 to i64
-  %516 = sub i64 %514, %515
-  %517 = sub i64 %516, 8
-  %518 = trunc i64 %517 to i32
-  store i32 %518, ptr %11, align 4
-  %519 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
-  %520 = load i32, ptr %11, align 4
-  %521 = call i32 @fcgi_make_header(ptr noundef %519, i32 noundef 10, i32 noundef 0, i32 noundef %520)
-  %522 = load i32, ptr %11, align 4
-  %523 = add nsw i32 %522, %521
-  store i32 %523, ptr %11, align 4
-  %524 = load ptr, ptr %9, align 8
-  %525 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
-  %526 = load i32, ptr %11, align 4
-  %527 = sext i32 %526 to i64
-  %528 = add i64 8, %527
-  %529 = call i64 @safe_write(ptr noundef %524, ptr noundef %525, i64 noundef %528)
-  %530 = load i32, ptr %11, align 4
-  %531 = sext i32 %530 to i64
-  %532 = add nsw i64 8, %531
-  %533 = icmp ne i64 %529, %532
-  br i1 %533, label %534, label %537
+520:                                              ; preds = %413, %375
+  %521 = load ptr, ptr %16, align 8
+  %522 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
+  %523 = ptrtoint ptr %521 to i64
+  %524 = ptrtoint ptr %522 to i64
+  %525 = sub i64 %523, %524
+  %526 = sub i64 %525, 8
+  %527 = trunc i64 %526 to i32
+  store i32 %527, ptr %11, align 4
+  %528 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
+  %529 = load i32, ptr %11, align 4
+  %530 = call i32 @fcgi_make_header(ptr noundef %528, i32 noundef 10, i32 noundef 0, i32 noundef %529)
+  %531 = load i32, ptr %11, align 4
+  %532 = add nsw i32 %531, %530
+  store i32 %532, ptr %11, align 4
+  %533 = load ptr, ptr %9, align 8
+  %534 = getelementptr inbounds [65543 x i8], ptr %13, i64 0, i64 0
+  %535 = load i32, ptr %11, align 4
+  %536 = sext i32 %535 to i64
+  %537 = add i64 8, %536
+  %538 = call i64 @safe_write(ptr noundef %533, ptr noundef %534, i64 noundef %537)
+  %539 = load i32, ptr %11, align 4
+  %540 = sext i32 %539 to i64
+  %541 = add nsw i64 8, %540
+  %542 = icmp ne i64 %538, %541
+  br i1 %542, label %543, label %546
 
-534:                                              ; preds = %511
-  %535 = load ptr, ptr %9, align 8
-  %536 = getelementptr inbounds %struct._fcgi_request, ptr %535, i32 0, i32 4
-  store i32 0, ptr %536, align 8
+543:                                              ; preds = %520
+  %544 = load ptr, ptr %9, align 8
+  %545 = getelementptr inbounds %struct._fcgi_request, ptr %544, i32 0, i32 4
+  store i32 0, ptr %545, align 8
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
-537:                                              ; preds = %511
+546:                                              ; preds = %520
   store i32 2, ptr %8, align 4
-  br label %540
+  br label %549
 
-538:                                              ; preds = %326
+547:                                              ; preds = %335
   store i32 0, ptr %8, align 4
-  br label %540
+  br label %549
 
-539:                                              ; preds = %325
+548:                                              ; preds = %334
   store i32 1, ptr %8, align 4
-  br label %540
+  br label %549
 
-540:                                              ; preds = %539, %538, %537, %534, %358, %346, %310, %298, %286, %272, %244, %234, %135, %102, %84, %52
-  %541 = load i32, ptr %8, align 4
-  ret i32 %541
+549:                                              ; preds = %548, %547, %546, %543, %367, %355, %319, %307, %295, %281, %253, %243, %135, %102, %84, %52
+  %550 = load i32, ptr %8, align 4
+  ret i32 %550
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6134,13 +6149,13 @@ define internal void @fcgi_hash_apply(ptr noundef %0, ptr noundef %1, ptr nounde
   ret void
 }
 
-declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) #3
+declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @sigemptyset(ptr noundef) #2
+declare i32 @sigemptyset(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @fcgi_signal_handler(i32 noundef %0) #0 {
@@ -6164,12 +6179,12 @@ define internal void @fcgi_signal_handler(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) #1
 
-declare i64 @read(i32 noundef, ptr noundef, i64 noundef) #3
+declare i64 @read(i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fcgi_get_params(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -6429,12 +6444,12 @@ define internal i32 @fcgi_get_params(ptr noundef %0, ptr noundef %1, ptr noundef
   ret i32 %191
 }
 
-declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) #3
+declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #3
+declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind
-declare ptr @mempcpy(ptr noundef, ptr noundef, i64 noundef) #2
+declare ptr @mempcpy(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @fcgi_hash_strndup(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -6550,98 +6565,104 @@ define internal ptr @fcgi_hash_strndup(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @__zend_malloc(i64 noundef) #10
+declare noalias ptr @__zend_malloc(i64 noundef) #9
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #11
+declare i1 @llvm.is.constant.i64(i64) #10
 
-declare noalias ptr @_emalloc_8() #3
+declare noalias ptr @_emalloc_8() #2
 
-declare noalias ptr @_emalloc_16() #3
+declare noalias ptr @_emalloc_16() #2
 
-declare noalias ptr @_emalloc_24() #3
+declare noalias ptr @_emalloc_24() #2
 
-declare noalias ptr @_emalloc_32() #3
+declare noalias ptr @_emalloc_32() #2
 
-declare noalias ptr @_emalloc_40() #3
+declare noalias ptr @_emalloc_40() #2
 
-declare noalias ptr @_emalloc_48() #3
+declare noalias ptr @_emalloc_48() #2
 
-declare noalias ptr @_emalloc_56() #3
+declare noalias ptr @_emalloc_56() #2
 
-declare noalias ptr @_emalloc_64() #3
+declare noalias ptr @_emalloc_64() #2
 
-declare noalias ptr @_emalloc_80() #3
+declare noalias ptr @_emalloc_80() #2
 
-declare noalias ptr @_emalloc_96() #3
+declare noalias ptr @_emalloc_96() #2
 
-declare noalias ptr @_emalloc_112() #3
+declare noalias ptr @_emalloc_112() #2
 
-declare noalias ptr @_emalloc_128() #3
+declare noalias ptr @_emalloc_128() #2
 
-declare noalias ptr @_emalloc_160() #3
+declare noalias ptr @_emalloc_160() #2
 
-declare noalias ptr @_emalloc_192() #3
+declare noalias ptr @_emalloc_192() #2
 
-declare noalias ptr @_emalloc_224() #3
+declare noalias ptr @_emalloc_224() #2
 
-declare noalias ptr @_emalloc_256() #3
+declare noalias ptr @_emalloc_256() #2
 
-declare noalias ptr @_emalloc_320() #3
+declare noalias ptr @_emalloc_320() #2
 
-declare noalias ptr @_emalloc_384() #3
+declare noalias ptr @_emalloc_384() #2
 
-declare noalias ptr @_emalloc_448() #3
+declare noalias ptr @_emalloc_448() #2
 
-declare noalias ptr @_emalloc_512() #3
+declare noalias ptr @_emalloc_512() #2
 
-declare noalias ptr @_emalloc_640() #3
+declare noalias ptr @_emalloc_640() #2
 
-declare noalias ptr @_emalloc_768() #3
+declare noalias ptr @_emalloc_768() #2
 
-declare noalias ptr @_emalloc_896() #3
+declare noalias ptr @_emalloc_896() #2
 
-declare noalias ptr @_emalloc_1024() #3
+declare noalias ptr @_emalloc_1024() #2
 
-declare noalias ptr @_emalloc_1280() #3
+declare noalias ptr @_emalloc_1280() #2
 
-declare noalias ptr @_emalloc_1536() #3
+declare noalias ptr @_emalloc_1536() #2
 
-declare noalias ptr @_emalloc_1792() #3
+declare noalias ptr @_emalloc_1792() #2
 
-declare noalias ptr @_emalloc_2048() #3
+declare noalias ptr @_emalloc_2048() #2
 
-declare noalias ptr @_emalloc_2560() #3
+declare noalias ptr @_emalloc_2560() #2
 
-declare noalias ptr @_emalloc_3072() #3
-
-; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc_large(i64 noundef) #10
+declare noalias ptr @_emalloc_3072() #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc_huge(i64 noundef) #10
+declare noalias ptr @_emalloc_large(i64 noundef) #9
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) #10
+declare noalias ptr @_emalloc_huge(i64 noundef) #9
 
-declare void @_efree(ptr noundef) #3
+; Function Attrs: allocsize(0)
+declare noalias ptr @_emalloc(i64 noundef) #9
+
+declare void @_efree(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind willreturn }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(none) }
 attributes #15 = { nounwind allocsize(0) }

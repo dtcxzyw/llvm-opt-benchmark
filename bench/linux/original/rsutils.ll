@@ -447,64 +447,65 @@ define dso_local i32 @acpi_rs_set_srs_method_data(ptr noundef %0, ptr noundef %1
   %7 = and i64 %6, 512
   %8 = icmp eq i64 %7, 0
   %9 = select i1 %8, i32 2336, i32 3520
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %11 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %10, i32 noundef %9, i64 noundef 88) #15
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %38, label %13
+  %10 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %11, i32 noundef %9, i64 noundef 88) #15
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %39, label %14
 
-13:                                               ; preds = %2
-  store ptr %0, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr @.str.4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %4, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 86
-  store i8 1, ptr %16, align 2
+14:                                               ; preds = %2
+  store ptr %0, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @.str.4, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %4, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 86
+  store i8 1, ptr %17, align 2
   store i64 -2, ptr %5, align 8
-  %17 = call i32 @acpi_rs_create_aml_resources(ptr noundef %1, ptr noundef nonnull %5) #14
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %36
+  %18 = call i32 @acpi_rs_create_aml_resources(ptr noundef %1, ptr noundef nonnull %5) #14
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %37
 
-19:                                               ; preds = %13
-  %20 = call ptr @acpi_ut_create_internal_object_dbg(ptr noundef nonnull @_acpi_module_name, i32 noundef 728, i32 noundef 256, i32 noundef 3) #14
-  store ptr %20, ptr %4, align 16
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %25
+20:                                               ; preds = %14
+  %21 = call ptr @acpi_ut_create_internal_object_dbg(ptr noundef nonnull @_acpi_module_name, i32 noundef 728, i32 noundef 256, i32 noundef 3) #14
+  store ptr %21, ptr %4, align 16
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = load ptr, ptr %23, align 8
-  call void @kfree(ptr noundef %24) #14
-  br label %36
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = load ptr, ptr %24, align 8
+  call void @kfree(ptr noundef %25) #14
+  br label %37
 
-25:                                               ; preds = %19
-  %26 = load i64, ptr %5, align 8
-  %27 = trunc i64 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %20, i64 24
-  store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %20, i64 16
-  store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %20, i64 12
-  store i8 4, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr null, ptr %33, align 8
-  %34 = call i32 @acpi_ns_evaluate(ptr noundef nonnull %11) #14
-  %35 = load ptr, ptr %4, align 16
-  call void @acpi_ut_remove_reference(ptr noundef %35) #14
-  br label %36
+26:                                               ; preds = %20
+  %27 = load i64, ptr %5, align 8
+  %28 = trunc i64 %27 to i32
+  %29 = getelementptr inbounds i8, ptr %21, i64 24
+  store i32 %28, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %21, i64 12
+  store i8 4, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr null, ptr %34, align 8
+  %35 = call i32 @acpi_ns_evaluate(ptr noundef nonnull %12) #14
+  %36 = load ptr, ptr %4, align 16
+  call void @acpi_ut_remove_reference(ptr noundef %36) #14
+  br label %37
 
-36:                                               ; preds = %25, %22, %13
-  %37 = phi i32 [ %17, %13 ], [ %34, %25 ], [ 4, %22 ]
-  call void @kfree(ptr noundef nonnull %11) #14
-  br label %38
+37:                                               ; preds = %26, %23, %14
+  %38 = phi i32 [ %18, %14 ], [ %35, %26 ], [ 4, %23 ]
+  call void @kfree(ptr noundef nonnull %12) #14
+  br label %39
 
-38:                                               ; preds = %36, %2
-  %39 = phi i32 [ %37, %36 ], [ 4, %2 ]
+39:                                               ; preds = %37, %2
+  %40 = phi i32 [ %38, %37 ], [ 4, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
-  ret i32 %39
+  ret i32 %40
 }
 
 ; Function Attrs: null_pointer_is_valid

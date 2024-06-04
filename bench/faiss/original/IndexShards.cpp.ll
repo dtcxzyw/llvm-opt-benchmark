@@ -5160,34 +5160,35 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEEC2Ebb(ptr nounde
   %12 = load i8, ptr %5, align 1
   %13 = trunc i8 %12 to i1
   call void @_ZN5faiss13ThreadedIndexINS_5IndexEEC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %11, i1 noundef zeroext %13)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate", ptr %11, i32 0, i32 1
-  %15 = load i8, ptr %6, align 1
-  %16 = trunc i8 %15 to i1
-  %17 = zext i1 %16 to i8
-  store i8 %17, ptr %14, align 1
+  %14 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate", ptr %11, i32 0, i32 1
+  %16 = load i8, ptr %6, align 1
+  %17 = trunc i8 %16 to i1
+  %18 = zext i1 %17 to i8
+  store i8 %18, ptr %15, align 1
   invoke void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_5IndexE(ptr noundef %11)
-          to label %18 unwind label %19
-
-18:                                               ; preds = %3
-  ret void
+          to label %19 unwind label %20
 
 19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %7, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %8, align 4
-  call void @_ZN5faiss13ThreadedIndexINS_5IndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(65) %11) #5
-  br label %23
+  ret void
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %7, align 8
-  %25 = load i32, ptr %8, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %7, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %8, align 4
+  call void @_ZN5faiss13ThreadedIndexINS_5IndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(65) %11) #5
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5226,16 +5227,17 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEEC2Eib(ptr noundef 
   %9 = load i32, ptr %5, align 4
   %10 = sext i32 %9 to i64
   call void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %10, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %11 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %8, i32 0, i32 1
-  store i8 0, ptr %11, align 4
-  %12 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %8, i32 0, i32 3
-  call void @_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #5
-  %13 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %8, i32 0, i32 4
-  %14 = load i8, ptr %6, align 1
-  %15 = trunc i8 %14 to i1
-  %16 = zext i1 %15 to i8
-  store i8 %16, ptr %13, align 8
+  %11 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %8, i32 0, i32 1
+  store i8 0, ptr %12, align 4
+  %13 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %8, i32 0, i32 3
+  call void @_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #5
+  %14 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %8, i32 0, i32 4
+  %15 = load i8, ptr %6, align 1
+  %16 = trunc i8 %15 to i1
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %14, align 8
   ret void
 }
 
@@ -5248,22 +5250,23 @@ define linkonce_odr void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnul
   store i64 %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  %10 = trunc i64 %9 to i32
-  store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 3
-  store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 4
-  store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 5
-  store i8 1, ptr %13, align 1
-  %14 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 7
-  %15 = load i32, ptr %6, align 4
-  store i32 %15, ptr %14, align 4
-  %16 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 8
-  store float 0.000000e+00, ptr %16, align 8
+  %8 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  %11 = trunc i64 %10 to i32
+  store i32 %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 3
+  store i64 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 4
+  store i8 0, ptr %13, align 8
+  %14 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 5
+  store i8 1, ptr %14, align 1
+  %15 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 7
+  %16 = load i32, ptr %6, align 4
+  store i32 %16, ptr %15, align 4
+  %17 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 8
+  store float 0.000000e+00, ptr %17, align 8
   ret void
 }
 
@@ -5285,134 +5288,135 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEED2Ev(ptr noundef n
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %7, i32 0, i32 3
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call ptr @_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #5
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
-  store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = call ptr @_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #5
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  store ptr %13, ptr %14, align 8
-  br label %15
+  %8 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %7, i32 0, i32 3
+  store ptr %9, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call ptr @_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #5
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = call ptr @_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #5
+  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  br label %16
 
-15:                                               ; preds = %67, %1
-  %16 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt4pairIPN5faiss5IndexESt10unique_ptrINS2_12WorkerThreadESt14default_deleteIS6_EEESt6vectorISA_SaISA_EEEEbRKNS_17__normal_iteratorIT_T0_EESK_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #5
-  br i1 %16, label %17, label %69
+16:                                               ; preds = %68, %1
+  %17 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt4pairIPN5faiss5IndexESt10unique_ptrINS2_12WorkerThreadESt14default_deleteIS6_EEESt6vectorISA_SaISA_EEEEbRKNS_17__normal_iteratorIT_T0_EESK_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  br i1 %17, label %18, label %70
 
-17:                                               ; preds = %15
-  %18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss5IndexESt10unique_ptrINS2_12WorkerThreadESt14default_deleteIS6_EEESt6vectorISA_SaISA_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
-  store ptr %18, ptr %6, align 8
-  %19 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %7, i32 0, i32 4
-  %20 = load i8, ptr %19, align 8
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %41
+18:                                               ; preds = %16
+  %19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss5IndexESt10unique_ptrINS2_12WorkerThreadESt14default_deleteIS6_EEESt6vectorISA_SaISA_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  store ptr %19, ptr %6, align 8
+  %20 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %7, i32 0, i32 4
+  %21 = load i8, ptr %20, align 8
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %42
 
-22:                                               ; preds = %17
-  br label %23
+23:                                               ; preds = %18
+  br label %24
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %"struct.std::pair", ptr %24, i32 0, i32 1
-  %26 = call noundef zeroext i1 @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %25) #5
-  br i1 %26, label %30, label %27
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds %"struct.std::pair", ptr %25, i32 0, i32 1
+  %27 = call noundef zeroext i1 @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %26) #5
+  br i1 %27, label %31, label %28
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr @stderr, align 8
-  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss13ThreadedIndexINS_5IndexEED2Ev, ptr noundef @.str.2, i32 noundef 28) #5
+28:                                               ; preds = %24
+  %29 = load ptr, ptr @stderr, align 8
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss13ThreadedIndexINS_5IndexEED2Ev, ptr noundef @.str.2, i32 noundef 28) #5
   call void @abort() #17
   unreachable
 
-30:                                               ; preds = %23
-  br label %31
-
-31:                                               ; preds = %30
+31:                                               ; preds = %24
   br label %32
 
 32:                                               ; preds = %31
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %"struct.std::pair", ptr %33, i32 0, i32 1
-  %35 = call noundef ptr @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %34) #5
-  invoke void @_ZN5faiss12WorkerThread4stopEv(ptr noundef nonnull align 8 dereferenceable(184) %35)
-          to label %36 unwind label %71
+  br label %33
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %"struct.std::pair", ptr %37, i32 0, i32 1
-  %39 = call noundef ptr @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %38) #5
-  invoke void @_ZN5faiss12WorkerThread17waitForThreadExitEv(ptr noundef nonnull align 8 dereferenceable(184) %39)
-          to label %40 unwind label %71
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %6, align 8
+  %35 = getelementptr inbounds %"struct.std::pair", ptr %34, i32 0, i32 1
+  %36 = call noundef ptr @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %35) #5
+  invoke void @_ZN5faiss12WorkerThread4stopEv(ptr noundef nonnull align 8 dereferenceable(184) %36)
+          to label %37 unwind label %72
 
-40:                                               ; preds = %36
-  br label %52
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds %"struct.std::pair", ptr %38, i32 0, i32 1
+  %40 = call noundef ptr @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %39) #5
+  invoke void @_ZN5faiss12WorkerThread17waitForThreadExitEv(ptr noundef nonnull align 8 dereferenceable(184) %40)
+          to label %41 unwind label %72
 
-41:                                               ; preds = %17
-  br label %42
+41:                                               ; preds = %37
+  br label %53
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %"struct.std::pair", ptr %43, i32 0, i32 1
-  %45 = call noundef zeroext i1 @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %44) #5
-  br i1 %45, label %46, label %49
+42:                                               ; preds = %18
+  br label %43
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr @stderr, align 8
-  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str, ptr noundef @.str.3, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss13ThreadedIndexINS_5IndexEED2Ev, ptr noundef @.str.2, i32 noundef 35) #5
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds %"struct.std::pair", ptr %44, i32 0, i32 1
+  %46 = call noundef zeroext i1 @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %45) #5
+  br i1 %46, label %47, label %50
+
+47:                                               ; preds = %43
+  %48 = load ptr, ptr @stderr, align 8
+  %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str, ptr noundef @.str.3, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss13ThreadedIndexINS_5IndexEED2Ev, ptr noundef @.str.2, i32 noundef 35) #5
   call void @abort() #17
   unreachable
 
-49:                                               ; preds = %42
-  br label %50
-
-50:                                               ; preds = %49
+50:                                               ; preds = %43
   br label %51
 
 51:                                               ; preds = %50
   br label %52
 
-52:                                               ; preds = %51, %40
-  %53 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %7, i32 0, i32 1
-  %54 = load i8, ptr %53, align 4
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %66
+52:                                               ; preds = %51
+  br label %53
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds %"struct.std::pair", ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %65, label %61
+53:                                               ; preds = %52, %41
+  %54 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %7, i32 0, i32 1
+  %55 = load i8, ptr %54, align 4
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %67
 
-61:                                               ; preds = %56
-  %62 = load ptr, ptr %59, align 8
-  %63 = getelementptr inbounds ptr, ptr %62, i64 1
-  %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(36) %59) #5
-  br label %65
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %6, align 8
+  %59 = getelementptr inbounds %"struct.std::pair", ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %66, label %62
 
-65:                                               ; preds = %61, %56
+62:                                               ; preds = %57
+  %63 = load ptr, ptr %60, align 8
+  %64 = getelementptr inbounds ptr, ptr %63, i64 1
+  %65 = load ptr, ptr %64, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(36) %60) #5
   br label %66
 
-66:                                               ; preds = %65, %52
+66:                                               ; preds = %62, %57
   br label %67
 
-67:                                               ; preds = %66
-  %68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss5IndexESt10unique_ptrINS2_12WorkerThreadESt14default_deleteIS6_EEESt6vectorISA_SaISA_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
-  br label %15
+67:                                               ; preds = %66, %53
+  br label %68
 
-69:                                               ; preds = %15
-  %70 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %7, i32 0, i32 3
-  call void @_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %70) #5
+68:                                               ; preds = %67
+  %69 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss5IndexESt10unique_ptrINS2_12WorkerThreadESt14default_deleteIS6_EEESt6vectorISA_SaISA_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  br label %16
+
+70:                                               ; preds = %16
+  %71 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %7, i32 0, i32 3
+  call void @_ZNSt6vectorISt4pairIPN5faiss5IndexESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %71) #5
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #5
   ret void
 
-71:                                               ; preds = %36, %32
-  %72 = landingpad { ptr, i32 }
+72:                                               ; preds = %37, %33
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #17
+  %74 = extractvalue { ptr, i32 } %73, 0
+  call void @__clang_call_terminate(ptr %74) #17
   unreachable
 }
 
@@ -6093,12 +6097,13 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEEC2Elbb(ptr nound
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   call void @_ZN5faiss13ThreadedIndexINS_5IndexEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %11, i32 noundef %13, i1 noundef zeroext %15)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %16 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate", ptr %11, i32 0, i32 1
-  %17 = load i8, ptr %8, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = zext i1 %18 to i8
-  store i8 %19, ptr %16, align 1
+  %16 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %11, align 8
+  %17 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate", ptr %11, i32 0, i32 1
+  %18 = load i8, ptr %8, align 1
+  %19 = trunc i8 %18 to i1
+  %20 = zext i1 %19 to i8
+  store i8 %20, ptr %17, align 1
   call void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_5IndexE(ptr noundef %11)
   ret void
 }
@@ -6120,12 +6125,13 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEEC2Eibb(ptr nound
   %13 = load i8, ptr %7, align 1
   %14 = trunc i8 %13 to i1
   call void @_ZN5faiss13ThreadedIndexINS_5IndexEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %11, i32 noundef %12, i1 noundef zeroext %14)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate", ptr %11, i32 0, i32 1
-  %16 = load i8, ptr %8, align 1
-  %17 = trunc i8 %16 to i1
-  %18 = zext i1 %17 to i8
-  store i8 %18, ptr %15, align 1
+  %15 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate", ptr %11, i32 0, i32 1
+  %17 = load i8, ptr %8, align 1
+  %18 = trunc i8 %17 to i1
+  %19 = zext i1 %18 to i8
+  store i8 %19, ptr %16, align 1
   call void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_5IndexE(ptr noundef %11)
   ret void
 }
@@ -6489,9 +6495,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
   ret void
 }
@@ -15173,34 +15180,35 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Ebb(ptr
   %12 = load i8, ptr %5, align 1
   %13 = trunc i8 %12 to i1
   call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %11, i1 noundef zeroext %13)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %14 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate.53", ptr %11, i32 0, i32 1
-  %15 = load i8, ptr %6, align 1
-  %16 = trunc i8 %15 to i1
-  %17 = zext i1 %16 to i8
-  store i8 %17, ptr %14, align 1
+  %14 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %11, align 8
+  %15 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate.53", ptr %11, i32 0, i32 1
+  %16 = load i8, ptr %6, align 1
+  %17 = trunc i8 %16 to i1
+  %18 = zext i1 %17 to i8
+  store i8 %18, ptr %15, align 1
   invoke void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef %11)
-          to label %18 unwind label %19
-
-18:                                               ; preds = %3
-  ret void
+          to label %19 unwind label %20
 
 19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %7, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %8, align 4
-  call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr noundef nonnull align 8 dereferenceable(65) %11) #5
-  br label %23
+  ret void
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %7, align 8
-  %25 = load i32, ptr %8, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %7, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %8, align 4
+  call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr noundef nonnull align 8 dereferenceable(65) %11) #5
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15326,16 +15334,17 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eib(ptr n
   %9 = load i32, ptr %5, align 4
   %10 = sext i32 %9 to i64
   call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %10, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %11 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %8, i32 0, i32 1
-  store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %8, i32 0, i32 3
-  call void @_ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #5
-  %13 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %8, i32 0, i32 4
-  %14 = load i8, ptr %6, align 1
-  %15 = trunc i8 %14 to i1
-  %16 = zext i1 %15 to i8
-  store i8 %16, ptr %13, align 8
+  %11 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %8, i32 0, i32 1
+  store i8 0, ptr %12, align 8
+  %13 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %8, i32 0, i32 3
+  call void @_ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #5
+  %14 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %8, i32 0, i32 4
+  %15 = load i8, ptr %6, align 1
+  %16 = trunc i8 %15 to i1
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %14, align 8
   ret void
 }
 
@@ -15359,134 +15368,135 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr no
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %7, i32 0, i32 3
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call ptr @_ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #5
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.62", ptr %4, i32 0, i32 0
-  store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = call ptr @_ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #5
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.62", ptr %5, i32 0, i32 0
-  store ptr %13, ptr %14, align 8
-  br label %15
+  %8 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %7, i32 0, i32 3
+  store ptr %9, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call ptr @_ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #5
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.62", ptr %4, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = call ptr @_ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #5
+  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.62", ptr %5, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  br label %16
 
-15:                                               ; preds = %67, %1
-  %16 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS2_12WorkerThreadESt14default_deleteIS6_EEESt6vectorISA_SaISA_EEEEbRKNS_17__normal_iteratorIT_T0_EESK_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #5
-  br i1 %16, label %17, label %69
+16:                                               ; preds = %68, %1
+  %17 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS2_12WorkerThreadESt14default_deleteIS6_EEESt6vectorISA_SaISA_EEEEbRKNS_17__normal_iteratorIT_T0_EESK_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  br i1 %17, label %18, label %70
 
-17:                                               ; preds = %15
-  %18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS2_12WorkerThreadESt14default_deleteIS6_EEESt6vectorISA_SaISA_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
-  store ptr %18, ptr %6, align 8
-  %19 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %7, i32 0, i32 4
-  %20 = load i8, ptr %19, align 8
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %41
+18:                                               ; preds = %16
+  %19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS2_12WorkerThreadESt14default_deleteIS6_EEESt6vectorISA_SaISA_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  store ptr %19, ptr %6, align 8
+  %20 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %7, i32 0, i32 4
+  %21 = load i8, ptr %20, align 8
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %42
 
-22:                                               ; preds = %17
-  br label %23
+23:                                               ; preds = %18
+  br label %24
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %"struct.std::pair.63", ptr %24, i32 0, i32 1
-  %26 = call noundef zeroext i1 @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %25) #5
-  br i1 %26, label %30, label %27
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds %"struct.std::pair.63", ptr %25, i32 0, i32 1
+  %27 = call noundef zeroext i1 @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %26) #5
+  br i1 %27, label %31, label %28
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr @stderr, align 8
-  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev, ptr noundef @.str.2, i32 noundef 28) #5
+28:                                               ; preds = %24
+  %29 = load ptr, ptr @stderr, align 8
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev, ptr noundef @.str.2, i32 noundef 28) #5
   call void @abort() #17
   unreachable
 
-30:                                               ; preds = %23
-  br label %31
-
-31:                                               ; preds = %30
+31:                                               ; preds = %24
   br label %32
 
 32:                                               ; preds = %31
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %"struct.std::pair.63", ptr %33, i32 0, i32 1
-  %35 = call noundef ptr @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %34) #5
-  invoke void @_ZN5faiss12WorkerThread4stopEv(ptr noundef nonnull align 8 dereferenceable(184) %35)
-          to label %36 unwind label %71
+  br label %33
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %"struct.std::pair.63", ptr %37, i32 0, i32 1
-  %39 = call noundef ptr @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %38) #5
-  invoke void @_ZN5faiss12WorkerThread17waitForThreadExitEv(ptr noundef nonnull align 8 dereferenceable(184) %39)
-          to label %40 unwind label %71
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %6, align 8
+  %35 = getelementptr inbounds %"struct.std::pair.63", ptr %34, i32 0, i32 1
+  %36 = call noundef ptr @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %35) #5
+  invoke void @_ZN5faiss12WorkerThread4stopEv(ptr noundef nonnull align 8 dereferenceable(184) %36)
+          to label %37 unwind label %72
 
-40:                                               ; preds = %36
-  br label %52
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds %"struct.std::pair.63", ptr %38, i32 0, i32 1
+  %40 = call noundef ptr @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %39) #5
+  invoke void @_ZN5faiss12WorkerThread17waitForThreadExitEv(ptr noundef nonnull align 8 dereferenceable(184) %40)
+          to label %41 unwind label %72
 
-41:                                               ; preds = %17
-  br label %42
+41:                                               ; preds = %37
+  br label %53
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %"struct.std::pair.63", ptr %43, i32 0, i32 1
-  %45 = call noundef zeroext i1 @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %44) #5
-  br i1 %45, label %46, label %49
+42:                                               ; preds = %18
+  br label %43
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr @stderr, align 8
-  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str, ptr noundef @.str.3, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev, ptr noundef @.str.2, i32 noundef 35) #5
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds %"struct.std::pair.63", ptr %44, i32 0, i32 1
+  %46 = call noundef zeroext i1 @_ZNKSt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS1_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %45) #5
+  br i1 %46, label %47, label %50
+
+47:                                               ; preds = %43
+  %48 = load ptr, ptr @stderr, align 8
+  %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str, ptr noundef @.str.3, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev, ptr noundef @.str.2, i32 noundef 35) #5
   call void @abort() #17
   unreachable
 
-49:                                               ; preds = %42
-  br label %50
-
-50:                                               ; preds = %49
+50:                                               ; preds = %43
   br label %51
 
 51:                                               ; preds = %50
   br label %52
 
-52:                                               ; preds = %51, %40
-  %53 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %7, i32 0, i32 1
-  %54 = load i8, ptr %53, align 8
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %66
+52:                                               ; preds = %51
+  br label %53
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds %"struct.std::pair.63", ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %65, label %61
+53:                                               ; preds = %52, %41
+  %54 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %7, i32 0, i32 1
+  %55 = load i8, ptr %54, align 8
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %57, label %67
 
-61:                                               ; preds = %56
-  %62 = load ptr, ptr %59, align 8
-  %63 = getelementptr inbounds ptr, ptr %62, i64 1
-  %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(32) %59) #5
-  br label %65
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %6, align 8
+  %59 = getelementptr inbounds %"struct.std::pair.63", ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %66, label %62
 
-65:                                               ; preds = %61, %56
+62:                                               ; preds = %57
+  %63 = load ptr, ptr %60, align 8
+  %64 = getelementptr inbounds ptr, ptr %63, i64 1
+  %65 = load ptr, ptr %64, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(32) %60) #5
   br label %66
 
-66:                                               ; preds = %65, %52
+66:                                               ; preds = %62, %57
   br label %67
 
-67:                                               ; preds = %66
-  %68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS2_12WorkerThreadESt14default_deleteIS6_EEESt6vectorISA_SaISA_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
-  br label %15
+67:                                               ; preds = %66, %53
+  br label %68
 
-69:                                               ; preds = %15
-  %70 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %7, i32 0, i32 3
-  call void @_ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %70) #5
+68:                                               ; preds = %67
+  %69 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPSt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS2_12WorkerThreadESt14default_deleteIS6_EEESt6vectorISA_SaISA_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  br label %16
+
+70:                                               ; preds = %16
+  %71 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %7, i32 0, i32 3
+  call void @_ZNSt6vectorISt4pairIPN5faiss11IndexBinaryESt10unique_ptrINS1_12WorkerThreadESt14default_deleteIS5_EEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %71) #5
   call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #5
   ret void
 
-71:                                               ; preds = %36, %32
-  %72 = landingpad { ptr, i32 }
+72:                                               ; preds = %37, %33
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #17
+  %74 = extractvalue { ptr, i32 } %73, 0
+  call void @__clang_call_terminate(ptr %74) #17
   unreachable
 }
 
@@ -15903,7 +15913,58 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Elbb(pt
   %16 = load i8, ptr %7, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %13, i32 noundef %15, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %13, align 8
+  %18 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %13, align 8
+  %19 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate.53", ptr %13, i32 0, i32 1
+  %20 = load i8, ptr %8, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = zext i1 %21 to i8
+  store i8 %22, ptr %19, align 1
+  invoke void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef %13)
+          to label %23 unwind label %24
+
+23:                                               ; preds = %4
+  ret void
+
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %9, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %10, align 4
+  call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr noundef nonnull align 8 dereferenceable(65) %13) #5
+  br label %28
+
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %9, align 8
+  %30 = load i32, ptr %10, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Eibb(ptr noundef nonnull align 8 dereferenceable(66) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 comdat($_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC5Eibb) align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  %11 = zext i1 %2 to i8
+  store i8 %11, ptr %7, align 1
+  %12 = zext i1 %3 to i8
+  store i8 %12, ptr %8, align 1
+  %13 = load ptr, ptr %5, align 8
+  %14 = load i32, ptr %6, align 4
+  %15 = load i8, ptr %7, align 1
+  %16 = trunc i8 %15 to i1
+  call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %13, i32 noundef %14, i1 noundef zeroext %16)
+  %17 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i32 0, i32 0, i32 2
+  store ptr %17, ptr %13, align 8
   %18 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate.53", ptr %13, i32 0, i32 1
   %19 = load i8, ptr %8, align 1
   %20 = trunc i8 %19 to i1
@@ -15931,55 +15992,6 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Elbb(pt
   %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
   %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
   resume { ptr, i32 } %31
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Eibb(ptr noundef nonnull align 8 dereferenceable(66) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 comdat($_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC5Eibb) align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca i8, align 1
-  %8 = alloca i8, align 1
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  %11 = zext i1 %2 to i8
-  store i8 %11, ptr %7, align 1
-  %12 = zext i1 %3 to i8
-  store i8 %12, ptr %8, align 1
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load i8, ptr %7, align 1
-  %16 = trunc i8 %15 to i1
-  call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %13, i32 noundef %14, i1 noundef zeroext %16)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %17 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate.53", ptr %13, i32 0, i32 1
-  %18 = load i8, ptr %8, align 1
-  %19 = trunc i8 %18 to i1
-  %20 = zext i1 %19 to i8
-  store i8 %20, ptr %17, align 1
-  invoke void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef %13)
-          to label %21 unwind label %22
-
-21:                                               ; preds = %4
-  ret void
-
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %9, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %10, align 4
-  call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr noundef nonnull align 8 dereferenceable(65) %13) #5
-  br label %26
-
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %9, align 8
-  %28 = load i32, ptr %10, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable

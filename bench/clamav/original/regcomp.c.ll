@@ -2483,17 +2483,18 @@ define internal void @nonnewline(ptr noundef %0) #0 {
   store ptr @nonnewline.bracket, ptr %12, align 8
   %13 = load ptr, ptr %2, align 8
   %14 = getelementptr inbounds %struct.parse, ptr %13, i32 0, i32 1
-  store ptr getelementptr inbounds (i8, ptr @nonnewline.bracket, i64 3), ptr %14, align 8
-  %15 = load ptr, ptr %2, align 8
-  call void @p_bracket(ptr noundef %15)
-  %16 = load ptr, ptr %3, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.parse, ptr %17, i32 0, i32 0
-  store ptr %16, ptr %18, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.parse, ptr %20, i32 0, i32 1
-  store ptr %19, ptr %21, align 8
+  %15 = getelementptr inbounds i8, ptr @nonnewline.bracket, i64 3
+  store ptr %15, ptr %14, align 8
+  %16 = load ptr, ptr %2, align 8
+  call void @p_bracket(ptr noundef %16)
+  %17 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds %struct.parse, ptr %18, i32 0, i32 0
+  store ptr %17, ptr %19, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds %struct.parse, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
   ret void
 }
 

@@ -3173,40 +3173,41 @@ define void @_ZN13sentencepiece7unigram7LatticeC2Ev(ptr noundef nonnull align 8 
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece7unigram7LatticeE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %5, i32 0, i32 1
-  call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  %7 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %5, i32 0, i32 2
-  call void @_ZNSt6vectorIPKcSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %5, i32 0, i32 3
-  call void @_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %9 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %5, i32 0, i32 4
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece7unigram7LatticeE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %5, i32 0, i32 1
+  call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  %8 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %5, i32 0, i32 2
+  call void @_ZNSt6vectorIPKcSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %5, i32 0, i32 3
   call void @_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %10 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %5, i32 0, i32 5
-  invoke void @_ZN13sentencepiece5model8FreeListINS_7unigram7Lattice4NodeEEC2Em(ptr noundef nonnull align 8 dereferenceable(56) %10, i64 noundef 1024)
-          to label %11 unwind label %12
-
-11:                                               ; preds = %1
-  ret void
+  %10 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %5, i32 0, i32 4
+  call void @_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %11 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %5, i32 0, i32 5
+  invoke void @_ZN13sentencepiece5model8FreeListINS_7unigram7Lattice4NodeEEC2Em(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef 1024)
+          to label %12 unwind label %13
 
 12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  call void @_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  call void @_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  call void @_ZNSt6vectorIPKcSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  br label %16
+  ret void
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %3, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %4, align 4
+  call void @_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  call void @_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  call void @_ZNSt6vectorIPKcSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3246,16 +3247,17 @@ define linkonce_odr void @_ZN13sentencepiece5model8FreeListINS_7unigram7Lattice4
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram7Lattice4NodeEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.sentencepiece::model::FreeList", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorIPN13sentencepiece7unigram7Lattice4NodeESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
-  %7 = getelementptr inbounds %"class.sentencepiece::model::FreeList", ptr %5, i32 0, i32 2
-  store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.sentencepiece::model::FreeList", ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram7Lattice4NodeEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.sentencepiece::model::FreeList", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorIPN13sentencepiece7unigram7Lattice4NodeESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %8 = getelementptr inbounds %"class.sentencepiece::model::FreeList", ptr %5, i32 0, i32 2
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.sentencepiece::model::FreeList", ptr %5, i32 0, i32 4
-  %10 = load i64, ptr %4, align 8
-  store i64 %10, ptr %9, align 8
+  %9 = getelementptr inbounds %"class.sentencepiece::model::FreeList", ptr %5, i32 0, i32 3
+  store i64 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.sentencepiece::model::FreeList", ptr %5, i32 0, i32 4
+  %11 = load i64, ptr %4, align 8
+  store i64 %11, ptr %10, align 8
   ret void
 }
 
@@ -3320,15 +3322,16 @@ define void @_ZN13sentencepiece7unigram7LatticeD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece7unigram7LatticeE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %3, i32 0, i32 5
-  call void @_ZN13sentencepiece5model8FreeListINS_7unigram7Lattice4NodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #3
-  %5 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece7unigram7LatticeE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %3, i32 0, i32 5
+  call void @_ZN13sentencepiece5model8FreeListINS_7unigram7Lattice4NodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  %6 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
-  %7 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIPKcSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %7 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIS_IPN13sentencepiece7unigram7Lattice4NodeESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %8 = getelementptr inbounds %"class.sentencepiece::unigram::Lattice", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIPKcSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
   ret void
 }
 
@@ -3341,45 +3344,46 @@ define linkonce_odr void @_ZN13sentencepiece5model8FreeListINS_7unigram7Lattice4
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram7Lattice4NodeEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.sentencepiece::model::FreeList", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call ptr @_ZNSt6vectorIPN13sentencepiece7unigram7Lattice4NodeESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
-  store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = call ptr @_ZNSt6vectorIPN13sentencepiece7unigram7Lattice4NodeESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  store ptr %13, ptr %14, align 8
-  br label %15
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram7Lattice4NodeEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.sentencepiece::model::FreeList", ptr %7, i32 0, i32 1
+  store ptr %9, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call ptr @_ZNSt6vectorIPN13sentencepiece7unigram7Lattice4NodeESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = call ptr @_ZNSt6vectorIPN13sentencepiece7unigram7Lattice4NodeESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  br label %16
 
-15:                                               ; preds = %24, %1
-  %16 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN13sentencepiece7unigram7Lattice4NodeESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br i1 %16, label %17, label %26
+16:                                               ; preds = %25, %1
+  %17 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN13sentencepiece7unigram7Lattice4NodeESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br i1 %17, label %18, label %27
 
-17:                                               ; preds = %15
-  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN13sentencepiece7unigram7Lattice4NodeESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  store ptr %18, ptr %6, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %23, label %22
+18:                                               ; preds = %16
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN13sentencepiece7unigram7Lattice4NodeESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  store ptr %19, ptr %6, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %24, label %23
 
-22:                                               ; preds = %17
-  call void @_ZdaPv(ptr noundef %20) #18
-  br label %23
-
-23:                                               ; preds = %22, %17
+23:                                               ; preds = %18
+  call void @_ZdaPv(ptr noundef %21) #18
   br label %24
 
-24:                                               ; preds = %23
-  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece7unigram7Lattice4NodeESt6vectorIS5_SaIS5_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  br label %15
+24:                                               ; preds = %23, %18
+  br label %25
 
-26:                                               ; preds = %15
-  %27 = getelementptr inbounds %"class.sentencepiece::model::FreeList", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorIPN13sentencepiece7unigram7Lattice4NodeESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
+25:                                               ; preds = %24
+  %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece7unigram7Lattice4NodeESt6vectorIS5_SaIS5_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  br label %16
+
+27:                                               ; preds = %16
+  %28 = getelementptr inbounds %"class.sentencepiece::model::FreeList", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorIPN13sentencepiece7unigram7Lattice4NodeESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
   ret void
 }
 
@@ -7336,16 +7340,17 @@ define internal void @_ZN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.sentencepiece::model::FreeList.21", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
-  %7 = getelementptr inbounds %"class.sentencepiece::model::FreeList.21", ptr %5, i32 0, i32 2
-  store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.sentencepiece::model::FreeList.21", ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.sentencepiece::model::FreeList.21", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %8 = getelementptr inbounds %"class.sentencepiece::model::FreeList.21", ptr %5, i32 0, i32 2
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.sentencepiece::model::FreeList.21", ptr %5, i32 0, i32 4
-  %10 = load i64, ptr %4, align 8
-  store i64 %10, ptr %9, align 8
+  %9 = getelementptr inbounds %"class.sentencepiece::model::FreeList.21", ptr %5, i32 0, i32 3
+  store i64 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.sentencepiece::model::FreeList.21", ptr %5, i32 0, i32 4
+  %11 = load i64, ptr %4, align 8
+  store i64 %11, ptr %10, align 8
   ret void
 }
 
@@ -7948,45 +7953,46 @@ define internal void @_ZN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.sentencepiece::model::FreeList.21", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call ptr @_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.152", ptr %4, i32 0, i32 0
-  store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = call ptr @_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.152", ptr %5, i32 0, i32 0
-  store ptr %13, ptr %14, align 8
-  br label %15
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.sentencepiece::model::FreeList.21", ptr %7, i32 0, i32 1
+  store ptr %9, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call ptr @_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.152", ptr %4, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = call ptr @_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.152", ptr %5, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  br label %16
 
-15:                                               ; preds = %24, %1
-  %16 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br i1 %16, label %17, label %26
+16:                                               ; preds = %25, %1
+  %17 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt6vectorIS5_SaIS5_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br i1 %17, label %18, label %27
 
-17:                                               ; preds = %15
-  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  store ptr %18, ptr %6, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %23, label %22
+18:                                               ; preds = %16
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt6vectorIS5_SaIS5_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  store ptr %19, ptr %6, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %24, label %23
 
-22:                                               ; preds = %17
-  call void @_ZdaPv(ptr noundef %20) #18
-  br label %23
-
-23:                                               ; preds = %22, %17
+23:                                               ; preds = %18
+  call void @_ZdaPv(ptr noundef %21) #18
   br label %24
 
-24:                                               ; preds = %23
-  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt6vectorIS5_SaIS5_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  br label %15
+24:                                               ; preds = %23, %18
+  br label %25
 
-26:                                               ; preds = %15
-  %27 = getelementptr inbounds %"class.sentencepiece::model::FreeList.21", ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
+25:                                               ; preds = %24
+  %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt6vectorIS5_SaIS5_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  br label %16
+
+27:                                               ; preds = %16
+  %28 = getelementptr inbounds %"class.sentencepiece::model::FreeList.21", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorIPN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
   ret void
 }
 
@@ -10316,186 +10322,187 @@ define void @_ZN13sentencepiece7unigram5ModelC2ERKNS_10ModelProtoE(ptr noundef n
   store ptr %1, ptr %4, align 8
   %18 = load ptr, ptr %3, align 8
   call void @_ZN13sentencepiece14ModelInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %18)
-  store ptr getelementptr inbounds inrange(-16, 200) ({ [27 x ptr] }, ptr @_ZTVN13sentencepiece7unigram5ModelE, i32 0, i32 0, i32 2), ptr %18, align 8
-  %19 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 1
-  store float 0.000000e+00, ptr %19, align 8
-  %20 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 2
-  store float 0.000000e+00, ptr %20, align 4
-  %21 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5Darts15DoubleArrayImplIvvivEESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
-  %22 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 5
-  store i32 0, ptr %22, align 4
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %18, i32 0, i32 1
-  store ptr %23, ptr %24, align 8
+  %19 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN13sentencepiece7unigram5ModelE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 1
+  store float 0.000000e+00, ptr %20, align 8
+  %21 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 2
+  store float 0.000000e+00, ptr %21, align 4
+  %22 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5Darts15DoubleArrayImplIvvivEESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
+  %23 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 5
+  store i32 0, ptr %23, align 4
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %18, i32 0, i32 1
+  store ptr %24, ptr %25, align 8
   invoke void @_ZN13sentencepiece14ModelInterface16InitializePiecesEv(ptr noundef nonnull align 8 dereferenceable(152) %18)
-          to label %25 unwind label %67
+          to label %26 unwind label %68
 
-25:                                               ; preds = %2
-  %26 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 1
-  store float 0x47EFFFFFE0000000, ptr %26, align 8
-  %27 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 2
-  store float 0x3810000000000000, ptr %27, align 4
-  %28 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %18, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8
-  %30 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK13sentencepiece10ModelProto6piecesEv(ptr noundef nonnull align 8 dereferenceable(104) %29)
-          to label %31 unwind label %67
+26:                                               ; preds = %2
+  %27 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 1
+  store float 0x47EFFFFFE0000000, ptr %27, align 8
+  %28 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 2
+  store float 0x3810000000000000, ptr %28, align 4
+  %29 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %18, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK13sentencepiece10ModelProto6piecesEv(ptr noundef nonnull align 8 dereferenceable(104) %30)
+          to label %32 unwind label %68
 
-31:                                               ; preds = %25
-  store ptr %30, ptr %7, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = invoke ptr @_ZNK6google8protobuf16RepeatedPtrFieldIN13sentencepiece24ModelProto_SentencePieceEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %32)
-          to label %34 unwind label %67
+32:                                               ; preds = %26
+  store ptr %31, ptr %7, align 8
+  %33 = load ptr, ptr %7, align 8
+  %34 = invoke ptr @_ZNK6google8protobuf16RepeatedPtrFieldIN13sentencepiece24ModelProto_SentencePieceEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %33)
+          to label %35 unwind label %68
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrIterator", ptr %8, i32 0, i32 0
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = invoke ptr @_ZNK6google8protobuf16RepeatedPtrFieldIN13sentencepiece24ModelProto_SentencePieceEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %36)
-          to label %38 unwind label %67
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrIterator", ptr %8, i32 0, i32 0
+  store ptr %34, ptr %36, align 8
+  %37 = load ptr, ptr %7, align 8
+  %38 = invoke ptr @_ZNK6google8protobuf16RepeatedPtrFieldIN13sentencepiece24ModelProto_SentencePieceEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %37)
+          to label %39 unwind label %68
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrIterator", ptr %9, i32 0, i32 0
-  store ptr %37, ptr %39, align 8
-  br label %40
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrIterator", ptr %9, i32 0, i32 0
+  store ptr %38, ptr %40, align 8
+  br label %41
 
-40:                                               ; preds = %74, %38
-  %41 = invoke noundef zeroext i1 @_ZNK6google8protobuf8internal19RepeatedPtrIteratorIKN13sentencepiece24ModelProto_SentencePieceEEneERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %42 unwind label %67
+41:                                               ; preds = %75, %39
+  %42 = invoke noundef zeroext i1 @_ZNK6google8protobuf8internal19RepeatedPtrIteratorIKN13sentencepiece24ModelProto_SentencePieceEEneERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %43 unwind label %68
 
-42:                                               ; preds = %40
-  br i1 %41, label %43, label %75
+43:                                               ; preds = %41
+  br i1 %42, label %44, label %76
 
-43:                                               ; preds = %42
-  %44 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6google8protobuf8internal19RepeatedPtrIteratorIKN13sentencepiece24ModelProto_SentencePieceEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %45 unwind label %67
+44:                                               ; preds = %43
+  %45 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6google8protobuf8internal19RepeatedPtrIteratorIKN13sentencepiece24ModelProto_SentencePieceEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %46 unwind label %68
 
-45:                                               ; preds = %43
-  store ptr %44, ptr %10, align 8
-  %46 = load ptr, ptr %10, align 8
-  %47 = invoke noundef i32 @_ZNK13sentencepiece24ModelProto_SentencePiece4typeEv(ptr noundef nonnull align 8 dereferenceable(64) %46)
-          to label %48 unwind label %67
+46:                                               ; preds = %44
+  store ptr %45, ptr %10, align 8
+  %47 = load ptr, ptr %10, align 8
+  %48 = invoke noundef i32 @_ZNK13sentencepiece24ModelProto_SentencePiece4typeEv(ptr noundef nonnull align 8 dereferenceable(64) %47)
+          to label %49 unwind label %68
 
-48:                                               ; preds = %45
-  %49 = icmp eq i32 %47, 1
-  br i1 %49, label %50, label %71
+49:                                               ; preds = %46
+  %50 = icmp eq i32 %48, 1
+  br i1 %50, label %51, label %72
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 1
-  %52 = load ptr, ptr %10, align 8
-  %53 = invoke noundef float @_ZNK13sentencepiece24ModelProto_SentencePiece5scoreEv(ptr noundef nonnull align 8 dereferenceable(64) %52)
-          to label %54 unwind label %67
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 1
+  %53 = load ptr, ptr %10, align 8
+  %54 = invoke noundef float @_ZNK13sentencepiece24ModelProto_SentencePiece5scoreEv(ptr noundef nonnull align 8 dereferenceable(64) %53)
+          to label %55 unwind label %68
 
-54:                                               ; preds = %50
-  store float %53, ptr %11, align 4
-  %55 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %51, ptr noundef nonnull align 4 dereferenceable(4) %11)
-          to label %56 unwind label %67
+55:                                               ; preds = %51
+  store float %54, ptr %11, align 4
+  %56 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %52, ptr noundef nonnull align 4 dereferenceable(4) %11)
+          to label %57 unwind label %68
 
-56:                                               ; preds = %54
-  %57 = load float, ptr %55, align 4
-  %58 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 1
-  store float %57, ptr %58, align 8
-  %59 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 2
-  %60 = load ptr, ptr %10, align 8
-  %61 = invoke noundef float @_ZNK13sentencepiece24ModelProto_SentencePiece5scoreEv(ptr noundef nonnull align 8 dereferenceable(64) %60)
-          to label %62 unwind label %67
+57:                                               ; preds = %55
+  %58 = load float, ptr %56, align 4
+  %59 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 1
+  store float %58, ptr %59, align 8
+  %60 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 2
+  %61 = load ptr, ptr %10, align 8
+  %62 = invoke noundef float @_ZNK13sentencepiece24ModelProto_SentencePiece5scoreEv(ptr noundef nonnull align 8 dereferenceable(64) %61)
+          to label %63 unwind label %68
 
-62:                                               ; preds = %56
-  store float %61, ptr %12, align 4
-  %63 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %59, ptr noundef nonnull align 4 dereferenceable(4) %12)
-          to label %64 unwind label %67
+63:                                               ; preds = %57
+  store float %62, ptr %12, align 4
+  %64 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIfERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %60, ptr noundef nonnull align 4 dereferenceable(4) %12)
+          to label %65 unwind label %68
 
-64:                                               ; preds = %62
-  %65 = load float, ptr %63, align 4
-  %66 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 2
-  store float %65, ptr %66, align 4
-  br label %71
-
-67:                                               ; preds = %72, %62, %56, %54, %50, %45, %43, %40, %34, %31, %25, %2
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %5, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %6, align 4
-  br label %103
-
-71:                                               ; preds = %64, %48
+65:                                               ; preds = %63
+  %66 = load float, ptr %64, align 4
+  %67 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %18, i32 0, i32 2
+  store float %66, ptr %67, align 4
   br label %72
 
-72:                                               ; preds = %71
-  %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8protobuf8internal19RepeatedPtrIteratorIKN13sentencepiece24ModelProto_SentencePieceEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %74 unwind label %67
-
-74:                                               ; preds = %72
-  br label %40
-
-75:                                               ; preds = %42
-  call void @_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  %76 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %18, i32 0, i32 3
-  store ptr %76, ptr %14, align 8
-  %77 = load ptr, ptr %14, align 8
-  %78 = call ptr @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %77) #3
-  %79 = getelementptr inbounds %"struct.std::__detail::_Node_iterator", ptr %15, i32 0, i32 0
-  %80 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %79, i32 0, i32 0
-  store ptr %78, ptr %80, align 8
-  %81 = load ptr, ptr %14, align 8
-  %82 = call ptr @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %81) #3
-  %83 = getelementptr inbounds %"struct.std::__detail::_Node_iterator", ptr %16, i32 0, i32 0
-  %84 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %83, i32 0, i32 0
-  store ptr %82, ptr %84, align 8
-  br label %85
-
-85:                                               ; preds = %95, %75
-  %86 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEiELb1EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  br i1 %86, label %87, label %101
-
-87:                                               ; preds = %85
-  %88 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNKSt8__detail14_Node_iteratorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEiELb0ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  store ptr %88, ptr %17, align 8
-  %89 = load ptr, ptr %17, align 8
-  %90 = getelementptr inbounds %"struct.std::pair.81", ptr %89, i32 0, i32 0
-  %91 = load ptr, ptr %17, align 8
-  %92 = getelementptr inbounds %"struct.std::pair.81", ptr %91, i32 0, i32 1
-  %93 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE12emplace_backIJRKS4_RKiEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 4 dereferenceable(4) %92)
-          to label %94 unwind label %97
-
-94:                                               ; preds = %87
-  br label %95
-
-95:                                               ; preds = %94
-  %96 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEiELb0ELb1EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  br label %85
-
-97:                                               ; preds = %101, %87
-  %98 = landingpad { ptr, i32 }
+68:                                               ; preds = %73, %63, %57, %55, %51, %46, %44, %41, %35, %32, %26, %2
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %99 = extractvalue { ptr, i32 } %98, 0
-  store ptr %99, ptr %5, align 8
-  %100 = extractvalue { ptr, i32 } %98, 1
-  store i32 %100, ptr %6, align 4
+  %70 = extractvalue { ptr, i32 } %69, 0
+  store ptr %70, ptr %5, align 8
+  %71 = extractvalue { ptr, i32 } %69, 1
+  store i32 %71, ptr %6, align 4
+  br label %104
+
+72:                                               ; preds = %65, %49
+  br label %73
+
+73:                                               ; preds = %72
+  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8protobuf8internal19RepeatedPtrIteratorIKN13sentencepiece24ModelProto_SentencePieceEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %75 unwind label %68
+
+75:                                               ; preds = %73
+  br label %41
+
+76:                                               ; preds = %43
+  call void @_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %77 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %18, i32 0, i32 3
+  store ptr %77, ptr %14, align 8
+  %78 = load ptr, ptr %14, align 8
+  %79 = call ptr @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %78) #3
+  %80 = getelementptr inbounds %"struct.std::__detail::_Node_iterator", ptr %15, i32 0, i32 0
+  %81 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %80, i32 0, i32 0
+  store ptr %79, ptr %81, align 8
+  %82 = load ptr, ptr %14, align 8
+  %83 = call ptr @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %82) #3
+  %84 = getelementptr inbounds %"struct.std::__detail::_Node_iterator", ptr %16, i32 0, i32 0
+  %85 = getelementptr inbounds %"struct.std::__detail::_Node_iterator_base", ptr %84, i32 0, i32 0
+  store ptr %83, ptr %85, align 8
+  br label %86
+
+86:                                               ; preds = %96, %76
+  %87 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEiELb1EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16) #3
+  br i1 %87, label %88, label %102
+
+88:                                               ; preds = %86
+  %89 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNKSt8__detail14_Node_iteratorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEiELb0ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  store ptr %89, ptr %17, align 8
+  %90 = load ptr, ptr %17, align 8
+  %91 = getelementptr inbounds %"struct.std::pair.81", ptr %90, i32 0, i32 0
+  %92 = load ptr, ptr %17, align 8
+  %93 = getelementptr inbounds %"struct.std::pair.81", ptr %92, i32 0, i32 1
+  %94 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE12emplace_backIJRKS4_RKiEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 4 dereferenceable(4) %93)
+          to label %95 unwind label %98
+
+95:                                               ; preds = %88
+  br label %96
+
+96:                                               ; preds = %95
+  %97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEiELb0ELb1EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
+  br label %86
+
+98:                                               ; preds = %102, %88
+  %99 = landingpad { ptr, i32 }
+          cleanup
+  %100 = extractvalue { ptr, i32 } %99, 0
+  store ptr %100, ptr %5, align 8
+  %101 = extractvalue { ptr, i32 } %99, 1
+  store i32 %101, ptr %6, align 4
   call void @_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
-  br label %103
+  br label %104
 
-101:                                              ; preds = %85
+102:                                              ; preds = %86
   invoke void @_ZN13sentencepiece7unigram5Model9BuildTrieEPSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(176) %18, ptr noundef %13)
-          to label %102 unwind label %97
+          to label %103 unwind label %98
 
-102:                                              ; preds = %101
+103:                                              ; preds = %102
   call void @_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
   ret void
 
-103:                                              ; preds = %97, %67
-  call void @_ZNSt10unique_ptrIN5Darts15DoubleArrayImplIvvivEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
+104:                                              ; preds = %98, %68
+  call void @_ZNSt10unique_ptrIN5Darts15DoubleArrayImplIvvivEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
   call void @_ZN13sentencepiece14ModelInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %18) #3
-  br label %104
+  br label %105
 
-104:                                              ; preds = %103
-  %105 = load ptr, ptr %5, align 8
-  %106 = load i32, ptr %6, align 4
-  %107 = insertvalue { ptr, i32 } poison, ptr %105, 0
-  %108 = insertvalue { ptr, i32 } %107, i32 %106, 1
-  resume { ptr, i32 } %108
+105:                                              ; preds = %104
+  %106 = load ptr, ptr %5, align 8
+  %107 = load i32, ptr %6, align 4
+  %108 = insertvalue { ptr, i32 } poison, ptr %106, 0
+  %109 = insertvalue { ptr, i32 } %108, i32 %107, 1
+  resume { ptr, i32 } %109
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10505,42 +10512,43 @@ define linkonce_odr void @_ZN13sentencepiece14ModelInterfaceC2Ev(ptr noundef non
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) ({ [27 x ptr] }, ptr @_ZTVN13sentencepiece14ModelInterfaceE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer13PrefixMatcherESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 3
-  call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
-  %9 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 4
+  %6 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN13sentencepiece14ModelInterfaceE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer13PrefixMatcherESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %9 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 3
   call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
-  %10 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 5
-  store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 6
-  invoke void @_ZN13sentencepiece4util6StatusC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %1
-  ret void
+  %10 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 4
+  call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #3
+  %11 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 5
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.sentencepiece::ModelInterface", ptr %5, i32 0, i32 6
+  invoke void @_ZN13sentencepiece4util6StatusC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %1
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %3, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %4, align 4
-  call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
-  call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
-  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer13PrefixMatcherESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %3, align 8
-  %19 = load i32, ptr %4, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %1
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %3, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %4, align 4
+  call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #3
+  call void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
+  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer13PrefixMatcherESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %3, align 8
+  %20 = load i32, ptr %4, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10833,9 +10841,10 @@ define void @_ZN13sentencepiece7unigram5ModelD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) ({ [27 x ptr] }, ptr @_ZTVN13sentencepiece7unigram5ModelE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5Darts15DoubleArrayImplIvvivEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [27 x ptr] }, ptr @_ZTVN13sentencepiece7unigram5ModelE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.sentencepiece::unigram::Model", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5Darts15DoubleArrayImplIvvivEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN13sentencepiece14ModelInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #3
   ret void
 }
@@ -36743,13 +36752,14 @@ define linkonce_odr void @_ZN5Darts15DoubleArrayImplIvvivEC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Darts::DoubleArrayImpl", ptr %3, i32 0, i32 1
-  store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.Darts::DoubleArrayImpl", ptr %3, i32 0, i32 2
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Darts::DoubleArrayImpl", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Darts::DoubleArrayImpl", ptr %3, i32 0, i32 1
+  store i64 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.Darts::DoubleArrayImpl", ptr %3, i32 0, i32 2
   store ptr null, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.Darts::DoubleArrayImpl", ptr %3, i32 0, i32 3
+  store ptr null, ptr %7, align 8
   ret void
 }
 
@@ -36781,18 +36791,19 @@ define linkonce_odr void @_ZN5Darts15DoubleArrayImplIvvivED2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Darts15DoubleArrayImplIvvivEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN5Darts15DoubleArrayImplIvvivE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %4 unwind label %5
-
-4:                                                ; preds = %1
-  ret void
+          to label %5 unwind label %6
 
 5:                                                ; preds = %1
-  %6 = landingpad { ptr, i32 }
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #17
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #17
   unreachable
 }
 
@@ -37666,10 +37677,11 @@ define linkonce_odr void @_ZN5Darts7Details9ExceptionC2EPKc(ptr noundef nonnull 
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5Darts7Details9ExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.Darts::Details::Exception", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Darts7Details9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.Darts::Details::Exception", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -37712,7 +37724,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

@@ -1919,7 +1919,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 if.end10:                                         ; preds = %cond.end, %if.then5
   %__sigaction_handler11 = getelementptr inbounds %struct.sigaction, ptr %oact, i32 0, i32 0
   %12 = load ptr, ptr %__sigaction_handler11, align 8
-  %cmp12 = icmp ne ptr %12, inttoptr (i64 1 to ptr)
+  %13 = inttoptr i64 1 to ptr
+  %cmp12 = icmp ne ptr %12, %13
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end10
@@ -1927,18 +1928,18 @@ if.then13:                                        ; preds = %if.end10
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %if.end10
-  %13 = load i64, ptr %thand, align 8
-  %14 = load i32, ptr %tsig, align 4
-  %sub = sub i32 %14, 1
+  %14 = load i64, ptr %thand, align 8
+  %15 = load i32, ptr %tsig, align 4
+  %sub = sub i32 %15, 1
   %idxprom = sext i32 %sub to i64
   %arrayidx = getelementptr [64 x %struct.target_sigaction], ptr @sigact_table, i64 0, i64 %idxprom
   %_sa_handler = getelementptr inbounds %struct.target_sigaction, ptr %arrayidx, i32 0, i32 0
-  store i64 %13, ptr %_sa_handler, align 16
+  store i64 %14, ptr %_sa_handler, align 16
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end14, %if.then
-  %15 = load i32, ptr %tsig, align 4
-  %inc = add i32 %15, 1
+  %16 = load i32, ptr %tsig, align 4
+  %inc = add i32 %16, 1
   store i32 %inc, ptr %tsig, align 4
   br label %for.cond, !llvm.loop !12
 
@@ -1954,46 +1955,47 @@ entry:
   %count = alloca i32, align 4
   %call = call i32 @__libc_current_sigrtmin() #9
   store i32 %call, ptr %hsig, align 4
-  store i8 0, ptr getelementptr ([65 x i8], ptr @host_to_target_signal_table, i64 0, i64 6), align 2
-  %0 = load i32, ptr %hsig, align 4
-  %inc = add i32 %0, 1
+  %0 = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 6
+  store i8 0, ptr %0, align 2
+  %1 = load i32, ptr %hsig, align 4
+  %inc = add i32 %1, 1
   store i32 %inc, ptr %hsig, align 4
-  %idxprom = sext i32 %0 to i64
+  %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 %idxprom
   store i8 6, ptr %arrayidx, align 1
   store i32 32, ptr %tsig, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %hsig, align 4
+  %2 = load i32, ptr %hsig, align 4
   %call1 = call i32 @__libc_current_sigrtmax() #9
-  %cmp = icmp sle i32 %1, %call1
+  %cmp = icmp sle i32 %2, %call1
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.cond
-  %2 = load i32, ptr %tsig, align 4
-  %cmp2 = icmp sle i32 %2, 64
+  %3 = load i32, ptr %tsig, align 4
+  %cmp2 = icmp sle i32 %3, 64
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond
-  %3 = phi i1 [ false, %for.cond ], [ %cmp2, %land.rhs ]
-  br i1 %3, label %for.body, label %for.end
+  %4 = phi i1 [ false, %for.cond ], [ %cmp2, %land.rhs ]
+  br i1 %4, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
-  %4 = load i32, ptr %tsig, align 4
-  %conv = trunc i32 %4 to i8
-  %5 = load i32, ptr %hsig, align 4
-  %idxprom3 = sext i32 %5 to i64
+  %5 = load i32, ptr %tsig, align 4
+  %conv = trunc i32 %5 to i8
+  %6 = load i32, ptr %hsig, align 4
+  %idxprom3 = sext i32 %6 to i64
   %arrayidx4 = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 %idxprom3
   store i8 %conv, ptr %arrayidx4, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %6 = load i32, ptr %hsig, align 4
-  %inc5 = add i32 %6, 1
+  %7 = load i32, ptr %hsig, align 4
+  %inc5 = add i32 %7, 1
   store i32 %inc5, ptr %hsig, align 4
-  %7 = load i32, ptr %tsig, align 4
-  %inc6 = add i32 %7, 1
+  %8 = load i32, ptr %tsig, align 4
+  %inc6 = add i32 %8, 1
   store i32 %inc6, ptr %tsig, align 4
   br label %for.cond, !llvm.loop !13
 
@@ -2002,27 +2004,27 @@ for.end:                                          ; preds = %land.end
   br label %for.cond7
 
 for.cond7:                                        ; preds = %for.inc24, %for.end
-  %8 = load i32, ptr %hsig, align 4
-  %cmp8 = icmp slt i32 %8, 65
+  %9 = load i32, ptr %hsig, align 4
+  %cmp8 = icmp slt i32 %9, 65
   br i1 %cmp8, label %for.body10, label %for.end26
 
 for.body10:                                       ; preds = %for.cond7
-  %9 = load i32, ptr %hsig, align 4
-  %idxprom11 = sext i32 %9 to i64
+  %10 = load i32, ptr %hsig, align 4
+  %idxprom11 = sext i32 %10 to i64
   %arrayidx12 = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 %idxprom11
-  %10 = load i8, ptr %arrayidx12, align 1
-  %conv13 = zext i8 %10 to i32
+  %11 = load i8, ptr %arrayidx12, align 1
+  %conv13 = zext i8 %11 to i32
   store i32 %conv13, ptr %tsig, align 4
-  %11 = load i32, ptr %tsig, align 4
-  %tobool = icmp ne i32 %11, 0
+  %12 = load i32, ptr %tsig, align 4
+  %tobool = icmp ne i32 %12, 0
   br i1 %tobool, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %for.body10
-  %12 = load i32, ptr %tsig, align 4
-  %idxprom14 = sext i32 %12 to i64
+  %13 = load i32, ptr %tsig, align 4
+  %idxprom14 = sext i32 %13 to i64
   %arrayidx15 = getelementptr [65 x i8], ptr @target_to_host_signal_table, i64 0, i64 %idxprom14
-  %13 = load i8, ptr %arrayidx15, align 1
-  %conv16 = zext i8 %13 to i32
+  %14 = load i8, ptr %arrayidx15, align 1
+  %conv16 = zext i8 %14 to i32
   %cmp17 = icmp eq i32 %conv16, 0
   br i1 %cmp17, label %if.then19, label %if.else
 
@@ -2034,10 +2036,10 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then19
-  %14 = load i32, ptr %hsig, align 4
-  %conv20 = trunc i32 %14 to i8
-  %15 = load i32, ptr %tsig, align 4
-  %idxprom21 = sext i32 %15 to i64
+  %15 = load i32, ptr %hsig, align 4
+  %conv20 = trunc i32 %15 to i8
+  %16 = load i32, ptr %tsig, align 4
+  %idxprom21 = sext i32 %16 to i64
   %arrayidx22 = getelementptr [65 x i8], ptr @target_to_host_signal_table, i64 0, i64 %idxprom21
   store i8 %conv20, ptr %arrayidx22, align 1
   br label %if.end23
@@ -2046,33 +2048,34 @@ if.end23:                                         ; preds = %if.end, %for.body10
   br label %for.inc24
 
 for.inc24:                                        ; preds = %if.end23
-  %16 = load i32, ptr %hsig, align 4
-  %inc25 = add i32 %16, 1
+  %17 = load i32, ptr %hsig, align 4
+  %inc25 = add i32 %17, 1
   store i32 %inc25, ptr %hsig, align 4
   br label %for.cond7, !llvm.loop !14
 
 for.end26:                                        ; preds = %for.cond7
-  store i8 6, ptr getelementptr ([65 x i8], ptr @host_to_target_signal_table, i64 0, i64 6), align 2
+  %18 = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 6
+  store i8 6, ptr %18, align 2
   store i32 1, ptr %hsig, align 4
   br label %for.cond27
 
 for.cond27:                                       ; preds = %for.inc40, %for.end26
-  %17 = load i32, ptr %hsig, align 4
-  %cmp28 = icmp slt i32 %17, 65
+  %19 = load i32, ptr %hsig, align 4
+  %cmp28 = icmp slt i32 %19, 65
   br i1 %cmp28, label %for.body30, label %for.end42
 
 for.body30:                                       ; preds = %for.cond27
-  %18 = load i32, ptr %hsig, align 4
-  %idxprom31 = sext i32 %18 to i64
+  %20 = load i32, ptr %hsig, align 4
+  %idxprom31 = sext i32 %20 to i64
   %arrayidx32 = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 %idxprom31
-  %19 = load i8, ptr %arrayidx32, align 1
-  %conv33 = zext i8 %19 to i32
+  %21 = load i8, ptr %arrayidx32, align 1
+  %conv33 = zext i8 %21 to i32
   %cmp34 = icmp eq i32 %conv33, 0
   br i1 %cmp34, label %if.then36, label %if.end39
 
 if.then36:                                        ; preds = %for.body30
-  %20 = load i32, ptr %hsig, align 4
-  %idxprom37 = sext i32 %20 to i64
+  %22 = load i32, ptr %hsig, align 4
+  %idxprom37 = sext i32 %22 to i64
   %arrayidx38 = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 %idxprom37
   store i8 65, ptr %arrayidx38, align 1
   br label %if.end39
@@ -2081,8 +2084,8 @@ if.end39:                                         ; preds = %if.then36, %for.bod
   br label %for.inc40
 
 for.inc40:                                        ; preds = %if.end39
-  %21 = load i32, ptr %hsig, align 4
-  %inc41 = add i32 %21, 1
+  %23 = load i32, ptr %hsig, align 4
+  %inc41 = add i32 %23, 1
   store i32 %inc41, ptr %hsig, align 4
   br label %for.cond27, !llvm.loop !15
 
@@ -2092,26 +2095,26 @@ for.end42:                                        ; preds = %for.cond27
   br label %for.cond43
 
 for.cond43:                                       ; preds = %for.inc57, %for.end42
-  %22 = load i32, ptr %tsig, align 4
-  %cmp44 = icmp sle i32 %22, 64
+  %24 = load i32, ptr %tsig, align 4
+  %cmp44 = icmp sle i32 %24, 64
   br i1 %cmp44, label %for.body46, label %for.end59
 
 for.body46:                                       ; preds = %for.cond43
-  %23 = load i32, ptr %tsig, align 4
-  %idxprom47 = sext i32 %23 to i64
+  %25 = load i32, ptr %tsig, align 4
+  %idxprom47 = sext i32 %25 to i64
   %arrayidx48 = getelementptr [65 x i8], ptr @target_to_host_signal_table, i64 0, i64 %idxprom47
-  %24 = load i8, ptr %arrayidx48, align 1
-  %conv49 = zext i8 %24 to i32
+  %26 = load i8, ptr %arrayidx48, align 1
+  %conv49 = zext i8 %26 to i32
   %cmp50 = icmp eq i32 %conv49, 0
   br i1 %cmp50, label %if.then52, label %if.end56
 
 if.then52:                                        ; preds = %for.body46
-  %25 = load i32, ptr %tsig, align 4
-  %idxprom53 = sext i32 %25 to i64
+  %27 = load i32, ptr %tsig, align 4
+  %idxprom53 = sext i32 %27 to i64
   %arrayidx54 = getelementptr [65 x i8], ptr @target_to_host_signal_table, i64 0, i64 %idxprom53
   store i8 65, ptr %arrayidx54, align 1
-  %26 = load i32, ptr %count, align 4
-  %inc55 = add i32 %26, 1
+  %28 = load i32, ptr %count, align 4
+  %inc55 = add i32 %28, 1
   store i32 %inc55, ptr %count, align 4
   br label %if.end56
 
@@ -2119,14 +2122,14 @@ if.end56:                                         ; preds = %if.then52, %for.bod
   br label %for.inc57
 
 for.inc57:                                        ; preds = %if.end56
-  %27 = load i32, ptr %tsig, align 4
-  %inc58 = add i32 %27, 1
+  %29 = load i32, ptr %tsig, align 4
+  %inc58 = add i32 %29, 1
   store i32 %inc58, ptr %tsig, align 4
   br label %for.cond43, !llvm.loop !16
 
 for.end59:                                        ; preds = %for.cond43
-  %28 = load i32, ptr %count, align 4
-  call void @trace_signal_table_init(i32 noundef %28)
+  %30 = load i32, ptr %count, align 4
+  call void @trace_signal_table_init(i32 noundef %30)
   ret void
 }
 
@@ -2988,19 +2991,20 @@ if.then57:                                        ; preds = %land.lhs.true54
 
 if.then64:                                        ; preds = %if.then57
   %__sigaction_handler = getelementptr inbounds %struct.sigaction, ptr %act1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %__sigaction_handler, align 8
+  %36 = inttoptr i64 1 to ptr
+  store ptr %36, ptr %__sigaction_handler, align 8
   br label %if.end84
 
 if.else:                                          ; preds = %if.then57
-  %36 = load ptr, ptr %k, align 8
-  %_sa_handler65 = getelementptr inbounds %struct.target_sigaction, ptr %36, i32 0, i32 0
-  %37 = load i64, ptr %_sa_handler65, align 8
-  %cmp66 = icmp eq i64 %37, 0
+  %37 = load ptr, ptr %k, align 8
+  %_sa_handler65 = getelementptr inbounds %struct.target_sigaction, ptr %37, i32 0, i32 0
+  %38 = load i64, ptr %_sa_handler65, align 8
+  %cmp66 = icmp eq i64 %38, 0
   br i1 %cmp66, label %if.then68, label %if.else76
 
 if.then68:                                        ; preds = %if.else
-  %38 = load i32, ptr %sig.addr, align 4
-  %call69 = call i32 @core_dump_signal(i32 noundef %38)
+  %39 = load i32, ptr %sig.addr, align 4
+  %call69 = call i32 @core_dump_signal(i32 noundef %39)
   %tobool70 = icmp ne i32 %call69, 0
   br i1 %tobool70, label %if.then71, label %if.else73
 
@@ -3020,17 +3024,17 @@ if.end75:                                         ; preds = %if.else73, %if.then
 if.else76:                                        ; preds = %if.else
   %__sigaction_handler77 = getelementptr inbounds %struct.sigaction, ptr %act1, i32 0, i32 0
   store ptr @host_signal_handler, ptr %__sigaction_handler77, align 8
-  %39 = load ptr, ptr %k, align 8
-  %sa_flags78 = getelementptr inbounds %struct.target_sigaction, ptr %39, i32 0, i32 1
-  %40 = load i64, ptr %sa_flags78, align 8
-  %and = and i64 %40, 268435456
+  %40 = load ptr, ptr %k, align 8
+  %sa_flags78 = getelementptr inbounds %struct.target_sigaction, ptr %40, i32 0, i32 1
+  %41 = load i64, ptr %sa_flags78, align 8
+  %and = and i64 %41, 268435456
   %tobool79 = icmp ne i64 %and, 0
   br i1 %tobool79, label %if.then80, label %if.end82
 
 if.then80:                                        ; preds = %if.else76
   %sa_flags81 = getelementptr inbounds %struct.sigaction, ptr %act1, i32 0, i32 2
-  %41 = load i32, ptr %sa_flags81, align 8
-  %or = or i32 %41, 268435456
+  %42 = load i32, ptr %sa_flags81, align 8
+  %or = or i32 %42, 268435456
   store i32 %or, ptr %sa_flags81, align 8
   br label %if.end82
 
@@ -3041,8 +3045,8 @@ if.end83:                                         ; preds = %if.end82, %if.end75
   br label %if.end84
 
 if.end84:                                         ; preds = %if.end83, %if.then64
-  %42 = load i32, ptr %host_sig, align 4
-  %call85 = call i32 @sigaction(i32 noundef %42, ptr noundef %act1, ptr noundef null) #9
+  %43 = load i32, ptr %host_sig, align 4
+  %call85 = call i32 @sigaction(i32 noundef %43, ptr noundef %act1, ptr noundef null) #9
   store i32 %call85, ptr %ret, align 4
   br label %if.end86
 
@@ -3050,13 +3054,13 @@ if.end86:                                         ; preds = %if.end84, %land.lhs
   br label %if.end87
 
 if.end87:                                         ; preds = %if.end86, %if.end20
-  %43 = load i32, ptr %ret, align 4
-  store i32 %43, ptr %retval, align 4
+  %44 = load i32, ptr %ret, align 4
+  store i32 %44, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end87, %do.end50, %if.then8, %if.then5, %if.then
-  %44 = load i32, ptr %retval, align 4
-  ret i32 %44
+  %45 = load i32, ptr %retval, align 4
+  ret i32 %45
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4237,17 +4241,20 @@ entry:
   %call = call i64 @host_signal_pc(ptr noundef %1)
   store i64 %call, ptr %pcreg, align 8
   %2 = load i64, ptr %pcreg, align 8
-  %cmp = icmp ugt i64 %2, ptrtoint (ptr @safe_syscall_start to i64)
+  %3 = ptrtoint ptr @safe_syscall_start to i64
+  %cmp = icmp ugt i64 %2, %3
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %3 = load i64, ptr %pcreg, align 8
-  %cmp1 = icmp ult i64 %3, ptrtoint (ptr @safe_syscall_end to i64)
+  %4 = load i64, ptr %pcreg, align 8
+  %5 = ptrtoint ptr @safe_syscall_end to i64
+  %cmp1 = icmp ult i64 %4, %5
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr %uc, align 8
-  call void @host_signal_set_pc(ptr noundef %4, i64 noundef ptrtoint (ptr @safe_syscall_start to i64))
+  %6 = load ptr, ptr %uc, align 8
+  %7 = ptrtoint ptr @safe_syscall_start to i64
+  call void @host_signal_set_pc(ptr noundef %6, i64 noundef %7)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry

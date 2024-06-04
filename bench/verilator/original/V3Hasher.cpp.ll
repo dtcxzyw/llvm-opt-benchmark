@@ -4068,37 +4068,38 @@ define linkonce_odr dso_local void @_ZN13HasherVisitorC2EP7AstNode(ptr noundef n
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN14VNVisitorConstC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds inrange(-16, 3696) ({ [464 x ptr] }, ptr @_ZTV13HasherVisitor, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.HasherVisitor, ptr %7, i32 0, i32 1
-  invoke void @_ZN6V3HashC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8)
-          to label %9 unwind label %13
+  %8 = getelementptr inbounds { [464 x ptr] }, ptr @_ZTV13HasherVisitor, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.HasherVisitor, ptr %7, i32 0, i32 1
+  invoke void @_ZN6V3HashC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9)
+          to label %10 unwind label %14
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds %class.HasherVisitor, ptr %7, i32 0, i32 2
-  store i8 1, ptr %10, align 4
-  %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN14VNVisitorConst12iterateConstEP7AstNode(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %11)
-          to label %12 unwind label %13
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds %class.HasherVisitor, ptr %7, i32 0, i32 2
+  store i8 1, ptr %11, align 4
+  %12 = load ptr, ptr %4, align 8
+  invoke void @_ZN14VNVisitorConst12iterateConstEP7AstNode(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %12)
+          to label %13 unwind label %14
 
-12:                                               ; preds = %9
+13:                                               ; preds = %10
   ret void
 
-13:                                               ; preds = %9, %2
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %10, %2
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
   call void @_ZN14VNVisitorConstD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  br label %18
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4207,37 +4208,38 @@ define linkonce_odr dso_local void @_ZN13HasherVisitorC2EPK7AstNodeNS_8UncachedE
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN14VNVisitorConstC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds inrange(-16, 3696) ({ [464 x ptr] }, ptr @_ZTV13HasherVisitor, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.HasherVisitor, ptr %7, i32 0, i32 1
-  invoke void @_ZN6V3HashC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8)
-          to label %9 unwind label %13
+  %8 = getelementptr inbounds { [464 x ptr] }, ptr @_ZTV13HasherVisitor, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.HasherVisitor, ptr %7, i32 0, i32 1
+  invoke void @_ZN6V3HashC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9)
+          to label %10 unwind label %14
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds %class.HasherVisitor, ptr %7, i32 0, i32 2
-  store i8 0, ptr %10, align 4
-  %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN14VNVisitorConst12iterateConstEP7AstNode(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %11)
-          to label %12 unwind label %13
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds %class.HasherVisitor, ptr %7, i32 0, i32 2
+  store i8 0, ptr %11, align 4
+  %12 = load ptr, ptr %4, align 8
+  invoke void @_ZN14VNVisitorConst12iterateConstEP7AstNode(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %12)
+          to label %13 unwind label %14
 
-12:                                               ; preds = %9
+13:                                               ; preds = %10
   ret void
 
-13:                                               ; preds = %9, %2
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %10, %2
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
   call void @_ZN14VNVisitorConstD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %17
+  br label %18
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4340,7 +4342,8 @@ define linkonce_odr dso_local void @_ZN14VNVisitorConstC2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 3696) ({ [464 x ptr] }, ptr @_ZTV14VNVisitorConst, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [464 x ptr] }, ptr @_ZTV14VNVisitorConst, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

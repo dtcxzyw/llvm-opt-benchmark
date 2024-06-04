@@ -485,7 +485,8 @@ define dso_local void @_ZN18cmParseGTMCoverageC2ER31cmCTestCoverageHandlerContai
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN20cmParseMumpsCoverageC2ER31cmCTestCoverageHandlerContainerP7cmCTest(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(129) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18cmParseGTMCoverage, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV18cmParseGTMCoverage, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 

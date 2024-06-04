@@ -99,117 +99,158 @@ entry:
   br i1 %cmp, label %for.body.preheader, label %if.end10
 
 for.body.preheader:                               ; preds = %entry
-  %0 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 0, i64 1), align 2, !tbaa !4
-  %cmp4.not = icmp eq i16 %0, %n_from.sroa.0.0.extract.trunc
+  %0 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 0, i64 1
+  %1 = load i16, ptr %0, align 2, !tbaa !4
+  %cmp4.not = icmp eq i16 %1, %n_from.sroa.0.0.extract.trunc
   br i1 %cmp4.not, label %if.then5, label %for.cond
 
 for.cond:                                         ; preds = %for.body.preheader
-  %1 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 1, i64 1), align 2, !tbaa !4
-  %cmp4.not.1 = icmp eq i16 %1, %n_from.sroa.0.0.extract.trunc
+  %2 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 1, i64 1
+  %3 = load i16, ptr %2, align 2, !tbaa !4
+  %cmp4.not.1 = icmp eq i16 %3, %n_from.sroa.0.0.extract.trunc
+  %4 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 1, i64 0
   br i1 %cmp4.not.1, label %if.then5, label %for.cond.1
 
 for.cond.1:                                       ; preds = %for.cond
-  %2 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 2, i64 1), align 2, !tbaa !4
-  %cmp4.not.2 = icmp eq i16 %2, %n_from.sroa.0.0.extract.trunc
+  %5 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 2, i64 1
+  %6 = load i16, ptr %5, align 2, !tbaa !4
+  %cmp4.not.2 = icmp eq i16 %6, %n_from.sroa.0.0.extract.trunc
+  %7 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 2, i64 0
   br i1 %cmp4.not.2, label %if.then5, label %for.cond.2
 
 for.cond.2:                                       ; preds = %for.cond.1
-  %3 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 3, i64 1), align 2, !tbaa !4
-  %cmp4.not.3 = icmp eq i16 %3, %n_from.sroa.0.0.extract.trunc
+  %8 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 3, i64 1
+  %9 = load i16, ptr %8, align 2, !tbaa !4
+  %cmp4.not.3 = icmp eq i16 %9, %n_from.sroa.0.0.extract.trunc
+  %10 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 3, i64 0
   br i1 %cmp4.not.3, label %if.then5, label %for.cond.3
 
 for.cond.3:                                       ; preds = %for.cond.2
-  %4 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 4, i64 1), align 2, !tbaa !4
-  %cmp4.not.4 = icmp eq i16 %4, %n_from.sroa.0.0.extract.trunc
+  %11 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 4, i64 1
+  %12 = load i16, ptr %11, align 2, !tbaa !4
+  %cmp4.not.4 = icmp eq i16 %12, %n_from.sroa.0.0.extract.trunc
+  %13 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 4, i64 0
   br i1 %cmp4.not.4, label %if.then5, label %for.cond.4
 
 for.cond.4:                                       ; preds = %for.cond.3
-  %5 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 5, i64 1), align 2, !tbaa !4
-  %cmp4.not.5 = icmp eq i16 %5, %n_from.sroa.0.0.extract.trunc
+  %14 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 5, i64 1
+  %15 = load i16, ptr %14, align 2, !tbaa !4
+  %cmp4.not.5 = icmp eq i16 %15, %n_from.sroa.0.0.extract.trunc
+  %16 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 5, i64 0
   br i1 %cmp4.not.5, label %if.then5, label %for.cond.5
 
 for.cond.5:                                       ; preds = %for.cond.4
-  %6 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 6, i64 1), align 2, !tbaa !4
-  %cmp4.not.6 = icmp eq i16 %6, %n_from.sroa.0.0.extract.trunc
+  %17 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 6, i64 1
+  %18 = load i16, ptr %17, align 2, !tbaa !4
+  %cmp4.not.6 = icmp eq i16 %18, %n_from.sroa.0.0.extract.trunc
+  %19 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 6, i64 0
   br i1 %cmp4.not.6, label %if.then5, label %for.cond.6
 
 for.cond.6:                                       ; preds = %for.cond.5
-  %7 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 7, i64 1), align 2, !tbaa !4
-  %cmp4.not.7 = icmp eq i16 %7, %n_from.sroa.0.0.extract.trunc
+  %20 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 7, i64 1
+  %21 = load i16, ptr %20, align 2, !tbaa !4
+  %cmp4.not.7 = icmp eq i16 %21, %n_from.sroa.0.0.extract.trunc
+  %22 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 7, i64 0
   br i1 %cmp4.not.7, label %if.then5, label %for.cond.7
 
 for.cond.7:                                       ; preds = %for.cond.6
-  %8 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 8, i64 1), align 2, !tbaa !4
-  %cmp4.not.8 = icmp eq i16 %8, %n_from.sroa.0.0.extract.trunc
+  %23 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 8, i64 1
+  %24 = load i16, ptr %23, align 2, !tbaa !4
+  %cmp4.not.8 = icmp eq i16 %24, %n_from.sroa.0.0.extract.trunc
+  %25 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 8, i64 0
   br i1 %cmp4.not.8, label %if.then5, label %for.cond.8
 
 for.cond.8:                                       ; preds = %for.cond.7
-  %9 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 9, i64 1), align 2, !tbaa !4
-  %cmp4.not.9 = icmp eq i16 %9, %n_from.sroa.0.0.extract.trunc
+  %26 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 9, i64 1
+  %27 = load i16, ptr %26, align 2, !tbaa !4
+  %cmp4.not.9 = icmp eq i16 %27, %n_from.sroa.0.0.extract.trunc
+  %28 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 9, i64 0
   br i1 %cmp4.not.9, label %if.then5, label %for.cond.9
 
 for.cond.9:                                       ; preds = %for.cond.8
-  %10 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 10, i64 1), align 2, !tbaa !4
-  %cmp4.not.10 = icmp eq i16 %10, %n_from.sroa.0.0.extract.trunc
+  %29 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 10, i64 1
+  %30 = load i16, ptr %29, align 2, !tbaa !4
+  %cmp4.not.10 = icmp eq i16 %30, %n_from.sroa.0.0.extract.trunc
+  %31 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 10, i64 0
   br i1 %cmp4.not.10, label %if.then5, label %for.cond.10
 
 for.cond.10:                                      ; preds = %for.cond.9
-  %11 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 11, i64 1), align 2, !tbaa !4
-  %cmp4.not.11 = icmp eq i16 %11, %n_from.sroa.0.0.extract.trunc
+  %32 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 11, i64 1
+  %33 = load i16, ptr %32, align 2, !tbaa !4
+  %cmp4.not.11 = icmp eq i16 %33, %n_from.sroa.0.0.extract.trunc
+  %34 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 11, i64 0
   br i1 %cmp4.not.11, label %if.then5, label %for.cond.11
 
 for.cond.11:                                      ; preds = %for.cond.10
-  %12 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 12, i64 1), align 2, !tbaa !4
-  %cmp4.not.12 = icmp eq i16 %12, %n_from.sroa.0.0.extract.trunc
+  %35 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 12, i64 1
+  %36 = load i16, ptr %35, align 2, !tbaa !4
+  %cmp4.not.12 = icmp eq i16 %36, %n_from.sroa.0.0.extract.trunc
+  %37 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 12, i64 0
   br i1 %cmp4.not.12, label %if.then5, label %for.cond.12
 
 for.cond.12:                                      ; preds = %for.cond.11
-  %13 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 13, i64 1), align 2, !tbaa !4
-  %cmp4.not.13 = icmp eq i16 %13, %n_from.sroa.0.0.extract.trunc
+  %38 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 13, i64 1
+  %39 = load i16, ptr %38, align 2, !tbaa !4
+  %cmp4.not.13 = icmp eq i16 %39, %n_from.sroa.0.0.extract.trunc
+  %40 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 13, i64 0
   br i1 %cmp4.not.13, label %if.then5, label %for.cond.13
 
 for.cond.13:                                      ; preds = %for.cond.12
-  %14 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 14, i64 1), align 2, !tbaa !4
-  %cmp4.not.14 = icmp eq i16 %14, %n_from.sroa.0.0.extract.trunc
+  %41 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 14, i64 1
+  %42 = load i16, ptr %41, align 2, !tbaa !4
+  %cmp4.not.14 = icmp eq i16 %42, %n_from.sroa.0.0.extract.trunc
+  %43 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 14, i64 0
   br i1 %cmp4.not.14, label %if.then5, label %for.cond.14
 
 for.cond.14:                                      ; preds = %for.cond.13
-  %15 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 15, i64 1), align 2, !tbaa !4
-  %cmp4.not.15 = icmp eq i16 %15, %n_from.sroa.0.0.extract.trunc
+  %44 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 15, i64 1
+  %45 = load i16, ptr %44, align 2, !tbaa !4
+  %cmp4.not.15 = icmp eq i16 %45, %n_from.sroa.0.0.extract.trunc
+  %46 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 15, i64 0
   br i1 %cmp4.not.15, label %if.then5, label %for.cond.15
 
 for.cond.15:                                      ; preds = %for.cond.14
-  %16 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 16, i64 1), align 2, !tbaa !4
-  %cmp4.not.16 = icmp eq i16 %16, %n_from.sroa.0.0.extract.trunc
+  %47 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 16, i64 1
+  %48 = load i16, ptr %47, align 2, !tbaa !4
+  %cmp4.not.16 = icmp eq i16 %48, %n_from.sroa.0.0.extract.trunc
+  %49 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 16, i64 0
   br i1 %cmp4.not.16, label %if.then5, label %for.cond.16
 
 for.cond.16:                                      ; preds = %for.cond.15
-  %17 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 17, i64 1), align 2, !tbaa !4
-  %cmp4.not.17 = icmp eq i16 %17, %n_from.sroa.0.0.extract.trunc
+  %50 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 17, i64 1
+  %51 = load i16, ptr %50, align 2, !tbaa !4
+  %cmp4.not.17 = icmp eq i16 %51, %n_from.sroa.0.0.extract.trunc
+  %52 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 17, i64 0
   br i1 %cmp4.not.17, label %if.then5, label %for.cond.17
 
 for.cond.17:                                      ; preds = %for.cond.16
-  %18 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 18, i64 1), align 2, !tbaa !4
-  %cmp4.not.18 = icmp eq i16 %18, %n_from.sroa.0.0.extract.trunc
+  %53 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 18, i64 1
+  %54 = load i16, ptr %53, align 2, !tbaa !4
+  %cmp4.not.18 = icmp eq i16 %54, %n_from.sroa.0.0.extract.trunc
+  %55 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 18, i64 0
   br i1 %cmp4.not.18, label %if.then5, label %for.cond.18
 
 for.cond.18:                                      ; preds = %for.cond.17
-  %19 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 19, i64 1), align 2, !tbaa !4
-  %cmp4.not.19 = icmp eq i16 %19, %n_from.sroa.0.0.extract.trunc
+  %56 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 19, i64 1
+  %57 = load i16, ptr %56, align 2, !tbaa !4
+  %cmp4.not.19 = icmp eq i16 %57, %n_from.sroa.0.0.extract.trunc
+  %58 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 19, i64 0
   br i1 %cmp4.not.19, label %if.then5, label %for.cond.19
 
 for.cond.19:                                      ; preds = %for.cond.18
-  %20 = load i16, ptr getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 20, i64 1), align 2, !tbaa !4
-  %cmp4.not.20 = icmp eq i16 %20, %n_from.sroa.0.0.extract.trunc
+  %59 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 20, i64 1
+  %60 = load i16, ptr %59, align 2, !tbaa !4
+  %cmp4.not.20 = icmp eq i16 %60, %n_from.sroa.0.0.extract.trunc
+  %61 = getelementptr inbounds [21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 20, i64 0
   br i1 %cmp4.not.20, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %for.cond.19, %for.cond.18, %for.cond.17, %for.cond.16, %for.cond.15, %for.cond.14, %for.cond.13, %for.cond.12, %for.cond.11, %for.cond.10, %for.cond.9, %for.cond.8, %for.cond.7, %for.cond.6, %for.cond.5, %for.cond.4, %for.cond.3, %for.cond.2, %for.cond.1, %for.cond, %for.body.preheader
-  %__begin2.0.ptr16.lcssa = phi ptr [ @trans_table_19, %for.body.preheader ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 1, i64 0), %for.cond ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 2, i64 0), %for.cond.1 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 3, i64 0), %for.cond.2 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 4, i64 0), %for.cond.3 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 5, i64 0), %for.cond.4 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 6, i64 0), %for.cond.5 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 7, i64 0), %for.cond.6 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 8, i64 0), %for.cond.7 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 9, i64 0), %for.cond.8 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 10, i64 0), %for.cond.9 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 11, i64 0), %for.cond.10 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 12, i64 0), %for.cond.11 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 13, i64 0), %for.cond.12 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 14, i64 0), %for.cond.13 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 15, i64 0), %for.cond.14 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 16, i64 0), %for.cond.15 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 17, i64 0), %for.cond.16 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 18, i64 0), %for.cond.17 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 19, i64 0), %for.cond.18 ], [ getelementptr inbounds ([21 x [2 x i16]], ptr @trans_table_19, i64 0, i64 20, i64 0), %for.cond.19 ]
-  %21 = load i16, ptr %__begin2.0.ptr16.lcssa, align 2, !tbaa !4
+  %__begin2.0.ptr16.lcssa = phi ptr [ @trans_table_19, %for.body.preheader ], [ %4, %for.cond ], [ %7, %for.cond.1 ], [ %10, %for.cond.2 ], [ %13, %for.cond.3 ], [ %16, %for.cond.4 ], [ %19, %for.cond.5 ], [ %22, %for.cond.6 ], [ %25, %for.cond.7 ], [ %28, %for.cond.8 ], [ %31, %for.cond.9 ], [ %34, %for.cond.10 ], [ %37, %for.cond.11 ], [ %40, %for.cond.12 ], [ %43, %for.cond.13 ], [ %46, %for.cond.14 ], [ %49, %for.cond.15 ], [ %52, %for.cond.16 ], [ %55, %for.cond.17 ], [ %58, %for.cond.18 ], [ %61, %for.cond.19 ]
+  %62 = load i16, ptr %__begin2.0.ptr16.lcssa, align 2, !tbaa !4
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then5, %for.cond.19, %entry
-  %retval.sroa.0.0 = phi i16 [ %21, %if.then5 ], [ %n_from.sroa.0.0.extract.trunc, %entry ], [ %n_from.sroa.0.0.extract.trunc, %for.cond.19 ]
+  %retval.sroa.0.0 = phi i16 [ %62, %if.then5 ], [ %n_from.sroa.0.0.extract.trunc, %entry ], [ %n_from.sroa.0.0.extract.trunc, %for.cond.19 ]
   %n_from.sroa.2.0.extract.shift = and i32 %n_from.coerce, -65536
   %retval.sroa.0.0.insert.ext = zext i16 %retval.sroa.0.0 to i32
   %retval.sroa.0.0.insert.insert = or disjoint i32 %n_from.sroa.2.0.extract.shift, %retval.sroa.0.0.insert.ext

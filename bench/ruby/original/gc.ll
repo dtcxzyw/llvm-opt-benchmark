@@ -968,78 +968,79 @@ define hidden ptr @rb_objspace_alloc() #0 {
   %8 = and i16 %7, -4097
   %9 = or i16 %8, 4096
   store i16 %9, ptr %6, align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 9), align 8
-  %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds %struct.rb_objspace, ptr %11, i32 0, i32 0
-  %13 = getelementptr inbounds %struct.anon.15, ptr %12, i32 0, i32 0
-  store i64 %10, ptr %13, align 8
-  %14 = load ptr, ptr %1, align 8
-  %15 = call i32 @rb_postponed_job_preregister(i32 noundef 0, ptr noundef @gc_finalize_deferred, ptr noundef %14)
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds %struct.rb_objspace, ptr %16, i32 0, i32 19
-  store i32 %15, ptr %17, align 8
-  %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds %struct.rb_objspace, ptr %18, i32 0, i32 19
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %20, -1
-  br i1 %21, label %22, label %23
+  %10 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 9
+  %11 = load i64, ptr %10, align 8
+  %12 = load ptr, ptr %1, align 8
+  %13 = getelementptr inbounds %struct.rb_objspace, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds %struct.anon.15, ptr %13, i32 0, i32 0
+  store i64 %11, ptr %14, align 8
+  %15 = load ptr, ptr %1, align 8
+  %16 = call i32 @rb_postponed_job_preregister(i32 noundef 0, ptr noundef @gc_finalize_deferred, ptr noundef %15)
+  %17 = load ptr, ptr %1, align 8
+  %18 = getelementptr inbounds %struct.rb_objspace, ptr %17, i32 0, i32 19
+  store i32 %16, ptr %18, align 8
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds %struct.rb_objspace, ptr %19, i32 0, i32 19
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp eq i32 %21, -1
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %0
+23:                                               ; preds = %0
   call void (ptr, ...) @rb_bug(ptr noundef @.str.1) #31
   unreachable
 
-23:                                               ; preds = %0
+24:                                               ; preds = %0
   store i32 0, ptr %2, align 4
-  br label %24
+  br label %25
 
-24:                                               ; preds = %46, %23
-  %25 = load i32, ptr %2, align 4
-  %26 = icmp slt i32 %25, 5
-  br i1 %26, label %27, label %49
+25:                                               ; preds = %47, %24
+  %26 = load i32, ptr %2, align 4
+  %27 = icmp slt i32 %26, 5
+  br i1 %27, label %28, label %50
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds %struct.rb_objspace, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %2, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %29, i64 0, i64 %31
-  store ptr %32, ptr %3, align 8
-  %33 = load i32, ptr %2, align 4
-  %34 = shl i32 1, %33
-  %35 = sext i32 %34 to i64
-  %36 = mul i64 %35, 40
-  %37 = trunc i64 %36 to i16
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %38, i32 0, i32 0
-  store i16 %37, ptr %39, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %40, i32 0, i32 10
-  %42 = getelementptr inbounds %struct.rb_heap_struct, ptr %41, i32 0, i32 1
-  call void @ccan_list_head_init(ptr noundef %42)
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %43, i32 0, i32 11
-  %45 = getelementptr inbounds %struct.rb_heap_struct, ptr %44, i32 0, i32 1
-  call void @ccan_list_head_init(ptr noundef %45)
-  br label %46
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %1, align 8
+  %30 = getelementptr inbounds %struct.rb_objspace, ptr %29, i32 0, i32 4
+  %31 = load i32, ptr %2, align 4
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %30, i64 0, i64 %32
+  store ptr %33, ptr %3, align 8
+  %34 = load i32, ptr %2, align 4
+  %35 = shl i32 1, %34
+  %36 = sext i32 %35 to i64
+  %37 = mul i64 %36, 40
+  %38 = trunc i64 %37 to i16
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %39, i32 0, i32 0
+  store i16 %38, ptr %40, align 8
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %41, i32 0, i32 10
+  %43 = getelementptr inbounds %struct.rb_heap_struct, ptr %42, i32 0, i32 1
+  call void @ccan_list_head_init(ptr noundef %43)
+  %44 = load ptr, ptr %3, align 8
+  %45 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %44, i32 0, i32 11
+  %46 = getelementptr inbounds %struct.rb_heap_struct, ptr %45, i32 0, i32 1
+  call void @ccan_list_head_init(ptr noundef %46)
+  br label %47
 
-46:                                               ; preds = %27
-  %47 = load i32, ptr %2, align 4
-  %48 = add i32 %47, 1
-  store i32 %48, ptr %2, align 4
-  br label %24, !llvm.loop !7
+47:                                               ; preds = %28
+  %48 = load i32, ptr %2, align 4
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %2, align 4
+  br label %25, !llvm.loop !7
 
-49:                                               ; preds = %24
-  %50 = load ptr, ptr %1, align 8
-  %51 = getelementptr inbounds %struct.rb_objspace, ptr %50, i32 0, i32 18
-  call void @rb_darray_make_impl(ptr noundef %51, i64 noundef 0, i64 noundef 16, i64 noundef 8, ptr noundef @rb_darray_calloc_mul_add_without_gc)
-  %52 = load ptr, ptr %1, align 8
-  %53 = getelementptr inbounds %struct.rb_objspace, ptr %52, i32 0, i32 1
-  %54 = load i16, ptr %53, align 8
-  %55 = and i16 %54, -9
-  %56 = or i16 %55, 8
-  store i16 %56, ptr %53, align 8
-  %57 = load ptr, ptr %1, align 8
-  ret ptr %57
+50:                                               ; preds = %25
+  %51 = load ptr, ptr %1, align 8
+  %52 = getelementptr inbounds %struct.rb_objspace, ptr %51, i32 0, i32 18
+  call void @rb_darray_make_impl(ptr noundef %52, i64 noundef 0, i64 noundef 16, i64 noundef 8, ptr noundef @rb_darray_calloc_mul_add_without_gc)
+  %53 = load ptr, ptr %1, align 8
+  %54 = getelementptr inbounds %struct.rb_objspace, ptr %53, i32 0, i32 1
+  %55 = load i16, ptr %54, align 8
+  %56 = and i16 %55, -9
+  %57 = or i16 %56, 8
+  store i16 %57, ptr %54, align 8
+  %58 = load ptr, ptr %1, align 8
+  ret ptr %58
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1886,49 +1887,50 @@ define dso_local i64 @rb_data_object_wrap(i64 noundef %0, ptr noundef %1, ptr no
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp ne ptr %9, inttoptr (i64 1 to ptr)
-  %11 = xor i1 %10, true
+  %10 = inttoptr i64 1 to ptr
+  %11 = icmp ne ptr %9, %10
   %12 = xor i1 %11, true
-  %13 = zext i1 %12 to i32
-  %14 = sext i32 %13 to i64
-  %15 = icmp ne i64 %14, 0
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %4
-  br label %19
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %4
+  br label %20
+
+18:                                               ; preds = %4
   call void @rb_assert_failure(ptr noundef @.str.3, i32 noundef 2980, ptr noundef @__func__.rb_data_object_wrap, ptr noundef @.str.4) #31
   unreachable
 
-18:                                               ; No predecessors!
-  br label %19
+19:                                               ; No predecessors!
+  br label %20
 
-19:                                               ; preds = %18, %16
-  %20 = load i64, ptr %5, align 8
-  %21 = icmp ne i64 %20, 0
-  br i1 %21, label %22, label %24
+20:                                               ; preds = %19, %17
+  %21 = load i64, ptr %5, align 8
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %19
-  %23 = load i64, ptr %5, align 8
-  call void @rb_data_object_check(i64 noundef %23)
-  br label %24
+23:                                               ; preds = %20
+  %24 = load i64, ptr %5, align 8
+  call void @rb_data_object_check(i64 noundef %24)
+  br label %25
 
-24:                                               ; preds = %22, %19
-  %25 = call ptr @rb_current_ractor()
-  %26 = load i64, ptr %5, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = ptrtoint ptr %27 to i64
-  %29 = load ptr, ptr %8, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = load ptr, ptr %6, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = load ptr, ptr %7, align 8
-  %34 = icmp ne ptr %33, null
-  %35 = xor i1 %34, true
-  %36 = zext i1 %35 to i32
-  %37 = call i64 @newobj_of(ptr noundef %25, i64 noundef %26, i64 noundef 12, i64 noundef %28, i64 noundef %30, i64 noundef %32, i32 noundef %36, i64 noundef 40)
-  ret i64 %37
+25:                                               ; preds = %23, %20
+  %26 = call ptr @rb_current_ractor()
+  %27 = load i64, ptr %5, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = ptrtoint ptr %28 to i64
+  %30 = load ptr, ptr %8, align 8
+  %31 = ptrtoint ptr %30 to i64
+  %32 = load ptr, ptr %6, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = load ptr, ptr %7, align 8
+  %35 = icmp ne ptr %34, null
+  %36 = xor i1 %35, true
+  %37 = zext i1 %36 to i32
+  %38 = call i64 @newobj_of(ptr noundef %26, i64 noundef %27, i64 noundef 12, i64 noundef %29, i64 noundef %31, i64 noundef %33, i32 noundef %37, i64 noundef 40)
+  ret i64 %38
 }
 
 ; Function Attrs: cold noreturn
@@ -2240,59 +2242,60 @@ define hidden void @Init_heap() #0 {
   %13 = load ptr, ptr %1, align 8
   %14 = getelementptr inbounds %struct.rb_objspace, ptr %13, i32 0, i32 17
   store ptr %12, ptr %14, align 8
-  %15 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 12), align 8
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds %struct.rb_objspace, ptr %16, i32 0, i32 13
-  %18 = getelementptr inbounds %struct.anon.19, ptr %17, i32 0, i32 8
-  store i64 %15, ptr %18, align 8
+  %15 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 12
+  %16 = load i64, ptr %15, align 8
+  %17 = load ptr, ptr %1, align 8
+  %18 = getelementptr inbounds %struct.rb_objspace, ptr %17, i32 0, i32 13
+  %19 = getelementptr inbounds %struct.anon.19, ptr %18, i32 0, i32 8
+  store i64 %16, ptr %19, align 8
   store i32 0, ptr %2, align 4
-  br label %19
+  br label %20
 
-19:                                               ; preds = %36, %0
-  %20 = load i32, ptr %2, align 4
-  %21 = icmp slt i32 %20, 5
-  br i1 %21, label %22, label %39
+20:                                               ; preds = %37, %0
+  %21 = load i32, ptr %2, align 4
+  %22 = icmp slt i32 %21, 5
+  br i1 %22, label %23, label %40
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds %struct.rb_objspace, ptr %23, i32 0, i32 4
-  %25 = load i32, ptr %2, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %24, i64 0, i64 %26
-  store ptr %27, ptr %3, align 8
-  %28 = load i32, ptr %2, align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr [5 x i64], ptr @gc_params, i64 0, i64 %29
-  store i64 10000, ptr %30, align 8
-  %31 = load ptr, ptr %1, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = call i64 @minimum_pages_for_size_pool(ptr noundef %31, ptr noundef %32)
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %34, i32 0, i32 1
-  store i64 %33, ptr %35, align 8
-  br label %36
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %1, align 8
+  %25 = getelementptr inbounds %struct.rb_objspace, ptr %24, i32 0, i32 4
+  %26 = load i32, ptr %2, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr [5 x %struct.rb_size_pool_struct], ptr %25, i64 0, i64 %27
+  store ptr %28, ptr %3, align 8
+  %29 = load i32, ptr %2, align 4
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr [5 x i64], ptr @gc_params, i64 0, i64 %30
+  store i64 10000, ptr %31, align 8
+  %32 = load ptr, ptr %1, align 8
+  %33 = load ptr, ptr %3, align 8
+  %34 = call i64 @minimum_pages_for_size_pool(ptr noundef %32, ptr noundef %33)
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %35, i32 0, i32 1
+  store i64 %34, ptr %36, align 8
+  br label %37
 
-36:                                               ; preds = %22
-  %37 = load i32, ptr %2, align 4
-  %38 = add i32 %37, 1
-  store i32 %38, ptr %2, align 4
-  br label %19, !llvm.loop !14
+37:                                               ; preds = %23
+  %38 = load i32, ptr %2, align 4
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %2, align 4
+  br label %20, !llvm.loop !14
 
-39:                                               ; preds = %19
-  %40 = load ptr, ptr %1, align 8
-  call void @heap_pages_expand_sorted(ptr noundef %40)
+40:                                               ; preds = %20
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds %struct.rb_objspace, ptr %41, i32 0, i32 6
-  call void @init_mark_stack(ptr noundef %42)
-  %43 = call double @getrusage_time()
-  %44 = load ptr, ptr %1, align 8
-  %45 = getelementptr inbounds %struct.rb_objspace, ptr %44, i32 0, i32 10
-  %46 = getelementptr inbounds %struct.anon.18, ptr %45, i32 0, i32 6
-  store double %43, ptr %46, align 8
-  %47 = call ptr @rb_st_init_numtable()
-  %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds %struct.rb_objspace, ptr %48, i32 0, i32 9
-  store ptr %47, ptr %49, align 8
+  call void @heap_pages_expand_sorted(ptr noundef %41)
+  %42 = load ptr, ptr %1, align 8
+  %43 = getelementptr inbounds %struct.rb_objspace, ptr %42, i32 0, i32 6
+  call void @init_mark_stack(ptr noundef %43)
+  %44 = call double @getrusage_time()
+  %45 = load ptr, ptr %1, align 8
+  %46 = getelementptr inbounds %struct.rb_objspace, ptr %45, i32 0, i32 10
+  %47 = getelementptr inbounds %struct.anon.18, ptr %46, i32 0, i32 6
+  store double %44, ptr %47, align 8
+  %48 = call ptr @rb_st_init_numtable()
+  %49 = load ptr, ptr %1, align 8
+  %50 = getelementptr inbounds %struct.rb_objspace, ptr %49, i32 0, i32 9
+  store ptr %48, ptr %50, align 8
   ret void
 }
 
@@ -2473,8 +2476,9 @@ define hidden void @Init_gc_stress() #0 {
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 15), align 8
-  call void @gc_stress_set(ptr noundef %5, i64 noundef %6)
+  %6 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 15
+  %7 = load i64, ptr %6, align 8
+  call void @gc_stress_set(ptr noundef %5, i64 noundef %7)
   ret void
 }
 
@@ -11018,7 +11022,7 @@ define internal i64 @gc_stat_internal(i64 noundef %0) #0 {
   %89 = getelementptr inbounds %struct.anon.18, ptr %88, i32 0, i32 14
   %90 = load i64, ptr %89, align 8
   store i64 %90, ptr %5, align 8
-  br label %746
+  br label %806
 
 91:                                               ; preds = %82
   %92 = load i64, ptr %8, align 8
@@ -11041,987 +11045,1047 @@ define internal i64 @gc_stat_internal(i64 noundef %0) #0 {
 
 104:                                              ; preds = %103
   %105 = load i64, ptr %9, align 8
-  %106 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 1), align 8
-  %107 = icmp eq i64 %105, %106
-  br i1 %107, label %108, label %119
+  %106 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 1
+  %107 = load i64, ptr %106, align 8
+  %108 = icmp eq i64 %105, %107
+  br i1 %108, label %109, label %120
 
-108:                                              ; preds = %104
-  %109 = load ptr, ptr %7, align 8
-  %110 = getelementptr inbounds %struct.rb_objspace, ptr %109, i32 0, i32 10
-  %111 = getelementptr inbounds %struct.anon.18, ptr %110, i32 0, i32 15
-  %112 = load i64, ptr %111, align 8
-  %113 = load ptr, ptr %7, align 8
-  %114 = getelementptr inbounds %struct.rb_objspace, ptr %113, i32 0, i32 10
-  %115 = getelementptr inbounds %struct.anon.18, ptr %114, i32 0, i32 17
-  %116 = load i64, ptr %115, align 8
-  %117 = add i64 %112, %116
-  %118 = call i64 @ns_to_ms(i64 noundef %117)
-  store i64 %118, ptr %5, align 8
-  br label %746
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %7, align 8
+  %111 = getelementptr inbounds %struct.rb_objspace, ptr %110, i32 0, i32 10
+  %112 = getelementptr inbounds %struct.anon.18, ptr %111, i32 0, i32 15
+  %113 = load i64, ptr %112, align 8
+  %114 = load ptr, ptr %7, align 8
+  %115 = getelementptr inbounds %struct.rb_objspace, ptr %114, i32 0, i32 10
+  %116 = getelementptr inbounds %struct.anon.18, ptr %115, i32 0, i32 17
+  %117 = load i64, ptr %116, align 8
+  %118 = add i64 %113, %117
+  %119 = call i64 @ns_to_ms(i64 noundef %118)
+  store i64 %119, ptr %5, align 8
+  br label %806
 
-119:                                              ; preds = %104
-  %120 = load i64, ptr %8, align 8
-  %121 = icmp ne i64 %120, 4
-  br i1 %121, label %122, label %137
+120:                                              ; preds = %104
+  %121 = load i64, ptr %8, align 8
+  %122 = icmp ne i64 %121, 4
+  br i1 %122, label %123, label %139
 
-122:                                              ; preds = %119
-  %123 = load i64, ptr %8, align 8
-  %124 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 1), align 8
-  %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds %struct.rb_objspace, ptr %125, i32 0, i32 10
-  %127 = getelementptr inbounds %struct.anon.18, ptr %126, i32 0, i32 15
-  %128 = load i64, ptr %127, align 8
-  %129 = load ptr, ptr %7, align 8
-  %130 = getelementptr inbounds %struct.rb_objspace, ptr %129, i32 0, i32 10
-  %131 = getelementptr inbounds %struct.anon.18, ptr %130, i32 0, i32 17
-  %132 = load i64, ptr %131, align 8
-  %133 = add i64 %128, %132
-  %134 = call i64 @ns_to_ms(i64 noundef %133)
-  %135 = call i64 @rb_ull2num_inline(i64 noundef %134)
-  %136 = call i64 @rb_hash_aset(i64 noundef %123, i64 noundef %124, i64 noundef %135)
-  br label %137
+123:                                              ; preds = %120
+  %124 = load i64, ptr %8, align 8
+  %125 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 1
+  %126 = load i64, ptr %125, align 8
+  %127 = load ptr, ptr %7, align 8
+  %128 = getelementptr inbounds %struct.rb_objspace, ptr %127, i32 0, i32 10
+  %129 = getelementptr inbounds %struct.anon.18, ptr %128, i32 0, i32 15
+  %130 = load i64, ptr %129, align 8
+  %131 = load ptr, ptr %7, align 8
+  %132 = getelementptr inbounds %struct.rb_objspace, ptr %131, i32 0, i32 10
+  %133 = getelementptr inbounds %struct.anon.18, ptr %132, i32 0, i32 17
+  %134 = load i64, ptr %133, align 8
+  %135 = add i64 %130, %134
+  %136 = call i64 @ns_to_ms(i64 noundef %135)
+  %137 = call i64 @rb_ull2num_inline(i64 noundef %136)
+  %138 = call i64 @rb_hash_aset(i64 noundef %124, i64 noundef %126, i64 noundef %137)
+  br label %139
 
-137:                                              ; preds = %122, %119
-  br label %138
+139:                                              ; preds = %123, %120
+  br label %140
 
-138:                                              ; preds = %137
-  %139 = load i64, ptr %9, align 8
-  %140 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 2), align 16
-  %141 = icmp eq i64 %139, %140
-  br i1 %141, label %142, label %148
+140:                                              ; preds = %139
+  %141 = load i64, ptr %9, align 8
+  %142 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 2
+  %143 = load i64, ptr %142, align 16
+  %144 = icmp eq i64 %141, %143
+  br i1 %144, label %145, label %151
 
-142:                                              ; preds = %138
-  %143 = load ptr, ptr %7, align 8
-  %144 = getelementptr inbounds %struct.rb_objspace, ptr %143, i32 0, i32 10
-  %145 = getelementptr inbounds %struct.anon.18, ptr %144, i32 0, i32 15
-  %146 = load i64, ptr %145, align 8
-  %147 = call i64 @ns_to_ms(i64 noundef %146)
-  store i64 %147, ptr %5, align 8
-  br label %746
+145:                                              ; preds = %140
+  %146 = load ptr, ptr %7, align 8
+  %147 = getelementptr inbounds %struct.rb_objspace, ptr %146, i32 0, i32 10
+  %148 = getelementptr inbounds %struct.anon.18, ptr %147, i32 0, i32 15
+  %149 = load i64, ptr %148, align 8
+  %150 = call i64 @ns_to_ms(i64 noundef %149)
+  store i64 %150, ptr %5, align 8
+  br label %806
 
-148:                                              ; preds = %138
-  %149 = load i64, ptr %8, align 8
-  %150 = icmp ne i64 %149, 4
-  br i1 %150, label %151, label %161
-
-151:                                              ; preds = %148
+151:                                              ; preds = %140
   %152 = load i64, ptr %8, align 8
-  %153 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 2), align 16
-  %154 = load ptr, ptr %7, align 8
-  %155 = getelementptr inbounds %struct.rb_objspace, ptr %154, i32 0, i32 10
-  %156 = getelementptr inbounds %struct.anon.18, ptr %155, i32 0, i32 15
-  %157 = load i64, ptr %156, align 8
-  %158 = call i64 @ns_to_ms(i64 noundef %157)
-  %159 = call i64 @rb_ull2num_inline(i64 noundef %158)
-  %160 = call i64 @rb_hash_aset(i64 noundef %152, i64 noundef %153, i64 noundef %159)
-  br label %161
+  %153 = icmp ne i64 %152, 4
+  br i1 %153, label %154, label %165
 
-161:                                              ; preds = %151, %148
-  br label %162
+154:                                              ; preds = %151
+  %155 = load i64, ptr %8, align 8
+  %156 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 2
+  %157 = load i64, ptr %156, align 16
+  %158 = load ptr, ptr %7, align 8
+  %159 = getelementptr inbounds %struct.rb_objspace, ptr %158, i32 0, i32 10
+  %160 = getelementptr inbounds %struct.anon.18, ptr %159, i32 0, i32 15
+  %161 = load i64, ptr %160, align 8
+  %162 = call i64 @ns_to_ms(i64 noundef %161)
+  %163 = call i64 @rb_ull2num_inline(i64 noundef %162)
+  %164 = call i64 @rb_hash_aset(i64 noundef %155, i64 noundef %157, i64 noundef %163)
+  br label %165
 
-162:                                              ; preds = %161
-  %163 = load i64, ptr %9, align 8
-  %164 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 3), align 8
-  %165 = icmp eq i64 %163, %164
-  br i1 %165, label %166, label %172
+165:                                              ; preds = %154, %151
+  br label %166
 
-166:                                              ; preds = %162
-  %167 = load ptr, ptr %7, align 8
-  %168 = getelementptr inbounds %struct.rb_objspace, ptr %167, i32 0, i32 10
-  %169 = getelementptr inbounds %struct.anon.18, ptr %168, i32 0, i32 17
-  %170 = load i64, ptr %169, align 8
-  %171 = call i64 @ns_to_ms(i64 noundef %170)
-  store i64 %171, ptr %5, align 8
-  br label %746
+166:                                              ; preds = %165
+  %167 = load i64, ptr %9, align 8
+  %168 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 3
+  %169 = load i64, ptr %168, align 8
+  %170 = icmp eq i64 %167, %169
+  br i1 %170, label %171, label %177
 
-172:                                              ; preds = %162
-  %173 = load i64, ptr %8, align 8
-  %174 = icmp ne i64 %173, 4
-  br i1 %174, label %175, label %185
+171:                                              ; preds = %166
+  %172 = load ptr, ptr %7, align 8
+  %173 = getelementptr inbounds %struct.rb_objspace, ptr %172, i32 0, i32 10
+  %174 = getelementptr inbounds %struct.anon.18, ptr %173, i32 0, i32 17
+  %175 = load i64, ptr %174, align 8
+  %176 = call i64 @ns_to_ms(i64 noundef %175)
+  store i64 %176, ptr %5, align 8
+  br label %806
 
-175:                                              ; preds = %172
-  %176 = load i64, ptr %8, align 8
-  %177 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 3), align 8
-  %178 = load ptr, ptr %7, align 8
-  %179 = getelementptr inbounds %struct.rb_objspace, ptr %178, i32 0, i32 10
-  %180 = getelementptr inbounds %struct.anon.18, ptr %179, i32 0, i32 17
-  %181 = load i64, ptr %180, align 8
-  %182 = call i64 @ns_to_ms(i64 noundef %181)
-  %183 = call i64 @rb_ull2num_inline(i64 noundef %182)
-  %184 = call i64 @rb_hash_aset(i64 noundef %176, i64 noundef %177, i64 noundef %183)
-  br label %185
+177:                                              ; preds = %166
+  %178 = load i64, ptr %8, align 8
+  %179 = icmp ne i64 %178, 4
+  br i1 %179, label %180, label %191
 
-185:                                              ; preds = %175, %172
-  br label %186
+180:                                              ; preds = %177
+  %181 = load i64, ptr %8, align 8
+  %182 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 3
+  %183 = load i64, ptr %182, align 8
+  %184 = load ptr, ptr %7, align 8
+  %185 = getelementptr inbounds %struct.rb_objspace, ptr %184, i32 0, i32 10
+  %186 = getelementptr inbounds %struct.anon.18, ptr %185, i32 0, i32 17
+  %187 = load i64, ptr %186, align 8
+  %188 = call i64 @ns_to_ms(i64 noundef %187)
+  %189 = call i64 @rb_ull2num_inline(i64 noundef %188)
+  %190 = call i64 @rb_hash_aset(i64 noundef %181, i64 noundef %183, i64 noundef %189)
+  br label %191
 
-186:                                              ; preds = %185
-  %187 = load i64, ptr %9, align 8
-  %188 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 4), align 16
-  %189 = icmp eq i64 %187, %188
-  br i1 %189, label %190, label %195
+191:                                              ; preds = %180, %177
+  br label %192
 
-190:                                              ; preds = %186
-  %191 = load ptr, ptr %7, align 8
-  %192 = getelementptr inbounds %struct.rb_objspace, ptr %191, i32 0, i32 8
-  %193 = getelementptr inbounds %struct.anon.17, ptr %192, i32 0, i32 1
-  %194 = load i64, ptr %193, align 8
-  store i64 %194, ptr %5, align 8
-  br label %746
+192:                                              ; preds = %191
+  %193 = load i64, ptr %9, align 8
+  %194 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 4
+  %195 = load i64, ptr %194, align 16
+  %196 = icmp eq i64 %193, %195
+  br i1 %196, label %197, label %202
 
-195:                                              ; preds = %186
-  %196 = load i64, ptr %8, align 8
-  %197 = icmp ne i64 %196, 4
-  br i1 %197, label %198, label %207
+197:                                              ; preds = %192
+  %198 = load ptr, ptr %7, align 8
+  %199 = getelementptr inbounds %struct.rb_objspace, ptr %198, i32 0, i32 8
+  %200 = getelementptr inbounds %struct.anon.17, ptr %199, i32 0, i32 1
+  %201 = load i64, ptr %200, align 8
+  store i64 %201, ptr %5, align 8
+  br label %806
 
-198:                                              ; preds = %195
-  %199 = load i64, ptr %8, align 8
-  %200 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 4), align 16
-  %201 = load ptr, ptr %7, align 8
-  %202 = getelementptr inbounds %struct.rb_objspace, ptr %201, i32 0, i32 8
-  %203 = getelementptr inbounds %struct.anon.17, ptr %202, i32 0, i32 1
-  %204 = load i64, ptr %203, align 8
-  %205 = call i64 @rb_ull2num_inline(i64 noundef %204)
-  %206 = call i64 @rb_hash_aset(i64 noundef %199, i64 noundef %200, i64 noundef %205)
-  br label %207
+202:                                              ; preds = %192
+  %203 = load i64, ptr %8, align 8
+  %204 = icmp ne i64 %203, 4
+  br i1 %204, label %205, label %215
 
-207:                                              ; preds = %198, %195
-  br label %208
+205:                                              ; preds = %202
+  %206 = load i64, ptr %8, align 8
+  %207 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 4
+  %208 = load i64, ptr %207, align 16
+  %209 = load ptr, ptr %7, align 8
+  %210 = getelementptr inbounds %struct.rb_objspace, ptr %209, i32 0, i32 8
+  %211 = getelementptr inbounds %struct.anon.17, ptr %210, i32 0, i32 1
+  %212 = load i64, ptr %211, align 8
+  %213 = call i64 @rb_ull2num_inline(i64 noundef %212)
+  %214 = call i64 @rb_hash_aset(i64 noundef %206, i64 noundef %208, i64 noundef %213)
+  br label %215
 
-208:                                              ; preds = %207
-  %209 = load i64, ptr %9, align 8
-  %210 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 5), align 8
-  %211 = icmp eq i64 %209, %210
-  br i1 %211, label %212, label %217
+215:                                              ; preds = %205, %202
+  br label %216
 
-212:                                              ; preds = %208
-  %213 = load ptr, ptr %7, align 8
-  %214 = getelementptr inbounds %struct.rb_objspace, ptr %213, i32 0, i32 8
-  %215 = getelementptr inbounds %struct.anon.17, ptr %214, i32 0, i32 3
-  %216 = load i64, ptr %215, align 8
-  store i64 %216, ptr %5, align 8
-  br label %746
+216:                                              ; preds = %215
+  %217 = load i64, ptr %9, align 8
+  %218 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 5
+  %219 = load i64, ptr %218, align 8
+  %220 = icmp eq i64 %217, %219
+  br i1 %220, label %221, label %226
 
-217:                                              ; preds = %208
-  %218 = load i64, ptr %8, align 8
-  %219 = icmp ne i64 %218, 4
-  br i1 %219, label %220, label %229
+221:                                              ; preds = %216
+  %222 = load ptr, ptr %7, align 8
+  %223 = getelementptr inbounds %struct.rb_objspace, ptr %222, i32 0, i32 8
+  %224 = getelementptr inbounds %struct.anon.17, ptr %223, i32 0, i32 3
+  %225 = load i64, ptr %224, align 8
+  store i64 %225, ptr %5, align 8
+  br label %806
 
-220:                                              ; preds = %217
-  %221 = load i64, ptr %8, align 8
-  %222 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 5), align 8
-  %223 = load ptr, ptr %7, align 8
-  %224 = getelementptr inbounds %struct.rb_objspace, ptr %223, i32 0, i32 8
-  %225 = getelementptr inbounds %struct.anon.17, ptr %224, i32 0, i32 3
-  %226 = load i64, ptr %225, align 8
-  %227 = call i64 @rb_ull2num_inline(i64 noundef %226)
-  %228 = call i64 @rb_hash_aset(i64 noundef %221, i64 noundef %222, i64 noundef %227)
-  br label %229
+226:                                              ; preds = %216
+  %227 = load i64, ptr %8, align 8
+  %228 = icmp ne i64 %227, 4
+  br i1 %228, label %229, label %239
 
-229:                                              ; preds = %220, %217
-  br label %230
+229:                                              ; preds = %226
+  %230 = load i64, ptr %8, align 8
+  %231 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 5
+  %232 = load i64, ptr %231, align 8
+  %233 = load ptr, ptr %7, align 8
+  %234 = getelementptr inbounds %struct.rb_objspace, ptr %233, i32 0, i32 8
+  %235 = getelementptr inbounds %struct.anon.17, ptr %234, i32 0, i32 3
+  %236 = load i64, ptr %235, align 8
+  %237 = call i64 @rb_ull2num_inline(i64 noundef %236)
+  %238 = call i64 @rb_hash_aset(i64 noundef %230, i64 noundef %232, i64 noundef %237)
+  br label %239
 
-230:                                              ; preds = %229
-  %231 = load i64, ptr %9, align 8
-  %232 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 6), align 16
-  %233 = icmp eq i64 %231, %232
-  br i1 %233, label %234, label %237
+239:                                              ; preds = %229, %226
+  br label %240
 
-234:                                              ; preds = %230
-  %235 = load ptr, ptr %7, align 8
-  %236 = call i64 @heap_allocatable_pages(ptr noundef %235)
-  store i64 %236, ptr %5, align 8
-  br label %746
+240:                                              ; preds = %239
+  %241 = load i64, ptr %9, align 8
+  %242 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 6
+  %243 = load i64, ptr %242, align 16
+  %244 = icmp eq i64 %241, %243
+  br i1 %244, label %245, label %248
 
-237:                                              ; preds = %230
-  %238 = load i64, ptr %8, align 8
-  %239 = icmp ne i64 %238, 4
-  br i1 %239, label %240, label %247
+245:                                              ; preds = %240
+  %246 = load ptr, ptr %7, align 8
+  %247 = call i64 @heap_allocatable_pages(ptr noundef %246)
+  store i64 %247, ptr %5, align 8
+  br label %806
 
-240:                                              ; preds = %237
-  %241 = load i64, ptr %8, align 8
-  %242 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 6), align 16
-  %243 = load ptr, ptr %7, align 8
-  %244 = call i64 @heap_allocatable_pages(ptr noundef %243)
-  %245 = call i64 @rb_ull2num_inline(i64 noundef %244)
-  %246 = call i64 @rb_hash_aset(i64 noundef %241, i64 noundef %242, i64 noundef %245)
-  br label %247
+248:                                              ; preds = %240
+  %249 = load i64, ptr %8, align 8
+  %250 = icmp ne i64 %249, 4
+  br i1 %250, label %251, label %259
 
-247:                                              ; preds = %240, %237
-  br label %248
+251:                                              ; preds = %248
+  %252 = load i64, ptr %8, align 8
+  %253 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 6
+  %254 = load i64, ptr %253, align 16
+  %255 = load ptr, ptr %7, align 8
+  %256 = call i64 @heap_allocatable_pages(ptr noundef %255)
+  %257 = call i64 @rb_ull2num_inline(i64 noundef %256)
+  %258 = call i64 @rb_hash_aset(i64 noundef %252, i64 noundef %254, i64 noundef %257)
+  br label %259
 
-248:                                              ; preds = %247
-  %249 = load i64, ptr %9, align 8
-  %250 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 7), align 8
-  %251 = icmp eq i64 %249, %250
-  br i1 %251, label %252, label %255
+259:                                              ; preds = %251, %248
+  br label %260
 
-252:                                              ; preds = %248
-  %253 = load ptr, ptr %7, align 8
-  %254 = call i64 @objspace_available_slots(ptr noundef %253)
-  store i64 %254, ptr %5, align 8
-  br label %746
+260:                                              ; preds = %259
+  %261 = load i64, ptr %9, align 8
+  %262 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 7
+  %263 = load i64, ptr %262, align 8
+  %264 = icmp eq i64 %261, %263
+  br i1 %264, label %265, label %268
 
-255:                                              ; preds = %248
-  %256 = load i64, ptr %8, align 8
-  %257 = icmp ne i64 %256, 4
-  br i1 %257, label %258, label %265
+265:                                              ; preds = %260
+  %266 = load ptr, ptr %7, align 8
+  %267 = call i64 @objspace_available_slots(ptr noundef %266)
+  store i64 %267, ptr %5, align 8
+  br label %806
 
-258:                                              ; preds = %255
-  %259 = load i64, ptr %8, align 8
-  %260 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 7), align 8
-  %261 = load ptr, ptr %7, align 8
-  %262 = call i64 @objspace_available_slots(ptr noundef %261)
-  %263 = call i64 @rb_ull2num_inline(i64 noundef %262)
-  %264 = call i64 @rb_hash_aset(i64 noundef %259, i64 noundef %260, i64 noundef %263)
-  br label %265
+268:                                              ; preds = %260
+  %269 = load i64, ptr %8, align 8
+  %270 = icmp ne i64 %269, 4
+  br i1 %270, label %271, label %279
 
-265:                                              ; preds = %258, %255
-  br label %266
+271:                                              ; preds = %268
+  %272 = load i64, ptr %8, align 8
+  %273 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 7
+  %274 = load i64, ptr %273, align 8
+  %275 = load ptr, ptr %7, align 8
+  %276 = call i64 @objspace_available_slots(ptr noundef %275)
+  %277 = call i64 @rb_ull2num_inline(i64 noundef %276)
+  %278 = call i64 @rb_hash_aset(i64 noundef %272, i64 noundef %274, i64 noundef %277)
+  br label %279
 
-266:                                              ; preds = %265
-  %267 = load i64, ptr %9, align 8
-  %268 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 8), align 16
-  %269 = icmp eq i64 %267, %268
-  br i1 %269, label %270, label %273
+279:                                              ; preds = %271, %268
+  br label %280
 
-270:                                              ; preds = %266
-  %271 = load ptr, ptr %7, align 8
-  %272 = call i64 @objspace_live_slots(ptr noundef %271)
-  store i64 %272, ptr %5, align 8
-  br label %746
+280:                                              ; preds = %279
+  %281 = load i64, ptr %9, align 8
+  %282 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 8
+  %283 = load i64, ptr %282, align 16
+  %284 = icmp eq i64 %281, %283
+  br i1 %284, label %285, label %288
 
-273:                                              ; preds = %266
-  %274 = load i64, ptr %8, align 8
-  %275 = icmp ne i64 %274, 4
-  br i1 %275, label %276, label %283
+285:                                              ; preds = %280
+  %286 = load ptr, ptr %7, align 8
+  %287 = call i64 @objspace_live_slots(ptr noundef %286)
+  store i64 %287, ptr %5, align 8
+  br label %806
 
-276:                                              ; preds = %273
-  %277 = load i64, ptr %8, align 8
-  %278 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 8), align 16
-  %279 = load ptr, ptr %7, align 8
-  %280 = call i64 @objspace_live_slots(ptr noundef %279)
-  %281 = call i64 @rb_ull2num_inline(i64 noundef %280)
-  %282 = call i64 @rb_hash_aset(i64 noundef %277, i64 noundef %278, i64 noundef %281)
-  br label %283
+288:                                              ; preds = %280
+  %289 = load i64, ptr %8, align 8
+  %290 = icmp ne i64 %289, 4
+  br i1 %290, label %291, label %299
 
-283:                                              ; preds = %276, %273
-  br label %284
-
-284:                                              ; preds = %283
-  %285 = load i64, ptr %9, align 8
-  %286 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 9), align 8
-  %287 = icmp eq i64 %285, %286
-  br i1 %287, label %288, label %291
-
-288:                                              ; preds = %284
-  %289 = load ptr, ptr %7, align 8
-  %290 = call i64 @objspace_free_slots(ptr noundef %289)
-  store i64 %290, ptr %5, align 8
-  br label %746
-
-291:                                              ; preds = %284
+291:                                              ; preds = %288
   %292 = load i64, ptr %8, align 8
-  %293 = icmp ne i64 %292, 4
-  br i1 %293, label %294, label %301
+  %293 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 8
+  %294 = load i64, ptr %293, align 16
+  %295 = load ptr, ptr %7, align 8
+  %296 = call i64 @objspace_live_slots(ptr noundef %295)
+  %297 = call i64 @rb_ull2num_inline(i64 noundef %296)
+  %298 = call i64 @rb_hash_aset(i64 noundef %292, i64 noundef %294, i64 noundef %297)
+  br label %299
 
-294:                                              ; preds = %291
-  %295 = load i64, ptr %8, align 8
-  %296 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 9), align 8
-  %297 = load ptr, ptr %7, align 8
-  %298 = call i64 @objspace_free_slots(ptr noundef %297)
-  %299 = call i64 @rb_ull2num_inline(i64 noundef %298)
-  %300 = call i64 @rb_hash_aset(i64 noundef %295, i64 noundef %296, i64 noundef %299)
-  br label %301
+299:                                              ; preds = %291, %288
+  br label %300
 
-301:                                              ; preds = %294, %291
-  br label %302
+300:                                              ; preds = %299
+  %301 = load i64, ptr %9, align 8
+  %302 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 9
+  %303 = load i64, ptr %302, align 8
+  %304 = icmp eq i64 %301, %303
+  br i1 %304, label %305, label %308
 
-302:                                              ; preds = %301
-  %303 = load i64, ptr %9, align 8
-  %304 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 10), align 16
-  %305 = icmp eq i64 %303, %304
-  br i1 %305, label %306, label %311
+305:                                              ; preds = %300
+  %306 = load ptr, ptr %7, align 8
+  %307 = call i64 @objspace_free_slots(ptr noundef %306)
+  store i64 %307, ptr %5, align 8
+  br label %806
 
-306:                                              ; preds = %302
-  %307 = load ptr, ptr %7, align 8
-  %308 = getelementptr inbounds %struct.rb_objspace, ptr %307, i32 0, i32 8
-  %309 = getelementptr inbounds %struct.anon.17, ptr %308, i32 0, i32 6
-  %310 = load i64, ptr %309, align 8
-  store i64 %310, ptr %5, align 8
-  br label %746
+308:                                              ; preds = %300
+  %309 = load i64, ptr %8, align 8
+  %310 = icmp ne i64 %309, 4
+  br i1 %310, label %311, label %319
 
-311:                                              ; preds = %302
+311:                                              ; preds = %308
   %312 = load i64, ptr %8, align 8
-  %313 = icmp ne i64 %312, 4
-  br i1 %313, label %314, label %323
+  %313 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 9
+  %314 = load i64, ptr %313, align 8
+  %315 = load ptr, ptr %7, align 8
+  %316 = call i64 @objspace_free_slots(ptr noundef %315)
+  %317 = call i64 @rb_ull2num_inline(i64 noundef %316)
+  %318 = call i64 @rb_hash_aset(i64 noundef %312, i64 noundef %314, i64 noundef %317)
+  br label %319
 
-314:                                              ; preds = %311
-  %315 = load i64, ptr %8, align 8
-  %316 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 10), align 16
-  %317 = load ptr, ptr %7, align 8
-  %318 = getelementptr inbounds %struct.rb_objspace, ptr %317, i32 0, i32 8
-  %319 = getelementptr inbounds %struct.anon.17, ptr %318, i32 0, i32 6
-  %320 = load i64, ptr %319, align 8
-  %321 = call i64 @rb_ull2num_inline(i64 noundef %320)
-  %322 = call i64 @rb_hash_aset(i64 noundef %315, i64 noundef %316, i64 noundef %321)
-  br label %323
+319:                                              ; preds = %311, %308
+  br label %320
 
-323:                                              ; preds = %314, %311
-  br label %324
+320:                                              ; preds = %319
+  %321 = load i64, ptr %9, align 8
+  %322 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 10
+  %323 = load i64, ptr %322, align 16
+  %324 = icmp eq i64 %321, %323
+  br i1 %324, label %325, label %330
 
-324:                                              ; preds = %323
-  %325 = load i64, ptr %9, align 8
-  %326 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 11), align 8
-  %327 = icmp eq i64 %325, %326
-  br i1 %327, label %328, label %332
+325:                                              ; preds = %320
+  %326 = load ptr, ptr %7, align 8
+  %327 = getelementptr inbounds %struct.rb_objspace, ptr %326, i32 0, i32 8
+  %328 = getelementptr inbounds %struct.anon.17, ptr %327, i32 0, i32 6
+  %329 = load i64, ptr %328, align 8
+  store i64 %329, ptr %5, align 8
+  br label %806
 
-328:                                              ; preds = %324
-  %329 = load ptr, ptr %7, align 8
-  %330 = getelementptr inbounds %struct.rb_objspace, ptr %329, i32 0, i32 7
-  %331 = load i64, ptr %330, align 8
-  store i64 %331, ptr %5, align 8
-  br label %746
+330:                                              ; preds = %320
+  %331 = load i64, ptr %8, align 8
+  %332 = icmp ne i64 %331, 4
+  br i1 %332, label %333, label %343
 
-332:                                              ; preds = %324
-  %333 = load i64, ptr %8, align 8
-  %334 = icmp ne i64 %333, 4
-  br i1 %334, label %335, label %343
-
-335:                                              ; preds = %332
-  %336 = load i64, ptr %8, align 8
-  %337 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 11), align 8
-  %338 = load ptr, ptr %7, align 8
-  %339 = getelementptr inbounds %struct.rb_objspace, ptr %338, i32 0, i32 7
+333:                                              ; preds = %330
+  %334 = load i64, ptr %8, align 8
+  %335 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 10
+  %336 = load i64, ptr %335, align 16
+  %337 = load ptr, ptr %7, align 8
+  %338 = getelementptr inbounds %struct.rb_objspace, ptr %337, i32 0, i32 8
+  %339 = getelementptr inbounds %struct.anon.17, ptr %338, i32 0, i32 6
   %340 = load i64, ptr %339, align 8
   %341 = call i64 @rb_ull2num_inline(i64 noundef %340)
-  %342 = call i64 @rb_hash_aset(i64 noundef %336, i64 noundef %337, i64 noundef %341)
+  %342 = call i64 @rb_hash_aset(i64 noundef %334, i64 noundef %336, i64 noundef %341)
   br label %343
 
-343:                                              ; preds = %335, %332
+343:                                              ; preds = %333, %330
   br label %344
 
 344:                                              ; preds = %343
   %345 = load i64, ptr %9, align 8
-  %346 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 12), align 16
-  %347 = icmp eq i64 %345, %346
-  br i1 %347, label %348, label %351
+  %346 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 11
+  %347 = load i64, ptr %346, align 8
+  %348 = icmp eq i64 %345, %347
+  br i1 %348, label %349, label %353
 
-348:                                              ; preds = %344
-  %349 = load ptr, ptr %7, align 8
-  %350 = call i64 @heap_eden_total_pages(ptr noundef %349)
-  store i64 %350, ptr %5, align 8
-  br label %746
+349:                                              ; preds = %344
+  %350 = load ptr, ptr %7, align 8
+  %351 = getelementptr inbounds %struct.rb_objspace, ptr %350, i32 0, i32 7
+  %352 = load i64, ptr %351, align 8
+  store i64 %352, ptr %5, align 8
+  br label %806
 
-351:                                              ; preds = %344
-  %352 = load i64, ptr %8, align 8
-  %353 = icmp ne i64 %352, 4
-  br i1 %353, label %354, label %361
+353:                                              ; preds = %344
+  %354 = load i64, ptr %8, align 8
+  %355 = icmp ne i64 %354, 4
+  br i1 %355, label %356, label %365
 
-354:                                              ; preds = %351
-  %355 = load i64, ptr %8, align 8
-  %356 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 12), align 16
-  %357 = load ptr, ptr %7, align 8
-  %358 = call i64 @heap_eden_total_pages(ptr noundef %357)
-  %359 = call i64 @rb_ull2num_inline(i64 noundef %358)
-  %360 = call i64 @rb_hash_aset(i64 noundef %355, i64 noundef %356, i64 noundef %359)
-  br label %361
+356:                                              ; preds = %353
+  %357 = load i64, ptr %8, align 8
+  %358 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 11
+  %359 = load i64, ptr %358, align 8
+  %360 = load ptr, ptr %7, align 8
+  %361 = getelementptr inbounds %struct.rb_objspace, ptr %360, i32 0, i32 7
+  %362 = load i64, ptr %361, align 8
+  %363 = call i64 @rb_ull2num_inline(i64 noundef %362)
+  %364 = call i64 @rb_hash_aset(i64 noundef %357, i64 noundef %359, i64 noundef %363)
+  br label %365
 
-361:                                              ; preds = %354, %351
-  br label %362
+365:                                              ; preds = %356, %353
+  br label %366
 
-362:                                              ; preds = %361
-  %363 = load i64, ptr %9, align 8
-  %364 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 13), align 8
-  %365 = icmp eq i64 %363, %364
-  br i1 %365, label %366, label %369
+366:                                              ; preds = %365
+  %367 = load i64, ptr %9, align 8
+  %368 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 12
+  %369 = load i64, ptr %368, align 16
+  %370 = icmp eq i64 %367, %369
+  br i1 %370, label %371, label %374
 
-366:                                              ; preds = %362
-  %367 = load ptr, ptr %7, align 8
-  %368 = call i64 @heap_tomb_total_pages(ptr noundef %367)
-  store i64 %368, ptr %5, align 8
-  br label %746
+371:                                              ; preds = %366
+  %372 = load ptr, ptr %7, align 8
+  %373 = call i64 @heap_eden_total_pages(ptr noundef %372)
+  store i64 %373, ptr %5, align 8
+  br label %806
 
-369:                                              ; preds = %362
-  %370 = load i64, ptr %8, align 8
-  %371 = icmp ne i64 %370, 4
-  br i1 %371, label %372, label %379
+374:                                              ; preds = %366
+  %375 = load i64, ptr %8, align 8
+  %376 = icmp ne i64 %375, 4
+  br i1 %376, label %377, label %385
 
-372:                                              ; preds = %369
-  %373 = load i64, ptr %8, align 8
-  %374 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 13), align 8
-  %375 = load ptr, ptr %7, align 8
-  %376 = call i64 @heap_tomb_total_pages(ptr noundef %375)
-  %377 = call i64 @rb_ull2num_inline(i64 noundef %376)
-  %378 = call i64 @rb_hash_aset(i64 noundef %373, i64 noundef %374, i64 noundef %377)
-  br label %379
+377:                                              ; preds = %374
+  %378 = load i64, ptr %8, align 8
+  %379 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 12
+  %380 = load i64, ptr %379, align 16
+  %381 = load ptr, ptr %7, align 8
+  %382 = call i64 @heap_eden_total_pages(ptr noundef %381)
+  %383 = call i64 @rb_ull2num_inline(i64 noundef %382)
+  %384 = call i64 @rb_hash_aset(i64 noundef %378, i64 noundef %380, i64 noundef %383)
+  br label %385
 
-379:                                              ; preds = %372, %369
-  br label %380
+385:                                              ; preds = %377, %374
+  br label %386
 
-380:                                              ; preds = %379
-  %381 = load i64, ptr %9, align 8
-  %382 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 14), align 16
-  %383 = icmp eq i64 %381, %382
-  br i1 %383, label %384, label %387
+386:                                              ; preds = %385
+  %387 = load i64, ptr %9, align 8
+  %388 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 13
+  %389 = load i64, ptr %388, align 8
+  %390 = icmp eq i64 %387, %389
+  br i1 %390, label %391, label %394
 
-384:                                              ; preds = %380
-  %385 = load ptr, ptr %7, align 8
-  %386 = call i64 @total_allocated_pages(ptr noundef %385)
-  store i64 %386, ptr %5, align 8
-  br label %746
+391:                                              ; preds = %386
+  %392 = load ptr, ptr %7, align 8
+  %393 = call i64 @heap_tomb_total_pages(ptr noundef %392)
+  store i64 %393, ptr %5, align 8
+  br label %806
 
-387:                                              ; preds = %380
-  %388 = load i64, ptr %8, align 8
-  %389 = icmp ne i64 %388, 4
-  br i1 %389, label %390, label %397
+394:                                              ; preds = %386
+  %395 = load i64, ptr %8, align 8
+  %396 = icmp ne i64 %395, 4
+  br i1 %396, label %397, label %405
 
-390:                                              ; preds = %387
-  %391 = load i64, ptr %8, align 8
-  %392 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 14), align 16
-  %393 = load ptr, ptr %7, align 8
-  %394 = call i64 @total_allocated_pages(ptr noundef %393)
-  %395 = call i64 @rb_ull2num_inline(i64 noundef %394)
-  %396 = call i64 @rb_hash_aset(i64 noundef %391, i64 noundef %392, i64 noundef %395)
-  br label %397
+397:                                              ; preds = %394
+  %398 = load i64, ptr %8, align 8
+  %399 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 13
+  %400 = load i64, ptr %399, align 8
+  %401 = load ptr, ptr %7, align 8
+  %402 = call i64 @heap_tomb_total_pages(ptr noundef %401)
+  %403 = call i64 @rb_ull2num_inline(i64 noundef %402)
+  %404 = call i64 @rb_hash_aset(i64 noundef %398, i64 noundef %400, i64 noundef %403)
+  br label %405
 
-397:                                              ; preds = %390, %387
-  br label %398
+405:                                              ; preds = %397, %394
+  br label %406
 
-398:                                              ; preds = %397
-  %399 = load i64, ptr %9, align 8
-  %400 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 15), align 8
-  %401 = icmp eq i64 %399, %400
-  br i1 %401, label %402, label %405
+406:                                              ; preds = %405
+  %407 = load i64, ptr %9, align 8
+  %408 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 14
+  %409 = load i64, ptr %408, align 16
+  %410 = icmp eq i64 %407, %409
+  br i1 %410, label %411, label %414
 
-402:                                              ; preds = %398
-  %403 = load ptr, ptr %7, align 8
-  %404 = call i64 @total_freed_pages(ptr noundef %403)
-  store i64 %404, ptr %5, align 8
-  br label %746
+411:                                              ; preds = %406
+  %412 = load ptr, ptr %7, align 8
+  %413 = call i64 @total_allocated_pages(ptr noundef %412)
+  store i64 %413, ptr %5, align 8
+  br label %806
 
-405:                                              ; preds = %398
-  %406 = load i64, ptr %8, align 8
-  %407 = icmp ne i64 %406, 4
-  br i1 %407, label %408, label %415
+414:                                              ; preds = %406
+  %415 = load i64, ptr %8, align 8
+  %416 = icmp ne i64 %415, 4
+  br i1 %416, label %417, label %425
 
-408:                                              ; preds = %405
-  %409 = load i64, ptr %8, align 8
-  %410 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 15), align 8
-  %411 = load ptr, ptr %7, align 8
-  %412 = call i64 @total_freed_pages(ptr noundef %411)
-  %413 = call i64 @rb_ull2num_inline(i64 noundef %412)
-  %414 = call i64 @rb_hash_aset(i64 noundef %409, i64 noundef %410, i64 noundef %413)
-  br label %415
-
-415:                                              ; preds = %408, %405
-  br label %416
-
-416:                                              ; preds = %415
-  %417 = load i64, ptr %9, align 8
-  %418 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 16), align 16
-  %419 = icmp eq i64 %417, %418
-  br i1 %419, label %420, label %423
-
-420:                                              ; preds = %416
+417:                                              ; preds = %414
+  %418 = load i64, ptr %8, align 8
+  %419 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 14
+  %420 = load i64, ptr %419, align 16
   %421 = load ptr, ptr %7, align 8
-  %422 = call i64 @total_allocated_objects(ptr noundef %421)
-  store i64 %422, ptr %5, align 8
-  br label %746
+  %422 = call i64 @total_allocated_pages(ptr noundef %421)
+  %423 = call i64 @rb_ull2num_inline(i64 noundef %422)
+  %424 = call i64 @rb_hash_aset(i64 noundef %418, i64 noundef %420, i64 noundef %423)
+  br label %425
 
-423:                                              ; preds = %416
-  %424 = load i64, ptr %8, align 8
-  %425 = icmp ne i64 %424, 4
-  br i1 %425, label %426, label %433
+425:                                              ; preds = %417, %414
+  br label %426
 
-426:                                              ; preds = %423
-  %427 = load i64, ptr %8, align 8
-  %428 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 16), align 16
-  %429 = load ptr, ptr %7, align 8
-  %430 = call i64 @total_allocated_objects(ptr noundef %429)
-  %431 = call i64 @rb_ull2num_inline(i64 noundef %430)
-  %432 = call i64 @rb_hash_aset(i64 noundef %427, i64 noundef %428, i64 noundef %431)
-  br label %433
+426:                                              ; preds = %425
+  %427 = load i64, ptr %9, align 8
+  %428 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 15
+  %429 = load i64, ptr %428, align 8
+  %430 = icmp eq i64 %427, %429
+  br i1 %430, label %431, label %434
 
-433:                                              ; preds = %426, %423
-  br label %434
+431:                                              ; preds = %426
+  %432 = load ptr, ptr %7, align 8
+  %433 = call i64 @total_freed_pages(ptr noundef %432)
+  store i64 %433, ptr %5, align 8
+  br label %806
 
-434:                                              ; preds = %433
-  %435 = load i64, ptr %9, align 8
-  %436 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 17), align 8
-  %437 = icmp eq i64 %435, %436
-  br i1 %437, label %438, label %441
+434:                                              ; preds = %426
+  %435 = load i64, ptr %8, align 8
+  %436 = icmp ne i64 %435, 4
+  br i1 %436, label %437, label %445
 
-438:                                              ; preds = %434
-  %439 = load ptr, ptr %7, align 8
-  %440 = call i64 @total_freed_objects(ptr noundef %439)
-  store i64 %440, ptr %5, align 8
-  br label %746
+437:                                              ; preds = %434
+  %438 = load i64, ptr %8, align 8
+  %439 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 15
+  %440 = load i64, ptr %439, align 8
+  %441 = load ptr, ptr %7, align 8
+  %442 = call i64 @total_freed_pages(ptr noundef %441)
+  %443 = call i64 @rb_ull2num_inline(i64 noundef %442)
+  %444 = call i64 @rb_hash_aset(i64 noundef %438, i64 noundef %440, i64 noundef %443)
+  br label %445
 
-441:                                              ; preds = %434
-  %442 = load i64, ptr %8, align 8
-  %443 = icmp ne i64 %442, 4
-  br i1 %443, label %444, label %451
+445:                                              ; preds = %437, %434
+  br label %446
 
-444:                                              ; preds = %441
-  %445 = load i64, ptr %8, align 8
-  %446 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 17), align 8
-  %447 = load ptr, ptr %7, align 8
-  %448 = call i64 @total_freed_objects(ptr noundef %447)
-  %449 = call i64 @rb_ull2num_inline(i64 noundef %448)
-  %450 = call i64 @rb_hash_aset(i64 noundef %445, i64 noundef %446, i64 noundef %449)
-  br label %451
+446:                                              ; preds = %445
+  %447 = load i64, ptr %9, align 8
+  %448 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 16
+  %449 = load i64, ptr %448, align 16
+  %450 = icmp eq i64 %447, %449
+  br i1 %450, label %451, label %454
 
-451:                                              ; preds = %444, %441
-  br label %452
+451:                                              ; preds = %446
+  %452 = load ptr, ptr %7, align 8
+  %453 = call i64 @total_allocated_objects(ptr noundef %452)
+  store i64 %453, ptr %5, align 8
+  br label %806
 
-452:                                              ; preds = %451
-  %453 = load i64, ptr %9, align 8
-  %454 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 18), align 16
-  %455 = icmp eq i64 %453, %454
-  br i1 %455, label %456, label %461
+454:                                              ; preds = %446
+  %455 = load i64, ptr %8, align 8
+  %456 = icmp ne i64 %455, 4
+  br i1 %456, label %457, label %465
 
-456:                                              ; preds = %452
-  %457 = load ptr, ptr %7, align 8
-  %458 = getelementptr inbounds %struct.rb_objspace, ptr %457, i32 0, i32 0
-  %459 = getelementptr inbounds %struct.anon.15, ptr %458, i32 0, i32 1
-  %460 = load i64, ptr %459, align 8
-  store i64 %460, ptr %5, align 8
-  br label %746
+457:                                              ; preds = %454
+  %458 = load i64, ptr %8, align 8
+  %459 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 16
+  %460 = load i64, ptr %459, align 16
+  %461 = load ptr, ptr %7, align 8
+  %462 = call i64 @total_allocated_objects(ptr noundef %461)
+  %463 = call i64 @rb_ull2num_inline(i64 noundef %462)
+  %464 = call i64 @rb_hash_aset(i64 noundef %458, i64 noundef %460, i64 noundef %463)
+  br label %465
 
-461:                                              ; preds = %452
-  %462 = load i64, ptr %8, align 8
-  %463 = icmp ne i64 %462, 4
-  br i1 %463, label %464, label %473
+465:                                              ; preds = %457, %454
+  br label %466
 
-464:                                              ; preds = %461
-  %465 = load i64, ptr %8, align 8
-  %466 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 18), align 16
-  %467 = load ptr, ptr %7, align 8
-  %468 = getelementptr inbounds %struct.rb_objspace, ptr %467, i32 0, i32 0
-  %469 = getelementptr inbounds %struct.anon.15, ptr %468, i32 0, i32 1
-  %470 = load i64, ptr %469, align 8
-  %471 = call i64 @rb_ull2num_inline(i64 noundef %470)
-  %472 = call i64 @rb_hash_aset(i64 noundef %465, i64 noundef %466, i64 noundef %471)
-  br label %473
+466:                                              ; preds = %465
+  %467 = load i64, ptr %9, align 8
+  %468 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 17
+  %469 = load i64, ptr %468, align 8
+  %470 = icmp eq i64 %467, %469
+  br i1 %470, label %471, label %474
 
-473:                                              ; preds = %464, %461
-  br label %474
+471:                                              ; preds = %466
+  %472 = load ptr, ptr %7, align 8
+  %473 = call i64 @total_freed_objects(ptr noundef %472)
+  store i64 %473, ptr %5, align 8
+  br label %806
 
-474:                                              ; preds = %473
-  %475 = load i64, ptr %9, align 8
-  %476 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 19), align 8
-  %477 = icmp eq i64 %475, %476
-  br i1 %477, label %478, label %483
+474:                                              ; preds = %466
+  %475 = load i64, ptr %8, align 8
+  %476 = icmp ne i64 %475, 4
+  br i1 %476, label %477, label %485
 
-478:                                              ; preds = %474
-  %479 = load ptr, ptr %7, align 8
-  %480 = getelementptr inbounds %struct.rb_objspace, ptr %479, i32 0, i32 0
-  %481 = getelementptr inbounds %struct.anon.15, ptr %480, i32 0, i32 0
-  %482 = load i64, ptr %481, align 8
-  store i64 %482, ptr %5, align 8
-  br label %746
+477:                                              ; preds = %474
+  %478 = load i64, ptr %8, align 8
+  %479 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 17
+  %480 = load i64, ptr %479, align 8
+  %481 = load ptr, ptr %7, align 8
+  %482 = call i64 @total_freed_objects(ptr noundef %481)
+  %483 = call i64 @rb_ull2num_inline(i64 noundef %482)
+  %484 = call i64 @rb_hash_aset(i64 noundef %478, i64 noundef %480, i64 noundef %483)
+  br label %485
 
-483:                                              ; preds = %474
-  %484 = load i64, ptr %8, align 8
-  %485 = icmp ne i64 %484, 4
-  br i1 %485, label %486, label %495
+485:                                              ; preds = %477, %474
+  br label %486
 
-486:                                              ; preds = %483
-  %487 = load i64, ptr %8, align 8
-  %488 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 19), align 8
-  %489 = load ptr, ptr %7, align 8
-  %490 = getelementptr inbounds %struct.rb_objspace, ptr %489, i32 0, i32 0
-  %491 = getelementptr inbounds %struct.anon.15, ptr %490, i32 0, i32 0
-  %492 = load i64, ptr %491, align 8
-  %493 = call i64 @rb_ull2num_inline(i64 noundef %492)
-  %494 = call i64 @rb_hash_aset(i64 noundef %487, i64 noundef %488, i64 noundef %493)
-  br label %495
+486:                                              ; preds = %485
+  %487 = load i64, ptr %9, align 8
+  %488 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 18
+  %489 = load i64, ptr %488, align 16
+  %490 = icmp eq i64 %487, %489
+  br i1 %490, label %491, label %496
 
-495:                                              ; preds = %486, %483
-  br label %496
+491:                                              ; preds = %486
+  %492 = load ptr, ptr %7, align 8
+  %493 = getelementptr inbounds %struct.rb_objspace, ptr %492, i32 0, i32 0
+  %494 = getelementptr inbounds %struct.anon.15, ptr %493, i32 0, i32 1
+  %495 = load i64, ptr %494, align 8
+  store i64 %495, ptr %5, align 8
+  br label %806
 
-496:                                              ; preds = %495
-  %497 = load i64, ptr %9, align 8
-  %498 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 20), align 16
-  %499 = icmp eq i64 %497, %498
-  br i1 %499, label %500, label %505
+496:                                              ; preds = %486
+  %497 = load i64, ptr %8, align 8
+  %498 = icmp ne i64 %497, 4
+  br i1 %498, label %499, label %509
 
-500:                                              ; preds = %496
-  %501 = load ptr, ptr %7, align 8
-  %502 = getelementptr inbounds %struct.rb_objspace, ptr %501, i32 0, i32 10
-  %503 = getelementptr inbounds %struct.anon.18, ptr %502, i32 0, i32 7
-  %504 = load i64, ptr %503, align 8
-  store i64 %504, ptr %5, align 8
-  br label %746
+499:                                              ; preds = %496
+  %500 = load i64, ptr %8, align 8
+  %501 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 18
+  %502 = load i64, ptr %501, align 16
+  %503 = load ptr, ptr %7, align 8
+  %504 = getelementptr inbounds %struct.rb_objspace, ptr %503, i32 0, i32 0
+  %505 = getelementptr inbounds %struct.anon.15, ptr %504, i32 0, i32 1
+  %506 = load i64, ptr %505, align 8
+  %507 = call i64 @rb_ull2num_inline(i64 noundef %506)
+  %508 = call i64 @rb_hash_aset(i64 noundef %500, i64 noundef %502, i64 noundef %507)
+  br label %509
 
-505:                                              ; preds = %496
-  %506 = load i64, ptr %8, align 8
-  %507 = icmp ne i64 %506, 4
-  br i1 %507, label %508, label %517
+509:                                              ; preds = %499, %496
+  br label %510
 
-508:                                              ; preds = %505
-  %509 = load i64, ptr %8, align 8
-  %510 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 20), align 16
-  %511 = load ptr, ptr %7, align 8
-  %512 = getelementptr inbounds %struct.rb_objspace, ptr %511, i32 0, i32 10
-  %513 = getelementptr inbounds %struct.anon.18, ptr %512, i32 0, i32 7
-  %514 = load i64, ptr %513, align 8
-  %515 = call i64 @rb_ull2num_inline(i64 noundef %514)
-  %516 = call i64 @rb_hash_aset(i64 noundef %509, i64 noundef %510, i64 noundef %515)
-  br label %517
+510:                                              ; preds = %509
+  %511 = load i64, ptr %9, align 8
+  %512 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 19
+  %513 = load i64, ptr %512, align 8
+  %514 = icmp eq i64 %511, %513
+  br i1 %514, label %515, label %520
 
-517:                                              ; preds = %508, %505
-  br label %518
+515:                                              ; preds = %510
+  %516 = load ptr, ptr %7, align 8
+  %517 = getelementptr inbounds %struct.rb_objspace, ptr %516, i32 0, i32 0
+  %518 = getelementptr inbounds %struct.anon.15, ptr %517, i32 0, i32 0
+  %519 = load i64, ptr %518, align 8
+  store i64 %519, ptr %5, align 8
+  br label %806
 
-518:                                              ; preds = %517
-  %519 = load i64, ptr %9, align 8
-  %520 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 21), align 8
-  %521 = icmp eq i64 %519, %520
-  br i1 %521, label %522, label %527
+520:                                              ; preds = %510
+  %521 = load i64, ptr %8, align 8
+  %522 = icmp ne i64 %521, 4
+  br i1 %522, label %523, label %533
 
-522:                                              ; preds = %518
-  %523 = load ptr, ptr %7, align 8
-  %524 = getelementptr inbounds %struct.rb_objspace, ptr %523, i32 0, i32 10
-  %525 = getelementptr inbounds %struct.anon.18, ptr %524, i32 0, i32 8
+523:                                              ; preds = %520
+  %524 = load i64, ptr %8, align 8
+  %525 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 19
   %526 = load i64, ptr %525, align 8
-  store i64 %526, ptr %5, align 8
-  br label %746
+  %527 = load ptr, ptr %7, align 8
+  %528 = getelementptr inbounds %struct.rb_objspace, ptr %527, i32 0, i32 0
+  %529 = getelementptr inbounds %struct.anon.15, ptr %528, i32 0, i32 0
+  %530 = load i64, ptr %529, align 8
+  %531 = call i64 @rb_ull2num_inline(i64 noundef %530)
+  %532 = call i64 @rb_hash_aset(i64 noundef %524, i64 noundef %526, i64 noundef %531)
+  br label %533
 
-527:                                              ; preds = %518
-  %528 = load i64, ptr %8, align 8
-  %529 = icmp ne i64 %528, 4
-  br i1 %529, label %530, label %539
+533:                                              ; preds = %523, %520
+  br label %534
 
-530:                                              ; preds = %527
-  %531 = load i64, ptr %8, align 8
-  %532 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 21), align 8
-  %533 = load ptr, ptr %7, align 8
-  %534 = getelementptr inbounds %struct.rb_objspace, ptr %533, i32 0, i32 10
-  %535 = getelementptr inbounds %struct.anon.18, ptr %534, i32 0, i32 8
-  %536 = load i64, ptr %535, align 8
-  %537 = call i64 @rb_ull2num_inline(i64 noundef %536)
-  %538 = call i64 @rb_hash_aset(i64 noundef %531, i64 noundef %532, i64 noundef %537)
-  br label %539
+534:                                              ; preds = %533
+  %535 = load i64, ptr %9, align 8
+  %536 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 20
+  %537 = load i64, ptr %536, align 16
+  %538 = icmp eq i64 %535, %537
+  br i1 %538, label %539, label %544
 
-539:                                              ; preds = %530, %527
-  br label %540
+539:                                              ; preds = %534
+  %540 = load ptr, ptr %7, align 8
+  %541 = getelementptr inbounds %struct.rb_objspace, ptr %540, i32 0, i32 10
+  %542 = getelementptr inbounds %struct.anon.18, ptr %541, i32 0, i32 7
+  %543 = load i64, ptr %542, align 8
+  store i64 %543, ptr %5, align 8
+  br label %806
 
-540:                                              ; preds = %539
-  %541 = load i64, ptr %9, align 8
-  %542 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 22), align 16
-  %543 = icmp eq i64 %541, %542
-  br i1 %543, label %544, label %549
+544:                                              ; preds = %534
+  %545 = load i64, ptr %8, align 8
+  %546 = icmp ne i64 %545, 4
+  br i1 %546, label %547, label %557
 
-544:                                              ; preds = %540
-  %545 = load ptr, ptr %7, align 8
-  %546 = getelementptr inbounds %struct.rb_objspace, ptr %545, i32 0, i32 10
-  %547 = getelementptr inbounds %struct.anon.18, ptr %546, i32 0, i32 9
-  %548 = load i64, ptr %547, align 8
-  store i64 %548, ptr %5, align 8
-  br label %746
+547:                                              ; preds = %544
+  %548 = load i64, ptr %8, align 8
+  %549 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 20
+  %550 = load i64, ptr %549, align 16
+  %551 = load ptr, ptr %7, align 8
+  %552 = getelementptr inbounds %struct.rb_objspace, ptr %551, i32 0, i32 10
+  %553 = getelementptr inbounds %struct.anon.18, ptr %552, i32 0, i32 7
+  %554 = load i64, ptr %553, align 8
+  %555 = call i64 @rb_ull2num_inline(i64 noundef %554)
+  %556 = call i64 @rb_hash_aset(i64 noundef %548, i64 noundef %550, i64 noundef %555)
+  br label %557
 
-549:                                              ; preds = %540
-  %550 = load i64, ptr %8, align 8
-  %551 = icmp ne i64 %550, 4
-  br i1 %551, label %552, label %561
+557:                                              ; preds = %547, %544
+  br label %558
 
-552:                                              ; preds = %549
-  %553 = load i64, ptr %8, align 8
-  %554 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 22), align 16
-  %555 = load ptr, ptr %7, align 8
-  %556 = getelementptr inbounds %struct.rb_objspace, ptr %555, i32 0, i32 10
-  %557 = getelementptr inbounds %struct.anon.18, ptr %556, i32 0, i32 9
-  %558 = load i64, ptr %557, align 8
-  %559 = call i64 @rb_ull2num_inline(i64 noundef %558)
-  %560 = call i64 @rb_hash_aset(i64 noundef %553, i64 noundef %554, i64 noundef %559)
-  br label %561
+558:                                              ; preds = %557
+  %559 = load i64, ptr %9, align 8
+  %560 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 21
+  %561 = load i64, ptr %560, align 8
+  %562 = icmp eq i64 %559, %561
+  br i1 %562, label %563, label %568
 
-561:                                              ; preds = %552, %549
-  br label %562
+563:                                              ; preds = %558
+  %564 = load ptr, ptr %7, align 8
+  %565 = getelementptr inbounds %struct.rb_objspace, ptr %564, i32 0, i32 10
+  %566 = getelementptr inbounds %struct.anon.18, ptr %565, i32 0, i32 8
+  %567 = load i64, ptr %566, align 8
+  store i64 %567, ptr %5, align 8
+  br label %806
 
-562:                                              ; preds = %561
-  %563 = load i64, ptr %9, align 8
-  %564 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 23), align 8
-  %565 = icmp eq i64 %563, %564
-  br i1 %565, label %566, label %571
+568:                                              ; preds = %558
+  %569 = load i64, ptr %8, align 8
+  %570 = icmp ne i64 %569, 4
+  br i1 %570, label %571, label %581
 
-566:                                              ; preds = %562
-  %567 = load ptr, ptr %7, align 8
-  %568 = getelementptr inbounds %struct.rb_objspace, ptr %567, i32 0, i32 10
-  %569 = getelementptr inbounds %struct.anon.18, ptr %568, i32 0, i32 10
-  %570 = load i64, ptr %569, align 8
-  store i64 %570, ptr %5, align 8
-  br label %746
-
-571:                                              ; preds = %562
+571:                                              ; preds = %568
   %572 = load i64, ptr %8, align 8
-  %573 = icmp ne i64 %572, 4
-  br i1 %573, label %574, label %583
+  %573 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 21
+  %574 = load i64, ptr %573, align 8
+  %575 = load ptr, ptr %7, align 8
+  %576 = getelementptr inbounds %struct.rb_objspace, ptr %575, i32 0, i32 10
+  %577 = getelementptr inbounds %struct.anon.18, ptr %576, i32 0, i32 8
+  %578 = load i64, ptr %577, align 8
+  %579 = call i64 @rb_ull2num_inline(i64 noundef %578)
+  %580 = call i64 @rb_hash_aset(i64 noundef %572, i64 noundef %574, i64 noundef %579)
+  br label %581
 
-574:                                              ; preds = %571
-  %575 = load i64, ptr %8, align 8
-  %576 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 23), align 8
-  %577 = load ptr, ptr %7, align 8
-  %578 = getelementptr inbounds %struct.rb_objspace, ptr %577, i32 0, i32 10
-  %579 = getelementptr inbounds %struct.anon.18, ptr %578, i32 0, i32 10
-  %580 = load i64, ptr %579, align 8
-  %581 = call i64 @rb_ull2num_inline(i64 noundef %580)
-  %582 = call i64 @rb_hash_aset(i64 noundef %575, i64 noundef %576, i64 noundef %581)
-  br label %583
+581:                                              ; preds = %571, %568
+  br label %582
 
-583:                                              ; preds = %574, %571
-  br label %584
+582:                                              ; preds = %581
+  %583 = load i64, ptr %9, align 8
+  %584 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 22
+  %585 = load i64, ptr %584, align 16
+  %586 = icmp eq i64 %583, %585
+  br i1 %586, label %587, label %592
 
-584:                                              ; preds = %583
-  %585 = load i64, ptr %9, align 8
-  %586 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 24), align 16
-  %587 = icmp eq i64 %585, %586
-  br i1 %587, label %588, label %593
+587:                                              ; preds = %582
+  %588 = load ptr, ptr %7, align 8
+  %589 = getelementptr inbounds %struct.rb_objspace, ptr %588, i32 0, i32 10
+  %590 = getelementptr inbounds %struct.anon.18, ptr %589, i32 0, i32 9
+  %591 = load i64, ptr %590, align 8
+  store i64 %591, ptr %5, align 8
+  br label %806
 
-588:                                              ; preds = %584
-  %589 = load ptr, ptr %7, align 8
-  %590 = getelementptr inbounds %struct.rb_objspace, ptr %589, i32 0, i32 14
-  %591 = getelementptr inbounds %struct.anon.20, ptr %590, i32 0, i32 4
-  %592 = load i64, ptr %591, align 8
-  store i64 %592, ptr %5, align 8
-  br label %746
+592:                                              ; preds = %582
+  %593 = load i64, ptr %8, align 8
+  %594 = icmp ne i64 %593, 4
+  br i1 %594, label %595, label %605
 
-593:                                              ; preds = %584
-  %594 = load i64, ptr %8, align 8
-  %595 = icmp ne i64 %594, 4
-  br i1 %595, label %596, label %605
-
-596:                                              ; preds = %593
-  %597 = load i64, ptr %8, align 8
-  %598 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 24), align 16
+595:                                              ; preds = %592
+  %596 = load i64, ptr %8, align 8
+  %597 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 22
+  %598 = load i64, ptr %597, align 16
   %599 = load ptr, ptr %7, align 8
-  %600 = getelementptr inbounds %struct.rb_objspace, ptr %599, i32 0, i32 14
-  %601 = getelementptr inbounds %struct.anon.20, ptr %600, i32 0, i32 4
+  %600 = getelementptr inbounds %struct.rb_objspace, ptr %599, i32 0, i32 10
+  %601 = getelementptr inbounds %struct.anon.18, ptr %600, i32 0, i32 9
   %602 = load i64, ptr %601, align 8
   %603 = call i64 @rb_ull2num_inline(i64 noundef %602)
-  %604 = call i64 @rb_hash_aset(i64 noundef %597, i64 noundef %598, i64 noundef %603)
+  %604 = call i64 @rb_hash_aset(i64 noundef %596, i64 noundef %598, i64 noundef %603)
   br label %605
 
-605:                                              ; preds = %596, %593
+605:                                              ; preds = %595, %592
   br label %606
 
 606:                                              ; preds = %605
   %607 = load i64, ptr %9, align 8
-  %608 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 25), align 8
-  %609 = icmp eq i64 %607, %608
-  br i1 %609, label %610, label %615
+  %608 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 23
+  %609 = load i64, ptr %608, align 8
+  %610 = icmp eq i64 %607, %609
+  br i1 %610, label %611, label %616
 
-610:                                              ; preds = %606
-  %611 = load ptr, ptr %7, align 8
-  %612 = getelementptr inbounds %struct.rb_objspace, ptr %611, i32 0, i32 13
-  %613 = getelementptr inbounds %struct.anon.19, ptr %612, i32 0, i32 3
-  %614 = load i64, ptr %613, align 8
-  store i64 %614, ptr %5, align 8
-  br label %746
+611:                                              ; preds = %606
+  %612 = load ptr, ptr %7, align 8
+  %613 = getelementptr inbounds %struct.rb_objspace, ptr %612, i32 0, i32 10
+  %614 = getelementptr inbounds %struct.anon.18, ptr %613, i32 0, i32 10
+  %615 = load i64, ptr %614, align 8
+  store i64 %615, ptr %5, align 8
+  br label %806
 
-615:                                              ; preds = %606
-  %616 = load i64, ptr %8, align 8
-  %617 = icmp ne i64 %616, 4
-  br i1 %617, label %618, label %627
+616:                                              ; preds = %606
+  %617 = load i64, ptr %8, align 8
+  %618 = icmp ne i64 %617, 4
+  br i1 %618, label %619, label %629
 
-618:                                              ; preds = %615
-  %619 = load i64, ptr %8, align 8
-  %620 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 25), align 8
-  %621 = load ptr, ptr %7, align 8
-  %622 = getelementptr inbounds %struct.rb_objspace, ptr %621, i32 0, i32 13
-  %623 = getelementptr inbounds %struct.anon.19, ptr %622, i32 0, i32 3
-  %624 = load i64, ptr %623, align 8
-  %625 = call i64 @rb_ull2num_inline(i64 noundef %624)
-  %626 = call i64 @rb_hash_aset(i64 noundef %619, i64 noundef %620, i64 noundef %625)
-  br label %627
+619:                                              ; preds = %616
+  %620 = load i64, ptr %8, align 8
+  %621 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 23
+  %622 = load i64, ptr %621, align 8
+  %623 = load ptr, ptr %7, align 8
+  %624 = getelementptr inbounds %struct.rb_objspace, ptr %623, i32 0, i32 10
+  %625 = getelementptr inbounds %struct.anon.18, ptr %624, i32 0, i32 10
+  %626 = load i64, ptr %625, align 8
+  %627 = call i64 @rb_ull2num_inline(i64 noundef %626)
+  %628 = call i64 @rb_hash_aset(i64 noundef %620, i64 noundef %622, i64 noundef %627)
+  br label %629
 
-627:                                              ; preds = %618, %615
-  br label %628
+629:                                              ; preds = %619, %616
+  br label %630
 
-628:                                              ; preds = %627
-  %629 = load i64, ptr %9, align 8
-  %630 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 26), align 16
-  %631 = icmp eq i64 %629, %630
-  br i1 %631, label %632, label %637
+630:                                              ; preds = %629
+  %631 = load i64, ptr %9, align 8
+  %632 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 24
+  %633 = load i64, ptr %632, align 16
+  %634 = icmp eq i64 %631, %633
+  br i1 %634, label %635, label %640
 
-632:                                              ; preds = %628
-  %633 = load ptr, ptr %7, align 8
-  %634 = getelementptr inbounds %struct.rb_objspace, ptr %633, i32 0, i32 13
-  %635 = getelementptr inbounds %struct.anon.19, ptr %634, i32 0, i32 4
-  %636 = load i64, ptr %635, align 8
-  store i64 %636, ptr %5, align 8
-  br label %746
+635:                                              ; preds = %630
+  %636 = load ptr, ptr %7, align 8
+  %637 = getelementptr inbounds %struct.rb_objspace, ptr %636, i32 0, i32 14
+  %638 = getelementptr inbounds %struct.anon.20, ptr %637, i32 0, i32 4
+  %639 = load i64, ptr %638, align 8
+  store i64 %639, ptr %5, align 8
+  br label %806
 
-637:                                              ; preds = %628
-  %638 = load i64, ptr %8, align 8
-  %639 = icmp ne i64 %638, 4
-  br i1 %639, label %640, label %649
-
-640:                                              ; preds = %637
+640:                                              ; preds = %630
   %641 = load i64, ptr %8, align 8
-  %642 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 26), align 16
-  %643 = load ptr, ptr %7, align 8
-  %644 = getelementptr inbounds %struct.rb_objspace, ptr %643, i32 0, i32 13
-  %645 = getelementptr inbounds %struct.anon.19, ptr %644, i32 0, i32 4
-  %646 = load i64, ptr %645, align 8
-  %647 = call i64 @rb_ull2num_inline(i64 noundef %646)
-  %648 = call i64 @rb_hash_aset(i64 noundef %641, i64 noundef %642, i64 noundef %647)
-  br label %649
+  %642 = icmp ne i64 %641, 4
+  br i1 %642, label %643, label %653
 
-649:                                              ; preds = %640, %637
-  br label %650
+643:                                              ; preds = %640
+  %644 = load i64, ptr %8, align 8
+  %645 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 24
+  %646 = load i64, ptr %645, align 16
+  %647 = load ptr, ptr %7, align 8
+  %648 = getelementptr inbounds %struct.rb_objspace, ptr %647, i32 0, i32 14
+  %649 = getelementptr inbounds %struct.anon.20, ptr %648, i32 0, i32 4
+  %650 = load i64, ptr %649, align 8
+  %651 = call i64 @rb_ull2num_inline(i64 noundef %650)
+  %652 = call i64 @rb_hash_aset(i64 noundef %644, i64 noundef %646, i64 noundef %651)
+  br label %653
 
-650:                                              ; preds = %649
-  %651 = load i64, ptr %9, align 8
-  %652 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 27), align 8
-  %653 = icmp eq i64 %651, %652
-  br i1 %653, label %654, label %659
+653:                                              ; preds = %643, %640
+  br label %654
 
-654:                                              ; preds = %650
-  %655 = load ptr, ptr %7, align 8
-  %656 = getelementptr inbounds %struct.rb_objspace, ptr %655, i32 0, i32 13
-  %657 = getelementptr inbounds %struct.anon.19, ptr %656, i32 0, i32 5
-  %658 = load i64, ptr %657, align 8
-  store i64 %658, ptr %5, align 8
-  br label %746
+654:                                              ; preds = %653
+  %655 = load i64, ptr %9, align 8
+  %656 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 25
+  %657 = load i64, ptr %656, align 8
+  %658 = icmp eq i64 %655, %657
+  br i1 %658, label %659, label %664
 
-659:                                              ; preds = %650
-  %660 = load i64, ptr %8, align 8
-  %661 = icmp ne i64 %660, 4
-  br i1 %661, label %662, label %671
+659:                                              ; preds = %654
+  %660 = load ptr, ptr %7, align 8
+  %661 = getelementptr inbounds %struct.rb_objspace, ptr %660, i32 0, i32 13
+  %662 = getelementptr inbounds %struct.anon.19, ptr %661, i32 0, i32 3
+  %663 = load i64, ptr %662, align 8
+  store i64 %663, ptr %5, align 8
+  br label %806
 
-662:                                              ; preds = %659
-  %663 = load i64, ptr %8, align 8
-  %664 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 27), align 8
-  %665 = load ptr, ptr %7, align 8
-  %666 = getelementptr inbounds %struct.rb_objspace, ptr %665, i32 0, i32 13
-  %667 = getelementptr inbounds %struct.anon.19, ptr %666, i32 0, i32 5
-  %668 = load i64, ptr %667, align 8
-  %669 = call i64 @rb_ull2num_inline(i64 noundef %668)
-  %670 = call i64 @rb_hash_aset(i64 noundef %663, i64 noundef %664, i64 noundef %669)
-  br label %671
+664:                                              ; preds = %654
+  %665 = load i64, ptr %8, align 8
+  %666 = icmp ne i64 %665, 4
+  br i1 %666, label %667, label %677
 
-671:                                              ; preds = %662, %659
-  br label %672
+667:                                              ; preds = %664
+  %668 = load i64, ptr %8, align 8
+  %669 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 25
+  %670 = load i64, ptr %669, align 8
+  %671 = load ptr, ptr %7, align 8
+  %672 = getelementptr inbounds %struct.rb_objspace, ptr %671, i32 0, i32 13
+  %673 = getelementptr inbounds %struct.anon.19, ptr %672, i32 0, i32 3
+  %674 = load i64, ptr %673, align 8
+  %675 = call i64 @rb_ull2num_inline(i64 noundef %674)
+  %676 = call i64 @rb_hash_aset(i64 noundef %668, i64 noundef %670, i64 noundef %675)
+  br label %677
 
-672:                                              ; preds = %671
-  %673 = load i64, ptr %9, align 8
-  %674 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 28), align 16
-  %675 = icmp eq i64 %673, %674
-  br i1 %675, label %676, label %681
+677:                                              ; preds = %667, %664
+  br label %678
 
-676:                                              ; preds = %672
-  %677 = load ptr, ptr %7, align 8
-  %678 = getelementptr inbounds %struct.rb_objspace, ptr %677, i32 0, i32 13
-  %679 = getelementptr inbounds %struct.anon.19, ptr %678, i32 0, i32 6
-  %680 = load i64, ptr %679, align 8
-  store i64 %680, ptr %5, align 8
-  br label %746
+678:                                              ; preds = %677
+  %679 = load i64, ptr %9, align 8
+  %680 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 26
+  %681 = load i64, ptr %680, align 16
+  %682 = icmp eq i64 %679, %681
+  br i1 %682, label %683, label %688
 
-681:                                              ; preds = %672
-  %682 = load i64, ptr %8, align 8
-  %683 = icmp ne i64 %682, 4
-  br i1 %683, label %684, label %693
+683:                                              ; preds = %678
+  %684 = load ptr, ptr %7, align 8
+  %685 = getelementptr inbounds %struct.rb_objspace, ptr %684, i32 0, i32 13
+  %686 = getelementptr inbounds %struct.anon.19, ptr %685, i32 0, i32 4
+  %687 = load i64, ptr %686, align 8
+  store i64 %687, ptr %5, align 8
+  br label %806
 
-684:                                              ; preds = %681
-  %685 = load i64, ptr %8, align 8
-  %686 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 28), align 16
-  %687 = load ptr, ptr %7, align 8
-  %688 = getelementptr inbounds %struct.rb_objspace, ptr %687, i32 0, i32 13
-  %689 = getelementptr inbounds %struct.anon.19, ptr %688, i32 0, i32 6
-  %690 = load i64, ptr %689, align 8
-  %691 = call i64 @rb_ull2num_inline(i64 noundef %690)
-  %692 = call i64 @rb_hash_aset(i64 noundef %685, i64 noundef %686, i64 noundef %691)
-  br label %693
+688:                                              ; preds = %678
+  %689 = load i64, ptr %8, align 8
+  %690 = icmp ne i64 %689, 4
+  br i1 %690, label %691, label %701
 
-693:                                              ; preds = %684, %681
-  br label %694
+691:                                              ; preds = %688
+  %692 = load i64, ptr %8, align 8
+  %693 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 26
+  %694 = load i64, ptr %693, align 16
+  %695 = load ptr, ptr %7, align 8
+  %696 = getelementptr inbounds %struct.rb_objspace, ptr %695, i32 0, i32 13
+  %697 = getelementptr inbounds %struct.anon.19, ptr %696, i32 0, i32 4
+  %698 = load i64, ptr %697, align 8
+  %699 = call i64 @rb_ull2num_inline(i64 noundef %698)
+  %700 = call i64 @rb_hash_aset(i64 noundef %692, i64 noundef %694, i64 noundef %699)
+  br label %701
 
-694:                                              ; preds = %693
-  %695 = load i64, ptr %9, align 8
-  %696 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 29), align 8
-  %697 = icmp eq i64 %695, %696
-  br i1 %697, label %698, label %703
+701:                                              ; preds = %691, %688
+  br label %702
 
-698:                                              ; preds = %694
-  %699 = load ptr, ptr %7, align 8
-  %700 = getelementptr inbounds %struct.rb_objspace, ptr %699, i32 0, i32 13
-  %701 = getelementptr inbounds %struct.anon.19, ptr %700, i32 0, i32 7
-  %702 = load i64, ptr %701, align 8
-  store i64 %702, ptr %5, align 8
-  br label %746
+702:                                              ; preds = %701
+  %703 = load i64, ptr %9, align 8
+  %704 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 27
+  %705 = load i64, ptr %704, align 8
+  %706 = icmp eq i64 %703, %705
+  br i1 %706, label %707, label %712
 
-703:                                              ; preds = %694
-  %704 = load i64, ptr %8, align 8
-  %705 = icmp ne i64 %704, 4
-  br i1 %705, label %706, label %715
+707:                                              ; preds = %702
+  %708 = load ptr, ptr %7, align 8
+  %709 = getelementptr inbounds %struct.rb_objspace, ptr %708, i32 0, i32 13
+  %710 = getelementptr inbounds %struct.anon.19, ptr %709, i32 0, i32 5
+  %711 = load i64, ptr %710, align 8
+  store i64 %711, ptr %5, align 8
+  br label %806
 
-706:                                              ; preds = %703
-  %707 = load i64, ptr %8, align 8
-  %708 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 29), align 8
-  %709 = load ptr, ptr %7, align 8
-  %710 = getelementptr inbounds %struct.rb_objspace, ptr %709, i32 0, i32 13
-  %711 = getelementptr inbounds %struct.anon.19, ptr %710, i32 0, i32 7
-  %712 = load i64, ptr %711, align 8
-  %713 = call i64 @rb_ull2num_inline(i64 noundef %712)
-  %714 = call i64 @rb_hash_aset(i64 noundef %707, i64 noundef %708, i64 noundef %713)
-  br label %715
+712:                                              ; preds = %702
+  %713 = load i64, ptr %8, align 8
+  %714 = icmp ne i64 %713, 4
+  br i1 %714, label %715, label %725
 
-715:                                              ; preds = %706, %703
-  br label %716
+715:                                              ; preds = %712
+  %716 = load i64, ptr %8, align 8
+  %717 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 27
+  %718 = load i64, ptr %717, align 8
+  %719 = load ptr, ptr %7, align 8
+  %720 = getelementptr inbounds %struct.rb_objspace, ptr %719, i32 0, i32 13
+  %721 = getelementptr inbounds %struct.anon.19, ptr %720, i32 0, i32 5
+  %722 = load i64, ptr %721, align 8
+  %723 = call i64 @rb_ull2num_inline(i64 noundef %722)
+  %724 = call i64 @rb_hash_aset(i64 noundef %716, i64 noundef %718, i64 noundef %723)
+  br label %725
 
-716:                                              ; preds = %715
-  %717 = load i64, ptr %9, align 8
-  %718 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 30), align 16
-  %719 = icmp eq i64 %717, %718
-  br i1 %719, label %720, label %725
+725:                                              ; preds = %715, %712
+  br label %726
 
-720:                                              ; preds = %716
-  %721 = load ptr, ptr %7, align 8
-  %722 = getelementptr inbounds %struct.rb_objspace, ptr %721, i32 0, i32 13
-  %723 = getelementptr inbounds %struct.anon.19, ptr %722, i32 0, i32 8
-  %724 = load i64, ptr %723, align 8
-  store i64 %724, ptr %5, align 8
-  br label %746
+726:                                              ; preds = %725
+  %727 = load i64, ptr %9, align 8
+  %728 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 28
+  %729 = load i64, ptr %728, align 16
+  %730 = icmp eq i64 %727, %729
+  br i1 %730, label %731, label %736
 
-725:                                              ; preds = %716
-  %726 = load i64, ptr %8, align 8
-  %727 = icmp ne i64 %726, 4
-  br i1 %727, label %728, label %737
+731:                                              ; preds = %726
+  %732 = load ptr, ptr %7, align 8
+  %733 = getelementptr inbounds %struct.rb_objspace, ptr %732, i32 0, i32 13
+  %734 = getelementptr inbounds %struct.anon.19, ptr %733, i32 0, i32 6
+  %735 = load i64, ptr %734, align 8
+  store i64 %735, ptr %5, align 8
+  br label %806
 
-728:                                              ; preds = %725
-  %729 = load i64, ptr %8, align 8
-  %730 = load i64, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 30), align 16
-  %731 = load ptr, ptr %7, align 8
-  %732 = getelementptr inbounds %struct.rb_objspace, ptr %731, i32 0, i32 13
-  %733 = getelementptr inbounds %struct.anon.19, ptr %732, i32 0, i32 8
-  %734 = load i64, ptr %733, align 8
-  %735 = call i64 @rb_ull2num_inline(i64 noundef %734)
-  %736 = call i64 @rb_hash_aset(i64 noundef %729, i64 noundef %730, i64 noundef %735)
-  br label %737
+736:                                              ; preds = %726
+  %737 = load i64, ptr %8, align 8
+  %738 = icmp ne i64 %737, 4
+  br i1 %738, label %739, label %749
 
-737:                                              ; preds = %728, %725
-  br label %738
+739:                                              ; preds = %736
+  %740 = load i64, ptr %8, align 8
+  %741 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 28
+  %742 = load i64, ptr %741, align 16
+  %743 = load ptr, ptr %7, align 8
+  %744 = getelementptr inbounds %struct.rb_objspace, ptr %743, i32 0, i32 13
+  %745 = getelementptr inbounds %struct.anon.19, ptr %744, i32 0, i32 6
+  %746 = load i64, ptr %745, align 8
+  %747 = call i64 @rb_ull2num_inline(i64 noundef %746)
+  %748 = call i64 @rb_hash_aset(i64 noundef %740, i64 noundef %742, i64 noundef %747)
+  br label %749
 
-738:                                              ; preds = %737
-  %739 = load i64, ptr %9, align 8
-  %740 = call zeroext i1 @RB_NIL_P(i64 noundef %739) #32
-  br i1 %740, label %745, label %741
+749:                                              ; preds = %739, %736
+  br label %750
 
-741:                                              ; preds = %738
-  %742 = load i64, ptr @rb_eArgError, align 8
-  %743 = load i64, ptr %9, align 8
-  %744 = call i64 @rb_sym2str(i64 noundef %743)
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %742, ptr noundef @.str.242, i64 noundef %744) #34
+750:                                              ; preds = %749
+  %751 = load i64, ptr %9, align 8
+  %752 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 29
+  %753 = load i64, ptr %752, align 8
+  %754 = icmp eq i64 %751, %753
+  br i1 %754, label %755, label %760
+
+755:                                              ; preds = %750
+  %756 = load ptr, ptr %7, align 8
+  %757 = getelementptr inbounds %struct.rb_objspace, ptr %756, i32 0, i32 13
+  %758 = getelementptr inbounds %struct.anon.19, ptr %757, i32 0, i32 7
+  %759 = load i64, ptr %758, align 8
+  store i64 %759, ptr %5, align 8
+  br label %806
+
+760:                                              ; preds = %750
+  %761 = load i64, ptr %8, align 8
+  %762 = icmp ne i64 %761, 4
+  br i1 %762, label %763, label %773
+
+763:                                              ; preds = %760
+  %764 = load i64, ptr %8, align 8
+  %765 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 29
+  %766 = load i64, ptr %765, align 8
+  %767 = load ptr, ptr %7, align 8
+  %768 = getelementptr inbounds %struct.rb_objspace, ptr %767, i32 0, i32 13
+  %769 = getelementptr inbounds %struct.anon.19, ptr %768, i32 0, i32 7
+  %770 = load i64, ptr %769, align 8
+  %771 = call i64 @rb_ull2num_inline(i64 noundef %770)
+  %772 = call i64 @rb_hash_aset(i64 noundef %764, i64 noundef %766, i64 noundef %771)
+  br label %773
+
+773:                                              ; preds = %763, %760
+  br label %774
+
+774:                                              ; preds = %773
+  %775 = load i64, ptr %9, align 8
+  %776 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 30
+  %777 = load i64, ptr %776, align 16
+  %778 = icmp eq i64 %775, %777
+  br i1 %778, label %779, label %784
+
+779:                                              ; preds = %774
+  %780 = load ptr, ptr %7, align 8
+  %781 = getelementptr inbounds %struct.rb_objspace, ptr %780, i32 0, i32 13
+  %782 = getelementptr inbounds %struct.anon.19, ptr %781, i32 0, i32 8
+  %783 = load i64, ptr %782, align 8
+  store i64 %783, ptr %5, align 8
+  br label %806
+
+784:                                              ; preds = %774
+  %785 = load i64, ptr %8, align 8
+  %786 = icmp ne i64 %785, 4
+  br i1 %786, label %787, label %797
+
+787:                                              ; preds = %784
+  %788 = load i64, ptr %8, align 8
+  %789 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 30
+  %790 = load i64, ptr %789, align 16
+  %791 = load ptr, ptr %7, align 8
+  %792 = getelementptr inbounds %struct.rb_objspace, ptr %791, i32 0, i32 13
+  %793 = getelementptr inbounds %struct.anon.19, ptr %792, i32 0, i32 8
+  %794 = load i64, ptr %793, align 8
+  %795 = call i64 @rb_ull2num_inline(i64 noundef %794)
+  %796 = call i64 @rb_hash_aset(i64 noundef %788, i64 noundef %790, i64 noundef %795)
+  br label %797
+
+797:                                              ; preds = %787, %784
+  br label %798
+
+798:                                              ; preds = %797
+  %799 = load i64, ptr %9, align 8
+  %800 = call zeroext i1 @RB_NIL_P(i64 noundef %799) #32
+  br i1 %800, label %805, label %801
+
+801:                                              ; preds = %798
+  %802 = load i64, ptr @rb_eArgError, align 8
+  %803 = load i64, ptr %9, align 8
+  %804 = call i64 @rb_sym2str(i64 noundef %803)
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %802, ptr noundef @.str.242, i64 noundef %804) #34
   unreachable
 
-745:                                              ; preds = %738
+805:                                              ; preds = %798
   store i64 0, ptr %5, align 8
-  br label %746
+  br label %806
 
-746:                                              ; preds = %745, %720, %698, %676, %654, %632, %610, %588, %566, %544, %522, %500, %478, %456, %438, %420, %402, %384, %366, %348, %328, %306, %288, %270, %252, %234, %212, %190, %166, %142, %108, %86
-  %747 = load i64, ptr %5, align 8
-  ret i64 %747
+806:                                              ; preds = %805, %779, %755, %731, %707, %683, %659, %635, %611, %587, %563, %539, %515, %491, %471, %451, %431, %411, %391, %371, %349, %325, %305, %285, %265, %245, %221, %197, %171, %145, %109, %86
+  %807 = load i64, ptr %5, align 8
+  ret i64 %807
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -12201,65 +12265,86 @@ define hidden void @ruby_gc_set_params() #0 {
   %3 = getelementptr inbounds %struct.rb_vm_struct, ptr %2, i32 0, i32 33
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8
-  %5 = call i32 @get_envparam_size(ptr noundef @.str.20, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 1), i64 noundef 0)
-  %6 = icmp ne i32 %5, 0
-  br i1 %6, label %7, label %8
+  %5 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 1
+  %6 = call i32 @get_envparam_size(ptr noundef @.str.20, ptr noundef %5, i64 noundef 0)
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %0
-  br label %8
+8:                                                ; preds = %0
+  br label %9
 
-8:                                                ; preds = %7, %0
-  %9 = load ptr, ptr %1, align 8
-  call void @gc_set_initial_pages(ptr noundef %9)
-  %10 = call i32 @get_envparam_double(ptr noundef @.str.21, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 2), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
-  %11 = call i32 @get_envparam_size(ptr noundef @.str.22, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 3), i64 noundef 0)
-  %12 = call i32 @get_envparam_double(ptr noundef @.str.23, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 4), double noundef 0.000000e+00, double noundef 1.000000e+00, i32 noundef 0)
-  %13 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 4), align 8
-  %14 = call i32 @get_envparam_double(ptr noundef @.str.24, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 6), double noundef %13, double noundef 1.000000e+00, i32 noundef 0)
-  %15 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 4), align 8
-  %16 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 6), align 8
-  %17 = call i32 @get_envparam_double(ptr noundef @.str.25, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 5), double noundef %15, double noundef %16, i32 noundef 1)
-  %18 = call i32 @get_envparam_double(ptr noundef @.str.26, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 8), double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 1)
-  %19 = call i32 @get_envparam_double(ptr noundef @.str.27, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 7), double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 1)
-  %20 = call i32 @get_envparam_size(ptr noundef @.str.28, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 9), i64 noundef 0)
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %27
+9:                                                ; preds = %8, %0
+  %10 = load ptr, ptr %1, align 8
+  call void @gc_set_initial_pages(ptr noundef %10)
+  %11 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 2
+  %12 = call i32 @get_envparam_double(ptr noundef @.str.21, ptr noundef %11, double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
+  %13 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 3
+  %14 = call i32 @get_envparam_size(ptr noundef @.str.22, ptr noundef %13, i64 noundef 0)
+  %15 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 4
+  %16 = call i32 @get_envparam_double(ptr noundef @.str.23, ptr noundef %15, double noundef 0.000000e+00, double noundef 1.000000e+00, i32 noundef 0)
+  %17 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 4
+  %18 = load double, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 6
+  %20 = call i32 @get_envparam_double(ptr noundef @.str.24, ptr noundef %19, double noundef %18, double noundef 1.000000e+00, i32 noundef 0)
+  %21 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 4
+  %22 = load double, ptr %21, align 8
+  %23 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 6
+  %24 = load double, ptr %23, align 8
+  %25 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 5
+  %26 = call i32 @get_envparam_double(ptr noundef @.str.25, ptr noundef %25, double noundef %22, double noundef %24, i32 noundef 1)
+  %27 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 8
+  %28 = call i32 @get_envparam_double(ptr noundef @.str.26, ptr noundef %27, double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 1)
+  %29 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 7
+  %30 = call i32 @get_envparam_double(ptr noundef @.str.27, ptr noundef %29, double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 1)
+  %31 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 9
+  %32 = call i32 @get_envparam_size(ptr noundef @.str.28, ptr noundef %31, i64 noundef 0)
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %40
 
-22:                                               ; preds = %8
-  %23 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 9), align 8
-  %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %struct.rb_objspace, ptr %24, i32 0, i32 0
-  %26 = getelementptr inbounds %struct.anon.15, ptr %25, i32 0, i32 0
-  store i64 %23, ptr %26, align 8
-  br label %27
+34:                                               ; preds = %9
+  %35 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 9
+  %36 = load i64, ptr %35, align 8
+  %37 = load ptr, ptr %1, align 8
+  %38 = getelementptr inbounds %struct.rb_objspace, ptr %37, i32 0, i32 0
+  %39 = getelementptr inbounds %struct.anon.15, ptr %38, i32 0, i32 0
+  store i64 %36, ptr %39, align 8
+  br label %40
 
-27:                                               ; preds = %22, %8
-  %28 = call i32 @get_envparam_size(ptr noundef @.str.29, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 10), i64 noundef 0)
-  %29 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 10), align 8
-  %30 = icmp ne i64 %29, 0
-  br i1 %30, label %32, label %31
+40:                                               ; preds = %34, %9
+  %41 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 10
+  %42 = call i32 @get_envparam_size(ptr noundef @.str.29, ptr noundef %41, i64 noundef 0)
+  %43 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 10
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp ne i64 %44, 0
+  br i1 %45, label %48, label %46
 
-31:                                               ; preds = %27
-  store i64 -1, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 10), align 8
-  br label %32
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 10
+  store i64 -1, ptr %47, align 8
+  br label %48
 
-32:                                               ; preds = %31, %27
-  %33 = call i32 @get_envparam_double(ptr noundef @.str.30, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 11), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
-  %34 = call i32 @get_envparam_size(ptr noundef @.str.31, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 12), i64 noundef 0)
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %41
+48:                                               ; preds = %46, %40
+  %49 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 11
+  %50 = call i32 @get_envparam_double(ptr noundef @.str.30, ptr noundef %49, double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
+  %51 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 12
+  %52 = call i32 @get_envparam_size(ptr noundef @.str.31, ptr noundef %51, i64 noundef 0)
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %60
 
-36:                                               ; preds = %32
-  %37 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 12), align 8
-  %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds %struct.rb_objspace, ptr %38, i32 0, i32 13
-  %40 = getelementptr inbounds %struct.anon.19, ptr %39, i32 0, i32 8
-  store i64 %37, ptr %40, align 8
-  br label %41
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 12
+  %56 = load i64, ptr %55, align 8
+  %57 = load ptr, ptr %1, align 8
+  %58 = getelementptr inbounds %struct.rb_objspace, ptr %57, i32 0, i32 13
+  %59 = getelementptr inbounds %struct.anon.19, ptr %58, i32 0, i32 8
+  store i64 %56, ptr %59, align 8
+  br label %60
 
-41:                                               ; preds = %36, %32
-  %42 = call i32 @get_envparam_size(ptr noundef @.str.32, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 13), i64 noundef 0)
-  %43 = call i32 @get_envparam_double(ptr noundef @.str.33, ptr noundef getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 14), double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
+60:                                               ; preds = %54, %48
+  %61 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 13
+  %62 = call i32 @get_envparam_size(ptr noundef @.str.32, ptr noundef %61, i64 noundef 0)
+  %63 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 14
+  %64 = call i32 @get_envparam_double(ptr noundef @.str.33, ptr noundef %63, double noundef 1.000000e+00, double noundef 0.000000e+00, i32 noundef 0)
   ret void
 }
 
@@ -19340,7 +19425,7 @@ define internal void @gc_raise(i64 noundef %0, ptr noundef %1, ...) #13 {
   store i64 %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %7)
+  call void @llvm.va_start.p0(ptr %7)
   %8 = getelementptr inbounds %struct.gc_raise_tag, ptr %6, i32 0, i32 0
   %9 = load i64, ptr %3, align 8
   store i64 %9, ptr %8, align 8
@@ -19380,16 +19465,13 @@ define internal void @gc_raise(i64 noundef %0, ptr noundef %1, ...) #13 {
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %31)
+  call void @llvm.va_end.p0(ptr %31)
   call void @abort() #29
   unreachable
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #17
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #18
 
 declare i32 @ruby_thread_has_gvl_p() #2
 
@@ -19420,9 +19502,6 @@ declare ptr @rb_thread_call_with_gvl(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
 declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #18
 
 ; Function Attrs: noreturn nounwind
 declare void @abort() #12
@@ -19517,7 +19596,7 @@ define internal { i8, i64 } @size_add_overflow(i64 noundef %0, i64 noundef %1) #
 declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #17
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #19
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #18
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal nonnull ptr @ruby_nonempty_memcpy(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #8 {
@@ -19551,7 +19630,7 @@ define internal nonnull ptr @ruby_nonempty_memcpy(ptr noundef nonnull %0, ptr no
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #20
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @heap_page_body_free(ptr noundef %0) #0 {
@@ -21059,305 +21138,312 @@ define internal void @gc_marks_finish(ptr noundef %0) #0 {
   store i64 %60, ptr %5, align 8
   %61 = load i64, ptr %4, align 8
   %62 = uitofp i64 %61 to double
-  %63 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 6), align 8
-  %64 = fmul double %62, %63
-  %65 = fptoui double %64 to i64
-  store i64 %65, ptr %6, align 8
-  %66 = load i64, ptr %4, align 8
-  %67 = uitofp i64 %66 to double
-  %68 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 4), align 8
-  %69 = fmul double %67, %68
-  %70 = fptoui double %69 to i64
-  store i64 %70, ptr %7, align 8
-  %71 = load ptr, ptr %2, align 8
-  %72 = getelementptr inbounds %struct.rb_objspace, ptr %71, i32 0, i32 1
-  %73 = load i16, ptr %72, align 8
-  %74 = lshr i16 %73, 10
-  %75 = and i16 %74, 1
-  %76 = zext i16 %75 to i32
-  %77 = icmp eq i32 %76, 0
-  %78 = zext i1 %77 to i32
-  store i32 %78, ptr %8, align 4
-  %79 = call ptr @rb_current_vm()
-  %80 = getelementptr inbounds %struct.rb_vm_struct, ptr %79, i32 0, i32 1
-  %81 = getelementptr inbounds %struct.anon.3, ptr %80, i32 0, i32 1
-  %82 = load i32, ptr %81, align 8
-  store i32 %82, ptr %9, align 4
-  %83 = load i32, ptr %9, align 4
-  %84 = icmp sgt i32 %83, 8
-  br i1 %84, label %85, label %86
+  %63 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 6
+  %64 = load double, ptr %63, align 8
+  %65 = fmul double %62, %64
+  %66 = fptoui double %65 to i64
+  store i64 %66, ptr %6, align 8
+  %67 = load i64, ptr %4, align 8
+  %68 = uitofp i64 %67 to double
+  %69 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 4
+  %70 = load double, ptr %69, align 8
+  %71 = fmul double %68, %70
+  %72 = fptoui double %71 to i64
+  store i64 %72, ptr %7, align 8
+  %73 = load ptr, ptr %2, align 8
+  %74 = getelementptr inbounds %struct.rb_objspace, ptr %73, i32 0, i32 1
+  %75 = load i16, ptr %74, align 8
+  %76 = lshr i16 %75, 10
+  %77 = and i16 %76, 1
+  %78 = zext i16 %77 to i32
+  %79 = icmp eq i32 %78, 0
+  %80 = zext i1 %79 to i32
+  store i32 %80, ptr %8, align 4
+  %81 = call ptr @rb_current_vm()
+  %82 = getelementptr inbounds %struct.rb_vm_struct, ptr %81, i32 0, i32 1
+  %83 = getelementptr inbounds %struct.anon.3, ptr %82, i32 0, i32 1
+  %84 = load i32, ptr %83, align 8
+  store i32 %84, ptr %9, align 4
+  %85 = load i32, ptr %9, align 4
+  %86 = icmp sgt i32 %85, 8
+  br i1 %86, label %87, label %88
 
-85:                                               ; preds = %49
-  br label %88
-
-86:                                               ; preds = %49
-  %87 = load i32, ptr %9, align 4
-  br label %88
-
-88:                                               ; preds = %86, %85
-  %89 = phi i32 [ 8, %85 ], [ %87, %86 ]
-  store i32 %89, ptr %10, align 4
-  store i64 0, ptr %11, align 8
-  store i32 0, ptr %12, align 4
+87:                                               ; preds = %49
   br label %90
 
-90:                                               ; preds = %103, %88
-  %91 = load i32, ptr %12, align 4
-  %92 = icmp slt i32 %91, 5
-  br i1 %92, label %93, label %106
+88:                                               ; preds = %49
+  %89 = load i32, ptr %9, align 4
+  br label %90
 
-93:                                               ; preds = %90
-  %94 = load i32, ptr %12, align 4
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr [5 x i64], ptr @gc_params, i64 0, i64 %95
-  %97 = load i64, ptr %96, align 8
-  %98 = load i32, ptr %10, align 4
-  %99 = sext i32 %98 to i64
-  %100 = mul i64 %97, %99
-  %101 = load i64, ptr %11, align 8
-  %102 = add i64 %101, %100
-  store i64 %102, ptr %11, align 8
-  br label %103
+90:                                               ; preds = %88, %87
+  %91 = phi i32 [ 8, %87 ], [ %89, %88 ]
+  store i32 %91, ptr %10, align 4
+  store i64 0, ptr %11, align 8
+  store i32 0, ptr %12, align 4
+  br label %92
 
-103:                                              ; preds = %93
-  %104 = load i32, ptr %12, align 4
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %12, align 4
-  br label %90, !llvm.loop !71
+92:                                               ; preds = %105, %90
+  %93 = load i32, ptr %12, align 4
+  %94 = icmp slt i32 %93, 5
+  br i1 %94, label %95, label %108
 
-106:                                              ; preds = %90
-  %107 = load i64, ptr %6, align 8
-  %108 = load i64, ptr %11, align 8
-  %109 = icmp ult i64 %107, %108
-  br i1 %109, label %110, label %112
+95:                                               ; preds = %92
+  %96 = load i32, ptr %12, align 4
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr [5 x i64], ptr @gc_params, i64 0, i64 %97
+  %99 = load i64, ptr %98, align 8
+  %100 = load i32, ptr %10, align 4
+  %101 = sext i32 %100 to i64
+  %102 = mul i64 %99, %101
+  %103 = load i64, ptr %11, align 8
+  %104 = add i64 %103, %102
+  store i64 %104, ptr %11, align 8
+  br label %105
 
-110:                                              ; preds = %106
-  %111 = load i64, ptr %11, align 8
-  store i64 %111, ptr %6, align 8
-  br label %112
+105:                                              ; preds = %95
+  %106 = load i32, ptr %12, align 4
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %12, align 4
+  br label %92, !llvm.loop !71
 
-112:                                              ; preds = %110, %106
-  %113 = load i64, ptr %5, align 8
-  %114 = load i64, ptr %6, align 8
-  %115 = icmp ugt i64 %113, %114
-  br i1 %115, label %116, label %124
+108:                                              ; preds = %92
+  %109 = load i64, ptr %6, align 8
+  %110 = load i64, ptr %11, align 8
+  %111 = icmp ult i64 %109, %110
+  br i1 %111, label %112, label %114
 
-116:                                              ; preds = %112
-  %117 = load i64, ptr %5, align 8
-  %118 = load i64, ptr %6, align 8
-  %119 = sub i64 %117, %118
-  %120 = udiv i64 %119, 1638
-  %121 = load ptr, ptr %2, align 8
-  %122 = getelementptr inbounds %struct.rb_objspace, ptr %121, i32 0, i32 8
-  %123 = getelementptr inbounds %struct.anon.17, ptr %122, i32 0, i32 5
-  store i64 %120, ptr %123, align 8
-  br label %128
+112:                                              ; preds = %108
+  %113 = load i64, ptr %11, align 8
+  store i64 %113, ptr %6, align 8
+  br label %114
 
-124:                                              ; preds = %112
-  %125 = load ptr, ptr %2, align 8
-  %126 = getelementptr inbounds %struct.rb_objspace, ptr %125, i32 0, i32 8
-  %127 = getelementptr inbounds %struct.anon.17, ptr %126, i32 0, i32 5
-  store i64 0, ptr %127, align 8
-  br label %128
+114:                                              ; preds = %112, %108
+  %115 = load i64, ptr %5, align 8
+  %116 = load i64, ptr %6, align 8
+  %117 = icmp ugt i64 %115, %116
+  br i1 %117, label %118, label %126
 
-128:                                              ; preds = %124, %116
-  %129 = load i64, ptr %7, align 8
-  %130 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 1), align 8
-  %131 = load i32, ptr %10, align 4
-  %132 = sext i32 %131 to i64
-  %133 = mul i64 %130, %132
-  %134 = icmp ult i64 %129, %133
-  br i1 %134, label %135, label %140
+118:                                              ; preds = %114
+  %119 = load i64, ptr %5, align 8
+  %120 = load i64, ptr %6, align 8
+  %121 = sub i64 %119, %120
+  %122 = udiv i64 %121, 1638
+  %123 = load ptr, ptr %2, align 8
+  %124 = getelementptr inbounds %struct.rb_objspace, ptr %123, i32 0, i32 8
+  %125 = getelementptr inbounds %struct.anon.17, ptr %124, i32 0, i32 5
+  store i64 %122, ptr %125, align 8
+  br label %130
 
-135:                                              ; preds = %128
-  %136 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 1), align 8
-  %137 = load i32, ptr %10, align 4
-  %138 = sext i32 %137 to i64
-  %139 = mul i64 %136, %138
-  store i64 %139, ptr %7, align 8
-  br label %140
+126:                                              ; preds = %114
+  %127 = load ptr, ptr %2, align 8
+  %128 = getelementptr inbounds %struct.rb_objspace, ptr %127, i32 0, i32 8
+  %129 = getelementptr inbounds %struct.anon.17, ptr %128, i32 0, i32 5
+  store i64 0, ptr %129, align 8
+  br label %130
 
-140:                                              ; preds = %135, %128
-  %141 = load i64, ptr %5, align 8
-  %142 = load i64, ptr %7, align 8
-  %143 = icmp ult i64 %141, %142
-  br i1 %143, label %144, label %167
+130:                                              ; preds = %126, %118
+  %131 = load i64, ptr %7, align 8
+  %132 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 1
+  %133 = load i64, ptr %132, align 8
+  %134 = load i32, ptr %10, align 4
+  %135 = sext i32 %134 to i64
+  %136 = mul i64 %133, %135
+  %137 = icmp ult i64 %131, %136
+  br i1 %137, label %138, label %144
 
-144:                                              ; preds = %140
-  %145 = load i32, ptr %8, align 4
-  %146 = icmp ne i32 %145, 0
-  br i1 %146, label %166, label %147
+138:                                              ; preds = %130
+  %139 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 1
+  %140 = load i64, ptr %139, align 8
+  %141 = load i32, ptr %10, align 4
+  %142 = sext i32 %141 to i64
+  %143 = mul i64 %140, %142
+  store i64 %143, ptr %7, align 8
+  br label %144
 
-147:                                              ; preds = %144
-  %148 = load ptr, ptr %2, align 8
-  %149 = getelementptr inbounds %struct.rb_objspace, ptr %148, i32 0, i32 10
-  %150 = getelementptr inbounds %struct.anon.18, ptr %149, i32 0, i32 14
-  %151 = load i64, ptr %150, align 8
+144:                                              ; preds = %138, %130
+  %145 = load i64, ptr %5, align 8
+  %146 = load i64, ptr %7, align 8
+  %147 = icmp ult i64 %145, %146
+  br i1 %147, label %148, label %171
+
+148:                                              ; preds = %144
+  %149 = load i32, ptr %8, align 4
+  %150 = icmp ne i32 %149, 0
+  br i1 %150, label %170, label %151
+
+151:                                              ; preds = %148
   %152 = load ptr, ptr %2, align 8
-  %153 = getelementptr inbounds %struct.rb_objspace, ptr %152, i32 0, i32 13
-  %154 = getelementptr inbounds %struct.anon.19, ptr %153, i32 0, i32 2
+  %153 = getelementptr inbounds %struct.rb_objspace, ptr %152, i32 0, i32 10
+  %154 = getelementptr inbounds %struct.anon.18, ptr %153, i32 0, i32 14
   %155 = load i64, ptr %154, align 8
-  %156 = sub i64 %151, %155
-  %157 = icmp ult i64 %156, 3
-  br i1 %157, label %158, label %159
+  %156 = load ptr, ptr %2, align 8
+  %157 = getelementptr inbounds %struct.rb_objspace, ptr %156, i32 0, i32 13
+  %158 = getelementptr inbounds %struct.anon.19, ptr %157, i32 0, i32 2
+  %159 = load i64, ptr %158, align 8
+  %160 = sub i64 %155, %159
+  %161 = icmp ult i64 %160, 3
+  br i1 %161, label %162, label %163
 
-158:                                              ; preds = %147
+162:                                              ; preds = %151
   store i32 1, ptr %8, align 4
-  br label %165
+  br label %169
 
-159:                                              ; preds = %147
-  %160 = load ptr, ptr %2, align 8
-  %161 = getelementptr inbounds %struct.rb_objspace, ptr %160, i32 0, i32 13
-  %162 = getelementptr inbounds %struct.anon.19, ptr %161, i32 0, i32 1
-  %163 = load i32, ptr %162, align 8
-  %164 = or i32 %163, 1
-  store i32 %164, ptr %162, align 8
-  br label %165
+163:                                              ; preds = %151
+  %164 = load ptr, ptr %2, align 8
+  %165 = getelementptr inbounds %struct.rb_objspace, ptr %164, i32 0, i32 13
+  %166 = getelementptr inbounds %struct.anon.19, ptr %165, i32 0, i32 1
+  %167 = load i32, ptr %166, align 8
+  %168 = or i32 %167, 1
+  store i32 %168, ptr %166, align 8
+  br label %169
 
-165:                                              ; preds = %159, %158
-  br label %166
+169:                                              ; preds = %163, %162
+  br label %170
 
-166:                                              ; preds = %165, %144
-  br label %167
+170:                                              ; preds = %169, %148
+  br label %171
 
-167:                                              ; preds = %166, %140
-  %168 = load i32, ptr %8, align 4
-  %169 = icmp ne i32 %168, 0
-  br i1 %169, label %170, label %223
+171:                                              ; preds = %170, %144
+  %172 = load i32, ptr %8, align 4
+  %173 = icmp ne i32 %172, 0
+  br i1 %173, label %174, label %230
 
-170:                                              ; preds = %167
-  %171 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 8), align 8
-  store double %171, ptr %13, align 8
-  %172 = load ptr, ptr %2, align 8
-  %173 = getelementptr inbounds %struct.rb_objspace, ptr %172, i32 0, i32 13
-  %174 = getelementptr inbounds %struct.anon.19, ptr %173, i32 0, i32 3
-  %175 = load i64, ptr %174, align 8
-  %176 = uitofp i64 %175 to double
-  %177 = load double, ptr %13, align 8
-  %178 = fmul double %176, %177
-  %179 = fptoui double %178 to i64
-  %180 = load ptr, ptr %2, align 8
-  %181 = getelementptr inbounds %struct.rb_objspace, ptr %180, i32 0, i32 13
-  %182 = getelementptr inbounds %struct.anon.19, ptr %181, i32 0, i32 5
-  %183 = load i64, ptr %182, align 8
-  %184 = uitofp i64 %183 to double
-  %185 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 7), align 8
-  %186 = fmul double %184, %185
-  %187 = fptoui double %186 to i64
-  %188 = icmp ult i64 %179, %187
-  br i1 %188, label %189, label %198
+174:                                              ; preds = %171
+  %175 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 8
+  %176 = load double, ptr %175, align 8
+  store double %176, ptr %13, align 8
+  %177 = load ptr, ptr %2, align 8
+  %178 = getelementptr inbounds %struct.rb_objspace, ptr %177, i32 0, i32 13
+  %179 = getelementptr inbounds %struct.anon.19, ptr %178, i32 0, i32 3
+  %180 = load i64, ptr %179, align 8
+  %181 = uitofp i64 %180 to double
+  %182 = load double, ptr %13, align 8
+  %183 = fmul double %181, %182
+  %184 = fptoui double %183 to i64
+  %185 = load ptr, ptr %2, align 8
+  %186 = getelementptr inbounds %struct.rb_objspace, ptr %185, i32 0, i32 13
+  %187 = getelementptr inbounds %struct.anon.19, ptr %186, i32 0, i32 5
+  %188 = load i64, ptr %187, align 8
+  %189 = uitofp i64 %188 to double
+  %190 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 7
+  %191 = load double, ptr %190, align 8
+  %192 = fmul double %189, %191
+  %193 = fptoui double %192 to i64
+  %194 = icmp ult i64 %184, %193
+  br i1 %194, label %195, label %205
 
-189:                                              ; preds = %170
-  %190 = load ptr, ptr %2, align 8
-  %191 = getelementptr inbounds %struct.rb_objspace, ptr %190, i32 0, i32 13
-  %192 = getelementptr inbounds %struct.anon.19, ptr %191, i32 0, i32 5
-  %193 = load i64, ptr %192, align 8
-  %194 = uitofp i64 %193 to double
-  %195 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 7), align 8
-  %196 = fmul double %194, %195
-  %197 = fptoui double %196 to i64
-  br label %207
+195:                                              ; preds = %174
+  %196 = load ptr, ptr %2, align 8
+  %197 = getelementptr inbounds %struct.rb_objspace, ptr %196, i32 0, i32 13
+  %198 = getelementptr inbounds %struct.anon.19, ptr %197, i32 0, i32 5
+  %199 = load i64, ptr %198, align 8
+  %200 = uitofp i64 %199 to double
+  %201 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 7
+  %202 = load double, ptr %201, align 8
+  %203 = fmul double %200, %202
+  %204 = fptoui double %203 to i64
+  br label %214
 
-198:                                              ; preds = %170
-  %199 = load ptr, ptr %2, align 8
-  %200 = getelementptr inbounds %struct.rb_objspace, ptr %199, i32 0, i32 13
-  %201 = getelementptr inbounds %struct.anon.19, ptr %200, i32 0, i32 3
-  %202 = load i64, ptr %201, align 8
-  %203 = uitofp i64 %202 to double
-  %204 = load double, ptr %13, align 8
-  %205 = fmul double %203, %204
-  %206 = fptoui double %205 to i64
-  br label %207
+205:                                              ; preds = %174
+  %206 = load ptr, ptr %2, align 8
+  %207 = getelementptr inbounds %struct.rb_objspace, ptr %206, i32 0, i32 13
+  %208 = getelementptr inbounds %struct.anon.19, ptr %207, i32 0, i32 3
+  %209 = load i64, ptr %208, align 8
+  %210 = uitofp i64 %209 to double
+  %211 = load double, ptr %13, align 8
+  %212 = fmul double %210, %211
+  %213 = fptoui double %212 to i64
+  br label %214
 
-207:                                              ; preds = %198, %189
-  %208 = phi i64 [ %197, %189 ], [ %206, %198 ]
-  %209 = load ptr, ptr %2, align 8
-  %210 = getelementptr inbounds %struct.rb_objspace, ptr %209, i32 0, i32 13
-  %211 = getelementptr inbounds %struct.anon.19, ptr %210, i32 0, i32 4
-  store i64 %208, ptr %211, align 8
-  %212 = load ptr, ptr %2, align 8
-  %213 = getelementptr inbounds %struct.rb_objspace, ptr %212, i32 0, i32 13
-  %214 = getelementptr inbounds %struct.anon.19, ptr %213, i32 0, i32 5
-  %215 = load i64, ptr %214, align 8
-  %216 = uitofp i64 %215 to double
-  %217 = load double, ptr %13, align 8
-  %218 = fmul double %216, %217
-  %219 = fptoui double %218 to i64
-  %220 = load ptr, ptr %2, align 8
-  %221 = getelementptr inbounds %struct.rb_objspace, ptr %220, i32 0, i32 13
-  %222 = getelementptr inbounds %struct.anon.19, ptr %221, i32 0, i32 6
-  store i64 %219, ptr %222, align 8
-  br label %223
+214:                                              ; preds = %205, %195
+  %215 = phi i64 [ %204, %195 ], [ %213, %205 ]
+  %216 = load ptr, ptr %2, align 8
+  %217 = getelementptr inbounds %struct.rb_objspace, ptr %216, i32 0, i32 13
+  %218 = getelementptr inbounds %struct.anon.19, ptr %217, i32 0, i32 4
+  store i64 %215, ptr %218, align 8
+  %219 = load ptr, ptr %2, align 8
+  %220 = getelementptr inbounds %struct.rb_objspace, ptr %219, i32 0, i32 13
+  %221 = getelementptr inbounds %struct.anon.19, ptr %220, i32 0, i32 5
+  %222 = load i64, ptr %221, align 8
+  %223 = uitofp i64 %222 to double
+  %224 = load double, ptr %13, align 8
+  %225 = fmul double %223, %224
+  %226 = fptoui double %225 to i64
+  %227 = load ptr, ptr %2, align 8
+  %228 = getelementptr inbounds %struct.rb_objspace, ptr %227, i32 0, i32 13
+  %229 = getelementptr inbounds %struct.anon.19, ptr %228, i32 0, i32 6
+  store i64 %226, ptr %229, align 8
+  br label %230
 
-223:                                              ; preds = %207, %167
-  %224 = load ptr, ptr %2, align 8
-  %225 = getelementptr inbounds %struct.rb_objspace, ptr %224, i32 0, i32 13
-  %226 = getelementptr inbounds %struct.anon.19, ptr %225, i32 0, i32 3
-  %227 = load i64, ptr %226, align 8
-  %228 = load ptr, ptr %2, align 8
-  %229 = getelementptr inbounds %struct.rb_objspace, ptr %228, i32 0, i32 13
-  %230 = getelementptr inbounds %struct.anon.19, ptr %229, i32 0, i32 4
-  %231 = load i64, ptr %230, align 8
-  %232 = icmp ugt i64 %227, %231
-  br i1 %232, label %233, label %239
+230:                                              ; preds = %214, %171
+  %231 = load ptr, ptr %2, align 8
+  %232 = getelementptr inbounds %struct.rb_objspace, ptr %231, i32 0, i32 13
+  %233 = getelementptr inbounds %struct.anon.19, ptr %232, i32 0, i32 3
+  %234 = load i64, ptr %233, align 8
+  %235 = load ptr, ptr %2, align 8
+  %236 = getelementptr inbounds %struct.rb_objspace, ptr %235, i32 0, i32 13
+  %237 = getelementptr inbounds %struct.anon.19, ptr %236, i32 0, i32 4
+  %238 = load i64, ptr %237, align 8
+  %239 = icmp ugt i64 %234, %238
+  br i1 %239, label %240, label %246
 
-233:                                              ; preds = %223
-  %234 = load ptr, ptr %2, align 8
-  %235 = getelementptr inbounds %struct.rb_objspace, ptr %234, i32 0, i32 13
-  %236 = getelementptr inbounds %struct.anon.19, ptr %235, i32 0, i32 1
-  %237 = load i32, ptr %236, align 8
-  %238 = or i32 %237, 4
-  store i32 %238, ptr %236, align 8
-  br label %239
+240:                                              ; preds = %230
+  %241 = load ptr, ptr %2, align 8
+  %242 = getelementptr inbounds %struct.rb_objspace, ptr %241, i32 0, i32 13
+  %243 = getelementptr inbounds %struct.anon.19, ptr %242, i32 0, i32 1
+  %244 = load i32, ptr %243, align 8
+  %245 = or i32 %244, 4
+  store i32 %245, ptr %243, align 8
+  br label %246
 
-239:                                              ; preds = %233, %223
-  %240 = load ptr, ptr %2, align 8
-  %241 = getelementptr inbounds %struct.rb_objspace, ptr %240, i32 0, i32 13
-  %242 = getelementptr inbounds %struct.anon.19, ptr %241, i32 0, i32 5
-  %243 = load i64, ptr %242, align 8
-  %244 = load ptr, ptr %2, align 8
-  %245 = getelementptr inbounds %struct.rb_objspace, ptr %244, i32 0, i32 13
-  %246 = getelementptr inbounds %struct.anon.19, ptr %245, i32 0, i32 6
-  %247 = load i64, ptr %246, align 8
-  %248 = icmp ugt i64 %243, %247
-  br i1 %248, label %249, label %255
+246:                                              ; preds = %240, %230
+  %247 = load ptr, ptr %2, align 8
+  %248 = getelementptr inbounds %struct.rb_objspace, ptr %247, i32 0, i32 13
+  %249 = getelementptr inbounds %struct.anon.19, ptr %248, i32 0, i32 5
+  %250 = load i64, ptr %249, align 8
+  %251 = load ptr, ptr %2, align 8
+  %252 = getelementptr inbounds %struct.rb_objspace, ptr %251, i32 0, i32 13
+  %253 = getelementptr inbounds %struct.anon.19, ptr %252, i32 0, i32 6
+  %254 = load i64, ptr %253, align 8
+  %255 = icmp ugt i64 %250, %254
+  br i1 %255, label %256, label %262
 
-249:                                              ; preds = %239
-  %250 = load ptr, ptr %2, align 8
-  %251 = getelementptr inbounds %struct.rb_objspace, ptr %250, i32 0, i32 13
-  %252 = getelementptr inbounds %struct.anon.19, ptr %251, i32 0, i32 1
-  %253 = load i32, ptr %252, align 8
-  %254 = or i32 %253, 2
-  store i32 %254, ptr %252, align 8
-  br label %255
-
-255:                                              ; preds = %249, %239
-  call void @rb_ractor_finish_marking()
-  br label %256
-
-256:                                              ; preds = %255
+256:                                              ; preds = %246
   %257 = load ptr, ptr %2, align 8
-  %258 = getelementptr inbounds %struct.rb_objspace, ptr %257, i32 0, i32 2
-  %259 = load i32, ptr %258, align 4
-  %260 = and i32 %259, 8388608
-  %261 = icmp ne i32 %260, 0
-  %262 = xor i1 %261, true
-  %263 = xor i1 %262, true
-  %264 = zext i1 %263 to i32
-  %265 = sext i32 %264 to i64
-  %266 = icmp ne i64 %265, 0
-  br i1 %266, label %267, label %270
+  %258 = getelementptr inbounds %struct.rb_objspace, ptr %257, i32 0, i32 13
+  %259 = getelementptr inbounds %struct.anon.19, ptr %258, i32 0, i32 1
+  %260 = load i32, ptr %259, align 8
+  %261 = or i32 %260, 2
+  store i32 %261, ptr %259, align 8
+  br label %262
 
-267:                                              ; preds = %256
-  %268 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
-  %269 = load ptr, ptr %2, align 8
-  call void @gc_event_hook_body(ptr noundef %268, ptr noundef %269, i32 noundef 8388608, i64 noundef 0)
-  br label %270
+262:                                              ; preds = %256, %246
+  call void @rb_ractor_finish_marking()
+  br label %263
 
-270:                                              ; preds = %267, %256
-  br label %271
+263:                                              ; preds = %262
+  %264 = load ptr, ptr %2, align 8
+  %265 = getelementptr inbounds %struct.rb_objspace, ptr %264, i32 0, i32 2
+  %266 = load i32, ptr %265, align 4
+  %267 = and i32 %266, 8388608
+  %268 = icmp ne i32 %267, 0
+  %269 = xor i1 %268, true
+  %270 = xor i1 %269, true
+  %271 = zext i1 %270 to i32
+  %272 = sext i32 %271 to i64
+  %273 = icmp ne i64 %272, 0
+  br i1 %273, label %274, label %277
 
-271:                                              ; preds = %270
+274:                                              ; preds = %263
+  %275 = call ptr @rb_current_execution_context(i1 noundef zeroext true)
+  %276 = load ptr, ptr %2, align 8
+  call void @gc_event_hook_body(ptr noundef %275, ptr noundef %276, i32 noundef 8388608, i64 noundef 0)
+  br label %277
+
+277:                                              ; preds = %274, %263
+  br label %278
+
+278:                                              ; preds = %277
   ret void
 }
 
@@ -22396,10 +22482,10 @@ define internal i32 @pin_value(i64 noundef %0, i64 noundef %1, i64 noundef %2) #
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.frameaddress.p0(i32 immarg) #21
+declare ptr @llvm.frameaddress.p0(i32 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #18
+declare ptr @llvm.stacksave.p0() #21
 
 ; Function Attrs: nounwind
 declare i32 @llvm.eh.sjlj.setjmp(ptr) #22
@@ -23687,182 +23773,183 @@ define internal void @gc_sweep_finish_size_pool(ptr noundef %0, ptr noundef %1) 
 57:                                               ; preds = %55, %53
   %58 = phi i64 [ %54, %53 ], [ %56, %55 ]
   %59 = uitofp i64 %58 to double
-  %60 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 4), align 8
-  %61 = fmul double %59, %60
-  %62 = fptoui double %61 to i64
-  store i64 %62, ptr %10, align 8
-  br label %63
+  %60 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 4
+  %61 = load double, ptr %60, align 8
+  %62 = fmul double %59, %61
+  %63 = fptoui double %62 to i64
+  store i64 %63, ptr %10, align 8
+  br label %64
 
-63:                                               ; preds = %74, %57
-  %64 = load i64, ptr %8, align 8
-  %65 = load i64, ptr %10, align 8
-  %66 = icmp ult i64 %64, %65
-  br i1 %66, label %67, label %72
+64:                                               ; preds = %75, %57
+  %65 = load i64, ptr %8, align 8
+  %66 = load i64, ptr %10, align 8
+  %67 = icmp ult i64 %65, %66
+  br i1 %67, label %68, label %73
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %3, align 8
-  %69 = load ptr, ptr %4, align 8
-  %70 = call ptr @heap_page_resurrect(ptr noundef %68, ptr noundef %69)
-  store ptr %70, ptr %11, align 8
-  %71 = icmp ne ptr %70, null
-  br label %72
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %3, align 8
+  %70 = load ptr, ptr %4, align 8
+  %71 = call ptr @heap_page_resurrect(ptr noundef %69, ptr noundef %70)
+  store ptr %71, ptr %11, align 8
+  %72 = icmp ne ptr %71, null
+  br label %73
 
-72:                                               ; preds = %67, %63
-  %73 = phi i1 [ false, %63 ], [ %71, %67 ]
-  br i1 %73, label %74, label %87
+73:                                               ; preds = %68, %64
+  %74 = phi i1 [ false, %64 ], [ %72, %68 ]
+  br i1 %74, label %75, label %88
 
-74:                                               ; preds = %72
-  %75 = load ptr, ptr %11, align 8
-  %76 = getelementptr inbounds %struct.heap_page, ptr %75, i32 0, i32 2
-  %77 = load i16, ptr %76, align 4
-  %78 = sext i16 %77 to i64
-  %79 = load i64, ptr %8, align 8
-  %80 = add i64 %79, %78
-  store i64 %80, ptr %8, align 8
-  %81 = load ptr, ptr %3, align 8
-  %82 = load ptr, ptr %4, align 8
-  %83 = load ptr, ptr %5, align 8
-  %84 = load ptr, ptr %11, align 8
-  call void @heap_add_page(ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84)
-  %85 = load ptr, ptr %5, align 8
-  %86 = load ptr, ptr %11, align 8
-  call void @heap_add_freepage(ptr noundef %85, ptr noundef %86)
-  br label %63, !llvm.loop !94
+75:                                               ; preds = %73
+  %76 = load ptr, ptr %11, align 8
+  %77 = getelementptr inbounds %struct.heap_page, ptr %76, i32 0, i32 2
+  %78 = load i16, ptr %77, align 4
+  %79 = sext i16 %78 to i64
+  %80 = load i64, ptr %8, align 8
+  %81 = add i64 %80, %79
+  store i64 %81, ptr %8, align 8
+  %82 = load ptr, ptr %3, align 8
+  %83 = load ptr, ptr %4, align 8
+  %84 = load ptr, ptr %5, align 8
+  %85 = load ptr, ptr %11, align 8
+  call void @heap_add_page(ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85)
+  %86 = load ptr, ptr %5, align 8
+  %87 = load ptr, ptr %11, align 8
+  call void @heap_add_freepage(ptr noundef %86, ptr noundef %87)
+  br label %64, !llvm.loop !94
 
-87:                                               ; preds = %72
-  %88 = load i64, ptr %8, align 8
-  %89 = load i64, ptr %10, align 8
-  %90 = icmp ult i64 %88, %89
-  br i1 %90, label %91, label %179
+88:                                               ; preds = %73
+  %89 = load i64, ptr %8, align 8
+  %90 = load i64, ptr %10, align 8
+  %91 = icmp ult i64 %89, %90
+  br i1 %91, label %92, label %180
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr %3, align 8
-  %93 = getelementptr inbounds %struct.rb_objspace, ptr %92, i32 0, i32 1
-  %94 = load i16, ptr %93, align 8
-  %95 = lshr i16 %94, 10
-  %96 = and i16 %95, 1
-  %97 = zext i16 %96 to i32
-  %98 = icmp eq i32 %97, 0
-  %99 = zext i1 %98 to i8
-  store i8 %99, ptr %12, align 1
-  %100 = load ptr, ptr %3, align 8
-  %101 = getelementptr inbounds %struct.rb_objspace, ptr %100, i32 0, i32 1
-  %102 = load i16, ptr %101, align 8
-  %103 = lshr i16 %102, 10
-  %104 = and i16 %103, 1
-  %105 = zext i16 %104 to i32
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %158, label %107
+92:                                               ; preds = %88
+  %93 = load ptr, ptr %3, align 8
+  %94 = getelementptr inbounds %struct.rb_objspace, ptr %93, i32 0, i32 1
+  %95 = load i16, ptr %94, align 8
+  %96 = lshr i16 %95, 10
+  %97 = and i16 %96, 1
+  %98 = zext i16 %97 to i32
+  %99 = icmp eq i32 %98, 0
+  %100 = zext i1 %99 to i8
+  store i8 %100, ptr %12, align 1
+  %101 = load ptr, ptr %3, align 8
+  %102 = getelementptr inbounds %struct.rb_objspace, ptr %101, i32 0, i32 1
+  %103 = load i16, ptr %102, align 8
+  %104 = lshr i16 %103, 10
+  %105 = and i16 %104, 1
+  %106 = zext i16 %105 to i32
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %159, label %108
 
-107:                                              ; preds = %91
-  %108 = load ptr, ptr %4, align 8
-  %109 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %108, i32 0, i32 1
-  %110 = load i64, ptr %109, align 8
-  %111 = icmp eq i64 %110, 0
-  br i1 %111, label %112, label %158
+108:                                              ; preds = %92
+  %109 = load ptr, ptr %4, align 8
+  %110 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %109, i32 0, i32 1
+  %111 = load i64, ptr %110, align 8
+  %112 = icmp eq i64 %111, 0
+  br i1 %112, label %113, label %159
 
-112:                                              ; preds = %107
-  %113 = load ptr, ptr %4, align 8
-  %114 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %113, i32 0, i32 9
-  %115 = load i64, ptr %114, align 8
-  %116 = icmp eq i64 %115, 0
-  br i1 %116, label %125, label %117
+113:                                              ; preds = %108
+  %114 = load ptr, ptr %4, align 8
+  %115 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %114, i32 0, i32 9
+  %116 = load i64, ptr %115, align 8
+  %117 = icmp eq i64 %116, 0
+  br i1 %117, label %126, label %118
 
-117:                                              ; preds = %112
-  %118 = load ptr, ptr %4, align 8
-  %119 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %118, i32 0, i32 8
-  %120 = load i64, ptr %119, align 8
-  %121 = load ptr, ptr %4, align 8
-  %122 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %121, i32 0, i32 9
-  %123 = load i64, ptr %122, align 8
-  %124 = icmp ugt i64 %120, %123
-  br label %125
+118:                                              ; preds = %113
+  %119 = load ptr, ptr %4, align 8
+  %120 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %119, i32 0, i32 8
+  %121 = load i64, ptr %120, align 8
+  %122 = load ptr, ptr %4, align 8
+  %123 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %122, i32 0, i32 9
+  %124 = load i64, ptr %123, align 8
+  %125 = icmp ugt i64 %121, %124
+  br label %126
 
-125:                                              ; preds = %117, %112
-  %126 = phi i1 [ true, %112 ], [ %124, %117 ]
-  %127 = zext i1 %126 to i8
-  store i8 %127, ptr %13, align 1
-  %128 = load ptr, ptr %3, align 8
-  %129 = getelementptr inbounds %struct.rb_objspace, ptr %128, i32 0, i32 10
-  %130 = getelementptr inbounds %struct.anon.18, ptr %129, i32 0, i32 14
-  %131 = load i64, ptr %130, align 8
-  %132 = load ptr, ptr %3, align 8
-  %133 = getelementptr inbounds %struct.rb_objspace, ptr %132, i32 0, i32 13
-  %134 = getelementptr inbounds %struct.anon.19, ptr %133, i32 0, i32 2
-  %135 = load i64, ptr %134, align 8
-  %136 = sub i64 %131, %135
-  %137 = icmp ult i64 %136, 3
-  br i1 %137, label %142, label %138
+126:                                              ; preds = %118, %113
+  %127 = phi i1 [ true, %113 ], [ %125, %118 ]
+  %128 = zext i1 %127 to i8
+  store i8 %128, ptr %13, align 1
+  %129 = load ptr, ptr %3, align 8
+  %130 = getelementptr inbounds %struct.rb_objspace, ptr %129, i32 0, i32 10
+  %131 = getelementptr inbounds %struct.anon.18, ptr %130, i32 0, i32 14
+  %132 = load i64, ptr %131, align 8
+  %133 = load ptr, ptr %3, align 8
+  %134 = getelementptr inbounds %struct.rb_objspace, ptr %133, i32 0, i32 13
+  %135 = getelementptr inbounds %struct.anon.19, ptr %134, i32 0, i32 2
+  %136 = load i64, ptr %135, align 8
+  %137 = sub i64 %132, %136
+  %138 = icmp ult i64 %137, 3
+  br i1 %138, label %143, label %139
 
-138:                                              ; preds = %125
-  %139 = load i64, ptr %6, align 8
-  %140 = load i64, ptr %9, align 8
-  %141 = icmp ult i64 %139, %140
-  br i1 %141, label %142, label %143
+139:                                              ; preds = %126
+  %140 = load i64, ptr %6, align 8
+  %141 = load i64, ptr %9, align 8
+  %142 = icmp ult i64 %140, %141
+  br i1 %142, label %143, label %144
 
-142:                                              ; preds = %138, %125
+143:                                              ; preds = %139, %126
   store i8 1, ptr %12, align 1
-  br label %157
-
-143:                                              ; preds = %138
-  %144 = load i8, ptr %13, align 1
-  %145 = trunc i8 %144 to i1
-  br i1 %145, label %146, label %156
-
-146:                                              ; preds = %143
-  %147 = load ptr, ptr %3, align 8
-  %148 = getelementptr inbounds %struct.rb_objspace, ptr %147, i32 0, i32 13
-  %149 = getelementptr inbounds %struct.anon.19, ptr %148, i32 0, i32 1
-  %150 = load i32, ptr %149, align 8
-  %151 = or i32 %150, 1
-  store i32 %151, ptr %149, align 8
-  %152 = load ptr, ptr %4, align 8
-  %153 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %152, i32 0, i32 4
-  %154 = load i64, ptr %153, align 8
-  %155 = add i64 %154, 1
-  store i64 %155, ptr %153, align 8
-  br label %156
-
-156:                                              ; preds = %146, %143
-  br label %157
-
-157:                                              ; preds = %156, %142
   br label %158
 
-158:                                              ; preds = %157, %107, %91
-  %159 = load i8, ptr %12, align 1
-  %160 = trunc i8 %159 to i1
-  br i1 %160, label %161, label %178
+144:                                              ; preds = %139
+  %145 = load i8, ptr %13, align 1
+  %146 = trunc i8 %145 to i1
+  br i1 %146, label %147, label %157
 
-161:                                              ; preds = %158
-  %162 = load ptr, ptr %3, align 8
-  %163 = load ptr, ptr %4, align 8
-  %164 = load i64, ptr %8, align 8
-  %165 = load i64, ptr %6, align 8
-  %166 = load i64, ptr %7, align 8
-  %167 = call i64 @heap_extend_pages(ptr noundef %162, ptr noundef %163, i64 noundef %164, i64 noundef %165, i64 noundef %166)
-  store i64 %167, ptr %14, align 8
-  %168 = load i64, ptr %14, align 8
-  %169 = load ptr, ptr %4, align 8
-  %170 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %169, i32 0, i32 1
-  %171 = load i64, ptr %170, align 8
-  %172 = icmp ugt i64 %168, %171
-  br i1 %172, label %173, label %177
+147:                                              ; preds = %144
+  %148 = load ptr, ptr %3, align 8
+  %149 = getelementptr inbounds %struct.rb_objspace, ptr %148, i32 0, i32 13
+  %150 = getelementptr inbounds %struct.anon.19, ptr %149, i32 0, i32 1
+  %151 = load i32, ptr %150, align 8
+  %152 = or i32 %151, 1
+  store i32 %152, ptr %150, align 8
+  %153 = load ptr, ptr %4, align 8
+  %154 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %153, i32 0, i32 4
+  %155 = load i64, ptr %154, align 8
+  %156 = add i64 %155, 1
+  store i64 %156, ptr %154, align 8
+  br label %157
 
-173:                                              ; preds = %161
-  %174 = load ptr, ptr %3, align 8
-  %175 = load ptr, ptr %4, align 8
-  %176 = load i64, ptr %14, align 8
-  call void @size_pool_allocatable_pages_set(ptr noundef %174, ptr noundef %175, i64 noundef %176)
-  br label %177
+157:                                              ; preds = %147, %144
+  br label %158
 
-177:                                              ; preds = %173, %161
+158:                                              ; preds = %157, %143
+  br label %159
+
+159:                                              ; preds = %158, %108, %92
+  %160 = load i8, ptr %12, align 1
+  %161 = trunc i8 %160 to i1
+  br i1 %161, label %162, label %179
+
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %3, align 8
+  %164 = load ptr, ptr %4, align 8
+  %165 = load i64, ptr %8, align 8
+  %166 = load i64, ptr %6, align 8
+  %167 = load i64, ptr %7, align 8
+  %168 = call i64 @heap_extend_pages(ptr noundef %163, ptr noundef %164, i64 noundef %165, i64 noundef %166, i64 noundef %167)
+  store i64 %168, ptr %14, align 8
+  %169 = load i64, ptr %14, align 8
+  %170 = load ptr, ptr %4, align 8
+  %171 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %170, i32 0, i32 1
+  %172 = load i64, ptr %171, align 8
+  %173 = icmp ugt i64 %169, %172
+  br i1 %173, label %174, label %178
+
+174:                                              ; preds = %162
+  %175 = load ptr, ptr %3, align 8
+  %176 = load ptr, ptr %4, align 8
+  %177 = load i64, ptr %14, align 8
+  call void @size_pool_allocatable_pages_set(ptr noundef %175, ptr noundef %176, i64 noundef %177)
   br label %178
 
-178:                                              ; preds = %177, %158
+178:                                              ; preds = %174, %162
   br label %179
 
-179:                                              ; preds = %178, %87
+179:                                              ; preds = %178, %159
+  br label %180
+
+180:                                              ; preds = %179, %88
   ret void
 }
 
@@ -24171,116 +24258,122 @@ define internal i64 @heap_extend_pages(ptr noundef %0, ptr noundef %1, i64 nound
   store i64 %2, ptr %8, align 8
   store i64 %3, ptr %9, align 8
   store i64 %4, ptr %10, align 8
-  %16 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 5), align 8
-  store double %16, ptr %11, align 8
-  %17 = load double, ptr %11, align 8
-  %18 = fcmp oeq double %17, 0.000000e+00
-  br i1 %18, label %19, label %25
+  %16 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 5
+  %17 = load double, ptr %16, align 8
+  store double %17, ptr %11, align 8
+  %18 = load double, ptr %11, align 8
+  %19 = fcmp oeq double %18, 0.000000e+00
+  br i1 %19, label %20, label %27
 
-19:                                               ; preds = %5
-  %20 = load i64, ptr %10, align 8
-  %21 = uitofp i64 %20 to double
-  %22 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 2), align 8
-  %23 = fmul double %21, %22
-  %24 = fptoui double %23 to i64
-  store i64 %24, ptr %12, align 8
-  br label %59
+20:                                               ; preds = %5
+  %21 = load i64, ptr %10, align 8
+  %22 = uitofp i64 %21 to double
+  %23 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 2
+  %24 = load double, ptr %23, align 8
+  %25 = fmul double %22, %24
+  %26 = fptoui double %25 to i64
+  store i64 %26, ptr %12, align 8
+  br label %63
 
-25:                                               ; preds = %5
-  %26 = load i64, ptr %9, align 8
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %32
+27:                                               ; preds = %5
+  %28 = load i64, ptr %9, align 8
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %30, label %34
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %6, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = call i64 @minimum_pages_for_size_pool(ptr noundef %29, ptr noundef %30)
-  store i64 %31, ptr %12, align 8
-  br label %58
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %6, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = call i64 @minimum_pages_for_size_pool(ptr noundef %31, ptr noundef %32)
+  store i64 %33, ptr %12, align 8
+  br label %62
 
-32:                                               ; preds = %25
-  %33 = load i64, ptr %9, align 8
-  %34 = load i64, ptr %8, align 8
-  %35 = sub i64 %33, %34
-  %36 = uitofp i64 %35 to double
-  %37 = load double, ptr %11, align 8
-  %38 = fsub double 1.000000e+00, %37
-  %39 = load i64, ptr %9, align 8
-  %40 = uitofp i64 %39 to double
-  %41 = fmul double %38, %40
-  %42 = fdiv double %36, %41
-  store double %42, ptr %13, align 8
-  %43 = load double, ptr %13, align 8
-  %44 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 2), align 8
-  %45 = fcmp ogt double %43, %44
-  br i1 %45, label %46, label %48
+34:                                               ; preds = %27
+  %35 = load i64, ptr %9, align 8
+  %36 = load i64, ptr %8, align 8
+  %37 = sub i64 %35, %36
+  %38 = uitofp i64 %37 to double
+  %39 = load double, ptr %11, align 8
+  %40 = fsub double 1.000000e+00, %39
+  %41 = load i64, ptr %9, align 8
+  %42 = uitofp i64 %41 to double
+  %43 = fmul double %40, %42
+  %44 = fdiv double %38, %43
+  store double %44, ptr %13, align 8
+  %45 = load double, ptr %13, align 8
+  %46 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 2
+  %47 = load double, ptr %46, align 8
+  %48 = fcmp ogt double %45, %47
+  br i1 %48, label %49, label %52
 
-46:                                               ; preds = %32
-  %47 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 2), align 8
-  store double %47, ptr %13, align 8
-  br label %48
-
-48:                                               ; preds = %46, %32
-  %49 = load double, ptr %13, align 8
-  %50 = fcmp olt double %49, 1.000000e+00
-  br i1 %50, label %51, label %52
-
-51:                                               ; preds = %48
-  store double 1.100000e+00, ptr %13, align 8
+49:                                               ; preds = %34
+  %50 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 2
+  %51 = load double, ptr %50, align 8
+  store double %51, ptr %13, align 8
   br label %52
 
-52:                                               ; preds = %51, %48
+52:                                               ; preds = %49, %34
   %53 = load double, ptr %13, align 8
-  %54 = load i64, ptr %10, align 8
-  %55 = uitofp i64 %54 to double
-  %56 = fmul double %53, %55
-  %57 = fptoui double %56 to i64
-  store i64 %57, ptr %12, align 8
-  br label %58
+  %54 = fcmp olt double %53, 1.000000e+00
+  br i1 %54, label %55, label %56
 
-58:                                               ; preds = %52, %28
-  br label %59
+55:                                               ; preds = %52
+  store double 1.100000e+00, ptr %13, align 8
+  br label %56
 
-59:                                               ; preds = %58, %19
-  %60 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 3), align 8
-  %61 = icmp ugt i64 %60, 0
-  br i1 %61, label %62, label %73
+56:                                               ; preds = %55, %52
+  %57 = load double, ptr %13, align 8
+  %58 = load i64, ptr %10, align 8
+  %59 = uitofp i64 %58 to double
+  %60 = fmul double %57, %59
+  %61 = fptoui double %60 to i64
+  store i64 %61, ptr %12, align 8
+  br label %62
 
-62:                                               ; preds = %59
-  %63 = load i64, ptr %10, align 8
-  %64 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 3), align 8
-  %65 = udiv i64 %64, 1638
-  %66 = add i64 %63, %65
-  store i64 %66, ptr %14, align 8
-  %67 = load i64, ptr %12, align 8
-  %68 = load i64, ptr %14, align 8
-  %69 = icmp ugt i64 %67, %68
-  br i1 %69, label %70, label %72
+62:                                               ; preds = %56, %30
+  br label %63
 
-70:                                               ; preds = %62
-  %71 = load i64, ptr %14, align 8
-  store i64 %71, ptr %12, align 8
-  br label %72
+63:                                               ; preds = %62, %20
+  %64 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 3
+  %65 = load i64, ptr %64, align 8
+  %66 = icmp ugt i64 %65, 0
+  br i1 %66, label %67, label %79
 
-72:                                               ; preds = %70, %62
-  br label %73
+67:                                               ; preds = %63
+  %68 = load i64, ptr %10, align 8
+  %69 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 3
+  %70 = load i64, ptr %69, align 8
+  %71 = udiv i64 %70, 1638
+  %72 = add i64 %68, %71
+  store i64 %72, ptr %14, align 8
+  %73 = load i64, ptr %12, align 8
+  %74 = load i64, ptr %14, align 8
+  %75 = icmp ugt i64 %73, %74
+  br i1 %75, label %76, label %78
 
-73:                                               ; preds = %72, %59
-  %74 = load i64, ptr %12, align 8
-  %75 = load i64, ptr %10, align 8
-  %76 = sub i64 %74, %75
-  store i64 %76, ptr %15, align 8
-  %77 = load i64, ptr %15, align 8
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %79, label %80
+76:                                               ; preds = %67
+  %77 = load i64, ptr %14, align 8
+  store i64 %77, ptr %12, align 8
+  br label %78
 
-79:                                               ; preds = %73
+78:                                               ; preds = %76, %67
+  br label %79
+
+79:                                               ; preds = %78, %63
+  %80 = load i64, ptr %12, align 8
+  %81 = load i64, ptr %10, align 8
+  %82 = sub i64 %80, %81
+  store i64 %82, ptr %15, align 8
+  %83 = load i64, ptr %15, align 8
+  %84 = icmp eq i64 %83, 0
+  br i1 %84, label %85, label %86
+
+85:                                               ; preds = %79
   store i64 1, ptr %15, align 8
-  br label %80
+  br label %86
 
-80:                                               ; preds = %79, %73
-  %81 = load i64, ptr %15, align 8
-  ret i64 %81
+86:                                               ; preds = %85, %79
+  %87 = load i64, ptr %15, align 8
+  ret i64 %87
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -28775,7 +28868,7 @@ define internal zeroext i1 @rb_data_free(ptr noundef %0, i64 noundef %1) #0 {
   store ptr %20, ptr %6, align 8
   %21 = load ptr, ptr %6, align 8
   %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %90
+  br i1 %22, label %23, label %91
 
 23:                                               ; preds = %19
   store i32 0, ptr %7, align 4
@@ -28818,84 +28911,85 @@ define internal zeroext i1 @rb_data_free(ptr noundef %0, i64 noundef %1) #0 {
 51:                                               ; preds = %45, %26
   %52 = load ptr, ptr %8, align 8
   %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %88
+  br i1 %53, label %54, label %89
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %8, align 8
-  %56 = icmp eq ptr %55, inttoptr (i64 -1 to ptr)
-  br i1 %56, label %57, label %63
+  %56 = inttoptr i64 -1 to ptr
+  %57 = icmp eq ptr %55, %56
+  br i1 %57, label %58, label %64
 
-57:                                               ; preds = %54
-  %58 = load i64, ptr %5, align 8
-  %59 = call zeroext i1 @RTYPEDDATA_EMBEDDED_P(i64 noundef %58)
-  br i1 %59, label %62, label %60
+58:                                               ; preds = %54
+  %59 = load i64, ptr %5, align 8
+  %60 = call zeroext i1 @RTYPEDDATA_EMBEDDED_P(i64 noundef %59)
+  br i1 %60, label %63, label %61
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %6, align 8
-  call void @ruby_xfree(ptr noundef %61)
-  br label %62
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %6, align 8
+  call void @ruby_xfree(ptr noundef %62)
+  br label %63
 
-62:                                               ; preds = %60, %57
+63:                                               ; preds = %61, %58
+  br label %88
+
+64:                                               ; preds = %54
+  %65 = load i32, ptr %7, align 4
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %82
+
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %8, align 8
+  %69 = load ptr, ptr %6, align 8
+  call void %68(ptr noundef %69)
+  %70 = load i64, ptr %5, align 8
+  %71 = call ptr @RTYPEDDATA_TYPE(i64 noundef %70) #33
+  %72 = getelementptr inbounds %struct.rb_data_type_struct, ptr %71, i32 0, i32 4
+  %73 = load i64, ptr %72, align 8
+  %74 = and i64 %73, 2
+  %75 = icmp ne i64 %74, 0
+  br i1 %75, label %76, label %81
+
+76:                                               ; preds = %67
+  %77 = load i64, ptr %5, align 8
+  %78 = call zeroext i1 @RTYPEDDATA_EMBEDDED_P(i64 noundef %77)
+  br i1 %78, label %81, label %79
+
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %6, align 8
+  call void @ruby_xfree(ptr noundef %80)
+  br label %81
+
+81:                                               ; preds = %79, %76, %67
   br label %87
 
-63:                                               ; preds = %54
-  %64 = load i32, ptr %7, align 4
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %66, label %81
-
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %8, align 8
-  %68 = load ptr, ptr %6, align 8
-  call void %67(ptr noundef %68)
-  %69 = load i64, ptr %5, align 8
-  %70 = call ptr @RTYPEDDATA_TYPE(i64 noundef %69) #33
-  %71 = getelementptr inbounds %struct.rb_data_type_struct, ptr %70, i32 0, i32 4
-  %72 = load i64, ptr %71, align 8
-  %73 = and i64 %72, 2
-  %74 = icmp ne i64 %73, 0
-  br i1 %74, label %75, label %80
-
-75:                                               ; preds = %66
-  %76 = load i64, ptr %5, align 8
-  %77 = call zeroext i1 @RTYPEDDATA_EMBEDDED_P(i64 noundef %76)
-  br i1 %77, label %80, label %78
-
-78:                                               ; preds = %75
-  %79 = load ptr, ptr %6, align 8
-  call void @ruby_xfree(ptr noundef %79)
-  br label %80
-
-80:                                               ; preds = %78, %75, %66
-  br label %86
-
-81:                                               ; preds = %63
-  %82 = load ptr, ptr %4, align 8
-  %83 = load i64, ptr %5, align 8
-  %84 = load ptr, ptr %8, align 8
-  %85 = load ptr, ptr %6, align 8
-  call void @make_zombie(ptr noundef %82, i64 noundef %83, ptr noundef %84, ptr noundef %85)
+82:                                               ; preds = %64
+  %83 = load ptr, ptr %4, align 8
+  %84 = load i64, ptr %5, align 8
+  %85 = load ptr, ptr %8, align 8
+  %86 = load ptr, ptr %6, align 8
+  call void @make_zombie(ptr noundef %83, i64 noundef %84, ptr noundef %85, ptr noundef %86)
   store i1 false, ptr %3, align 1
-  br label %91
+  br label %92
 
-86:                                               ; preds = %80
-  br label %87
+87:                                               ; preds = %81
+  br label %88
 
-87:                                               ; preds = %86, %62
-  br label %89
-
-88:                                               ; preds = %51
-  br label %89
-
-89:                                               ; preds = %88, %87
+88:                                               ; preds = %87, %63
   br label %90
 
-90:                                               ; preds = %89, %19
-  store i1 true, ptr %3, align 1
+89:                                               ; preds = %51
+  br label %90
+
+90:                                               ; preds = %89, %88
   br label %91
 
-91:                                               ; preds = %90, %81
-  %92 = load i1, ptr %3, align 1
-  ret i1 %92
+91:                                               ; preds = %90, %19
+  store i1 true, ptr %3, align 1
+  br label %92
+
+92:                                               ; preds = %91, %82
+  %93 = load i1, ptr %3, align 1
+  ret i1 %93
 }
 
 declare void @onig_region_free(ptr noundef, i32 noundef) #2
@@ -29358,36 +29452,41 @@ define internal void @gc_update_references(ptr noundef %0) #0 {
   %94 = load ptr, ptr %4, align 8
   call void @rb_vm_update_references(ptr noundef %94)
   call void @rb_gc_update_global_tbl()
-  %95 = load i64, ptr getelementptr inbounds (%struct.rb_symbols_t, ptr @ruby_global_symbols, i32 0, i32 2), align 8
-  %96 = call i64 @rb_gc_location(i64 noundef %95)
-  store i64 %96, ptr getelementptr inbounds (%struct.rb_symbols_t, ptr @ruby_global_symbols, i32 0, i32 2), align 8
-  %97 = load i64, ptr getelementptr inbounds (%struct.rb_symbols_t, ptr @ruby_global_symbols, i32 0, i32 3), align 8
-  %98 = call i64 @rb_gc_location(i64 noundef %97)
-  store i64 %98, ptr getelementptr inbounds (%struct.rb_symbols_t, ptr @ruby_global_symbols, i32 0, i32 3), align 8
-  %99 = load ptr, ptr %2, align 8
-  %100 = load ptr, ptr %2, align 8
-  %101 = getelementptr inbounds %struct.rb_objspace, ptr %100, i32 0, i32 17
-  %102 = load ptr, ptr %101, align 8
-  call void @gc_ref_update_table_values_only(ptr noundef %99, ptr noundef %102)
+  %95 = getelementptr inbounds %struct.rb_symbols_t, ptr @ruby_global_symbols, i32 0, i32 2
+  %96 = load i64, ptr %95, align 8
+  %97 = call i64 @rb_gc_location(i64 noundef %96)
+  %98 = getelementptr inbounds %struct.rb_symbols_t, ptr @ruby_global_symbols, i32 0, i32 2
+  store i64 %97, ptr %98, align 8
+  %99 = getelementptr inbounds %struct.rb_symbols_t, ptr @ruby_global_symbols, i32 0, i32 3
+  %100 = load i64, ptr %99, align 8
+  %101 = call i64 @rb_gc_location(i64 noundef %100)
+  %102 = getelementptr inbounds %struct.rb_symbols_t, ptr @ruby_global_symbols, i32 0, i32 3
+  store i64 %101, ptr %102, align 8
   %103 = load ptr, ptr %2, align 8
   %104 = load ptr, ptr %2, align 8
-  %105 = getelementptr inbounds %struct.rb_objspace, ptr %104, i32 0, i32 16
+  %105 = getelementptr inbounds %struct.rb_objspace, ptr %104, i32 0, i32 17
   %106 = load ptr, ptr %105, align 8
-  call void @gc_update_table_refs(ptr noundef %103, ptr noundef %106)
+  call void @gc_ref_update_table_values_only(ptr noundef %103, ptr noundef %106)
   %107 = load ptr, ptr %2, align 8
-  %108 = load ptr, ptr getelementptr inbounds (%struct.rb_symbols_t, ptr @ruby_global_symbols, i32 0, i32 1), align 8
-  call void @gc_update_table_refs(ptr noundef %107, ptr noundef %108)
-  %109 = load ptr, ptr %2, align 8
-  %110 = load ptr, ptr %2, align 8
-  %111 = getelementptr inbounds %struct.rb_objspace, ptr %110, i32 0, i32 9
-  %112 = load ptr, ptr %111, align 8
-  call void @gc_update_table_refs(ptr noundef %109, ptr noundef %112)
-  %113 = load ptr, ptr %2, align 8
-  %114 = getelementptr inbounds %struct.rb_objspace, ptr %113, i32 0, i32 1
-  %115 = load i16, ptr %114, align 8
-  %116 = and i16 %115, -129
-  %117 = or i16 %116, 0
-  store i16 %117, ptr %114, align 8
+  %108 = load ptr, ptr %2, align 8
+  %109 = getelementptr inbounds %struct.rb_objspace, ptr %108, i32 0, i32 16
+  %110 = load ptr, ptr %109, align 8
+  call void @gc_update_table_refs(ptr noundef %107, ptr noundef %110)
+  %111 = load ptr, ptr %2, align 8
+  %112 = getelementptr inbounds %struct.rb_symbols_t, ptr @ruby_global_symbols, i32 0, i32 1
+  %113 = load ptr, ptr %112, align 8
+  call void @gc_update_table_refs(ptr noundef %111, ptr noundef %113)
+  %114 = load ptr, ptr %2, align 8
+  %115 = load ptr, ptr %2, align 8
+  %116 = getelementptr inbounds %struct.rb_objspace, ptr %115, i32 0, i32 9
+  %117 = load ptr, ptr %116, align 8
+  call void @gc_update_table_refs(ptr noundef %114, ptr noundef %117)
+  %118 = load ptr, ptr %2, align 8
+  %119 = getelementptr inbounds %struct.rb_objspace, ptr %118, i32 0, i32 1
+  %120 = load i16, ptr %119, align 8
+  %121 = and i16 %120, -129
+  %122 = or i16 %121, 0
+  store i16 %122, ptr %119, align 8
   ret void
 }
 
@@ -33341,81 +33440,82 @@ define internal ptr @heap_page_body_allocate() #0 {
   %7 = call ptr @mmap(ptr noundef null, i64 noundef 131072, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #22
   store ptr %7, ptr %3, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %0
-  store ptr null, ptr %1, align 8
-  br label %50
+  %9 = inttoptr i64 -1 to ptr
+  %10 = icmp eq ptr %8, %9
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %0
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr i8, ptr %12, i64 65536
-  store ptr %13, ptr %4, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = and i64 %15, 65535
-  %17 = load ptr, ptr %4, align 8
-  %18 = sub i64 0, %16
-  %19 = getelementptr i8, ptr %17, i64 %18
-  store ptr %19, ptr %4, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = ptrtoint ptr %20 to i64
+  store ptr null, ptr %1, align 8
+  br label %51
+
+12:                                               ; preds = %0
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr i8, ptr %13, i64 65536
+  store ptr %14, ptr %4, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = ptrtoint ptr %15 to i64
+  %17 = and i64 %16, 65535
+  %18 = load ptr, ptr %4, align 8
+  %19 = sub i64 0, %17
+  %20 = getelementptr i8, ptr %18, i64 %19
+  store ptr %20, ptr %4, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = load ptr, ptr %3, align 8
   %23 = ptrtoint ptr %21 to i64
-  %24 = sub i64 %22, %23
-  store i64 %24, ptr %5, align 8
-  %25 = load i64, ptr %5, align 8
-  %26 = icmp ugt i64 %25, 0
-  br i1 %26, label %27, label %34
+  %24 = ptrtoint ptr %22 to i64
+  %25 = sub i64 %23, %24
+  store i64 %25, ptr %5, align 8
+  %26 = load i64, ptr %5, align 8
+  %27 = icmp ugt i64 %26, 0
+  br i1 %27, label %28, label %35
 
-27:                                               ; preds = %11
-  %28 = load ptr, ptr %3, align 8
-  %29 = load i64, ptr %5, align 8
-  %30 = call i32 @munmap(ptr noundef %28, i64 noundef %29) #22
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %33
+28:                                               ; preds = %12
+  %29 = load ptr, ptr %3, align 8
+  %30 = load i64, ptr %5, align 8
+  %31 = call i32 @munmap(ptr noundef %29, i64 noundef %30) #22
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %34
 
-32:                                               ; preds = %27
+33:                                               ; preds = %28
   call void (ptr, ...) @rb_bug(ptr noundef @.str.153) #31
   unreachable
 
-33:                                               ; preds = %27
-  br label %34
+34:                                               ; preds = %28
+  br label %35
 
-34:                                               ; preds = %33, %11
-  %35 = load i64, ptr %5, align 8
-  %36 = sub i64 65536, %35
-  store i64 %36, ptr %6, align 8
-  %37 = load i64, ptr %6, align 8
-  %38 = icmp ugt i64 %37, 0
-  br i1 %38, label %39, label %47
+35:                                               ; preds = %34, %12
+  %36 = load i64, ptr %5, align 8
+  %37 = sub i64 65536, %36
+  store i64 %37, ptr %6, align 8
+  %38 = load i64, ptr %6, align 8
+  %39 = icmp ugt i64 %38, 0
+  br i1 %39, label %40, label %48
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr i8, ptr %40, i64 65536
-  %42 = load i64, ptr %6, align 8
-  %43 = call i32 @munmap(ptr noundef %41, i64 noundef %42) #22
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %45, label %46
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr i8, ptr %41, i64 65536
+  %43 = load i64, ptr %6, align 8
+  %44 = call i32 @munmap(ptr noundef %42, i64 noundef %43) #22
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %39
+46:                                               ; preds = %40
   call void (ptr, ...) @rb_bug(ptr noundef @.str.154) #31
   unreachable
 
-46:                                               ; preds = %39
-  br label %47
+47:                                               ; preds = %40
+  br label %48
 
-47:                                               ; preds = %46, %34
-  %48 = load ptr, ptr %4, align 8
-  store ptr %48, ptr %2, align 8
-  %49 = load ptr, ptr %2, align 8
-  store ptr %49, ptr %1, align 8
-  br label %50
+48:                                               ; preds = %47, %35
+  %49 = load ptr, ptr %4, align 8
+  store ptr %49, ptr %2, align 8
+  %50 = load ptr, ptr %2, align 8
+  store ptr %50, ptr %1, align 8
+  br label %51
 
-50:                                               ; preds = %47, %10
-  %51 = load ptr, ptr %1, align 8
-  ret ptr %51
+51:                                               ; preds = %48, %11
+  %52 = load ptr, ptr %1, align 8
+  ret ptr %52
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -33458,7 +33558,7 @@ define internal i64 @rbimpl_size_mul_or_raise(i64 noundef %0, i64 noundef %1) #0
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #20
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #19
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) #3
@@ -34261,178 +34361,189 @@ define internal void @gc_reset_malloc_info(ptr noundef %0, i1 noundef zeroext %1
   %20 = getelementptr inbounds %struct.anon.15, ptr %19, i32 0, i32 0
   %21 = load i64, ptr %20, align 8
   %22 = icmp ugt i64 %17, %21
-  br i1 %22, label %23, label %44
+  br i1 %22, label %23, label %47
 
 23:                                               ; preds = %2
   %24 = load i64, ptr %5, align 8
   %25 = uitofp i64 %24 to double
-  %26 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 11), align 8
-  %27 = fmul double %25, %26
-  %28 = fptoui double %27 to i64
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.rb_objspace, ptr %29, i32 0, i32 0
-  %31 = getelementptr inbounds %struct.anon.15, ptr %30, i32 0, i32 0
-  store i64 %28, ptr %31, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.rb_objspace, ptr %32, i32 0, i32 0
-  %34 = getelementptr inbounds %struct.anon.15, ptr %33, i32 0, i32 0
-  %35 = load i64, ptr %34, align 8
-  %36 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 10), align 8
-  %37 = icmp ugt i64 %35, %36
-  br i1 %37, label %38, label %43
+  %26 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 11
+  %27 = load double, ptr %26, align 8
+  %28 = fmul double %25, %27
+  %29 = fptoui double %28 to i64
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds %struct.rb_objspace, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds %struct.anon.15, ptr %31, i32 0, i32 0
+  store i64 %29, ptr %32, align 8
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds %struct.rb_objspace, ptr %33, i32 0, i32 0
+  %35 = getelementptr inbounds %struct.anon.15, ptr %34, i32 0, i32 0
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 10
+  %38 = load i64, ptr %37, align 8
+  %39 = icmp ugt i64 %36, %38
+  br i1 %39, label %40, label %46
 
-38:                                               ; preds = %23
-  %39 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 10), align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.rb_objspace, ptr %40, i32 0, i32 0
-  %42 = getelementptr inbounds %struct.anon.15, ptr %41, i32 0, i32 0
-  store i64 %39, ptr %42, align 8
-  br label %43
+40:                                               ; preds = %23
+  %41 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 10
+  %42 = load i64, ptr %41, align 8
+  %43 = load ptr, ptr %3, align 8
+  %44 = getelementptr inbounds %struct.rb_objspace, ptr %43, i32 0, i32 0
+  %45 = getelementptr inbounds %struct.anon.15, ptr %44, i32 0, i32 0
+  store i64 %42, ptr %45, align 8
+  br label %46
 
-43:                                               ; preds = %38, %23
-  br label %67
+46:                                               ; preds = %40, %23
+  br label %72
 
-44:                                               ; preds = %2
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.rb_objspace, ptr %45, i32 0, i32 0
-  %47 = getelementptr inbounds %struct.anon.15, ptr %46, i32 0, i32 0
-  %48 = load i64, ptr %47, align 8
-  %49 = uitofp i64 %48 to double
-  %50 = fmul double %49, 0x3FEF5C28F5C28F5C
-  %51 = fptoui double %50 to i64
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.rb_objspace, ptr %52, i32 0, i32 0
-  %54 = getelementptr inbounds %struct.anon.15, ptr %53, i32 0, i32 0
-  store i64 %51, ptr %54, align 8
+47:                                               ; preds = %2
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds %struct.rb_objspace, ptr %48, i32 0, i32 0
+  %50 = getelementptr inbounds %struct.anon.15, ptr %49, i32 0, i32 0
+  %51 = load i64, ptr %50, align 8
+  %52 = uitofp i64 %51 to double
+  %53 = fmul double %52, 0x3FEF5C28F5C28F5C
+  %54 = fptoui double %53 to i64
   %55 = load ptr, ptr %3, align 8
   %56 = getelementptr inbounds %struct.rb_objspace, ptr %55, i32 0, i32 0
   %57 = getelementptr inbounds %struct.anon.15, ptr %56, i32 0, i32 0
-  %58 = load i64, ptr %57, align 8
-  %59 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 9), align 8
-  %60 = icmp ult i64 %58, %59
-  br i1 %60, label %61, label %66
+  store i64 %54, ptr %57, align 8
+  %58 = load ptr, ptr %3, align 8
+  %59 = getelementptr inbounds %struct.rb_objspace, ptr %58, i32 0, i32 0
+  %60 = getelementptr inbounds %struct.anon.15, ptr %59, i32 0, i32 0
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 9
+  %63 = load i64, ptr %62, align 8
+  %64 = icmp ult i64 %61, %63
+  br i1 %64, label %65, label %71
 
-61:                                               ; preds = %44
-  %62 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 9), align 8
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.rb_objspace, ptr %63, i32 0, i32 0
-  %65 = getelementptr inbounds %struct.anon.15, ptr %64, i32 0, i32 0
-  store i64 %62, ptr %65, align 8
-  br label %66
+65:                                               ; preds = %47
+  %66 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 9
+  %67 = load i64, ptr %66, align 8
+  %68 = load ptr, ptr %3, align 8
+  %69 = getelementptr inbounds %struct.rb_objspace, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds %struct.anon.15, ptr %69, i32 0, i32 0
+  store i64 %67, ptr %70, align 8
+  br label %71
 
-66:                                               ; preds = %61, %44
-  br label %67
+71:                                               ; preds = %65, %47
+  br label %72
 
-67:                                               ; preds = %66, %43
-  %68 = load i8, ptr %4, align 1
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %110, label %70
+72:                                               ; preds = %71, %46
+  %73 = load i8, ptr %4, align 1
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %118, label %75
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.rb_objspace, ptr %71, i32 0, i32 13
-  %73 = getelementptr inbounds %struct.anon.19, ptr %72, i32 0, i32 7
-  %74 = load i64, ptr %73, align 8
-  %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds %struct.rb_objspace, ptr %75, i32 0, i32 13
-  %77 = getelementptr inbounds %struct.anon.19, ptr %76, i32 0, i32 8
-  %78 = load i64, ptr %77, align 8
-  %79 = icmp ugt i64 %74, %78
-  br i1 %79, label %80, label %109
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %3, align 8
+  %77 = getelementptr inbounds %struct.rb_objspace, ptr %76, i32 0, i32 13
+  %78 = getelementptr inbounds %struct.anon.19, ptr %77, i32 0, i32 7
+  %79 = load i64, ptr %78, align 8
+  %80 = load ptr, ptr %3, align 8
+  %81 = getelementptr inbounds %struct.rb_objspace, ptr %80, i32 0, i32 13
+  %82 = getelementptr inbounds %struct.anon.19, ptr %81, i32 0, i32 8
+  %83 = load i64, ptr %82, align 8
+  %84 = icmp ugt i64 %79, %83
+  br i1 %84, label %85, label %117
 
-80:                                               ; preds = %70
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.rb_objspace, ptr %81, i32 0, i32 13
-  %83 = getelementptr inbounds %struct.anon.19, ptr %82, i32 0, i32 1
-  %84 = load i32, ptr %83, align 8
-  %85 = or i32 %84, 32
-  store i32 %85, ptr %83, align 8
+85:                                               ; preds = %75
   %86 = load ptr, ptr %3, align 8
   %87 = getelementptr inbounds %struct.rb_objspace, ptr %86, i32 0, i32 13
-  %88 = getelementptr inbounds %struct.anon.19, ptr %87, i32 0, i32 8
-  %89 = load i64, ptr %88, align 8
-  %90 = uitofp i64 %89 to double
-  %91 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 14), align 8
-  %92 = fmul double %90, %91
-  %93 = fptoui double %92 to i64
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds %struct.rb_objspace, ptr %94, i32 0, i32 13
-  %96 = getelementptr inbounds %struct.anon.19, ptr %95, i32 0, i32 8
-  store i64 %93, ptr %96, align 8
-  %97 = load ptr, ptr %3, align 8
-  %98 = getelementptr inbounds %struct.rb_objspace, ptr %97, i32 0, i32 13
-  %99 = getelementptr inbounds %struct.anon.19, ptr %98, i32 0, i32 8
-  %100 = load i64, ptr %99, align 8
-  %101 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 13), align 8
-  %102 = icmp ugt i64 %100, %101
-  br i1 %102, label %103, label %108
+  %88 = getelementptr inbounds %struct.anon.19, ptr %87, i32 0, i32 1
+  %89 = load i32, ptr %88, align 8
+  %90 = or i32 %89, 32
+  store i32 %90, ptr %88, align 8
+  %91 = load ptr, ptr %3, align 8
+  %92 = getelementptr inbounds %struct.rb_objspace, ptr %91, i32 0, i32 13
+  %93 = getelementptr inbounds %struct.anon.19, ptr %92, i32 0, i32 8
+  %94 = load i64, ptr %93, align 8
+  %95 = uitofp i64 %94 to double
+  %96 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 14
+  %97 = load double, ptr %96, align 8
+  %98 = fmul double %95, %97
+  %99 = fptoui double %98 to i64
+  %100 = load ptr, ptr %3, align 8
+  %101 = getelementptr inbounds %struct.rb_objspace, ptr %100, i32 0, i32 13
+  %102 = getelementptr inbounds %struct.anon.19, ptr %101, i32 0, i32 8
+  store i64 %99, ptr %102, align 8
+  %103 = load ptr, ptr %3, align 8
+  %104 = getelementptr inbounds %struct.rb_objspace, ptr %103, i32 0, i32 13
+  %105 = getelementptr inbounds %struct.anon.19, ptr %104, i32 0, i32 8
+  %106 = load i64, ptr %105, align 8
+  %107 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 13
+  %108 = load i64, ptr %107, align 8
+  %109 = icmp ugt i64 %106, %108
+  br i1 %109, label %110, label %116
 
-103:                                              ; preds = %80
-  %104 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 13), align 8
-  %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds %struct.rb_objspace, ptr %105, i32 0, i32 13
-  %107 = getelementptr inbounds %struct.anon.19, ptr %106, i32 0, i32 8
-  store i64 %104, ptr %107, align 8
-  br label %108
+110:                                              ; preds = %85
+  %111 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 13
+  %112 = load i64, ptr %111, align 8
+  %113 = load ptr, ptr %3, align 8
+  %114 = getelementptr inbounds %struct.rb_objspace, ptr %113, i32 0, i32 13
+  %115 = getelementptr inbounds %struct.anon.19, ptr %114, i32 0, i32 8
+  store i64 %112, ptr %115, align 8
+  br label %116
 
-108:                                              ; preds = %103, %80
-  br label %109
+116:                                              ; preds = %110, %85
+  br label %117
 
-109:                                              ; preds = %108, %70
-  br label %148
+117:                                              ; preds = %116, %75
+  br label %159
 
-110:                                              ; preds = %67
-  %111 = load ptr, ptr %3, align 8
-  %112 = getelementptr inbounds %struct.rb_objspace, ptr %111, i32 0, i32 13
-  %113 = getelementptr inbounds %struct.anon.19, ptr %112, i32 0, i32 7
-  store i64 0, ptr %113, align 8
-  %114 = load ptr, ptr %3, align 8
-  %115 = getelementptr inbounds %struct.rb_objspace, ptr %114, i32 0, i32 10
-  %116 = getelementptr inbounds %struct.anon.18, ptr %115, i32 0, i32 1
-  %117 = load i32, ptr %116, align 4
-  %118 = and i32 %117, 32
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %120, label %147
+118:                                              ; preds = %72
+  %119 = load ptr, ptr %3, align 8
+  %120 = getelementptr inbounds %struct.rb_objspace, ptr %119, i32 0, i32 13
+  %121 = getelementptr inbounds %struct.anon.19, ptr %120, i32 0, i32 7
+  store i64 0, ptr %121, align 8
+  %122 = load ptr, ptr %3, align 8
+  %123 = getelementptr inbounds %struct.rb_objspace, ptr %122, i32 0, i32 10
+  %124 = getelementptr inbounds %struct.anon.18, ptr %123, i32 0, i32 1
+  %125 = load i32, ptr %124, align 4
+  %126 = and i32 %125, 32
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %158
 
-120:                                              ; preds = %110
-  %121 = load ptr, ptr %3, align 8
-  %122 = getelementptr inbounds %struct.rb_objspace, ptr %121, i32 0, i32 13
-  %123 = getelementptr inbounds %struct.anon.19, ptr %122, i32 0, i32 8
-  %124 = load i64, ptr %123, align 8
-  %125 = uitofp i64 %124 to double
-  %126 = load double, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 14), align 8
-  %127 = fsub double %126, 1.000000e+00
-  %128 = fdiv double %127, 1.000000e+01
-  %129 = fadd double %128, 1.000000e+00
-  %130 = fdiv double %125, %129
-  %131 = fptoui double %130 to i64
-  %132 = load ptr, ptr %3, align 8
-  %133 = getelementptr inbounds %struct.rb_objspace, ptr %132, i32 0, i32 13
-  %134 = getelementptr inbounds %struct.anon.19, ptr %133, i32 0, i32 8
-  store i64 %131, ptr %134, align 8
-  %135 = load ptr, ptr %3, align 8
-  %136 = getelementptr inbounds %struct.rb_objspace, ptr %135, i32 0, i32 13
-  %137 = getelementptr inbounds %struct.anon.19, ptr %136, i32 0, i32 8
-  %138 = load i64, ptr %137, align 8
-  %139 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 12), align 8
-  %140 = icmp ult i64 %138, %139
-  br i1 %140, label %141, label %146
+128:                                              ; preds = %118
+  %129 = load ptr, ptr %3, align 8
+  %130 = getelementptr inbounds %struct.rb_objspace, ptr %129, i32 0, i32 13
+  %131 = getelementptr inbounds %struct.anon.19, ptr %130, i32 0, i32 8
+  %132 = load i64, ptr %131, align 8
+  %133 = uitofp i64 %132 to double
+  %134 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 14
+  %135 = load double, ptr %134, align 8
+  %136 = fsub double %135, 1.000000e+00
+  %137 = fdiv double %136, 1.000000e+01
+  %138 = fadd double %137, 1.000000e+00
+  %139 = fdiv double %133, %138
+  %140 = fptoui double %139 to i64
+  %141 = load ptr, ptr %3, align 8
+  %142 = getelementptr inbounds %struct.rb_objspace, ptr %141, i32 0, i32 13
+  %143 = getelementptr inbounds %struct.anon.19, ptr %142, i32 0, i32 8
+  store i64 %140, ptr %143, align 8
+  %144 = load ptr, ptr %3, align 8
+  %145 = getelementptr inbounds %struct.rb_objspace, ptr %144, i32 0, i32 13
+  %146 = getelementptr inbounds %struct.anon.19, ptr %145, i32 0, i32 8
+  %147 = load i64, ptr %146, align 8
+  %148 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 12
+  %149 = load i64, ptr %148, align 8
+  %150 = icmp ult i64 %147, %149
+  br i1 %150, label %151, label %157
 
-141:                                              ; preds = %120
-  %142 = load i64, ptr getelementptr inbounds (%struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 12), align 8
-  %143 = load ptr, ptr %3, align 8
-  %144 = getelementptr inbounds %struct.rb_objspace, ptr %143, i32 0, i32 13
-  %145 = getelementptr inbounds %struct.anon.19, ptr %144, i32 0, i32 8
-  store i64 %142, ptr %145, align 8
-  br label %146
+151:                                              ; preds = %128
+  %152 = getelementptr inbounds %struct.ruby_gc_params_t, ptr @gc_params, i32 0, i32 12
+  %153 = load i64, ptr %152, align 8
+  %154 = load ptr, ptr %3, align 8
+  %155 = getelementptr inbounds %struct.rb_objspace, ptr %154, i32 0, i32 13
+  %156 = getelementptr inbounds %struct.anon.19, ptr %155, i32 0, i32 8
+  store i64 %153, ptr %156, align 8
+  br label %157
 
-146:                                              ; preds = %141, %120
-  br label %147
+157:                                              ; preds = %151, %128
+  br label %158
 
-147:                                              ; preds = %146, %110
-  br label %148
+158:                                              ; preds = %157, %118
+  br label %159
 
-148:                                              ; preds = %147, %109
+159:                                              ; preds = %158, %117
   ret void
 }
 
@@ -39934,7 +40045,7 @@ define internal void @setup_gc_stat_symbols() #0 {
   %32 = alloca i64, align 8
   %33 = load i64, ptr @gc_stat_symbols, align 16
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %644
+  br i1 %34, label %35, label %675
 
 35:                                               ; preds = %0
   %36 = call i64 @rb_intern_const(ptr noundef @.str.244) #33
@@ -39998,940 +40109,971 @@ define internal void @setup_gc_stat_symbols() #0 {
   %72 = phi i64 [ %67, %64 ], [ %70, %68 ]
   store i64 %72, ptr %2, align 8
   %73 = load i64, ptr %2, align 8
-  store i64 %73, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 1), align 8
-  %74 = call i64 @rb_intern_const(ptr noundef @.str.246) #33
-  %75 = call i1 @llvm.is.constant.i64(i64 %74)
-  br i1 %75, label %76, label %87
+  %74 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 1
+  store i64 %73, ptr %74, align 8
+  %75 = call i64 @rb_intern_const(ptr noundef @.str.246) #33
+  %76 = call i1 @llvm.is.constant.i64(i64 %75)
+  br i1 %76, label %77, label %88
 
-76:                                               ; preds = %71
-  %77 = call i64 @rb_intern_const(ptr noundef @.str.246) #33
-  %78 = and i64 %77, 1
-  %79 = icmp ne i64 %78, 0
-  br i1 %79, label %83, label %80
+77:                                               ; preds = %71
+  %78 = call i64 @rb_intern_const(ptr noundef @.str.246) #33
+  %79 = and i64 %78, 1
+  %80 = icmp ne i64 %79, 0
+  br i1 %80, label %84, label %81
 
-80:                                               ; preds = %76
-  %81 = call i64 @rb_intern_const(ptr noundef @.str.246) #33
-  %82 = icmp ugt i64 %81, 169
-  br i1 %82, label %87, label %83
+81:                                               ; preds = %77
+  %82 = call i64 @rb_intern_const(ptr noundef @.str.246) #33
+  %83 = icmp ugt i64 %82, 169
+  br i1 %83, label %88, label %84
 
-83:                                               ; preds = %80, %76
-  %84 = call i64 @rb_intern_const(ptr noundef @.str.246) #33
-  %85 = shl i64 %84, 8
-  %86 = or i64 %85, 12
-  br label %90
+84:                                               ; preds = %81, %77
+  %85 = call i64 @rb_intern_const(ptr noundef @.str.246) #33
+  %86 = shl i64 %85, 8
+  %87 = or i64 %86, 12
+  br label %91
 
-87:                                               ; preds = %80, %71
-  %88 = call i64 @rb_intern_const(ptr noundef @.str.246) #33
-  %89 = call i64 @rb_id2sym(i64 noundef %88)
-  br label %90
+88:                                               ; preds = %81, %71
+  %89 = call i64 @rb_intern_const(ptr noundef @.str.246) #33
+  %90 = call i64 @rb_id2sym(i64 noundef %89)
+  br label %91
 
-90:                                               ; preds = %87, %83
-  %91 = phi i64 [ %86, %83 ], [ %89, %87 ]
-  store i64 %91, ptr %3, align 8
-  %92 = load i64, ptr %3, align 8
-  store i64 %92, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 2), align 16
-  %93 = call i64 @rb_intern_const(ptr noundef @.str.247) #33
-  %94 = call i1 @llvm.is.constant.i64(i64 %93)
-  br i1 %94, label %95, label %106
+91:                                               ; preds = %88, %84
+  %92 = phi i64 [ %87, %84 ], [ %90, %88 ]
+  store i64 %92, ptr %3, align 8
+  %93 = load i64, ptr %3, align 8
+  %94 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 2
+  store i64 %93, ptr %94, align 16
+  %95 = call i64 @rb_intern_const(ptr noundef @.str.247) #33
+  %96 = call i1 @llvm.is.constant.i64(i64 %95)
+  br i1 %96, label %97, label %108
 
-95:                                               ; preds = %90
-  %96 = call i64 @rb_intern_const(ptr noundef @.str.247) #33
-  %97 = and i64 %96, 1
-  %98 = icmp ne i64 %97, 0
-  br i1 %98, label %102, label %99
+97:                                               ; preds = %91
+  %98 = call i64 @rb_intern_const(ptr noundef @.str.247) #33
+  %99 = and i64 %98, 1
+  %100 = icmp ne i64 %99, 0
+  br i1 %100, label %104, label %101
 
-99:                                               ; preds = %95
-  %100 = call i64 @rb_intern_const(ptr noundef @.str.247) #33
-  %101 = icmp ugt i64 %100, 169
-  br i1 %101, label %106, label %102
+101:                                              ; preds = %97
+  %102 = call i64 @rb_intern_const(ptr noundef @.str.247) #33
+  %103 = icmp ugt i64 %102, 169
+  br i1 %103, label %108, label %104
 
-102:                                              ; preds = %99, %95
-  %103 = call i64 @rb_intern_const(ptr noundef @.str.247) #33
-  %104 = shl i64 %103, 8
-  %105 = or i64 %104, 12
-  br label %109
+104:                                              ; preds = %101, %97
+  %105 = call i64 @rb_intern_const(ptr noundef @.str.247) #33
+  %106 = shl i64 %105, 8
+  %107 = or i64 %106, 12
+  br label %111
 
-106:                                              ; preds = %99, %90
-  %107 = call i64 @rb_intern_const(ptr noundef @.str.247) #33
-  %108 = call i64 @rb_id2sym(i64 noundef %107)
-  br label %109
+108:                                              ; preds = %101, %91
+  %109 = call i64 @rb_intern_const(ptr noundef @.str.247) #33
+  %110 = call i64 @rb_id2sym(i64 noundef %109)
+  br label %111
 
-109:                                              ; preds = %106, %102
-  %110 = phi i64 [ %105, %102 ], [ %108, %106 ]
-  store i64 %110, ptr %4, align 8
-  %111 = load i64, ptr %4, align 8
-  store i64 %111, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 3), align 8
-  %112 = call i64 @rb_intern_const(ptr noundef @.str.248) #33
-  %113 = call i1 @llvm.is.constant.i64(i64 %112)
-  br i1 %113, label %114, label %125
-
-114:                                              ; preds = %109
+111:                                              ; preds = %108, %104
+  %112 = phi i64 [ %107, %104 ], [ %110, %108 ]
+  store i64 %112, ptr %4, align 8
+  %113 = load i64, ptr %4, align 8
+  %114 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 3
+  store i64 %113, ptr %114, align 8
   %115 = call i64 @rb_intern_const(ptr noundef @.str.248) #33
-  %116 = and i64 %115, 1
-  %117 = icmp ne i64 %116, 0
-  br i1 %117, label %121, label %118
+  %116 = call i1 @llvm.is.constant.i64(i64 %115)
+  br i1 %116, label %117, label %128
 
-118:                                              ; preds = %114
-  %119 = call i64 @rb_intern_const(ptr noundef @.str.248) #33
-  %120 = icmp ugt i64 %119, 169
-  br i1 %120, label %125, label %121
+117:                                              ; preds = %111
+  %118 = call i64 @rb_intern_const(ptr noundef @.str.248) #33
+  %119 = and i64 %118, 1
+  %120 = icmp ne i64 %119, 0
+  br i1 %120, label %124, label %121
 
-121:                                              ; preds = %118, %114
+121:                                              ; preds = %117
   %122 = call i64 @rb_intern_const(ptr noundef @.str.248) #33
-  %123 = shl i64 %122, 8
-  %124 = or i64 %123, 12
-  br label %128
+  %123 = icmp ugt i64 %122, 169
+  br i1 %123, label %128, label %124
 
-125:                                              ; preds = %118, %109
-  %126 = call i64 @rb_intern_const(ptr noundef @.str.248) #33
-  %127 = call i64 @rb_id2sym(i64 noundef %126)
-  br label %128
+124:                                              ; preds = %121, %117
+  %125 = call i64 @rb_intern_const(ptr noundef @.str.248) #33
+  %126 = shl i64 %125, 8
+  %127 = or i64 %126, 12
+  br label %131
 
-128:                                              ; preds = %125, %121
-  %129 = phi i64 [ %124, %121 ], [ %127, %125 ]
-  store i64 %129, ptr %5, align 8
-  %130 = load i64, ptr %5, align 8
-  store i64 %130, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 4), align 16
-  %131 = call i64 @rb_intern_const(ptr noundef @.str.249) #33
-  %132 = call i1 @llvm.is.constant.i64(i64 %131)
-  br i1 %132, label %133, label %144
+128:                                              ; preds = %121, %111
+  %129 = call i64 @rb_intern_const(ptr noundef @.str.248) #33
+  %130 = call i64 @rb_id2sym(i64 noundef %129)
+  br label %131
 
-133:                                              ; preds = %128
-  %134 = call i64 @rb_intern_const(ptr noundef @.str.249) #33
-  %135 = and i64 %134, 1
-  %136 = icmp ne i64 %135, 0
-  br i1 %136, label %140, label %137
+131:                                              ; preds = %128, %124
+  %132 = phi i64 [ %127, %124 ], [ %130, %128 ]
+  store i64 %132, ptr %5, align 8
+  %133 = load i64, ptr %5, align 8
+  %134 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 4
+  store i64 %133, ptr %134, align 16
+  %135 = call i64 @rb_intern_const(ptr noundef @.str.249) #33
+  %136 = call i1 @llvm.is.constant.i64(i64 %135)
+  br i1 %136, label %137, label %148
 
-137:                                              ; preds = %133
+137:                                              ; preds = %131
   %138 = call i64 @rb_intern_const(ptr noundef @.str.249) #33
-  %139 = icmp ugt i64 %138, 169
-  br i1 %139, label %144, label %140
+  %139 = and i64 %138, 1
+  %140 = icmp ne i64 %139, 0
+  br i1 %140, label %144, label %141
 
-140:                                              ; preds = %137, %133
-  %141 = call i64 @rb_intern_const(ptr noundef @.str.249) #33
-  %142 = shl i64 %141, 8
-  %143 = or i64 %142, 12
-  br label %147
+141:                                              ; preds = %137
+  %142 = call i64 @rb_intern_const(ptr noundef @.str.249) #33
+  %143 = icmp ugt i64 %142, 169
+  br i1 %143, label %148, label %144
 
-144:                                              ; preds = %137, %128
+144:                                              ; preds = %141, %137
   %145 = call i64 @rb_intern_const(ptr noundef @.str.249) #33
-  %146 = call i64 @rb_id2sym(i64 noundef %145)
-  br label %147
+  %146 = shl i64 %145, 8
+  %147 = or i64 %146, 12
+  br label %151
 
-147:                                              ; preds = %144, %140
-  %148 = phi i64 [ %143, %140 ], [ %146, %144 ]
-  store i64 %148, ptr %6, align 8
-  %149 = load i64, ptr %6, align 8
-  store i64 %149, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 5), align 8
-  %150 = call i64 @rb_intern_const(ptr noundef @.str.250) #33
-  %151 = call i1 @llvm.is.constant.i64(i64 %150)
-  br i1 %151, label %152, label %163
+148:                                              ; preds = %141, %131
+  %149 = call i64 @rb_intern_const(ptr noundef @.str.249) #33
+  %150 = call i64 @rb_id2sym(i64 noundef %149)
+  br label %151
 
-152:                                              ; preds = %147
-  %153 = call i64 @rb_intern_const(ptr noundef @.str.250) #33
-  %154 = and i64 %153, 1
-  %155 = icmp ne i64 %154, 0
-  br i1 %155, label %159, label %156
+151:                                              ; preds = %148, %144
+  %152 = phi i64 [ %147, %144 ], [ %150, %148 ]
+  store i64 %152, ptr %6, align 8
+  %153 = load i64, ptr %6, align 8
+  %154 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 5
+  store i64 %153, ptr %154, align 8
+  %155 = call i64 @rb_intern_const(ptr noundef @.str.250) #33
+  %156 = call i1 @llvm.is.constant.i64(i64 %155)
+  br i1 %156, label %157, label %168
 
-156:                                              ; preds = %152
-  %157 = call i64 @rb_intern_const(ptr noundef @.str.250) #33
-  %158 = icmp ugt i64 %157, 169
-  br i1 %158, label %163, label %159
+157:                                              ; preds = %151
+  %158 = call i64 @rb_intern_const(ptr noundef @.str.250) #33
+  %159 = and i64 %158, 1
+  %160 = icmp ne i64 %159, 0
+  br i1 %160, label %164, label %161
 
-159:                                              ; preds = %156, %152
-  %160 = call i64 @rb_intern_const(ptr noundef @.str.250) #33
-  %161 = shl i64 %160, 8
-  %162 = or i64 %161, 12
-  br label %166
+161:                                              ; preds = %157
+  %162 = call i64 @rb_intern_const(ptr noundef @.str.250) #33
+  %163 = icmp ugt i64 %162, 169
+  br i1 %163, label %168, label %164
 
-163:                                              ; preds = %156, %147
-  %164 = call i64 @rb_intern_const(ptr noundef @.str.250) #33
-  %165 = call i64 @rb_id2sym(i64 noundef %164)
-  br label %166
+164:                                              ; preds = %161, %157
+  %165 = call i64 @rb_intern_const(ptr noundef @.str.250) #33
+  %166 = shl i64 %165, 8
+  %167 = or i64 %166, 12
+  br label %171
 
-166:                                              ; preds = %163, %159
-  %167 = phi i64 [ %162, %159 ], [ %165, %163 ]
-  store i64 %167, ptr %7, align 8
-  %168 = load i64, ptr %7, align 8
-  store i64 %168, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 6), align 16
-  %169 = call i64 @rb_intern_const(ptr noundef @.str.251) #33
-  %170 = call i1 @llvm.is.constant.i64(i64 %169)
-  br i1 %170, label %171, label %182
+168:                                              ; preds = %161, %151
+  %169 = call i64 @rb_intern_const(ptr noundef @.str.250) #33
+  %170 = call i64 @rb_id2sym(i64 noundef %169)
+  br label %171
 
-171:                                              ; preds = %166
-  %172 = call i64 @rb_intern_const(ptr noundef @.str.251) #33
-  %173 = and i64 %172, 1
-  %174 = icmp ne i64 %173, 0
-  br i1 %174, label %178, label %175
+171:                                              ; preds = %168, %164
+  %172 = phi i64 [ %167, %164 ], [ %170, %168 ]
+  store i64 %172, ptr %7, align 8
+  %173 = load i64, ptr %7, align 8
+  %174 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 6
+  store i64 %173, ptr %174, align 16
+  %175 = call i64 @rb_intern_const(ptr noundef @.str.251) #33
+  %176 = call i1 @llvm.is.constant.i64(i64 %175)
+  br i1 %176, label %177, label %188
 
-175:                                              ; preds = %171
-  %176 = call i64 @rb_intern_const(ptr noundef @.str.251) #33
-  %177 = icmp ugt i64 %176, 169
-  br i1 %177, label %182, label %178
+177:                                              ; preds = %171
+  %178 = call i64 @rb_intern_const(ptr noundef @.str.251) #33
+  %179 = and i64 %178, 1
+  %180 = icmp ne i64 %179, 0
+  br i1 %180, label %184, label %181
 
-178:                                              ; preds = %175, %171
-  %179 = call i64 @rb_intern_const(ptr noundef @.str.251) #33
-  %180 = shl i64 %179, 8
-  %181 = or i64 %180, 12
-  br label %185
+181:                                              ; preds = %177
+  %182 = call i64 @rb_intern_const(ptr noundef @.str.251) #33
+  %183 = icmp ugt i64 %182, 169
+  br i1 %183, label %188, label %184
 
-182:                                              ; preds = %175, %166
-  %183 = call i64 @rb_intern_const(ptr noundef @.str.251) #33
-  %184 = call i64 @rb_id2sym(i64 noundef %183)
-  br label %185
+184:                                              ; preds = %181, %177
+  %185 = call i64 @rb_intern_const(ptr noundef @.str.251) #33
+  %186 = shl i64 %185, 8
+  %187 = or i64 %186, 12
+  br label %191
 
-185:                                              ; preds = %182, %178
-  %186 = phi i64 [ %181, %178 ], [ %184, %182 ]
-  store i64 %186, ptr %8, align 8
-  %187 = load i64, ptr %8, align 8
-  store i64 %187, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 7), align 8
-  %188 = call i64 @rb_intern_const(ptr noundef @.str.252) #33
-  %189 = call i1 @llvm.is.constant.i64(i64 %188)
-  br i1 %189, label %190, label %201
+188:                                              ; preds = %181, %171
+  %189 = call i64 @rb_intern_const(ptr noundef @.str.251) #33
+  %190 = call i64 @rb_id2sym(i64 noundef %189)
+  br label %191
 
-190:                                              ; preds = %185
-  %191 = call i64 @rb_intern_const(ptr noundef @.str.252) #33
-  %192 = and i64 %191, 1
-  %193 = icmp ne i64 %192, 0
-  br i1 %193, label %197, label %194
-
-194:                                              ; preds = %190
+191:                                              ; preds = %188, %184
+  %192 = phi i64 [ %187, %184 ], [ %190, %188 ]
+  store i64 %192, ptr %8, align 8
+  %193 = load i64, ptr %8, align 8
+  %194 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 7
+  store i64 %193, ptr %194, align 8
   %195 = call i64 @rb_intern_const(ptr noundef @.str.252) #33
-  %196 = icmp ugt i64 %195, 169
-  br i1 %196, label %201, label %197
+  %196 = call i1 @llvm.is.constant.i64(i64 %195)
+  br i1 %196, label %197, label %208
 
-197:                                              ; preds = %194, %190
+197:                                              ; preds = %191
   %198 = call i64 @rb_intern_const(ptr noundef @.str.252) #33
-  %199 = shl i64 %198, 8
-  %200 = or i64 %199, 12
-  br label %204
+  %199 = and i64 %198, 1
+  %200 = icmp ne i64 %199, 0
+  br i1 %200, label %204, label %201
 
-201:                                              ; preds = %194, %185
+201:                                              ; preds = %197
   %202 = call i64 @rb_intern_const(ptr noundef @.str.252) #33
-  %203 = call i64 @rb_id2sym(i64 noundef %202)
-  br label %204
+  %203 = icmp ugt i64 %202, 169
+  br i1 %203, label %208, label %204
 
 204:                                              ; preds = %201, %197
-  %205 = phi i64 [ %200, %197 ], [ %203, %201 ]
-  store i64 %205, ptr %9, align 8
-  %206 = load i64, ptr %9, align 8
-  store i64 %206, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 8), align 16
-  %207 = call i64 @rb_intern_const(ptr noundef @.str.253) #33
-  %208 = call i1 @llvm.is.constant.i64(i64 %207)
-  br i1 %208, label %209, label %220
+  %205 = call i64 @rb_intern_const(ptr noundef @.str.252) #33
+  %206 = shl i64 %205, 8
+  %207 = or i64 %206, 12
+  br label %211
 
-209:                                              ; preds = %204
-  %210 = call i64 @rb_intern_const(ptr noundef @.str.253) #33
-  %211 = and i64 %210, 1
-  %212 = icmp ne i64 %211, 0
-  br i1 %212, label %216, label %213
+208:                                              ; preds = %201, %191
+  %209 = call i64 @rb_intern_const(ptr noundef @.str.252) #33
+  %210 = call i64 @rb_id2sym(i64 noundef %209)
+  br label %211
 
-213:                                              ; preds = %209
-  %214 = call i64 @rb_intern_const(ptr noundef @.str.253) #33
-  %215 = icmp ugt i64 %214, 169
-  br i1 %215, label %220, label %216
+211:                                              ; preds = %208, %204
+  %212 = phi i64 [ %207, %204 ], [ %210, %208 ]
+  store i64 %212, ptr %9, align 8
+  %213 = load i64, ptr %9, align 8
+  %214 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 8
+  store i64 %213, ptr %214, align 16
+  %215 = call i64 @rb_intern_const(ptr noundef @.str.253) #33
+  %216 = call i1 @llvm.is.constant.i64(i64 %215)
+  br i1 %216, label %217, label %228
 
-216:                                              ; preds = %213, %209
-  %217 = call i64 @rb_intern_const(ptr noundef @.str.253) #33
-  %218 = shl i64 %217, 8
-  %219 = or i64 %218, 12
-  br label %223
+217:                                              ; preds = %211
+  %218 = call i64 @rb_intern_const(ptr noundef @.str.253) #33
+  %219 = and i64 %218, 1
+  %220 = icmp ne i64 %219, 0
+  br i1 %220, label %224, label %221
 
-220:                                              ; preds = %213, %204
-  %221 = call i64 @rb_intern_const(ptr noundef @.str.253) #33
-  %222 = call i64 @rb_id2sym(i64 noundef %221)
-  br label %223
+221:                                              ; preds = %217
+  %222 = call i64 @rb_intern_const(ptr noundef @.str.253) #33
+  %223 = icmp ugt i64 %222, 169
+  br i1 %223, label %228, label %224
 
-223:                                              ; preds = %220, %216
-  %224 = phi i64 [ %219, %216 ], [ %222, %220 ]
-  store i64 %224, ptr %10, align 8
-  %225 = load i64, ptr %10, align 8
-  store i64 %225, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 9), align 8
-  %226 = call i64 @rb_intern_const(ptr noundef @.str.254) #33
-  %227 = call i1 @llvm.is.constant.i64(i64 %226)
-  br i1 %227, label %228, label %239
+224:                                              ; preds = %221, %217
+  %225 = call i64 @rb_intern_const(ptr noundef @.str.253) #33
+  %226 = shl i64 %225, 8
+  %227 = or i64 %226, 12
+  br label %231
 
-228:                                              ; preds = %223
-  %229 = call i64 @rb_intern_const(ptr noundef @.str.254) #33
-  %230 = and i64 %229, 1
-  %231 = icmp ne i64 %230, 0
-  br i1 %231, label %235, label %232
+228:                                              ; preds = %221, %211
+  %229 = call i64 @rb_intern_const(ptr noundef @.str.253) #33
+  %230 = call i64 @rb_id2sym(i64 noundef %229)
+  br label %231
 
-232:                                              ; preds = %228
-  %233 = call i64 @rb_intern_const(ptr noundef @.str.254) #33
-  %234 = icmp ugt i64 %233, 169
-  br i1 %234, label %239, label %235
+231:                                              ; preds = %228, %224
+  %232 = phi i64 [ %227, %224 ], [ %230, %228 ]
+  store i64 %232, ptr %10, align 8
+  %233 = load i64, ptr %10, align 8
+  %234 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 9
+  store i64 %233, ptr %234, align 8
+  %235 = call i64 @rb_intern_const(ptr noundef @.str.254) #33
+  %236 = call i1 @llvm.is.constant.i64(i64 %235)
+  br i1 %236, label %237, label %248
 
-235:                                              ; preds = %232, %228
-  %236 = call i64 @rb_intern_const(ptr noundef @.str.254) #33
-  %237 = shl i64 %236, 8
-  %238 = or i64 %237, 12
-  br label %242
+237:                                              ; preds = %231
+  %238 = call i64 @rb_intern_const(ptr noundef @.str.254) #33
+  %239 = and i64 %238, 1
+  %240 = icmp ne i64 %239, 0
+  br i1 %240, label %244, label %241
 
-239:                                              ; preds = %232, %223
-  %240 = call i64 @rb_intern_const(ptr noundef @.str.254) #33
-  %241 = call i64 @rb_id2sym(i64 noundef %240)
-  br label %242
+241:                                              ; preds = %237
+  %242 = call i64 @rb_intern_const(ptr noundef @.str.254) #33
+  %243 = icmp ugt i64 %242, 169
+  br i1 %243, label %248, label %244
 
-242:                                              ; preds = %239, %235
-  %243 = phi i64 [ %238, %235 ], [ %241, %239 ]
-  store i64 %243, ptr %11, align 8
-  %244 = load i64, ptr %11, align 8
-  store i64 %244, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 10), align 16
-  %245 = call i64 @rb_intern_const(ptr noundef @.str.255) #33
-  %246 = call i1 @llvm.is.constant.i64(i64 %245)
-  br i1 %246, label %247, label %258
+244:                                              ; preds = %241, %237
+  %245 = call i64 @rb_intern_const(ptr noundef @.str.254) #33
+  %246 = shl i64 %245, 8
+  %247 = or i64 %246, 12
+  br label %251
 
-247:                                              ; preds = %242
-  %248 = call i64 @rb_intern_const(ptr noundef @.str.255) #33
-  %249 = and i64 %248, 1
-  %250 = icmp ne i64 %249, 0
-  br i1 %250, label %254, label %251
+248:                                              ; preds = %241, %231
+  %249 = call i64 @rb_intern_const(ptr noundef @.str.254) #33
+  %250 = call i64 @rb_id2sym(i64 noundef %249)
+  br label %251
 
-251:                                              ; preds = %247
-  %252 = call i64 @rb_intern_const(ptr noundef @.str.255) #33
-  %253 = icmp ugt i64 %252, 169
-  br i1 %253, label %258, label %254
-
-254:                                              ; preds = %251, %247
+251:                                              ; preds = %248, %244
+  %252 = phi i64 [ %247, %244 ], [ %250, %248 ]
+  store i64 %252, ptr %11, align 8
+  %253 = load i64, ptr %11, align 8
+  %254 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 10
+  store i64 %253, ptr %254, align 16
   %255 = call i64 @rb_intern_const(ptr noundef @.str.255) #33
-  %256 = shl i64 %255, 8
-  %257 = or i64 %256, 12
-  br label %261
+  %256 = call i1 @llvm.is.constant.i64(i64 %255)
+  br i1 %256, label %257, label %268
 
-258:                                              ; preds = %251, %242
-  %259 = call i64 @rb_intern_const(ptr noundef @.str.255) #33
-  %260 = call i64 @rb_id2sym(i64 noundef %259)
-  br label %261
+257:                                              ; preds = %251
+  %258 = call i64 @rb_intern_const(ptr noundef @.str.255) #33
+  %259 = and i64 %258, 1
+  %260 = icmp ne i64 %259, 0
+  br i1 %260, label %264, label %261
 
-261:                                              ; preds = %258, %254
-  %262 = phi i64 [ %257, %254 ], [ %260, %258 ]
-  store i64 %262, ptr %12, align 8
-  %263 = load i64, ptr %12, align 8
-  store i64 %263, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 11), align 8
-  %264 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
-  %265 = call i1 @llvm.is.constant.i64(i64 %264)
-  br i1 %265, label %266, label %277
+261:                                              ; preds = %257
+  %262 = call i64 @rb_intern_const(ptr noundef @.str.255) #33
+  %263 = icmp ugt i64 %262, 169
+  br i1 %263, label %268, label %264
 
-266:                                              ; preds = %261
-  %267 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
-  %268 = and i64 %267, 1
-  %269 = icmp ne i64 %268, 0
-  br i1 %269, label %273, label %270
+264:                                              ; preds = %261, %257
+  %265 = call i64 @rb_intern_const(ptr noundef @.str.255) #33
+  %266 = shl i64 %265, 8
+  %267 = or i64 %266, 12
+  br label %271
 
-270:                                              ; preds = %266
-  %271 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
-  %272 = icmp ugt i64 %271, 169
-  br i1 %272, label %277, label %273
+268:                                              ; preds = %261, %251
+  %269 = call i64 @rb_intern_const(ptr noundef @.str.255) #33
+  %270 = call i64 @rb_id2sym(i64 noundef %269)
+  br label %271
 
-273:                                              ; preds = %270, %266
-  %274 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
-  %275 = shl i64 %274, 8
-  %276 = or i64 %275, 12
-  br label %280
+271:                                              ; preds = %268, %264
+  %272 = phi i64 [ %267, %264 ], [ %270, %268 ]
+  store i64 %272, ptr %12, align 8
+  %273 = load i64, ptr %12, align 8
+  %274 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 11
+  store i64 %273, ptr %274, align 8
+  %275 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
+  %276 = call i1 @llvm.is.constant.i64(i64 %275)
+  br i1 %276, label %277, label %288
 
-277:                                              ; preds = %270, %261
+277:                                              ; preds = %271
   %278 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
-  %279 = call i64 @rb_id2sym(i64 noundef %278)
-  br label %280
+  %279 = and i64 %278, 1
+  %280 = icmp ne i64 %279, 0
+  br i1 %280, label %284, label %281
 
-280:                                              ; preds = %277, %273
-  %281 = phi i64 [ %276, %273 ], [ %279, %277 ]
-  store i64 %281, ptr %13, align 8
-  %282 = load i64, ptr %13, align 8
-  store i64 %282, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 12), align 16
-  %283 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
-  %284 = call i1 @llvm.is.constant.i64(i64 %283)
-  br i1 %284, label %285, label %296
+281:                                              ; preds = %277
+  %282 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
+  %283 = icmp ugt i64 %282, 169
+  br i1 %283, label %288, label %284
 
-285:                                              ; preds = %280
-  %286 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
-  %287 = and i64 %286, 1
-  %288 = icmp ne i64 %287, 0
-  br i1 %288, label %292, label %289
+284:                                              ; preds = %281, %277
+  %285 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
+  %286 = shl i64 %285, 8
+  %287 = or i64 %286, 12
+  br label %291
 
-289:                                              ; preds = %285
-  %290 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
-  %291 = icmp ugt i64 %290, 169
-  br i1 %291, label %296, label %292
+288:                                              ; preds = %281, %271
+  %289 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
+  %290 = call i64 @rb_id2sym(i64 noundef %289)
+  br label %291
 
-292:                                              ; preds = %289, %285
-  %293 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
-  %294 = shl i64 %293, 8
-  %295 = or i64 %294, 12
-  br label %299
+291:                                              ; preds = %288, %284
+  %292 = phi i64 [ %287, %284 ], [ %290, %288 ]
+  store i64 %292, ptr %13, align 8
+  %293 = load i64, ptr %13, align 8
+  %294 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 12
+  store i64 %293, ptr %294, align 16
+  %295 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
+  %296 = call i1 @llvm.is.constant.i64(i64 %295)
+  br i1 %296, label %297, label %308
 
-296:                                              ; preds = %289, %280
-  %297 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
-  %298 = call i64 @rb_id2sym(i64 noundef %297)
-  br label %299
+297:                                              ; preds = %291
+  %298 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
+  %299 = and i64 %298, 1
+  %300 = icmp ne i64 %299, 0
+  br i1 %300, label %304, label %301
 
-299:                                              ; preds = %296, %292
-  %300 = phi i64 [ %295, %292 ], [ %298, %296 ]
-  store i64 %300, ptr %14, align 8
-  %301 = load i64, ptr %14, align 8
-  store i64 %301, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 13), align 8
-  %302 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
-  %303 = call i1 @llvm.is.constant.i64(i64 %302)
-  br i1 %303, label %304, label %315
+301:                                              ; preds = %297
+  %302 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
+  %303 = icmp ugt i64 %302, 169
+  br i1 %303, label %308, label %304
 
-304:                                              ; preds = %299
-  %305 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
-  %306 = and i64 %305, 1
-  %307 = icmp ne i64 %306, 0
-  br i1 %307, label %311, label %308
+304:                                              ; preds = %301, %297
+  %305 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
+  %306 = shl i64 %305, 8
+  %307 = or i64 %306, 12
+  br label %311
 
-308:                                              ; preds = %304
-  %309 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
-  %310 = icmp ugt i64 %309, 169
-  br i1 %310, label %315, label %311
+308:                                              ; preds = %301, %291
+  %309 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
+  %310 = call i64 @rb_id2sym(i64 noundef %309)
+  br label %311
 
 311:                                              ; preds = %308, %304
-  %312 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
-  %313 = shl i64 %312, 8
-  %314 = or i64 %313, 12
-  br label %318
+  %312 = phi i64 [ %307, %304 ], [ %310, %308 ]
+  store i64 %312, ptr %14, align 8
+  %313 = load i64, ptr %14, align 8
+  %314 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 13
+  store i64 %313, ptr %314, align 8
+  %315 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
+  %316 = call i1 @llvm.is.constant.i64(i64 %315)
+  br i1 %316, label %317, label %328
 
-315:                                              ; preds = %308, %299
-  %316 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
-  %317 = call i64 @rb_id2sym(i64 noundef %316)
-  br label %318
+317:                                              ; preds = %311
+  %318 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
+  %319 = and i64 %318, 1
+  %320 = icmp ne i64 %319, 0
+  br i1 %320, label %324, label %321
 
-318:                                              ; preds = %315, %311
-  %319 = phi i64 [ %314, %311 ], [ %317, %315 ]
-  store i64 %319, ptr %15, align 8
-  %320 = load i64, ptr %15, align 8
-  store i64 %320, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 14), align 16
-  %321 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
-  %322 = call i1 @llvm.is.constant.i64(i64 %321)
-  br i1 %322, label %323, label %334
+321:                                              ; preds = %317
+  %322 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
+  %323 = icmp ugt i64 %322, 169
+  br i1 %323, label %328, label %324
 
-323:                                              ; preds = %318
-  %324 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
-  %325 = and i64 %324, 1
-  %326 = icmp ne i64 %325, 0
-  br i1 %326, label %330, label %327
+324:                                              ; preds = %321, %317
+  %325 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
+  %326 = shl i64 %325, 8
+  %327 = or i64 %326, 12
+  br label %331
 
-327:                                              ; preds = %323
-  %328 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
-  %329 = icmp ugt i64 %328, 169
-  br i1 %329, label %334, label %330
+328:                                              ; preds = %321, %311
+  %329 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
+  %330 = call i64 @rb_id2sym(i64 noundef %329)
+  br label %331
 
-330:                                              ; preds = %327, %323
-  %331 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
-  %332 = shl i64 %331, 8
-  %333 = or i64 %332, 12
-  br label %337
-
-334:                                              ; preds = %327, %318
+331:                                              ; preds = %328, %324
+  %332 = phi i64 [ %327, %324 ], [ %330, %328 ]
+  store i64 %332, ptr %15, align 8
+  %333 = load i64, ptr %15, align 8
+  %334 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 14
+  store i64 %333, ptr %334, align 16
   %335 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
-  %336 = call i64 @rb_id2sym(i64 noundef %335)
-  br label %337
+  %336 = call i1 @llvm.is.constant.i64(i64 %335)
+  br i1 %336, label %337, label %348
 
-337:                                              ; preds = %334, %330
-  %338 = phi i64 [ %333, %330 ], [ %336, %334 ]
-  store i64 %338, ptr %16, align 8
-  %339 = load i64, ptr %16, align 8
-  store i64 %339, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 15), align 8
-  %340 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
-  %341 = call i1 @llvm.is.constant.i64(i64 %340)
-  br i1 %341, label %342, label %353
+337:                                              ; preds = %331
+  %338 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
+  %339 = and i64 %338, 1
+  %340 = icmp ne i64 %339, 0
+  br i1 %340, label %344, label %341
 
-342:                                              ; preds = %337
-  %343 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
-  %344 = and i64 %343, 1
-  %345 = icmp ne i64 %344, 0
-  br i1 %345, label %349, label %346
+341:                                              ; preds = %337
+  %342 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
+  %343 = icmp ugt i64 %342, 169
+  br i1 %343, label %348, label %344
 
-346:                                              ; preds = %342
-  %347 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
-  %348 = icmp ugt i64 %347, 169
-  br i1 %348, label %353, label %349
+344:                                              ; preds = %341, %337
+  %345 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
+  %346 = shl i64 %345, 8
+  %347 = or i64 %346, 12
+  br label %351
 
-349:                                              ; preds = %346, %342
-  %350 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
-  %351 = shl i64 %350, 8
-  %352 = or i64 %351, 12
-  br label %356
+348:                                              ; preds = %341, %331
+  %349 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
+  %350 = call i64 @rb_id2sym(i64 noundef %349)
+  br label %351
 
-353:                                              ; preds = %346, %337
-  %354 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
-  %355 = call i64 @rb_id2sym(i64 noundef %354)
-  br label %356
+351:                                              ; preds = %348, %344
+  %352 = phi i64 [ %347, %344 ], [ %350, %348 ]
+  store i64 %352, ptr %16, align 8
+  %353 = load i64, ptr %16, align 8
+  %354 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 15
+  store i64 %353, ptr %354, align 8
+  %355 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
+  %356 = call i1 @llvm.is.constant.i64(i64 %355)
+  br i1 %356, label %357, label %368
 
-356:                                              ; preds = %353, %349
-  %357 = phi i64 [ %352, %349 ], [ %355, %353 ]
-  store i64 %357, ptr %17, align 8
-  %358 = load i64, ptr %17, align 8
-  store i64 %358, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 16), align 16
-  %359 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
-  %360 = call i1 @llvm.is.constant.i64(i64 %359)
-  br i1 %360, label %361, label %372
+357:                                              ; preds = %351
+  %358 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
+  %359 = and i64 %358, 1
+  %360 = icmp ne i64 %359, 0
+  br i1 %360, label %364, label %361
 
-361:                                              ; preds = %356
-  %362 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
-  %363 = and i64 %362, 1
-  %364 = icmp ne i64 %363, 0
-  br i1 %364, label %368, label %365
+361:                                              ; preds = %357
+  %362 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
+  %363 = icmp ugt i64 %362, 169
+  br i1 %363, label %368, label %364
 
-365:                                              ; preds = %361
-  %366 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
-  %367 = icmp ugt i64 %366, 169
-  br i1 %367, label %372, label %368
+364:                                              ; preds = %361, %357
+  %365 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
+  %366 = shl i64 %365, 8
+  %367 = or i64 %366, 12
+  br label %371
 
-368:                                              ; preds = %365, %361
-  %369 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
-  %370 = shl i64 %369, 8
-  %371 = or i64 %370, 12
-  br label %375
+368:                                              ; preds = %361, %351
+  %369 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
+  %370 = call i64 @rb_id2sym(i64 noundef %369)
+  br label %371
 
-372:                                              ; preds = %365, %356
-  %373 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
-  %374 = call i64 @rb_id2sym(i64 noundef %373)
-  br label %375
+371:                                              ; preds = %368, %364
+  %372 = phi i64 [ %367, %364 ], [ %370, %368 ]
+  store i64 %372, ptr %17, align 8
+  %373 = load i64, ptr %17, align 8
+  %374 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 16
+  store i64 %373, ptr %374, align 16
+  %375 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
+  %376 = call i1 @llvm.is.constant.i64(i64 %375)
+  br i1 %376, label %377, label %388
 
-375:                                              ; preds = %372, %368
-  %376 = phi i64 [ %371, %368 ], [ %374, %372 ]
-  store i64 %376, ptr %18, align 8
-  %377 = load i64, ptr %18, align 8
-  store i64 %377, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 17), align 8
-  %378 = call i64 @rb_intern_const(ptr noundef @.str.262) #33
-  %379 = call i1 @llvm.is.constant.i64(i64 %378)
-  br i1 %379, label %380, label %391
+377:                                              ; preds = %371
+  %378 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
+  %379 = and i64 %378, 1
+  %380 = icmp ne i64 %379, 0
+  br i1 %380, label %384, label %381
 
-380:                                              ; preds = %375
-  %381 = call i64 @rb_intern_const(ptr noundef @.str.262) #33
-  %382 = and i64 %381, 1
-  %383 = icmp ne i64 %382, 0
-  br i1 %383, label %387, label %384
+381:                                              ; preds = %377
+  %382 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
+  %383 = icmp ugt i64 %382, 169
+  br i1 %383, label %388, label %384
 
-384:                                              ; preds = %380
-  %385 = call i64 @rb_intern_const(ptr noundef @.str.262) #33
-  %386 = icmp ugt i64 %385, 169
-  br i1 %386, label %391, label %387
+384:                                              ; preds = %381, %377
+  %385 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
+  %386 = shl i64 %385, 8
+  %387 = or i64 %386, 12
+  br label %391
 
-387:                                              ; preds = %384, %380
-  %388 = call i64 @rb_intern_const(ptr noundef @.str.262) #33
-  %389 = shl i64 %388, 8
-  %390 = or i64 %389, 12
-  br label %394
+388:                                              ; preds = %381, %371
+  %389 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
+  %390 = call i64 @rb_id2sym(i64 noundef %389)
+  br label %391
 
-391:                                              ; preds = %384, %375
-  %392 = call i64 @rb_intern_const(ptr noundef @.str.262) #33
-  %393 = call i64 @rb_id2sym(i64 noundef %392)
-  br label %394
+391:                                              ; preds = %388, %384
+  %392 = phi i64 [ %387, %384 ], [ %390, %388 ]
+  store i64 %392, ptr %18, align 8
+  %393 = load i64, ptr %18, align 8
+  %394 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 17
+  store i64 %393, ptr %394, align 8
+  %395 = call i64 @rb_intern_const(ptr noundef @.str.262) #33
+  %396 = call i1 @llvm.is.constant.i64(i64 %395)
+  br i1 %396, label %397, label %408
 
-394:                                              ; preds = %391, %387
-  %395 = phi i64 [ %390, %387 ], [ %393, %391 ]
-  store i64 %395, ptr %19, align 8
-  %396 = load i64, ptr %19, align 8
-  store i64 %396, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 18), align 16
-  %397 = call i64 @rb_intern_const(ptr noundef @.str.263) #33
-  %398 = call i1 @llvm.is.constant.i64(i64 %397)
-  br i1 %398, label %399, label %410
+397:                                              ; preds = %391
+  %398 = call i64 @rb_intern_const(ptr noundef @.str.262) #33
+  %399 = and i64 %398, 1
+  %400 = icmp ne i64 %399, 0
+  br i1 %400, label %404, label %401
 
-399:                                              ; preds = %394
-  %400 = call i64 @rb_intern_const(ptr noundef @.str.263) #33
-  %401 = and i64 %400, 1
-  %402 = icmp ne i64 %401, 0
-  br i1 %402, label %406, label %403
+401:                                              ; preds = %397
+  %402 = call i64 @rb_intern_const(ptr noundef @.str.262) #33
+  %403 = icmp ugt i64 %402, 169
+  br i1 %403, label %408, label %404
 
-403:                                              ; preds = %399
-  %404 = call i64 @rb_intern_const(ptr noundef @.str.263) #33
-  %405 = icmp ugt i64 %404, 169
-  br i1 %405, label %410, label %406
+404:                                              ; preds = %401, %397
+  %405 = call i64 @rb_intern_const(ptr noundef @.str.262) #33
+  %406 = shl i64 %405, 8
+  %407 = or i64 %406, 12
+  br label %411
 
-406:                                              ; preds = %403, %399
-  %407 = call i64 @rb_intern_const(ptr noundef @.str.263) #33
-  %408 = shl i64 %407, 8
-  %409 = or i64 %408, 12
-  br label %413
+408:                                              ; preds = %401, %391
+  %409 = call i64 @rb_intern_const(ptr noundef @.str.262) #33
+  %410 = call i64 @rb_id2sym(i64 noundef %409)
+  br label %411
 
-410:                                              ; preds = %403, %394
-  %411 = call i64 @rb_intern_const(ptr noundef @.str.263) #33
-  %412 = call i64 @rb_id2sym(i64 noundef %411)
-  br label %413
+411:                                              ; preds = %408, %404
+  %412 = phi i64 [ %407, %404 ], [ %410, %408 ]
+  store i64 %412, ptr %19, align 8
+  %413 = load i64, ptr %19, align 8
+  %414 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 18
+  store i64 %413, ptr %414, align 16
+  %415 = call i64 @rb_intern_const(ptr noundef @.str.263) #33
+  %416 = call i1 @llvm.is.constant.i64(i64 %415)
+  br i1 %416, label %417, label %428
 
-413:                                              ; preds = %410, %406
-  %414 = phi i64 [ %409, %406 ], [ %412, %410 ]
-  store i64 %414, ptr %20, align 8
-  %415 = load i64, ptr %20, align 8
-  store i64 %415, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 19), align 8
-  %416 = call i64 @rb_intern_const(ptr noundef @.str.264) #33
-  %417 = call i1 @llvm.is.constant.i64(i64 %416)
-  br i1 %417, label %418, label %429
+417:                                              ; preds = %411
+  %418 = call i64 @rb_intern_const(ptr noundef @.str.263) #33
+  %419 = and i64 %418, 1
+  %420 = icmp ne i64 %419, 0
+  br i1 %420, label %424, label %421
 
-418:                                              ; preds = %413
-  %419 = call i64 @rb_intern_const(ptr noundef @.str.264) #33
-  %420 = and i64 %419, 1
-  %421 = icmp ne i64 %420, 0
-  br i1 %421, label %425, label %422
+421:                                              ; preds = %417
+  %422 = call i64 @rb_intern_const(ptr noundef @.str.263) #33
+  %423 = icmp ugt i64 %422, 169
+  br i1 %423, label %428, label %424
 
-422:                                              ; preds = %418
-  %423 = call i64 @rb_intern_const(ptr noundef @.str.264) #33
-  %424 = icmp ugt i64 %423, 169
-  br i1 %424, label %429, label %425
+424:                                              ; preds = %421, %417
+  %425 = call i64 @rb_intern_const(ptr noundef @.str.263) #33
+  %426 = shl i64 %425, 8
+  %427 = or i64 %426, 12
+  br label %431
 
-425:                                              ; preds = %422, %418
-  %426 = call i64 @rb_intern_const(ptr noundef @.str.264) #33
-  %427 = shl i64 %426, 8
-  %428 = or i64 %427, 12
-  br label %432
+428:                                              ; preds = %421, %411
+  %429 = call i64 @rb_intern_const(ptr noundef @.str.263) #33
+  %430 = call i64 @rb_id2sym(i64 noundef %429)
+  br label %431
 
-429:                                              ; preds = %422, %413
-  %430 = call i64 @rb_intern_const(ptr noundef @.str.264) #33
-  %431 = call i64 @rb_id2sym(i64 noundef %430)
-  br label %432
-
-432:                                              ; preds = %429, %425
-  %433 = phi i64 [ %428, %425 ], [ %431, %429 ]
-  store i64 %433, ptr %21, align 8
-  %434 = load i64, ptr %21, align 8
-  store i64 %434, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 20), align 16
-  %435 = call i64 @rb_intern_const(ptr noundef @.str.265) #33
+431:                                              ; preds = %428, %424
+  %432 = phi i64 [ %427, %424 ], [ %430, %428 ]
+  store i64 %432, ptr %20, align 8
+  %433 = load i64, ptr %20, align 8
+  %434 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 19
+  store i64 %433, ptr %434, align 8
+  %435 = call i64 @rb_intern_const(ptr noundef @.str.264) #33
   %436 = call i1 @llvm.is.constant.i64(i64 %435)
   br i1 %436, label %437, label %448
 
-437:                                              ; preds = %432
-  %438 = call i64 @rb_intern_const(ptr noundef @.str.265) #33
+437:                                              ; preds = %431
+  %438 = call i64 @rb_intern_const(ptr noundef @.str.264) #33
   %439 = and i64 %438, 1
   %440 = icmp ne i64 %439, 0
   br i1 %440, label %444, label %441
 
 441:                                              ; preds = %437
-  %442 = call i64 @rb_intern_const(ptr noundef @.str.265) #33
+  %442 = call i64 @rb_intern_const(ptr noundef @.str.264) #33
   %443 = icmp ugt i64 %442, 169
   br i1 %443, label %448, label %444
 
 444:                                              ; preds = %441, %437
-  %445 = call i64 @rb_intern_const(ptr noundef @.str.265) #33
+  %445 = call i64 @rb_intern_const(ptr noundef @.str.264) #33
   %446 = shl i64 %445, 8
   %447 = or i64 %446, 12
   br label %451
 
-448:                                              ; preds = %441, %432
-  %449 = call i64 @rb_intern_const(ptr noundef @.str.265) #33
+448:                                              ; preds = %441, %431
+  %449 = call i64 @rb_intern_const(ptr noundef @.str.264) #33
   %450 = call i64 @rb_id2sym(i64 noundef %449)
   br label %451
 
 451:                                              ; preds = %448, %444
   %452 = phi i64 [ %447, %444 ], [ %450, %448 ]
-  store i64 %452, ptr %22, align 8
-  %453 = load i64, ptr %22, align 8
-  store i64 %453, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 21), align 8
-  %454 = call i64 @rb_intern_const(ptr noundef @.str.266) #33
-  %455 = call i1 @llvm.is.constant.i64(i64 %454)
-  br i1 %455, label %456, label %467
+  store i64 %452, ptr %21, align 8
+  %453 = load i64, ptr %21, align 8
+  %454 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 20
+  store i64 %453, ptr %454, align 16
+  %455 = call i64 @rb_intern_const(ptr noundef @.str.265) #33
+  %456 = call i1 @llvm.is.constant.i64(i64 %455)
+  br i1 %456, label %457, label %468
 
-456:                                              ; preds = %451
-  %457 = call i64 @rb_intern_const(ptr noundef @.str.266) #33
-  %458 = and i64 %457, 1
-  %459 = icmp ne i64 %458, 0
-  br i1 %459, label %463, label %460
+457:                                              ; preds = %451
+  %458 = call i64 @rb_intern_const(ptr noundef @.str.265) #33
+  %459 = and i64 %458, 1
+  %460 = icmp ne i64 %459, 0
+  br i1 %460, label %464, label %461
 
-460:                                              ; preds = %456
-  %461 = call i64 @rb_intern_const(ptr noundef @.str.266) #33
-  %462 = icmp ugt i64 %461, 169
-  br i1 %462, label %467, label %463
+461:                                              ; preds = %457
+  %462 = call i64 @rb_intern_const(ptr noundef @.str.265) #33
+  %463 = icmp ugt i64 %462, 169
+  br i1 %463, label %468, label %464
 
-463:                                              ; preds = %460, %456
-  %464 = call i64 @rb_intern_const(ptr noundef @.str.266) #33
-  %465 = shl i64 %464, 8
-  %466 = or i64 %465, 12
-  br label %470
+464:                                              ; preds = %461, %457
+  %465 = call i64 @rb_intern_const(ptr noundef @.str.265) #33
+  %466 = shl i64 %465, 8
+  %467 = or i64 %466, 12
+  br label %471
 
-467:                                              ; preds = %460, %451
-  %468 = call i64 @rb_intern_const(ptr noundef @.str.266) #33
-  %469 = call i64 @rb_id2sym(i64 noundef %468)
-  br label %470
+468:                                              ; preds = %461, %451
+  %469 = call i64 @rb_intern_const(ptr noundef @.str.265) #33
+  %470 = call i64 @rb_id2sym(i64 noundef %469)
+  br label %471
 
-470:                                              ; preds = %467, %463
-  %471 = phi i64 [ %466, %463 ], [ %469, %467 ]
-  store i64 %471, ptr %23, align 8
-  %472 = load i64, ptr %23, align 8
-  store i64 %472, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 22), align 16
-  %473 = call i64 @rb_intern_const(ptr noundef @.str.267) #33
-  %474 = call i1 @llvm.is.constant.i64(i64 %473)
-  br i1 %474, label %475, label %486
+471:                                              ; preds = %468, %464
+  %472 = phi i64 [ %467, %464 ], [ %470, %468 ]
+  store i64 %472, ptr %22, align 8
+  %473 = load i64, ptr %22, align 8
+  %474 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 21
+  store i64 %473, ptr %474, align 8
+  %475 = call i64 @rb_intern_const(ptr noundef @.str.266) #33
+  %476 = call i1 @llvm.is.constant.i64(i64 %475)
+  br i1 %476, label %477, label %488
 
-475:                                              ; preds = %470
-  %476 = call i64 @rb_intern_const(ptr noundef @.str.267) #33
-  %477 = and i64 %476, 1
-  %478 = icmp ne i64 %477, 0
-  br i1 %478, label %482, label %479
+477:                                              ; preds = %471
+  %478 = call i64 @rb_intern_const(ptr noundef @.str.266) #33
+  %479 = and i64 %478, 1
+  %480 = icmp ne i64 %479, 0
+  br i1 %480, label %484, label %481
 
-479:                                              ; preds = %475
-  %480 = call i64 @rb_intern_const(ptr noundef @.str.267) #33
-  %481 = icmp ugt i64 %480, 169
-  br i1 %481, label %486, label %482
+481:                                              ; preds = %477
+  %482 = call i64 @rb_intern_const(ptr noundef @.str.266) #33
+  %483 = icmp ugt i64 %482, 169
+  br i1 %483, label %488, label %484
 
-482:                                              ; preds = %479, %475
-  %483 = call i64 @rb_intern_const(ptr noundef @.str.267) #33
-  %484 = shl i64 %483, 8
-  %485 = or i64 %484, 12
-  br label %489
+484:                                              ; preds = %481, %477
+  %485 = call i64 @rb_intern_const(ptr noundef @.str.266) #33
+  %486 = shl i64 %485, 8
+  %487 = or i64 %486, 12
+  br label %491
 
-486:                                              ; preds = %479, %470
-  %487 = call i64 @rb_intern_const(ptr noundef @.str.267) #33
-  %488 = call i64 @rb_id2sym(i64 noundef %487)
-  br label %489
+488:                                              ; preds = %481, %471
+  %489 = call i64 @rb_intern_const(ptr noundef @.str.266) #33
+  %490 = call i64 @rb_id2sym(i64 noundef %489)
+  br label %491
 
-489:                                              ; preds = %486, %482
-  %490 = phi i64 [ %485, %482 ], [ %488, %486 ]
-  store i64 %490, ptr %24, align 8
-  %491 = load i64, ptr %24, align 8
-  store i64 %491, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 23), align 8
-  %492 = call i64 @rb_intern_const(ptr noundef @.str.268) #33
-  %493 = call i1 @llvm.is.constant.i64(i64 %492)
-  br i1 %493, label %494, label %505
+491:                                              ; preds = %488, %484
+  %492 = phi i64 [ %487, %484 ], [ %490, %488 ]
+  store i64 %492, ptr %23, align 8
+  %493 = load i64, ptr %23, align 8
+  %494 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 22
+  store i64 %493, ptr %494, align 16
+  %495 = call i64 @rb_intern_const(ptr noundef @.str.267) #33
+  %496 = call i1 @llvm.is.constant.i64(i64 %495)
+  br i1 %496, label %497, label %508
 
-494:                                              ; preds = %489
-  %495 = call i64 @rb_intern_const(ptr noundef @.str.268) #33
-  %496 = and i64 %495, 1
-  %497 = icmp ne i64 %496, 0
-  br i1 %497, label %501, label %498
+497:                                              ; preds = %491
+  %498 = call i64 @rb_intern_const(ptr noundef @.str.267) #33
+  %499 = and i64 %498, 1
+  %500 = icmp ne i64 %499, 0
+  br i1 %500, label %504, label %501
 
-498:                                              ; preds = %494
-  %499 = call i64 @rb_intern_const(ptr noundef @.str.268) #33
-  %500 = icmp ugt i64 %499, 169
-  br i1 %500, label %505, label %501
+501:                                              ; preds = %497
+  %502 = call i64 @rb_intern_const(ptr noundef @.str.267) #33
+  %503 = icmp ugt i64 %502, 169
+  br i1 %503, label %508, label %504
 
-501:                                              ; preds = %498, %494
-  %502 = call i64 @rb_intern_const(ptr noundef @.str.268) #33
-  %503 = shl i64 %502, 8
-  %504 = or i64 %503, 12
-  br label %508
+504:                                              ; preds = %501, %497
+  %505 = call i64 @rb_intern_const(ptr noundef @.str.267) #33
+  %506 = shl i64 %505, 8
+  %507 = or i64 %506, 12
+  br label %511
 
-505:                                              ; preds = %498, %489
-  %506 = call i64 @rb_intern_const(ptr noundef @.str.268) #33
-  %507 = call i64 @rb_id2sym(i64 noundef %506)
-  br label %508
+508:                                              ; preds = %501, %491
+  %509 = call i64 @rb_intern_const(ptr noundef @.str.267) #33
+  %510 = call i64 @rb_id2sym(i64 noundef %509)
+  br label %511
 
-508:                                              ; preds = %505, %501
-  %509 = phi i64 [ %504, %501 ], [ %507, %505 ]
-  store i64 %509, ptr %25, align 8
-  %510 = load i64, ptr %25, align 8
-  store i64 %510, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 24), align 16
-  %511 = call i64 @rb_intern_const(ptr noundef @.str.269) #33
-  %512 = call i1 @llvm.is.constant.i64(i64 %511)
-  br i1 %512, label %513, label %524
+511:                                              ; preds = %508, %504
+  %512 = phi i64 [ %507, %504 ], [ %510, %508 ]
+  store i64 %512, ptr %24, align 8
+  %513 = load i64, ptr %24, align 8
+  %514 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 23
+  store i64 %513, ptr %514, align 8
+  %515 = call i64 @rb_intern_const(ptr noundef @.str.268) #33
+  %516 = call i1 @llvm.is.constant.i64(i64 %515)
+  br i1 %516, label %517, label %528
 
-513:                                              ; preds = %508
-  %514 = call i64 @rb_intern_const(ptr noundef @.str.269) #33
-  %515 = and i64 %514, 1
-  %516 = icmp ne i64 %515, 0
-  br i1 %516, label %520, label %517
+517:                                              ; preds = %511
+  %518 = call i64 @rb_intern_const(ptr noundef @.str.268) #33
+  %519 = and i64 %518, 1
+  %520 = icmp ne i64 %519, 0
+  br i1 %520, label %524, label %521
 
-517:                                              ; preds = %513
-  %518 = call i64 @rb_intern_const(ptr noundef @.str.269) #33
-  %519 = icmp ugt i64 %518, 169
-  br i1 %519, label %524, label %520
+521:                                              ; preds = %517
+  %522 = call i64 @rb_intern_const(ptr noundef @.str.268) #33
+  %523 = icmp ugt i64 %522, 169
+  br i1 %523, label %528, label %524
 
-520:                                              ; preds = %517, %513
-  %521 = call i64 @rb_intern_const(ptr noundef @.str.269) #33
-  %522 = shl i64 %521, 8
-  %523 = or i64 %522, 12
-  br label %527
+524:                                              ; preds = %521, %517
+  %525 = call i64 @rb_intern_const(ptr noundef @.str.268) #33
+  %526 = shl i64 %525, 8
+  %527 = or i64 %526, 12
+  br label %531
 
-524:                                              ; preds = %517, %508
-  %525 = call i64 @rb_intern_const(ptr noundef @.str.269) #33
-  %526 = call i64 @rb_id2sym(i64 noundef %525)
-  br label %527
+528:                                              ; preds = %521, %511
+  %529 = call i64 @rb_intern_const(ptr noundef @.str.268) #33
+  %530 = call i64 @rb_id2sym(i64 noundef %529)
+  br label %531
 
-527:                                              ; preds = %524, %520
-  %528 = phi i64 [ %523, %520 ], [ %526, %524 ]
-  store i64 %528, ptr %26, align 8
-  %529 = load i64, ptr %26, align 8
-  store i64 %529, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 25), align 8
-  %530 = call i64 @rb_intern_const(ptr noundef @.str.270) #33
-  %531 = call i1 @llvm.is.constant.i64(i64 %530)
-  br i1 %531, label %532, label %543
+531:                                              ; preds = %528, %524
+  %532 = phi i64 [ %527, %524 ], [ %530, %528 ]
+  store i64 %532, ptr %25, align 8
+  %533 = load i64, ptr %25, align 8
+  %534 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 24
+  store i64 %533, ptr %534, align 16
+  %535 = call i64 @rb_intern_const(ptr noundef @.str.269) #33
+  %536 = call i1 @llvm.is.constant.i64(i64 %535)
+  br i1 %536, label %537, label %548
 
-532:                                              ; preds = %527
-  %533 = call i64 @rb_intern_const(ptr noundef @.str.270) #33
-  %534 = and i64 %533, 1
-  %535 = icmp ne i64 %534, 0
-  br i1 %535, label %539, label %536
+537:                                              ; preds = %531
+  %538 = call i64 @rb_intern_const(ptr noundef @.str.269) #33
+  %539 = and i64 %538, 1
+  %540 = icmp ne i64 %539, 0
+  br i1 %540, label %544, label %541
 
-536:                                              ; preds = %532
-  %537 = call i64 @rb_intern_const(ptr noundef @.str.270) #33
-  %538 = icmp ugt i64 %537, 169
-  br i1 %538, label %543, label %539
+541:                                              ; preds = %537
+  %542 = call i64 @rb_intern_const(ptr noundef @.str.269) #33
+  %543 = icmp ugt i64 %542, 169
+  br i1 %543, label %548, label %544
 
-539:                                              ; preds = %536, %532
-  %540 = call i64 @rb_intern_const(ptr noundef @.str.270) #33
-  %541 = shl i64 %540, 8
-  %542 = or i64 %541, 12
-  br label %546
+544:                                              ; preds = %541, %537
+  %545 = call i64 @rb_intern_const(ptr noundef @.str.269) #33
+  %546 = shl i64 %545, 8
+  %547 = or i64 %546, 12
+  br label %551
 
-543:                                              ; preds = %536, %527
-  %544 = call i64 @rb_intern_const(ptr noundef @.str.270) #33
-  %545 = call i64 @rb_id2sym(i64 noundef %544)
-  br label %546
+548:                                              ; preds = %541, %531
+  %549 = call i64 @rb_intern_const(ptr noundef @.str.269) #33
+  %550 = call i64 @rb_id2sym(i64 noundef %549)
+  br label %551
 
-546:                                              ; preds = %543, %539
-  %547 = phi i64 [ %542, %539 ], [ %545, %543 ]
-  store i64 %547, ptr %27, align 8
-  %548 = load i64, ptr %27, align 8
-  store i64 %548, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 26), align 16
-  %549 = call i64 @rb_intern_const(ptr noundef @.str.271) #33
-  %550 = call i1 @llvm.is.constant.i64(i64 %549)
-  br i1 %550, label %551, label %562
+551:                                              ; preds = %548, %544
+  %552 = phi i64 [ %547, %544 ], [ %550, %548 ]
+  store i64 %552, ptr %26, align 8
+  %553 = load i64, ptr %26, align 8
+  %554 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 25
+  store i64 %553, ptr %554, align 8
+  %555 = call i64 @rb_intern_const(ptr noundef @.str.270) #33
+  %556 = call i1 @llvm.is.constant.i64(i64 %555)
+  br i1 %556, label %557, label %568
 
-551:                                              ; preds = %546
-  %552 = call i64 @rb_intern_const(ptr noundef @.str.271) #33
-  %553 = and i64 %552, 1
-  %554 = icmp ne i64 %553, 0
-  br i1 %554, label %558, label %555
+557:                                              ; preds = %551
+  %558 = call i64 @rb_intern_const(ptr noundef @.str.270) #33
+  %559 = and i64 %558, 1
+  %560 = icmp ne i64 %559, 0
+  br i1 %560, label %564, label %561
 
-555:                                              ; preds = %551
-  %556 = call i64 @rb_intern_const(ptr noundef @.str.271) #33
-  %557 = icmp ugt i64 %556, 169
-  br i1 %557, label %562, label %558
+561:                                              ; preds = %557
+  %562 = call i64 @rb_intern_const(ptr noundef @.str.270) #33
+  %563 = icmp ugt i64 %562, 169
+  br i1 %563, label %568, label %564
 
-558:                                              ; preds = %555, %551
-  %559 = call i64 @rb_intern_const(ptr noundef @.str.271) #33
-  %560 = shl i64 %559, 8
-  %561 = or i64 %560, 12
-  br label %565
+564:                                              ; preds = %561, %557
+  %565 = call i64 @rb_intern_const(ptr noundef @.str.270) #33
+  %566 = shl i64 %565, 8
+  %567 = or i64 %566, 12
+  br label %571
 
-562:                                              ; preds = %555, %546
-  %563 = call i64 @rb_intern_const(ptr noundef @.str.271) #33
-  %564 = call i64 @rb_id2sym(i64 noundef %563)
-  br label %565
+568:                                              ; preds = %561, %551
+  %569 = call i64 @rb_intern_const(ptr noundef @.str.270) #33
+  %570 = call i64 @rb_id2sym(i64 noundef %569)
+  br label %571
 
-565:                                              ; preds = %562, %558
-  %566 = phi i64 [ %561, %558 ], [ %564, %562 ]
-  store i64 %566, ptr %28, align 8
-  %567 = load i64, ptr %28, align 8
-  store i64 %567, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 27), align 8
-  %568 = call i64 @rb_intern_const(ptr noundef @.str.272) #33
-  %569 = call i1 @llvm.is.constant.i64(i64 %568)
-  br i1 %569, label %570, label %581
+571:                                              ; preds = %568, %564
+  %572 = phi i64 [ %567, %564 ], [ %570, %568 ]
+  store i64 %572, ptr %27, align 8
+  %573 = load i64, ptr %27, align 8
+  %574 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 26
+  store i64 %573, ptr %574, align 16
+  %575 = call i64 @rb_intern_const(ptr noundef @.str.271) #33
+  %576 = call i1 @llvm.is.constant.i64(i64 %575)
+  br i1 %576, label %577, label %588
 
-570:                                              ; preds = %565
-  %571 = call i64 @rb_intern_const(ptr noundef @.str.272) #33
-  %572 = and i64 %571, 1
-  %573 = icmp ne i64 %572, 0
-  br i1 %573, label %577, label %574
+577:                                              ; preds = %571
+  %578 = call i64 @rb_intern_const(ptr noundef @.str.271) #33
+  %579 = and i64 %578, 1
+  %580 = icmp ne i64 %579, 0
+  br i1 %580, label %584, label %581
 
-574:                                              ; preds = %570
-  %575 = call i64 @rb_intern_const(ptr noundef @.str.272) #33
-  %576 = icmp ugt i64 %575, 169
-  br i1 %576, label %581, label %577
-
-577:                                              ; preds = %574, %570
-  %578 = call i64 @rb_intern_const(ptr noundef @.str.272) #33
-  %579 = shl i64 %578, 8
-  %580 = or i64 %579, 12
-  br label %584
-
-581:                                              ; preds = %574, %565
-  %582 = call i64 @rb_intern_const(ptr noundef @.str.272) #33
-  %583 = call i64 @rb_id2sym(i64 noundef %582)
-  br label %584
+581:                                              ; preds = %577
+  %582 = call i64 @rb_intern_const(ptr noundef @.str.271) #33
+  %583 = icmp ugt i64 %582, 169
+  br i1 %583, label %588, label %584
 
 584:                                              ; preds = %581, %577
-  %585 = phi i64 [ %580, %577 ], [ %583, %581 ]
-  store i64 %585, ptr %29, align 8
-  %586 = load i64, ptr %29, align 8
-  store i64 %586, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 28), align 16
-  %587 = call i64 @rb_intern_const(ptr noundef @.str.273) #33
-  %588 = call i1 @llvm.is.constant.i64(i64 %587)
-  br i1 %588, label %589, label %600
+  %585 = call i64 @rb_intern_const(ptr noundef @.str.271) #33
+  %586 = shl i64 %585, 8
+  %587 = or i64 %586, 12
+  br label %591
 
-589:                                              ; preds = %584
-  %590 = call i64 @rb_intern_const(ptr noundef @.str.273) #33
-  %591 = and i64 %590, 1
-  %592 = icmp ne i64 %591, 0
-  br i1 %592, label %596, label %593
+588:                                              ; preds = %581, %571
+  %589 = call i64 @rb_intern_const(ptr noundef @.str.271) #33
+  %590 = call i64 @rb_id2sym(i64 noundef %589)
+  br label %591
 
-593:                                              ; preds = %589
-  %594 = call i64 @rb_intern_const(ptr noundef @.str.273) #33
-  %595 = icmp ugt i64 %594, 169
-  br i1 %595, label %600, label %596
+591:                                              ; preds = %588, %584
+  %592 = phi i64 [ %587, %584 ], [ %590, %588 ]
+  store i64 %592, ptr %28, align 8
+  %593 = load i64, ptr %28, align 8
+  %594 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 27
+  store i64 %593, ptr %594, align 8
+  %595 = call i64 @rb_intern_const(ptr noundef @.str.272) #33
+  %596 = call i1 @llvm.is.constant.i64(i64 %595)
+  br i1 %596, label %597, label %608
 
-596:                                              ; preds = %593, %589
-  %597 = call i64 @rb_intern_const(ptr noundef @.str.273) #33
-  %598 = shl i64 %597, 8
-  %599 = or i64 %598, 12
-  br label %603
+597:                                              ; preds = %591
+  %598 = call i64 @rb_intern_const(ptr noundef @.str.272) #33
+  %599 = and i64 %598, 1
+  %600 = icmp ne i64 %599, 0
+  br i1 %600, label %604, label %601
 
-600:                                              ; preds = %593, %584
-  %601 = call i64 @rb_intern_const(ptr noundef @.str.273) #33
-  %602 = call i64 @rb_id2sym(i64 noundef %601)
-  br label %603
+601:                                              ; preds = %597
+  %602 = call i64 @rb_intern_const(ptr noundef @.str.272) #33
+  %603 = icmp ugt i64 %602, 169
+  br i1 %603, label %608, label %604
 
-603:                                              ; preds = %600, %596
-  %604 = phi i64 [ %599, %596 ], [ %602, %600 ]
-  store i64 %604, ptr %30, align 8
-  %605 = load i64, ptr %30, align 8
-  store i64 %605, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 29), align 8
-  %606 = call i64 @rb_intern_const(ptr noundef @.str.274) #33
-  %607 = call i1 @llvm.is.constant.i64(i64 %606)
-  br i1 %607, label %608, label %619
+604:                                              ; preds = %601, %597
+  %605 = call i64 @rb_intern_const(ptr noundef @.str.272) #33
+  %606 = shl i64 %605, 8
+  %607 = or i64 %606, 12
+  br label %611
 
-608:                                              ; preds = %603
-  %609 = call i64 @rb_intern_const(ptr noundef @.str.274) #33
-  %610 = and i64 %609, 1
-  %611 = icmp ne i64 %610, 0
-  br i1 %611, label %615, label %612
+608:                                              ; preds = %601, %591
+  %609 = call i64 @rb_intern_const(ptr noundef @.str.272) #33
+  %610 = call i64 @rb_id2sym(i64 noundef %609)
+  br label %611
 
-612:                                              ; preds = %608
-  %613 = call i64 @rb_intern_const(ptr noundef @.str.274) #33
-  %614 = icmp ugt i64 %613, 169
-  br i1 %614, label %619, label %615
+611:                                              ; preds = %608, %604
+  %612 = phi i64 [ %607, %604 ], [ %610, %608 ]
+  store i64 %612, ptr %29, align 8
+  %613 = load i64, ptr %29, align 8
+  %614 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 28
+  store i64 %613, ptr %614, align 16
+  %615 = call i64 @rb_intern_const(ptr noundef @.str.273) #33
+  %616 = call i1 @llvm.is.constant.i64(i64 %615)
+  br i1 %616, label %617, label %628
 
-615:                                              ; preds = %612, %608
-  %616 = call i64 @rb_intern_const(ptr noundef @.str.274) #33
-  %617 = shl i64 %616, 8
-  %618 = or i64 %617, 12
-  br label %622
+617:                                              ; preds = %611
+  %618 = call i64 @rb_intern_const(ptr noundef @.str.273) #33
+  %619 = and i64 %618, 1
+  %620 = icmp ne i64 %619, 0
+  br i1 %620, label %624, label %621
 
-619:                                              ; preds = %612, %603
-  %620 = call i64 @rb_intern_const(ptr noundef @.str.274) #33
-  %621 = call i64 @rb_id2sym(i64 noundef %620)
-  br label %622
+621:                                              ; preds = %617
+  %622 = call i64 @rb_intern_const(ptr noundef @.str.273) #33
+  %623 = icmp ugt i64 %622, 169
+  br i1 %623, label %628, label %624
 
-622:                                              ; preds = %619, %615
-  %623 = phi i64 [ %618, %615 ], [ %621, %619 ]
-  store i64 %623, ptr %31, align 8
-  %624 = load i64, ptr %31, align 8
-  store i64 %624, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 30), align 16
-  %625 = call i64 @rb_intern_const(ptr noundef @.str.240) #33
-  %626 = call i1 @llvm.is.constant.i64(i64 %625)
-  br i1 %626, label %627, label %638
+624:                                              ; preds = %621, %617
+  %625 = call i64 @rb_intern_const(ptr noundef @.str.273) #33
+  %626 = shl i64 %625, 8
+  %627 = or i64 %626, 12
+  br label %631
 
-627:                                              ; preds = %622
-  %628 = call i64 @rb_intern_const(ptr noundef @.str.240) #33
-  %629 = and i64 %628, 1
-  %630 = icmp ne i64 %629, 0
-  br i1 %630, label %634, label %631
+628:                                              ; preds = %621, %611
+  %629 = call i64 @rb_intern_const(ptr noundef @.str.273) #33
+  %630 = call i64 @rb_id2sym(i64 noundef %629)
+  br label %631
 
-631:                                              ; preds = %627
-  %632 = call i64 @rb_intern_const(ptr noundef @.str.240) #33
-  %633 = icmp ugt i64 %632, 169
-  br i1 %633, label %638, label %634
+631:                                              ; preds = %628, %624
+  %632 = phi i64 [ %627, %624 ], [ %630, %628 ]
+  store i64 %632, ptr %30, align 8
+  %633 = load i64, ptr %30, align 8
+  %634 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 29
+  store i64 %633, ptr %634, align 8
+  %635 = call i64 @rb_intern_const(ptr noundef @.str.274) #33
+  %636 = call i1 @llvm.is.constant.i64(i64 %635)
+  br i1 %636, label %637, label %648
 
-634:                                              ; preds = %631, %627
-  %635 = call i64 @rb_intern_const(ptr noundef @.str.240) #33
-  %636 = shl i64 %635, 8
-  %637 = or i64 %636, 12
-  br label %641
+637:                                              ; preds = %631
+  %638 = call i64 @rb_intern_const(ptr noundef @.str.274) #33
+  %639 = and i64 %638, 1
+  %640 = icmp ne i64 %639, 0
+  br i1 %640, label %644, label %641
 
-638:                                              ; preds = %631, %622
-  %639 = call i64 @rb_intern_const(ptr noundef @.str.240) #33
-  %640 = call i64 @rb_id2sym(i64 noundef %639)
-  br label %641
+641:                                              ; preds = %637
+  %642 = call i64 @rb_intern_const(ptr noundef @.str.274) #33
+  %643 = icmp ugt i64 %642, 169
+  br i1 %643, label %648, label %644
 
-641:                                              ; preds = %638, %634
-  %642 = phi i64 [ %637, %634 ], [ %640, %638 ]
-  store i64 %642, ptr %32, align 8
-  %643 = load i64, ptr %32, align 8
-  store i64 %643, ptr getelementptr inbounds ([32 x i64], ptr @gc_stat_symbols, i64 0, i64 31), align 8
-  br label %644
+644:                                              ; preds = %641, %637
+  %645 = call i64 @rb_intern_const(ptr noundef @.str.274) #33
+  %646 = shl i64 %645, 8
+  %647 = or i64 %646, 12
+  br label %651
 
-644:                                              ; preds = %641, %0
+648:                                              ; preds = %641, %631
+  %649 = call i64 @rb_intern_const(ptr noundef @.str.274) #33
+  %650 = call i64 @rb_id2sym(i64 noundef %649)
+  br label %651
+
+651:                                              ; preds = %648, %644
+  %652 = phi i64 [ %647, %644 ], [ %650, %648 ]
+  store i64 %652, ptr %31, align 8
+  %653 = load i64, ptr %31, align 8
+  %654 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 30
+  store i64 %653, ptr %654, align 16
+  %655 = call i64 @rb_intern_const(ptr noundef @.str.240) #33
+  %656 = call i1 @llvm.is.constant.i64(i64 %655)
+  br i1 %656, label %657, label %668
+
+657:                                              ; preds = %651
+  %658 = call i64 @rb_intern_const(ptr noundef @.str.240) #33
+  %659 = and i64 %658, 1
+  %660 = icmp ne i64 %659, 0
+  br i1 %660, label %664, label %661
+
+661:                                              ; preds = %657
+  %662 = call i64 @rb_intern_const(ptr noundef @.str.240) #33
+  %663 = icmp ugt i64 %662, 169
+  br i1 %663, label %668, label %664
+
+664:                                              ; preds = %661, %657
+  %665 = call i64 @rb_intern_const(ptr noundef @.str.240) #33
+  %666 = shl i64 %665, 8
+  %667 = or i64 %666, 12
+  br label %671
+
+668:                                              ; preds = %661, %651
+  %669 = call i64 @rb_intern_const(ptr noundef @.str.240) #33
+  %670 = call i64 @rb_id2sym(i64 noundef %669)
+  br label %671
+
+671:                                              ; preds = %668, %664
+  %672 = phi i64 [ %667, %664 ], [ %670, %668 ]
+  store i64 %672, ptr %32, align 8
+  %673 = load i64, ptr %32, align 8
+  %674 = getelementptr inbounds [32 x i64], ptr @gc_stat_symbols, i64 0, i64 31
+  store i64 %673, ptr %674, align 8
+  br label %675
+
+675:                                              ; preds = %671, %0
   ret void
 }
 
@@ -42874,7 +43016,7 @@ define internal i64 @gc_stat_heap_internal(i32 noundef %0, i64 noundef %1) #0 {
   %105 = load i16, ptr %104, align 8
   %106 = sext i16 %105 to i64
   store i64 %106, ptr %6, align 8
-  br label %356
+  br label %378
 
 107:                                              ; preds = %93
   %108 = load i64, ptr %10, align 8
@@ -42897,372 +43039,394 @@ define internal i64 @gc_stat_heap_internal(i32 noundef %0, i64 noundef %1) #0 {
 
 120:                                              ; preds = %119
   %121 = load i64, ptr %11, align 8
-  %122 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 1), align 8
-  %123 = icmp eq i64 %121, %122
-  br i1 %123, label %124, label %128
+  %122 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 1
+  %123 = load i64, ptr %122, align 8
+  %124 = icmp eq i64 %121, %123
+  br i1 %124, label %125, label %129
 
-124:                                              ; preds = %120
-  %125 = load ptr, ptr %12, align 8
-  %126 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %125, i32 0, i32 1
-  %127 = load i64, ptr %126, align 8
-  store i64 %127, ptr %6, align 8
-  br label %356
+125:                                              ; preds = %120
+  %126 = load ptr, ptr %12, align 8
+  %127 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %126, i32 0, i32 1
+  %128 = load i64, ptr %127, align 8
+  store i64 %128, ptr %6, align 8
+  br label %378
 
-128:                                              ; preds = %120
-  %129 = load i64, ptr %10, align 8
-  %130 = icmp ne i64 %129, 4
-  br i1 %130, label %131, label %139
+129:                                              ; preds = %120
+  %130 = load i64, ptr %10, align 8
+  %131 = icmp ne i64 %130, 4
+  br i1 %131, label %132, label %141
 
-131:                                              ; preds = %128
-  %132 = load i64, ptr %10, align 8
-  %133 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 1), align 8
-  %134 = load ptr, ptr %12, align 8
-  %135 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %134, i32 0, i32 1
-  %136 = load i64, ptr %135, align 8
-  %137 = call i64 @rb_ull2num_inline(i64 noundef %136)
-  %138 = call i64 @rb_hash_aset(i64 noundef %132, i64 noundef %133, i64 noundef %137)
-  br label %139
+132:                                              ; preds = %129
+  %133 = load i64, ptr %10, align 8
+  %134 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 1
+  %135 = load i64, ptr %134, align 8
+  %136 = load ptr, ptr %12, align 8
+  %137 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %136, i32 0, i32 1
+  %138 = load i64, ptr %137, align 8
+  %139 = call i64 @rb_ull2num_inline(i64 noundef %138)
+  %140 = call i64 @rb_hash_aset(i64 noundef %133, i64 noundef %135, i64 noundef %139)
+  br label %141
 
-139:                                              ; preds = %131, %128
-  br label %140
+141:                                              ; preds = %132, %129
+  br label %142
 
-140:                                              ; preds = %139
-  %141 = load i64, ptr %11, align 8
-  %142 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 2), align 16
-  %143 = icmp eq i64 %141, %142
-  br i1 %143, label %144, label %149
+142:                                              ; preds = %141
+  %143 = load i64, ptr %11, align 8
+  %144 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 2
+  %145 = load i64, ptr %144, align 16
+  %146 = icmp eq i64 %143, %145
+  br i1 %146, label %147, label %152
 
-144:                                              ; preds = %140
-  %145 = load ptr, ptr %12, align 8
-  %146 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %145, i32 0, i32 10
-  %147 = getelementptr inbounds %struct.rb_heap_struct, ptr %146, i32 0, i32 6
-  %148 = load i64, ptr %147, align 8
-  store i64 %148, ptr %6, align 8
-  br label %356
+147:                                              ; preds = %142
+  %148 = load ptr, ptr %12, align 8
+  %149 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %148, i32 0, i32 10
+  %150 = getelementptr inbounds %struct.rb_heap_struct, ptr %149, i32 0, i32 6
+  %151 = load i64, ptr %150, align 8
+  store i64 %151, ptr %6, align 8
+  br label %378
 
-149:                                              ; preds = %140
-  %150 = load i64, ptr %10, align 8
-  %151 = icmp ne i64 %150, 4
-  br i1 %151, label %152, label %161
-
-152:                                              ; preds = %149
+152:                                              ; preds = %142
   %153 = load i64, ptr %10, align 8
-  %154 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 2), align 16
-  %155 = load ptr, ptr %12, align 8
-  %156 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %155, i32 0, i32 10
-  %157 = getelementptr inbounds %struct.rb_heap_struct, ptr %156, i32 0, i32 6
-  %158 = load i64, ptr %157, align 8
-  %159 = call i64 @rb_ull2num_inline(i64 noundef %158)
-  %160 = call i64 @rb_hash_aset(i64 noundef %153, i64 noundef %154, i64 noundef %159)
-  br label %161
+  %154 = icmp ne i64 %153, 4
+  br i1 %154, label %155, label %165
 
-161:                                              ; preds = %152, %149
-  br label %162
+155:                                              ; preds = %152
+  %156 = load i64, ptr %10, align 8
+  %157 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 2
+  %158 = load i64, ptr %157, align 16
+  %159 = load ptr, ptr %12, align 8
+  %160 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %159, i32 0, i32 10
+  %161 = getelementptr inbounds %struct.rb_heap_struct, ptr %160, i32 0, i32 6
+  %162 = load i64, ptr %161, align 8
+  %163 = call i64 @rb_ull2num_inline(i64 noundef %162)
+  %164 = call i64 @rb_hash_aset(i64 noundef %156, i64 noundef %158, i64 noundef %163)
+  br label %165
 
-162:                                              ; preds = %161
-  %163 = load i64, ptr %11, align 8
-  %164 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 3), align 8
-  %165 = icmp eq i64 %163, %164
-  br i1 %165, label %166, label %171
+165:                                              ; preds = %155, %152
+  br label %166
 
-166:                                              ; preds = %162
-  %167 = load ptr, ptr %12, align 8
-  %168 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %167, i32 0, i32 10
-  %169 = getelementptr inbounds %struct.rb_heap_struct, ptr %168, i32 0, i32 7
-  %170 = load i64, ptr %169, align 8
-  store i64 %170, ptr %6, align 8
-  br label %356
+166:                                              ; preds = %165
+  %167 = load i64, ptr %11, align 8
+  %168 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 3
+  %169 = load i64, ptr %168, align 8
+  %170 = icmp eq i64 %167, %169
+  br i1 %170, label %171, label %176
 
-171:                                              ; preds = %162
-  %172 = load i64, ptr %10, align 8
-  %173 = icmp ne i64 %172, 4
-  br i1 %173, label %174, label %183
+171:                                              ; preds = %166
+  %172 = load ptr, ptr %12, align 8
+  %173 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %172, i32 0, i32 10
+  %174 = getelementptr inbounds %struct.rb_heap_struct, ptr %173, i32 0, i32 7
+  %175 = load i64, ptr %174, align 8
+  store i64 %175, ptr %6, align 8
+  br label %378
 
-174:                                              ; preds = %171
-  %175 = load i64, ptr %10, align 8
-  %176 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 3), align 8
-  %177 = load ptr, ptr %12, align 8
-  %178 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %177, i32 0, i32 10
-  %179 = getelementptr inbounds %struct.rb_heap_struct, ptr %178, i32 0, i32 7
-  %180 = load i64, ptr %179, align 8
-  %181 = call i64 @rb_ull2num_inline(i64 noundef %180)
-  %182 = call i64 @rb_hash_aset(i64 noundef %175, i64 noundef %176, i64 noundef %181)
-  br label %183
+176:                                              ; preds = %166
+  %177 = load i64, ptr %10, align 8
+  %178 = icmp ne i64 %177, 4
+  br i1 %178, label %179, label %189
 
-183:                                              ; preds = %174, %171
-  br label %184
+179:                                              ; preds = %176
+  %180 = load i64, ptr %10, align 8
+  %181 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 3
+  %182 = load i64, ptr %181, align 8
+  %183 = load ptr, ptr %12, align 8
+  %184 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %183, i32 0, i32 10
+  %185 = getelementptr inbounds %struct.rb_heap_struct, ptr %184, i32 0, i32 7
+  %186 = load i64, ptr %185, align 8
+  %187 = call i64 @rb_ull2num_inline(i64 noundef %186)
+  %188 = call i64 @rb_hash_aset(i64 noundef %180, i64 noundef %182, i64 noundef %187)
+  br label %189
 
-184:                                              ; preds = %183
-  %185 = load i64, ptr %11, align 8
-  %186 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 4), align 16
-  %187 = icmp eq i64 %185, %186
-  br i1 %187, label %188, label %193
+189:                                              ; preds = %179, %176
+  br label %190
 
-188:                                              ; preds = %184
-  %189 = load ptr, ptr %12, align 8
-  %190 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %189, i32 0, i32 11
-  %191 = getelementptr inbounds %struct.rb_heap_struct, ptr %190, i32 0, i32 6
-  %192 = load i64, ptr %191, align 8
-  store i64 %192, ptr %6, align 8
-  br label %356
+190:                                              ; preds = %189
+  %191 = load i64, ptr %11, align 8
+  %192 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 4
+  %193 = load i64, ptr %192, align 16
+  %194 = icmp eq i64 %191, %193
+  br i1 %194, label %195, label %200
 
-193:                                              ; preds = %184
-  %194 = load i64, ptr %10, align 8
-  %195 = icmp ne i64 %194, 4
-  br i1 %195, label %196, label %205
+195:                                              ; preds = %190
+  %196 = load ptr, ptr %12, align 8
+  %197 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %196, i32 0, i32 11
+  %198 = getelementptr inbounds %struct.rb_heap_struct, ptr %197, i32 0, i32 6
+  %199 = load i64, ptr %198, align 8
+  store i64 %199, ptr %6, align 8
+  br label %378
 
-196:                                              ; preds = %193
-  %197 = load i64, ptr %10, align 8
-  %198 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 4), align 16
-  %199 = load ptr, ptr %12, align 8
-  %200 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %199, i32 0, i32 11
-  %201 = getelementptr inbounds %struct.rb_heap_struct, ptr %200, i32 0, i32 6
-  %202 = load i64, ptr %201, align 8
-  %203 = call i64 @rb_ull2num_inline(i64 noundef %202)
-  %204 = call i64 @rb_hash_aset(i64 noundef %197, i64 noundef %198, i64 noundef %203)
-  br label %205
+200:                                              ; preds = %190
+  %201 = load i64, ptr %10, align 8
+  %202 = icmp ne i64 %201, 4
+  br i1 %202, label %203, label %213
 
-205:                                              ; preds = %196, %193
-  br label %206
+203:                                              ; preds = %200
+  %204 = load i64, ptr %10, align 8
+  %205 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 4
+  %206 = load i64, ptr %205, align 16
+  %207 = load ptr, ptr %12, align 8
+  %208 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %207, i32 0, i32 11
+  %209 = getelementptr inbounds %struct.rb_heap_struct, ptr %208, i32 0, i32 6
+  %210 = load i64, ptr %209, align 8
+  %211 = call i64 @rb_ull2num_inline(i64 noundef %210)
+  %212 = call i64 @rb_hash_aset(i64 noundef %204, i64 noundef %206, i64 noundef %211)
+  br label %213
 
-206:                                              ; preds = %205
-  %207 = load i64, ptr %11, align 8
-  %208 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 5), align 8
-  %209 = icmp eq i64 %207, %208
-  br i1 %209, label %210, label %215
+213:                                              ; preds = %203, %200
+  br label %214
 
-210:                                              ; preds = %206
-  %211 = load ptr, ptr %12, align 8
-  %212 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %211, i32 0, i32 11
-  %213 = getelementptr inbounds %struct.rb_heap_struct, ptr %212, i32 0, i32 7
-  %214 = load i64, ptr %213, align 8
-  store i64 %214, ptr %6, align 8
-  br label %356
+214:                                              ; preds = %213
+  %215 = load i64, ptr %11, align 8
+  %216 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 5
+  %217 = load i64, ptr %216, align 8
+  %218 = icmp eq i64 %215, %217
+  br i1 %218, label %219, label %224
 
-215:                                              ; preds = %206
-  %216 = load i64, ptr %10, align 8
-  %217 = icmp ne i64 %216, 4
-  br i1 %217, label %218, label %227
+219:                                              ; preds = %214
+  %220 = load ptr, ptr %12, align 8
+  %221 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %220, i32 0, i32 11
+  %222 = getelementptr inbounds %struct.rb_heap_struct, ptr %221, i32 0, i32 7
+  %223 = load i64, ptr %222, align 8
+  store i64 %223, ptr %6, align 8
+  br label %378
 
-218:                                              ; preds = %215
-  %219 = load i64, ptr %10, align 8
-  %220 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 5), align 8
-  %221 = load ptr, ptr %12, align 8
-  %222 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %221, i32 0, i32 11
-  %223 = getelementptr inbounds %struct.rb_heap_struct, ptr %222, i32 0, i32 7
-  %224 = load i64, ptr %223, align 8
-  %225 = call i64 @rb_ull2num_inline(i64 noundef %224)
-  %226 = call i64 @rb_hash_aset(i64 noundef %219, i64 noundef %220, i64 noundef %225)
-  br label %227
+224:                                              ; preds = %214
+  %225 = load i64, ptr %10, align 8
+  %226 = icmp ne i64 %225, 4
+  br i1 %226, label %227, label %237
 
-227:                                              ; preds = %218, %215
-  br label %228
+227:                                              ; preds = %224
+  %228 = load i64, ptr %10, align 8
+  %229 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 5
+  %230 = load i64, ptr %229, align 8
+  %231 = load ptr, ptr %12, align 8
+  %232 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %231, i32 0, i32 11
+  %233 = getelementptr inbounds %struct.rb_heap_struct, ptr %232, i32 0, i32 7
+  %234 = load i64, ptr %233, align 8
+  %235 = call i64 @rb_ull2num_inline(i64 noundef %234)
+  %236 = call i64 @rb_hash_aset(i64 noundef %228, i64 noundef %230, i64 noundef %235)
+  br label %237
 
-228:                                              ; preds = %227
-  %229 = load i64, ptr %11, align 8
-  %230 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 6), align 16
-  %231 = icmp eq i64 %229, %230
-  br i1 %231, label %232, label %236
+237:                                              ; preds = %227, %224
+  br label %238
 
-232:                                              ; preds = %228
-  %233 = load ptr, ptr %12, align 8
-  %234 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %233, i32 0, i32 2
-  %235 = load i64, ptr %234, align 8
-  store i64 %235, ptr %6, align 8
-  br label %356
+238:                                              ; preds = %237
+  %239 = load i64, ptr %11, align 8
+  %240 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 6
+  %241 = load i64, ptr %240, align 16
+  %242 = icmp eq i64 %239, %241
+  br i1 %242, label %243, label %247
 
-236:                                              ; preds = %228
-  %237 = load i64, ptr %10, align 8
-  %238 = icmp ne i64 %237, 4
-  br i1 %238, label %239, label %247
+243:                                              ; preds = %238
+  %244 = load ptr, ptr %12, align 8
+  %245 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %244, i32 0, i32 2
+  %246 = load i64, ptr %245, align 8
+  store i64 %246, ptr %6, align 8
+  br label %378
 
-239:                                              ; preds = %236
-  %240 = load i64, ptr %10, align 8
-  %241 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 6), align 16
-  %242 = load ptr, ptr %12, align 8
-  %243 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %242, i32 0, i32 2
-  %244 = load i64, ptr %243, align 8
-  %245 = call i64 @rb_ull2num_inline(i64 noundef %244)
-  %246 = call i64 @rb_hash_aset(i64 noundef %240, i64 noundef %241, i64 noundef %245)
-  br label %247
+247:                                              ; preds = %238
+  %248 = load i64, ptr %10, align 8
+  %249 = icmp ne i64 %248, 4
+  br i1 %249, label %250, label %259
 
-247:                                              ; preds = %239, %236
-  br label %248
+250:                                              ; preds = %247
+  %251 = load i64, ptr %10, align 8
+  %252 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 6
+  %253 = load i64, ptr %252, align 16
+  %254 = load ptr, ptr %12, align 8
+  %255 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %254, i32 0, i32 2
+  %256 = load i64, ptr %255, align 8
+  %257 = call i64 @rb_ull2num_inline(i64 noundef %256)
+  %258 = call i64 @rb_hash_aset(i64 noundef %251, i64 noundef %253, i64 noundef %257)
+  br label %259
 
-248:                                              ; preds = %247
-  %249 = load i64, ptr %11, align 8
-  %250 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 7), align 8
-  %251 = icmp eq i64 %249, %250
-  br i1 %251, label %252, label %256
+259:                                              ; preds = %250, %247
+  br label %260
 
-252:                                              ; preds = %248
-  %253 = load ptr, ptr %12, align 8
-  %254 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %253, i32 0, i32 3
-  %255 = load i64, ptr %254, align 8
-  store i64 %255, ptr %6, align 8
-  br label %356
+260:                                              ; preds = %259
+  %261 = load i64, ptr %11, align 8
+  %262 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 7
+  %263 = load i64, ptr %262, align 8
+  %264 = icmp eq i64 %261, %263
+  br i1 %264, label %265, label %269
 
-256:                                              ; preds = %248
-  %257 = load i64, ptr %10, align 8
-  %258 = icmp ne i64 %257, 4
-  br i1 %258, label %259, label %267
+265:                                              ; preds = %260
+  %266 = load ptr, ptr %12, align 8
+  %267 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %266, i32 0, i32 3
+  %268 = load i64, ptr %267, align 8
+  store i64 %268, ptr %6, align 8
+  br label %378
 
-259:                                              ; preds = %256
-  %260 = load i64, ptr %10, align 8
-  %261 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 7), align 8
-  %262 = load ptr, ptr %12, align 8
-  %263 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %262, i32 0, i32 3
-  %264 = load i64, ptr %263, align 8
-  %265 = call i64 @rb_ull2num_inline(i64 noundef %264)
-  %266 = call i64 @rb_hash_aset(i64 noundef %260, i64 noundef %261, i64 noundef %265)
-  br label %267
+269:                                              ; preds = %260
+  %270 = load i64, ptr %10, align 8
+  %271 = icmp ne i64 %270, 4
+  br i1 %271, label %272, label %281
 
-267:                                              ; preds = %259, %256
-  br label %268
-
-268:                                              ; preds = %267
-  %269 = load i64, ptr %11, align 8
-  %270 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 8), align 16
-  %271 = icmp eq i64 %269, %270
-  br i1 %271, label %272, label %276
-
-272:                                              ; preds = %268
-  %273 = load ptr, ptr %12, align 8
-  %274 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %273, i32 0, i32 4
+272:                                              ; preds = %269
+  %273 = load i64, ptr %10, align 8
+  %274 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 7
   %275 = load i64, ptr %274, align 8
-  store i64 %275, ptr %6, align 8
-  br label %356
+  %276 = load ptr, ptr %12, align 8
+  %277 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %276, i32 0, i32 3
+  %278 = load i64, ptr %277, align 8
+  %279 = call i64 @rb_ull2num_inline(i64 noundef %278)
+  %280 = call i64 @rb_hash_aset(i64 noundef %273, i64 noundef %275, i64 noundef %279)
+  br label %281
 
-276:                                              ; preds = %268
-  %277 = load i64, ptr %10, align 8
-  %278 = icmp ne i64 %277, 4
-  br i1 %278, label %279, label %287
+281:                                              ; preds = %272, %269
+  br label %282
 
-279:                                              ; preds = %276
-  %280 = load i64, ptr %10, align 8
-  %281 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 8), align 16
-  %282 = load ptr, ptr %12, align 8
-  %283 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %282, i32 0, i32 4
-  %284 = load i64, ptr %283, align 8
-  %285 = call i64 @rb_ull2num_inline(i64 noundef %284)
-  %286 = call i64 @rb_hash_aset(i64 noundef %280, i64 noundef %281, i64 noundef %285)
-  br label %287
+282:                                              ; preds = %281
+  %283 = load i64, ptr %11, align 8
+  %284 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 8
+  %285 = load i64, ptr %284, align 16
+  %286 = icmp eq i64 %283, %285
+  br i1 %286, label %287, label %291
 
-287:                                              ; preds = %279, %276
-  br label %288
+287:                                              ; preds = %282
+  %288 = load ptr, ptr %12, align 8
+  %289 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %288, i32 0, i32 4
+  %290 = load i64, ptr %289, align 8
+  store i64 %290, ptr %6, align 8
+  br label %378
 
-288:                                              ; preds = %287
-  %289 = load i64, ptr %11, align 8
-  %290 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 9), align 8
-  %291 = icmp eq i64 %289, %290
-  br i1 %291, label %292, label %296
+291:                                              ; preds = %282
+  %292 = load i64, ptr %10, align 8
+  %293 = icmp ne i64 %292, 4
+  br i1 %293, label %294, label %303
 
-292:                                              ; preds = %288
-  %293 = load ptr, ptr %12, align 8
-  %294 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %293, i32 0, i32 5
-  %295 = load i64, ptr %294, align 8
-  store i64 %295, ptr %6, align 8
-  br label %356
+294:                                              ; preds = %291
+  %295 = load i64, ptr %10, align 8
+  %296 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 8
+  %297 = load i64, ptr %296, align 16
+  %298 = load ptr, ptr %12, align 8
+  %299 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %298, i32 0, i32 4
+  %300 = load i64, ptr %299, align 8
+  %301 = call i64 @rb_ull2num_inline(i64 noundef %300)
+  %302 = call i64 @rb_hash_aset(i64 noundef %295, i64 noundef %297, i64 noundef %301)
+  br label %303
 
-296:                                              ; preds = %288
-  %297 = load i64, ptr %10, align 8
-  %298 = icmp ne i64 %297, 4
-  br i1 %298, label %299, label %307
+303:                                              ; preds = %294, %291
+  br label %304
 
-299:                                              ; preds = %296
-  %300 = load i64, ptr %10, align 8
-  %301 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 9), align 8
-  %302 = load ptr, ptr %12, align 8
-  %303 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %302, i32 0, i32 5
-  %304 = load i64, ptr %303, align 8
-  %305 = call i64 @rb_ull2num_inline(i64 noundef %304)
-  %306 = call i64 @rb_hash_aset(i64 noundef %300, i64 noundef %301, i64 noundef %305)
-  br label %307
+304:                                              ; preds = %303
+  %305 = load i64, ptr %11, align 8
+  %306 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 9
+  %307 = load i64, ptr %306, align 8
+  %308 = icmp eq i64 %305, %307
+  br i1 %308, label %309, label %313
 
-307:                                              ; preds = %299, %296
-  br label %308
+309:                                              ; preds = %304
+  %310 = load ptr, ptr %12, align 8
+  %311 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %310, i32 0, i32 5
+  %312 = load i64, ptr %311, align 8
+  store i64 %312, ptr %6, align 8
+  br label %378
 
-308:                                              ; preds = %307
-  %309 = load i64, ptr %11, align 8
-  %310 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 10), align 16
-  %311 = icmp eq i64 %309, %310
-  br i1 %311, label %312, label %316
+313:                                              ; preds = %304
+  %314 = load i64, ptr %10, align 8
+  %315 = icmp ne i64 %314, 4
+  br i1 %315, label %316, label %325
 
-312:                                              ; preds = %308
-  %313 = load ptr, ptr %12, align 8
-  %314 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %313, i32 0, i32 6
-  %315 = load i64, ptr %314, align 8
-  store i64 %315, ptr %6, align 8
-  br label %356
-
-316:                                              ; preds = %308
+316:                                              ; preds = %313
   %317 = load i64, ptr %10, align 8
-  %318 = icmp ne i64 %317, 4
-  br i1 %318, label %319, label %327
+  %318 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 9
+  %319 = load i64, ptr %318, align 8
+  %320 = load ptr, ptr %12, align 8
+  %321 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %320, i32 0, i32 5
+  %322 = load i64, ptr %321, align 8
+  %323 = call i64 @rb_ull2num_inline(i64 noundef %322)
+  %324 = call i64 @rb_hash_aset(i64 noundef %317, i64 noundef %319, i64 noundef %323)
+  br label %325
 
-319:                                              ; preds = %316
-  %320 = load i64, ptr %10, align 8
-  %321 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 10), align 16
-  %322 = load ptr, ptr %12, align 8
-  %323 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %322, i32 0, i32 6
-  %324 = load i64, ptr %323, align 8
-  %325 = call i64 @rb_ull2num_inline(i64 noundef %324)
-  %326 = call i64 @rb_hash_aset(i64 noundef %320, i64 noundef %321, i64 noundef %325)
-  br label %327
+325:                                              ; preds = %316, %313
+  br label %326
 
-327:                                              ; preds = %319, %316
-  br label %328
+326:                                              ; preds = %325
+  %327 = load i64, ptr %11, align 8
+  %328 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 10
+  %329 = load i64, ptr %328, align 16
+  %330 = icmp eq i64 %327, %329
+  br i1 %330, label %331, label %335
 
-328:                                              ; preds = %327
-  %329 = load i64, ptr %11, align 8
-  %330 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 11), align 8
-  %331 = icmp eq i64 %329, %330
-  br i1 %331, label %332, label %336
+331:                                              ; preds = %326
+  %332 = load ptr, ptr %12, align 8
+  %333 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %332, i32 0, i32 6
+  %334 = load i64, ptr %333, align 8
+  store i64 %334, ptr %6, align 8
+  br label %378
 
-332:                                              ; preds = %328
-  %333 = load ptr, ptr %12, align 8
-  %334 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %333, i32 0, i32 7
-  %335 = load i64, ptr %334, align 8
-  store i64 %335, ptr %6, align 8
-  br label %356
+335:                                              ; preds = %326
+  %336 = load i64, ptr %10, align 8
+  %337 = icmp ne i64 %336, 4
+  br i1 %337, label %338, label %347
 
-336:                                              ; preds = %328
-  %337 = load i64, ptr %10, align 8
-  %338 = icmp ne i64 %337, 4
-  br i1 %338, label %339, label %347
-
-339:                                              ; preds = %336
-  %340 = load i64, ptr %10, align 8
-  %341 = load i64, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 11), align 8
+338:                                              ; preds = %335
+  %339 = load i64, ptr %10, align 8
+  %340 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 10
+  %341 = load i64, ptr %340, align 16
   %342 = load ptr, ptr %12, align 8
-  %343 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %342, i32 0, i32 7
+  %343 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %342, i32 0, i32 6
   %344 = load i64, ptr %343, align 8
   %345 = call i64 @rb_ull2num_inline(i64 noundef %344)
-  %346 = call i64 @rb_hash_aset(i64 noundef %340, i64 noundef %341, i64 noundef %345)
+  %346 = call i64 @rb_hash_aset(i64 noundef %339, i64 noundef %341, i64 noundef %345)
   br label %347
 
-347:                                              ; preds = %339, %336
+347:                                              ; preds = %338, %335
   br label %348
 
 348:                                              ; preds = %347
   %349 = load i64, ptr %11, align 8
-  %350 = call zeroext i1 @RB_NIL_P(i64 noundef %349) #32
-  br i1 %350, label %355, label %351
+  %350 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 11
+  %351 = load i64, ptr %350, align 8
+  %352 = icmp eq i64 %349, %351
+  br i1 %352, label %353, label %357
 
-351:                                              ; preds = %348
-  %352 = load i64, ptr @rb_eArgError, align 8
-  %353 = load i64, ptr %11, align 8
-  %354 = call i64 @rb_sym2str(i64 noundef %353)
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %352, ptr noundef @.str.242, i64 noundef %354) #34
+353:                                              ; preds = %348
+  %354 = load ptr, ptr %12, align 8
+  %355 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %354, i32 0, i32 7
+  %356 = load i64, ptr %355, align 8
+  store i64 %356, ptr %6, align 8
+  br label %378
+
+357:                                              ; preds = %348
+  %358 = load i64, ptr %10, align 8
+  %359 = icmp ne i64 %358, 4
+  br i1 %359, label %360, label %369
+
+360:                                              ; preds = %357
+  %361 = load i64, ptr %10, align 8
+  %362 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 11
+  %363 = load i64, ptr %362, align 8
+  %364 = load ptr, ptr %12, align 8
+  %365 = getelementptr inbounds %struct.rb_size_pool_struct, ptr %364, i32 0, i32 7
+  %366 = load i64, ptr %365, align 8
+  %367 = call i64 @rb_ull2num_inline(i64 noundef %366)
+  %368 = call i64 @rb_hash_aset(i64 noundef %361, i64 noundef %363, i64 noundef %367)
+  br label %369
+
+369:                                              ; preds = %360, %357
+  br label %370
+
+370:                                              ; preds = %369
+  %371 = load i64, ptr %11, align 8
+  %372 = call zeroext i1 @RB_NIL_P(i64 noundef %371) #32
+  br i1 %372, label %377, label %373
+
+373:                                              ; preds = %370
+  %374 = load i64, ptr @rb_eArgError, align 8
+  %375 = load i64, ptr %11, align 8
+  %376 = call i64 @rb_sym2str(i64 noundef %375)
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %374, ptr noundef @.str.242, i64 noundef %376) #34
   unreachable
 
-355:                                              ; preds = %348
+377:                                              ; preds = %370
   store i64 0, ptr %6, align 8
-  br label %356
+  br label %378
 
-356:                                              ; preds = %355, %332, %312, %292, %272, %252, %232, %210, %188, %166, %144, %124, %102
-  %357 = load i64, ptr %6, align 8
-  ret i64 %357
+378:                                              ; preds = %377, %353, %331, %309, %287, %265, %243, %219, %195, %171, %147, %125, %102
+  %379 = load i64, ptr %6, align 8
+  ret i64 %379
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -43281,7 +43445,7 @@ define internal void @setup_gc_stat_heap_symbols() #0 {
   %12 = alloca i64, align 8
   %13 = load i64, ptr @gc_stat_heap_symbols, align 16
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %244
+  br i1 %14, label %15, label %255
 
 15:                                               ; preds = %0
   %16 = call i64 @rb_intern_const(ptr noundef @.str.374) #33
@@ -43345,320 +43509,331 @@ define internal void @setup_gc_stat_heap_symbols() #0 {
   %52 = phi i64 [ %47, %44 ], [ %50, %48 ]
   store i64 %52, ptr %2, align 8
   %53 = load i64, ptr %2, align 8
-  store i64 %53, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 1), align 8
-  %54 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
-  %55 = call i1 @llvm.is.constant.i64(i64 %54)
-  br i1 %55, label %56, label %67
+  %54 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 1
+  store i64 %53, ptr %54, align 8
+  %55 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
+  %56 = call i1 @llvm.is.constant.i64(i64 %55)
+  br i1 %56, label %57, label %68
 
-56:                                               ; preds = %51
-  %57 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
-  %58 = and i64 %57, 1
-  %59 = icmp ne i64 %58, 0
-  br i1 %59, label %63, label %60
+57:                                               ; preds = %51
+  %58 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
+  %59 = and i64 %58, 1
+  %60 = icmp ne i64 %59, 0
+  br i1 %60, label %64, label %61
 
-60:                                               ; preds = %56
-  %61 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
-  %62 = icmp ugt i64 %61, 169
-  br i1 %62, label %67, label %63
+61:                                               ; preds = %57
+  %62 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
+  %63 = icmp ugt i64 %62, 169
+  br i1 %63, label %68, label %64
 
-63:                                               ; preds = %60, %56
-  %64 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
-  %65 = shl i64 %64, 8
-  %66 = or i64 %65, 12
-  br label %70
+64:                                               ; preds = %61, %57
+  %65 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
+  %66 = shl i64 %65, 8
+  %67 = or i64 %66, 12
+  br label %71
 
-67:                                               ; preds = %60, %51
-  %68 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
-  %69 = call i64 @rb_id2sym(i64 noundef %68)
-  br label %70
+68:                                               ; preds = %61, %51
+  %69 = call i64 @rb_intern_const(ptr noundef @.str.256) #33
+  %70 = call i64 @rb_id2sym(i64 noundef %69)
+  br label %71
 
-70:                                               ; preds = %67, %63
-  %71 = phi i64 [ %66, %63 ], [ %69, %67 ]
-  store i64 %71, ptr %3, align 8
-  %72 = load i64, ptr %3, align 8
-  store i64 %72, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 2), align 16
-  %73 = call i64 @rb_intern_const(ptr noundef @.str.375) #33
-  %74 = call i1 @llvm.is.constant.i64(i64 %73)
-  br i1 %74, label %75, label %86
+71:                                               ; preds = %68, %64
+  %72 = phi i64 [ %67, %64 ], [ %70, %68 ]
+  store i64 %72, ptr %3, align 8
+  %73 = load i64, ptr %3, align 8
+  %74 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 2
+  store i64 %73, ptr %74, align 16
+  %75 = call i64 @rb_intern_const(ptr noundef @.str.375) #33
+  %76 = call i1 @llvm.is.constant.i64(i64 %75)
+  br i1 %76, label %77, label %88
 
-75:                                               ; preds = %70
-  %76 = call i64 @rb_intern_const(ptr noundef @.str.375) #33
-  %77 = and i64 %76, 1
-  %78 = icmp ne i64 %77, 0
-  br i1 %78, label %82, label %79
+77:                                               ; preds = %71
+  %78 = call i64 @rb_intern_const(ptr noundef @.str.375) #33
+  %79 = and i64 %78, 1
+  %80 = icmp ne i64 %79, 0
+  br i1 %80, label %84, label %81
 
-79:                                               ; preds = %75
-  %80 = call i64 @rb_intern_const(ptr noundef @.str.375) #33
-  %81 = icmp ugt i64 %80, 169
-  br i1 %81, label %86, label %82
+81:                                               ; preds = %77
+  %82 = call i64 @rb_intern_const(ptr noundef @.str.375) #33
+  %83 = icmp ugt i64 %82, 169
+  br i1 %83, label %88, label %84
 
-82:                                               ; preds = %79, %75
-  %83 = call i64 @rb_intern_const(ptr noundef @.str.375) #33
-  %84 = shl i64 %83, 8
-  %85 = or i64 %84, 12
-  br label %89
+84:                                               ; preds = %81, %77
+  %85 = call i64 @rb_intern_const(ptr noundef @.str.375) #33
+  %86 = shl i64 %85, 8
+  %87 = or i64 %86, 12
+  br label %91
 
-86:                                               ; preds = %79, %70
-  %87 = call i64 @rb_intern_const(ptr noundef @.str.375) #33
-  %88 = call i64 @rb_id2sym(i64 noundef %87)
-  br label %89
+88:                                               ; preds = %81, %71
+  %89 = call i64 @rb_intern_const(ptr noundef @.str.375) #33
+  %90 = call i64 @rb_id2sym(i64 noundef %89)
+  br label %91
 
-89:                                               ; preds = %86, %82
-  %90 = phi i64 [ %85, %82 ], [ %88, %86 ]
-  store i64 %90, ptr %4, align 8
-  %91 = load i64, ptr %4, align 8
-  store i64 %91, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 3), align 8
-  %92 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
-  %93 = call i1 @llvm.is.constant.i64(i64 %92)
-  br i1 %93, label %94, label %105
-
-94:                                               ; preds = %89
+91:                                               ; preds = %88, %84
+  %92 = phi i64 [ %87, %84 ], [ %90, %88 ]
+  store i64 %92, ptr %4, align 8
+  %93 = load i64, ptr %4, align 8
+  %94 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 3
+  store i64 %93, ptr %94, align 8
   %95 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
-  %96 = and i64 %95, 1
-  %97 = icmp ne i64 %96, 0
-  br i1 %97, label %101, label %98
+  %96 = call i1 @llvm.is.constant.i64(i64 %95)
+  br i1 %96, label %97, label %108
 
-98:                                               ; preds = %94
-  %99 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
-  %100 = icmp ugt i64 %99, 169
-  br i1 %100, label %105, label %101
+97:                                               ; preds = %91
+  %98 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
+  %99 = and i64 %98, 1
+  %100 = icmp ne i64 %99, 0
+  br i1 %100, label %104, label %101
 
-101:                                              ; preds = %98, %94
+101:                                              ; preds = %97
   %102 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
-  %103 = shl i64 %102, 8
-  %104 = or i64 %103, 12
-  br label %108
+  %103 = icmp ugt i64 %102, 169
+  br i1 %103, label %108, label %104
 
-105:                                              ; preds = %98, %89
-  %106 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
-  %107 = call i64 @rb_id2sym(i64 noundef %106)
-  br label %108
+104:                                              ; preds = %101, %97
+  %105 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
+  %106 = shl i64 %105, 8
+  %107 = or i64 %106, 12
+  br label %111
 
-108:                                              ; preds = %105, %101
-  %109 = phi i64 [ %104, %101 ], [ %107, %105 ]
-  store i64 %109, ptr %5, align 8
-  %110 = load i64, ptr %5, align 8
-  store i64 %110, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 4), align 16
-  %111 = call i64 @rb_intern_const(ptr noundef @.str.376) #33
-  %112 = call i1 @llvm.is.constant.i64(i64 %111)
-  br i1 %112, label %113, label %124
+108:                                              ; preds = %101, %91
+  %109 = call i64 @rb_intern_const(ptr noundef @.str.257) #33
+  %110 = call i64 @rb_id2sym(i64 noundef %109)
+  br label %111
 
-113:                                              ; preds = %108
-  %114 = call i64 @rb_intern_const(ptr noundef @.str.376) #33
-  %115 = and i64 %114, 1
-  %116 = icmp ne i64 %115, 0
-  br i1 %116, label %120, label %117
+111:                                              ; preds = %108, %104
+  %112 = phi i64 [ %107, %104 ], [ %110, %108 ]
+  store i64 %112, ptr %5, align 8
+  %113 = load i64, ptr %5, align 8
+  %114 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 4
+  store i64 %113, ptr %114, align 16
+  %115 = call i64 @rb_intern_const(ptr noundef @.str.376) #33
+  %116 = call i1 @llvm.is.constant.i64(i64 %115)
+  br i1 %116, label %117, label %128
 
-117:                                              ; preds = %113
+117:                                              ; preds = %111
   %118 = call i64 @rb_intern_const(ptr noundef @.str.376) #33
-  %119 = icmp ugt i64 %118, 169
-  br i1 %119, label %124, label %120
+  %119 = and i64 %118, 1
+  %120 = icmp ne i64 %119, 0
+  br i1 %120, label %124, label %121
 
-120:                                              ; preds = %117, %113
-  %121 = call i64 @rb_intern_const(ptr noundef @.str.376) #33
-  %122 = shl i64 %121, 8
-  %123 = or i64 %122, 12
-  br label %127
+121:                                              ; preds = %117
+  %122 = call i64 @rb_intern_const(ptr noundef @.str.376) #33
+  %123 = icmp ugt i64 %122, 169
+  br i1 %123, label %128, label %124
 
-124:                                              ; preds = %117, %108
+124:                                              ; preds = %121, %117
   %125 = call i64 @rb_intern_const(ptr noundef @.str.376) #33
-  %126 = call i64 @rb_id2sym(i64 noundef %125)
-  br label %127
+  %126 = shl i64 %125, 8
+  %127 = or i64 %126, 12
+  br label %131
 
-127:                                              ; preds = %124, %120
-  %128 = phi i64 [ %123, %120 ], [ %126, %124 ]
-  store i64 %128, ptr %6, align 8
-  %129 = load i64, ptr %6, align 8
-  store i64 %129, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 5), align 8
-  %130 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
-  %131 = call i1 @llvm.is.constant.i64(i64 %130)
-  br i1 %131, label %132, label %143
+128:                                              ; preds = %121, %111
+  %129 = call i64 @rb_intern_const(ptr noundef @.str.376) #33
+  %130 = call i64 @rb_id2sym(i64 noundef %129)
+  br label %131
 
-132:                                              ; preds = %127
-  %133 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
-  %134 = and i64 %133, 1
-  %135 = icmp ne i64 %134, 0
-  br i1 %135, label %139, label %136
+131:                                              ; preds = %128, %124
+  %132 = phi i64 [ %127, %124 ], [ %130, %128 ]
+  store i64 %132, ptr %6, align 8
+  %133 = load i64, ptr %6, align 8
+  %134 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 5
+  store i64 %133, ptr %134, align 8
+  %135 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
+  %136 = call i1 @llvm.is.constant.i64(i64 %135)
+  br i1 %136, label %137, label %148
 
-136:                                              ; preds = %132
-  %137 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
-  %138 = icmp ugt i64 %137, 169
-  br i1 %138, label %143, label %139
+137:                                              ; preds = %131
+  %138 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
+  %139 = and i64 %138, 1
+  %140 = icmp ne i64 %139, 0
+  br i1 %140, label %144, label %141
 
-139:                                              ; preds = %136, %132
-  %140 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
-  %141 = shl i64 %140, 8
-  %142 = or i64 %141, 12
-  br label %146
+141:                                              ; preds = %137
+  %142 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
+  %143 = icmp ugt i64 %142, 169
+  br i1 %143, label %148, label %144
 
-143:                                              ; preds = %136, %127
-  %144 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
-  %145 = call i64 @rb_id2sym(i64 noundef %144)
-  br label %146
+144:                                              ; preds = %141, %137
+  %145 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
+  %146 = shl i64 %145, 8
+  %147 = or i64 %146, 12
+  br label %151
 
-146:                                              ; preds = %143, %139
-  %147 = phi i64 [ %142, %139 ], [ %145, %143 ]
-  store i64 %147, ptr %7, align 8
-  %148 = load i64, ptr %7, align 8
-  store i64 %148, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 6), align 16
-  %149 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
-  %150 = call i1 @llvm.is.constant.i64(i64 %149)
-  br i1 %150, label %151, label %162
+148:                                              ; preds = %141, %131
+  %149 = call i64 @rb_intern_const(ptr noundef @.str.258) #33
+  %150 = call i64 @rb_id2sym(i64 noundef %149)
+  br label %151
 
-151:                                              ; preds = %146
-  %152 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
-  %153 = and i64 %152, 1
-  %154 = icmp ne i64 %153, 0
-  br i1 %154, label %158, label %155
+151:                                              ; preds = %148, %144
+  %152 = phi i64 [ %147, %144 ], [ %150, %148 ]
+  store i64 %152, ptr %7, align 8
+  %153 = load i64, ptr %7, align 8
+  %154 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 6
+  store i64 %153, ptr %154, align 16
+  %155 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
+  %156 = call i1 @llvm.is.constant.i64(i64 %155)
+  br i1 %156, label %157, label %168
 
-155:                                              ; preds = %151
-  %156 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
-  %157 = icmp ugt i64 %156, 169
-  br i1 %157, label %162, label %158
+157:                                              ; preds = %151
+  %158 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
+  %159 = and i64 %158, 1
+  %160 = icmp ne i64 %159, 0
+  br i1 %160, label %164, label %161
 
-158:                                              ; preds = %155, %151
-  %159 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
-  %160 = shl i64 %159, 8
-  %161 = or i64 %160, 12
-  br label %165
+161:                                              ; preds = %157
+  %162 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
+  %163 = icmp ugt i64 %162, 169
+  br i1 %163, label %168, label %164
 
-162:                                              ; preds = %155, %146
-  %163 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
-  %164 = call i64 @rb_id2sym(i64 noundef %163)
-  br label %165
+164:                                              ; preds = %161, %157
+  %165 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
+  %166 = shl i64 %165, 8
+  %167 = or i64 %166, 12
+  br label %171
 
-165:                                              ; preds = %162, %158
-  %166 = phi i64 [ %161, %158 ], [ %164, %162 ]
-  store i64 %166, ptr %8, align 8
-  %167 = load i64, ptr %8, align 8
-  store i64 %167, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 7), align 8
-  %168 = call i64 @rb_intern_const(ptr noundef @.str.377) #33
-  %169 = call i1 @llvm.is.constant.i64(i64 %168)
-  br i1 %169, label %170, label %181
+168:                                              ; preds = %161, %151
+  %169 = call i64 @rb_intern_const(ptr noundef @.str.259) #33
+  %170 = call i64 @rb_id2sym(i64 noundef %169)
+  br label %171
 
-170:                                              ; preds = %165
-  %171 = call i64 @rb_intern_const(ptr noundef @.str.377) #33
-  %172 = and i64 %171, 1
-  %173 = icmp ne i64 %172, 0
-  br i1 %173, label %177, label %174
-
-174:                                              ; preds = %170
+171:                                              ; preds = %168, %164
+  %172 = phi i64 [ %167, %164 ], [ %170, %168 ]
+  store i64 %172, ptr %8, align 8
+  %173 = load i64, ptr %8, align 8
+  %174 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 7
+  store i64 %173, ptr %174, align 8
   %175 = call i64 @rb_intern_const(ptr noundef @.str.377) #33
-  %176 = icmp ugt i64 %175, 169
-  br i1 %176, label %181, label %177
+  %176 = call i1 @llvm.is.constant.i64(i64 %175)
+  br i1 %176, label %177, label %188
 
-177:                                              ; preds = %174, %170
+177:                                              ; preds = %171
   %178 = call i64 @rb_intern_const(ptr noundef @.str.377) #33
-  %179 = shl i64 %178, 8
-  %180 = or i64 %179, 12
-  br label %184
+  %179 = and i64 %178, 1
+  %180 = icmp ne i64 %179, 0
+  br i1 %180, label %184, label %181
 
-181:                                              ; preds = %174, %165
+181:                                              ; preds = %177
   %182 = call i64 @rb_intern_const(ptr noundef @.str.377) #33
-  %183 = call i64 @rb_id2sym(i64 noundef %182)
-  br label %184
+  %183 = icmp ugt i64 %182, 169
+  br i1 %183, label %188, label %184
 
 184:                                              ; preds = %181, %177
-  %185 = phi i64 [ %180, %177 ], [ %183, %181 ]
-  store i64 %185, ptr %9, align 8
-  %186 = load i64, ptr %9, align 8
-  store i64 %186, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 8), align 16
-  %187 = call i64 @rb_intern_const(ptr noundef @.str.378) #33
-  %188 = call i1 @llvm.is.constant.i64(i64 %187)
-  br i1 %188, label %189, label %200
+  %185 = call i64 @rb_intern_const(ptr noundef @.str.377) #33
+  %186 = shl i64 %185, 8
+  %187 = or i64 %186, 12
+  br label %191
 
-189:                                              ; preds = %184
-  %190 = call i64 @rb_intern_const(ptr noundef @.str.378) #33
-  %191 = and i64 %190, 1
-  %192 = icmp ne i64 %191, 0
-  br i1 %192, label %196, label %193
+188:                                              ; preds = %181, %171
+  %189 = call i64 @rb_intern_const(ptr noundef @.str.377) #33
+  %190 = call i64 @rb_id2sym(i64 noundef %189)
+  br label %191
 
-193:                                              ; preds = %189
-  %194 = call i64 @rb_intern_const(ptr noundef @.str.378) #33
-  %195 = icmp ugt i64 %194, 169
-  br i1 %195, label %200, label %196
+191:                                              ; preds = %188, %184
+  %192 = phi i64 [ %187, %184 ], [ %190, %188 ]
+  store i64 %192, ptr %9, align 8
+  %193 = load i64, ptr %9, align 8
+  %194 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 8
+  store i64 %193, ptr %194, align 16
+  %195 = call i64 @rb_intern_const(ptr noundef @.str.378) #33
+  %196 = call i1 @llvm.is.constant.i64(i64 %195)
+  br i1 %196, label %197, label %208
 
-196:                                              ; preds = %193, %189
-  %197 = call i64 @rb_intern_const(ptr noundef @.str.378) #33
-  %198 = shl i64 %197, 8
-  %199 = or i64 %198, 12
-  br label %203
+197:                                              ; preds = %191
+  %198 = call i64 @rb_intern_const(ptr noundef @.str.378) #33
+  %199 = and i64 %198, 1
+  %200 = icmp ne i64 %199, 0
+  br i1 %200, label %204, label %201
 
-200:                                              ; preds = %193, %184
-  %201 = call i64 @rb_intern_const(ptr noundef @.str.378) #33
-  %202 = call i64 @rb_id2sym(i64 noundef %201)
-  br label %203
+201:                                              ; preds = %197
+  %202 = call i64 @rb_intern_const(ptr noundef @.str.378) #33
+  %203 = icmp ugt i64 %202, 169
+  br i1 %203, label %208, label %204
 
-203:                                              ; preds = %200, %196
-  %204 = phi i64 [ %199, %196 ], [ %202, %200 ]
-  store i64 %204, ptr %10, align 8
-  %205 = load i64, ptr %10, align 8
-  store i64 %205, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 9), align 8
-  %206 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
-  %207 = call i1 @llvm.is.constant.i64(i64 %206)
-  br i1 %207, label %208, label %219
+204:                                              ; preds = %201, %197
+  %205 = call i64 @rb_intern_const(ptr noundef @.str.378) #33
+  %206 = shl i64 %205, 8
+  %207 = or i64 %206, 12
+  br label %211
 
-208:                                              ; preds = %203
-  %209 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
-  %210 = and i64 %209, 1
-  %211 = icmp ne i64 %210, 0
-  br i1 %211, label %215, label %212
+208:                                              ; preds = %201, %191
+  %209 = call i64 @rb_intern_const(ptr noundef @.str.378) #33
+  %210 = call i64 @rb_id2sym(i64 noundef %209)
+  br label %211
 
-212:                                              ; preds = %208
-  %213 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
-  %214 = icmp ugt i64 %213, 169
-  br i1 %214, label %219, label %215
+211:                                              ; preds = %208, %204
+  %212 = phi i64 [ %207, %204 ], [ %210, %208 ]
+  store i64 %212, ptr %10, align 8
+  %213 = load i64, ptr %10, align 8
+  %214 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 9
+  store i64 %213, ptr %214, align 8
+  %215 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
+  %216 = call i1 @llvm.is.constant.i64(i64 %215)
+  br i1 %216, label %217, label %228
 
-215:                                              ; preds = %212, %208
-  %216 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
-  %217 = shl i64 %216, 8
-  %218 = or i64 %217, 12
-  br label %222
+217:                                              ; preds = %211
+  %218 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
+  %219 = and i64 %218, 1
+  %220 = icmp ne i64 %219, 0
+  br i1 %220, label %224, label %221
 
-219:                                              ; preds = %212, %203
-  %220 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
-  %221 = call i64 @rb_id2sym(i64 noundef %220)
-  br label %222
+221:                                              ; preds = %217
+  %222 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
+  %223 = icmp ugt i64 %222, 169
+  br i1 %223, label %228, label %224
 
-222:                                              ; preds = %219, %215
-  %223 = phi i64 [ %218, %215 ], [ %221, %219 ]
-  store i64 %223, ptr %11, align 8
-  %224 = load i64, ptr %11, align 8
-  store i64 %224, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 10), align 16
-  %225 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
-  %226 = call i1 @llvm.is.constant.i64(i64 %225)
-  br i1 %226, label %227, label %238
+224:                                              ; preds = %221, %217
+  %225 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
+  %226 = shl i64 %225, 8
+  %227 = or i64 %226, 12
+  br label %231
 
-227:                                              ; preds = %222
-  %228 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
-  %229 = and i64 %228, 1
-  %230 = icmp ne i64 %229, 0
-  br i1 %230, label %234, label %231
+228:                                              ; preds = %221, %211
+  %229 = call i64 @rb_intern_const(ptr noundef @.str.260) #33
+  %230 = call i64 @rb_id2sym(i64 noundef %229)
+  br label %231
 
-231:                                              ; preds = %227
-  %232 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
-  %233 = icmp ugt i64 %232, 169
-  br i1 %233, label %238, label %234
-
-234:                                              ; preds = %231, %227
+231:                                              ; preds = %228, %224
+  %232 = phi i64 [ %227, %224 ], [ %230, %228 ]
+  store i64 %232, ptr %11, align 8
+  %233 = load i64, ptr %11, align 8
+  %234 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 10
+  store i64 %233, ptr %234, align 16
   %235 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
-  %236 = shl i64 %235, 8
-  %237 = or i64 %236, 12
-  br label %241
+  %236 = call i1 @llvm.is.constant.i64(i64 %235)
+  br i1 %236, label %237, label %248
 
-238:                                              ; preds = %231, %222
-  %239 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
-  %240 = call i64 @rb_id2sym(i64 noundef %239)
-  br label %241
+237:                                              ; preds = %231
+  %238 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
+  %239 = and i64 %238, 1
+  %240 = icmp ne i64 %239, 0
+  br i1 %240, label %244, label %241
 
-241:                                              ; preds = %238, %234
-  %242 = phi i64 [ %237, %234 ], [ %240, %238 ]
-  store i64 %242, ptr %12, align 8
-  %243 = load i64, ptr %12, align 8
-  store i64 %243, ptr getelementptr inbounds ([12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 11), align 8
-  br label %244
+241:                                              ; preds = %237
+  %242 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
+  %243 = icmp ugt i64 %242, 169
+  br i1 %243, label %248, label %244
 
-244:                                              ; preds = %241, %0
+244:                                              ; preds = %241, %237
+  %245 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
+  %246 = shl i64 %245, 8
+  %247 = or i64 %246, 12
+  br label %251
+
+248:                                              ; preds = %241, %231
+  %249 = call i64 @rb_intern_const(ptr noundef @.str.261) #33
+  %250 = call i64 @rb_id2sym(i64 noundef %249)
+  br label %251
+
+251:                                              ; preds = %248, %244
+  %252 = phi i64 [ %247, %244 ], [ %250, %248 ]
+  store i64 %252, ptr %12, align 8
+  %253 = load i64, ptr %12, align 8
+  %254 = getelementptr inbounds [12 x i64], ptr @gc_stat_heap_symbols, i64 0, i64 11
+  store i64 %253, ptr %254, align 8
+  br label %255
+
+255:                                              ; preds = %251, %0
   ret void
 }
 
@@ -45130,6 +45305,12 @@ define internal i64 @type_sym(i64 noundef %0) #0 {
   ret i64 %198
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #21
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #21
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -45148,10 +45329,10 @@ attributes #14 = { nounwind sspstrong allocsize(1) uwtable "frame-pointer"="all"
 attributes #15 = { nounwind sspstrong allocsize(1,2) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn }
-attributes #19 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #18 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn }
 attributes #22 = { nounwind }
 attributes #23 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

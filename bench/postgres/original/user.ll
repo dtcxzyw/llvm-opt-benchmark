@@ -7175,17 +7175,20 @@ define dso_local void @assign_createrole_self_grant(ptr noundef %0, ptr noundef 
   %10 = zext i1 %9 to i8
   store i8 %10, ptr @createrole_self_grant_enabled, align 1
   store i32 7, ptr @createrole_self_grant_options, align 4
-  store i8 0, ptr getelementptr inbounds (%struct.GrantRoleOptions, ptr @createrole_self_grant_options, i32 0, i32 1), align 4
-  %11 = load i32, ptr %5, align 4
-  %12 = and i32 %11, 2
-  %13 = icmp ne i32 %12, 0
-  %14 = zext i1 %13 to i8
-  store i8 %14, ptr getelementptr inbounds (%struct.GrantRoleOptions, ptr @createrole_self_grant_options, i32 0, i32 2), align 1
-  %15 = load i32, ptr %5, align 4
-  %16 = and i32 %15, 4
-  %17 = icmp ne i32 %16, 0
-  %18 = zext i1 %17 to i8
-  store i8 %18, ptr getelementptr inbounds (%struct.GrantRoleOptions, ptr @createrole_self_grant_options, i32 0, i32 3), align 2
+  %11 = getelementptr inbounds %struct.GrantRoleOptions, ptr @createrole_self_grant_options, i32 0, i32 1
+  store i8 0, ptr %11, align 4
+  %12 = load i32, ptr %5, align 4
+  %13 = and i32 %12, 2
+  %14 = icmp ne i32 %13, 0
+  %15 = zext i1 %14 to i8
+  %16 = getelementptr inbounds %struct.GrantRoleOptions, ptr @createrole_self_grant_options, i32 0, i32 2
+  store i8 %15, ptr %16, align 1
+  %17 = load i32, ptr %5, align 4
+  %18 = and i32 %17, 4
+  %19 = icmp ne i32 %18, 0
+  %20 = zext i1 %19 to i8
+  %21 = getelementptr inbounds %struct.GrantRoleOptions, ptr @createrole_self_grant_options, i32 0, i32 3
+  store i8 %20, ptr %21, align 2
   ret void
 }
 

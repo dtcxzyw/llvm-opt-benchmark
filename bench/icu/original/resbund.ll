@@ -74,7 +74,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fLocale = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this1, i32 0, i32 2
   store ptr null, ptr %fLocale, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
@@ -85,8 +86,8 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %1 = load ptr, ptr %err.addr, align 8
-  %call5 = invoke ptr @ures_open_75(ptr noundef null, ptr noundef %call3, ptr noundef %1)
+  %2 = load ptr, ptr %err.addr, align 8
+  %call5 = invoke ptr @ures_open_75(ptr noundef null, ptr noundef %call3, ptr noundef %2)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -95,12 +96,12 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
   br label %eh.resume
 
@@ -121,7 +122,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -158,21 +160,22 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fLocale = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this1, i32 0, i32 2
   store ptr null, ptr %fLocale, align 8
   store i32 0, ptr %status, align 4
-  %1 = load ptr, ptr %other.addr, align 8
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %fResource, align 8
-  %tobool = icmp ne ptr %2, null
+  %2 = load ptr, ptr %other.addr, align 8
+  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %fResource, align 8
+  %tobool = icmp ne ptr %3, null
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %other.addr, align 8
-  %fResource2 = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %fResource2, align 8
-  %call = invoke ptr @ures_copyResb_75(ptr noundef null, ptr noundef %4, ptr noundef %status)
+  %4 = load ptr, ptr %other.addr, align 8
+  %fResource2 = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %fResource2, align 8
+  %call = invoke ptr @ures_copyResb_75(ptr noundef null, ptr noundef %5, ptr noundef %status)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -181,12 +184,12 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
   br label %eh.resume
 
@@ -214,7 +217,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -235,17 +239,18 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fLocale = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this1, i32 0, i32 2
   store ptr null, ptr %fLocale, align 8
-  %1 = load ptr, ptr %res.addr, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr %res.addr, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %res.addr, align 8
-  %3 = load ptr, ptr %err.addr, align 8
-  %call = invoke ptr @ures_copyResb_75(ptr noundef null, ptr noundef %2, ptr noundef %3)
+  %3 = load ptr, ptr %res.addr, align 8
+  %4 = load ptr, ptr %err.addr, align 8
+  %call = invoke ptr @ures_copyResb_75(ptr noundef null, ptr noundef %3, ptr noundef %4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -254,12 +259,12 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
   br label %eh.resume
 
@@ -296,17 +301,18 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fLocale = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this1, i32 0, i32 2
   store ptr null, ptr %fLocale, align 8
-  %1 = load ptr, ptr %path.addr, align 8
-  %2 = load ptr, ptr %locale.addr, align 8
-  %call = invoke noundef ptr @_ZNK6icu_756Locale7getNameEv(ptr noundef nonnull align 8 dereferenceable(217) %2)
+  %2 = load ptr, ptr %path.addr, align 8
+  %3 = load ptr, ptr %locale.addr, align 8
+  %call = invoke noundef ptr @_ZNK6icu_756Locale7getNameEv(ptr noundef nonnull align 8 dereferenceable(217) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load ptr, ptr %err.addr, align 8
-  %call3 = invoke ptr @ures_open_75(ptr noundef %1, ptr noundef %call, ptr noundef %3)
+  %4 = load ptr, ptr %err.addr, align 8
+  %call3 = invoke ptr @ures_open_75(ptr noundef %2, ptr noundef %call, ptr noundef %4)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -315,12 +321,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
   br label %eh.resume
 
@@ -427,16 +433,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fResource, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %fResource, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %fResource2 = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %fResource2, align 8
-  invoke void @ures_close_75(ptr noundef %1)
+  %2 = load ptr, ptr %fResource2, align 8
+  invoke void @ures_close_75(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -444,21 +451,21 @@ invoke.cont:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %fLocale = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %fLocale, align 8
-  %cmp3 = icmp ne ptr %2, null
+  %3 = load ptr, ptr %fLocale, align 8
+  %cmp3 = icmp ne ptr %3, null
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
   %fLocale5 = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %fLocale5, align 8
-  %isnull = icmp eq ptr %3, null
+  %4 = load ptr, ptr %fLocale5, align 8
+  %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then4
-  %vtable = load ptr, ptr %3, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %4 = load ptr, ptr %vfn, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(217) %3) #6
+  %5 = load ptr, ptr %vfn, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(217) %4) #6
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then4
@@ -469,10 +476,10 @@ if.end6:                                          ; preds = %delete.end, %if.end
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #7
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #7
   unreachable
 }
 

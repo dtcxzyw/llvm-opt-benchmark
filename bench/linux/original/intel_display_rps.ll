@@ -11,64 +11,65 @@ define dso_local void @intel_display_rps_boost_after_vblank(ptr noundef %0, ptr 
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @i915_fence_ops
-  br i1 %5, label %6, label %36
+  br i1 %5, label %6, label %37
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 2632
   %9 = load i16, ptr %8, align 8
   %10 = icmp ult i16 %9, 6
-  br i1 %10, label %36, label %11
+  br i1 %10, label %37, label %11
 
 11:                                               ; preds = %6
   %12 = tail call i32 @drm_crtc_vblank_get(ptr noundef %0) #3
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %36
+  br i1 %13, label %14, label %37
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %16 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 56) #4
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %14
-  tail call void @drm_crtc_vblank_put(ptr noundef %0) #3
-  br label %36
+  %15 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %16 = load ptr, ptr %15, align 16
+  %17 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3264, i64 noundef 56) #4
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
 
 19:                                               ; preds = %14
-  %20 = icmp eq ptr %1, null
-  br i1 %20, label %31, label %21
+  tail call void @drm_crtc_vblank_put(ptr noundef %0) #3
+  br label %37
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 56
-  %23 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22, i32 1, ptr elementtype(i32) %22) #3, !srcloc !5
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %29, label %25, !prof !6
+20:                                               ; preds = %14
+  %21 = icmp eq ptr %1, null
+  br i1 %21, label %32, label %22
 
-25:                                               ; preds = %21
-  %26 = add i32 %23, 1
-  %27 = or i32 %26, %23
-  %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %31, label %29, !prof !7
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %1, i64 56
+  %24 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23, i32 1, ptr elementtype(i32) %23) #3, !srcloc !5
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %30, label %26, !prof !6
 
-29:                                               ; preds = %25, %21
-  %30 = phi i32 [ 2, %21 ], [ 1, %25 ]
-  tail call void @refcount_warn_saturate(ptr noundef %22, i32 noundef %30) #3
-  br label %31
+26:                                               ; preds = %22
+  %27 = add i32 %24, 1
+  %28 = or i32 %27, %24
+  %29 = icmp sgt i32 %28, -1
+  br i1 %29, label %32, label %30, !prof !7
 
-31:                                               ; preds = %29, %25, %19
-  %32 = getelementptr inbounds i8, ptr %16, i64 48
-  store ptr %1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %16, i64 40
-  store ptr %0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr @do_rps_boost, ptr %34, align 8
-  store i32 0, ptr %16, align 8
-  %35 = tail call ptr @drm_crtc_vblank_waitqueue(ptr noundef %0) #3
-  tail call void @add_wait_queue(ptr noundef %35, ptr noundef nonnull %16) #3
-  br label %36
+30:                                               ; preds = %26, %22
+  %31 = phi i32 [ 2, %22 ], [ 1, %26 ]
+  tail call void @refcount_warn_saturate(ptr noundef %23, i32 noundef %31) #3
+  br label %32
 
-36:                                               ; preds = %31, %18, %11, %6, %2
+32:                                               ; preds = %30, %26, %20
+  %33 = getelementptr inbounds i8, ptr %17, i64 48
+  store ptr %1, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %17, i64 40
+  store ptr %0, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %17, i64 16
+  store ptr @do_rps_boost, ptr %35, align 8
+  store i32 0, ptr %17, align 8
+  %36 = tail call ptr @drm_crtc_vblank_waitqueue(ptr noundef %0) #3
+  tail call void @add_wait_queue(ptr noundef %36, ptr noundef nonnull %17) #3
+  br label %37
+
+37:                                               ; preds = %32, %19, %11, %6, %2
   ret void
 }
 
@@ -156,8 +157,10 @@ define internal noundef i32 @do_rps_boost(ptr noundef %0, i32 %1, i32 %2, ptr no
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr %44, ptr %46, align 8
   store volatile ptr %45, ptr %44, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %42, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %43, align 8
+  %47 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %47, ptr %42, align 8
+  %48 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %48, ptr %43, align 8
   tail call void @kfree(ptr noundef %0) #3
   ret i32 1
 }

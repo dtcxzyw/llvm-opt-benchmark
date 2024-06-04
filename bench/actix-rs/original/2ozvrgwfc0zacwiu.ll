@@ -68,85 +68,86 @@ define hidden { ptr, ptr } @_ZN14regex_automata4util8captures9GroupInfo13pattern
   %46 = icmp eq i64 %45, 0
   %47 = select i1 %46, i64 0, i64 1
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %53
+  br i1 %48, label %49, label %54
 
 49:                                               ; preds = %43
   %50 = load ptr, ptr @anon.8b717e7cd3bb3cd16730f8ba00024b8f.0, align 8, !noundef !3
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.8b717e7cd3bb3cd16730f8ba00024b8f.0, i64 8), align 8
+  %51 = getelementptr inbounds i8, ptr @anon.8b717e7cd3bb3cd16730f8ba00024b8f.0, i64 8
+  %52 = load ptr, ptr %51, align 8
   store ptr %50, ptr %13, align 8
-  %52 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %51, ptr %52, align 8
-  br label %74
+  %53 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %52, ptr %53, align 8
+  br label %75
 
-53:                                               ; preds = %43
-  %54 = load ptr, ptr %12, align 8, !nonnull !3, !align !4, !noundef !3
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8, !nonnull !3, !noundef !3
-  %57 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %54, i32 0, i32 1
-  %58 = load i64, ptr %57, align 8, !noundef !3
-  store ptr %56, ptr %6, align 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %58, ptr %59, align 8
-  %60 = load ptr, ptr %6, align 8, !noundef !3
-  %61 = getelementptr inbounds i8, ptr %6, i64 8
-  %62 = load i64, ptr %61, align 8, !noundef !3
-  store ptr %60, ptr %7, align 8
-  %63 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %62, ptr %63, align 8
-  %64 = load ptr, ptr %7, align 8, !noundef !3
-  %65 = getelementptr inbounds i8, ptr %7, i64 8
-  %66 = load i64, ptr %65, align 8, !noundef !3
-  %67 = getelementptr inbounds { ptr, [1 x i64] }, ptr %64, i64 %66
-  store ptr %64, ptr %5, align 8
-  %68 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
-  store ptr %68, ptr %8, align 8
-  %69 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %67, ptr %69, align 8
-  %70 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  %71 = getelementptr inbounds i8, ptr %8, i64 8
-  %72 = load ptr, ptr %71, align 8, !noundef !3
-  store ptr %70, ptr %13, align 8
-  %73 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %72, ptr %73, align 8
-  br label %74
+54:                                               ; preds = %43
+  %55 = load ptr, ptr %12, align 8, !nonnull !3, !align !4, !noundef !3
+  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = load ptr, ptr %56, align 8, !nonnull !3, !noundef !3
+  %58 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %55, i32 0, i32 1
+  %59 = load i64, ptr %58, align 8, !noundef !3
+  store ptr %57, ptr %6, align 8
+  %60 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %59, ptr %60, align 8
+  %61 = load ptr, ptr %6, align 8, !noundef !3
+  %62 = getelementptr inbounds i8, ptr %6, i64 8
+  %63 = load i64, ptr %62, align 8, !noundef !3
+  store ptr %61, ptr %7, align 8
+  %64 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %63, ptr %64, align 8
+  %65 = load ptr, ptr %7, align 8, !noundef !3
+  %66 = getelementptr inbounds i8, ptr %7, i64 8
+  %67 = load i64, ptr %66, align 8, !noundef !3
+  %68 = getelementptr inbounds { ptr, [1 x i64] }, ptr %65, i64 %67
+  store ptr %65, ptr %5, align 8
+  %69 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
+  store ptr %69, ptr %8, align 8
+  %70 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %68, ptr %70, align 8
+  %71 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
+  %72 = getelementptr inbounds i8, ptr %8, i64 8
+  %73 = load ptr, ptr %72, align 8, !noundef !3
+  store ptr %71, ptr %13, align 8
+  %74 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr %73, ptr %74, align 8
+  br label %75
 
-74:                                               ; preds = %53, %49
+75:                                               ; preds = %54, %49
   store ptr @anon.8b717e7cd3bb3cd16730f8ba00024b8f.1, ptr %4, align 8
-  %75 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
-  store ptr %75, ptr %3, align 8
-  %76 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @anon.8b717e7cd3bb3cd16730f8ba00024b8f.1, ptr %76, align 8
-  %77 = load ptr, ptr %13, align 8, !noundef !3
-  %78 = ptrtoint ptr %77 to i64
-  %79 = icmp eq i64 %78, 0
-  %80 = select i1 %79, i64 0, i64 1
-  %81 = icmp eq i64 %80, 0
-  br i1 %81, label %82, label %92
+  %76 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
+  store ptr %76, ptr %3, align 8
+  %77 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @anon.8b717e7cd3bb3cd16730f8ba00024b8f.1, ptr %77, align 8
+  %78 = load ptr, ptr %13, align 8, !noundef !3
+  %79 = ptrtoint ptr %78 to i64
+  %80 = icmp eq i64 %79, 0
+  %81 = select i1 %80, i64 0, i64 1
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %83, label %93
 
-82:                                               ; preds = %92, %74
-  %83 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
-  %84 = getelementptr inbounds i8, ptr %3, i64 8
-  %85 = load ptr, ptr %84, align 8, !noundef !3
-  store ptr %83, ptr %14, align 8
-  %86 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %85, ptr %86, align 8
-  %87 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  %88 = getelementptr inbounds i8, ptr %14, i64 8
-  %89 = load ptr, ptr %88, align 8, !noundef !3
-  %90 = insertvalue { ptr, ptr } poison, ptr %87, 0
-  %91 = insertvalue { ptr, ptr } %90, ptr %89, 1
-  ret { ptr, ptr } %91
+83:                                               ; preds = %93, %75
+  %84 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
+  %85 = getelementptr inbounds i8, ptr %3, i64 8
+  %86 = load ptr, ptr %85, align 8, !noundef !3
+  store ptr %84, ptr %14, align 8
+  %87 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %86, ptr %87, align 8
+  %88 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
+  %89 = getelementptr inbounds i8, ptr %14, i64 8
+  %90 = load ptr, ptr %89, align 8, !noundef !3
+  %91 = insertvalue { ptr, ptr } poison, ptr %88, 0
+  %92 = insertvalue { ptr, ptr } %91, ptr %90, 1
+  ret { ptr, ptr } %92
 
-92:                                               ; preds = %74
-  %93 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
-  %94 = getelementptr inbounds i8, ptr %13, i64 8
-  %95 = load ptr, ptr %94, align 8, !noundef !3
-  store ptr %93, ptr %3, align 8
-  %96 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %95, ptr %96, align 8
-  br label %82
+93:                                               ; preds = %75
+  %94 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
+  %95 = getelementptr inbounds i8, ptr %13, i64 8
+  %96 = load ptr, ptr %95, align 8, !noundef !3
+  store ptr %94, ptr %3, align 8
+  %97 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %96, ptr %97, align 8
+  br label %83
 
-97:                                               ; No predecessors!
+98:                                               ; No predecessors!
   unreachable
 }
 

@@ -513,39 +513,41 @@ define internal void @jent_apt_init(ptr noundef %0, i32 noundef %1) #0 align 16 
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
   %7 = icmp uge i64 %6, 15
-  br i1 %7, label %8, label %15
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr getelementptr inbounds ([15 x i32], ptr @jent_apt_cutoff_lookup, i64 0, i64 14), align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.rand_data, ptr %10, i32 0, i32 12
-  store i32 %9, ptr %11, align 4
-  %12 = load i32, ptr getelementptr inbounds ([15 x i32], ptr @jent_apt_cutoff_permanent_lookup, i64 0, i64 14), align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.rand_data, ptr %13, i32 0, i32 13
-  store i32 %12, ptr %14, align 8
-  br label %30
+  %9 = getelementptr inbounds [15 x i32], ptr @jent_apt_cutoff_lookup, i64 0, i64 14
+  %10 = load i32, ptr %9, align 8
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds %struct.rand_data, ptr %11, i32 0, i32 12
+  store i32 %10, ptr %12, align 4
+  %13 = getelementptr inbounds [15 x i32], ptr @jent_apt_cutoff_permanent_lookup, i64 0, i64 14
+  %14 = load i32, ptr %13, align 8
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds %struct.rand_data, ptr %15, i32 0, i32 13
+  store i32 %14, ptr %16, align 8
+  br label %32
 
-15:                                               ; preds = %2
-  %16 = load i32, ptr %4, align 4
-  %17 = sub i32 %16, 1
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr [15 x i32], ptr @jent_apt_cutoff_lookup, i64 0, i64 %18
-  %20 = load i32, ptr %19, align 4
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.rand_data, ptr %21, i32 0, i32 12
-  store i32 %20, ptr %22, align 4
-  %23 = load i32, ptr %4, align 4
-  %24 = sub i32 %23, 1
-  %25 = zext i32 %24 to i64
-  %26 = getelementptr [15 x i32], ptr @jent_apt_cutoff_permanent_lookup, i64 0, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.rand_data, ptr %28, i32 0, i32 13
-  store i32 %27, ptr %29, align 8
-  br label %30
+17:                                               ; preds = %2
+  %18 = load i32, ptr %4, align 4
+  %19 = sub i32 %18, 1
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr [15 x i32], ptr @jent_apt_cutoff_lookup, i64 0, i64 %20
+  %22 = load i32, ptr %21, align 4
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds %struct.rand_data, ptr %23, i32 0, i32 12
+  store i32 %22, ptr %24, align 4
+  %25 = load i32, ptr %4, align 4
+  %26 = sub i32 %25, 1
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr [15 x i32], ptr @jent_apt_cutoff_permanent_lookup, i64 0, i64 %27
+  %29 = load i32, ptr %28, align 4
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds %struct.rand_data, ptr %30, i32 0, i32 13
+  store i32 %29, ptr %31, align 8
+  br label %32
 
-30:                                               ; preds = %15, %8
+32:                                               ; preds = %17, %8
   ret void
 }
 

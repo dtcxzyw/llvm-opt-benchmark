@@ -4390,8 +4390,9 @@ do.body:                                          ; preds = %if.then4
   %7 = load ptr, ptr %cnv.addr, align 8
   %subChars = getelementptr inbounds %struct.UConverter, ptr %7, i32 0, i32 5
   %8 = load ptr, ptr %subChars, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.UConverterSharedData, ptr @_UTF16v2Data_75, i32 0, i32 3), align 8
-  %subChar = getelementptr inbounds %struct.UConverterStaticData, ptr %9, i32 0, i32 7
+  %9 = getelementptr inbounds %struct.UConverterSharedData, ptr @_UTF16v2Data_75, i32 0, i32 3
+  %10 = load ptr, ptr %9, align 8
+  %subChar = getelementptr inbounds %struct.UConverterStaticData, ptr %10, i32 0, i32 7
   %arraydecay = getelementptr inbounds [4 x i8], ptr %subChar, i64 0, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 4 %arraydecay, i64 4, i1 false)
   br label %do.end
@@ -4400,13 +4401,13 @@ do.end:                                           ; preds = %do.body
   br label %if.end
 
 if.end:                                           ; preds = %do.end, %land.lhs.true, %if.then
-  %10 = load ptr, ptr %cnv.addr, align 8
-  call void @_ZL11_UTF16ResetP10UConverter21UConverterResetChoice(ptr noundef %10, i32 noundef 0)
+  %11 = load ptr, ptr %cnv.addr, align 8
+  call void @_ZL11_UTF16ResetP10UConverter21UConverterResetChoice(ptr noundef %11, i32 noundef 0)
   br label %if.end5
 
 if.else:                                          ; preds = %entry
-  %11 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %11, align 4
+  %12 = load ptr, ptr %pErrorCode.addr, align 8
+  store i32 1, ptr %12, align 4
   br label %if.end5
 
 if.end5:                                          ; preds = %if.else, %if.end

@@ -46,70 +46,72 @@ define hidden void @zim_DOMCdataSection___construct(ptr noundef %0, ptr noundef 
   %13 = load i32, ptr %12, align 4
   %14 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %13, ptr noundef @.str, ptr noundef %8, ptr noundef %9)
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %21
+  br i1 %15, label %16, label %22
 
 16:                                               ; preds = %2
   br label %17
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %19 = icmp ne ptr %18, null
-  call void @llvm.assume(i1 %19)
-  br label %50
+  %18 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  call void @llvm.assume(i1 %20)
+  br label %52
 
-20:                                               ; No predecessors!
-  br label %21
+21:                                               ; No predecessors!
+  br label %22
 
-21:                                               ; preds = %20, %2
-  %22 = load ptr, ptr %8, align 8
-  %23 = load i64, ptr %9, align 8
-  %24 = trunc i64 %23 to i32
-  %25 = call ptr @xmlNewCDataBlock(ptr noundef null, ptr noundef %22, i32 noundef %24)
-  store ptr %25, ptr %5, align 8
-  %26 = load ptr, ptr %5, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %33, label %28
+22:                                               ; preds = %21, %2
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i64, ptr %9, align 8
+  %25 = trunc i64 %24 to i32
+  %26 = call ptr @xmlNewCDataBlock(ptr noundef null, ptr noundef %23, i32 noundef %25)
+  store ptr %26, ptr %5, align 8
+  %27 = load ptr, ptr %5, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %35, label %29
 
-28:                                               ; preds = %21
+29:                                               ; preds = %22
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1)
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28
-  %30 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50), align 8
-  %31 = icmp ne ptr %30, null
-  call void @llvm.assume(i1 %31)
-  br label %50
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds %struct._zend_executor_globals, ptr @executor_globals, i32 0, i32 50
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp ne ptr %32, null
+  call void @llvm.assume(i1 %33)
+  br label %52
 
-32:                                               ; No predecessors!
-  br label %33
+34:                                               ; No predecessors!
+  br label %35
 
-33:                                               ; preds = %32, %21
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct._zend_execute_data, ptr %34, i32 0, i32 4
-  %36 = getelementptr inbounds %struct._zval_struct, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = call ptr @php_dom_obj_from_obj(ptr noundef %37)
-  store ptr %38, ptr %7, align 8
-  %39 = load ptr, ptr %7, align 8
-  %40 = call ptr @dom_object_get_node(ptr noundef %39)
-  store ptr %40, ptr %6, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %45
+35:                                               ; preds = %34, %22
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds %struct._zend_execute_data, ptr %36, i32 0, i32 4
+  %38 = getelementptr inbounds %struct._zval_struct, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  %40 = call ptr @php_dom_obj_from_obj(ptr noundef %39)
+  store ptr %40, ptr %7, align 8
+  %41 = load ptr, ptr %7, align 8
+  %42 = call ptr @dom_object_get_node(ptr noundef %41)
+  store ptr %42, ptr %6, align 8
+  %43 = load ptr, ptr %6, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %47
 
-43:                                               ; preds = %33
-  %44 = load ptr, ptr %7, align 8
-  call void @php_libxml_node_decrement_resource(ptr noundef %44)
-  br label %45
-
-45:                                               ; preds = %43, %33
+45:                                               ; preds = %35
   %46 = load ptr, ptr %7, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = call i32 @php_libxml_increment_node_ptr(ptr noundef %46, ptr noundef %47, ptr noundef %48)
-  br label %50
+  call void @php_libxml_node_decrement_resource(ptr noundef %46)
+  br label %47
 
-50:                                               ; preds = %45, %29, %17
+47:                                               ; preds = %45, %35
+  %48 = load ptr, ptr %7, align 8
+  %49 = load ptr, ptr %5, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = call i32 @php_libxml_increment_node_ptr(ptr noundef %48, ptr noundef %49, ptr noundef %50)
+  br label %52
+
+52:                                               ; preds = %47, %30, %17
   ret void
 }
 

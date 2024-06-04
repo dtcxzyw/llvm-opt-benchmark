@@ -191,32 +191,33 @@ do.end:                                           ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %1 = load atomic i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i32 0, i32 1) monotonic, align 8
-  store i32 %1, ptr %atomic-temp, align 4
-  %2 = load i32, ptr %atomic-temp, align 4
-  store i32 %2, ptr %tmp, align 4
-  %3 = load i32, ptr %tmp, align 4
-  store i32 %3, ptr %tb_flush_count, align 4
-  %4 = load ptr, ptr %cpu.addr, align 8
-  %call = call zeroext i1 @cpu_in_serial_context(ptr noundef %4)
+  %1 = getelementptr inbounds %struct.TBContext, ptr @tb_ctx, i32 0, i32 1
+  %2 = load atomic i32, ptr %1 monotonic, align 8
+  store i32 %2, ptr %atomic-temp, align 4
+  %3 = load i32, ptr %atomic-temp, align 4
+  store i32 %3, ptr %tmp, align 4
+  %4 = load i32, ptr %tmp, align 4
+  store i32 %4, ptr %tb_flush_count, align 4
+  %5 = load ptr, ptr %cpu.addr, align 8
+  %call = call zeroext i1 @cpu_in_serial_context(ptr noundef %5)
   br i1 %call, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %while.end
-  %5 = load ptr, ptr %cpu.addr, align 8
-  %6 = load i32, ptr %tb_flush_count, align 4
-  store i32 %6, ptr %.compoundliteral, align 8
+  %6 = load ptr, ptr %cpu.addr, align 8
+  %7 = load i32, ptr %tb_flush_count, align 4
+  store i32 %7, ptr %.compoundliteral, align 8
   %coerce.dive = getelementptr inbounds %union.run_on_cpu_data, ptr %.compoundliteral, i32 0, i32 0
-  %7 = load i64, ptr %coerce.dive, align 8
-  call void @do_tb_flush(ptr noundef %5, i64 %7)
+  %8 = load i64, ptr %coerce.dive, align 8
+  call void @do_tb_flush(ptr noundef %6, i64 %8)
   br label %if.end
 
 if.else:                                          ; preds = %while.end
-  %8 = load ptr, ptr %cpu.addr, align 8
-  %9 = load i32, ptr %tb_flush_count, align 4
-  store i32 %9, ptr %.compoundliteral2, align 8
+  %9 = load ptr, ptr %cpu.addr, align 8
+  %10 = load i32, ptr %tb_flush_count, align 4
+  store i32 %10, ptr %.compoundliteral2, align 8
   %coerce.dive3 = getelementptr inbounds %union.run_on_cpu_data, ptr %.compoundliteral2, i32 0, i32 0
-  %10 = load i64, ptr %coerce.dive3, align 8
-  call void @async_safe_run_on_cpu(ptr noundef %8, ptr noundef @do_tb_flush, i64 %10)
+  %11 = load i64, ptr %coerce.dive3, align 8
+  call void @async_safe_run_on_cpu(ptr noundef %9, ptr noundef @do_tb_flush, i64 %11)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1
@@ -268,9 +269,10 @@ entry:
   store ptr %cpu, ptr %cpu.addr, align 8
   store i8 0, ptr %did_flush, align 1
   call void @mmap_lock()
-  %0 = load i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i32 0, i32 1), align 8
-  %1 = load i32, ptr %tb_flush_count, align 8
-  %cmp = icmp ne i32 %0, %1
+  %0 = getelementptr inbounds %struct.TBContext, ptr @tb_ctx, i32 0, i32 1
+  %1 = load i32, ptr %0, align 8
+  %2 = load i32, ptr %tb_flush_count, align 8
+  %cmp = icmp ne i32 %1, %2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -294,23 +296,23 @@ do.end:                                           ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %2 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  store i64 %2, ptr %_val0, align 8
+  %3 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  store i64 %3, ptr %_val0, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !5
-  %3 = load ptr, ptr %_val0, align 8
-  store ptr %3, ptr %tmp, align 8
-  %4 = load ptr, ptr %tmp, align 8
-  store ptr %4, ptr %cpu.addr, align 8
+  %4 = load ptr, ptr %_val0, align 8
+  store ptr %4, ptr %tmp, align 8
+  %5 = load ptr, ptr %tmp, align 8
+  store ptr %5, ptr %cpu.addr, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %while.end5, %while.end
-  %5 = load ptr, ptr %cpu.addr, align 8
-  %tobool = icmp ne ptr %5, null
+  %6 = load ptr, ptr %cpu.addr, align 8
+  %tobool = icmp ne ptr %6, null
   br i1 %tobool, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr %cpu.addr, align 8
-  call void @tcg_flush_jmp_cache(ptr noundef %6)
+  %7 = load ptr, ptr %cpu.addr, align 8
+  call void @tcg_flush_jmp_cache(ptr noundef %7)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -330,15 +332,15 @@ do.end4:                                          ; No predecessors!
   br label %while.cond1
 
 while.end5:                                       ; preds = %while.cond1
-  %7 = load ptr, ptr %cpu.addr, align 8
-  %node = getelementptr inbounds %struct.CPUState, ptr %7, i32 0, i32 35
-  %8 = load atomic i64, ptr %node monotonic, align 8
-  store i64 %8, ptr %_val1, align 8
+  %8 = load ptr, ptr %cpu.addr, align 8
+  %node = getelementptr inbounds %struct.CPUState, ptr %8, i32 0, i32 35
+  %9 = load atomic i64, ptr %node monotonic, align 8
+  store i64 %9, ptr %_val1, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  %9 = load ptr, ptr %_val1, align 8
-  store ptr %9, ptr %tmp6, align 8
-  %10 = load ptr, ptr %tmp6, align 8
-  store ptr %10, ptr %cpu.addr, align 8
+  %10 = load ptr, ptr %_val1, align 8
+  store ptr %10, ptr %tmp6, align 8
+  %11 = load ptr, ptr %tmp6, align 8
+  store ptr %11, ptr %cpu.addr, align 8
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %for.cond
@@ -346,15 +348,16 @@ for.end:                                          ; preds = %for.cond
   call void @tb_remove_all()
   call void @tcg_region_reset_all()
   store i32 1, ptr %.atomictmp, align 4
-  %11 = load i32, ptr %.atomictmp, align 4
-  %12 = atomicrmw add ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i32 0, i32 1), i32 %11 seq_cst, align 8
-  store i32 %12, ptr %atomic-temp, align 4
+  %12 = load i32, ptr %.atomictmp, align 4
+  %13 = getelementptr inbounds %struct.TBContext, ptr @tb_ctx, i32 0, i32 1
+  %14 = atomicrmw add ptr %13, i32 %12 seq_cst, align 8
+  store i32 %14, ptr %atomic-temp, align 4
   br label %done
 
 done:                                             ; preds = %for.end, %if.then
   call void @mmap_unlock()
-  %13 = load i8, ptr %did_flush, align 1
-  %tobool7 = trunc i8 %13 to i1
+  %15 = load i8, ptr %did_flush, align 1
+  %tobool7 = trunc i8 %15 to i1
   br i1 %tobool7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %done
@@ -595,11 +598,13 @@ do.end20:                                         ; No predecessors!
   br label %while.cond17
 
 while.end21:                                      ; preds = %while.cond17
-  %25 = load i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i32 0, i32 2), align 4
-  %add = add i32 %25, 1
+  %25 = getelementptr inbounds %struct.TBContext, ptr @tb_ctx, i32 0, i32 2
+  %26 = load i32, ptr %25, align 4
+  %add = add i32 %26, 1
   store i32 %add, ptr %.atomictmp22, align 4
-  %26 = load i32, ptr %.atomictmp22, align 4
-  store atomic i32 %26, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i32 0, i32 2) monotonic, align 4
+  %27 = load i32, ptr %.atomictmp22, align 4
+  %28 = getelementptr inbounds %struct.TBContext, ptr @tb_ctx, i32 0, i32 2
+  store atomic i32 %27, ptr %28 monotonic, align 4
   br label %do.end23
 
 do.end23:                                         ; preds = %while.end21, %if.then11

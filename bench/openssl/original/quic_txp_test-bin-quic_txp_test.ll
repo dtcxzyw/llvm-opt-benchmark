@@ -266,31 +266,37 @@ entry:
   %conv1 = zext i1 %cmp to i32
   store i32 %conv1, ptr %expect_handshake_pkt_in_same_dgram, align 4
   %2 = load i64, ptr %target_size, align 8
-  store i64 %2, ptr getelementptr inbounds ([12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 3, i32 4), align 16
-  %3 = load i32, ptr %expect_handshake_pkt_in_same_dgram, align 4
-  %tobool = icmp ne i32 %3, 0
+  %3 = getelementptr inbounds [12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 3, i32 4
+  store i64 %2, ptr %3, align 16
+  %4 = load i32, ptr %expect_handshake_pkt_in_same_dgram, align 4
+  %tobool = icmp ne i32 %4, 0
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  store i32 3, ptr getelementptr inbounds ([12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 9), align 16
-  store i32 9, ptr getelementptr inbounds ([12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 10), align 16
-  store ptr @check_is_handshake, ptr getelementptr inbounds ([12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 10, i32 5), align 8
+  %5 = getelementptr inbounds [12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 9
+  store i32 3, ptr %5, align 16
+  %6 = getelementptr inbounds [12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 10
+  store i32 9, ptr %6, align 16
+  %7 = getelementptr inbounds [12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 10, i32 5
+  store ptr @check_is_handshake, ptr %7, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store i32 4, ptr getelementptr inbounds ([12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 9), align 16
-  store i32 23, ptr getelementptr inbounds ([12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 10), align 16
+  %8 = getelementptr inbounds [12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 9
+  store i32 4, ptr %8, align 16
+  %9 = getelementptr inbounds [12 x %struct.script_op], ptr @dyn_script_1, i64 0, i64 10
+  store i32 23, ptr %9, align 16
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %4 = load i32, ptr %idx.addr, align 4
-  %call = call i32 @run_script(i32 noundef %4, ptr noundef @dyn_script_1)
+  %10 = load i32, ptr %idx.addr, align 4
+  %call = call i32 @run_script(i32 noundef %10, ptr noundef @dyn_script_1)
   %tobool2 = icmp ne i32 %call, 0
   br i1 %tobool2, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %5 = load i64, ptr %target_size, align 8
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef @.str.2, i32 noundef 1679, ptr noundef @.str.152, i64 noundef %5)
+  %11 = load i64, ptr %target_size, align 8
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef @.str.2, i32 noundef 1679, ptr noundef @.str.152, i64 noundef %11)
   store i32 0, ptr %retval, align 4
   br label %return
 
@@ -299,8 +305,8 @@ if.end4:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end4, %if.then3
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+  %12 = load i32, ptr %retval, align 4
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable

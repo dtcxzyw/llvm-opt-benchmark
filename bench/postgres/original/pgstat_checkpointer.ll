@@ -44,7 +44,7 @@ define dso_local void @pgstat_report_checkpointer() #0 {
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %0
-  br label %101
+  br label %108
 
 12:                                               ; preds = %0
   %13 = load ptr, ptr %1, align 8
@@ -57,127 +57,134 @@ define dso_local void @pgstat_report_checkpointer() #0 {
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %15
   store i64 %20, ptr %18, align 8
-  %21 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 1), align 8
-  %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %22, i32 0, i32 2
-  %24 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %23, i32 0, i32 1
-  %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, %21
-  store i64 %26, ptr %24, align 8
-  %27 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 2), align 8
-  %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %28, i32 0, i32 2
-  %30 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %29, i32 0, i32 2
-  %31 = load i64, ptr %30, align 8
-  %32 = add i64 %31, %27
-  store i64 %32, ptr %30, align 8
-  %33 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 3), align 8
-  %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %34, i32 0, i32 2
-  %36 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %35, i32 0, i32 3
-  %37 = load i64, ptr %36, align 8
-  %38 = add i64 %37, %33
-  store i64 %38, ptr %36, align 8
-  %39 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 4), align 8
-  %40 = load ptr, ptr %1, align 8
-  %41 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %40, i32 0, i32 2
-  %42 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %41, i32 0, i32 4
+  %21 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  %23 = load ptr, ptr %1, align 8
+  %24 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %23, i32 0, i32 2
+  %25 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %24, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, %22
+  store i64 %27, ptr %25, align 8
+  %28 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 2
+  %29 = load i64, ptr %28, align 8
+  %30 = load ptr, ptr %1, align 8
+  %31 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %30, i32 0, i32 2
+  %32 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %31, i32 0, i32 2
+  %33 = load i64, ptr %32, align 8
+  %34 = add i64 %33, %29
+  store i64 %34, ptr %32, align 8
+  %35 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 3
+  %36 = load i64, ptr %35, align 8
+  %37 = load ptr, ptr %1, align 8
+  %38 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %37, i32 0, i32 2
+  %39 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %38, i32 0, i32 3
+  %40 = load i64, ptr %39, align 8
+  %41 = add i64 %40, %36
+  store i64 %41, ptr %39, align 8
+  %42 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 4
   %43 = load i64, ptr %42, align 8
-  %44 = add i64 %43, %39
-  store i64 %44, ptr %42, align 8
-  %45 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 5), align 8
-  %46 = load ptr, ptr %1, align 8
-  %47 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %46, i32 0, i32 2
-  %48 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %47, i32 0, i32 5
-  %49 = load i64, ptr %48, align 8
-  %50 = add i64 %49, %45
-  store i64 %50, ptr %48, align 8
-  %51 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 6), align 8
-  %52 = load ptr, ptr %1, align 8
-  %53 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %52, i32 0, i32 2
-  %54 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %53, i32 0, i32 6
-  %55 = load i64, ptr %54, align 8
-  %56 = add i64 %55, %51
-  store i64 %56, ptr %54, align 8
-  %57 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 7), align 8
+  %44 = load ptr, ptr %1, align 8
+  %45 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %44, i32 0, i32 2
+  %46 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %45, i32 0, i32 4
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %47, %43
+  store i64 %48, ptr %46, align 8
+  %49 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 5
+  %50 = load i64, ptr %49, align 8
+  %51 = load ptr, ptr %1, align 8
+  %52 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %51, i32 0, i32 2
+  %53 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %52, i32 0, i32 5
+  %54 = load i64, ptr %53, align 8
+  %55 = add i64 %54, %50
+  store i64 %55, ptr %53, align 8
+  %56 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 6
+  %57 = load i64, ptr %56, align 8
   %58 = load ptr, ptr %1, align 8
   %59 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %58, i32 0, i32 2
-  %60 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %59, i32 0, i32 7
+  %60 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %59, i32 0, i32 6
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, %57
   store i64 %62, ptr %60, align 8
-  %63 = load ptr, ptr %1, align 8
-  %64 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %63, i32 0, i32 1
-  call void @pgstat_end_changecount_write(ptr noundef %64)
-  br label %65
+  %63 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 7
+  %64 = load i64, ptr %63, align 8
+  %65 = load ptr, ptr %1, align 8
+  %66 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %65, i32 0, i32 2
+  %67 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %66, i32 0, i32 7
+  %68 = load i64, ptr %67, align 8
+  %69 = add i64 %68, %64
+  store i64 %69, ptr %67, align 8
+  %70 = load ptr, ptr %1, align 8
+  %71 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %70, i32 0, i32 1
+  call void @pgstat_end_changecount_write(ptr noundef %71)
+  br label %72
 
-65:                                               ; preds = %12
+72:                                               ; preds = %12
   store ptr @PendingCheckpointerStats, ptr %2, align 8
   store i32 0, ptr %3, align 4
   store i64 72, ptr %4, align 8
-  %66 = load ptr, ptr %2, align 8
-  %67 = ptrtoint ptr %66 to i64
-  %68 = and i64 %67, 7
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %70, label %93
+  %73 = load ptr, ptr %2, align 8
+  %74 = ptrtoint ptr %73 to i64
+  %75 = and i64 %74, 7
+  %76 = icmp eq i64 %75, 0
+  br i1 %76, label %77, label %100
 
-70:                                               ; preds = %65
-  %71 = load i64, ptr %4, align 8
-  %72 = and i64 %71, 7
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %74, label %93
-
-74:                                               ; preds = %70
-  %75 = load i32, ptr %3, align 4
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %93
-
-77:                                               ; preds = %74
+77:                                               ; preds = %72
   %78 = load i64, ptr %4, align 8
-  %79 = icmp ule i64 %78, 1024
-  br i1 %79, label %80, label %93
+  %79 = and i64 %78, 7
+  %80 = icmp eq i64 %79, 0
+  br i1 %80, label %81, label %100
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %2, align 8
-  store ptr %81, ptr %5, align 8
-  %82 = load ptr, ptr %5, align 8
-  %83 = load i64, ptr %4, align 8
-  %84 = getelementptr i8, ptr %82, i64 %83
-  store ptr %84, ptr %6, align 8
-  br label %85
+81:                                               ; preds = %77
+  %82 = load i32, ptr %3, align 4
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %100
 
-85:                                               ; preds = %89, %80
-  %86 = load ptr, ptr %5, align 8
-  %87 = load ptr, ptr %6, align 8
-  %88 = icmp ult ptr %86, %87
-  br i1 %88, label %89, label %92
+84:                                               ; preds = %81
+  %85 = load i64, ptr %4, align 8
+  %86 = icmp ule i64 %85, 1024
+  br i1 %86, label %87, label %100
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr i64, ptr %90, i32 1
-  store ptr %91, ptr %5, align 8
-  store i64 0, ptr %90, align 8
-  br label %85, !llvm.loop !5
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %2, align 8
+  store ptr %88, ptr %5, align 8
+  %89 = load ptr, ptr %5, align 8
+  %90 = load i64, ptr %4, align 8
+  %91 = getelementptr i8, ptr %89, i64 %90
+  store ptr %91, ptr %6, align 8
+  br label %92
 
-92:                                               ; preds = %85
-  br label %98
+92:                                               ; preds = %96, %87
+  %93 = load ptr, ptr %5, align 8
+  %94 = load ptr, ptr %6, align 8
+  %95 = icmp ult ptr %93, %94
+  br i1 %95, label %96, label %99
 
-93:                                               ; preds = %77, %74, %70, %65
-  %94 = load ptr, ptr %2, align 8
-  %95 = load i32, ptr %3, align 4
-  %96 = trunc i32 %95 to i8
-  %97 = load i64, ptr %4, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %94, i8 %96, i64 %97, i1 false)
-  br label %98
+96:                                               ; preds = %92
+  %97 = load ptr, ptr %5, align 8
+  %98 = getelementptr i64, ptr %97, i32 1
+  store ptr %98, ptr %5, align 8
+  store i64 0, ptr %97, align 8
+  br label %92, !llvm.loop !5
 
-98:                                               ; preds = %93, %92
-  br label %99
+99:                                               ; preds = %92
+  br label %105
 
-99:                                               ; preds = %98
-  %100 = call zeroext i1 @pgstat_flush_io(i1 noundef zeroext false)
-  br label %101
+100:                                              ; preds = %84, %81, %77, %72
+  %101 = load ptr, ptr %2, align 8
+  %102 = load i32, ptr %3, align 4
+  %103 = trunc i32 %102 to i8
+  %104 = load i64, ptr %4, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %101, i8 %103, i64 %104, i1 false)
+  br label %105
 
-101:                                              ; preds = %99, %11
+105:                                              ; preds = %100, %99
+  br label %106
+
+106:                                              ; preds = %105
+  %107 = call zeroext i1 @pgstat_flush_io(i1 noundef zeroext false)
+  br label %108
+
+108:                                              ; preds = %106, %11
   ret void
 }
 
@@ -228,7 +235,8 @@ declare zeroext i1 @pgstat_flush_io(i1 noundef zeroext) #3
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pgstat_fetch_stat_checkpointer() #0 {
   call void @pgstat_snapshot_fixed(i32 noundef 8)
-  ret ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5)
+  %1 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5
+  ret ptr %1
 }
 
 declare void @pgstat_snapshot_fixed(i32 noundef) #3
@@ -315,55 +323,72 @@ define dso_local void @pgstat_checkpointer_snapshot_cb() #0 {
   %9 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %8, i32 0, i32 2
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %10, i32 0, i32 1
-  call void @pgstat_copy_changecounted_stats(ptr noundef getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5), ptr noundef %9, i64 noundef 72, ptr noundef %11)
-  %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %12, i32 0, i32 0
-  %14 = call zeroext i1 @LWLockAcquire(ptr noundef %13, i32 noundef 1)
-  %15 = load ptr, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %15, i64 72, i1 false)
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %16, i32 0, i32 0
-  call void @LWLockRelease(ptr noundef %17)
-  %18 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 0
-  %19 = load i64, ptr %18, align 8
-  %20 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5), align 8
-  %21 = sub i64 %20, %19
-  store i64 %21, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5), align 8
-  %22 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 1
-  %23 = load i64, ptr %22, align 8
-  %24 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 1), align 8
-  %25 = sub i64 %24, %23
-  store i64 %25, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 1), align 8
-  %26 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 2
-  %27 = load i64, ptr %26, align 8
-  %28 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 2), align 8
-  %29 = sub i64 %28, %27
-  store i64 %29, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 2), align 8
-  %30 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 3
-  %31 = load i64, ptr %30, align 8
-  %32 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 3), align 8
-  %33 = sub i64 %32, %31
-  store i64 %33, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 3), align 8
-  %34 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 4
-  %35 = load i64, ptr %34, align 8
-  %36 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 4), align 8
-  %37 = sub i64 %36, %35
-  store i64 %37, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 4), align 8
-  %38 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 5
-  %39 = load i64, ptr %38, align 8
-  %40 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 5), align 8
-  %41 = sub i64 %40, %39
-  store i64 %41, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 5), align 8
-  %42 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 6
-  %43 = load i64, ptr %42, align 8
-  %44 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 6), align 8
-  %45 = sub i64 %44, %43
-  store i64 %45, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 6), align 8
-  %46 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 7
-  %47 = load i64, ptr %46, align 8
-  %48 = load i64, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 7), align 8
-  %49 = sub i64 %48, %47
-  store i64 %49, ptr getelementptr inbounds (%struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 7), align 8
+  %12 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5
+  call void @pgstat_copy_changecounted_stats(ptr noundef %12, ptr noundef %9, i64 noundef 72, ptr noundef %11)
+  %13 = load ptr, ptr %1, align 8
+  %14 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %13, i32 0, i32 0
+  %15 = call zeroext i1 @LWLockAcquire(ptr noundef %14, i32 noundef 1)
+  %16 = load ptr, ptr %2, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %16, i64 72, i1 false)
+  %17 = load ptr, ptr %1, align 8
+  %18 = getelementptr inbounds %struct.PgStatShared_Checkpointer, ptr %17, i32 0, i32 0
+  call void @LWLockRelease(ptr noundef %18)
+  %19 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5
+  %22 = load i64, ptr %21, align 8
+  %23 = sub i64 %22, %20
+  %24 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5
+  store i64 %23, ptr %24, align 8
+  %25 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 1
+  %28 = load i64, ptr %27, align 8
+  %29 = sub i64 %28, %26
+  %30 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 1
+  store i64 %29, ptr %30, align 8
+  %31 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 2
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 2
+  %34 = load i64, ptr %33, align 8
+  %35 = sub i64 %34, %32
+  %36 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 2
+  store i64 %35, ptr %36, align 8
+  %37 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 3
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 3
+  %40 = load i64, ptr %39, align 8
+  %41 = sub i64 %40, %38
+  %42 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 3
+  store i64 %41, ptr %42, align 8
+  %43 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 4
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 4
+  %46 = load i64, ptr %45, align 8
+  %47 = sub i64 %46, %44
+  %48 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 4
+  store i64 %47, ptr %48, align 8
+  %49 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 5
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 5
+  %52 = load i64, ptr %51, align 8
+  %53 = sub i64 %52, %50
+  %54 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 5
+  store i64 %53, ptr %54, align 8
+  %55 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 6
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 6
+  %58 = load i64, ptr %57, align 8
+  %59 = sub i64 %58, %56
+  %60 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 6
+  store i64 %59, ptr %60, align 8
+  %61 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr %3, i32 0, i32 7
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 7
+  %64 = load i64, ptr %63, align 8
+  %65 = sub i64 %64, %62
+  %66 = getelementptr inbounds %struct.PgStat_LocalState, ptr @pgStatLocal, i32 0, i32 3, i32 5, i32 7
+  store i64 %65, ptr %66, align 8
   ret void
 }
 

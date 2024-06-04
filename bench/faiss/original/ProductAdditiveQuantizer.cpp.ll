@@ -1551,35 +1551,36 @@ define void @_ZN5faiss24ProductAdditiveQuantizerC2EmRKSt6vectorIPNS_17AdditiveQu
   store i32 %3, ptr %8, align 4
   %11 = load ptr, ptr %5, align 8
   call void @_ZN5faiss17AdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(308) %11)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5faiss24ProductAdditiveQuantizerE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.faiss::ProductAdditiveQuantizer", ptr %11, i32 0, i32 2
-  call void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
-  %13 = load i64, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load i32, ptr %8, align 4
-  invoke void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17AdditiveQuantizerESaIS3_EENS2_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %11, i64 noundef %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %15)
-          to label %16 unwind label %17
-
-16:                                               ; preds = %4
-  ret void
+  %12 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5faiss24ProductAdditiveQuantizerE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.faiss::ProductAdditiveQuantizer", ptr %11, i32 0, i32 2
+  call void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
+  %14 = load i64, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  invoke void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17AdditiveQuantizerESaIS3_EENS2_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %11, i64 noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef %16)
+          to label %17 unwind label %18
 
 17:                                               ; preds = %4
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %9, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %10, align 4
-  call void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
-  call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %11) #13
-  br label %21
+  ret void
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %9, align 8
-  %23 = load i32, ptr %10, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+18:                                               ; preds = %4
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %9, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %10, align 4
+  call void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
+  call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %11) #13
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i32, ptr %10, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 declare void @_ZN5faiss17AdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(308)) unnamed_addr #2
@@ -2332,9 +2333,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -4695,48 +4697,49 @@ define void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5faiss24ProductAdditiveQuantizerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::ProductAdditiveQuantizer", ptr %7, i32 0, i32 2
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call ptr @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %4, i32 0, i32 0
-  store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = call ptr @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %5, i32 0, i32 0
-  store ptr %13, ptr %14, align 8
-  br label %15
+  %8 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5faiss24ProductAdditiveQuantizerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::ProductAdditiveQuantizer", ptr %7, i32 0, i32 2
+  store ptr %9, ptr %3, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call ptr @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %4, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = call ptr @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
+  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %5, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  br label %16
 
-15:                                               ; preds = %27, %1
-  %16 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  br i1 %16, label %17, label %29
+16:                                               ; preds = %28, %1
+  %17 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  br i1 %17, label %18, label %30
 
-17:                                               ; preds = %15
-  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
-  store ptr %18, ptr %6, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %26, label %22
+18:                                               ; preds = %16
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  store ptr %19, ptr %6, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %27, label %23
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 4
-  %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(308) %20) #13
-  br label %26
-
-26:                                               ; preds = %22, %17
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %21, align 8
+  %25 = getelementptr inbounds ptr, ptr %24, i64 4
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(308) %21) #13
   br label %27
 
-27:                                               ; preds = %26
-  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
-  br label %15
+27:                                               ; preds = %23, %18
+  br label %28
 
-29:                                               ; preds = %15
-  %30 = getelementptr inbounds %"struct.faiss::ProductAdditiveQuantizer", ptr %7, i32 0, i32 2
-  call void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #13
+28:                                               ; preds = %27
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  br label %16
+
+30:                                               ; preds = %16
+  %31 = getelementptr inbounds %"struct.faiss::ProductAdditiveQuantizer", ptr %7, i32 0, i32 2
+  call void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #13
   call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %7) #13
   ret void
 }
@@ -9092,209 +9095,210 @@ define void @_ZN5faiss27ProductLocalSearchQuantizerC2EmmmmNS_17AdditiveQuantizer
   store i32 %5, ptr %12, align 4
   %26 = load ptr, ptr %7, align 8
   call void @_ZN5faiss24ProductAdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(344) %26)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5faiss27ProductLocalSearchQuantizerE, i32 0, i32 0, i32 2), ptr %26, align 8
+  %27 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5faiss27ProductLocalSearchQuantizerE, i32 0, i32 0, i32 2
+  store ptr %27, ptr %26, align 8
   call void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  %27 = load i64, ptr %9, align 8
-  %28 = icmp ugt i64 %27, 0
-  br i1 %28, label %29, label %90
+  %28 = load i64, ptr %9, align 8
+  %29 = icmp ugt i64 %28, 0
+  br i1 %29, label %30, label %91
 
-29:                                               ; preds = %6
-  br label %30
+30:                                               ; preds = %6
+  br label %31
 
-30:                                               ; preds = %29
-  %31 = load i64, ptr %8, align 8
-  %32 = load i64, ptr %9, align 8
-  %33 = urem i64 %31, %32
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %59, label %35
+31:                                               ; preds = %30
+  %32 = load i64, ptr %8, align 8
+  %33 = load i64, ptr %9, align 8
+  %34 = urem i64 %32, %33
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %60, label %36
 
-35:                                               ; preds = %30
-  br label %36
+36:                                               ; preds = %31
+  br label %37
 
-36:                                               ; preds = %35
+37:                                               ; preds = %36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.12) #13
-  store i32 %37, ptr %15, align 4
-  %38 = load i32, ptr %15, align 4
-  %39 = add nsw i32 %38, 1
-  %40 = sext i32 %39 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %40)
-          to label %41 unwind label %48
+  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.12) #13
+  store i32 %38, ptr %15, align 4
+  %39 = load i32, ptr %15, align 4
+  %40 = add nsw i32 %39, 1
+  %41 = sext i32 %40 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %41)
+          to label %42 unwind label %49
 
-41:                                               ; preds = %36
-  %42 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 0)
-          to label %43 unwind label %48
+42:                                               ; preds = %37
+  %43 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 0)
+          to label %44 unwind label %49
 
-43:                                               ; preds = %41
-  %44 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %42, i64 noundef %44, ptr noundef @.str, ptr noundef @.str.12) #13
-  %46 = call ptr @__cxa_allocate_exception(i64 40) #13
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss27ProductLocalSearchQuantizerC2EmmmmNS_17AdditiveQuantizer13Search_type_tE, ptr noundef @.str.2, i32 noundef 328)
-          to label %47 unwind label %52
+44:                                               ; preds = %42
+  %45 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %43, i64 noundef %45, ptr noundef @.str, ptr noundef @.str.12) #13
+  %47 = call ptr @__cxa_allocate_exception(i64 40) #13
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss27ProductLocalSearchQuantizerC2EmmmmNS_17AdditiveQuantizer13Search_type_tE, ptr noundef @.str.2, i32 noundef 328)
+          to label %48 unwind label %53
 
-47:                                               ; preds = %43
-  invoke void @__cxa_throw(ptr %46, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #14
-          to label %121 unwind label %48
+48:                                               ; preds = %44
+  invoke void @__cxa_throw(ptr %47, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #14
+          to label %122 unwind label %49
 
-48:                                               ; preds = %47, %41, %36
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %48, %42, %37
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %16, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %17, align 4
-  br label %56
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %16, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %17, align 4
+  br label %57
 
-52:                                               ; preds = %43
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %44
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %16, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %17, align 4
-  call void @__cxa_free_exception(ptr %46) #13
-  br label %56
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %16, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %17, align 4
+  call void @__cxa_free_exception(ptr %47) #13
+  br label %57
 
-56:                                               ; preds = %52, %48
+57:                                               ; preds = %53, %49
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  br label %115
+  br label %116
 
-57:                                               ; No predecessors!
-  br label %58
-
-58:                                               ; preds = %57
+58:                                               ; No predecessors!
   br label %59
 
-59:                                               ; preds = %58, %30
+59:                                               ; preds = %58
   br label %60
 
-60:                                               ; preds = %59
+60:                                               ; preds = %59, %31
   br label %61
 
 61:                                               ; preds = %60
-  %62 = load i64, ptr %8, align 8
-  %63 = load i64, ptr %9, align 8
-  %64 = udiv i64 %62, %63
-  store i64 %64, ptr %18, align 8
+  br label %62
+
+62:                                               ; preds = %61
+  %63 = load i64, ptr %8, align 8
+  %64 = load i64, ptr %9, align 8
+  %65 = udiv i64 %63, %64
+  store i64 %65, ptr %18, align 8
   store i64 0, ptr %19, align 8
-  br label %65
+  br label %66
 
-65:                                               ; preds = %78, %61
-  %66 = load i64, ptr %19, align 8
-  %67 = load i64, ptr %9, align 8
-  %68 = icmp ult i64 %66, %67
-  br i1 %68, label %69, label %89
+66:                                               ; preds = %79, %62
+  %67 = load i64, ptr %19, align 8
+  %68 = load i64, ptr %9, align 8
+  %69 = icmp ult i64 %67, %68
+  br i1 %69, label %70, label %90
 
-69:                                               ; preds = %65
-  %70 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 400) #17
-          to label %71 unwind label %81
+70:                                               ; preds = %66
+  %71 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 400) #17
+          to label %72 unwind label %82
 
-71:                                               ; preds = %69
-  %72 = load i64, ptr %18, align 8
-  %73 = load i64, ptr %10, align 8
-  %74 = load i64, ptr %11, align 8
-  invoke void @_ZN5faiss20LocalSearchQuantizerC1EmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(393) %70, i64 noundef %72, i64 noundef %73, i64 noundef %74, i32 noundef 0)
-          to label %75 unwind label %85
+72:                                               ; preds = %70
+  %73 = load i64, ptr %18, align 8
+  %74 = load i64, ptr %10, align 8
+  %75 = load i64, ptr %11, align 8
+  invoke void @_ZN5faiss20LocalSearchQuantizerC1EmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(393) %71, i64 noundef %73, i64 noundef %74, i64 noundef %75, i32 noundef 0)
+          to label %76 unwind label %86
 
-75:                                               ; preds = %71
-  store ptr %70, ptr %20, align 8
-  %76 = load ptr, ptr %20, align 8
-  store ptr %76, ptr %21, align 8
+76:                                               ; preds = %72
+  store ptr %71, ptr %20, align 8
+  %77 = load ptr, ptr %20, align 8
+  store ptr %77, ptr %21, align 8
   invoke void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %77 unwind label %81
+          to label %78 unwind label %82
 
-77:                                               ; preds = %75
-  br label %78
+78:                                               ; preds = %76
+  br label %79
 
-78:                                               ; preds = %77
-  %79 = load i64, ptr %19, align 8
-  %80 = add i64 %79, 1
-  store i64 %80, ptr %19, align 8
-  br label %65, !llvm.loop !20
+79:                                               ; preds = %78
+  %80 = load i64, ptr %19, align 8
+  %81 = add i64 %80, 1
+  store i64 %81, ptr %19, align 8
+  br label %66, !llvm.loop !20
 
-81:                                               ; preds = %90, %75, %69
-  %82 = landingpad { ptr, i32 }
+82:                                               ; preds = %91, %76, %70
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %16, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %17, align 4
-  br label %115
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %16, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %17, align 4
+  br label %116
 
-85:                                               ; preds = %71
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %72
+  %87 = landingpad { ptr, i32 }
           cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %16, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %17, align 4
-  call void @_ZdlPv(ptr noundef %70) #15
-  br label %115
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %16, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %17, align 4
+  call void @_ZdlPv(ptr noundef %71) #15
+  br label %116
 
-89:                                               ; preds = %65
-  br label %90
+90:                                               ; preds = %66
+  br label %91
 
-90:                                               ; preds = %89, %6
-  %91 = load i64, ptr %8, align 8
-  %92 = load i32, ptr %12, align 4
-  invoke void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17AdditiveQuantizerESaIS3_EENS2_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %26, i64 noundef %91, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %92)
-          to label %93 unwind label %81
+91:                                               ; preds = %90, %6
+  %92 = load i64, ptr %8, align 8
+  %93 = load i32, ptr %12, align 4
+  invoke void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17AdditiveQuantizerESaIS3_EENS2_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %26, i64 noundef %92, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %93)
+          to label %94 unwind label %82
 
-93:                                               ; preds = %90
+94:                                               ; preds = %91
   store ptr %13, ptr %22, align 8
-  %94 = load ptr, ptr %22, align 8
-  %95 = call ptr @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %94) #13
-  %96 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %23, i32 0, i32 0
-  store ptr %95, ptr %96, align 8
-  %97 = load ptr, ptr %22, align 8
-  %98 = call ptr @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %97) #13
-  %99 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %24, i32 0, i32 0
-  store ptr %98, ptr %99, align 8
-  br label %100
+  %95 = load ptr, ptr %22, align 8
+  %96 = call ptr @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %95) #13
+  %97 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %23, i32 0, i32 0
+  store ptr %96, ptr %97, align 8
+  %98 = load ptr, ptr %22, align 8
+  %99 = call ptr @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %98) #13
+  %100 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %24, i32 0, i32 0
+  store ptr %99, ptr %100, align 8
+  br label %101
 
-100:                                              ; preds = %112, %93
-  %101 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24) #13
-  br i1 %101, label %102, label %114
+101:                                              ; preds = %113, %94
+  %102 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24) #13
+  br i1 %102, label %103, label %115
 
-102:                                              ; preds = %100
-  %103 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
-  store ptr %103, ptr %25, align 8
-  %104 = load ptr, ptr %25, align 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %111, label %107
+103:                                              ; preds = %101
+  %104 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
+  store ptr %104, ptr %25, align 8
+  %105 = load ptr, ptr %25, align 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %112, label %108
 
-107:                                              ; preds = %102
-  %108 = load ptr, ptr %105, align 8
-  %109 = getelementptr inbounds ptr, ptr %108, i64 4
-  %110 = load ptr, ptr %109, align 8
-  call void %110(ptr noundef nonnull align 8 dereferenceable(308) %105) #13
-  br label %111
-
-111:                                              ; preds = %107, %102
+108:                                              ; preds = %103
+  %109 = load ptr, ptr %106, align 8
+  %110 = getelementptr inbounds ptr, ptr %109, i64 4
+  %111 = load ptr, ptr %110, align 8
+  call void %111(ptr noundef nonnull align 8 dereferenceable(308) %106) #13
   br label %112
 
-112:                                              ; preds = %111
-  %113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
-  br label %100
+112:                                              ; preds = %108, %103
+  br label %113
 
-114:                                              ; preds = %100
+113:                                              ; preds = %112
+  %114 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
+  br label %101
+
+115:                                              ; preds = %101
   call void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   ret void
 
-115:                                              ; preds = %85, %81, %56
+116:                                              ; preds = %86, %82, %57
   call void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %26) #13
-  br label %116
+  br label %117
 
-116:                                              ; preds = %115
-  %117 = load ptr, ptr %16, align 8
-  %118 = load i32, ptr %17, align 4
-  %119 = insertvalue { ptr, i32 } poison, ptr %117, 0
-  %120 = insertvalue { ptr, i32 } %119, i32 %118, 1
-  resume { ptr, i32 } %120
+117:                                              ; preds = %116
+  %118 = load ptr, ptr %16, align 8
+  %119 = load i32, ptr %17, align 4
+  %120 = insertvalue { ptr, i32 } poison, ptr %118, 0
+  %121 = insertvalue { ptr, i32 } %120, i32 %119, 1
+  resume { ptr, i32 } %121
 
-121:                                              ; preds = %47
+122:                                              ; preds = %48
   unreachable
 }
 
@@ -9571,209 +9575,210 @@ define void @_ZN5faiss24ProductResidualQuantizerC2EmmmmNS_17AdditiveQuantizer13S
   store i32 %5, ptr %12, align 4
   %26 = load ptr, ptr %7, align 8
   call void @_ZN5faiss24ProductAdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(344) %26)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5faiss24ProductResidualQuantizerE, i32 0, i32 0, i32 2), ptr %26, align 8
+  %27 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5faiss24ProductResidualQuantizerE, i32 0, i32 0, i32 2
+  store ptr %27, ptr %26, align 8
   call void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  %27 = load i64, ptr %9, align 8
-  %28 = icmp ugt i64 %27, 0
-  br i1 %28, label %29, label %90
+  %28 = load i64, ptr %9, align 8
+  %29 = icmp ugt i64 %28, 0
+  br i1 %29, label %30, label %91
 
-29:                                               ; preds = %6
-  br label %30
+30:                                               ; preds = %6
+  br label %31
 
-30:                                               ; preds = %29
-  %31 = load i64, ptr %8, align 8
-  %32 = load i64, ptr %9, align 8
-  %33 = urem i64 %31, %32
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %59, label %35
+31:                                               ; preds = %30
+  %32 = load i64, ptr %8, align 8
+  %33 = load i64, ptr %9, align 8
+  %34 = urem i64 %32, %33
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %60, label %36
 
-35:                                               ; preds = %30
-  br label %36
+36:                                               ; preds = %31
+  br label %37
 
-36:                                               ; preds = %35
+37:                                               ; preds = %36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.12) #13
-  store i32 %37, ptr %15, align 4
-  %38 = load i32, ptr %15, align 4
-  %39 = add nsw i32 %38, 1
-  %40 = sext i32 %39 to i64
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %40)
-          to label %41 unwind label %48
+  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef @.str, ptr noundef @.str.12) #13
+  store i32 %38, ptr %15, align 4
+  %39 = load i32, ptr %15, align 4
+  %40 = add nsw i32 %39, 1
+  %41 = sext i32 %40 to i64
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %41)
+          to label %42 unwind label %49
 
-41:                                               ; preds = %36
-  %42 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 0)
-          to label %43 unwind label %48
+42:                                               ; preds = %37
+  %43 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 0)
+          to label %44 unwind label %49
 
-43:                                               ; preds = %41
-  %44 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %42, i64 noundef %44, ptr noundef @.str, ptr noundef @.str.12) #13
-  %46 = call ptr @__cxa_allocate_exception(i64 40) #13
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss24ProductResidualQuantizerC2EmmmmNS_17AdditiveQuantizer13Search_type_tE, ptr noundef @.str.2, i32 noundef 359)
-          to label %47 unwind label %52
+44:                                               ; preds = %42
+  %45 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %43, i64 noundef %45, ptr noundef @.str, ptr noundef @.str.12) #13
+  %47 = call ptr @__cxa_allocate_exception(i64 40) #13
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @__PRETTY_FUNCTION__._ZN5faiss24ProductResidualQuantizerC2EmmmmNS_17AdditiveQuantizer13Search_type_tE, ptr noundef @.str.2, i32 noundef 359)
+          to label %48 unwind label %53
 
-47:                                               ; preds = %43
-  invoke void @__cxa_throw(ptr %46, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #14
-          to label %121 unwind label %48
+48:                                               ; preds = %44
+  invoke void @__cxa_throw(ptr %47, ptr @_ZTIN5faiss14FaissExceptionE, ptr @_ZN5faiss14FaissExceptionD2Ev) #14
+          to label %122 unwind label %49
 
-48:                                               ; preds = %47, %41, %36
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %48, %42, %37
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %16, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %17, align 4
-  br label %56
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %16, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %17, align 4
+  br label %57
 
-52:                                               ; preds = %43
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %44
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %16, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %17, align 4
-  call void @__cxa_free_exception(ptr %46) #13
-  br label %56
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %16, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %17, align 4
+  call void @__cxa_free_exception(ptr %47) #13
+  br label %57
 
-56:                                               ; preds = %52, %48
+57:                                               ; preds = %53, %49
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  br label %115
+  br label %116
 
-57:                                               ; No predecessors!
-  br label %58
-
-58:                                               ; preds = %57
+58:                                               ; No predecessors!
   br label %59
 
-59:                                               ; preds = %58, %30
+59:                                               ; preds = %58
   br label %60
 
-60:                                               ; preds = %59
+60:                                               ; preds = %59, %31
   br label %61
 
 61:                                               ; preds = %60
-  %62 = load i64, ptr %8, align 8
-  %63 = load i64, ptr %9, align 8
-  %64 = udiv i64 %62, %63
-  store i64 %64, ptr %18, align 8
+  br label %62
+
+62:                                               ; preds = %61
+  %63 = load i64, ptr %8, align 8
+  %64 = load i64, ptr %9, align 8
+  %65 = udiv i64 %63, %64
+  store i64 %65, ptr %18, align 8
   store i64 0, ptr %19, align 8
-  br label %65
+  br label %66
 
-65:                                               ; preds = %78, %61
-  %66 = load i64, ptr %19, align 8
-  %67 = load i64, ptr %9, align 8
-  %68 = icmp ult i64 %66, %67
-  br i1 %68, label %69, label %89
+66:                                               ; preds = %79, %62
+  %67 = load i64, ptr %19, align 8
+  %68 = load i64, ptr %9, align 8
+  %69 = icmp ult i64 %67, %68
+  br i1 %69, label %70, label %90
 
-69:                                               ; preds = %65
-  %70 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 432) #17
-          to label %71 unwind label %81
+70:                                               ; preds = %66
+  %71 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 432) #17
+          to label %72 unwind label %82
 
-71:                                               ; preds = %69
-  %72 = load i64, ptr %18, align 8
-  %73 = load i64, ptr %10, align 8
-  %74 = load i64, ptr %11, align 8
-  invoke void @_ZN5faiss17ResidualQuantizerC1EmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(432) %70, i64 noundef %72, i64 noundef %73, i64 noundef %74, i32 noundef 0)
-          to label %75 unwind label %85
+72:                                               ; preds = %70
+  %73 = load i64, ptr %18, align 8
+  %74 = load i64, ptr %10, align 8
+  %75 = load i64, ptr %11, align 8
+  invoke void @_ZN5faiss17ResidualQuantizerC1EmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(432) %71, i64 noundef %73, i64 noundef %74, i64 noundef %75, i32 noundef 0)
+          to label %76 unwind label %86
 
-75:                                               ; preds = %71
-  store ptr %70, ptr %20, align 8
-  %76 = load ptr, ptr %20, align 8
-  store ptr %76, ptr %21, align 8
+76:                                               ; preds = %72
+  store ptr %71, ptr %20, align 8
+  %77 = load ptr, ptr %20, align 8
+  store ptr %77, ptr %21, align 8
   invoke void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %77 unwind label %81
+          to label %78 unwind label %82
 
-77:                                               ; preds = %75
-  br label %78
+78:                                               ; preds = %76
+  br label %79
 
-78:                                               ; preds = %77
-  %79 = load i64, ptr %19, align 8
-  %80 = add i64 %79, 1
-  store i64 %80, ptr %19, align 8
-  br label %65, !llvm.loop !21
+79:                                               ; preds = %78
+  %80 = load i64, ptr %19, align 8
+  %81 = add i64 %80, 1
+  store i64 %81, ptr %19, align 8
+  br label %66, !llvm.loop !21
 
-81:                                               ; preds = %90, %75, %69
-  %82 = landingpad { ptr, i32 }
+82:                                               ; preds = %91, %76, %70
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %16, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %17, align 4
-  br label %115
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %16, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %17, align 4
+  br label %116
 
-85:                                               ; preds = %71
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %72
+  %87 = landingpad { ptr, i32 }
           cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %16, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %17, align 4
-  call void @_ZdlPv(ptr noundef %70) #15
-  br label %115
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %16, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %17, align 4
+  call void @_ZdlPv(ptr noundef %71) #15
+  br label %116
 
-89:                                               ; preds = %65
-  br label %90
+90:                                               ; preds = %66
+  br label %91
 
-90:                                               ; preds = %89, %6
-  %91 = load i64, ptr %8, align 8
-  %92 = load i32, ptr %12, align 4
-  invoke void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17AdditiveQuantizerESaIS3_EENS2_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %26, i64 noundef %91, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %92)
-          to label %93 unwind label %81
+91:                                               ; preds = %90, %6
+  %92 = load i64, ptr %8, align 8
+  %93 = load i32, ptr %12, align 4
+  invoke void @_ZN5faiss24ProductAdditiveQuantizer4initEmRKSt6vectorIPNS_17AdditiveQuantizerESaIS3_EENS2_13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %26, i64 noundef %92, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %93)
+          to label %94 unwind label %82
 
-93:                                               ; preds = %90
+94:                                               ; preds = %91
   store ptr %13, ptr %22, align 8
-  %94 = load ptr, ptr %22, align 8
-  %95 = call ptr @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %94) #13
-  %96 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %23, i32 0, i32 0
-  store ptr %95, ptr %96, align 8
-  %97 = load ptr, ptr %22, align 8
-  %98 = call ptr @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %97) #13
-  %99 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %24, i32 0, i32 0
-  store ptr %98, ptr %99, align 8
-  br label %100
+  %95 = load ptr, ptr %22, align 8
+  %96 = call ptr @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %95) #13
+  %97 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %23, i32 0, i32 0
+  store ptr %96, ptr %97, align 8
+  %98 = load ptr, ptr %22, align 8
+  %99 = call ptr @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %98) #13
+  %100 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.25", ptr %24, i32 0, i32 0
+  store ptr %99, ptr %100, align 8
+  br label %101
 
-100:                                              ; preds = %112, %93
-  %101 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24) #13
-  br i1 %101, label %102, label %114
+101:                                              ; preds = %113, %94
+  %102 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24) #13
+  br i1 %102, label %103, label %115
 
-102:                                              ; preds = %100
-  %103 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
-  store ptr %103, ptr %25, align 8
-  %104 = load ptr, ptr %25, align 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %111, label %107
+103:                                              ; preds = %101
+  %104 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
+  store ptr %104, ptr %25, align 8
+  %105 = load ptr, ptr %25, align 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %112, label %108
 
-107:                                              ; preds = %102
-  %108 = load ptr, ptr %105, align 8
-  %109 = getelementptr inbounds ptr, ptr %108, i64 4
-  %110 = load ptr, ptr %109, align 8
-  call void %110(ptr noundef nonnull align 8 dereferenceable(308) %105) #13
-  br label %111
-
-111:                                              ; preds = %107, %102
+108:                                              ; preds = %103
+  %109 = load ptr, ptr %106, align 8
+  %110 = getelementptr inbounds ptr, ptr %109, i64 4
+  %111 = load ptr, ptr %110, align 8
+  call void %111(ptr noundef nonnull align 8 dereferenceable(308) %106) #13
   br label %112
 
-112:                                              ; preds = %111
-  %113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
-  br label %100
+112:                                              ; preds = %108, %103
+  br label %113
 
-114:                                              ; preds = %100
+113:                                              ; preds = %112
+  %114 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN5faiss17AdditiveQuantizerESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
+  br label %101
+
+115:                                              ; preds = %101
   call void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   ret void
 
-115:                                              ; preds = %85, %81, %56
+116:                                              ; preds = %86, %82, %57
   call void @_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %26) #13
-  br label %116
+  br label %117
 
-116:                                              ; preds = %115
-  %117 = load ptr, ptr %16, align 8
-  %118 = load i32, ptr %17, align 4
-  %119 = insertvalue { ptr, i32 } poison, ptr %117, 0
-  %120 = insertvalue { ptr, i32 } %119, i32 %118, 1
-  resume { ptr, i32 } %120
+117:                                              ; preds = %116
+  %118 = load ptr, ptr %16, align 8
+  %119 = load i32, ptr %17, align 4
+  %120 = insertvalue { ptr, i32 } poison, ptr %118, 0
+  %121 = insertvalue { ptr, i32 } %120, i32 %119, 1
+  resume { ptr, i32 } %121
 
-121:                                              ; preds = %47
+122:                                              ; preds = %48
   unreachable
 }
 

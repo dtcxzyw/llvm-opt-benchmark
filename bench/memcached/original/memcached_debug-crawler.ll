@@ -279,87 +279,88 @@ if.then10:                                        ; preds = %lor.lhs.false8, %lo
   %20 = load i64, ptr %reclaimed13, align 8
   %inc14 = add i64 %20, 1
   store i64 %inc14, ptr %reclaimed13, align 8
-  %21 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 5), align 8
-  %cmp15 = icmp sgt i32 %21, 1
+  %21 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 5
+  %22 = load i32, ptr %21, align 8
+  %cmp15 = icmp sgt i32 %22, 1
   br i1 %cmp15, label %if.then17, label %if.end36
 
 if.then17:                                        ; preds = %if.then10
-  %22 = load ptr, ptr %search.addr, align 8
-  %data18 = getelementptr inbounds %struct._stritem, ptr %22, i32 0, i32 10
   %23 = load ptr, ptr %search.addr, align 8
-  %it_flags19 = getelementptr inbounds %struct._stritem, ptr %23, i32 0, i32 7
-  %24 = load i16, ptr %it_flags19, align 2
-  %conv20 = zext i16 %24 to i32
+  %data18 = getelementptr inbounds %struct._stritem, ptr %23, i32 0, i32 10
+  %24 = load ptr, ptr %search.addr, align 8
+  %it_flags19 = getelementptr inbounds %struct._stritem, ptr %24, i32 0, i32 7
+  %25 = load i16, ptr %it_flags19, align 2
+  %conv20 = zext i16 %25 to i32
   %and21 = and i32 %conv20, 2
   %tobool22 = icmp ne i32 %and21, 0
   %cond = select i1 %tobool22, i64 8, i64 0
   %add.ptr = getelementptr inbounds i8, ptr %data18, i64 %cond
   store ptr %add.ptr, ptr %key, align 8
-  %25 = load ptr, ptr @stderr, align 8
-  %26 = load ptr, ptr %search.addr, align 8
-  %it_flags23 = getelementptr inbounds %struct._stritem, ptr %26, i32 0, i32 7
-  %27 = load i16, ptr %it_flags23, align 2
-  %conv24 = zext i16 %27 to i32
-  %28 = load ptr, ptr %search.addr, align 8
-  %slabs_clsid = getelementptr inbounds %struct._stritem, ptr %28, i32 0, i32 8
-  %29 = load i8, ptr %slabs_clsid, align 8
-  %conv25 = zext i8 %29 to i32
-  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.6, i32 noundef %conv24, i32 noundef %conv25)
+  %26 = load ptr, ptr @stderr, align 8
+  %27 = load ptr, ptr %search.addr, align 8
+  %it_flags23 = getelementptr inbounds %struct._stritem, ptr %27, i32 0, i32 7
+  %28 = load i16, ptr %it_flags23, align 2
+  %conv24 = zext i16 %28 to i32
+  %29 = load ptr, ptr %search.addr, align 8
+  %slabs_clsid = getelementptr inbounds %struct._stritem, ptr %29, i32 0, i32 8
+  %30 = load i8, ptr %slabs_clsid, align 8
+  %conv25 = zext i8 %30 to i32
+  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.6, i32 noundef %conv24, i32 noundef %conv25)
   store i32 0, ptr %ii, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then17
-  %30 = load i32, ptr %ii, align 4
-  %31 = load ptr, ptr %search.addr, align 8
-  %nkey = getelementptr inbounds %struct._stritem, ptr %31, i32 0, i32 9
-  %32 = load i8, ptr %nkey, align 1
-  %conv27 = zext i8 %32 to i32
-  %cmp28 = icmp slt i32 %30, %conv27
+  %31 = load i32, ptr %ii, align 4
+  %32 = load ptr, ptr %search.addr, align 8
+  %nkey = getelementptr inbounds %struct._stritem, ptr %32, i32 0, i32 9
+  %33 = load i8, ptr %nkey, align 1
+  %conv27 = zext i8 %33 to i32
+  %cmp28 = icmp slt i32 %31, %conv27
   br i1 %cmp28, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %33 = load ptr, ptr @stderr, align 8
-  %34 = load ptr, ptr %key, align 8
-  %35 = load i32, ptr %ii, align 4
-  %idxprom30 = sext i32 %35 to i64
-  %arrayidx31 = getelementptr inbounds i8, ptr %34, i64 %idxprom30
-  %36 = load i8, ptr %arrayidx31, align 1
-  %conv32 = sext i8 %36 to i32
-  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.7, i32 noundef %conv32)
+  %34 = load ptr, ptr @stderr, align 8
+  %35 = load ptr, ptr %key, align 8
+  %36 = load i32, ptr %ii, align 4
+  %idxprom30 = sext i32 %36 to i64
+  %arrayidx31 = getelementptr inbounds i8, ptr %35, i64 %idxprom30
+  %37 = load i8, ptr %arrayidx31, align 1
+  %conv32 = sext i8 %37 to i32
+  %call33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.7, i32 noundef %conv32)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %37 = load i32, ptr %ii, align 4
-  %inc34 = add nsw i32 %37, 1
+  %38 = load i32, ptr %ii, align 4
+  %inc34 = add nsw i32 %38, 1
   store i32 %inc34, ptr %ii, align 4
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %for.cond
-  %38 = load ptr, ptr @stderr, align 8
-  %call35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef @.str.8)
+  %39 = load ptr, ptr @stderr, align 8
+  %call35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.8)
   br label %if.end36
 
 if.end36:                                         ; preds = %for.end, %if.then10
-  %39 = load ptr, ptr %search.addr, align 8
-  %it_flags37 = getelementptr inbounds %struct._stritem, ptr %39, i32 0, i32 7
-  %40 = load i16, ptr %it_flags37, align 2
-  %conv38 = zext i16 %40 to i32
+  %40 = load ptr, ptr %search.addr, align 8
+  %it_flags37 = getelementptr inbounds %struct._stritem, ptr %40, i32 0, i32 7
+  %41 = load i16, ptr %it_flags37, align 2
+  %conv38 = zext i16 %41 to i32
   %and39 = and i32 %conv38, 8
   %cmp40 = icmp eq i32 %and39, 0
   br i1 %cmp40, label %land.lhs.true42, label %if.end48
 
 land.lhs.true42:                                  ; preds = %if.end36
-  %41 = load i32, ptr %is_flushed, align 4
-  %tobool43 = icmp ne i32 %41, 0
+  %42 = load i32, ptr %is_flushed, align 4
+  %tobool43 = icmp ne i32 %42, 0
   br i1 %tobool43, label %if.end48, label %if.then44
 
 if.then44:                                        ; preds = %land.lhs.true42
-  %42 = load i32, ptr %i.addr, align 4
-  %idxprom45 = sext i32 %42 to i64
+  %43 = load i32, ptr %i.addr, align 4
+  %idxprom45 = sext i32 %43 to i64
   %arrayidx46 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom45
   %unfetched = getelementptr inbounds %struct.crawler, ptr %arrayidx46, i32 0, i32 12
-  %43 = load i64, ptr %unfetched, align 8
-  %inc47 = add i64 %43, 1
+  %44 = load i64, ptr %unfetched, align 8
+  %inc47 = add i64 %44, 1
   store i64 %inc47, ptr %unfetched, align 8
   br label %if.end48
 
@@ -367,83 +368,83 @@ if.end48:                                         ; preds = %if.then44, %land.lh
   br label %do.body
 
 do.body:                                          ; preds = %if.end48
-  %44 = load ptr, ptr @storage, align 8
-  %45 = load ptr, ptr %search.addr, align 8
-  call void @storage_delete(ptr noundef %44, ptr noundef %45)
+  %45 = load ptr, ptr @storage, align 8
+  %46 = load ptr, ptr %search.addr, align 8
+  call void @storage_delete(ptr noundef %45, ptr noundef %46)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
-  %46 = load ptr, ptr %search.addr, align 8
-  %47 = load i32, ptr %hv.addr, align 4
-  call void @do_item_unlink_nolock(ptr noundef %46, i32 noundef %47)
-  %48 = load ptr, ptr %search.addr, align 8
-  call void @do_item_remove(ptr noundef %48)
+  %47 = load ptr, ptr %search.addr, align 8
+  %48 = load i32, ptr %hv.addr, align 4
+  call void @do_item_unlink_nolock(ptr noundef %47, i32 noundef %48)
+  %49 = load ptr, ptr %search.addr, align 8
+  call void @do_item_remove(ptr noundef %49)
   br label %if.end73
 
 if.else:                                          ; preds = %lor.lhs.false8
-  %49 = load ptr, ptr %s, align 8
-  %seen = getelementptr inbounds %struct.crawlerstats_t, ptr %49, i32 0, i32 4
-  %50 = load i64, ptr %seen, align 8
-  %inc49 = add i64 %50, 1
+  %50 = load ptr, ptr %s, align 8
+  %seen = getelementptr inbounds %struct.crawlerstats_t, ptr %50, i32 0, i32 4
+  %51 = load i64, ptr %seen, align 8
+  %inc49 = add i64 %51, 1
   store i64 %inc49, ptr %seen, align 8
-  %51 = load ptr, ptr %search.addr, align 8
-  %refcount = getelementptr inbounds %struct._stritem, ptr %51, i32 0, i32 6
-  %52 = load i16, ptr %refcount, align 4
-  %dec = add i16 %52, -1
+  %52 = load ptr, ptr %search.addr, align 8
+  %refcount = getelementptr inbounds %struct._stritem, ptr %52, i32 0, i32 6
+  %53 = load i16, ptr %refcount, align 4
+  %dec = add i16 %53, -1
   store i16 %dec, ptr %refcount, align 4
-  %53 = load ptr, ptr %search.addr, align 8
-  %exptime50 = getelementptr inbounds %struct._stritem, ptr %53, i32 0, i32 4
-  %54 = load i32, ptr %exptime50, align 4
-  %cmp51 = icmp eq i32 %54, 0
+  %54 = load ptr, ptr %search.addr, align 8
+  %exptime50 = getelementptr inbounds %struct._stritem, ptr %54, i32 0, i32 4
+  %55 = load i32, ptr %exptime50, align 4
+  %cmp51 = icmp eq i32 %55, 0
   br i1 %cmp51, label %if.then53, label %if.else55
 
 if.then53:                                        ; preds = %if.else
-  %55 = load ptr, ptr %s, align 8
-  %noexp = getelementptr inbounds %struct.crawlerstats_t, ptr %55, i32 0, i32 2
-  %56 = load i64, ptr %noexp, align 8
-  %inc54 = add i64 %56, 1
+  %56 = load ptr, ptr %s, align 8
+  %noexp = getelementptr inbounds %struct.crawlerstats_t, ptr %56, i32 0, i32 2
+  %57 = load i64, ptr %noexp, align 8
+  %inc54 = add i64 %57, 1
   store i64 %inc54, ptr %noexp, align 8
   br label %if.end72
 
 if.else55:                                        ; preds = %if.else
-  %57 = load ptr, ptr %search.addr, align 8
-  %exptime56 = getelementptr inbounds %struct._stritem, ptr %57, i32 0, i32 4
-  %58 = load i32, ptr %exptime56, align 4
-  %59 = load volatile i32, ptr @current_time, align 4
-  %sub = sub i32 %58, %59
+  %58 = load ptr, ptr %search.addr, align 8
+  %exptime56 = getelementptr inbounds %struct._stritem, ptr %58, i32 0, i32 4
+  %59 = load i32, ptr %exptime56, align 4
+  %60 = load volatile i32, ptr @current_time, align 4
+  %sub = sub i32 %59, %60
   %cmp57 = icmp ugt i32 %sub, 3599
   br i1 %cmp57, label %if.then59, label %if.else61
 
 if.then59:                                        ; preds = %if.else55
-  %60 = load ptr, ptr %s, align 8
-  %ttl_hourplus = getelementptr inbounds %struct.crawlerstats_t, ptr %60, i32 0, i32 1
-  %61 = load i64, ptr %ttl_hourplus, align 8
-  %inc60 = add i64 %61, 1
+  %61 = load ptr, ptr %s, align 8
+  %ttl_hourplus = getelementptr inbounds %struct.crawlerstats_t, ptr %61, i32 0, i32 1
+  %62 = load i64, ptr %ttl_hourplus, align 8
+  %inc60 = add i64 %62, 1
   store i64 %inc60, ptr %ttl_hourplus, align 8
   br label %if.end71
 
 if.else61:                                        ; preds = %if.else55
-  %62 = load ptr, ptr %search.addr, align 8
-  %exptime62 = getelementptr inbounds %struct._stritem, ptr %62, i32 0, i32 4
-  %63 = load i32, ptr %exptime62, align 4
-  %64 = load volatile i32, ptr @current_time, align 4
-  %sub63 = sub i32 %63, %64
+  %63 = load ptr, ptr %search.addr, align 8
+  %exptime62 = getelementptr inbounds %struct._stritem, ptr %63, i32 0, i32 4
+  %64 = load i32, ptr %exptime62, align 4
+  %65 = load volatile i32, ptr @current_time, align 4
+  %sub63 = sub i32 %64, %65
   store i32 %sub63, ptr %ttl_remain, align 4
-  %65 = load i32, ptr %ttl_remain, align 4
-  %div = udiv i32 %65, 60
+  %66 = load i32, ptr %ttl_remain, align 4
+  %div = udiv i32 %66, 60
   store i32 %div, ptr %bucket, align 4
-  %66 = load i32, ptr %bucket, align 4
-  %cmp64 = icmp sle i32 %66, 60
+  %67 = load i32, ptr %bucket, align 4
+  %cmp64 = icmp sle i32 %67, 60
   br i1 %cmp64, label %if.then66, label %if.end70
 
 if.then66:                                        ; preds = %if.else61
-  %67 = load ptr, ptr %s, align 8
-  %histo = getelementptr inbounds %struct.crawlerstats_t, ptr %67, i32 0, i32 0
-  %68 = load i32, ptr %bucket, align 4
-  %idxprom67 = sext i32 %68 to i64
+  %68 = load ptr, ptr %s, align 8
+  %histo = getelementptr inbounds %struct.crawlerstats_t, ptr %68, i32 0, i32 0
+  %69 = load i32, ptr %bucket, align 4
+  %idxprom67 = sext i32 %69 to i64
   %arrayidx68 = getelementptr inbounds [61 x i64], ptr %histo, i64 0, i64 %idxprom67
-  %69 = load i64, ptr %arrayidx68, align 8
-  %inc69 = add i64 %69, 1
+  %70 = load i64, ptr %arrayidx68, align 8
+  %inc69 = add i64 %70, 1
   store i64 %inc69, ptr %arrayidx68, align 8
   br label %if.end70
 
@@ -457,8 +458,8 @@ if.end72:                                         ; preds = %if.end71, %if.then5
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end72, %do.end
-  %70 = load ptr, ptr %d, align 8
-  %lock74 = getelementptr inbounds %struct.crawler_expired_data, ptr %70, i32 0, i32 0
+  %71 = load ptr, ptr %d, align 8
+  %lock74 = getelementptr inbounds %struct.crawler_expired_data, ptr %71, i32 0, i32 0
   %call75 = call i32 @pthread_mutex_unlock(ptr noundef %lock74) #11
   ret void
 }
@@ -1021,8 +1022,9 @@ define dso_local i32 @start_item_crawler_thread() #0 {
 entry:
   %retval = alloca i32, align 4
   %ret = alloca i32, align 4
-  %0 = load i8, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 28), align 2
-  %tobool = trunc i8 %0 to i1
+  %0 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 28
+  %1 = load i8, ptr %0, align 2
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1038,25 +1040,25 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %1 = load ptr, ptr @stderr, align 8
-  %2 = load i32, ptr %ret, align 4
-  %call3 = call ptr @strerror(i32 noundef %2) #11
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef @.str.1, ptr noundef %call3)
+  %2 = load ptr, ptr @stderr, align 8
+  %3 = load i32, ptr %ret, align 4
+  %call3 = call ptr @strerror(i32 noundef %3) #11
+  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef @.str.1, ptr noundef %call3)
   %call5 = call i32 @pthread_mutex_unlock(ptr noundef @lru_crawler_lock) #11
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %3 = load i64, ptr @item_crawler_tid, align 8
-  call void @thread_setname(i64 noundef %3, ptr noundef @.str.2)
+  %4 = load i64, ptr @item_crawler_tid, align 8
+  call void @thread_setname(i64 noundef %4, ptr noundef @.str.2)
   %call7 = call i32 @pthread_cond_wait(ptr noundef @lru_crawler_cond, ptr noundef @lru_crawler_lock)
   %call8 = call i32 @pthread_mutex_unlock(ptr noundef @lru_crawler_lock) #11
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then2, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+  %5 = load i32, ptr %retval, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind
@@ -1074,32 +1076,35 @@ entry:
   %ret = alloca i32, align 4
   %hv = alloca i32, align 4
   store ptr %arg, ptr %arg.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 47), align 8
-  store i32 %0, ptr %crawls_persleep, align 4
+  %0 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 47
+  %1 = load i32, ptr %0, align 8
+  store i32 %1, ptr %crawls_persleep, align 4
   %call = call i32 @pthread_mutex_lock(ptr noundef @lru_crawler_lock) #11
   %call1 = call i32 @pthread_cond_signal(ptr noundef @lru_crawler_cond) #11
-  store i8 1, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 28), align 2
-  %1 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 5), align 8
-  %cmp = icmp sgt i32 %1, 2
+  %2 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 28
+  store i8 1, ptr %2, align 2
+  %3 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 5
+  %4 = load i32, ptr %3, align 8
+  %cmp = icmp sgt i32 %4, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr @stderr, align 8
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef @.str.17)
+  %5 = load ptr, ptr @stderr, align 8
+  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.17)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end142, %if.end
-  %3 = load volatile i32, ptr @do_run_lru_crawler_thread, align 4
-  %tobool = icmp ne i32 %3, 0
+  %6 = load volatile i32, ptr @do_run_lru_crawler_thread, align 4
+  %tobool = icmp ne i32 %6, 0
   br i1 %tobool, label %while.body, label %while.end143
 
 while.body:                                       ; preds = %while.cond
   %call3 = call i32 @pthread_cond_wait(ptr noundef @lru_crawler_cond, ptr noundef @lru_crawler_lock)
-  %4 = load i32, ptr @crawler_count, align 4
-  %cmp4 = icmp eq i32 %4, -1
+  %7 = load i32, ptr @crawler_count, align 4
+  %cmp4 = icmp eq i32 %7, -1
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %while.body
@@ -1111,8 +1116,8 @@ if.else:                                          ; preds = %while.body
   br label %while.cond6
 
 while.cond6:                                      ; preds = %for.end, %if.else
-  %5 = load i32, ptr @crawler_count, align 4
-  %tobool7 = icmp ne i32 %5, 0
+  %8 = load i32, ptr @crawler_count, align 4
+  %tobool7 = icmp ne i32 %8, 0
   br i1 %tobool7, label %while.body8, label %while.end
 
 while.body8:                                      ; preds = %while.cond6
@@ -1122,17 +1127,17 @@ while.body8:                                      ; preds = %while.cond6
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %while.body8
-  %6 = load i32, ptr %i, align 4
-  %cmp9 = icmp slt i32 %6, 256
+  %9 = load i32, ptr %i, align 4
+  %cmp9 = icmp slt i32 %9, 256
   br i1 %cmp9, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %7 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %7 to i64
+  %10 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %10 to i64
   %arrayidx = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom
   %it_flags = getelementptr inbounds %struct.crawler, ptr %arrayidx, i32 0, i32 7
-  %8 = load i16, ptr %it_flags, align 2
-  %conv = zext i16 %8 to i32
+  %11 = load i16, ptr %it_flags, align 2
+  %conv = zext i16 %11 to i32
   %cmp10 = icmp ne i32 %conv, 1
   br i1 %cmp10, label %if.then12, label %if.end13
 
@@ -1140,33 +1145,35 @@ if.then12:                                        ; preds = %for.body
   br label %for.inc
 
 if.end13:                                         ; preds = %for.body
-  %9 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1), align 8
-  %cmp14 = icmp ne ptr %9, null
+  %12 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  %cmp14 = icmp ne ptr %13, null
   br i1 %cmp14, label %if.then16, label %if.else26
 
 if.then16:                                        ; preds = %if.end13
-  store ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1), ptr %c, align 8
-  %10 = load ptr, ptr %c, align 8
-  %buflen = getelementptr inbounds %struct.crawler_client_t, ptr %10, i32 0, i32 2
-  %11 = load i32, ptr %buflen, align 4
-  %12 = load ptr, ptr %c, align 8
-  %bufused = getelementptr inbounds %struct.crawler_client_t, ptr %12, i32 0, i32 3
-  %13 = load i32, ptr %bufused, align 8
-  %sub = sub nsw i32 %11, %13
+  %14 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1
+  store ptr %14, ptr %c, align 8
+  %15 = load ptr, ptr %c, align 8
+  %buflen = getelementptr inbounds %struct.crawler_client_t, ptr %15, i32 0, i32 2
+  %16 = load i32, ptr %buflen, align 4
+  %17 = load ptr, ptr %c, align 8
+  %bufused = getelementptr inbounds %struct.crawler_client_t, ptr %17, i32 0, i32 3
+  %18 = load i32, ptr %bufused, align 8
+  %sub = sub nsw i32 %16, %18
   %cmp17 = icmp slt i32 %sub, 8192
   br i1 %cmp17, label %if.then19, label %if.end25
 
 if.then19:                                        ; preds = %if.then16
-  %14 = load ptr, ptr %c, align 8
-  %call20 = call i32 @lru_crawler_write(ptr noundef %14)
+  %19 = load ptr, ptr %c, align 8
+  %call20 = call i32 @lru_crawler_write(ptr noundef %19)
   store i32 %call20, ptr %ret, align 4
-  %15 = load i32, ptr %ret, align 4
-  %cmp21 = icmp ne i32 %15, 0
+  %20 = load i32, ptr %ret, align 4
+  %cmp21 = icmp ne i32 %20, 0
   br i1 %cmp21, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %if.then19
-  %16 = load i32, ptr %i, align 4
-  call void @lru_crawler_class_done(i32 noundef %16)
+  %21 = load i32, ptr %i, align 4
+  call void @lru_crawler_class_done(i32 noundef %21)
   br label %for.inc
 
 if.end24:                                         ; preds = %if.then19
@@ -1176,209 +1183,218 @@ if.end25:                                         ; preds = %if.end24, %if.then1
   br label %if.end30
 
 if.else26:                                        ; preds = %if.end13
-  %17 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %needs_client = getelementptr inbounds %struct.crawler_module_reg_t, ptr %17, i32 0, i32 5
-  %18 = load i8, ptr %needs_client, align 1
-  %tobool27 = trunc i8 %18 to i1
+  %22 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8
+  %needs_client = getelementptr inbounds %struct.crawler_module_reg_t, ptr %23, i32 0, i32 5
+  %24 = load i8, ptr %needs_client, align 1
+  %tobool27 = trunc i8 %24 to i1
   br i1 %tobool27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.else26
-  %19 = load i32, ptr %i, align 4
-  call void @lru_crawler_class_done(i32 noundef %19)
+  %25 = load i32, ptr %i, align 4
+  call void @lru_crawler_class_done(i32 noundef %25)
   br label %for.inc
 
 if.end29:                                         ; preds = %if.else26
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end29, %if.end25
-  %20 = load i32, ptr %i, align 4
-  %idxprom31 = sext i32 %20 to i64
+  %26 = load i32, ptr %i, align 4
+  %idxprom31 = sext i32 %26 to i64
   %arrayidx32 = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom31
   %call33 = call i32 @pthread_mutex_lock(ptr noundef %arrayidx32) #11
-  %21 = load i32, ptr %i, align 4
-  %idxprom34 = sext i32 %21 to i64
+  %27 = load i32, ptr %i, align 4
+  %idxprom34 = sext i32 %27 to i64
   %arrayidx35 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom34
   %call36 = call ptr @do_item_crawl_q(ptr noundef %arrayidx35)
   store ptr %call36, ptr %search, align 8
-  %22 = load ptr, ptr %search, align 8
-  %cmp37 = icmp eq ptr %22, null
+  %28 = load ptr, ptr %search, align 8
+  %cmp37 = icmp eq ptr %28, null
   br i1 %cmp37, label %if.then47, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end30
-  %23 = load i32, ptr %i, align 4
-  %idxprom39 = sext i32 %23 to i64
+  %29 = load i32, ptr %i, align 4
+  %idxprom39 = sext i32 %29 to i64
   %arrayidx40 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom39
   %remaining = getelementptr inbounds %struct.crawler, ptr %arrayidx40, i32 0, i32 10
-  %24 = load i32, ptr %remaining, align 4
-  %tobool41 = icmp ne i32 %24, 0
+  %30 = load i32, ptr %remaining, align 4
+  %tobool41 = icmp ne i32 %30, 0
   br i1 %tobool41, label %land.lhs.true, label %if.end53
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %25 = load i32, ptr %i, align 4
-  %idxprom42 = sext i32 %25 to i64
+  %31 = load i32, ptr %i, align 4
+  %idxprom42 = sext i32 %31 to i64
   %arrayidx43 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom42
   %remaining44 = getelementptr inbounds %struct.crawler, ptr %arrayidx43, i32 0, i32 10
-  %26 = load i32, ptr %remaining44, align 4
-  %dec = add i32 %26, -1
+  %32 = load i32, ptr %remaining44, align 4
+  %dec = add i32 %32, -1
   store i32 %dec, ptr %remaining44, align 4
   %cmp45 = icmp ult i32 %dec, 1
   br i1 %cmp45, label %if.then47, label %if.end53
 
 if.then47:                                        ; preds = %land.lhs.true, %if.end30
-  %27 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 5), align 8
-  %cmp48 = icmp sgt i32 %27, 2
+  %33 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 5
+  %34 = load i32, ptr %33, align 8
+  %cmp48 = icmp sgt i32 %34, 2
   br i1 %cmp48, label %if.then50, label %if.end52
 
 if.then50:                                        ; preds = %if.then47
-  %28 = load ptr, ptr @stderr, align 8
-  %29 = load i32, ptr %i, align 4
-  %call51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str.18, i32 noundef %29)
+  %35 = load ptr, ptr @stderr, align 8
+  %36 = load i32, ptr %i, align 4
+  %call51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.18, i32 noundef %36)
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then50, %if.then47
-  %30 = load i32, ptr %i, align 4
-  call void @lru_crawler_class_done(i32 noundef %30)
+  %37 = load i32, ptr %i, align 4
+  call void @lru_crawler_class_done(i32 noundef %37)
   br label %for.inc
 
 if.end53:                                         ; preds = %land.lhs.true, %lor.lhs.false
-  %31 = load ptr, ptr @hash, align 8
-  %32 = load ptr, ptr %search, align 8
-  %data = getelementptr inbounds %struct._stritem, ptr %32, i32 0, i32 10
-  %33 = load ptr, ptr %search, align 8
-  %it_flags54 = getelementptr inbounds %struct._stritem, ptr %33, i32 0, i32 7
-  %34 = load i16, ptr %it_flags54, align 2
-  %conv55 = zext i16 %34 to i32
+  %38 = load ptr, ptr @hash, align 8
+  %39 = load ptr, ptr %search, align 8
+  %data = getelementptr inbounds %struct._stritem, ptr %39, i32 0, i32 10
+  %40 = load ptr, ptr %search, align 8
+  %it_flags54 = getelementptr inbounds %struct._stritem, ptr %40, i32 0, i32 7
+  %41 = load i16, ptr %it_flags54, align 2
+  %conv55 = zext i16 %41 to i32
   %and = and i32 %conv55, 2
   %tobool56 = icmp ne i32 %and, 0
   %cond = select i1 %tobool56, i64 8, i64 0
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %cond
-  %35 = load ptr, ptr %search, align 8
-  %nkey = getelementptr inbounds %struct._stritem, ptr %35, i32 0, i32 9
-  %36 = load i8, ptr %nkey, align 1
-  %conv57 = zext i8 %36 to i64
-  %call58 = call i32 %31(ptr noundef %add.ptr, i64 noundef %conv57)
+  %42 = load ptr, ptr %search, align 8
+  %nkey = getelementptr inbounds %struct._stritem, ptr %42, i32 0, i32 9
+  %43 = load i8, ptr %nkey, align 1
+  %conv57 = zext i8 %43 to i64
+  %call58 = call i32 %38(ptr noundef %add.ptr, i64 noundef %conv57)
   store i32 %call58, ptr %hv, align 4
-  %37 = load i32, ptr %hv, align 4
-  %call59 = call ptr @item_trylock(i32 noundef %37)
+  %44 = load i32, ptr %hv, align 4
+  %call59 = call ptr @item_trylock(i32 noundef %44)
   store ptr %call59, ptr %hold_lock, align 8
   %cmp60 = icmp eq ptr %call59, null
   br i1 %cmp60, label %if.then62, label %if.end66
 
 if.then62:                                        ; preds = %if.end53
-  %38 = load i32, ptr %i, align 4
-  %idxprom63 = sext i32 %38 to i64
+  %45 = load i32, ptr %i, align 4
+  %idxprom63 = sext i32 %45 to i64
   %arrayidx64 = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom63
   %call65 = call i32 @pthread_mutex_unlock(ptr noundef %arrayidx64) #11
   br label %for.inc
 
 if.end66:                                         ; preds = %if.end53
-  %39 = load ptr, ptr %search, align 8
-  %refcount = getelementptr inbounds %struct._stritem, ptr %39, i32 0, i32 6
-  %40 = load i16, ptr %refcount, align 4
-  %inc = add i16 %40, 1
+  %46 = load ptr, ptr %search, align 8
+  %refcount = getelementptr inbounds %struct._stritem, ptr %46, i32 0, i32 6
+  %47 = load i16, ptr %refcount, align 4
+  %inc = add i16 %47, 1
   store i16 %inc, ptr %refcount, align 4
   %conv67 = zext i16 %inc to i32
   %cmp68 = icmp ne i32 %conv67, 2
   br i1 %cmp68, label %if.then70, label %if.end79
 
 if.then70:                                        ; preds = %if.end66
-  %41 = load ptr, ptr %search, align 8
-  %refcount71 = getelementptr inbounds %struct._stritem, ptr %41, i32 0, i32 6
-  %42 = load i16, ptr %refcount71, align 4
-  %dec72 = add i16 %42, -1
+  %48 = load ptr, ptr %search, align 8
+  %refcount71 = getelementptr inbounds %struct._stritem, ptr %48, i32 0, i32 6
+  %49 = load i16, ptr %refcount71, align 4
+  %dec72 = add i16 %49, -1
   store i16 %dec72, ptr %refcount71, align 4
-  %43 = load ptr, ptr %hold_lock, align 8
-  %tobool73 = icmp ne ptr %43, null
+  %50 = load ptr, ptr %hold_lock, align 8
+  %tobool73 = icmp ne ptr %50, null
   br i1 %tobool73, label %if.then74, label %if.end75
 
 if.then74:                                        ; preds = %if.then70
-  %44 = load ptr, ptr %hold_lock, align 8
-  call void @item_trylock_unlock(ptr noundef %44)
+  %51 = load ptr, ptr %hold_lock, align 8
+  call void @item_trylock_unlock(ptr noundef %51)
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then74, %if.then70
-  %45 = load i32, ptr %i, align 4
-  %idxprom76 = sext i32 %45 to i64
+  %52 = load i32, ptr %i, align 4
+  %idxprom76 = sext i32 %52 to i64
   %arrayidx77 = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom76
   %call78 = call i32 @pthread_mutex_unlock(ptr noundef %arrayidx77) #11
   br label %for.inc
 
 if.end79:                                         ; preds = %if.end66
-  %46 = load i32, ptr %i, align 4
-  %idxprom80 = sext i32 %46 to i64
+  %53 = load i32, ptr %i, align 4
+  %idxprom80 = sext i32 %53 to i64
   %arrayidx81 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom80
   %checked = getelementptr inbounds %struct.crawler, ptr %arrayidx81, i32 0, i32 13
-  %47 = load i64, ptr %checked, align 8
-  %inc82 = add i64 %47, 1
+  %54 = load i64, ptr %checked, align 8
+  %inc82 = add i64 %54, 1
   store i64 %inc82, ptr %checked, align 8
-  %48 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %needs_lock = getelementptr inbounds %struct.crawler_module_reg_t, ptr %48, i32 0, i32 4
-  %49 = load i8, ptr %needs_lock, align 8
-  %tobool83 = trunc i8 %49 to i1
+  %55 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8
+  %needs_lock = getelementptr inbounds %struct.crawler_module_reg_t, ptr %56, i32 0, i32 4
+  %57 = load i8, ptr %needs_lock, align 8
+  %tobool83 = trunc i8 %57 to i1
   br i1 %tobool83, label %if.end88, label %if.then84
 
 if.then84:                                        ; preds = %if.end79
-  %50 = load i32, ptr %i, align 4
-  %idxprom85 = sext i32 %50 to i64
+  %58 = load i32, ptr %i, align 4
+  %idxprom85 = sext i32 %58 to i64
   %arrayidx86 = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom85
   %call87 = call i32 @pthread_mutex_unlock(ptr noundef %arrayidx86) #11
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then84, %if.end79
-  %51 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %eval = getelementptr inbounds %struct.crawler_module_reg_t, ptr %51, i32 0, i32 1
-  %52 = load ptr, ptr %eval, align 8
-  %53 = load ptr, ptr %search, align 8
-  %54 = load i32, ptr %hv, align 4
-  %55 = load i32, ptr %i, align 4
-  call void %52(ptr noundef @active_crawler_mod, ptr noundef %53, i32 noundef %54, i32 noundef %55)
-  %56 = load ptr, ptr %hold_lock, align 8
-  %tobool89 = icmp ne ptr %56, null
+  %59 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8
+  %eval = getelementptr inbounds %struct.crawler_module_reg_t, ptr %60, i32 0, i32 1
+  %61 = load ptr, ptr %eval, align 8
+  %62 = load ptr, ptr %search, align 8
+  %63 = load i32, ptr %hv, align 4
+  %64 = load i32, ptr %i, align 4
+  call void %61(ptr noundef @active_crawler_mod, ptr noundef %62, i32 noundef %63, i32 noundef %64)
+  %65 = load ptr, ptr %hold_lock, align 8
+  %tobool89 = icmp ne ptr %65, null
   br i1 %tobool89, label %if.then90, label %if.end91
 
 if.then90:                                        ; preds = %if.end88
-  %57 = load ptr, ptr %hold_lock, align 8
-  call void @item_trylock_unlock(ptr noundef %57)
+  %66 = load ptr, ptr %hold_lock, align 8
+  call void @item_trylock_unlock(ptr noundef %66)
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then90, %if.end88
-  %58 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %needs_lock92 = getelementptr inbounds %struct.crawler_module_reg_t, ptr %58, i32 0, i32 4
-  %59 = load i8, ptr %needs_lock92, align 8
-  %tobool93 = trunc i8 %59 to i1
+  %67 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %68 = load ptr, ptr %67, align 8
+  %needs_lock92 = getelementptr inbounds %struct.crawler_module_reg_t, ptr %68, i32 0, i32 4
+  %69 = load i8, ptr %needs_lock92, align 8
+  %tobool93 = trunc i8 %69 to i1
   br i1 %tobool93, label %if.then94, label %if.end98
 
 if.then94:                                        ; preds = %if.end91
-  %60 = load i32, ptr %i, align 4
-  %idxprom95 = sext i32 %60 to i64
+  %70 = load i32, ptr %i, align 4
+  %idxprom95 = sext i32 %70 to i64
   %arrayidx96 = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom95
   %call97 = call i32 @pthread_mutex_unlock(ptr noundef %arrayidx96) #11
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then94, %if.end91
-  %61 = load i32, ptr %crawls_persleep, align 4
-  %dec99 = add nsw i32 %61, -1
+  %71 = load i32, ptr %crawls_persleep, align 4
+  %dec99 = add nsw i32 %71, -1
   store i32 %dec99, ptr %crawls_persleep, align 4
-  %cmp100 = icmp sle i32 %61, 0
+  %cmp100 = icmp sle i32 %71, 0
   br i1 %cmp100, label %land.lhs.true102, label %if.else108
 
 land.lhs.true102:                                 ; preds = %if.end98
-  %62 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 41), align 8
-  %tobool103 = icmp ne i32 %62, 0
+  %72 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 41
+  %73 = load i32, ptr %72, align 8
+  %tobool103 = icmp ne i32 %73, 0
   br i1 %tobool103, label %if.then104, label %if.else108
 
 if.then104:                                       ; preds = %land.lhs.true102
   %call105 = call i32 @pthread_mutex_unlock(ptr noundef @lru_crawler_lock) #11
-  %63 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 41), align 8
-  %call106 = call i32 @usleep(i32 noundef %63)
+  %74 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 41
+  %75 = load i32, ptr %74, align 8
+  %call106 = call i32 @usleep(i32 noundef %75)
   %call107 = call i32 @pthread_mutex_lock(ptr noundef @lru_crawler_lock) #11
-  %64 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 47), align 8
-  store i32 %64, ptr %crawls_persleep, align 4
+  %76 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 47
+  %77 = load i32, ptr %76, align 8
+  store i32 %77, ptr %crawls_persleep, align 4
   br label %if.end114
 
 if.else108:                                       ; preds = %land.lhs.true102, %if.end98
-  %65 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 41), align 8
-  %tobool109 = icmp ne i32 %65, 0
+  %78 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 41
+  %79 = load i32, ptr %78, align 8
+  %tobool109 = icmp ne i32 %79, 0
   br i1 %tobool109, label %if.end113, label %if.then110
 
 if.then110:                                       ; preds = %if.else108
@@ -1393,8 +1409,8 @@ if.end114:                                        ; preds = %if.end113, %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end114, %if.end75, %if.then62, %if.end52, %if.then28, %if.then23, %if.then12
-  %66 = load i32, ptr %i, align 4
-  %inc115 = add nsw i32 %66, 1
+  %80 = load i32, ptr %i, align 4
+  %inc115 = add nsw i32 %80, 1
   store i32 %inc115, ptr %i, align 4
   br label %for.cond, !llvm.loop !8
 
@@ -1405,87 +1421,100 @@ while.end:                                        ; preds = %while.cond6
   br label %if.end116
 
 if.end116:                                        ; preds = %while.end, %if.then5
-  %67 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %cmp117 = icmp ne ptr %67, null
+  %81 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %82 = load ptr, ptr %81, align 8
+  %cmp117 = icmp ne ptr %82, null
   br i1 %cmp117, label %if.then119, label %if.end137
 
 if.then119:                                       ; preds = %if.end116
-  %68 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %finalize = getelementptr inbounds %struct.crawler_module_reg_t, ptr %68, i32 0, i32 3
-  %69 = load ptr, ptr %finalize, align 8
-  %cmp120 = icmp ne ptr %69, null
+  %83 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %84 = load ptr, ptr %83, align 8
+  %finalize = getelementptr inbounds %struct.crawler_module_reg_t, ptr %84, i32 0, i32 3
+  %85 = load ptr, ptr %finalize, align 8
+  %cmp120 = icmp ne ptr %85, null
   br i1 %cmp120, label %if.then122, label %if.end124
 
 if.then122:                                       ; preds = %if.then119
-  %70 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %finalize123 = getelementptr inbounds %struct.crawler_module_reg_t, ptr %70, i32 0, i32 3
-  %71 = load ptr, ptr %finalize123, align 8
-  call void %71(ptr noundef @active_crawler_mod)
+  %86 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %87 = load ptr, ptr %86, align 8
+  %finalize123 = getelementptr inbounds %struct.crawler_module_reg_t, ptr %87, i32 0, i32 3
+  %88 = load ptr, ptr %finalize123, align 8
+  call void %88(ptr noundef @active_crawler_mod)
   br label %if.end124
 
 if.end124:                                        ; preds = %if.then122, %if.then119
   br label %while.cond125
 
 while.cond125:                                    ; preds = %while.body130, %if.end124
-  %72 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1), align 8
-  %cmp126 = icmp ne ptr %72, null
+  %89 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8
+  %cmp126 = icmp ne ptr %90, null
   br i1 %cmp126, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond125
-  %73 = load i32, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1, i32 3), align 8
-  %cmp128 = icmp ne i32 %73, 0
+  %91 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1, i32 3
+  %92 = load i32, ptr %91, align 8
+  %cmp128 = icmp ne i32 %92, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond125
-  %74 = phi i1 [ false, %while.cond125 ], [ %cmp128, %land.rhs ]
-  br i1 %74, label %while.body130, label %while.end132
+  %93 = phi i1 [ false, %while.cond125 ], [ %cmp128, %land.rhs ]
+  br i1 %93, label %while.body130, label %while.end132
 
 while.body130:                                    ; preds = %land.end
-  %call131 = call i32 @lru_crawler_write(ptr noundef getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1))
+  %94 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1
+  %call131 = call i32 @lru_crawler_write(ptr noundef %94)
   br label %while.cond125, !llvm.loop !10
 
 while.end132:                                     ; preds = %land.end
-  %75 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1), align 8
-  %cmp133 = icmp ne ptr %75, null
+  %95 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1
+  %96 = load ptr, ptr %95, align 8
+  %cmp133 = icmp ne ptr %96, null
   br i1 %cmp133, label %if.then135, label %if.end136
 
 if.then135:                                       ; preds = %while.end132
-  call void @lru_crawler_release_client(ptr noundef getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1))
+  %97 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1
+  call void @lru_crawler_release_client(ptr noundef %97)
   br label %if.end136
 
 if.end136:                                        ; preds = %if.then135, %while.end132
-  store ptr null, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
+  %98 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  store ptr null, ptr %98, align 8
   br label %if.end137
 
 if.end137:                                        ; preds = %if.end136, %if.end116
-  %76 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 5), align 8
-  %cmp138 = icmp sgt i32 %76, 2
+  %99 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 5
+  %100 = load i32, ptr %99, align 8
+  %cmp138 = icmp sgt i32 %100, 2
   br i1 %cmp138, label %if.then140, label %if.end142
 
 if.then140:                                       ; preds = %if.end137
-  %77 = load ptr, ptr @stderr, align 8
-  %call141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef @.str.19)
+  %101 = load ptr, ptr @stderr, align 8
+  %call141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef @.str.19)
   br label %if.end142
 
 if.end142:                                        ; preds = %if.then140, %if.end137
   call void @STATS_LOCK()
-  store i8 0, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 11), align 1
+  %102 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 11
+  store i8 0, ptr %102, align 1
   call void @STATS_UNLOCK()
   br label %while.cond, !llvm.loop !11
 
 while.end143:                                     ; preds = %while.cond
   %call144 = call i32 @pthread_mutex_unlock(ptr noundef @lru_crawler_lock) #11
-  %78 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 5), align 8
-  %cmp145 = icmp sgt i32 %78, 2
+  %103 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 5
+  %104 = load i32, ptr %103, align 8
+  %cmp145 = icmp sgt i32 %104, 2
   br i1 %cmp145, label %if.then147, label %if.end149
 
 if.then147:                                       ; preds = %while.end143
-  %79 = load ptr, ptr @stderr, align 8
-  %call148 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef @.str.20)
+  %105 = load ptr, ptr @stderr, align 8
+  %call148 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef @.str.20)
   br label %if.end149
 
 if.end149:                                        ; preds = %if.then147, %while.end143
-  store i8 0, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 28), align 2
+  %106 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 28
+  store i8 0, ptr %106, align 2
   ret ptr null
 }
 
@@ -1515,13 +1544,14 @@ entry:
   store i32 0, ptr %starts, align 4
   %call = call i32 @pthread_mutex_lock(ptr noundef @lru_crawler_lock) #11
   call void @STATS_LOCK()
-  %0 = load i8, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 11), align 1
-  %tobool = trunc i8 %0 to i1
+  %0 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 11
+  %1 = load i8, ptr %0, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %is_running, align 1
   call void @STATS_UNLOCK()
-  %1 = load volatile i32, ptr @do_run_lru_crawler_thread, align 4
-  %cmp = icmp eq i32 %1, 0
+  %2 = load volatile i32, ptr @do_run_lru_crawler_thread, align 4
+  %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1530,37 +1560,37 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load i8, ptr %is_running, align 1
-  %tobool2 = trunc i8 %2 to i1
+  %3 = load i8, ptr %is_running, align 1
+  %tobool2 = trunc i8 %3 to i1
   br i1 %tobool2, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %if.end
-  %3 = load i32, ptr %type.addr, align 4
-  %cmp3 = icmp eq i32 %3, 0
+  %4 = load i32, ptr %type.addr, align 4
+  %cmp3 = icmp eq i32 %4, 0
   br i1 %cmp3, label %land.lhs.true4, label %if.then6
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %4 = load i32, ptr @active_crawler_type, align 4
-  %cmp5 = icmp eq i32 %4, 0
+  %5 = load i32, ptr @active_crawler_type, align 4
+  %cmp5 = icmp eq i32 %5, 0
   br i1 %cmp5, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true4, %land.lhs.true
   %call7 = call i32 @pthread_mutex_unlock(ptr noundef @lru_crawler_lock) #11
-  %5 = load volatile i32, ptr @current_time, align 4
-  %add = add i32 %5, 60
+  %6 = load volatile i32, ptr @current_time, align 4
+  %add = add i32 %6, 60
   store i32 %add, ptr @lru_crawler_start.block_ae_until, align 4
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
-  %6 = load i32, ptr %type.addr, align 4
-  %cmp9 = icmp eq i32 %6, 0
+  %7 = load i32, ptr %type.addr, align 4
+  %cmp9 = icmp eq i32 %7, 0
   br i1 %cmp9, label %land.lhs.true10, label %if.end14
 
 land.lhs.true10:                                  ; preds = %if.end8
-  %7 = load i32, ptr @lru_crawler_start.block_ae_until, align 4
-  %8 = load volatile i32, ptr @current_time, align 4
-  %cmp11 = icmp ugt i32 %7, %8
+  %8 = load i32, ptr @lru_crawler_start.block_ae_until, align 4
+  %9 = load volatile i32, ptr @current_time, align 4
+  %cmp11 = icmp ugt i32 %8, %9
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %land.lhs.true10
@@ -1569,18 +1599,18 @@ if.then12:                                        ; preds = %land.lhs.true10
   br label %return
 
 if.end14:                                         ; preds = %land.lhs.true10, %if.end8
-  %9 = load ptr, ptr %ids.addr, align 8
-  %cmp15 = icmp eq ptr %9, null
+  %10 = load ptr, ptr %ids.addr, align 8
+  %cmp15 = icmp eq ptr %10, null
   br i1 %cmp15, label %land.lhs.true16, label %if.end22
 
 land.lhs.true16:                                  ; preds = %if.end14
-  %10 = load i32, ptr %type.addr, align 4
-  %cmp17 = icmp ne i32 %10, 2
+  %11 = load i32, ptr %type.addr, align 4
+  %cmp17 = icmp ne i32 %11, 2
   br i1 %cmp17, label %land.lhs.true18, label %if.end22
 
 land.lhs.true18:                                  ; preds = %land.lhs.true16
-  %11 = load i32, ptr %type.addr, align 4
-  %cmp19 = icmp ne i32 %11, 3
+  %12 = load i32, ptr %type.addr, align 4
+  %cmp19 = icmp ne i32 %12, 3
   br i1 %cmp19, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %land.lhs.true18
@@ -1589,47 +1619,51 @@ if.then20:                                        ; preds = %land.lhs.true18
   br label %return
 
 if.end22:                                         ; preds = %land.lhs.true18, %land.lhs.true16, %if.end14
-  %12 = load i8, ptr %is_running, align 1
-  %tobool23 = trunc i8 %12 to i1
+  %13 = load i8, ptr %is_running, align 1
+  %tobool23 = trunc i8 %13 to i1
   br i1 %tobool23, label %if.end43, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %13 = load i32, ptr %type.addr, align 4
-  %idxprom = zext i32 %13 to i64
+  %14 = load i32, ptr %type.addr, align 4
+  %idxprom = zext i32 %14 to i64
   %arrayidx = getelementptr inbounds [4 x ptr], ptr @crawler_mod_regs, i64 0, i64 %idxprom
-  %14 = load ptr, ptr %arrayidx, align 8
-  store ptr %14, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %15 = load i32, ptr %type.addr, align 4
-  store i32 %15, ptr @active_crawler_type, align 4
-  %16 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %init = getelementptr inbounds %struct.crawler_module_reg_t, ptr %16, i32 0, i32 0
-  %17 = load ptr, ptr %init, align 8
-  %cmp25 = icmp ne ptr %17, null
+  %15 = load ptr, ptr %arrayidx, align 8
+  %16 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  store ptr %15, ptr %16, align 8
+  %17 = load i32, ptr %type.addr, align 4
+  store i32 %17, ptr @active_crawler_type, align 4
+  %18 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8
+  %init = getelementptr inbounds %struct.crawler_module_reg_t, ptr %19, i32 0, i32 0
+  %20 = load ptr, ptr %init, align 8
+  %cmp25 = icmp ne ptr %20, null
   br i1 %cmp25, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %if.then24
-  %18 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %init27 = getelementptr inbounds %struct.crawler_module_reg_t, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %init27, align 8
-  %20 = load ptr, ptr %data.addr, align 8
-  %call28 = call i32 %19(ptr noundef @active_crawler_mod, ptr noundef %20)
+  %21 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8
+  %init27 = getelementptr inbounds %struct.crawler_module_reg_t, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %init27, align 8
+  %24 = load ptr, ptr %data.addr, align 8
+  %call28 = call i32 %23(ptr noundef @active_crawler_mod, ptr noundef %24)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then26, %if.then24
-  %21 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %needs_client = getelementptr inbounds %struct.crawler_module_reg_t, ptr %21, i32 0, i32 5
-  %22 = load i8, ptr %needs_client, align 1
-  %tobool30 = trunc i8 %22 to i1
+  %25 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8
+  %needs_client = getelementptr inbounds %struct.crawler_module_reg_t, ptr %26, i32 0, i32 5
+  %27 = load i8, ptr %needs_client, align 1
+  %tobool30 = trunc i8 %27 to i1
   br i1 %tobool30, label %if.then31, label %if.end42
 
 if.then31:                                        ; preds = %if.end29
-  %23 = load ptr, ptr %c.addr, align 8
-  %cmp32 = icmp eq ptr %23, null
+  %28 = load ptr, ptr %c.addr, align 8
+  %cmp32 = icmp eq ptr %28, null
   br i1 %cmp32, label %if.then34, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then31
-  %24 = load i32, ptr %sfd.addr, align 4
-  %cmp33 = icmp eq i32 %24, 0
+  %29 = load i32, ptr %sfd.addr, align 4
+  %cmp33 = icmp eq i32 %29, 0
   br i1 %cmp33, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %lor.lhs.false, %if.then31
@@ -1638,9 +1672,9 @@ if.then34:                                        ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end36:                                         ; preds = %lor.lhs.false
-  %25 = load ptr, ptr %c.addr, align 8
-  %26 = load i32, ptr %sfd.addr, align 4
-  %call37 = call i32 @lru_crawler_set_client(ptr noundef @active_crawler_mod, ptr noundef %25, i32 noundef %26)
+  %30 = load ptr, ptr %c.addr, align 8
+  %31 = load i32, ptr %sfd.addr, align 4
+  %call37 = call i32 @lru_crawler_set_client(ptr noundef @active_crawler_mod, ptr noundef %30, i32 noundef %31)
   %cmp38 = icmp ne i32 %call37, 0
   br i1 %cmp38, label %if.then39, label %if.end41
 
@@ -1656,8 +1690,8 @@ if.end42:                                         ; preds = %if.end41, %if.end29
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end42, %if.end22
-  %27 = load ptr, ptr %ids.addr, align 8
-  %cmp44 = icmp eq ptr %27, null
+  %32 = load ptr, ptr %ids.addr, align 8
+  %cmp44 = icmp eq ptr %32, null
   br i1 %cmp44, label %if.then45, label %if.else
 
 if.then45:                                        ; preds = %if.end43
@@ -1670,25 +1704,25 @@ if.else:                                          ; preds = %if.end43
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.else
-  %28 = load i32, ptr %sid, align 4
-  %cmp46 = icmp slt i32 %28, 256
+  %33 = load i32, ptr %sid, align 4
+  %cmp46 = icmp slt i32 %33, 256
   br i1 %cmp46, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %29 = load ptr, ptr %ids.addr, align 8
-  %30 = load i32, ptr %sid, align 4
-  %idxprom47 = sext i32 %30 to i64
-  %arrayidx48 = getelementptr inbounds i8, ptr %29, i64 %idxprom47
-  %31 = load i8, ptr %arrayidx48, align 1
-  %tobool49 = icmp ne i8 %31, 0
+  %34 = load ptr, ptr %ids.addr, align 8
+  %35 = load i32, ptr %sid, align 4
+  %idxprom47 = sext i32 %35 to i64
+  %arrayidx48 = getelementptr inbounds i8, ptr %34, i64 %idxprom47
+  %36 = load i8, ptr %arrayidx48, align 1
+  %tobool49 = icmp ne i8 %36, 0
   br i1 %tobool49, label %if.then50, label %if.end53
 
 if.then50:                                        ; preds = %for.body
-  %32 = load i32, ptr %sid, align 4
-  %33 = load i32, ptr %remaining.addr, align 4
-  %call51 = call i32 @do_lru_crawler_start(i32 noundef %32, i32 noundef %33)
-  %34 = load i32, ptr %starts, align 4
-  %add52 = add nsw i32 %34, %call51
+  %37 = load i32, ptr %sid, align 4
+  %38 = load i32, ptr %remaining.addr, align 4
+  %call51 = call i32 @do_lru_crawler_start(i32 noundef %37, i32 noundef %38)
+  %39 = load i32, ptr %starts, align 4
+  %add52 = add nsw i32 %39, %call51
   store i32 %add52, ptr %starts, align 4
   br label %if.end53
 
@@ -1696,8 +1730,8 @@ if.end53:                                         ; preds = %if.then50, %for.bod
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end53
-  %35 = load i32, ptr %sid, align 4
-  %inc = add nsw i32 %35, 1
+  %40 = load i32, ptr %sid, align 4
+  %inc = add nsw i32 %40, 1
   store i32 %inc, ptr %sid, align 4
   br label %for.cond, !llvm.loop !12
 
@@ -1705,29 +1739,32 @@ for.end:                                          ; preds = %for.cond
   br label %if.end54
 
 if.end54:                                         ; preds = %for.end, %if.then45
-  %36 = load i32, ptr %starts, align 4
-  %tobool55 = icmp ne i32 %36, 0
+  %41 = load i32, ptr %starts, align 4
+  %tobool55 = icmp ne i32 %41, 0
   br i1 %tobool55, label %if.then56, label %if.end59
 
 if.then56:                                        ; preds = %if.end54
   call void @STATS_LOCK()
-  store i8 1, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 11), align 1
-  %37 = load i64, ptr getelementptr inbounds (%struct.stats, ptr @stats, i32 0, i32 12), align 8
-  %inc57 = add i64 %37, 1
-  store i64 %inc57, ptr getelementptr inbounds (%struct.stats, ptr @stats, i32 0, i32 12), align 8
+  %42 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 11
+  store i8 1, ptr %42, align 1
+  %43 = getelementptr inbounds %struct.stats, ptr @stats, i32 0, i32 12
+  %44 = load i64, ptr %43, align 8
+  %inc57 = add i64 %44, 1
+  %45 = getelementptr inbounds %struct.stats, ptr @stats, i32 0, i32 12
+  store i64 %inc57, ptr %45, align 8
   call void @STATS_UNLOCK()
   %call58 = call i32 @pthread_cond_signal(ptr noundef @lru_crawler_cond) #11
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then56, %if.end54
   %call60 = call i32 @pthread_mutex_unlock(ptr noundef @lru_crawler_lock) #11
-  %38 = load i32, ptr %starts, align 4
-  store i32 %38, ptr %retval, align 4
+  %46 = load i32, ptr %starts, align 4
+  store i32 %46, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end59, %if.then39, %if.then34, %if.then20, %if.then12, %if.then6, %if.then
-  %39 = load i32, ptr %retval, align 4
-  ret i32 %39
+  %47 = load i32, ptr %retval, align 4
+  ret i32 %47
 }
 
 declare void @STATS_LOCK() #2
@@ -1827,116 +1864,117 @@ entry:
   br i1 %cmp, label %if.then, label %if.end44
 
 if.then:                                          ; preds = %entry
-  %4 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 5), align 8
-  %cmp4 = icmp sgt i32 %4, 2
+  %4 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 5
+  %5 = load i32, ptr %4, align 8
+  %cmp4 = icmp sgt i32 %5, 2
   br i1 %cmp4, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = load i32, ptr %sid, align 4
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.21, i32 noundef %6)
+  %6 = load ptr, ptr @stderr, align 8
+  %7 = load i32, ptr %sid, align 4
+  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.21, i32 noundef %7)
   br label %if.end
 
 if.end:                                           ; preds = %if.then6, %if.then
-  %7 = load i32, ptr %sid, align 4
-  %idxprom8 = zext i32 %7 to i64
+  %8 = load i32, ptr %sid, align 4
+  %idxprom8 = zext i32 %8 to i64
   %arrayidx9 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom8
   %nbytes = getelementptr inbounds %struct.crawler, ptr %arrayidx9, i32 0, i32 5
   store i32 0, ptr %nbytes, align 8
-  %8 = load i32, ptr %sid, align 4
-  %idxprom10 = zext i32 %8 to i64
+  %9 = load i32, ptr %sid, align 4
+  %idxprom10 = zext i32 %9 to i64
   %arrayidx11 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom10
   %nkey = getelementptr inbounds %struct.crawler, ptr %arrayidx11, i32 0, i32 9
   store i8 0, ptr %nkey, align 1
-  %9 = load i32, ptr %sid, align 4
-  %idxprom12 = zext i32 %9 to i64
+  %10 = load i32, ptr %sid, align 4
+  %idxprom12 = zext i32 %10 to i64
   %arrayidx13 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom12
   %it_flags14 = getelementptr inbounds %struct.crawler, ptr %arrayidx13, i32 0, i32 7
   store i16 1, ptr %it_flags14, align 2
-  %10 = load i32, ptr %sid, align 4
-  %idxprom15 = zext i32 %10 to i64
+  %11 = load i32, ptr %sid, align 4
+  %idxprom15 = zext i32 %11 to i64
   %arrayidx16 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom15
   %next = getelementptr inbounds %struct.crawler, ptr %arrayidx16, i32 0, i32 0
   store ptr null, ptr %next, align 8
-  %11 = load i32, ptr %sid, align 4
-  %idxprom17 = zext i32 %11 to i64
+  %12 = load i32, ptr %sid, align 4
+  %idxprom17 = zext i32 %12 to i64
   %arrayidx18 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom17
   %prev = getelementptr inbounds %struct.crawler, ptr %arrayidx18, i32 0, i32 1
   store ptr null, ptr %prev, align 8
-  %12 = load i32, ptr %sid, align 4
-  %idxprom19 = zext i32 %12 to i64
+  %13 = load i32, ptr %sid, align 4
+  %idxprom19 = zext i32 %13 to i64
   %arrayidx20 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom19
   %time = getelementptr inbounds %struct.crawler, ptr %arrayidx20, i32 0, i32 3
   store i32 0, ptr %time, align 8
-  %13 = load i32, ptr %remaining.addr, align 4
-  %cmp21 = icmp eq i32 %13, -1
+  %14 = load i32, ptr %remaining.addr, align 4
+  %cmp21 = icmp eq i32 %14, -1
   br i1 %cmp21, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %if.end
-  %14 = load i32, ptr %sid, align 4
-  %call24 = call i32 @do_get_lru_size(i32 noundef %14)
+  %15 = load i32, ptr %sid, align 4
+  %call24 = call i32 @do_get_lru_size(i32 noundef %15)
   store i32 %call24, ptr %remaining.addr, align 4
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then23, %if.end
-  %15 = load i32, ptr %remaining.addr, align 4
-  %tobool = icmp ne i32 %15, 0
+  %16 = load i32, ptr %remaining.addr, align 4
+  %tobool = icmp ne i32 %16, 0
   br i1 %tobool, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end25
-  %16 = load i32, ptr %remaining.addr, align 4
-  %inc = add i32 %16, 1
+  %17 = load i32, ptr %remaining.addr, align 4
+  %inc = add i32 %17, 1
   store i32 %inc, ptr %remaining.addr, align 4
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then26, %if.end25
-  %17 = load i32, ptr %remaining.addr, align 4
-  %18 = load i32, ptr %sid, align 4
-  %idxprom28 = zext i32 %18 to i64
+  %18 = load i32, ptr %remaining.addr, align 4
+  %19 = load i32, ptr %sid, align 4
+  %idxprom28 = zext i32 %19 to i64
   %arrayidx29 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom28
   %remaining30 = getelementptr inbounds %struct.crawler, ptr %arrayidx29, i32 0, i32 10
-  store i32 %17, ptr %remaining30, align 4
-  %19 = load i32, ptr %sid, align 4
-  %conv31 = trunc i32 %19 to i8
+  store i32 %18, ptr %remaining30, align 4
   %20 = load i32, ptr %sid, align 4
-  %idxprom32 = zext i32 %20 to i64
+  %conv31 = trunc i32 %20 to i8
+  %21 = load i32, ptr %sid, align 4
+  %idxprom32 = zext i32 %21 to i64
   %arrayidx33 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom32
   %slabs_clsid = getelementptr inbounds %struct.crawler, ptr %arrayidx33, i32 0, i32 8
   store i8 %conv31, ptr %slabs_clsid, align 8
-  %21 = load i32, ptr %sid, align 4
-  %idxprom34 = zext i32 %21 to i64
+  %22 = load i32, ptr %sid, align 4
+  %idxprom34 = zext i32 %22 to i64
   %arrayidx35 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom34
   %reclaimed = getelementptr inbounds %struct.crawler, ptr %arrayidx35, i32 0, i32 11
   store i64 0, ptr %reclaimed, align 8
-  %22 = load i32, ptr %sid, align 4
-  %idxprom36 = zext i32 %22 to i64
+  %23 = load i32, ptr %sid, align 4
+  %idxprom36 = zext i32 %23 to i64
   %arrayidx37 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom36
   %unfetched = getelementptr inbounds %struct.crawler, ptr %arrayidx37, i32 0, i32 12
   store i64 0, ptr %unfetched, align 8
-  %23 = load i32, ptr %sid, align 4
-  %idxprom38 = zext i32 %23 to i64
+  %24 = load i32, ptr %sid, align 4
+  %idxprom38 = zext i32 %24 to i64
   %arrayidx39 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom38
   %checked = getelementptr inbounds %struct.crawler, ptr %arrayidx39, i32 0, i32 13
   store i64 0, ptr %checked, align 8
-  %24 = load i32, ptr %sid, align 4
-  %idxprom40 = zext i32 %24 to i64
+  %25 = load i32, ptr %sid, align 4
+  %idxprom40 = zext i32 %25 to i64
   %arrayidx41 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom40
   call void @do_item_linktail_q(ptr noundef %arrayidx41)
-  %25 = load i32, ptr @crawler_count, align 4
-  %inc42 = add nsw i32 %25, 1
+  %26 = load i32, ptr @crawler_count, align 4
+  %inc42 = add nsw i32 %26, 1
   store i32 %inc42, ptr @crawler_count, align 4
-  %26 = load i32, ptr %starts, align 4
-  %inc43 = add nsw i32 %26, 1
+  %27 = load i32, ptr %starts, align 4
+  %inc43 = add nsw i32 %27, 1
   store i32 %inc43, ptr %starts, align 4
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end27, %entry
-  %27 = load i32, ptr %sid, align 4
-  %idxprom45 = zext i32 %27 to i64
+  %28 = load i32, ptr %sid, align 4
+  %idxprom45 = zext i32 %28 to i64
   %arrayidx46 = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom45
   %call47 = call i32 @pthread_mutex_unlock(ptr noundef %arrayidx46) #11
-  %28 = load i32, ptr %starts, align 4
-  ret i32 %28
+  %29 = load i32, ptr %starts, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2161,8 +2199,10 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %arg.addr, align 8
   store ptr %1, ptr @storage, align 8
-  store ptr null, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
+  %2 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1
+  store ptr null, ptr %2, align 8
+  %3 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  store ptr null, ptr %3, align 8
   store ptr null, ptr @active_crawler_mod, align 8
   store i32 1, ptr @lru_crawler_initialized, align 4
   br label %if.end
@@ -2478,38 +2518,41 @@ entry:
   %c = alloca ptr, align 8
   %call = call ptr @assoc_get_iterator()
   store ptr %call, ptr %iter, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 47), align 8
-  store i32 %0, ptr %crawls_persleep, align 4
+  %0 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 47
+  %1 = load i32, ptr %0, align 8
+  store i32 %1, ptr %crawls_persleep, align 4
   store ptr null, ptr %it, align 8
   store i32 0, ptr %items, align 4
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end44, %if.then29, %if.end25, %entry
-  %1 = load ptr, ptr %iter, align 8
-  %call1 = call zeroext i1 @assoc_iterate(ptr noundef %1, ptr noundef %it)
+  %2 = load ptr, ptr %iter, align 8
+  %call1 = call zeroext i1 @assoc_iterate(ptr noundef %2, ptr noundef %it)
   br i1 %call1, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %it, align 8
-  %cmp = icmp eq ptr %2, null
+  %3 = load ptr, ptr %it, align 8
+  %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.then, label %if.end26
 
 if.then:                                          ; preds = %while.body
-  %3 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1), align 8
-  %cmp2 = icmp ne ptr %3, null
+  %4 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %cmp2 = icmp ne ptr %5, null
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %4 = load i32, ptr %items, align 4
-  %cmp4 = icmp sgt i32 %4, 16
+  %6 = load i32, ptr %items, align 4
+  %cmp4 = icmp sgt i32 %6, 16
   br i1 %cmp4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.then3
-  %call6 = call i32 @lru_crawler_write(ptr noundef getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1))
+  %7 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1
+  %call6 = call i32 @lru_crawler_write(ptr noundef %7)
   store i32 %call6, ptr %ret, align 4
   store i32 0, ptr %items, align 4
-  %5 = load i32, ptr %ret, align 4
-  %cmp7 = icmp ne i32 %5, 0
+  %8 = load i32, ptr %ret, align 4
+  %cmp7 = icmp ne i32 %8, 0
   br i1 %cmp7, label %if.then8, label %if.end
 
 if.then8:                                         ; preds = %if.then5
@@ -2522,10 +2565,11 @@ if.end9:                                          ; preds = %if.end, %if.then3
   br label %if.end12
 
 if.else:                                          ; preds = %if.then
-  %6 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %needs_client = getelementptr inbounds %struct.crawler_module_reg_t, ptr %6, i32 0, i32 5
-  %7 = load i8, ptr %needs_client, align 1
-  %tobool = trunc i8 %7 to i1
+  %9 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %needs_client = getelementptr inbounds %struct.crawler_module_reg_t, ptr %10, i32 0, i32 5
+  %11 = load i8, ptr %needs_client, align 1
+  %tobool = trunc i8 %11 to i1
   br i1 %tobool, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.else
@@ -2535,27 +2579,31 @@ if.end11:                                         ; preds = %if.else
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end11, %if.end9
-  %8 = load i32, ptr %crawls_persleep, align 4
-  %cmp13 = icmp sle i32 %8, 0
+  %12 = load i32, ptr %crawls_persleep, align 4
+  %cmp13 = icmp sle i32 %12, 0
   br i1 %cmp13, label %land.lhs.true, label %if.else19
 
 land.lhs.true:                                    ; preds = %if.end12
-  %9 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 41), align 8
-  %tobool14 = icmp ne i32 %9, 0
+  %13 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 41
+  %14 = load i32, ptr %13, align 8
+  %tobool14 = icmp ne i32 %14, 0
   br i1 %tobool14, label %if.then15, label %if.else19
 
 if.then15:                                        ; preds = %land.lhs.true
   %call16 = call i32 @pthread_mutex_unlock(ptr noundef @lru_crawler_lock) #11
-  %10 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 41), align 8
-  %call17 = call i32 @usleep(i32 noundef %10)
+  %15 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 41
+  %16 = load i32, ptr %15, align 8
+  %call17 = call i32 @usleep(i32 noundef %16)
   %call18 = call i32 @pthread_mutex_lock(ptr noundef @lru_crawler_lock) #11
-  %11 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 47), align 8
-  store i32 %11, ptr %crawls_persleep, align 4
+  %17 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 47
+  %18 = load i32, ptr %17, align 8
+  store i32 %18, ptr %crawls_persleep, align 4
   br label %if.end25
 
 if.else19:                                        ; preds = %land.lhs.true, %if.end12
-  %12 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 41), align 8
-  %tobool20 = icmp ne i32 %12, 0
+  %19 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 41
+  %20 = load i32, ptr %19, align 8
+  %tobool20 = icmp ne i32 %20, 0
   br i1 %tobool20, label %if.end24, label %if.then21
 
 if.then21:                                        ; preds = %if.else19
@@ -2570,43 +2618,45 @@ if.end25:                                         ; preds = %if.end24, %if.then1
   br label %while.cond, !llvm.loop !16
 
 if.end26:                                         ; preds = %while.body
-  %13 = load ptr, ptr %it, align 8
-  %refcount = getelementptr inbounds %struct._stritem, ptr %13, i32 0, i32 6
-  %14 = load i16, ptr %refcount, align 4
-  %inc = add i16 %14, 1
+  %21 = load ptr, ptr %it, align 8
+  %refcount = getelementptr inbounds %struct._stritem, ptr %21, i32 0, i32 6
+  %22 = load i16, ptr %refcount, align 4
+  %inc = add i16 %22, 1
   store i16 %inc, ptr %refcount, align 4
   %conv = zext i16 %inc to i32
   %cmp27 = icmp slt i32 %conv, 2
   br i1 %cmp27, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.end26
-  %15 = load ptr, ptr %it, align 8
-  %refcount30 = getelementptr inbounds %struct._stritem, ptr %15, i32 0, i32 6
-  %16 = load i16, ptr %refcount30, align 4
-  %dec = add i16 %16, -1
+  %23 = load ptr, ptr %it, align 8
+  %refcount30 = getelementptr inbounds %struct._stritem, ptr %23, i32 0, i32 6
+  %24 = load i16, ptr %refcount30, align 4
+  %dec = add i16 %24, -1
   store i16 %dec, ptr %refcount30, align 4
   br label %while.cond, !llvm.loop !16
 
 if.end31:                                         ; preds = %if.end26
-  %17 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1), align 8
-  %cmp32 = icmp ne ptr %17, null
+  %25 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %cmp32 = icmp ne ptr %26, null
   br i1 %cmp32, label %if.then34, label %if.end44
 
 if.then34:                                        ; preds = %if.end31
-  store ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1), ptr %c, align 8
-  %18 = load ptr, ptr %c, align 8
-  %buflen = getelementptr inbounds %struct.crawler_client_t, ptr %18, i32 0, i32 2
-  %19 = load i32, ptr %buflen, align 4
-  %20 = load ptr, ptr %c, align 8
-  %bufused = getelementptr inbounds %struct.crawler_client_t, ptr %20, i32 0, i32 3
-  %21 = load i32, ptr %bufused, align 8
-  %sub = sub nsw i32 %19, %21
+  %27 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 1
+  store ptr %27, ptr %c, align 8
+  %28 = load ptr, ptr %c, align 8
+  %buflen = getelementptr inbounds %struct.crawler_client_t, ptr %28, i32 0, i32 2
+  %29 = load i32, ptr %buflen, align 4
+  %30 = load ptr, ptr %c, align 8
+  %bufused = getelementptr inbounds %struct.crawler_client_t, ptr %30, i32 0, i32 3
+  %31 = load i32, ptr %bufused, align 8
+  %sub = sub nsw i32 %29, %31
   %cmp35 = icmp slt i32 %sub, 8192
   br i1 %cmp35, label %if.then37, label %if.end43
 
 if.then37:                                        ; preds = %if.then34
-  %22 = load ptr, ptr %c, align 8
-  %call38 = call i32 @lru_crawler_expand_buf(ptr noundef %22)
+  %32 = load ptr, ptr %c, align 8
+  %call38 = call i32 @lru_crawler_expand_buf(ptr noundef %32)
   %cmp39 = icmp ne i32 %call38, 0
   br i1 %cmp39, label %if.then41, label %if.end42
 
@@ -2620,22 +2670,23 @@ if.end43:                                         ; preds = %if.end42, %if.then3
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end43, %if.end31
-  %23 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %eval = getelementptr inbounds %struct.crawler_module_reg_t, ptr %23, i32 0, i32 1
-  %24 = load ptr, ptr %eval, align 8
-  %25 = load ptr, ptr %it, align 8
-  call void %24(ptr noundef @active_crawler_mod, ptr noundef %25, i32 noundef 0, i32 noundef 0)
-  %26 = load i32, ptr %crawls_persleep, align 4
-  %dec45 = add nsw i32 %26, -1
+  %33 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %34 = load ptr, ptr %33, align 8
+  %eval = getelementptr inbounds %struct.crawler_module_reg_t, ptr %34, i32 0, i32 1
+  %35 = load ptr, ptr %eval, align 8
+  %36 = load ptr, ptr %it, align 8
+  call void %35(ptr noundef @active_crawler_mod, ptr noundef %36, i32 noundef 0, i32 noundef 0)
+  %37 = load i32, ptr %crawls_persleep, align 4
+  %dec45 = add nsw i32 %37, -1
   store i32 %dec45, ptr %crawls_persleep, align 4
-  %27 = load i32, ptr %items, align 4
-  %inc46 = add nsw i32 %27, 1
+  %38 = load i32, ptr %items, align 4
+  %inc46 = add nsw i32 %38, 1
   store i32 %inc46, ptr %items, align 4
   br label %while.cond, !llvm.loop !16
 
 while.end:                                        ; preds = %if.then41, %if.then10, %if.then8, %while.cond
-  %28 = load ptr, ptr %iter, align 8
-  call void @assoc_iterate_final(ptr noundef %28)
+  %39 = load ptr, ptr %iter, align 8
+  call void @assoc_iterate_final(ptr noundef %39)
   ret void
 }
 
@@ -2677,18 +2728,20 @@ entry:
   %idxprom9 = sext i32 %10 to i64
   %arrayidx10 = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %idxprom9
   %call = call i32 @pthread_mutex_unlock(ptr noundef %arrayidx10) #11
-  %11 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %doneclass = getelementptr inbounds %struct.crawler_module_reg_t, ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %doneclass, align 8
-  %cmp = icmp ne ptr %12, null
+  %11 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %doneclass = getelementptr inbounds %struct.crawler_module_reg_t, ptr %12, i32 0, i32 2
+  %13 = load ptr, ptr %doneclass, align 8
+  %cmp = icmp ne ptr %13, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %13 = load ptr, ptr getelementptr inbounds (%struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2), align 8
-  %doneclass11 = getelementptr inbounds %struct.crawler_module_reg_t, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %doneclass11, align 8
-  %15 = load i32, ptr %i.addr, align 4
-  call void %14(ptr noundef @active_crawler_mod, i32 noundef %15)
+  %14 = getelementptr inbounds %struct._crawler_module_t, ptr @active_crawler_mod, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %doneclass11 = getelementptr inbounds %struct.crawler_module_reg_t, ptr %15, i32 0, i32 2
+  %16 = load ptr, ptr %doneclass11, align 8
+  %17 = load i32, ptr %i.addr, align 4
+  call void %16(ptr noundef @active_crawler_mod, i32 noundef %17)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

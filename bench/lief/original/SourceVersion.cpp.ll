@@ -53,7 +53,8 @@ define void @_ZN4LIEF5MachO13SourceVersionC2Ev(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO13SourceVersionE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO13SourceVersionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -121,11 +122,12 @@ define void @_ZN4LIEF5MachO13SourceVersionC2ERKS1_(ptr noundef nonnull align 8 d
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO13SourceVersionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::SourceVersion", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::SourceVersion", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 20, i1 false)
+  %7 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO13SourceVersionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::SourceVersion", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::SourceVersion", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 20, i1 false)
   ret void
 }
 
@@ -171,49 +173,50 @@ define void @_ZN4LIEF5MachO13SourceVersionC2ERKNS0_7details22source_version_comm
   %11 = getelementptr inbounds %"struct.LIEF::MachO::details::source_version_command", ptr %10, i32 0, i32 1
   %12 = load i32, ptr %11, align 4
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef %9, i32 noundef %12)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO13SourceVersionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::SourceVersion", ptr %5, i32 0, i32 1
-  %14 = getelementptr inbounds %"struct.std::array", ptr %13, i32 0, i32 0
-  %15 = getelementptr inbounds [5 x i32], ptr %14, i64 0, i64 0
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %"struct.LIEF::MachO::details::source_version_command", ptr %16, i32 0, i32 2
-  %18 = load i64, ptr %17, align 8
-  %19 = lshr i64 %18, 40
-  %20 = and i64 %19, 16777215
-  %21 = trunc i64 %20 to i32
-  store i32 %21, ptr %15, align 4
-  %22 = getelementptr inbounds i32, ptr %15, i64 1
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %"struct.LIEF::MachO::details::source_version_command", ptr %23, i32 0, i32 2
-  %25 = load i64, ptr %24, align 8
-  %26 = lshr i64 %25, 30
-  %27 = and i64 %26, 1023
-  %28 = trunc i64 %27 to i32
-  store i32 %28, ptr %22, align 4
-  %29 = getelementptr inbounds i32, ptr %22, i64 1
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %"struct.LIEF::MachO::details::source_version_command", ptr %30, i32 0, i32 2
-  %32 = load i64, ptr %31, align 8
-  %33 = lshr i64 %32, 20
-  %34 = and i64 %33, 1023
-  %35 = trunc i64 %34 to i32
-  store i32 %35, ptr %29, align 4
-  %36 = getelementptr inbounds i32, ptr %29, i64 1
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %"struct.LIEF::MachO::details::source_version_command", ptr %37, i32 0, i32 2
-  %39 = load i64, ptr %38, align 8
-  %40 = lshr i64 %39, 10
-  %41 = and i64 %40, 1023
-  %42 = trunc i64 %41 to i32
-  store i32 %42, ptr %36, align 4
-  %43 = getelementptr inbounds i32, ptr %36, i64 1
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %"struct.LIEF::MachO::details::source_version_command", ptr %44, i32 0, i32 2
-  %46 = load i64, ptr %45, align 8
-  %47 = lshr i64 %46, 0
-  %48 = and i64 %47, 1023
-  %49 = trunc i64 %48 to i32
-  store i32 %49, ptr %43, align 4
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO13SourceVersionE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::SourceVersion", ptr %5, i32 0, i32 1
+  %15 = getelementptr inbounds %"struct.std::array", ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds [5 x i32], ptr %15, i64 0, i64 0
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %"struct.LIEF::MachO::details::source_version_command", ptr %17, i32 0, i32 2
+  %19 = load i64, ptr %18, align 8
+  %20 = lshr i64 %19, 40
+  %21 = and i64 %20, 16777215
+  %22 = trunc i64 %21 to i32
+  store i32 %22, ptr %16, align 4
+  %23 = getelementptr inbounds i32, ptr %16, i64 1
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"struct.LIEF::MachO::details::source_version_command", ptr %24, i32 0, i32 2
+  %26 = load i64, ptr %25, align 8
+  %27 = lshr i64 %26, 30
+  %28 = and i64 %27, 1023
+  %29 = trunc i64 %28 to i32
+  store i32 %29, ptr %23, align 4
+  %30 = getelementptr inbounds i32, ptr %23, i64 1
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds %"struct.LIEF::MachO::details::source_version_command", ptr %31, i32 0, i32 2
+  %33 = load i64, ptr %32, align 8
+  %34 = lshr i64 %33, 20
+  %35 = and i64 %34, 1023
+  %36 = trunc i64 %35 to i32
+  store i32 %36, ptr %30, align 4
+  %37 = getelementptr inbounds i32, ptr %30, i64 1
+  %38 = load ptr, ptr %4, align 8
+  %39 = getelementptr inbounds %"struct.LIEF::MachO::details::source_version_command", ptr %38, i32 0, i32 2
+  %40 = load i64, ptr %39, align 8
+  %41 = lshr i64 %40, 10
+  %42 = and i64 %41, 1023
+  %43 = trunc i64 %42 to i32
+  store i32 %43, ptr %37, align 4
+  %44 = getelementptr inbounds i32, ptr %37, i64 1
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds %"struct.LIEF::MachO::details::source_version_command", ptr %45, i32 0, i32 2
+  %47 = load i64, ptr %46, align 8
+  %48 = lshr i64 %47, 0
+  %49 = and i64 %48, 1023
+  %50 = trunc i64 %49 to i32
+  store i32 %50, ptr %44, align 4
   ret void
 }
 

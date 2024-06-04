@@ -354,528 +354,538 @@ define internal void @_dissect_uasip(ptr noundef %0, ptr noundef %1, ptr noundef
   %35 = load i8, ptr %14, align 1
   %36 = zext i8 %35 to i32
   store i32 %36, ptr @ua_tap_info, align 4
-  store i32 0, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 2), align 4
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = load i8, ptr %14, align 1
-  %41 = zext i8 %40 to i32
-  %42 = call ptr @val_to_str_ext(i32 noundef %41, ptr noundef @uaudp_opcode_str_ext, ptr noundef @.str.59)
-  call void @col_add_str(ptr noundef %39, i32 noundef 25, ptr noundef %42)
-  %43 = load ptr, ptr %7, align 8
-  %44 = load i32, ptr @proto_uasip, align 4
-  %45 = load ptr, ptr %5, align 8
-  %46 = load i8, ptr %14, align 1
-  %47 = zext i8 %46 to i32
-  %48 = call ptr @val_to_str_ext(i32 noundef %47, ptr noundef @uaudp_opcode_str_ext, ptr noundef @.str.59)
-  %49 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef 0, i32 noundef 5, ptr noundef @.str.60, ptr noundef %48)
-  store ptr %49, ptr %9, align 8
-  %50 = load ptr, ptr %9, align 8
-  %51 = load i32, ptr @ett_uasip, align 4
-  %52 = call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51)
-  store ptr %52, ptr %12, align 8
-  %53 = load ptr, ptr %12, align 8
-  %54 = load i32, ptr @hf_uasip_opcode, align 4
-  %55 = load ptr, ptr %5, align 8
-  %56 = load i8, ptr %14, align 1
-  %57 = zext i8 %56 to i32
-  %58 = call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %54, ptr noundef %55, i32 noundef 0, i32 noundef 1, i32 noundef %57)
-  %59 = load i8, ptr %14, align 1
-  %60 = zext i8 %59 to i32
-  switch i32 %60, label %375 [
-    i32 0, label %61
-    i32 6, label %276
-    i32 7, label %294
+  %37 = getelementptr inbounds %struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 1
+  store i32 0, ptr %37, align 4
+  %38 = getelementptr inbounds %struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 2
+  store i32 0, ptr %38, align 4
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds %struct._packet_info, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  %42 = load i8, ptr %14, align 1
+  %43 = zext i8 %42 to i32
+  %44 = call ptr @val_to_str_ext(i32 noundef %43, ptr noundef @uaudp_opcode_str_ext, ptr noundef @.str.59)
+  call void @col_add_str(ptr noundef %41, i32 noundef 25, ptr noundef %44)
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i32, ptr @proto_uasip, align 4
+  %47 = load ptr, ptr %5, align 8
+  %48 = load i8, ptr %14, align 1
+  %49 = zext i8 %48 to i32
+  %50 = call ptr @val_to_str_ext(i32 noundef %49, ptr noundef @uaudp_opcode_str_ext, ptr noundef @.str.59)
+  %51 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %45, i32 noundef %46, ptr noundef %47, i32 noundef 0, i32 noundef 5, ptr noundef @.str.60, ptr noundef %50)
+  store ptr %51, ptr %9, align 8
+  %52 = load ptr, ptr %9, align 8
+  %53 = load i32, ptr @ett_uasip, align 4
+  %54 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53)
+  store ptr %54, ptr %12, align 8
+  %55 = load ptr, ptr %12, align 8
+  %56 = load i32, ptr @hf_uasip_opcode, align 4
+  %57 = load ptr, ptr %5, align 8
+  %58 = load i8, ptr %14, align 1
+  %59 = zext i8 %58 to i32
+  %60 = call ptr @proto_tree_add_uint(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef 0, i32 noundef 1, i32 noundef %59)
+  %61 = load i8, ptr %14, align 1
+  %62 = zext i8 %61 to i32
+  switch i32 %62, label %385 [
+    i32 0, label %63
+    i32 6, label %278
+    i32 7, label %298
   ]
 
-61:                                               ; preds = %29
-  br label %62
+63:                                               ; preds = %29
+  br label %64
 
-62:                                               ; preds = %271, %61
-  %63 = load ptr, ptr %5, align 8
-  %64 = load i32, ptr %17, align 4
-  %65 = call i32 @tvb_reported_length_remaining(ptr noundef %63, i32 noundef %64)
-  %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %67, label %275
+64:                                               ; preds = %273, %63
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i32, ptr %17, align 4
+  %67 = call i32 @tvb_reported_length_remaining(ptr noundef %65, i32 noundef %66)
+  %68 = icmp sgt i32 %67, 0
+  br i1 %68, label %69, label %277
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %5, align 8
-  %69 = load i32, ptr %17, align 4
-  %70 = add i32 %69, 0
-  %71 = call zeroext i8 @tvb_get_guint8(ptr noundef %68, i32 noundef %70)
-  %72 = zext i8 %71 to i32
-  store i32 %72, ptr %15, align 4
-  %73 = load ptr, ptr %12, align 8
-  %74 = load ptr, ptr %5, align 8
-  %75 = load i32, ptr %17, align 4
-  %76 = load i32, ptr @ett_uasip_tlv, align 4
-  %77 = load i32, ptr %15, align 4
-  %78 = call ptr @val_to_str_ext(i32 noundef %77, ptr noundef @uaudp_connect_vals_ext, ptr noundef @.str.61)
-  %79 = call ptr @proto_tree_add_subtree(ptr noundef %73, ptr noundef %74, i32 noundef %75, i32 noundef 0, i32 noundef %76, ptr noundef %10, ptr noundef %78)
-  store ptr %79, ptr %13, align 8
-  %80 = load ptr, ptr %13, align 8
-  %81 = load i32, ptr @hf_uasip_type, align 4
-  %82 = load ptr, ptr %5, align 8
-  %83 = load i32, ptr %17, align 4
-  %84 = load i32, ptr %15, align 4
-  %85 = call ptr @proto_tree_add_uint(ptr noundef %80, i32 noundef %81, ptr noundef %82, i32 noundef %83, i32 noundef 1, i32 noundef %84)
-  %86 = load i32, ptr %17, align 4
-  %87 = add i32 %86, 1
-  store i32 %87, ptr %17, align 4
-  %88 = load ptr, ptr %13, align 8
-  %89 = load i32, ptr @hf_uasip_length, align 4
-  %90 = load ptr, ptr %5, align 8
-  %91 = load i32, ptr %17, align 4
-  %92 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %88, i32 noundef %89, ptr noundef %90, i32 noundef %91, i32 noundef 1, i32 noundef 0, ptr noundef %16)
-  store ptr %92, ptr %11, align 8
-  %93 = load ptr, ptr %10, align 8
-  %94 = load i32, ptr %16, align 4
-  %95 = add i32 %94, 2
-  call void @proto_item_set_len(ptr noundef %93, i32 noundef %95)
-  %96 = load i32, ptr %17, align 4
-  %97 = add i32 %96, 1
-  store i32 %97, ptr %17, align 4
-  %98 = load i32, ptr %15, align 4
-  switch i32 %98, label %270 [
-    i32 0, label %99
-    i32 1, label %118
-    i32 2, label %137
-    i32 3, label %156
-    i32 4, label %175
-    i32 5, label %194
-    i32 6, label %213
-    i32 7, label %232
-    i32 8, label %251
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %5, align 8
+  %71 = load i32, ptr %17, align 4
+  %72 = add i32 %71, 0
+  %73 = call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef %72)
+  %74 = zext i8 %73 to i32
+  store i32 %74, ptr %15, align 4
+  %75 = load ptr, ptr %12, align 8
+  %76 = load ptr, ptr %5, align 8
+  %77 = load i32, ptr %17, align 4
+  %78 = load i32, ptr @ett_uasip_tlv, align 4
+  %79 = load i32, ptr %15, align 4
+  %80 = call ptr @val_to_str_ext(i32 noundef %79, ptr noundef @uaudp_connect_vals_ext, ptr noundef @.str.61)
+  %81 = call ptr @proto_tree_add_subtree(ptr noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 0, i32 noundef %78, ptr noundef %10, ptr noundef %80)
+  store ptr %81, ptr %13, align 8
+  %82 = load ptr, ptr %13, align 8
+  %83 = load i32, ptr @hf_uasip_type, align 4
+  %84 = load ptr, ptr %5, align 8
+  %85 = load i32, ptr %17, align 4
+  %86 = load i32, ptr %15, align 4
+  %87 = call ptr @proto_tree_add_uint(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 1, i32 noundef %86)
+  %88 = load i32, ptr %17, align 4
+  %89 = add i32 %88, 1
+  store i32 %89, ptr %17, align 4
+  %90 = load ptr, ptr %13, align 8
+  %91 = load i32, ptr @hf_uasip_length, align 4
+  %92 = load ptr, ptr %5, align 8
+  %93 = load i32, ptr %17, align 4
+  %94 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef 1, i32 noundef 0, ptr noundef %16)
+  store ptr %94, ptr %11, align 8
+  %95 = load ptr, ptr %10, align 8
+  %96 = load i32, ptr %16, align 4
+  %97 = add i32 %96, 2
+  call void @proto_item_set_len(ptr noundef %95, i32 noundef %97)
+  %98 = load i32, ptr %17, align 4
+  %99 = add i32 %98, 1
+  store i32 %99, ptr %17, align 4
+  %100 = load i32, ptr %15, align 4
+  switch i32 %100, label %272 [
+    i32 0, label %101
+    i32 1, label %120
+    i32 2, label %139
+    i32 3, label %158
+    i32 4, label %177
+    i32 5, label %196
+    i32 6, label %215
+    i32 7, label %234
+    i32 8, label %253
   ]
 
-99:                                               ; preds = %67
-  %100 = load i32, ptr %16, align 4
-  %101 = icmp uge i32 %100, 1
-  br i1 %101, label %102, label %112
+101:                                              ; preds = %69
+  %102 = load i32, ptr %16, align 4
+  %103 = icmp uge i32 %102, 1
+  br i1 %103, label %104, label %114
 
-102:                                              ; preds = %99
-  %103 = load i32, ptr %16, align 4
-  %104 = icmp ule i32 %103, 4
-  br i1 %104, label %105, label %112
+104:                                              ; preds = %101
+  %105 = load i32, ptr %16, align 4
+  %106 = icmp ule i32 %105, 4
+  br i1 %106, label %107, label %114
 
-105:                                              ; preds = %102
-  %106 = load ptr, ptr %13, align 8
-  %107 = load i32, ptr @hf_uasip_version, align 4
-  %108 = load ptr, ptr %5, align 8
-  %109 = load i32, ptr %17, align 4
-  %110 = load i32, ptr %16, align 4
-  %111 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef %110, i32 noundef 0)
-  br label %117
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %13, align 8
+  %109 = load i32, ptr @hf_uasip_version, align 4
+  %110 = load ptr, ptr %5, align 8
+  %111 = load i32, ptr %17, align 4
+  %112 = load i32, ptr %16, align 4
+  %113 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %109, ptr noundef %110, i32 noundef %111, i32 noundef %112, i32 noundef 0)
+  br label %119
 
-112:                                              ; preds = %102, %99
-  %113 = load ptr, ptr %6, align 8
-  %114 = load ptr, ptr %11, align 8
-  %115 = load i32, ptr %16, align 4
-  %116 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %113, ptr noundef %114, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %115)
-  br label %117
+114:                                              ; preds = %104, %101
+  %115 = load ptr, ptr %6, align 8
+  %116 = load ptr, ptr %11, align 8
+  %117 = load i32, ptr %16, align 4
+  %118 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %115, ptr noundef %116, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %117)
+  br label %119
 
-117:                                              ; preds = %112, %105
+119:                                              ; preds = %114, %107
+  br label %273
+
+120:                                              ; preds = %69
+  %121 = load i32, ptr %16, align 4
+  %122 = icmp uge i32 %121, 1
+  br i1 %122, label %123, label %133
+
+123:                                              ; preds = %120
+  %124 = load i32, ptr %16, align 4
+  %125 = icmp ule i32 %124, 4
+  br i1 %125, label %126, label %133
+
+126:                                              ; preds = %123
+  %127 = load ptr, ptr %13, align 8
+  %128 = load i32, ptr @hf_uasip_window_size, align 4
+  %129 = load ptr, ptr %5, align 8
+  %130 = load i32, ptr %17, align 4
+  %131 = load i32, ptr %16, align 4
+  %132 = call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %128, ptr noundef %129, i32 noundef %130, i32 noundef %131, i32 noundef 0)
+  br label %138
+
+133:                                              ; preds = %123, %120
+  %134 = load ptr, ptr %6, align 8
+  %135 = load ptr, ptr %11, align 8
+  %136 = load i32, ptr %16, align 4
+  %137 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %134, ptr noundef %135, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %136)
+  br label %138
+
+138:                                              ; preds = %133, %126
+  br label %273
+
+139:                                              ; preds = %69
+  %140 = load i32, ptr %16, align 4
+  %141 = icmp uge i32 %140, 1
+  br i1 %141, label %142, label %152
+
+142:                                              ; preds = %139
+  %143 = load i32, ptr %16, align 4
+  %144 = icmp ule i32 %143, 4
+  br i1 %144, label %145, label %152
+
+145:                                              ; preds = %142
+  %146 = load ptr, ptr %13, align 8
+  %147 = load i32, ptr @hf_uasip_mtu, align 4
+  %148 = load ptr, ptr %5, align 8
+  %149 = load i32, ptr %17, align 4
+  %150 = load i32, ptr %16, align 4
+  %151 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %148, i32 noundef %149, i32 noundef %150, i32 noundef 0)
+  br label %157
+
+152:                                              ; preds = %142, %139
+  %153 = load ptr, ptr %6, align 8
+  %154 = load ptr, ptr %11, align 8
+  %155 = load i32, ptr %16, align 4
+  %156 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %153, ptr noundef %154, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %155)
+  br label %157
+
+157:                                              ; preds = %152, %145
+  br label %273
+
+158:                                              ; preds = %69
+  %159 = load i32, ptr %16, align 4
+  %160 = icmp uge i32 %159, 1
+  br i1 %160, label %161, label %171
+
+161:                                              ; preds = %158
+  %162 = load i32, ptr %16, align 4
+  %163 = icmp ule i32 %162, 4
+  br i1 %163, label %164, label %171
+
+164:                                              ; preds = %161
+  %165 = load ptr, ptr %13, align 8
+  %166 = load i32, ptr @hf_uasip_udp_lost, align 4
+  %167 = load ptr, ptr %5, align 8
+  %168 = load i32, ptr %17, align 4
+  %169 = load i32, ptr %16, align 4
+  %170 = call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %166, ptr noundef %167, i32 noundef %168, i32 noundef %169, i32 noundef 0)
+  br label %176
+
+171:                                              ; preds = %161, %158
+  %172 = load ptr, ptr %6, align 8
+  %173 = load ptr, ptr %11, align 8
+  %174 = load i32, ptr %16, align 4
+  %175 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %172, ptr noundef %173, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %174)
+  br label %176
+
+176:                                              ; preds = %171, %164
+  br label %273
+
+177:                                              ; preds = %69
+  %178 = load i32, ptr %16, align 4
+  %179 = icmp uge i32 %178, 1
+  br i1 %179, label %180, label %190
+
+180:                                              ; preds = %177
+  %181 = load i32, ptr %16, align 4
+  %182 = icmp ule i32 %181, 4
+  br i1 %182, label %183, label %190
+
+183:                                              ; preds = %180
+  %184 = load ptr, ptr %13, align 8
+  %185 = load i32, ptr @hf_uasip_udp_lost_reinit, align 4
+  %186 = load ptr, ptr %5, align 8
+  %187 = load i32, ptr %17, align 4
+  %188 = load i32, ptr %16, align 4
+  %189 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %185, ptr noundef %186, i32 noundef %187, i32 noundef %188, i32 noundef 0)
+  br label %195
+
+190:                                              ; preds = %180, %177
+  %191 = load ptr, ptr %6, align 8
+  %192 = load ptr, ptr %11, align 8
+  %193 = load i32, ptr %16, align 4
+  %194 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %191, ptr noundef %192, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %193)
+  br label %195
+
+195:                                              ; preds = %190, %183
+  br label %273
+
+196:                                              ; preds = %69
+  %197 = load i32, ptr %16, align 4
+  %198 = icmp uge i32 %197, 1
+  br i1 %198, label %199, label %209
+
+199:                                              ; preds = %196
+  %200 = load i32, ptr %16, align 4
+  %201 = icmp ule i32 %200, 4
+  br i1 %201, label %202, label %209
+
+202:                                              ; preds = %199
+  %203 = load ptr, ptr %13, align 8
+  %204 = load i32, ptr @hf_uasip_keepalive, align 4
+  %205 = load ptr, ptr %5, align 8
+  %206 = load i32, ptr %17, align 4
+  %207 = load i32, ptr %16, align 4
+  %208 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %204, ptr noundef %205, i32 noundef %206, i32 noundef %207, i32 noundef 0)
+  br label %214
+
+209:                                              ; preds = %199, %196
+  %210 = load ptr, ptr %6, align 8
+  %211 = load ptr, ptr %11, align 8
+  %212 = load i32, ptr %16, align 4
+  %213 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %210, ptr noundef %211, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %212)
+  br label %214
+
+214:                                              ; preds = %209, %202
+  br label %273
+
+215:                                              ; preds = %69
+  %216 = load i32, ptr %16, align 4
+  %217 = icmp uge i32 %216, 1
+  br i1 %217, label %218, label %228
+
+218:                                              ; preds = %215
+  %219 = load i32, ptr %16, align 4
+  %220 = icmp ule i32 %219, 4
+  br i1 %220, label %221, label %228
+
+221:                                              ; preds = %218
+  %222 = load ptr, ptr %13, align 8
+  %223 = load i32, ptr @hf_uasip_qos_ip_tos, align 4
+  %224 = load ptr, ptr %5, align 8
+  %225 = load i32, ptr %17, align 4
+  %226 = load i32, ptr %16, align 4
+  %227 = call ptr @proto_tree_add_item(ptr noundef %222, i32 noundef %223, ptr noundef %224, i32 noundef %225, i32 noundef %226, i32 noundef 0)
+  br label %233
+
+228:                                              ; preds = %218, %215
+  %229 = load ptr, ptr %6, align 8
+  %230 = load ptr, ptr %11, align 8
+  %231 = load i32, ptr %16, align 4
+  %232 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %229, ptr noundef %230, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %231)
+  br label %233
+
+233:                                              ; preds = %228, %221
+  br label %273
+
+234:                                              ; preds = %69
+  %235 = load i32, ptr %16, align 4
+  %236 = icmp uge i32 %235, 1
+  br i1 %236, label %237, label %247
+
+237:                                              ; preds = %234
+  %238 = load i32, ptr %16, align 4
+  %239 = icmp ule i32 %238, 4
+  br i1 %239, label %240, label %247
+
+240:                                              ; preds = %237
+  %241 = load ptr, ptr %13, align 8
+  %242 = load i32, ptr @hf_uasip_qos_8021_vlid, align 4
+  %243 = load ptr, ptr %5, align 8
+  %244 = load i32, ptr %17, align 4
+  %245 = load i32, ptr %16, align 4
+  %246 = call ptr @proto_tree_add_item(ptr noundef %241, i32 noundef %242, ptr noundef %243, i32 noundef %244, i32 noundef %245, i32 noundef 0)
+  br label %252
+
+247:                                              ; preds = %237, %234
+  %248 = load ptr, ptr %6, align 8
+  %249 = load ptr, ptr %11, align 8
+  %250 = load i32, ptr %16, align 4
+  %251 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %248, ptr noundef %249, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %250)
+  br label %252
+
+252:                                              ; preds = %247, %240
+  br label %273
+
+253:                                              ; preds = %69
+  %254 = load i32, ptr %16, align 4
+  %255 = icmp uge i32 %254, 1
+  br i1 %255, label %256, label %266
+
+256:                                              ; preds = %253
+  %257 = load i32, ptr %16, align 4
+  %258 = icmp ule i32 %257, 4
+  br i1 %258, label %259, label %266
+
+259:                                              ; preds = %256
+  %260 = load ptr, ptr %13, align 8
+  %261 = load i32, ptr @hf_uasip_qos_8021_pri, align 4
+  %262 = load ptr, ptr %5, align 8
+  %263 = load i32, ptr %17, align 4
+  %264 = load i32, ptr %16, align 4
+  %265 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %261, ptr noundef %262, i32 noundef %263, i32 noundef %264, i32 noundef 0)
   br label %271
 
-118:                                              ; preds = %67
-  %119 = load i32, ptr %16, align 4
-  %120 = icmp uge i32 %119, 1
-  br i1 %120, label %121, label %131
-
-121:                                              ; preds = %118
-  %122 = load i32, ptr %16, align 4
-  %123 = icmp ule i32 %122, 4
-  br i1 %123, label %124, label %131
-
-124:                                              ; preds = %121
-  %125 = load ptr, ptr %13, align 8
-  %126 = load i32, ptr @hf_uasip_window_size, align 4
-  %127 = load ptr, ptr %5, align 8
-  %128 = load i32, ptr %17, align 4
-  %129 = load i32, ptr %16, align 4
-  %130 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef %129, i32 noundef 0)
-  br label %136
-
-131:                                              ; preds = %121, %118
-  %132 = load ptr, ptr %6, align 8
-  %133 = load ptr, ptr %11, align 8
-  %134 = load i32, ptr %16, align 4
-  %135 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %132, ptr noundef %133, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %134)
-  br label %136
-
-136:                                              ; preds = %131, %124
+266:                                              ; preds = %256, %253
+  %267 = load ptr, ptr %6, align 8
+  %268 = load ptr, ptr %11, align 8
+  %269 = load i32, ptr %16, align 4
+  %270 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %267, ptr noundef %268, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %269)
   br label %271
 
-137:                                              ; preds = %67
-  %138 = load i32, ptr %16, align 4
-  %139 = icmp uge i32 %138, 1
-  br i1 %139, label %140, label %150
+271:                                              ; preds = %266, %259
+  br label %273
 
-140:                                              ; preds = %137
-  %141 = load i32, ptr %16, align 4
-  %142 = icmp ule i32 %141, 4
-  br i1 %142, label %143, label %150
+272:                                              ; preds = %69
+  br label %273
 
-143:                                              ; preds = %140
-  %144 = load ptr, ptr %13, align 8
-  %145 = load i32, ptr @hf_uasip_mtu, align 4
-  %146 = load ptr, ptr %5, align 8
-  %147 = load i32, ptr %17, align 4
-  %148 = load i32, ptr %16, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %145, ptr noundef %146, i32 noundef %147, i32 noundef %148, i32 noundef 0)
-  br label %155
+273:                                              ; preds = %272, %271, %252, %233, %214, %195, %176, %157, %138, %119
+  %274 = load i32, ptr %16, align 4
+  %275 = load i32, ptr %17, align 4
+  %276 = add i32 %275, %274
+  store i32 %276, ptr %17, align 4
+  br label %64, !llvm.loop !4
 
-150:                                              ; preds = %140, %137
-  %151 = load ptr, ptr %6, align 8
-  %152 = load ptr, ptr %11, align 8
-  %153 = load i32, ptr %16, align 4
-  %154 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %151, ptr noundef %152, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %153)
-  br label %155
+277:                                              ; preds = %64
+  br label %386
 
-155:                                              ; preds = %150, %143
-  br label %271
+278:                                              ; preds = %29
+  %279 = load ptr, ptr %12, align 8
+  %280 = load i32, ptr @hf_uasip_expseq, align 4
+  %281 = load ptr, ptr %5, align 8
+  %282 = load i32, ptr %17, align 4
+  %283 = getelementptr inbounds %struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 1
+  %284 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %279, i32 noundef %280, ptr noundef %281, i32 noundef %282, i32 noundef 2, i32 noundef 0, ptr noundef %283)
+  %285 = load i32, ptr @noesip_enabled, align 4
+  %286 = icmp ne i32 %285, 0
+  br i1 %286, label %287, label %291
 
-156:                                              ; preds = %67
-  %157 = load i32, ptr %16, align 4
-  %158 = icmp uge i32 %157, 1
-  br i1 %158, label %159, label %169
+287:                                              ; preds = %278
+  %288 = load ptr, ptr %6, align 8
+  %289 = getelementptr inbounds %struct._packet_info, ptr %288, i32 0, i32 1
+  %290 = load ptr, ptr %289, align 8
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %290, i32 noundef 25, ptr noundef @.str.63)
+  br label %297
 
-159:                                              ; preds = %156
-  %160 = load i32, ptr %16, align 4
-  %161 = icmp ule i32 %160, 4
-  br i1 %161, label %162, label %169
+291:                                              ; preds = %278
+  %292 = load ptr, ptr %6, align 8
+  %293 = getelementptr inbounds %struct._packet_info, ptr %292, i32 0, i32 1
+  %294 = load ptr, ptr %293, align 8
+  %295 = getelementptr inbounds %struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 1
+  %296 = load i32, ptr %295, align 4
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %294, i32 noundef 25, ptr noundef @.str.64, i32 noundef %296)
+  br label %297
 
-162:                                              ; preds = %159
-  %163 = load ptr, ptr %13, align 8
-  %164 = load i32, ptr @hf_uasip_udp_lost, align 4
-  %165 = load ptr, ptr %5, align 8
-  %166 = load i32, ptr %17, align 4
-  %167 = load i32, ptr %16, align 4
-  %168 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef %167, i32 noundef 0)
-  br label %174
+297:                                              ; preds = %291, %287
+  br label %386
 
-169:                                              ; preds = %159, %156
-  %170 = load ptr, ptr %6, align 8
-  %171 = load ptr, ptr %11, align 8
-  %172 = load i32, ptr %16, align 4
-  %173 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %170, ptr noundef %171, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %172)
-  br label %174
+298:                                              ; preds = %29
+  %299 = load ptr, ptr %12, align 8
+  %300 = load i32, ptr @hf_uasip_expseq, align 4
+  %301 = load ptr, ptr %5, align 8
+  %302 = load i32, ptr %17, align 4
+  %303 = add i32 %302, 0
+  %304 = getelementptr inbounds %struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 1
+  %305 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %299, i32 noundef %300, ptr noundef %301, i32 noundef %303, i32 noundef 2, i32 noundef 0, ptr noundef %304)
+  %306 = load ptr, ptr %12, align 8
+  %307 = load i32, ptr @hf_uasip_sntseq, align 4
+  %308 = load ptr, ptr %5, align 8
+  %309 = load i32, ptr %17, align 4
+  %310 = add i32 %309, 2
+  %311 = getelementptr inbounds %struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 2
+  %312 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %306, i32 noundef %307, ptr noundef %308, i32 noundef %310, i32 noundef 2, i32 noundef 0, ptr noundef %311)
+  %313 = load i32, ptr %17, align 4
+  %314 = add i32 %313, 4
+  store i32 %314, ptr %17, align 4
+  %315 = load ptr, ptr %5, align 8
+  %316 = load i32, ptr %17, align 4
+  %317 = call i32 @tvb_reported_length_remaining(ptr noundef %315, i32 noundef %316)
+  store i32 %317, ptr %18, align 4
+  %318 = load i32, ptr @noesip_enabled, align 4
+  %319 = icmp ne i32 %318, 0
+  br i1 %319, label %320, label %358
 
-174:                                              ; preds = %169, %162
-  br label %271
+320:                                              ; preds = %298
+  %321 = load i32, ptr %18, align 4
+  %322 = icmp sgt i32 %321, 0
+  br i1 %322, label %323, label %353
 
-175:                                              ; preds = %67
-  %176 = load i32, ptr %16, align 4
-  %177 = icmp uge i32 %176, 1
-  br i1 %177, label %178, label %188
+323:                                              ; preds = %320
+  %324 = load i32, ptr %8, align 4
+  %325 = icmp eq i32 %324, 0
+  br i1 %325, label %326, label %335
 
-178:                                              ; preds = %175
-  %179 = load i32, ptr %16, align 4
-  %180 = icmp ule i32 %179, 4
-  br i1 %180, label %181, label %188
+326:                                              ; preds = %323
+  %327 = load ptr, ptr @ua_sys_to_term_handle, align 8
+  %328 = load ptr, ptr %5, align 8
+  %329 = load i32, ptr %17, align 4
+  %330 = load i32, ptr %18, align 4
+  %331 = call ptr @tvb_new_subset_length(ptr noundef %328, i32 noundef %329, i32 noundef %330)
+  %332 = load ptr, ptr %6, align 8
+  %333 = load ptr, ptr %7, align 8
+  %334 = call i32 @call_dissector(ptr noundef %327, ptr noundef %331, ptr noundef %332, ptr noundef %333)
+  br label %352
 
-181:                                              ; preds = %178
-  %182 = load ptr, ptr %13, align 8
-  %183 = load i32, ptr @hf_uasip_udp_lost_reinit, align 4
-  %184 = load ptr, ptr %5, align 8
-  %185 = load i32, ptr %17, align 4
-  %186 = load i32, ptr %16, align 4
-  %187 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %183, ptr noundef %184, i32 noundef %185, i32 noundef %186, i32 noundef 0)
-  br label %193
+335:                                              ; preds = %323
+  %336 = load i32, ptr %8, align 4
+  %337 = icmp eq i32 %336, 1
+  br i1 %337, label %338, label %347
 
-188:                                              ; preds = %178, %175
-  %189 = load ptr, ptr %6, align 8
-  %190 = load ptr, ptr %11, align 8
-  %191 = load i32, ptr %16, align 4
-  %192 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %189, ptr noundef %190, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %191)
-  br label %193
-
-193:                                              ; preds = %188, %181
-  br label %271
-
-194:                                              ; preds = %67
-  %195 = load i32, ptr %16, align 4
-  %196 = icmp uge i32 %195, 1
-  br i1 %196, label %197, label %207
-
-197:                                              ; preds = %194
-  %198 = load i32, ptr %16, align 4
-  %199 = icmp ule i32 %198, 4
-  br i1 %199, label %200, label %207
-
-200:                                              ; preds = %197
-  %201 = load ptr, ptr %13, align 8
-  %202 = load i32, ptr @hf_uasip_keepalive, align 4
-  %203 = load ptr, ptr %5, align 8
-  %204 = load i32, ptr %17, align 4
-  %205 = load i32, ptr %16, align 4
-  %206 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %202, ptr noundef %203, i32 noundef %204, i32 noundef %205, i32 noundef 0)
-  br label %212
-
-207:                                              ; preds = %197, %194
-  %208 = load ptr, ptr %6, align 8
-  %209 = load ptr, ptr %11, align 8
-  %210 = load i32, ptr %16, align 4
-  %211 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %208, ptr noundef %209, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %210)
-  br label %212
-
-212:                                              ; preds = %207, %200
-  br label %271
-
-213:                                              ; preds = %67
-  %214 = load i32, ptr %16, align 4
-  %215 = icmp uge i32 %214, 1
-  br i1 %215, label %216, label %226
-
-216:                                              ; preds = %213
-  %217 = load i32, ptr %16, align 4
-  %218 = icmp ule i32 %217, 4
-  br i1 %218, label %219, label %226
-
-219:                                              ; preds = %216
-  %220 = load ptr, ptr %13, align 8
-  %221 = load i32, ptr @hf_uasip_qos_ip_tos, align 4
-  %222 = load ptr, ptr %5, align 8
-  %223 = load i32, ptr %17, align 4
-  %224 = load i32, ptr %16, align 4
-  %225 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %221, ptr noundef %222, i32 noundef %223, i32 noundef %224, i32 noundef 0)
-  br label %231
-
-226:                                              ; preds = %216, %213
-  %227 = load ptr, ptr %6, align 8
-  %228 = load ptr, ptr %11, align 8
-  %229 = load i32, ptr %16, align 4
-  %230 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %227, ptr noundef %228, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %229)
-  br label %231
-
-231:                                              ; preds = %226, %219
-  br label %271
-
-232:                                              ; preds = %67
-  %233 = load i32, ptr %16, align 4
-  %234 = icmp uge i32 %233, 1
-  br i1 %234, label %235, label %245
-
-235:                                              ; preds = %232
-  %236 = load i32, ptr %16, align 4
-  %237 = icmp ule i32 %236, 4
-  br i1 %237, label %238, label %245
-
-238:                                              ; preds = %235
-  %239 = load ptr, ptr %13, align 8
-  %240 = load i32, ptr @hf_uasip_qos_8021_vlid, align 4
-  %241 = load ptr, ptr %5, align 8
-  %242 = load i32, ptr %17, align 4
-  %243 = load i32, ptr %16, align 4
-  %244 = call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %240, ptr noundef %241, i32 noundef %242, i32 noundef %243, i32 noundef 0)
-  br label %250
-
-245:                                              ; preds = %235, %232
-  %246 = load ptr, ptr %6, align 8
-  %247 = load ptr, ptr %11, align 8
-  %248 = load i32, ptr %16, align 4
-  %249 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %246, ptr noundef %247, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %248)
-  br label %250
-
-250:                                              ; preds = %245, %238
-  br label %271
-
-251:                                              ; preds = %67
-  %252 = load i32, ptr %16, align 4
-  %253 = icmp uge i32 %252, 1
-  br i1 %253, label %254, label %264
-
-254:                                              ; preds = %251
-  %255 = load i32, ptr %16, align 4
-  %256 = icmp ule i32 %255, 4
-  br i1 %256, label %257, label %264
-
-257:                                              ; preds = %254
-  %258 = load ptr, ptr %13, align 8
-  %259 = load i32, ptr @hf_uasip_qos_8021_pri, align 4
-  %260 = load ptr, ptr %5, align 8
-  %261 = load i32, ptr %17, align 4
-  %262 = load i32, ptr %16, align 4
-  %263 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %259, ptr noundef %260, i32 noundef %261, i32 noundef %262, i32 noundef 0)
-  br label %269
-
-264:                                              ; preds = %254, %251
-  %265 = load ptr, ptr %6, align 8
-  %266 = load ptr, ptr %11, align 8
-  %267 = load i32, ptr %16, align 4
-  %268 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %265, ptr noundef %266, ptr noundef @ei_uasip_tlv_length, ptr noundef @.str.62, i32 noundef %267)
-  br label %269
-
-269:                                              ; preds = %264, %257
-  br label %271
-
-270:                                              ; preds = %67
-  br label %271
-
-271:                                              ; preds = %270, %269, %250, %231, %212, %193, %174, %155, %136, %117
-  %272 = load i32, ptr %16, align 4
-  %273 = load i32, ptr %17, align 4
-  %274 = add i32 %273, %272
-  store i32 %274, ptr %17, align 4
-  br label %62, !llvm.loop !4
-
-275:                                              ; preds = %62
-  br label %376
-
-276:                                              ; preds = %29
-  %277 = load ptr, ptr %12, align 8
-  %278 = load i32, ptr @hf_uasip_expseq, align 4
-  %279 = load ptr, ptr %5, align 8
-  %280 = load i32, ptr %17, align 4
-  %281 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %277, i32 noundef %278, ptr noundef %279, i32 noundef %280, i32 noundef 2, i32 noundef 0, ptr noundef getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 1))
-  %282 = load i32, ptr @noesip_enabled, align 4
-  %283 = icmp ne i32 %282, 0
-  br i1 %283, label %284, label %288
-
-284:                                              ; preds = %276
-  %285 = load ptr, ptr %6, align 8
-  %286 = getelementptr inbounds %struct._packet_info, ptr %285, i32 0, i32 1
-  %287 = load ptr, ptr %286, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %287, i32 noundef 25, ptr noundef @.str.63)
-  br label %293
-
-288:                                              ; preds = %276
-  %289 = load ptr, ptr %6, align 8
-  %290 = getelementptr inbounds %struct._packet_info, ptr %289, i32 0, i32 1
-  %291 = load ptr, ptr %290, align 8
-  %292 = load i32, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 1), align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %291, i32 noundef 25, ptr noundef @.str.64, i32 noundef %292)
-  br label %293
-
-293:                                              ; preds = %288, %284
-  br label %376
-
-294:                                              ; preds = %29
-  %295 = load ptr, ptr %12, align 8
-  %296 = load i32, ptr @hf_uasip_expseq, align 4
-  %297 = load ptr, ptr %5, align 8
-  %298 = load i32, ptr %17, align 4
-  %299 = add i32 %298, 0
-  %300 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %295, i32 noundef %296, ptr noundef %297, i32 noundef %299, i32 noundef 2, i32 noundef 0, ptr noundef getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 1))
-  %301 = load ptr, ptr %12, align 8
-  %302 = load i32, ptr @hf_uasip_sntseq, align 4
-  %303 = load ptr, ptr %5, align 8
-  %304 = load i32, ptr %17, align 4
-  %305 = add i32 %304, 2
-  %306 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %301, i32 noundef %302, ptr noundef %303, i32 noundef %305, i32 noundef 2, i32 noundef 0, ptr noundef getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 2))
-  %307 = load i32, ptr %17, align 4
-  %308 = add i32 %307, 4
-  store i32 %308, ptr %17, align 4
-  %309 = load ptr, ptr %5, align 8
-  %310 = load i32, ptr %17, align 4
-  %311 = call i32 @tvb_reported_length_remaining(ptr noundef %309, i32 noundef %310)
-  store i32 %311, ptr %18, align 4
-  %312 = load i32, ptr @noesip_enabled, align 4
-  %313 = icmp ne i32 %312, 0
-  br i1 %313, label %314, label %352
-
-314:                                              ; preds = %294
-  %315 = load i32, ptr %18, align 4
-  %316 = icmp sgt i32 %315, 0
-  br i1 %316, label %317, label %347
-
-317:                                              ; preds = %314
-  %318 = load i32, ptr %8, align 4
-  %319 = icmp eq i32 %318, 0
-  br i1 %319, label %320, label %329
-
-320:                                              ; preds = %317
-  %321 = load ptr, ptr @ua_sys_to_term_handle, align 8
-  %322 = load ptr, ptr %5, align 8
-  %323 = load i32, ptr %17, align 4
-  %324 = load i32, ptr %18, align 4
-  %325 = call ptr @tvb_new_subset_length(ptr noundef %322, i32 noundef %323, i32 noundef %324)
-  %326 = load ptr, ptr %6, align 8
-  %327 = load ptr, ptr %7, align 8
-  %328 = call i32 @call_dissector(ptr noundef %321, ptr noundef %325, ptr noundef %326, ptr noundef %327)
-  br label %346
-
-329:                                              ; preds = %317
-  %330 = load i32, ptr %8, align 4
-  %331 = icmp eq i32 %330, 1
-  br i1 %331, label %332, label %341
-
-332:                                              ; preds = %329
-  %333 = load ptr, ptr @ua_term_to_sys_handle, align 8
-  %334 = load ptr, ptr %5, align 8
-  %335 = load i32, ptr %17, align 4
-  %336 = load i32, ptr %18, align 4
-  %337 = call ptr @tvb_new_subset_length(ptr noundef %334, i32 noundef %335, i32 noundef %336)
-  %338 = load ptr, ptr %6, align 8
-  %339 = load ptr, ptr %7, align 8
-  %340 = call i32 @call_dissector(ptr noundef %333, ptr noundef %337, ptr noundef %338, ptr noundef %339)
-  br label %345
-
-341:                                              ; preds = %329
-  %342 = load ptr, ptr %6, align 8
-  %343 = getelementptr inbounds %struct._packet_info, ptr %342, i32 0, i32 1
-  %344 = load ptr, ptr %343, align 8
-  call void @col_add_str(ptr noundef %344, i32 noundef 25, ptr noundef @.str.65)
-  br label %345
-
-345:                                              ; preds = %341, %332
-  br label %346
-
-346:                                              ; preds = %345, %320
+338:                                              ; preds = %335
+  %339 = load ptr, ptr @ua_term_to_sys_handle, align 8
+  %340 = load ptr, ptr %5, align 8
+  %341 = load i32, ptr %17, align 4
+  %342 = load i32, ptr %18, align 4
+  %343 = call ptr @tvb_new_subset_length(ptr noundef %340, i32 noundef %341, i32 noundef %342)
+  %344 = load ptr, ptr %6, align 8
+  %345 = load ptr, ptr %7, align 8
+  %346 = call i32 @call_dissector(ptr noundef %339, ptr noundef %343, ptr noundef %344, ptr noundef %345)
   br label %351
 
-347:                                              ; preds = %314
+347:                                              ; preds = %335
   %348 = load ptr, ptr %6, align 8
   %349 = getelementptr inbounds %struct._packet_info, ptr %348, i32 0, i32 1
   %350 = load ptr, ptr %349, align 8
-  call void @col_add_str(ptr noundef %350, i32 noundef 25, ptr noundef @.str.66)
+  call void @col_add_str(ptr noundef %350, i32 noundef 25, ptr noundef @.str.65)
   br label %351
 
-351:                                              ; preds = %347, %346
-  br label %374
+351:                                              ; preds = %347, %338
+  br label %352
 
-352:                                              ; preds = %294
-  %353 = load i32, ptr %18, align 4
-  %354 = icmp sgt i32 %353, 0
-  br i1 %354, label %355, label %364
+352:                                              ; preds = %351, %326
+  br label %357
 
-355:                                              ; preds = %352
-  %356 = load ptr, ptr %6, align 8
-  %357 = getelementptr inbounds %struct._packet_info, ptr %356, i32 0, i32 1
-  %358 = load ptr, ptr %357, align 8
-  %359 = load i32, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 1), align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %358, i32 noundef 25, ptr noundef @.str.67, i32 noundef %359)
-  %360 = load ptr, ptr %6, align 8
-  %361 = getelementptr inbounds %struct._packet_info, ptr %360, i32 0, i32 1
-  %362 = load ptr, ptr %361, align 8
-  %363 = load i32, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 2), align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %362, i32 noundef 25, ptr noundef @.str.68, i32 noundef %363)
-  br label %373
+353:                                              ; preds = %320
+  %354 = load ptr, ptr %6, align 8
+  %355 = getelementptr inbounds %struct._packet_info, ptr %354, i32 0, i32 1
+  %356 = load ptr, ptr %355, align 8
+  call void @col_add_str(ptr noundef %356, i32 noundef 25, ptr noundef @.str.66)
+  br label %357
 
-364:                                              ; preds = %352
-  %365 = load ptr, ptr %6, align 8
-  %366 = getelementptr inbounds %struct._packet_info, ptr %365, i32 0, i32 1
-  %367 = load ptr, ptr %366, align 8
-  %368 = load i32, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 1), align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %367, i32 noundef 25, ptr noundef @.str.69, i32 noundef %368)
-  %369 = load ptr, ptr %6, align 8
-  %370 = getelementptr inbounds %struct._packet_info, ptr %369, i32 0, i32 1
-  %371 = load ptr, ptr %370, align 8
-  %372 = load i32, ptr getelementptr inbounds (%struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 2), align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %371, i32 noundef 25, ptr noundef @.str.68, i32 noundef %372)
-  br label %373
+357:                                              ; preds = %353, %352
+  br label %384
 
-373:                                              ; preds = %364, %355
-  br label %374
+358:                                              ; preds = %298
+  %359 = load i32, ptr %18, align 4
+  %360 = icmp sgt i32 %359, 0
+  br i1 %360, label %361, label %372
 
-374:                                              ; preds = %373, %351
-  br label %376
+361:                                              ; preds = %358
+  %362 = load ptr, ptr %6, align 8
+  %363 = getelementptr inbounds %struct._packet_info, ptr %362, i32 0, i32 1
+  %364 = load ptr, ptr %363, align 8
+  %365 = getelementptr inbounds %struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 1
+  %366 = load i32, ptr %365, align 4
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %364, i32 noundef 25, ptr noundef @.str.67, i32 noundef %366)
+  %367 = load ptr, ptr %6, align 8
+  %368 = getelementptr inbounds %struct._packet_info, ptr %367, i32 0, i32 1
+  %369 = load ptr, ptr %368, align 8
+  %370 = getelementptr inbounds %struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 2
+  %371 = load i32, ptr %370, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %369, i32 noundef 25, ptr noundef @.str.68, i32 noundef %371)
+  br label %383
 
-375:                                              ; preds = %29
-  br label %376
+372:                                              ; preds = %358
+  %373 = load ptr, ptr %6, align 8
+  %374 = getelementptr inbounds %struct._packet_info, ptr %373, i32 0, i32 1
+  %375 = load ptr, ptr %374, align 8
+  %376 = getelementptr inbounds %struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 1
+  %377 = load i32, ptr %376, align 4
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %375, i32 noundef 25, ptr noundef @.str.69, i32 noundef %377)
+  %378 = load ptr, ptr %6, align 8
+  %379 = getelementptr inbounds %struct._packet_info, ptr %378, i32 0, i32 1
+  %380 = load ptr, ptr %379, align 8
+  %381 = getelementptr inbounds %struct._tap_struct_uaudp, ptr @ua_tap_info, i32 0, i32 2
+  %382 = load i32, ptr %381, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %380, i32 noundef 25, ptr noundef @.str.68, i32 noundef %382)
+  br label %383
 
-376:                                              ; preds = %375, %374, %293, %275
+383:                                              ; preds = %372, %361
+  br label %384
+
+384:                                              ; preds = %383, %357
+  br label %386
+
+385:                                              ; preds = %29
+  br label %386
+
+386:                                              ; preds = %385, %384, %297, %277
   ret void
 }
 

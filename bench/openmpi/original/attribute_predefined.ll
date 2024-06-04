@@ -236,75 +236,78 @@ define i32 @ompi_attr_set_predefined_keyvals_for_wm() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
-  %3 = load i32, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 22), align 4
-  %4 = call i32 @set_f(i32 noundef 0, i32 noundef %3)
-  store i32 %4, ptr %2, align 4
-  %5 = icmp ne i32 0, %4
-  br i1 %5, label %25, label %6
+  %3 = getelementptr inbounds %struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i32 0, i32 22
+  %4 = load i32, ptr %3, align 4
+  %5 = call i32 @set_f(i32 noundef 0, i32 noundef %4)
+  store i32 %5, ptr %2, align 4
+  %6 = icmp ne i32 0, %5
+  br i1 %6, label %26, label %7
 
-6:                                                ; preds = %0
-  %7 = call i32 @set_f(i32 noundef 1, i32 noundef -2)
-  store i32 %7, ptr %2, align 4
-  %8 = icmp ne i32 0, %7
-  br i1 %8, label %25, label %9
+7:                                                ; preds = %0
+  %8 = call i32 @set_f(i32 noundef 1, i32 noundef -2)
+  store i32 %8, ptr %2, align 4
+  %9 = icmp ne i32 0, %8
+  br i1 %9, label %26, label %10
 
-9:                                                ; preds = %6
-  %10 = call i32 @set_f(i32 noundef 2, i32 noundef -1)
-  store i32 %10, ptr %2, align 4
-  %11 = icmp ne i32 0, %10
-  br i1 %11, label %25, label %12
+10:                                               ; preds = %7
+  %11 = call i32 @set_f(i32 noundef 2, i32 noundef -1)
+  store i32 %11, ptr %2, align 4
+  %12 = icmp ne i32 0, %11
+  br i1 %12, label %26, label %13
 
-12:                                               ; preds = %9
-  %13 = call i32 @set_f(i32 noundef 3, i32 noundef 0)
-  store i32 %13, ptr %2, align 4
-  %14 = icmp ne i32 0, %13
-  br i1 %14, label %25, label %15
+13:                                               ; preds = %10
+  %14 = call i32 @set_f(i32 noundef 3, i32 noundef 0)
+  store i32 %14, ptr %2, align 4
+  %15 = icmp ne i32 0, %14
+  br i1 %15, label %26, label %16
 
-15:                                               ; preds = %12
-  %16 = load i8, ptr @ompi_ftmpi_enabled, align 1
-  %17 = trunc i8 %16 to i1
-  %18 = zext i1 %17 to i32
-  %19 = call i32 @set_f(i32 noundef 12, i32 noundef %18)
-  store i32 %19, ptr %2, align 4
-  %20 = icmp ne i32 0, %19
-  br i1 %20, label %25, label %21
+16:                                               ; preds = %13
+  %17 = load i8, ptr @ompi_ftmpi_enabled, align 1
+  %18 = trunc i8 %17 to i1
+  %19 = zext i1 %18 to i32
+  %20 = call i32 @set_f(i32 noundef 12, i32 noundef %19)
+  store i32 %20, ptr %2, align 4
+  %21 = icmp ne i32 0, %20
+  br i1 %21, label %26, label %22
 
-21:                                               ; preds = %15
-  %22 = load i32, ptr @ompi_mpi_errcode_lastused, align 4
-  %23 = call i32 @set_f(i32 noundef 5, i32 noundef %22)
-  store i32 %23, ptr %2, align 4
-  %24 = icmp ne i32 0, %23
-  br i1 %24, label %25, label %27
+22:                                               ; preds = %16
+  %23 = load i32, ptr @ompi_mpi_errcode_lastused, align 4
+  %24 = call i32 @set_f(i32 noundef 5, i32 noundef %23)
+  store i32 %24, ptr %2, align 4
+  %25 = icmp ne i32 0, %24
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %21, %15, %12, %9, %6, %0
-  %26 = load i32, ptr %2, align 4
-  store i32 %26, ptr %1, align 4
-  br label %38
+26:                                               ; preds = %22, %16, %13, %10, %7, %0
+  %27 = load i32, ptr %2, align 4
+  store i32 %27, ptr %1, align 4
+  br label %41
 
-27:                                               ; preds = %21
-  %28 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 16), align 4
-  %29 = call i32 @set_f(i32 noundef 6, i32 noundef %28)
-  store i32 %29, ptr %2, align 4
-  %30 = load i32, ptr %2, align 4
-  %31 = icmp ne i32 0, %30
-  br i1 %31, label %32, label %34
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 16
+  %30 = load i32, ptr %29, align 4
+  %31 = call i32 @set_f(i32 noundef 6, i32 noundef %30)
+  store i32 %31, ptr %2, align 4
+  %32 = load i32, ptr %2, align 4
+  %33 = icmp ne i32 0, %32
+  br i1 %33, label %34, label %36
 
-32:                                               ; preds = %27
-  %33 = load i32, ptr %2, align 4
-  store i32 %33, ptr %1, align 4
-  br label %38
+34:                                               ; preds = %28
+  %35 = load i32, ptr %2, align 4
+  store i32 %35, ptr %1, align 4
+  br label %41
 
-34:                                               ; preds = %27
-  %35 = load i32, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 15), align 8
-  %36 = call i32 @set_f(i32 noundef 4, i32 noundef %35)
-  store i32 %36, ptr %2, align 4
-  %37 = load i32, ptr %2, align 4
-  store i32 %37, ptr %1, align 4
-  br label %38
+36:                                               ; preds = %28
+  %37 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 15
+  %38 = load i32, ptr %37, align 8
+  %39 = call i32 @set_f(i32 noundef 4, i32 noundef %38)
+  store i32 %39, ptr %2, align 4
+  %40 = load i32, ptr %2, align 4
+  store i32 %40, ptr %1, align 4
+  br label %41
 
-38:                                               ; preds = %34, %32, %25
-  %39 = load i32, ptr %1, align 4
-  ret i32 %39
+41:                                               ; preds = %36, %34, %26
+  %42 = load i32, ptr %1, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -315,8 +318,9 @@ define internal i32 @set_f(i32 noundef %0, i32 noundef %1) #0 {
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr %4, align 4
-  %7 = call i32 @ompi_attr_set_fint(i32 noundef 1, ptr noundef @ompi_mpi_comm_world, ptr noundef getelementptr inbounds (%struct.ompi_communicator_t, ptr @ompi_mpi_comm_world, i32 0, i32 16), i32 noundef %5, i32 noundef %6, i1 noundef zeroext true)
-  ret i32 %7
+  %7 = getelementptr inbounds %struct.ompi_communicator_t, ptr @ompi_mpi_comm_world, i32 0, i32 16
+  %8 = call i32 @ompi_attr_set_fint(i32 noundef 1, ptr noundef @ompi_mpi_comm_world, ptr noundef %7, i32 noundef %5, i32 noundef %6, i1 noundef zeroext true)
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -336,10 +340,11 @@ define void @ompi_attr_delete_predefined_keyvals_for_wm() #0 {
 define internal i32 @unset_f(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ompi_communicator_t, ptr @ompi_mpi_comm_world, i32 0, i32 16), align 8
-  %4 = load i32, ptr %2, align 4
-  %5 = call i32 @ompi_attr_delete(i32 noundef 1, ptr noundef @ompi_mpi_comm_world, ptr noundef %3, i32 noundef %4, i1 noundef zeroext true)
-  ret i32 %5
+  %3 = getelementptr inbounds %struct.ompi_communicator_t, ptr @ompi_mpi_comm_world, i32 0, i32 16
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i32, ptr %2, align 4
+  %6 = call i32 @ompi_attr_delete(i32 noundef 1, ptr noundef @ompi_mpi_comm_world, ptr noundef %4, i32 noundef %5, i1 noundef zeroext true)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable

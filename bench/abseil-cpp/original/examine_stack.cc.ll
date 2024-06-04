@@ -457,18 +457,19 @@ entry:
   %call = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #4
   store ptr %call, ptr %p, align 8
   %1 = load ptr, ptr %p, align 8
-  %cmp = icmp eq ptr %1, inttoptr (i64 -1 to ptr)
+  %2 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %1, %2
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %2 = load ptr, ptr %p, align 8
+  %3 = load ptr, ptr %p, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ null, %cond.true ], [ %2, %cond.false ]
+  %cond = phi ptr [ null, %cond.true ], [ %3, %cond.false ]
   ret ptr %cond
 }
 

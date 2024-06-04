@@ -4717,39 +4717,42 @@ define void @Abc_IsopTestNew() #0 {
   %7 = call ptr @Vec_IntAlloc(i32 noundef 1000)
   store ptr %7, ptr %2, align 8
   %8 = load i64, ptr @s_Truths6, align 16
-  %9 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 1), align 8
-  %10 = and i64 %8, %9
-  %11 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 2), align 16
-  %12 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @s_Truths6, i64 0, i64 3), align 8
-  %13 = and i64 %11, %12
-  %14 = xor i64 %10, %13
-  store i64 %14, ptr %4, align 8
-  %15 = load i64, ptr %4, align 8
-  store i64 %15, ptr %5, align 8
-  %16 = load i32, ptr %1, align 4
-  %17 = call i64 @Abc_Cube2Cost(i32 noundef 65535)
-  %18 = load ptr, ptr %2, align 8
-  %19 = call ptr @Vec_IntArray(ptr noundef %18)
-  %20 = call i64 @Abc_EsopCheck(ptr noundef %4, i32 noundef %16, i64 noundef %17, ptr noundef %19)
-  store i64 %20, ptr %6, align 8
-  %21 = load i64, ptr %6, align 8
-  %22 = call i32 @Abc_CostCubes(i64 noundef %21)
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.Vec_Int_t_, ptr %23, i32 0, i32 1
-  store i32 %22, ptr %24, align 4
-  %25 = load i64, ptr %6, align 8
-  %26 = call i32 @Abc_CostCubes(i64 noundef %25)
-  %27 = load i64, ptr %6, align 8
-  %28 = call i32 @Abc_CostLits(i64 noundef %27)
-  %29 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, i32 noundef %26, i32 noundef %28)
-  %30 = load ptr, ptr %2, align 8
-  %31 = load i32, ptr %1, align 4
-  call void @Abc_IsopPrintCover(ptr noundef %30, i32 noundef %31, i32 noundef 0)
-  %32 = load i32, ptr %1, align 4
+  %9 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 1
+  %10 = load i64, ptr %9, align 8
+  %11 = and i64 %8, %10
+  %12 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 2
+  %13 = load i64, ptr %12, align 16
+  %14 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 3
+  %15 = load i64, ptr %14, align 8
+  %16 = and i64 %13, %15
+  %17 = xor i64 %11, %16
+  store i64 %17, ptr %4, align 8
+  %18 = load i64, ptr %4, align 8
+  store i64 %18, ptr %5, align 8
+  %19 = load i32, ptr %1, align 4
+  %20 = call i64 @Abc_Cube2Cost(i32 noundef 65535)
+  %21 = load ptr, ptr %2, align 8
+  %22 = call ptr @Vec_IntArray(ptr noundef %21)
+  %23 = call i64 @Abc_EsopCheck(ptr noundef %4, i32 noundef %19, i64 noundef %20, ptr noundef %22)
+  store i64 %23, ptr %6, align 8
+  %24 = load i64, ptr %6, align 8
+  %25 = call i32 @Abc_CostCubes(i64 noundef %24)
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds %struct.Vec_Int_t_, ptr %26, i32 0, i32 1
+  store i32 %25, ptr %27, align 4
+  %28 = load i64, ptr %6, align 8
+  %29 = call i32 @Abc_CostCubes(i64 noundef %28)
+  %30 = load i64, ptr %6, align 8
+  %31 = call i32 @Abc_CostLits(i64 noundef %30)
+  %32 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, i32 noundef %29, i32 noundef %31)
   %33 = load ptr, ptr %2, align 8
-  call void @Abc_IsopVerify(ptr noundef %5, i32 noundef %32, ptr noundef %3, ptr noundef %33, i32 noundef 1, i32 noundef 0)
-  %34 = load ptr, ptr %2, align 8
-  call void @Vec_IntFree(ptr noundef %34)
+  %34 = load i32, ptr %1, align 4
+  call void @Abc_IsopPrintCover(ptr noundef %33, i32 noundef %34, i32 noundef 0)
+  %35 = load i32, ptr %1, align 4
+  %36 = load ptr, ptr %2, align 8
+  call void @Abc_IsopVerify(ptr noundef %5, i32 noundef %35, ptr noundef %3, ptr noundef %36, i32 noundef 1, i32 noundef 0)
+  %37 = load ptr, ptr %2, align 8
+  call void @Vec_IntFree(ptr noundef %37)
   ret void
 }
 
@@ -4913,178 +4916,196 @@ define i32 @Abc_IsopTest(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   store i32 %12, ptr @Abc_IsopTest.Counter, align 4
   %13 = load i32, ptr @Abc_IsopTest.Counter, align 4
   %14 = icmp eq i32 %13, 9999
-  br i1 %14, label %15, label %22
+  br i1 %14, label %15, label %27
 
 15:                                               ; preds = %3
   %16 = load i64, ptr @Abc_IsopTest.TotalTime, align 16
   call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.1, i64 noundef %16)
-  %17 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 1), align 8
-  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.2, i64 noundef %17)
-  %18 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 2), align 16
-  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.6, i64 noundef %18)
-  %19 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 3), align 8
-  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.7, i64 noundef %19)
-  %20 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 4), align 16
-  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.8, i64 noundef %20)
-  %21 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 5), align 8
-  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.9, i64 noundef %21)
-  br label %22
+  %17 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 1
+  %18 = load i64, ptr %17, align 8
+  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.2, i64 noundef %18)
+  %19 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 2
+  %20 = load i64, ptr %19, align 16
+  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.6, i64 noundef %20)
+  %21 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 3
+  %22 = load i64, ptr %21, align 8
+  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.7, i64 noundef %22)
+  %23 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 4
+  %24 = load i64, ptr %23, align 16
+  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.8, i64 noundef %24)
+  %25 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 5
+  %26 = load i64, ptr %25, align 8
+  call void @Abc_PrintTime(i32 noundef 1, ptr noundef @.str.9, i64 noundef %26)
+  br label %27
 
-22:                                               ; preds = %15, %3
-  %23 = call i64 @Abc_Clock()
-  store i64 %23, ptr %10, align 8
-  %24 = load ptr, ptr %4, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds [1024 x i64], ptr %8, i64 0, i64 0
-  %27 = load i32, ptr %5, align 4
-  %28 = call i64 @Abc_Cube2Cost(i32 noundef 65535)
-  %29 = load ptr, ptr %6, align 8
-  %30 = call ptr @Vec_IntArray(ptr noundef %29)
-  %31 = call i64 @Abc_IsopCheck(ptr noundef %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, i64 noundef %28, ptr noundef %30)
-  store i64 %31, ptr %9, align 8
-  %32 = load i64, ptr %9, align 8
-  %33 = call i32 @Abc_CostCubes(i64 noundef %32)
+27:                                               ; preds = %15, %3
+  %28 = call i64 @Abc_Clock()
+  store i64 %28, ptr %10, align 8
+  %29 = load ptr, ptr %4, align 8
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds [1024 x i64], ptr %8, i64 0, i64 0
+  %32 = load i32, ptr %5, align 4
+  %33 = call i64 @Abc_Cube2Cost(i32 noundef 65535)
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.Vec_Int_t_, ptr %34, i32 0, i32 1
-  store i32 %33, ptr %35, align 4
-  %36 = load i32, ptr %7, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %44
+  %35 = call ptr @Vec_IntArray(ptr noundef %34)
+  %36 = call i64 @Abc_IsopCheck(ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, i64 noundef %33, ptr noundef %35)
+  store i64 %36, ptr %9, align 8
+  %37 = load i64, ptr %9, align 8
+  %38 = call i32 @Abc_CostCubes(i64 noundef %37)
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds %struct.Vec_Int_t_, ptr %39, i32 0, i32 1
+  store i32 %38, ptr %40, align 4
+  %41 = load i32, ptr %7, align 4
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %49
 
-38:                                               ; preds = %22
-  %39 = load i64, ptr %9, align 8
-  %40 = call i32 @Abc_CostCubes(i64 noundef %39)
-  %41 = load i64, ptr %9, align 8
-  %42 = call i32 @Abc_CostLits(i64 noundef %41)
-  %43 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, i32 noundef %40, i32 noundef %42)
-  br label %44
+43:                                               ; preds = %27
+  %44 = load i64, ptr %9, align 8
+  %45 = call i32 @Abc_CostCubes(i64 noundef %44)
+  %46 = load i64, ptr %9, align 8
+  %47 = call i32 @Abc_CostLits(i64 noundef %46)
+  %48 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, i32 noundef %45, i32 noundef %47)
+  br label %49
 
-44:                                               ; preds = %38, %22
-  %45 = load i64, ptr %9, align 8
-  %46 = call i32 @Abc_CostCubes(i64 noundef %45)
-  %47 = sext i32 %46 to i64
-  %48 = load i64, ptr @Abc_IsopTest.TotalCost, align 16
-  %49 = add i64 %48, %47
-  store i64 %49, ptr @Abc_IsopTest.TotalCost, align 16
-  %50 = call i64 @Abc_Clock()
-  %51 = load i64, ptr %10, align 8
-  %52 = sub nsw i64 %50, %51
-  %53 = load i64, ptr @Abc_IsopTest.TotalTime, align 16
-  %54 = add nsw i64 %53, %52
-  store i64 %54, ptr @Abc_IsopTest.TotalTime, align 16
+49:                                               ; preds = %43, %27
+  %50 = load i64, ptr %9, align 8
+  %51 = call i32 @Abc_CostCubes(i64 noundef %50)
+  %52 = sext i32 %51 to i64
+  %53 = load i64, ptr @Abc_IsopTest.TotalCost, align 16
+  %54 = add i64 %53, %52
+  store i64 %54, ptr @Abc_IsopTest.TotalCost, align 16
   %55 = call i64 @Abc_Clock()
-  store i64 %55, ptr %10, align 8
-  %56 = load ptr, ptr %4, align 8
-  %57 = load i32, ptr %5, align 4
-  %58 = call i32 @Abc_TtWordNum(i32 noundef %57)
-  call void @Abc_TtNot(ptr noundef %56, i32 noundef %58)
-  %59 = load ptr, ptr %4, align 8
-  %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds [1024 x i64], ptr %8, i64 0, i64 0
+  %56 = load i64, ptr %10, align 8
+  %57 = sub nsw i64 %55, %56
+  %58 = load i64, ptr @Abc_IsopTest.TotalTime, align 16
+  %59 = add nsw i64 %58, %57
+  store i64 %59, ptr @Abc_IsopTest.TotalTime, align 16
+  %60 = call i64 @Abc_Clock()
+  store i64 %60, ptr %10, align 8
+  %61 = load ptr, ptr %4, align 8
   %62 = load i32, ptr %5, align 4
-  %63 = call i64 @Abc_Cube2Cost(i32 noundef 65535)
-  %64 = load ptr, ptr %6, align 8
-  %65 = call ptr @Vec_IntArray(ptr noundef %64)
-  %66 = call i64 @Abc_IsopCheck(ptr noundef %59, ptr noundef %60, ptr noundef %61, i32 noundef %62, i64 noundef %63, ptr noundef %65)
-  store i64 %66, ptr %9, align 8
-  %67 = load ptr, ptr %4, align 8
-  %68 = load i32, ptr %5, align 4
-  %69 = call i32 @Abc_TtWordNum(i32 noundef %68)
-  call void @Abc_TtNot(ptr noundef %67, i32 noundef %69)
-  %70 = load i64, ptr %9, align 8
-  %71 = call i32 @Abc_CostCubes(i64 noundef %70)
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds %struct.Vec_Int_t_, ptr %72, i32 0, i32 1
-  store i32 %71, ptr %73, align 4
-  %74 = load i32, ptr %7, align 4
-  %75 = icmp ne i32 %74, 0
-  br i1 %75, label %76, label %82
+  %63 = call i32 @Abc_TtWordNum(i32 noundef %62)
+  call void @Abc_TtNot(ptr noundef %61, i32 noundef %63)
+  %64 = load ptr, ptr %4, align 8
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds [1024 x i64], ptr %8, i64 0, i64 0
+  %67 = load i32, ptr %5, align 4
+  %68 = call i64 @Abc_Cube2Cost(i32 noundef 65535)
+  %69 = load ptr, ptr %6, align 8
+  %70 = call ptr @Vec_IntArray(ptr noundef %69)
+  %71 = call i64 @Abc_IsopCheck(ptr noundef %64, ptr noundef %65, ptr noundef %66, i32 noundef %67, i64 noundef %68, ptr noundef %70)
+  store i64 %71, ptr %9, align 8
+  %72 = load ptr, ptr %4, align 8
+  %73 = load i32, ptr %5, align 4
+  %74 = call i32 @Abc_TtWordNum(i32 noundef %73)
+  call void @Abc_TtNot(ptr noundef %72, i32 noundef %74)
+  %75 = load i64, ptr %9, align 8
+  %76 = call i32 @Abc_CostCubes(i64 noundef %75)
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr inbounds %struct.Vec_Int_t_, ptr %77, i32 0, i32 1
+  store i32 %76, ptr %78, align 4
+  %79 = load i32, ptr %7, align 4
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %87
 
-76:                                               ; preds = %44
-  %77 = load i64, ptr %9, align 8
-  %78 = call i32 @Abc_CostCubes(i64 noundef %77)
-  %79 = load i64, ptr %9, align 8
-  %80 = call i32 @Abc_CostLits(i64 noundef %79)
-  %81 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, i32 noundef %78, i32 noundef %80)
-  br label %82
+81:                                               ; preds = %49
+  %82 = load i64, ptr %9, align 8
+  %83 = call i32 @Abc_CostCubes(i64 noundef %82)
+  %84 = load i64, ptr %9, align 8
+  %85 = call i32 @Abc_CostLits(i64 noundef %84)
+  %86 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, i32 noundef %83, i32 noundef %85)
+  br label %87
 
-82:                                               ; preds = %76, %44
-  %83 = load i64, ptr %9, align 8
-  %84 = call i32 @Abc_CostCubes(i64 noundef %83)
-  %85 = sext i32 %84 to i64
-  %86 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 1), align 8
-  %87 = add i64 %86, %85
-  store i64 %87, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 1), align 8
-  %88 = call i64 @Abc_Clock()
-  %89 = load i64, ptr %10, align 8
-  %90 = sub nsw i64 %88, %89
-  %91 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 1), align 8
-  %92 = add nsw i64 %91, %90
-  store i64 %92, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 1), align 8
-  %93 = call i64 @Abc_Clock()
-  store i64 %93, ptr %10, align 8
-  %94 = load ptr, ptr %4, align 8
-  %95 = load i32, ptr %5, align 4
-  %96 = load ptr, ptr %6, align 8
-  %97 = call i32 @Abc_Isop(ptr noundef %94, i32 noundef %95, i32 noundef 65535, ptr noundef %96, i32 noundef 1)
-  %98 = sext i32 %97 to i64
-  store i64 %98, ptr %9, align 8
-  %99 = load i32, ptr %7, align 4
-  %100 = icmp ne i32 %99, 0
-  br i1 %100, label %101, label %108
+87:                                               ; preds = %81, %49
+  %88 = load i64, ptr %9, align 8
+  %89 = call i32 @Abc_CostCubes(i64 noundef %88)
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 1
+  %92 = load i64, ptr %91, align 8
+  %93 = add i64 %92, %90
+  %94 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 1
+  store i64 %93, ptr %94, align 8
+  %95 = call i64 @Abc_Clock()
+  %96 = load i64, ptr %10, align 8
+  %97 = sub nsw i64 %95, %96
+  %98 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 1
+  %99 = load i64, ptr %98, align 8
+  %100 = add nsw i64 %99, %97
+  %101 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 1
+  store i64 %100, ptr %101, align 8
+  %102 = call i64 @Abc_Clock()
+  store i64 %102, ptr %10, align 8
+  %103 = load ptr, ptr %4, align 8
+  %104 = load i32, ptr %5, align 4
+  %105 = load ptr, ptr %6, align 8
+  %106 = call i32 @Abc_Isop(ptr noundef %103, i32 noundef %104, i32 noundef 65535, ptr noundef %105, i32 noundef 1)
+  %107 = sext i32 %106 to i64
+  store i64 %107, ptr %9, align 8
+  %108 = load i32, ptr %7, align 4
+  %109 = icmp ne i32 %108, 0
+  br i1 %109, label %110, label %117
 
-101:                                              ; preds = %82
-  %102 = load ptr, ptr %6, align 8
-  %103 = call i32 @Vec_IntSize(ptr noundef %102)
-  %104 = load ptr, ptr %6, align 8
-  %105 = load i32, ptr %5, align 4
-  %106 = call i32 @Abc_IsopCountLits(ptr noundef %104, i32 noundef %105)
-  %107 = call i32 (ptr, ...) @printf(ptr noundef @.str.11, i32 noundef %103, i32 noundef %106)
-  br label %108
+110:                                              ; preds = %87
+  %111 = load ptr, ptr %6, align 8
+  %112 = call i32 @Vec_IntSize(ptr noundef %111)
+  %113 = load ptr, ptr %6, align 8
+  %114 = load i32, ptr %5, align 4
+  %115 = call i32 @Abc_IsopCountLits(ptr noundef %113, i32 noundef %114)
+  %116 = call i32 (ptr, ...) @printf(ptr noundef @.str.11, i32 noundef %112, i32 noundef %115)
+  br label %117
 
-108:                                              ; preds = %101, %82
-  %109 = load ptr, ptr %6, align 8
-  %110 = call i32 @Vec_IntSize(ptr noundef %109)
-  %111 = sext i32 %110 to i64
-  %112 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 5), align 8
-  %113 = add i64 %112, %111
-  store i64 %113, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 5), align 8
-  %114 = call i64 @Abc_Clock()
-  %115 = load i64, ptr %10, align 8
-  %116 = sub nsw i64 %114, %115
-  %117 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 5), align 8
-  %118 = add nsw i64 %117, %116
-  store i64 %118, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 5), align 8
-  %119 = load i32, ptr %7, align 4
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %121, label %135
+117:                                              ; preds = %110, %87
+  %118 = load ptr, ptr %6, align 8
+  %119 = call i32 @Vec_IntSize(ptr noundef %118)
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 5
+  %122 = load i64, ptr %121, align 8
+  %123 = add i64 %122, %120
+  %124 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 5
+  store i64 %123, ptr %124, align 8
+  %125 = call i64 @Abc_Clock()
+  %126 = load i64, ptr %10, align 8
+  %127 = sub nsw i64 %125, %126
+  %128 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 5
+  %129 = load i64, ptr %128, align 8
+  %130 = add nsw i64 %129, %127
+  %131 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalTime, i64 0, i64 5
+  store i64 %130, ptr %131, align 8
+  %132 = load i32, ptr %7, align 4
+  %133 = icmp ne i32 %132, 0
+  br i1 %133, label %134, label %153
 
-121:                                              ; preds = %108
-  %122 = load i64, ptr @Abc_IsopTest.TotalCost, align 16
-  %123 = trunc i64 %122 to i32
-  %124 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 1), align 8
-  %125 = trunc i64 %124 to i32
-  %126 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 2), align 16
-  %127 = trunc i64 %126 to i32
-  %128 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 3), align 8
-  %129 = trunc i64 %128 to i32
-  %130 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 4), align 16
-  %131 = trunc i64 %130 to i32
-  %132 = load i64, ptr getelementptr inbounds ([6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 5), align 8
-  %133 = trunc i64 %132 to i32
-  %134 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, i32 noundef %123, i32 noundef %125, i32 noundef %127, i32 noundef %129, i32 noundef %131, i32 noundef %133)
-  br label %135
+134:                                              ; preds = %117
+  %135 = load i64, ptr @Abc_IsopTest.TotalCost, align 16
+  %136 = trunc i64 %135 to i32
+  %137 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 1
+  %138 = load i64, ptr %137, align 8
+  %139 = trunc i64 %138 to i32
+  %140 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 2
+  %141 = load i64, ptr %140, align 16
+  %142 = trunc i64 %141 to i32
+  %143 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 3
+  %144 = load i64, ptr %143, align 8
+  %145 = trunc i64 %144 to i32
+  %146 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 4
+  %147 = load i64, ptr %146, align 16
+  %148 = trunc i64 %147 to i32
+  %149 = getelementptr inbounds [6 x i64], ptr @Abc_IsopTest.TotalCost, i64 0, i64 5
+  %150 = load i64, ptr %149, align 8
+  %151 = trunc i64 %150 to i32
+  %152 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, i32 noundef %136, i32 noundef %139, i32 noundef %142, i32 noundef %145, i32 noundef %148, i32 noundef %151)
+  br label %153
 
-135:                                              ; preds = %121, %108
-  %136 = load i32, ptr %7, align 4
-  %137 = icmp ne i32 %136, 0
-  br i1 %137, label %138, label %140
+153:                                              ; preds = %134, %117
+  %154 = load i32, ptr %7, align 4
+  %155 = icmp ne i32 %154, 0
+  br i1 %155, label %156, label %158
 
-138:                                              ; preds = %135
-  %139 = call i32 (ptr, ...) @printf(ptr noundef @.str.13)
-  br label %140
+156:                                              ; preds = %153
+  %157 = call i32 (ptr, ...) @printf(ptr noundef @.str.13)
+  br label %158
 
-140:                                              ; preds = %138, %135
+158:                                              ; preds = %156, %153
   ret i32 1
 }
 
@@ -8894,7 +8915,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -8922,7 +8943,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -8933,19 +8954,13 @@ declare i32 @Abc_FrameIsBridgeMode(...) #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #6
+declare i64 @strlen(ptr noundef) #5
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @Abc_Clock() #0 {
@@ -8984,13 +8999,19 @@ define internal i64 @Abc_Clock() #0 {
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nounwind allocsize(1) }
 attributes #8 = { nounwind allocsize(0) }
 attributes #9 = { nounwind }

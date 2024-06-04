@@ -1099,9 +1099,11 @@ entry:
   %2 = getelementptr inbounds i8, ptr %this3, i64 56
   %3 = load ptr, ptr %env.addr, align 8
   call void @_ZN4node10StreamBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [27 x ptr], [20 x ptr] }, ptr @_ZTVN4node4quic9LogStreamE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %4 = getelementptr inbounds { [27 x ptr], [20 x ptr] }, ptr @_ZTVN4node4quic9LogStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [27 x ptr], [20 x ptr] }, ptr @_ZTVN4node4quic9LogStreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %5 = getelementptr inbounds { [27 x ptr], [20 x ptr] }, ptr @_ZTVN4node4quic9LogStreamE, i32 0, i32 1, i32 2
+  store ptr %5, ptr %add.ptr, align 8
   %total_ = getelementptr inbounds %"class.node::quic::LogStream", ptr %this3, i32 0, i32 2
   store i64 0, ptr %total_, align 8
   %fin_seen_ = getelementptr inbounds %"class.node::quic::LogStream", ptr %this3, i32 0, i32 3
@@ -1117,8 +1119,8 @@ entry:
   %add.ptr9 = getelementptr inbounds i8, ptr %this3, i64 56
   %vtable = load ptr, ptr %add.ptr9, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
-  %4 = load ptr, ptr %vfn, align 8
-  %call = call ptr %4(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr9)
+  %6 = load ptr, ptr %vfn, align 8
+  %call = call ptr %6(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr9)
   %coerce.dive10 = getelementptr inbounds %"class.v8::Local.289", ptr %agg.tmp8, i32 0, i32 0
   %coerce.dive11 = getelementptr inbounds %"class.v8::LocalBase.290", ptr %coerce.dive10, i32 0, i32 0
   %coerce.dive12 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive11, i32 0, i32 0
@@ -1126,8 +1128,8 @@ entry:
   %coerce.dive13 = getelementptr inbounds %"class.v8::Local.289", ptr %agg.tmp8, i32 0, i32 0
   %coerce.dive14 = getelementptr inbounds %"class.v8::LocalBase.290", ptr %coerce.dive13, i32 0, i32 0
   %coerce.dive15 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive14, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive15, align 8
-  call void @_ZN4node10StreamBase14AttachToObjectEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr7, ptr %5)
+  %7 = load ptr, ptr %coerce.dive15, align 8
+  call void @_ZN4node10StreamBase14AttachToObjectEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr7, ptr %7)
   ret void
 }
 
@@ -1142,10 +1144,11 @@ entry:
   store ptr %env, ptr %env.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14StreamResourceC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::StreamBase", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %env.addr, align 8
-  store ptr %0, ptr %env_, align 8
+  %1 = load ptr, ptr %env.addr, align 8
+  store ptr %1, ptr %env_, align 8
   %default_listener_ = getelementptr inbounds %"class.node::StreamBase", ptr %this1, i32 0, i32 2
   call void @_ZN4node22EmitToJSStreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_) #3
   %default_listener_2 = getelementptr inbounds %"class.node::StreamBase", ptr %this1, i32 0, i32 2
@@ -1996,13 +1999,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [20 x ptr] }, ptr @_ZTVN4node4quic9LogStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [27 x ptr], [20 x ptr] }, ptr @_ZTVN4node4quic9LogStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [27 x ptr], [20 x ptr] }, ptr @_ZTVN4node4quic9LogStreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [27 x ptr], [20 x ptr] }, ptr @_ZTVN4node4quic9LogStreamE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %buffer_ = getelementptr inbounds %"class.node::quic::LogStream", ptr %this1, i32 0, i32 6
   call void @_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %buffer_) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 56
-  call void @_ZN4node10StreamBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #3
+  %2 = getelementptr inbounds i8, ptr %this1, i64 56
+  call void @_ZN4node10StreamBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #3
   call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
   ret void
 }
@@ -2232,7 +2237,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node14StreamResourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN4node14StreamResourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %listener_ = getelementptr inbounds %"class.node::StreamResource", ptr %this1, i32 0, i32 1
   store ptr null, ptr %listener_, align 8
   %bytes_read_ = getelementptr inbounds %"class.node::StreamResource", ptr %this1, i32 0, i32 2
@@ -2249,7 +2255,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node30ReportWritesToJSStreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node22EmitToJSStreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node22EmitToJSStreamListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2334,7 +2341,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14StreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node30ReportWritesToJSStreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node30ReportWritesToJSStreamListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2344,7 +2352,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 1
   store ptr null, ptr %stream_, align 8
   %previous_listener_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 2
@@ -2954,7 +2963,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -2965,14 +2975,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8
@@ -3054,7 +3064,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3652,7 +3663,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %default_listener_ = getelementptr inbounds %"class.node::StreamBase", ptr %this1, i32 0, i32 2
   call void @_ZN4node22EmitToJSStreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_) #3
   call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3

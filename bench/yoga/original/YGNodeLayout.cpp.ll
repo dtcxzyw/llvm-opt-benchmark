@@ -296,119 +296,129 @@ if.then5:                                         ; preds = %if.then
 
 memptr.virtual:                                   ; preds = %if.then5
   %vtable = load ptr, ptr %6, align 8
-  %7 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %7, align 8, !nosanitize !4
+  %7 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE to i64
+  %8 = sub i64 %7, 1
+  %9 = getelementptr i8, ptr %vtable, i64 %8, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %9, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.then5
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %8 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE, %memptr.nonvirtual ]
-  %call7 = call noundef float %8(ptr noundef nonnull align 4 dereferenceable(320) %6, i8 noundef zeroext 2)
+  %10 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE, %memptr.nonvirtual ]
+  %call7 = call noundef float %10(ptr noundef nonnull align 4 dereferenceable(320) %6, i8 noundef zeroext 2)
   store float %call7, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %9 = load ptr, ptr %node, align 8
-  %call8 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %9)
-  %10 = getelementptr inbounds i8, ptr %call8, i64 0
+  %11 = load ptr, ptr %node, align 8
+  %call8 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %11)
+  %12 = getelementptr inbounds i8, ptr %call8, i64 0
   br i1 false, label %memptr.virtual9, label %memptr.nonvirtual12
 
 memptr.virtual9:                                  ; preds = %if.else
-  %vtable10 = load ptr, ptr %10, align 8
-  %11 = getelementptr i8, ptr %vtable10, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn11 = load ptr, ptr %11, align 8, !nosanitize !4
+  %vtable10 = load ptr, ptr %12, align 8
+  %13 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE to i64
+  %14 = sub i64 %13, 1
+  %15 = getelementptr i8, ptr %vtable10, i64 %14, !nosanitize !4
+  %memptr.virtualfn11 = load ptr, ptr %15, align 8, !nosanitize !4
   br label %memptr.end13
 
 memptr.nonvirtual12:                              ; preds = %if.else
   br label %memptr.end13
 
 memptr.end13:                                     ; preds = %memptr.nonvirtual12, %memptr.virtual9
-  %12 = phi ptr [ %memptr.virtualfn11, %memptr.virtual9 ], [ @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE, %memptr.nonvirtual12 ]
-  %call14 = call noundef float %12(ptr noundef nonnull align 4 dereferenceable(320) %10, i8 noundef zeroext 0)
+  %16 = phi ptr [ %memptr.virtualfn11, %memptr.virtual9 ], [ @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE, %memptr.nonvirtual12 ]
+  %call14 = call noundef float %16(ptr noundef nonnull align 4 dereferenceable(320) %12, i8 noundef zeroext 0)
   store float %call14, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %13 = load i8, ptr %edge.addr, align 1
-  %cmp15 = icmp eq i8 %13, 5
+  %17 = load i8, ptr %edge.addr, align 1
+  %cmp15 = icmp eq i8 %17, 5
   br i1 %cmp15, label %if.then16, label %if.end36
 
 if.then16:                                        ; preds = %if.end
-  %14 = load ptr, ptr %node, align 8
-  %call17 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %14)
+  %18 = load ptr, ptr %node, align 8
+  %call17 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %18)
   %call18 = call noundef zeroext i8 @_ZNK8facebook4yoga13LayoutResults9directionEv(ptr noundef nonnull align 4 dereferenceable(320) %call17)
   %cmp19 = icmp eq i8 %call18, 2
   br i1 %cmp19, label %if.then20, label %if.else28
 
 if.then20:                                        ; preds = %if.then16
-  %15 = load ptr, ptr %node, align 8
-  %call21 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %15)
-  %16 = getelementptr inbounds i8, ptr %call21, i64 0
+  %19 = load ptr, ptr %node, align 8
+  %call21 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %19)
+  %20 = getelementptr inbounds i8, ptr %call21, i64 0
   br i1 false, label %memptr.virtual22, label %memptr.nonvirtual25
 
 memptr.virtual22:                                 ; preds = %if.then20
-  %vtable23 = load ptr, ptr %16, align 8
-  %17 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn24 = load ptr, ptr %17, align 8, !nosanitize !4
+  %vtable23 = load ptr, ptr %20, align 8
+  %21 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE to i64
+  %22 = sub i64 %21, 1
+  %23 = getelementptr i8, ptr %vtable23, i64 %22, !nosanitize !4
+  %memptr.virtualfn24 = load ptr, ptr %23, align 8, !nosanitize !4
   br label %memptr.end26
 
 memptr.nonvirtual25:                              ; preds = %if.then20
   br label %memptr.end26
 
 memptr.end26:                                     ; preds = %memptr.nonvirtual25, %memptr.virtual22
-  %18 = phi ptr [ %memptr.virtualfn24, %memptr.virtual22 ], [ @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE, %memptr.nonvirtual25 ]
-  %call27 = call noundef float %18(ptr noundef nonnull align 4 dereferenceable(320) %16, i8 noundef zeroext 0)
+  %24 = phi ptr [ %memptr.virtualfn24, %memptr.virtual22 ], [ @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE, %memptr.nonvirtual25 ]
+  %call27 = call noundef float %24(ptr noundef nonnull align 4 dereferenceable(320) %20, i8 noundef zeroext 0)
   store float %call27, ptr %retval, align 4
   br label %return
 
 if.else28:                                        ; preds = %if.then16
-  %19 = load ptr, ptr %node, align 8
-  %call29 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %19)
-  %20 = getelementptr inbounds i8, ptr %call29, i64 0
+  %25 = load ptr, ptr %node, align 8
+  %call29 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %25)
+  %26 = getelementptr inbounds i8, ptr %call29, i64 0
   br i1 false, label %memptr.virtual30, label %memptr.nonvirtual33
 
 memptr.virtual30:                                 ; preds = %if.else28
-  %vtable31 = load ptr, ptr %20, align 8
-  %21 = getelementptr i8, ptr %vtable31, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn32 = load ptr, ptr %21, align 8, !nosanitize !4
+  %vtable31 = load ptr, ptr %26, align 8
+  %27 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE to i64
+  %28 = sub i64 %27, 1
+  %29 = getelementptr i8, ptr %vtable31, i64 %28, !nosanitize !4
+  %memptr.virtualfn32 = load ptr, ptr %29, align 8, !nosanitize !4
   br label %memptr.end34
 
 memptr.nonvirtual33:                              ; preds = %if.else28
   br label %memptr.end34
 
 memptr.end34:                                     ; preds = %memptr.nonvirtual33, %memptr.virtual30
-  %22 = phi ptr [ %memptr.virtualfn32, %memptr.virtual30 ], [ @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE, %memptr.nonvirtual33 ]
-  %call35 = call noundef float %22(ptr noundef nonnull align 4 dereferenceable(320) %20, i8 noundef zeroext 2)
+  %30 = phi ptr [ %memptr.virtualfn32, %memptr.virtual30 ], [ @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE, %memptr.nonvirtual33 ]
+  %call35 = call noundef float %30(ptr noundef nonnull align 4 dereferenceable(320) %26, i8 noundef zeroext 2)
   store float %call35, ptr %retval, align 4
   br label %return
 
 if.end36:                                         ; preds = %if.end
-  %23 = load ptr, ptr %node, align 8
-  %call37 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %23)
-  %24 = getelementptr inbounds i8, ptr %call37, i64 0
+  %31 = load ptr, ptr %node, align 8
+  %call37 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %31)
+  %32 = getelementptr inbounds i8, ptr %call37, i64 0
   br i1 false, label %memptr.virtual38, label %memptr.nonvirtual41
 
 memptr.virtual38:                                 ; preds = %if.end36
-  %vtable39 = load ptr, ptr %24, align 8
-  %25 = getelementptr i8, ptr %vtable39, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn40 = load ptr, ptr %25, align 8, !nosanitize !4
+  %vtable39 = load ptr, ptr %32, align 8
+  %33 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE to i64
+  %34 = sub i64 %33, 1
+  %35 = getelementptr i8, ptr %vtable39, i64 %34, !nosanitize !4
+  %memptr.virtualfn40 = load ptr, ptr %35, align 8, !nosanitize !4
   br label %memptr.end42
 
 memptr.nonvirtual41:                              ; preds = %if.end36
   br label %memptr.end42
 
 memptr.end42:                                     ; preds = %memptr.nonvirtual41, %memptr.virtual38
-  %26 = phi ptr [ %memptr.virtualfn40, %memptr.virtual38 ], [ @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE, %memptr.nonvirtual41 ]
-  %27 = load i8, ptr %edge.addr, align 1
-  %call43 = call noundef float %26(ptr noundef nonnull align 4 dereferenceable(320) %24, i8 noundef zeroext %27)
+  %36 = phi ptr [ %memptr.virtualfn40, %memptr.virtual38 ], [ @_ZNK8facebook4yoga13LayoutResults6marginENS0_4EdgeE, %memptr.nonvirtual41 ]
+  %37 = load i8, ptr %edge.addr, align 1
+  %call43 = call noundef float %36(ptr noundef nonnull align 4 dereferenceable(320) %32, i8 noundef zeroext %37)
   store float %call43, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %memptr.end42, %memptr.end34, %memptr.end26, %memptr.end13, %memptr.end
-  %28 = load float, ptr %retval, align 4
-  ret float %28
+  %38 = load float, ptr %retval, align 4
+  ret float %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -470,119 +480,129 @@ if.then5:                                         ; preds = %if.then
 
 memptr.virtual:                                   ; preds = %if.then5
   %vtable = load ptr, ptr %6, align 8
-  %7 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %7, align 8, !nosanitize !4
+  %7 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE to i64
+  %8 = sub i64 %7, 1
+  %9 = getelementptr i8, ptr %vtable, i64 %8, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %9, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.then5
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %8 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE, %memptr.nonvirtual ]
-  %call7 = call noundef float %8(ptr noundef nonnull align 4 dereferenceable(320) %6, i8 noundef zeroext 2)
+  %10 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE, %memptr.nonvirtual ]
+  %call7 = call noundef float %10(ptr noundef nonnull align 4 dereferenceable(320) %6, i8 noundef zeroext 2)
   store float %call7, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %9 = load ptr, ptr %node, align 8
-  %call8 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %9)
-  %10 = getelementptr inbounds i8, ptr %call8, i64 0
+  %11 = load ptr, ptr %node, align 8
+  %call8 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %11)
+  %12 = getelementptr inbounds i8, ptr %call8, i64 0
   br i1 false, label %memptr.virtual9, label %memptr.nonvirtual12
 
 memptr.virtual9:                                  ; preds = %if.else
-  %vtable10 = load ptr, ptr %10, align 8
-  %11 = getelementptr i8, ptr %vtable10, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn11 = load ptr, ptr %11, align 8, !nosanitize !4
+  %vtable10 = load ptr, ptr %12, align 8
+  %13 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE to i64
+  %14 = sub i64 %13, 1
+  %15 = getelementptr i8, ptr %vtable10, i64 %14, !nosanitize !4
+  %memptr.virtualfn11 = load ptr, ptr %15, align 8, !nosanitize !4
   br label %memptr.end13
 
 memptr.nonvirtual12:                              ; preds = %if.else
   br label %memptr.end13
 
 memptr.end13:                                     ; preds = %memptr.nonvirtual12, %memptr.virtual9
-  %12 = phi ptr [ %memptr.virtualfn11, %memptr.virtual9 ], [ @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE, %memptr.nonvirtual12 ]
-  %call14 = call noundef float %12(ptr noundef nonnull align 4 dereferenceable(320) %10, i8 noundef zeroext 0)
+  %16 = phi ptr [ %memptr.virtualfn11, %memptr.virtual9 ], [ @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE, %memptr.nonvirtual12 ]
+  %call14 = call noundef float %16(ptr noundef nonnull align 4 dereferenceable(320) %12, i8 noundef zeroext 0)
   store float %call14, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %13 = load i8, ptr %edge.addr, align 1
-  %cmp15 = icmp eq i8 %13, 5
+  %17 = load i8, ptr %edge.addr, align 1
+  %cmp15 = icmp eq i8 %17, 5
   br i1 %cmp15, label %if.then16, label %if.end36
 
 if.then16:                                        ; preds = %if.end
-  %14 = load ptr, ptr %node, align 8
-  %call17 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %14)
+  %18 = load ptr, ptr %node, align 8
+  %call17 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %18)
   %call18 = call noundef zeroext i8 @_ZNK8facebook4yoga13LayoutResults9directionEv(ptr noundef nonnull align 4 dereferenceable(320) %call17)
   %cmp19 = icmp eq i8 %call18, 2
   br i1 %cmp19, label %if.then20, label %if.else28
 
 if.then20:                                        ; preds = %if.then16
-  %15 = load ptr, ptr %node, align 8
-  %call21 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %15)
-  %16 = getelementptr inbounds i8, ptr %call21, i64 0
+  %19 = load ptr, ptr %node, align 8
+  %call21 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %19)
+  %20 = getelementptr inbounds i8, ptr %call21, i64 0
   br i1 false, label %memptr.virtual22, label %memptr.nonvirtual25
 
 memptr.virtual22:                                 ; preds = %if.then20
-  %vtable23 = load ptr, ptr %16, align 8
-  %17 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn24 = load ptr, ptr %17, align 8, !nosanitize !4
+  %vtable23 = load ptr, ptr %20, align 8
+  %21 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE to i64
+  %22 = sub i64 %21, 1
+  %23 = getelementptr i8, ptr %vtable23, i64 %22, !nosanitize !4
+  %memptr.virtualfn24 = load ptr, ptr %23, align 8, !nosanitize !4
   br label %memptr.end26
 
 memptr.nonvirtual25:                              ; preds = %if.then20
   br label %memptr.end26
 
 memptr.end26:                                     ; preds = %memptr.nonvirtual25, %memptr.virtual22
-  %18 = phi ptr [ %memptr.virtualfn24, %memptr.virtual22 ], [ @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE, %memptr.nonvirtual25 ]
-  %call27 = call noundef float %18(ptr noundef nonnull align 4 dereferenceable(320) %16, i8 noundef zeroext 0)
+  %24 = phi ptr [ %memptr.virtualfn24, %memptr.virtual22 ], [ @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE, %memptr.nonvirtual25 ]
+  %call27 = call noundef float %24(ptr noundef nonnull align 4 dereferenceable(320) %20, i8 noundef zeroext 0)
   store float %call27, ptr %retval, align 4
   br label %return
 
 if.else28:                                        ; preds = %if.then16
-  %19 = load ptr, ptr %node, align 8
-  %call29 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %19)
-  %20 = getelementptr inbounds i8, ptr %call29, i64 0
+  %25 = load ptr, ptr %node, align 8
+  %call29 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %25)
+  %26 = getelementptr inbounds i8, ptr %call29, i64 0
   br i1 false, label %memptr.virtual30, label %memptr.nonvirtual33
 
 memptr.virtual30:                                 ; preds = %if.else28
-  %vtable31 = load ptr, ptr %20, align 8
-  %21 = getelementptr i8, ptr %vtable31, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn32 = load ptr, ptr %21, align 8, !nosanitize !4
+  %vtable31 = load ptr, ptr %26, align 8
+  %27 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE to i64
+  %28 = sub i64 %27, 1
+  %29 = getelementptr i8, ptr %vtable31, i64 %28, !nosanitize !4
+  %memptr.virtualfn32 = load ptr, ptr %29, align 8, !nosanitize !4
   br label %memptr.end34
 
 memptr.nonvirtual33:                              ; preds = %if.else28
   br label %memptr.end34
 
 memptr.end34:                                     ; preds = %memptr.nonvirtual33, %memptr.virtual30
-  %22 = phi ptr [ %memptr.virtualfn32, %memptr.virtual30 ], [ @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE, %memptr.nonvirtual33 ]
-  %call35 = call noundef float %22(ptr noundef nonnull align 4 dereferenceable(320) %20, i8 noundef zeroext 2)
+  %30 = phi ptr [ %memptr.virtualfn32, %memptr.virtual30 ], [ @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE, %memptr.nonvirtual33 ]
+  %call35 = call noundef float %30(ptr noundef nonnull align 4 dereferenceable(320) %26, i8 noundef zeroext 2)
   store float %call35, ptr %retval, align 4
   br label %return
 
 if.end36:                                         ; preds = %if.end
-  %23 = load ptr, ptr %node, align 8
-  %call37 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %23)
-  %24 = getelementptr inbounds i8, ptr %call37, i64 0
+  %31 = load ptr, ptr %node, align 8
+  %call37 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %31)
+  %32 = getelementptr inbounds i8, ptr %call37, i64 0
   br i1 false, label %memptr.virtual38, label %memptr.nonvirtual41
 
 memptr.virtual38:                                 ; preds = %if.end36
-  %vtable39 = load ptr, ptr %24, align 8
-  %25 = getelementptr i8, ptr %vtable39, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn40 = load ptr, ptr %25, align 8, !nosanitize !4
+  %vtable39 = load ptr, ptr %32, align 8
+  %33 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE to i64
+  %34 = sub i64 %33, 1
+  %35 = getelementptr i8, ptr %vtable39, i64 %34, !nosanitize !4
+  %memptr.virtualfn40 = load ptr, ptr %35, align 8, !nosanitize !4
   br label %memptr.end42
 
 memptr.nonvirtual41:                              ; preds = %if.end36
   br label %memptr.end42
 
 memptr.end42:                                     ; preds = %memptr.nonvirtual41, %memptr.virtual38
-  %26 = phi ptr [ %memptr.virtualfn40, %memptr.virtual38 ], [ @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE, %memptr.nonvirtual41 ]
-  %27 = load i8, ptr %edge.addr, align 1
-  %call43 = call noundef float %26(ptr noundef nonnull align 4 dereferenceable(320) %24, i8 noundef zeroext %27)
+  %36 = phi ptr [ %memptr.virtualfn40, %memptr.virtual38 ], [ @_ZNK8facebook4yoga13LayoutResults6borderENS0_4EdgeE, %memptr.nonvirtual41 ]
+  %37 = load i8, ptr %edge.addr, align 1
+  %call43 = call noundef float %36(ptr noundef nonnull align 4 dereferenceable(320) %32, i8 noundef zeroext %37)
   store float %call43, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %memptr.end42, %memptr.end34, %memptr.end26, %memptr.end13, %memptr.end
-  %28 = load float, ptr %retval, align 4
-  ret float %28
+  %38 = load float, ptr %retval, align 4
+  ret float %38
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -634,119 +654,129 @@ if.then5:                                         ; preds = %if.then
 
 memptr.virtual:                                   ; preds = %if.then5
   %vtable = load ptr, ptr %6, align 8
-  %7 = getelementptr i8, ptr %vtable, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %7, align 8, !nosanitize !4
+  %7 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE to i64
+  %8 = sub i64 %7, 1
+  %9 = getelementptr i8, ptr %vtable, i64 %8, !nosanitize !4
+  %memptr.virtualfn = load ptr, ptr %9, align 8, !nosanitize !4
   br label %memptr.end
 
 memptr.nonvirtual:                                ; preds = %if.then5
   br label %memptr.end
 
 memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %8 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE, %memptr.nonvirtual ]
-  %call7 = call noundef float %8(ptr noundef nonnull align 4 dereferenceable(320) %6, i8 noundef zeroext 2)
+  %10 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE, %memptr.nonvirtual ]
+  %call7 = call noundef float %10(ptr noundef nonnull align 4 dereferenceable(320) %6, i8 noundef zeroext 2)
   store float %call7, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %9 = load ptr, ptr %node, align 8
-  %call8 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %9)
-  %10 = getelementptr inbounds i8, ptr %call8, i64 0
+  %11 = load ptr, ptr %node, align 8
+  %call8 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %11)
+  %12 = getelementptr inbounds i8, ptr %call8, i64 0
   br i1 false, label %memptr.virtual9, label %memptr.nonvirtual12
 
 memptr.virtual9:                                  ; preds = %if.else
-  %vtable10 = load ptr, ptr %10, align 8
-  %11 = getelementptr i8, ptr %vtable10, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn11 = load ptr, ptr %11, align 8, !nosanitize !4
+  %vtable10 = load ptr, ptr %12, align 8
+  %13 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE to i64
+  %14 = sub i64 %13, 1
+  %15 = getelementptr i8, ptr %vtable10, i64 %14, !nosanitize !4
+  %memptr.virtualfn11 = load ptr, ptr %15, align 8, !nosanitize !4
   br label %memptr.end13
 
 memptr.nonvirtual12:                              ; preds = %if.else
   br label %memptr.end13
 
 memptr.end13:                                     ; preds = %memptr.nonvirtual12, %memptr.virtual9
-  %12 = phi ptr [ %memptr.virtualfn11, %memptr.virtual9 ], [ @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE, %memptr.nonvirtual12 ]
-  %call14 = call noundef float %12(ptr noundef nonnull align 4 dereferenceable(320) %10, i8 noundef zeroext 0)
+  %16 = phi ptr [ %memptr.virtualfn11, %memptr.virtual9 ], [ @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE, %memptr.nonvirtual12 ]
+  %call14 = call noundef float %16(ptr noundef nonnull align 4 dereferenceable(320) %12, i8 noundef zeroext 0)
   store float %call14, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %13 = load i8, ptr %edge.addr, align 1
-  %cmp15 = icmp eq i8 %13, 5
+  %17 = load i8, ptr %edge.addr, align 1
+  %cmp15 = icmp eq i8 %17, 5
   br i1 %cmp15, label %if.then16, label %if.end36
 
 if.then16:                                        ; preds = %if.end
-  %14 = load ptr, ptr %node, align 8
-  %call17 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %14)
+  %18 = load ptr, ptr %node, align 8
+  %call17 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %18)
   %call18 = call noundef zeroext i8 @_ZNK8facebook4yoga13LayoutResults9directionEv(ptr noundef nonnull align 4 dereferenceable(320) %call17)
   %cmp19 = icmp eq i8 %call18, 2
   br i1 %cmp19, label %if.then20, label %if.else28
 
 if.then20:                                        ; preds = %if.then16
-  %15 = load ptr, ptr %node, align 8
-  %call21 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %15)
-  %16 = getelementptr inbounds i8, ptr %call21, i64 0
+  %19 = load ptr, ptr %node, align 8
+  %call21 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %19)
+  %20 = getelementptr inbounds i8, ptr %call21, i64 0
   br i1 false, label %memptr.virtual22, label %memptr.nonvirtual25
 
 memptr.virtual22:                                 ; preds = %if.then20
-  %vtable23 = load ptr, ptr %16, align 8
-  %17 = getelementptr i8, ptr %vtable23, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn24 = load ptr, ptr %17, align 8, !nosanitize !4
+  %vtable23 = load ptr, ptr %20, align 8
+  %21 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE to i64
+  %22 = sub i64 %21, 1
+  %23 = getelementptr i8, ptr %vtable23, i64 %22, !nosanitize !4
+  %memptr.virtualfn24 = load ptr, ptr %23, align 8, !nosanitize !4
   br label %memptr.end26
 
 memptr.nonvirtual25:                              ; preds = %if.then20
   br label %memptr.end26
 
 memptr.end26:                                     ; preds = %memptr.nonvirtual25, %memptr.virtual22
-  %18 = phi ptr [ %memptr.virtualfn24, %memptr.virtual22 ], [ @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE, %memptr.nonvirtual25 ]
-  %call27 = call noundef float %18(ptr noundef nonnull align 4 dereferenceable(320) %16, i8 noundef zeroext 0)
+  %24 = phi ptr [ %memptr.virtualfn24, %memptr.virtual22 ], [ @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE, %memptr.nonvirtual25 ]
+  %call27 = call noundef float %24(ptr noundef nonnull align 4 dereferenceable(320) %20, i8 noundef zeroext 0)
   store float %call27, ptr %retval, align 4
   br label %return
 
 if.else28:                                        ; preds = %if.then16
-  %19 = load ptr, ptr %node, align 8
-  %call29 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %19)
-  %20 = getelementptr inbounds i8, ptr %call29, i64 0
+  %25 = load ptr, ptr %node, align 8
+  %call29 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %25)
+  %26 = getelementptr inbounds i8, ptr %call29, i64 0
   br i1 false, label %memptr.virtual30, label %memptr.nonvirtual33
 
 memptr.virtual30:                                 ; preds = %if.else28
-  %vtable31 = load ptr, ptr %20, align 8
-  %21 = getelementptr i8, ptr %vtable31, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn32 = load ptr, ptr %21, align 8, !nosanitize !4
+  %vtable31 = load ptr, ptr %26, align 8
+  %27 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE to i64
+  %28 = sub i64 %27, 1
+  %29 = getelementptr i8, ptr %vtable31, i64 %28, !nosanitize !4
+  %memptr.virtualfn32 = load ptr, ptr %29, align 8, !nosanitize !4
   br label %memptr.end34
 
 memptr.nonvirtual33:                              ; preds = %if.else28
   br label %memptr.end34
 
 memptr.end34:                                     ; preds = %memptr.nonvirtual33, %memptr.virtual30
-  %22 = phi ptr [ %memptr.virtualfn32, %memptr.virtual30 ], [ @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE, %memptr.nonvirtual33 ]
-  %call35 = call noundef float %22(ptr noundef nonnull align 4 dereferenceable(320) %20, i8 noundef zeroext 2)
+  %30 = phi ptr [ %memptr.virtualfn32, %memptr.virtual30 ], [ @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE, %memptr.nonvirtual33 ]
+  %call35 = call noundef float %30(ptr noundef nonnull align 4 dereferenceable(320) %26, i8 noundef zeroext 2)
   store float %call35, ptr %retval, align 4
   br label %return
 
 if.end36:                                         ; preds = %if.end
-  %23 = load ptr, ptr %node, align 8
-  %call37 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %23)
-  %24 = getelementptr inbounds i8, ptr %call37, i64 0
+  %31 = load ptr, ptr %node, align 8
+  %call37 = call noundef nonnull align 4 dereferenceable(320) ptr @_ZNK8facebook4yoga4Node9getLayoutEv(ptr noundef nonnull align 8 dereferenceable(640) %31)
+  %32 = getelementptr inbounds i8, ptr %call37, i64 0
   br i1 false, label %memptr.virtual38, label %memptr.nonvirtual41
 
 memptr.virtual38:                                 ; preds = %if.end36
-  %vtable39 = load ptr, ptr %24, align 8
-  %25 = getelementptr i8, ptr %vtable39, i64 sub (i64 ptrtoint (ptr @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE to i64), i64 1), !nosanitize !4
-  %memptr.virtualfn40 = load ptr, ptr %25, align 8, !nosanitize !4
+  %vtable39 = load ptr, ptr %32, align 8
+  %33 = ptrtoint ptr @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE to i64
+  %34 = sub i64 %33, 1
+  %35 = getelementptr i8, ptr %vtable39, i64 %34, !nosanitize !4
+  %memptr.virtualfn40 = load ptr, ptr %35, align 8, !nosanitize !4
   br label %memptr.end42
 
 memptr.nonvirtual41:                              ; preds = %if.end36
   br label %memptr.end42
 
 memptr.end42:                                     ; preds = %memptr.nonvirtual41, %memptr.virtual38
-  %26 = phi ptr [ %memptr.virtualfn40, %memptr.virtual38 ], [ @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE, %memptr.nonvirtual41 ]
-  %27 = load i8, ptr %edge.addr, align 1
-  %call43 = call noundef float %26(ptr noundef nonnull align 4 dereferenceable(320) %24, i8 noundef zeroext %27)
+  %36 = phi ptr [ %memptr.virtualfn40, %memptr.virtual38 ], [ @_ZNK8facebook4yoga13LayoutResults7paddingENS0_4EdgeE, %memptr.nonvirtual41 ]
+  %37 = load i8, ptr %edge.addr, align 1
+  %call43 = call noundef float %36(ptr noundef nonnull align 4 dereferenceable(320) %32, i8 noundef zeroext %37)
   store float %call43, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %memptr.end42, %memptr.end34, %memptr.end26, %memptr.end13, %memptr.end
-  %28 = load float, ptr %retval, align 4
-  ret float %28
+  %38 = load float, ptr %retval, align 4
+  ret float %38
 }
 
 ; Function Attrs: mustprogress uwtable

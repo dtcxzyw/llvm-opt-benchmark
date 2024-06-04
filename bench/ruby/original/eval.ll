@@ -1330,7 +1330,7 @@ define hidden void @rb_error_write(i64 noundef %0, i64 noundef %1, i64 noundef %
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %7
-  br label %109
+  br label %110
 
 27:                                               ; preds = %7
   %28 = load i64, ptr %10, align 8
@@ -1347,7 +1347,7 @@ define hidden void @rb_error_write(i64 noundef %0, i64 noundef %1, i64 noundef %
   store volatile i64 %33, ptr %15, align 8
   %34 = load i64, ptr %14, align 8
   %35 = icmp ne i64 %34, 0
-  br i1 %35, label %36, label %91
+  br i1 %35, label %36, label %92
 
 36:                                               ; preds = %31
   store i32 9, ptr %18, align 4
@@ -1357,7 +1357,7 @@ define hidden void @rb_error_write(i64 noundef %0, i64 noundef %1, i64 noundef %
   store i64 35, ptr %22, align 8
   %38 = load i64, ptr %13, align 8
   %39 = call zeroext i1 @RB_TEST(i64 noundef %38) #23
-  br i1 %39, label %40, label %62
+  br i1 %39, label %40, label %63
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %20, align 8
@@ -1376,84 +1376,85 @@ define hidden void @rb_error_write(i64 noundef %0, i64 noundef %1, i64 noundef %
   %52 = getelementptr i8, ptr %51, i64 3
   store ptr %52, ptr %20, align 8
   %53 = load ptr, ptr %20, align 8
-  %54 = call nonnull ptr @ruby_nonempty_memcpy(ptr noundef %53, ptr noundef getelementptr (i8, ptr @rb_error_write.traceback, i64 9), i64 noundef 26) #27
-  %55 = load ptr, ptr %20, align 8
-  %56 = getelementptr i8, ptr %55, i64 26
-  store ptr %56, ptr %20, align 8
-  %57 = load ptr, ptr %20, align 8
-  %58 = getelementptr inbounds [43 x i8], ptr %19, i64 0, i64 0
-  store ptr %58, ptr %21, align 8
-  %59 = ptrtoint ptr %57 to i64
+  %54 = getelementptr i8, ptr @rb_error_write.traceback, i64 9
+  %55 = call nonnull ptr @ruby_nonempty_memcpy(ptr noundef %53, ptr noundef %54, i64 noundef 26) #27
+  %56 = load ptr, ptr %20, align 8
+  %57 = getelementptr i8, ptr %56, i64 26
+  store ptr %57, ptr %20, align 8
+  %58 = load ptr, ptr %20, align 8
+  %59 = getelementptr inbounds [43 x i8], ptr %19, i64 0, i64 0
+  store ptr %59, ptr %21, align 8
   %60 = ptrtoint ptr %58 to i64
-  %61 = sub i64 %59, %60
-  store i64 %61, ptr %22, align 8
-  br label %62
+  %61 = ptrtoint ptr %59 to i64
+  %62 = sub i64 %60, %61
+  store i64 %62, ptr %22, align 8
+  br label %63
 
-62:                                               ; preds = %40, %36
-  %63 = load i64, ptr %11, align 8
-  %64 = call zeroext i1 @RB_NIL_P(i64 noundef %63) #23
-  br i1 %64, label %65, label %68
+63:                                               ; preds = %40, %36
+  %64 = load i64, ptr %11, align 8
+  %65 = call zeroext i1 @RB_NIL_P(i64 noundef %64) #23
+  br i1 %65, label %66, label %69
 
-65:                                               ; preds = %62
-  %66 = load ptr, ptr %21, align 8
-  %67 = load i64, ptr %22, align 8
-  call void @rb_write_error2(ptr noundef %66, i64 noundef %67)
-  br label %73
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %21, align 8
+  %68 = load i64, ptr %22, align 8
+  call void @rb_write_error2(ptr noundef %67, i64 noundef %68)
+  br label %74
 
-68:                                               ; preds = %62
-  %69 = load i64, ptr %11, align 8
-  %70 = load ptr, ptr %21, align 8
-  %71 = load i64, ptr %22, align 8
-  %72 = call i64 @rb_str_cat(i64 noundef %69, ptr noundef %70, i64 noundef %71)
-  br label %73
+69:                                               ; preds = %63
+  %70 = load i64, ptr %11, align 8
+  %71 = load ptr, ptr %21, align 8
+  %72 = load i64, ptr %22, align 8
+  %73 = call i64 @rb_str_cat(i64 noundef %70, ptr noundef %71, i64 noundef %72)
+  br label %74
 
-73:                                               ; preds = %68, %65
-  %74 = load i64, ptr %8, align 8
-  %75 = load i64, ptr %11, align 8
-  %76 = load i64, ptr %12, align 8
-  %77 = load i64, ptr %13, align 8
-  %78 = load i64, ptr %14, align 8
-  %79 = load i64, ptr %17, align 8
-  call void @show_cause(i64 noundef %74, i64 noundef %75, i64 noundef %76, i64 noundef %77, i64 noundef %78, i64 noundef %79, ptr noundef %16)
-  %80 = load volatile i64, ptr %15, align 8
-  %81 = load i64, ptr %10, align 8
-  %82 = load i64, ptr %11, align 8
-  %83 = load i64, ptr %17, align 8
-  call void @print_backtrace(i64 noundef %80, i64 noundef %81, i64 noundef %82, i32 noundef 1, i64 noundef %83)
-  %84 = load volatile i64, ptr %15, align 8
-  %85 = load i64, ptr %10, align 8
-  %86 = load i64, ptr %9, align 8
-  %87 = load i64, ptr %11, align 8
-  %88 = load i64, ptr %13, align 8
-  %89 = call zeroext i1 @RB_TEST(i64 noundef %88) #23
-  %90 = zext i1 %89 to i32
-  call void @print_errinfo(i64 noundef %84, i64 noundef %85, i64 noundef %86, i64 noundef %87, i32 noundef %90)
-  br label %109
+74:                                               ; preds = %69, %66
+  %75 = load i64, ptr %8, align 8
+  %76 = load i64, ptr %11, align 8
+  %77 = load i64, ptr %12, align 8
+  %78 = load i64, ptr %13, align 8
+  %79 = load i64, ptr %14, align 8
+  %80 = load i64, ptr %17, align 8
+  call void @show_cause(i64 noundef %75, i64 noundef %76, i64 noundef %77, i64 noundef %78, i64 noundef %79, i64 noundef %80, ptr noundef %16)
+  %81 = load volatile i64, ptr %15, align 8
+  %82 = load i64, ptr %10, align 8
+  %83 = load i64, ptr %11, align 8
+  %84 = load i64, ptr %17, align 8
+  call void @print_backtrace(i64 noundef %81, i64 noundef %82, i64 noundef %83, i32 noundef 1, i64 noundef %84)
+  %85 = load volatile i64, ptr %15, align 8
+  %86 = load i64, ptr %10, align 8
+  %87 = load i64, ptr %9, align 8
+  %88 = load i64, ptr %11, align 8
+  %89 = load i64, ptr %13, align 8
+  %90 = call zeroext i1 @RB_TEST(i64 noundef %89) #23
+  %91 = zext i1 %90 to i32
+  call void @print_errinfo(i64 noundef %85, i64 noundef %86, i64 noundef %87, i64 noundef %88, i32 noundef %91)
+  br label %110
 
-91:                                               ; preds = %31
-  %92 = load volatile i64, ptr %15, align 8
-  %93 = load i64, ptr %10, align 8
-  %94 = load i64, ptr %9, align 8
-  %95 = load i64, ptr %11, align 8
-  %96 = load i64, ptr %13, align 8
-  %97 = call zeroext i1 @RB_TEST(i64 noundef %96) #23
-  %98 = zext i1 %97 to i32
-  call void @print_errinfo(i64 noundef %92, i64 noundef %93, i64 noundef %94, i64 noundef %95, i32 noundef %98)
-  %99 = load volatile i64, ptr %15, align 8
-  %100 = load i64, ptr %10, align 8
-  %101 = load i64, ptr %11, align 8
-  %102 = load i64, ptr %17, align 8
-  call void @print_backtrace(i64 noundef %99, i64 noundef %100, i64 noundef %101, i32 noundef 0, i64 noundef %102)
-  %103 = load i64, ptr %8, align 8
-  %104 = load i64, ptr %11, align 8
-  %105 = load i64, ptr %12, align 8
-  %106 = load i64, ptr %13, align 8
-  %107 = load i64, ptr %14, align 8
-  %108 = load i64, ptr %17, align 8
-  call void @show_cause(i64 noundef %103, i64 noundef %104, i64 noundef %105, i64 noundef %106, i64 noundef %107, i64 noundef %108, ptr noundef %16)
-  br label %109
+92:                                               ; preds = %31
+  %93 = load volatile i64, ptr %15, align 8
+  %94 = load i64, ptr %10, align 8
+  %95 = load i64, ptr %9, align 8
+  %96 = load i64, ptr %11, align 8
+  %97 = load i64, ptr %13, align 8
+  %98 = call zeroext i1 @RB_TEST(i64 noundef %97) #23
+  %99 = zext i1 %98 to i32
+  call void @print_errinfo(i64 noundef %93, i64 noundef %94, i64 noundef %95, i64 noundef %96, i32 noundef %99)
+  %100 = load volatile i64, ptr %15, align 8
+  %101 = load i64, ptr %10, align 8
+  %102 = load i64, ptr %11, align 8
+  %103 = load i64, ptr %17, align 8
+  call void @print_backtrace(i64 noundef %100, i64 noundef %101, i64 noundef %102, i32 noundef 0, i64 noundef %103)
+  %104 = load i64, ptr %8, align 8
+  %105 = load i64, ptr %11, align 8
+  %106 = load i64, ptr %12, align 8
+  %107 = load i64, ptr %13, align 8
+  %108 = load i64, ptr %14, align 8
+  %109 = load i64, ptr %17, align 8
+  call void @show_cause(i64 noundef %104, i64 noundef %105, i64 noundef %106, i64 noundef %107, i64 noundef %108, i64 noundef %109, ptr noundef %16)
+  br label %110
 
-109:                                              ; preds = %91, %73, %26
+110:                                              ; preds = %92, %74, %26
   ret void
 }
 
@@ -6140,7 +6141,7 @@ define dso_local i64 @rb_rescue2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   store ptr %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_start(ptr %11)
+  call void @llvm.va_start.p0(ptr %11)
   %12 = load ptr, ptr %5, align 8
   %13 = load i64, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
@@ -6149,13 +6150,10 @@ define dso_local i64 @rb_rescue2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   %17 = call i64 @rb_vrescue2(ptr noundef %12, i64 noundef %13, ptr noundef %14, i64 noundef %15, ptr noundef %16)
   store i64 %17, ptr %10, align 8
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_end(ptr %18)
+  call void @llvm.va_end.p0(ptr %18)
   %19 = load i64, ptr %10, align 8
   ret i64 %19
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_vrescue2(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
@@ -6287,7 +6285,7 @@ define dso_local i64 @rb_vrescue2(ptr noundef %0, i64 noundef %1, ptr noundef %2
   store volatile i64 4, ptr %14, align 8
   %82 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %20, i64 0, i64 0
   %83 = load ptr, ptr %10, align 8
-  call void @llvm.va_copy(ptr %82, ptr %83)
+  call void @llvm.va_copy.p0(ptr %82, ptr %83)
   br label %84
 
 84:                                               ; preds = %110, %81
@@ -6337,7 +6335,7 @@ define dso_local i64 @rb_vrescue2(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 111:                                              ; preds = %109, %98
   %112 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %20, i64 0, i64 0
-  call void @llvm.va_end(ptr %112)
+  call void @llvm.va_end.p0(ptr %112)
   %113 = load i32, ptr %18, align 4
   %114 = icmp ne i32 %113, 0
   br i1 %114, label %115, label %129
@@ -6400,13 +6398,7 @@ define dso_local i64 @rb_vrescue2(ptr noundef %0, i64 noundef %1, ptr noundef %2
   ret i64 %145
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
-
 declare void @rb_vm_rewind_cfp(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #11
 
 declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) #2
 
@@ -13011,6 +13003,15 @@ declare i64 @rb_intern2(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
 declare ptr @__errno_location() #22
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -484,154 +484,158 @@ define void @_ZN14EndpointDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull a
   %22 = load ptr, ptr %5, align 8
   %23 = load ptr, ptr %6, align 8
   call void @_ZN18TrafficTableDialogC2ER7QWidgetR11CaptureFileRK7QString(ptr noundef nonnull align 8 dereferenceable(152) %21, ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(24) @_ZL11table_name_)
-  store ptr getelementptr inbounds ({ [66 x ptr], [10 x ptr] }, ptr @_ZTV14EndpointDialog, i32 0, i32 0, i32 2), ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr getelementptr inbounds ({ [66 x ptr], [10 x ptr] }, ptr @_ZTV14EndpointDialog, i32 0, i32 1, i32 2), ptr %24, align 8
-  %25 = invoke noundef ptr @_ZNK18TrafficTableDialog11trafficListEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
-          to label %26 unwind label %65
+  %24 = getelementptr inbounds { [66 x ptr], [10 x ptr] }, ptr @_ZTV14EndpointDialog, i32 0, i32 0, i32 2
+  store ptr %24, ptr %21, align 8
+  %25 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds { [66 x ptr], [10 x ptr] }, ptr @_ZTV14EndpointDialog, i32 0, i32 1, i32 2
+  store ptr %26, ptr %25, align 8
+  %27 = invoke noundef ptr @_ZNK18TrafficTableDialog11trafficListEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
+          to label %28 unwind label %69
 
-26:                                               ; preds = %3
+28:                                               ; preds = %3
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @_ZL11table_name_) #3
-  invoke void @_ZN16TrafficTypesList15setProtocolInfoE7QStringPP6_GList(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef %9, ptr noundef getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i32 0, i32 44))
-          to label %27 unwind label %69
+  %29 = getelementptr inbounds %struct.recent_settings_tag, ptr @recent, i32 0, i32 44
+  invoke void @_ZN16TrafficTypesList15setProtocolInfoE7QStringPP6_GList(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef %9, ptr noundef %29)
+          to label %30 unwind label %73
 
-27:                                               ; preds = %26
+30:                                               ; preds = %28
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %28 = invoke noundef ptr @_ZNK18TrafficTableDialog10trafficTabEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
-          to label %29 unwind label %65
+  %31 = invoke noundef ptr @_ZNK18TrafficTableDialog10trafficTabEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
+          to label %32 unwind label %69
 
-29:                                               ; preds = %27
+32:                                               ; preds = %30
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @_ZL11table_name_) #3
-  %30 = invoke noundef ptr @_ZNK18TrafficTableDialog11trafficListEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
-          to label %31 unwind label %73
-
-31:                                               ; preds = %29
-  invoke void @_ZN10TrafficTab15setProtocolInfoE7QStringP16TrafficTypesListPP6_GListPFP13ATapDataModeliS0_E(ptr noundef nonnull align 8 dereferenceable(122) %28, ptr noundef %10, ptr noundef %30, ptr noundef getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i32 0, i32 45), ptr noundef @_ZL11createModeli7QString)
-          to label %32 unwind label %73
-
-32:                                               ; preds = %31
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %33 = invoke noundef ptr @_ZNK18TrafficTableDialog10trafficTabEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
-          to label %34 unwind label %65
+  %33 = invoke noundef ptr @_ZNK18TrafficTableDialog11trafficListEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
+          to label %34 unwind label %77
 
 34:                                               ; preds = %32
-  %35 = load ptr, ptr %6, align 8
-  invoke void @_ZNK11CaptureFile13displayFilterEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %35)
-          to label %36 unwind label %65
+  %35 = getelementptr inbounds %struct.recent_settings_tag, ptr @recent, i32 0, i32 45
+  invoke void @_ZN10TrafficTab15setProtocolInfoE7QStringP16TrafficTypesListPP6_GListPFP13ATapDataModeliS0_E(ptr noundef nonnull align 8 dereferenceable(122) %31, ptr noundef %10, ptr noundef %33, ptr noundef %35, ptr noundef @_ZL11createModeli7QString)
+          to label %36 unwind label %77
 
 36:                                               ; preds = %34
-  invoke void @_ZN10TrafficTab9setFilterE7QString(ptr noundef nonnull align 8 dereferenceable(122) %33, ptr noundef %11)
-          to label %37 unwind label %77
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %37 = invoke noundef ptr @_ZNK18TrafficTableDialog10trafficTabEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
+          to label %38 unwind label %69
 
-37:                                               ; preds = %36
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %6, align 8
+  invoke void @_ZNK11CaptureFile13displayFilterEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %39)
+          to label %40 unwind label %69
+
+40:                                               ; preds = %38
+  invoke void @_ZN10TrafficTab9setFilterE7QString(ptr noundef nonnull align 8 dereferenceable(122) %37, ptr noundef %11)
+          to label %41 unwind label %81
+
+41:                                               ; preds = %40
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %38 = invoke noundef ptr @_ZNK18TrafficTableDialog10trafficTabEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
-          to label %39 unwind label %65
+  %42 = invoke noundef ptr @_ZNK18TrafficTableDialog10trafficTabEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
+          to label %43 unwind label %69
 
-39:                                               ; preds = %37
+43:                                               ; preds = %41
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN10TrafficTab12filterActionE7QStringN12FilterAction6ActionENS1_10ActionTypeE to i64), i64 0 }, ptr %13, align 8
-  %40 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 0
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 1
-  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 0
+  %45 = load i64, ptr %44, align 8
+  %46 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 1
+  %47 = load i64, ptr %46, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18TrafficTableDialog12filterActionE7QStringN12FilterAction6ActionENS1_10ActionTypeE to i64), i64 0 }, ptr %14, align 8
-  invoke void @_ZN7QObject7connectIM10TrafficTabFv7QStringN12FilterAction6ActionENS3_10ActionTypeEEM18TrafficTableDialogFvS2_S4_S5_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESF_PKNSE_IT0_E6ObjectESK_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %12, ptr noundef %38, i64 %41, i64 %43, ptr noundef %21, ptr noundef byval({ i64, i64 }) align 8 %14, i32 noundef 0)
-          to label %44 unwind label %65
+  invoke void @_ZN7QObject7connectIM10TrafficTabFv7QStringN12FilterAction6ActionENS3_10ActionTypeEEM18TrafficTableDialogFvS2_S4_S5_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESF_PKNSE_IT0_E6ObjectESK_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %12, ptr noundef %42, i64 %45, i64 %47, ptr noundef %21, ptr noundef byval({ i64, i64 }) align 8 %14, i32 noundef 0)
+          to label %48 unwind label %69
 
-44:                                               ; preds = %39
+48:                                               ; preds = %43
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %45 = invoke noundef ptr @_ZNK18TrafficTableDialog10trafficTabEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
-          to label %46 unwind label %65
+  %49 = invoke noundef ptr @_ZNK18TrafficTableDialog10trafficTabEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
+          to label %50 unwind label %69
 
-46:                                               ; preds = %44
-  %47 = invoke noundef ptr @_ZNK10QTabWidget6tabBarEv(ptr noundef nonnull align 8 dereferenceable(40) %45)
-          to label %48 unwind label %65
+50:                                               ; preds = %48
+  %51 = invoke noundef ptr @_ZNK10QTabWidget6tabBarEv(ptr noundef nonnull align 8 dereferenceable(40) %49)
+          to label %52 unwind label %69
 
-48:                                               ; preds = %46
+52:                                               ; preds = %50
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN7QTabBar14currentChangedEi to i64), i64 0 }, ptr %16, align 8
-  %49 = getelementptr inbounds { i64, i64 }, ptr %16, i32 0, i32 0
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds { i64, i64 }, ptr %16, i32 0, i32 1
-  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds { i64, i64 }, ptr %16, i32 0, i32 0
+  %54 = load i64, ptr %53, align 8
+  %55 = getelementptr inbounds { i64, i64 }, ptr %16, i32 0, i32 1
+  %56 = load i64, ptr %55, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN14EndpointDialog10tabChangedEi to i64), i64 0 }, ptr %17, align 8
-  invoke void @_ZN7QObject7connectIM7QTabBarFviEM14EndpointDialogFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %15, ptr noundef %47, i64 %50, i64 %52, ptr noundef %21, ptr noundef byval({ i64, i64 }) align 8 %17, i32 noundef 0)
-          to label %53 unwind label %65
+  invoke void @_ZN7QObject7connectIM7QTabBarFviEM14EndpointDialogFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %15, ptr noundef %51, i64 %54, i64 %56, ptr noundef %21, ptr noundef byval({ i64, i64 }) align 8 %17, i32 noundef 0)
+          to label %57 unwind label %69
 
-53:                                               ; preds = %48
+57:                                               ; preds = %52
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  %54 = invoke noundef ptr @_ZNK18TrafficTableDialog10trafficTabEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
-          to label %55 unwind label %65
+  %58 = invoke noundef ptr @_ZNK18TrafficTableDialog10trafficTabEv(ptr noundef nonnull align 8 dereferenceable(152) %21)
+          to label %59 unwind label %69
 
-55:                                               ; preds = %53
+59:                                               ; preds = %57
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN10TrafficTab14tabDataChangedEi to i64), i64 0 }, ptr %19, align 8
-  %56 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 0
-  %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 1
-  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 0
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 1
+  %63 = load i64, ptr %62, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN14EndpointDialog10tabChangedEi to i64), i64 0 }, ptr %20, align 8
-  invoke void @_ZN7QObject7connectIM10TrafficTabFviEM14EndpointDialogFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %18, ptr noundef %54, i64 %57, i64 %59, ptr noundef %21, ptr noundef byval({ i64, i64 }) align 8 %20, i32 noundef 0)
-          to label %60 unwind label %65
+  invoke void @_ZN7QObject7connectIM10TrafficTabFviEM14EndpointDialogFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %18, ptr noundef %58, i64 %61, i64 %63, ptr noundef %21, ptr noundef byval({ i64, i64 }) align 8 %20, i32 noundef 0)
+          to label %64 unwind label %69
 
-60:                                               ; preds = %55
+64:                                               ; preds = %59
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
-  %61 = load ptr, ptr %21, align 8
-  %62 = getelementptr inbounds ptr, ptr %61, i64 58
-  %63 = load ptr, ptr %62, align 8
-  invoke void %63(ptr noundef nonnull align 8 dereferenceable(133) %21)
-          to label %64 unwind label %65
+  %65 = load ptr, ptr %21, align 8
+  %66 = getelementptr inbounds ptr, ptr %65, i64 58
+  %67 = load ptr, ptr %66, align 8
+  invoke void %67(ptr noundef nonnull align 8 dereferenceable(133) %21)
+          to label %68 unwind label %69
 
-64:                                               ; preds = %60
+68:                                               ; preds = %64
   ret void
 
-65:                                               ; preds = %60, %55, %53, %48, %46, %44, %39, %37, %34, %32, %27, %3
-  %66 = landingpad { ptr, i32 }
-          cleanup
-  %67 = extractvalue { ptr, i32 } %66, 0
-  store ptr %67, ptr %7, align 8
-  %68 = extractvalue { ptr, i32 } %66, 1
-  store i32 %68, ptr %8, align 4
-  br label %81
-
-69:                                               ; preds = %26
+69:                                               ; preds = %64, %59, %57, %52, %50, %48, %43, %41, %38, %36, %30, %3
   %70 = landingpad { ptr, i32 }
           cleanup
   %71 = extractvalue { ptr, i32 } %70, 0
   store ptr %71, ptr %7, align 8
   %72 = extractvalue { ptr, i32 } %70, 1
   store i32 %72, ptr %8, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  br label %81
+  br label %85
 
-73:                                               ; preds = %31, %29
+73:                                               ; preds = %28
   %74 = landingpad { ptr, i32 }
           cleanup
   %75 = extractvalue { ptr, i32 } %74, 0
   store ptr %75, ptr %7, align 8
   %76 = extractvalue { ptr, i32 } %74, 1
   store i32 %76, ptr %8, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  br label %81
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  br label %85
 
-77:                                               ; preds = %36
+77:                                               ; preds = %34, %32
   %78 = landingpad { ptr, i32 }
           cleanup
   %79 = extractvalue { ptr, i32 } %78, 0
   store ptr %79, ptr %7, align 8
   %80 = extractvalue { ptr, i32 } %78, 1
   store i32 %80, ptr %8, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  br label %85
+
+81:                                               ; preds = %40
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %7, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %8, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  br label %81
+  br label %85
 
-81:                                               ; preds = %77, %73, %69, %65
+85:                                               ; preds = %81, %77, %73, %69
   call void @_ZN18TrafficTableDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %21) #3
-  br label %82
+  br label %86
 
-82:                                               ; preds = %81
-  %83 = load ptr, ptr %7, align 8
-  %84 = load i32, ptr %8, align 4
-  %85 = insertvalue { ptr, i32 } poison, ptr %83, 0
-  %86 = insertvalue { ptr, i32 } %85, i32 %84, 1
-  resume { ptr, i32 } %86
+86:                                               ; preds = %85
+  %87 = load ptr, ptr %7, align 8
+  %88 = load i32, ptr %8, align 4
+  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
+  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
+  resume { ptr, i32 } %90
 }
 
 declare void @_ZN18TrafficTableDialogC2ER7QWidgetR11CaptureFileRK7QString(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #4
@@ -1521,52 +1525,55 @@ define linkonce_odr noundef ptr @_ZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStri
   %2 = alloca i32, align 4
   %3 = load atomic i8, ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStringN12FilterAction6ActionENS3_10ActionTypeEEEELb1EE5typesEvE1t acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %15, !prof !4
+  br i1 %4, label %5, label %18, !prof !4
 
 5:                                                ; preds = %0
   %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStringN12FilterAction6ActionENS3_10ActionTypeEEEELb1EE5typesEvE1t) #3
   %7 = icmp ne i32 %6, 0
-  br i1 %7, label %8, label %15
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
   %9 = invoke noundef i32 @_ZN9QtPrivate17QMetaTypeIdHelperI7QStringLb1EE14qt_metatype_idEv()
-          to label %10 unwind label %16
+          to label %10 unwind label %19
 
 10:                                               ; preds = %8
   store i32 %9, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStringN12FilterAction6ActionENS3_10ActionTypeEEEELb1EE5typesEvE1t, align 4
   %11 = invoke noundef i32 @_ZN9QtPrivate17QMetaTypeIdHelperIN12FilterAction6ActionELb1EE14qt_metatype_idEv()
-          to label %12 unwind label %16
+          to label %12 unwind label %19
 
 12:                                               ; preds = %10
-  store i32 %11, ptr getelementptr inbounds (i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStringN12FilterAction6ActionENS3_10ActionTypeEEEELb1EE5typesEvE1t, i64 1), align 4
-  %13 = invoke noundef i32 @_ZN9QtPrivate17QMetaTypeIdHelperIN12FilterAction10ActionTypeELb1EE14qt_metatype_idEv()
-          to label %14 unwind label %16
+  %13 = getelementptr inbounds i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStringN12FilterAction6ActionENS3_10ActionTypeEEEELb1EE5typesEvE1t, i64 1
+  store i32 %11, ptr %13, align 4
+  %14 = invoke noundef i32 @_ZN9QtPrivate17QMetaTypeIdHelperIN12FilterAction10ActionTypeELb1EE14qt_metatype_idEv()
+          to label %15 unwind label %19
 
-14:                                               ; preds = %12
-  store i32 %13, ptr getelementptr inbounds (i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStringN12FilterAction6ActionENS3_10ActionTypeEEEELb1EE5typesEvE1t, i64 2), align 4
-  store i32 0, ptr getelementptr inbounds (i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStringN12FilterAction6ActionENS3_10ActionTypeEEEELb1EE5typesEvE1t, i64 3), align 4
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStringN12FilterAction6ActionENS3_10ActionTypeEEEELb1EE5typesEvE1t, i64 2
+  store i32 %14, ptr %16, align 4
+  %17 = getelementptr inbounds i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStringN12FilterAction6ActionENS3_10ActionTypeEEEELb1EE5typesEvE1t, i64 3
+  store i32 0, ptr %17, align 4
   call void @__cxa_guard_release(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStringN12FilterAction6ActionENS3_10ActionTypeEEEELb1EE5typesEvE1t) #3
-  br label %15
+  br label %18
 
-15:                                               ; preds = %14, %5, %0
+18:                                               ; preds = %15, %5, %0
   ret ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStringN12FilterAction6ActionENS3_10ActionTypeEEEELb1EE5typesEvE1t
 
-16:                                               ; preds = %12, %10, %8
-  %17 = landingpad { ptr, i32 }
+19:                                               ; preds = %12, %10, %8
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %1, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %2, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %1, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %2, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJ7QStringN12FilterAction6ActionENS3_10ActionTypeEEEELb1EE5typesEvE1t) #3
-  br label %20
+  br label %23
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %1, align 8
-  %22 = load i32, ptr %2, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %1, align 8
+  %25 = load i32, ptr %2, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 declare void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #4

@@ -421,15 +421,16 @@ entry:
   store ptr %body1Wrap, ptr %body1Wrap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN36btDiscreteCollisionDetectorInterface6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16btManifoldResult, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV16btManifoldResult, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_manifoldPtr = getelementptr inbounds %class.btManifoldResult, ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_manifoldPtr, align 8
   %m_body0Wrap = getelementptr inbounds %class.btManifoldResult, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %body0Wrap.addr, align 8
-  store ptr %0, ptr %m_body0Wrap, align 8
+  %1 = load ptr, ptr %body0Wrap.addr, align 8
+  store ptr %1, ptr %m_body0Wrap, align 8
   %m_body1Wrap = getelementptr inbounds %class.btManifoldResult, ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %body1Wrap.addr, align 8
-  store ptr %1, ptr %m_body1Wrap, align 8
+  %2 = load ptr, ptr %body1Wrap.addr, align 8
+  store ptr %2, ptr %m_body1Wrap, align 8
   %m_partId0 = getelementptr inbounds %class.btManifoldResult, ptr %this1, i32 0, i32 4
   store i32 -1, ptr %m_partId0, align 8
   %m_partId1 = getelementptr inbounds %class.btManifoldResult, ptr %this1, i32 0, i32 5
@@ -449,7 +450,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN36btDiscreteCollisionDetectorInterface6ResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN36btDiscreteCollisionDetectorInterface6ResultE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

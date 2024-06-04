@@ -60,99 +60,110 @@ define i32 @ompi_message_init() #0 {
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %9
-
-9:                                                ; preds = %8, %4
-  store ptr @opal_free_list_t_class, ptr @ompi_message_free_list, align 16
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @ompi_message_free_list, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @ompi_message_free_list)
   br label %10
 
-10:                                               ; preds = %9
-  br label %11
+10:                                               ; preds = %9, %4
+  store ptr @opal_free_list_t_class, ptr @ompi_message_free_list, align 16
+  %11 = getelementptr inbounds %struct.opal_object_t, ptr @ompi_message_free_list, i32 0, i32 1
+  store volatile i32 1, ptr %11, align 8
+  call void @opal_obj_run_constructors(ptr noundef @ompi_message_free_list)
+  br label %12
 
-11:                                               ; preds = %10
-  %12 = call i32 @opal_free_list_init(ptr noundef @ompi_message_free_list, i64 noundef 96, i64 noundef 8, ptr noundef @ompi_message_t_class, i64 noundef 0, i64 noundef 0, i32 noundef 8, i32 noundef -1, i32 noundef 8, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
-  store i32 %12, ptr %2, align 4
+12:                                               ; preds = %10
   br label %13
 
-13:                                               ; preds = %11
-  br label %14
+13:                                               ; preds = %12
+  %14 = call i32 @opal_free_list_init(ptr noundef @ompi_message_free_list, i64 noundef 96, i64 noundef 8, ptr noundef @ompi_message_t_class, i64 noundef 0, i64 noundef 0, i32 noundef 8, i32 noundef -1, i32 noundef 8, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  store i32 %14, ptr %2, align 4
+  br label %15
 
-14:                                               ; preds = %13
-  %15 = load i32, ptr @opal_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_pointer_array_t_class, i32 0, i32 4), align 8
-  %17 = icmp ne i32 %15, %16
-  br i1 %17, label %18, label %19
+15:                                               ; preds = %13
+  br label %16
 
-18:                                               ; preds = %14
+16:                                               ; preds = %15
+  %17 = load i32, ptr @opal_class_init_epoch, align 4
+  %18 = getelementptr inbounds %struct.opal_class_t, ptr @opal_pointer_array_t_class, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ne i32 %17, %19
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %16
   call void @opal_class_initialize(ptr noundef @opal_pointer_array_t_class)
-  br label %19
+  br label %22
 
-19:                                               ; preds = %18, %14
+22:                                               ; preds = %21, %16
   store ptr @opal_pointer_array_t_class, ptr @ompi_message_f_to_c_table, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @ompi_message_f_to_c_table, i32 0, i32 1), align 8
+  %23 = getelementptr inbounds %struct.opal_object_t, ptr @ompi_message_f_to_c_table, i32 0, i32 1
+  store volatile i32 1, ptr %23, align 8
   call void @opal_obj_run_constructors(ptr noundef @ompi_message_f_to_c_table)
-  br label %20
-
-20:                                               ; preds = %19
-  br label %21
-
-21:                                               ; preds = %20
-  store ptr null, ptr getelementptr inbounds (%struct.ompi_message_t, ptr @ompi_message_null, i32 0, i32 3), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.ompi_message_t, ptr @ompi_message_null, i32 0, i32 5), align 8
-  %22 = call i32 @opal_pointer_array_add(ptr noundef @ompi_message_f_to_c_table, ptr noundef @ompi_message_null)
-  store i32 %22, ptr getelementptr inbounds (%struct.ompi_message_t, ptr @ompi_message_null, i32 0, i32 1), align 8
-  br label %23
-
-23:                                               ; preds = %21
   br label %24
 
-24:                                               ; preds = %23
-  %25 = load i32, ptr @opal_class_init_epoch, align 4
-  %26 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_message_t_class, i32 0, i32 4), align 8
-  %27 = icmp ne i32 %25, %26
-  br i1 %27, label %28, label %29
+24:                                               ; preds = %22
+  br label %25
 
-28:                                               ; preds = %24
-  call void @opal_class_initialize(ptr noundef @ompi_message_t_class)
-  br label %29
-
-29:                                               ; preds = %28, %24
-  store ptr @ompi_message_t_class, ptr @ompi_message_no_proc, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @ompi_message_no_proc, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @ompi_message_no_proc)
+25:                                               ; preds = %24
+  %26 = getelementptr inbounds %struct.ompi_message_t, ptr @ompi_message_null, i32 0, i32 3
+  store ptr null, ptr %26, align 8
+  %27 = getelementptr inbounds %struct.ompi_message_t, ptr @ompi_message_null, i32 0, i32 5
+  store i64 0, ptr %27, align 8
+  %28 = call i32 @opal_pointer_array_add(ptr noundef @ompi_message_f_to_c_table, ptr noundef @ompi_message_null)
+  %29 = getelementptr inbounds %struct.ompi_message_t, ptr @ompi_message_null, i32 0, i32 1
+  store i32 %28, ptr %29, align 8
   br label %30
 
-30:                                               ; preds = %29
+30:                                               ; preds = %25
   br label %31
 
 31:                                               ; preds = %30
-  %32 = call i32 @opal_pointer_array_add(ptr noundef @ompi_message_f_to_c_table, ptr noundef @ompi_message_no_proc)
-  store i32 %32, ptr getelementptr inbounds (%struct.ompi_message_t, ptr @ompi_message_no_proc, i32 0, i32 1), align 8
-  %33 = load i32, ptr getelementptr inbounds (%struct.ompi_message_t, ptr @ompi_message_no_proc, i32 0, i32 1), align 8
-  %34 = icmp ne i32 1, %33
-  br i1 %34, label %35, label %36
-
-35:                                               ; preds = %31
-  store i32 -13, ptr %1, align 4
-  br label %38
+  %32 = load i32, ptr @opal_class_init_epoch, align 4
+  %33 = getelementptr inbounds %struct.opal_class_t, ptr @ompi_message_t_class, i32 0, i32 4
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp ne i32 %32, %34
+  br i1 %35, label %36, label %37
 
 36:                                               ; preds = %31
-  call void @opal_finalize_append_cleanup(ptr noundef @ompi_message_finalize, ptr noundef @.str.1, ptr noundef null)
-  %37 = load i32, ptr %2, align 4
-  store i32 %37, ptr %1, align 4
-  br label %38
+  call void @opal_class_initialize(ptr noundef @ompi_message_t_class)
+  br label %37
 
-38:                                               ; preds = %36, %35
-  %39 = load i32, ptr %1, align 4
-  ret i32 %39
+37:                                               ; preds = %36, %31
+  store ptr @ompi_message_t_class, ptr @ompi_message_no_proc, align 8
+  %38 = getelementptr inbounds %struct.opal_object_t, ptr @ompi_message_no_proc, i32 0, i32 1
+  store volatile i32 1, ptr %38, align 8
+  call void @opal_obj_run_constructors(ptr noundef @ompi_message_no_proc)
+  br label %39
+
+39:                                               ; preds = %37
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = call i32 @opal_pointer_array_add(ptr noundef @ompi_message_f_to_c_table, ptr noundef @ompi_message_no_proc)
+  %42 = getelementptr inbounds %struct.ompi_message_t, ptr @ompi_message_no_proc, i32 0, i32 1
+  store i32 %41, ptr %42, align 8
+  %43 = getelementptr inbounds %struct.ompi_message_t, ptr @ompi_message_no_proc, i32 0, i32 1
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp ne i32 1, %44
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %40
+  store i32 -13, ptr %1, align 4
+  br label %49
+
+47:                                               ; preds = %40
+  call void @opal_finalize_append_cleanup(ptr noundef @ompi_message_finalize, ptr noundef @.str.1, ptr noundef null)
+  %48 = load i32, ptr %2, align 4
+  store i32 %48, ptr %1, align 4
+  br label %49
+
+49:                                               ; preds = %47, %46
+  %50 = load i32, ptr %1, align 4
+  ret i32 %50
 }
 
 declare void @opal_class_initialize(ptr noundef) #1

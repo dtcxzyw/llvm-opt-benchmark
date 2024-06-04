@@ -3159,58 +3159,59 @@ entry:
   store ptr %part, ptr %part.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_216GenericInputFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_221DeepScanLineInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_221DeepScanLineInputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 520) #19
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %part.addr, align 8
-  %numThreads = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %numThreads, align 8
-  invoke void @_ZN7Imf_3_221DeepScanLineInputFile4DataC1Ei(ptr noundef nonnull align 8 dereferenceable(513) %call, i32 noundef %1)
+  %1 = load ptr, ptr %part.addr, align 8
+  %numThreads = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %1, i32 0, i32 1
+  %2 = load i32, ptr %numThreads, align 8
+  invoke void @_ZN7Imf_3_221DeepScanLineInputFile4DataC1Ei(ptr noundef nonnull align 8 dereferenceable(513) %call, i32 noundef %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %_data = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
   store ptr %call, ptr %_data, align 8
   %_data4 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %_data4, align 8
-  %_deleteStream = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %2, i32 0, i32 41
+  %3 = load ptr, ptr %_data4, align 8
+  %_deleteStream = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %3, i32 0, i32 41
   store i8 0, ptr %_deleteStream, align 8
-  %3 = load ptr, ptr %part.addr, align 8
-  %mutex = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %3, i32 0, i32 5
-  %4 = load ptr, ptr %mutex, align 8
+  %4 = load ptr, ptr %part.addr, align 8
+  %mutex = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %4, i32 0, i32 5
+  %5 = load ptr, ptr %mutex, align 8
   %_data5 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %_data5, align 8
-  %_streamData = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %5, i32 0, i32 40
-  store ptr %4, ptr %_streamData, align 8
+  %6 = load ptr, ptr %_data5, align 8
+  %_streamData = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %6, i32 0, i32 40
+  store ptr %5, ptr %_streamData, align 8
   %_data6 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %_data6, align 8
-  %_streamData7 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %6, i32 0, i32 40
-  %7 = load ptr, ptr %_streamData7, align 8
-  %is = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %is, align 8
-  %vtable = load ptr, ptr %8, align 8
+  %7 = load ptr, ptr %_data6, align 8
+  %_streamData7 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %7, i32 0, i32 40
+  %8 = load ptr, ptr %_streamData7, align 8
+  %is = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %8, i32 0, i32 1
+  %9 = load ptr, ptr %is, align 8
+  %vtable = load ptr, ptr %9, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %9 = load ptr, ptr %vfn, align 8
-  %call9 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(40) %8)
+  %10 = load ptr, ptr %vfn, align 8
+  %call9 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(40) %9)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont3
   %_data10 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %_data10, align 8
-  %memoryMapped = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %10, i32 0, i32 25
+  %11 = load ptr, ptr %_data10, align 8
+  %memoryMapped = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %11, i32 0, i32 25
   %frombool = zext i1 %call9 to i8
   store i8 %frombool, ptr %memoryMapped, align 8
-  %11 = load ptr, ptr %part.addr, align 8
-  %version = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %11, i32 0, i32 3
-  %12 = load i32, ptr %version, align 8
+  %12 = load ptr, ptr %part.addr, align 8
+  %version = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %12, i32 0, i32 3
+  %13 = load i32, ptr %version, align 8
   %_data11 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %13 = load ptr, ptr %_data11, align 8
-  %version12 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %13, i32 0, i32 2
-  store i32 %12, ptr %version12, align 8
-  %14 = load ptr, ptr %part.addr, align 8
-  %header = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %14, i32 0, i32 0
+  %14 = load ptr, ptr %_data11, align 8
+  %version12 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %14, i32 0, i32 2
+  store i32 %13, ptr %version12, align 8
+  %15 = load ptr, ptr %part.addr, align 8
+  %header = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %15, i32 0, i32 0
   invoke void @_ZN7Imf_3_221DeepScanLineInputFile10initializeERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(49) %header)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -3218,44 +3219,44 @@ invoke.cont14:                                    ; preds = %invoke.cont8
   br label %try.cont
 
 lpad:                                             ; preds = %try.cont, %invoke.cont3, %entry
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #17
   br label %ehcleanup
 
 lpad13:                                           ; preds = %invoke.cont8
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %catch
 
 catch:                                            ; preds = %lpad13
   %exn = load ptr, ptr %exn.slot, align 8
-  %24 = call ptr @__cxa_begin_catch(ptr %exn) #3
+  %25 = call ptr @__cxa_begin_catch(ptr %exn) #3
   %_data15 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %25 = load ptr, ptr %_data15, align 8
-  %isnull = icmp eq ptr %25, null
+  %26 = load ptr, ptr %_data15, align 8
+  %isnull = icmp eq ptr %26, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %catch
-  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %25) #3
-  call void @_ZdlPv(ptr noundef %25) #17
+  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %26) #3
+  call void @_ZdlPv(ptr noundef %26) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %catch
@@ -3263,12 +3264,12 @@ delete.end:                                       ; preds = %delete.notnull, %ca
           to label %unreachable unwind label %lpad16
 
 lpad16:                                           ; preds = %delete.end
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   invoke void @__cxa_end_catch()
           to label %invoke.cont17 unwind label %terminate.lpad
 
@@ -3276,22 +3277,22 @@ invoke.cont17:                                    ; preds = %lpad16
   br label %ehcleanup
 
 try.cont:                                         ; preds = %invoke.cont14
-  %29 = load ptr, ptr %part.addr, align 8
-  %chunkOffsets = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %29, i32 0, i32 6
+  %30 = load ptr, ptr %part.addr, align 8
+  %chunkOffsets = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %30, i32 0, i32 6
   %_data18 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %30 = load ptr, ptr %_data18, align 8
-  %lineOffsets = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %30, i32 0, i32 11
+  %31 = load ptr, ptr %_data18, align 8
+  %lineOffsets = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %31, i32 0, i32 11
   %call20 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorImSaImEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %lineOffsets, ptr noundef nonnull align 8 dereferenceable(24) %chunkOffsets)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %try.cont
-  %31 = load ptr, ptr %part.addr, align 8
-  %partNumber = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %31, i32 0, i32 2
-  %32 = load i32, ptr %partNumber, align 4
+  %32 = load ptr, ptr %part.addr, align 8
+  %partNumber = getelementptr inbounds %"struct.Imf_3_2::InputPartData", ptr %32, i32 0, i32 2
+  %33 = load i32, ptr %partNumber, align 4
   %_data21 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %33 = load ptr, ptr %_data21, align 8
-  %partNumber22 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %33, i32 0, i32 20
-  store i32 %32, ptr %partNumber22, align 4
+  %34 = load ptr, ptr %_data21, align 8
+  %partNumber22 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %34, i32 0, i32 20
+  store i32 %33, ptr %partNumber22, align 4
   ret void
 
 ehcleanup:                                        ; preds = %invoke.cont17, %lpad2, %lpad
@@ -3306,10 +3307,10 @@ eh.resume:                                        ; preds = %ehcleanup
   resume { ptr, i32 } %lpad.val24
 
 terminate.lpad:                                   ; preds = %lpad16
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #18
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #18
   unreachable
 
 unreachable:                                      ; preds = %delete.end
@@ -3509,123 +3510,124 @@ entry:
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_216GenericInputFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_221DeepScanLineInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_221DeepScanLineInputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 520) #19
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load i32, ptr %numThreads.addr, align 4
-  invoke void @_ZN7Imf_3_221DeepScanLineInputFile4DataC1Ei(ptr noundef nonnull align 8 dereferenceable(513) %call, i32 noundef %0)
+  %1 = load i32, ptr %numThreads.addr, align 4
+  invoke void @_ZN7Imf_3_221DeepScanLineInputFile4DataC1Ei(ptr noundef nonnull align 8 dereferenceable(513) %call, i32 noundef %1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call, ptr %_data, align 8
   %_data4 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %_data4, align 8
-  %_deleteStream = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %1, i32 0, i32 41
+  %2 = load ptr, ptr %_data4, align 8
+  %_deleteStream = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %2, i32 0, i32 41
   store i8 1, ptr %_deleteStream, align 8
   store ptr null, ptr %is, align 8
   %call7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #19
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont3
-  %2 = load ptr, ptr %fileName.addr, align 8
-  invoke void @_ZN7Imf_3_211StdIFStreamC1EPKc(ptr noundef nonnull align 8 dereferenceable(49) %call7, ptr noundef %2)
+  %3 = load ptr, ptr %fileName.addr, align 8
+  invoke void @_ZN7Imf_3_211StdIFStreamC1EPKc(ptr noundef nonnull align 8 dereferenceable(49) %call7, ptr noundef %3)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   store ptr %call7, ptr %is, align 8
-  %3 = load ptr, ptr %is, align 8
+  %4 = load ptr, ptr %is, align 8
   %_data10 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %_data10, align 8
-  %version = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %4, i32 0, i32 2
-  invoke void @_ZN7Imf_3_216GenericInputFile30readMagicNumberAndVersionFieldERNS_7IStreamERi(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 4 dereferenceable(4) %version)
+  %5 = load ptr, ptr %_data10, align 8
+  %version = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %5, i32 0, i32 2
+  invoke void @_ZN7Imf_3_216GenericInputFile30readMagicNumberAndVersionFieldERNS_7IStreamERi(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 4 dereferenceable(4) %version)
           to label %invoke.cont11 unwind label %lpad5
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   %_data12 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %_data12, align 8
-  %version13 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %version13, align 8
-  %call15 = invoke noundef zeroext i1 @_ZN7Imf_3_211isMultiPartEi(i32 noundef %6)
+  %6 = load ptr, ptr %_data12, align 8
+  %version13 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %6, i32 0, i32 2
+  %7 = load i32, ptr %version13, align 8
+  %call15 = invoke noundef zeroext i1 @_ZN7Imf_3_211isMultiPartEi(i32 noundef %7)
           to label %invoke.cont14 unwind label %lpad5
 
 invoke.cont14:                                    ; preds = %invoke.cont11
   br i1 %call15, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont14
-  %7 = load ptr, ptr %is, align 8
-  invoke void @_ZN7Imf_3_221DeepScanLineInputFile23compatibilityInitializeERNS_7IStreamE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(40) %7)
+  %8 = load ptr, ptr %is, align 8
+  invoke void @_ZN7Imf_3_221DeepScanLineInputFile23compatibilityInitializeERNS_7IStreamE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(40) %8)
           to label %invoke.cont16 unwind label %lpad5
 
 invoke.cont16:                                    ; preds = %if.then
   br label %try.cont172
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup173
 
 lpad2:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #17
   br label %ehcleanup173
 
 lpad5:                                            ; preds = %if.then, %invoke.cont11, %invoke.cont9, %invoke.cont3
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN7Iex_3_27BaseExcE
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %catch.dispatch
 
 lpad8:                                            ; preds = %invoke.cont6
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN7Iex_3_27BaseExcE
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call7) #17
   br label %catch.dispatch
 
 catch.dispatch:                                   ; preds = %lpad8, %lpad5
   %sel = load i32, ptr %ehselector.slot, align 4
-  %20 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7Iex_3_27BaseExcE) #3
-  %matches = icmp eq i32 %sel, %20
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7Iex_3_27BaseExcE) #3
+  %matches = icmp eq i32 %sel, %21
   br i1 %matches, label %catch, label %ehcleanup173
 
 catch:                                            ; preds = %catch.dispatch
   %exn = load ptr, ptr %exn.slot, align 8
-  %21 = call ptr @__cxa_begin_catch(ptr %exn) #3
-  store ptr %21, ptr %e, align 8
-  %22 = load ptr, ptr %is, align 8
-  %tobool = icmp ne ptr %22, null
+  %22 = call ptr @__cxa_begin_catch(ptr %exn) #3
+  store ptr %22, ptr %e, align 8
+  %23 = load ptr, ptr %is, align 8
+  %tobool = icmp ne ptr %23, null
   br i1 %tobool, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %catch
-  %23 = load ptr, ptr %is, align 8
-  %isnull = icmp eq ptr %23, null
+  %24 = load ptr, ptr %is, align 8
+  %isnull = icmp eq ptr %24, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then17
-  %vtable = load ptr, ptr %23, align 8
+  %vtable = load ptr, ptr %24, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %24 = load ptr, ptr %vfn, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(40) %23) #3
+  %25 = load ptr, ptr %vfn, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(40) %24) #3
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then17
@@ -3636,19 +3638,19 @@ if.end:                                           ; preds = %invoke.cont14
 
 if.end18:                                         ; preds = %delete.end, %catch
   %_data19 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %25 = load ptr, ptr %_data19, align 8
-  %tobool20 = icmp ne ptr %25, null
+  %26 = load ptr, ptr %_data19, align 8
+  %tobool20 = icmp ne ptr %26, null
   br i1 %tobool20, label %if.then21, label %if.end26
 
 if.then21:                                        ; preds = %if.end18
   %_data22 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %26 = load ptr, ptr %_data22, align 8
-  %isnull23 = icmp eq ptr %26, null
+  %27 = load ptr, ptr %_data22, align 8
+  %isnull23 = icmp eq ptr %27, null
   br i1 %isnull23, label %delete.end25, label %delete.notnull24
 
 delete.notnull24:                                 ; preds = %if.then21
-  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %26) #3
-  call void @_ZdlPv(ptr noundef %26) #17
+  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %27) #3
+  call void @_ZdlPv(ptr noundef %27) #17
   br label %delete.end25
 
 delete.end25:                                     ; preds = %delete.notnull24, %if.then21
@@ -3667,8 +3669,8 @@ invoke.cont28:                                    ; preds = %do.body
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont28
-  %27 = load ptr, ptr %fileName.addr, align 8
-  %call33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call31, ptr noundef %27)
+  %28 = load ptr, ptr %fileName.addr, align 8
+  %call33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call31, ptr noundef %28)
           to label %invoke.cont32 unwind label %lpad29
 
 invoke.cont32:                                    ; preds = %invoke.cont30
@@ -3676,17 +3678,17 @@ invoke.cont32:                                    ; preds = %invoke.cont30
           to label %invoke.cont34 unwind label %lpad29
 
 invoke.cont34:                                    ; preds = %invoke.cont32
-  %28 = load ptr, ptr %e, align 8
-  %vtable36 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %e, align 8
+  %vtable36 = load ptr, ptr %29, align 8
   %vfn37 = getelementptr inbounds ptr, ptr %vtable36, i64 2
-  %29 = load ptr, ptr %vfn37, align 8
-  %call38 = call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(72) %28) #3
+  %30 = load ptr, ptr %vfn37, align 8
+  %call38 = call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(72) %29) #3
   %call40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call35, ptr noundef %call38)
           to label %invoke.cont39 unwind label %lpad29
 
 invoke.cont39:                                    ; preds = %invoke.cont34
-  %30 = load ptr, ptr %e, align 8
-  %call42 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_27BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s)
+  %31 = load ptr, ptr %e, align 8
+  %call42 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_27BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s)
           to label %invoke.cont41 unwind label %lpad29
 
 invoke.cont41:                                    ; preds = %invoke.cont39
@@ -3701,21 +3703,21 @@ do.end:                                           ; preds = %do.cond
           to label %unreachable unwind label %lpad27
 
 lpad27:                                           ; preds = %do.end, %do.body
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad29:                                           ; preds = %invoke.cont39, %invoke.cont34, %invoke.cont32, %invoke.cont30, %invoke.cont28
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s) #3
   br label %ehcleanup
 
@@ -3734,53 +3736,53 @@ invoke.cont45:                                    ; preds = %try.cont
   call void @llvm.memset.p0.i64(ptr align 16 %call46, i8 0, i64 56, i1 false)
   call void @_ZN7Imf_3_216InputStreamMutexC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call46) #3
   %_data47 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %37 = load ptr, ptr %_data47, align 8
-  %_streamData = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %37, i32 0, i32 40
+  %38 = load ptr, ptr %_data47, align 8
+  %_streamData = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %38, i32 0, i32 40
   store ptr %call46, ptr %_streamData, align 8
-  %38 = load ptr, ptr %is, align 8
+  %39 = load ptr, ptr %is, align 8
   %_data48 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %39 = load ptr, ptr %_data48, align 8
-  %_streamData49 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %39, i32 0, i32 40
-  %40 = load ptr, ptr %_streamData49, align 8
-  %is50 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %40, i32 0, i32 1
-  store ptr %38, ptr %is50, align 8
-  %41 = load ptr, ptr %is, align 8
-  %vtable51 = load ptr, ptr %41, align 8
+  %40 = load ptr, ptr %_data48, align 8
+  %_streamData49 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %40, i32 0, i32 40
+  %41 = load ptr, ptr %_streamData49, align 8
+  %is50 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %41, i32 0, i32 1
+  store ptr %39, ptr %is50, align 8
+  %42 = load ptr, ptr %is, align 8
+  %vtable51 = load ptr, ptr %42, align 8
   %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 2
-  %42 = load ptr, ptr %vfn52, align 8
-  %call54 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(40) %41)
+  %43 = load ptr, ptr %vfn52, align 8
+  %call54 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(40) %42)
           to label %invoke.cont53 unwind label %lpad44
 
 invoke.cont53:                                    ; preds = %invoke.cont45
   %_data55 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %43 = load ptr, ptr %_data55, align 8
-  %memoryMapped = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %43, i32 0, i32 25
+  %44 = load ptr, ptr %_data55, align 8
+  %memoryMapped = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %44, i32 0, i32 25
   %frombool = zext i1 %call54 to i8
   store i8 %frombool, ptr %memoryMapped, align 8
   %_data56 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %44 = load ptr, ptr %_data56, align 8
-  %header = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %44, i32 0, i32 1
+  %45 = load ptr, ptr %_data56, align 8
+  %header = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %45, i32 0, i32 1
   %_data57 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %45 = load ptr, ptr %_data57, align 8
-  %_streamData58 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %45, i32 0, i32 40
-  %46 = load ptr, ptr %_streamData58, align 8
-  %is59 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %46, i32 0, i32 1
-  %47 = load ptr, ptr %is59, align 8
+  %46 = load ptr, ptr %_data57, align 8
+  %_streamData58 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %46, i32 0, i32 40
+  %47 = load ptr, ptr %_streamData58, align 8
+  %is59 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %47, i32 0, i32 1
+  %48 = load ptr, ptr %is59, align 8
   %_data60 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %48 = load ptr, ptr %_data60, align 8
-  %version61 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %48, i32 0, i32 2
-  invoke void @_ZN7Imf_3_26Header8readFromERNS_7IStreamERi(ptr noundef nonnull align 8 dereferenceable(49) %header, ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 4 dereferenceable(4) %version61)
+  %49 = load ptr, ptr %_data60, align 8
+  %version61 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %49, i32 0, i32 2
+  invoke void @_ZN7Imf_3_26Header8readFromERNS_7IStreamERi(ptr noundef nonnull align 8 dereferenceable(49) %header, ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 4 dereferenceable(4) %version61)
           to label %invoke.cont62 unwind label %lpad44
 
 invoke.cont62:                                    ; preds = %invoke.cont53
   %_data63 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %49 = load ptr, ptr %_data63, align 8
-  %header64 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %49, i32 0, i32 1
+  %50 = load ptr, ptr %_data63, align 8
+  %header64 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %50, i32 0, i32 1
   %_data65 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %50 = load ptr, ptr %_data65, align 8
-  %version66 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %50, i32 0, i32 2
-  %51 = load i32, ptr %version66, align 8
-  %call68 = invoke noundef zeroext i1 @_ZN7Imf_3_27isTiledEi(i32 noundef %51)
+  %51 = load ptr, ptr %_data65, align 8
+  %version66 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %51, i32 0, i32 2
+  %52 = load i32, ptr %version66, align 8
+  %call68 = invoke noundef zeroext i1 @_ZN7Imf_3_27isTiledEi(i32 noundef %52)
           to label %invoke.cont67 unwind label %lpad44
 
 invoke.cont67:                                    ; preds = %invoke.cont62
@@ -3789,68 +3791,68 @@ invoke.cont67:                                    ; preds = %invoke.cont62
 
 invoke.cont69:                                    ; preds = %invoke.cont67
   %_data70 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %52 = load ptr, ptr %_data70, align 8
-  %header71 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %52, i32 0, i32 1
+  %53 = load ptr, ptr %_data70, align 8
+  %header71 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %53, i32 0, i32 1
   invoke void @_ZN7Imf_3_221DeepScanLineInputFile10initializeERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(49) %header71)
           to label %invoke.cont72 unwind label %lpad44
 
 invoke.cont72:                                    ; preds = %invoke.cont69
   %_data73 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %53 = load ptr, ptr %_data73, align 8
-  %_streamData74 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %53, i32 0, i32 40
-  %54 = load ptr, ptr %_streamData74, align 8
-  %is75 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %54, i32 0, i32 1
-  %55 = load ptr, ptr %is75, align 8
+  %54 = load ptr, ptr %_data73, align 8
+  %_streamData74 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %54, i32 0, i32 40
+  %55 = load ptr, ptr %_streamData74, align 8
+  %is75 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %55, i32 0, i32 1
+  %56 = load ptr, ptr %is75, align 8
   %_data76 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %56 = load ptr, ptr %_data76, align 8
-  %lineOrder = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %56, i32 0, i32 5
-  %57 = load i32, ptr %lineOrder, align 8
+  %57 = load ptr, ptr %_data76, align 8
+  %lineOrder = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %57, i32 0, i32 5
+  %58 = load i32, ptr %lineOrder, align 8
   %_data77 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %58 = load ptr, ptr %_data77, align 8
-  %lineOffsets = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %58, i32 0, i32 11
+  %59 = load ptr, ptr %_data77, align 8
+  %lineOffsets = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %59, i32 0, i32 11
   %_data78 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %59 = load ptr, ptr %_data78, align 8
-  %fileIsComplete = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %59, i32 0, i32 12
-  invoke void @_ZN7Imf_3_212_GLOBAL__N_115readLineOffsetsERNS_7IStreamENS_9LineOrderERSt6vectorImSaImEERb(ptr noundef nonnull align 8 dereferenceable(40) %55, i32 noundef %57, ptr noundef nonnull align 8 dereferenceable(24) %lineOffsets, ptr noundef nonnull align 1 dereferenceable(1) %fileIsComplete)
+  %60 = load ptr, ptr %_data78, align 8
+  %fileIsComplete = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %60, i32 0, i32 12
+  invoke void @_ZN7Imf_3_212_GLOBAL__N_115readLineOffsetsERNS_7IStreamENS_9LineOrderERSt6vectorImSaImEERb(ptr noundef nonnull align 8 dereferenceable(40) %56, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(24) %lineOffsets, ptr noundef nonnull align 1 dereferenceable(1) %fileIsComplete)
           to label %invoke.cont79 unwind label %lpad44
 
 invoke.cont79:                                    ; preds = %invoke.cont72
   br label %try.cont172
 
 lpad44:                                           ; preds = %invoke.cont72, %invoke.cont69, %invoke.cont67, %invoke.cont62, %invoke.cont53, %invoke.cont45, %try.cont
-  %60 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           catch ptr @_ZTIN7Iex_3_27BaseExcE
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %exn.slot, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %ehselector.slot, align 4
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %exn.slot, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %ehselector.slot, align 4
   br label %catch.dispatch80
 
 catch.dispatch80:                                 ; preds = %lpad44
   %sel81 = load i32, ptr %ehselector.slot, align 4
-  %63 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7Iex_3_27BaseExcE) #3
-  %matches82 = icmp eq i32 %sel81, %63
+  %64 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7Iex_3_27BaseExcE) #3
+  %matches82 = icmp eq i32 %sel81, %64
   br i1 %matches82, label %catch116, label %catch83
 
 catch116:                                         ; preds = %catch.dispatch80
   %exn118 = load ptr, ptr %exn.slot, align 8
-  %64 = call ptr @__cxa_begin_catch(ptr %exn118) #3
-  store ptr %64, ptr %e117, align 8
-  %65 = load ptr, ptr %is, align 8
-  %tobool119 = icmp ne ptr %65, null
+  %65 = call ptr @__cxa_begin_catch(ptr %exn118) #3
+  store ptr %65, ptr %e117, align 8
+  %66 = load ptr, ptr %is, align 8
+  %tobool119 = icmp ne ptr %66, null
   br i1 %tobool119, label %if.then120, label %if.end126
 
 if.then120:                                       ; preds = %catch116
-  %66 = load ptr, ptr %is, align 8
-  %isnull121 = icmp eq ptr %66, null
+  %67 = load ptr, ptr %is, align 8
+  %isnull121 = icmp eq ptr %67, null
   br i1 %isnull121, label %delete.end125, label %delete.notnull122
 
 delete.notnull122:                                ; preds = %if.then120
-  %vtable123 = load ptr, ptr %66, align 8
+  %vtable123 = load ptr, ptr %67, align 8
   %vfn124 = getelementptr inbounds ptr, ptr %vtable123, i64 1
-  %67 = load ptr, ptr %vfn124, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(40) %66) #3
+  %68 = load ptr, ptr %vfn124, align 8
+  call void %68(ptr noundef nonnull align 8 dereferenceable(40) %67) #3
   br label %delete.end125
 
 delete.end125:                                    ; preds = %delete.notnull122, %if.then120
@@ -3858,21 +3860,21 @@ delete.end125:                                    ; preds = %delete.notnull122, 
 
 catch83:                                          ; preds = %catch.dispatch80
   %exn84 = load ptr, ptr %exn.slot, align 8
-  %68 = call ptr @__cxa_begin_catch(ptr %exn84) #3
-  %69 = load ptr, ptr %is, align 8
-  %tobool85 = icmp ne ptr %69, null
+  %69 = call ptr @__cxa_begin_catch(ptr %exn84) #3
+  %70 = load ptr, ptr %is, align 8
+  %tobool85 = icmp ne ptr %70, null
   br i1 %tobool85, label %if.then86, label %if.end92
 
 if.then86:                                        ; preds = %catch83
-  %70 = load ptr, ptr %is, align 8
-  %isnull87 = icmp eq ptr %70, null
+  %71 = load ptr, ptr %is, align 8
+  %isnull87 = icmp eq ptr %71, null
   br i1 %isnull87, label %delete.end91, label %delete.notnull88
 
 delete.notnull88:                                 ; preds = %if.then86
-  %vtable89 = load ptr, ptr %70, align 8
+  %vtable89 = load ptr, ptr %71, align 8
   %vfn90 = getelementptr inbounds ptr, ptr %vtable89, i64 1
-  %71 = load ptr, ptr %vfn90, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(40) %70) #3
+  %72 = load ptr, ptr %vfn90, align 8
+  call void %72(ptr noundef nonnull align 8 dereferenceable(40) %71) #3
   br label %delete.end91
 
 delete.end91:                                     ; preds = %delete.notnull88, %if.then86
@@ -3880,28 +3882,28 @@ delete.end91:                                     ; preds = %delete.notnull88, %
 
 if.end92:                                         ; preds = %delete.end91, %catch83
   %_data93 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %72 = load ptr, ptr %_data93, align 8
-  %tobool94 = icmp ne ptr %72, null
+  %73 = load ptr, ptr %_data93, align 8
+  %tobool94 = icmp ne ptr %73, null
   br i1 %tobool94, label %land.lhs.true, label %if.end104
 
 land.lhs.true:                                    ; preds = %if.end92
   %_data95 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %73 = load ptr, ptr %_data95, align 8
-  %_streamData96 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %73, i32 0, i32 40
-  %74 = load ptr, ptr %_streamData96, align 8
-  %tobool97 = icmp ne ptr %74, null
+  %74 = load ptr, ptr %_data95, align 8
+  %_streamData96 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %74, i32 0, i32 40
+  %75 = load ptr, ptr %_streamData96, align 8
+  %tobool97 = icmp ne ptr %75, null
   br i1 %tobool97, label %if.then98, label %if.end104
 
 if.then98:                                        ; preds = %land.lhs.true
   %_data99 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %75 = load ptr, ptr %_data99, align 8
-  %_streamData100 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %75, i32 0, i32 40
-  %76 = load ptr, ptr %_streamData100, align 8
-  %isnull101 = icmp eq ptr %76, null
+  %76 = load ptr, ptr %_data99, align 8
+  %_streamData100 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %76, i32 0, i32 40
+  %77 = load ptr, ptr %_streamData100, align 8
+  %isnull101 = icmp eq ptr %77, null
   br i1 %isnull101, label %delete.end103, label %delete.notnull102
 
 delete.notnull102:                                ; preds = %if.then98
-  call void @_ZdlPv(ptr noundef %76) #17
+  call void @_ZdlPv(ptr noundef %77) #17
   br label %delete.end103
 
 delete.end103:                                    ; preds = %delete.notnull102, %if.then98
@@ -3909,19 +3911,19 @@ delete.end103:                                    ; preds = %delete.notnull102, 
 
 if.end104:                                        ; preds = %delete.end103, %land.lhs.true, %if.end92
   %_data105 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %77 = load ptr, ptr %_data105, align 8
-  %tobool106 = icmp ne ptr %77, null
+  %78 = load ptr, ptr %_data105, align 8
+  %tobool106 = icmp ne ptr %78, null
   br i1 %tobool106, label %if.then107, label %if.end112
 
 if.then107:                                       ; preds = %if.end104
   %_data108 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %78 = load ptr, ptr %_data108, align 8
-  %isnull109 = icmp eq ptr %78, null
+  %79 = load ptr, ptr %_data108, align 8
+  %isnull109 = icmp eq ptr %79, null
   br i1 %isnull109, label %delete.end111, label %delete.notnull110
 
 delete.notnull110:                                ; preds = %if.then107
-  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %78) #3
-  call void @_ZdlPv(ptr noundef %78) #17
+  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %79) #3
+  call void @_ZdlPv(ptr noundef %79) #17
   br label %delete.end111
 
 delete.end111:                                    ; preds = %delete.notnull110, %if.then107
@@ -3932,12 +3934,12 @@ if.end112:                                        ; preds = %delete.end111, %if.
           to label %unreachable unwind label %lpad113
 
 lpad113:                                          ; preds = %if.end112
-  %79 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %80 = extractvalue { ptr, i32 } %79, 0
-  store ptr %80, ptr %exn.slot, align 8
-  %81 = extractvalue { ptr, i32 } %79, 1
-  store i32 %81, ptr %ehselector.slot, align 4
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %exn.slot, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %ehselector.slot, align 4
   invoke void @__cxa_end_catch()
           to label %invoke.cont115 unwind label %terminate.lpad
 
@@ -3946,28 +3948,28 @@ invoke.cont115:                                   ; preds = %lpad113
 
 if.end126:                                        ; preds = %delete.end125, %catch116
   %_data127 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %82 = load ptr, ptr %_data127, align 8
-  %tobool128 = icmp ne ptr %82, null
+  %83 = load ptr, ptr %_data127, align 8
+  %tobool128 = icmp ne ptr %83, null
   br i1 %tobool128, label %land.lhs.true129, label %if.end139
 
 land.lhs.true129:                                 ; preds = %if.end126
   %_data130 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %83 = load ptr, ptr %_data130, align 8
-  %_streamData131 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %83, i32 0, i32 40
-  %84 = load ptr, ptr %_streamData131, align 8
-  %tobool132 = icmp ne ptr %84, null
+  %84 = load ptr, ptr %_data130, align 8
+  %_streamData131 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %84, i32 0, i32 40
+  %85 = load ptr, ptr %_streamData131, align 8
+  %tobool132 = icmp ne ptr %85, null
   br i1 %tobool132, label %if.then133, label %if.end139
 
 if.then133:                                       ; preds = %land.lhs.true129
   %_data134 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %85 = load ptr, ptr %_data134, align 8
-  %_streamData135 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %85, i32 0, i32 40
-  %86 = load ptr, ptr %_streamData135, align 8
-  %isnull136 = icmp eq ptr %86, null
+  %86 = load ptr, ptr %_data134, align 8
+  %_streamData135 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %86, i32 0, i32 40
+  %87 = load ptr, ptr %_streamData135, align 8
+  %isnull136 = icmp eq ptr %87, null
   br i1 %isnull136, label %delete.end138, label %delete.notnull137
 
 delete.notnull137:                                ; preds = %if.then133
-  call void @_ZdlPv(ptr noundef %86) #17
+  call void @_ZdlPv(ptr noundef %87) #17
   br label %delete.end138
 
 delete.end138:                                    ; preds = %delete.notnull137, %if.then133
@@ -3975,19 +3977,19 @@ delete.end138:                                    ; preds = %delete.notnull137, 
 
 if.end139:                                        ; preds = %delete.end138, %land.lhs.true129, %if.end126
   %_data140 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %87 = load ptr, ptr %_data140, align 8
-  %tobool141 = icmp ne ptr %87, null
+  %88 = load ptr, ptr %_data140, align 8
+  %tobool141 = icmp ne ptr %88, null
   br i1 %tobool141, label %if.then142, label %if.end147
 
 if.then142:                                       ; preds = %if.end139
   %_data143 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %88 = load ptr, ptr %_data143, align 8
-  %isnull144 = icmp eq ptr %88, null
+  %89 = load ptr, ptr %_data143, align 8
+  %isnull144 = icmp eq ptr %89, null
   br i1 %isnull144, label %delete.end146, label %delete.notnull145
 
 delete.notnull145:                                ; preds = %if.then142
-  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %88) #3
-  call void @_ZdlPv(ptr noundef %88) #17
+  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %89) #3
+  call void @_ZdlPv(ptr noundef %89) #17
   br label %delete.end146
 
 delete.end146:                                    ; preds = %delete.notnull145, %if.then142
@@ -4006,8 +4008,8 @@ invoke.cont151:                                   ; preds = %do.body148
           to label %invoke.cont154 unwind label %lpad153
 
 invoke.cont154:                                   ; preds = %invoke.cont151
-  %89 = load ptr, ptr %fileName.addr, align 8
-  %call157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call155, ptr noundef %89)
+  %90 = load ptr, ptr %fileName.addr, align 8
+  %call157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call155, ptr noundef %90)
           to label %invoke.cont156 unwind label %lpad153
 
 invoke.cont156:                                   ; preds = %invoke.cont154
@@ -4015,17 +4017,17 @@ invoke.cont156:                                   ; preds = %invoke.cont154
           to label %invoke.cont158 unwind label %lpad153
 
 invoke.cont158:                                   ; preds = %invoke.cont156
-  %90 = load ptr, ptr %e117, align 8
-  %vtable160 = load ptr, ptr %90, align 8
+  %91 = load ptr, ptr %e117, align 8
+  %vtable160 = load ptr, ptr %91, align 8
   %vfn161 = getelementptr inbounds ptr, ptr %vtable160, i64 2
-  %91 = load ptr, ptr %vfn161, align 8
-  %call162 = call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(72) %90) #3
+  %92 = load ptr, ptr %vfn161, align 8
+  %call162 = call noundef ptr %92(ptr noundef nonnull align 8 dereferenceable(72) %91) #3
   %call164 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call159, ptr noundef %call162)
           to label %invoke.cont163 unwind label %lpad153
 
 invoke.cont163:                                   ; preds = %invoke.cont158
-  %92 = load ptr, ptr %e117, align 8
-  %call166 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_27BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %92, ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s149)
+  %93 = load ptr, ptr %e117, align 8
+  %call166 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_27BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %93, ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s149)
           to label %invoke.cont165 unwind label %lpad153
 
 invoke.cont165:                                   ; preds = %invoke.cont163
@@ -4040,21 +4042,21 @@ do.end169:                                        ; preds = %do.cond168
           to label %unreachable unwind label %lpad150
 
 lpad150:                                          ; preds = %do.end169, %do.body148
-  %93 = landingpad { ptr, i32 }
+  %94 = landingpad { ptr, i32 }
           cleanup
-  %94 = extractvalue { ptr, i32 } %93, 0
-  store ptr %94, ptr %exn.slot, align 8
-  %95 = extractvalue { ptr, i32 } %93, 1
-  store i32 %95, ptr %ehselector.slot, align 4
+  %95 = extractvalue { ptr, i32 } %94, 0
+  store ptr %95, ptr %exn.slot, align 8
+  %96 = extractvalue { ptr, i32 } %94, 1
+  store i32 %96, ptr %ehselector.slot, align 4
   br label %ehcleanup170
 
 lpad153:                                          ; preds = %invoke.cont163, %invoke.cont158, %invoke.cont156, %invoke.cont154, %invoke.cont151
-  %96 = landingpad { ptr, i32 }
+  %97 = landingpad { ptr, i32 }
           cleanup
-  %97 = extractvalue { ptr, i32 } %96, 0
-  store ptr %97, ptr %exn.slot, align 8
-  %98 = extractvalue { ptr, i32 } %96, 1
-  store i32 %98, ptr %ehselector.slot, align 4
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %exn.slot, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s149) #3
   br label %ehcleanup170
 
@@ -4080,10 +4082,10 @@ eh.resume:                                        ; preds = %ehcleanup173
   resume { ptr, i32 } %lpad.val176
 
 terminate.lpad:                                   ; preds = %ehcleanup170, %lpad113, %ehcleanup
-  %99 = landingpad { ptr, i32 }
+  %100 = landingpad { ptr, i32 }
           catch ptr null
-  %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #18
+  %101 = extractvalue { ptr, i32 } %100, 0
+  call void @__clang_call_terminate(ptr %101) #18
   unreachable
 
 unreachable:                                      ; preds = %do.end169, %if.end112, %do.end
@@ -4169,13 +4171,10 @@ eh.resume:                                        ; preds = %lpad
   resume { ptr, i32 } %lpad.val7
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #9
-
 declare noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_27BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(128)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_216InputStreamMutexC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 {
@@ -4296,105 +4295,106 @@ entry:
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_216GenericInputFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_221DeepScanLineInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_221DeepScanLineInputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 520) #19
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load i32, ptr %numThreads.addr, align 4
-  invoke void @_ZN7Imf_3_221DeepScanLineInputFile4DataC1Ei(ptr noundef nonnull align 8 dereferenceable(513) %call, i32 noundef %0)
+  %1 = load i32, ptr %numThreads.addr, align 4
+  invoke void @_ZN7Imf_3_221DeepScanLineInputFile4DataC1Ei(ptr noundef nonnull align 8 dereferenceable(513) %call, i32 noundef %1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call, ptr %_data, align 8
   %_data4 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %_data4, align 8
-  %_deleteStream = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %1, i32 0, i32 41
+  %2 = load ptr, ptr %_data4, align 8
+  %_deleteStream = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %2, i32 0, i32 41
   store i8 0, ptr %_deleteStream, align 8
   %_data5 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %_data5, align 8
-  %_streamData = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %2, i32 0, i32 40
+  %3 = load ptr, ptr %_data5, align 8
+  %_streamData = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %3, i32 0, i32 40
   store ptr null, ptr %_streamData, align 8
-  %3 = load ptr, ptr %is.addr, align 8
+  %4 = load ptr, ptr %is.addr, align 8
   %_data6 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %_data6, align 8
-  %version = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %4, i32 0, i32 2
-  invoke void @_ZN7Imf_3_216GenericInputFile30readMagicNumberAndVersionFieldERNS_7IStreamERi(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 4 dereferenceable(4) %version)
+  %5 = load ptr, ptr %_data6, align 8
+  %version = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %5, i32 0, i32 2
+  invoke void @_ZN7Imf_3_216GenericInputFile30readMagicNumberAndVersionFieldERNS_7IStreamERi(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 4 dereferenceable(4) %version)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont3
   %_data9 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %_data9, align 8
-  %version10 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %version10, align 8
-  %call12 = invoke noundef zeroext i1 @_ZN7Imf_3_211isMultiPartEi(i32 noundef %6)
+  %6 = load ptr, ptr %_data9, align 8
+  %version10 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %6, i32 0, i32 2
+  %7 = load i32, ptr %version10, align 8
+  %call12 = invoke noundef zeroext i1 @_ZN7Imf_3_211isMultiPartEi(i32 noundef %7)
           to label %invoke.cont11 unwind label %lpad7
 
 invoke.cont11:                                    ; preds = %invoke.cont8
   br i1 %call12, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont11
-  %7 = load ptr, ptr %is.addr, align 8
-  invoke void @_ZN7Imf_3_221DeepScanLineInputFile23compatibilityInitializeERNS_7IStreamE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(40) %7)
+  %8 = load ptr, ptr %is.addr, align 8
+  invoke void @_ZN7Imf_3_221DeepScanLineInputFile23compatibilityInitializeERNS_7IStreamE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(40) %8)
           to label %invoke.cont13 unwind label %lpad7
 
 invoke.cont13:                                    ; preds = %if.then
   br label %try.cont150
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup151
 
 lpad2:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #17
   br label %ehcleanup151
 
 lpad7:                                            ; preds = %if.then, %invoke.cont8, %invoke.cont3
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN7Iex_3_27BaseExcE
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %catch.dispatch
 
 catch.dispatch:                                   ; preds = %lpad7
   %sel = load i32, ptr %ehselector.slot, align 4
-  %17 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7Iex_3_27BaseExcE) #3
-  %matches = icmp eq i32 %sel, %17
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7Iex_3_27BaseExcE) #3
+  %matches = icmp eq i32 %sel, %18
   br i1 %matches, label %catch, label %ehcleanup151
 
 catch:                                            ; preds = %catch.dispatch
   %exn = load ptr, ptr %exn.slot, align 8
-  %18 = call ptr @__cxa_begin_catch(ptr %exn) #3
-  store ptr %18, ptr %e, align 8
+  %19 = call ptr @__cxa_begin_catch(ptr %exn) #3
+  store ptr %19, ptr %e, align 8
   %_data14 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %19 = load ptr, ptr %_data14, align 8
-  %tobool = icmp ne ptr %19, null
+  %20 = load ptr, ptr %_data14, align 8
+  %tobool = icmp ne ptr %20, null
   br i1 %tobool, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %catch
   %_data16 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %20 = load ptr, ptr %_data16, align 8
-  %isnull = icmp eq ptr %20, null
+  %21 = load ptr, ptr %_data16, align 8
+  %isnull = icmp eq ptr %21, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then15
-  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %20) #3
-  call void @_ZdlPv(ptr noundef %20) #17
+  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %21) #3
+  call void @_ZdlPv(ptr noundef %21) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then15
@@ -4416,8 +4416,8 @@ invoke.cont19:                                    ; preds = %do.body
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  %21 = load ptr, ptr %is.addr, align 8
-  %call24 = invoke noundef ptr @_ZNK7Imf_3_27IStream8fileNameEv(ptr noundef nonnull align 8 dereferenceable(40) %21)
+  %22 = load ptr, ptr %is.addr, align 8
+  %call24 = invoke noundef ptr @_ZNK7Imf_3_27IStream8fileNameEv(ptr noundef nonnull align 8 dereferenceable(40) %22)
           to label %invoke.cont23 unwind label %lpad20
 
 invoke.cont23:                                    ; preds = %invoke.cont21
@@ -4429,17 +4429,17 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %invoke.cont27 unwind label %lpad20
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  %22 = load ptr, ptr %e, align 8
-  %vtable = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %e, align 8
+  %vtable = load ptr, ptr %23, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %23 = load ptr, ptr %vfn, align 8
-  %call29 = call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(72) %22) #3
+  %24 = load ptr, ptr %vfn, align 8
+  %call29 = call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(72) %23) #3
   %call31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call28, ptr noundef %call29)
           to label %invoke.cont30 unwind label %lpad20
 
 invoke.cont30:                                    ; preds = %invoke.cont27
-  %24 = load ptr, ptr %e, align 8
-  %call33 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_27BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s)
+  %25 = load ptr, ptr %e, align 8
+  %call33 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_27BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s)
           to label %invoke.cont32 unwind label %lpad20
 
 invoke.cont32:                                    ; preds = %invoke.cont30
@@ -4454,21 +4454,21 @@ do.end:                                           ; preds = %do.cond
           to label %unreachable unwind label %lpad18
 
 lpad18:                                           ; preds = %do.end, %do.body
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad20:                                           ; preds = %invoke.cont30, %invoke.cont27, %invoke.cont25, %invoke.cont23, %invoke.cont21, %invoke.cont19
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %exn.slot, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s) #3
   br label %ehcleanup
 
@@ -4487,53 +4487,53 @@ invoke.cont36:                                    ; preds = %try.cont
   call void @llvm.memset.p0.i64(ptr align 16 %call37, i8 0, i64 56, i1 false)
   call void @_ZN7Imf_3_216InputStreamMutexC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call37) #3
   %_data38 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %31 = load ptr, ptr %_data38, align 8
-  %_streamData39 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %31, i32 0, i32 40
+  %32 = load ptr, ptr %_data38, align 8
+  %_streamData39 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %32, i32 0, i32 40
   store ptr %call37, ptr %_streamData39, align 8
-  %32 = load ptr, ptr %is.addr, align 8
+  %33 = load ptr, ptr %is.addr, align 8
   %_data40 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %33 = load ptr, ptr %_data40, align 8
-  %_streamData41 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %33, i32 0, i32 40
-  %34 = load ptr, ptr %_streamData41, align 8
-  %is42 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %34, i32 0, i32 1
-  store ptr %32, ptr %is42, align 8
-  %35 = load ptr, ptr %is.addr, align 8
-  %vtable43 = load ptr, ptr %35, align 8
+  %34 = load ptr, ptr %_data40, align 8
+  %_streamData41 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %34, i32 0, i32 40
+  %35 = load ptr, ptr %_streamData41, align 8
+  %is42 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %35, i32 0, i32 1
+  store ptr %33, ptr %is42, align 8
+  %36 = load ptr, ptr %is.addr, align 8
+  %vtable43 = load ptr, ptr %36, align 8
   %vfn44 = getelementptr inbounds ptr, ptr %vtable43, i64 2
-  %36 = load ptr, ptr %vfn44, align 8
-  %call46 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(40) %35)
+  %37 = load ptr, ptr %vfn44, align 8
+  %call46 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(40) %36)
           to label %invoke.cont45 unwind label %lpad35
 
 invoke.cont45:                                    ; preds = %invoke.cont36
   %_data47 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %37 = load ptr, ptr %_data47, align 8
-  %memoryMapped = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %37, i32 0, i32 25
+  %38 = load ptr, ptr %_data47, align 8
+  %memoryMapped = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %38, i32 0, i32 25
   %frombool = zext i1 %call46 to i8
   store i8 %frombool, ptr %memoryMapped, align 8
   %_data48 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %38 = load ptr, ptr %_data48, align 8
-  %header = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %38, i32 0, i32 1
+  %39 = load ptr, ptr %_data48, align 8
+  %header = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %39, i32 0, i32 1
   %_data49 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %39 = load ptr, ptr %_data49, align 8
-  %_streamData50 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %39, i32 0, i32 40
-  %40 = load ptr, ptr %_streamData50, align 8
-  %is51 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %40, i32 0, i32 1
-  %41 = load ptr, ptr %is51, align 8
+  %40 = load ptr, ptr %_data49, align 8
+  %_streamData50 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %40, i32 0, i32 40
+  %41 = load ptr, ptr %_streamData50, align 8
+  %is51 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %41, i32 0, i32 1
+  %42 = load ptr, ptr %is51, align 8
   %_data52 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %42 = load ptr, ptr %_data52, align 8
-  %version53 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %42, i32 0, i32 2
-  invoke void @_ZN7Imf_3_26Header8readFromERNS_7IStreamERi(ptr noundef nonnull align 8 dereferenceable(49) %header, ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 4 dereferenceable(4) %version53)
+  %43 = load ptr, ptr %_data52, align 8
+  %version53 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %43, i32 0, i32 2
+  invoke void @_ZN7Imf_3_26Header8readFromERNS_7IStreamERi(ptr noundef nonnull align 8 dereferenceable(49) %header, ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 4 dereferenceable(4) %version53)
           to label %invoke.cont54 unwind label %lpad35
 
 invoke.cont54:                                    ; preds = %invoke.cont45
   %_data55 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %43 = load ptr, ptr %_data55, align 8
-  %header56 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %43, i32 0, i32 1
+  %44 = load ptr, ptr %_data55, align 8
+  %header56 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %44, i32 0, i32 1
   %_data57 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %44 = load ptr, ptr %_data57, align 8
-  %version58 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %44, i32 0, i32 2
-  %45 = load i32, ptr %version58, align 8
-  %call60 = invoke noundef zeroext i1 @_ZN7Imf_3_27isTiledEi(i32 noundef %45)
+  %45 = load ptr, ptr %_data57, align 8
+  %version58 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %45, i32 0, i32 2
+  %46 = load i32, ptr %version58, align 8
+  %call60 = invoke noundef zeroext i1 @_ZN7Imf_3_27isTiledEi(i32 noundef %46)
           to label %invoke.cont59 unwind label %lpad35
 
 invoke.cont59:                                    ; preds = %invoke.cont54
@@ -4542,77 +4542,77 @@ invoke.cont59:                                    ; preds = %invoke.cont54
 
 invoke.cont61:                                    ; preds = %invoke.cont59
   %_data62 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %46 = load ptr, ptr %_data62, align 8
-  %header63 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %46, i32 0, i32 1
+  %47 = load ptr, ptr %_data62, align 8
+  %header63 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %47, i32 0, i32 1
   invoke void @_ZN7Imf_3_221DeepScanLineInputFile10initializeERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(49) %header63)
           to label %invoke.cont64 unwind label %lpad35
 
 invoke.cont64:                                    ; preds = %invoke.cont61
   %_data65 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %47 = load ptr, ptr %_data65, align 8
-  %_streamData66 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %47, i32 0, i32 40
-  %48 = load ptr, ptr %_streamData66, align 8
-  %is67 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %48, i32 0, i32 1
-  %49 = load ptr, ptr %is67, align 8
+  %48 = load ptr, ptr %_data65, align 8
+  %_streamData66 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %48, i32 0, i32 40
+  %49 = load ptr, ptr %_streamData66, align 8
+  %is67 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %49, i32 0, i32 1
+  %50 = load ptr, ptr %is67, align 8
   %_data68 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %50 = load ptr, ptr %_data68, align 8
-  %lineOrder = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %50, i32 0, i32 5
-  %51 = load i32, ptr %lineOrder, align 8
+  %51 = load ptr, ptr %_data68, align 8
+  %lineOrder = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %51, i32 0, i32 5
+  %52 = load i32, ptr %lineOrder, align 8
   %_data69 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %52 = load ptr, ptr %_data69, align 8
-  %lineOffsets = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %52, i32 0, i32 11
+  %53 = load ptr, ptr %_data69, align 8
+  %lineOffsets = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %53, i32 0, i32 11
   %_data70 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %53 = load ptr, ptr %_data70, align 8
-  %fileIsComplete = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %53, i32 0, i32 12
-  invoke void @_ZN7Imf_3_212_GLOBAL__N_115readLineOffsetsERNS_7IStreamENS_9LineOrderERSt6vectorImSaImEERb(ptr noundef nonnull align 8 dereferenceable(40) %49, i32 noundef %51, ptr noundef nonnull align 8 dereferenceable(24) %lineOffsets, ptr noundef nonnull align 1 dereferenceable(1) %fileIsComplete)
+  %54 = load ptr, ptr %_data70, align 8
+  %fileIsComplete = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %54, i32 0, i32 12
+  invoke void @_ZN7Imf_3_212_GLOBAL__N_115readLineOffsetsERNS_7IStreamENS_9LineOrderERSt6vectorImSaImEERb(ptr noundef nonnull align 8 dereferenceable(40) %50, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(24) %lineOffsets, ptr noundef nonnull align 1 dereferenceable(1) %fileIsComplete)
           to label %invoke.cont71 unwind label %lpad35
 
 invoke.cont71:                                    ; preds = %invoke.cont64
   br label %try.cont150
 
 lpad35:                                           ; preds = %invoke.cont64, %invoke.cont61, %invoke.cont59, %invoke.cont54, %invoke.cont45, %invoke.cont36, %try.cont
-  %54 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           catch ptr @_ZTIN7Iex_3_27BaseExcE
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  store ptr %55, ptr %exn.slot, align 8
-  %56 = extractvalue { ptr, i32 } %54, 1
-  store i32 %56, ptr %ehselector.slot, align 4
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %exn.slot, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %ehselector.slot, align 4
   br label %catch.dispatch72
 
 catch.dispatch72:                                 ; preds = %lpad35
   %sel73 = load i32, ptr %ehselector.slot, align 4
-  %57 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7Iex_3_27BaseExcE) #3
-  %matches74 = icmp eq i32 %sel73, %57
+  %58 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7Iex_3_27BaseExcE) #3
+  %matches74 = icmp eq i32 %sel73, %58
   br i1 %matches74, label %catch100, label %catch75
 
 catch100:                                         ; preds = %catch.dispatch72
   %exn102 = load ptr, ptr %exn.slot, align 8
-  %58 = call ptr @__cxa_begin_catch(ptr %exn102) #3
-  store ptr %58, ptr %e101, align 8
+  %59 = call ptr @__cxa_begin_catch(ptr %exn102) #3
+  store ptr %59, ptr %e101, align 8
   %_data103 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %59 = load ptr, ptr %_data103, align 8
-  %tobool104 = icmp ne ptr %59, null
+  %60 = load ptr, ptr %_data103, align 8
+  %tobool104 = icmp ne ptr %60, null
   br i1 %tobool104, label %land.lhs.true105, label %if.end115
 
 land.lhs.true105:                                 ; preds = %catch100
   %_data106 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %60 = load ptr, ptr %_data106, align 8
-  %_streamData107 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %60, i32 0, i32 40
-  %61 = load ptr, ptr %_streamData107, align 8
-  %tobool108 = icmp ne ptr %61, null
+  %61 = load ptr, ptr %_data106, align 8
+  %_streamData107 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %61, i32 0, i32 40
+  %62 = load ptr, ptr %_streamData107, align 8
+  %tobool108 = icmp ne ptr %62, null
   br i1 %tobool108, label %if.then109, label %if.end115
 
 if.then109:                                       ; preds = %land.lhs.true105
   %_data110 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %62 = load ptr, ptr %_data110, align 8
-  %_streamData111 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %62, i32 0, i32 40
-  %63 = load ptr, ptr %_streamData111, align 8
-  %isnull112 = icmp eq ptr %63, null
+  %63 = load ptr, ptr %_data110, align 8
+  %_streamData111 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %63, i32 0, i32 40
+  %64 = load ptr, ptr %_streamData111, align 8
+  %isnull112 = icmp eq ptr %64, null
   br i1 %isnull112, label %delete.end114, label %delete.notnull113
 
 delete.notnull113:                                ; preds = %if.then109
-  call void @_ZdlPv(ptr noundef %63) #17
+  call void @_ZdlPv(ptr noundef %64) #17
   br label %delete.end114
 
 delete.end114:                                    ; preds = %delete.notnull113, %if.then109
@@ -4620,30 +4620,30 @@ delete.end114:                                    ; preds = %delete.notnull113, 
 
 catch75:                                          ; preds = %catch.dispatch72
   %exn76 = load ptr, ptr %exn.slot, align 8
-  %64 = call ptr @__cxa_begin_catch(ptr %exn76) #3
+  %65 = call ptr @__cxa_begin_catch(ptr %exn76) #3
   %_data77 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %65 = load ptr, ptr %_data77, align 8
-  %tobool78 = icmp ne ptr %65, null
+  %66 = load ptr, ptr %_data77, align 8
+  %tobool78 = icmp ne ptr %66, null
   br i1 %tobool78, label %land.lhs.true, label %if.end88
 
 land.lhs.true:                                    ; preds = %catch75
   %_data79 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %66 = load ptr, ptr %_data79, align 8
-  %_streamData80 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %66, i32 0, i32 40
-  %67 = load ptr, ptr %_streamData80, align 8
-  %tobool81 = icmp ne ptr %67, null
+  %67 = load ptr, ptr %_data79, align 8
+  %_streamData80 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %67, i32 0, i32 40
+  %68 = load ptr, ptr %_streamData80, align 8
+  %tobool81 = icmp ne ptr %68, null
   br i1 %tobool81, label %if.then82, label %if.end88
 
 if.then82:                                        ; preds = %land.lhs.true
   %_data83 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %68 = load ptr, ptr %_data83, align 8
-  %_streamData84 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %68, i32 0, i32 40
-  %69 = load ptr, ptr %_streamData84, align 8
-  %isnull85 = icmp eq ptr %69, null
+  %69 = load ptr, ptr %_data83, align 8
+  %_streamData84 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %69, i32 0, i32 40
+  %70 = load ptr, ptr %_streamData84, align 8
+  %isnull85 = icmp eq ptr %70, null
   br i1 %isnull85, label %delete.end87, label %delete.notnull86
 
 delete.notnull86:                                 ; preds = %if.then82
-  call void @_ZdlPv(ptr noundef %69) #17
+  call void @_ZdlPv(ptr noundef %70) #17
   br label %delete.end87
 
 delete.end87:                                     ; preds = %delete.notnull86, %if.then82
@@ -4651,19 +4651,19 @@ delete.end87:                                     ; preds = %delete.notnull86, %
 
 if.end88:                                         ; preds = %delete.end87, %land.lhs.true, %catch75
   %_data89 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %70 = load ptr, ptr %_data89, align 8
-  %tobool90 = icmp ne ptr %70, null
+  %71 = load ptr, ptr %_data89, align 8
+  %tobool90 = icmp ne ptr %71, null
   br i1 %tobool90, label %if.then91, label %if.end96
 
 if.then91:                                        ; preds = %if.end88
   %_data92 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %71 = load ptr, ptr %_data92, align 8
-  %isnull93 = icmp eq ptr %71, null
+  %72 = load ptr, ptr %_data92, align 8
+  %isnull93 = icmp eq ptr %72, null
   br i1 %isnull93, label %delete.end95, label %delete.notnull94
 
 delete.notnull94:                                 ; preds = %if.then91
-  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %71) #3
-  call void @_ZdlPv(ptr noundef %71) #17
+  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %72) #3
+  call void @_ZdlPv(ptr noundef %72) #17
   br label %delete.end95
 
 delete.end95:                                     ; preds = %delete.notnull94, %if.then91
@@ -4674,12 +4674,12 @@ if.end96:                                         ; preds = %delete.end95, %if.e
           to label %unreachable unwind label %lpad97
 
 lpad97:                                           ; preds = %if.end96
-  %72 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
-  %73 = extractvalue { ptr, i32 } %72, 0
-  store ptr %73, ptr %exn.slot, align 8
-  %74 = extractvalue { ptr, i32 } %72, 1
-  store i32 %74, ptr %ehselector.slot, align 4
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %exn.slot, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %ehselector.slot, align 4
   invoke void @__cxa_end_catch()
           to label %invoke.cont99 unwind label %terminate.lpad
 
@@ -4688,19 +4688,19 @@ invoke.cont99:                                    ; preds = %lpad97
 
 if.end115:                                        ; preds = %delete.end114, %land.lhs.true105, %catch100
   %_data116 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %75 = load ptr, ptr %_data116, align 8
-  %tobool117 = icmp ne ptr %75, null
+  %76 = load ptr, ptr %_data116, align 8
+  %tobool117 = icmp ne ptr %76, null
   br i1 %tobool117, label %if.then118, label %if.end123
 
 if.then118:                                       ; preds = %if.end115
   %_data119 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %76 = load ptr, ptr %_data119, align 8
-  %isnull120 = icmp eq ptr %76, null
+  %77 = load ptr, ptr %_data119, align 8
+  %isnull120 = icmp eq ptr %77, null
   br i1 %isnull120, label %delete.end122, label %delete.notnull121
 
 delete.notnull121:                                ; preds = %if.then118
-  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %76) #3
-  call void @_ZdlPv(ptr noundef %76) #17
+  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %77) #3
+  call void @_ZdlPv(ptr noundef %77) #17
   br label %delete.end122
 
 delete.end122:                                    ; preds = %delete.notnull121, %if.then118
@@ -4719,8 +4719,8 @@ invoke.cont127:                                   ; preds = %do.body124
           to label %invoke.cont130 unwind label %lpad129
 
 invoke.cont130:                                   ; preds = %invoke.cont127
-  %77 = load ptr, ptr %is.addr, align 8
-  %call133 = invoke noundef ptr @_ZNK7Imf_3_27IStream8fileNameEv(ptr noundef nonnull align 8 dereferenceable(40) %77)
+  %78 = load ptr, ptr %is.addr, align 8
+  %call133 = invoke noundef ptr @_ZNK7Imf_3_27IStream8fileNameEv(ptr noundef nonnull align 8 dereferenceable(40) %78)
           to label %invoke.cont132 unwind label %lpad129
 
 invoke.cont132:                                   ; preds = %invoke.cont130
@@ -4732,17 +4732,17 @@ invoke.cont134:                                   ; preds = %invoke.cont132
           to label %invoke.cont136 unwind label %lpad129
 
 invoke.cont136:                                   ; preds = %invoke.cont134
-  %78 = load ptr, ptr %e101, align 8
-  %vtable138 = load ptr, ptr %78, align 8
+  %79 = load ptr, ptr %e101, align 8
+  %vtable138 = load ptr, ptr %79, align 8
   %vfn139 = getelementptr inbounds ptr, ptr %vtable138, i64 2
-  %79 = load ptr, ptr %vfn139, align 8
-  %call140 = call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(72) %78) #3
+  %80 = load ptr, ptr %vfn139, align 8
+  %call140 = call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(72) %79) #3
   %call142 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call137, ptr noundef %call140)
           to label %invoke.cont141 unwind label %lpad129
 
 invoke.cont141:                                   ; preds = %invoke.cont136
-  %80 = load ptr, ptr %e101, align 8
-  %call144 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_27BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %80, ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s125)
+  %81 = load ptr, ptr %e101, align 8
+  %call144 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_27BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s125)
           to label %invoke.cont143 unwind label %lpad129
 
 invoke.cont143:                                   ; preds = %invoke.cont141
@@ -4757,21 +4757,21 @@ do.end147:                                        ; preds = %do.cond146
           to label %unreachable unwind label %lpad126
 
 lpad126:                                          ; preds = %do.end147, %do.body124
-  %81 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
-  %82 = extractvalue { ptr, i32 } %81, 0
-  store ptr %82, ptr %exn.slot, align 8
-  %83 = extractvalue { ptr, i32 } %81, 1
-  store i32 %83, ptr %ehselector.slot, align 4
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %exn.slot, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %ehselector.slot, align 4
   br label %ehcleanup148
 
 lpad129:                                          ; preds = %invoke.cont141, %invoke.cont136, %invoke.cont134, %invoke.cont132, %invoke.cont130, %invoke.cont127
-  %84 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %exn.slot, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %ehselector.slot, align 4
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %exn.slot, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_replace_s125) #3
   br label %ehcleanup148
 
@@ -4797,10 +4797,10 @@ eh.resume:                                        ; preds = %ehcleanup151
   resume { ptr, i32 } %lpad.val154
 
 terminate.lpad:                                   ; preds = %ehcleanup148, %lpad97, %ehcleanup
-  %87 = landingpad { ptr, i32 }
+  %88 = landingpad { ptr, i32 }
           catch ptr null
-  %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #18
+  %89 = extractvalue { ptr, i32 } %88, 0
+  call void @__clang_call_terminate(ptr %89) #18
   unreachable
 
 unreachable:                                      ; preds = %do.end147, %if.end96, %do.end
@@ -4826,14 +4826,15 @@ entry:
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_216GenericInputFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_221DeepScanLineInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_221DeepScanLineInputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 520) #19
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load i32, ptr %numThreads.addr, align 4
-  invoke void @_ZN7Imf_3_221DeepScanLineInputFile4DataC1Ei(ptr noundef nonnull align 8 dereferenceable(513) %call, i32 noundef %0)
+  %1 = load i32, ptr %numThreads.addr, align 4
+  invoke void @_ZN7Imf_3_221DeepScanLineInputFile4DataC1Ei(ptr noundef nonnull align 8 dereferenceable(513) %call, i32 noundef %1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -4845,99 +4846,99 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   call void @llvm.memset.p0.i64(ptr align 16 %call5, i8 0, i64 56, i1 false)
   call void @_ZN7Imf_3_216InputStreamMutexC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call5) #3
   %_data6 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %_data6, align 8
-  %_streamData = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %1, i32 0, i32 40
+  %2 = load ptr, ptr %_data6, align 8
+  %_streamData = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %2, i32 0, i32 40
   store ptr %call5, ptr %_streamData, align 8
   %_data7 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %_data7, align 8
-  %_deleteStream = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %2, i32 0, i32 41
+  %3 = load ptr, ptr %_data7, align 8
+  %_deleteStream = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %3, i32 0, i32 41
   store i8 0, ptr %_deleteStream, align 8
-  %3 = load ptr, ptr %is.addr, align 8
+  %4 = load ptr, ptr %is.addr, align 8
   %_data8 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %_data8, align 8
-  %_streamData9 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %4, i32 0, i32 40
-  %5 = load ptr, ptr %_streamData9, align 8
-  %is10 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %5, i32 0, i32 1
-  store ptr %3, ptr %is10, align 8
-  %6 = load ptr, ptr %is.addr, align 8
-  %vtable = load ptr, ptr %6, align 8
+  %5 = load ptr, ptr %_data8, align 8
+  %_streamData9 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %5, i32 0, i32 40
+  %6 = load ptr, ptr %_streamData9, align 8
+  %is10 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %6, i32 0, i32 1
+  store ptr %4, ptr %is10, align 8
+  %7 = load ptr, ptr %is.addr, align 8
+  %vtable = load ptr, ptr %7, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %7 = load ptr, ptr %vfn, align 8
-  %call12 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(40) %6)
+  %8 = load ptr, ptr %vfn, align 8
+  %call12 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(40) %7)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont4
   %_data13 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %_data13, align 8
-  %memoryMapped = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %8, i32 0, i32 25
+  %9 = load ptr, ptr %_data13, align 8
+  %memoryMapped = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %9, i32 0, i32 25
   %frombool = zext i1 %call12 to i8
   store i8 %frombool, ptr %memoryMapped, align 8
-  %9 = load i32, ptr %version.addr, align 4
+  %10 = load i32, ptr %version.addr, align 4
   %_data14 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %_data14, align 8
-  %version15 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %10, i32 0, i32 2
-  store i32 %9, ptr %version15, align 8
-  %11 = load ptr, ptr %header.addr, align 8
-  invoke void @_ZN7Imf_3_221DeepScanLineInputFile10initializeERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(49) %11)
+  %11 = load ptr, ptr %_data14, align 8
+  %version15 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %11, i32 0, i32 2
+  store i32 %10, ptr %version15, align 8
+  %12 = load ptr, ptr %header.addr, align 8
+  invoke void @_ZN7Imf_3_221DeepScanLineInputFile10initializeERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(49) %12)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont11
   br label %try.cont
 
 lpad:                                             ; preds = %try.cont, %invoke.cont4, %invoke.cont3, %entry
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #17
   br label %ehcleanup
 
 lpad16:                                           ; preds = %invoke.cont11
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %catch
 
 catch:                                            ; preds = %lpad16
   %exn = load ptr, ptr %exn.slot, align 8
-  %21 = call ptr @__cxa_begin_catch(ptr %exn) #3
+  %22 = call ptr @__cxa_begin_catch(ptr %exn) #3
   %_data18 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %22 = load ptr, ptr %_data18, align 8
-  %tobool = icmp ne ptr %22, null
+  %23 = load ptr, ptr %_data18, align 8
+  %tobool = icmp ne ptr %23, null
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %catch
   %_data19 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %23 = load ptr, ptr %_data19, align 8
-  %_streamData20 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %23, i32 0, i32 40
-  %24 = load ptr, ptr %_streamData20, align 8
-  %tobool21 = icmp ne ptr %24, null
+  %24 = load ptr, ptr %_data19, align 8
+  %_streamData20 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %24, i32 0, i32 40
+  %25 = load ptr, ptr %_streamData20, align 8
+  %tobool21 = icmp ne ptr %25, null
   br i1 %tobool21, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %_data22 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %25 = load ptr, ptr %_data22, align 8
-  %_streamData23 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %25, i32 0, i32 40
-  %26 = load ptr, ptr %_streamData23, align 8
-  %isnull = icmp eq ptr %26, null
+  %26 = load ptr, ptr %_data22, align 8
+  %_streamData23 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %26, i32 0, i32 40
+  %27 = load ptr, ptr %_streamData23, align 8
+  %isnull = icmp eq ptr %27, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  call void @_ZdlPv(ptr noundef %26) #17
+  call void @_ZdlPv(ptr noundef %27) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -4945,19 +4946,19 @@ delete.end:                                       ; preds = %delete.notnull, %if
 
 if.end:                                           ; preds = %delete.end, %land.lhs.true, %catch
   %_data24 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %27 = load ptr, ptr %_data24, align 8
-  %tobool25 = icmp ne ptr %27, null
+  %28 = load ptr, ptr %_data24, align 8
+  %tobool25 = icmp ne ptr %28, null
   br i1 %tobool25, label %if.then26, label %if.end31
 
 if.then26:                                        ; preds = %if.end
   %_data27 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %28 = load ptr, ptr %_data27, align 8
-  %isnull28 = icmp eq ptr %28, null
+  %29 = load ptr, ptr %_data27, align 8
+  %isnull28 = icmp eq ptr %29, null
   br i1 %isnull28, label %delete.end30, label %delete.notnull29
 
 delete.notnull29:                                 ; preds = %if.then26
-  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %28) #3
-  call void @_ZdlPv(ptr noundef %28) #17
+  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %29) #3
+  call void @_ZdlPv(ptr noundef %29) #17
   br label %delete.end30
 
 delete.end30:                                     ; preds = %delete.notnull29, %if.then26
@@ -4968,12 +4969,12 @@ if.end31:                                         ; preds = %delete.end30, %if.e
           to label %unreachable unwind label %lpad32
 
 lpad32:                                           ; preds = %if.end31
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %exn.slot, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %ehselector.slot, align 4
   invoke void @__cxa_end_catch()
           to label %invoke.cont33 unwind label %terminate.lpad
 
@@ -4982,22 +4983,22 @@ invoke.cont33:                                    ; preds = %lpad32
 
 try.cont:                                         ; preds = %invoke.cont17
   %_data34 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %32 = load ptr, ptr %_data34, align 8
-  %_streamData35 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %32, i32 0, i32 40
-  %33 = load ptr, ptr %_streamData35, align 8
-  %is36 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %33, i32 0, i32 1
-  %34 = load ptr, ptr %is36, align 8
+  %33 = load ptr, ptr %_data34, align 8
+  %_streamData35 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %33, i32 0, i32 40
+  %34 = load ptr, ptr %_streamData35, align 8
+  %is36 = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %34, i32 0, i32 1
+  %35 = load ptr, ptr %is36, align 8
   %_data37 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %35 = load ptr, ptr %_data37, align 8
-  %lineOrder = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %35, i32 0, i32 5
-  %36 = load i32, ptr %lineOrder, align 8
+  %36 = load ptr, ptr %_data37, align 8
+  %lineOrder = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %36, i32 0, i32 5
+  %37 = load i32, ptr %lineOrder, align 8
   %_data38 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %37 = load ptr, ptr %_data38, align 8
-  %lineOffsets = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %37, i32 0, i32 11
+  %38 = load ptr, ptr %_data38, align 8
+  %lineOffsets = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %38, i32 0, i32 11
   %_data39 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %38 = load ptr, ptr %_data39, align 8
-  %fileIsComplete = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %38, i32 0, i32 12
-  invoke void @_ZN7Imf_3_212_GLOBAL__N_115readLineOffsetsERNS_7IStreamENS_9LineOrderERSt6vectorImSaImEERb(ptr noundef nonnull align 8 dereferenceable(40) %34, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(24) %lineOffsets, ptr noundef nonnull align 1 dereferenceable(1) %fileIsComplete)
+  %39 = load ptr, ptr %_data39, align 8
+  %fileIsComplete = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %39, i32 0, i32 12
+  invoke void @_ZN7Imf_3_212_GLOBAL__N_115readLineOffsetsERNS_7IStreamENS_9LineOrderERSt6vectorImSaImEERb(ptr noundef nonnull align 8 dereferenceable(40) %35, i32 noundef %37, ptr noundef nonnull align 8 dereferenceable(24) %lineOffsets, ptr noundef nonnull align 1 dereferenceable(1) %fileIsComplete)
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %try.cont
@@ -5015,10 +5016,10 @@ eh.resume:                                        ; preds = %ehcleanup
   resume { ptr, i32 } %lpad.val42
 
 terminate.lpad:                                   ; preds = %lpad32
-  %39 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #18
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #18
   unreachable
 
 unreachable:                                      ; preds = %if.end31
@@ -5032,29 +5033,30 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_221DeepScanLineInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7Imf_3_221DeepScanLineInputFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_data, align 8
-  %_deleteStream = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %0, i32 0, i32 41
-  %1 = load i8, ptr %_deleteStream, align 8
-  %tobool = trunc i8 %1 to i1
+  %1 = load ptr, ptr %_data, align 8
+  %_deleteStream = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %1, i32 0, i32 41
+  %2 = load i8, ptr %_deleteStream, align 8
+  %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %_data2 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %_data2, align 8
-  %_streamData = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %2, i32 0, i32 40
-  %3 = load ptr, ptr %_streamData, align 8
-  %is = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %is, align 8
-  %isnull = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_data2, align 8
+  %_streamData = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %3, i32 0, i32 40
+  %4 = load ptr, ptr %_streamData, align 8
+  %is = getelementptr inbounds %"struct.Imf_3_2::InputStreamMutex", ptr %4, i32 0, i32 1
+  %5 = load ptr, ptr %is, align 8
+  %isnull = icmp eq ptr %5, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %4, align 8
+  %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %5 = load ptr, ptr %vfn, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
+  %6 = load ptr, ptr %vfn, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -5062,16 +5064,16 @@ delete.end:                                       ; preds = %delete.notnull, %if
 
 if.end:                                           ; preds = %delete.end, %entry
   %_data3 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %_data3, align 8
-  %tobool4 = icmp ne ptr %6, null
+  %7 = load ptr, ptr %_data3, align 8
+  %tobool4 = icmp ne ptr %7, null
   br i1 %tobool4, label %if.then5, label %if.end33
 
 if.then5:                                         ; preds = %if.end
   %_data6 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %_data6, align 8
-  %memoryMapped = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %7, i32 0, i32 25
-  %8 = load i8, ptr %memoryMapped, align 8
-  %tobool7 = trunc i8 %8 to i1
+  %8 = load ptr, ptr %_data6, align 8
+  %memoryMapped = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %8, i32 0, i32 25
+  %9 = load i8, ptr %memoryMapped, align 8
+  %tobool7 = trunc i8 %9 to i1
   br i1 %tobool7, label %if.end16, label %if.then8
 
 if.then8:                                         ; preds = %if.then5
@@ -5079,36 +5081,36 @@ if.then8:                                         ; preds = %if.then5
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then8
-  %9 = load i64, ptr %i, align 8
+  %10 = load i64, ptr %i, align 8
   %_data9 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %_data9, align 8
-  %lineBuffers = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %10, i32 0, i32 18
+  %11 = load ptr, ptr %_data9, align 8
+  %lineBuffers = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %11, i32 0, i32 18
   %call = call noundef i64 @_ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110LineBufferESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %lineBuffers) #3
-  %cmp = icmp ult i64 %9, %call
+  %cmp = icmp ult i64 %10, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %_data10 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %11 = load ptr, ptr %_data10, align 8
-  %lineBuffers11 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %11, i32 0, i32 18
-  %12 = load i64, ptr %i, align 8
-  %call12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_110LineBufferESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %lineBuffers11, i64 noundef %12) #3
-  %13 = load ptr, ptr %call12, align 8
-  %buffer = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %buffer, align 8
-  %isnull13 = icmp eq ptr %14, null
+  %12 = load ptr, ptr %_data10, align 8
+  %lineBuffers11 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %12, i32 0, i32 18
+  %13 = load i64, ptr %i, align 8
+  %call12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_110LineBufferESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %lineBuffers11, i64 noundef %13) #3
+  %14 = load ptr, ptr %call12, align 8
+  %buffer = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %14, i32 0, i32 1
+  %15 = load ptr, ptr %buffer, align 8
+  %isnull13 = icmp eq ptr %15, null
   br i1 %isnull13, label %delete.end15, label %delete.notnull14
 
 delete.notnull14:                                 ; preds = %for.body
-  call void @_ZdaPv(ptr noundef %14) #17
+  call void @_ZdaPv(ptr noundef %15) #17
   br label %delete.end15
 
 delete.end15:                                     ; preds = %delete.notnull14, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end15
-  %15 = load i64, ptr %i, align 8
-  %inc = add i64 %15, 1
+  %16 = load i64, ptr %i, align 8
+  %inc = add i64 %16, 1
   store i64 %inc, ptr %i, align 8
   br label %for.cond, !llvm.loop !13
 
@@ -5117,30 +5119,30 @@ for.end:                                          ; preds = %for.cond
 
 if.end16:                                         ; preds = %for.end, %if.then5
   %_data17 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %16 = load ptr, ptr %_data17, align 8
-  %partNumber = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %16, i32 0, i32 20
-  %17 = load i32, ptr %partNumber, align 4
-  %cmp18 = icmp eq i32 %17, -1
+  %17 = load ptr, ptr %_data17, align 8
+  %partNumber = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %17, i32 0, i32 20
+  %18 = load i32, ptr %partNumber, align 4
+  %cmp18 = icmp eq i32 %18, -1
   br i1 %cmp18, label %land.lhs.true, label %if.end28
 
 land.lhs.true:                                    ; preds = %if.end16
   %_data19 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %18 = load ptr, ptr %_data19, align 8
-  %_streamData20 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %18, i32 0, i32 40
-  %19 = load ptr, ptr %_streamData20, align 8
-  %tobool21 = icmp ne ptr %19, null
+  %19 = load ptr, ptr %_data19, align 8
+  %_streamData20 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %19, i32 0, i32 40
+  %20 = load ptr, ptr %_streamData20, align 8
+  %tobool21 = icmp ne ptr %20, null
   br i1 %tobool21, label %if.then22, label %if.end28
 
 if.then22:                                        ; preds = %land.lhs.true
   %_data23 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %20 = load ptr, ptr %_data23, align 8
-  %_streamData24 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %20, i32 0, i32 40
-  %21 = load ptr, ptr %_streamData24, align 8
-  %isnull25 = icmp eq ptr %21, null
+  %21 = load ptr, ptr %_data23, align 8
+  %_streamData24 = getelementptr inbounds %"struct.Imf_3_2::DeepScanLineInputFile::Data", ptr %21, i32 0, i32 40
+  %22 = load ptr, ptr %_streamData24, align 8
+  %isnull25 = icmp eq ptr %22, null
   br i1 %isnull25, label %delete.end27, label %delete.notnull26
 
 delete.notnull26:                                 ; preds = %if.then22
-  call void @_ZdlPv(ptr noundef %21) #17
+  call void @_ZdlPv(ptr noundef %22) #17
   br label %delete.end27
 
 delete.end27:                                     ; preds = %delete.notnull26, %if.then22
@@ -5148,13 +5150,13 @@ delete.end27:                                     ; preds = %delete.notnull26, %
 
 if.end28:                                         ; preds = %delete.end27, %land.lhs.true, %if.end16
   %_data29 = getelementptr inbounds %"class.Imf_3_2::DeepScanLineInputFile", ptr %this1, i32 0, i32 1
-  %22 = load ptr, ptr %_data29, align 8
-  %isnull30 = icmp eq ptr %22, null
+  %23 = load ptr, ptr %_data29, align 8
+  %isnull30 = icmp eq ptr %23, null
   br i1 %isnull30, label %delete.end32, label %delete.notnull31
 
 delete.notnull31:                                 ; preds = %if.end28
-  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %22) #3
-  call void @_ZdlPv(ptr noundef %22) #17
+  call void @_ZN7Imf_3_221DeepScanLineInputFile4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(513) %23) #3
+  call void @_ZdlPv(ptr noundef %23) #17
   br label %delete.end32
 
 delete.end32:                                     ; preds = %delete.notnull31, %if.end28
@@ -6111,7 +6113,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(50) ptr @_ZNK7Imf_3_215DeepFrameBuffer19getSampleCountSliceEv(ptr noundef nonnull align 8 dereferenceable(104)) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #11
+declare i32 @strcmp(ptr noundef, ptr noundef) #10
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt6vectorIPN7Imf_3_212_GLOBAL__N_111InSliceInfoESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %__x) #4 align 2 {
@@ -6892,7 +6894,7 @@ ehcleanup:                                        ; preds = %lpad92, %lpad63, %l
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %85 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7Iex_3_27BaseExcE) #3
+  %85 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7Iex_3_27BaseExcE) #3
   %matches = icmp eq i32 %sel, %85
   br i1 %matches, label %catch, label %eh.resume
 
@@ -7167,7 +7169,7 @@ lpad:                                             ; preds = %if.end36, %if.end, 
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %40 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %40
   br i1 %matches, label %catch47, label %catch
 
@@ -8010,7 +8012,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_221DeepScanLineInputFile10readPixelsEPKcRKNS_15DeepFrameBufferEii(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %rawPixelData, ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer, i32 noundef %scanLine1, i32 noundef %scanLine2) #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -9505,7 +9507,7 @@ ehcleanup:                                        ; preds = %lpad18, %lpad7
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad3
   %sel = load i32, ptr %ehselector.slot, align 4
-  %90 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN7Iex_3_27BaseExcE) #3
+  %90 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN7Iex_3_27BaseExcE) #3
   %matches = icmp eq i32 %sel, %90
   br i1 %matches, label %catch, label %eh.resume
 
@@ -11198,7 +11200,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #11
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #10
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7Imf_3_212_GLOBAL__N_122reconstructLineOffsetsERNS_7IStreamENS_9LineOrderERSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %lineOrder, ptr noundef nonnull align 8 dereferenceable(24) %lineOffsets) #4 personality ptr @__gxx_personality_v0 {
@@ -12347,10 +12349,10 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #13
+declare void @_ZSt28__throw_bad_array_new_lengthv() #12
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #13
+declare void @_ZSt17__throw_bad_allocv() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt18_Rb_tree_node_base10_S_minimumEPS_(ptr noundef %__x) #5 comdat align 2 {
@@ -12994,19 +12996,20 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %group.addr, align 8
   call void @_ZN13IlmThread_3_24TaskC2EPNS_9TaskGroupE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114LineBufferTaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114LineBufferTaskE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_ifd = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineBufferTask", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %ifd.addr, align 8
-  store ptr %1, ptr %_ifd, align 8
+  %2 = load ptr, ptr %ifd.addr, align 8
+  store ptr %2, ptr %_ifd, align 8
   %_lineBuffer = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineBufferTask", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %lineBuffer.addr, align 8
-  store ptr %2, ptr %_lineBuffer, align 8
+  %3 = load ptr, ptr %lineBuffer.addr, align 8
+  store ptr %3, ptr %_lineBuffer, align 8
   %_scanLineMin = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineBufferTask", ptr %this1, i32 0, i32 3
-  %3 = load i32, ptr %scanLineMin.addr, align 4
-  store i32 %3, ptr %_scanLineMin, align 8
+  %4 = load i32, ptr %scanLineMin.addr, align 4
+  store i32 %4, ptr %_scanLineMin, align 8
   %_scanLineMax = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineBufferTask", ptr %this1, i32 0, i32 4
-  %4 = load i32, ptr %scanLineMax.addr, align 4
-  store i32 %4, ptr %_scanLineMax, align 4
+  %5 = load i32, ptr %scanLineMax.addr, align 4
+  store i32 %5, ptr %_scanLineMax, align 4
   ret void
 }
 
@@ -13027,10 +13030,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114LineBufferTaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114LineBufferTaskE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_lineBuffer = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineBufferTask", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %_lineBuffer, align 8
-  invoke void @_ZN7Imf_3_212_GLOBAL__N_110LineBuffer4postEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %1 = load ptr, ptr %_lineBuffer, align 8
+  invoke void @_ZN7Imf_3_212_GLOBAL__N_110LineBuffer4postEv(ptr noundef nonnull align 8 dereferenceable(160) %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -13038,10 +13042,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #18
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #18
   unreachable
 }
 
@@ -13509,7 +13513,7 @@ ehcleanup141:                                     ; preds = %lpad138, %lpad124
 
 catch.dispatch:                                   ; preds = %ehcleanup141, %ehcleanup, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %97
   br i1 %matches, label %catch266, label %catch
 
@@ -14037,7 +14041,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #13
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #5 comdat align 2 {
@@ -15375,7 +15379,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #5 comdat {
@@ -15525,7 +15529,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_23Xdr15readSignedCharsINS_8StreamIOENS_7IStreamEEEvRT0_Pai(ptr noundef nonnull align 8 dereferenceable(40) %in, ptr noundef %c, i32 noundef %n) #4 comdat {
@@ -15610,7 +15614,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #14
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) #5 comdat personality ptr @__gxx_personality_v0 {
@@ -16705,7 +16709,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #15
+declare void @llvm.trap() #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEPmET0_T_SA_S9_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__result) #4 comdat {
@@ -17255,7 +17259,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) #13
+declare void @_ZSt20__throw_system_errori(i32 noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZL18__gthread_active_pv() #5 {
@@ -18791,6 +18795,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -18800,13 +18807,13 @@ attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #15 = { nounwind memory(none) }
 attributes #16 = { noreturn }
 attributes #17 = { builtin nounwind }
 attributes #18 = { noreturn nounwind }

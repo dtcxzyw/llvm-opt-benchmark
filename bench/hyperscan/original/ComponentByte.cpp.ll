@@ -132,10 +132,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue213ComponentByteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3ue213ComponentByteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %position = getelementptr inbounds %"class.ue2::ComponentByte", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
-  store i32 %0, ptr %position, align 8
+  %1 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
+  store i32 %1, ptr %position, align 8
   ret void
 }
 
@@ -214,12 +215,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN3ue29ComponentC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue213ComponentByteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3ue213ComponentByteE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %position = getelementptr inbounds %"class.ue2::ComponentByte", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %position2 = getelementptr inbounds %"class.ue2::ComponentByte", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %position2, align 8
-  store i32 %2, ptr %position, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %position2 = getelementptr inbounds %"class.ue2::ComponentByte", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %position2, align 8
+  store i32 %3, ptr %position, align 8
   ret void
 }
 
@@ -524,17 +526,18 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pos_begin = getelementptr inbounds %"class.ue2::Component", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %other.addr, align 8
-  %pos_begin2 = getelementptr inbounds %"class.ue2::Component", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %pos_begin2, align 8
-  store i32 %1, ptr %pos_begin, align 8
+  %1 = load ptr, ptr %other.addr, align 8
+  %pos_begin2 = getelementptr inbounds %"class.ue2::Component", ptr %1, i32 0, i32 1
+  %2 = load i32, ptr %pos_begin2, align 8
+  store i32 %2, ptr %pos_begin, align 8
   %pos_end = getelementptr inbounds %"class.ue2::Component", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %other.addr, align 8
-  %pos_end3 = getelementptr inbounds %"class.ue2::Component", ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %pos_end3, align 4
-  store i32 %3, ptr %pos_end, align 4
+  %3 = load ptr, ptr %other.addr, align 8
+  %pos_end3 = getelementptr inbounds %"class.ue2::Component", ptr %3, i32 0, i32 2
+  %4 = load i32, ptr %pos_end3, align 4
+  store i32 %4, ptr %pos_end, align 4
   ret void
 }
 

@@ -251,9 +251,10 @@ define internal ptr @register_all_protocols_worker(ptr noundef %0) #0 {
   call void @except_free(ptr noundef %82)
   %83 = call ptr @except_pop()
   %84 = load ptr, ptr @register_cb_done_q, align 8
-  call void @g_async_queue_push(ptr noundef %84, ptr noundef inttoptr (i64 1 to ptr))
-  %85 = load volatile ptr, ptr %3, align 8
-  ret ptr %85
+  %85 = inttoptr i64 1 to ptr
+  call void @g_async_queue_push(ptr noundef %84, ptr noundef %85)
+  %86 = load volatile ptr, ptr %3, align 8
+  ret ptr %86
 }
 
 declare ptr @g_async_queue_timeout_pop(ptr noundef, i64 noundef) #1
@@ -502,9 +503,10 @@ define internal ptr @register_all_protocol_handoffs_worker(ptr noundef %0) #0 {
   call void @except_free(ptr noundef %82)
   %83 = call ptr @except_pop()
   %84 = load ptr, ptr @register_cb_done_q, align 8
-  call void @g_async_queue_push(ptr noundef %84, ptr noundef inttoptr (i64 1 to ptr))
-  %85 = load volatile ptr, ptr %3, align 8
-  ret ptr %85
+  %85 = inttoptr i64 1 to ptr
+  call void @g_async_queue_push(ptr noundef %84, ptr noundef %85)
+  %86 = load volatile ptr, ptr %3, align 8
+  ret ptr %86
 }
 
 declare void @g_async_queue_unref(ptr noundef) #1

@@ -35,7 +35,7 @@ define dso_local ptr @pps_register_source(ptr noundef %0, i32 noundef %1) #0 ali
 
 7:                                                ; preds = %2
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %0) #6
-  br label %41
+  br label %42
 
 9:                                                ; preds = %2
   %10 = and i32 %4, 12288
@@ -44,66 +44,67 @@ define dso_local ptr @pps_register_source(ptr noundef %0, i32 noundef %1) #0 ali
 
 12:                                               ; preds = %9
   %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %0) #6
-  br label %41
+  br label %42
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
-  %16 = tail call noalias noundef align 8 dereferenceable_or_null(352) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 352) #7
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %41, label %18
+  %15 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noalias noundef align 8 dereferenceable_or_null(352) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 352) #7
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %42, label %19
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %16, i64 96
-  store i32 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 100
-  store i32 %1, ptr %20, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef align 8 dereferenceable(96) %0, i64 96, i1 false)
-  %21 = getelementptr inbounds i8, ptr %16, i64 64
-  %22 = load i32, ptr %21, align 8
-  %23 = and i32 %22, 192
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %30, label %25
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %17, i64 96
+  store i32 1, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %17, i64 100
+  store i32 %1, ptr %21, align 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef align 8 dereferenceable(96) %0, i64 96, i1 false)
+  %22 = getelementptr inbounds i8, ptr %17, i64 64
+  %23 = load i32, ptr %22, align 8
+  %24 = and i32 %23, 192
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %31, label %26
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %16, i64 72
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %30
+26:                                               ; preds = %19
+  %27 = getelementptr inbounds i8, ptr %17, i64 72
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %25
-  store ptr @pps_echo_client_default, ptr %26, align 8
-  br label %30
+30:                                               ; preds = %26
+  store ptr @pps_echo_client_default, ptr %27, align 8
+  br label %31
 
-30:                                               ; preds = %29, %25, %18
-  %31 = getelementptr inbounds i8, ptr %16, i64 184
-  tail call void @__init_waitqueue_head(ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @pps_register_source.__key) #8
-  %32 = getelementptr inbounds i8, ptr %16, i64 344
-  store i32 0, ptr %32, align 8
-  %33 = tail call i32 @pps_register_cdev(ptr noundef nonnull %16) #8
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %38
+31:                                               ; preds = %30, %26, %19
+  %32 = getelementptr inbounds i8, ptr %17, i64 184
+  tail call void @__init_waitqueue_head(ptr noundef %32, ptr noundef nonnull @.str.2, ptr noundef nonnull @pps_register_source.__key) #8
+  %33 = getelementptr inbounds i8, ptr %17, i64 344
+  store i32 0, ptr %33, align 8
+  %34 = tail call i32 @pps_register_cdev(ptr noundef nonnull %17) #8
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %30
-  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %0) #6
-  tail call void @kfree(ptr noundef nonnull %16) #8
-  %37 = sext i32 %33 to i64
-  br label %41
+36:                                               ; preds = %31
+  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %0) #6
+  tail call void @kfree(ptr noundef nonnull %17) #8
+  %38 = sext i32 %34 to i64
+  br label %42
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %16, i64 328
-  %40 = load ptr, ptr %39, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %40, ptr noundef nonnull @.str.4, ptr noundef %0) #6
-  br label %45
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds i8, ptr %17, i64 328
+  %41 = load ptr, ptr %40, align 8
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %41, ptr noundef nonnull @.str.4, ptr noundef %0) #6
+  br label %46
 
-41:                                               ; preds = %35, %14, %12, %7
-  %42 = phi i64 [ -22, %7 ], [ -22, %12 ], [ %37, %35 ], [ -12, %14 ]
-  %43 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %0) #6
-  %44 = inttoptr i64 %42 to ptr
-  br label %45
+42:                                               ; preds = %36, %14, %12, %7
+  %43 = phi i64 [ -22, %7 ], [ -22, %12 ], [ %38, %36 ], [ -12, %14 ]
+  %44 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %0) #6
+  %45 = inttoptr i64 %43 to ptr
+  br label %46
 
-45:                                               ; preds = %41, %38
-  %46 = phi ptr [ %44, %41 ], [ %16, %38 ]
-  ret ptr %46
+46:                                               ; preds = %42, %39
+  %47 = phi ptr [ %45, %42 ], [ %17, %39 ]
+  ret ptr %47
 }
 
 ; Function Attrs: cold null_pointer_is_valid

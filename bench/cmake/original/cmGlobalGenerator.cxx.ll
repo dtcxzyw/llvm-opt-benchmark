@@ -9157,249 +9157,250 @@ define dso_local void @_ZN17cmGlobalGeneratorC2EP5cmake(ptr noundef nonnull alig
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV17cmGlobalGenerator, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
-  %10 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 3
-  store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  %12 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 5
+  %9 = getelementptr inbounds { [70 x ptr] }, ptr @_ZTV17cmGlobalGenerator, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  %11 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 3
+  store i64 0, ptr %11, align 8
+  %12 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  %13 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 6
-  %14 = load ptr, ptr %4, align 8
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 7
-  call void @_ZNSt6vectorISt10unique_ptrI10cmMakefileSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  %16 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 8
-  call void @_ZNSt6vectorISt10unique_ptrI16cmLocalGeneratorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  %17 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 9
-  call void @_ZNSt10unique_ptrI28cmQtAutoGenGlobalInitializerSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
-  %18 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 11
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIP16cmLocalGeneratorSaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #3
-  %19 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 12
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
-  %20 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 13
-  call void @_ZN14cmExportSetMapC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #3
-  %21 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 14
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP26cmExportBuildFileGeneratorSt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
-  %22 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 15
+  %13 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  %14 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 6
+  %15 = load ptr, ptr %4, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 7
+  call void @_ZNSt6vectorISt10unique_ptrI10cmMakefileSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %17 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 8
+  call void @_ZNSt6vectorISt10unique_ptrI16cmLocalGeneratorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %18 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 9
+  call void @_ZNSt10unique_ptrI28cmQtAutoGenGlobalInitializerSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  %19 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 11
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIP16cmLocalGeneratorSaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
+  %20 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 12
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #3
+  %21 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 13
+  call void @_ZN14cmExportSetMapC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
+  %22 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 14
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP26cmExportBuildFileGeneratorSt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
-  %23 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 16
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %23) #3
-  %24 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 17
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %24) #3
-  %25 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 18
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP17cmGeneratorTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #3
-  %26 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 19
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP10cmMakefileSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26) #3
-  %27 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 20
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16cmLocalGeneratorSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #3
-  %28 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 21
-  call void @_ZNSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %28) #3
-  %29 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 23
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %29) #3
-  %30 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 24
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #3
-  %31 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 25
+  %23 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 15
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP26cmExportBuildFileGeneratorSt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %23) #3
+  %24 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 16
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %24) #3
+  %25 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 17
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #3
+  %26 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 18
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP17cmGeneratorTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26) #3
+  %27 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 19
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP10cmMakefileSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #3
+  %28 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 20
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16cmLocalGeneratorSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #3
+  %29 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 21
+  call void @_ZNSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %29) #3
+  %30 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 23
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #3
+  %31 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 24
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %31) #3
-  %32 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 26
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %32) #3
-  %33 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 27
+  %32 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 25
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %32) #3
+  %33 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 26
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %33) #3
-  %34 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 28
+  %34 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 27
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %34) #3
-  %35 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 29
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #3
-  %36 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 30
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %36) #3
-  %37 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 31
-  store i64 0, ptr %37, align 8
-  %38 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 32
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17cmGlobalGenerator8RuleHashESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %38) #3
-  %39 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 33
-  call void @_ZNSt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %39) #3
-  %40 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 34
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #3
-  %41 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 35
-  call void @_ZNSt3mapIPK17cmGeneratorTarget17cmTargetDependSetSt4lessIS2_ESaISt4pairIKS2_S3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %41) #3
-  %42 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 36
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17cmGlobalGenerator16DirectoryContentESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %42) #3
-  %43 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 37
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %43) #3
-  %44 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 38
+  %35 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 28
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #3
+  %36 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 29
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %36) #3
+  %37 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 30
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %37) #3
+  %38 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 31
+  store i64 0, ptr %38, align 8
+  %39 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 32
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17cmGlobalGenerator8RuleHashESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %39) #3
+  %40 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 33
+  call void @_ZNSt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %40) #3
+  %41 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 34
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #3
+  %42 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 35
+  call void @_ZNSt3mapIPK17cmGeneratorTarget17cmTargetDependSetSt4lessIS2_ESaISt4pairIKS2_S3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %42) #3
+  %43 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 36
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17cmGlobalGenerator16DirectoryContentESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %43) #3
+  %44 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 37
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %44) #3
-  %45 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 39
+  %45 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 38
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %45) #3
-  %46 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 40
-  call void @_ZNSt3mapIP12cmSourceFileSt3setIPK17cmGeneratorTargetSt4lessIS5_ESaIS5_EES6_IS1_ESaISt4pairIKS1_S9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %46) #3
-  %47 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 41
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %47) #3
-  %48 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 42
-  call void @_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %48) #3
-  %49 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 43
-  call void @_ZNSt6vectorISt10unique_ptrI29cmInstallRuntimeDependencySetSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #3
-  %50 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 44
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP29cmInstallRuntimeDependencySetSt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %50) #3
-  %51 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 45
-  invoke void @_ZN14cmFileLockPoolC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %51)
-          to label %52 unwind label %93
+  %46 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 39
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %46) #3
+  %47 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 40
+  call void @_ZNSt3mapIP12cmSourceFileSt3setIPK17cmGeneratorTargetSt4lessIS5_ESaIS5_EES6_IS1_ESaISt4pairIKS1_S9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %47) #3
+  %48 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 41
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %48) #3
+  %49 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 42
+  call void @_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %49) #3
+  %50 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 43
+  call void @_ZNSt6vectorISt10unique_ptrI29cmInstallRuntimeDependencySetSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #3
+  %51 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 44
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP29cmInstallRuntimeDependencySetSt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %51) #3
+  %52 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 45
+  invoke void @_ZN14cmFileLockPoolC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %52)
+          to label %53 unwind label %94
 
-52:                                               ; preds = %2
-  %53 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 47
-  store i8 0, ptr %53, align 4
-  %54 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 49
-  store i8 0, ptr %54, align 2
-  %55 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 50
-  store i8 0, ptr %55, align 1
-  %56 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 48
+53:                                               ; preds = %2
+  %54 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 47
+  store i8 0, ptr %54, align 4
+  %55 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 49
+  store i8 0, ptr %55, align 2
+  %56 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 50
   store i8 0, ptr %56, align 1
-  %57 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 51
-  store i8 0, ptr %57, align 8
-  %58 = call double @_ZNSt6chrono8durationIdSt5ratioILl1ELl1EEE4zeroEv() #3
-  %59 = getelementptr inbounds %"class.std::chrono::duration", ptr %7, i32 0, i32 0
-  store double %58, ptr %59, align 8
-  %60 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %60, ptr align 8 %7, i64 8, i1 false)
-  %61 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 10
-  store ptr null, ptr %61, align 8
-  %62 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 22
+  %57 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 48
+  store i8 0, ptr %57, align 1
+  %58 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 51
+  store i8 0, ptr %58, align 8
+  %59 = call double @_ZNSt6chrono8durationIdSt5ratioILl1ELl1EEE4zeroEv() #3
+  %60 = getelementptr inbounds %"class.std::chrono::duration", ptr %7, i32 0, i32 0
+  store double %59, ptr %60, align 8
+  %61 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %61, ptr align 8 %7, i64 8, i1 false)
+  %62 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 10
   store ptr null, ptr %62, align 8
-  %63 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 52
-  store i8 0, ptr %63, align 1
-  %64 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 46
-  store float 0.000000e+00, ptr %64, align 8
-  %65 = load ptr, ptr %4, align 8
-  %66 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %65)
-          to label %67 unwind label %97
+  %63 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 22
+  store ptr null, ptr %63, align 8
+  %64 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 52
+  store i8 0, ptr %64, align 1
+  %65 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 46
+  store float 0.000000e+00, ptr %65, align 8
+  %66 = load ptr, ptr %4, align 8
+  %67 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %66)
+          to label %68 unwind label %98
 
-67:                                               ; preds = %52
-  invoke void @_ZN7cmState25SetIsGeneratorMultiConfigEb(ptr noundef nonnull align 8 dereferenceable(705) %66, i1 noundef zeroext false)
-          to label %68 unwind label %97
+68:                                               ; preds = %53
+  invoke void @_ZN7cmState25SetIsGeneratorMultiConfigEb(ptr noundef nonnull align 8 dereferenceable(705) %67, i1 noundef zeroext false)
+          to label %69 unwind label %98
 
-68:                                               ; preds = %67
-  %69 = load ptr, ptr %4, align 8
-  %70 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %69)
-          to label %71 unwind label %97
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %4, align 8
+  %71 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %70)
+          to label %72 unwind label %98
 
-71:                                               ; preds = %68
-  invoke void @_ZN7cmState12SetMinGWMakeEb(ptr noundef nonnull align 8 dereferenceable(705) %70, i1 noundef zeroext false)
-          to label %72 unwind label %97
+72:                                               ; preds = %69
+  invoke void @_ZN7cmState12SetMinGWMakeEb(ptr noundef nonnull align 8 dereferenceable(705) %71, i1 noundef zeroext false)
+          to label %73 unwind label %98
 
-72:                                               ; preds = %71
-  %73 = load ptr, ptr %4, align 8
-  %74 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %73)
-          to label %75 unwind label %97
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %4, align 8
+  %75 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %74)
+          to label %76 unwind label %98
 
-75:                                               ; preds = %72
-  invoke void @_ZN7cmState12SetMSYSShellEb(ptr noundef nonnull align 8 dereferenceable(705) %74, i1 noundef zeroext false)
-          to label %76 unwind label %97
+76:                                               ; preds = %73
+  invoke void @_ZN7cmState12SetMSYSShellEb(ptr noundef nonnull align 8 dereferenceable(705) %75, i1 noundef zeroext false)
+          to label %77 unwind label %98
 
-76:                                               ; preds = %75
-  %77 = load ptr, ptr %4, align 8
-  %78 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %77)
-          to label %79 unwind label %97
+77:                                               ; preds = %76
+  %78 = load ptr, ptr %4, align 8
+  %79 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %78)
+          to label %80 unwind label %98
 
-79:                                               ; preds = %76
-  invoke void @_ZN7cmState8SetNMakeEb(ptr noundef nonnull align 8 dereferenceable(705) %78, i1 noundef zeroext false)
-          to label %80 unwind label %97
+80:                                               ; preds = %77
+  invoke void @_ZN7cmState8SetNMakeEb(ptr noundef nonnull align 8 dereferenceable(705) %79, i1 noundef zeroext false)
+          to label %81 unwind label %98
 
-80:                                               ; preds = %79
-  %81 = load ptr, ptr %4, align 8
-  %82 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %81)
-          to label %83 unwind label %97
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %4, align 8
+  %83 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %82)
+          to label %84 unwind label %98
 
-83:                                               ; preds = %80
-  invoke void @_ZN7cmState14SetWatcomWMakeEb(ptr noundef nonnull align 8 dereferenceable(705) %82, i1 noundef zeroext false)
-          to label %84 unwind label %97
+84:                                               ; preds = %81
+  invoke void @_ZN7cmState14SetWatcomWMakeEb(ptr noundef nonnull align 8 dereferenceable(705) %83, i1 noundef zeroext false)
+          to label %85 unwind label %98
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %4, align 8
-  %86 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %85)
-          to label %87 unwind label %97
+85:                                               ; preds = %84
+  %86 = load ptr, ptr %4, align 8
+  %87 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %86)
+          to label %88 unwind label %98
 
-87:                                               ; preds = %84
-  invoke void @_ZN7cmState15SetWindowsShellEb(ptr noundef nonnull align 8 dereferenceable(705) %86, i1 noundef zeroext false)
-          to label %88 unwind label %97
+88:                                               ; preds = %85
+  invoke void @_ZN7cmState15SetWindowsShellEb(ptr noundef nonnull align 8 dereferenceable(705) %87, i1 noundef zeroext false)
+          to label %89 unwind label %98
 
-88:                                               ; preds = %87
-  %89 = load ptr, ptr %4, align 8
-  %90 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %89)
-          to label %91 unwind label %97
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %4, align 8
+  %91 = invoke noundef ptr @_ZNK5cmake8GetStateEv(ptr noundef nonnull align 8 dereferenceable(2216) %90)
+          to label %92 unwind label %98
 
-91:                                               ; preds = %88
-  invoke void @_ZN7cmState15SetWindowsVSIDEEb(ptr noundef nonnull align 8 dereferenceable(705) %90, i1 noundef zeroext false)
-          to label %92 unwind label %97
+92:                                               ; preds = %89
+  invoke void @_ZN7cmState15SetWindowsVSIDEEb(ptr noundef nonnull align 8 dereferenceable(705) %91, i1 noundef zeroext false)
+          to label %93 unwind label %98
 
-92:                                               ; preds = %91
+93:                                               ; preds = %92
   ret void
 
-93:                                               ; preds = %2
-  %94 = landingpad { ptr, i32 }
+94:                                               ; preds = %2
+  %95 = landingpad { ptr, i32 }
           cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %5, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %6, align 4
-  br label %101
-
-97:                                               ; preds = %91, %88, %87, %84, %83, %80, %79, %76, %75, %72, %71, %68, %67, %52
-  %98 = landingpad { ptr, i32 }
-          cleanup
-  %99 = extractvalue { ptr, i32 } %98, 0
-  store ptr %99, ptr %5, align 8
-  %100 = extractvalue { ptr, i32 } %98, 1
-  store i32 %100, ptr %6, align 4
-  call void @_ZN14cmFileLockPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %51) #3
-  br label %101
-
-101:                                              ; preds = %97, %93
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP29cmInstallRuntimeDependencySetSt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %50) #3
-  call void @_ZNSt6vectorISt10unique_ptrI29cmInstallRuntimeDependencySetSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #3
-  call void @_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %48) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %47) #3
-  call void @_ZNSt3mapIP12cmSourceFileSt3setIPK17cmGeneratorTargetSt4lessIS5_ESaIS5_EES6_IS1_ESaISt4pairIKS1_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %46) #3
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %45) #3
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %44) #3
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %43) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17cmGlobalGenerator16DirectoryContentESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %42) #3
-  call void @_ZNSt3mapIPK17cmGeneratorTarget17cmTargetDependSetSt4lessIS2_ESaISt4pairIKS2_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %41) #3
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #3
-  call void @_ZNSt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17cmGlobalGenerator8RuleHashESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %38) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %36) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %34) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %33) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %32) #3
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %31) #3
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %29) #3
-  call void @_ZNSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %28) #3
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16cmLocalGeneratorSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #3
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP10cmMakefileSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26) #3
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP17cmGeneratorTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #3
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %24) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %23) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP26cmExportBuildFileGeneratorSt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP26cmExportBuildFileGeneratorSt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
-  call void @_ZN14cmExportSetMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #3
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIP16cmLocalGeneratorSaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #3
-  call void @_ZNSt10unique_ptrI28cmQtAutoGenGlobalInitializerSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
-  call void @_ZNSt6vectorISt10unique_ptrI16cmLocalGeneratorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  call void @_ZNSt6vectorISt10unique_ptrI10cmMakefileSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %5, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %6, align 4
   br label %102
 
-102:                                              ; preds = %101
-  %103 = load ptr, ptr %5, align 8
-  %104 = load i32, ptr %6, align 4
-  %105 = insertvalue { ptr, i32 } poison, ptr %103, 0
-  %106 = insertvalue { ptr, i32 } %105, i32 %104, 1
-  resume { ptr, i32 } %106
+98:                                               ; preds = %92, %89, %88, %85, %84, %81, %80, %77, %76, %73, %72, %69, %68, %53
+  %99 = landingpad { ptr, i32 }
+          cleanup
+  %100 = extractvalue { ptr, i32 } %99, 0
+  store ptr %100, ptr %5, align 8
+  %101 = extractvalue { ptr, i32 } %99, 1
+  store i32 %101, ptr %6, align 4
+  call void @_ZN14cmFileLockPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %52) #3
+  br label %102
+
+102:                                              ; preds = %98, %94
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP29cmInstallRuntimeDependencySetSt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %51) #3
+  call void @_ZNSt6vectorISt10unique_ptrI29cmInstallRuntimeDependencySetSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #3
+  call void @_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %49) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %48) #3
+  call void @_ZNSt3mapIP12cmSourceFileSt3setIPK17cmGeneratorTargetSt4lessIS5_ESaIS5_EES6_IS1_ESaISt4pairIKS1_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %47) #3
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %46) #3
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %45) #3
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %44) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17cmGlobalGenerator16DirectoryContentESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %43) #3
+  call void @_ZNSt3mapIPK17cmGeneratorTarget17cmTargetDependSetSt4lessIS2_ESaISt4pairIKS2_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %42) #3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #3
+  call void @_ZNSt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17cmGlobalGenerator8RuleHashESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %39) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %37) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %36) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %34) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %33) #3
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %32) #3
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %31) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #3
+  call void @_ZNSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %29) #3
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16cmLocalGeneratorSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #3
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP10cmMakefileSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #3
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP17cmGeneratorTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26) #3
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %24) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP26cmExportBuildFileGeneratorSt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %23) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP26cmExportBuildFileGeneratorSt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
+  call void @_ZN14cmExportSetMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIP16cmLocalGeneratorSaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
+  call void @_ZNSt10unique_ptrI28cmQtAutoGenGlobalInitializerSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  call void @_ZNSt6vectorISt10unique_ptrI16cmLocalGeneratorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  call void @_ZNSt6vectorISt10unique_ptrI10cmMakefileSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  br label %103
+
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %5, align 8
+  %105 = load i32, ptr %6, align 4
+  %106 = insertvalue { ptr, i32 } poison, ptr %104, 0
+  %107 = insertvalue { ptr, i32 } %106, i32 %105, 1
+  resume { ptr, i32 } %107
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10039,96 +10040,97 @@ define dso_local void @_ZN17cmGlobalGeneratorD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV17cmGlobalGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [70 x ptr] }, ptr @_ZTV17cmGlobalGenerator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN17cmGlobalGenerator21ClearGeneratorMembersEv(ptr noundef nonnull align 8 dereferenceable(1778) %3)
-          to label %4 unwind label %44
+          to label %5 unwind label %45
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 45
-  call void @_ZN14cmFileLockPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #3
-  %6 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 44
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP29cmInstallRuntimeDependencySetSt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 43
-  call void @_ZNSt6vectorISt10unique_ptrI29cmInstallRuntimeDependencySetSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 42
-  call void @_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
-  %9 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 41
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
-  %10 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 40
-  call void @_ZNSt3mapIP12cmSourceFileSt3setIPK17cmGeneratorTargetSt4lessIS5_ESaIS5_EES6_IS1_ESaISt4pairIKS1_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
-  %11 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 39
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
-  %12 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 38
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 45
+  call void @_ZN14cmFileLockPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #3
+  %7 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 44
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP29cmInstallRuntimeDependencySetSt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
+  %8 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 43
+  call void @_ZNSt6vectorISt10unique_ptrI29cmInstallRuntimeDependencySetSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 42
+  call void @_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #3
+  %10 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 41
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
+  %11 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 40
+  call void @_ZNSt3mapIP12cmSourceFileSt3setIPK17cmGeneratorTargetSt4lessIS5_ESaIS5_EES6_IS1_ESaISt4pairIKS1_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
+  %12 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 39
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
-  %13 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 37
+  %13 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 38
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
-  %14 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 36
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17cmGlobalGenerator16DirectoryContentESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
-  %15 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 35
-  call void @_ZNSt3mapIPK17cmGeneratorTarget17cmTargetDependSetSt4lessIS2_ESaISt4pairIKS2_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
-  %16 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 34
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  %17 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 33
-  call void @_ZNSt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
-  %18 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 32
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17cmGlobalGenerator8RuleHashESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #3
-  %19 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 30
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
-  %20 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 29
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #3
-  %21 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 28
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
-  %22 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 27
+  %14 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 37
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
+  %15 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 36
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17cmGlobalGenerator16DirectoryContentESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
+  %16 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 35
+  call void @_ZNSt3mapIPK17cmGeneratorTarget17cmTargetDependSetSt4lessIS2_ESaISt4pairIKS2_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
+  %17 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 34
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %18 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 33
+  call void @_ZNSt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  %19 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 32
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17cmGlobalGenerator8RuleHashESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
+  %20 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 30
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %20) #3
+  %21 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 29
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #3
+  %22 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 28
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #3
-  %23 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 26
+  %23 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 27
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %23) #3
-  %24 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 25
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %24) #3
-  %25 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 24
+  %24 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 26
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %24) #3
+  %25 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 25
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %25) #3
-  %26 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 23
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %26) #3
-  %27 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 21
-  call void @_ZNSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %27) #3
-  %28 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 20
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16cmLocalGeneratorSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %28) #3
-  %29 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 19
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP10cmMakefileSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #3
-  %30 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 18
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP17cmGeneratorTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #3
-  %31 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 17
-  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #3
-  %32 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 16
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %32) #3
-  %33 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 15
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP26cmExportBuildFileGeneratorSt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %33) #3
-  %34 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 14
+  %26 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 24
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %26) #3
+  %27 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 23
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt4lessIS5_ESaISt4pairIKS5_bEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %27) #3
+  %28 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 21
+  call void @_ZNSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %28) #3
+  %29 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 20
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16cmLocalGeneratorSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #3
+  %30 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 19
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP10cmMakefileSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %30) #3
+  %31 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 18
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP17cmGeneratorTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %31) #3
+  %32 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 17
+  call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8cmTargetSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %32) #3
+  %33 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 16
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %33) #3
+  %34 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 15
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP26cmExportBuildFileGeneratorSt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %34) #3
-  %35 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 13
-  call void @_ZN14cmExportSetMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #3
-  %36 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 12
-  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %36) #3
-  %37 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 11
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIP16cmLocalGeneratorSaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %37) #3
-  %38 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 9
-  call void @_ZNSt10unique_ptrI28cmQtAutoGenGlobalInitializerSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #3
-  %39 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorISt10unique_ptrI16cmLocalGeneratorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #3
-  %40 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorISt10unique_ptrI10cmMakefileSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #3
-  %41 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #3
-  %42 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 4
+  %35 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 14
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP26cmExportBuildFileGeneratorSt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #3
+  %36 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 13
+  call void @_ZN14cmExportSetMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %36) #3
+  %37 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 12
+  call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %37) #3
+  %38 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 11
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIP16cmLocalGeneratorSaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %38) #3
+  %39 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 9
+  call void @_ZNSt10unique_ptrI28cmQtAutoGenGlobalInitializerSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #3
+  %40 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorISt10unique_ptrI16cmLocalGeneratorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #3
+  %41 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorISt10unique_ptrI10cmMakefileSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #3
+  %42 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #3
-  %43 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 2
+  %43 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #3
+  %44 = getelementptr inbounds %class.cmGlobalGenerator, ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #3
   ret void
 
-44:                                               ; preds = %1
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %1
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #18
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #18
   unreachable
 }
 
@@ -41402,118 +41404,146 @@ define dso_local noundef zeroext i1 @_ZN17cmGlobalGenerator16IsReservedTargetERK
   store ptr %0, ptr %2, align 8
   %5 = load atomic i8, ptr @_ZGVZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets acquire, align 8
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %7, label %51, !prof !15
+  br i1 %6, label %7, label %79, !prof !15
 
 7:                                                ; preds = %1
   %8 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets) #3
   %9 = icmp ne i32 %8, 0
-  br i1 %9, label %10, label %51
+  br i1 %9, label %10, label %79
 
 10:                                               ; preds = %7
   %11 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.259, i64 noundef 3)
-          to label %12 unwind label %54
+          to label %12 unwind label %82
 
 12:                                               ; preds = %10
   %13 = extractvalue { i64, ptr } %11, 0
   store i64 %13, ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, align 16
   %14 = extractvalue { i64, ptr } %11, 1
-  store ptr %14, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i32 0, i32 1), align 8
-  %15 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.260, i64 noundef 9)
-          to label %16 unwind label %54
+  %15 = getelementptr inbounds { i64, ptr }, ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i32 0, i32 1
+  store ptr %14, ptr %15, align 8
+  %16 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.260, i64 noundef 9)
+          to label %17 unwind label %82
 
-16:                                               ; preds = %12
-  %17 = extractvalue { i64, ptr } %15, 0
-  store i64 %17, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 1), align 16
-  %18 = extractvalue { i64, ptr } %15, 1
-  store ptr %18, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 1), i32 0, i32 1), align 8
-  %19 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.261, i64 noundef 4)
-          to label %20 unwind label %54
+17:                                               ; preds = %12
+  %18 = extractvalue { i64, ptr } %16, 0
+  %19 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 1
+  store i64 %18, ptr %19, align 16
+  %20 = extractvalue { i64, ptr } %16, 1
+  %21 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 1
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.261, i64 noundef 4)
+          to label %24 unwind label %82
 
-20:                                               ; preds = %16
-  %21 = extractvalue { i64, ptr } %19, 0
-  store i64 %21, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 2), align 16
-  %22 = extractvalue { i64, ptr } %19, 1
-  store ptr %22, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 2), i32 0, i32 1), align 8
-  %23 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.262, i64 noundef 7)
-          to label %24 unwind label %54
-
-24:                                               ; preds = %20
+24:                                               ; preds = %17
   %25 = extractvalue { i64, ptr } %23, 0
-  store i64 %25, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 3), align 16
-  %26 = extractvalue { i64, ptr } %23, 1
-  store ptr %26, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 3), i32 0, i32 1), align 8
-  %27 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.263, i64 noundef 7)
-          to label %28 unwind label %54
+  %26 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 2
+  store i64 %25, ptr %26, align 16
+  %27 = extractvalue { i64, ptr } %23, 1
+  %28 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 2
+  %29 = getelementptr inbounds { i64, ptr }, ptr %28, i32 0, i32 1
+  store ptr %27, ptr %29, align 8
+  %30 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.262, i64 noundef 7)
+          to label %31 unwind label %82
 
-28:                                               ; preds = %24
-  %29 = extractvalue { i64, ptr } %27, 0
-  store i64 %29, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 4), align 16
-  %30 = extractvalue { i64, ptr } %27, 1
-  store ptr %30, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 4), i32 0, i32 1), align 8
-  %31 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.264, i64 noundef 10)
-          to label %32 unwind label %54
+31:                                               ; preds = %24
+  %32 = extractvalue { i64, ptr } %30, 0
+  %33 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 3
+  store i64 %32, ptr %33, align 16
+  %34 = extractvalue { i64, ptr } %30, 1
+  %35 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 3
+  %36 = getelementptr inbounds { i64, ptr }, ptr %35, i32 0, i32 1
+  store ptr %34, ptr %36, align 8
+  %37 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.263, i64 noundef 7)
+          to label %38 unwind label %82
 
-32:                                               ; preds = %28
-  %33 = extractvalue { i64, ptr } %31, 0
-  store i64 %33, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 5), align 16
-  %34 = extractvalue { i64, ptr } %31, 1
-  store ptr %34, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 5), i32 0, i32 1), align 8
-  %35 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.177, i64 noundef 5)
-          to label %36 unwind label %54
+38:                                               ; preds = %31
+  %39 = extractvalue { i64, ptr } %37, 0
+  %40 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 4
+  store i64 %39, ptr %40, align 16
+  %41 = extractvalue { i64, ptr } %37, 1
+  %42 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 4
+  %43 = getelementptr inbounds { i64, ptr }, ptr %42, i32 0, i32 1
+  store ptr %41, ptr %43, align 8
+  %44 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.264, i64 noundef 10)
+          to label %45 unwind label %82
 
-36:                                               ; preds = %32
-  %37 = extractvalue { i64, ptr } %35, 0
-  store i64 %37, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 6), align 16
-  %38 = extractvalue { i64, ptr } %35, 1
-  store ptr %38, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 6), i32 0, i32 1), align 8
-  %39 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.265, i64 noundef 10)
-          to label %40 unwind label %54
+45:                                               ; preds = %38
+  %46 = extractvalue { i64, ptr } %44, 0
+  %47 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 5
+  store i64 %46, ptr %47, align 16
+  %48 = extractvalue { i64, ptr } %44, 1
+  %49 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 5
+  %50 = getelementptr inbounds { i64, ptr }, ptr %49, i32 0, i32 1
+  store ptr %48, ptr %50, align 8
+  %51 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.177, i64 noundef 5)
+          to label %52 unwind label %82
 
-40:                                               ; preds = %36
-  %41 = extractvalue { i64, ptr } %39, 0
-  store i64 %41, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 7), align 16
-  %42 = extractvalue { i64, ptr } %39, 1
-  store ptr %42, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 7), i32 0, i32 1), align 8
-  %43 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.266, i64 noundef 13)
-          to label %44 unwind label %54
+52:                                               ; preds = %45
+  %53 = extractvalue { i64, ptr } %51, 0
+  %54 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 6
+  store i64 %53, ptr %54, align 16
+  %55 = extractvalue { i64, ptr } %51, 1
+  %56 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 6
+  %57 = getelementptr inbounds { i64, ptr }, ptr %56, i32 0, i32 1
+  store ptr %55, ptr %57, align 8
+  %58 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.265, i64 noundef 10)
+          to label %59 unwind label %82
 
-44:                                               ; preds = %40
-  %45 = extractvalue { i64, ptr } %43, 0
-  store i64 %45, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 8), align 16
-  %46 = extractvalue { i64, ptr } %43, 1
-  store ptr %46, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 8), i32 0, i32 1), align 8
-  %47 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.267, i64 noundef 10)
-          to label %48 unwind label %54
+59:                                               ; preds = %52
+  %60 = extractvalue { i64, ptr } %58, 0
+  %61 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 7
+  store i64 %60, ptr %61, align 16
+  %62 = extractvalue { i64, ptr } %58, 1
+  %63 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 7
+  %64 = getelementptr inbounds { i64, ptr }, ptr %63, i32 0, i32 1
+  store ptr %62, ptr %64, align 8
+  %65 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.266, i64 noundef 13)
+          to label %66 unwind label %82
 
-48:                                               ; preds = %44
-  %49 = extractvalue { i64, ptr } %47, 0
-  store i64 %49, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 9), align 16
-  %50 = extractvalue { i64, ptr } %47, 1
-  store ptr %50, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 9), i32 0, i32 1), align 8
+66:                                               ; preds = %59
+  %67 = extractvalue { i64, ptr } %65, 0
+  %68 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 8
+  store i64 %67, ptr %68, align 16
+  %69 = extractvalue { i64, ptr } %65, 1
+  %70 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 8
+  %71 = getelementptr inbounds { i64, ptr }, ptr %70, i32 0, i32 1
+  store ptr %69, ptr %71, align 8
+  %72 = invoke { i64, ptr } @_ZN2cmli2_sEPKcm(ptr noundef @.str.267, i64 noundef 10)
+          to label %73 unwind label %82
+
+73:                                               ; preds = %66
+  %74 = extractvalue { i64, ptr } %72, 0
+  %75 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 9
+  store i64 %74, ptr %75, align 16
+  %76 = extractvalue { i64, ptr } %72, 1
+  %77 = getelementptr inbounds %"class.cm::static_string_view", ptr @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, i64 9
+  %78 = getelementptr inbounds { i64, ptr }, ptr %77, i32 0, i32 1
+  store ptr %76, ptr %78, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets) #3
-  br label %51
+  br label %79
 
-51:                                               ; preds = %48, %7, %1
-  %52 = load ptr, ptr %2, align 8
-  %53 = call noundef zeroext i1 @_ZN2cm8containsIA10_NS_18static_string_viewENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerISA_EE5valuesr2cm34is_unordered_associative_containerISA_EE5valueEiE4typeELi0EEEbRKSA_RKT0_(ptr noundef nonnull align 8 dereferenceable(160) @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, ptr noundef nonnull align 8 dereferenceable(32) %52)
-  ret i1 %53
+79:                                               ; preds = %73, %7, %1
+  %80 = load ptr, ptr %2, align 8
+  %81 = call noundef zeroext i1 @_ZN2cm8containsIA10_NS_18static_string_viewENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXaasr2cm14is_input_rangeIT_EE5valuentoosr2cm24is_associative_containerISA_EE5valuesr2cm34is_unordered_associative_containerISA_EE5valueEiE4typeELi0EEEbRKSA_RKT0_(ptr noundef nonnull align 8 dereferenceable(160) @_ZZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets, ptr noundef nonnull align 8 dereferenceable(32) %80)
+  ret i1 %81
 
-54:                                               ; preds = %44, %40, %36, %32, %28, %24, %20, %16, %12, %10
-  %55 = landingpad { ptr, i32 }
+82:                                               ; preds = %66, %59, %52, %45, %38, %31, %24, %17, %12, %10
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %3, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %4, align 4
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %3, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %4, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN17cmGlobalGenerator16IsReservedTargetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15reservedTargets) #3
-  br label %58
+  br label %86
 
-58:                                               ; preds = %54
-  %59 = load ptr, ptr %3, align 8
-  %60 = load i32, ptr %4, align 4
-  %61 = insertvalue { ptr, i32 } poison, ptr %59, 0
-  %62 = insertvalue { ptr, i32 } %61, i32 %60, 1
-  resume { ptr, i32 } %62
+86:                                               ; preds = %82
+  %87 = load ptr, ptr %3, align 8
+  %88 = load i32, ptr %4, align 4
+  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
+  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
+  resume { ptr, i32 } %90
 }
 
 ; Function Attrs: mustprogress uwtable

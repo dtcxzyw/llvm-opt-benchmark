@@ -5942,7 +5942,7 @@ define hidden noundef ptr @_Z13pj_obj_createP6pj_ctxRKN5osgeo4proj4util15BaseObj
 
 132:                                              ; preds = %131, %50
   %133 = load i32, ptr %11, align 4
-  %134 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %134 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %135 = icmp eq i32 %133, %134
   br i1 %135, label %136, label %148
 
@@ -6116,7 +6116,7 @@ define hidden noundef ptr @_Z13pj_obj_createP6pj_ctxRKN5osgeo4proj4util15BaseObj
 
 221:                                              ; preds = %217, %175
   %222 = load i32, ptr %11, align 4
-  %223 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %223 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %224 = icmp eq i32 %222, %223
   br i1 %224, label %225, label %269
 
@@ -6271,7 +6271,7 @@ define internal void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind
 
 23:                                               ; preds = %19, %15
   %24 = load i32, ptr %9, align 4
-  %25 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %26 = icmp eq i32 %24, %25
   br i1 %26, label %27, label %45
 
@@ -6450,9 +6450,6 @@ define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4pr
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #8
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare void @__cxa_end_catch()
@@ -6512,7 +6509,7 @@ declare ptr @proj_destroy(ptr noundef) #4
 declare noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef, double noundef, double noundef) #4
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #9
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #8
 
 declare void @geod_init(ptr noundef, double noundef, double noundef) #4
 
@@ -6533,9 +6530,10 @@ define hidden void @_ZN11PJ_OBJ_LISTD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV11PJ_OBJ_LIST, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.PJ_OBJ_LIST, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #19
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV11PJ_OBJ_LIST, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.PJ_OBJ_LIST, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
   ret void
 }
 
@@ -6756,7 +6754,7 @@ define i32 @proj_context_set_database_path(ptr noundef %0, ptr noundef %1, ptr n
 
 87:                                               ; preds = %86, %71
   %88 = load i32, ptr %13, align 4
-  %89 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %89 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %90 = icmp eq i32 %88, %89
   br i1 %90, label %91, label %128
 
@@ -7131,7 +7129,7 @@ define internal void @_ZL14proj_log_errorP6pj_ctxPKcS2_(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #19
   call void @_ZSt9terminatev() #21
   unreachable
@@ -7140,7 +7138,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comd
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #11
+declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress uwtable
 define ptr @proj_context_get_database_path(ptr noundef %0) #2 personality ptr @__gxx_personality_v0 {
@@ -7238,7 +7236,7 @@ define ptr @proj_context_get_database_path(ptr noundef %0) #2 personality ptr @_
 
 46:                                               ; preds = %42, %38, %34
   %47 = load i32, ptr %7, align 4
-  %48 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %48 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %49 = icmp eq i32 %47, %48
   br i1 %49, label %50, label %68
 
@@ -7411,7 +7409,7 @@ define ptr @proj_context_get_database_metadata(ptr noundef %0, ptr noundef %1) #
 
 42:                                               ; preds = %38, %34
   %43 = load i32, ptr %9, align 4
-  %44 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %45 = icmp eq i32 %43, %44
   br i1 %45, label %46, label %77
 
@@ -7584,7 +7582,7 @@ define ptr @proj_context_get_database_structure(ptr noundef %0, ptr noundef %1) 
 
 40:                                               ; preds = %39, %27
   %41 = load i32, ptr %10, align 4
-  %42 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %42 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %43 = icmp eq i32 %41, %42
   br i1 %43, label %44, label %62
 
@@ -7708,7 +7706,7 @@ define internal noundef ptr @_ZL14to_string_listISt6vectorINSt7__cxx1112basic_st
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %10, align 4
-  %45 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %46 = icmp eq i32 %44, %45
   br i1 %46, label %47, label %91
 
@@ -8084,7 +8082,7 @@ define ptr @proj_clone(ptr noundef %0, ptr noundef %1) #2 personality ptr @__gxx
 
 93:                                               ; preds = %89
   %94 = load i32, ptr %14, align 4
-  %95 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %95 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %96 = icmp eq i32 %94, %95
   br i1 %96, label %97, label %115
 
@@ -8717,7 +8715,7 @@ define ptr @proj_create(ptr noundef %0, ptr noundef %1) #2 personality ptr @__gx
 
 72:                                               ; preds = %68, %67
   %73 = load i32, ptr %12, align 4
-  %74 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5osgeo4proj2io16ParsingExceptionE) #19
+  %74 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5osgeo4proj2io16ParsingExceptionE) #19
   %75 = icmp eq i32 %73, %74
   br i1 %75, label %76, label %86
 
@@ -8742,7 +8740,7 @@ define ptr @proj_create(ptr noundef %0, ptr noundef %1) #2 personality ptr @__gx
   br label %151
 
 86:                                               ; preds = %72
-  %87 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5osgeo4proj2io28NoSuchAuthorityCodeExceptionE) #19
+  %87 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5osgeo4proj2io28NoSuchAuthorityCodeExceptionE) #19
   %88 = icmp eq i32 %73, %87
   br i1 %88, label %89, label %115
 
@@ -8798,7 +8796,7 @@ define ptr @proj_create(ptr noundef %0, ptr noundef %1) #2 personality ptr @__gx
   br label %159
 
 115:                                              ; preds = %86
-  %116 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %116 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %117 = icmp eq i32 %73, %116
   br i1 %117, label %118, label %163
 
@@ -9570,7 +9568,7 @@ define ptr @proj_create_from_wkt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 286:                                              ; preds = %285, %83
   %287 = load i32, ptr %14, align 4
-  %288 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %288 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %289 = icmp eq i32 %287, %288
   br i1 %289, label %290, label %395
 
@@ -9699,7 +9697,7 @@ define ptr @proj_create_from_wkt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 351:                                              ; preds = %347
   %352 = load i32, ptr %14, align 4
-  %353 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %353 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %354 = icmp eq i32 %352, %353
   br i1 %354, label %355, label %376
 
@@ -9934,7 +9932,7 @@ define internal noundef ptr @_ZL14to_string_listIRNSt7__cxx114listINS0_12basic_s
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %10, align 4
-  %45 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %46 = icmp eq i32 %44, %45
   br i1 %46, label %47, label %91
 
@@ -10686,7 +10684,7 @@ define ptr @proj_create_from_database(ptr noundef %0, ptr noundef %1, ptr nounde
 
 164:                                              ; preds = %163, %60
   %165 = load i32, ptr %17, align 4
-  %166 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN5osgeo4proj2io28NoSuchAuthorityCodeExceptionE) #19
+  %166 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN5osgeo4proj2io28NoSuchAuthorityCodeExceptionE) #19
   %167 = icmp eq i32 %165, %166
   br i1 %167, label %168, label %195
 
@@ -10746,7 +10744,7 @@ define ptr @proj_create_from_database(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %223
 
 195:                                              ; preds = %164
-  %196 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %196 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %197 = icmp eq i32 %165, %196
   br i1 %197, label %198, label %225
 
@@ -11370,7 +11368,7 @@ define i32 @proj_uom_get_info_from_database(ptr noundef %0, ptr noundef %1, ptr 
 
 121:                                              ; preds = %120, %80, %68
   %122 = load i32, ptr %17, align 4
-  %123 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %123 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %124 = icmp eq i32 %122, %123
   br i1 %124, label %125, label %143
 
@@ -11790,7 +11788,7 @@ define i32 @proj_grid_get_info_from_database(ptr noundef %0, ptr noundef %1, ptr
 
 137:                                              ; preds = %136, %63
   %138 = load i32, ptr %20, align 4
-  %139 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %139 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %140 = icmp eq i32 %138, %139
   br i1 %140, label %141, label %159
 
@@ -12183,7 +12181,7 @@ define ptr @proj_query_geodetic_crs_from_datum(ptr noundef %0, ptr noundef %1, p
 
 143:                                              ; preds = %142, %101, %89
   %144 = load i32, ptr %15, align 4
-  %145 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %145 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %146 = icmp eq i32 %144, %145
   br i1 %146, label %147, label %165
 
@@ -12355,10 +12353,11 @@ define linkonce_odr hidden void @_ZN11PJ_OBJ_LISTC2EOSt6vectorIN7dropbox6oxygen2
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV11PJ_OBJ_LIST, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %struct.PJ_OBJ_LIST, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EEC2EOSB_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #19
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV11PJ_OBJ_LIST, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.PJ_OBJ_LIST, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaIS9_EEC2EOSB_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) #19
   ret void
 }
 
@@ -12696,7 +12695,7 @@ define ptr @proj_create_from_name(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 154:                                              ; preds = %153, %99, %87
   %155 = load i32, ptr %21, align 4
-  %156 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %156 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %157 = icmp eq i32 %155, %156
   br i1 %157, label %158, label %176
 
@@ -14025,7 +14024,7 @@ define ptr @proj_get_non_deprecated(ptr noundef %0, ptr noundef %1) #2 personali
 
 89:                                               ; preds = %88
   %90 = load i32, ptr %11, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -15219,7 +15218,7 @@ define ptr @proj_as_wkt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
 
 191:                                              ; preds = %190, %79
   %192 = load i32, ptr %15, align 4
-  %193 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %193 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %194 = icmp eq i32 %192, %193
   br i1 %194, label %195, label %213
 
@@ -15698,7 +15697,7 @@ define ptr @proj_as_proj_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 158:                                              ; preds = %157, %80
   %159 = load i32, ptr %16, align 4
-  %160 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %160 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %161 = icmp eq i32 %159, %160
   br i1 %161, label %162, label %184
 
@@ -16090,7 +16089,7 @@ define ptr @proj_as_projjson(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 
 
 144:                                              ; preds = %143, %74
   %145 = load i32, ptr %13, align 4
-  %146 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %146 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %147 = icmp eq i32 %145, %146
   br i1 %147, label %148, label %170
 
@@ -17457,7 +17456,7 @@ define ptr @proj_crs_create_bound_crs(ptr noundef %0, ptr noundef %1, ptr nounde
 
 87:                                               ; preds = %86
   %88 = load i32, ptr %12, align 4
-  %89 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %89 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %90 = icmp eq i32 %88, %89
   br i1 %90, label %91, label %109
 
@@ -17976,7 +17975,7 @@ define ptr @proj_crs_create_bound_crs_to_WGS84(ptr noundef %0, ptr noundef %1, p
 
 114:                                              ; preds = %110, %106, %91, %87
   %115 = load i32, ptr %16, align 4
-  %116 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %116 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %117 = icmp eq i32 %115, %116
   br i1 %117, label %118, label %140
 
@@ -18404,7 +18403,7 @@ define ptr @proj_crs_create_bound_vertical_crs(ptr noundef %0, ptr noundef %1, p
 
 130:                                              ; preds = %129
   %131 = load i32, ptr %12, align 4
-  %132 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %132 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %133 = icmp eq i32 %131, %132
   br i1 %133, label %134, label %152
 
@@ -18690,7 +18689,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEC2EDn(ptr noun
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
@@ -20662,7 +20661,7 @@ define ptr @proj_identify(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 159:                                              ; preds = %158, %132, %120
   %160 = load i32, ptr %18, align 4
-  %161 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %161 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %162 = icmp eq i32 %160, %161
   br i1 %162, label %163, label %186
 
@@ -20762,7 +20761,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt7__cxx114listISt4pairIN7dropbox6ox
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #12
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) #5
@@ -21035,7 +21034,7 @@ define ptr @proj_get_authorities_from_database(ptr noundef %0) #2 personality pt
 
 38:                                               ; preds = %37, %25
   %39 = load i32, ptr %8, align 4
-  %40 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %41 = icmp eq i32 %39, %40
   br i1 %41, label %42, label %60
 
@@ -21158,7 +21157,7 @@ define internal noundef ptr @_ZL14to_string_listISt3setINSt7__cxx1112basic_strin
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %10, align 4
-  %45 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %46 = icmp eq i32 %44, %45
   br i1 %46, label %47, label %91
 
@@ -21448,7 +21447,7 @@ define ptr @proj_get_codes_from_database(ptr noundef %0, ptr noundef %1, i32 nou
 
 78:                                               ; preds = %77, %58, %46
   %79 = load i32, ptr %13, align 4
-  %80 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %80 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %81 = icmp eq i32 %79, %80
   br i1 %81, label %82, label %100
 
@@ -21746,7 +21745,7 @@ define ptr @proj_get_celestial_body_list_from_database(ptr noundef %0, ptr nound
 
 127:                                              ; preds = %126, %105, %93
   %128 = load i32, ptr %13, align 4
-  %129 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %129 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %130 = icmp eq i32 %128, %129
   br i1 %130, label %131, label %165
 
@@ -22132,7 +22131,7 @@ define ptr @proj_get_crs_list_parameters_create() #0 {
 }
 
 ; Function Attrs: nobuiltin nounwind allocsize(0)
-declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) #14
+declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @proj_get_crs_list_parameters_destroy(ptr noundef %0) #0 {
@@ -23239,7 +23238,7 @@ define ptr @proj_get_crs_info_list_from_database(ptr noundef %0, ptr noundef %1,
 
 644:                                              ; preds = %643, %65
   %645 = load i32, ptr %14, align 4
-  %646 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %646 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %647 = icmp eq i32 %645, %646
   br i1 %647, label %648, label %682
 
@@ -24249,7 +24248,7 @@ define ptr @proj_get_units_from_database(ptr noundef %0, ptr noundef %1, ptr nou
 
 210:                                              ; preds = %209, %86, %74
   %211 = load i32, ptr %17, align 4
-  %212 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %212 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %213 = icmp eq i32 %211, %212
   br i1 %213, label %214, label %248
 
@@ -25222,7 +25221,7 @@ define ptr @proj_create_geographic_crs(ptr noundef %0, ptr noundef %1, ptr nound
 
 85:                                               ; preds = %84, %63
   %86 = load i32, ptr %28, align 4
-  %87 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %87 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %88 = icmp eq i32 %86, %87
   br i1 %88, label %89, label %112
 
@@ -26479,7 +26478,7 @@ define ptr @proj_create_geographic_crs_from_datum(ptr noundef %0, ptr noundef %1
 
 66:                                               ; preds = %65, %53, %49
   %67 = load i32, ptr %17, align 4
-  %68 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %68 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %69 = icmp eq i32 %67, %68
   br i1 %69, label %70, label %92
 
@@ -26852,7 +26851,7 @@ define ptr @proj_create_geocentric_crs(ptr noundef %0, ptr noundef %1, ptr nound
 
 95:                                               ; preds = %94, %63
   %96 = load i32, ptr %28, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %117
 
@@ -27366,7 +27365,7 @@ define ptr @proj_create_geocentric_crs_from_datum(ptr noundef %0, ptr noundef %1
 
 77:                                               ; preds = %76, %50
   %78 = load i32, ptr %16, align 4
-  %79 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %79 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %80 = icmp eq i32 %78, %79
   br i1 %80, label %81, label %103
 
@@ -27618,7 +27617,7 @@ define ptr @proj_create_derived_geographic_crs(ptr noundef %0, ptr noundef %1, p
 
 76:                                               ; preds = %75, %66, %54
   %77 = load i32, ptr %19, align 4
-  %78 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %78 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %79 = icmp eq i32 %77, %78
   br i1 %79, label %80, label %103
 
@@ -28515,7 +28514,7 @@ define ptr @proj_create_vertical_crs_ex(ptr noundef %0, ptr noundef %1, ptr noun
 
 239:                                              ; preds = %238, %121
   %240 = load i32, ptr %28, align 4
-  %241 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %241 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %242 = icmp eq i32 %240, %241
   br i1 %242, label %243, label %261
 
@@ -29112,7 +29111,7 @@ define ptr @proj_create_compound_crs(ptr noundef %0, ptr noundef %1, ptr noundef
 
 103:                                              ; preds = %102, %93, %74
   %104 = load i32, ptr %16, align 4
-  %105 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %105 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %106 = icmp eq i32 %104, %105
   br i1 %106, label %107, label %129
 
@@ -29448,7 +29447,7 @@ define ptr @proj_alter_name(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 p
 
 66:                                               ; preds = %65
   %67 = load i32, ptr %14, align 4
-  %68 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %68 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %69 = icmp eq i32 %67, %68
   br i1 %69, label %70, label %88
 
@@ -29681,7 +29680,7 @@ define ptr @proj_alter_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 80:                                               ; preds = %79
   %81 = load i32, ptr %16, align 4
-  %82 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %82 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %83 = icmp eq i32 %81, %82
   br i1 %83, label %84, label %102
 
@@ -29896,7 +29895,7 @@ define ptr @proj_crs_alter_geodetic_crs(ptr noundef %0, ptr noundef %1, ptr noun
 
 73:                                               ; preds = %72
   %74 = load i32, ptr %10, align 4
-  %75 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %75 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %76 = icmp eq i32 %74, %75
   br i1 %76, label %77, label %95
 
@@ -30228,7 +30227,7 @@ define ptr @proj_crs_alter_cs_angular_unit(ptr noundef %0, ptr noundef %1, ptr n
 
 107:                                              ; preds = %106, %84
   %108 = load i32, ptr %19, align 4
-  %109 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %109 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %110 = icmp eq i32 %108, %109
   br i1 %110, label %111, label %139
 
@@ -30756,7 +30755,7 @@ define ptr @proj_crs_alter_cs_linear_unit(ptr noundef %0, ptr noundef %1, ptr no
 
 70:                                               ; preds = %69, %57
   %71 = load i32, ptr %17, align 4
-  %72 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %72 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %73 = icmp eq i32 %71, %72
   br i1 %73, label %74, label %92
 
@@ -30958,7 +30957,7 @@ define ptr @proj_crs_alter_parameters_linear_unit(ptr noundef %0, ptr noundef %1
 
 74:                                               ; preds = %73, %61
   %75 = load i32, ptr %19, align 4
-  %76 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %76 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %77 = icmp eq i32 %75, %76
   br i1 %77, label %78, label %96
 
@@ -31362,7 +31361,7 @@ define ptr @proj_crs_promote_to_3D(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 141:                                              ; preds = %140, %101
   %142 = load i32, ptr %12, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %226
 
@@ -31518,7 +31517,7 @@ define ptr @proj_crs_promote_to_3D(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 203:                                              ; preds = %202, %182
   %204 = load i32, ptr %12, align 4
-  %205 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %205 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %206 = icmp eq i32 %204, %205
   br i1 %206, label %207, label %226
 
@@ -31976,7 +31975,7 @@ define ptr @proj_crs_create_projected_3D_crs_from_2D(ptr noundef %0, ptr noundef
 
 157:                                              ; preds = %156, %129, %125
   %158 = load i32, ptr %15, align 4
-  %159 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %159 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %160 = icmp eq i32 %158, %159
   br i1 %160, label %161, label %181
 
@@ -32153,7 +32152,7 @@ define ptr @proj_crs_create_projected_3D_crs_from_2D(ptr noundef %0, ptr noundef
 
 226:                                              ; preds = %225, %205
   %227 = load i32, ptr %15, align 4
-  %228 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %228 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %229 = icmp eq i32 %227, %228
   br i1 %229, label %230, label %249
 
@@ -32470,7 +32469,7 @@ define ptr @proj_crs_demote_to_2D(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 86:                                               ; preds = %85, %65
   %87 = load i32, ptr %11, align 4
-  %88 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %88 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %89 = icmp eq i32 %87, %88
   br i1 %89, label %90, label %108
 
@@ -32717,7 +32716,7 @@ define ptr @proj_create_engineering_crs(ptr noundef %0, ptr noundef %1) #2 perso
 
 73:                                               ; preds = %72, %35
   %74 = load i32, ptr %10, align 4
-  %75 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %75 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %76 = icmp eq i32 %74, %75
   br i1 %76, label %77, label %95
 
@@ -32994,7 +32993,7 @@ define ptr @proj_create_conversion(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 69:                                               ; preds = %68, %51
   %70 = load i32, ptr %22, align 4
-  %71 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %71 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %72 = icmp eq i32 %70, %71
   br i1 %72, label %73, label %91
 
@@ -34001,7 +34000,7 @@ define ptr @proj_create_transformation(ptr noundef %0, ptr noundef %1, ptr nound
 
 161:                                              ; preds = %160, %119
   %162 = load i32, ptr %30, align 4
-  %163 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %163 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %164 = icmp eq i32 %162, %163
   br i1 %164, label %165, label %183
 
@@ -34327,7 +34326,7 @@ define ptr @proj_convert_conversion_to_other_method(ptr noundef %0, ptr noundef 
 
 89:                                               ; preds = %85, %77
   %90 = load i32, ptr %13, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %112
 
@@ -35539,7 +35538,7 @@ define ptr @proj_create_cs(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr n
 
 452:                                              ; preds = %451, %424, %397, %371, %331, %304, %261, %233, %191, %155, %113, %91
   %453 = load i32, ptr %14, align 4
-  %454 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %454 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %455 = icmp eq i32 %453, %454
   br i1 %455, label %456, label %477
 
@@ -36721,7 +36720,7 @@ define ptr @proj_create_cartesian_2D_cs(ptr noundef %0, i32 noundef %1, ptr noun
 
 125:                                              ; preds = %124, %107, %90, %73, %56, %44
   %126 = load i32, ptr %14, align 4
-  %127 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %127 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %128 = icmp eq i32 %126, %127
   br i1 %128, label %129, label %148
 
@@ -36940,7 +36939,7 @@ define ptr @proj_create_ellipsoidal_2D_cs(ptr noundef %0, i32 noundef %1, ptr no
 
 65:                                               ; preds = %64, %47, %35
   %66 = load i32, ptr %14, align 4
-  %67 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %67 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %68 = icmp eq i32 %66, %67
   br i1 %68, label %69, label %88
 
@@ -37203,7 +37202,7 @@ define ptr @proj_create_ellipsoidal_3D_cs(ptr noundef %0, i32 noundef %1, ptr no
 
 87:                                               ; preds = %86, %61, %44
   %88 = load i32, ptr %18, align 4
-  %89 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %89 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %90 = icmp eq i32 %88, %89
   br i1 %90, label %91, label %110
 
@@ -37437,7 +37436,7 @@ define ptr @proj_create_projected_crs(ptr noundef %0, ptr noundef %1, ptr nounde
 
 78:                                               ; preds = %77, %65
   %79 = load i32, ptr %20, align 4
-  %80 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %80 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %81 = icmp eq i32 %79, %80
   br i1 %81, label %82, label %104
 
@@ -37682,7 +37681,7 @@ define ptr @proj_create_conversion_utm(ptr noundef %0, i32 noundef %1, i32 nound
 
 40:                                               ; preds = %36, %32, %28
   %41 = load i32, ptr %11, align 4
-  %42 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %42 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %43 = icmp eq i32 %41, %42
   br i1 %43, label %44, label %62
 
@@ -38022,7 +38021,7 @@ define ptr @proj_create_conversion_transverse_mercator(ptr noundef %0, double no
 
 109:                                              ; preds = %108, %62
   %110 = load i32, ptr %24, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %131
 
@@ -38337,7 +38336,7 @@ define ptr @proj_create_conversion_gauss_schreiber_transverse_mercator(ptr nound
 
 109:                                              ; preds = %108, %62
   %110 = load i32, ptr %24, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %131
 
@@ -38640,7 +38639,7 @@ define ptr @proj_create_conversion_transverse_mercator_south_oriented(ptr nounde
 
 109:                                              ; preds = %108, %62
   %110 = load i32, ptr %24, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %131
 
@@ -38966,7 +38965,7 @@ define ptr @proj_create_conversion_two_point_equidistant(ptr noundef %0, double 
 
 119:                                              ; preds = %118, %67
   %120 = load i32, ptr %26, align 4
-  %121 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %141
 
@@ -39246,7 +39245,7 @@ define ptr @proj_create_conversion_tunisia_mining_grid(ptr noundef %0, double no
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -39526,7 +39525,7 @@ define ptr @proj_create_conversion_tunisia_mapping_grid(ptr noundef %0, double n
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -39850,7 +39849,7 @@ define ptr @proj_create_conversion_albers_equal_area(ptr noundef %0, double noun
 
 119:                                              ; preds = %118, %67
   %120 = load i32, ptr %26, align 4
-  %121 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %141
 
@@ -40153,7 +40152,7 @@ define ptr @proj_create_conversion_lambert_conic_conformal_1sp(ptr noundef %0, d
 
 109:                                              ; preds = %108, %62
   %110 = load i32, ptr %24, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %131
 
@@ -40479,7 +40478,7 @@ define ptr @proj_create_conversion_lambert_conic_conformal_1sp_variant_b(ptr nou
 
 119:                                              ; preds = %118, %67
   %120 = load i32, ptr %26, align 4
-  %121 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %141
 
@@ -40805,7 +40804,7 @@ define ptr @proj_create_conversion_lambert_conic_conformal_2sp(ptr noundef %0, d
 
 119:                                              ; preds = %118, %67
   %120 = load i32, ptr %26, align 4
-  %121 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %141
 
@@ -41154,7 +41153,7 @@ define ptr @proj_create_conversion_lambert_conic_conformal_2sp_michigan(ptr noun
 
 129:                                              ; preds = %128, %72
   %130 = load i32, ptr %28, align 4
-  %131 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %131 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %132 = icmp eq i32 %130, %131
   br i1 %132, label %133, label %151
 
@@ -41480,7 +41479,7 @@ define ptr @proj_create_conversion_lambert_conic_conformal_2sp_belgium(ptr nound
 
 119:                                              ; preds = %118, %67
   %120 = load i32, ptr %26, align 4
-  %121 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %141
 
@@ -41760,7 +41759,7 @@ define ptr @proj_create_conversion_azimuthal_equidistant(ptr noundef %0, double 
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -42040,7 +42039,7 @@ define ptr @proj_create_conversion_guam_projection(ptr noundef %0, double nounde
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -42320,7 +42319,7 @@ define ptr @proj_create_conversion_bonne(ptr noundef %0, double noundef %1, doub
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -42600,7 +42599,7 @@ define ptr @proj_create_conversion_lambert_cylindrical_equal_area_spherical(ptr 
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -42880,7 +42879,7 @@ define ptr @proj_create_conversion_lambert_cylindrical_equal_area(ptr noundef %0
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -43160,7 +43159,7 @@ define ptr @proj_create_conversion_cassini_soldner(ptr noundef %0, double nounde
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -43486,7 +43485,7 @@ define ptr @proj_create_conversion_equidistant_conic(ptr noundef %0, double noun
 
 119:                                              ; preds = %118, %67
   %120 = load i32, ptr %26, align 4
-  %121 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %141
 
@@ -43743,7 +43742,7 @@ define ptr @proj_create_conversion_eckert_i(ptr noundef %0, double noundef %1, d
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -44000,7 +43999,7 @@ define ptr @proj_create_conversion_eckert_ii(ptr noundef %0, double noundef %1, 
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -44257,7 +44256,7 @@ define ptr @proj_create_conversion_eckert_iii(ptr noundef %0, double noundef %1,
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -44514,7 +44513,7 @@ define ptr @proj_create_conversion_eckert_iv(ptr noundef %0, double noundef %1, 
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -44771,7 +44770,7 @@ define ptr @proj_create_conversion_eckert_v(ptr noundef %0, double noundef %1, d
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -45028,7 +45027,7 @@ define ptr @proj_create_conversion_eckert_vi(ptr noundef %0, double noundef %1, 
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -45308,7 +45307,7 @@ define ptr @proj_create_conversion_equidistant_cylindrical(ptr noundef %0, doubl
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -45588,7 +45587,7 @@ define ptr @proj_create_conversion_equidistant_cylindrical_spherical(ptr noundef
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -45845,7 +45844,7 @@ define ptr @proj_create_conversion_gall(ptr noundef %0, double noundef %1, doubl
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -46102,7 +46101,7 @@ define ptr @proj_create_conversion_goode_homolosine(ptr noundef %0, double nound
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -46359,7 +46358,7 @@ define ptr @proj_create_conversion_interrupted_goode_homolosine(ptr noundef %0, 
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -46639,7 +46638,7 @@ define ptr @proj_create_conversion_geostationary_satellite_sweep_x(ptr noundef %
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -46919,7 +46918,7 @@ define ptr @proj_create_conversion_geostationary_satellite_sweep_y(ptr noundef %
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -47199,7 +47198,7 @@ define ptr @proj_create_conversion_gnomonic(ptr noundef %0, double noundef %1, d
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -47548,7 +47547,7 @@ define ptr @proj_create_conversion_hotine_oblique_mercator_variant_a(ptr noundef
 
 129:                                              ; preds = %128, %72
   %130 = load i32, ptr %28, align 4
-  %131 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %131 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %132 = icmp eq i32 %130, %131
   br i1 %132, label %133, label %151
 
@@ -47897,7 +47896,7 @@ define ptr @proj_create_conversion_hotine_oblique_mercator_variant_b(ptr noundef
 
 129:                                              ; preds = %128, %72
   %130 = load i32, ptr %28, align 4
-  %131 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %131 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %132 = icmp eq i32 %130, %131
   br i1 %132, label %133, label %151
 
@@ -48269,7 +48268,7 @@ define ptr @proj_create_conversion_hotine_oblique_mercator_two_point_natural_ori
 
 139:                                              ; preds = %138, %77
   %140 = load i32, ptr %30, align 4
-  %141 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %141 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %142 = icmp eq i32 %140, %141
   br i1 %142, label %143, label %161
 
@@ -48595,7 +48594,7 @@ define ptr @proj_create_conversion_laborde_oblique_mercator(ptr noundef %0, doub
 
 119:                                              ; preds = %118, %67
   %120 = load i32, ptr %26, align 4
-  %121 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %141
 
@@ -48898,7 +48897,7 @@ define ptr @proj_create_conversion_international_map_world_polyconic(ptr noundef
 
 109:                                              ; preds = %108, %62
   %110 = load i32, ptr %24, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %131
 
@@ -49247,7 +49246,7 @@ define ptr @proj_create_conversion_krovak_north_oriented(ptr noundef %0, double 
 
 129:                                              ; preds = %128, %72
   %130 = load i32, ptr %28, align 4
-  %131 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %131 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %132 = icmp eq i32 %130, %131
   br i1 %132, label %133, label %151
 
@@ -49596,7 +49595,7 @@ define ptr @proj_create_conversion_krovak(ptr noundef %0, double noundef %1, dou
 
 129:                                              ; preds = %128, %72
   %130 = load i32, ptr %28, align 4
-  %131 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %131 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %132 = icmp eq i32 %130, %131
   br i1 %132, label %133, label %151
 
@@ -49876,7 +49875,7 @@ define ptr @proj_create_conversion_lambert_azimuthal_equal_area(ptr noundef %0, 
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -50133,7 +50132,7 @@ define ptr @proj_create_conversion_miller_cylindrical(ptr noundef %0, double nou
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -50436,7 +50435,7 @@ define ptr @proj_create_conversion_mercator_variant_a(ptr noundef %0, double nou
 
 109:                                              ; preds = %108, %62
   %110 = load i32, ptr %24, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %131
 
@@ -50716,7 +50715,7 @@ define ptr @proj_create_conversion_mercator_variant_b(ptr noundef %0, double nou
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -50996,7 +50995,7 @@ define ptr @proj_create_conversion_popular_visualisation_pseudo_mercator(ptr nou
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -51253,7 +51252,7 @@ define ptr @proj_create_conversion_mollweide(ptr noundef %0, double noundef %1, 
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -51533,7 +51532,7 @@ define ptr @proj_create_conversion_new_zealand_mapping_grid(ptr noundef %0, doub
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -51836,7 +51835,7 @@ define ptr @proj_create_conversion_oblique_stereographic(ptr noundef %0, double 
 
 109:                                              ; preds = %108, %62
   %110 = load i32, ptr %24, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %131
 
@@ -52116,7 +52115,7 @@ define ptr @proj_create_conversion_orthographic(ptr noundef %0, double noundef %
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -52396,7 +52395,7 @@ define ptr @proj_create_conversion_american_polyconic(ptr noundef %0, double nou
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -52699,7 +52698,7 @@ define ptr @proj_create_conversion_polar_stereographic_variant_a(ptr noundef %0,
 
 109:                                              ; preds = %108, %62
   %110 = load i32, ptr %24, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %131
 
@@ -52979,7 +52978,7 @@ define ptr @proj_create_conversion_polar_stereographic_variant_b(ptr noundef %0,
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -53236,7 +53235,7 @@ define ptr @proj_create_conversion_robinson(ptr noundef %0, double noundef %1, d
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -53493,7 +53492,7 @@ define ptr @proj_create_conversion_sinusoidal(ptr noundef %0, double noundef %1,
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -53796,7 +53795,7 @@ define ptr @proj_create_conversion_stereographic(ptr noundef %0, double noundef 
 
 109:                                              ; preds = %108, %62
   %110 = load i32, ptr %24, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %131
 
@@ -54053,7 +54052,7 @@ define ptr @proj_create_conversion_van_der_grinten(ptr noundef %0, double nounde
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -54310,7 +54309,7 @@ define ptr @proj_create_conversion_wagner_i(ptr noundef %0, double noundef %1, d
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -54567,7 +54566,7 @@ define ptr @proj_create_conversion_wagner_ii(ptr noundef %0, double noundef %1, 
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -54847,7 +54846,7 @@ define ptr @proj_create_conversion_wagner_iii(ptr noundef %0, double noundef %1,
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -55104,7 +55103,7 @@ define ptr @proj_create_conversion_wagner_iv(ptr noundef %0, double noundef %1, 
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -55361,7 +55360,7 @@ define ptr @proj_create_conversion_wagner_v(ptr noundef %0, double noundef %1, d
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -55618,7 +55617,7 @@ define ptr @proj_create_conversion_wagner_vi(ptr noundef %0, double noundef %1, 
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -55875,7 +55874,7 @@ define ptr @proj_create_conversion_wagner_vii(ptr noundef %0, double noundef %1,
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -56155,7 +56154,7 @@ define ptr @proj_create_conversion_quadrilateralized_spherical_cube(ptr noundef 
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -56435,7 +56434,7 @@ define ptr @proj_create_conversion_spherical_cross_track_height(ptr noundef %0, 
 
 99:                                               ; preds = %98, %57
   %100 = load i32, ptr %22, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %102 = icmp eq i32 %100, %101
   br i1 %102, label %103, label %121
 
@@ -56692,7 +56691,7 @@ define ptr @proj_create_conversion_equal_earth(ptr noundef %0, double noundef %1
 
 89:                                               ; preds = %88, %52
   %90 = load i32, ptr %20, align 4
-  %91 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %111
 
@@ -57018,7 +57017,7 @@ define ptr @proj_create_conversion_vertical_perspective(ptr noundef %0, double n
 
 119:                                              ; preds = %118, %67
   %120 = load i32, ptr %26, align 4
-  %121 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %141
 
@@ -57249,7 +57248,7 @@ define ptr @proj_create_conversion_pole_rotation_grib_convention(ptr noundef %0,
 
 76:                                               ; preds = %75, %44
   %77 = load i32, ptr %16, align 4
-  %78 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %78 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %79 = icmp eq i32 %77, %78
   br i1 %79, label %80, label %98
 
@@ -57480,7 +57479,7 @@ define ptr @proj_create_conversion_pole_rotation_netcdf_cf_convention(ptr nounde
 
 76:                                               ; preds = %75, %44
   %77 = load i32, ptr %16, align 4
-  %78 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %78 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %79 = icmp eq i32 %77, %78
   br i1 %79, label %80, label %98
 
@@ -57641,7 +57640,7 @@ define i32 @proj_coordoperation_is_instantiable(ptr noundef %0, ptr noundef %1) 
 
 54:                                               ; preds = %50
   %55 = load i32, ptr %10, align 4
-  %56 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %57 = icmp eq i32 %55, %56
   br i1 %57, label %58, label %68
 
@@ -58849,7 +58848,7 @@ define i32 @proj_coordoperation_get_towgs84_values(ptr noundef %0, ptr noundef %
 
 78:                                               ; preds = %74
   %79 = load i32, ptr %15, align 4
-  %80 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %80 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %81 = icmp eq i32 %79, %80
   br i1 %81, label %82, label %105
 
@@ -59136,7 +59135,7 @@ define i32 @proj_coordoperation_get_grid_used_count(ptr noundef %0, ptr noundef 
 
 85:                                               ; preds = %81, %77
   %86 = load i32, ptr %10, align 4
-  %87 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %87 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %88 = icmp eq i32 %86, %87
   br i1 %88, label %89, label %117
 
@@ -59819,7 +59818,7 @@ define ptr @proj_create_operation_factory_context(ptr noundef %0, ptr noundef %1
 
 97:                                               ; preds = %96, %84, %78, %47
   %98 = load i32, ptr %9, align 4
-  %99 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %99 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %100 = icmp eq i32 %98, %99
   br i1 %100, label %101, label %124
 
@@ -60061,7 +60060,7 @@ define void @proj_operation_factory_context_set_desired_accuracy(ptr noundef %0,
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %8, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %53
 
@@ -60238,7 +60237,7 @@ define void @proj_operation_factory_context_set_area_of_interest(ptr noundef %0,
 
 57:                                               ; preds = %56, %44
   %58 = load i32, ptr %14, align 4
-  %59 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %60 = icmp eq i32 %58, %59
   br i1 %60, label %61, label %77
 
@@ -60704,7 +60703,7 @@ define void @proj_operation_factory_context_set_area_of_interest_name(ptr nounde
 
 164:                                              ; preds = %163, %74
   %165 = load i32, ptr %9, align 4
-  %166 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %166 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %167 = icmp eq i32 %165, %166
   br i1 %167, label %168, label %184
 
@@ -60933,7 +60932,7 @@ define void @proj_operation_factory_context_set_crs_extent_use(ptr noundef %0, p
 
 34:                                               ; preds = %30
   %35 = load i32, ptr %8, align 4
-  %36 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %73
 
@@ -61098,7 +61097,7 @@ define void @proj_operation_factory_context_set_spatial_criterion(ptr noundef %0
 
 34:                                               ; preds = %30
   %35 = load i32, ptr %8, align 4
-  %36 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %61
 
@@ -61239,7 +61238,7 @@ define void @proj_operation_factory_context_set_grid_availability_use(ptr nounde
 
 34:                                               ; preds = %30
   %35 = load i32, ptr %8, align 4
-  %36 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %73
 
@@ -61399,7 +61398,7 @@ define void @proj_operation_factory_context_set_use_proj_alternative_grid_names(
 
 34:                                               ; preds = %30
   %35 = load i32, ptr %8, align 4
-  %36 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %54
 
@@ -61523,7 +61522,7 @@ define void @proj_operation_factory_context_set_allow_use_intermediate_crs(ptr n
 
 34:                                               ; preds = %30
   %35 = load i32, ptr %8, align 4
-  %36 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %67
 
@@ -61802,7 +61801,7 @@ define void @proj_operation_factory_context_set_allowed_intermediate_crs(ptr nou
 
 90:                                               ; preds = %89
   %91 = load i32, ptr %13, align 4
-  %92 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %110
 
@@ -62031,7 +62030,7 @@ define void @proj_operation_factory_context_set_discard_superseded(ptr noundef %
 
 34:                                               ; preds = %30
   %35 = load i32, ptr %8, align 4
-  %36 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %54
 
@@ -62149,7 +62148,7 @@ define void @proj_operation_factory_context_set_allow_ballpark_transformations(p
 
 34:                                               ; preds = %30
   %35 = load i32, ptr %8, align 4
-  %36 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %54
 
@@ -62220,46 +62219,47 @@ define hidden void @_ZN17PJ_OPERATION_LISTC2EP6pj_ctxPK8PJconstsS4_OSt6vectorIN7
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %10, align 8
   call void @_ZN11PJ_OBJ_LISTC2EOSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(24) %14)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV17PJ_OPERATION_LIST, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %13, i32 0, i32 1
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = invoke ptr @proj_clone(ptr noundef %16, ptr noundef %17)
-          to label %19 unwind label %27
+  %15 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV17PJ_OPERATION_LIST, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %13, i32 0, i32 1
+  %17 = load ptr, ptr %7, align 8
+  %18 = load ptr, ptr %8, align 8
+  %19 = invoke ptr @proj_clone(ptr noundef %17, ptr noundef %18)
+          to label %20 unwind label %28
 
-19:                                               ; preds = %5
-  store ptr %18, ptr %15, align 8
-  %20 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %13, i32 0, i32 2
-  %21 = load ptr, ptr %7, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = invoke ptr @proj_clone(ptr noundef %21, ptr noundef %22)
-          to label %24 unwind label %27
+20:                                               ; preds = %5
+  store ptr %19, ptr %16, align 8
+  %21 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %13, i32 0, i32 2
+  %22 = load ptr, ptr %7, align 8
+  %23 = load ptr, ptr %9, align 8
+  %24 = invoke ptr @proj_clone(ptr noundef %22, ptr noundef %23)
+          to label %25 unwind label %28
 
-24:                                               ; preds = %19
-  store ptr %23, ptr %20, align 8
-  %25 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %13, i32 0, i32 3
-  store i8 0, ptr %25, align 8
-  %26 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %13, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorI16PJCoordOperationSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #19
+25:                                               ; preds = %20
+  store ptr %24, ptr %21, align 8
+  %26 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %13, i32 0, i32 3
+  store i8 0, ptr %26, align 8
+  %27 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %13, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %27, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorI16PJCoordOperationSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #19
   ret void
 
-27:                                               ; preds = %19, %5
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %20, %5
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %11, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %12, align 4
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %11, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %12, align 4
   call void @_ZN11PJ_OBJ_LISTD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #19
-  br label %31
+  br label %32
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %11, align 8
-  %33 = load i32, ptr %12, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %11, align 8
+  %34 = load i32, ptr %12, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -62277,53 +62277,54 @@ define hidden void @_ZN17PJ_OPERATION_LISTD2Ev(ptr noundef nonnull align 8 deref
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV17PJ_OPERATION_LIST, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = invoke ptr @proj_context_create()
-          to label %6 unwind label %27
+  %5 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV17PJ_OPERATION_LIST, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = invoke ptr @proj_context_create()
+          to label %7 unwind label %28
 
-6:                                                ; preds = %1
-  store ptr %5, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %4, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %3, align 8
-  invoke void @proj_assign_context(ptr noundef %8, ptr noundef %9)
-          to label %10 unwind label %27
+7:                                                ; preds = %1
+  store ptr %6, ptr %3, align 8
+  %8 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %4, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %3, align 8
+  invoke void @proj_assign_context(ptr noundef %9, ptr noundef %10)
+          to label %11 unwind label %28
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %4, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %3, align 8
-  invoke void @proj_assign_context(ptr noundef %12, ptr noundef %13)
-          to label %14 unwind label %27
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %4, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %3, align 8
+  invoke void @proj_assign_context(ptr noundef %13, ptr noundef %14)
+          to label %15 unwind label %28
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %4, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %17 = invoke ptr @proj_destroy(ptr noundef %16)
-          to label %18 unwind label %27
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %4, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = invoke ptr @proj_destroy(ptr noundef %17)
+          to label %19 unwind label %28
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %4, i32 0, i32 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = invoke ptr @proj_destroy(ptr noundef %20)
-          to label %22 unwind label %27
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %4, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = invoke ptr @proj_destroy(ptr noundef %21)
+          to label %23 unwind label %28
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %3, align 8
-  %24 = invoke ptr @proj_context_destroy(ptr noundef %23)
-          to label %25 unwind label %27
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %3, align 8
+  %25 = invoke ptr @proj_context_destroy(ptr noundef %24)
+          to label %26 unwind label %28
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %4, i32 0, i32 4
-  call void @_ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #19
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds %struct.PJ_OPERATION_LIST, ptr %4, i32 0, i32 4
+  call void @_ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #19
   call void @_ZN11PJ_OBJ_LISTD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   ret void
 
-27:                                               ; preds = %22, %18, %14, %10, %6, %1
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %23, %19, %15, %11, %7, %1
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #21
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #21
   unreachable
 }
 
@@ -62989,7 +62990,7 @@ define ptr @proj_create_operations(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 255:                                              ; preds = %254, %187
   %256 = load i32, ptr %14, align 4
-  %257 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %257 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %258 = icmp eq i32 %256, %257
   br i1 %258, label %259, label %277
 
@@ -63495,7 +63496,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN7dropbox6oxygen2nnISt10sh
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 declare noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16PJCoordOperationSaIS2_EEPKib12PJ_DIRECTION8PJ_COORD(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef byval(%union.PJ_COORD) align 8) #4
 
@@ -63772,7 +63773,7 @@ define double @proj_coordoperation_get_accuracy(ptr noundef %0, ptr noundef %1) 
 
 55:                                               ; preds = %51
   %56 = load i32, ptr %9, align 4
-  %57 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %58 = icmp eq i32 %56, %57
   br i1 %58, label %59, label %65
 
@@ -64327,7 +64328,7 @@ define double @proj_datum_ensemble_get_accuracy(ptr noundef %0, ptr noundef %1) 
 
 50:                                               ; preds = %46
   %51 = load i32, ptr %9, align 4
-  %52 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %52 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %53 = icmp eq i32 %51, %52
   br i1 %53, label %54, label %60
 
@@ -64664,7 +64665,7 @@ define ptr @proj_crs_get_datum_forced(ptr noundef %0, ptr noundef %1) #2 persona
 
 76:                                               ; preds = %72, %68
   %77 = load i32, ptr %11, align 4
-  %78 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %78 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %79 = icmp eq i32 %77, %78
   br i1 %79, label %80, label %102
 
@@ -65631,7 +65632,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2cs20Coo
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9directionEv(ptr noundef nonnull align 8 dereferenceable(56)) #7
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj4util8CodeList8toStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj4util8CodeList8toStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -66018,7 +66019,7 @@ define ptr @proj_normalize_for_visualization(ptr noundef %0, ptr noundef %1) #2 
 
 222:                                              ; preds = %221, %56
   %223 = load i32, ptr %8, align 4
-  %224 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %224 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %225 = icmp eq i32 %223, %224
   br i1 %225, label %226, label %357
 
@@ -66121,7 +66122,7 @@ define ptr @proj_normalize_for_visualization(ptr noundef %0, ptr noundef %1) #2 
 
 270:                                              ; preds = %266, %262
   %271 = load i32, ptr %8, align 4
-  %272 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %272 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %273 = icmp eq i32 %271, %272
   br i1 %273, label %274, label %357
 
@@ -66246,7 +66247,7 @@ define ptr @proj_normalize_for_visualization(ptr noundef %0, ptr noundef %1) #2 
 
 333:                                              ; preds = %329, %325
   %334 = load i32, ptr %8, align 4
-  %335 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %335 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %336 = icmp eq i32 %334, %335
   br i1 %336, label %337, label %357
 
@@ -66669,7 +66670,7 @@ define ptr @proj_coordoperation_create_inverse(ptr noundef %0, ptr noundef %1) #
 
 55:                                               ; preds = %51, %47
   %56 = load i32, ptr %10, align 4
-  %57 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %58 = icmp eq i32 %56, %57
   br i1 %58, label %59, label %77
 
@@ -67054,7 +67055,7 @@ define ptr @proj_insert_object_session_create(ptr noundef %0) #2 personality ptr
 
 35:                                               ; preds = %31, %27
   %36 = load i32, ptr %6, align 4
-  %37 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %39, label %57
 
@@ -67209,7 +67210,7 @@ define void @proj_insert_object_session_destroy(ptr noundef %0, ptr noundef %1) 
 
 41:                                               ; preds = %37, %27
   %42 = load i32, ptr %6, align 4
-  %43 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %44 = icmp eq i32 %42, %43
   br i1 %44, label %45, label %67
 
@@ -67468,7 +67469,7 @@ define ptr @proj_suggests_code_for(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 86:                                               ; preds = %85, %63
   %87 = load i32, ptr %14, align 4
-  %88 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %88 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %89 = icmp eq i32 %87, %88
   br i1 %89, label %90, label %108
 
@@ -68045,7 +68046,7 @@ define ptr @proj_get_insert_statements(ptr noundef %0, ptr noundef %1, ptr nound
 
 202:                                              ; preds = %201, %58
   %203 = load i32, ptr %20, align 4
-  %204 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %204 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %205 = icmp eq i32 %203, %204
   br i1 %205, label %206, label %224
 
@@ -68442,7 +68443,7 @@ define ptr @proj_get_geoid_models_from_database(ptr noundef %0, ptr noundef %1, 
 
 75:                                               ; preds = %74, %48
   %76 = load i32, ptr %13, align 4
-  %77 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %77 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %78 = icmp eq i32 %76, %77
   br i1 %78, label %79, label %97
 
@@ -68567,7 +68568,7 @@ define internal noundef ptr @_ZL14to_string_listINSt7__cxx114listINS0_12basic_st
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %10, align 4
-  %45 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %46 = icmp eq i32 %44, %45
   br i1 %46, label %47, label %91
 
@@ -68808,7 +68809,7 @@ define ptr @proj_coordinate_metadata_create(ptr noundef %0, ptr noundef %1, doub
 
 61:                                               ; preds = %60, %48
   %62 = load i32, ptr %10, align 4
-  %63 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %63 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %64 = icmp eq i32 %62, %63
   br i1 %64, label %65, label %83
 
@@ -69138,7 +69139,7 @@ define i32 @proj_crs_has_point_motion_operation(ptr noundef %0, ptr noundef %1) 
 
 74:                                               ; preds = %73, %61, %57
   %75 = load i32, ptr %12, align 4
-  %76 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #19
+  %76 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #19
   %77 = icmp eq i32 %75, %76
   br i1 %77, label %78, label %100
 
@@ -73463,10 +73464,10 @@ define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIN5osgeo4proj2io16Author
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #17
+declare void @_ZSt28__throw_bad_array_new_lengthv() #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #17
+declare void @_ZSt17__throw_bad_allocv() #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt6vectorIN5osgeo4proj2io16AuthorityFactory10ObjectTypeESaIS4_EE11_S_max_sizeERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -73506,7 +73507,7 @@ define linkonce_odr void @_ZNSaIN5osgeo4proj2io16AuthorityFactory10ObjectTypeEEC
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #17
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIN5osgeo4proj2io16AuthorityFactory10ObjectTypeEEE8max_sizeERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
@@ -73725,7 +73726,7 @@ define linkonce_odr noundef ptr @_ZNSt11__copy_moveILb0ELb1ESt26random_access_it
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNKSt16initializer_listIN5osgeo4proj2io16AuthorityFactory10ObjectTypeEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
@@ -81611,7 +81612,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt11__alloc_neqISaISt10_List_nodeINSt
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #18
+declare void @abort() #17
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) #3
@@ -96538,6 +96539,9 @@ define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKN7dropbox6ox
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -96546,17 +96550,17 @@ attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind willreturn memory(read) }
 attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind memory(none) }
-attributes #9 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { mustprogress nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { mustprogress nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind memory(none) }
 attributes #19 = { nounwind }
 attributes #20 = { builtin nounwind }
 attributes #21 = { noreturn nounwind }

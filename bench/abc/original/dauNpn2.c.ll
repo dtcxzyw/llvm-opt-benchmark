@@ -2208,24 +2208,27 @@ define internal i32 @Dtt_ManHashKey(ptr noundef %0, i32 noundef %1) #0 {
   %13 = getelementptr inbounds i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @Dtt_ManHashKey.s_P, i64 0, i64 1), align 4
-  %17 = mul i32 %15, %16
-  %18 = add i32 %11, %17
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 2
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @Dtt_ManHashKey.s_P, i64 0, i64 2), align 8
-  %24 = mul i32 %22, %23
-  %25 = add i32 %18, %24
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 3
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @Dtt_ManHashKey.s_P, i64 0, i64 3), align 4
-  %31 = mul i32 %29, %30
-  %32 = add i32 %25, %31
-  ret i32 %32
+  %16 = getelementptr inbounds [4 x i32], ptr @Dtt_ManHashKey.s_P, i64 0, i64 1
+  %17 = load i32, ptr %16, align 4
+  %18 = mul i32 %15, %17
+  %19 = add i32 %11, %18
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 2
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i32
+  %24 = getelementptr inbounds [4 x i32], ptr @Dtt_ManHashKey.s_P, i64 0, i64 2
+  %25 = load i32, ptr %24, align 8
+  %26 = mul i32 %23, %25
+  %27 = add i32 %19, %26
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 3
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = getelementptr inbounds [4 x i32], ptr @Dtt_ManHashKey.s_P, i64 0, i64 3
+  %33 = load i32, ptr %32, align 4
+  %34 = mul i32 %31, %33
+  %35 = add i32 %27, %34
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6658,7 +6661,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -6686,7 +6689,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -6697,16 +6700,10 @@ declare i32 @Abc_FrameIsBridgeMode(...) #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
 
 ; Function Attrs: nounwind uwtable
 define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
@@ -7376,6 +7373,12 @@ define internal i32 @Abc_TtGetBit(ptr noundef %0, i32 noundef %1) #0 {
   %16 = and i32 %15, 1
   ret i32 %16
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

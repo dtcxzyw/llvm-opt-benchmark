@@ -828,9 +828,10 @@ define void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 de
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV19WiresharkPreference, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.WiresharkPreference, ptr %5, i32 0, i32 1
-  store ptr null, ptr %7, align 8
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV19WiresharkPreference, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.WiresharkPreference, ptr %5, i32 0, i32 1
+  store ptr null, ptr %8, align 8
   ret void
 }
 
@@ -911,33 +912,34 @@ define linkonce_odr void @_ZN30BoolPreferencePREF_BOOLFactoryC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV30BoolPreferencePREF_BOOLFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV30BoolPreferencePREF_BOOLFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -967,33 +969,34 @@ define linkonce_odr void @_ZN34StringPreferencePREF_STRINGFactoryC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV34StringPreferencePREF_STRINGFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV34StringPreferencePREF_STRINGFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 8, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 8, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1020,33 +1023,34 @@ define linkonce_odr void @_ZN34StringPreferencePREF_CUSTOMFactoryC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV34StringPreferencePREF_CUSTOMFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV34StringPreferencePREF_CUSTOMFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 512, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 512, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1073,33 +1077,34 @@ define linkonce_odr void @_ZN37StringPreferencePREF_DISSECTORFactoryC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV37StringPreferencePREF_DISSECTORFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV37StringPreferencePREF_DISSECTORFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 131072, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 131072, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1126,33 +1131,34 @@ define linkonce_odr void @_ZN38PasswordPreferencePREF_PASSWORDFactoryC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV38PasswordPreferencePREF_PASSWORDFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV38PasswordPreferencePREF_PASSWORDFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 32768, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 32768, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1179,33 +1185,34 @@ define linkonce_odr void @_ZN30UIntPreferencePREF_UINTFactoryC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV30UIntPreferencePREF_UINTFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV30UIntPreferencePREF_UINTFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 1, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 1, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1232,33 +1239,34 @@ define linkonce_odr void @_ZN30EnumPreferencePREF_ENUMFactoryC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV30EnumPreferencePREF_ENUMFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV30EnumPreferencePREF_ENUMFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 4, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 4, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1285,33 +1293,34 @@ define linkonce_odr void @_ZN32RangePreferencePREF_RANGEFactoryC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV32RangePreferencePREF_RANGEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV32RangePreferencePREF_RANGEFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 16, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 16, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1338,33 +1347,34 @@ define linkonce_odr void @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryC2Ev(pt
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV42RangePreferencePREF_DECODE_AS_RANGEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV42RangePreferencePREF_DECODE_AS_RANGEFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 8192, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 8192, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1391,33 +1401,34 @@ define linkonce_odr void @_ZN32ColorPreferencePREF_COLORFactoryC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV32ColorPreferencePREF_COLORFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV32ColorPreferencePREF_COLORFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 256, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 256, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1444,33 +1455,34 @@ define linkonce_odr void @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryC2Ev(p
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV43SaveFilePreferencePREF_SAVE_FILENAMEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV43SaveFilePreferencePREF_SAVE_FILENAMEFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 128, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 128, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1497,33 +1509,34 @@ define linkonce_odr void @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryC2Ev(p
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV43OpenFilePreferencePREF_OPEN_FILENAMEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV43OpenFilePreferencePREF_OPEN_FILENAMEFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 16384, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 16384, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1550,33 +1563,34 @@ define linkonce_odr void @_ZN36DirNamePreferencePREF_DIRNAMEFactoryC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV36DirNamePreferencePREF_DIRNAMEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV36DirNamePreferencePREF_DIRNAMEFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2048, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2048, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1603,33 +1617,34 @@ define linkonce_odr void @_ZN28UatPreferencePREF_UATFactoryC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV28UatPreferencePREF_UATFactory, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %7 unwind label %9
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV28UatPreferencePREF_UATFactory, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %8 unwind label %10
 
-7:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 64, ptr noundef %5)
-          to label %8 unwind label %9
+8:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 64, ptr noundef %5)
+          to label %9 unwind label %10
 
-8:                                                ; preds = %7
+9:                                                ; preds = %8
   ret void
 
-9:                                                ; preds = %7, %1
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %8, %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
   call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
-  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
-  resume { ptr, i32 } %17
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1686,7 +1701,8 @@ define linkonce_odr void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV17PreferenceFactory, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV17PreferenceFactory, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1761,7 +1777,8 @@ define linkonce_odr void @_ZN14BoolPreferenceC2EP7QObject(ptr noundef nonnull al
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV14BoolPreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV14BoolPreference, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2290,7 +2307,8 @@ define linkonce_odr void @_ZN16StringPreferenceC2EP7QObject(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16StringPreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV16StringPreference, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2642,7 +2660,8 @@ define linkonce_odr void @_ZN18PasswordPreferenceC2EP7QObject(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN16StringPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV18PasswordPreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV18PasswordPreference, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2746,7 +2765,8 @@ define linkonce_odr void @_ZN14UIntPreferenceC2EP7QObject(ptr noundef nonnull al
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN16StringPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV14UIntPreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV14UIntPreference, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2825,7 +2845,8 @@ define linkonce_odr void @_ZN14EnumPreferenceC2EP7QObject(ptr noundef nonnull al
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV14EnumPreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV14EnumPreference, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -3676,7 +3697,8 @@ define linkonce_odr void @_ZN15RangePreferenceC2EP7QObject(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV15RangePreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV15RangePreference, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -3975,7 +3997,8 @@ define linkonce_odr void @_ZN15ColorPreferenceC2EP7QObject(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV15ColorPreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV15ColorPreference, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -4374,7 +4397,8 @@ define linkonce_odr void @_ZN18SaveFilePreferenceC2EP7QObject(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV18SaveFilePreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV18SaveFilePreference, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -6937,7 +6961,8 @@ define linkonce_odr void @_ZN18OpenFilePreferenceC2EP7QObject(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV18OpenFilePreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV18OpenFilePreference, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -7205,7 +7230,8 @@ define linkonce_odr void @_ZN17DirNamePreferenceC2EP7QObject(ptr noundef nonnull
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV17DirNamePreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV17DirNamePreference, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -7482,7 +7508,8 @@ define linkonce_odr void @_ZN13UatPreferenceC2EP7QObject(ptr noundef nonnull ali
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13UatPreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV13UatPreference, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 

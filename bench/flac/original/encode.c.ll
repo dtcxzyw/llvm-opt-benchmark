@@ -8894,14 +8894,15 @@ entry:
   %10 = load ptr, ptr %state_string, align 8
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %8, i32 noundef 1, ptr noundef @.str.150, i32 noundef %9, ptr noundef @.str.96, ptr noundef %10)
   %11 = load ptr, ptr %state_string, align 8
-  %12 = load ptr, ptr getelementptr inbounds ([0 x ptr], ptr @FLAC__StreamEncoderStateString, i64 0, i64 5), align 8
-  %call3 = call i32 @strcmp(ptr noundef %11, ptr noundef %12) #10
+  %12 = getelementptr inbounds [0 x ptr], ptr @FLAC__StreamEncoderStateString, i64 0, i64 5
+  %13 = load ptr, ptr %12, align 8
+  %call3 = call i32 @strcmp(ptr noundef %11, ptr noundef %13) #10
   %cmp = icmp eq i32 0, %call3
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %13 = load ptr, ptr @stderr, align 8
-  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %13, i32 noundef 1, ptr noundef @.str.151)
+  %14 = load ptr, ptr @stderr, align 8
+  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %14, i32 noundef 1, ptr noundef @.str.151)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -11460,26 +11461,28 @@ if.then:                                          ; preds = %entry
   %15 = load ptr, ptr %state_string, align 8
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %13, i32 noundef 1, ptr noundef @.str.150, i32 noundef %14, ptr noundef @.str.96, ptr noundef %15)
   %16 = load ptr, ptr %state_string, align 8
-  %17 = load ptr, ptr getelementptr inbounds ([0 x ptr], ptr @FLAC__StreamEncoderStateString, i64 0, i64 5), align 8
-  %call4 = call i32 @strcmp(ptr noundef %16, ptr noundef %17) #10
+  %17 = getelementptr inbounds [0 x ptr], ptr @FLAC__StreamEncoderStateString, i64 0, i64 5
+  %18 = load ptr, ptr %17, align 8
+  %call4 = call i32 @strcmp(ptr noundef %16, ptr noundef %18) #10
   %cmp5 = icmp eq i32 0, %call4
   br i1 %cmp5, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.then
-  %18 = load ptr, ptr @stderr, align 8
-  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %18, i32 noundef 1, ptr noundef @.str.151)
+  %19 = load ptr, ptr @stderr, align 8
+  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %19, i32 noundef 1, ptr noundef @.str.151)
   br label %if.end12
 
 if.else:                                          ; preds = %if.then
-  %19 = load ptr, ptr %state_string, align 8
-  %20 = load ptr, ptr getelementptr inbounds ([0 x ptr], ptr @FLAC__StreamEncoderStateString, i64 0, i64 6), align 8
-  %call8 = call i32 @strcmp(ptr noundef %19, ptr noundef %20) #10
+  %20 = load ptr, ptr %state_string, align 8
+  %21 = getelementptr inbounds [0 x ptr], ptr @FLAC__StreamEncoderStateString, i64 0, i64 6
+  %22 = load ptr, ptr %21, align 8
+  %call8 = call i32 @strcmp(ptr noundef %20, ptr noundef %22) #10
   %cmp9 = icmp eq i32 0, %call8
   br i1 %cmp9, label %if.then11, label %if.end
 
 if.then11:                                        ; preds = %if.else
-  %21 = load ptr, ptr @stderr, align 8
-  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %21, i32 noundef 1, ptr noundef @.str.152)
+  %23 = load ptr, ptr @stderr, align 8
+  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %23, i32 noundef 1, ptr noundef @.str.152)
   br label %if.end
 
 if.end:                                           ; preds = %if.then11, %if.else
@@ -11489,13 +11492,13 @@ if.end12:                                         ; preds = %if.end, %if.then7
   br label %if.end18
 
 if.else13:                                        ; preds = %entry
-  %22 = load i32, ptr %init_status.addr, align 4
-  %cmp14 = icmp eq i32 %22, 11
+  %24 = load i32, ptr %init_status.addr, align 4
+  %cmp14 = icmp eq i32 %24, 11
   br i1 %cmp14, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.else13
-  %23 = load ptr, ptr @stderr, align 8
-  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %23, i32 noundef 1, ptr noundef @.str.153)
+  %25 = load ptr, ptr @stderr, align 8
+  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %25, i32 noundef 1, ptr noundef @.str.153)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %if.else13

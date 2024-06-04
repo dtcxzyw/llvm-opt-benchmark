@@ -1744,7 +1744,8 @@ entry:
   %1 = load i32, ptr %presenceIndex.addr, align 4
   %2 = load ptr, ptr %options.addr, align 8
   call void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBaseC2EPKNS0_15FieldDescriptorEiPKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef %0, i32 noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp21WrapperFieldGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp21WrapperFieldGeneratorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   invoke void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBase4nameB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(64) %this1)
           to label %invoke.cont unwind label %lpad
 
@@ -1793,8 +1794,8 @@ invoke.cont23:                                    ; preds = %invoke.cont20
   %call25 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call24, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #3
-  %3 = load ptr, ptr %descriptor.addr, align 8
-  %call29 = invoke noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %3)
+  %4 = load ptr, ptr %descriptor.addr, align 8
+  %call29 = invoke noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %4)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont23
@@ -1803,8 +1804,8 @@ invoke.cont28:                                    ; preds = %invoke.cont23
 
 invoke.cont30:                                    ; preds = %invoke.cont28
   store ptr %call31, ptr %wrapped_field, align 8
-  %4 = load ptr, ptr %wrapped_field, align 8
-  %call33 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %4)
+  %5 = load ptr, ptr %wrapped_field, align 8
+  %call33 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %invoke.cont30
@@ -1812,8 +1813,8 @@ invoke.cont32:                                    ; preds = %invoke.cont30
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %invoke.cont32
-  %5 = load ptr, ptr %wrapped_field, align 8
-  %call35 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
+  %6 = load ptr, ptr %wrapped_field, align 8
+  %call35 = invoke noundef i32 @_ZNK6google8protobuf15FieldDescriptor4typeEv(ptr noundef nonnull align 8 dereferenceable(88) %6)
           to label %invoke.cont34 unwind label %lpad
 
 invoke.cont34:                                    ; preds = %land.rhs
@@ -1821,18 +1822,18 @@ invoke.cont34:                                    ; preds = %land.rhs
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont34, %invoke.cont32
-  %6 = phi i1 [ false, %invoke.cont32 ], [ %cmp36, %invoke.cont34 ]
+  %7 = phi i1 [ false, %invoke.cont32 ], [ %cmp36, %invoke.cont34 ]
   %is_value_type = getelementptr inbounds %"class.google::protobuf::compiler::csharp::WrapperFieldGenerator", ptr %this1, i32 0, i32 1
-  %frombool = zext i1 %6 to i8
+  %frombool = zext i1 %7 to i8
   store i8 %frombool, ptr %is_value_type, align 8
   %is_value_type37 = getelementptr inbounds %"class.google::protobuf::compiler::csharp::WrapperFieldGenerator", ptr %this1, i32 0, i32 1
-  %7 = load i8, ptr %is_value_type37, align 8
-  %tobool = trunc i8 %7 to i1
+  %8 = load i8, ptr %is_value_type37, align 8
+  %tobool = trunc i8 %8 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.end
-  %8 = load ptr, ptr %wrapped_field, align 8
-  invoke void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBase9type_nameB5cxx11EPKNS0_15FieldDescriptorE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef %8)
+  %9 = load ptr, ptr %wrapped_field, align 8
+  invoke void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBase9type_nameB5cxx11EPKNS0_15FieldDescriptorE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef %9)
           to label %invoke.cont39 unwind label %lpad
 
 invoke.cont39:                                    ; preds = %if.then
@@ -1846,30 +1847,30 @@ invoke.cont42:                                    ; preds = %invoke.cont39
   br label %if.end
 
 lpad:                                             ; preds = %if.then, %land.rhs, %invoke.cont30, %invoke.cont28, %invoke.cont23, %invoke.cont10, %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup46
 
 lpad4:                                            ; preds = %invoke.cont7, %invoke.cont5, %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont8
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
@@ -1878,21 +1879,21 @@ ehcleanup:                                        ; preds = %lpad9, %lpad4
   br label %ehcleanup46
 
 lpad16:                                           ; preds = %invoke.cont19, %invoke.cont17, %invoke.cont15
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup27
 
 lpad22:                                           ; preds = %invoke.cont20
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #3
   br label %ehcleanup27
 
@@ -1901,12 +1902,12 @@ ehcleanup27:                                      ; preds = %lpad22, %lpad16
   br label %ehcleanup46
 
 lpad41:                                           ; preds = %invoke.cont39
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #3
   br label %ehcleanup46
 
@@ -2788,7 +2789,8 @@ entry:
   %1 = load i32, ptr %presenceIndex.addr, align 4
   %2 = load ptr, ptr %options.addr, align 8
   call void @_ZN6google8protobuf8compiler6csharp21WrapperFieldGeneratorC2EPKNS0_15FieldDescriptorEiPKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(65) %this1, ptr noundef %0, i32 noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp26WrapperOneofFieldGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp26WrapperOneofFieldGeneratorE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %variables_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::FieldGeneratorBase", ptr %this1, i32 0, i32 3
   invoke void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBase28SetCommonOneofFieldVariablesEPN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef %variables_)
           to label %invoke.cont unwind label %lpad
@@ -2797,12 +2799,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf8compiler6csharp21WrapperFieldGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this1) #3
   br label %eh.resume
 
@@ -4985,7 +4987,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -13702,7 +13705,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable

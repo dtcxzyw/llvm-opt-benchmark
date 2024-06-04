@@ -1456,1295 +1456,1296 @@ define weak_odr void @_ZN7mitsuba4CubeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
   %244 = load ptr, ptr %164, align 8
   %245 = load ptr, ptr %165, align 8
   call void @_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 16 dereferenceable(832) %244, ptr noundef nonnull align 8 dereferenceable(8) %245)
-  store ptr getelementptr inbounds inrange(-16, 376) ({ [49 x ptr] }, ptr @_ZTVN7mitsuba4CubeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i32 0, i32 0, i32 2), ptr %244, align 16
-  %246 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 4
-  store i32 12, ptr %246, align 4
-  %247 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
-  store i32 24, ptr %247, align 16
-  %248 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 1
-  %249 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(24) %248, ptr noundef @.str)
-          to label %250 unwind label %769
+  %246 = getelementptr inbounds { [49 x ptr] }, ptr @_ZTVN7mitsuba4CubeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i32 0, i32 0, i32 2
+  store ptr %246, ptr %244, align 16
+  %247 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 4
+  store i32 12, ptr %247, align 4
+  %248 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
+  store i32 24, ptr %248, align 16
+  %249 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 1
+  %250 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(24) %249, ptr noundef @.str)
+          to label %251 unwind label %770
 
-250:                                              ; preds = %2
-  %251 = getelementptr inbounds [24 x %"struct.mitsuba::Vector"], ptr %170, i64 0, i64 0
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %251, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
-          to label %252 unwind label %769
+251:                                              ; preds = %2
+  %252 = getelementptr inbounds [24 x %"struct.mitsuba::Vector"], ptr %170, i64 0, i64 0
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %252, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
+          to label %253 unwind label %770
 
-252:                                              ; preds = %250
-  %253 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %251, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %253, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
-          to label %254 unwind label %769
+253:                                              ; preds = %251
+  %254 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %252, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %254, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
+          to label %255 unwind label %770
 
-254:                                              ; preds = %252
-  %255 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %253, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %255, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
-          to label %256 unwind label %769
+255:                                              ; preds = %253
+  %256 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %254, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %256, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
+          to label %257 unwind label %770
 
-256:                                              ; preds = %254
-  %257 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %255, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %257, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
-          to label %258 unwind label %769
+257:                                              ; preds = %255
+  %258 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %256, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %258, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
+          to label %259 unwind label %770
 
-258:                                              ; preds = %256
-  %259 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %257, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %259, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
-          to label %260 unwind label %769
+259:                                              ; preds = %257
+  %260 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %258, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %260, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
+          to label %261 unwind label %770
 
-260:                                              ; preds = %258
-  %261 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %259, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %261, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
-          to label %262 unwind label %769
+261:                                              ; preds = %259
+  %262 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %260, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %262, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
+          to label %263 unwind label %770
 
-262:                                              ; preds = %260
-  %263 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %261, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %263, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
-          to label %264 unwind label %769
+263:                                              ; preds = %261
+  %264 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %262, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %264, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
+          to label %265 unwind label %770
 
-264:                                              ; preds = %262
-  %265 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %263, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %265, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
-          to label %266 unwind label %769
+265:                                              ; preds = %263
+  %266 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %264, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %266, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
+          to label %267 unwind label %770
 
-266:                                              ; preds = %264
-  %267 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %265, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %267, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
-          to label %268 unwind label %769
+267:                                              ; preds = %265
+  %268 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %266, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %268, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
+          to label %269 unwind label %770
 
-268:                                              ; preds = %266
-  %269 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %267, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %269, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
-          to label %270 unwind label %769
+269:                                              ; preds = %267
+  %270 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %268, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %270, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
+          to label %271 unwind label %770
 
-270:                                              ; preds = %268
-  %271 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %269, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %271, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
-          to label %272 unwind label %769
+271:                                              ; preds = %269
+  %272 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %270, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %272, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
+          to label %273 unwind label %770
 
-272:                                              ; preds = %270
-  %273 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %271, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %273, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
-          to label %274 unwind label %769
+273:                                              ; preds = %271
+  %274 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %272, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %274, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
+          to label %275 unwind label %770
 
-274:                                              ; preds = %272
-  %275 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %273, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %275, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
-          to label %276 unwind label %769
+275:                                              ; preds = %273
+  %276 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %274, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %276, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
+          to label %277 unwind label %770
 
-276:                                              ; preds = %274
-  %277 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %275, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %277, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
-          to label %278 unwind label %769
+277:                                              ; preds = %275
+  %278 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %276, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %278, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
+          to label %279 unwind label %770
 
-278:                                              ; preds = %276
-  %279 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %277, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %279, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
-          to label %280 unwind label %769
+279:                                              ; preds = %277
+  %280 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %278, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %280, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
+          to label %281 unwind label %770
 
-280:                                              ; preds = %278
-  %281 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %279, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %281, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
-          to label %282 unwind label %769
+281:                                              ; preds = %279
+  %282 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %280, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %282, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
+          to label %283 unwind label %770
 
-282:                                              ; preds = %280
-  %283 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %281, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %283, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
-          to label %284 unwind label %769
+283:                                              ; preds = %281
+  %284 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %282, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %284, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef 1.000000e+00)
+          to label %285 unwind label %770
 
-284:                                              ; preds = %282
-  %285 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %283, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %285, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
-          to label %286 unwind label %769
+285:                                              ; preds = %283
+  %286 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %284, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %286, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
+          to label %287 unwind label %770
 
-286:                                              ; preds = %284
-  %287 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %285, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %287, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
-          to label %288 unwind label %769
+287:                                              ; preds = %285
+  %288 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %286, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %288, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
+          to label %289 unwind label %770
 
-288:                                              ; preds = %286
-  %289 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %287, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %289, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
-          to label %290 unwind label %769
+289:                                              ; preds = %287
+  %290 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %288, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %290, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
+          to label %291 unwind label %770
 
-290:                                              ; preds = %288
-  %291 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %289, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %291, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
-          to label %292 unwind label %769
+291:                                              ; preds = %289
+  %292 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %290, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %292, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
+          to label %293 unwind label %770
 
-292:                                              ; preds = %290
-  %293 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %291, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %293, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
-          to label %294 unwind label %769
+293:                                              ; preds = %291
+  %294 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %292, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %294, float noundef 1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
+          to label %295 unwind label %770
 
-294:                                              ; preds = %292
-  %295 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %293, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %295, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
-          to label %296 unwind label %769
+295:                                              ; preds = %293
+  %296 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %294, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %296, float noundef -1.000000e+00, float noundef -1.000000e+00, float noundef -1.000000e+00)
+          to label %297 unwind label %770
 
-296:                                              ; preds = %294
-  %297 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %295, i64 1
-  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %297, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
-          to label %298 unwind label %769
+297:                                              ; preds = %295
+  %298 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %296, i64 1
+  invoke void @_ZN7mitsuba6VectorIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %298, float noundef -1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
+          to label %299 unwind label %770
 
-298:                                              ; preds = %296
-  %299 = getelementptr inbounds %"class.std::initializer_list", ptr %169, i32 0, i32 0
-  %300 = getelementptr inbounds [24 x %"struct.mitsuba::Vector"], ptr %170, i64 0, i64 0
-  store ptr %300, ptr %299, align 8
-  %301 = getelementptr inbounds %"class.std::initializer_list", ptr %169, i32 0, i32 1
-  store i64 24, ptr %301, align 8
-  %302 = getelementptr inbounds { ptr, i64 }, ptr %169, i32 0, i32 0
-  %303 = load ptr, ptr %302, align 8
-  %304 = getelementptr inbounds { ptr, i64 }, ptr %169, i32 0, i32 1
-  %305 = load i64, ptr %304, align 8
-  invoke void @_ZNSt3__16vectorIN7mitsuba6VectorIfLm3EEENS_9allocatorIS3_EEEC2B8ne190000ESt16initializer_listIS3_E(ptr noundef nonnull align 8 dereferenceable(24) %168, ptr %303, i64 %305)
-          to label %306 unwind label %769
+299:                                              ; preds = %297
+  %300 = getelementptr inbounds %"class.std::initializer_list", ptr %169, i32 0, i32 0
+  %301 = getelementptr inbounds [24 x %"struct.mitsuba::Vector"], ptr %170, i64 0, i64 0
+  store ptr %301, ptr %300, align 8
+  %302 = getelementptr inbounds %"class.std::initializer_list", ptr %169, i32 0, i32 1
+  store i64 24, ptr %302, align 8
+  %303 = getelementptr inbounds { ptr, i64 }, ptr %169, i32 0, i32 0
+  %304 = load ptr, ptr %303, align 8
+  %305 = getelementptr inbounds { ptr, i64 }, ptr %169, i32 0, i32 1
+  %306 = load i64, ptr %305, align 8
+  invoke void @_ZNSt3__16vectorIN7mitsuba6VectorIfLm3EEENS_9allocatorIS3_EEEC2B8ne190000ESt16initializer_listIS3_E(ptr noundef nonnull align 8 dereferenceable(24) %168, ptr %304, i64 %306)
+          to label %307 unwind label %770
 
-306:                                              ; preds = %298
-  %307 = getelementptr inbounds [24 x %"struct.mitsuba::Normal"], ptr %173, i64 0, i64 0
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %307, float noundef 0.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
-          to label %308 unwind label %773
+307:                                              ; preds = %299
+  %308 = getelementptr inbounds [24 x %"struct.mitsuba::Normal"], ptr %173, i64 0, i64 0
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %308, float noundef 0.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
+          to label %309 unwind label %774
 
-308:                                              ; preds = %306
-  %309 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %307, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %309, float noundef 0.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
-          to label %310 unwind label %773
+309:                                              ; preds = %307
+  %310 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %308, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %310, float noundef 0.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
+          to label %311 unwind label %774
 
-310:                                              ; preds = %308
-  %311 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %309, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %311, float noundef 0.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
-          to label %312 unwind label %773
+311:                                              ; preds = %309
+  %312 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %310, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %312, float noundef 0.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
+          to label %313 unwind label %774
 
-312:                                              ; preds = %310
-  %313 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %311, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %313, float noundef 0.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
-          to label %314 unwind label %773
+313:                                              ; preds = %311
+  %314 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %312, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %314, float noundef 0.000000e+00, float noundef -1.000000e+00, float noundef 0.000000e+00)
+          to label %315 unwind label %774
 
-314:                                              ; preds = %312
-  %315 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %313, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %315, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
-          to label %316 unwind label %773
+315:                                              ; preds = %313
+  %316 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %314, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %316, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+          to label %317 unwind label %774
 
-316:                                              ; preds = %314
-  %317 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %315, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %317, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
-          to label %318 unwind label %773
+317:                                              ; preds = %315
+  %318 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %316, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %318, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+          to label %319 unwind label %774
 
-318:                                              ; preds = %316
-  %319 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %317, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %319, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
-          to label %320 unwind label %773
+319:                                              ; preds = %317
+  %320 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %318, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %320, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+          to label %321 unwind label %774
 
-320:                                              ; preds = %318
-  %321 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %319, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %321, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
-          to label %322 unwind label %773
+321:                                              ; preds = %319
+  %322 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %320, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %322, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+          to label %323 unwind label %774
 
-322:                                              ; preds = %320
-  %323 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %321, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %323, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %324 unwind label %773
+323:                                              ; preds = %321
+  %324 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %322, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %324, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+          to label %325 unwind label %774
 
-324:                                              ; preds = %322
-  %325 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %323, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %325, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %326 unwind label %773
+325:                                              ; preds = %323
+  %326 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %324, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %326, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+          to label %327 unwind label %774
 
-326:                                              ; preds = %324
-  %327 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %325, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %327, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %328 unwind label %773
+327:                                              ; preds = %325
+  %328 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %326, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %328, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+          to label %329 unwind label %774
 
-328:                                              ; preds = %326
-  %329 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %327, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %329, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %330 unwind label %773
+329:                                              ; preds = %327
+  %330 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %328, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %330, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+          to label %331 unwind label %774
 
-330:                                              ; preds = %328
-  %331 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %329, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %331, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
-          to label %332 unwind label %773
+331:                                              ; preds = %329
+  %332 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %330, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %332, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+          to label %333 unwind label %774
 
-332:                                              ; preds = %330
-  %333 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %331, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %333, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
-          to label %334 unwind label %773
+333:                                              ; preds = %331
+  %334 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %332, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %334, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+          to label %335 unwind label %774
 
-334:                                              ; preds = %332
-  %335 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %333, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %335, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
-          to label %336 unwind label %773
+335:                                              ; preds = %333
+  %336 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %334, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %336, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+          to label %337 unwind label %774
 
-336:                                              ; preds = %334
-  %337 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %335, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %337, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
-          to label %338 unwind label %773
+337:                                              ; preds = %335
+  %338 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %336, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %338, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
+          to label %339 unwind label %774
 
-338:                                              ; preds = %336
-  %339 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %337, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %339, float noundef -1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %340 unwind label %773
+339:                                              ; preds = %337
+  %340 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %338, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %340, float noundef -1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+          to label %341 unwind label %774
 
-340:                                              ; preds = %338
-  %341 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %339, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %341, float noundef -1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %342 unwind label %773
+341:                                              ; preds = %339
+  %342 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %340, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %342, float noundef -1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+          to label %343 unwind label %774
 
-342:                                              ; preds = %340
-  %343 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %341, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %343, float noundef -1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %344 unwind label %773
+343:                                              ; preds = %341
+  %344 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %342, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %344, float noundef -1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+          to label %345 unwind label %774
 
-344:                                              ; preds = %342
-  %345 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %343, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %345, float noundef -1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-          to label %346 unwind label %773
+345:                                              ; preds = %343
+  %346 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %344, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %346, float noundef -1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+          to label %347 unwind label %774
 
-346:                                              ; preds = %344
-  %347 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %345, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %347, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef -1.000000e+00)
-          to label %348 unwind label %773
+347:                                              ; preds = %345
+  %348 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %346, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %348, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef -1.000000e+00)
+          to label %349 unwind label %774
 
-348:                                              ; preds = %346
-  %349 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %347, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %349, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef -1.000000e+00)
-          to label %350 unwind label %773
+349:                                              ; preds = %347
+  %350 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %348, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %350, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef -1.000000e+00)
+          to label %351 unwind label %774
 
-350:                                              ; preds = %348
-  %351 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %349, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %351, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef -1.000000e+00)
-          to label %352 unwind label %773
+351:                                              ; preds = %349
+  %352 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %350, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %352, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef -1.000000e+00)
+          to label %353 unwind label %774
 
-352:                                              ; preds = %350
-  %353 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %351, i64 1
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %353, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef -1.000000e+00)
-          to label %354 unwind label %773
+353:                                              ; preds = %351
+  %354 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %352, i64 1
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm3ELb0ES1_iEEEfff(ptr noundef nonnull align 16 dereferenceable(16) %354, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef -1.000000e+00)
+          to label %355 unwind label %774
 
-354:                                              ; preds = %352
-  %355 = getelementptr inbounds %"class.std::initializer_list.89", ptr %172, i32 0, i32 0
-  %356 = getelementptr inbounds [24 x %"struct.mitsuba::Normal"], ptr %173, i64 0, i64 0
-  store ptr %356, ptr %355, align 8
-  %357 = getelementptr inbounds %"class.std::initializer_list.89", ptr %172, i32 0, i32 1
-  store i64 24, ptr %357, align 8
-  %358 = getelementptr inbounds { ptr, i64 }, ptr %172, i32 0, i32 0
-  %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds { ptr, i64 }, ptr %172, i32 0, i32 1
-  %361 = load i64, ptr %360, align 8
-  invoke void @_ZNSt3__16vectorIN7mitsuba6NormalIfLm3EEENS_9allocatorIS3_EEEC2B8ne190000ESt16initializer_listIS3_E(ptr noundef nonnull align 8 dereferenceable(24) %171, ptr %359, i64 %361)
-          to label %362 unwind label %773
+355:                                              ; preds = %353
+  %356 = getelementptr inbounds %"class.std::initializer_list.89", ptr %172, i32 0, i32 0
+  %357 = getelementptr inbounds [24 x %"struct.mitsuba::Normal"], ptr %173, i64 0, i64 0
+  store ptr %357, ptr %356, align 8
+  %358 = getelementptr inbounds %"class.std::initializer_list.89", ptr %172, i32 0, i32 1
+  store i64 24, ptr %358, align 8
+  %359 = getelementptr inbounds { ptr, i64 }, ptr %172, i32 0, i32 0
+  %360 = load ptr, ptr %359, align 8
+  %361 = getelementptr inbounds { ptr, i64 }, ptr %172, i32 0, i32 1
+  %362 = load i64, ptr %361, align 8
+  invoke void @_ZNSt3__16vectorIN7mitsuba6NormalIfLm3EEENS_9allocatorIS3_EEEC2B8ne190000ESt16initializer_listIS3_E(ptr noundef nonnull align 8 dereferenceable(24) %171, ptr %360, i64 %362)
+          to label %363 unwind label %774
 
-362:                                              ; preds = %354
-  %363 = getelementptr inbounds [24 x %"struct.mitsuba::Vector.102"], ptr %176, i64 0, i64 0
+363:                                              ; preds = %355
+  %364 = getelementptr inbounds [24 x %"struct.mitsuba::Vector.102"], ptr %176, i64 0, i64 0
   store i32 0, ptr %177, align 4
   store i32 1, ptr %178, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %363, ptr noundef nonnull align 4 dereferenceable(4) %177, ptr noundef nonnull align 4 dereferenceable(4) %178)
-          to label %364 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %364, ptr noundef nonnull align 4 dereferenceable(4) %177, ptr noundef nonnull align 4 dereferenceable(4) %178)
+          to label %365 unwind label %778
 
-364:                                              ; preds = %362
-  %365 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %363, i64 1
+365:                                              ; preds = %363
+  %366 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %364, i64 1
   store i32 1, ptr %179, align 4
   store i32 1, ptr %180, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %365, ptr noundef nonnull align 4 dereferenceable(4) %179, ptr noundef nonnull align 4 dereferenceable(4) %180)
-          to label %366 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %366, ptr noundef nonnull align 4 dereferenceable(4) %179, ptr noundef nonnull align 4 dereferenceable(4) %180)
+          to label %367 unwind label %778
 
-366:                                              ; preds = %364
-  %367 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %365, i64 1
+367:                                              ; preds = %365
+  %368 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %366, i64 1
   store i32 1, ptr %181, align 4
   store i32 0, ptr %182, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %367, ptr noundef nonnull align 4 dereferenceable(4) %181, ptr noundef nonnull align 4 dereferenceable(4) %182)
-          to label %368 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %368, ptr noundef nonnull align 4 dereferenceable(4) %181, ptr noundef nonnull align 4 dereferenceable(4) %182)
+          to label %369 unwind label %778
 
-368:                                              ; preds = %366
-  %369 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %367, i64 1
+369:                                              ; preds = %367
+  %370 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %368, i64 1
   store i32 0, ptr %183, align 4
   store i32 0, ptr %184, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %369, ptr noundef nonnull align 4 dereferenceable(4) %183, ptr noundef nonnull align 4 dereferenceable(4) %184)
-          to label %370 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %370, ptr noundef nonnull align 4 dereferenceable(4) %183, ptr noundef nonnull align 4 dereferenceable(4) %184)
+          to label %371 unwind label %778
 
-370:                                              ; preds = %368
-  %371 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %369, i64 1
+371:                                              ; preds = %369
+  %372 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %370, i64 1
   store i32 0, ptr %185, align 4
   store i32 1, ptr %186, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %371, ptr noundef nonnull align 4 dereferenceable(4) %185, ptr noundef nonnull align 4 dereferenceable(4) %186)
-          to label %372 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %372, ptr noundef nonnull align 4 dereferenceable(4) %185, ptr noundef nonnull align 4 dereferenceable(4) %186)
+          to label %373 unwind label %778
 
-372:                                              ; preds = %370
-  %373 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %371, i64 1
+373:                                              ; preds = %371
+  %374 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %372, i64 1
   store i32 1, ptr %187, align 4
   store i32 1, ptr %188, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %373, ptr noundef nonnull align 4 dereferenceable(4) %187, ptr noundef nonnull align 4 dereferenceable(4) %188)
-          to label %374 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %374, ptr noundef nonnull align 4 dereferenceable(4) %187, ptr noundef nonnull align 4 dereferenceable(4) %188)
+          to label %375 unwind label %778
 
-374:                                              ; preds = %372
-  %375 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %373, i64 1
+375:                                              ; preds = %373
+  %376 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %374, i64 1
   store i32 1, ptr %189, align 4
   store i32 0, ptr %190, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %375, ptr noundef nonnull align 4 dereferenceable(4) %189, ptr noundef nonnull align 4 dereferenceable(4) %190)
-          to label %376 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %376, ptr noundef nonnull align 4 dereferenceable(4) %189, ptr noundef nonnull align 4 dereferenceable(4) %190)
+          to label %377 unwind label %778
 
-376:                                              ; preds = %374
-  %377 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %375, i64 1
+377:                                              ; preds = %375
+  %378 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %376, i64 1
   store i32 0, ptr %191, align 4
   store i32 0, ptr %192, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %377, ptr noundef nonnull align 4 dereferenceable(4) %191, ptr noundef nonnull align 4 dereferenceable(4) %192)
-          to label %378 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %378, ptr noundef nonnull align 4 dereferenceable(4) %191, ptr noundef nonnull align 4 dereferenceable(4) %192)
+          to label %379 unwind label %778
 
-378:                                              ; preds = %376
-  %379 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %377, i64 1
+379:                                              ; preds = %377
+  %380 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %378, i64 1
   store i32 0, ptr %193, align 4
   store i32 1, ptr %194, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %379, ptr noundef nonnull align 4 dereferenceable(4) %193, ptr noundef nonnull align 4 dereferenceable(4) %194)
-          to label %380 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %380, ptr noundef nonnull align 4 dereferenceable(4) %193, ptr noundef nonnull align 4 dereferenceable(4) %194)
+          to label %381 unwind label %778
 
-380:                                              ; preds = %378
-  %381 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %379, i64 1
+381:                                              ; preds = %379
+  %382 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %380, i64 1
   store i32 1, ptr %195, align 4
   store i32 1, ptr %196, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %381, ptr noundef nonnull align 4 dereferenceable(4) %195, ptr noundef nonnull align 4 dereferenceable(4) %196)
-          to label %382 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %382, ptr noundef nonnull align 4 dereferenceable(4) %195, ptr noundef nonnull align 4 dereferenceable(4) %196)
+          to label %383 unwind label %778
 
-382:                                              ; preds = %380
-  %383 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %381, i64 1
+383:                                              ; preds = %381
+  %384 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %382, i64 1
   store i32 1, ptr %197, align 4
   store i32 0, ptr %198, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %383, ptr noundef nonnull align 4 dereferenceable(4) %197, ptr noundef nonnull align 4 dereferenceable(4) %198)
-          to label %384 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %384, ptr noundef nonnull align 4 dereferenceable(4) %197, ptr noundef nonnull align 4 dereferenceable(4) %198)
+          to label %385 unwind label %778
 
-384:                                              ; preds = %382
-  %385 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %383, i64 1
+385:                                              ; preds = %383
+  %386 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %384, i64 1
   store i32 0, ptr %199, align 4
   store i32 0, ptr %200, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %385, ptr noundef nonnull align 4 dereferenceable(4) %199, ptr noundef nonnull align 4 dereferenceable(4) %200)
-          to label %386 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %386, ptr noundef nonnull align 4 dereferenceable(4) %199, ptr noundef nonnull align 4 dereferenceable(4) %200)
+          to label %387 unwind label %778
 
-386:                                              ; preds = %384
-  %387 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %385, i64 1
+387:                                              ; preds = %385
+  %388 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %386, i64 1
   store i32 0, ptr %201, align 4
   store i32 1, ptr %202, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %387, ptr noundef nonnull align 4 dereferenceable(4) %201, ptr noundef nonnull align 4 dereferenceable(4) %202)
-          to label %388 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %388, ptr noundef nonnull align 4 dereferenceable(4) %201, ptr noundef nonnull align 4 dereferenceable(4) %202)
+          to label %389 unwind label %778
 
-388:                                              ; preds = %386
-  %389 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %387, i64 1
+389:                                              ; preds = %387
+  %390 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %388, i64 1
   store i32 1, ptr %203, align 4
   store i32 1, ptr %204, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %389, ptr noundef nonnull align 4 dereferenceable(4) %203, ptr noundef nonnull align 4 dereferenceable(4) %204)
-          to label %390 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %390, ptr noundef nonnull align 4 dereferenceable(4) %203, ptr noundef nonnull align 4 dereferenceable(4) %204)
+          to label %391 unwind label %778
 
-390:                                              ; preds = %388
-  %391 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %389, i64 1
+391:                                              ; preds = %389
+  %392 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %390, i64 1
   store i32 1, ptr %205, align 4
   store i32 0, ptr %206, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %391, ptr noundef nonnull align 4 dereferenceable(4) %205, ptr noundef nonnull align 4 dereferenceable(4) %206)
-          to label %392 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %392, ptr noundef nonnull align 4 dereferenceable(4) %205, ptr noundef nonnull align 4 dereferenceable(4) %206)
+          to label %393 unwind label %778
 
-392:                                              ; preds = %390
-  %393 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %391, i64 1
+393:                                              ; preds = %391
+  %394 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %392, i64 1
   store i32 0, ptr %207, align 4
   store i32 0, ptr %208, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %393, ptr noundef nonnull align 4 dereferenceable(4) %207, ptr noundef nonnull align 4 dereferenceable(4) %208)
-          to label %394 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %394, ptr noundef nonnull align 4 dereferenceable(4) %207, ptr noundef nonnull align 4 dereferenceable(4) %208)
+          to label %395 unwind label %778
 
-394:                                              ; preds = %392
-  %395 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %393, i64 1
+395:                                              ; preds = %393
+  %396 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %394, i64 1
   store i32 0, ptr %209, align 4
   store i32 1, ptr %210, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %395, ptr noundef nonnull align 4 dereferenceable(4) %209, ptr noundef nonnull align 4 dereferenceable(4) %210)
-          to label %396 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %396, ptr noundef nonnull align 4 dereferenceable(4) %209, ptr noundef nonnull align 4 dereferenceable(4) %210)
+          to label %397 unwind label %778
 
-396:                                              ; preds = %394
-  %397 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %395, i64 1
+397:                                              ; preds = %395
+  %398 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %396, i64 1
   store i32 1, ptr %211, align 4
   store i32 1, ptr %212, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %397, ptr noundef nonnull align 4 dereferenceable(4) %211, ptr noundef nonnull align 4 dereferenceable(4) %212)
-          to label %398 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %398, ptr noundef nonnull align 4 dereferenceable(4) %211, ptr noundef nonnull align 4 dereferenceable(4) %212)
+          to label %399 unwind label %778
 
-398:                                              ; preds = %396
-  %399 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %397, i64 1
+399:                                              ; preds = %397
+  %400 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %398, i64 1
   store i32 1, ptr %213, align 4
   store i32 0, ptr %214, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %399, ptr noundef nonnull align 4 dereferenceable(4) %213, ptr noundef nonnull align 4 dereferenceable(4) %214)
-          to label %400 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %400, ptr noundef nonnull align 4 dereferenceable(4) %213, ptr noundef nonnull align 4 dereferenceable(4) %214)
+          to label %401 unwind label %778
 
-400:                                              ; preds = %398
-  %401 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %399, i64 1
+401:                                              ; preds = %399
+  %402 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %400, i64 1
   store i32 0, ptr %215, align 4
   store i32 0, ptr %216, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %401, ptr noundef nonnull align 4 dereferenceable(4) %215, ptr noundef nonnull align 4 dereferenceable(4) %216)
-          to label %402 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %402, ptr noundef nonnull align 4 dereferenceable(4) %215, ptr noundef nonnull align 4 dereferenceable(4) %216)
+          to label %403 unwind label %778
 
-402:                                              ; preds = %400
-  %403 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %401, i64 1
+403:                                              ; preds = %401
+  %404 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %402, i64 1
   store i32 0, ptr %217, align 4
   store i32 1, ptr %218, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %403, ptr noundef nonnull align 4 dereferenceable(4) %217, ptr noundef nonnull align 4 dereferenceable(4) %218)
-          to label %404 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %404, ptr noundef nonnull align 4 dereferenceable(4) %217, ptr noundef nonnull align 4 dereferenceable(4) %218)
+          to label %405 unwind label %778
 
-404:                                              ; preds = %402
-  %405 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %403, i64 1
+405:                                              ; preds = %403
+  %406 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %404, i64 1
   store i32 1, ptr %219, align 4
   store i32 1, ptr %220, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %405, ptr noundef nonnull align 4 dereferenceable(4) %219, ptr noundef nonnull align 4 dereferenceable(4) %220)
-          to label %406 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %406, ptr noundef nonnull align 4 dereferenceable(4) %219, ptr noundef nonnull align 4 dereferenceable(4) %220)
+          to label %407 unwind label %778
 
-406:                                              ; preds = %404
-  %407 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %405, i64 1
+407:                                              ; preds = %405
+  %408 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %406, i64 1
   store i32 1, ptr %221, align 4
   store i32 0, ptr %222, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %407, ptr noundef nonnull align 4 dereferenceable(4) %221, ptr noundef nonnull align 4 dereferenceable(4) %222)
-          to label %408 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %408, ptr noundef nonnull align 4 dereferenceable(4) %221, ptr noundef nonnull align 4 dereferenceable(4) %222)
+          to label %409 unwind label %778
 
-408:                                              ; preds = %406
-  %409 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %407, i64 1
+409:                                              ; preds = %407
+  %410 = getelementptr inbounds %"struct.mitsuba::Vector.102", ptr %408, i64 1
   store i32 0, ptr %223, align 4
   store i32 0, ptr %224, align 4
-  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %409, ptr noundef nonnull align 4 dereferenceable(4) %223, ptr noundef nonnull align 4 dereferenceable(4) %224)
-          to label %410 unwind label %777
+  invoke void @_ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIJiiETnNSt3__19enable_ifIXaaaaeqsPDpT_ELm2EneLm2ELi1Efraantsr3stdE9is_same_vIS6_NS2_6detail16reinterpret_flagEEEiE4typeELi0EEEDpOS6_(ptr noundef nonnull align 4 dereferenceable(8) %410, ptr noundef nonnull align 4 dereferenceable(4) %223, ptr noundef nonnull align 4 dereferenceable(4) %224)
+          to label %411 unwind label %778
 
-410:                                              ; preds = %408
-  %411 = getelementptr inbounds %"class.std::initializer_list.101", ptr %175, i32 0, i32 0
-  %412 = getelementptr inbounds [24 x %"struct.mitsuba::Vector.102"], ptr %176, i64 0, i64 0
-  store ptr %412, ptr %411, align 8
-  %413 = getelementptr inbounds %"class.std::initializer_list.101", ptr %175, i32 0, i32 1
-  store i64 24, ptr %413, align 8
-  %414 = getelementptr inbounds { ptr, i64 }, ptr %175, i32 0, i32 0
-  %415 = load ptr, ptr %414, align 8
-  %416 = getelementptr inbounds { ptr, i64 }, ptr %175, i32 0, i32 1
-  %417 = load i64, ptr %416, align 8
-  invoke void @_ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEEC2B8ne190000ESt16initializer_listIS3_E(ptr noundef nonnull align 8 dereferenceable(24) %174, ptr %415, i64 %417)
-          to label %418 unwind label %777
+411:                                              ; preds = %409
+  %412 = getelementptr inbounds %"class.std::initializer_list.101", ptr %175, i32 0, i32 0
+  %413 = getelementptr inbounds [24 x %"struct.mitsuba::Vector.102"], ptr %176, i64 0, i64 0
+  store ptr %413, ptr %412, align 8
+  %414 = getelementptr inbounds %"class.std::initializer_list.101", ptr %175, i32 0, i32 1
+  store i64 24, ptr %414, align 8
+  %415 = getelementptr inbounds { ptr, i64 }, ptr %175, i32 0, i32 0
+  %416 = load ptr, ptr %415, align 8
+  %417 = getelementptr inbounds { ptr, i64 }, ptr %175, i32 0, i32 1
+  %418 = load i64, ptr %417, align 8
+  invoke void @_ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEEC2B8ne190000ESt16initializer_listIS3_E(ptr noundef nonnull align 8 dereferenceable(24) %174, ptr %416, i64 %418)
+          to label %419 unwind label %778
 
-418:                                              ; preds = %410
+419:                                              ; preds = %411
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %227, ptr align 4 @constinit, i64 144, i1 false)
-  %419 = getelementptr inbounds %"class.std::initializer_list.113", ptr %226, i32 0, i32 0
-  %420 = getelementptr inbounds [12 x %"struct.std::__1::array"], ptr %227, i64 0, i64 0
-  store ptr %420, ptr %419, align 8
-  %421 = getelementptr inbounds %"class.std::initializer_list.113", ptr %226, i32 0, i32 1
-  store i64 12, ptr %421, align 8
-  %422 = getelementptr inbounds { ptr, i64 }, ptr %226, i32 0, i32 0
-  %423 = load ptr, ptr %422, align 8
-  %424 = getelementptr inbounds { ptr, i64 }, ptr %226, i32 0, i32 1
-  %425 = load i64, ptr %424, align 8
-  invoke void @_ZNSt3__16vectorINS_5arrayIjLm3EEENS_9allocatorIS2_EEEC2B8ne190000ESt16initializer_listIS2_E(ptr noundef nonnull align 8 dereferenceable(24) %225, ptr %423, i64 %425)
-          to label %426 unwind label %781
+  %420 = getelementptr inbounds %"class.std::initializer_list.113", ptr %226, i32 0, i32 0
+  %421 = getelementptr inbounds [12 x %"struct.std::__1::array"], ptr %227, i64 0, i64 0
+  store ptr %421, ptr %420, align 8
+  %422 = getelementptr inbounds %"class.std::initializer_list.113", ptr %226, i32 0, i32 1
+  store i64 12, ptr %422, align 8
+  %423 = getelementptr inbounds { ptr, i64 }, ptr %226, i32 0, i32 0
+  %424 = load ptr, ptr %423, align 8
+  %425 = getelementptr inbounds { ptr, i64 }, ptr %226, i32 0, i32 1
+  %426 = load i64, ptr %425, align 8
+  invoke void @_ZNSt3__16vectorINS_5arrayIjLm3EEENS_9allocatorIS2_EEEC2B8ne190000ESt16initializer_listIS2_E(ptr noundef nonnull align 8 dereferenceable(24) %225, ptr %424, i64 %426)
+          to label %427 unwind label %782
 
-426:                                              ; preds = %418
-  %427 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
-  %428 = load i32, ptr %427, align 16
-  %429 = mul i32 %428, 3
-  %430 = zext i32 %429 to i64
-  %431 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %430, i64 4)
-  %432 = extractvalue { i64, i1 } %431, 1
-  %433 = extractvalue { i64, i1 } %431, 0
-  %434 = select i1 %432, i64 -1, i64 %433
-  %435 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %434) #16
-          to label %436 unwind label %785
+427:                                              ; preds = %419
+  %428 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
+  %429 = load i32, ptr %428, align 16
+  %430 = mul i32 %429, 3
+  %431 = zext i32 %430 to i64
+  %432 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %431, i64 4)
+  %433 = extractvalue { i64, i1 } %432, 1
+  %434 = extractvalue { i64, i1 } %432, 0
+  %435 = select i1 %433, i64 -1, i64 %434
+  %436 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %435) #16
+          to label %437 unwind label %786
 
-436:                                              ; preds = %426
-  call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEEC2B8ne190000IPfLb1EvvEET_(ptr noundef nonnull align 8 dereferenceable(8) %228, ptr noundef %435) #17
-  %437 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
-  %438 = load i32, ptr %437, align 16
-  %439 = mul i32 %438, 3
-  %440 = zext i32 %439 to i64
-  %441 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %440, i64 4)
-  %442 = extractvalue { i64, i1 } %441, 1
-  %443 = extractvalue { i64, i1 } %441, 0
-  %444 = select i1 %442, i64 -1, i64 %443
-  %445 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %444) #16
-          to label %446 unwind label %789
+437:                                              ; preds = %427
+  call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEEC2B8ne190000IPfLb1EvvEET_(ptr noundef nonnull align 8 dereferenceable(8) %228, ptr noundef %436) #17
+  %438 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
+  %439 = load i32, ptr %438, align 16
+  %440 = mul i32 %439, 3
+  %441 = zext i32 %440 to i64
+  %442 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %441, i64 4)
+  %443 = extractvalue { i64, i1 } %442, 1
+  %444 = extractvalue { i64, i1 } %442, 0
+  %445 = select i1 %443, i64 -1, i64 %444
+  %446 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %445) #16
+          to label %447 unwind label %790
 
-446:                                              ; preds = %436
-  call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEEC2B8ne190000IPfLb1EvvEET_(ptr noundef nonnull align 8 dereferenceable(8) %229, ptr noundef %445) #17
-  %447 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
-  %448 = load i32, ptr %447, align 16
-  %449 = mul i32 %448, 2
-  %450 = zext i32 %449 to i64
-  %451 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %450, i64 4)
-  %452 = extractvalue { i64, i1 } %451, 1
-  %453 = extractvalue { i64, i1 } %451, 0
-  %454 = select i1 %452, i64 -1, i64 %453
-  %455 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %454) #16
-          to label %456 unwind label %793
+447:                                              ; preds = %437
+  call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEEC2B8ne190000IPfLb1EvvEET_(ptr noundef nonnull align 8 dereferenceable(8) %229, ptr noundef %446) #17
+  %448 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
+  %449 = load i32, ptr %448, align 16
+  %450 = mul i32 %449, 2
+  %451 = zext i32 %450 to i64
+  %452 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %451, i64 4)
+  %453 = extractvalue { i64, i1 } %452, 1
+  %454 = extractvalue { i64, i1 } %452, 0
+  %455 = select i1 %453, i64 -1, i64 %454
+  %456 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %455) #16
+          to label %457 unwind label %794
 
-456:                                              ; preds = %446
-  call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEEC2B8ne190000IPfLb1EvvEET_(ptr noundef nonnull align 8 dereferenceable(8) %230, ptr noundef %455) #17
+457:                                              ; preds = %447
+  call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEEC2B8ne190000IPfLb1EvvEET_(ptr noundef nonnull align 8 dereferenceable(8) %230, ptr noundef %456) #17
   store i8 0, ptr %231, align 1
-  br label %457
+  br label %458
 
-457:                                              ; preds = %766, %456
-  %458 = load i8, ptr %231, align 1
-  %459 = zext i8 %458 to i32
-  %460 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
-  %461 = load i32, ptr %460, align 16
-  %462 = icmp ult i32 %459, %461
-  br i1 %462, label %463, label %801
+458:                                              ; preds = %767, %457
+  %459 = load i8, ptr %231, align 1
+  %460 = zext i8 %459 to i32
+  %461 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
+  %462 = load i32, ptr %461, align 16
+  %463 = icmp ult i32 %460, %462
+  br i1 %463, label %464, label %802
 
-463:                                              ; preds = %457
-  %464 = call noundef ptr @_ZNKSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %228) #17
-  %465 = load i8, ptr %231, align 1
-  %466 = zext i8 %465 to i32
-  %467 = mul nsw i32 %466, 3
-  %468 = sext i32 %467 to i64
-  %469 = getelementptr inbounds float, ptr %464, i64 %468
-  store ptr %469, ptr %232, align 8
-  %470 = call noundef ptr @_ZNKSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %229) #17
-  %471 = load i8, ptr %231, align 1
-  %472 = zext i8 %471 to i32
-  %473 = mul nsw i32 %472, 3
-  %474 = sext i32 %473 to i64
-  %475 = getelementptr inbounds float, ptr %470, i64 %474
-  store ptr %475, ptr %233, align 8
-  %476 = call noundef ptr @_ZNKSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %230) #17
-  %477 = load i8, ptr %231, align 1
-  %478 = zext i8 %477 to i32
-  %479 = mul nsw i32 %478, 2
-  %480 = sext i32 %479 to i64
-  %481 = getelementptr inbounds float, ptr %476, i64 %480
-  store ptr %481, ptr %234, align 8
-  %482 = load i8, ptr %231, align 1
-  %483 = zext i8 %482 to i64
-  %484 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt3__16vectorIN7mitsuba6VectorIfLm3EEENS_9allocatorIS3_EEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %168, i64 noundef %483) #17
-  invoke void @_ZN7mitsuba5PointIfLm3EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfNS_6VectorIfLm3EEETnNSt3__19enable_ifIXsr6detailE9is_same_vIT_fEEiE4typeELi0EEERKNS2_15StaticArrayBaseIS8_Lm4ELb0ET0_EE(ptr noundef nonnull align 16 dereferenceable(16) %235, ptr noundef nonnull align 1 dereferenceable(1) %484)
-          to label %485 unwind label %797
+464:                                              ; preds = %458
+  %465 = call noundef ptr @_ZNKSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %228) #17
+  %466 = load i8, ptr %231, align 1
+  %467 = zext i8 %466 to i32
+  %468 = mul nsw i32 %467, 3
+  %469 = sext i32 %468 to i64
+  %470 = getelementptr inbounds float, ptr %465, i64 %469
+  store ptr %470, ptr %232, align 8
+  %471 = call noundef ptr @_ZNKSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %229) #17
+  %472 = load i8, ptr %231, align 1
+  %473 = zext i8 %472 to i32
+  %474 = mul nsw i32 %473, 3
+  %475 = sext i32 %474 to i64
+  %476 = getelementptr inbounds float, ptr %471, i64 %475
+  store ptr %476, ptr %233, align 8
+  %477 = call noundef ptr @_ZNKSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %230) #17
+  %478 = load i8, ptr %231, align 1
+  %479 = zext i8 %478 to i32
+  %480 = mul nsw i32 %479, 2
+  %481 = sext i32 %480 to i64
+  %482 = getelementptr inbounds float, ptr %477, i64 %481
+  store ptr %482, ptr %234, align 8
+  %483 = load i8, ptr %231, align 1
+  %484 = zext i8 %483 to i64
+  %485 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt3__16vectorIN7mitsuba6VectorIfLm3EEENS_9allocatorIS3_EEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %168, i64 noundef %484) #17
+  invoke void @_ZN7mitsuba5PointIfLm3EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfNS_6VectorIfLm3EEETnNSt3__19enable_ifIXsr6detailE9is_same_vIT_fEEiE4typeELi0EEERKNS2_15StaticArrayBaseIS8_Lm4ELb0ET0_EE(ptr noundef nonnull align 16 dereferenceable(16) %235, ptr noundef nonnull align 1 dereferenceable(1) %485)
+          to label %486 unwind label %798
 
-485:                                              ; preds = %463
-  %486 = load i8, ptr %231, align 1
-  %487 = zext i8 %486 to i64
-  %488 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt3__16vectorIN7mitsuba6NormalIfLm3EEENS_9allocatorIS3_EEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %171, i64 noundef %487) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %236, ptr align 16 %488, i64 16, i1 false)
-  %489 = getelementptr inbounds %"class.mitsuba::Shape", ptr %244, i32 0, i32 14
-  %490 = invoke noundef nonnull align 16 dereferenceable(128) ptr @_ZNK7mitsuba5fieldINS_9TransformINS_5PointIfLm4EEEEES4_iE6scalarEv(ptr noundef nonnull align 16 dereferenceable(128) %489)
-          to label %491 unwind label %797
+486:                                              ; preds = %464
+  %487 = load i8, ptr %231, align 1
+  %488 = zext i8 %487 to i64
+  %489 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNSt3__16vectorIN7mitsuba6NormalIfLm3EEENS_9allocatorIS3_EEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %171, i64 noundef %488) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %236, ptr align 16 %489, i64 16, i1 false)
+  %490 = getelementptr inbounds %"class.mitsuba::Shape", ptr %244, i32 0, i32 14
+  %491 = invoke noundef nonnull align 16 dereferenceable(128) ptr @_ZNK7mitsuba5fieldINS_9TransformINS_5PointIfLm4EEEEES4_iE6scalarEv(ptr noundef nonnull align 16 dereferenceable(128) %490)
+          to label %492 unwind label %798
 
-491:                                              ; preds = %485
-  store ptr %490, ptr %158, align 8
+492:                                              ; preds = %486
+  store ptr %491, ptr %158, align 8
   store ptr %235, ptr %159, align 8
-  %492 = load ptr, ptr %158, align 8
-  store ptr %492, ptr %78, align 8
+  %493 = load ptr, ptr %158, align 8
+  store ptr %493, ptr %78, align 8
   store i64 3, ptr %79, align 8
-  %493 = load ptr, ptr %78, align 8
-  %494 = load i64, ptr %79, align 8
-  %495 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %493, i64 0, i64 %494
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %160, ptr align 16 %495, i64 16, i1 false)
+  %494 = load ptr, ptr %78, align 8
+  %495 = load i64, ptr %79, align 8
+  %496 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %494, i64 0, i64 %495
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %160, ptr align 16 %496, i64 16, i1 false)
   store i64 0, ptr %161, align 8
-  br label %496
+  br label %497
 
-496:                                              ; preds = %536, %491
-  %497 = load i64, ptr %161, align 8
-  %498 = icmp ult i64 %497, 3
-  br i1 %498, label %499, label %539
+497:                                              ; preds = %537, %492
+  %498 = load i64, ptr %161, align 8
+  %499 = icmp ult i64 %498, 3
+  br i1 %499, label %500, label %540
 
-499:                                              ; preds = %496
-  %500 = load i64, ptr %161, align 8
-  store ptr %492, ptr %80, align 8
-  store i64 %500, ptr %81, align 8
-  %501 = load ptr, ptr %80, align 8
-  %502 = load i64, ptr %81, align 8
-  %503 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %501, i64 0, i64 %502
-  %504 = load ptr, ptr %159, align 8
-  %505 = load i64, ptr %161, align 8
-  store ptr %504, ptr %11, align 8
-  store i64 %505, ptr %12, align 8
-  %506 = load ptr, ptr %11, align 8
-  %507 = load i64, ptr %12, align 8
-  %508 = getelementptr inbounds float, ptr %506, i64 %507
-  store ptr %503, ptr %64, align 8
-  store ptr %508, ptr %65, align 8
+500:                                              ; preds = %497
+  %501 = load i64, ptr %161, align 8
+  store ptr %493, ptr %80, align 8
+  store i64 %501, ptr %81, align 8
+  %502 = load ptr, ptr %80, align 8
+  %503 = load i64, ptr %81, align 8
+  %504 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %502, i64 0, i64 %503
+  %505 = load ptr, ptr %159, align 8
+  %506 = load i64, ptr %161, align 8
+  store ptr %505, ptr %11, align 8
+  store i64 %506, ptr %12, align 8
+  %507 = load ptr, ptr %11, align 8
+  %508 = load i64, ptr %12, align 8
+  %509 = getelementptr inbounds float, ptr %507, i64 %508
+  store ptr %504, ptr %64, align 8
+  store ptr %509, ptr %65, align 8
   store ptr %160, ptr %66, align 8
-  %509 = load ptr, ptr %64, align 8
-  %510 = load ptr, ptr %65, align 8
-  %511 = load float, ptr %510, align 4
-  invoke void @_ZN5drjit5ArrayIfLm4EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES5_(ptr noundef nonnull align 16 dereferenceable(16) %67, float noundef %511)
-          to label %512 unwind label %797
+  %510 = load ptr, ptr %64, align 8
+  %511 = load ptr, ptr %65, align 8
+  %512 = load float, ptr %511, align 4
+  invoke void @_ZN5drjit5ArrayIfLm4EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES5_(ptr noundef nonnull align 16 dereferenceable(16) %67, float noundef %512)
+          to label %513 unwind label %798
 
-512:                                              ; preds = %499
-  %513 = load ptr, ptr %66, align 8
-  store ptr %509, ptr %38, align 8
+513:                                              ; preds = %500
+  %514 = load ptr, ptr %66, align 8
+  store ptr %510, ptr %38, align 8
   store ptr %67, ptr %39, align 8
-  store ptr %513, ptr %40, align 8
-  %514 = load ptr, ptr %38, align 8
-  store ptr %514, ptr %34, align 8
-  %515 = load ptr, ptr %34, align 8
-  %516 = load ptr, ptr %39, align 8
-  store ptr %516, ptr %35, align 8
-  %517 = load ptr, ptr %35, align 8
-  %518 = load ptr, ptr %40, align 8
-  store ptr %518, ptr %36, align 8
-  %519 = load ptr, ptr %36, align 8
-  store ptr %515, ptr %20, align 8
-  store ptr %517, ptr %21, align 8
-  store ptr %519, ptr %22, align 8
-  %520 = load ptr, ptr %20, align 8
-  %521 = load <4 x float>, ptr %520, align 16
-  %522 = load ptr, ptr %21, align 8
-  %523 = load <4 x float>, ptr %522, align 16
-  %524 = load ptr, ptr %22, align 8
-  %525 = load <4 x float>, ptr %524, align 16
-  store <4 x float> %521, ptr %16, align 16
-  store <4 x float> %523, ptr %17, align 16
-  store <4 x float> %525, ptr %18, align 16
-  %526 = load <4 x float>, ptr %16, align 16
-  %527 = load <4 x float>, ptr %17, align 16
-  %528 = load <4 x float>, ptr %18, align 16
-  %529 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %526, <4 x float> %527, <4 x float> %528)
-  invoke void @_ZN5drjit5ArrayIfLm4EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %19, <4 x float> noundef %529)
-          to label %530 unwind label %797
+  store ptr %514, ptr %40, align 8
+  %515 = load ptr, ptr %38, align 8
+  store ptr %515, ptr %34, align 8
+  %516 = load ptr, ptr %34, align 8
+  %517 = load ptr, ptr %39, align 8
+  store ptr %517, ptr %35, align 8
+  %518 = load ptr, ptr %35, align 8
+  %519 = load ptr, ptr %40, align 8
+  store ptr %519, ptr %36, align 8
+  %520 = load ptr, ptr %36, align 8
+  store ptr %516, ptr %20, align 8
+  store ptr %518, ptr %21, align 8
+  store ptr %520, ptr %22, align 8
+  %521 = load ptr, ptr %20, align 8
+  %522 = load <4 x float>, ptr %521, align 16
+  %523 = load ptr, ptr %21, align 8
+  %524 = load <4 x float>, ptr %523, align 16
+  %525 = load ptr, ptr %22, align 8
+  %526 = load <4 x float>, ptr %525, align 16
+  store <4 x float> %522, ptr %16, align 16
+  store <4 x float> %524, ptr %17, align 16
+  store <4 x float> %526, ptr %18, align 16
+  %527 = load <4 x float>, ptr %16, align 16
+  %528 = load <4 x float>, ptr %17, align 16
+  %529 = load <4 x float>, ptr %18, align 16
+  %530 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %527, <4 x float> %528, <4 x float> %529)
+  invoke void @_ZN5drjit5ArrayIfLm4EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %19, <4 x float> noundef %530)
+          to label %531 unwind label %798
 
-530:                                              ; preds = %512
-  %531 = load <4 x float>, ptr %19, align 16
-  br label %532
+531:                                              ; preds = %513
+  %532 = load <4 x float>, ptr %19, align 16
+  br label %533
 
-532:                                              ; preds = %530
-  store <4 x float> %531, ptr %37, align 16
-  %533 = load <4 x float>, ptr %37, align 16
-  br label %534
+533:                                              ; preds = %531
+  store <4 x float> %532, ptr %37, align 16
+  %534 = load <4 x float>, ptr %37, align 16
+  br label %535
 
-534:                                              ; preds = %532
-  store <4 x float> %533, ptr %63, align 16
-  %535 = load <4 x float>, ptr %63, align 16
-  br label %536
+535:                                              ; preds = %533
+  store <4 x float> %534, ptr %63, align 16
+  %536 = load <4 x float>, ptr %63, align 16
+  br label %537
 
-536:                                              ; preds = %534
-  store <4 x float> %535, ptr %162, align 16
+537:                                              ; preds = %535
+  store <4 x float> %536, ptr %162, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %160, ptr align 16 %162, i64 16, i1 false)
-  %537 = load i64, ptr %161, align 8
-  %538 = add i64 %537, 1
-  store i64 %538, ptr %161, align 8
-  br label %496, !llvm.loop !4
+  %538 = load i64, ptr %161, align 8
+  %539 = add i64 %538, 1
+  store i64 %539, ptr %161, align 8
+  br label %497, !llvm.loop !4
 
-539:                                              ; preds = %496
+540:                                              ; preds = %497
   store ptr %160, ptr %56, align 8
-  %540 = load ptr, ptr %56, align 8
-  invoke void @_ZN5drjit5ArrayIfLm3EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEIfNS0_IfLm4EEETnNSt3__19enable_ifIXsr6detailE9is_same_vIT_fEEiE4typeELi0EEERKNS_15StaticArrayBaseIS6_Lm4ELb0ET0_EE(ptr noundef nonnull align 16 dereferenceable(16) %55, ptr noundef nonnull align 1 dereferenceable(1) %540)
-          to label %541 unwind label %797
+  %541 = load ptr, ptr %56, align 8
+  invoke void @_ZN5drjit5ArrayIfLm3EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEIfNS0_IfLm4EEETnNSt3__19enable_ifIXsr6detailE9is_same_vIT_fEEiE4typeELi0EEERKNS_15StaticArrayBaseIS6_Lm4ELb0ET0_EE(ptr noundef nonnull align 16 dereferenceable(16) %55, ptr noundef nonnull align 1 dereferenceable(1) %541)
+          to label %542 unwind label %798
 
-541:                                              ; preds = %539
-  %542 = load <4 x float>, ptr %55, align 16
-  br label %543
+542:                                              ; preds = %540
+  %543 = load <4 x float>, ptr %55, align 16
+  br label %544
 
-543:                                              ; preds = %541
-  store <4 x float> %542, ptr %163, align 16
+544:                                              ; preds = %542
+  store <4 x float> %543, ptr %163, align 16
   invoke void @_ZN7mitsuba5PointIfLm3EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfNS2_5ArrayIfLm3EEETnNSt3__19enable_ifIXsr6detailE9is_same_vIT_fEEiE4typeELi0EEERKNS2_15StaticArrayBaseIS8_Lm4ELb0ET0_EE(ptr noundef nonnull align 16 dereferenceable(16) %157, ptr noundef nonnull align 1 dereferenceable(1) %163)
-          to label %544 unwind label %797
+          to label %545 unwind label %798
 
-544:                                              ; preds = %543
-  %545 = load <4 x float>, ptr %157, align 16
-  br label %546
+545:                                              ; preds = %544
+  %546 = load <4 x float>, ptr %157, align 16
+  br label %547
 
-546:                                              ; preds = %544
-  %547 = getelementptr inbounds %"struct.mitsuba::Point", ptr %237, i32 0, i32 0
-  %548 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.29", ptr %547, i32 0, i32 0
-  %549 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.30", ptr %548, i32 0, i32 0
-  store <4 x float> %545, ptr %549, align 16
+547:                                              ; preds = %545
+  %548 = getelementptr inbounds %"struct.mitsuba::Point", ptr %237, i32 0, i32 0
+  %549 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.29", ptr %548, i32 0, i32 0
+  %550 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.30", ptr %549, i32 0, i32 0
+  store <4 x float> %546, ptr %550, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %235, ptr align 16 %237, i64 16, i1 false)
-  %550 = getelementptr inbounds %"class.mitsuba::Shape", ptr %244, i32 0, i32 14
-  %551 = invoke noundef nonnull align 16 dereferenceable(128) ptr @_ZNK7mitsuba5fieldINS_9TransformINS_5PointIfLm4EEEEES4_iE6scalarEv(ptr noundef nonnull align 16 dereferenceable(128) %550)
-          to label %552 unwind label %797
+  %551 = getelementptr inbounds %"class.mitsuba::Shape", ptr %244, i32 0, i32 14
+  %552 = invoke noundef nonnull align 16 dereferenceable(128) ptr @_ZNK7mitsuba5fieldINS_9TransformINS_5PointIfLm4EEEEES4_iE6scalarEv(ptr noundef nonnull align 16 dereferenceable(128) %551)
+          to label %553 unwind label %798
 
-552:                                              ; preds = %546
-  store ptr %551, ptr %151, align 8
+553:                                              ; preds = %547
+  store ptr %552, ptr %151, align 8
   store ptr %236, ptr %152, align 8
-  %553 = load ptr, ptr %151, align 8
-  %554 = load ptr, ptr %152, align 8
-  store ptr %553, ptr %87, align 8
-  store ptr %554, ptr %88, align 8
-  %555 = load ptr, ptr %87, align 8
-  %556 = getelementptr inbounds %"struct.mitsuba::Transform", ptr %555, i32 0, i32 1
-  store ptr %556, ptr %82, align 8
+  %554 = load ptr, ptr %151, align 8
+  %555 = load ptr, ptr %152, align 8
+  store ptr %554, ptr %87, align 8
+  store ptr %555, ptr %88, align 8
+  %556 = load ptr, ptr %87, align 8
+  %557 = getelementptr inbounds %"struct.mitsuba::Transform", ptr %556, i32 0, i32 1
+  store ptr %557, ptr %82, align 8
   store i64 0, ptr %83, align 8
-  %557 = load ptr, ptr %82, align 8
-  %558 = load i64, ptr %83, align 8
-  %559 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %557, i64 0, i64 %558
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %89, ptr align 16 %559, i64 16, i1 false)
-  %560 = load ptr, ptr %88, align 8
-  store ptr %560, ptr %74, align 8
-  %561 = load ptr, ptr %74, align 8
-  store ptr %561, ptr %73, align 8
-  %562 = load ptr, ptr %73, align 8
-  store ptr %562, ptr %61, align 8
+  %558 = load ptr, ptr %82, align 8
+  %559 = load i64, ptr %83, align 8
+  %560 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %558, i64 0, i64 %559
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %89, ptr align 16 %560, i64 16, i1 false)
+  %561 = load ptr, ptr %88, align 8
+  store ptr %561, ptr %74, align 8
+  %562 = load ptr, ptr %74, align 8
+  store ptr %562, ptr %73, align 8
+  %563 = load ptr, ptr %73, align 8
+  store ptr %563, ptr %61, align 8
   store i64 0, ptr %62, align 8
-  %563 = load ptr, ptr %61, align 8
-  %564 = load i64, ptr %62, align 8
-  %565 = getelementptr inbounds float, ptr %563, i64 %564
-  br label %566
+  %564 = load ptr, ptr %61, align 8
+  %565 = load i64, ptr %62, align 8
+  %566 = getelementptr inbounds float, ptr %564, i64 %565
+  br label %567
 
-566:                                              ; preds = %552
+567:                                              ; preds = %553
   store ptr %89, ptr %75, align 8
-  store ptr %565, ptr %76, align 8
-  %567 = load ptr, ptr %75, align 8
-  %568 = load ptr, ptr %76, align 8
-  store ptr %567, ptr %52, align 8
-  store ptr %568, ptr %53, align 8
-  %569 = load ptr, ptr %52, align 8
-  %570 = load ptr, ptr %53, align 8
-  %571 = load float, ptr %570, align 4
-  invoke void @_ZN5drjit5ArrayIfLm4EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES5_(ptr noundef nonnull align 16 dereferenceable(16) %54, float noundef %571)
-          to label %572 unwind label %797
+  store ptr %566, ptr %76, align 8
+  %568 = load ptr, ptr %75, align 8
+  %569 = load ptr, ptr %76, align 8
+  store ptr %568, ptr %52, align 8
+  store ptr %569, ptr %53, align 8
+  %570 = load ptr, ptr %52, align 8
+  %571 = load ptr, ptr %53, align 8
+  %572 = load float, ptr %571, align 4
+  invoke void @_ZN5drjit5ArrayIfLm4EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES5_(ptr noundef nonnull align 16 dereferenceable(16) %54, float noundef %572)
+          to label %573 unwind label %798
 
-572:                                              ; preds = %566
-  store ptr %569, ptr %49, align 8
+573:                                              ; preds = %567
+  store ptr %570, ptr %49, align 8
   store ptr %54, ptr %50, align 8
-  %573 = load ptr, ptr %49, align 8
-  store ptr %573, ptr %46, align 8
-  %574 = load ptr, ptr %46, align 8
-  %575 = load ptr, ptr %50, align 8
-  store ptr %575, ptr %47, align 8
-  %576 = load ptr, ptr %47, align 8
-  store ptr %574, ptr %44, align 8
-  store ptr %576, ptr %45, align 8
-  %577 = load ptr, ptr %44, align 8
-  %578 = load <4 x float>, ptr %577, align 16
-  %579 = load ptr, ptr %45, align 8
-  %580 = load <4 x float>, ptr %579, align 16
-  store <4 x float> %578, ptr %41, align 16
-  store <4 x float> %580, ptr %42, align 16
-  %581 = load <4 x float>, ptr %41, align 16
-  %582 = load <4 x float>, ptr %42, align 16
-  %583 = fmul contract <4 x float> %581, %582
-  invoke void @_ZN5drjit5ArrayIfLm4EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %43, <4 x float> noundef %583)
-          to label %584 unwind label %797
+  %574 = load ptr, ptr %49, align 8
+  store ptr %574, ptr %46, align 8
+  %575 = load ptr, ptr %46, align 8
+  %576 = load ptr, ptr %50, align 8
+  store ptr %576, ptr %47, align 8
+  %577 = load ptr, ptr %47, align 8
+  store ptr %575, ptr %44, align 8
+  store ptr %577, ptr %45, align 8
+  %578 = load ptr, ptr %44, align 8
+  %579 = load <4 x float>, ptr %578, align 16
+  %580 = load ptr, ptr %45, align 8
+  %581 = load <4 x float>, ptr %580, align 16
+  store <4 x float> %579, ptr %41, align 16
+  store <4 x float> %581, ptr %42, align 16
+  %582 = load <4 x float>, ptr %41, align 16
+  %583 = load <4 x float>, ptr %42, align 16
+  %584 = fmul contract <4 x float> %582, %583
+  invoke void @_ZN5drjit5ArrayIfLm4EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %43, <4 x float> noundef %584)
+          to label %585 unwind label %798
 
-584:                                              ; preds = %572
-  %585 = load <4 x float>, ptr %43, align 16
-  br label %586
+585:                                              ; preds = %573
+  %586 = load <4 x float>, ptr %43, align 16
+  br label %587
 
-586:                                              ; preds = %584
-  store <4 x float> %585, ptr %48, align 16
-  %587 = load <4 x float>, ptr %48, align 16
-  br label %588
+587:                                              ; preds = %585
+  store <4 x float> %586, ptr %48, align 16
+  %588 = load <4 x float>, ptr %48, align 16
+  br label %589
 
-588:                                              ; preds = %586
-  store <4 x float> %587, ptr %51, align 16
-  %589 = load <4 x float>, ptr %51, align 16
-  br label %590
+589:                                              ; preds = %587
+  store <4 x float> %588, ptr %51, align 16
+  %590 = load <4 x float>, ptr %51, align 16
+  br label %591
 
-590:                                              ; preds = %588
-  store <4 x float> %589, ptr %77, align 16
-  %591 = load ptr, ptr %75, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %591, ptr align 16 %77, i64 16, i1 false)
-  br label %592
-
-592:                                              ; preds = %590
-  store i64 1, ptr %90, align 8
+591:                                              ; preds = %589
+  store <4 x float> %590, ptr %77, align 16
+  %592 = load ptr, ptr %75, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %592, ptr align 16 %77, i64 16, i1 false)
   br label %593
 
-593:                                              ; preds = %634, %592
-  %594 = load i64, ptr %90, align 8
-  %595 = icmp ult i64 %594, 3
-  br i1 %595, label %596, label %637
+593:                                              ; preds = %591
+  store i64 1, ptr %90, align 8
+  br label %594
 
-596:                                              ; preds = %593
-  %597 = getelementptr inbounds %"struct.mitsuba::Transform", ptr %555, i32 0, i32 1
-  %598 = load i64, ptr %90, align 8
-  store ptr %597, ptr %84, align 8
-  store i64 %598, ptr %85, align 8
-  %599 = load ptr, ptr %84, align 8
-  %600 = load i64, ptr %85, align 8
-  %601 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %599, i64 0, i64 %600
-  %602 = load ptr, ptr %88, align 8
-  %603 = load i64, ptr %90, align 8
-  store ptr %602, ptr %59, align 8
-  store i64 %603, ptr %60, align 8
-  %604 = load ptr, ptr %59, align 8
-  %605 = load i64, ptr %60, align 8
-  %606 = getelementptr inbounds float, ptr %604, i64 %605
-  store ptr %601, ptr %69, align 8
-  store ptr %606, ptr %70, align 8
+594:                                              ; preds = %635, %593
+  %595 = load i64, ptr %90, align 8
+  %596 = icmp ult i64 %595, 3
+  br i1 %596, label %597, label %638
+
+597:                                              ; preds = %594
+  %598 = getelementptr inbounds %"struct.mitsuba::Transform", ptr %556, i32 0, i32 1
+  %599 = load i64, ptr %90, align 8
+  store ptr %598, ptr %84, align 8
+  store i64 %599, ptr %85, align 8
+  %600 = load ptr, ptr %84, align 8
+  %601 = load i64, ptr %85, align 8
+  %602 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %600, i64 0, i64 %601
+  %603 = load ptr, ptr %88, align 8
+  %604 = load i64, ptr %90, align 8
+  store ptr %603, ptr %59, align 8
+  store i64 %604, ptr %60, align 8
+  %605 = load ptr, ptr %59, align 8
+  %606 = load i64, ptr %60, align 8
+  %607 = getelementptr inbounds float, ptr %605, i64 %606
+  store ptr %602, ptr %69, align 8
+  store ptr %607, ptr %70, align 8
   store ptr %89, ptr %71, align 8
-  %607 = load ptr, ptr %69, align 8
-  %608 = load ptr, ptr %70, align 8
-  %609 = load float, ptr %608, align 4
-  invoke void @_ZN5drjit5ArrayIfLm4EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES5_(ptr noundef nonnull align 16 dereferenceable(16) %72, float noundef %609)
-          to label %610 unwind label %797
+  %608 = load ptr, ptr %69, align 8
+  %609 = load ptr, ptr %70, align 8
+  %610 = load float, ptr %609, align 4
+  invoke void @_ZN5drjit5ArrayIfLm4EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES5_(ptr noundef nonnull align 16 dereferenceable(16) %72, float noundef %610)
+          to label %611 unwind label %798
 
-610:                                              ; preds = %596
-  %611 = load ptr, ptr %71, align 8
-  store ptr %607, ptr %31, align 8
+611:                                              ; preds = %597
+  %612 = load ptr, ptr %71, align 8
+  store ptr %608, ptr %31, align 8
   store ptr %72, ptr %32, align 8
-  store ptr %611, ptr %33, align 8
-  %612 = load ptr, ptr %31, align 8
-  store ptr %612, ptr %27, align 8
-  %613 = load ptr, ptr %27, align 8
-  %614 = load ptr, ptr %32, align 8
-  store ptr %614, ptr %28, align 8
-  %615 = load ptr, ptr %28, align 8
-  %616 = load ptr, ptr %33, align 8
-  store ptr %616, ptr %29, align 8
-  %617 = load ptr, ptr %29, align 8
-  store ptr %613, ptr %24, align 8
-  store ptr %615, ptr %25, align 8
-  store ptr %617, ptr %26, align 8
-  %618 = load ptr, ptr %24, align 8
-  %619 = load <4 x float>, ptr %618, align 16
-  %620 = load ptr, ptr %25, align 8
-  %621 = load <4 x float>, ptr %620, align 16
-  %622 = load ptr, ptr %26, align 8
-  %623 = load <4 x float>, ptr %622, align 16
-  store <4 x float> %619, ptr %13, align 16
-  store <4 x float> %621, ptr %14, align 16
-  store <4 x float> %623, ptr %15, align 16
-  %624 = load <4 x float>, ptr %13, align 16
-  %625 = load <4 x float>, ptr %14, align 16
-  %626 = load <4 x float>, ptr %15, align 16
-  %627 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %624, <4 x float> %625, <4 x float> %626)
-  invoke void @_ZN5drjit5ArrayIfLm4EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %23, <4 x float> noundef %627)
-          to label %628 unwind label %797
+  store ptr %612, ptr %33, align 8
+  %613 = load ptr, ptr %31, align 8
+  store ptr %613, ptr %27, align 8
+  %614 = load ptr, ptr %27, align 8
+  %615 = load ptr, ptr %32, align 8
+  store ptr %615, ptr %28, align 8
+  %616 = load ptr, ptr %28, align 8
+  %617 = load ptr, ptr %33, align 8
+  store ptr %617, ptr %29, align 8
+  %618 = load ptr, ptr %29, align 8
+  store ptr %614, ptr %24, align 8
+  store ptr %616, ptr %25, align 8
+  store ptr %618, ptr %26, align 8
+  %619 = load ptr, ptr %24, align 8
+  %620 = load <4 x float>, ptr %619, align 16
+  %621 = load ptr, ptr %25, align 8
+  %622 = load <4 x float>, ptr %621, align 16
+  %623 = load ptr, ptr %26, align 8
+  %624 = load <4 x float>, ptr %623, align 16
+  store <4 x float> %620, ptr %13, align 16
+  store <4 x float> %622, ptr %14, align 16
+  store <4 x float> %624, ptr %15, align 16
+  %625 = load <4 x float>, ptr %13, align 16
+  %626 = load <4 x float>, ptr %14, align 16
+  %627 = load <4 x float>, ptr %15, align 16
+  %628 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %625, <4 x float> %626, <4 x float> %627)
+  invoke void @_ZN5drjit5ArrayIfLm4EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %23, <4 x float> noundef %628)
+          to label %629 unwind label %798
 
-628:                                              ; preds = %610
-  %629 = load <4 x float>, ptr %23, align 16
-  br label %630
+629:                                              ; preds = %611
+  %630 = load <4 x float>, ptr %23, align 16
+  br label %631
 
-630:                                              ; preds = %628
-  store <4 x float> %629, ptr %30, align 16
-  %631 = load <4 x float>, ptr %30, align 16
-  br label %632
+631:                                              ; preds = %629
+  store <4 x float> %630, ptr %30, align 16
+  %632 = load <4 x float>, ptr %30, align 16
+  br label %633
 
-632:                                              ; preds = %630
-  store <4 x float> %631, ptr %68, align 16
-  %633 = load <4 x float>, ptr %68, align 16
-  br label %634
+633:                                              ; preds = %631
+  store <4 x float> %632, ptr %68, align 16
+  %634 = load <4 x float>, ptr %68, align 16
+  br label %635
 
-634:                                              ; preds = %632
-  store <4 x float> %633, ptr %91, align 16
+635:                                              ; preds = %633
+  store <4 x float> %634, ptr %91, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %89, ptr align 16 %91, i64 16, i1 false)
-  %635 = load i64, ptr %90, align 8
-  %636 = add i64 %635, 1
-  store i64 %636, ptr %90, align 8
-  br label %593, !llvm.loop !7
+  %636 = load i64, ptr %90, align 8
+  %637 = add i64 %636, 1
+  store i64 %637, ptr %90, align 8
+  br label %594, !llvm.loop !7
 
-637:                                              ; preds = %593
+638:                                              ; preds = %594
   store ptr %89, ptr %58, align 8
-  %638 = load ptr, ptr %58, align 8
-  invoke void @_ZN5drjit5ArrayIfLm3EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEIfNS0_IfLm4EEETnNSt3__19enable_ifIXsr6detailE9is_same_vIT_fEEiE4typeELi0EEERKNS_15StaticArrayBaseIS6_Lm4ELb0ET0_EE(ptr noundef nonnull align 16 dereferenceable(16) %57, ptr noundef nonnull align 1 dereferenceable(1) %638)
-          to label %639 unwind label %797
+  %639 = load ptr, ptr %58, align 8
+  invoke void @_ZN5drjit5ArrayIfLm3EECI2NS_15StaticArrayImplIfLm4ELb0ES1_iEEIfNS0_IfLm4EEETnNSt3__19enable_ifIXsr6detailE9is_same_vIT_fEEiE4typeELi0EEERKNS_15StaticArrayBaseIS6_Lm4ELb0ET0_EE(ptr noundef nonnull align 16 dereferenceable(16) %57, ptr noundef nonnull align 1 dereferenceable(1) %639)
+          to label %640 unwind label %798
 
-639:                                              ; preds = %637
-  %640 = load <4 x float>, ptr %57, align 16
-  br label %641
+640:                                              ; preds = %638
+  %641 = load <4 x float>, ptr %57, align 16
+  br label %642
 
-641:                                              ; preds = %639
-  store <4 x float> %640, ptr %92, align 16
+642:                                              ; preds = %640
+  store <4 x float> %641, ptr %92, align 16
   invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfNS2_5ArrayIfLm3EEETnNSt3__19enable_ifIXsr6detailE9is_same_vIT_fEEiE4typeELi0EEERKNS2_15StaticArrayBaseIS8_Lm4ELb0ET0_EE(ptr noundef nonnull align 16 dereferenceable(16) %86, ptr noundef nonnull align 1 dereferenceable(1) %92)
-          to label %642 unwind label %797
+          to label %643 unwind label %798
 
-642:                                              ; preds = %641
-  %643 = load <4 x float>, ptr %86, align 16
-  br label %644
+643:                                              ; preds = %642
+  %644 = load <4 x float>, ptr %86, align 16
+  br label %645
 
-644:                                              ; preds = %642
-  store <4 x float> %643, ptr %150, align 16
-  %645 = load <4 x float>, ptr %150, align 16
-  br label %646
+645:                                              ; preds = %643
+  store <4 x float> %644, ptr %150, align 16
+  %646 = load <4 x float>, ptr %150, align 16
+  br label %647
 
-646:                                              ; preds = %644
-  %647 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %239, i32 0, i32 0
-  %648 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.90", ptr %647, i32 0, i32 0
-  %649 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.91", ptr %648, i32 0, i32 0
-  store <4 x float> %645, ptr %649, align 16
+647:                                              ; preds = %645
+  %648 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %239, i32 0, i32 0
+  %649 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.90", ptr %648, i32 0, i32 0
+  %650 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.91", ptr %649, i32 0, i32 0
+  store <4 x float> %646, ptr %650, align 16
   store ptr %239, ptr %154, align 8
-  %650 = load ptr, ptr %154, align 8
   %651 = load ptr, ptr %154, align 8
-  store ptr %651, ptr %125, align 8
-  %652 = load ptr, ptr %125, align 8
+  %652 = load ptr, ptr %154, align 8
+  store ptr %652, ptr %125, align 8
   %653 = load ptr, ptr %125, align 8
-  store ptr %652, ptr %123, align 8
-  store ptr %653, ptr %124, align 8
-  %654 = load ptr, ptr %123, align 8
-  store ptr %654, ptr %115, align 8
-  %655 = load ptr, ptr %115, align 8
-  %656 = load ptr, ptr %124, align 8
-  store ptr %656, ptr %116, align 8
-  %657 = load ptr, ptr %116, align 8
-  store ptr %655, ptr %110, align 8
-  store ptr %657, ptr %111, align 8
-  %658 = load ptr, ptr %110, align 8
-  %659 = load <4 x float>, ptr %658, align 16
-  %660 = load ptr, ptr %111, align 8
-  %661 = load <4 x float>, ptr %660, align 16
-  store <4 x float> %659, ptr %107, align 16
-  store <4 x float> %661, ptr %108, align 16
-  %662 = load <4 x float>, ptr %107, align 16
-  %663 = load <4 x float>, ptr %108, align 16
-  %664 = fmul contract <4 x float> %662, %663
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %109, <4 x float> noundef %664)
-          to label %665 unwind label %797
+  %654 = load ptr, ptr %125, align 8
+  store ptr %653, ptr %123, align 8
+  store ptr %654, ptr %124, align 8
+  %655 = load ptr, ptr %123, align 8
+  store ptr %655, ptr %115, align 8
+  %656 = load ptr, ptr %115, align 8
+  %657 = load ptr, ptr %124, align 8
+  store ptr %657, ptr %116, align 8
+  %658 = load ptr, ptr %116, align 8
+  store ptr %656, ptr %110, align 8
+  store ptr %658, ptr %111, align 8
+  %659 = load ptr, ptr %110, align 8
+  %660 = load <4 x float>, ptr %659, align 16
+  %661 = load ptr, ptr %111, align 8
+  %662 = load <4 x float>, ptr %661, align 16
+  store <4 x float> %660, ptr %107, align 16
+  store <4 x float> %662, ptr %108, align 16
+  %663 = load <4 x float>, ptr %107, align 16
+  %664 = load <4 x float>, ptr %108, align 16
+  %665 = fmul contract <4 x float> %663, %664
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %109, <4 x float> noundef %665)
+          to label %666 unwind label %798
 
-665:                                              ; preds = %646
-  %666 = load <4 x float>, ptr %109, align 16
-  br label %667
+666:                                              ; preds = %647
+  %667 = load <4 x float>, ptr %109, align 16
+  br label %668
 
-667:                                              ; preds = %665
-  store <4 x float> %666, ptr %122, align 16
-  %668 = load <4 x float>, ptr %122, align 16
-  br label %669
+668:                                              ; preds = %666
+  store <4 x float> %667, ptr %122, align 16
+  %669 = load <4 x float>, ptr %122, align 16
+  br label %670
 
-669:                                              ; preds = %667
-  store <4 x float> %668, ptr %126, align 16
+670:                                              ; preds = %668
+  store <4 x float> %669, ptr %126, align 16
   store ptr %126, ptr %104, align 8
-  %670 = load ptr, ptr %104, align 8
-  store ptr %670, ptr %101, align 8
-  %671 = load ptr, ptr %101, align 8
-  %672 = load <4 x float>, ptr %671, align 16
-  %673 = load <4 x float>, ptr %671, align 16
-  store <4 x float> %672, ptr %99, align 16
-  store <4 x float> %673, ptr %100, align 16
-  %674 = load <4 x float>, ptr %99, align 16
-  %675 = load <4 x float>, ptr %100, align 16
-  %676 = shufflevector <4 x float> %674, <4 x float> %675, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %676, ptr %102, align 16
-  %677 = load <4 x float>, ptr %671, align 16
-  %678 = load <4 x float>, ptr %102, align 16
-  store <4 x float> %677, ptr %95, align 16
-  store <4 x float> %678, ptr %96, align 16
-  %679 = load <4 x float>, ptr %96, align 16
-  %680 = extractelement <4 x float> %679, i32 0
-  %681 = load <4 x float>, ptr %95, align 16
-  %682 = extractelement <4 x float> %681, i32 0
-  %683 = fadd contract float %682, %680
-  %684 = load <4 x float>, ptr %95, align 16
-  %685 = insertelement <4 x float> %684, float %683, i32 0
-  store <4 x float> %685, ptr %95, align 16
-  %686 = load <4 x float>, ptr %95, align 16
-  store <4 x float> %686, ptr %103, align 16
-  %687 = load <4 x float>, ptr %671, align 16
-  store <4 x float> %687, ptr %94, align 16
-  %688 = load <4 x float>, ptr %94, align 16
+  %671 = load ptr, ptr %104, align 8
+  store ptr %671, ptr %101, align 8
+  %672 = load ptr, ptr %101, align 8
+  %673 = load <4 x float>, ptr %672, align 16
+  %674 = load <4 x float>, ptr %672, align 16
+  store <4 x float> %673, ptr %99, align 16
+  store <4 x float> %674, ptr %100, align 16
+  %675 = load <4 x float>, ptr %99, align 16
+  %676 = load <4 x float>, ptr %100, align 16
+  %677 = shufflevector <4 x float> %675, <4 x float> %676, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
+  store <4 x float> %677, ptr %102, align 16
+  %678 = load <4 x float>, ptr %672, align 16
+  %679 = load <4 x float>, ptr %102, align 16
+  store <4 x float> %678, ptr %95, align 16
+  store <4 x float> %679, ptr %96, align 16
+  %680 = load <4 x float>, ptr %96, align 16
+  %681 = extractelement <4 x float> %680, i32 0
+  %682 = load <4 x float>, ptr %95, align 16
+  %683 = extractelement <4 x float> %682, i32 0
+  %684 = fadd contract float %683, %681
+  %685 = load <4 x float>, ptr %95, align 16
+  %686 = insertelement <4 x float> %685, float %684, i32 0
+  store <4 x float> %686, ptr %95, align 16
+  %687 = load <4 x float>, ptr %95, align 16
+  store <4 x float> %687, ptr %103, align 16
+  %688 = load <4 x float>, ptr %672, align 16
+  store <4 x float> %688, ptr %94, align 16
   %689 = load <4 x float>, ptr %94, align 16
-  %690 = shufflevector <4 x float> %688, <4 x float> %689, <4 x i32> <i32 1, i32 1, i32 3, i32 3>
-  store <4 x float> %690, ptr %102, align 16
-  %691 = load <4 x float>, ptr %102, align 16
-  %692 = load <4 x float>, ptr %103, align 16
-  store <4 x float> %691, ptr %97, align 16
-  store <4 x float> %692, ptr %98, align 16
-  %693 = load <4 x float>, ptr %98, align 16
-  %694 = extractelement <4 x float> %693, i32 0
-  %695 = load <4 x float>, ptr %97, align 16
-  %696 = extractelement <4 x float> %695, i32 0
-  %697 = fadd contract float %696, %694
-  %698 = load <4 x float>, ptr %97, align 16
-  %699 = insertelement <4 x float> %698, float %697, i32 0
-  store <4 x float> %699, ptr %97, align 16
-  %700 = load <4 x float>, ptr %97, align 16
-  store <4 x float> %700, ptr %102, align 16
-  %701 = load <4 x float>, ptr %102, align 16
-  store <4 x float> %701, ptr %93, align 16
-  %702 = load <4 x float>, ptr %93, align 16
-  %703 = extractelement <4 x float> %702, i32 0
-  br label %704
-
-704:                                              ; preds = %669
+  %690 = load <4 x float>, ptr %94, align 16
+  %691 = shufflevector <4 x float> %689, <4 x float> %690, <4 x i32> <i32 1, i32 1, i32 3, i32 3>
+  store <4 x float> %691, ptr %102, align 16
+  %692 = load <4 x float>, ptr %102, align 16
+  %693 = load <4 x float>, ptr %103, align 16
+  store <4 x float> %692, ptr %97, align 16
+  store <4 x float> %693, ptr %98, align 16
+  %694 = load <4 x float>, ptr %98, align 16
+  %695 = extractelement <4 x float> %694, i32 0
+  %696 = load <4 x float>, ptr %97, align 16
+  %697 = extractelement <4 x float> %696, i32 0
+  %698 = fadd contract float %697, %695
+  %699 = load <4 x float>, ptr %97, align 16
+  %700 = insertelement <4 x float> %699, float %698, i32 0
+  store <4 x float> %700, ptr %97, align 16
+  %701 = load <4 x float>, ptr %97, align 16
+  store <4 x float> %701, ptr %102, align 16
+  %702 = load <4 x float>, ptr %102, align 16
+  store <4 x float> %702, ptr %93, align 16
+  %703 = load <4 x float>, ptr %93, align 16
+  %704 = extractelement <4 x float> %703, i32 0
   br label %705
 
-705:                                              ; preds = %704
+705:                                              ; preds = %670
   br label %706
 
 706:                                              ; preds = %705
-  store float %703, ptr %156, align 4
+  br label %707
+
+707:                                              ; preds = %706
+  store float %704, ptr %156, align 4
   store ptr %156, ptr %127, align 8
-  %707 = load ptr, ptr %127, align 8
-  %708 = invoke noundef float @_ZN5drjit6detail6rsqrt_IfEET_RKS2_(ptr noundef nonnull align 4 dereferenceable(4) %707)
-          to label %709 unwind label %797
+  %708 = load ptr, ptr %127, align 8
+  %709 = invoke noundef float @_ZN5drjit6detail6rsqrt_IfEET_RKS2_(ptr noundef nonnull align 4 dereferenceable(4) %708)
+          to label %710 unwind label %798
 
-709:                                              ; preds = %706
-  br label %710
+710:                                              ; preds = %707
+  br label %711
 
-710:                                              ; preds = %709
-  store float %708, ptr %155, align 4
-  store ptr %650, ptr %129, align 8
+711:                                              ; preds = %710
+  store float %709, ptr %155, align 4
+  store ptr %651, ptr %129, align 8
   store ptr %155, ptr %130, align 8
-  %711 = load ptr, ptr %129, align 8
-  %712 = load ptr, ptr %130, align 8
-  %713 = load float, ptr %712, align 4
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %131, float noundef %713)
-          to label %714 unwind label %797
+  %712 = load ptr, ptr %129, align 8
+  %713 = load ptr, ptr %130, align 8
+  %714 = load float, ptr %713, align 4
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_(ptr noundef nonnull align 16 dereferenceable(16) %131, float noundef %714)
+          to label %715 unwind label %798
 
-714:                                              ; preds = %710
-  store ptr %711, ptr %120, align 8
+715:                                              ; preds = %711
+  store ptr %712, ptr %120, align 8
   store ptr %131, ptr %121, align 8
-  %715 = load ptr, ptr %120, align 8
-  store ptr %715, ptr %117, align 8
-  %716 = load ptr, ptr %117, align 8
-  %717 = load ptr, ptr %121, align 8
-  store ptr %717, ptr %118, align 8
-  %718 = load ptr, ptr %118, align 8
-  store ptr %716, ptr %113, align 8
-  store ptr %718, ptr %114, align 8
-  %719 = load ptr, ptr %113, align 8
-  %720 = load <4 x float>, ptr %719, align 16
-  %721 = load ptr, ptr %114, align 8
-  %722 = load <4 x float>, ptr %721, align 16
-  store <4 x float> %720, ptr %105, align 16
-  store <4 x float> %722, ptr %106, align 16
-  %723 = load <4 x float>, ptr %105, align 16
-  %724 = load <4 x float>, ptr %106, align 16
-  %725 = fmul contract <4 x float> %723, %724
-  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %112, <4 x float> noundef %725)
-          to label %726 unwind label %797
+  %716 = load ptr, ptr %120, align 8
+  store ptr %716, ptr %117, align 8
+  %717 = load ptr, ptr %117, align 8
+  %718 = load ptr, ptr %121, align 8
+  store ptr %718, ptr %118, align 8
+  %719 = load ptr, ptr %118, align 8
+  store ptr %717, ptr %113, align 8
+  store ptr %719, ptr %114, align 8
+  %720 = load ptr, ptr %113, align 8
+  %721 = load <4 x float>, ptr %720, align 16
+  %722 = load ptr, ptr %114, align 8
+  %723 = load <4 x float>, ptr %722, align 16
+  store <4 x float> %721, ptr %105, align 16
+  store <4 x float> %723, ptr %106, align 16
+  %724 = load <4 x float>, ptr %105, align 16
+  %725 = load <4 x float>, ptr %106, align 16
+  %726 = fmul contract <4 x float> %724, %725
+  invoke void @_ZN7mitsuba6NormalIfLm3EECI2N5drjit15StaticArrayImplIfLm4ELb0ES1_iEEEDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %112, <4 x float> noundef %726)
+          to label %727 unwind label %798
 
-726:                                              ; preds = %714
-  %727 = load <4 x float>, ptr %112, align 16
-  br label %728
+727:                                              ; preds = %715
+  %728 = load <4 x float>, ptr %112, align 16
+  br label %729
 
-728:                                              ; preds = %726
-  store <4 x float> %727, ptr %119, align 16
-  %729 = load <4 x float>, ptr %119, align 16
-  br label %730
+729:                                              ; preds = %727
+  store <4 x float> %728, ptr %119, align 16
+  %730 = load <4 x float>, ptr %119, align 16
+  br label %731
 
-730:                                              ; preds = %728
-  store <4 x float> %729, ptr %128, align 16
-  %731 = load <4 x float>, ptr %128, align 16
-  br label %732
+731:                                              ; preds = %729
+  store <4 x float> %730, ptr %128, align 16
+  %732 = load <4 x float>, ptr %128, align 16
+  br label %733
 
-732:                                              ; preds = %730
-  store <4 x float> %731, ptr %153, align 16
-  %733 = load <4 x float>, ptr %153, align 16
-  br label %734
+733:                                              ; preds = %731
+  store <4 x float> %732, ptr %153, align 16
+  %734 = load <4 x float>, ptr %153, align 16
+  br label %735
 
-734:                                              ; preds = %732
-  %735 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %238, i32 0, i32 0
-  %736 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.90", ptr %735, i32 0, i32 0
-  %737 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.91", ptr %736, i32 0, i32 0
-  store <4 x float> %733, ptr %737, align 16
+735:                                              ; preds = %733
+  %736 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %238, i32 0, i32 0
+  %737 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.90", ptr %736, i32 0, i32 0
+  %738 = getelementptr inbounds %"struct.drjit::StaticArrayImpl.91", ptr %737, i32 0, i32 0
+  store <4 x float> %734, ptr %738, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %236, ptr align 16 %238, i64 16, i1 false)
-  %738 = load ptr, ptr %232, align 8
-  store ptr %738, ptr %148, align 8
+  %739 = load ptr, ptr %232, align 8
+  store ptr %739, ptr %148, align 8
   store ptr %235, ptr %149, align 8
-  %739 = load ptr, ptr %149, align 8
-  %740 = load ptr, ptr %148, align 8
-  store ptr %739, ptr %9, align 8
-  store ptr %740, ptr %10, align 8
-  %741 = load ptr, ptr %9, align 8
-  %742 = load ptr, ptr %10, align 8
-  store ptr %741, ptr %7, align 8
-  store ptr %742, ptr %8, align 8
-  %743 = load ptr, ptr %7, align 8
-  %744 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %744, ptr align 16 %743, i64 12, i1 false)
-  br label %745
-
-745:                                              ; preds = %734
+  %740 = load ptr, ptr %149, align 8
+  %741 = load ptr, ptr %148, align 8
+  store ptr %740, ptr %9, align 8
+  store ptr %741, ptr %10, align 8
+  %742 = load ptr, ptr %9, align 8
+  %743 = load ptr, ptr %10, align 8
+  store ptr %742, ptr %7, align 8
+  store ptr %743, ptr %8, align 8
+  %744 = load ptr, ptr %7, align 8
+  %745 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %745, ptr align 16 %744, i64 12, i1 false)
   br label %746
 
-746:                                              ; preds = %745
-  %747 = load ptr, ptr %233, align 8
-  store ptr %747, ptr %146, align 8
-  store ptr %236, ptr %147, align 8
-  %748 = load ptr, ptr %147, align 8
-  %749 = load ptr, ptr %146, align 8
-  store ptr %748, ptr %5, align 8
-  store ptr %749, ptr %6, align 8
-  %750 = load ptr, ptr %5, align 8
-  %751 = load ptr, ptr %6, align 8
-  store ptr %750, ptr %3, align 8
-  store ptr %751, ptr %4, align 8
-  %752 = load ptr, ptr %3, align 8
-  %753 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %753, ptr align 16 %752, i64 12, i1 false)
-  br label %754
+746:                                              ; preds = %735
+  br label %747
 
-754:                                              ; preds = %746
+747:                                              ; preds = %746
+  %748 = load ptr, ptr %233, align 8
+  store ptr %748, ptr %146, align 8
+  store ptr %236, ptr %147, align 8
+  %749 = load ptr, ptr %147, align 8
+  %750 = load ptr, ptr %146, align 8
+  store ptr %749, ptr %5, align 8
+  store ptr %750, ptr %6, align 8
+  %751 = load ptr, ptr %5, align 8
+  %752 = load ptr, ptr %6, align 8
+  store ptr %751, ptr %3, align 8
+  store ptr %752, ptr %4, align 8
+  %753 = load ptr, ptr %3, align 8
+  %754 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %754, ptr align 16 %753, i64 12, i1 false)
   br label %755
 
-755:                                              ; preds = %754
-  %756 = load ptr, ptr %234, align 8
-  %757 = load i8, ptr %231, align 1
-  %758 = zext i8 %757 to i64
-  %759 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %174, i64 noundef %758) #17
-  store ptr %756, ptr %144, align 8
-  store ptr %759, ptr %145, align 8
-  %760 = load ptr, ptr %145, align 8
-  %761 = load ptr, ptr %144, align 8
-  invoke void @_ZNK5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba6VectorIfLm2EEEE6store_IS3_EEvPv(ptr noundef nonnull align 1 dereferenceable(1) %760, ptr noundef %761)
-          to label %762 unwind label %797
+755:                                              ; preds = %747
+  br label %756
 
-762:                                              ; preds = %755
-  br label %763
+756:                                              ; preds = %755
+  %757 = load ptr, ptr %234, align 8
+  %758 = load i8, ptr %231, align 1
+  %759 = zext i8 %758 to i64
+  %760 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %174, i64 noundef %759) #17
+  store ptr %757, ptr %144, align 8
+  store ptr %760, ptr %145, align 8
+  %761 = load ptr, ptr %145, align 8
+  %762 = load ptr, ptr %144, align 8
+  invoke void @_ZNK5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba6VectorIfLm2EEEE6store_IS3_EEvPv(ptr noundef nonnull align 1 dereferenceable(1) %761, ptr noundef %762)
+          to label %763 unwind label %798
 
-763:                                              ; preds = %762
-  %764 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 2
-  invoke void @_ZN7mitsuba11BoundingBoxINS_5PointIfLm3EEEE6expandIfEEvRKNS1_IT_Lm3EEE(ptr noundef nonnull align 16 dereferenceable(32) %764, ptr noundef nonnull align 16 dereferenceable(16) %235)
-          to label %765 unwind label %797
+763:                                              ; preds = %756
+  br label %764
 
-765:                                              ; preds = %763
-  br label %766
+764:                                              ; preds = %763
+  %765 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 2
+  invoke void @_ZN7mitsuba11BoundingBoxINS_5PointIfLm3EEEE6expandIfEEvRKNS1_IT_Lm3EEE(ptr noundef nonnull align 16 dereferenceable(32) %765, ptr noundef nonnull align 16 dereferenceable(16) %235)
+          to label %766 unwind label %798
 
-766:                                              ; preds = %765
-  %767 = load i8, ptr %231, align 1
-  %768 = add i8 %767, 1
-  store i8 %768, ptr %231, align 1
-  br label %457, !llvm.loop !8
+766:                                              ; preds = %764
+  br label %767
 
-769:                                              ; preds = %298, %296, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %252, %250, %2
-  %770 = landingpad { ptr, i32 }
+767:                                              ; preds = %766
+  %768 = load i8, ptr %231, align 1
+  %769 = add i8 %768, 1
+  store i8 %769, ptr %231, align 1
+  br label %458, !llvm.loop !8
+
+770:                                              ; preds = %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %253, %251, %2
+  %771 = landingpad { ptr, i32 }
           cleanup
-  %771 = extractvalue { ptr, i32 } %770, 0
-  store ptr %771, ptr %166, align 8
-  %772 = extractvalue { ptr, i32 } %770, 1
-  store i32 %772, ptr %167, align 4
+  %772 = extractvalue { ptr, i32 } %771, 0
+  store ptr %772, ptr %166, align 8
+  %773 = extractvalue { ptr, i32 } %771, 1
+  store i32 %773, ptr %167, align 4
+  br label %875
+
+774:                                              ; preds = %355, %353, %351, %349, %347, %345, %343, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307
+  %775 = landingpad { ptr, i32 }
+          cleanup
+  %776 = extractvalue { ptr, i32 } %775, 0
+  store ptr %776, ptr %166, align 8
+  %777 = extractvalue { ptr, i32 } %775, 1
+  store i32 %777, ptr %167, align 4
   br label %874
 
-773:                                              ; preds = %354, %352, %350, %348, %346, %344, %342, %340, %338, %336, %334, %332, %330, %328, %326, %324, %322, %320, %318, %316, %314, %312, %310, %308, %306
-  %774 = landingpad { ptr, i32 }
+778:                                              ; preds = %411, %409, %407, %405, %403, %401, %399, %397, %395, %393, %391, %389, %387, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %363
+  %779 = landingpad { ptr, i32 }
           cleanup
-  %775 = extractvalue { ptr, i32 } %774, 0
-  store ptr %775, ptr %166, align 8
-  %776 = extractvalue { ptr, i32 } %774, 1
-  store i32 %776, ptr %167, align 4
+  %780 = extractvalue { ptr, i32 } %779, 0
+  store ptr %780, ptr %166, align 8
+  %781 = extractvalue { ptr, i32 } %779, 1
+  store i32 %781, ptr %167, align 4
   br label %873
 
-777:                                              ; preds = %410, %408, %406, %404, %402, %400, %398, %396, %394, %392, %390, %388, %386, %384, %382, %380, %378, %376, %374, %372, %370, %368, %366, %364, %362
-  %778 = landingpad { ptr, i32 }
+782:                                              ; preds = %419
+  %783 = landingpad { ptr, i32 }
           cleanup
-  %779 = extractvalue { ptr, i32 } %778, 0
-  store ptr %779, ptr %166, align 8
-  %780 = extractvalue { ptr, i32 } %778, 1
-  store i32 %780, ptr %167, align 4
+  %784 = extractvalue { ptr, i32 } %783, 0
+  store ptr %784, ptr %166, align 8
+  %785 = extractvalue { ptr, i32 } %783, 1
+  store i32 %785, ptr %167, align 4
   br label %872
 
-781:                                              ; preds = %418
-  %782 = landingpad { ptr, i32 }
+786:                                              ; preds = %427
+  %787 = landingpad { ptr, i32 }
           cleanup
-  %783 = extractvalue { ptr, i32 } %782, 0
-  store ptr %783, ptr %166, align 8
-  %784 = extractvalue { ptr, i32 } %782, 1
-  store i32 %784, ptr %167, align 4
+  %788 = extractvalue { ptr, i32 } %787, 0
+  store ptr %788, ptr %166, align 8
+  %789 = extractvalue { ptr, i32 } %787, 1
+  store i32 %789, ptr %167, align 4
   br label %871
 
-785:                                              ; preds = %426
-  %786 = landingpad { ptr, i32 }
+790:                                              ; preds = %437
+  %791 = landingpad { ptr, i32 }
           cleanup
-  %787 = extractvalue { ptr, i32 } %786, 0
-  store ptr %787, ptr %166, align 8
-  %788 = extractvalue { ptr, i32 } %786, 1
-  store i32 %788, ptr %167, align 4
+  %792 = extractvalue { ptr, i32 } %791, 0
+  store ptr %792, ptr %166, align 8
+  %793 = extractvalue { ptr, i32 } %791, 1
+  store i32 %793, ptr %167, align 4
   br label %870
 
-789:                                              ; preds = %436
-  %790 = landingpad { ptr, i32 }
+794:                                              ; preds = %447
+  %795 = landingpad { ptr, i32 }
           cleanup
-  %791 = extractvalue { ptr, i32 } %790, 0
-  store ptr %791, ptr %166, align 8
-  %792 = extractvalue { ptr, i32 } %790, 1
-  store i32 %792, ptr %167, align 4
+  %796 = extractvalue { ptr, i32 } %795, 0
+  store ptr %796, ptr %166, align 8
+  %797 = extractvalue { ptr, i32 } %795, 1
+  store i32 %797, ptr %167, align 4
   br label %869
 
-793:                                              ; preds = %446
-  %794 = landingpad { ptr, i32 }
+798:                                              ; preds = %850, %838, %826, %814, %802, %764, %756, %715, %711, %707, %647, %642, %638, %611, %597, %573, %567, %547, %544, %540, %513, %500, %486, %464
+  %799 = landingpad { ptr, i32 }
           cleanup
-  %795 = extractvalue { ptr, i32 } %794, 0
-  store ptr %795, ptr %166, align 8
-  %796 = extractvalue { ptr, i32 } %794, 1
-  store i32 %796, ptr %167, align 4
+  %800 = extractvalue { ptr, i32 } %799, 0
+  store ptr %800, ptr %166, align 8
+  %801 = extractvalue { ptr, i32 } %799, 1
+  store i32 %801, ptr %167, align 4
   br label %868
 
-797:                                              ; preds = %849, %837, %825, %813, %801, %763, %755, %714, %710, %706, %646, %641, %637, %610, %596, %572, %566, %546, %543, %539, %512, %499, %485, %463
-  %798 = landingpad { ptr, i32 }
-          cleanup
-  %799 = extractvalue { ptr, i32 } %798, 0
-  store ptr %799, ptr %166, align 8
-  %800 = extractvalue { ptr, i32 } %798, 1
-  store i32 %800, ptr %167, align 4
-  br label %867
-
-801:                                              ; preds = %457
-  %802 = call noundef ptr @_ZNSt3__16vectorINS_5arrayIjLm3EEENS_9allocatorIS2_EEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %225) #17
-  %803 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 4
-  %804 = load i32, ptr %803, align 4
-  %805 = mul i32 %804, 3
-  %806 = zext i32 %805 to i64
+802:                                              ; preds = %458
+  %803 = call noundef ptr @_ZNSt3__16vectorINS_5arrayIjLm3EEENS_9allocatorIS2_EEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %225) #17
+  %804 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 4
+  %805 = load i32, ptr %804, align 4
+  %806 = mul i32 %805, 3
+  %807 = zext i32 %806 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   store ptr %240, ptr %141, align 8, !noalias !9
-  store ptr %802, ptr %142, align 8, !noalias !9
-  store i64 %806, ptr %143, align 8, !noalias !9
-  %807 = load ptr, ptr %142, align 8, !noalias !9
-  %808 = load i64, ptr %143, align 8, !noalias !9
-  invoke void @_ZN5drjit12DynamicArrayIjE5load_EPKvm(ptr dead_on_unwind writable sret(%"struct.drjit::DynamicArray.34") align 8 %240, ptr noundef %807, i64 noundef %808)
-          to label %809 unwind label %797
+  store ptr %803, ptr %142, align 8, !noalias !9
+  store i64 %807, ptr %143, align 8, !noalias !9
+  %808 = load ptr, ptr %142, align 8, !noalias !9
+  %809 = load i64, ptr %143, align 8, !noalias !9
+  invoke void @_ZN5drjit12DynamicArrayIjE5load_EPKvm(ptr dead_on_unwind writable sret(%"struct.drjit::DynamicArray.34") align 8 %240, ptr noundef %808, i64 noundef %809)
+          to label %810 unwind label %798
 
-809:                                              ; preds = %801
-  br label %810
+810:                                              ; preds = %802
+  br label %811
 
-810:                                              ; preds = %809
-  %811 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 8
-  %812 = invoke noundef nonnull align 8 dereferenceable(17) ptr @_ZN5drjit12DynamicArrayIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(17) %811, ptr noundef nonnull align 8 dereferenceable(17) %240)
-          to label %813 unwind label %851
+811:                                              ; preds = %810
+  %812 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 8
+  %813 = invoke noundef nonnull align 8 dereferenceable(17) ptr @_ZN5drjit12DynamicArrayIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(17) %812, ptr noundef nonnull align 8 dereferenceable(17) %240)
+          to label %814 unwind label %852
 
-813:                                              ; preds = %810
+814:                                              ; preds = %811
   call void @_ZN5drjit12DynamicArrayIjED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %240) #17
-  %814 = call noundef ptr @_ZNKSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %228) #17
-  %815 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
-  %816 = load i32, ptr %815, align 16
-  %817 = mul i32 %816, 3
-  %818 = zext i32 %817 to i64
+  %815 = call noundef ptr @_ZNKSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %228) #17
+  %816 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
+  %817 = load i32, ptr %816, align 16
+  %818 = mul i32 %817, 3
+  %819 = zext i32 %818 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   store ptr %241, ptr %132, align 8, !noalias !12
-  store ptr %814, ptr %133, align 8, !noalias !12
-  store i64 %818, ptr %134, align 8, !noalias !12
-  %819 = load ptr, ptr %133, align 8, !noalias !12
-  %820 = load i64, ptr %134, align 8, !noalias !12
-  invoke void @_ZN5drjit12DynamicArrayIfE5load_EPKvm(ptr dead_on_unwind writable sret(%"struct.drjit::DynamicArray") align 8 %241, ptr noundef %819, i64 noundef %820)
-          to label %821 unwind label %797
+  store ptr %815, ptr %133, align 8, !noalias !12
+  store i64 %819, ptr %134, align 8, !noalias !12
+  %820 = load ptr, ptr %133, align 8, !noalias !12
+  %821 = load i64, ptr %134, align 8, !noalias !12
+  invoke void @_ZN5drjit12DynamicArrayIfE5load_EPKvm(ptr dead_on_unwind writable sret(%"struct.drjit::DynamicArray") align 8 %241, ptr noundef %820, i64 noundef %821)
+          to label %822 unwind label %798
 
-821:                                              ; preds = %813
-  br label %822
+822:                                              ; preds = %814
+  br label %823
 
-822:                                              ; preds = %821
-  %823 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 5
-  %824 = invoke noundef nonnull align 8 dereferenceable(17) ptr @_ZN5drjit12DynamicArrayIfEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(17) %823, ptr noundef nonnull align 8 dereferenceable(17) %241)
-          to label %825 unwind label %855
+823:                                              ; preds = %822
+  %824 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 5
+  %825 = invoke noundef nonnull align 8 dereferenceable(17) ptr @_ZN5drjit12DynamicArrayIfEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(17) %824, ptr noundef nonnull align 8 dereferenceable(17) %241)
+          to label %826 unwind label %856
 
-825:                                              ; preds = %822
+826:                                              ; preds = %823
   call void @_ZN5drjit12DynamicArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %241) #17
-  %826 = call noundef ptr @_ZNKSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %229) #17
-  %827 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
-  %828 = load i32, ptr %827, align 16
-  %829 = mul i32 %828, 3
-  %830 = zext i32 %829 to i64
+  %827 = call noundef ptr @_ZNKSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %229) #17
+  %828 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
+  %829 = load i32, ptr %828, align 16
+  %830 = mul i32 %829, 3
+  %831 = zext i32 %830 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   store ptr %242, ptr %135, align 8, !noalias !15
-  store ptr %826, ptr %136, align 8, !noalias !15
-  store i64 %830, ptr %137, align 8, !noalias !15
-  %831 = load ptr, ptr %136, align 8, !noalias !15
-  %832 = load i64, ptr %137, align 8, !noalias !15
-  invoke void @_ZN5drjit12DynamicArrayIfE5load_EPKvm(ptr dead_on_unwind writable sret(%"struct.drjit::DynamicArray") align 8 %242, ptr noundef %831, i64 noundef %832)
-          to label %833 unwind label %797
+  store ptr %827, ptr %136, align 8, !noalias !15
+  store i64 %831, ptr %137, align 8, !noalias !15
+  %832 = load ptr, ptr %136, align 8, !noalias !15
+  %833 = load i64, ptr %137, align 8, !noalias !15
+  invoke void @_ZN5drjit12DynamicArrayIfE5load_EPKvm(ptr dead_on_unwind writable sret(%"struct.drjit::DynamicArray") align 8 %242, ptr noundef %832, i64 noundef %833)
+          to label %834 unwind label %798
 
-833:                                              ; preds = %825
-  br label %834
+834:                                              ; preds = %826
+  br label %835
 
-834:                                              ; preds = %833
-  %835 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 6
-  %836 = invoke noundef nonnull align 8 dereferenceable(17) ptr @_ZN5drjit12DynamicArrayIfEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(17) %835, ptr noundef nonnull align 8 dereferenceable(17) %242)
-          to label %837 unwind label %859
+835:                                              ; preds = %834
+  %836 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 6
+  %837 = invoke noundef nonnull align 8 dereferenceable(17) ptr @_ZN5drjit12DynamicArrayIfEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(17) %836, ptr noundef nonnull align 8 dereferenceable(17) %242)
+          to label %838 unwind label %860
 
-837:                                              ; preds = %834
+838:                                              ; preds = %835
   call void @_ZN5drjit12DynamicArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %242) #17
-  %838 = call noundef ptr @_ZNKSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %230) #17
-  %839 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
-  %840 = load i32, ptr %839, align 16
-  %841 = mul i32 %840, 2
-  %842 = zext i32 %841 to i64
+  %839 = call noundef ptr @_ZNKSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEE3getB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %230) #17
+  %840 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 3
+  %841 = load i32, ptr %840, align 16
+  %842 = mul i32 %841, 2
+  %843 = zext i32 %842 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   store ptr %243, ptr %138, align 8, !noalias !18
-  store ptr %838, ptr %139, align 8, !noalias !18
-  store i64 %842, ptr %140, align 8, !noalias !18
-  %843 = load ptr, ptr %139, align 8, !noalias !18
-  %844 = load i64, ptr %140, align 8, !noalias !18
-  invoke void @_ZN5drjit12DynamicArrayIfE5load_EPKvm(ptr dead_on_unwind writable sret(%"struct.drjit::DynamicArray") align 8 %243, ptr noundef %843, i64 noundef %844)
-          to label %845 unwind label %797
+  store ptr %839, ptr %139, align 8, !noalias !18
+  store i64 %843, ptr %140, align 8, !noalias !18
+  %844 = load ptr, ptr %139, align 8, !noalias !18
+  %845 = load i64, ptr %140, align 8, !noalias !18
+  invoke void @_ZN5drjit12DynamicArrayIfE5load_EPKvm(ptr dead_on_unwind writable sret(%"struct.drjit::DynamicArray") align 8 %243, ptr noundef %844, i64 noundef %845)
+          to label %846 unwind label %798
 
-845:                                              ; preds = %837
-  br label %846
+846:                                              ; preds = %838
+  br label %847
 
-846:                                              ; preds = %845
-  %847 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 7
-  %848 = invoke noundef nonnull align 8 dereferenceable(17) ptr @_ZN5drjit12DynamicArrayIfEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(17) %847, ptr noundef nonnull align 8 dereferenceable(17) %243)
-          to label %849 unwind label %863
+847:                                              ; preds = %846
+  %848 = getelementptr inbounds %"class.mitsuba::Mesh", ptr %244, i32 0, i32 7
+  %849 = invoke noundef nonnull align 8 dereferenceable(17) ptr @_ZN5drjit12DynamicArrayIfEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(17) %848, ptr noundef nonnull align 8 dereferenceable(17) %243)
+          to label %850 unwind label %864
 
-849:                                              ; preds = %846
+850:                                              ; preds = %847
   call void @_ZN5drjit12DynamicArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %243) #17
   invoke void @_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE10initializeEv(ptr noundef nonnull align 16 dereferenceable(832) %244)
-          to label %850 unwind label %797
+          to label %851 unwind label %798
 
-850:                                              ; preds = %849
+851:                                              ; preds = %850
   call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %230) #17
   call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %229) #17
   call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %228) #17
@@ -2754,84 +2755,84 @@ define weak_odr void @_ZN7mitsuba4CubeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
   call void @_ZNSt3__16vectorIN7mitsuba6VectorIfLm3EEENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %168) #17
   ret void
 
-851:                                              ; preds = %810
-  %852 = landingpad { ptr, i32 }
+852:                                              ; preds = %811
+  %853 = landingpad { ptr, i32 }
           cleanup
-  %853 = extractvalue { ptr, i32 } %852, 0
-  store ptr %853, ptr %166, align 8
-  %854 = extractvalue { ptr, i32 } %852, 1
-  store i32 %854, ptr %167, align 4
+  %854 = extractvalue { ptr, i32 } %853, 0
+  store ptr %854, ptr %166, align 8
+  %855 = extractvalue { ptr, i32 } %853, 1
+  store i32 %855, ptr %167, align 4
   call void @_ZN5drjit12DynamicArrayIjED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %240) #17
-  br label %867
-
-855:                                              ; preds = %822
-  %856 = landingpad { ptr, i32 }
-          cleanup
-  %857 = extractvalue { ptr, i32 } %856, 0
-  store ptr %857, ptr %166, align 8
-  %858 = extractvalue { ptr, i32 } %856, 1
-  store i32 %858, ptr %167, align 4
-  call void @_ZN5drjit12DynamicArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %241) #17
-  br label %867
-
-859:                                              ; preds = %834
-  %860 = landingpad { ptr, i32 }
-          cleanup
-  %861 = extractvalue { ptr, i32 } %860, 0
-  store ptr %861, ptr %166, align 8
-  %862 = extractvalue { ptr, i32 } %860, 1
-  store i32 %862, ptr %167, align 4
-  call void @_ZN5drjit12DynamicArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %242) #17
-  br label %867
-
-863:                                              ; preds = %846
-  %864 = landingpad { ptr, i32 }
-          cleanup
-  %865 = extractvalue { ptr, i32 } %864, 0
-  store ptr %865, ptr %166, align 8
-  %866 = extractvalue { ptr, i32 } %864, 1
-  store i32 %866, ptr %167, align 4
-  call void @_ZN5drjit12DynamicArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %243) #17
-  br label %867
-
-867:                                              ; preds = %863, %859, %855, %851, %797
-  call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %230) #17
   br label %868
 
-868:                                              ; preds = %867, %793
-  call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %229) #17
+856:                                              ; preds = %823
+  %857 = landingpad { ptr, i32 }
+          cleanup
+  %858 = extractvalue { ptr, i32 } %857, 0
+  store ptr %858, ptr %166, align 8
+  %859 = extractvalue { ptr, i32 } %857, 1
+  store i32 %859, ptr %167, align 4
+  call void @_ZN5drjit12DynamicArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %241) #17
+  br label %868
+
+860:                                              ; preds = %835
+  %861 = landingpad { ptr, i32 }
+          cleanup
+  %862 = extractvalue { ptr, i32 } %861, 0
+  store ptr %862, ptr %166, align 8
+  %863 = extractvalue { ptr, i32 } %861, 1
+  store i32 %863, ptr %167, align 4
+  call void @_ZN5drjit12DynamicArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %242) #17
+  br label %868
+
+864:                                              ; preds = %847
+  %865 = landingpad { ptr, i32 }
+          cleanup
+  %866 = extractvalue { ptr, i32 } %865, 0
+  store ptr %866, ptr %166, align 8
+  %867 = extractvalue { ptr, i32 } %865, 1
+  store i32 %867, ptr %167, align 4
+  call void @_ZN5drjit12DynamicArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %243) #17
+  br label %868
+
+868:                                              ; preds = %864, %860, %856, %852, %798
+  call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %230) #17
   br label %869
 
-869:                                              ; preds = %868, %789
-  call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %228) #17
+869:                                              ; preds = %868, %794
+  call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %229) #17
   br label %870
 
-870:                                              ; preds = %869, %785
-  call void @_ZNSt3__16vectorINS_5arrayIjLm3EEENS_9allocatorIS2_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %225) #17
+870:                                              ; preds = %869, %790
+  call void @_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %228) #17
   br label %871
 
-871:                                              ; preds = %870, %781
-  call void @_ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %174) #17
+871:                                              ; preds = %870, %786
+  call void @_ZNSt3__16vectorINS_5arrayIjLm3EEENS_9allocatorIS2_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %225) #17
   br label %872
 
-872:                                              ; preds = %871, %777
-  call void @_ZNSt3__16vectorIN7mitsuba6NormalIfLm3EEENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %171) #17
+872:                                              ; preds = %871, %782
+  call void @_ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %174) #17
   br label %873
 
-873:                                              ; preds = %872, %773
-  call void @_ZNSt3__16vectorIN7mitsuba6VectorIfLm3EEENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %168) #17
+873:                                              ; preds = %872, %778
+  call void @_ZNSt3__16vectorIN7mitsuba6NormalIfLm3EEENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %171) #17
   br label %874
 
-874:                                              ; preds = %873, %769
-  call void @_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 16 dereferenceable(832) %244) #17
+874:                                              ; preds = %873, %774
+  call void @_ZNSt3__16vectorIN7mitsuba6VectorIfLm3EEENS_9allocatorIS3_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %168) #17
   br label %875
 
-875:                                              ; preds = %874
-  %876 = load ptr, ptr %166, align 8
-  %877 = load i32, ptr %167, align 4
-  %878 = insertvalue { ptr, i32 } poison, ptr %876, 0
-  %879 = insertvalue { ptr, i32 } %878, i32 %877, 1
-  resume { ptr, i32 } %879
+875:                                              ; preds = %874, %770
+  call void @_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 16 dereferenceable(832) %244) #17
+  br label %876
+
+876:                                              ; preds = %875
+  %877 = load ptr, ptr %166, align 8
+  %878 = load i32, ptr %167, align 4
+  %879 = insertvalue { ptr, i32 } poison, ptr %877, 0
+  %880 = insertvalue { ptr, i32 } %879, i32 %878, 1
+  resume { ptr, i32 } %880
 }
 
 declare void @_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 16 dereferenceable(832), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -4806,7 +4807,8 @@ define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -10173,32 +10175,33 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail2
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000EOSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000EOSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10213,7 +10216,8 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__baseIFPN7mitsuba6Object
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10741,32 +10745,33 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail2
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_OSQ_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11196,32 +11201,33 @@ define linkonce_odr hidden void @_ZNSt3__110__function6__funcIZN7mitsuba6detail2
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_RKSQ_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVNSt3__110__function6__funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.std::__1::__function::__func", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3__110__function12__alloc_funcIZN7mitsuba6detail21get_construct_functorINS2_4CubeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEETnNS_9enable_ifIX18is_constructible_vIT_RKNS2_10PropertiesEEEiE4typeELi0EEENS_8functionIFPNS2_6ObjectESG_EEEvEUlSG_E_NS_9allocatorISO_EESM_EC2B8ne190000ERKSO_RKSQ_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %7, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %8, align 4
-  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZNSt3__110__function6__baseIFPN7mitsuba6ObjectERKNS2_10PropertiesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable

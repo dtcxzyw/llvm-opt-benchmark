@@ -216,55 +216,57 @@ declare dso_local i32 @atomic_notifier_chain_unregister(ptr noundef, ptr noundef
 define dso_local noundef ptr @fib_notifier_ops_register(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call dereferenceable_or_null(64) ptr @kmemdup(ptr noundef %0, i64 noundef 64, i32 noundef 3264) #5
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %29, label %5
+  %5 = inttoptr i64 -12 to ptr
+  br i1 %4, label %31, label %6
 
-5:                                                ; preds = %2
-  %6 = load i32, ptr @fib_notifier_net_id, align 4
+6:                                                ; preds = %2
+  %7 = load i32, ptr @fib_notifier_net_id, align 4
   tail call void @__rcu_read_lock() #4
-  %7 = getelementptr inbounds i8, ptr %1, i64 2536
-  %8 = load volatile ptr, ptr %7, align 8
-  %9 = zext i32 %6 to i64
-  %10 = getelementptr [0 x ptr], ptr %8, i64 0, i64 %9
-  %11 = load ptr, ptr %10, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 2536
+  %9 = load volatile ptr, ptr %8, align 8
+  %10 = zext i32 %7 to i64
+  %11 = getelementptr [0 x ptr], ptr %9, i64 0, i64 %10
+  %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #4
-  br label %12
+  br label %13
 
-12:                                               ; preds = %16, %5
-  %13 = phi ptr [ %11, %5 ], [ %14, %16 ]
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %11
-  br i1 %15, label %21, label %16
+13:                                               ; preds = %17, %6
+  %14 = phi ptr [ %12, %6 ], [ %15, %17 ]
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, %12
+  br i1 %16, label %23, label %17
 
-16:                                               ; preds = %12
-  %17 = getelementptr i8, ptr %14, i64 -8
-  %18 = load i32, ptr %3, align 8
-  %19 = load i32, ptr %17, align 8
-  %20 = icmp eq i32 %18, %19
-  br i1 %20, label %26, label %12, !llvm.loop !10
+17:                                               ; preds = %13
+  %18 = getelementptr i8, ptr %15, i64 -8
+  %19 = load i32, ptr %3, align 8
+  %20 = load i32, ptr %18, align 8
+  %21 = icmp eq i32 %19, %20
+  %22 = inttoptr i64 -17 to ptr
+  br i1 %21, label %28, label %13, !llvm.loop !10
 
-21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 8
-  %24 = load ptr, ptr %23, align 8
-  store ptr %11, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %24, ptr %25, align 8
+23:                                               ; preds = %13
+  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds i8, ptr %12, i64 8
+  %26 = load ptr, ptr %25, align 8
+  store ptr %12, ptr %24, align 8
+  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %26, ptr %27, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
-  store volatile ptr %22, ptr %24, align 8
-  store ptr %22, ptr %23, align 8
-  br label %26
+  store volatile ptr %24, ptr %26, align 8
+  store ptr %24, ptr %25, align 8
+  br label %28
 
-26:                                               ; preds = %21, %16
-  %27 = phi ptr [ null, %21 ], [ inttoptr (i64 -17 to ptr), %16 ]
-  br i1 %15, label %29, label %28
+28:                                               ; preds = %23, %17
+  %29 = phi ptr [ null, %23 ], [ %22, %17 ]
+  br i1 %16, label %31, label %30
 
-28:                                               ; preds = %26
+30:                                               ; preds = %28
   tail call void @kfree(ptr noundef nonnull %3) #4
-  br label %29
+  br label %31
 
-29:                                               ; preds = %28, %26, %2
-  %30 = phi ptr [ %27, %28 ], [ %3, %26 ], [ inttoptr (i64 -12 to ptr), %2 ]
-  ret ptr %30
+31:                                               ; preds = %30, %28, %2
+  %32 = phi ptr [ %29, %30 ], [ %3, %28 ], [ %5, %2 ]
+  ret ptr %32
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
@@ -282,16 +284,17 @@ define dso_local void @fib_notifier_ops_unregister(ptr noundef %0) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %3, align 8
-  %7 = icmp eq ptr %0, null
-  br i1 %7, label %10, label %8
+  %7 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %7, ptr %3, align 8
+  %8 = icmp eq ptr %0, null
+  br i1 %8, label %11, label %9
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @kvfree_call_rcu(ptr noundef %9, ptr noundef nonnull %0) #4
-  br label %10
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  tail call void @kvfree_call_rcu(ptr noundef %10, ptr noundef nonnull %0) #4
+  br label %11
 
-10:                                               ; preds = %8, %1
+11:                                               ; preds = %9, %1
   ret void
 }
 

@@ -103,7 +103,7 @@ define dso_local void @driver_deferred_probe_add(ptr nocapture noundef readonly 
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 16
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %16, label %6
+  br i1 %5, label %18, label %6
 
 6:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
@@ -112,22 +112,24 @@ define dso_local void @driver_deferred_probe_add(ptr nocapture noundef readonly 
   %9 = getelementptr inbounds i8, ptr %8, i64 168
   %10 = load volatile ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %9
-  br i1 %11, label %12, label %15
+  br i1 %11, label %12, label %17
 
 12:                                               ; preds = %6
-  %13 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  store ptr %9, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %13 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  store ptr %9, ptr %15, align 8
   store ptr @deferred_probe_pending_list, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 176
-  store ptr %13, ptr %14, align 8
-  store volatile ptr %9, ptr %13, align 8
-  br label %15
+  %16 = getelementptr inbounds i8, ptr %8, i64 176
+  store ptr %14, ptr %16, align 8
+  store volatile ptr %9, ptr %14, align 8
+  br label %17
 
-15:                                               ; preds = %12, %6
+17:                                               ; preds = %12, %6
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
-  br label %16
+  br label %18
 
-16:                                               ; preds = %15, %1
+18:                                               ; preds = %17, %1
   ret void
 }
 
@@ -172,34 +174,38 @@ define dso_local void @driver_deferred_probe_del(ptr nocapture noundef readonly 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @driver_deferred_probe_trigger() local_unnamed_addr #0 align 16 {
   %1 = load i1, ptr @driver_deferred_probe_enable, align 1
-  br i1 %1, label %2, label %12
+  br i1 %1, label %2, label %16
 
 2:                                                ; preds = %0
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @deferred_trigger_count, ptr nonnull elementtype(i32) @deferred_trigger_count) #9, !srcloc !5
   %3 = load volatile ptr, ptr @deferred_probe_pending_list, align 8
   %4 = icmp eq ptr %3, @deferred_probe_pending_list
-  br i1 %4, label %9, label %5
+  br i1 %4, label %13, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %6, ptr %8, align 8
-  store ptr %3, ptr %6, align 8
-  store ptr @deferred_probe_active_list, ptr %7, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+  %6 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %7, ptr %10, align 8
+  store ptr %3, ptr %7, align 8
+  store ptr @deferred_probe_active_list, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  store ptr %9, ptr %11, align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  br label %9
+  %12 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  store volatile ptr @deferred_probe_pending_list, ptr %12, align 8
+  br label %13
 
-9:                                                ; preds = %5, %2
+13:                                               ; preds = %5, %2
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %10 = load ptr, ptr @system_unbound_wq, align 8
-  %11 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %10, ptr noundef nonnull @deferred_probe_work) #9
-  br label %12
+  %14 = load ptr, ptr @system_unbound_wq, align 8
+  %15 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %14, ptr noundef nonnull @deferred_probe_work) #9
+  br label %16
 
-12:                                               ; preds = %9, %0
+16:                                               ; preds = %13, %0
   ret void
 }
 
@@ -249,34 +255,38 @@ define dso_local void @wait_for_device_probe() #0 align 16 {
 define dso_local void @device_unblock_probing() local_unnamed_addr #0 align 16 {
   store i1 false, ptr @defer_all_probes, align 1
   %1 = load i1, ptr @driver_deferred_probe_enable, align 1
-  br i1 %1, label %2, label %12
+  br i1 %1, label %2, label %16
 
 2:                                                ; preds = %0
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @deferred_trigger_count, ptr nonnull elementtype(i32) @deferred_trigger_count) #9, !srcloc !5
   %3 = load volatile ptr, ptr @deferred_probe_pending_list, align 8
   %4 = icmp eq ptr %3, @deferred_probe_pending_list
-  br i1 %4, label %9, label %5
+  br i1 %4, label %13, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %6, ptr %8, align 8
-  store ptr %3, ptr %6, align 8
-  store ptr @deferred_probe_active_list, ptr %7, align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+  %6 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %7, ptr %10, align 8
+  store ptr %3, ptr %7, align 8
+  store ptr @deferred_probe_active_list, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  store ptr %9, ptr %11, align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  br label %9
+  %12 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  store volatile ptr @deferred_probe_pending_list, ptr %12, align 8
+  br label %13
 
-9:                                                ; preds = %5, %2
+13:                                               ; preds = %5, %2
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %10 = load ptr, ptr @system_unbound_wq, align 8
-  %11 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %10, ptr noundef nonnull @deferred_probe_work) #9
-  br label %12
+  %14 = load ptr, ptr @system_unbound_wq, align 8
+  %15 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %14, ptr noundef nonnull @deferred_probe_work) #9
+  br label %16
 
-12:                                               ; preds = %9, %0
+16:                                               ; preds = %13, %0
   ret void
 }
 
@@ -378,61 +388,69 @@ define internal noundef i32 @deferred_probe_initcall() #0 align 16 {
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @deferred_trigger_count, ptr nonnull elementtype(i32) @deferred_trigger_count) #9, !srcloc !5
   %2 = load volatile ptr, ptr @deferred_probe_pending_list, align 8
   %3 = icmp eq ptr %2, @deferred_probe_pending_list
-  br i1 %3, label %8, label %4
+  br i1 %3, label %12, label %4
 
 4:                                                ; preds = %0
-  %5 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %5, ptr %7, align 8
-  store ptr %2, ptr %5, align 8
-  store ptr @deferred_probe_active_list, ptr %6, align 8
-  store ptr %6, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+  %5 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %6, ptr %9, align 8
+  store ptr %2, ptr %6, align 8
+  store ptr @deferred_probe_active_list, ptr %8, align 8
+  %10 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  store ptr %8, ptr %10, align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  br label %8
+  %11 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  store volatile ptr @deferred_probe_pending_list, ptr %11, align 8
+  br label %12
 
-8:                                                ; preds = %4, %0
+12:                                               ; preds = %4, %0
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %9 = load ptr, ptr @system_unbound_wq, align 8
-  %10 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %9, ptr noundef nonnull @deferred_probe_work) #9
-  %11 = tail call zeroext i1 @flush_work(ptr noundef nonnull @deferred_probe_work) #9
+  %13 = load ptr, ptr @system_unbound_wq, align 8
+  %14 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %13, ptr noundef nonnull @deferred_probe_work) #9
+  %15 = tail call zeroext i1 @flush_work(ptr noundef nonnull @deferred_probe_work) #9
   store i1 true, ptr @initcalls_done, align 1
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @deferred_trigger_count, ptr nonnull elementtype(i32) @deferred_trigger_count) #9, !srcloc !5
-  %12 = load volatile ptr, ptr @deferred_probe_pending_list, align 8
-  %13 = icmp eq ptr %12, @deferred_probe_pending_list
-  br i1 %13, label %18, label %14
+  %16 = load volatile ptr, ptr @deferred_probe_pending_list, align 8
+  %17 = icmp eq ptr %16, @deferred_probe_pending_list
+  br i1 %17, label %26, label %18
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %15, ptr %17, align 8
-  store ptr %12, ptr %15, align 8
-  store ptr @deferred_probe_active_list, ptr %16, align 8
-  store ptr %16, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %20, ptr %23, align 8
+  store ptr %16, ptr %20, align 8
+  store ptr @deferred_probe_active_list, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  store ptr %22, ptr %24, align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  br label %18
+  %25 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  store volatile ptr @deferred_probe_pending_list, ptr %25, align 8
+  br label %26
 
-18:                                               ; preds = %14, %8
+26:                                               ; preds = %18, %12
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %19 = load ptr, ptr @system_unbound_wq, align 8
-  %20 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %19, ptr noundef nonnull @deferred_probe_work) #9
-  %21 = tail call zeroext i1 @flush_work(ptr noundef nonnull @deferred_probe_work) #9
-  %22 = load i32, ptr @driver_deferred_probe_timeout, align 4
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %24, label %29
+  %27 = load ptr, ptr @system_unbound_wq, align 8
+  %28 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %27, ptr noundef nonnull @deferred_probe_work) #9
+  %29 = tail call zeroext i1 @flush_work(ptr noundef nonnull @deferred_probe_work) #9
+  %30 = load i32, ptr @driver_deferred_probe_timeout, align 4
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %37
 
-24:                                               ; preds = %18
-  %25 = mul i32 %22, 1000
-  %26 = sext i32 %25 to i64
-  %27 = load ptr, ptr @system_wq, align 8
-  %28 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %27, ptr noundef nonnull @deferred_probe_timeout_work, i64 noundef %26) #9
-  br label %29
+32:                                               ; preds = %26
+  %33 = mul i32 %30, 1000
+  %34 = sext i32 %33 to i64
+  %35 = load ptr, ptr @system_wq, align 8
+  %36 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %35, ptr noundef nonnull @deferred_probe_timeout_work, i64 noundef %34) #9
+  br label %37
 
-29:                                               ; preds = %24, %18
+37:                                               ; preds = %32, %26
   ret i32 0
 }
 
@@ -531,7 +549,7 @@ define internal fastcc void @driver_bound(ptr noundef %0) unnamed_addr #0 align 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 8
   %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.driver_bound, ptr noundef %10) #10
-  br label %47
+  br label %51
 
 12:                                               ; preds = %5, %1
   %13 = load ptr, ptr %2, align 8
@@ -571,39 +589,43 @@ define internal fastcc void @driver_bound(ptr noundef %0) unnamed_addr #0 align 
 33:                                               ; preds = %24, %12
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
   %34 = load i1, ptr @driver_deferred_probe_enable, align 1
-  br i1 %34, label %35, label %45
+  br i1 %34, label %35, label %49
 
 35:                                               ; preds = %33
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @deferred_trigger_count, ptr nonnull elementtype(i32) @deferred_trigger_count) #9, !srcloc !5
   %36 = load volatile ptr, ptr @deferred_probe_pending_list, align 8
   %37 = icmp eq ptr %36, @deferred_probe_pending_list
-  br i1 %37, label %42, label %38
+  br i1 %37, label %46, label %38
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %40 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %39, ptr %41, align 8
-  store ptr %36, ptr %39, align 8
-  store ptr @deferred_probe_active_list, ptr %40, align 8
-  store ptr %40, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+  %39 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %36, i64 8
+  store ptr %40, ptr %43, align 8
+  store ptr %36, ptr %40, align 8
+  store ptr @deferred_probe_active_list, ptr %42, align 8
+  %44 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  store ptr %42, ptr %44, align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  br label %42
+  %45 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  store volatile ptr @deferred_probe_pending_list, ptr %45, align 8
+  br label %46
 
-42:                                               ; preds = %38, %35
+46:                                               ; preds = %38, %35
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %43 = load ptr, ptr @system_unbound_wq, align 8
-  %44 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %43, ptr noundef nonnull @deferred_probe_work) #9
-  br label %45
+  %47 = load ptr, ptr @system_unbound_wq, align 8
+  %48 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %47, ptr noundef nonnull @deferred_probe_work) #9
+  br label %49
 
-45:                                               ; preds = %42, %33
+49:                                               ; preds = %46, %33
   tail call void @bus_notify(ptr noundef %0, i32 noundef 4) #9
-  %46 = tail call i32 @kobject_uevent(ptr noundef %0, i32 noundef 6) #9
-  br label %47
+  %50 = tail call i32 @kobject_uevent(ptr noundef %0, i32 noundef 6) #9
+  br label %51
 
-47:                                               ; preds = %45, %9
+51:                                               ; preds = %49, %9
   ret void
 }
 
@@ -940,8 +962,8 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
 
 10:                                               ; preds = %8, %2
   %11 = phi i32 [ %9, %8 ], [ 1, %2 ]
-  switch i32 %11, label %25 [
-    i32 0, label %88
+  switch i32 %11, label %27 [
+    i32 0, label %90
     i32 -517, label %12
   ]
 
@@ -956,126 +978,128 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
   %18 = getelementptr inbounds i8, ptr %17, i64 168
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %18
-  br i1 %20, label %21, label %24
+  br i1 %20, label %21, label %26
 
 21:                                               ; preds = %12
-  %22 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  store ptr %18, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %22 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  store ptr %18, ptr %24, align 8
   store ptr @deferred_probe_pending_list, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 176
-  store ptr %22, ptr %23, align 8
-  store volatile ptr %18, ptr %22, align 8
-  br label %24
+  %25 = getelementptr inbounds i8, ptr %17, i64 176
+  store ptr %23, ptr %25, align 8
+  store volatile ptr %18, ptr %23, align 8
+  br label %26
 
-24:                                               ; preds = %21, %12
+26:                                               ; preds = %21, %12
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
-  br label %88
+  br label %90
 
-25:                                               ; preds = %10
-  %26 = icmp slt i32 %11, 0
-  br i1 %26, label %88, label %27
+27:                                               ; preds = %10
+  %28 = icmp slt i32 %11, 0
+  br i1 %28, label %90, label %29
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 36
-  %29 = load i32, ptr %28, align 4
-  switch i32 %29, label %30 [
-    i32 1, label %44
-    i32 2, label %63
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds i8, ptr %1, i64 36
+  %31 = load i32, ptr %30, align 4
+  switch i32 %31, label %32 [
+    i32 1, label %46
+    i32 2, label %65
   ]
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %1, align 8
-  %32 = tail call zeroext i1 @parse_option_str(ptr noundef nonnull @async_probe_drv_names, ptr noundef %31) #9
-  %33 = load i8, ptr @async_probe_default, align 1, !range !7, !noundef !8
-  %34 = zext i1 %32 to i8
-  %35 = icmp eq i8 %33, %34
-  br i1 %35, label %36, label %44
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %1, align 8
+  %34 = tail call zeroext i1 @parse_option_str(ptr noundef nonnull @async_probe_drv_names, ptr noundef %33) #9
+  %35 = load i8, ptr @async_probe_default, align 1, !range !7, !noundef !8
+  %36 = zext i1 %34 to i8
+  %37 = icmp eq i8 %35, %36
+  br i1 %37, label %38, label %46
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %63, label %40
+38:                                               ; preds = %32
+  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %65, label %42
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %38, i64 297
-  %42 = load i8, ptr %41, align 1, !range !7, !noundef !8
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %63, label %44
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds i8, ptr %40, i64 297
+  %44 = load i8, ptr %43, align 1, !range !7, !noundef !8
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %65, label %46
 
-44:                                               ; preds = %40, %30, %27
-  %45 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call void @mutex_lock(ptr noundef %45) #9
-  %46 = getelementptr inbounds i8, ptr %0, i64 104
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %62
+46:                                               ; preds = %42, %32, %29
+  %47 = getelementptr inbounds i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef %47) #9
+  %48 = getelementptr inbounds i8, ptr %0, i64 104
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %64
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 184
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds i8, ptr %0, i64 72
   %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %62
+  %54 = getelementptr inbounds i8, ptr %53, i64 184
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %64
 
-55:                                               ; preds = %49
-  %56 = tail call ptr @get_device(ptr noundef %0) #9
-  %57 = load ptr, ptr %50, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 184
-  store ptr %1, ptr %58, align 8
-  tail call void @mutex_unlock(ptr noundef %45) #9
-  %59 = getelementptr inbounds i8, ptr %0, i64 640
-  %60 = load i32, ptr %59, align 8
-  %61 = tail call i64 @async_schedule_node(ptr noundef nonnull @__driver_attach_async_helper, ptr noundef %0, i32 noundef %60) #9
-  br label %88
+57:                                               ; preds = %51
+  %58 = tail call ptr @get_device(ptr noundef %0) #9
+  %59 = load ptr, ptr %52, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 184
+  store ptr %1, ptr %60, align 8
+  tail call void @mutex_unlock(ptr noundef %47) #9
+  %61 = getelementptr inbounds i8, ptr %0, i64 640
+  %62 = load i32, ptr %61, align 8
+  %63 = tail call i64 @async_schedule_node(ptr noundef nonnull @__driver_attach_async_helper, ptr noundef %0, i32 noundef %62) #9
+  br label %90
 
-62:                                               ; preds = %49, %44
-  tail call void @mutex_unlock(ptr noundef %45) #9
-  br label %88
+64:                                               ; preds = %51, %46
+  tail call void @mutex_unlock(ptr noundef %47) #9
+  br label %90
 
-63:                                               ; preds = %40, %36, %27
-  %64 = getelementptr inbounds i8, ptr %0, i64 64
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %75, label %67
+65:                                               ; preds = %42, %38, %29
+  %66 = getelementptr inbounds i8, ptr %0, i64 64
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %77, label %69
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %0, i64 96
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 152
-  %71 = load i8, ptr %70, align 8, !range !7, !noundef !8
-  %72 = icmp eq i8 %71, 0
-  br i1 %72, label %75, label %73
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %0, i64 96
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 152
+  %73 = load i8, ptr %72, align 8, !range !7, !noundef !8
+  %74 = icmp eq i8 %73, 0
+  br i1 %74, label %77, label %75
 
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %65, i64 128
-  tail call void @mutex_lock(ptr noundef %74) #9
-  br label %75
-
-75:                                               ; preds = %73, %67, %63
-  %76 = getelementptr inbounds i8, ptr %0, i64 128
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds i8, ptr %67, i64 128
   tail call void @mutex_lock(ptr noundef %76) #9
-  %77 = tail call fastcc i32 @driver_probe_device(ptr noundef %1, ptr noundef %0)
-  %78 = load ptr, ptr %64, align 8
-  tail call void @mutex_unlock(ptr noundef %76) #9
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %88, label %80
+  br label %77
 
-80:                                               ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %0, i64 96
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 152
-  %84 = load i8, ptr %83, align 8, !range !7, !noundef !8
-  %85 = icmp eq i8 %84, 0
-  br i1 %85, label %88, label %86
+77:                                               ; preds = %75, %69, %65
+  %78 = getelementptr inbounds i8, ptr %0, i64 128
+  tail call void @mutex_lock(ptr noundef %78) #9
+  %79 = tail call fastcc i32 @driver_probe_device(ptr noundef %1, ptr noundef %0)
+  %80 = load ptr, ptr %66, align 8
+  tail call void @mutex_unlock(ptr noundef %78) #9
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %90, label %82
 
-86:                                               ; preds = %80
-  %87 = getelementptr inbounds i8, ptr %78, i64 128
-  tail call void @mutex_unlock(ptr noundef %87) #9
-  br label %88
+82:                                               ; preds = %77
+  %83 = getelementptr inbounds i8, ptr %0, i64 96
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 152
+  %86 = load i8, ptr %85, align 8, !range !7, !noundef !8
+  %87 = icmp eq i8 %86, 0
+  br i1 %87, label %90, label %88
 
-88:                                               ; preds = %86, %80, %75, %62, %55, %25, %24, %10
+88:                                               ; preds = %82
+  %89 = getelementptr inbounds i8, ptr %80, i64 128
+  tail call void @mutex_unlock(ptr noundef %89) #9
+  br label %90
+
+90:                                               ; preds = %88, %82, %77, %64, %57, %27, %26, %10
   ret i32 0
 }
 
@@ -1452,54 +1476,58 @@ define internal void @deferred_probe_timeout_work_func(ptr nocapture readnone %0
   tail call void @fw_devlink_drivers_done() #9
   store i32 0, ptr @driver_deferred_probe_timeout, align 4
   %2 = load i1, ptr @driver_deferred_probe_enable, align 1
-  br i1 %2, label %3, label %13
+  br i1 %2, label %3, label %17
 
 3:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @deferred_trigger_count, ptr nonnull elementtype(i32) @deferred_trigger_count) #9, !srcloc !5
   %4 = load volatile ptr, ptr @deferred_probe_pending_list, align 8
   %5 = icmp eq ptr %4, @deferred_probe_pending_list
-  br i1 %5, label %10, label %6
+  br i1 %5, label %14, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %7, ptr %9, align 8
-  store ptr %4, ptr %7, align 8
-  store ptr @deferred_probe_active_list, ptr %8, align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+  %7 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %8, ptr %11, align 8
+  store ptr %4, ptr %8, align 8
+  store ptr @deferred_probe_active_list, ptr %10, align 8
+  %12 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  store ptr %10, ptr %12, align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  br label %10
+  %13 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  store volatile ptr @deferred_probe_pending_list, ptr %13, align 8
+  br label %14
 
-10:                                               ; preds = %6, %3
+14:                                               ; preds = %6, %3
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %11 = load ptr, ptr @system_unbound_wq, align 8
-  %12 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %11, ptr noundef nonnull @deferred_probe_work) #9
-  br label %13
+  %15 = load ptr, ptr @system_unbound_wq, align 8
+  %16 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %15, ptr noundef nonnull @deferred_probe_work) #9
+  br label %17
 
-13:                                               ; preds = %10, %1
-  %14 = tail call zeroext i1 @flush_work(ptr noundef nonnull @deferred_probe_work) #9
+17:                                               ; preds = %14, %1
+  %18 = tail call zeroext i1 @flush_work(ptr noundef nonnull @deferred_probe_work) #9
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %15 = load ptr, ptr @deferred_probe_pending_list, align 8
-  %16 = icmp eq ptr %15, @deferred_probe_pending_list
-  br i1 %16, label %27, label %17
+  %19 = load ptr, ptr @deferred_probe_pending_list, align 8
+  %20 = icmp eq ptr %19, @deferred_probe_pending_list
+  br i1 %20, label %31, label %21
 
-17:                                               ; preds = %17, %13
-  %18 = phi ptr [ %25, %17 ], [ %15, %13 ]
-  %19 = getelementptr i8, ptr %18, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr i8, ptr %18, i64 24
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  %24 = select i1 %23, ptr @.str.4, ptr %22
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #10
-  %25 = load ptr, ptr %18, align 8
-  %26 = icmp eq ptr %25, @deferred_probe_pending_list
-  br i1 %26, label %27, label %17, !llvm.loop !14
+21:                                               ; preds = %21, %17
+  %22 = phi ptr [ %29, %21 ], [ %19, %17 ]
+  %23 = getelementptr i8, ptr %22, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr i8, ptr %22, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  %28 = select i1 %27, ptr @.str.4, ptr %26
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %24, ptr noundef nonnull @.str.3, ptr noundef nonnull %28) #10
+  %29 = load ptr, ptr %22, align 8
+  %30 = icmp eq ptr %29, @deferred_probe_pending_list
+  br i1 %30, label %31, label %21, !llvm.loop !14
 
-27:                                               ; preds = %17, %13
+31:                                               ; preds = %21, %17
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
   tail call void @fw_devlink_probing_done() #9
   ret void
@@ -1636,8 +1664,8 @@ define internal noundef i32 @__device_attach_driver(ptr noundef %0, ptr nocaptur
 
 11:                                               ; preds = %9, %2
   %12 = phi i32 [ %10, %9 ], [ 1, %2 ]
-  switch i32 %12, label %26 [
-    i32 0, label %65
+  switch i32 %12, label %28 [
+    i32 0, label %67
     i32 -517, label %13
   ]
 
@@ -1652,91 +1680,93 @@ define internal noundef i32 @__device_attach_driver(ptr noundef %0, ptr nocaptur
   %19 = getelementptr inbounds i8, ptr %18, i64 168
   %20 = load volatile ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %19
-  br i1 %21, label %22, label %25
+  br i1 %21, label %22, label %27
 
 22:                                               ; preds = %13
-  %23 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  store ptr %19, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %23 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  store ptr %19, ptr %25, align 8
   store ptr @deferred_probe_pending_list, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 176
-  store ptr %23, ptr %24, align 8
-  store volatile ptr %19, ptr %23, align 8
-  br label %25
+  %26 = getelementptr inbounds i8, ptr %18, i64 176
+  store ptr %24, ptr %26, align 8
+  store volatile ptr %19, ptr %24, align 8
+  br label %27
 
-25:                                               ; preds = %22, %13
+27:                                               ; preds = %22, %13
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
-  br label %65
+  br label %67
 
-26:                                               ; preds = %11
-  %27 = icmp slt i32 %12, 0
-  br i1 %27, label %65, label %28
+28:                                               ; preds = %11
+  %29 = icmp slt i32 %12, 0
+  br i1 %29, label %67, label %30
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 36
-  %30 = load i32, ptr %29, align 4
-  switch i32 %30, label %32 [
-    i32 1, label %46
-    i32 2, label %31
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %0, i64 36
+  %32 = load i32, ptr %31, align 4
+  switch i32 %32, label %34 [
+    i32 1, label %48
+    i32 2, label %33
   ]
 
-31:                                               ; preds = %28
-  br label %46
+33:                                               ; preds = %30
+  br label %48
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %0, align 8
-  %34 = tail call zeroext i1 @parse_option_str(ptr noundef nonnull @async_probe_drv_names, ptr noundef %33) #9
-  %35 = load i8, ptr @async_probe_default, align 1, !range !7, !noundef !8
-  %36 = zext i1 %34 to i8
-  %37 = icmp eq i8 %35, %36
-  br i1 %37, label %38, label %46
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %0, align 8
+  %36 = tail call zeroext i1 @parse_option_str(ptr noundef nonnull @async_probe_drv_names, ptr noundef %35) #9
+  %37 = load i8, ptr @async_probe_default, align 1, !range !7, !noundef !8
+  %38 = zext i1 %36 to i8
+  %39 = icmp eq i8 %37, %38
+  br i1 %39, label %40, label %48
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %46, label %42
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %48, label %44
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %40, i64 297
-  %44 = load i8, ptr %43, align 1, !range !7, !noundef !8
-  %45 = icmp ne i8 %44, 0
-  br label %46
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds i8, ptr %42, i64 297
+  %46 = load i8, ptr %45, align 1, !range !7, !noundef !8
+  %47 = icmp ne i8 %46, 0
+  br label %48
 
-46:                                               ; preds = %42, %38, %32, %31, %28
-  %47 = phi i1 [ false, %31 ], [ true, %28 ], [ true, %32 ], [ false, %38 ], [ %45, %42 ]
-  br i1 %47, label %48, label %50
+48:                                               ; preds = %44, %40, %34, %33, %30
+  %49 = phi i1 [ false, %33 ], [ true, %30 ], [ true, %34 ], [ false, %40 ], [ %47, %44 ]
+  br i1 %49, label %50, label %52
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %1, i64 10
-  store i8 1, ptr %49, align 2
-  br label %50
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds i8, ptr %1, i64 10
+  store i8 1, ptr %51, align 2
+  br label %52
 
-50:                                               ; preds = %48, %46
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  %52 = load i8, ptr %51, align 8, !range !7, !noundef !8
-  %53 = icmp eq i8 %52, 0
-  br i1 %53, label %59, label %54
+52:                                               ; preds = %50, %48
+  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = load i8, ptr %53, align 8, !range !7, !noundef !8
+  %55 = icmp eq i8 %54, 0
+  br i1 %55, label %61, label %56
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %1, i64 9
-  %56 = load i8, ptr %55, align 1, !range !7, !noundef !8
-  %57 = zext i1 %47 to i8
-  %58 = icmp eq i8 %56, %57
-  br i1 %58, label %59, label %65
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %1, i64 9
+  %58 = load i8, ptr %57, align 1, !range !7, !noundef !8
+  %59 = zext i1 %49 to i8
+  %60 = icmp eq i8 %58, %59
+  br i1 %60, label %61, label %67
 
-59:                                               ; preds = %54, %50
-  %60 = tail call fastcc i32 @driver_probe_device(ptr noundef %0, ptr noundef %3)
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %65, label %62
+61:                                               ; preds = %56, %52
+  %62 = tail call fastcc i32 @driver_probe_device(ptr noundef %0, ptr noundef %3)
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %67, label %64
 
-62:                                               ; preds = %59
-  %63 = icmp eq i32 %60, 0
-  %64 = zext i1 %63 to i32
-  br label %65
+64:                                               ; preds = %61
+  %65 = icmp eq i32 %62, 0
+  %66 = zext i1 %65 to i32
+  br label %67
 
-65:                                               ; preds = %62, %59, %54, %26, %25, %11
-  %66 = phi i32 [ -517, %25 ], [ %64, %62 ], [ %12, %11 ], [ %12, %26 ], [ 0, %54 ], [ %60, %59 ]
-  ret i32 %66
+67:                                               ; preds = %64, %61, %56, %28, %27, %11
+  %68 = phi i32 [ -517, %27 ], [ %66, %64 ], [ %12, %11 ], [ %12, %28 ], [ 0, %56 ], [ %62, %61 ]
+  ret i32 %68
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1805,7 +1835,7 @@ define internal fastcc noundef i32 @driver_probe_device(ptr noundef %0, ptr noun
   %3 = load volatile i32, ptr @deferred_trigger_count, align 4
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @probe_count, ptr nonnull elementtype(i32) @probe_count) #9, !srcloc !5
   %4 = tail call fastcc i32 @__driver_probe_device(ptr noundef %0, ptr noundef %1)
-  switch i32 %4, label %37 [
+  switch i32 %4, label %43 [
     i32 -517, label %5
     i32 517, label %5
   ]
@@ -1815,7 +1845,7 @@ define internal fastcc noundef i32 @driver_probe_device(ptr noundef %0, ptr noun
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, 16
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %20, label %10
+  br i1 %9, label %22, label %10
 
 10:                                               ; preds = %5
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
@@ -1824,62 +1854,68 @@ define internal fastcc noundef i32 @driver_probe_device(ptr noundef %0, ptr noun
   %13 = getelementptr inbounds i8, ptr %12, i64 168
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
-  br i1 %15, label %16, label %19
+  br i1 %15, label %16, label %21
 
 16:                                               ; preds = %10
-  %17 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  store ptr %13, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
+  %17 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  store ptr %13, ptr %19, align 8
   store ptr @deferred_probe_pending_list, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 176
-  store ptr %17, ptr %18, align 8
-  store volatile ptr %13, ptr %17, align 8
-  br label %19
+  %20 = getelementptr inbounds i8, ptr %12, i64 176
+  store ptr %18, ptr %20, align 8
+  store volatile ptr %13, ptr %18, align 8
+  br label %21
 
-19:                                               ; preds = %16, %10
+21:                                               ; preds = %16, %10
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
-  br label %20
+  br label %22
 
-20:                                               ; preds = %19, %5
-  %21 = load volatile i32, ptr @deferred_trigger_count, align 4
-  %22 = icmp eq i32 %3, %21
-  br i1 %22, label %37, label %23
+22:                                               ; preds = %21, %5
+  %23 = load volatile i32, ptr @deferred_trigger_count, align 4
+  %24 = icmp eq i32 %3, %23
+  br i1 %24, label %43, label %25
 
-23:                                               ; preds = %20
-  %24 = load i1, ptr @defer_all_probes, align 1
-  br i1 %24, label %37, label %25
-
-25:                                               ; preds = %23
-  %26 = load i1, ptr @driver_deferred_probe_enable, align 1
-  br i1 %26, label %27, label %37
+25:                                               ; preds = %22
+  %26 = load i1, ptr @defer_all_probes, align 1
+  br i1 %26, label %43, label %27
 
 27:                                               ; preds = %25
+  %28 = load i1, ptr @driver_deferred_probe_enable, align 1
+  br i1 %28, label %29, label %43
+
+29:                                               ; preds = %27
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @deferred_trigger_count, ptr nonnull elementtype(i32) @deferred_trigger_count) #9, !srcloc !5
-  %28 = load volatile ptr, ptr @deferred_probe_pending_list, align 8
-  %29 = icmp eq ptr %28, @deferred_probe_pending_list
-  br i1 %29, label %34, label %30
+  %30 = load volatile ptr, ptr @deferred_probe_pending_list, align 8
+  %31 = icmp eq ptr %30, @deferred_probe_pending_list
+  br i1 %31, label %40, label %32
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %31, ptr %33, align 8
-  store ptr %28, ptr %31, align 8
-  store ptr @deferred_probe_active_list, ptr %32, align 8
-  store ptr %32, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1), align 8
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %34, ptr %37, align 8
+  store ptr %30, ptr %34, align 8
+  store ptr @deferred_probe_active_list, ptr %36, align 8
+  %38 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_active_list, i64 0, i32 1
+  store ptr %36, ptr %38, align 8
   store volatile ptr @deferred_probe_pending_list, ptr @deferred_probe_pending_list, align 8
-  store volatile ptr @deferred_probe_pending_list, ptr getelementptr inbounds (%struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1), align 8
-  br label %34
+  %39 = getelementptr inbounds %struct.list_head, ptr @deferred_probe_pending_list, i64 0, i32 1
+  store volatile ptr @deferred_probe_pending_list, ptr %39, align 8
+  br label %40
 
-34:                                               ; preds = %30, %27
+40:                                               ; preds = %32, %29
   tail call void @mutex_unlock(ptr noundef nonnull @deferred_probe_mutex) #9
-  %35 = load ptr, ptr @system_unbound_wq, align 8
-  %36 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %35, ptr noundef nonnull @deferred_probe_work) #9
-  br label %37
+  %41 = load ptr, ptr @system_unbound_wq, align 8
+  %42 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %41, ptr noundef nonnull @deferred_probe_work) #9
+  br label %43
 
-37:                                               ; preds = %34, %25, %23, %20, %2
+43:                                               ; preds = %40, %27, %25, %22, %2
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @probe_count, ptr nonnull elementtype(i32) @probe_count) #9, !srcloc !16
-  %38 = tail call i32 @__wake_up(ptr noundef nonnull @probe_waitqueue, i32 noundef 3, i32 noundef 0, ptr noundef null) #9
+  %44 = tail call i32 @__wake_up(ptr noundef nonnull @probe_waitqueue, i32 noundef 3, i32 noundef 0, ptr noundef null) #9
   ret i32 %4
 }
 

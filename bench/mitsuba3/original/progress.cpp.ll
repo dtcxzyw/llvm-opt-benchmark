@@ -216,118 +216,119 @@ define void @_ZN7mitsuba16ProgressReporterC2ERKNSt3__112basic_stringIcNS1_11char
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN7mitsuba6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10)
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN7mitsuba16ProgressReporterE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 1
-  invoke void @_ZN7mitsuba5TimerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %12 unwind label %62
+  %11 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7mitsuba16ProgressReporterE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 1
+  invoke void @_ZN7mitsuba5TimerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %13 unwind label %63
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 2
-  %14 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14)
-          to label %15 unwind label %62
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 2
+  %15 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %16 unwind label %63
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 3
-  %17 = invoke noundef i32 @_ZN7mitsuba4util14terminal_widthEv()
-          to label %18 unwind label %66
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 3
+  %18 = invoke noundef i32 @_ZN7mitsuba4util14terminal_widthEv()
+          to label %19 unwind label %67
 
-18:                                               ; preds = %15
-  %19 = add nsw i32 %17, 1
-  %20 = sext i32 %19 to i64
-  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %20, i8 noundef signext 32)
-          to label %21 unwind label %66
+19:                                               ; preds = %16
+  %20 = add nsw i32 %18, 1
+  %21 = sext i32 %20 to i64
+  invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000Emc(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %21, i8 noundef signext 32)
+          to label %22 unwind label %67
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6lengthB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #12
-  %25 = add i64 %24, 3
-  store i64 %25, ptr %22, align 8
-  %26 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 5
-  store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 8
-  %28 = load ptr, ptr %6, align 8
-  store ptr %28, ptr %27, align 8
-  %29 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 3
-  %30 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef 0) #12
-  store i8 13, ptr %30, align 1
-  %31 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 3
-  %32 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6lengthB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #12
-  %33 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 4
-  %34 = load i64, ptr %33, align 8
-  %35 = sub nsw i64 %32, %34
-  %36 = sub nsw i64 %35, 2
-  %37 = sub nsw i64 %36, 22
-  store i64 %37, ptr %9, align 8
-  %38 = load i64, ptr %9, align 8
-  %39 = icmp sgt i64 %38, 0
-  br i1 %39, label %40, label %70
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6lengthB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #12
+  %26 = add i64 %25, 3
+  store i64 %26, ptr %23, align 8
+  %27 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 5
+  store i64 0, ptr %27, align 8
+  %28 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 8
+  %29 = load ptr, ptr %6, align 8
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 3
+  %31 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %30, i64 noundef 0) #12
+  store i8 13, ptr %31, align 1
+  %32 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 3
+  %33 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6lengthB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #12
+  %34 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 4
+  %35 = load i64, ptr %34, align 8
+  %36 = sub nsw i64 %33, %35
+  %37 = sub nsw i64 %36, 2
+  %38 = sub nsw i64 %37, 22
+  store i64 %38, ptr %9, align 8
+  %39 = load i64, ptr %9, align 8
+  %40 = icmp sgt i64 %39, 0
+  br i1 %40, label %41, label %71
 
-40:                                               ; preds = %21
-  %41 = load i64, ptr %9, align 8
-  %42 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 5
-  store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 3
-  %44 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #12
-  %45 = getelementptr inbounds i8, ptr %44, i64 1
-  %46 = load ptr, ptr %5, align 8
-  %47 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #12
-  %48 = load ptr, ptr %5, align 8
-  %49 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6lengthB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %47, i64 %49, i1 false)
-  %50 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 3
-  %51 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 4
-  %52 = load i64, ptr %51, align 8
-  %53 = sub i64 %52, 1
-  %54 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %50, i64 noundef %53) #12
-  store i8 91, ptr %54, align 1
-  %55 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 3
-  %56 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 4
-  %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 5
-  %59 = load i64, ptr %58, align 8
-  %60 = add i64 %57, %59
-  %61 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %60) #12
-  store i8 93, ptr %61, align 1
-  br label %70
+41:                                               ; preds = %22
+  %42 = load i64, ptr %9, align 8
+  %43 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 5
+  store i64 %42, ptr %43, align 8
+  %44 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 3
+  %45 = call noundef ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #12
+  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  %47 = load ptr, ptr %5, align 8
+  %48 = call noundef ptr @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4dataB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #12
+  %49 = load ptr, ptr %5, align 8
+  %50 = call noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6lengthB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 1 %48, i64 %50, i1 false)
+  %51 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 3
+  %52 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 4
+  %53 = load i64, ptr %52, align 8
+  %54 = sub i64 %53, 1
+  %55 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %54) #12
+  store i8 91, ptr %55, align 1
+  %56 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 3
+  %57 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 4
+  %58 = load i64, ptr %57, align 8
+  %59 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 5
+  %60 = load i64, ptr %59, align 8
+  %61 = add i64 %58, %60
+  %62 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 noundef %61) #12
+  store i8 93, ptr %62, align 1
+  br label %71
 
-62:                                               ; preds = %12, %3
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %13, %3
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  store ptr %64, ptr %7, align 8
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store i32 %65, ptr %8, align 4
-  br label %73
-
-66:                                               ; preds = %18, %15
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %7, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %8, align 4
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #12
-  br label %73
-
-70:                                               ; preds = %40, %21
-  %71 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 6
-  store i64 0, ptr %71, align 8
-  %72 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 7
-  store float -1.000000e+00, ptr %72, align 8
-  ret void
-
-73:                                               ; preds = %66, %62
-  call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #12
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %7, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %8, align 4
   br label %74
 
-74:                                               ; preds = %73
-  %75 = load ptr, ptr %7, align 8
-  %76 = load i32, ptr %8, align 4
-  %77 = insertvalue { ptr, i32 } poison, ptr %75, 0
-  %78 = insertvalue { ptr, i32 } %77, i32 %76, 1
-  resume { ptr, i32 } %78
+67:                                               ; preds = %19, %16
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %7, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %8, align 4
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  br label %74
+
+71:                                               ; preds = %41, %22
+  %72 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 6
+  store i64 0, ptr %72, align 8
+  %73 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %10, i32 0, i32 7
+  store float -1.000000e+00, ptr %73, align 8
+  ret void
+
+74:                                               ; preds = %67, %63
+  call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #12
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %7, align 8
+  %77 = load i32, ptr %8, align 4
+  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
+  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
+  resume { ptr, i32 } %79
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -335,9 +336,10 @@ define linkonce_odr void @_ZN7mitsuba6ObjectC2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN7mitsuba6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.mitsuba::Object", ptr %3, i32 0, i32 1
-  call void @_ZNSt3__16atomicIiEC2B8ne190000Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #12
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7mitsuba6ObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.mitsuba::Object", ptr %3, i32 0, i32 1
+  call void @_ZNSt3__16atomicIiEC2B8ne190000Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #12
   ret void
 }
 
@@ -472,11 +474,12 @@ define void @_ZN7mitsuba16ProgressReporterD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTVN7mitsuba16ProgressReporterE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %3, i32 0, i32 3
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
-  %5 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7mitsuba16ProgressReporterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %3, i32 0, i32 3
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %6 = getelementptr inbounds %"class.mitsuba::ProgressReporter", ptr %3, i32 0, i32 2
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #12
   ret void
 }

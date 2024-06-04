@@ -258,24 +258,25 @@ entry:
   %0 = load ptr, ptr %id.addr, align 8
   %1 = load ptr, ptr %adoptedFilter.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %2 = load ptr, ptr %rules.addr, align 8
-  %3 = load i32, ptr %direction.addr, align 4
-  %4 = load ptr, ptr %parseError.addr, align 8
-  %5 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7523RuleBasedTransliterator10_constructERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(97) %this1, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(72) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %2 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
+  %3 = load ptr, ptr %rules.addr, align 8
+  %4 = load i32, ptr %direction.addr, align 4
+  %5 = load ptr, ptr %parseError.addr, align 8
+  %6 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7523RuleBasedTransliterator10_constructERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(97) %this1, ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(72) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this1) #5
   br label %eh.resume
 
@@ -309,15 +310,16 @@ entry:
   %0 = load ptr, ptr %id.addr, align 8
   %1 = load ptr, ptr %adoptedFilter.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %fData = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %theData.addr, align 8
-  store ptr %2, ptr %fData, align 8
+  %3 = load ptr, ptr %theData.addr, align 8
+  store ptr %3, ptr %fData, align 8
   %isDataOwned = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %this1, i32 0, i32 3
   store i8 0, ptr %isDataOwned, align 8
   %fData2 = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %fData2, align 8
-  %ruleSet = getelementptr inbounds %"class.icu_75::TransliterationRuleData", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %fData2, align 8
+  %ruleSet = getelementptr inbounds %"class.icu_75::TransliterationRuleData", ptr %4, i32 0, i32 1
   %call = invoke noundef i32 @_ZNK6icu_7522TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet)
           to label %invoke.cont unwind label %lpad
 
@@ -329,12 +331,12 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this1) #5
   br label %eh.resume
 
@@ -362,16 +364,17 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %id.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fData = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %theData.addr, align 8
-  store ptr %1, ptr %fData, align 8
+  %2 = load ptr, ptr %theData.addr, align 8
+  store ptr %2, ptr %fData, align 8
   %isDataOwned = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %this1, i32 0, i32 3
-  %2 = load i8, ptr %isDataAdopted.addr, align 1
-  store i8 %2, ptr %isDataOwned, align 8
+  %3 = load i8, ptr %isDataAdopted.addr, align 1
+  store i8 %3, ptr %isDataOwned, align 8
   %fData2 = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %fData2, align 8
-  %ruleSet = getelementptr inbounds %"class.icu_75::TransliterationRuleData", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %fData2, align 8
+  %ruleSet = getelementptr inbounds %"class.icu_75::TransliterationRuleData", ptr %4, i32 0, i32 1
   %call = invoke noundef i32 @_ZNK6icu_7522TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet)
           to label %invoke.cont unwind label %lpad
 
@@ -383,12 +386,12 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this1) #5
   br label %eh.resume
 
@@ -414,20 +417,21 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(84) %0)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fData = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %other.addr, align 8
-  %fData2 = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %fData2, align 8
-  store ptr %2, ptr %fData, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %fData2 = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %fData2, align 8
+  store ptr %3, ptr %fData, align 8
   %isDataOwned = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %other.addr, align 8
-  %isDataOwned3 = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %3, i32 0, i32 3
-  %4 = load i8, ptr %isDataOwned3, align 8
-  store i8 %4, ptr %isDataOwned, align 8
+  %4 = load ptr, ptr %other.addr, align 8
+  %isDataOwned3 = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %4, i32 0, i32 3
+  %5 = load i8, ptr %isDataOwned3, align 8
+  store i8 %5, ptr %isDataOwned, align 8
   %isDataOwned4 = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %this1, i32 0, i32 3
-  %5 = load i8, ptr %isDataOwned4, align 8
-  %tobool = icmp ne i8 %5, 0
+  %6 = load i8, ptr %isDataOwned4, align 8
+  %tobool = icmp ne i8 %6, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -439,34 +443,34 @@ if.then:                                          ; preds = %entry
 new.notnull:                                      ; preds = %if.then
   store ptr %call, ptr %saved-rvalue, align 8
   store i1 true, ptr %cleanup.cond, align 1
-  %6 = load ptr, ptr %other.addr, align 8
-  %fData5 = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %6, i32 0, i32 2
-  %7 = load ptr, ptr %fData5, align 8
-  invoke void @_ZN6icu_7523TransliterationRuleDataC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(1168) %call, ptr noundef nonnull align 8 dereferenceable(1168) %7)
+  %7 = load ptr, ptr %other.addr, align 8
+  %fData5 = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %7, i32 0, i32 2
+  %8 = load ptr, ptr %fData5, align 8
+  invoke void @_ZN6icu_7523TransliterationRuleDataC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(1168) %call, ptr noundef nonnull align 8 dereferenceable(1168) %8)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %new.notnull
   br label %new.cont
 
 new.cont:                                         ; preds = %invoke.cont, %if.then
-  %8 = phi ptr [ %call, %invoke.cont ], [ null, %if.then ]
+  %9 = phi ptr [ %call, %invoke.cont ], [ null, %if.then ]
   %fData6 = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %this1, i32 0, i32 2
-  store ptr %8, ptr %fData6, align 8
+  store ptr %9, ptr %fData6, align 8
   br label %if.end
 
 lpad:                                             ; preds = %new.notnull
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad
-  %12 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %12) #5
+  %13 = load ptr, ptr %saved-rvalue, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %13) #5
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad
@@ -500,21 +504,22 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %isDataOwned = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %this1, i32 0, i32 3
-  %0 = load i8, ptr %isDataOwned, align 8
-  %tobool = icmp ne i8 %0, 0
+  %1 = load i8, ptr %isDataOwned, align 8
+  %tobool = icmp ne i8 %1, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %fData = getelementptr inbounds %"class.icu_75::RuleBasedTransliterator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %fData, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %fData, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  call void @_ZN6icu_7523TransliterationRuleDataD1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %1) #5
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %1) #5
+  call void @_ZN6icu_7523TransliterationRuleDataD1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %2) #5
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %2) #5
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then

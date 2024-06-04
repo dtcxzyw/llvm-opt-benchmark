@@ -2600,9 +2600,10 @@ if.then16:                                        ; preds = %land.lhs.true
   store i64 %or33, ptr %bits, align 8
   %15 = load i64, ptr %bits, align 8
   %arraydecay34 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 0
-  call void @select_point(i64 noundef %15, i64 noundef 16, ptr noundef getelementptr inbounds ([2 x [16 x [3 x [4 x i64]]]], ptr @g_pre_comp, i64 0, i64 1), ptr noundef %arraydecay34)
-  %16 = load i32, ptr %skip, align 4
-  %tobool35 = icmp ne i32 %16, 0
+  %16 = getelementptr inbounds [2 x [16 x [3 x [4 x i64]]]], ptr @g_pre_comp, i64 0, i64 1
+  call void @select_point(i64 noundef %15, i64 noundef 16, ptr noundef %16, ptr noundef %arraydecay34)
+  %17 = load i32, ptr %skip, align 4
+  %tobool35 = icmp ne i32 %17, 0
   br i1 %tobool35, label %if.else, label %if.then36
 
 if.then36:                                        ; preds = %if.then16
@@ -2635,44 +2636,44 @@ if.else:                                          ; preds = %if.then16
   br label %if.end57
 
 if.end57:                                         ; preds = %if.else, %if.then36
-  %17 = load ptr, ptr %g_scalar.addr, align 8
-  %18 = load i64, ptr %i, align 8
-  %add58 = add i64 %18, 168
-  %call59 = call signext i8 @get_bit(ptr noundef %17, i64 noundef %add58)
+  %18 = load ptr, ptr %g_scalar.addr, align 8
+  %19 = load i64, ptr %i, align 8
+  %add58 = add i64 %19, 168
+  %call59 = call signext i8 @get_bit(ptr noundef %18, i64 noundef %add58)
   %conv60 = sext i8 %call59 to i32
   %shl61 = shl i32 %conv60, 3
   %conv62 = sext i32 %shl61 to i64
   store i64 %conv62, ptr %bits, align 8
-  %19 = load ptr, ptr %g_scalar.addr, align 8
-  %20 = load i64, ptr %i, align 8
-  %add63 = add i64 %20, 112
-  %call64 = call signext i8 @get_bit(ptr noundef %19, i64 noundef %add63)
+  %20 = load ptr, ptr %g_scalar.addr, align 8
+  %21 = load i64, ptr %i, align 8
+  %add63 = add i64 %21, 112
+  %call64 = call signext i8 @get_bit(ptr noundef %20, i64 noundef %add63)
   %conv65 = sext i8 %call64 to i32
   %shl66 = shl i32 %conv65, 2
   %conv67 = sext i32 %shl66 to i64
-  %21 = load i64, ptr %bits, align 8
-  %or68 = or i64 %21, %conv67
+  %22 = load i64, ptr %bits, align 8
+  %or68 = or i64 %22, %conv67
   store i64 %or68, ptr %bits, align 8
-  %22 = load ptr, ptr %g_scalar.addr, align 8
-  %23 = load i64, ptr %i, align 8
-  %add69 = add i64 %23, 56
-  %call70 = call signext i8 @get_bit(ptr noundef %22, i64 noundef %add69)
+  %23 = load ptr, ptr %g_scalar.addr, align 8
+  %24 = load i64, ptr %i, align 8
+  %add69 = add i64 %24, 56
+  %call70 = call signext i8 @get_bit(ptr noundef %23, i64 noundef %add69)
   %conv71 = sext i8 %call70 to i32
   %shl72 = shl i32 %conv71, 1
   %conv73 = sext i32 %shl72 to i64
-  %24 = load i64, ptr %bits, align 8
-  %or74 = or i64 %24, %conv73
+  %25 = load i64, ptr %bits, align 8
+  %or74 = or i64 %25, %conv73
   store i64 %or74, ptr %bits, align 8
-  %25 = load ptr, ptr %g_scalar.addr, align 8
-  %26 = load i64, ptr %i, align 8
-  %call75 = call signext i8 @get_bit(ptr noundef %25, i64 noundef %26)
+  %26 = load ptr, ptr %g_scalar.addr, align 8
+  %27 = load i64, ptr %i, align 8
+  %call75 = call signext i8 @get_bit(ptr noundef %26, i64 noundef %27)
   %conv76 = sext i8 %call75 to i64
-  %27 = load i64, ptr %bits, align 8
-  %or77 = or i64 %27, %conv76
-  store i64 %or77, ptr %bits, align 8
   %28 = load i64, ptr %bits, align 8
+  %or77 = or i64 %28, %conv76
+  store i64 %or77, ptr %bits, align 8
+  %29 = load i64, ptr %bits, align 8
   %arraydecay78 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 0
-  call void @select_point(i64 noundef %28, i64 noundef 16, ptr noundef @g_pre_comp, ptr noundef %arraydecay78)
+  call void @select_point(i64 noundef %29, i64 noundef 16, ptr noundef @g_pre_comp, ptr noundef %arraydecay78)
   %arrayidx79 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
   %arraydecay80 = getelementptr inbounds [4 x i64], ptr %arrayidx79, i64 0, i64 0
   %arrayidx81 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 1
@@ -2695,13 +2696,13 @@ if.end57:                                         ; preds = %if.else, %if.then36
   br label %if.end97
 
 if.end97:                                         ; preds = %if.end57, %land.lhs.true, %if.end
-  %29 = load i64, ptr %num_points.addr, align 8
-  %cmp98 = icmp ne i64 %29, 0
+  %30 = load i64, ptr %num_points.addr, align 8
+  %cmp98 = icmp ne i64 %30, 0
   br i1 %cmp98, label %land.lhs.true100, label %if.end188
 
 land.lhs.true100:                                 ; preds = %if.end97
-  %30 = load i64, ptr %i, align 8
-  %rem = urem i64 %30, 5
+  %31 = load i64, ptr %i, align 8
+  %rem = urem i64 %31, 5
   %cmp101 = icmp eq i64 %rem, 0
   br i1 %cmp101, label %if.then103, label %if.end188
 
@@ -2710,93 +2711,93 @@ if.then103:                                       ; preds = %land.lhs.true100
   br label %for.cond104
 
 for.cond104:                                      ; preds = %for.inc, %if.then103
-  %31 = load i64, ptr %num, align 8
-  %32 = load i64, ptr %num_points.addr, align 8
-  %cmp105 = icmp ult i64 %31, %32
+  %32 = load i64, ptr %num, align 8
+  %33 = load i64, ptr %num_points.addr, align 8
+  %cmp105 = icmp ult i64 %32, %33
   br i1 %cmp105, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond104
-  %33 = load ptr, ptr %scalars.addr, align 8
-  %34 = load i64, ptr %num, align 8
-  %arrayidx107 = getelementptr inbounds [28 x i8], ptr %33, i64 %34
+  %34 = load ptr, ptr %scalars.addr, align 8
+  %35 = load i64, ptr %num, align 8
+  %arrayidx107 = getelementptr inbounds [28 x i8], ptr %34, i64 %35
   %arraydecay108 = getelementptr inbounds [28 x i8], ptr %arrayidx107, i64 0, i64 0
-  %35 = load i64, ptr %i, align 8
-  %add109 = add i64 %35, 4
+  %36 = load i64, ptr %i, align 8
+  %add109 = add i64 %36, 4
   %call110 = call signext i8 @get_bit(ptr noundef %arraydecay108, i64 noundef %add109)
   %conv111 = sext i8 %call110 to i32
   %shl112 = shl i32 %conv111, 5
   %conv113 = sext i32 %shl112 to i64
   store i64 %conv113, ptr %bits, align 8
-  %36 = load ptr, ptr %scalars.addr, align 8
-  %37 = load i64, ptr %num, align 8
-  %arrayidx114 = getelementptr inbounds [28 x i8], ptr %36, i64 %37
+  %37 = load ptr, ptr %scalars.addr, align 8
+  %38 = load i64, ptr %num, align 8
+  %arrayidx114 = getelementptr inbounds [28 x i8], ptr %37, i64 %38
   %arraydecay115 = getelementptr inbounds [28 x i8], ptr %arrayidx114, i64 0, i64 0
-  %38 = load i64, ptr %i, align 8
-  %add116 = add i64 %38, 3
+  %39 = load i64, ptr %i, align 8
+  %add116 = add i64 %39, 3
   %call117 = call signext i8 @get_bit(ptr noundef %arraydecay115, i64 noundef %add116)
   %conv118 = sext i8 %call117 to i32
   %shl119 = shl i32 %conv118, 4
   %conv120 = sext i32 %shl119 to i64
-  %39 = load i64, ptr %bits, align 8
-  %or121 = or i64 %39, %conv120
+  %40 = load i64, ptr %bits, align 8
+  %or121 = or i64 %40, %conv120
   store i64 %or121, ptr %bits, align 8
-  %40 = load ptr, ptr %scalars.addr, align 8
-  %41 = load i64, ptr %num, align 8
-  %arrayidx122 = getelementptr inbounds [28 x i8], ptr %40, i64 %41
+  %41 = load ptr, ptr %scalars.addr, align 8
+  %42 = load i64, ptr %num, align 8
+  %arrayidx122 = getelementptr inbounds [28 x i8], ptr %41, i64 %42
   %arraydecay123 = getelementptr inbounds [28 x i8], ptr %arrayidx122, i64 0, i64 0
-  %42 = load i64, ptr %i, align 8
-  %add124 = add i64 %42, 2
+  %43 = load i64, ptr %i, align 8
+  %add124 = add i64 %43, 2
   %call125 = call signext i8 @get_bit(ptr noundef %arraydecay123, i64 noundef %add124)
   %conv126 = sext i8 %call125 to i32
   %shl127 = shl i32 %conv126, 3
   %conv128 = sext i32 %shl127 to i64
-  %43 = load i64, ptr %bits, align 8
-  %or129 = or i64 %43, %conv128
+  %44 = load i64, ptr %bits, align 8
+  %or129 = or i64 %44, %conv128
   store i64 %or129, ptr %bits, align 8
-  %44 = load ptr, ptr %scalars.addr, align 8
-  %45 = load i64, ptr %num, align 8
-  %arrayidx130 = getelementptr inbounds [28 x i8], ptr %44, i64 %45
+  %45 = load ptr, ptr %scalars.addr, align 8
+  %46 = load i64, ptr %num, align 8
+  %arrayidx130 = getelementptr inbounds [28 x i8], ptr %45, i64 %46
   %arraydecay131 = getelementptr inbounds [28 x i8], ptr %arrayidx130, i64 0, i64 0
-  %46 = load i64, ptr %i, align 8
-  %add132 = add i64 %46, 1
+  %47 = load i64, ptr %i, align 8
+  %add132 = add i64 %47, 1
   %call133 = call signext i8 @get_bit(ptr noundef %arraydecay131, i64 noundef %add132)
   %conv134 = sext i8 %call133 to i32
   %shl135 = shl i32 %conv134, 2
   %conv136 = sext i32 %shl135 to i64
-  %47 = load i64, ptr %bits, align 8
-  %or137 = or i64 %47, %conv136
+  %48 = load i64, ptr %bits, align 8
+  %or137 = or i64 %48, %conv136
   store i64 %or137, ptr %bits, align 8
-  %48 = load ptr, ptr %scalars.addr, align 8
-  %49 = load i64, ptr %num, align 8
-  %arrayidx138 = getelementptr inbounds [28 x i8], ptr %48, i64 %49
+  %49 = load ptr, ptr %scalars.addr, align 8
+  %50 = load i64, ptr %num, align 8
+  %arrayidx138 = getelementptr inbounds [28 x i8], ptr %49, i64 %50
   %arraydecay139 = getelementptr inbounds [28 x i8], ptr %arrayidx138, i64 0, i64 0
-  %50 = load i64, ptr %i, align 8
-  %call140 = call signext i8 @get_bit(ptr noundef %arraydecay139, i64 noundef %50)
+  %51 = load i64, ptr %i, align 8
+  %call140 = call signext i8 @get_bit(ptr noundef %arraydecay139, i64 noundef %51)
   %conv141 = sext i8 %call140 to i32
   %shl142 = shl i32 %conv141, 1
   %conv143 = sext i32 %shl142 to i64
-  %51 = load i64, ptr %bits, align 8
-  %or144 = or i64 %51, %conv143
+  %52 = load i64, ptr %bits, align 8
+  %or144 = or i64 %52, %conv143
   store i64 %or144, ptr %bits, align 8
-  %52 = load ptr, ptr %scalars.addr, align 8
-  %53 = load i64, ptr %num, align 8
-  %arrayidx145 = getelementptr inbounds [28 x i8], ptr %52, i64 %53
+  %53 = load ptr, ptr %scalars.addr, align 8
+  %54 = load i64, ptr %num, align 8
+  %arrayidx145 = getelementptr inbounds [28 x i8], ptr %53, i64 %54
   %arraydecay146 = getelementptr inbounds [28 x i8], ptr %arrayidx145, i64 0, i64 0
-  %54 = load i64, ptr %i, align 8
-  %sub = sub i64 %54, 1
+  %55 = load i64, ptr %i, align 8
+  %sub = sub i64 %55, 1
   %call147 = call signext i8 @get_bit(ptr noundef %arraydecay146, i64 noundef %sub)
   %conv148 = sext i8 %call147 to i64
-  %55 = load i64, ptr %bits, align 8
-  %or149 = or i64 %55, %conv148
-  store i64 %or149, ptr %bits, align 8
   %56 = load i64, ptr %bits, align 8
-  %conv150 = trunc i64 %56 to i8
+  %or149 = or i64 %56, %conv148
+  store i64 %or149, ptr %bits, align 8
+  %57 = load i64, ptr %bits, align 8
+  %conv150 = trunc i64 %57 to i8
   call void @ec_GFp_nistp_recode_scalar_bits(ptr noundef %sign, ptr noundef %digit, i8 noundef zeroext %conv150)
-  %57 = load i8, ptr %digit, align 1
-  %conv151 = zext i8 %57 to i64
-  %58 = load ptr, ptr %pre_comp.addr, align 8
-  %59 = load i64, ptr %num, align 8
-  %arrayidx152 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %58, i64 %59
+  %58 = load i8, ptr %digit, align 1
+  %conv151 = zext i8 %58 to i64
+  %59 = load ptr, ptr %pre_comp.addr, align 8
+  %60 = load i64, ptr %num, align 8
+  %arrayidx152 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %59, i64 %60
   %arraydecay153 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx152, i64 0, i64 0
   %arraydecay154 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 0
   call void @select_point(i64 noundef %conv151, i64 noundef 17, ptr noundef %arraydecay153, ptr noundef %arraydecay154)
@@ -2809,11 +2810,11 @@ for.body:                                         ; preds = %for.cond104
   %arraydecay160 = getelementptr inbounds [4 x i64], ptr %arrayidx159, i64 0, i64 0
   %arrayidx161 = getelementptr inbounds [4 x [4 x i64]], ptr %tmp, i64 0, i64 3
   %arraydecay162 = getelementptr inbounds [4 x i64], ptr %arrayidx161, i64 0, i64 0
-  %60 = load i8, ptr %sign, align 1
-  %conv163 = zext i8 %60 to i64
+  %61 = load i8, ptr %sign, align 1
+  %conv163 = zext i8 %61 to i64
   call void @copy_conditional(ptr noundef %arraydecay160, ptr noundef %arraydecay162, i64 noundef %conv163)
-  %61 = load i32, ptr %skip, align 4
-  %tobool164 = icmp ne i32 %61, 0
+  %62 = load i32, ptr %skip, align 4
+  %tobool164 = icmp ne i32 %62, 0
   br i1 %tobool164, label %if.else184, label %if.then165
 
 if.then165:                                       ; preds = %for.body
@@ -2849,8 +2850,8 @@ if.end187:                                        ; preds = %if.else184, %if.the
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end187
-  %62 = load i64, ptr %num, align 8
-  %inc = add i64 %62, 1
+  %63 = load i64, ptr %num, align 8
+  %inc = add i64 %63, 1
   store i64 %inc, ptr %num, align 8
   br label %for.cond104, !llvm.loop !19
 
@@ -2858,32 +2859,32 @@ for.end:                                          ; preds = %for.cond104
   br label %if.end188
 
 if.end188:                                        ; preds = %for.end, %land.lhs.true100, %if.end97
-  %63 = load i64, ptr %i, align 8
-  %cmp189 = icmp eq i64 %63, 0
+  %64 = load i64, ptr %i, align 8
+  %cmp189 = icmp eq i64 %64, 0
   br i1 %cmp189, label %if.then191, label %if.end192
 
 if.then191:                                       ; preds = %if.end188
   br label %for.end193
 
 if.end192:                                        ; preds = %if.end188
-  %64 = load i64, ptr %i, align 8
-  %dec = add i64 %64, -1
+  %65 = load i64, ptr %i, align 8
+  %dec = add i64 %65, -1
   store i64 %dec, ptr %i, align 8
   br label %for.cond
 
 for.end193:                                       ; preds = %if.then191
-  %65 = load ptr, ptr %x_out.addr, align 8
+  %66 = load ptr, ptr %x_out.addr, align 8
   %arrayidx194 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 0
   %arraydecay195 = getelementptr inbounds [4 x i64], ptr %arrayidx194, i64 0, i64 0
-  call void @felem_assign(ptr noundef %65, ptr noundef %arraydecay195)
-  %66 = load ptr, ptr %y_out.addr, align 8
+  call void @felem_assign(ptr noundef %66, ptr noundef %arraydecay195)
+  %67 = load ptr, ptr %y_out.addr, align 8
   %arrayidx196 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 1
   %arraydecay197 = getelementptr inbounds [4 x i64], ptr %arrayidx196, i64 0, i64 0
-  call void @felem_assign(ptr noundef %66, ptr noundef %arraydecay197)
-  %67 = load ptr, ptr %z_out.addr, align 8
+  call void @felem_assign(ptr noundef %67, ptr noundef %arraydecay197)
+  %68 = load ptr, ptr %z_out.addr, align 8
   %arrayidx198 = getelementptr inbounds [3 x [4 x i64]], ptr %nq, i64 0, i64 2
   %arraydecay199 = getelementptr inbounds [4 x i64], ptr %arrayidx198, i64 0, i64 0
-  call void @felem_assign(ptr noundef %67, ptr noundef %arraydecay199)
+  call void @felem_assign(ptr noundef %68, ptr noundef %arraydecay199)
   ret void
 }
 

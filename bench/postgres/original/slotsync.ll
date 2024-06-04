@@ -555,119 +555,121 @@ define internal void @ReplSlotSyncWorkerMain(i32 noundef %0, ptr noundef %1) #4 
   %51 = call ptr @pqsignal(i32 noundef 15, ptr noundef @die)
   %52 = call ptr @pqsignal(i32 noundef 8, ptr noundef @FloatExceptionHandler)
   %53 = call ptr @pqsignal(i32 noundef 10, ptr noundef @procsignal_sigusr1_handler)
-  %54 = call ptr @pqsignal(i32 noundef 12, ptr noundef inttoptr (i64 1 to ptr))
-  %55 = call ptr @pqsignal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
-  %56 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
+  %54 = inttoptr i64 1 to ptr
+  %55 = call ptr @pqsignal(i32 noundef 12, ptr noundef %54)
+  %56 = inttoptr i64 1 to ptr
+  %57 = call ptr @pqsignal(i32 noundef 13, ptr noundef %56)
+  %58 = call ptr @pqsignal(i32 noundef 17, ptr noundef null)
   call void @InitializeTimeouts()
   call void @load_file(ptr noundef @.str.11, i1 noundef zeroext false)
-  %57 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %8, i64 0, i64 0
-  %58 = call i32 @__sigsetjmp(ptr noundef %57, i32 noundef 1) #14
-  %59 = icmp ne i32 %58, 0
-  br i1 %59, label %60, label %63
+  %59 = getelementptr inbounds [1 x %struct.__jmp_buf_tag], ptr %8, i64 0, i64 0
+  %60 = call i32 @__sigsetjmp(ptr noundef %59, i32 noundef 1) #14
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %65
 
-60:                                               ; preds = %48
+62:                                               ; preds = %48
   store ptr null, ptr @error_context_stack, align 8
-  %61 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %62 = add i32 %61, 1
-  store volatile i32 %62, ptr @InterruptHoldoffCount, align 4
+  %63 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %64 = add i32 %63, 1
+  store volatile i32 %64, ptr @InterruptHoldoffCount, align 4
   call void @EmitErrorReport()
   call void @proc_exit(i32 noundef 0) #12
   unreachable
 
-63:                                               ; preds = %48
+65:                                               ; preds = %48
   store ptr %8, ptr @PG_exception_stack, align 8
-  %64 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #13
+  %66 = call i32 @sigprocmask(i32 noundef 2, ptr noundef @UnBlockSig, ptr noundef null) #13
   call void @SetConfigOption(ptr noundef @.str.12, ptr noundef @.str.13, i32 noundef 5, i32 noundef 10)
-  %65 = call ptr @CheckAndGetDbnameFromConninfo()
-  store ptr %65, ptr %6, align 8
-  %66 = load ptr, ptr %6, align 8
-  call void @InitPostgres(ptr noundef %66, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
-  br label %67
+  %67 = call ptr @CheckAndGetDbnameFromConninfo()
+  store ptr %67, ptr %6, align 8
+  %68 = load ptr, ptr %6, align 8
+  call void @InitPostgres(ptr noundef %68, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  br label %69
 
-67:                                               ; preds = %63
+69:                                               ; preds = %65
   store i32 2, ptr @Mode, align 4
-  br label %68
+  br label %70
 
-68:                                               ; preds = %67
+70:                                               ; preds = %69
   call void @initStringInfo(ptr noundef %9)
-  %69 = load ptr, ptr @cluster_name, align 8
-  %70 = getelementptr i8, ptr %69, i64 0
-  %71 = load i8, ptr %70, align 1
-  %72 = icmp ne i8 %71, 0
-  br i1 %72, label %73, label %75
+  %71 = load ptr, ptr @cluster_name, align 8
+  %72 = getelementptr i8, ptr %71, i64 0
+  %73 = load i8, ptr %72, align 1
+  %74 = icmp ne i8 %73, 0
+  br i1 %74, label %75, label %77
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr @cluster_name, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %9, ptr noundef @.str.14, ptr noundef %74, ptr noundef @.str.15)
-  br label %76
+75:                                               ; preds = %70
+  %76 = load ptr, ptr @cluster_name, align 8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %9, ptr noundef @.str.14, ptr noundef %76, ptr noundef @.str.15)
+  br label %78
 
-75:                                               ; preds = %68
+77:                                               ; preds = %70
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %9, ptr noundef @.str.16, ptr noundef @.str.15)
-  br label %76
+  br label %78
 
-76:                                               ; preds = %75, %73
-  %77 = load ptr, ptr @WalReceiverFunctions, align 8
-  %78 = getelementptr inbounds %struct.WalReceiverFunctionsType, ptr %77, i32 0, i32 0
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr @PrimaryConnInfo, align 8
-  %81 = getelementptr inbounds %struct.StringInfoData, ptr %9, i32 0, i32 0
-  %82 = load ptr, ptr %81, align 8
-  %83 = call ptr %79(ptr noundef %80, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %82, ptr noundef %7)
-  store ptr %83, ptr %5, align 8
-  %84 = getelementptr inbounds %struct.StringInfoData, ptr %9, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  call void @pfree(ptr noundef %85)
-  %86 = load ptr, ptr %5, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %100, label %88
+78:                                               ; preds = %77, %75
+  %79 = load ptr, ptr @WalReceiverFunctions, align 8
+  %80 = getelementptr inbounds %struct.WalReceiverFunctionsType, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr @PrimaryConnInfo, align 8
+  %83 = getelementptr inbounds %struct.StringInfoData, ptr %9, i32 0, i32 0
+  %84 = load ptr, ptr %83, align 8
+  %85 = call ptr %81(ptr noundef %82, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %84, ptr noundef %7)
+  store ptr %85, ptr %5, align 8
+  %86 = getelementptr inbounds %struct.StringInfoData, ptr %9, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8
+  call void @pfree(ptr noundef %87)
+  %88 = load ptr, ptr %5, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %102, label %90
 
-88:                                               ; preds = %76
-  br label %89
+90:                                               ; preds = %78
+  br label %91
 
-89:                                               ; preds = %88
-  br i1 true, label %90, label %92
+91:                                               ; preds = %90
+  br i1 true, label %92, label %94
 
-90:                                               ; preds = %89
-  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  br i1 %91, label %94, label %98
+92:                                               ; preds = %91
+  %93 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  br i1 %93, label %96, label %100
 
-92:                                               ; preds = %89
-  %93 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %93, label %94, label %98
+94:                                               ; preds = %91
+  %95 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %95, label %96, label %100
 
-94:                                               ; preds = %92, %90
-  %95 = call i32 @errcode(i32 noundef 100663808)
-  %96 = load ptr, ptr %7, align 8
-  %97 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.17, ptr noundef %96)
+96:                                               ; preds = %94, %92
+  %97 = call i32 @errcode(i32 noundef 100663808)
+  %98 = load ptr, ptr %7, align 8
+  %99 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.17, ptr noundef %98)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 1259, ptr noundef @__func__.ReplSlotSyncWorkerMain)
-  br label %98
-
-98:                                               ; preds = %94, %92, %90
-  unreachable
-
-99:                                               ; No predecessors!
   br label %100
 
-100:                                              ; preds = %99, %76
-  %101 = load ptr, ptr %5, align 8
-  %102 = call i64 @PointerGetDatum(ptr noundef %101)
-  call void @before_shmem_exit(ptr noundef @slotsync_failure_callback, i64 noundef %102)
-  %103 = load ptr, ptr %5, align 8
-  call void @validate_remote_info(ptr noundef %103)
-  br label %104
+100:                                              ; preds = %96, %94, %92
+  unreachable
 
-104:                                              ; preds = %104, %100
-  store i8 0, ptr %10, align 1
+101:                                              ; No predecessors!
+  br label %102
+
+102:                                              ; preds = %101, %78
+  %103 = load ptr, ptr %5, align 8
+  %104 = call i64 @PointerGetDatum(ptr noundef %103)
+  call void @before_shmem_exit(ptr noundef @slotsync_failure_callback, i64 noundef %104)
   %105 = load ptr, ptr %5, align 8
-  call void @ProcessSlotSyncInterrupts(ptr noundef %105)
-  %106 = load ptr, ptr %5, align 8
-  %107 = call zeroext i1 @synchronize_slots(ptr noundef %106)
-  %108 = zext i1 %107 to i8
-  store i8 %108, ptr %10, align 1
-  %109 = load i8, ptr %10, align 1
-  %110 = trunc i8 %109 to i1
-  call void @wait_for_slot_activity(i1 noundef zeroext %110)
-  br label %104
+  call void @validate_remote_info(ptr noundef %105)
+  br label %106
+
+106:                                              ; preds = %106, %102
+  store i8 0, ptr %10, align 1
+  %107 = load ptr, ptr %5, align 8
+  call void @ProcessSlotSyncInterrupts(ptr noundef %107)
+  %108 = load ptr, ptr %5, align 8
+  %109 = call zeroext i1 @synchronize_slots(ptr noundef %108)
+  %110 = zext i1 %109 to i8
+  store i8 %110, ptr %10, align 1
+  %111 = load i8, ptr %10, align 1
+  %112 = trunc i8 %111 to i1
+  call void @wait_for_slot_activity(i1 noundef zeroext %112)
+  br label %106
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1643,139 +1645,140 @@ define internal zeroext i1 @synchronize_slots(ptr noundef %0) #0 {
   %221 = load ptr, ptr %6, align 8
   call void @drop_local_obsolete_slots(ptr noundef %221)
   store ptr null, ptr %14, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %15, align 8
-  br label %222
+  %222 = inttoptr i64 1 to ptr
+  store ptr %222, ptr %15, align 8
+  br label %223
 
-222:                                              ; preds = %275, %220
-  %223 = load ptr, ptr %15, align 8
-  %224 = icmp ne ptr %223, null
-  br i1 %224, label %225, label %276
+223:                                              ; preds = %276, %220
+  %224 = load ptr, ptr %15, align 8
+  %225 = icmp ne ptr %224, null
+  br i1 %225, label %226, label %277
 
-225:                                              ; preds = %222
-  %226 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %227 = load ptr, ptr %6, align 8
-  store ptr %227, ptr %226, align 8
-  %228 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  store i32 0, ptr %228, align 8
-  br label %229
+226:                                              ; preds = %223
+  %227 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
+  %228 = load ptr, ptr %6, align 8
+  store ptr %228, ptr %227, align 8
+  %229 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
+  store i32 0, ptr %229, align 8
+  br label %230
 
-229:                                              ; preds = %270, %225
-  %230 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %231 = load ptr, ptr %230, align 8
-  %232 = icmp ne ptr %231, null
-  br i1 %232, label %233, label %251
+230:                                              ; preds = %271, %226
+  %231 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
+  %232 = load ptr, ptr %231, align 8
+  %233 = icmp ne ptr %232, null
+  br i1 %233, label %234, label %252
 
-233:                                              ; preds = %229
-  %234 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  %235 = load i32, ptr %234, align 8
-  %236 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds %struct.List, ptr %237, i32 0, i32 1
-  %239 = load i32, ptr %238, align 4
-  %240 = icmp slt i32 %235, %239
-  br i1 %240, label %241, label %251
+234:                                              ; preds = %230
+  %235 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
+  %236 = load i32, ptr %235, align 8
+  %237 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds %struct.List, ptr %238, i32 0, i32 1
+  %240 = load i32, ptr %239, align 4
+  %241 = icmp slt i32 %236, %240
+  br i1 %241, label %242, label %252
 
-241:                                              ; preds = %233
-  %242 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
-  %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds %struct.List, ptr %243, i32 0, i32 3
-  %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  %247 = load i32, ptr %246, align 8
-  %248 = sext i32 %247 to i64
-  %249 = getelementptr %union.ListCell, ptr %245, i64 %248
-  %250 = load ptr, ptr %249, align 8
-  store ptr %250, ptr %14, align 8
-  br label %251
+242:                                              ; preds = %234
+  %243 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 0
+  %244 = load ptr, ptr %243, align 8
+  %245 = getelementptr inbounds %struct.List, ptr %244, i32 0, i32 3
+  %246 = load ptr, ptr %245, align 8
+  %247 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
+  %248 = load i32, ptr %247, align 8
+  %249 = sext i32 %248 to i64
+  %250 = getelementptr %union.ListCell, ptr %246, i64 %249
+  %251 = load ptr, ptr %250, align 8
+  store ptr %251, ptr %14, align 8
+  br label %252
 
-251:                                              ; preds = %241, %233, %229
-  %252 = phi i1 [ false, %233 ], [ false, %229 ], [ true, %241 ]
-  br i1 %252, label %253, label %274
+252:                                              ; preds = %242, %234, %230
+  %253 = phi i1 [ false, %234 ], [ false, %230 ], [ true, %242 ]
+  br i1 %253, label %254, label %275
 
-253:                                              ; preds = %251
-  %254 = load ptr, ptr %14, align 8
-  %255 = getelementptr inbounds %struct.RemoteSlot, ptr %254, i32 0, i32 2
-  %256 = load ptr, ptr %255, align 8
-  %257 = call i32 @get_database_oid(ptr noundef %256, i1 noundef zeroext false)
-  store i32 %257, ptr %17, align 4
-  %258 = load i32, ptr %17, align 4
-  call void @LockSharedObject(i32 noundef 1262, i32 noundef %258, i16 noundef zeroext 0, i32 noundef 1)
-  %259 = load ptr, ptr %14, align 8
-  %260 = load i32, ptr %17, align 4
-  %261 = call zeroext i1 @synchronize_one_slot(ptr noundef %259, i32 noundef %260)
-  %262 = zext i1 %261 to i32
-  %263 = load i8, ptr %7, align 1
-  %264 = trunc i8 %263 to i1
-  %265 = zext i1 %264 to i32
-  %266 = or i32 %265, %262
-  %267 = icmp ne i32 %266, 0
-  %268 = zext i1 %267 to i8
-  store i8 %268, ptr %7, align 1
-  %269 = load i32, ptr %17, align 4
-  call void @UnlockSharedObject(i32 noundef 1262, i32 noundef %269, i16 noundef zeroext 0, i32 noundef 1)
-  br label %270
+254:                                              ; preds = %252
+  %255 = load ptr, ptr %14, align 8
+  %256 = getelementptr inbounds %struct.RemoteSlot, ptr %255, i32 0, i32 2
+  %257 = load ptr, ptr %256, align 8
+  %258 = call i32 @get_database_oid(ptr noundef %257, i1 noundef zeroext false)
+  store i32 %258, ptr %17, align 4
+  %259 = load i32, ptr %17, align 4
+  call void @LockSharedObject(i32 noundef 1262, i32 noundef %259, i16 noundef zeroext 0, i32 noundef 1)
+  %260 = load ptr, ptr %14, align 8
+  %261 = load i32, ptr %17, align 4
+  %262 = call zeroext i1 @synchronize_one_slot(ptr noundef %260, i32 noundef %261)
+  %263 = zext i1 %262 to i32
+  %264 = load i8, ptr %7, align 1
+  %265 = trunc i8 %264 to i1
+  %266 = zext i1 %265 to i32
+  %267 = or i32 %266, %263
+  %268 = icmp ne i32 %267, 0
+  %269 = zext i1 %268 to i8
+  store i8 %269, ptr %7, align 1
+  %270 = load i32, ptr %17, align 4
+  call void @UnlockSharedObject(i32 noundef 1262, i32 noundef %270, i16 noundef zeroext 0, i32 noundef 1)
+  br label %271
 
-270:                                              ; preds = %253
-  %271 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
-  %272 = load i32, ptr %271, align 8
-  %273 = add i32 %272, 1
-  store i32 %273, ptr %271, align 8
-  br label %229, !llvm.loop !18
+271:                                              ; preds = %254
+  %272 = getelementptr inbounds %struct.ForEachState, ptr %16, i32 0, i32 1
+  %273 = load i32, ptr %272, align 8
+  %274 = add i32 %273, 1
+  store i32 %274, ptr %272, align 8
+  br label %230, !llvm.loop !18
 
-274:                                              ; preds = %251
-  br label %275
+275:                                              ; preds = %252
+  br label %276
 
-275:                                              ; preds = %274
+276:                                              ; preds = %275
   store ptr null, ptr %15, align 8
-  br label %222, !llvm.loop !19
+  br label %223, !llvm.loop !19
 
-276:                                              ; preds = %222
-  %277 = load ptr, ptr %6, align 8
-  call void @list_free_deep(ptr noundef %277)
-  %278 = load ptr, ptr %4, align 8
-  call void @walrcv_clear_result(ptr noundef %278)
-  %279 = load i8, ptr %8, align 1
-  %280 = trunc i8 %279 to i1
-  br i1 %280, label %281, label %282
+277:                                              ; preds = %223
+  %278 = load ptr, ptr %6, align 8
+  call void @list_free_deep(ptr noundef %278)
+  %279 = load ptr, ptr %4, align 8
+  call void @walrcv_clear_result(ptr noundef %279)
+  %280 = load i8, ptr %8, align 1
+  %281 = trunc i8 %280 to i1
+  br i1 %281, label %282, label %283
 
-281:                                              ; preds = %276
+282:                                              ; preds = %277
   call void @CommitTransactionCommand()
-  br label %282
+  br label %283
 
-282:                                              ; preds = %281, %276
-  %283 = load ptr, ptr @SlotSyncCtx, align 8
-  %284 = getelementptr inbounds %struct.SlotSyncCtxStruct, ptr %283, i32 0, i32 4
-  %285 = call i32 @tas(ptr noundef %284)
-  %286 = icmp ne i32 %285, 0
-  br i1 %286, label %287, label %291
+283:                                              ; preds = %282, %277
+  %284 = load ptr, ptr @SlotSyncCtx, align 8
+  %285 = getelementptr inbounds %struct.SlotSyncCtxStruct, ptr %284, i32 0, i32 4
+  %286 = call i32 @tas(ptr noundef %285)
+  %287 = icmp ne i32 %286, 0
+  br i1 %287, label %288, label %292
 
-287:                                              ; preds = %282
-  %288 = load ptr, ptr @SlotSyncCtx, align 8
-  %289 = getelementptr inbounds %struct.SlotSyncCtxStruct, ptr %288, i32 0, i32 4
-  %290 = call i32 @s_lock(ptr noundef %289, ptr noundef @.str.2, i32 noundef 804, ptr noundef @__func__.synchronize_slots)
-  br label %292
+288:                                              ; preds = %283
+  %289 = load ptr, ptr @SlotSyncCtx, align 8
+  %290 = getelementptr inbounds %struct.SlotSyncCtxStruct, ptr %289, i32 0, i32 4
+  %291 = call i32 @s_lock(ptr noundef %290, ptr noundef @.str.2, i32 noundef 804, ptr noundef @__func__.synchronize_slots)
+  br label %293
 
-291:                                              ; preds = %282
-  br label %292
+292:                                              ; preds = %283
+  br label %293
 
-292:                                              ; preds = %291, %287
-  %293 = load ptr, ptr @SlotSyncCtx, align 8
-  %294 = getelementptr inbounds %struct.SlotSyncCtxStruct, ptr %293, i32 0, i32 2
-  store i8 0, ptr %294, align 1
-  br label %295
+293:                                              ; preds = %292, %288
+  %294 = load ptr, ptr @SlotSyncCtx, align 8
+  %295 = getelementptr inbounds %struct.SlotSyncCtxStruct, ptr %294, i32 0, i32 2
+  store i8 0, ptr %295, align 1
+  br label %296
 
-295:                                              ; preds = %292
+296:                                              ; preds = %293
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !20
-  %296 = load ptr, ptr @SlotSyncCtx, align 8
-  %297 = getelementptr inbounds %struct.SlotSyncCtxStruct, ptr %296, i32 0, i32 4
-  store i8 0, ptr %297, align 8
-  br label %298
+  %297 = load ptr, ptr @SlotSyncCtx, align 8
+  %298 = getelementptr inbounds %struct.SlotSyncCtxStruct, ptr %297, i32 0, i32 4
+  store i8 0, ptr %298, align 8
+  br label %299
 
-298:                                              ; preds = %295
+299:                                              ; preds = %296
   store i8 0, ptr @syncing_slots, align 1
-  %299 = load i8, ptr %7, align 1
-  %300 = trunc i8 %299 to i1
-  ret i1 %300
+  %300 = load i8, ptr %7, align 1
+  %301 = trunc i8 %300 to i1
+  ret i1 %301
 }
 
 declare void @cancel_before_shmem_exit(ptr noundef, i64 noundef) #2
@@ -2344,183 +2347,184 @@ define internal void @drop_local_obsolete_slots(ptr noundef %0) #0 {
   %8 = call ptr @get_local_synced_slots()
   store ptr %8, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
-  br label %9
+  %9 = inttoptr i64 1 to ptr
+  store ptr %9, ptr %5, align 8
+  br label %10
 
-9:                                                ; preds = %114, %1
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %115
+10:                                               ; preds = %115, %1
+  %11 = load ptr, ptr %5, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %116
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %14 = load ptr, ptr %3, align 8
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  store i32 0, ptr %15, align 8
-  br label %16
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
+  %15 = load ptr, ptr %3, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
+  store i32 0, ptr %16, align 8
+  br label %17
 
-16:                                               ; preds = %109, %12
-  %17 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %38
+17:                                               ; preds = %110, %13
+  %18 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %39
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.List, ptr %24, i32 0, i32 1
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp slt i32 %22, %26
-  br i1 %27, label %28, label %38
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %struct.List, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp slt i32 %23, %27
+  br i1 %28, label %29, label %39
 
-28:                                               ; preds = %20
-  %29 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.List, ptr %30, i32 0, i32 3
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %34 = load i32, ptr %33, align 8
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr %union.ListCell, ptr %32, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %4, align 8
-  br label %38
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %struct.List, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
+  %35 = load i32, ptr %34, align 8
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr %union.ListCell, ptr %33, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr %4, align 8
+  br label %39
 
-38:                                               ; preds = %28, %20, %16
-  %39 = phi i1 [ false, %20 ], [ false, %16 ], [ true, %28 ]
-  br i1 %39, label %40, label %113
+39:                                               ; preds = %29, %21, %17
+  %40 = phi i1 [ false, %21 ], [ false, %17 ], [ true, %29 ]
+  br i1 %40, label %41, label %114
 
-40:                                               ; preds = %38
-  %41 = load ptr, ptr %4, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = call zeroext i1 @local_sync_slot_required(ptr noundef %41, ptr noundef %42)
-  br i1 %43, label %108, label %44
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %4, align 8
+  %43 = load ptr, ptr %2, align 8
+  %44 = call zeroext i1 @local_sync_slot_required(ptr noundef %42, ptr noundef %43)
+  br i1 %44, label %109, label %45
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.ReplicationSlot, ptr %45, i32 0, i32 7
-  %47 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %46, i32 0, i32 1
-  %48 = load i32, ptr %47, align 8
-  call void @LockSharedObject(i32 noundef 1262, i32 noundef %48, i16 noundef zeroext 0, i32 noundef 1)
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.ReplicationSlot, ptr %49, i32 0, i32 0
-  %51 = call i32 @tas(ptr noundef %50)
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %57
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds %struct.ReplicationSlot, ptr %46, i32 0, i32 7
+  %48 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %47, i32 0, i32 1
+  %49 = load i32, ptr %48, align 8
+  call void @LockSharedObject(i32 noundef 1262, i32 noundef %49, i16 noundef zeroext 0, i32 noundef 1)
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds %struct.ReplicationSlot, ptr %50, i32 0, i32 0
+  %52 = call i32 @tas(ptr noundef %51)
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %58
 
-53:                                               ; preds = %44
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.ReplicationSlot, ptr %54, i32 0, i32 0
-  %56 = call i32 @s_lock(ptr noundef %55, ptr noundef @.str.2, i32 noundef 321, ptr noundef @__func__.drop_local_obsolete_slots)
-  br label %58
+54:                                               ; preds = %45
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds %struct.ReplicationSlot, ptr %55, i32 0, i32 0
+  %57 = call i32 @s_lock(ptr noundef %56, ptr noundef @.str.2, i32 noundef 321, ptr noundef @__func__.drop_local_obsolete_slots)
+  br label %59
 
-57:                                               ; preds = %44
-  br label %58
+58:                                               ; preds = %45
+  br label %59
 
-58:                                               ; preds = %57, %53
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.ReplicationSlot, ptr %59, i32 0, i32 1
-  %61 = load i8, ptr %60, align 1
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %70
+59:                                               ; preds = %58, %54
+  %60 = load ptr, ptr %4, align 8
+  %61 = getelementptr inbounds %struct.ReplicationSlot, ptr %60, i32 0, i32 1
+  %62 = load i8, ptr %61, align 1
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %71
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.ReplicationSlot, ptr %64, i32 0, i32 7
-  %66 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %65, i32 0, i32 11
-  %67 = load i8, ptr %66, align 1
-  %68 = sext i8 %67 to i32
-  %69 = icmp ne i32 %68, 0
-  br label %70
+64:                                               ; preds = %59
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds %struct.ReplicationSlot, ptr %65, i32 0, i32 7
+  %67 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %66, i32 0, i32 11
+  %68 = load i8, ptr %67, align 1
+  %69 = sext i8 %68 to i32
+  %70 = icmp ne i32 %69, 0
+  br label %71
 
-70:                                               ; preds = %63, %58
-  %71 = phi i1 [ false, %58 ], [ %69, %63 ]
-  %72 = zext i1 %71 to i8
-  store i8 %72, ptr %7, align 1
-  br label %73
+71:                                               ; preds = %64, %59
+  %72 = phi i1 [ false, %59 ], [ %70, %64 ]
+  %73 = zext i1 %72 to i8
+  store i8 %73, ptr %7, align 1
+  br label %74
 
-73:                                               ; preds = %70
+74:                                               ; preds = %71
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !22
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.ReplicationSlot, ptr %74, i32 0, i32 0
-  store i8 0, ptr %75, align 8
-  br label %76
+  %75 = load ptr, ptr %4, align 8
+  %76 = getelementptr inbounds %struct.ReplicationSlot, ptr %75, i32 0, i32 0
+  store i8 0, ptr %76, align 8
+  br label %77
 
-76:                                               ; preds = %73
-  %77 = load i8, ptr %7, align 1
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %79, label %85
+77:                                               ; preds = %74
+  %78 = load i8, ptr %7, align 1
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %80, label %86
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds %struct.ReplicationSlot, ptr %80, i32 0, i32 7
-  %82 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %81, i32 0, i32 0
-  %83 = getelementptr inbounds %struct.nameData, ptr %82, i32 0, i32 0
-  %84 = getelementptr inbounds [64 x i8], ptr %83, i64 0, i64 0
-  call void @ReplicationSlotAcquire(ptr noundef %84, i1 noundef zeroext true)
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds %struct.ReplicationSlot, ptr %81, i32 0, i32 7
+  %83 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %82, i32 0, i32 0
+  %84 = getelementptr inbounds %struct.nameData, ptr %83, i32 0, i32 0
+  %85 = getelementptr inbounds [64 x i8], ptr %84, i64 0, i64 0
+  call void @ReplicationSlotAcquire(ptr noundef %85, i1 noundef zeroext true)
   call void @ReplicationSlotDropAcquired()
-  br label %85
+  br label %86
 
-85:                                               ; preds = %79, %76
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.ReplicationSlot, ptr %86, i32 0, i32 7
-  %88 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %87, i32 0, i32 1
-  %89 = load i32, ptr %88, align 8
-  call void @UnlockSharedObject(i32 noundef 1262, i32 noundef %89, i16 noundef zeroext 0, i32 noundef 1)
-  br label %90
+86:                                               ; preds = %80, %77
+  %87 = load ptr, ptr %4, align 8
+  %88 = getelementptr inbounds %struct.ReplicationSlot, ptr %87, i32 0, i32 7
+  %89 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %88, i32 0, i32 1
+  %90 = load i32, ptr %89, align 8
+  call void @UnlockSharedObject(i32 noundef 1262, i32 noundef %90, i16 noundef zeroext 0, i32 noundef 1)
+  br label %91
 
-90:                                               ; preds = %85
-  br i1 false, label %91, label %93
+91:                                               ; preds = %86
+  br i1 false, label %92, label %94
 
-91:                                               ; preds = %90
-  %92 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
-  br i1 %92, label %95, label %106
+92:                                               ; preds = %91
+  %93 = call zeroext i1 @errstart_cold(i32 noundef 15, ptr noundef null) #11
+  br i1 %93, label %96, label %107
 
-93:                                               ; preds = %90
-  %94 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
-  br i1 %94, label %95, label %106
+94:                                               ; preds = %91
+  %95 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null)
+  br i1 %95, label %96, label %107
 
-95:                                               ; preds = %93, %91
-  %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds %struct.ReplicationSlot, ptr %96, i32 0, i32 7
-  %98 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %97, i32 0, i32 0
-  %99 = getelementptr inbounds %struct.nameData, ptr %98, i32 0, i32 0
-  %100 = getelementptr inbounds [64 x i8], ptr %99, i64 0, i64 0
-  %101 = load ptr, ptr %4, align 8
-  %102 = getelementptr inbounds %struct.ReplicationSlot, ptr %101, i32 0, i32 7
-  %103 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %102, i32 0, i32 1
-  %104 = load i32, ptr %103, align 8
-  %105 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.32, ptr noundef %100, i32 noundef %104)
+96:                                               ; preds = %94, %92
+  %97 = load ptr, ptr %4, align 8
+  %98 = getelementptr inbounds %struct.ReplicationSlot, ptr %97, i32 0, i32 7
+  %99 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %98, i32 0, i32 0
+  %100 = getelementptr inbounds %struct.nameData, ptr %99, i32 0, i32 0
+  %101 = getelementptr inbounds [64 x i8], ptr %100, i64 0, i64 0
+  %102 = load ptr, ptr %4, align 8
+  %103 = getelementptr inbounds %struct.ReplicationSlot, ptr %102, i32 0, i32 7
+  %104 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %103, i32 0, i32 1
+  %105 = load i32, ptr %104, align 8
+  %106 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.32, ptr noundef %101, i32 noundef %105)
   call void @errfinish(ptr noundef @.str.2, i32 noundef 337, ptr noundef @__func__.drop_local_obsolete_slots)
-  br label %106
-
-106:                                              ; preds = %95, %93, %91
   br label %107
 
-107:                                              ; preds = %106
+107:                                              ; preds = %96, %94, %92
   br label %108
 
-108:                                              ; preds = %107, %40
+108:                                              ; preds = %107
   br label %109
 
-109:                                              ; preds = %108
-  %110 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
-  %111 = load i32, ptr %110, align 8
-  %112 = add i32 %111, 1
-  store i32 %112, ptr %110, align 8
-  br label %16, !llvm.loop !23
+109:                                              ; preds = %108, %41
+  br label %110
 
-113:                                              ; preds = %38
-  br label %114
+110:                                              ; preds = %109
+  %111 = getelementptr inbounds %struct.ForEachState, ptr %6, i32 0, i32 1
+  %112 = load i32, ptr %111, align 8
+  %113 = add i32 %112, 1
+  store i32 %113, ptr %111, align 8
+  br label %17, !llvm.loop !23
 
-114:                                              ; preds = %113
+114:                                              ; preds = %39
+  br label %115
+
+115:                                              ; preds = %114
   store ptr null, ptr %5, align 8
-  br label %9, !llvm.loop !24
+  br label %10, !llvm.loop !24
 
-115:                                              ; preds = %9
+116:                                              ; preds = %10
   ret void
 }
 
@@ -3125,147 +3129,148 @@ define internal zeroext i1 @local_sync_slot_required(ptr noundef %0, ptr noundef
   store i8 0, ptr %5, align 1
   store i8 0, ptr %6, align 1
   store ptr null, ptr %7, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %8, align 8
-  br label %10
+  %10 = inttoptr i64 1 to ptr
+  store ptr %10, ptr %8, align 8
+  br label %11
 
-10:                                               ; preds = %86, %2
-  %11 = load ptr, ptr %8, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %87
+11:                                               ; preds = %87, %2
+  %12 = load ptr, ptr %8, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %88
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
-  %15 = load ptr, ptr %4, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
-  store i32 0, ptr %16, align 8
-  br label %17
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
+  %16 = load ptr, ptr %4, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
+  store i32 0, ptr %17, align 8
+  br label %18
 
-17:                                               ; preds = %81, %13
-  %18 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %39
+18:                                               ; preds = %82, %14
+  %19 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %40
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
-  %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.List, ptr %25, i32 0, i32 1
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp slt i32 %23, %27
-  br i1 %28, label %29, label %39
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.List, ptr %26, i32 0, i32 1
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp slt i32 %24, %28
+  br i1 %29, label %30, label %40
 
-29:                                               ; preds = %21
-  %30 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.List, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
-  %35 = load i32, ptr %34, align 8
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr %union.ListCell, ptr %33, i64 %36
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %7, align 8
-  br label %39
+30:                                               ; preds = %22
+  %31 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds %struct.List, ptr %32, i32 0, i32 3
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
+  %36 = load i32, ptr %35, align 8
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr %union.ListCell, ptr %34, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %7, align 8
+  br label %40
 
-39:                                               ; preds = %29, %21, %17
-  %40 = phi i1 [ false, %21 ], [ false, %17 ], [ true, %29 ]
-  br i1 %40, label %41, label %85
+40:                                               ; preds = %30, %22, %18
+  %41 = phi i1 [ false, %22 ], [ false, %18 ], [ true, %30 ]
+  br i1 %41, label %42, label %86
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds %struct.RemoteSlot, ptr %42, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.ReplicationSlot, ptr %45, i32 0, i32 7
-  %47 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %46, i32 0, i32 0
-  %48 = getelementptr inbounds %struct.nameData, ptr %47, i32 0, i32 0
-  %49 = getelementptr inbounds [64 x i8], ptr %48, i64 0, i64 0
-  %50 = call i32 @strcmp(ptr noundef %44, ptr noundef %49) #15
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %80
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds %struct.RemoteSlot, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr inbounds %struct.ReplicationSlot, ptr %46, i32 0, i32 7
+  %48 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %47, i32 0, i32 0
+  %49 = getelementptr inbounds %struct.nameData, ptr %48, i32 0, i32 0
+  %50 = getelementptr inbounds [64 x i8], ptr %49, i64 0, i64 0
+  %51 = call i32 @strcmp(ptr noundef %45, ptr noundef %50) #15
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %81
 
-52:                                               ; preds = %41
+53:                                               ; preds = %42
   store i8 1, ptr %5, align 1
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.ReplicationSlot, ptr %53, i32 0, i32 0
-  %55 = call i32 @tas(ptr noundef %54)
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %57, label %61
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr inbounds %struct.ReplicationSlot, ptr %54, i32 0, i32 0
+  %56 = call i32 @tas(ptr noundef %55)
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %62
 
-57:                                               ; preds = %52
-  %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds %struct.ReplicationSlot, ptr %58, i32 0, i32 0
-  %60 = call i32 @s_lock(ptr noundef %59, ptr noundef @.str.2, i32 noundef 255, ptr noundef @__func__.local_sync_slot_required)
-  br label %62
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %3, align 8
+  %60 = getelementptr inbounds %struct.ReplicationSlot, ptr %59, i32 0, i32 0
+  %61 = call i32 @s_lock(ptr noundef %60, ptr noundef @.str.2, i32 noundef 255, ptr noundef @__func__.local_sync_slot_required)
+  br label %63
 
-61:                                               ; preds = %52
-  br label %62
+62:                                               ; preds = %53
+  br label %63
 
-62:                                               ; preds = %61, %57
-  %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds %struct.RemoteSlot, ptr %63, i32 0, i32 8
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %73
+63:                                               ; preds = %62, %58
+  %64 = load ptr, ptr %7, align 8
+  %65 = getelementptr inbounds %struct.RemoteSlot, ptr %64, i32 0, i32 8
+  %66 = load i32, ptr %65, align 4
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %74
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds %struct.ReplicationSlot, ptr %68, i32 0, i32 7
-  %70 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %69, i32 0, i32 6
-  %71 = load i32, ptr %70, align 8
-  %72 = icmp ne i32 %71, 0
-  br label %73
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %3, align 8
+  %70 = getelementptr inbounds %struct.ReplicationSlot, ptr %69, i32 0, i32 7
+  %71 = getelementptr inbounds %struct.ReplicationSlotPersistentData, ptr %70, i32 0, i32 6
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp ne i32 %72, 0
+  br label %74
 
-73:                                               ; preds = %67, %62
-  %74 = phi i1 [ false, %62 ], [ %72, %67 ]
-  %75 = zext i1 %74 to i8
-  store i8 %75, ptr %6, align 1
-  br label %76
+74:                                               ; preds = %68, %63
+  %75 = phi i1 [ false, %63 ], [ %73, %68 ]
+  %76 = zext i1 %75 to i8
+  store i8 %76, ptr %6, align 1
+  br label %77
 
-76:                                               ; preds = %73
+77:                                               ; preds = %74
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !30
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.ReplicationSlot, ptr %77, i32 0, i32 0
-  store i8 0, ptr %78, align 8
-  br label %79
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds %struct.ReplicationSlot, ptr %78, i32 0, i32 0
+  store i8 0, ptr %79, align 8
+  br label %80
 
-79:                                               ; preds = %76
-  br label %85
-
-80:                                               ; preds = %41
-  br label %81
-
-81:                                               ; preds = %80
-  %82 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
-  %83 = load i32, ptr %82, align 8
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %82, align 8
-  br label %17, !llvm.loop !31
-
-85:                                               ; preds = %79, %39
+80:                                               ; preds = %77
   br label %86
 
-86:                                               ; preds = %85
+81:                                               ; preds = %42
+  br label %82
+
+82:                                               ; preds = %81
+  %83 = getelementptr inbounds %struct.ForEachState, ptr %9, i32 0, i32 1
+  %84 = load i32, ptr %83, align 8
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %83, align 8
+  br label %18, !llvm.loop !31
+
+86:                                               ; preds = %80, %40
+  br label %87
+
+87:                                               ; preds = %86
   store ptr null, ptr %8, align 8
-  br label %10, !llvm.loop !32
+  br label %11, !llvm.loop !32
 
-87:                                               ; preds = %10
-  %88 = load i8, ptr %5, align 1
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %90, label %94
+88:                                               ; preds = %11
+  %89 = load i8, ptr %5, align 1
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %91, label %95
 
-90:                                               ; preds = %87
-  %91 = load i8, ptr %6, align 1
-  %92 = trunc i8 %91 to i1
-  %93 = xor i1 %92, true
-  br label %94
+91:                                               ; preds = %88
+  %92 = load i8, ptr %6, align 1
+  %93 = trunc i8 %92 to i1
+  %94 = xor i1 %93, true
+  br label %95
 
-94:                                               ; preds = %90, %87
-  %95 = phi i1 [ false, %87 ], [ %93, %90 ]
-  ret i1 %95
+95:                                               ; preds = %91, %88
+  %96 = phi i1 [ false, %88 ], [ %94, %91 ]
+  ret i1 %96
 }
 
 declare void @ReplicationSlotAcquire(ptr noundef, i1 noundef zeroext) #2

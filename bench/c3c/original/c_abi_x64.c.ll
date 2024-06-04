@@ -132,7 +132,7 @@ define dso_local ptr @x64_indirect_return_result(ptr noundef %0) #0 {
   %10 = load ptr, ptr %6, align 8
   %11 = call ptr @abi_arg_new_indirect_not_by_val(ptr noundef %10)
   store ptr %11, ptr %5, align 8
-  br label %48
+  br label %49
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %6, align 8
@@ -169,35 +169,36 @@ define dso_local ptr @x64_indirect_return_result(ptr noundef %0) #0 {
 
 32:                                               ; preds = %29, %26
   %33 = phi i1 [ false, %26 ], [ %31, %29 ]
-  br i1 %33, label %34, label %41
+  br i1 %33, label %34, label %42
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %4, align 8
   %36 = getelementptr inbounds %struct.Type_, ptr %35, i32 0, i32 7
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 255
-  %39 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %40 = icmp ult i32 %38, %39
-  br label %41
+  %39 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  %40 = load i32, ptr %39, align 8
+  %41 = icmp ult i32 %38, %40
+  br label %42
 
-41:                                               ; preds = %34, %32
-  %42 = phi i1 [ false, %32 ], [ %40, %34 ]
-  br i1 %42, label %43, label %46
+42:                                               ; preds = %34, %32
+  %43 = phi i1 [ false, %32 ], [ %41, %34 ]
+  br i1 %43, label %44, label %47
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr %6, align 8
-  %45 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %44)
-  store ptr %45, ptr %5, align 8
-  br label %48
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %6, align 8
+  %46 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %45)
+  store ptr %46, ptr %5, align 8
+  br label %49
 
-46:                                               ; preds = %41
-  %47 = call ptr @abi_arg_new_direct()
-  store ptr %47, ptr %5, align 8
-  br label %48
+47:                                               ; preds = %42
+  %48 = call ptr @abi_arg_new_direct()
+  store ptr %48, ptr %5, align 8
+  br label %49
 
-48:                                               ; preds = %46, %43, %9
-  %49 = load ptr, ptr %5, align 8
-  ret ptr %49
+49:                                               ; preds = %47, %44, %9
+  %50 = load ptr, ptr %5, align 8
+  ret ptr %50
 }
 
 declare zeroext i1 @type_is_abi_aggregate(ptr noundef) #1
@@ -446,12 +447,12 @@ define dso_local ptr @x64_indirect_result(ptr noundef %0, i32 noundef %1) #0 {
   store ptr %12, ptr %7, align 8
   %13 = load ptr, ptr %7, align 8
   %14 = call zeroext i1 @type_is_abi_aggregate(ptr noundef %13)
-  br i1 %14, label %52, label %15
+  br i1 %14, label %53, label %15
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %7, align 8
   %17 = call zeroext i1 @x64_type_is_illegal_vector(ptr noundef %16)
-  br i1 %17, label %52, label %18
+  br i1 %17, label %53, label %18
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %7, align 8
@@ -485,82 +486,83 @@ define dso_local ptr @x64_indirect_result(ptr noundef %0, i32 noundef %1) #0 {
 
 36:                                               ; preds = %33, %30
   %37 = phi i1 [ false, %30 ], [ %35, %33 ]
-  br i1 %37, label %38, label %45
+  br i1 %37, label %38, label %46
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %5, align 8
   %40 = getelementptr inbounds %struct.Type_, ptr %39, i32 0, i32 7
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 255
-  %43 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %44 = icmp ult i32 %42, %43
-  br label %45
+  %43 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp ult i32 %42, %44
+  br label %46
 
-45:                                               ; preds = %38, %36
-  %46 = phi i1 [ false, %36 ], [ %44, %38 ]
-  br i1 %46, label %47, label %50
+46:                                               ; preds = %38, %36
+  %47 = phi i1 [ false, %36 ], [ %45, %38 ]
+  br i1 %47, label %48, label %51
 
-47:                                               ; preds = %45
-  %48 = load ptr, ptr %7, align 8
-  %49 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %48)
-  store ptr %49, ptr %6, align 8
-  br label %78
+48:                                               ; preds = %46
+  %49 = load ptr, ptr %7, align 8
+  %50 = call ptr @abi_arg_new_direct_int_ext(ptr noundef %49)
+  store ptr %50, ptr %6, align 8
+  br label %79
 
-50:                                               ; preds = %45
-  %51 = call ptr @abi_arg_new_direct()
-  store ptr %51, ptr %6, align 8
-  br label %78
+51:                                               ; preds = %46
+  %52 = call ptr @abi_arg_new_direct()
+  store ptr %52, ptr %6, align 8
+  br label %79
 
-52:                                               ; preds = %15, %2
-  %53 = load ptr, ptr %7, align 8
-  %54 = call i32 @type_abi_alignment(ptr noundef %53)
-  store i32 %54, ptr %9, align 4
-  %55 = load i32, ptr %8, align 4
-  %56 = icmp ne i32 %55, 0
-  br i1 %56, label %69, label %57
+53:                                               ; preds = %15, %2
+  %54 = load ptr, ptr %7, align 8
+  %55 = call i32 @type_abi_alignment(ptr noundef %54)
+  store i32 %55, ptr %9, align 4
+  %56 = load i32, ptr %8, align 4
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %70, label %58
 
-57:                                               ; preds = %52
-  %58 = load ptr, ptr %7, align 8
-  %59 = call i32 @type_size(ptr noundef %58)
-  %60 = zext i32 %59 to i64
-  store i64 %60, ptr %10, align 8
-  %61 = load i32, ptr %9, align 4
-  %62 = icmp ule i32 %61, 8
-  br i1 %62, label %63, label %68
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %7, align 8
+  %60 = call i32 @type_size(ptr noundef %59)
+  %61 = zext i32 %60 to i64
+  store i64 %61, ptr %10, align 8
+  %62 = load i32, ptr %9, align 4
+  %63 = icmp ule i32 %62, 8
+  br i1 %63, label %64, label %69
 
-63:                                               ; preds = %57
-  %64 = load i64, ptr %10, align 8
-  %65 = icmp ule i64 %64, 8
-  br i1 %65, label %66, label %68
+64:                                               ; preds = %58
+  %65 = load i64, ptr %10, align 8
+  %66 = icmp ule i64 %65, 8
+  br i1 %66, label %67, label %69
 
-66:                                               ; preds = %63
-  %67 = call ptr @abi_arg_new_direct_coerce_int()
-  store ptr %67, ptr %6, align 8
-  br label %78
+67:                                               ; preds = %64
+  %68 = call ptr @abi_arg_new_direct_coerce_int()
+  store ptr %68, ptr %6, align 8
+  br label %79
 
-68:                                               ; preds = %63, %57
-  br label %69
+69:                                               ; preds = %64, %58
+  br label %70
 
-69:                                               ; preds = %68, %52
-  %70 = load i32, ptr %9, align 4
-  %71 = icmp ult i32 %70, 8
-  br i1 %71, label %72, label %75
+70:                                               ; preds = %69, %53
+  %71 = load i32, ptr %9, align 4
+  %72 = icmp ult i32 %71, 8
+  br i1 %72, label %73, label %76
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %7, align 8
-  %74 = call ptr @abi_arg_new_indirect_realigned(i32 noundef 8, ptr noundef %73)
-  store ptr %74, ptr %6, align 8
-  br label %78
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %7, align 8
+  %75 = call ptr @abi_arg_new_indirect_realigned(i32 noundef 8, ptr noundef %74)
+  store ptr %75, ptr %6, align 8
+  br label %79
 
-75:                                               ; preds = %69
-  %76 = load ptr, ptr %7, align 8
-  %77 = call ptr @abi_arg_new_indirect_by_val(ptr noundef %76)
-  store ptr %77, ptr %6, align 8
-  br label %78
+76:                                               ; preds = %70
+  %77 = load ptr, ptr %7, align 8
+  %78 = call ptr @abi_arg_new_indirect_by_val(ptr noundef %77)
+  store ptr %78, ptr %6, align 8
+  br label %79
 
-78:                                               ; preds = %75, %72, %66, %50, %47
-  %79 = load ptr, ptr %6, align 8
-  ret ptr %79
+79:                                               ; preds = %76, %73, %67, %51, %48
+  %80 = load ptr, ptr %6, align 8
+  ret ptr %80
 }
 
 ; Function Attrs: nounwind uwtable
@@ -578,7 +580,7 @@ define internal zeroext i1 @x64_type_is_illegal_vector(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   store i1 false, ptr %2, align 1
-  br label %43
+  br label %47
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %3, align 8
@@ -587,55 +589,59 @@ define internal zeroext i1 @x64_type_is_illegal_vector(ptr noundef %0) #0 {
   store i64 %14, ptr %4, align 8
   %15 = load i64, ptr %4, align 8
   %16 = icmp ule i64 %15, 8
-  br i1 %16, label %22, label %17
+  br i1 %16, label %24, label %17
 
 17:                                               ; preds = %11
   %18 = load i64, ptr %4, align 8
-  %19 = load i32, ptr getelementptr inbounds (%struct.anon.90, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 2), align 4
-  %20 = sext i32 %19 to i64
-  %21 = icmp ugt i64 %18, %20
-  br i1 %21, label %22, label %23
+  %19 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %20 = getelementptr inbounds %struct.anon.90, ptr %19, i32 0, i32 2
+  %21 = load i32, ptr %20, align 4
+  %22 = sext i32 %21 to i64
+  %23 = icmp ugt i64 %18, %22
+  br i1 %23, label %24, label %25
 
-22:                                               ; preds = %17, %11
+24:                                               ; preds = %17, %11
   store i1 true, ptr %2, align 1
-  br label %43
+  br label %47
 
-23:                                               ; preds = %17
-  %24 = load i32, ptr getelementptr inbounds (%struct.anon.90, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  %25 = lshr i32 %24, 19
-  %26 = and i32 %25, 1
-  %27 = trunc i32 %26 to i1
-  br i1 %27, label %28, label %42
+25:                                               ; preds = %17
+  %26 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %27 = getelementptr inbounds %struct.anon.90, ptr %26, i32 0, i32 1
+  %28 = load i32, ptr %27, align 8
+  %29 = lshr i32 %28, 19
+  %30 = and i32 %29, 1
+  %31 = trunc i32 %30 to i1
+  br i1 %31, label %32, label %46
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.Type_, ptr %29, i32 0, i32 7
-  %31 = getelementptr inbounds %struct.TypeArray, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.Type_, ptr %32, i32 0, i32 0
-  %34 = load i32, ptr %33, align 8
-  store i32 %34, ptr %5, align 4
-  %35 = load i32, ptr %5, align 4
-  %36 = icmp eq i32 %35, 7
-  br i1 %36, label %40, label %37
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds %struct.Type_, ptr %33, i32 0, i32 7
+  %35 = getelementptr inbounds %struct.TypeArray, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %struct.Type_, ptr %36, i32 0, i32 0
+  %38 = load i32, ptr %37, align 8
+  store i32 %38, ptr %5, align 4
+  %39 = load i32, ptr %5, align 4
+  %40 = icmp eq i32 %39, 7
+  br i1 %40, label %44, label %41
 
-37:                                               ; preds = %28
-  %38 = load i32, ptr %5, align 4
-  %39 = icmp eq i32 %38, 12
-  br label %40
+41:                                               ; preds = %32
+  %42 = load i32, ptr %5, align 4
+  %43 = icmp eq i32 %42, 12
+  br label %44
 
-40:                                               ; preds = %37, %28
-  %41 = phi i1 [ true, %28 ], [ %39, %37 ]
-  store i1 %41, ptr %2, align 1
-  br label %43
+44:                                               ; preds = %41, %32
+  %45 = phi i1 [ true, %32 ], [ %43, %41 ]
+  store i1 %45, ptr %2, align 1
+  br label %47
 
-42:                                               ; preds = %23
+46:                                               ; preds = %25
   store i1 false, ptr %2, align 1
-  br label %43
+  br label %47
 
-43:                                               ; preds = %42, %40, %22, %10
-  %44 = load i1, ptr %2, align 1
-  ret i1 %44
+47:                                               ; preds = %46, %44, %24, %10
+  %48 = load i1, ptr %2, align 1
+  ret i1 %48
 }
 
 declare i32 @type_abi_alignment(ptr noundef) #1
@@ -893,18 +899,18 @@ define internal ptr @x64_classify_argument_type(ptr noundef %0, i32 noundef %1, 
   store i32 0, ptr %32, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %30, ptr align 4 %20, i64 8, i1 false)
   %33 = load i32, ptr %18, align 4
-  switch i32 %33, label %100 [
+  switch i32 %33, label %101 [
     i32 0, label %34
     i32 4, label %36
     i32 1, label %39
     i32 2, label %43
-    i32 3, label %89
+    i32 3, label %90
   ]
 
 34:                                               ; preds = %4
   %35 = call ptr @abi_arg_ignore()
   store ptr %35, ptr %12, align 8
-  br label %220
+  br label %221
 
 36:                                               ; preds = %4
   br label %37
@@ -921,7 +927,7 @@ define internal ptr @x64_classify_argument_type(ptr noundef %0, i32 noundef %1, 
   %41 = load i32, ptr %14, align 4
   %42 = call ptr @x64_indirect_result(ptr noundef %40, i32 noundef %41)
   store ptr %42, ptr %12, align 8
-  br label %220
+  br label %221
 
 43:                                               ; preds = %4
   %44 = load ptr, ptr %15, align 8
@@ -938,7 +944,7 @@ define internal ptr @x64_classify_argument_type(ptr noundef %0, i32 noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %21, i64 8, i1 false)
   %53 = load i32, ptr %17, align 4
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %88
+  br i1 %54, label %55, label %89
 
 55:                                               ; preds = %43
   %56 = load ptr, ptr %13, align 8
@@ -972,253 +978,254 @@ define internal ptr @x64_classify_argument_type(ptr noundef %0, i32 noundef %1, 
 
 73:                                               ; preds = %70, %67
   %74 = phi i1 [ false, %67 ], [ %72, %70 ]
-  br i1 %74, label %75, label %82
+  br i1 %74, label %75, label %83
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr %11, align 8
   %77 = getelementptr inbounds %struct.Type_, ptr %76, i32 0, i32 7
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 255
-  %80 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %81 = icmp ult i32 %79, %80
-  br label %82
+  %80 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp ult i32 %79, %81
+  br label %83
 
-82:                                               ; preds = %75, %73
-  %83 = phi i1 [ false, %73 ], [ %81, %75 ]
-  br i1 %83, label %84, label %88
+83:                                               ; preds = %75, %73
+  %84 = phi i1 [ false, %73 ], [ %82, %75 ]
+  br i1 %84, label %85, label %89
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds %struct.AbiType, ptr %19, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = call ptr @abi_arg_new_direct_coerce_int_ext(ptr noundef %86)
-  store ptr %87, ptr %12, align 8
-  br label %220
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds %struct.AbiType, ptr %19, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8
+  %88 = call ptr @abi_arg_new_direct_coerce_int_ext(ptr noundef %87)
+  store ptr %88, ptr %12, align 8
+  br label %221
 
-88:                                               ; preds = %82, %43
-  br label %100
+89:                                               ; preds = %83, %43
+  br label %101
 
-89:                                               ; preds = %4
-  %90 = load ptr, ptr %13, align 8
+90:                                               ; preds = %4
   %91 = load ptr, ptr %13, align 8
-  %92 = call ptr @x64_get_sse_type_at_offset(ptr noundef %90, i32 noundef 0, ptr noundef %91, i32 noundef 0)
-  %93 = call ptr @abi_type_get(ptr noundef %92)
-  %94 = getelementptr inbounds %struct.AbiType, ptr %22, i32 0, i32 0
-  %95 = getelementptr inbounds %union.anon.1, ptr %94, i32 0, i32 0
-  store ptr %93, ptr %95, align 8
+  %92 = load ptr, ptr %13, align 8
+  %93 = call ptr @x64_get_sse_type_at_offset(ptr noundef %91, i32 noundef 0, ptr noundef %92, i32 noundef 0)
+  %94 = call ptr @abi_type_get(ptr noundef %93)
+  %95 = getelementptr inbounds %struct.AbiType, ptr %22, i32 0, i32 0
+  %96 = getelementptr inbounds %union.anon.1, ptr %95, i32 0, i32 0
+  store ptr %94, ptr %96, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %22, i64 8, i1 false)
-  %96 = load ptr, ptr %15, align 8
-  %97 = getelementptr inbounds %struct.Registers, ptr %96, i32 0, i32 0
-  %98 = load i32, ptr %97, align 4
-  %99 = add i32 %98, 1
-  store i32 %99, ptr %97, align 4
-  br label %100
+  %97 = load ptr, ptr %15, align 8
+  %98 = getelementptr inbounds %struct.Registers, ptr %97, i32 0, i32 0
+  %99 = load i32, ptr %98, align 4
+  %100 = add i32 %99, 1
+  store i32 %100, ptr %98, align 4
+  br label %101
 
-100:                                              ; preds = %89, %88, %4
+101:                                              ; preds = %90, %89, %4
   call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 8, i1 false)
-  %101 = load i32, ptr %17, align 4
-  switch i32 %101, label %132 [
-    i32 1, label %102
-    i32 0, label %105
-    i32 2, label %106
-    i32 3, label %116
-    i32 4, label %127
+  %102 = load i32, ptr %17, align 4
+  switch i32 %102, label %133 [
+    i32 1, label %103
+    i32 0, label %106
+    i32 2, label %107
+    i32 3, label %117
+    i32 4, label %128
   ]
 
-102:                                              ; preds = %100
-  br label %103
+103:                                              ; preds = %101
+  br label %104
 
-103:                                              ; preds = %102
+104:                                              ; preds = %103
   call void (ptr, ...) @error_exit(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__func__.x64_classify_argument_type, ptr noundef @.str.2, i32 noundef 816) #5
   unreachable
 
-104:                                              ; No predecessors!
-  br label %105
+105:                                              ; No predecessors!
+  br label %106
 
-105:                                              ; preds = %104, %100
-  br label %132
+106:                                              ; preds = %105, %101
+  br label %133
 
-106:                                              ; preds = %100
-  %107 = load ptr, ptr %15, align 8
-  %108 = getelementptr inbounds %struct.Registers, ptr %107, i32 0, i32 1
-  %109 = load i32, ptr %108, align 4
-  %110 = add i32 %109, 1
-  store i32 %110, ptr %108, align 4
-  %111 = load ptr, ptr %13, align 8
+107:                                              ; preds = %101
+  %108 = load ptr, ptr %15, align 8
+  %109 = getelementptr inbounds %struct.Registers, ptr %108, i32 0, i32 1
+  %110 = load i32, ptr %109, align 4
+  %111 = add i32 %110, 1
+  store i32 %111, ptr %109, align 4
   %112 = load ptr, ptr %13, align 8
-  %113 = call ptr @x64_get_int_type_at_offset(ptr noundef %111, i32 noundef 8, ptr noundef %112, i32 noundef 8)
-  %114 = getelementptr inbounds %struct.AbiType, ptr %24, i32 0, i32 0
-  %115 = getelementptr inbounds %union.anon.1, ptr %114, i32 0, i32 0
-  store ptr %113, ptr %115, align 8
+  %113 = load ptr, ptr %13, align 8
+  %114 = call ptr @x64_get_int_type_at_offset(ptr noundef %112, i32 noundef 8, ptr noundef %113, i32 noundef 8)
+  %115 = getelementptr inbounds %struct.AbiType, ptr %24, i32 0, i32 0
+  %116 = getelementptr inbounds %union.anon.1, ptr %115, i32 0, i32 0
+  store ptr %114, ptr %116, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %24, i64 8, i1 false)
-  br label %132
+  br label %133
 
-116:                                              ; preds = %100
-  %117 = load ptr, ptr %15, align 8
-  %118 = getelementptr inbounds %struct.Registers, ptr %117, i32 0, i32 0
-  %119 = load i32, ptr %118, align 4
-  %120 = add i32 %119, 1
-  store i32 %120, ptr %118, align 4
-  %121 = load ptr, ptr %13, align 8
+117:                                              ; preds = %101
+  %118 = load ptr, ptr %15, align 8
+  %119 = getelementptr inbounds %struct.Registers, ptr %118, i32 0, i32 0
+  %120 = load i32, ptr %119, align 4
+  %121 = add i32 %120, 1
+  store i32 %121, ptr %119, align 4
   %122 = load ptr, ptr %13, align 8
-  %123 = call ptr @x64_get_sse_type_at_offset(ptr noundef %121, i32 noundef 8, ptr noundef %122, i32 noundef 8)
-  %124 = call ptr @abi_type_get(ptr noundef %123)
-  %125 = getelementptr inbounds %struct.AbiType, ptr %25, i32 0, i32 0
-  %126 = getelementptr inbounds %union.anon.1, ptr %125, i32 0, i32 0
-  store ptr %124, ptr %126, align 8
+  %123 = load ptr, ptr %13, align 8
+  %124 = call ptr @x64_get_sse_type_at_offset(ptr noundef %122, i32 noundef 8, ptr noundef %123, i32 noundef 8)
+  %125 = call ptr @abi_type_get(ptr noundef %124)
+  %126 = getelementptr inbounds %struct.AbiType, ptr %25, i32 0, i32 0
+  %127 = getelementptr inbounds %union.anon.1, ptr %126, i32 0, i32 0
+  store ptr %125, ptr %127, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %25, i64 8, i1 false)
-  br label %132
+  br label %133
 
-127:                                              ; preds = %100
-  %128 = load ptr, ptr %13, align 8
-  %129 = call ptr @x64_get_byte_vector_type(ptr noundef %128)
-  %130 = getelementptr inbounds %struct.AbiType, ptr %26, i32 0, i32 0
-  %131 = getelementptr inbounds %union.anon.1, ptr %130, i32 0, i32 0
-  store ptr %129, ptr %131, align 8
+128:                                              ; preds = %101
+  %129 = load ptr, ptr %13, align 8
+  %130 = call ptr @x64_get_byte_vector_type(ptr noundef %129)
+  %131 = getelementptr inbounds %struct.AbiType, ptr %26, i32 0, i32 0
+  %132 = getelementptr inbounds %union.anon.1, ptr %131, i32 0, i32 0
+  store ptr %130, ptr %132, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %26, i64 8, i1 false)
-  br label %132
+  br label %133
 
-132:                                              ; preds = %127, %116, %106, %105, %100
-  %133 = getelementptr inbounds %struct.AbiType, ptr %23, i32 0, i32 0
-  %134 = getelementptr inbounds %union.anon.1, ptr %133, i32 0, i32 0
-  %135 = load ptr, ptr %134, align 8
-  %136 = call zeroext i1 @abi_type_is_valid(ptr %135)
-  br i1 %136, label %137, label %145
+133:                                              ; preds = %128, %117, %107, %106, %101
+  %134 = getelementptr inbounds %struct.AbiType, ptr %23, i32 0, i32 0
+  %135 = getelementptr inbounds %union.anon.1, ptr %134, i32 0, i32 0
+  %136 = load ptr, ptr %135, align 8
+  %137 = call zeroext i1 @abi_type_is_valid(ptr %136)
+  br i1 %137, label %138, label %146
 
-137:                                              ; preds = %132
-  %138 = getelementptr inbounds %struct.AbiType, ptr %19, i32 0, i32 0
-  %139 = getelementptr inbounds %union.anon.1, ptr %138, i32 0, i32 0
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds %struct.AbiType, ptr %23, i32 0, i32 0
-  %142 = getelementptr inbounds %union.anon.1, ptr %141, i32 0, i32 0
-  %143 = load ptr, ptr %142, align 8
-  %144 = call ptr @x64_get_argument_pair_return(ptr %140, ptr %143)
-  store ptr %144, ptr %12, align 8
-  br label %220
+138:                                              ; preds = %133
+  %139 = getelementptr inbounds %struct.AbiType, ptr %19, i32 0, i32 0
+  %140 = getelementptr inbounds %union.anon.1, ptr %139, i32 0, i32 0
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds %struct.AbiType, ptr %23, i32 0, i32 0
+  %143 = getelementptr inbounds %union.anon.1, ptr %142, i32 0, i32 0
+  %144 = load ptr, ptr %143, align 8
+  %145 = call ptr @x64_get_argument_pair_return(ptr %141, ptr %144)
+  store ptr %145, ptr %12, align 8
+  br label %221
 
-145:                                              ; preds = %132
-  %146 = getelementptr inbounds %struct.AbiType, ptr %19, i32 0, i32 0
-  %147 = getelementptr inbounds %union.anon.1, ptr %146, i32 0, i32 0
-  %148 = load ptr, ptr %147, align 8
-  %149 = call zeroext i1 @abi_type_is_type(ptr %148)
-  br i1 %149, label %150, label %218
+146:                                              ; preds = %133
+  %147 = getelementptr inbounds %struct.AbiType, ptr %19, i32 0, i32 0
+  %148 = getelementptr inbounds %union.anon.1, ptr %147, i32 0, i32 0
+  %149 = load ptr, ptr %148, align 8
+  %150 = call zeroext i1 @abi_type_is_type(ptr %149)
+  br i1 %150, label %151, label %219
 
-150:                                              ; preds = %145
-  %151 = getelementptr inbounds %struct.AbiType, ptr %19, i32 0, i32 0
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds %struct.Type_, ptr %152, i32 0, i32 1
-  %154 = load ptr, ptr %153, align 8
-  store ptr %154, ptr %27, align 8
-  %155 = load ptr, ptr %13, align 8
-  %156 = getelementptr inbounds %struct.Type_, ptr %155, i32 0, i32 1
-  %157 = load ptr, ptr %156, align 8
-  store ptr %157, ptr %13, align 8
-  %158 = load ptr, ptr %13, align 8
-  %159 = load ptr, ptr %27, align 8
-  %160 = icmp eq ptr %158, %159
-  br i1 %160, label %161, label %163
+151:                                              ; preds = %146
+  %152 = getelementptr inbounds %struct.AbiType, ptr %19, i32 0, i32 0
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds %struct.Type_, ptr %153, i32 0, i32 1
+  %155 = load ptr, ptr %154, align 8
+  store ptr %155, ptr %27, align 8
+  %156 = load ptr, ptr %13, align 8
+  %157 = getelementptr inbounds %struct.Type_, ptr %156, i32 0, i32 1
+  %158 = load ptr, ptr %157, align 8
+  store ptr %158, ptr %13, align 8
+  %159 = load ptr, ptr %13, align 8
+  %160 = load ptr, ptr %27, align 8
+  %161 = icmp eq ptr %159, %160
+  br i1 %161, label %162, label %164
 
-161:                                              ; preds = %150
-  %162 = call ptr @abi_arg_new_direct()
-  store ptr %162, ptr %12, align 8
-  br label %220
+162:                                              ; preds = %151
+  %163 = call ptr @abi_arg_new_direct()
+  store ptr %163, ptr %12, align 8
+  br label %221
 
-163:                                              ; preds = %150
-  %164 = load ptr, ptr %13, align 8
-  store ptr %164, ptr %5, align 8
-  %165 = load ptr, ptr %5, align 8
-  %166 = load i32, ptr %165, align 8
-  store i32 %166, ptr %6, align 4
-  %167 = load i32, ptr %6, align 4
-  %168 = icmp eq i32 %167, 31
-  br i1 %168, label %169, label %174
+164:                                              ; preds = %151
+  %165 = load ptr, ptr %13, align 8
+  store ptr %165, ptr %5, align 8
+  %166 = load ptr, ptr %5, align 8
+  %167 = load i32, ptr %166, align 8
+  store i32 %167, ptr %6, align 4
+  %168 = load i32, ptr %6, align 4
+  %169 = icmp eq i32 %168, 31
+  br i1 %169, label %170, label %175
 
-169:                                              ; preds = %163
-  %170 = load ptr, ptr %5, align 8
-  %171 = getelementptr inbounds %struct.Type_, ptr %170, i32 0, i32 1
-  %172 = load ptr, ptr %171, align 8
-  %173 = load i32, ptr %172, align 8
-  store i32 %173, ptr %6, align 4
-  br label %174
+170:                                              ; preds = %164
+  %171 = load ptr, ptr %5, align 8
+  %172 = getelementptr inbounds %struct.Type_, ptr %171, i32 0, i32 1
+  %173 = load ptr, ptr %172, align 8
+  %174 = load i32, ptr %173, align 8
+  store i32 %174, ptr %6, align 4
+  br label %175
 
-174:                                              ; preds = %169, %163
-  %175 = load i32, ptr %6, align 4
-  %176 = icmp uge i32 %175, 3
-  br i1 %176, label %177, label %180
+175:                                              ; preds = %170, %164
+  %176 = load i32, ptr %6, align 4
+  %177 = icmp uge i32 %176, 3
+  br i1 %177, label %178, label %181
 
-177:                                              ; preds = %174
-  %178 = load i32, ptr %6, align 4
-  %179 = icmp ule i32 %178, 12
-  br label %180
+178:                                              ; preds = %175
+  %179 = load i32, ptr %6, align 4
+  %180 = icmp ule i32 %179, 12
+  br label %181
 
-180:                                              ; preds = %177, %174
-  %181 = phi i1 [ false, %174 ], [ %179, %177 ]
-  br i1 %181, label %182, label %215
+181:                                              ; preds = %178, %175
+  %182 = phi i1 [ false, %175 ], [ %180, %178 ]
+  br i1 %182, label %183, label %216
 
-182:                                              ; preds = %180
-  %183 = load ptr, ptr %27, align 8
-  store ptr %183, ptr %7, align 8
-  %184 = load ptr, ptr %7, align 8
-  %185 = load i32, ptr %184, align 8
-  store i32 %185, ptr %8, align 4
-  %186 = load i32, ptr %8, align 4
-  %187 = icmp eq i32 %186, 31
-  br i1 %187, label %188, label %193
+183:                                              ; preds = %181
+  %184 = load ptr, ptr %27, align 8
+  store ptr %184, ptr %7, align 8
+  %185 = load ptr, ptr %7, align 8
+  %186 = load i32, ptr %185, align 8
+  store i32 %186, ptr %8, align 4
+  %187 = load i32, ptr %8, align 4
+  %188 = icmp eq i32 %187, 31
+  br i1 %188, label %189, label %194
 
-188:                                              ; preds = %182
-  %189 = load ptr, ptr %7, align 8
-  %190 = getelementptr inbounds %struct.Type_, ptr %189, i32 0, i32 1
-  %191 = load ptr, ptr %190, align 8
-  %192 = load i32, ptr %191, align 8
-  store i32 %192, ptr %8, align 4
-  br label %193
+189:                                              ; preds = %183
+  %190 = load ptr, ptr %7, align 8
+  %191 = getelementptr inbounds %struct.Type_, ptr %190, i32 0, i32 1
+  %192 = load ptr, ptr %191, align 8
+  %193 = load i32, ptr %192, align 8
+  store i32 %193, ptr %8, align 4
+  br label %194
 
-193:                                              ; preds = %188, %182
-  %194 = load i32, ptr %8, align 4
-  %195 = icmp uge i32 %194, 3
-  br i1 %195, label %196, label %199
+194:                                              ; preds = %189, %183
+  %195 = load i32, ptr %8, align 4
+  %196 = icmp uge i32 %195, 3
+  br i1 %196, label %197, label %200
 
-196:                                              ; preds = %193
-  %197 = load i32, ptr %8, align 4
-  %198 = icmp ule i32 %197, 12
-  br label %199
+197:                                              ; preds = %194
+  %198 = load i32, ptr %8, align 4
+  %199 = icmp ule i32 %198, 12
+  br label %200
 
-199:                                              ; preds = %196, %193
-  %200 = phi i1 [ false, %193 ], [ %198, %196 ]
-  br i1 %200, label %201, label %215
+200:                                              ; preds = %197, %194
+  %201 = phi i1 [ false, %194 ], [ %199, %197 ]
+  br i1 %201, label %202, label %216
 
-201:                                              ; preds = %199
-  %202 = load ptr, ptr %13, align 8
-  %203 = getelementptr inbounds %struct.Type_, ptr %202, i32 0, i32 7
-  %204 = load i32, ptr %203, align 8
-  %205 = lshr i32 %204, 8
-  %206 = and i32 %205, 255
-  %207 = load ptr, ptr %27, align 8
-  %208 = getelementptr inbounds %struct.Type_, ptr %207, i32 0, i32 7
-  %209 = load i32, ptr %208, align 8
-  %210 = lshr i32 %209, 8
-  %211 = and i32 %210, 255
-  %212 = icmp eq i32 %206, %211
-  br i1 %212, label %213, label %215
+202:                                              ; preds = %200
+  %203 = load ptr, ptr %13, align 8
+  %204 = getelementptr inbounds %struct.Type_, ptr %203, i32 0, i32 7
+  %205 = load i32, ptr %204, align 8
+  %206 = lshr i32 %205, 8
+  %207 = and i32 %206, 255
+  %208 = load ptr, ptr %27, align 8
+  %209 = getelementptr inbounds %struct.Type_, ptr %208, i32 0, i32 7
+  %210 = load i32, ptr %209, align 8
+  %211 = lshr i32 %210, 8
+  %212 = and i32 %211, 255
+  %213 = icmp eq i32 %207, %212
+  br i1 %213, label %214, label %216
 
-213:                                              ; preds = %201
-  %214 = call ptr @abi_arg_new_direct()
-  store ptr %214, ptr %12, align 8
-  br label %220
+214:                                              ; preds = %202
+  %215 = call ptr @abi_arg_new_direct()
+  store ptr %215, ptr %12, align 8
+  br label %221
 
-215:                                              ; preds = %201, %199, %180
-  %216 = load ptr, ptr %27, align 8
-  %217 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %216)
-  store ptr %217, ptr %12, align 8
-  br label %220
+216:                                              ; preds = %202, %200, %181
+  %217 = load ptr, ptr %27, align 8
+  %218 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %217)
+  store ptr %218, ptr %12, align 8
+  br label %221
 
-218:                                              ; preds = %145
-  %219 = call ptr @abi_arg_new_direct_coerce_int()
-  store ptr %219, ptr %12, align 8
-  br label %220
+219:                                              ; preds = %146
+  %220 = call ptr @abi_arg_new_direct_coerce_int()
+  store ptr %220, ptr %12, align 8
+  br label %221
 
-220:                                              ; preds = %218, %215, %213, %161, %137, %84, %39, %34
-  %221 = load ptr, ptr %12, align 8
-  ret ptr %221
+221:                                              ; preds = %219, %216, %214, %162, %138, %85, %39, %34
+  %222 = load ptr, ptr %12, align 8
+  ret ptr %222
 }
 
 declare zeroext i1 @abi_arg_is_indirect(ptr noundef) #1
@@ -1332,7 +1339,7 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %6
-  br label %153
+  br label %155
 
 31:                                               ; preds = %6
   %32 = load ptr, ptr %10, align 8
@@ -1346,7 +1353,7 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %31
-  br label %153
+  br label %155
 
 41:                                               ; preds = %31
   %42 = load ptr, ptr %12, align 8
@@ -1390,11 +1397,11 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   store i32 %65, ptr %20, align 4
   br label %66
 
-66:                                               ; preds = %146, %64
+66:                                               ; preds = %148, %64
   %67 = load i32, ptr %19, align 4
   %68 = load i32, ptr %20, align 4
   %69 = icmp ult i32 %67, %68
-  br i1 %69, label %70, label %149
+  br i1 %69, label %70, label %151
 
 70:                                               ; preds = %66
   %71 = load ptr, ptr %18, align 8
@@ -1414,7 +1421,7 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   store i64 %83, ptr %22, align 8
   %84 = load i64, ptr %16, align 8
   %85 = icmp ugt i64 %84, 16
-  br i1 %85, label %86, label %107
+  br i1 %85, label %86, label %109
 
 86:                                               ; preds = %70
   %87 = load i8, ptr %17, align 1
@@ -1429,94 +1436,96 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   %94 = call i32 @type_size(ptr noundef %93)
   %95 = zext i32 %94 to i64
   %96 = icmp ne i64 %90, %95
-  br i1 %96, label %102, label %97
+  br i1 %96, label %104, label %97
 
 97:                                               ; preds = %89, %86
   %98 = load i64, ptr %16, align 8
-  %99 = load i32, ptr getelementptr inbounds (%struct.anon.90, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 2), align 4
-  %100 = sext i32 %99 to i64
-  %101 = icmp ugt i64 %98, %100
-  br i1 %101, label %102, label %107
+  %99 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %100 = getelementptr inbounds %struct.anon.90, ptr %99, i32 0, i32 2
+  %101 = load i32, ptr %100, align 4
+  %102 = sext i32 %101 to i64
+  %103 = icmp ugt i64 %98, %102
+  br i1 %103, label %104, label %109
 
-102:                                              ; preds = %97, %89
-  %103 = load ptr, ptr %13, align 8
-  store i32 1, ptr %103, align 4
-  %104 = load i64, ptr %16, align 8
+104:                                              ; preds = %97, %89
   %105 = load ptr, ptr %13, align 8
-  %106 = load ptr, ptr %14, align 8
-  call void @x64_classify_post_merge(i64 noundef %104, ptr noundef %105, ptr noundef %106)
-  br label %153
+  store i32 1, ptr %105, align 4
+  %106 = load i64, ptr %16, align 8
+  %107 = load ptr, ptr %13, align 8
+  %108 = load ptr, ptr %14, align 8
+  call void @x64_classify_post_merge(i64 noundef %106, ptr noundef %107, ptr noundef %108)
+  br label %155
 
-107:                                              ; preds = %97, %70
-  %108 = load i64, ptr %22, align 8
-  %109 = load ptr, ptr %21, align 8
-  %110 = getelementptr inbounds %struct.Decl_, ptr %109, i32 0, i32 10
-  %111 = load ptr, ptr %110, align 8
-  %112 = call i32 @type_abi_alignment(ptr noundef %111)
-  %113 = zext i32 %112 to i64
-  %114 = urem i64 %108, %113
-  %115 = icmp ne i64 %114, 0
-  br i1 %115, label %116, label %121
+109:                                              ; preds = %97, %70
+  %110 = load i64, ptr %22, align 8
+  %111 = load ptr, ptr %21, align 8
+  %112 = getelementptr inbounds %struct.Decl_, ptr %111, i32 0, i32 10
+  %113 = load ptr, ptr %112, align 8
+  %114 = call i32 @type_abi_alignment(ptr noundef %113)
+  %115 = zext i32 %114 to i64
+  %116 = urem i64 %110, %115
+  %117 = icmp ne i64 %116, 0
+  br i1 %117, label %118, label %123
 
-116:                                              ; preds = %107
-  %117 = load ptr, ptr %13, align 8
-  store i32 1, ptr %117, align 4
-  %118 = load i64, ptr %16, align 8
+118:                                              ; preds = %109
   %119 = load ptr, ptr %13, align 8
-  %120 = load ptr, ptr %14, align 8
-  call void @x64_classify_post_merge(i64 noundef %118, ptr noundef %119, ptr noundef %120)
-  br label %153
+  store i32 1, ptr %119, align 4
+  %120 = load i64, ptr %16, align 8
+  %121 = load ptr, ptr %13, align 8
+  %122 = load ptr, ptr %14, align 8
+  call void @x64_classify_post_merge(i64 noundef %120, ptr noundef %121, ptr noundef %122)
+  br label %155
 
-121:                                              ; preds = %107
-  %122 = load ptr, ptr %21, align 8
-  %123 = getelementptr inbounds %struct.Decl_, ptr %122, i32 0, i32 10
-  %124 = load ptr, ptr %123, align 8
-  %125 = load i64, ptr %22, align 8
-  %126 = load i32, ptr %15, align 4
-  call void @x64_classify(ptr noundef %124, i64 noundef %125, ptr noundef %23, ptr noundef %24, i32 noundef %126)
-  %127 = load ptr, ptr %13, align 8
-  %128 = load i32, ptr %127, align 4
-  %129 = load i32, ptr %23, align 4
-  %130 = call i32 @x64_merge(i32 noundef %128, i32 noundef %129)
-  %131 = load ptr, ptr %13, align 8
-  store i32 %130, ptr %131, align 4
-  %132 = load ptr, ptr %14, align 8
-  %133 = load i32, ptr %132, align 4
-  %134 = load i32, ptr %24, align 4
-  %135 = call i32 @x64_merge(i32 noundef %133, i32 noundef %134)
-  %136 = load ptr, ptr %14, align 8
-  store i32 %135, ptr %136, align 4
-  %137 = load ptr, ptr %13, align 8
-  %138 = load i32, ptr %137, align 4
-  %139 = icmp eq i32 %138, 1
-  br i1 %139, label %144, label %140
+123:                                              ; preds = %109
+  %124 = load ptr, ptr %21, align 8
+  %125 = getelementptr inbounds %struct.Decl_, ptr %124, i32 0, i32 10
+  %126 = load ptr, ptr %125, align 8
+  %127 = load i64, ptr %22, align 8
+  %128 = load i32, ptr %15, align 4
+  call void @x64_classify(ptr noundef %126, i64 noundef %127, ptr noundef %23, ptr noundef %24, i32 noundef %128)
+  %129 = load ptr, ptr %13, align 8
+  %130 = load i32, ptr %129, align 4
+  %131 = load i32, ptr %23, align 4
+  %132 = call i32 @x64_merge(i32 noundef %130, i32 noundef %131)
+  %133 = load ptr, ptr %13, align 8
+  store i32 %132, ptr %133, align 4
+  %134 = load ptr, ptr %14, align 8
+  %135 = load i32, ptr %134, align 4
+  %136 = load i32, ptr %24, align 4
+  %137 = call i32 @x64_merge(i32 noundef %135, i32 noundef %136)
+  %138 = load ptr, ptr %14, align 8
+  store i32 %137, ptr %138, align 4
+  %139 = load ptr, ptr %13, align 8
+  %140 = load i32, ptr %139, align 4
+  %141 = icmp eq i32 %140, 1
+  br i1 %141, label %146, label %142
 
-140:                                              ; preds = %121
-  %141 = load ptr, ptr %14, align 8
-  %142 = load i32, ptr %141, align 4
-  %143 = icmp eq i32 %142, 1
-  br i1 %143, label %144, label %145
+142:                                              ; preds = %123
+  %143 = load ptr, ptr %14, align 8
+  %144 = load i32, ptr %143, align 4
+  %145 = icmp eq i32 %144, 1
+  br i1 %145, label %146, label %147
 
-144:                                              ; preds = %140, %121
-  br label %149
+146:                                              ; preds = %142, %123
+  br label %151
 
-145:                                              ; preds = %140
-  br label %146
+147:                                              ; preds = %142
+  br label %148
 
-146:                                              ; preds = %145
-  %147 = load i32, ptr %19, align 4
-  %148 = add i32 %147, 1
-  store i32 %148, ptr %19, align 4
+148:                                              ; preds = %147
+  %149 = load i32, ptr %19, align 4
+  %150 = add i32 %149, 1
+  store i32 %150, ptr %19, align 4
   br label %66, !llvm.loop !9
 
-149:                                              ; preds = %144, %66
-  %150 = load i64, ptr %16, align 8
-  %151 = load ptr, ptr %13, align 8
-  %152 = load ptr, ptr %14, align 8
-  call void @x64_classify_post_merge(i64 noundef %150, ptr noundef %151, ptr noundef %152)
-  br label %153
+151:                                              ; preds = %146, %66
+  %152 = load i64, ptr %16, align 8
+  %153 = load ptr, ptr %13, align 8
+  %154 = load ptr, ptr %14, align 8
+  call void @x64_classify_post_merge(i64 noundef %152, ptr noundef %153, ptr noundef %154)
+  br label %155
 
-153:                                              ; preds = %149, %116, %102, %40, %30
+155:                                              ; preds = %151, %118, %104, %40, %30
   ret void
 }
 
@@ -1796,7 +1805,7 @@ define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %6
-  br label %104
+  br label %106
 
 33:                                               ; preds = %6
   %34 = load i64, ptr %8, align 8
@@ -1814,14 +1823,14 @@ define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr no
   %43 = load ptr, ptr %10, align 8
   %44 = load ptr, ptr %11, align 8
   call void @x64_classify_post_merge(i64 noundef %42, ptr noundef %43, ptr noundef %44)
-  br label %104
+  br label %106
 
 45:                                               ; preds = %33
   %46 = load ptr, ptr %9, align 8
   store i32 0, ptr %46, align 4
   %47 = load i64, ptr %13, align 8
   %48 = icmp ugt i64 %47, 16
-  br i1 %48, label %49, label %62
+  br i1 %48, label %49, label %64
 
 49:                                               ; preds = %45
   %50 = load i64, ptr %13, align 8
@@ -1829,87 +1838,89 @@ define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr no
   %52 = call i32 @type_size(ptr noundef %51)
   %53 = zext i32 %52 to i64
   %54 = icmp ne i64 %50, %53
-  br i1 %54, label %60, label %55
+  br i1 %54, label %62, label %55
 
 55:                                               ; preds = %49
   %56 = load i64, ptr %13, align 8
-  %57 = load i32, ptr getelementptr inbounds (%struct.anon.90, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 2), align 4
-  %58 = sext i32 %57 to i64
-  %59 = icmp ugt i64 %56, %58
-  br i1 %59, label %60, label %62
+  %57 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %58 = getelementptr inbounds %struct.anon.90, ptr %57, i32 0, i32 2
+  %59 = load i32, ptr %58, align 4
+  %60 = sext i32 %59 to i64
+  %61 = icmp ugt i64 %56, %60
+  br i1 %61, label %62, label %64
 
-60:                                               ; preds = %55, %49
-  %61 = load ptr, ptr %10, align 8
-  store i32 1, ptr %61, align 4
-  br label %104
+62:                                               ; preds = %55, %49
+  %63 = load ptr, ptr %10, align 8
+  store i32 1, ptr %63, align 4
+  br label %106
 
-62:                                               ; preds = %55, %45
-  %63 = load i64, ptr %8, align 8
-  store i64 %63, ptr %16, align 8
+64:                                               ; preds = %55, %45
+  %65 = load i64, ptr %8, align 8
+  store i64 %65, ptr %16, align 8
   store i32 0, ptr %17, align 4
-  br label %64
+  br label %66
 
-64:                                               ; preds = %97, %62
-  %65 = load i32, ptr %17, align 4
-  %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds %struct.Type_, ptr %66, i32 0, i32 7
-  %68 = getelementptr inbounds %struct.TypeArray, ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %68, align 8
-  %70 = icmp ult i32 %65, %69
-  br i1 %70, label %71, label %100
+66:                                               ; preds = %99, %64
+  %67 = load i32, ptr %17, align 4
+  %68 = load ptr, ptr %7, align 8
+  %69 = getelementptr inbounds %struct.Type_, ptr %68, i32 0, i32 7
+  %70 = getelementptr inbounds %struct.TypeArray, ptr %69, i32 0, i32 1
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp ult i32 %67, %71
+  br i1 %72, label %73, label %102
 
-71:                                               ; preds = %64
-  %72 = load ptr, ptr %14, align 8
-  %73 = load i64, ptr %16, align 8
-  %74 = load i32, ptr %12, align 4
-  call void @x64_classify(ptr noundef %72, i64 noundef %73, ptr noundef %18, ptr noundef %19, i32 noundef %74)
-  %75 = load i64, ptr %15, align 8
-  %76 = load i64, ptr %16, align 8
-  %77 = add i64 %76, %75
-  store i64 %77, ptr %16, align 8
-  %78 = load ptr, ptr %10, align 8
-  %79 = load i32, ptr %78, align 4
-  %80 = load i32, ptr %18, align 4
-  %81 = call i32 @x64_merge(i32 noundef %79, i32 noundef %80)
-  %82 = load ptr, ptr %10, align 8
-  store i32 %81, ptr %82, align 4
-  %83 = load ptr, ptr %11, align 8
-  %84 = load i32, ptr %83, align 4
-  %85 = load i32, ptr %19, align 4
-  %86 = call i32 @x64_merge(i32 noundef %84, i32 noundef %85)
-  %87 = load ptr, ptr %11, align 8
-  store i32 %86, ptr %87, align 4
-  %88 = load ptr, ptr %10, align 8
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp eq i32 %89, 1
-  br i1 %90, label %95, label %91
+73:                                               ; preds = %66
+  %74 = load ptr, ptr %14, align 8
+  %75 = load i64, ptr %16, align 8
+  %76 = load i32, ptr %12, align 4
+  call void @x64_classify(ptr noundef %74, i64 noundef %75, ptr noundef %18, ptr noundef %19, i32 noundef %76)
+  %77 = load i64, ptr %15, align 8
+  %78 = load i64, ptr %16, align 8
+  %79 = add i64 %78, %77
+  store i64 %79, ptr %16, align 8
+  %80 = load ptr, ptr %10, align 8
+  %81 = load i32, ptr %80, align 4
+  %82 = load i32, ptr %18, align 4
+  %83 = call i32 @x64_merge(i32 noundef %81, i32 noundef %82)
+  %84 = load ptr, ptr %10, align 8
+  store i32 %83, ptr %84, align 4
+  %85 = load ptr, ptr %11, align 8
+  %86 = load i32, ptr %85, align 4
+  %87 = load i32, ptr %19, align 4
+  %88 = call i32 @x64_merge(i32 noundef %86, i32 noundef %87)
+  %89 = load ptr, ptr %11, align 8
+  store i32 %88, ptr %89, align 4
+  %90 = load ptr, ptr %10, align 8
+  %91 = load i32, ptr %90, align 4
+  %92 = icmp eq i32 %91, 1
+  br i1 %92, label %97, label %93
 
-91:                                               ; preds = %71
-  %92 = load ptr, ptr %11, align 8
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp eq i32 %93, 1
-  br i1 %94, label %95, label %96
+93:                                               ; preds = %73
+  %94 = load ptr, ptr %11, align 8
+  %95 = load i32, ptr %94, align 4
+  %96 = icmp eq i32 %95, 1
+  br i1 %96, label %97, label %98
 
-95:                                               ; preds = %91, %71
-  br label %100
+97:                                               ; preds = %93, %73
+  br label %102
 
-96:                                               ; preds = %91
-  br label %97
+98:                                               ; preds = %93
+  br label %99
 
-97:                                               ; preds = %96
-  %98 = load i32, ptr %17, align 4
-  %99 = add i32 %98, 1
-  store i32 %99, ptr %17, align 4
-  br label %64, !llvm.loop !10
+99:                                               ; preds = %98
+  %100 = load i32, ptr %17, align 4
+  %101 = add i32 %100, 1
+  store i32 %101, ptr %17, align 4
+  br label %66, !llvm.loop !10
 
-100:                                              ; preds = %95, %64
-  %101 = load i64, ptr %13, align 8
-  %102 = load ptr, ptr %10, align 8
-  %103 = load ptr, ptr %11, align 8
-  call void @x64_classify_post_merge(i64 noundef %101, ptr noundef %102, ptr noundef %103)
-  br label %104
+102:                                              ; preds = %97, %66
+  %103 = load i64, ptr %13, align 8
+  %104 = load ptr, ptr %10, align 8
+  %105 = load ptr, ptr %11, align 8
+  call void @x64_classify_post_merge(i64 noundef %103, ptr noundef %104, ptr noundef %105)
+  br label %106
 
-104:                                              ; preds = %100, %60, %40, %32
+106:                                              ; preds = %102, %62, %40, %32
   ret void
 }
 
@@ -1974,7 +1985,7 @@ define dso_local void @x64_classify_vector(ptr noundef %0, i64 noundef %1, ptr n
   br label %44
 
 44:                                               ; preds = %40, %27
-  br label %89
+  br label %93
 
 45:                                               ; preds = %24
   %46 = load i32, ptr %13, align 4
@@ -1994,7 +2005,7 @@ define dso_local void @x64_classify_vector(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %48
-  br label %89
+  br label %93
 
 58:                                               ; preds = %48
   %59 = load ptr, ptr %9, align 8
@@ -2016,42 +2027,46 @@ define dso_local void @x64_classify_vector(ptr noundef %0, i64 noundef %1, ptr n
   br label %69
 
 69:                                               ; preds = %65, %62, %58
-  br label %89
+  br label %93
 
 70:                                               ; preds = %45
   %71 = load i32, ptr %13, align 4
   %72 = icmp eq i32 %71, 16
-  br i1 %72, label %80, label %73
+  br i1 %72, label %82, label %73
 
 73:                                               ; preds = %70
   %74 = load i32, ptr %12, align 4
   %75 = icmp eq i32 %74, 1
-  br i1 %75, label %76, label %89
+  br i1 %75, label %76, label %93
 
 76:                                               ; preds = %73
   %77 = load i32, ptr %13, align 4
-  %78 = load i32, ptr getelementptr inbounds (%struct.anon.90, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 2), align 4
-  %79 = icmp ule i32 %77, %78
-  br i1 %79, label %80, label %89
+  %78 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %79 = getelementptr inbounds %struct.anon.90, ptr %78, i32 0, i32 2
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp ule i32 %77, %80
+  br i1 %81, label %82, label %93
 
-80:                                               ; preds = %76, %70
-  %81 = load i32, ptr getelementptr inbounds (%struct.anon.90, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  %82 = lshr i32 %81, 19
-  %83 = and i32 %82, 1
-  %84 = trunc i32 %83 to i1
-  br i1 %84, label %85, label %86
+82:                                               ; preds = %76, %70
+  %83 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %84 = getelementptr inbounds %struct.anon.90, ptr %83, i32 0, i32 1
+  %85 = load i32, ptr %84, align 8
+  %86 = lshr i32 %85, 19
+  %87 = and i32 %86, 1
+  %88 = trunc i32 %87 to i1
+  br i1 %88, label %89, label %90
 
-85:                                               ; preds = %80
-  br label %89
+89:                                               ; preds = %82
+  br label %93
 
-86:                                               ; preds = %80
-  %87 = load ptr, ptr %10, align 8
-  store i32 3, ptr %87, align 4
-  %88 = load ptr, ptr %11, align 8
-  store i32 4, ptr %88, align 4
-  br label %89
+90:                                               ; preds = %82
+  %91 = load ptr, ptr %10, align 8
+  store i32 3, ptr %91, align 4
+  %92 = load ptr, ptr %11, align 8
+  store i32 4, ptr %92, align 4
+  br label %93
 
-89:                                               ; preds = %86, %85, %76, %73, %69, %57, %44
+93:                                               ; preds = %90, %89, %76, %73, %69, %57, %44
   ret void
 }
 
@@ -2872,12 +2887,12 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) #0 {
   call void @x64_classify(ptr noundef %16, i64 noundef 0, ptr noundef %8, ptr noundef %7, i32 noundef 1)
   call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 8, i1 false)
   %17 = load i32, ptr %8, align 4
-  switch i32 %17, label %78 [
+  switch i32 %17, label %79 [
     i32 0, label %18
     i32 4, label %24
     i32 1, label %27
     i32 2, label %30
-    i32 3, label %71
+    i32 3, label %72
   ]
 
 18:                                               ; preds = %1
@@ -2888,10 +2903,10 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) #0 {
 21:                                               ; preds = %18
   %22 = call ptr @abi_arg_ignore()
   store ptr %22, ptr %5, align 8
-  br label %139
+  br label %140
 
 23:                                               ; preds = %18
-  br label %81
+  br label %82
 
 24:                                               ; preds = %1
   br label %25
@@ -2907,7 +2922,7 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) #0 {
   %28 = load ptr, ptr %6, align 8
   %29 = call ptr @x64_indirect_return_result(ptr noundef %28)
   store ptr %29, ptr %5, align 8
-  br label %139
+  br label %140
 
 30:                                               ; preds = %1
   %31 = load ptr, ptr %6, align 8
@@ -2919,7 +2934,7 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %10, i64 8, i1 false)
   %36 = load i32, ptr %7, align 4
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %70
+  br i1 %37, label %38, label %71
 
 38:                                               ; preds = %30
   %39 = load ptr, ptr %6, align 8
@@ -2953,153 +2968,154 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) #0 {
 
 56:                                               ; preds = %53, %50
   %57 = phi i1 [ false, %50 ], [ %55, %53 ]
-  br i1 %57, label %58, label %65
+  br i1 %57, label %58, label %66
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %4, align 8
   %60 = getelementptr inbounds %struct.Type_, ptr %59, i32 0, i32 7
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 255
-  %63 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %64 = icmp ult i32 %62, %63
-  br label %65
+  %63 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp ult i32 %62, %64
+  br label %66
 
-65:                                               ; preds = %58, %56
-  %66 = phi i1 [ false, %56 ], [ %64, %58 ]
-  br i1 %66, label %67, label %70
+66:                                               ; preds = %58, %56
+  %67 = phi i1 [ false, %56 ], [ %65, %58 ]
+  br i1 %67, label %68, label %71
 
-67:                                               ; preds = %65
-  %68 = load ptr, ptr %6, align 8
-  %69 = call ptr @abi_arg_new_direct_coerce_int_ext(ptr noundef %68)
-  store ptr %69, ptr %5, align 8
-  br label %139
+68:                                               ; preds = %66
+  %69 = load ptr, ptr %6, align 8
+  %70 = call ptr @abi_arg_new_direct_coerce_int_ext(ptr noundef %69)
+  store ptr %70, ptr %5, align 8
+  br label %140
 
-70:                                               ; preds = %65, %30
-  br label %81
+71:                                               ; preds = %66, %30
+  br label %82
 
-71:                                               ; preds = %1
-  %72 = load ptr, ptr %6, align 8
+72:                                               ; preds = %1
   %73 = load ptr, ptr %6, align 8
-  %74 = call ptr @x64_get_sse_type_at_offset(ptr noundef %72, i32 noundef 0, ptr noundef %73, i32 noundef 0)
-  %75 = call ptr @abi_type_get(ptr noundef %74)
-  %76 = getelementptr inbounds %struct.AbiType, ptr %11, i32 0, i32 0
-  %77 = getelementptr inbounds %union.anon.1, ptr %76, i32 0, i32 0
-  store ptr %75, ptr %77, align 8
+  %74 = load ptr, ptr %6, align 8
+  %75 = call ptr @x64_get_sse_type_at_offset(ptr noundef %73, i32 noundef 0, ptr noundef %74, i32 noundef 0)
+  %76 = call ptr @abi_type_get(ptr noundef %75)
+  %77 = getelementptr inbounds %struct.AbiType, ptr %11, i32 0, i32 0
+  %78 = getelementptr inbounds %union.anon.1, ptr %77, i32 0, i32 0
+  store ptr %76, ptr %78, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %11, i64 8, i1 false)
-  br label %81
+  br label %82
 
-78:                                               ; preds = %1
-  br label %79
+79:                                               ; preds = %1
+  br label %80
 
-79:                                               ; preds = %78
+80:                                               ; preds = %79
   call void (ptr, ...) @error_exit(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @__func__.x64_classify_return, ptr noundef @.str.2, i32 noundef 715) #5
   unreachable
 
-80:                                               ; No predecessors!
-  br label %81
+81:                                               ; No predecessors!
+  br label %82
 
-81:                                               ; preds = %80, %71, %70, %23
+82:                                               ; preds = %81, %72, %71, %23
   call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 8, i1 false)
-  %82 = load i32, ptr %7, align 4
-  switch i32 %82, label %102 [
-    i32 1, label %83
-    i32 0, label %83
-    i32 2, label %84
-    i32 3, label %90
-    i32 4, label %97
+  %83 = load i32, ptr %7, align 4
+  switch i32 %83, label %103 [
+    i32 1, label %84
+    i32 0, label %84
+    i32 2, label %85
+    i32 3, label %91
+    i32 4, label %98
   ]
 
-83:                                               ; preds = %81, %81
-  br label %102
+84:                                               ; preds = %82, %82
+  br label %103
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %6, align 8
+85:                                               ; preds = %82
   %86 = load ptr, ptr %6, align 8
-  %87 = call ptr @x64_get_int_type_at_offset(ptr noundef %85, i32 noundef 8, ptr noundef %86, i32 noundef 8)
-  %88 = getelementptr inbounds %struct.AbiType, ptr %13, i32 0, i32 0
-  %89 = getelementptr inbounds %union.anon.1, ptr %88, i32 0, i32 0
-  store ptr %87, ptr %89, align 8
+  %87 = load ptr, ptr %6, align 8
+  %88 = call ptr @x64_get_int_type_at_offset(ptr noundef %86, i32 noundef 8, ptr noundef %87, i32 noundef 8)
+  %89 = getelementptr inbounds %struct.AbiType, ptr %13, i32 0, i32 0
+  %90 = getelementptr inbounds %union.anon.1, ptr %89, i32 0, i32 0
+  store ptr %88, ptr %90, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 8, i1 false)
-  br label %102
+  br label %103
 
-90:                                               ; preds = %81
-  %91 = load ptr, ptr %6, align 8
+91:                                               ; preds = %82
   %92 = load ptr, ptr %6, align 8
-  %93 = call ptr @x64_get_sse_type_at_offset(ptr noundef %91, i32 noundef 8, ptr noundef %92, i32 noundef 8)
-  %94 = call ptr @abi_type_get(ptr noundef %93)
-  %95 = getelementptr inbounds %struct.AbiType, ptr %14, i32 0, i32 0
-  %96 = getelementptr inbounds %union.anon.1, ptr %95, i32 0, i32 0
-  store ptr %94, ptr %96, align 8
+  %93 = load ptr, ptr %6, align 8
+  %94 = call ptr @x64_get_sse_type_at_offset(ptr noundef %92, i32 noundef 8, ptr noundef %93, i32 noundef 8)
+  %95 = call ptr @abi_type_get(ptr noundef %94)
+  %96 = getelementptr inbounds %struct.AbiType, ptr %14, i32 0, i32 0
+  %97 = getelementptr inbounds %union.anon.1, ptr %96, i32 0, i32 0
+  store ptr %95, ptr %97, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %14, i64 8, i1 false)
-  br label %102
+  br label %103
 
-97:                                               ; preds = %81
-  %98 = load ptr, ptr %6, align 8
-  %99 = call ptr @x64_get_byte_vector_type(ptr noundef %98)
-  %100 = getelementptr inbounds %struct.AbiType, ptr %15, i32 0, i32 0
-  %101 = getelementptr inbounds %union.anon.1, ptr %100, i32 0, i32 0
-  store ptr %99, ptr %101, align 8
+98:                                               ; preds = %82
+  %99 = load ptr, ptr %6, align 8
+  %100 = call ptr @x64_get_byte_vector_type(ptr noundef %99)
+  %101 = getelementptr inbounds %struct.AbiType, ptr %15, i32 0, i32 0
+  %102 = getelementptr inbounds %union.anon.1, ptr %101, i32 0, i32 0
+  store ptr %100, ptr %102, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %15, i64 8, i1 false)
-  br label %102
+  br label %103
 
-102:                                              ; preds = %97, %90, %84, %83, %81
-  %103 = getelementptr inbounds %struct.AbiType, ptr %12, i32 0, i32 0
-  %104 = getelementptr inbounds %union.anon.1, ptr %103, i32 0, i32 0
-  %105 = load ptr, ptr %104, align 8
-  %106 = call zeroext i1 @abi_type_is_valid(ptr %105)
-  br i1 %106, label %107, label %115
+103:                                              ; preds = %98, %91, %85, %84, %82
+  %104 = getelementptr inbounds %struct.AbiType, ptr %12, i32 0, i32 0
+  %105 = getelementptr inbounds %union.anon.1, ptr %104, i32 0, i32 0
+  %106 = load ptr, ptr %105, align 8
+  %107 = call zeroext i1 @abi_type_is_valid(ptr %106)
+  br i1 %107, label %108, label %116
 
-107:                                              ; preds = %102
-  %108 = getelementptr inbounds %struct.AbiType, ptr %9, i32 0, i32 0
-  %109 = getelementptr inbounds %union.anon.1, ptr %108, i32 0, i32 0
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds %struct.AbiType, ptr %12, i32 0, i32 0
-  %112 = getelementptr inbounds %union.anon.1, ptr %111, i32 0, i32 0
-  %113 = load ptr, ptr %112, align 8
-  %114 = call ptr @x64_get_argument_pair_return(ptr %110, ptr %113)
-  store ptr %114, ptr %5, align 8
-  br label %139
+108:                                              ; preds = %103
+  %109 = getelementptr inbounds %struct.AbiType, ptr %9, i32 0, i32 0
+  %110 = getelementptr inbounds %union.anon.1, ptr %109, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds %struct.AbiType, ptr %12, i32 0, i32 0
+  %113 = getelementptr inbounds %union.anon.1, ptr %112, i32 0, i32 0
+  %114 = load ptr, ptr %113, align 8
+  %115 = call ptr @x64_get_argument_pair_return(ptr %111, ptr %114)
+  store ptr %115, ptr %5, align 8
+  br label %140
 
-115:                                              ; preds = %102
-  %116 = getelementptr inbounds %struct.AbiType, ptr %9, i32 0, i32 0
-  %117 = getelementptr inbounds %union.anon.1, ptr %116, i32 0, i32 0
-  %118 = load ptr, ptr %117, align 8
-  %119 = call zeroext i1 @abi_type_is_type(ptr %118)
-  br i1 %119, label %120, label %137
+116:                                              ; preds = %103
+  %117 = getelementptr inbounds %struct.AbiType, ptr %9, i32 0, i32 0
+  %118 = getelementptr inbounds %union.anon.1, ptr %117, i32 0, i32 0
+  %119 = load ptr, ptr %118, align 8
+  %120 = call zeroext i1 @abi_type_is_type(ptr %119)
+  br i1 %120, label %121, label %138
 
-120:                                              ; preds = %115
-  %121 = load ptr, ptr %6, align 8
-  %122 = getelementptr inbounds %struct.Type_, ptr %121, i32 0, i32 1
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds %struct.AbiType, ptr %9, i32 0, i32 0
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds %struct.Type_, ptr %125, i32 0, i32 1
-  %127 = load ptr, ptr %126, align 8
-  %128 = icmp eq ptr %123, %127
-  br i1 %128, label %129, label %131
+121:                                              ; preds = %116
+  %122 = load ptr, ptr %6, align 8
+  %123 = getelementptr inbounds %struct.Type_, ptr %122, i32 0, i32 1
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds %struct.AbiType, ptr %9, i32 0, i32 0
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds %struct.Type_, ptr %126, i32 0, i32 1
+  %128 = load ptr, ptr %127, align 8
+  %129 = icmp eq ptr %124, %128
+  br i1 %129, label %130, label %132
 
-129:                                              ; preds = %120
-  %130 = call ptr @abi_arg_new_direct()
-  store ptr %130, ptr %5, align 8
-  br label %139
+130:                                              ; preds = %121
+  %131 = call ptr @abi_arg_new_direct()
+  store ptr %131, ptr %5, align 8
+  br label %140
 
-131:                                              ; preds = %120
-  %132 = getelementptr inbounds %struct.AbiType, ptr %9, i32 0, i32 0
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds %struct.Type_, ptr %133, i32 0, i32 1
-  %135 = load ptr, ptr %134, align 8
-  %136 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %135)
-  store ptr %136, ptr %5, align 8
-  br label %139
+132:                                              ; preds = %121
+  %133 = getelementptr inbounds %struct.AbiType, ptr %9, i32 0, i32 0
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds %struct.Type_, ptr %134, i32 0, i32 1
+  %136 = load ptr, ptr %135, align 8
+  %137 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %136)
+  store ptr %137, ptr %5, align 8
+  br label %140
 
-137:                                              ; preds = %115
-  %138 = call ptr @abi_arg_new_direct_coerce_int()
-  store ptr %138, ptr %5, align 8
-  br label %139
+138:                                              ; preds = %116
+  %139 = call ptr @abi_arg_new_direct_coerce_int()
+  store ptr %139, ptr %5, align 8
+  br label %140
 
-139:                                              ; preds = %137, %131, %129, %107, %67, %27, %21
-  %140 = load ptr, ptr %5, align 8
-  ret ptr %140
+140:                                              ; preds = %138, %132, %130, %108, %68, %27, %21
+  %141 = load ptr, ptr %5, align 8
+  ret ptr %141
 }
 
 declare ptr @abi_arg_ignore() #1
@@ -3457,7 +3473,7 @@ define internal ptr @x64_get_byte_vector_type(ptr noundef %0) #0 {
   %17 = getelementptr inbounds %struct.Type_, ptr %16, i32 0, i32 0
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 37
-  br i1 %19, label %20, label %48
+  br i1 %19, label %20, label %50
 
 20:                                               ; preds = %13
   %21 = load ptr, ptr %3, align 8
@@ -3467,71 +3483,73 @@ define internal ptr @x64_get_byte_vector_type(ptr noundef %0) #0 {
   %25 = getelementptr inbounds %struct.Type_, ptr %24, i32 0, i32 1
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %5, align 8
-  %27 = load i32, ptr getelementptr inbounds (%struct.anon.90, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 16), i32 0, i32 1), align 8
-  %28 = lshr i32 %27, 19
-  %29 = and i32 %28, 1
-  %30 = trunc i32 %29 to i1
-  br i1 %30, label %31, label %43
+  %27 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 16
+  %28 = getelementptr inbounds %struct.anon.90, ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8
+  %30 = lshr i32 %29, 19
+  %31 = and i32 %30, 1
+  %32 = trunc i32 %31 to i1
+  br i1 %32, label %33, label %45
 
-31:                                               ; preds = %20
-  %32 = load ptr, ptr %5, align 8
-  %33 = call zeroext i1 @type_is_int128(ptr noundef %32)
-  br i1 %33, label %34, label %43
+33:                                               ; preds = %20
+  %34 = load ptr, ptr %5, align 8
+  %35 = call zeroext i1 @type_is_int128(ptr noundef %34)
+  br i1 %35, label %36, label %45
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @type_ulong, align 8
-  %36 = load ptr, ptr %3, align 8
-  %37 = call i32 @type_size(ptr noundef %36)
-  %38 = udiv i32 %37, 8
-  %39 = call ptr @type_get_vector(ptr noundef %35, i32 noundef %38)
-  %40 = call ptr @abi_type_get(ptr noundef %39)
-  %41 = getelementptr inbounds %struct.AbiType, ptr %2, i32 0, i32 0
-  %42 = getelementptr inbounds %union.anon.1, ptr %41, i32 0, i32 0
-  store ptr %40, ptr %42, align 8
-  br label %68
+36:                                               ; preds = %33
+  %37 = load ptr, ptr @type_ulong, align 8
+  %38 = load ptr, ptr %3, align 8
+  %39 = call i32 @type_size(ptr noundef %38)
+  %40 = udiv i32 %39, 8
+  %41 = call ptr @type_get_vector(ptr noundef %37, i32 noundef %40)
+  %42 = call ptr @abi_type_get(ptr noundef %41)
+  %43 = getelementptr inbounds %struct.AbiType, ptr %2, i32 0, i32 0
+  %44 = getelementptr inbounds %union.anon.1, ptr %43, i32 0, i32 0
+  store ptr %42, ptr %44, align 8
+  br label %70
 
-43:                                               ; preds = %31, %20
-  %44 = load ptr, ptr %3, align 8
-  %45 = call ptr @abi_type_get(ptr noundef %44)
-  %46 = getelementptr inbounds %struct.AbiType, ptr %2, i32 0, i32 0
-  %47 = getelementptr inbounds %union.anon.1, ptr %46, i32 0, i32 0
-  store ptr %45, ptr %47, align 8
-  br label %68
+45:                                               ; preds = %33, %20
+  %46 = load ptr, ptr %3, align 8
+  %47 = call ptr @abi_type_get(ptr noundef %46)
+  %48 = getelementptr inbounds %struct.AbiType, ptr %2, i32 0, i32 0
+  %49 = getelementptr inbounds %union.anon.1, ptr %48, i32 0, i32 0
+  store ptr %47, ptr %49, align 8
+  br label %70
 
-48:                                               ; preds = %13
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.Type_, ptr %49, i32 0, i32 0
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp eq i32 %51, 17
-  br i1 %52, label %53, label %58
+50:                                               ; preds = %13
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds %struct.Type_, ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp eq i32 %53, 17
+  br i1 %54, label %55, label %60
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %3, align 8
-  %55 = call ptr @abi_type_get(ptr noundef %54)
-  %56 = getelementptr inbounds %struct.AbiType, ptr %2, i32 0, i32 0
-  %57 = getelementptr inbounds %union.anon.1, ptr %56, i32 0, i32 0
-  store ptr %55, ptr %57, align 8
-  br label %68
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %3, align 8
+  %57 = call ptr @abi_type_get(ptr noundef %56)
+  %58 = getelementptr inbounds %struct.AbiType, ptr %2, i32 0, i32 0
+  %59 = getelementptr inbounds %union.anon.1, ptr %58, i32 0, i32 0
+  store ptr %57, ptr %59, align 8
+  br label %70
 
-58:                                               ; preds = %48
-  %59 = load ptr, ptr %3, align 8
-  %60 = call i32 @type_size(ptr noundef %59)
-  store i32 %60, ptr %6, align 4
-  %61 = load ptr, ptr @type_double, align 8
-  %62 = load i32, ptr %6, align 4
-  %63 = udiv i32 %62, 8
-  %64 = call ptr @type_get_vector(ptr noundef %61, i32 noundef %63)
-  %65 = call ptr @abi_type_get(ptr noundef %64)
-  %66 = getelementptr inbounds %struct.AbiType, ptr %2, i32 0, i32 0
-  %67 = getelementptr inbounds %union.anon.1, ptr %66, i32 0, i32 0
-  store ptr %65, ptr %67, align 8
-  br label %68
+60:                                               ; preds = %50
+  %61 = load ptr, ptr %3, align 8
+  %62 = call i32 @type_size(ptr noundef %61)
+  store i32 %62, ptr %6, align 4
+  %63 = load ptr, ptr @type_double, align 8
+  %64 = load i32, ptr %6, align 4
+  %65 = udiv i32 %64, 8
+  %66 = call ptr @type_get_vector(ptr noundef %63, i32 noundef %65)
+  %67 = call ptr @abi_type_get(ptr noundef %66)
+  %68 = getelementptr inbounds %struct.AbiType, ptr %2, i32 0, i32 0
+  %69 = getelementptr inbounds %union.anon.1, ptr %68, i32 0, i32 0
+  store ptr %67, ptr %69, align 8
+  br label %70
 
-68:                                               ; preds = %58, %53, %43, %34
-  %69 = getelementptr inbounds %struct.AbiType, ptr %2, i32 0, i32 0
-  %70 = getelementptr inbounds %union.anon.1, ptr %69, i32 0, i32 0
-  %71 = load ptr, ptr %70, align 8
-  ret ptr %71
+70:                                               ; preds = %60, %55, %45, %36
+  %71 = getelementptr inbounds %struct.AbiType, ptr %2, i32 0, i32 0
+  %72 = getelementptr inbounds %union.anon.1, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8
+  ret ptr %73
 }
 
 ; Function Attrs: nounwind uwtable

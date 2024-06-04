@@ -30,10 +30,11 @@ define dso_local i32 @apic_default_calc_apicid(i32 noundef %0) local_unnamed_add
   %2 = zext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
-  %5 = add i64 %4, ptrtoint (ptr @x86_cpu_to_apicid to i64)
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load i32, ptr %6, align 4
-  ret i32 %7
+  %5 = ptrtoint ptr @x86_cpu_to_apicid to i64
+  %6 = add i64 %4, %5
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load i32, ptr %7, align 4
+  ret i32 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
@@ -65,7 +66,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local i32 @default_cpu_present_to_apicid(i32 noundef %0) #2 align 16 {
   %2 = load i32, ptr @nr_cpu_ids, align 4
   %3 = icmp ugt i32 %2, %0
-  br i1 %3, label %4, label %16
+  br i1 %3, label %4, label %17
 
 4:                                                ; preds = %1
   %5 = zext i32 %0 to i64
@@ -73,20 +74,21 @@ define dso_local i32 @default_cpu_present_to_apicid(i32 noundef %0) #2 align 16 
   %7 = icmp ult i8 %6, 2
   tail call void @llvm.assume(i1 %7)
   %8 = icmp eq i8 %6, 0
-  br i1 %8, label %16, label %9
+  br i1 %8, label %17, label %9
 
 9:                                                ; preds = %4
   %10 = sext i32 %0 to i64
   %11 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %10
   %12 = load i64, ptr %11, align 8
-  %13 = add i64 %12, ptrtoint (ptr @x86_cpu_to_apicid to i64)
-  %14 = inttoptr i64 %13 to ptr
-  %15 = load i32, ptr %14, align 4
-  br label %16
+  %13 = ptrtoint ptr @x86_cpu_to_apicid to i64
+  %14 = add i64 %12, %13
+  %15 = inttoptr i64 %14 to ptr
+  %16 = load i32, ptr %15, align 4
+  br label %17
 
-16:                                               ; preds = %9, %4, %1
-  %17 = phi i32 [ %15, %9 ], [ 65535, %4 ], [ 65535, %1 ]
-  ret i32 %17
+17:                                               ; preds = %9, %4, %1
+  %18 = phi i32 [ %16, %9 ], [ 65535, %4 ], [ 65535, %1 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -109,12 +111,13 @@ define dso_local void @default_init_apic_ldr() local_unnamed_addr #2 align 16 {
   tail call void @__SCT__apic_call_write(i32 noundef 224, i32 noundef -1) #7
   %1 = tail call i32 @__SCT__apic_call_read(i32 noundef 208) #7
   %2 = and i32 %1, 16777215
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #8, !srcloc !6
-  %4 = zext nneg i32 %3 to i64
-  %5 = shl i64 16777216, %4
-  %6 = trunc i64 %5 to i32
-  %7 = or disjoint i32 %2, %6
-  tail call void @__SCT__apic_call_write(i32 noundef 208, i32 noundef %7) #7
+  %3 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3) #8, !srcloc !6
+  %5 = zext nneg i32 %4 to i64
+  %6 = shl i64 16777216, %5
+  %7 = trunc i64 %6 to i32
+  %8 = or disjoint i32 %2, %7
+  tail call void @__SCT__apic_call_write(i32 noundef 208, i32 noundef %8) #7
   ret void
 }
 

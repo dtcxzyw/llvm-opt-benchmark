@@ -60,11 +60,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef nonnull ptr @freezer_css_alloc(ptr nocapture readnone %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 208) #9
-  %4 = icmp eq ptr %3, null
-  %5 = select i1 %4, ptr inttoptr (i64 -12 to ptr), ptr %3
-  ret ptr %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 208) #9
+  %5 = icmp eq ptr %4, null
+  %6 = inttoptr i64 -12 to ptr
+  %7 = select i1 %5, ptr %6, ptr %4
+  ret ptr %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -187,32 +189,33 @@ define internal void @freezer_fork(ptr noundef %0) #0 align 16 {
   %3 = load volatile ptr, ptr %2, align 32
   %4 = getelementptr i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.css_set, ptr @init_css_set, i64 0, i32 0, i64 5), align 8
-  %7 = icmp eq ptr %5, %6
-  br i1 %7, label %19, label %8
+  %6 = getelementptr inbounds %struct.css_set, ptr @init_css_set, i64 0, i32 0, i64 5
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %5, %7
+  br i1 %8, label %20, label %9
 
-8:                                                ; preds = %1
+9:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @freezer_mutex) #8
   tail call void @__rcu_read_lock() #8
-  %9 = load volatile ptr, ptr %2, align 32
-  %10 = getelementptr i8, ptr %9, i64 40
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 200
-  %13 = load i32, ptr %12, align 8
-  %14 = and i32 %13, 6
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %18, label %16
+  %10 = load volatile ptr, ptr %2, align 32
+  %11 = getelementptr i8, ptr %10, i64 40
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 200
+  %14 = load i32, ptr %13, align 8
+  %15 = and i32 %14, 6
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %19, label %17
 
-16:                                               ; preds = %8
-  %17 = tail call zeroext i1 @freeze_task(ptr noundef %0) #8
-  br label %18
-
-18:                                               ; preds = %16, %8
-  tail call void @__rcu_read_unlock() #8
-  tail call void @mutex_unlock(ptr noundef nonnull @freezer_mutex) #8
+17:                                               ; preds = %9
+  %18 = tail call zeroext i1 @freeze_task(ptr noundef %0) #8
   br label %19
 
-19:                                               ; preds = %18, %1
+19:                                               ; preds = %17, %9
+  tail call void @__rcu_read_unlock() #8
+  tail call void @mutex_unlock(ptr noundef nonnull @freezer_mutex) #8
+  br label %20
+
+20:                                               ; preds = %19, %1
   ret void
 }
 

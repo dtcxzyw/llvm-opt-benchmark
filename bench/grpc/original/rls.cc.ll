@@ -6792,7 +6792,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6802,7 +6803,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6826,7 +6828,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail10LoadStringC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6837,7 +6840,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail10LoadScalarC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10LoadStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10LoadStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6854,7 +6858,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10LoadScalarE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10LoadScalarE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6864,7 +6869,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail15LoaderInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail15LoaderInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6886,7 +6892,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail10LoadVectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6897,7 +6904,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10LoadVectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10LoadVectorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7813,7 +7821,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail8LoadBoolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIbEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIbEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7824,7 +7833,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail8LoadBoolE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail8LoadBoolE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7848,7 +7858,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail11LoadWrappedC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt8optionalIbEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt8optionalIbEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7859,7 +7870,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core11json_detail11LoadWrappedE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core11json_detail11LoadWrappedE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8087,7 +8099,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail11LoadWrappedC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8281,7 +8294,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_114GrpcKeyBuilder4NameEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_114GrpcKeyBuilder4NameEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8724,10 +8738,11 @@ entry:
   store ptr %elements, ptr %elements.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_114GrpcKeyBuilder4NameELm2EvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_114GrpcKeyBuilder4NameELm2EvEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %elements_ = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %elements.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elements_, ptr align 8 %0, i64 64, i1 false)
+  %1 = load ptr, ptr %elements.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elements_, ptr align 8 %1, i64 64, i1 false)
   ret void
 }
 
@@ -8796,7 +8811,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail10LoadVectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_114GrpcKeyBuilder4NameESaIS5_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_114GrpcKeyBuilder4NameESaIS5_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9651,7 +9667,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_114GrpcKeyBuilder11NameMatcherEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_114GrpcKeyBuilder11NameMatcherEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10215,10 +10232,11 @@ entry:
   store ptr %elements, ptr %elements.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_114GrpcKeyBuilder11NameMatcherELm3EvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_114GrpcKeyBuilder11NameMatcherELm3EvEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %elements_ = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.119", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %elements.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elements_, ptr align 8 %0, i64 96, i1 false)
+  %1 = load ptr, ptr %elements.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elements_, ptr align 8 %1, i64 96, i1 false)
   ret void
 }
 
@@ -10914,7 +10932,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail10LoadVectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_114GrpcKeyBuilder11NameMatcherESaIS5_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_114GrpcKeyBuilder11NameMatcherESaIS5_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12114,7 +12133,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_114GrpcKeyBuilder9ExtraKeysEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_114GrpcKeyBuilder9ExtraKeysEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12518,10 +12538,11 @@ entry:
   store ptr %elements, ptr %elements.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_114GrpcKeyBuilder9ExtraKeysELm3EvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_114GrpcKeyBuilder9ExtraKeysELm3EvEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %elements_ = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.141", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %elements.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elements_, ptr align 8 %0, i64 96, i1 false)
+  %1 = load ptr, ptr %elements.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elements_, ptr align 8 %1, i64 96, i1 false)
   ret void
 }
 
@@ -13137,7 +13158,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail7LoadMapC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13148,7 +13170,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail7LoadMapE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail7LoadMapE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14925,7 +14948,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail12LoadDurationC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_8DurationEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_8DurationEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14936,7 +14960,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail10LoadScalarC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail12LoadDurationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail12LoadDurationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14962,7 +14987,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail21TypedLoadSignedNumberIlEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -14973,7 +14999,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail10LoadNumberC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail21TypedLoadSignedNumberIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail21TypedLoadSignedNumberIlEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15029,7 +15056,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail10LoadScalarC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10LoadNumberE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10LoadNumberE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15110,7 +15138,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_114GrpcKeyBuilderEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_114GrpcKeyBuilderEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15848,10 +15877,11 @@ entry:
   store ptr %elements, ptr %elements.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_114GrpcKeyBuilderELm4EvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_114GrpcKeyBuilderELm4EvEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %elements_ = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.164", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %elements.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elements_, ptr align 8 %0, i64 128, i1 false)
+  %1 = load ptr, ptr %elements.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elements_, ptr align 8 %1, i64 128, i1 false)
   ret void
 }
 
@@ -18252,7 +18282,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail10LoadVectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_114GrpcKeyBuilderESaIS4_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_114GrpcKeyBuilderESaIS4_EEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -20406,7 +20437,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_111RlsLbConfig17RouteLookupConfigEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_111RlsLbConfig17RouteLookupConfigEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21233,10 +21265,11 @@ entry:
   store ptr %elements, ptr %elements.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_111RlsLbConfig17RouteLookupConfigELm6EvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_111RlsLbConfig17RouteLookupConfigELm6EvEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %elements_ = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.199", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %elements.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elements_, ptr align 8 %0, i64 192, i1 false)
+  %1 = load ptr, ptr %elements.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elements_, ptr align 8 %1, i64 192, i1 false)
   ret void
 }
 
@@ -23513,10 +23546,11 @@ entry:
   store ptr %__reason, ptr %__reason.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__reason.addr, align 8
-  store ptr %0, ptr %_M_reason, align 8
+  %1 = load ptr, ptr %__reason.addr, align 8
+  store ptr %1, ptr %_M_reason, align 8
   ret void
 }
 
@@ -23538,7 +23572,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -29781,7 +29816,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_111RlsLbConfigEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_111RlsLbConfigEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -30159,10 +30195,11 @@ entry:
   store ptr %elements, ptr %elements.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail15LoaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_111RlsLbConfigELm2EvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_111RlsLbConfigELm2EvEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %elements_ = getelementptr inbounds %"class.grpc_core::json_detail::FinishedJsonObjectLoader.269", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %elements.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elements_, ptr align 8 %0, i64 64, i1 false)
+  %1 = load ptr, ptr %elements.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %elements_, ptr align 8 %1, i64 64, i1 false)
   ret void
 }
 
@@ -43383,7 +43420,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core11json_detail11LoadWrappedC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_13RefCountedPtrINS_12_GLOBAL__N_111RlsLbConfigEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_13RefCountedPtrINS_12_GLOBAL__N_111RlsLbConfigEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -43540,7 +43578,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19LoadBalancingPolicy6ConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_111RlsLbConfigE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_111RlsLbConfigE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %route_lookup_config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLbConfig", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core12_GLOBAL__N_111RlsLbConfig17RouteLookupConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %route_lookup_config_) #3
   %rls_channel_service_config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLbConfig", ptr %this1, i32 0, i32 2
@@ -43557,12 +43596,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %child_policy_config_target_field_name_) #3
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %child_policy_config_) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rls_channel_service_config_) #3
@@ -43599,7 +43638,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedINS_19LoadBalancingPolicy6ConfigENS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core19LoadBalancingPolicy6ConfigE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core19LoadBalancingPolicy6ConfigE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -43658,7 +43698,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_111RlsLbConfigE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_111RlsLbConfigE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %default_child_policy_parsed_config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLbConfig", ptr %this1, i32 0, i32 5
   call void @_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %default_child_policy_parsed_config_) #3
   %child_policy_config_target_field_name_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLbConfig", ptr %this1, i32 0, i32 4
@@ -43708,23 +43749,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_19LoadBalancingPolicy6ConfigENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_19LoadBalancingPolicy6ConfigENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -43761,7 +43803,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -44266,7 +44309,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core26LoadBalancingPolicyFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_112RlsLbFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_112RlsLbFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -44300,7 +44344,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core26LoadBalancingPolicyFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core26LoadBalancingPolicyFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -44589,7 +44634,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLbE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLbE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mu_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308025MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %invoke.cont3 unwind label %lpad2
@@ -44644,76 +44690,76 @@ invoke.cont16:                                    ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
   br label %eh.resume
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup23
 
 lpad4:                                            ; preds = %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup22
 
 lpad6:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup19
 
 lpad8:                                            ; preds = %invoke.cont7
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup18
 
 lpad10:                                           ; preds = %invoke.cont9
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup17
 
 lpad12:                                           ; preds = %invoke.cont11
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad14:                                           ; preds = %if.then, %invoke.cont13
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %child_policy_map_) #3
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %default_child_policy_) #3
   br label %ehcleanup
@@ -45279,7 +45325,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLbE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLbE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %child_policy_map_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb", ptr %this1, i32 0, i32 11
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %child_policy_map_) #3
   %default_child_policy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb", ptr %this1, i32 0, i32 10
@@ -47534,7 +47581,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %closure_list_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 1
   %head = getelementptr inbounds %struct.grpc_closure_list, ptr %closure_list_, i32 0, i32 0
   store ptr null, ptr %head, align 8
@@ -47566,12 +47614,12 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core15ScopedTimeCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %time_cache_) #3
   br label %eh.resume
 
@@ -47698,24 +47746,25 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %flags_, align 8
-  %or = or i64 %0, 1
+  %1 = load i64, ptr %flags_, align 8
+  %or = or i64 %1, 1
   store i64 %or, ptr %flags_, align 8
   %call = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(88) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %last_exec_ctx_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %last_exec_ctx_, align 8
-  invoke void @_ZN9grpc_core7ExecCtx3SetEPS0_(ptr noundef %1)
+  %2 = load ptr, ptr %last_exec_ctx_, align 8
+  invoke void @_ZN9grpc_core7ExecCtx3SetEPS0_(ptr noundef %2)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %flags_3 = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %flags_3, align 8
-  %and = and i64 4, %2
+  %3 = load i64, ptr %flags_3, align 8
+  %and = and i64 4, %3
   %tobool = icmp ne i64 %and, 0
   br i1 %tobool, label %if.end, label %if.then
 
@@ -47732,10 +47781,10 @@ if.end:                                           ; preds = %invoke.cont4, %invo
   ret void
 
 terminate.lpad:                                   ; preds = %if.then, %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #18
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #18
   unreachable
 }
 
@@ -47884,15 +47933,16 @@ if.end:                                           ; preds = %if.then, %entry
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E() #14 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -47952,7 +48002,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core9Timestamp12ScopedSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cached_time_ = getelementptr inbounds %"class.grpc_core::ScopedTimeCache", ptr %this1, i32 0, i32 1
   call void @_ZNSt8optionalIN9grpc_core9TimestampEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cached_time_) #3
   ret void
@@ -48013,13 +48064,14 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core9Timestamp6SourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this1, i32 0, i32 1
-  %0 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %previous_, align 8
-  %2 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  store ptr %this1, ptr %2, align 8
+  %1 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  %2 = load ptr, ptr %1, align 8
+  store ptr %2, ptr %previous_, align 8
+  %3 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  store ptr %this1, ptr %3, align 8
   ret void
 }
 
@@ -48039,21 +48091,23 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp6SourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp6SourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E() #14 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -48123,15 +48177,16 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core7ExecCtx9exec_ctx_E() #14 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -48140,11 +48195,12 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %previous_, align 8
-  %1 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
-  store ptr %0, ptr %1, align 8
+  %1 = load ptr, ptr %previous_, align 8
+  %2 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
+  store ptr %1, ptr %2, align 8
   ret void
 }
 
@@ -58559,7 +58615,8 @@ entry:
   %call = call noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN9grpc_core17grpc_lb_rls_traceE)
   %cond = select i1 %call, ptr @.str.99, ptr null
   call void @_ZN9grpc_core14DualRefCountedINS_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEC2EPKci(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cond, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lb_policy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::ChildPolicyWrapper", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %lb_policy_, ptr noundef nonnull align 8 dereferenceable(8) %lb_policy) #3
   %target_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::ChildPolicyWrapper", ptr %this1, i32 0, i32 2
@@ -58592,39 +58649,39 @@ invoke.cont4:                                     ; preds = %invoke.cont
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont4
-  %0 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 0
-  %1 = extractvalue { ptr, i8 } %call11, 0
-  store ptr %1, ptr %0, align 8
-  %2 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 1
-  %3 = extractvalue { ptr, i8 } %call11, 1
-  store i8 %3, ptr %2, align 8
+  %1 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 0
+  %2 = extractvalue { ptr, i8 } %call11, 0
+  store ptr %2, ptr %1, align 8
+  %3 = getelementptr inbounds { ptr, i8 }, ptr %coerce, i32 0, i32 1
+  %4 = extractvalue { ptr, i8 } %call11, 1
+  store i8 %4, ptr %3, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad3:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont4
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %picker_) #3
   br label %ehcleanup
 
@@ -58703,10 +58760,11 @@ entry:
   store i32 %initial_refcount, ptr %initial_refcount.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14DualRefCountedINS_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core14DualRefCountedINS_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %initial_refcount.addr, align 4
-  %call = call noundef i64 @_ZN9grpc_core14DualRefCountedINS_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEE11MakeRefPairEjj(i32 noundef %1, i32 noundef 0)
+  %2 = load i32, ptr %initial_refcount.addr, align 4
+  %call = call noundef i64 @_ZN9grpc_core14DualRefCountedINS_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEE11MakeRefPairEjj(i32 noundef %2, i32 noundef 0)
   call void @_ZNSt6atomicImEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %call) #3
   ret void
 }
@@ -59066,7 +59124,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %picker_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::ChildPolicyWrapper", ptr %this1, i32 0, i32 7
   call void @_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %picker_) #3
   %pending_config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::ChildPolicyWrapper", ptr %this1, i32 0, i32 5
@@ -59098,7 +59157,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core10OrphanableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core10OrphanableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -59252,7 +59312,8 @@ entry:
   store ptr %parent, ptr %parent.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19LoadBalancingPolicy11QueuePickerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core19LoadBalancingPolicy11QueuePickerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mu_ = getelementptr inbounds %"class.grpc_core::LoadBalancingPolicy::QueuePicker", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308025MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %invoke.cont unwind label %lpad
@@ -59263,12 +59324,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -61465,7 +61526,8 @@ entry:
   %call = call noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN9grpc_core17grpc_lb_rls_traceE)
   %cond = select i1 %call, ptr @.str.102, ptr null
   call void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb10RlsChannelENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cond, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb10RlsChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb10RlsChannelE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lb_policy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %lb_policy_, ptr noundef nonnull align 8 dereferenceable(8) %lb_policy) #3
   %is_shutdown_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 2
@@ -61482,8 +61544,8 @@ invoke.cont:                                      ; preds = %entry
   %throttle_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 6
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 @_ZN9grpc_core12_GLOBAL__N_126kDefaultThrottleWindowSizeE, i64 8, i1 false)
   %coerce.dive = getelementptr inbounds %"class.grpc_core::Duration", ptr %agg.tmp, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive, align 8
-  invoke void @_ZN9grpc_core12_GLOBAL__N_15RlsLb10RlsChannel8ThrottleC2ENS_8DurationEfi(ptr noundef nonnull align 8 dereferenceable(5184) %throttle_, i64 %0, float noundef 2.000000e+00, i32 noundef 8)
+  %1 = load i64, ptr %coerce.dive, align 8
+  invoke void @_ZN9grpc_core12_GLOBAL__N_15RlsLb10RlsChannel8ThrottleC2ENS_8DurationEfi(ptr noundef nonnull align 8 dereferenceable(5184) %throttle_, i64 %1, float noundef 2.000000e+00, i32 noundef 8)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -61492,8 +61554,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %call6 = call noundef ptr @_ZNK9grpc_core19LoadBalancingPolicy22channel_control_helperEv(ptr noundef nonnull align 8 dereferenceable(56) %call5)
   %vtable = load ptr, ptr %call6, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
-  %1 = load ptr, ptr %vfn, align 8
-  invoke void %1(ptr sret(%"class.grpc_core::RefCountedPtr.552") align 8 %creds, ptr noundef nonnull align 8 dereferenceable(8) %call6)
+  %2 = load ptr, ptr %vfn, align 8
+  invoke void %2(ptr sret(%"class.grpc_core::RefCountedPtr.552") align 8 %creds, ptr noundef nonnull align 8 dereferenceable(8) %call6)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont3
@@ -61502,41 +61564,41 @@ invoke.cont8:                                     ; preds = %invoke.cont3
   %call11 = call noundef ptr @_ZNK9grpc_core19LoadBalancingPolicy22channel_control_helperEv(ptr noundef nonnull align 8 dereferenceable(56) %call10)
   %vtable12 = load ptr, ptr %call11, align 8
   %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 5
-  %2 = load ptr, ptr %vfn13, align 8
-  %call16 = invoke { i64, ptr } %2(ptr noundef nonnull align 8 dereferenceable(8) %call11)
+  %3 = load ptr, ptr %vfn13, align 8
+  %call16 = invoke { i64, ptr } %3(ptr noundef nonnull align 8 dereferenceable(8) %call11)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %authority, i32 0, i32 0
-  %4 = extractvalue { i64, ptr } %call16, 0
-  store i64 %4, ptr %3, align 8
-  %5 = getelementptr inbounds { i64, ptr }, ptr %authority, i32 0, i32 1
-  %6 = extractvalue { i64, ptr } %call16, 1
-  store ptr %6, ptr %5, align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr %authority, i32 0, i32 0
+  %5 = extractvalue { i64, ptr } %call16, 0
+  store i64 %5, ptr %4, align 8
+  %6 = getelementptr inbounds { i64, ptr }, ptr %authority, i32 0, i32 1
+  %7 = extractvalue { i64, ptr } %call16, 1
+  store ptr %7, ptr %6, align 8
   invoke void @_ZN9grpc_core11ChannelArgsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17)
           to label %invoke.cont18 unwind label %lpad14
 
 invoke.cont18:                                    ; preds = %invoke.cont15
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp19, ptr noundef @.str.112) #3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp20, ptr align 8 %authority, i64 16, i1 false)
-  %7 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp19, i32 0, i32 0
-  %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp19, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp20, i32 0, i32 0
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp20, i32 0, i32 1
-  %14 = load ptr, ptr %13, align 8
-  invoke void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr sret(%"class.grpc_core::ChannelArgs") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, i64 %8, ptr %10, i64 %12, ptr %14)
+  %8 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp19, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp19, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp20, i32 0, i32 0
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp20, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  invoke void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr sret(%"class.grpc_core::ChannelArgs") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, i64 %9, ptr %11, i64 %13, ptr %15)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont18
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp23, ptr noundef @.str.113) #3
-  %15 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp23, i32 0, i32 0
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp23, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  invoke void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEEi(ptr sret(%"class.grpc_core::ChannelArgs") align 8 %args, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i64 %16, ptr %18, i32 noundef 1)
+  %16 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp23, i32 0, i32 0
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp23, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  invoke void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEEi(ptr sret(%"class.grpc_core::ChannelArgs") align 8 %args, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i64 %17, ptr %19, i32 noundef 1)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont22
@@ -61546,11 +61608,11 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %call27 = call noundef ptr @_ZNK9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %lb_policy_26)
   %channel_args_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb", ptr %call27, i32 0, i32 8
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp28, ptr noundef @.str.114) #3
-  %19 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp28, i32 0, i32 0
-  %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp28, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  invoke void @_ZNK9grpc_core11ChannelArgs9GetStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.std::optional.553") align 8 %fake_security_expected_targets, ptr noundef nonnull align 8 dereferenceable(8) %channel_args_, i64 %20, ptr %22)
+  %20 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp28, i32 0, i32 0
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp28, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  invoke void @_ZNK9grpc_core11ChannelArgs9GetStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.std::optional.553") align 8 %fake_security_expected_targets, ptr noundef nonnull align 8 dereferenceable(8) %channel_args_, i64 %21, ptr %23)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont25
@@ -61561,15 +61623,15 @@ if.then:                                          ; preds = %invoke.cont30
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp33, ptr noundef @.str.114) #3
   %call35 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEdeEv(ptr noundef nonnull align 8 dereferenceable(24) %fake_security_expected_targets) #3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp34, ptr align 8 %call35, i64 16, i1 false)
-  %23 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp33, i32 0, i32 0
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp33, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp34, i32 0, i32 0
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp34, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8
-  invoke void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr sret(%"class.grpc_core::ChannelArgs") align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %24, ptr %26, i64 %28, ptr %30)
+  %24 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp33, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp33, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp34, i32 0, i32 0
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp34, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  invoke void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr sret(%"class.grpc_core::ChannelArgs") align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %25, ptr %27, i64 %29, ptr %31)
           to label %invoke.cont36 unwind label %lpad29
 
 invoke.cont36:                                    ; preds = %if.then
@@ -61578,57 +61640,57 @@ invoke.cont36:                                    ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %exn.slot, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %ehselector.slot, align 4
   br label %ehcleanup140
 
 lpad2:                                            ; preds = %invoke.cont
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %exn.slot, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %ehselector.slot, align 4
   br label %ehcleanup139
 
 lpad7:                                            ; preds = %invoke.cont3
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %exn.slot, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %ehselector.slot, align 4
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %exn.slot, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %ehselector.slot, align 4
   br label %ehcleanup138
 
 lpad14:                                           ; preds = %invoke.cont15, %invoke.cont8
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %exn.slot, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %ehselector.slot, align 4
   br label %ehcleanup137
 
 lpad21:                                           ; preds = %invoke.cont18
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %exn.slot, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad24:                                           ; preds = %invoke.cont22
-  %46 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %exn.slot, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %ehselector.slot, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %exn.slot, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   br label %ehcleanup
 
@@ -61637,12 +61699,12 @@ ehcleanup:                                        ; preds = %lpad24, %lpad21
   br label %ehcleanup137
 
 lpad29:                                           ; preds = %do.end, %if.then115, %invoke.cont110, %if.end108, %invoke.cont103, %invoke.cont101, %if.then100, %invoke.cont91, %if.then89, %if.then76, %invoke.cont65, %if.end58, %if.then44, %if.end, %if.then, %invoke.cont25
-  %49 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %exn.slot, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %ehselector.slot, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %exn.slot, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %ehselector.slot, align 4
   br label %ehcleanup136
 
 if.end:                                           ; preds = %invoke.cont36, %invoke.cont30
@@ -61655,31 +61717,31 @@ if.end:                                           ; preds = %invoke.cont36, %inv
 
 invoke.cont41:                                    ; preds = %if.end
   store ptr %call42, ptr %service_config, align 8
-  %52 = load ptr, ptr %service_config, align 8
-  %call43 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #3
+  %53 = load ptr, ptr %service_config, align 8
+  %call43 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #3
   br i1 %call43, label %if.end58, label %if.then44
 
 if.then44:                                        ; preds = %invoke.cont41
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp47, ptr noundef @.str.115) #3
-  %53 = load ptr, ptr %service_config, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp48, ptr noundef nonnull align 8 dereferenceable(32) %53)
+  %54 = load ptr, ptr %service_config, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp48, ptr noundef nonnull align 8 dereferenceable(32) %54)
           to label %invoke.cont49 unwind label %lpad29
 
 invoke.cont49:                                    ; preds = %if.then44
-  %54 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp47, i32 0, i32 0
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp47, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  invoke void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr sret(%"class.grpc_core::ChannelArgs") align 8 %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %55, ptr %57, ptr noundef %agg.tmp48)
+  %55 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp47, i32 0, i32 0
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp47, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8
+  invoke void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr sret(%"class.grpc_core::ChannelArgs") align 8 %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %56, ptr %58, ptr noundef %agg.tmp48)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont49
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp52, ptr noundef @.str.116) #3
-  %58 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp52, i32 0, i32 0
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp52, i32 0, i32 1
-  %61 = load ptr, ptr %60, align 8
-  invoke void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEEi(ptr sret(%"class.grpc_core::ChannelArgs") align 8 %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp46, i64 %59, ptr %61, i32 noundef 1)
+  %59 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp52, i32 0, i32 0
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp52, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8
+  invoke void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEEi(ptr sret(%"class.grpc_core::ChannelArgs") align 8 %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp46, i64 %60, ptr %62, i32 noundef 1)
           to label %invoke.cont54 unwind label %lpad53
 
 invoke.cont54:                                    ; preds = %invoke.cont51
@@ -61690,21 +61752,21 @@ invoke.cont54:                                    ; preds = %invoke.cont51
   br label %if.end58
 
 lpad50:                                           ; preds = %invoke.cont49
-  %62 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %63 = extractvalue { ptr, i32 } %62, 0
-  store ptr %63, ptr %exn.slot, align 8
-  %64 = extractvalue { ptr, i32 } %62, 1
-  store i32 %64, ptr %ehselector.slot, align 4
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %exn.slot, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %ehselector.slot, align 4
   br label %ehcleanup57
 
 lpad53:                                           ; preds = %invoke.cont51
-  %65 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %exn.slot, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %ehselector.slot, align 4
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %exn.slot, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp46) #3
   br label %ehcleanup57
 
@@ -61742,39 +61804,39 @@ if.then76:                                        ; preds = %invoke.cont71
   %lb_policy_77 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 1
   %call78 = call noundef ptr @_ZNK9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %lb_policy_77)
   %channel_79 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 3
-  %68 = load ptr, ptr %channel_79, align 8
+  %69 = load ptr, ptr %channel_79, align 8
   %lb_policy_80 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 1
   %call81 = call noundef ptr @_ZNK9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %lb_policy_80)
   %config_82 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb", ptr %call81, i32 0, i32 9
   %call83 = call noundef ptr @_ZNK9grpc_core13RefCountedPtrINS_12_GLOBAL__N_111RlsLbConfigEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %config_82)
   %call84 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9grpc_core12_GLOBAL__N_111RlsLbConfig14lookup_serviceB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(296) %call83)
   %call85 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %call84) #3
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.90, i32 noundef 1545, i32 noundef 1, ptr noundef @.str.117, ptr noundef %call78, ptr noundef %this1, ptr noundef %68, ptr noundef %call85)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef @.str.90, i32 noundef 1545, i32 noundef 1, ptr noundef @.str.117, ptr noundef %call78, ptr noundef %this1, ptr noundef %69, ptr noundef %call85)
           to label %invoke.cont86 unwind label %lpad29
 
 invoke.cont86:                                    ; preds = %if.then76
   br label %if.end87
 
 lpad70:                                           ; preds = %invoke.cont68
-  %69 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %exn.slot, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %ehselector.slot, align 4
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %exn.slot, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIK17grpc_channel_argsN9grpc_core11ChannelArgs18ChannelArgsDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp67) #3
   br label %ehcleanup136
 
 if.end87:                                         ; preds = %invoke.cont86, %invoke.cont71
   %channel_88 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 3
-  %72 = load ptr, ptr %channel_88, align 8
-  %cmp = icmp ne ptr %72, null
+  %73 = load ptr, ptr %channel_88, align 8
+  %cmp = icmp ne ptr %73, null
   br i1 %cmp, label %if.then89, label %if.end135
 
 if.then89:                                        ; preds = %if.end87
   %channel_90 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 3
-  %73 = load ptr, ptr %channel_90, align 8
-  %call92 = invoke noundef ptr @_Z30grpc_channel_get_channelz_nodeP12grpc_channel(ptr noundef %73)
+  %74 = load ptr, ptr %channel_90, align 8
+  %call92 = invoke noundef ptr @_Z30grpc_channel_get_channelz_nodeP12grpc_channel(ptr noundef %74)
           to label %invoke.cont91 unwind label %lpad29
 
 invoke.cont91:                                    ; preds = %if.then89
@@ -61787,28 +61849,28 @@ invoke.cont91:                                    ; preds = %if.then89
 
 invoke.cont96:                                    ; preds = %invoke.cont91
   store ptr %call97, ptr %parent_channelz_node, align 8
-  %74 = load ptr, ptr %child_channelz_node, align 8
-  %cmp98 = icmp ne ptr %74, null
+  %75 = load ptr, ptr %child_channelz_node, align 8
+  %cmp98 = icmp ne ptr %75, null
   br i1 %cmp98, label %land.lhs.true, label %if.end108
 
 land.lhs.true:                                    ; preds = %invoke.cont96
-  %75 = load ptr, ptr %parent_channelz_node, align 8
-  %cmp99 = icmp ne ptr %75, null
+  %76 = load ptr, ptr %parent_channelz_node, align 8
+  %cmp99 = icmp ne ptr %76, null
   br i1 %cmp99, label %if.then100, label %if.end108
 
 if.then100:                                       ; preds = %land.lhs.true
-  %76 = load ptr, ptr %parent_channelz_node, align 8
-  %77 = load ptr, ptr %child_channelz_node, align 8
-  %call102 = invoke noundef i64 @_ZNK9grpc_core8channelz8BaseNode4uuidEv(ptr noundef nonnull align 8 dereferenceable(64) %77)
+  %77 = load ptr, ptr %parent_channelz_node, align 8
+  %78 = load ptr, ptr %child_channelz_node, align 8
+  %call102 = invoke noundef i64 @_ZNK9grpc_core8channelz8BaseNode4uuidEv(ptr noundef nonnull align 8 dereferenceable(64) %78)
           to label %invoke.cont101 unwind label %lpad29
 
 invoke.cont101:                                   ; preds = %if.then100
-  invoke void @_ZN9grpc_core8channelz11ChannelNode15AddChildChannelEl(ptr noundef nonnull align 8 dereferenceable(304) %76, i64 noundef %call102)
+  invoke void @_ZN9grpc_core8channelz11ChannelNode15AddChildChannelEl(ptr noundef nonnull align 8 dereferenceable(304) %77, i64 noundef %call102)
           to label %invoke.cont103 unwind label %lpad29
 
 invoke.cont103:                                   ; preds = %invoke.cont101
-  %78 = load ptr, ptr %parent_channelz_node, align 8
-  invoke void @_ZN9grpc_core10RefCountedINS_8channelz8BaseNodeENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv(ptr sret(%"class.grpc_core::RefCountedPtr.579") align 8 %ref.tmp104, ptr noundef nonnull align 8 dereferenceable(16) %78)
+  %79 = load ptr, ptr %parent_channelz_node, align 8
+  invoke void @_ZN9grpc_core10RefCountedINS_8channelz8BaseNodeENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv(ptr sret(%"class.grpc_core::RefCountedPtr.579") align 8 %ref.tmp104, ptr noundef nonnull align 8 dereferenceable(16) %79)
           to label %invoke.cont105 unwind label %lpad29
 
 invoke.cont105:                                   ; preds = %invoke.cont103
@@ -61819,8 +61881,8 @@ invoke.cont105:                                   ; preds = %invoke.cont103
 
 if.end108:                                        ; preds = %invoke.cont105, %land.lhs.true, %invoke.cont96
   %channel_109 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 3
-  %79 = load ptr, ptr %channel_109, align 8
-  %call111 = invoke noundef ptr @_ZN9grpc_core9CppImplOfINS_7ChannelE12grpc_channelE5FromCEPS2_(ptr noundef %79)
+  %80 = load ptr, ptr %channel_109, align 8
+  %call111 = invoke noundef ptr @_ZN9grpc_core9CppImplOfINS_7ChannelE12grpc_channelE5FromCEPS2_(ptr noundef %80)
           to label %invoke.cont110 unwind label %lpad29
 
 invoke.cont110:                                   ; preds = %if.end108
@@ -61832,8 +61894,8 @@ invoke.cont112:                                   ; preds = %invoke.cont110
   br label %do.body
 
 do.body:                                          ; preds = %invoke.cont112
-  %80 = load ptr, ptr %client_channel, align 8
-  %cmp114 = icmp ne ptr %80, null
+  %81 = load ptr, ptr %client_channel, align 8
+  %cmp114 = icmp ne ptr %81, null
   %lnot = xor i1 %cmp114, true
   br i1 %lnot, label %if.then115, label %if.end117
 
@@ -61872,11 +61934,11 @@ invoke.cont126:                                   ; preds = %invoke.cont124
   %watcher_127 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 5
   store ptr %call119, ptr %watcher_127, align 8
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb10RlsChannelEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp120) #3
-  %81 = load ptr, ptr %client_channel, align 8
+  %82 = load ptr, ptr %client_channel, align 8
   %watcher_131 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 5
-  %82 = load ptr, ptr %watcher_131, align 8
-  call void @_ZNSt10unique_ptrIN9grpc_core38AsyncConnectivityStateWatcherInterfaceENS0_16OrphanableDeleteEEC2IS2_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp130, ptr noundef %82) #3
-  invoke void @_ZN9grpc_core13ClientChannel22AddConnectivityWatcherE23grpc_connectivity_stateSt10unique_ptrINS_38AsyncConnectivityStateWatcherInterfaceENS_16OrphanableDeleteEE(ptr noundef nonnull align 8 dereferenceable(616) %81, i32 noundef 0, ptr noundef %agg.tmp130)
+  %83 = load ptr, ptr %watcher_131, align 8
+  call void @_ZNSt10unique_ptrIN9grpc_core38AsyncConnectivityStateWatcherInterfaceENS0_16OrphanableDeleteEEC2IS2_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp130, ptr noundef %83) #3
+  invoke void @_ZN9grpc_core13ClientChannel22AddConnectivityWatcherE23grpc_connectivity_stateSt10unique_ptrINS_38AsyncConnectivityStateWatcherInterfaceENS_16OrphanableDeleteEE(ptr noundef nonnull align 8 dereferenceable(616) %82, i32 noundef 0, ptr noundef %agg.tmp130)
           to label %invoke.cont133 unwind label %lpad132
 
 invoke.cont133:                                   ; preds = %invoke.cont126
@@ -61884,21 +61946,21 @@ invoke.cont133:                                   ; preds = %invoke.cont126
   br label %if.end135
 
 lpad122:                                          ; preds = %invoke.cont123, %invoke.cont118
-  %83 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %84 = extractvalue { ptr, i32 } %83, 0
-  store ptr %84, ptr %exn.slot, align 8
-  %85 = extractvalue { ptr, i32 } %83, 1
-  store i32 %85, ptr %ehselector.slot, align 4
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %exn.slot, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %ehselector.slot, align 4
   br label %ehcleanup129
 
 lpad125:                                          ; preds = %invoke.cont124
-  %86 = landingpad { ptr, i32 }
+  %87 = landingpad { ptr, i32 }
           cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %exn.slot, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %ehselector.slot, align 4
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %exn.slot, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb10RlsChannelEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp120) #3
   br label %ehcleanup129
 
@@ -61914,12 +61976,12 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
   br label %ehcleanup136
 
 lpad132:                                          ; preds = %invoke.cont126
-  %89 = landingpad { ptr, i32 }
+  %90 = landingpad { ptr, i32 }
           cleanup
-  %90 = extractvalue { ptr, i32 } %89, 0
-  store ptr %90, ptr %exn.slot, align 8
-  %91 = extractvalue { ptr, i32 } %89, 1
-  store i32 %91, ptr %ehselector.slot, align 4
+  %91 = extractvalue { ptr, i32 } %90, 0
+  store ptr %91, ptr %exn.slot, align 8
+  %92 = extractvalue { ptr, i32 } %90, 1
+  store i32 %92, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN9grpc_core38AsyncConnectivityStateWatcherInterfaceENS0_16OrphanableDeleteEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp130) #3
   br label %ehcleanup136
 
@@ -61994,23 +62056,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb10RlsChannelENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb10RlsChannelENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.502", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core10OrphanableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -62377,7 +62440,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb10RlsChannel12StateWatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb10RlsChannel12StateWatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rls_channel_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel::StateWatcher", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb10RlsChannelEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %rls_channel_, ptr noundef nonnull align 8 dereferenceable(8) %rls_channel) #3
   %was_transient_failure_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel::StateWatcher", ptr %this1, i32 0, i32 2
@@ -62385,12 +62449,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #3
   br label %eh.resume
 
@@ -62687,7 +62751,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb10RlsChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb10RlsChannelE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %throttle_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 6
   call void @_ZN9grpc_core12_GLOBAL__N_15RlsLb10RlsChannel8ThrottleD2Ev(ptr noundef nonnull align 8 dereferenceable(5184) %throttle_) #3
   %parent_channelz_node_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel", ptr %this1, i32 0, i32 4
@@ -64427,7 +64492,8 @@ entry:
   store ptr %work_serializer, ptr %work_serializer.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core33ConnectivityStateWatcherInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core38AsyncConnectivityStateWatcherInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core38AsyncConnectivityStateWatcherInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %work_serializer_ = getelementptr inbounds %"class.grpc_core::AsyncConnectivityStateWatcherInterface", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %work_serializer_, ptr noundef nonnull align 8 dereferenceable(16) %work_serializer) #3
   ret void
@@ -64470,7 +64536,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb10RlsChannel12StateWatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb10RlsChannel12StateWatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rls_channel_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsChannel::StateWatcher", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb10RlsChannelEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rls_channel_) #3
   call void @_ZN9grpc_core38AsyncConnectivityStateWatcherInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -64620,7 +64687,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core20InternallyRefCountedINS_33ConnectivityStateWatcherInterfaceENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core33ConnectivityStateWatcherInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core33ConnectivityStateWatcherInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -64637,23 +64705,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_33ConnectivityStateWatcherInterfaceENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_33ConnectivityStateWatcherInterfaceENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.580", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core10OrphanableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -64749,7 +64818,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core38AsyncConnectivityStateWatcherInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN9grpc_core38AsyncConnectivityStateWatcherInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %work_serializer_ = getelementptr inbounds %"class.grpc_core::AsyncConnectivityStateWatcherInterface", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %work_serializer_) #3
   call void @_ZN9grpc_core33ConnectivityStateWatcherInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -67195,7 +67265,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 
@@ -68504,7 +68575,8 @@ entry:
   store ptr %status, ptr %status.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19LoadBalancingPolicy22TransientFailurePickerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core19LoadBalancingPolicy22TransientFailurePickerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %status_ = getelementptr inbounds %"class.grpc_core::LoadBalancingPolicy::TransientFailurePicker", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308026StatusC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %status_, ptr noundef nonnull align 8 dereferenceable(8) %status)
           to label %invoke.cont unwind label %lpad
@@ -68513,12 +68585,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -68558,7 +68630,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19LoadBalancingPolicy22TransientFailurePickerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core19LoadBalancingPolicy22TransientFailurePickerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %status_ = getelementptr inbounds %"class.grpc_core::LoadBalancingPolicy::TransientFailurePicker", ptr %this1, i32 0, i32 1
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %status_) #3
   call void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -70787,7 +70860,8 @@ entry:
   store ptr %wrapper, ptr %wrapper.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19LoadBalancingPolicy30DelegatingChannelControlHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapper17ChildPolicyHelperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapper17ChildPolicyHelperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %wrapper_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::ChildPolicyWrapper::ChildPolicyHelper", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core17WeakRefCountedPtrINS_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %wrapper_, ptr noundef nonnull align 8 dereferenceable(8) %wrapper) #3
   ret void
@@ -70824,7 +70898,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19LoadBalancingPolicy20ChannelControlHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN9grpc_core19LoadBalancingPolicy30DelegatingChannelControlHelperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN9grpc_core19LoadBalancingPolicy30DelegatingChannelControlHelperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -70835,7 +70910,8 @@ entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapper17ChildPolicyHelperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb18ChildPolicyWrapper17ChildPolicyHelperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %wrapper_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::ChildPolicyWrapper::ChildPolicyHelper", ptr %this1, i32 0, i32 1
   invoke void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef @.str.90, i32 noundef 330)
           to label %invoke.cont unwind label %terminate.lpad
@@ -70851,10 +70927,10 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #18
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #18
   unreachable
 }
 
@@ -71212,7 +71288,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN9grpc_core19LoadBalancingPolicy20ChannelControlHelperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN9grpc_core19LoadBalancingPolicy20ChannelControlHelperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -71961,10 +72038,11 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN9grpc_core18ChildPolicyHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN9grpc_core18ChildPolicyHandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tracer_ = getelementptr inbounds %"class.grpc_core::ChildPolicyHandler", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %tracer.addr, align 8
-  store ptr %0, ptr %tracer_, align 8
+  %1 = load ptr, ptr %tracer.addr, align 8
+  store ptr %1, ptr %tracer_, align 8
   %shutting_down_ = getelementptr inbounds %"class.grpc_core::ChildPolicyHandler", ptr %this1, i32 0, i32 2
   store i8 0, ptr %shutting_down_, align 8
   %current_config_ = getelementptr inbounds %"class.grpc_core::ChildPolicyHandler", ptr %this1, i32 0, i32 3
@@ -71979,22 +72057,22 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
   br label %eh.resume
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19LoadBalancingPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
   br label %eh.resume
 
@@ -72544,7 +72622,8 @@ entry:
   store ptr %lb_policy, ptr %lb_policy.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb6PickerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb6PickerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lb_policy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::Picker", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %lb_policy_, ptr noundef nonnull align 8 dereferenceable(8) %lb_policy) #3
   %config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::Picker", ptr %this1, i32 0, i32 2
@@ -72588,30 +72667,30 @@ invoke.cont18:                                    ; preds = %invoke.cont17
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup21
 
 lpad4:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont17, %if.then, %invoke.cont5
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %default_child_policy_) #3
   br label %ehcleanup
 
@@ -72701,7 +72780,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb6PickerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb6PickerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %default_child_policy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::Picker", ptr %this1, i32 0, i32 3
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %default_child_policy_) #3
   %config_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::Picker", ptr %this1, i32 0, i32 2
@@ -80008,7 +80088,8 @@ entry:
   %call = call noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN9grpc_core17grpc_lb_rls_traceE)
   %cond = select i1 %call, ptr @.str.161, ptr null
   call void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb10RlsRequestENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cond, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb10RlsRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb10RlsRequestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lb_policy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsRequest", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %lb_policy_, ptr noundef nonnull align 8 dereferenceable(8) %lb_policy) #3
   %key_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsRequest", ptr %this1, i32 0, i32 2
@@ -80018,8 +80099,8 @@ entry:
   %backoff_state_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsRequest", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN9grpc_core7BackOffESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %backoff_state_, ptr noundef nonnull align 8 dereferenceable(8) %backoff_state) #3
   %reason_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsRequest", ptr %this1, i32 0, i32 5
-  %0 = load i32, ptr %reason.addr, align 4
-  store i32 %0, ptr %reason_, align 8
+  %1 = load i32, ptr %reason.addr, align 4
+  store i32 %1, ptr %reason_, align 8
   %stale_header_data_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsRequest", ptr %this1, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %stale_header_data_, ptr noundef nonnull align 8 dereferenceable(32) %stale_header_data) #3
   %deadline_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsRequest", ptr %this1, i32 0, i32 7
@@ -80050,21 +80131,21 @@ invoke.cont8:                                     ; preds = %invoke.cont
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont16, %invoke.cont12, %if.end, %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup25
 
 lpad7:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup25
 
@@ -80102,21 +80183,21 @@ invoke.cont24:                                    ; preds = %invoke.cont22
   ret void
 
 lpad18:                                           ; preds = %invoke.cont19, %invoke.cont17
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad23:                                           ; preds = %invoke.cont22
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %ehcleanup
 
@@ -80178,23 +80259,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb10RlsRequestENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb10RlsRequestENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.519", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core10OrphanableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -80508,13 +80590,14 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb10RlsRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb10RlsRequestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
   %call_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::RlsRequest", ptr %this1, i32 0, i32 10
-  %0 = load ptr, ptr %call_, align 8
-  %cmp = icmp eq ptr %0, null
+  %1 = load ptr, ptr %call_, align 8
+  %cmp = icmp eq ptr %1, null
   %lnot = xor i1 %cmp, true
   br i1 %lnot, label %if.then, label %if.end
 
@@ -80546,10 +80629,10 @@ do.end:                                           ; preds = %do.cond
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #18
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #18
   unreachable
 }
 
@@ -85068,7 +85151,8 @@ entry:
   %call = call noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN9grpc_core17grpc_lb_rls_traceE)
   %cond = select i1 %call, ptr @.str.171, ptr null
   call void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb5Cache5EntryENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cond, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb5Cache5EntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb5Cache5EntryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lb_policy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::Cache::Entry", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLbEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %lb_policy_, ptr noundef nonnull align 8 dereferenceable(8) %lb_policy) #3
   %is_shutdown_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::Cache::Entry", ptr %this1, i32 0, i32 2
@@ -85126,10 +85210,10 @@ invoke.cont17:                                    ; preds = %invoke.cont14
   store i64 %call18, ptr %coerce.dive19, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp20, ptr align 8 @_ZN9grpc_core12_GLOBAL__N_118kMinExpirationTimeE, i64 8, i1 false)
   %coerce.dive21 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp, i32 0, i32 0
-  %0 = load i64, ptr %coerce.dive21, align 8
+  %1 = load i64, ptr %coerce.dive21, align 8
   %coerce.dive22 = getelementptr inbounds %"class.grpc_core::Duration", ptr %agg.tmp20, i32 0, i32 0
-  %1 = load i64, ptr %coerce.dive22, align 8
-  %call24 = invoke i64 @_ZN9grpc_coreplENS_9TimestampENS_8DurationE(i64 %0, i64 %1)
+  %2 = load i64, ptr %coerce.dive22, align 8
+  %call24 = invoke i64 @_ZN9grpc_coreplENS_9TimestampENS_8DurationE(i64 %1, i64 %2)
           to label %invoke.cont23 unwind label %lpad10
 
 invoke.cont23:                                    ; preds = %invoke.cont17
@@ -85148,10 +85232,10 @@ invoke.cont23:                                    ; preds = %invoke.cont17
   %coerce.dive34 = getelementptr inbounds %"struct.std::_List_iterator", ptr %ref.tmp, i32 0, i32 0
   store ptr %call33, ptr %coerce.dive34, align 8
   call void @_ZNSt20_List_const_iteratorIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyEEC2ERKSt14_List_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp28, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  %2 = load ptr, ptr %key.addr, align 8
+  %3 = load ptr, ptr %key.addr, align 8
   %coerce.dive35 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %agg.tmp28, i32 0, i32 0
-  %3 = load ptr, ptr %coerce.dive35, align 8
-  %call37 = invoke ptr @_ZNSt7__cxx114listIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESaIS4_EE6insertESt20_List_const_iteratorIS4_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %lru_list_, ptr %3, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %4 = load ptr, ptr %coerce.dive35, align 8
+  %call37 = invoke ptr @_ZNSt7__cxx114listIN9grpc_core12_GLOBAL__N_15RlsLb10RequestKeyESaIS4_EE6insertESt20_List_const_iteratorIS4_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %lru_list_, ptr %4, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %invoke.cont36 unwind label %lpad10
 
 invoke.cont36:                                    ; preds = %invoke.cont23
@@ -85160,39 +85244,39 @@ invoke.cont36:                                    ; preds = %invoke.cont23
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup40
 
 lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup39
 
 lpad4:                                            ; preds = %invoke.cont5, %invoke.cont3
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont23, %invoke.cont17, %invoke.cont14, %invoke.cont11, %invoke.cont7
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_data_) #3
   call void @_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %child_policy_wrappers_) #3
   call void @_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_15RlsLb5Cache5Entry12BackoffTimerENS0_16OrphanableDeleteEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %backoff_timer_) #3
@@ -85281,23 +85365,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb5Cache5EntryENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb5Cache5EntryENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.453", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core10OrphanableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -85540,7 +85625,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb5Cache5EntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb5Cache5EntryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %header_data_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::Cache::Entry", ptr %this1, i32 0, i32 9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_data_) #3
   %child_policy_wrappers_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::Cache::Entry", ptr %this1, i32 0, i32 8
@@ -88369,7 +88455,8 @@ entry:
   store ptr %entry1, ptr %entry.indirect_addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb5Cache5Entry12BackoffTimerENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this2, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb5Cache5Entry12BackoffTimerE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb5Cache5Entry12BackoffTimerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %entry_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::Cache::Entry::BackoffTimer", ptr %this2, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb5Cache5EntryEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %entry_, ptr noundef nonnull align 8 dereferenceable(8) %entry1) #3
   %backoff_timer_task_handle_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::Cache::Entry::BackoffTimer", ptr %this2, i32 0, i32 2
@@ -88384,8 +88471,8 @@ invoke.cont:                                      ; preds = %entry
   %call5 = call noundef ptr @_ZNK9grpc_core19LoadBalancingPolicy22channel_control_helperEv(ptr noundef nonnull align 8 dereferenceable(56) %call4)
   %vtable = load ptr, ptr %call5, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
-  %0 = load ptr, ptr %vfn, align 8
-  %call7 = invoke noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call5)
+  %1 = load ptr, ptr %vfn, align 8
+  %call7 = invoke noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %call5)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -88397,10 +88484,10 @@ invoke.cont11:                                    ; preds = %invoke.cont6
   %coerce.dive13 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp10, i32 0, i32 0
   store i64 %call12, ptr %coerce.dive13, align 8
   %coerce.dive14 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp9, i32 0, i32 0
-  %1 = load i64, ptr %coerce.dive14, align 8
+  %2 = load i64, ptr %coerce.dive14, align 8
   %coerce.dive15 = getelementptr inbounds %"class.grpc_core::Timestamp", ptr %agg.tmp10, i32 0, i32 0
-  %2 = load i64, ptr %coerce.dive15, align 8
-  %call17 = invoke i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %1, i64 %2)
+  %3 = load i64, ptr %coerce.dive15, align 8
+  %call17 = invoke i64 @_ZN9grpc_coremiENS_9TimestampES0_(i64 %2, i64 %3)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont11
@@ -88412,12 +88499,12 @@ invoke.cont16:                                    ; preds = %invoke.cont11
 invoke.cont19:                                    ; preds = %invoke.cont16
   %coerce.dive21 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
   store i64 %call20, ptr %coerce.dive21, align 8
-  %3 = getelementptr inbounds %class.anon.762, ptr %ref.tmp23, i32 0, i32 0
+  %4 = getelementptr inbounds %class.anon.762, ptr %ref.tmp23, i32 0, i32 0
   invoke void @_ZN9grpc_core13DebugLocationC2EPKci(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24, ptr noundef @.str.90, i32 noundef 1067)
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont19
-  invoke void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb5Cache5Entry12BackoffTimerENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc(ptr sret(%"class.grpc_core::RefCountedPtr.763") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %this2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24, ptr noundef @.str.175)
+  invoke void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb5Cache5Entry12BackoffTimerENS_11UnrefDeleteEE3RefERKNS_13DebugLocationEPKc(ptr sret(%"class.grpc_core::RefCountedPtr.763") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %this2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24, ptr noundef @.str.175)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %invoke.cont25
@@ -88426,21 +88513,21 @@ invoke.cont26:                                    ; preds = %invoke.cont25
 
 invoke.cont28:                                    ; preds = %invoke.cont26
   %coerce.dive29 = getelementptr inbounds %"class.std::chrono::duration", ptr %agg.tmp, i32 0, i32 0
-  %4 = load i64, ptr %coerce.dive29, align 8
+  %5 = load i64, ptr %coerce.dive29, align 8
   %vtable30 = load ptr, ptr %call7, align 8
   %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 10
-  %5 = load ptr, ptr %vfn31, align 8
-  %call34 = invoke { i64, i64 } %5(ptr noundef nonnull align 8 dereferenceable(24) %call7, i64 %4, ptr noundef %agg.tmp22)
+  %6 = load ptr, ptr %vfn31, align 8
+  %call34 = invoke { i64, i64 } %6(ptr noundef nonnull align 8 dereferenceable(24) %call7, i64 %5, ptr noundef %agg.tmp22)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont28
   %coerce.dive35 = getelementptr inbounds %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", ptr %ref.tmp, i32 0, i32 0
-  %6 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive35, i32 0, i32 0
-  %7 = extractvalue { i64, i64 } %call34, 0
-  store i64 %7, ptr %6, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive35, i32 0, i32 1
-  %9 = extractvalue { i64, i64 } %call34, 1
-  store i64 %9, ptr %8, align 8
+  %7 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive35, i32 0, i32 0
+  %8 = extractvalue { i64, i64 } %call34, 0
+  store i64 %8, ptr %7, align 8
+  %9 = getelementptr inbounds { i64, i64 }, ptr %coerce.dive35, i32 0, i32 1
+  %10 = extractvalue { i64, i64 } %call34, 1
+  store i64 %10, ptr %9, align 8
   %backoff_timer_task_handle_36 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::Cache::Entry::BackoffTimer", ptr %this2, i32 0, i32 2
   %call37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_(ptr noundef nonnull align 8 dereferenceable(24) %backoff_timer_task_handle_36, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #3
   call void @_ZN4absl12lts_2023080212AnyInvocableIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp22) #3
@@ -88448,30 +88535,30 @@ invoke.cont33:                                    ; preds = %invoke.cont28
   ret void
 
 lpad:                                             ; preds = %invoke.cont25, %invoke.cont19, %invoke.cont16, %invoke.cont11, %invoke.cont6, %invoke.cont, %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup38
 
 lpad27:                                           ; preds = %invoke.cont26
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad32:                                           ; preds = %invoke.cont28
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZN4absl12lts_2023080212AnyInvocableIFvvEED2Ev(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp22) #3
   br label %ehcleanup
 
@@ -88529,23 +88616,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb5Cache5Entry12BackoffTimerENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb5Cache5Entry12BackoffTimerENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.669", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core10OrphanableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -88739,7 +88827,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb5Cache5Entry12BackoffTimerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_15RlsLb5Cache5Entry12BackoffTimerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %entry_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::RlsLb::Cache::Entry::BackoffTimer", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15RlsLb5Cache5EntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %entry_) #3
   call void @_ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_15RlsLb5Cache5Entry12BackoffTimerENS_11UnrefDeleteEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -95180,7 +95269,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8JsonArgsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core8JsonArgsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

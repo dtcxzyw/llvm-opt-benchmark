@@ -4674,7 +4674,8 @@ define internal void @__cxx_global_var_init.2() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_18LG_BEGINE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_18LG_BEGINE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_18LG_BEGINE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -4705,7 +4706,8 @@ define internal void @__cxx_global_var_init.3() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_16LG_ENDE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_16LG_ENDE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_16LG_ENDE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 

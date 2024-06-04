@@ -10049,30 +10049,31 @@ entry:
   %insns1 = getelementptr inbounds %struct.bpf_prog_load_attr, ptr %attr, i32 0, i32 2
   store i64 %0, ptr %insns1, align 8
   %license = getelementptr inbounds %struct.bpf_prog_load_attr, ptr %attr, i32 0, i32 3
-  store i64 ptrtoint (ptr @.str.106 to i64), ptr %license, align 8
+  %1 = ptrtoint ptr @.str.106 to i64
+  store i64 %1, ptr %license, align 8
   %call = call i64 (i64, ...) @syscall(i64 noundef 321, i32 noundef 5, ptr noundef %attr, i64 noundef 48) #5
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %fd, align 4
-  %1 = load i32, ptr %fd, align 4
-  %cmp = icmp sge i32 %1, 0
+  %2 = load i32, ptr %fd, align 4
+  %cmp = icmp sge i32 %2, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %fd, align 4
-  %call2 = call i32 @close(i32 noundef %2)
+  %3 = load i32, ptr %fd, align 4
+  %call2 = call i32 @close(i32 noundef %3)
   store ptr %retval, ptr %this.addr.i, align 8
   store ptr @.str.107, ptr %Str.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %3 = load ptr, ptr %Str.addr.i, align 8
-  store ptr %3, ptr %this1.i, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %tobool.i = icmp ne ptr %4, null
+  store ptr %4, ptr %this1.i, align 8
+  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i, i32 0, i32 1
+  %5 = load ptr, ptr %Str.addr.i, align 8
+  %tobool.i = icmp ne ptr %5, null
   br i1 %tobool.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.then
-  %5 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %5) #13
+  %6 = load ptr, ptr %Str.addr.i, align 8
+  %call.i = call i64 @strlen(ptr noundef %6) #13
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %if.then
@@ -10087,16 +10088,16 @@ if.end:                                           ; preds = %entry
   store ptr %retval, ptr %this.addr.i3, align 8
   store ptr @.str.108, ptr %Str.addr.i4, align 8
   %this1.i5 = load ptr, ptr %this.addr.i3, align 8
-  %6 = load ptr, ptr %Str.addr.i4, align 8
-  store ptr %6, ptr %this1.i5, align 8
-  %Length.i6 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i5, i32 0, i32 1
   %7 = load ptr, ptr %Str.addr.i4, align 8
-  %tobool.i7 = icmp ne ptr %7, null
+  store ptr %7, ptr %this1.i5, align 8
+  %Length.i6 = getelementptr inbounds %"class.llvh::StringRef", ptr %this1.i5, i32 0, i32 1
+  %8 = load ptr, ptr %Str.addr.i4, align 8
+  %tobool.i7 = icmp ne ptr %8, null
   br i1 %tobool.i7, label %cond.true.i10, label %cond.false.i8
 
 cond.true.i10:                                    ; preds = %if.end
-  %8 = load ptr, ptr %Str.addr.i4, align 8
-  %call.i11 = call i64 @strlen(ptr noundef %8) #13
+  %9 = load ptr, ptr %Str.addr.i4, align 8
+  %call.i11 = call i64 @strlen(ptr noundef %9) #13
   br label %_ZN4llvh9StringRefC2EPKc.exit12
 
 cond.false.i8:                                    ; preds = %if.end
@@ -10108,8 +10109,8 @@ _ZN4llvh9StringRefC2EPKc.exit12:                  ; preds = %cond.false.i8, %con
   br label %return
 
 return:                                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit12, %_ZN4llvh9StringRefC2EPKc.exit
-  %9 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %9
+  %10 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

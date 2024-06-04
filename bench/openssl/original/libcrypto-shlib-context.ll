@@ -856,14 +856,17 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define void @ossl_release_default_drbg_ctx() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.ossl_lib_ctx_st, ptr @default_context_int, i32 0, i32 9), align 8
-  %cmp = icmp ne ptr %0, null
+  %0 = getelementptr inbounds %struct.ossl_lib_ctx_st, ptr @default_context_int, i32 0, i32 9
+  %1 = load ptr, ptr %0, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.ossl_lib_ctx_st, ptr @default_context_int, i32 0, i32 9), align 8
-  call void @ossl_rand_ctx_free(ptr noundef %1)
-  store ptr null, ptr getelementptr inbounds (%struct.ossl_lib_ctx_st, ptr @default_context_int, i32 0, i32 9), align 8
+  %2 = getelementptr inbounds %struct.ossl_lib_ctx_st, ptr @default_context_int, i32 0, i32 9
+  %3 = load ptr, ptr %2, align 8
+  call void @ossl_rand_ctx_free(ptr noundef %3)
+  %4 = getelementptr inbounds %struct.ossl_lib_ctx_st, ptr @default_context_int, i32 0, i32 9
+  store ptr null, ptr %4, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

@@ -17714,10 +17714,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %k, ptr %k.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %kind = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %k.addr, align 4
-  store i32 %0, ptr %kind, align 8
+  %1 = load i32, ptr %k.addr, align 4
+  store i32 %1, ptr %kind, align 8
   %states = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN3ue26dstateESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %states) #2
   %start_anchored = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 3
@@ -54338,7 +54339,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -55430,7 +55432,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -59292,19 +59295,20 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %kind = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %kind2 = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %kind2, align 8
-  store i32 %2, ptr %kind, align 8
+  %2 = load ptr, ptr %.addr, align 8
+  %kind2 = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %kind2, align 8
+  store i32 %3, ptr %kind, align 8
   %states = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %states3 = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %states3 = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %4, i32 0, i32 2
   call void @_ZNSt6vectorIN3ue26dstateESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %states, ptr noundef nonnull align 8 dereferenceable(24) %states3)
   %start_anchored = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %.addr, align 8
-  %start_anchored4 = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %4, i32 0, i32 3
+  %5 = load ptr, ptr %.addr, align 8
+  %start_anchored4 = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %5, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %start_anchored, ptr align 8 %start_anchored4, i64 520, i1 false)
   ret void
 }

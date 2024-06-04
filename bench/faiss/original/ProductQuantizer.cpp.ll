@@ -1202,15 +1202,16 @@ define linkonce_odr void @_ZN5faiss16ProductQuantizerD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss16ProductQuantizerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 12
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
-  %5 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 11
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5faiss16ProductQuantizerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 12
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
-  %6 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 10
+  %6 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 11
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
-  %7 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 9
+  %7 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 10
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
+  %8 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
   call void @_ZN5faiss9QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
   ret void
 }
@@ -1240,51 +1241,52 @@ define void @_ZN5faiss16ProductQuantizerC2Emmm(ptr noundef nonnull align 8 deref
   %11 = load ptr, ptr %5, align 8
   %12 = load i64, ptr %6, align 8
   call void @_ZN5faiss9QuantizerC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %12, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss16ProductQuantizerE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 1
-  %14 = load i64, ptr %7, align 8
-  store i64 %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 2
-  %16 = load i64, ptr %8, align 8
-  store i64 %16, ptr %15, align 8
-  %17 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 7
-  call void @_ZN5faiss20ClusteringParametersC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #12
-  %18 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 8
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 9
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #12
-  %20 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 10
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5faiss16ProductQuantizerE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 1
+  %15 = load i64, ptr %7, align 8
+  store i64 %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 2
+  %17 = load i64, ptr %8, align 8
+  store i64 %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 7
+  call void @_ZN5faiss20ClusteringParametersC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #12
+  %19 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 8
+  store ptr null, ptr %19, align 8
+  %20 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 9
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #12
-  %21 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 11
+  %21 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 10
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #12
-  %22 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 12
+  %22 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 11
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #12
+  %23 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %11, i32 0, i32 12
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #12
   invoke void @_ZN5faiss16ProductQuantizer18set_derived_valuesEv(ptr noundef nonnull align 8 dereferenceable(208) %11)
-          to label %23 unwind label %24
-
-23:                                               ; preds = %4
-  ret void
+          to label %24 unwind label %25
 
 24:                                               ; preds = %4
-  %25 = landingpad { ptr, i32 }
+  ret void
+
+25:                                               ; preds = %4
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %9, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %10, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %9, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %10, align 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #12
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #12
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #12
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #12
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #12
   call void @_ZN5faiss9QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
-  br label %28
+  br label %29
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %9, align 8
-  %30 = load i32, ptr %10, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %9, align 8
+  %31 = load i32, ptr %10, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1296,13 +1298,14 @@ define linkonce_odr void @_ZN5faiss9QuantizerC2Emm(ptr noundef nonnull align 8 d
   store i64 %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss9QuantizerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.faiss::Quantizer", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.faiss::Quantizer", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5faiss9QuantizerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.faiss::Quantizer", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  store i64 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.faiss::Quantizer", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
   ret void
 }
 
@@ -1739,9 +1742,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret void
 }
@@ -3134,9 +3138,10 @@ define linkonce_odr void @_ZN5faiss11IndexFlatL2C2El(ptr noundef nonnull align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %5, i64 noundef %6, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlatL2E, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.faiss::IndexFlatL2", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
+  %7 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlatL2E, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"struct.faiss::IndexFlatL2", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
   ret void
 }
 
@@ -3147,9 +3152,10 @@ define linkonce_odr void @_ZN5faiss11IndexFlatL2D2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlatL2E, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexFlatL2", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss11IndexFlatL2E, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexFlatL2", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   call void @_ZN5faiss9IndexFlatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
   ret void
 }
@@ -3159,11 +3165,12 @@ define linkonce_odr void @_ZN5faiss10ClusteringD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss10ClusteringE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::Clustering", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
-  %5 = getelementptr inbounds %"struct.faiss::Clustering", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss10ClusteringE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::Clustering", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %6 = getelementptr inbounds %"struct.faiss::Clustering", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   ret void
 }
 
@@ -3614,13 +3621,14 @@ define linkonce_odr void @_ZN5faiss9PCAMatrixD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9PCAMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::PCAMatrix", ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
-  %5 = getelementptr inbounds %"struct.faiss::PCAMatrix", ptr %3, i32 0, i32 7
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss9PCAMatrixE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::PCAMatrix", ptr %3, i32 0, i32 8
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
-  %6 = getelementptr inbounds %"struct.faiss::PCAMatrix", ptr %3, i32 0, i32 6
+  %6 = getelementptr inbounds %"struct.faiss::PCAMatrix", ptr %3, i32 0, i32 7
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
+  %7 = getelementptr inbounds %"struct.faiss::PCAMatrix", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
   call void @_ZN5faiss15LinearTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %3) #12
   ret void
 }
@@ -3630,11 +3638,12 @@ define linkonce_odr void @_ZN5faiss15LinearTransformD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss15LinearTransformE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::LinearTransform", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
-  %5 = getelementptr inbounds %"struct.faiss::LinearTransform", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5faiss15LinearTransformE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::LinearTransform", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %6 = getelementptr inbounds %"struct.faiss::LinearTransform", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   call void @_ZN5faiss15VectorTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #12
   ret void
 }
@@ -3662,9 +3671,10 @@ define linkonce_odr void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss14IndexFlatCodesE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  %4 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN5faiss14IndexFlatCodesE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #12
   ret void
 }

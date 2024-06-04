@@ -48,43 +48,46 @@ define internal i32 @component_query(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4), align 8
-  %7 = getelementptr inbounds %struct.pmix_peer_t, ptr %6, i32 0, i32 3
-  %8 = getelementptr inbounds %struct.pmix_proc_type_t, ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 8
-  %10 = and i32 2, %9
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %23
+  %6 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds %struct.pmix_peer_t, ptr %7, i32 0, i32 3
+  %9 = getelementptr inbounds %struct.pmix_proc_type_t, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8
+  %11 = and i32 2, %10
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %26
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4), align 8
-  %14 = getelementptr inbounds %struct.pmix_peer_t, ptr %13, i32 0, i32 3
-  %15 = getelementptr inbounds %struct.pmix_proc_type_t, ptr %14, i32 0, i32 0
-  %16 = load i32, ptr %15, align 8
-  %17 = and i32 4, %16
-  %18 = icmp ne i32 %17, 0
-  br i1 %18, label %23, label %19
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %struct.pmix_peer_t, ptr %15, i32 0, i32 3
+  %17 = getelementptr inbounds %struct.pmix_proc_type_t, ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 4, %18
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %26, label %21
 
-19:                                               ; preds = %12
-  %20 = load ptr, ptr %4, align 8
-  store ptr @pmix_ptl_server_module, ptr %20, align 8
-  %21 = load i32, ptr getelementptr inbounds (%struct.pmix_ptl_base_component_t, ptr @pmix_mca_ptl_server_component, i32 0, i32 1), align 8
-  %22 = load ptr, ptr %5, align 8
-  store i32 %21, ptr %22, align 4
-  store i32 0, ptr %3, align 4
-  br label %26
-
-23:                                               ; preds = %12, %2
-  %24 = load ptr, ptr %4, align 8
-  store ptr null, ptr %24, align 8
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %4, align 8
+  store ptr @pmix_ptl_server_module, ptr %22, align 8
+  %23 = getelementptr inbounds %struct.pmix_ptl_base_component_t, ptr @pmix_mca_ptl_server_component, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8
   %25 = load ptr, ptr %5, align 8
-  store i32 -1, ptr %25, align 4
-  store i32 -1366, ptr %3, align 4
-  br label %26
+  store i32 %24, ptr %25, align 4
+  store i32 0, ptr %3, align 4
+  br label %29
 
-26:                                               ; preds = %23, %19
-  %27 = load i32, ptr %3, align 4
-  ret i32 %27
+26:                                               ; preds = %13, %2
+  %27 = load ptr, ptr %4, align 8
+  store ptr null, ptr %27, align 8
+  %28 = load ptr, ptr %5, align 8
+  store i32 -1, ptr %28, align 4
+  store i32 -1366, ptr %3, align 4
+  br label %29
+
+29:                                               ; preds = %26, %21
+  %30 = load i32, ptr %3, align 4
+  ret i32 %30
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

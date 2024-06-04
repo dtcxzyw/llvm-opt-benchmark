@@ -2082,7 +2082,7 @@ entry:
   store ptr %arg, ptr %arg.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %cmd, ptr align 8 @__const.run_git.cmd, i64 120, i1 false)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %args1 = getelementptr inbounds %struct.child_process, ptr %cmd, i32 0, i32 0
   %0 = load ptr, ptr %arg.addr, align 8
   %call = call ptr @strvec_push(ptr noundef %args1, ptr noundef %0)
@@ -2125,7 +2125,7 @@ while.body:                                       ; preds = %vaarg.end
 
 while.end:                                        ; preds = %vaarg.end
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay5)
+  call void @llvm.va_end.p0(ptr %arraydecay5)
   %git_cmd = getelementptr inbounds %struct.child_process, ptr %cmd, i32 0, i32 11
   %bf.load = load i16, ptr %git_cmd, align 8
   %bf.clear = and i16 %bf.load, -9
@@ -2306,12 +2306,12 @@ entry:
   store ptr %fmt, ptr %fmt.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %buf, ptr align 8 @__const.set_config.buf, i64 24, i1 false)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %buf, ptr noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %buf3 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 2
   %1 = load ptr, ptr %buf3, align 8
   %call = call ptr @strchr(ptr noundef %1, i32 noundef 61) #10
@@ -2431,7 +2431,8 @@ if.end23:                                         ; preds = %if.end22, %for.end
 if.then26:                                        ; preds = %if.end23
   %12 = load ptr, ptr @the_repository, align 8
   call void @trace2_data_string_fl(ptr noundef @.str.38, i32 noundef 194, ptr noundef @.str.112, ptr noundef %12, ptr noundef @.str.111, ptr noundef @.str.113)
-  %call27 = call i32 @git_config_set_multivar_gently(ptr noundef @.str.111, ptr noundef @.str.114, ptr noundef inttoptr (i64 1 to ptr), i32 noundef 0)
+  %13 = inttoptr i64 1 to ptr
+  %call27 = call i32 @git_config_set_multivar_gently(ptr noundef @.str.111, ptr noundef @.str.114, ptr noundef %13, i32 noundef 0)
   %tobool28 = icmp ne i32 %call27, 0
   br i1 %tobool28, label %if.then29, label %if.end33
 
@@ -2446,10 +2447,10 @@ if.end33:                                         ; preds = %if.then26
   br label %if.end34
 
 if.else:                                          ; preds = %if.end23
-  %13 = load ptr, ptr @the_repository, align 8
-  call void @trace2_data_string_fl(ptr noundef @.str.38, i32 noundef 202, ptr noundef @.str.112, ptr noundef %13, ptr noundef @.str.111, ptr noundef @.str.116)
-  %14 = load ptr, ptr %value, align 8
-  call void @free(ptr noundef %14) #11
+  %14 = load ptr, ptr @the_repository, align 8
+  call void @trace2_data_string_fl(ptr noundef @.str.38, i32 noundef 202, ptr noundef @.str.112, ptr noundef %14, ptr noundef @.str.111, ptr noundef @.str.116)
+  %15 = load ptr, ptr %value, align 8
+  call void @free(ptr noundef %15) #11
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else, %if.end33
@@ -2457,8 +2458,8 @@ if.end34:                                         ; preds = %if.else, %if.end33
   br label %return
 
 return:                                           ; preds = %if.end34, %if.then29, %if.then16, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+  %16 = load i32, ptr %retval, align 4
+  ret i32 %16
 }
 
 declare void @warning(ptr noundef, ...) #5
@@ -2591,13 +2592,7 @@ declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #3
 ; Function Attrs: nounwind willreturn memory(read)
 declare ptr @strrchr(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare ptr @strvec_push(ptr noundef, ptr noundef) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 declare i32 @run_command(ptr noundef) #5
 
@@ -3155,7 +3150,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #8
+declare ptr @__errno_location() #7
 
 declare void @warning_errno(ptr noundef, ...) #5
 
@@ -3259,6 +3254,12 @@ declare i32 @fprintf(ptr noundef, ptr noundef, ...) #5
 
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) #5
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -3266,8 +3267,8 @@ attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-tra
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { noreturn }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nounwind }

@@ -18118,7 +18118,7 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
           to label %41 unwind label %36
 
 35:                                               ; preds = %48, %36
-  br label %197
+  br label %198
 
 36:                                               ; preds = %69, %60, %3
   %37 = landingpad { ptr, i32 }
@@ -18142,13 +18142,13 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %23, i64 48, i1 false)
   br label %46
 
-46:                                               ; preds = %181, %41
+46:                                               ; preds = %182, %41
   %47 = invoke { i64, i64 } @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88a0696080eed874E"(ptr align 8 %22)
           to label %54 unwind label %49
 
-48:                                               ; preds = %193, %189, %49
+48:                                               ; preds = %194, %190, %49
   invoke void @"_ZN4core3ptr383drop_in_place$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$usize$C$alloc..collections..btree..set_val..SetValZST$C$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$usize$GT$$C$alloc..collections..btree..set..BTreeSet$LT$usize$GT$..from_sorted_iter$LT$alloc..vec..into_iter..IntoIter$LT$usize$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17heb89d5b13e7ecb6dE"(ptr align 8 %22) #7
-          to label %35 unwind label %195
+          to label %35 unwind label %196
 
 49:                                               ; preds = %46
   %50 = landingpad { ptr, i32 }
@@ -18209,7 +18209,7 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   store i8 0, ptr %7, align 1
   store i8 0, ptr %8, align 1
   invoke void @"_ZN5alloc11collections5btree4node115NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$16push_with_handle17h247282bfb89bf77eE"(ptr sret({ { ptr, i64, {} }, i64, {} }) align 8 %5, ptr align 8 %26, i64 %63)
-          to label %186 unwind label %85
+          to label %187 unwind label %85
 
 78:                                               ; preds = %107, %72
   %79 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
@@ -18221,9 +18221,9 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
 82:                                               ; preds = %85
   %83 = load i8, ptr %8, align 1, !range !5, !noundef !3
   %84 = trunc i8 %83 to i1
-  br i1 %84, label %192, label %189
+  br i1 %84, label %193, label %190
 
-85:                                               ; preds = %186, %184, %168, %167, %163, %155, %135, %125, %121, %106, %78, %77
+85:                                               ; preds = %187, %185, %169, %168, %164, %156, %135, %125, %121, %106, %78, %77
   %86 = landingpad { ptr, i32 }
           cleanup
   %87 = extractvalue { ptr, i32 } %86, 0
@@ -18330,129 +18330,130 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   store i64 %144, ptr %145, align 8
   br label %146
 
-146:                                              ; preds = %185, %137
+146:                                              ; preds = %186, %137
   %147 = load i64, ptr %12, align 8, !noundef !3
   %148 = getelementptr inbounds i8, ptr %12, i64 8
   %149 = load i64, ptr %148, align 8, !noundef !3
   %150 = icmp ult i64 %147, %149
-  br i1 %150, label %155, label %151
+  br i1 %150, label %156, label %151
 
 151:                                              ; preds = %146
   %152 = load i64, ptr @anon.2e3e4dae066917202ab53624e48b8b3d.23, align 8, !range !4, !noundef !3
-  %153 = load i64, ptr getelementptr inbounds (i8, ptr @anon.2e3e4dae066917202ab53624e48b8b3d.23, i64 8), align 8
+  %153 = getelementptr inbounds i8, ptr @anon.2e3e4dae066917202ab53624e48b8b3d.23, i64 8
+  %154 = load i64, ptr %153, align 8
   store i64 %152, ptr %11, align 8
-  %154 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %153, ptr %154, align 8
-  br label %158
+  %155 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %154, ptr %155, align 8
+  br label %159
 
-155:                                              ; preds = %146
-  %156 = load i64, ptr %12, align 8, !noundef !3
-  %157 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %156, i64 1)
-          to label %161 unwind label %85
+156:                                              ; preds = %146
+  %157 = load i64, ptr %12, align 8, !noundef !3
+  %158 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %157, i64 1)
+          to label %162 unwind label %85
 
-158:                                              ; preds = %161, %151
-  %159 = load i64, ptr %11, align 8, !range !4, !noundef !3
-  %160 = icmp eq i64 %159, 0
-  br i1 %160, label %163, label %167
+159:                                              ; preds = %162, %151
+  %160 = load i64, ptr %11, align 8, !range !4, !noundef !3
+  %161 = icmp eq i64 %160, 0
+  br i1 %161, label %164, label %168
 
-161:                                              ; preds = %155
-  store i64 %157, ptr %12, align 8
-  %162 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %156, ptr %162, align 8
+162:                                              ; preds = %156
+  store i64 %158, ptr %12, align 8
+  %163 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %157, ptr %163, align 8
   store i64 1, ptr %11, align 8
-  br label %158
+  br label %159
 
-163:                                              ; preds = %158
+164:                                              ; preds = %159
   store i8 0, ptr %7, align 1
   store i8 0, ptr %8, align 1
-  %164 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  %165 = getelementptr inbounds i8, ptr %14, i64 8
-  %166 = load i64, ptr %165, align 8, !noundef !3
-  invoke void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17heba75d1f672e99eaE"(ptr align 8 %20, i64 %63, ptr %164, i64 %166)
-          to label %168 unwind label %85
+  %165 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
+  %166 = getelementptr inbounds i8, ptr %14, i64 8
+  %167 = load i64, ptr %166, align 8, !noundef !3
+  invoke void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17heba75d1f672e99eaE"(ptr align 8 %20, i64 %63, ptr %165, i64 %167)
+          to label %169 unwind label %85
 
-167:                                              ; preds = %158
+168:                                              ; preds = %159
   invoke void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h4dd38584f056157bE"(ptr align 1 %27)
-          to label %184 unwind label %85
-
-168:                                              ; preds = %163
-  %169 = getelementptr inbounds i8, ptr %20, i64 8
-  %170 = load i64, ptr %169, align 8, !noundef !3
-  %171 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
-  %172 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %170, ptr %172, align 8
-  store ptr %171, ptr %9, align 8
-  %173 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %174 = getelementptr inbounds i8, ptr %9, i64 8
-  %175 = load i64, ptr %174, align 8, !noundef !3
-  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17ha698363f6e9b0deeE"(ptr sret({ { ptr, i64, {} }, i64, {} }) align 8 %10, ptr %173, i64 %175)
-          to label %176 unwind label %85
-
-176:                                              ; preds = %168
-  %177 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %178 = getelementptr inbounds i8, ptr %10, i64 8
-  %179 = load i64, ptr %178, align 8, !noundef !3
-  store ptr %177, ptr %26, align 8
-  %180 = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 %179, ptr %180, align 8
-  br label %181
-
-181:                                              ; preds = %188, %176
-  %182 = load i64, ptr %2, align 8, !noundef !3
-  %183 = add i64 %182, 1
-  store i64 %183, ptr %2, align 8
-  br label %46
-
-184:                                              ; preds = %167
-  invoke void @_ZN5alloc11collections5btree3mem7replace17hf3b6044e101ce58dE(ptr align 8 %14)
           to label %185 unwind label %85
 
-185:                                              ; preds = %184
+169:                                              ; preds = %164
+  %170 = getelementptr inbounds i8, ptr %20, i64 8
+  %171 = load i64, ptr %170, align 8, !noundef !3
+  %172 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
+  %173 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %171, ptr %173, align 8
+  store ptr %172, ptr %9, align 8
+  %174 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
+  %175 = getelementptr inbounds i8, ptr %9, i64 8
+  %176 = load i64, ptr %175, align 8, !noundef !3
+  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17ha698363f6e9b0deeE"(ptr sret({ { ptr, i64, {} }, i64, {} }) align 8 %10, ptr %174, i64 %176)
+          to label %177 unwind label %85
+
+177:                                              ; preds = %169
+  %178 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
+  %179 = getelementptr inbounds i8, ptr %10, i64 8
+  %180 = load i64, ptr %179, align 8, !noundef !3
+  store ptr %178, ptr %26, align 8
+  %181 = getelementptr inbounds i8, ptr %26, i64 8
+  store i64 %180, ptr %181, align 8
+  br label %182
+
+182:                                              ; preds = %189, %177
+  %183 = load i64, ptr %2, align 8, !noundef !3
+  %184 = add i64 %183, 1
+  store i64 %184, ptr %2, align 8
+  br label %46
+
+185:                                              ; preds = %168
+  invoke void @_ZN5alloc11collections5btree3mem7replace17hf3b6044e101ce58dE(ptr align 8 %14)
+          to label %186 unwind label %85
+
+186:                                              ; preds = %185
   br label %146
 
-186:                                              ; preds = %77
-  %187 = invoke align 1 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17hba97a9a65883d071E"(ptr align 8 %5)
-          to label %188 unwind label %85
+187:                                              ; preds = %77
+  %188 = invoke align 1 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17hba97a9a65883d071E"(ptr align 8 %5)
+          to label %189 unwind label %85
 
-188:                                              ; preds = %186
-  br label %181
+189:                                              ; preds = %187
+  br label %182
 
-189:                                              ; preds = %192, %82
-  %190 = load i8, ptr %7, align 1, !range !5, !noundef !3
-  %191 = trunc i8 %190 to i1
-  br i1 %191, label %193, label %48
+190:                                              ; preds = %193, %82
+  %191 = load i8, ptr %7, align 1, !range !5, !noundef !3
+  %192 = trunc i8 %191 to i1
+  br i1 %192, label %194, label %48
 
-192:                                              ; preds = %82
-  br label %189
+193:                                              ; preds = %82
+  br label %190
 
-193:                                              ; preds = %189
+194:                                              ; preds = %190
   br label %48
 
-194:                                              ; No predecessors!
+195:                                              ; No predecessors!
   unreachable
 
-195:                                              ; preds = %206, %48
-  %196 = landingpad { ptr, i32 }
+196:                                              ; preds = %207, %48
+  %197 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
-197:                                              ; preds = %35
-  %198 = load i8, ptr %6, align 1, !range !5, !noundef !3
-  %199 = trunc i8 %198 to i1
-  br i1 %199, label %206, label %200
+198:                                              ; preds = %35
+  %199 = load i8, ptr %6, align 1, !range !5, !noundef !3
+  %200 = trunc i8 %199 to i1
+  br i1 %200, label %207, label %201
 
-200:                                              ; preds = %206, %197
-  %201 = load ptr, ptr %4, align 8, !noundef !3
-  %202 = getelementptr inbounds i8, ptr %4, i64 8
-  %203 = load i32, ptr %202, align 8, !noundef !3
-  %204 = insertvalue { ptr, i32 } poison, ptr %201, 0
-  %205 = insertvalue { ptr, i32 } %204, i32 %203, 1
-  resume { ptr, i32 } %205
+201:                                              ; preds = %207, %198
+  %202 = load ptr, ptr %4, align 8, !noundef !3
+  %203 = getelementptr inbounds i8, ptr %4, i64 8
+  %204 = load i32, ptr %203, align 8, !noundef !3
+  %205 = insertvalue { ptr, i32 } poison, ptr %202, 0
+  %206 = insertvalue { ptr, i32 } %205, i32 %204, 1
+  resume { ptr, i32 } %206
 
-206:                                              ; preds = %197
+207:                                              ; preds = %198
   invoke void @"_ZN4core3ptr383drop_in_place$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$usize$C$alloc..collections..btree..set_val..SetValZST$C$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$usize$GT$$C$alloc..collections..btree..set..BTreeSet$LT$usize$GT$..from_sorted_iter$LT$alloc..vec..into_iter..IntoIter$LT$usize$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17heb89d5b13e7ecb6dE"(ptr align 8 %1) #7
-          to label %200 unwind label %195
+          to label %201 unwind label %196
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -18498,7 +18499,7 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
           to label %44 unwind label %39
 
 38:                                               ; preds = %50, %39
-  br label %201
+  br label %202
 
 39:                                               ; preds = %73, %62, %3
   %40 = landingpad { ptr, i32 }
@@ -18522,13 +18523,13 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %26, i64 104, i1 false)
   br label %49
 
-49:                                               ; preds = %185, %44
+49:                                               ; preds = %186, %44
   invoke void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cb033977127ae76E"(ptr sret({ [2 x i64], i64, [6 x i64] }) align 8 %24, ptr align 8 %25)
           to label %56 unwind label %51
 
-50:                                               ; preds = %199, %193, %51
+50:                                               ; preds = %200, %194, %51
   invoke void @"_ZN4core3ptr274drop_in_place$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$C$alloc..vec..into_iter..IntoIter$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$$GT$17h61af3b6ae8006106E"(ptr align 8 %25) #7
-          to label %38 unwind label %197
+          to label %38 unwind label %198
 
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
@@ -18591,7 +18592,7 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   store i8 0, ptr %8, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %23, i64 56, i1 false)
   invoke void @"_ZN5alloc11collections5btree4node115NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$16push_with_handle17h625f5e0cc9c39cadE"(ptr sret({ { ptr, i64, {} }, i64, {} }) align 8 %5, ptr align 8 %29, ptr align 1 %64, i64 %66, ptr align 8 %22)
-          to label %190 unwind label %89
+          to label %191 unwind label %89
 
 82:                                               ; preds = %111, %76
   %83 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
@@ -18603,9 +18604,9 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
 86:                                               ; preds = %89
   %87 = load i8, ptr %8, align 1, !range !5, !noundef !3
   %88 = trunc i8 %87 to i1
-  br i1 %88, label %196, label %193
+  br i1 %88, label %197, label %194
 
-89:                                               ; preds = %190, %188, %172, %171, %167, %159, %139, %129, %125, %110, %82, %81
+89:                                               ; preds = %191, %189, %173, %172, %168, %160, %139, %129, %125, %110, %82, %81
   %90 = landingpad { ptr, i32 }
           cleanup
   %91 = extractvalue { ptr, i32 } %90, 0
@@ -18712,131 +18713,132 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   store i64 %148, ptr %149, align 8
   br label %150
 
-150:                                              ; preds = %189, %141
+150:                                              ; preds = %190, %141
   %151 = load i64, ptr %13, align 8, !noundef !3
   %152 = getelementptr inbounds i8, ptr %13, i64 8
   %153 = load i64, ptr %152, align 8, !noundef !3
   %154 = icmp ult i64 %151, %153
-  br i1 %154, label %159, label %155
+  br i1 %154, label %160, label %155
 
 155:                                              ; preds = %150
   %156 = load i64, ptr @anon.2e3e4dae066917202ab53624e48b8b3d.23, align 8, !range !4, !noundef !3
-  %157 = load i64, ptr getelementptr inbounds (i8, ptr @anon.2e3e4dae066917202ab53624e48b8b3d.23, i64 8), align 8
+  %157 = getelementptr inbounds i8, ptr @anon.2e3e4dae066917202ab53624e48b8b3d.23, i64 8
+  %158 = load i64, ptr %157, align 8
   store i64 %156, ptr %12, align 8
-  %158 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %157, ptr %158, align 8
-  br label %162
+  %159 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 %158, ptr %159, align 8
+  br label %163
 
-159:                                              ; preds = %150
-  %160 = load i64, ptr %13, align 8, !noundef !3
-  %161 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %160, i64 1)
-          to label %165 unwind label %89
+160:                                              ; preds = %150
+  %161 = load i64, ptr %13, align 8, !noundef !3
+  %162 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %161, i64 1)
+          to label %166 unwind label %89
 
-162:                                              ; preds = %165, %155
-  %163 = load i64, ptr %12, align 8, !range !4, !noundef !3
-  %164 = icmp eq i64 %163, 0
-  br i1 %164, label %167, label %171
+163:                                              ; preds = %166, %155
+  %164 = load i64, ptr %12, align 8, !range !4, !noundef !3
+  %165 = icmp eq i64 %164, 0
+  br i1 %165, label %168, label %172
 
-165:                                              ; preds = %159
-  store i64 %161, ptr %13, align 8
-  %166 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %160, ptr %166, align 8
+166:                                              ; preds = %160
+  store i64 %162, ptr %13, align 8
+  %167 = getelementptr inbounds i8, ptr %12, i64 8
+  store i64 %161, ptr %167, align 8
   store i64 1, ptr %12, align 8
-  br label %162
+  br label %163
 
-167:                                              ; preds = %162
+168:                                              ; preds = %163
   store i8 0, ptr %7, align 1
   store i8 0, ptr %8, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %23, i64 56, i1 false)
-  %168 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
-  %169 = getelementptr inbounds i8, ptr %15, i64 8
-  %170 = load i64, ptr %169, align 8, !noundef !3
-  invoke void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17hcb0e2c425beda59bE"(ptr align 8 %21, ptr align 1 %64, i64 %66, ptr align 8 %11, ptr %168, i64 %170)
-          to label %172 unwind label %89
+  %169 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
+  %170 = getelementptr inbounds i8, ptr %15, i64 8
+  %171 = load i64, ptr %170, align 8, !noundef !3
+  invoke void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17hcb0e2c425beda59bE"(ptr align 8 %21, ptr align 1 %64, i64 %66, ptr align 8 %11, ptr %169, i64 %171)
+          to label %173 unwind label %89
 
-171:                                              ; preds = %162
+172:                                              ; preds = %163
   invoke void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h4dd38584f056157bE"(ptr align 1 %30)
-          to label %188 unwind label %89
-
-172:                                              ; preds = %167
-  %173 = getelementptr inbounds i8, ptr %21, i64 8
-  %174 = load i64, ptr %173, align 8, !noundef !3
-  %175 = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
-  %176 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %174, ptr %176, align 8
-  store ptr %175, ptr %9, align 8
-  %177 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %178 = getelementptr inbounds i8, ptr %9, i64 8
-  %179 = load i64, ptr %178, align 8, !noundef !3
-  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17h8aece55f6a745723E"(ptr sret({ { ptr, i64, {} }, i64, {} }) align 8 %10, ptr %177, i64 %179)
-          to label %180 unwind label %89
-
-180:                                              ; preds = %172
-  %181 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %182 = getelementptr inbounds i8, ptr %10, i64 8
-  %183 = load i64, ptr %182, align 8, !noundef !3
-  store ptr %181, ptr %29, align 8
-  %184 = getelementptr inbounds i8, ptr %29, i64 8
-  store i64 %183, ptr %184, align 8
-  br label %185
-
-185:                                              ; preds = %192, %180
-  %186 = load i64, ptr %2, align 8, !noundef !3
-  %187 = add i64 %186, 1
-  store i64 %187, ptr %2, align 8
-  br label %49
-
-188:                                              ; preds = %171
-  invoke void @_ZN5alloc11collections5btree3mem7replace17h77a464915723b583E(ptr align 8 %15)
           to label %189 unwind label %89
 
-189:                                              ; preds = %188
+173:                                              ; preds = %168
+  %174 = getelementptr inbounds i8, ptr %21, i64 8
+  %175 = load i64, ptr %174, align 8, !noundef !3
+  %176 = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
+  %177 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %175, ptr %177, align 8
+  store ptr %176, ptr %9, align 8
+  %178 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
+  %179 = getelementptr inbounds i8, ptr %9, i64 8
+  %180 = load i64, ptr %179, align 8, !noundef !3
+  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17h8aece55f6a745723E"(ptr sret({ { ptr, i64, {} }, i64, {} }) align 8 %10, ptr %178, i64 %180)
+          to label %181 unwind label %89
+
+181:                                              ; preds = %173
+  %182 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
+  %183 = getelementptr inbounds i8, ptr %10, i64 8
+  %184 = load i64, ptr %183, align 8, !noundef !3
+  store ptr %182, ptr %29, align 8
+  %185 = getelementptr inbounds i8, ptr %29, i64 8
+  store i64 %184, ptr %185, align 8
+  br label %186
+
+186:                                              ; preds = %193, %181
+  %187 = load i64, ptr %2, align 8, !noundef !3
+  %188 = add i64 %187, 1
+  store i64 %188, ptr %2, align 8
+  br label %49
+
+189:                                              ; preds = %172
+  invoke void @_ZN5alloc11collections5btree3mem7replace17h77a464915723b583E(ptr align 8 %15)
+          to label %190 unwind label %89
+
+190:                                              ; preds = %189
   br label %150
 
-190:                                              ; preds = %81
-  %191 = invoke align 8 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17h51328c06ad280d28E"(ptr align 8 %5)
-          to label %192 unwind label %89
+191:                                              ; preds = %81
+  %192 = invoke align 8 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17h51328c06ad280d28E"(ptr align 8 %5)
+          to label %193 unwind label %89
 
-192:                                              ; preds = %190
-  br label %185
+193:                                              ; preds = %191
+  br label %186
 
-193:                                              ; preds = %196, %86
-  %194 = load i8, ptr %7, align 1, !range !5, !noundef !3
-  %195 = trunc i8 %194 to i1
-  br i1 %195, label %199, label %50
+194:                                              ; preds = %197, %86
+  %195 = load i8, ptr %7, align 1, !range !5, !noundef !3
+  %196 = trunc i8 %195 to i1
+  br i1 %196, label %200, label %50
 
-196:                                              ; preds = %86
+197:                                              ; preds = %86
   invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr align 8 %23) #7
-          to label %193 unwind label %197
+          to label %194 unwind label %198
 
-197:                                              ; preds = %210, %196, %50
-  %198 = landingpad { ptr, i32 }
+198:                                              ; preds = %211, %197, %50
+  %199 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
-199:                                              ; preds = %193
+200:                                              ; preds = %194
   br label %50
 
-200:                                              ; No predecessors!
+201:                                              ; No predecessors!
   unreachable
 
-201:                                              ; preds = %38
-  %202 = load i8, ptr %6, align 1, !range !5, !noundef !3
-  %203 = trunc i8 %202 to i1
-  br i1 %203, label %210, label %204
+202:                                              ; preds = %38
+  %203 = load i8, ptr %6, align 1, !range !5, !noundef !3
+  %204 = trunc i8 %203 to i1
+  br i1 %204, label %211, label %205
 
-204:                                              ; preds = %210, %201
-  %205 = load ptr, ptr %4, align 8, !noundef !3
-  %206 = getelementptr inbounds i8, ptr %4, i64 8
-  %207 = load i32, ptr %206, align 8, !noundef !3
-  %208 = insertvalue { ptr, i32 } poison, ptr %205, 0
-  %209 = insertvalue { ptr, i32 } %208, i32 %207, 1
-  resume { ptr, i32 } %209
+205:                                              ; preds = %211, %202
+  %206 = load ptr, ptr %4, align 8, !noundef !3
+  %207 = getelementptr inbounds i8, ptr %4, i64 8
+  %208 = load i32, ptr %207, align 8, !noundef !3
+  %209 = insertvalue { ptr, i32 } poison, ptr %206, 0
+  %210 = insertvalue { ptr, i32 } %209, i32 %208, 1
+  resume { ptr, i32 } %210
 
-210:                                              ; preds = %201
+211:                                              ; preds = %202
   invoke void @"_ZN4core3ptr274drop_in_place$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$C$alloc..vec..into_iter..IntoIter$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$$GT$17h61af3b6ae8006106E"(ptr align 8 %1) #7
-          to label %204 unwind label %197
+          to label %205 unwind label %198
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -18879,7 +18881,7 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
           to label %41 unwind label %36
 
 35:                                               ; preds = %48, %36
-  br label %198
+  br label %199
 
 36:                                               ; preds = %70, %61, %3
   %37 = landingpad { ptr, i32 }
@@ -18903,13 +18905,13 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %23, i64 32, i1 false)
   br label %46
 
-46:                                               ; preds = %182, %41
+46:                                               ; preds = %183, %41
   %47 = invoke { i16, i16 } @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h53fc2e262b7fdc09E"(ptr align 8 %22)
           to label %54 unwind label %49
 
-48:                                               ; preds = %194, %190, %49
+48:                                               ; preds = %195, %191, %49
   invoke void @"_ZN4core3ptr390drop_in_place$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$u16$C$alloc..collections..btree..set_val..SetValZST$C$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$u16$C$1_usize$GT$$C$$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$u20$as$u20$core..convert..From$LT$$u5b$u16$u3b$$u20$1$u5d$$GT$$GT$..from..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4ed51575a7f32e7bE"(ptr align 8 %22) #7
-          to label %35 unwind label %196
+          to label %35 unwind label %197
 
 49:                                               ; preds = %46
   %50 = landingpad { ptr, i32 }
@@ -18971,7 +18973,7 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   store i8 0, ptr %7, align 1
   store i8 0, ptr %8, align 1
   invoke void @"_ZN5alloc11collections5btree4node115NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$16push_with_handle17hd57b73bd51620330E"(ptr sret({ { ptr, i64, {} }, i64, {} }) align 8 %5, ptr align 8 %26, i16 %64)
-          to label %187 unwind label %86
+          to label %188 unwind label %86
 
 79:                                               ; preds = %108, %73
   %80 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
@@ -18983,9 +18985,9 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
 83:                                               ; preds = %86
   %84 = load i8, ptr %8, align 1, !range !5, !noundef !3
   %85 = trunc i8 %84 to i1
-  br i1 %85, label %193, label %190
+  br i1 %85, label %194, label %191
 
-86:                                               ; preds = %187, %185, %169, %168, %164, %156, %136, %126, %122, %107, %79, %78
+86:                                               ; preds = %188, %186, %170, %169, %165, %157, %136, %126, %122, %107, %79, %78
   %87 = landingpad { ptr, i32 }
           cleanup
   %88 = extractvalue { ptr, i32 } %87, 0
@@ -19092,129 +19094,130 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   store i64 %145, ptr %146, align 8
   br label %147
 
-147:                                              ; preds = %186, %138
+147:                                              ; preds = %187, %138
   %148 = load i64, ptr %12, align 8, !noundef !3
   %149 = getelementptr inbounds i8, ptr %12, i64 8
   %150 = load i64, ptr %149, align 8, !noundef !3
   %151 = icmp ult i64 %148, %150
-  br i1 %151, label %156, label %152
+  br i1 %151, label %157, label %152
 
 152:                                              ; preds = %147
   %153 = load i64, ptr @anon.2e3e4dae066917202ab53624e48b8b3d.23, align 8, !range !4, !noundef !3
-  %154 = load i64, ptr getelementptr inbounds (i8, ptr @anon.2e3e4dae066917202ab53624e48b8b3d.23, i64 8), align 8
+  %154 = getelementptr inbounds i8, ptr @anon.2e3e4dae066917202ab53624e48b8b3d.23, i64 8
+  %155 = load i64, ptr %154, align 8
   store i64 %153, ptr %11, align 8
-  %155 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %154, ptr %155, align 8
-  br label %159
+  %156 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %155, ptr %156, align 8
+  br label %160
 
-156:                                              ; preds = %147
-  %157 = load i64, ptr %12, align 8, !noundef !3
-  %158 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %157, i64 1)
-          to label %162 unwind label %86
+157:                                              ; preds = %147
+  %158 = load i64, ptr %12, align 8, !noundef !3
+  %159 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %158, i64 1)
+          to label %163 unwind label %86
 
-159:                                              ; preds = %162, %152
-  %160 = load i64, ptr %11, align 8, !range !4, !noundef !3
-  %161 = icmp eq i64 %160, 0
-  br i1 %161, label %164, label %168
+160:                                              ; preds = %163, %152
+  %161 = load i64, ptr %11, align 8, !range !4, !noundef !3
+  %162 = icmp eq i64 %161, 0
+  br i1 %162, label %165, label %169
 
-162:                                              ; preds = %156
-  store i64 %158, ptr %12, align 8
-  %163 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %157, ptr %163, align 8
+163:                                              ; preds = %157
+  store i64 %159, ptr %12, align 8
+  %164 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %158, ptr %164, align 8
   store i64 1, ptr %11, align 8
-  br label %159
+  br label %160
 
-164:                                              ; preds = %159
+165:                                              ; preds = %160
   store i8 0, ptr %7, align 1
   store i8 0, ptr %8, align 1
-  %165 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  %166 = getelementptr inbounds i8, ptr %14, i64 8
-  %167 = load i64, ptr %166, align 8, !noundef !3
-  invoke void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17h13f4575879cfd4b5E"(ptr align 8 %20, i16 %64, ptr %165, i64 %167)
-          to label %169 unwind label %86
+  %166 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
+  %167 = getelementptr inbounds i8, ptr %14, i64 8
+  %168 = load i64, ptr %167, align 8, !noundef !3
+  invoke void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17h13f4575879cfd4b5E"(ptr align 8 %20, i16 %64, ptr %166, i64 %168)
+          to label %170 unwind label %86
 
-168:                                              ; preds = %159
+169:                                              ; preds = %160
   invoke void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h4dd38584f056157bE"(ptr align 1 %27)
-          to label %185 unwind label %86
-
-169:                                              ; preds = %164
-  %170 = getelementptr inbounds i8, ptr %20, i64 8
-  %171 = load i64, ptr %170, align 8, !noundef !3
-  %172 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
-  %173 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %171, ptr %173, align 8
-  store ptr %172, ptr %9, align 8
-  %174 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %175 = getelementptr inbounds i8, ptr %9, i64 8
-  %176 = load i64, ptr %175, align 8, !noundef !3
-  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17hb6bdf0be6ef5052eE"(ptr sret({ { ptr, i64, {} }, i64, {} }) align 8 %10, ptr %174, i64 %176)
-          to label %177 unwind label %86
-
-177:                                              ; preds = %169
-  %178 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %179 = getelementptr inbounds i8, ptr %10, i64 8
-  %180 = load i64, ptr %179, align 8, !noundef !3
-  store ptr %178, ptr %26, align 8
-  %181 = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 %180, ptr %181, align 8
-  br label %182
-
-182:                                              ; preds = %189, %177
-  %183 = load i64, ptr %2, align 8, !noundef !3
-  %184 = add i64 %183, 1
-  store i64 %184, ptr %2, align 8
-  br label %46
-
-185:                                              ; preds = %168
-  invoke void @_ZN5alloc11collections5btree3mem7replace17h30e1385faee3b8b3E(ptr align 8 %14)
           to label %186 unwind label %86
 
-186:                                              ; preds = %185
+170:                                              ; preds = %165
+  %171 = getelementptr inbounds i8, ptr %20, i64 8
+  %172 = load i64, ptr %171, align 8, !noundef !3
+  %173 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
+  %174 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %172, ptr %174, align 8
+  store ptr %173, ptr %9, align 8
+  %175 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
+  %176 = getelementptr inbounds i8, ptr %9, i64 8
+  %177 = load i64, ptr %176, align 8, !noundef !3
+  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17hb6bdf0be6ef5052eE"(ptr sret({ { ptr, i64, {} }, i64, {} }) align 8 %10, ptr %175, i64 %177)
+          to label %178 unwind label %86
+
+178:                                              ; preds = %170
+  %179 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
+  %180 = getelementptr inbounds i8, ptr %10, i64 8
+  %181 = load i64, ptr %180, align 8, !noundef !3
+  store ptr %179, ptr %26, align 8
+  %182 = getelementptr inbounds i8, ptr %26, i64 8
+  store i64 %181, ptr %182, align 8
+  br label %183
+
+183:                                              ; preds = %190, %178
+  %184 = load i64, ptr %2, align 8, !noundef !3
+  %185 = add i64 %184, 1
+  store i64 %185, ptr %2, align 8
+  br label %46
+
+186:                                              ; preds = %169
+  invoke void @_ZN5alloc11collections5btree3mem7replace17h30e1385faee3b8b3E(ptr align 8 %14)
+          to label %187 unwind label %86
+
+187:                                              ; preds = %186
   br label %147
 
-187:                                              ; preds = %78
-  %188 = invoke align 1 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17hb267233f2f4cffeaE"(ptr align 8 %5)
-          to label %189 unwind label %86
+188:                                              ; preds = %78
+  %189 = invoke align 1 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17hb267233f2f4cffeaE"(ptr align 8 %5)
+          to label %190 unwind label %86
 
-189:                                              ; preds = %187
-  br label %182
+190:                                              ; preds = %188
+  br label %183
 
-190:                                              ; preds = %193, %83
-  %191 = load i8, ptr %7, align 1, !range !5, !noundef !3
-  %192 = trunc i8 %191 to i1
-  br i1 %192, label %194, label %48
+191:                                              ; preds = %194, %83
+  %192 = load i8, ptr %7, align 1, !range !5, !noundef !3
+  %193 = trunc i8 %192 to i1
+  br i1 %193, label %195, label %48
 
-193:                                              ; preds = %83
-  br label %190
+194:                                              ; preds = %83
+  br label %191
 
-194:                                              ; preds = %190
+195:                                              ; preds = %191
   br label %48
 
-195:                                              ; No predecessors!
+196:                                              ; No predecessors!
   unreachable
 
-196:                                              ; preds = %207, %48
-  %197 = landingpad { ptr, i32 }
+197:                                              ; preds = %208, %48
+  %198 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
-198:                                              ; preds = %35
-  %199 = load i8, ptr %6, align 1, !range !5, !noundef !3
-  %200 = trunc i8 %199 to i1
-  br i1 %200, label %207, label %201
+199:                                              ; preds = %35
+  %200 = load i8, ptr %6, align 1, !range !5, !noundef !3
+  %201 = trunc i8 %200 to i1
+  br i1 %201, label %208, label %202
 
-201:                                              ; preds = %207, %198
-  %202 = load ptr, ptr %4, align 8, !noundef !3
-  %203 = getelementptr inbounds i8, ptr %4, i64 8
-  %204 = load i32, ptr %203, align 8, !noundef !3
-  %205 = insertvalue { ptr, i32 } poison, ptr %202, 0
-  %206 = insertvalue { ptr, i32 } %205, i32 %204, 1
-  resume { ptr, i32 } %206
+202:                                              ; preds = %208, %199
+  %203 = load ptr, ptr %4, align 8, !noundef !3
+  %204 = getelementptr inbounds i8, ptr %4, i64 8
+  %205 = load i32, ptr %204, align 8, !noundef !3
+  %206 = insertvalue { ptr, i32 } poison, ptr %203, 0
+  %207 = insertvalue { ptr, i32 } %206, i32 %205, 1
+  resume { ptr, i32 } %207
 
-207:                                              ; preds = %198
+208:                                              ; preds = %199
   invoke void @"_ZN4core3ptr390drop_in_place$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$u16$C$alloc..collections..btree..set_val..SetValZST$C$core..iter..adapters..map..Map$LT$core..array..iter..IntoIter$LT$u16$C$1_usize$GT$$C$$LT$alloc..collections..btree..set..BTreeSet$LT$u16$GT$$u20$as$u20$core..convert..From$LT$$u5b$u16$u3b$$u20$1$u5d$$GT$$GT$..from..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h4ed51575a7f32e7bE"(ptr align 8 %1) #7
-          to label %201 unwind label %196
+          to label %202 unwind label %197
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -19257,7 +19260,7 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
           to label %41 unwind label %36
 
 35:                                               ; preds = %48, %36
-  br label %198
+  br label %199
 
 36:                                               ; preds = %70, %61, %3
   %37 = landingpad { ptr, i32 }
@@ -19281,13 +19284,13 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %23, i64 40, i1 false)
   br label %46
 
-46:                                               ; preds = %182, %41
+46:                                               ; preds = %183, %41
   %47 = invoke { i16, i16 } @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6f3c4825280aeeE"(ptr align 8 %22)
           to label %54 unwind label %49
 
-48:                                               ; preds = %194, %190, %49
+48:                                               ; preds = %195, %191, %49
   invoke void @"_ZN4core3ptr375drop_in_place$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$u16$C$alloc..collections..btree..set_val..SetValZST$C$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$u16$GT$$C$alloc..collections..btree..set..BTreeSet$LT$u16$GT$..from_sorted_iter$LT$alloc..vec..into_iter..IntoIter$LT$u16$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h892676cda96d8476E"(ptr align 8 %22) #7
-          to label %35 unwind label %196
+          to label %35 unwind label %197
 
 49:                                               ; preds = %46
   %50 = landingpad { ptr, i32 }
@@ -19349,7 +19352,7 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   store i8 0, ptr %7, align 1
   store i8 0, ptr %8, align 1
   invoke void @"_ZN5alloc11collections5btree4node115NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$16push_with_handle17hd57b73bd51620330E"(ptr sret({ { ptr, i64, {} }, i64, {} }) align 8 %5, ptr align 8 %26, i16 %64)
-          to label %187 unwind label %86
+          to label %188 unwind label %86
 
 79:                                               ; preds = %108, %73
   %80 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
@@ -19361,9 +19364,9 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
 83:                                               ; preds = %86
   %84 = load i8, ptr %8, align 1, !range !5, !noundef !3
   %85 = trunc i8 %84 to i1
-  br i1 %85, label %193, label %190
+  br i1 %85, label %194, label %191
 
-86:                                               ; preds = %187, %185, %169, %168, %164, %156, %136, %126, %122, %107, %79, %78
+86:                                               ; preds = %188, %186, %170, %169, %165, %157, %136, %126, %122, %107, %79, %78
   %87 = landingpad { ptr, i32 }
           cleanup
   %88 = extractvalue { ptr, i32 } %87, 0
@@ -19470,129 +19473,130 @@ define void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..collect
   store i64 %145, ptr %146, align 8
   br label %147
 
-147:                                              ; preds = %186, %138
+147:                                              ; preds = %187, %138
   %148 = load i64, ptr %12, align 8, !noundef !3
   %149 = getelementptr inbounds i8, ptr %12, i64 8
   %150 = load i64, ptr %149, align 8, !noundef !3
   %151 = icmp ult i64 %148, %150
-  br i1 %151, label %156, label %152
+  br i1 %151, label %157, label %152
 
 152:                                              ; preds = %147
   %153 = load i64, ptr @anon.2e3e4dae066917202ab53624e48b8b3d.23, align 8, !range !4, !noundef !3
-  %154 = load i64, ptr getelementptr inbounds (i8, ptr @anon.2e3e4dae066917202ab53624e48b8b3d.23, i64 8), align 8
+  %154 = getelementptr inbounds i8, ptr @anon.2e3e4dae066917202ab53624e48b8b3d.23, i64 8
+  %155 = load i64, ptr %154, align 8
   store i64 %153, ptr %11, align 8
-  %155 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %154, ptr %155, align 8
-  br label %159
+  %156 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %155, ptr %156, align 8
+  br label %160
 
-156:                                              ; preds = %147
-  %157 = load i64, ptr %12, align 8, !noundef !3
-  %158 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %157, i64 1)
-          to label %162 unwind label %86
+157:                                              ; preds = %147
+  %158 = load i64, ptr %12, align 8, !noundef !3
+  %159 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %158, i64 1)
+          to label %163 unwind label %86
 
-159:                                              ; preds = %162, %152
-  %160 = load i64, ptr %11, align 8, !range !4, !noundef !3
-  %161 = icmp eq i64 %160, 0
-  br i1 %161, label %164, label %168
+160:                                              ; preds = %163, %152
+  %161 = load i64, ptr %11, align 8, !range !4, !noundef !3
+  %162 = icmp eq i64 %161, 0
+  br i1 %162, label %165, label %169
 
-162:                                              ; preds = %156
-  store i64 %158, ptr %12, align 8
-  %163 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %157, ptr %163, align 8
+163:                                              ; preds = %157
+  store i64 %159, ptr %12, align 8
+  %164 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %158, ptr %164, align 8
   store i64 1, ptr %11, align 8
-  br label %159
+  br label %160
 
-164:                                              ; preds = %159
+165:                                              ; preds = %160
   store i8 0, ptr %7, align 1
   store i8 0, ptr %8, align 1
-  %165 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  %166 = getelementptr inbounds i8, ptr %14, i64 8
-  %167 = load i64, ptr %166, align 8, !noundef !3
-  invoke void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17h13f4575879cfd4b5E"(ptr align 8 %20, i16 %64, ptr %165, i64 %167)
-          to label %169 unwind label %86
+  %166 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
+  %167 = getelementptr inbounds i8, ptr %14, i64 8
+  %168 = load i64, ptr %167, align 8, !noundef !3
+  invoke void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17h13f4575879cfd4b5E"(ptr align 8 %20, i16 %64, ptr %166, i64 %168)
+          to label %170 unwind label %86
 
-168:                                              ; preds = %159
+169:                                              ; preds = %160
   invoke void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h4dd38584f056157bE"(ptr align 1 %27)
-          to label %185 unwind label %86
-
-169:                                              ; preds = %164
-  %170 = getelementptr inbounds i8, ptr %20, i64 8
-  %171 = load i64, ptr %170, align 8, !noundef !3
-  %172 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
-  %173 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %171, ptr %173, align 8
-  store ptr %172, ptr %9, align 8
-  %174 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %175 = getelementptr inbounds i8, ptr %9, i64 8
-  %176 = load i64, ptr %175, align 8, !noundef !3
-  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17hb6bdf0be6ef5052eE"(ptr sret({ { ptr, i64, {} }, i64, {} }) align 8 %10, ptr %174, i64 %176)
-          to label %177 unwind label %86
-
-177:                                              ; preds = %169
-  %178 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %179 = getelementptr inbounds i8, ptr %10, i64 8
-  %180 = load i64, ptr %179, align 8, !noundef !3
-  store ptr %178, ptr %26, align 8
-  %181 = getelementptr inbounds i8, ptr %26, i64 8
-  store i64 %180, ptr %181, align 8
-  br label %182
-
-182:                                              ; preds = %189, %177
-  %183 = load i64, ptr %2, align 8, !noundef !3
-  %184 = add i64 %183, 1
-  store i64 %184, ptr %2, align 8
-  br label %46
-
-185:                                              ; preds = %168
-  invoke void @_ZN5alloc11collections5btree3mem7replace17h30e1385faee3b8b3E(ptr align 8 %14)
           to label %186 unwind label %86
 
-186:                                              ; preds = %185
+170:                                              ; preds = %165
+  %171 = getelementptr inbounds i8, ptr %20, i64 8
+  %172 = load i64, ptr %171, align 8, !noundef !3
+  %173 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
+  %174 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %172, ptr %174, align 8
+  store ptr %173, ptr %9, align 8
+  %175 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
+  %176 = getelementptr inbounds i8, ptr %9, i64 8
+  %177 = load i64, ptr %176, align 8, !noundef !3
+  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17hb6bdf0be6ef5052eE"(ptr sret({ { ptr, i64, {} }, i64, {} }) align 8 %10, ptr %175, i64 %177)
+          to label %178 unwind label %86
+
+178:                                              ; preds = %170
+  %179 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
+  %180 = getelementptr inbounds i8, ptr %10, i64 8
+  %181 = load i64, ptr %180, align 8, !noundef !3
+  store ptr %179, ptr %26, align 8
+  %182 = getelementptr inbounds i8, ptr %26, i64 8
+  store i64 %181, ptr %182, align 8
+  br label %183
+
+183:                                              ; preds = %190, %178
+  %184 = load i64, ptr %2, align 8, !noundef !3
+  %185 = add i64 %184, 1
+  store i64 %185, ptr %2, align 8
+  br label %46
+
+186:                                              ; preds = %169
+  invoke void @_ZN5alloc11collections5btree3mem7replace17h30e1385faee3b8b3E(ptr align 8 %14)
+          to label %187 unwind label %86
+
+187:                                              ; preds = %186
   br label %147
 
-187:                                              ; preds = %78
-  %188 = invoke align 1 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17hb267233f2f4cffeaE"(ptr align 8 %5)
-          to label %189 unwind label %86
+188:                                              ; preds = %78
+  %189 = invoke align 1 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17hb267233f2f4cffeaE"(ptr align 8 %5)
+          to label %190 unwind label %86
 
-189:                                              ; preds = %187
-  br label %182
+190:                                              ; preds = %188
+  br label %183
 
-190:                                              ; preds = %193, %83
-  %191 = load i8, ptr %7, align 1, !range !5, !noundef !3
-  %192 = trunc i8 %191 to i1
-  br i1 %192, label %194, label %48
+191:                                              ; preds = %194, %83
+  %192 = load i8, ptr %7, align 1, !range !5, !noundef !3
+  %193 = trunc i8 %192 to i1
+  br i1 %193, label %195, label %48
 
-193:                                              ; preds = %83
-  br label %190
+194:                                              ; preds = %83
+  br label %191
 
-194:                                              ; preds = %190
+195:                                              ; preds = %191
   br label %48
 
-195:                                              ; No predecessors!
+196:                                              ; No predecessors!
   unreachable
 
-196:                                              ; preds = %207, %48
-  %197 = landingpad { ptr, i32 }
+197:                                              ; preds = %208, %48
+  %198 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
-198:                                              ; preds = %35
-  %199 = load i8, ptr %6, align 1, !range !5, !noundef !3
-  %200 = trunc i8 %199 to i1
-  br i1 %200, label %207, label %201
+199:                                              ; preds = %35
+  %200 = load i8, ptr %6, align 1, !range !5, !noundef !3
+  %201 = trunc i8 %200 to i1
+  br i1 %201, label %208, label %202
 
-201:                                              ; preds = %207, %198
-  %202 = load ptr, ptr %4, align 8, !noundef !3
-  %203 = getelementptr inbounds i8, ptr %4, i64 8
-  %204 = load i32, ptr %203, align 8, !noundef !3
-  %205 = insertvalue { ptr, i32 } poison, ptr %202, 0
-  %206 = insertvalue { ptr, i32 } %205, i32 %204, 1
-  resume { ptr, i32 } %206
+202:                                              ; preds = %208, %199
+  %203 = load ptr, ptr %4, align 8, !noundef !3
+  %204 = getelementptr inbounds i8, ptr %4, i64 8
+  %205 = load i32, ptr %204, align 8, !noundef !3
+  %206 = insertvalue { ptr, i32 } poison, ptr %203, 0
+  %207 = insertvalue { ptr, i32 } %206, i32 %205, 1
+  resume { ptr, i32 } %207
 
-207:                                              ; preds = %198
+208:                                              ; preds = %199
   invoke void @"_ZN4core3ptr375drop_in_place$LT$alloc..collections..btree..dedup_sorted_iter..DedupSortedIter$LT$u16$C$alloc..collections..btree..set_val..SetValZST$C$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$u16$GT$$C$alloc..collections..btree..set..BTreeSet$LT$u16$GT$..from_sorted_iter$LT$alloc..vec..into_iter..IntoIter$LT$u16$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h892676cda96d8476E"(ptr align 8 %1) #7
-          to label %201 unwind label %196
+          to label %202 unwind label %197
 }
 
 ; Function Attrs: nonlazybind uwtable

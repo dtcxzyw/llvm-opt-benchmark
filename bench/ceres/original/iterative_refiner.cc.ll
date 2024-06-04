@@ -1064,53 +1064,54 @@ define hidden void @_ZN5ceres8internal22SparseIterativeRefinerC2Ei(ptr noundef n
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal22SparseIterativeRefinerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %7, i32 0, i32 2
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %11 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %7, i32 0, i32 3
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %15
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres8internal22SparseIterativeRefinerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %7, i32 0, i32 1
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %7, i32 0, i32 2
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %12 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %7, i32 0, i32 3
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %16
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %7, i32 0, i32 4
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13)
-          to label %14 unwind label %19
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %7, i32 0, i32 4
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %12
+15:                                               ; preds = %13
   ret void
 
-15:                                               ; preds = %2
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %2
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %5, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %6, align 4
-  br label %23
-
-19:                                               ; preds = %12
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %5, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %6, align 4
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #10
-  br label %23
-
-23:                                               ; preds = %19, %15
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #10
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %5, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %6, align 4
   br label %24
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %5, align 8
-  %26 = load i32, ptr %6, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+20:                                               ; preds = %13
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %5, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %6, align 4
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #10
+  br label %24
+
+24:                                               ; preds = %20, %16
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #10
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1161,13 +1162,14 @@ define hidden void @_ZN5ceres8internal22SparseIterativeRefinerD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal22SparseIterativeRefinerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %3, i32 0, i32 4
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
-  %5 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres8internal22SparseIterativeRefinerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %3, i32 0, i32 4
   call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
-  %6 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %3, i32 0, i32 2
+  %6 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %3, i32 0, i32 3
   call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #10
+  %7 = getelementptr inbounds %"class.ceres::internal::SparseIterativeRefiner", ptr %3, i32 0, i32 2
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #10
   ret void
 }
 
@@ -1494,35 +1496,36 @@ define hidden void @_ZN5ceres8internal21DenseIterativeRefinerC2Ei(ptr noundef no
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal21DenseIterativeRefinerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.ceres::internal::DenseIterativeRefiner", ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.ceres::internal::DenseIterativeRefiner", ptr %7, i32 0, i32 2
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %11 = getelementptr inbounds %"class.ceres::internal::DenseIterativeRefiner", ptr %7, i32 0, i32 3
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres8internal21DenseIterativeRefinerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.ceres::internal::DenseIterativeRefiner", ptr %7, i32 0, i32 1
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.ceres::internal::DenseIterativeRefiner", ptr %7, i32 0, i32 2
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %12 = getelementptr inbounds %"class.ceres::internal::DenseIterativeRefiner", ptr %7, i32 0, i32 3
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #10
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #10
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1530,11 +1533,12 @@ define hidden void @_ZN5ceres8internal21DenseIterativeRefinerD2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal21DenseIterativeRefinerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ceres::internal::DenseIterativeRefiner", ptr %3, i32 0, i32 3
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
-  %5 = getelementptr inbounds %"class.ceres::internal::DenseIterativeRefiner", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres8internal21DenseIterativeRefinerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ceres::internal::DenseIterativeRefiner", ptr %3, i32 0, i32 3
   call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
+  %6 = getelementptr inbounds %"class.ceres::internal::DenseIterativeRefiner", ptr %3, i32 0, i32 2
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #10
   ret void
 }
 
@@ -2064,7 +2068,8 @@ define linkonce_odr hidden void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2078,7 +2083,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

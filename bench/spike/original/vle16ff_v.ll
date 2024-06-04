@@ -1552,7 +1552,7 @@ define noundef i64 @_Z20fast_rv32i_vle16ff_vP11processor_t6insn_tm(ptr noundef %
 
 453:                                              ; preds = %449
   %454 = load i32, ptr %28, align 4
-  %455 = call i32 @llvm.eh.typeid.for(ptr @_ZTI6trap_t) #3
+  %455 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI6trap_t) #3
   %456 = icmp eq i32 %454, %455
   br i1 %456, label %457, label %506
 
@@ -1754,7 +1754,8 @@ define linkonce_odr void @_ZN24trap_illegal_instructionC2Em(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZN11insn_trap_tC2Embm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 2, i1 noundef zeroext false, i64 noundef %6)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -1849,9 +1850,6 @@ define linkonce_odr noundef ptr @_ZN11processor_t7get_mmuEv(ptr noundef nonnull 
   ret ptr %5
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #7
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare void @__cxa_rethrow()
@@ -1862,7 +1860,7 @@ declare void @_ZN12vector_csr_t9write_rawEm(ptr noundef nonnull align 8 derefere
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #15
   unreachable
@@ -2692,7 +2690,7 @@ define noundef i64 @_Z20fast_rv64i_vle16ff_vP11processor_t6insn_tm(ptr noundef %
 
 453:                                              ; preds = %449
   %454 = load i32, ptr %28, align 4
-  %455 = call i32 @llvm.eh.typeid.for(ptr @_ZTI6trap_t) #3
+  %455 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI6trap_t) #3
   %456 = icmp eq i32 %454, %455
   br i1 %456, label %457, label %506
 
@@ -3607,7 +3605,7 @@ define noundef i64 @_Z22logged_rv32i_vle16ff_vP11processor_t6insn_tm(ptr noundef
 
 453:                                              ; preds = %449
   %454 = load i32, ptr %28, align 4
-  %455 = call i32 @llvm.eh.typeid.for(ptr @_ZTI6trap_t) #3
+  %455 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI6trap_t) #3
   %456 = icmp eq i32 %454, %455
   br i1 %456, label %457, label %506
 
@@ -4522,7 +4520,7 @@ define noundef i64 @_Z22logged_rv64i_vle16ff_vP11processor_t6insn_tm(ptr noundef
 
 453:                                              ; preds = %449
   %454 = load i32, ptr %28, align 4
-  %455 = call i32 @llvm.eh.typeid.for(ptr @_ZTI6trap_t) #3
+  %455 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI6trap_t) #3
   %456 = icmp eq i32 %454, %455
   br i1 %456, label %457, label %506
 
@@ -5485,7 +5483,7 @@ define noundef i64 @_Z20fast_rv32e_vle16ff_vP11processor_t6insn_tm(ptr noundef %
 
 474:                                              ; preds = %470
   %475 = load i32, ptr %27, align 4
-  %476 = call i32 @llvm.eh.typeid.for(ptr @_ZTI6trap_t) #3
+  %476 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI6trap_t) #3
   %477 = icmp eq i32 %475, %476
   br i1 %477, label %478, label %527
 
@@ -6448,7 +6446,7 @@ define noundef i64 @_Z20fast_rv64e_vle16ff_vP11processor_t6insn_tm(ptr noundef %
 
 474:                                              ; preds = %470
   %475 = load i32, ptr %27, align 4
-  %476 = call i32 @llvm.eh.typeid.for(ptr @_ZTI6trap_t) #3
+  %476 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI6trap_t) #3
   %477 = icmp eq i32 %475, %476
   br i1 %477, label %478, label %527
 
@@ -7411,7 +7409,7 @@ define noundef i64 @_Z22logged_rv32e_vle16ff_vP11processor_t6insn_tm(ptr noundef
 
 474:                                              ; preds = %470
   %475 = load i32, ptr %27, align 4
-  %476 = call i32 @llvm.eh.typeid.for(ptr @_ZTI6trap_t) #3
+  %476 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI6trap_t) #3
   %477 = icmp eq i32 %475, %476
   br i1 %477, label %478, label %527
 
@@ -8374,7 +8372,7 @@ define noundef i64 @_Z22logged_rv64e_vle16ff_vP11processor_t6insn_tm(ptr noundef
 
 474:                                              ; preds = %470
   %475 = load i32, ptr %27, align 4
-  %476 = call i32 @llvm.eh.typeid.for(ptr @_ZTI6trap_t) #3
+  %476 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI6trap_t) #3
   %477 = icmp eq i32 %475, %476
   br i1 %477, label %478, label %527
 
@@ -8520,15 +8518,16 @@ define linkonce_odr void @_ZN11insn_trap_tC2Embm(ptr noundef nonnull align 8 der
   %10 = load ptr, ptr %5, align 8
   %11 = load i64, ptr %6, align 8
   call void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11insn_trap_t, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 1
-  %13 = load i8, ptr %7, align 1
-  %14 = trunc i8 %13 to i1
-  %15 = zext i1 %14 to i8
-  store i8 %15, ptr %12, align 8
-  %16 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 2
-  %17 = load i64, ptr %8, align 8
-  store i64 %17, ptr %16, align 8
+  %12 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV11insn_trap_t, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 1
+  %14 = load i8, ptr %7, align 1
+  %15 = trunc i8 %14 to i1
+  %16 = zext i1 %15 to i8
+  store i8 %16, ptr %13, align 8
+  %17 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 2
+  %18 = load i64, ptr %8, align 8
+  store i64 %18, ptr %17, align 8
   ret void
 }
 
@@ -8640,10 +8639,11 @@ define linkonce_odr void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.trap_t, ptr %5, i32 0, i32 1
-  %7 = load i64, ptr %4, align 8
-  store i64 %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.trap_t, ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %4, align 8
+  store i64 %8, ptr %7, align 8
   ret void
 }
 
@@ -8759,7 +8759,7 @@ define linkonce_odr void @_ZN6trap_tD0Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #9
+declare void @_ZdlPv(ptr noundef) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #4 comdat {
@@ -9584,7 +9584,7 @@ define linkonce_odr noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIc
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #10
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIcEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
@@ -9935,13 +9935,13 @@ define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIcE11_M_max_sizeEv(ptr n
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #10
+declare void @_ZSt28__throw_bad_array_new_lengthv() #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #10
+declare void @_ZSt17__throw_bad_allocv() #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10019,7 +10019,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #10
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #9
 
 ; Function Attrs: nounwind
 declare i64 @strlen(ptr noundef) #2
@@ -10449,7 +10449,7 @@ define linkonce_odr noundef ptr @_ZNSt11char_traitsIcE6assignEPcmc(ptr noundef %
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
@@ -10514,7 +10514,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #10
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11809,7 +11809,7 @@ define linkonce_odr void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #13
+declare void @llvm.trap() #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKm10float128_tELb0EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #4 comdat align 2 {
@@ -13899,6 +13899,9 @@ define internal void @_GLOBAL__sub_I_vle16ff_v.cc() #0 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -13906,13 +13909,13 @@ attributes #3 = { nounwind }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind memory(none) }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #13 = { nounwind memory(none) }
 attributes #14 = { noreturn }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { builtin nounwind }

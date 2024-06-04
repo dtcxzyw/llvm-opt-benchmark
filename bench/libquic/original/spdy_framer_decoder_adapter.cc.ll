@@ -260,7 +260,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %visitor_ = getelementptr inbounds %"class.net::SpdyFramerDecoderAdapter", ptr %this1, i32 0, i32 1
   store ptr null, ptr %visitor_, align 8
   %debug_visitor_ = getelementptr inbounds %"class.net::SpdyFramerDecoderAdapter", ptr %this1, i32 0, i32 2
@@ -276,7 +277,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1015,26 +1017,27 @@ entry:
   store ptr %outer, ptr %outer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net24SpdyFramerDecoderAdapterC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net23NestedSpdyFramerDecoderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3net23NestedSpdyFramerDecoderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %framer_ = getelementptr inbounds %"class.net::NestedSpdyFramerDecoder", ptr %this1, i32 0, i32 2
   invoke void @_ZN3net10SpdyFramerC1ENS_16SpdyMajorVersionEPFSt10unique_ptrINS_24SpdyFramerDecoderAdapterESt14default_deleteIS3_EEPS0_E(ptr noundef nonnull align 8 dereferenceable(259) %framer_, i32 noundef 2, ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %outer_ = getelementptr inbounds %"class.net::NestedSpdyFramerDecoder", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %outer.addr, align 8
-  store ptr %0, ptr %outer_, align 8
+  %1 = load ptr, ptr %outer.addr, align 8
+  store ptr %1, ptr %outer_, align 8
   %visitor_adapter_ = getelementptr inbounds %"class.net::NestedSpdyFramerDecoder", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN3net24SpdyFramerVisitorAdapterESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %visitor_adapter_) #12
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN3net24SpdyFramerDecoderAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this1) #12
   br label %eh.resume
 
@@ -1134,7 +1137,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net23NestedSpdyFramerDecoderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3net23NestedSpdyFramerDecoderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %visitor_adapter_ = getelementptr inbounds %"class.net::NestedSpdyFramerDecoder", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN3net24SpdyFramerVisitorAdapterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %visitor_adapter_) #12
   %framer_ = getelementptr inbounds %"class.net::NestedSpdyFramerDecoder", ptr %this1, i32 0, i32 2
@@ -1656,13 +1660,14 @@ entry:
   store ptr %framer, ptr %framer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net26SpdyFramerVisitorInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN3net24SpdyFramerVisitorAdapterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [32 x ptr] }, ptr @_ZTVN3net24SpdyFramerVisitorAdapterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %visitor_ = getelementptr inbounds %"class.net::SpdyFramerVisitorAdapter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %visitor.addr, align 8
-  store ptr %0, ptr %visitor_, align 8
+  %1 = load ptr, ptr %visitor.addr, align 8
+  store ptr %1, ptr %visitor_, align 8
   %framer_ = getelementptr inbounds %"class.net::SpdyFramerVisitorAdapter", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %framer.addr, align 8
-  store ptr %1, ptr %framer_, align 8
+  %2 = load ptr, ptr %framer.addr, align 8
+  store ptr %2, ptr %framer_, align 8
   ret void
 }
 
@@ -1714,7 +1719,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN3net26SpdyFramerVisitorInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [32 x ptr] }, ptr @_ZTVN3net26SpdyFramerVisitorInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

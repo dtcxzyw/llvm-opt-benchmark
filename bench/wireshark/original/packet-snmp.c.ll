@@ -1283,221 +1283,234 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
   %35 = getelementptr inbounds %struct._asn1_ctx_t, ptr %29, i32 0, i32 7
   store ptr %34, ptr %35, align 8
   %36 = load ptr, ptr %9, align 8
-  store ptr %36, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 11), align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = call i32 @tvb_offset_from_real_beginning(ptr noundef %37)
-  store i32 %38, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 2), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 6), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 7), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 8), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 9), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 3), align 4
-  store ptr null, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 10), align 8
-  store ptr null, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12), align 8
+  %37 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 11
+  store ptr %36, ptr %37, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = call i32 @tvb_offset_from_real_beginning(ptr noundef %38)
+  %40 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 2
+  store i32 %39, ptr %40, align 8
+  %41 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 6
+  store ptr null, ptr %41, align 8
+  %42 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 7
+  store ptr null, ptr %42, align 8
+  %43 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 8
+  store ptr null, ptr %43, align 8
+  %44 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 9
+  store ptr null, ptr %44, align 8
+  %45 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 3
+  store i32 0, ptr %45, align 4
+  %46 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 10
+  store ptr null, ptr %46, align 8
+  %47 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12
+  store ptr null, ptr %47, align 8
   store i32 0, ptr @usm_p, align 8
-  store i32 0, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 1), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 4), align 8
-  store i32 0, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 5), align 4
-  store i32 0, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 13), align 8
-  %39 = load ptr, ptr %9, align 8
-  %40 = load i32, ptr %10, align 4
-  %41 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %39, i32 noundef %40)
-  store i32 %41, ptr %16, align 4
-  %42 = load i32, ptr %15, align 4
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %63
+  %48 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 1
+  store i32 0, ptr %48, align 4
+  %49 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 4
+  store i32 0, ptr %49, align 8
+  %50 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 5
+  store i32 0, ptr %50, align 4
+  %51 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 13
+  store i32 0, ptr %51, align 8
+  %52 = load ptr, ptr %9, align 8
+  %53 = load i32, ptr %10, align 4
+  %54 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %52, i32 noundef %53)
+  store i32 %54, ptr %16, align 4
+  %55 = load i32, ptr %15, align 4
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %76
 
-44:                                               ; preds = %7
-  %45 = load i32, ptr @snmp_desegment, align 4
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %63
+57:                                               ; preds = %7
+  %58 = load i32, ptr @snmp_desegment, align 4
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %76
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %11, align 8
-  %49 = getelementptr inbounds %struct._packet_info, ptr %48, i32 0, i32 30
-  %50 = load i16, ptr %49, align 8
-  %51 = zext i16 %50 to i32
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %63
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %11, align 8
+  %62 = getelementptr inbounds %struct._packet_info, ptr %61, i32 0, i32 30
+  %63 = load i16, ptr %62, align 8
+  %64 = zext i16 %63 to i32
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %76
 
-53:                                               ; preds = %47
-  %54 = load i32, ptr %16, align 4
-  %55 = icmp ult i32 %54, 6
-  br i1 %55, label %56, label %62
+66:                                               ; preds = %60
+  %67 = load i32, ptr %16, align 4
+  %68 = icmp ult i32 %67, 6
+  br i1 %68, label %69, label %75
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %10, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._packet_info, ptr %58, i32 0, i32 32
-  store i32 %57, ptr %59, align 4
-  %60 = load ptr, ptr %11, align 8
-  %61 = getelementptr inbounds %struct._packet_info, ptr %60, i32 0, i32 33
-  store i32 268435455, ptr %61, align 8
+69:                                               ; preds = %66
+  %70 = load i32, ptr %10, align 4
+  %71 = load ptr, ptr %11, align 8
+  %72 = getelementptr inbounds %struct._packet_info, ptr %71, i32 0, i32 32
+  store i32 %70, ptr %72, align 4
+  %73 = load ptr, ptr %11, align 8
+  %74 = getelementptr inbounds %struct._packet_info, ptr %73, i32 0, i32 33
+  store i32 268435455, ptr %74, align 8
   store i32 0, ptr %8, align 4
-  br label %165
+  br label %178
 
-62:                                               ; preds = %53
-  br label %63
+75:                                               ; preds = %66
+  br label %76
 
-63:                                               ; preds = %62, %47, %44, %7
-  %64 = load ptr, ptr %9, align 8
-  %65 = load i32, ptr %10, align 4
-  %66 = call i32 @get_ber_identifier(ptr noundef %64, i32 noundef %65, ptr noundef %17, ptr noundef %18, ptr noundef %20)
-  store i32 %66, ptr %10, align 4
-  %67 = load ptr, ptr %9, align 8
-  %68 = load i32, ptr %10, align 4
-  %69 = call i32 @get_ber_length(ptr noundef %67, i32 noundef %68, ptr noundef %21, ptr noundef %19)
-  store i32 %69, ptr %10, align 4
-  %70 = load i32, ptr %21, align 4
-  %71 = load i32, ptr %10, align 4
-  %72 = add i32 %70, %71
-  store i32 %72, ptr %22, align 4
-  %73 = load ptr, ptr %9, align 8
-  %74 = load i32, ptr %10, align 4
-  %75 = call i32 @dissect_ber_integer(i1 noundef zeroext false, ptr noundef %29, ptr noundef null, ptr noundef %73, i32 noundef %74, i32 noundef -1, ptr noundef %24)
-  %76 = load i32, ptr %15, align 4
-  %77 = icmp ne i32 %76, 0
-  br i1 %77, label %78, label %101
+76:                                               ; preds = %75, %60, %57, %7
+  %77 = load ptr, ptr %9, align 8
+  %78 = load i32, ptr %10, align 4
+  %79 = call i32 @get_ber_identifier(ptr noundef %77, i32 noundef %78, ptr noundef %17, ptr noundef %18, ptr noundef %20)
+  store i32 %79, ptr %10, align 4
+  %80 = load ptr, ptr %9, align 8
+  %81 = load i32, ptr %10, align 4
+  %82 = call i32 @get_ber_length(ptr noundef %80, i32 noundef %81, ptr noundef %21, ptr noundef %19)
+  store i32 %82, ptr %10, align 4
+  %83 = load i32, ptr %21, align 4
+  %84 = load i32, ptr %10, align 4
+  %85 = add i32 %83, %84
+  store i32 %85, ptr %22, align 4
+  %86 = load ptr, ptr %9, align 8
+  %87 = load i32, ptr %10, align 4
+  %88 = call i32 @dissect_ber_integer(i1 noundef zeroext false, ptr noundef %29, ptr noundef null, ptr noundef %86, i32 noundef %87, i32 noundef -1, ptr noundef %24)
+  %89 = load i32, ptr %15, align 4
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %91, label %114
 
-78:                                               ; preds = %63
-  %79 = load i32, ptr @snmp_desegment, align 4
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %101
+91:                                               ; preds = %76
+  %92 = load i32, ptr @snmp_desegment, align 4
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %114
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr %11, align 8
-  %83 = getelementptr inbounds %struct._packet_info, ptr %82, i32 0, i32 30
-  %84 = load i16, ptr %83, align 8
-  %85 = zext i16 %84 to i32
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %101
+94:                                               ; preds = %91
+  %95 = load ptr, ptr %11, align 8
+  %96 = getelementptr inbounds %struct._packet_info, ptr %95, i32 0, i32 30
+  %97 = load i16, ptr %96, align 8
+  %98 = zext i16 %97 to i32
+  %99 = icmp ne i32 %98, 0
+  br i1 %99, label %100, label %114
 
-87:                                               ; preds = %81
-  %88 = load i32, ptr %16, align 4
-  %89 = load i32, ptr %22, align 4
-  %90 = icmp ult i32 %88, %89
-  br i1 %90, label %91, label %100
+100:                                              ; preds = %94
+  %101 = load i32, ptr %16, align 4
+  %102 = load i32, ptr %22, align 4
+  %103 = icmp ult i32 %101, %102
+  br i1 %103, label %104, label %113
 
-91:                                               ; preds = %87
-  %92 = load i32, ptr %23, align 4
-  %93 = load ptr, ptr %11, align 8
-  %94 = getelementptr inbounds %struct._packet_info, ptr %93, i32 0, i32 32
-  store i32 %92, ptr %94, align 4
-  %95 = load i32, ptr %22, align 4
-  %96 = load i32, ptr %16, align 4
-  %97 = sub i32 %95, %96
-  %98 = load ptr, ptr %11, align 8
-  %99 = getelementptr inbounds %struct._packet_info, ptr %98, i32 0, i32 33
-  store i32 %97, ptr %99, align 8
-  store i32 0, ptr %8, align 4
-  br label %165
-
-100:                                              ; preds = %87
-  br label %101
-
-101:                                              ; preds = %100, %81, %78, %63
-  %102 = load ptr, ptr %11, align 8
-  %103 = getelementptr inbounds %struct._packet_info, ptr %102, i32 0, i32 50
-  %104 = load ptr, ptr %103, align 8
-  %105 = call ptr @next_tvb_list_new(ptr noundef %104)
-  store ptr %105, ptr @var_list, align 8
+104:                                              ; preds = %100
+  %105 = load i32, ptr %23, align 4
   %106 = load ptr, ptr %11, align 8
-  %107 = getelementptr inbounds %struct._packet_info, ptr %106, i32 0, i32 1
-  %108 = load ptr, ptr %107, align 8
-  %109 = load i32, ptr %13, align 4
-  %110 = call ptr @find_protocol_by_id(i32 noundef %109)
-  %111 = call ptr @proto_get_protocol_short_name(ptr noundef %110)
-  call void @col_set_str(ptr noundef %108, i32 noundef 34, ptr noundef %111)
-  %112 = load ptr, ptr %12, align 8
-  %113 = load i32, ptr %13, align 4
-  %114 = load ptr, ptr %9, align 8
-  %115 = load i32, ptr %23, align 4
-  %116 = load i32, ptr %22, align 4
-  %117 = call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %113, ptr noundef %114, i32 noundef %115, i32 noundef %116, i32 noundef 0)
-  store ptr %117, ptr %27, align 8
-  %118 = load ptr, ptr %27, align 8
-  %119 = load i32, ptr %14, align 4
-  %120 = call ptr @proto_item_add_subtree(ptr noundef %118, i32 noundef %119)
-  store ptr %120, ptr %26, align 8
-  %121 = load i32, ptr %24, align 4
-  switch i32 %121, label %137 [
-    i32 0, label %122
-    i32 1, label %122
-    i32 2, label %127
-    i32 3, label %132
+  %107 = getelementptr inbounds %struct._packet_info, ptr %106, i32 0, i32 32
+  store i32 %105, ptr %107, align 4
+  %108 = load i32, ptr %22, align 4
+  %109 = load i32, ptr %16, align 4
+  %110 = sub i32 %108, %109
+  %111 = load ptr, ptr %11, align 8
+  %112 = getelementptr inbounds %struct._packet_info, ptr %111, i32 0, i32 33
+  store i32 %110, ptr %112, align 8
+  store i32 0, ptr %8, align 4
+  br label %178
+
+113:                                              ; preds = %100
+  br label %114
+
+114:                                              ; preds = %113, %94, %91, %76
+  %115 = load ptr, ptr %11, align 8
+  %116 = getelementptr inbounds %struct._packet_info, ptr %115, i32 0, i32 50
+  %117 = load ptr, ptr %116, align 8
+  %118 = call ptr @next_tvb_list_new(ptr noundef %117)
+  store ptr %118, ptr @var_list, align 8
+  %119 = load ptr, ptr %11, align 8
+  %120 = getelementptr inbounds %struct._packet_info, ptr %119, i32 0, i32 1
+  %121 = load ptr, ptr %120, align 8
+  %122 = load i32, ptr %13, align 4
+  %123 = call ptr @find_protocol_by_id(i32 noundef %122)
+  %124 = call ptr @proto_get_protocol_short_name(ptr noundef %123)
+  call void @col_set_str(ptr noundef %121, i32 noundef 34, ptr noundef %124)
+  %125 = load ptr, ptr %12, align 8
+  %126 = load i32, ptr %13, align 4
+  %127 = load ptr, ptr %9, align 8
+  %128 = load i32, ptr %23, align 4
+  %129 = load i32, ptr %22, align 4
+  %130 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef %129, i32 noundef 0)
+  store ptr %130, ptr %27, align 8
+  %131 = load ptr, ptr %27, align 8
+  %132 = load i32, ptr %14, align 4
+  %133 = call ptr @proto_item_add_subtree(ptr noundef %131, i32 noundef %132)
+  store ptr %133, ptr %26, align 8
+  %134 = load i32, ptr %24, align 4
+  switch i32 %134, label %150 [
+    i32 0, label %135
+    i32 1, label %135
+    i32 2, label %140
+    i32 3, label %145
   ]
 
-122:                                              ; preds = %101, %101
-  %123 = load ptr, ptr %9, align 8
-  %124 = load i32, ptr %23, align 4
-  %125 = load ptr, ptr %26, align 8
-  %126 = call i32 @dissect_snmp_Message(i1 noundef zeroext false, ptr noundef %123, i32 noundef %124, ptr noundef %29, ptr noundef %125, i32 noundef -1)
-  store i32 %126, ptr %10, align 4
-  br label %142
+135:                                              ; preds = %114, %114
+  %136 = load ptr, ptr %9, align 8
+  %137 = load i32, ptr %23, align 4
+  %138 = load ptr, ptr %26, align 8
+  %139 = call i32 @dissect_snmp_Message(i1 noundef zeroext false, ptr noundef %136, i32 noundef %137, ptr noundef %29, ptr noundef %138, i32 noundef -1)
+  store i32 %139, ptr %10, align 4
+  br label %155
 
-127:                                              ; preds = %101
-  %128 = load ptr, ptr %9, align 8
-  %129 = load i32, ptr %23, align 4
-  %130 = load ptr, ptr %26, align 8
-  %131 = call i32 @dissect_snmp_Messagev2u(i1 noundef zeroext false, ptr noundef %128, i32 noundef %129, ptr noundef %29, ptr noundef %130, i32 noundef -1)
-  store i32 %131, ptr %10, align 4
-  br label %142
+140:                                              ; preds = %114
+  %141 = load ptr, ptr %9, align 8
+  %142 = load i32, ptr %23, align 4
+  %143 = load ptr, ptr %26, align 8
+  %144 = call i32 @dissect_snmp_Messagev2u(i1 noundef zeroext false, ptr noundef %141, i32 noundef %142, ptr noundef %29, ptr noundef %143, i32 noundef -1)
+  store i32 %144, ptr %10, align 4
+  br label %155
 
-132:                                              ; preds = %101
-  %133 = load ptr, ptr %9, align 8
-  %134 = load i32, ptr %23, align 4
-  %135 = load ptr, ptr %26, align 8
-  %136 = call i32 @dissect_snmp_SNMPv3Message(i1 noundef zeroext false, ptr noundef %133, i32 noundef %134, ptr noundef %29, ptr noundef %135, i32 noundef -1)
-  store i32 %136, ptr %10, align 4
-  br label %142
+145:                                              ; preds = %114
+  %146 = load ptr, ptr %9, align 8
+  %147 = load i32, ptr %23, align 4
+  %148 = load ptr, ptr %26, align 8
+  %149 = call i32 @dissect_snmp_SNMPv3Message(i1 noundef zeroext false, ptr noundef %146, i32 noundef %147, ptr noundef %29, ptr noundef %148, i32 noundef -1)
+  store i32 %149, ptr %10, align 4
+  br label %155
 
-137:                                              ; preds = %101
-  %138 = load ptr, ptr %11, align 8
-  %139 = load ptr, ptr %27, align 8
-  %140 = call ptr @expert_add_info(ptr noundef %138, ptr noundef %139, ptr noundef @ei_snmp_version_unknown)
-  %141 = load i32, ptr %16, align 4
-  store i32 %141, ptr %8, align 4
-  br label %165
+150:                                              ; preds = %114
+  %151 = load ptr, ptr %11, align 8
+  %152 = load ptr, ptr %27, align 8
+  %153 = call ptr @expert_add_info(ptr noundef %151, ptr noundef %152, ptr noundef @ei_snmp_version_unknown)
+  %154 = load i32, ptr %16, align 4
+  store i32 %154, ptr %8, align 4
+  br label %178
 
-142:                                              ; preds = %132, %127, %122
-  %143 = load i32, ptr %15, align 4
-  %144 = icmp ne i32 %143, 0
-  br i1 %144, label %158, label %145
+155:                                              ; preds = %145, %140, %135
+  %156 = load i32, ptr %15, align 4
+  %157 = icmp ne i32 %156, 0
+  br i1 %157, label %171, label %158
 
-145:                                              ; preds = %142
-  %146 = load i32, ptr %16, align 4
-  %147 = load i32, ptr %10, align 4
-  %148 = icmp ugt i32 %146, %147
-  br i1 %148, label %149, label %158
+158:                                              ; preds = %155
+  %159 = load i32, ptr %16, align 4
+  %160 = load i32, ptr %10, align 4
+  %161 = icmp ugt i32 %159, %160
+  br i1 %161, label %162, label %171
 
-149:                                              ; preds = %145
-  %150 = load ptr, ptr %9, align 8
-  %151 = load i32, ptr %10, align 4
-  %152 = call ptr @tvb_new_subset_remaining(ptr noundef %150, i32 noundef %151)
-  store ptr %152, ptr %25, align 8
-  %153 = load ptr, ptr @data_handle, align 8
-  %154 = load ptr, ptr %25, align 8
-  %155 = load ptr, ptr %11, align 8
-  %156 = load ptr, ptr %12, align 8
-  %157 = call i32 @call_dissector(ptr noundef %153, ptr noundef %154, ptr noundef %155, ptr noundef %156)
-  br label %163
-
-158:                                              ; preds = %145, %142
-  %159 = load ptr, ptr @var_list, align 8
-  %160 = load ptr, ptr %11, align 8
-  %161 = load ptr, ptr %12, align 8
-  %162 = load ptr, ptr @data_handle, align 8
-  call void @next_tvb_call(ptr noundef %159, ptr noundef %160, ptr noundef %161, ptr noundef null, ptr noundef %162)
-  br label %163
-
-163:                                              ; preds = %158, %149
+162:                                              ; preds = %158
+  %163 = load ptr, ptr %9, align 8
   %164 = load i32, ptr %10, align 4
-  store i32 %164, ptr %8, align 4
-  br label %165
+  %165 = call ptr @tvb_new_subset_remaining(ptr noundef %163, i32 noundef %164)
+  store ptr %165, ptr %25, align 8
+  %166 = load ptr, ptr @data_handle, align 8
+  %167 = load ptr, ptr %25, align 8
+  %168 = load ptr, ptr %11, align 8
+  %169 = load ptr, ptr %12, align 8
+  %170 = call i32 @call_dissector(ptr noundef %166, ptr noundef %167, ptr noundef %168, ptr noundef %169)
+  br label %176
 
-165:                                              ; preds = %163, %137, %91, %56
-  %166 = load i32, ptr %8, align 4
-  ret i32 %166
+171:                                              ; preds = %158, %155
+  %172 = load ptr, ptr @var_list, align 8
+  %173 = load ptr, ptr %11, align 8
+  %174 = load ptr, ptr %12, align 8
+  %175 = load ptr, ptr @data_handle, align 8
+  call void @next_tvb_call(ptr noundef %172, ptr noundef %173, ptr noundef %174, ptr noundef null, ptr noundef %175)
+  br label %176
+
+176:                                              ; preds = %171, %162
+  %177 = load i32, ptr %10, align 4
+  store i32 %177, ptr %8, align 4
+  br label %178
+
+178:                                              ; preds = %176, %150, %104, %69
+  %179 = load i32, ptr %8, align 4
+  ret i32 %179
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1730,94 +1743,101 @@ define internal i32 @dissect_snmp_SNMPv3Message(i1 noundef zeroext %0, ptr nound
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr @usm_p, align 8
   %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %88
+  br i1 %31, label %32, label %95
 
 32:                                               ; preds = %6
-  %33 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12), align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %88
+  %33 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %95
 
-35:                                               ; preds = %32
+36:                                               ; preds = %32
   store ptr null, ptr %13, align 8
-  %36 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 8), align 8
-  %37 = load i32, ptr @ett_authParameters, align 4
-  %38 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37)
-  store ptr %38, ptr %15, align 8
+  %37 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i32, ptr @ett_authParameters, align 4
+  %40 = call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39)
+  store ptr %40, ptr %15, align 8
   store ptr null, ptr %16, align 8
   store i32 0, ptr %17, align 4
-  %39 = load ptr, ptr %10, align 8
-  %40 = getelementptr inbounds %struct._asn1_ctx_t, ptr %39, i32 0, i32 3
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12), align 8
-  %43 = getelementptr inbounds %struct._snmp_ue_assoc_t, ptr %42, i32 0, i32 0
-  %44 = getelementptr inbounds %struct._snmp_user_t, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 8
-  %46 = call zeroext i1 @snmp_usm_auth(ptr noundef %41, i32 noundef %45, ptr noundef @usm_p, ptr noundef %16, ptr noundef %17, ptr noundef %13)
-  %47 = zext i1 %46 to i32
-  store i32 %47, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 13), align 8
-  %48 = load ptr, ptr %13, align 8
-  %49 = icmp ne ptr %48, null
-  br i1 %49, label %50, label %57
+  %41 = load ptr, ptr %10, align 8
+  %42 = getelementptr inbounds %struct._asn1_ctx_t, ptr %41, i32 0, i32 3
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct._snmp_ue_assoc_t, ptr %45, i32 0, i32 0
+  %47 = getelementptr inbounds %struct._snmp_user_t, ptr %46, i32 0, i32 1
+  %48 = load i32, ptr %47, align 8
+  %49 = call zeroext i1 @snmp_usm_auth(ptr noundef %43, i32 noundef %48, ptr noundef @usm_p, ptr noundef %16, ptr noundef %17, ptr noundef %13)
+  %50 = zext i1 %49 to i32
+  %51 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 13
+  store i32 %50, ptr %51, align 8
+  %52 = load ptr, ptr %13, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %62
 
-50:                                               ; preds = %35
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds %struct._asn1_ctx_t, ptr %51, i32 0, i32 3
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 8), align 8
-  %55 = load ptr, ptr %13, align 8
-  %56 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %53, ptr noundef %54, ptr noundef @ei_snmp_verify_authentication_error, ptr noundef @.str.412, ptr noundef %55)
-  br label %87
+54:                                               ; preds = %36
+  %55 = load ptr, ptr %10, align 8
+  %56 = getelementptr inbounds %struct._asn1_ctx_t, ptr %55, i32 0, i32 3
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %13, align 8
+  %61 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %57, ptr noundef %59, ptr noundef @ei_snmp_verify_authentication_error, ptr noundef @.str.412, ptr noundef %60)
+  br label %94
 
-57:                                               ; preds = %35
-  %58 = load ptr, ptr %15, align 8
-  %59 = load i32, ptr @hf_snmp_msgAuthentication, align 4
-  %60 = load ptr, ptr %8, align 8
-  %61 = load i32, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 13), align 8
-  %62 = sext i32 %61 to i64
-  %63 = call ptr @proto_tree_add_boolean(ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef 0, i32 noundef 0, i64 noundef %62)
-  store ptr %63, ptr %14, align 8
-  %64 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %64)
-  %65 = load i32, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 13), align 8
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %68
+62:                                               ; preds = %36
+  %63 = load ptr, ptr %15, align 8
+  %64 = load i32, ptr @hf_snmp_msgAuthentication, align 4
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 13
+  %67 = load i32, ptr %66, align 8
+  %68 = sext i32 %67 to i64
+  %69 = call ptr @proto_tree_add_boolean(ptr noundef %63, i32 noundef %64, ptr noundef %65, i32 noundef 0, i32 noundef 0, i64 noundef %68)
+  store ptr %69, ptr %14, align 8
+  %70 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %70)
+  %71 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 13
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %75
 
-67:                                               ; preds = %57
+74:                                               ; preds = %62
   store ptr @ei_snmp_authentication_ok, ptr %18, align 8
-  br label %80
-
-68:                                               ; preds = %57
-  %69 = load ptr, ptr %10, align 8
-  %70 = getelementptr inbounds %struct._asn1_ctx_t, ptr %69, i32 0, i32 3
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds %struct._packet_info, ptr %71, i32 0, i32 50
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %16, align 8
-  %75 = load i32, ptr %17, align 4
-  %76 = zext i32 %75 to i64
-  %77 = call ptr @bytes_to_str_punct_maxlen(ptr noundef %73, ptr noundef %74, i64 noundef %76, i8 noundef signext 32, i64 noundef 24)
-  store ptr %77, ptr %19, align 8
-  %78 = load ptr, ptr %14, align 8
-  %79 = load ptr, ptr %19, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef @.str.413, ptr noundef %79)
-  store ptr @ei_snmp_authentication_error, ptr %18, align 8
-  br label %80
-
-80:                                               ; preds = %68, %67
-  %81 = load ptr, ptr %10, align 8
-  %82 = getelementptr inbounds %struct._asn1_ctx_t, ptr %81, i32 0, i32 3
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr %14, align 8
-  %85 = load ptr, ptr %18, align 8
-  %86 = call ptr @expert_add_info(ptr noundef %83, ptr noundef %84, ptr noundef %85)
   br label %87
 
-87:                                               ; preds = %80, %50
-  br label %88
+75:                                               ; preds = %62
+  %76 = load ptr, ptr %10, align 8
+  %77 = getelementptr inbounds %struct._asn1_ctx_t, ptr %76, i32 0, i32 3
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds %struct._packet_info, ptr %78, i32 0, i32 50
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %16, align 8
+  %82 = load i32, ptr %17, align 4
+  %83 = zext i32 %82 to i64
+  %84 = call ptr @bytes_to_str_punct_maxlen(ptr noundef %80, ptr noundef %81, i64 noundef %83, i8 noundef signext 32, i64 noundef 24)
+  store ptr %84, ptr %19, align 8
+  %85 = load ptr, ptr %14, align 8
+  %86 = load ptr, ptr %19, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %85, ptr noundef @.str.413, ptr noundef %86)
+  store ptr @ei_snmp_authentication_error, ptr %18, align 8
+  br label %87
 
-88:                                               ; preds = %87, %32, %6
-  %89 = load i32, ptr %9, align 4
-  ret i32 %89
+87:                                               ; preds = %75, %74
+  %88 = load ptr, ptr %10, align 8
+  %89 = getelementptr inbounds %struct._asn1_ctx_t, ptr %88, i32 0, i32 3
+  %90 = load ptr, ptr %89, align 8
+  %91 = load ptr, ptr %14, align 8
+  %92 = load ptr, ptr %18, align 8
+  %93 = call ptr @expert_add_info(ptr noundef %90, ptr noundef %91, ptr noundef %92)
+  br label %94
+
+94:                                               ; preds = %87, %54
+  br label %95
+
+95:                                               ; preds = %94, %32, %6
+  %96 = load i32, ptr %9, align 4
+  ret i32 %96
 }
 
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
@@ -7904,11 +7924,11 @@ define internal i32 @dissect_snmp_T_msgSecurityParameters(i1 noundef zeroext %0,
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
   %14 = load i32, ptr @MsgSecurityModel, align 4
-  switch i32 %14, label %34 [
+  switch i32 %14, label %37 [
     i32 3, label %15
-    i32 0, label %33
-    i32 1, label %33
-    i32 2, label %33
+    i32 0, label %36
+    i32 1, label %36
+    i32 2, label %36
   ]
 
 15:                                               ; preds = %6
@@ -7926,33 +7946,36 @@ define internal i32 @dissect_snmp_T_msgSecurityParameters(i1 noundef zeroext %0,
   %25 = load ptr, ptr %11, align 8
   %26 = call i32 @dissect_snmp_UsmSecurityParameters(i1 noundef zeroext false, ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef -1)
   store i32 %26, ptr %9, align 4
-  %27 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 6), align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 7), align 8
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %struct._asn1_ctx_t, ptr %29, i32 0, i32 3
-  %31 = load ptr, ptr %30, align 8
-  %32 = call ptr @get_user_assoc(ptr noundef %27, ptr noundef %28, ptr noundef %31)
-  store ptr %32, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12), align 8
-  br label %43
+  %27 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 6
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 7
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %10, align 8
+  %32 = getelementptr inbounds %struct._asn1_ctx_t, ptr %31, i32 0, i32 3
+  %33 = load ptr, ptr %32, align 8
+  %34 = call ptr @get_user_assoc(ptr noundef %28, ptr noundef %30, ptr noundef %33)
+  %35 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12
+  store ptr %34, ptr %35, align 8
+  br label %46
 
-33:                                               ; preds = %6, %6, %6
-  br label %34
+36:                                               ; preds = %6, %6, %6
+  br label %37
 
-34:                                               ; preds = %33, %6
-  %35 = load i8, ptr %7, align 1
-  %36 = trunc i8 %35 to i1
-  %37 = load ptr, ptr %10, align 8
-  %38 = load ptr, ptr %11, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load i32, ptr %12, align 4
-  %42 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef %41, ptr noundef null)
-  store i32 %42, ptr %9, align 4
-  br label %43
+37:                                               ; preds = %36, %6
+  %38 = load i8, ptr %7, align 1
+  %39 = trunc i8 %38 to i1
+  %40 = load ptr, ptr %10, align 8
+  %41 = load ptr, ptr %11, align 8
+  %42 = load ptr, ptr %8, align 8
+  %43 = load i32, ptr %9, align 4
+  %44 = load i32, ptr %12, align 4
+  %45 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %39, ptr noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef %44, ptr noundef null)
+  store i32 %45, ptr %9, align 4
+  br label %46
 
-43:                                               ; preds = %34, %15
-  %44 = load i32, ptr %9, align 4
-  ret i32 %44
+46:                                               ; preds = %37, %15
+  %47 = load i32, ptr %9, align 4
+  ret i32 %47
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8040,7 +8063,7 @@ define internal i32 @dissect_snmp_T_msgFlags(i1 noundef zeroext %0, ptr noundef 
   store i32 %24, ptr %9, align 4
   %25 = load ptr, ptr %13, align 8
   %26 = icmp ne ptr %25, null
-  br i1 %26, label %27, label %57
+  br i1 %26, label %27, label %58
 
 27:                                               ; preds = %6
   %28 = load ptr, ptr %13, align 8
@@ -8069,18 +8092,19 @@ define internal i32 @dissect_snmp_T_msgFlags(i1 noundef zeroext %0, ptr noundef 
   %49 = and i32 %48, 2
   %50 = icmp ne i32 %49, 0
   %51 = select i1 %50, i32 1, i32 0
-  store i32 %51, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 1), align 4
-  %52 = load i8, ptr %14, align 1
-  %53 = zext i8 %52 to i32
-  %54 = and i32 %53, 1
-  %55 = icmp ne i32 %54, 0
-  %56 = select i1 %55, i32 1, i32 0
-  store i32 %56, ptr @usm_p, align 8
-  br label %57
+  %52 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 1
+  store i32 %51, ptr %52, align 4
+  %53 = load i8, ptr %14, align 1
+  %54 = zext i8 %53 to i32
+  %55 = and i32 %54, 1
+  %56 = icmp ne i32 %55, 0
+  %57 = select i1 %56, i32 1, i32 0
+  store i32 %57, ptr @usm_p, align 8
+  br label %58
 
-57:                                               ; preds = %27, %6
-  %58 = load i32, ptr %9, align 4
-  ret i32 %58
+58:                                               ; preds = %27, %6
+  %59 = load i32, ptr %9, align 4
+  ret i32 %59
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8394,32 +8418,36 @@ define internal i32 @dissect_snmp_T_msgAuthoritativeEngineID(i1 noundef zeroext 
   %19 = load ptr, ptr %8, align 8
   %20 = load i32, ptr %9, align 4
   %21 = load i32, ptr %12, align 4
-  %22 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21, ptr noundef getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 6))
-  store i32 %22, ptr %9, align 4
-  %23 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 6), align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %39
+  %22 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 6
+  %23 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21, ptr noundef %22)
+  store i32 %23, ptr %9, align 4
+  %24 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 6
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %43
 
-25:                                               ; preds = %6
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %struct._asn1_ctx_t, ptr %26, i32 0, i32 4
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr @ett_engineid, align 4
-  %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29)
-  store ptr %30, ptr %13, align 8
-  %31 = load ptr, ptr %13, align 8
-  %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds %struct._asn1_ctx_t, ptr %32, i32 0, i32 3
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 6), align 8
-  %36 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 6), align 8
-  %37 = call i32 @tvb_reported_length_remaining(ptr noundef %36, i32 noundef 0)
-  %38 = call i32 @dissect_snmp_engineid(ptr noundef %31, ptr noundef %34, ptr noundef %35, i32 noundef 0, i32 noundef %37)
-  br label %39
+27:                                               ; preds = %6
+  %28 = load ptr, ptr %10, align 8
+  %29 = getelementptr inbounds %struct._asn1_ctx_t, ptr %28, i32 0, i32 4
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i32, ptr @ett_engineid, align 4
+  %32 = call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31)
+  store ptr %32, ptr %13, align 8
+  %33 = load ptr, ptr %13, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = getelementptr inbounds %struct._asn1_ctx_t, ptr %34, i32 0, i32 3
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 6
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 6
+  %40 = load ptr, ptr %39, align 8
+  %41 = call i32 @tvb_reported_length_remaining(ptr noundef %40, i32 noundef 0)
+  %42 = call i32 @dissect_snmp_engineid(ptr noundef %33, ptr noundef %36, ptr noundef %38, i32 noundef 0, i32 noundef %41)
+  br label %43
 
-39:                                               ; preds = %25, %6
-  %40 = load i32, ptr %9, align 4
-  ret i32 %40
+43:                                               ; preds = %27, %6
+  %44 = load i32, ptr %9, align 4
+  ret i32 %44
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8444,10 +8472,11 @@ define internal i32 @dissect_snmp_T_msgAuthoritativeEngineBoots(i1 noundef zeroe
   %18 = load ptr, ptr %8, align 8
   %19 = load i32, ptr %9, align 4
   %20 = load i32, ptr %12, align 4
-  %21 = call i32 @dissect_ber_integer(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 4))
-  store i32 %21, ptr %9, align 4
-  %22 = load i32, ptr %9, align 4
-  ret i32 %22
+  %21 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 4
+  %22 = call i32 @dissect_ber_integer(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef %21)
+  store i32 %22, ptr %9, align 4
+  %23 = load i32, ptr %9, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8472,10 +8501,11 @@ define internal i32 @dissect_snmp_T_msgAuthoritativeEngineTime(i1 noundef zeroex
   %18 = load ptr, ptr %8, align 8
   %19 = load i32, ptr %9, align 4
   %20 = load i32, ptr %12, align 4
-  %21 = call i32 @dissect_ber_integer(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 5))
-  store i32 %21, ptr %9, align 4
-  %22 = load i32, ptr %9, align 4
-  ret i32 %22
+  %21 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 5
+  %22 = call i32 @dissect_ber_integer(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef %21)
+  store i32 %22, ptr %9, align 4
+  %23 = load i32, ptr %9, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8500,10 +8530,11 @@ define internal i32 @dissect_snmp_T_msgUserName(i1 noundef zeroext %0, ptr nound
   %18 = load ptr, ptr %8, align 8
   %19 = load i32, ptr %9, align 4
   %20 = load i32, ptr %12, align 4
-  %21 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 7))
-  store i32 %21, ptr %9, align 4
-  %22 = load i32, ptr %9, align 4
-  ret i32 %22
+  %21 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 7
+  %22 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef %21)
+  store i32 %22, ptr %9, align 4
+  %23 = load i32, ptr %9, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8526,25 +8557,30 @@ define internal i32 @dissect_snmp_T_msgAuthenticationParameters(i1 noundef zeroe
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr %9, align 4
   %18 = load i32, ptr %12, align 4
-  %19 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18, ptr noundef getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 9))
-  store i32 %19, ptr %9, align 4
-  %20 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 9), align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %28
+  %19 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 9
+  %20 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18, ptr noundef %19)
+  store i32 %20, ptr %9, align 4
+  %21 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 9
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %33
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %struct._asn1_ctx_t, ptr %23, i32 0, i32 4
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 8), align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 9), align 8
-  %27 = call i32 @tvb_offset_from_real_beginning(ptr noundef %26)
-  store i32 %27, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 3), align 4
-  br label %28
+24:                                               ; preds = %6
+  %25 = load ptr, ptr %10, align 8
+  %26 = getelementptr inbounds %struct._asn1_ctx_t, ptr %25, i32 0, i32 4
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 8
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 9
+  %30 = load ptr, ptr %29, align 8
+  %31 = call i32 @tvb_offset_from_real_beginning(ptr noundef %30)
+  %32 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 3
+  store i32 %31, ptr %32, align 4
+  br label %33
 
-28:                                               ; preds = %22, %6
-  %29 = load i32, ptr %9, align 4
-  ret i32 %29
+33:                                               ; preds = %24, %6
+  %34 = load i32, ptr %9, align 4
+  ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8569,10 +8605,11 @@ define internal i32 @dissect_snmp_T_msgPrivacyParameters(i1 noundef zeroext %0, 
   %18 = load ptr, ptr %8, align 8
   %19 = load i32, ptr %9, align 4
   %20 = load i32, ptr %12, align 4
-  %21 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 10))
-  store i32 %21, ptr %9, align 4
-  %22 = load i32, ptr %9, align 4
-  ret i32 %22
+  %21 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 10
+  %22 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef %21)
+  store i32 %22, ptr %9, align 4
+  %23 = load i32, ptr %9, align 4
+  ret i32 %23
 }
 
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
@@ -9224,132 +9261,136 @@ define internal i32 @dissect_snmp_T_encryptedPDU(i1 noundef zeroext %0, ptr noun
   %25 = load i32, ptr @hf_snmp_encryptedPDU, align 4
   %26 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef %14)
   store i32 %26, ptr %10, align 4
-  %27 = load i32, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 1), align 4
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %106
+  %27 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 1
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %110
 
-29:                                               ; preds = %6
-  %30 = load ptr, ptr %14, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %106
+30:                                               ; preds = %6
+  %31 = load ptr, ptr %14, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %110
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12), align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %106
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %110
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12), align 8
-  %37 = getelementptr inbounds %struct._snmp_ue_assoc_t, ptr %36, i32 0, i32 0
-  %38 = getelementptr inbounds %struct._snmp_user_t, ptr %37, i32 0, i32 4
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12
   %39 = load ptr, ptr %38, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %106
+  %40 = getelementptr inbounds %struct._snmp_ue_assoc_t, ptr %39, i32 0, i32 0
+  %41 = getelementptr inbounds %struct._snmp_user_t, ptr %40, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %110
 
-41:                                               ; preds = %35
+44:                                               ; preds = %37
   store ptr null, ptr %15, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds %struct._asn1_ctx_t, ptr %42, i32 0, i32 4
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i32, ptr @ett_encryptedPDU, align 4
-  %46 = call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45)
-  store ptr %46, ptr %16, align 8
-  %47 = load ptr, ptr getelementptr inbounds (%struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12), align 8
-  %48 = getelementptr inbounds %struct._snmp_ue_assoc_t, ptr %47, i32 0, i32 0
-  %49 = getelementptr inbounds %struct._snmp_user_t, ptr %48, i32 0, i32 4
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %14, align 8
-  %52 = load ptr, ptr %11, align 8
-  %53 = getelementptr inbounds %struct._asn1_ctx_t, ptr %52, i32 0, i32 3
+  %45 = load ptr, ptr %11, align 8
+  %46 = getelementptr inbounds %struct._asn1_ctx_t, ptr %45, i32 0, i32 4
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i32, ptr @ett_encryptedPDU, align 4
+  %49 = call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48)
+  store ptr %49, ptr %16, align 8
+  %50 = getelementptr inbounds %struct._snmp_usm_params_t, ptr @usm_p, i32 0, i32 12
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds %struct._snmp_ue_assoc_t, ptr %51, i32 0, i32 0
+  %53 = getelementptr inbounds %struct._snmp_user_t, ptr %52, i32 0, i32 4
   %54 = load ptr, ptr %53, align 8
-  %55 = call ptr %50(ptr noundef @usm_p, ptr noundef %51, ptr noundef %54, ptr noundef %15)
-  store ptr %55, ptr %17, align 8
-  %56 = load ptr, ptr %17, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %72, label %58
+  %55 = load ptr, ptr %14, align 8
+  %56 = load ptr, ptr %11, align 8
+  %57 = getelementptr inbounds %struct._asn1_ctx_t, ptr %56, i32 0, i32 3
+  %58 = load ptr, ptr %57, align 8
+  %59 = call ptr %54(ptr noundef @usm_p, ptr noundef %55, ptr noundef %58, ptr noundef %15)
+  store ptr %59, ptr %17, align 8
+  %60 = load ptr, ptr %17, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %76, label %62
 
-58:                                               ; preds = %41
-  %59 = load ptr, ptr %16, align 8
-  %60 = load ptr, ptr %11, align 8
-  %61 = getelementptr inbounds %struct._asn1_ctx_t, ptr %60, i32 0, i32 3
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %14, align 8
-  %64 = load ptr, ptr %15, align 8
-  %65 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %59, ptr noundef %62, ptr noundef @ei_snmp_failed_decrypted_data_pdu, ptr noundef %63, i32 noundef 0, i32 noundef -1, ptr noundef @.str.414, ptr noundef %64)
-  %66 = load ptr, ptr %11, align 8
-  %67 = getelementptr inbounds %struct._asn1_ctx_t, ptr %66, i32 0, i32 3
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds %struct._packet_info, ptr %68, i32 0, i32 1
-  %70 = load ptr, ptr %69, align 8
-  call void @col_set_str(ptr noundef %70, i32 noundef 25, ptr noundef @.str.415)
-  %71 = load i32, ptr %10, align 4
-  store i32 %71, ptr %7, align 4
-  br label %114
+62:                                               ; preds = %44
+  %63 = load ptr, ptr %16, align 8
+  %64 = load ptr, ptr %11, align 8
+  %65 = getelementptr inbounds %struct._asn1_ctx_t, ptr %64, i32 0, i32 3
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %14, align 8
+  %68 = load ptr, ptr %15, align 8
+  %69 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %63, ptr noundef %66, ptr noundef @ei_snmp_failed_decrypted_data_pdu, ptr noundef %67, i32 noundef 0, i32 noundef -1, ptr noundef @.str.414, ptr noundef %68)
+  %70 = load ptr, ptr %11, align 8
+  %71 = getelementptr inbounds %struct._asn1_ctx_t, ptr %70, i32 0, i32 3
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds %struct._packet_info, ptr %72, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8
+  call void @col_set_str(ptr noundef %74, i32 noundef 25, ptr noundef @.str.415)
+  %75 = load i32, ptr %10, align 4
+  store i32 %75, ptr %7, align 4
+  br label %118
 
-72:                                               ; preds = %41
-  %73 = load ptr, ptr %17, align 8
-  %74 = call i32 @check_ScopedPdu(ptr noundef %73)
-  %75 = icmp ne i32 %74, 0
-  br i1 %75, label %89, label %76
+76:                                               ; preds = %44
+  %77 = load ptr, ptr %17, align 8
+  %78 = call i32 @check_ScopedPdu(ptr noundef %77)
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %93, label %80
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %16, align 8
-  %78 = load ptr, ptr %11, align 8
-  %79 = getelementptr inbounds %struct._asn1_ctx_t, ptr %78, i32 0, i32 3
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %17, align 8
-  %82 = call ptr @proto_tree_add_expert(ptr noundef %77, ptr noundef %80, ptr noundef @ei_snmp_decrypted_data_bad_formatted, ptr noundef %81, i32 noundef 0, i32 noundef -1)
-  %83 = load ptr, ptr %11, align 8
-  %84 = getelementptr inbounds %struct._asn1_ctx_t, ptr %83, i32 0, i32 3
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct._packet_info, ptr %85, i32 0, i32 1
-  %87 = load ptr, ptr %86, align 8
-  call void @col_set_str(ptr noundef %87, i32 noundef 25, ptr noundef @.str.416)
-  %88 = load i32, ptr %10, align 4
-  store i32 %88, ptr %7, align 4
-  br label %114
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %16, align 8
+  %82 = load ptr, ptr %11, align 8
+  %83 = getelementptr inbounds %struct._asn1_ctx_t, ptr %82, i32 0, i32 3
+  %84 = load ptr, ptr %83, align 8
+  %85 = load ptr, ptr %17, align 8
+  %86 = call ptr @proto_tree_add_expert(ptr noundef %81, ptr noundef %84, ptr noundef @ei_snmp_decrypted_data_bad_formatted, ptr noundef %85, i32 noundef 0, i32 noundef -1)
+  %87 = load ptr, ptr %11, align 8
+  %88 = getelementptr inbounds %struct._asn1_ctx_t, ptr %87, i32 0, i32 3
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds %struct._packet_info, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8
+  call void @col_set_str(ptr noundef %91, i32 noundef 25, ptr noundef @.str.416)
+  %92 = load i32, ptr %10, align 4
+  store i32 %92, ptr %7, align 4
+  br label %118
 
-89:                                               ; preds = %72
-  %90 = load ptr, ptr %11, align 8
-  %91 = getelementptr inbounds %struct._asn1_ctx_t, ptr %90, i32 0, i32 3
-  %92 = load ptr, ptr %91, align 8
-  %93 = load ptr, ptr %17, align 8
-  call void @add_new_data_source(ptr noundef %92, ptr noundef %93, ptr noundef @.str.43)
-  %94 = load ptr, ptr %16, align 8
-  %95 = load i32, ptr @hf_snmp_decryptedPDU, align 4
-  %96 = load ptr, ptr %17, align 8
-  %97 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %97, ptr %18, align 8
-  %98 = load ptr, ptr %18, align 8
-  %99 = load i32, ptr @ett_decrypted, align 4
-  %100 = call ptr @proto_item_add_subtree(ptr noundef %98, i32 noundef %99)
-  store ptr %100, ptr %19, align 8
-  %101 = load ptr, ptr %17, align 8
-  %102 = load ptr, ptr %11, align 8
-  %103 = load ptr, ptr %19, align 8
-  %104 = call i32 @dissect_snmp_ScopedPDU(i1 noundef zeroext false, ptr noundef %101, i32 noundef 0, ptr noundef %102, ptr noundef %103, i32 noundef -1)
-  br label %105
+93:                                               ; preds = %76
+  %94 = load ptr, ptr %11, align 8
+  %95 = getelementptr inbounds %struct._asn1_ctx_t, ptr %94, i32 0, i32 3
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %17, align 8
+  call void @add_new_data_source(ptr noundef %96, ptr noundef %97, ptr noundef @.str.43)
+  %98 = load ptr, ptr %16, align 8
+  %99 = load i32, ptr @hf_snmp_decryptedPDU, align 4
+  %100 = load ptr, ptr %17, align 8
+  %101 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %100, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %101, ptr %18, align 8
+  %102 = load ptr, ptr %18, align 8
+  %103 = load i32, ptr @ett_decrypted, align 4
+  %104 = call ptr @proto_item_add_subtree(ptr noundef %102, i32 noundef %103)
+  store ptr %104, ptr %19, align 8
+  %105 = load ptr, ptr %17, align 8
+  %106 = load ptr, ptr %11, align 8
+  %107 = load ptr, ptr %19, align 8
+  %108 = call i32 @dissect_snmp_ScopedPDU(i1 noundef zeroext false, ptr noundef %105, i32 noundef 0, ptr noundef %106, ptr noundef %107, i32 noundef -1)
+  br label %109
 
-105:                                              ; preds = %89
-  br label %112
+109:                                              ; preds = %93
+  br label %116
 
-106:                                              ; preds = %35, %32, %29, %6
-  %107 = load ptr, ptr %11, align 8
-  %108 = getelementptr inbounds %struct._asn1_ctx_t, ptr %107, i32 0, i32 3
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct._packet_info, ptr %109, i32 0, i32 1
-  %111 = load ptr, ptr %110, align 8
-  call void @col_set_str(ptr noundef %111, i32 noundef 25, ptr noundef @.str.417)
-  br label %112
+110:                                              ; preds = %37, %33, %30, %6
+  %111 = load ptr, ptr %11, align 8
+  %112 = getelementptr inbounds %struct._asn1_ctx_t, ptr %111, i32 0, i32 3
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds %struct._packet_info, ptr %113, i32 0, i32 1
+  %115 = load ptr, ptr %114, align 8
+  call void @col_set_str(ptr noundef %115, i32 noundef 25, ptr noundef @.str.417)
+  br label %116
 
-112:                                              ; preds = %106, %105
-  %113 = load i32, ptr %10, align 4
-  store i32 %113, ptr %7, align 4
-  br label %114
+116:                                              ; preds = %110, %109
+  %117 = load i32, ptr %10, align 4
+  store i32 %117, ptr %7, align 4
+  br label %118
 
-114:                                              ; preds = %112, %76, %58
-  %115 = load i32, ptr %7, align 4
-  ret i32 %115
+118:                                              ; preds = %116, %80, %62
+  %119 = load i32, ptr %7, align 4
+  ret i32 %119
 }
 
 ; Function Attrs: nounwind uwtable

@@ -31,198 +31,201 @@ define dso_local noundef i32 @snd_jack_add_new_kctl(ptr noundef %0, ptr noundef 
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @snd_kctl_jack_new(ptr noundef %1, ptr noundef %5) #4
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %20, label %8
+  br i1 %7, label %21, label %8
 
 8:                                                ; preds = %3
   %9 = tail call i32 @snd_ctl_add(ptr noundef %5, ptr noundef nonnull %6) #4
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %20, label %11
+  br i1 %10, label %21, label %11
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %13 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 48) #5
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %19, label %15
+  %12 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %13 = load ptr, ptr %12, align 16
+  %14 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 48) #5
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %20, label %16
 
-15:                                               ; preds = %11
-  store ptr %6, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
-  store i32 %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 128
-  store ptr %13, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 136
-  store ptr @snd_jack_kctl_private_free, ptr %18, align 8
-  br label %20
+16:                                               ; preds = %11
+  store ptr %6, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  store i32 %2, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %6, i64 128
+  store ptr %14, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 136
+  store ptr @snd_jack_kctl_private_free, ptr %19, align 8
+  br label %21
 
-19:                                               ; preds = %11
+20:                                               ; preds = %11
   tail call void @snd_ctl_free_one(ptr noundef nonnull %6) #4
-  br label %20
+  br label %21
 
-20:                                               ; preds = %19, %15, %8, %3
-  %21 = phi ptr [ %13, %15 ], [ null, %19 ], [ null, %3 ], [ null, %8 ]
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %29, label %23
+21:                                               ; preds = %20, %16, %8, %3
+  %22 = phi ptr [ %14, %16 ], [ null, %20 ], [ null, %3 ], [ null, %8 ]
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %30, label %24
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %21, i64 32
-  store ptr %0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8
-  store ptr %25, ptr %26, align 8
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds i8, ptr %22, i64 32
   store ptr %0, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr %27, ptr %28, align 8
-  store volatile ptr %25, ptr %27, align 8
-  br label %29
+  %26 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8
+  store ptr %26, ptr %27, align 8
+  store ptr %0, ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %22, i64 16
+  store ptr %28, ptr %29, align 8
+  store volatile ptr %26, ptr %28, align 8
+  br label %30
 
-29:                                               ; preds = %23, %20
-  %30 = phi i32 [ 0, %23 ], [ -12, %20 ]
-  ret i32 %30
+30:                                               ; preds = %24, %21
+  %31 = phi i32 [ 0, %24 ], [ -12, %21 ]
+  ret i32 %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_jack_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #0 align 16 {
-  br i1 %4, label %7, label %25
+  br i1 %4, label %7, label %26
 
 7:                                                ; preds = %6
   %8 = tail call ptr @snd_kctl_jack_new(ptr noundef %1, ptr noundef %0) #4
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %22, label %10
+  br i1 %9, label %23, label %10
 
 10:                                               ; preds = %7
   %11 = tail call i32 @snd_ctl_add(ptr noundef %0, ptr noundef nonnull %8) #4
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %22, label %13
+  br i1 %12, label %23, label %13
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %15 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 48) #5
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %21, label %17
+  %14 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %15 = load ptr, ptr %14, align 16
+  %16 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 48) #5
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %22, label %18
 
-17:                                               ; preds = %13
-  store ptr %8, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 24
-  store i32 %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 128
-  store ptr %15, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 136
-  store ptr @snd_jack_kctl_private_free, ptr %20, align 8
-  br label %22
+18:                                               ; preds = %13
+  store ptr %8, ptr %16, align 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  store i32 %2, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %8, i64 128
+  store ptr %16, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %8, i64 136
+  store ptr @snd_jack_kctl_private_free, ptr %21, align 8
+  br label %23
 
-21:                                               ; preds = %13
+22:                                               ; preds = %13
   tail call void @snd_ctl_free_one(ptr noundef nonnull %8) #4
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %17, %10, %7
-  %23 = phi ptr [ %15, %17 ], [ null, %21 ], [ null, %7 ], [ null, %10 ]
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %76, label %25
+23:                                               ; preds = %22, %18, %10, %7
+  %24 = phi ptr [ %16, %18 ], [ null, %22 ], [ null, %7 ], [ null, %10 ]
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %78, label %26
 
-25:                                               ; preds = %22, %6
-  %26 = phi ptr [ %23, %22 ], [ null, %6 ]
-  %27 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
-  %28 = tail call noalias align 8 dereferenceable_or_null(224) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3520, i64 noundef 224) #5
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %76, label %30
+26:                                               ; preds = %23, %6
+  %27 = phi ptr [ %24, %23 ], [ null, %6 ]
+  %28 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8
+  %29 = load ptr, ptr %28, align 16
+  %30 = tail call noalias align 8 dereferenceable_or_null(224) ptr @kmalloc_trace(ptr noundef %29, i32 noundef 3520, i64 noundef 224) #5
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %78, label %32
 
-30:                                               ; preds = %25
-  %31 = tail call noalias ptr @kstrdup(ptr noundef %1, i32 noundef 3264) #4
-  %32 = getelementptr inbounds i8, ptr %28, i64 24
-  store ptr %31, ptr %32, align 8
-  %33 = icmp eq ptr %31, null
-  br i1 %33, label %34, label %35
+32:                                               ; preds = %26
+  %33 = tail call noalias ptr @kstrdup(ptr noundef %1, i32 noundef 3264) #4
+  %34 = getelementptr inbounds i8, ptr %30, i64 24
+  store ptr %33, ptr %34, align 8
+  %35 = icmp eq ptr %33, null
+  br i1 %35, label %36, label %37
 
-34:                                               ; preds = %30
-  tail call void @kfree(ptr noundef nonnull %28) #4
-  br label %76
+36:                                               ; preds = %32
+  tail call void @kfree(ptr noundef nonnull %30) #4
+  br label %78
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %28, i64 40
-  tail call void @__mutex_init(ptr noundef %36, ptr noundef nonnull @.str, ptr noundef nonnull @snd_jack_new.__key) #4
-  br i1 %5, label %59, label %37
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %30, i64 40
+  tail call void @__mutex_init(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull @snd_jack_new.__key) #4
+  br i1 %5, label %61, label %39
 
-37:                                               ; preds = %35
-  %38 = tail call ptr @input_allocate_device() #4
-  %39 = getelementptr inbounds i8, ptr %28, i64 32
-  store ptr %38, ptr %39, align 8
-  %40 = icmp eq ptr %38, null
-  br i1 %40, label %57, label %41
+39:                                               ; preds = %37
+  %40 = tail call ptr @input_allocate_device() #4
+  %41 = getelementptr inbounds i8, ptr %30, i64 32
+  store ptr %40, ptr %41, align 8
+  %42 = icmp eq ptr %40, null
+  br i1 %42, label %59, label %43
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr @.str.1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %28, i64 76
-  store i32 %2, ptr %43, align 4
-  br label %44
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %40, i64 8
+  store ptr @.str.1, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %30, i64 76
+  store i32 %2, ptr %45, align 4
+  br label %46
 
-44:                                               ; preds = %54, %41
-  %45 = phi i64 [ 0, %41 ], [ %55, %54 ]
-  %46 = trunc i64 %45 to i32
-  %47 = shl nuw nsw i32 1, %46
-  %48 = and i32 %47, %2
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %54, label %50
+46:                                               ; preds = %56, %43
+  %47 = phi i64 [ 0, %43 ], [ %57, %56 ]
+  %48 = trunc i64 %47 to i32
+  %49 = shl nuw nsw i32 1, %48
+  %50 = and i32 %49, %2
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %56, label %52
 
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %39, align 8
-  %52 = getelementptr [6 x i32], ptr @jack_switch_types, i64 0, i64 %45
-  %53 = load i32, ptr %52, align 4
-  tail call void @input_set_capability(ptr noundef %51, i32 noundef 5, i32 noundef %53) #4
-  br label %54
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %41, align 8
+  %54 = getelementptr [6 x i32], ptr @jack_switch_types, i64 0, i64 %47
+  %55 = load i32, ptr %54, align 4
+  tail call void @input_set_capability(ptr noundef %53, i32 noundef 5, i32 noundef %55) #4
+  br label %56
 
-54:                                               ; preds = %50, %44
-  %55 = add nuw nsw i64 %45, 1
-  %56 = icmp eq i64 %55, 6
-  br i1 %56, label %57, label %44, !llvm.loop !5
+56:                                               ; preds = %52, %46
+  %57 = add nuw nsw i64 %47, 1
+  %58 = icmp eq i64 %57, 6
+  br i1 %58, label %59, label %46, !llvm.loop !5
 
-57:                                               ; preds = %54, %37
-  %58 = phi i32 [ -12, %37 ], [ 0, %54 ]
-  br i1 %40, label %71, label %59
+59:                                               ; preds = %56, %39
+  %60 = phi i32 [ -12, %39 ], [ 0, %56 ]
+  br i1 %42, label %73, label %61
 
-59:                                               ; preds = %57, %35
-  %60 = tail call i32 @snd_device_new(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %28, ptr noundef nonnull @snd_jack_new.ops) #4
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %71, label %62
+61:                                               ; preds = %59, %37
+  %62 = tail call i32 @snd_device_new(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %30, ptr noundef nonnull @snd_jack_new.ops) #4
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %73, label %64
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %28, i64 16
-  store ptr %0, ptr %63, align 8
-  store volatile ptr %28, ptr %28, align 8
-  %64 = getelementptr inbounds i8, ptr %28, i64 8
-  store volatile ptr %28, ptr %64, align 8
-  br i1 %4, label %65, label %70
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds i8, ptr %30, i64 16
+  store ptr %0, ptr %65, align 8
+  store volatile ptr %30, ptr %30, align 8
+  %66 = getelementptr inbounds i8, ptr %30, i64 8
+  store volatile ptr %30, ptr %66, align 8
+  br i1 %4, label %67, label %72
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %26, i64 32
-  store ptr %28, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %26, i64 8
-  %68 = load ptr, ptr %64, align 8
-  store ptr %67, ptr %64, align 8
-  store ptr %28, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %26, i64 16
-  store ptr %68, ptr %69, align 8
-  store volatile ptr %67, ptr %68, align 8
-  br label %70
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds i8, ptr %27, i64 32
+  store ptr %30, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %27, i64 8
+  %70 = load ptr, ptr %66, align 8
+  store ptr %69, ptr %66, align 8
+  store ptr %30, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %27, i64 16
+  store ptr %70, ptr %71, align 8
+  store volatile ptr %69, ptr %70, align 8
+  br label %72
 
-70:                                               ; preds = %65, %62
-  store ptr %28, ptr %3, align 8
-  br label %76
+72:                                               ; preds = %67, %64
+  store ptr %30, ptr %3, align 8
+  br label %78
 
-71:                                               ; preds = %59, %57
-  %72 = phi i32 [ %60, %59 ], [ %58, %57 ]
-  %73 = getelementptr inbounds i8, ptr %28, i64 32
-  %74 = load ptr, ptr %73, align 8
-  tail call void @input_free_device(ptr noundef %74) #4
-  %75 = load ptr, ptr %32, align 8
-  tail call void @kfree(ptr noundef %75) #4
-  tail call void @kfree(ptr noundef nonnull %28) #4
-  br label %76
+73:                                               ; preds = %61, %59
+  %74 = phi i32 [ %62, %61 ], [ %60, %59 ]
+  %75 = getelementptr inbounds i8, ptr %30, i64 32
+  %76 = load ptr, ptr %75, align 8
+  tail call void @input_free_device(ptr noundef %76) #4
+  %77 = load ptr, ptr %34, align 8
+  tail call void @kfree(ptr noundef %77) #4
+  tail call void @kfree(ptr noundef nonnull %30) #4
+  br label %78
 
-76:                                               ; preds = %71, %70, %34, %25, %22
-  %77 = phi i32 [ -12, %34 ], [ %72, %71 ], [ 0, %70 ], [ -12, %22 ], [ -12, %25 ]
-  ret i32 %77
+78:                                               ; preds = %73, %72, %36, %26, %23
+  %79 = phi i32 [ -12, %36 ], [ %74, %73 ], [ 0, %72 ], [ -12, %23 ], [ -12, %26 ]
+  ret i32 %79
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -663,7 +666,7 @@ define internal void @snd_jack_kctl_private_free(ptr nocapture noundef readonly 
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 8
@@ -673,12 +676,14 @@ define internal void @snd_jack_kctl_private_free(ptr nocapture noundef readonly 
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %8, ptr %10, align 8
   store volatile ptr %9, ptr %8, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %7, align 8
+  %11 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %11, ptr %6, align 8
+  %12 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %12, ptr %7, align 8
   tail call void @kfree(ptr noundef nonnull %3) #4
-  br label %11
+  br label %13
 
-11:                                               ; preds = %5, %1
+13:                                               ; preds = %5, %1
   ret void
 }
 

@@ -255,9 +255,10 @@ define linkonce_odr hidden void @_ZN4LIEF2PE18MsSpcStatementTypeD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF2PE18MsSpcStatementTypeE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::PE::MsSpcStatementType", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF2PE18MsSpcStatementTypeE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::PE::MsSpcStatementType", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   call void @_ZN4LIEF2PE9AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #7
   ret void
 }
@@ -346,32 +347,33 @@ define linkonce_odr hidden void @_ZN4LIEF2PE18MsSpcStatementTypeC2ERKS1_(ptr nou
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF2PE9AttributeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF2PE18MsSpcStatementTypeE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::MsSpcStatementType", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::PE::MsSpcStatementType", ptr %10, i32 0, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF2PE18MsSpcStatementTypeE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::MsSpcStatementType", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::PE::MsSpcStatementType", ptr %11, i32 0, i32 1
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
-  call void @_ZN4LIEF2PE9AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #7
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN4LIEF2PE9AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #7
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -406,12 +408,13 @@ define linkonce_odr hidden void @_ZN4LIEF2PE9AttributeC2ERKS1_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF2PE9AttributeE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::PE::Attribute", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::PE::Attribute", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 8
+  %7 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF2PE9AttributeE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::PE::Attribute", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::PE::Attribute", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 8
   ret void
 }
 

@@ -175,449 +175,451 @@ define internal i32 @nbc_allgather_init(ptr noundef %0, i32 noundef %1, ptr noun
 
 48:                                               ; preds = %45
   store i8 1, ptr %36, align 1
-  br label %61
+  br label %63
 
 49:                                               ; preds = %45, %10
   %50 = load ptr, ptr %20, align 8
-  %51 = icmp eq ptr %50, inttoptr (i64 1 to ptr)
-  br i1 %51, label %52, label %54
+  %51 = inttoptr i64 1 to ptr
+  %52 = icmp eq ptr %50, %51
+  br i1 %52, label %53, label %55
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %23, align 8
-  store ptr %53, ptr %20, align 8
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %23, align 8
+  store ptr %54, ptr %20, align 8
   store i8 1, ptr %36, align 1
-  br label %60
+  br label %62
 
-54:                                               ; preds = %49
-  %55 = load ptr, ptr %23, align 8
-  %56 = icmp eq ptr %55, inttoptr (i64 1 to ptr)
-  br i1 %56, label %57, label %59
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %23, align 8
+  %57 = inttoptr i64 1 to ptr
+  %58 = icmp eq ptr %56, %57
+  br i1 %58, label %59, label %61
 
-57:                                               ; preds = %54
-  %58 = load ptr, ptr %20, align 8
-  store ptr %58, ptr %23, align 8
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %20, align 8
+  store ptr %60, ptr %23, align 8
   store i8 1, ptr %36, align 1
-  br label %59
-
-59:                                               ; preds = %57, %54
-  br label %60
-
-60:                                               ; preds = %59, %52
   br label %61
 
-61:                                               ; preds = %60, %48
-  %62 = load ptr, ptr %26, align 8
-  %63 = call i32 @ompi_comm_rank(ptr noundef %62)
-  store i32 %63, ptr %30, align 4
+61:                                               ; preds = %59, %55
+  br label %62
+
+62:                                               ; preds = %61, %53
+  br label %63
+
+63:                                               ; preds = %62, %48
   %64 = load ptr, ptr %26, align 8
-  %65 = call i32 @ompi_comm_size(ptr noundef %64)
-  store i32 %65, ptr %31, align 4
-  %66 = load i32, ptr %31, align 4
-  %67 = load i32, ptr %31, align 4
-  %68 = sub nsw i32 %67, 1
-  %69 = and i32 %66, %68
-  %70 = icmp ne i32 %69, 0
-  %71 = xor i1 %70, true
-  %72 = zext i1 %71 to i32
-  store i32 %72, ptr %39, align 4
-  %73 = load i32, ptr @libnbc_iallgather_algorithm, align 4
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %76
+  %65 = call i32 @ompi_comm_rank(ptr noundef %64)
+  store i32 %65, ptr %30, align 4
+  %66 = load ptr, ptr %26, align 8
+  %67 = call i32 @ompi_comm_size(ptr noundef %66)
+  store i32 %67, ptr %31, align 4
+  %68 = load i32, ptr %31, align 4
+  %69 = load i32, ptr %31, align 4
+  %70 = sub nsw i32 %69, 1
+  %71 = and i32 %68, %70
+  %72 = icmp ne i32 %71, 0
+  %73 = xor i1 %72, true
+  %74 = zext i1 %73 to i32
+  store i32 %74, ptr %39, align 4
+  %75 = load i32, ptr @libnbc_iallgather_algorithm, align 4
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %78
 
-75:                                               ; preds = %61
+77:                                               ; preds = %63
   store i32 0, ptr %37, align 4
-  br label %90
+  br label %92
 
-76:                                               ; preds = %61
-  %77 = load i32, ptr @libnbc_iallgather_algorithm, align 4
-  %78 = icmp eq i32 %77, 1
-  br i1 %78, label %79, label %80
+78:                                               ; preds = %63
+  %79 = load i32, ptr @libnbc_iallgather_algorithm, align 4
+  %80 = icmp eq i32 %79, 1
+  br i1 %80, label %81, label %82
 
-79:                                               ; preds = %76
+81:                                               ; preds = %78
   store i32 0, ptr %37, align 4
-  br label %89
+  br label %91
 
-80:                                               ; preds = %76
-  %81 = load i32, ptr @libnbc_iallgather_algorithm, align 4
-  %82 = icmp eq i32 %81, 2
-  br i1 %82, label %83, label %87
+82:                                               ; preds = %78
+  %83 = load i32, ptr @libnbc_iallgather_algorithm, align 4
+  %84 = icmp eq i32 %83, 2
+  br i1 %84, label %85, label %89
 
-83:                                               ; preds = %80
-  %84 = load i32, ptr %39, align 4
-  %85 = icmp ne i32 %84, 0
-  br i1 %85, label %86, label %87
+85:                                               ; preds = %82
+  %86 = load i32, ptr %39, align 4
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %89
 
-86:                                               ; preds = %83
+88:                                               ; preds = %85
   store i32 1, ptr %37, align 4
-  br label %88
-
-87:                                               ; preds = %83, %80
-  store i32 0, ptr %37, align 4
-  br label %88
-
-88:                                               ; preds = %87, %86
-  br label %89
-
-89:                                               ; preds = %88, %79
   br label %90
 
-90:                                               ; preds = %89, %75
-  %91 = load ptr, ptr %25, align 8
-  %92 = call i32 @ompi_datatype_type_extent(ptr noundef %91, ptr noundef %33)
-  store i32 %92, ptr %32, align 4
-  %93 = load i32, ptr %32, align 4
-  %94 = icmp ne i32 0, %93
-  br i1 %94, label %95, label %97
+89:                                               ; preds = %85, %82
+  store i32 0, ptr %37, align 4
+  br label %90
 
-95:                                               ; preds = %90
-  %96 = load i32, ptr %32, align 4
-  store i32 %96, ptr %19, align 4
-  br label %308
+90:                                               ; preds = %89, %88
+  br label %91
 
-97:                                               ; preds = %90
-  %98 = load i8, ptr %36, align 1
-  %99 = icmp ne i8 %98, 0
-  br i1 %99, label %100, label %103
+91:                                               ; preds = %90, %81
+  br label %92
 
-100:                                              ; preds = %97
-  %101 = load ptr, ptr %25, align 8
-  store ptr %101, ptr %22, align 8
-  %102 = load i32, ptr %24, align 4
-  store i32 %102, ptr %21, align 4
-  br label %135
+92:                                               ; preds = %91, %77
+  %93 = load ptr, ptr %25, align 8
+  %94 = call i32 @ompi_datatype_type_extent(ptr noundef %93, ptr noundef %33)
+  store i32 %94, ptr %32, align 4
+  %95 = load i32, ptr %32, align 4
+  %96 = icmp ne i32 0, %95
+  br i1 %96, label %97, label %99
 
-103:                                              ; preds = %97
-  %104 = load i8, ptr %29, align 1
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %134, label %106
+97:                                               ; preds = %92
+  %98 = load i32, ptr %32, align 4
+  store i32 %98, ptr %19, align 4
+  br label %310
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %23, align 8
-  %108 = load i64, ptr %33, align 8
-  %109 = load i32, ptr %30, align 4
-  %110 = sext i32 %109 to i64
-  %111 = mul nsw i64 %108, %110
-  %112 = load i32, ptr %24, align 4
-  %113 = sext i32 %112 to i64
-  %114 = mul nsw i64 %111, %113
-  %115 = getelementptr inbounds i8, ptr %107, i64 %114
-  store ptr %115, ptr %35, align 8
-  %116 = load ptr, ptr %20, align 8
-  %117 = load i32, ptr %21, align 4
-  %118 = load ptr, ptr %22, align 8
-  %119 = load ptr, ptr %35, align 8
-  %120 = load i32, ptr %24, align 4
-  %121 = load ptr, ptr %25, align 8
-  %122 = load ptr, ptr %26, align 8
-  %123 = call i32 @NBC_Copy(ptr noundef %116, i32 noundef %117, ptr noundef %118, ptr noundef %119, i32 noundef %120, ptr noundef %121, ptr noundef %122)
-  store i32 %123, ptr %32, align 4
-  %124 = load i32, ptr %32, align 4
-  %125 = icmp ne i32 0, %124
-  %126 = xor i1 %125, true
-  %127 = xor i1 %126, true
-  %128 = zext i1 %127 to i32
-  %129 = sext i32 %128 to i64
-  %130 = icmp ne i64 %129, 0
-  br i1 %130, label %131, label %133
+99:                                               ; preds = %92
+  %100 = load i8, ptr %36, align 1
+  %101 = icmp ne i8 %100, 0
+  br i1 %101, label %102, label %105
 
-131:                                              ; preds = %106
-  %132 = load i32, ptr %32, align 4
-  store i32 %132, ptr %19, align 4
-  br label %308
+102:                                              ; preds = %99
+  %103 = load ptr, ptr %25, align 8
+  store ptr %103, ptr %22, align 8
+  %104 = load i32, ptr %24, align 4
+  store i32 %104, ptr %21, align 4
+  br label %137
 
-133:                                              ; preds = %106
-  br label %134
+105:                                              ; preds = %99
+  %106 = load i8, ptr %29, align 1
+  %107 = trunc i8 %106 to i1
+  br i1 %107, label %136, label %108
 
-134:                                              ; preds = %133, %103
-  br label %135
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %23, align 8
+  %110 = load i64, ptr %33, align 8
+  %111 = load i32, ptr %30, align 4
+  %112 = sext i32 %111 to i64
+  %113 = mul nsw i64 %110, %112
+  %114 = load i32, ptr %24, align 4
+  %115 = sext i32 %114 to i64
+  %116 = mul nsw i64 %113, %115
+  %117 = getelementptr inbounds i8, ptr %109, i64 %116
+  store ptr %117, ptr %35, align 8
+  %118 = load ptr, ptr %20, align 8
+  %119 = load i32, ptr %21, align 4
+  %120 = load ptr, ptr %22, align 8
+  %121 = load ptr, ptr %35, align 8
+  %122 = load i32, ptr %24, align 4
+  %123 = load ptr, ptr %25, align 8
+  %124 = load ptr, ptr %26, align 8
+  %125 = call i32 @NBC_Copy(ptr noundef %118, i32 noundef %119, ptr noundef %120, ptr noundef %121, i32 noundef %122, ptr noundef %123, ptr noundef %124)
+  store i32 %125, ptr %32, align 4
+  %126 = load i32, ptr %32, align 4
+  %127 = icmp ne i32 0, %126
+  %128 = xor i1 %127, true
+  %129 = xor i1 %128, true
+  %130 = zext i1 %129 to i32
+  %131 = sext i32 %130 to i64
+  %132 = icmp ne i64 %131, 0
+  br i1 %132, label %133, label %135
 
-135:                                              ; preds = %134, %100
-  %136 = load i32, ptr %31, align 4
-  %137 = icmp eq i32 1, %136
-  br i1 %137, label %138, label %150
+133:                                              ; preds = %108
+  %134 = load i32, ptr %32, align 4
+  store i32 %134, ptr %19, align 4
+  br label %310
 
-138:                                              ; preds = %135
-  %139 = load i8, ptr %29, align 1
-  %140 = trunc i8 %139 to i1
-  br i1 %140, label %141, label %145
+135:                                              ; preds = %108
+  br label %136
 
-141:                                              ; preds = %138
-  %142 = load i8, ptr %36, align 1
-  %143 = sext i8 %142 to i32
-  %144 = icmp ne i32 %143, 0
-  br i1 %144, label %145, label %150
+136:                                              ; preds = %135, %105
+  br label %137
 
-145:                                              ; preds = %141, %138
-  %146 = load i8, ptr %29, align 1
-  %147 = trunc i8 %146 to i1
-  %148 = load ptr, ptr %27, align 8
-  %149 = call i32 @nbc_get_noop_request(i1 noundef zeroext %147, ptr noundef %148)
-  store i32 %149, ptr %19, align 4
-  br label %308
+137:                                              ; preds = %136, %102
+  %138 = load i32, ptr %31, align 4
+  %139 = icmp eq i32 1, %138
+  br i1 %139, label %140, label %152
 
-150:                                              ; preds = %141, %135
-  %151 = call ptr @opal_obj_new(ptr noundef @NBC_Schedule_class)
-  store ptr %151, ptr %34, align 8
-  %152 = load ptr, ptr %34, align 8
-  %153 = icmp eq ptr null, %152
-  %154 = xor i1 %153, true
-  %155 = xor i1 %154, true
-  %156 = zext i1 %155 to i32
-  %157 = sext i32 %156 to i64
-  %158 = icmp ne i64 %157, 0
-  br i1 %158, label %159, label %160
+140:                                              ; preds = %137
+  %141 = load i8, ptr %29, align 1
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %143, label %147
 
-159:                                              ; preds = %150
+143:                                              ; preds = %140
+  %144 = load i8, ptr %36, align 1
+  %145 = sext i8 %144 to i32
+  %146 = icmp ne i32 %145, 0
+  br i1 %146, label %147, label %152
+
+147:                                              ; preds = %143, %140
+  %148 = load i8, ptr %29, align 1
+  %149 = trunc i8 %148 to i1
+  %150 = load ptr, ptr %27, align 8
+  %151 = call i32 @nbc_get_noop_request(i1 noundef zeroext %149, ptr noundef %150)
+  store i32 %151, ptr %19, align 4
+  br label %310
+
+152:                                              ; preds = %143, %137
+  %153 = call ptr @opal_obj_new(ptr noundef @NBC_Schedule_class)
+  store ptr %153, ptr %34, align 8
+  %154 = load ptr, ptr %34, align 8
+  %155 = icmp eq ptr null, %154
+  %156 = xor i1 %155, true
+  %157 = xor i1 %156, true
+  %158 = zext i1 %157 to i32
+  %159 = sext i32 %158 to i64
+  %160 = icmp ne i64 %159, 0
+  br i1 %160, label %161, label %162
+
+161:                                              ; preds = %152
   store i32 -2, ptr %19, align 4
-  br label %308
+  br label %310
 
-160:                                              ; preds = %150
-  %161 = load i8, ptr %29, align 1
-  %162 = trunc i8 %161 to i1
-  br i1 %162, label %163, label %208
+162:                                              ; preds = %152
+  %163 = load i8, ptr %29, align 1
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %165, label %210
 
-163:                                              ; preds = %160
-  %164 = load i8, ptr %36, align 1
-  %165 = icmp ne i8 %164, 0
-  br i1 %165, label %208, label %166
+165:                                              ; preds = %162
+  %166 = load i8, ptr %36, align 1
+  %167 = icmp ne i8 %166, 0
+  br i1 %167, label %210, label %168
 
-166:                                              ; preds = %163
-  %167 = load ptr, ptr %23, align 8
-  %168 = load i64, ptr %33, align 8
-  %169 = load i32, ptr %30, align 4
-  %170 = sext i32 %169 to i64
-  %171 = mul nsw i64 %168, %170
-  %172 = load i32, ptr %24, align 4
-  %173 = sext i32 %172 to i64
-  %174 = mul nsw i64 %171, %173
-  %175 = getelementptr inbounds i8, ptr %167, i64 %174
-  store ptr %175, ptr %35, align 8
-  %176 = load ptr, ptr %20, align 8
-  %177 = load i32, ptr %21, align 4
-  %178 = sext i32 %177 to i64
-  %179 = load ptr, ptr %22, align 8
-  %180 = load ptr, ptr %35, align 8
-  %181 = load i32, ptr %24, align 4
-  %182 = sext i32 %181 to i64
-  %183 = load ptr, ptr %25, align 8
-  %184 = load ptr, ptr %34, align 8
-  %185 = call i32 @NBC_Sched_copy(ptr noundef %176, i8 noundef signext 0, i64 noundef %178, ptr noundef %179, ptr noundef %180, i8 noundef signext 0, i64 noundef %182, ptr noundef %183, ptr noundef %184, i1 noundef zeroext true)
-  store i32 %185, ptr %32, align 4
-  %186 = load i32, ptr %32, align 4
-  %187 = icmp ne i32 0, %186
-  %188 = xor i1 %187, true
-  %189 = xor i1 %188, true
-  %190 = zext i1 %189 to i32
-  %191 = sext i32 %190 to i64
-  %192 = icmp ne i64 %191, 0
-  br i1 %192, label %193, label %207
+168:                                              ; preds = %165
+  %169 = load ptr, ptr %23, align 8
+  %170 = load i64, ptr %33, align 8
+  %171 = load i32, ptr %30, align 4
+  %172 = sext i32 %171 to i64
+  %173 = mul nsw i64 %170, %172
+  %174 = load i32, ptr %24, align 4
+  %175 = sext i32 %174 to i64
+  %176 = mul nsw i64 %173, %175
+  %177 = getelementptr inbounds i8, ptr %169, i64 %176
+  store ptr %177, ptr %35, align 8
+  %178 = load ptr, ptr %20, align 8
+  %179 = load i32, ptr %21, align 4
+  %180 = sext i32 %179 to i64
+  %181 = load ptr, ptr %22, align 8
+  %182 = load ptr, ptr %35, align 8
+  %183 = load i32, ptr %24, align 4
+  %184 = sext i32 %183 to i64
+  %185 = load ptr, ptr %25, align 8
+  %186 = load ptr, ptr %34, align 8
+  %187 = call i32 @NBC_Sched_copy(ptr noundef %178, i8 noundef signext 0, i64 noundef %180, ptr noundef %181, ptr noundef %182, i8 noundef signext 0, i64 noundef %184, ptr noundef %185, ptr noundef %186, i1 noundef zeroext true)
+  store i32 %187, ptr %32, align 4
+  %188 = load i32, ptr %32, align 4
+  %189 = icmp ne i32 0, %188
+  %190 = xor i1 %189, true
+  %191 = xor i1 %190, true
+  %192 = zext i1 %191 to i32
+  %193 = sext i32 %192 to i64
+  %194 = icmp ne i64 %193, 0
+  br i1 %194, label %195, label %209
 
-193:                                              ; preds = %166
-  br label %194
+195:                                              ; preds = %168
+  br label %196
 
-194:                                              ; preds = %193
-  %195 = load ptr, ptr %34, align 8
-  store ptr %195, ptr %11, align 8
+196:                                              ; preds = %195
+  %197 = load ptr, ptr %34, align 8
+  store ptr %197, ptr %11, align 8
   store i32 -1, ptr %12, align 4
-  %196 = load ptr, ptr %11, align 8
-  %197 = getelementptr inbounds %struct.opal_object_t, ptr %196, i32 0, i32 1
-  %198 = load i32, ptr %12, align 4
-  %199 = call i32 @opal_thread_add_fetch_32(ptr noundef %197, i32 noundef %198)
-  %200 = icmp eq i32 0, %199
-  br i1 %200, label %201, label %204
+  %198 = load ptr, ptr %11, align 8
+  %199 = getelementptr inbounds %struct.opal_object_t, ptr %198, i32 0, i32 1
+  %200 = load i32, ptr %12, align 4
+  %201 = call i32 @opal_thread_add_fetch_32(ptr noundef %199, i32 noundef %200)
+  %202 = icmp eq i32 0, %201
+  br i1 %202, label %203, label %206
 
-201:                                              ; preds = %194
-  %202 = load ptr, ptr %34, align 8
-  call void @opal_obj_run_destructors(ptr noundef %202)
-  %203 = load ptr, ptr %34, align 8
-  call void @free(ptr noundef %203) #5
+203:                                              ; preds = %196
+  %204 = load ptr, ptr %34, align 8
+  call void @opal_obj_run_destructors(ptr noundef %204)
+  %205 = load ptr, ptr %34, align 8
+  call void @free(ptr noundef %205) #5
   store ptr null, ptr %34, align 8
-  br label %204
+  br label %206
 
-204:                                              ; preds = %201, %194
-  br label %205
+206:                                              ; preds = %203, %196
+  br label %207
 
-205:                                              ; preds = %204
-  %206 = load i32, ptr %32, align 4
-  store i32 %206, ptr %19, align 4
-  br label %308
+207:                                              ; preds = %206
+  %208 = load i32, ptr %32, align 4
+  store i32 %208, ptr %19, align 4
+  br label %310
 
-207:                                              ; preds = %166
-  br label %208
+209:                                              ; preds = %168
+  br label %210
 
-208:                                              ; preds = %207, %163, %160
-  %209 = load i32, ptr %37, align 4
-  switch i32 %209, label %232 [
-    i32 0, label %210
-    i32 1, label %221
+210:                                              ; preds = %209, %165, %162
+  %211 = load i32, ptr %37, align 4
+  switch i32 %211, label %234 [
+    i32 0, label %212
+    i32 1, label %223
   ]
 
-210:                                              ; preds = %208
-  %211 = load i32, ptr %30, align 4
-  %212 = load i32, ptr %31, align 4
-  %213 = load ptr, ptr %34, align 8
-  %214 = load ptr, ptr %20, align 8
-  %215 = load i32, ptr %21, align 4
-  %216 = load ptr, ptr %22, align 8
-  %217 = load ptr, ptr %23, align 8
-  %218 = load i32, ptr %24, align 4
-  %219 = load ptr, ptr %25, align 8
-  %220 = call i32 @allgather_sched_linear(i32 noundef %211, i32 noundef %212, ptr noundef %213, ptr noundef %214, i32 noundef %215, ptr noundef %216, ptr noundef %217, i32 noundef %218, ptr noundef %219)
-  store i32 %220, ptr %32, align 4
-  br label %232
+212:                                              ; preds = %210
+  %213 = load i32, ptr %30, align 4
+  %214 = load i32, ptr %31, align 4
+  %215 = load ptr, ptr %34, align 8
+  %216 = load ptr, ptr %20, align 8
+  %217 = load i32, ptr %21, align 4
+  %218 = load ptr, ptr %22, align 8
+  %219 = load ptr, ptr %23, align 8
+  %220 = load i32, ptr %24, align 4
+  %221 = load ptr, ptr %25, align 8
+  %222 = call i32 @allgather_sched_linear(i32 noundef %213, i32 noundef %214, ptr noundef %215, ptr noundef %216, i32 noundef %217, ptr noundef %218, ptr noundef %219, i32 noundef %220, ptr noundef %221)
+  store i32 %222, ptr %32, align 4
+  br label %234
 
-221:                                              ; preds = %208
-  %222 = load i32, ptr %30, align 4
-  %223 = load i32, ptr %31, align 4
-  %224 = load ptr, ptr %34, align 8
-  %225 = load ptr, ptr %20, align 8
-  %226 = load i32, ptr %21, align 4
-  %227 = load ptr, ptr %22, align 8
-  %228 = load ptr, ptr %23, align 8
-  %229 = load i32, ptr %24, align 4
-  %230 = load ptr, ptr %25, align 8
-  %231 = call i32 @allgather_sched_recursivedoubling(i32 noundef %222, i32 noundef %223, ptr noundef %224, ptr noundef %225, i32 noundef %226, ptr noundef %227, ptr noundef %228, i32 noundef %229, ptr noundef %230)
-  store i32 %231, ptr %32, align 4
-  br label %232
+223:                                              ; preds = %210
+  %224 = load i32, ptr %30, align 4
+  %225 = load i32, ptr %31, align 4
+  %226 = load ptr, ptr %34, align 8
+  %227 = load ptr, ptr %20, align 8
+  %228 = load i32, ptr %21, align 4
+  %229 = load ptr, ptr %22, align 8
+  %230 = load ptr, ptr %23, align 8
+  %231 = load i32, ptr %24, align 4
+  %232 = load ptr, ptr %25, align 8
+  %233 = call i32 @allgather_sched_recursivedoubling(i32 noundef %224, i32 noundef %225, ptr noundef %226, ptr noundef %227, i32 noundef %228, ptr noundef %229, ptr noundef %230, i32 noundef %231, ptr noundef %232)
+  store i32 %233, ptr %32, align 4
+  br label %234
 
-232:                                              ; preds = %221, %210, %208
-  %233 = load i32, ptr %32, align 4
-  %234 = icmp ne i32 0, %233
-  %235 = xor i1 %234, true
-  %236 = xor i1 %235, true
-  %237 = zext i1 %236 to i32
-  %238 = sext i32 %237 to i64
-  %239 = icmp ne i64 %238, 0
-  br i1 %239, label %240, label %254
+234:                                              ; preds = %223, %212, %210
+  %235 = load i32, ptr %32, align 4
+  %236 = icmp ne i32 0, %235
+  %237 = xor i1 %236, true
+  %238 = xor i1 %237, true
+  %239 = zext i1 %238 to i32
+  %240 = sext i32 %239 to i64
+  %241 = icmp ne i64 %240, 0
+  br i1 %241, label %242, label %256
 
-240:                                              ; preds = %232
-  br label %241
+242:                                              ; preds = %234
+  br label %243
 
-241:                                              ; preds = %240
-  %242 = load ptr, ptr %34, align 8
-  store ptr %242, ptr %13, align 8
+243:                                              ; preds = %242
+  %244 = load ptr, ptr %34, align 8
+  store ptr %244, ptr %13, align 8
   store i32 -1, ptr %14, align 4
-  %243 = load ptr, ptr %13, align 8
-  %244 = getelementptr inbounds %struct.opal_object_t, ptr %243, i32 0, i32 1
-  %245 = load i32, ptr %14, align 4
-  %246 = call i32 @opal_thread_add_fetch_32(ptr noundef %244, i32 noundef %245)
-  %247 = icmp eq i32 0, %246
-  br i1 %247, label %248, label %251
+  %245 = load ptr, ptr %13, align 8
+  %246 = getelementptr inbounds %struct.opal_object_t, ptr %245, i32 0, i32 1
+  %247 = load i32, ptr %14, align 4
+  %248 = call i32 @opal_thread_add_fetch_32(ptr noundef %246, i32 noundef %247)
+  %249 = icmp eq i32 0, %248
+  br i1 %249, label %250, label %253
 
-248:                                              ; preds = %241
-  %249 = load ptr, ptr %34, align 8
-  call void @opal_obj_run_destructors(ptr noundef %249)
-  %250 = load ptr, ptr %34, align 8
-  call void @free(ptr noundef %250) #5
+250:                                              ; preds = %243
+  %251 = load ptr, ptr %34, align 8
+  call void @opal_obj_run_destructors(ptr noundef %251)
+  %252 = load ptr, ptr %34, align 8
+  call void @free(ptr noundef %252) #5
   store ptr null, ptr %34, align 8
-  br label %251
+  br label %253
 
-251:                                              ; preds = %248, %241
-  br label %252
+253:                                              ; preds = %250, %243
+  br label %254
 
-252:                                              ; preds = %251
-  %253 = load i32, ptr %32, align 4
-  store i32 %253, ptr %19, align 4
-  br label %308
+254:                                              ; preds = %253
+  %255 = load i32, ptr %32, align 4
+  store i32 %255, ptr %19, align 4
+  br label %310
 
-254:                                              ; preds = %232
-  %255 = load ptr, ptr %34, align 8
-  %256 = call i32 @NBC_Sched_commit(ptr noundef %255)
-  store i32 %256, ptr %32, align 4
-  %257 = load i32, ptr %32, align 4
-  %258 = icmp ne i32 0, %257
-  %259 = xor i1 %258, true
-  %260 = xor i1 %259, true
-  %261 = zext i1 %260 to i32
-  %262 = sext i32 %261 to i64
-  %263 = icmp ne i64 %262, 0
-  br i1 %263, label %264, label %278
+256:                                              ; preds = %234
+  %257 = load ptr, ptr %34, align 8
+  %258 = call i32 @NBC_Sched_commit(ptr noundef %257)
+  store i32 %258, ptr %32, align 4
+  %259 = load i32, ptr %32, align 4
+  %260 = icmp ne i32 0, %259
+  %261 = xor i1 %260, true
+  %262 = xor i1 %261, true
+  %263 = zext i1 %262 to i32
+  %264 = sext i32 %263 to i64
+  %265 = icmp ne i64 %264, 0
+  br i1 %265, label %266, label %280
 
-264:                                              ; preds = %254
-  br label %265
+266:                                              ; preds = %256
+  br label %267
 
-265:                                              ; preds = %264
-  %266 = load ptr, ptr %34, align 8
-  store ptr %266, ptr %15, align 8
+267:                                              ; preds = %266
+  %268 = load ptr, ptr %34, align 8
+  store ptr %268, ptr %15, align 8
   store i32 -1, ptr %16, align 4
-  %267 = load ptr, ptr %15, align 8
-  %268 = getelementptr inbounds %struct.opal_object_t, ptr %267, i32 0, i32 1
-  %269 = load i32, ptr %16, align 4
-  %270 = call i32 @opal_thread_add_fetch_32(ptr noundef %268, i32 noundef %269)
-  %271 = icmp eq i32 0, %270
-  br i1 %271, label %272, label %275
+  %269 = load ptr, ptr %15, align 8
+  %270 = getelementptr inbounds %struct.opal_object_t, ptr %269, i32 0, i32 1
+  %271 = load i32, ptr %16, align 4
+  %272 = call i32 @opal_thread_add_fetch_32(ptr noundef %270, i32 noundef %271)
+  %273 = icmp eq i32 0, %272
+  br i1 %273, label %274, label %277
 
-272:                                              ; preds = %265
-  %273 = load ptr, ptr %34, align 8
-  call void @opal_obj_run_destructors(ptr noundef %273)
-  %274 = load ptr, ptr %34, align 8
-  call void @free(ptr noundef %274) #5
+274:                                              ; preds = %267
+  %275 = load ptr, ptr %34, align 8
+  call void @opal_obj_run_destructors(ptr noundef %275)
+  %276 = load ptr, ptr %34, align 8
+  call void @free(ptr noundef %276) #5
   store ptr null, ptr %34, align 8
-  br label %275
+  br label %277
 
-275:                                              ; preds = %272, %265
-  br label %276
+277:                                              ; preds = %274, %267
+  br label %278
 
-276:                                              ; preds = %275
-  %277 = load i32, ptr %32, align 4
-  store i32 %277, ptr %19, align 4
-  br label %308
+278:                                              ; preds = %277
+  %279 = load i32, ptr %32, align 4
+  store i32 %279, ptr %19, align 4
+  br label %310
 
-278:                                              ; preds = %254
-  %279 = load ptr, ptr %34, align 8
-  %280 = load ptr, ptr %26, align 8
-  %281 = load ptr, ptr %38, align 8
-  %282 = load i8, ptr %29, align 1
-  %283 = trunc i8 %282 to i1
-  %284 = load ptr, ptr %27, align 8
-  %285 = call i32 @NBC_Schedule_request(ptr noundef %279, ptr noundef %280, ptr noundef %281, i1 noundef zeroext %283, ptr noundef %284, ptr noundef null)
-  store i32 %285, ptr %32, align 4
-  %286 = load i32, ptr %32, align 4
-  %287 = icmp ne i32 0, %286
-  %288 = xor i1 %287, true
-  %289 = xor i1 %288, true
-  %290 = zext i1 %289 to i32
-  %291 = sext i32 %290 to i64
-  %292 = icmp ne i64 %291, 0
-  br i1 %292, label %293, label %307
+280:                                              ; preds = %256
+  %281 = load ptr, ptr %34, align 8
+  %282 = load ptr, ptr %26, align 8
+  %283 = load ptr, ptr %38, align 8
+  %284 = load i8, ptr %29, align 1
+  %285 = trunc i8 %284 to i1
+  %286 = load ptr, ptr %27, align 8
+  %287 = call i32 @NBC_Schedule_request(ptr noundef %281, ptr noundef %282, ptr noundef %283, i1 noundef zeroext %285, ptr noundef %286, ptr noundef null)
+  store i32 %287, ptr %32, align 4
+  %288 = load i32, ptr %32, align 4
+  %289 = icmp ne i32 0, %288
+  %290 = xor i1 %289, true
+  %291 = xor i1 %290, true
+  %292 = zext i1 %291 to i32
+  %293 = sext i32 %292 to i64
+  %294 = icmp ne i64 %293, 0
+  br i1 %294, label %295, label %309
 
-293:                                              ; preds = %278
-  br label %294
+295:                                              ; preds = %280
+  br label %296
 
-294:                                              ; preds = %293
-  %295 = load ptr, ptr %34, align 8
-  store ptr %295, ptr %17, align 8
+296:                                              ; preds = %295
+  %297 = load ptr, ptr %34, align 8
+  store ptr %297, ptr %17, align 8
   store i32 -1, ptr %18, align 4
-  %296 = load ptr, ptr %17, align 8
-  %297 = getelementptr inbounds %struct.opal_object_t, ptr %296, i32 0, i32 1
-  %298 = load i32, ptr %18, align 4
-  %299 = call i32 @opal_thread_add_fetch_32(ptr noundef %297, i32 noundef %298)
-  %300 = icmp eq i32 0, %299
-  br i1 %300, label %301, label %304
+  %298 = load ptr, ptr %17, align 8
+  %299 = getelementptr inbounds %struct.opal_object_t, ptr %298, i32 0, i32 1
+  %300 = load i32, ptr %18, align 4
+  %301 = call i32 @opal_thread_add_fetch_32(ptr noundef %299, i32 noundef %300)
+  %302 = icmp eq i32 0, %301
+  br i1 %302, label %303, label %306
 
-301:                                              ; preds = %294
-  %302 = load ptr, ptr %34, align 8
-  call void @opal_obj_run_destructors(ptr noundef %302)
-  %303 = load ptr, ptr %34, align 8
-  call void @free(ptr noundef %303) #5
+303:                                              ; preds = %296
+  %304 = load ptr, ptr %34, align 8
+  call void @opal_obj_run_destructors(ptr noundef %304)
+  %305 = load ptr, ptr %34, align 8
+  call void @free(ptr noundef %305) #5
   store ptr null, ptr %34, align 8
-  br label %304
+  br label %306
 
-304:                                              ; preds = %301, %294
-  br label %305
+306:                                              ; preds = %303, %296
+  br label %307
 
-305:                                              ; preds = %304
-  %306 = load i32, ptr %32, align 4
-  store i32 %306, ptr %19, align 4
-  br label %308
+307:                                              ; preds = %306
+  %308 = load i32, ptr %32, align 4
+  store i32 %308, ptr %19, align 4
+  br label %310
 
-307:                                              ; preds = %278
+309:                                              ; preds = %280
   store i32 0, ptr %19, align 4
-  br label %308
+  br label %310
 
-308:                                              ; preds = %307, %305, %276, %252, %205, %159, %145, %131, %95
-  %309 = load i32, ptr %19, align 4
-  ret i32 %309
+310:                                              ; preds = %309, %307, %278, %254, %207, %161, %147, %133, %97
+  %311 = load i32, ptr %19, align 4
+  ret i32 %311
 }
 
 declare i32 @NBC_Start(ptr noundef) #1
@@ -1645,7 +1647,7 @@ define internal void @NBC_Error(ptr noundef %0, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %0, ptr %2, align 8
   %4 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %4)
+  call void @llvm.va_start.p0(ptr %4)
   %5 = load ptr, ptr @stderr, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
@@ -1653,12 +1655,9 @@ define internal void @NBC_Error(ptr noundef %0, ...) #0 {
   %9 = load ptr, ptr @stderr, align 8
   %10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.1) #5
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %11)
+  call void @llvm.va_end.p0(ptr %11)
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
 
 ; Function Attrs: nounwind
 declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #2
@@ -1666,13 +1665,10 @@ declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind
 declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
-
 declare i32 @ompi_request_persistent_noop_create(ptr noundef) #1
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #4
+declare noalias ptr @malloc(i64 noundef) #3
 
 declare void @opal_class_initialize(ptr noundef) #1
 
@@ -1840,11 +1836,17 @@ define internal i32 @ompi_comm_remote_size(ptr noundef %0) #0 {
   ret i32 %16
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind allocsize(0) }
 

@@ -38,7 +38,8 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %eventBase, i32 %fd.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly12EventHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly12EventHandlerE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !7
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
   %evb_.i = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %evb_.i, i8 0, i64 28, i1 false)
@@ -54,10 +55,10 @@ if.then:                                          ; preds = %invoke.cont
           to label %if.end unwind label %lpad
 
 lpad:                                             ; preds = %if.else, %if.then, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5folly14EventBaseEventD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %event_) #16
-  resume { ptr, i32 } %0
+  resume { ptr, i32 } %1
 
 if.else:                                          ; preds = %invoke.cont
   invoke void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_, ptr noundef null)
@@ -192,11 +193,12 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5folly12EventHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5folly12EventHandlerE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !7
   %evcb_flags.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load i16, ptr %evcb_flags.i.i.i.i.i, align 8, !tbaa !28
-  %1 = and i16 %0, 15
-  %tobool.i.i.i.not.i = icmp eq i16 %1, 0
+  %1 = load i16, ptr %evcb_flags.i.i.i.i.i, align 8, !tbaa !28
+  %2 = and i16 %1, 15
+  %tobool.i.i.i.not.i = icmp eq i16 %2, 0
   br i1 %tobool.i.i.i.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -206,35 +208,35 @@ if.then.i:                                        ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then.i, %entry
   %userData_.i = getelementptr inbounds i8, ptr %this, i64 136
-  %2 = load ptr, ptr %userData_.i, align 8, !tbaa !26
-  %tobool.not.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %userData_.i, align 8, !tbaa !26
+  %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %_ZN5folly14EventBaseEventD2Ev.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont
   %freeFn_.i = getelementptr inbounds i8, ptr %this, i64 144
-  %3 = load ptr, ptr %freeFn_.i, align 8, !tbaa !27
-  %tobool2.not.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %freeFn_.i, align 8, !tbaa !27
+  %tobool2.not.i = icmp eq ptr %4, null
   br i1 %tobool2.not.i, label %_ZN5folly14EventBaseEventD2Ev.exit, label %if.then.i3
 
 if.then.i3:                                       ; preds = %land.lhs.true.i
-  invoke void %3(ptr noundef nonnull %2)
+  invoke void %4(ptr noundef nonnull %3)
           to label %_ZN5folly14EventBaseEventD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i3
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #15
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #15
   unreachable
 
 _ZN5folly14EventBaseEventD2Ev.exit:               ; preds = %if.then.i3, %land.lhs.true.i, %invoke.cont
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #15
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #15
   unreachable
 }
 

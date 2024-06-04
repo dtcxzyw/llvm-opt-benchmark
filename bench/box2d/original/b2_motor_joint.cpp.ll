@@ -201,16 +201,17 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %def.addr, align 8
   call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12b2MotorJoint, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %def.addr, align 8
-  %linearOffset = getelementptr inbounds %struct.b2MotorJointDef, ptr %1, i32 0, i32 1
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV12b2MotorJoint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %def.addr, align 8
+  %linearOffset = getelementptr inbounds %struct.b2MotorJointDef, ptr %2, i32 0, i32 1
   %m_linearOffset2 = getelementptr inbounds %class.b2MotorJoint, ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_linearOffset2, ptr align 4 %linearOffset, i64 8, i1 false)
-  %2 = load ptr, ptr %def.addr, align 8
-  %angularOffset = getelementptr inbounds %struct.b2MotorJointDef, ptr %2, i32 0, i32 2
-  %3 = load float, ptr %angularOffset, align 4
+  %3 = load ptr, ptr %def.addr, align 8
+  %angularOffset = getelementptr inbounds %struct.b2MotorJointDef, ptr %3, i32 0, i32 2
+  %4 = load float, ptr %angularOffset, align 4
   %m_angularOffset = getelementptr inbounds %class.b2MotorJoint, ptr %this1, i32 0, i32 2
-  store float %3, ptr %m_angularOffset, align 8
+  store float %4, ptr %m_angularOffset, align 8
   %m_linearImpulse3 = getelementptr inbounds %class.b2MotorJoint, ptr %this1, i32 0, i32 3
   invoke void @_ZN6b2Vec27SetZeroEv(ptr noundef nonnull align 4 dereferenceable(8) %m_linearImpulse3)
           to label %invoke.cont unwind label %lpad
@@ -218,30 +219,30 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %m_angularImpulse = getelementptr inbounds %class.b2MotorJoint, ptr %this1, i32 0, i32 4
   store float 0.000000e+00, ptr %m_angularImpulse, align 4
-  %4 = load ptr, ptr %def.addr, align 8
-  %maxForce = getelementptr inbounds %struct.b2MotorJointDef, ptr %4, i32 0, i32 3
-  %5 = load float, ptr %maxForce, align 8
+  %5 = load ptr, ptr %def.addr, align 8
+  %maxForce = getelementptr inbounds %struct.b2MotorJointDef, ptr %5, i32 0, i32 3
+  %6 = load float, ptr %maxForce, align 8
   %m_maxForce = getelementptr inbounds %class.b2MotorJoint, ptr %this1, i32 0, i32 5
-  store float %5, ptr %m_maxForce, align 8
-  %6 = load ptr, ptr %def.addr, align 8
-  %maxTorque = getelementptr inbounds %struct.b2MotorJointDef, ptr %6, i32 0, i32 4
-  %7 = load float, ptr %maxTorque, align 4
+  store float %6, ptr %m_maxForce, align 8
+  %7 = load ptr, ptr %def.addr, align 8
+  %maxTorque = getelementptr inbounds %struct.b2MotorJointDef, ptr %7, i32 0, i32 4
+  %8 = load float, ptr %maxTorque, align 4
   %m_maxTorque = getelementptr inbounds %class.b2MotorJoint, ptr %this1, i32 0, i32 6
-  store float %7, ptr %m_maxTorque, align 4
-  %8 = load ptr, ptr %def.addr, align 8
-  %correctionFactor = getelementptr inbounds %struct.b2MotorJointDef, ptr %8, i32 0, i32 5
-  %9 = load float, ptr %correctionFactor, align 8
+  store float %8, ptr %m_maxTorque, align 4
+  %9 = load ptr, ptr %def.addr, align 8
+  %correctionFactor = getelementptr inbounds %struct.b2MotorJointDef, ptr %9, i32 0, i32 5
+  %10 = load float, ptr %correctionFactor, align 8
   %m_correctionFactor = getelementptr inbounds %class.b2MotorJoint, ptr %this1, i32 0, i32 7
-  store float %9, ptr %m_correctionFactor, align 8
+  store float %10, ptr %m_correctionFactor, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN7b2JointD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this1) #8
   br label %eh.resume
 

@@ -56,126 +56,128 @@ define internal i32 @pkcs1pad_create(ptr noundef %0, ptr noundef %1) #0 align 16
   store i32 0, ptr %3, align 4, !annotation !5
   %4 = call i32 @crypto_check_attr_type(ptr noundef %1, i32 noundef 6, ptr noundef nonnull %3) #11
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %79
+  br i1 %5, label %6, label %81
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %8 = call noalias align 8 dereferenceable_or_null(576) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 576) #12
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %79, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %8 = load ptr, ptr %7, align 16
+  %9 = call noalias align 8 dereferenceable_or_null(576) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 576) #12
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %81, label %11
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 520
-  %12 = getelementptr inbounds i8, ptr %8, i64 80
-  %13 = getelementptr i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = call ptr @crypto_attr_alg_name(ptr noundef %14) #11
-  %16 = load i32, ptr %3, align 4
-  %17 = call i32 @crypto_grab_akcipher(ptr noundef %11, ptr noundef %12, ptr noundef %15, i32 noundef 0, i32 noundef %16) #11
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %77
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %9, i64 520
+  %13 = getelementptr inbounds i8, ptr %9, i64 80
+  %14 = getelementptr i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = call ptr @crypto_attr_alg_name(ptr noundef %15) #11
+  %17 = load i32, ptr %3, align 4
+  %18 = call i32 @crypto_grab_akcipher(ptr noundef %12, ptr noundef %13, ptr noundef %16, i32 noundef 0, i32 noundef %17) #11
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %79
 
-19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %8, i64 536
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr i8, ptr %21, i64 56
-  %23 = call i32 @strcmp(ptr noundef %22, ptr noundef nonnull dereferenceable(4) @.str) #11
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %77
+20:                                               ; preds = %11
+  %21 = getelementptr inbounds i8, ptr %9, i64 536
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr i8, ptr %22, i64 56
+  %24 = call i32 @strcmp(ptr noundef %23, ptr noundef nonnull dereferenceable(4) @.str) #11
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %79
 
-25:                                               ; preds = %19
-  %26 = getelementptr i8, ptr %1, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = call ptr @crypto_attr_alg_name(ptr noundef %27) #11
-  %29 = icmp ugt ptr %28, inttoptr (i64 -4096 to ptr)
-  br i1 %29, label %30, label %39
+26:                                               ; preds = %20
+  %27 = getelementptr i8, ptr %1, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = call ptr @crypto_attr_alg_name(ptr noundef %28) #11
+  %30 = inttoptr i64 -4096 to ptr
+  %31 = icmp ugt ptr %29, %30
+  br i1 %31, label %32, label %41
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %8, i64 136
-  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %31, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %22) #11
-  %33 = icmp sgt i32 %32, 127
-  br i1 %33, label %77, label %34
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds i8, ptr %9, i64 136
+  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %23) #11
+  %35 = icmp sgt i32 %34, 127
+  br i1 %35, label %79, label %36
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %8, i64 264
-  %36 = getelementptr i8, ptr %21, i64 184
-  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %35, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %36) #11
-  %38 = icmp sgt i32 %37, 127
-  br i1 %38, label %77, label %61
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds i8, ptr %9, i64 264
+  %38 = getelementptr i8, ptr %22, i64 184
+  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %38) #11
+  %40 = icmp sgt i32 %39, 127
+  br i1 %40, label %79, label %63
 
-39:                                               ; preds = %44, %25
-  %40 = phi ptr [ %46, %44 ], [ @.str.4, %25 ]
-  %41 = phi ptr [ %45, %44 ], [ @rsa_asn1_templates, %25 ]
-  %42 = call i32 @strcmp(ptr noundef %28, ptr noundef nonnull dereferenceable(1) %40) #11
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %48, label %44
+41:                                               ; preds = %46, %26
+  %42 = phi ptr [ %48, %46 ], [ @.str.4, %26 ]
+  %43 = phi ptr [ %47, %46 ], [ @rsa_asn1_templates, %26 ]
+  %44 = call i32 @strcmp(ptr noundef %29, ptr noundef nonnull dereferenceable(1) %42) #11
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %50, label %46
 
-44:                                               ; preds = %39
-  %45 = getelementptr i8, ptr %41, i64 24
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %39, !llvm.loop !6
+46:                                               ; preds = %41
+  %47 = getelementptr i8, ptr %43, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %41, !llvm.loop !6
 
-48:                                               ; preds = %44, %39
-  %49 = phi ptr [ %41, %39 ], [ null, %44 ]
-  %50 = getelementptr inbounds i8, ptr %8, i64 568
-  store ptr %49, ptr %50, align 8
-  %51 = icmp eq ptr %49, null
-  br i1 %51, label %77, label %52
+50:                                               ; preds = %46, %41
+  %51 = phi ptr [ %43, %41 ], [ null, %46 ]
+  %52 = getelementptr inbounds i8, ptr %9, i64 568
+  store ptr %51, ptr %52, align 8
+  %53 = icmp eq ptr %51, null
+  br i1 %53, label %79, label %54
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %8, i64 136
-  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %53, i64 noundef 128, ptr noundef nonnull @.str.2, ptr noundef %22, ptr noundef %28) #11
-  %55 = icmp sgt i32 %54, 127
-  br i1 %55, label %77, label %56
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds i8, ptr %9, i64 136
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %55, i64 noundef 128, ptr noundef nonnull @.str.2, ptr noundef %23, ptr noundef %29) #11
+  %57 = icmp sgt i32 %56, 127
+  br i1 %57, label %79, label %58
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %8, i64 264
-  %58 = getelementptr i8, ptr %21, i64 184
-  %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %57, i64 noundef 128, ptr noundef nonnull @.str.2, ptr noundef %58, ptr noundef %28) #11
-  %60 = icmp sgt i32 %59, 127
-  br i1 %60, label %77, label %61
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds i8, ptr %9, i64 264
+  %60 = getelementptr i8, ptr %22, i64 184
+  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %59, i64 noundef 128, ptr noundef nonnull @.str.2, ptr noundef %60, ptr noundef %29) #11
+  %62 = icmp sgt i32 %61, 127
+  br i1 %62, label %79, label %63
 
-61:                                               ; preds = %56, %34
-  %62 = getelementptr i8, ptr %21, i64 48
-  %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %8, i64 8
-  %65 = getelementptr inbounds i8, ptr %8, i64 128
-  store i32 %63, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %8, i64 120
-  store i32 16, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %8, i64 64
-  store ptr @pkcs1pad_init_tfm, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %8, i64 72
-  store ptr @pkcs1pad_exit_tfm, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr @pkcs1pad_encrypt, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr @pkcs1pad_decrypt, ptr %70, align 8
-  store ptr @pkcs1pad_sign, ptr %64, align 8
-  %71 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr @pkcs1pad_verify, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %8, i64 40
-  store ptr @pkcs1pad_set_pub_key, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %8, i64 48
-  store ptr @pkcs1pad_set_priv_key, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %8, i64 56
-  store ptr @pkcs1pad_get_max_size, ptr %74, align 8
-  store ptr @pkcs1pad_free, ptr %8, align 8
-  %75 = call i32 @akcipher_register_instance(ptr noundef %0, ptr noundef nonnull %8) #11
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %79, label %77
+63:                                               ; preds = %58, %36
+  %64 = getelementptr i8, ptr %22, i64 48
+  %65 = load i32, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %9, i64 8
+  %67 = getelementptr inbounds i8, ptr %9, i64 128
+  store i32 %65, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %9, i64 120
+  store i32 16, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %9, i64 64
+  store ptr @pkcs1pad_init_tfm, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %9, i64 72
+  store ptr @pkcs1pad_exit_tfm, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr @pkcs1pad_encrypt, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr @pkcs1pad_decrypt, ptr %72, align 8
+  store ptr @pkcs1pad_sign, ptr %66, align 8
+  %73 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr @pkcs1pad_verify, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %9, i64 40
+  store ptr @pkcs1pad_set_pub_key, ptr %74, align 8
+  %75 = getelementptr inbounds i8, ptr %9, i64 48
+  store ptr @pkcs1pad_set_priv_key, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %9, i64 56
+  store ptr @pkcs1pad_get_max_size, ptr %76, align 8
+  store ptr @pkcs1pad_free, ptr %9, align 8
+  %77 = call i32 @akcipher_register_instance(ptr noundef %0, ptr noundef nonnull %9) #11
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %81, label %79
 
-77:                                               ; preds = %61, %56, %52, %48, %34, %30, %19, %10
-  %78 = phi i32 [ %17, %10 ], [ -36, %30 ], [ -36, %34 ], [ %75, %61 ], [ -36, %52 ], [ -36, %56 ], [ -22, %19 ], [ -22, %48 ]
-  call void @crypto_drop_spawn(ptr noundef %11) #11
-  call void @kfree(ptr noundef nonnull %8) #11
-  br label %79
+79:                                               ; preds = %63, %58, %54, %50, %36, %32, %20, %11
+  %80 = phi i32 [ %18, %11 ], [ -36, %32 ], [ -36, %36 ], [ %77, %63 ], [ -36, %54 ], [ -36, %58 ], [ -22, %20 ], [ -22, %50 ]
+  call void @crypto_drop_spawn(ptr noundef %12) #11
+  call void @kfree(ptr noundef nonnull %9) #11
+  br label %81
 
-79:                                               ; preds = %77, %61, %6, %2
-  %80 = phi i32 [ %4, %2 ], [ -12, %6 ], [ %78, %77 ], [ 0, %61 ]
+81:                                               ; preds = %79, %63, %6, %2
+  %82 = phi i32 [ %4, %2 ], [ -12, %6 ], [ %80, %79 ], [ 0, %63 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
-  ret i32 %80
+  ret i32 %82
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -202,25 +204,26 @@ define internal i32 @pkcs1pad_init_tfm(ptr nocapture noundef %0) #0 align 16 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
   %5 = tail call ptr @crypto_spawn_tfm2(ptr noundef %4) #11
-  %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  br i1 %6, label %7, label %10
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %5, %6
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %1
-  %8 = ptrtoint ptr %5 to i64
-  %9 = trunc i64 %8 to i32
-  br label %14
+8:                                                ; preds = %1
+  %9 = ptrtoint ptr %5 to i64
+  %10 = trunc i64 %9 to i32
+  br label %15
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %5, ptr %11, align 8
-  %12 = load i32, ptr %5, align 8
-  %13 = add i32 %12, 184
-  store i32 %13, ptr %0, align 8
-  br label %14
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %5, ptr %12, align 8
+  %13 = load i32, ptr %5, align 8
+  %14 = add i32 %13, 184
+  store i32 %14, ptr %0, align 8
+  br label %15
 
-14:                                               ; preds = %10, %7
-  %15 = phi i32 [ %9, %7 ], [ 0, %10 ]
-  ret i32 %15
+15:                                               ; preds = %11, %8
+  %16 = phi i32 [ %10, %8 ], [ 0, %11 ]
+  ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -241,14 +244,14 @@ define internal noundef i32 @pkcs1pad_encrypt(ptr noundef %0) #0 align 16 {
   %6 = getelementptr i8, ptr %3, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %124, label %9
+  br i1 %8, label %125, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %7, -11
   %13 = icmp ugt i32 %11, %12
-  br i1 %13, label %124, label %14
+  br i1 %13, label %125, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %0, i64 68
@@ -258,7 +261,7 @@ define internal noundef i32 @pkcs1pad_encrypt(ptr noundef %0) #0 align 16 {
 
 18:                                               ; preds = %14
   store i32 %7, ptr %15, align 4
-  br label %124
+  br label %125
 
 19:                                               ; preds = %14
   %20 = xor i32 %11, -1
@@ -268,7 +271,7 @@ define internal noundef i32 @pkcs1pad_encrypt(ptr noundef %0) #0 align 16 {
   %24 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr %23, ptr %24, align 8
   %25 = icmp eq ptr %23, null
-  br i1 %25, label %124, label %26
+  br i1 %25, label %125, label %26
 
 26:                                               ; preds = %19
   %27 = load i32, ptr %6, align 8
@@ -325,97 +328,98 @@ define internal noundef i32 @pkcs1pad_encrypt(ptr noundef %0) #0 align 16 {
   %64 = inttoptr i64 %63 to ptr
   %65 = ptrtoint ptr %56 to i64
   %66 = add i64 %65, 2147483648
-  %67 = icmp ugt ptr %56, inttoptr (i64 -2147483649 to ptr)
-  %68 = load i64, ptr @phys_base, align 8
-  %69 = load i64, ptr @page_offset_base, align 8
-  %70 = sub i64 -2147483648, %69
-  %71 = select i1 %67, i64 %68, i64 %70
-  %72 = add i64 %66, %71
-  %73 = lshr i64 %72, 12
-  %74 = getelementptr %struct.page, ptr %64, i64 %73
-  %75 = ptrtoint ptr %74 to i64
-  %76 = and i64 %75, 3
-  %77 = icmp eq i64 %76, 0
-  br i1 %77, label %79, label %78, !prof !11
+  %67 = inttoptr i64 -2147483649 to ptr
+  %68 = icmp ugt ptr %56, %67
+  %69 = load i64, ptr @phys_base, align 8
+  %70 = load i64, ptr @page_offset_base, align 8
+  %71 = sub i64 -2147483648, %70
+  %72 = select i1 %68, i64 %69, i64 %71
+  %73 = add i64 %66, %72
+  %74 = lshr i64 %73, 12
+  %75 = getelementptr %struct.page, ptr %64, i64 %74
+  %76 = ptrtoint ptr %75 to i64
+  %77 = and i64 %76, 3
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %80, label %79, !prof !11
 
-78:                                               ; preds = %52
+79:                                               ; preds = %52
   tail call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #11, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 115, i32 0, i64 12) #11, !srcloc !13
   unreachable
 
-79:                                               ; preds = %52
-  %80 = xor i32 %58, -1
-  %81 = add i32 %57, %80
-  %82 = trunc i64 %65 to i32
-  %83 = and i32 %82, 4095
-  %84 = load i64, ptr %5, align 8
-  %85 = and i64 %84, 3
-  %86 = or disjoint i64 %85, %75
-  store i64 %86, ptr %5, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %83, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 %81, ptr %88, align 4
-  br i1 %61, label %98, label %89
+80:                                               ; preds = %52
+  %81 = xor i32 %58, -1
+  %82 = add i32 %57, %81
+  %83 = trunc i64 %65 to i32
+  %84 = and i32 %83, 4095
+  %85 = load i64, ptr %5, align 8
+  %86 = and i64 %85, 3
+  %87 = or disjoint i64 %86, %76
+  store i64 %87, ptr %5, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %84, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 %82, ptr %89, align 4
+  br i1 %61, label %99, label %90
 
-89:                                               ; preds = %79
-  %90 = zext nneg i32 %62 to i64
-  %91 = getelementptr %struct.scatterlist, ptr %5, i64 %90
-  %92 = getelementptr i8, ptr %91, i64 -32
-  %93 = getelementptr i8, ptr %91, i64 -24
-  store i32 0, ptr %93, align 8
-  %94 = getelementptr i8, ptr %91, i64 -20
-  store i32 0, ptr %94, align 4
-  %95 = ptrtoint ptr %60 to i64
-  %96 = and i64 %95, -4
-  %97 = or disjoint i64 %96, 1
-  store i64 %97, ptr %92, align 8
-  br label %98
+90:                                               ; preds = %80
+  %91 = zext nneg i32 %62 to i64
+  %92 = getelementptr %struct.scatterlist, ptr %5, i64 %91
+  %93 = getelementptr i8, ptr %92, i64 -32
+  %94 = getelementptr i8, ptr %92, i64 -24
+  store i32 0, ptr %94, align 8
+  %95 = getelementptr i8, ptr %92, i64 -20
+  store i32 0, ptr %95, align 4
+  %96 = ptrtoint ptr %60 to i64
+  %97 = and i64 %96, -4
+  %98 = or disjoint i64 %97, 1
+  store i64 %98, ptr %93, align 8
+  br label %99
 
-98:                                               ; preds = %89, %79
-  %99 = getelementptr inbounds i8, ptr %0, i64 184
-  %100 = load ptr, ptr %4, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 216
-  store ptr %101, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 40
-  %104 = load i32, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 200
-  store ptr @pkcs1pad_encrypt_sign_complete_cb, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr %0, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 224
-  store i32 %104, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 56
-  %109 = load ptr, ptr %108, align 8
-  %110 = load i32, ptr %6, align 8
-  %111 = add i32 %110, -1
-  %112 = load i32, ptr %15, align 4
-  %113 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr %5, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr %109, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 248
-  store i32 %111, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 252
-  store i32 %112, ptr %116, align 4
-  %117 = getelementptr i8, ptr %100, i64 32
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr i8, ptr %118, i64 -56
-  %120 = load ptr, ptr %119, align 8
-  %121 = tail call i32 %120(ptr noundef %99) #11
-  switch i32 %121, label %122 [
-    i32 -16, label %124
-    i32 -115, label %124
+99:                                               ; preds = %90, %80
+  %100 = getelementptr inbounds i8, ptr %0, i64 184
+  %101 = load ptr, ptr %4, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = getelementptr inbounds i8, ptr %0, i64 216
+  store ptr %102, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %0, i64 40
+  %105 = load i32, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %0, i64 200
+  store ptr @pkcs1pad_encrypt_sign_complete_cb, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %0, i64 208
+  store ptr %0, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 224
+  store i32 %105, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %0, i64 56
+  %110 = load ptr, ptr %109, align 8
+  %111 = load i32, ptr %6, align 8
+  %112 = add i32 %111, -1
+  %113 = load i32, ptr %15, align 4
+  %114 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr %5, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %0, i64 240
+  store ptr %110, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 248
+  store i32 %112, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 252
+  store i32 %113, ptr %117, align 4
+  %118 = getelementptr i8, ptr %101, i64 32
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr i8, ptr %119, i64 -56
+  %121 = load ptr, ptr %120, align 8
+  %122 = tail call i32 %121(ptr noundef %100) #11
+  switch i32 %122, label %123 [
+    i32 -16, label %125
+    i32 -115, label %125
   ]
 
-122:                                              ; preds = %98
-  %123 = tail call fastcc i32 @pkcs1pad_encrypt_sign_complete(ptr noundef %0, i32 noundef %121), !range !14
-  br label %124
+123:                                              ; preds = %99
+  %124 = tail call fastcc i32 @pkcs1pad_encrypt_sign_complete(ptr noundef %0, i32 noundef %122), !range !14
+  br label %125
 
-124:                                              ; preds = %122, %98, %98, %19, %18, %9, %1
-  %125 = phi i32 [ -75, %18 ], [ %123, %122 ], [ -22, %1 ], [ -75, %9 ], [ -12, %19 ], [ %121, %98 ], [ %121, %98 ]
-  ret i32 %125
+125:                                              ; preds = %123, %99, %99, %19, %18, %9, %1
+  %126 = phi i32 [ -75, %18 ], [ %124, %123 ], [ -22, %1 ], [ -75, %9 ], [ -12, %19 ], [ %122, %99 ], [ %122, %99 ]
+  ret i32 %126
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -426,13 +430,13 @@ define internal noundef i32 @pkcs1pad_decrypt(ptr noundef %0) #0 align 16 {
   %5 = getelementptr i8, ptr %3, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %68, label %8
+  br i1 %7, label %69, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %6
-  br i1 %11, label %12, label %68
+  br i1 %11, label %12, label %69
 
 12:                                               ; preds = %8
   %13 = zext i32 %6 to i64
@@ -440,7 +444,7 @@ define internal noundef i32 @pkcs1pad_decrypt(ptr noundef %0) #0 align 16 {
   %15 = getelementptr inbounds i8, ptr %0, i64 176
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
-  br i1 %16, label %68, label %17
+  br i1 %16, label %69, label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %0, i64 136
@@ -450,77 +454,78 @@ define internal noundef i32 @pkcs1pad_decrypt(ptr noundef %0) #0 align 16 {
   %21 = inttoptr i64 %20 to ptr
   %22 = ptrtoint ptr %14 to i64
   %23 = add i64 %22, 2147483648
-  %24 = icmp ugt ptr %14, inttoptr (i64 -2147483649 to ptr)
-  %25 = load i64, ptr @phys_base, align 8
-  %26 = load i64, ptr @page_offset_base, align 8
-  %27 = sub i64 -2147483648, %26
-  %28 = select i1 %24, i64 %25, i64 %27
-  %29 = add i64 %23, %28
-  %30 = lshr i64 %29, 12
-  %31 = getelementptr %struct.page, ptr %21, i64 %30
-  %32 = ptrtoint ptr %31 to i64
-  %33 = and i64 %32, 3
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %36, label %35, !prof !11
+  %24 = inttoptr i64 -2147483649 to ptr
+  %25 = icmp ugt ptr %14, %24
+  %26 = load i64, ptr @phys_base, align 8
+  %27 = load i64, ptr @page_offset_base, align 8
+  %28 = sub i64 -2147483648, %27
+  %29 = select i1 %25, i64 %26, i64 %28
+  %30 = add i64 %23, %29
+  %31 = lshr i64 %30, 12
+  %32 = getelementptr %struct.page, ptr %21, i64 %31
+  %33 = ptrtoint ptr %32 to i64
+  %34 = and i64 %33, 3
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %37, label %36, !prof !11
 
-35:                                               ; preds = %17
+36:                                               ; preds = %17
   tail call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #11, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 115, i32 0, i64 12) #11, !srcloc !13
   unreachable
 
-36:                                               ; preds = %17
-  %37 = trunc i64 %22 to i32
-  %38 = and i32 %37, 4088
-  %39 = load i64, ptr %18, align 8
-  %40 = and i64 %39, 3
-  %41 = or disjoint i64 %40, %32
-  store i64 %41, ptr %18, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %38, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 %19, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 184
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 216
-  store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
-  %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 200
-  store ptr @pkcs1pad_decrypt_complete_cb, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr %0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 224
-  store i32 %49, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 48
-  %54 = load ptr, ptr %53, align 8
-  %55 = load i32, ptr %9, align 8
-  %56 = load i32, ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr %54, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr %18, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 248
-  store i32 %55, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 252
-  store i32 %56, ptr %60, align 4
-  %61 = getelementptr i8, ptr %45, i64 32
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr i8, ptr %62, i64 -48
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call i32 %64(ptr noundef %44) #11
-  switch i32 %65, label %66 [
-    i32 -16, label %68
-    i32 -115, label %68
+37:                                               ; preds = %17
+  %38 = trunc i64 %22 to i32
+  %39 = and i32 %38, 4088
+  %40 = load i64, ptr %18, align 8
+  %41 = and i64 %40, 3
+  %42 = or disjoint i64 %41, %33
+  store i64 %42, ptr %18, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 %39, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 %19, ptr %44, align 4
+  %45 = getelementptr inbounds i8, ptr %0, i64 184
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 216
+  store ptr %47, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %50 = load i32, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 200
+  store ptr @pkcs1pad_decrypt_complete_cb, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 208
+  store ptr %0, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 224
+  store i32 %50, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %55 = load ptr, ptr %54, align 8
+  %56 = load i32, ptr %9, align 8
+  %57 = load i32, ptr %5, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr %55, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 240
+  store ptr %18, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 248
+  store i32 %56, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 252
+  store i32 %57, ptr %61, align 4
+  %62 = getelementptr i8, ptr %46, i64 32
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr i8, ptr %63, i64 -48
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call i32 %65(ptr noundef %45) #11
+  switch i32 %66, label %67 [
+    i32 -16, label %69
+    i32 -115, label %69
   ]
 
-66:                                               ; preds = %36
-  %67 = tail call fastcc i32 @pkcs1pad_decrypt_complete(ptr noundef %0, i32 noundef %65), !range !14
-  br label %68
+67:                                               ; preds = %37
+  %68 = tail call fastcc i32 @pkcs1pad_decrypt_complete(ptr noundef %0, i32 noundef %66), !range !14
+  br label %69
 
-68:                                               ; preds = %66, %36, %36, %12, %8, %1
-  %69 = phi i32 [ %67, %66 ], [ -22, %8 ], [ -22, %1 ], [ -12, %12 ], [ %65, %36 ], [ %65, %36 ]
-  ret i32 %69
+69:                                               ; preds = %67, %37, %37, %12, %8, %1
+  %70 = phi i32 [ %68, %67 ], [ -22, %8 ], [ -22, %1 ], [ -12, %12 ], [ %66, %37 ], [ %66, %37 ]
+  ret i32 %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -536,7 +541,7 @@ define internal noundef i32 @pkcs1pad_sign(ptr noundef %0) #0 align 16 {
   %10 = getelementptr i8, ptr %3, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %124, label %13
+  br i1 %12, label %125, label %13
 
 13:                                               ; preds = %1
   %14 = icmp eq ptr %9, null
@@ -555,7 +560,7 @@ define internal noundef i32 @pkcs1pad_sign(ptr noundef %0) #0 align 16 {
   %23 = add i32 %22, %20
   %24 = add i32 %11, -11
   %25 = icmp ugt i32 %23, %24
-  br i1 %25, label %124, label %26
+  br i1 %25, label %125, label %26
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds i8, ptr %0, i64 68
@@ -565,7 +570,7 @@ define internal noundef i32 @pkcs1pad_sign(ptr noundef %0) #0 align 16 {
 
 30:                                               ; preds = %26
   store i32 %11, ptr %27, align 4
-  br label %124
+  br label %125
 
 31:                                               ; preds = %26
   %32 = xor i32 %22, -1
@@ -575,7 +580,7 @@ define internal noundef i32 @pkcs1pad_sign(ptr noundef %0) #0 align 16 {
   %36 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr %35, ptr %36, align 8
   %37 = icmp eq ptr %35, null
-  br i1 %37, label %124, label %38
+  br i1 %37, label %125, label %38
 
 38:                                               ; preds = %31
   %39 = load i32, ptr %10, align 8
@@ -615,97 +620,98 @@ define internal noundef i32 @pkcs1pad_sign(ptr noundef %0) #0 align 16 {
   %64 = inttoptr i64 %63 to ptr
   %65 = ptrtoint ptr %56 to i64
   %66 = add i64 %65, 2147483648
-  %67 = icmp ugt ptr %56, inttoptr (i64 -2147483649 to ptr)
-  %68 = load i64, ptr @phys_base, align 8
-  %69 = load i64, ptr @page_offset_base, align 8
-  %70 = sub i64 -2147483648, %69
-  %71 = select i1 %67, i64 %68, i64 %70
-  %72 = add i64 %66, %71
-  %73 = lshr i64 %72, 12
-  %74 = getelementptr %struct.page, ptr %64, i64 %73
-  %75 = ptrtoint ptr %74 to i64
-  %76 = and i64 %75, 3
-  %77 = icmp eq i64 %76, 0
-  br i1 %77, label %79, label %78, !prof !11
+  %67 = inttoptr i64 -2147483649 to ptr
+  %68 = icmp ugt ptr %56, %67
+  %69 = load i64, ptr @phys_base, align 8
+  %70 = load i64, ptr @page_offset_base, align 8
+  %71 = sub i64 -2147483648, %70
+  %72 = select i1 %68, i64 %69, i64 %71
+  %73 = add i64 %66, %72
+  %74 = lshr i64 %73, 12
+  %75 = getelementptr %struct.page, ptr %64, i64 %74
+  %76 = ptrtoint ptr %75 to i64
+  %77 = and i64 %76, 3
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %80, label %79, !prof !11
 
-78:                                               ; preds = %55
+79:                                               ; preds = %55
   tail call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #11, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 115, i32 0, i64 12) #11, !srcloc !13
   unreachable
 
-79:                                               ; preds = %55
-  %80 = xor i32 %58, -1
-  %81 = add i32 %57, %80
-  %82 = trunc i64 %65 to i32
-  %83 = and i32 %82, 4095
-  %84 = load i64, ptr %5, align 8
-  %85 = and i64 %84, 3
-  %86 = or disjoint i64 %85, %75
-  store i64 %86, ptr %5, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %83, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 %81, ptr %88, align 4
-  br i1 %61, label %98, label %89
+80:                                               ; preds = %55
+  %81 = xor i32 %58, -1
+  %82 = add i32 %57, %81
+  %83 = trunc i64 %65 to i32
+  %84 = and i32 %83, 4095
+  %85 = load i64, ptr %5, align 8
+  %86 = and i64 %85, 3
+  %87 = or disjoint i64 %86, %76
+  store i64 %87, ptr %5, align 8
+  %88 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %84, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 %82, ptr %89, align 4
+  br i1 %61, label %99, label %90
 
-89:                                               ; preds = %79
-  %90 = zext nneg i32 %62 to i64
-  %91 = getelementptr %struct.scatterlist, ptr %5, i64 %90
-  %92 = getelementptr i8, ptr %91, i64 -32
-  %93 = getelementptr i8, ptr %91, i64 -24
-  store i32 0, ptr %93, align 8
-  %94 = getelementptr i8, ptr %91, i64 -20
-  store i32 0, ptr %94, align 4
-  %95 = ptrtoint ptr %60 to i64
-  %96 = and i64 %95, -4
-  %97 = or disjoint i64 %96, 1
-  store i64 %97, ptr %92, align 8
-  br label %98
+90:                                               ; preds = %80
+  %91 = zext nneg i32 %62 to i64
+  %92 = getelementptr %struct.scatterlist, ptr %5, i64 %91
+  %93 = getelementptr i8, ptr %92, i64 -32
+  %94 = getelementptr i8, ptr %92, i64 -24
+  store i32 0, ptr %94, align 8
+  %95 = getelementptr i8, ptr %92, i64 -20
+  store i32 0, ptr %95, align 4
+  %96 = ptrtoint ptr %60 to i64
+  %97 = and i64 %96, -4
+  %98 = or disjoint i64 %97, 1
+  store i64 %98, ptr %93, align 8
+  br label %99
 
-98:                                               ; preds = %89, %79
-  %99 = getelementptr inbounds i8, ptr %0, i64 184
-  %100 = load ptr, ptr %4, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 216
-  store ptr %101, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 40
-  %104 = load i32, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 200
-  store ptr @pkcs1pad_encrypt_sign_complete_cb, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr %0, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 224
-  store i32 %104, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 56
-  %109 = load ptr, ptr %108, align 8
-  %110 = load i32, ptr %10, align 8
-  %111 = add i32 %110, -1
-  %112 = load i32, ptr %27, align 4
-  %113 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr %5, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr %109, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 248
-  store i32 %111, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 252
-  store i32 %112, ptr %116, align 4
-  %117 = getelementptr i8, ptr %100, i64 32
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr i8, ptr %118, i64 -48
-  %120 = load ptr, ptr %119, align 8
-  %121 = tail call i32 %120(ptr noundef %99) #11
-  switch i32 %121, label %122 [
-    i32 -16, label %124
-    i32 -115, label %124
+99:                                               ; preds = %90, %80
+  %100 = getelementptr inbounds i8, ptr %0, i64 184
+  %101 = load ptr, ptr %4, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = getelementptr inbounds i8, ptr %0, i64 216
+  store ptr %102, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %0, i64 40
+  %105 = load i32, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %0, i64 200
+  store ptr @pkcs1pad_encrypt_sign_complete_cb, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %0, i64 208
+  store ptr %0, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 224
+  store i32 %105, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %0, i64 56
+  %110 = load ptr, ptr %109, align 8
+  %111 = load i32, ptr %10, align 8
+  %112 = add i32 %111, -1
+  %113 = load i32, ptr %27, align 4
+  %114 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr %5, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %0, i64 240
+  store ptr %110, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 248
+  store i32 %112, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 252
+  store i32 %113, ptr %117, align 4
+  %118 = getelementptr i8, ptr %101, i64 32
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr i8, ptr %119, i64 -48
+  %121 = load ptr, ptr %120, align 8
+  %122 = tail call i32 %121(ptr noundef %100) #11
+  switch i32 %122, label %123 [
+    i32 -16, label %125
+    i32 -115, label %125
   ]
 
-122:                                              ; preds = %98
-  %123 = tail call fastcc i32 @pkcs1pad_encrypt_sign_complete(ptr noundef %0, i32 noundef %121), !range !14
-  br label %124
+123:                                              ; preds = %99
+  %124 = tail call fastcc i32 @pkcs1pad_encrypt_sign_complete(ptr noundef %0, i32 noundef %122), !range !14
+  br label %125
 
-124:                                              ; preds = %122, %98, %98, %31, %30, %19, %1
-  %125 = phi i32 [ -75, %30 ], [ %123, %122 ], [ -22, %1 ], [ -75, %19 ], [ -12, %31 ], [ %121, %98 ], [ %121, %98 ]
-  ret i32 %125
+125:                                              ; preds = %123, %99, %99, %31, %30, %19, %1
+  %126 = phi i32 [ -75, %30 ], [ %124, %123 ], [ -22, %1 ], [ -75, %19 ], [ -12, %31 ], [ %122, %99 ], [ %122, %99 ]
+  ret i32 %126
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -726,7 +732,7 @@ define internal i32 @pkcs1pad_verify(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "344: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 344b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 344) #11, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 560, i32 2305, i64 12) #11, !srcloc !16
   tail call void asm sideeffect "345: nop\0A\09.pushsection .discard.instr_end\0A\09.long 345b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 345) #11, !srcloc !17
-  br label %78
+  br label %79
 
 13:                                               ; preds = %1
   %14 = icmp eq i32 %8, 0
@@ -736,7 +742,7 @@ define internal i32 @pkcs1pad_verify(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "346: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 346b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 346) #11, !srcloc !18
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 560, i32 2305, i64 12) #11, !srcloc !19
   tail call void asm sideeffect "347: nop\0A\09.pushsection .discard.instr_end\0A\09.long 347b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 347) #11, !srcloc !20
-  br label %78
+  br label %79
 
 16:                                               ; preds = %13
   %17 = getelementptr i8, ptr %3, i64 40
@@ -744,7 +750,7 @@ define internal i32 @pkcs1pad_verify(ptr noundef %0) #0 align 16 {
   %19 = icmp ne i32 %18, 0
   %20 = icmp eq i32 %6, %18
   %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %22, label %78
+  br i1 %21, label %22, label %79
 
 22:                                               ; preds = %16
   %23 = add i32 %18, %8
@@ -753,7 +759,7 @@ define internal i32 @pkcs1pad_verify(ptr noundef %0) #0 align 16 {
   %26 = getelementptr inbounds i8, ptr %0, i64 176
   store ptr %25, ptr %26, align 8
   %27 = icmp eq ptr %25, null
-  br i1 %27, label %78, label %28
+  br i1 %27, label %79, label %28
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds i8, ptr %0, i64 136
@@ -763,76 +769,77 @@ define internal i32 @pkcs1pad_verify(ptr noundef %0) #0 align 16 {
   %32 = inttoptr i64 %31 to ptr
   %33 = ptrtoint ptr %25 to i64
   %34 = add i64 %33, 2147483648
-  %35 = icmp ugt ptr %25, inttoptr (i64 -2147483649 to ptr)
-  %36 = load i64, ptr @phys_base, align 8
-  %37 = load i64, ptr @page_offset_base, align 8
-  %38 = sub i64 -2147483648, %37
-  %39 = select i1 %35, i64 %36, i64 %38
-  %40 = add i64 %34, %39
-  %41 = lshr i64 %40, 12
-  %42 = getelementptr %struct.page, ptr %32, i64 %41
-  %43 = ptrtoint ptr %42 to i64
-  %44 = and i64 %43, 3
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %47, label %46, !prof !11
+  %35 = inttoptr i64 -2147483649 to ptr
+  %36 = icmp ugt ptr %25, %35
+  %37 = load i64, ptr @phys_base, align 8
+  %38 = load i64, ptr @page_offset_base, align 8
+  %39 = sub i64 -2147483648, %38
+  %40 = select i1 %36, i64 %37, i64 %39
+  %41 = add i64 %34, %40
+  %42 = lshr i64 %41, 12
+  %43 = getelementptr %struct.page, ptr %32, i64 %42
+  %44 = ptrtoint ptr %43 to i64
+  %45 = and i64 %44, 3
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %48, label %47, !prof !11
 
-46:                                               ; preds = %28
+47:                                               ; preds = %28
   tail call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #11, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 115, i32 0, i64 12) #11, !srcloc !13
   unreachable
 
-47:                                               ; preds = %28
-  %48 = trunc i64 %33 to i32
-  %49 = and i32 %48, 4088
-  %50 = load i64, ptr %29, align 8
-  %51 = and i64 %50, 3
-  %52 = or disjoint i64 %51, %43
-  store i64 %52, ptr %29, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %49, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 %30, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 184
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 216
-  store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
-  %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 200
-  store ptr @pkcs1pad_verify_complete_cb, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr %0, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 224
-  store i32 %60, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 48
-  %65 = load ptr, ptr %64, align 8
-  %66 = load i32, ptr %17, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr %65, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr %29, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 248
-  store i32 %6, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 252
-  store i32 %66, ptr %70, align 4
-  %71 = getelementptr i8, ptr %56, i64 32
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr i8, ptr %72, i64 -56
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 %74(ptr noundef %55) #11
-  switch i32 %75, label %76 [
-    i32 -16, label %78
-    i32 -115, label %78
+48:                                               ; preds = %28
+  %49 = trunc i64 %33 to i32
+  %50 = and i32 %49, 4088
+  %51 = load i64, ptr %29, align 8
+  %52 = and i64 %51, 3
+  %53 = or disjoint i64 %52, %44
+  store i64 %53, ptr %29, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 %50, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 %30, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %0, i64 184
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 216
+  store ptr %58, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 40
+  %61 = load i32, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 200
+  store ptr @pkcs1pad_verify_complete_cb, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 208
+  store ptr %0, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 224
+  store i32 %61, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 48
+  %66 = load ptr, ptr %65, align 8
+  %67 = load i32, ptr %17, align 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr %66, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 240
+  store ptr %29, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %0, i64 248
+  store i32 %6, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %0, i64 252
+  store i32 %67, ptr %71, align 4
+  %72 = getelementptr i8, ptr %57, i64 32
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr i8, ptr %73, i64 -56
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call i32 %75(ptr noundef %56) #11
+  switch i32 %76, label %77 [
+    i32 -16, label %79
+    i32 -115, label %79
   ]
 
-76:                                               ; preds = %47
-  %77 = tail call fastcc i32 @pkcs1pad_verify_complete(ptr noundef %0, i32 noundef %75), !range !14
-  br label %78
+77:                                               ; preds = %48
+  %78 = tail call fastcc i32 @pkcs1pad_verify_complete(ptr noundef %0, i32 noundef %76), !range !14
+  br label %79
 
-78:                                               ; preds = %76, %47, %47, %22, %16, %15, %12
-  %79 = phi i32 [ %77, %76 ], [ -22, %16 ], [ -22, %15 ], [ -22, %12 ], [ -12, %22 ], [ %75, %47 ], [ %75, %47 ]
-  ret i32 %79
+79:                                               ; preds = %77, %48, %48, %22, %16, %15, %12
+  %80 = phi i32 [ %78, %77 ], [ -22, %16 ], [ -22, %15 ], [ -22, %12 ], [ -12, %22 ], [ %76, %48 ], [ %76, %48 ]
+  ret i32 %80
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

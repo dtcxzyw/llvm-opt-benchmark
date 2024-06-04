@@ -159,87 +159,91 @@ entry:
   %0 = load i32, ptr @hexblep, align 8
   store i32 %0, ptr %bw, align 4
   %1 = load float, ptr %time_since_transition.addr, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i32 0, i32 1), align 4
-  %conv = sitofp i32 %2 to float
+  %2 = getelementptr inbounds %struct.anon, ptr @hexblep, i32 0, i32 1
+  %3 = load i32, ptr %2, align 4
+  %conv = sitofp i32 %3 to float
   %mul = fmul float %1, %conv
   %conv1 = fptosi float %mul to i32
   store i32 %conv1, ptr %slot, align 4
-  %3 = load i32, ptr %slot, align 4
-  %4 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i32 0, i32 1), align 4
-  %cmp = icmp sge i32 %3, %4
+  %4 = load i32, ptr %slot, align 4
+  %5 = getelementptr inbounds %struct.anon, ptr @hexblep, i32 0, i32 1
+  %6 = load i32, ptr %5, align 4
+  %cmp = icmp sge i32 %4, %6
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %5 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i32 0, i32 1), align 4
-  %sub = sub nsw i32 %5, 1
+  %7 = getelementptr inbounds %struct.anon, ptr @hexblep, i32 0, i32 1
+  %8 = load i32, ptr %7, align 4
+  %sub = sub nsw i32 %8, 1
   store i32 %sub, ptr %slot, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %6 = load ptr, ptr %data.addr, align 8
-  %7 = load i32, ptr %slot, align 4
-  %8 = load i32, ptr %bw, align 4
-  %mul3 = mul nsw i32 %7, %8
-  %idxprom = sext i32 %mul3 to i64
-  %arrayidx = getelementptr inbounds float, ptr %6, i64 %idxprom
-  store ptr %arrayidx, ptr %d1, align 8
   %9 = load ptr, ptr %data.addr, align 8
   %10 = load i32, ptr %slot, align 4
-  %add = add nsw i32 %10, 1
   %11 = load i32, ptr %bw, align 4
-  %mul4 = mul nsw i32 %add, %11
+  %mul3 = mul nsw i32 %10, %11
+  %idxprom = sext i32 %mul3 to i64
+  %arrayidx = getelementptr inbounds float, ptr %9, i64 %idxprom
+  store ptr %arrayidx, ptr %d1, align 8
+  %12 = load ptr, ptr %data.addr, align 8
+  %13 = load i32, ptr %slot, align 4
+  %add = add nsw i32 %13, 1
+  %14 = load i32, ptr %bw, align 4
+  %mul4 = mul nsw i32 %add, %14
   %idxprom5 = sext i32 %mul4 to i64
-  %arrayidx6 = getelementptr inbounds float, ptr %9, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds float, ptr %12, i64 %idxprom5
   store ptr %arrayidx6, ptr %d2, align 8
-  %12 = load float, ptr %time_since_transition.addr, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i32 0, i32 1), align 4
-  %conv7 = sitofp i32 %13 to float
-  %14 = load i32, ptr %slot, align 4
-  %conv9 = sitofp i32 %14 to float
+  %15 = load float, ptr %time_since_transition.addr, align 4
+  %16 = getelementptr inbounds %struct.anon, ptr @hexblep, i32 0, i32 1
+  %17 = load i32, ptr %16, align 4
+  %conv7 = sitofp i32 %17 to float
+  %18 = load i32, ptr %slot, align 4
+  %conv9 = sitofp i32 %18 to float
   %neg = fneg float %conv9
-  %15 = call float @llvm.fmuladd.f32(float %12, float %conv7, float %neg)
-  store float %15, ptr %lerpweight, align 4
+  %19 = call float @llvm.fmuladd.f32(float %15, float %conv7, float %neg)
+  store float %19, ptr %lerpweight, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %16 = load i32, ptr %i, align 4
-  %17 = load i32, ptr %bw, align 4
-  %cmp10 = icmp slt i32 %16, %17
+  %20 = load i32, ptr %i, align 4
+  %21 = load i32, ptr %bw, align 4
+  %cmp10 = icmp slt i32 %20, %21
   br i1 %cmp10, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %18 = load float, ptr %scale.addr, align 4
-  %19 = load ptr, ptr %d1, align 8
-  %20 = load i32, ptr %i, align 4
-  %idxprom12 = sext i32 %20 to i64
-  %arrayidx13 = getelementptr inbounds float, ptr %19, i64 %idxprom12
-  %21 = load float, ptr %arrayidx13, align 4
-  %22 = load ptr, ptr %d2, align 8
-  %23 = load i32, ptr %i, align 4
-  %idxprom14 = sext i32 %23 to i64
-  %arrayidx15 = getelementptr inbounds float, ptr %22, i64 %idxprom14
-  %24 = load float, ptr %arrayidx15, align 4
-  %25 = load ptr, ptr %d1, align 8
-  %26 = load i32, ptr %i, align 4
-  %idxprom16 = sext i32 %26 to i64
-  %arrayidx17 = getelementptr inbounds float, ptr %25, i64 %idxprom16
-  %27 = load float, ptr %arrayidx17, align 4
-  %sub18 = fsub float %24, %27
-  %28 = load float, ptr %lerpweight, align 4
-  %29 = call float @llvm.fmuladd.f32(float %sub18, float %28, float %21)
-  %30 = load ptr, ptr %output.addr, align 8
-  %31 = load i32, ptr %i, align 4
-  %idxprom21 = sext i32 %31 to i64
-  %arrayidx22 = getelementptr inbounds float, ptr %30, i64 %idxprom21
-  %32 = load float, ptr %arrayidx22, align 4
-  %33 = call float @llvm.fmuladd.f32(float %18, float %29, float %32)
-  store float %33, ptr %arrayidx22, align 4
+  %22 = load float, ptr %scale.addr, align 4
+  %23 = load ptr, ptr %d1, align 8
+  %24 = load i32, ptr %i, align 4
+  %idxprom12 = sext i32 %24 to i64
+  %arrayidx13 = getelementptr inbounds float, ptr %23, i64 %idxprom12
+  %25 = load float, ptr %arrayidx13, align 4
+  %26 = load ptr, ptr %d2, align 8
+  %27 = load i32, ptr %i, align 4
+  %idxprom14 = sext i32 %27 to i64
+  %arrayidx15 = getelementptr inbounds float, ptr %26, i64 %idxprom14
+  %28 = load float, ptr %arrayidx15, align 4
+  %29 = load ptr, ptr %d1, align 8
+  %30 = load i32, ptr %i, align 4
+  %idxprom16 = sext i32 %30 to i64
+  %arrayidx17 = getelementptr inbounds float, ptr %29, i64 %idxprom16
+  %31 = load float, ptr %arrayidx17, align 4
+  %sub18 = fsub float %28, %31
+  %32 = load float, ptr %lerpweight, align 4
+  %33 = call float @llvm.fmuladd.f32(float %sub18, float %32, float %25)
+  %34 = load ptr, ptr %output.addr, align 8
+  %35 = load i32, ptr %i, align 4
+  %idxprom21 = sext i32 %35 to i64
+  %arrayidx22 = getelementptr inbounds float, ptr %34, i64 %idxprom21
+  %36 = load float, ptr %arrayidx22, align 4
+  %37 = call float @llvm.fmuladd.f32(float %22, float %33, float %36)
+  store float %37, ptr %arrayidx22, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %34 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %34, 1
+  %38 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %38, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
@@ -262,8 +266,9 @@ entry:
   %0 = load ptr, ptr %output.addr, align 8
   %1 = load float, ptr %time_since_transition.addr, align 4
   %2 = load float, ptr %scale.addr, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i32 0, i32 2), align 8
-  call void @hex_add_oversampled_bleplike(ptr noundef %0, float noundef %1, float noundef %2, ptr noundef %3)
+  %3 = getelementptr inbounds %struct.anon, ptr @hexblep, i32 0, i32 2
+  %4 = load ptr, ptr %3, align 8
+  call void @hex_add_oversampled_bleplike(ptr noundef %0, float noundef %1, float noundef %2, ptr noundef %4)
   ret void
 }
 
@@ -279,8 +284,9 @@ entry:
   %0 = load ptr, ptr %output.addr, align 8
   %1 = load float, ptr %time_since_transition.addr, align 4
   %2 = load float, ptr %scale.addr, align 4
-  %3 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i32 0, i32 3), align 8
-  call void @hex_add_oversampled_bleplike(ptr noundef %0, float noundef %1, float noundef %2, ptr noundef %3)
+  %3 = getelementptr inbounds %struct.anon, ptr @hexblep, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  call void @hex_add_oversampled_bleplike(ptr noundef %0, float noundef %1, float noundef %2, ptr noundef %4)
   ret void
 }
 
@@ -1322,10 +1328,12 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i32 0, i32 2), align 8
-  call void @free(ptr noundef %1) #6
-  %2 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i32 0, i32 3), align 8
+  %1 = getelementptr inbounds %struct.anon, ptr @hexblep, i32 0, i32 2
+  %2 = load ptr, ptr %1, align 8
   call void @free(ptr noundef %2) #6
+  %3 = getelementptr inbounds %struct.anon, ptr @hexblep, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %4) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1797,20 +1805,23 @@ for.inc167:                                       ; preds = %for.end166
 
 for.end169:                                       ; preds = %for.cond133
   %124 = load ptr, ptr %blep_buffer, align 8
-  store ptr %124, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i32 0, i32 2), align 8
-  %125 = load ptr, ptr %blamp_buffer, align 8
-  store ptr %125, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i32 0, i32 3), align 8
-  %126 = load i32, ptr %width.addr, align 4
-  store i32 %126, ptr @hexblep, align 8
-  %127 = load i32, ptr %oversample.addr, align 4
-  store i32 %127, ptr getelementptr inbounds (%struct.anon, ptr @hexblep, i32 0, i32 1), align 4
-  %128 = load ptr, ptr %user_buffer.addr, align 8
-  %cmp170 = icmp eq ptr %128, null
+  %125 = getelementptr inbounds %struct.anon, ptr @hexblep, i32 0, i32 2
+  store ptr %124, ptr %125, align 8
+  %126 = load ptr, ptr %blamp_buffer, align 8
+  %127 = getelementptr inbounds %struct.anon, ptr @hexblep, i32 0, i32 3
+  store ptr %126, ptr %127, align 8
+  %128 = load i32, ptr %width.addr, align 4
+  store i32 %128, ptr @hexblep, align 8
+  %129 = load i32, ptr %oversample.addr, align 4
+  %130 = getelementptr inbounds %struct.anon, ptr @hexblep, i32 0, i32 1
+  store i32 %129, ptr %130, align 4
+  %131 = load ptr, ptr %user_buffer.addr, align 8
+  %cmp170 = icmp eq ptr %131, null
   br i1 %cmp170, label %if.then172, label %if.end173
 
 if.then172:                                       ; preds = %for.end169
-  %129 = load ptr, ptr %buffers, align 8
-  call void @free(ptr noundef %129) #6
+  %132 = load ptr, ptr %buffers, align 8
+  call void @free(ptr noundef %132) #6
   br label %if.end173
 
 if.end173:                                        ; preds = %if.then172, %for.end169

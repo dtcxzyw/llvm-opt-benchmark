@@ -265,39 +265,40 @@ define void @nxtask_uninit(ptr noundef %0) #0 {
 22:                                               ; preds = %18, %16
   %23 = load ptr, ptr %5, align 8
   %24 = icmp ne ptr %23, null
-  br i1 %24, label %27, label %25
+  br i1 %24, label %28, label %25
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %4, align 8
-  store ptr %26, ptr getelementptr inbounds (%struct.dq_queue_s, ptr @g_inactivetasks, i32 0, i32 1), align 8
-  br label %31
+  %27 = getelementptr inbounds %struct.dq_queue_s, ptr @g_inactivetasks, i32 0, i32 1
+  store ptr %26, ptr %27, align 8
+  br label %32
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.dq_entry_s, ptr %29, i32 0, i32 1
-  store ptr %28, ptr %30, align 8
-  br label %31
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %4, align 8
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds %struct.dq_entry_s, ptr %30, i32 0, i32 1
+  store ptr %29, ptr %31, align 8
+  br label %32
 
-31:                                               ; preds = %27, %25
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.dq_entry_s, ptr %32, i32 0, i32 0
-  store ptr null, ptr %33, align 8
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.dq_entry_s, ptr %34, i32 0, i32 1
-  store ptr null, ptr %35, align 8
-  br label %36
+32:                                               ; preds = %28, %25
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds %struct.dq_entry_s, ptr %33, i32 0, i32 0
+  store ptr null, ptr %34, align 8
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds %struct.dq_entry_s, ptr %35, i32 0, i32 1
+  store ptr null, ptr %36, align 8
+  br label %37
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %2, align 8
+37:                                               ; preds = %32
   %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.task_tcb_s, ptr %38, i32 0, i32 0
-  %40 = getelementptr inbounds %struct.tcb_s, ptr %39, i32 0, i32 12
-  %41 = load i16, ptr %40, align 16
-  %42 = zext i16 %41 to i32
-  %43 = and i32 %42, 3
-  %44 = trunc i32 %43 to i8
-  %45 = call i32 @nxsched_release_tcb(ptr noundef %37, i8 noundef zeroext %44)
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds %struct.task_tcb_s, ptr %39, i32 0, i32 0
+  %41 = getelementptr inbounds %struct.tcb_s, ptr %40, i32 0, i32 12
+  %42 = load i16, ptr %41, align 16
+  %43 = zext i16 %42 to i32
+  %44 = and i32 %43, 3
+  %45 = trunc i32 %44 to i8
+  %46 = call i32 @nxsched_release_tcb(ptr noundef %38, i8 noundef zeroext %45)
   ret void
 }
 

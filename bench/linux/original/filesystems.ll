@@ -202,141 +202,142 @@ define dso_local i64 @__x64_sys_sysfs(ptr nocapture noundef readonly %0) local_u
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @__se_sys_sysfs(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = trunc i64 %0 to i32
-  switch i32 %4, label %78 [
+  switch i32 %4, label %79 [
     i32 1, label %5
-    i32 2, label %30
-    i32 3, label %66
+    i32 2, label %31
+    i32 3, label %67
   ]
 
 5:                                                ; preds = %3
   %6 = inttoptr i64 %1 to ptr
   %7 = tail call ptr @getname(ptr noundef %6) #6
-  %8 = icmp ugt ptr %7, inttoptr (i64 -4096 to ptr)
-  br i1 %8, label %9, label %12
+  %8 = inttoptr i64 -4096 to ptr
+  %9 = icmp ugt ptr %7, %8
+  br i1 %9, label %10, label %13
 
-9:                                                ; preds = %5
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  br label %78
+10:                                               ; preds = %5
+  %11 = ptrtoint ptr %7 to i64
+  %12 = trunc i64 %11 to i32
+  br label %79
 
-12:                                               ; preds = %5
+13:                                               ; preds = %5
   tail call void @_raw_read_lock(ptr noundef nonnull @file_systems_lock) #6
-  %13 = load ptr, ptr @file_systems, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %28, label %15
+  %14 = load ptr, ptr @file_systems, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %29, label %16
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %7, align 8
-  br label %17
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %7, align 8
+  br label %18
 
-17:                                               ; preds = %23, %15
-  %18 = phi ptr [ %13, %15 ], [ %26, %23 ]
-  %19 = phi i32 [ 0, %15 ], [ %25, %23 ]
-  %20 = load ptr, ptr %18, align 8
-  %21 = tail call i32 @strcmp(ptr noundef %20, ptr noundef %16) #6
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %28, label %23
+18:                                               ; preds = %24, %16
+  %19 = phi ptr [ %14, %16 ], [ %27, %24 ]
+  %20 = phi i32 [ 0, %16 ], [ %26, %24 ]
+  %21 = load ptr, ptr %19, align 8
+  %22 = tail call i32 @strcmp(ptr noundef %21, ptr noundef %17) #6
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %29, label %24
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %18, i64 56
-  %25 = add i32 %19, 1
-  %26 = load ptr, ptr %24, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %17, !llvm.loop !13
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %19, i64 56
+  %26 = add i32 %20, 1
+  %27 = load ptr, ptr %25, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %18, !llvm.loop !13
 
-28:                                               ; preds = %23, %17, %12
-  %29 = phi i32 [ -22, %12 ], [ -22, %23 ], [ %19, %17 ]
+29:                                               ; preds = %24, %18, %13
+  %30 = phi i32 [ -22, %13 ], [ -22, %24 ], [ %20, %18 ]
   tail call void @_raw_read_unlock(ptr noundef nonnull @file_systems_lock) #6
   tail call void @putname(ptr noundef %7) #6
-  br label %78
+  br label %79
 
-30:                                               ; preds = %3
-  %31 = inttoptr i64 %2 to ptr
+31:                                               ; preds = %3
+  %32 = inttoptr i64 %2 to ptr
   tail call void @_raw_read_lock(ptr noundef nonnull @file_systems_lock) #6
-  %32 = load ptr, ptr @file_systems, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %57, label %34
+  %33 = load ptr, ptr @file_systems, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %58, label %35
 
-34:                                               ; preds = %30
-  %35 = trunc i64 %1 to i32
-  br label %36
+35:                                               ; preds = %31
+  %36 = trunc i64 %1 to i32
+  br label %37
 
-36:                                               ; preds = %44, %34
-  %37 = phi ptr [ %47, %44 ], [ %32, %34 ]
-  %38 = phi i32 [ %46, %44 ], [ %35, %34 ]
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %44
+37:                                               ; preds = %45, %35
+  %38 = phi ptr [ %48, %45 ], [ %33, %35 ]
+  %39 = phi i32 [ %47, %45 ], [ %36, %35 ]
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %45
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %37, i64 48
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call zeroext i1 @try_module_get(ptr noundef %42) #6
-  br i1 %43, label %49, label %44
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds i8, ptr %38, i64 48
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call zeroext i1 @try_module_get(ptr noundef %43) #6
+  br i1 %44, label %50, label %45
 
-44:                                               ; preds = %40, %36
-  %45 = getelementptr inbounds i8, ptr %37, i64 56
-  %46 = add i32 %38, -1
-  %47 = load ptr, ptr %45, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %57, label %36, !llvm.loop !14
+45:                                               ; preds = %41, %37
+  %46 = getelementptr inbounds i8, ptr %38, i64 56
+  %47 = add i32 %39, -1
+  %48 = load ptr, ptr %46, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %58, label %37, !llvm.loop !14
 
-49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %37, i64 48
+50:                                               ; preds = %41
+  %51 = getelementptr inbounds i8, ptr %38, i64 48
   tail call void @_raw_read_unlock(ptr noundef nonnull @file_systems_lock) #6
-  %51 = load ptr, ptr %37, align 8
-  %52 = tail call i64 @strlen(ptr noundef %51) #6
-  %53 = shl i64 %52, 32
-  %54 = add i64 %53, 4294967296
-  %55 = ashr exact i64 %54, 32
-  %56 = icmp ugt i64 %55, 2147483647
-  br i1 %56, label %58, label %59, !prof !15
+  %52 = load ptr, ptr %38, align 8
+  %53 = tail call i64 @strlen(ptr noundef %52) #6
+  %54 = shl i64 %53, 32
+  %55 = add i64 %54, 4294967296
+  %56 = ashr exact i64 %55, 32
+  %57 = icmp ugt i64 %56, 2147483647
+  br i1 %57, label %59, label %60, !prof !15
 
-57:                                               ; preds = %44, %30
+58:                                               ; preds = %45, %31
   tail call void @_raw_read_unlock(ptr noundef nonnull @file_systems_lock) #6
-  br label %78
+  br label %79
 
-58:                                               ; preds = %49
+59:                                               ; preds = %50
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #6, !srcloc !16
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 249, i32 2307, i64 12) #6, !srcloc !17
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #6, !srcloc !18
-  br label %63
+  br label %64
 
-59:                                               ; preds = %49
-  %60 = tail call i64 @_copy_to_user(ptr noundef %31, ptr noundef %51, i64 noundef %55) #6
-  %61 = icmp eq i64 %60, 0
-  %62 = select i1 %61, i32 0, i32 -14
-  br label %63
+60:                                               ; preds = %50
+  %61 = tail call i64 @_copy_to_user(ptr noundef %32, ptr noundef %52, i64 noundef %56) #6
+  %62 = icmp eq i64 %61, 0
+  %63 = select i1 %62, i32 0, i32 -14
+  br label %64
 
-63:                                               ; preds = %59, %58
-  %64 = phi i32 [ %62, %59 ], [ -14, %58 ]
-  %65 = load ptr, ptr %50, align 8
-  tail call void @module_put(ptr noundef %65) #6
-  br label %78
+64:                                               ; preds = %60, %59
+  %65 = phi i32 [ %63, %60 ], [ -14, %59 ]
+  %66 = load ptr, ptr %51, align 8
+  tail call void @module_put(ptr noundef %66) #6
+  br label %79
 
-66:                                               ; preds = %3
+67:                                               ; preds = %3
   tail call void @_raw_read_lock(ptr noundef nonnull @file_systems_lock) #6
-  %67 = load ptr, ptr @file_systems, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %76, label %69
+  %68 = load ptr, ptr @file_systems, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %77, label %70
 
-69:                                               ; preds = %69, %66
-  %70 = phi ptr [ %74, %69 ], [ %67, %66 ]
-  %71 = phi i32 [ %73, %69 ], [ 0, %66 ]
-  %72 = getelementptr inbounds i8, ptr %70, i64 56
-  %73 = add i32 %71, 1
-  %74 = load ptr, ptr %72, align 8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %76, label %69, !llvm.loop !19
+70:                                               ; preds = %70, %67
+  %71 = phi ptr [ %75, %70 ], [ %68, %67 ]
+  %72 = phi i32 [ %74, %70 ], [ 0, %67 ]
+  %73 = getelementptr inbounds i8, ptr %71, i64 56
+  %74 = add i32 %72, 1
+  %75 = load ptr, ptr %73, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %70, !llvm.loop !19
 
-76:                                               ; preds = %69, %66
-  %77 = phi i32 [ 0, %66 ], [ %73, %69 ]
+77:                                               ; preds = %70, %67
+  %78 = phi i32 [ 0, %67 ], [ %74, %70 ]
   tail call void @_raw_read_unlock(ptr noundef nonnull @file_systems_lock) #6
-  br label %78
+  br label %79
 
-78:                                               ; preds = %76, %63, %57, %28, %9, %3
-  %79 = phi i32 [ -22, %3 ], [ %77, %76 ], [ %11, %9 ], [ %29, %28 ], [ %64, %63 ], [ -22, %57 ]
-  %80 = sext i32 %79 to i64
-  ret i64 %80
+79:                                               ; preds = %77, %64, %58, %29, %10, %3
+  %80 = phi i32 [ -22, %3 ], [ %78, %77 ], [ %12, %10 ], [ %30, %29 ], [ %65, %64 ], [ -22, %58 ]
+  %81 = sext i32 %80 to i64
+  ret i64 %81
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -7305,10 +7305,10 @@ define internal ptr @exprintf(ptr noundef %0, ptr noundef %1, ...) #0 {
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %10)
+  call void @llvm.va_start.p0(ptr %10)
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_copy(ptr %11, ptr %12)
+  call void @llvm.va_copy.p0(ptr %11, ptr %12)
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %15 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %13, ptr noundef %14) #12
@@ -7317,7 +7317,7 @@ define internal ptr @exprintf(ptr noundef %0, ptr noundef %1, ...) #0 {
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %8, align 4
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %18)
+  call void @llvm.va_end.p0(ptr %18)
   %19 = load ptr, ptr %4, align 8
   %20 = load i32, ptr %8, align 4
   %21 = sext i32 %20 to i64
@@ -7329,7 +7329,7 @@ define internal ptr @exprintf(ptr noundef %0, ptr noundef %1, ...) #0 {
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %26)
+  call void @llvm.va_end.p0(ptr %26)
   %27 = call ptr @exnospace()
   store ptr %27, ptr %3, align 8
   br label %37
@@ -7342,7 +7342,7 @@ define internal ptr @exprintf(ptr noundef %0, ptr noundef %1, ...) #0 {
   %33 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %34 = call i32 @vsnprintf(ptr noundef %29, i64 noundef %31, ptr noundef %32, ptr noundef %33) #12
   %35 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %35)
+  call void @llvm.va_end.p0(ptr %35)
   %36 = load ptr, ptr %9, align 8
   store ptr %36, ptr %3, align 8
   br label %37
@@ -9518,7 +9518,7 @@ define internal i32 @scformat(ptr noundef %0, ptr noundef %1) #0 {
 14:                                               ; preds = %2
   call void (ptr, ...) @exerror(ptr noundef @.str.43)
   store i32 -1, ptr %3, align 4
-  br label %196
+  br label %197
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %6, align 8
@@ -9531,12 +9531,12 @@ define internal i32 @scformat(ptr noundef %0, ptr noundef %1) #0 {
   %22 = load ptr, ptr %5, align 8
   %23 = getelementptr inbounds %struct._sffmt_s, ptr %22, i32 0, i32 3
   %24 = load i32, ptr %23, align 8
-  switch i32 %24, label %154 [
+  switch i32 %24, label %155 [
     i32 102, label %25
     i32 103, label %25
     i32 115, label %50
     i32 91, label %50
-    i32 99, label %129
+    i32 99, label %130
   ]
 
 25:                                               ; preds = %15, %15
@@ -9555,7 +9555,7 @@ define internal i32 @scformat(ptr noundef %0, ptr noundef %1) #0 {
   %36 = getelementptr inbounds [32 x i8], ptr %35, i64 0, i64 0
   call void (ptr, ...) @exerror(ptr noundef @.str.44, ptr noundef %36)
   store i32 -1, ptr %3, align 4
-  br label %196
+  br label %197
 
 37:                                               ; preds = %25
   %38 = load ptr, ptr %6, align 8
@@ -9572,7 +9572,7 @@ define internal i32 @scformat(ptr noundef %0, ptr noundef %1) #0 {
   %48 = getelementptr inbounds %struct.anon, ptr %47, i32 0, i32 0
   %49 = load ptr, ptr %4, align 8
   store ptr %48, ptr %49, align 8
-  br label %183
+  br label %184
 
 50:                                               ; preds = %15, %15
   %51 = load ptr, ptr %7, align 8
@@ -9590,7 +9590,7 @@ define internal i32 @scformat(ptr noundef %0, ptr noundef %1) #0 {
   %61 = getelementptr inbounds [32 x i8], ptr %60, i64 0, i64 0
   call void (ptr, ...) @exerror(ptr noundef @.str.45, ptr noundef %61)
   store i32 -1, ptr %3, align 4
-  br label %196
+  br label %197
 
 62:                                               ; preds = %50
   %63 = load ptr, ptr %7, align 8
@@ -9602,193 +9602,194 @@ define internal i32 @scformat(ptr noundef %0, ptr noundef %1) #0 {
   %69 = getelementptr inbounds %struct.Exnode_s, ptr %68, i32 0, i32 5
   %70 = getelementptr inbounds %struct.anon, ptr %69, i32 0, i32 0
   %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr %71, getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 11)
-  br i1 %72, label %73, label %82
+  %72 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 11
+  %73 = icmp eq ptr %71, %72
+  br i1 %73, label %74, label %83
 
-73:                                               ; preds = %62
-  %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds %struct.Exnode_s, ptr %74, i32 0, i32 5
-  %76 = getelementptr inbounds %struct.anon.2, ptr %75, i32 0, i32 0
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct.Exid_s, ptr %77, i32 0, i32 6
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct.Exnode_s, ptr %79, i32 0, i32 5
-  %81 = getelementptr inbounds %struct.anon, ptr %80, i32 0, i32 0
-  store ptr null, ptr %81, align 8
-  br label %82
+74:                                               ; preds = %62
+  %75 = load ptr, ptr %7, align 8
+  %76 = getelementptr inbounds %struct.Exnode_s, ptr %75, i32 0, i32 5
+  %77 = getelementptr inbounds %struct.anon.2, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds %struct.Exid_s, ptr %78, i32 0, i32 6
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds %struct.Exnode_s, ptr %80, i32 0, i32 5
+  %82 = getelementptr inbounds %struct.anon, ptr %81, i32 0, i32 0
+  store ptr null, ptr %82, align 8
+  br label %83
 
-82:                                               ; preds = %73, %62
-  %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr inbounds %struct.Fmt_t, ptr %83, i32 0, i32 0
-  %85 = getelementptr inbounds %struct._sffmt_s, ptr %84, i32 0, i32 4
-  store i64 1024, ptr %85, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds %struct.Exnode_s, ptr %86, i32 0, i32 5
-  %88 = getelementptr inbounds %struct.anon.2, ptr %87, i32 0, i32 0
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds %struct.Exid_s, ptr %89, i32 0, i32 6
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %struct.Exnode_s, ptr %91, i32 0, i32 5
-  %93 = getelementptr inbounds %struct.anon, ptr %92, i32 0, i32 0
-  %94 = load ptr, ptr %93, align 8
-  store ptr %94, ptr %8, align 8
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct.Fmt_t, ptr %95, i32 0, i32 1
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds %struct.Expr_s, ptr %97, i32 0, i32 3
-  %99 = load ptr, ptr %98, align 8
-  %100 = load ptr, ptr %8, align 8
-  call void @vmfree(ptr noundef %99, ptr noundef %100)
-  %101 = load ptr, ptr %6, align 8
-  %102 = getelementptr inbounds %struct.Fmt_t, ptr %101, i32 0, i32 1
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct.Expr_s, ptr %103, i32 0, i32 3
-  %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %6, align 8
-  %107 = getelementptr inbounds %struct.Fmt_t, ptr %106, i32 0, i32 0
-  %108 = getelementptr inbounds %struct._sffmt_s, ptr %107, i32 0, i32 4
-  %109 = load i64, ptr %108, align 8
-  %110 = mul i64 1, %109
-  %111 = call ptr @vmalloc(ptr noundef %105, i64 noundef %110)
-  store ptr %111, ptr %8, align 8
-  %112 = load ptr, ptr %8, align 8
-  %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr inbounds %struct.Fmt_t, ptr %113, i32 0, i32 0
-  %115 = getelementptr inbounds %struct._sffmt_s, ptr %114, i32 0, i32 4
-  %116 = load i64, ptr %115, align 8
-  %117 = mul i64 1, %116
-  call void @llvm.memset.p0.i64(ptr align 1 %112, i8 0, i64 %117, i1 false)
-  %118 = load ptr, ptr %8, align 8
-  %119 = load ptr, ptr %4, align 8
-  store ptr %118, ptr %119, align 8
-  %120 = load ptr, ptr %8, align 8
-  %121 = load ptr, ptr %7, align 8
-  %122 = getelementptr inbounds %struct.Exnode_s, ptr %121, i32 0, i32 5
-  %123 = getelementptr inbounds %struct.anon.2, ptr %122, i32 0, i32 0
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds %struct.Exid_s, ptr %124, i32 0, i32 6
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds %struct.Exnode_s, ptr %126, i32 0, i32 5
-  %128 = getelementptr inbounds %struct.anon, ptr %127, i32 0, i32 0
-  store ptr %120, ptr %128, align 8
-  br label %183
+83:                                               ; preds = %74, %62
+  %84 = load ptr, ptr %6, align 8
+  %85 = getelementptr inbounds %struct.Fmt_t, ptr %84, i32 0, i32 0
+  %86 = getelementptr inbounds %struct._sffmt_s, ptr %85, i32 0, i32 4
+  store i64 1024, ptr %86, align 8
+  %87 = load ptr, ptr %7, align 8
+  %88 = getelementptr inbounds %struct.Exnode_s, ptr %87, i32 0, i32 5
+  %89 = getelementptr inbounds %struct.anon.2, ptr %88, i32 0, i32 0
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds %struct.Exid_s, ptr %90, i32 0, i32 6
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds %struct.Exnode_s, ptr %92, i32 0, i32 5
+  %94 = getelementptr inbounds %struct.anon, ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8
+  store ptr %95, ptr %8, align 8
+  %96 = load ptr, ptr %6, align 8
+  %97 = getelementptr inbounds %struct.Fmt_t, ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds %struct.Expr_s, ptr %98, i32 0, i32 3
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %8, align 8
+  call void @vmfree(ptr noundef %100, ptr noundef %101)
+  %102 = load ptr, ptr %6, align 8
+  %103 = getelementptr inbounds %struct.Fmt_t, ptr %102, i32 0, i32 1
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds %struct.Expr_s, ptr %104, i32 0, i32 3
+  %106 = load ptr, ptr %105, align 8
+  %107 = load ptr, ptr %6, align 8
+  %108 = getelementptr inbounds %struct.Fmt_t, ptr %107, i32 0, i32 0
+  %109 = getelementptr inbounds %struct._sffmt_s, ptr %108, i32 0, i32 4
+  %110 = load i64, ptr %109, align 8
+  %111 = mul i64 1, %110
+  %112 = call ptr @vmalloc(ptr noundef %106, i64 noundef %111)
+  store ptr %112, ptr %8, align 8
+  %113 = load ptr, ptr %8, align 8
+  %114 = load ptr, ptr %6, align 8
+  %115 = getelementptr inbounds %struct.Fmt_t, ptr %114, i32 0, i32 0
+  %116 = getelementptr inbounds %struct._sffmt_s, ptr %115, i32 0, i32 4
+  %117 = load i64, ptr %116, align 8
+  %118 = mul i64 1, %117
+  call void @llvm.memset.p0.i64(ptr align 1 %113, i8 0, i64 %118, i1 false)
+  %119 = load ptr, ptr %8, align 8
+  %120 = load ptr, ptr %4, align 8
+  store ptr %119, ptr %120, align 8
+  %121 = load ptr, ptr %8, align 8
+  %122 = load ptr, ptr %7, align 8
+  %123 = getelementptr inbounds %struct.Exnode_s, ptr %122, i32 0, i32 5
+  %124 = getelementptr inbounds %struct.anon.2, ptr %123, i32 0, i32 0
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds %struct.Exid_s, ptr %125, i32 0, i32 6
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds %struct.Exnode_s, ptr %127, i32 0, i32 5
+  %129 = getelementptr inbounds %struct.anon, ptr %128, i32 0, i32 0
+  store ptr %121, ptr %129, align 8
+  br label %184
 
-129:                                              ; preds = %15
-  %130 = load ptr, ptr %7, align 8
-  %131 = getelementptr inbounds %struct.Exnode_s, ptr %130, i32 0, i32 0
-  %132 = load i32, ptr %131, align 8
-  %133 = icmp ne i32 %132, 261
-  br i1 %133, label %134, label %141
+130:                                              ; preds = %15
+  %131 = load ptr, ptr %7, align 8
+  %132 = getelementptr inbounds %struct.Exnode_s, ptr %131, i32 0, i32 0
+  %133 = load i32, ptr %132, align 8
+  %134 = icmp ne i32 %133, 261
+  br i1 %134, label %135, label %142
 
-134:                                              ; preds = %129
-  %135 = load ptr, ptr %7, align 8
-  %136 = getelementptr inbounds %struct.Exnode_s, ptr %135, i32 0, i32 5
-  %137 = getelementptr inbounds %struct.anon.2, ptr %136, i32 0, i32 0
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds %struct.Exid_s, ptr %138, i32 0, i32 9
-  %140 = getelementptr inbounds [32 x i8], ptr %139, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.46, ptr noundef %140)
+135:                                              ; preds = %130
+  %136 = load ptr, ptr %7, align 8
+  %137 = getelementptr inbounds %struct.Exnode_s, ptr %136, i32 0, i32 5
+  %138 = getelementptr inbounds %struct.anon.2, ptr %137, i32 0, i32 0
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds %struct.Exid_s, ptr %139, i32 0, i32 9
+  %141 = getelementptr inbounds [32 x i8], ptr %140, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.46, ptr noundef %141)
   store i32 -1, ptr %3, align 4
-  br label %196
+  br label %197
 
-141:                                              ; preds = %129
-  %142 = load ptr, ptr %6, align 8
-  %143 = getelementptr inbounds %struct.Fmt_t, ptr %142, i32 0, i32 0
-  %144 = getelementptr inbounds %struct._sffmt_s, ptr %143, i32 0, i32 4
-  store i64 8, ptr %144, align 8
-  %145 = load ptr, ptr %7, align 8
-  %146 = getelementptr inbounds %struct.Exnode_s, ptr %145, i32 0, i32 5
-  %147 = getelementptr inbounds %struct.anon.2, ptr %146, i32 0, i32 0
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds %struct.Exid_s, ptr %148, i32 0, i32 6
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds %struct.Exnode_s, ptr %150, i32 0, i32 5
-  %152 = getelementptr inbounds %struct.anon, ptr %151, i32 0, i32 0
-  %153 = load ptr, ptr %4, align 8
-  store ptr %152, ptr %153, align 8
-  br label %183
+142:                                              ; preds = %130
+  %143 = load ptr, ptr %6, align 8
+  %144 = getelementptr inbounds %struct.Fmt_t, ptr %143, i32 0, i32 0
+  %145 = getelementptr inbounds %struct._sffmt_s, ptr %144, i32 0, i32 4
+  store i64 8, ptr %145, align 8
+  %146 = load ptr, ptr %7, align 8
+  %147 = getelementptr inbounds %struct.Exnode_s, ptr %146, i32 0, i32 5
+  %148 = getelementptr inbounds %struct.anon.2, ptr %147, i32 0, i32 0
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds %struct.Exid_s, ptr %149, i32 0, i32 6
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds %struct.Exnode_s, ptr %151, i32 0, i32 5
+  %153 = getelementptr inbounds %struct.anon, ptr %152, i32 0, i32 0
+  %154 = load ptr, ptr %4, align 8
+  store ptr %153, ptr %154, align 8
+  br label %184
 
-154:                                              ; preds = %15
-  %155 = load ptr, ptr %7, align 8
-  %156 = getelementptr inbounds %struct.Exnode_s, ptr %155, i32 0, i32 0
-  %157 = load i32, ptr %156, align 8
-  %158 = icmp ne i32 %157, 259
-  br i1 %158, label %159, label %171
+155:                                              ; preds = %15
+  %156 = load ptr, ptr %7, align 8
+  %157 = getelementptr inbounds %struct.Exnode_s, ptr %156, i32 0, i32 0
+  %158 = load i32, ptr %157, align 8
+  %159 = icmp ne i32 %158, 259
+  br i1 %159, label %160, label %172
 
-159:                                              ; preds = %154
-  %160 = load ptr, ptr %7, align 8
-  %161 = getelementptr inbounds %struct.Exnode_s, ptr %160, i32 0, i32 0
-  %162 = load i32, ptr %161, align 8
-  %163 = icmp ne i32 %162, 260
-  br i1 %163, label %164, label %171
+160:                                              ; preds = %155
+  %161 = load ptr, ptr %7, align 8
+  %162 = getelementptr inbounds %struct.Exnode_s, ptr %161, i32 0, i32 0
+  %163 = load i32, ptr %162, align 8
+  %164 = icmp ne i32 %163, 260
+  br i1 %164, label %165, label %172
 
-164:                                              ; preds = %159
-  %165 = load ptr, ptr %7, align 8
-  %166 = getelementptr inbounds %struct.Exnode_s, ptr %165, i32 0, i32 5
-  %167 = getelementptr inbounds %struct.anon.2, ptr %166, i32 0, i32 0
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds %struct.Exid_s, ptr %168, i32 0, i32 9
-  %170 = getelementptr inbounds [32 x i8], ptr %169, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.47, ptr noundef %170)
+165:                                              ; preds = %160
+  %166 = load ptr, ptr %7, align 8
+  %167 = getelementptr inbounds %struct.Exnode_s, ptr %166, i32 0, i32 5
+  %168 = getelementptr inbounds %struct.anon.2, ptr %167, i32 0, i32 0
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds %struct.Exid_s, ptr %169, i32 0, i32 9
+  %171 = getelementptr inbounds [32 x i8], ptr %170, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.47, ptr noundef %171)
   store i32 -1, ptr %3, align 4
-  br label %196
+  br label %197
 
-171:                                              ; preds = %159, %154
-  %172 = load ptr, ptr %5, align 8
-  %173 = getelementptr inbounds %struct._sffmt_s, ptr %172, i32 0, i32 4
-  store i64 8, ptr %173, align 8
-  %174 = load ptr, ptr %7, align 8
-  %175 = getelementptr inbounds %struct.Exnode_s, ptr %174, i32 0, i32 5
-  %176 = getelementptr inbounds %struct.anon.2, ptr %175, i32 0, i32 0
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds %struct.Exid_s, ptr %177, i32 0, i32 6
-  %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds %struct.Exnode_s, ptr %179, i32 0, i32 5
-  %181 = getelementptr inbounds %struct.anon, ptr %180, i32 0, i32 0
-  %182 = load ptr, ptr %4, align 8
-  store ptr %181, ptr %182, align 8
-  br label %183
+172:                                              ; preds = %160, %155
+  %173 = load ptr, ptr %5, align 8
+  %174 = getelementptr inbounds %struct._sffmt_s, ptr %173, i32 0, i32 4
+  store i64 8, ptr %174, align 8
+  %175 = load ptr, ptr %7, align 8
+  %176 = getelementptr inbounds %struct.Exnode_s, ptr %175, i32 0, i32 5
+  %177 = getelementptr inbounds %struct.anon.2, ptr %176, i32 0, i32 0
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds %struct.Exid_s, ptr %178, i32 0, i32 6
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds %struct.Exnode_s, ptr %180, i32 0, i32 5
+  %182 = getelementptr inbounds %struct.anon, ptr %181, i32 0, i32 0
+  %183 = load ptr, ptr %4, align 8
+  store ptr %182, ptr %183, align 8
+  br label %184
 
-183:                                              ; preds = %171, %141, %82, %37
-  %184 = load ptr, ptr %6, align 8
-  %185 = getelementptr inbounds %struct.Fmt_t, ptr %184, i32 0, i32 5
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds %struct.Exnode_s, ptr %186, i32 0, i32 5
-  %188 = getelementptr inbounds %struct.anon.0, ptr %187, i32 0, i32 1
-  %189 = load ptr, ptr %188, align 8
-  %190 = load ptr, ptr %6, align 8
-  %191 = getelementptr inbounds %struct.Fmt_t, ptr %190, i32 0, i32 5
-  store ptr %189, ptr %191, align 8
-  %192 = load ptr, ptr %5, align 8
-  %193 = getelementptr inbounds %struct._sffmt_s, ptr %192, i32 0, i32 5
-  %194 = load i32, ptr %193, align 8
-  %195 = or i32 %194, 131072
-  store i32 %195, ptr %193, align 8
+184:                                              ; preds = %172, %142, %83, %37
+  %185 = load ptr, ptr %6, align 8
+  %186 = getelementptr inbounds %struct.Fmt_t, ptr %185, i32 0, i32 5
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds %struct.Exnode_s, ptr %187, i32 0, i32 5
+  %189 = getelementptr inbounds %struct.anon.0, ptr %188, i32 0, i32 1
+  %190 = load ptr, ptr %189, align 8
+  %191 = load ptr, ptr %6, align 8
+  %192 = getelementptr inbounds %struct.Fmt_t, ptr %191, i32 0, i32 5
+  store ptr %190, ptr %192, align 8
+  %193 = load ptr, ptr %5, align 8
+  %194 = getelementptr inbounds %struct._sffmt_s, ptr %193, i32 0, i32 5
+  %195 = load i32, ptr %194, align 8
+  %196 = or i32 %195, 131072
+  store i32 %196, ptr %194, align 8
   store i32 0, ptr %3, align 4
-  br label %196
+  br label %197
 
-196:                                              ; preds = %183, %164, %134, %55, %30, %14
-  %197 = load i32, ptr %3, align 4
-  ret i32 %197
+197:                                              ; preds = %184, %165, %135, %55, %30, %14
+  %198 = load i32, ptr %3, align 4
+  ret i32 %198
 }
 
 declare i32 @sfscanf(ptr noundef, ...) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #11
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
 
 declare ptr @extypename(ptr noundef, i32 noundef) #2
 
 declare ptr @exop(i64 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

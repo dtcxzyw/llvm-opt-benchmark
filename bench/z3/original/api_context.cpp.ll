@@ -1086,15 +1086,16 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %c, ptr %c.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3api6objectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3api6objectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ref_count = getelementptr inbounds %"class.api::object", ptr %this1, i32 0, i32 1
   call void @_ZNSt6atomicIjEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %m_ref_count, i32 noundef 0) #3
   %m_context = getelementptr inbounds %"class.api::object", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %c.addr, align 8
-  store ptr %0, ptr %m_context, align 8
+  %1 = load ptr, ptr %c.addr, align 8
+  store ptr %1, ptr %m_context, align 8
   %m_context2 = getelementptr inbounds %"class.api::object", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %m_context2, align 8
-  %call = call noundef i32 @_ZN3api7context10add_objectEPNS_6objectE(ptr noundef nonnull align 8 dereferenceable(3048) %1, ptr noundef %this1)
+  %2 = load ptr, ptr %m_context2, align 8
+  %call = call noundef i32 @_ZN3api7context10add_objectEPNS_6objectE(ptr noundef nonnull align 8 dereferenceable(3048) %2, ptr noundef %this1)
   %m_id = getelementptr inbounds %"class.api::object", ptr %this1, i32 0, i32 2
   store i32 %call, ptr %m_id, align 4
   ret void
@@ -5819,7 +5820,7 @@ lpad1:                                            ; preds = %if.then10, %do.body
 
 catch.dispatch:                                   ; preds = %lpad1, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch, label %eh.resume
 
@@ -5959,13 +5960,10 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #8
-
 declare void @__cxa_end_catch()
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #9
+declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
 define ptr @Z3_mk_context_rc(ptr noundef %c) #4 personality ptr @__gxx_personality_v0 {
@@ -6020,7 +6018,7 @@ lpad1:                                            ; preds = %if.then10, %do.body
 
 catch.dispatch:                                   ; preds = %lpad1, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch, label %eh.resume
 
@@ -6161,7 +6159,7 @@ lpad1:                                            ; preds = %invoke.cont7, %invo
 
 catch.dispatch:                                   ; preds = %lpad1, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %7 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %7
   br i1 %matches, label %catch, label %eh.resume
 
@@ -6329,7 +6327,7 @@ lpad1:                                            ; preds = %invoke.cont4, %if.e
 
 catch.dispatch:                                   ; preds = %lpad1, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %7 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %7
   br i1 %matches, label %catch, label %eh.resume
 
@@ -6445,7 +6443,7 @@ lpad1:                                            ; preds = %invoke.cont4, %if.e
 
 catch.dispatch:                                   ; preds = %lpad1, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %7 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %7
   br i1 %matches, label %catch, label %eh.resume
 
@@ -6634,7 +6632,7 @@ lpad1:                                            ; preds = %invoke.cont14, %inv
 
 catch.dispatch:                                   ; preds = %lpad1, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch, label %eh.resume
 
@@ -6810,7 +6808,7 @@ lpad1:                                            ; preds = %invoke.cont20, %inv
 
 catch.dispatch:                                   ; preds = %lpad1, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch, label %eh.resume
 
@@ -7644,7 +7642,7 @@ lpad1:                                            ; preds = %invoke.cont7, %invo
 
 catch.dispatch:                                   ; preds = %lpad1, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTI12z3_exception) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTI12z3_exception) #3
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8922,7 +8920,7 @@ eh.resume:                                        ; preds = %ehcleanup
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
@@ -9594,7 +9592,7 @@ entry:
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #11
+declare i1 @llvm.is.constant.i64(i64) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN19preprocessor_paramsC2ERK10params_ref(ptr noundef nonnull align 4 dereferenceable(67) %this, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10217,7 +10215,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #12
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %__s) #5 comdat align 2 {
@@ -10687,7 +10685,7 @@ entry:
 declare i32 @printf(ptr noundef, ...) #1
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #13
+declare void @exit(i32 noundef) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN11ast_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(976) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) #4 comdat align 2 {
@@ -12221,10 +12219,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -12234,7 +12233,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -12253,7 +12253,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -13070,7 +13071,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) #12
+declare void @_ZSt20__throw_system_errori(i32 noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZL18__gthread_active_pv() #5 {
@@ -14365,7 +14366,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #14
+declare void @_ZdlPv(ptr noundef) #13
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_api_context.cpp() #0 section ".text.startup" {
@@ -14373,6 +14374,9 @@ entry:
   call void @__cxx_global_var_init()
   ret void
 }
+
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #14
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -14382,13 +14386,13 @@ attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind memory(none) }
-attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind memory(none) }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { builtin nounwind }
 attributes #17 = { noreturn }

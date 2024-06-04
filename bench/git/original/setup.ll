@@ -1800,52 +1800,53 @@ if.then49:                                        ; preds = %if.end46
 if.end50:                                         ; preds = %if.end46
   %36 = load ptr, ptr %dir, align 8
   %call51 = call ptr @strbuf_realpath(ptr noundef @read_gitfile_gently.realpath, ptr noundef %36, i32 noundef 1)
-  %37 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @read_gitfile_gently.realpath, i32 0, i32 2), align 8
-  store ptr %37, ptr %path.addr, align 8
+  %37 = getelementptr inbounds %struct.strbuf, ptr @read_gitfile_gently.realpath, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr %path.addr, align 8
   br label %cleanup_return
 
 cleanup_return:                                   ; preds = %if.end50, %if.then49, %if.then32, %if.then21, %if.then17, %if.then8, %if.then4, %if.then1, %if.then
-  %38 = load ptr, ptr %return_error_code.addr, align 8
-  %tobool52 = icmp ne ptr %38, null
+  %39 = load ptr, ptr %return_error_code.addr, align 8
+  %tobool52 = icmp ne ptr %39, null
   br i1 %tobool52, label %if.then53, label %if.else
 
 if.then53:                                        ; preds = %cleanup_return
-  %39 = load i32, ptr %error_code, align 4
-  %40 = load ptr, ptr %return_error_code.addr, align 8
-  store i32 %39, ptr %40, align 4
+  %40 = load i32, ptr %error_code, align 4
+  %41 = load ptr, ptr %return_error_code.addr, align 8
+  store i32 %40, ptr %41, align 4
   br label %if.end57
 
 if.else:                                          ; preds = %cleanup_return
-  %41 = load i32, ptr %error_code, align 4
-  %tobool54 = icmp ne i32 %41, 0
+  %42 = load i32, ptr %error_code, align 4
+  %tobool54 = icmp ne i32 %42, 0
   br i1 %tobool54, label %if.then55, label %if.end56
 
 if.then55:                                        ; preds = %if.else
-  %42 = load i32, ptr %error_code, align 4
-  %43 = load ptr, ptr %path.addr, align 8
-  %44 = load ptr, ptr %dir, align 8
-  call void @read_gitfile_error_die(i32 noundef %42, ptr noundef %43, ptr noundef %44)
+  %43 = load i32, ptr %error_code, align 4
+  %44 = load ptr, ptr %path.addr, align 8
+  %45 = load ptr, ptr %dir, align 8
+  call void @read_gitfile_error_die(i32 noundef %43, ptr noundef %44, ptr noundef %45)
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then55, %if.else
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end56, %if.then53
-  %45 = load ptr, ptr %buf, align 8
-  call void @free(ptr noundef %45) #11
-  %46 = load i32, ptr %error_code, align 4
-  %tobool58 = icmp ne i32 %46, 0
+  %46 = load ptr, ptr %buf, align 8
+  call void @free(ptr noundef %46) #11
+  %47 = load i32, ptr %error_code, align 4
+  %tobool58 = icmp ne i32 %47, 0
   br i1 %tobool58, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end57
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end57
-  %47 = load ptr, ptr %path.addr, align 8
+  %48 = load ptr, ptr %path.addr, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ null, %cond.true ], [ %47, %cond.false ]
+  %cond = phi ptr [ null, %cond.true ], [ %48, %cond.false ]
   ret ptr %cond
 }
 
@@ -3232,68 +3233,70 @@ sw.bb:                                            ; preds = %if.end4
 sw.bb7:                                           ; preds = %if.end4
   %len = getelementptr inbounds %struct.strbuf, ptr %dir, i32 0, i32 1
   %12 = load i64, ptr %len, align 8
-  %13 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @setup_git_directory_gently.cwd, i32 0, i32 1), align 8
-  %cmp = icmp ult i64 %12, %13
+  %13 = getelementptr inbounds %struct.strbuf, ptr @setup_git_directory_gently.cwd, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8
+  %cmp = icmp ult i64 %12, %14
   br i1 %cmp, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %sw.bb7
   %buf8 = getelementptr inbounds %struct.strbuf, ptr %dir, i32 0, i32 2
-  %14 = load ptr, ptr %buf8, align 8
-  %call9 = call i32 @chdir(ptr noundef %14) #11
+  %15 = load ptr, ptr %buf8, align 8
+  %call9 = call i32 @chdir(ptr noundef %15) #11
   %tobool10 = icmp ne i32 %call9, 0
   br i1 %tobool10, label %if.then11, label %if.end14
 
 if.then11:                                        ; preds = %land.lhs.true
   %call12 = call ptr @_(ptr noundef @.str.46)
   %buf13 = getelementptr inbounds %struct.strbuf, ptr %dir, i32 0, i32 2
-  %15 = load ptr, ptr %buf13, align 8
-  call void (ptr, ...) @die(ptr noundef %call12, ptr noundef %15) #12
+  %16 = load ptr, ptr %buf13, align 8
+  call void (ptr, ...) @die(ptr noundef %call12, ptr noundef %16) #12
   unreachable
 
 if.end14:                                         ; preds = %land.lhs.true, %sw.bb7
   %buf15 = getelementptr inbounds %struct.strbuf, ptr %gitdir, i32 0, i32 2
-  %16 = load ptr, ptr %buf15, align 8
+  %17 = load ptr, ptr %buf15, align 8
   %len16 = getelementptr inbounds %struct.strbuf, ptr %dir, i32 0, i32 1
-  %17 = load i64, ptr %len16, align 8
-  %conv = trunc i64 %17 to i32
-  %18 = load ptr, ptr %nongit_ok.addr, align 8
-  %call17 = call ptr @setup_discovered_git_dir(ptr noundef %16, ptr noundef @setup_git_directory_gently.cwd, i32 noundef %conv, ptr noundef %repo_fmt, ptr noundef %18)
+  %18 = load i64, ptr %len16, align 8
+  %conv = trunc i64 %18 to i32
+  %19 = load ptr, ptr %nongit_ok.addr, align 8
+  %call17 = call ptr @setup_discovered_git_dir(ptr noundef %17, ptr noundef @setup_git_directory_gently.cwd, i32 noundef %conv, ptr noundef %repo_fmt, ptr noundef %19)
   store ptr %call17, ptr %prefix, align 8
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %if.end4
   %len19 = getelementptr inbounds %struct.strbuf, ptr %dir, i32 0, i32 1
-  %19 = load i64, ptr %len19, align 8
-  %20 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @setup_git_directory_gently.cwd, i32 0, i32 1), align 8
-  %cmp20 = icmp ult i64 %19, %20
+  %20 = load i64, ptr %len19, align 8
+  %21 = getelementptr inbounds %struct.strbuf, ptr @setup_git_directory_gently.cwd, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  %cmp20 = icmp ult i64 %20, %22
   br i1 %cmp20, label %land.lhs.true22, label %if.end29
 
 land.lhs.true22:                                  ; preds = %sw.bb18
   %buf23 = getelementptr inbounds %struct.strbuf, ptr %dir, i32 0, i32 2
-  %21 = load ptr, ptr %buf23, align 8
-  %call24 = call i32 @chdir(ptr noundef %21) #11
+  %23 = load ptr, ptr %buf23, align 8
+  %call24 = call i32 @chdir(ptr noundef %23) #11
   %tobool25 = icmp ne i32 %call24, 0
   br i1 %tobool25, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %land.lhs.true22
   %call27 = call ptr @_(ptr noundef @.str.46)
   %buf28 = getelementptr inbounds %struct.strbuf, ptr %dir, i32 0, i32 2
-  %22 = load ptr, ptr %buf28, align 8
-  call void (ptr, ...) @die(ptr noundef %call27, ptr noundef %22) #12
+  %24 = load ptr, ptr %buf28, align 8
+  call void (ptr, ...) @die(ptr noundef %call27, ptr noundef %24) #12
   unreachable
 
 if.end29:                                         ; preds = %land.lhs.true22, %sw.bb18
   %len30 = getelementptr inbounds %struct.strbuf, ptr %dir, i32 0, i32 1
-  %23 = load i64, ptr %len30, align 8
-  %conv31 = trunc i64 %23 to i32
-  %24 = load ptr, ptr %nongit_ok.addr, align 8
-  %call32 = call ptr @setup_bare_git_dir(ptr noundef @setup_git_directory_gently.cwd, i32 noundef %conv31, ptr noundef %repo_fmt, ptr noundef %24)
+  %25 = load i64, ptr %len30, align 8
+  %conv31 = trunc i64 %25 to i32
+  %26 = load ptr, ptr %nongit_ok.addr, align 8
+  %call32 = call ptr @setup_bare_git_dir(ptr noundef @setup_git_directory_gently.cwd, i32 noundef %conv31, ptr noundef %repo_fmt, ptr noundef %26)
   store ptr %call32, ptr %prefix, align 8
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %if.end4
-  %25 = load ptr, ptr %nongit_ok.addr, align 8
-  %tobool34 = icmp ne ptr %25, null
+  %27 = load ptr, ptr %nongit_ok.addr, align 8
+  %tobool34 = icmp ne ptr %27, null
   br i1 %tobool34, label %if.end37, label %if.then35
 
 if.then35:                                        ; preds = %sw.bb33
@@ -3302,70 +3305,70 @@ if.then35:                                        ; preds = %sw.bb33
   unreachable
 
 if.end37:                                         ; preds = %sw.bb33
-  %26 = load ptr, ptr %nongit_ok.addr, align 8
-  store i32 1, ptr %26, align 4
+  %28 = load ptr, ptr %nongit_ok.addr, align 8
+  store i32 1, ptr %28, align 4
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %if.end4
-  %27 = load ptr, ptr %nongit_ok.addr, align 8
-  %tobool39 = icmp ne ptr %27, null
+  %29 = load ptr, ptr %nongit_ok.addr, align 8
+  %tobool39 = icmp ne ptr %29, null
   br i1 %tobool39, label %if.end43, label %if.then40
 
 if.then40:                                        ; preds = %sw.bb38
   %call41 = call ptr @_(ptr noundef @.str.48)
   %buf42 = getelementptr inbounds %struct.strbuf, ptr %dir, i32 0, i32 2
-  %28 = load ptr, ptr %buf42, align 8
-  call void (ptr, ...) @die(ptr noundef %call41, ptr noundef %28) #12
+  %30 = load ptr, ptr %buf42, align 8
+  call void (ptr, ...) @die(ptr noundef %call41, ptr noundef %30) #12
   unreachable
 
 if.end43:                                         ; preds = %sw.bb38
-  %29 = load ptr, ptr %nongit_ok.addr, align 8
-  store i32 1, ptr %29, align 4
+  %31 = load ptr, ptr %nongit_ok.addr, align 8
+  store i32 1, ptr %31, align 4
   br label %sw.epilog
 
 sw.bb44:                                          ; preds = %if.end4
-  %30 = load ptr, ptr %nongit_ok.addr, align 8
-  %tobool45 = icmp ne ptr %30, null
+  %32 = load ptr, ptr %nongit_ok.addr, align 8
+  %tobool45 = icmp ne ptr %32, null
   br i1 %tobool45, label %if.end52, label %if.then46
 
 if.then46:                                        ; preds = %sw.bb44
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %quoted, ptr align 8 @__const.setup_git_directory_gently.quoted, i64 24, i1 false)
   call void @strbuf_complete(ptr noundef %report, i8 noundef signext 10)
   %buf47 = getelementptr inbounds %struct.strbuf, ptr %dir, i32 0, i32 2
-  %31 = load ptr, ptr %buf47, align 8
-  call void @sq_quote_buf_pretty(ptr noundef %quoted, ptr noundef %31)
+  %33 = load ptr, ptr %buf47, align 8
+  call void @sq_quote_buf_pretty(ptr noundef %quoted, ptr noundef %33)
   %call48 = call ptr @_(ptr noundef @.str.49)
   %buf49 = getelementptr inbounds %struct.strbuf, ptr %dir, i32 0, i32 2
-  %32 = load ptr, ptr %buf49, align 8
+  %34 = load ptr, ptr %buf49, align 8
   %buf50 = getelementptr inbounds %struct.strbuf, ptr %report, i32 0, i32 2
-  %33 = load ptr, ptr %buf50, align 8
+  %35 = load ptr, ptr %buf50, align 8
   %buf51 = getelementptr inbounds %struct.strbuf, ptr %quoted, i32 0, i32 2
-  %34 = load ptr, ptr %buf51, align 8
-  call void (ptr, ...) @die(ptr noundef %call48, ptr noundef %32, ptr noundef %33, ptr noundef %34) #12
+  %36 = load ptr, ptr %buf51, align 8
+  call void (ptr, ...) @die(ptr noundef %call48, ptr noundef %34, ptr noundef %35, ptr noundef %36) #12
   unreachable
 
 if.end52:                                         ; preds = %sw.bb44
-  %35 = load ptr, ptr %nongit_ok.addr, align 8
-  store i32 1, ptr %35, align 4
+  %37 = load ptr, ptr %nongit_ok.addr, align 8
+  store i32 1, ptr %37, align 4
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.end4
-  %36 = load ptr, ptr %nongit_ok.addr, align 8
-  %tobool54 = icmp ne ptr %36, null
+  %38 = load ptr, ptr %nongit_ok.addr, align 8
+  %tobool54 = icmp ne ptr %38, null
   br i1 %tobool54, label %if.end60, label %if.then55
 
 if.then55:                                        ; preds = %sw.bb53
   %call56 = call ptr @_(ptr noundef @.str.50)
   %buf57 = getelementptr inbounds %struct.strbuf, ptr %dir, i32 0, i32 2
-  %37 = load ptr, ptr %buf57, align 8
+  %39 = load ptr, ptr %buf57, align 8
   %call58 = call i32 @get_allowed_bare_repo()
   %call59 = call ptr @allowed_bare_repo_to_string(i32 noundef %call58)
-  call void (ptr, ...) @die(ptr noundef %call56, ptr noundef %37, ptr noundef %call59) #12
+  call void (ptr, ...) @die(ptr noundef %call56, ptr noundef %39, ptr noundef %call59) #12
   unreachable
 
 if.end60:                                         ; preds = %sw.bb53
-  %38 = load ptr, ptr %nongit_ok.addr, align 8
-  store i32 1, ptr %38, align 4
+  %40 = load ptr, ptr %nongit_ok.addr, align 8
+  store i32 1, ptr %40, align 4
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %if.end4, %if.end4
@@ -3376,33 +3379,33 @@ sw.default:                                       ; preds = %sw.bb61, %if.end4
   unreachable
 
 sw.epilog:                                        ; preds = %if.end60, %if.end52, %if.end43, %if.end37, %if.end29, %if.end14, %sw.bb
-  %39 = load ptr, ptr %nongit_ok.addr, align 8
-  %tobool62 = icmp ne ptr %39, null
+  %41 = load ptr, ptr %nongit_ok.addr, align 8
+  %tobool62 = icmp ne ptr %41, null
   br i1 %tobool62, label %land.lhs.true63, label %if.else
 
 land.lhs.true63:                                  ; preds = %sw.epilog
-  %40 = load ptr, ptr %nongit_ok.addr, align 8
-  %41 = load i32, ptr %40, align 4
-  %tobool64 = icmp ne i32 %41, 0
+  %42 = load ptr, ptr %nongit_ok.addr, align 8
+  %43 = load i32, ptr %42, align 4
+  %tobool64 = icmp ne i32 %43, 0
   br i1 %tobool64, label %if.then65, label %if.else
 
 if.then65:                                        ; preds = %land.lhs.true63
-  %42 = load ptr, ptr @startup_info, align 8
-  %have_repository = getelementptr inbounds %struct.startup_info, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr @startup_info, align 8
+  %have_repository = getelementptr inbounds %struct.startup_info, ptr %44, i32 0, i32 0
   store i32 0, ptr %have_repository, align 8
   br label %if.end67
 
 if.else:                                          ; preds = %land.lhs.true63, %sw.epilog
-  %43 = load ptr, ptr @startup_info, align 8
-  %have_repository66 = getelementptr inbounds %struct.startup_info, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr @startup_info, align 8
+  %have_repository66 = getelementptr inbounds %struct.startup_info, ptr %45, i32 0, i32 0
   store i32 1, ptr %have_repository66, align 8
   br label %if.end67
 
 if.end67:                                         ; preds = %if.else, %if.then65
-  %44 = load ptr, ptr @startup_info, align 8
-  %have_repository68 = getelementptr inbounds %struct.startup_info, ptr %44, i32 0, i32 0
-  %45 = load i32, ptr %have_repository68, align 8
-  %tobool69 = icmp ne i32 %45, 0
+  %46 = load ptr, ptr @startup_info, align 8
+  %have_repository68 = getelementptr inbounds %struct.startup_info, ptr %46, i32 0, i32 0
+  %47 = load i32, ptr %have_repository68, align 8
+  %tobool69 = icmp ne i32 %47, 0
   br i1 %tobool69, label %if.then72, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end67
@@ -3411,17 +3414,17 @@ lor.lhs.false:                                    ; preds = %if.end67
   br i1 %tobool71, label %if.then72, label %if.end87
 
 if.then72:                                        ; preds = %lor.lhs.false, %if.end67
-  %46 = load ptr, ptr @the_repository, align 8
-  %gitdir73 = getelementptr inbounds %struct.repository, ptr %46, i32 0, i32 0
-  %47 = load ptr, ptr %gitdir73, align 8
-  %tobool74 = icmp ne ptr %47, null
+  %48 = load ptr, ptr @the_repository, align 8
+  %gitdir73 = getelementptr inbounds %struct.repository, ptr %48, i32 0, i32 0
+  %49 = load ptr, ptr %gitdir73, align 8
+  %tobool74 = icmp ne ptr %49, null
   br i1 %tobool74, label %if.end81, label %if.then75
 
 if.then75:                                        ; preds = %if.then72
   %call77 = call ptr @getenv(ptr noundef @.str.52) #11
   store ptr %call77, ptr %gitdir76, align 8
-  %48 = load ptr, ptr %gitdir76, align 8
-  %tobool78 = icmp ne ptr %48, null
+  %50 = load ptr, ptr %gitdir76, align 8
+  %tobool78 = icmp ne ptr %50, null
   br i1 %tobool78, label %if.end80, label %if.then79
 
 if.then79:                                        ; preds = %if.then75
@@ -3429,36 +3432,36 @@ if.then79:                                        ; preds = %if.then75
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then79, %if.then75
-  %49 = load ptr, ptr %gitdir76, align 8
-  call void @setup_git_env(ptr noundef %49)
+  %51 = load ptr, ptr %gitdir76, align 8
+  call void @setup_git_env(ptr noundef %51)
   br label %if.end81
 
 if.end81:                                         ; preds = %if.end80, %if.then72
-  %50 = load ptr, ptr @startup_info, align 8
-  %have_repository82 = getelementptr inbounds %struct.startup_info, ptr %50, i32 0, i32 0
-  %51 = load i32, ptr %have_repository82, align 8
-  %tobool83 = icmp ne i32 %51, 0
+  %52 = load ptr, ptr @startup_info, align 8
+  %have_repository82 = getelementptr inbounds %struct.startup_info, ptr %52, i32 0, i32 0
+  %53 = load i32, ptr %have_repository82, align 8
+  %tobool83 = icmp ne i32 %53, 0
   br i1 %tobool83, label %if.then84, label %if.end86
 
 if.then84:                                        ; preds = %if.end81
-  %52 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository_format, ptr %repo_fmt, i32 0, i32 5
-  %53 = load i32, ptr %hash_algo, align 8
-  call void @repo_set_hash_algo(ptr noundef %52, i32 noundef %53)
   %54 = load ptr, ptr @the_repository, align 8
+  %hash_algo = getelementptr inbounds %struct.repository_format, ptr %repo_fmt, i32 0, i32 5
+  %55 = load i32, ptr %hash_algo, align 8
+  call void @repo_set_hash_algo(ptr noundef %54, i32 noundef %55)
+  %56 = load ptr, ptr @the_repository, align 8
   %ref_storage_format = getelementptr inbounds %struct.repository_format, ptr %repo_fmt, i32 0, i32 6
-  %55 = load i32, ptr %ref_storage_format, align 4
-  call void @repo_set_ref_storage_format(ptr noundef %54, i32 noundef %55)
+  %57 = load i32, ptr %ref_storage_format, align 4
+  call void @repo_set_ref_storage_format(ptr noundef %56, i32 noundef %57)
   %worktree_config = getelementptr inbounds %struct.repository_format, ptr %repo_fmt, i32 0, i32 3
-  %56 = load i32, ptr %worktree_config, align 8
-  %57 = load ptr, ptr @the_repository, align 8
-  %repository_format_worktree_config = getelementptr inbounds %struct.repository, ptr %57, i32 0, i32 21
-  store i32 %56, ptr %repository_format_worktree_config, align 8
-  %partial_clone = getelementptr inbounds %struct.repository_format, ptr %repo_fmt, i32 0, i32 2
-  %58 = load ptr, ptr %partial_clone, align 8
+  %58 = load i32, ptr %worktree_config, align 8
   %59 = load ptr, ptr @the_repository, align 8
-  %repository_format_partial_clone = getelementptr inbounds %struct.repository, ptr %59, i32 0, i32 19
-  store ptr %58, ptr %repository_format_partial_clone, align 8
+  %repository_format_worktree_config = getelementptr inbounds %struct.repository, ptr %59, i32 0, i32 21
+  store i32 %58, ptr %repository_format_worktree_config, align 8
+  %partial_clone = getelementptr inbounds %struct.repository_format, ptr %repo_fmt, i32 0, i32 2
+  %60 = load ptr, ptr %partial_clone, align 8
+  %61 = load ptr, ptr @the_repository, align 8
+  %repository_format_partial_clone = getelementptr inbounds %struct.repository, ptr %61, i32 0, i32 19
+  store ptr %60, ptr %repository_format_partial_clone, align 8
   %partial_clone85 = getelementptr inbounds %struct.repository_format, ptr %repo_fmt, i32 0, i32 2
   store ptr null, ptr %partial_clone85, align 8
   br label %if.end86
@@ -3467,25 +3470,25 @@ if.end86:                                         ; preds = %if.then84, %if.end8
   br label %if.end87
 
 if.end87:                                         ; preds = %if.end86, %lor.lhs.false
-  %60 = load ptr, ptr %prefix, align 8
-  %tobool88 = icmp ne ptr %60, null
+  %62 = load ptr, ptr %prefix, align 8
+  %tobool88 = icmp ne ptr %62, null
   br i1 %tobool88, label %if.then89, label %if.else93
 
 if.then89:                                        ; preds = %if.end87
-  %61 = load ptr, ptr %prefix, align 8
-  %call90 = call ptr @precompose_string_if_needed(ptr noundef %61)
+  %63 = load ptr, ptr %prefix, align 8
+  %call90 = call ptr @precompose_string_if_needed(ptr noundef %63)
   store ptr %call90, ptr %prefix, align 8
-  %62 = load ptr, ptr %prefix, align 8
-  %63 = load ptr, ptr @startup_info, align 8
-  %prefix91 = getelementptr inbounds %struct.startup_info, ptr %63, i32 0, i32 1
-  store ptr %62, ptr %prefix91, align 8
   %64 = load ptr, ptr %prefix, align 8
-  %call92 = call i32 @setenv(ptr noundef @.str.53, ptr noundef %64, i32 noundef 1) #11
+  %65 = load ptr, ptr @startup_info, align 8
+  %prefix91 = getelementptr inbounds %struct.startup_info, ptr %65, i32 0, i32 1
+  store ptr %64, ptr %prefix91, align 8
+  %66 = load ptr, ptr %prefix, align 8
+  %call92 = call i32 @setenv(ptr noundef @.str.53, ptr noundef %66, i32 noundef 1) #11
   br label %if.end96
 
 if.else93:                                        ; preds = %if.end87
-  %65 = load ptr, ptr @startup_info, align 8
-  %prefix94 = getelementptr inbounds %struct.startup_info, ptr %65, i32 0, i32 1
+  %67 = load ptr, ptr @startup_info, align 8
+  %prefix94 = getelementptr inbounds %struct.startup_info, ptr %67, i32 0, i32 1
   store ptr null, ptr %prefix94, align 8
   %call95 = call i32 @setenv(ptr noundef @.str.53, ptr noundef @.str.1, i32 noundef 1) #11
   br label %if.end96
@@ -3496,8 +3499,8 @@ if.end96:                                         ; preds = %if.else93, %if.then
   call void @strbuf_release(ptr noundef %gitdir)
   call void @strbuf_release(ptr noundef %report)
   call void @clear_repository_format(ptr noundef %repo_fmt)
-  %66 = load ptr, ptr %prefix, align 8
-  ret ptr %66
+  %68 = load ptr, ptr %prefix, align 8
+  ret ptr %68
 }
 
 declare void @git_config_clear() #1

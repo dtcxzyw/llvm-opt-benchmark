@@ -656,18 +656,19 @@ if.then:                                          ; preds = %while.body
   %conv5 = sext i32 %mul to i64
   %5 = load ptr, ptr %pch, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @inet_pton4.digits to i64)
+  %6 = ptrtoint ptr @inet_pton4.digits to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %6
   %add = add nsw i64 %conv5, %sub.ptr.sub
   %conv6 = trunc i64 %add to i32
   store i32 %conv6, ptr %nw, align 4
-  %6 = load i32, ptr %saw_digit, align 4
-  %tobool = icmp ne i32 %6, 0
+  %7 = load i32, ptr %saw_digit, align 4
+  %tobool = icmp ne i32 %7, 0
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.then
-  %7 = load ptr, ptr %tp, align 8
-  %8 = load i8, ptr %7, align 1
-  %conv7 = zext i8 %8 to i32
+  %8 = load ptr, ptr %tp, align 8
+  %9 = load i8, ptr %8, align 1
+  %conv7 = zext i8 %9 to i32
   %cmp8 = icmp eq i32 %conv7, 0
   br i1 %cmp8, label %if.then10, label %if.end
 
@@ -676,8 +677,8 @@ if.then10:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %if.then
-  %9 = load i32, ptr %nw, align 4
-  %cmp11 = icmp ugt i32 %9, 255
+  %10 = load i32, ptr %nw, align 4
+  %cmp11 = icmp ugt i32 %10, 255
   br i1 %cmp11, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end
@@ -685,17 +686,17 @@ if.then13:                                        ; preds = %if.end
   br label %return
 
 if.end14:                                         ; preds = %if.end
-  %10 = load i32, ptr %nw, align 4
-  %conv15 = trunc i32 %10 to i8
-  %11 = load ptr, ptr %tp, align 8
-  store i8 %conv15, ptr %11, align 1
-  %12 = load i32, ptr %saw_digit, align 4
-  %tobool16 = icmp ne i32 %12, 0
+  %11 = load i32, ptr %nw, align 4
+  %conv15 = trunc i32 %11 to i8
+  %12 = load ptr, ptr %tp, align 8
+  store i8 %conv15, ptr %12, align 1
+  %13 = load i32, ptr %saw_digit, align 4
+  %tobool16 = icmp ne i32 %13, 0
   br i1 %tobool16, label %if.end22, label %if.then17
 
 if.then17:                                        ; preds = %if.end14
-  %13 = load i32, ptr %octets, align 4
-  %inc = add nsw i32 %13, 1
+  %14 = load i32, ptr %octets, align 4
+  %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %octets, align 4
   %cmp18 = icmp sgt i32 %inc, 4
   br i1 %cmp18, label %if.then20, label %if.end21
@@ -712,18 +713,18 @@ if.end22:                                         ; preds = %if.end21, %if.end14
   br label %if.end35
 
 if.else:                                          ; preds = %while.body
-  %14 = load i32, ptr %ch, align 4
-  %cmp23 = icmp eq i32 %14, 46
+  %15 = load i32, ptr %ch, align 4
+  %cmp23 = icmp eq i32 %15, 46
   br i1 %cmp23, label %land.lhs.true25, label %if.else33
 
 land.lhs.true25:                                  ; preds = %if.else
-  %15 = load i32, ptr %saw_digit, align 4
-  %tobool26 = icmp ne i32 %15, 0
+  %16 = load i32, ptr %saw_digit, align 4
+  %tobool26 = icmp ne i32 %16, 0
   br i1 %tobool26, label %if.then27, label %if.else33
 
 if.then27:                                        ; preds = %land.lhs.true25
-  %16 = load i32, ptr %octets, align 4
-  %cmp28 = icmp eq i32 %16, 4
+  %17 = load i32, ptr %octets, align 4
+  %cmp28 = icmp eq i32 %17, 4
   br i1 %cmp28, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.then27
@@ -731,8 +732,8 @@ if.then30:                                        ; preds = %if.then27
   br label %return
 
 if.end31:                                         ; preds = %if.then27
-  %17 = load ptr, ptr %tp, align 8
-  %incdec.ptr32 = getelementptr inbounds i8, ptr %17, i32 1
+  %18 = load ptr, ptr %tp, align 8
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %18, i32 1
   store ptr %incdec.ptr32, ptr %tp, align 8
   store i8 0, ptr %incdec.ptr32, align 1
   store i32 0, ptr %saw_digit, align 4
@@ -749,8 +750,8 @@ if.end35:                                         ; preds = %if.end34, %if.end22
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %18 = load i32, ptr %octets, align 4
-  %cmp36 = icmp slt i32 %18, 4
+  %19 = load i32, ptr %octets, align 4
+  %cmp36 = icmp slt i32 %19, 4
   br i1 %cmp36, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %while.end
@@ -758,15 +759,15 @@ if.then38:                                        ; preds = %while.end
   br label %return
 
 if.end39:                                         ; preds = %while.end
-  %19 = load ptr, ptr %dst.addr, align 8
+  %20 = load ptr, ptr %dst.addr, align 8
   %arraydecay40 = getelementptr inbounds [4 x i8], ptr %tmp, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %arraydecay40, i64 4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %arraydecay40, i64 4, i1 false)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end39, %if.then38, %if.else33, %if.then30, %if.then20, %if.then13, %if.then10
-  %20 = load i32, ptr %retval, align 4
-  ret i32 %20
+  %21 = load i32, ptr %retval, align 4
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

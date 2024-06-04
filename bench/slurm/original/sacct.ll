@@ -150,95 +150,100 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #1 {
   %8 = load i32, ptr %4, align 4
   %9 = load ptr, ptr %5, align 8
   call void @parse_command_line(i32 noundef %8, ptr noundef %9)
-  %10 = load i32, ptr getelementptr inbounds (%struct.sacct_parameters_t, ptr @params, i32 0, i32 8), align 4
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %2
-  store i32 1, ptr %6, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.sacct_parameters_t, ptr @params, i32 0, i32 8
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  store i32 0, ptr %6, align 4
-  br label %14
+  store i32 1, ptr %6, align 4
+  br label %15
 
-14:                                               ; preds = %13, %12
-  %15 = load i32, ptr %6, align 4
-  switch i32 %15, label %48 [
-    i32 0, label %16
-    i32 1, label %47
+14:                                               ; preds = %2
+  store i32 0, ptr %6, align 4
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i32, ptr %6, align 4
+  switch i32 %16, label %53 [
+    i32 0, label %17
+    i32 1, label %52
   ]
 
-16:                                               ; preds = %14
-  %17 = load ptr, ptr getelementptr inbounds (%struct.sacct_parameters_t, ptr @params, i32 0, i32 14), align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %35, label %19
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds %struct.sacct_parameters_t, ptr @params, i32 0, i32 14
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %39, label %21
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr getelementptr inbounds (%struct.sacct_parameters_t, ptr @params, i32 0, i32 2), align 8
-  %21 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %20, i32 0, i32 8
-  %22 = load i32, ptr %21, align 8
-  %23 = zext i32 %22 to i64
-  %24 = and i64 %23, 256
-  %25 = icmp ne i64 %24, 0
-  br i1 %25, label %35, label %26
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds %struct.sacct_parameters_t, ptr @params, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %23, i32 0, i32 8
+  %25 = load i32, ptr %24, align 8
+  %26 = zext i32 %25 to i64
+  %27 = and i64 %26, 256
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %39, label %29
 
-26:                                               ; preds = %19
-  %27 = load ptr, ptr getelementptr inbounds (%struct.sacct_parameters_t, ptr @params, i32 0, i32 2), align 8
-  %28 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %27, i32 0, i32 8
-  %29 = load i32, ptr %28, align 8
-  %30 = zext i32 %29 to i64
-  %31 = and i64 %30, 512
-  %32 = icmp ne i64 %31, 0
-  br i1 %32, label %35, label %33
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds %struct.sacct_parameters_t, ptr @params, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %31, i32 0, i32 8
+  %33 = load i32, ptr %32, align 8
+  %34 = zext i32 %33 to i64
+  %35 = and i64 %34, 512
+  %36 = icmp ne i64 %35, 0
+  br i1 %36, label %39, label %37
 
-33:                                               ; preds = %26
-  %34 = load ptr, ptr @print_fields_list, align 8
-  call void @print_fields_header(ptr noundef %34)
-  br label %35
+37:                                               ; preds = %29
+  %38 = load ptr, ptr @print_fields_list, align 8
+  call void @print_fields_header(ptr noundef %38)
+  br label %39
 
-35:                                               ; preds = %33, %26, %19, %16
-  %36 = call i32 @get_data()
-  %37 = icmp eq i32 %36, -1
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %35
-  call void @exit(i32 noundef 1) #4
-  unreachable
-
-39:                                               ; preds = %35
-  %40 = load i32, ptr getelementptr inbounds (%struct.sacct_parameters_t, ptr @params, i32 0, i32 4), align 4
-  %41 = icmp ne i32 %40, 0
+39:                                               ; preds = %37, %29, %21, %17
+  %40 = call i32 @get_data()
+  %41 = icmp eq i32 %40, -1
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %39
-  call void @do_list_completion()
-  br label %46
+  call void @exit(i32 noundef 1) #4
+  unreachable
 
 43:                                               ; preds = %39
-  %44 = load i32, ptr %4, align 4
-  %45 = load ptr, ptr %5, align 8
-  call void @do_list(i32 noundef %44, ptr noundef %45)
-  br label %46
+  %44 = getelementptr inbounds %struct.sacct_parameters_t, ptr @params, i32 0, i32 4
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %43, %42
+47:                                               ; preds = %43
+  call void @do_list_completion()
   br label %51
 
-47:                                               ; preds = %14
+48:                                               ; preds = %43
+  %49 = load i32, ptr %4, align 4
+  %50 = load ptr, ptr %5, align 8
+  call void @do_list(i32 noundef %49, ptr noundef %50)
+  br label %51
+
+51:                                               ; preds = %48, %47
+  br label %56
+
+52:                                               ; preds = %15
   call void @do_help()
-  br label %51
+  br label %56
 
-48:                                               ; preds = %14
-  %49 = load ptr, ptr @stderr, align 8
-  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.112) #5
+53:                                               ; preds = %15
+  %54 = load ptr, ptr @stderr, align 8
+  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef @.str.112) #5
   call void @sacct_fini()
   call void @exit(i32 noundef 2) #4
   unreachable
 
-51:                                               ; preds = %47, %46
+56:                                               ; preds = %52, %51
   call void @sacct_fini()
-  %52 = load i32, ptr %7, align 4
-  ret i32 %52
+  %57 = load i32, ptr %7, align 4
+  ret i32 %57
 }
 
 declare void @slurm_init(ptr noundef) #0

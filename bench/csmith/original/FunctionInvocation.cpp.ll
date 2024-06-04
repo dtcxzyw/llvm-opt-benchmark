@@ -4980,19 +4980,20 @@ define dso_local void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlag
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV18FunctionInvocation, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 1
-  %9 = load i32, ptr %5, align 4
-  store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 2
-  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 3
-  store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 4
-  store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 5
-  %14 = load ptr, ptr %6, align 8
-  store ptr %14, ptr %13, align 8
+  %8 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV18FunctionInvocation, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 1
+  %10 = load i32, ptr %5, align 4
+  store i32 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 2
+  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %12 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 3
+  store i8 0, ptr %12, align 8
+  %13 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 4
+  store i8 0, ptr %13, align 1
+  %14 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 5
+  %15 = load ptr, ptr %6, align 8
+  store ptr %15, ptr %14, align 8
   ret void
 }
 
@@ -5018,110 +5019,111 @@ define dso_local void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %11 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV18FunctionInvocation, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %class.FunctionInvocation, ptr %13, i32 0, i32 1
-  %15 = load i32, ptr %14, align 8
-  store i32 %15, ptr %12, align 8
-  %16 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 2
-  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  %17 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 3
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %class.FunctionInvocation, ptr %18, i32 0, i32 3
-  %20 = load i8, ptr %19, align 8
-  %21 = trunc i8 %20 to i1
-  %22 = zext i1 %21 to i8
-  store i8 %22, ptr %17, align 8
-  %23 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 4
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %class.FunctionInvocation, ptr %24, i32 0, i32 4
-  %26 = load i8, ptr %25, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = zext i1 %27 to i8
-  store i8 %28, ptr %23, align 1
+  %12 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV18FunctionInvocation, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %class.FunctionInvocation, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 8
+  store i32 %16, ptr %13, align 8
+  %17 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 2
+  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %18 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 3
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %class.FunctionInvocation, ptr %19, i32 0, i32 3
+  %21 = load i8, ptr %20, align 8
+  %22 = trunc i8 %21 to i1
+  %23 = zext i1 %22 to i8
+  store i8 %23, ptr %18, align 8
+  %24 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 4
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %class.FunctionInvocation, ptr %25, i32 0, i32 4
+  %27 = load i8, ptr %26, align 1
+  %28 = trunc i8 %27 to i1
+  %29 = zext i1 %28 to i8
+  store i8 %29, ptr %24, align 1
   call void @_ZN9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %class.FunctionInvocation, ptr %29, i32 0, i32 2
-  %31 = call ptr @_ZNKSt6vectorIPK10ExpressionSaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
-  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
-  store ptr %31, ptr %32, align 8
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds %class.FunctionInvocation, ptr %30, i32 0, i32 2
+  %32 = call ptr @_ZNKSt6vectorIPK10ExpressionSaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #3
+  %33 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  store ptr %32, ptr %33, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 8, i1 false)
-  br label %33
+  br label %34
 
-33:                                               ; preds = %49, %2
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %class.FunctionInvocation, ptr %34, i32 0, i32 2
-  %36 = call ptr @_ZNKSt6vectorIPK10ExpressionSaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %35) #3
-  %37 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
-  store ptr %36, ptr %37, align 8
-  %38 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br i1 %38, label %39, label %55
+34:                                               ; preds = %50, %2
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %class.FunctionInvocation, ptr %35, i32 0, i32 2
+  %37 = call ptr @_ZNKSt6vectorIPK10ExpressionSaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #3
+  %38 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  store ptr %37, ptr %38, align 8
+  %39 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br i1 %39, label %40, label %56
 
-39:                                               ; preds = %33
-  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %41 = load ptr, ptr %40, align 8
+40:                                               ; preds = %34
+  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 2
-  %44 = load ptr, ptr %43, align 8
-  %45 = invoke noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(24) %41)
-          to label %46 unwind label %51
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds ptr, ptr %43, i64 2
+  %45 = load ptr, ptr %44, align 8
+  %46 = invoke noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(24) %42)
+          to label %47 unwind label %52
 
-46:                                               ; preds = %39
-  store ptr %45, ptr %8, align 8
-  %47 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 2
-  invoke void @_ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %48 unwind label %51
+47:                                               ; preds = %40
+  store ptr %46, ptr %8, align 8
+  %48 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 2
+  invoke void @_ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %49 unwind label %52
 
-48:                                               ; preds = %46
-  br label %49
+49:                                               ; preds = %47
+  br label %50
 
-49:                                               ; preds = %48
-  %50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br label %33, !llvm.loop !18
+50:                                               ; preds = %49
+  %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br label %34, !llvm.loop !18
 
-51:                                               ; preds = %60, %46, %39
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %61, %47, %40
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %9, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %10, align 4
-  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  br label %70
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %9, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %10, align 4
+  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  br label %71
 
-55:                                               ; preds = %33
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %class.FunctionInvocation, ptr %56, i32 0, i32 5
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %66
+56:                                               ; preds = %34
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds %class.FunctionInvocation, ptr %57, i32 0, i32 5
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %67
 
-60:                                               ; preds = %55
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %class.FunctionInvocation, ptr %61, i32 0, i32 5
-  %63 = load ptr, ptr %62, align 8
-  %64 = invoke noundef ptr @_ZNK11SafeOpFlags5cloneEv(ptr noundef nonnull align 4 dereferenceable(8) %63)
-          to label %65 unwind label %51
+61:                                               ; preds = %56
+  %62 = load ptr, ptr %4, align 8
+  %63 = getelementptr inbounds %class.FunctionInvocation, ptr %62, i32 0, i32 5
+  %64 = load ptr, ptr %63, align 8
+  %65 = invoke noundef ptr @_ZNK11SafeOpFlags5cloneEv(ptr noundef nonnull align 4 dereferenceable(8) %64)
+          to label %66 unwind label %52
 
-65:                                               ; preds = %60
-  br label %67
+66:                                               ; preds = %61
+  br label %68
 
-66:                                               ; preds = %55
-  br label %67
+67:                                               ; preds = %56
+  br label %68
 
-67:                                               ; preds = %66, %65
-  %68 = phi ptr [ %64, %65 ], [ null, %66 ]
-  %69 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 5
-  store ptr %68, ptr %69, align 8
+68:                                               ; preds = %67, %66
+  %69 = phi ptr [ %65, %66 ], [ null, %67 ]
+  %70 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 5
+  store ptr %69, ptr %70, align 8
   ret void
 
-70:                                               ; preds = %51
-  %71 = load ptr, ptr %9, align 8
-  %72 = load i32, ptr %10, align 4
-  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
-  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
-  resume { ptr, i32 } %74
+71:                                               ; preds = %52
+  %72 = load ptr, ptr %9, align 8
+  %73 = load i32, ptr %10, align 4
+  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
+  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
+  resume { ptr, i32 } %75
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5241,69 +5243,70 @@ define dso_local void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 d
   %6 = alloca %"class.__gnu_cxx::__normal_iterator.98", align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV18FunctionInvocation, i32 0, i32 0, i32 2), ptr %7, align 8
+  %8 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV18FunctionInvocation, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
   call void @_ZN9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %8 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 2
-  %9 = call ptr @_ZNSt6vectorIPK10ExpressionSaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.98", ptr %5, i32 0, i32 0
-  store ptr %9, ptr %10, align 8
+  %9 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 2
+  %10 = call ptr @_ZNSt6vectorIPK10ExpressionSaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.98", ptr %5, i32 0, i32 0
+  store ptr %10, ptr %11, align 8
   call void @_ZN9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEC2IPS3_vEERKNS0_IT_S8_EE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 8, i1 false)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %25, %1
-  %12 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 2
-  %13 = call ptr @_ZNSt6vectorIPK10ExpressionSaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.98", ptr %6, i32 0, i32 0
-  store ptr %13, ptr %14, align 8
-  %15 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKPK10ExpressionPS3_St6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T1_EERKNSA_IT0_SC_EE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  br i1 %15, label %16, label %27
+12:                                               ; preds = %26, %1
+  %13 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 2
+  %14 = call ptr @_ZNSt6vectorIPK10ExpressionSaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.98", ptr %6, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  %16 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKPK10ExpressionPS3_St6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T1_EERKNSA_IT0_SC_EE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  br i1 %16, label %17, label %28
 
-16:                                               ; preds = %11
-  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %24, label %20
+17:                                               ; preds = %12
+  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %25, label %21
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 1
-  %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  br label %24
-
-24:                                               ; preds = %20, %16
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %19, align 8
+  %23 = getelementptr inbounds ptr, ptr %22, i64 1
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
   br label %25
 
-25:                                               ; preds = %24
-  %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  br label %11, !llvm.loop !19
+25:                                               ; preds = %21, %17
+  br label %26
 
-27:                                               ; preds = %11
-  %28 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 2
-  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
-  %29 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 5
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %38
+26:                                               ; preds = %25
+  %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  br label %12, !llvm.loop !19
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 5
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %37, label %36
+28:                                               ; preds = %12
+  %29 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 2
+  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  %30 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 5
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %39
 
-36:                                               ; preds = %32
-  call void @_ZN11SafeOpFlagsD1Ev(ptr noundef nonnull align 4 dereferenceable(8) %34) #3
-  call void @_ZdlPv(ptr noundef %34) #14
-  br label %37
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 5
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %38, label %37
 
-37:                                               ; preds = %36, %32
+37:                                               ; preds = %33
+  call void @_ZN11SafeOpFlagsD1Ev(ptr noundef nonnull align 4 dereferenceable(8) %35) #3
+  call void @_ZdlPv(ptr noundef %35) #14
   br label %38
 
-38:                                               ; preds = %37, %27
-  %39 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 2
-  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #3
+38:                                               ; preds = %37, %33
+  br label %39
+
+39:                                               ; preds = %38, %28
+  %40 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 2
+  call void @_ZNSt6vectorIPK10ExpressionSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #3
   ret void
 }
 

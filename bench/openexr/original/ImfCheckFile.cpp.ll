@@ -1837,17 +1837,18 @@ entry:
   store i64 %nBytes, ptr %nBytes.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef @.str.13)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_110PtrIStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_110PtrIStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %base = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::PtrIStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %data.addr, align 8
-  store ptr %0, ptr %base, align 8
-  %current = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::PtrIStream", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %data.addr, align 8
-  store ptr %1, ptr %current, align 8
-  %end = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::PtrIStream", ptr %this1, i32 0, i32 3
+  store ptr %1, ptr %base, align 8
+  %current = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::PtrIStream", ptr %this1, i32 0, i32 2
   %2 = load ptr, ptr %data.addr, align 8
-  %3 = load i64, ptr %nBytes.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %3
+  store ptr %2, ptr %current, align 8
+  %end = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::PtrIStream", ptr %this1, i32 0, i32 3
+  %3 = load ptr, ptr %data.addr, align 8
+  %4 = load i64, ptr %nBytes.addr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %4
   store ptr %add.ptr, ptr %end, align 8
   ret void
 }
@@ -2849,53 +2850,54 @@ for.body38:                                       ; preds = %for.cond35
   store ptr %arrayidx, ptr %outc, align 8
   %35 = load ptr, ptr %outc, align 8
   %36 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %35, i32 0, i32 12
-  store ptr inttoptr (i64 4096 to ptr), ptr %36, align 8
-  %37 = load ptr, ptr %outc, align 8
-  %user_bytes_per_element = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %37, i32 0, i32 8
-  %38 = load i16, ptr %user_bytes_per_element, align 4
-  %conv40 = sext i16 %38 to i32
-  %39 = load ptr, ptr %outc, align 8
-  %user_pixel_stride = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %39, i32 0, i32 10
-  store i32 %conv40, ptr %user_pixel_stride, align 8
+  %37 = inttoptr i64 4096 to ptr
+  store ptr %37, ptr %36, align 8
+  %38 = load ptr, ptr %outc, align 8
+  %user_bytes_per_element = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %38, i32 0, i32 8
+  %39 = load i16, ptr %user_bytes_per_element, align 4
+  %conv40 = sext i16 %39 to i32
   %40 = load ptr, ptr %outc, align 8
-  %user_pixel_stride41 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %40, i32 0, i32 10
-  %41 = load i32, ptr %user_pixel_stride41, align 8
-  %conv42 = sext i32 %41 to i64
-  %42 = load i64, ptr %width, align 8
-  %mul = mul i64 %conv42, %42
+  %user_pixel_stride = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %40, i32 0, i32 10
+  store i32 %conv40, ptr %user_pixel_stride, align 8
+  %41 = load ptr, ptr %outc, align 8
+  %user_pixel_stride41 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %41, i32 0, i32 10
+  %42 = load i32, ptr %user_pixel_stride41, align 8
+  %conv42 = sext i32 %42 to i64
+  %43 = load i64, ptr %width, align 8
+  %mul = mul i64 %conv42, %43
   %conv43 = trunc i64 %mul to i32
-  %43 = load ptr, ptr %outc, align 8
-  %user_line_stride = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %43, i32 0, i32 11
+  %44 = load ptr, ptr %outc, align 8
+  %user_line_stride = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %44, i32 0, i32 11
   store i32 %conv43, ptr %user_line_stride, align 4
-  %44 = load i64, ptr %width, align 8
-  %45 = load ptr, ptr %outc, align 8
-  %user_bytes_per_element44 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %45, i32 0, i32 8
-  %46 = load i16, ptr %user_bytes_per_element44, align 4
-  %conv45 = sext i16 %46 to i64
-  %mul46 = mul i64 %44, %conv45
-  %47 = load i32, ptr %lines_per_chunk, align 4
-  %conv47 = sext i32 %47 to i64
+  %45 = load i64, ptr %width, align 8
+  %46 = load ptr, ptr %outc, align 8
+  %user_bytes_per_element44 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %46, i32 0, i32 8
+  %47 = load i16, ptr %user_bytes_per_element44, align 4
+  %conv45 = sext i16 %47 to i64
+  %mul46 = mul i64 %45, %conv45
+  %48 = load i32, ptr %lines_per_chunk, align 4
+  %conv47 = sext i32 %48 to i64
   %mul48 = mul i64 %mul46, %conv47
-  %48 = load i64, ptr %bytes, align 8
-  %add49 = add i64 %48, %mul48
+  %49 = load i64, ptr %bytes, align 8
+  %add49 = add i64 %49, %mul48
   store i64 %add49, ptr %bytes, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body38
-  %49 = load i32, ptr %c, align 4
-  %inc = add nsw i32 %49, 1
+  %50 = load i32, ptr %c, align 4
+  %inc = add nsw i32 %50, 1
   store i32 %inc, ptr %c, align 4
   br label %for.cond35, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond35
   store i8 1, ptr %doread, align 1
-  %50 = load i8, ptr %reduceMemory.addr, align 1
-  %tobool50 = trunc i8 %50 to i1
+  %51 = load i8, ptr %reduceMemory.addr, align 1
+  %tobool50 = trunc i8 %51 to i1
   br i1 %tobool50, label %land.lhs.true, label %if.end53
 
 land.lhs.true:                                    ; preds = %for.end
-  %51 = load i64, ptr %bytes, align 8
-  %cmp51 = icmp uge i64 %51, 8000000
+  %52 = load i64, ptr %bytes, align 8
+  %cmp51 = icmp uge i64 %52, 8000000
   br i1 %cmp51, label %if.then52, label %if.end53
 
 if.then52:                                        ; preds = %land.lhs.true
@@ -2903,28 +2905,28 @@ if.then52:                                        ; preds = %land.lhs.true
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then52, %land.lhs.true, %for.end
-  %52 = load i8, ptr %doread, align 1
-  %tobool54 = trunc i8 %52 to i1
+  %53 = load i8, ptr %doread, align 1
+  %tobool54 = trunc i8 %53 to i1
   br i1 %tobool54, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.end53
-  %53 = load i64, ptr %bytes, align 8
-  invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %imgdata, i64 noundef %53)
+  %54 = load i64, ptr %bytes, align 8
+  invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %imgdata, i64 noundef %54)
           to label %invoke.cont56 unwind label %lpad
 
 invoke.cont56:                                    ; preds = %if.then55
   br label %if.end57
 
 if.end57:                                         ; preds = %invoke.cont56, %if.end53
-  %54 = load ptr, ptr %f.addr, align 8
-  %55 = load i32, ptr %part.addr, align 4
-  %call59 = invoke i32 @exr_decoding_choose_default_routines(ptr noundef %54, i32 noundef %55, ptr noundef %decoder)
+  %55 = load ptr, ptr %f.addr, align 8
+  %56 = load i32, ptr %part.addr, align 4
+  %call59 = invoke i32 @exr_decoding_choose_default_routines(ptr noundef %55, i32 noundef %56, ptr noundef %decoder)
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %if.end57
   store i32 %call59, ptr %rv, align 4
-  %56 = load i32, ptr %rv, align 4
-  %cmp60 = icmp ne i32 %56, 0
+  %57 = load i32, ptr %rv, align 4
+  %cmp60 = icmp ne i32 %57, 0
   br i1 %cmp60, label %if.then61, label %if.end62
 
 if.then61:                                        ; preds = %invoke.cont58
@@ -2934,20 +2936,20 @@ if.end62:                                         ; preds = %invoke.cont58
   br label %if.end71
 
 if.else:                                          ; preds = %if.end27
-  %57 = load ptr, ptr %f.addr, align 8
-  %58 = load i32, ptr %part.addr, align 4
-  %call64 = invoke i32 @exr_decoding_update(ptr noundef %57, i32 noundef %58, ptr noundef %cinfo, ptr noundef %decoder)
+  %58 = load ptr, ptr %f.addr, align 8
+  %59 = load i32, ptr %part.addr, align 4
+  %call64 = invoke i32 @exr_decoding_update(ptr noundef %58, i32 noundef %59, ptr noundef %cinfo, ptr noundef %decoder)
           to label %invoke.cont63 unwind label %lpad
 
 invoke.cont63:                                    ; preds = %if.else
   store i32 %call64, ptr %rv, align 4
-  %59 = load i32, ptr %rv, align 4
-  %cmp65 = icmp ne i32 %59, 0
+  %60 = load i32, ptr %rv, align 4
+  %cmp65 = icmp ne i32 %60, 0
   br i1 %cmp65, label %if.then66, label %if.end70
 
 if.then66:                                        ; preds = %invoke.cont63
-  %60 = load i8, ptr %reduceTime.addr, align 1
-  %tobool67 = trunc i8 %60 to i1
+  %61 = load i8, ptr %reduceTime.addr, align 1
+  %tobool67 = trunc i8 %61 to i1
   br i1 %tobool67, label %if.then68, label %if.end69
 
 if.then68:                                        ; preds = %if.then66
@@ -2960,8 +2962,8 @@ if.end70:                                         ; preds = %invoke.cont63
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end70, %if.end62
-  %61 = load i8, ptr %doread, align 1
-  %tobool72 = trunc i8 %61 to i1
+  %62 = load i8, ptr %doread, align 1
+  %tobool72 = trunc i8 %62 to i1
   br i1 %tobool72, label %if.then73, label %if.end109
 
 if.then73:                                        ; preds = %if.end71
@@ -2971,76 +2973,76 @@ if.then73:                                        ; preds = %if.end71
   br label %for.cond76
 
 for.cond76:                                       ; preds = %for.inc98, %if.then73
-  %62 = load i32, ptr %c75, align 4
+  %63 = load i32, ptr %c75, align 4
   %channel_count77 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decoder, i32 0, i32 1
-  %63 = load i16, ptr %channel_count77, align 8
-  %conv78 = sext i16 %63 to i32
-  %cmp79 = icmp slt i32 %62, %conv78
+  %64 = load i16, ptr %channel_count77, align 8
+  %conv78 = sext i16 %64 to i32
+  %cmp79 = icmp slt i32 %63, %conv78
   br i1 %cmp79, label %for.body80, label %for.end100
 
 for.body80:                                       ; preds = %for.cond76
   %channels82 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decoder, i32 0, i32 0
-  %64 = load ptr, ptr %channels82, align 8
-  %65 = load i32, ptr %c75, align 4
-  %idxprom83 = sext i32 %65 to i64
-  %arrayidx84 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %64, i64 %idxprom83
+  %65 = load ptr, ptr %channels82, align 8
+  %66 = load i32, ptr %c75, align 4
+  %idxprom83 = sext i32 %66 to i64
+  %arrayidx84 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %65, i64 %idxprom83
   store ptr %arrayidx84, ptr %outc81, align 8
-  %66 = load ptr, ptr %dptr, align 8
-  %67 = load ptr, ptr %outc81, align 8
-  %68 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %67, i32 0, i32 12
-  store ptr %66, ptr %68, align 8
-  %69 = load ptr, ptr %outc81, align 8
-  %user_bytes_per_element85 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %69, i32 0, i32 8
-  %70 = load i16, ptr %user_bytes_per_element85, align 4
-  %conv86 = sext i16 %70 to i32
-  %71 = load ptr, ptr %outc81, align 8
-  %user_pixel_stride87 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %71, i32 0, i32 10
-  store i32 %conv86, ptr %user_pixel_stride87, align 8
+  %67 = load ptr, ptr %dptr, align 8
+  %68 = load ptr, ptr %outc81, align 8
+  %69 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %68, i32 0, i32 12
+  store ptr %67, ptr %69, align 8
+  %70 = load ptr, ptr %outc81, align 8
+  %user_bytes_per_element85 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %70, i32 0, i32 8
+  %71 = load i16, ptr %user_bytes_per_element85, align 4
+  %conv86 = sext i16 %71 to i32
   %72 = load ptr, ptr %outc81, align 8
-  %user_pixel_stride88 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %72, i32 0, i32 10
-  %73 = load i32, ptr %user_pixel_stride88, align 8
-  %conv89 = sext i32 %73 to i64
-  %74 = load i64, ptr %width, align 8
-  %mul90 = mul i64 %conv89, %74
+  %user_pixel_stride87 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %72, i32 0, i32 10
+  store i32 %conv86, ptr %user_pixel_stride87, align 8
+  %73 = load ptr, ptr %outc81, align 8
+  %user_pixel_stride88 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %73, i32 0, i32 10
+  %74 = load i32, ptr %user_pixel_stride88, align 8
+  %conv89 = sext i32 %74 to i64
+  %75 = load i64, ptr %width, align 8
+  %mul90 = mul i64 %conv89, %75
   %conv91 = trunc i64 %mul90 to i32
-  %75 = load ptr, ptr %outc81, align 8
-  %user_line_stride92 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %75, i32 0, i32 11
+  %76 = load ptr, ptr %outc81, align 8
+  %user_line_stride92 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %76, i32 0, i32 11
   store i32 %conv91, ptr %user_line_stride92, align 4
-  %76 = load i64, ptr %width, align 8
-  %77 = load ptr, ptr %outc81, align 8
-  %user_bytes_per_element93 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %77, i32 0, i32 8
-  %78 = load i16, ptr %user_bytes_per_element93, align 4
-  %conv94 = sext i16 %78 to i64
-  %mul95 = mul i64 %76, %conv94
-  %79 = load i32, ptr %lines_per_chunk, align 4
-  %conv96 = sext i32 %79 to i64
+  %77 = load i64, ptr %width, align 8
+  %78 = load ptr, ptr %outc81, align 8
+  %user_bytes_per_element93 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %78, i32 0, i32 8
+  %79 = load i16, ptr %user_bytes_per_element93, align 4
+  %conv94 = sext i16 %79 to i64
+  %mul95 = mul i64 %77, %conv94
+  %80 = load i32, ptr %lines_per_chunk, align 4
+  %conv96 = sext i32 %80 to i64
   %mul97 = mul i64 %mul95, %conv96
-  %80 = load ptr, ptr %dptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %80, i64 %mul97
+  %81 = load ptr, ptr %dptr, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %81, i64 %mul97
   store ptr %add.ptr, ptr %dptr, align 8
   br label %for.inc98
 
 for.inc98:                                        ; preds = %for.body80
-  %81 = load i32, ptr %c75, align 4
-  %inc99 = add nsw i32 %81, 1
+  %82 = load i32, ptr %c75, align 4
+  %inc99 = add nsw i32 %82, 1
   store i32 %inc99, ptr %c75, align 4
   br label %for.cond76, !llvm.loop !7
 
 for.end100:                                       ; preds = %for.cond76
-  %82 = load ptr, ptr %f.addr, align 8
-  %83 = load i32, ptr %part.addr, align 4
-  %call102 = invoke i32 @exr_decoding_run(ptr noundef %82, i32 noundef %83, ptr noundef %decoder)
+  %83 = load ptr, ptr %f.addr, align 8
+  %84 = load i32, ptr %part.addr, align 4
+  %call102 = invoke i32 @exr_decoding_run(ptr noundef %83, i32 noundef %84, ptr noundef %decoder)
           to label %invoke.cont101 unwind label %lpad
 
 invoke.cont101:                                   ; preds = %for.end100
   store i32 %call102, ptr %rv, align 4
-  %84 = load i32, ptr %rv, align 4
-  %cmp103 = icmp ne i32 %84, 0
+  %85 = load i32, ptr %rv, align 4
+  %cmp103 = icmp ne i32 %85, 0
   br i1 %cmp103, label %if.then104, label %if.end108
 
 if.then104:                                       ; preds = %invoke.cont101
-  %85 = load i8, ptr %reduceTime.addr, align 1
-  %tobool105 = trunc i8 %85 to i1
+  %86 = load i8, ptr %reduceTime.addr, align 1
+  %tobool105 = trunc i8 %86 to i1
   br i1 %tobool105, label %if.then106, label %if.end107
 
 if.then106:                                       ; preds = %if.then104
@@ -3056,21 +3058,21 @@ if.end109:                                        ; preds = %if.end108, %if.end7
   br label %for.inc110
 
 for.inc110:                                       ; preds = %if.end109, %if.end69, %if.end26
-  %86 = load i32, ptr %lines_per_chunk, align 4
-  %conv111 = sext i32 %86 to i64
-  %87 = load i64, ptr %chunk, align 8
-  %add112 = add i64 %87, %conv111
+  %87 = load i32, ptr %lines_per_chunk, align 4
+  %conv111 = sext i32 %87 to i64
+  %88 = load i64, ptr %chunk, align 8
+  %add112 = add i64 %88, %conv111
   store i64 %add112, ptr %chunk, align 8
   br label %for.cond, !llvm.loop !8
 
 for.end113:                                       ; preds = %if.then106, %if.then68, %if.then61, %if.then33, %if.then25, %for.cond
-  %88 = load ptr, ptr %f.addr, align 8
-  %call115 = invoke i32 @exr_decoding_destroy(ptr noundef %88, ptr noundef %decoder)
+  %89 = load ptr, ptr %f.addr, align 8
+  %call115 = invoke i32 @exr_decoding_destroy(ptr noundef %89, ptr noundef %decoder)
           to label %invoke.cont114 unwind label %lpad
 
 invoke.cont114:                                   ; preds = %for.end113
-  %89 = load i32, ptr %rv, align 4
-  %cmp116 = icmp ne i32 %89, 0
+  %90 = load i32, ptr %rv, align 4
+  %cmp116 = icmp ne i32 %90, 0
   store i1 %cmp116, ptr %retval, align 1
   store i32 1, ptr %cleanup.dest.slot, align 4
   br label %cleanup
@@ -3080,8 +3082,8 @@ cleanup:                                          ; preds = %invoke.cont114, %if
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
-  %90 = load i1, ptr %retval, align 1
-  ret i1 %90
+  %91 = load i1, ptr %retval, align 1
+  ret i1 %91
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -3385,55 +3387,56 @@ for.body61:                                       ; preds = %for.cond58
   %arrayidx = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %54, i64 %idxprom
   store ptr %arrayidx, ptr %outc, align 8
   %56 = load i64, ptr %bytes, align 8
-  %add.ptr = getelementptr inbounds i8, ptr inttoptr (i64 4096 to ptr), i64 %56
-  %57 = load ptr, ptr %outc, align 8
-  %58 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %57, i32 0, i32 12
-  store ptr %add.ptr, ptr %58, align 8
-  %59 = load ptr, ptr %outc, align 8
-  %user_bytes_per_element = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %59, i32 0, i32 8
-  %60 = load i16, ptr %user_bytes_per_element, align 4
-  %conv63 = sext i16 %60 to i32
-  %61 = load ptr, ptr %outc, align 8
-  %user_pixel_stride = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %61, i32 0, i32 10
-  store i32 %conv63, ptr %user_pixel_stride, align 8
+  %57 = inttoptr i64 4096 to ptr
+  %add.ptr = getelementptr inbounds i8, ptr %57, i64 %56
+  %58 = load ptr, ptr %outc, align 8
+  %59 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %58, i32 0, i32 12
+  store ptr %add.ptr, ptr %59, align 8
+  %60 = load ptr, ptr %outc, align 8
+  %user_bytes_per_element = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %60, i32 0, i32 8
+  %61 = load i16, ptr %user_bytes_per_element, align 4
+  %conv63 = sext i16 %61 to i32
   %62 = load ptr, ptr %outc, align 8
-  %user_pixel_stride64 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %62, i32 0, i32 10
-  %63 = load i32, ptr %user_pixel_stride64, align 8
-  %64 = load i32, ptr %curtw, align 4
-  %mul = mul nsw i32 %63, %64
-  %65 = load ptr, ptr %outc, align 8
-  %user_line_stride = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %65, i32 0, i32 11
+  %user_pixel_stride = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %62, i32 0, i32 10
+  store i32 %conv63, ptr %user_pixel_stride, align 8
+  %63 = load ptr, ptr %outc, align 8
+  %user_pixel_stride64 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %63, i32 0, i32 10
+  %64 = load i32, ptr %user_pixel_stride64, align 8
+  %65 = load i32, ptr %curtw, align 4
+  %mul = mul nsw i32 %64, %65
+  %66 = load ptr, ptr %outc, align 8
+  %user_line_stride = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %66, i32 0, i32 11
   store i32 %mul, ptr %user_line_stride, align 4
-  %66 = load i32, ptr %curtw, align 4
-  %conv65 = sext i32 %66 to i64
-  %67 = load ptr, ptr %outc, align 8
-  %user_bytes_per_element66 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %67, i32 0, i32 8
-  %68 = load i16, ptr %user_bytes_per_element66, align 4
-  %conv67 = sext i16 %68 to i64
+  %67 = load i32, ptr %curtw, align 4
+  %conv65 = sext i32 %67 to i64
+  %68 = load ptr, ptr %outc, align 8
+  %user_bytes_per_element66 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %68, i32 0, i32 8
+  %69 = load i16, ptr %user_bytes_per_element66, align 4
+  %conv67 = sext i16 %69 to i64
   %mul68 = mul i64 %conv65, %conv67
-  %69 = load i32, ptr %curth, align 4
-  %conv69 = sext i32 %69 to i64
+  %70 = load i32, ptr %curth, align 4
+  %conv69 = sext i32 %70 to i64
   %mul70 = mul i64 %mul68, %conv69
-  %70 = load i64, ptr %bytes, align 8
-  %add = add i64 %70, %mul70
+  %71 = load i64, ptr %bytes, align 8
+  %add = add i64 %71, %mul70
   store i64 %add, ptr %bytes, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body61
-  %71 = load i32, ptr %c, align 4
-  %inc = add nsw i32 %71, 1
+  %72 = load i32, ptr %c, align 4
+  %inc = add nsw i32 %72, 1
   store i32 %inc, ptr %c, align 4
   br label %for.cond58, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond58
   store i8 1, ptr %doread, align 1
-  %72 = load i8, ptr %reduceMemory.addr, align 1
-  %tobool71 = trunc i8 %72 to i1
+  %73 = load i8, ptr %reduceMemory.addr, align 1
+  %tobool71 = trunc i8 %73 to i1
   br i1 %tobool71, label %land.lhs.true, label %if.end74
 
 land.lhs.true:                                    ; preds = %for.end
-  %73 = load i64, ptr %bytes, align 8
-  %cmp72 = icmp uge i64 %73, 1000000
+  %74 = load i64, ptr %bytes, align 8
+  %cmp72 = icmp uge i64 %74, 1000000
   br i1 %cmp72, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %land.lhs.true
@@ -3441,28 +3444,28 @@ if.then73:                                        ; preds = %land.lhs.true
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then73, %land.lhs.true, %for.end
-  %74 = load i8, ptr %doread, align 1
-  %tobool75 = trunc i8 %74 to i1
+  %75 = load i8, ptr %doread, align 1
+  %tobool75 = trunc i8 %75 to i1
   br i1 %tobool75, label %if.then76, label %if.end78
 
 if.then76:                                        ; preds = %if.end74
-  %75 = load i64, ptr %bytes, align 8
-  invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %tiledata, i64 noundef %75)
+  %76 = load i64, ptr %bytes, align 8
+  invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %tiledata, i64 noundef %76)
           to label %invoke.cont77 unwind label %lpad
 
 invoke.cont77:                                    ; preds = %if.then76
   br label %if.end78
 
 if.end78:                                         ; preds = %invoke.cont77, %if.end74
-  %76 = load ptr, ptr %f.addr, align 8
-  %77 = load i32, ptr %part.addr, align 4
-  %call80 = invoke i32 @exr_decoding_choose_default_routines(ptr noundef %76, i32 noundef %77, ptr noundef %decoder)
+  %77 = load ptr, ptr %f.addr, align 8
+  %78 = load i32, ptr %part.addr, align 4
+  %call80 = invoke i32 @exr_decoding_choose_default_routines(ptr noundef %77, i32 noundef %78, ptr noundef %decoder)
           to label %invoke.cont79 unwind label %lpad
 
 invoke.cont79:                                    ; preds = %if.end78
   store i32 %call80, ptr %rv, align 4
-  %78 = load i32, ptr %rv, align 4
-  %cmp81 = icmp ne i32 %78, 0
+  %79 = load i32, ptr %rv, align 4
+  %cmp81 = icmp ne i32 %79, 0
   br i1 %cmp81, label %if.then82, label %if.end83
 
 if.then82:                                        ; preds = %invoke.cont79
@@ -3473,20 +3476,20 @@ if.end83:                                         ; preds = %invoke.cont79
   br label %if.end92
 
 if.else:                                          ; preds = %if.end50
-  %79 = load ptr, ptr %f.addr, align 8
-  %80 = load i32, ptr %part.addr, align 4
-  %call85 = invoke i32 @exr_decoding_update(ptr noundef %79, i32 noundef %80, ptr noundef %cinfo, ptr noundef %decoder)
+  %80 = load ptr, ptr %f.addr, align 8
+  %81 = load i32, ptr %part.addr, align 4
+  %call85 = invoke i32 @exr_decoding_update(ptr noundef %80, i32 noundef %81, ptr noundef %cinfo, ptr noundef %decoder)
           to label %invoke.cont84 unwind label %lpad
 
 invoke.cont84:                                    ; preds = %if.else
   store i32 %call85, ptr %rv, align 4
-  %81 = load i32, ptr %rv, align 4
-  %cmp86 = icmp ne i32 %81, 0
+  %82 = load i32, ptr %rv, align 4
+  %cmp86 = icmp ne i32 %82, 0
   br i1 %cmp86, label %if.then87, label %if.end91
 
 if.then87:                                        ; preds = %invoke.cont84
-  %82 = load i8, ptr %reduceTime.addr, align 1
-  %tobool88 = trunc i8 %82 to i1
+  %83 = load i8, ptr %reduceTime.addr, align 1
+  %tobool88 = trunc i8 %83 to i1
   br i1 %tobool88, label %if.then89, label %if.end90
 
 if.then89:                                        ; preds = %if.then87
@@ -3500,8 +3503,8 @@ if.end91:                                         ; preds = %invoke.cont84
   br label %if.end92
 
 if.end92:                                         ; preds = %if.end91, %if.end83
-  %83 = load i8, ptr %doread, align 1
-  %tobool93 = trunc i8 %83 to i1
+  %84 = load i8, ptr %doread, align 1
+  %tobool93 = trunc i8 %84 to i1
   br i1 %tobool93, label %if.then94, label %if.end130
 
 if.then94:                                        ; preds = %if.end92
@@ -3511,75 +3514,75 @@ if.then94:                                        ; preds = %if.end92
   br label %for.cond97
 
 for.cond97:                                       ; preds = %for.inc119, %if.then94
-  %84 = load i32, ptr %c96, align 4
+  %85 = load i32, ptr %c96, align 4
   %channel_count98 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decoder, i32 0, i32 1
-  %85 = load i16, ptr %channel_count98, align 8
-  %conv99 = sext i16 %85 to i32
-  %cmp100 = icmp slt i32 %84, %conv99
+  %86 = load i16, ptr %channel_count98, align 8
+  %conv99 = sext i16 %86 to i32
+  %cmp100 = icmp slt i32 %85, %conv99
   br i1 %cmp100, label %for.body101, label %for.end121
 
 for.body101:                                      ; preds = %for.cond97
   %channels103 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decoder, i32 0, i32 0
-  %86 = load ptr, ptr %channels103, align 8
-  %87 = load i32, ptr %c96, align 4
-  %idxprom104 = sext i32 %87 to i64
-  %arrayidx105 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %86, i64 %idxprom104
+  %87 = load ptr, ptr %channels103, align 8
+  %88 = load i32, ptr %c96, align 4
+  %idxprom104 = sext i32 %88 to i64
+  %arrayidx105 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %87, i64 %idxprom104
   store ptr %arrayidx105, ptr %outc102, align 8
-  %88 = load ptr, ptr %dptr, align 8
-  %89 = load ptr, ptr %outc102, align 8
-  %90 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %89, i32 0, i32 12
-  store ptr %88, ptr %90, align 8
-  %91 = load ptr, ptr %outc102, align 8
-  %user_bytes_per_element106 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %91, i32 0, i32 8
-  %92 = load i16, ptr %user_bytes_per_element106, align 4
-  %conv107 = sext i16 %92 to i32
-  %93 = load ptr, ptr %outc102, align 8
-  %user_pixel_stride108 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %93, i32 0, i32 10
-  store i32 %conv107, ptr %user_pixel_stride108, align 8
+  %89 = load ptr, ptr %dptr, align 8
+  %90 = load ptr, ptr %outc102, align 8
+  %91 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %90, i32 0, i32 12
+  store ptr %89, ptr %91, align 8
+  %92 = load ptr, ptr %outc102, align 8
+  %user_bytes_per_element106 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %92, i32 0, i32 8
+  %93 = load i16, ptr %user_bytes_per_element106, align 4
+  %conv107 = sext i16 %93 to i32
   %94 = load ptr, ptr %outc102, align 8
-  %user_pixel_stride109 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %94, i32 0, i32 10
-  %95 = load i32, ptr %user_pixel_stride109, align 8
-  %96 = load i32, ptr %curtw, align 4
-  %mul110 = mul nsw i32 %95, %96
-  %97 = load ptr, ptr %outc102, align 8
-  %user_line_stride111 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %97, i32 0, i32 11
+  %user_pixel_stride108 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %94, i32 0, i32 10
+  store i32 %conv107, ptr %user_pixel_stride108, align 8
+  %95 = load ptr, ptr %outc102, align 8
+  %user_pixel_stride109 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %95, i32 0, i32 10
+  %96 = load i32, ptr %user_pixel_stride109, align 8
+  %97 = load i32, ptr %curtw, align 4
+  %mul110 = mul nsw i32 %96, %97
+  %98 = load ptr, ptr %outc102, align 8
+  %user_line_stride111 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %98, i32 0, i32 11
   store i32 %mul110, ptr %user_line_stride111, align 4
-  %98 = load i32, ptr %curtw, align 4
-  %conv112 = sext i32 %98 to i64
-  %99 = load ptr, ptr %outc102, align 8
-  %user_bytes_per_element113 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %99, i32 0, i32 8
-  %100 = load i16, ptr %user_bytes_per_element113, align 4
-  %conv114 = sext i16 %100 to i64
+  %99 = load i32, ptr %curtw, align 4
+  %conv112 = sext i32 %99 to i64
+  %100 = load ptr, ptr %outc102, align 8
+  %user_bytes_per_element113 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %100, i32 0, i32 8
+  %101 = load i16, ptr %user_bytes_per_element113, align 4
+  %conv114 = sext i16 %101 to i64
   %mul115 = mul i64 %conv112, %conv114
-  %101 = load i32, ptr %curth, align 4
-  %conv116 = sext i32 %101 to i64
+  %102 = load i32, ptr %curth, align 4
+  %conv116 = sext i32 %102 to i64
   %mul117 = mul i64 %mul115, %conv116
-  %102 = load ptr, ptr %dptr, align 8
-  %add.ptr118 = getelementptr inbounds i8, ptr %102, i64 %mul117
+  %103 = load ptr, ptr %dptr, align 8
+  %add.ptr118 = getelementptr inbounds i8, ptr %103, i64 %mul117
   store ptr %add.ptr118, ptr %dptr, align 8
   br label %for.inc119
 
 for.inc119:                                       ; preds = %for.body101
-  %103 = load i32, ptr %c96, align 4
-  %inc120 = add nsw i32 %103, 1
+  %104 = load i32, ptr %c96, align 4
+  %inc120 = add nsw i32 %104, 1
   store i32 %inc120, ptr %c96, align 4
   br label %for.cond97, !llvm.loop !10
 
 for.end121:                                       ; preds = %for.cond97
-  %104 = load ptr, ptr %f.addr, align 8
-  %105 = load i32, ptr %part.addr, align 4
-  %call123 = invoke i32 @exr_decoding_run(ptr noundef %104, i32 noundef %105, ptr noundef %decoder)
+  %105 = load ptr, ptr %f.addr, align 8
+  %106 = load i32, ptr %part.addr, align 4
+  %call123 = invoke i32 @exr_decoding_run(ptr noundef %105, i32 noundef %106, ptr noundef %decoder)
           to label %invoke.cont122 unwind label %lpad
 
 invoke.cont122:                                   ; preds = %for.end121
   store i32 %call123, ptr %rv, align 4
-  %106 = load i32, ptr %rv, align 4
-  %cmp124 = icmp ne i32 %106, 0
+  %107 = load i32, ptr %rv, align 4
+  %cmp124 = icmp ne i32 %107, 0
   br i1 %cmp124, label %if.then125, label %if.end129
 
 if.then125:                                       ; preds = %invoke.cont122
-  %107 = load i8, ptr %reduceTime.addr, align 1
-  %tobool126 = trunc i8 %107 to i1
+  %108 = load i8, ptr %reduceTime.addr, align 1
+  %tobool126 = trunc i8 %108 to i1
   br i1 %tobool126, label %if.then127, label %if.end128
 
 if.then127:                                       ; preds = %if.then125
@@ -3596,13 +3599,13 @@ if.end130:                                        ; preds = %if.end129, %if.end9
   br label %for.inc131
 
 for.inc131:                                       ; preds = %if.end130, %if.end90, %if.end49
-  %108 = load i32, ptr %curtw, align 4
-  %conv132 = sext i32 %108 to i64
-  %109 = load i64, ptr %curx, align 8
-  %add133 = add nsw i64 %109, %conv132
+  %109 = load i32, ptr %curtw, align 4
+  %conv132 = sext i32 %109 to i64
+  %110 = load i64, ptr %curx, align 8
+  %add133 = add nsw i64 %110, %conv132
   store i64 %add133, ptr %curx, align 8
-  %110 = load i32, ptr %tx, align 4
-  %inc134 = add nsw i32 %110, 1
+  %111 = load i32, ptr %tx, align 4
+  %inc134 = add nsw i32 %111, 1
   store i32 %inc134, ptr %tx, align 4
   br label %for.cond37, !llvm.loop !11
 
@@ -3610,19 +3613,19 @@ for.end135:                                       ; preds = %if.then127, %if.the
   br label %for.inc136
 
 for.inc136:                                       ; preds = %for.end135
-  %111 = load i32, ptr %curth, align 4
-  %conv137 = sext i32 %111 to i64
-  %112 = load i64, ptr %cury, align 8
-  %add138 = add nsw i64 %112, %conv137
+  %112 = load i32, ptr %curth, align 4
+  %conv137 = sext i32 %112 to i64
+  %113 = load i64, ptr %cury, align 8
+  %add138 = add nsw i64 %113, %conv137
   store i64 %add138, ptr %cury, align 8
-  %113 = load i32, ptr %ty, align 4
-  %inc139 = add nsw i32 %113, 1
+  %114 = load i32, ptr %ty, align 4
+  %inc139 = add nsw i32 %114, 1
   store i32 %inc139, ptr %ty, align 4
   br label %for.cond31, !llvm.loop !12
 
 for.end140:                                       ; preds = %land.end35
-  %114 = load ptr, ptr %f.addr, align 8
-  %call142 = invoke i32 @exr_decoding_destroy(ptr noundef %114, ptr noundef %decoder)
+  %115 = load ptr, ptr %f.addr, align 8
+  %call142 = invoke i32 @exr_decoding_destroy(ptr noundef %115, ptr noundef %decoder)
           to label %invoke.cont141 unwind label %lpad
 
 invoke.cont141:                                   ; preds = %for.end140
@@ -3630,8 +3633,8 @@ invoke.cont141:                                   ; preds = %for.end140
   br label %for.inc143
 
 for.inc143:                                       ; preds = %invoke.cont141, %if.end29, %if.end22
-  %115 = load i32, ptr %xlevel, align 4
-  %inc144 = add nsw i32 %115, 1
+  %116 = load i32, ptr %xlevel, align 4
+  %inc144 = add nsw i32 %116, 1
   store i32 %inc144, ptr %xlevel, align 4
   br label %for.cond11, !llvm.loop !13
 
@@ -3639,20 +3642,20 @@ for.end145:                                       ; preds = %if.then28, %if.then
   br label %for.inc146
 
 for.inc146:                                       ; preds = %for.end145
-  %116 = load i32, ptr %ylevel, align 4
-  %inc147 = add nsw i32 %116, 1
+  %117 = load i32, ptr %ylevel, align 4
+  %inc147 = add nsw i32 %117, 1
   store i32 %inc147, ptr %ylevel, align 4
   br label %for.cond, !llvm.loop !14
 
 for.end148:                                       ; preds = %land.end
-  %117 = load i32, ptr %rv, align 4
-  %cmp149 = icmp ne i32 %117, 0
+  %118 = load i32, ptr %rv, align 4
+  %cmp149 = icmp ne i32 %118, 0
   store i1 %cmp149, ptr %retval, align 1
   br label %return
 
 return:                                           ; preds = %for.end148, %if.then8, %if.then4, %if.then
-  %118 = load i1, ptr %retval, align 1
-  ret i1 %118
+  %119 = load i1, ptr %retval, align 1
+  ret i1 %119
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8

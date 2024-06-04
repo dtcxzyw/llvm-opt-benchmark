@@ -141,19 +141,20 @@ define dso_local i32 @tick_oneshot_mode_active() local_unnamed_addr #0 align 16 
   %2 = load i64, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #5
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
-  %3 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.tick_device, ptr @tick_cpu_device, i64 0, i32 1)) #4, !srcloc !12
-  %4 = and i64 %2, 512
-  %5 = icmp eq i64 %4, 0
-  br i1 %5, label %7, label %6
+  %3 = getelementptr inbounds %struct.tick_device, ptr @tick_cpu_device, i64 0, i32 1
+  %4 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3) #4, !srcloc !12
+  %5 = and i64 %2, 512
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %8, label %7
 
-6:                                                ; preds = %0
+7:                                                ; preds = %0
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !13
-  br label %7
+  br label %8
 
-7:                                                ; preds = %6, %0
-  %8 = icmp eq i32 %3, 1
-  %9 = zext i1 %8 to i32
-  ret i32 %9
+8:                                                ; preds = %7, %0
+  %9 = icmp eq i32 %4, 1
+  %10 = zext i1 %9 to i32
+  ret i32 %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

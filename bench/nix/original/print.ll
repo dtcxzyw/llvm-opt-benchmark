@@ -4279,7 +4279,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ValuePrintingTests_tInt_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ValuePrintingTests_tInt_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4681,7 +4682,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix29ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tBool_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tBool_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4845,7 +4847,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix31ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ValuePrintingTests_tString_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ValuePrintingTests_tString_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5012,7 +5015,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix29ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tPath_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tPath_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5157,7 +5161,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix29ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tNull_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tNull_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5313,7 +5318,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix30ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ValuePrintingTests_tAttrs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ValuePrintingTests_tAttrs_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5717,7 +5723,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix29ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tList_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ValuePrintingTests_tList_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5882,7 +5889,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix30ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ValuePrintingTests_vThunk_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ValuePrintingTests_vThunk_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6049,7 +6057,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ValuePrintingTests_vApp_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ValuePrintingTests_vApp_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6216,7 +6225,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix31ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ValuePrintingTests_vLambda_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ValuePrintingTests_vLambda_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6505,31 +6515,32 @@ define linkonce_odr void @_ZN3nix7ExprIntC2El(ptr noundef nonnull align 8 derefe
   store i64 %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3nix4ExprC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3nix7ExprIntE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.nix::ExprInt", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %4, align 8
-  invoke void @_ZN3nix5Value5mkIntEl(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3nix7ExprIntE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.nix::ExprInt", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %4, align 8
+  invoke void @_ZN3nix5Value5mkIntEl(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN3nix4ExprD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN3nix4ExprD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6584,40 +6595,41 @@ define linkonce_odr void @_ZN3nix10ExprLambdaC2ENS_6PosIdxENS_6SymbolEPNS_7Forma
   store ptr %4, ptr %10, align 8
   %15 = load ptr, ptr %8, align 8
   call void @_ZN3nix4ExprC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3nix10ExprLambdaE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %"struct.nix::ExprLambda", ptr %15, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 4 %6, i64 4, i1 false)
-  %17 = getelementptr inbounds %"struct.nix::ExprLambda", ptr %15, i32 0, i32 2
-  invoke void @_ZN3nix6SymbolC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %17)
-          to label %18 unwind label %24
+  %16 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3nix10ExprLambdaE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.nix::ExprLambda", ptr %15, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 4 %6, i64 4, i1 false)
+  %18 = getelementptr inbounds %"struct.nix::ExprLambda", ptr %15, i32 0, i32 2
+  invoke void @_ZN3nix6SymbolC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %18)
+          to label %19 unwind label %25
 
-18:                                               ; preds = %5
-  %19 = getelementptr inbounds %"struct.nix::ExprLambda", ptr %15, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 4 %7, i64 4, i1 false)
-  %20 = getelementptr inbounds %"struct.nix::ExprLambda", ptr %15, i32 0, i32 4
-  %21 = load ptr, ptr %9, align 8
-  store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.nix::ExprLambda", ptr %15, i32 0, i32 5
-  %23 = load ptr, ptr %10, align 8
-  store ptr %23, ptr %22, align 8
+19:                                               ; preds = %5
+  %20 = getelementptr inbounds %"struct.nix::ExprLambda", ptr %15, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 4 %7, i64 4, i1 false)
+  %21 = getelementptr inbounds %"struct.nix::ExprLambda", ptr %15, i32 0, i32 4
+  %22 = load ptr, ptr %9, align 8
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"struct.nix::ExprLambda", ptr %15, i32 0, i32 5
+  %24 = load ptr, ptr %10, align 8
+  store ptr %24, ptr %23, align 8
   ret void
 
-24:                                               ; preds = %5
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %5
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %11, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %12, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %11, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %12, align 4
   call void @_ZN3nix4ExprD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  br label %28
+  br label %29
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %11, align 8
-  %30 = load i32, ptr %12, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %11, align 8
+  %31 = load i32, ptr %12, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6804,7 +6816,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix31ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ValuePrintingTests_vPrimOp_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ValuePrintingTests_vPrimOp_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7037,7 +7050,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix34ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ValuePrintingTests_vPrimOpApp_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ValuePrintingTests_vPrimOpApp_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7265,7 +7279,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix33ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33ValuePrintingTests_vExternal_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33ValuePrintingTests_vExternal_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7322,7 +7337,8 @@ define internal void @_ZZN3nix33ValuePrintingTests_vExternal_Test8TestBodyEvEN10
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3nix17ExternalValueBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVZN3nix33ValuePrintingTests_vExternal_Test8TestBodyEvE10MyExternal, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVZN3nix33ValuePrintingTests_vExternal_Test8TestBodyEvE10MyExternal, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7473,7 +7489,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix30ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ValuePrintingTests_vFloat_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ValuePrintingTests_vFloat_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7634,7 +7651,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix34ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ValuePrintingTests_vBlackhole_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ValuePrintingTests_vBlackhole_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7792,7 +7810,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix34ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ValuePrintingTests_depthAttrs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ValuePrintingTests_depthAttrs_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8357,7 +8376,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix33ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33ValuePrintingTests_depthList_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33ValuePrintingTests_depthList_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8979,7 +8999,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix44StringPri
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44StringPrintingTests_maxLengthTruncation_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44StringPrintingTests_maxLengthTruncation_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9375,7 +9396,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix38ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_attrsTypeFirst_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_attrsTypeFirst_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9622,7 +9644,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix37ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37ValuePrintingTests_ansiColorsInt_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37ValuePrintingTests_ansiColorsInt_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9790,7 +9813,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix39ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsFloat_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsFloat_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9958,7 +9982,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix38ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsBool_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsBool_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10126,7 +10151,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix40ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsString_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsString_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10294,7 +10320,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix46ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46ValuePrintingTests_ansiColorsStringElided_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46ValuePrintingTests_ansiColorsStringElided_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10461,7 +10488,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix38ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsPath_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsPath_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10718,7 +10746,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix38ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsNull_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsNull_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10886,7 +10915,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix39ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsAttrs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsAttrs_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11102,7 +11132,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix44ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44ValuePrintingTests_ansiColorsDerivation_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44ValuePrintingTests_ansiColorsDerivation_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11321,7 +11352,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix39ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsError_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsError_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11541,7 +11573,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix49ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49ValuePrintingTests_ansiColorsDerivationError_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49ValuePrintingTests_ansiColorsDerivationError_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11823,7 +11856,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix40ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsAssert_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsAssert_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11981,32 +12015,33 @@ define linkonce_odr void @_ZN3nix7ExprVarC2ENS_6SymbolE(ptr noundef nonnull alig
   store ptr %0, ptr %4, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN3nix4ExprC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3nix7ExprVarE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"struct.nix::ExprVar", ptr %8, i32 0, i32 1
-  invoke void @_ZN3nix6PosIdxC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9)
-          to label %10 unwind label %12
+  %9 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3nix7ExprVarE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.nix::ExprVar", ptr %8, i32 0, i32 1
+  invoke void @_ZN3nix6PosIdxC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %10)
+          to label %11 unwind label %13
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds %"struct.nix::ExprVar", ptr %8, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 4 %3, i64 4, i1 false)
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %"struct.nix::ExprVar", ptr %8, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 %3, i64 4, i1 false)
   ret void
 
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %5, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %6, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %5, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %6, align 4
   call void @_ZN3nix4ExprD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN3nix7ExprVar8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9StaticEnvEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(1248), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -12044,16 +12079,17 @@ define linkonce_odr void @_ZN3nix10ExprAssertC2ERKNS_6PosIdxEPNS_4ExprES5_(ptr n
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN3nix4ExprC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3nix10ExprAssertE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.nix::ExprAssert", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 4 %11, i64 4, i1 false)
-  %12 = getelementptr inbounds %"struct.nix::ExprAssert", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"struct.nix::ExprAssert", ptr %9, i32 0, i32 3
-  %15 = load ptr, ptr %8, align 8
-  store ptr %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3nix10ExprAssertE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.nix::ExprAssert", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 4 %12, i64 4, i1 false)
+  %13 = getelementptr inbounds %"struct.nix::ExprAssert", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.nix::ExprAssert", ptr %9, i32 0, i32 3
+  %16 = load ptr, ptr %8, align 8
+  store ptr %16, ptr %15, align 8
   ret void
 }
 
@@ -12199,7 +12235,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix38ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsList_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38ValuePrintingTests_ansiColorsList_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -12385,7 +12422,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix40ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsLambda_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsLambda_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -12716,7 +12754,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix40ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsPrimOp_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40ValuePrintingTests_ansiColorsPrimOp_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -12940,7 +12979,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix43ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13169,7 +13209,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix39ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsThunk_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39ValuePrintingTests_ansiColorsThunk_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13337,7 +13378,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix43ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ValuePrintingTests_ansiColorsBlackhole_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43ValuePrintingTests_ansiColorsBlackhole_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13505,7 +13547,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix47ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13725,7 +13768,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix46ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46ValuePrintingTests_ansiColorsListRepeated_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46ValuePrintingTests_ansiColorsListRepeated_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -13915,7 +13959,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix36ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ValuePrintingTests_listRepeated_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ValuePrintingTests_listRepeated_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -14137,7 +14182,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix45ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -14406,7 +14452,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix44ValuePrin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44ValuePrintingTests_ansiColorsListElided_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44ValuePrintingTests_ansiColorsListElided_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -17683,7 +17730,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -17776,32 +17824,35 @@ define linkonce_odr void @_ZN3nix28ValuePrintingTests_tInt_TestC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ValuePrintingTests_tInt_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix28ValuePrintingTests_tInt_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ValuePrintingTests_tInt_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ValuePrintingTests_tInt_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ValuePrintingTests_tInt_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ValuePrintingTests_tInt_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -19245,32 +19296,35 @@ define linkonce_odr void @_ZN3nix29ValuePrintingTests_tBool_TestC1Ev(ptr noundef
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ValuePrintingTests_tBool_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix29ValuePrintingTests_tBool_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tBool_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tBool_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tBool_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tBool_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19344,32 +19398,35 @@ define linkonce_odr void @_ZN3nix31ValuePrintingTests_tString_TestC1Ev(ptr nound
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31ValuePrintingTests_tString_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix31ValuePrintingTests_tString_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ValuePrintingTests_tString_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ValuePrintingTests_tString_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ValuePrintingTests_tString_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ValuePrintingTests_tString_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19443,32 +19500,35 @@ define linkonce_odr void @_ZN3nix29ValuePrintingTests_tPath_TestC1Ev(ptr noundef
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ValuePrintingTests_tPath_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix29ValuePrintingTests_tPath_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tPath_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tPath_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tPath_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tPath_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19542,32 +19602,35 @@ define linkonce_odr void @_ZN3nix29ValuePrintingTests_tNull_TestC1Ev(ptr noundef
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ValuePrintingTests_tNull_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix29ValuePrintingTests_tNull_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tNull_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tNull_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tNull_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tNull_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19641,32 +19704,35 @@ define linkonce_odr void @_ZN3nix30ValuePrintingTests_tAttrs_TestC1Ev(ptr nounde
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ValuePrintingTests_tAttrs_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix30ValuePrintingTests_tAttrs_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ValuePrintingTests_tAttrs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ValuePrintingTests_tAttrs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ValuePrintingTests_tAttrs_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ValuePrintingTests_tAttrs_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24299,32 +24365,35 @@ define linkonce_odr void @_ZN3nix29ValuePrintingTests_tList_TestC1Ev(ptr noundef
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ValuePrintingTests_tList_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix29ValuePrintingTests_tList_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tList_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tList_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tList_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ValuePrintingTests_tList_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -24398,32 +24467,35 @@ define linkonce_odr void @_ZN3nix30ValuePrintingTests_vThunk_TestC1Ev(ptr nounde
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ValuePrintingTests_vThunk_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix30ValuePrintingTests_vThunk_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ValuePrintingTests_vThunk_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ValuePrintingTests_vThunk_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ValuePrintingTests_vThunk_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ValuePrintingTests_vThunk_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -24497,32 +24569,35 @@ define linkonce_odr void @_ZN3nix28ValuePrintingTests_vApp_TestC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ValuePrintingTests_vApp_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix28ValuePrintingTests_vApp_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ValuePrintingTests_vApp_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ValuePrintingTests_vApp_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ValuePrintingTests_vApp_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ValuePrintingTests_vApp_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -24596,32 +24671,35 @@ define linkonce_odr void @_ZN3nix31ValuePrintingTests_vLambda_TestC1Ev(ptr nound
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31ValuePrintingTests_vLambda_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix31ValuePrintingTests_vLambda_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ValuePrintingTests_vLambda_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ValuePrintingTests_vLambda_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ValuePrintingTests_vLambda_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ValuePrintingTests_vLambda_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -29513,10 +29591,11 @@ define linkonce_odr void @_ZN3nix4ExprC2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3nix4ExprE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = load i64, ptr @_ZN3nix4Expr7nrExprsE, align 8
-  %5 = add i64 %4, 1
-  store i64 %5, ptr @_ZN3nix4Expr7nrExprsE, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN3nix4ExprE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = load i64, ptr @_ZN3nix4Expr7nrExprsE, align 8
+  %6 = add i64 %5, 1
+  store i64 %6, ptr @_ZN3nix4Expr7nrExprsE, align 8
   ret void
 }
 
@@ -29840,32 +29919,35 @@ define linkonce_odr void @_ZN3nix31ValuePrintingTests_vPrimOp_TestC1Ev(ptr nound
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31ValuePrintingTests_vPrimOp_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix31ValuePrintingTests_vPrimOp_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ValuePrintingTests_vPrimOp_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ValuePrintingTests_vPrimOp_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ValuePrintingTests_vPrimOp_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ValuePrintingTests_vPrimOp_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30027,32 +30109,35 @@ define linkonce_odr void @_ZN3nix34ValuePrintingTests_vPrimOpApp_TestC1Ev(ptr no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix34ValuePrintingTests_vPrimOpApp_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix34ValuePrintingTests_vPrimOpApp_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ValuePrintingTests_vPrimOpApp_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ValuePrintingTests_vPrimOpApp_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ValuePrintingTests_vPrimOpApp_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ValuePrintingTests_vPrimOpApp_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30126,32 +30211,35 @@ define linkonce_odr void @_ZN3nix33ValuePrintingTests_vExternal_TestC1Ev(ptr nou
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix33ValuePrintingTests_vExternal_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix33ValuePrintingTests_vExternal_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33ValuePrintingTests_vExternal_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33ValuePrintingTests_vExternal_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33ValuePrintingTests_vExternal_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33ValuePrintingTests_vExternal_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30159,7 +30247,8 @@ define linkonce_odr void @_ZN3nix17ExternalValueBaseC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix17ExternalValueBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3nix17ExternalValueBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30343,32 +30432,35 @@ define linkonce_odr void @_ZN3nix30ValuePrintingTests_vFloat_TestC1Ev(ptr nounde
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ValuePrintingTests_vFloat_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix30ValuePrintingTests_vFloat_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ValuePrintingTests_vFloat_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ValuePrintingTests_vFloat_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ValuePrintingTests_vFloat_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ValuePrintingTests_vFloat_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30442,32 +30534,35 @@ define linkonce_odr void @_ZN3nix34ValuePrintingTests_vBlackhole_TestC1Ev(ptr no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix34ValuePrintingTests_vBlackhole_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix34ValuePrintingTests_vBlackhole_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ValuePrintingTests_vBlackhole_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ValuePrintingTests_vBlackhole_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ValuePrintingTests_vBlackhole_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ValuePrintingTests_vBlackhole_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30541,32 +30636,35 @@ define linkonce_odr void @_ZN3nix34ValuePrintingTests_depthAttrs_TestC1Ev(ptr no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix34ValuePrintingTests_depthAttrs_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix34ValuePrintingTests_depthAttrs_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ValuePrintingTests_depthAttrs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ValuePrintingTests_depthAttrs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ValuePrintingTests_depthAttrs_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ValuePrintingTests_depthAttrs_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30640,32 +30738,35 @@ define linkonce_odr void @_ZN3nix33ValuePrintingTests_depthList_TestC1Ev(ptr nou
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix33ValuePrintingTests_depthList_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix33ValuePrintingTests_depthList_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33ValuePrintingTests_depthList_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33ValuePrintingTests_depthList_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33ValuePrintingTests_depthList_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33ValuePrintingTests_depthList_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30739,32 +30840,35 @@ define linkonce_odr void @_ZN3nix44StringPrintingTests_maxLengthTruncation_TestC
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix19StringPrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix44StringPrintingTests_maxLengthTruncation_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix44StringPrintingTests_maxLengthTruncation_TestE, i64 0, i64 1
+  invoke void @_ZN3nix19StringPrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix44StringPrintingTests_maxLengthTruncation_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix44StringPrintingTests_maxLengthTruncation_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix44StringPrintingTests_maxLengthTruncation_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix44StringPrintingTests_maxLengthTruncation_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -30860,32 +30964,35 @@ define linkonce_odr void @_ZN3nix38ValuePrintingTests_attrsTypeFirst_TestC1Ev(pt
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix38ValuePrintingTests_attrsTypeFirst_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix38ValuePrintingTests_attrsTypeFirst_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_attrsTypeFirst_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_attrsTypeFirst_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_attrsTypeFirst_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_attrsTypeFirst_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30959,32 +31066,35 @@ define linkonce_odr void @_ZN3nix37ValuePrintingTests_ansiColorsInt_TestC1Ev(ptr
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix37ValuePrintingTests_ansiColorsInt_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix37ValuePrintingTests_ansiColorsInt_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37ValuePrintingTests_ansiColorsInt_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37ValuePrintingTests_ansiColorsInt_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37ValuePrintingTests_ansiColorsInt_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37ValuePrintingTests_ansiColorsInt_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31058,32 +31168,35 @@ define linkonce_odr void @_ZN3nix39ValuePrintingTests_ansiColorsFloat_TestC1Ev(p
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsFloat_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsFloat_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsFloat_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsFloat_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsFloat_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsFloat_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31157,32 +31270,35 @@ define linkonce_odr void @_ZN3nix38ValuePrintingTests_ansiColorsBool_TestC1Ev(pt
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsBool_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsBool_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsBool_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsBool_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsBool_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsBool_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31256,32 +31372,35 @@ define linkonce_odr void @_ZN3nix40ValuePrintingTests_ansiColorsString_TestC1Ev(
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsString_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsString_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsString_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsString_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsString_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsString_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31355,32 +31474,35 @@ define linkonce_odr void @_ZN3nix46ValuePrintingTests_ansiColorsStringElided_Tes
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix46ValuePrintingTests_ansiColorsStringElided_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix46ValuePrintingTests_ansiColorsStringElided_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsStringElided_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsStringElided_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsStringElided_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsStringElided_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31454,32 +31576,35 @@ define linkonce_odr void @_ZN3nix38ValuePrintingTests_ansiColorsPath_TestC1Ev(pt
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsPath_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsPath_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsPath_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsPath_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsPath_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsPath_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN3nix9CanonPathC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr) unnamed_addr #1
@@ -31555,32 +31680,35 @@ define linkonce_odr void @_ZN3nix38ValuePrintingTests_ansiColorsNull_TestC1Ev(pt
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsNull_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsNull_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsNull_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsNull_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsNull_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsNull_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31654,32 +31782,35 @@ define linkonce_odr void @_ZN3nix39ValuePrintingTests_ansiColorsAttrs_TestC1Ev(p
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsAttrs_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsAttrs_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsAttrs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsAttrs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsAttrs_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsAttrs_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31753,32 +31884,35 @@ define linkonce_odr void @_ZN3nix44ValuePrintingTests_ansiColorsDerivation_TestC
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix44ValuePrintingTests_ansiColorsDerivation_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix44ValuePrintingTests_ansiColorsDerivation_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsDerivation_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsDerivation_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsDerivation_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsDerivation_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31852,32 +31986,35 @@ define linkonce_odr void @_ZN3nix39ValuePrintingTests_ansiColorsError_TestC1Ev(p
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsError_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsError_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsError_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsError_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsError_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsError_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -31951,32 +32088,35 @@ define linkonce_odr void @_ZN3nix49ValuePrintingTests_ansiColorsDerivationError_
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49ValuePrintingTests_ansiColorsDerivationError_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32050,32 +32190,35 @@ define linkonce_odr void @_ZN3nix40ValuePrintingTests_ansiColorsAssert_TestC1Ev(
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsAssert_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsAssert_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsAssert_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsAssert_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsAssert_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsAssert_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32159,32 +32302,35 @@ define linkonce_odr void @_ZN3nix38ValuePrintingTests_ansiColorsList_TestC1Ev(pt
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsList_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix38ValuePrintingTests_ansiColorsList_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsList_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsList_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsList_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38ValuePrintingTests_ansiColorsList_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32258,32 +32404,35 @@ define linkonce_odr void @_ZN3nix40ValuePrintingTests_ansiColorsLambda_TestC1Ev(
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsLambda_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsLambda_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsLambda_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsLambda_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsLambda_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsLambda_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32357,32 +32506,35 @@ define linkonce_odr void @_ZN3nix40ValuePrintingTests_ansiColorsPrimOp_TestC1Ev(
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40ValuePrintingTests_ansiColorsPrimOp_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32456,32 +32608,35 @@ define linkonce_odr void @_ZN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestC1
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsPrimOpApp_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32555,32 +32710,35 @@ define linkonce_odr void @_ZN3nix39ValuePrintingTests_ansiColorsThunk_TestC1Ev(p
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsThunk_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix39ValuePrintingTests_ansiColorsThunk_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsThunk_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsThunk_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsThunk_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39ValuePrintingTests_ansiColorsThunk_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32654,32 +32812,35 @@ define linkonce_odr void @_ZN3nix43ValuePrintingTests_ansiColorsBlackhole_TestC1
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix43ValuePrintingTests_ansiColorsBlackhole_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32753,32 +32914,35 @@ define linkonce_odr void @_ZN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_Te
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47ValuePrintingTests_ansiColorsAttrsRepeated_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32852,32 +33016,35 @@ define linkonce_odr void @_ZN3nix46ValuePrintingTests_ansiColorsListRepeated_Tes
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46ValuePrintingTests_ansiColorsListRepeated_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32951,32 +33118,35 @@ define linkonce_odr void @_ZN3nix36ValuePrintingTests_listRepeated_TestC1Ev(ptr 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix36ValuePrintingTests_listRepeated_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix36ValuePrintingTests_listRepeated_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ValuePrintingTests_listRepeated_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ValuePrintingTests_listRepeated_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ValuePrintingTests_listRepeated_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ValuePrintingTests_listRepeated_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -33050,32 +33220,35 @@ define linkonce_odr void @_ZN3nix45ValuePrintingTests_ansiColorsAttrsElided_Test
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45ValuePrintingTests_ansiColorsAttrsElided_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -33149,32 +33322,35 @@ define linkonce_odr void @_ZN3nix44ValuePrintingTests_ansiColorsListElided_TestC
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix44ValuePrintingTests_ansiColorsListElided_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix44ValuePrintingTests_ansiColorsListElided_TestE, i64 0, i64 1
+  invoke void @_ZN3nix18ValuePrintingTestsC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsListElided_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsListElided_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsListElided_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix44ValuePrintingTests_ansiColorsListElided_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -33813,29 +33989,30 @@ define linkonce_odr void @_ZN3nix11LibExprTest14SetUpTestSuiteEv() #5 comdat ali
   call void @_ZN3nix6initGCEv()
   call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  invoke void @_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(185) getelementptr inbounds (%"struct.nix::EvalSettings", ptr @_ZN3nix12evalSettingsE, i32 0, i32 2), ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %4 unwind label %5
+  %4 = getelementptr inbounds %"struct.nix::EvalSettings", ptr @_ZN3nix12evalSettingsE, i32 0, i32 2
+  invoke void @_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(185) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
+          to label %5 unwind label %6
 
-4:                                                ; preds = %0
+5:                                                ; preds = %0
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
   ret void
 
-5:                                                ; preds = %0
-  %6 = landingpad { ptr, i32 }
+6:                                                ; preds = %0
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %2, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %3, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %2, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %3, align 4
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  br label %9
+  br label %10
 
-9:                                                ; preds = %5
-  %10 = load ptr, ptr %2, align 8
-  %11 = load i32, ptr %3, align 4
-  %12 = insertvalue { ptr, i32 } poison, ptr %10, 0
-  %13 = insertvalue { ptr, i32 } %12, i32 %11, 1
-  resume { ptr, i32 } %13
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %2, align 8
+  %12 = load i32, ptr %3, align 4
+  %13 = insertvalue { ptr, i32 } poison, ptr %11, 0
+  %14 = insertvalue { ptr, i32 } %13, i32 %12, 1
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

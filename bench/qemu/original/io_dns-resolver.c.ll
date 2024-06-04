@@ -33,7 +33,8 @@ entry:
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load volatile ptr, ptr getelementptr inbounds (%struct._GOnce, ptr @instance_init, i32 0, i32 1), align 8
+  %2 = getelementptr inbounds %struct._GOnce, ptr @instance_init, i32 0, i32 1
+  %3 = load volatile ptr, ptr %2, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -41,8 +42,8 @@ cond.false:                                       ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %3 = load ptr, ptr @instance, align 8
-  ret ptr %3
+  %4 = load ptr, ptr @instance, align 8
+  ret ptr %4
 }
 
 declare ptr @g_once_impl(ptr noundef, ptr noundef, ptr noundef) #1

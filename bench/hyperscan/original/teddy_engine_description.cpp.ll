@@ -251,17 +251,18 @@ entry:
   %numBuckets = getelementptr inbounds %"struct.ue2::TeddyEngineDef", ptr %8, i32 0, i32 3
   %9 = load i32, ptr %numBuckets, align 4
   call void @_ZN3ue217EngineDescriptionC2EjRKNS_8target_tEj(ptr noundef nonnull align 8 dereferenceable(36) %this1, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue222TeddyEngineDescriptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue222TeddyEngineDescriptionE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %this1, align 8
   %numMasks = getelementptr inbounds %"class.ue2::TeddyEngineDescription", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %def.addr, align 8
-  %numMasks2 = getelementptr inbounds %"struct.ue2::TeddyEngineDef", ptr %10, i32 0, i32 2
-  %11 = load i32, ptr %numMasks2, align 8
-  store i32 %11, ptr %numMasks, align 4
+  %11 = load ptr, ptr %def.addr, align 8
+  %numMasks2 = getelementptr inbounds %"struct.ue2::TeddyEngineDef", ptr %11, i32 0, i32 2
+  %12 = load i32, ptr %numMasks2, align 8
+  store i32 %12, ptr %numMasks, align 4
   %packed = getelementptr inbounds %"class.ue2::TeddyEngineDescription", ptr %this1, i32 0, i32 2
-  %12 = load ptr, ptr %def.addr, align 8
-  %packed3 = getelementptr inbounds %"struct.ue2::TeddyEngineDef", ptr %12, i32 0, i32 4
-  %13 = load i8, ptr %packed3, align 8
-  %tobool = trunc i8 %13 to i1
+  %13 = load ptr, ptr %def.addr, align 8
+  %packed3 = getelementptr inbounds %"struct.ue2::TeddyEngineDef", ptr %13, i32 0, i32 4
+  %14 = load i8, ptr %packed3, align 8
+  %tobool = trunc i8 %14 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %packed, align 8
   ret void
@@ -281,16 +282,17 @@ entry:
   store ptr %code_target_in, ptr %code_target_in.addr, align 8
   store i32 %numBuckets_in, ptr %numBuckets_in.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue217EngineDescriptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue217EngineDescriptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"class.ue2::EngineDescription", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %id_in.addr, align 4
-  store i32 %0, ptr %id, align 8
+  %1 = load i32, ptr %id_in.addr, align 4
+  store i32 %1, ptr %id, align 8
   %code_target = getelementptr inbounds %"class.ue2::EngineDescription", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %code_target_in.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %code_target, ptr align 8 %1, i64 16, i1 false)
+  %2 = load ptr, ptr %code_target_in.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %code_target, ptr align 8 %2, i64 16, i1 false)
   %numBuckets = getelementptr inbounds %"class.ue2::EngineDescription", ptr %this1, i32 0, i32 4
-  %2 = load i32, ptr %numBuckets_in.addr, align 4
-  store i32 %2, ptr %numBuckets, align 8
+  %3 = load i32, ptr %numBuckets_in.addr, align 4
+  store i32 %3, ptr %numBuckets, align 8
   ret void
 }
 
@@ -318,26 +320,27 @@ entry:
   call void @_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
   store ptr @_ZZN3ue220getTeddyDescriptionsEPSt6vectorINS_22TeddyEngineDescriptionESaIS1_EEE5defns, ptr %__range1, align 8
   store ptr @_ZZN3ue220getTeddyDescriptionsEPSt6vectorINS_22TeddyEngineDescriptionESaIS1_EEE5defns, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.ue2::TeddyEngineDef", ptr @_ZZN3ue220getTeddyDescriptionsEPSt6vectorINS_22TeddyEngineDescriptionESaIS1_EEE5defns, i64 16), ptr %__end1, align 8
+  %1 = getelementptr inbounds %"struct.ue2::TeddyEngineDef", ptr @_ZZN3ue220getTeddyDescriptionsEPSt6vectorINS_22TeddyEngineDescriptionESaIS1_EEE5defns, i64 16
+  store ptr %1, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr %__begin1, align 8
-  %2 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %1, %2
+  %2 = load ptr, ptr %__begin1, align 8
+  %3 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %2, %3
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %__begin1, align 8
-  store ptr %3, ptr %def, align 8
-  %4 = load ptr, ptr %out.addr, align 8
-  %5 = load ptr, ptr %def, align 8
-  %call = call noundef nonnull align 8 dereferenceable(41) ptr @_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EE12emplace_backIJRKNS0_14TeddyEngineDefEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %4 = load ptr, ptr %__begin1, align 8
+  store ptr %4, ptr %def, align 8
+  %5 = load ptr, ptr %out.addr, align 8
+  %6 = load ptr, ptr %def, align 8
+  %call = call noundef nonnull align 8 dereferenceable(41) ptr @_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EE12emplace_backIJRKNS0_14TeddyEngineDefEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %6 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.ue2::TeddyEngineDef", ptr %6, i32 1
+  %7 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.ue2::TeddyEngineDef", ptr %7, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -2367,10 +2370,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3ue217EngineDescriptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(36) %1) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue222TeddyEngineDescriptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue222TeddyEngineDescriptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %numMasks = getelementptr inbounds %"class.ue2::TeddyEngineDescription", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %numMasks2 = getelementptr inbounds %"class.ue2::TeddyEngineDescription", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %numMasks2 = getelementptr inbounds %"class.ue2::TeddyEngineDescription", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %numMasks, ptr align 4 %numMasks2, i64 5, i1 false)
   ret void
 }
@@ -2383,10 +2387,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue217EngineDescriptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue217EngineDescriptionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %id = getelementptr inbounds %"class.ue2::EngineDescription", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %id2 = getelementptr inbounds %"class.ue2::EngineDescription", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %.addr, align 8
+  %id2 = getelementptr inbounds %"class.ue2::EngineDescription", ptr %2, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %id, ptr align 8 %id2, i64 28, i1 false)
   ret void
 }
@@ -2546,10 +2551,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3ue217EngineDescriptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(36) %1) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue222TeddyEngineDescriptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue222TeddyEngineDescriptionE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %numMasks = getelementptr inbounds %"class.ue2::TeddyEngineDescription", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %numMasks2 = getelementptr inbounds %"class.ue2::TeddyEngineDescription", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %numMasks2 = getelementptr inbounds %"class.ue2::TeddyEngineDescription", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %numMasks, ptr align 4 %numMasks2, i64 5, i1 false)
   ret void
 }

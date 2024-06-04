@@ -109,16 +109,17 @@ define ptr @merge_idb_merge_mode_to_string(i32 noundef %0) #0 {
   %12 = getelementptr [4 x ptr], ptr @idb_merge_mode_strings, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %2, align 8
-  br label %16
+  br label %17
 
 14:                                               ; preds = %6, %1
-  %15 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @idb_merge_mode_strings, i64 0, i64 3), align 8
-  store ptr %15, ptr %2, align 8
-  br label %16
+  %15 = getelementptr inbounds [4 x ptr], ptr @idb_merge_mode_strings, i64 0, i64 3
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %2, align 8
+  br label %17
 
-16:                                               ; preds = %14, %9
-  %17 = load ptr, ptr %2, align 8
-  ret ptr %17
+17:                                               ; preds = %14, %9
+  %18 = load ptr, ptr %2, align 8
+  ret ptr %18
 }
 
 ; Function Attrs: nounwind uwtable

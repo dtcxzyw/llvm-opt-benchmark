@@ -504,50 +504,52 @@ invoke.cont:                                      ; preds = %init
   %2 = extractvalue { ptr, ptr } %call, 0
   store ptr %2, ptr @_ZZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines, align 8
   %3 = extractvalue { ptr, ptr } %call, 1
-  store ptr %3, ptr getelementptr inbounds ({ ptr, ptr }, ptr @_ZZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { ptr, ptr }, ptr @_ZZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines) #3
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
-  %4 = load i8, ptr %non_temporal.addr, align 1
-  %tobool1 = trunc i8 %4 to i1
+  %5 = load i8, ptr %non_temporal.addr, align 1
+  %tobool1 = trunc i8 %5 to i1
   br i1 %tobool1, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %init.end
-  %5 = load ptr, ptr getelementptr inbounds (%"struct.absl::crc_internal::CrcMemcpy::ArchSpecificEngines", ptr @_ZZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines, i32 0, i32 1), align 8
+  %6 = getelementptr inbounds %"struct.absl::crc_internal::CrcMemcpy::ArchSpecificEngines", ptr @_ZZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %init.end
-  %6 = load ptr, ptr @_ZZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines, align 8
+  %8 = load ptr, ptr @_ZZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %5, %cond.true ], [ %6, %cond.false ]
+  %cond = phi ptr [ %7, %cond.true ], [ %8, %cond.false ]
   store ptr %cond, ptr %engine, align 8
-  %7 = load ptr, ptr %engine, align 8
-  %8 = load ptr, ptr %dst.addr, align 8
-  %9 = load ptr, ptr %src.addr, align 8
-  %10 = load i64, ptr %length.addr, align 8
+  %9 = load ptr, ptr %engine, align 8
+  %10 = load ptr, ptr %dst.addr, align 8
+  %11 = load ptr, ptr %src.addr, align 8
+  %12 = load i64, ptr %length.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp, ptr align 4 %initial_crc, i64 4, i1 false)
   %coerce.dive2 = getelementptr inbounds %"class.absl::crc32c_t", ptr %agg.tmp, i32 0, i32 0
-  %11 = load i32, ptr %coerce.dive2, align 4
-  %vtable = load ptr, ptr %7, align 8
+  %13 = load i32, ptr %coerce.dive2, align 4
+  %vtable = load ptr, ptr %9, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %12 = load ptr, ptr %vfn, align 8
-  %call3 = call i32 %12(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8, ptr noundef %9, i64 noundef %10, i32 %11)
+  %14 = load ptr, ptr %vfn, align 8
+  %call3 = call i32 %14(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 %13)
   %coerce.dive4 = getelementptr inbounds %"class.absl::crc32c_t", ptr %retval, i32 0, i32 0
   store i32 %call3, ptr %coerce.dive4, align 4
   %coerce.dive5 = getelementptr inbounds %"class.absl::crc32c_t", ptr %retval, i32 0, i32 0
-  %13 = load i32, ptr %coerce.dive5, align 4
-  ret i32 %13
+  %15 = load i32, ptr %coerce.dive5, align 4
+  ret i32 %15
 
 lpad:                                             ; preds = %init
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN4absl12crc_internal9CrcMemcpy10CrcAndCopyEPvPKvmNS_8crc32c_tEbE7engines) #3
   br label %eh.resume
 

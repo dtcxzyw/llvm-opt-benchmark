@@ -16,9 +16,10 @@ define internal i32 @component_query(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   store ptr @prte_schizo_slurm_module, ptr %5, align 8
-  %6 = load i32, ptr getelementptr inbounds (%struct.prte_schizo_slurm_component_t, ptr @prte_mca_schizo_slurm_component, i32 0, i32 1), align 8
-  %7 = load ptr, ptr %4, align 8
-  store i32 %6, ptr %7, align 4
+  %6 = getelementptr inbounds %struct.prte_schizo_slurm_component_t, ptr @prte_mca_schizo_slurm_component, i32 0, i32 1
+  %7 = load i32, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  store i32 %7, ptr %8, align 4
   ret i32 0
 }
 

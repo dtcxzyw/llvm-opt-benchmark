@@ -364,20 +364,21 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %BufferMode = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this1, i32 0, i32 4
-  %0 = load i32, ptr %BufferMode, align 8
-  %cmp = icmp eq i32 %0, 1
+  %1 = load i32, ptr %BufferMode, align 8
+  %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %OutBufStart = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %OutBufStart, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %OutBufStart, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  call void @_ZdaPv(ptr noundef %1) #12
+  call void @_ZdaPv(ptr noundef %2) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -2222,10 +2223,11 @@ entry:
   store ptr %O, ptr %O.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh17raw_pwrite_streamC2Eb(ptr noundef nonnull align 8 dereferenceable(36) %this1, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4llvh19raw_svector_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %OS = getelementptr inbounds %"class.llvh::raw_svector_ostream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %O.addr, align 8
-  store ptr %0, ptr %OS, align 8
+  %1 = load ptr, ptr %O.addr, align 8
+  store ptr %1, ptr %OS, align 8
   call void @_ZN4llvh11raw_ostream13SetUnbufferedEv(ptr noundef nonnull align 8 dereferenceable(36) %this1)
   ret void
 }
@@ -3354,20 +3356,21 @@ entry:
   %0 = load i8, ptr %unbuffered.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN4llvh17raw_pwrite_streamC2Eb(ptr noundef nonnull align 8 dereferenceable(36) %this2, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh14raw_fd_ostreamE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4llvh14raw_fd_ostreamE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this2, align 8
   %FD = getelementptr inbounds %"class.llvh::raw_fd_ostream", ptr %this2, i32 0, i32 1
-  %1 = load i32, ptr %fd.addr, align 4
-  store i32 %1, ptr %FD, align 4
+  %2 = load i32, ptr %fd.addr, align 4
+  store i32 %2, ptr %FD, align 4
   %ShouldClose = getelementptr inbounds %"class.llvh::raw_fd_ostream", ptr %this2, i32 0, i32 2
-  %2 = load i8, ptr %shouldClose.addr, align 1
-  %tobool3 = trunc i8 %2 to i1
+  %3 = load i8, ptr %shouldClose.addr, align 1
+  %tobool3 = trunc i8 %3 to i1
   %frombool4 = zext i1 %tobool3 to i8
   store i8 %frombool4, ptr %ShouldClose, align 8
   %EC = getelementptr inbounds %"class.llvh::raw_fd_ostream", ptr %this2, i32 0, i32 4
   call void @_ZNSt10error_codeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %EC) #9
   %FD5 = getelementptr inbounds %"class.llvh::raw_fd_ostream", ptr %this2, i32 0, i32 1
-  %3 = load i32, ptr %FD5, align 4
-  %cmp = icmp slt i32 %3, 0
+  %4 = load i32, ptr %FD5, align 4
+  %cmp = icmp slt i32 %4, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -3377,8 +3380,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %FD7 = getelementptr inbounds %"class.llvh::raw_fd_ostream", ptr %this2, i32 0, i32 1
-  %4 = load i32, ptr %FD7, align 4
-  %cmp8 = icmp sle i32 %4, 2
+  %5 = load i32, ptr %FD7, align 4
+  %cmp8 = icmp sle i32 %5, 2
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end
@@ -3388,17 +3391,17 @@ if.then9:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %if.then9, %if.end
   %FD12 = getelementptr inbounds %"class.llvh::raw_fd_ostream", ptr %this2, i32 0, i32 1
-  %5 = load i32, ptr %FD12, align 4
-  %call = call i64 @lseek(i32 noundef %5, i64 noundef 0, i32 noundef 1) #9
+  %6 = load i32, ptr %FD12, align 4
+  %call = call i64 @lseek(i32 noundef %6, i64 noundef 0, i32 noundef 1) #9
   store i64 %call, ptr %loc, align 8
-  %6 = load i64, ptr %loc, align 8
-  %cmp13 = icmp ne i64 %6, -1
+  %7 = load i64, ptr %loc, align 8
+  %cmp13 = icmp ne i64 %7, -1
   %SupportsSeeking = getelementptr inbounds %"class.llvh::raw_fd_ostream", ptr %this2, i32 0, i32 3
   %frombool14 = zext i1 %cmp13 to i8
   store i8 %frombool14, ptr %SupportsSeeking, align 1
   %SupportsSeeking15 = getelementptr inbounds %"class.llvh::raw_fd_ostream", ptr %this2, i32 0, i32 3
-  %7 = load i8, ptr %SupportsSeeking15, align 1
-  %tobool16 = trunc i8 %7 to i1
+  %8 = load i8, ptr %SupportsSeeking15, align 1
+  %tobool16 = trunc i8 %8 to i1
   br i1 %tobool16, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %if.end11
@@ -3407,9 +3410,9 @@ if.then17:                                        ; preds = %if.end11
   br label %if.end19
 
 if.else:                                          ; preds = %if.end11
-  %8 = load i64, ptr %loc, align 8
+  %9 = load i64, ptr %loc, align 8
   %pos18 = getelementptr inbounds %"class.llvh::raw_fd_ostream", ptr %this2, i32 0, i32 5
-  store i64 %8, ptr %pos18, align 8
+  store i64 %9, ptr %pos18, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then17, %if.then
@@ -3428,7 +3431,8 @@ entry:
   %0 = load i8, ptr %Unbuffered.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN4llvh11raw_ostreamC2Eb(ptr noundef nonnull align 8 dereferenceable(36) %this1, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh17raw_pwrite_streamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4llvh17raw_pwrite_streamE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3460,39 +3464,40 @@ entry:
   %ref.tmp11 = alloca %"class.std::error_code", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh14raw_fd_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4llvh14raw_fd_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %FD = getelementptr inbounds %"class.llvh::raw_fd_ostream", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %FD, align 4
-  %cmp = icmp sge i32 %0, 0
+  %1 = load i32, ptr %FD, align 4
+  %cmp = icmp sge i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
   call void @_ZN4llvh11raw_ostream5flushEv(ptr noundef nonnull align 8 dereferenceable(36) %this1)
   %ShouldClose = getelementptr inbounds %"class.llvh::raw_fd_ostream", ptr %this1, i32 0, i32 2
-  %1 = load i8, ptr %ShouldClose, align 8
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %ShouldClose, align 8
+  %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.then
   %FD3 = getelementptr inbounds %"class.llvh::raw_fd_ostream", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %FD3, align 4
-  %call = call { i32, ptr } @_ZN4llvh3sys7Process25SafelyCloseFileDescriptorEi(i32 noundef %2)
-  %3 = getelementptr inbounds { i32, ptr }, ptr %EC, i32 0, i32 0
-  %4 = extractvalue { i32, ptr } %call, 0
-  store i32 %4, ptr %3, align 8
-  %5 = getelementptr inbounds { i32, ptr }, ptr %EC, i32 0, i32 1
-  %6 = extractvalue { i32, ptr } %call, 1
-  store ptr %6, ptr %5, align 8
+  %3 = load i32, ptr %FD3, align 4
+  %call = call { i32, ptr } @_ZN4llvh3sys7Process25SafelyCloseFileDescriptorEi(i32 noundef %3)
+  %4 = getelementptr inbounds { i32, ptr }, ptr %EC, i32 0, i32 0
+  %5 = extractvalue { i32, ptr } %call, 0
+  store i32 %5, ptr %4, align 8
+  %6 = getelementptr inbounds { i32, ptr }, ptr %EC, i32 0, i32 1
+  %7 = extractvalue { i32, ptr } %call, 1
+  store ptr %7, ptr %6, align 8
   %call4 = call noundef zeroext i1 @_ZNKSt10error_codecvbEv(ptr noundef nonnull align 8 dereferenceable(16) %EC) #9
   br i1 %call4, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %EC, i64 16, i1 false)
-  %7 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  call void @_ZN4llvh14raw_fd_ostream14error_detectedESt10error_code(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 %8, ptr %10)
+  %8 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %9 = load i32, ptr %8, align 8
+  %10 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  call void @_ZN4llvh14raw_fd_ostream14error_detectedESt10error_code(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 %9, ptr %11)
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then2
@@ -3507,12 +3512,12 @@ if.end7:                                          ; preds = %if.end6, %entry
 
 if.then9:                                         ; preds = %if.end7
   %call12 = call { i32, ptr } @_ZNK4llvh14raw_fd_ostream5errorEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %11 = getelementptr inbounds { i32, ptr }, ptr %ref.tmp11, i32 0, i32 0
-  %12 = extractvalue { i32, ptr } %call12, 0
-  store i32 %12, ptr %11, align 8
-  %13 = getelementptr inbounds { i32, ptr }, ptr %ref.tmp11, i32 0, i32 1
-  %14 = extractvalue { i32, ptr } %call12, 1
-  store ptr %14, ptr %13, align 8
+  %12 = getelementptr inbounds { i32, ptr }, ptr %ref.tmp11, i32 0, i32 0
+  %13 = extractvalue { i32, ptr } %call12, 0
+  store i32 %13, ptr %12, align 8
+  %14 = getelementptr inbounds { i32, ptr }, ptr %ref.tmp11, i32 0, i32 1
+  %15 = extractvalue { i32, ptr } %call12, 1
+  store ptr %15, ptr %14, align 8
   call void @_ZNKSt10error_code7messageB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10)
   call void @_ZN4llvh18report_fatal_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i1 noundef zeroext false) #17
@@ -4278,7 +4283,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh17raw_pwrite_streamC2Eb(ptr noundef nonnull align 8 dereferenceable(36) %this1, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4llvh16raw_null_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4llvh16raw_null_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4288,7 +4294,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   call void @_ZN4llvh11raw_ostream5flushEv(ptr noundef nonnull align 8 dereferenceable(36) %this1)
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1) #9
   ret void
@@ -5328,10 +5335,11 @@ entry:
   %frombool = zext i1 %unbuffered to i8
   store i8 %frombool, ptr %unbuffered.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %BufferMode = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this1, i32 0, i32 4
-  %0 = load i8, ptr %unbuffered.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %unbuffered.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %cond = select i1 %tobool, i32 0, i32 1
   store i32 %cond, ptr %BufferMode, align 8
   %OutBufCur = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this1, i32 0, i32 3
@@ -5405,10 +5413,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJhEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJhEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %vals.addr, align 8
-  call void @_ZNSt5tupleIJhEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKhEEEbE4typeELb1EEES4_(ptr noundef nonnull align 1 dereferenceable(1) %Vals, ptr noundef nonnull align 1 dereferenceable(1) %1) #9
+  %2 = load ptr, ptr %vals.addr, align 8
+  call void @_ZNSt5tupleIJhEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKhEEEbE4typeELb1EEES4_(ptr noundef nonnull align 1 dereferenceable(1) %Vals, ptr noundef nonnull align 1 dereferenceable(1) %2) #9
   call void @_ZN4llvh26validate_format_parametersIJhEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.ensured)
   ret void
 }
@@ -5421,10 +5430,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh18format_object_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4llvh18format_object_baseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Fmt = getelementptr inbounds %"class.llvh::format_object_base", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %fmt.addr, align 8
-  store ptr %0, ptr %Fmt, align 8
+  %1 = load ptr, ptr %fmt.addr, align 8
+  store ptr %1, ptr %Fmt, align 8
   ret void
 }
 

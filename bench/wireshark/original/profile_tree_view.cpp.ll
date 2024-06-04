@@ -398,7 +398,8 @@ define void @_ZN22ProfileUrlLinkDelegateC2EP7QObject(ptr noundef nonnull align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN15UrlLinkDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV22ProfileUrlLinkDelegate, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [26 x ptr] }, ptr @_ZTV22ProfileUrlLinkDelegate, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -514,11 +515,12 @@ define void @_ZN23ProfileTreeEditDelegateC2EP7QWidget(ptr noundef nonnull align 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13QItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV23ProfileTreeEditDelegate, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.ProfileTreeEditDelegate, ptr %5, i32 0, i32 1
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %class.ProfileTreeEditDelegate, ptr %5, i32 0, i32 2
-  call void @_ZN11QModelIndexC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #9
+  %7 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTV23ProfileTreeEditDelegate, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.ProfileTreeEditDelegate, ptr %5, i32 0, i32 1
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %class.ProfileTreeEditDelegate, ptr %5, i32 0, i32 2
+  call void @_ZN11QModelIndexC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
   ret void
 }
 
@@ -651,80 +653,82 @@ define void @_ZN15ProfileTreeViewC2EP7QWidget(ptr noundef nonnull align 8 derefe
   %13 = load ptr, ptr %3, align 8
   %14 = load ptr, ptr %4, align 8
   call void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, i32 0, i32 2), ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr getelementptr inbounds ({ [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, i32 1, i32 2), ptr %15, align 8
-  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #11
-          to label %17 unwind label %35
+  %15 = getelementptr inbounds { [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, i32 0, i32 2
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %17 = getelementptr inbounds { [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, i32 1, i32 2
+  store ptr %17, ptr %16, align 8
+  %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #11
+          to label %19 unwind label %37
 
-17:                                               ; preds = %2
-  invoke void @_ZN23ProfileTreeEditDelegateC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef null)
-          to label %18 unwind label %39
+19:                                               ; preds = %2
+  invoke void @_ZN23ProfileTreeEditDelegateC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef null)
+          to label %20 unwind label %41
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds %class.ProfileTreeView, ptr %13, i32 0, i32 1
-  store ptr %16, ptr %19, align 8
-  %20 = getelementptr inbounds %class.ProfileTreeView, ptr %13, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  invoke void @_ZN17QAbstractItemView24setItemDelegateForColumnEiP21QAbstractItemDelegate(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 0, ptr noundef %21)
-          to label %22 unwind label %35
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds %class.ProfileTreeView, ptr %13, i32 0, i32 1
+  store ptr %18, ptr %21, align 8
+  %22 = getelementptr inbounds %class.ProfileTreeView, ptr %13, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  invoke void @_ZN17QAbstractItemView24setItemDelegateForColumnEiP21QAbstractItemDelegate(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 0, ptr noundef %23)
+          to label %24 unwind label %37
 
-22:                                               ; preds = %18
+24:                                               ; preds = %20
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN17QAbstractItemView7clickedERK11QModelIndex to i64), i64 0 }, ptr %8, align 8
-  %23 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
+  %25 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
   %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8
   store { i64, i64 } { i64 785, i64 0 }, ptr %9, align 8
-  invoke void @_ZN7QObject7connectIM17QAbstractItemViewFvRK11QModelIndexEM15ProfileTreeViewFvS4_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %7, ptr noundef %13, i64 %24, i64 %26, ptr noundef %13, ptr noundef byval({ i64, i64 }) align 8 %9, i32 noundef 0)
-          to label %27 unwind label %35
+  invoke void @_ZN7QObject7connectIM17QAbstractItemViewFvRK11QModelIndexEM15ProfileTreeViewFvS4_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %7, ptr noundef %13, i64 %26, i64 %28, ptr noundef %13, ptr noundef byval({ i64, i64 }) align 8 %9, i32 noundef 0)
+          to label %29 unwind label %37
 
-27:                                               ; preds = %22
+29:                                               ; preds = %24
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  %28 = getelementptr inbounds %class.ProfileTreeView, ptr %13, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %class.ProfileTreeView, ptr %13, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN21QAbstractItemDelegate10commitDataEP7QWidget to i64), i64 0 }, ptr %11, align 8
-  %30 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 0
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 1
+  %32 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 0
   %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15ProfileTreeView11itemUpdatedEv to i64), i64 0 }, ptr %12, align 8
-  invoke void @_ZN7QObject7connectIM21QAbstractItemDelegateFvP7QWidgetEM15ProfileTreeViewFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %10, ptr noundef %29, i64 %31, i64 %33, ptr noundef %13, ptr noundef byval({ i64, i64 }) align 8 %12, i32 noundef 0)
-          to label %34 unwind label %35
+  invoke void @_ZN7QObject7connectIM21QAbstractItemDelegateFvP7QWidgetEM15ProfileTreeViewFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %10, ptr noundef %31, i64 %33, i64 %35, ptr noundef %13, ptr noundef byval({ i64, i64 }) align 8 %12, i32 noundef 0)
+          to label %36 unwind label %37
 
-34:                                               ; preds = %27
+36:                                               ; preds = %29
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #9
   ret void
 
-35:                                               ; preds = %27, %22, %18, %2
-  %36 = landingpad { ptr, i32 }
+37:                                               ; preds = %29, %24, %20, %2
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %5, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %6, align 4
-  br label %43
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %5, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %6, align 4
+  br label %45
 
-39:                                               ; preds = %17
-  %40 = landingpad { ptr, i32 }
+41:                                               ; preds = %19
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %5, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %16) #12
-  br label %43
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %5, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %18) #12
+  br label %45
 
-43:                                               ; preds = %39, %35
+45:                                               ; preds = %41, %37
   call void @_ZN9QTreeViewD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #9
-  br label %44
+  br label %46
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %5, align 8
-  %46 = load i32, ptr %6, align 4
-  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
-  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
-  resume { ptr, i32 } %48
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %5, align 8
+  %48 = load i32, ptr %6, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
 }
 
 declare void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
@@ -908,22 +912,24 @@ define void @_ZN15ProfileTreeViewD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.ProfileTreeView, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %12, label %8
+  %4 = getelementptr inbounds { [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.ProfileTreeView, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %14, label %10
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 4
-  %11 = load ptr, ptr %10, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(48) %6) #9
-  br label %12
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %8, align 8
+  %12 = getelementptr inbounds ptr, ptr %11, i64 4
+  %13 = load ptr, ptr %12, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(48) %8) #9
+  br label %14
 
-12:                                               ; preds = %8, %1
+14:                                               ; preds = %10, %1
   call void @_ZN9QTreeViewD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
   ret void
 }
@@ -2355,42 +2361,43 @@ define linkonce_odr noundef ptr @_ZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWid
   %2 = alloca i32, align 4
   %3 = load atomic i8, ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidgetEEELb1EE5typesEvE1t acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %11, !prof !7
+  br i1 %4, label %5, label %12, !prof !7
 
 5:                                                ; preds = %0
   %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidgetEEELb1EE5typesEvE1t) #9
   %7 = icmp ne i32 %6, 0
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = invoke noundef i32 @_ZN9QtPrivate17QMetaTypeIdHelperIP7QWidgetLb1EE14qt_metatype_idEv()
-          to label %10 unwind label %12
+          to label %10 unwind label %13
 
 10:                                               ; preds = %8
   store i32 %9, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidgetEEELb1EE5typesEvE1t, align 4
-  store i32 0, ptr getelementptr inbounds (i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidgetEEELb1EE5typesEvE1t, i64 1), align 4
+  %11 = getelementptr inbounds i32, ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidgetEEELb1EE5typesEvE1t, i64 1
+  store i32 0, ptr %11, align 4
   call void @__cxa_guard_release(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidgetEEELb1EE5typesEvE1t) #9
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %5, %0
+12:                                               ; preds = %10, %5, %0
   ret ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidgetEEELb1EE5typesEvE1t
 
-12:                                               ; preds = %8
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %8
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %1, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %2, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %1, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %2, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN9QtPrivate15ConnectionTypesINS_4ListIJP7QWidgetEEELb1EE5typesEvE1t) #9
-  br label %16
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %1, align 8
-  %18 = load i32, ptr %2, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %1, align 8
+  %19 = load i32, ptr %2, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

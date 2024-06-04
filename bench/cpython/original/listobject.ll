@@ -1354,23 +1354,26 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %3 = load ptr, ptr @PyExc_IndexError, align 8
-  call void @PyErr_SetObject(ptr noundef %3, ptr noundef getelementptr inbounds (%struct.anon.46, ptr getelementptr inbounds (%struct.anon.44, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3), i32 0, i32 20))
+  %4 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %5 = getelementptr inbounds %struct.anon.44, ptr %4, i32 0, i32 3
+  %6 = getelementptr inbounds %struct.anon.46, ptr %5, i32 0, i32 20
+  call void @PyErr_SetObject(ptr noundef %3, ptr noundef %6)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %4 = load ptr, ptr %op.addr, align 8
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %ob_item, align 8
-  %6 = load i64, ptr %i.addr, align 8
-  %arrayidx = getelementptr ptr, ptr %5, i64 %6
-  %7 = load ptr, ptr %arrayidx, align 8
-  store ptr %7, ptr %retval, align 8
+  %7 = load ptr, ptr %op.addr, align 8
+  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %ob_item, align 8
+  %9 = load i64, ptr %i.addr, align 8
+  %arrayidx = getelementptr ptr, ptr %8, i64 %9
+  %10 = load ptr, ptr %arrayidx, align 8
+  store ptr %10, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then5, %if.then
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %11 = load ptr, ptr %retval, align 8
+  ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10064,24 +10067,27 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr @PyExc_IndexError, align 8
-  call void @PyErr_SetObject(ptr noundef %2, ptr noundef getelementptr inbounds (%struct.anon.46, ptr getelementptr inbounds (%struct.anon.44, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3), i32 0, i32 20))
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %4 = getelementptr inbounds %struct.anon.44, ptr %3, i32 0, i32 3
+  %5 = getelementptr inbounds %struct.anon.46, ptr %4, i32 0, i32 20
+  call void @PyErr_SetObject(ptr noundef %2, ptr noundef %5)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %a.addr, align 8
-  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %ob_item, align 8
-  %5 = load i64, ptr %i.addr, align 8
-  %arrayidx = getelementptr ptr, ptr %4, i64 %5
-  %6 = load ptr, ptr %arrayidx, align 8
-  %call2 = call ptr @_Py_NewRef(ptr noundef %6)
+  %6 = load ptr, ptr %a.addr, align 8
+  %ob_item = getelementptr inbounds %struct.PyListObject, ptr %6, i32 0, i32 1
+  %7 = load ptr, ptr %ob_item, align 8
+  %8 = load i64, ptr %i.addr, align 8
+  %arrayidx = getelementptr ptr, ptr %7, i64 %8
+  %9 = load ptr, ptr %arrayidx, align 8
+  %call2 = call ptr @_Py_NewRef(ptr noundef %9)
   store ptr %call2, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
+  %10 = load ptr, ptr %retval, align 8
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13084,10 +13090,12 @@ entry:
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = call ptr @_PyEval_GetBuiltin(ptr noundef getelementptr inbounds (%struct.anon.44, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 434))
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %2 = getelementptr inbounds %struct.anon.44, ptr %1, i32 0, i32 3, i32 1, i32 434
+  %call = call ptr @_PyEval_GetBuiltin(ptr noundef %2)
   store ptr %call, ptr %iter, align 8
-  %1 = load ptr, ptr %iter, align 8
-  %tobool1 = icmp ne ptr %1, null
+  %3 = load ptr, ptr %iter, align 8
+  %tobool1 = icmp ne ptr %3, null
   br i1 %tobool1, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
@@ -13095,34 +13103,34 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %2 = load ptr, ptr %_it.addr, align 8
-  store ptr %2, ptr %it, align 8
-  %3 = load ptr, ptr %it, align 8
-  %it_seq = getelementptr inbounds %struct._PyListIterObject, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %it_seq, align 8
-  %tobool3 = icmp ne ptr %4, null
+  %4 = load ptr, ptr %_it.addr, align 8
+  store ptr %4, ptr %it, align 8
+  %5 = load ptr, ptr %it, align 8
+  %it_seq = getelementptr inbounds %struct._PyListIterObject, ptr %5, i32 0, i32 2
+  %6 = load ptr, ptr %it_seq, align 8
+  %tobool3 = icmp ne ptr %6, null
   br i1 %tobool3, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.end
-  %5 = load ptr, ptr %iter, align 8
-  %6 = load ptr, ptr %it, align 8
-  %it_seq5 = getelementptr inbounds %struct._PyListIterObject, ptr %6, i32 0, i32 2
-  %7 = load ptr, ptr %it_seq5, align 8
+  %7 = load ptr, ptr %iter, align 8
   %8 = load ptr, ptr %it, align 8
-  %it_index = getelementptr inbounds %struct._PyListIterObject, ptr %8, i32 0, i32 1
-  %9 = load i64, ptr %it_index, align 8
-  %call6 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.40, ptr noundef %5, ptr noundef %7, i64 noundef %9)
+  %it_seq5 = getelementptr inbounds %struct._PyListIterObject, ptr %8, i32 0, i32 2
+  %9 = load ptr, ptr %it_seq5, align 8
+  %10 = load ptr, ptr %it, align 8
+  %it_index = getelementptr inbounds %struct._PyListIterObject, ptr %10, i32 0, i32 1
+  %11 = load i64, ptr %it_index, align 8
+  %call6 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.40, ptr noundef %7, ptr noundef %9, i64 noundef %11)
   store ptr %call6, ptr %retval, align 8
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %10 = load ptr, ptr %iter, align 8
-  store ptr %10, ptr %op.addr.i26, align 8
-  %11 = load ptr, ptr %op.addr.i26, align 8
-  store ptr %11, ptr %op.addr.i35, align 8
-  %12 = load ptr, ptr %op.addr.i35, align 8
-  %13 = load i64, ptr %12, align 8
-  %conv.i = trunc i64 %13 to i32
+  %12 = load ptr, ptr %iter, align 8
+  store ptr %12, ptr %op.addr.i26, align 8
+  %13 = load ptr, ptr %op.addr.i26, align 8
+  store ptr %13, ptr %op.addr.i35, align 8
+  %14 = load ptr, ptr %op.addr.i35, align 8
+  %15 = load i64, ptr %14, align 8
+  %conv.i = trunc i64 %15 to i32
   %cmp.i36 = icmp slt i32 %conv.i, 0
   %conv1.i = zext i1 %cmp.i36 to i32
   %tobool.i28 = icmp ne i32 %conv1.i, 0
@@ -13132,26 +13140,28 @@ if.then.i33:                                      ; preds = %if.end7
   br label %Py_DECREF.exit34
 
 if.end.i29:                                       ; preds = %if.end7
-  %14 = load ptr, ptr %op.addr.i26, align 8
-  %15 = load i64, ptr %14, align 8
-  %dec.i30 = add i64 %15, -1
-  store i64 %dec.i30, ptr %14, align 8
+  %16 = load ptr, ptr %op.addr.i26, align 8
+  %17 = load i64, ptr %16, align 8
+  %dec.i30 = add i64 %17, -1
+  store i64 %dec.i30, ptr %16, align 8
   %cmp.i31 = icmp eq i64 %dec.i30, 0
   br i1 %cmp.i31, label %if.then1.i32, label %Py_DECREF.exit34
 
 if.then1.i32:                                     ; preds = %if.end.i29
-  %16 = load ptr, ptr %op.addr.i26, align 8
-  call void @_Py_Dealloc(ptr noundef %16) #5
+  %18 = load ptr, ptr %op.addr.i26, align 8
+  call void @_Py_Dealloc(ptr noundef %18) #5
   br label %Py_DECREF.exit34
 
 Py_DECREF.exit34:                                 ; preds = %if.then1.i32, %if.end.i29, %if.then.i33
   br label %if.end20
 
 if.else:                                          ; preds = %entry
-  %call8 = call ptr @_PyEval_GetBuiltin(ptr noundef getelementptr inbounds (%struct.anon.44, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 588))
+  %19 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %20 = getelementptr inbounds %struct.anon.44, ptr %19, i32 0, i32 3, i32 1, i32 588
+  %call8 = call ptr @_PyEval_GetBuiltin(ptr noundef %20)
   store ptr %call8, ptr %reversed, align 8
-  %17 = load ptr, ptr %reversed, align 8
-  %tobool9 = icmp ne ptr %17, null
+  %21 = load ptr, ptr %reversed, align 8
+  %tobool9 = icmp ne ptr %21, null
   br i1 %tobool9, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.else
@@ -13159,34 +13169,34 @@ if.then10:                                        ; preds = %if.else
   br label %return
 
 if.end11:                                         ; preds = %if.else
-  %18 = load ptr, ptr %_it.addr, align 8
-  store ptr %18, ptr %it12, align 8
-  %19 = load ptr, ptr %it12, align 8
-  %it_seq13 = getelementptr inbounds %struct.listreviterobject, ptr %19, i32 0, i32 2
-  %20 = load ptr, ptr %it_seq13, align 8
-  %tobool14 = icmp ne ptr %20, null
+  %22 = load ptr, ptr %_it.addr, align 8
+  store ptr %22, ptr %it12, align 8
+  %23 = load ptr, ptr %it12, align 8
+  %it_seq13 = getelementptr inbounds %struct.listreviterobject, ptr %23, i32 0, i32 2
+  %24 = load ptr, ptr %it_seq13, align 8
+  %tobool14 = icmp ne ptr %24, null
   br i1 %tobool14, label %if.then15, label %if.end19
 
 if.then15:                                        ; preds = %if.end11
-  %21 = load ptr, ptr %reversed, align 8
-  %22 = load ptr, ptr %it12, align 8
-  %it_seq16 = getelementptr inbounds %struct.listreviterobject, ptr %22, i32 0, i32 2
-  %23 = load ptr, ptr %it_seq16, align 8
-  %24 = load ptr, ptr %it12, align 8
-  %it_index17 = getelementptr inbounds %struct.listreviterobject, ptr %24, i32 0, i32 1
-  %25 = load i64, ptr %it_index17, align 8
-  %call18 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.40, ptr noundef %21, ptr noundef %23, i64 noundef %25)
+  %25 = load ptr, ptr %reversed, align 8
+  %26 = load ptr, ptr %it12, align 8
+  %it_seq16 = getelementptr inbounds %struct.listreviterobject, ptr %26, i32 0, i32 2
+  %27 = load ptr, ptr %it_seq16, align 8
+  %28 = load ptr, ptr %it12, align 8
+  %it_index17 = getelementptr inbounds %struct.listreviterobject, ptr %28, i32 0, i32 1
+  %29 = load i64, ptr %it_index17, align 8
+  %call18 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.40, ptr noundef %25, ptr noundef %27, i64 noundef %29)
   store ptr %call18, ptr %retval, align 8
   br label %return
 
 if.end19:                                         ; preds = %if.end11
-  %26 = load ptr, ptr %reversed, align 8
-  store ptr %26, ptr %op.addr.i, align 8
-  %27 = load ptr, ptr %op.addr.i, align 8
-  store ptr %27, ptr %op.addr.i37, align 8
-  %28 = load ptr, ptr %op.addr.i37, align 8
-  %29 = load i64, ptr %28, align 8
-  %conv.i38 = trunc i64 %29 to i32
+  %30 = load ptr, ptr %reversed, align 8
+  store ptr %30, ptr %op.addr.i, align 8
+  %31 = load ptr, ptr %op.addr.i, align 8
+  store ptr %31, ptr %op.addr.i37, align 8
+  %32 = load ptr, ptr %op.addr.i37, align 8
+  %33 = load i64, ptr %32, align 8
+  %conv.i38 = trunc i64 %33 to i32
   %cmp.i39 = icmp slt i32 %conv.i38, 0
   %conv1.i40 = zext i1 %cmp.i39 to i32
   %tobool.i = icmp ne i32 %conv1.i40, 0
@@ -13196,16 +13206,16 @@ if.then.i:                                        ; preds = %if.end19
   br label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.end19
-  %30 = load ptr, ptr %op.addr.i, align 8
-  %31 = load i64, ptr %30, align 8
-  %dec.i = add i64 %31, -1
-  store i64 %dec.i, ptr %30, align 8
+  %34 = load ptr, ptr %op.addr.i, align 8
+  %35 = load i64, ptr %34, align 8
+  %dec.i = add i64 %35, -1
+  store i64 %dec.i, ptr %34, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %32 = load ptr, ptr %op.addr.i, align 8
-  call void @_Py_Dealloc(ptr noundef %32) #5
+  %36 = load ptr, ptr %op.addr.i, align 8
+  call void @_Py_Dealloc(ptr noundef %36) #5
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end.i, %if.then.i
@@ -13214,8 +13224,8 @@ Py_DECREF.exit:                                   ; preds = %if.then1.i, %if.end
 if.end20:                                         ; preds = %Py_DECREF.exit, %Py_DECREF.exit34
   %call21 = call ptr @PyList_New(i64 noundef 0)
   store ptr %call21, ptr %list, align 8
-  %33 = load ptr, ptr %list, align 8
-  %cmp = icmp eq ptr %33, null
+  %37 = load ptr, ptr %list, align 8
+  %cmp = icmp eq ptr %37, null
   br i1 %cmp, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.end20
@@ -13223,15 +13233,17 @@ if.then22:                                        ; preds = %if.end20
   br label %return
 
 if.end23:                                         ; preds = %if.end20
-  %call24 = call ptr @_PyEval_GetBuiltin(ptr noundef getelementptr inbounds (%struct.anon.44, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 434))
-  %34 = load ptr, ptr %list, align 8
-  %call25 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.41, ptr noundef %call24, ptr noundef %34)
+  %38 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %39 = getelementptr inbounds %struct.anon.44, ptr %38, i32 0, i32 3, i32 1, i32 434
+  %call24 = call ptr @_PyEval_GetBuiltin(ptr noundef %39)
+  %40 = load ptr, ptr %list, align 8
+  %call25 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef @.str.41, ptr noundef %call24, ptr noundef %40)
   store ptr %call25, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end23, %if.then22, %if.then15, %if.then10, %if.then4, %if.then2
-  %35 = load ptr, ptr %retval, align 8
-  ret ptr %35
+  %41 = load ptr, ptr %retval, align 8
+  ret ptr %41
 }
 
 declare ptr @_PyEval_GetBuiltin(ptr noundef) #1

@@ -162,16 +162,17 @@ entry:
   store float %contactBreakingThreshold, ptr %contactBreakingThreshold.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN36btDiscreteCollisionDetectorInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22SphereTriangleDetector, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV22SphereTriangleDetector, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_sphere = getelementptr inbounds %struct.SphereTriangleDetector, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %sphere.addr, align 8
-  store ptr %0, ptr %m_sphere, align 8
+  %1 = load ptr, ptr %sphere.addr, align 8
+  store ptr %1, ptr %m_sphere, align 8
   %m_triangle = getelementptr inbounds %struct.SphereTriangleDetector, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %triangle.addr, align 8
-  store ptr %1, ptr %m_triangle, align 8
+  %2 = load ptr, ptr %triangle.addr, align 8
+  store ptr %2, ptr %m_triangle, align 8
   %m_contactBreakingThreshold = getelementptr inbounds %struct.SphereTriangleDetector, ptr %this1, i32 0, i32 3
-  %2 = load float, ptr %contactBreakingThreshold.addr, align 4
-  store float %2, ptr %m_contactBreakingThreshold, align 8
+  %3 = load float, ptr %contactBreakingThreshold.addr, align 4
+  store float %3, ptr %m_contactBreakingThreshold, align 8
   ret void
 }
 
@@ -181,7 +182,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV36btDiscreteCollisionDetectorInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV36btDiscreteCollisionDetectorInterface, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

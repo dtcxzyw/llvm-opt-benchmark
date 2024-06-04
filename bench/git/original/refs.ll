@@ -1048,35 +1048,36 @@ if.end40:                                         ; preds = %if.then38, %if.then
   br label %return
 
 if.end41:                                         ; preds = %if.end31
-  %35 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @refs_resolve_ref_unsafe.sb_refname, i32 0, i32 2), align 8
-  store ptr %35, ptr %refname.addr, align 8
-  %36 = load i32, ptr %resolve_flags.addr, align 4
-  %and42 = and i32 %36, 2
+  %35 = getelementptr inbounds %struct.strbuf, ptr @refs_resolve_ref_unsafe.sb_refname, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8
+  store ptr %36, ptr %refname.addr, align 8
+  %37 = load i32, ptr %resolve_flags.addr, align 4
+  %and42 = and i32 %37, 2
   %tobool43 = icmp ne i32 %and42, 0
   br i1 %tobool43, label %if.then44, label %if.end45
 
 if.then44:                                        ; preds = %if.end41
-  %37 = load ptr, ptr %oid.addr, align 8
-  call void @oidclr(ptr noundef %37)
-  %38 = load ptr, ptr %refname.addr, align 8
-  store ptr %38, ptr %retval, align 8
+  %38 = load ptr, ptr %oid.addr, align 8
+  call void @oidclr(ptr noundef %38)
+  %39 = load ptr, ptr %refname.addr, align 8
+  store ptr %39, ptr %retval, align 8
   br label %return
 
 if.end45:                                         ; preds = %if.end41
-  %39 = load ptr, ptr %refname.addr, align 8
-  %call46 = call i32 @check_refname_format(ptr noundef %39, i32 noundef 1)
+  %40 = load ptr, ptr %refname.addr, align 8
+  %call46 = call i32 @check_refname_format(ptr noundef %40, i32 noundef 1)
   %tobool47 = icmp ne i32 %call46, 0
   br i1 %tobool47, label %if.then48, label %if.end57
 
 if.then48:                                        ; preds = %if.end45
-  %40 = load i32, ptr %resolve_flags.addr, align 4
-  %and49 = and i32 %40, 4
+  %41 = load i32, ptr %resolve_flags.addr, align 4
+  %and49 = and i32 %41, 4
   %tobool50 = icmp ne i32 %and49, 0
   br i1 %tobool50, label %lor.lhs.false51, label %if.then54
 
 lor.lhs.false51:                                  ; preds = %if.then48
-  %41 = load ptr, ptr %refname.addr, align 8
-  %call52 = call i32 @refname_is_safe(ptr noundef %41)
+  %42 = load ptr, ptr %refname.addr, align 8
+  %call52 = call i32 @refname_is_safe(ptr noundef %42)
   %tobool53 = icmp ne i32 %call52, 0
   br i1 %tobool53, label %if.end55, label %if.then54
 
@@ -1085,18 +1086,18 @@ if.then54:                                        ; preds = %lor.lhs.false51, %i
   br label %return
 
 if.end55:                                         ; preds = %lor.lhs.false51
-  %42 = load ptr, ptr %flags.addr, align 8
-  %43 = load i32, ptr %42, align 4
-  %or56 = or i32 %43, 12
-  store i32 %or56, ptr %42, align 4
+  %43 = load ptr, ptr %flags.addr, align 8
+  %44 = load i32, ptr %43, align 4
+  %or56 = or i32 %44, 12
+  store i32 %or56, ptr %43, align 4
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end55, %if.end45
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end57
-  %44 = load i32, ptr %symref_count, align 4
-  %inc = add nsw i32 %44, 1
+  %45 = load i32, ptr %symref_count, align 4
+  %inc = add nsw i32 %45, 1
   store i32 %inc, ptr %symref_count, align 4
   br label %for.cond, !llvm.loop !9
 
@@ -1105,8 +1106,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then54, %if.then44, %if.end40, %if.end30, %if.then24, %if.then18, %if.then9
-  %45 = load ptr, ptr %retval, align 8
-  ret ptr %45
+  %46 = load ptr, ptr %retval, align 8
+  ret ptr %46
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2173,7 +2174,9 @@ for.body:                                         ; preds = %for.cond
 if.then:                                          ; preds = %for.body
   %8 = load ptr, ptr %p, align 8
   %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64
-  %sub.ptr.sub = sub i64 ptrtoint (ptr getelementptr inbounds ([7 x ptr], ptr @ref_rev_parse_rules, i64 0, i64 6) to i64), %sub.ptr.rhs.cast
+  %9 = getelementptr inbounds [7 x ptr], ptr @ref_rev_parse_rules, i64 0, i64 6
+  %10 = ptrtoint ptr %9 to i64
+  %sub.ptr.sub = sub i64 %10, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
   %conv4 = trunc i64 %sub.ptr.div to i32
   store i32 %conv4, ptr %retval, align 4
@@ -2183,8 +2186,8 @@ if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %9 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %9, i32 1
+  %11 = load ptr, ptr %p, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %11, i32 1
   store ptr %incdec.ptr, ptr %p, align 8
   br label %for.cond, !llvm.loop !10
 
@@ -2193,8 +2196,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+  %12 = load i32, ptr %retval, align 4
+  ret i32 %12
 }
 
 declare ptr @mkpath(ptr noundef, ...) #4
@@ -5447,16 +5450,17 @@ entry:
   store ptr %r, ptr %r.addr, align 8
   store ptr %fn, ptr %fn.addr, align 8
   store ptr %cb_data, ptr %cb_data.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds ([9 x %struct.ref_namespace_info], ptr @ref_namespace, i64 0, i64 5), align 16
-  store ptr %0, ptr %git_replace_ref_base, align 8
-  %1 = load ptr, ptr %r.addr, align 8
-  %2 = load ptr, ptr %git_replace_ref_base, align 8
-  %3 = load ptr, ptr %fn.addr, align 8
-  %4 = load ptr, ptr %git_replace_ref_base, align 8
-  %call = call i64 @strlen(ptr noundef %4) #9
+  %0 = getelementptr inbounds [9 x %struct.ref_namespace_info], ptr @ref_namespace, i64 0, i64 5
+  %1 = load ptr, ptr %0, align 16
+  store ptr %1, ptr %git_replace_ref_base, align 8
+  %2 = load ptr, ptr %r.addr, align 8
+  %3 = load ptr, ptr %git_replace_ref_base, align 8
+  %4 = load ptr, ptr %fn.addr, align 8
+  %5 = load ptr, ptr %git_replace_ref_base, align 8
+  %call = call i64 @strlen(ptr noundef %5) #9
   %conv = trunc i64 %call to i32
-  %5 = load ptr, ptr %cb_data.addr, align 8
-  %call1 = call i32 @do_for_each_repo_ref(ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %conv, i32 noundef 1, ptr noundef %5)
+  %6 = load ptr, ptr %cb_data.addr, align 8
+  %call1 = call i32 @do_for_each_repo_ref(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %conv, i32 noundef 1, ptr noundef %6)
   ret i32 %call1
 }
 
@@ -6816,53 +6820,54 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = call i32 @sigchain_push(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr))
+  %6 = inttoptr i64 1 to ptr
+  %call5 = call i32 @sigchain_push(i32 noundef 13, ptr noundef %6)
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end4
-  %6 = load i32, ptr %i, align 4
-  %conv = sext i32 %6 to i64
-  %7 = load ptr, ptr %transaction.addr, align 8
-  %nr = getelementptr inbounds %struct.ref_transaction, ptr %7, i32 0, i32 3
-  %8 = load i64, ptr %nr, align 8
-  %cmp = icmp ult i64 %conv, %8
+  %7 = load i32, ptr %i, align 4
+  %conv = sext i32 %7 to i64
+  %8 = load ptr, ptr %transaction.addr, align 8
+  %nr = getelementptr inbounds %struct.ref_transaction, ptr %8, i32 0, i32 3
+  %9 = load i64, ptr %nr, align 8
+  %cmp = icmp ult i64 %conv, %9
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr %transaction.addr, align 8
-  %updates = getelementptr inbounds %struct.ref_transaction, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %updates, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %11 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %idxprom
-  %12 = load ptr, ptr %arrayidx, align 8
-  store ptr %12, ptr %update, align 8
+  %10 = load ptr, ptr %transaction.addr, align 8
+  %updates = getelementptr inbounds %struct.ref_transaction, ptr %10, i32 0, i32 1
+  %11 = load ptr, ptr %updates, align 8
+  %12 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %12 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
+  %13 = load ptr, ptr %arrayidx, align 8
+  store ptr %13, ptr %update, align 8
   call void @strbuf_setlen(ptr noundef %buf, i64 noundef 0)
-  %13 = load ptr, ptr %update, align 8
-  %old_oid = getelementptr inbounds %struct.ref_update, ptr %13, i32 0, i32 1
-  %call7 = call ptr @oid_to_hex(ptr noundef %old_oid)
   %14 = load ptr, ptr %update, align 8
-  %new_oid = getelementptr inbounds %struct.ref_update, ptr %14, i32 0, i32 0
-  %call8 = call ptr @oid_to_hex(ptr noundef %new_oid)
+  %old_oid = getelementptr inbounds %struct.ref_update, ptr %14, i32 0, i32 1
+  %call7 = call ptr @oid_to_hex(ptr noundef %old_oid)
   %15 = load ptr, ptr %update, align 8
-  %refname = getelementptr inbounds %struct.ref_update, ptr %15, i32 0, i32 7
+  %new_oid = getelementptr inbounds %struct.ref_update, ptr %15, i32 0, i32 0
+  %call8 = call ptr @oid_to_hex(ptr noundef %new_oid)
+  %16 = load ptr, ptr %update, align 8
+  %refname = getelementptr inbounds %struct.ref_update, ptr %16, i32 0, i32 7
   %arraydecay = getelementptr inbounds [0 x i8], ptr %refname, i64 0, i64 0
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %buf, ptr noundef @.str.95, ptr noundef %call7, ptr noundef %call8, ptr noundef %arraydecay)
   %in9 = getelementptr inbounds %struct.child_process, ptr %proc, i32 0, i32 7
-  %16 = load i32, ptr %in9, align 8
+  %17 = load i32, ptr %in9, align 8
   %buf10 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 2
-  %17 = load ptr, ptr %buf10, align 8
+  %18 = load ptr, ptr %buf10, align 8
   %len = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 1
-  %18 = load i64, ptr %len, align 8
-  %call11 = call i64 @write_in_full(i32 noundef %16, ptr noundef %17, i64 noundef %18)
+  %19 = load i64, ptr %len, align 8
+  %call11 = call i64 @write_in_full(i32 noundef %17, ptr noundef %18, i64 noundef %19)
   %cmp12 = icmp slt i64 %call11, 0
   br i1 %cmp12, label %if.then14, label %if.end21
 
 if.then14:                                        ; preds = %for.body
   %call15 = call ptr @__errno_location() #13
-  %19 = load i32, ptr %call15, align 4
-  %cmp16 = icmp ne i32 %19, 32
+  %20 = load i32, ptr %call15, align 4
+  %cmp16 = icmp ne i32 %20, 32
   br i1 %cmp16, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %if.then14
@@ -6878,28 +6883,28 @@ if.end21:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end21
-  %20 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %20, 1
+  %21 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %21, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !26
 
 for.end:                                          ; preds = %if.end20, %for.cond
   %in22 = getelementptr inbounds %struct.child_process, ptr %proc, i32 0, i32 7
-  %21 = load i32, ptr %in22, align 8
-  %call23 = call i32 @close(i32 noundef %21)
+  %22 = load i32, ptr %in22, align 8
+  %call23 = call i32 @close(i32 noundef %22)
   %call24 = call i32 @sigchain_pop(i32 noundef 13)
   call void @strbuf_release(ptr noundef %buf)
   %call25 = call i32 @finish_command(ptr noundef %proc)
-  %22 = load i32, ptr %ret, align 4
-  %or = or i32 %22, %call25
-  store i32 %or, ptr %ret, align 4
   %23 = load i32, ptr %ret, align 4
-  store i32 %23, ptr %retval, align 4
+  %or = or i32 %23, %call25
+  store i32 %or, ptr %ret, align 4
+  %24 = load i32, ptr %ret, align 4
+  store i32 %24, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %for.end, %if.then3, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+  %25 = load i32, ptr %retval, align 4
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8705,7 +8710,8 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @hash_algos to i64)
+  %1 = ptrtoint ptr @hash_algos to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv

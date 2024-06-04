@@ -557,19 +557,20 @@ define internal i32 @dissect_lnet_ib_heur(ptr noundef %0, ptr noundef %1, ptr no
 
 17:                                               ; preds = %13, %4
   store i32 0, ptr %5, align 4
-  br label %23
+  br label %24
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %6, align 8
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %8, align 8
-  %22 = call i32 @dissect_lnet_message(ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef inttoptr (i64 24 to ptr))
+  %22 = inttoptr i64 24 to ptr
+  %23 = call i32 @dissect_lnet_message(ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22)
   store i32 1, ptr %5, align 4
-  br label %23
+  br label %24
 
-23:                                               ; preds = %18, %17
-  %24 = load i32, ptr %5, align 4
-  ret i32 %24
+24:                                               ; preds = %18, %17
+  %25 = load i32, ptr %5, align 4
+  ret i32 %25
 }
 
 declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) #1

@@ -253,13 +253,15 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !53
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 288
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !55
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !6
   %AbsoluteTransformation.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = getelementptr inbounds i8, ptr %this, i64 52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  %3 = getelementptr inbounds i8, ptr %this, i64 52
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 56, i1 false)
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 108
   store float 1.000000e+00, ptr %arrayidx.i.i.i.i, align 4, !tbaa !10
   %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -296,29 +298,32 @@ entry:
   %IsDebugObject.i.i = getelementptr inbounds i8, ptr %this, i64 221
   store i8 0, ptr %IsDebugObject.i.i, align 1, !tbaa !41
   %tobool.not.i.i = icmp eq ptr %parent, null
+  %4 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3
   br i1 %tobool.not.i.i, label %_ZN3irr5scene14IBoneSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %vtable3.i.i = load ptr, ptr %parent, align 8, !tbaa !3
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 136
-  %2 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(222) %parent, ptr noundef nonnull %this) #20
+  %5 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(222) %parent, ptr noundef nonnull %this) #20
   %vtable4.i.i.pre = load ptr, ptr %this, align 8, !tbaa !3
   br label %_ZN3irr5scene14IBoneSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi.exit
 
 _ZN3irr5scene14IBoneSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi.exit: ; preds = %if.then.i.i, %entry
-  %vtable4.i.i = phi ptr [ getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), %entry ], [ %vtable4.i.i.pre, %if.then.i.i ]
+  %vtable4.i.i = phi ptr [ %4, %entry ], [ %vtable4.i.i.pre, %if.then.i.i ]
   %vfn5.i.i = getelementptr inbounds i8, ptr %vtable4.i.i, i64 256
-  %3 = load ptr, ptr %vfn5.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(222) %this) #20
+  %6 = load ptr, ptr %vfn5.i.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(222) %this) #20
   %positionHint.i = getelementptr inbounds i8, ptr %this, i64 224
   store i32 -1, ptr %positionHint.i, align 8, !tbaa !42
   %scaleHint.i = getelementptr inbounds i8, ptr %this, i64 228
   store i32 -1, ptr %scaleHint.i, align 4, !tbaa !44
   %rotationHint.i = getelementptr inbounds i8, ptr %this, i64 232
   store i32 -1, ptr %rotationHint.i, align 8, !tbaa !45
-  store ptr getelementptr inbounds inrange(-24, 336) ({ [45 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene14CBoneSceneNodeE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [45 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene14CBoneSceneNodeE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %7 = getelementptr inbounds { [45 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene14CBoneSceneNodeE, i64 0, i32 0, i64 3
+  store ptr %7, ptr %this, align 8, !tbaa !3
+  %8 = getelementptr inbounds { [45 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene14CBoneSceneNodeE, i64 0, i32 1, i64 3
+  store ptr %8, ptr %0, align 8, !tbaa !3
   %BoneIndex = getelementptr inbounds i8, ptr %this, i64 236
   store i32 %boneIndex, ptr %BoneIndex, align 4, !tbaa !46
   %Box = getelementptr inbounds i8, ptr %this, i64 240
@@ -1681,9 +1686,11 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene14CBoneSceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  %0 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3
+  store ptr %0, ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3
+  store ptr %1, ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Children.i = getelementptr inbounds i8, ptr %this, i64 152
   %__begin2.sroa.0.015.i = load ptr, ptr %Children.i, align 8, !tbaa !15
   %cmp.i.not16.i = icmp eq ptr %__begin2.sroa.0.015.i, %Children.i
@@ -1695,22 +1702,22 @@ for.cond.cleanup.i:                               ; preds = %_ZNK3irr17IReferenc
   br i1 %cmp.not9.i.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %for.cond.cleanup.i
-  %__cur.010.i.i.i = phi ptr [ %0, %while.body.i.i.i ], [ %.pre.i, %for.cond.cleanup.i ]
-  %0 = load ptr, ptr %__cur.010.i.i.i, align 8, !tbaa !15
+  %__cur.010.i.i.i = phi ptr [ %2, %while.body.i.i.i ], [ %.pre.i, %for.cond.cleanup.i ]
+  %2 = load ptr, ptr %__cur.010.i.i.i, align 8, !tbaa !15
   tail call void @_ZdlPv(ptr noundef %__cur.010.i.i.i) #23
-  %cmp.not.i.i.i = icmp eq ptr %0, %Children.i
+  %cmp.not.i.i.i = icmp eq ptr %2, %Children.i
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i, label %while.body.i.i.i, !llvm.loop !70
 
 for.body.i:                                       ; preds = %_ZNK3irr17IReferenceCounted4dropEv.exit.i, %entry
   %__begin2.sroa.0.017.i = phi ptr [ %__begin2.sroa.0.0.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i ], [ %__begin2.sroa.0.015.i, %entry ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.i, i64 16
-  %1 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !58
-  %Parent.i = getelementptr inbounds i8, ptr %1, i64 192
+  %3 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !58
+  %Parent.i = getelementptr inbounds i8, ptr %3, i64 192
   store ptr null, ptr %Parent.i, align 8, !tbaa !21
-  %2 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !58
-  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 184
-  %3 = load i8, ptr %_M_engaged.i.i.i.i, align 8, !tbaa !19, !range !56, !noundef !57
-  %tobool.not.i.i.i.i = icmp eq i8 %3, 0
+  %4 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !58
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 184
+  %5 = load i8, ptr %_M_engaged.i.i.i.i, align 8, !tbaa !19, !range !56, !noundef !57
+  %tobool.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i.i.i, label %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i
@@ -1718,13 +1725,13 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i
   br label %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i
 
 _ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i: ; preds = %if.then.i.i.i.i, %for.body.i
-  %vtable.i = load ptr, ptr %2, align 8, !tbaa !3
+  %vtable.i = load ptr, ptr %4, align 8, !tbaa !3
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset.i
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  %4 = load i32, ptr %ReferenceCounter.i.i, align 8, !tbaa !55
-  %dec.i.i = add nsw i32 %4, -1
+  %6 = load i32, ptr %ReferenceCounter.i.i, align 8, !tbaa !55
+  %dec.i.i = add nsw i32 %6, -1
   store i32 %dec.i.i, ptr %ReferenceCounter.i.i, align 8, !tbaa !55
   %tobool.not.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %tobool.not.i.i, label %delete.notnull.i.i, label %_ZNK3irr17IReferenceCounted4dropEv.exit.i
@@ -1732,8 +1739,8 @@ _ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exi
 delete.notnull.i.i:                               ; preds = %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i
   %vtable.i.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !3
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %5 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i) #20
+  %7 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i) #20
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit.i
 
 _ZNK3irr17IReferenceCounted4dropEv.exit.i:        ; preds = %delete.notnull.i.i, %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i
@@ -1748,27 +1755,27 @@ _ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i: ; pr
   %_M_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i64 0, ptr %_M_size.i.i.i.i, align 8, !tbaa !16
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 8, !tbaa !6, !range !56, !noundef !57
-  %tobool.not.i.i.i.i.i.i = icmp eq i8 %6, 0
+  %8 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 8, !tbaa !6, !range !56, !noundef !57
+  %tobool.not.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3irr5scene14CBoneSceneNodeD2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i
   %Name.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8, !tbaa !6
-  %7 = load ptr, ptr %Name.i.i.i, align 8, !tbaa !78
-  %8 = getelementptr inbounds i8, ptr %this, i64 24
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, %8
+  %9 = load ptr, ptr %Name.i.i.i, align 8, !tbaa !78
+  %10 = getelementptr inbounds i8, ptr %this, i64 24
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !81
-  %cmp3.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %9, 16
+  %11 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !81
+  %cmp3.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %11, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN3irr5scene14CBoneSceneNodeD2Ev.exit
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %7) #23
+  tail call void @_ZdlPv(ptr noundef %9) #23
   br label %_ZN3irr5scene14CBoneSceneNodeD2Ev.exit
 
 _ZN3irr5scene14CBoneSceneNodeD2Ev.exit:           ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i
@@ -1778,9 +1785,11 @@ _ZN3irr5scene14CBoneSceneNodeD2Ev.exit:           ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene14CBoneSceneNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
+  %0 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3
+  store ptr %0, ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3
+  store ptr %1, ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
   %Children.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %__begin2.sroa.0.015.i.i = load ptr, ptr %Children.i.i, align 8, !tbaa !15
   %cmp.i.not16.i.i = icmp eq ptr %__begin2.sroa.0.015.i.i, %Children.i.i
@@ -1792,22 +1801,22 @@ for.cond.cleanup.i.i:                             ; preds = %_ZNK3irr17IReferenc
   br i1 %cmp.not9.i.i.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %for.cond.cleanup.i.i
-  %__cur.010.i.i.i.i = phi ptr [ %0, %while.body.i.i.i.i ], [ %.pre.i.i, %for.cond.cleanup.i.i ]
-  %0 = load ptr, ptr %__cur.010.i.i.i.i, align 8, !tbaa !15
+  %__cur.010.i.i.i.i = phi ptr [ %2, %while.body.i.i.i.i ], [ %.pre.i.i, %for.cond.cleanup.i.i ]
+  %2 = load ptr, ptr %__cur.010.i.i.i.i, align 8, !tbaa !15
   tail call void @_ZdlPv(ptr noundef %__cur.010.i.i.i.i) #23
-  %cmp.not.i.i.i.i = icmp eq ptr %0, %Children.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %2, %Children.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i, label %while.body.i.i.i.i, !llvm.loop !70
 
 for.body.i.i:                                     ; preds = %_ZNK3irr17IReferenceCounted4dropEv.exit.i.i, %entry
   %__begin2.sroa.0.017.i.i = phi ptr [ %__begin2.sroa.0.0.i.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i.i ], [ %__begin2.sroa.0.015.i.i, %entry ]
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.i.i, i64 16
-  %1 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !tbaa !58
-  %Parent.i.i = getelementptr inbounds i8, ptr %1, i64 192
+  %3 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !tbaa !58
+  %Parent.i.i = getelementptr inbounds i8, ptr %3, i64 192
   store ptr null, ptr %Parent.i.i, align 8, !tbaa !21
-  %2 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !tbaa !58
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 184
-  %3 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8, !tbaa !19, !range !56, !noundef !57
-  %tobool.not.i.i.i.i.i = icmp eq i8 %3, 0
+  %4 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !tbaa !58
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 184
+  %5 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8, !tbaa !19, !range !56, !noundef !57
+  %tobool.not.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
@@ -1815,13 +1824,13 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
   br label %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i
 
 _ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i: ; preds = %if.then.i.i.i.i.i, %for.body.i.i
-  %vtable.i.i = load ptr, ptr %2, align 8, !tbaa !3
+  %vtable.i.i = load ptr, ptr %4, align 8, !tbaa !3
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset.i.i
   %ReferenceCounter.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  %4 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !55
-  %dec.i.i.i = add nsw i32 %4, -1
+  %6 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !55
+  %dec.i.i.i = add nsw i32 %6, -1
   store i32 %dec.i.i.i, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !55
   %tobool.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %delete.notnull.i.i.i, label %_ZNK3irr17IReferenceCounted4dropEv.exit.i.i
@@ -1829,8 +1838,8 @@ _ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exi
 delete.notnull.i.i.i:                             ; preds = %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i
   %vtable.i.i.i = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !3
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %5 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i) #20
+  %7 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i) #20
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit.i.i
 
 _ZNK3irr17IReferenceCounted4dropEv.exit.i.i:      ; preds = %delete.notnull.i.i.i, %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i
@@ -1845,27 +1854,27 @@ _ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i: ; 
   %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !16
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !6, !range !56, !noundef !57
-  %tobool.not.i.i.i.i.i.i.i = icmp eq i8 %6, 0
+  %8 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !6, !range !56, !noundef !57
+  %tobool.not.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN3irr5scene14CBoneSceneNodeD1Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i
   %Name.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !6
-  %7 = load ptr, ptr %Name.i.i.i.i, align 8, !tbaa !78
-  %8 = getelementptr inbounds i8, ptr %this, i64 24
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, %8
+  %9 = load ptr, ptr %Name.i.i.i.i, align 8, !tbaa !78
+  %10 = getelementptr inbounds i8, ptr %this, i64 24
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !81
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %9, 16
+  %11 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !81
+  %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %11, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN3irr5scene14CBoneSceneNodeD1Ev.exit
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %7) #23
+  tail call void @_ZdlPv(ptr noundef %9) #23
   br label %_ZN3irr5scene14CBoneSceneNodeD1Ev.exit
 
 _ZN3irr5scene14CBoneSceneNodeD1Ev.exit:           ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i
@@ -1896,9 +1905,11 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3
+  store ptr %4, ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 272
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3
+  store ptr %5, ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
   %Children.i.i = getelementptr inbounds i8, ptr %3, i64 152
   %__begin2.sroa.0.015.i.i = load ptr, ptr %Children.i.i, align 8, !tbaa !15
   %cmp.i.not16.i.i = icmp eq ptr %__begin2.sroa.0.015.i.i, %Children.i.i
@@ -1910,22 +1921,22 @@ for.cond.cleanup.i.i:                             ; preds = %_ZNK3irr17IReferenc
   br i1 %cmp.not9.i.i.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %for.cond.cleanup.i.i
-  %__cur.010.i.i.i.i = phi ptr [ %4, %while.body.i.i.i.i ], [ %.pre.i.i, %for.cond.cleanup.i.i ]
-  %4 = load ptr, ptr %__cur.010.i.i.i.i, align 8, !tbaa !15
+  %__cur.010.i.i.i.i = phi ptr [ %6, %while.body.i.i.i.i ], [ %.pre.i.i, %for.cond.cleanup.i.i ]
+  %6 = load ptr, ptr %__cur.010.i.i.i.i, align 8, !tbaa !15
   tail call void @_ZdlPv(ptr noundef %__cur.010.i.i.i.i) #23
-  %cmp.not.i.i.i.i = icmp eq ptr %4, %Children.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %6, %Children.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i, label %while.body.i.i.i.i, !llvm.loop !70
 
 for.body.i.i:                                     ; preds = %_ZNK3irr17IReferenceCounted4dropEv.exit.i.i, %entry
   %__begin2.sroa.0.017.i.i = phi ptr [ %__begin2.sroa.0.0.i.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i.i ], [ %__begin2.sroa.0.015.i.i, %entry ]
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.i.i, i64 16
-  %5 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !tbaa !58
-  %Parent.i.i = getelementptr inbounds i8, ptr %5, i64 192
+  %7 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !tbaa !58
+  %Parent.i.i = getelementptr inbounds i8, ptr %7, i64 192
   store ptr null, ptr %Parent.i.i, align 8, !tbaa !21
-  %6 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !tbaa !58
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 184
-  %7 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8, !tbaa !19, !range !56, !noundef !57
-  %tobool.not.i.i.i.i.i = icmp eq i8 %7, 0
+  %8 = load ptr, ptr %_M_storage.i.i.i.i, align 8, !tbaa !58
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 184
+  %9 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8, !tbaa !19, !range !56, !noundef !57
+  %tobool.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
@@ -1933,13 +1944,13 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i
   br label %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i
 
 _ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i: ; preds = %if.then.i.i.i.i.i, %for.body.i.i
-  %vtable.i.i = load ptr, ptr %6, align 8, !tbaa !3
+  %vtable.i.i = load ptr, ptr %8, align 8, !tbaa !3
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %vbase.offset.i.i
   %ReferenceCounter.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  %8 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !55
-  %dec.i.i.i = add nsw i32 %8, -1
+  %10 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !55
+  %dec.i.i.i = add nsw i32 %10, -1
   store i32 %dec.i.i.i, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !55
   %tobool.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %delete.notnull.i.i.i, label %_ZNK3irr17IReferenceCounted4dropEv.exit.i.i
@@ -1947,8 +1958,8 @@ _ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exi
 delete.notnull.i.i.i:                             ; preds = %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i
   %vtable.i.i.i = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !3
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %9 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i) #20
+  %11 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i) #20
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit.i.i
 
 _ZNK3irr17IReferenceCounted4dropEv.exit.i.i:      ; preds = %delete.notnull.i.i.i, %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i
@@ -1963,27 +1974,27 @@ _ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i: ; 
   %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 168
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !16
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
-  %10 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !6, !range !56, !noundef !57
-  %tobool.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
+  %12 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !6, !range !56, !noundef !57
+  %tobool.not.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN3irr5scene14CBoneSceneNodeD1Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i
   %Name.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !6
-  %11 = load ptr, ptr %Name.i.i.i.i, align 8, !tbaa !78
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %12
+  %13 = load ptr, ptr %Name.i.i.i.i, align 8, !tbaa !78
+  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !81
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %13, 16
+  %15 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !81
+  %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %15, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN3irr5scene14CBoneSceneNodeD1Ev.exit
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %11) #23
+  tail call void @_ZdlPv(ptr noundef %13) #23
   br label %_ZN3irr5scene14CBoneSceneNodeD1Ev.exit
 
 _ZN3irr5scene14CBoneSceneNodeD1Ev.exit:           ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i
@@ -1997,9 +2008,11 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3
+  store ptr %4, ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 272
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene14CBoneSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3
+  store ptr %5, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !3
   %Children.i.i.i = getelementptr inbounds i8, ptr %3, i64 152
   %__begin2.sroa.0.015.i.i.i = load ptr, ptr %Children.i.i.i, align 8, !tbaa !15
   %cmp.i.not16.i.i.i = icmp eq ptr %__begin2.sroa.0.015.i.i.i, %Children.i.i.i
@@ -2011,22 +2024,22 @@ for.cond.cleanup.i.i.i:                           ; preds = %_ZNK3irr17IReferenc
   br i1 %cmp.not9.i.i.i.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.i, %for.cond.cleanup.i.i.i
-  %__cur.010.i.i.i.i.i = phi ptr [ %4, %while.body.i.i.i.i.i ], [ %.pre.i.i.i, %for.cond.cleanup.i.i.i ]
-  %4 = load ptr, ptr %__cur.010.i.i.i.i.i, align 8, !tbaa !15
+  %__cur.010.i.i.i.i.i = phi ptr [ %6, %while.body.i.i.i.i.i ], [ %.pre.i.i.i, %for.cond.cleanup.i.i.i ]
+  %6 = load ptr, ptr %__cur.010.i.i.i.i.i, align 8, !tbaa !15
   tail call void @_ZdlPv(ptr noundef %__cur.010.i.i.i.i.i) #23
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, %Children.i.i.i
+  %cmp.not.i.i.i.i.i = icmp eq ptr %6, %Children.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !70
 
 for.body.i.i.i:                                   ; preds = %_ZNK3irr17IReferenceCounted4dropEv.exit.i.i.i, %entry
   %__begin2.sroa.0.017.i.i.i = phi ptr [ %__begin2.sroa.0.0.i.i.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i.i.i ], [ %__begin2.sroa.0.015.i.i.i, %entry ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.i.i.i, i64 16
-  %5 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8, !tbaa !58
-  %Parent.i.i.i = getelementptr inbounds i8, ptr %5, i64 192
+  %7 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8, !tbaa !58
+  %Parent.i.i.i = getelementptr inbounds i8, ptr %7, i64 192
   store ptr null, ptr %Parent.i.i.i, align 8, !tbaa !21
-  %6 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8, !tbaa !58
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 184
-  %7 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 8, !tbaa !19, !range !56, !noundef !57
-  %tobool.not.i.i.i.i.i.i = icmp eq i8 %7, 0
+  %8 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8, !tbaa !58
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 184
+  %9 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 8, !tbaa !19, !range !56, !noundef !57
+  %tobool.not.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
@@ -2034,13 +2047,13 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
   br label %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i.i
 
 _ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %vtable.i.i.i = load ptr, ptr %6, align 8, !tbaa !3
+  %vtable.i.i.i = load ptr, ptr %8, align 8, !tbaa !3
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %vtable.i.i.i, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 %vbase.offset.i.i.i
   %ReferenceCounter.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
-  %8 = load i32, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !55
-  %dec.i.i.i.i = add nsw i32 %8, -1
+  %10 = load i32, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !55
+  %dec.i.i.i.i = add nsw i32 %10, -1
   store i32 %dec.i.i.i.i, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !55
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %delete.notnull.i.i.i.i, label %_ZNK3irr17IReferenceCounted4dropEv.exit.i.i.i
@@ -2048,8 +2061,8 @@ _ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exi
 delete.notnull.i.i.i.i:                           ; preds = %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %9 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i.i) #20
+  %11 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i.i) #20
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit.i.i.i
 
 _ZNK3irr17IReferenceCounted4dropEv.exit.i.i.i:    ; preds = %delete.notnull.i.i.i.i, %_ZNSt8optionalISt14_List_iteratorIPN3irr5scene10ISceneNodeEEEaSESt9nullopt_t.exit.i.i.i
@@ -2064,27 +2077,27 @@ _ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i.i: 
   %_M_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 168
   store i64 0, ptr %_M_size.i.i.i.i.i.i, align 8, !tbaa !16
   %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
-  %10 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8, !tbaa !6, !range !56, !noundef !57
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
+  %12 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8, !tbaa !6, !range !56, !noundef !57
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN3irr5scene14CBoneSceneNodeD0Ev.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i.i
   %Name.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8, !tbaa !6
-  %11 = load ptr, ptr %Name.i.i.i.i.i, align 8, !tbaa !78
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %12
+  %13 = load ptr, ptr %Name.i.i.i.i.i, align 8, !tbaa !78
+  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !81
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %13, 16
+  %15 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !81
+  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %15, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i)
   br label %_ZN3irr5scene14CBoneSceneNodeD0Ev.exit
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %11) #23
+  tail call void @_ZdlPv(ptr noundef %13) #23
   br label %_ZN3irr5scene14CBoneSceneNodeD0Ev.exit
 
 _ZN3irr5scene14CBoneSceneNodeD0Ev.exit:           ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i.i

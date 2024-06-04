@@ -1220,7 +1220,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26at_tests_static_array_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26at_tests_static_array_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1631,7 +1632,7 @@ lpad77:                                           ; preds = %if.then80, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad77
   %sel = load i32, ptr %ehselector.slot, align 4
-  %51 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %51 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %51
   br i1 %matches, label %catch93, label %catch
 
@@ -1949,7 +1950,7 @@ lpad167:                                          ; preds = %if.then170, %invoke
 
 catch.dispatch175:                                ; preds = %lpad167
   %sel176 = load i32, ptr %ehselector.slot, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches177 = icmp eq i32 %sel176, %101
   br i1 %matches177, label %catch188, label %catch178
 
@@ -2269,7 +2270,7 @@ lpad270:                                          ; preds = %if.then273, %invoke
 
 catch.dispatch278:                                ; preds = %lpad270
   %sel279 = load i32, ptr %ehselector.slot, align 4
-  %152 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %152 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches280 = icmp eq i32 %sel279, %152
   br i1 %matches280, label %catch291, label %catch281
 
@@ -2589,7 +2590,7 @@ lpad373:                                          ; preds = %if.then376, %invoke
 
 catch.dispatch381:                                ; preds = %lpad373
   %sel382 = load i32, ptr %ehselector.slot, align 4
-  %203 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %203 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches383 = icmp eq i32 %sel382, %203
   br i1 %matches383, label %catch394, label %catch384
 
@@ -3078,15 +3079,12 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #9
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #19
   unreachable
@@ -3276,7 +3274,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23at_tests_std_array_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23at_tests_std_array_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3667,7 +3666,7 @@ lpad79:                                           ; preds = %if.then82, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad79
   %sel = load i32, ptr %ehselector.slot, align 4
-  %51 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %51 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %51
   br i1 %matches, label %catch95, label %catch
 
@@ -3985,7 +3984,7 @@ lpad169:                                          ; preds = %if.then172, %invoke
 
 catch.dispatch177:                                ; preds = %lpad169
   %sel178 = load i32, ptr %ehselector.slot, align 4
-  %101 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches179 = icmp eq i32 %sel178, %101
   br i1 %matches179, label %catch190, label %catch180
 
@@ -4305,7 +4304,7 @@ lpad272:                                          ; preds = %if.then275, %invoke
 
 catch.dispatch280:                                ; preds = %lpad272
   %sel281 = load i32, ptr %ehselector.slot, align 4
-  %152 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %152 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches282 = icmp eq i32 %sel281, %152
   br i1 %matches282, label %catch293, label %catch283
 
@@ -4625,7 +4624,7 @@ lpad375:                                          ; preds = %if.then378, %invoke
 
 catch.dispatch383:                                ; preds = %lpad375
   %sel384 = load i32, ptr %ehselector.slot, align 4
-  %203 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %203 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches385 = icmp eq i32 %sel384, %203
   br i1 %matches385, label %catch396, label %catch386
 
@@ -5067,7 +5066,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24at_tests_std_vector_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24at_tests_std_vector_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5523,7 +5523,7 @@ lpad94:                                           ; preds = %if.then97, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad94
   %sel = load i32, ptr %ehselector.slot, align 4
-  %61 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %61 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %61
   br i1 %matches, label %catch110, label %catch
 
@@ -5850,7 +5850,7 @@ lpad187:                                          ; preds = %if.then190, %invoke
 
 catch.dispatch195:                                ; preds = %lpad187
   %sel196 = load i32, ptr %ehselector.slot, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches197 = icmp eq i32 %sel196, %111
   br i1 %matches197, label %catch208, label %catch198
 
@@ -6179,7 +6179,7 @@ lpad293:                                          ; preds = %if.then296, %invoke
 
 catch.dispatch301:                                ; preds = %lpad293
   %sel302 = load i32, ptr %ehselector.slot, align 4
-  %162 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %162 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches303 = icmp eq i32 %sel302, %162
   br i1 %matches303, label %catch314, label %catch304
 
@@ -6508,7 +6508,7 @@ lpad399:                                          ; preds = %if.then402, %invoke
 
 catch.dispatch407:                                ; preds = %lpad399
   %sel408 = load i32, ptr %ehselector.slot, align 4
-  %213 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %213 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches409 = icmp eq i32 %sel408, %213
   br i1 %matches409, label %catch420, label %catch410
 
@@ -7051,7 +7051,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29at_tests_InitializerList_TestEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29at_tests_InitializerList_TestEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7486,7 +7487,7 @@ lpad89:                                           ; preds = %if.then92, %invoke.
 
 catch.dispatch:                                   ; preds = %lpad89
   %sel = load i32, ptr %ehselector.slot, align 4
-  %62 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %62 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %62
   br i1 %matches, label %catch106, label %catch
 
@@ -7809,7 +7810,7 @@ lpad180:                                          ; preds = %if.then183, %invoke
 
 catch.dispatch189:                                ; preds = %lpad180
   %sel190 = load i32, ptr %ehselector.slot, align 4
-  %116 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %116 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches191 = icmp eq i32 %sel190, %116
   br i1 %matches191, label %catch202, label %catch192
 
@@ -8145,7 +8146,7 @@ lpad284:                                          ; preds = %if.then287, %invoke
 
 catch.dispatch301:                                ; preds = %lpad284
   %sel302 = load i32, ptr %ehselector.slot, align 4
-  %170 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %170 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches303 = icmp eq i32 %sel302, %170
   br i1 %matches303, label %catch314, label %catch304
 
@@ -8481,7 +8482,7 @@ lpad396:                                          ; preds = %if.then399, %invoke
 
 catch.dispatch413:                                ; preds = %lpad396
   %sel414 = load i32, ptr %ehselector.slot, align 4
-  %224 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %224 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches415 = icmp eq i32 %sel414, %224
   br i1 %matches415, label %catch426, label %catch416
 
@@ -8861,7 +8862,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8938,7 +8940,7 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #11
+declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN26at_tests_static_array_TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
@@ -8947,7 +8949,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26at_tests_static_array_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV26at_tests_static_array_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8964,7 +8967,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define linkonce_odr dso_local void @_ZN3gsl7details9terminateEv() #12 comdat {
+define linkonce_odr dso_local void @_ZN3gsl7details9terminateEv() #11 comdat {
 entry:
   call void @_ZSt9terminatev() #19
   unreachable
@@ -9343,7 +9346,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #1
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #13
+declare void @abort() #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7testing13ContainsRegexIPKcEENS_18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEEERKT_(ptr noalias sret(%"class.testing::PolymorphicMatcher") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %regex) #4 comdat personality ptr @__gxx_personality_v0 {
@@ -9864,10 +9867,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -9882,7 +9886,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -10261,10 +10266,11 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::MatchesRegexMatcher>::MonomorphicImpl", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %impl.addr, align 8
-  call void @_ZN7testing8internal19MatchesRegexMatcherC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %impl_, ptr noundef nonnull align 8 dereferenceable(17) %0) #3
+  %1 = load ptr, ptr %impl.addr, align 8
+  call void @_ZN7testing8internal19MatchesRegexMatcherC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %impl_, ptr noundef nonnull align 8 dereferenceable(17) %1) #3
   ret void
 }
 
@@ -10278,7 +10284,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IS9_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -10289,7 +10296,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10299,7 +10307,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::MatchesRegexMatcher>::MonomorphicImpl", ptr %this1, i32 0, i32 1
   call void @_ZN7testing8internal19MatchesRegexMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %impl_) #3
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -10368,7 +10377,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing25MatcherDescriberInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing25MatcherDescriberInterfaceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10732,7 +10742,8 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4InitIRPKNS_16MatcherInterfaceIS9_EEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %impl.addr)
           to label %invoke.cont unwind label %lpad
 
@@ -10740,12 +10751,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN7testing25MatcherDescriberInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -10908,7 +10919,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -10917,10 +10929,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #19
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #19
   unreachable
 }
 
@@ -11951,12 +11963,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23at_tests_std_array_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV23at_tests_std_array_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIiLm4EE4sizeEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #14 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIiLm4EE4sizeEv(ptr noundef nonnull align 4 dereferenceable(16) %this) #13 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -12068,7 +12081,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24at_tests_std_vector_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV24at_tests_std_vector_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12185,7 +12199,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29at_tests_InitializerList_Test, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV29at_tests_InitializerList_Test, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -12295,7 +12310,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt15__uniq_ptr_dataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_ELb1ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 {
@@ -12934,10 +12949,10 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #16
+declare void @_ZSt28__throw_bad_array_new_lengthv() #15
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #16
+declare void @_ZSt17__throw_bad_allocv() #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt6vectorIiSaIiEE11_S_max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %__a) #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12979,7 +12994,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #16
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsISaIiEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %__a) #7 comdat align 2 {
@@ -13328,6 +13343,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -13337,14 +13355,14 @@ attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind memory(none) }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #12 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #11 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind memory(none) }
 attributes #17 = { builtin allocsize(0) }
 attributes #18 = { builtin nounwind }
 attributes #19 = { noreturn nounwind }

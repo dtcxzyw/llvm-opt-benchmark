@@ -59,14 +59,15 @@ define internal noundef i32 @system_trusted_keyring_init() #2 section ".init.tex
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @keyring_alloc(ptr noundef nonnull @.str.2, i32 0, i32 0, ptr noundef %5, i32 noundef 520814592, i64 noundef 2, ptr noundef null, ptr noundef null) #7
   store ptr %6, ptr @builtin_trusted_keys, align 8
-  %7 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
-  br i1 %7, label %8, label %9
+  %7 = inttoptr i64 -4096 to ptr
+  %8 = icmp ugt ptr %6, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %0
+9:                                                ; preds = %0
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.3) #10
   unreachable
 
-9:                                                ; preds = %0
+10:                                               ; preds = %0
   ret i32 0
 }
 
@@ -183,22 +184,23 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @verify_pkcs7_signature(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) #0 align 16 {
   %9 = tail call ptr @pkcs7_parse_message(ptr noundef %2, i64 noundef %3) #7
-  %10 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
-  br i1 %10, label %11, label %14
+  %10 = inttoptr i64 -4096 to ptr
+  %11 = icmp ugt ptr %9, %10
+  br i1 %11, label %12, label %15
 
-11:                                               ; preds = %8
-  %12 = ptrtoint ptr %9 to i64
-  %13 = trunc i64 %12 to i32
-  br label %16
+12:                                               ; preds = %8
+  %13 = ptrtoint ptr %9 to i64
+  %14 = trunc i64 %13 to i32
+  br label %17
 
-14:                                               ; preds = %8
-  %15 = tail call i32 @verify_pkcs7_message_sig(ptr noundef %0, i64 noundef %1, ptr noundef %9, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7)
+15:                                               ; preds = %8
+  %16 = tail call i32 @verify_pkcs7_message_sig(ptr noundef %0, i64 noundef %1, ptr noundef %9, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7)
   tail call void @pkcs7_free_message(ptr noundef %9) #7
-  br label %16
+  br label %17
 
-16:                                               ; preds = %14, %11
-  %17 = phi i32 [ %13, %11 ], [ %15, %14 ]
-  ret i32 %17
+17:                                               ; preds = %15, %12
+  %18 = phi i32 [ %14, %12 ], [ %16, %15 ]
+  ret i32 %18
 }
 
 ; Function Attrs: null_pointer_is_valid

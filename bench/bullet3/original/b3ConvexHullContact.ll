@@ -2572,812 +2572,1296 @@ entry:
   %0 = extractvalue { <2 x float>, <2 x float> } %call, 0
   store <2 x float> %0, ptr @unitSphere162, align 16
   %1 = extractvalue { <2 x float>, <2 x float> } %call, 1
-  store <2 x float> %1, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr @unitSphere162, i32 0, i32 1), align 8
+  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr @unitSphere162, i32 0, i32 1
+  store <2 x float> %1, ptr %2, align 8
   %call1 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FCA01D5C0000000, float noundef 0xBFEEF97240000000, float noundef 0x3FC2E52580000000)
-  %2 = extractvalue { <2 x float>, <2 x float> } %call1, 0
-  store <2 x float> %2, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 1), align 16
-  %3 = extractvalue { <2 x float>, <2 x float> } %call1, 1
-  store <2 x float> %3, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 1), i32 0, i32 1), align 8
+  %3 = extractvalue { <2 x float>, <2 x float> } %call1, 0
+  %4 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 1
+  store <2 x float> %3, ptr %4, align 16
+  %5 = extractvalue { <2 x float>, <2 x float> } %call1, 1
+  %6 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 1
+  %7 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %6, i32 0, i32 1
+  store <2 x float> %5, ptr %7, align 8
   %call2 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFB3DE0D60000000, float noundef 0xBFEEF97240000000, float noundef 0x3FCE92BC20000000)
-  %4 = extractvalue { <2 x float>, <2 x float> } %call2, 0
-  store <2 x float> %4, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 2), align 16
-  %5 = extractvalue { <2 x float>, <2 x float> } %call2, 1
-  store <2 x float> %5, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 2), i32 0, i32 1), align 8
+  %8 = extractvalue { <2 x float>, <2 x float> } %call2, 0
+  %9 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 2
+  store <2 x float> %8, ptr %9, align 16
+  %10 = extractvalue { <2 x float>, <2 x float> } %call2, 1
+  %11 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 2
+  %12 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %11, i32 0, i32 1
+  store <2 x float> %10, ptr %12, align 8
   %call3 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE727C9E0000000, float noundef 0xBFDC9F40A0000000, float noundef 0x3FE0D2BD40000000)
-  %6 = extractvalue { <2 x float>, <2 x float> } %call3, 0
-  store <2 x float> %6, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 3), align 16
-  %7 = extractvalue { <2 x float>, <2 x float> } %call3, 1
-  store <2 x float> %7, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 3), i32 0, i32 1), align 8
+  %13 = extractvalue { <2 x float>, <2 x float> } %call3, 0
+  %14 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 3
+  store <2 x float> %13, ptr %14, align 16
+  %15 = extractvalue { <2 x float>, <2 x float> } %call3, 1
+  %16 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 3
+  %17 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %16, i32 0, i32 1
+  store <2 x float> %15, ptr %17, align 8
   %call4 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE38168C0000000, float noundef 0xBFE50A6540000000, float noundef 0x3FDC57C0C0000000)
-  %8 = extractvalue { <2 x float>, <2 x float> } %call4, 0
-  store <2 x float> %8, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 4), align 16
-  %9 = extractvalue { <2 x float>, <2 x float> } %call4, 1
-  store <2 x float> %9, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 4), i32 0, i32 1), align 8
+  %18 = extractvalue { <2 x float>, <2 x float> } %call4, 0
+  %19 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 4
+  store <2 x float> %18, ptr %19, align 16
+  %20 = extractvalue { <2 x float>, <2 x float> } %call4, 1
+  %21 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 4
+  %22 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %21, i32 0, i32 1
+  store <2 x float> %20, ptr %22, align 8
   %call5 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEA01E040000000, float noundef 0xBFE012D980000000, float noundef 0x3FD2E52DE0000000)
-  %10 = extractvalue { <2 x float>, <2 x float> } %call5, 0
-  store <2 x float> %10, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 5), align 16
-  %11 = extractvalue { <2 x float>, <2 x float> } %call5, 1
-  store <2 x float> %11, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 5), i32 0, i32 1), align 8
+  %23 = extractvalue { <2 x float>, <2 x float> } %call5, 0
+  %24 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 5
+  store <2 x float> %23, ptr %24, align 16
+  %25 = extractvalue { <2 x float>, <2 x float> } %call5, 1
+  %26 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 5
+  %27 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %26, i32 0, i32 1
+  store <2 x float> %25, ptr %27, align 8
   %call6 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFD012CAE0000000, float noundef 0xBFEEF97020000000, float noundef 0.000000e+00)
-  %12 = extractvalue { <2 x float>, <2 x float> } %call6, 0
-  store <2 x float> %12, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 6), align 16
-  %13 = extractvalue { <2 x float>, <2 x float> } %call6, 1
-  store <2 x float> %13, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 6), i32 0, i32 1), align 8
+  %28 = extractvalue { <2 x float>, <2 x float> } %call6, 0
+  %29 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 6
+  store <2 x float> %28, ptr %29, align 16
+  %30 = extractvalue { <2 x float>, <2 x float> } %call6, 1
+  %31 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 6
+  %32 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %31, i32 0, i32 1
+  store <2 x float> %30, ptr %32, align 8
   %call7 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFB3DE0D60000000, float noundef 0xBFEEF97240000000, float noundef 0xBFCE92BC20000000)
-  %14 = extractvalue { <2 x float>, <2 x float> } %call7, 0
-  store <2 x float> %14, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 7), align 16
-  %15 = extractvalue { <2 x float>, <2 x float> } %call7, 1
-  store <2 x float> %15, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 7), i32 0, i32 1), align 8
+  %33 = extractvalue { <2 x float>, <2 x float> } %call7, 0
+  %34 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 7
+  store <2 x float> %33, ptr %34, align 16
+  %35 = extractvalue { <2 x float>, <2 x float> } %call7, 1
+  %36 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 7
+  %37 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %36, i32 0, i32 1
+  store <2 x float> %35, ptr %37, align 8
   %call8 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FCA01D5C0000000, float noundef 0xBFEEF97240000000, float noundef 0xBFC2E52580000000)
-  %16 = extractvalue { <2 x float>, <2 x float> } %call8, 0
-  store <2 x float> %16, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 8), align 16
-  %17 = extractvalue { <2 x float>, <2 x float> } %call8, 1
-  store <2 x float> %17, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 8), i32 0, i32 1), align 8
+  %38 = extractvalue { <2 x float>, <2 x float> } %call8, 0
+  %39 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 8
+  store <2 x float> %38, ptr %39, align 16
+  %40 = extractvalue { <2 x float>, <2 x float> } %call8, 1
+  %41 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 8
+  %42 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %41, i32 0, i32 1
+  store <2 x float> %40, ptr %42, align 8
   %call9 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEB8AD680000000, float noundef 0xBFD012DBA0000000, float noundef 0x3FDC57C920000000)
-  %18 = extractvalue { <2 x float>, <2 x float> } %call9, 0
-  store <2 x float> %18, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 9), align 16
-  %19 = extractvalue { <2 x float>, <2 x float> } %call9, 1
-  store <2 x float> %19, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 9), i32 0, i32 1), align 8
+  %43 = extractvalue { <2 x float>, <2 x float> } %call9, 0
+  %44 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 9
+  store <2 x float> %43, ptr %44, align 16
+  %45 = extractvalue { <2 x float>, <2 x float> } %call9, 1
+  %46 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 9
+  %47 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %46, i32 0, i32 1
+  store <2 x float> %45, ptr %47, align 8
   %call10 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFD1B05740000000, float noundef 0xBFDC9F40A0000000, float noundef 0x3FEB388440000000)
-  %20 = extractvalue { <2 x float>, <2 x float> } %call10, 0
-  store <2 x float> %20, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 10), align 16
-  %21 = extractvalue { <2 x float>, <2 x float> } %call10, 1
-  store <2 x float> %21, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 10), i32 0, i32 1), align 8
+  %48 = extractvalue { <2 x float>, <2 x float> } %call10, 0
+  %49 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 10
+  store <2 x float> %48, ptr %49, align 16
+  %50 = extractvalue { <2 x float>, <2 x float> } %call10, 1
+  %51 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 10
+  %52 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %51, i32 0, i32 1
+  store <2 x float> %50, ptr %52, align 8
   %call11 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBF9E59AFA0000000, float noundef 0xBFE012DBA0000000, float noundef 0x3FEBA76540000000)
-  %22 = extractvalue { <2 x float>, <2 x float> } %call11, 0
-  store <2 x float> %22, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 11), align 16
-  %23 = extractvalue { <2 x float>, <2 x float> } %call11, 1
-  store <2 x float> %23, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 11), i32 0, i32 1), align 8
+  %53 = extractvalue { <2 x float>, <2 x float> } %call11, 0
+  %54 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 11
+  store <2 x float> %53, ptr %54, align 16
+  %55 = extractvalue { <2 x float>, <2 x float> } %call11, 1
+  %56 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 11
+  %57 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %56, i32 0, i32 1
+  store <2 x float> %55, ptr %57, align 8
   %call12 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFC3DE15C0000000, float noundef 0xBFD012DFE0000000, float noundef 0x3FEE92D120000000)
-  %24 = extractvalue { <2 x float>, <2 x float> } %call12, 0
-  store <2 x float> %24, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 12), align 16
-  %25 = extractvalue { <2 x float>, <2 x float> } %call12, 1
-  store <2 x float> %25, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 12), i32 0, i32 1), align 8
+  %58 = extractvalue { <2 x float>, <2 x float> } %call12, 0
+  %59 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 12
+  store <2 x float> %58, ptr %59, align 16
+  %60 = extractvalue { <2 x float>, <2 x float> } %call12, 1
+  %61 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 12
+  %62 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %61, i32 0, i32 1
+  store <2 x float> %60, ptr %62, align 8
   %call13 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEC9F2340000000, float noundef 0xBFDC9F2FE0000000, float noundef 0.000000e+00)
-  %26 = extractvalue { <2 x float>, <2 x float> } %call13, 0
-  store <2 x float> %26, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 13), align 16
-  %27 = extractvalue { <2 x float>, <2 x float> } %call13, 1
-  store <2 x float> %27, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 13), i32 0, i32 1), align 8
+  %63 = extractvalue { <2 x float>, <2 x float> } %call13, 0
+  %64 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 13
+  store <2 x float> %63, ptr %64, align 16
+  %65 = extractvalue { <2 x float>, <2 x float> } %call13, 1
+  %66 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 13
+  %67 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %66, i32 0, i32 1
+  store <2 x float> %65, ptr %67, align 8
   %call14 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEA97F840000000, float noundef 0xBFE012D560000000, float noundef 0x3FCE92BC20000000)
-  %28 = extractvalue { <2 x float>, <2 x float> } %call14, 0
-  store <2 x float> %28, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 14), align 16
-  %29 = extractvalue { <2 x float>, <2 x float> } %call14, 1
-  store <2 x float> %29, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 14), i32 0, i32 1), align 8
+  %68 = extractvalue { <2 x float>, <2 x float> } %call14, 0
+  %69 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 14
+  store <2 x float> %68, ptr %69, align 16
+  %70 = extractvalue { <2 x float>, <2 x float> } %call14, 1
+  %71 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 14
+  %72 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %71, i32 0, i32 1
+  store <2 x float> %70, ptr %72, align 8
   %call15 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEE9CAE20000000, float noundef 0xBFD012D340000000, float noundef 0x3FC2E52580000000)
-  %30 = extractvalue { <2 x float>, <2 x float> } %call15, 0
-  store <2 x float> %30, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 15), align 16
-  %31 = extractvalue { <2 x float>, <2 x float> } %call15, 1
-  store <2 x float> %31, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 15), i32 0, i32 1), align 8
+  %73 = extractvalue { <2 x float>, <2 x float> } %call15, 0
+  %74 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 15
+  store <2 x float> %73, ptr %74, align 16
+  %75 = extractvalue { <2 x float>, <2 x float> } %call15, 1
+  %76 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 15
+  %77 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %76, i32 0, i32 1
+  store <2 x float> %75, ptr %77, align 8
   %call16 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFD1B05740000000, float noundef 0xBFDC9F40A0000000, float noundef 0xBFEB388440000000)
-  %32 = extractvalue { <2 x float>, <2 x float> } %call16, 0
-  store <2 x float> %32, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 16), align 16
-  %33 = extractvalue { <2 x float>, <2 x float> } %call16, 1
-  store <2 x float> %33, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 16), i32 0, i32 1), align 8
+  %78 = extractvalue { <2 x float>, <2 x float> } %call16, 0
+  %79 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 16
+  store <2 x float> %78, ptr %79, align 16
+  %80 = extractvalue { <2 x float>, <2 x float> } %call16, 1
+  %81 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 16
+  %82 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %81, i32 0, i32 1
+  store <2 x float> %80, ptr %82, align 8
   %call17 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFDEF96180000000, float noundef 0xBFE012DBA0000000, float noundef 0xBFE6EE19C0000000)
-  %34 = extractvalue { <2 x float>, <2 x float> } %call17, 0
-  store <2 x float> %34, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 17), align 16
-  %35 = extractvalue { <2 x float>, <2 x float> } %call17, 1
-  store <2 x float> %35, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 17), i32 0, i32 1), align 8
+  %83 = extractvalue { <2 x float>, <2 x float> } %call17, 0
+  %84 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 17
+  store <2 x float> %83, ptr %84, align 16
+  %85 = extractvalue { <2 x float>, <2 x float> } %call17, 1
+  %86 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 17
+  %87 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %86, i32 0, i32 1
+  store <2 x float> %85, ptr %87, align 8
   %call18 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFDBE789E0000000, float noundef 0xBFD012DFE0000000, float noundef 0xBFEBA76DA0000000)
-  %36 = extractvalue { <2 x float>, <2 x float> } %call18, 0
-  store <2 x float> %36, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 18), align 16
-  %37 = extractvalue { <2 x float>, <2 x float> } %call18, 1
-  store <2 x float> %37, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 18), i32 0, i32 1), align 8
+  %88 = extractvalue { <2 x float>, <2 x float> } %call18, 0
+  %89 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 18
+  store <2 x float> %88, ptr %89, align 16
+  %90 = extractvalue { <2 x float>, <2 x float> } %call18, 1
+  %91 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 18
+  %92 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %91, i32 0, i32 1
+  store <2 x float> %90, ptr %92, align 8
   %call19 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE727C9E0000000, float noundef 0xBFDC9F40A0000000, float noundef 0xBFE0D2BD40000000)
-  %38 = extractvalue { <2 x float>, <2 x float> } %call19, 0
-  store <2 x float> %38, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 19), align 16
-  %39 = extractvalue { <2 x float>, <2 x float> } %call19, 1
-  store <2 x float> %39, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 19), i32 0, i32 1), align 8
+  %93 = extractvalue { <2 x float>, <2 x float> } %call19, 0
+  %94 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 19
+  store <2 x float> %93, ptr %94, align 16
+  %95 = extractvalue { <2 x float>, <2 x float> } %call19, 1
+  %96 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 19
+  %97 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %96, i32 0, i32 1
+  store <2 x float> %95, ptr %97, align 8
   %call20 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE105A920000000, float noundef 0xBFE012DBA0000000, float noundef 0xBFE5D095A0000000)
-  %40 = extractvalue { <2 x float>, <2 x float> } %call20, 0
-  store <2 x float> %40, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 20), align 16
-  %41 = extractvalue { <2 x float>, <2 x float> } %call20, 1
-  store <2 x float> %41, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 20), i32 0, i32 1), align 8
+  %98 = extractvalue { <2 x float>, <2 x float> } %call20, 0
+  %99 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 20
+  store <2 x float> %98, ptr %99, align 16
+  %100 = extractvalue { <2 x float>, <2 x float> } %call20, 1
+  %101 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 20
+  %102 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %101, i32 0, i32 1
+  store <2 x float> %100, ptr %102, align 8
   %call21 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE5FD34E0000000, float noundef 0xBFD012DFE0000000, float noundef 0xBFE5D09C00000000)
-  %42 = extractvalue { <2 x float>, <2 x float> } %call21, 0
-  store <2 x float> %42, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 21), align 16
-  %43 = extractvalue { <2 x float>, <2 x float> } %call21, 1
-  store <2 x float> %43, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 21), i32 0, i32 1), align 8
+  %103 = extractvalue { <2 x float>, <2 x float> } %call21, 0
+  %104 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 21
+  store <2 x float> %103, ptr %104, align 16
+  %105 = extractvalue { <2 x float>, <2 x float> } %call21, 1
+  %106 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 21
+  %107 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %106, i32 0, i32 1
+  store <2 x float> %105, ptr %107, align 8
   %call22 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE5FD34E0000000, float noundef 0xBFD012DFE0000000, float noundef 0x3FE5D09C00000000)
-  %44 = extractvalue { <2 x float>, <2 x float> } %call22, 0
-  store <2 x float> %44, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 22), align 16
-  %45 = extractvalue { <2 x float>, <2 x float> } %call22, 1
-  store <2 x float> %45, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 22), i32 0, i32 1), align 8
+  %108 = extractvalue { <2 x float>, <2 x float> } %call22, 0
+  %109 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 22
+  store <2 x float> %108, ptr %109, align 16
+  %110 = extractvalue { <2 x float>, <2 x float> } %call22, 1
+  %111 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 22
+  %112 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %111, i32 0, i32 1
+  store <2 x float> %110, ptr %112, align 8
   %call23 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFDBE789E0000000, float noundef 0xBFD012DFE0000000, float noundef 0x3FEBA76DA0000000)
-  %46 = extractvalue { <2 x float>, <2 x float> } %call23, 0
-  store <2 x float> %46, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 23), align 16
-  %47 = extractvalue { <2 x float>, <2 x float> } %call23, 1
-  store <2 x float> %47, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 23), i32 0, i32 1), align 8
+  %113 = extractvalue { <2 x float>, <2 x float> } %call23, 0
+  %114 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 23
+  store <2 x float> %113, ptr %114, align 16
+  %115 = extractvalue { <2 x float>, <2 x float> } %call23, 1
+  %116 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 23
+  %117 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %116, i32 0, i32 1
+  store <2 x float> %115, ptr %117, align 8
   %call24 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEE9CAE20000000, float noundef 0xBFD012D340000000, float noundef 0xBFC2E52580000000)
-  %48 = extractvalue { <2 x float>, <2 x float> } %call24, 0
-  store <2 x float> %48, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 24), align 16
-  %49 = extractvalue { <2 x float>, <2 x float> } %call24, 1
-  store <2 x float> %49, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 24), i32 0, i32 1), align 8
+  %118 = extractvalue { <2 x float>, <2 x float> } %call24, 0
+  %119 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 24
+  store <2 x float> %118, ptr %119, align 16
+  %120 = extractvalue { <2 x float>, <2 x float> } %call24, 1
+  %121 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 24
+  %122 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %121, i32 0, i32 1
+  store <2 x float> %120, ptr %122, align 8
   %call25 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFC3DE15C0000000, float noundef 0xBFD012DFE0000000, float noundef 0xBFEE92D120000000)
-  %50 = extractvalue { <2 x float>, <2 x float> } %call25, 0
-  store <2 x float> %50, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 25), align 16
-  %51 = extractvalue { <2 x float>, <2 x float> } %call25, 1
-  store <2 x float> %51, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 25), i32 0, i32 1), align 8
+  %123 = extractvalue { <2 x float>, <2 x float> } %call25, 0
+  %124 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 25
+  store <2 x float> %123, ptr %124, align 16
+  %125 = extractvalue { <2 x float>, <2 x float> } %call25, 1
+  %126 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 25
+  %127 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %126, i32 0, i32 1
+  store <2 x float> %125, ptr %127, align 8
   %call26 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEB8AD680000000, float noundef 0xBFD012DBA0000000, float noundef 0xBFDC57C920000000)
-  %52 = extractvalue { <2 x float>, <2 x float> } %call26, 0
-  store <2 x float> %52, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 26), align 16
-  %53 = extractvalue { <2 x float>, <2 x float> } %call26, 1
-  store <2 x float> %53, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 26), i32 0, i32 1), align 8
+  %128 = extractvalue { <2 x float>, <2 x float> } %call26, 0
+  %129 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 26
+  store <2 x float> %128, ptr %129, align 16
+  %130 = extractvalue { <2 x float>, <2 x float> } %call26, 1
+  %131 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 26
+  %132 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %131, i32 0, i32 1
+  store <2 x float> %130, ptr %132, align 8
   %call27 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FD1B05740000000, float noundef 0x3FDC9F40A0000000, float noundef 0x3FEB388440000000)
-  %54 = extractvalue { <2 x float>, <2 x float> } %call27, 0
-  store <2 x float> %54, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 27), align 16
-  %55 = extractvalue { <2 x float>, <2 x float> } %call27, 1
-  store <2 x float> %55, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 27), i32 0, i32 1), align 8
+  %133 = extractvalue { <2 x float>, <2 x float> } %call27, 0
+  %134 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 27
+  store <2 x float> %133, ptr %134, align 16
+  %135 = extractvalue { <2 x float>, <2 x float> } %call27, 1
+  %136 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 27
+  %137 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %136, i32 0, i32 1
+  store <2 x float> %135, ptr %137, align 8
   %call28 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FDEF96180000000, float noundef 0x3FE012DBA0000000, float noundef 0x3FE6EE19C0000000)
-  %56 = extractvalue { <2 x float>, <2 x float> } %call28, 0
-  store <2 x float> %56, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 28), align 16
-  %57 = extractvalue { <2 x float>, <2 x float> } %call28, 1
-  store <2 x float> %57, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 28), i32 0, i32 1), align 8
+  %138 = extractvalue { <2 x float>, <2 x float> } %call28, 0
+  %139 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 28
+  store <2 x float> %138, ptr %139, align 16
+  %140 = extractvalue { <2 x float>, <2 x float> } %call28, 1
+  %141 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 28
+  %142 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %141, i32 0, i32 1
+  store <2 x float> %140, ptr %142, align 8
   %call29 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FCDCD1C80000000, float noundef 0x3FE50A6540000000, float noundef 0x3FE6EE1580000000)
-  %58 = extractvalue { <2 x float>, <2 x float> } %call29, 0
-  store <2 x float> %58, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 29), align 16
-  %59 = extractvalue { <2 x float>, <2 x float> } %call29, 1
-  store <2 x float> %59, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 29), i32 0, i32 1), align 8
+  %143 = extractvalue { <2 x float>, <2 x float> } %call29, 0
+  %144 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 29
+  store <2 x float> %143, ptr %144, align 16
+  %145 = extractvalue { <2 x float>, <2 x float> } %call29, 1
+  %146 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 29
+  %147 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %146, i32 0, i32 1
+  store <2 x float> %145, ptr %147, align 8
   %call30 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE727C9E0000000, float noundef 0x3FDC9F40A0000000, float noundef 0x3FE0D2BD40000000)
-  %60 = extractvalue { <2 x float>, <2 x float> } %call30, 0
-  store <2 x float> %60, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 30), align 16
-  %61 = extractvalue { <2 x float>, <2 x float> } %call30, 1
-  store <2 x float> %61, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 30), i32 0, i32 1), align 8
+  %148 = extractvalue { <2 x float>, <2 x float> } %call30, 0
+  %149 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 30
+  store <2 x float> %148, ptr %149, align 16
+  %150 = extractvalue { <2 x float>, <2 x float> } %call30, 1
+  %151 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 30
+  %152 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %151, i32 0, i32 1
+  store <2 x float> %150, ptr %152, align 8
   %call31 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE105A920000000, float noundef 0x3FE012DBA0000000, float noundef 0x3FE5D095A0000000)
-  %62 = extractvalue { <2 x float>, <2 x float> } %call31, 0
-  store <2 x float> %62, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 31), align 16
-  %63 = extractvalue { <2 x float>, <2 x float> } %call31, 1
-  store <2 x float> %63, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 31), i32 0, i32 1), align 8
+  %153 = extractvalue { <2 x float>, <2 x float> } %call31, 0
+  %154 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 31
+  store <2 x float> %153, ptr %154, align 16
+  %155 = extractvalue { <2 x float>, <2 x float> } %call31, 1
+  %156 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 31
+  %157 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %156, i32 0, i32 1
+  store <2 x float> %155, ptr %157, align 8
   %call32 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE38168C0000000, float noundef 0x3FE50A6540000000, float noundef 0x3FDC57C0C0000000)
-  %64 = extractvalue { <2 x float>, <2 x float> } %call32, 0
-  store <2 x float> %64, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 32), align 16
-  %65 = extractvalue { <2 x float>, <2 x float> } %call32, 1
-  store <2 x float> %65, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 32), i32 0, i32 1), align 8
+  %158 = extractvalue { <2 x float>, <2 x float> } %call32, 0
+  %159 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 32
+  store <2 x float> %158, ptr %159, align 16
+  %160 = extractvalue { <2 x float>, <2 x float> } %call32, 1
+  %161 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 32
+  %162 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %161, i32 0, i32 1
+  store <2 x float> %160, ptr %162, align 8
   %call33 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE727C9E0000000, float noundef 0x3FDC9F40A0000000, float noundef 0xBFE0D2BD40000000)
-  %66 = extractvalue { <2 x float>, <2 x float> } %call33, 0
-  store <2 x float> %66, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 33), align 16
-  %67 = extractvalue { <2 x float>, <2 x float> } %call33, 1
-  store <2 x float> %67, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 33), i32 0, i32 1), align 8
+  %163 = extractvalue { <2 x float>, <2 x float> } %call33, 0
+  %164 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 33
+  store <2 x float> %163, ptr %164, align 16
+  %165 = extractvalue { <2 x float>, <2 x float> } %call33, 1
+  %166 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 33
+  %167 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %166, i32 0, i32 1
+  store <2 x float> %165, ptr %167, align 8
   %call34 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEA01E040000000, float noundef 0x3FE012D980000000, float noundef 0xBFD2E52DE0000000)
-  %68 = extractvalue { <2 x float>, <2 x float> } %call34, 0
-  store <2 x float> %68, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 34), align 16
-  %69 = extractvalue { <2 x float>, <2 x float> } %call34, 1
-  store <2 x float> %69, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 34), i32 0, i32 1), align 8
+  %168 = extractvalue { <2 x float>, <2 x float> } %call34, 0
+  %169 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 34
+  store <2 x float> %168, ptr %169, align 16
+  %170 = extractvalue { <2 x float>, <2 x float> } %call34, 1
+  %171 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 34
+  %172 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %171, i32 0, i32 1
+  store <2 x float> %170, ptr %172, align 8
   %call35 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE38168C0000000, float noundef 0x3FE50A6540000000, float noundef 0xBFDC57C0C0000000)
-  %70 = extractvalue { <2 x float>, <2 x float> } %call35, 0
-  store <2 x float> %70, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 35), align 16
-  %71 = extractvalue { <2 x float>, <2 x float> } %call35, 1
-  store <2 x float> %71, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 35), i32 0, i32 1), align 8
+  %173 = extractvalue { <2 x float>, <2 x float> } %call35, 0
+  %174 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 35
+  store <2 x float> %173, ptr %174, align 16
+  %175 = extractvalue { <2 x float>, <2 x float> } %call35, 1
+  %176 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 35
+  %177 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %176, i32 0, i32 1
+  store <2 x float> %175, ptr %177, align 8
   %call36 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FD1B05740000000, float noundef 0x3FDC9F40A0000000, float noundef 0xBFEB388440000000)
-  %72 = extractvalue { <2 x float>, <2 x float> } %call36, 0
-  store <2 x float> %72, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 36), align 16
-  %73 = extractvalue { <2 x float>, <2 x float> } %call36, 1
-  store <2 x float> %73, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 36), i32 0, i32 1), align 8
+  %178 = extractvalue { <2 x float>, <2 x float> } %call36, 0
+  %179 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 36
+  store <2 x float> %178, ptr %179, align 16
+  %180 = extractvalue { <2 x float>, <2 x float> } %call36, 1
+  %181 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 36
+  %182 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %181, i32 0, i32 1
+  store <2 x float> %180, ptr %182, align 8
   %call37 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3F9E59AFA0000000, float noundef 0x3FE012DBA0000000, float noundef 0xBFEBA76540000000)
-  %74 = extractvalue { <2 x float>, <2 x float> } %call37, 0
-  store <2 x float> %74, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 37), align 16
-  %75 = extractvalue { <2 x float>, <2 x float> } %call37, 1
-  store <2 x float> %75, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 37), i32 0, i32 1), align 8
+  %183 = extractvalue { <2 x float>, <2 x float> } %call37, 0
+  %184 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 37
+  store <2 x float> %183, ptr %184, align 16
+  %185 = extractvalue { <2 x float>, <2 x float> } %call37, 1
+  %186 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 37
+  %187 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %186, i32 0, i32 1
+  store <2 x float> %185, ptr %187, align 8
   %call38 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FCDCD1C80000000, float noundef 0x3FE50A6540000000, float noundef 0xBFE6EE1580000000)
-  %76 = extractvalue { <2 x float>, <2 x float> } %call38, 0
-  store <2 x float> %76, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 38), align 16
-  %77 = extractvalue { <2 x float>, <2 x float> } %call38, 1
-  store <2 x float> %77, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 38), i32 0, i32 1), align 8
+  %188 = extractvalue { <2 x float>, <2 x float> } %call38, 0
+  %189 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 38
+  store <2 x float> %188, ptr %189, align 16
+  %190 = extractvalue { <2 x float>, <2 x float> } %call38, 1
+  %191 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 38
+  %192 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %191, i32 0, i32 1
+  store <2 x float> %190, ptr %192, align 8
   %call39 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEC9F2340000000, float noundef 0x3FDC9F2FE0000000, float noundef 0.000000e+00)
-  %78 = extractvalue { <2 x float>, <2 x float> } %call39, 0
-  store <2 x float> %78, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 39), align 16
-  %79 = extractvalue { <2 x float>, <2 x float> } %call39, 1
-  store <2 x float> %79, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 39), i32 0, i32 1), align 8
+  %193 = extractvalue { <2 x float>, <2 x float> } %call39, 0
+  %194 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 39
+  store <2 x float> %193, ptr %194, align 16
+  %195 = extractvalue { <2 x float>, <2 x float> } %call39, 1
+  %196 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 39
+  %197 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %196, i32 0, i32 1
+  store <2 x float> %195, ptr %197, align 8
   %call40 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEA97F840000000, float noundef 0x3FE012D560000000, float noundef 0xBFCE92BC20000000)
-  %80 = extractvalue { <2 x float>, <2 x float> } %call40, 0
-  store <2 x float> %80, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 40), align 16
-  %81 = extractvalue { <2 x float>, <2 x float> } %call40, 1
-  store <2 x float> %81, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 40), i32 0, i32 1), align 8
+  %198 = extractvalue { <2 x float>, <2 x float> } %call40, 0
+  %199 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 40
+  store <2 x float> %198, ptr %199, align 16
+  %200 = extractvalue { <2 x float>, <2 x float> } %call40, 1
+  %201 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 40
+  %202 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %201, i32 0, i32 1
+  store <2 x float> %200, ptr %202, align 8
   %call41 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE81C3260000000, float noundef 0x3FE50A5CE0000000, float noundef 0.000000e+00)
-  %82 = extractvalue { <2 x float>, <2 x float> } %call41, 0
-  store <2 x float> %82, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 41), align 16
-  %83 = extractvalue { <2 x float>, <2 x float> } %call41, 1
-  store <2 x float> %83, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 41), i32 0, i32 1), align 8
+  %203 = extractvalue { <2 x float>, <2 x float> } %call41, 0
+  %204 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 41
+  store <2 x float> %203, ptr %204, align 16
+  %205 = extractvalue { <2 x float>, <2 x float> } %call41, 1
+  %206 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 41
+  %207 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %206, i32 0, i32 1
+  store <2 x float> %205, ptr %207, align 8
   %call42 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFCDCD1C80000000, float noundef 0xBFE50A6540000000, float noundef 0x3FE6EE1580000000)
-  %84 = extractvalue { <2 x float>, <2 x float> } %call42, 0
-  store <2 x float> %84, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 42), align 16
-  %85 = extractvalue { <2 x float>, <2 x float> } %call42, 1
-  store <2 x float> %85, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 42), i32 0, i32 1), align 8
+  %208 = extractvalue { <2 x float>, <2 x float> } %call42, 0
+  %209 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 42
+  store <2 x float> %208, ptr %209, align 16
+  %210 = extractvalue { <2 x float>, <2 x float> } %call42, 1
+  %211 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 42
+  %212 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %211, i32 0, i32 1
+  store <2 x float> %210, ptr %212, align 8
   %call43 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFC4CB5BC0000000, float noundef 0xBFEB388EC0000000, float noundef 0x3FDFFFEB00000000)
-  %86 = extractvalue { <2 x float>, <2 x float> } %call43, 0
-  store <2 x float> %86, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 43), align 16
-  %87 = extractvalue { <2 x float>, <2 x float> } %call43, 1
-  store <2 x float> %87, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 43), i32 0, i32 1), align 8
+  %213 = extractvalue { <2 x float>, <2 x float> } %call43, 0
+  %214 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 43
+  store <2 x float> %213, ptr %214, align 16
+  %215 = extractvalue { <2 x float>, <2 x float> } %call43, 1
+  %216 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 43
+  %217 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %216, i32 0, i32 1
+  store <2 x float> %215, ptr %217, align 8
   %call44 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FAB074A80000000, float noundef 0xBFE727D460000000, float noundef 0x3FE6059C80000000)
-  %88 = extractvalue { <2 x float>, <2 x float> } %call44, 0
-  store <2 x float> %88, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 44), align 16
-  %89 = extractvalue { <2 x float>, <2 x float> } %call44, 1
-  store <2 x float> %89, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 44), i32 0, i32 1), align 8
+  %218 = extractvalue { <2 x float>, <2 x float> } %call44, 0
+  %219 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 44
+  store <2 x float> %218, ptr %219, align 16
+  %220 = extractvalue { <2 x float>, <2 x float> } %call44, 1
+  %221 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 44
+  %222 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %221, i32 0, i32 1
+  store <2 x float> %220, ptr %222, align 8
   %call45 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FC1B08140000000, float noundef 0xBFEC9F29A0000000, float noundef 0x3FDB3875A0000000)
-  %90 = extractvalue { <2 x float>, <2 x float> } %call45, 0
-  store <2 x float> %90, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 45), align 16
-  %91 = extractvalue { <2 x float>, <2 x float> } %call45, 1
-  store <2 x float> %91, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 45), i32 0, i32 1), align 8
+  %223 = extractvalue { <2 x float>, <2 x float> } %call45, 0
+  %224 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 45
+  store <2 x float> %223, ptr %224, align 16
+  %225 = extractvalue { <2 x float>, <2 x float> } %call45, 1
+  %226 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 45
+  %227 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %226, i32 0, i32 1
+  store <2 x float> %225, ptr %227, align 8
   %call46 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FD0D2D880000000, float noundef 0xBFE0D2D880000000, float noundef 0x3FE9E36D20000000)
-  %92 = extractvalue { <2 x float>, <2 x float> } %call46, 0
-  store <2 x float> %92, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 46), align 16
-  %93 = extractvalue { <2 x float>, <2 x float> } %call46, 1
-  store <2 x float> %93, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 46), i32 0, i32 1), align 8
+  %228 = extractvalue { <2 x float>, <2 x float> } %call46, 0
+  %229 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 46
+  store <2 x float> %228, ptr %229, align 16
+  %230 = extractvalue { <2 x float>, <2 x float> } %call46, 1
+  %231 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 46
+  %232 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %231, i32 0, i32 1
+  store <2 x float> %230, ptr %232, align 8
   %call47 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FD727D020000000, float noundef 0xBFE727D240000000, float noundef 0x3FE2CF15E0000000)
-  %94 = extractvalue { <2 x float>, <2 x float> } %call47, 0
-  store <2 x float> %94, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 47), align 16
-  %95 = extractvalue { <2 x float>, <2 x float> } %call47, 1
-  store <2 x float> %95, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 47), i32 0, i32 1), align 8
+  %233 = extractvalue { <2 x float>, <2 x float> } %call47, 0
+  %234 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 47
+  store <2 x float> %233, ptr %234, align 16
+  %235 = extractvalue { <2 x float>, <2 x float> } %call47, 1
+  %236 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 47
+  %237 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %236, i32 0, i32 1
+  store <2 x float> %235, ptr %237, align 8
   %call48 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE105A920000000, float noundef 0xBFE012DBA0000000, float noundef 0x3FE5D095A0000000)
-  %96 = extractvalue { <2 x float>, <2 x float> } %call48, 0
-  store <2 x float> %96, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 48), align 16
-  %97 = extractvalue { <2 x float>, <2 x float> } %call48, 1
-  store <2 x float> %97, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 48), i32 0, i32 1), align 8
+  %238 = extractvalue { <2 x float>, <2 x float> } %call48, 0
+  %239 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 48
+  store <2 x float> %238, ptr %239, align 16
+  %240 = extractvalue { <2 x float>, <2 x float> } %call48, 1
+  %241 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 48
+  %242 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %241, i32 0, i32 1
+  store <2 x float> %240, ptr %242, align 8
   %call49 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FDB387E00000000, float noundef 0xBFEB388EC0000000, float noundef 0x3FD3C6D620000000)
-  %98 = extractvalue { <2 x float>, <2 x float> } %call49, 0
-  store <2 x float> %98, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 49), align 16
-  %99 = extractvalue { <2 x float>, <2 x float> } %call49, 1
-  store <2 x float> %99, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 49), i32 0, i32 1), align 8
+  %243 = extractvalue { <2 x float>, <2 x float> } %call49, 0
+  %244 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 49
+  store <2 x float> %243, ptr %244, align 16
+  %245 = extractvalue { <2 x float>, <2 x float> } %call49, 1
+  %246 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 49
+  %247 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %246, i32 0, i32 1
+  store <2 x float> %245, ptr %247, align 8
   %call50 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEA01E040000000, float noundef 0xBFE012D980000000, float noundef 0xBFD2E52DE0000000)
-  %100 = extractvalue { <2 x float>, <2 x float> } %call50, 0
-  store <2 x float> %100, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 50), align 16
-  %101 = extractvalue { <2 x float>, <2 x float> } %call50, 1
-  store <2 x float> %101, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 50), i32 0, i32 1), align 8
+  %248 = extractvalue { <2 x float>, <2 x float> } %call50, 0
+  %249 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 50
+  store <2 x float> %248, ptr %249, align 16
+  %250 = extractvalue { <2 x float>, <2 x float> } %call50, 1
+  %251 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 50
+  %252 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %251, i32 0, i32 1
+  store <2 x float> %250, ptr %252, align 8
   %call51 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE38168C0000000, float noundef 0xBFE50A6540000000, float noundef 0xBFDC57C0C0000000)
-  %102 = extractvalue { <2 x float>, <2 x float> } %call51, 0
-  store <2 x float> %102, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 51), align 16
-  %103 = extractvalue { <2 x float>, <2 x float> } %call51, 1
-  store <2 x float> %103, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 51), i32 0, i32 1), align 8
+  %253 = extractvalue { <2 x float>, <2 x float> } %call51, 0
+  %254 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 51
+  store <2 x float> %253, ptr %254, align 16
+  %255 = extractvalue { <2 x float>, <2 x float> } %call51, 1
+  %256 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 51
+  %257 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %256, i32 0, i32 1
+  store <2 x float> %255, ptr %257, align 8
   %call52 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEB388220000000, float noundef 0xBFE0D2D440000000, float noundef 0.000000e+00)
-  %104 = extractvalue { <2 x float>, <2 x float> } %call52, 0
-  store <2 x float> %104, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 52), align 16
-  %105 = extractvalue { <2 x float>, <2 x float> } %call52, 1
-  store <2 x float> %105, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 52), i32 0, i32 1), align 8
+  %258 = extractvalue { <2 x float>, <2 x float> } %call52, 0
+  %259 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 52
+  store <2 x float> %258, ptr %259, align 16
+  %260 = extractvalue { <2 x float>, <2 x float> } %call52, 1
+  %261 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 52
+  %262 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %261, i32 0, i32 1
+  store <2 x float> %260, ptr %262, align 8
   %call53 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE5775540000000, float noundef 0xBFE727D240000000, float noundef 0xBFC4CB6420000000)
-  %106 = extractvalue { <2 x float>, <2 x float> } %call53, 0
-  store <2 x float> %106, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 53), align 16
-  %107 = extractvalue { <2 x float>, <2 x float> } %call53, 1
-  store <2 x float> %107, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 53), i32 0, i32 1), align 8
+  %263 = extractvalue { <2 x float>, <2 x float> } %call53, 0
+  %264 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 53
+  store <2 x float> %263, ptr %264, align 16
+  %265 = extractvalue { <2 x float>, <2 x float> } %call53, 1
+  %266 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 53
+  %267 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %266, i32 0, i32 1
+  store <2 x float> %265, ptr %267, align 8
   %call54 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE5775540000000, float noundef 0xBFE727D020000000, float noundef 0x3FC4CB6C80000000)
-  %108 = extractvalue { <2 x float>, <2 x float> } %call54, 0
-  store <2 x float> %108, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 54), align 16
-  %109 = extractvalue { <2 x float>, <2 x float> } %call54, 1
-  store <2 x float> %109, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 54), i32 0, i32 1), align 8
+  %268 = extractvalue { <2 x float>, <2 x float> } %call54, 0
+  %269 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 54
+  store <2 x float> %268, ptr %269, align 16
+  %270 = extractvalue { <2 x float>, <2 x float> } %call54, 1
+  %271 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 54
+  %272 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %271, i32 0, i32 1
+  store <2 x float> %270, ptr %272, align 8
   %call55 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FDB387E00000000, float noundef 0xBFEB388EC0000000, float noundef 0xBFD3C6D620000000)
-  %110 = extractvalue { <2 x float>, <2 x float> } %call55, 0
-  store <2 x float> %110, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 55), align 16
-  %111 = extractvalue { <2 x float>, <2 x float> } %call55, 1
-  store <2 x float> %111, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 55), i32 0, i32 1), align 8
+  %273 = extractvalue { <2 x float>, <2 x float> } %call55, 0
+  %274 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 55
+  store <2 x float> %273, ptr %274, align 16
+  %275 = extractvalue { <2 x float>, <2 x float> } %call55, 1
+  %276 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 55
+  %277 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %276, i32 0, i32 1
+  store <2 x float> %275, ptr %277, align 8
   %call56 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FDC9F1AE0000000, float noundef 0xBFEC9F2780000000, float noundef 0x3EB0C6F7A0000000)
-  %112 = extractvalue { <2 x float>, <2 x float> } %call56, 0
-  store <2 x float> %112, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 56), align 16
-  %113 = extractvalue { <2 x float>, <2 x float> } %call56, 1
-  store <2 x float> %113, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 56), i32 0, i32 1), align 8
+  %278 = extractvalue { <2 x float>, <2 x float> } %call56, 0
+  %279 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 56
+  store <2 x float> %278, ptr %279, align 16
+  %280 = extractvalue { <2 x float>, <2 x float> } %call56, 1
+  %281 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 56
+  %282 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %281, i32 0, i32 1
+  store <2 x float> %280, ptr %282, align 8
   %call57 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE81C3260000000, float noundef 0xBFE50A5CE0000000, float noundef 0.000000e+00)
-  %114 = extractvalue { <2 x float>, <2 x float> } %call57, 0
-  store <2 x float> %114, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 57), align 16
-  %115 = extractvalue { <2 x float>, <2 x float> } %call57, 1
-  store <2 x float> %115, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 57), i32 0, i32 1), align 8
+  %283 = extractvalue { <2 x float>, <2 x float> } %call57, 0
+  %284 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 57
+  store <2 x float> %283, ptr %284, align 16
+  %285 = extractvalue { <2 x float>, <2 x float> } %call57, 1
+  %286 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 57
+  %287 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %286, i32 0, i32 1
+  store <2 x float> %285, ptr %287, align 8
   %call58 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE0D2C7C0000000, float noundef 0xBFEB388A80000000, float noundef 0.000000e+00)
-  %116 = extractvalue { <2 x float>, <2 x float> } %call58, 0
-  store <2 x float> %116, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 58), align 16
-  %117 = extractvalue { <2 x float>, <2 x float> } %call58, 1
-  store <2 x float> %117, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 58), i32 0, i32 1), align 8
+  %288 = extractvalue { <2 x float>, <2 x float> } %call58, 0
+  %289 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 58
+  store <2 x float> %288, ptr %289, align 16
+  %290 = extractvalue { <2 x float>, <2 x float> } %call58, 1
+  %291 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 58
+  %292 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %291, i32 0, i32 1
+  store <2 x float> %290, ptr %292, align 8
   %call59 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE46C17E0000000, float noundef 0xBFE727CE00000000, float noundef 0x3FD0D2C380000000)
-  %118 = extractvalue { <2 x float>, <2 x float> } %call59, 0
-  store <2 x float> %118, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 59), align 16
-  %119 = extractvalue { <2 x float>, <2 x float> } %call59, 1
-  store <2 x float> %119, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 59), i32 0, i32 1), align 8
+  %293 = extractvalue { <2 x float>, <2 x float> } %call59, 0
+  %294 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 59
+  store <2 x float> %293, ptr %294, align 16
+  %295 = extractvalue { <2 x float>, <2 x float> } %call59, 1
+  %296 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 59
+  %297 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %296, i32 0, i32 1
+  store <2 x float> %295, ptr %297, align 8
   %call60 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFD727BF60000000, float noundef 0xBFEC9F2780000000, float noundef 0x3FD0D2C380000000)
-  %120 = extractvalue { <2 x float>, <2 x float> } %call60, 0
-  store <2 x float> %120, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 60), align 16
-  %121 = extractvalue { <2 x float>, <2 x float> } %call60, 1
-  store <2 x float> %121, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 60), i32 0, i32 1), align 8
+  %298 = extractvalue { <2 x float>, <2 x float> } %call60, 0
+  %299 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 60
+  store <2 x float> %298, ptr %299, align 16
+  %300 = extractvalue { <2 x float>, <2 x float> } %call60, 1
+  %301 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 60
+  %302 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %301, i32 0, i32 1
+  store <2 x float> %300, ptr %302, align 8
   %call61 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE605A500000000, float noundef 0xBFE0D2D440000000, float noundef 0x3FDFFFF360000000)
-  %122 = extractvalue { <2 x float>, <2 x float> } %call61, 0
-  store <2 x float> %122, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 61), align 16
-  %123 = extractvalue { <2 x float>, <2 x float> } %call61, 1
-  store <2 x float> %123, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 61), i32 0, i32 1), align 8
+  %303 = extractvalue { <2 x float>, <2 x float> } %call61, 0
+  %304 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 61
+  store <2 x float> %303, ptr %304, align 16
+  %305 = extractvalue { <2 x float>, <2 x float> } %call61, 1
+  %306 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 61
+  %307 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %306, i32 0, i32 1
+  store <2 x float> %305, ptr %307, align 8
   %call62 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFDC9F1AE0000000, float noundef 0xBFE727D020000000, float noundef 0x3FE0D2C5A0000000)
-  %124 = extractvalue { <2 x float>, <2 x float> } %call62, 0
-  store <2 x float> %124, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 62), align 16
-  %125 = extractvalue { <2 x float>, <2 x float> } %call62, 1
-  store <2 x float> %125, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 62), i32 0, i32 1), align 8
+  %308 = extractvalue { <2 x float>, <2 x float> } %call62, 0
+  %309 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 62
+  store <2 x float> %308, ptr %309, align 16
+  %310 = extractvalue { <2 x float>, <2 x float> } %call62, 1
+  %311 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 62
+  %312 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %311, i32 0, i32 1
+  store <2 x float> %310, ptr %312, align 8
   %call63 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFDEF96180000000, float noundef 0xBFE012DBA0000000, float noundef 0x3FE6EE19C0000000)
-  %126 = extractvalue { <2 x float>, <2 x float> } %call63, 0
-  store <2 x float> %126, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 63), align 16
-  %127 = extractvalue { <2 x float>, <2 x float> } %call63, 1
-  store <2 x float> %127, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 63), i32 0, i32 1), align 8
+  %313 = extractvalue { <2 x float>, <2 x float> } %call63, 0
+  %314 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 63
+  store <2 x float> %313, ptr %314, align 16
+  %315 = extractvalue { <2 x float>, <2 x float> } %call63, 1
+  %316 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 63
+  %317 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %316, i32 0, i32 1
+  store <2 x float> %315, ptr %317, align 8
   %call64 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFCDCD1C80000000, float noundef 0xBFE50A6540000000, float noundef 0xBFE6EE1580000000)
-  %128 = extractvalue { <2 x float>, <2 x float> } %call64, 0
-  store <2 x float> %128, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 64), align 16
-  %129 = extractvalue { <2 x float>, <2 x float> } %call64, 1
-  store <2 x float> %129, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 64), i32 0, i32 1), align 8
+  %318 = extractvalue { <2 x float>, <2 x float> } %call64, 0
+  %319 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 64
+  store <2 x float> %318, ptr %319, align 16
+  %320 = extractvalue { <2 x float>, <2 x float> } %call64, 1
+  %321 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 64
+  %322 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %321, i32 0, i32 1
+  store <2 x float> %320, ptr %322, align 8
   %call65 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFC4CB5BC0000000, float noundef 0xBFEB388EC0000000, float noundef 0xBFDFFFEB00000000)
-  %130 = extractvalue { <2 x float>, <2 x float> } %call65, 0
-  store <2 x float> %130, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 65), align 16
-  %131 = extractvalue { <2 x float>, <2 x float> } %call65, 1
-  store <2 x float> %131, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 65), i32 0, i32 1), align 8
+  %323 = extractvalue { <2 x float>, <2 x float> } %call65, 0
+  %324 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 65
+  store <2 x float> %323, ptr %324, align 16
+  %325 = extractvalue { <2 x float>, <2 x float> } %call65, 1
+  %326 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 65
+  %327 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %326, i32 0, i32 1
+  store <2 x float> %325, ptr %327, align 8
   %call66 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFDC9F1AE0000000, float noundef 0xBFE727D240000000, float noundef 0xBFE0D2C160000000)
-  %132 = extractvalue { <2 x float>, <2 x float> } %call66, 0
-  store <2 x float> %132, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 66), align 16
-  %133 = extractvalue { <2 x float>, <2 x float> } %call66, 1
-  store <2 x float> %133, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 66), i32 0, i32 1), align 8
+  %328 = extractvalue { <2 x float>, <2 x float> } %call66, 0
+  %329 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 66
+  store <2 x float> %328, ptr %329, align 16
+  %330 = extractvalue { <2 x float>, <2 x float> } %call66, 1
+  %331 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 66
+  %332 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %331, i32 0, i32 1
+  store <2 x float> %330, ptr %332, align 8
   %call67 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFD727BF60000000, float noundef 0xBFEC9F29A0000000, float noundef 0xBFD0D2BF60000000)
-  %134 = extractvalue { <2 x float>, <2 x float> } %call67, 0
-  store <2 x float> %134, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 67), align 16
-  %135 = extractvalue { <2 x float>, <2 x float> } %call67, 1
-  store <2 x float> %135, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 67), i32 0, i32 1), align 8
+  %333 = extractvalue { <2 x float>, <2 x float> } %call67, 0
+  %334 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 67
+  store <2 x float> %333, ptr %334, align 16
+  %335 = extractvalue { <2 x float>, <2 x float> } %call67, 1
+  %336 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 67
+  %337 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %336, i32 0, i32 1
+  store <2 x float> %335, ptr %337, align 8
   %call68 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE605A500000000, float noundef 0xBFE0D2D440000000, float noundef 0xBFDFFFF360000000)
-  %136 = extractvalue { <2 x float>, <2 x float> } %call68, 0
-  store <2 x float> %136, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 68), align 16
-  %137 = extractvalue { <2 x float>, <2 x float> } %call68, 1
-  store <2 x float> %137, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 68), i32 0, i32 1), align 8
+  %338 = extractvalue { <2 x float>, <2 x float> } %call68, 0
+  %339 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 68
+  store <2 x float> %338, ptr %339, align 16
+  %340 = extractvalue { <2 x float>, <2 x float> } %call68, 1
+  %341 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 68
+  %342 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %341, i32 0, i32 1
+  store <2 x float> %340, ptr %342, align 8
   %call69 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE46C17E0000000, float noundef 0xBFE727CE00000000, float noundef 0xBFD0D2BF60000000)
-  %138 = extractvalue { <2 x float>, <2 x float> } %call69, 0
-  store <2 x float> %138, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 69), align 16
-  %139 = extractvalue { <2 x float>, <2 x float> } %call69, 1
-  store <2 x float> %139, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 69), i32 0, i32 1), align 8
+  %343 = extractvalue { <2 x float>, <2 x float> } %call69, 0
+  %344 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 69
+  store <2 x float> %343, ptr %344, align 16
+  %345 = extractvalue { <2 x float>, <2 x float> } %call69, 1
+  %346 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 69
+  %347 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %346, i32 0, i32 1
+  store <2 x float> %345, ptr %347, align 8
   %call70 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEA97F840000000, float noundef 0xBFE012D560000000, float noundef 0xBFCE92BC20000000)
-  %140 = extractvalue { <2 x float>, <2 x float> } %call70, 0
-  store <2 x float> %140, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 70), align 16
-  %141 = extractvalue { <2 x float>, <2 x float> } %call70, 1
-  store <2 x float> %141, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 70), i32 0, i32 1), align 8
+  %348 = extractvalue { <2 x float>, <2 x float> } %call70, 0
+  %349 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 70
+  store <2 x float> %348, ptr %349, align 16
+  %350 = extractvalue { <2 x float>, <2 x float> } %call70, 1
+  %351 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 70
+  %352 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %351, i32 0, i32 1
+  store <2 x float> %350, ptr %352, align 8
   %call71 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FD727CC00000000, float noundef 0xBFE727D460000000, float noundef 0xBFE2CF15E0000000)
-  %142 = extractvalue { <2 x float>, <2 x float> } %call71, 0
-  store <2 x float> %142, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 71), align 16
-  %143 = extractvalue { <2 x float>, <2 x float> } %call71, 1
-  store <2 x float> %143, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 71), i32 0, i32 1), align 8
+  %353 = extractvalue { <2 x float>, <2 x float> } %call71, 0
+  %354 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 71
+  store <2 x float> %353, ptr %354, align 16
+  %355 = extractvalue { <2 x float>, <2 x float> } %call71, 1
+  %356 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 71
+  %357 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %356, i32 0, i32 1
+  store <2 x float> %355, ptr %357, align 8
   %call72 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FC1B07080000000, float noundef 0xBFEC9F29A0000000, float noundef 0xBFDB3875A0000000)
-  %144 = extractvalue { <2 x float>, <2 x float> } %call72, 0
-  store <2 x float> %144, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 72), align 16
-  %145 = extractvalue { <2 x float>, <2 x float> } %call72, 1
-  store <2 x float> %145, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 72), i32 0, i32 1), align 8
+  %358 = extractvalue { <2 x float>, <2 x float> } %call72, 0
+  %359 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 72
+  store <2 x float> %358, ptr %359, align 16
+  %360 = extractvalue { <2 x float>, <2 x float> } %call72, 1
+  %361 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 72
+  %362 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %361, i32 0, i32 1
+  store <2 x float> %360, ptr %362, align 8
   %call73 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FD0D2D880000000, float noundef 0xBFE0D2D880000000, float noundef 0xBFE9E36D20000000)
-  %146 = extractvalue { <2 x float>, <2 x float> } %call73, 0
-  store <2 x float> %146, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 73), align 16
-  %147 = extractvalue { <2 x float>, <2 x float> } %call73, 1
-  store <2 x float> %147, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 73), i32 0, i32 1), align 8
+  %363 = extractvalue { <2 x float>, <2 x float> } %call73, 0
+  %364 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 73
+  store <2 x float> %363, ptr %364, align 16
+  %365 = extractvalue { <2 x float>, <2 x float> } %call73, 1
+  %366 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 73
+  %367 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %366, i32 0, i32 1
+  store <2 x float> %365, ptr %367, align 8
   %call74 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FAB0728E0000000, float noundef 0xBFE727D240000000, float noundef 0xBFE6059EA0000000)
-  %148 = extractvalue { <2 x float>, <2 x float> } %call74, 0
-  store <2 x float> %148, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 74), align 16
-  %149 = extractvalue { <2 x float>, <2 x float> } %call74, 1
-  store <2 x float> %149, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 74), i32 0, i32 1), align 8
+  %368 = extractvalue { <2 x float>, <2 x float> } %call74, 0
+  %369 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 74
+  store <2 x float> %368, ptr %369, align 16
+  %370 = extractvalue { <2 x float>, <2 x float> } %call74, 1
+  %371 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 74
+  %372 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %371, i32 0, i32 1
+  store <2 x float> %370, ptr %372, align 8
   %call75 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBF9E59AFA0000000, float noundef 0xBFE012DBA0000000, float noundef 0xBFEBA76540000000)
-  %150 = extractvalue { <2 x float>, <2 x float> } %call75, 0
-  store <2 x float> %150, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 75), align 16
-  %151 = extractvalue { <2 x float>, <2 x float> } %call75, 1
-  store <2 x float> %151, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 75), i32 0, i32 1), align 8
+  %373 = extractvalue { <2 x float>, <2 x float> } %call75, 0
+  %374 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 75
+  store <2 x float> %373, ptr %374, align 16
+  %375 = extractvalue { <2 x float>, <2 x float> } %call75, 1
+  %376 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 75
+  %377 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %376, i32 0, i32 1
+  store <2 x float> %375, ptr %377, align 8
   %call76 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEE9CAE20000000, float noundef 0x3FD012D340000000, float noundef 0x3FC2E52580000000)
-  %152 = extractvalue { <2 x float>, <2 x float> } %call76, 0
-  store <2 x float> %152, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 76), align 16
-  %153 = extractvalue { <2 x float>, <2 x float> } %call76, 1
-  store <2 x float> %153, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 76), i32 0, i32 1), align 8
+  %378 = extractvalue { <2 x float>, <2 x float> } %call76, 0
+  %379 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 76
+  store <2 x float> %378, ptr %379, align 16
+  %380 = extractvalue { <2 x float>, <2 x float> } %call76, 1
+  %381 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 76
+  %382 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %381, i32 0, i32 1
+  store <2 x float> %380, ptr %382, align 8
   %call77 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEE9CAE20000000, float noundef 0x3FD012D340000000, float noundef 0xBFC2E52580000000)
-  %154 = extractvalue { <2 x float>, <2 x float> } %call77, 0
-  store <2 x float> %154, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 77), align 16
-  %155 = extractvalue { <2 x float>, <2 x float> } %call77, 1
-  store <2 x float> %155, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 77), i32 0, i32 1), align 8
+  %383 = extractvalue { <2 x float>, <2 x float> } %call77, 0
+  %384 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 77
+  store <2 x float> %383, ptr %384, align 16
+  %385 = extractvalue { <2 x float>, <2 x float> } %call77, 1
+  %386 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 77
+  %387 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %386, i32 0, i32 1
+  store <2 x float> %385, ptr %387, align 8
   %call78 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEE6F1120000000, float noundef -0.000000e+00, float noundef 0x3FD3C6DE80000000)
-  %156 = extractvalue { <2 x float>, <2 x float> } %call78, 0
-  store <2 x float> %156, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 78), align 16
-  %157 = extractvalue { <2 x float>, <2 x float> } %call78, 1
-  store <2 x float> %157, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 78), i32 0, i32 1), align 8
+  %388 = extractvalue { <2 x float>, <2 x float> } %call78, 0
+  %389 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 78
+  store <2 x float> %388, ptr %389, align 16
+  %390 = extractvalue { <2 x float>, <2 x float> } %call78, 1
+  %391 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 78
+  %392 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %391, i32 0, i32 1
+  store <2 x float> %390, ptr %392, align 8
   %call79 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  %158 = extractvalue { <2 x float>, <2 x float> } %call79, 0
-  store <2 x float> %158, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 79), align 16
-  %159 = extractvalue { <2 x float>, <2 x float> } %call79, 1
-  store <2 x float> %159, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 79), i32 0, i32 1), align 8
+  %393 = extractvalue { <2 x float>, <2 x float> } %call79, 0
+  %394 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 79
+  store <2 x float> %393, ptr %394, align 16
+  %395 = extractvalue { <2 x float>, <2 x float> } %call79, 1
+  %396 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 79
+  %397 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %396, i32 0, i32 1
+  store <2 x float> %395, ptr %397, align 8
   %call80 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEE4F91A0000000, float noundef 0xBFD1B078E0000000, float noundef 0x3FC4CB6C80000000)
-  %160 = extractvalue { <2 x float>, <2 x float> } %call80, 0
-  store <2 x float> %160, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 80), align 16
-  %161 = extractvalue { <2 x float>, <2 x float> } %call80, 1
-  store <2 x float> %161, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 80), i32 0, i32 1), align 8
+  %398 = extractvalue { <2 x float>, <2 x float> } %call80, 0
+  %399 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 80
+  store <2 x float> %398, ptr %399, align 16
+  %400 = extractvalue { <2 x float>, <2 x float> } %call80, 1
+  %401 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 80
+  %402 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %401, i32 0, i32 1
+  store <2 x float> %400, ptr %402, align 8
   %call81 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEE6F1120000000, float noundef 0.000000e+00, float noundef 0xBFD3C6DE80000000)
-  %162 = extractvalue { <2 x float>, <2 x float> } %call81, 0
-  store <2 x float> %162, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 81), align 16
-  %163 = extractvalue { <2 x float>, <2 x float> } %call81, 1
-  store <2 x float> %163, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 81), i32 0, i32 1), align 8
+  %403 = extractvalue { <2 x float>, <2 x float> } %call81, 0
+  %404 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 81
+  store <2 x float> %403, ptr %404, align 16
+  %405 = extractvalue { <2 x float>, <2 x float> } %call81, 1
+  %406 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 81
+  %407 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %406, i32 0, i32 1
+  store <2 x float> %405, ptr %407, align 8
   %call82 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEE4F91A0000000, float noundef 0xBFD1B078E0000000, float noundef 0xBFC4CB6C80000000)
-  %164 = extractvalue { <2 x float>, <2 x float> } %call82, 0
-  store <2 x float> %164, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 82), align 16
-  %165 = extractvalue { <2 x float>, <2 x float> } %call82, 1
-  store <2 x float> %165, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 82), i32 0, i32 1), align 8
+  %408 = extractvalue { <2 x float>, <2 x float> } %call82, 0
+  %409 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 82
+  store <2 x float> %408, ptr %409, align 16
+  %410 = extractvalue { <2 x float>, <2 x float> } %call82, 1
+  %411 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 82
+  %412 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %411, i32 0, i32 1
+  store <2 x float> %410, ptr %412, align 8
   %call83 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FC3DE15C0000000, float noundef 0x3FD012DFE0000000, float noundef 0x3FEE92D120000000)
-  %166 = extractvalue { <2 x float>, <2 x float> } %call83, 0
-  store <2 x float> %166, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 83), align 16
-  %167 = extractvalue { <2 x float>, <2 x float> } %call83, 1
-  store <2 x float> %167, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 83), i32 0, i32 1), align 8
+  %413 = extractvalue { <2 x float>, <2 x float> } %call83, 0
+  %414 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 83
+  store <2 x float> %413, ptr %414, align 16
+  %415 = extractvalue { <2 x float>, <2 x float> } %call83, 1
+  %416 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 83
+  %417 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %416, i32 0, i32 1
+  store <2 x float> %415, ptr %417, align 8
   %call84 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FDBE789E0000000, float noundef 0x3FD012DFE0000000, float noundef 0x3FEBA76DA0000000)
-  %168 = extractvalue { <2 x float>, <2 x float> } %call84, 0
-  store <2 x float> %168, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 84), align 16
-  %169 = extractvalue { <2 x float>, <2 x float> } %call84, 1
-  store <2 x float> %169, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 84), i32 0, i32 1), align 8
+  %418 = extractvalue { <2 x float>, <2 x float> } %call84, 0
+  %419 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 84
+  store <2 x float> %418, ptr %419, align 16
+  %420 = extractvalue { <2 x float>, <2 x float> } %call84, 1
+  %421 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 84
+  %422 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %421, i32 0, i32 1
+  store <2 x float> %420, ptr %422, align 8
   %call85 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef -0.000000e+00, float noundef -0.000000e+00, float noundef 1.000000e+00)
-  %170 = extractvalue { <2 x float>, <2 x float> } %call85, 0
-  store <2 x float> %170, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 85), align 16
-  %171 = extractvalue { <2 x float>, <2 x float> } %call85, 1
-  store <2 x float> %171, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 85), i32 0, i32 1), align 8
+  %423 = extractvalue { <2 x float>, <2 x float> } %call85, 0
+  %424 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 85
+  store <2 x float> %423, ptr %424, align 16
+  %425 = extractvalue { <2 x float>, <2 x float> } %call85, 1
+  %426 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 85
+  %427 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %426, i32 0, i32 1
+  store <2 x float> %425, ptr %427, align 8
   %call86 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FD3C6EF40000000, float noundef 0.000000e+00, float noundef 0x3FEE6F0D00000000)
-  %172 = extractvalue { <2 x float>, <2 x float> } %call86, 0
-  store <2 x float> %172, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 86), align 16
-  %173 = extractvalue { <2 x float>, <2 x float> } %call86, 1
-  store <2 x float> %173, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 86), i32 0, i32 1), align 8
+  %428 = extractvalue { <2 x float>, <2 x float> } %call86, 0
+  %429 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 86
+  store <2 x float> %428, ptr %429, align 16
+  %430 = extractvalue { <2 x float>, <2 x float> } %call86, 1
+  %431 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 86
+  %432 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %431, i32 0, i32 1
+  store <2 x float> %430, ptr %432, align 8
   %call87 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FC1B08140000000, float noundef 0xBFD1B08140000000, float noundef 0x3FEE6F0AE0000000)
-  %174 = extractvalue { <2 x float>, <2 x float> } %call87, 0
-  store <2 x float> %174, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 87), align 16
-  %175 = extractvalue { <2 x float>, <2 x float> } %call87, 1
-  store <2 x float> %175, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 87), i32 0, i32 1), align 8
+  %433 = extractvalue { <2 x float>, <2 x float> } %call87, 0
+  %434 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 87
+  store <2 x float> %433, ptr %434, align 16
+  %435 = extractvalue { <2 x float>, <2 x float> } %call87, 1
+  %436 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 87
+  %437 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %436, i32 0, i32 1
+  store <2 x float> %435, ptr %437, align 8
   %call88 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE2CF24A0000000, float noundef 0.000000e+00, float noundef 0x3FE9E377A0000000)
-  %176 = extractvalue { <2 x float>, <2 x float> } %call88, 0
-  store <2 x float> %176, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 88), align 16
-  %177 = extractvalue { <2 x float>, <2 x float> } %call88, 1
-  store <2 x float> %177, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 88), i32 0, i32 1), align 8
+  %438 = extractvalue { <2 x float>, <2 x float> } %call88, 0
+  %439 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 88
+  store <2 x float> %438, ptr %439, align 16
+  %440 = extractvalue { <2 x float>, <2 x float> } %call88, 1
+  %441 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 88
+  %442 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %441, i32 0, i32 1
+  store <2 x float> %440, ptr %442, align 8
   %call89 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FDC9F2FE0000000, float noundef 0xBFD1B08140000000, float noundef 0x3FEB388220000000)
-  %178 = extractvalue { <2 x float>, <2 x float> } %call89, 0
-  store <2 x float> %178, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 89), align 16
-  %179 = extractvalue { <2 x float>, <2 x float> } %call89, 1
-  store <2 x float> %179, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 89), i32 0, i32 1), align 8
+  %443 = extractvalue { <2 x float>, <2 x float> } %call89, 0
+  %444 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 89
+  store <2 x float> %443, ptr %444, align 16
+  %445 = extractvalue { <2 x float>, <2 x float> } %call89, 1
+  %446 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 89
+  %447 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %446, i32 0, i32 1
+  store <2 x float> %445, ptr %447, align 8
   %call90 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEB8AD680000000, float noundef 0x3FD012DBA0000000, float noundef 0x3FDC57C920000000)
-  %180 = extractvalue { <2 x float>, <2 x float> } %call90, 0
-  store <2 x float> %180, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 90), align 16
-  %181 = extractvalue { <2 x float>, <2 x float> } %call90, 1
-  store <2 x float> %181, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 90), i32 0, i32 1), align 8
+  %448 = extractvalue { <2 x float>, <2 x float> } %call90, 0
+  %449 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 90
+  store <2 x float> %448, ptr %449, align 16
+  %450 = extractvalue { <2 x float>, <2 x float> } %call90, 1
+  %451 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 90
+  %452 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %451, i32 0, i32 1
+  store <2 x float> %450, ptr %452, align 8
   %call91 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE5FD34E0000000, float noundef 0x3FD012DFE0000000, float noundef 0x3FE5D09C00000000)
-  %182 = extractvalue { <2 x float>, <2 x float> } %call91, 0
-  store <2 x float> %182, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 91), align 16
-  %183 = extractvalue { <2 x float>, <2 x float> } %call91, 1
-  store <2 x float> %183, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 91), i32 0, i32 1), align 8
+  %453 = extractvalue { <2 x float>, <2 x float> } %call91, 0
+  %454 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 91
+  store <2 x float> %453, ptr %454, align 16
+  %455 = extractvalue { <2 x float>, <2 x float> } %call91, 1
+  %456 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 91
+  %457 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %456, i32 0, i32 1
+  store <2 x float> %455, ptr %457, align 8
   %call92 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEE6F1120000000, float noundef -0.000000e+00, float noundef 0x3FD3C6DE80000000)
-  %184 = extractvalue { <2 x float>, <2 x float> } %call92, 0
-  store <2 x float> %184, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 92), align 16
-  %185 = extractvalue { <2 x float>, <2 x float> } %call92, 1
-  store <2 x float> %185, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 92), i32 0, i32 1), align 8
+  %458 = extractvalue { <2 x float>, <2 x float> } %call92, 0
+  %459 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 92
+  store <2 x float> %458, ptr %459, align 16
+  %460 = extractvalue { <2 x float>, <2 x float> } %call92, 1
+  %461 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 92
+  %462 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %461, i32 0, i32 1
+  store <2 x float> %460, ptr %462, align 8
   %call93 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE9E379C0000000, float noundef 0.000000e+00, float noundef 0x3FE2CF1E40000000)
-  %186 = extractvalue { <2 x float>, <2 x float> } %call93, 0
-  store <2 x float> %186, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 93), align 16
-  %187 = extractvalue { <2 x float>, <2 x float> } %call93, 1
-  store <2 x float> %187, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 93), i32 0, i32 1), align 8
+  %463 = extractvalue { <2 x float>, <2 x float> } %call93, 0
+  %464 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 93
+  store <2 x float> %463, ptr %464, align 16
+  %465 = extractvalue { <2 x float>, <2 x float> } %call93, 1
+  %466 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 93
+  %467 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %466, i32 0, i32 1
+  store <2 x float> %465, ptr %467, align 8
   %call94 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEB93E3E0000000, float noundef 0xBFD1B078E0000000, float noundef 0x3FDB388220000000)
-  %188 = extractvalue { <2 x float>, <2 x float> } %call94, 0
-  store <2 x float> %188, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 94), align 16
-  %189 = extractvalue { <2 x float>, <2 x float> } %call94, 1
-  store <2 x float> %189, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 94), i32 0, i32 1), align 8
+  %468 = extractvalue { <2 x float>, <2 x float> } %call94, 0
+  %469 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 94
+  store <2 x float> %468, ptr %469, align 16
+  %470 = extractvalue { <2 x float>, <2 x float> } %call94, 1
+  %471 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 94
+  %472 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %471, i32 0, i32 1
+  store <2 x float> %470, ptr %472, align 8
   %call95 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE2CF24A0000000, float noundef 0.000000e+00, float noundef 0x3FE9E377A0000000)
-  %190 = extractvalue { <2 x float>, <2 x float> } %call95, 0
-  store <2 x float> %190, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 95), align 16
-  %191 = extractvalue { <2 x float>, <2 x float> } %call95, 1
-  store <2 x float> %191, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 95), i32 0, i32 1), align 8
+  %473 = extractvalue { <2 x float>, <2 x float> } %call95, 0
+  %474 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 95
+  store <2 x float> %473, ptr %474, align 16
+  %475 = extractvalue { <2 x float>, <2 x float> } %call95, 1
+  %476 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 95
+  %477 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %476, i32 0, i32 1
+  store <2 x float> %475, ptr %477, align 8
   %call96 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE5775960000000, float noundef 0xBFD1B07D00000000, float noundef 0x3FE605A920000000)
-  %192 = extractvalue { <2 x float>, <2 x float> } %call96, 0
-  store <2 x float> %192, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 96), align 16
-  %193 = extractvalue { <2 x float>, <2 x float> } %call96, 1
-  store <2 x float> %193, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 96), i32 0, i32 1), align 8
+  %478 = extractvalue { <2 x float>, <2 x float> } %call96, 0
+  %479 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 96
+  store <2 x float> %478, ptr %479, align 16
+  %480 = extractvalue { <2 x float>, <2 x float> } %call96, 1
+  %481 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 96
+  %482 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %481, i32 0, i32 1
+  store <2 x float> %480, ptr %482, align 8
   %call97 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE5FD34E0000000, float noundef 0x3FD012DFE0000000, float noundef 0xBFE5D09C00000000)
-  %194 = extractvalue { <2 x float>, <2 x float> } %call97, 0
-  store <2 x float> %194, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 97), align 16
-  %195 = extractvalue { <2 x float>, <2 x float> } %call97, 1
-  store <2 x float> %195, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 97), i32 0, i32 1), align 8
+  %483 = extractvalue { <2 x float>, <2 x float> } %call97, 0
+  %484 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 97
+  store <2 x float> %483, ptr %484, align 16
+  %485 = extractvalue { <2 x float>, <2 x float> } %call97, 1
+  %486 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 97
+  %487 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %486, i32 0, i32 1
+  store <2 x float> %485, ptr %487, align 8
   %call98 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEB8AD680000000, float noundef 0x3FD012DBA0000000, float noundef 0xBFDC57C920000000)
-  %196 = extractvalue { <2 x float>, <2 x float> } %call98, 0
-  store <2 x float> %196, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 98), align 16
-  %197 = extractvalue { <2 x float>, <2 x float> } %call98, 1
-  store <2 x float> %197, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 98), i32 0, i32 1), align 8
+  %488 = extractvalue { <2 x float>, <2 x float> } %call98, 0
+  %489 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 98
+  store <2 x float> %488, ptr %489, align 16
+  %490 = extractvalue { <2 x float>, <2 x float> } %call98, 1
+  %491 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 98
+  %492 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %491, i32 0, i32 1
+  store <2 x float> %490, ptr %492, align 8
   %call99 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE2CF24A0000000, float noundef -0.000000e+00, float noundef 0xBFE9E377A0000000)
-  %198 = extractvalue { <2 x float>, <2 x float> } %call99, 0
-  store <2 x float> %198, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 99), align 16
-  %199 = extractvalue { <2 x float>, <2 x float> } %call99, 1
-  store <2 x float> %199, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 99), i32 0, i32 1), align 8
+  %493 = extractvalue { <2 x float>, <2 x float> } %call99, 0
+  %494 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 99
+  store <2 x float> %493, ptr %494, align 16
+  %495 = extractvalue { <2 x float>, <2 x float> } %call99, 1
+  %496 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 99
+  %497 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %496, i32 0, i32 1
+  store <2 x float> %495, ptr %497, align 8
   %call100 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE9E379C0000000, float noundef -0.000000e+00, float noundef 0xBFE2CF1E40000000)
-  %200 = extractvalue { <2 x float>, <2 x float> } %call100, 0
-  store <2 x float> %200, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 100), align 16
-  %201 = extractvalue { <2 x float>, <2 x float> } %call100, 1
-  store <2 x float> %201, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 100), i32 0, i32 1), align 8
+  %498 = extractvalue { <2 x float>, <2 x float> } %call100, 0
+  %499 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 100
+  store <2 x float> %498, ptr %499, align 16
+  %500 = extractvalue { <2 x float>, <2 x float> } %call100, 1
+  %501 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 100
+  %502 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %501, i32 0, i32 1
+  store <2 x float> %500, ptr %502, align 8
   %call101 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE5775960000000, float noundef 0xBFD1B07D00000000, float noundef 0xBFE605A920000000)
-  %202 = extractvalue { <2 x float>, <2 x float> } %call101, 0
-  store <2 x float> %202, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 101), align 16
-  %203 = extractvalue { <2 x float>, <2 x float> } %call101, 1
-  store <2 x float> %203, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 101), i32 0, i32 1), align 8
+  %503 = extractvalue { <2 x float>, <2 x float> } %call101, 0
+  %504 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 101
+  store <2 x float> %503, ptr %504, align 16
+  %505 = extractvalue { <2 x float>, <2 x float> } %call101, 1
+  %506 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 101
+  %507 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %506, i32 0, i32 1
+  store <2 x float> %505, ptr %507, align 8
   %call102 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEE6F1120000000, float noundef 0.000000e+00, float noundef 0xBFD3C6DE80000000)
-  %204 = extractvalue { <2 x float>, <2 x float> } %call102, 0
-  store <2 x float> %204, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 102), align 16
-  %205 = extractvalue { <2 x float>, <2 x float> } %call102, 1
-  store <2 x float> %205, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 102), i32 0, i32 1), align 8
+  %508 = extractvalue { <2 x float>, <2 x float> } %call102, 0
+  %509 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 102
+  store <2 x float> %508, ptr %509, align 16
+  %510 = extractvalue { <2 x float>, <2 x float> } %call102, 1
+  %511 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 102
+  %512 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %511, i32 0, i32 1
+  store <2 x float> %510, ptr %512, align 8
   %call103 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEB93E3E0000000, float noundef 0xBFD1B078E0000000, float noundef 0xBFDB388220000000)
-  %206 = extractvalue { <2 x float>, <2 x float> } %call103, 0
-  store <2 x float> %206, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 103), align 16
-  %207 = extractvalue { <2 x float>, <2 x float> } %call103, 1
-  store <2 x float> %207, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 103), i32 0, i32 1), align 8
+  %513 = extractvalue { <2 x float>, <2 x float> } %call103, 0
+  %514 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 103
+  store <2 x float> %513, ptr %514, align 16
+  %515 = extractvalue { <2 x float>, <2 x float> } %call103, 1
+  %516 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 103
+  %517 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %516, i32 0, i32 1
+  store <2 x float> %515, ptr %517, align 8
   %call104 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FDBE789E0000000, float noundef 0x3FD012DFE0000000, float noundef 0xBFEBA76DA0000000)
-  %208 = extractvalue { <2 x float>, <2 x float> } %call104, 0
-  store <2 x float> %208, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 104), align 16
-  %209 = extractvalue { <2 x float>, <2 x float> } %call104, 1
-  store <2 x float> %209, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 104), i32 0, i32 1), align 8
+  %518 = extractvalue { <2 x float>, <2 x float> } %call104, 0
+  %519 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 104
+  store <2 x float> %518, ptr %519, align 16
+  %520 = extractvalue { <2 x float>, <2 x float> } %call104, 1
+  %521 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 104
+  %522 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %521, i32 0, i32 1
+  store <2 x float> %520, ptr %522, align 8
   %call105 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FC3DE15C0000000, float noundef 0x3FD012DFE0000000, float noundef 0xBFEE92D120000000)
-  %210 = extractvalue { <2 x float>, <2 x float> } %call105, 0
-  store <2 x float> %210, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 105), align 16
-  %211 = extractvalue { <2 x float>, <2 x float> } %call105, 1
-  store <2 x float> %211, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 105), i32 0, i32 1), align 8
+  %523 = extractvalue { <2 x float>, <2 x float> } %call105, 0
+  %524 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 105
+  store <2 x float> %523, ptr %524, align 16
+  %525 = extractvalue { <2 x float>, <2 x float> } %call105, 1
+  %526 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 105
+  %527 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %526, i32 0, i32 1
+  store <2 x float> %525, ptr %527, align 8
   %call106 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE2CF24A0000000, float noundef -0.000000e+00, float noundef 0xBFE9E377A0000000)
-  %212 = extractvalue { <2 x float>, <2 x float> } %call106, 0
-  store <2 x float> %212, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 106), align 16
-  %213 = extractvalue { <2 x float>, <2 x float> } %call106, 1
-  store <2 x float> %213, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 106), i32 0, i32 1), align 8
+  %528 = extractvalue { <2 x float>, <2 x float> } %call106, 0
+  %529 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 106
+  store <2 x float> %528, ptr %529, align 16
+  %530 = extractvalue { <2 x float>, <2 x float> } %call106, 1
+  %531 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 106
+  %532 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %531, i32 0, i32 1
+  store <2 x float> %530, ptr %532, align 8
   %call107 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FD3C6EF40000000, float noundef -0.000000e+00, float noundef 0xBFEE6F0D00000000)
-  %214 = extractvalue { <2 x float>, <2 x float> } %call107, 0
-  store <2 x float> %214, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 107), align 16
-  %215 = extractvalue { <2 x float>, <2 x float> } %call107, 1
-  store <2 x float> %215, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 107), i32 0, i32 1), align 8
+  %533 = extractvalue { <2 x float>, <2 x float> } %call107, 0
+  %534 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 107
+  store <2 x float> %533, ptr %534, align 16
+  %535 = extractvalue { <2 x float>, <2 x float> } %call107, 1
+  %536 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 107
+  %537 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %536, i32 0, i32 1
+  store <2 x float> %535, ptr %537, align 8
   %call108 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FDC9F2FE0000000, float noundef 0xBFD1B08140000000, float noundef 0xBFEB388220000000)
-  %216 = extractvalue { <2 x float>, <2 x float> } %call108, 0
-  store <2 x float> %216, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 108), align 16
-  %217 = extractvalue { <2 x float>, <2 x float> } %call108, 1
-  store <2 x float> %217, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 108), i32 0, i32 1), align 8
+  %538 = extractvalue { <2 x float>, <2 x float> } %call108, 0
+  %539 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 108
+  store <2 x float> %538, ptr %539, align 16
+  %540 = extractvalue { <2 x float>, <2 x float> } %call108, 1
+  %541 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 108
+  %542 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %541, i32 0, i32 1
+  store <2 x float> %540, ptr %542, align 8
   %call109 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef -1.000000e+00)
-  %218 = extractvalue { <2 x float>, <2 x float> } %call109, 0
-  store <2 x float> %218, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 109), align 16
-  %219 = extractvalue { <2 x float>, <2 x float> } %call109, 1
-  store <2 x float> %219, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 109), i32 0, i32 1), align 8
+  %543 = extractvalue { <2 x float>, <2 x float> } %call109, 0
+  %544 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 109
+  store <2 x float> %543, ptr %544, align 16
+  %545 = extractvalue { <2 x float>, <2 x float> } %call109, 1
+  %546 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 109
+  %547 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %546, i32 0, i32 1
+  store <2 x float> %545, ptr %547, align 8
   %call110 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FC1B08140000000, float noundef 0xBFD1B08140000000, float noundef 0xBFEE6F0AE0000000)
-  %220 = extractvalue { <2 x float>, <2 x float> } %call110, 0
-  store <2 x float> %220, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 110), align 16
-  %221 = extractvalue { <2 x float>, <2 x float> } %call110, 1
-  store <2 x float> %221, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 110), i32 0, i32 1), align 8
+  %548 = extractvalue { <2 x float>, <2 x float> } %call110, 0
+  %549 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 110
+  store <2 x float> %548, ptr %549, align 16
+  %550 = extractvalue { <2 x float>, <2 x float> } %call110, 1
+  %551 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 110
+  %552 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %551, i32 0, i32 1
+  store <2 x float> %550, ptr %552, align 8
   %call111 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE5775B80000000, float noundef 0x3FD1B078E0000000, float noundef 0x3FE605A700000000)
-  %222 = extractvalue { <2 x float>, <2 x float> } %call111, 0
-  store <2 x float> %222, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 111), align 16
-  %223 = extractvalue { <2 x float>, <2 x float> } %call111, 1
-  store <2 x float> %223, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 111), i32 0, i32 1), align 8
+  %553 = extractvalue { <2 x float>, <2 x float> } %call111, 0
+  %554 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 111
+  store <2 x float> %553, ptr %554, align 16
+  %555 = extractvalue { <2 x float>, <2 x float> } %call111, 1
+  %556 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 111
+  %557 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %556, i32 0, i32 1
+  store <2 x float> %555, ptr %557, align 8
   %call112 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE9E37BE0000000, float noundef 0xBEC0C6F7A0000000, float noundef 0x3FE2CF1E40000000)
-  %224 = extractvalue { <2 x float>, <2 x float> } %call112, 0
-  store <2 x float> %224, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 112), align 16
-  %225 = extractvalue { <2 x float>, <2 x float> } %call112, 1
-  store <2 x float> %225, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 112), i32 0, i32 1), align 8
+  %558 = extractvalue { <2 x float>, <2 x float> } %call112, 0
+  %559 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 112
+  store <2 x float> %558, ptr %559, align 16
+  %560 = extractvalue { <2 x float>, <2 x float> } %call112, 1
+  %561 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 112
+  %562 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %561, i32 0, i32 1
+  store <2 x float> %560, ptr %562, align 8
   %call113 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE605A500000000, float noundef 0x3FE0D2D440000000, float noundef 0x3FDFFFF360000000)
-  %226 = extractvalue { <2 x float>, <2 x float> } %call113, 0
-  store <2 x float> %226, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 113), align 16
-  %227 = extractvalue { <2 x float>, <2 x float> } %call113, 1
-  store <2 x float> %227, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 113), i32 0, i32 1), align 8
+  %563 = extractvalue { <2 x float>, <2 x float> } %call113, 0
+  %564 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 113
+  store <2 x float> %563, ptr %564, align 16
+  %565 = extractvalue { <2 x float>, <2 x float> } %call113, 1
+  %566 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 113
+  %567 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %566, i32 0, i32 1
+  store <2 x float> %565, ptr %567, align 8
   %call114 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEB93E600000000, float noundef 0x3FD1B07080000000, float noundef 0x3FDB387E00000000)
-  %228 = extractvalue { <2 x float>, <2 x float> } %call114, 0
-  store <2 x float> %228, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 114), align 16
-  %229 = extractvalue { <2 x float>, <2 x float> } %call114, 1
-  store <2 x float> %229, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 114), i32 0, i32 1), align 8
+  %568 = extractvalue { <2 x float>, <2 x float> } %call114, 0
+  %569 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 114
+  store <2 x float> %568, ptr %569, align 16
+  %570 = extractvalue { <2 x float>, <2 x float> } %call114, 1
+  %571 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 114
+  %572 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %571, i32 0, i32 1
+  store <2 x float> %570, ptr %572, align 8
   %call115 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEA97F840000000, float noundef 0x3FE012D560000000, float noundef 0x3FCE92BC20000000)
-  %230 = extractvalue { <2 x float>, <2 x float> } %call115, 0
-  store <2 x float> %230, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 115), align 16
-  %231 = extractvalue { <2 x float>, <2 x float> } %call115, 1
-  store <2 x float> %231, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 115), i32 0, i32 1), align 8
+  %573 = extractvalue { <2 x float>, <2 x float> } %call115, 0
+  %574 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 115
+  store <2 x float> %573, ptr %574, align 16
+  %575 = extractvalue { <2 x float>, <2 x float> } %call115, 1
+  %576 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 115
+  %577 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %576, i32 0, i32 1
+  store <2 x float> %575, ptr %577, align 8
   %call116 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFDC9F2FE0000000, float noundef 0x3FD1B07D00000000, float noundef 0x3FEB388440000000)
-  %232 = extractvalue { <2 x float>, <2 x float> } %call116, 0
-  store <2 x float> %232, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 116), align 16
-  %233 = extractvalue { <2 x float>, <2 x float> } %call116, 1
-  store <2 x float> %233, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 116), i32 0, i32 1), align 8
+  %578 = extractvalue { <2 x float>, <2 x float> } %call116, 0
+  %579 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 116
+  store <2 x float> %578, ptr %579, align 16
+  %580 = extractvalue { <2 x float>, <2 x float> } %call116, 1
+  %581 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 116
+  %582 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %581, i32 0, i32 1
+  store <2 x float> %580, ptr %582, align 8
   %call117 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFD3C6EF40000000, float noundef 0xBEB0C6F7A0000000, float noundef 0x3FEE6F0D00000000)
-  %234 = extractvalue { <2 x float>, <2 x float> } %call117, 0
-  store <2 x float> %234, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 117), align 16
-  %235 = extractvalue { <2 x float>, <2 x float> } %call117, 1
-  store <2 x float> %235, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 117), i32 0, i32 1), align 8
+  %583 = extractvalue { <2 x float>, <2 x float> } %call117, 0
+  %584 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 117
+  store <2 x float> %583, ptr %584, align 16
+  %585 = extractvalue { <2 x float>, <2 x float> } %call117, 1
+  %586 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 117
+  %587 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %586, i32 0, i32 1
+  store <2 x float> %585, ptr %587, align 8
   %call118 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFD0D2D880000000, float noundef 0x3FE0D2D880000000, float noundef 0x3FE9E36D20000000)
-  %236 = extractvalue { <2 x float>, <2 x float> } %call118, 0
-  store <2 x float> %236, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 118), align 16
-  %237 = extractvalue { <2 x float>, <2 x float> } %call118, 1
-  store <2 x float> %237, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 118), i32 0, i32 1), align 8
+  %588 = extractvalue { <2 x float>, <2 x float> } %call118, 0
+  %589 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 118
+  store <2 x float> %588, ptr %589, align 16
+  %590 = extractvalue { <2 x float>, <2 x float> } %call118, 1
+  %591 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 118
+  %592 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %591, i32 0, i32 1
+  store <2 x float> %590, ptr %592, align 8
   %call119 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFC1B08140000000, float noundef 0x3FD1B07D00000000, float noundef 0x3FEE6F0AE0000000)
-  %238 = extractvalue { <2 x float>, <2 x float> } %call119, 0
-  store <2 x float> %238, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 119), align 16
-  %239 = extractvalue { <2 x float>, <2 x float> } %call119, 1
-  store <2 x float> %239, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 119), i32 0, i32 1), align 8
+  %593 = extractvalue { <2 x float>, <2 x float> } %call119, 0
+  %594 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 119
+  store <2 x float> %593, ptr %594, align 16
+  %595 = extractvalue { <2 x float>, <2 x float> } %call119, 1
+  %596 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 119
+  %597 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %596, i32 0, i32 1
+  store <2 x float> %595, ptr %597, align 8
   %call120 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3F9E59AFA0000000, float noundef 0x3FE012DBA0000000, float noundef 0x3FEBA76540000000)
-  %240 = extractvalue { <2 x float>, <2 x float> } %call120, 0
-  store <2 x float> %240, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 120), align 16
-  %241 = extractvalue { <2 x float>, <2 x float> } %call120, 1
-  store <2 x float> %241, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 120), i32 0, i32 1), align 8
+  %598 = extractvalue { <2 x float>, <2 x float> } %call120, 0
+  %599 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 120
+  store <2 x float> %598, ptr %599, align 16
+  %600 = extractvalue { <2 x float>, <2 x float> } %call120, 1
+  %601 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 120
+  %602 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %601, i32 0, i32 1
+  store <2 x float> %600, ptr %602, align 8
   %call121 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEE4F91A0000000, float noundef 0x3FD1B078E0000000, float noundef 0xBFC4CB6C80000000)
-  %242 = extractvalue { <2 x float>, <2 x float> } %call121, 0
-  store <2 x float> %242, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 121), align 16
-  %243 = extractvalue { <2 x float>, <2 x float> } %call121, 1
-  store <2 x float> %243, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 121), i32 0, i32 1), align 8
+  %603 = extractvalue { <2 x float>, <2 x float> } %call121, 0
+  %604 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 121
+  store <2 x float> %603, ptr %604, align 16
+  %605 = extractvalue { <2 x float>, <2 x float> } %call121, 1
+  %606 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 121
+  %607 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %606, i32 0, i32 1
+  store <2 x float> %605, ptr %607, align 8
   %call122 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef -1.000000e+00, float noundef 0x3EB0C6F7A0000000, float noundef 0.000000e+00)
-  %244 = extractvalue { <2 x float>, <2 x float> } %call122, 0
-  store <2 x float> %244, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 122), align 16
-  %245 = extractvalue { <2 x float>, <2 x float> } %call122, 1
-  store <2 x float> %245, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 122), i32 0, i32 1), align 8
+  %608 = extractvalue { <2 x float>, <2 x float> } %call122, 0
+  %609 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 122
+  store <2 x float> %608, ptr %609, align 16
+  %610 = extractvalue { <2 x float>, <2 x float> } %call122, 1
+  %611 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 122
+  %612 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %611, i32 0, i32 1
+  store <2 x float> %610, ptr %612, align 8
   %call123 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEB388220000000, float noundef 0x3FE0D2D440000000, float noundef -0.000000e+00)
-  %246 = extractvalue { <2 x float>, <2 x float> } %call123, 0
-  store <2 x float> %246, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 123), align 16
-  %247 = extractvalue { <2 x float>, <2 x float> } %call123, 1
-  store <2 x float> %247, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 123), i32 0, i32 1), align 8
+  %613 = extractvalue { <2 x float>, <2 x float> } %call123, 0
+  %614 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 123
+  store <2 x float> %613, ptr %614, align 16
+  %615 = extractvalue { <2 x float>, <2 x float> } %call123, 1
+  %616 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 123
+  %617 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %616, i32 0, i32 1
+  store <2 x float> %615, ptr %617, align 8
   %call124 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEE4F91A0000000, float noundef 0x3FD1B07D00000000, float noundef 0x3FC4CB6C80000000)
-  %248 = extractvalue { <2 x float>, <2 x float> } %call124, 0
-  store <2 x float> %248, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 124), align 16
-  %249 = extractvalue { <2 x float>, <2 x float> } %call124, 1
-  store <2 x float> %249, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 124), i32 0, i32 1), align 8
+  %618 = extractvalue { <2 x float>, <2 x float> } %call124, 0
+  %619 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 124
+  store <2 x float> %618, ptr %619, align 16
+  %620 = extractvalue { <2 x float>, <2 x float> } %call124, 1
+  %621 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 124
+  %622 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %621, i32 0, i32 1
+  store <2 x float> %620, ptr %622, align 8
   %call125 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFEA01E040000000, float noundef 0x3FE012D980000000, float noundef 0x3FD2E52DE0000000)
-  %250 = extractvalue { <2 x float>, <2 x float> } %call125, 0
-  store <2 x float> %250, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 125), align 16
-  %251 = extractvalue { <2 x float>, <2 x float> } %call125, 1
-  store <2 x float> %251, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 125), i32 0, i32 1), align 8
+  %623 = extractvalue { <2 x float>, <2 x float> } %call125, 0
+  %624 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 125
+  store <2 x float> %623, ptr %624, align 16
+  %625 = extractvalue { <2 x float>, <2 x float> } %call125, 1
+  %626 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 125
+  %627 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %626, i32 0, i32 1
+  store <2 x float> %625, ptr %627, align 8
   %call126 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFC1B08140000000, float noundef 0x3FD1B07D00000000, float noundef 0xBFEE6F0AE0000000)
-  %252 = extractvalue { <2 x float>, <2 x float> } %call126, 0
-  store <2 x float> %252, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 126), align 16
-  %253 = extractvalue { <2 x float>, <2 x float> } %call126, 1
-  store <2 x float> %253, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 126), i32 0, i32 1), align 8
+  %628 = extractvalue { <2 x float>, <2 x float> } %call126, 0
+  %629 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 126
+  store <2 x float> %628, ptr %629, align 16
+  %630 = extractvalue { <2 x float>, <2 x float> } %call126, 1
+  %631 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 126
+  %632 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %631, i32 0, i32 1
+  store <2 x float> %630, ptr %632, align 8
   %call127 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFD3C6EB00000000, float noundef -0.000000e+00, float noundef 0xBFEE6F0F20000000)
-  %254 = extractvalue { <2 x float>, <2 x float> } %call127, 0
-  store <2 x float> %254, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 127), align 16
-  %255 = extractvalue { <2 x float>, <2 x float> } %call127, 1
-  store <2 x float> %255, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 127), i32 0, i32 1), align 8
+  %633 = extractvalue { <2 x float>, <2 x float> } %call127, 0
+  %634 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 127
+  store <2 x float> %633, ptr %634, align 16
+  %635 = extractvalue { <2 x float>, <2 x float> } %call127, 1
+  %636 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 127
+  %637 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %636, i32 0, i32 1
+  store <2 x float> %635, ptr %637, align 8
   %call128 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFD0D2D880000000, float noundef 0x3FE0D2D880000000, float noundef 0xBFE9E36D20000000)
-  %256 = extractvalue { <2 x float>, <2 x float> } %call128, 0
-  store <2 x float> %256, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 128), align 16
-  %257 = extractvalue { <2 x float>, <2 x float> } %call128, 1
-  store <2 x float> %257, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 128), i32 0, i32 1), align 8
+  %638 = extractvalue { <2 x float>, <2 x float> } %call128, 0
+  %639 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 128
+  store <2 x float> %638, ptr %639, align 16
+  %640 = extractvalue { <2 x float>, <2 x float> } %call128, 1
+  %641 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 128
+  %642 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %641, i32 0, i32 1
+  store <2 x float> %640, ptr %642, align 8
   %call129 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFDC9F2BA0000000, float noundef 0x3FD1B07D00000000, float noundef 0xBFEB388440000000)
-  %258 = extractvalue { <2 x float>, <2 x float> } %call129, 0
-  store <2 x float> %258, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 129), align 16
-  %259 = extractvalue { <2 x float>, <2 x float> } %call129, 1
-  store <2 x float> %259, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 129), i32 0, i32 1), align 8
+  %643 = extractvalue { <2 x float>, <2 x float> } %call129, 0
+  %644 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 129
+  store <2 x float> %643, ptr %644, align 16
+  %645 = extractvalue { <2 x float>, <2 x float> } %call129, 1
+  %646 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 129
+  %647 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %646, i32 0, i32 1
+  store <2 x float> %645, ptr %647, align 8
   %call130 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE105A920000000, float noundef 0x3FE012DBA0000000, float noundef 0xBFE5D095A0000000)
-  %260 = extractvalue { <2 x float>, <2 x float> } %call130, 0
-  store <2 x float> %260, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 130), align 16
-  %261 = extractvalue { <2 x float>, <2 x float> } %call130, 1
-  store <2 x float> %261, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 130), i32 0, i32 1), align 8
+  %648 = extractvalue { <2 x float>, <2 x float> } %call130, 0
+  %649 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 130
+  store <2 x float> %648, ptr %649, align 16
+  %650 = extractvalue { <2 x float>, <2 x float> } %call130, 1
+  %651 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 130
+  %652 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %651, i32 0, i32 1
+  store <2 x float> %650, ptr %652, align 8
   %call131 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FEB93E600000000, float noundef 0x3FD1B078E0000000, float noundef 0xBFDB3879C0000000)
-  %262 = extractvalue { <2 x float>, <2 x float> } %call131, 0
-  store <2 x float> %262, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 131), align 16
-  %263 = extractvalue { <2 x float>, <2 x float> } %call131, 1
-  store <2 x float> %263, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 131), i32 0, i32 1), align 8
+  %653 = extractvalue { <2 x float>, <2 x float> } %call131, 0
+  %654 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 131
+  store <2 x float> %653, ptr %654, align 16
+  %655 = extractvalue { <2 x float>, <2 x float> } %call131, 1
+  %656 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 131
+  %657 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %656, i32 0, i32 1
+  store <2 x float> %655, ptr %657, align 8
   %call132 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE9E37BE0000000, float noundef 0.000000e+00, float noundef 0xBFE2CF1C40000000)
-  %264 = extractvalue { <2 x float>, <2 x float> } %call132, 0
-  store <2 x float> %264, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 132), align 16
-  %265 = extractvalue { <2 x float>, <2 x float> } %call132, 1
-  store <2 x float> %265, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 132), i32 0, i32 1), align 8
+  %658 = extractvalue { <2 x float>, <2 x float> } %call132, 0
+  %659 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 132
+  store <2 x float> %658, ptr %659, align 16
+  %660 = extractvalue { <2 x float>, <2 x float> } %call132, 1
+  %661 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 132
+  %662 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %661, i32 0, i32 1
+  store <2 x float> %660, ptr %662, align 8
   %call133 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE605A500000000, float noundef 0x3FE0D2D440000000, float noundef 0xBFDFFFF360000000)
-  %266 = extractvalue { <2 x float>, <2 x float> } %call133, 0
-  store <2 x float> %266, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 133), align 16
-  %267 = extractvalue { <2 x float>, <2 x float> } %call133, 1
-  store <2 x float> %267, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 133), i32 0, i32 1), align 8
+  %663 = extractvalue { <2 x float>, <2 x float> } %call133, 0
+  %664 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 133
+  store <2 x float> %663, ptr %664, align 16
+  %665 = extractvalue { <2 x float>, <2 x float> } %call133, 1
+  %666 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 133
+  %667 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %666, i32 0, i32 1
+  store <2 x float> %665, ptr %667, align 8
   %call134 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE5775DA0000000, float noundef 0x3FD1B07D00000000, float noundef 0xBFE605A500000000)
-  %268 = extractvalue { <2 x float>, <2 x float> } %call134, 0
-  store <2 x float> %268, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 134), align 16
-  %269 = extractvalue { <2 x float>, <2 x float> } %call134, 1
-  store <2 x float> %269, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 134), i32 0, i32 1), align 8
+  %668 = extractvalue { <2 x float>, <2 x float> } %call134, 0
+  %669 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 134
+  store <2 x float> %668, ptr %669, align 16
+  %670 = extractvalue { <2 x float>, <2 x float> } %call134, 1
+  %671 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 134
+  %672 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %671, i32 0, i32 1
+  store <2 x float> %670, ptr %672, align 8
   %call135 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FDEF96180000000, float noundef 0x3FE012DBA0000000, float noundef 0xBFE6EE19C0000000)
-  %270 = extractvalue { <2 x float>, <2 x float> } %call135, 0
-  store <2 x float> %270, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 135), align 16
-  %271 = extractvalue { <2 x float>, <2 x float> } %call135, 1
-  store <2 x float> %271, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 135), i32 0, i32 1), align 8
+  %673 = extractvalue { <2 x float>, <2 x float> } %call135, 0
+  %674 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 135
+  store <2 x float> %673, ptr %674, align 16
+  %675 = extractvalue { <2 x float>, <2 x float> } %call135, 1
+  %676 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 135
+  %677 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %676, i32 0, i32 1
+  store <2 x float> %675, ptr %677, align 8
   %call136 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FB3DE0D60000000, float noundef 0x3FEEF97240000000, float noundef 0x3FCE92BC20000000)
-  %272 = extractvalue { <2 x float>, <2 x float> } %call136, 0
-  store <2 x float> %272, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 136), align 16
-  %273 = extractvalue { <2 x float>, <2 x float> } %call136, 1
-  store <2 x float> %273, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 136), i32 0, i32 1), align 8
+  %678 = extractvalue { <2 x float>, <2 x float> } %call136, 0
+  %679 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 136
+  store <2 x float> %678, ptr %679, align 16
+  %680 = extractvalue { <2 x float>, <2 x float> } %call136, 1
+  %681 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 136
+  %682 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %681, i32 0, i32 1
+  store <2 x float> %680, ptr %682, align 8
   %call137 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FD012CAE0000000, float noundef 0x3FEEF97020000000, float noundef 0.000000e+00)
-  %274 = extractvalue { <2 x float>, <2 x float> } %call137, 0
-  store <2 x float> %274, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 137), align 16
-  %275 = extractvalue { <2 x float>, <2 x float> } %call137, 1
-  store <2 x float> %275, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 137), i32 0, i32 1), align 8
+  %683 = extractvalue { <2 x float>, <2 x float> } %call137, 0
+  %684 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 137
+  store <2 x float> %683, ptr %684, align 16
+  %685 = extractvalue { <2 x float>, <2 x float> } %call137, 1
+  %686 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 137
+  %687 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %686, i32 0, i32 1
+  store <2 x float> %685, ptr %687, align 8
   %call138 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
-  %276 = extractvalue { <2 x float>, <2 x float> } %call138, 0
-  store <2 x float> %276, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 138), align 16
-  %277 = extractvalue { <2 x float>, <2 x float> } %call138, 1
-  store <2 x float> %277, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 138), i32 0, i32 1), align 8
+  %688 = extractvalue { <2 x float>, <2 x float> } %call138, 0
+  %689 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 138
+  store <2 x float> %688, ptr %689, align 16
+  %690 = extractvalue { <2 x float>, <2 x float> } %call138, 1
+  %691 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 138
+  %692 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %691, i32 0, i32 1
+  store <2 x float> %690, ptr %692, align 8
   %call139 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FC4CB5BC0000000, float noundef 0x3FEB388EC0000000, float noundef 0x3FDFFFEB00000000)
-  %278 = extractvalue { <2 x float>, <2 x float> } %call139, 0
-  store <2 x float> %278, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 139), align 16
-  %279 = extractvalue { <2 x float>, <2 x float> } %call139, 1
-  store <2 x float> %279, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 139), i32 0, i32 1), align 8
+  %693 = extractvalue { <2 x float>, <2 x float> } %call139, 0
+  %694 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 139
+  store <2 x float> %693, ptr %694, align 16
+  %695 = extractvalue { <2 x float>, <2 x float> } %call139, 1
+  %696 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 139
+  %697 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %696, i32 0, i32 1
+  store <2 x float> %695, ptr %697, align 8
   %call140 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FD727BB20000000, float noundef 0x3FEC9F29A0000000, float noundef 0x3FD0D2BF60000000)
-  %280 = extractvalue { <2 x float>, <2 x float> } %call140, 0
-  store <2 x float> %280, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 140), align 16
-  %281 = extractvalue { <2 x float>, <2 x float> } %call140, 1
-  store <2 x float> %281, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 140), i32 0, i32 1), align 8
+  %698 = extractvalue { <2 x float>, <2 x float> } %call140, 0
+  %699 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 140
+  store <2 x float> %698, ptr %699, align 16
+  %700 = extractvalue { <2 x float>, <2 x float> } %call140, 1
+  %701 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 140
+  %702 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %701, i32 0, i32 1
+  store <2 x float> %700, ptr %702, align 8
   %call141 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FDC9F1280000000, float noundef 0x3FE727D460000000, float noundef 0x3FE0D2C380000000)
-  %282 = extractvalue { <2 x float>, <2 x float> } %call141, 0
-  store <2 x float> %282, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 141), align 16
-  %283 = extractvalue { <2 x float>, <2 x float> } %call141, 1
-  store <2 x float> %283, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 141), i32 0, i32 1), align 8
+  %703 = extractvalue { <2 x float>, <2 x float> } %call141, 0
+  %704 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 141
+  store <2 x float> %703, ptr %704, align 16
+  %705 = extractvalue { <2 x float>, <2 x float> } %call141, 1
+  %706 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 141
+  %707 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %706, i32 0, i32 1
+  store <2 x float> %705, ptr %707, align 8
   %call142 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE0D2C7C0000000, float noundef 0x3FEB388A80000000, float noundef 0.000000e+00)
-  %284 = extractvalue { <2 x float>, <2 x float> } %call142, 0
-  store <2 x float> %284, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 142), align 16
-  %285 = extractvalue { <2 x float>, <2 x float> } %call142, 1
-  store <2 x float> %285, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 142), i32 0, i32 1), align 8
+  %708 = extractvalue { <2 x float>, <2 x float> } %call142, 0
+  %709 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 142
+  store <2 x float> %708, ptr %709, align 16
+  %710 = extractvalue { <2 x float>, <2 x float> } %call142, 1
+  %711 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 142
+  %712 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %711, i32 0, i32 1
+  store <2 x float> %710, ptr %712, align 8
   %call143 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE46C15E0000000, float noundef 0x3FE727D020000000, float noundef 0x3FD0D2C380000000)
-  %286 = extractvalue { <2 x float>, <2 x float> } %call143, 0
-  store <2 x float> %286, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 143), align 16
-  %287 = extractvalue { <2 x float>, <2 x float> } %call143, 1
-  store <2 x float> %287, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 143), i32 0, i32 1), align 8
+  %713 = extractvalue { <2 x float>, <2 x float> } %call143, 0
+  %714 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 143
+  store <2 x float> %713, ptr %714, align 16
+  %715 = extractvalue { <2 x float>, <2 x float> } %call143, 1
+  %716 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 143
+  %717 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %716, i32 0, i32 1
+  store <2 x float> %715, ptr %717, align 8
   %call144 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFCA01D5C0000000, float noundef 0x3FEEF97240000000, float noundef 0x3FC2E52580000000)
-  %288 = extractvalue { <2 x float>, <2 x float> } %call144, 0
-  store <2 x float> %288, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 144), align 16
-  %289 = extractvalue { <2 x float>, <2 x float> } %call144, 1
-  store <2 x float> %289, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 144), i32 0, i32 1), align 8
+  %718 = extractvalue { <2 x float>, <2 x float> } %call144, 0
+  %719 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 144
+  store <2 x float> %718, ptr %719, align 16
+  %720 = extractvalue { <2 x float>, <2 x float> } %call144, 1
+  %721 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 144
+  %722 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %721, i32 0, i32 1
+  store <2 x float> %720, ptr %722, align 8
   %call145 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFDB387E00000000, float noundef 0x3FEB388EC0000000, float noundef 0x3FD3C6D620000000)
-  %290 = extractvalue { <2 x float>, <2 x float> } %call145, 0
-  store <2 x float> %290, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 145), align 16
-  %291 = extractvalue { <2 x float>, <2 x float> } %call145, 1
-  store <2 x float> %291, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 145), i32 0, i32 1), align 8
+  %723 = extractvalue { <2 x float>, <2 x float> } %call145, 0
+  %724 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 145
+  store <2 x float> %723, ptr %724, align 16
+  %725 = extractvalue { <2 x float>, <2 x float> } %call145, 1
+  %726 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 145
+  %727 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %726, i32 0, i32 1
+  store <2 x float> %725, ptr %727, align 8
   %call146 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFC1B07080000000, float noundef 0x3FEC9F2BA0000000, float noundef 0x3FDB387160000000)
-  %292 = extractvalue { <2 x float>, <2 x float> } %call146, 0
-  store <2 x float> %292, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 146), align 16
-  %293 = extractvalue { <2 x float>, <2 x float> } %call146, 1
-  store <2 x float> %293, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 146), i32 0, i32 1), align 8
+  %728 = extractvalue { <2 x float>, <2 x float> } %call146, 0
+  %729 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 146
+  store <2 x float> %728, ptr %729, align 16
+  %730 = extractvalue { <2 x float>, <2 x float> } %call146, 1
+  %731 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 146
+  %732 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %731, i32 0, i32 1
+  store <2 x float> %730, ptr %732, align 8
   %call147 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFD727CC00000000, float noundef 0x3FE727D460000000, float noundef 0x3FE2CF13C0000000)
-  %294 = extractvalue { <2 x float>, <2 x float> } %call147, 0
-  store <2 x float> %294, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 147), align 16
-  %295 = extractvalue { <2 x float>, <2 x float> } %call147, 1
-  store <2 x float> %295, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 147), i32 0, i32 1), align 8
+  %733 = extractvalue { <2 x float>, <2 x float> } %call147, 0
+  %734 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 147
+  store <2 x float> %733, ptr %734, align 16
+  %735 = extractvalue { <2 x float>, <2 x float> } %call147, 1
+  %736 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 147
+  %737 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %736, i32 0, i32 1
+  store <2 x float> %735, ptr %737, align 8
   %call148 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFAB074A80000000, float noundef 0x3FE727D460000000, float noundef 0x3FE6059C80000000)
-  %296 = extractvalue { <2 x float>, <2 x float> } %call148, 0
-  store <2 x float> %296, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 148), align 16
-  %297 = extractvalue { <2 x float>, <2 x float> } %call148, 1
-  store <2 x float> %297, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 148), i32 0, i32 1), align 8
+  %738 = extractvalue { <2 x float>, <2 x float> } %call148, 0
+  %739 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 148
+  store <2 x float> %738, ptr %739, align 16
+  %740 = extractvalue { <2 x float>, <2 x float> } %call148, 1
+  %741 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 148
+  %742 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %741, i32 0, i32 1
+  store <2 x float> %740, ptr %742, align 8
   %call149 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFCA01D5C0000000, float noundef 0x3FEEF97240000000, float noundef 0xBFC2E52580000000)
-  %298 = extractvalue { <2 x float>, <2 x float> } %call149, 0
-  store <2 x float> %298, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 149), align 16
-  %299 = extractvalue { <2 x float>, <2 x float> } %call149, 1
-  store <2 x float> %299, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 149), i32 0, i32 1), align 8
+  %743 = extractvalue { <2 x float>, <2 x float> } %call149, 0
+  %744 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 149
+  store <2 x float> %743, ptr %744, align 16
+  %745 = extractvalue { <2 x float>, <2 x float> } %call149, 1
+  %746 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 149
+  %747 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %746, i32 0, i32 1
+  store <2 x float> %745, ptr %747, align 8
   %call150 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFDB387E00000000, float noundef 0x3FEB388EC0000000, float noundef 0xBFD3C6D620000000)
-  %300 = extractvalue { <2 x float>, <2 x float> } %call150, 0
-  store <2 x float> %300, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 150), align 16
-  %301 = extractvalue { <2 x float>, <2 x float> } %call150, 1
-  store <2 x float> %301, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 150), i32 0, i32 1), align 8
+  %748 = extractvalue { <2 x float>, <2 x float> } %call150, 0
+  %749 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 150
+  store <2 x float> %748, ptr %749, align 16
+  %750 = extractvalue { <2 x float>, <2 x float> } %call150, 1
+  %751 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 150
+  %752 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %751, i32 0, i32 1
+  store <2 x float> %750, ptr %752, align 8
   %call151 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFDC9F16C0000000, float noundef 0x3FEC9F29A0000000, float noundef 0.000000e+00)
-  %302 = extractvalue { <2 x float>, <2 x float> } %call151, 0
-  store <2 x float> %302, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 151), align 16
-  %303 = extractvalue { <2 x float>, <2 x float> } %call151, 1
-  store <2 x float> %303, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 151), i32 0, i32 1), align 8
+  %753 = extractvalue { <2 x float>, <2 x float> } %call151, 0
+  %754 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 151
+  store <2 x float> %753, ptr %754, align 16
+  %755 = extractvalue { <2 x float>, <2 x float> } %call151, 1
+  %756 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 151
+  %757 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %756, i32 0, i32 1
+  store <2 x float> %755, ptr %757, align 8
   %call152 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE5775540000000, float noundef 0x3FE727D240000000, float noundef 0xBFC4CB6420000000)
-  %304 = extractvalue { <2 x float>, <2 x float> } %call152, 0
-  store <2 x float> %304, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 152), align 16
-  %305 = extractvalue { <2 x float>, <2 x float> } %call152, 1
-  store <2 x float> %305, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 152), i32 0, i32 1), align 8
+  %758 = extractvalue { <2 x float>, <2 x float> } %call152, 0
+  %759 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 152
+  store <2 x float> %758, ptr %759, align 16
+  %760 = extractvalue { <2 x float>, <2 x float> } %call152, 1
+  %761 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 152
+  %762 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %761, i32 0, i32 1
+  store <2 x float> %760, ptr %762, align 8
   %call153 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFE5775540000000, float noundef 0x3FE727D240000000, float noundef 0x3FC4CB6420000000)
-  %306 = extractvalue { <2 x float>, <2 x float> } %call153, 0
-  store <2 x float> %306, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 153), align 16
-  %307 = extractvalue { <2 x float>, <2 x float> } %call153, 1
-  store <2 x float> %307, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 153), i32 0, i32 1), align 8
+  %763 = extractvalue { <2 x float>, <2 x float> } %call153, 0
+  %764 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 153
+  store <2 x float> %763, ptr %764, align 16
+  %765 = extractvalue { <2 x float>, <2 x float> } %call153, 1
+  %766 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 153
+  %767 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %766, i32 0, i32 1
+  store <2 x float> %765, ptr %767, align 8
   %call154 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FB3DE0D60000000, float noundef 0x3FEEF97240000000, float noundef 0xBFCE92BC20000000)
-  %308 = extractvalue { <2 x float>, <2 x float> } %call154, 0
-  store <2 x float> %308, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 154), align 16
-  %309 = extractvalue { <2 x float>, <2 x float> } %call154, 1
-  store <2 x float> %309, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 154), i32 0, i32 1), align 8
+  %768 = extractvalue { <2 x float>, <2 x float> } %call154, 0
+  %769 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 154
+  store <2 x float> %768, ptr %769, align 16
+  %770 = extractvalue { <2 x float>, <2 x float> } %call154, 1
+  %771 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 154
+  %772 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %771, i32 0, i32 1
+  store <2 x float> %770, ptr %772, align 8
   %call155 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FC4CB5BC0000000, float noundef 0x3FEB388EC0000000, float noundef 0xBFDFFFEB00000000)
-  %310 = extractvalue { <2 x float>, <2 x float> } %call155, 0
-  store <2 x float> %310, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 155), align 16
-  %311 = extractvalue { <2 x float>, <2 x float> } %call155, 1
-  store <2 x float> %311, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 155), i32 0, i32 1), align 8
+  %773 = extractvalue { <2 x float>, <2 x float> } %call155, 0
+  %774 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 155
+  store <2 x float> %773, ptr %774, align 16
+  %775 = extractvalue { <2 x float>, <2 x float> } %call155, 1
+  %776 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 155
+  %777 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %776, i32 0, i32 1
+  store <2 x float> %775, ptr %777, align 8
   %call156 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFC1B07080000000, float noundef 0x3FEC9F2BA0000000, float noundef 0xBFDB387160000000)
-  %312 = extractvalue { <2 x float>, <2 x float> } %call156, 0
-  store <2 x float> %312, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 156), align 16
-  %313 = extractvalue { <2 x float>, <2 x float> } %call156, 1
-  store <2 x float> %313, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 156), i32 0, i32 1), align 8
+  %778 = extractvalue { <2 x float>, <2 x float> } %call156, 0
+  %779 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 156
+  store <2 x float> %778, ptr %779, align 16
+  %780 = extractvalue { <2 x float>, <2 x float> } %call156, 1
+  %781 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 156
+  %782 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %781, i32 0, i32 1
+  store <2 x float> %780, ptr %782, align 8
   %call157 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFAB074A80000000, float noundef 0x3FE727D460000000, float noundef 0xBFE6059C80000000)
-  %314 = extractvalue { <2 x float>, <2 x float> } %call157, 0
-  store <2 x float> %314, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 157), align 16
-  %315 = extractvalue { <2 x float>, <2 x float> } %call157, 1
-  store <2 x float> %315, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 157), i32 0, i32 1), align 8
+  %783 = extractvalue { <2 x float>, <2 x float> } %call157, 0
+  %784 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 157
+  store <2 x float> %783, ptr %784, align 16
+  %785 = extractvalue { <2 x float>, <2 x float> } %call157, 1
+  %786 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 157
+  %787 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %786, i32 0, i32 1
+  store <2 x float> %785, ptr %787, align 8
   %call158 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0xBFD727CC00000000, float noundef 0x3FE727D460000000, float noundef 0xBFE2CF13C0000000)
-  %316 = extractvalue { <2 x float>, <2 x float> } %call158, 0
-  store <2 x float> %316, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 158), align 16
-  %317 = extractvalue { <2 x float>, <2 x float> } %call158, 1
-  store <2 x float> %317, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 158), i32 0, i32 1), align 8
+  %788 = extractvalue { <2 x float>, <2 x float> } %call158, 0
+  %789 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 158
+  store <2 x float> %788, ptr %789, align 16
+  %790 = extractvalue { <2 x float>, <2 x float> } %call158, 1
+  %791 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 158
+  %792 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %791, i32 0, i32 1
+  store <2 x float> %790, ptr %792, align 8
   %call159 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FD727BB20000000, float noundef 0x3FEC9F29A0000000, float noundef 0xBFD0D2BF60000000)
-  %318 = extractvalue { <2 x float>, <2 x float> } %call159, 0
-  store <2 x float> %318, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 159), align 16
-  %319 = extractvalue { <2 x float>, <2 x float> } %call159, 1
-  store <2 x float> %319, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 159), i32 0, i32 1), align 8
+  %793 = extractvalue { <2 x float>, <2 x float> } %call159, 0
+  %794 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 159
+  store <2 x float> %793, ptr %794, align 16
+  %795 = extractvalue { <2 x float>, <2 x float> } %call159, 1
+  %796 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 159
+  %797 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %796, i32 0, i32 1
+  store <2 x float> %795, ptr %797, align 8
   %call160 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FE46C15E0000000, float noundef 0x3FE727D020000000, float noundef 0xBFD0D2C380000000)
-  %320 = extractvalue { <2 x float>, <2 x float> } %call160, 0
-  store <2 x float> %320, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 160), align 16
-  %321 = extractvalue { <2 x float>, <2 x float> } %call160, 1
-  store <2 x float> %321, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 160), i32 0, i32 1), align 8
+  %798 = extractvalue { <2 x float>, <2 x float> } %call160, 0
+  %799 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 160
+  store <2 x float> %798, ptr %799, align 16
+  %800 = extractvalue { <2 x float>, <2 x float> } %call160, 1
+  %801 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 160
+  %802 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %801, i32 0, i32 1
+  store <2 x float> %800, ptr %802, align 8
   %call161 = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 0x3FDC9F1280000000, float noundef 0x3FE727D460000000, float noundef 0xBFE0D2C380000000)
-  %322 = extractvalue { <2 x float>, <2 x float> } %call161, 0
-  store <2 x float> %322, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 161), align 16
-  %323 = extractvalue { <2 x float>, <2 x float> } %call161, 1
-  store <2 x float> %323, ptr getelementptr inbounds ({ <2 x float>, <2 x float> }, ptr getelementptr inbounds (%class.b3Vector3, ptr @unitSphere162, i64 161), i32 0, i32 1), align 8
+  %803 = extractvalue { <2 x float>, <2 x float> } %call161, 0
+  %804 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 161
+  store <2 x float> %803, ptr %804, align 16
+  %805 = extractvalue { <2 x float>, <2 x float> } %call161, 1
+  %806 = getelementptr inbounds %class.b3Vector3, ptr @unitSphere162, i64 161
+  %807 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %806, i32 0, i32 1
+  store <2 x float> %805, ptr %807, align 8
   ret void
 }
 
@@ -7198,16 +7682,17 @@ entry:
   store ptr %device, ptr %device.addr, align 8
   store ptr %q, ptr %q.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15GpuSatCollision, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV15GpuSatCollision, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_context = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_context, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_context, align 8
   %m_device = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %device.addr, align 8
-  store ptr %1, ptr %m_device, align 8
+  %2 = load ptr, ptr %device.addr, align 8
+  store ptr %2, ptr %m_device, align 8
   %m_queue = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %q.addr, align 8
-  store ptr %2, ptr %m_queue, align 8
+  %3 = load ptr, ptr %q.addr, align 8
+  store ptr %3, ptr %m_queue, align 8
   %m_findSeparatingAxisKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 4
   store ptr null, ptr %m_findSeparatingAxisKernel, align 8
   %m_findSeparatingAxisVertexFaceKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 7
@@ -7216,106 +7701,106 @@ entry:
   store ptr null, ptr %m_findSeparatingAxisEdgeEdgeKernel, align 8
   %m_unitSphereDirections = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 24
   %m_context2 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %m_context2, align 8
+  %4 = load ptr, ptr %m_context2, align 8
   %m_queue3 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %m_queue3, align 8
-  call void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_unitSphereDirections, ptr noundef %3, ptr noundef %4, i64 noundef 0, i1 noundef zeroext true)
+  %5 = load ptr, ptr %m_queue3, align 8
+  call void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_unitSphereDirections, ptr noundef %4, ptr noundef %5, i64 noundef 0, i1 noundef zeroext true)
   %m_totalContactsOut = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 25
   %m_context4 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %m_context4, align 8
+  %6 = load ptr, ptr %m_context4, align 8
   %m_queue5 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %m_queue5, align 8
-  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_totalContactsOut, ptr noundef %5, ptr noundef %6, i64 noundef 0, i1 noundef zeroext true)
+  %7 = load ptr, ptr %m_queue5, align 8
+  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_totalContactsOut, ptr noundef %6, ptr noundef %7, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_sepNormals = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 26
   %m_context6 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %m_context6, align 8
+  %8 = load ptr, ptr %m_context6, align 8
   %m_queue7 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %8 = load ptr, ptr %m_queue7, align 8
-  invoke void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sepNormals, ptr noundef %7, ptr noundef %8, i64 noundef 0, i1 noundef zeroext true)
+  %9 = load ptr, ptr %m_queue7, align 8
+  invoke void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_sepNormals, ptr noundef %8, ptr noundef %9, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
   %m_dmins = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 27
   %m_context10 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %m_context10, align 8
+  %10 = load ptr, ptr %m_context10, align 8
   %m_queue11 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %10 = load ptr, ptr %m_queue11, align 8
-  invoke void @_ZN13b3OpenCLArrayIfEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_dmins, ptr noundef %9, ptr noundef %10, i64 noundef 0, i1 noundef zeroext true)
+  %11 = load ptr, ptr %m_queue11, align 8
+  invoke void @_ZN13b3OpenCLArrayIfEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_dmins, ptr noundef %10, ptr noundef %11, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont9
   %m_hasSeparatingNormals = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 28
   %m_context14 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %11 = load ptr, ptr %m_context14, align 8
+  %12 = load ptr, ptr %m_context14, align 8
   %m_queue15 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %12 = load ptr, ptr %m_queue15, align 8
-  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_hasSeparatingNormals, ptr noundef %11, ptr noundef %12, i64 noundef 0, i1 noundef zeroext true)
+  %13 = load ptr, ptr %m_queue15, align 8
+  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_hasSeparatingNormals, ptr noundef %12, ptr noundef %13, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont13
   %m_concaveSepNormals = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 29
   %m_context18 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %13 = load ptr, ptr %m_context18, align 8
+  %14 = load ptr, ptr %m_context18, align 8
   %m_queue19 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %14 = load ptr, ptr %m_queue19, align 8
-  invoke void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_concaveSepNormals, ptr noundef %13, ptr noundef %14, i64 noundef 0, i1 noundef zeroext true)
+  %15 = load ptr, ptr %m_queue19, align 8
+  invoke void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_concaveSepNormals, ptr noundef %14, ptr noundef %15, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont17
   %m_concaveHasSeparatingNormals = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 30
   %m_context22 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %15 = load ptr, ptr %m_context22, align 8
+  %16 = load ptr, ptr %m_context22, align 8
   %m_queue23 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %16 = load ptr, ptr %m_queue23, align 8
-  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_concaveHasSeparatingNormals, ptr noundef %15, ptr noundef %16, i64 noundef 0, i1 noundef zeroext true)
+  %17 = load ptr, ptr %m_queue23, align 8
+  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_concaveHasSeparatingNormals, ptr noundef %16, ptr noundef %17, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   %m_numConcavePairsOut = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 31
   %m_context26 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %17 = load ptr, ptr %m_context26, align 8
+  %18 = load ptr, ptr %m_context26, align 8
   %m_queue27 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %18 = load ptr, ptr %m_queue27, align 8
-  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_numConcavePairsOut, ptr noundef %17, ptr noundef %18, i64 noundef 0, i1 noundef zeroext true)
+  %19 = load ptr, ptr %m_queue27, align 8
+  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_numConcavePairsOut, ptr noundef %18, ptr noundef %19, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont25
   %m_gpuCompoundPairs = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 32
   %m_context30 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %19 = load ptr, ptr %m_context30, align 8
+  %20 = load ptr, ptr %m_context30, align 8
   %m_queue31 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %20 = load ptr, ptr %m_queue31, align 8
-  invoke void @_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_gpuCompoundPairs, ptr noundef %19, ptr noundef %20, i64 noundef 0, i1 noundef zeroext true)
+  %21 = load ptr, ptr %m_queue31, align 8
+  invoke void @_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_gpuCompoundPairs, ptr noundef %20, ptr noundef %21, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont29
   %m_gpuCompoundSepNormals = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 33
   %m_context34 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %21 = load ptr, ptr %m_context34, align 8
+  %22 = load ptr, ptr %m_context34, align 8
   %m_queue35 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %22 = load ptr, ptr %m_queue35, align 8
-  invoke void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_gpuCompoundSepNormals, ptr noundef %21, ptr noundef %22, i64 noundef 0, i1 noundef zeroext true)
+  %23 = load ptr, ptr %m_queue35, align 8
+  invoke void @_ZN13b3OpenCLArrayI9b3Vector3EC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_gpuCompoundSepNormals, ptr noundef %22, ptr noundef %23, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont33
   %m_gpuHasCompoundSepNormals = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 34
   %m_context38 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %23 = load ptr, ptr %m_context38, align 8
+  %24 = load ptr, ptr %m_context38, align 8
   %m_queue39 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %24 = load ptr, ptr %m_queue39, align 8
-  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_gpuHasCompoundSepNormals, ptr noundef %23, ptr noundef %24, i64 noundef 0, i1 noundef zeroext true)
+  %25 = load ptr, ptr %m_queue39, align 8
+  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_gpuHasCompoundSepNormals, ptr noundef %24, ptr noundef %25, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont37
   %m_numCompoundPairsOut = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 35
   %m_context42 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %25 = load ptr, ptr %m_context42, align 8
+  %26 = load ptr, ptr %m_context42, align 8
   %m_queue43 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 3
-  %26 = load ptr, ptr %m_queue43, align 8
-  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_numCompoundPairsOut, ptr noundef %25, ptr noundef %26, i64 noundef 0, i1 noundef zeroext true)
+  %27 = load ptr, ptr %m_queue43, align 8
+  invoke void @_ZN13b3OpenCLArrayIiEC2EP11_cl_contextP17_cl_command_queuemb(ptr noundef nonnull align 8 dereferenceable(50) %m_numCompoundPairsOut, ptr noundef %26, ptr noundef %27, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont41
@@ -7326,50 +7811,50 @@ invoke.cont45:                                    ; preds = %invoke.cont41
 
 invoke.cont48:                                    ; preds = %invoke.cont45
   store i32 0, ptr %errNum, align 4
-  %27 = load ptr, ptr @_ZL12mprKernelsCL, align 8
-  store ptr %27, ptr %mprSrc, align 8
-  %28 = load ptr, ptr @_ZL19satConcaveKernelsCL, align 8
-  store ptr %28, ptr %srcConcave, align 8
+  %28 = load ptr, ptr @_ZL12mprKernelsCL, align 8
+  store ptr %28, ptr %mprSrc, align 8
+  %29 = load ptr, ptr @_ZL19satConcaveKernelsCL, align 8
+  store ptr %29, ptr %srcConcave, align 8
   call void @llvm.memset.p0.i64(ptr align 16 %flags, i8 0, i64 1024, i1 false)
   %m_mprPenetrationKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 5
   store ptr null, ptr %m_mprPenetrationKernel, align 8
   %m_findSeparatingAxisUnitSphereKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 6
   store ptr null, ptr %m_findSeparatingAxisUnitSphereKernel, align 8
-  %29 = load i8, ptr @useMprGpu, align 1
-  %tobool = trunc i8 %29 to i1
+  %30 = load i8, ptr @useMprGpu, align 1
+  %tobool = trunc i8 %30 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont48
   %m_context49 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %30 = load ptr, ptr %m_context49, align 8
+  %31 = load ptr, ptr %m_context49, align 8
   %m_device50 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %31 = load ptr, ptr %m_device50, align 8
-  %32 = load ptr, ptr %mprSrc, align 8
+  %32 = load ptr, ptr %m_device50, align 8
+  %33 = load ptr, ptr %mprSrc, align 8
   %arraydecay = getelementptr inbounds [1024 x i8], ptr %flags, i64 0, i64 0
-  %call52 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %errNum, ptr noundef %arraydecay, ptr noundef @.str.3, i1 noundef zeroext false)
+  %call52 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %errNum, ptr noundef %arraydecay, ptr noundef @.str.3, i1 noundef zeroext false)
           to label %invoke.cont51 unwind label %lpad47
 
 invoke.cont51:                                    ; preds = %if.then
   store ptr %call52, ptr %mprProg, align 8
   %m_context53 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %33 = load ptr, ptr %m_context53, align 8
+  %34 = load ptr, ptr %m_context53, align 8
   %m_device54 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %34 = load ptr, ptr %m_device54, align 8
-  %35 = load ptr, ptr %mprSrc, align 8
-  %36 = load ptr, ptr %mprProg, align 8
-  %call56 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef @.str.4, ptr noundef %errNum, ptr noundef %36, ptr noundef @.str.5)
+  %35 = load ptr, ptr %m_device54, align 8
+  %36 = load ptr, ptr %mprSrc, align 8
+  %37 = load ptr, ptr %mprProg, align 8
+  %call56 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef @.str.4, ptr noundef %errNum, ptr noundef %37, ptr noundef @.str.5)
           to label %invoke.cont55 unwind label %lpad47
 
 invoke.cont55:                                    ; preds = %invoke.cont51
   %m_mprPenetrationKernel57 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 5
   store ptr %call56, ptr %m_mprPenetrationKernel57, align 8
   %m_context58 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %37 = load ptr, ptr %m_context58, align 8
+  %38 = load ptr, ptr %m_context58, align 8
   %m_device59 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %38 = load ptr, ptr %m_device59, align 8
-  %39 = load ptr, ptr %mprSrc, align 8
-  %40 = load ptr, ptr %mprProg, align 8
-  %call61 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef @.str.6, ptr noundef %errNum, ptr noundef %40, ptr noundef @.str.5)
+  %39 = load ptr, ptr %m_device59, align 8
+  %40 = load ptr, ptr %mprSrc, align 8
+  %41 = load ptr, ptr %mprProg, align 8
+  %call61 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef @.str.6, ptr noundef %errNum, ptr noundef %41, ptr noundef @.str.5)
           to label %invoke.cont60 unwind label %lpad47
 
 invoke.cont60:                                    ; preds = %invoke.cont55
@@ -7377,15 +7862,15 @@ invoke.cont60:                                    ; preds = %invoke.cont55
   store ptr %call61, ptr %m_findSeparatingAxisUnitSphereKernel62, align 8
   store i32 162, ptr %numDirections, align 4
   %m_unitSphereDirections63 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 24
-  %41 = load i32, ptr %numDirections, align 4
-  %conv = sext i32 %41 to i64
+  %42 = load i32, ptr %numDirections, align 4
+  %conv = sext i32 %42 to i64
   %call65 = invoke noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3Vector3E6resizeEmb(ptr noundef nonnull align 8 dereferenceable(50) %m_unitSphereDirections63, i64 noundef %conv, i1 noundef zeroext true)
           to label %invoke.cont64 unwind label %lpad47
 
 invoke.cont64:                                    ; preds = %invoke.cont60
   %m_unitSphereDirections66 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 24
-  %42 = load i32, ptr %numDirections, align 4
-  %conv67 = sext i32 %42 to i64
+  %43 = load i32, ptr %numDirections, align 4
+  %conv67 = sext i32 %43 to i64
   invoke void @_ZN13b3OpenCLArrayI9b3Vector3E19copyFromHostPointerEPKS0_mmb(ptr noundef nonnull align 8 dereferenceable(50) %m_unitSphereDirections66, ptr noundef @unitSphere162, i64 noundef %conv67, i64 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont68 unwind label %lpad47
 
@@ -7393,386 +7878,386 @@ invoke.cont68:                                    ; preds = %invoke.cont64
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %exn.slot, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %ehselector.slot, align 4
   br label %ehcleanup177
 
 lpad8:                                            ; preds = %invoke.cont
-  %46 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %exn.slot, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %ehselector.slot, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %exn.slot, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %ehselector.slot, align 4
   br label %ehcleanup176
 
 lpad12:                                           ; preds = %invoke.cont9
-  %49 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %exn.slot, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %ehselector.slot, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %exn.slot, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %ehselector.slot, align 4
   br label %ehcleanup175
 
 lpad16:                                           ; preds = %invoke.cont13
-  %52 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = extractvalue { ptr, i32 } %52, 0
-  store ptr %53, ptr %exn.slot, align 8
-  %54 = extractvalue { ptr, i32 } %52, 1
-  store i32 %54, ptr %ehselector.slot, align 4
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %exn.slot, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %ehselector.slot, align 4
   br label %ehcleanup174
 
 lpad20:                                           ; preds = %invoke.cont17
-  %55 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %56 = extractvalue { ptr, i32 } %55, 0
-  store ptr %56, ptr %exn.slot, align 8
-  %57 = extractvalue { ptr, i32 } %55, 1
-  store i32 %57, ptr %ehselector.slot, align 4
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %exn.slot, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %ehselector.slot, align 4
   br label %ehcleanup173
 
 lpad24:                                           ; preds = %invoke.cont21
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %59 = extractvalue { ptr, i32 } %58, 0
-  store ptr %59, ptr %exn.slot, align 8
-  %60 = extractvalue { ptr, i32 } %58, 1
-  store i32 %60, ptr %ehselector.slot, align 4
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %exn.slot, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %ehselector.slot, align 4
   br label %ehcleanup172
 
 lpad28:                                           ; preds = %invoke.cont25
-  %61 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %exn.slot, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %ehselector.slot, align 4
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %exn.slot, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %ehselector.slot, align 4
   br label %ehcleanup171
 
 lpad32:                                           ; preds = %invoke.cont29
-  %64 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %exn.slot, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %ehselector.slot, align 4
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %exn.slot, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %ehselector.slot, align 4
   br label %ehcleanup170
 
 lpad36:                                           ; preds = %invoke.cont33
-  %67 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %68 = extractvalue { ptr, i32 } %67, 0
-  store ptr %68, ptr %exn.slot, align 8
-  %69 = extractvalue { ptr, i32 } %67, 1
-  store i32 %69, ptr %ehselector.slot, align 4
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %exn.slot, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %ehselector.slot, align 4
   br label %ehcleanup169
 
 lpad40:                                           ; preds = %invoke.cont37
-  %70 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %exn.slot, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %ehselector.slot, align 4
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %exn.slot, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %ehselector.slot, align 4
   br label %ehcleanup168
 
 lpad44:                                           ; preds = %invoke.cont41
-  %73 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %exn.slot, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %ehselector.slot, align 4
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %exn.slot, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad47:                                           ; preds = %invoke.cont162, %invoke.cont158, %invoke.cont154, %invoke.cont150, %invoke.cont146, %invoke.cont142, %invoke.cont138, %invoke.cont134, %invoke.cont130, %invoke.cont126, %invoke.cont122, %invoke.cont118, %invoke.cont112, %invoke.cont108, %invoke.cont104, %invoke.cont100, %invoke.cont96, %invoke.cont91, %invoke.cont86, %invoke.cont81, %invoke.cont77, %invoke.cont72, %if.end, %invoke.cont64, %invoke.cont60, %invoke.cont55, %invoke.cont51, %if.then, %invoke.cont45
-  %76 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %exn.slot, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %ehselector.slot, align 4
+  %78 = extractvalue { ptr, i32 } %77, 0
+  store ptr %78, ptr %exn.slot, align 8
+  %79 = extractvalue { ptr, i32 } %77, 1
+  store i32 %79, ptr %ehselector.slot, align 4
   call void @_ZN13b3OpenCLArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %m_numCompoundPairsOut) #13
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont68, %invoke.cont48
   %m_context69 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %79 = load ptr, ptr %m_context69, align 8
+  %80 = load ptr, ptr %m_context69, align 8
   %m_device70 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %80 = load ptr, ptr %m_device70, align 8
-  %81 = load ptr, ptr @_ZL12satKernelsCL, align 8
+  %81 = load ptr, ptr %m_device70, align 8
+  %82 = load ptr, ptr @_ZL12satKernelsCL, align 8
   %arraydecay71 = getelementptr inbounds [1024 x i8], ptr %flags, i64 0, i64 0
-  %call73 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %errNum, ptr noundef %arraydecay71, ptr noundef @.str.7, i1 noundef zeroext false)
+  %call73 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %errNum, ptr noundef %arraydecay71, ptr noundef @.str.7, i1 noundef zeroext false)
           to label %invoke.cont72 unwind label %lpad47
 
 invoke.cont72:                                    ; preds = %if.end
   store ptr %call73, ptr %satProg, align 8
   %m_context74 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %82 = load ptr, ptr %m_context74, align 8
+  %83 = load ptr, ptr %m_context74, align 8
   %m_device75 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %83 = load ptr, ptr %m_device75, align 8
-  %84 = load ptr, ptr %srcConcave, align 8
+  %84 = load ptr, ptr %m_device75, align 8
+  %85 = load ptr, ptr %srcConcave, align 8
   %arraydecay76 = getelementptr inbounds [1024 x i8], ptr %flags, i64 0, i64 0
-  %call78 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %errNum, ptr noundef %arraydecay76, ptr noundef @.str.8, i1 noundef zeroext false)
+  %call78 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %83, ptr noundef %84, ptr noundef %85, ptr noundef %errNum, ptr noundef %arraydecay76, ptr noundef @.str.8, i1 noundef zeroext false)
           to label %invoke.cont77 unwind label %lpad47
 
 invoke.cont77:                                    ; preds = %invoke.cont72
   store ptr %call78, ptr %satConcaveProg, align 8
   %m_context79 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %85 = load ptr, ptr %m_context79, align 8
+  %86 = load ptr, ptr %m_context79, align 8
   %m_device80 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %86 = load ptr, ptr %m_device80, align 8
-  %87 = load ptr, ptr @_ZL12satKernelsCL, align 8
-  %88 = load ptr, ptr %satProg, align 8
-  %call82 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef @.str.9, ptr noundef %errNum, ptr noundef %88, ptr noundef @.str.5)
+  %87 = load ptr, ptr %m_device80, align 8
+  %88 = load ptr, ptr @_ZL12satKernelsCL, align 8
+  %89 = load ptr, ptr %satProg, align 8
+  %call82 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %86, ptr noundef %87, ptr noundef %88, ptr noundef @.str.9, ptr noundef %errNum, ptr noundef %89, ptr noundef @.str.5)
           to label %invoke.cont81 unwind label %lpad47
 
 invoke.cont81:                                    ; preds = %invoke.cont77
   %m_findSeparatingAxisKernel83 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 4
   store ptr %call82, ptr %m_findSeparatingAxisKernel83, align 8
   %m_context84 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %89 = load ptr, ptr %m_context84, align 8
+  %90 = load ptr, ptr %m_context84, align 8
   %m_device85 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %90 = load ptr, ptr %m_device85, align 8
-  %91 = load ptr, ptr @_ZL12satKernelsCL, align 8
-  %92 = load ptr, ptr %satProg, align 8
-  %call87 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef @.str.10, ptr noundef %errNum, ptr noundef %92, ptr noundef @.str.5)
+  %91 = load ptr, ptr %m_device85, align 8
+  %92 = load ptr, ptr @_ZL12satKernelsCL, align 8
+  %93 = load ptr, ptr %satProg, align 8
+  %call87 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef @.str.10, ptr noundef %errNum, ptr noundef %93, ptr noundef @.str.5)
           to label %invoke.cont86 unwind label %lpad47
 
 invoke.cont86:                                    ; preds = %invoke.cont81
   %m_findSeparatingAxisVertexFaceKernel88 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 7
   store ptr %call87, ptr %m_findSeparatingAxisVertexFaceKernel88, align 8
   %m_context89 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %93 = load ptr, ptr %m_context89, align 8
+  %94 = load ptr, ptr %m_context89, align 8
   %m_device90 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %94 = load ptr, ptr %m_device90, align 8
-  %95 = load ptr, ptr @_ZL12satKernelsCL, align 8
-  %96 = load ptr, ptr %satProg, align 8
-  %call92 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef @.str.11, ptr noundef %errNum, ptr noundef %96, ptr noundef @.str.5)
+  %95 = load ptr, ptr %m_device90, align 8
+  %96 = load ptr, ptr @_ZL12satKernelsCL, align 8
+  %97 = load ptr, ptr %satProg, align 8
+  %call92 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %94, ptr noundef %95, ptr noundef %96, ptr noundef @.str.11, ptr noundef %errNum, ptr noundef %97, ptr noundef @.str.5)
           to label %invoke.cont91 unwind label %lpad47
 
 invoke.cont91:                                    ; preds = %invoke.cont86
   %m_findSeparatingAxisEdgeEdgeKernel93 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 8
   store ptr %call92, ptr %m_findSeparatingAxisEdgeEdgeKernel93, align 8
   %m_context94 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %97 = load ptr, ptr %m_context94, align 8
+  %98 = load ptr, ptr %m_context94, align 8
   %m_device95 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %98 = load ptr, ptr %m_device95, align 8
-  %99 = load ptr, ptr @_ZL12satKernelsCL, align 8
-  %100 = load ptr, ptr %satProg, align 8
-  %call97 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %97, ptr noundef %98, ptr noundef %99, ptr noundef @.str.12, ptr noundef %errNum, ptr noundef %100, ptr noundef @.str.5)
+  %99 = load ptr, ptr %m_device95, align 8
+  %100 = load ptr, ptr @_ZL12satKernelsCL, align 8
+  %101 = load ptr, ptr %satProg, align 8
+  %call97 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %98, ptr noundef %99, ptr noundef %100, ptr noundef @.str.12, ptr noundef %errNum, ptr noundef %101, ptr noundef @.str.5)
           to label %invoke.cont96 unwind label %lpad47
 
 invoke.cont96:                                    ; preds = %invoke.cont91
   %m_findConcaveSeparatingAxisKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 9
   store ptr %call97, ptr %m_findConcaveSeparatingAxisKernel, align 8
   %m_context98 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %101 = load ptr, ptr %m_context98, align 8
+  %102 = load ptr, ptr %m_context98, align 8
   %m_device99 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %102 = load ptr, ptr %m_device99, align 8
-  %103 = load ptr, ptr %srcConcave, align 8
-  %104 = load ptr, ptr %satConcaveProg, align 8
-  %call101 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %101, ptr noundef %102, ptr noundef %103, ptr noundef @.str.13, ptr noundef %errNum, ptr noundef %104, ptr noundef @.str.5)
+  %103 = load ptr, ptr %m_device99, align 8
+  %104 = load ptr, ptr %srcConcave, align 8
+  %105 = load ptr, ptr %satConcaveProg, align 8
+  %call101 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef @.str.13, ptr noundef %errNum, ptr noundef %105, ptr noundef @.str.5)
           to label %invoke.cont100 unwind label %lpad47
 
 invoke.cont100:                                   ; preds = %invoke.cont96
   %m_findConcaveSeparatingAxisVertexFaceKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 10
   store ptr %call101, ptr %m_findConcaveSeparatingAxisVertexFaceKernel, align 8
   %m_context102 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %105 = load ptr, ptr %m_context102, align 8
+  %106 = load ptr, ptr %m_context102, align 8
   %m_device103 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %106 = load ptr, ptr %m_device103, align 8
-  %107 = load ptr, ptr %srcConcave, align 8
-  %108 = load ptr, ptr %satConcaveProg, align 8
-  %call105 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %105, ptr noundef %106, ptr noundef %107, ptr noundef @.str.14, ptr noundef %errNum, ptr noundef %108, ptr noundef @.str.5)
+  %107 = load ptr, ptr %m_device103, align 8
+  %108 = load ptr, ptr %srcConcave, align 8
+  %109 = load ptr, ptr %satConcaveProg, align 8
+  %call105 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %106, ptr noundef %107, ptr noundef %108, ptr noundef @.str.14, ptr noundef %errNum, ptr noundef %109, ptr noundef @.str.5)
           to label %invoke.cont104 unwind label %lpad47
 
 invoke.cont104:                                   ; preds = %invoke.cont100
   %m_findConcaveSeparatingAxisEdgeEdgeKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 11
   store ptr %call105, ptr %m_findConcaveSeparatingAxisEdgeEdgeKernel, align 8
   %m_context106 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %109 = load ptr, ptr %m_context106, align 8
+  %110 = load ptr, ptr %m_context106, align 8
   %m_device107 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %110 = load ptr, ptr %m_device107, align 8
-  %111 = load ptr, ptr @_ZL12satKernelsCL, align 8
-  %112 = load ptr, ptr %satProg, align 8
-  %call109 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef @.str.15, ptr noundef %errNum, ptr noundef %112, ptr noundef @.str.5)
+  %111 = load ptr, ptr %m_device107, align 8
+  %112 = load ptr, ptr @_ZL12satKernelsCL, align 8
+  %113 = load ptr, ptr %satProg, align 8
+  %call109 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef @.str.15, ptr noundef %errNum, ptr noundef %113, ptr noundef @.str.5)
           to label %invoke.cont108 unwind label %lpad47
 
 invoke.cont108:                                   ; preds = %invoke.cont104
   %m_findCompoundPairsKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 12
   store ptr %call109, ptr %m_findCompoundPairsKernel, align 8
   %m_context110 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %113 = load ptr, ptr %m_context110, align 8
+  %114 = load ptr, ptr %m_context110, align 8
   %m_device111 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %114 = load ptr, ptr %m_device111, align 8
-  %115 = load ptr, ptr @_ZL12satKernelsCL, align 8
-  %116 = load ptr, ptr %satProg, align 8
-  %call113 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %113, ptr noundef %114, ptr noundef %115, ptr noundef @.str.16, ptr noundef %errNum, ptr noundef %116, ptr noundef @.str.5)
+  %115 = load ptr, ptr %m_device111, align 8
+  %116 = load ptr, ptr @_ZL12satKernelsCL, align 8
+  %117 = load ptr, ptr %satProg, align 8
+  %call113 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %114, ptr noundef %115, ptr noundef %116, ptr noundef @.str.16, ptr noundef %errNum, ptr noundef %117, ptr noundef @.str.5)
           to label %invoke.cont112 unwind label %lpad47
 
 invoke.cont112:                                   ; preds = %invoke.cont108
   %m_processCompoundPairsKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 13
   store ptr %call113, ptr %m_processCompoundPairsKernel, align 8
-  %117 = load ptr, ptr @_ZL16satClipKernelsCL, align 8
-  store ptr %117, ptr %srcClip, align 8
+  %118 = load ptr, ptr @_ZL16satClipKernelsCL, align 8
+  store ptr %118, ptr %srcClip, align 8
   call void @llvm.memset.p0.i64(ptr align 16 %flags114, i8 0, i64 1024, i1 false)
   %m_context115 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %118 = load ptr, ptr %m_context115, align 8
+  %119 = load ptr, ptr %m_context115, align 8
   %m_device116 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %119 = load ptr, ptr %m_device116, align 8
-  %120 = load ptr, ptr %srcClip, align 8
+  %120 = load ptr, ptr %m_device116, align 8
+  %121 = load ptr, ptr %srcClip, align 8
   %arraydecay117 = getelementptr inbounds [1024 x i8], ptr %flags114, i64 0, i64 0
-  %call119 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef %errNum, ptr noundef %arraydecay117, ptr noundef @.str.17, i1 noundef zeroext false)
+  %call119 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %119, ptr noundef %120, ptr noundef %121, ptr noundef %errNum, ptr noundef %arraydecay117, ptr noundef @.str.17, i1 noundef zeroext false)
           to label %invoke.cont118 unwind label %lpad47
 
 invoke.cont118:                                   ; preds = %invoke.cont112
   store ptr %call119, ptr %satClipContactsProg, align 8
   %m_context120 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %121 = load ptr, ptr %m_context120, align 8
+  %122 = load ptr, ptr %m_context120, align 8
   %m_device121 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %122 = load ptr, ptr %m_device121, align 8
-  %123 = load ptr, ptr %srcClip, align 8
-  %124 = load ptr, ptr %satClipContactsProg, align 8
-  %call123 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %121, ptr noundef %122, ptr noundef %123, ptr noundef @.str.18, ptr noundef %errNum, ptr noundef %124, ptr noundef @.str.5)
+  %123 = load ptr, ptr %m_device121, align 8
+  %124 = load ptr, ptr %srcClip, align 8
+  %125 = load ptr, ptr %satClipContactsProg, align 8
+  %call123 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %122, ptr noundef %123, ptr noundef %124, ptr noundef @.str.18, ptr noundef %errNum, ptr noundef %125, ptr noundef @.str.5)
           to label %invoke.cont122 unwind label %lpad47
 
 invoke.cont122:                                   ; preds = %invoke.cont118
   %m_clipHullHullKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 14
   store ptr %call123, ptr %m_clipHullHullKernel, align 8
   %m_context124 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %125 = load ptr, ptr %m_context124, align 8
+  %126 = load ptr, ptr %m_context124, align 8
   %m_device125 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %126 = load ptr, ptr %m_device125, align 8
-  %127 = load ptr, ptr %srcClip, align 8
-  %128 = load ptr, ptr %satClipContactsProg, align 8
-  %call127 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef @.str.19, ptr noundef %errNum, ptr noundef %128, ptr noundef @.str.5)
+  %127 = load ptr, ptr %m_device125, align 8
+  %128 = load ptr, ptr %srcClip, align 8
+  %129 = load ptr, ptr %satClipContactsProg, align 8
+  %call127 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %126, ptr noundef %127, ptr noundef %128, ptr noundef @.str.19, ptr noundef %errNum, ptr noundef %129, ptr noundef @.str.5)
           to label %invoke.cont126 unwind label %lpad47
 
 invoke.cont126:                                   ; preds = %invoke.cont122
   %m_clipCompoundsHullHullKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 15
   store ptr %call127, ptr %m_clipCompoundsHullHullKernel, align 8
   %m_context128 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %129 = load ptr, ptr %m_context128, align 8
+  %130 = load ptr, ptr %m_context128, align 8
   %m_device129 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %130 = load ptr, ptr %m_device129, align 8
-  %131 = load ptr, ptr %srcClip, align 8
-  %132 = load ptr, ptr %satClipContactsProg, align 8
-  %call131 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %129, ptr noundef %130, ptr noundef %131, ptr noundef @.str.20, ptr noundef %errNum, ptr noundef %132, ptr noundef @.str.5)
+  %131 = load ptr, ptr %m_device129, align 8
+  %132 = load ptr, ptr %srcClip, align 8
+  %133 = load ptr, ptr %satClipContactsProg, align 8
+  %call131 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %130, ptr noundef %131, ptr noundef %132, ptr noundef @.str.20, ptr noundef %errNum, ptr noundef %133, ptr noundef @.str.5)
           to label %invoke.cont130 unwind label %lpad47
 
 invoke.cont130:                                   ; preds = %invoke.cont126
   %m_findClippingFacesKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 17
   store ptr %call131, ptr %m_findClippingFacesKernel, align 8
   %m_context132 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %133 = load ptr, ptr %m_context132, align 8
+  %134 = load ptr, ptr %m_context132, align 8
   %m_device133 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %134 = load ptr, ptr %m_device133, align 8
-  %135 = load ptr, ptr %srcClip, align 8
-  %136 = load ptr, ptr %satClipContactsProg, align 8
-  %call135 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %133, ptr noundef %134, ptr noundef %135, ptr noundef @.str.21, ptr noundef %errNum, ptr noundef %136, ptr noundef @.str.5)
+  %135 = load ptr, ptr %m_device133, align 8
+  %136 = load ptr, ptr %srcClip, align 8
+  %137 = load ptr, ptr %satClipContactsProg, align 8
+  %call135 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %134, ptr noundef %135, ptr noundef %136, ptr noundef @.str.21, ptr noundef %errNum, ptr noundef %137, ptr noundef @.str.5)
           to label %invoke.cont134 unwind label %lpad47
 
 invoke.cont134:                                   ; preds = %invoke.cont130
   %m_clipFacesAndFindContacts = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 16
   store ptr %call135, ptr %m_clipFacesAndFindContacts, align 8
   %m_context136 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %137 = load ptr, ptr %m_context136, align 8
+  %138 = load ptr, ptr %m_context136, align 8
   %m_device137 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %138 = load ptr, ptr %m_device137, align 8
-  %139 = load ptr, ptr %srcClip, align 8
-  %140 = load ptr, ptr %satClipContactsProg, align 8
-  %call139 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %137, ptr noundef %138, ptr noundef %139, ptr noundef @.str.22, ptr noundef %errNum, ptr noundef %140, ptr noundef @.str.5)
+  %139 = load ptr, ptr %m_device137, align 8
+  %140 = load ptr, ptr %srcClip, align 8
+  %141 = load ptr, ptr %satClipContactsProg, align 8
+  %call139 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %138, ptr noundef %139, ptr noundef %140, ptr noundef @.str.22, ptr noundef %errNum, ptr noundef %141, ptr noundef @.str.5)
           to label %invoke.cont138 unwind label %lpad47
 
 invoke.cont138:                                   ; preds = %invoke.cont134
   %m_clipHullHullConcaveConvexKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 18
   store ptr %call139, ptr %m_clipHullHullConcaveConvexKernel, align 8
   %m_context140 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %141 = load ptr, ptr %m_context140, align 8
+  %142 = load ptr, ptr %m_context140, align 8
   %m_device141 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %142 = load ptr, ptr %m_device141, align 8
-  %143 = load ptr, ptr %srcClip, align 8
-  %144 = load ptr, ptr %satClipContactsProg, align 8
-  %call143 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %141, ptr noundef %142, ptr noundef %143, ptr noundef @.str.23, ptr noundef %errNum, ptr noundef %144, ptr noundef @.str.5)
+  %143 = load ptr, ptr %m_device141, align 8
+  %144 = load ptr, ptr %srcClip, align 8
+  %145 = load ptr, ptr %satClipContactsProg, align 8
+  %call143 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %142, ptr noundef %143, ptr noundef %144, ptr noundef @.str.23, ptr noundef %errNum, ptr noundef %145, ptr noundef @.str.5)
           to label %invoke.cont142 unwind label %lpad47
 
 invoke.cont142:                                   ; preds = %invoke.cont138
   %m_newContactReductionKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 19
   store ptr %call143, ptr %m_newContactReductionKernel, align 8
-  %145 = load ptr, ptr @_ZL20bvhTraversalKernelCL, align 8
-  store ptr %145, ptr %srcBvh, align 8
+  %146 = load ptr, ptr @_ZL20bvhTraversalKernelCL, align 8
+  store ptr %146, ptr %srcBvh, align 8
   %m_context144 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %146 = load ptr, ptr %m_context144, align 8
+  %147 = load ptr, ptr %m_context144, align 8
   %m_device145 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %147 = load ptr, ptr %m_device145, align 8
-  %148 = load ptr, ptr %srcBvh, align 8
-  %call147 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %146, ptr noundef %147, ptr noundef %148, ptr noundef %errNum, ptr noundef @.str.5, ptr noundef @.str.24, i1 noundef zeroext false)
+  %148 = load ptr, ptr %m_device145, align 8
+  %149 = load ptr, ptr %srcBvh, align 8
+  %call147 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %147, ptr noundef %148, ptr noundef %149, ptr noundef %errNum, ptr noundef @.str.5, ptr noundef @.str.24, i1 noundef zeroext false)
           to label %invoke.cont146 unwind label %lpad47
 
 invoke.cont146:                                   ; preds = %invoke.cont142
   store ptr %call147, ptr %bvhTraversalProg, align 8
   %m_context148 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %149 = load ptr, ptr %m_context148, align 8
+  %150 = load ptr, ptr %m_context148, align 8
   %m_device149 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %150 = load ptr, ptr %m_device149, align 8
-  %151 = load ptr, ptr %srcBvh, align 8
-  %152 = load ptr, ptr %bvhTraversalProg, align 8
-  %call151 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %149, ptr noundef %150, ptr noundef %151, ptr noundef @.str.25, ptr noundef %errNum, ptr noundef %152, ptr noundef @.str.5)
+  %151 = load ptr, ptr %m_device149, align 8
+  %152 = load ptr, ptr %srcBvh, align 8
+  %153 = load ptr, ptr %bvhTraversalProg, align 8
+  %call151 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %150, ptr noundef %151, ptr noundef %152, ptr noundef @.str.25, ptr noundef %errNum, ptr noundef %153, ptr noundef @.str.5)
           to label %invoke.cont150 unwind label %lpad47
 
 invoke.cont150:                                   ; preds = %invoke.cont146
   %m_bvhTraversalKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 20
   store ptr %call151, ptr %m_bvhTraversalKernel, align 8
-  %153 = load ptr, ptr @_ZL26primitiveContactsKernelsCL, align 8
-  store ptr %153, ptr %primitiveContactsSrc, align 8
+  %154 = load ptr, ptr @_ZL26primitiveContactsKernelsCL, align 8
+  store ptr %154, ptr %primitiveContactsSrc, align 8
   %m_context152 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %154 = load ptr, ptr %m_context152, align 8
+  %155 = load ptr, ptr %m_context152, align 8
   %m_device153 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %155 = load ptr, ptr %m_device153, align 8
-  %156 = load ptr, ptr %primitiveContactsSrc, align 8
-  %call155 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %154, ptr noundef %155, ptr noundef %156, ptr noundef %errNum, ptr noundef @.str.5, ptr noundef @.str.26, i1 noundef zeroext false)
+  %156 = load ptr, ptr %m_device153, align 8
+  %157 = load ptr, ptr %primitiveContactsSrc, align 8
+  %call155 = invoke noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %155, ptr noundef %156, ptr noundef %157, ptr noundef %errNum, ptr noundef @.str.5, ptr noundef @.str.26, i1 noundef zeroext false)
           to label %invoke.cont154 unwind label %lpad47
 
 invoke.cont154:                                   ; preds = %invoke.cont150
   store ptr %call155, ptr %primitiveContactsProg, align 8
   %m_context156 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %157 = load ptr, ptr %m_context156, align 8
+  %158 = load ptr, ptr %m_context156, align 8
   %m_device157 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %158 = load ptr, ptr %m_device157, align 8
-  %159 = load ptr, ptr %primitiveContactsSrc, align 8
-  %160 = load ptr, ptr %primitiveContactsProg, align 8
-  %call159 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %157, ptr noundef %158, ptr noundef %159, ptr noundef @.str.27, ptr noundef %errNum, ptr noundef %160, ptr noundef @.str.5)
+  %159 = load ptr, ptr %m_device157, align 8
+  %160 = load ptr, ptr %primitiveContactsSrc, align 8
+  %161 = load ptr, ptr %primitiveContactsProg, align 8
+  %call159 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %158, ptr noundef %159, ptr noundef %160, ptr noundef @.str.27, ptr noundef %errNum, ptr noundef %161, ptr noundef @.str.5)
           to label %invoke.cont158 unwind label %lpad47
 
 invoke.cont158:                                   ; preds = %invoke.cont154
   %m_primitiveContactsKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 21
   store ptr %call159, ptr %m_primitiveContactsKernel, align 8
   %m_context160 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %161 = load ptr, ptr %m_context160, align 8
+  %162 = load ptr, ptr %m_context160, align 8
   %m_device161 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %162 = load ptr, ptr %m_device161, align 8
-  %163 = load ptr, ptr %primitiveContactsSrc, align 8
-  %164 = load ptr, ptr %primitiveContactsProg, align 8
-  %call163 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %161, ptr noundef %162, ptr noundef %163, ptr noundef @.str.28, ptr noundef %errNum, ptr noundef %164, ptr noundef @.str.5)
+  %163 = load ptr, ptr %m_device161, align 8
+  %164 = load ptr, ptr %primitiveContactsSrc, align 8
+  %165 = load ptr, ptr %primitiveContactsProg, align 8
+  %call163 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %162, ptr noundef %163, ptr noundef %164, ptr noundef @.str.28, ptr noundef %errNum, ptr noundef %165, ptr noundef @.str.5)
           to label %invoke.cont162 unwind label %lpad47
 
 invoke.cont162:                                   ; preds = %invoke.cont158
   %m_findConcaveSphereContactsKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 22
   store ptr %call163, ptr %m_findConcaveSphereContactsKernel, align 8
   %m_context164 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 1
-  %165 = load ptr, ptr %m_context164, align 8
+  %166 = load ptr, ptr %m_context164, align 8
   %m_device165 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 2
-  %166 = load ptr, ptr %m_device165, align 8
-  %167 = load ptr, ptr %primitiveContactsSrc, align 8
-  %168 = load ptr, ptr %primitiveContactsProg, align 8
-  %call167 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %165, ptr noundef %166, ptr noundef %167, ptr noundef @.str.29, ptr noundef %errNum, ptr noundef %168, ptr noundef @.str.5)
+  %167 = load ptr, ptr %m_device165, align 8
+  %168 = load ptr, ptr %primitiveContactsSrc, align 8
+  %169 = load ptr, ptr %primitiveContactsProg, align 8
+  %call167 = invoke noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %166, ptr noundef %167, ptr noundef %168, ptr noundef @.str.29, ptr noundef %errNum, ptr noundef %169, ptr noundef @.str.5)
           to label %invoke.cont166 unwind label %lpad47
 
 invoke.cont166:                                   ; preds = %invoke.cont162
@@ -7847,7 +8332,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 2
@@ -7855,27 +8341,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3Vector3E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -7897,7 +8383,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.13, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.13, ptr %this1, i32 0, i32 2
@@ -7905,27 +8392,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.13, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.13, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.13, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.13, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.13, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIiE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIiE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.13, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -7949,7 +8436,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIfE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIfE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.15, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.15, ptr %this1, i32 0, i32 2
@@ -7957,27 +8445,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.15, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.15, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.15, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.15, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.15, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIfE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIfE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.15, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -7999,7 +8487,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI25b3CompoundOverlappingPairE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI25b3CompoundOverlappingPairE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray.17, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray.17, ptr %this1, i32 0, i32 2
@@ -8007,27 +8496,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray.17, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray.17, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray.17, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray.17, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.17, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray.17, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -8277,7 +8766,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayIiE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -8289,10 +8779,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -8302,7 +8792,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3Vector3E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -8314,10 +8805,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -8327,7 +8818,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI25b3CompoundOverlappingPairE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI25b3CompoundOverlappingPairE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayI25b3CompoundOverlappingPairE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -8339,10 +8831,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -8352,7 +8844,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIfE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIfE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayIfE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -8364,10 +8857,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #14
   unreachable
 }
 
@@ -8377,17 +8870,18 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15GpuSatCollision, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV15GpuSatCollision, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_findSeparatingAxisVertexFaceKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %m_findSeparatingAxisVertexFaceKernel, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %m_findSeparatingAxisVertexFaceKernel, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @__clewReleaseKernel, align 8
+  %2 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_findSeparatingAxisVertexFaceKernel2 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 7
-  %2 = load ptr, ptr %m_findSeparatingAxisVertexFaceKernel2, align 8
-  %call = invoke i32 %1(ptr noundef %2)
+  %3 = load ptr, ptr %m_findSeparatingAxisVertexFaceKernel2, align 8
+  %call = invoke i32 %2(ptr noundef %3)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -8395,15 +8889,15 @@ invoke.cont:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont, %entry
   %m_findSeparatingAxisEdgeEdgeKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 8
-  %3 = load ptr, ptr %m_findSeparatingAxisEdgeEdgeKernel, align 8
-  %tobool3 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %m_findSeparatingAxisEdgeEdgeKernel, align 8
+  %tobool3 = icmp ne ptr %4, null
   br i1 %tobool3, label %if.then4, label %if.end8
 
 if.then4:                                         ; preds = %if.end
-  %4 = load ptr, ptr @__clewReleaseKernel, align 8
+  %5 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_findSeparatingAxisEdgeEdgeKernel5 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 8
-  %5 = load ptr, ptr %m_findSeparatingAxisEdgeEdgeKernel5, align 8
-  %call7 = invoke i32 %4(ptr noundef %5)
+  %6 = load ptr, ptr %m_findSeparatingAxisEdgeEdgeKernel5, align 8
+  %call7 = invoke i32 %5(ptr noundef %6)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %if.then4
@@ -8411,15 +8905,15 @@ invoke.cont6:                                     ; preds = %if.then4
 
 if.end8:                                          ; preds = %invoke.cont6, %if.end
   %m_findSeparatingAxisUnitSphereKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 6
-  %6 = load ptr, ptr %m_findSeparatingAxisUnitSphereKernel, align 8
-  %tobool9 = icmp ne ptr %6, null
+  %7 = load ptr, ptr %m_findSeparatingAxisUnitSphereKernel, align 8
+  %tobool9 = icmp ne ptr %7, null
   br i1 %tobool9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end8
-  %7 = load ptr, ptr @__clewReleaseKernel, align 8
+  %8 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_findSeparatingAxisUnitSphereKernel11 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 6
-  %8 = load ptr, ptr %m_findSeparatingAxisUnitSphereKernel11, align 8
-  %call13 = invoke i32 %7(ptr noundef %8)
+  %9 = load ptr, ptr %m_findSeparatingAxisUnitSphereKernel11, align 8
+  %call13 = invoke i32 %8(ptr noundef %9)
           to label %invoke.cont12 unwind label %terminate.lpad
 
 invoke.cont12:                                    ; preds = %if.then10
@@ -8427,15 +8921,15 @@ invoke.cont12:                                    ; preds = %if.then10
 
 if.end14:                                         ; preds = %invoke.cont12, %if.end8
   %m_mprPenetrationKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 5
-  %9 = load ptr, ptr %m_mprPenetrationKernel, align 8
-  %tobool15 = icmp ne ptr %9, null
+  %10 = load ptr, ptr %m_mprPenetrationKernel, align 8
+  %tobool15 = icmp ne ptr %10, null
   br i1 %tobool15, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.end14
-  %10 = load ptr, ptr @__clewReleaseKernel, align 8
+  %11 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_mprPenetrationKernel17 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 5
-  %11 = load ptr, ptr %m_mprPenetrationKernel17, align 8
-  %call19 = invoke i32 %10(ptr noundef %11)
+  %12 = load ptr, ptr %m_mprPenetrationKernel17, align 8
+  %call19 = invoke i32 %11(ptr noundef %12)
           to label %invoke.cont18 unwind label %terminate.lpad
 
 invoke.cont18:                                    ; preds = %if.then16
@@ -8443,15 +8937,15 @@ invoke.cont18:                                    ; preds = %if.then16
 
 if.end20:                                         ; preds = %invoke.cont18, %if.end14
   %m_findSeparatingAxisKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 4
-  %12 = load ptr, ptr %m_findSeparatingAxisKernel, align 8
-  %tobool21 = icmp ne ptr %12, null
+  %13 = load ptr, ptr %m_findSeparatingAxisKernel, align 8
+  %tobool21 = icmp ne ptr %13, null
   br i1 %tobool21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.end20
-  %13 = load ptr, ptr @__clewReleaseKernel, align 8
+  %14 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_findSeparatingAxisKernel23 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 4
-  %14 = load ptr, ptr %m_findSeparatingAxisKernel23, align 8
-  %call25 = invoke i32 %13(ptr noundef %14)
+  %15 = load ptr, ptr %m_findSeparatingAxisKernel23, align 8
+  %call25 = invoke i32 %14(ptr noundef %15)
           to label %invoke.cont24 unwind label %terminate.lpad
 
 invoke.cont24:                                    ; preds = %if.then22
@@ -8459,15 +8953,15 @@ invoke.cont24:                                    ; preds = %if.then22
 
 if.end26:                                         ; preds = %invoke.cont24, %if.end20
   %m_findConcaveSeparatingAxisVertexFaceKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 10
-  %15 = load ptr, ptr %m_findConcaveSeparatingAxisVertexFaceKernel, align 8
-  %tobool27 = icmp ne ptr %15, null
+  %16 = load ptr, ptr %m_findConcaveSeparatingAxisVertexFaceKernel, align 8
+  %tobool27 = icmp ne ptr %16, null
   br i1 %tobool27, label %if.then28, label %if.end32
 
 if.then28:                                        ; preds = %if.end26
-  %16 = load ptr, ptr @__clewReleaseKernel, align 8
+  %17 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_findConcaveSeparatingAxisVertexFaceKernel29 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 10
-  %17 = load ptr, ptr %m_findConcaveSeparatingAxisVertexFaceKernel29, align 8
-  %call31 = invoke i32 %16(ptr noundef %17)
+  %18 = load ptr, ptr %m_findConcaveSeparatingAxisVertexFaceKernel29, align 8
+  %call31 = invoke i32 %17(ptr noundef %18)
           to label %invoke.cont30 unwind label %terminate.lpad
 
 invoke.cont30:                                    ; preds = %if.then28
@@ -8475,15 +8969,15 @@ invoke.cont30:                                    ; preds = %if.then28
 
 if.end32:                                         ; preds = %invoke.cont30, %if.end26
   %m_findConcaveSeparatingAxisEdgeEdgeKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 11
-  %18 = load ptr, ptr %m_findConcaveSeparatingAxisEdgeEdgeKernel, align 8
-  %tobool33 = icmp ne ptr %18, null
+  %19 = load ptr, ptr %m_findConcaveSeparatingAxisEdgeEdgeKernel, align 8
+  %tobool33 = icmp ne ptr %19, null
   br i1 %tobool33, label %if.then34, label %if.end38
 
 if.then34:                                        ; preds = %if.end32
-  %19 = load ptr, ptr @__clewReleaseKernel, align 8
+  %20 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_findConcaveSeparatingAxisEdgeEdgeKernel35 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 11
-  %20 = load ptr, ptr %m_findConcaveSeparatingAxisEdgeEdgeKernel35, align 8
-  %call37 = invoke i32 %19(ptr noundef %20)
+  %21 = load ptr, ptr %m_findConcaveSeparatingAxisEdgeEdgeKernel35, align 8
+  %call37 = invoke i32 %20(ptr noundef %21)
           to label %invoke.cont36 unwind label %terminate.lpad
 
 invoke.cont36:                                    ; preds = %if.then34
@@ -8491,15 +8985,15 @@ invoke.cont36:                                    ; preds = %if.then34
 
 if.end38:                                         ; preds = %invoke.cont36, %if.end32
   %m_findConcaveSeparatingAxisKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 9
-  %21 = load ptr, ptr %m_findConcaveSeparatingAxisKernel, align 8
-  %tobool39 = icmp ne ptr %21, null
+  %22 = load ptr, ptr %m_findConcaveSeparatingAxisKernel, align 8
+  %tobool39 = icmp ne ptr %22, null
   br i1 %tobool39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.end38
-  %22 = load ptr, ptr @__clewReleaseKernel, align 8
+  %23 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_findConcaveSeparatingAxisKernel41 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 9
-  %23 = load ptr, ptr %m_findConcaveSeparatingAxisKernel41, align 8
-  %call43 = invoke i32 %22(ptr noundef %23)
+  %24 = load ptr, ptr %m_findConcaveSeparatingAxisKernel41, align 8
+  %call43 = invoke i32 %23(ptr noundef %24)
           to label %invoke.cont42 unwind label %terminate.lpad
 
 invoke.cont42:                                    ; preds = %if.then40
@@ -8507,15 +9001,15 @@ invoke.cont42:                                    ; preds = %if.then40
 
 if.end44:                                         ; preds = %invoke.cont42, %if.end38
   %m_findCompoundPairsKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 12
-  %24 = load ptr, ptr %m_findCompoundPairsKernel, align 8
-  %tobool45 = icmp ne ptr %24, null
+  %25 = load ptr, ptr %m_findCompoundPairsKernel, align 8
+  %tobool45 = icmp ne ptr %25, null
   br i1 %tobool45, label %if.then46, label %if.end50
 
 if.then46:                                        ; preds = %if.end44
-  %25 = load ptr, ptr @__clewReleaseKernel, align 8
+  %26 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_findCompoundPairsKernel47 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 12
-  %26 = load ptr, ptr %m_findCompoundPairsKernel47, align 8
-  %call49 = invoke i32 %25(ptr noundef %26)
+  %27 = load ptr, ptr %m_findCompoundPairsKernel47, align 8
+  %call49 = invoke i32 %26(ptr noundef %27)
           to label %invoke.cont48 unwind label %terminate.lpad
 
 invoke.cont48:                                    ; preds = %if.then46
@@ -8523,15 +9017,15 @@ invoke.cont48:                                    ; preds = %if.then46
 
 if.end50:                                         ; preds = %invoke.cont48, %if.end44
   %m_processCompoundPairsKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 13
-  %27 = load ptr, ptr %m_processCompoundPairsKernel, align 8
-  %tobool51 = icmp ne ptr %27, null
+  %28 = load ptr, ptr %m_processCompoundPairsKernel, align 8
+  %tobool51 = icmp ne ptr %28, null
   br i1 %tobool51, label %if.then52, label %if.end56
 
 if.then52:                                        ; preds = %if.end50
-  %28 = load ptr, ptr @__clewReleaseKernel, align 8
+  %29 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_processCompoundPairsKernel53 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 13
-  %29 = load ptr, ptr %m_processCompoundPairsKernel53, align 8
-  %call55 = invoke i32 %28(ptr noundef %29)
+  %30 = load ptr, ptr %m_processCompoundPairsKernel53, align 8
+  %call55 = invoke i32 %29(ptr noundef %30)
           to label %invoke.cont54 unwind label %terminate.lpad
 
 invoke.cont54:                                    ; preds = %if.then52
@@ -8539,15 +9033,15 @@ invoke.cont54:                                    ; preds = %if.then52
 
 if.end56:                                         ; preds = %invoke.cont54, %if.end50
   %m_findClippingFacesKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 17
-  %30 = load ptr, ptr %m_findClippingFacesKernel, align 8
-  %tobool57 = icmp ne ptr %30, null
+  %31 = load ptr, ptr %m_findClippingFacesKernel, align 8
+  %tobool57 = icmp ne ptr %31, null
   br i1 %tobool57, label %if.then58, label %if.end62
 
 if.then58:                                        ; preds = %if.end56
-  %31 = load ptr, ptr @__clewReleaseKernel, align 8
+  %32 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_findClippingFacesKernel59 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 17
-  %32 = load ptr, ptr %m_findClippingFacesKernel59, align 8
-  %call61 = invoke i32 %31(ptr noundef %32)
+  %33 = load ptr, ptr %m_findClippingFacesKernel59, align 8
+  %call61 = invoke i32 %32(ptr noundef %33)
           to label %invoke.cont60 unwind label %terminate.lpad
 
 invoke.cont60:                                    ; preds = %if.then58
@@ -8555,15 +9049,15 @@ invoke.cont60:                                    ; preds = %if.then58
 
 if.end62:                                         ; preds = %invoke.cont60, %if.end56
   %m_clipFacesAndFindContacts = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 16
-  %33 = load ptr, ptr %m_clipFacesAndFindContacts, align 8
-  %tobool63 = icmp ne ptr %33, null
+  %34 = load ptr, ptr %m_clipFacesAndFindContacts, align 8
+  %tobool63 = icmp ne ptr %34, null
   br i1 %tobool63, label %if.then64, label %if.end68
 
 if.then64:                                        ; preds = %if.end62
-  %34 = load ptr, ptr @__clewReleaseKernel, align 8
+  %35 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_clipFacesAndFindContacts65 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 16
-  %35 = load ptr, ptr %m_clipFacesAndFindContacts65, align 8
-  %call67 = invoke i32 %34(ptr noundef %35)
+  %36 = load ptr, ptr %m_clipFacesAndFindContacts65, align 8
+  %call67 = invoke i32 %35(ptr noundef %36)
           to label %invoke.cont66 unwind label %terminate.lpad
 
 invoke.cont66:                                    ; preds = %if.then64
@@ -8571,15 +9065,15 @@ invoke.cont66:                                    ; preds = %if.then64
 
 if.end68:                                         ; preds = %invoke.cont66, %if.end62
   %m_newContactReductionKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 19
-  %36 = load ptr, ptr %m_newContactReductionKernel, align 8
-  %tobool69 = icmp ne ptr %36, null
+  %37 = load ptr, ptr %m_newContactReductionKernel, align 8
+  %tobool69 = icmp ne ptr %37, null
   br i1 %tobool69, label %if.then70, label %if.end74
 
 if.then70:                                        ; preds = %if.end68
-  %37 = load ptr, ptr @__clewReleaseKernel, align 8
+  %38 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_newContactReductionKernel71 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 19
-  %38 = load ptr, ptr %m_newContactReductionKernel71, align 8
-  %call73 = invoke i32 %37(ptr noundef %38)
+  %39 = load ptr, ptr %m_newContactReductionKernel71, align 8
+  %call73 = invoke i32 %38(ptr noundef %39)
           to label %invoke.cont72 unwind label %terminate.lpad
 
 invoke.cont72:                                    ; preds = %if.then70
@@ -8587,15 +9081,15 @@ invoke.cont72:                                    ; preds = %if.then70
 
 if.end74:                                         ; preds = %invoke.cont72, %if.end68
   %m_primitiveContactsKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 21
-  %39 = load ptr, ptr %m_primitiveContactsKernel, align 8
-  %tobool75 = icmp ne ptr %39, null
+  %40 = load ptr, ptr %m_primitiveContactsKernel, align 8
+  %tobool75 = icmp ne ptr %40, null
   br i1 %tobool75, label %if.then76, label %if.end80
 
 if.then76:                                        ; preds = %if.end74
-  %40 = load ptr, ptr @__clewReleaseKernel, align 8
+  %41 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_primitiveContactsKernel77 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 21
-  %41 = load ptr, ptr %m_primitiveContactsKernel77, align 8
-  %call79 = invoke i32 %40(ptr noundef %41)
+  %42 = load ptr, ptr %m_primitiveContactsKernel77, align 8
+  %call79 = invoke i32 %41(ptr noundef %42)
           to label %invoke.cont78 unwind label %terminate.lpad
 
 invoke.cont78:                                    ; preds = %if.then76
@@ -8603,15 +9097,15 @@ invoke.cont78:                                    ; preds = %if.then76
 
 if.end80:                                         ; preds = %invoke.cont78, %if.end74
   %m_findConcaveSphereContactsKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 22
-  %42 = load ptr, ptr %m_findConcaveSphereContactsKernel, align 8
-  %tobool81 = icmp ne ptr %42, null
+  %43 = load ptr, ptr %m_findConcaveSphereContactsKernel, align 8
+  %tobool81 = icmp ne ptr %43, null
   br i1 %tobool81, label %if.then82, label %if.end86
 
 if.then82:                                        ; preds = %if.end80
-  %43 = load ptr, ptr @__clewReleaseKernel, align 8
+  %44 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_findConcaveSphereContactsKernel83 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 22
-  %44 = load ptr, ptr %m_findConcaveSphereContactsKernel83, align 8
-  %call85 = invoke i32 %43(ptr noundef %44)
+  %45 = load ptr, ptr %m_findConcaveSphereContactsKernel83, align 8
+  %call85 = invoke i32 %44(ptr noundef %45)
           to label %invoke.cont84 unwind label %terminate.lpad
 
 invoke.cont84:                                    ; preds = %if.then82
@@ -8619,15 +9113,15 @@ invoke.cont84:                                    ; preds = %if.then82
 
 if.end86:                                         ; preds = %invoke.cont84, %if.end80
   %m_processCompoundPairsPrimitivesKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 23
-  %45 = load ptr, ptr %m_processCompoundPairsPrimitivesKernel, align 8
-  %tobool87 = icmp ne ptr %45, null
+  %46 = load ptr, ptr %m_processCompoundPairsPrimitivesKernel, align 8
+  %tobool87 = icmp ne ptr %46, null
   br i1 %tobool87, label %if.then88, label %if.end92
 
 if.then88:                                        ; preds = %if.end86
-  %46 = load ptr, ptr @__clewReleaseKernel, align 8
+  %47 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_processCompoundPairsPrimitivesKernel89 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 23
-  %47 = load ptr, ptr %m_processCompoundPairsPrimitivesKernel89, align 8
-  %call91 = invoke i32 %46(ptr noundef %47)
+  %48 = load ptr, ptr %m_processCompoundPairsPrimitivesKernel89, align 8
+  %call91 = invoke i32 %47(ptr noundef %48)
           to label %invoke.cont90 unwind label %terminate.lpad
 
 invoke.cont90:                                    ; preds = %if.then88
@@ -8635,15 +9129,15 @@ invoke.cont90:                                    ; preds = %if.then88
 
 if.end92:                                         ; preds = %invoke.cont90, %if.end86
   %m_clipHullHullKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 14
-  %48 = load ptr, ptr %m_clipHullHullKernel, align 8
-  %tobool93 = icmp ne ptr %48, null
+  %49 = load ptr, ptr %m_clipHullHullKernel, align 8
+  %tobool93 = icmp ne ptr %49, null
   br i1 %tobool93, label %if.then94, label %if.end98
 
 if.then94:                                        ; preds = %if.end92
-  %49 = load ptr, ptr @__clewReleaseKernel, align 8
+  %50 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_clipHullHullKernel95 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 14
-  %50 = load ptr, ptr %m_clipHullHullKernel95, align 8
-  %call97 = invoke i32 %49(ptr noundef %50)
+  %51 = load ptr, ptr %m_clipHullHullKernel95, align 8
+  %call97 = invoke i32 %50(ptr noundef %51)
           to label %invoke.cont96 unwind label %terminate.lpad
 
 invoke.cont96:                                    ; preds = %if.then94
@@ -8651,15 +9145,15 @@ invoke.cont96:                                    ; preds = %if.then94
 
 if.end98:                                         ; preds = %invoke.cont96, %if.end92
   %m_clipCompoundsHullHullKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 15
-  %51 = load ptr, ptr %m_clipCompoundsHullHullKernel, align 8
-  %tobool99 = icmp ne ptr %51, null
+  %52 = load ptr, ptr %m_clipCompoundsHullHullKernel, align 8
+  %tobool99 = icmp ne ptr %52, null
   br i1 %tobool99, label %if.then100, label %if.end104
 
 if.then100:                                       ; preds = %if.end98
-  %52 = load ptr, ptr @__clewReleaseKernel, align 8
+  %53 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_clipCompoundsHullHullKernel101 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 15
-  %53 = load ptr, ptr %m_clipCompoundsHullHullKernel101, align 8
-  %call103 = invoke i32 %52(ptr noundef %53)
+  %54 = load ptr, ptr %m_clipCompoundsHullHullKernel101, align 8
+  %call103 = invoke i32 %53(ptr noundef %54)
           to label %invoke.cont102 unwind label %terminate.lpad
 
 invoke.cont102:                                   ; preds = %if.then100
@@ -8667,15 +9161,15 @@ invoke.cont102:                                   ; preds = %if.then100
 
 if.end104:                                        ; preds = %invoke.cont102, %if.end98
   %m_clipHullHullConcaveConvexKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 18
-  %54 = load ptr, ptr %m_clipHullHullConcaveConvexKernel, align 8
-  %tobool105 = icmp ne ptr %54, null
+  %55 = load ptr, ptr %m_clipHullHullConcaveConvexKernel, align 8
+  %tobool105 = icmp ne ptr %55, null
   br i1 %tobool105, label %if.then106, label %if.end110
 
 if.then106:                                       ; preds = %if.end104
-  %55 = load ptr, ptr @__clewReleaseKernel, align 8
+  %56 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_clipHullHullConcaveConvexKernel107 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 18
-  %56 = load ptr, ptr %m_clipHullHullConcaveConvexKernel107, align 8
-  %call109 = invoke i32 %55(ptr noundef %56)
+  %57 = load ptr, ptr %m_clipHullHullConcaveConvexKernel107, align 8
+  %call109 = invoke i32 %56(ptr noundef %57)
           to label %invoke.cont108 unwind label %terminate.lpad
 
 invoke.cont108:                                   ; preds = %if.then106
@@ -8683,15 +9177,15 @@ invoke.cont108:                                   ; preds = %if.then106
 
 if.end110:                                        ; preds = %invoke.cont108, %if.end104
   %m_bvhTraversalKernel = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 20
-  %57 = load ptr, ptr %m_bvhTraversalKernel, align 8
-  %tobool111 = icmp ne ptr %57, null
+  %58 = load ptr, ptr %m_bvhTraversalKernel, align 8
+  %tobool111 = icmp ne ptr %58, null
   br i1 %tobool111, label %if.then112, label %if.end116
 
 if.then112:                                       ; preds = %if.end110
-  %58 = load ptr, ptr @__clewReleaseKernel, align 8
+  %59 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_bvhTraversalKernel113 = getelementptr inbounds %struct.GpuSatCollision, ptr %this1, i32 0, i32 20
-  %59 = load ptr, ptr %m_bvhTraversalKernel113, align 8
-  %call115 = invoke i32 %58(ptr noundef %59)
+  %60 = load ptr, ptr %m_bvhTraversalKernel113, align 8
+  %call115 = invoke i32 %59(ptr noundef %60)
           to label %invoke.cont114 unwind label %terminate.lpad
 
 invoke.cont114:                                   ; preds = %if.then112
@@ -8725,10 +9219,10 @@ if.end116:                                        ; preds = %invoke.cont114, %if
   ret void
 
 terminate.lpad:                                   ; preds = %if.then112, %if.then106, %if.then100, %if.then94, %if.then88, %if.then82, %if.then76, %if.then70, %if.then64, %if.then58, %if.then52, %if.then46, %if.then40, %if.then34, %if.then28, %if.then22, %if.then16, %if.then10, %if.then4, %if.then
-  %60 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #14
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #14
   unreachable
 }
 

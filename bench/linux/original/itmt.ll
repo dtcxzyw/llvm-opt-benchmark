@@ -101,10 +101,11 @@ define dso_local i32 @arch_asym_cpu_priority(i32 noundef %0) local_unnamed_addr 
   %2 = sext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
-  %5 = add i64 %4, ptrtoint (ptr @sched_core_priority to i64)
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load i32, ptr %6, align 4
-  ret i32 %7
+  %5 = ptrtoint ptr @sched_core_priority to i64
+  %6 = add i64 %4, %5
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load i32, ptr %7, align 4
+  ret i32 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: write, inaccessiblemem: none)
@@ -112,9 +113,10 @@ define dso_local void @sched_set_itmt_core_prio(i32 noundef %0, i32 noundef %1) 
   %3 = sext i32 %1 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
-  %6 = add i64 %5, ptrtoint (ptr @sched_core_priority to i64)
-  %7 = inttoptr i64 %6 to ptr
-  store i32 %0, ptr %7, align 4
+  %6 = ptrtoint ptr @sched_core_priority to i64
+  %7 = add i64 %5, %6
+  %8 = inttoptr i64 %7 to ptr
+  store i32 %0, ptr %8, align 4
   ret void
 }
 

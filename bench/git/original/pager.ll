@@ -306,8 +306,10 @@ if.end8:                                          ; preds = %if.then5, %if.end
   call void @child_process_init(ptr noundef @pager_process)
   %2 = load ptr, ptr %pager, align 8
   call void @prepare_pager_args(ptr noundef @pager_process, ptr noundef %2)
-  store i32 -1, ptr getelementptr inbounds (%struct.child_process, ptr @pager_process, i32 0, i32 7), align 8
-  %call10 = call ptr @strvec_push(ptr noundef getelementptr inbounds (%struct.child_process, ptr @pager_process, i32 0, i32 1), ptr noundef @.str.7)
+  %3 = getelementptr inbounds %struct.child_process, ptr @pager_process, i32 0, i32 7
+  store i32 -1, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.child_process, ptr @pager_process, i32 0, i32 1
+  %call10 = call ptr @strvec_push(ptr noundef %4, ptr noundef @.str.7)
   %call11 = call i32 @start_command(ptr noundef @pager_process)
   %tobool12 = icmp ne i32 %call11, 0
   br i1 %tobool12, label %if.then13, label %if.end14
@@ -316,20 +318,23 @@ if.then13:                                        ; preds = %if.end8
   br label %return
 
 if.end14:                                         ; preds = %if.end8
-  %3 = load i32, ptr getelementptr inbounds (%struct.child_process, ptr @pager_process, i32 0, i32 7), align 8
-  %call15 = call i32 @dup2(i32 noundef %3, i32 noundef 1) #5
+  %5 = getelementptr inbounds %struct.child_process, ptr @pager_process, i32 0, i32 7
+  %6 = load i32, ptr %5, align 8
+  %call15 = call i32 @dup2(i32 noundef %6, i32 noundef 1) #5
   %call16 = call i32 @isatty(i32 noundef 2) #5
   %tobool17 = icmp ne i32 %call16, 0
   br i1 %tobool17, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %if.end14
-  %4 = load i32, ptr getelementptr inbounds (%struct.child_process, ptr @pager_process, i32 0, i32 7), align 8
-  %call19 = call i32 @dup2(i32 noundef %4, i32 noundef 2) #5
+  %7 = getelementptr inbounds %struct.child_process, ptr @pager_process, i32 0, i32 7
+  %8 = load i32, ptr %7, align 8
+  %call19 = call i32 @dup2(i32 noundef %8, i32 noundef 2) #5
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %if.end14
-  %5 = load i32, ptr getelementptr inbounds (%struct.child_process, ptr @pager_process, i32 0, i32 7), align 8
-  %call21 = call i32 @close(i32 noundef %5)
+  %9 = getelementptr inbounds %struct.child_process, ptr @pager_process, i32 0, i32 7
+  %10 = load i32, ptr %9, align 8
+  %call21 = call i32 @close(i32 noundef %10)
   call void @sigchain_push_common(ptr noundef @wait_for_pager_signal)
   %call22 = call i32 @atexit(ptr noundef @wait_for_pager_atexit) #5
   br label %return

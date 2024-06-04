@@ -87,8 +87,10 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !12
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 64
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !15
-  store ptr getelementptr inbounds inrange(-24, 96) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video11CSDLManagerE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video11CSDLManagerE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video11CSDLManagerE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [15 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video11CSDLManagerE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %Data = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Data, i8 0, i64 24, i1 false)
   %SDLDevice = getelementptr inbounds i8, ptr %this, i64 40

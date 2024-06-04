@@ -295,31 +295,33 @@ define internal void @do_populate_rootfs(ptr nocapture readnone %0, i64 %1) #1 s
   %28 = load i64, ptr @initrd_start, align 8
   %29 = load i64, ptr @initrd_end, align 8
   tail call void @free_initrd_mem(i64 noundef %28, i64 noundef %29) #23
-  br label %44
+  br label %46
 
 30:                                               ; preds = %25, %20
   %31 = load i1, ptr @do_retain_initrd, align 4
   %32 = load i64, ptr @initrd_start, align 8
   %33 = icmp ne i64 %32, 0
   %34 = select i1 %31, i1 %33, i1 false
-  br i1 %34, label %35, label %44
+  br i1 %34, label %35, label %46
 
 35:                                               ; preds = %30
   %36 = load i64, ptr @initrd_end, align 8
   %37 = sub i64 %36, %32
-  store i64 %37, ptr getelementptr inbounds (%struct.bin_attribute, ptr @bin_attr_initrd, i64 0, i32 1), align 8
-  %38 = inttoptr i64 %32 to ptr
-  store ptr %38, ptr getelementptr inbounds (%struct.bin_attribute, ptr @bin_attr_initrd, i64 0, i32 2), align 8
-  %39 = load ptr, ptr @firmware_kobj, align 8
-  %40 = tail call i32 @sysfs_create_bin_file(ptr noundef %39, ptr noundef nonnull @bin_attr_initrd) #21
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %44, label %42
+  %38 = getelementptr inbounds %struct.bin_attribute, ptr @bin_attr_initrd, i64 0, i32 1
+  store i64 %37, ptr %38, align 8
+  %39 = inttoptr i64 %32 to ptr
+  %40 = getelementptr inbounds %struct.bin_attribute, ptr @bin_attr_initrd, i64 0, i32 2
+  store ptr %39, ptr %40, align 8
+  %41 = load ptr, ptr @firmware_kobj, align 8
+  %42 = tail call i32 @sysfs_create_bin_file(ptr noundef %41, ptr noundef nonnull @bin_attr_initrd) #21
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %46, label %44
 
-42:                                               ; preds = %35
-  %43 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8) #22
-  br label %44
+44:                                               ; preds = %35
+  %45 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8) #22
+  br label %46
 
-44:                                               ; preds = %42, %35, %30, %27
+46:                                               ; preds = %44, %35, %30, %27
   store i64 0, ptr @initrd_start, align 8
   store i64 0, ptr @initrd_end, align 8
   tail call void @flush_delayed_fput() #21
@@ -335,154 +337,156 @@ define internal fastcc ptr @unpack_to_rootfs(ptr noundef %0, i64 noundef %1) unn
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
   store ptr null, ptr %3, align 8, !annotation !8
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
-  %5 = tail call noalias align 8 dereferenceable_or_null(110) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 110) #25
-  store ptr %5, ptr @header_buf, align 8
-  %6 = tail call noalias align 4096 dereferenceable_or_null(8195) ptr @kmalloc_large(i64 noundef 8195, i32 noundef 3264) #26
-  store ptr %6, ptr @symlink_buf, align 8
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
-  %8 = tail call noalias align 8 dereferenceable_or_null(4098) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 4098) #25
-  store ptr %8, ptr @name_buf, align 8
-  %9 = load ptr, ptr @header_buf, align 8
-  %10 = icmp ne ptr %9, null
-  %11 = load ptr, ptr @symlink_buf, align 8
+  %4 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7
+  %5 = load ptr, ptr %4, align 8
+  %6 = tail call noalias align 8 dereferenceable_or_null(110) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3264, i64 noundef 110) #25
+  store ptr %6, ptr @header_buf, align 8
+  %7 = tail call noalias align 4096 dereferenceable_or_null(8195) ptr @kmalloc_large(i64 noundef 8195, i32 noundef 3264) #26
+  store ptr %7, ptr @symlink_buf, align 8
+  %8 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call noalias align 8 dereferenceable_or_null(4098) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 4098) #25
+  store ptr %10, ptr @name_buf, align 8
+  %11 = load ptr, ptr @header_buf, align 8
   %12 = icmp ne ptr %11, null
-  %13 = select i1 %10, i1 %12, i1 false
-  %14 = icmp ne ptr %8, null
-  %15 = and i1 %14, %13
-  br i1 %15, label %17, label %16
+  %13 = load ptr, ptr @symlink_buf, align 8
+  %14 = icmp ne ptr %13, null
+  %15 = select i1 %12, i1 %14, i1 false
+  %16 = icmp ne ptr %10, null
+  %17 = and i1 %16, %15
+  br i1 %17, label %19, label %18
 
-16:                                               ; preds = %2
+18:                                               ; preds = %2
   tail call fastcc void @show_mem()
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.9) #24
   unreachable
 
-17:                                               ; preds = %2
+19:                                               ; preds = %2
   store i32 0, ptr @state, align 4
   store i64 0, ptr @this_header, align 8
   store ptr null, ptr @message, align 8
-  %18 = icmp eq i64 %1, 0
-  br i1 %18, label %85, label %19
+  %20 = icmp eq i64 %1, 0
+  br i1 %20, label %87, label %21
 
-19:                                               ; preds = %78, %17
-  %20 = phi ptr [ %80, %78 ], [ %0, %17 ]
-  %21 = phi i64 [ %79, %78 ], [ %1, %17 ]
-  %22 = load i64, ptr @this_header, align 8
-  %23 = load i8, ptr %20, align 1
-  %24 = icmp eq i8 %23, 48
-  %25 = and i64 %22, 3
-  %26 = icmp eq i64 %25, 0
-  %27 = select i1 %24, i1 %26, i1 false
-  br i1 %27, label %28, label %40
+21:                                               ; preds = %80, %19
+  %22 = phi ptr [ %82, %80 ], [ %0, %19 ]
+  %23 = phi i64 [ %81, %80 ], [ %1, %19 ]
+  %24 = load i64, ptr @this_header, align 8
+  %25 = load i8, ptr %22, align 1
+  %26 = icmp eq i8 %25, 48
+  %27 = and i64 %24, 3
+  %28 = icmp eq i64 %27, 0
+  %29 = select i1 %26, i1 %28, i1 false
+  br i1 %29, label %30, label %42
 
-28:                                               ; preds = %19
+30:                                               ; preds = %21
   store i32 0, ptr @state, align 4
-  store i64 %21, ptr @byte_count, align 8
-  store ptr %20, ptr @victim, align 8
-  br label %29
+  store i64 %23, ptr @byte_count, align 8
+  store ptr %22, ptr @victim, align 8
+  br label %31
 
-29:                                               ; preds = %29, %28
-  %30 = load i32, ptr @state, align 4
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr [8 x ptr], ptr @actions, i64 0, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  %34 = call i32 %33() #21
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %29, label %36, !llvm.loop !9
+31:                                               ; preds = %31, %30
+  %32 = load i32, ptr @state, align 4
+  %33 = zext nneg i32 %32 to i64
+  %34 = getelementptr [8 x ptr], ptr @actions, i64 0, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %36 = call i32 %35() #21
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %31, label %38, !llvm.loop !9
 
-36:                                               ; preds = %29
-  %37 = load i64, ptr @byte_count, align 8
-  %38 = sub i64 %21, %37
-  %39 = getelementptr i8, ptr %20, i64 %38
-  br label %78, !llvm.loop !12
+38:                                               ; preds = %31
+  %39 = load i64, ptr @byte_count, align 8
+  %40 = sub i64 %23, %39
+  %41 = getelementptr i8, ptr %22, i64 %40
+  br label %80, !llvm.loop !12
 
-40:                                               ; preds = %19
-  %41 = icmp eq i8 %23, 0
-  br i1 %41, label %42, label %46
+42:                                               ; preds = %21
+  %43 = icmp eq i8 %25, 0
+  br i1 %43, label %44, label %48
 
-42:                                               ; preds = %40
-  %43 = getelementptr i8, ptr %20, i64 1
-  %44 = add i64 %21, -1
-  %45 = add i64 %22, 1
-  store i64 %45, ptr @this_header, align 8
-  br label %78, !llvm.loop !12
+44:                                               ; preds = %42
+  %45 = getelementptr i8, ptr %22, i64 1
+  %46 = add i64 %23, -1
+  %47 = add i64 %24, 1
+  store i64 %47, ptr @this_header, align 8
+  br label %80, !llvm.loop !12
 
-46:                                               ; preds = %40
+48:                                               ; preds = %42
   store i64 0, ptr @this_header, align 8
-  %47 = call ptr @decompress_method(ptr noundef %20, i64 noundef %21, ptr noundef nonnull %3) #21
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %55, label %49
+  %49 = call ptr @decompress_method(ptr noundef %22, i64 noundef %23, ptr noundef nonnull %3) #21
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %57, label %51
 
-49:                                               ; preds = %46
-  %50 = call i32 %47(ptr noundef %20, i64 noundef %21, ptr noundef null, ptr noundef nonnull @flush_buffer, ptr noundef null, ptr noundef nonnull @my_inptr, ptr noundef nonnull @error) #21
-  %51 = icmp ne i32 %50, 0
-  %52 = load ptr, ptr @message, align 8
-  %53 = icmp eq ptr %52, null
-  %54 = select i1 %51, i1 %53, i1 false
-  br i1 %54, label %64, label %66
+51:                                               ; preds = %48
+  %52 = call i32 %49(ptr noundef %22, i64 noundef %23, ptr noundef null, ptr noundef nonnull @flush_buffer, ptr noundef null, ptr noundef nonnull @my_inptr, ptr noundef nonnull @error) #21
+  %53 = icmp ne i32 %52, 0
+  %54 = load ptr, ptr @message, align 8
+  %55 = icmp eq ptr %54, null
+  %56 = select i1 %53, i1 %55, i1 false
+  br i1 %56, label %66, label %68
 
-55:                                               ; preds = %46
-  %56 = load ptr, ptr %3, align 8
-  %57 = icmp eq ptr %56, null
-  %58 = load ptr, ptr @message, align 8
+57:                                               ; preds = %48
+  %58 = load ptr, ptr %3, align 8
   %59 = icmp eq ptr %58, null
-  br i1 %57, label %63, label %60
+  %60 = load ptr, ptr @message, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %59, label %65, label %62
 
-60:                                               ; preds = %55
-  br i1 %59, label %61, label %66
+62:                                               ; preds = %57
+  br i1 %61, label %63, label %68
 
-61:                                               ; preds = %60
-  %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @unpack_to_rootfs.msg_buf, i64 noundef 64, ptr noundef nonnull @.str.11, ptr noundef nonnull %56) #21
-  br label %64
-
-63:                                               ; preds = %55
-  br i1 %59, label %64, label %66
-
-64:                                               ; preds = %63, %61, %49
-  %65 = phi ptr [ @unpack_to_rootfs.msg_buf, %61 ], [ @.str.10, %49 ], [ @.str.12, %63 ]
-  store ptr %65, ptr @message, align 8
+63:                                               ; preds = %62
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @unpack_to_rootfs.msg_buf, i64 noundef 64, ptr noundef nonnull @.str.11, ptr noundef nonnull %58) #21
   br label %66
 
-66:                                               ; preds = %64, %63, %60, %49
-  %67 = load i32, ptr @state, align 4
-  %68 = icmp ne i32 %67, 7
-  %69 = load ptr, ptr @message, align 8
-  %70 = icmp eq ptr %69, null
-  %71 = select i1 %68, i1 %70, i1 false
-  br i1 %71, label %72, label %73
+65:                                               ; preds = %57
+  br i1 %61, label %66, label %68
 
-72:                                               ; preds = %66
+66:                                               ; preds = %65, %63, %51
+  %67 = phi ptr [ @unpack_to_rootfs.msg_buf, %63 ], [ @.str.10, %51 ], [ @.str.12, %65 ]
+  store ptr %67, ptr @message, align 8
+  br label %68
+
+68:                                               ; preds = %66, %65, %62, %51
+  %69 = load i32, ptr @state, align 4
+  %70 = icmp ne i32 %69, 7
+  %71 = load ptr, ptr @message, align 8
+  %72 = icmp eq ptr %71, null
+  %73 = select i1 %70, i1 %72, i1 false
+  br i1 %73, label %74, label %75
+
+74:                                               ; preds = %68
   store ptr @.str.13, ptr @message, align 8
-  br label %73
+  br label %75
 
-73:                                               ; preds = %72, %66
-  %74 = load i64, ptr @my_inptr, align 8
-  %75 = add i64 %74, %22
-  store i64 %75, ptr @this_header, align 8
-  %76 = getelementptr i8, ptr %20, i64 %74
-  %77 = sub i64 %21, %74
-  br label %78
+75:                                               ; preds = %74, %68
+  %76 = load i64, ptr @my_inptr, align 8
+  %77 = add i64 %76, %24
+  store i64 %77, ptr @this_header, align 8
+  %78 = getelementptr i8, ptr %22, i64 %76
+  %79 = sub i64 %23, %76
+  br label %80
 
-78:                                               ; preds = %73, %42, %36
-  %79 = phi i64 [ %77, %73 ], [ %44, %42 ], [ %37, %36 ]
-  %80 = phi ptr [ %76, %73 ], [ %43, %42 ], [ %39, %36 ]
-  %81 = load ptr, ptr @message, align 8
-  %82 = icmp eq ptr %81, null
-  %83 = icmp ne i64 %79, 0
-  %84 = select i1 %82, i1 %83, i1 false
-  br i1 %84, label %19, label %85
+80:                                               ; preds = %75, %44, %38
+  %81 = phi i64 [ %79, %75 ], [ %46, %44 ], [ %39, %38 ]
+  %82 = phi ptr [ %78, %75 ], [ %45, %44 ], [ %41, %38 ]
+  %83 = load ptr, ptr @message, align 8
+  %84 = icmp eq ptr %83, null
+  %85 = icmp ne i64 %81, 0
+  %86 = select i1 %84, i1 %85, i1 false
+  br i1 %86, label %21, label %87
 
-85:                                               ; preds = %78, %17
+87:                                               ; preds = %80, %19
   call fastcc void @dir_utime() #23
-  %86 = load ptr, ptr @name_buf, align 8
-  call void @kfree(ptr noundef %86) #21
-  %87 = load ptr, ptr @symlink_buf, align 8
-  call void @kfree(ptr noundef %87) #21
-  %88 = load ptr, ptr @header_buf, align 8
+  %88 = load ptr, ptr @name_buf, align 8
   call void @kfree(ptr noundef %88) #21
-  %89 = load ptr, ptr @message, align 8
+  %89 = load ptr, ptr @symlink_buf, align 8
+  call void @kfree(ptr noundef %89) #21
+  %90 = load ptr, ptr @header_buf, align 8
+  call void @kfree(ptr noundef %90) #21
+  %91 = load ptr, ptr @message, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  ret ptr %89
+  ret ptr %91
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
@@ -499,41 +503,42 @@ define internal fastcc noundef zeroext i1 @kexec_free_initrd() unnamed_addr #1 s
   %1 = load i64, ptr @crashk_res, align 8
   %2 = load i64, ptr @page_offset_base, align 8
   %3 = add i64 %2, %1
-  %4 = load i64, ptr getelementptr inbounds (%struct.resource, ptr @crashk_res, i64 0, i32 1), align 8
-  %5 = add i64 %4, %2
-  %6 = load i64, ptr @initrd_start, align 8
-  %7 = icmp ult i64 %6, %5
-  br i1 %7, label %8, label %21
+  %4 = getelementptr inbounds %struct.resource, ptr @crashk_res, i64 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  %6 = add i64 %5, %2
+  %7 = load i64, ptr @initrd_start, align 8
+  %8 = icmp ult i64 %7, %6
+  br i1 %8, label %9, label %22
 
-8:                                                ; preds = %0
-  %9 = load i64, ptr @initrd_end, align 8
-  %10 = icmp ugt i64 %9, %3
-  br i1 %10, label %11, label %21
+9:                                                ; preds = %0
+  %10 = load i64, ptr @initrd_end, align 8
+  %11 = icmp ugt i64 %10, %3
+  br i1 %11, label %12, label %22
 
-11:                                               ; preds = %8
-  %12 = inttoptr i64 %6 to ptr
-  %13 = sub i64 %9, %6
-  tail call void @llvm.memset.p0.i64(ptr align 1 %12, i8 0, i64 %13, i1 false)
-  %14 = load i64, ptr @initrd_start, align 8
-  %15 = icmp ult i64 %14, %3
-  br i1 %15, label %16, label %17
+12:                                               ; preds = %9
+  %13 = inttoptr i64 %7 to ptr
+  %14 = sub i64 %10, %7
+  tail call void @llvm.memset.p0.i64(ptr align 1 %13, i8 0, i64 %14, i1 false)
+  %15 = load i64, ptr @initrd_start, align 8
+  %16 = icmp ult i64 %15, %3
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %11
-  tail call void @free_initrd_mem(i64 noundef %14, i64 noundef %3) #23
-  br label %17
+17:                                               ; preds = %12
+  tail call void @free_initrd_mem(i64 noundef %15, i64 noundef %3) #23
+  br label %18
 
-17:                                               ; preds = %16, %11
-  %18 = load i64, ptr @initrd_end, align 8
-  %19 = icmp ugt i64 %18, %5
-  br i1 %19, label %20, label %21
+18:                                               ; preds = %17, %12
+  %19 = load i64, ptr @initrd_end, align 8
+  %20 = icmp ugt i64 %19, %6
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %17
-  tail call void @free_initrd_mem(i64 noundef %5, i64 noundef %18) #23
-  br label %21
+21:                                               ; preds = %18
+  tail call void @free_initrd_mem(i64 noundef %6, i64 noundef %19) #23
+  br label %22
 
-21:                                               ; preds = %20, %17, %8, %0
-  %22 = phi i1 [ false, %8 ], [ false, %0 ], [ true, %20 ], [ true, %17 ]
-  ret i1 %22
+22:                                               ; preds = %21, %18, %9, %0
+  %23 = phi i1 [ false, %9 ], [ false, %0 ], [ true, %21 ], [ true, %18 ]
+  ret i1 %23
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -635,7 +640,7 @@ define internal fastcc void @dir_utime() unnamed_addr #1 section ".init.text" al
   %1 = alloca [2 x %struct.timespec64], align 16
   %2 = load ptr, ptr @dir_list, align 8
   %3 = icmp eq ptr %2, @dir_list
-  br i1 %3, label %19, label %4
+  br i1 %3, label %21, label %4
 
 4:                                                ; preds = %0
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -651,24 +656,26 @@ define internal fastcc void @dir_utime() unnamed_addr #1 section ".init.text" al
   %13 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8
   store volatile ptr %10, ptr %12, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %9, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
-  %16 = load i64, ptr %15, align 8
+  %14 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %14, ptr %9, align 8
+  %15 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds i8, ptr %9, i64 24
+  %17 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = load i64, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false), !annotation !8
-  store i64 %16, ptr %1, align 16
+  store i64 %18, ptr %1, align 16
   store i64 0, ptr %5, align 8
-  store i64 %16, ptr %6, align 16
+  store i64 %18, ptr %6, align 16
   store i64 0, ptr %7, align 8
-  %17 = call i32 @init_utimes(ptr noundef %14, ptr noundef nonnull %1) #22
+  %19 = call i32 @init_utimes(ptr noundef %16, ptr noundef nonnull %1) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #21
   call void @kfree(ptr noundef %9) #21
-  %18 = icmp eq ptr %10, @dir_list
-  br i1 %18, label %19, label %8, !llvm.loop !14
+  %20 = icmp eq ptr %10, @dir_list
+  br i1 %20, label %21, label %8, !llvm.loop !14
 
-19:                                               ; preds = %8, %0
+21:                                               ; preds = %8, %0
   ret void
 }
 
@@ -915,7 +922,7 @@ define internal noundef i32 @do_name() #1 section ".init.text" align 16 {
 
 5:                                                ; preds = %0
   tail call fastcc void @free_hash() #23
-  br label %68
+  br label %69
 
 6:                                                ; preds = %0
   %7 = load i16, ptr @mode, align 2
@@ -923,19 +930,19 @@ define internal noundef i32 @do_name() #1 section ".init.text" align 16 {
   %8 = load i16, ptr @mode, align 2
   %9 = lshr i16 %8, 12
   %10 = xor i16 %9, 8
-  switch i16 %10, label %68 [
+  switch i16 %10, label %69 [
     i16 0, label %11
-    i16 12, label %35
-    i16 14, label %47
-    i16 10, label %47
-    i16 9, label %47
-    i16 4, label %47
+    i16 12, label %36
+    i16 14, label %48
+    i16 10, label %48
+    i16 9, label %48
+    i16 4, label %48
   ]
 
 11:                                               ; preds = %6
   %12 = tail call fastcc i32 @maybe_link() #23
   %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %14, label %68
+  br i1 %13, label %14, label %69
 
 14:                                               ; preds = %11
   %15 = icmp eq i32 %12, 1
@@ -944,80 +951,81 @@ define internal noundef i32 @do_name() #1 section ".init.text" align 16 {
   %18 = load i16, ptr @mode, align 2
   %19 = tail call ptr @filp_open(ptr noundef %17, i32 noundef %16, i16 noundef zeroext %18) #21
   store ptr %19, ptr @wfile, align 8
-  %20 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
-  br i1 %20, label %68, label %21
+  %20 = inttoptr i64 -4096 to ptr
+  %21 = icmp ugt ptr %19, %20
+  br i1 %21, label %69, label %22
 
-21:                                               ; preds = %14
+22:                                               ; preds = %14
   store i64 0, ptr @wfile_pos, align 8
   store i32 0, ptr @io_csum, align 4
-  %22 = load i32, ptr @uid, align 4
-  %23 = load i32, ptr @gid, align 4
-  %24 = tail call i32 @vfs_fchown(ptr noundef %19, i32 noundef %22, i32 noundef %23) #21
-  %25 = load ptr, ptr @wfile, align 8
-  %26 = load i16, ptr @mode, align 2
-  %27 = tail call i32 @vfs_fchmod(ptr noundef %25, i16 noundef zeroext %26) #21
-  %28 = load i64, ptr @body_len, align 8
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %34, label %30
+  %23 = load i32, ptr @uid, align 4
+  %24 = load i32, ptr @gid, align 4
+  %25 = tail call i32 @vfs_fchown(ptr noundef %19, i32 noundef %23, i32 noundef %24) #21
+  %26 = load ptr, ptr @wfile, align 8
+  %27 = load i16, ptr @mode, align 2
+  %28 = tail call i32 @vfs_fchmod(ptr noundef %26, i16 noundef zeroext %27) #21
+  %29 = load i64, ptr @body_len, align 8
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %35, label %31
 
-30:                                               ; preds = %21
-  %31 = load ptr, ptr @wfile, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 152
-  %33 = tail call i64 @vfs_truncate(ptr noundef %32, i64 noundef %28) #21
-  br label %34
+31:                                               ; preds = %22
+  %32 = load ptr, ptr @wfile, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 152
+  %34 = tail call i64 @vfs_truncate(ptr noundef %33, i64 noundef %29) #21
+  br label %35
 
-34:                                               ; preds = %30, %21
+35:                                               ; preds = %31, %22
   store i32 5, ptr @state, align 4
-  br label %68
+  br label %69
 
-35:                                               ; preds = %6
-  %36 = load ptr, ptr @collected, align 8
-  %37 = tail call i32 @init_mkdir(ptr noundef %36, i16 noundef zeroext %8) #22
-  %38 = load ptr, ptr @collected, align 8
-  %39 = load i32, ptr @uid, align 4
-  %40 = load i32, ptr @gid, align 4
-  %41 = tail call i32 @init_chown(ptr noundef %38, i32 noundef %39, i32 noundef %40, i32 noundef 0) #22
-  %42 = load ptr, ptr @collected, align 8
-  %43 = load i16, ptr @mode, align 2
-  %44 = tail call i32 @init_chmod(ptr noundef %42, i16 noundef zeroext %43) #22
-  %45 = load ptr, ptr @collected, align 8
-  %46 = load i64, ptr @mtime, align 8
-  tail call fastcc void @dir_add(ptr noundef %45, i64 noundef %46) #23
-  br label %68
+36:                                               ; preds = %6
+  %37 = load ptr, ptr @collected, align 8
+  %38 = tail call i32 @init_mkdir(ptr noundef %37, i16 noundef zeroext %8) #22
+  %39 = load ptr, ptr @collected, align 8
+  %40 = load i32, ptr @uid, align 4
+  %41 = load i32, ptr @gid, align 4
+  %42 = tail call i32 @init_chown(ptr noundef %39, i32 noundef %40, i32 noundef %41, i32 noundef 0) #22
+  %43 = load ptr, ptr @collected, align 8
+  %44 = load i16, ptr @mode, align 2
+  %45 = tail call i32 @init_chmod(ptr noundef %43, i16 noundef zeroext %44) #22
+  %46 = load ptr, ptr @collected, align 8
+  %47 = load i64, ptr @mtime, align 8
+  tail call fastcc void @dir_add(ptr noundef %46, i64 noundef %47) #23
+  br label %69
 
-47:                                               ; preds = %6, %6, %6, %6
-  %48 = tail call fastcc i32 @maybe_link() #23
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %68
+48:                                               ; preds = %6, %6, %6, %6
+  %49 = tail call fastcc i32 @maybe_link() #23
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %69
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr @collected, align 8
-  %52 = load i16, ptr @mode, align 2
-  %53 = load i32, ptr @rdev, align 4
-  %54 = tail call i32 @init_mknod(ptr noundef %51, i16 noundef zeroext %52, i32 noundef %53) #22
-  %55 = load ptr, ptr @collected, align 8
-  %56 = load i32, ptr @uid, align 4
-  %57 = load i32, ptr @gid, align 4
-  %58 = tail call i32 @init_chown(ptr noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef 0) #22
-  %59 = load ptr, ptr @collected, align 8
-  %60 = load i16, ptr @mode, align 2
-  %61 = tail call i32 @init_chmod(ptr noundef %59, i16 noundef zeroext %60) #22
-  %62 = load ptr, ptr @collected, align 8
-  %63 = load i64, ptr @mtime, align 8
+51:                                               ; preds = %48
+  %52 = load ptr, ptr @collected, align 8
+  %53 = load i16, ptr @mode, align 2
+  %54 = load i32, ptr @rdev, align 4
+  %55 = tail call i32 @init_mknod(ptr noundef %52, i16 noundef zeroext %53, i32 noundef %54) #22
+  %56 = load ptr, ptr @collected, align 8
+  %57 = load i32, ptr @uid, align 4
+  %58 = load i32, ptr @gid, align 4
+  %59 = tail call i32 @init_chown(ptr noundef %56, i32 noundef %57, i32 noundef %58, i32 noundef 0) #22
+  %60 = load ptr, ptr @collected, align 8
+  %61 = load i16, ptr @mode, align 2
+  %62 = tail call i32 @init_chmod(ptr noundef %60, i16 noundef zeroext %61) #22
+  %63 = load ptr, ptr @collected, align 8
+  %64 = load i64, ptr @mtime, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false), !annotation !8
-  store i64 %63, ptr %1, align 16
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 16
-  store i64 %63, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %1, i64 24
-  store i64 0, ptr %66, align 8
-  %67 = call i32 @init_utimes(ptr noundef %62, ptr noundef nonnull %1) #22
+  store i64 %64, ptr %1, align 16
+  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 0, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  store i64 %64, ptr %66, align 16
+  %67 = getelementptr inbounds i8, ptr %1, i64 24
+  store i64 0, ptr %67, align 8
+  %68 = call i32 @init_utimes(ptr noundef %63, ptr noundef nonnull %1) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #21
-  br label %68
+  br label %69
 
-68:                                               ; preds = %50, %47, %35, %34, %14, %11, %6, %5
+69:                                               ; preds = %51, %48, %36, %35, %14, %11, %6, %5
   ret i32 0
 }
 
@@ -1346,10 +1354,11 @@ define internal fastcc void @free_hash() unnamed_addr #1 section ".init.text" al
 
 11:                                               ; preds = %5, %1
   %12 = getelementptr i8, ptr %2, i64 8
-  %13 = icmp ult ptr %12, getelementptr inbounds ([32 x ptr], ptr @head, i64 1, i64 0)
-  br i1 %13, label %1, label %14, !llvm.loop !18
+  %13 = getelementptr inbounds [32 x ptr], ptr @head, i64 1, i64 0
+  %14 = icmp ult ptr %12, %13
+  br i1 %14, label %1, label %15, !llvm.loop !18
 
-14:                                               ; preds = %11
+15:                                               ; preds = %11
   ret void
 }
 
@@ -1532,7 +1541,7 @@ define internal fastcc ptr @find_link(i32 noundef %0, i32 noundef %1, i32 nounde
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %17, i64 24
-  br label %54
+  br label %55
 
 35:                                               ; preds = %28, %24, %20, %16
   %36 = getelementptr inbounds i8, ptr %17, i64 16
@@ -1546,34 +1555,35 @@ define internal fastcc ptr @find_link(i32 noundef %0, i32 noundef %1, i32 nounde
 
 41:                                               ; preds = %39, %5
   %42 = phi ptr [ %40, %39 ], [ %13, %5 ]
-  %43 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13), align 8
-  %44 = tail call noalias align 8 dereferenceable_or_null(4128) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 3264, i64 noundef 4128) #25
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %47
+  %43 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 13
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call noalias align 8 dereferenceable_or_null(4128) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 3264, i64 noundef 4128) #25
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %41
+47:                                               ; preds = %41
   tail call fastcc void @show_mem()
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.21) #24
   unreachable
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %44, i64 8
-  store i32 %0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %44, i64 4
-  store i32 %1, ptr %49, align 4
-  store i32 %2, ptr %44, align 8
-  %50 = getelementptr inbounds i8, ptr %44, i64 12
-  store i16 %3, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %44, i64 24
-  %52 = tail call ptr @strcpy(ptr noundef %51, ptr noundef %4) #21
-  %53 = getelementptr inbounds i8, ptr %44, i64 16
-  store ptr null, ptr %53, align 8
-  store ptr %44, ptr %42, align 8
-  br label %54
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds i8, ptr %45, i64 8
+  store i32 %0, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %45, i64 4
+  store i32 %1, ptr %50, align 4
+  store i32 %2, ptr %45, align 8
+  %51 = getelementptr inbounds i8, ptr %45, i64 12
+  store i16 %3, ptr %51, align 4
+  %52 = getelementptr inbounds i8, ptr %45, i64 24
+  %53 = tail call ptr @strcpy(ptr noundef %52, ptr noundef %4) #21
+  %54 = getelementptr inbounds i8, ptr %45, i64 16
+  store ptr null, ptr %54, align 8
+  store ptr %45, ptr %42, align 8
+  br label %55
 
-54:                                               ; preds = %47, %33
-  %55 = phi ptr [ %34, %33 ], [ null, %47 ]
-  ret ptr %55
+55:                                               ; preds = %48, %33
+  %56 = phi ptr [ %34, %33 ], [ null, %48 ]
+  ret ptr %56
 }
 
 ; Function Attrs: cold null_pointer_is_valid

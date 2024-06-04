@@ -107,40 +107,41 @@ declare dso_local void @drm_crtc_vblank_reset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_atomic_helper_crtc_reset(ptr noundef %0) #1 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
-  %3 = tail call noalias align 8 dereferenceable_or_null(336) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 336) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 1480
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %12, label %7
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call noalias align 8 dereferenceable_or_null(336) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 336) #10
+  %5 = getelementptr inbounds i8, ptr %0, i64 1480
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %13, label %8
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 408
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 88
-  %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef %0, ptr noundef nonnull %5) #9
-  br label %12
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 408
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 88
+  %12 = load ptr, ptr %11, align 8
+  tail call void %12(ptr noundef %0, ptr noundef nonnull %6) #9
+  br label %13
 
-12:                                               ; preds = %7, %1
-  %13 = icmp eq ptr %3, null
-  br i1 %13, label %15, label %14
+13:                                               ; preds = %8, %1
+  %14 = icmp eq ptr %4, null
+  br i1 %14, label %16, label %15
 
-14:                                               ; preds = %12
-  store ptr %0, ptr %3, align 8
-  br label %15
+15:                                               ; preds = %13
+  store ptr %0, ptr %4, align 8
+  br label %16
 
-15:                                               ; preds = %14, %12
-  %16 = load ptr, ptr %0, align 8
-  %17 = tail call zeroext i1 @drm_dev_has_vblank(ptr noundef %16) #9
-  br i1 %17, label %18, label %19
+16:                                               ; preds = %15, %13
+  %17 = load ptr, ptr %0, align 8
+  %18 = tail call zeroext i1 @drm_dev_has_vblank(ptr noundef %17) #9
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %15
+19:                                               ; preds = %16
   tail call void @drm_crtc_vblank_reset(ptr noundef %0) #9
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %15
-  store ptr %3, ptr %4, align 8
+20:                                               ; preds = %19, %16
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
@@ -238,21 +239,22 @@ define dso_local noundef ptr @drm_atomic_helper_crtc_duplicate_state(ptr nocaptu
   tail call void asm sideeffect "386: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 386b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 386) #9, !srcloc !8
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 174, i32 2305, i64 12) #9, !srcloc !9
   tail call void asm sideeffect "387: nop\0A\09.pushsection .discard.instr_end\0A\09.long 387b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 387) #9, !srcloc !10
-  br label %11
+  br label %12
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
-  %8 = tail call noalias align 8 dereferenceable_or_null(336) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 336) #10
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %11, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noalias align 8 dereferenceable_or_null(336) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3264, i64 noundef 336) #10
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %12, label %11
 
-10:                                               ; preds = %6
-  tail call void @__drm_atomic_helper_crtc_duplicate_state(ptr noundef %0, ptr noundef nonnull %8)
-  br label %11
+11:                                               ; preds = %6
+  tail call void @__drm_atomic_helper_crtc_duplicate_state(ptr noundef %0, ptr noundef nonnull %9)
+  br label %12
 
-11:                                               ; preds = %10, %6, %5
-  %12 = phi ptr [ null, %5 ], [ %8, %10 ], [ %8, %6 ]
-  ret ptr %12
+12:                                               ; preds = %11, %6, %5
+  %13 = phi ptr [ null, %5 ], [ %9, %11 ], [ %9, %6 ]
+  ret ptr %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -506,18 +508,19 @@ define dso_local void @drm_atomic_helper_plane_reset(ptr noundef %0) #1 align 16
 6:                                                ; preds = %5, %1
   %7 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %7) #9
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %9 = tail call noalias align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 176) #10
-  store ptr %9, ptr %2, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %12, label %11
+  %8 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %9 = load ptr, ptr %8, align 16
+  %10 = tail call noalias align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 176) #10
+  store ptr %10, ptr %2, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %13, label %12
 
-11:                                               ; preds = %6
-  tail call void @__drm_atomic_helper_plane_state_reset(ptr noundef nonnull %9, ptr noundef %0)
-  store ptr %9, ptr %2, align 8
-  br label %12
+12:                                               ; preds = %6
+  tail call void @__drm_atomic_helper_plane_state_reset(ptr noundef nonnull %10, ptr noundef %0)
+  store ptr %10, ptr %2, align 8
+  br label %13
 
-12:                                               ; preds = %11, %6
+13:                                               ; preds = %12, %6
   ret void
 }
 
@@ -642,43 +645,44 @@ define dso_local noundef ptr @drm_atomic_helper_plane_duplicate_state(ptr nocapt
   tail call void asm sideeffect "395: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 395b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 395) #9, !srcloc !16
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 371, i32 2305, i64 12) #9, !srcloc !17
   tail call void asm sideeffect "396: nop\0A\09.pushsection .discard.instr_end\0A\09.long 396b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 396) #9, !srcloc !18
-  br label %24
+  br label %25
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %8 = tail call noalias align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 176) #10
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %24, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %8 = load ptr, ptr %7, align 16
+  %9 = tail call noalias align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3264, i64 noundef 176) #10
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %25, label %11
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr %2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef align 8 dereferenceable(176) %11, i64 176, i1 false)
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %17, label %15
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %2, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef align 8 dereferenceable(176) %12, i64 176, i1 false)
+  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %18, label %16
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
-  tail call void @drm_mode_object_get(ptr noundef %16) #9
-  br label %17
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  tail call void @drm_mode_object_get(ptr noundef %17) #9
+  br label %18
 
-17:                                               ; preds = %15, %10
-  %18 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 152
+18:                                               ; preds = %16, %11
+  %19 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 96
+  %20 = getelementptr inbounds i8, ptr %9, i64 152
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 168
-  %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, -2
-  store i8 %23, ptr %21, align 8
-  br label %24
+  %21 = getelementptr inbounds i8, ptr %9, i64 96
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %9, i64 168
+  %23 = load i8, ptr %22, align 8
+  %24 = and i8 %23, -2
+  store i8 %24, ptr %22, align 8
+  br label %25
 
-24:                                               ; preds = %17, %6, %5
-  %25 = phi ptr [ null, %5 ], [ %8, %17 ], [ %8, %6 ]
-  ret ptr %25
+25:                                               ; preds = %18, %6, %5
+  %26 = phi ptr [ null, %5 ], [ %9, %18 ], [ %9, %6 ]
+  ret ptr %26
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -711,29 +715,30 @@ define dso_local void @__drm_atomic_helper_connector_reset(ptr noundef %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_atomic_helper_connector_reset(ptr noundef %0) #1 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %3 = tail call noalias align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 160) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 1904
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 160) #10
+  %5 = getelementptr inbounds i8, ptr %0, i64 1904
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  tail call void @__drm_atomic_helper_connector_destroy_state(ptr noundef nonnull %5)
-  br label %8
+8:                                                ; preds = %1
+  tail call void @__drm_atomic_helper_connector_destroy_state(ptr noundef nonnull %6)
+  br label %9
 
-8:                                                ; preds = %7, %1
-  %9 = load ptr, ptr %4, align 8
-  tail call void @kfree(ptr noundef %9) #9
-  %10 = icmp eq ptr %3, null
-  br i1 %10, label %12, label %11
+9:                                                ; preds = %8, %1
+  %10 = load ptr, ptr %5, align 8
+  tail call void @kfree(ptr noundef %10) #9
+  %11 = icmp eq ptr %4, null
+  br i1 %11, label %13, label %12
 
-11:                                               ; preds = %8
-  store ptr %0, ptr %3, align 8
-  br label %12
+12:                                               ; preds = %9
+  store ptr %0, ptr %4, align 8
+  br label %13
 
-12:                                               ; preds = %11, %8
-  store ptr %3, ptr %4, align 8
+13:                                               ; preds = %12, %9
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
@@ -1238,47 +1243,48 @@ define dso_local noundef ptr @drm_atomic_helper_connector_duplicate_state(ptr no
   tail call void asm sideeffect "407: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 407b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 407) #9, !srcloc !19
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 660, i32 2305, i64 12) #9, !srcloc !20
   tail call void asm sideeffect "408: nop\0A\09.pushsection .discard.instr_end\0A\09.long 408b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 408) #9, !srcloc !21
-  br label %26
+  br label %27
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2), align 16
-  %8 = tail call noalias align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 160) #10
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %26, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 2
+  %8 = load ptr, ptr %7, align 16
+  %9 = tail call noalias align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3264, i64 noundef 160) #10
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %27, label %11
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr %2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %8, ptr noundef align 8 dereferenceable(160) %11, i64 160, i1 false)
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %17, label %15
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %2, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %9, ptr noundef align 8 dereferenceable(160) %12, i64 160, i1 false)
+  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %18, label %16
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @drm_mode_object_get(ptr noundef %16) #9
-  br label %17
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  tail call void @drm_mode_object_get(ptr noundef %17) #9
+  br label %18
 
-17:                                               ; preds = %15, %10
-  %18 = getelementptr inbounds i8, ptr %8, i64 40
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 152
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %24, label %22
+18:                                               ; preds = %16, %11
+  %19 = getelementptr inbounds i8, ptr %9, i64 40
+  store ptr null, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %9, i64 152
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %25, label %23
 
-22:                                               ; preds = %17
-  %23 = tail call ptr @drm_property_blob_get(ptr noundef nonnull %20) #9
-  br label %24
+23:                                               ; preds = %18
+  %24 = tail call ptr @drm_property_blob_get(ptr noundef nonnull %21) #9
+  br label %25
 
-24:                                               ; preds = %22, %17
-  %25 = getelementptr inbounds i8, ptr %8, i64 136
-  store ptr null, ptr %25, align 8
-  br label %26
+25:                                               ; preds = %23, %18
+  %26 = getelementptr inbounds i8, ptr %9, i64 136
+  store ptr null, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %24, %6, %5
-  %27 = phi ptr [ null, %5 ], [ %8, %24 ], [ %8, %6 ]
-  ret ptr %27
+27:                                               ; preds = %25, %6, %5
+  %28 = phi ptr [ null, %5 ], [ %9, %25 ], [ %9, %6 ]
+  ret ptr %28
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1320,24 +1326,25 @@ define dso_local noundef ptr @drm_atomic_helper_bridge_duplicate_state(ptr nound
   tail call void asm sideeffect "414: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 414b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 414) #9, !srcloc !22
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 757, i32 2305, i64 12) #9, !srcloc !23
   tail call void asm sideeffect "415: nop\0A\09.pushsection .discard.instr_end\0A\09.long 415b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 415) #9, !srcloc !24
-  br label %13
+  br label %14
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %8 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 40) #10
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %13, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %8 = load ptr, ptr %7, align 16
+  %9 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 40) #10
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %14, label %11
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr %2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef align 8 dereferenceable(16) %11, i64 16, i1 false)
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %0, ptr %12, align 8
-  br label %13
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %2, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef align 8 dereferenceable(16) %12, i64 16, i1 false)
+  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %0, ptr %13, align 8
+  br label %14
 
-13:                                               ; preds = %10, %6, %5
-  %14 = phi ptr [ null, %5 ], [ %8, %10 ], [ %8, %6 ]
-  ret ptr %14
+14:                                               ; preds = %11, %6, %5
+  %15 = phi ptr [ null, %5 ], [ %9, %11 ], [ %9, %6 ]
+  ret ptr %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1359,20 +1366,22 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @drm_atomic_helper_bridge_reset(ptr noundef %0) #1 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %3 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 40) #10
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %7, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %3 = load ptr, ptr %2, align 16
+  %4 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 40) #10
+  %5 = icmp eq ptr %4, null
+  %6 = inttoptr i64 -12 to ptr
+  br i1 %5, label %9, label %7
 
-5:                                                ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %0, ptr %6, align 8
-  br label %7
+7:                                                ; preds = %1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %0, ptr %8, align 8
+  br label %9
 
-7:                                                ; preds = %5, %1
-  %8 = phi ptr [ %3, %5 ], [ inttoptr (i64 -12 to ptr), %1 ]
-  ret ptr %8
+9:                                                ; preds = %7, %1
+  %10 = phi ptr [ %4, %7 ], [ %6, %1 ]
+  ret ptr %10
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)

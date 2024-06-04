@@ -2500,35 +2500,36 @@ entry:
   store ptr %descriptor, ptr %descriptor.addr, align 8
   store ptr %context, ptr %context.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java27MessageBuilderLiteGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java27MessageBuilderLiteGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %descriptor_ = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %descriptor.addr, align 8
-  store ptr %0, ptr %descriptor_, align 8
+  %1 = load ptr, ptr %descriptor.addr, align 8
+  store ptr %1, ptr %descriptor_, align 8
   %context_ = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %context.addr, align 8
-  store ptr %1, ptr %context_, align 8
-  %name_resolver_ = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 3
   %2 = load ptr, ptr %context.addr, align 8
-  %call = call noundef ptr @_ZNK6google8protobuf8compiler4java7Context15GetNameResolverEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  store ptr %2, ptr %context_, align 8
+  %name_resolver_ = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 3
+  %3 = load ptr, ptr %context.addr, align 8
+  %call = call noundef ptr @_ZNK6google8protobuf8compiler4java7Context15GetNameResolverEv(ptr noundef nonnull align 8 dereferenceable(152) %3)
   store ptr %call, ptr %name_resolver_, align 8
   %field_generators_ = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %descriptor.addr, align 8
+  %4 = load ptr, ptr %descriptor.addr, align 8
   %context_2 = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %context_2, align 8
-  call void @_ZN6google8protobuf8compiler4java17FieldGeneratorMapINS2_27ImmutableFieldLiteGeneratorEEC1EPKNS0_10DescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(32) %field_generators_, ptr noundef %3, ptr noundef %4)
+  %5 = load ptr, ptr %context_2, align 8
+  call void @_ZN6google8protobuf8compiler4java17FieldGeneratorMapINS2_27ImmutableFieldLiteGeneratorEEC1EPKNS0_10DescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(32) %field_generators_, ptr noundef %4, ptr noundef %5)
   %oneofs_ = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 5
   invoke void @_ZN4absl12lts_202308029btree_mapIiPKN6google8protobuf15OneofDescriptorESt4lessIiESaISt4pairIKiS6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %oneofs_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %5 = load ptr, ptr %descriptor.addr, align 8
+  %6 = load ptr, ptr %descriptor.addr, align 8
   store i1 false, ptr %cleanup.cond, align 1
-  %call5 = invoke noundef ptr @_ZNK6google8protobuf10Descriptor4fileEv(ptr noundef nonnull align 8 dereferenceable(152) %5)
+  %call5 = invoke noundef ptr @_ZNK6google8protobuf10Descriptor4fileEv(ptr noundef nonnull align 8 dereferenceable(152) %6)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %6 = load ptr, ptr %context.addr, align 8
-  %call7 = invoke noundef zeroext i1 @_ZNK6google8protobuf8compiler4java7Context11EnforceLiteEv(ptr noundef nonnull align 8 dereferenceable(152) %6)
+  %7 = load ptr, ptr %context.addr, align 8
+  %call7 = invoke noundef zeroext i1 @_ZNK6google8protobuf8compiler4java7Context11EnforceLiteEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
           to label %invoke.cont6 unwind label %lpad3
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -2545,11 +2546,11 @@ cond.true:                                        ; preds = %invoke.cont8
 
 cond.false:                                       ; preds = %invoke.cont8
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef @.str.1) #3
-  %7 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef @.str, i32 noundef 48, i64 %8, ptr %10) #19
+  %8 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef @.str, i32 noundef 48, i64 %9, ptr %11) #19
           to label %invoke.cont12 unwind label %lpad3
 
 invoke.cont12:                                    ; preds = %cond.false
@@ -2577,56 +2578,56 @@ cleanup.action:                                   ; preds = %cond.end
   unreachable
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup63
 
 lpad3:                                            ; preds = %cond.false46, %invoke.cont40, %invoke.cont38, %invoke.cont33, %invoke.cont31, %if.then, %invoke.cont26, %for.body, %for.cond, %cond.false, %invoke.cont6, %invoke.cont4, %invoke.cont
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad13:                                           ; preds = %invoke.cont16, %invoke.cont14, %invoke.cont12
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   %cleanup.is_active19 = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active19, label %cleanup.action20, label %cleanup.done21
 
-20:                                               ; No predecessors!
+21:                                               ; No predecessors!
   br label %cleanup.done
 
-cleanup.done:                                     ; preds = %20, %cond.end
+cleanup.done:                                     ; preds = %21, %cond.end
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %cleanup.done
-  %21 = load i32, ptr %i, align 4
+  %22 = load i32, ptr %i, align 4
   %descriptor_22 = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 1
-  %22 = load ptr, ptr %descriptor_22, align 8
-  %call24 = invoke noundef i32 @_ZNK6google8protobuf10Descriptor11field_countEv(ptr noundef nonnull align 8 dereferenceable(152) %22)
+  %23 = load ptr, ptr %descriptor_22, align 8
+  %call24 = invoke noundef i32 @_ZNK6google8protobuf10Descriptor11field_countEv(ptr noundef nonnull align 8 dereferenceable(152) %23)
           to label %invoke.cont23 unwind label %lpad3
 
 invoke.cont23:                                    ; preds = %for.cond
-  %cmp = icmp slt i32 %21, %call24
+  %cmp = icmp slt i32 %22, %call24
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont23
   %descriptor_25 = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 1
-  %23 = load ptr, ptr %descriptor_25, align 8
-  %24 = load i32, ptr %i, align 4
-  %call27 = invoke noundef ptr @_ZNK6google8protobuf10Descriptor5fieldEi(ptr noundef nonnull align 8 dereferenceable(152) %23, i32 noundef %24)
+  %24 = load ptr, ptr %descriptor_25, align 8
+  %25 = load i32, ptr %i, align 4
+  %call27 = invoke noundef ptr @_ZNK6google8protobuf10Descriptor5fieldEi(ptr noundef nonnull align 8 dereferenceable(152) %24, i32 noundef %25)
           to label %invoke.cont26 unwind label %lpad3
 
 invoke.cont26:                                    ; preds = %for.body
@@ -2638,9 +2639,9 @@ invoke.cont28:                                    ; preds = %invoke.cont26
 
 if.then:                                          ; preds = %invoke.cont28
   %descriptor_30 = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 1
-  %25 = load ptr, ptr %descriptor_30, align 8
-  %26 = load i32, ptr %i, align 4
-  %call32 = invoke noundef ptr @_ZNK6google8protobuf10Descriptor5fieldEi(ptr noundef nonnull align 8 dereferenceable(152) %25, i32 noundef %26)
+  %26 = load ptr, ptr %descriptor_30, align 8
+  %27 = load i32, ptr %i, align 4
+  %call32 = invoke noundef ptr @_ZNK6google8protobuf10Descriptor5fieldEi(ptr noundef nonnull align 8 dereferenceable(152) %26, i32 noundef %27)
           to label %invoke.cont31 unwind label %lpad3
 
 invoke.cont31:                                    ; preds = %if.then
@@ -2650,9 +2651,9 @@ invoke.cont31:                                    ; preds = %if.then
 invoke.cont33:                                    ; preds = %invoke.cont31
   store ptr %call34, ptr %oneof, align 8
   %oneofs_36 = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 5
-  %27 = load ptr, ptr %oneof, align 8
+  %28 = load ptr, ptr %oneof, align 8
   store i1 false, ptr %cleanup.cond51, align 1
-  %call39 = invoke noundef i32 @_ZNK6google8protobuf15OneofDescriptor5indexEv(ptr noundef nonnull align 8 dereferenceable(56) %27)
+  %call39 = invoke noundef i32 @_ZNK6google8protobuf15OneofDescriptor5indexEv(ptr noundef nonnull align 8 dereferenceable(56) %28)
           to label %invoke.cont38 unwind label %lpad3
 
 invoke.cont38:                                    ; preds = %invoke.cont33
@@ -2667,9 +2668,9 @@ invoke.cont40:                                    ; preds = %invoke.cont38
 
 invoke.cont41:                                    ; preds = %invoke.cont40
   %second = getelementptr inbounds %"struct.std::pair", ptr %call42, i32 0, i32 1
-  %28 = load ptr, ptr %second, align 8
-  %29 = load ptr, ptr %oneof, align 8
-  %cmp43 = icmp eq ptr %28, %29
+  %29 = load ptr, ptr %second, align 8
+  %30 = load ptr, ptr %oneof, align 8
+  %cmp43 = icmp eq ptr %29, %30
   %lnot44 = xor i1 %cmp43, true
   br i1 %lnot44, label %cond.false46, label %cond.true45
 
@@ -2678,11 +2679,11 @@ cond.true45:                                      ; preds = %invoke.cont41
 
 cond.false46:                                     ; preds = %invoke.cont41
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp49, ptr noundef @.str.3) #3
-  %30 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp49, i32 0, i32 0
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp49, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48, ptr noundef @.str, i32 noundef 54, i64 %31, ptr %33) #19
+  %31 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp49, i32 0, i32 0
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp49, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48, ptr noundef @.str, i32 noundef 54, i64 %32, ptr %34) #19
           to label %invoke.cont50 unwind label %lpad3
 
 invoke.cont50:                                    ; preds = %cond.false46
@@ -2709,44 +2710,44 @@ cleanup.action20:                                 ; preds = %lpad13
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11) #20
   unreachable
 
-34:                                               ; No predecessors!
+35:                                               ; No predecessors!
   br label %cleanup.done21
 
-cleanup.done21:                                   ; preds = %34, %lpad13
+cleanup.done21:                                   ; preds = %35, %lpad13
   br label %ehcleanup
 
 lpad52:                                           ; preds = %invoke.cont53, %invoke.cont50
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %exn.slot, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %ehselector.slot, align 4
   %cleanup.is_active60 = load i1, ptr %cleanup.cond51, align 1
   br i1 %cleanup.is_active60, label %cleanup.action61, label %cleanup.done62
 
-38:                                               ; No predecessors!
+39:                                               ; No predecessors!
   br label %cleanup.done59
 
-cleanup.done59:                                   ; preds = %38, %cond.end56
+cleanup.done59:                                   ; preds = %39, %cond.end56
   br label %if.end
 
 cleanup.action61:                                 ; preds = %lpad52
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48) #20
   unreachable
 
-39:                                               ; No predecessors!
+40:                                               ; No predecessors!
   br label %cleanup.done62
 
-cleanup.done62:                                   ; preds = %39, %lpad52
+cleanup.done62:                                   ; preds = %40, %lpad52
   br label %ehcleanup
 
 if.end:                                           ; preds = %cleanup.done59, %invoke.cont28
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %40 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %40, 1
+  %41 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %41, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !4
 
@@ -3089,7 +3090,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java27MessageBuilderLiteGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java27MessageBuilderLiteGeneratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %oneofs_ = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 5
   call void @_ZN4absl12lts_202308029btree_mapIiPKN6google8protobuf15OneofDescriptorESt4lessIiESaISt4pairIKiS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %oneofs_) #3
   %field_generators_ = getelementptr inbounds %"class.google::protobuf::compiler::java::MessageBuilderLiteGenerator", ptr %this1, i32 0, i32 4
@@ -6748,7 +6750,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4absl12lts_2023080218container_internal10EmptyGroupEv() #5 comdat {
 entry:
-  ret ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16)
+  %0 = getelementptr inbounds i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8974,7 +8977,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %state_ = getelementptr inbounds %"class.absl::lts_20230802::hash_internal::MixingHashState", ptr %this1, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64), ptr %state_, align 8
+  %0 = ptrtoint ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64
+  store i64 %0, ptr %state_, align 8
   ret void
 }
 

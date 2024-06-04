@@ -297,12 +297,12 @@ define internal i32 @tuned_module_enable(ptr noundef %0, ptr noundef %1) #0 {
 
 42:                                               ; preds = %38
   store i32 -1, ptr %3, align 4
-  br label %731
+  br label %765
 
 43:                                               ; preds = %38
   %44 = load i8, ptr @ompi_coll_tuned_use_dynamic_rules, align 1
   %45 = trunc i8 %44 to i1
-  br i1 %45, label %46, label %710
+  br i1 %45, label %46, label %744
 
 46:                                               ; preds = %43
   store i32 0, ptr %9, align 4
@@ -327,1059 +327,1093 @@ define internal i32 @tuned_module_enable(ptr noundef %0, ptr noundef %1) #0 {
   br label %61
 
 61:                                               ; preds = %60, %46
-  %62 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %63 = icmp ne ptr null, %62
-  br i1 %63, label %64, label %78
+  %62 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp ne ptr null, %63
+  br i1 %64, label %65, label %80
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %66 = load i32, ptr %6, align 4
-  %67 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %65, i32 noundef 0, i32 noundef %66)
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %68, i32 0, i32 2
-  %70 = getelementptr inbounds [22 x ptr], ptr %69, i64 0, i64 0
-  store ptr %67, ptr %70, align 8
-  %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %71, i32 0, i32 2
-  %73 = getelementptr inbounds [22 x ptr], ptr %72, i64 0, i64 0
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp ne ptr null, %74
-  br i1 %75, label %76, label %77
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %67 = load ptr, ptr %66, align 8
+  %68 = load i32, ptr %6, align 4
+  %69 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %67, i32 noundef 0, i32 noundef %68)
+  %70 = load ptr, ptr %7, align 8
+  %71 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %70, i32 0, i32 2
+  %72 = getelementptr inbounds [22 x ptr], ptr %71, i64 0, i64 0
+  store ptr %69, ptr %72, align 8
+  %73 = load ptr, ptr %7, align 8
+  %74 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %73, i32 0, i32 2
+  %75 = getelementptr inbounds [22 x ptr], ptr %74, i64 0, i64 0
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp ne ptr null, %76
+  br i1 %77, label %78, label %79
 
-76:                                               ; preds = %64
+78:                                               ; preds = %65
   store i32 1, ptr %9, align 4
-  br label %77
+  br label %79
 
-77:                                               ; preds = %76, %64
-  br label %78
+79:                                               ; preds = %78, %65
+  br label %80
 
-78:                                               ; preds = %77, %61
-  %79 = load i32, ptr %9, align 4
-  %80 = icmp eq i32 1, %79
-  br i1 %80, label %81, label %85
+80:                                               ; preds = %79, %61
+  %81 = load i32, ptr %9, align 4
+  %82 = icmp eq i32 1, %81
+  br i1 %82, label %83, label %87
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %82, i32 0, i32 0
-  %84 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %83, i32 0, i32 2
-  store ptr @ompi_coll_tuned_allgather_intra_dec_dynamic, ptr %84, align 8
-  br label %85
+83:                                               ; preds = %80
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %84, i32 0, i32 0
+  %86 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %85, i32 0, i32 2
+  store ptr @ompi_coll_tuned_allgather_intra_dec_dynamic, ptr %86, align 8
+  br label %87
 
-85:                                               ; preds = %81, %78
+87:                                               ; preds = %83, %80
   store i32 0, ptr %10, align 4
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %86, i32 0, i32 1
-  %88 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %87, i64 0, i64 1
-  %89 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 1, ptr noundef %88)
-  %90 = load ptr, ptr %7, align 8
-  %91 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %90, i32 0, i32 2
-  %92 = getelementptr inbounds [22 x ptr], ptr %91, i64 0, i64 1
-  store ptr null, ptr %92, align 8
-  %93 = load ptr, ptr %7, align 8
-  %94 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %93, i32 0, i32 1
-  %95 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %94, i64 0, i64 1
-  %96 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %95, i32 0, i32 0
-  %97 = load i32, ptr %96, align 4
-  %98 = icmp ne i32 0, %97
-  br i1 %98, label %99, label %100
+  %88 = load ptr, ptr %7, align 8
+  %89 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %88, i32 0, i32 1
+  %90 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %89, i64 0, i64 1
+  %91 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 1, ptr noundef %90)
+  %92 = load ptr, ptr %7, align 8
+  %93 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %92, i32 0, i32 2
+  %94 = getelementptr inbounds [22 x ptr], ptr %93, i64 0, i64 1
+  store ptr null, ptr %94, align 8
+  %95 = load ptr, ptr %7, align 8
+  %96 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %95, i32 0, i32 1
+  %97 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %96, i64 0, i64 1
+  %98 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %97, i32 0, i32 0
+  %99 = load i32, ptr %98, align 4
+  %100 = icmp ne i32 0, %99
+  br i1 %100, label %101, label %102
 
-99:                                               ; preds = %85
+101:                                              ; preds = %87
   store i32 1, ptr %10, align 4
-  br label %100
+  br label %102
 
-100:                                              ; preds = %99, %85
-  %101 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %102 = icmp ne ptr null, %101
-  br i1 %102, label %103, label %117
+102:                                              ; preds = %101, %87
+  %103 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %104 = load ptr, ptr %103, align 8
+  %105 = icmp ne ptr null, %104
+  br i1 %105, label %106, label %121
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %105 = load i32, ptr %6, align 4
-  %106 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %104, i32 noundef 1, i32 noundef %105)
-  %107 = load ptr, ptr %7, align 8
-  %108 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %107, i32 0, i32 2
-  %109 = getelementptr inbounds [22 x ptr], ptr %108, i64 0, i64 1
-  store ptr %106, ptr %109, align 8
-  %110 = load ptr, ptr %7, align 8
-  %111 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %110, i32 0, i32 2
-  %112 = getelementptr inbounds [22 x ptr], ptr %111, i64 0, i64 1
-  %113 = load ptr, ptr %112, align 8
-  %114 = icmp ne ptr null, %113
-  br i1 %114, label %115, label %116
+106:                                              ; preds = %102
+  %107 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %108 = load ptr, ptr %107, align 8
+  %109 = load i32, ptr %6, align 4
+  %110 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %108, i32 noundef 1, i32 noundef %109)
+  %111 = load ptr, ptr %7, align 8
+  %112 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %111, i32 0, i32 2
+  %113 = getelementptr inbounds [22 x ptr], ptr %112, i64 0, i64 1
+  store ptr %110, ptr %113, align 8
+  %114 = load ptr, ptr %7, align 8
+  %115 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %114, i32 0, i32 2
+  %116 = getelementptr inbounds [22 x ptr], ptr %115, i64 0, i64 1
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp ne ptr null, %117
+  br i1 %118, label %119, label %120
 
-115:                                              ; preds = %103
+119:                                              ; preds = %106
   store i32 1, ptr %10, align 4
-  br label %116
+  br label %120
 
-116:                                              ; preds = %115, %103
-  br label %117
+120:                                              ; preds = %119, %106
+  br label %121
 
-117:                                              ; preds = %116, %100
-  %118 = load i32, ptr %10, align 4
-  %119 = icmp eq i32 1, %118
-  br i1 %119, label %120, label %124
+121:                                              ; preds = %120, %102
+  %122 = load i32, ptr %10, align 4
+  %123 = icmp eq i32 1, %122
+  br i1 %123, label %124, label %128
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %7, align 8
-  %122 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %121, i32 0, i32 0
-  %123 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %122, i32 0, i32 3
-  store ptr @ompi_coll_tuned_allgatherv_intra_dec_dynamic, ptr %123, align 8
-  br label %124
-
-124:                                              ; preds = %120, %117
-  store i32 0, ptr %11, align 4
+124:                                              ; preds = %121
   %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %125, i32 0, i32 1
-  %127 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %126, i64 0, i64 2
-  %128 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 2, ptr noundef %127)
+  %126 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %125, i32 0, i32 0
+  %127 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %126, i32 0, i32 3
+  store ptr @ompi_coll_tuned_allgatherv_intra_dec_dynamic, ptr %127, align 8
+  br label %128
+
+128:                                              ; preds = %124, %121
+  store i32 0, ptr %11, align 4
   %129 = load ptr, ptr %7, align 8
-  %130 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %129, i32 0, i32 2
-  %131 = getelementptr inbounds [22 x ptr], ptr %130, i64 0, i64 2
-  store ptr null, ptr %131, align 8
-  %132 = load ptr, ptr %7, align 8
-  %133 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %132, i32 0, i32 1
-  %134 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %133, i64 0, i64 2
-  %135 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %134, i32 0, i32 0
-  %136 = load i32, ptr %135, align 8
-  %137 = icmp ne i32 0, %136
-  br i1 %137, label %138, label %139
+  %130 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %129, i32 0, i32 1
+  %131 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %130, i64 0, i64 2
+  %132 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 2, ptr noundef %131)
+  %133 = load ptr, ptr %7, align 8
+  %134 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %133, i32 0, i32 2
+  %135 = getelementptr inbounds [22 x ptr], ptr %134, i64 0, i64 2
+  store ptr null, ptr %135, align 8
+  %136 = load ptr, ptr %7, align 8
+  %137 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %136, i32 0, i32 1
+  %138 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %137, i64 0, i64 2
+  %139 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %138, i32 0, i32 0
+  %140 = load i32, ptr %139, align 8
+  %141 = icmp ne i32 0, %140
+  br i1 %141, label %142, label %143
 
-138:                                              ; preds = %124
+142:                                              ; preds = %128
   store i32 1, ptr %11, align 4
-  br label %139
+  br label %143
 
-139:                                              ; preds = %138, %124
-  %140 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %141 = icmp ne ptr null, %140
-  br i1 %141, label %142, label %156
+143:                                              ; preds = %142, %128
+  %144 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %145 = load ptr, ptr %144, align 8
+  %146 = icmp ne ptr null, %145
+  br i1 %146, label %147, label %162
 
-142:                                              ; preds = %139
-  %143 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %144 = load i32, ptr %6, align 4
-  %145 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %143, i32 noundef 2, i32 noundef %144)
-  %146 = load ptr, ptr %7, align 8
-  %147 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %146, i32 0, i32 2
-  %148 = getelementptr inbounds [22 x ptr], ptr %147, i64 0, i64 2
-  store ptr %145, ptr %148, align 8
-  %149 = load ptr, ptr %7, align 8
-  %150 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %149, i32 0, i32 2
-  %151 = getelementptr inbounds [22 x ptr], ptr %150, i64 0, i64 2
-  %152 = load ptr, ptr %151, align 8
-  %153 = icmp ne ptr null, %152
-  br i1 %153, label %154, label %155
+147:                                              ; preds = %143
+  %148 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %149 = load ptr, ptr %148, align 8
+  %150 = load i32, ptr %6, align 4
+  %151 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %149, i32 noundef 2, i32 noundef %150)
+  %152 = load ptr, ptr %7, align 8
+  %153 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %152, i32 0, i32 2
+  %154 = getelementptr inbounds [22 x ptr], ptr %153, i64 0, i64 2
+  store ptr %151, ptr %154, align 8
+  %155 = load ptr, ptr %7, align 8
+  %156 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %155, i32 0, i32 2
+  %157 = getelementptr inbounds [22 x ptr], ptr %156, i64 0, i64 2
+  %158 = load ptr, ptr %157, align 8
+  %159 = icmp ne ptr null, %158
+  br i1 %159, label %160, label %161
 
-154:                                              ; preds = %142
+160:                                              ; preds = %147
   store i32 1, ptr %11, align 4
-  br label %155
+  br label %161
 
-155:                                              ; preds = %154, %142
-  br label %156
+161:                                              ; preds = %160, %147
+  br label %162
 
-156:                                              ; preds = %155, %139
-  %157 = load i32, ptr %11, align 4
-  %158 = icmp eq i32 1, %157
-  br i1 %158, label %159, label %163
+162:                                              ; preds = %161, %143
+  %163 = load i32, ptr %11, align 4
+  %164 = icmp eq i32 1, %163
+  br i1 %164, label %165, label %169
 
-159:                                              ; preds = %156
-  %160 = load ptr, ptr %7, align 8
-  %161 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %160, i32 0, i32 0
-  %162 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %161, i32 0, i32 4
-  store ptr @ompi_coll_tuned_allreduce_intra_dec_dynamic, ptr %162, align 8
-  br label %163
+165:                                              ; preds = %162
+  %166 = load ptr, ptr %7, align 8
+  %167 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %166, i32 0, i32 0
+  %168 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %167, i32 0, i32 4
+  store ptr @ompi_coll_tuned_allreduce_intra_dec_dynamic, ptr %168, align 8
+  br label %169
 
-163:                                              ; preds = %159, %156
+169:                                              ; preds = %165, %162
   store i32 0, ptr %12, align 4
-  %164 = load ptr, ptr %7, align 8
-  %165 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %164, i32 0, i32 1
-  %166 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %165, i64 0, i64 3
-  %167 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 3, ptr noundef %166)
-  %168 = load ptr, ptr %7, align 8
-  %169 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %168, i32 0, i32 2
-  %170 = getelementptr inbounds [22 x ptr], ptr %169, i64 0, i64 3
-  store ptr null, ptr %170, align 8
-  %171 = load ptr, ptr %7, align 8
-  %172 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %171, i32 0, i32 1
-  %173 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %172, i64 0, i64 3
-  %174 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %173, i32 0, i32 0
-  %175 = load i32, ptr %174, align 4
-  %176 = icmp ne i32 0, %175
-  br i1 %176, label %177, label %178
+  %170 = load ptr, ptr %7, align 8
+  %171 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %170, i32 0, i32 1
+  %172 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %171, i64 0, i64 3
+  %173 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 3, ptr noundef %172)
+  %174 = load ptr, ptr %7, align 8
+  %175 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %174, i32 0, i32 2
+  %176 = getelementptr inbounds [22 x ptr], ptr %175, i64 0, i64 3
+  store ptr null, ptr %176, align 8
+  %177 = load ptr, ptr %7, align 8
+  %178 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %177, i32 0, i32 1
+  %179 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %178, i64 0, i64 3
+  %180 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %179, i32 0, i32 0
+  %181 = load i32, ptr %180, align 4
+  %182 = icmp ne i32 0, %181
+  br i1 %182, label %183, label %184
 
-177:                                              ; preds = %163
+183:                                              ; preds = %169
   store i32 1, ptr %12, align 4
-  br label %178
+  br label %184
 
-178:                                              ; preds = %177, %163
-  %179 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %180 = icmp ne ptr null, %179
-  br i1 %180, label %181, label %195
+184:                                              ; preds = %183, %169
+  %185 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %186 = load ptr, ptr %185, align 8
+  %187 = icmp ne ptr null, %186
+  br i1 %187, label %188, label %203
 
-181:                                              ; preds = %178
-  %182 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %183 = load i32, ptr %6, align 4
-  %184 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %182, i32 noundef 3, i32 noundef %183)
-  %185 = load ptr, ptr %7, align 8
-  %186 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %185, i32 0, i32 2
-  %187 = getelementptr inbounds [22 x ptr], ptr %186, i64 0, i64 3
-  store ptr %184, ptr %187, align 8
-  %188 = load ptr, ptr %7, align 8
-  %189 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %188, i32 0, i32 2
-  %190 = getelementptr inbounds [22 x ptr], ptr %189, i64 0, i64 3
-  %191 = load ptr, ptr %190, align 8
-  %192 = icmp ne ptr null, %191
-  br i1 %192, label %193, label %194
+188:                                              ; preds = %184
+  %189 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %190 = load ptr, ptr %189, align 8
+  %191 = load i32, ptr %6, align 4
+  %192 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %190, i32 noundef 3, i32 noundef %191)
+  %193 = load ptr, ptr %7, align 8
+  %194 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %193, i32 0, i32 2
+  %195 = getelementptr inbounds [22 x ptr], ptr %194, i64 0, i64 3
+  store ptr %192, ptr %195, align 8
+  %196 = load ptr, ptr %7, align 8
+  %197 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %196, i32 0, i32 2
+  %198 = getelementptr inbounds [22 x ptr], ptr %197, i64 0, i64 3
+  %199 = load ptr, ptr %198, align 8
+  %200 = icmp ne ptr null, %199
+  br i1 %200, label %201, label %202
 
-193:                                              ; preds = %181
+201:                                              ; preds = %188
   store i32 1, ptr %12, align 4
-  br label %194
-
-194:                                              ; preds = %193, %181
-  br label %195
-
-195:                                              ; preds = %194, %178
-  %196 = load i32, ptr %12, align 4
-  %197 = icmp eq i32 1, %196
-  br i1 %197, label %198, label %202
-
-198:                                              ; preds = %195
-  %199 = load ptr, ptr %7, align 8
-  %200 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %199, i32 0, i32 0
-  %201 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %200, i32 0, i32 5
-  store ptr @ompi_coll_tuned_alltoall_intra_dec_dynamic, ptr %201, align 8
   br label %202
 
-202:                                              ; preds = %198, %195
-  store i32 0, ptr %13, align 4
-  %203 = load ptr, ptr %7, align 8
-  %204 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %203, i32 0, i32 1
-  %205 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %204, i64 0, i64 4
-  %206 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 4, ptr noundef %205)
+202:                                              ; preds = %201, %188
+  br label %203
+
+203:                                              ; preds = %202, %184
+  %204 = load i32, ptr %12, align 4
+  %205 = icmp eq i32 1, %204
+  br i1 %205, label %206, label %210
+
+206:                                              ; preds = %203
   %207 = load ptr, ptr %7, align 8
-  %208 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %207, i32 0, i32 2
-  %209 = getelementptr inbounds [22 x ptr], ptr %208, i64 0, i64 4
-  store ptr null, ptr %209, align 8
-  %210 = load ptr, ptr %7, align 8
-  %211 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %210, i32 0, i32 1
-  %212 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %211, i64 0, i64 4
-  %213 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %212, i32 0, i32 0
-  %214 = load i32, ptr %213, align 8
-  %215 = icmp ne i32 0, %214
-  br i1 %215, label %216, label %217
+  %208 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %207, i32 0, i32 0
+  %209 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %208, i32 0, i32 5
+  store ptr @ompi_coll_tuned_alltoall_intra_dec_dynamic, ptr %209, align 8
+  br label %210
 
-216:                                              ; preds = %202
+210:                                              ; preds = %206, %203
+  store i32 0, ptr %13, align 4
+  %211 = load ptr, ptr %7, align 8
+  %212 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %211, i32 0, i32 1
+  %213 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %212, i64 0, i64 4
+  %214 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 4, ptr noundef %213)
+  %215 = load ptr, ptr %7, align 8
+  %216 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %215, i32 0, i32 2
+  %217 = getelementptr inbounds [22 x ptr], ptr %216, i64 0, i64 4
+  store ptr null, ptr %217, align 8
+  %218 = load ptr, ptr %7, align 8
+  %219 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %218, i32 0, i32 1
+  %220 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %219, i64 0, i64 4
+  %221 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %220, i32 0, i32 0
+  %222 = load i32, ptr %221, align 8
+  %223 = icmp ne i32 0, %222
+  br i1 %223, label %224, label %225
+
+224:                                              ; preds = %210
   store i32 1, ptr %13, align 4
-  br label %217
+  br label %225
 
-217:                                              ; preds = %216, %202
-  %218 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %219 = icmp ne ptr null, %218
-  br i1 %219, label %220, label %234
+225:                                              ; preds = %224, %210
+  %226 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %227 = load ptr, ptr %226, align 8
+  %228 = icmp ne ptr null, %227
+  br i1 %228, label %229, label %244
 
-220:                                              ; preds = %217
-  %221 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %222 = load i32, ptr %6, align 4
-  %223 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %221, i32 noundef 4, i32 noundef %222)
-  %224 = load ptr, ptr %7, align 8
-  %225 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %224, i32 0, i32 2
-  %226 = getelementptr inbounds [22 x ptr], ptr %225, i64 0, i64 4
-  store ptr %223, ptr %226, align 8
-  %227 = load ptr, ptr %7, align 8
-  %228 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %227, i32 0, i32 2
-  %229 = getelementptr inbounds [22 x ptr], ptr %228, i64 0, i64 4
-  %230 = load ptr, ptr %229, align 8
-  %231 = icmp ne ptr null, %230
-  br i1 %231, label %232, label %233
+229:                                              ; preds = %225
+  %230 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %231 = load ptr, ptr %230, align 8
+  %232 = load i32, ptr %6, align 4
+  %233 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %231, i32 noundef 4, i32 noundef %232)
+  %234 = load ptr, ptr %7, align 8
+  %235 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %234, i32 0, i32 2
+  %236 = getelementptr inbounds [22 x ptr], ptr %235, i64 0, i64 4
+  store ptr %233, ptr %236, align 8
+  %237 = load ptr, ptr %7, align 8
+  %238 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %237, i32 0, i32 2
+  %239 = getelementptr inbounds [22 x ptr], ptr %238, i64 0, i64 4
+  %240 = load ptr, ptr %239, align 8
+  %241 = icmp ne ptr null, %240
+  br i1 %241, label %242, label %243
 
-232:                                              ; preds = %220
+242:                                              ; preds = %229
   store i32 1, ptr %13, align 4
-  br label %233
+  br label %243
 
-233:                                              ; preds = %232, %220
-  br label %234
+243:                                              ; preds = %242, %229
+  br label %244
 
-234:                                              ; preds = %233, %217
-  %235 = load i32, ptr %13, align 4
-  %236 = icmp eq i32 1, %235
-  br i1 %236, label %237, label %241
+244:                                              ; preds = %243, %225
+  %245 = load i32, ptr %13, align 4
+  %246 = icmp eq i32 1, %245
+  br i1 %246, label %247, label %251
 
-237:                                              ; preds = %234
-  %238 = load ptr, ptr %7, align 8
-  %239 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %238, i32 0, i32 0
-  %240 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %239, i32 0, i32 6
-  store ptr @ompi_coll_tuned_alltoallv_intra_dec_dynamic, ptr %240, align 8
-  br label %241
+247:                                              ; preds = %244
+  %248 = load ptr, ptr %7, align 8
+  %249 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %248, i32 0, i32 0
+  %250 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %249, i32 0, i32 6
+  store ptr @ompi_coll_tuned_alltoallv_intra_dec_dynamic, ptr %250, align 8
+  br label %251
 
-241:                                              ; preds = %237, %234
+251:                                              ; preds = %247, %244
   store i32 0, ptr %14, align 4
-  %242 = load ptr, ptr %7, align 8
-  %243 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %242, i32 0, i32 1
-  %244 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %243, i64 0, i64 5
-  %245 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 5, ptr noundef %244)
-  %246 = load ptr, ptr %7, align 8
-  %247 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %246, i32 0, i32 2
-  %248 = getelementptr inbounds [22 x ptr], ptr %247, i64 0, i64 5
-  store ptr null, ptr %248, align 8
-  %249 = load ptr, ptr %7, align 8
-  %250 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %249, i32 0, i32 1
-  %251 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %250, i64 0, i64 5
-  %252 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %251, i32 0, i32 0
-  %253 = load i32, ptr %252, align 4
-  %254 = icmp ne i32 0, %253
-  br i1 %254, label %255, label %256
+  %252 = load ptr, ptr %7, align 8
+  %253 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %252, i32 0, i32 1
+  %254 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %253, i64 0, i64 5
+  %255 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 5, ptr noundef %254)
+  %256 = load ptr, ptr %7, align 8
+  %257 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %256, i32 0, i32 2
+  %258 = getelementptr inbounds [22 x ptr], ptr %257, i64 0, i64 5
+  store ptr null, ptr %258, align 8
+  %259 = load ptr, ptr %7, align 8
+  %260 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %259, i32 0, i32 1
+  %261 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %260, i64 0, i64 5
+  %262 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %261, i32 0, i32 0
+  %263 = load i32, ptr %262, align 4
+  %264 = icmp ne i32 0, %263
+  br i1 %264, label %265, label %266
 
-255:                                              ; preds = %241
+265:                                              ; preds = %251
   store i32 1, ptr %14, align 4
-  br label %256
+  br label %266
 
-256:                                              ; preds = %255, %241
-  %257 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %258 = icmp ne ptr null, %257
-  br i1 %258, label %259, label %273
+266:                                              ; preds = %265, %251
+  %267 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %268 = load ptr, ptr %267, align 8
+  %269 = icmp ne ptr null, %268
+  br i1 %269, label %270, label %285
 
-259:                                              ; preds = %256
-  %260 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %261 = load i32, ptr %6, align 4
-  %262 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %260, i32 noundef 5, i32 noundef %261)
-  %263 = load ptr, ptr %7, align 8
-  %264 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %263, i32 0, i32 2
-  %265 = getelementptr inbounds [22 x ptr], ptr %264, i64 0, i64 5
-  store ptr %262, ptr %265, align 8
-  %266 = load ptr, ptr %7, align 8
-  %267 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %266, i32 0, i32 2
-  %268 = getelementptr inbounds [22 x ptr], ptr %267, i64 0, i64 5
-  %269 = load ptr, ptr %268, align 8
-  %270 = icmp ne ptr null, %269
-  br i1 %270, label %271, label %272
+270:                                              ; preds = %266
+  %271 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %272 = load ptr, ptr %271, align 8
+  %273 = load i32, ptr %6, align 4
+  %274 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %272, i32 noundef 5, i32 noundef %273)
+  %275 = load ptr, ptr %7, align 8
+  %276 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %275, i32 0, i32 2
+  %277 = getelementptr inbounds [22 x ptr], ptr %276, i64 0, i64 5
+  store ptr %274, ptr %277, align 8
+  %278 = load ptr, ptr %7, align 8
+  %279 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %278, i32 0, i32 2
+  %280 = getelementptr inbounds [22 x ptr], ptr %279, i64 0, i64 5
+  %281 = load ptr, ptr %280, align 8
+  %282 = icmp ne ptr null, %281
+  br i1 %282, label %283, label %284
 
-271:                                              ; preds = %259
+283:                                              ; preds = %270
   store i32 1, ptr %14, align 4
-  br label %272
+  br label %284
 
-272:                                              ; preds = %271, %259
-  br label %273
+284:                                              ; preds = %283, %270
+  br label %285
 
-273:                                              ; preds = %272, %256
-  %274 = load i32, ptr %14, align 4
-  %275 = icmp eq i32 1, %274
-  br i1 %275, label %276, label %280
+285:                                              ; preds = %284, %266
+  %286 = load i32, ptr %14, align 4
+  %287 = icmp eq i32 1, %286
+  br i1 %287, label %288, label %292
 
-276:                                              ; preds = %273
-  %277 = load ptr, ptr %7, align 8
-  %278 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %277, i32 0, i32 0
-  %279 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %278, i32 0, i32 7
-  store ptr null, ptr %279, align 8
-  br label %280
+288:                                              ; preds = %285
+  %289 = load ptr, ptr %7, align 8
+  %290 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %289, i32 0, i32 0
+  %291 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %290, i32 0, i32 7
+  store ptr null, ptr %291, align 8
+  br label %292
 
-280:                                              ; preds = %276, %273
+292:                                              ; preds = %288, %285
   store i32 0, ptr %15, align 4
-  %281 = load ptr, ptr %7, align 8
-  %282 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %281, i32 0, i32 1
-  %283 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %282, i64 0, i64 6
-  %284 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 6, ptr noundef %283)
-  %285 = load ptr, ptr %7, align 8
-  %286 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %285, i32 0, i32 2
-  %287 = getelementptr inbounds [22 x ptr], ptr %286, i64 0, i64 6
-  store ptr null, ptr %287, align 8
-  %288 = load ptr, ptr %7, align 8
-  %289 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %288, i32 0, i32 1
-  %290 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %289, i64 0, i64 6
-  %291 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %290, i32 0, i32 0
-  %292 = load i32, ptr %291, align 8
-  %293 = icmp ne i32 0, %292
-  br i1 %293, label %294, label %295
+  %293 = load ptr, ptr %7, align 8
+  %294 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %293, i32 0, i32 1
+  %295 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %294, i64 0, i64 6
+  %296 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 6, ptr noundef %295)
+  %297 = load ptr, ptr %7, align 8
+  %298 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %297, i32 0, i32 2
+  %299 = getelementptr inbounds [22 x ptr], ptr %298, i64 0, i64 6
+  store ptr null, ptr %299, align 8
+  %300 = load ptr, ptr %7, align 8
+  %301 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %300, i32 0, i32 1
+  %302 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %301, i64 0, i64 6
+  %303 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %302, i32 0, i32 0
+  %304 = load i32, ptr %303, align 8
+  %305 = icmp ne i32 0, %304
+  br i1 %305, label %306, label %307
 
-294:                                              ; preds = %280
+306:                                              ; preds = %292
   store i32 1, ptr %15, align 4
-  br label %295
+  br label %307
 
-295:                                              ; preds = %294, %280
-  %296 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %297 = icmp ne ptr null, %296
-  br i1 %297, label %298, label %312
+307:                                              ; preds = %306, %292
+  %308 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %309 = load ptr, ptr %308, align 8
+  %310 = icmp ne ptr null, %309
+  br i1 %310, label %311, label %326
 
-298:                                              ; preds = %295
-  %299 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %300 = load i32, ptr %6, align 4
-  %301 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %299, i32 noundef 6, i32 noundef %300)
-  %302 = load ptr, ptr %7, align 8
-  %303 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %302, i32 0, i32 2
-  %304 = getelementptr inbounds [22 x ptr], ptr %303, i64 0, i64 6
-  store ptr %301, ptr %304, align 8
-  %305 = load ptr, ptr %7, align 8
-  %306 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %305, i32 0, i32 2
-  %307 = getelementptr inbounds [22 x ptr], ptr %306, i64 0, i64 6
-  %308 = load ptr, ptr %307, align 8
-  %309 = icmp ne ptr null, %308
-  br i1 %309, label %310, label %311
-
-310:                                              ; preds = %298
-  store i32 1, ptr %15, align 4
-  br label %311
-
-311:                                              ; preds = %310, %298
-  br label %312
-
-312:                                              ; preds = %311, %295
-  %313 = load i32, ptr %15, align 4
-  %314 = icmp eq i32 1, %313
-  br i1 %314, label %315, label %319
-
-315:                                              ; preds = %312
+311:                                              ; preds = %307
+  %312 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %313 = load ptr, ptr %312, align 8
+  %314 = load i32, ptr %6, align 4
+  %315 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %313, i32 noundef 6, i32 noundef %314)
   %316 = load ptr, ptr %7, align 8
-  %317 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %316, i32 0, i32 0
-  %318 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %317, i32 0, i32 8
-  store ptr @ompi_coll_tuned_barrier_intra_dec_dynamic, ptr %318, align 8
-  br label %319
+  %317 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %316, i32 0, i32 2
+  %318 = getelementptr inbounds [22 x ptr], ptr %317, i64 0, i64 6
+  store ptr %315, ptr %318, align 8
+  %319 = load ptr, ptr %7, align 8
+  %320 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %319, i32 0, i32 2
+  %321 = getelementptr inbounds [22 x ptr], ptr %320, i64 0, i64 6
+  %322 = load ptr, ptr %321, align 8
+  %323 = icmp ne ptr null, %322
+  br i1 %323, label %324, label %325
 
-319:                                              ; preds = %315, %312
+324:                                              ; preds = %311
+  store i32 1, ptr %15, align 4
+  br label %325
+
+325:                                              ; preds = %324, %311
+  br label %326
+
+326:                                              ; preds = %325, %307
+  %327 = load i32, ptr %15, align 4
+  %328 = icmp eq i32 1, %327
+  br i1 %328, label %329, label %333
+
+329:                                              ; preds = %326
+  %330 = load ptr, ptr %7, align 8
+  %331 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %330, i32 0, i32 0
+  %332 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %331, i32 0, i32 8
+  store ptr @ompi_coll_tuned_barrier_intra_dec_dynamic, ptr %332, align 8
+  br label %333
+
+333:                                              ; preds = %329, %326
   store i32 0, ptr %16, align 4
-  %320 = load ptr, ptr %7, align 8
-  %321 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %320, i32 0, i32 1
-  %322 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %321, i64 0, i64 7
-  %323 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 7, ptr noundef %322)
-  %324 = load ptr, ptr %7, align 8
-  %325 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %324, i32 0, i32 2
-  %326 = getelementptr inbounds [22 x ptr], ptr %325, i64 0, i64 7
-  store ptr null, ptr %326, align 8
-  %327 = load ptr, ptr %7, align 8
-  %328 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %327, i32 0, i32 1
-  %329 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %328, i64 0, i64 7
-  %330 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %329, i32 0, i32 0
-  %331 = load i32, ptr %330, align 4
-  %332 = icmp ne i32 0, %331
-  br i1 %332, label %333, label %334
-
-333:                                              ; preds = %319
-  store i32 1, ptr %16, align 4
-  br label %334
-
-334:                                              ; preds = %333, %319
-  %335 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %336 = icmp ne ptr null, %335
-  br i1 %336, label %337, label %351
-
-337:                                              ; preds = %334
-  %338 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %339 = load i32, ptr %6, align 4
-  %340 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %338, i32 noundef 7, i32 noundef %339)
+  %334 = load ptr, ptr %7, align 8
+  %335 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %334, i32 0, i32 1
+  %336 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %335, i64 0, i64 7
+  %337 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 7, ptr noundef %336)
+  %338 = load ptr, ptr %7, align 8
+  %339 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %338, i32 0, i32 2
+  %340 = getelementptr inbounds [22 x ptr], ptr %339, i64 0, i64 7
+  store ptr null, ptr %340, align 8
   %341 = load ptr, ptr %7, align 8
-  %342 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %341, i32 0, i32 2
-  %343 = getelementptr inbounds [22 x ptr], ptr %342, i64 0, i64 7
-  store ptr %340, ptr %343, align 8
-  %344 = load ptr, ptr %7, align 8
-  %345 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %344, i32 0, i32 2
-  %346 = getelementptr inbounds [22 x ptr], ptr %345, i64 0, i64 7
-  %347 = load ptr, ptr %346, align 8
-  %348 = icmp ne ptr null, %347
-  br i1 %348, label %349, label %350
+  %342 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %341, i32 0, i32 1
+  %343 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %342, i64 0, i64 7
+  %344 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %343, i32 0, i32 0
+  %345 = load i32, ptr %344, align 4
+  %346 = icmp ne i32 0, %345
+  br i1 %346, label %347, label %348
 
-349:                                              ; preds = %337
+347:                                              ; preds = %333
   store i32 1, ptr %16, align 4
-  br label %350
+  br label %348
 
-350:                                              ; preds = %349, %337
-  br label %351
+348:                                              ; preds = %347, %333
+  %349 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %350 = load ptr, ptr %349, align 8
+  %351 = icmp ne ptr null, %350
+  br i1 %351, label %352, label %367
 
-351:                                              ; preds = %350, %334
-  %352 = load i32, ptr %16, align 4
-  %353 = icmp eq i32 1, %352
-  br i1 %353, label %354, label %358
+352:                                              ; preds = %348
+  %353 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %354 = load ptr, ptr %353, align 8
+  %355 = load i32, ptr %6, align 4
+  %356 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %354, i32 noundef 7, i32 noundef %355)
+  %357 = load ptr, ptr %7, align 8
+  %358 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %357, i32 0, i32 2
+  %359 = getelementptr inbounds [22 x ptr], ptr %358, i64 0, i64 7
+  store ptr %356, ptr %359, align 8
+  %360 = load ptr, ptr %7, align 8
+  %361 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %360, i32 0, i32 2
+  %362 = getelementptr inbounds [22 x ptr], ptr %361, i64 0, i64 7
+  %363 = load ptr, ptr %362, align 8
+  %364 = icmp ne ptr null, %363
+  br i1 %364, label %365, label %366
 
-354:                                              ; preds = %351
-  %355 = load ptr, ptr %7, align 8
-  %356 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %355, i32 0, i32 0
-  %357 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %356, i32 0, i32 9
-  store ptr @ompi_coll_tuned_bcast_intra_dec_dynamic, ptr %357, align 8
-  br label %358
+365:                                              ; preds = %352
+  store i32 1, ptr %16, align 4
+  br label %366
 
-358:                                              ; preds = %354, %351
+366:                                              ; preds = %365, %352
+  br label %367
+
+367:                                              ; preds = %366, %348
+  %368 = load i32, ptr %16, align 4
+  %369 = icmp eq i32 1, %368
+  br i1 %369, label %370, label %374
+
+370:                                              ; preds = %367
+  %371 = load ptr, ptr %7, align 8
+  %372 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %371, i32 0, i32 0
+  %373 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %372, i32 0, i32 9
+  store ptr @ompi_coll_tuned_bcast_intra_dec_dynamic, ptr %373, align 8
+  br label %374
+
+374:                                              ; preds = %370, %367
   store i32 0, ptr %17, align 4
-  %359 = load ptr, ptr %7, align 8
-  %360 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %359, i32 0, i32 1
-  %361 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %360, i64 0, i64 8
-  %362 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 8, ptr noundef %361)
-  %363 = load ptr, ptr %7, align 8
-  %364 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %363, i32 0, i32 2
-  %365 = getelementptr inbounds [22 x ptr], ptr %364, i64 0, i64 8
-  store ptr null, ptr %365, align 8
-  %366 = load ptr, ptr %7, align 8
-  %367 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %366, i32 0, i32 1
-  %368 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %367, i64 0, i64 8
-  %369 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %368, i32 0, i32 0
-  %370 = load i32, ptr %369, align 8
-  %371 = icmp ne i32 0, %370
-  br i1 %371, label %372, label %373
-
-372:                                              ; preds = %358
-  store i32 1, ptr %17, align 4
-  br label %373
-
-373:                                              ; preds = %372, %358
-  %374 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %375 = icmp ne ptr null, %374
-  br i1 %375, label %376, label %390
-
-376:                                              ; preds = %373
-  %377 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %378 = load i32, ptr %6, align 4
-  %379 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %377, i32 noundef 8, i32 noundef %378)
-  %380 = load ptr, ptr %7, align 8
-  %381 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %380, i32 0, i32 2
-  %382 = getelementptr inbounds [22 x ptr], ptr %381, i64 0, i64 8
-  store ptr %379, ptr %382, align 8
-  %383 = load ptr, ptr %7, align 8
-  %384 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %383, i32 0, i32 2
-  %385 = getelementptr inbounds [22 x ptr], ptr %384, i64 0, i64 8
-  %386 = load ptr, ptr %385, align 8
-  %387 = icmp ne ptr null, %386
+  %375 = load ptr, ptr %7, align 8
+  %376 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %375, i32 0, i32 1
+  %377 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %376, i64 0, i64 8
+  %378 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 8, ptr noundef %377)
+  %379 = load ptr, ptr %7, align 8
+  %380 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %379, i32 0, i32 2
+  %381 = getelementptr inbounds [22 x ptr], ptr %380, i64 0, i64 8
+  store ptr null, ptr %381, align 8
+  %382 = load ptr, ptr %7, align 8
+  %383 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %382, i32 0, i32 1
+  %384 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %383, i64 0, i64 8
+  %385 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %384, i32 0, i32 0
+  %386 = load i32, ptr %385, align 8
+  %387 = icmp ne i32 0, %386
   br i1 %387, label %388, label %389
 
-388:                                              ; preds = %376
+388:                                              ; preds = %374
   store i32 1, ptr %17, align 4
   br label %389
 
-389:                                              ; preds = %388, %376
-  br label %390
+389:                                              ; preds = %388, %374
+  %390 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %391 = load ptr, ptr %390, align 8
+  %392 = icmp ne ptr null, %391
+  br i1 %392, label %393, label %408
 
-390:                                              ; preds = %389, %373
-  %391 = load i32, ptr %17, align 4
-  %392 = icmp eq i32 1, %391
-  br i1 %392, label %393, label %397
-
-393:                                              ; preds = %390
-  %394 = load ptr, ptr %7, align 8
-  %395 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %394, i32 0, i32 0
-  %396 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %395, i32 0, i32 10
-  store ptr @ompi_coll_tuned_exscan_intra_dec_dynamic, ptr %396, align 8
-  br label %397
-
-397:                                              ; preds = %393, %390
-  store i32 0, ptr %18, align 4
+393:                                              ; preds = %389
+  %394 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %395 = load ptr, ptr %394, align 8
+  %396 = load i32, ptr %6, align 4
+  %397 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %395, i32 noundef 8, i32 noundef %396)
   %398 = load ptr, ptr %7, align 8
-  %399 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %398, i32 0, i32 1
-  %400 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %399, i64 0, i64 9
-  %401 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 9, ptr noundef %400)
-  %402 = load ptr, ptr %7, align 8
-  %403 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %402, i32 0, i32 2
-  %404 = getelementptr inbounds [22 x ptr], ptr %403, i64 0, i64 9
-  store ptr null, ptr %404, align 8
-  %405 = load ptr, ptr %7, align 8
-  %406 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %405, i32 0, i32 1
-  %407 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %406, i64 0, i64 9
-  %408 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %407, i32 0, i32 0
-  %409 = load i32, ptr %408, align 4
-  %410 = icmp ne i32 0, %409
-  br i1 %410, label %411, label %412
+  %399 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %398, i32 0, i32 2
+  %400 = getelementptr inbounds [22 x ptr], ptr %399, i64 0, i64 8
+  store ptr %397, ptr %400, align 8
+  %401 = load ptr, ptr %7, align 8
+  %402 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %401, i32 0, i32 2
+  %403 = getelementptr inbounds [22 x ptr], ptr %402, i64 0, i64 8
+  %404 = load ptr, ptr %403, align 8
+  %405 = icmp ne ptr null, %404
+  br i1 %405, label %406, label %407
 
-411:                                              ; preds = %397
+406:                                              ; preds = %393
+  store i32 1, ptr %17, align 4
+  br label %407
+
+407:                                              ; preds = %406, %393
+  br label %408
+
+408:                                              ; preds = %407, %389
+  %409 = load i32, ptr %17, align 4
+  %410 = icmp eq i32 1, %409
+  br i1 %410, label %411, label %415
+
+411:                                              ; preds = %408
+  %412 = load ptr, ptr %7, align 8
+  %413 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %412, i32 0, i32 0
+  %414 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %413, i32 0, i32 10
+  store ptr @ompi_coll_tuned_exscan_intra_dec_dynamic, ptr %414, align 8
+  br label %415
+
+415:                                              ; preds = %411, %408
+  store i32 0, ptr %18, align 4
+  %416 = load ptr, ptr %7, align 8
+  %417 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %416, i32 0, i32 1
+  %418 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %417, i64 0, i64 9
+  %419 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 9, ptr noundef %418)
+  %420 = load ptr, ptr %7, align 8
+  %421 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %420, i32 0, i32 2
+  %422 = getelementptr inbounds [22 x ptr], ptr %421, i64 0, i64 9
+  store ptr null, ptr %422, align 8
+  %423 = load ptr, ptr %7, align 8
+  %424 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %423, i32 0, i32 1
+  %425 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %424, i64 0, i64 9
+  %426 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %425, i32 0, i32 0
+  %427 = load i32, ptr %426, align 4
+  %428 = icmp ne i32 0, %427
+  br i1 %428, label %429, label %430
+
+429:                                              ; preds = %415
   store i32 1, ptr %18, align 4
-  br label %412
+  br label %430
 
-412:                                              ; preds = %411, %397
-  %413 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %414 = icmp ne ptr null, %413
-  br i1 %414, label %415, label %429
+430:                                              ; preds = %429, %415
+  %431 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %432 = load ptr, ptr %431, align 8
+  %433 = icmp ne ptr null, %432
+  br i1 %433, label %434, label %449
 
-415:                                              ; preds = %412
-  %416 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %417 = load i32, ptr %6, align 4
-  %418 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %416, i32 noundef 9, i32 noundef %417)
-  %419 = load ptr, ptr %7, align 8
-  %420 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %419, i32 0, i32 2
-  %421 = getelementptr inbounds [22 x ptr], ptr %420, i64 0, i64 9
-  store ptr %418, ptr %421, align 8
-  %422 = load ptr, ptr %7, align 8
-  %423 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %422, i32 0, i32 2
-  %424 = getelementptr inbounds [22 x ptr], ptr %423, i64 0, i64 9
-  %425 = load ptr, ptr %424, align 8
-  %426 = icmp ne ptr null, %425
-  br i1 %426, label %427, label %428
+434:                                              ; preds = %430
+  %435 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %436 = load ptr, ptr %435, align 8
+  %437 = load i32, ptr %6, align 4
+  %438 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %436, i32 noundef 9, i32 noundef %437)
+  %439 = load ptr, ptr %7, align 8
+  %440 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %439, i32 0, i32 2
+  %441 = getelementptr inbounds [22 x ptr], ptr %440, i64 0, i64 9
+  store ptr %438, ptr %441, align 8
+  %442 = load ptr, ptr %7, align 8
+  %443 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %442, i32 0, i32 2
+  %444 = getelementptr inbounds [22 x ptr], ptr %443, i64 0, i64 9
+  %445 = load ptr, ptr %444, align 8
+  %446 = icmp ne ptr null, %445
+  br i1 %446, label %447, label %448
 
-427:                                              ; preds = %415
+447:                                              ; preds = %434
   store i32 1, ptr %18, align 4
-  br label %428
+  br label %448
 
-428:                                              ; preds = %427, %415
-  br label %429
+448:                                              ; preds = %447, %434
+  br label %449
 
-429:                                              ; preds = %428, %412
-  %430 = load i32, ptr %18, align 4
-  %431 = icmp eq i32 1, %430
-  br i1 %431, label %432, label %436
+449:                                              ; preds = %448, %430
+  %450 = load i32, ptr %18, align 4
+  %451 = icmp eq i32 1, %450
+  br i1 %451, label %452, label %456
 
-432:                                              ; preds = %429
-  %433 = load ptr, ptr %7, align 8
-  %434 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %433, i32 0, i32 0
-  %435 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %434, i32 0, i32 11
-  store ptr @ompi_coll_tuned_gather_intra_dec_dynamic, ptr %435, align 8
-  br label %436
+452:                                              ; preds = %449
+  %453 = load ptr, ptr %7, align 8
+  %454 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %453, i32 0, i32 0
+  %455 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %454, i32 0, i32 11
+  store ptr @ompi_coll_tuned_gather_intra_dec_dynamic, ptr %455, align 8
+  br label %456
 
-436:                                              ; preds = %432, %429
+456:                                              ; preds = %452, %449
   store i32 0, ptr %19, align 4
-  %437 = load ptr, ptr %7, align 8
-  %438 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %437, i32 0, i32 1
-  %439 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %438, i64 0, i64 10
-  %440 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 10, ptr noundef %439)
-  %441 = load ptr, ptr %7, align 8
-  %442 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %441, i32 0, i32 2
-  %443 = getelementptr inbounds [22 x ptr], ptr %442, i64 0, i64 10
-  store ptr null, ptr %443, align 8
-  %444 = load ptr, ptr %7, align 8
-  %445 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %444, i32 0, i32 1
-  %446 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %445, i64 0, i64 10
-  %447 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %446, i32 0, i32 0
-  %448 = load i32, ptr %447, align 8
-  %449 = icmp ne i32 0, %448
-  br i1 %449, label %450, label %451
-
-450:                                              ; preds = %436
-  store i32 1, ptr %19, align 4
-  br label %451
-
-451:                                              ; preds = %450, %436
-  %452 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %453 = icmp ne ptr null, %452
-  br i1 %453, label %454, label %468
-
-454:                                              ; preds = %451
-  %455 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %456 = load i32, ptr %6, align 4
-  %457 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %455, i32 noundef 10, i32 noundef %456)
-  %458 = load ptr, ptr %7, align 8
-  %459 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %458, i32 0, i32 2
-  %460 = getelementptr inbounds [22 x ptr], ptr %459, i64 0, i64 10
-  store ptr %457, ptr %460, align 8
+  %457 = load ptr, ptr %7, align 8
+  %458 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %457, i32 0, i32 1
+  %459 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %458, i64 0, i64 10
+  %460 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 10, ptr noundef %459)
   %461 = load ptr, ptr %7, align 8
   %462 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %461, i32 0, i32 2
   %463 = getelementptr inbounds [22 x ptr], ptr %462, i64 0, i64 10
-  %464 = load ptr, ptr %463, align 8
-  %465 = icmp ne ptr null, %464
-  br i1 %465, label %466, label %467
+  store ptr null, ptr %463, align 8
+  %464 = load ptr, ptr %7, align 8
+  %465 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %464, i32 0, i32 1
+  %466 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %465, i64 0, i64 10
+  %467 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %466, i32 0, i32 0
+  %468 = load i32, ptr %467, align 8
+  %469 = icmp ne i32 0, %468
+  br i1 %469, label %470, label %471
 
-466:                                              ; preds = %454
+470:                                              ; preds = %456
   store i32 1, ptr %19, align 4
-  br label %467
+  br label %471
 
-467:                                              ; preds = %466, %454
-  br label %468
+471:                                              ; preds = %470, %456
+  %472 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %473 = load ptr, ptr %472, align 8
+  %474 = icmp ne ptr null, %473
+  br i1 %474, label %475, label %490
 
-468:                                              ; preds = %467, %451
-  %469 = load i32, ptr %19, align 4
-  %470 = icmp eq i32 1, %469
-  br i1 %470, label %471, label %475
-
-471:                                              ; preds = %468
-  %472 = load ptr, ptr %7, align 8
-  %473 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %472, i32 0, i32 0
-  %474 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %473, i32 0, i32 12
-  store ptr null, ptr %474, align 8
-  br label %475
-
-475:                                              ; preds = %471, %468
-  store i32 0, ptr %20, align 4
-  %476 = load ptr, ptr %7, align 8
-  %477 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %476, i32 0, i32 1
-  %478 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %477, i64 0, i64 11
-  %479 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 11, ptr noundef %478)
+475:                                              ; preds = %471
+  %476 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %477 = load ptr, ptr %476, align 8
+  %478 = load i32, ptr %6, align 4
+  %479 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %477, i32 noundef 10, i32 noundef %478)
   %480 = load ptr, ptr %7, align 8
   %481 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %480, i32 0, i32 2
-  %482 = getelementptr inbounds [22 x ptr], ptr %481, i64 0, i64 11
-  store ptr null, ptr %482, align 8
+  %482 = getelementptr inbounds [22 x ptr], ptr %481, i64 0, i64 10
+  store ptr %479, ptr %482, align 8
   %483 = load ptr, ptr %7, align 8
-  %484 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %483, i32 0, i32 1
-  %485 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %484, i64 0, i64 11
-  %486 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %485, i32 0, i32 0
-  %487 = load i32, ptr %486, align 4
-  %488 = icmp ne i32 0, %487
-  br i1 %488, label %489, label %490
+  %484 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %483, i32 0, i32 2
+  %485 = getelementptr inbounds [22 x ptr], ptr %484, i64 0, i64 10
+  %486 = load ptr, ptr %485, align 8
+  %487 = icmp ne ptr null, %486
+  br i1 %487, label %488, label %489
 
-489:                                              ; preds = %475
-  store i32 1, ptr %20, align 4
+488:                                              ; preds = %475
+  store i32 1, ptr %19, align 4
+  br label %489
+
+489:                                              ; preds = %488, %475
   br label %490
 
-490:                                              ; preds = %489, %475
-  %491 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %492 = icmp ne ptr null, %491
-  br i1 %492, label %493, label %507
+490:                                              ; preds = %489, %471
+  %491 = load i32, ptr %19, align 4
+  %492 = icmp eq i32 1, %491
+  br i1 %492, label %493, label %497
 
 493:                                              ; preds = %490
-  %494 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %495 = load i32, ptr %6, align 4
-  %496 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %494, i32 noundef 11, i32 noundef %495)
-  %497 = load ptr, ptr %7, align 8
-  %498 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %497, i32 0, i32 2
-  %499 = getelementptr inbounds [22 x ptr], ptr %498, i64 0, i64 11
-  store ptr %496, ptr %499, align 8
-  %500 = load ptr, ptr %7, align 8
-  %501 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %500, i32 0, i32 2
-  %502 = getelementptr inbounds [22 x ptr], ptr %501, i64 0, i64 11
-  %503 = load ptr, ptr %502, align 8
-  %504 = icmp ne ptr null, %503
-  br i1 %504, label %505, label %506
+  %494 = load ptr, ptr %7, align 8
+  %495 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %494, i32 0, i32 0
+  %496 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %495, i32 0, i32 12
+  store ptr null, ptr %496, align 8
+  br label %497
 
-505:                                              ; preds = %493
+497:                                              ; preds = %493, %490
+  store i32 0, ptr %20, align 4
+  %498 = load ptr, ptr %7, align 8
+  %499 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %498, i32 0, i32 1
+  %500 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %499, i64 0, i64 11
+  %501 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 11, ptr noundef %500)
+  %502 = load ptr, ptr %7, align 8
+  %503 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %502, i32 0, i32 2
+  %504 = getelementptr inbounds [22 x ptr], ptr %503, i64 0, i64 11
+  store ptr null, ptr %504, align 8
+  %505 = load ptr, ptr %7, align 8
+  %506 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %505, i32 0, i32 1
+  %507 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %506, i64 0, i64 11
+  %508 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %507, i32 0, i32 0
+  %509 = load i32, ptr %508, align 4
+  %510 = icmp ne i32 0, %509
+  br i1 %510, label %511, label %512
+
+511:                                              ; preds = %497
   store i32 1, ptr %20, align 4
-  br label %506
+  br label %512
 
-506:                                              ; preds = %505, %493
-  br label %507
+512:                                              ; preds = %511, %497
+  %513 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %514 = load ptr, ptr %513, align 8
+  %515 = icmp ne ptr null, %514
+  br i1 %515, label %516, label %531
 
-507:                                              ; preds = %506, %490
-  %508 = load i32, ptr %20, align 4
-  %509 = icmp eq i32 1, %508
-  br i1 %509, label %510, label %514
+516:                                              ; preds = %512
+  %517 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %518 = load ptr, ptr %517, align 8
+  %519 = load i32, ptr %6, align 4
+  %520 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %518, i32 noundef 11, i32 noundef %519)
+  %521 = load ptr, ptr %7, align 8
+  %522 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %521, i32 0, i32 2
+  %523 = getelementptr inbounds [22 x ptr], ptr %522, i64 0, i64 11
+  store ptr %520, ptr %523, align 8
+  %524 = load ptr, ptr %7, align 8
+  %525 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %524, i32 0, i32 2
+  %526 = getelementptr inbounds [22 x ptr], ptr %525, i64 0, i64 11
+  %527 = load ptr, ptr %526, align 8
+  %528 = icmp ne ptr null, %527
+  br i1 %528, label %529, label %530
 
-510:                                              ; preds = %507
-  %511 = load ptr, ptr %7, align 8
-  %512 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %511, i32 0, i32 0
-  %513 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %512, i32 0, i32 13
-  store ptr @ompi_coll_tuned_reduce_intra_dec_dynamic, ptr %513, align 8
-  br label %514
+529:                                              ; preds = %516
+  store i32 1, ptr %20, align 4
+  br label %530
 
-514:                                              ; preds = %510, %507
+530:                                              ; preds = %529, %516
+  br label %531
+
+531:                                              ; preds = %530, %512
+  %532 = load i32, ptr %20, align 4
+  %533 = icmp eq i32 1, %532
+  br i1 %533, label %534, label %538
+
+534:                                              ; preds = %531
+  %535 = load ptr, ptr %7, align 8
+  %536 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %535, i32 0, i32 0
+  %537 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %536, i32 0, i32 13
+  store ptr @ompi_coll_tuned_reduce_intra_dec_dynamic, ptr %537, align 8
+  br label %538
+
+538:                                              ; preds = %534, %531
   store i32 0, ptr %21, align 4
-  %515 = load ptr, ptr %7, align 8
-  %516 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %515, i32 0, i32 1
-  %517 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %516, i64 0, i64 12
-  %518 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 12, ptr noundef %517)
-  %519 = load ptr, ptr %7, align 8
-  %520 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %519, i32 0, i32 2
-  %521 = getelementptr inbounds [22 x ptr], ptr %520, i64 0, i64 12
-  store ptr null, ptr %521, align 8
-  %522 = load ptr, ptr %7, align 8
-  %523 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %522, i32 0, i32 1
-  %524 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %523, i64 0, i64 12
-  %525 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %524, i32 0, i32 0
-  %526 = load i32, ptr %525, align 8
-  %527 = icmp ne i32 0, %526
-  br i1 %527, label %528, label %529
-
-528:                                              ; preds = %514
-  store i32 1, ptr %21, align 4
-  br label %529
-
-529:                                              ; preds = %528, %514
-  %530 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %531 = icmp ne ptr null, %530
-  br i1 %531, label %532, label %546
-
-532:                                              ; preds = %529
-  %533 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %534 = load i32, ptr %6, align 4
-  %535 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %533, i32 noundef 12, i32 noundef %534)
-  %536 = load ptr, ptr %7, align 8
-  %537 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %536, i32 0, i32 2
-  %538 = getelementptr inbounds [22 x ptr], ptr %537, i64 0, i64 12
-  store ptr %535, ptr %538, align 8
   %539 = load ptr, ptr %7, align 8
-  %540 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %539, i32 0, i32 2
-  %541 = getelementptr inbounds [22 x ptr], ptr %540, i64 0, i64 12
-  %542 = load ptr, ptr %541, align 8
-  %543 = icmp ne ptr null, %542
-  br i1 %543, label %544, label %545
+  %540 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %539, i32 0, i32 1
+  %541 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %540, i64 0, i64 12
+  %542 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 12, ptr noundef %541)
+  %543 = load ptr, ptr %7, align 8
+  %544 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %543, i32 0, i32 2
+  %545 = getelementptr inbounds [22 x ptr], ptr %544, i64 0, i64 12
+  store ptr null, ptr %545, align 8
+  %546 = load ptr, ptr %7, align 8
+  %547 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %546, i32 0, i32 1
+  %548 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %547, i64 0, i64 12
+  %549 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %548, i32 0, i32 0
+  %550 = load i32, ptr %549, align 8
+  %551 = icmp ne i32 0, %550
+  br i1 %551, label %552, label %553
 
-544:                                              ; preds = %532
+552:                                              ; preds = %538
   store i32 1, ptr %21, align 4
-  br label %545
-
-545:                                              ; preds = %544, %532
-  br label %546
-
-546:                                              ; preds = %545, %529
-  %547 = load i32, ptr %21, align 4
-  %548 = icmp eq i32 1, %547
-  br i1 %548, label %549, label %553
-
-549:                                              ; preds = %546
-  %550 = load ptr, ptr %7, align 8
-  %551 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %550, i32 0, i32 0
-  %552 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %551, i32 0, i32 14
-  store ptr @ompi_coll_tuned_reduce_scatter_intra_dec_dynamic, ptr %552, align 8
   br label %553
 
-553:                                              ; preds = %549, %546
+553:                                              ; preds = %552, %538
+  %554 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %555 = load ptr, ptr %554, align 8
+  %556 = icmp ne ptr null, %555
+  br i1 %556, label %557, label %572
+
+557:                                              ; preds = %553
+  %558 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %559 = load ptr, ptr %558, align 8
+  %560 = load i32, ptr %6, align 4
+  %561 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %559, i32 noundef 12, i32 noundef %560)
+  %562 = load ptr, ptr %7, align 8
+  %563 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %562, i32 0, i32 2
+  %564 = getelementptr inbounds [22 x ptr], ptr %563, i64 0, i64 12
+  store ptr %561, ptr %564, align 8
+  %565 = load ptr, ptr %7, align 8
+  %566 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %565, i32 0, i32 2
+  %567 = getelementptr inbounds [22 x ptr], ptr %566, i64 0, i64 12
+  %568 = load ptr, ptr %567, align 8
+  %569 = icmp ne ptr null, %568
+  br i1 %569, label %570, label %571
+
+570:                                              ; preds = %557
+  store i32 1, ptr %21, align 4
+  br label %571
+
+571:                                              ; preds = %570, %557
+  br label %572
+
+572:                                              ; preds = %571, %553
+  %573 = load i32, ptr %21, align 4
+  %574 = icmp eq i32 1, %573
+  br i1 %574, label %575, label %579
+
+575:                                              ; preds = %572
+  %576 = load ptr, ptr %7, align 8
+  %577 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %576, i32 0, i32 0
+  %578 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %577, i32 0, i32 14
+  store ptr @ompi_coll_tuned_reduce_scatter_intra_dec_dynamic, ptr %578, align 8
+  br label %579
+
+579:                                              ; preds = %575, %572
   store i32 0, ptr %22, align 4
-  %554 = load ptr, ptr %7, align 8
-  %555 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %554, i32 0, i32 1
-  %556 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %555, i64 0, i64 13
-  %557 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 13, ptr noundef %556)
-  %558 = load ptr, ptr %7, align 8
-  %559 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %558, i32 0, i32 2
-  %560 = getelementptr inbounds [22 x ptr], ptr %559, i64 0, i64 13
-  store ptr null, ptr %560, align 8
-  %561 = load ptr, ptr %7, align 8
-  %562 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %561, i32 0, i32 1
-  %563 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %562, i64 0, i64 13
-  %564 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %563, i32 0, i32 0
-  %565 = load i32, ptr %564, align 4
-  %566 = icmp ne i32 0, %565
-  br i1 %566, label %567, label %568
+  %580 = load ptr, ptr %7, align 8
+  %581 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %580, i32 0, i32 1
+  %582 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %581, i64 0, i64 13
+  %583 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 13, ptr noundef %582)
+  %584 = load ptr, ptr %7, align 8
+  %585 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %584, i32 0, i32 2
+  %586 = getelementptr inbounds [22 x ptr], ptr %585, i64 0, i64 13
+  store ptr null, ptr %586, align 8
+  %587 = load ptr, ptr %7, align 8
+  %588 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %587, i32 0, i32 1
+  %589 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %588, i64 0, i64 13
+  %590 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %589, i32 0, i32 0
+  %591 = load i32, ptr %590, align 4
+  %592 = icmp ne i32 0, %591
+  br i1 %592, label %593, label %594
 
-567:                                              ; preds = %553
+593:                                              ; preds = %579
   store i32 1, ptr %22, align 4
-  br label %568
+  br label %594
 
-568:                                              ; preds = %567, %553
-  %569 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %570 = icmp ne ptr null, %569
-  br i1 %570, label %571, label %585
+594:                                              ; preds = %593, %579
+  %595 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %596 = load ptr, ptr %595, align 8
+  %597 = icmp ne ptr null, %596
+  br i1 %597, label %598, label %613
 
-571:                                              ; preds = %568
-  %572 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %573 = load i32, ptr %6, align 4
-  %574 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %572, i32 noundef 13, i32 noundef %573)
-  %575 = load ptr, ptr %7, align 8
-  %576 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %575, i32 0, i32 2
-  %577 = getelementptr inbounds [22 x ptr], ptr %576, i64 0, i64 13
-  store ptr %574, ptr %577, align 8
-  %578 = load ptr, ptr %7, align 8
-  %579 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %578, i32 0, i32 2
-  %580 = getelementptr inbounds [22 x ptr], ptr %579, i64 0, i64 13
-  %581 = load ptr, ptr %580, align 8
-  %582 = icmp ne ptr null, %581
-  br i1 %582, label %583, label %584
+598:                                              ; preds = %594
+  %599 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %600 = load ptr, ptr %599, align 8
+  %601 = load i32, ptr %6, align 4
+  %602 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %600, i32 noundef 13, i32 noundef %601)
+  %603 = load ptr, ptr %7, align 8
+  %604 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %603, i32 0, i32 2
+  %605 = getelementptr inbounds [22 x ptr], ptr %604, i64 0, i64 13
+  store ptr %602, ptr %605, align 8
+  %606 = load ptr, ptr %7, align 8
+  %607 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %606, i32 0, i32 2
+  %608 = getelementptr inbounds [22 x ptr], ptr %607, i64 0, i64 13
+  %609 = load ptr, ptr %608, align 8
+  %610 = icmp ne ptr null, %609
+  br i1 %610, label %611, label %612
 
-583:                                              ; preds = %571
+611:                                              ; preds = %598
   store i32 1, ptr %22, align 4
-  br label %584
+  br label %612
 
-584:                                              ; preds = %583, %571
-  br label %585
+612:                                              ; preds = %611, %598
+  br label %613
 
-585:                                              ; preds = %584, %568
-  %586 = load i32, ptr %22, align 4
-  %587 = icmp eq i32 1, %586
-  br i1 %587, label %588, label %592
+613:                                              ; preds = %612, %594
+  %614 = load i32, ptr %22, align 4
+  %615 = icmp eq i32 1, %614
+  br i1 %615, label %616, label %620
 
-588:                                              ; preds = %585
-  %589 = load ptr, ptr %7, align 8
-  %590 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %589, i32 0, i32 0
-  %591 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %590, i32 0, i32 15
-  store ptr @ompi_coll_tuned_reduce_scatter_block_intra_dec_dynamic, ptr %591, align 8
-  br label %592
-
-592:                                              ; preds = %588, %585
-  store i32 0, ptr %23, align 4
-  %593 = load ptr, ptr %7, align 8
-  %594 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %593, i32 0, i32 1
-  %595 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %594, i64 0, i64 14
-  %596 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 14, ptr noundef %595)
-  %597 = load ptr, ptr %7, align 8
-  %598 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %597, i32 0, i32 2
-  %599 = getelementptr inbounds [22 x ptr], ptr %598, i64 0, i64 14
-  store ptr null, ptr %599, align 8
-  %600 = load ptr, ptr %7, align 8
-  %601 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %600, i32 0, i32 1
-  %602 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %601, i64 0, i64 14
-  %603 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %602, i32 0, i32 0
-  %604 = load i32, ptr %603, align 8
-  %605 = icmp ne i32 0, %604
-  br i1 %605, label %606, label %607
-
-606:                                              ; preds = %592
-  store i32 1, ptr %23, align 4
-  br label %607
-
-607:                                              ; preds = %606, %592
-  %608 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %609 = icmp ne ptr null, %608
-  br i1 %609, label %610, label %624
-
-610:                                              ; preds = %607
-  %611 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %612 = load i32, ptr %6, align 4
-  %613 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %611, i32 noundef 14, i32 noundef %612)
-  %614 = load ptr, ptr %7, align 8
-  %615 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %614, i32 0, i32 2
-  %616 = getelementptr inbounds [22 x ptr], ptr %615, i64 0, i64 14
-  store ptr %613, ptr %616, align 8
+616:                                              ; preds = %613
   %617 = load ptr, ptr %7, align 8
-  %618 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %617, i32 0, i32 2
-  %619 = getelementptr inbounds [22 x ptr], ptr %618, i64 0, i64 14
-  %620 = load ptr, ptr %619, align 8
-  %621 = icmp ne ptr null, %620
-  br i1 %621, label %622, label %623
+  %618 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %617, i32 0, i32 0
+  %619 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %618, i32 0, i32 15
+  store ptr @ompi_coll_tuned_reduce_scatter_block_intra_dec_dynamic, ptr %619, align 8
+  br label %620
 
-622:                                              ; preds = %610
-  store i32 1, ptr %23, align 4
-  br label %623
-
-623:                                              ; preds = %622, %610
-  br label %624
-
-624:                                              ; preds = %623, %607
-  %625 = load i32, ptr %23, align 4
-  %626 = icmp eq i32 1, %625
-  br i1 %626, label %627, label %631
-
-627:                                              ; preds = %624
+620:                                              ; preds = %616, %613
+  store i32 0, ptr %23, align 4
+  %621 = load ptr, ptr %7, align 8
+  %622 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %621, i32 0, i32 1
+  %623 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %622, i64 0, i64 14
+  %624 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 14, ptr noundef %623)
+  %625 = load ptr, ptr %7, align 8
+  %626 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %625, i32 0, i32 2
+  %627 = getelementptr inbounds [22 x ptr], ptr %626, i64 0, i64 14
+  store ptr null, ptr %627, align 8
   %628 = load ptr, ptr %7, align 8
-  %629 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %628, i32 0, i32 0
-  %630 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %629, i32 0, i32 16
-  store ptr @ompi_coll_tuned_scan_intra_dec_dynamic, ptr %630, align 8
-  br label %631
+  %629 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %628, i32 0, i32 1
+  %630 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %629, i64 0, i64 14
+  %631 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %630, i32 0, i32 0
+  %632 = load i32, ptr %631, align 8
+  %633 = icmp ne i32 0, %632
+  br i1 %633, label %634, label %635
 
-631:                                              ; preds = %627, %624
+634:                                              ; preds = %620
+  store i32 1, ptr %23, align 4
+  br label %635
+
+635:                                              ; preds = %634, %620
+  %636 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %637 = load ptr, ptr %636, align 8
+  %638 = icmp ne ptr null, %637
+  br i1 %638, label %639, label %654
+
+639:                                              ; preds = %635
+  %640 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %641 = load ptr, ptr %640, align 8
+  %642 = load i32, ptr %6, align 4
+  %643 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %641, i32 noundef 14, i32 noundef %642)
+  %644 = load ptr, ptr %7, align 8
+  %645 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %644, i32 0, i32 2
+  %646 = getelementptr inbounds [22 x ptr], ptr %645, i64 0, i64 14
+  store ptr %643, ptr %646, align 8
+  %647 = load ptr, ptr %7, align 8
+  %648 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %647, i32 0, i32 2
+  %649 = getelementptr inbounds [22 x ptr], ptr %648, i64 0, i64 14
+  %650 = load ptr, ptr %649, align 8
+  %651 = icmp ne ptr null, %650
+  br i1 %651, label %652, label %653
+
+652:                                              ; preds = %639
+  store i32 1, ptr %23, align 4
+  br label %653
+
+653:                                              ; preds = %652, %639
+  br label %654
+
+654:                                              ; preds = %653, %635
+  %655 = load i32, ptr %23, align 4
+  %656 = icmp eq i32 1, %655
+  br i1 %656, label %657, label %661
+
+657:                                              ; preds = %654
+  %658 = load ptr, ptr %7, align 8
+  %659 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %658, i32 0, i32 0
+  %660 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %659, i32 0, i32 16
+  store ptr @ompi_coll_tuned_scan_intra_dec_dynamic, ptr %660, align 8
+  br label %661
+
+661:                                              ; preds = %657, %654
   store i32 0, ptr %24, align 4
-  %632 = load ptr, ptr %7, align 8
-  %633 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %632, i32 0, i32 1
-  %634 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %633, i64 0, i64 15
-  %635 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 15, ptr noundef %634)
-  %636 = load ptr, ptr %7, align 8
-  %637 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %636, i32 0, i32 2
-  %638 = getelementptr inbounds [22 x ptr], ptr %637, i64 0, i64 15
-  store ptr null, ptr %638, align 8
-  %639 = load ptr, ptr %7, align 8
-  %640 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %639, i32 0, i32 1
-  %641 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %640, i64 0, i64 15
-  %642 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %641, i32 0, i32 0
-  %643 = load i32, ptr %642, align 4
-  %644 = icmp ne i32 0, %643
-  br i1 %644, label %645, label %646
+  %662 = load ptr, ptr %7, align 8
+  %663 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %662, i32 0, i32 1
+  %664 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %663, i64 0, i64 15
+  %665 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 15, ptr noundef %664)
+  %666 = load ptr, ptr %7, align 8
+  %667 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %666, i32 0, i32 2
+  %668 = getelementptr inbounds [22 x ptr], ptr %667, i64 0, i64 15
+  store ptr null, ptr %668, align 8
+  %669 = load ptr, ptr %7, align 8
+  %670 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %669, i32 0, i32 1
+  %671 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %670, i64 0, i64 15
+  %672 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %671, i32 0, i32 0
+  %673 = load i32, ptr %672, align 4
+  %674 = icmp ne i32 0, %673
+  br i1 %674, label %675, label %676
 
-645:                                              ; preds = %631
+675:                                              ; preds = %661
   store i32 1, ptr %24, align 4
-  br label %646
+  br label %676
 
-646:                                              ; preds = %645, %631
-  %647 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %648 = icmp ne ptr null, %647
-  br i1 %648, label %649, label %663
+676:                                              ; preds = %675, %661
+  %677 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %678 = load ptr, ptr %677, align 8
+  %679 = icmp ne ptr null, %678
+  br i1 %679, label %680, label %695
 
-649:                                              ; preds = %646
-  %650 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %651 = load i32, ptr %6, align 4
-  %652 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %650, i32 noundef 15, i32 noundef %651)
-  %653 = load ptr, ptr %7, align 8
-  %654 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %653, i32 0, i32 2
-  %655 = getelementptr inbounds [22 x ptr], ptr %654, i64 0, i64 15
-  store ptr %652, ptr %655, align 8
-  %656 = load ptr, ptr %7, align 8
-  %657 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %656, i32 0, i32 2
-  %658 = getelementptr inbounds [22 x ptr], ptr %657, i64 0, i64 15
-  %659 = load ptr, ptr %658, align 8
-  %660 = icmp ne ptr null, %659
-  br i1 %660, label %661, label %662
+680:                                              ; preds = %676
+  %681 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %682 = load ptr, ptr %681, align 8
+  %683 = load i32, ptr %6, align 4
+  %684 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %682, i32 noundef 15, i32 noundef %683)
+  %685 = load ptr, ptr %7, align 8
+  %686 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %685, i32 0, i32 2
+  %687 = getelementptr inbounds [22 x ptr], ptr %686, i64 0, i64 15
+  store ptr %684, ptr %687, align 8
+  %688 = load ptr, ptr %7, align 8
+  %689 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %688, i32 0, i32 2
+  %690 = getelementptr inbounds [22 x ptr], ptr %689, i64 0, i64 15
+  %691 = load ptr, ptr %690, align 8
+  %692 = icmp ne ptr null, %691
+  br i1 %692, label %693, label %694
 
-661:                                              ; preds = %649
+693:                                              ; preds = %680
   store i32 1, ptr %24, align 4
-  br label %662
+  br label %694
 
-662:                                              ; preds = %661, %649
-  br label %663
+694:                                              ; preds = %693, %680
+  br label %695
 
-663:                                              ; preds = %662, %646
-  %664 = load i32, ptr %24, align 4
-  %665 = icmp eq i32 1, %664
-  br i1 %665, label %666, label %670
+695:                                              ; preds = %694, %676
+  %696 = load i32, ptr %24, align 4
+  %697 = icmp eq i32 1, %696
+  br i1 %697, label %698, label %702
 
-666:                                              ; preds = %663
-  %667 = load ptr, ptr %7, align 8
-  %668 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %667, i32 0, i32 0
-  %669 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %668, i32 0, i32 17
-  store ptr @ompi_coll_tuned_scatter_intra_dec_dynamic, ptr %669, align 8
-  br label %670
-
-670:                                              ; preds = %666, %663
-  store i32 0, ptr %25, align 4
-  %671 = load ptr, ptr %7, align 8
-  %672 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %671, i32 0, i32 1
-  %673 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %672, i64 0, i64 16
-  %674 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 16, ptr noundef %673)
-  %675 = load ptr, ptr %7, align 8
-  %676 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %675, i32 0, i32 2
-  %677 = getelementptr inbounds [22 x ptr], ptr %676, i64 0, i64 16
-  store ptr null, ptr %677, align 8
-  %678 = load ptr, ptr %7, align 8
-  %679 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %678, i32 0, i32 1
-  %680 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %679, i64 0, i64 16
-  %681 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %680, i32 0, i32 0
-  %682 = load i32, ptr %681, align 8
-  %683 = icmp ne i32 0, %682
-  br i1 %683, label %684, label %685
-
-684:                                              ; preds = %670
-  store i32 1, ptr %25, align 4
-  br label %685
-
-685:                                              ; preds = %684, %670
-  %686 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %687 = icmp ne ptr null, %686
-  br i1 %687, label %688, label %702
-
-688:                                              ; preds = %685
-  %689 = load ptr, ptr getelementptr inbounds (%struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2), align 8
-  %690 = load i32, ptr %6, align 4
-  %691 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %689, i32 noundef 16, i32 noundef %690)
-  %692 = load ptr, ptr %7, align 8
-  %693 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %692, i32 0, i32 2
-  %694 = getelementptr inbounds [22 x ptr], ptr %693, i64 0, i64 16
-  store ptr %691, ptr %694, align 8
-  %695 = load ptr, ptr %7, align 8
-  %696 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %695, i32 0, i32 2
-  %697 = getelementptr inbounds [22 x ptr], ptr %696, i64 0, i64 16
-  %698 = load ptr, ptr %697, align 8
-  %699 = icmp ne ptr null, %698
-  br i1 %699, label %700, label %701
-
-700:                                              ; preds = %688
-  store i32 1, ptr %25, align 4
-  br label %701
-
-701:                                              ; preds = %700, %688
+698:                                              ; preds = %695
+  %699 = load ptr, ptr %7, align 8
+  %700 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %699, i32 0, i32 0
+  %701 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %700, i32 0, i32 17
+  store ptr @ompi_coll_tuned_scatter_intra_dec_dynamic, ptr %701, align 8
   br label %702
 
-702:                                              ; preds = %701, %685
-  %703 = load i32, ptr %25, align 4
-  %704 = icmp eq i32 1, %703
-  br i1 %704, label %705, label %709
+702:                                              ; preds = %698, %695
+  store i32 0, ptr %25, align 4
+  %703 = load ptr, ptr %7, align 8
+  %704 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %703, i32 0, i32 1
+  %705 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %704, i64 0, i64 16
+  %706 = call i32 @ompi_coll_tuned_forced_getvalues(i32 noundef 16, ptr noundef %705)
+  %707 = load ptr, ptr %7, align 8
+  %708 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %707, i32 0, i32 2
+  %709 = getelementptr inbounds [22 x ptr], ptr %708, i64 0, i64 16
+  store ptr null, ptr %709, align 8
+  %710 = load ptr, ptr %7, align 8
+  %711 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %710, i32 0, i32 1
+  %712 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_params_t], ptr %711, i64 0, i64 16
+  %713 = getelementptr inbounds %struct.coll_tuned_force_algorithm_params_t, ptr %712, i32 0, i32 0
+  %714 = load i32, ptr %713, align 8
+  %715 = icmp ne i32 0, %714
+  br i1 %715, label %716, label %717
 
-705:                                              ; preds = %702
-  %706 = load ptr, ptr %7, align 8
-  %707 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %706, i32 0, i32 0
-  %708 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %707, i32 0, i32 18
-  store ptr null, ptr %708, align 8
-  br label %709
+716:                                              ; preds = %702
+  store i32 1, ptr %25, align 4
+  br label %717
 
-709:                                              ; preds = %705, %702
-  br label %710
+717:                                              ; preds = %716, %702
+  %718 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %719 = load ptr, ptr %718, align 8
+  %720 = icmp ne ptr null, %719
+  br i1 %720, label %721, label %736
 
-710:                                              ; preds = %709, %43
-  %711 = load ptr, ptr %8, align 8
-  %712 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %711, i32 0, i32 3
-  store ptr null, ptr %712, align 8
-  %713 = load ptr, ptr %8, align 8
-  %714 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %713, i32 0, i32 6
-  store ptr null, ptr %714, align 8
-  %715 = load ptr, ptr %8, align 8
-  %716 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %715, i32 0, i32 8
-  store ptr null, ptr %716, align 8
-  %717 = load ptr, ptr %8, align 8
-  %718 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %717, i32 0, i32 10
-  store ptr null, ptr %718, align 8
-  %719 = load ptr, ptr %8, align 8
-  %720 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %719, i32 0, i32 12
-  store ptr null, ptr %720, align 8
-  %721 = load ptr, ptr %8, align 8
-  %722 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %721, i32 0, i32 15
-  store ptr null, ptr %722, align 8
-  %723 = load ptr, ptr %8, align 8
-  %724 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %723, i32 0, i32 18
-  store ptr null, ptr %724, align 8
-  %725 = load ptr, ptr %8, align 8
-  %726 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %725, i32 0, i32 20
-  store ptr null, ptr %726, align 8
-  %727 = load ptr, ptr %8, align 8
-  %728 = load ptr, ptr %7, align 8
-  %729 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %728, i32 0, i32 0
-  %730 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %729, i32 0, i32 72
-  store ptr %727, ptr %730, align 8
+721:                                              ; preds = %717
+  %722 = getelementptr inbounds %struct.mca_coll_tuned_component_t, ptr @mca_coll_tuned_component, i32 0, i32 2
+  %723 = load ptr, ptr %722, align 8
+  %724 = load i32, ptr %6, align 4
+  %725 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef %723, i32 noundef 16, i32 noundef %724)
+  %726 = load ptr, ptr %7, align 8
+  %727 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %726, i32 0, i32 2
+  %728 = getelementptr inbounds [22 x ptr], ptr %727, i64 0, i64 16
+  store ptr %725, ptr %728, align 8
+  %729 = load ptr, ptr %7, align 8
+  %730 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %729, i32 0, i32 2
+  %731 = getelementptr inbounds [22 x ptr], ptr %730, i64 0, i64 16
+  %732 = load ptr, ptr %731, align 8
+  %733 = icmp ne ptr null, %732
+  br i1 %733, label %734, label %735
+
+734:                                              ; preds = %721
+  store i32 1, ptr %25, align 4
+  br label %735
+
+735:                                              ; preds = %734, %721
+  br label %736
+
+736:                                              ; preds = %735, %717
+  %737 = load i32, ptr %25, align 4
+  %738 = icmp eq i32 1, %737
+  br i1 %738, label %739, label %743
+
+739:                                              ; preds = %736
+  %740 = load ptr, ptr %7, align 8
+  %741 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %740, i32 0, i32 0
+  %742 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %741, i32 0, i32 18
+  store ptr null, ptr %742, align 8
+  br label %743
+
+743:                                              ; preds = %739, %736
+  br label %744
+
+744:                                              ; preds = %743, %43
+  %745 = load ptr, ptr %8, align 8
+  %746 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %745, i32 0, i32 3
+  store ptr null, ptr %746, align 8
+  %747 = load ptr, ptr %8, align 8
+  %748 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %747, i32 0, i32 6
+  store ptr null, ptr %748, align 8
+  %749 = load ptr, ptr %8, align 8
+  %750 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %749, i32 0, i32 8
+  store ptr null, ptr %750, align 8
+  %751 = load ptr, ptr %8, align 8
+  %752 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %751, i32 0, i32 10
+  store ptr null, ptr %752, align 8
+  %753 = load ptr, ptr %8, align 8
+  %754 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %753, i32 0, i32 12
+  store ptr null, ptr %754, align 8
+  %755 = load ptr, ptr %8, align 8
+  %756 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %755, i32 0, i32 15
+  store ptr null, ptr %756, align 8
+  %757 = load ptr, ptr %8, align 8
+  %758 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %757, i32 0, i32 18
+  store ptr null, ptr %758, align 8
+  %759 = load ptr, ptr %8, align 8
+  %760 = getelementptr inbounds %struct.mca_coll_base_comm_t, ptr %759, i32 0, i32 20
+  store ptr null, ptr %760, align 8
+  %761 = load ptr, ptr %8, align 8
+  %762 = load ptr, ptr %7, align 8
+  %763 = getelementptr inbounds %struct.mca_coll_tuned_module_t, ptr %762, i32 0, i32 0
+  %764 = getelementptr inbounds %struct.mca_coll_base_module_2_4_0_t, ptr %763, i32 0, i32 72
+  store ptr %761, ptr %764, align 8
   store i32 0, ptr %3, align 4
-  br label %731
+  br label %765
 
-731:                                              ; preds = %710, %42
-  %732 = load i32, ptr %3, align 4
-  ret i32 %732
+765:                                              ; preds = %744, %42
+  %766 = load i32, ptr %3, align 4
+  ret i32 %766
 }
 
 declare i32 @ompi_coll_tuned_allgather_intra_dec_fixed(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1

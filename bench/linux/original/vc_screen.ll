@@ -1269,62 +1269,63 @@ define internal fastcc ptr @vcs_poll_data_get(ptr noundef %0) unnamed_addr #0 al
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %34
+  br i1 %4, label %5, label %35
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %7 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 64) #10
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %34, label %9
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %7 = load ptr, ptr %6, align 16
+  %8 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 64) #10
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %35, label %10
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 168
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 76
-  %13 = load i32, ptr %12, align 4
-  %14 = and i32 %13, 63
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
-  store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
-  tail call void @__init_waitqueue_head(ptr noundef %16, ptr noundef nonnull @.str.11, ptr noundef nonnull @vcs_poll_data_get.__key) #8
-  store ptr @vcs_notifier, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 28
-  store i32 4, ptr %17, align 4
-  %18 = tail call i32 @register_vt_notifier(ptr noundef nonnull %7) #8
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %31
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i8, ptr %0, i64 168
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 76
+  %14 = load i32, ptr %13, align 4
+  %15 = and i32 %14, 63
+  %16 = getelementptr inbounds i8, ptr %8, i64 24
+  store i32 %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  tail call void @__init_waitqueue_head(ptr noundef %17, ptr noundef nonnull @.str.11, ptr noundef nonnull @vcs_poll_data_get.__key) #8
+  store ptr @vcs_notifier, ptr %8, align 8
+  %18 = getelementptr inbounds i8, ptr %8, i64 28
+  store i32 4, ptr %18, align 4
+  %19 = tail call i32 @register_vt_notifier(ptr noundef nonnull %8) #8
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %32
 
-20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_raw_spin_lock(ptr noundef %21) #8
-  %22 = load ptr, ptr %2, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %25
+21:                                               ; preds = %10
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @_raw_spin_lock(ptr noundef %22) #8
+  %23 = load ptr, ptr %2, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %26
 
-24:                                               ; preds = %20
-  store ptr %7, ptr %2, align 8
-  br label %25
+25:                                               ; preds = %21
+  store ptr %8, ptr %2, align 8
+  br label %26
 
-25:                                               ; preds = %24, %20
-  %26 = phi ptr [ %7, %24 ], [ %22, %20 ]
-  %27 = phi ptr [ null, %24 ], [ %7, %20 ]
-  tail call void @_raw_spin_unlock(ptr noundef %21) #8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %34, label %29
+26:                                               ; preds = %25, %21
+  %27 = phi ptr [ %8, %25 ], [ %23, %21 ]
+  %28 = phi ptr [ null, %25 ], [ %8, %21 ]
+  tail call void @_raw_spin_unlock(ptr noundef %22) #8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %35, label %30
 
-29:                                               ; preds = %25
-  %30 = tail call i32 @unregister_vt_notifier(ptr noundef nonnull %27) #8
-  br label %31
+30:                                               ; preds = %26
+  %31 = tail call i32 @unregister_vt_notifier(ptr noundef nonnull %28) #8
+  br label %32
 
-31:                                               ; preds = %29, %9
-  %32 = phi ptr [ %27, %29 ], [ %7, %9 ]
-  %33 = phi ptr [ %26, %29 ], [ null, %9 ]
-  tail call void @kfree(ptr noundef nonnull %32) #8
-  br label %34
+32:                                               ; preds = %30, %10
+  %33 = phi ptr [ %28, %30 ], [ %8, %10 ]
+  %34 = phi ptr [ %27, %30 ], [ null, %10 ]
+  tail call void @kfree(ptr noundef nonnull %33) #8
+  br label %35
 
-34:                                               ; preds = %31, %25, %5, %1
-  %35 = phi ptr [ %3, %1 ], [ null, %5 ], [ %26, %25 ], [ %33, %31 ]
-  ret ptr %35
+35:                                               ; preds = %32, %26, %5, %1
+  %36 = phi ptr [ %3, %1 ], [ null, %5 ], [ %27, %26 ], [ %34, %32 ]
+  ret ptr %36
 }
 
 ; Function Attrs: null_pointer_is_valid

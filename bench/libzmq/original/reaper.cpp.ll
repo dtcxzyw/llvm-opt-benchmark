@@ -80,9 +80,11 @@ entry:
   call void @_ZN3zmq8object_tC2EPNS_5ctx_tEj(ptr noundef nonnull align 8 dereferenceable(20) %this1, ptr noundef %0, i32 noundef %1)
   %2 = getelementptr inbounds i8, ptr %this1, i64 24
   call void @_ZN3zmq13i_poll_eventsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #10
-  store ptr getelementptr inbounds ({ [28 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq8reaper_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [28 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq8reaper_tE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [28 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq8reaper_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [28 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq8reaper_tE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %_mailbox = getelementptr inbounds %"class.zmq::reaper_t", ptr %this1, i32 0, i32 3
   invoke void @_ZN3zmq9mailbox_tC1Ev(ptr noundef nonnull align 8 dereferenceable(176) %_mailbox)
           to label %invoke.cont unwind label %lpad
@@ -107,21 +109,21 @@ if.then:                                          ; preds = %invoke.cont4
   br label %return
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup34
 
 lpad3:                                            ; preds = %invoke.cont26, %invoke.cont23, %if.then20, %do.end, %invoke.cont13, %invoke.cont11, %if.then10, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont4
@@ -133,34 +135,34 @@ if.end:                                           ; preds = %invoke.cont4
 new.notnull:                                      ; preds = %if.end
   store ptr %call5, ptr %saved-rvalue, align 8
   store i1 true, ptr %cleanup.cond, align 1
-  %9 = load ptr, ptr %ctx_.addr, align 8
-  invoke void @_ZN3zmq7epoll_tC1ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 dereferenceable(224) %call5, ptr noundef nonnull align 8 dereferenceable(136) %9)
+  %11 = load ptr, ptr %ctx_.addr, align 8
+  invoke void @_ZN3zmq7epoll_tC1ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 dereferenceable(224) %call5, ptr noundef nonnull align 8 dereferenceable(136) %11)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %new.notnull
   br label %new.cont
 
 new.cont:                                         ; preds = %invoke.cont7, %if.end
-  %10 = phi ptr [ %call5, %invoke.cont7 ], [ null, %if.end ]
+  %12 = phi ptr [ %call5, %invoke.cont7 ], [ null, %if.end ]
   %_poller8 = getelementptr inbounds %"class.zmq::reaper_t", ptr %this1, i32 0, i32 5
-  store ptr %10, ptr %_poller8, align 8
+  store ptr %12, ptr %_poller8, align 8
   br label %do.body
 
 do.body:                                          ; preds = %new.cont
   %_poller9 = getelementptr inbounds %"class.zmq::reaper_t", ptr %this1, i32 0, i32 5
-  %11 = load ptr, ptr %_poller9, align 8
-  %tobool = icmp ne ptr %11, null
+  %13 = load ptr, ptr %_poller9, align 8
+  %tobool = icmp ne ptr %13, null
   %lnot = xor i1 %tobool, true
   br i1 %lnot, label %if.then10, label %if.end16
 
 if.then10:                                        ; preds = %do.body
-  %12 = load ptr, ptr @stderr, align 8
-  %call12 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 20)
+  %14 = load ptr, ptr @stderr, align 8
+  %call12 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 20)
           to label %invoke.cont11 unwind label %lpad3
 
 invoke.cont11:                                    ; preds = %if.then10
-  %13 = load ptr, ptr @stderr, align 8
-  %call14 = invoke i32 @fflush(ptr noundef %13)
+  %15 = load ptr, ptr @stderr, align 8
+  %call14 = invoke i32 @fflush(ptr noundef %15)
           to label %invoke.cont13 unwind label %lpad3
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -171,18 +173,18 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   br label %if.end16
 
 lpad6:                                            ; preds = %new.notnull
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad6
-  %17 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZdlPvRKSt9nothrow_t(ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #12
+  %19 = load ptr, ptr %saved-rvalue, align 8
+  call void @_ZdlPvRKSt9nothrow_t(ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #12
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad6
@@ -205,24 +207,24 @@ invoke.cont18:                                    ; preds = %do.end
 
 if.then20:                                        ; preds = %invoke.cont18
   %_poller21 = getelementptr inbounds %"class.zmq::reaper_t", ptr %this1, i32 0, i32 5
-  %18 = load ptr, ptr %_poller21, align 8
+  %20 = load ptr, ptr %_poller21, align 8
   %_mailbox22 = getelementptr inbounds %"class.zmq::reaper_t", ptr %this1, i32 0, i32 3
   %call24 = invoke noundef i32 @_ZNK3zmq9mailbox_t6get_fdEv(ptr noundef nonnull align 8 dereferenceable(176) %_mailbox22)
           to label %invoke.cont23 unwind label %lpad3
 
 invoke.cont23:                                    ; preds = %if.then20
   %add.ptr25 = getelementptr inbounds i8, ptr %this1, i64 24
-  %call27 = invoke noundef ptr @_ZN3zmq7epoll_t6add_fdEiPNS_13i_poll_eventsE(ptr noundef nonnull align 8 dereferenceable(224) %18, i32 noundef %call24, ptr noundef %add.ptr25)
+  %call27 = invoke noundef ptr @_ZN3zmq7epoll_t6add_fdEiPNS_13i_poll_eventsE(ptr noundef nonnull align 8 dereferenceable(224) %20, i32 noundef %call24, ptr noundef %add.ptr25)
           to label %invoke.cont26 unwind label %lpad3
 
 invoke.cont26:                                    ; preds = %invoke.cont23
   %_mailbox_handle28 = getelementptr inbounds %"class.zmq::reaper_t", ptr %this1, i32 0, i32 4
   store ptr %call27, ptr %_mailbox_handle28, align 8
   %_poller29 = getelementptr inbounds %"class.zmq::reaper_t", ptr %this1, i32 0, i32 5
-  %19 = load ptr, ptr %_poller29, align 8
+  %21 = load ptr, ptr %_poller29, align 8
   %_mailbox_handle30 = getelementptr inbounds %"class.zmq::reaper_t", ptr %this1, i32 0, i32 4
-  %20 = load ptr, ptr %_mailbox_handle30, align 8
-  invoke void @_ZN3zmq7epoll_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(224) %19, ptr noundef %20)
+  %22 = load ptr, ptr %_mailbox_handle30, align 8
+  invoke void @_ZN3zmq7epoll_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(224) %21, ptr noundef %22)
           to label %invoke.cont31 unwind label %lpad3
 
 invoke.cont31:                                    ; preds = %invoke.cont26
@@ -242,8 +244,8 @@ ehcleanup:                                        ; preds = %cleanup.done, %lpad
   br label %ehcleanup34
 
 ehcleanup34:                                      ; preds = %ehcleanup, %lpad
-  %21 = getelementptr inbounds i8, ptr %this1, i64 24
-  call void @_ZN3zmq13i_poll_eventsD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #10
+  %23 = getelementptr inbounds i8, ptr %this1, i64 24
+  call void @_ZN3zmq13i_poll_eventsD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #10
   call void @_ZN3zmq8object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this1) #10
   br label %eh.resume
 
@@ -263,7 +265,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3zmq13i_poll_eventsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3zmq13i_poll_eventsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

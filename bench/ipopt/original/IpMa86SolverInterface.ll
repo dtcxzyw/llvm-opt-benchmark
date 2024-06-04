@@ -242,54 +242,55 @@ define void @_ZN5Ipopt19Ma86SolverInterfaceD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ipopt19Ma86SolverInterfaceE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5Ipopt19Ma86SolverInterfaceE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZdaPv(ptr noundef %5) #12
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZdaPv(ptr noundef %6) #12
+  br label %9
 
-8:                                                ; preds = %7, %1
-  %9 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 4
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %13, label %12
+9:                                                ; preds = %8, %1
+  %10 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 4
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %14, label %13
 
-12:                                               ; preds = %8
-  call void @_ZdaPv(ptr noundef %10) #12
-  br label %13
+13:                                               ; preds = %9
+  call void @_ZdaPv(ptr noundef %11) #12
+  br label %14
 
-13:                                               ; preds = %12, %8
-  %14 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 5
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %17, label %23
+14:                                               ; preds = %13, %9
+  %15 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 5
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %24
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 5
-  %21 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 7
-  invoke void %19(ptr noundef %20, ptr noundef %21)
-          to label %22 unwind label %25
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 5
+  %22 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 7
+  invoke void %20(ptr noundef %21, ptr noundef %22)
+          to label %23 unwind label %26
 
-22:                                               ; preds = %17
-  br label %23
+23:                                               ; preds = %18
+  br label %24
 
-23:                                               ; preds = %22, %13
-  %24 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 10
-  call void @_ZN5Ipopt8SmartPtrINS_13LibraryLoaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+24:                                               ; preds = %23, %14
+  %25 = getelementptr inbounds %"class.Ipopt::Ma86SolverInterface", ptr %3, i32 0, i32 10
+  call void @_ZN5Ipopt8SmartPtrINS_13LibraryLoaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #3
   call void @_ZN5Ipopt30SparseSymLinearSolverInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #3
   ret void
 
-25:                                               ; preds = %17
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %18
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #13
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #13
   unreachable
 }
 
@@ -3195,15 +3196,16 @@ define linkonce_odr void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 5
-  call void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 4
-  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %6 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 3
-  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 2
-  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 5
+  call void @_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 4
+  call void @_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 3
+  call void @_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %8 = getelementptr inbounds %"class.Ipopt::AlgorithmStrategyObject", ptr %3, i32 0, i32 2
+  call void @_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3
   ret void
 }
@@ -3419,7 +3421,8 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

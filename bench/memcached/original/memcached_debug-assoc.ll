@@ -67,12 +67,14 @@ if.then2:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   call void @STATS_LOCK()
   %5 = load i32, ptr @hashpower, align 4
-  store i32 %5, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 6), align 8
-  %6 = load i32, ptr @hashpower, align 4
-  %sh_prom5 = zext i32 %6 to i64
+  %6 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 6
+  store i32 %5, ptr %6, align 8
+  %7 = load i32, ptr @hashpower, align 4
+  %sh_prom5 = zext i32 %7 to i64
   %shl6 = shl i64 1, %sh_prom5
   %mul = mul i64 %shl6, 8
-  store i64 %mul, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 3), align 8
+  %8 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 3
+  store i64 %mul, ptr %8, align 8
   call void @STATS_UNLOCK()
   ret void
 }
@@ -654,18 +656,22 @@ if.then23:                                        ; preds = %for.end
   %sh_prom25 = zext i32 %sub24 to i64
   %shl26 = shl i64 1, %sh_prom25
   %mul = mul i64 %shl26, 8
-  %34 = load i64, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 3), align 8
-  %sub27 = sub i64 %34, %mul
-  store i64 %sub27, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 3), align 8
-  store i8 0, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 8), align 8
+  %34 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 3
+  %35 = load i64, ptr %34, align 8
+  %sub27 = sub i64 %35, %mul
+  %36 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 3
+  store i64 %sub27, ptr %36, align 8
+  %37 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 8
+  store i8 0, ptr %37, align 8
   call void @STATS_UNLOCK()
-  %35 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 5), align 8
-  %cmp28 = icmp sgt i32 %35, 1
+  %38 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 5
+  %39 = load i32, ptr %38, align 8
+  %cmp28 = icmp sgt i32 %39, 1
   br i1 %cmp28, label %if.then30, label %if.end
 
 if.then30:                                        ; preds = %if.then23
-  %36 = load ptr, ptr @stderr, align 8
-  %call31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef @.str.4)
+  %40 = load ptr, ptr @stderr, align 8
+  %call31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.4)
   br label %if.end
 
 if.end:                                           ; preds = %if.then30, %if.then23
@@ -679,13 +685,13 @@ if.else:                                          ; preds = %for.body
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else, %if.end32
-  %37 = load ptr, ptr %item_lock, align 8
-  %tobool35 = icmp ne ptr %37, null
+  %41 = load ptr, ptr %item_lock, align 8
+  %tobool35 = icmp ne ptr %41, null
   br i1 %tobool35, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %if.end34
-  %38 = load ptr, ptr %item_lock, align 8
-  call void @item_trylock_unlock(ptr noundef %38)
+  %42 = load ptr, ptr %item_lock, align 8
+  call void @item_trylock_unlock(ptr noundef %42)
   store ptr null, ptr %item_lock, align 8
   br label %if.end37
 
@@ -693,20 +699,20 @@ if.end37:                                         ; preds = %if.then36, %if.end3
   br label %for.inc38
 
 for.inc38:                                        ; preds = %if.end37
-  %39 = load i32, ptr %ii, align 4
-  %inc39 = add nsw i32 %39, 1
+  %43 = load i32, ptr %ii, align 4
+  %inc39 = add nsw i32 %43, 1
   store i32 %inc39, ptr %ii, align 4
   br label %for.cond, !llvm.loop !9
 
 for.end40:                                        ; preds = %land.end
-  %40 = load i8, ptr @expanding, align 1
-  %tobool41 = trunc i8 %40 to i1
+  %44 = load i8, ptr @expanding, align 1
+  %tobool41 = trunc i8 %44 to i1
   br i1 %tobool41, label %if.end47, label %if.then42
 
 if.then42:                                        ; preds = %for.end40
   %call43 = call i32 @pthread_cond_wait(ptr noundef @maintenance_cond, ptr noundef @maintenance_lock)
-  %41 = load volatile i32, ptr @do_run_maintenance_thread, align 4
-  %tobool44 = icmp ne i32 %41, 0
+  %45 = load volatile i32, ptr @do_run_maintenance_thread, align 4
+  %tobool44 = icmp ne i32 %45, 0
   br i1 %tobool44, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %if.then42
@@ -988,38 +994,43 @@ entry:
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %3 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i32 0, i32 5), align 8
-  %cmp = icmp sgt i32 %3, 1
+  %3 = getelementptr inbounds %struct.settings, ptr @settings, i32 0, i32 5
+  %4 = load i32, ptr %3, align 8
+  %cmp = icmp sgt i32 %4, 1
   br i1 %cmp, label %if.then1, label %if.end
 
 if.then1:                                         ; preds = %if.then
-  %4 = load ptr, ptr @stderr, align 8
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.5)
+  %5 = load ptr, ptr @stderr, align 8
+  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef @.str.5)
   br label %if.end
 
 if.end:                                           ; preds = %if.then1, %if.then
-  %5 = load i32, ptr @hashpower, align 4
-  %inc = add i32 %5, 1
+  %6 = load i32, ptr @hashpower, align 4
+  %inc = add i32 %6, 1
   store i32 %inc, ptr @hashpower, align 4
   store i8 1, ptr @expanding, align 1
   store i64 0, ptr @expand_bucket, align 8
   call void @STATS_LOCK()
-  %6 = load i32, ptr @hashpower, align 4
-  store i32 %6, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 6), align 8
   %7 = load i32, ptr @hashpower, align 4
-  %sh_prom3 = zext i32 %7 to i64
+  %8 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 6
+  store i32 %7, ptr %8, align 8
+  %9 = load i32, ptr @hashpower, align 4
+  %sh_prom3 = zext i32 %9 to i64
   %shl4 = shl i64 1, %sh_prom3
   %mul = mul i64 %shl4, 8
-  %8 = load i64, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 3), align 8
-  %add5 = add i64 %8, %mul
-  store i64 %add5, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 3), align 8
-  store i8 1, ptr getelementptr inbounds (%struct.stats_state, ptr @stats_state, i32 0, i32 8), align 8
+  %10 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 3
+  %11 = load i64, ptr %10, align 8
+  %add5 = add i64 %11, %mul
+  %12 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 3
+  store i64 %add5, ptr %12, align 8
+  %13 = getelementptr inbounds %struct.stats_state, ptr @stats_state, i32 0, i32 8
+  store i8 1, ptr %13, align 8
   call void @STATS_UNLOCK()
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %9 = load ptr, ptr @old_hashtable, align 8
-  store ptr %9, ptr @primary_hashtable, align 8
+  %14 = load ptr, ptr @old_hashtable, align 8
+  store ptr %14, ptr @primary_hashtable, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.else, %if.end

@@ -2494,10 +2494,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = call ptr @dlsym(ptr noundef inttoptr (i64 -1 to ptr), ptr noundef @.str.6) #8
+  %1 = inttoptr i64 -1 to ptr
+  %call = call ptr @dlsym(ptr noundef %1, ptr noundef @.str.6) #8
   store ptr %call, ptr @pthread_create_fptr, align 8
-  %1 = load ptr, ptr @pthread_create_fptr, align 8
-  %cmp1 = icmp eq ptr %1, null
+  %2 = load ptr, ptr @pthread_create_fptr, align 8
+  %cmp1 = icmp eq ptr %2, null
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -2509,8 +2510,8 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then
-  %2 = load i1, ptr %retval, align 1
-  ret i1 %2
+  %3 = load i1, ptr %retval, align 1
+  ret i1 %3
 }
 
 ; Function Attrs: nounwind uwtable

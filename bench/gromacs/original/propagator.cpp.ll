@@ -8709,41 +8709,42 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EEC2EdPNS_19St
   store ptr %4, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE0EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 1
-  %14 = load double, ptr %7, align 8
-  %15 = fptrunc double %14 to float
-  store float %15, ptr %13, align 8
-  %16 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 2
-  %17 = load ptr, ptr %8, align 8
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 3
-  store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 4
-  store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 5
-  store i8 0, ptr %20, align 2
-  %21 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 6
-  store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 9
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #10
-  %23 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 10
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE0EEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 1
+  %15 = load double, ptr %7, align 8
+  %16 = fptrunc double %15 to float
+  store float %16, ptr %14, align 8
+  %17 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 2
+  %18 = load ptr, ptr %8, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 3
+  store i8 0, ptr %19, align 8
+  %20 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 4
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 5
+  store i8 0, ptr %21, align 2
+  %22 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 6
+  store i8 0, ptr %22, align 1
+  %23 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 9
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #10
-  %24 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 11
+  %24 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 10
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #10
-  %25 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 12
-  store i64 -1, ptr %25, align 8
-  %26 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 14
+  %25 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 11
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #10
+  %26 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 12
+  store i64 -1, ptr %26, align 8
+  %27 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 14
   call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 36, i1 false)
-  call void @_ZN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEC2IS2_vEERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 4 dereferenceable(36) %11) #10
-  %27 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 15
-  store i64 -1, ptr %27, align 8
-  %28 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 16
-  %29 = load ptr, ptr %9, align 8
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 17
-  %31 = load ptr, ptr %10, align 8
-  store ptr %31, ptr %30, align 8
+  call void @_ZN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEC2IS2_vEERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 4 dereferenceable(36) %11) #10
+  %28 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 15
+  store i64 -1, ptr %28, align 8
+  %29 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 16
+  %30 = load ptr, ptr %9, align 8
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds %"class.gmx::Propagator", ptr %12, i32 0, i32 17
+  %32 = load ptr, ptr %10, align 8
+  store ptr %32, ptr %31, align 8
   ret void
 }
 
@@ -8752,7 +8753,8 @@ define linkonce_odr void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx17ISimulatorElementE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx17ISimulatorElementE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9851,7 +9853,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
 
 91:                                               ; preds = %87
   %92 = load i32, ptr %29, align 4
-  %93 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %93 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %94 = icmp eq i32 %92, %93
   br i1 %94, label %95, label %114
 
@@ -9970,9 +9972,6 @@ define internal void @_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_(i32 noundef %0,
 44:                                               ; preds = %12
   ret void
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #11
 
 ; Function Attrs: noreturn
 declare void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8)) #7
@@ -10517,7 +10516,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #12
+declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL13traceRangeEndv() #1 {
@@ -11035,7 +11034,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
 
 90:                                               ; preds = %86
   %91 = load i32, ptr %29, align 4
-  %92 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %113
 
@@ -11551,7 +11550,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
 
 90:                                               ; preds = %86
   %91 = load i32, ptr %29, align 4
-  %92 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %113
 
@@ -12067,7 +12066,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
 
 90:                                               ; preds = %86
   %91 = load i32, ptr %29, align 4
-  %92 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %113
 
@@ -12583,7 +12582,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
 
 90:                                               ; preds = %86
   %91 = load i32, ptr %29, align 4
-  %92 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %113
 
@@ -13099,7 +13098,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
 
 90:                                               ; preds = %86
   %91 = load i32, ptr %29, align 4
-  %92 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %113
 
@@ -13615,7 +13614,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
 
 90:                                               ; preds = %86
   %91 = load i32, ptr %29, align 4
-  %92 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %113
 
@@ -14131,7 +14130,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
 
 90:                                               ; preds = %86
   %91 = load i32, ptr %29, align 4
-  %92 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %113
 
@@ -14647,7 +14646,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
 
 90:                                               ; preds = %86
   %91 = load i32, ptr %29, align 4
-  %92 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %113
 
@@ -15163,7 +15162,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
 
 90:                                               ; preds = %86
   %91 = load i32, ptr %29, align 4
-  %92 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %113
 
@@ -15557,10 +15556,10 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx16En
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) #13
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) #12
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #13
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPKfSt6vectorIfSaIfEEEEbRKNS_17__normal_iteratorIT_T0_EESB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat {
@@ -17123,7 +17122,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() #7
 declare void @_ZSt17__throw_bad_allocv() #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZSt32__make_move_if_noexcept_iteratorIfSt13move_iteratorIPfEET0_PT_(ptr noundef %0) #0 comdat {
@@ -17187,7 +17186,7 @@ define linkonce_odr void @_ZNSt15__new_allocatorIfE10deallocateEPfm(ptr noundef 
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #15
+declare void @_ZdlPv(ptr noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 comdat align 2 {
@@ -20401,7 +20400,8 @@ define linkonce_odr void @_ZN3gmx20ElementNotFoundErrorC2ERKNS_20ExceptionInitia
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx21ModularSimulatorErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx20ElementNotFoundErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx20ElementNotFoundErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -20436,10 +20436,11 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 24, i1 false)
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 24, i1 false)
   ret void
 }
 
@@ -20619,7 +20620,8 @@ define linkonce_odr void @_ZN3gmx20ElementNotFoundErrorC2EOS0_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx21ModularSimulatorErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #10
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx20ElementNotFoundErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx20ElementNotFoundErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -20632,11 +20634,12 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #10
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 24, i1 false)
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::ExceptionInfo", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 24, i1 false)
   ret void
 }
 
@@ -20722,7 +20725,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2ERKS1_(ptr noundef n
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -20949,7 +20953,8 @@ define linkonce_odr void @_ZN3gmx21ModularSimulatorErrorC2EOS0_(ptr noundef nonn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #10
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -20964,7 +20969,7 @@ define linkonce_odr void @_ZN3gmx20ElementNotFoundErrorD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNK3gmx16GromacsException4whatEv(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #13
+declare noundef ptr @_ZNK3gmx16GromacsException4whatEv(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #12
 
 declare noundef i32 @_ZNK3gmx21ModularSimulatorError9errorCodeEv(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #8
 
@@ -20977,11 +20982,12 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionC2EOS0_(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #10
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::GromacsException", ptr %8, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9) #10
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.gmx::GromacsException", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.gmx::GromacsException", ptr %9, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10) #10
   ret void
 }
 
@@ -20992,7 +20998,8 @@ define linkonce_odr void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -21066,7 +21073,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #13
+declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -21131,7 +21138,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #13
+declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
@@ -21250,7 +21257,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
 }
 
 ; Function Attrs: nounwind
-declare i64 @strlen(ptr noundef) #13
+declare i64 @strlen(ptr noundef) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #0 comdat {
@@ -21285,7 +21292,7 @@ define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #13
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #12
 
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #8
 
@@ -21345,7 +21352,7 @@ define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #8
 
 ; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #13
+declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12_Vector_baseINSt15__exception_ptr13exception_ptrESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
@@ -21406,7 +21413,8 @@ define linkonce_odr void @_ZN3gmx21ModularSimulatorErrorC2ERKNS_20ExceptionIniti
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx21ModularSimulatorErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -21417,7 +21425,8 @@ define linkonce_odr void @_ZN3gmx8internal14IExceptionInfoC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3gmx8internal14IExceptionInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -21435,9 +21444,10 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx16GromacsExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::GromacsException", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret void
 }
@@ -21452,7 +21462,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIN3gmx8internal13ExceptionDataEED2Ev(
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
@@ -21694,7 +21704,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
+declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -21849,7 +21859,7 @@ define linkonce_odr void @_ZNSt15__exception_ptr13exception_ptrD2Ev(ptr noundef 
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) #13
+declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt12_Vector_baseINSt15__exception_ptr13exception_ptrESaIS1_EE13_M_deallocateEPS1_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
@@ -23017,7 +23027,8 @@ define linkonce_odr void @_ZN3gmx29SimulationAlgorithmSetupErrorC2ERKNS_20Except
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3gmx21ModularSimulatorErrorC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx29SimulationAlgorithmSetupErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3gmx29SimulationAlgorithmSetupErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -26595,41 +26606,42 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EEC2EdPNS_19St
   store ptr %4, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE1EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 1
-  %14 = load double, ptr %7, align 8
-  %15 = fptrunc double %14 to float
-  store float %15, ptr %13, align 8
-  %16 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 2
-  %17 = load ptr, ptr %8, align 8
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 3
-  store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 4
-  store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 5
-  store i8 0, ptr %20, align 2
-  %21 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 6
-  store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 9
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #10
-  %23 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 10
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE1EEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 1
+  %15 = load double, ptr %7, align 8
+  %16 = fptrunc double %15 to float
+  store float %16, ptr %14, align 8
+  %17 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 2
+  %18 = load ptr, ptr %8, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 3
+  store i8 0, ptr %19, align 8
+  %20 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 4
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 5
+  store i8 0, ptr %21, align 2
+  %22 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 6
+  store i8 0, ptr %22, align 1
+  %23 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 9
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #10
-  %24 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 11
+  %24 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 10
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #10
-  %25 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 12
-  store i64 -1, ptr %25, align 8
-  %26 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 14
+  %25 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 11
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #10
+  %26 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 12
+  store i64 -1, ptr %26, align 8
+  %27 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 14
   call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 36, i1 false)
-  call void @_ZN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEC2IS2_vEERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 4 dereferenceable(36) %11) #10
-  %27 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 15
-  store i64 -1, ptr %27, align 8
-  %28 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 16
-  %29 = load ptr, ptr %9, align 8
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 17
-  %31 = load ptr, ptr %10, align 8
-  store ptr %31, ptr %30, align 8
+  call void @_ZN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEC2IS2_vEERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 4 dereferenceable(36) %11) #10
+  %28 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 15
+  store i64 -1, ptr %28, align 8
+  %29 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 16
+  %30 = load ptr, ptr %9, align 8
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds %"class.gmx::Propagator.332", ptr %12, i32 0, i32 17
+  %32 = load ptr, ptr %10, align 8
+  store ptr %32, ptr %31, align 8
   ret void
 }
 
@@ -27066,7 +27078,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE1EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -27443,7 +27455,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 
 111:                                              ; preds = %107
   %112 = load i32, ptr %37, align 4
-  %113 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %113 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %114 = icmp eq i32 %112, %113
   br i1 %114, label %115, label %152
 
@@ -27626,7 +27638,7 @@ define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(i32 noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr noalias noundef %6, ptr noalias noundef %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(56) %9) #16 {
+define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(i32 noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr noalias noundef %6, ptr noalias noundef %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(56) %9) #15 {
   %11 = alloca %"class.gmx::ArrayRef.30", align 8
   %12 = alloca i32, align 4
   %13 = alloca float, align 4
@@ -28437,7 +28449,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE1EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -28691,7 +28703,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 
 109:                                              ; preds = %105
   %110 = load i32, ptr %37, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %149
 
@@ -28862,7 +28874,7 @@ define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(i32 noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr noalias noundef %6, ptr noalias noundef %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(56) %9) #16 {
+define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(i32 noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr noalias noundef %6, ptr noalias noundef %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(56) %9) #15 {
   %11 = alloca %"class.gmx::ArrayRef.30", align 8
   %12 = alloca i32, align 4
   %13 = alloca float, align 4
@@ -29218,7 +29230,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE1EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -29486,7 +29498,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 
 111:                                              ; preds = %107
   %112 = load i32, ptr %37, align 4
-  %113 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %113 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %114 = icmp eq i32 %112, %113
   br i1 %114, label %115, label %152
 
@@ -29914,7 +29926,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE1EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -30168,7 +30180,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 
 109:                                              ; preds = %105
   %110 = load i32, ptr %37, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %149
 
@@ -30584,7 +30596,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE1EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -30855,7 +30867,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 
 131:                                              ; preds = %127
   %132 = load i32, ptr %37, align 4
-  %133 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %133 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %134 = icmp eq i32 %132, %133
   br i1 %134, label %135, label %194
 
@@ -31075,7 +31087,7 @@ define linkonce_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(i32 noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr noalias noundef %6, ptr noalias noundef %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(56) %9) #16 {
+define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(i32 noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr noalias noundef %6, ptr noalias noundef %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(56) %9) #15 {
   %11 = alloca %"class.gmx::ArrayRef.30", align 8
   %12 = alloca i32, align 4
   %13 = alloca float, align 4
@@ -31442,7 +31454,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE1EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -31701,7 +31713,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 
 119:                                              ; preds = %115
   %120 = load i32, ptr %37, align 4
-  %121 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %170
 
@@ -31883,7 +31895,7 @@ define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(i32 noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr noalias noundef %6, ptr noalias noundef %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(56) %9) #16 {
+define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(i32 noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr noalias noundef %6, ptr noalias noundef %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(56) %9) #15 {
   %11 = alloca %"class.gmx::ArrayRef.30", align 8
   %12 = alloca i32, align 4
   %13 = alloca float, align 4
@@ -32239,7 +32251,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE1EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -32510,7 +32522,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 
 131:                                              ; preds = %127
   %132 = load i32, ptr %37, align 4
-  %133 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %133 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %134 = icmp eq i32 %132, %133
   br i1 %134, label %135, label %194
 
@@ -32960,7 +32972,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE1EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -33219,7 +33231,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 
 119:                                              ; preds = %115
   %120 = load i32, ptr %37, align 4
-  %121 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %170
 
@@ -33646,7 +33658,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE1EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -33893,7 +33905,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 
 107:                                              ; preds = %103
   %108 = load i32, ptr %37, align 4
-  %109 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %109 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %110 = icmp eq i32 %108, %109
   br i1 %110, label %111, label %146
 
@@ -34062,7 +34074,7 @@ define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(i32 noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr noalias noundef %6, ptr noalias noundef %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(56) %9) #16 {
+define internal void @_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(i32 noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr %4, ptr %5, ptr noalias noundef %6, ptr noalias noundef %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(56) %9) #15 {
   %11 = alloca %"class.gmx::ArrayRef.30", align 8
   %12 = alloca i32, align 4
   %13 = alloca float, align 4
@@ -34409,7 +34421,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE1EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -34656,7 +34668,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 
 107:                                              ; preds = %103
   %108 = load i32, ptr %37, align 4
-  %109 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %109 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %110 = icmp eq i32 %108, %109
   br i1 %110, label %111, label %146
 
@@ -39664,41 +39676,42 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EEC2EdPNS_19St
   store ptr %4, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE2EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 1
-  %14 = load double, ptr %7, align 8
-  %15 = fptrunc double %14 to float
-  store float %15, ptr %13, align 8
-  %16 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 2
-  %17 = load ptr, ptr %8, align 8
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 3
-  store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 4
-  store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 5
-  store i8 0, ptr %20, align 2
-  %21 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 6
-  store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 9
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #10
-  %23 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 10
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE2EEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 1
+  %15 = load double, ptr %7, align 8
+  %16 = fptrunc double %15 to float
+  store float %16, ptr %14, align 8
+  %17 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 2
+  %18 = load ptr, ptr %8, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 3
+  store i8 0, ptr %19, align 8
+  %20 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 4
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 5
+  store i8 0, ptr %21, align 2
+  %22 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 6
+  store i8 0, ptr %22, align 1
+  %23 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 9
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #10
-  %24 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 11
+  %24 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 10
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #10
-  %25 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 12
-  store i64 -1, ptr %25, align 8
-  %26 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 14
+  %25 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 11
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #10
+  %26 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 12
+  store i64 -1, ptr %26, align 8
+  %27 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 14
   call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 36, i1 false)
-  call void @_ZN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEC2IS2_vEERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 4 dereferenceable(36) %11) #10
-  %27 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 15
-  store i64 -1, ptr %27, align 8
-  %28 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 16
-  %29 = load ptr, ptr %9, align 8
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 17
-  %31 = load ptr, ptr %10, align 8
-  store ptr %31, ptr %30, align 8
+  call void @_ZN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEC2IS2_vEERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 4 dereferenceable(36) %11) #10
+  %28 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 15
+  store i64 -1, ptr %28, align 8
+  %29 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 16
+  %30 = load ptr, ptr %9, align 8
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds %"class.gmx::Propagator.380", ptr %12, i32 0, i32 17
+  %32 = load ptr, ptr %10, align 8
+  store ptr %32, ptr %31, align 8
   ret void
 }
 
@@ -40135,7 +40148,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE2EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -40453,7 +40466,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 113:                                              ; preds = %109
   %114 = load i32, ptr %42, align 4
-  %115 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %115 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %116 = icmp eq i32 %114, %115
   br i1 %116, label %117, label %160
 
@@ -40794,7 +40807,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE2EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -41106,7 +41119,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 112:                                              ; preds = %108
   %113 = load i32, ptr %42, align 4
-  %114 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %114 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %115 = icmp eq i32 %113, %114
   br i1 %115, label %116, label %158
 
@@ -41446,7 +41459,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE2EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -41764,7 +41777,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 113:                                              ; preds = %109
   %114 = load i32, ptr %42, align 4
-  %115 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %115 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %116 = icmp eq i32 %114, %115
   br i1 %116, label %117, label %160
 
@@ -42105,7 +42118,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE2EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -42417,7 +42430,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 112:                                              ; preds = %108
   %113 = load i32, ptr %42, align 4
-  %114 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %114 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %115 = icmp eq i32 %113, %114
   br i1 %115, label %116, label %158
 
@@ -42757,7 +42770,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE2EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -43087,7 +43100,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 135:                                              ; preds = %131
   %136 = load i32, ptr %42, align 4
-  %137 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %138 = icmp eq i32 %136, %137
   br i1 %138, label %139, label %204
 
@@ -43450,7 +43463,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE2EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -43768,7 +43781,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 123:                                              ; preds = %119
   %124 = load i32, ptr %42, align 4
-  %125 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %125 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %126 = icmp eq i32 %124, %125
   br i1 %126, label %127, label %180
 
@@ -44119,7 +44132,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE2EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -44449,7 +44462,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 135:                                              ; preds = %131
   %136 = load i32, ptr %42, align 4
-  %137 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %138 = icmp eq i32 %136, %137
   br i1 %138, label %139, label %204
 
@@ -44812,7 +44825,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE2EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -45130,7 +45143,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 123:                                              ; preds = %119
   %124 = load i32, ptr %42, align 4
-  %125 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %125 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %126 = icmp eq i32 %124, %125
   br i1 %126, label %127, label %180
 
@@ -45481,7 +45494,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE2EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -45787,7 +45800,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 111:                                              ; preds = %107
   %112 = load i32, ptr %42, align 4
-  %113 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %113 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %114 = icmp eq i32 %112, %113
   br i1 %114, label %115, label %156
 
@@ -46126,7 +46139,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE2EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -46432,7 +46445,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 111:                                              ; preds = %107
   %112 = load i32, ptr %42, align 4
-  %113 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %113 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %114 = icmp eq i32 %112, %113
   br i1 %114, label %115, label %156
 
@@ -51170,41 +51183,42 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EEC2EdPNS_19St
   store ptr %4, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE3EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 1
-  %14 = load double, ptr %7, align 8
-  %15 = fptrunc double %14 to float
-  store float %15, ptr %13, align 8
-  %16 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 2
-  %17 = load ptr, ptr %8, align 8
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 3
-  store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 4
-  store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 5
-  store i8 0, ptr %20, align 2
-  %21 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 6
-  store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 9
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #10
-  %23 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 10
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE3EEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 1
+  %15 = load double, ptr %7, align 8
+  %16 = fptrunc double %15 to float
+  store float %16, ptr %14, align 8
+  %17 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 2
+  %18 = load ptr, ptr %8, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 3
+  store i8 0, ptr %19, align 8
+  %20 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 4
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 5
+  store i8 0, ptr %21, align 2
+  %22 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 6
+  store i8 0, ptr %22, align 1
+  %23 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 9
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #10
-  %24 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 11
+  %24 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 10
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #10
-  %25 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 12
-  store i64 -1, ptr %25, align 8
-  %26 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 14
+  %25 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 11
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #10
+  %26 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 12
+  store i64 -1, ptr %26, align 8
+  %27 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 14
   call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 36, i1 false)
-  call void @_ZN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEC2IS2_vEERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 4 dereferenceable(36) %11) #10
-  %27 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 15
-  store i64 -1, ptr %27, align 8
-  %28 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 16
-  %29 = load ptr, ptr %9, align 8
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 17
-  %31 = load ptr, ptr %10, align 8
-  store ptr %31, ptr %30, align 8
+  call void @_ZN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEC2IS2_vEERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 4 dereferenceable(36) %11) #10
+  %28 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 15
+  store i64 -1, ptr %28, align 8
+  %29 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 16
+  %30 = load ptr, ptr %9, align 8
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds %"class.gmx::Propagator.428", ptr %12, i32 0, i32 17
+  %32 = load ptr, ptr %10, align 8
+  store ptr %32, ptr %31, align 8
   ret void
 }
 
@@ -51641,7 +51655,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE3EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -51962,7 +51976,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 116:                                              ; preds = %112
   %117 = load i32, ptr %42, align 4
-  %118 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %118 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %119 = icmp eq i32 %117, %118
   br i1 %119, label %120, label %166
 
@@ -52306,7 +52320,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE3EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -52621,7 +52635,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 115:                                              ; preds = %111
   %116 = load i32, ptr %42, align 4
-  %117 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %117 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %118 = icmp eq i32 %116, %117
   br i1 %118, label %119, label %164
 
@@ -52964,7 +52978,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE3EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -53285,7 +53299,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 116:                                              ; preds = %112
   %117 = load i32, ptr %42, align 4
-  %118 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %118 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %119 = icmp eq i32 %117, %118
   br i1 %119, label %120, label %166
 
@@ -53629,7 +53643,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE3EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -53944,7 +53958,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 115:                                              ; preds = %111
   %116 = load i32, ptr %42, align 4
-  %117 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %117 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %118 = icmp eq i32 %116, %117
   br i1 %118, label %119, label %164
 
@@ -54287,7 +54301,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE3EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -54620,7 +54634,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 138:                                              ; preds = %134
   %139 = load i32, ptr %42, align 4
-  %140 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %140 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %141 = icmp eq i32 %139, %140
   br i1 %141, label %142, label %210
 
@@ -54986,7 +55000,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE3EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -55307,7 +55321,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 126:                                              ; preds = %122
   %127 = load i32, ptr %42, align 4
-  %128 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %128 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %129 = icmp eq i32 %127, %128
   br i1 %129, label %130, label %186
 
@@ -55661,7 +55675,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE3EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -55994,7 +56008,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 138:                                              ; preds = %134
   %139 = load i32, ptr %42, align 4
-  %140 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %140 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %141 = icmp eq i32 %139, %140
   br i1 %141, label %142, label %210
 
@@ -56360,7 +56374,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE3EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -56681,7 +56695,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 126:                                              ; preds = %122
   %127 = load i32, ptr %42, align 4
-  %128 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %128 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %129 = icmp eq i32 %127, %128
   br i1 %129, label %130, label %186
 
@@ -57035,7 +57049,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE3EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -57344,7 +57358,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 114:                                              ; preds = %110
   %115 = load i32, ptr %42, align 4
-  %116 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %116 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %117 = icmp eq i32 %115, %116
   br i1 %117, label %118, label %162
 
@@ -57686,7 +57700,7 @@ define linkonce_odr void @_ZZN3gmx10PropagatorILNS_16IntegrationStageE3EE12sched
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #16 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %0) #15 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.gmx::ArrayRef", align 8
@@ -57995,7 +58009,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 114:                                              ; preds = %110
   %115 = load i32, ptr %42, align 4
-  %116 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %116 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %117 = icmp eq i32 %115, %116
   br i1 %117, label %118, label %162
 
@@ -62736,41 +62750,42 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EEC2EdPNS_19St
   store ptr %4, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE4EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 1
-  %14 = load double, ptr %7, align 8
-  %15 = fptrunc double %14 to float
-  store float %15, ptr %13, align 8
-  %16 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 2
-  %17 = load ptr, ptr %8, align 8
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 3
-  store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 4
-  store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 5
-  store i8 0, ptr %20, align 2
-  %21 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 6
-  store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 9
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #10
-  %23 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 10
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE4EEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 1
+  %15 = load double, ptr %7, align 8
+  %16 = fptrunc double %15 to float
+  store float %16, ptr %14, align 8
+  %17 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 2
+  %18 = load ptr, ptr %8, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 3
+  store i8 0, ptr %19, align 8
+  %20 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 4
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 5
+  store i8 0, ptr %21, align 2
+  %22 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 6
+  store i8 0, ptr %22, align 1
+  %23 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 9
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #10
-  %24 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 11
+  %24 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 10
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #10
-  %25 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 12
-  store i64 -1, ptr %25, align 8
-  %26 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 14
+  %25 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 11
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #10
+  %26 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 12
+  store i64 -1, ptr %26, align 8
+  %27 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 14
   call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 36, i1 false)
-  call void @_ZN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEC2IS2_vEERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 4 dereferenceable(36) %11) #10
-  %27 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 15
-  store i64 -1, ptr %27, align 8
-  %28 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 16
-  %29 = load ptr, ptr %9, align 8
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 17
-  %31 = load ptr, ptr %10, align 8
-  store ptr %31, ptr %30, align 8
+  call void @_ZN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEC2IS2_vEERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 4 dereferenceable(36) %11) #10
+  %28 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 15
+  store i64 -1, ptr %28, align 8
+  %29 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 16
+  %30 = load ptr, ptr %9, align 8
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds %"class.gmx::Propagator.476", ptr %12, i32 0, i32 17
+  %32 = load ptr, ptr %10, align 8
+  store ptr %32, ptr %31, align 8
   ret void
 }
 
@@ -63391,7 +63406,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 
 84:                                               ; preds = %80
   %85 = load i32, ptr %27, align 4
-  %86 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %86 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %87 = icmp eq i32 %85, %86
   br i1 %87, label %88, label %107
 
@@ -63918,7 +63933,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 
 83:                                               ; preds = %79
   %84 = load i32, ptr %27, align 4
-  %85 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %85 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %86 = icmp eq i32 %84, %85
   br i1 %86, label %87, label %106
 
@@ -64404,7 +64419,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 
 83:                                               ; preds = %79
   %84 = load i32, ptr %27, align 4
-  %85 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %85 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %86 = icmp eq i32 %84, %85
   br i1 %86, label %87, label %106
 
@@ -64890,7 +64905,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 
 83:                                               ; preds = %79
   %84 = load i32, ptr %27, align 4
-  %85 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %85 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %86 = icmp eq i32 %84, %85
   br i1 %86, label %87, label %106
 
@@ -65385,7 +65400,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 
 95:                                               ; preds = %91
   %96 = load i32, ptr %27, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %118
 
@@ -65918,7 +65933,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 
 94:                                               ; preds = %90
   %95 = load i32, ptr %27, align 4
-  %96 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %97 = icmp eq i32 %95, %96
   br i1 %97, label %98, label %117
 
@@ -66410,7 +66425,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 
 94:                                               ; preds = %90
   %95 = load i32, ptr %27, align 4
-  %96 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %97 = icmp eq i32 %95, %96
   br i1 %97, label %98, label %117
 
@@ -66902,7 +66917,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 
 94:                                               ; preds = %90
   %95 = load i32, ptr %27, align 4
-  %96 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %97 = icmp eq i32 %95, %96
   br i1 %97, label %98, label %117
 
@@ -71302,41 +71317,42 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EEC2EdPNS_19St
   store ptr %4, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN3gmx17ISimulatorElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE5EEE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 1
-  %14 = load double, ptr %7, align 8
-  %15 = fptrunc double %14 to float
-  store float %15, ptr %13, align 8
-  %16 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 2
-  %17 = load ptr, ptr %8, align 8
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 3
-  store i8 0, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 4
-  store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 5
-  store i8 0, ptr %20, align 2
-  %21 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 6
-  store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 9
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #10
-  %23 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 10
+  %13 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE5EEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 1
+  %15 = load double, ptr %7, align 8
+  %16 = fptrunc double %15 to float
+  store float %16, ptr %14, align 8
+  %17 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 2
+  %18 = load ptr, ptr %8, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 3
+  store i8 0, ptr %19, align 8
+  %20 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 4
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 5
+  store i8 0, ptr %21, align 2
+  %22 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 6
+  store i8 0, ptr %22, align 1
+  %23 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 9
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #10
-  %24 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 11
+  %24 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 10
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #10
-  %25 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 12
-  store i64 -1, ptr %25, align 8
-  %26 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 14
+  %25 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 11
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #10
+  %26 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 12
+  store i64 -1, ptr %26, align 8
+  %27 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 14
   call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 36, i1 false)
-  call void @_ZN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEC2IS2_vEERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 4 dereferenceable(36) %11) #10
-  %27 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 15
-  store i64 -1, ptr %27, align 8
-  %28 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 16
-  %29 = load ptr, ptr %9, align 8
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 17
-  %31 = load ptr, ptr %10, align 8
-  store ptr %31, ptr %30, align 8
+  call void @_ZN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEC2IS2_vEERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 4 dereferenceable(36) %11) #10
+  %28 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 15
+  store i64 -1, ptr %28, align 8
+  %29 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 16
+  %30 = load ptr, ptr %9, align 8
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds %"class.gmx::Propagator.527", ptr %12, i32 0, i32 17
+  %32 = load ptr, ptr %10, align 8
+  store ptr %32, ptr %31, align 8
   ret void
 }
 
@@ -72018,7 +72034,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 83:                                               ; preds = %79
   %84 = load i32, ptr %27, align 4
-  %85 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %85 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %86 = icmp eq i32 %84, %85
   br i1 %86, label %87, label %106
 
@@ -72556,7 +72572,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 95:                                               ; preds = %91
   %96 = load i32, ptr %27, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %118
 
@@ -73081,7 +73097,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 82:                                               ; preds = %78
   %83 = load i32, ptr %27, align 4
-  %84 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %84 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %85 = icmp eq i32 %83, %84
   br i1 %85, label %86, label %105
 
@@ -73573,7 +73589,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %27, align 4
-  %83 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %83 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %84 = icmp eq i32 %82, %83
   br i1 %84, label %85, label %104
 
@@ -74054,7 +74070,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %27, align 4
-  %83 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %83 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %84 = icmp eq i32 %82, %83
   br i1 %84, label %85, label %104
 
@@ -74535,7 +74551,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %27, align 4
-  %83 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %83 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %84 = icmp eq i32 %82, %83
   br i1 %84, label %85, label %104
 
@@ -75016,7 +75032,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %27, align 4
-  %83 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %83 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %84 = icmp eq i32 %82, %83
   br i1 %84, label %85, label %104
 
@@ -75497,7 +75513,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %27, align 4
-  %83 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %83 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %84 = icmp eq i32 %82, %83
   br i1 %84, label %85, label %104
 
@@ -75978,7 +75994,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %27, align 4
-  %83 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %83 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %84 = icmp eq i32 %82, %83
   br i1 %84, label %85, label %104
 
@@ -76459,7 +76475,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %27, align 4
-  %83 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %83 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %84 = icmp eq i32 %82, %83
   br i1 %84, label %85, label %104
 
@@ -76940,7 +76956,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %27, align 4
-  %83 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %83 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %84 = icmp eq i32 %82, %83
   br i1 %84, label %85, label %104
 
@@ -77421,7 +77437,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %27, align 4
-  %83 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #10
+  %83 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #10
   %84 = icmp eq i32 %82, %83
   br i1 %84, label %85, label %104
 
@@ -81409,6 +81425,9 @@ define linkonce_odr void @_ZNSt15__new_allocatorIfED2Ev(ptr noundef nonnull alig
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -81420,12 +81439,12 @@ attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #9 = { norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #10 = { nounwind }
-attributes #11 = { nounwind memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #15 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #16 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { nounwind memory(none) }
 attributes #17 = { builtin nounwind }
 attributes #18 = { nounwind willreturn memory(none) }
 attributes #19 = { noreturn nounwind }

@@ -246,21 +246,22 @@ define void @_ZN4LIEF5MachO10ExportInfoC2Ev(ptr noundef nonnull align 8 derefere
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF5MachO10ExportInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 1
-  store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF5MachO10ExportInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 1
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 3
+  %6 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 2
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 4
+  %7 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 3
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 5
-  store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 6
+  %8 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 4
+  store i64 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 5
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 7
+  %10 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 6
   store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %3, i32 0, i32 7
+  store ptr null, ptr %11, align 8
   ret void
 }
 
@@ -278,24 +279,25 @@ define void @_ZN4LIEF5MachO10ExportInfoC2Emmm(ptr noundef nonnull align 8 derefe
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF5MachO10ExportInfoE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 1
-  %11 = load i64, ptr %8, align 8
-  store i64 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %6, align 8
-  store i64 %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 4
-  store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 5
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 6
+  %10 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF5MachO10ExportInfoE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 1
+  %12 = load i64, ptr %8, align 8
+  store i64 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %6, align 8
+  store i64 %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 4
+  store i64 0, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 5
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 7
+  %19 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 6
   store ptr null, ptr %19, align 8
+  %20 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 7
+  store ptr null, ptr %20, align 8
   ret void
 }
 
@@ -357,33 +359,34 @@ define void @_ZN4LIEF5MachO10ExportInfoC2ERKS1_(ptr noundef nonnull align 8 dere
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF5MachO10ExportInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %8, i32 0, i32 1
-  %10 = load i64, ptr %9, align 8
-  store i64 %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %12, i32 0, i32 2
-  %14 = load i64, ptr %13, align 8
-  store i64 %14, ptr %11, align 8
-  %15 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 3
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %16, i32 0, i32 3
-  %18 = load i64, ptr %17, align 8
-  store i64 %18, ptr %15, align 8
-  %19 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 4
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %20, i32 0, i32 4
-  %22 = load i64, ptr %21, align 8
-  store i64 %22, ptr %19, align 8
-  %23 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 5
-  store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 6
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF5MachO10ExportInfoE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %9, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8
+  store i64 %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %13, i32 0, i32 2
+  %15 = load i64, ptr %14, align 8
+  store i64 %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 3
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %17, i32 0, i32 3
+  %19 = load i64, ptr %18, align 8
+  store i64 %19, ptr %16, align 8
+  %20 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 4
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %21, i32 0, i32 4
+  %23 = load i64, ptr %22, align 8
+  store i64 %23, ptr %20, align 8
+  %24 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 5
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 7
+  %25 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 6
   store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds %"class.LIEF::MachO::ExportInfo", ptr %5, i32 0, i32 7
+  store ptr null, ptr %26, align 8
   ret void
 }
 

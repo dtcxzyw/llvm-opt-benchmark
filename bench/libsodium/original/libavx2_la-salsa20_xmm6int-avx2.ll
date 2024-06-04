@@ -121,95 +121,106 @@ entry:
   %call = call i32 @load32_le(ptr noundef %add.ptr)
   %1 = load ptr, ptr %ctx.addr, align 8
   %input = getelementptr inbounds %struct.salsa_ctx, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 1), align 4
-  %idxprom = sext i32 %2 to i64
+  %2 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 1
+  %3 = load i32, ptr %2, align 4
+  %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr [16 x i32], ptr %input, i64 0, i64 %idxprom
   store i32 %call, ptr %arrayidx, align 4
-  %3 = load ptr, ptr %k.addr, align 8
-  %add.ptr1 = getelementptr i8, ptr %3, i64 4
+  %4 = load ptr, ptr %k.addr, align 8
+  %add.ptr1 = getelementptr i8, ptr %4, i64 4
   %call2 = call i32 @load32_le(ptr noundef %add.ptr1)
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %input3 = getelementptr inbounds %struct.salsa_ctx, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 2), align 8
-  %idxprom4 = sext i32 %5 to i64
+  %5 = load ptr, ptr %ctx.addr, align 8
+  %input3 = getelementptr inbounds %struct.salsa_ctx, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 2
+  %7 = load i32, ptr %6, align 8
+  %idxprom4 = sext i32 %7 to i64
   %arrayidx5 = getelementptr [16 x i32], ptr %input3, i64 0, i64 %idxprom4
   store i32 %call2, ptr %arrayidx5, align 4
-  %6 = load ptr, ptr %k.addr, align 8
-  %add.ptr6 = getelementptr i8, ptr %6, i64 8
+  %8 = load ptr, ptr %k.addr, align 8
+  %add.ptr6 = getelementptr i8, ptr %8, i64 8
   %call7 = call i32 @load32_le(ptr noundef %add.ptr6)
-  %7 = load ptr, ptr %ctx.addr, align 8
-  %input8 = getelementptr inbounds %struct.salsa_ctx, ptr %7, i32 0, i32 0
-  %8 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 3), align 4
-  %idxprom9 = sext i32 %8 to i64
+  %9 = load ptr, ptr %ctx.addr, align 8
+  %input8 = getelementptr inbounds %struct.salsa_ctx, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 3
+  %11 = load i32, ptr %10, align 4
+  %idxprom9 = sext i32 %11 to i64
   %arrayidx10 = getelementptr [16 x i32], ptr %input8, i64 0, i64 %idxprom9
   store i32 %call7, ptr %arrayidx10, align 4
-  %9 = load ptr, ptr %k.addr, align 8
-  %add.ptr11 = getelementptr i8, ptr %9, i64 12
+  %12 = load ptr, ptr %k.addr, align 8
+  %add.ptr11 = getelementptr i8, ptr %12, i64 12
   %call12 = call i32 @load32_le(ptr noundef %add.ptr11)
-  %10 = load ptr, ptr %ctx.addr, align 8
-  %input13 = getelementptr inbounds %struct.salsa_ctx, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 4), align 16
-  %idxprom14 = sext i32 %11 to i64
+  %13 = load ptr, ptr %ctx.addr, align 8
+  %input13 = getelementptr inbounds %struct.salsa_ctx, ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 4
+  %15 = load i32, ptr %14, align 16
+  %idxprom14 = sext i32 %15 to i64
   %arrayidx15 = getelementptr [16 x i32], ptr %input13, i64 0, i64 %idxprom14
   store i32 %call12, ptr %arrayidx15, align 4
-  %12 = load ptr, ptr %k.addr, align 8
-  %add.ptr16 = getelementptr i8, ptr %12, i64 16
+  %16 = load ptr, ptr %k.addr, align 8
+  %add.ptr16 = getelementptr i8, ptr %16, i64 16
   %call17 = call i32 @load32_le(ptr noundef %add.ptr16)
-  %13 = load ptr, ptr %ctx.addr, align 8
-  %input18 = getelementptr inbounds %struct.salsa_ctx, ptr %13, i32 0, i32 0
-  %14 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 11), align 4
-  %idxprom19 = sext i32 %14 to i64
+  %17 = load ptr, ptr %ctx.addr, align 8
+  %input18 = getelementptr inbounds %struct.salsa_ctx, ptr %17, i32 0, i32 0
+  %18 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 11
+  %19 = load i32, ptr %18, align 4
+  %idxprom19 = sext i32 %19 to i64
   %arrayidx20 = getelementptr [16 x i32], ptr %input18, i64 0, i64 %idxprom19
   store i32 %call17, ptr %arrayidx20, align 4
-  %15 = load ptr, ptr %k.addr, align 8
-  %add.ptr21 = getelementptr i8, ptr %15, i64 20
+  %20 = load ptr, ptr %k.addr, align 8
+  %add.ptr21 = getelementptr i8, ptr %20, i64 20
   %call22 = call i32 @load32_le(ptr noundef %add.ptr21)
-  %16 = load ptr, ptr %ctx.addr, align 8
-  %input23 = getelementptr inbounds %struct.salsa_ctx, ptr %16, i32 0, i32 0
-  %17 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 12), align 16
-  %idxprom24 = sext i32 %17 to i64
+  %21 = load ptr, ptr %ctx.addr, align 8
+  %input23 = getelementptr inbounds %struct.salsa_ctx, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 12
+  %23 = load i32, ptr %22, align 16
+  %idxprom24 = sext i32 %23 to i64
   %arrayidx25 = getelementptr [16 x i32], ptr %input23, i64 0, i64 %idxprom24
   store i32 %call22, ptr %arrayidx25, align 4
-  %18 = load ptr, ptr %k.addr, align 8
-  %add.ptr26 = getelementptr i8, ptr %18, i64 24
+  %24 = load ptr, ptr %k.addr, align 8
+  %add.ptr26 = getelementptr i8, ptr %24, i64 24
   %call27 = call i32 @load32_le(ptr noundef %add.ptr26)
-  %19 = load ptr, ptr %ctx.addr, align 8
-  %input28 = getelementptr inbounds %struct.salsa_ctx, ptr %19, i32 0, i32 0
-  %20 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 13), align 4
-  %idxprom29 = sext i32 %20 to i64
+  %25 = load ptr, ptr %ctx.addr, align 8
+  %input28 = getelementptr inbounds %struct.salsa_ctx, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 13
+  %27 = load i32, ptr %26, align 4
+  %idxprom29 = sext i32 %27 to i64
   %arrayidx30 = getelementptr [16 x i32], ptr %input28, i64 0, i64 %idxprom29
   store i32 %call27, ptr %arrayidx30, align 4
-  %21 = load ptr, ptr %k.addr, align 8
-  %add.ptr31 = getelementptr i8, ptr %21, i64 28
+  %28 = load ptr, ptr %k.addr, align 8
+  %add.ptr31 = getelementptr i8, ptr %28, i64 28
   %call32 = call i32 @load32_le(ptr noundef %add.ptr31)
-  %22 = load ptr, ptr %ctx.addr, align 8
-  %input33 = getelementptr inbounds %struct.salsa_ctx, ptr %22, i32 0, i32 0
-  %23 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 14), align 8
-  %idxprom34 = sext i32 %23 to i64
+  %29 = load ptr, ptr %ctx.addr, align 8
+  %input33 = getelementptr inbounds %struct.salsa_ctx, ptr %29, i32 0, i32 0
+  %30 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 14
+  %31 = load i32, ptr %30, align 8
+  %idxprom34 = sext i32 %31 to i64
   %arrayidx35 = getelementptr [16 x i32], ptr %input33, i64 0, i64 %idxprom34
   store i32 %call32, ptr %arrayidx35, align 4
-  %24 = load ptr, ptr %ctx.addr, align 8
-  %input36 = getelementptr inbounds %struct.salsa_ctx, ptr %24, i32 0, i32 0
-  %25 = load i32, ptr @TR, align 16
-  %idxprom37 = sext i32 %25 to i64
+  %32 = load ptr, ptr %ctx.addr, align 8
+  %input36 = getelementptr inbounds %struct.salsa_ctx, ptr %32, i32 0, i32 0
+  %33 = load i32, ptr @TR, align 16
+  %idxprom37 = sext i32 %33 to i64
   %arrayidx38 = getelementptr [16 x i32], ptr %input36, i64 0, i64 %idxprom37
   store i32 1634760805, ptr %arrayidx38, align 4
-  %26 = load ptr, ptr %ctx.addr, align 8
-  %input39 = getelementptr inbounds %struct.salsa_ctx, ptr %26, i32 0, i32 0
-  %27 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 5), align 4
-  %idxprom40 = sext i32 %27 to i64
+  %34 = load ptr, ptr %ctx.addr, align 8
+  %input39 = getelementptr inbounds %struct.salsa_ctx, ptr %34, i32 0, i32 0
+  %35 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 5
+  %36 = load i32, ptr %35, align 4
+  %idxprom40 = sext i32 %36 to i64
   %arrayidx41 = getelementptr [16 x i32], ptr %input39, i64 0, i64 %idxprom40
   store i32 857760878, ptr %arrayidx41, align 4
-  %28 = load ptr, ptr %ctx.addr, align 8
-  %input42 = getelementptr inbounds %struct.salsa_ctx, ptr %28, i32 0, i32 0
-  %29 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 10), align 8
-  %idxprom43 = sext i32 %29 to i64
+  %37 = load ptr, ptr %ctx.addr, align 8
+  %input42 = getelementptr inbounds %struct.salsa_ctx, ptr %37, i32 0, i32 0
+  %38 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 10
+  %39 = load i32, ptr %38, align 8
+  %idxprom43 = sext i32 %39 to i64
   %arrayidx44 = getelementptr [16 x i32], ptr %input42, i64 0, i64 %idxprom43
   store i32 2036477234, ptr %arrayidx44, align 4
-  %30 = load ptr, ptr %ctx.addr, align 8
-  %input45 = getelementptr inbounds %struct.salsa_ctx, ptr %30, i32 0, i32 0
-  %31 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 15), align 4
-  %idxprom46 = sext i32 %31 to i64
+  %40 = load ptr, ptr %ctx.addr, align 8
+  %input45 = getelementptr inbounds %struct.salsa_ctx, ptr %40, i32 0, i32 0
+  %41 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 15
+  %42 = load i32, ptr %41, align 4
+  %idxprom46 = sext i32 %42 to i64
   %arrayidx47 = getelementptr [16 x i32], ptr %input45, i64 0, i64 %idxprom46
   store i32 1797285236, ptr %arrayidx47, align 4
   ret void
@@ -229,59 +240,63 @@ entry:
   %call = call i32 @load32_le(ptr noundef %add.ptr)
   %1 = load ptr, ptr %ctx.addr, align 8
   %input = getelementptr inbounds %struct.salsa_ctx, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 6), align 8
-  %idxprom = sext i32 %2 to i64
+  %2 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 6
+  %3 = load i32, ptr %2, align 8
+  %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr [16 x i32], ptr %input, i64 0, i64 %idxprom
   store i32 %call, ptr %arrayidx, align 4
-  %3 = load ptr, ptr %iv.addr, align 8
-  %add.ptr1 = getelementptr i8, ptr %3, i64 4
+  %4 = load ptr, ptr %iv.addr, align 8
+  %add.ptr1 = getelementptr i8, ptr %4, i64 4
   %call2 = call i32 @load32_le(ptr noundef %add.ptr1)
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %input3 = getelementptr inbounds %struct.salsa_ctx, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 7), align 4
-  %idxprom4 = sext i32 %5 to i64
+  %5 = load ptr, ptr %ctx.addr, align 8
+  %input3 = getelementptr inbounds %struct.salsa_ctx, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 7
+  %7 = load i32, ptr %6, align 4
+  %idxprom4 = sext i32 %7 to i64
   %arrayidx5 = getelementptr [16 x i32], ptr %input3, i64 0, i64 %idxprom4
   store i32 %call2, ptr %arrayidx5, align 4
-  %6 = load ptr, ptr %counter.addr, align 8
-  %cmp = icmp eq ptr %6, null
+  %8 = load ptr, ptr %counter.addr, align 8
+  %cmp = icmp eq ptr %8, null
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %7 = load ptr, ptr %counter.addr, align 8
-  %add.ptr6 = getelementptr i8, ptr %7, i64 0
+  %9 = load ptr, ptr %counter.addr, align 8
+  %add.ptr6 = getelementptr i8, ptr %9, i64 0
   %call7 = call i32 @load32_le(ptr noundef %add.ptr6)
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i32 [ 0, %cond.true ], [ %call7, %cond.false ]
-  %8 = load ptr, ptr %ctx.addr, align 8
-  %input8 = getelementptr inbounds %struct.salsa_ctx, ptr %8, i32 0, i32 0
-  %9 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 8), align 16
-  %idxprom9 = sext i32 %9 to i64
+  %10 = load ptr, ptr %ctx.addr, align 8
+  %input8 = getelementptr inbounds %struct.salsa_ctx, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 8
+  %12 = load i32, ptr %11, align 16
+  %idxprom9 = sext i32 %12 to i64
   %arrayidx10 = getelementptr [16 x i32], ptr %input8, i64 0, i64 %idxprom9
   store i32 %cond, ptr %arrayidx10, align 4
-  %10 = load ptr, ptr %counter.addr, align 8
-  %cmp11 = icmp eq ptr %10, null
+  %13 = load ptr, ptr %counter.addr, align 8
+  %cmp11 = icmp eq ptr %13, null
   br i1 %cmp11, label %cond.true12, label %cond.false13
 
 cond.true12:                                      ; preds = %cond.end
   br label %cond.end16
 
 cond.false13:                                     ; preds = %cond.end
-  %11 = load ptr, ptr %counter.addr, align 8
-  %add.ptr14 = getelementptr i8, ptr %11, i64 4
+  %14 = load ptr, ptr %counter.addr, align 8
+  %add.ptr14 = getelementptr i8, ptr %14, i64 4
   %call15 = call i32 @load32_le(ptr noundef %add.ptr14)
   br label %cond.end16
 
 cond.end16:                                       ; preds = %cond.false13, %cond.true12
   %cond17 = phi i32 [ 0, %cond.true12 ], [ %call15, %cond.false13 ]
-  %12 = load ptr, ptr %ctx.addr, align 8
-  %input18 = getelementptr inbounds %struct.salsa_ctx, ptr %12, i32 0, i32 0
-  %13 = load i32, ptr getelementptr inbounds ([16 x i32], ptr @TR, i64 0, i64 9), align 4
-  %idxprom19 = sext i32 %13 to i64
+  %15 = load ptr, ptr %ctx.addr, align 8
+  %input18 = getelementptr inbounds %struct.salsa_ctx, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds [16 x i32], ptr @TR, i64 0, i64 9
+  %17 = load i32, ptr %16, align 4
+  %idxprom19 = sext i32 %17 to i64
   %arrayidx20 = getelementptr [16 x i32], ptr %input18, i64 0, i64 %idxprom19
   store i32 %cond17, ptr %arrayidx20, align 4
   ret void

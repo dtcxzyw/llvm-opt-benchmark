@@ -7399,31 +7399,32 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7431,9 +7432,10 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -8168,7 +8170,7 @@ define void @_ZN6casadi8Function9constructERKNSt7__cxx1112basic_stringIcSt11char
 
 287:                                              ; preds = %286, %131, %119, %115
   %288 = load i32, ptr %16, align 4
-  %289 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %289 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %290 = icmp eq i32 %288, %289
   br i1 %290, label %291, label %360
 
@@ -9341,7 +9343,7 @@ define void @_ZN6casadi8Function9constructERKNSt7__cxx1112basic_stringIcSt11char
 
 364:                                              ; preds = %363, %208, %157, %143, %142, %119, %107, %103
   %365 = load i32, ptr %16, align 4
-  %366 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %366 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %367 = icmp eq i32 %365, %366
   br i1 %367, label %368, label %437
 
@@ -12231,9 +12233,6 @@ define linkonce_odr hidden void @_ZNSt6vectorIS_IN6casadi11GenericTypeESaIS1_EES
   unreachable
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #10
-
 declare ptr @__cxa_begin_catch(ptr)
 
 ; Function Attrs: mustprogress uwtable
@@ -12324,7 +12323,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #18
   unreachable
@@ -13507,7 +13506,7 @@ define void @_ZN6casadi8Function3jitERKNSt7__cxx1112basic_stringIcSt11char_trait
 
 50:                                               ; preds = %46, %42
   %51 = load i32, ptr %18, align 4
-  %52 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %52 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %53 = icmp eq i32 %51, %52
   br i1 %53, label %54, label %122
 
@@ -13796,7 +13795,7 @@ define void @_ZN6casadi8Function6createEPNS_16FunctionInternalERKSt3mapINSt7__cx
 declare void @_ZN6casadi11JitFunctionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt6vectorIS6_SaIS6_EESD_RKS9_INS_8SparsityESaISE_EESI_(ptr noundef nonnull align 8 dereferenceable(1408), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #11
 
 declare void @_ZN6casadi11GenericTypeC1Ed(ptr noundef nonnull align 8 dereferenceable(8), double noundef) unnamed_addr #1
 
@@ -13960,7 +13959,7 @@ define void @_ZNK6casadi8Function5sx_inEv(ptr dead_on_unwind noalias writable sr
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %6, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %124
 
@@ -14418,7 +14417,7 @@ define void @_ZNK6casadi8Function4callERKSt6vectorINS_6MatrixIdEESaIS3_EERS5_bb(
 
 44:                                               ; preds = %40
   %45 = load i32, ptr %12, align 4
-  %46 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %46 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %47 = icmp eq i32 %45, %46
   br i1 %47, label %48, label %135
 
@@ -15331,7 +15330,7 @@ define void @_ZNK6casadi8Function4callERKSt6vectorINS_6MatrixINS_6SXElemEEESaIS4
 
 44:                                               ; preds = %40
   %45 = load i32, ptr %12, align 4
-  %46 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %46 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %47 = icmp eq i32 %45, %46
   br i1 %47, label %48, label %135
 
@@ -16239,7 +16238,7 @@ define void @_ZNK6casadi8Function4callERKSt6vectorINS_2MXESaIS2_EERS4_bb(ptr nou
 
 44:                                               ; preds = %40
   %45 = load i32, ptr %12, align 4
-  %46 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %46 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %47 = icmp eq i32 %45, %46
   br i1 %47, label %48, label %135
 
@@ -19205,7 +19204,7 @@ define noundef i64 @_ZNK6casadi8Function8index_inERKNSt7__cxx1112basic_stringIcS
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %6, align 4
-  %34 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %35 = icmp eq i32 %33, %34
   br i1 %35, label %36, label %123
 
@@ -19494,7 +19493,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.117", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.117", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -19750,7 +19749,7 @@ define noundef i64 @_ZNK6casadi8Function9index_outERKNSt7__cxx1112basic_stringIc
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %6, align 4
-  %34 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %35 = icmp eq i32 %33, %34
   br i1 %35, label %36, label %123
 
@@ -20039,7 +20038,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -20425,7 +20424,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.130", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.130", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -23256,7 +23255,7 @@ define noundef i32 @_ZNK6casadi8Function3revEPPyS2_PxS1_i(ptr noundef nonnull al
 
 49:                                               ; preds = %45
   %50 = load i32, ptr %14, align 4
-  %51 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %51 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %52 = icmp eq i32 %50, %51
   br i1 %52, label %53, label %140
 
@@ -26382,7 +26381,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6casadi8Function7nam
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %6, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %124
 
@@ -26690,7 +26689,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi8Function11spa
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %6, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %124
 
@@ -28452,7 +28451,7 @@ define void @_ZNK6casadi8Function5sliceERKNSt7__cxx1112basic_stringIcSt11char_tr
 
 45:                                               ; preds = %41
   %46 = load i32, ptr %14, align 4
-  %47 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %48 = icmp eq i32 %46, %47
   br i1 %48, label %49, label %136
 
@@ -31686,7 +31685,7 @@ define void @_ZNK6casadi8Function6mapsumERKSt6vectorINS_2MXESaIS2_EERKNSt7__cxx1
 
 36:                                               ; preds = %32
   %37 = load i32, ptr %10, align 4
-  %38 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %39 = icmp eq i32 %37, %38
   br i1 %39, label %40, label %127
 
@@ -32015,7 +32014,7 @@ define void @_ZN6casadi8Function11conditionalERKNSt7__cxx1112basic_stringIcSt11c
 
 41:                                               ; preds = %37, %33
   %42 = load i32, ptr %12, align 4
-  %43 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %44 = icmp eq i32 %42, %43
   br i1 %44, label %45, label %113
 
@@ -32447,7 +32446,7 @@ define void @_ZN6casadi8Function11conditionalERKNSt7__cxx1112basic_stringIcSt11c
 
 106:                                              ; preds = %105, %55
   %107 = load i32, ptr %11, align 4
-  %108 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %108 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %109 = icmp eq i32 %107, %108
   br i1 %109, label %110, label %178
 
@@ -32712,7 +32711,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi8Function12spa
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %6, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %124
 
@@ -33087,7 +33086,7 @@ define void @_ZN6casadi8Function7if_elseERKNSt7__cxx1112basic_stringIcSt11char_t
 
 53:                                               ; preds = %52, %37
   %54 = load i32, ptr %12, align 4
-  %55 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %55 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %56 = icmp eq i32 %54, %55
   br i1 %56, label %57, label %125
 
@@ -33959,7 +33958,7 @@ define void @_ZN6casadi8Function7bsplineERKNSt7__cxx1112basic_stringIcSt11char_t
 
 295:                                              ; preds = %294, %224, %161
   %296 = load i32, ptr %21, align 4
-  %297 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %297 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %298 = icmp eq i32 %296, %297
   br i1 %298, label %299, label %367
 
@@ -35005,7 +35004,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6casadi8Function8nam
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %6, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %124
 
@@ -35341,7 +35340,7 @@ define void @_ZNK6casadi8Function7factoryERKNSt7__cxx1112basic_stringIcSt11char_
 
 60:                                               ; preds = %56
   %61 = load i32, ptr %16, align 4
-  %62 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %62 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %63 = icmp eq i32 %61, %62
   br i1 %63, label %64, label %227
 
@@ -36192,7 +36191,7 @@ define void @_ZNK6casadi8Function12sparsity_jacExxbb(ptr dead_on_unwind noalias 
 
 48:                                               ; preds = %44
   %49 = load i32, ptr %14, align 4
-  %50 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %51 = icmp eq i32 %49, %50
   br i1 %51, label %52, label %139
 
@@ -36512,7 +36511,7 @@ define void @_ZNK6casadi8Function8jacobianEv(ptr dead_on_unwind noalias writable
 
 30:                                               ; preds = %26
   %31 = load i32, ptr %6, align 4
-  %32 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %33 = icmp eq i32 %31, %32
   br i1 %33, label %34, label %121
 
@@ -36797,7 +36796,7 @@ define noundef zeroext i1 @_ZN6casadi8Function9test_castEPKNS_20SharedObjectInte
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #13
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #12
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6casadi8Function5statsB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) #4 align 2 {
@@ -36968,7 +36967,7 @@ define void @_ZNK6casadi8Function12jac_sparsityExxb(ptr dead_on_unwind noalias w
 
 52:                                               ; preds = %48
   %53 = load i32, ptr %12, align 4
-  %54 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %54 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %55 = icmp eq i32 %53, %54
   br i1 %55, label %56, label %143
 
@@ -37841,7 +37840,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi8Function11spa
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %6, align 4
-  %34 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %35 = icmp eq i32 %33, %34
   br i1 %35, label %36, label %123
 
@@ -38148,7 +38147,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi8Function12spa
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %6, align 4
-  %34 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %35 = icmp eq i32 %33, %34
   br i1 %35, label %36, label %123
 
@@ -38464,7 +38463,7 @@ define noundef zeroext i1 @_ZNK6casadi8Function10is_diff_inEx(ptr noundef nonnul
 
 39:                                               ; preds = %35
   %40 = load i32, ptr %7, align 4
-  %41 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %42 = icmp eq i32 %40, %41
   br i1 %42, label %43, label %130
 
@@ -38819,7 +38818,7 @@ define noundef zeroext i1 @_ZNK6casadi8Function11is_diff_outEx(ptr noundef nonnu
 
 39:                                               ; preds = %35
   %40 = load i32, ptr %7, align 4
-  %41 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %42 = icmp eq i32 %40, %41
   br i1 %42, label %43, label %130
 
@@ -39126,7 +39125,7 @@ define void @_ZNK6casadi8Function10is_diff_inEv(ptr dead_on_unwind noalias writa
 
 31:                                               ; preds = %27
   %32 = load i32, ptr %6, align 4
-  %33 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %34 = icmp eq i32 %32, %33
   br i1 %34, label %35, label %122
 
@@ -39522,7 +39521,7 @@ define void @_ZNK6casadi8Function11is_diff_outEv(ptr dead_on_unwind noalias writ
 
 31:                                               ; preds = %27
   %32 = load i32, ptr %6, align 4
-  %33 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %34 = icmp eq i32 %32, %33
   br i1 %34, label %35, label %122
 
@@ -39924,7 +39923,7 @@ define noundef i32 @_ZNK6casadi8FunctionclEPPKyPPyPxS4_i(ptr noundef nonnull ali
 
 49:                                               ; preds = %45
   %50 = load i32, ptr %14, align 4
-  %51 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %51 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %52 = icmp eq i32 %50, %51
   br i1 %52, label %53, label %140
 
@@ -40250,7 +40249,7 @@ define void @_ZNK6casadi8Function8set_workERPPKdRPPdRPxRS5_i(ptr noundef nonnull
 
 48:                                               ; preds = %44
   %49 = load i32, ptr %14, align 4
-  %50 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %51 = icmp eq i32 %49, %50
   br i1 %51, label %52, label %139
 
@@ -40575,7 +40574,7 @@ define void @_ZNK6casadi8Function8set_tempEPPKdPPdPxS4_i(ptr noundef nonnull ali
 
 48:                                               ; preds = %44
   %49 = load i32, ptr %14, align 4
-  %50 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %51 = icmp eq i32 %49, %50
   br i1 %51, label %52, label %139
 
@@ -40897,7 +40896,7 @@ define void @_ZNK6casadi8Function5setupEPPKdPPdPxS4_i(ptr noundef nonnull align 
 
 45:                                               ; preds = %41
   %46 = load i32, ptr %14, align 4
-  %47 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %48 = icmp eq i32 %46, %47
   br i1 %48, label %49, label %136
 
@@ -41207,7 +41206,7 @@ define void @_ZNK6casadi8Function7forwardEx(ptr dead_on_unwind noalias writable 
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %8, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %124
 
@@ -41518,7 +41517,7 @@ define void @_ZNK6casadi8Function7reverseEx(ptr dead_on_unwind noalias writable 
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %8, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %124
 
@@ -41875,7 +41874,7 @@ define noundef zeroext i1 @_ZNK6casadi8Function10has_optionERKNSt7__cxx1112basic
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %6, align 4
-  %34 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %35 = icmp eq i32 %33, %34
   br i1 %35, label %36, label %123
 
@@ -42368,7 +42367,7 @@ define void @_ZN6casadi8Function13change_optionERKNSt7__cxx1112basic_stringIcSt1
 
 101:                                              ; preds = %100, %50
   %102 = load i32, ptr %8, align 4
-  %103 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %103 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %104 = icmp eq i32 %102, %103
   br i1 %104, label %105, label %201
 
@@ -45714,7 +45713,7 @@ define noundef zeroext i1 @_ZN6casadi8Function10check_nameERKNSt7__cxx1112basic_
   %48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
   %49 = load i8, ptr %48, align 1
   %50 = sext i8 %49 to i32
-  %51 = call i32 @isalpha(i32 noundef %50) #13
+  %51 = call i32 @isalpha(i32 noundef %50) #12
   %52 = icmp ne i32 %51, 0
   %53 = xor i1 %52, true
   br i1 %53, label %54, label %55
@@ -45777,7 +45776,7 @@ define noundef zeroext i1 @_ZN6casadi8Function10check_nameERKNSt7__cxx1112basic_
   %85 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
   %86 = load i8, ptr %85, align 1
   %87 = sext i8 %86 to i32
-  %88 = call i32 @isalnum(i32 noundef %87) #13
+  %88 = call i32 @isalnum(i32 noundef %87) #12
   %89 = icmp ne i32 %88, 0
   br i1 %89, label %91, label %90
 
@@ -45832,7 +45831,7 @@ define linkonce_odr hidden noundef ptr @_ZNKSt16initializer_listIPKcE3endEv(ptr 
 declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @isalpha(i32 noundef) #14
+declare i32 @isalpha(i32 noundef) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEppEi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) #5 comdat align 2 {
@@ -45904,7 +45903,7 @@ define linkonce_odr hidden ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx11
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @isalnum(i32 noundef) #14
+declare i32 @isalnum(i32 noundef) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
@@ -46293,7 +46292,7 @@ define void @_ZN6casadi8Function8fix_nameERKNSt7__cxx1112basic_stringIcSt11char_
   %36 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5frontEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #3
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
-  %39 = call i32 @isalpha(i32 noundef %38) #13
+  %39 = call i32 @isalpha(i32 noundef %38) #12
   %40 = icmp ne i32 %39, 0
   br i1 %40, label %49, label %41
 
@@ -46338,7 +46337,7 @@ define void @_ZN6casadi8Function8fix_nameERKNSt7__cxx1112basic_stringIcSt11char_
   store i8 %61, ptr %13, align 1
   %62 = load i8, ptr %13, align 1
   %63 = sext i8 %62 to i32
-  %64 = call i32 @isalnum(i32 noundef %63) #13
+  %64 = call i32 @isalnum(i32 noundef %63) #12
   %65 = icmp ne i32 %64, 0
   br i1 %65, label %66, label %71
 
@@ -46679,7 +46678,7 @@ define void @_ZNK6casadi8Function4callERKSt3mapINSt7__cxx1112basic_stringIcSt11c
 
 42:                                               ; preds = %38
   %43 = load i32, ptr %12, align 4
-  %44 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %45 = icmp eq i32 %43, %44
   br i1 %45, label %46, label %133
 
@@ -47062,7 +47061,7 @@ define void @_ZNK6casadi8Function4callERKSt3mapINSt7__cxx1112basic_stringIcSt11c
 
 42:                                               ; preds = %38
   %43 = load i32, ptr %12, align 4
-  %44 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %45 = icmp eq i32 %43, %44
   br i1 %45, label %46, label %133
 
@@ -47445,7 +47444,7 @@ define void @_ZNK6casadi8Function4callERKSt3mapINSt7__cxx1112basic_stringIcSt11c
 
 42:                                               ; preds = %38
   %43 = load i32, ptr %12, align 4
-  %44 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %45 = icmp eq i32 %43, %44
   br i1 %45, label %46, label %133
 
@@ -48212,7 +48211,7 @@ define noundef i32 @_ZNK6casadi8FunctionclEPPKdPPdPxS4_i(ptr noundef nonnull ali
 
 49:                                               ; preds = %45
   %50 = load i32, ptr %15, align 4
-  %51 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN6casadi26KeyboardInterruptExceptionE) #3
+  %51 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN6casadi26KeyboardInterruptExceptionE) #3
   %52 = icmp eq i32 %50, %51
   br i1 %52, label %53, label %56
 
@@ -48224,7 +48223,7 @@ define noundef i32 @_ZNK6casadi8FunctionclEPPKdPPdPxS4_i(ptr noundef nonnull ali
           to label %170 unwind label %156
 
 56:                                               ; preds = %49
-  %57 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %58 = icmp eq i32 %50, %57
   br i1 %58, label %59, label %162
 
@@ -48639,7 +48638,7 @@ define noundef i32 @_ZNK6casadi8FunctionclEPPKNS_6SXElemEPPS1_PxS5_i(ptr noundef
 
 49:                                               ; preds = %45
   %50 = load i32, ptr %14, align 4
-  %51 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %51 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %52 = icmp eq i32 %50, %51
   br i1 %52, label %53, label %140
 
@@ -48951,7 +48950,7 @@ define void @_ZNK6casadi8Function5sx_inEx(ptr dead_on_unwind noalias writable sr
 
 36:                                               ; preds = %32
   %37 = load i32, ptr %8, align 4
-  %38 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %39 = icmp eq i32 %37, %38
   br i1 %39, label %40, label %127
 
@@ -49263,7 +49262,7 @@ define void @_ZNK6casadi8Function6sx_outEx(ptr dead_on_unwind noalias writable s
 
 36:                                               ; preds = %32
   %37 = load i32, ptr %8, align 4
-  %38 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %39 = icmp eq i32 %37, %38
   br i1 %39, label %40, label %127
 
@@ -49572,7 +49571,7 @@ define void @_ZNK6casadi8Function6sx_outEv(ptr dead_on_unwind noalias writable s
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %6, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %124
 
@@ -53072,7 +53071,7 @@ define void @_ZNK6casadi8Function7free_sxEv(ptr dead_on_unwind noalias writable 
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %6, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %124
 
@@ -53381,7 +53380,7 @@ define void @_ZNK6casadi8Function7free_mxEv(ptr dead_on_unwind noalias writable 
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %6, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %124
 
@@ -53720,7 +53719,7 @@ define void @_ZNK6casadi8Function15generate_liftedERS0_S1_(ptr noundef nonnull a
 
 37:                                               ; preds = %33
   %38 = load i32, ptr %8, align 4
-  %39 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %40 = icmp eq i32 %38, %39
   br i1 %40, label %41, label %128
 
@@ -54026,7 +54025,7 @@ define noundef i64 @_ZNK6casadi8Function14n_instructionsEv(ptr noundef nonnull a
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %4, align 4
-  %34 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %35 = icmp eq i32 %33, %34
   br i1 %35, label %36, label %123
 
@@ -54338,7 +54337,7 @@ define void @_ZNK6casadi8Function14instruction_MXEx(ptr dead_on_unwind noalias w
 
 36:                                               ; preds = %32
   %37 = load i32, ptr %8, align 4
-  %38 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %39 = icmp eq i32 %37, %38
   br i1 %39, label %40, label %127
 
@@ -54647,7 +54646,7 @@ define void @_ZNK6casadi8Function15instructions_sxEv(ptr dead_on_unwind noalias 
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %6, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %124
 
@@ -54957,7 +54956,7 @@ define noundef i64 @_ZNK6casadi8Function14instruction_idEx(ptr noundef nonnull a
 
 35:                                               ; preds = %31
   %36 = load i32, ptr %6, align 4
-  %37 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %39, label %126
 
@@ -55269,7 +55268,7 @@ define void @_ZNK6casadi8Function17instruction_inputEx(ptr dead_on_unwind noalia
 
 36:                                               ; preds = %32
   %37 = load i32, ptr %8, align 4
-  %38 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %39 = icmp eq i32 %37, %38
   br i1 %39, label %40, label %127
 
@@ -55579,7 +55578,7 @@ define noundef double @_ZNK6casadi8Function20instruction_constantEx(ptr noundef 
 
 35:                                               ; preds = %31
   %36 = load i32, ptr %6, align 4
-  %37 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %39, label %126
 
@@ -55891,7 +55890,7 @@ define void @_ZNK6casadi8Function18instruction_outputEx(ptr dead_on_unwind noali
 
 36:                                               ; preds = %32
   %37 = load i32, ptr %8, align 4
-  %38 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %39 = icmp eq i32 %37, %38
   br i1 %39, label %40, label %127
 
@@ -56198,7 +56197,7 @@ define noundef i64 @_ZNK6casadi8Function7n_nodesEv(ptr noundef nonnull align 8 d
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %4, align 4
-  %34 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %35 = icmp eq i32 %33, %34
   br i1 %35, label %36, label %123
 
@@ -58263,7 +58262,7 @@ define void @_ZNK6casadi8Function13which_dependsERKNSt7__cxx1112basic_stringIcSt
 
 47:                                               ; preds = %43
   %48 = load i32, ptr %14, align 4
-  %49 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %49 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %50 = icmp eq i32 %48, %49
   br i1 %50, label %51, label %138
 
@@ -58569,7 +58568,7 @@ define void @_ZNK6casadi8Function5cacheB5cxx11Ev(ptr dead_on_unwind noalias writ
 
 30:                                               ; preds = %26
   %31 = load i32, ptr %6, align 4
-  %32 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %33 = icmp eq i32 %31, %32
   br i1 %33, label %34, label %121
 
@@ -58880,7 +58879,7 @@ define void @_ZNK6casadi8Function12get_functionB5cxx11Ev(ptr dead_on_unwind noal
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %6, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %124
 
@@ -59196,7 +59195,7 @@ define void @_ZNK6casadi8Function12get_functionERKNSt7__cxx1112basic_stringIcSt1
 
 38:                                               ; preds = %34
   %39 = load i32, ptr %8, align 4
-  %40 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %41 = icmp eq i32 %39, %40
   br i1 %41, label %42, label %129
 
@@ -59506,7 +59505,7 @@ define noundef zeroext i1 @_ZNK6casadi8Function12has_functionERKNSt7__cxx1112bas
 
 35:                                               ; preds = %31
   %36 = load i32, ptr %6, align 4
-  %37 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %39, label %126
 
@@ -59899,7 +59898,7 @@ define void @_ZNK6casadi8Function14find_functionsEx(ptr dead_on_unwind noalias w
 
 73:                                               ; preds = %72
   %74 = load i32, ptr %9, align 4
-  %75 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %75 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %76 = icmp eq i32 %74, %75
   br i1 %76, label %77, label %164
 
@@ -60373,7 +60372,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.307", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.307", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -60692,7 +60691,7 @@ define void @_ZNK6casadi8Function13find_functionERKNSt7__cxx1112basic_stringIcSt
 
 141:                                              ; preds = %140
   %142 = load i32, ptr %11, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %232
 
@@ -61005,7 +61004,7 @@ define void @_ZNK6casadi8Function6oracleEv(ptr dead_on_unwind noalias writable s
 
 35:                                               ; preds = %31
   %36 = load i32, ptr %6, align 4
-  %37 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %39, label %126
 
@@ -61722,7 +61721,7 @@ define noundef zeroext i1 @_ZNK6casadi8FunctioneqERKS0_(ptr noundef nonnull alig
 
 171:                                              ; preds = %170, %108, %58
   %172 = load i32, ptr %6, align 4
-  %173 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %173 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %174 = icmp eq i32 %172, %173
   br i1 %174, label %175, label %269
 
@@ -63974,7 +63973,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -65093,10 +65093,10 @@ define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nod
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #15
+declare void @_ZSt28__throw_bad_array_new_lengthv() #14
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #15
+declare void @_ZSt17__throw_bad_allocv() #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeEEEEE9constructISB_JRKSB_EEEvRSD_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) #4 comdat align 2 {
@@ -65423,7 +65423,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN6casadi8SparsityESaIS1_EE
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #15
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi16FunctionInternal12sparsity_outEx(ptr noundef nonnull align 8 dereferenceable(1304) %0, i64 noundef %1) #4 comdat align 2 {
@@ -71597,7 +71597,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #15
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -73227,7 +73227,7 @@ define linkonce_odr hidden void @_ZNSaIN6casadi6MatrixINS_6SXElemEEEEC2ERKS3_(pt
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #15
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt16allocator_traitsISaIN6casadi6MatrixINS0_6SXElemEEEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
@@ -76719,7 +76719,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.375", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.375", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -77254,7 +77254,7 @@ define linkonce_odr hidden void @_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cx
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #14
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi2MXESt4lessIS5_ESaISt4pairIKS5_S7_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #5 comdat align 2 {
@@ -77330,7 +77330,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.376", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.376", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -79106,7 +79106,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.160", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.160", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -79119,7 +79119,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.160", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.160", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -79163,10 +79163,10 @@ define linkonce_odr hidden void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #14
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #13
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #14
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSI_PSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #4 comdat align 2 {
@@ -108758,7 +108758,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.427", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.427", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -108781,7 +108781,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.427", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.427", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -110853,7 +110853,7 @@ define linkonce_odr void @_ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vec
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #16
+declare i1 @llvm.is.constant.i64(i64) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
@@ -114800,7 +114800,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.433", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.433", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -114813,7 +114813,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.433", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.433", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -116066,7 +116066,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.440", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.440", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -116079,7 +116079,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.440", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.440", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -117307,7 +117307,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.443", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.443", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -117320,7 +117320,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.443", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.443", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -117501,7 +117501,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.434", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.434", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -117712,7 +117712,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.446", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #13
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #12
   %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.446", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   ret ptr %3
@@ -121272,6 +121272,9 @@ define internal void @_GLOBAL__sub_I_function.cpp() #0 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -121282,13 +121285,13 @@ attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind memory(none) }
-attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #16 = { nounwind memory(none) }
 attributes #17 = { noreturn }
 attributes #18 = { noreturn nounwind }
 attributes #19 = { builtin allocsize(0) }

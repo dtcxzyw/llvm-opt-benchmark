@@ -1072,1171 +1072,1173 @@ define void @_ZN27ModulePreferencesScrollAreaC2EP11pref_moduleP7QWidget(ptr noun
   %97 = load ptr, ptr %4, align 8
   %98 = load ptr, ptr %6, align 8
   call void @_ZN11QScrollAreaC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %97, ptr noundef %98)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV27ModulePreferencesScrollArea, i32 0, i32 0, i32 2), ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %97, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV27ModulePreferencesScrollArea, i32 0, i32 1, i32 2), ptr %99, align 8
-  %100 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %97, i32 0, i32 1
-  %101 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
-          to label %102 unwind label %111
-
-102:                                              ; preds = %3
+  %99 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV27ModulePreferencesScrollArea, i32 0, i32 0, i32 2
+  store ptr %99, ptr %97, align 8
+  %100 = getelementptr inbounds i8, ptr %97, i64 16
+  %101 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV27ModulePreferencesScrollArea, i32 0, i32 1, i32 2
   store ptr %101, ptr %100, align 8
-  %103 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %97, i32 0, i32 2
-  %104 = load ptr, ptr %5, align 8
-  store ptr %104, ptr %103, align 8
-  %105 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %97, i32 0, i32 1
-  %106 = load ptr, ptr %105, align 8
-  invoke void @_ZN30Ui_ModulePreferencesScrollArea7setupUiEP11QScrollArea(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef %97)
-          to label %107 unwind label %111
+  %102 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %97, i32 0, i32 1
+  %103 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+          to label %104 unwind label %113
 
-107:                                              ; preds = %102
-  %108 = load ptr, ptr %5, align 8
-  %109 = icmp ne ptr %108, null
-  br i1 %109, label %115, label %110
+104:                                              ; preds = %3
+  store ptr %103, ptr %102, align 8
+  %105 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %97, i32 0, i32 2
+  %106 = load ptr, ptr %5, align 8
+  store ptr %106, ptr %105, align 8
+  %107 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %97, i32 0, i32 1
+  %108 = load ptr, ptr %107, align 8
+  invoke void @_ZN30Ui_ModulePreferencesScrollArea7setupUiEP11QScrollArea(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef %97)
+          to label %109 unwind label %113
 
-110:                                              ; preds = %107
-  br label %594
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %5, align 8
+  %111 = icmp ne ptr %110, null
+  br i1 %111, label %117, label %112
 
-111:                                              ; preds = %115, %102, %3
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %109
+  br label %596
+
+113:                                              ; preds = %117, %104, %3
+  %114 = landingpad { ptr, i32 }
           cleanup
-  %113 = extractvalue { ptr, i32 } %112, 0
-  store ptr %113, ptr %7, align 8
-  %114 = extractvalue { ptr, i32 } %112, 1
-  store i32 %114, ptr %8, align 4
-  br label %601
+  %115 = extractvalue { ptr, i32 } %114, 0
+  store ptr %115, ptr %7, align 8
+  %116 = extractvalue { ptr, i32 } %114, 1
+  store i32 %116, ptr %8, align 4
+  br label %603
 
-115:                                              ; preds = %107
+117:                                              ; preds = %109
   invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %9)
-          to label %116 unwind label %111
+          to label %118 unwind label %113
 
-116:                                              ; preds = %115
+118:                                              ; preds = %117
   invoke void @_ZN5QFont7setBoldEb(ptr noundef nonnull align 8 dereferenceable(12) %9, i1 noundef zeroext true)
-          to label %117 unwind label %163
+          to label %119 unwind label %165
 
-117:                                              ; preds = %116
-  %118 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
-          to label %119 unwind label %163
+119:                                              ; preds = %118
+  %120 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
+          to label %121 unwind label %165
 
-119:                                              ; preds = %117
+121:                                              ; preds = %119
   store i1 true, ptr %13, align 1
-  %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds %struct.pref_module, ptr %120, i32 0, i32 2
-  %122 = load ptr, ptr %121, align 8
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %122)
-          to label %123 unwind label %167
+  %122 = load ptr, ptr %5, align 8
+  %123 = getelementptr inbounds %struct.pref_module, ptr %122, i32 0, i32 2
+  %124 = load ptr, ptr %123, align 8
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %124)
+          to label %125 unwind label %169
 
-123:                                              ; preds = %119
+125:                                              ; preds = %121
   call void @_ZN6QFlagsIN2Qt10WindowTypeEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #15
-  %124 = getelementptr inbounds %class.QFlags, ptr %12, i32 0, i32 0
-  %125 = load i32, ptr %124, align 4
-  invoke void @_ZN6QLabelC1ERK7QStringP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %118, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef null, i32 %125)
-          to label %126 unwind label %171
+  %126 = getelementptr inbounds %class.QFlags, ptr %12, i32 0, i32 0
+  %127 = load i32, ptr %126, align 4
+  invoke void @_ZN6QLabelC1ERK7QStringP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %120, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef null, i32 %127)
+          to label %128 unwind label %173
 
-126:                                              ; preds = %123
+128:                                              ; preds = %125
   store i1 false, ptr %13, align 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
-  store ptr %118, ptr %10, align 8
-  %127 = load ptr, ptr %10, align 8
-  invoke void @_ZN7QWidget7setFontERK5QFont(ptr noundef nonnull align 8 dereferenceable(40) %127, ptr noundef nonnull align 8 dereferenceable(12) %9)
-          to label %128 unwind label %163
+  store ptr %120, ptr %10, align 8
+  %129 = load ptr, ptr %10, align 8
+  invoke void @_ZN7QWidget7setFontERK5QFont(ptr noundef nonnull align 8 dereferenceable(40) %129, ptr noundef nonnull align 8 dereferenceable(12) %9)
+          to label %130 unwind label %165
 
-128:                                              ; preds = %126
-  %129 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %97, i32 0, i32 1
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds %class.Ui_ModulePreferencesScrollArea, ptr %130, i32 0, i32 1
+130:                                              ; preds = %128
+  %131 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %97, i32 0, i32 1
   %132 = load ptr, ptr %131, align 8
-  %133 = load ptr, ptr %10, align 8
+  %133 = getelementptr inbounds %class.Ui_ModulePreferencesScrollArea, ptr %132, i32 0, i32 1
+  %134 = load ptr, ptr %133, align 8
+  %135 = load ptr, ptr %10, align 8
   call void @_ZN6QFlagsIN2Qt13AlignmentFlagEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %14) #15
-  %134 = getelementptr inbounds %class.QFlags.0, ptr %14, i32 0, i32 0
-  %135 = load i32, ptr %134, align 4
-  invoke void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %132, ptr noundef %133, i32 noundef 0, i32 %135)
-          to label %136 unwind label %163
+  %136 = getelementptr inbounds %class.QFlags.0, ptr %14, i32 0, i32 0
+  %137 = load i32, ptr %136, align 4
+  invoke void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %134, ptr noundef %135, i32 noundef 0, i32 %137)
+          to label %138 unwind label %165
 
-136:                                              ; preds = %128
+138:                                              ; preds = %130
   call void @_ZN14prefSearchDataC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #15
-  %137 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %97, i32 0, i32 1
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds %class.Ui_ModulePreferencesScrollArea, ptr %138, i32 0, i32 1
+  %139 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %97, i32 0, i32 1
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds %struct.prefSearchData, ptr %15, i32 0, i32 0
-  store ptr %140, ptr %141, align 8
-  %142 = load ptr, ptr %5, align 8
-  %143 = getelementptr inbounds %struct.pref_module, ptr %142, i32 0, i32 0
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds %struct.prefSearchData, ptr %15, i32 0, i32 1
-  %146 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr noundef %144)
-          to label %147 unwind label %179
+  %141 = getelementptr inbounds %class.Ui_ModulePreferencesScrollArea, ptr %140, i32 0, i32 1
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds %struct.prefSearchData, ptr %15, i32 0, i32 0
+  store ptr %142, ptr %143, align 8
+  %144 = load ptr, ptr %5, align 8
+  %145 = getelementptr inbounds %struct.pref_module, ptr %144, i32 0, i32 0
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds %struct.prefSearchData, ptr %15, i32 0, i32 1
+  %148 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSEPKc(ptr noundef nonnull align 8 dereferenceable(24) %147, ptr noundef %146)
+          to label %149 unwind label %181
 
-147:                                              ; preds = %136
-  %148 = load ptr, ptr %5, align 8
-  %149 = invoke i32 @prefs_pref_foreach(ptr noundef %148, ptr noundef @_ZL9pref_showP10preferencePv, ptr noundef %15)
-          to label %150 unwind label %179
+149:                                              ; preds = %138
+  %150 = load ptr, ptr %5, align 8
+  %151 = invoke i32 @prefs_pref_foreach(ptr noundef %150, ptr noundef @_ZL9pref_showP10preferencePv, ptr noundef %15)
+          to label %152 unwind label %181
 
-150:                                              ; preds = %147
+152:                                              ; preds = %149
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
   call void @_ZN6QFlagsIN2Qt15FindChildOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef 1) #15
-  %151 = getelementptr inbounds %class.QFlags.2, ptr %19, i32 0, i32 0
-  %152 = load i32, ptr %151, align 4
-  invoke void @_ZNK7QObject12findChildrenIP9QLineEditEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind writable sret(%class.QList) align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 %152)
-          to label %153 unwind label %183
+  %153 = getelementptr inbounds %class.QFlags.2, ptr %19, i32 0, i32 0
+  %154 = load i32, ptr %153, align 4
+  invoke void @_ZNK7QObject12findChildrenIP9QLineEditEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind writable sret(%class.QList) align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 %154)
+          to label %155 unwind label %185
 
-153:                                              ; preds = %150
+155:                                              ; preds = %152
   invoke void @_ZN9QtPrivate21qMakeForeachContainerI5QListIP9QLineEditEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %154 unwind label %187
+          to label %156 unwind label %189
 
-154:                                              ; preds = %153
+156:                                              ; preds = %155
   call void @_ZN5QListIP9QLineEditED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
-  br label %155
+  br label %157
 
-155:                                              ; preds = %243, %154
-  %156 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %16, i32 0, i32 1
-  %157 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %16, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %157, i64 8, i1 false)
-  %158 = getelementptr inbounds %"class.QList<QLineEdit *>::const_iterator", ptr %20, i32 0, i32 0
-  %159 = load ptr, ptr %158, align 8
-  %160 = invoke noundef zeroext i1 @_ZNK5QListIP9QLineEditE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %156, ptr %159)
-          to label %161 unwind label %192
+157:                                              ; preds = %245, %156
+  %158 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %16, i32 0, i32 1
+  %159 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %16, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %159, i64 8, i1 false)
+  %160 = getelementptr inbounds %"class.QList<QLineEdit *>::const_iterator", ptr %20, i32 0, i32 0
+  %161 = load ptr, ptr %160, align 8
+  %162 = invoke noundef zeroext i1 @_ZNK5QListIP9QLineEditE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr %161)
+          to label %163 unwind label %194
 
-161:                                              ; preds = %155
-  br i1 %160, label %196, label %162
+163:                                              ; preds = %157
+  br i1 %162, label %198, label %164
 
-162:                                              ; preds = %161
+164:                                              ; preds = %163
   call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QLineEditEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %16) #15
-  br label %245
+  br label %247
 
-163:                                              ; preds = %128, %126, %117, %116
-  %164 = landingpad { ptr, i32 }
+165:                                              ; preds = %130, %128, %119, %118
+  %166 = landingpad { ptr, i32 }
           cleanup
-  %165 = extractvalue { ptr, i32 } %164, 0
-  store ptr %165, ptr %7, align 8
-  %166 = extractvalue { ptr, i32 } %164, 1
-  store i32 %166, ptr %8, align 4
-  br label %600
-
-167:                                              ; preds = %119
-  %168 = landingpad { ptr, i32 }
-          cleanup
-  %169 = extractvalue { ptr, i32 } %168, 0
-  store ptr %169, ptr %7, align 8
-  %170 = extractvalue { ptr, i32 } %168, 1
-  store i32 %170, ptr %8, align 4
-  br label %175
-
-171:                                              ; preds = %123
-  %172 = landingpad { ptr, i32 }
-          cleanup
-  %173 = extractvalue { ptr, i32 } %172, 0
-  store ptr %173, ptr %7, align 8
-  %174 = extractvalue { ptr, i32 } %172, 1
-  store i32 %174, ptr %8, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
-  br label %175
-
-175:                                              ; preds = %171, %167
-  %176 = load i1, ptr %13, align 1
-  br i1 %176, label %177, label %178
-
-177:                                              ; preds = %175
-  call void @_ZdlPv(ptr noundef %118) #16
-  br label %178
-
-178:                                              ; preds = %177, %175
-  br label %600
-
-179:                                              ; preds = %592, %585, %147, %136
-  %180 = landingpad { ptr, i32 }
-          cleanup
-  %181 = extractvalue { ptr, i32 } %180, 0
-  store ptr %181, ptr %7, align 8
-  %182 = extractvalue { ptr, i32 } %180, 1
-  store i32 %182, ptr %8, align 4
-  br label %599
-
-183:                                              ; preds = %150
-  %184 = landingpad { ptr, i32 }
-          cleanup
-  %185 = extractvalue { ptr, i32 } %184, 0
-  store ptr %185, ptr %7, align 8
-  %186 = extractvalue { ptr, i32 } %184, 1
-  store i32 %186, ptr %8, align 4
-  br label %191
-
-187:                                              ; preds = %153
-  %188 = landingpad { ptr, i32 }
-          cleanup
-  %189 = extractvalue { ptr, i32 } %188, 0
-  store ptr %189, ptr %7, align 8
-  %190 = extractvalue { ptr, i32 } %188, 1
-  store i32 %190, ptr %8, align 4
-  call void @_ZN5QListIP9QLineEditED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
-  br label %191
-
-191:                                              ; preds = %187, %183
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
-  br label %599
-
-192:                                              ; preds = %240, %231, %224, %217, %213, %199, %196, %155
-  %193 = landingpad { ptr, i32 }
-          cleanup
-  %194 = extractvalue { ptr, i32 } %193, 0
-  store ptr %194, ptr %7, align 8
-  %195 = extractvalue { ptr, i32 } %193, 1
-  store i32 %195, ptr %8, align 4
-  br label %244
-
-196:                                              ; preds = %161
-  %197 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %16, i32 0, i32 1
-  %198 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP9QLineEditE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %197)
-          to label %199 unwind label %192
-
-199:                                              ; preds = %196
-  %200 = load ptr, ptr %198, align 8
-  store ptr %200, ptr %21, align 8
-  %201 = load ptr, ptr %21, align 8
-  %202 = load ptr, ptr @pref_prop_, align 8
-  invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef %202)
-          to label %203 unwind label %192
-
-203:                                              ; preds = %199
-  %204 = invoke noundef ptr @_ZN14VariantPointerI10preferenceE5asPtrE8QVariant(ptr noundef %23)
-          to label %205 unwind label %209
-
-205:                                              ; preds = %203
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #15
-  store ptr %204, ptr %22, align 8
-  %206 = load ptr, ptr %22, align 8
-  %207 = icmp ne ptr %206, null
-  br i1 %207, label %213, label %208
-
-208:                                              ; preds = %205
-  br label %240
-
-209:                                              ; preds = %203
-  %210 = landingpad { ptr, i32 }
-          cleanup
-  %211 = extractvalue { ptr, i32 } %210, 0
-  store ptr %211, ptr %7, align 8
-  %212 = extractvalue { ptr, i32 } %210, 1
-  store i32 %212, ptr %8, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #15
-  br label %244
-
-213:                                              ; preds = %205
-  %214 = load ptr, ptr %22, align 8
-  %215 = invoke i32 @prefs_get_type(ptr noundef %214)
-          to label %216 unwind label %192
-
-216:                                              ; preds = %213
-  switch i32 %215, label %238 [
-    i32 1, label %217
-    i32 8, label %224
-    i32 128, label %224
-    i32 16384, label %224
-    i32 2048, label %224
-    i32 32768, label %224
-    i32 131072, label %224
-    i32 16, label %231
-    i32 8192, label %231
-  ]
-
-217:                                              ; preds = %216
-  %218 = load ptr, ptr %21, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QLineEdit10textEditedERK7QString to i64), i64 0 }, ptr %25, align 8
-  %219 = getelementptr inbounds { i64, i64 }, ptr %25, i32 0, i32 0
-  %220 = load i64, ptr %219, align 8
-  %221 = getelementptr inbounds { i64, i64 }, ptr %25, i32 0, i32 1
-  %222 = load i64, ptr %221, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea22uintLineEditTextEditedERK7QString to i64), i64 0 }, ptr %26, align 8
-  invoke void @_ZN7QObject7connectIM9QLineEditFvRK7QStringEM27ModulePreferencesScrollAreaFvS4_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %24, ptr noundef %218, i64 %220, i64 %222, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %26, i32 noundef 0)
-          to label %223 unwind label %192
-
-223:                                              ; preds = %217
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #15
-  br label %239
-
-224:                                              ; preds = %216, %216, %216, %216, %216, %216
-  %225 = load ptr, ptr %21, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QLineEdit10textEditedERK7QString to i64), i64 0 }, ptr %28, align 8
-  %226 = getelementptr inbounds { i64, i64 }, ptr %28, i32 0, i32 0
-  %227 = load i64, ptr %226, align 8
-  %228 = getelementptr inbounds { i64, i64 }, ptr %28, i32 0, i32 1
-  %229 = load i64, ptr %228, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea24stringLineEditTextEditedERK7QString to i64), i64 0 }, ptr %29, align 8
-  invoke void @_ZN7QObject7connectIM9QLineEditFvRK7QStringEM27ModulePreferencesScrollAreaFvS4_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %27, ptr noundef %225, i64 %227, i64 %229, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %29, i32 noundef 0)
-          to label %230 unwind label %192
-
-230:                                              ; preds = %224
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #15
-  br label %239
-
-231:                                              ; preds = %216, %216
-  %232 = load ptr, ptr %21, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QLineEdit10textEditedERK7QString to i64), i64 0 }, ptr %31, align 8
-  %233 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 0
-  %234 = load i64, ptr %233, align 8
-  %235 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 1
-  %236 = load i64, ptr %235, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea29rangeSyntaxLineEditTextEditedERK7QString to i64), i64 0 }, ptr %32, align 8
-  invoke void @_ZN7QObject7connectIM9QLineEditFvRK7QStringEM27ModulePreferencesScrollAreaFvS4_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %30, ptr noundef %232, i64 %234, i64 %236, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %32, i32 noundef 0)
-          to label %237 unwind label %192
-
-237:                                              ; preds = %231
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #15
-  br label %239
-
-238:                                              ; preds = %216
-  br label %239
-
-239:                                              ; preds = %238, %237, %230, %223
-  br label %240
-
-240:                                              ; preds = %239, %208
-  %241 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %16, i32 0, i32 1
-  %242 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP9QLineEditE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %241)
-          to label %243 unwind label %192
-
-243:                                              ; preds = %240
-  br label %155, !llvm.loop !4
-
-244:                                              ; preds = %209, %192
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QLineEditEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %16) #15
-  br label %599
-
-245:                                              ; preds = %162
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #15
-  call void @_ZN6QFlagsIN2Qt15FindChildOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %36, i32 noundef 1) #15
-  %246 = getelementptr inbounds %class.QFlags.2, ptr %36, i32 0, i32 0
-  %247 = load i32, ptr %246, align 4
-  invoke void @_ZNK7QObject12findChildrenIP9QCheckBoxEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind writable sret(%class.QList.4) align 8 %34, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %35, i32 %247)
-          to label %248 unwind label %258
-
-248:                                              ; preds = %245
-  invoke void @_ZN9QtPrivate21qMakeForeachContainerI5QListIP9QCheckBoxEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer.3") align 8 %33, ptr noundef nonnull align 8 dereferenceable(24) %34)
-          to label %249 unwind label %262
-
-249:                                              ; preds = %248
-  call void @_ZN5QListIP9QCheckBoxED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #15
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #15
-  br label %250
-
-250:                                              ; preds = %304, %249
-  %251 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.3", ptr %33, i32 0, i32 1
-  %252 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.3", ptr %33, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %252, i64 8, i1 false)
-  %253 = getelementptr inbounds %"class.QList<QCheckBox *>::const_iterator", ptr %37, i32 0, i32 0
-  %254 = load ptr, ptr %253, align 8
-  %255 = invoke noundef zeroext i1 @_ZNK5QListIP9QCheckBoxE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %251, ptr %254)
-          to label %256 unwind label %267
-
-256:                                              ; preds = %250
-  br i1 %255, label %271, label %257
-
-257:                                              ; preds = %256
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QCheckBoxEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %33) #15
-  br label %306
-
-258:                                              ; preds = %245
-  %259 = landingpad { ptr, i32 }
-          cleanup
-  %260 = extractvalue { ptr, i32 } %259, 0
-  store ptr %260, ptr %7, align 8
-  %261 = extractvalue { ptr, i32 } %259, 1
-  store i32 %261, ptr %8, align 4
-  br label %266
-
-262:                                              ; preds = %248
-  %263 = landingpad { ptr, i32 }
-          cleanup
-  %264 = extractvalue { ptr, i32 } %263, 0
-  store ptr %264, ptr %7, align 8
-  %265 = extractvalue { ptr, i32 } %263, 1
-  store i32 %265, ptr %8, align 4
-  call void @_ZN5QListIP9QCheckBoxED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #15
-  br label %266
-
-266:                                              ; preds = %262, %258
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #15
-  br label %599
-
-267:                                              ; preds = %301, %293, %288, %274, %271, %250
-  %268 = landingpad { ptr, i32 }
-          cleanup
-  %269 = extractvalue { ptr, i32 } %268, 0
-  store ptr %269, ptr %7, align 8
-  %270 = extractvalue { ptr, i32 } %268, 1
-  store i32 %270, ptr %8, align 4
-  br label %305
-
-271:                                              ; preds = %256
-  %272 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.3", ptr %33, i32 0, i32 1
-  %273 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP9QCheckBoxE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %272)
-          to label %274 unwind label %267
-
-274:                                              ; preds = %271
-  %275 = load ptr, ptr %273, align 8
-  store ptr %275, ptr %38, align 8
-  %276 = load ptr, ptr %38, align 8
-  %277 = load ptr, ptr @pref_prop_, align 8
-  invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %40, ptr noundef nonnull align 8 dereferenceable(16) %276, ptr noundef %277)
-          to label %278 unwind label %267
-
-278:                                              ; preds = %274
-  %279 = invoke noundef ptr @_ZN14VariantPointerI10preferenceE5asPtrE8QVariant(ptr noundef %40)
-          to label %280 unwind label %284
-
-280:                                              ; preds = %278
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #15
-  store ptr %279, ptr %39, align 8
-  %281 = load ptr, ptr %39, align 8
-  %282 = icmp ne ptr %281, null
-  br i1 %282, label %288, label %283
-
-283:                                              ; preds = %280
-  br label %301
-
-284:                                              ; preds = %278
-  %285 = landingpad { ptr, i32 }
-          cleanup
-  %286 = extractvalue { ptr, i32 } %285, 0
-  store ptr %286, ptr %7, align 8
-  %287 = extractvalue { ptr, i32 } %285, 1
-  store i32 %287, ptr %8, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #15
-  br label %305
-
-288:                                              ; preds = %280
-  %289 = load ptr, ptr %39, align 8
-  %290 = invoke i32 @prefs_get_type(ptr noundef %289)
-          to label %291 unwind label %267
-
-291:                                              ; preds = %288
-  %292 = icmp eq i32 %290, 2
-  br i1 %292, label %293, label %300
-
-293:                                              ; preds = %291
-  %294 = load ptr, ptr %38, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7toggledEb to i64), i64 0 }, ptr %42, align 8
-  %295 = getelementptr inbounds { i64, i64 }, ptr %42, i32 0, i32 0
-  %296 = load i64, ptr %295, align 8
-  %297 = getelementptr inbounds { i64, i64 }, ptr %42, i32 0, i32 1
-  %298 = load i64, ptr %297, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea19boolCheckBoxToggledEb to i64), i64 0 }, ptr %43, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27ModulePreferencesScrollAreaFvbEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %41, ptr noundef %294, i64 %296, i64 %298, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %43, i32 noundef 0)
-          to label %299 unwind label %267
-
-299:                                              ; preds = %293
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #15
-  br label %300
-
-300:                                              ; preds = %299, %291
-  br label %301
-
-301:                                              ; preds = %300, %283
-  %302 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.3", ptr %33, i32 0, i32 1
-  %303 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP9QCheckBoxE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %302)
-          to label %304 unwind label %267
-
-304:                                              ; preds = %301
-  br label %250, !llvm.loop !6
-
-305:                                              ; preds = %284, %267
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QCheckBoxEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %33) #15
-  br label %599
-
-306:                                              ; preds = %257
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #15
-  call void @_ZN6QFlagsIN2Qt15FindChildOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %47, i32 noundef 1) #15
-  %307 = getelementptr inbounds %class.QFlags.2, ptr %47, i32 0, i32 0
-  %308 = load i32, ptr %307, align 4
-  invoke void @_ZNK7QObject12findChildrenIP12QRadioButtonEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind writable sret(%class.QList.10) align 8 %45, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %46, i32 %308)
-          to label %309 unwind label %319
-
-309:                                              ; preds = %306
-  invoke void @_ZN9QtPrivate21qMakeForeachContainerI5QListIP12QRadioButtonEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer.9") align 8 %44, ptr noundef nonnull align 8 dereferenceable(24) %45)
-          to label %310 unwind label %323
-
-310:                                              ; preds = %309
-  call void @_ZN5QListIP12QRadioButtonED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #15
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #15
-  br label %311
-
-311:                                              ; preds = %370, %310
-  %312 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.9", ptr %44, i32 0, i32 1
-  %313 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.9", ptr %44, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %313, i64 8, i1 false)
-  %314 = getelementptr inbounds %"class.QList<QRadioButton *>::const_iterator", ptr %48, i32 0, i32 0
-  %315 = load ptr, ptr %314, align 8
-  %316 = invoke noundef zeroext i1 @_ZNK5QListIP12QRadioButtonE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %312, ptr %315)
-          to label %317 unwind label %328
-
-317:                                              ; preds = %311
-  br i1 %316, label %332, label %318
-
-318:                                              ; preds = %317
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIP12QRadioButtonEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %44) #15
-  br label %372
-
-319:                                              ; preds = %306
-  %320 = landingpad { ptr, i32 }
-          cleanup
-  %321 = extractvalue { ptr, i32 } %320, 0
-  store ptr %321, ptr %7, align 8
-  %322 = extractvalue { ptr, i32 } %320, 1
-  store i32 %322, ptr %8, align 4
-  br label %327
-
-323:                                              ; preds = %309
-  %324 = landingpad { ptr, i32 }
-          cleanup
-  %325 = extractvalue { ptr, i32 } %324, 0
-  store ptr %325, ptr %7, align 8
-  %326 = extractvalue { ptr, i32 } %324, 1
-  store i32 %326, ptr %8, align 4
-  call void @_ZN5QListIP12QRadioButtonED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #15
-  br label %327
-
-327:                                              ; preds = %323, %319
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #15
-  br label %599
-
-328:                                              ; preds = %367, %359, %354, %349, %335, %332, %311
-  %329 = landingpad { ptr, i32 }
-          cleanup
-  %330 = extractvalue { ptr, i32 } %329, 0
-  store ptr %330, ptr %7, align 8
-  %331 = extractvalue { ptr, i32 } %329, 1
-  store i32 %331, ptr %8, align 4
-  br label %371
-
-332:                                              ; preds = %317
-  %333 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.9", ptr %44, i32 0, i32 1
-  %334 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP12QRadioButtonE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %333)
-          to label %335 unwind label %328
-
-335:                                              ; preds = %332
-  %336 = load ptr, ptr %334, align 8
-  store ptr %336, ptr %49, align 8
-  %337 = load ptr, ptr %49, align 8
-  %338 = load ptr, ptr @pref_prop_, align 8
-  invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %51, ptr noundef nonnull align 8 dereferenceable(16) %337, ptr noundef %338)
-          to label %339 unwind label %328
-
-339:                                              ; preds = %335
-  %340 = invoke noundef ptr @_ZN14VariantPointerI10preferenceE5asPtrE8QVariant(ptr noundef %51)
-          to label %341 unwind label %345
-
-341:                                              ; preds = %339
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #15
-  store ptr %340, ptr %50, align 8
-  %342 = load ptr, ptr %50, align 8
-  %343 = icmp ne ptr %342, null
-  br i1 %343, label %349, label %344
-
-344:                                              ; preds = %341
-  br label %367
-
-345:                                              ; preds = %339
-  %346 = landingpad { ptr, i32 }
-          cleanup
-  %347 = extractvalue { ptr, i32 } %346, 0
-  store ptr %347, ptr %7, align 8
-  %348 = extractvalue { ptr, i32 } %346, 1
-  store i32 %348, ptr %8, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #15
-  br label %371
-
-349:                                              ; preds = %341
-  %350 = load ptr, ptr %50, align 8
-  %351 = invoke i32 @prefs_get_type(ptr noundef %350)
-          to label %352 unwind label %328
-
-352:                                              ; preds = %349
-  %353 = icmp eq i32 %351, 4
-  br i1 %353, label %354, label %366
-
-354:                                              ; preds = %352
-  %355 = load ptr, ptr %50, align 8
-  %356 = invoke i32 @prefs_get_enum_radiobuttons(ptr noundef %355)
-          to label %357 unwind label %328
-
-357:                                              ; preds = %354
-  %358 = icmp ne i32 %356, 0
-  br i1 %358, label %359, label %366
-
-359:                                              ; preds = %357
-  %360 = load ptr, ptr %49, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7toggledEb to i64), i64 0 }, ptr %53, align 8
-  %361 = getelementptr inbounds { i64, i64 }, ptr %53, i32 0, i32 0
-  %362 = load i64, ptr %361, align 8
-  %363 = getelementptr inbounds { i64, i64 }, ptr %53, i32 0, i32 1
-  %364 = load i64, ptr %363, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea22enumRadioButtonToggledEb to i64), i64 0 }, ptr %54, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27ModulePreferencesScrollAreaFvbEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %52, ptr noundef %360, i64 %362, i64 %364, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %54, i32 noundef 0)
-          to label %365 unwind label %328
-
-365:                                              ; preds = %359
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #15
-  br label %366
-
-366:                                              ; preds = %365, %357, %352
-  br label %367
-
-367:                                              ; preds = %366, %344
-  %368 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.9", ptr %44, i32 0, i32 1
-  %369 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP12QRadioButtonE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %368)
-          to label %370 unwind label %328
-
-370:                                              ; preds = %367
-  br label %311, !llvm.loop !7
-
-371:                                              ; preds = %345, %328
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIP12QRadioButtonEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %44) #15
-  br label %599
-
-372:                                              ; preds = %318
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #15
-  call void @_ZN6QFlagsIN2Qt15FindChildOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %58, i32 noundef 1) #15
-  %373 = getelementptr inbounds %class.QFlags.2, ptr %58, i32 0, i32 0
-  %374 = load i32, ptr %373, align 4
-  invoke void @_ZNK7QObject12findChildrenIP9QComboBoxEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind writable sret(%class.QList.16) align 8 %56, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %57, i32 %374)
-          to label %375 unwind label %385
-
-375:                                              ; preds = %372
-  invoke void @_ZN9QtPrivate21qMakeForeachContainerI5QListIP9QComboBoxEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer.15") align 8 %55, ptr noundef nonnull align 8 dereferenceable(24) %56)
-          to label %376 unwind label %389
-
-376:                                              ; preds = %375
-  call void @_ZN5QListIP9QComboBoxED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #15
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #15
-  br label %377
-
-377:                                              ; preds = %436, %376
-  %378 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %55, i32 0, i32 1
-  %379 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %55, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %59, ptr align 8 %379, i64 8, i1 false)
-  %380 = getelementptr inbounds %"class.QList<QComboBox *>::const_iterator", ptr %59, i32 0, i32 0
-  %381 = load ptr, ptr %380, align 8
-  %382 = invoke noundef zeroext i1 @_ZNK5QListIP9QComboBoxE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %378, ptr %381)
-          to label %383 unwind label %394
-
-383:                                              ; preds = %377
-  br i1 %382, label %398, label %384
-
-384:                                              ; preds = %383
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QComboBoxEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %55) #15
-  br label %438
-
-385:                                              ; preds = %372
-  %386 = landingpad { ptr, i32 }
-          cleanup
-  %387 = extractvalue { ptr, i32 } %386, 0
-  store ptr %387, ptr %7, align 8
-  %388 = extractvalue { ptr, i32 } %386, 1
-  store i32 %388, ptr %8, align 4
-  br label %393
-
-389:                                              ; preds = %375
-  %390 = landingpad { ptr, i32 }
-          cleanup
-  %391 = extractvalue { ptr, i32 } %390, 0
-  store ptr %391, ptr %7, align 8
-  %392 = extractvalue { ptr, i32 } %390, 1
-  store i32 %392, ptr %8, align 4
-  call void @_ZN5QListIP9QComboBoxED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #15
-  br label %393
-
-393:                                              ; preds = %389, %385
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #15
-  br label %599
-
-394:                                              ; preds = %433, %425, %420, %415, %401, %398, %377
-  %395 = landingpad { ptr, i32 }
-          cleanup
-  %396 = extractvalue { ptr, i32 } %395, 0
-  store ptr %396, ptr %7, align 8
-  %397 = extractvalue { ptr, i32 } %395, 1
-  store i32 %397, ptr %8, align 4
-  br label %437
-
-398:                                              ; preds = %383
-  %399 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %55, i32 0, i32 1
-  %400 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP9QComboBoxE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %399)
-          to label %401 unwind label %394
-
-401:                                              ; preds = %398
-  %402 = load ptr, ptr %400, align 8
-  store ptr %402, ptr %60, align 8
-  %403 = load ptr, ptr %60, align 8
-  %404 = load ptr, ptr @pref_prop_, align 8
-  invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %62, ptr noundef nonnull align 8 dereferenceable(16) %403, ptr noundef %404)
-          to label %405 unwind label %394
-
-405:                                              ; preds = %401
-  %406 = invoke noundef ptr @_ZN14VariantPointerI10preferenceE5asPtrE8QVariant(ptr noundef %62)
-          to label %407 unwind label %411
-
-407:                                              ; preds = %405
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #15
-  store ptr %406, ptr %61, align 8
-  %408 = load ptr, ptr %61, align 8
-  %409 = icmp ne ptr %408, null
-  br i1 %409, label %415, label %410
-
-410:                                              ; preds = %407
-  br label %433
-
-411:                                              ; preds = %405
-  %412 = landingpad { ptr, i32 }
-          cleanup
-  %413 = extractvalue { ptr, i32 } %412, 0
-  store ptr %413, ptr %7, align 8
-  %414 = extractvalue { ptr, i32 } %412, 1
-  store i32 %414, ptr %8, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #15
-  br label %437
-
-415:                                              ; preds = %407
-  %416 = load ptr, ptr %61, align 8
-  %417 = invoke i32 @prefs_get_type(ptr noundef %416)
-          to label %418 unwind label %394
-
-418:                                              ; preds = %415
-  %419 = icmp eq i32 %417, 4
-  br i1 %419, label %420, label %432
-
-420:                                              ; preds = %418
-  %421 = load ptr, ptr %61, align 8
-  %422 = invoke i32 @prefs_get_enum_radiobuttons(ptr noundef %421)
-          to label %423 unwind label %394
-
-423:                                              ; preds = %420
-  %424 = icmp ne i32 %422, 0
-  br i1 %424, label %432, label %425
-
-425:                                              ; preds = %423
-  %426 = load ptr, ptr %60, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QComboBox19currentIndexChangedEi to i64), i64 0 }, ptr %64, align 8
-  %427 = getelementptr inbounds { i64, i64 }, ptr %64, i32 0, i32 0
-  %428 = load i64, ptr %427, align 8
-  %429 = getelementptr inbounds { i64, i64 }, ptr %64, i32 0, i32 1
-  %430 = load i64, ptr %429, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea31enumComboBoxCurrentIndexChangedEi to i64), i64 0 }, ptr %65, align 8
-  invoke void @_ZN7QObject7connectIM9QComboBoxFviEM27ModulePreferencesScrollAreaFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %63, ptr noundef %426, i64 %428, i64 %430, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %65, i32 noundef 0)
-          to label %431 unwind label %394
-
-431:                                              ; preds = %425
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #15
-  br label %432
-
-432:                                              ; preds = %431, %423, %418
-  br label %433
-
-433:                                              ; preds = %432, %410
-  %434 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %55, i32 0, i32 1
-  %435 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP9QComboBoxE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %434)
-          to label %436 unwind label %394
-
-436:                                              ; preds = %433
-  br label %377, !llvm.loop !8
-
-437:                                              ; preds = %411, %394
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QComboBoxEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %55) #15
-  br label %599
-
-438:                                              ; preds = %384
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %68) #15
-  call void @_ZN6QFlagsIN2Qt15FindChildOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %69, i32 noundef 1) #15
-  %439 = getelementptr inbounds %class.QFlags.2, ptr %69, i32 0, i32 0
-  %440 = load i32, ptr %439, align 4
-  invoke void @_ZNK7QObject12findChildrenIP9QComboBoxEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind writable sret(%class.QList.16) align 8 %67, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %68, i32 %440)
-          to label %441 unwind label %451
-
-441:                                              ; preds = %438
-  invoke void @_ZN9QtPrivate21qMakeForeachContainerI5QListIP9QComboBoxEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer.15") align 8 %66, ptr noundef nonnull align 8 dereferenceable(24) %67)
-          to label %442 unwind label %455
-
-442:                                              ; preds = %441
-  call void @_ZN5QListIP9QComboBoxED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %67) #15
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %68) #15
-  br label %443
-
-443:                                              ; preds = %502, %442
-  %444 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %66, i32 0, i32 1
-  %445 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %66, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %70, ptr align 8 %445, i64 8, i1 false)
-  %446 = getelementptr inbounds %"class.QList<QComboBox *>::const_iterator", ptr %70, i32 0, i32 0
-  %447 = load ptr, ptr %446, align 8
-  %448 = invoke noundef zeroext i1 @_ZNK5QListIP9QComboBoxE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %444, ptr %447)
-          to label %449 unwind label %460
-
-449:                                              ; preds = %443
-  br i1 %448, label %464, label %450
-
-450:                                              ; preds = %449
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QComboBoxEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %66) #15
-  br label %504
-
-451:                                              ; preds = %438
-  %452 = landingpad { ptr, i32 }
-          cleanup
-  %453 = extractvalue { ptr, i32 } %452, 0
-  store ptr %453, ptr %7, align 8
-  %454 = extractvalue { ptr, i32 } %452, 1
-  store i32 %454, ptr %8, align 4
-  br label %459
-
-455:                                              ; preds = %441
-  %456 = landingpad { ptr, i32 }
-          cleanup
-  %457 = extractvalue { ptr, i32 } %456, 0
-  store ptr %457, ptr %7, align 8
-  %458 = extractvalue { ptr, i32 } %456, 1
-  store i32 %458, ptr %8, align 4
-  call void @_ZN5QListIP9QComboBoxED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %67) #15
-  br label %459
-
-459:                                              ; preds = %455, %451
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %68) #15
-  br label %599
-
-460:                                              ; preds = %499, %491, %486, %481, %467, %464, %443
-  %461 = landingpad { ptr, i32 }
-          cleanup
-  %462 = extractvalue { ptr, i32 } %461, 0
-  store ptr %462, ptr %7, align 8
-  %463 = extractvalue { ptr, i32 } %461, 1
-  store i32 %463, ptr %8, align 4
-  br label %503
-
-464:                                              ; preds = %449
-  %465 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %66, i32 0, i32 1
-  %466 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP9QComboBoxE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %465)
-          to label %467 unwind label %460
-
-467:                                              ; preds = %464
-  %468 = load ptr, ptr %466, align 8
-  store ptr %468, ptr %71, align 8
-  %469 = load ptr, ptr %71, align 8
-  %470 = load ptr, ptr @pref_prop_, align 8
-  invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %73, ptr noundef nonnull align 8 dereferenceable(16) %469, ptr noundef %470)
-          to label %471 unwind label %460
-
-471:                                              ; preds = %467
-  %472 = invoke noundef ptr @_ZN14VariantPointerI10preferenceE5asPtrE8QVariant(ptr noundef %73)
-          to label %473 unwind label %477
-
-473:                                              ; preds = %471
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #15
-  store ptr %472, ptr %72, align 8
-  %474 = load ptr, ptr %72, align 8
-  %475 = icmp ne ptr %474, null
-  br i1 %475, label %481, label %476
-
-476:                                              ; preds = %473
-  br label %499
-
-477:                                              ; preds = %471
-  %478 = landingpad { ptr, i32 }
-          cleanup
-  %479 = extractvalue { ptr, i32 } %478, 0
-  store ptr %479, ptr %7, align 8
-  %480 = extractvalue { ptr, i32 } %478, 1
-  store i32 %480, ptr %8, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #15
-  br label %503
-
-481:                                              ; preds = %473
-  %482 = load ptr, ptr %72, align 8
-  %483 = invoke i32 @prefs_get_type(ptr noundef %482)
-          to label %484 unwind label %460
-
-484:                                              ; preds = %481
-  %485 = icmp eq i32 %483, 65536
-  br i1 %485, label %486, label %498
-
-486:                                              ; preds = %484
-  %487 = load ptr, ptr %72, align 8
-  %488 = invoke i32 @prefs_get_enum_radiobuttons(ptr noundef %487)
-          to label %489 unwind label %460
-
-489:                                              ; preds = %486
-  %490 = icmp ne i32 %488, 0
-  br i1 %490, label %498, label %491
-
-491:                                              ; preds = %489
-  %492 = load ptr, ptr %71, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QComboBox19currentIndexChangedEi to i64), i64 0 }, ptr %75, align 8
-  %493 = getelementptr inbounds { i64, i64 }, ptr %75, i32 0, i32 0
-  %494 = load i64, ptr %493, align 8
-  %495 = getelementptr inbounds { i64, i64 }, ptr %75, i32 0, i32 1
-  %496 = load i64, ptr %495, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea41enumComboBoxCurrentIndexChanged_PROTO_TCPEi to i64), i64 0 }, ptr %76, align 8
-  invoke void @_ZN7QObject7connectIM9QComboBoxFviEM27ModulePreferencesScrollAreaFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %74, ptr noundef %492, i64 %494, i64 %496, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %76, i32 noundef 0)
-          to label %497 unwind label %460
-
-497:                                              ; preds = %491
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %74) #15
-  br label %498
-
-498:                                              ; preds = %497, %489, %484
-  br label %499
-
-499:                                              ; preds = %498, %476
-  %500 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %66, i32 0, i32 1
-  %501 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP9QComboBoxE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %500)
-          to label %502 unwind label %460
-
-502:                                              ; preds = %499
-  br label %443, !llvm.loop !9
-
-503:                                              ; preds = %477, %460
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QComboBoxEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %66) #15
-  br label %599
-
-504:                                              ; preds = %450
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #15
-  call void @_ZN6QFlagsIN2Qt15FindChildOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %80, i32 noundef 1) #15
-  %505 = getelementptr inbounds %class.QFlags.2, ptr %80, i32 0, i32 0
-  %506 = load i32, ptr %505, align 4
-  invoke void @_ZNK7QObject12findChildrenIP11QPushButtonEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind writable sret(%class.QList.22) align 8 %78, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %79, i32 %506)
-          to label %507 unwind label %517
-
-507:                                              ; preds = %504
-  invoke void @_ZN9QtPrivate21qMakeForeachContainerI5QListIP11QPushButtonEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer.21") align 8 %77, ptr noundef nonnull align 8 dereferenceable(24) %78)
-          to label %508 unwind label %521
-
-508:                                              ; preds = %507
-  call void @_ZN5QListIP11QPushButtonED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #15
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #15
-  br label %509
-
-509:                                              ; preds = %583, %508
-  %510 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.21", ptr %77, i32 0, i32 1
-  %511 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.21", ptr %77, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %81, ptr align 8 %511, i64 8, i1 false)
-  %512 = getelementptr inbounds %"class.QList<QPushButton *>::const_iterator", ptr %81, i32 0, i32 0
-  %513 = load ptr, ptr %512, align 8
-  %514 = invoke noundef zeroext i1 @_ZNK5QListIP11QPushButtonE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr %513)
-          to label %515 unwind label %526
-
-515:                                              ; preds = %509
-  br i1 %514, label %530, label %516
-
-516:                                              ; preds = %515
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIP11QPushButtonEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %77) #15
-  br label %585
-
-517:                                              ; preds = %504
-  %518 = landingpad { ptr, i32 }
-          cleanup
-  %519 = extractvalue { ptr, i32 } %518, 0
-  store ptr %519, ptr %7, align 8
-  %520 = extractvalue { ptr, i32 } %518, 1
-  store i32 %520, ptr %8, align 4
-  br label %525
-
-521:                                              ; preds = %507
-  %522 = landingpad { ptr, i32 }
-          cleanup
-  %523 = extractvalue { ptr, i32 } %522, 0
-  store ptr %523, ptr %7, align 8
-  %524 = extractvalue { ptr, i32 } %522, 1
-  store i32 %524, ptr %8, align 4
-  call void @_ZN5QListIP11QPushButtonED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #15
-  br label %525
-
-525:                                              ; preds = %521, %517
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #15
-  br label %599
-
-526:                                              ; preds = %580, %572, %565, %558, %551, %547, %533, %530, %509
-  %527 = landingpad { ptr, i32 }
-          cleanup
-  %528 = extractvalue { ptr, i32 } %527, 0
-  store ptr %528, ptr %7, align 8
-  %529 = extractvalue { ptr, i32 } %527, 1
-  store i32 %529, ptr %8, align 4
-  br label %584
-
-530:                                              ; preds = %515
-  %531 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.21", ptr %77, i32 0, i32 1
-  %532 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP11QPushButtonE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %531)
-          to label %533 unwind label %526
-
-533:                                              ; preds = %530
-  %534 = load ptr, ptr %532, align 8
-  store ptr %534, ptr %82, align 8
-  %535 = load ptr, ptr %82, align 8
-  %536 = load ptr, ptr @pref_prop_, align 8
-  invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %84, ptr noundef nonnull align 8 dereferenceable(16) %535, ptr noundef %536)
-          to label %537 unwind label %526
-
-537:                                              ; preds = %533
-  %538 = invoke noundef ptr @_ZN14VariantPointerI10preferenceE5asPtrE8QVariant(ptr noundef %84)
-          to label %539 unwind label %543
-
-539:                                              ; preds = %537
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #15
-  store ptr %538, ptr %83, align 8
-  %540 = load ptr, ptr %83, align 8
-  %541 = icmp ne ptr %540, null
-  br i1 %541, label %547, label %542
-
-542:                                              ; preds = %539
-  br label %580
-
-543:                                              ; preds = %537
-  %544 = landingpad { ptr, i32 }
-          cleanup
-  %545 = extractvalue { ptr, i32 } %544, 0
-  store ptr %545, ptr %7, align 8
-  %546 = extractvalue { ptr, i32 } %544, 1
-  store i32 %546, ptr %8, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #15
-  br label %584
-
-547:                                              ; preds = %539
-  %548 = load ptr, ptr %83, align 8
-  %549 = invoke i32 @prefs_get_type(ptr noundef %548)
-          to label %550 unwind label %526
-
-550:                                              ; preds = %547
-  switch i32 %549, label %579 [
-    i32 64, label %551
-    i32 128, label %558
-    i32 16384, label %565
-    i32 2048, label %572
-  ]
-
-551:                                              ; preds = %550
-  %552 = load ptr, ptr %82, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %86, align 8
-  %553 = getelementptr inbounds { i64, i64 }, ptr %86, i32 0, i32 0
-  %554 = load i64, ptr %553, align 8
-  %555 = getelementptr inbounds { i64, i64 }, ptr %86, i32 0, i32 1
-  %556 = load i64, ptr %555, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea20uatPushButtonClickedEv to i64), i64 0 }, ptr %87, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27ModulePreferencesScrollAreaFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %85, ptr noundef %552, i64 %554, i64 %556, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %87, i32 noundef 0)
-          to label %557 unwind label %526
-
-557:                                              ; preds = %551
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #15
-  br label %579
-
-558:                                              ; preds = %550
-  %559 = load ptr, ptr %82, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %89, align 8
-  %560 = getelementptr inbounds { i64, i64 }, ptr %89, i32 0, i32 0
-  %561 = load i64, ptr %560, align 8
-  %562 = getelementptr inbounds { i64, i64 }, ptr %89, i32 0, i32 1
-  %563 = load i64, ptr %562, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea29saveFilenamePushButtonClickedEv to i64), i64 0 }, ptr %90, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27ModulePreferencesScrollAreaFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %88, ptr noundef %559, i64 %561, i64 %563, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %90, i32 noundef 0)
-          to label %564 unwind label %526
-
-564:                                              ; preds = %558
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %88) #15
-  br label %579
-
-565:                                              ; preds = %550
-  %566 = load ptr, ptr %82, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %92, align 8
-  %567 = getelementptr inbounds { i64, i64 }, ptr %92, i32 0, i32 0
-  %568 = load i64, ptr %567, align 8
-  %569 = getelementptr inbounds { i64, i64 }, ptr %92, i32 0, i32 1
-  %570 = load i64, ptr %569, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea29openFilenamePushButtonClickedEv to i64), i64 0 }, ptr %93, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27ModulePreferencesScrollAreaFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %91, ptr noundef %566, i64 %568, i64 %570, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %93, i32 noundef 0)
-          to label %571 unwind label %526
-
-571:                                              ; preds = %565
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %91) #15
-  br label %579
-
-572:                                              ; preds = %550
-  %573 = load ptr, ptr %82, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %95, align 8
-  %574 = getelementptr inbounds { i64, i64 }, ptr %95, i32 0, i32 0
-  %575 = load i64, ptr %574, align 8
-  %576 = getelementptr inbounds { i64, i64 }, ptr %95, i32 0, i32 1
-  %577 = load i64, ptr %576, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea24dirnamePushButtonClickedEv to i64), i64 0 }, ptr %96, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27ModulePreferencesScrollAreaFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %94, ptr noundef %573, i64 %575, i64 %577, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %96, i32 noundef 0)
-          to label %578 unwind label %526
-
-578:                                              ; preds = %572
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %94) #15
-  br label %579
-
-579:                                              ; preds = %578, %571, %564, %557, %550
-  br label %580
-
-580:                                              ; preds = %579, %542
-  %581 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.21", ptr %77, i32 0, i32 1
-  %582 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP11QPushButtonE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %581)
-          to label %583 unwind label %526
-
-583:                                              ; preds = %580
-  br label %509, !llvm.loop !10
-
-584:                                              ; preds = %543, %526
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIP11QPushButtonEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %77) #15
-  br label %599
-
-585:                                              ; preds = %516
-  %586 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %97, i32 0, i32 1
-  %587 = load ptr, ptr %586, align 8
-  %588 = getelementptr inbounds %class.Ui_ModulePreferencesScrollArea, ptr %587, i32 0, i32 1
-  %589 = load ptr, ptr %588, align 8
-  %590 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
-          to label %591 unwind label %179
-
-591:                                              ; preds = %585
-  invoke void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr noundef nonnull align 8 dereferenceable(40) %590, i32 noundef 10, i32 noundef 1, i32 noundef 1, i32 noundef 7)
-          to label %592 unwind label %595
-
-592:                                              ; preds = %591
-  invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef nonnull align 8 dereferenceable(28) %589, ptr noundef %590)
-          to label %593 unwind label %179
-
-593:                                              ; preds = %592
-  call void @_ZN14prefSearchDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #15
-  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #15
-  br label %594
-
-594:                                              ; preds = %593, %110
-  ret void
-
-595:                                              ; preds = %591
-  %596 = landingpad { ptr, i32 }
-          cleanup
-  %597 = extractvalue { ptr, i32 } %596, 0
-  store ptr %597, ptr %7, align 8
-  %598 = extractvalue { ptr, i32 } %596, 1
-  store i32 %598, ptr %8, align 4
-  call void @_ZdlPv(ptr noundef %590) #16
-  br label %599
-
-599:                                              ; preds = %595, %584, %525, %503, %459, %437, %393, %371, %327, %305, %266, %244, %191, %179
-  call void @_ZN14prefSearchDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #15
-  br label %600
-
-600:                                              ; preds = %599, %178, %163
-  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #15
-  br label %601
-
-601:                                              ; preds = %600, %111
-  call void @_ZN11QScrollAreaD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %97) #15
+  %167 = extractvalue { ptr, i32 } %166, 0
+  store ptr %167, ptr %7, align 8
+  %168 = extractvalue { ptr, i32 } %166, 1
+  store i32 %168, ptr %8, align 4
   br label %602
 
-602:                                              ; preds = %601
-  %603 = load ptr, ptr %7, align 8
-  %604 = load i32, ptr %8, align 4
-  %605 = insertvalue { ptr, i32 } poison, ptr %603, 0
-  %606 = insertvalue { ptr, i32 } %605, i32 %604, 1
-  resume { ptr, i32 } %606
+169:                                              ; preds = %121
+  %170 = landingpad { ptr, i32 }
+          cleanup
+  %171 = extractvalue { ptr, i32 } %170, 0
+  store ptr %171, ptr %7, align 8
+  %172 = extractvalue { ptr, i32 } %170, 1
+  store i32 %172, ptr %8, align 4
+  br label %177
+
+173:                                              ; preds = %125
+  %174 = landingpad { ptr, i32 }
+          cleanup
+  %175 = extractvalue { ptr, i32 } %174, 0
+  store ptr %175, ptr %7, align 8
+  %176 = extractvalue { ptr, i32 } %174, 1
+  store i32 %176, ptr %8, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
+  br label %177
+
+177:                                              ; preds = %173, %169
+  %178 = load i1, ptr %13, align 1
+  br i1 %178, label %179, label %180
+
+179:                                              ; preds = %177
+  call void @_ZdlPv(ptr noundef %120) #16
+  br label %180
+
+180:                                              ; preds = %179, %177
+  br label %602
+
+181:                                              ; preds = %594, %587, %149, %138
+  %182 = landingpad { ptr, i32 }
+          cleanup
+  %183 = extractvalue { ptr, i32 } %182, 0
+  store ptr %183, ptr %7, align 8
+  %184 = extractvalue { ptr, i32 } %182, 1
+  store i32 %184, ptr %8, align 4
+  br label %601
+
+185:                                              ; preds = %152
+  %186 = landingpad { ptr, i32 }
+          cleanup
+  %187 = extractvalue { ptr, i32 } %186, 0
+  store ptr %187, ptr %7, align 8
+  %188 = extractvalue { ptr, i32 } %186, 1
+  store i32 %188, ptr %8, align 4
+  br label %193
+
+189:                                              ; preds = %155
+  %190 = landingpad { ptr, i32 }
+          cleanup
+  %191 = extractvalue { ptr, i32 } %190, 0
+  store ptr %191, ptr %7, align 8
+  %192 = extractvalue { ptr, i32 } %190, 1
+  store i32 %192, ptr %8, align 4
+  call void @_ZN5QListIP9QLineEditED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #15
+  br label %193
+
+193:                                              ; preds = %189, %185
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
+  br label %601
+
+194:                                              ; preds = %242, %233, %226, %219, %215, %201, %198, %157
+  %195 = landingpad { ptr, i32 }
+          cleanup
+  %196 = extractvalue { ptr, i32 } %195, 0
+  store ptr %196, ptr %7, align 8
+  %197 = extractvalue { ptr, i32 } %195, 1
+  store i32 %197, ptr %8, align 4
+  br label %246
+
+198:                                              ; preds = %163
+  %199 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %16, i32 0, i32 1
+  %200 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP9QLineEditE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %199)
+          to label %201 unwind label %194
+
+201:                                              ; preds = %198
+  %202 = load ptr, ptr %200, align 8
+  store ptr %202, ptr %21, align 8
+  %203 = load ptr, ptr %21, align 8
+  %204 = load ptr, ptr @pref_prop_, align 8
+  invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %203, ptr noundef %204)
+          to label %205 unwind label %194
+
+205:                                              ; preds = %201
+  %206 = invoke noundef ptr @_ZN14VariantPointerI10preferenceE5asPtrE8QVariant(ptr noundef %23)
+          to label %207 unwind label %211
+
+207:                                              ; preds = %205
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #15
+  store ptr %206, ptr %22, align 8
+  %208 = load ptr, ptr %22, align 8
+  %209 = icmp ne ptr %208, null
+  br i1 %209, label %215, label %210
+
+210:                                              ; preds = %207
+  br label %242
+
+211:                                              ; preds = %205
+  %212 = landingpad { ptr, i32 }
+          cleanup
+  %213 = extractvalue { ptr, i32 } %212, 0
+  store ptr %213, ptr %7, align 8
+  %214 = extractvalue { ptr, i32 } %212, 1
+  store i32 %214, ptr %8, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #15
+  br label %246
+
+215:                                              ; preds = %207
+  %216 = load ptr, ptr %22, align 8
+  %217 = invoke i32 @prefs_get_type(ptr noundef %216)
+          to label %218 unwind label %194
+
+218:                                              ; preds = %215
+  switch i32 %217, label %240 [
+    i32 1, label %219
+    i32 8, label %226
+    i32 128, label %226
+    i32 16384, label %226
+    i32 2048, label %226
+    i32 32768, label %226
+    i32 131072, label %226
+    i32 16, label %233
+    i32 8192, label %233
+  ]
+
+219:                                              ; preds = %218
+  %220 = load ptr, ptr %21, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QLineEdit10textEditedERK7QString to i64), i64 0 }, ptr %25, align 8
+  %221 = getelementptr inbounds { i64, i64 }, ptr %25, i32 0, i32 0
+  %222 = load i64, ptr %221, align 8
+  %223 = getelementptr inbounds { i64, i64 }, ptr %25, i32 0, i32 1
+  %224 = load i64, ptr %223, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea22uintLineEditTextEditedERK7QString to i64), i64 0 }, ptr %26, align 8
+  invoke void @_ZN7QObject7connectIM9QLineEditFvRK7QStringEM27ModulePreferencesScrollAreaFvS4_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %24, ptr noundef %220, i64 %222, i64 %224, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %26, i32 noundef 0)
+          to label %225 unwind label %194
+
+225:                                              ; preds = %219
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #15
+  br label %241
+
+226:                                              ; preds = %218, %218, %218, %218, %218, %218
+  %227 = load ptr, ptr %21, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QLineEdit10textEditedERK7QString to i64), i64 0 }, ptr %28, align 8
+  %228 = getelementptr inbounds { i64, i64 }, ptr %28, i32 0, i32 0
+  %229 = load i64, ptr %228, align 8
+  %230 = getelementptr inbounds { i64, i64 }, ptr %28, i32 0, i32 1
+  %231 = load i64, ptr %230, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea24stringLineEditTextEditedERK7QString to i64), i64 0 }, ptr %29, align 8
+  invoke void @_ZN7QObject7connectIM9QLineEditFvRK7QStringEM27ModulePreferencesScrollAreaFvS4_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %27, ptr noundef %227, i64 %229, i64 %231, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %29, i32 noundef 0)
+          to label %232 unwind label %194
+
+232:                                              ; preds = %226
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #15
+  br label %241
+
+233:                                              ; preds = %218, %218
+  %234 = load ptr, ptr %21, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QLineEdit10textEditedERK7QString to i64), i64 0 }, ptr %31, align 8
+  %235 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 0
+  %236 = load i64, ptr %235, align 8
+  %237 = getelementptr inbounds { i64, i64 }, ptr %31, i32 0, i32 1
+  %238 = load i64, ptr %237, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea29rangeSyntaxLineEditTextEditedERK7QString to i64), i64 0 }, ptr %32, align 8
+  invoke void @_ZN7QObject7connectIM9QLineEditFvRK7QStringEM27ModulePreferencesScrollAreaFvS4_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %30, ptr noundef %234, i64 %236, i64 %238, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %32, i32 noundef 0)
+          to label %239 unwind label %194
+
+239:                                              ; preds = %233
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #15
+  br label %241
+
+240:                                              ; preds = %218
+  br label %241
+
+241:                                              ; preds = %240, %239, %232, %225
+  br label %242
+
+242:                                              ; preds = %241, %210
+  %243 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %16, i32 0, i32 1
+  %244 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP9QLineEditE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %243)
+          to label %245 unwind label %194
+
+245:                                              ; preds = %242
+  br label %157, !llvm.loop !4
+
+246:                                              ; preds = %211, %194
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QLineEditEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %16) #15
+  br label %601
+
+247:                                              ; preds = %164
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #15
+  call void @_ZN6QFlagsIN2Qt15FindChildOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %36, i32 noundef 1) #15
+  %248 = getelementptr inbounds %class.QFlags.2, ptr %36, i32 0, i32 0
+  %249 = load i32, ptr %248, align 4
+  invoke void @_ZNK7QObject12findChildrenIP9QCheckBoxEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind writable sret(%class.QList.4) align 8 %34, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %35, i32 %249)
+          to label %250 unwind label %260
+
+250:                                              ; preds = %247
+  invoke void @_ZN9QtPrivate21qMakeForeachContainerI5QListIP9QCheckBoxEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer.3") align 8 %33, ptr noundef nonnull align 8 dereferenceable(24) %34)
+          to label %251 unwind label %264
+
+251:                                              ; preds = %250
+  call void @_ZN5QListIP9QCheckBoxED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #15
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #15
+  br label %252
+
+252:                                              ; preds = %306, %251
+  %253 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.3", ptr %33, i32 0, i32 1
+  %254 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.3", ptr %33, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %254, i64 8, i1 false)
+  %255 = getelementptr inbounds %"class.QList<QCheckBox *>::const_iterator", ptr %37, i32 0, i32 0
+  %256 = load ptr, ptr %255, align 8
+  %257 = invoke noundef zeroext i1 @_ZNK5QListIP9QCheckBoxE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %253, ptr %256)
+          to label %258 unwind label %269
+
+258:                                              ; preds = %252
+  br i1 %257, label %273, label %259
+
+259:                                              ; preds = %258
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QCheckBoxEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %33) #15
+  br label %308
+
+260:                                              ; preds = %247
+  %261 = landingpad { ptr, i32 }
+          cleanup
+  %262 = extractvalue { ptr, i32 } %261, 0
+  store ptr %262, ptr %7, align 8
+  %263 = extractvalue { ptr, i32 } %261, 1
+  store i32 %263, ptr %8, align 4
+  br label %268
+
+264:                                              ; preds = %250
+  %265 = landingpad { ptr, i32 }
+          cleanup
+  %266 = extractvalue { ptr, i32 } %265, 0
+  store ptr %266, ptr %7, align 8
+  %267 = extractvalue { ptr, i32 } %265, 1
+  store i32 %267, ptr %8, align 4
+  call void @_ZN5QListIP9QCheckBoxED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #15
+  br label %268
+
+268:                                              ; preds = %264, %260
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #15
+  br label %601
+
+269:                                              ; preds = %303, %295, %290, %276, %273, %252
+  %270 = landingpad { ptr, i32 }
+          cleanup
+  %271 = extractvalue { ptr, i32 } %270, 0
+  store ptr %271, ptr %7, align 8
+  %272 = extractvalue { ptr, i32 } %270, 1
+  store i32 %272, ptr %8, align 4
+  br label %307
+
+273:                                              ; preds = %258
+  %274 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.3", ptr %33, i32 0, i32 1
+  %275 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP9QCheckBoxE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %274)
+          to label %276 unwind label %269
+
+276:                                              ; preds = %273
+  %277 = load ptr, ptr %275, align 8
+  store ptr %277, ptr %38, align 8
+  %278 = load ptr, ptr %38, align 8
+  %279 = load ptr, ptr @pref_prop_, align 8
+  invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %40, ptr noundef nonnull align 8 dereferenceable(16) %278, ptr noundef %279)
+          to label %280 unwind label %269
+
+280:                                              ; preds = %276
+  %281 = invoke noundef ptr @_ZN14VariantPointerI10preferenceE5asPtrE8QVariant(ptr noundef %40)
+          to label %282 unwind label %286
+
+282:                                              ; preds = %280
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #15
+  store ptr %281, ptr %39, align 8
+  %283 = load ptr, ptr %39, align 8
+  %284 = icmp ne ptr %283, null
+  br i1 %284, label %290, label %285
+
+285:                                              ; preds = %282
+  br label %303
+
+286:                                              ; preds = %280
+  %287 = landingpad { ptr, i32 }
+          cleanup
+  %288 = extractvalue { ptr, i32 } %287, 0
+  store ptr %288, ptr %7, align 8
+  %289 = extractvalue { ptr, i32 } %287, 1
+  store i32 %289, ptr %8, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #15
+  br label %307
+
+290:                                              ; preds = %282
+  %291 = load ptr, ptr %39, align 8
+  %292 = invoke i32 @prefs_get_type(ptr noundef %291)
+          to label %293 unwind label %269
+
+293:                                              ; preds = %290
+  %294 = icmp eq i32 %292, 2
+  br i1 %294, label %295, label %302
+
+295:                                              ; preds = %293
+  %296 = load ptr, ptr %38, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7toggledEb to i64), i64 0 }, ptr %42, align 8
+  %297 = getelementptr inbounds { i64, i64 }, ptr %42, i32 0, i32 0
+  %298 = load i64, ptr %297, align 8
+  %299 = getelementptr inbounds { i64, i64 }, ptr %42, i32 0, i32 1
+  %300 = load i64, ptr %299, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea19boolCheckBoxToggledEb to i64), i64 0 }, ptr %43, align 8
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27ModulePreferencesScrollAreaFvbEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %41, ptr noundef %296, i64 %298, i64 %300, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %43, i32 noundef 0)
+          to label %301 unwind label %269
+
+301:                                              ; preds = %295
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #15
+  br label %302
+
+302:                                              ; preds = %301, %293
+  br label %303
+
+303:                                              ; preds = %302, %285
+  %304 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.3", ptr %33, i32 0, i32 1
+  %305 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP9QCheckBoxE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %304)
+          to label %306 unwind label %269
+
+306:                                              ; preds = %303
+  br label %252, !llvm.loop !6
+
+307:                                              ; preds = %286, %269
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QCheckBoxEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %33) #15
+  br label %601
+
+308:                                              ; preds = %259
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #15
+  call void @_ZN6QFlagsIN2Qt15FindChildOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %47, i32 noundef 1) #15
+  %309 = getelementptr inbounds %class.QFlags.2, ptr %47, i32 0, i32 0
+  %310 = load i32, ptr %309, align 4
+  invoke void @_ZNK7QObject12findChildrenIP12QRadioButtonEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind writable sret(%class.QList.10) align 8 %45, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %46, i32 %310)
+          to label %311 unwind label %321
+
+311:                                              ; preds = %308
+  invoke void @_ZN9QtPrivate21qMakeForeachContainerI5QListIP12QRadioButtonEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer.9") align 8 %44, ptr noundef nonnull align 8 dereferenceable(24) %45)
+          to label %312 unwind label %325
+
+312:                                              ; preds = %311
+  call void @_ZN5QListIP12QRadioButtonED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #15
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #15
+  br label %313
+
+313:                                              ; preds = %372, %312
+  %314 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.9", ptr %44, i32 0, i32 1
+  %315 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.9", ptr %44, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %315, i64 8, i1 false)
+  %316 = getelementptr inbounds %"class.QList<QRadioButton *>::const_iterator", ptr %48, i32 0, i32 0
+  %317 = load ptr, ptr %316, align 8
+  %318 = invoke noundef zeroext i1 @_ZNK5QListIP12QRadioButtonE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %314, ptr %317)
+          to label %319 unwind label %330
+
+319:                                              ; preds = %313
+  br i1 %318, label %334, label %320
+
+320:                                              ; preds = %319
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIP12QRadioButtonEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %44) #15
+  br label %374
+
+321:                                              ; preds = %308
+  %322 = landingpad { ptr, i32 }
+          cleanup
+  %323 = extractvalue { ptr, i32 } %322, 0
+  store ptr %323, ptr %7, align 8
+  %324 = extractvalue { ptr, i32 } %322, 1
+  store i32 %324, ptr %8, align 4
+  br label %329
+
+325:                                              ; preds = %311
+  %326 = landingpad { ptr, i32 }
+          cleanup
+  %327 = extractvalue { ptr, i32 } %326, 0
+  store ptr %327, ptr %7, align 8
+  %328 = extractvalue { ptr, i32 } %326, 1
+  store i32 %328, ptr %8, align 4
+  call void @_ZN5QListIP12QRadioButtonED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #15
+  br label %329
+
+329:                                              ; preds = %325, %321
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #15
+  br label %601
+
+330:                                              ; preds = %369, %361, %356, %351, %337, %334, %313
+  %331 = landingpad { ptr, i32 }
+          cleanup
+  %332 = extractvalue { ptr, i32 } %331, 0
+  store ptr %332, ptr %7, align 8
+  %333 = extractvalue { ptr, i32 } %331, 1
+  store i32 %333, ptr %8, align 4
+  br label %373
+
+334:                                              ; preds = %319
+  %335 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.9", ptr %44, i32 0, i32 1
+  %336 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP12QRadioButtonE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %335)
+          to label %337 unwind label %330
+
+337:                                              ; preds = %334
+  %338 = load ptr, ptr %336, align 8
+  store ptr %338, ptr %49, align 8
+  %339 = load ptr, ptr %49, align 8
+  %340 = load ptr, ptr @pref_prop_, align 8
+  invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %51, ptr noundef nonnull align 8 dereferenceable(16) %339, ptr noundef %340)
+          to label %341 unwind label %330
+
+341:                                              ; preds = %337
+  %342 = invoke noundef ptr @_ZN14VariantPointerI10preferenceE5asPtrE8QVariant(ptr noundef %51)
+          to label %343 unwind label %347
+
+343:                                              ; preds = %341
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #15
+  store ptr %342, ptr %50, align 8
+  %344 = load ptr, ptr %50, align 8
+  %345 = icmp ne ptr %344, null
+  br i1 %345, label %351, label %346
+
+346:                                              ; preds = %343
+  br label %369
+
+347:                                              ; preds = %341
+  %348 = landingpad { ptr, i32 }
+          cleanup
+  %349 = extractvalue { ptr, i32 } %348, 0
+  store ptr %349, ptr %7, align 8
+  %350 = extractvalue { ptr, i32 } %348, 1
+  store i32 %350, ptr %8, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #15
+  br label %373
+
+351:                                              ; preds = %343
+  %352 = load ptr, ptr %50, align 8
+  %353 = invoke i32 @prefs_get_type(ptr noundef %352)
+          to label %354 unwind label %330
+
+354:                                              ; preds = %351
+  %355 = icmp eq i32 %353, 4
+  br i1 %355, label %356, label %368
+
+356:                                              ; preds = %354
+  %357 = load ptr, ptr %50, align 8
+  %358 = invoke i32 @prefs_get_enum_radiobuttons(ptr noundef %357)
+          to label %359 unwind label %330
+
+359:                                              ; preds = %356
+  %360 = icmp ne i32 %358, 0
+  br i1 %360, label %361, label %368
+
+361:                                              ; preds = %359
+  %362 = load ptr, ptr %49, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7toggledEb to i64), i64 0 }, ptr %53, align 8
+  %363 = getelementptr inbounds { i64, i64 }, ptr %53, i32 0, i32 0
+  %364 = load i64, ptr %363, align 8
+  %365 = getelementptr inbounds { i64, i64 }, ptr %53, i32 0, i32 1
+  %366 = load i64, ptr %365, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea22enumRadioButtonToggledEb to i64), i64 0 }, ptr %54, align 8
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27ModulePreferencesScrollAreaFvbEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %52, ptr noundef %362, i64 %364, i64 %366, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %54, i32 noundef 0)
+          to label %367 unwind label %330
+
+367:                                              ; preds = %361
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #15
+  br label %368
+
+368:                                              ; preds = %367, %359, %354
+  br label %369
+
+369:                                              ; preds = %368, %346
+  %370 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.9", ptr %44, i32 0, i32 1
+  %371 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP12QRadioButtonE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %370)
+          to label %372 unwind label %330
+
+372:                                              ; preds = %369
+  br label %313, !llvm.loop !7
+
+373:                                              ; preds = %347, %330
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIP12QRadioButtonEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %44) #15
+  br label %601
+
+374:                                              ; preds = %320
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #15
+  call void @_ZN6QFlagsIN2Qt15FindChildOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %58, i32 noundef 1) #15
+  %375 = getelementptr inbounds %class.QFlags.2, ptr %58, i32 0, i32 0
+  %376 = load i32, ptr %375, align 4
+  invoke void @_ZNK7QObject12findChildrenIP9QComboBoxEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind writable sret(%class.QList.16) align 8 %56, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %57, i32 %376)
+          to label %377 unwind label %387
+
+377:                                              ; preds = %374
+  invoke void @_ZN9QtPrivate21qMakeForeachContainerI5QListIP9QComboBoxEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer.15") align 8 %55, ptr noundef nonnull align 8 dereferenceable(24) %56)
+          to label %378 unwind label %391
+
+378:                                              ; preds = %377
+  call void @_ZN5QListIP9QComboBoxED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #15
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #15
+  br label %379
+
+379:                                              ; preds = %438, %378
+  %380 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %55, i32 0, i32 1
+  %381 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %55, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %59, ptr align 8 %381, i64 8, i1 false)
+  %382 = getelementptr inbounds %"class.QList<QComboBox *>::const_iterator", ptr %59, i32 0, i32 0
+  %383 = load ptr, ptr %382, align 8
+  %384 = invoke noundef zeroext i1 @_ZNK5QListIP9QComboBoxE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %380, ptr %383)
+          to label %385 unwind label %396
+
+385:                                              ; preds = %379
+  br i1 %384, label %400, label %386
+
+386:                                              ; preds = %385
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QComboBoxEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %55) #15
+  br label %440
+
+387:                                              ; preds = %374
+  %388 = landingpad { ptr, i32 }
+          cleanup
+  %389 = extractvalue { ptr, i32 } %388, 0
+  store ptr %389, ptr %7, align 8
+  %390 = extractvalue { ptr, i32 } %388, 1
+  store i32 %390, ptr %8, align 4
+  br label %395
+
+391:                                              ; preds = %377
+  %392 = landingpad { ptr, i32 }
+          cleanup
+  %393 = extractvalue { ptr, i32 } %392, 0
+  store ptr %393, ptr %7, align 8
+  %394 = extractvalue { ptr, i32 } %392, 1
+  store i32 %394, ptr %8, align 4
+  call void @_ZN5QListIP9QComboBoxED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #15
+  br label %395
+
+395:                                              ; preds = %391, %387
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #15
+  br label %601
+
+396:                                              ; preds = %435, %427, %422, %417, %403, %400, %379
+  %397 = landingpad { ptr, i32 }
+          cleanup
+  %398 = extractvalue { ptr, i32 } %397, 0
+  store ptr %398, ptr %7, align 8
+  %399 = extractvalue { ptr, i32 } %397, 1
+  store i32 %399, ptr %8, align 4
+  br label %439
+
+400:                                              ; preds = %385
+  %401 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %55, i32 0, i32 1
+  %402 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP9QComboBoxE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %401)
+          to label %403 unwind label %396
+
+403:                                              ; preds = %400
+  %404 = load ptr, ptr %402, align 8
+  store ptr %404, ptr %60, align 8
+  %405 = load ptr, ptr %60, align 8
+  %406 = load ptr, ptr @pref_prop_, align 8
+  invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %62, ptr noundef nonnull align 8 dereferenceable(16) %405, ptr noundef %406)
+          to label %407 unwind label %396
+
+407:                                              ; preds = %403
+  %408 = invoke noundef ptr @_ZN14VariantPointerI10preferenceE5asPtrE8QVariant(ptr noundef %62)
+          to label %409 unwind label %413
+
+409:                                              ; preds = %407
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #15
+  store ptr %408, ptr %61, align 8
+  %410 = load ptr, ptr %61, align 8
+  %411 = icmp ne ptr %410, null
+  br i1 %411, label %417, label %412
+
+412:                                              ; preds = %409
+  br label %435
+
+413:                                              ; preds = %407
+  %414 = landingpad { ptr, i32 }
+          cleanup
+  %415 = extractvalue { ptr, i32 } %414, 0
+  store ptr %415, ptr %7, align 8
+  %416 = extractvalue { ptr, i32 } %414, 1
+  store i32 %416, ptr %8, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #15
+  br label %439
+
+417:                                              ; preds = %409
+  %418 = load ptr, ptr %61, align 8
+  %419 = invoke i32 @prefs_get_type(ptr noundef %418)
+          to label %420 unwind label %396
+
+420:                                              ; preds = %417
+  %421 = icmp eq i32 %419, 4
+  br i1 %421, label %422, label %434
+
+422:                                              ; preds = %420
+  %423 = load ptr, ptr %61, align 8
+  %424 = invoke i32 @prefs_get_enum_radiobuttons(ptr noundef %423)
+          to label %425 unwind label %396
+
+425:                                              ; preds = %422
+  %426 = icmp ne i32 %424, 0
+  br i1 %426, label %434, label %427
+
+427:                                              ; preds = %425
+  %428 = load ptr, ptr %60, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QComboBox19currentIndexChangedEi to i64), i64 0 }, ptr %64, align 8
+  %429 = getelementptr inbounds { i64, i64 }, ptr %64, i32 0, i32 0
+  %430 = load i64, ptr %429, align 8
+  %431 = getelementptr inbounds { i64, i64 }, ptr %64, i32 0, i32 1
+  %432 = load i64, ptr %431, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea31enumComboBoxCurrentIndexChangedEi to i64), i64 0 }, ptr %65, align 8
+  invoke void @_ZN7QObject7connectIM9QComboBoxFviEM27ModulePreferencesScrollAreaFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %63, ptr noundef %428, i64 %430, i64 %432, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %65, i32 noundef 0)
+          to label %433 unwind label %396
+
+433:                                              ; preds = %427
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #15
+  br label %434
+
+434:                                              ; preds = %433, %425, %420
+  br label %435
+
+435:                                              ; preds = %434, %412
+  %436 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %55, i32 0, i32 1
+  %437 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP9QComboBoxE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %436)
+          to label %438 unwind label %396
+
+438:                                              ; preds = %435
+  br label %379, !llvm.loop !8
+
+439:                                              ; preds = %413, %396
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QComboBoxEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %55) #15
+  br label %601
+
+440:                                              ; preds = %386
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %68) #15
+  call void @_ZN6QFlagsIN2Qt15FindChildOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %69, i32 noundef 1) #15
+  %441 = getelementptr inbounds %class.QFlags.2, ptr %69, i32 0, i32 0
+  %442 = load i32, ptr %441, align 4
+  invoke void @_ZNK7QObject12findChildrenIP9QComboBoxEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind writable sret(%class.QList.16) align 8 %67, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %68, i32 %442)
+          to label %443 unwind label %453
+
+443:                                              ; preds = %440
+  invoke void @_ZN9QtPrivate21qMakeForeachContainerI5QListIP9QComboBoxEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer.15") align 8 %66, ptr noundef nonnull align 8 dereferenceable(24) %67)
+          to label %444 unwind label %457
+
+444:                                              ; preds = %443
+  call void @_ZN5QListIP9QComboBoxED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %67) #15
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %68) #15
+  br label %445
+
+445:                                              ; preds = %504, %444
+  %446 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %66, i32 0, i32 1
+  %447 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %66, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %70, ptr align 8 %447, i64 8, i1 false)
+  %448 = getelementptr inbounds %"class.QList<QComboBox *>::const_iterator", ptr %70, i32 0, i32 0
+  %449 = load ptr, ptr %448, align 8
+  %450 = invoke noundef zeroext i1 @_ZNK5QListIP9QComboBoxE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %446, ptr %449)
+          to label %451 unwind label %462
+
+451:                                              ; preds = %445
+  br i1 %450, label %466, label %452
+
+452:                                              ; preds = %451
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QComboBoxEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %66) #15
+  br label %506
+
+453:                                              ; preds = %440
+  %454 = landingpad { ptr, i32 }
+          cleanup
+  %455 = extractvalue { ptr, i32 } %454, 0
+  store ptr %455, ptr %7, align 8
+  %456 = extractvalue { ptr, i32 } %454, 1
+  store i32 %456, ptr %8, align 4
+  br label %461
+
+457:                                              ; preds = %443
+  %458 = landingpad { ptr, i32 }
+          cleanup
+  %459 = extractvalue { ptr, i32 } %458, 0
+  store ptr %459, ptr %7, align 8
+  %460 = extractvalue { ptr, i32 } %458, 1
+  store i32 %460, ptr %8, align 4
+  call void @_ZN5QListIP9QComboBoxED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %67) #15
+  br label %461
+
+461:                                              ; preds = %457, %453
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %68) #15
+  br label %601
+
+462:                                              ; preds = %501, %493, %488, %483, %469, %466, %445
+  %463 = landingpad { ptr, i32 }
+          cleanup
+  %464 = extractvalue { ptr, i32 } %463, 0
+  store ptr %464, ptr %7, align 8
+  %465 = extractvalue { ptr, i32 } %463, 1
+  store i32 %465, ptr %8, align 4
+  br label %505
+
+466:                                              ; preds = %451
+  %467 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %66, i32 0, i32 1
+  %468 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP9QComboBoxE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %467)
+          to label %469 unwind label %462
+
+469:                                              ; preds = %466
+  %470 = load ptr, ptr %468, align 8
+  store ptr %470, ptr %71, align 8
+  %471 = load ptr, ptr %71, align 8
+  %472 = load ptr, ptr @pref_prop_, align 8
+  invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %73, ptr noundef nonnull align 8 dereferenceable(16) %471, ptr noundef %472)
+          to label %473 unwind label %462
+
+473:                                              ; preds = %469
+  %474 = invoke noundef ptr @_ZN14VariantPointerI10preferenceE5asPtrE8QVariant(ptr noundef %73)
+          to label %475 unwind label %479
+
+475:                                              ; preds = %473
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #15
+  store ptr %474, ptr %72, align 8
+  %476 = load ptr, ptr %72, align 8
+  %477 = icmp ne ptr %476, null
+  br i1 %477, label %483, label %478
+
+478:                                              ; preds = %475
+  br label %501
+
+479:                                              ; preds = %473
+  %480 = landingpad { ptr, i32 }
+          cleanup
+  %481 = extractvalue { ptr, i32 } %480, 0
+  store ptr %481, ptr %7, align 8
+  %482 = extractvalue { ptr, i32 } %480, 1
+  store i32 %482, ptr %8, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #15
+  br label %505
+
+483:                                              ; preds = %475
+  %484 = load ptr, ptr %72, align 8
+  %485 = invoke i32 @prefs_get_type(ptr noundef %484)
+          to label %486 unwind label %462
+
+486:                                              ; preds = %483
+  %487 = icmp eq i32 %485, 65536
+  br i1 %487, label %488, label %500
+
+488:                                              ; preds = %486
+  %489 = load ptr, ptr %72, align 8
+  %490 = invoke i32 @prefs_get_enum_radiobuttons(ptr noundef %489)
+          to label %491 unwind label %462
+
+491:                                              ; preds = %488
+  %492 = icmp ne i32 %490, 0
+  br i1 %492, label %500, label %493
+
+493:                                              ; preds = %491
+  %494 = load ptr, ptr %71, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN9QComboBox19currentIndexChangedEi to i64), i64 0 }, ptr %75, align 8
+  %495 = getelementptr inbounds { i64, i64 }, ptr %75, i32 0, i32 0
+  %496 = load i64, ptr %495, align 8
+  %497 = getelementptr inbounds { i64, i64 }, ptr %75, i32 0, i32 1
+  %498 = load i64, ptr %497, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea41enumComboBoxCurrentIndexChanged_PROTO_TCPEi to i64), i64 0 }, ptr %76, align 8
+  invoke void @_ZN7QObject7connectIM9QComboBoxFviEM27ModulePreferencesScrollAreaFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %74, ptr noundef %494, i64 %496, i64 %498, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %76, i32 noundef 0)
+          to label %499 unwind label %462
+
+499:                                              ; preds = %493
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %74) #15
+  br label %500
+
+500:                                              ; preds = %499, %491, %486
+  br label %501
+
+501:                                              ; preds = %500, %478
+  %502 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.15", ptr %66, i32 0, i32 1
+  %503 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP9QComboBoxE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %502)
+          to label %504 unwind label %462
+
+504:                                              ; preds = %501
+  br label %445, !llvm.loop !9
+
+505:                                              ; preds = %479, %462
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIP9QComboBoxEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %66) #15
+  br label %601
+
+506:                                              ; preds = %452
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #15
+  call void @_ZN6QFlagsIN2Qt15FindChildOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %80, i32 noundef 1) #15
+  %507 = getelementptr inbounds %class.QFlags.2, ptr %80, i32 0, i32 0
+  %508 = load i32, ptr %507, align 4
+  invoke void @_ZNK7QObject12findChildrenIP11QPushButtonEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind writable sret(%class.QList.22) align 8 %78, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %79, i32 %508)
+          to label %509 unwind label %519
+
+509:                                              ; preds = %506
+  invoke void @_ZN9QtPrivate21qMakeForeachContainerI5QListIP11QPushButtonEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer.21") align 8 %77, ptr noundef nonnull align 8 dereferenceable(24) %78)
+          to label %510 unwind label %523
+
+510:                                              ; preds = %509
+  call void @_ZN5QListIP11QPushButtonED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #15
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #15
+  br label %511
+
+511:                                              ; preds = %585, %510
+  %512 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.21", ptr %77, i32 0, i32 1
+  %513 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.21", ptr %77, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %81, ptr align 8 %513, i64 8, i1 false)
+  %514 = getelementptr inbounds %"class.QList<QPushButton *>::const_iterator", ptr %81, i32 0, i32 0
+  %515 = load ptr, ptr %514, align 8
+  %516 = invoke noundef zeroext i1 @_ZNK5QListIP11QPushButtonE14const_iteratorneES3_(ptr noundef nonnull align 8 dereferenceable(8) %512, ptr %515)
+          to label %517 unwind label %528
+
+517:                                              ; preds = %511
+  br i1 %516, label %532, label %518
+
+518:                                              ; preds = %517
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIP11QPushButtonEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %77) #15
+  br label %587
+
+519:                                              ; preds = %506
+  %520 = landingpad { ptr, i32 }
+          cleanup
+  %521 = extractvalue { ptr, i32 } %520, 0
+  store ptr %521, ptr %7, align 8
+  %522 = extractvalue { ptr, i32 } %520, 1
+  store i32 %522, ptr %8, align 4
+  br label %527
+
+523:                                              ; preds = %509
+  %524 = landingpad { ptr, i32 }
+          cleanup
+  %525 = extractvalue { ptr, i32 } %524, 0
+  store ptr %525, ptr %7, align 8
+  %526 = extractvalue { ptr, i32 } %524, 1
+  store i32 %526, ptr %8, align 4
+  call void @_ZN5QListIP11QPushButtonED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %78) #15
+  br label %527
+
+527:                                              ; preds = %523, %519
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #15
+  br label %601
+
+528:                                              ; preds = %582, %574, %567, %560, %553, %549, %535, %532, %511
+  %529 = landingpad { ptr, i32 }
+          cleanup
+  %530 = extractvalue { ptr, i32 } %529, 0
+  store ptr %530, ptr %7, align 8
+  %531 = extractvalue { ptr, i32 } %529, 1
+  store i32 %531, ptr %8, align 4
+  br label %586
+
+532:                                              ; preds = %517
+  %533 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.21", ptr %77, i32 0, i32 1
+  %534 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListIP11QPushButtonE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %533)
+          to label %535 unwind label %528
+
+535:                                              ; preds = %532
+  %536 = load ptr, ptr %534, align 8
+  store ptr %536, ptr %82, align 8
+  %537 = load ptr, ptr %82, align 8
+  %538 = load ptr, ptr @pref_prop_, align 8
+  invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %84, ptr noundef nonnull align 8 dereferenceable(16) %537, ptr noundef %538)
+          to label %539 unwind label %528
+
+539:                                              ; preds = %535
+  %540 = invoke noundef ptr @_ZN14VariantPointerI10preferenceE5asPtrE8QVariant(ptr noundef %84)
+          to label %541 unwind label %545
+
+541:                                              ; preds = %539
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #15
+  store ptr %540, ptr %83, align 8
+  %542 = load ptr, ptr %83, align 8
+  %543 = icmp ne ptr %542, null
+  br i1 %543, label %549, label %544
+
+544:                                              ; preds = %541
+  br label %582
+
+545:                                              ; preds = %539
+  %546 = landingpad { ptr, i32 }
+          cleanup
+  %547 = extractvalue { ptr, i32 } %546, 0
+  store ptr %547, ptr %7, align 8
+  %548 = extractvalue { ptr, i32 } %546, 1
+  store i32 %548, ptr %8, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #15
+  br label %586
+
+549:                                              ; preds = %541
+  %550 = load ptr, ptr %83, align 8
+  %551 = invoke i32 @prefs_get_type(ptr noundef %550)
+          to label %552 unwind label %528
+
+552:                                              ; preds = %549
+  switch i32 %551, label %581 [
+    i32 64, label %553
+    i32 128, label %560
+    i32 16384, label %567
+    i32 2048, label %574
+  ]
+
+553:                                              ; preds = %552
+  %554 = load ptr, ptr %82, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %86, align 8
+  %555 = getelementptr inbounds { i64, i64 }, ptr %86, i32 0, i32 0
+  %556 = load i64, ptr %555, align 8
+  %557 = getelementptr inbounds { i64, i64 }, ptr %86, i32 0, i32 1
+  %558 = load i64, ptr %557, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea20uatPushButtonClickedEv to i64), i64 0 }, ptr %87, align 8
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27ModulePreferencesScrollAreaFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %85, ptr noundef %554, i64 %556, i64 %558, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %87, i32 noundef 0)
+          to label %559 unwind label %528
+
+559:                                              ; preds = %553
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #15
+  br label %581
+
+560:                                              ; preds = %552
+  %561 = load ptr, ptr %82, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %89, align 8
+  %562 = getelementptr inbounds { i64, i64 }, ptr %89, i32 0, i32 0
+  %563 = load i64, ptr %562, align 8
+  %564 = getelementptr inbounds { i64, i64 }, ptr %89, i32 0, i32 1
+  %565 = load i64, ptr %564, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea29saveFilenamePushButtonClickedEv to i64), i64 0 }, ptr %90, align 8
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27ModulePreferencesScrollAreaFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %88, ptr noundef %561, i64 %563, i64 %565, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %90, i32 noundef 0)
+          to label %566 unwind label %528
+
+566:                                              ; preds = %560
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %88) #15
+  br label %581
+
+567:                                              ; preds = %552
+  %568 = load ptr, ptr %82, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %92, align 8
+  %569 = getelementptr inbounds { i64, i64 }, ptr %92, i32 0, i32 0
+  %570 = load i64, ptr %569, align 8
+  %571 = getelementptr inbounds { i64, i64 }, ptr %92, i32 0, i32 1
+  %572 = load i64, ptr %571, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea29openFilenamePushButtonClickedEv to i64), i64 0 }, ptr %93, align 8
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27ModulePreferencesScrollAreaFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %91, ptr noundef %568, i64 %570, i64 %572, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %93, i32 noundef 0)
+          to label %573 unwind label %528
+
+573:                                              ; preds = %567
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %91) #15
+  br label %581
+
+574:                                              ; preds = %552
+  %575 = load ptr, ptr %82, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %95, align 8
+  %576 = getelementptr inbounds { i64, i64 }, ptr %95, i32 0, i32 0
+  %577 = load i64, ptr %576, align 8
+  %578 = getelementptr inbounds { i64, i64 }, ptr %95, i32 0, i32 1
+  %579 = load i64, ptr %578, align 8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN27ModulePreferencesScrollArea24dirnamePushButtonClickedEv to i64), i64 0 }, ptr %96, align 8
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM27ModulePreferencesScrollAreaFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %94, ptr noundef %575, i64 %577, i64 %579, ptr noundef %97, ptr noundef byval({ i64, i64 }) align 8 %96, i32 noundef 0)
+          to label %580 unwind label %528
+
+580:                                              ; preds = %574
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %94) #15
+  br label %581
+
+581:                                              ; preds = %580, %573, %566, %559, %552
+  br label %582
+
+582:                                              ; preds = %581, %544
+  %583 = getelementptr inbounds %"class.QtPrivate::QForeachContainer.21", ptr %77, i32 0, i32 1
+  %584 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP11QPushButtonE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %583)
+          to label %585 unwind label %528
+
+585:                                              ; preds = %582
+  br label %511, !llvm.loop !10
+
+586:                                              ; preds = %545, %528
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIP11QPushButtonEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %77) #15
+  br label %601
+
+587:                                              ; preds = %518
+  %588 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %97, i32 0, i32 1
+  %589 = load ptr, ptr %588, align 8
+  %590 = getelementptr inbounds %class.Ui_ModulePreferencesScrollArea, ptr %589, i32 0, i32 1
+  %591 = load ptr, ptr %590, align 8
+  %592 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
+          to label %593 unwind label %181
+
+593:                                              ; preds = %587
+  invoke void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr noundef nonnull align 8 dereferenceable(40) %592, i32 noundef 10, i32 noundef 1, i32 noundef 1, i32 noundef 7)
+          to label %594 unwind label %597
+
+594:                                              ; preds = %593
+  invoke void @_ZN10QBoxLayout13addSpacerItemEP11QSpacerItem(ptr noundef nonnull align 8 dereferenceable(28) %591, ptr noundef %592)
+          to label %595 unwind label %181
+
+595:                                              ; preds = %594
+  call void @_ZN14prefSearchDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #15
+  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #15
+  br label %596
+
+596:                                              ; preds = %595, %112
+  ret void
+
+597:                                              ; preds = %593
+  %598 = landingpad { ptr, i32 }
+          cleanup
+  %599 = extractvalue { ptr, i32 } %598, 0
+  store ptr %599, ptr %7, align 8
+  %600 = extractvalue { ptr, i32 } %598, 1
+  store i32 %600, ptr %8, align 4
+  call void @_ZdlPv(ptr noundef %592) #16
+  br label %601
+
+601:                                              ; preds = %597, %586, %527, %505, %461, %439, %395, %373, %329, %307, %268, %246, %193, %181
+  call void @_ZN14prefSearchDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #15
+  br label %602
+
+602:                                              ; preds = %601, %180, %165
+  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #15
+  br label %603
+
+603:                                              ; preds = %602, %113
+  call void @_ZN11QScrollAreaD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %97) #15
+  br label %604
+
+604:                                              ; preds = %603
+  %605 = load ptr, ptr %7, align 8
+  %606 = load i32, ptr %8, align 4
+  %607 = insertvalue { ptr, i32 } poison, ptr %605, 0
+  %608 = insertvalue { ptr, i32 } %607, i32 %606, 1
+  resume { ptr, i32 } %608
 }
 
 declare void @_ZN11QScrollAreaC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
@@ -8162,19 +8164,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.0, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #15
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #15
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #15
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #15
   ret void
 }
 
@@ -8199,19 +8202,21 @@ define void @_ZN27ModulePreferencesScrollAreaD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV27ModulePreferencesScrollArea, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV27ModulePreferencesScrollArea, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV27ModulePreferencesScrollArea, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV27ModulePreferencesScrollArea, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.ModulePreferencesScrollArea, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #16
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #16
+  br label %11
 
-9:                                                ; preds = %8, %1
+11:                                               ; preds = %10, %1
   call void @_ZN11QScrollAreaD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #15
   ret void
 }
@@ -11351,9 +11356,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

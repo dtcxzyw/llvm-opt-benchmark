@@ -1520,233 +1520,234 @@ define linkonce_odr hidden void @_ZN5ceres8internal20TrustRegionMinimizerC2Ev(pt
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal9MinimizerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal20TrustRegionMinimizerE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 1
-  invoke void @_ZN5ceres8internal9Minimizer7OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %6)
-          to label %7 unwind label %32
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres8internal20TrustRegionMinimizerE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 1
+  invoke void @_ZN5ceres8internal9Minimizer7OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %7)
+          to label %8 unwind label %33
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 7
-  call void @_ZNSt10unique_ptrIN5ceres8internal24TrustRegionStepEvaluatorESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
-  %9 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 12
-  call void @_ZN5ceres16IterationSummaryC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %9) #13
-  %10 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 17
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10)
-          to label %11 unwind label %36
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 7
+  call void @_ZNSt10unique_ptrIN5ceres8internal24TrustRegionStepEvaluatorESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  %10 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 12
+  call void @_ZN5ceres16IterationSummaryC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %10) #13
+  %11 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 17
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %12 unwind label %37
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 18
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %13 unwind label %40
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 18
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %14 unwind label %41
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 19
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14)
-          to label %15 unwind label %44
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 19
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %16 unwind label %45
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 20
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %17 unwind label %48
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 20
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17)
+          to label %18 unwind label %49
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 21
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18)
-          to label %19 unwind label %52
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 21
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19)
+          to label %20 unwind label %53
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 22
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20)
-          to label %21 unwind label %56
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 22
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21)
+          to label %22 unwind label %57
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 23
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22)
-          to label %23 unwind label %60
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 23
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23)
+          to label %24 unwind label %61
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 24
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24)
-          to label %25 unwind label %64
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 24
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25)
+          to label %26 unwind label %65
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 25
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26)
-          to label %27 unwind label %68
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 25
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27)
+          to label %28 unwind label %69
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 26
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28)
-          to label %29 unwind label %72
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 26
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29)
+          to label %30 unwind label %73
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 27
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30)
-          to label %31 unwind label %76
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 27
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31)
+          to label %32 unwind label %77
 
-31:                                               ; preds = %29
+32:                                               ; preds = %30
   ret void
 
-32:                                               ; preds = %1
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %1
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %3, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %4, align 4
-  br label %90
-
-36:                                               ; preds = %7
-  %37 = landingpad { ptr, i32 }
-          cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %3, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %4, align 4
-  br label %89
-
-40:                                               ; preds = %11
-  %41 = landingpad { ptr, i32 }
-          cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %3, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %4, align 4
-  br label %88
-
-44:                                               ; preds = %13
-  %45 = landingpad { ptr, i32 }
-          cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %3, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %4, align 4
-  br label %87
-
-48:                                               ; preds = %15
-  %49 = landingpad { ptr, i32 }
-          cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %3, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %4, align 4
-  br label %86
-
-52:                                               ; preds = %17
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %3, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %4, align 4
-  br label %85
-
-56:                                               ; preds = %19
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %3, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %4, align 4
-  br label %84
-
-60:                                               ; preds = %21
-  %61 = landingpad { ptr, i32 }
-          cleanup
-  %62 = extractvalue { ptr, i32 } %61, 0
-  store ptr %62, ptr %3, align 8
-  %63 = extractvalue { ptr, i32 } %61, 1
-  store i32 %63, ptr %4, align 4
-  br label %83
-
-64:                                               ; preds = %23
-  %65 = landingpad { ptr, i32 }
-          cleanup
-  %66 = extractvalue { ptr, i32 } %65, 0
-  store ptr %66, ptr %3, align 8
-  %67 = extractvalue { ptr, i32 } %65, 1
-  store i32 %67, ptr %4, align 4
-  br label %82
-
-68:                                               ; preds = %25
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  %70 = extractvalue { ptr, i32 } %69, 0
-  store ptr %70, ptr %3, align 8
-  %71 = extractvalue { ptr, i32 } %69, 1
-  store i32 %71, ptr %4, align 4
-  br label %81
-
-72:                                               ; preds = %27
-  %73 = landingpad { ptr, i32 }
-          cleanup
-  %74 = extractvalue { ptr, i32 } %73, 0
-  store ptr %74, ptr %3, align 8
-  %75 = extractvalue { ptr, i32 } %73, 1
-  store i32 %75, ptr %4, align 4
-  br label %80
-
-76:                                               ; preds = %29
-  %77 = landingpad { ptr, i32 }
-          cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %3, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %4, align 4
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #13
-  br label %80
-
-80:                                               ; preds = %76, %72
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #13
-  br label %81
-
-81:                                               ; preds = %80, %68
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #13
-  br label %82
-
-82:                                               ; preds = %81, %64
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #13
-  br label %83
-
-83:                                               ; preds = %82, %60
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #13
-  br label %84
-
-84:                                               ; preds = %83, %56
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #13
-  br label %85
-
-85:                                               ; preds = %84, %52
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #13
-  br label %86
-
-86:                                               ; preds = %85, %48
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  br label %87
-
-87:                                               ; preds = %86, %44
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
-  br label %88
-
-88:                                               ; preds = %87, %40
-  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #13
-  br label %89
-
-89:                                               ; preds = %88, %36
-  call void @_ZNSt10unique_ptrIN5ceres8internal24TrustRegionStepEvaluatorESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
-  call void @_ZN5ceres8internal9Minimizer7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %6) #13
-  br label %90
-
-90:                                               ; preds = %89, %32
-  call void @_ZN5ceres8internal9MinimizerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %3, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %4, align 4
   br label %91
 
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %3, align 8
-  %93 = load i32, ptr %4, align 4
-  %94 = insertvalue { ptr, i32 } poison, ptr %92, 0
-  %95 = insertvalue { ptr, i32 } %94, i32 %93, 1
-  resume { ptr, i32 } %95
+37:                                               ; preds = %8
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %3, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %4, align 4
+  br label %90
+
+41:                                               ; preds = %12
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %3, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %4, align 4
+  br label %89
+
+45:                                               ; preds = %14
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %3, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %4, align 4
+  br label %88
+
+49:                                               ; preds = %16
+  %50 = landingpad { ptr, i32 }
+          cleanup
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %3, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %4, align 4
+  br label %87
+
+53:                                               ; preds = %18
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %3, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %4, align 4
+  br label %86
+
+57:                                               ; preds = %20
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  %59 = extractvalue { ptr, i32 } %58, 0
+  store ptr %59, ptr %3, align 8
+  %60 = extractvalue { ptr, i32 } %58, 1
+  store i32 %60, ptr %4, align 4
+  br label %85
+
+61:                                               ; preds = %22
+  %62 = landingpad { ptr, i32 }
+          cleanup
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %3, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %4, align 4
+  br label %84
+
+65:                                               ; preds = %24
+  %66 = landingpad { ptr, i32 }
+          cleanup
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %3, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %4, align 4
+  br label %83
+
+69:                                               ; preds = %26
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %3, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %4, align 4
+  br label %82
+
+73:                                               ; preds = %28
+  %74 = landingpad { ptr, i32 }
+          cleanup
+  %75 = extractvalue { ptr, i32 } %74, 0
+  store ptr %75, ptr %3, align 8
+  %76 = extractvalue { ptr, i32 } %74, 1
+  store i32 %76, ptr %4, align 4
+  br label %81
+
+77:                                               ; preds = %30
+  %78 = landingpad { ptr, i32 }
+          cleanup
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %3, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %4, align 4
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #13
+  br label %81
+
+81:                                               ; preds = %77, %73
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #13
+  br label %82
+
+82:                                               ; preds = %81, %69
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #13
+  br label %83
+
+83:                                               ; preds = %82, %65
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #13
+  br label %84
+
+84:                                               ; preds = %83, %61
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #13
+  br label %85
+
+85:                                               ; preds = %84, %57
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #13
+  br label %86
+
+86:                                               ; preds = %85, %53
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #13
+  br label %87
+
+87:                                               ; preds = %86, %49
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #13
+  br label %88
+
+88:                                               ; preds = %87, %45
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #13
+  br label %89
+
+89:                                               ; preds = %88, %41
+  call void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #13
+  br label %90
+
+90:                                               ; preds = %89, %37
+  call void @_ZNSt10unique_ptrIN5ceres8internal24TrustRegionStepEvaluatorESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN5ceres8internal9Minimizer7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %7) #13
+  br label %91
+
+91:                                               ; preds = %90, %33
+  call void @_ZN5ceres8internal9MinimizerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  br label %92
+
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %3, align 8
+  %94 = load i32, ptr %4, align 4
+  %95 = insertvalue { ptr, i32 } poison, ptr %93, 0
+  %96 = insertvalue { ptr, i32 } %95, i32 %94, 1
+  resume { ptr, i32 } %96
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -1780,7 +1781,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal9MinimizerC2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal9MinimizerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres8internal9MinimizerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6936,7 +6938,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal19LineSearchMinimizerC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal9MinimizerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal19LineSearchMinimizerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ceres8internal19LineSearchMinimizerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

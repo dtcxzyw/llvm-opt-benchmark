@@ -274,10 +274,11 @@ err:                                              ; preds = %if.end60, %if.then5
   br i1 %cmp67, label %if.then69, label %if.end71
 
 if.then69:                                        ; preds = %err
-  %17 = load ptr, ptr getelementptr inbounds (%struct.ossl_cc_method_st, ptr @ossl_cc_dummy_method, i32 0, i32 1), align 8
+  %17 = getelementptr inbounds %struct.ossl_cc_method_st, ptr @ossl_cc_dummy_method, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
   %ccdata70 = getelementptr inbounds %struct.info_st, ptr %info, i32 0, i32 5
-  %18 = load ptr, ptr %ccdata70, align 8
-  call void %17(ptr noundef %18)
+  %19 = load ptr, ptr %ccdata70, align 8
+  call void %18(ptr noundef %19)
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then69, %err
@@ -285,28 +286,28 @@ if.end71:                                         ; preds = %if.then69, %err
   br label %for.cond72
 
 for.cond72:                                       ; preds = %for.inc78, %if.end71
-  %19 = load i64, ptr %i, align 8
-  %cmp73 = icmp ult i64 %19, 4
+  %20 = load i64, ptr %i, align 8
+  %cmp73 = icmp ult i64 %20, 4
   br i1 %cmp73, label %for.body75, label %for.end80
 
 for.body75:                                       ; preds = %for.cond72
   %sstream76 = getelementptr inbounds %struct.info_st, ptr %info, i32 0, i32 6
-  %20 = load i64, ptr %i, align 8
-  %arrayidx77 = getelementptr inbounds [4 x ptr], ptr %sstream76, i64 0, i64 %20
-  %21 = load ptr, ptr %arrayidx77, align 8
-  call void @ossl_quic_sstream_free(ptr noundef %21)
+  %21 = load i64, ptr %i, align 8
+  %arrayidx77 = getelementptr inbounds [4 x ptr], ptr %sstream76, i64 0, i64 %21
+  %22 = load ptr, ptr %arrayidx77, align 8
+  call void @ossl_quic_sstream_free(ptr noundef %22)
   br label %for.inc78
 
 for.inc78:                                        ; preds = %for.body75
-  %22 = load i64, ptr %i, align 8
-  %inc79 = add i64 %22, 1
+  %23 = load i64, ptr %i, align 8
+  %inc79 = add i64 %23, 1
   store i64 %inc79, ptr %i, align 8
   br label %for.cond72, !llvm.loop !7
 
 for.end80:                                        ; preds = %for.cond72
   store ptr null, ptr @cur_info, align 8
-  %23 = load i32, ptr %testresult, align 4
-  ret i32 %23
+  %24 = load i32, ptr %testresult, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1069,74 +1070,86 @@ lor.lhs.false271:                                 ; preds = %lor.lhs.false268
   br i1 %tobool273, label %lor.lhs.false274, label %if.then310
 
 lor.lhs.false274:                                 ; preds = %lor.lhs.false271
-  %107 = load i64, ptr getelementptr inbounds ([16 x i64], ptr @regen_stream_id, i64 0, i64 1), align 8
-  %call275 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 267, ptr noundef @.str.42, ptr noundef @.str.43, i64 noundef %107, i64 noundef 43)
+  %107 = getelementptr inbounds [16 x i64], ptr @regen_stream_id, i64 0, i64 1
+  %108 = load i64, ptr %107, align 8
+  %call275 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 267, ptr noundef @.str.42, ptr noundef @.str.43, i64 noundef %108, i64 noundef 43)
   %tobool276 = icmp ne i32 %call275, 0
   br i1 %tobool276, label %lor.lhs.false277, label %if.then310
 
 lor.lhs.false277:                                 ; preds = %lor.lhs.false274
-  %108 = load i64, ptr getelementptr inbounds ([16 x i64], ptr @regen_frame_type, i64 0, i64 1), align 8
-  %call278 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 268, ptr noundef @.str.44, ptr noundef @.str.41, i64 noundef %108, i64 noundef 17)
+  %109 = getelementptr inbounds [16 x i64], ptr @regen_frame_type, i64 0, i64 1
+  %110 = load i64, ptr %109, align 8
+  %call278 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 268, ptr noundef @.str.44, ptr noundef @.str.41, i64 noundef %110, i64 noundef 17)
   %tobool279 = icmp ne i32 %call278, 0
   br i1 %tobool279, label %lor.lhs.false280, label %if.then310
 
 lor.lhs.false280:                                 ; preds = %lor.lhs.false277
-  %109 = load i64, ptr getelementptr inbounds ([16 x i64], ptr @regen_frame_type, i64 0, i64 2), align 16
-  %call281 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 269, ptr noundef @.str.45, ptr noundef @.str.46, i64 noundef %109, i64 noundef 30)
+  %111 = getelementptr inbounds [16 x i64], ptr @regen_frame_type, i64 0, i64 2
+  %112 = load i64, ptr %111, align 16
+  %call281 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 269, ptr noundef @.str.45, ptr noundef @.str.46, i64 noundef %112, i64 noundef 30)
   %tobool282 = icmp ne i32 %call281, 0
   br i1 %tobool282, label %lor.lhs.false283, label %if.then310
 
 lor.lhs.false283:                                 ; preds = %lor.lhs.false280
-  %110 = load i64, ptr getelementptr inbounds ([16 x i64], ptr @regen_stream_id, i64 0, i64 2), align 16
-  %call284 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 270, ptr noundef @.str.47, ptr noundef @.str.48, i64 noundef %110, i64 noundef -1)
+  %113 = getelementptr inbounds [16 x i64], ptr @regen_stream_id, i64 0, i64 2
+  %114 = load i64, ptr %113, align 16
+  %call284 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 270, ptr noundef @.str.47, ptr noundef @.str.48, i64 noundef %114, i64 noundef -1)
   %tobool285 = icmp ne i32 %call284, 0
   br i1 %tobool285, label %lor.lhs.false286, label %if.then310
 
 lor.lhs.false286:                                 ; preds = %lor.lhs.false283
-  %111 = load i64, ptr getelementptr inbounds ([16 x i64], ptr @regen_frame_type, i64 0, i64 3), align 8
-  %call287 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 271, ptr noundef @.str.49, ptr noundef @.str.50, i64 noundef %111, i64 noundef 16)
+  %115 = getelementptr inbounds [16 x i64], ptr @regen_frame_type, i64 0, i64 3
+  %116 = load i64, ptr %115, align 8
+  %call287 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 271, ptr noundef @.str.49, ptr noundef @.str.50, i64 noundef %116, i64 noundef 16)
   %tobool288 = icmp ne i32 %call287, 0
   br i1 %tobool288, label %lor.lhs.false289, label %if.then310
 
 lor.lhs.false289:                                 ; preds = %lor.lhs.false286
-  %112 = load i64, ptr getelementptr inbounds ([16 x i64], ptr @regen_stream_id, i64 0, i64 3), align 8
-  %call290 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 272, ptr noundef @.str.51, ptr noundef @.str.48, i64 noundef %112, i64 noundef -1)
+  %117 = getelementptr inbounds [16 x i64], ptr @regen_stream_id, i64 0, i64 3
+  %118 = load i64, ptr %117, align 8
+  %call290 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 272, ptr noundef @.str.51, ptr noundef @.str.48, i64 noundef %118, i64 noundef -1)
   %tobool291 = icmp ne i32 %call290, 0
   br i1 %tobool291, label %lor.lhs.false292, label %if.then310
 
 lor.lhs.false292:                                 ; preds = %lor.lhs.false289
-  %113 = load i64, ptr getelementptr inbounds ([16 x i64], ptr @regen_frame_type, i64 0, i64 4), align 16
-  %call293 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 273, ptr noundef @.str.52, ptr noundef @.str.53, i64 noundef %113, i64 noundef 18)
+  %119 = getelementptr inbounds [16 x i64], ptr @regen_frame_type, i64 0, i64 4
+  %120 = load i64, ptr %119, align 16
+  %call293 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 273, ptr noundef @.str.52, ptr noundef @.str.53, i64 noundef %120, i64 noundef 18)
   %tobool294 = icmp ne i32 %call293, 0
   br i1 %tobool294, label %lor.lhs.false295, label %if.then310
 
 lor.lhs.false295:                                 ; preds = %lor.lhs.false292
-  %114 = load i64, ptr getelementptr inbounds ([16 x i64], ptr @regen_stream_id, i64 0, i64 4), align 16
-  %call296 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 274, ptr noundef @.str.54, ptr noundef @.str.48, i64 noundef %114, i64 noundef -1)
+  %121 = getelementptr inbounds [16 x i64], ptr @regen_stream_id, i64 0, i64 4
+  %122 = load i64, ptr %121, align 16
+  %call296 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 274, ptr noundef @.str.54, ptr noundef @.str.48, i64 noundef %122, i64 noundef -1)
   %tobool297 = icmp ne i32 %call296, 0
   br i1 %tobool297, label %lor.lhs.false298, label %if.then310
 
 lor.lhs.false298:                                 ; preds = %lor.lhs.false295
-  %115 = load i64, ptr getelementptr inbounds ([16 x i64], ptr @regen_frame_type, i64 0, i64 5), align 8
-  %call299 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 275, ptr noundef @.str.55, ptr noundef @.str.56, i64 noundef %115, i64 noundef 19)
+  %123 = getelementptr inbounds [16 x i64], ptr @regen_frame_type, i64 0, i64 5
+  %124 = load i64, ptr %123, align 8
+  %call299 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 275, ptr noundef @.str.55, ptr noundef @.str.56, i64 noundef %124, i64 noundef 19)
   %tobool300 = icmp ne i32 %call299, 0
   br i1 %tobool300, label %lor.lhs.false301, label %if.then310
 
 lor.lhs.false301:                                 ; preds = %lor.lhs.false298
-  %116 = load i64, ptr getelementptr inbounds ([16 x i64], ptr @regen_stream_id, i64 0, i64 5), align 8
-  %call302 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 276, ptr noundef @.str.57, ptr noundef @.str.48, i64 noundef %116, i64 noundef -1)
+  %125 = getelementptr inbounds [16 x i64], ptr @regen_stream_id, i64 0, i64 5
+  %126 = load i64, ptr %125, align 8
+  %call302 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 276, ptr noundef @.str.57, ptr noundef @.str.48, i64 noundef %126, i64 noundef -1)
   %tobool303 = icmp ne i32 %call302, 0
   br i1 %tobool303, label %lor.lhs.false304, label %if.then310
 
 lor.lhs.false304:                                 ; preds = %lor.lhs.false301
-  %117 = load i64, ptr getelementptr inbounds ([16 x i64], ptr @regen_frame_type, i64 0, i64 6), align 16
-  %call305 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 277, ptr noundef @.str.58, ptr noundef @.str.59, i64 noundef %117, i64 noundef 3)
+  %127 = getelementptr inbounds [16 x i64], ptr @regen_frame_type, i64 0, i64 6
+  %128 = load i64, ptr %127, align 16
+  %call305 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 277, ptr noundef @.str.58, ptr noundef @.str.59, i64 noundef %128, i64 noundef 3)
   %tobool306 = icmp ne i32 %call305, 0
   br i1 %tobool306, label %lor.lhs.false307, label %if.then310
 
 lor.lhs.false307:                                 ; preds = %lor.lhs.false304
-  %118 = load i64, ptr getelementptr inbounds ([16 x i64], ptr @regen_stream_id, i64 0, i64 6), align 16
-  %call308 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 278, ptr noundef @.str.60, ptr noundef @.str.48, i64 noundef %118, i64 noundef -1)
+  %129 = getelementptr inbounds [16 x i64], ptr @regen_stream_id, i64 0, i64 6
+  %130 = load i64, ptr %129, align 16
+  %call308 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 278, ptr noundef @.str.60, ptr noundef @.str.48, i64 noundef %130, i64 noundef -1)
   %tobool309 = icmp ne i32 %call308, 0
   br i1 %tobool309, label %if.end311, label %if.then310
 
@@ -1144,13 +1157,13 @@ if.then310:                                       ; preds = %lor.lhs.false307, %
   br label %err
 
 if.end311:                                        ; preds = %lor.lhs.false307
-  %119 = load ptr, ptr %cfq_item, align 8
-  %120 = load ptr, ptr %info.addr, align 8
-  %cfq312 = getelementptr inbounds %struct.info_st, ptr %120, i32 0, i32 2
-  %121 = load ptr, ptr %cfq312, align 8
-  %122 = load i32, ptr %pn_space, align 4
-  %call313 = call ptr @ossl_quic_cfq_get_priority_head(ptr noundef %121, i32 noundef %122)
-  %call314 = call i32 @test_ptr_eq(ptr noundef @.str.1, i32 noundef 282, ptr noundef @.str.28, ptr noundef @.str.29, ptr noundef %119, ptr noundef %call313)
+  %131 = load ptr, ptr %cfq_item, align 8
+  %132 = load ptr, ptr %info.addr, align 8
+  %cfq312 = getelementptr inbounds %struct.info_st, ptr %132, i32 0, i32 2
+  %133 = load ptr, ptr %cfq312, align 8
+  %134 = load i32, ptr %pn_space, align 4
+  %call313 = call ptr @ossl_quic_cfq_get_priority_head(ptr noundef %133, i32 noundef %134)
+  %call314 = call i32 @test_ptr_eq(ptr noundef @.str.1, i32 noundef 282, ptr noundef @.str.28, ptr noundef @.str.29, ptr noundef %131, ptr noundef %call313)
   %tobool315 = icmp ne i32 %call314, 0
   br i1 %tobool315, label %if.end317, label %if.then316
 
@@ -1159,12 +1172,12 @@ if.then316:                                       ; preds = %if.end311
 
 if.end317:                                        ; preds = %if.end311
   store i64 2, ptr %num_iov, align 8
-  %123 = load ptr, ptr %info.addr, align 8
-  %sstream318 = getelementptr inbounds %struct.info_st, ptr %123, i32 0, i32 6
+  %135 = load ptr, ptr %info.addr, align 8
+  %sstream318 = getelementptr inbounds %struct.info_st, ptr %135, i32 0, i32 6
   %arrayidx319 = getelementptr inbounds [4 x ptr], ptr %sstream318, i64 0, i64 1
-  %124 = load ptr, ptr %arrayidx319, align 8
+  %136 = load ptr, ptr %arrayidx319, align 8
   %arraydecay320 = getelementptr inbounds [2 x %struct.ossl_qtx_iovec_st], ptr %iov, i64 0, i64 0
-  %call321 = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %124, i64 noundef 1, ptr noundef %hdr, ptr noundef %arraydecay320, ptr noundef %num_iov)
+  %call321 = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %136, i64 noundef 1, ptr noundef %hdr, ptr noundef %arraydecay320, ptr noundef %num_iov)
   %cmp322 = icmp ne i32 %call321, 0
   %conv323 = zext i1 %cmp322 to i32
   %call324 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 288, ptr noundef @.str.61, i32 noundef %conv323)
@@ -1185,8 +1198,8 @@ lor.lhs.false326:                                 ; preds = %if.end317
 
 lor.lhs.false336:                                 ; preds = %lor.lhs.false326
   %len337 = getelementptr inbounds %struct.ossl_quic_frame_stream_st, ptr %hdr, i32 0, i32 2
-  %125 = load i64, ptr %len337, align 8
-  %call338 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 290, ptr noundef @.str.22, ptr noundef @.str.21, i64 noundef %125, i64 noundef 0)
+  %137 = load i64, ptr %len337, align 8
+  %call338 = call i32 @test_uint64_t_eq(ptr noundef @.str.1, i32 noundef 290, ptr noundef @.str.22, ptr noundef @.str.21, i64 noundef %137, i64 noundef 0)
   %tobool339 = icmp ne i32 %call338, 0
   br i1 %tobool339, label %if.end341, label %if.then340
 
@@ -1197,11 +1210,11 @@ if.end341:                                        ; preds = %lor.lhs.false336
   br label %sw.epilog
 
 sw.bb342:                                         ; preds = %if.end146
-  %126 = load ptr, ptr %info.addr, align 8
-  %ackm343 = getelementptr inbounds %struct.info_st, ptr %126, i32 0, i32 1
-  %127 = load ptr, ptr %ackm343, align 8
-  %128 = load i32, ptr %pn_space, align 4
-  %call344 = call i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %127, i32 noundef %128)
+  %138 = load ptr, ptr %info.addr, align 8
+  %ackm343 = getelementptr inbounds %struct.info_st, ptr %138, i32 0, i32 1
+  %139 = load ptr, ptr %ackm343, align 8
+  %140 = load i32, ptr %pn_space, align 4
+  %call344 = call i32 @ossl_ackm_on_pkt_space_discarded(ptr noundef %139, i32 noundef %140)
   %cmp345 = icmp ne i32 %call344, 0
   %conv346 = zext i1 %cmp345 to i32
   %call347 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 296, ptr noundef @.str.62, i32 noundef %conv346)
@@ -1212,8 +1225,8 @@ if.then349:                                       ; preds = %sw.bb342
   br label %err
 
 if.end350:                                        ; preds = %sw.bb342
-  %129 = load i32, ptr @cfq_freed, align 4
-  %cmp351 = icmp ne i32 %129, 0
+  %141 = load i32, ptr @cfq_freed, align 4
+  %cmp351 = icmp ne i32 %141, 0
   %conv352 = zext i1 %cmp351 to i32
   %call353 = call i32 @test_true(ptr noundef @.str.1, i32 noundef 300, ptr noundef @.str.33, i32 noundef %conv352)
   %tobool354 = icmp ne i32 %call353, 0
@@ -1229,10 +1242,10 @@ sw.default:                                       ; preds = %if.end146
   br label %err
 
 sw.epilog:                                        ; preds = %if.end356, %if.end341, %if.end186
-  %130 = load ptr, ptr %info.addr, align 8
-  %txpim357 = getelementptr inbounds %struct.info_st, ptr %130, i32 0, i32 3
-  %131 = load ptr, ptr %txpim357, align 8
-  %call358 = call i64 @ossl_quic_txpim_get_in_use(ptr noundef %131)
+  %142 = load ptr, ptr %info.addr, align 8
+  %txpim357 = getelementptr inbounds %struct.info_st, ptr %142, i32 0, i32 3
+  %143 = load ptr, ptr %txpim357, align 8
+  %call358 = call i64 @ossl_quic_txpim_get_in_use(ptr noundef %143)
   %call359 = call i32 @test_size_t_eq(ptr noundef @.str.1, i32 noundef 310, ptr noundef @.str.63, ptr noundef @.str.21, i64 noundef %call358, i64 noundef 0)
   %tobool360 = icmp ne i32 %call359, 0
   br i1 %tobool360, label %if.end362, label %if.then361
@@ -1245,8 +1258,8 @@ if.end362:                                        ; preds = %sw.epilog
   br label %err
 
 err:                                              ; preds = %if.end362, %if.then361, %sw.default, %if.then355, %if.then349, %if.then340, %if.then316, %if.then310, %if.then261, %if.then239, %if.then192, %if.then185, %if.then181, %if.then175, %if.then163, %if.then152, %if.then145, %if.then139, %if.then92, %if.then82, %if.then67, %if.then53, %if.then10, %if.then
-  %132 = load i32, ptr %testresult, align 4
-  ret i32 %132
+  %144 = load i32, ptr %testresult, align 4
+  ret i32 %144
 }
 
 declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1

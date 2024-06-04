@@ -18,7 +18,7 @@ define dso_local i64 @lzma_crc64(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   store i64 %10, ptr %6, align 8
   %11 = load i64, ptr %5, align 8
   %12 = icmp ugt i64 %11, 4
-  br i1 %12, label %13, label %83
+  br i1 %12, label %13, label %86
 
 13:                                               ; preds = %3
   br label %14
@@ -65,7 +65,7 @@ define dso_local i64 @lzma_crc64(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %42 = load ptr, ptr %4, align 8
   %43 = load ptr, ptr %7, align 8
   %44 = icmp ult ptr %42, %43
-  br i1 %44, label %45, label %82
+  br i1 %44, label %45, label %85
 
 45:                                               ; preds = %41
   %46 = load i64, ptr %6, align 8
@@ -81,68 +81,71 @@ define dso_local i64 @lzma_crc64(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %54 = load i32, ptr %8, align 4
   %55 = and i32 %54, 255
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds [256 x i64], ptr getelementptr inbounds ([4 x [256 x i64]], ptr @lzma_crc64_table, i64 0, i64 3), i64 0, i64 %56
-  %58 = load i64, ptr %57, align 8
-  %59 = load i32, ptr %8, align 4
-  %60 = lshr i32 %59, 8
-  %61 = and i32 %60, 255
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds [256 x i64], ptr getelementptr inbounds ([4 x [256 x i64]], ptr @lzma_crc64_table, i64 0, i64 2), i64 0, i64 %62
-  %64 = load i64, ptr %63, align 8
-  %65 = xor i64 %58, %64
-  %66 = load i64, ptr %6, align 8
-  %67 = lshr i64 %66, 32
-  %68 = xor i64 %65, %67
-  %69 = load i32, ptr %8, align 4
-  %70 = lshr i32 %69, 16
-  %71 = and i32 %70, 255
-  %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds [256 x i64], ptr getelementptr inbounds ([4 x [256 x i64]], ptr @lzma_crc64_table, i64 0, i64 1), i64 0, i64 %72
-  %74 = load i64, ptr %73, align 8
-  %75 = xor i64 %68, %74
-  %76 = load i32, ptr %8, align 4
-  %77 = lshr i32 %76, 24
-  %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds [256 x i64], ptr @lzma_crc64_table, i64 0, i64 %78
-  %80 = load i64, ptr %79, align 8
-  %81 = xor i64 %75, %80
-  store i64 %81, ptr %6, align 8
+  %57 = getelementptr inbounds [4 x [256 x i64]], ptr @lzma_crc64_table, i64 0, i64 3
+  %58 = getelementptr inbounds [256 x i64], ptr %57, i64 0, i64 %56
+  %59 = load i64, ptr %58, align 8
+  %60 = load i32, ptr %8, align 4
+  %61 = lshr i32 %60, 8
+  %62 = and i32 %61, 255
+  %63 = zext i32 %62 to i64
+  %64 = getelementptr inbounds [4 x [256 x i64]], ptr @lzma_crc64_table, i64 0, i64 2
+  %65 = getelementptr inbounds [256 x i64], ptr %64, i64 0, i64 %63
+  %66 = load i64, ptr %65, align 8
+  %67 = xor i64 %59, %66
+  %68 = load i64, ptr %6, align 8
+  %69 = lshr i64 %68, 32
+  %70 = xor i64 %67, %69
+  %71 = load i32, ptr %8, align 4
+  %72 = lshr i32 %71, 16
+  %73 = and i32 %72, 255
+  %74 = zext i32 %73 to i64
+  %75 = getelementptr inbounds [4 x [256 x i64]], ptr @lzma_crc64_table, i64 0, i64 1
+  %76 = getelementptr inbounds [256 x i64], ptr %75, i64 0, i64 %74
+  %77 = load i64, ptr %76, align 8
+  %78 = xor i64 %70, %77
+  %79 = load i32, ptr %8, align 4
+  %80 = lshr i32 %79, 24
+  %81 = zext i32 %80 to i64
+  %82 = getelementptr inbounds [256 x i64], ptr @lzma_crc64_table, i64 0, i64 %81
+  %83 = load i64, ptr %82, align 8
+  %84 = xor i64 %78, %83
+  store i64 %84, ptr %6, align 8
   br label %41, !llvm.loop !7
 
-82:                                               ; preds = %41
-  br label %83
+85:                                               ; preds = %41
+  br label %86
 
-83:                                               ; preds = %82, %3
-  br label %84
+86:                                               ; preds = %85, %3
+  br label %87
 
-84:                                               ; preds = %88, %83
-  %85 = load i64, ptr %5, align 8
-  %86 = add i64 %85, -1
-  store i64 %86, ptr %5, align 8
-  %87 = icmp ne i64 %85, 0
-  br i1 %87, label %88, label %101
+87:                                               ; preds = %91, %86
+  %88 = load i64, ptr %5, align 8
+  %89 = add i64 %88, -1
+  store i64 %89, ptr %5, align 8
+  %90 = icmp ne i64 %88, 0
+  br i1 %90, label %91, label %104
 
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %4, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i32 1
-  store ptr %90, ptr %4, align 8
-  %91 = load i8, ptr %89, align 1
-  %92 = zext i8 %91 to i64
-  %93 = load i64, ptr %6, align 8
-  %94 = and i64 %93, 255
-  %95 = xor i64 %92, %94
-  %96 = getelementptr inbounds [256 x i64], ptr @lzma_crc64_table, i64 0, i64 %95
-  %97 = load i64, ptr %96, align 8
-  %98 = load i64, ptr %6, align 8
-  %99 = lshr i64 %98, 8
-  %100 = xor i64 %97, %99
-  store i64 %100, ptr %6, align 8
-  br label %84, !llvm.loop !8
+91:                                               ; preds = %87
+  %92 = load ptr, ptr %4, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i32 1
+  store ptr %93, ptr %4, align 8
+  %94 = load i8, ptr %92, align 1
+  %95 = zext i8 %94 to i64
+  %96 = load i64, ptr %6, align 8
+  %97 = and i64 %96, 255
+  %98 = xor i64 %95, %97
+  %99 = getelementptr inbounds [256 x i64], ptr @lzma_crc64_table, i64 0, i64 %98
+  %100 = load i64, ptr %99, align 8
+  %101 = load i64, ptr %6, align 8
+  %102 = lshr i64 %101, 8
+  %103 = xor i64 %100, %102
+  store i64 %103, ptr %6, align 8
+  br label %87, !llvm.loop !8
 
-101:                                              ; preds = %84
-  %102 = load i64, ptr %6, align 8
-  %103 = xor i64 %102, -1
-  ret i64 %103
+104:                                              ; preds = %87
+  %105 = load i64, ptr %6, align 8
+  %106 = xor i64 %105, -1
+  ret i64 %106
 }
 
 ; Function Attrs: nounwind uwtable

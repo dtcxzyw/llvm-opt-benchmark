@@ -614,7 +614,8 @@ if.end6:                                          ; preds = %cond.false, %cond.t
   %call7 = call ptr @CRYPTO_THREAD_get_local(ptr noundef @err_thread_local)
   store ptr %call7, ptr %state, align 8
   %2 = load ptr, ptr %state, align 8
-  %cmp = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
+  %3 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %2, %3
   br i1 %cmp, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end6
@@ -622,12 +623,13 @@ if.then8:                                         ; preds = %if.end6
   br label %return
 
 if.end9:                                          ; preds = %if.end6
-  %3 = load ptr, ptr %state, align 8
-  %cmp10 = icmp eq ptr %3, null
+  %4 = load ptr, ptr %state, align 8
+  %cmp10 = icmp eq ptr %4, null
   br i1 %cmp10, label %if.then11, label %if.end29
 
 if.then11:                                        ; preds = %if.end9
-  %call12 = call i32 @CRYPTO_THREAD_set_local(ptr noundef @err_thread_local, ptr noundef inttoptr (i64 -1 to ptr))
+  %5 = inttoptr i64 -1 to ptr
+  %call12 = call i32 @CRYPTO_THREAD_set_local(ptr noundef @err_thread_local, ptr noundef %5)
   %tobool13 = icmp ne i32 %call12, 0
   br i1 %tobool13, label %if.end15, label %if.then14
 
@@ -638,8 +640,8 @@ if.then14:                                        ; preds = %if.then11
 if.end15:                                         ; preds = %if.then11
   %call16 = call ptr @OSSL_ERR_STATE_new()
   store ptr %call16, ptr %state, align 8
-  %4 = load ptr, ptr %state, align 8
-  %cmp17 = icmp eq ptr %4, null
+  %6 = load ptr, ptr %state, align 8
+  %cmp17 = icmp eq ptr %6, null
   br i1 %cmp17, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %if.end15
@@ -653,14 +655,14 @@ if.end20:                                         ; preds = %if.end15
   br i1 %tobool22, label %lor.lhs.false, label %if.then25
 
 lor.lhs.false:                                    ; preds = %if.end20
-  %5 = load ptr, ptr %state, align 8
-  %call23 = call i32 @CRYPTO_THREAD_set_local(ptr noundef @err_thread_local, ptr noundef %5)
+  %7 = load ptr, ptr %state, align 8
+  %call23 = call i32 @CRYPTO_THREAD_set_local(ptr noundef @err_thread_local, ptr noundef %7)
   %tobool24 = icmp ne i32 %call23, 0
   br i1 %tobool24, label %if.end27, label %if.then25
 
 if.then25:                                        ; preds = %lor.lhs.false, %if.end20
-  %6 = load ptr, ptr %state, align 8
-  call void @OSSL_ERR_STATE_free(ptr noundef %6)
+  %8 = load ptr, ptr %state, align 8
+  call void @OSSL_ERR_STATE_free(ptr noundef %8)
   %call26 = call i32 @CRYPTO_THREAD_set_local(ptr noundef @err_thread_local, ptr noundef null)
   store ptr null, ptr %retval, align 8
   br label %return
@@ -670,16 +672,16 @@ if.end27:                                         ; preds = %lor.lhs.false
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end27, %if.end9
-  %7 = load i32, ptr %saveerrno, align 4
+  %9 = load i32, ptr %saveerrno, align 4
   %call30 = call ptr @__errno_location() #5
-  store i32 %7, ptr %call30, align 4
-  %8 = load ptr, ptr %state, align 8
-  store ptr %8, ptr %retval, align 8
+  store i32 %9, ptr %call30, align 4
+  %10 = load ptr, ptr %state, align 8
+  store ptr %10, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end29, %if.then25, %if.then18, %if.then14, %if.then8, %if.then5, %if.then
-  %9 = load ptr, ptr %retval, align 8
-  ret ptr %9
+  %11 = load ptr, ptr %retval, align 8
+  ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1767,7 +1769,8 @@ if.end6:                                          ; preds = %cond.false, %cond.t
   %call7 = call ptr @CRYPTO_THREAD_get_local(ptr noundef @err_thread_local)
   %2 = load ptr, ptr %state.addr, align 8
   store ptr %call7, ptr %2, align 8
-  %call8 = call i32 @CRYPTO_THREAD_set_local(ptr noundef @err_thread_local, ptr noundef inttoptr (i64 -1 to ptr))
+  %3 = inttoptr i64 -1 to ptr
+  %call8 = call i32 @CRYPTO_THREAD_set_local(ptr noundef @err_thread_local, ptr noundef %3)
   %tobool9 = icmp ne i32 %call8, 0
   br i1 %tobool9, label %if.end11, label %if.then10
 
@@ -1776,15 +1779,15 @@ if.then10:                                        ; preds = %if.end6
   br label %return
 
 if.end11:                                         ; preds = %if.end6
-  %3 = load i32, ptr %saveerrno, align 4
+  %4 = load i32, ptr %saveerrno, align 4
   %call12 = call ptr @__errno_location() #5
-  store i32 %3, ptr %call12, align 4
+  store i32 %4, ptr %call12, align 4
   store i32 1, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end11, %if.then10, %if.then5, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+  %5 = load i32, ptr %retval, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1793,12 +1796,13 @@ entry:
   %state.addr = alloca ptr, align 8
   store ptr %state, ptr %state.addr, align 8
   %0 = load ptr, ptr %state.addr, align 8
-  %cmp = icmp ne ptr %0, inttoptr (i64 -1 to ptr)
+  %1 = inttoptr i64 -1 to ptr
+  %cmp = icmp ne ptr %0, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %state.addr, align 8
-  %call = call i32 @CRYPTO_THREAD_set_local(ptr noundef @err_thread_local, ptr noundef %1)
+  %2 = load ptr, ptr %state.addr, align 8
+  %call = call i32 @CRYPTO_THREAD_set_local(ptr noundef @err_thread_local, ptr noundef %2)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1923,17 +1927,14 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   store i32 %num, ptr %num.addr, align 4
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load i32, ptr %num.addr, align 4
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @ERR_add_error_vdata(i32 noundef %0, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
 
 ; Function Attrs: nounwind uwtable
 define void @ERR_add_error_vdata(i32 noundef %num, ptr noundef %args) #0 {
@@ -2152,9 +2153,6 @@ if.then57:                                        ; preds = %while.end
 if.end58:                                         ; preds = %if.then57, %while.end, %if.then49, %if.then25, %if.then
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) #1
 
@@ -2614,6 +2612,12 @@ entry:
   %sub = sub i32 0, %shr
   ret i32 %sub
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

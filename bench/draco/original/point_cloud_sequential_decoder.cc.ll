@@ -810,10 +810,11 @@ define linkonce_odr void @_ZN5draco15LinearSequencerC2Ei(ptr noundef nonnull ali
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5draco15PointsSequencerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5draco15LinearSequencerE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.draco::LinearSequencer", ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %4, align 4
-  store i32 %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5draco15LinearSequencerE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.draco::LinearSequencer", ptr %5, i32 0, i32 1
+  %8 = load i32, ptr %4, align 4
+  store i32 %8, ptr %7, align 8
   ret void
 }
 
@@ -2425,9 +2426,10 @@ define linkonce_odr void @_ZN5draco15PointsSequencerC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5draco15PointsSequencerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::PointsSequencer", ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5draco15PointsSequencerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::PointsSequencer", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
   ret void
 }
 
@@ -3642,11 +3644,12 @@ define linkonce_odr void @_ZN5draco17PointCloudDecoderD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5draco17PointCloudDecoderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::PointCloudDecoder", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.draco::PointCloudDecoder", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5draco17PointCloudDecoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::PointCloudDecoder", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.draco::PointCloudDecoder", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   ret void
 }
 

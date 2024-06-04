@@ -158,13 +158,14 @@ entry:
   store ptr %kernel, ptr %kernel.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12b3LauncherCL, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV12b3LauncherCL, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_commandQueue = getelementptr inbounds %class.b3LauncherCL, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %queue.addr, align 8
-  store ptr %0, ptr %m_commandQueue, align 8
+  %1 = load ptr, ptr %queue.addr, align 8
+  store ptr %1, ptr %m_commandQueue, align 8
   %m_kernel = getelementptr inbounds %class.b3LauncherCL, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %kernel.addr, align 8
-  store ptr %1, ptr %m_kernel, align 8
+  %2 = load ptr, ptr %kernel.addr, align 8
+  store ptr %2, ptr %m_kernel, align 8
   %m_idx = getelementptr inbounds %class.b3LauncherCL, ptr %this1, i32 0, i32 3
   store i32 0, ptr %m_idx, align 8
   %m_kernelArguments = getelementptr inbounds %class.b3LauncherCL, ptr %this1, i32 0, i32 5
@@ -172,44 +173,44 @@ entry:
   %m_enableSerialization = getelementptr inbounds %class.b3LauncherCL, ptr %this1, i32 0, i32 7
   store i8 0, ptr %m_enableSerialization, align 4
   %m_name = getelementptr inbounds %class.b3LauncherCL, ptr %this1, i32 0, i32 8
-  %2 = load ptr, ptr %name.addr, align 8
-  store ptr %2, ptr %m_name, align 8
+  %3 = load ptr, ptr %name.addr, align 8
+  store ptr %3, ptr %m_name, align 8
   %m_arrays = getelementptr inbounds %class.b3LauncherCL, ptr %this1, i32 0, i32 9
   invoke void @_ZN20b3AlignedObjectArrayIP13b3OpenCLArrayIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_arrays)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %3 = load i8, ptr @gDebugLauncherCL, align 1
-  %tobool = trunc i8 %3 to i1
+  %4 = load i8, ptr @gDebugLauncherCL, align 1
+  %tobool = trunc i8 %4 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  %4 = load i32, ptr @_ZZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKcE7counter, align 4
-  %inc = add nsw i32 %4, 1
+  %5 = load i32, ptr @_ZZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKcE7counter, align 4
+  %inc = add nsw i32 %5, 1
   store i32 %inc, ptr @_ZZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKcE7counter, align 4
-  %5 = load ptr, ptr %name.addr, align 8
-  %call = invoke i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %4, ptr noundef %5)
+  %6 = load ptr, ptr %name.addr, align 8
+  %call = invoke i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %5, ptr noundef %6)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %if.then
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN20b3AlignedObjectArrayIP13b3OpenCLArrayIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_arrays) #7
   br label %ehcleanup
 
@@ -305,44 +306,45 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12b3LauncherCL, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV12b3LauncherCL, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
+  %1 = load i32, ptr %i, align 4
   %m_arrays = getelementptr inbounds %class.b3LauncherCL, ptr %this1, i32 0, i32 9
   %call = invoke noundef i32 @_ZNK20b3AlignedObjectArrayIP13b3OpenCLArrayIhEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %m_arrays)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %for.cond
-  %cmp = icmp slt i32 %0, %call
+  %cmp = icmp slt i32 %1, %call
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont
   %m_arrays2 = getelementptr inbounds %class.b3LauncherCL, ptr %this1, i32 0, i32 9
-  %1 = load i32, ptr %i, align 4
-  %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20b3AlignedObjectArrayIP13b3OpenCLArrayIhEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_arrays2, i32 noundef %1)
+  %2 = load i32, ptr %i, align 4
+  %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN20b3AlignedObjectArrayIP13b3OpenCLArrayIhEEixEi(ptr noundef nonnull align 8 dereferenceable(25) %m_arrays2, i32 noundef %2)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %for.body
-  %2 = load ptr, ptr %call4, align 8
-  %isnull = icmp eq ptr %2, null
+  %3 = load ptr, ptr %call4, align 8
+  %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont3
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(50) %2) #7
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(50) %3) #7
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %invoke.cont3
   br label %for.inc
 
 for.inc:                                          ; preds = %delete.end
-  %4 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %4, 1
+  %5 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %5, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !5
 
@@ -352,17 +354,17 @@ for.end:                                          ; preds = %invoke.cont
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %for.end
-  %5 = load i8, ptr @gDebugLauncherCL, align 1
-  %tobool = trunc i8 %5 to i1
+  %6 = load i8, ptr @gDebugLauncherCL, align 1
+  %tobool = trunc i8 %6 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont6
-  %6 = load i32, ptr @_ZZN12b3LauncherCLD1EvE7counter, align 4
-  %inc7 = add nsw i32 %6, 1
+  %7 = load i32, ptr @_ZZN12b3LauncherCLD1EvE7counter, align 4
+  %inc7 = add nsw i32 %7, 1
   store i32 %inc7, ptr @_ZZN12b3LauncherCLD1EvE7counter, align 4
   %m_name = getelementptr inbounds %class.b3LauncherCL, ptr %this1, i32 0, i32 8
-  %7 = load ptr, ptr %m_name, align 8
-  %call9 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.1, i32 noundef %6, ptr noundef %7)
+  %8 = load ptr, ptr %m_name, align 8
+  %call9 = invoke i32 (ptr, ...) @printf(ptr noundef @.str.1, i32 noundef %7, ptr noundef %8)
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %if.then
@@ -376,10 +378,10 @@ if.end:                                           ; preds = %invoke.cont8, %invo
   ret void
 
 terminate.lpad:                                   ; preds = %if.then, %for.end, %for.body, %for.cond
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #8
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #8
   unreachable
 }
 
@@ -854,7 +856,8 @@ entry:
   %frombool = zext i1 %allowGrowingCapacity to i8
   store i8 %frombool, ptr %allowGrowingCapacity.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIhE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIhE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_size = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 1
   store i64 0, ptr %m_size, align 8
   %m_capacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 2
@@ -862,27 +865,27 @@ entry:
   %m_clBuffer = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 3
   store ptr null, ptr %m_clBuffer, align 8
   %m_clContext = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_clContext, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_clContext, align 8
   %m_commandQueue = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %queue.addr, align 8
-  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr %queue.addr, align 8
+  store ptr %2, ptr %m_commandQueue, align 8
   %m_ownsMemory = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 6
   store i8 1, ptr %m_ownsMemory, align 8
   %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 7
   store i8 1, ptr %m_allowGrowingCapacity, align 1
-  %2 = load i64, ptr %initialCapacity.addr, align 8
-  %tobool = icmp ne i64 %2, 0
+  %3 = load i64, ptr %initialCapacity.addr, align 8
+  %tobool = icmp ne i64 %3, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %initialCapacity.addr, align 8
-  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIhE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %3, i1 noundef zeroext true)
+  %4 = load i64, ptr %initialCapacity.addr, align 8
+  %call = call noundef zeroext i1 @_ZN13b3OpenCLArrayIhE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this1, i64 noundef %4, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %4 = load i8, ptr %allowGrowingCapacity.addr, align 1
-  %tobool2 = trunc i8 %4 to i1
+  %5 = load i8, ptr %allowGrowingCapacity.addr, align 1
+  %tobool2 = trunc i8 %5 to i1
   %m_allowGrowingCapacity3 = getelementptr inbounds %class.b3OpenCLArray, ptr %this1, i32 0, i32 7
   %frombool4 = zext i1 %tobool2 to i8
   store i8 %frombool4, ptr %m_allowGrowingCapacity3, align 1
@@ -1853,7 +1856,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIhE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIhE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN13b3OpenCLArrayIhE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(50) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1865,10 +1869,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #8
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #8
   unreachable
 }
 

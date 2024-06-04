@@ -5778,7 +5778,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -6051,7 +6052,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756RegionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756RegionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %idStr = getelementptr inbounds %"class.icu_75::Region", ptr %this1, i32 0, i32 2
   invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %idStr)
           to label %invoke.cont unwind label %lpad
@@ -6073,12 +6075,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
   br label %eh.resume
 
@@ -6096,7 +6098,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6109,23 +6112,24 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756RegionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_756RegionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %containedRegions = getelementptr inbounds %"class.icu_75::Region", ptr %this1, i32 0, i32 6
-  %0 = load ptr, ptr %containedRegions, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %containedRegions, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %containedRegions2 = getelementptr inbounds %"class.icu_75::Region", ptr %this1, i32 0, i32 6
-  %1 = load ptr, ptr %containedRegions2, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %containedRegions2, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %1, align 8
+  %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(40) %1) #8
+  %3 = load ptr, ptr %vfn, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(40) %2) #8
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -6133,21 +6137,21 @@ delete.end:                                       ; preds = %delete.notnull, %if
 
 if.end:                                           ; preds = %delete.end, %entry
   %preferredValues = getelementptr inbounds %"class.icu_75::Region", ptr %this1, i32 0, i32 7
-  %3 = load ptr, ptr %preferredValues, align 8
-  %tobool3 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %preferredValues, align 8
+  %tobool3 = icmp ne ptr %4, null
   br i1 %tobool3, label %if.then4, label %if.end11
 
 if.then4:                                         ; preds = %if.end
   %preferredValues5 = getelementptr inbounds %"class.icu_75::Region", ptr %this1, i32 0, i32 7
-  %4 = load ptr, ptr %preferredValues5, align 8
-  %isnull6 = icmp eq ptr %4, null
+  %5 = load ptr, ptr %preferredValues5, align 8
+  %isnull6 = icmp eq ptr %5, null
   br i1 %isnull6, label %delete.end10, label %delete.notnull7
 
 delete.notnull7:                                  ; preds = %if.then4
-  %vtable8 = load ptr, ptr %4, align 8
+  %vtable8 = load ptr, ptr %5, align 8
   %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 1
-  %5 = load ptr, ptr %vfn9, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(40) %4) #8
+  %6 = load ptr, ptr %vfn9, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(40) %5) #8
   br label %delete.end10
 
 delete.end10:                                     ; preds = %delete.notnull7, %if.then4
@@ -7545,19 +7549,20 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521RegionNameEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7521RegionNameEnumerationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %pos = getelementptr inbounds %"class.icu_75::RegionNameEnumeration", ptr %this1, i32 0, i32 1
   store i32 0, ptr %pos, align 4
   %fRegionNames = getelementptr inbounds %"class.icu_75::RegionNameEnumeration", ptr %this1, i32 0, i32 2
   store ptr null, ptr %fRegionNames, align 8
-  %0 = load ptr, ptr %nameList.addr, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %nameList.addr, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %land.lhs.true, label %if.end42
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %status.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %2)
+  %2 = load ptr, ptr %status.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  %call = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true
@@ -7573,22 +7578,22 @@ if.then:                                          ; preds = %invoke.cont
 new.notnull:                                      ; preds = %if.then
   store ptr %call3, ptr %saved-rvalue, align 8
   store i1 true, ptr %cleanup.cond, align 1
-  %3 = load ptr, ptr %nameList.addr, align 8
-  %call6 = invoke noundef i32 @_ZNK6icu_757UVector4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %4 = load ptr, ptr %nameList.addr, align 8
+  %call6 = invoke noundef i32 @_ZNK6icu_757UVector4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %new.notnull
-  %4 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call3, ptr noundef @uprv_deleteUObject_75, ptr noundef @uhash_compareUnicodeString_75, i32 noundef %call6, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %5 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call3, ptr noundef @uprv_deleteUObject_75, ptr noundef @uhash_compareUnicodeString_75, i32 noundef %call6, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   br label %new.cont
 
 new.cont:                                         ; preds = %invoke.cont7, %if.then
-  %5 = phi ptr [ %call3, %invoke.cont7 ], [ null, %if.then ]
-  %6 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %regionNames, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %6 = phi ptr [ %call3, %invoke.cont7 ], [ null, %if.then ]
+  %7 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %regionNames, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %new.cont
@@ -7596,9 +7601,9 @@ invoke.cont8:                                     ; preds = %new.cont
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %invoke.cont8
-  %7 = load ptr, ptr %status.addr, align 8
-  %8 = load i32, ptr %7, align 4
-  %call11 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %8)
+  %8 = load ptr, ptr %status.addr, align 8
+  %9 = load i32, ptr %8, align 4
+  %call11 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %9)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %for.cond
@@ -7606,23 +7611,23 @@ invoke.cont10:                                    ; preds = %for.cond
   br i1 %tobool12, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %invoke.cont10
-  %9 = load i32, ptr %i, align 4
-  %10 = load ptr, ptr %nameList.addr, align 8
-  %call14 = invoke noundef i32 @_ZNK6icu_757UVector4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
+  %10 = load i32, ptr %i, align 4
+  %11 = load ptr, ptr %nameList.addr, align 8
+  %call14 = invoke noundef i32 @_ZNK6icu_757UVector4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %invoke.cont13 unwind label %lpad9
 
 invoke.cont13:                                    ; preds = %land.rhs
-  %cmp = icmp slt i32 %9, %call14
+  %cmp = icmp slt i32 %10, %call14
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont13, %invoke.cont10
-  %11 = phi i1 [ false, %invoke.cont10 ], [ %cmp, %invoke.cont13 ]
-  br i1 %11, label %for.body, label %for.end
+  %12 = phi i1 [ false, %invoke.cont10 ], [ %cmp, %invoke.cont13 ]
+  br i1 %12, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
-  %12 = load ptr, ptr %nameList.addr, align 8
-  %13 = load i32, ptr %i, align 4
-  %call16 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef %13)
+  %13 = load ptr, ptr %nameList.addr, align 8
+  %14 = load i32, ptr %i, align 4
+  %call16 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %14)
           to label %invoke.cont15 unwind label %lpad9
 
 invoke.cont15:                                    ; preds = %for.body
@@ -7635,17 +7640,17 @@ invoke.cont15:                                    ; preds = %for.body
 new.notnull19:                                    ; preds = %invoke.cont15
   store ptr %call17, ptr %saved-rvalue20, align 8
   store i1 true, ptr %cleanup.cond21, align 1
-  %14 = load ptr, ptr %this_region_name, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %call17, ptr noundef nonnull align 8 dereferenceable(64) %14)
+  %15 = load ptr, ptr %this_region_name, align 8
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %call17, ptr noundef nonnull align 8 dereferenceable(64) %15)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %new.notnull19
   br label %new.cont27
 
 new.cont27:                                       ; preds = %invoke.cont23, %invoke.cont15
-  %15 = phi ptr [ %call17, %invoke.cont23 ], [ null, %invoke.cont15 ]
-  %16 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %new_region_name, ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %16 = phi ptr [ %call17, %invoke.cont23 ], [ null, %invoke.cont15 ]
+  %17 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %new_region_name, ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %invoke.cont28 unwind label %lpad9
 
 invoke.cont28:                                    ; preds = %new.cont27
@@ -7657,8 +7662,8 @@ invoke.cont30:                                    ; preds = %invoke.cont28
           to label %invoke.cont32 unwind label %lpad29
 
 invoke.cont32:                                    ; preds = %invoke.cont30
-  %17 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call31, ptr noundef %call33, ptr noundef nonnull align 4 dereferenceable(4) %17)
+  %18 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call31, ptr noundef %call33, ptr noundef nonnull align 4 dereferenceable(4) %18)
           to label %invoke.cont34 unwind label %lpad29
 
 invoke.cont34:                                    ; preds = %invoke.cont32
@@ -7666,79 +7671,79 @@ invoke.cont34:                                    ; preds = %invoke.cont32
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont34
-  %18 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %18, 1
+  %19 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %19, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !27
 
 lpad:                                             ; preds = %new.cont, %land.lhs.true
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup43
 
 lpad4:                                            ; preds = %invoke.cont5, %new.notnull
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad4
-  %25 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %25) #8
+  %26 = load ptr, ptr %saved-rvalue, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %26) #8
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad4
   br label %ehcleanup43
 
 lpad9:                                            ; preds = %if.then38, %for.end, %new.cont27, %for.body, %land.rhs, %for.cond
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad22:                                           ; preds = %new.notnull19
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %exn.slot, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %ehselector.slot, align 4
   %cleanup.is_active24 = load i1, ptr %cleanup.cond21, align 1
   br i1 %cleanup.is_active24, label %cleanup.action25, label %cleanup.done26
 
 cleanup.action25:                                 ; preds = %lpad22
-  %32 = load ptr, ptr %saved-rvalue20, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %32) #8
+  %33 = load ptr, ptr %saved-rvalue20, align 8
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %33) #8
   br label %cleanup.done26
 
 cleanup.done26:                                   ; preds = %cleanup.action25, %lpad22
   br label %ehcleanup
 
 lpad29:                                           ; preds = %invoke.cont32, %invoke.cont30, %invoke.cont28
-  %33 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %exn.slot, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %ehselector.slot, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %exn.slot, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %new_region_name) #8
   br label %ehcleanup
 
 for.end:                                          ; preds = %land.end
-  %36 = load ptr, ptr %status.addr, align 8
-  %37 = load i32, ptr %36, align 4
-  %call36 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %37)
+  %37 = load ptr, ptr %status.addr, align 8
+  %38 = load i32, ptr %37, align 4
+  %call36 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %38)
           to label %invoke.cont35 unwind label %lpad9
 
 invoke.cont35:                                    ; preds = %for.end
@@ -7884,17 +7889,18 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521RegionNameEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7521RegionNameEnumerationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fRegionNames = getelementptr inbounds %"class.icu_75::RegionNameEnumeration", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %fRegionNames, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %fRegionNames, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #8
+  %2 = load ptr, ptr %vfn, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(40) %1) #8
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -8113,7 +8119,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

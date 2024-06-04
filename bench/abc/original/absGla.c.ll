@@ -1932,7 +1932,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -1960,7 +1960,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -5333,11 +5333,13 @@ define internal ptr @Ga2_ObjLeaves(ptr noundef %0, ptr noundef %1) #0 {
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = call i32 @Ga2_ObjLeaveNum(ptr noundef %5, ptr noundef %6)
-  store i32 %7, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Ga2_ObjLeaves.v, i32 0, i32 1), align 4
-  %8 = load ptr, ptr %3, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = call ptr @Ga2_ObjLeavePtr(ptr noundef %8, ptr noundef %9)
-  store ptr %10, ptr getelementptr inbounds (%struct.Vec_Int_t_, ptr @Ga2_ObjLeaves.v, i32 0, i32 2), align 8
+  %8 = getelementptr inbounds %struct.Vec_Int_t_, ptr @Ga2_ObjLeaves.v, i32 0, i32 1
+  store i32 %7, ptr %8, align 4
+  %9 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call ptr @Ga2_ObjLeavePtr(ptr noundef %9, ptr noundef %10)
+  %12 = getelementptr inbounds %struct.Vec_Int_t_, ptr @Ga2_ObjLeaves.v, i32 0, i32 2
+  store ptr %11, ptr %12, align 8
   ret ptr @Ga2_ObjLeaves.v
 }
 
@@ -10702,19 +10704,13 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #9
+declare i64 @strlen(ptr noundef) #8
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @Vec_PtrGrow(ptr noundef %0, i32 noundef %1) #0 {
@@ -10912,7 +10908,7 @@ define internal i32 @Ga2_ObjLeaveNum(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @Ga2_ObjFindOrAddLit(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -11329,7 +11325,7 @@ define internal i32 @Saig_ManBmcHashKey(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #9
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #8
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @Ga2_ObjLeavePtr(ptr noundef %0, ptr noundef %1) #0 {
@@ -11976,6 +11972,12 @@ define internal void @Vec_WrdGrow(ptr noundef %0, i32 noundef %1) #0 {
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -11984,9 +11986,9 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind allocsize(0) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }

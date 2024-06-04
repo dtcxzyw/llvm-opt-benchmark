@@ -631,9 +631,11 @@ entry:
   call void @_ZN3zmq11io_object_tC2EPNS_11io_thread_tE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null)
   %0 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN3zmq8i_engineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
-  store ptr getelementptr inbounds ({ [14 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12udp_engine_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [14 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12udp_engine_tE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12udp_engine_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [14 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12udp_engine_tE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %_empty_endpoint = getelementptr inbounds %"class.zmq::udp_engine_t", ptr %this1, i32 0, i32 2
   invoke void @_ZN3zmq19endpoint_uri_pair_tC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %_empty_endpoint)
           to label %invoke.cont unwind label %lpad
@@ -650,8 +652,8 @@ invoke.cont:                                      ; preds = %entry
   %_address = getelementptr inbounds %"class.zmq::udp_engine_t", ptr %this1, i32 0, i32 8
   store ptr null, ptr %_address, align 8
   %_options = getelementptr inbounds %"class.zmq::udp_engine_t", ptr %this1, i32 0, i32 9
-  %1 = load ptr, ptr %options_.addr, align 8
-  invoke void @_ZN3zmq9options_tC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1336) %_options, ptr noundef nonnull align 8 dereferenceable(1336) %1)
+  %3 = load ptr, ptr %options_.addr, align 8
+  invoke void @_ZN3zmq9options_tC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1336) %_options, ptr noundef nonnull align 8 dereferenceable(1336) %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -662,27 +664,27 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN3zmq19endpoint_uri_pair_tD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %_empty_endpoint) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %8 = getelementptr inbounds i8, ptr %this1, i64 16
-  call void @_ZN3zmq8i_engineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  %10 = getelementptr inbounds i8, ptr %this1, i64 16
+  call void @_ZN3zmq8i_engineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
   call void @_ZN3zmq11io_object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
   br label %eh.resume
 
@@ -702,7 +704,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3zmq8i_engineE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3zmq8i_engineE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

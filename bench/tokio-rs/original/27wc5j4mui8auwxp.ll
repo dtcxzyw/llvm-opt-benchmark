@@ -23840,19 +23840,21 @@ define available_externally void @"_ZN103_$LT$tokio..runtime..blocking..schedule
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden { i64, ptr } @"_ZN93_$LT$tokio..io..blocking..Blocking$LT$T$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$13poll_shutdown17h11152438a119eb3aE"(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #1 {
   %3 = load i64, ptr @anon.437abf4fc75871fa06817f7f17e4beb4.37.llvm.3285439092171202888, align 8, !range !5, !noundef !4
-  %4 = load ptr, ptr getelementptr inbounds ({ i64, ptr }, ptr @anon.437abf4fc75871fa06817f7f17e4beb4.37.llvm.3285439092171202888, i32 0, i32 1), align 8
-  %5 = insertvalue { i64, ptr } poison, i64 %3, 0
-  %6 = insertvalue { i64, ptr } %5, ptr %4, 1
-  ret { i64, ptr } %6
+  %4 = getelementptr inbounds { i64, ptr }, ptr @anon.437abf4fc75871fa06817f7f17e4beb4.37.llvm.3285439092171202888, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = insertvalue { i64, ptr } poison, i64 %3, 0
+  %7 = insertvalue { i64, ptr } %6, ptr %5, 1
+  ret { i64, ptr } %7
 }
 
 ; Function Attrs: nonlazybind uwtable
 define available_externally hidden { i64, ptr } @"_ZN93_$LT$tokio..io..blocking..Blocking$LT$T$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$13poll_shutdown17h6cf793b1aa4b82f3E"(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #1 {
   %3 = load i64, ptr @anon.437abf4fc75871fa06817f7f17e4beb4.37.llvm.3285439092171202888, align 8, !range !5, !noundef !4
-  %4 = load ptr, ptr getelementptr inbounds ({ i64, ptr }, ptr @anon.437abf4fc75871fa06817f7f17e4beb4.37.llvm.3285439092171202888, i32 0, i32 1), align 8
-  %5 = insertvalue { i64, ptr } poison, i64 %3, 0
-  %6 = insertvalue { i64, ptr } %5, ptr %4, 1
-  ret { i64, ptr } %6
+  %4 = getelementptr inbounds { i64, ptr }, ptr @anon.437abf4fc75871fa06817f7f17e4beb4.37.llvm.3285439092171202888, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = insertvalue { i64, ptr } poison, i64 %3, 0
+  %7 = insertvalue { i64, ptr } %6, ptr %5, 1
+  ret { i64, ptr } %7
 }
 
 ; Function Attrs: nonlazybind uwtable

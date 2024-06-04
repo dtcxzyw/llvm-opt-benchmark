@@ -149,10 +149,11 @@ cond.false:                                       ; preds = %if.end20
 cond.end:                                         ; preds = %11, %cond.true
   %12 = load ptr, ptr %test_func_code, align 8
   %13 = load i64, ptr %code_extra_index, align 8
-  %call22 = call i32 @PyUnstable_Code_SetExtra(ptr noundef %12, i64 noundef %13, ptr noundef inttoptr (i64 77 to ptr))
+  %14 = inttoptr i64 77 to ptr
+  %call22 = call i32 @PyUnstable_Code_SetExtra(ptr noundef %12, i64 noundef %13, ptr noundef %14)
   store i32 %call22, ptr %res, align 4
-  %14 = load i32, ptr %res, align 4
-  %cmp23 = icmp slt i32 %14, 0
+  %15 = load i32, ptr %res, align 4
+  %cmp23 = icmp slt i32 %15, 0
   br i1 %cmp23, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %cond.end
@@ -160,21 +161,21 @@ if.then24:                                        ; preds = %cond.end
 
 if.end25:                                         ; preds = %cond.end
   store ptr @uninitialized, ptr %extra, align 8
-  %15 = load ptr, ptr %test_func_code, align 8
-  %16 = load i64, ptr %code_extra_index, align 8
-  %call26 = call i32 @PyUnstable_Code_GetExtra(ptr noundef %15, i64 noundef %16, ptr noundef %extra)
+  %16 = load ptr, ptr %test_func_code, align 8
+  %17 = load i64, ptr %code_extra_index, align 8
+  %call26 = call i32 @PyUnstable_Code_GetExtra(ptr noundef %16, i64 noundef %17, ptr noundef %extra)
   store i32 %call26, ptr %res, align 4
-  %17 = load i32, ptr %res, align 4
-  %cmp27 = icmp slt i32 %17, 0
+  %18 = load i32, ptr %res, align 4
+  %cmp27 = icmp slt i32 %18, 0
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.end25
   br label %finally
 
 if.end29:                                         ; preds = %if.end25
-  %18 = load ptr, ptr %extra, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %cmp30 = icmp eq i64 %19, 77
+  %19 = load ptr, ptr %extra, align 8
+  %20 = ptrtoint ptr %19 to i64
+  %cmp30 = icmp eq i64 %20, 77
   br i1 %cmp30, label %cond.true31, label %cond.false32
 
 cond.true31:                                      ; preds = %if.end29
@@ -184,16 +185,16 @@ cond.false32:                                     ; preds = %if.end29
   call void @__assert_fail(ptr noundef @.str.5, ptr noundef @.str.4, i32 noundef 97, ptr noundef @__PRETTY_FUNCTION__.test_code_extra) #3
   unreachable
 
-20:                                               ; No predecessors!
+21:                                               ; No predecessors!
   br label %cond.end33
 
-cond.end33:                                       ; preds = %20, %cond.true31
-  %21 = load ptr, ptr %test_func_code, align 8
-  %22 = load i64, ptr %code_extra_index, align 8
-  %call34 = call i32 @PyUnstable_Code_SetExtra(ptr noundef %21, i64 noundef %22, ptr noundef null)
+cond.end33:                                       ; preds = %21, %cond.true31
+  %22 = load ptr, ptr %test_func_code, align 8
+  %23 = load i64, ptr %code_extra_index, align 8
+  %call34 = call i32 @PyUnstable_Code_SetExtra(ptr noundef %22, i64 noundef %23, ptr noundef null)
   store i32 %call34, ptr %res, align 4
-  %23 = load i32, ptr %res, align 4
-  %cmp35 = icmp slt i32 %23, 0
+  %24 = load i32, ptr %res, align 4
+  %cmp35 = icmp slt i32 %24, 0
   br i1 %cmp35, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %cond.end33
@@ -205,17 +206,17 @@ if.end37:                                         ; preds = %cond.end33
   br label %finally
 
 finally:                                          ; preds = %if.end37, %if.then36, %if.then28, %if.then24, %if.then19, %if.then16, %if.then12, %if.then8, %if.then4
-  %24 = load ptr, ptr %test_module, align 8
-  call void @Py_XDECREF(ptr noundef %24)
-  %25 = load ptr, ptr %test_func, align 8
+  %25 = load ptr, ptr %test_module, align 8
   call void @Py_XDECREF(ptr noundef %25)
-  %26 = load ptr, ptr %result, align 8
-  store ptr %26, ptr %retval, align 8
+  %26 = load ptr, ptr %test_func, align 8
+  call void @Py_XDECREF(ptr noundef %26)
+  %27 = load ptr, ptr %result, align 8
+  store ptr %27, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %finally, %if.then
-  %27 = load ptr, ptr %retval, align 8
-  ret ptr %27
+  %28 = load ptr, ptr %retval, align 8
+  ret ptr %28
 }
 
 declare ptr @PyInterpreterState_Get() #1

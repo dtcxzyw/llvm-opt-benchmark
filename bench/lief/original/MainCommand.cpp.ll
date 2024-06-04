@@ -192,11 +192,12 @@ define void @_ZN4LIEF5MachO11MainCommandC2ERKS1_(ptr noundef nonnull align 8 der
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11MainCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false)
+  %7 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11MainCommandE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
   ret void
 }
 
@@ -233,11 +234,12 @@ define void @_ZN4LIEF5MachO11MainCommandC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11MainCommandE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %3, i32 0, i32 1
-  store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11MainCommandE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %3, i32 0, i32 1
   store i64 0, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %3, i32 0, i32 2
+  store i64 0, ptr %6, align 8
   ret void
 }
 
@@ -258,17 +260,18 @@ define void @_ZN4LIEF5MachO11MainCommandC2ERKNS0_7details19entry_point_commandE(
   %11 = getelementptr inbounds %"struct.LIEF::MachO::details::entry_point_command", ptr %10, i32 0, i32 1
   %12 = load i32, ptr %11, align 4
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef %9, i32 noundef %12)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11MainCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %5, i32 0, i32 1
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"struct.LIEF::MachO::details::entry_point_command", ptr %14, i32 0, i32 2
-  %16 = load i64, ptr %15, align 8
-  store i64 %16, ptr %13, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %5, i32 0, i32 2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.LIEF::MachO::details::entry_point_command", ptr %18, i32 0, i32 3
-  %20 = load i64, ptr %19, align 8
-  store i64 %20, ptr %17, align 8
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11MainCommandE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %5, i32 0, i32 1
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"struct.LIEF::MachO::details::entry_point_command", ptr %15, i32 0, i32 2
+  %17 = load i64, ptr %16, align 8
+  store i64 %17, ptr %14, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %5, i32 0, i32 2
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"struct.LIEF::MachO::details::entry_point_command", ptr %19, i32 0, i32 3
+  %21 = load i64, ptr %20, align 8
+  store i64 %21, ptr %18, align 8
   ret void
 }
 
@@ -289,74 +292,75 @@ define void @_ZN4LIEF5MachO11MainCommandC2Emm(ptr noundef nonnull align 8 derefe
   store i64 %2, ptr %6, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef 2147483688, i32 noundef 24)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11MainCommandE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %12, i32 0, i32 1
-  %14 = load i64, ptr %5, align 8
-  store i64 %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %12, i32 0, i32 2
-  %16 = load i64, ptr %6, align 8
-  store i64 %16, ptr %15, align 8
-  %17 = invoke noundef i32 @_ZNK4LIEF5MachO11LoadCommand4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
-          to label %18 unwind label %22
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11MainCommandE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %12, i32 0, i32 1
+  %15 = load i64, ptr %5, align 8
+  store i64 %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.LIEF::MachO::MainCommand", ptr %12, i32 0, i32 2
+  %17 = load i64, ptr %6, align 8
+  store i64 %17, ptr %16, align 8
+  %18 = invoke noundef i32 @_ZNK4LIEF5MachO11LoadCommand4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
+          to label %19 unwind label %23
 
-18:                                               ; preds = %3
-  %19 = zext i32 %17 to i64
+19:                                               ; preds = %3
+  %20 = zext i32 %18 to i64
   store i8 0, ptr %10, align 1
   call void @_ZNSaIhEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #10
-  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %20 unwind label %26
+  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %21 unwind label %27
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   invoke void @_ZN4LIEF5MachO11LoadCommand4dataERKSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %21 unwind label %30
+          to label %22 unwind label %31
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
   call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #10
   ret void
 
-22:                                               ; preds = %3
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %3
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %8, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %9, align 4
-  br label %35
-
-26:                                               ; preds = %18
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %8, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %9, align 4
-  br label %34
-
-30:                                               ; preds = %20
-  %31 = landingpad { ptr, i32 }
-          cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %8, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %9, align 4
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
-  br label %34
-
-34:                                               ; preds = %30, %26
-  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #10
-  br label %35
-
-35:                                               ; preds = %34, %22
-  call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #10
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %8, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %9, align 4
   br label %36
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %8, align 8
-  %38 = load i32, ptr %9, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+27:                                               ; preds = %19
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %8, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %9, align 4
+  br label %35
+
+31:                                               ; preds = %21
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %8, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %9, align 4
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZNSaIhED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #10
+  br label %36
+
+36:                                               ; preds = %35, %23
+  call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #10
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %8, align 8
+  %39 = load i32, ptr %9, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
 }
 
 declare void @_ZN4LIEF5MachO11LoadCommand4dataERKSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(24)) #1

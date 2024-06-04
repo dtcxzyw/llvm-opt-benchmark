@@ -85,19 +85,20 @@ entry:
   %frombool = zext i1 %pLinear to i8
   store i8 %frombool, ptr %pLinear.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Imf_3_212ImageChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN7Imf_3_212ImageChannelE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_level = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %level.addr, align 8
-  store ptr %0, ptr %_level, align 8
+  %1 = load ptr, ptr %level.addr, align 8
+  store ptr %1, ptr %_level, align 8
   %_xSampling = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %xSampling.addr, align 4
-  store i32 %1, ptr %_xSampling, align 8
+  %2 = load i32, ptr %xSampling.addr, align 4
+  store i32 %2, ptr %_xSampling, align 8
   %_ySampling = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %ySampling.addr, align 4
-  store i32 %2, ptr %_ySampling, align 4
+  %3 = load i32, ptr %ySampling.addr, align 4
+  store i32 %3, ptr %_ySampling, align 4
   %_pLinear = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this1, i32 0, i32 4
-  %3 = load i8, ptr %pLinear.addr, align 1
-  %tobool = trunc i8 %3 to i1
+  %4 = load i8, ptr %pLinear.addr, align 1
+  %tobool = trunc i8 %4 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %_pLinear, align 8
   %_pixelsPerRow = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this1, i32 0, i32 5

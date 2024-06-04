@@ -37554,7 +37554,7 @@ ehcleanup:                                        ; preds = %lpad9, %lpad3
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %39 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %39
   br i1 %matches, label %catch, label %eh.resume
 
@@ -37632,13 +37632,13 @@ entry:
   store i32 %level, ptr %level.addr, align 4
   store ptr %format, ptr %format.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %0 = load i32, ptr %level.addr, align 4
   %1 = load ptr, ptr %format.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
   call void @_ZL20llama_log_internal_v14ggml_log_levelPKcP13__va_list_tag(i32 noundef %0, ptr noundef %1, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   ret void
 }
 
@@ -40633,7 +40633,7 @@ ehcleanup9:                                       ; preds = %ehcleanup, %lpad
 
 catch.dispatch:                                   ; preds = %ehcleanup9
   %sel = load i32, ptr %ehselector.slot, align 4
-  %12 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %12
   br i1 %matches, label %catch, label %eh.resume
 
@@ -42141,15 +42141,12 @@ unreachable:                                      ; preds = %invoke.cont225, %in
   unreachable
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #13 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #12 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #23
   unreachable
@@ -42158,7 +42155,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #13 comd
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #14
+declare void @llvm.trap() #13
 
 ; Function Attrs: mustprogress uwtable
 define i32 @llama_apply_lora_from_file(ptr noundef %ctx, ptr noundef %path_lora, float noundef %scale, ptr noundef %path_base_model, i32 noundef %n_threads) #2 personality ptr @__gxx_personality_v0 {
@@ -42202,7 +42199,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %9 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %9
   br i1 %matches, label %catch, label %eh.resume
 
@@ -43757,7 +43754,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch, label %eh.resume
 
@@ -44300,7 +44297,7 @@ if.end108:                                        ; preds = %if.then105, %if.end
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #15
+declare ptr @realloc(ptr noundef, i64 noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(56) ptr @_ZNKSt6vectorI13llama_kv_cellSaIS0_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #1 comdat align 2 {
@@ -45399,10 +45396,11 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18llama_data_contextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV25llama_data_buffer_context, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV25llama_data_buffer_context, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr = getelementptr inbounds %struct.llama_data_buffer_context, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr, align 8
   %size_written = getelementptr inbounds %struct.llama_data_buffer_context, ptr %this1, i32 0, i32 2
   store i64 0, ptr %size_written, align 8
   ret void
@@ -47005,7 +47003,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %8 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %matches = icmp eq i32 %sel, %8
   br i1 %matches, label %catch, label %eh.resume
 
@@ -47579,10 +47577,11 @@ entry:
   store ptr %f, ptr %f.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18llama_data_contextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23llama_data_file_context, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV23llama_data_file_context, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %file = getelementptr inbounds %struct.llama_data_file_context, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %f.addr, align 8
-  store ptr %0, ptr %file, align 8
+  %1 = load ptr, ptr %f.addr, align 8
+  store ptr %1, ptr %file, align 8
   %size_written = getelementptr inbounds %struct.llama_data_file_context, ptr %this1, i32 0, i32 2
   store i64 0, ptr %size_written, align 8
   ret void
@@ -48752,7 +48751,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #16
+declare noalias ptr @malloc(i64 noundef) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @llama_batch_free(ptr noundef byval(%struct.llama_batch) align 8 %batch) #1 {
@@ -51659,7 +51658,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi ptr [ %1, %cond.true ], [ @_ZL26llama_log_callback_default14ggml_log_levelPKcPv, %cond.false ]
   store ptr %cond, ptr @_ZL7g_state, align 8
   %2 = load ptr, ptr %user_data.addr, align 8
-  store ptr %2, ptr getelementptr inbounds (%struct.llama_state, ptr @_ZL7g_state, i32 0, i32 1), align 8
+  %3 = getelementptr inbounds %struct.llama_state, ptr @_ZL7g_state, i32 0, i32 1
+  store ptr %2, ptr %3, align 8
   ret void
 }
 
@@ -53089,10 +53089,10 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #17
+declare void @_ZSt28__throw_bad_array_new_lengthv() #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #17
+declare void @_ZSt17__throw_bad_allocv() #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIK10llm_tensorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9constructISA_JRKSA_EEEvRSC_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(40) %__args) #2 comdat align 2 {
@@ -56089,7 +56089,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #17
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #1 comdat {
@@ -72784,7 +72784,7 @@ declare i32 @munlock(ptr noundef, i64 noundef) #7
 declare ptr @strerror(i32 noundef) #7
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #18
+declare ptr @__errno_location() #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implI10llama_mmapSt14default_deleteIS0_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
@@ -94535,10 +94535,10 @@ entry:
   store ptr %agg.result, ptr %result.ptr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap2, i64 0, i64 0
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_copy(ptr %arraydecay1, ptr %arraydecay2)
+  call void @llvm.va_copy.p0(ptr %arraydecay1, ptr %arraydecay2)
   %0 = load ptr, ptr %fmt.addr, align 8
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   %call = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %0, ptr noundef %arraydecay3) #3
@@ -94638,9 +94638,9 @@ do.cond:                                          ; preds = %if.end21
 
 do.end22:                                         ; preds = %do.cond
   %arraydecay23 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap2, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay23)
+  call void @llvm.va_end.p0(ptr %arraydecay23)
   %arraydecay24 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay24)
+  call void @llvm.va_end.p0(ptr %arraydecay24)
   %call25 = call noundef ptr @_ZNSt6vectorIcSaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %buf) #3
   %18 = load i32, ptr %size, align 4
   %conv26 = sext i32 %18 to i64
@@ -97776,12 +97776,6 @@ entry:
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #19
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #19
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #7
 
@@ -97826,9 +97820,6 @@ eh.resume:                                        ; preds = %lpad
   %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
   resume { ptr, i32 } %lpad.val2
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIcSaIcEE21_M_default_initializeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #2 comdat align 2 {
@@ -99705,10 +99696,10 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #20
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #18
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #20
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeI6llm_kvSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS9_ESt4lessIS0_ESaIS9_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSH_PSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef %__z) #2 comdat align 2 {
@@ -102698,7 +102689,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #20
+declare i64 @strlen(ptr noundef) #18
 
 declare ptr @gguf_get_arr_data(ptr noundef, i32 noundef) #8
 
@@ -103518,7 +103509,7 @@ entry:
   %1 = alloca i8, i64 %mul, align 16
   store ptr %1, ptr %__s, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %__args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %2 = load ptr, ptr %__convf.addr, align 8
   %3 = load ptr, ptr %__s, align 8
   %4 = load i64, ptr %__n.addr, align 8
@@ -103527,7 +103518,7 @@ entry:
   %call = call noundef i32 %2(ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %arraydecay1)
   store i32 %call, ptr %__len, align 4
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %__args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   %6 = load ptr, ptr %__s, align 8
   %7 = load ptr, ptr %__s, align 8
   %8 = load i32, ptr %__len, align 4
@@ -112188,7 +112179,7 @@ return:                                           ; preds = %if.end15, %for.end,
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) #17
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiELb0ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
@@ -117742,7 +117733,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #17
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) #16
 
 declare void @ggml_set_no_alloc(ptr noundef, i1 noundef zeroext) #8
 
@@ -121827,15 +121818,16 @@ if.end5:                                          ; preds = %if.then4, %if.end
   store ptr %call7, ptr %addr, align 8
   %addr8 = getelementptr inbounds %struct.llama_mmap, ptr %this1, i32 0, i32 0
   %11 = load ptr, ptr %addr8, align 8
-  %cmp = icmp eq ptr %11, inttoptr (i64 -1 to ptr)
+  %12 = inttoptr i64 -1 to ptr
+  %cmp = icmp eq ptr %11, %12
   br i1 %cmp, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.end5
   store i1 true, ptr %cleanup.isactive, align 1
   %exception = call ptr @__cxa_allocate_exception(i64 16) #3
   %call10 = call ptr @__errno_location() #28
-  %12 = load i32, ptr %call10, align 4
-  %call11 = call ptr @strerror(i32 noundef %12) #3
+  %13 = load i32, ptr %call10, align 4
+  %call11 = call ptr @strerror(i32 noundef %13) #3
   invoke void (ptr, ptr, ...) @_ZL6formatB5cxx11PKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef @.str.382, ptr noundef %call11)
           to label %invoke.cont unwind label %lpad
 
@@ -121849,21 +121841,21 @@ invoke.cont13:                                    ; preds = %invoke.cont
           to label %unreachable unwind label %lpad12
 
 lpad:                                             ; preds = %if.then9
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad12:                                           ; preds = %invoke.cont13, %invoke.cont
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %ehcleanup
 
@@ -121879,53 +121871,53 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
   br label %eh.resume
 
 if.end14:                                         ; preds = %if.end5
-  %19 = load i64, ptr %prefetch.addr, align 8
-  %cmp15 = icmp ugt i64 %19, 0
+  %20 = load i64, ptr %prefetch.addr, align 8
+  %cmp15 = icmp ugt i64 %20, 0
   br i1 %cmp15, label %if.then16, label %if.end27
 
 if.then16:                                        ; preds = %if.end14
   %addr17 = getelementptr inbounds %struct.llama_mmap, ptr %this1, i32 0, i32 0
-  %20 = load ptr, ptr %addr17, align 8
-  %21 = load ptr, ptr %file.addr, align 8
-  %size18 = getelementptr inbounds %struct.llama_file, ptr %21, i32 0, i32 1
+  %21 = load ptr, ptr %addr17, align 8
+  %22 = load ptr, ptr %file.addr, align 8
+  %size18 = getelementptr inbounds %struct.llama_file, ptr %22, i32 0, i32 1
   %call19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %size18, ptr noundef nonnull align 8 dereferenceable(8) %prefetch.addr)
-  %22 = load i64, ptr %call19, align 8
-  %call20 = call i32 @posix_madvise(ptr noundef %20, i64 noundef %22, i32 noundef 3) #3
+  %23 = load i64, ptr %call19, align 8
+  %call20 = call i32 @posix_madvise(ptr noundef %21, i64 noundef %23, i32 noundef 3) #3
   %tobool21 = icmp ne i32 %call20, 0
   br i1 %tobool21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.then16
-  %23 = load ptr, ptr @stderr, align 8
+  %24 = load ptr, ptr @stderr, align 8
   %call23 = call ptr @__errno_location() #28
-  %24 = load i32, ptr %call23, align 4
-  %call24 = call ptr @strerror(i32 noundef %24) #3
-  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.383, ptr noundef %call24)
+  %25 = load i32, ptr %call23, align 4
+  %call24 = call ptr @strerror(i32 noundef %25) #3
+  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.383, ptr noundef %call24)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then22, %if.then16
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end26, %if.end14
-  %25 = load i8, ptr %numa.addr, align 1
-  %tobool28 = trunc i8 %25 to i1
+  %26 = load i8, ptr %numa.addr, align 1
+  %tobool28 = trunc i8 %26 to i1
   br i1 %tobool28, label %if.then29, label %if.end39
 
 if.then29:                                        ; preds = %if.end27
   %addr30 = getelementptr inbounds %struct.llama_mmap, ptr %this1, i32 0, i32 0
-  %26 = load ptr, ptr %addr30, align 8
-  %27 = load ptr, ptr %file.addr, align 8
-  %size31 = getelementptr inbounds %struct.llama_file, ptr %27, i32 0, i32 1
-  %28 = load i64, ptr %size31, align 8
-  %call32 = call i32 @posix_madvise(ptr noundef %26, i64 noundef %28, i32 noundef 1) #3
+  %27 = load ptr, ptr %addr30, align 8
+  %28 = load ptr, ptr %file.addr, align 8
+  %size31 = getelementptr inbounds %struct.llama_file, ptr %28, i32 0, i32 1
+  %29 = load i64, ptr %size31, align 8
+  %call32 = call i32 @posix_madvise(ptr noundef %27, i64 noundef %29, i32 noundef 1) #3
   %tobool33 = icmp ne i32 %call32, 0
   br i1 %tobool33, label %if.then34, label %if.end38
 
 if.then34:                                        ; preds = %if.then29
-  %29 = load ptr, ptr @stderr, align 8
+  %30 = load ptr, ptr @stderr, align 8
   %call35 = call ptr @__errno_location() #28
-  %30 = load i32, ptr %call35, align 4
-  %call36 = call ptr @strerror(i32 noundef %30) #3
-  %call37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef @.str.384, ptr noundef %call36)
+  %31 = load i32, ptr %call35, align 4
+  %call36 = call ptr @strerror(i32 noundef %31) #3
+  %call37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef @.str.384, ptr noundef %call36)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then34, %if.then29
@@ -131377,7 +131369,7 @@ eh.resume:                                        ; preds = %ehcleanup
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #20
+declare i32 @strcmp(ptr noundef, ptr noundef) #18
 
 declare void @ggml_allocr_alloc(ptr noundef, ptr noundef) #8
 
@@ -135621,7 +135613,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() #17
+declare void @_ZSt25__throw_bad_function_callv() #16
 
 declare ptr @ggml_rope_custom_inplace(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, float noundef, float noundef, float noundef, float noundef, float noundef, float noundef) #8
 
@@ -137519,7 +137511,7 @@ entry:
 declare i64 @ggml_quantize_chunk(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #8
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef ptr @_ZNSt5arrayIlLm16EE4dataEv(ptr noundef nonnull align 8 dereferenceable(128) %this) #21 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt5arrayIlLm16EE4dataEv(ptr noundef nonnull align 8 dereferenceable(128) %this) #19 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -137821,7 +137813,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef i64 @_ZNKSt5arrayIlLm16EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(128) %this) #21 comdat align 2 {
+define linkonce_odr noundef i64 @_ZNKSt5arrayIlLm16EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(128) %this) #19 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -141280,26 +141272,27 @@ entry:
   store ptr %__args7, ptr %__args.addr8, align 8
   %this9 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS7_EERS5_IS_SaIS_EEmiE3$_09ggml_typePhPfmEEEEEE", i32 0, i32 0, i32 2), ptr %this9, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS7_EERS5_IS_SaIS_EEmiE3$_09ggml_typePhPfmEEEEEE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this9, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this9, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  %2 = load ptr, ptr %__args.addr4, align 8
-  %3 = load ptr, ptr %__args.addr6, align 8
-  %4 = load ptr, ptr %__args.addr8, align 8
-  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS6_EERS4_IS_SaIS_EEmiE3$_09ggml_typePhPfmEEEC2IJRSD_RSE_SF_SG_RmEEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(104) %_M_func, ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  %3 = load ptr, ptr %__args.addr4, align 8
+  %4 = load ptr, ptr %__args.addr6, align 8
+  %5 = load ptr, ptr %__args.addr8, align 8
+  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS6_EERS4_IS_SaIS_EEmiE3$_09ggml_typePhPfmEEEC2IJRSD_RSE_SF_SG_RmEEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(104) %_M_func, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this9) #3
   br label %eh.resume
 
@@ -141379,7 +141372,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -142646,22 +142640,23 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PK27llama_model_quantize_paramsE3$_0EEEEEE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PK27llama_model_quantize_paramsE3$_0EEEEEE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl.566", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PK27llama_model_quantize_paramsE3$_0EEEC2IJRSD_EEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(64) %_M_func, ptr noundef nonnull align 8 dereferenceable(64) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PK27llama_model_quantize_paramsE3$_0EEEC2IJRSD_EEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(64) %_M_func, ptr noundef nonnull align 8 dereferenceable(64) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -142976,7 +142971,7 @@ if.end7:                                          ; preds = %if.end
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) #17
+declare void @_ZSt20__throw_system_errori(i32 noundef) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #2 comdat align 2 {
@@ -148575,7 +148570,7 @@ entry:
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) #7
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #20
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #1 comdat align 2 {
@@ -148597,7 +148592,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18llama_data_context, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV18llama_data_context, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -171707,7 +171703,7 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args_copy, i64 0, i64 0
   %0 = load ptr, ptr %args.addr, align 8
-  call void @llvm.va_copy(ptr %arraydecay, ptr %0)
+  call void @llvm.va_copy.p0(ptr %arraydecay, ptr %0)
   %arraydecay1 = getelementptr inbounds [128 x i8], ptr %buffer, i64 0, i64 0
   %1 = load ptr, ptr %format.addr, align 8
   %2 = load ptr, ptr %args.addr, align 8
@@ -171721,41 +171717,43 @@ if.then:                                          ; preds = %entry
   %4 = load ptr, ptr @_ZL7g_state, align 8
   %5 = load i32, ptr %level.addr, align 4
   %arraydecay2 = getelementptr inbounds [128 x i8], ptr %buffer, i64 0, i64 0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.llama_state, ptr @_ZL7g_state, i32 0, i32 1), align 8
-  call void %4(i32 noundef %5, ptr noundef %arraydecay2, ptr noundef %6)
+  %6 = getelementptr inbounds %struct.llama_state, ptr @_ZL7g_state, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  call void %4(i32 noundef %5, ptr noundef %arraydecay2, ptr noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %7 = load i32, ptr %len, align 4
-  %add = add nsw i32 %7, 1
-  %8 = sext i32 %add to i64
-  %9 = icmp slt i64 %8, 0
-  %10 = select i1 %9, i64 -1, i64 %8
-  %call3 = call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #24
+  %8 = load i32, ptr %len, align 4
+  %add = add nsw i32 %8, 1
+  %9 = sext i32 %add to i64
+  %10 = icmp slt i64 %9, 0
+  %11 = select i1 %10, i64 -1, i64 %9
+  %call3 = call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #24
   store ptr %call3, ptr %buffer2, align 8
-  %11 = load ptr, ptr %buffer2, align 8
-  %12 = load i32, ptr %len, align 4
-  %add4 = add nsw i32 %12, 1
+  %12 = load ptr, ptr %buffer2, align 8
+  %13 = load i32, ptr %len, align 4
+  %add4 = add nsw i32 %13, 1
   %conv = sext i32 %add4 to i64
-  %13 = load ptr, ptr %format.addr, align 8
+  %14 = load ptr, ptr %format.addr, align 8
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args_copy, i64 0, i64 0
-  %call6 = call i32 @vsnprintf(ptr noundef %11, i64 noundef %conv, ptr noundef %13, ptr noundef %arraydecay5) #3
-  %14 = load ptr, ptr %buffer2, align 8
-  %15 = load i32, ptr %len, align 4
-  %idxprom = sext i32 %15 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %14, i64 %idxprom
+  %call6 = call i32 @vsnprintf(ptr noundef %12, i64 noundef %conv, ptr noundef %14, ptr noundef %arraydecay5) #3
+  %15 = load ptr, ptr %buffer2, align 8
+  %16 = load i32, ptr %len, align 4
+  %idxprom = sext i32 %16 to i64
+  %arrayidx = getelementptr inbounds i8, ptr %15, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
-  %16 = load ptr, ptr @_ZL7g_state, align 8
-  %17 = load i32, ptr %level.addr, align 4
-  %18 = load ptr, ptr %buffer2, align 8
-  %19 = load ptr, ptr getelementptr inbounds (%struct.llama_state, ptr @_ZL7g_state, i32 0, i32 1), align 8
-  call void %16(i32 noundef %17, ptr noundef %18, ptr noundef %19)
-  %20 = load ptr, ptr %buffer2, align 8
-  %isnull = icmp eq ptr %20, null
+  %17 = load ptr, ptr @_ZL7g_state, align 8
+  %18 = load i32, ptr %level.addr, align 4
+  %19 = load ptr, ptr %buffer2, align 8
+  %20 = getelementptr inbounds %struct.llama_state, ptr @_ZL7g_state, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  call void %17(i32 noundef %18, ptr noundef %19, ptr noundef %21)
+  %22 = load ptr, ptr %buffer2, align 8
+  %isnull = icmp eq ptr %22, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.else
-  call void @_ZdaPv(ptr noundef %20) #25
+  call void @_ZdaPv(ptr noundef %22) #25
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.else
@@ -171763,7 +171761,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
 
 if.end:                                           ; preds = %delete.end, %if.then
   %arraydecay7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args_copy, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay7)
+  call void @llvm.va_end.p0(ptr %arraydecay7)
   ret void
 }
 
@@ -194529,7 +194527,7 @@ if.end7:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #22
+declare i1 @llvm.is.constant.i64(i64) #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
@@ -195035,6 +195033,18 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #21
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #22
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #22
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #22
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -195047,17 +195057,17 @@ attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind memory(none) }
-attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #16 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #18 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #19 = { nocallback nofree nosync nounwind willreturn }
-attributes #20 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #21 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #22 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #15 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #17 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #18 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #19 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #20 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #21 = { nounwind memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn }
 attributes #23 = { noreturn nounwind }
 attributes #24 = { builtin allocsize(0) }
 attributes #25 = { builtin nounwind }

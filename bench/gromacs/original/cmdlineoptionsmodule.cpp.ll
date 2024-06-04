@@ -551,17 +551,18 @@ define internal void @_ZN3gmx12_GLOBAL__N_124CommandLineOptionsModuleC2EPKcS3_St
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN3gmx18ICommandLineModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 3
-  call void @_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  %15 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 4
-  call void @_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %3) #13
+  %10 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 3
+  call void @_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
+  %16 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 4
+  call void @_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
 
@@ -738,7 +739,8 @@ define linkonce_odr void @_ZN3gmx18ICommandLineModuleC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx18ICommandLineModuleE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx18ICommandLineModuleE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -760,11 +762,12 @@ define internal void @_ZN3gmx12_GLOBAL__N_124CommandLineOptionsModuleD2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %3, i32 0, i32 4
-  call void @_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
-  %5 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %3, i32 0, i32 3
-  call void @_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %3, i32 0, i32 4
+  call void @_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  %6 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %3, i32 0, i32 3
+  call void @_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   call void @_ZN3gmx18ICommandLineModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -1635,14 +1638,15 @@ define internal void @_ZN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsC2E
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3gmx33ICommandLineOptionsModuleSettingsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModuleSettings", ptr %5, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
-  %7 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModuleSettings", ptr %5, i32 0, i32 2
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
-  %8 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModuleSettings", ptr %5, i32 0, i32 3
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModuleSettings", ptr %5, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
+  %8 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModuleSettings", ptr %5, i32 0, i32 2
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
+  %9 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModuleSettings", ptr %5, i32 0, i32 3
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
   ret void
 }
 
@@ -1664,11 +1668,12 @@ define internal void @_ZN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsD2E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModuleSettings", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
-  %5 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModuleSettings", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_132CommandLineOptionsModuleSettingsE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModuleSettings", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
+  %6 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModuleSettings", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   call void @_ZN3gmx33ICommandLineOptionsModuleSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -1687,7 +1692,8 @@ define linkonce_odr void @_ZN3gmx33ICommandLineOptionsModuleSettingsC2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3gmx33ICommandLineOptionsModuleSettingsE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN3gmx33ICommandLineOptionsModuleSettingsE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3894,17 +3900,18 @@ define internal void @_ZN3gmx12_GLOBAL__N_124CommandLineOptionsModuleC2EPKcS3_St
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN3gmx18ICommandLineModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 3
-  call void @_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  %15 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 4
-  call void @_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #13
+  %10 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_124CommandLineOptionsModuleE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 3
+  call void @_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %3) #13
+  %16 = getelementptr inbounds %"class.gmx::(anonymous namespace)::CommandLineOptionsModule", ptr %9, i32 0, i32 4
+  call void @_ZNSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #13
   ret void
 }
 

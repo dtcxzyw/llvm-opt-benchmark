@@ -88,74 +88,77 @@ define internal i64 @kdf_pbkdf2_hmac(i32 noundef %0, ptr noundef %1, i64 noundef
   store i64 %2, ptr %6, align 8
   %15 = load i64, ptr @kdf_pbkdf2_hmac.kwargs_ids, align 16
   %16 = icmp ne i64 %15, 0
-  br i1 %16, label %22, label %17
+  br i1 %16, label %25, label %17
 
 17:                                               ; preds = %3
   %18 = call i64 @rb_intern_const(ptr noundef @.str.5) #10
   store i64 %18, ptr @kdf_pbkdf2_hmac.kwargs_ids, align 16
   %19 = call i64 @rb_intern_const(ptr noundef @.str.6) #10
-  store i64 %19, ptr getelementptr inbounds ([4 x i64], ptr @kdf_pbkdf2_hmac.kwargs_ids, i64 0, i64 1), align 8
-  %20 = call i64 @rb_intern_const(ptr noundef @.str.7) #10
-  store i64 %20, ptr getelementptr inbounds ([4 x i64], ptr @kdf_pbkdf2_hmac.kwargs_ids, i64 0, i64 2), align 16
-  %21 = call i64 @rb_intern_const(ptr noundef @.str.8) #10
-  store i64 %21, ptr getelementptr inbounds ([4 x i64], ptr @kdf_pbkdf2_hmac.kwargs_ids, i64 0, i64 3), align 8
-  br label %22
+  %20 = getelementptr inbounds [4 x i64], ptr @kdf_pbkdf2_hmac.kwargs_ids, i64 0, i64 1
+  store i64 %19, ptr %20, align 8
+  %21 = call i64 @rb_intern_const(ptr noundef @.str.7) #10
+  %22 = getelementptr inbounds [4 x i64], ptr @kdf_pbkdf2_hmac.kwargs_ids, i64 0, i64 2
+  store i64 %21, ptr %22, align 16
+  %23 = call i64 @rb_intern_const(ptr noundef @.str.8) #10
+  %24 = getelementptr inbounds [4 x i64], ptr @kdf_pbkdf2_hmac.kwargs_ids, i64 0, i64 3
+  store i64 %23, ptr %24, align 8
+  br label %25
 
-22:                                               ; preds = %17, %3
-  %23 = load i32, ptr %4, align 4
-  %24 = load ptr, ptr %5, align 8
-  %25 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %23, ptr noundef %24, ptr noundef @.str.9, ptr noundef %7, ptr noundef %9)
-  %26 = load i64, ptr %9, align 8
-  %27 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 0
-  %28 = call i32 @rb_get_kwargs(i64 noundef %26, ptr noundef @kdf_pbkdf2_hmac.kwargs_ids, i32 noundef 4, i32 noundef 0, ptr noundef %27)
-  %29 = call i64 @rb_string_value(ptr noundef %7)
+25:                                               ; preds = %17, %3
+  %26 = load i32, ptr %4, align 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %26, ptr noundef %27, ptr noundef @.str.9, ptr noundef %7, ptr noundef %9)
+  %29 = load i64, ptr %9, align 8
   %30 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 0
-  %31 = call i64 @rb_string_value(ptr noundef %30)
-  store i64 %31, ptr %8, align 8
-  %32 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 1
-  %33 = load i64, ptr %32, align 8
-  %34 = call i32 @rb_num2int_inline(i64 noundef %33)
-  store i32 %34, ptr %12, align 4
-  %35 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 2
-  %36 = load i64, ptr %35, align 16
+  %31 = call i32 @rb_get_kwargs(i64 noundef %29, ptr noundef @kdf_pbkdf2_hmac.kwargs_ids, i32 noundef 4, i32 noundef 0, ptr noundef %30)
+  %32 = call i64 @rb_string_value(ptr noundef %7)
+  %33 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 0
+  %34 = call i64 @rb_string_value(ptr noundef %33)
+  store i64 %34, ptr %8, align 8
+  %35 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 1
+  %36 = load i64, ptr %35, align 8
   %37 = call i32 @rb_num2int_inline(i64 noundef %36)
-  store i32 %37, ptr %13, align 4
-  %38 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 3
-  %39 = load i64, ptr %38, align 8
-  %40 = call ptr @ossl_evp_get_digestbyname(i64 noundef %39)
-  store ptr %40, ptr %14, align 8
-  %41 = load i32, ptr %13, align 4
-  %42 = call i1 @llvm.is.constant.i32(i32 %41)
-  %43 = select i1 %42, ptr @rb_str_new_static, ptr @rb_str_new
+  store i32 %37, ptr %12, align 4
+  %38 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 2
+  %39 = load i64, ptr %38, align 16
+  %40 = call i32 @rb_num2int_inline(i64 noundef %39)
+  store i32 %40, ptr %13, align 4
+  %41 = getelementptr inbounds [4 x i64], ptr %10, i64 0, i64 3
+  %42 = load i64, ptr %41, align 8
+  %43 = call ptr @ossl_evp_get_digestbyname(i64 noundef %42)
+  store ptr %43, ptr %14, align 8
   %44 = load i32, ptr %13, align 4
-  %45 = sext i32 %44 to i64
-  %46 = call i64 %43(ptr noundef null, i64 noundef %45)
-  store i64 %46, ptr %11, align 8
-  %47 = load i64, ptr %7, align 8
-  %48 = call ptr @RSTRING_PTR(i64 noundef %47)
-  %49 = load i64, ptr %7, align 8
-  %50 = call i32 @RSTRING_LENINT(i64 noundef %49)
-  %51 = load i64, ptr %8, align 8
-  %52 = call ptr @RSTRING_PTR(i64 noundef %51)
-  %53 = load i64, ptr %8, align 8
-  %54 = call i32 @RSTRING_LENINT(i64 noundef %53)
-  %55 = load i32, ptr %12, align 4
-  %56 = load ptr, ptr %14, align 8
-  %57 = load i32, ptr %13, align 4
-  %58 = load i64, ptr %11, align 8
-  %59 = call ptr @RSTRING_PTR(i64 noundef %58)
-  %60 = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef %48, i32 noundef %50, ptr noundef %52, i32 noundef %54, i32 noundef %55, ptr noundef %56, i32 noundef %57, ptr noundef %59)
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %64, label %62
+  %45 = call i1 @llvm.is.constant.i32(i32 %44)
+  %46 = select i1 %45, ptr @rb_str_new_static, ptr @rb_str_new
+  %47 = load i32, ptr %13, align 4
+  %48 = sext i32 %47 to i64
+  %49 = call i64 %46(ptr noundef null, i64 noundef %48)
+  store i64 %49, ptr %11, align 8
+  %50 = load i64, ptr %7, align 8
+  %51 = call ptr @RSTRING_PTR(i64 noundef %50)
+  %52 = load i64, ptr %7, align 8
+  %53 = call i32 @RSTRING_LENINT(i64 noundef %52)
+  %54 = load i64, ptr %8, align 8
+  %55 = call ptr @RSTRING_PTR(i64 noundef %54)
+  %56 = load i64, ptr %8, align 8
+  %57 = call i32 @RSTRING_LENINT(i64 noundef %56)
+  %58 = load i32, ptr %12, align 4
+  %59 = load ptr, ptr %14, align 8
+  %60 = load i32, ptr %13, align 4
+  %61 = load i64, ptr %11, align 8
+  %62 = call ptr @RSTRING_PTR(i64 noundef %61)
+  %63 = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef %51, i32 noundef %53, ptr noundef %55, i32 noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, ptr noundef %62)
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %67, label %65
 
-62:                                               ; preds = %22
-  %63 = load i64, ptr @eKDF, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %63, ptr noundef @.str.10) #11
+65:                                               ; preds = %25
+  %66 = load i64, ptr @eKDF, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %66, ptr noundef @.str.10) #11
   unreachable
 
-64:                                               ; preds = %22
-  %65 = load i64, ptr %11, align 8
-  ret i64 %65
+67:                                               ; preds = %25
+  %68 = load i64, ptr %11, align 8
+  ret i64 %68
 }
 
 ; Function Attrs: nounwind uwtable
@@ -178,82 +181,86 @@ define internal i64 @kdf_scrypt(i32 noundef %0, ptr noundef %1, i64 noundef %2) 
   store i64 %2, ptr %6, align 8
   %17 = load i64, ptr @kdf_scrypt.kwargs_ids, align 16
   %18 = icmp ne i64 %17, 0
-  br i1 %18, label %25, label %19
+  br i1 %18, label %29, label %19
 
 19:                                               ; preds = %3
   %20 = call i64 @rb_intern_const(ptr noundef @.str.5) #10
   store i64 %20, ptr @kdf_scrypt.kwargs_ids, align 16
   %21 = call i64 @rb_intern_const(ptr noundef @.str.11) #10
-  store i64 %21, ptr getelementptr inbounds ([5 x i64], ptr @kdf_scrypt.kwargs_ids, i64 0, i64 1), align 8
-  %22 = call i64 @rb_intern_const(ptr noundef @.str.12) #10
-  store i64 %22, ptr getelementptr inbounds ([5 x i64], ptr @kdf_scrypt.kwargs_ids, i64 0, i64 2), align 16
-  %23 = call i64 @rb_intern_const(ptr noundef @.str.13) #10
-  store i64 %23, ptr getelementptr inbounds ([5 x i64], ptr @kdf_scrypt.kwargs_ids, i64 0, i64 3), align 8
-  %24 = call i64 @rb_intern_const(ptr noundef @.str.7) #10
-  store i64 %24, ptr getelementptr inbounds ([5 x i64], ptr @kdf_scrypt.kwargs_ids, i64 0, i64 4), align 16
-  br label %25
+  %22 = getelementptr inbounds [5 x i64], ptr @kdf_scrypt.kwargs_ids, i64 0, i64 1
+  store i64 %21, ptr %22, align 8
+  %23 = call i64 @rb_intern_const(ptr noundef @.str.12) #10
+  %24 = getelementptr inbounds [5 x i64], ptr @kdf_scrypt.kwargs_ids, i64 0, i64 2
+  store i64 %23, ptr %24, align 16
+  %25 = call i64 @rb_intern_const(ptr noundef @.str.13) #10
+  %26 = getelementptr inbounds [5 x i64], ptr @kdf_scrypt.kwargs_ids, i64 0, i64 3
+  store i64 %25, ptr %26, align 8
+  %27 = call i64 @rb_intern_const(ptr noundef @.str.7) #10
+  %28 = getelementptr inbounds [5 x i64], ptr @kdf_scrypt.kwargs_ids, i64 0, i64 4
+  store i64 %27, ptr %28, align 16
+  br label %29
 
-25:                                               ; preds = %19, %3
-  %26 = load i32, ptr %4, align 4
-  %27 = load ptr, ptr %5, align 8
-  %28 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %26, ptr noundef %27, ptr noundef @.str.9, ptr noundef %7, ptr noundef %9)
-  %29 = load i64, ptr %9, align 8
-  %30 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 0
-  %31 = call i32 @rb_get_kwargs(i64 noundef %29, ptr noundef @kdf_scrypt.kwargs_ids, i32 noundef 5, i32 noundef 0, ptr noundef %30)
-  %32 = call i64 @rb_string_value(ptr noundef %7)
-  %33 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 0
-  %34 = call i64 @rb_string_value(ptr noundef %33)
-  store i64 %34, ptr %8, align 8
-  %35 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 1
-  %36 = load i64, ptr %35, align 8
-  %37 = call i64 @rb_num2ulong_inline(i64 noundef %36)
-  store i64 %37, ptr %13, align 8
-  %38 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 2
-  %39 = load i64, ptr %38, align 16
-  %40 = call i64 @rb_num2ulong_inline(i64 noundef %39)
-  store i64 %40, ptr %14, align 8
-  %41 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 3
-  %42 = load i64, ptr %41, align 8
-  %43 = call i64 @rb_num2ulong_inline(i64 noundef %42)
-  store i64 %43, ptr %15, align 8
-  %44 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 4
-  %45 = load i64, ptr %44, align 16
-  %46 = call i64 @rb_num2long_inline(i64 noundef %45)
-  store i64 %46, ptr %12, align 8
+29:                                               ; preds = %19, %3
+  %30 = load i32, ptr %4, align 4
+  %31 = load ptr, ptr %5, align 8
+  %32 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %30, ptr noundef %31, ptr noundef @.str.9, ptr noundef %7, ptr noundef %9)
+  %33 = load i64, ptr %9, align 8
+  %34 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 0
+  %35 = call i32 @rb_get_kwargs(i64 noundef %33, ptr noundef @kdf_scrypt.kwargs_ids, i32 noundef 5, i32 noundef 0, ptr noundef %34)
+  %36 = call i64 @rb_string_value(ptr noundef %7)
+  %37 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 0
+  %38 = call i64 @rb_string_value(ptr noundef %37)
+  store i64 %38, ptr %8, align 8
+  %39 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 1
+  %40 = load i64, ptr %39, align 8
+  %41 = call i64 @rb_num2ulong_inline(i64 noundef %40)
+  store i64 %41, ptr %13, align 8
+  %42 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 2
+  %43 = load i64, ptr %42, align 16
+  %44 = call i64 @rb_num2ulong_inline(i64 noundef %43)
+  store i64 %44, ptr %14, align 8
+  %45 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 3
+  %46 = load i64, ptr %45, align 8
+  %47 = call i64 @rb_num2ulong_inline(i64 noundef %46)
+  store i64 %47, ptr %15, align 8
+  %48 = getelementptr inbounds [5 x i64], ptr %10, i64 0, i64 4
+  %49 = load i64, ptr %48, align 16
+  %50 = call i64 @rb_num2long_inline(i64 noundef %49)
+  store i64 %50, ptr %12, align 8
   store i64 -1, ptr %16, align 8
-  %47 = load i64, ptr %12, align 8
-  %48 = call i1 @llvm.is.constant.i64(i64 %47)
-  %49 = select i1 %48, ptr @rb_str_new_static, ptr @rb_str_new
-  %50 = load i64, ptr %12, align 8
-  %51 = call i64 %49(ptr noundef null, i64 noundef %50)
-  store i64 %51, ptr %11, align 8
-  %52 = load i64, ptr %7, align 8
-  %53 = call ptr @RSTRING_PTR(i64 noundef %52)
-  %54 = load i64, ptr %7, align 8
-  %55 = call i64 @RSTRING_LEN(i64 noundef %54) #10
-  %56 = load i64, ptr %8, align 8
+  %51 = load i64, ptr %12, align 8
+  %52 = call i1 @llvm.is.constant.i64(i64 %51)
+  %53 = select i1 %52, ptr @rb_str_new_static, ptr @rb_str_new
+  %54 = load i64, ptr %12, align 8
+  %55 = call i64 %53(ptr noundef null, i64 noundef %54)
+  store i64 %55, ptr %11, align 8
+  %56 = load i64, ptr %7, align 8
   %57 = call ptr @RSTRING_PTR(i64 noundef %56)
-  %58 = load i64, ptr %8, align 8
+  %58 = load i64, ptr %7, align 8
   %59 = call i64 @RSTRING_LEN(i64 noundef %58) #10
-  %60 = load i64, ptr %13, align 8
-  %61 = load i64, ptr %14, align 8
-  %62 = load i64, ptr %15, align 8
-  %63 = load i64, ptr %16, align 8
-  %64 = load i64, ptr %11, align 8
-  %65 = call ptr @RSTRING_PTR(i64 noundef %64)
-  %66 = load i64, ptr %12, align 8
-  %67 = call i32 @EVP_PBE_scrypt(ptr noundef %53, i64 noundef %55, ptr noundef %57, i64 noundef %59, i64 noundef %60, i64 noundef %61, i64 noundef %62, i64 noundef %63, ptr noundef %65, i64 noundef %66)
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %71, label %69
+  %60 = load i64, ptr %8, align 8
+  %61 = call ptr @RSTRING_PTR(i64 noundef %60)
+  %62 = load i64, ptr %8, align 8
+  %63 = call i64 @RSTRING_LEN(i64 noundef %62) #10
+  %64 = load i64, ptr %13, align 8
+  %65 = load i64, ptr %14, align 8
+  %66 = load i64, ptr %15, align 8
+  %67 = load i64, ptr %16, align 8
+  %68 = load i64, ptr %11, align 8
+  %69 = call ptr @RSTRING_PTR(i64 noundef %68)
+  %70 = load i64, ptr %12, align 8
+  %71 = call i32 @EVP_PBE_scrypt(ptr noundef %57, i64 noundef %59, ptr noundef %61, i64 noundef %63, i64 noundef %64, i64 noundef %65, i64 noundef %66, i64 noundef %67, ptr noundef %69, i64 noundef %70)
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %75, label %73
 
-69:                                               ; preds = %25
-  %70 = load i64, ptr @eKDF, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %70, ptr noundef @.str.14) #11
+73:                                               ; preds = %29
+  %74 = load i64, ptr @eKDF, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %74, ptr noundef @.str.14) #11
   unreachable
 
-71:                                               ; preds = %25
-  %72 = load i64, ptr %11, align 8
-  ret i64 %72
+75:                                               ; preds = %29
+  %76 = load i64, ptr %11, align 8
+  ret i64 %76
 }
 
 ; Function Attrs: nounwind uwtable
@@ -278,175 +285,178 @@ define internal i64 @kdf_hkdf(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0
   store i64 %2, ptr %6, align 8
   %19 = load i64, ptr @kdf_hkdf.kwargs_ids, align 16
   %20 = icmp ne i64 %19, 0
-  br i1 %20, label %26, label %21
+  br i1 %20, label %29, label %21
 
 21:                                               ; preds = %3
   %22 = call i64 @rb_intern_const(ptr noundef @.str.5) #10
   store i64 %22, ptr @kdf_hkdf.kwargs_ids, align 16
   %23 = call i64 @rb_intern_const(ptr noundef @.str.15) #10
-  store i64 %23, ptr getelementptr inbounds ([4 x i64], ptr @kdf_hkdf.kwargs_ids, i64 0, i64 1), align 8
-  %24 = call i64 @rb_intern_const(ptr noundef @.str.7) #10
-  store i64 %24, ptr getelementptr inbounds ([4 x i64], ptr @kdf_hkdf.kwargs_ids, i64 0, i64 2), align 16
-  %25 = call i64 @rb_intern_const(ptr noundef @.str.8) #10
-  store i64 %25, ptr getelementptr inbounds ([4 x i64], ptr @kdf_hkdf.kwargs_ids, i64 0, i64 3), align 8
-  br label %26
+  %24 = getelementptr inbounds [4 x i64], ptr @kdf_hkdf.kwargs_ids, i64 0, i64 1
+  store i64 %23, ptr %24, align 8
+  %25 = call i64 @rb_intern_const(ptr noundef @.str.7) #10
+  %26 = getelementptr inbounds [4 x i64], ptr @kdf_hkdf.kwargs_ids, i64 0, i64 2
+  store i64 %25, ptr %26, align 16
+  %27 = call i64 @rb_intern_const(ptr noundef @.str.8) #10
+  %28 = getelementptr inbounds [4 x i64], ptr @kdf_hkdf.kwargs_ids, i64 0, i64 3
+  store i64 %27, ptr %28, align 8
+  br label %29
 
-26:                                               ; preds = %21, %3
-  %27 = load i32, ptr %4, align 4
-  %28 = load ptr, ptr %5, align 8
-  %29 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %27, ptr noundef %28, ptr noundef @.str.9, ptr noundef %7, ptr noundef %10)
-  %30 = load i64, ptr %10, align 8
-  %31 = getelementptr inbounds [4 x i64], ptr %11, i64 0, i64 0
-  %32 = call i32 @rb_get_kwargs(i64 noundef %30, ptr noundef @kdf_hkdf.kwargs_ids, i32 noundef 4, i32 noundef 0, ptr noundef %31)
-  %33 = call i64 @rb_string_value(ptr noundef %7)
-  %34 = load i64, ptr %7, align 8
-  %35 = call i32 @RSTRING_LENINT(i64 noundef %34)
-  store i32 %35, ptr %14, align 4
-  %36 = getelementptr inbounds [4 x i64], ptr %11, i64 0, i64 0
-  %37 = call i64 @rb_string_value(ptr noundef %36)
-  store i64 %37, ptr %8, align 8
-  %38 = load i64, ptr %8, align 8
-  %39 = call i32 @RSTRING_LENINT(i64 noundef %38)
-  store i32 %39, ptr %13, align 4
-  %40 = getelementptr inbounds [4 x i64], ptr %11, i64 0, i64 1
-  %41 = call i64 @rb_string_value(ptr noundef %40)
-  store i64 %41, ptr %9, align 8
-  %42 = load i64, ptr %9, align 8
-  %43 = call i32 @RSTRING_LENINT(i64 noundef %42)
-  store i32 %43, ptr %15, align 4
-  %44 = getelementptr inbounds [4 x i64], ptr %11, i64 0, i64 2
-  %45 = load i64, ptr %44, align 16
-  %46 = call i64 @rb_num2long_inline(i64 noundef %45)
-  store i64 %46, ptr %16, align 8
-  %47 = load i64, ptr %16, align 8
-  %48 = icmp ugt i64 %47, 9223372036854775807
-  br i1 %48, label %49, label %51
+29:                                               ; preds = %21, %3
+  %30 = load i32, ptr %4, align 4
+  %31 = load ptr, ptr %5, align 8
+  %32 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %30, ptr noundef %31, ptr noundef @.str.9, ptr noundef %7, ptr noundef %10)
+  %33 = load i64, ptr %10, align 8
+  %34 = getelementptr inbounds [4 x i64], ptr %11, i64 0, i64 0
+  %35 = call i32 @rb_get_kwargs(i64 noundef %33, ptr noundef @kdf_hkdf.kwargs_ids, i32 noundef 4, i32 noundef 0, ptr noundef %34)
+  %36 = call i64 @rb_string_value(ptr noundef %7)
+  %37 = load i64, ptr %7, align 8
+  %38 = call i32 @RSTRING_LENINT(i64 noundef %37)
+  store i32 %38, ptr %14, align 4
+  %39 = getelementptr inbounds [4 x i64], ptr %11, i64 0, i64 0
+  %40 = call i64 @rb_string_value(ptr noundef %39)
+  store i64 %40, ptr %8, align 8
+  %41 = load i64, ptr %8, align 8
+  %42 = call i32 @RSTRING_LENINT(i64 noundef %41)
+  store i32 %42, ptr %13, align 4
+  %43 = getelementptr inbounds [4 x i64], ptr %11, i64 0, i64 1
+  %44 = call i64 @rb_string_value(ptr noundef %43)
+  store i64 %44, ptr %9, align 8
+  %45 = load i64, ptr %9, align 8
+  %46 = call i32 @RSTRING_LENINT(i64 noundef %45)
+  store i32 %46, ptr %15, align 4
+  %47 = getelementptr inbounds [4 x i64], ptr %11, i64 0, i64 2
+  %48 = load i64, ptr %47, align 16
+  %49 = call i64 @rb_num2long_inline(i64 noundef %48)
+  store i64 %49, ptr %16, align 8
+  %50 = load i64, ptr %16, align 8
+  %51 = icmp ugt i64 %50, 9223372036854775807
+  br i1 %51, label %52, label %54
 
-49:                                               ; preds = %26
-  %50 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %50, ptr noundef @.str.16) #11
+52:                                               ; preds = %29
+  %53 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %53, ptr noundef @.str.16) #11
   unreachable
 
-51:                                               ; preds = %26
-  %52 = getelementptr inbounds [4 x i64], ptr %11, i64 0, i64 3
-  %53 = load i64, ptr %52, align 8
-  %54 = call ptr @ossl_evp_get_digestbyname(i64 noundef %53)
-  store ptr %54, ptr %17, align 8
-  %55 = load i64, ptr %16, align 8
-  %56 = call i1 @llvm.is.constant.i64(i64 %55)
-  %57 = select i1 %56, ptr @rb_str_new_static, ptr @rb_str_new
+54:                                               ; preds = %29
+  %55 = getelementptr inbounds [4 x i64], ptr %11, i64 0, i64 3
+  %56 = load i64, ptr %55, align 8
+  %57 = call ptr @ossl_evp_get_digestbyname(i64 noundef %56)
+  store ptr %57, ptr %17, align 8
   %58 = load i64, ptr %16, align 8
-  %59 = call i64 %57(ptr noundef null, i64 noundef %58)
-  store i64 %59, ptr %12, align 8
-  %60 = call ptr @EVP_PKEY_CTX_new_id(i32 noundef 1036, ptr noundef null)
-  store ptr %60, ptr %18, align 8
-  %61 = load ptr, ptr %18, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %65, label %63
+  %59 = call i1 @llvm.is.constant.i64(i64 %58)
+  %60 = select i1 %59, ptr @rb_str_new_static, ptr @rb_str_new
+  %61 = load i64, ptr %16, align 8
+  %62 = call i64 %60(ptr noundef null, i64 noundef %61)
+  store i64 %62, ptr %12, align 8
+  %63 = call ptr @EVP_PKEY_CTX_new_id(i32 noundef 1036, ptr noundef null)
+  store ptr %63, ptr %18, align 8
+  %64 = load ptr, ptr %18, align 8
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %68, label %66
 
-63:                                               ; preds = %51
-  %64 = load i64, ptr @eKDF, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %64, ptr noundef @.str.17) #11
+66:                                               ; preds = %54
+  %67 = load i64, ptr @eKDF, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %67, ptr noundef @.str.17) #11
   unreachable
 
-65:                                               ; preds = %51
-  %66 = load ptr, ptr %18, align 8
-  %67 = call i32 @EVP_PKEY_derive_init(ptr noundef %66)
-  %68 = icmp sle i32 %67, 0
-  br i1 %68, label %69, label %72
+68:                                               ; preds = %54
+  %69 = load ptr, ptr %18, align 8
+  %70 = call i32 @EVP_PKEY_derive_init(ptr noundef %69)
+  %71 = icmp sle i32 %70, 0
+  br i1 %71, label %72, label %75
 
-69:                                               ; preds = %65
-  %70 = load ptr, ptr %18, align 8
-  call void @EVP_PKEY_CTX_free(ptr noundef %70)
-  %71 = load i64, ptr @eKDF, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %71, ptr noundef @.str.18) #11
-  unreachable
-
-72:                                               ; preds = %65
+72:                                               ; preds = %68
   %73 = load ptr, ptr %18, align 8
-  %74 = load ptr, ptr %17, align 8
-  %75 = call i32 @EVP_PKEY_CTX_set_hkdf_md(ptr noundef %73, ptr noundef %74)
-  %76 = icmp sle i32 %75, 0
-  br i1 %76, label %77, label %80
-
-77:                                               ; preds = %72
-  %78 = load ptr, ptr %18, align 8
-  call void @EVP_PKEY_CTX_free(ptr noundef %78)
-  %79 = load i64, ptr @eKDF, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %79, ptr noundef @.str.19) #11
+  call void @EVP_PKEY_CTX_free(ptr noundef %73)
+  %74 = load i64, ptr @eKDF, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %74, ptr noundef @.str.18) #11
   unreachable
 
-80:                                               ; preds = %72
+75:                                               ; preds = %68
+  %76 = load ptr, ptr %18, align 8
+  %77 = load ptr, ptr %17, align 8
+  %78 = call i32 @EVP_PKEY_CTX_set_hkdf_md(ptr noundef %76, ptr noundef %77)
+  %79 = icmp sle i32 %78, 0
+  br i1 %79, label %80, label %83
+
+80:                                               ; preds = %75
   %81 = load ptr, ptr %18, align 8
-  %82 = load i64, ptr %8, align 8
-  %83 = call ptr @RSTRING_PTR(i64 noundef %82)
-  %84 = load i32, ptr %13, align 4
-  %85 = call i32 @EVP_PKEY_CTX_set1_hkdf_salt(ptr noundef %81, ptr noundef %83, i32 noundef %84)
-  %86 = icmp sle i32 %85, 0
-  br i1 %86, label %87, label %90
-
-87:                                               ; preds = %80
-  %88 = load ptr, ptr %18, align 8
-  call void @EVP_PKEY_CTX_free(ptr noundef %88)
-  %89 = load i64, ptr @eKDF, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %89, ptr noundef @.str.20) #11
+  call void @EVP_PKEY_CTX_free(ptr noundef %81)
+  %82 = load i64, ptr @eKDF, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %82, ptr noundef @.str.19) #11
   unreachable
 
-90:                                               ; preds = %80
+83:                                               ; preds = %75
+  %84 = load ptr, ptr %18, align 8
+  %85 = load i64, ptr %8, align 8
+  %86 = call ptr @RSTRING_PTR(i64 noundef %85)
+  %87 = load i32, ptr %13, align 4
+  %88 = call i32 @EVP_PKEY_CTX_set1_hkdf_salt(ptr noundef %84, ptr noundef %86, i32 noundef %87)
+  %89 = icmp sle i32 %88, 0
+  br i1 %89, label %90, label %93
+
+90:                                               ; preds = %83
   %91 = load ptr, ptr %18, align 8
-  %92 = load i64, ptr %7, align 8
-  %93 = call ptr @RSTRING_PTR(i64 noundef %92)
-  %94 = load i32, ptr %14, align 4
-  %95 = call i32 @EVP_PKEY_CTX_set1_hkdf_key(ptr noundef %91, ptr noundef %93, i32 noundef %94)
-  %96 = icmp sle i32 %95, 0
-  br i1 %96, label %97, label %100
-
-97:                                               ; preds = %90
-  %98 = load ptr, ptr %18, align 8
-  call void @EVP_PKEY_CTX_free(ptr noundef %98)
-  %99 = load i64, ptr @eKDF, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %99, ptr noundef @.str.21) #11
+  call void @EVP_PKEY_CTX_free(ptr noundef %91)
+  %92 = load i64, ptr @eKDF, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %92, ptr noundef @.str.20) #11
   unreachable
 
-100:                                              ; preds = %90
+93:                                               ; preds = %83
+  %94 = load ptr, ptr %18, align 8
+  %95 = load i64, ptr %7, align 8
+  %96 = call ptr @RSTRING_PTR(i64 noundef %95)
+  %97 = load i32, ptr %14, align 4
+  %98 = call i32 @EVP_PKEY_CTX_set1_hkdf_key(ptr noundef %94, ptr noundef %96, i32 noundef %97)
+  %99 = icmp sle i32 %98, 0
+  br i1 %99, label %100, label %103
+
+100:                                              ; preds = %93
   %101 = load ptr, ptr %18, align 8
-  %102 = load i64, ptr %9, align 8
-  %103 = call ptr @RSTRING_PTR(i64 noundef %102)
-  %104 = load i32, ptr %15, align 4
-  %105 = call i32 @EVP_PKEY_CTX_add1_hkdf_info(ptr noundef %101, ptr noundef %103, i32 noundef %104)
-  %106 = icmp sle i32 %105, 0
-  br i1 %106, label %107, label %110
-
-107:                                              ; preds = %100
-  %108 = load ptr, ptr %18, align 8
-  call void @EVP_PKEY_CTX_free(ptr noundef %108)
-  %109 = load i64, ptr @eKDF, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %109, ptr noundef @.str.22) #11
+  call void @EVP_PKEY_CTX_free(ptr noundef %101)
+  %102 = load i64, ptr @eKDF, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %102, ptr noundef @.str.21) #11
   unreachable
 
-110:                                              ; preds = %100
+103:                                              ; preds = %93
+  %104 = load ptr, ptr %18, align 8
+  %105 = load i64, ptr %9, align 8
+  %106 = call ptr @RSTRING_PTR(i64 noundef %105)
+  %107 = load i32, ptr %15, align 4
+  %108 = call i32 @EVP_PKEY_CTX_add1_hkdf_info(ptr noundef %104, ptr noundef %106, i32 noundef %107)
+  %109 = icmp sle i32 %108, 0
+  br i1 %109, label %110, label %113
+
+110:                                              ; preds = %103
   %111 = load ptr, ptr %18, align 8
-  %112 = load i64, ptr %12, align 8
-  %113 = call ptr @RSTRING_PTR(i64 noundef %112)
-  %114 = call i32 @EVP_PKEY_derive(ptr noundef %111, ptr noundef %113, ptr noundef %16)
-  %115 = icmp sle i32 %114, 0
-  br i1 %115, label %116, label %119
-
-116:                                              ; preds = %110
-  %117 = load ptr, ptr %18, align 8
-  call void @EVP_PKEY_CTX_free(ptr noundef %117)
-  %118 = load i64, ptr @eKDF, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %118, ptr noundef @.str.23) #11
+  call void @EVP_PKEY_CTX_free(ptr noundef %111)
+  %112 = load i64, ptr @eKDF, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %112, ptr noundef @.str.22) #11
   unreachable
 
-119:                                              ; preds = %110
-  %120 = load i64, ptr %12, align 8
-  %121 = load i64, ptr %16, align 8
-  call void @rb_str_set_len(i64 noundef %120, i64 noundef %121)
-  %122 = load ptr, ptr %18, align 8
-  call void @EVP_PKEY_CTX_free(ptr noundef %122)
+113:                                              ; preds = %103
+  %114 = load ptr, ptr %18, align 8
+  %115 = load i64, ptr %12, align 8
+  %116 = call ptr @RSTRING_PTR(i64 noundef %115)
+  %117 = call i32 @EVP_PKEY_derive(ptr noundef %114, ptr noundef %116, ptr noundef %16)
+  %118 = icmp sle i32 %117, 0
+  br i1 %118, label %119, label %122
+
+119:                                              ; preds = %113
+  %120 = load ptr, ptr %18, align 8
+  call void @EVP_PKEY_CTX_free(ptr noundef %120)
+  %121 = load i64, ptr @eKDF, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %121, ptr noundef @.str.23) #11
+  unreachable
+
+122:                                              ; preds = %113
   %123 = load i64, ptr %12, align 8
-  ret i64 %123
+  %124 = load i64, ptr %16, align 8
+  call void @rb_str_set_len(i64 noundef %123, i64 noundef %124)
+  %125 = load ptr, ptr %18, align 8
+  call void @EVP_PKEY_CTX_free(ptr noundef %125)
+  %126 = load i64, ptr %12, align 8
+  ret i64 %126
 }
 
 ; Function Attrs: nounwind willreturn memory(read) uwtable

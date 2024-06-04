@@ -105,7 +105,7 @@ define dso_local void @io_uring_cmd_done(ptr noundef %0, i64 noundef %1, i64 nou
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 1073741824
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %29, label %10
+  br i1 %9, label %31, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 88
@@ -136,74 +136,76 @@ define dso_local void @io_uring_cmd_done(ptr noundef %0, i64 noundef %1, i64 nou
   br label %26
 
 26:                                               ; preds = %24, %18
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %19, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %21, align 8
-  br i1 %15, label %29, label %27
+  %27 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %27, ptr %19, align 8
+  %28 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %28, ptr %21, align 8
+  br i1 %15, label %31, label %29
 
-27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %12, i64 64
-  tail call void @mutex_unlock(ptr noundef %28) #5
-  br label %29
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %12, i64 64
+  tail call void @mutex_unlock(ptr noundef %30) #5
+  br label %31
 
-29:                                               ; preds = %27, %26, %4
-  %30 = icmp slt i64 %1, 0
-  br i1 %30, label %31, label %40
+31:                                               ; preds = %29, %26, %4
+  %32 = icmp slt i64 %1, 0
+  br i1 %32, label %33, label %42
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 68
-  %33 = load i32, ptr %32, align 4
-  %34 = or i32 %33, 256
-  %35 = and i32 %33, 64
-  %36 = icmp eq i32 %35, 0
-  %37 = and i32 %34, -4194369
-  %38 = or disjoint i32 %37, 4194304
-  %39 = select i1 %36, i32 %34, i32 %38
-  store i32 %39, ptr %32, align 4
-  br label %40
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %0, i64 68
+  %35 = load i32, ptr %34, align 4
+  %36 = or i32 %35, 256
+  %37 = and i32 %35, 64
+  %38 = icmp eq i32 %37, 0
+  %39 = and i32 %36, -4194369
+  %40 = or disjoint i32 %39, 4194304
+  %41 = select i1 %38, i32 %36, i32 %40
+  store i32 %41, ptr %34, align 4
+  br label %42
 
-40:                                               ; preds = %31, %29
-  %41 = trunc i64 %1 to i32
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 0, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 88
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %45, align 64
-  %47 = and i32 %46, 2048
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %52, label %49
+42:                                               ; preds = %33, %31
+  %43 = trunc i64 %1 to i32
+  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 %43, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i32, ptr %47, align 64
+  %49 = and i32 %48, 2048
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %54, label %51
 
-49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %0, i64 224
-  store i64 %2, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 232
-  store i64 0, ptr %51, align 8
-  br label %52
+51:                                               ; preds = %42
+  %52 = getelementptr inbounds i8, ptr %0, i64 224
+  store i64 %2, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 232
+  store i64 0, ptr %53, align 8
+  br label %54
 
-52:                                               ; preds = %49, %40
-  %53 = load i32, ptr %45, align 64
-  %54 = and i32 %53, 1
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %58, label %56
+54:                                               ; preds = %51, %42
+  %55 = load i32, ptr %47, align 64
+  %56 = and i32 %55, 1
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %60, label %58
 
-56:                                               ; preds = %52
+58:                                               ; preds = %54
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
-  %57 = getelementptr inbounds i8, ptr %0, i64 65
-  store volatile i8 1, ptr %57, align 1
-  br label %62
+  %59 = getelementptr inbounds i8, ptr %0, i64 65
+  store volatile i8 1, ptr %59, align 1
+  br label %64
 
-58:                                               ; preds = %52
+60:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
-  %59 = and i32 %3, 2
-  %60 = icmp eq i32 %59, 0
-  %61 = zext i1 %60 to i8
-  store i8 %61, ptr %5, align 1
+  %61 = and i32 %3, 2
+  %62 = icmp eq i32 %61, 0
+  %63 = zext i1 %62 to i8
+  store i8 %63, ptr %5, align 1
   call void @io_req_task_complete(ptr noundef %0, ptr noundef nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
-  br label %62
+  br label %64
 
-62:                                               ; preds = %58, %56
+64:                                               ; preds = %60, %58
   ret void
 }
 

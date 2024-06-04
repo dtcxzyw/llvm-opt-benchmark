@@ -6967,62 +6967,63 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 if.then:                                          ; preds = %cond.end
   store ptr @multissl_version.backends, ptr %p, align 8
-  store ptr getelementptr inbounds (i8, ptr @multissl_version.backends, i64 200), ptr %end, align 8
-  %5 = load ptr, ptr %current, align 8
-  store ptr %5, ptr @multissl_version.selected, align 8
+  %5 = getelementptr inbounds i8, ptr @multissl_version.backends, i64 200
+  store ptr %5, ptr %end, align 8
+  %6 = load ptr, ptr %current, align 8
+  store ptr %6, ptr @multissl_version.selected, align 8
   store i8 0, ptr @multissl_version.backends, align 16
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
+  %7 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %7 to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx, align 8
-  %tobool = icmp ne ptr %7, null
+  %8 = load ptr, ptr %arrayidx, align 8
+  %tobool = icmp ne ptr %8, null
   br i1 %tobool, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %8 = load ptr, ptr @multissl_version.selected, align 8
-  %9 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %9 to i64
+  %9 = load ptr, ptr @multissl_version.selected, align 8
+  %10 = load i32, ptr %i, align 4
+  %idxprom2 = sext i32 %10 to i64
   %arrayidx3 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %idxprom2
-  %10 = load ptr, ptr %arrayidx3, align 8
-  %cmp4 = icmp ne ptr %8, %10
+  %11 = load ptr, ptr %arrayidx3, align 8
+  %cmp4 = icmp ne ptr %9, %11
   %frombool = zext i1 %cmp4 to i8
   store i8 %frombool, ptr %paren, align 1
-  %11 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %11 to i64
+  %12 = load i32, ptr %i, align 4
+  %idxprom5 = sext i32 %12 to i64
   %arrayidx6 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %idxprom5
-  %12 = load ptr, ptr %arrayidx6, align 8
-  %version = getelementptr inbounds %struct.Curl_ssl, ptr %12, i32 0, i32 5
-  %13 = load ptr, ptr %version, align 8
+  %13 = load ptr, ptr %arrayidx6, align 8
+  %version = getelementptr inbounds %struct.Curl_ssl, ptr %13, i32 0, i32 5
+  %14 = load ptr, ptr %version, align 8
   %arraydecay = getelementptr inbounds [200 x i8], ptr %vb, i64 0, i64 0
-  %call = call i64 %13(ptr noundef %arraydecay, i64 noundef 200)
+  %call = call i64 %14(ptr noundef %arraydecay, i64 noundef 200)
   %tobool7 = icmp ne i64 %call, 0
   br i1 %tobool7, label %if.then8, label %if.end
 
 if.then8:                                         ; preds = %for.body
-  %14 = load ptr, ptr %p, align 8
-  %15 = load ptr, ptr %end, align 8
-  %16 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %16 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  %15 = load ptr, ptr %p, align 8
+  %16 = load ptr, ptr %end, align 8
   %17 = load ptr, ptr %p, align 8
-  %cmp9 = icmp ne ptr %17, @multissl_version.backends
+  %sub.ptr.lhs.cast = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %17 to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  %18 = load ptr, ptr %p, align 8
+  %cmp9 = icmp ne ptr %18, @multissl_version.backends
   %cond10 = select i1 %cmp9, ptr @.str.16, ptr @.str.17
-  %18 = load i8, ptr %paren, align 1
-  %tobool11 = trunc i8 %18 to i1
+  %19 = load i8, ptr %paren, align 1
+  %tobool11 = trunc i8 %19 to i1
   %cond12 = select i1 %tobool11, ptr @.str.18, ptr @.str.17
   %arraydecay13 = getelementptr inbounds [200 x i8], ptr %vb, i64 0, i64 0
-  %19 = load i8, ptr %paren, align 1
-  %tobool14 = trunc i8 %19 to i1
+  %20 = load i8, ptr %paren, align 1
+  %tobool14 = trunc i8 %20 to i1
   %cond15 = select i1 %tobool14, ptr @.str.19, ptr @.str.17
-  %call16 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %14, i64 noundef %sub.ptr.sub, ptr noundef @.str.15, ptr noundef %cond10, ptr noundef %cond12, ptr noundef %arraydecay13, ptr noundef %cond15)
-  %20 = load ptr, ptr %p, align 8
+  %call16 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %15, i64 noundef %sub.ptr.sub, ptr noundef @.str.15, ptr noundef %cond10, ptr noundef %cond12, ptr noundef %arraydecay13, ptr noundef %cond15)
+  %21 = load ptr, ptr %p, align 8
   %idx.ext = sext i32 %call16 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %20, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %21, i64 %idx.ext
   store ptr %add.ptr, ptr %p, align 8
   br label %if.end
 
@@ -7030,37 +7031,38 @@ if.end:                                           ; preds = %if.then8, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %21 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %21, 1
+  %22 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %22, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !18
 
 for.end:                                          ; preds = %for.cond
-  %22 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast17 = ptrtoint ptr %22 to i64
-  %sub.ptr.sub18 = sub i64 %sub.ptr.lhs.cast17, ptrtoint (ptr @multissl_version.backends to i64)
+  %23 = load ptr, ptr %p, align 8
+  %sub.ptr.lhs.cast17 = ptrtoint ptr %23 to i64
+  %24 = ptrtoint ptr @multissl_version.backends to i64
+  %sub.ptr.sub18 = sub i64 %sub.ptr.lhs.cast17, %24
   store i64 %sub.ptr.sub18, ptr @multissl_version.backends_len, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %for.end, %cond.end
-  %23 = load i64, ptr %size.addr, align 8
-  %tobool20 = icmp ne i64 %23, 0
+  %25 = load i64, ptr %size.addr, align 8
+  %tobool20 = icmp ne i64 %25, 0
   br i1 %tobool20, label %if.then21, label %if.end26
 
 if.then21:                                        ; preds = %if.end19
-  %24 = load i64, ptr @multissl_version.backends_len, align 8
-  %25 = load i64, ptr %size.addr, align 8
-  %cmp22 = icmp ult i64 %24, %25
+  %26 = load i64, ptr @multissl_version.backends_len, align 8
+  %27 = load i64, ptr %size.addr, align 8
+  %cmp22 = icmp ult i64 %26, %27
   br i1 %cmp22, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %if.then21
-  %26 = load ptr, ptr %buffer.addr, align 8
-  %call24 = call ptr @strcpy(ptr noundef %26, ptr noundef @multissl_version.backends) #7
+  %28 = load ptr, ptr %buffer.addr, align 8
+  %call24 = call ptr @strcpy(ptr noundef %28, ptr noundef @multissl_version.backends) #7
   br label %if.end25
 
 if.else:                                          ; preds = %if.then21
-  %27 = load ptr, ptr %buffer.addr, align 8
-  store i8 0, ptr %27, align 1
+  %29 = load ptr, ptr %buffer.addr, align 8
+  store i8 0, ptr %29, align 1
   br label %if.end25
 
 if.end25:                                         ; preds = %if.else, %if.then23

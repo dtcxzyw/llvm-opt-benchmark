@@ -152,7 +152,7 @@ define internal i32 @PGSharedMemoryAttach(i32 noundef %0, ptr noundef %1, ptr no
 
 19:                                               ; preds = %15
   store i32 2, ptr %4, align 4
-  br label %85
+  br label %86
 
 20:                                               ; preds = %15
   %21 = call ptr @__errno_location() #9
@@ -162,7 +162,7 @@ define internal i32 @PGSharedMemoryAttach(i32 noundef %0, ptr noundef %1, ptr no
 
 24:                                               ; preds = %20
   store i32 3, ptr %4, align 4
-  br label %85
+  br label %86
 
 25:                                               ; preds = %20
   %26 = call ptr @__errno_location() #9
@@ -172,11 +172,11 @@ define internal i32 @PGSharedMemoryAttach(i32 noundef %0, ptr noundef %1, ptr no
 
 29:                                               ; preds = %25
   store i32 2, ptr %4, align 4
-  br label %85
+  br label %86
 
 30:                                               ; preds = %25
   store i32 0, ptr %4, align 4
-  br label %85
+  br label %86
 
 31:                                               ; preds = %3
   %32 = load ptr, ptr @DataDir, align 8
@@ -186,7 +186,7 @@ define internal i32 @PGSharedMemoryAttach(i32 noundef %0, ptr noundef %1, ptr no
 
 35:                                               ; preds = %31
   store i32 0, ptr %4, align 4
-  br label %85
+  br label %86
 
 36:                                               ; preds = %31
   %37 = load i32, ptr %5, align 4
@@ -194,86 +194,87 @@ define internal i32 @PGSharedMemoryAttach(i32 noundef %0, ptr noundef %1, ptr no
   %39 = call ptr @shmat(i32 noundef %37, ptr noundef %38, i32 noundef 0) #7
   store ptr %39, ptr %10, align 8
   %40 = load ptr, ptr %10, align 8
-  %41 = icmp eq ptr %40, inttoptr (i64 -1 to ptr)
-  br i1 %41, label %42, label %58
+  %41 = inttoptr i64 -1 to ptr
+  %42 = icmp eq ptr %40, %41
+  br i1 %42, label %43, label %59
 
-42:                                               ; preds = %36
-  %43 = call ptr @__errno_location() #9
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 22
-  br i1 %45, label %46, label %47
+43:                                               ; preds = %36
+  %44 = call ptr @__errno_location() #9
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp eq i32 %45, 22
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %42
+47:                                               ; preds = %43
   store i32 2, ptr %4, align 4
-  br label %85
+  br label %86
 
-47:                                               ; preds = %42
-  %48 = call ptr @__errno_location() #9
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, 13
-  br i1 %50, label %51, label %52
+48:                                               ; preds = %43
+  %49 = call ptr @__errno_location() #9
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp eq i32 %50, 13
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %47
+52:                                               ; preds = %48
   store i32 3, ptr %4, align 4
-  br label %85
+  br label %86
 
-52:                                               ; preds = %47
-  %53 = call ptr @__errno_location() #9
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %54, 43
-  br i1 %55, label %56, label %57
+53:                                               ; preds = %48
+  %54 = call ptr @__errno_location() #9
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp eq i32 %55, 43
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %52
+57:                                               ; preds = %53
   store i32 2, ptr %4, align 4
-  br label %85
+  br label %86
 
-57:                                               ; preds = %52
+58:                                               ; preds = %53
   store i32 0, ptr %4, align 4
-  br label %85
+  br label %86
 
-58:                                               ; preds = %36
-  %59 = load ptr, ptr %10, align 8
-  %60 = load ptr, ptr %7, align 8
-  store ptr %59, ptr %60, align 8
-  %61 = load ptr, ptr %10, align 8
-  %62 = getelementptr inbounds %struct.PGShmemHeader, ptr %61, i32 0, i32 0
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp ne i32 %63, 679834894
-  br i1 %64, label %79, label %65
+59:                                               ; preds = %36
+  %60 = load ptr, ptr %10, align 8
+  %61 = load ptr, ptr %7, align 8
+  store ptr %60, ptr %61, align 8
+  %62 = load ptr, ptr %10, align 8
+  %63 = getelementptr inbounds %struct.PGShmemHeader, ptr %62, i32 0, i32 0
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp ne i32 %64, 679834894
+  br i1 %65, label %80, label %66
 
-65:                                               ; preds = %58
-  %66 = load ptr, ptr %10, align 8
-  %67 = getelementptr inbounds %struct.PGShmemHeader, ptr %66, i32 0, i32 6
-  %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds %struct.stat, ptr %9, i32 0, i32 0
-  %70 = load i64, ptr %69, align 8
-  %71 = icmp ne i64 %68, %70
-  br i1 %71, label %79, label %72
+66:                                               ; preds = %59
+  %67 = load ptr, ptr %10, align 8
+  %68 = getelementptr inbounds %struct.PGShmemHeader, ptr %67, i32 0, i32 6
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds %struct.stat, ptr %9, i32 0, i32 0
+  %71 = load i64, ptr %70, align 8
+  %72 = icmp ne i64 %69, %71
+  br i1 %72, label %80, label %73
 
-72:                                               ; preds = %65
-  %73 = load ptr, ptr %10, align 8
-  %74 = getelementptr inbounds %struct.PGShmemHeader, ptr %73, i32 0, i32 7
-  %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds %struct.stat, ptr %9, i32 0, i32 1
-  %77 = load i64, ptr %76, align 8
-  %78 = icmp ne i64 %75, %77
-  br i1 %78, label %79, label %80
+73:                                               ; preds = %66
+  %74 = load ptr, ptr %10, align 8
+  %75 = getelementptr inbounds %struct.PGShmemHeader, ptr %74, i32 0, i32 7
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds %struct.stat, ptr %9, i32 0, i32 1
+  %78 = load i64, ptr %77, align 8
+  %79 = icmp ne i64 %76, %78
+  br i1 %79, label %80, label %81
 
-79:                                               ; preds = %72, %65, %58
+80:                                               ; preds = %73, %66, %59
   store i32 3, ptr %4, align 4
-  br label %85
+  br label %86
 
-80:                                               ; preds = %72
-  %81 = getelementptr inbounds %struct.shmid_ds, ptr %8, i32 0, i32 7
-  %82 = load i64, ptr %81, align 8
-  %83 = icmp eq i64 %82, 0
-  %84 = select i1 %83, i32 4, i32 1
-  store i32 %84, ptr %4, align 4
-  br label %85
+81:                                               ; preds = %73
+  %82 = getelementptr inbounds %struct.shmid_ds, ptr %8, i32 0, i32 7
+  %83 = load i64, ptr %82, align 8
+  %84 = icmp eq i64 %83, 0
+  %85 = select i1 %84, i32 4, i32 1
+  store i32 %85, ptr %4, align 4
+  br label %86
 
-85:                                               ; preds = %80, %79, %57, %56, %51, %46, %35, %30, %29, %24, %19
-  %86 = load i32, ptr %4, align 4
-  ret i32 %86
+86:                                               ; preds = %81, %80, %58, %57, %52, %47, %35, %30, %29, %24, %19
+  %87 = load i32, ptr %4, align 4
+  ret i32 %87
 }
 
 ; Function Attrs: nounwind
@@ -841,161 +842,166 @@ define internal ptr @CreateAnonymousSegment(ptr noundef %0) #0 {
   %8 = load ptr, ptr %2, align 8
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %3, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %4, align 8
+  %10 = inttoptr i64 -1 to ptr
+  store ptr %10, ptr %4, align 8
   store i32 0, ptr %5, align 4
-  %10 = load i32, ptr @huge_pages, align 4
-  %11 = icmp eq i32 %10, 1
-  br i1 %11, label %15, label %12
+  %11 = load i32, ptr @huge_pages, align 4
+  %12 = icmp eq i32 %11, 1
+  br i1 %12, label %16, label %13
 
-12:                                               ; preds = %1
-  %13 = load i32, ptr @huge_pages, align 4
-  %14 = icmp eq i32 %13, 2
-  br i1 %14, label %15, label %52
+13:                                               ; preds = %1
+  %14 = load i32, ptr @huge_pages, align 4
+  %15 = icmp eq i32 %14, 2
+  br i1 %15, label %16, label %54
 
-15:                                               ; preds = %12, %1
+16:                                               ; preds = %13, %1
   call void @GetHugePageSize(ptr noundef %6, ptr noundef %7)
-  %16 = load i64, ptr %3, align 8
-  %17 = load i64, ptr %6, align 8
-  %18 = urem i64 %16, %17
-  %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %28
+  %17 = load i64, ptr %3, align 8
+  %18 = load i64, ptr %6, align 8
+  %19 = urem i64 %17, %18
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %29
 
-20:                                               ; preds = %15
-  %21 = load i64, ptr %6, align 8
-  %22 = load i64, ptr %3, align 8
-  %23 = load i64, ptr %6, align 8
-  %24 = urem i64 %22, %23
-  %25 = sub i64 %21, %24
-  %26 = load i64, ptr %3, align 8
-  %27 = add i64 %26, %25
-  store i64 %27, ptr %3, align 8
-  br label %28
+21:                                               ; preds = %16
+  %22 = load i64, ptr %6, align 8
+  %23 = load i64, ptr %3, align 8
+  %24 = load i64, ptr %6, align 8
+  %25 = urem i64 %23, %24
+  %26 = sub i64 %22, %25
+  %27 = load i64, ptr %3, align 8
+  %28 = add i64 %27, %26
+  store i64 %28, ptr %3, align 8
+  br label %29
 
-28:                                               ; preds = %20, %15
-  %29 = load i64, ptr %3, align 8
-  %30 = load i32, ptr %7, align 4
-  %31 = or i32 33, %30
-  %32 = call ptr @mmap(ptr noundef null, i64 noundef %29, i32 noundef 3, i32 noundef %31, i32 noundef -1, i64 noundef 0) #7
-  store ptr %32, ptr %4, align 8
-  %33 = call ptr @__errno_location() #9
-  %34 = load i32, ptr %33, align 4
-  store i32 %34, ptr %5, align 4
-  %35 = load i32, ptr @huge_pages, align 4
-  %36 = icmp eq i32 %35, 2
-  br i1 %36, label %37, label %51
+29:                                               ; preds = %21, %16
+  %30 = load i64, ptr %3, align 8
+  %31 = load i32, ptr %7, align 4
+  %32 = or i32 33, %31
+  %33 = call ptr @mmap(ptr noundef null, i64 noundef %30, i32 noundef 3, i32 noundef %32, i32 noundef -1, i64 noundef 0) #7
+  store ptr %33, ptr %4, align 8
+  %34 = call ptr @__errno_location() #9
+  %35 = load i32, ptr %34, align 4
+  store i32 %35, ptr %5, align 4
+  %36 = load i32, ptr @huge_pages, align 4
+  %37 = icmp eq i32 %36, 2
+  br i1 %37, label %38, label %53
 
-37:                                               ; preds = %28
-  %38 = load ptr, ptr %4, align 8
-  %39 = icmp eq ptr %38, inttoptr (i64 -1 to ptr)
-  br i1 %39, label %40, label %51
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %4, align 8
+  %40 = inttoptr i64 -1 to ptr
+  %41 = icmp eq ptr %39, %40
+  br i1 %41, label %42, label %53
 
-40:                                               ; preds = %37
-  br label %41
+42:                                               ; preds = %38
+  br label %43
 
-41:                                               ; preds = %40
-  br i1 false, label %42, label %44
+43:                                               ; preds = %42
+  br i1 false, label %44, label %46
 
-42:                                               ; preds = %41
-  %43 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #8
-  br i1 %43, label %46, label %49
+44:                                               ; preds = %43
+  %45 = call zeroext i1 @errstart_cold(i32 noundef 14, ptr noundef null) #8
+  br i1 %45, label %48, label %51
 
-44:                                               ; preds = %41
-  %45 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null)
-  br i1 %45, label %46, label %49
+46:                                               ; preds = %43
+  %47 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null)
+  br i1 %47, label %48, label %51
 
-46:                                               ; preds = %44, %42
-  %47 = load i64, ptr %3, align 8
-  %48 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.13, i64 noundef %47)
+48:                                               ; preds = %46, %44
+  %49 = load i64, ptr %3, align 8
+  %50 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.13, i64 noundef %49)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 626, ptr noundef @__func__.CreateAnonymousSegment)
-  br label %49
-
-49:                                               ; preds = %46, %44, %42
-  br label %50
-
-50:                                               ; preds = %49
   br label %51
 
-51:                                               ; preds = %50, %37, %28
+51:                                               ; preds = %48, %46, %44
   br label %52
 
-52:                                               ; preds = %51, %12
-  %53 = load ptr, ptr %4, align 8
-  %54 = icmp eq ptr %53, inttoptr (i64 -1 to ptr)
-  %55 = select i1 %54, ptr @.str.8, ptr @.str.14
-  call void @SetConfigOption(ptr noundef @.str.7, ptr noundef %55, i32 noundef 0, i32 noundef 1)
-  %56 = load ptr, ptr %4, align 8
-  %57 = icmp eq ptr %56, inttoptr (i64 -1 to ptr)
-  br i1 %57, label %58, label %68
+52:                                               ; preds = %51
+  br label %53
 
-58:                                               ; preds = %52
-  %59 = load i32, ptr @huge_pages, align 4
-  %60 = icmp ne i32 %59, 1
-  br i1 %60, label %61, label %68
+53:                                               ; preds = %52, %38, %29
+  br label %54
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %2, align 8
-  %63 = load i64, ptr %62, align 8
-  store i64 %63, ptr %3, align 8
-  %64 = load i64, ptr %3, align 8
-  %65 = call ptr @mmap(ptr noundef null, i64 noundef %64, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #7
-  store ptr %65, ptr %4, align 8
-  %66 = call ptr @__errno_location() #9
-  %67 = load i32, ptr %66, align 4
-  store i32 %67, ptr %5, align 4
-  br label %68
+54:                                               ; preds = %53, %13
+  %55 = load ptr, ptr %4, align 8
+  %56 = inttoptr i64 -1 to ptr
+  %57 = icmp eq ptr %55, %56
+  %58 = select i1 %57, ptr @.str.8, ptr @.str.14
+  call void @SetConfigOption(ptr noundef @.str.7, ptr noundef %58, i32 noundef 0, i32 noundef 1)
+  %59 = load ptr, ptr %4, align 8
+  %60 = inttoptr i64 -1 to ptr
+  %61 = icmp eq ptr %59, %60
+  br i1 %61, label %62, label %72
 
-68:                                               ; preds = %61, %58, %52
-  %69 = load ptr, ptr %4, align 8
-  %70 = icmp eq ptr %69, inttoptr (i64 -1 to ptr)
-  br i1 %70, label %71, label %90
+62:                                               ; preds = %54
+  %63 = load i32, ptr @huge_pages, align 4
+  %64 = icmp ne i32 %63, 1
+  br i1 %64, label %65, label %72
 
-71:                                               ; preds = %68
-  %72 = load i32, ptr %5, align 4
-  %73 = call ptr @__errno_location() #9
-  store i32 %72, ptr %73, align 4
-  br label %74
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %2, align 8
+  %67 = load i64, ptr %66, align 8
+  store i64 %67, ptr %3, align 8
+  %68 = load i64, ptr %3, align 8
+  %69 = call ptr @mmap(ptr noundef null, i64 noundef %68, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #7
+  store ptr %69, ptr %4, align 8
+  %70 = call ptr @__errno_location() #9
+  %71 = load i32, ptr %70, align 4
+  store i32 %71, ptr %5, align 4
+  br label %72
 
-74:                                               ; preds = %71
-  br i1 true, label %75, label %77
+72:                                               ; preds = %65, %62, %54
+  %73 = load ptr, ptr %4, align 8
+  %74 = inttoptr i64 -1 to ptr
+  %75 = icmp eq ptr %73, %74
+  br i1 %75, label %76, label %95
 
-75:                                               ; preds = %74
-  %76 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
-  br i1 %76, label %79, label %88
+76:                                               ; preds = %72
+  %77 = load i32, ptr %5, align 4
+  %78 = call ptr @__errno_location() #9
+  store i32 %77, ptr %78, align 4
+  br label %79
 
-77:                                               ; preds = %74
-  %78 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %78, label %79, label %88
+79:                                               ; preds = %76
+  br i1 true, label %80, label %82
 
-79:                                               ; preds = %77, %75
-  %80 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.15)
-  %81 = load i32, ptr %5, align 4
-  %82 = icmp eq i32 %81, 12
-  br i1 %82, label %83, label %86
+80:                                               ; preds = %79
+  %81 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
+  br i1 %81, label %84, label %93
 
-83:                                               ; preds = %79
-  %84 = load i64, ptr %3, align 8
-  %85 = call i32 (ptr, ...) @errhint(ptr noundef @.str.16, i64 noundef %84)
-  br label %87
+82:                                               ; preds = %79
+  %83 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %83, label %84, label %93
 
-86:                                               ; preds = %79
-  br label %87
+84:                                               ; preds = %82, %80
+  %85 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.15)
+  %86 = load i32, ptr %5, align 4
+  %87 = icmp eq i32 %86, 12
+  br i1 %87, label %88, label %91
 
-87:                                               ; preds = %86, %83
+88:                                               ; preds = %84
+  %89 = load i64, ptr %3, align 8
+  %90 = call i32 (ptr, ...) @errhint(ptr noundef @.str.16, i64 noundef %89)
+  br label %92
+
+91:                                               ; preds = %84
+  br label %92
+
+92:                                               ; preds = %91, %88
   call void @errfinish(ptr noundef @.str.1, i32 noundef 662, ptr noundef @__func__.CreateAnonymousSegment)
-  br label %88
+  br label %93
 
-88:                                               ; preds = %87, %77, %75
+93:                                               ; preds = %92, %82, %80
   unreachable
 
-89:                                               ; No predecessors!
-  br label %90
+94:                                               ; No predecessors!
+  br label %95
 
-90:                                               ; preds = %89, %68
-  %91 = load i64, ptr %3, align 8
-  %92 = load ptr, ptr %2, align 8
-  store i64 %91, ptr %92, align 8
-  %93 = load ptr, ptr %4, align 8
-  ret ptr %93
+95:                                               ; preds = %94, %72
+  %96 = load i64, ptr %3, align 8
+  %97 = load ptr, ptr %2, align 8
+  store i64 %96, ptr %97, align 8
+  %98 = load ptr, ptr %4, align 8
+  ret ptr %98
 }
 
 declare void @on_shmem_exit(ptr noundef, i64 noundef) #3
@@ -1095,7 +1101,7 @@ define internal ptr @InternalIpcMemoryCreate(i32 noundef %0, i64 noundef %1) #0 
 
 27:                                               ; preds = %24, %21, %16
   store ptr null, ptr %3, align 8
-  br label %132
+  br label %133
 
 28:                                               ; preds = %24
   %29 = load i32, ptr %9, align 4
@@ -1130,7 +1136,7 @@ define internal ptr @InternalIpcMemoryCreate(i32 noundef %0, i64 noundef %1) #0 
 
 48:                                               ; preds = %44, %40, %36
   store ptr null, ptr %3, align 8
-  br label %132
+  br label %133
 
 49:                                               ; preds = %44
   br label %66
@@ -1250,55 +1256,56 @@ define internal ptr @InternalIpcMemoryCreate(i32 noundef %0, i64 noundef %1) #0 
   %106 = call ptr @shmat(i32 noundef %104, ptr noundef %105, i32 noundef 0) #7
   store ptr %106, ptr %8, align 8
   %107 = load ptr, ptr %8, align 8
-  %108 = icmp eq ptr %107, inttoptr (i64 -1 to ptr)
-  br i1 %108, label %109, label %121
+  %108 = inttoptr i64 -1 to ptr
+  %109 = icmp eq ptr %107, %108
+  br i1 %109, label %110, label %122
 
-109:                                              ; preds = %101
-  br label %110
-
-110:                                              ; preds = %109
-  br i1 true, label %111, label %113
+110:                                              ; preds = %101
+  br label %111
 
 111:                                              ; preds = %110
-  %112 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
-  br i1 %112, label %115, label %119
+  br i1 true, label %112, label %114
 
-113:                                              ; preds = %110
-  %114 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %114, label %115, label %119
+112:                                              ; preds = %111
+  %113 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
+  br i1 %113, label %116, label %120
 
-115:                                              ; preds = %113, %111
-  %116 = load i32, ptr %6, align 4
-  %117 = load ptr, ptr %7, align 8
-  %118 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.23, i32 noundef %116, ptr noundef %117, i32 noundef 0)
+114:                                              ; preds = %111
+  %115 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %115, label %116, label %120
+
+116:                                              ; preds = %114, %112
+  %117 = load i32, ptr %6, align 4
+  %118 = load ptr, ptr %7, align 8
+  %119 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.23, i32 noundef %117, ptr noundef %118, i32 noundef 0)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 258, ptr noundef @__func__.InternalIpcMemoryCreate)
-  br label %119
+  br label %120
 
-119:                                              ; preds = %115, %113, %111
+120:                                              ; preds = %116, %114, %112
   unreachable
 
-120:                                              ; No predecessors!
-  br label %121
+121:                                              ; No predecessors!
+  br label %122
 
-121:                                              ; preds = %120, %101
-  %122 = load ptr, ptr %8, align 8
-  %123 = call i64 @PointerGetDatum(ptr noundef %122)
-  call void @on_shmem_exit(ptr noundef @IpcMemoryDetach, i64 noundef %123)
-  %124 = getelementptr inbounds [64 x i8], ptr %10, i64 0, i64 0
-  %125 = load i32, ptr %4, align 4
-  %126 = sext i32 %125 to i64
-  %127 = load i32, ptr %6, align 4
-  %128 = sext i32 %127 to i64
-  %129 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %124, ptr noundef @.str.24, i64 noundef %126, i64 noundef %128)
-  %130 = getelementptr inbounds [64 x i8], ptr %10, i64 0, i64 0
-  call void @AddToDataDirLockFile(i32 noundef 7, ptr noundef %130)
-  %131 = load ptr, ptr %8, align 8
-  store ptr %131, ptr %3, align 8
-  br label %132
+122:                                              ; preds = %121, %101
+  %123 = load ptr, ptr %8, align 8
+  %124 = call i64 @PointerGetDatum(ptr noundef %123)
+  call void @on_shmem_exit(ptr noundef @IpcMemoryDetach, i64 noundef %124)
+  %125 = getelementptr inbounds [64 x i8], ptr %10, i64 0, i64 0
+  %126 = load i32, ptr %4, align 4
+  %127 = sext i32 %126 to i64
+  %128 = load i32, ptr %6, align 4
+  %129 = sext i32 %128 to i64
+  %130 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %125, ptr noundef @.str.24, i64 noundef %127, i64 noundef %129)
+  %131 = getelementptr inbounds [64 x i8], ptr %10, i64 0, i64 0
+  call void @AddToDataDirLockFile(i32 noundef 7, ptr noundef %131)
+  %132 = load ptr, ptr %8, align 8
+  store ptr %132, ptr %3, align 8
+  br label %133
 
-132:                                              ; preds = %121, %48, %27
-  %133 = load ptr, ptr %3, align 8
-  ret ptr %133
+133:                                              ; preds = %122, %48, %27
+  %134 = load ptr, ptr %3, align 8
+  ret ptr %134
 }
 
 ; Function Attrs: nounwind

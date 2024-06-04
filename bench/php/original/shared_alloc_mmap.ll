@@ -36,207 +36,215 @@ define internal i32 @create_segments(i64 noundef %0, ptr noundef %1, ptr noundef
   %18 = call ptr @find_prefered_mmap_base(i64 noundef %17)
   store ptr %18, ptr %14, align 8
   %19 = load ptr, ptr %14, align 8
-  %20 = icmp ne ptr %19, inttoptr (i64 -1 to ptr)
-  br i1 %20, label %21, label %48
+  %20 = inttoptr i64 -1 to ptr
+  %21 = icmp ne ptr %19, %20
+  br i1 %21, label %22, label %51
 
-21:                                               ; preds = %4
+22:                                               ; preds = %4
   store i64 2097152, ptr %15, align 8
-  %22 = load i64, ptr %6, align 8
-  %23 = load i64, ptr %15, align 8
-  %24 = icmp uge i64 %22, %23
-  br i1 %24, label %25, label %39
+  %23 = load i64, ptr %6, align 8
+  %24 = load i64, ptr %15, align 8
+  %25 = icmp uge i64 %23, %24
+  br i1 %25, label %26, label %41
 
-25:                                               ; preds = %21
-  %26 = load i64, ptr %6, align 8
-  %27 = load i64, ptr %15, align 8
-  %28 = urem i64 %26, %27
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %39
+26:                                               ; preds = %22
+  %27 = load i64, ptr %6, align 8
+  %28 = load i64, ptr %15, align 8
+  %29 = urem i64 %27, %28
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %41
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %14, align 8
-  %32 = load i64, ptr %6, align 8
-  %33 = load i32, ptr %11, align 4
-  %34 = call ptr @mmap(ptr noundef %31, i64 noundef %32, i32 noundef %33, i32 noundef 262193, i32 noundef -1, i64 noundef 0) #5
-  store ptr %34, ptr %13, align 8
-  %35 = load ptr, ptr %13, align 8
-  %36 = icmp ne ptr %35, inttoptr (i64 -1 to ptr)
-  br i1 %36, label %37, label %38
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %14, align 8
+  %33 = load i64, ptr %6, align 8
+  %34 = load i32, ptr %11, align 4
+  %35 = call ptr @mmap(ptr noundef %32, i64 noundef %33, i32 noundef %34, i32 noundef 262193, i32 noundef -1, i64 noundef 0) #5
+  store ptr %35, ptr %13, align 8
+  %36 = load ptr, ptr %13, align 8
+  %37 = inttoptr i64 -1 to ptr
+  %38 = icmp ne ptr %36, %37
+  br i1 %38, label %39, label %40
 
-37:                                               ; preds = %30
-  br label %114
+39:                                               ; preds = %31
+  br label %122
 
-38:                                               ; preds = %30
-  br label %39
+40:                                               ; preds = %31
+  br label %41
 
-39:                                               ; preds = %38, %25, %21
-  %40 = load ptr, ptr %14, align 8
-  %41 = load i64, ptr %6, align 8
-  %42 = load i32, ptr %11, align 4
-  %43 = call ptr @mmap(ptr noundef %40, i64 noundef %41, i32 noundef %42, i32 noundef 49, i32 noundef -1, i64 noundef 0) #5
-  store ptr %43, ptr %13, align 8
-  %44 = load ptr, ptr %13, align 8
-  %45 = icmp ne ptr %44, inttoptr (i64 -1 to ptr)
-  br i1 %45, label %46, label %47
+41:                                               ; preds = %40, %26, %22
+  %42 = load ptr, ptr %14, align 8
+  %43 = load i64, ptr %6, align 8
+  %44 = load i32, ptr %11, align 4
+  %45 = call ptr @mmap(ptr noundef %42, i64 noundef %43, i32 noundef %44, i32 noundef 49, i32 noundef -1, i64 noundef 0) #5
+  store ptr %45, ptr %13, align 8
+  %46 = load ptr, ptr %13, align 8
+  %47 = inttoptr i64 -1 to ptr
+  %48 = icmp ne ptr %46, %47
+  br i1 %48, label %49, label %50
 
-46:                                               ; preds = %39
-  br label %114
+49:                                               ; preds = %41
+  br label %122
 
-47:                                               ; preds = %39
-  br label %48
+50:                                               ; preds = %41
+  br label %51
 
-48:                                               ; preds = %47, %4
+51:                                               ; preds = %50, %4
   store i64 2097152, ptr %16, align 8
-  %49 = load i64, ptr %6, align 8
-  %50 = load i64, ptr %16, align 8
-  %51 = icmp uge i64 %49, %50
-  br i1 %51, label %52, label %104
+  %52 = load i64, ptr %6, align 8
+  %53 = load i64, ptr %16, align 8
+  %54 = icmp uge i64 %52, %53
+  br i1 %54, label %55, label %111
 
-52:                                               ; preds = %48
-  %53 = load i64, ptr %6, align 8
-  %54 = load i64, ptr %16, align 8
-  %55 = urem i64 %53, %54
-  %56 = icmp eq i64 %55, 0
-  br i1 %56, label %57, label %104
+55:                                               ; preds = %51
+  %56 = load i64, ptr %6, align 8
+  %57 = load i64, ptr %16, align 8
+  %58 = urem i64 %56, %57
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %60, label %111
 
-57:                                               ; preds = %52
-  %58 = load i64, ptr %6, align 8
-  %59 = load i32, ptr %11, align 4
-  %60 = load i32, ptr %12, align 4
-  %61 = call ptr @mmap(ptr noundef null, i64 noundef %58, i32 noundef %59, i32 noundef 97, i32 noundef %60, i64 noundef 0) #5
-  store ptr %61, ptr %13, align 8
-  %62 = load ptr, ptr %13, align 8
-  %63 = icmp ne ptr %62, inttoptr (i64 -1 to ptr)
-  br i1 %63, label %64, label %95
-
-64:                                               ; preds = %57
+60:                                               ; preds = %55
+  %61 = load i64, ptr %6, align 8
+  %62 = load i32, ptr %11, align 4
+  %63 = load i32, ptr %12, align 4
+  %64 = call ptr @mmap(ptr noundef null, i64 noundef %61, i32 noundef %62, i32 noundef 97, i32 noundef %63, i64 noundef 0) #5
+  store ptr %64, ptr %13, align 8
   %65 = load ptr, ptr %13, align 8
-  %66 = load i64, ptr %6, align 8
-  %67 = call i32 @munmap(ptr noundef %65, i64 noundef %66) #5
-  %68 = load ptr, ptr %13, align 8
-  %69 = ptrtoint ptr %68 to i64
-  %70 = load i64, ptr %16, align 8
-  %71 = sub i64 %70, 1
-  %72 = add i64 %69, %71
-  %73 = load i64, ptr %16, align 8
-  %74 = sub i64 %73, 1
-  %75 = xor i64 %74, -1
-  %76 = and i64 %72, %75
-  %77 = inttoptr i64 %76 to ptr
-  store ptr %77, ptr %13, align 8
-  %78 = load ptr, ptr %13, align 8
-  %79 = load i64, ptr %6, align 8
-  %80 = load i32, ptr %11, align 4
-  %81 = call ptr @mmap(ptr noundef %78, i64 noundef %79, i32 noundef %80, i32 noundef 262257, i32 noundef -1, i64 noundef 0) #5
+  %66 = inttoptr i64 -1 to ptr
+  %67 = icmp ne ptr %65, %66
+  br i1 %67, label %68, label %101
+
+68:                                               ; preds = %60
+  %69 = load ptr, ptr %13, align 8
+  %70 = load i64, ptr %6, align 8
+  %71 = call i32 @munmap(ptr noundef %69, i64 noundef %70) #5
+  %72 = load ptr, ptr %13, align 8
+  %73 = ptrtoint ptr %72 to i64
+  %74 = load i64, ptr %16, align 8
+  %75 = sub i64 %74, 1
+  %76 = add i64 %73, %75
+  %77 = load i64, ptr %16, align 8
+  %78 = sub i64 %77, 1
+  %79 = xor i64 %78, -1
+  %80 = and i64 %76, %79
+  %81 = inttoptr i64 %80 to ptr
   store ptr %81, ptr %13, align 8
   %82 = load ptr, ptr %13, align 8
-  %83 = icmp ne ptr %82, inttoptr (i64 -1 to ptr)
-  br i1 %83, label %84, label %85
+  %83 = load i64, ptr %6, align 8
+  %84 = load i32, ptr %11, align 4
+  %85 = call ptr @mmap(ptr noundef %82, i64 noundef %83, i32 noundef %84, i32 noundef 262257, i32 noundef -1, i64 noundef 0) #5
+  store ptr %85, ptr %13, align 8
+  %86 = load ptr, ptr %13, align 8
+  %87 = inttoptr i64 -1 to ptr
+  %88 = icmp ne ptr %86, %87
+  br i1 %88, label %89, label %90
 
-84:                                               ; preds = %64
-  br label %114
+89:                                               ; preds = %68
+  br label %122
 
-85:                                               ; preds = %64
-  %86 = load i64, ptr %6, align 8
-  %87 = load i32, ptr %11, align 4
-  %88 = load i32, ptr %12, align 4
-  %89 = call ptr @mmap(ptr noundef null, i64 noundef %86, i32 noundef %87, i32 noundef 97, i32 noundef %88, i64 noundef 0) #5
-  store ptr %89, ptr %13, align 8
-  %90 = load ptr, ptr %13, align 8
-  %91 = icmp ne ptr %90, inttoptr (i64 -1 to ptr)
-  br i1 %91, label %92, label %93
+90:                                               ; preds = %68
+  %91 = load i64, ptr %6, align 8
+  %92 = load i32, ptr %11, align 4
+  %93 = load i32, ptr %12, align 4
+  %94 = call ptr @mmap(ptr noundef null, i64 noundef %91, i32 noundef %92, i32 noundef 97, i32 noundef %93, i64 noundef 0) #5
+  store ptr %94, ptr %13, align 8
+  %95 = load ptr, ptr %13, align 8
+  %96 = inttoptr i64 -1 to ptr
+  %97 = icmp ne ptr %95, %96
+  br i1 %97, label %98, label %99
 
-92:                                               ; preds = %85
-  br label %114
+98:                                               ; preds = %90
+  br label %122
 
-93:                                               ; preds = %85
-  br label %94
+99:                                               ; preds = %90
+  br label %100
 
-94:                                               ; preds = %93
-  br label %95
+100:                                              ; preds = %99
+  br label %101
 
-95:                                               ; preds = %94, %57
-  %96 = load i64, ptr %6, align 8
-  %97 = load i32, ptr %11, align 4
-  %98 = load i32, ptr %12, align 4
-  %99 = call ptr @mmap(ptr noundef null, i64 noundef %96, i32 noundef %97, i32 noundef 262177, i32 noundef %98, i64 noundef 0) #5
-  store ptr %99, ptr %13, align 8
-  %100 = load ptr, ptr %13, align 8
-  %101 = icmp ne ptr %100, inttoptr (i64 -1 to ptr)
-  br i1 %101, label %102, label %103
+101:                                              ; preds = %100, %60
+  %102 = load i64, ptr %6, align 8
+  %103 = load i32, ptr %11, align 4
+  %104 = load i32, ptr %12, align 4
+  %105 = call ptr @mmap(ptr noundef null, i64 noundef %102, i32 noundef %103, i32 noundef 262177, i32 noundef %104, i64 noundef 0) #5
+  store ptr %105, ptr %13, align 8
+  %106 = load ptr, ptr %13, align 8
+  %107 = inttoptr i64 -1 to ptr
+  %108 = icmp ne ptr %106, %107
+  br i1 %108, label %109, label %110
 
-102:                                              ; preds = %95
-  br label %114
+109:                                              ; preds = %101
+  br label %122
 
-103:                                              ; preds = %95
-  br label %104
+110:                                              ; preds = %101
+  br label %111
 
-104:                                              ; preds = %103, %52, %48
-  %105 = load i64, ptr %6, align 8
-  %106 = load i32, ptr %11, align 4
-  %107 = load i32, ptr %12, align 4
-  %108 = call ptr @mmap(ptr noundef null, i64 noundef %105, i32 noundef %106, i32 noundef 33, i32 noundef %107, i64 noundef 0) #5
-  store ptr %108, ptr %13, align 8
-  %109 = load ptr, ptr %13, align 8
-  %110 = icmp eq ptr %109, inttoptr (i64 -1 to ptr)
-  br i1 %110, label %111, label %113
+111:                                              ; preds = %110, %55, %51
+  %112 = load i64, ptr %6, align 8
+  %113 = load i32, ptr %11, align 4
+  %114 = load i32, ptr %12, align 4
+  %115 = call ptr @mmap(ptr noundef null, i64 noundef %112, i32 noundef %113, i32 noundef 33, i32 noundef %114, i64 noundef 0) #5
+  store ptr %115, ptr %13, align 8
+  %116 = load ptr, ptr %13, align 8
+  %117 = inttoptr i64 -1 to ptr
+  %118 = icmp eq ptr %116, %117
+  br i1 %118, label %119, label %121
 
-111:                                              ; preds = %104
-  %112 = load ptr, ptr %9, align 8
-  store ptr @.str, ptr %112, align 8
+119:                                              ; preds = %111
+  %120 = load ptr, ptr %9, align 8
+  store ptr @.str, ptr %120, align 8
   store i32 0, ptr %5, align 4
-  br label %142
+  br label %150
 
-113:                                              ; preds = %104
-  br label %114
+121:                                              ; preds = %111
+  br label %122
 
-114:                                              ; preds = %113, %102, %92, %84, %46, %37
-  %115 = load ptr, ptr %8, align 8
-  store i32 1, ptr %115, align 4
-  %116 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 40) #6
-  %117 = load ptr, ptr %7, align 8
-  store ptr %116, ptr %117, align 8
-  %118 = load ptr, ptr %7, align 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp ne ptr %119, null
-  br i1 %120, label %126, label %121
+122:                                              ; preds = %121, %109, %98, %89, %49, %39
+  %123 = load ptr, ptr %8, align 8
+  store i32 1, ptr %123, align 4
+  %124 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 40) #6
+  %125 = load ptr, ptr %7, align 8
+  store ptr %124, ptr %125, align 8
+  %126 = load ptr, ptr %7, align 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = icmp ne ptr %127, null
+  br i1 %128, label %134, label %129
 
-121:                                              ; preds = %114
-  %122 = load ptr, ptr %13, align 8
-  %123 = load i64, ptr %6, align 8
-  %124 = call i32 @munmap(ptr noundef %122, i64 noundef %123) #5
-  %125 = load ptr, ptr %9, align 8
-  store ptr @.str.1, ptr %125, align 8
+129:                                              ; preds = %122
+  %130 = load ptr, ptr %13, align 8
+  %131 = load i64, ptr %6, align 8
+  %132 = call i32 @munmap(ptr noundef %130, i64 noundef %131) #5
+  %133 = load ptr, ptr %9, align 8
+  store ptr @.str.1, ptr %133, align 8
   store i32 0, ptr %5, align 4
-  br label %142
+  br label %150
 
-126:                                              ; preds = %114
-  %127 = load ptr, ptr %7, align 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
-  store ptr %129, ptr %10, align 8
-  %130 = load ptr, ptr %10, align 8
-  %131 = load ptr, ptr %7, align 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds ptr, ptr %132, i64 0
-  store ptr %130, ptr %133, align 8
-  %134 = load ptr, ptr %13, align 8
-  %135 = load ptr, ptr %10, align 8
-  %136 = getelementptr inbounds %struct._zend_shared_segment, ptr %135, i32 0, i32 3
-  store ptr %134, ptr %136, align 8
-  %137 = load ptr, ptr %10, align 8
-  %138 = getelementptr inbounds %struct._zend_shared_segment, ptr %137, i32 0, i32 2
-  store i64 0, ptr %138, align 8
-  %139 = load i64, ptr %6, align 8
-  %140 = load ptr, ptr %10, align 8
-  %141 = getelementptr inbounds %struct._zend_shared_segment, ptr %140, i32 0, i32 0
-  store i64 %139, ptr %141, align 8
+134:                                              ; preds = %122
+  %135 = load ptr, ptr %7, align 8
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 8
+  store ptr %137, ptr %10, align 8
+  %138 = load ptr, ptr %10, align 8
+  %139 = load ptr, ptr %7, align 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds ptr, ptr %140, i64 0
+  store ptr %138, ptr %141, align 8
+  %142 = load ptr, ptr %13, align 8
+  %143 = load ptr, ptr %10, align 8
+  %144 = getelementptr inbounds %struct._zend_shared_segment, ptr %143, i32 0, i32 3
+  store ptr %142, ptr %144, align 8
+  %145 = load ptr, ptr %10, align 8
+  %146 = getelementptr inbounds %struct._zend_shared_segment, ptr %145, i32 0, i32 2
+  store i64 0, ptr %146, align 8
+  %147 = load i64, ptr %6, align 8
+  %148 = load ptr, ptr %10, align 8
+  %149 = getelementptr inbounds %struct._zend_shared_segment, ptr %148, i32 0, i32 0
+  store i64 %147, ptr %149, align 8
   store i32 1, ptr %5, align 4
-  br label %142
+  br label %150
 
-142:                                              ; preds = %126, %121, %111
-  %143 = load i32, ptr %5, align 4
-  ret i32 %143
+150:                                              ; preds = %134, %129, %119
+  %151 = load i32, ptr %5, align 4
+  ret i32 %151
 }
 
 ; Function Attrs: nounwind uwtable
@@ -281,210 +289,213 @@ define internal ptr @find_prefered_mmap_base(i64 noundef %0) #0 {
   store ptr %14, ptr %10, align 8
   %15 = load ptr, ptr %10, align 8
   %16 = icmp ne ptr %15, null
-  br i1 %16, label %18, label %17
+  br i1 %16, label %19, label %17
 
 17:                                               ; preds = %1
-  store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
-  br label %144
+  %18 = inttoptr i64 -1 to ptr
+  store ptr %18, ptr %2, align 8
+  br label %147
 
-18:                                               ; preds = %1
-  br label %19
+19:                                               ; preds = %1
+  br label %20
 
-19:                                               ; preds = %138, %48, %18
-  %20 = getelementptr inbounds [4096 x i8], ptr %11, i64 0, i64 0
-  %21 = load ptr, ptr %10, align 8
-  %22 = call ptr @fgets(ptr noundef %20, i32 noundef 4096, ptr noundef %21)
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %28
+20:                                               ; preds = %141, %49, %19
+  %21 = getelementptr inbounds [4096 x i8], ptr %11, i64 0, i64 0
+  %22 = load ptr, ptr %10, align 8
+  %23 = call ptr @fgets(ptr noundef %21, i32 noundef 4096, ptr noundef %22)
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %29
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds [4096 x i8], ptr %11, i64 0, i64 0
-  %26 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %25, ptr noundef @.str.4, ptr noundef %7, ptr noundef %8) #5
-  %27 = icmp eq i32 %26, 2
-  br label %28
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds [4096 x i8], ptr %11, i64 0, i64 0
+  %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %26, ptr noundef @.str.4, ptr noundef %7, ptr noundef %8) #5
+  %28 = icmp eq i32 %27, 2
+  br label %29
 
-28:                                               ; preds = %24, %19
-  %29 = phi i1 [ false, %19 ], [ %27, %24 ]
-  br i1 %29, label %30, label %139
+29:                                               ; preds = %25, %20
+  %30 = phi i1 [ false, %20 ], [ %28, %25 ]
+  br i1 %30, label %31, label %142
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds [4096 x i8], ptr %11, i64 0, i64 0
-  %32 = call ptr @strstr(ptr noundef %31, ptr noundef @.str.5) #7
-  %33 = icmp ne ptr %32, null
-  %34 = zext i1 %33 to i8
-  store i8 %34, ptr %12, align 1
-  %35 = load i8, ptr %12, align 1
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %60
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds [4096 x i8], ptr %11, i64 0, i64 0
+  %33 = call ptr @strstr(ptr noundef %32, ptr noundef @.str.5) #7
+  %34 = icmp ne ptr %33, null
+  %35 = zext i1 %34 to i8
+  store i8 %35, ptr %12, align 1
+  %36 = load i8, ptr %12, align 1
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %61
 
-37:                                               ; preds = %30
-  %38 = load i64, ptr %7, align 8
-  %39 = load i64, ptr %4, align 8
-  %40 = sub i64 %39, 1
-  %41 = xor i64 %40, -1
-  %42 = and i64 %38, %41
-  store i64 %42, ptr %13, align 8
-  %43 = load i64, ptr %5, align 8
-  %44 = load i64, ptr %3, align 8
-  %45 = add i64 %43, %44
-  %46 = load i64, ptr %13, align 8
-  %47 = icmp uge i64 %45, %46
-  br i1 %47, label %48, label %59
+38:                                               ; preds = %31
+  %39 = load i64, ptr %7, align 8
+  %40 = load i64, ptr %4, align 8
+  %41 = sub i64 %40, 1
+  %42 = xor i64 %41, -1
+  %43 = and i64 %39, %42
+  store i64 %43, ptr %13, align 8
+  %44 = load i64, ptr %5, align 8
+  %45 = load i64, ptr %3, align 8
+  %46 = add i64 %44, %45
+  %47 = load i64, ptr %13, align 8
+  %48 = icmp uge i64 %46, %47
+  br i1 %48, label %49, label %60
 
-48:                                               ; preds = %37
-  %49 = load i64, ptr %8, align 8
-  %50 = load i64, ptr %4, align 8
-  %51 = add i64 %49, %50
-  %52 = load i64, ptr %4, align 8
-  %53 = sub i64 %52, 1
-  %54 = add i64 %51, %53
-  %55 = load i64, ptr %4, align 8
-  %56 = sub i64 %55, 1
-  %57 = xor i64 %56, -1
-  %58 = and i64 %54, %57
-  store i64 %58, ptr %5, align 8
-  br label %19
+49:                                               ; preds = %38
+  %50 = load i64, ptr %8, align 8
+  %51 = load i64, ptr %4, align 8
+  %52 = add i64 %50, %51
+  %53 = load i64, ptr %4, align 8
+  %54 = sub i64 %53, 1
+  %55 = add i64 %52, %54
+  %56 = load i64, ptr %4, align 8
+  %57 = sub i64 %56, 1
+  %58 = xor i64 %57, -1
+  %59 = and i64 %55, %58
+  store i64 %59, ptr %5, align 8
+  br label %20
 
-59:                                               ; preds = %37
-  br label %60
+60:                                               ; preds = %38
+  br label %61
 
-60:                                               ; preds = %59, %30
-  %61 = load i64, ptr %7, align 8
-  %62 = icmp uge i64 ptrtoint (ptr @execute_ex to i64), %61
-  br i1 %62, label %63, label %106
+61:                                               ; preds = %60, %31
+  %62 = load i64, ptr %7, align 8
+  %63 = ptrtoint ptr @execute_ex to i64
+  %64 = icmp uge i64 %63, %62
+  br i1 %64, label %65, label %109
 
-63:                                               ; preds = %60
-  %64 = load i64, ptr %5, align 8
-  %65 = load i64, ptr %3, align 8
-  %66 = add i64 %64, %65
-  %67 = load i64, ptr %7, align 8
-  %68 = icmp ule i64 %66, %67
-  br i1 %68, label %69, label %90
+65:                                               ; preds = %61
+  %66 = load i64, ptr %5, align 8
+  %67 = load i64, ptr %3, align 8
+  %68 = add i64 %66, %67
+  %69 = load i64, ptr %7, align 8
+  %70 = icmp ule i64 %68, %69
+  br i1 %70, label %71, label %92
 
-69:                                               ; preds = %63
-  %70 = load i64, ptr %7, align 8
-  %71 = load i64, ptr %3, align 8
-  %72 = sub i64 %70, %71
-  %73 = load i64, ptr %4, align 8
-  %74 = sub i64 %73, 1
-  %75 = add i64 %72, %74
-  %76 = load i64, ptr %4, align 8
-  %77 = sub i64 %76, 1
-  %78 = xor i64 %77, -1
-  %79 = and i64 %75, %78
-  store i64 %79, ptr %6, align 8
-  %80 = load i64, ptr %6, align 8
-  %81 = load i64, ptr %3, align 8
-  %82 = add i64 %80, %81
-  %83 = load i64, ptr %7, align 8
-  %84 = icmp ugt i64 %82, %83
-  br i1 %84, label %85, label %89
+71:                                               ; preds = %65
+  %72 = load i64, ptr %7, align 8
+  %73 = load i64, ptr %3, align 8
+  %74 = sub i64 %72, %73
+  %75 = load i64, ptr %4, align 8
+  %76 = sub i64 %75, 1
+  %77 = add i64 %74, %76
+  %78 = load i64, ptr %4, align 8
+  %79 = sub i64 %78, 1
+  %80 = xor i64 %79, -1
+  %81 = and i64 %77, %80
+  store i64 %81, ptr %6, align 8
+  %82 = load i64, ptr %6, align 8
+  %83 = load i64, ptr %3, align 8
+  %84 = add i64 %82, %83
+  %85 = load i64, ptr %7, align 8
+  %86 = icmp ugt i64 %84, %85
+  br i1 %86, label %87, label %91
 
-85:                                               ; preds = %69
-  %86 = load i64, ptr %4, align 8
-  %87 = load i64, ptr %6, align 8
-  %88 = sub i64 %87, %86
-  store i64 %88, ptr %6, align 8
-  br label %89
+87:                                               ; preds = %71
+  %88 = load i64, ptr %4, align 8
+  %89 = load i64, ptr %6, align 8
+  %90 = sub i64 %89, %88
+  store i64 %90, ptr %6, align 8
+  br label %91
 
-89:                                               ; preds = %85, %69
-  br label %90
+91:                                               ; preds = %87, %71
+  br label %92
 
-90:                                               ; preds = %89, %63
-  %91 = load i64, ptr %8, align 8
-  %92 = icmp ult i64 ptrtoint (ptr @execute_ex to i64), %91
-  br i1 %92, label %93, label %105
+92:                                               ; preds = %91, %65
+  %93 = load i64, ptr %8, align 8
+  %94 = ptrtoint ptr @execute_ex to i64
+  %95 = icmp ult i64 %94, %93
+  br i1 %95, label %96, label %108
 
-93:                                               ; preds = %90
-  %94 = load i64, ptr %6, align 8
-  %95 = icmp ne i64 %94, -1
-  br i1 %95, label %96, label %103
+96:                                               ; preds = %92
+  %97 = load i64, ptr %6, align 8
+  %98 = icmp ne i64 %97, -1
+  br i1 %98, label %99, label %106
 
-96:                                               ; preds = %93
-  %97 = load i64, ptr %8, align 8
-  %98 = load i64, ptr %6, align 8
-  %99 = sub i64 %97, %98
-  %100 = icmp ult i64 %99, 4294967295
-  br i1 %100, label %101, label %102
+99:                                               ; preds = %96
+  %100 = load i64, ptr %8, align 8
+  %101 = load i64, ptr %6, align 8
+  %102 = sub i64 %100, %101
+  %103 = icmp ult i64 %102, 4294967295
+  br i1 %103, label %104, label %105
 
-101:                                              ; preds = %96
-  br label %139
+104:                                              ; preds = %99
+  br label %142
 
-102:                                              ; preds = %96
+105:                                              ; preds = %99
   store i64 -1, ptr %6, align 8
-  br label %103
+  br label %106
 
-103:                                              ; preds = %102, %93
-  %104 = load i64, ptr %7, align 8
-  store i64 %104, ptr %9, align 8
-  br label %105
+106:                                              ; preds = %105, %96
+  %107 = load i64, ptr %7, align 8
+  store i64 %107, ptr %9, align 8
+  br label %108
 
-105:                                              ; preds = %103, %90
-  br label %123
+108:                                              ; preds = %106, %92
+  br label %126
 
-106:                                              ; preds = %60
-  %107 = load i64, ptr %5, align 8
-  %108 = load i64, ptr %3, align 8
-  %109 = add i64 %107, %108
-  %110 = load i64, ptr %9, align 8
-  %111 = sub i64 %109, %110
-  %112 = icmp ugt i64 %111, 4294967295
-  br i1 %112, label %113, label %114
+109:                                              ; preds = %61
+  %110 = load i64, ptr %5, align 8
+  %111 = load i64, ptr %3, align 8
+  %112 = add i64 %110, %111
+  %113 = load i64, ptr %9, align 8
+  %114 = sub i64 %112, %113
+  %115 = icmp ugt i64 %114, 4294967295
+  br i1 %115, label %116, label %117
 
-113:                                              ; preds = %106
-  br label %139
+116:                                              ; preds = %109
+  br label %142
 
-114:                                              ; preds = %106
-  %115 = load i64, ptr %5, align 8
-  %116 = load i64, ptr %3, align 8
-  %117 = add i64 %115, %116
-  %118 = load i64, ptr %7, align 8
-  %119 = icmp ule i64 %117, %118
-  br i1 %119, label %120, label %122
+117:                                              ; preds = %109
+  %118 = load i64, ptr %5, align 8
+  %119 = load i64, ptr %3, align 8
+  %120 = add i64 %118, %119
+  %121 = load i64, ptr %7, align 8
+  %122 = icmp ule i64 %120, %121
+  br i1 %122, label %123, label %125
 
-120:                                              ; preds = %114
-  %121 = load i64, ptr %5, align 8
-  store i64 %121, ptr %6, align 8
-  br label %139
+123:                                              ; preds = %117
+  %124 = load i64, ptr %5, align 8
+  store i64 %124, ptr %6, align 8
+  br label %142
 
-122:                                              ; preds = %114
-  br label %123
+125:                                              ; preds = %117
+  br label %126
 
-123:                                              ; preds = %122, %105
-  %124 = load i64, ptr %8, align 8
-  %125 = load i64, ptr %4, align 8
-  %126 = sub i64 %125, 1
-  %127 = add i64 %124, %126
+126:                                              ; preds = %125, %108
+  %127 = load i64, ptr %8, align 8
   %128 = load i64, ptr %4, align 8
   %129 = sub i64 %128, 1
-  %130 = xor i64 %129, -1
-  %131 = and i64 %127, %130
-  store i64 %131, ptr %5, align 8
-  %132 = load i8, ptr %12, align 1
-  %133 = trunc i8 %132 to i1
-  br i1 %133, label %134, label %138
+  %130 = add i64 %127, %129
+  %131 = load i64, ptr %4, align 8
+  %132 = sub i64 %131, 1
+  %133 = xor i64 %132, -1
+  %134 = and i64 %130, %133
+  store i64 %134, ptr %5, align 8
+  %135 = load i8, ptr %12, align 1
+  %136 = trunc i8 %135 to i1
+  br i1 %136, label %137, label %141
 
-134:                                              ; preds = %123
-  %135 = load i64, ptr %4, align 8
-  %136 = load i64, ptr %5, align 8
-  %137 = add i64 %136, %135
-  store i64 %137, ptr %5, align 8
-  br label %138
+137:                                              ; preds = %126
+  %138 = load i64, ptr %4, align 8
+  %139 = load i64, ptr %5, align 8
+  %140 = add i64 %139, %138
+  store i64 %140, ptr %5, align 8
+  br label %141
 
-138:                                              ; preds = %134, %123
-  br label %19
+141:                                              ; preds = %137, %126
+  br label %20
 
-139:                                              ; preds = %120, %113, %101, %28
-  %140 = load ptr, ptr %10, align 8
-  %141 = call i32 @fclose(ptr noundef %140)
-  %142 = load i64, ptr %6, align 8
-  %143 = inttoptr i64 %142 to ptr
-  store ptr %143, ptr %2, align 8
-  br label %144
+142:                                              ; preds = %123, %116, %104, %29
+  %143 = load ptr, ptr %10, align 8
+  %144 = call i32 @fclose(ptr noundef %143)
+  %145 = load i64, ptr %6, align 8
+  %146 = inttoptr i64 %145 to ptr
+  store ptr %146, ptr %2, align 8
+  br label %147
 
-144:                                              ; preds = %139, %17
-  %145 = load ptr, ptr %2, align 8
-  ret ptr %145
+147:                                              ; preds = %142, %17
+  %148 = load ptr, ptr %2, align 8
+  ret ptr %148
 }
 
 ; Function Attrs: nounwind

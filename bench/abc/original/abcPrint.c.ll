@@ -229,7 +229,7 @@ define i32 @Abc_NtkCompareAndSaveBest(ptr noundef %0) #0 {
 
 13:                                               ; preds = %12, %10
   store i32 0, ptr %2, align 4
-  br label %106
+  br label %136
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %3, align 8
@@ -239,150 +239,180 @@ define i32 @Abc_NtkCompareAndSaveBest(ptr noundef %0) #0 {
 
 18:                                               ; preds = %14
   store i32 0, ptr %2, align 4
-  br label %106
+  br label %136
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %3, align 8
   %21 = call i32 @Abc_NtkLevel(ptr noundef %20)
-  store i32 %21, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 1), align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = call i32 @Abc_NtkLatchNum(ptr noundef %22)
-  store i32 %23, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 2), align 4
-  %24 = load ptr, ptr %3, align 8
-  %25 = call i32 @Abc_NtkNodeNum(ptr noundef %24)
-  store i32 %25, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 3), align 8
+  %22 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 1
+  store i32 %21, ptr %22, align 8
+  %23 = load ptr, ptr %3, align 8
+  %24 = call i32 @Abc_NtkLatchNum(ptr noundef %23)
+  %25 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 2
+  store i32 %24, ptr %25, align 4
   %26 = load ptr, ptr %3, align 8
-  %27 = call i32 @Abc_NtkGetTotalFanins(ptr noundef %26)
-  store i32 %27, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 4), align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = call i32 @Abc_NtkPiNum(ptr noundef %28)
-  store i32 %29, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 5), align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = call i32 @Abc_NtkPoNum(ptr noundef %30)
-  store i32 %31, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 6), align 4
-  %32 = load ptr, ptr @Abc_NtkCompareAndSaveBest.ParsBest, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %65, label %34
+  %27 = call i32 @Abc_NtkNodeNum(ptr noundef %26)
+  %28 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 3
+  store i32 %27, ptr %28, align 8
+  %29 = load ptr, ptr %3, align 8
+  %30 = call i32 @Abc_NtkGetTotalFanins(ptr noundef %29)
+  %31 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 4
+  store i32 %30, ptr %31, align 4
+  %32 = load ptr, ptr %3, align 8
+  %33 = call i32 @Abc_NtkPiNum(ptr noundef %32)
+  %34 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 5
+  store i32 %33, ptr %34, align 8
+  %35 = load ptr, ptr %3, align 8
+  %36 = call i32 @Abc_NtkPoNum(ptr noundef %35)
+  %37 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 6
+  store i32 %36, ptr %37, align 4
+  %38 = load ptr, ptr @Abc_NtkCompareAndSaveBest.ParsBest, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %83, label %40
 
-34:                                               ; preds = %19
-  %35 = load ptr, ptr @Abc_NtkCompareAndSaveBest.ParsBest, align 8
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %36, i32 0, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @strcmp(ptr noundef %35, ptr noundef %38) #12
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %65, label %41
+40:                                               ; preds = %19
+  %41 = load ptr, ptr @Abc_NtkCompareAndSaveBest.ParsBest, align 8
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %42, i32 0, i32 2
+  %44 = load ptr, ptr %43, align 8
+  %45 = call i32 @strcmp(ptr noundef %41, ptr noundef %44) #12
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %83, label %47
 
-41:                                               ; preds = %34
-  %42 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 1), align 8
-  %43 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 1), align 8
-  %44 = icmp sgt i32 %42, %43
-  br i1 %44, label %65, label %45
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 1
+  %49 = load i32, ptr %48, align 8
+  %50 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 1
+  %51 = load i32, ptr %50, align 8
+  %52 = icmp sgt i32 %49, %51
+  br i1 %52, label %83, label %53
 
-45:                                               ; preds = %41
-  %46 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 1), align 8
-  %47 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 1), align 8
-  %48 = icmp eq i32 %46, %47
-  br i1 %48, label %49, label %53
+53:                                               ; preds = %47
+  %54 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 1
+  %55 = load i32, ptr %54, align 8
+  %56 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 1
+  %57 = load i32, ptr %56, align 8
+  %58 = icmp eq i32 %55, %57
+  br i1 %58, label %59, label %65
 
-49:                                               ; preds = %45
-  %50 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 2), align 4
-  %51 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 2), align 4
-  %52 = icmp sgt i32 %50, %51
-  br i1 %52, label %65, label %53
+59:                                               ; preds = %53
+  %60 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 2
+  %61 = load i32, ptr %60, align 4
+  %62 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 2
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp sgt i32 %61, %63
+  br i1 %64, label %83, label %65
 
-53:                                               ; preds = %49, %45
-  %54 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 1), align 8
-  %55 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 1), align 8
-  %56 = icmp eq i32 %54, %55
-  br i1 %56, label %57, label %105
+65:                                               ; preds = %59, %53
+  %66 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 1
+  %67 = load i32, ptr %66, align 8
+  %68 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 1
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp eq i32 %67, %69
+  br i1 %70, label %71, label %135
 
-57:                                               ; preds = %53
-  %58 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 2), align 4
-  %59 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 2), align 4
-  %60 = icmp eq i32 %58, %59
-  br i1 %60, label %61, label %105
+71:                                               ; preds = %65
+  %72 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 2
+  %73 = load i32, ptr %72, align 4
+  %74 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 2
+  %75 = load i32, ptr %74, align 4
+  %76 = icmp eq i32 %73, %75
+  br i1 %76, label %77, label %135
 
-61:                                               ; preds = %57
-  %62 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 4), align 4
-  %63 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 4), align 4
-  %64 = icmp sgt i32 %62, %63
-  br i1 %64, label %65, label %105
+77:                                               ; preds = %71
+  %78 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 4
+  %79 = load i32, ptr %78, align 4
+  %80 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 4
+  %81 = load i32, ptr %80, align 4
+  %82 = icmp sgt i32 %79, %81
+  br i1 %82, label %83, label %135
 
-65:                                               ; preds = %61, %49, %41, %34, %19
-  %66 = load ptr, ptr @Abc_NtkCompareAndSaveBest.ParsBest, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %70
+83:                                               ; preds = %77, %59, %47, %40, %19
+  %84 = load ptr, ptr @Abc_NtkCompareAndSaveBest.ParsBest, align 8
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %88
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr @Abc_NtkCompareAndSaveBest.ParsBest, align 8
-  call void @free(ptr noundef %69) #11
+86:                                               ; preds = %83
+  %87 = load ptr, ptr @Abc_NtkCompareAndSaveBest.ParsBest, align 8
+  call void @free(ptr noundef %87) #11
   store ptr null, ptr @Abc_NtkCompareAndSaveBest.ParsBest, align 8
-  br label %71
+  br label %89
 
-70:                                               ; preds = %65
-  br label %71
+88:                                               ; preds = %83
+  br label %89
 
-71:                                               ; preds = %70, %68
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %72, i32 0, i32 2
-  %74 = load ptr, ptr %73, align 8
-  %75 = call ptr @Extra_UtilStrsav(ptr noundef %74)
-  store ptr %75, ptr @Abc_NtkCompareAndSaveBest.ParsBest, align 8
-  %76 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 1), align 8
-  store i32 %76, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 1), align 8
-  %77 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 2), align 4
-  store i32 %77, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 2), align 4
-  %78 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 3), align 8
-  store i32 %78, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 3), align 8
-  %79 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 4), align 4
-  store i32 %79, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 4), align 4
-  %80 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 5), align 8
-  store i32 %80, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 5), align 8
-  %81 = load i32, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 6), align 4
-  store i32 %81, ptr getelementptr inbounds (%struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 6), align 4
-  %82 = load ptr, ptr %3, align 8
-  %83 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %82, i32 0, i32 3
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %85, i32 0, i32 3
-  %87 = load ptr, ptr %86, align 8
-  %88 = call i64 @strlen(ptr noundef %87) #12
-  %89 = getelementptr inbounds i8, ptr %84, i64 %88
-  %90 = getelementptr inbounds i8, ptr %89, i64 -10
-  %91 = call i32 @strcmp(ptr noundef %90, ptr noundef @.str) #12
-  %92 = icmp ne i32 %91, 0
-  br i1 %92, label %93, label %98
+89:                                               ; preds = %88, %86
+  %90 = load ptr, ptr %3, align 8
+  %91 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %90, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8
+  %93 = call ptr @Extra_UtilStrsav(ptr noundef %92)
+  store ptr %93, ptr @Abc_NtkCompareAndSaveBest.ParsBest, align 8
+  %94 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 1
+  %95 = load i32, ptr %94, align 8
+  %96 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 1
+  store i32 %95, ptr %96, align 8
+  %97 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 2
+  %98 = load i32, ptr %97, align 4
+  %99 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 2
+  store i32 %98, ptr %99, align 4
+  %100 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 3
+  %101 = load i32, ptr %100, align 8
+  %102 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 3
+  store i32 %101, ptr %102, align 8
+  %103 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 4
+  %104 = load i32, ptr %103, align 4
+  %105 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 4
+  store i32 %104, ptr %105, align 4
+  %106 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 5
+  %107 = load i32, ptr %106, align 8
+  %108 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 5
+  store i32 %107, ptr %108, align 8
+  %109 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsNew, i32 0, i32 6
+  %110 = load i32, ptr %109, align 4
+  %111 = getelementptr inbounds %struct.ParStruct, ptr @Abc_NtkCompareAndSaveBest.ParsBest, i32 0, i32 6
+  store i32 %110, ptr %111, align 4
+  %112 = load ptr, ptr %3, align 8
+  %113 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %112, i32 0, i32 3
+  %114 = load ptr, ptr %113, align 8
+  %115 = load ptr, ptr %3, align 8
+  %116 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %115, i32 0, i32 3
+  %117 = load ptr, ptr %116, align 8
+  %118 = call i64 @strlen(ptr noundef %117) #12
+  %119 = getelementptr inbounds i8, ptr %114, i64 %118
+  %120 = getelementptr inbounds i8, ptr %119, i64 -10
+  %121 = call i32 @strcmp(ptr noundef %120, ptr noundef @.str) #12
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %123, label %128
 
-93:                                               ; preds = %71
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %94, i32 0, i32 3
-  %96 = load ptr, ptr %95, align 8
-  %97 = call ptr @Extra_FileNameGenericAppend(ptr noundef %96, ptr noundef @.str)
-  store ptr %97, ptr %4, align 8
-  br label %102
+123:                                              ; preds = %89
+  %124 = load ptr, ptr %3, align 8
+  %125 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %124, i32 0, i32 3
+  %126 = load ptr, ptr %125, align 8
+  %127 = call ptr @Extra_FileNameGenericAppend(ptr noundef %126, ptr noundef @.str)
+  store ptr %127, ptr %4, align 8
+  br label %132
 
-98:                                               ; preds = %71
-  %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %99, i32 0, i32 3
-  %101 = load ptr, ptr %100, align 8
-  store ptr %101, ptr %4, align 8
-  br label %102
+128:                                              ; preds = %89
+  %129 = load ptr, ptr %3, align 8
+  %130 = getelementptr inbounds %struct.Abc_Ntk_t_, ptr %129, i32 0, i32 3
+  %131 = load ptr, ptr %130, align 8
+  store ptr %131, ptr %4, align 8
+  br label %132
 
-102:                                              ; preds = %98, %93
-  %103 = load ptr, ptr %3, align 8
-  %104 = load ptr, ptr %4, align 8
-  call void @Io_Write(ptr noundef %103, ptr noundef %104, i32 noundef 4)
+132:                                              ; preds = %128, %123
+  %133 = load ptr, ptr %3, align 8
+  %134 = load ptr, ptr %4, align 8
+  call void @Io_Write(ptr noundef %133, ptr noundef %134, i32 noundef 4)
   store i32 1, ptr %2, align 4
-  br label %106
+  br label %136
 
-105:                                              ; preds = %61, %57, %53
+135:                                              ; preds = %77, %71, %65
   store i32 0, ptr %2, align 4
-  br label %106
+  br label %136
 
-106:                                              ; preds = %105, %102, %18, %13
-  %107 = load i32, ptr %2, align 4
-  ret i32 %107
+136:                                              ; preds = %135, %132, %18, %13
+  %137 = load i32, ptr %2, align 4
+  ret i32 %137
 }
 
 ; Function Attrs: nounwind
@@ -1943,7 +1973,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 39:                                               ; preds = %38, %24
   %40 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_start(ptr %40)
+  call void @llvm.va_start.p0(ptr %40)
   %41 = call i32 (...) @Abc_FrameIsBridgeMode()
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %54
@@ -1971,7 +2001,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) #0 {
 
 58:                                               ; preds = %54, %43
   %59 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
-  call void @llvm.va_end(ptr %59)
+  call void @llvm.va_end.p0(ptr %59)
   br label %60
 
 60:                                               ; preds = %58, %9
@@ -3053,9 +3083,10 @@ define internal i32 @Abc_LatchIsInitDc(ptr noundef %0) #0 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.Abc_Obj_t_, ptr %3, i32 0, i32 6
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, inttoptr (i64 3 to ptr)
-  %7 = zext i1 %6 to i32
-  ret i32 %7
+  %6 = inttoptr i64 3 to ptr
+  %7 = icmp eq ptr %5, %6
+  %8 = zext i1 %7 to i32
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3065,9 +3096,10 @@ define internal i32 @Abc_LatchIsInit1(ptr noundef %0) #0 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %struct.Abc_Obj_t_, ptr %3, i32 0, i32 6
   %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, inttoptr (i64 2 to ptr)
-  %7 = zext i1 %6 to i32
-  ret i32 %7
+  %6 = inttoptr i64 2 to ptr
+  %7 = icmp eq ptr %5, %6
+  %8 = zext i1 %7 to i32
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10768,16 +10800,10 @@ declare i32 @Abc_FrameIsBridgeMode(...) #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
 declare i32 @vprintf(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 ; Function Attrs: nounwind uwtable
 define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
@@ -10835,7 +10861,7 @@ define internal void @Vec_IntGrow(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #9
+declare ptr @realloc(ptr noundef, i64 noundef) #8
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @Abc_Clock() #0 {
@@ -10929,7 +10955,7 @@ define internal ptr @Vec_WecAlloc(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #10
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #9
 
 ; Function Attrs: nounwind uwtable
 define internal void @Vec_IntTwoMerge2Int(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -11268,6 +11294,12 @@ define internal ptr @Vec_WrdAlloc(i32 noundef %0) #0 {
   ret ptr %33
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -11276,9 +11308,9 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { nounwind allocsize(0) }

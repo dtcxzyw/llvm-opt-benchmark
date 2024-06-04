@@ -201,20 +201,22 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !31
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 160
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !34
-  store ptr getelementptr inbounds inrange(-24, 240) ({ [33 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CFileSystemE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [33 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CFileSystemE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [33 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CFileSystemE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [33 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CFileSystemE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %1, ptr %arrayctor.cur.ptr, align 8, !tbaa !6
+  %3 = getelementptr inbounds i8, ptr %this, i64 32
+  store ptr %3, ptr %arrayctor.cur.ptr, align 8, !tbaa !6
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %1, align 8, !tbaa !13
+  store i8 0, ptr %3, align 8, !tbaa !13
   %arrayctor.cur.ptr.1 = getelementptr inbounds i8, ptr %this, i64 48
-  %2 = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr %2, ptr %arrayctor.cur.ptr.1, align 8, !tbaa !6
+  %4 = getelementptr inbounds i8, ptr %this, i64 64
+  store ptr %4, ptr %arrayctor.cur.ptr.1, align 8, !tbaa !6
   %_M_string_length.i.i.i.i.1 = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %_M_string_length.i.i.i.i.1, align 8, !tbaa !10
-  store i8 0, ptr %2, align 8, !tbaa !13
+  store i8 0, ptr %4, align 8, !tbaa !13
   %ArchiveLoader = getelementptr inbounds i8, ptr %this, i64 80
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ArchiveLoader, i8 0, i64 24, i1 false)
@@ -229,23 +231,23 @@ entry:
   %call6 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   tail call void @_ZN3irr2io17CArchiveLoaderZIPC1EPNS0_11IFileSystemE(ptr noundef nonnull align 8 dereferenceable(16) %call6, ptr noundef nonnull %this) #23
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %3 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !27
+  %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !27
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %4 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !28
-  %cmp.not.i.i.i = icmp eq ptr %3, %4
+  %6 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !28
+  %cmp.not.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  store ptr %call6, ptr %3, align 8, !tbaa !27
-  %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !29
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %call6, ptr %5, align 8, !tbaa !27
+  %7 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !29
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !29
   br label %_ZN3irr4core5arrayIPNS_2io14IArchiveLoaderEE9push_backEOS4_.exit
 
 if.else.i.i.i:                                    ; preds = %entry
-  %6 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !27
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %6 to i64
+  %8 = load ptr, ptr %ArchiveLoader, align 8, !tbaa !27
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -259,8 +261,8 @@ _ZNKSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 1)
   %add.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
   %cmp7.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
-  %7 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i, i64 1152921504606846975)
-  %cond.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i, i64 1152921504606846975, i64 %7
+  %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i, i64 1152921504606846975)
+  %cond.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i, i64 1152921504606846975, i64 %9
   %cmp.not.i.i.i.i.i = icmp eq i64 %cond.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIPN3irr2io14IArchiveLoaderESaIS3_EE11_M_allocateEm.exit.i.i.i.i, label %cond.true.i.i.i.i.i
 
@@ -277,17 +279,17 @@ _ZNSt12_Vector_baseIPN3irr2io14IArchiveLoaderESaIS3_EE11_M_allocateEm.exit.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIPN3irr2io14IArchiveLoaderESaIS3_EE11_M_allocateEm.exit.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i31.i.i.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i31.i.i.i.i, ptr align 8 %8, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
 
 _ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN3irr2io14IArchiveLoaderESaIS3_EE11_M_allocateEm.exit.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i31.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, label %if.then.i39.i.i.i.i
 
 if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #26
   br label %_ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr2io14IArchiveLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i

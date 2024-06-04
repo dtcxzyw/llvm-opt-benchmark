@@ -489,11 +489,12 @@ define void @_ZN19DissectorTablesItemC2E7QStringS0_PS_(ptr noundef nonnull align
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %8, align 8
   call void @_ZN19ModelHelperTreeItemI19DissectorTablesItemEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19DissectorTablesItem, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %class.DissectorTablesItem, ptr %9, i32 0, i32 1
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
-  %12 = getelementptr inbounds %class.DissectorTablesItem, ptr %9, i32 0, i32 2
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %2) #10
+  %11 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV19DissectorTablesItem, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %class.DissectorTablesItem, ptr %9, i32 0, i32 1
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
+  %13 = getelementptr inbounds %class.DissectorTablesItem, ptr %9, i32 0, i32 2
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %2) #10
   ret void
 }
 
@@ -504,12 +505,13 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI19DissectorTablesItemEC2EPS0_
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI19DissectorTablesItemE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 2
-  call void @_ZN5QListI8QVariantEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI19DissectorTablesItemE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 2
+  call void @_ZN5QListI8QVariantEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
   ret void
 }
 
@@ -532,11 +534,12 @@ define void @_ZN19DissectorTablesItemD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19DissectorTablesItem, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.DissectorTablesItem, ptr %3, i32 0, i32 2
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
-  %5 = getelementptr inbounds %class.DissectorTablesItem, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV19DissectorTablesItem, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.DissectorTablesItem, ptr %3, i32 0, i32 2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
+  %6 = getelementptr inbounds %class.DissectorTablesItem, ptr %3, i32 0, i32 1
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #10
   call void @_ZN19ModelHelperTreeItemI19DissectorTablesItemED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
   ret void
 }
@@ -662,54 +665,55 @@ define void @_ZN17IntegerTablesItemC2Ej7QStringP19DissectorTablesItem(ptr nounde
   %20 = getelementptr inbounds %class.QChar, ptr %11, i32 0, i32 0
   %21 = load i16, ptr %20, align 2
   invoke void @_ZNK7QString3argEjii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %17, i32 noundef 0, i32 noundef 10, i16 %21)
-          to label %22 unwind label %27
+          to label %22 unwind label %28
 
 22:                                               ; preds = %4
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %2) #10
   %23 = load ptr, ptr %8, align 8
   invoke void @_ZN19DissectorTablesItemC2E7QStringS0_PS_(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef %9, ptr noundef %15, ptr noundef %23)
-          to label %24 unwind label %31
+          to label %24 unwind label %32
 
 24:                                               ; preds = %22
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #10
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17IntegerTablesItem, i32 0, i32 0, i32 2), ptr %16, align 8
-  %25 = getelementptr inbounds %class.IntegerTablesItem, ptr %16, i32 0, i32 1
-  %26 = load i32, ptr %6, align 4
-  store i32 %26, ptr %25, align 8
+  %25 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17IntegerTablesItem, i32 0, i32 0, i32 2
+  store ptr %25, ptr %16, align 8
+  %26 = getelementptr inbounds %class.IntegerTablesItem, ptr %16, i32 0, i32 1
+  %27 = load i32, ptr %6, align 4
+  store i32 %27, ptr %26, align 8
   ret void
 
-27:                                               ; preds = %4
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %4
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %13, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %14, align 4
-  br label %35
-
-31:                                               ; preds = %22
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %13, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %14, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #10
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
-  br label %35
-
-35:                                               ; preds = %31, %27
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #10
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %13, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %14, align 4
   br label %36
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %13, align 8
-  %38 = load i32, ptr %14, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+32:                                               ; preds = %22
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %13, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %14, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #10
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
+  br label %36
+
+36:                                               ; preds = %32, %28
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #10
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %13, align 8
+  %39 = load i32, ptr %14, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -864,97 +868,98 @@ define void @_ZN20DissectorTablesModelC2EP7QObject(ptr noundef nonnull align 8 d
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV20DissectorTablesModel, i32 0, i32 0, i32 2), ptr %10, align 8
-  %12 = getelementptr inbounds %class.DissectorTablesModel, ptr %10, i32 0, i32 1
-  %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #12
-          to label %14 unwind label %19
+  %12 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV20DissectorTablesModel, i32 0, i32 0, i32 2
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds %class.DissectorTablesModel, ptr %10, i32 0, i32 1
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #12
+          to label %15 unwind label %20
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   store i1 true, ptr %9, align 1
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef @.str.1)
-          to label %15 unwind label %23
-
-15:                                               ; preds = %14
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef @.str.1)
-          to label %16 unwind label %27
+          to label %16 unwind label %24
 
 16:                                               ; preds = %15
-  invoke void @_ZN19DissectorTablesItemC1E7QStringS0_PS_(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef %7, ptr noundef %8, ptr noundef null)
-          to label %17 unwind label %31
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef @.str.1)
+          to label %17 unwind label %28
 
 17:                                               ; preds = %16
+  invoke void @_ZN19DissectorTablesItemC1E7QStringS0_PS_(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef %7, ptr noundef %8, ptr noundef null)
+          to label %18 unwind label %32
+
+18:                                               ; preds = %17
   store i1 false, ptr %9, align 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
-  store ptr %13, ptr %12, align 8
+  store ptr %14, ptr %13, align 8
   invoke void @_ZN20DissectorTablesModel8populateEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %18 unwind label %19
+          to label %19 unwind label %20
 
-18:                                               ; preds = %17
+19:                                               ; preds = %18
   ret void
 
-19:                                               ; preds = %17, %2
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %18, %2
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %5, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %6, align 4
-  br label %40
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %5, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %6, align 4
-  br label %36
-
-27:                                               ; preds = %15
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %5, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %6, align 4
-  br label %35
-
-31:                                               ; preds = %16
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %5, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %6, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
-  br label %35
-
-35:                                               ; preds = %31, %27
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
-  br label %36
-
-36:                                               ; preds = %35, %23
-  %37 = load i1, ptr %9, align 1
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %36
-  call void @_ZdlPv(ptr noundef %13) #11
-  br label %39
-
-39:                                               ; preds = %38, %36
-  br label %40
-
-40:                                               ; preds = %39, %19
-  call void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #10
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %5, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %6, align 4
   br label %41
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %5, align 8
-  %43 = load i32, ptr %6, align 4
-  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
-  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
-  resume { ptr, i32 } %45
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %5, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %6, align 4
+  br label %37
+
+28:                                               ; preds = %16
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %5, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %6, align 4
+  br label %36
+
+32:                                               ; preds = %17
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %5, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %6, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
+  br label %36
+
+36:                                               ; preds = %32, %28
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
+  br label %37
+
+37:                                               ; preds = %36, %24
+  %38 = load i1, ptr %9, align 1
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %37
+  call void @_ZdlPv(ptr noundef %14) #11
+  br label %40
+
+40:                                               ; preds = %39, %37
+  br label %41
+
+41:                                               ; preds = %40, %20
+  call void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #10
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 declare void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #4
@@ -1284,20 +1289,21 @@ define void @_ZN20DissectorTablesModelD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV20DissectorTablesModel, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.DissectorTablesModel, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %11, label %7
+  %4 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV20DissectorTablesModel, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.DissectorTablesModel, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 1
-  %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(88) %5) #10
-  br label %11
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 1
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(88) %6) #10
+  br label %12
 
-11:                                               ; preds = %7, %1
+12:                                               ; preds = %8, %1
   call void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   ret void
 }
@@ -2328,34 +2334,35 @@ define void @_ZN25DissectorTablesProxyModelC2EP7QObject(ptr noundef nonnull alig
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV25DissectorTablesProxyModel, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %class.DissectorTablesProxyModel, ptr %7, i32 0, i32 1
-  invoke void @_ZN25DissectorTablesProxyModel2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef @.str.3, ptr noundef null, i32 noundef -1)
-          to label %10 unwind label %13
+  %9 = getelementptr inbounds { [59 x ptr] }, ptr @_ZTV25DissectorTablesProxyModel, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %class.DissectorTablesProxyModel, ptr %7, i32 0, i32 1
+  invoke void @_ZN25DissectorTablesProxyModel2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef @.str.3, ptr noundef null, i32 noundef -1)
+          to label %11 unwind label %14
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds %class.DissectorTablesProxyModel, ptr %7, i32 0, i32 2
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #10
-  %12 = getelementptr inbounds %class.DissectorTablesProxyModel, ptr %7, i32 0, i32 3
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds %class.DissectorTablesProxyModel, ptr %7, i32 0, i32 2
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #10
+  %13 = getelementptr inbounds %class.DissectorTablesProxyModel, ptr %7, i32 0, i32 3
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #10
   ret void
 
-13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %5, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %6, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
   call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #10
-  br label %17
+  br label %18
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %6, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 declare void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #4
@@ -4327,65 +4334,66 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI19DissectorTablesItemED2Ev(pt
   %4 = alloca %class.QVariant, align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI19DissectorTablesItemE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI19DissectorTablesItemE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   store i32 0, ptr %3, align 4
-  br label %6
+  br label %7
 
-6:                                                ; preds = %25, %1
-  %7 = load i32, ptr %3, align 4
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 2
-  %10 = call noundef i64 @_ZNK5QListI8QVariantE5countEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
-  %11 = icmp slt i64 %8, %10
-  br i1 %11, label %12, label %28
+7:                                                ; preds = %26, %1
+  %8 = load i32, ptr %3, align 4
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 2
+  %11 = call noundef i64 @_ZNK5QListI8QVariantE5countEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #10
+  %12 = icmp slt i64 %9, %11
+  br i1 %12, label %13, label %29
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 2
-  %14 = load i32, ptr %3, align 4
-  %15 = sext i32 %14 to i64
-  invoke void @_ZNK5QListI8QVariantE5valueEx(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %15)
-          to label %16 unwind label %32
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 2
+  %15 = load i32, ptr %3, align 4
+  %16 = sext i32 %15 to i64
+  invoke void @_ZNK5QListI8QVariantE5valueEx(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %16)
+          to label %17 unwind label %33
 
-16:                                               ; preds = %12
-  %17 = invoke noundef ptr @_ZN14VariantPointerI19DissectorTablesItemE5asPtrE8QVariant(ptr noundef %4)
-          to label %18 unwind label %32
+17:                                               ; preds = %13
+  %18 = invoke noundef ptr @_ZN14VariantPointerI19DissectorTablesItemE5asPtrE8QVariant(ptr noundef %4)
+          to label %19 unwind label %33
 
-18:                                               ; preds = %16
-  %19 = icmp eq ptr %17, null
-  br i1 %19, label %24, label %20
+19:                                               ; preds = %17
+  %20 = icmp eq ptr %18, null
+  br i1 %20, label %25, label %21
 
-20:                                               ; preds = %18
-  %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 1
-  %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(88) %17) #10
-  br label %24
-
-24:                                               ; preds = %20, %18
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
+21:                                               ; preds = %19
+  %22 = load ptr, ptr %18, align 8
+  %23 = getelementptr inbounds ptr, ptr %22, i64 1
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(88) %18) #10
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %3, align 4
-  %27 = add i32 %26, 1
-  store i32 %27, ptr %3, align 4
-  br label %6, !llvm.loop !6
+25:                                               ; preds = %21, %19
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
+  br label %26
 
-28:                                               ; preds = %6
-  %29 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 2
-  invoke void @_ZN5QListI8QVariantE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %29)
-          to label %30 unwind label %32
+26:                                               ; preds = %25
+  %27 = load i32, ptr %3, align 4
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %3, align 4
+  br label %7, !llvm.loop !6
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 2
-  call void @_ZN5QListI8QVariantED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #10
+29:                                               ; preds = %7
+  %30 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 2
+  invoke void @_ZN5QListI8QVariantE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %30)
+          to label %31 unwind label %33
+
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 2
+  call void @_ZN5QListI8QVariantED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #10
   ret void
 
-32:                                               ; preds = %28, %16, %12
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %29, %17, %13
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #13
   unreachable
 }
 

@@ -27,26 +27,27 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hdac_reg
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_regmap_init(ptr noundef %0) #0 align 16 {
   %2 = tail call ptr @__regmap_init(ptr noundef %0, ptr noundef null, ptr noundef %0, ptr noundef nonnull @hda_regmap_cfg, ptr noundef null, ptr noundef null) #6
-  %3 = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)
-  br i1 %3, label %4, label %7
+  %3 = inttoptr i64 -4096 to ptr
+  %4 = icmp ugt ptr %2, %3
+  br i1 %4, label %5, label %8
 
-4:                                                ; preds = %1
-  %5 = ptrtoint ptr %2 to i64
-  %6 = trunc i64 %5 to i32
-  br label %11
+5:                                                ; preds = %1
+  %6 = ptrtoint ptr %2 to i64
+  %7 = trunc i64 %6 to i32
+  br label %12
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 880
-  store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 928
-  store i32 4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 932
-  store i32 8, ptr %10, align 4
-  br label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 880
+  store ptr %2, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 928
+  store i32 4, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 932
+  store i32 8, ptr %11, align 4
+  br label %12
 
-11:                                               ; preds = %7, %4
-  %12 = phi i32 [ %6, %4 ], [ 0, %7 ]
-  ret i32 %12
+12:                                               ; preds = %8, %5
+  %13 = phi i32 [ %7, %5 ], [ 0, %8 ]
+  ret i32 %13
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

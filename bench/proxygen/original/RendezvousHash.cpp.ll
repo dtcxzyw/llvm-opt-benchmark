@@ -1891,7 +1891,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen14RendezvousHashE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN8proxygen14RendezvousHashE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %weights_ = getelementptr inbounds %"class.proxygen::RendezvousHash", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt4pairImmESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weights_) #10
   call void @_ZN8proxygen14ConsistentHashD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10

@@ -183,7 +183,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
 17:                                               ; preds = %1
   %18 = getelementptr inbounds i8, ptr %14, i64 616
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %18, ptr noundef nonnull @.str.4) #12
-  br label %181
+  br label %182
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds i8, ptr %14, i64 608
@@ -305,7 +305,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %181
+  br i1 %81, label %82, label %182
 
 82:                                               ; preds = %79
   %83 = load ptr, ptr %20, align 8
@@ -425,12 +425,12 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
   %144 = phi i32 [ %142, %141 ], [ %86, %82 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   %145 = icmp eq i32 %144, 0
-  br i1 %145, label %146, label %181
+  br i1 %145, label %146, label %182
 
 146:                                              ; preds = %143
   %147 = call i32 @acpi_fan_create_attributes(ptr noundef %14) #11
   %148 = icmp eq i32 %147, 0
-  br i1 %148, label %149, label %181
+  br i1 %148, label %149, label %182
 
 149:                                              ; preds = %146
   store i8 1, ptr %15, align 8
@@ -444,7 +444,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
 153:                                              ; preds = %150
   %154 = getelementptr inbounds i8, ptr %14, i64 616
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %154, ptr noundef nonnull @.str.5) #12
-  br label %176
+  br label %177
 
 155:                                              ; preds = %150, %149
   %156 = load ptr, ptr %0, align 8
@@ -453,48 +453,49 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
   %159 = getelementptr inbounds i8, ptr %14, i64 120
   %160 = select i1 %158, ptr @.str.7, ptr %159
   %161 = call ptr @thermal_cooling_device_register(ptr noundef %160, ptr noundef %14, ptr noundef nonnull @fan_cooling_ops) #11
-  %162 = icmp ugt ptr %161, inttoptr (i64 -4096 to ptr)
-  br i1 %162, label %163, label %166
+  %162 = inttoptr i64 -4096 to ptr
+  %163 = icmp ugt ptr %161, %162
+  br i1 %163, label %164, label %167
 
-163:                                              ; preds = %155
-  %164 = ptrtoint ptr %161 to i64
-  %165 = trunc i64 %164 to i32
-  br label %176
+164:                                              ; preds = %155
+  %165 = ptrtoint ptr %161 to i64
+  %166 = trunc i64 %165 to i32
+  br label %177
 
-166:                                              ; preds = %155
-  %167 = getelementptr inbounds i8, ptr %15, i64 24
-  store ptr %161, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %161, i64 24
-  %169 = call i32 @sysfs_create_link(ptr noundef %9, ptr noundef %168, ptr noundef nonnull @.str.8) #11
-  %170 = icmp eq i32 %169, 0
-  br i1 %170, label %172, label %171
+167:                                              ; preds = %155
+  %168 = getelementptr inbounds i8, ptr %15, i64 24
+  store ptr %161, ptr %168, align 8
+  %169 = getelementptr inbounds i8, ptr %161, i64 24
+  %170 = call i32 @sysfs_create_link(ptr noundef %9, ptr noundef %169, ptr noundef nonnull @.str.8) #11
+  %171 = icmp eq i32 %170, 0
+  br i1 %171, label %173, label %172
 
-171:                                              ; preds = %166
+172:                                              ; preds = %167
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %9, ptr noundef nonnull @.str.9) #12
-  br label %172
+  br label %173
 
-172:                                              ; preds = %171, %166
-  %173 = call i32 @sysfs_create_link(ptr noundef %168, ptr noundef %9, ptr noundef nonnull @.str.10) #11
-  %174 = icmp eq i32 %173, 0
-  br i1 %174, label %181, label %175
+173:                                              ; preds = %172, %167
+  %174 = call i32 @sysfs_create_link(ptr noundef %169, ptr noundef %9, ptr noundef nonnull @.str.10) #11
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %182, label %176
 
-175:                                              ; preds = %172
+176:                                              ; preds = %173
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %9, ptr noundef nonnull @.str.11) #12
-  br label %176
+  br label %177
 
-176:                                              ; preds = %175, %163, %153
-  %177 = phi i32 [ %165, %163 ], [ %173, %175 ], [ %151, %153 ]
-  %178 = load i8, ptr %15, align 8, !range !10, !noundef !11
-  %179 = icmp eq i8 %178, 0
-  br i1 %179, label %181, label %180
+177:                                              ; preds = %176, %164, %153
+  %178 = phi i32 [ %166, %164 ], [ %174, %176 ], [ %151, %153 ]
+  %179 = load i8, ptr %15, align 8, !range !10, !noundef !11
+  %180 = icmp eq i8 %179, 0
+  br i1 %180, label %182, label %181
 
-180:                                              ; preds = %176
+181:                                              ; preds = %177
   call void @acpi_fan_delete_attributes(ptr noundef %14) #11
-  br label %181
+  br label %182
 
-181:                                              ; preds = %180, %176, %172, %146, %143, %79, %17
-  %182 = phi i32 [ -12, %17 ], [ %80, %79 ], [ %144, %143 ], [ %147, %146 ], [ 0, %172 ], [ %177, %180 ], [ %177, %176 ]
-  ret i32 %182
+182:                                              ; preds = %181, %177, %173, %146, %143, %79, %17
+  %183 = phi i32 [ -12, %17 ], [ %80, %79 ], [ %144, %143 ], [ %147, %146 ], [ 0, %173 ], [ %178, %181 ], [ %178, %177 ]
+  ret i32 %183
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

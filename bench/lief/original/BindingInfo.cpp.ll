@@ -60,21 +60,22 @@ define void @_ZN4LIEF5MachO11BindingInfoC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF5MachO11BindingInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF5MachO11BindingInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 1
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 3
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 4
-  store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 5
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 6
-  store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 7
-  store i64 0, ptr %10, align 8
+  %6 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 3
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 4
+  store i64 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 5
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 6
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %3, i32 0, i32 7
+  store i64 0, ptr %11, align 8
   ret void
 }
 
@@ -112,35 +113,36 @@ define void @_ZN4LIEF5MachO11BindingInfoC2ERKS1_(ptr noundef nonnull align 8 der
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4LIEF5MachO11BindingInfoE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 1
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 2
+  %7 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4LIEF5MachO11BindingInfoE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 1
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 3
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %10, i32 0, i32 3
-  %12 = load i32, ptr %11, align 8
-  store i32 %12, ptr %9, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 4
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %14, i32 0, i32 4
-  %16 = load i64, ptr %15, align 8
-  store i64 %16, ptr %13, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 5
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %18, i32 0, i32 5
-  %20 = load i8, ptr %19, align 8
-  %21 = trunc i8 %20 to i1
-  %22 = zext i1 %21 to i8
-  store i8 %22, ptr %17, align 8
-  %23 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 6
-  store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 7
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %25, i32 0, i32 7
-  %27 = load i64, ptr %26, align 8
-  store i64 %27, ptr %24, align 8
+  %9 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 2
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 3
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %11, i32 0, i32 3
+  %13 = load i32, ptr %12, align 8
+  store i32 %13, ptr %10, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 4
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %15, i32 0, i32 4
+  %17 = load i64, ptr %16, align 8
+  store i64 %17, ptr %14, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 5
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %19, i32 0, i32 5
+  %21 = load i8, ptr %20, align 8
+  %22 = trunc i8 %21 to i1
+  %23 = zext i1 %22 to i8
+  store i8 %23, ptr %18, align 8
+  %24 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 6
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %5, i32 0, i32 7
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds %"class.LIEF::MachO::BindingInfo", ptr %26, i32 0, i32 7
+  %28 = load i64, ptr %27, align 8
+  store i64 %28, ptr %25, align 8
   ret void
 }
 

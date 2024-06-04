@@ -1032,20 +1032,22 @@ for.cond:                                         ; preds = %for.inc, %if.end236
 for.body:                                         ; preds = %for.cond
   %112 = load i32, ptr %sig, align 4
   %call238 = call ptr @signal(i32 noundef %112, ptr noundef null) #10
-  %cmp239 = icmp eq ptr %call238, inttoptr (i64 1 to ptr)
+  %113 = inttoptr i64 1 to ptr
+  %cmp239 = icmp eq ptr %call238, %113
   br i1 %cmp239, label %if.then240, label %if.end242
 
 if.then240:                                       ; preds = %for.body
-  %113 = load i32, ptr %sig, align 4
-  %call241 = call ptr @signal(i32 noundef %113, ptr noundef inttoptr (i64 1 to ptr)) #10
+  %114 = load i32, ptr %sig, align 4
+  %115 = inttoptr i64 1 to ptr
+  %call241 = call ptr @signal(i32 noundef %114, ptr noundef %115) #10
   br label %if.end242
 
 if.end242:                                        ; preds = %if.then240, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end242
-  %114 = load i32, ptr %sig, align 4
-  %inc = add nsw i32 %114, 1
+  %116 = load i32, ptr %sig, align 4
+  %inc = add nsw i32 %116, 1
   store i32 %inc, ptr %sig, align 4
   br label %for.cond, !llvm.loop !5
 
@@ -1061,33 +1063,33 @@ if.then245:                                       ; preds = %for.end
 
 if.end246:                                        ; preds = %if.then245, %for.end
   %v247 = getelementptr inbounds %struct.strvec, ptr %argv, i32 0, i32 0
-  %115 = load ptr, ptr %v247, align 8
-  %arrayidx248 = getelementptr inbounds ptr, ptr %115, i64 1
-  %116 = load ptr, ptr %arrayidx248, align 8
+  %117 = load ptr, ptr %v247, align 8
+  %arrayidx248 = getelementptr inbounds ptr, ptr %117, i64 1
+  %118 = load ptr, ptr %arrayidx248, align 8
   %v249 = getelementptr inbounds %struct.strvec, ptr %argv, i32 0, i32 0
-  %117 = load ptr, ptr %v249, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %117, i64 1
-  %118 = load ptr, ptr %childenv, align 8
-  %call250 = call i32 @execve(ptr noundef %116, ptr noundef %add.ptr, ptr noundef %118) #10
+  %119 = load ptr, ptr %v249, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %119, i64 1
+  %120 = load ptr, ptr %childenv, align 8
+  %call250 = call i32 @execve(ptr noundef %118, ptr noundef %add.ptr, ptr noundef %120) #10
   %call251 = call ptr @__errno_location() #12
-  %119 = load i32, ptr %call251, align 4
-  %cmp252 = icmp eq i32 %119, 8
+  %121 = load i32, ptr %call251, align 4
+  %cmp252 = icmp eq i32 %121, 8
   br i1 %cmp252, label %if.then253, label %if.end258
 
 if.then253:                                       ; preds = %if.end246
   %v254 = getelementptr inbounds %struct.strvec, ptr %argv, i32 0, i32 0
-  %120 = load ptr, ptr %v254, align 8
-  %arrayidx255 = getelementptr inbounds ptr, ptr %120, i64 0
-  %121 = load ptr, ptr %arrayidx255, align 8
+  %122 = load ptr, ptr %v254, align 8
+  %arrayidx255 = getelementptr inbounds ptr, ptr %122, i64 0
+  %123 = load ptr, ptr %arrayidx255, align 8
   %v256 = getelementptr inbounds %struct.strvec, ptr %argv, i32 0, i32 0
-  %122 = load ptr, ptr %v256, align 8
-  %123 = load ptr, ptr %childenv, align 8
-  %call257 = call i32 @execve(ptr noundef %121, ptr noundef %122, ptr noundef %123) #10
+  %124 = load ptr, ptr %v256, align 8
+  %125 = load ptr, ptr %childenv, align 8
+  %call257 = call i32 @execve(ptr noundef %123, ptr noundef %124, ptr noundef %125) #10
   br label %if.end258
 
 if.end258:                                        ; preds = %if.then253, %if.end246
-  %124 = load ptr, ptr %cmd.addr, align 8
-  %silent_exec_failure259 = getelementptr inbounds %struct.child_process, ptr %124, i32 0, i32 11
+  %126 = load ptr, ptr %cmd.addr, align 8
+  %silent_exec_failure259 = getelementptr inbounds %struct.child_process, ptr %126, i32 0, i32 11
   %bf.load260 = load i16, ptr %silent_exec_failure259, align 8
   %bf.lshr261 = lshr i16 %bf.load260, 4
   %bf.clear262 = and i16 %bf.lshr261, 1
@@ -1097,8 +1099,8 @@ if.end258:                                        ; preds = %if.then253, %if.end
 
 land.lhs.true265:                                 ; preds = %if.end258
   %call266 = call ptr @__errno_location() #12
-  %125 = load i32, ptr %call266, align 4
-  %cmp267 = icmp eq i32 %125, 2
+  %127 = load i32, ptr %call266, align 4
+  %cmp267 = icmp eq i32 %127, 2
   br i1 %cmp267, label %if.then268, label %if.end269
 
 if.then268:                                       ; preds = %land.lhs.true265
@@ -1111,26 +1113,26 @@ if.end269:                                        ; preds = %if.then268, %land.l
 
 if.end270:                                        ; preds = %if.end269, %if.end146
   call void @atfork_parent(ptr noundef %as)
-  %126 = load ptr, ptr %cmd.addr, align 8
-  %pid271 = getelementptr inbounds %struct.child_process, ptr %126, i32 0, i32 2
-  %127 = load i32, ptr %pid271, align 8
-  %cmp272 = icmp slt i32 %127, 0
+  %128 = load ptr, ptr %cmd.addr, align 8
+  %pid271 = getelementptr inbounds %struct.child_process, ptr %128, i32 0, i32 2
+  %129 = load i32, ptr %pid271, align 8
+  %cmp272 = icmp slt i32 %129, 0
   br i1 %cmp272, label %if.then273, label %if.else279
 
 if.then273:                                       ; preds = %if.end270
-  %128 = load ptr, ptr %cmd.addr, align 8
-  %args274 = getelementptr inbounds %struct.child_process, ptr %128, i32 0, i32 0
+  %130 = load ptr, ptr %cmd.addr, align 8
+  %args274 = getelementptr inbounds %struct.child_process, ptr %130, i32 0, i32 0
   %v275 = getelementptr inbounds %struct.strvec, ptr %args274, i32 0, i32 0
-  %129 = load ptr, ptr %v275, align 8
-  %arrayidx276 = getelementptr inbounds ptr, ptr %129, i64 0
-  %130 = load ptr, ptr %arrayidx276, align 8
-  %call277 = call i32 (ptr, ...) @error_errno(ptr noundef @.str.7, ptr noundef %130)
+  %131 = load ptr, ptr %v275, align 8
+  %arrayidx276 = getelementptr inbounds ptr, ptr %131, i64 0
+  %132 = load ptr, ptr %arrayidx276, align 8
+  %call277 = call i32 (ptr, ...) @error_errno(ptr noundef @.str.7, ptr noundef %132)
   %call278 = call i32 @const_error()
   br label %if.end288
 
 if.else279:                                       ; preds = %if.end270
-  %131 = load ptr, ptr %cmd.addr, align 8
-  %clean_on_exit = getelementptr inbounds %struct.child_process, ptr %131, i32 0, i32 11
+  %133 = load ptr, ptr %cmd.addr, align 8
+  %clean_on_exit = getelementptr inbounds %struct.child_process, ptr %133, i32 0, i32 11
   %bf.load280 = load i16, ptr %clean_on_exit, align 8
   %bf.lshr281 = lshr i16 %bf.load280, 8
   %bf.clear282 = and i16 %bf.lshr281, 1
@@ -1139,11 +1141,11 @@ if.else279:                                       ; preds = %if.end270
   br i1 %tobool284, label %if.then285, label %if.end287
 
 if.then285:                                       ; preds = %if.else279
-  %132 = load ptr, ptr %cmd.addr, align 8
-  %pid286 = getelementptr inbounds %struct.child_process, ptr %132, i32 0, i32 2
-  %133 = load i32, ptr %pid286, align 8
   %134 = load ptr, ptr %cmd.addr, align 8
-  call void @mark_child_for_cleanup(i32 noundef %133, ptr noundef %134)
+  %pid286 = getelementptr inbounds %struct.child_process, ptr %134, i32 0, i32 2
+  %135 = load i32, ptr %pid286, align 8
+  %136 = load ptr, ptr %cmd.addr, align 8
+  call void @mark_child_for_cleanup(i32 noundef %135, ptr noundef %136)
   br label %if.end287
 
 if.end287:                                        ; preds = %if.then285, %if.else279
@@ -1151,66 +1153,66 @@ if.end287:                                        ; preds = %if.then285, %if.els
 
 if.end288:                                        ; preds = %if.end287, %if.then273
   %arrayidx289 = getelementptr inbounds [2 x i32], ptr %notify_pipe, i64 0, i64 1
-  %135 = load i32, ptr %arrayidx289, align 4
-  %call290 = call i32 @close(i32 noundef %135)
+  %137 = load i32, ptr %arrayidx289, align 4
+  %call290 = call i32 @close(i32 noundef %137)
   %arrayidx291 = getelementptr inbounds [2 x i32], ptr %notify_pipe, i64 0, i64 0
-  %136 = load i32, ptr %arrayidx291, align 4
-  %call292 = call i64 @xread(i32 noundef %136, ptr noundef %cerr, i64 noundef 8)
+  %138 = load i32, ptr %arrayidx291, align 4
+  %call292 = call i64 @xread(i32 noundef %138, ptr noundef %cerr, i64 noundef 8)
   %cmp293 = icmp eq i64 %call292, 8
   br i1 %cmp293, label %if.then294, label %if.end302
 
 if.then294:                                       ; preds = %if.end288
-  %137 = load ptr, ptr %cmd.addr, align 8
-  %pid295 = getelementptr inbounds %struct.child_process, ptr %137, i32 0, i32 2
-  %138 = load i32, ptr %pid295, align 8
   %139 = load ptr, ptr %cmd.addr, align 8
-  %args296 = getelementptr inbounds %struct.child_process, ptr %139, i32 0, i32 0
+  %pid295 = getelementptr inbounds %struct.child_process, ptr %139, i32 0, i32 2
+  %140 = load i32, ptr %pid295, align 8
+  %141 = load ptr, ptr %cmd.addr, align 8
+  %args296 = getelementptr inbounds %struct.child_process, ptr %141, i32 0, i32 0
   %v297 = getelementptr inbounds %struct.strvec, ptr %args296, i32 0, i32 0
-  %140 = load ptr, ptr %v297, align 8
-  %arrayidx298 = getelementptr inbounds ptr, ptr %140, i64 0
-  %141 = load ptr, ptr %arrayidx298, align 8
-  %call299 = call i32 @wait_or_whine(i32 noundef %138, ptr noundef %141, i32 noundef 0)
-  %142 = load ptr, ptr %cmd.addr, align 8
-  call void @child_err_spew(ptr noundef %142, ptr noundef %cerr)
-  %call300 = call ptr @__errno_location() #12
-  %143 = load i32, ptr %call300, align 4
-  store i32 %143, ptr %failed_errno, align 4
+  %142 = load ptr, ptr %v297, align 8
+  %arrayidx298 = getelementptr inbounds ptr, ptr %142, i64 0
+  %143 = load ptr, ptr %arrayidx298, align 8
+  %call299 = call i32 @wait_or_whine(i32 noundef %140, ptr noundef %143, i32 noundef 0)
   %144 = load ptr, ptr %cmd.addr, align 8
-  %pid301 = getelementptr inbounds %struct.child_process, ptr %144, i32 0, i32 2
+  call void @child_err_spew(ptr noundef %144, ptr noundef %cerr)
+  %call300 = call ptr @__errno_location() #12
+  %145 = load i32, ptr %call300, align 4
+  store i32 %145, ptr %failed_errno, align 4
+  %146 = load ptr, ptr %cmd.addr, align 8
+  %pid301 = getelementptr inbounds %struct.child_process, ptr %146, i32 0, i32 2
   store i32 -1, ptr %pid301, align 8
   br label %if.end302
 
 if.end302:                                        ; preds = %if.then294, %if.end288
   %arrayidx303 = getelementptr inbounds [2 x i32], ptr %notify_pipe, i64 0, i64 0
-  %145 = load i32, ptr %arrayidx303, align 4
-  %call304 = call i32 @close(i32 noundef %145)
-  %146 = load i32, ptr %null_fd, align 4
-  %cmp305 = icmp sge i32 %146, 0
+  %147 = load i32, ptr %arrayidx303, align 4
+  %call304 = call i32 @close(i32 noundef %147)
+  %148 = load i32, ptr %null_fd, align 4
+  %cmp305 = icmp sge i32 %148, 0
   br i1 %cmp305, label %if.then306, label %if.end308
 
 if.then306:                                       ; preds = %if.end302
-  %147 = load i32, ptr %null_fd, align 4
-  %call307 = call i32 @close(i32 noundef %147)
+  %149 = load i32, ptr %null_fd, align 4
+  %call307 = call i32 @close(i32 noundef %149)
   br label %if.end308
 
 if.end308:                                        ; preds = %if.then306, %if.end302
   call void @strvec_clear(ptr noundef %argv)
-  %148 = load ptr, ptr %childenv, align 8
-  call void @free(ptr noundef %148) #10
+  %150 = load ptr, ptr %childenv, align 8
+  call void @free(ptr noundef %150) #10
   br label %end_of_spawn
 
 end_of_spawn:                                     ; preds = %if.end308, %if.end117
-  %149 = load ptr, ptr %cmd.addr, align 8
-  %pid309 = getelementptr inbounds %struct.child_process, ptr %149, i32 0, i32 2
-  %150 = load i32, ptr %pid309, align 8
-  %cmp310 = icmp slt i32 %150, 0
+  %151 = load ptr, ptr %cmd.addr, align 8
+  %pid309 = getelementptr inbounds %struct.child_process, ptr %151, i32 0, i32 2
+  %152 = load i32, ptr %pid309, align 8
+  %cmp310 = icmp slt i32 %152, 0
   br i1 %cmp310, label %if.then311, label %if.end346
 
 if.then311:                                       ; preds = %end_of_spawn
-  %151 = load ptr, ptr %cmd.addr, align 8
-  call void @trace2_child_exit_fl(ptr noundef @.str, i32 noundef 937, ptr noundef %151, i32 noundef -1)
-  %152 = load i32, ptr %need_in, align 4
-  %tobool312 = icmp ne i32 %152, 0
+  %153 = load ptr, ptr %cmd.addr, align 8
+  call void @trace2_child_exit_fl(ptr noundef @.str, i32 noundef 937, ptr noundef %153, i32 noundef -1)
+  %154 = load i32, ptr %need_in, align 4
+  %tobool312 = icmp ne i32 %154, 0
   br i1 %tobool312, label %if.then313, label %if.else315
 
 if.then313:                                       ; preds = %if.then311
@@ -1219,25 +1221,25 @@ if.then313:                                       ; preds = %if.then311
   br label %if.end322
 
 if.else315:                                       ; preds = %if.then311
-  %153 = load ptr, ptr %cmd.addr, align 8
-  %in316 = getelementptr inbounds %struct.child_process, ptr %153, i32 0, i32 7
-  %154 = load i32, ptr %in316, align 8
-  %tobool317 = icmp ne i32 %154, 0
+  %155 = load ptr, ptr %cmd.addr, align 8
+  %in316 = getelementptr inbounds %struct.child_process, ptr %155, i32 0, i32 7
+  %156 = load i32, ptr %in316, align 8
+  %tobool317 = icmp ne i32 %156, 0
   br i1 %tobool317, label %if.then318, label %if.end321
 
 if.then318:                                       ; preds = %if.else315
-  %155 = load ptr, ptr %cmd.addr, align 8
-  %in319 = getelementptr inbounds %struct.child_process, ptr %155, i32 0, i32 7
-  %156 = load i32, ptr %in319, align 8
-  %call320 = call i32 @close(i32 noundef %156)
+  %157 = load ptr, ptr %cmd.addr, align 8
+  %in319 = getelementptr inbounds %struct.child_process, ptr %157, i32 0, i32 7
+  %158 = load i32, ptr %in319, align 8
+  %call320 = call i32 @close(i32 noundef %158)
   br label %if.end321
 
 if.end321:                                        ; preds = %if.then318, %if.else315
   br label %if.end322
 
 if.end322:                                        ; preds = %if.end321, %if.then313
-  %157 = load i32, ptr %need_out, align 4
-  %tobool323 = icmp ne i32 %157, 0
+  %159 = load i32, ptr %need_out, align 4
+  %tobool323 = icmp ne i32 %159, 0
   br i1 %tobool323, label %if.then324, label %if.else326
 
 if.then324:                                       ; preds = %if.end322
@@ -1246,25 +1248,25 @@ if.then324:                                       ; preds = %if.end322
   br label %if.end333
 
 if.else326:                                       ; preds = %if.end322
-  %158 = load ptr, ptr %cmd.addr, align 8
-  %out327 = getelementptr inbounds %struct.child_process, ptr %158, i32 0, i32 8
-  %159 = load i32, ptr %out327, align 4
-  %tobool328 = icmp ne i32 %159, 0
+  %160 = load ptr, ptr %cmd.addr, align 8
+  %out327 = getelementptr inbounds %struct.child_process, ptr %160, i32 0, i32 8
+  %161 = load i32, ptr %out327, align 4
+  %tobool328 = icmp ne i32 %161, 0
   br i1 %tobool328, label %if.then329, label %if.end332
 
 if.then329:                                       ; preds = %if.else326
-  %160 = load ptr, ptr %cmd.addr, align 8
-  %out330 = getelementptr inbounds %struct.child_process, ptr %160, i32 0, i32 8
-  %161 = load i32, ptr %out330, align 4
-  %call331 = call i32 @close(i32 noundef %161)
+  %162 = load ptr, ptr %cmd.addr, align 8
+  %out330 = getelementptr inbounds %struct.child_process, ptr %162, i32 0, i32 8
+  %163 = load i32, ptr %out330, align 4
+  %call331 = call i32 @close(i32 noundef %163)
   br label %if.end332
 
 if.end332:                                        ; preds = %if.then329, %if.else326
   br label %if.end333
 
 if.end333:                                        ; preds = %if.end332, %if.then324
-  %162 = load i32, ptr %need_err, align 4
-  %tobool334 = icmp ne i32 %162, 0
+  %164 = load i32, ptr %need_err, align 4
+  %tobool334 = icmp ne i32 %164, 0
   br i1 %tobool334, label %if.then335, label %if.else337
 
 if.then335:                                       ; preds = %if.end333
@@ -1273,110 +1275,110 @@ if.then335:                                       ; preds = %if.end333
   br label %if.end344
 
 if.else337:                                       ; preds = %if.end333
-  %163 = load ptr, ptr %cmd.addr, align 8
-  %err338 = getelementptr inbounds %struct.child_process, ptr %163, i32 0, i32 9
-  %164 = load i32, ptr %err338, align 8
-  %tobool339 = icmp ne i32 %164, 0
+  %165 = load ptr, ptr %cmd.addr, align 8
+  %err338 = getelementptr inbounds %struct.child_process, ptr %165, i32 0, i32 9
+  %166 = load i32, ptr %err338, align 8
+  %tobool339 = icmp ne i32 %166, 0
   br i1 %tobool339, label %if.then340, label %if.end343
 
 if.then340:                                       ; preds = %if.else337
-  %165 = load ptr, ptr %cmd.addr, align 8
-  %err341 = getelementptr inbounds %struct.child_process, ptr %165, i32 0, i32 9
-  %166 = load i32, ptr %err341, align 8
-  %call342 = call i32 @close(i32 noundef %166)
+  %167 = load ptr, ptr %cmd.addr, align 8
+  %err341 = getelementptr inbounds %struct.child_process, ptr %167, i32 0, i32 9
+  %168 = load i32, ptr %err341, align 8
+  %call342 = call i32 @close(i32 noundef %168)
   br label %if.end343
 
 if.end343:                                        ; preds = %if.then340, %if.else337
   br label %if.end344
 
 if.end344:                                        ; preds = %if.end343, %if.then335
-  %167 = load ptr, ptr %cmd.addr, align 8
-  call void @child_process_clear(ptr noundef %167)
-  %168 = load i32, ptr %failed_errno, align 4
+  %169 = load ptr, ptr %cmd.addr, align 8
+  call void @child_process_clear(ptr noundef %169)
+  %170 = load i32, ptr %failed_errno, align 4
   %call345 = call ptr @__errno_location() #12
-  store i32 %168, ptr %call345, align 4
+  store i32 %170, ptr %call345, align 4
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end346:                                        ; preds = %end_of_spawn
-  %169 = load i32, ptr %need_in, align 4
-  %tobool347 = icmp ne i32 %169, 0
+  %171 = load i32, ptr %need_in, align 4
+  %tobool347 = icmp ne i32 %171, 0
   br i1 %tobool347, label %if.then348, label %if.else351
 
 if.then348:                                       ; preds = %if.end346
   %arrayidx349 = getelementptr inbounds [2 x i32], ptr %fdin, i64 0, i64 0
-  %170 = load i32, ptr %arrayidx349, align 4
-  %call350 = call i32 @close(i32 noundef %170)
+  %172 = load i32, ptr %arrayidx349, align 4
+  %call350 = call i32 @close(i32 noundef %172)
   br label %if.end358
 
 if.else351:                                       ; preds = %if.end346
-  %171 = load ptr, ptr %cmd.addr, align 8
-  %in352 = getelementptr inbounds %struct.child_process, ptr %171, i32 0, i32 7
-  %172 = load i32, ptr %in352, align 8
-  %tobool353 = icmp ne i32 %172, 0
+  %173 = load ptr, ptr %cmd.addr, align 8
+  %in352 = getelementptr inbounds %struct.child_process, ptr %173, i32 0, i32 7
+  %174 = load i32, ptr %in352, align 8
+  %tobool353 = icmp ne i32 %174, 0
   br i1 %tobool353, label %if.then354, label %if.end357
 
 if.then354:                                       ; preds = %if.else351
-  %173 = load ptr, ptr %cmd.addr, align 8
-  %in355 = getelementptr inbounds %struct.child_process, ptr %173, i32 0, i32 7
-  %174 = load i32, ptr %in355, align 8
-  %call356 = call i32 @close(i32 noundef %174)
+  %175 = load ptr, ptr %cmd.addr, align 8
+  %in355 = getelementptr inbounds %struct.child_process, ptr %175, i32 0, i32 7
+  %176 = load i32, ptr %in355, align 8
+  %call356 = call i32 @close(i32 noundef %176)
   br label %if.end357
 
 if.end357:                                        ; preds = %if.then354, %if.else351
   br label %if.end358
 
 if.end358:                                        ; preds = %if.end357, %if.then348
-  %175 = load i32, ptr %need_out, align 4
-  %tobool359 = icmp ne i32 %175, 0
+  %177 = load i32, ptr %need_out, align 4
+  %tobool359 = icmp ne i32 %177, 0
   br i1 %tobool359, label %if.then360, label %if.else363
 
 if.then360:                                       ; preds = %if.end358
   %arrayidx361 = getelementptr inbounds [2 x i32], ptr %fdout, i64 0, i64 1
-  %176 = load i32, ptr %arrayidx361, align 4
-  %call362 = call i32 @close(i32 noundef %176)
+  %178 = load i32, ptr %arrayidx361, align 4
+  %call362 = call i32 @close(i32 noundef %178)
   br label %if.end370
 
 if.else363:                                       ; preds = %if.end358
-  %177 = load ptr, ptr %cmd.addr, align 8
-  %out364 = getelementptr inbounds %struct.child_process, ptr %177, i32 0, i32 8
-  %178 = load i32, ptr %out364, align 4
-  %tobool365 = icmp ne i32 %178, 0
+  %179 = load ptr, ptr %cmd.addr, align 8
+  %out364 = getelementptr inbounds %struct.child_process, ptr %179, i32 0, i32 8
+  %180 = load i32, ptr %out364, align 4
+  %tobool365 = icmp ne i32 %180, 0
   br i1 %tobool365, label %if.then366, label %if.end369
 
 if.then366:                                       ; preds = %if.else363
-  %179 = load ptr, ptr %cmd.addr, align 8
-  %out367 = getelementptr inbounds %struct.child_process, ptr %179, i32 0, i32 8
-  %180 = load i32, ptr %out367, align 4
-  %call368 = call i32 @close(i32 noundef %180)
+  %181 = load ptr, ptr %cmd.addr, align 8
+  %out367 = getelementptr inbounds %struct.child_process, ptr %181, i32 0, i32 8
+  %182 = load i32, ptr %out367, align 4
+  %call368 = call i32 @close(i32 noundef %182)
   br label %if.end369
 
 if.end369:                                        ; preds = %if.then366, %if.else363
   br label %if.end370
 
 if.end370:                                        ; preds = %if.end369, %if.then360
-  %181 = load i32, ptr %need_err, align 4
-  %tobool371 = icmp ne i32 %181, 0
+  %183 = load i32, ptr %need_err, align 4
+  %tobool371 = icmp ne i32 %183, 0
   br i1 %tobool371, label %if.then372, label %if.else375
 
 if.then372:                                       ; preds = %if.end370
   %arrayidx373 = getelementptr inbounds [2 x i32], ptr %fderr, i64 0, i64 1
-  %182 = load i32, ptr %arrayidx373, align 4
-  %call374 = call i32 @close(i32 noundef %182)
+  %184 = load i32, ptr %arrayidx373, align 4
+  %call374 = call i32 @close(i32 noundef %184)
   br label %if.end382
 
 if.else375:                                       ; preds = %if.end370
-  %183 = load ptr, ptr %cmd.addr, align 8
-  %err376 = getelementptr inbounds %struct.child_process, ptr %183, i32 0, i32 9
-  %184 = load i32, ptr %err376, align 8
-  %tobool377 = icmp ne i32 %184, 0
+  %185 = load ptr, ptr %cmd.addr, align 8
+  %err376 = getelementptr inbounds %struct.child_process, ptr %185, i32 0, i32 9
+  %186 = load i32, ptr %err376, align 8
+  %tobool377 = icmp ne i32 %186, 0
   br i1 %tobool377, label %if.then378, label %if.end381
 
 if.then378:                                       ; preds = %if.else375
-  %185 = load ptr, ptr %cmd.addr, align 8
-  %err379 = getelementptr inbounds %struct.child_process, ptr %185, i32 0, i32 9
-  %186 = load i32, ptr %err379, align 8
-  %call380 = call i32 @close(i32 noundef %186)
+  %187 = load ptr, ptr %cmd.addr, align 8
+  %err379 = getelementptr inbounds %struct.child_process, ptr %187, i32 0, i32 9
+  %188 = load i32, ptr %err379, align 8
+  %call380 = call i32 @close(i32 noundef %188)
   br label %if.end381
 
 if.end381:                                        ; preds = %if.then378, %if.else375
@@ -1387,8 +1389,8 @@ if.end382:                                        ; preds = %if.end381, %if.then
   br label %return
 
 return:                                           ; preds = %if.end382, %if.end344, %fail_pipe
-  %187 = load i32, ptr %retval, align 4
-  ret i32 %187
+  %189 = load i32, ptr %retval, align 4
+  ret i32 %189
 }
 
 ; Function Attrs: nounwind
@@ -2976,7 +2978,8 @@ if.then7:                                         ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %if.end
-  call void @pthread_exit(ptr noundef inttoptr (i64 128 to ptr)) #13
+  %12 = inttoptr i64 128 to ptr
+  call void @pthread_exit(ptr noundef %12) #13
   unreachable
 
 if.end11:                                         ; preds = %entry
@@ -3113,11 +3116,12 @@ entry:
   %async.addr = alloca ptr, align 8
   %ret = alloca ptr, align 8
   store ptr %async, ptr %async.addr, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %ret, align 8
-  %0 = load ptr, ptr %async.addr, align 8
-  %tid = getelementptr inbounds %struct.async, ptr %0, i32 0, i32 4
-  %1 = load i64, ptr %tid, align 8
-  %call = call i32 @pthread_join(i64 noundef %1, ptr noundef %ret)
+  %0 = inttoptr i64 -1 to ptr
+  store ptr %0, ptr %ret, align 8
+  %1 = load ptr, ptr %async.addr, align 8
+  %tid = getelementptr inbounds %struct.async, ptr %1, i32 0, i32 4
+  %2 = load i64, ptr %tid, align 8
+  %call = call i32 @pthread_join(i64 noundef %2, ptr noundef %ret)
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.then, label %if.end
 
@@ -3128,9 +3132,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   call void @invalidate_lstat_cache()
-  %2 = load ptr, ptr %ret, align 8
-  %3 = ptrtoint ptr %2 to i64
-  %conv = trunc i64 %3 to i32
+  %3 = load ptr, ptr %ret, align 8
+  %4 = ptrtoint ptr %3 to i64
+  %conv = trunc i64 %4 to i32
   ret i32 %conv
 }
 

@@ -105,7 +105,8 @@ entry:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !6
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !11
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3irr5video15CImageWriterPNGE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3irr5video15CImageWriterPNGE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !3
   ret void
 }
 

@@ -357,19 +357,20 @@ entry:
   %0 = load ptr, ptr %r.addr, align 8
   %write = getelementptr inbounds %struct._rio, ptr %0, i32 0, i32 1
   %1 = load ptr, ptr %write, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct._rio, ptr @rioFileIO, i32 0, i32 1), align 8
-  %cmp = icmp ne ptr %1, %2
+  %2 = getelementptr inbounds %struct._rio, ptr @rioFileIO, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %cmp = icmp ne ptr %1, %3
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %3 = load i64, ptr %bytes.addr, align 8
-  %4 = load ptr, ptr %r.addr, align 8
-  %io = getelementptr inbounds %struct._rio, ptr %4, i32 0, i32 9
+  %4 = load i64, ptr %bytes.addr, align 8
+  %5 = load ptr, ptr %r.addr, align 8
+  %io = getelementptr inbounds %struct._rio, ptr %5, i32 0, i32 9
   %autosync = getelementptr inbounds %struct.anon.0, ptr %io, i32 0, i32 2
-  store i64 %3, ptr %autosync, align 8
+  store i64 %4, ptr %autosync, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

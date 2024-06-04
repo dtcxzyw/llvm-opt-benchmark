@@ -87,10 +87,11 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17ha7bcb43facb34cf0
 ; Function Attrs: nonlazybind uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error6source17h9f063bcc42f6430fE(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = load ptr, ptr @anon.a15be07ad251cbc87cfbf47bf64e5ce6.4, align 8, !align !5, !noundef !4
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.a15be07ad251cbc87cfbf47bf64e5ce6.4, i64 8), align 8
-  %4 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %5 = insertvalue { ptr, ptr } %4, ptr %3, 1
-  ret { ptr, ptr } %5
+  %3 = getelementptr inbounds i8, ptr @anon.a15be07ad251cbc87cfbf47bf64e5ce6.4, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = insertvalue { ptr, ptr } poison, ptr %2, 0
+  %6 = insertvalue { ptr, ptr } %5, ptr %4, 1
+  ret { ptr, ptr } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -404,10 +405,11 @@ define internal { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c18
 
 127:                                              ; preds = %107
   %128 = load ptr, ptr @anon.a15be07ad251cbc87cfbf47bf64e5ce6.4, align 8, !noundef !4
-  %129 = load i64, ptr getelementptr inbounds (i8, ptr @anon.a15be07ad251cbc87cfbf47bf64e5ce6.4, i64 8), align 8
+  %129 = getelementptr inbounds i8, ptr @anon.a15be07ad251cbc87cfbf47bf64e5ce6.4, i64 8
+  %130 = load i64, ptr %129, align 8
   store ptr %128, ptr %23, align 8
-  %130 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 %129, ptr %130, align 8
+  %131 = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 %130, ptr %131, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr %20)
   br label %50

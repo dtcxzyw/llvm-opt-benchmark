@@ -96,7 +96,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %init.end.i
 if.then.i8:                                       ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %call1.i = tail call ptr @mmap(ptr noundef null, i64 noundef 1, i32 noundef 1, i32 noundef 34, i32 noundef -1, i64 noundef 0) #9
   store ptr %call1.i, ptr @_ZZN5folly12_GLOBAL__N_118mprotectMembarrierEvE9dummyPage, align 8, !tbaa !8
-  %cmp2.not.i = icmp eq ptr %call1.i, inttoptr (i64 -1 to ptr)
+  %4 = inttoptr i64 -1 to ptr
+  %cmp2.not.i = icmp eq ptr %call1.i, %4
   br i1 %cmp2.not.i, label %if.then3.i, label %do.body5.i
 
 if.then3.i:                                       ; preds = %if.then.i8
@@ -104,8 +105,8 @@ if.then3.i:                                       ; preds = %if.then.i8
   unreachable
 
 do.body5.i:                                       ; preds = %if.then.i8, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %4 = phi ptr [ %3, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i ], [ %call1.i, %if.then.i8 ]
-  %call6.i = tail call i32 @mprotect(ptr noundef %4, i64 noundef 1, i32 noundef 3) #9
+  %5 = phi ptr [ %3, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i ], [ %call1.i, %if.then.i8 ]
+  %call6.i = tail call i32 @mprotect(ptr noundef %5, i64 noundef 1, i32 noundef 3) #9
   %cmp7.not.i = icmp eq i32 %call6.i, -1
   br i1 %cmp7.not.i, label %if.then8.i, label %do.end12.i
 
@@ -114,9 +115,9 @@ if.then8.i:                                       ; preds = %do.body5.i
   unreachable
 
 do.end12.i:                                       ; preds = %do.body5.i
-  %5 = load ptr, ptr @_ZZN5folly12_GLOBAL__N_118mprotectMembarrierEvE9dummyPage, align 8, !tbaa !8
-  store volatile i8 0, ptr %5, align 1, !tbaa !12
-  %call14.i = tail call i32 @mprotect(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1) #9
+  %6 = load ptr, ptr @_ZZN5folly12_GLOBAL__N_118mprotectMembarrierEvE9dummyPage, align 8, !tbaa !8
+  store volatile i8 0, ptr %6, align 1, !tbaa !12
+  %call14.i = tail call i32 @mprotect(ptr noundef nonnull %6, i64 noundef 1, i32 noundef 1) #9
   %cmp15.not.i = icmp eq i32 %call14.i, -1
   br i1 %cmp15.not.i, label %if.then16.i, label %_ZN5folly12_GLOBAL__N_118mprotectMembarrierEv.exit
 
@@ -132,10 +133,10 @@ if.end5:                                          ; preds = %_ZN5folly12_GLOBAL_
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i.i.i, %do.body, %if.then.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #11
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #11
   unreachable
 }
 

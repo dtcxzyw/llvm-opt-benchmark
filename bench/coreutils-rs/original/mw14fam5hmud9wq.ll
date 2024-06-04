@@ -23,44 +23,45 @@ define hidden void @_ZN5alloc3fmt6format17h37dbd3d28761c149E(ptr sret({ { { i64,
 
 14:                                               ; preds = %2
   %15 = icmp eq i64 %7, 1
-  br i1 %15, label %27, label %18
+  br i1 %15, label %28, label %18
 
 16:                                               ; preds = %12
   store ptr @anon.7f3b18137230e090ba39e87b98dd03cb.0, ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %17, align 8
-  br label %22
+  br label %23
 
-18:                                               ; preds = %27, %14, %12
+18:                                               ; preds = %28, %14, %12
   %19 = load ptr, ptr @anon.7f3b18137230e090ba39e87b98dd03cb.1, align 8, !align !5, !noundef !3
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @anon.7f3b18137230e090ba39e87b98dd03cb.1, i64 8), align 8
+  %20 = getelementptr inbounds i8, ptr @anon.7f3b18137230e090ba39e87b98dd03cb.1, i64 8
+  %21 = load i64, ptr %20, align 8
   store ptr %19, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %20, ptr %21, align 8
-  br label %22
+  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %21, ptr %22, align 8
+  br label %23
 
-22:                                               ; preds = %29, %18, %16
+23:                                               ; preds = %30, %18, %16
   store ptr %1, ptr %3, align 8
-  %23 = load ptr, ptr %4, align 8, !align !5, !noundef !3
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf481223b1bfe7426E"(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr align 1 %23, i64 %25, ptr align 8 %26)
+  %24 = load ptr, ptr %4, align 8, !align !5, !noundef !3
+  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf481223b1bfe7426E"(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr align 1 %24, i64 %26, ptr align 8 %27)
   ret void
 
-27:                                               ; preds = %14
-  %28 = icmp eq i64 %10, 0
-  br i1 %28, label %29, label %18
+28:                                               ; preds = %14
+  %29 = icmp eq i64 %10, 0
+  br i1 %29, label %30, label %18
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds [0 x { ptr, i64 }], ptr %5, i64 0, i64 0
-  %31 = load ptr, ptr %30, align 8, !nonnull !3, !align !5, !noundef !3
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
-  %33 = load i64, ptr %32, align 8, !noundef !3
-  store ptr %31, ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %33, ptr %34, align 8
-  br label %22
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds [0 x { ptr, i64 }], ptr %5, i64 0, i64 0
+  %32 = load ptr, ptr %31, align 8, !nonnull !3, !align !5, !noundef !3
+  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = load i64, ptr %33, align 8, !noundef !3
+  store ptr %32, ptr %4, align 8
+  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %34, ptr %35, align 8
+  br label %23
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

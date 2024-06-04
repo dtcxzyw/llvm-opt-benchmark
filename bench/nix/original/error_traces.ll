@@ -8510,7 +8510,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_TraceBuilder_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_TraceBuilder_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8671,7 +8672,7 @@ define void @_ZN3nix32ErrorTraceTest_TraceBuilder_Test8TestBodyEv(ptr noundef no
 
 87:                                               ; preds = %83
   %88 = load i32, ptr %5, align 4
-  %89 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %89 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %90 = icmp eq i32 %88, %89
   br i1 %90, label %91, label %102
 
@@ -8700,7 +8701,7 @@ define void @_ZN3nix32ErrorTraceTest_TraceBuilder_Test8TestBodyEv(ptr noundef no
   br label %162
 
 102:                                              ; preds = %87
-  %103 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %103 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %104 = icmp eq i32 %88, %103
   br i1 %104, label %105, label %133
 
@@ -8948,7 +8949,7 @@ define void @_ZN3nix32ErrorTraceTest_TraceBuilder_Test8TestBodyEv(ptr noundef no
 
 208:                                              ; preds = %204
   %209 = load i32, ptr %5, align 4
-  %210 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %210 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %211 = icmp eq i32 %209, %210
   br i1 %211, label %212, label %223
 
@@ -8977,7 +8978,7 @@ define void @_ZN3nix32ErrorTraceTest_TraceBuilder_Test8TestBodyEv(ptr noundef no
   br label %283
 
 223:                                              ; preds = %208
-  %224 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %224 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %225 = icmp eq i32 %209, %224
   br i1 %225, label %226, label %254
 
@@ -9238,7 +9239,7 @@ define void @_ZN3nix32ErrorTraceTest_TraceBuilder_Test8TestBodyEv(ptr noundef no
 
 333:                                              ; preds = %329
   %334 = load i32, ptr %5, align 4
-  %335 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix5ErrorE) #3
+  %335 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix5ErrorE) #3
   %336 = icmp eq i32 %334, %335
   br i1 %336, label %337, label %367
 
@@ -9324,7 +9325,7 @@ define void @_ZN3nix32ErrorTraceTest_TraceBuilder_Test8TestBodyEv(ptr noundef no
 
 367:                                              ; preds = %366, %333
   %368 = load i32, ptr %5, align 4
-  %369 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %369 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %370 = icmp eq i32 %368, %369
   br i1 %370, label %371, label %584
 
@@ -9997,7 +9998,7 @@ define void @_ZN3nix32ErrorTraceTest_TraceBuilder_Test8TestBodyEv(ptr noundef no
 
 584:                                              ; preds = %583, %367, %325
   %585 = load i32, ptr %5, align 4
-  %586 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %586 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %587 = icmp eq i32 %585, %586
   br i1 %587, label %588, label %599
 
@@ -10026,7 +10027,7 @@ define void @_ZN3nix32ErrorTraceTest_TraceBuilder_Test8TestBodyEv(ptr noundef no
   br label %660
 
 599:                                              ; preds = %584
-  %600 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %600 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %601 = icmp eq i32 %585, %600
   br i1 %601, label %602, label %630
 
@@ -10295,9 +10296,6 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(384) ptr @_ZN3nix9Ev
 ; Function Attrs: noreturn
 declare void @_ZN3nix16EvalErrorBuilderINS_9EvalErrorEE10debugThrowEv(ptr noundef nonnull align 8 dereferenceable(384)) #9
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #10
-
 declare ptr @__cxa_begin_catch(ptr)
 
 ; Function Attrs: mustprogress uwtable
@@ -10315,7 +10313,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #20
   unreachable
@@ -10484,7 +10482,7 @@ define linkonce_odr void @_ZN7testing8internal14TrueWithStringD2Ev(ptr noundef n
 declare noundef nonnull align 8 dereferenceable(384) ptr @_ZN3nix16EvalErrorBuilderINS_9EvalErrorEE9withTraceENS_6PosIdxESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(384), i32, i64, ptr) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #4 comdat align 2 {
@@ -11136,7 +11134,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_NestedThrows_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_NestedThrows_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -11205,7 +11204,7 @@ define void @_ZN3nix32ErrorTraceTest_NestedThrows_Test8TestBodyEv(ptr noundef no
 
 46:                                               ; preds = %42
   %47 = load i32, ptr %4, align 4
-  %48 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %48 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %49 = icmp eq i32 %47, %48
   br i1 %49, label %50, label %232
 
@@ -11236,7 +11235,7 @@ define void @_ZN3nix32ErrorTraceTest_NestedThrows_Test8TestBodyEv(ptr noundef no
 
 61:                                               ; preds = %57
   %62 = load i32, ptr %4, align 4
-  %63 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix5ErrorE) #3
+  %63 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix5ErrorE) #3
   %64 = icmp eq i32 %62, %63
   br i1 %64, label %65, label %230
 
@@ -11848,7 +11847,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix34ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ErrorTraceTest_genericClosure_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ErrorTraceTest_genericClosure_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -12403,7 +12403,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 460:                                              ; preds = %456, %455
   %461 = load i32, ptr %5, align 4
-  %462 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %463 = icmp eq i32 %461, %462
   br i1 %463, label %464, label %697
 
@@ -13129,7 +13129,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 699:                                              ; preds = %698, %439, %435
   %700 = load i32, ptr %5, align 4
-  %701 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %701 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %702 = icmp eq i32 %700, %701
   br i1 %702, label %703, label %714
 
@@ -13158,7 +13158,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
   br label %774
 
 714:                                              ; preds = %699
-  %715 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %715 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %716 = icmp eq i32 %700, %715
   br i1 %716, label %717, label %745
 
@@ -13476,7 +13476,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 836:                                              ; preds = %832, %831
   %837 = load i32, ptr %5, align 4
-  %838 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %838 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %839 = icmp eq i32 %837, %838
   br i1 %839, label %840, label %1072
 
@@ -14198,7 +14198,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 1074:                                             ; preds = %1073, %815, %811
   %1075 = load i32, ptr %5, align 4
-  %1076 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1076 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1077 = icmp eq i32 %1075, %1076
   br i1 %1077, label %1078, label %1089
 
@@ -14227,7 +14227,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
   br label %1149
 
 1089:                                             ; preds = %1074
-  %1090 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1090 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1091 = icmp eq i32 %1075, %1090
   br i1 %1091, label %1092, label %1120
 
@@ -14545,7 +14545,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 1211:                                             ; preds = %1207, %1206
   %1212 = load i32, ptr %5, align 4
-  %1213 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1213 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1214 = icmp eq i32 %1212, %1213
   br i1 %1214, label %1215, label %1448
 
@@ -15271,7 +15271,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 1450:                                             ; preds = %1449, %1190, %1186
   %1451 = load i32, ptr %5, align 4
-  %1452 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1452 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1453 = icmp eq i32 %1451, %1452
   br i1 %1453, label %1454, label %1465
 
@@ -15300,7 +15300,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
   br label %1525
 
 1465:                                             ; preds = %1450
-  %1466 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1466 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1467 = icmp eq i32 %1451, %1466
   br i1 %1467, label %1468, label %1496
 
@@ -15618,7 +15618,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 1587:                                             ; preds = %1583, %1582
   %1588 = load i32, ptr %5, align 4
-  %1589 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1589 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1590 = icmp eq i32 %1588, %1589
   br i1 %1590, label %1591, label %1824
 
@@ -16344,7 +16344,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 1826:                                             ; preds = %1825, %1566, %1562
   %1827 = load i32, ptr %5, align 4
-  %1828 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1828 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1829 = icmp eq i32 %1827, %1828
   br i1 %1829, label %1830, label %1841
 
@@ -16373,7 +16373,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
   br label %1901
 
 1841:                                             ; preds = %1826
-  %1842 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1842 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1843 = icmp eq i32 %1827, %1842
   br i1 %1843, label %1844, label %1872
 
@@ -16691,7 +16691,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 1963:                                             ; preds = %1959, %1958
   %1964 = load i32, ptr %5, align 4
-  %1965 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1965 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1966 = icmp eq i32 %1964, %1965
   br i1 %1966, label %1967, label %2200
 
@@ -17417,7 +17417,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 2202:                                             ; preds = %2201, %1942, %1938
   %2203 = load i32, ptr %5, align 4
-  %2204 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %2204 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %2205 = icmp eq i32 %2203, %2204
   br i1 %2205, label %2206, label %2217
 
@@ -17446,7 +17446,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
   br label %2277
 
 2217:                                             ; preds = %2202
-  %2218 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %2218 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %2219 = icmp eq i32 %2203, %2218
   br i1 %2219, label %2220, label %2248
 
@@ -17764,7 +17764,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 2339:                                             ; preds = %2335, %2334
   %2340 = load i32, ptr %5, align 4
-  %2341 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %2341 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %2342 = icmp eq i32 %2340, %2341
   br i1 %2342, label %2343, label %2576
 
@@ -18490,7 +18490,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 2578:                                             ; preds = %2577, %2318, %2314
   %2579 = load i32, ptr %5, align 4
-  %2580 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %2580 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %2581 = icmp eq i32 %2579, %2580
   br i1 %2581, label %2582, label %2593
 
@@ -18519,7 +18519,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
   br label %2653
 
 2593:                                             ; preds = %2578
-  %2594 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %2594 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %2595 = icmp eq i32 %2579, %2594
   br i1 %2595, label %2596, label %2624
 
@@ -18837,7 +18837,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 2715:                                             ; preds = %2711, %2710
   %2716 = load i32, ptr %5, align 4
-  %2717 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %2717 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %2718 = icmp eq i32 %2716, %2717
   br i1 %2718, label %2719, label %2951
 
@@ -19559,7 +19559,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 2953:                                             ; preds = %2952, %2694, %2690
   %2954 = load i32, ptr %5, align 4
-  %2955 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %2955 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %2956 = icmp eq i32 %2954, %2955
   br i1 %2956, label %2957, label %2968
 
@@ -19588,7 +19588,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
   br label %3028
 
 2968:                                             ; preds = %2953
-  %2969 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %2969 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %2970 = icmp eq i32 %2954, %2969
   br i1 %2970, label %2971, label %2999
 
@@ -19906,7 +19906,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 3090:                                             ; preds = %3086, %3085
   %3091 = load i32, ptr %5, align 4
-  %3092 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %3092 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %3093 = icmp eq i32 %3091, %3092
   br i1 %3093, label %3094, label %3326
 
@@ -20628,7 +20628,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 3328:                                             ; preds = %3327, %3069, %3065
   %3329 = load i32, ptr %5, align 4
-  %3330 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %3330 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %3331 = icmp eq i32 %3329, %3330
   br i1 %3331, label %3332, label %3343
 
@@ -20657,7 +20657,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
   br label %3403
 
 3343:                                             ; preds = %3328
-  %3344 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %3344 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %3345 = icmp eq i32 %3329, %3344
   br i1 %3345, label %3346, label %3374
 
@@ -20975,7 +20975,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 3465:                                             ; preds = %3461, %3460
   %3466 = load i32, ptr %5, align 4
-  %3467 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %3467 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %3468 = icmp eq i32 %3466, %3467
   br i1 %3468, label %3469, label %3702
 
@@ -21701,7 +21701,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
 
 3704:                                             ; preds = %3703, %3444, %3440
   %3705 = load i32, ptr %5, align 4
-  %3706 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %3706 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %3707 = icmp eq i32 %3705, %3706
   br i1 %3707, label %3708, label %3719
 
@@ -21730,7 +21730,7 @@ define void @_ZN3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef 
   br label %3779
 
 3719:                                             ; preds = %3704
-  %3720 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %3720 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %3721 = icmp eq i32 %3705, %3720
   br i1 %3721, label %3722, label %3750
 
@@ -22790,7 +22790,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix34ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ErrorTraceTest_replaceStrings_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ErrorTraceTest_replaceStrings_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -23201,7 +23202,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
 
 316:                                              ; preds = %312, %311
   %317 = load i32, ptr %5, align 4
-  %318 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %318 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %319 = icmp eq i32 %317, %318
   br i1 %319, label %320, label %553
 
@@ -23927,7 +23928,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
 
 555:                                              ; preds = %554, %295, %291
   %556 = load i32, ptr %5, align 4
-  %557 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %557 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %558 = icmp eq i32 %556, %557
   br i1 %558, label %559, label %570
 
@@ -23956,7 +23957,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
   br label %630
 
 570:                                              ; preds = %555
-  %571 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %571 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %572 = icmp eq i32 %556, %571
   br i1 %572, label %573, label %601
 
@@ -24274,7 +24275,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
 
 692:                                              ; preds = %688, %687
   %693 = load i32, ptr %5, align 4
-  %694 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %694 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %695 = icmp eq i32 %693, %694
   br i1 %695, label %696, label %929
 
@@ -25000,7 +25001,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
 
 931:                                              ; preds = %930, %671, %667
   %932 = load i32, ptr %5, align 4
-  %933 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %933 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %934 = icmp eq i32 %932, %933
   br i1 %934, label %935, label %946
 
@@ -25029,7 +25030,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
   br label %1006
 
 946:                                              ; preds = %931
-  %947 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %947 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %948 = icmp eq i32 %932, %947
   br i1 %948, label %949, label %977
 
@@ -25347,7 +25348,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
 
 1068:                                             ; preds = %1064, %1063
   %1069 = load i32, ptr %5, align 4
-  %1070 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1070 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1071 = icmp eq i32 %1069, %1070
   br i1 %1071, label %1072, label %1248
 
@@ -25891,7 +25892,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
 
 1250:                                             ; preds = %1249, %1047, %1043
   %1251 = load i32, ptr %5, align 4
-  %1252 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %1252 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %1253 = icmp eq i32 %1251, %1252
   br i1 %1253, label %1254, label %1265
 
@@ -25920,7 +25921,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
   br label %1325
 
 1265:                                             ; preds = %1250
-  %1266 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1266 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1267 = icmp eq i32 %1251, %1266
   br i1 %1267, label %1268, label %1296
 
@@ -26238,7 +26239,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
 
 1387:                                             ; preds = %1383, %1382
   %1388 = load i32, ptr %5, align 4
-  %1389 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1389 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1390 = icmp eq i32 %1388, %1389
   br i1 %1390, label %1391, label %1624
 
@@ -26964,7 +26965,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
 
 1626:                                             ; preds = %1625, %1366, %1362
   %1627 = load i32, ptr %5, align 4
-  %1628 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1628 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1629 = icmp eq i32 %1627, %1628
   br i1 %1629, label %1630, label %1641
 
@@ -26993,7 +26994,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
   br label %1701
 
 1641:                                             ; preds = %1626
-  %1642 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1642 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1643 = icmp eq i32 %1627, %1642
   br i1 %1643, label %1644, label %1672
 
@@ -27311,7 +27312,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
 
 1763:                                             ; preds = %1759, %1758
   %1764 = load i32, ptr %5, align 4
-  %1765 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1765 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1766 = icmp eq i32 %1764, %1765
   br i1 %1766, label %1767, label %2000
 
@@ -28037,7 +28038,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
 
 2002:                                             ; preds = %2001, %1742, %1738
   %2003 = load i32, ptr %5, align 4
-  %2004 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %2004 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %2005 = icmp eq i32 %2003, %2004
   br i1 %2005, label %2006, label %2017
 
@@ -28066,7 +28067,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
   br label %2077
 
 2017:                                             ; preds = %2002
-  %2018 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %2018 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %2019 = icmp eq i32 %2003, %2018
   br i1 %2019, label %2020, label %2048
 
@@ -28384,7 +28385,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
 
 2139:                                             ; preds = %2135, %2134
   %2140 = load i32, ptr %5, align 4
-  %2141 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %2141 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %2142 = icmp eq i32 %2140, %2141
   br i1 %2142, label %2143, label %2376
 
@@ -29110,7 +29111,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
 
 2378:                                             ; preds = %2377, %2118, %2114
   %2379 = load i32, ptr %5, align 4
-  %2380 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %2380 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %2381 = icmp eq i32 %2379, %2380
   br i1 %2381, label %2382, label %2393
 
@@ -29139,7 +29140,7 @@ define void @_ZN3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef 
   br label %2453
 
 2393:                                             ; preds = %2378
-  %2394 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %2394 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %2395 = icmp eq i32 %2379, %2394
   br i1 %2395, label %2396, label %2424
 
@@ -29619,7 +29620,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_scopedImport_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_scopedImport_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -29752,7 +29754,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_import_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_import_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -29885,7 +29888,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_typeOf_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_typeOf_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30018,7 +30022,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isNull_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isNull_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30151,7 +30156,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix30ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_isFunction_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_isFunction_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30284,7 +30290,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix25ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_isInt_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_isInt_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30417,7 +30424,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix27ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_isFloat_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_isFloat_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30550,7 +30558,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_isString_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_isString_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30683,7 +30692,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isBool_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isBool_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30816,7 +30826,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isPath_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isPath_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30949,7 +30960,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix25ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_break_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_break_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -31082,7 +31094,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix25ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_abort_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_abort_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -31215,7 +31228,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix25ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_throw_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_throw_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -31348,7 +31362,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix35ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35ErrorTraceTest_addErrorContext_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35ErrorTraceTest_addErrorContext_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -31481,7 +31496,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix24ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_ceil_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_ceil_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -31671,7 +31687,7 @@ define void @_ZN3nix24ErrorTraceTest_ceil_Test8TestBodyEv(ptr noundef nonnull al
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -32397,7 +32413,7 @@ define void @_ZN3nix24ErrorTraceTest_ceil_Test8TestBodyEv(ptr noundef nonnull al
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -32426,7 +32442,7 @@ define void @_ZN3nix24ErrorTraceTest_ceil_Test8TestBodyEv(ptr noundef nonnull al
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -32826,7 +32842,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix25ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_floor_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_floor_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -33016,7 +33033,7 @@ define void @_ZN3nix25ErrorTraceTest_floor_Test8TestBodyEv(ptr noundef nonnull a
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -33742,7 +33759,7 @@ define void @_ZN3nix25ErrorTraceTest_floor_Test8TestBodyEv(ptr noundef nonnull a
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -33771,7 +33788,7 @@ define void @_ZN3nix25ErrorTraceTest_floor_Test8TestBodyEv(ptr noundef nonnull a
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -34115,7 +34132,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix27ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_tryEval_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_tryEval_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -34248,7 +34266,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_getEnv_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_getEnv_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -34438,7 +34457,7 @@ define void @_ZN3nix26ErrorTraceTest_getEnv_Test8TestBodyEv(ptr noundef nonnull 
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -35164,7 +35183,7 @@ define void @_ZN3nix26ErrorTraceTest_getEnv_Test8TestBodyEv(ptr noundef nonnull 
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -35193,7 +35212,7 @@ define void @_ZN3nix26ErrorTraceTest_getEnv_Test8TestBodyEv(ptr noundef nonnull 
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -35564,7 +35583,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix23ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_seq_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_seq_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -35697,7 +35717,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix27ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_deepSeq_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_deepSeq_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -35830,7 +35851,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix25ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_trace_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_trace_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -35963,7 +35985,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix31ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_placeholder_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_placeholder_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -36153,7 +36176,7 @@ define void @_ZN3nix31ErrorTraceTest_placeholder_Test8TestBodyEv(ptr noundef non
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -36879,7 +36902,7 @@ define void @_ZN3nix31ErrorTraceTest_placeholder_Test8TestBodyEv(ptr noundef non
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -36908,7 +36931,7 @@ define void @_ZN3nix31ErrorTraceTest_placeholder_Test8TestBodyEv(ptr noundef non
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -37252,7 +37275,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_toPath_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_toPath_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -37487,7 +37511,7 @@ define void @_ZN3nix26ErrorTraceTest_toPath_Test8TestBodyEv(ptr noundef nonnull 
 
 140:                                              ; preds = %136, %135
   %141 = load i32, ptr %5, align 4
-  %142 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %142 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %143 = icmp eq i32 %141, %142
   br i1 %143, label %144, label %377
 
@@ -38213,7 +38237,7 @@ define void @_ZN3nix26ErrorTraceTest_toPath_Test8TestBodyEv(ptr noundef nonnull 
 
 379:                                              ; preds = %378, %119, %115
   %380 = load i32, ptr %5, align 4
-  %381 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %381 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %382 = icmp eq i32 %380, %381
   br i1 %382, label %383, label %394
 
@@ -38242,7 +38266,7 @@ define void @_ZN3nix26ErrorTraceTest_toPath_Test8TestBodyEv(ptr noundef nonnull 
   br label %454
 
 394:                                              ; preds = %379
-  %395 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %395 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %396 = icmp eq i32 %380, %395
   br i1 %396, label %397, label %425
 
@@ -38560,7 +38584,7 @@ define void @_ZN3nix26ErrorTraceTest_toPath_Test8TestBodyEv(ptr noundef nonnull 
 
 516:                                              ; preds = %512, %511
   %517 = load i32, ptr %5, align 4
-  %518 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %518 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %519 = icmp eq i32 %517, %518
   br i1 %519, label %520, label %752
 
@@ -39282,7 +39306,7 @@ define void @_ZN3nix26ErrorTraceTest_toPath_Test8TestBodyEv(ptr noundef nonnull 
 
 754:                                              ; preds = %753, %495, %491
   %755 = load i32, ptr %5, align 4
-  %756 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %756 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %757 = icmp eq i32 %755, %756
   br i1 %757, label %758, label %769
 
@@ -39311,7 +39335,7 @@ define void @_ZN3nix26ErrorTraceTest_toPath_Test8TestBodyEv(ptr noundef nonnull 
   br label %829
 
 769:                                              ; preds = %754
-  %770 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %770 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %771 = icmp eq i32 %755, %770
   br i1 %771, label %772, label %800
 
@@ -39671,7 +39695,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix29ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_storePath_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_storePath_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -39861,7 +39886,7 @@ define void @_ZN3nix29ErrorTraceTest_storePath_Test8TestBodyEv(ptr noundef nonnu
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -40587,7 +40612,7 @@ define void @_ZN3nix29ErrorTraceTest_storePath_Test8TestBodyEv(ptr noundef nonnu
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -40616,7 +40641,7 @@ define void @_ZN3nix29ErrorTraceTest_storePath_Test8TestBodyEv(ptr noundef nonnu
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -40944,7 +40969,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix30ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_pathExists_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_pathExists_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -41179,7 +41205,7 @@ define void @_ZN3nix30ErrorTraceTest_pathExists_Test8TestBodyEv(ptr noundef nonn
 
 140:                                              ; preds = %136, %135
   %141 = load i32, ptr %5, align 4
-  %142 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %142 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %143 = icmp eq i32 %141, %142
   br i1 %143, label %144, label %377
 
@@ -41905,7 +41931,7 @@ define void @_ZN3nix30ErrorTraceTest_pathExists_Test8TestBodyEv(ptr noundef nonn
 
 379:                                              ; preds = %378, %119, %115
   %380 = load i32, ptr %5, align 4
-  %381 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %381 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %382 = icmp eq i32 %380, %381
   br i1 %382, label %383, label %394
 
@@ -41934,7 +41960,7 @@ define void @_ZN3nix30ErrorTraceTest_pathExists_Test8TestBodyEv(ptr noundef nonn
   br label %454
 
 394:                                              ; preds = %379
-  %395 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %395 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %396 = icmp eq i32 %380, %395
   br i1 %396, label %397, label %425
 
@@ -42252,7 +42278,7 @@ define void @_ZN3nix30ErrorTraceTest_pathExists_Test8TestBodyEv(ptr noundef nonn
 
 516:                                              ; preds = %512, %511
   %517 = load i32, ptr %5, align 4
-  %518 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %518 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %519 = icmp eq i32 %517, %518
   br i1 %519, label %520, label %752
 
@@ -42974,7 +43000,7 @@ define void @_ZN3nix30ErrorTraceTest_pathExists_Test8TestBodyEv(ptr noundef nonn
 
 754:                                              ; preds = %753, %495, %491
   %755 = load i32, ptr %5, align 4
-  %756 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %756 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %757 = icmp eq i32 %755, %756
   br i1 %757, label %758, label %769
 
@@ -43003,7 +43029,7 @@ define void @_ZN3nix30ErrorTraceTest_pathExists_Test8TestBodyEv(ptr noundef nonn
   br label %829
 
 769:                                              ; preds = %754
-  %770 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %770 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %771 = icmp eq i32 %755, %770
   br i1 %771, label %772, label %800
 
@@ -43403,7 +43429,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix30ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_baseNameOf_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_baseNameOf_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -43593,7 +43620,7 @@ define void @_ZN3nix30ErrorTraceTest_baseNameOf_Test8TestBodyEv(ptr noundef nonn
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -44319,7 +44346,7 @@ define void @_ZN3nix30ErrorTraceTest_baseNameOf_Test8TestBodyEv(ptr noundef nonn
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -44348,7 +44375,7 @@ define void @_ZN3nix30ErrorTraceTest_baseNameOf_Test8TestBodyEv(ptr noundef nonn
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -44676,7 +44703,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix25ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_dirOf_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_dirOf_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -44809,7 +44837,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_readFile_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_readFile_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -44942,7 +44971,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_findFile_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_findFile_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -45075,7 +45105,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_hashFile_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_hashFile_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -45208,7 +45239,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix27ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_readDir_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_readDir_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -45341,7 +45373,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix25ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_toXML_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_toXML_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -45474,7 +45507,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_toJSON_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_toJSON_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -45607,7 +45641,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_fromJSON_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_fromJSON_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -45740,7 +45775,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_toFile_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_toFile_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -45873,7 +45909,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_filterSource_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_filterSource_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -46154,7 +46191,7 @@ define void @_ZN3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr noundef no
 
 186:                                              ; preds = %182, %181
   %187 = load i32, ptr %5, align 4
-  %188 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %188 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %189 = icmp eq i32 %187, %188
   br i1 %189, label %190, label %423
 
@@ -46880,7 +46917,7 @@ define void @_ZN3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr noundef no
 
 425:                                              ; preds = %424, %165, %161
   %426 = load i32, ptr %5, align 4
-  %427 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %427 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %428 = icmp eq i32 %426, %427
   br i1 %428, label %429, label %440
 
@@ -46909,7 +46946,7 @@ define void @_ZN3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr noundef no
   br label %500
 
 440:                                              ; preds = %425
-  %441 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %441 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %442 = icmp eq i32 %426, %441
   br i1 %442, label %443, label %471
 
@@ -47227,7 +47264,7 @@ define void @_ZN3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr noundef no
 
 562:                                              ; preds = %558, %557
   %563 = load i32, ptr %5, align 4
-  %564 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %564 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %565 = icmp eq i32 %563, %564
   br i1 %565, label %566, label %798
 
@@ -47949,7 +47986,7 @@ define void @_ZN3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr noundef no
 
 800:                                              ; preds = %799, %541, %537
   %801 = load i32, ptr %5, align 4
-  %802 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %802 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %803 = icmp eq i32 %801, %802
   br i1 %803, label %804, label %815
 
@@ -47978,7 +48015,7 @@ define void @_ZN3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr noundef no
   br label %875
 
 815:                                              ; preds = %800
-  %816 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %816 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %817 = icmp eq i32 %801, %816
   br i1 %817, label %818, label %846
 
@@ -48296,7 +48333,7 @@ define void @_ZN3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr noundef no
 
 937:                                              ; preds = %933, %932
   %938 = load i32, ptr %5, align 4
-  %939 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %939 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %940 = icmp eq i32 %938, %939
   br i1 %940, label %941, label %1174
 
@@ -49022,7 +49059,7 @@ define void @_ZN3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr noundef no
 
 1176:                                             ; preds = %1175, %916, %912
   %1177 = load i32, ptr %5, align 4
-  %1178 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1178 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1179 = icmp eq i32 %1177, %1178
   br i1 %1179, label %1180, label %1191
 
@@ -49051,7 +49088,7 @@ define void @_ZN3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr noundef no
   br label %1251
 
 1191:                                             ; preds = %1176
-  %1192 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1192 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1193 = icmp eq i32 %1177, %1192
   br i1 %1193, label %1194, label %1222
 
@@ -49411,7 +49448,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix24ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_path_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_path_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49544,7 +49582,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix29ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_attrNames_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_attrNames_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -49734,7 +49773,7 @@ define void @_ZN3nix29ErrorTraceTest_attrNames_Test8TestBodyEv(ptr noundef nonnu
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -50460,7 +50499,7 @@ define void @_ZN3nix29ErrorTraceTest_attrNames_Test8TestBodyEv(ptr noundef nonnu
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -50489,7 +50528,7 @@ define void @_ZN3nix29ErrorTraceTest_attrNames_Test8TestBodyEv(ptr noundef nonnu
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -50817,7 +50856,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix30ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_attrValues_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_attrValues_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51007,7 +51047,7 @@ define void @_ZN3nix30ErrorTraceTest_attrValues_Test8TestBodyEv(ptr noundef nonn
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -51733,7 +51773,7 @@ define void @_ZN3nix30ErrorTraceTest_attrValues_Test8TestBodyEv(ptr noundef nonn
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -51762,7 +51802,7 @@ define void @_ZN3nix30ErrorTraceTest_attrValues_Test8TestBodyEv(ptr noundef nonn
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -52090,7 +52130,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix27ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_getAttr_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_getAttr_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -52371,7 +52412,7 @@ define void @_ZN3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef nonnull
 
 186:                                              ; preds = %182, %181
   %187 = load i32, ptr %5, align 4
-  %188 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %188 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %189 = icmp eq i32 %187, %188
   br i1 %189, label %190, label %423
 
@@ -53097,7 +53138,7 @@ define void @_ZN3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef nonnull
 
 425:                                              ; preds = %424, %165, %161
   %426 = load i32, ptr %5, align 4
-  %427 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %427 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %428 = icmp eq i32 %426, %427
   br i1 %428, label %429, label %440
 
@@ -53126,7 +53167,7 @@ define void @_ZN3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef nonnull
   br label %500
 
 440:                                              ; preds = %425
-  %441 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %441 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %442 = icmp eq i32 %426, %441
   br i1 %442, label %443, label %471
 
@@ -53444,7 +53485,7 @@ define void @_ZN3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef nonnull
 
 562:                                              ; preds = %558, %557
   %563 = load i32, ptr %5, align 4
-  %564 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %564 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %565 = icmp eq i32 %563, %564
   br i1 %565, label %566, label %799
 
@@ -54170,7 +54211,7 @@ define void @_ZN3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef nonnull
 
 801:                                              ; preds = %800, %541, %537
   %802 = load i32, ptr %5, align 4
-  %803 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %803 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %804 = icmp eq i32 %802, %803
   br i1 %804, label %805, label %816
 
@@ -54199,7 +54240,7 @@ define void @_ZN3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef nonnull
   br label %876
 
 816:                                              ; preds = %801
-  %817 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %817 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %818 = icmp eq i32 %802, %817
   br i1 %818, label %819, label %847
 
@@ -54517,7 +54558,7 @@ define void @_ZN3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef nonnull
 
 938:                                              ; preds = %934, %933
   %939 = load i32, ptr %5, align 4
-  %940 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %940 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %941 = icmp eq i32 %939, %940
   br i1 %941, label %942, label %1174
 
@@ -55239,7 +55280,7 @@ define void @_ZN3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef nonnull
 
 1176:                                             ; preds = %1175, %917, %913
   %1177 = load i32, ptr %5, align 4
-  %1178 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1178 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1179 = icmp eq i32 %1177, %1178
   br i1 %1179, label %1180, label %1191
 
@@ -55268,7 +55309,7 @@ define void @_ZN3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef nonnull
   br label %1251
 
 1191:                                             ; preds = %1176
-  %1192 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1192 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1193 = icmp eq i32 %1177, %1192
   br i1 %1193, label %1194, label %1222
 
@@ -55596,7 +55637,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix36ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ErrorTraceTest_unsafeGetAttrPos_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ErrorTraceTest_unsafeGetAttrPos_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -55729,7 +55771,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix27ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_hasAttr_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_hasAttr_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -55965,7 +56008,7 @@ define void @_ZN3nix27ErrorTraceTest_hasAttr_Test8TestBodyEv(ptr noundef nonnull
 
 141:                                              ; preds = %137, %136
   %142 = load i32, ptr %5, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %378
 
@@ -56691,7 +56734,7 @@ define void @_ZN3nix27ErrorTraceTest_hasAttr_Test8TestBodyEv(ptr noundef nonnull
 
 380:                                              ; preds = %379, %120, %116
   %381 = load i32, ptr %5, align 4
-  %382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %383 = icmp eq i32 %381, %382
   br i1 %383, label %384, label %395
 
@@ -56720,7 +56763,7 @@ define void @_ZN3nix27ErrorTraceTest_hasAttr_Test8TestBodyEv(ptr noundef nonnull
   br label %455
 
 395:                                              ; preds = %380
-  %396 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %397 = icmp eq i32 %381, %396
   br i1 %397, label %398, label %426
 
@@ -57038,7 +57081,7 @@ define void @_ZN3nix27ErrorTraceTest_hasAttr_Test8TestBodyEv(ptr noundef nonnull
 
 517:                                              ; preds = %513, %512
   %518 = load i32, ptr %5, align 4
-  %519 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %519 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %520 = icmp eq i32 %518, %519
   br i1 %520, label %521, label %754
 
@@ -57764,7 +57807,7 @@ define void @_ZN3nix27ErrorTraceTest_hasAttr_Test8TestBodyEv(ptr noundef nonnull
 
 756:                                              ; preds = %755, %496, %492
   %757 = load i32, ptr %5, align 4
-  %758 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %759 = icmp eq i32 %757, %758
   br i1 %759, label %760, label %771
 
@@ -57793,7 +57836,7 @@ define void @_ZN3nix27ErrorTraceTest_hasAttr_Test8TestBodyEv(ptr noundef nonnull
   br label %831
 
 771:                                              ; preds = %756
-  %772 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %772 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %773 = icmp eq i32 %757, %772
   br i1 %773, label %774, label %802
 
@@ -58121,7 +58164,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix27ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_isAttrs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_isAttrs_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -58254,7 +58298,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix31ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_removeAttrs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_removeAttrs_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -58536,7 +58581,7 @@ define void @_ZN3nix31ErrorTraceTest_removeAttrs_Test8TestBodyEv(ptr noundef non
 
 187:                                              ; preds = %183, %182
   %188 = load i32, ptr %5, align 4
-  %189 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %189 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %190 = icmp eq i32 %188, %189
   br i1 %190, label %191, label %424
 
@@ -59262,7 +59307,7 @@ define void @_ZN3nix31ErrorTraceTest_removeAttrs_Test8TestBodyEv(ptr noundef non
 
 426:                                              ; preds = %425, %166, %162
   %427 = load i32, ptr %5, align 4
-  %428 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %428 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %429 = icmp eq i32 %427, %428
   br i1 %429, label %430, label %441
 
@@ -59291,7 +59336,7 @@ define void @_ZN3nix31ErrorTraceTest_removeAttrs_Test8TestBodyEv(ptr noundef non
   br label %501
 
 441:                                              ; preds = %426
-  %442 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %442 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %443 = icmp eq i32 %427, %442
   br i1 %443, label %444, label %472
 
@@ -59609,7 +59654,7 @@ define void @_ZN3nix31ErrorTraceTest_removeAttrs_Test8TestBodyEv(ptr noundef non
 
 563:                                              ; preds = %559, %558
   %564 = load i32, ptr %5, align 4
-  %565 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %565 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %566 = icmp eq i32 %564, %565
   br i1 %566, label %567, label %800
 
@@ -60335,7 +60380,7 @@ define void @_ZN3nix31ErrorTraceTest_removeAttrs_Test8TestBodyEv(ptr noundef non
 
 802:                                              ; preds = %801, %542, %538
   %803 = load i32, ptr %5, align 4
-  %804 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %804 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %805 = icmp eq i32 %803, %804
   br i1 %805, label %806, label %817
 
@@ -60364,7 +60409,7 @@ define void @_ZN3nix31ErrorTraceTest_removeAttrs_Test8TestBodyEv(ptr noundef non
   br label %877
 
 817:                                              ; preds = %802
-  %818 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %818 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %819 = icmp eq i32 %803, %818
   br i1 %819, label %820, label %848
 
@@ -60682,7 +60727,7 @@ define void @_ZN3nix31ErrorTraceTest_removeAttrs_Test8TestBodyEv(ptr noundef non
 
 939:                                              ; preds = %935, %934
   %940 = load i32, ptr %5, align 4
-  %941 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %941 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %942 = icmp eq i32 %940, %941
   br i1 %942, label %943, label %1176
 
@@ -61408,7 +61453,7 @@ define void @_ZN3nix31ErrorTraceTest_removeAttrs_Test8TestBodyEv(ptr noundef non
 
 1178:                                             ; preds = %1177, %918, %914
   %1179 = load i32, ptr %5, align 4
-  %1180 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1181 = icmp eq i32 %1179, %1180
   br i1 %1181, label %1182, label %1193
 
@@ -61437,7 +61482,7 @@ define void @_ZN3nix31ErrorTraceTest_removeAttrs_Test8TestBodyEv(ptr noundef non
   br label %1253
 
 1193:                                             ; preds = %1178
-  %1194 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1194 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1195 = icmp eq i32 %1179, %1194
   br i1 %1195, label %1196, label %1224
 
@@ -61821,7 +61866,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix31ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_listToAttrs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_listToAttrs_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -62193,7 +62239,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
 
 277:                                              ; preds = %273, %272
   %278 = load i32, ptr %5, align 4
-  %279 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %279 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %280 = icmp eq i32 %278, %279
   br i1 %280, label %281, label %514
 
@@ -62919,7 +62965,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
 
 516:                                              ; preds = %515, %256, %252
   %517 = load i32, ptr %5, align 4
-  %518 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %518 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %519 = icmp eq i32 %517, %518
   br i1 %519, label %520, label %531
 
@@ -62948,7 +62994,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
   br label %591
 
 531:                                              ; preds = %516
-  %532 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %532 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %533 = icmp eq i32 %517, %532
   br i1 %533, label %534, label %562
 
@@ -63266,7 +63312,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
 
 653:                                              ; preds = %649, %648
   %654 = load i32, ptr %5, align 4
-  %655 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %655 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %656 = icmp eq i32 %654, %655
   br i1 %656, label %657, label %890
 
@@ -63992,7 +64038,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
 
 892:                                              ; preds = %891, %632, %628
   %893 = load i32, ptr %5, align 4
-  %894 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %894 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %895 = icmp eq i32 %893, %894
   br i1 %895, label %896, label %907
 
@@ -64021,7 +64067,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
   br label %967
 
 907:                                              ; preds = %892
-  %908 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %908 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %909 = icmp eq i32 %893, %908
   br i1 %909, label %910, label %938
 
@@ -64339,7 +64385,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
 
 1029:                                             ; preds = %1025, %1024
   %1030 = load i32, ptr %5, align 4
-  %1031 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1031 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1032 = icmp eq i32 %1030, %1031
   br i1 %1032, label %1033, label %1265
 
@@ -65061,7 +65107,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
 
 1267:                                             ; preds = %1266, %1008, %1004
   %1268 = load i32, ptr %5, align 4
-  %1269 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1269 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1270 = icmp eq i32 %1268, %1269
   br i1 %1270, label %1271, label %1282
 
@@ -65090,7 +65136,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
   br label %1342
 
 1282:                                             ; preds = %1267
-  %1283 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1283 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1284 = icmp eq i32 %1268, %1283
   br i1 %1284, label %1285, label %1313
 
@@ -65408,7 +65454,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
 
 1404:                                             ; preds = %1400, %1399
   %1405 = load i32, ptr %5, align 4
-  %1406 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1406 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1407 = icmp eq i32 %1405, %1406
   br i1 %1407, label %1408, label %1641
 
@@ -66134,7 +66180,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
 
 1643:                                             ; preds = %1642, %1383, %1379
   %1644 = load i32, ptr %5, align 4
-  %1645 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1645 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1646 = icmp eq i32 %1644, %1645
   br i1 %1646, label %1647, label %1658
 
@@ -66163,7 +66209,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
   br label %1718
 
 1658:                                             ; preds = %1643
-  %1659 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1659 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1660 = icmp eq i32 %1644, %1659
   br i1 %1660, label %1661, label %1689
 
@@ -66481,7 +66527,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
 
 1780:                                             ; preds = %1776, %1775
   %1781 = load i32, ptr %5, align 4
-  %1782 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1782 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1783 = icmp eq i32 %1781, %1782
   br i1 %1783, label %1784, label %2016
 
@@ -67203,7 +67249,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
 
 2018:                                             ; preds = %2017, %1759, %1755
   %2019 = load i32, ptr %5, align 4
-  %2020 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %2020 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %2021 = icmp eq i32 %2019, %2020
   br i1 %2021, label %2022, label %2033
 
@@ -67232,7 +67278,7 @@ define void @_ZN3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef non
   br label %2093
 
 2033:                                             ; preds = %2018
-  %2034 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %2034 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %2035 = icmp eq i32 %2019, %2034
   br i1 %2035, label %2036, label %2064
 
@@ -67656,7 +67702,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix34ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ErrorTraceTest_intersectAttrs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34ErrorTraceTest_intersectAttrs_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -67892,7 +67939,7 @@ define void @_ZN3nix34ErrorTraceTest_intersectAttrs_Test8TestBodyEv(ptr noundef 
 
 141:                                              ; preds = %137, %136
   %142 = load i32, ptr %5, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %378
 
@@ -68618,7 +68665,7 @@ define void @_ZN3nix34ErrorTraceTest_intersectAttrs_Test8TestBodyEv(ptr noundef 
 
 380:                                              ; preds = %379, %120, %116
   %381 = load i32, ptr %5, align 4
-  %382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %383 = icmp eq i32 %381, %382
   br i1 %383, label %384, label %395
 
@@ -68647,7 +68694,7 @@ define void @_ZN3nix34ErrorTraceTest_intersectAttrs_Test8TestBodyEv(ptr noundef 
   br label %455
 
 395:                                              ; preds = %380
-  %396 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %397 = icmp eq i32 %381, %396
   br i1 %397, label %398, label %426
 
@@ -68965,7 +69012,7 @@ define void @_ZN3nix34ErrorTraceTest_intersectAttrs_Test8TestBodyEv(ptr noundef 
 
 517:                                              ; preds = %513, %512
   %518 = load i32, ptr %5, align 4
-  %519 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %519 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %520 = icmp eq i32 %518, %519
   br i1 %520, label %521, label %754
 
@@ -69691,7 +69738,7 @@ define void @_ZN3nix34ErrorTraceTest_intersectAttrs_Test8TestBodyEv(ptr noundef 
 
 756:                                              ; preds = %755, %496, %492
   %757 = load i32, ptr %5, align 4
-  %758 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %759 = icmp eq i32 %757, %758
   br i1 %759, label %760, label %771
 
@@ -69720,7 +69767,7 @@ define void @_ZN3nix34ErrorTraceTest_intersectAttrs_Test8TestBodyEv(ptr noundef 
   br label %831
 
 771:                                              ; preds = %756
-  %772 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %772 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %773 = icmp eq i32 %757, %772
   br i1 %773, label %774, label %802
 
@@ -70048,7 +70095,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_catAttrs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_catAttrs_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -70376,7 +70424,7 @@ define void @_ZN3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef nonnul
 
 233:                                              ; preds = %229, %228
   %234 = load i32, ptr %5, align 4
-  %235 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %235 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %236 = icmp eq i32 %234, %235
   br i1 %236, label %237, label %470
 
@@ -71102,7 +71150,7 @@ define void @_ZN3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef nonnul
 
 472:                                              ; preds = %471, %212, %208
   %473 = load i32, ptr %5, align 4
-  %474 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %474 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %475 = icmp eq i32 %473, %474
   br i1 %475, label %476, label %487
 
@@ -71131,7 +71179,7 @@ define void @_ZN3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef nonnul
   br label %547
 
 487:                                              ; preds = %472
-  %488 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %488 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %489 = icmp eq i32 %473, %488
   br i1 %489, label %490, label %518
 
@@ -71449,7 +71497,7 @@ define void @_ZN3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef nonnul
 
 609:                                              ; preds = %605, %604
   %610 = load i32, ptr %5, align 4
-  %611 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %611 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %612 = icmp eq i32 %610, %611
   br i1 %612, label %613, label %846
 
@@ -72175,7 +72223,7 @@ define void @_ZN3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef nonnul
 
 848:                                              ; preds = %847, %588, %584
   %849 = load i32, ptr %5, align 4
-  %850 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %850 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %851 = icmp eq i32 %849, %850
   br i1 %851, label %852, label %863
 
@@ -72204,7 +72252,7 @@ define void @_ZN3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef nonnul
   br label %923
 
 863:                                              ; preds = %848
-  %864 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %864 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %865 = icmp eq i32 %849, %864
   br i1 %865, label %866, label %894
 
@@ -72522,7 +72570,7 @@ define void @_ZN3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef nonnul
 
 985:                                              ; preds = %981, %980
   %986 = load i32, ptr %5, align 4
-  %987 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %987 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %988 = icmp eq i32 %986, %987
   br i1 %988, label %989, label %1222
 
@@ -73248,7 +73296,7 @@ define void @_ZN3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef nonnul
 
 1224:                                             ; preds = %1223, %964, %960
   %1225 = load i32, ptr %5, align 4
-  %1226 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1226 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1227 = icmp eq i32 %1225, %1226
   br i1 %1227, label %1228, label %1239
 
@@ -73277,7 +73325,7 @@ define void @_ZN3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef nonnul
   br label %1299
 
 1239:                                             ; preds = %1224
-  %1240 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1240 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1241 = icmp eq i32 %1225, %1240
   br i1 %1241, label %1242, label %1270
 
@@ -73595,7 +73643,7 @@ define void @_ZN3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef nonnul
 
 1361:                                             ; preds = %1357, %1356
   %1362 = load i32, ptr %5, align 4
-  %1363 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1363 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1364 = icmp eq i32 %1362, %1363
   br i1 %1364, label %1365, label %1598
 
@@ -74321,7 +74369,7 @@ define void @_ZN3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef nonnul
 
 1600:                                             ; preds = %1599, %1340, %1336
   %1601 = load i32, ptr %5, align 4
-  %1602 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1602 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1603 = icmp eq i32 %1601, %1602
   br i1 %1603, label %1604, label %1615
 
@@ -74350,7 +74398,7 @@ define void @_ZN3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef nonnul
   br label %1675
 
 1615:                                             ; preds = %1600
-  %1616 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1616 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1617 = icmp eq i32 %1601, %1616
   br i1 %1617, label %1618, label %1646
 
@@ -74694,7 +74742,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_functionArgs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_functionArgs_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -74875,7 +74924,7 @@ define void @_ZN3nix32ErrorTraceTest_functionArgs_Test8TestBodyEv(ptr noundef no
 
 86:                                               ; preds = %82, %81
   %87 = load i32, ptr %5, align 4
-  %88 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %88 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %89 = icmp eq i32 %87, %88
   br i1 %89, label %90, label %266
 
@@ -75419,7 +75468,7 @@ define void @_ZN3nix32ErrorTraceTest_functionArgs_Test8TestBodyEv(ptr noundef no
 
 268:                                              ; preds = %267, %65, %61
   %269 = load i32, ptr %5, align 4
-  %270 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %270 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %271 = icmp eq i32 %269, %270
   br i1 %271, label %272, label %283
 
@@ -75448,7 +75497,7 @@ define void @_ZN3nix32ErrorTraceTest_functionArgs_Test8TestBodyEv(ptr noundef no
   br label %343
 
 283:                                              ; preds = %268
-  %284 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %284 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %285 = icmp eq i32 %269, %284
   br i1 %285, label %286, label %314
 
@@ -75792,7 +75841,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_mapAttrs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_mapAttrs_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -75982,7 +76032,7 @@ define void @_ZN3nix28ErrorTraceTest_mapAttrs_Test8TestBodyEv(ptr noundef nonnul
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -76708,7 +76758,7 @@ define void @_ZN3nix28ErrorTraceTest_mapAttrs_Test8TestBodyEv(ptr noundef nonnul
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -76737,7 +76787,7 @@ define void @_ZN3nix28ErrorTraceTest_mapAttrs_Test8TestBodyEv(ptr noundef nonnul
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -77065,7 +77115,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_zipAttrsWith_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_zipAttrsWith_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77301,7 +77352,7 @@ define void @_ZN3nix32ErrorTraceTest_zipAttrsWith_Test8TestBodyEv(ptr noundef no
 
 141:                                              ; preds = %137, %136
   %142 = load i32, ptr %5, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %378
 
@@ -78027,7 +78078,7 @@ define void @_ZN3nix32ErrorTraceTest_zipAttrsWith_Test8TestBodyEv(ptr noundef no
 
 380:                                              ; preds = %379, %120, %116
   %381 = load i32, ptr %5, align 4
-  %382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %383 = icmp eq i32 %381, %382
   br i1 %383, label %384, label %395
 
@@ -78056,7 +78107,7 @@ define void @_ZN3nix32ErrorTraceTest_zipAttrsWith_Test8TestBodyEv(ptr noundef no
   br label %455
 
 395:                                              ; preds = %380
-  %396 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %397 = icmp eq i32 %381, %396
   br i1 %397, label %398, label %426
 
@@ -78374,7 +78425,7 @@ define void @_ZN3nix32ErrorTraceTest_zipAttrsWith_Test8TestBodyEv(ptr noundef no
 
 517:                                              ; preds = %513, %512
   %518 = load i32, ptr %5, align 4
-  %519 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %519 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %520 = icmp eq i32 %518, %519
   br i1 %520, label %521, label %754
 
@@ -79100,7 +79151,7 @@ define void @_ZN3nix32ErrorTraceTest_zipAttrsWith_Test8TestBodyEv(ptr noundef no
 
 756:                                              ; preds = %755, %496, %492
   %757 = load i32, ptr %5, align 4
-  %758 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %759 = icmp eq i32 %757, %758
   br i1 %759, label %760, label %771
 
@@ -79129,7 +79180,7 @@ define void @_ZN3nix32ErrorTraceTest_zipAttrsWith_Test8TestBodyEv(ptr noundef no
   br label %831
 
 771:                                              ; preds = %756
-  %772 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %772 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %773 = icmp eq i32 %757, %772
   br i1 %773, label %774, label %802
 
@@ -79473,7 +79524,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isList_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_isList_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -79606,7 +79658,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_elemAt_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_elemAt_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -79872,7 +79925,7 @@ define void @_ZN3nix26ErrorTraceTest_elemAt_Test8TestBodyEv(ptr noundef nonnull 
 
 171:                                              ; preds = %167, %166
   %172 = load i32, ptr %5, align 4
-  %173 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %173 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %174 = icmp eq i32 %172, %173
   br i1 %174, label %175, label %408
 
@@ -80598,7 +80651,7 @@ define void @_ZN3nix26ErrorTraceTest_elemAt_Test8TestBodyEv(ptr noundef nonnull 
 
 410:                                              ; preds = %409, %150, %146
   %411 = load i32, ptr %5, align 4
-  %412 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %412 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %413 = icmp eq i32 %411, %412
   br i1 %413, label %414, label %425
 
@@ -80627,7 +80680,7 @@ define void @_ZN3nix26ErrorTraceTest_elemAt_Test8TestBodyEv(ptr noundef nonnull 
   br label %485
 
 425:                                              ; preds = %410
-  %426 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %426 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %427 = icmp eq i32 %411, %426
   br i1 %427, label %428, label %456
 
@@ -80945,7 +80998,7 @@ define void @_ZN3nix26ErrorTraceTest_elemAt_Test8TestBodyEv(ptr noundef nonnull 
 
 547:                                              ; preds = %543, %542
   %548 = load i32, ptr %5, align 4
-  %549 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %549 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %550 = icmp eq i32 %548, %549
   br i1 %550, label %551, label %727
 
@@ -81490,7 +81543,7 @@ define void @_ZN3nix26ErrorTraceTest_elemAt_Test8TestBodyEv(ptr noundef nonnull 
 
 729:                                              ; preds = %728, %526, %522
   %730 = load i32, ptr %5, align 4
-  %731 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix5ErrorE) #3
+  %731 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix5ErrorE) #3
   %732 = icmp eq i32 %730, %731
   br i1 %732, label %733, label %744
 
@@ -81519,7 +81572,7 @@ define void @_ZN3nix26ErrorTraceTest_elemAt_Test8TestBodyEv(ptr noundef nonnull 
   br label %804
 
 744:                                              ; preds = %729
-  %745 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %745 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %746 = icmp eq i32 %730, %745
   br i1 %746, label %747, label %775
 
@@ -81837,7 +81890,7 @@ define void @_ZN3nix26ErrorTraceTest_elemAt_Test8TestBodyEv(ptr noundef nonnull 
 
 866:                                              ; preds = %862, %861
   %867 = load i32, ptr %5, align 4
-  %868 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %868 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %869 = icmp eq i32 %867, %868
   br i1 %869, label %870, label %1046
 
@@ -82382,7 +82435,7 @@ define void @_ZN3nix26ErrorTraceTest_elemAt_Test8TestBodyEv(ptr noundef nonnull 
 
 1048:                                             ; preds = %1047, %845, %841
   %1049 = load i32, ptr %5, align 4
-  %1050 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix5ErrorE) #3
+  %1050 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix5ErrorE) #3
   %1051 = icmp eq i32 %1049, %1050
   br i1 %1051, label %1052, label %1063
 
@@ -82411,7 +82464,7 @@ define void @_ZN3nix26ErrorTraceTest_elemAt_Test8TestBodyEv(ptr noundef nonnull 
   br label %1123
 
 1063:                                             ; preds = %1048
-  %1064 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1064 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1065 = icmp eq i32 %1049, %1064
   br i1 %1065, label %1066, label %1094
 
@@ -82779,7 +82832,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix24ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_head_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_head_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -83007,7 +83061,7 @@ define void @_ZN3nix24ErrorTraceTest_head_Test8TestBodyEv(ptr noundef nonnull al
 
 133:                                              ; preds = %129, %128
   %134 = load i32, ptr %5, align 4
-  %135 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %135 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %136 = icmp eq i32 %134, %135
   br i1 %136, label %137, label %370
 
@@ -83733,7 +83787,7 @@ define void @_ZN3nix24ErrorTraceTest_head_Test8TestBodyEv(ptr noundef nonnull al
 
 372:                                              ; preds = %371, %112, %108
   %373 = load i32, ptr %5, align 4
-  %374 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %374 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %375 = icmp eq i32 %373, %374
   br i1 %375, label %376, label %387
 
@@ -83762,7 +83816,7 @@ define void @_ZN3nix24ErrorTraceTest_head_Test8TestBodyEv(ptr noundef nonnull al
   br label %447
 
 387:                                              ; preds = %372
-  %388 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %388 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %389 = icmp eq i32 %373, %388
   br i1 %389, label %390, label %418
 
@@ -84080,7 +84134,7 @@ define void @_ZN3nix24ErrorTraceTest_head_Test8TestBodyEv(ptr noundef nonnull al
 
 509:                                              ; preds = %505, %504
   %510 = load i32, ptr %5, align 4
-  %511 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %511 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %512 = icmp eq i32 %510, %511
   br i1 %512, label %513, label %689
 
@@ -84625,7 +84679,7 @@ define void @_ZN3nix24ErrorTraceTest_head_Test8TestBodyEv(ptr noundef nonnull al
 
 691:                                              ; preds = %690, %488, %484
   %692 = load i32, ptr %5, align 4
-  %693 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix5ErrorE) #3
+  %693 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix5ErrorE) #3
   %694 = icmp eq i32 %692, %693
   br i1 %694, label %695, label %706
 
@@ -84654,7 +84708,7 @@ define void @_ZN3nix24ErrorTraceTest_head_Test8TestBodyEv(ptr noundef nonnull al
   br label %766
 
 706:                                              ; preds = %691
-  %707 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %707 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %708 = icmp eq i32 %692, %707
   br i1 %708, label %709, label %737
 
@@ -85014,7 +85068,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix24ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_tail_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_tail_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -85241,7 +85296,7 @@ define void @_ZN3nix24ErrorTraceTest_tail_Test8TestBodyEv(ptr noundef nonnull al
 
 132:                                              ; preds = %128, %127
   %133 = load i32, ptr %5, align 4
-  %134 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %134 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %135 = icmp eq i32 %133, %134
   br i1 %135, label %136, label %369
 
@@ -85967,7 +86022,7 @@ define void @_ZN3nix24ErrorTraceTest_tail_Test8TestBodyEv(ptr noundef nonnull al
 
 371:                                              ; preds = %370, %111, %107
   %372 = load i32, ptr %5, align 4
-  %373 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %373 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %374 = icmp eq i32 %372, %373
   br i1 %374, label %375, label %386
 
@@ -85996,7 +86051,7 @@ define void @_ZN3nix24ErrorTraceTest_tail_Test8TestBodyEv(ptr noundef nonnull al
   br label %446
 
 386:                                              ; preds = %371
-  %387 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %387 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %388 = icmp eq i32 %372, %387
   br i1 %388, label %389, label %417
 
@@ -86314,7 +86369,7 @@ define void @_ZN3nix24ErrorTraceTest_tail_Test8TestBodyEv(ptr noundef nonnull al
 
 508:                                              ; preds = %504, %503
   %509 = load i32, ptr %5, align 4
-  %510 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %510 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %511 = icmp eq i32 %509, %510
   br i1 %511, label %512, label %688
 
@@ -86858,7 +86913,7 @@ define void @_ZN3nix24ErrorTraceTest_tail_Test8TestBodyEv(ptr noundef nonnull al
 
 690:                                              ; preds = %689, %487, %483
   %691 = load i32, ptr %5, align 4
-  %692 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix5ErrorE) #3
+  %692 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix5ErrorE) #3
   %693 = icmp eq i32 %691, %692
   br i1 %693, label %694, label %705
 
@@ -86887,7 +86942,7 @@ define void @_ZN3nix24ErrorTraceTest_tail_Test8TestBodyEv(ptr noundef nonnull al
   br label %765
 
 705:                                              ; preds = %690
-  %706 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %706 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %707 = icmp eq i32 %691, %706
   br i1 %707, label %708, label %736
 
@@ -87215,7 +87270,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix23ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_map_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_map_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -87451,7 +87507,7 @@ define void @_ZN3nix23ErrorTraceTest_map_Test8TestBodyEv(ptr noundef nonnull ali
 
 141:                                              ; preds = %137, %136
   %142 = load i32, ptr %5, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %378
 
@@ -88177,7 +88233,7 @@ define void @_ZN3nix23ErrorTraceTest_map_Test8TestBodyEv(ptr noundef nonnull ali
 
 380:                                              ; preds = %379, %120, %116
   %381 = load i32, ptr %5, align 4
-  %382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %383 = icmp eq i32 %381, %382
   br i1 %383, label %384, label %395
 
@@ -88206,7 +88262,7 @@ define void @_ZN3nix23ErrorTraceTest_map_Test8TestBodyEv(ptr noundef nonnull ali
   br label %455
 
 395:                                              ; preds = %380
-  %396 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %397 = icmp eq i32 %381, %396
   br i1 %397, label %398, label %426
 
@@ -88524,7 +88580,7 @@ define void @_ZN3nix23ErrorTraceTest_map_Test8TestBodyEv(ptr noundef nonnull ali
 
 517:                                              ; preds = %513, %512
   %518 = load i32, ptr %5, align 4
-  %519 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %519 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %520 = icmp eq i32 %518, %519
   br i1 %520, label %521, label %754
 
@@ -89250,7 +89306,7 @@ define void @_ZN3nix23ErrorTraceTest_map_Test8TestBodyEv(ptr noundef nonnull ali
 
 756:                                              ; preds = %755, %496, %492
   %757 = load i32, ptr %5, align 4
-  %758 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %759 = icmp eq i32 %757, %758
   br i1 %759, label %760, label %771
 
@@ -89279,7 +89335,7 @@ define void @_ZN3nix23ErrorTraceTest_map_Test8TestBodyEv(ptr noundef nonnull ali
   br label %831
 
 771:                                              ; preds = %756
-  %772 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %772 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %773 = icmp eq i32 %757, %772
   br i1 %773, label %774, label %802
 
@@ -89607,7 +89663,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_filter_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_filter_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -89889,7 +89946,7 @@ define void @_ZN3nix26ErrorTraceTest_filter_Test8TestBodyEv(ptr noundef nonnull 
 
 187:                                              ; preds = %183, %182
   %188 = load i32, ptr %5, align 4
-  %189 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %189 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %190 = icmp eq i32 %188, %189
   br i1 %190, label %191, label %424
 
@@ -90615,7 +90672,7 @@ define void @_ZN3nix26ErrorTraceTest_filter_Test8TestBodyEv(ptr noundef nonnull 
 
 426:                                              ; preds = %425, %166, %162
   %427 = load i32, ptr %5, align 4
-  %428 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %428 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %429 = icmp eq i32 %427, %428
   br i1 %429, label %430, label %441
 
@@ -90644,7 +90701,7 @@ define void @_ZN3nix26ErrorTraceTest_filter_Test8TestBodyEv(ptr noundef nonnull 
   br label %501
 
 441:                                              ; preds = %426
-  %442 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %442 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %443 = icmp eq i32 %427, %442
   br i1 %443, label %444, label %472
 
@@ -90962,7 +91019,7 @@ define void @_ZN3nix26ErrorTraceTest_filter_Test8TestBodyEv(ptr noundef nonnull 
 
 563:                                              ; preds = %559, %558
   %564 = load i32, ptr %5, align 4
-  %565 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %565 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %566 = icmp eq i32 %564, %565
   br i1 %566, label %567, label %800
 
@@ -91688,7 +91745,7 @@ define void @_ZN3nix26ErrorTraceTest_filter_Test8TestBodyEv(ptr noundef nonnull 
 
 802:                                              ; preds = %801, %542, %538
   %803 = load i32, ptr %5, align 4
-  %804 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %804 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %805 = icmp eq i32 %803, %804
   br i1 %805, label %806, label %817
 
@@ -91717,7 +91774,7 @@ define void @_ZN3nix26ErrorTraceTest_filter_Test8TestBodyEv(ptr noundef nonnull 
   br label %877
 
 817:                                              ; preds = %802
-  %818 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %818 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %819 = icmp eq i32 %803, %818
   br i1 %819, label %820, label %848
 
@@ -92035,7 +92092,7 @@ define void @_ZN3nix26ErrorTraceTest_filter_Test8TestBodyEv(ptr noundef nonnull 
 
 939:                                              ; preds = %935, %934
   %940 = load i32, ptr %5, align 4
-  %941 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %941 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %942 = icmp eq i32 %940, %941
   br i1 %942, label %943, label %1176
 
@@ -92761,7 +92818,7 @@ define void @_ZN3nix26ErrorTraceTest_filter_Test8TestBodyEv(ptr noundef nonnull 
 
 1178:                                             ; preds = %1177, %918, %914
   %1179 = load i32, ptr %5, align 4
-  %1180 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1181 = icmp eq i32 %1179, %1180
   br i1 %1181, label %1182, label %1193
 
@@ -92790,7 +92847,7 @@ define void @_ZN3nix26ErrorTraceTest_filter_Test8TestBodyEv(ptr noundef nonnull 
   br label %1253
 
 1193:                                             ; preds = %1178
-  %1194 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1194 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1195 = icmp eq i32 %1179, %1194
   br i1 %1195, label %1196, label %1224
 
@@ -93134,7 +93191,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix24ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_elem_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_elem_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -93324,7 +93382,7 @@ define void @_ZN3nix24ErrorTraceTest_elem_Test8TestBodyEv(ptr noundef nonnull al
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -94050,7 +94108,7 @@ define void @_ZN3nix24ErrorTraceTest_elem_Test8TestBodyEv(ptr noundef nonnull al
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -94079,7 +94137,7 @@ define void @_ZN3nix24ErrorTraceTest_elem_Test8TestBodyEv(ptr noundef nonnull al
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -94407,7 +94465,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix31ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_concatLists_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31ErrorTraceTest_concatLists_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -94689,7 +94748,7 @@ define void @_ZN3nix31ErrorTraceTest_concatLists_Test8TestBodyEv(ptr noundef non
 
 187:                                              ; preds = %183, %182
   %188 = load i32, ptr %5, align 4
-  %189 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %189 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %190 = icmp eq i32 %188, %189
   br i1 %190, label %191, label %424
 
@@ -95415,7 +95474,7 @@ define void @_ZN3nix31ErrorTraceTest_concatLists_Test8TestBodyEv(ptr noundef non
 
 426:                                              ; preds = %425, %166, %162
   %427 = load i32, ptr %5, align 4
-  %428 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %428 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %429 = icmp eq i32 %427, %428
   br i1 %429, label %430, label %441
 
@@ -95444,7 +95503,7 @@ define void @_ZN3nix31ErrorTraceTest_concatLists_Test8TestBodyEv(ptr noundef non
   br label %501
 
 441:                                              ; preds = %426
-  %442 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %442 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %443 = icmp eq i32 %427, %442
   br i1 %443, label %444, label %472
 
@@ -95762,7 +95821,7 @@ define void @_ZN3nix31ErrorTraceTest_concatLists_Test8TestBodyEv(ptr noundef non
 
 563:                                              ; preds = %559, %558
   %564 = load i32, ptr %5, align 4
-  %565 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %565 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %566 = icmp eq i32 %564, %565
   br i1 %566, label %567, label %800
 
@@ -96488,7 +96547,7 @@ define void @_ZN3nix31ErrorTraceTest_concatLists_Test8TestBodyEv(ptr noundef non
 
 802:                                              ; preds = %801, %542, %538
   %803 = load i32, ptr %5, align 4
-  %804 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %804 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %805 = icmp eq i32 %803, %804
   br i1 %805, label %806, label %817
 
@@ -96517,7 +96576,7 @@ define void @_ZN3nix31ErrorTraceTest_concatLists_Test8TestBodyEv(ptr noundef non
   br label %877
 
 817:                                              ; preds = %802
-  %818 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %818 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %819 = icmp eq i32 %803, %818
   br i1 %819, label %820, label %848
 
@@ -96835,7 +96894,7 @@ define void @_ZN3nix31ErrorTraceTest_concatLists_Test8TestBodyEv(ptr noundef non
 
 939:                                              ; preds = %935, %934
   %940 = load i32, ptr %5, align 4
-  %941 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %941 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %942 = icmp eq i32 %940, %941
   br i1 %942, label %943, label %1176
 
@@ -97561,7 +97620,7 @@ define void @_ZN3nix31ErrorTraceTest_concatLists_Test8TestBodyEv(ptr noundef non
 
 1178:                                             ; preds = %1177, %918, %914
   %1179 = load i32, ptr %5, align 4
-  %1180 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1181 = icmp eq i32 %1179, %1180
   br i1 %1181, label %1182, label %1193
 
@@ -97590,7 +97649,7 @@ define void @_ZN3nix31ErrorTraceTest_concatLists_Test8TestBodyEv(ptr noundef non
   br label %1253
 
 1193:                                             ; preds = %1178
-  %1194 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1194 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1195 = icmp eq i32 %1179, %1194
   br i1 %1195, label %1196, label %1224
 
@@ -97918,7 +97977,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_length_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_length_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -98154,7 +98214,7 @@ define void @_ZN3nix26ErrorTraceTest_length_Test8TestBodyEv(ptr noundef nonnull 
 
 141:                                              ; preds = %137, %136
   %142 = load i32, ptr %5, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %378
 
@@ -98880,7 +98940,7 @@ define void @_ZN3nix26ErrorTraceTest_length_Test8TestBodyEv(ptr noundef nonnull 
 
 380:                                              ; preds = %379, %120, %116
   %381 = load i32, ptr %5, align 4
-  %382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %383 = icmp eq i32 %381, %382
   br i1 %383, label %384, label %395
 
@@ -98909,7 +98969,7 @@ define void @_ZN3nix26ErrorTraceTest_length_Test8TestBodyEv(ptr noundef nonnull 
   br label %455
 
 395:                                              ; preds = %380
-  %396 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %397 = icmp eq i32 %381, %396
   br i1 %397, label %398, label %426
 
@@ -99227,7 +99287,7 @@ define void @_ZN3nix26ErrorTraceTest_length_Test8TestBodyEv(ptr noundef nonnull 
 
 517:                                              ; preds = %513, %512
   %518 = load i32, ptr %5, align 4
-  %519 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %519 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %520 = icmp eq i32 %518, %519
   br i1 %520, label %521, label %754
 
@@ -99953,7 +100013,7 @@ define void @_ZN3nix26ErrorTraceTest_length_Test8TestBodyEv(ptr noundef nonnull 
 
 756:                                              ; preds = %755, %496, %492
   %757 = load i32, ptr %5, align 4
-  %758 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %759 = icmp eq i32 %757, %758
   br i1 %759, label %760, label %771
 
@@ -99982,7 +100042,7 @@ define void @_ZN3nix26ErrorTraceTest_length_Test8TestBodyEv(ptr noundef nonnull 
   br label %831
 
 771:                                              ; preds = %756
-  %772 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %772 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %773 = icmp eq i32 %757, %772
   br i1 %773, label %774, label %802
 
@@ -100326,7 +100386,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix30ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_foldlPrime_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_foldlPrime_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -100646,7 +100707,7 @@ define void @_ZN3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef nonn
 
 225:                                              ; preds = %221, %220
   %226 = load i32, ptr %5, align 4
-  %227 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %227 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %228 = icmp eq i32 %226, %227
   br i1 %228, label %229, label %462
 
@@ -101372,7 +101433,7 @@ define void @_ZN3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef nonn
 
 464:                                              ; preds = %463, %204, %200
   %465 = load i32, ptr %5, align 4
-  %466 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %466 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %467 = icmp eq i32 %465, %466
   br i1 %467, label %468, label %479
 
@@ -101401,7 +101462,7 @@ define void @_ZN3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef nonn
   br label %539
 
 479:                                              ; preds = %464
-  %480 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %480 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %481 = icmp eq i32 %465, %480
   br i1 %481, label %482, label %510
 
@@ -101719,7 +101780,7 @@ define void @_ZN3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef nonn
 
 601:                                              ; preds = %597, %596
   %602 = load i32, ptr %5, align 4
-  %603 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %603 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %604 = icmp eq i32 %602, %603
   br i1 %604, label %605, label %838
 
@@ -102445,7 +102506,7 @@ define void @_ZN3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef nonn
 
 840:                                              ; preds = %839, %580, %576
   %841 = load i32, ptr %5, align 4
-  %842 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %842 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %843 = icmp eq i32 %841, %842
   br i1 %843, label %844, label %855
 
@@ -102474,7 +102535,7 @@ define void @_ZN3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef nonn
   br label %915
 
 855:                                              ; preds = %840
-  %856 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %856 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %857 = icmp eq i32 %841, %856
   br i1 %857, label %858, label %886
 
@@ -102792,7 +102853,7 @@ define void @_ZN3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef nonn
 
 977:                                              ; preds = %973, %972
   %978 = load i32, ptr %5, align 4
-  %979 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %979 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %980 = icmp eq i32 %978, %979
   br i1 %980, label %981, label %1158
 
@@ -103340,7 +103401,7 @@ define void @_ZN3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef nonn
 
 1160:                                             ; preds = %1159, %956, %952
   %1161 = load i32, ptr %5, align 4
-  %1162 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1162 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1163 = icmp eq i32 %1161, %1162
   br i1 %1163, label %1164, label %1175
 
@@ -103369,7 +103430,7 @@ define void @_ZN3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef nonn
   br label %1235
 
 1175:                                             ; preds = %1160
-  %1176 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1176 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1177 = icmp eq i32 %1161, %1176
   br i1 %1177, label %1178, label %1206
 
@@ -103687,7 +103748,7 @@ define void @_ZN3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef nonn
 
 1297:                                             ; preds = %1293, %1292
   %1298 = load i32, ptr %5, align 4
-  %1299 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1299 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1300 = icmp eq i32 %1298, %1299
   br i1 %1300, label %1301, label %1534
 
@@ -104413,7 +104474,7 @@ define void @_ZN3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef nonn
 
 1536:                                             ; preds = %1535, %1276, %1272
   %1537 = load i32, ptr %5, align 4
-  %1538 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1538 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1539 = icmp eq i32 %1537, %1538
   br i1 %1539, label %1540, label %1551
 
@@ -104442,7 +104503,7 @@ define void @_ZN3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef nonn
   br label %1611
 
 1551:                                             ; preds = %1536
-  %1552 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1552 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1553 = icmp eq i32 %1537, %1552
   br i1 %1553, label %1554, label %1582
 
@@ -104818,7 +104879,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix23ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_any_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_any_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -105100,7 +105162,7 @@ define void @_ZN3nix23ErrorTraceTest_any_Test8TestBodyEv(ptr noundef nonnull ali
 
 187:                                              ; preds = %183, %182
   %188 = load i32, ptr %5, align 4
-  %189 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %189 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %190 = icmp eq i32 %188, %189
   br i1 %190, label %191, label %424
 
@@ -105826,7 +105888,7 @@ define void @_ZN3nix23ErrorTraceTest_any_Test8TestBodyEv(ptr noundef nonnull ali
 
 426:                                              ; preds = %425, %166, %162
   %427 = load i32, ptr %5, align 4
-  %428 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %428 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %429 = icmp eq i32 %427, %428
   br i1 %429, label %430, label %441
 
@@ -105855,7 +105917,7 @@ define void @_ZN3nix23ErrorTraceTest_any_Test8TestBodyEv(ptr noundef nonnull ali
   br label %501
 
 441:                                              ; preds = %426
-  %442 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %442 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %443 = icmp eq i32 %427, %442
   br i1 %443, label %444, label %472
 
@@ -106173,7 +106235,7 @@ define void @_ZN3nix23ErrorTraceTest_any_Test8TestBodyEv(ptr noundef nonnull ali
 
 563:                                              ; preds = %559, %558
   %564 = load i32, ptr %5, align 4
-  %565 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %565 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %566 = icmp eq i32 %564, %565
   br i1 %566, label %567, label %800
 
@@ -106899,7 +106961,7 @@ define void @_ZN3nix23ErrorTraceTest_any_Test8TestBodyEv(ptr noundef nonnull ali
 
 802:                                              ; preds = %801, %542, %538
   %803 = load i32, ptr %5, align 4
-  %804 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %804 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %805 = icmp eq i32 %803, %804
   br i1 %805, label %806, label %817
 
@@ -106928,7 +106990,7 @@ define void @_ZN3nix23ErrorTraceTest_any_Test8TestBodyEv(ptr noundef nonnull ali
   br label %877
 
 817:                                              ; preds = %802
-  %818 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %818 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %819 = icmp eq i32 %803, %818
   br i1 %819, label %820, label %848
 
@@ -107246,7 +107308,7 @@ define void @_ZN3nix23ErrorTraceTest_any_Test8TestBodyEv(ptr noundef nonnull ali
 
 939:                                              ; preds = %935, %934
   %940 = load i32, ptr %5, align 4
-  %941 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %941 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %942 = icmp eq i32 %940, %941
   br i1 %942, label %943, label %1176
 
@@ -107972,7 +108034,7 @@ define void @_ZN3nix23ErrorTraceTest_any_Test8TestBodyEv(ptr noundef nonnull ali
 
 1178:                                             ; preds = %1177, %918, %914
   %1179 = load i32, ptr %5, align 4
-  %1180 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1181 = icmp eq i32 %1179, %1180
   br i1 %1181, label %1182, label %1193
 
@@ -108001,7 +108063,7 @@ define void @_ZN3nix23ErrorTraceTest_any_Test8TestBodyEv(ptr noundef nonnull ali
   br label %1253
 
 1193:                                             ; preds = %1178
-  %1194 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1194 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1195 = icmp eq i32 %1179, %1194
   br i1 %1195, label %1196, label %1224
 
@@ -108329,7 +108391,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix23ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_all_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_all_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -108611,7 +108674,7 @@ define void @_ZN3nix23ErrorTraceTest_all_Test8TestBodyEv(ptr noundef nonnull ali
 
 187:                                              ; preds = %183, %182
   %188 = load i32, ptr %5, align 4
-  %189 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %189 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %190 = icmp eq i32 %188, %189
   br i1 %190, label %191, label %424
 
@@ -109337,7 +109400,7 @@ define void @_ZN3nix23ErrorTraceTest_all_Test8TestBodyEv(ptr noundef nonnull ali
 
 426:                                              ; preds = %425, %166, %162
   %427 = load i32, ptr %5, align 4
-  %428 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %428 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %429 = icmp eq i32 %427, %428
   br i1 %429, label %430, label %441
 
@@ -109366,7 +109429,7 @@ define void @_ZN3nix23ErrorTraceTest_all_Test8TestBodyEv(ptr noundef nonnull ali
   br label %501
 
 441:                                              ; preds = %426
-  %442 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %442 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %443 = icmp eq i32 %427, %442
   br i1 %443, label %444, label %472
 
@@ -109684,7 +109747,7 @@ define void @_ZN3nix23ErrorTraceTest_all_Test8TestBodyEv(ptr noundef nonnull ali
 
 563:                                              ; preds = %559, %558
   %564 = load i32, ptr %5, align 4
-  %565 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %565 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %566 = icmp eq i32 %564, %565
   br i1 %566, label %567, label %800
 
@@ -110410,7 +110473,7 @@ define void @_ZN3nix23ErrorTraceTest_all_Test8TestBodyEv(ptr noundef nonnull ali
 
 802:                                              ; preds = %801, %542, %538
   %803 = load i32, ptr %5, align 4
-  %804 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %804 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %805 = icmp eq i32 %803, %804
   br i1 %805, label %806, label %817
 
@@ -110439,7 +110502,7 @@ define void @_ZN3nix23ErrorTraceTest_all_Test8TestBodyEv(ptr noundef nonnull ali
   br label %877
 
 817:                                              ; preds = %802
-  %818 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %818 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %819 = icmp eq i32 %803, %818
   br i1 %819, label %820, label %848
 
@@ -110757,7 +110820,7 @@ define void @_ZN3nix23ErrorTraceTest_all_Test8TestBodyEv(ptr noundef nonnull ali
 
 939:                                              ; preds = %935, %934
   %940 = load i32, ptr %5, align 4
-  %941 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %941 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %942 = icmp eq i32 %940, %941
   br i1 %942, label %943, label %1176
 
@@ -111483,7 +111546,7 @@ define void @_ZN3nix23ErrorTraceTest_all_Test8TestBodyEv(ptr noundef nonnull ali
 
 1178:                                             ; preds = %1177, %918, %914
   %1179 = load i32, ptr %5, align 4
-  %1180 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1181 = icmp eq i32 %1179, %1180
   br i1 %1181, label %1182, label %1193
 
@@ -111512,7 +111575,7 @@ define void @_ZN3nix23ErrorTraceTest_all_Test8TestBodyEv(ptr noundef nonnull ali
   br label %1253
 
 1193:                                             ; preds = %1178
-  %1194 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1194 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1195 = icmp eq i32 %1179, %1194
   br i1 %1195, label %1196, label %1224
 
@@ -111840,7 +111903,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix27ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_genList_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_genList_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -112114,7 +112178,7 @@ define void @_ZN3nix27ErrorTraceTest_genList_Test8TestBodyEv(ptr noundef nonnull
 
 179:                                              ; preds = %175, %174
   %180 = load i32, ptr %5, align 4
-  %181 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %181 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %182 = icmp eq i32 %180, %181
   br i1 %182, label %183, label %416
 
@@ -112840,7 +112904,7 @@ define void @_ZN3nix27ErrorTraceTest_genList_Test8TestBodyEv(ptr noundef nonnull
 
 418:                                              ; preds = %417, %158, %154
   %419 = load i32, ptr %5, align 4
-  %420 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %420 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %421 = icmp eq i32 %419, %420
   br i1 %421, label %422, label %433
 
@@ -112869,7 +112933,7 @@ define void @_ZN3nix27ErrorTraceTest_genList_Test8TestBodyEv(ptr noundef nonnull
   br label %493
 
 433:                                              ; preds = %418
-  %434 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %434 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %435 = icmp eq i32 %419, %434
   br i1 %435, label %436, label %464
 
@@ -113187,7 +113251,7 @@ define void @_ZN3nix27ErrorTraceTest_genList_Test8TestBodyEv(ptr noundef nonnull
 
 555:                                              ; preds = %551, %550
   %556 = load i32, ptr %5, align 4
-  %557 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %557 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %558 = icmp eq i32 %556, %557
   br i1 %558, label %559, label %792
 
@@ -113913,7 +113977,7 @@ define void @_ZN3nix27ErrorTraceTest_genList_Test8TestBodyEv(ptr noundef nonnull
 
 794:                                              ; preds = %793, %534, %530
   %795 = load i32, ptr %5, align 4
-  %796 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %796 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %797 = icmp eq i32 %795, %796
   br i1 %797, label %798, label %809
 
@@ -113942,7 +114006,7 @@ define void @_ZN3nix27ErrorTraceTest_genList_Test8TestBodyEv(ptr noundef nonnull
   br label %869
 
 809:                                              ; preds = %794
-  %810 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %810 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %811 = icmp eq i32 %795, %810
   br i1 %811, label %812, label %840
 
@@ -114260,7 +114324,7 @@ define void @_ZN3nix27ErrorTraceTest_genList_Test8TestBodyEv(ptr noundef nonnull
 
 931:                                              ; preds = %927, %926
   %932 = load i32, ptr %5, align 4
-  %933 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %933 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %934 = icmp eq i32 %932, %933
   br i1 %934, label %935, label %1111
 
@@ -114805,7 +114869,7 @@ define void @_ZN3nix27ErrorTraceTest_genList_Test8TestBodyEv(ptr noundef nonnull
 
 1113:                                             ; preds = %1112, %910, %906
   %1114 = load i32, ptr %5, align 4
-  %1115 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %1115 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %1116 = icmp eq i32 %1114, %1115
   br i1 %1116, label %1117, label %1128
 
@@ -114834,7 +114898,7 @@ define void @_ZN3nix27ErrorTraceTest_genList_Test8TestBodyEv(ptr noundef nonnull
   br label %1188
 
 1128:                                             ; preds = %1113
-  %1129 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1129 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1130 = icmp eq i32 %1114, %1129
   br i1 %1130, label %1131, label %1159
 
@@ -115162,7 +115226,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix24ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_sort_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24ErrorTraceTest_sort_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -115482,7 +115547,7 @@ define void @_ZN3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef nonnull al
 
 225:                                              ; preds = %221, %220
   %226 = load i32, ptr %5, align 4
-  %227 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %227 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %228 = icmp eq i32 %226, %227
   br i1 %228, label %229, label %462
 
@@ -116208,7 +116273,7 @@ define void @_ZN3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef nonnull al
 
 464:                                              ; preds = %463, %204, %200
   %465 = load i32, ptr %5, align 4
-  %466 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %466 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %467 = icmp eq i32 %465, %466
   br i1 %467, label %468, label %479
 
@@ -116237,7 +116302,7 @@ define void @_ZN3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef nonnull al
   br label %539
 
 479:                                              ; preds = %464
-  %480 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %480 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %481 = icmp eq i32 %465, %480
   br i1 %481, label %482, label %510
 
@@ -116555,7 +116620,7 @@ define void @_ZN3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef nonnull al
 
 601:                                              ; preds = %597, %596
   %602 = load i32, ptr %5, align 4
-  %603 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %603 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %604 = icmp eq i32 %602, %603
   br i1 %604, label %605, label %838
 
@@ -117281,7 +117346,7 @@ define void @_ZN3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef nonnull al
 
 840:                                              ; preds = %839, %580, %576
   %841 = load i32, ptr %5, align 4
-  %842 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %842 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %843 = icmp eq i32 %841, %842
   br i1 %843, label %844, label %855
 
@@ -117310,7 +117375,7 @@ define void @_ZN3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef nonnull al
   br label %915
 
 855:                                              ; preds = %840
-  %856 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %856 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %857 = icmp eq i32 %841, %856
   br i1 %857, label %858, label %886
 
@@ -117628,7 +117693,7 @@ define void @_ZN3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef nonnull al
 
 977:                                              ; preds = %973, %972
   %978 = load i32, ptr %5, align 4
-  %979 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %979 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %980 = icmp eq i32 %978, %979
   br i1 %980, label %981, label %1158
 
@@ -118176,7 +118241,7 @@ define void @_ZN3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef nonnull al
 
 1160:                                             ; preds = %1159, %956, %952
   %1161 = load i32, ptr %5, align 4
-  %1162 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1162 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1163 = icmp eq i32 %1161, %1162
   br i1 %1163, label %1164, label %1175
 
@@ -118205,7 +118270,7 @@ define void @_ZN3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef nonnull al
   br label %1235
 
 1175:                                             ; preds = %1160
-  %1176 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1176 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1177 = icmp eq i32 %1161, %1176
   br i1 %1177, label %1178, label %1206
 
@@ -118523,7 +118588,7 @@ define void @_ZN3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef nonnull al
 
 1297:                                             ; preds = %1293, %1292
   %1298 = load i32, ptr %5, align 4
-  %1299 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1299 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1300 = icmp eq i32 %1298, %1299
   br i1 %1300, label %1301, label %1534
 
@@ -119249,7 +119314,7 @@ define void @_ZN3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef nonnull al
 
 1536:                                             ; preds = %1535, %1276, %1272
   %1537 = load i32, ptr %5, align 4
-  %1538 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1538 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1539 = icmp eq i32 %1537, %1538
   br i1 %1539, label %1540, label %1551
 
@@ -119278,7 +119343,7 @@ define void @_ZN3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef nonnull al
   br label %1611
 
 1551:                                             ; preds = %1536
-  %1552 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1552 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1553 = icmp eq i32 %1537, %1552
   br i1 %1553, label %1554, label %1582
 
@@ -119638,7 +119703,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix29ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_partition_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_partition_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -119920,7 +119986,7 @@ define void @_ZN3nix29ErrorTraceTest_partition_Test8TestBodyEv(ptr noundef nonnu
 
 187:                                              ; preds = %183, %182
   %188 = load i32, ptr %5, align 4
-  %189 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %189 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %190 = icmp eq i32 %188, %189
   br i1 %190, label %191, label %424
 
@@ -120646,7 +120712,7 @@ define void @_ZN3nix29ErrorTraceTest_partition_Test8TestBodyEv(ptr noundef nonnu
 
 426:                                              ; preds = %425, %166, %162
   %427 = load i32, ptr %5, align 4
-  %428 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %428 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %429 = icmp eq i32 %427, %428
   br i1 %429, label %430, label %441
 
@@ -120675,7 +120741,7 @@ define void @_ZN3nix29ErrorTraceTest_partition_Test8TestBodyEv(ptr noundef nonnu
   br label %501
 
 441:                                              ; preds = %426
-  %442 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %442 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %443 = icmp eq i32 %427, %442
   br i1 %443, label %444, label %472
 
@@ -120993,7 +121059,7 @@ define void @_ZN3nix29ErrorTraceTest_partition_Test8TestBodyEv(ptr noundef nonnu
 
 563:                                              ; preds = %559, %558
   %564 = load i32, ptr %5, align 4
-  %565 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %565 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %566 = icmp eq i32 %564, %565
   br i1 %566, label %567, label %800
 
@@ -121719,7 +121785,7 @@ define void @_ZN3nix29ErrorTraceTest_partition_Test8TestBodyEv(ptr noundef nonnu
 
 802:                                              ; preds = %801, %542, %538
   %803 = load i32, ptr %5, align 4
-  %804 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %804 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %805 = icmp eq i32 %803, %804
   br i1 %805, label %806, label %817
 
@@ -121748,7 +121814,7 @@ define void @_ZN3nix29ErrorTraceTest_partition_Test8TestBodyEv(ptr noundef nonnu
   br label %877
 
 817:                                              ; preds = %802
-  %818 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %818 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %819 = icmp eq i32 %803, %818
   br i1 %819, label %820, label %848
 
@@ -122066,7 +122132,7 @@ define void @_ZN3nix29ErrorTraceTest_partition_Test8TestBodyEv(ptr noundef nonnu
 
 939:                                              ; preds = %935, %934
   %940 = load i32, ptr %5, align 4
-  %941 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %941 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %942 = icmp eq i32 %940, %941
   br i1 %942, label %943, label %1176
 
@@ -122792,7 +122858,7 @@ define void @_ZN3nix29ErrorTraceTest_partition_Test8TestBodyEv(ptr noundef nonnu
 
 1178:                                             ; preds = %1177, %918, %914
   %1179 = load i32, ptr %5, align 4
-  %1180 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1181 = icmp eq i32 %1179, %1180
   br i1 %1181, label %1182, label %1193
 
@@ -122821,7 +122887,7 @@ define void @_ZN3nix29ErrorTraceTest_partition_Test8TestBodyEv(ptr noundef nonnu
   br label %1253
 
 1193:                                             ; preds = %1178
-  %1194 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1194 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1195 = icmp eq i32 %1179, %1194
   br i1 %1195, label %1196, label %1224
 
@@ -123149,7 +123215,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix27ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_groupBy_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27ErrorTraceTest_groupBy_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -123431,7 +123498,7 @@ define void @_ZN3nix27ErrorTraceTest_groupBy_Test8TestBodyEv(ptr noundef nonnull
 
 187:                                              ; preds = %183, %182
   %188 = load i32, ptr %5, align 4
-  %189 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %189 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %190 = icmp eq i32 %188, %189
   br i1 %190, label %191, label %424
 
@@ -124157,7 +124224,7 @@ define void @_ZN3nix27ErrorTraceTest_groupBy_Test8TestBodyEv(ptr noundef nonnull
 
 426:                                              ; preds = %425, %166, %162
   %427 = load i32, ptr %5, align 4
-  %428 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %428 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %429 = icmp eq i32 %427, %428
   br i1 %429, label %430, label %441
 
@@ -124186,7 +124253,7 @@ define void @_ZN3nix27ErrorTraceTest_groupBy_Test8TestBodyEv(ptr noundef nonnull
   br label %501
 
 441:                                              ; preds = %426
-  %442 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %442 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %443 = icmp eq i32 %427, %442
   br i1 %443, label %444, label %472
 
@@ -124504,7 +124571,7 @@ define void @_ZN3nix27ErrorTraceTest_groupBy_Test8TestBodyEv(ptr noundef nonnull
 
 563:                                              ; preds = %559, %558
   %564 = load i32, ptr %5, align 4
-  %565 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %565 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %566 = icmp eq i32 %564, %565
   br i1 %566, label %567, label %800
 
@@ -125230,7 +125297,7 @@ define void @_ZN3nix27ErrorTraceTest_groupBy_Test8TestBodyEv(ptr noundef nonnull
 
 802:                                              ; preds = %801, %542, %538
   %803 = load i32, ptr %5, align 4
-  %804 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %804 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %805 = icmp eq i32 %803, %804
   br i1 %805, label %806, label %817
 
@@ -125259,7 +125326,7 @@ define void @_ZN3nix27ErrorTraceTest_groupBy_Test8TestBodyEv(ptr noundef nonnull
   br label %877
 
 817:                                              ; preds = %802
-  %818 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %818 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %819 = icmp eq i32 %803, %818
   br i1 %819, label %820, label %848
 
@@ -125577,7 +125644,7 @@ define void @_ZN3nix27ErrorTraceTest_groupBy_Test8TestBodyEv(ptr noundef nonnull
 
 939:                                              ; preds = %935, %934
   %940 = load i32, ptr %5, align 4
-  %941 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %941 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %942 = icmp eq i32 %940, %941
   br i1 %942, label %943, label %1176
 
@@ -126303,7 +126370,7 @@ define void @_ZN3nix27ErrorTraceTest_groupBy_Test8TestBodyEv(ptr noundef nonnull
 
 1178:                                             ; preds = %1177, %918, %914
   %1179 = load i32, ptr %5, align 4
-  %1180 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1181 = icmp eq i32 %1179, %1180
   br i1 %1181, label %1182, label %1193
 
@@ -126332,7 +126399,7 @@ define void @_ZN3nix27ErrorTraceTest_groupBy_Test8TestBodyEv(ptr noundef nonnull
   br label %1253
 
 1193:                                             ; preds = %1178
-  %1194 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1194 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1195 = icmp eq i32 %1179, %1194
   br i1 %1195, label %1196, label %1224
 
@@ -126660,7 +126727,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix29ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_concatMap_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_concatMap_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -126988,7 +127056,7 @@ define void @_ZN3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef nonnu
 
 233:                                              ; preds = %229, %228
   %234 = load i32, ptr %5, align 4
-  %235 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %235 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %236 = icmp eq i32 %234, %235
   br i1 %236, label %237, label %470
 
@@ -127714,7 +127782,7 @@ define void @_ZN3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef nonnu
 
 472:                                              ; preds = %471, %212, %208
   %473 = load i32, ptr %5, align 4
-  %474 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %474 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %475 = icmp eq i32 %473, %474
   br i1 %475, label %476, label %487
 
@@ -127743,7 +127811,7 @@ define void @_ZN3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef nonnu
   br label %547
 
 487:                                              ; preds = %472
-  %488 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %488 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %489 = icmp eq i32 %473, %488
   br i1 %489, label %490, label %518
 
@@ -128061,7 +128129,7 @@ define void @_ZN3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef nonnu
 
 609:                                              ; preds = %605, %604
   %610 = load i32, ptr %5, align 4
-  %611 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %611 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %612 = icmp eq i32 %610, %611
   br i1 %612, label %613, label %846
 
@@ -128787,7 +128855,7 @@ define void @_ZN3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef nonnu
 
 848:                                              ; preds = %847, %588, %584
   %849 = load i32, ptr %5, align 4
-  %850 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %850 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %851 = icmp eq i32 %849, %850
   br i1 %851, label %852, label %863
 
@@ -128816,7 +128884,7 @@ define void @_ZN3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef nonnu
   br label %923
 
 863:                                              ; preds = %848
-  %864 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %864 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %865 = icmp eq i32 %849, %864
   br i1 %865, label %866, label %894
 
@@ -129134,7 +129202,7 @@ define void @_ZN3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef nonnu
 
 985:                                              ; preds = %981, %980
   %986 = load i32, ptr %5, align 4
-  %987 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %987 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %988 = icmp eq i32 %986, %987
   br i1 %988, label %989, label %1222
 
@@ -129860,7 +129928,7 @@ define void @_ZN3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef nonnu
 
 1224:                                             ; preds = %1223, %964, %960
   %1225 = load i32, ptr %5, align 4
-  %1226 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1226 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1227 = icmp eq i32 %1225, %1226
   br i1 %1227, label %1228, label %1239
 
@@ -129889,7 +129957,7 @@ define void @_ZN3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef nonnu
   br label %1299
 
 1239:                                             ; preds = %1224
-  %1240 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1240 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1241 = icmp eq i32 %1225, %1240
   br i1 %1241, label %1242, label %1270
 
@@ -130207,7 +130275,7 @@ define void @_ZN3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef nonnu
 
 1361:                                             ; preds = %1357, %1356
   %1362 = load i32, ptr %5, align 4
-  %1363 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1363 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1364 = icmp eq i32 %1362, %1363
   br i1 %1364, label %1365, label %1598
 
@@ -130933,7 +131001,7 @@ define void @_ZN3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef nonnu
 
 1600:                                             ; preds = %1599, %1340, %1336
   %1601 = load i32, ptr %5, align 4
-  %1602 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1602 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1603 = icmp eq i32 %1601, %1602
   br i1 %1603, label %1604, label %1615
 
@@ -130962,7 +131030,7 @@ define void @_ZN3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef nonnu
   br label %1675
 
 1615:                                             ; preds = %1600
-  %1616 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1616 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1617 = icmp eq i32 %1601, %1616
   br i1 %1617, label %1618, label %1646
 
@@ -131306,7 +131374,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix23ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_add_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_add_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -131542,7 +131611,7 @@ define void @_ZN3nix23ErrorTraceTest_add_Test8TestBodyEv(ptr noundef nonnull ali
 
 141:                                              ; preds = %137, %136
   %142 = load i32, ptr %5, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %378
 
@@ -132268,7 +132337,7 @@ define void @_ZN3nix23ErrorTraceTest_add_Test8TestBodyEv(ptr noundef nonnull ali
 
 380:                                              ; preds = %379, %120, %116
   %381 = load i32, ptr %5, align 4
-  %382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %383 = icmp eq i32 %381, %382
   br i1 %383, label %384, label %395
 
@@ -132297,7 +132366,7 @@ define void @_ZN3nix23ErrorTraceTest_add_Test8TestBodyEv(ptr noundef nonnull ali
   br label %455
 
 395:                                              ; preds = %380
-  %396 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %397 = icmp eq i32 %381, %396
   br i1 %397, label %398, label %426
 
@@ -132615,7 +132684,7 @@ define void @_ZN3nix23ErrorTraceTest_add_Test8TestBodyEv(ptr noundef nonnull ali
 
 517:                                              ; preds = %513, %512
   %518 = load i32, ptr %5, align 4
-  %519 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %519 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %520 = icmp eq i32 %518, %519
   br i1 %520, label %521, label %754
 
@@ -133341,7 +133410,7 @@ define void @_ZN3nix23ErrorTraceTest_add_Test8TestBodyEv(ptr noundef nonnull ali
 
 756:                                              ; preds = %755, %496, %492
   %757 = load i32, ptr %5, align 4
-  %758 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %759 = icmp eq i32 %757, %758
   br i1 %759, label %760, label %771
 
@@ -133370,7 +133439,7 @@ define void @_ZN3nix23ErrorTraceTest_add_Test8TestBodyEv(ptr noundef nonnull ali
   br label %831
 
 771:                                              ; preds = %756
-  %772 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %772 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %773 = icmp eq i32 %757, %772
   br i1 %773, label %774, label %802
 
@@ -133698,7 +133767,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix23ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_sub_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_sub_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -133934,7 +134004,7 @@ define void @_ZN3nix23ErrorTraceTest_sub_Test8TestBodyEv(ptr noundef nonnull ali
 
 141:                                              ; preds = %137, %136
   %142 = load i32, ptr %5, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %378
 
@@ -134660,7 +134730,7 @@ define void @_ZN3nix23ErrorTraceTest_sub_Test8TestBodyEv(ptr noundef nonnull ali
 
 380:                                              ; preds = %379, %120, %116
   %381 = load i32, ptr %5, align 4
-  %382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %383 = icmp eq i32 %381, %382
   br i1 %383, label %384, label %395
 
@@ -134689,7 +134759,7 @@ define void @_ZN3nix23ErrorTraceTest_sub_Test8TestBodyEv(ptr noundef nonnull ali
   br label %455
 
 395:                                              ; preds = %380
-  %396 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %397 = icmp eq i32 %381, %396
   br i1 %397, label %398, label %426
 
@@ -135007,7 +135077,7 @@ define void @_ZN3nix23ErrorTraceTest_sub_Test8TestBodyEv(ptr noundef nonnull ali
 
 517:                                              ; preds = %513, %512
   %518 = load i32, ptr %5, align 4
-  %519 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %519 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %520 = icmp eq i32 %518, %519
   br i1 %520, label %521, label %754
 
@@ -135733,7 +135803,7 @@ define void @_ZN3nix23ErrorTraceTest_sub_Test8TestBodyEv(ptr noundef nonnull ali
 
 756:                                              ; preds = %755, %496, %492
   %757 = load i32, ptr %5, align 4
-  %758 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %759 = icmp eq i32 %757, %758
   br i1 %759, label %760, label %771
 
@@ -135762,7 +135832,7 @@ define void @_ZN3nix23ErrorTraceTest_sub_Test8TestBodyEv(ptr noundef nonnull ali
   br label %831
 
 771:                                              ; preds = %756
-  %772 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %772 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %773 = icmp eq i32 %757, %772
   br i1 %773, label %774, label %802
 
@@ -136090,7 +136160,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix23ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_mul_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_mul_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -136326,7 +136397,7 @@ define void @_ZN3nix23ErrorTraceTest_mul_Test8TestBodyEv(ptr noundef nonnull ali
 
 141:                                              ; preds = %137, %136
   %142 = load i32, ptr %5, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %378
 
@@ -137052,7 +137123,7 @@ define void @_ZN3nix23ErrorTraceTest_mul_Test8TestBodyEv(ptr noundef nonnull ali
 
 380:                                              ; preds = %379, %120, %116
   %381 = load i32, ptr %5, align 4
-  %382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %383 = icmp eq i32 %381, %382
   br i1 %383, label %384, label %395
 
@@ -137081,7 +137152,7 @@ define void @_ZN3nix23ErrorTraceTest_mul_Test8TestBodyEv(ptr noundef nonnull ali
   br label %455
 
 395:                                              ; preds = %380
-  %396 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %397 = icmp eq i32 %381, %396
   br i1 %397, label %398, label %426
 
@@ -137399,7 +137470,7 @@ define void @_ZN3nix23ErrorTraceTest_mul_Test8TestBodyEv(ptr noundef nonnull ali
 
 517:                                              ; preds = %513, %512
   %518 = load i32, ptr %5, align 4
-  %519 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %519 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %520 = icmp eq i32 %518, %519
   br i1 %520, label %521, label %754
 
@@ -138125,7 +138196,7 @@ define void @_ZN3nix23ErrorTraceTest_mul_Test8TestBodyEv(ptr noundef nonnull ali
 
 756:                                              ; preds = %755, %496, %492
   %757 = load i32, ptr %5, align 4
-  %758 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %759 = icmp eq i32 %757, %758
   br i1 %759, label %760, label %771
 
@@ -138154,7 +138225,7 @@ define void @_ZN3nix23ErrorTraceTest_mul_Test8TestBodyEv(ptr noundef nonnull ali
   br label %831
 
 771:                                              ; preds = %756
-  %772 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %772 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %773 = icmp eq i32 %757, %772
   br i1 %773, label %774, label %802
 
@@ -138482,7 +138553,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix23ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_div_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23ErrorTraceTest_div_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -138755,7 +138827,7 @@ define void @_ZN3nix23ErrorTraceTest_div_Test8TestBodyEv(ptr noundef nonnull ali
 
 178:                                              ; preds = %174, %173
   %179 = load i32, ptr %5, align 4
-  %180 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %181 = icmp eq i32 %179, %180
   br i1 %181, label %182, label %415
 
@@ -139481,7 +139553,7 @@ define void @_ZN3nix23ErrorTraceTest_div_Test8TestBodyEv(ptr noundef nonnull ali
 
 417:                                              ; preds = %416, %157, %153
   %418 = load i32, ptr %5, align 4
-  %419 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %419 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %420 = icmp eq i32 %418, %419
   br i1 %420, label %421, label %432
 
@@ -139510,7 +139582,7 @@ define void @_ZN3nix23ErrorTraceTest_div_Test8TestBodyEv(ptr noundef nonnull ali
   br label %492
 
 432:                                              ; preds = %417
-  %433 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %433 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %434 = icmp eq i32 %418, %433
   br i1 %434, label %435, label %463
 
@@ -139828,7 +139900,7 @@ define void @_ZN3nix23ErrorTraceTest_div_Test8TestBodyEv(ptr noundef nonnull ali
 
 554:                                              ; preds = %550, %549
   %555 = load i32, ptr %5, align 4
-  %556 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %556 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %557 = icmp eq i32 %555, %556
   br i1 %557, label %558, label %791
 
@@ -140554,7 +140626,7 @@ define void @_ZN3nix23ErrorTraceTest_div_Test8TestBodyEv(ptr noundef nonnull ali
 
 793:                                              ; preds = %792, %533, %529
   %794 = load i32, ptr %5, align 4
-  %795 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %795 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %796 = icmp eq i32 %794, %795
   br i1 %796, label %797, label %808
 
@@ -140583,7 +140655,7 @@ define void @_ZN3nix23ErrorTraceTest_div_Test8TestBodyEv(ptr noundef nonnull ali
   br label %868
 
 808:                                              ; preds = %793
-  %809 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %809 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %810 = icmp eq i32 %794, %809
   br i1 %810, label %811, label %839
 
@@ -140901,7 +140973,7 @@ define void @_ZN3nix23ErrorTraceTest_div_Test8TestBodyEv(ptr noundef nonnull ali
 
 930:                                              ; preds = %926, %925
   %931 = load i32, ptr %5, align 4
-  %932 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %932 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %933 = icmp eq i32 %931, %932
   br i1 %933, label %934, label %1110
 
@@ -141445,7 +141517,7 @@ define void @_ZN3nix23ErrorTraceTest_div_Test8TestBodyEv(ptr noundef nonnull ali
 
 1112:                                             ; preds = %1111, %909, %905
   %1113 = load i32, ptr %5, align 4
-  %1114 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %1114 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %1115 = icmp eq i32 %1113, %1114
   br i1 %1115, label %1116, label %1127
 
@@ -141474,7 +141546,7 @@ define void @_ZN3nix23ErrorTraceTest_div_Test8TestBodyEv(ptr noundef nonnull ali
   br label %1187
 
 1127:                                             ; preds = %1112
-  %1128 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1128 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1129 = icmp eq i32 %1113, %1128
   br i1 %1129, label %1130, label %1158
 
@@ -141818,7 +141890,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_bitAnd_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_bitAnd_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -142054,7 +142127,7 @@ define void @_ZN3nix26ErrorTraceTest_bitAnd_Test8TestBodyEv(ptr noundef nonnull 
 
 141:                                              ; preds = %137, %136
   %142 = load i32, ptr %5, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %378
 
@@ -142780,7 +142853,7 @@ define void @_ZN3nix26ErrorTraceTest_bitAnd_Test8TestBodyEv(ptr noundef nonnull 
 
 380:                                              ; preds = %379, %120, %116
   %381 = load i32, ptr %5, align 4
-  %382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %383 = icmp eq i32 %381, %382
   br i1 %383, label %384, label %395
 
@@ -142809,7 +142882,7 @@ define void @_ZN3nix26ErrorTraceTest_bitAnd_Test8TestBodyEv(ptr noundef nonnull 
   br label %455
 
 395:                                              ; preds = %380
-  %396 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %397 = icmp eq i32 %381, %396
   br i1 %397, label %398, label %426
 
@@ -143127,7 +143200,7 @@ define void @_ZN3nix26ErrorTraceTest_bitAnd_Test8TestBodyEv(ptr noundef nonnull 
 
 517:                                              ; preds = %513, %512
   %518 = load i32, ptr %5, align 4
-  %519 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %519 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %520 = icmp eq i32 %518, %519
   br i1 %520, label %521, label %754
 
@@ -143853,7 +143926,7 @@ define void @_ZN3nix26ErrorTraceTest_bitAnd_Test8TestBodyEv(ptr noundef nonnull 
 
 756:                                              ; preds = %755, %496, %492
   %757 = load i32, ptr %5, align 4
-  %758 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %759 = icmp eq i32 %757, %758
   br i1 %759, label %760, label %771
 
@@ -143882,7 +143955,7 @@ define void @_ZN3nix26ErrorTraceTest_bitAnd_Test8TestBodyEv(ptr noundef nonnull 
   br label %831
 
 771:                                              ; preds = %756
-  %772 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %772 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %773 = icmp eq i32 %757, %772
   br i1 %773, label %774, label %802
 
@@ -144266,7 +144339,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix25ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_bitOr_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_bitOr_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -144502,7 +144576,7 @@ define void @_ZN3nix25ErrorTraceTest_bitOr_Test8TestBodyEv(ptr noundef nonnull a
 
 141:                                              ; preds = %137, %136
   %142 = load i32, ptr %5, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %378
 
@@ -145228,7 +145302,7 @@ define void @_ZN3nix25ErrorTraceTest_bitOr_Test8TestBodyEv(ptr noundef nonnull a
 
 380:                                              ; preds = %379, %120, %116
   %381 = load i32, ptr %5, align 4
-  %382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %383 = icmp eq i32 %381, %382
   br i1 %383, label %384, label %395
 
@@ -145257,7 +145331,7 @@ define void @_ZN3nix25ErrorTraceTest_bitOr_Test8TestBodyEv(ptr noundef nonnull a
   br label %455
 
 395:                                              ; preds = %380
-  %396 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %397 = icmp eq i32 %381, %396
   br i1 %397, label %398, label %426
 
@@ -145575,7 +145649,7 @@ define void @_ZN3nix25ErrorTraceTest_bitOr_Test8TestBodyEv(ptr noundef nonnull a
 
 517:                                              ; preds = %513, %512
   %518 = load i32, ptr %5, align 4
-  %519 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %519 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %520 = icmp eq i32 %518, %519
   br i1 %520, label %521, label %754
 
@@ -146301,7 +146375,7 @@ define void @_ZN3nix25ErrorTraceTest_bitOr_Test8TestBodyEv(ptr noundef nonnull a
 
 756:                                              ; preds = %755, %496, %492
   %757 = load i32, ptr %5, align 4
-  %758 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %759 = icmp eq i32 %757, %758
   br i1 %759, label %760, label %771
 
@@ -146330,7 +146404,7 @@ define void @_ZN3nix25ErrorTraceTest_bitOr_Test8TestBodyEv(ptr noundef nonnull a
   br label %831
 
 771:                                              ; preds = %756
-  %772 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %772 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %773 = icmp eq i32 %757, %772
   br i1 %773, label %774, label %802
 
@@ -146658,7 +146732,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix26ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_bitXor_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ErrorTraceTest_bitXor_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -146894,7 +146969,7 @@ define void @_ZN3nix26ErrorTraceTest_bitXor_Test8TestBodyEv(ptr noundef nonnull 
 
 141:                                              ; preds = %137, %136
   %142 = load i32, ptr %5, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %378
 
@@ -147620,7 +147695,7 @@ define void @_ZN3nix26ErrorTraceTest_bitXor_Test8TestBodyEv(ptr noundef nonnull 
 
 380:                                              ; preds = %379, %120, %116
   %381 = load i32, ptr %5, align 4
-  %382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %383 = icmp eq i32 %381, %382
   br i1 %383, label %384, label %395
 
@@ -147649,7 +147724,7 @@ define void @_ZN3nix26ErrorTraceTest_bitXor_Test8TestBodyEv(ptr noundef nonnull 
   br label %455
 
 395:                                              ; preds = %380
-  %396 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %397 = icmp eq i32 %381, %396
   br i1 %397, label %398, label %426
 
@@ -147967,7 +148042,7 @@ define void @_ZN3nix26ErrorTraceTest_bitXor_Test8TestBodyEv(ptr noundef nonnull 
 
 517:                                              ; preds = %513, %512
   %518 = load i32, ptr %5, align 4
-  %519 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %519 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %520 = icmp eq i32 %518, %519
   br i1 %520, label %521, label %754
 
@@ -148693,7 +148768,7 @@ define void @_ZN3nix26ErrorTraceTest_bitXor_Test8TestBodyEv(ptr noundef nonnull 
 
 756:                                              ; preds = %755, %496, %492
   %757 = load i32, ptr %5, align 4
-  %758 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %759 = icmp eq i32 %757, %758
   br i1 %759, label %760, label %771
 
@@ -148722,7 +148797,7 @@ define void @_ZN3nix26ErrorTraceTest_bitXor_Test8TestBodyEv(ptr noundef nonnull 
   br label %831
 
 771:                                              ; preds = %756
-  %772 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %772 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %773 = icmp eq i32 %757, %772
   br i1 %773, label %774, label %802
 
@@ -149050,7 +149125,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_lessThan_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_lessThan_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -149313,7 +149389,7 @@ define void @_ZN3nix28ErrorTraceTest_lessThan_Test8TestBodyEv(ptr noundef nonnul
 
 168:                                              ; preds = %164, %163
   %169 = load i32, ptr %5, align 4
-  %170 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %170 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %171 = icmp eq i32 %169, %170
   br i1 %171, label %172, label %348
 
@@ -149857,7 +149933,7 @@ define void @_ZN3nix28ErrorTraceTest_lessThan_Test8TestBodyEv(ptr noundef nonnul
 
 350:                                              ; preds = %349, %147, %143
   %351 = load i32, ptr %5, align 4
-  %352 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %352 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %353 = icmp eq i32 %351, %352
   br i1 %353, label %354, label %365
 
@@ -149886,7 +149962,7 @@ define void @_ZN3nix28ErrorTraceTest_lessThan_Test8TestBodyEv(ptr noundef nonnul
   br label %425
 
 365:                                              ; preds = %350
-  %366 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %366 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %367 = icmp eq i32 %351, %366
   br i1 %367, label %368, label %396
 
@@ -150204,7 +150280,7 @@ define void @_ZN3nix28ErrorTraceTest_lessThan_Test8TestBodyEv(ptr noundef nonnul
 
 487:                                              ; preds = %483, %482
   %488 = load i32, ptr %5, align 4
-  %489 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %489 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %490 = icmp eq i32 %488, %489
   br i1 %490, label %491, label %667
 
@@ -150748,7 +150824,7 @@ define void @_ZN3nix28ErrorTraceTest_lessThan_Test8TestBodyEv(ptr noundef nonnul
 
 669:                                              ; preds = %668, %466, %462
   %670 = load i32, ptr %5, align 4
-  %671 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %671 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %672 = icmp eq i32 %670, %671
   br i1 %672, label %673, label %684
 
@@ -150777,7 +150853,7 @@ define void @_ZN3nix28ErrorTraceTest_lessThan_Test8TestBodyEv(ptr noundef nonnul
   br label %744
 
 684:                                              ; preds = %669
-  %685 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %685 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %686 = icmp eq i32 %670, %685
   br i1 %686, label %687, label %715
 
@@ -151095,7 +151171,7 @@ define void @_ZN3nix28ErrorTraceTest_lessThan_Test8TestBodyEv(ptr noundef nonnul
 
 806:                                              ; preds = %802, %801
   %807 = load i32, ptr %5, align 4
-  %808 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %808 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %809 = icmp eq i32 %807, %808
   br i1 %809, label %810, label %1042
 
@@ -151817,7 +151893,7 @@ define void @_ZN3nix28ErrorTraceTest_lessThan_Test8TestBodyEv(ptr noundef nonnul
 
 1044:                                             ; preds = %1043, %785, %781
   %1045 = load i32, ptr %5, align 4
-  %1046 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %1046 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %1047 = icmp eq i32 %1045, %1046
   br i1 %1047, label %1048, label %1059
 
@@ -151846,7 +151922,7 @@ define void @_ZN3nix28ErrorTraceTest_lessThan_Test8TestBodyEv(ptr noundef nonnul
   br label %1119
 
 1059:                                             ; preds = %1044
-  %1060 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1060 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1061 = icmp eq i32 %1045, %1060
   br i1 %1061, label %1062, label %1090
 
@@ -152260,7 +152336,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_toString_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ErrorTraceTest_toString_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -152450,7 +152527,7 @@ define void @_ZN3nix28ErrorTraceTest_toString_Test8TestBodyEv(ptr noundef nonnul
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -153176,7 +153253,7 @@ define void @_ZN3nix28ErrorTraceTest_toString_Test8TestBodyEv(ptr noundef nonnul
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -153205,7 +153282,7 @@ define void @_ZN3nix28ErrorTraceTest_toString_Test8TestBodyEv(ptr noundef nonnul
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -153589,7 +153666,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix29ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_substring_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ErrorTraceTest_substring_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -153908,7 +153986,7 @@ define void @_ZN3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef nonnu
 
 224:                                              ; preds = %220, %219
   %225 = load i32, ptr %5, align 4
-  %226 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %226 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %227 = icmp eq i32 %225, %226
   br i1 %227, label %228, label %461
 
@@ -154634,7 +154712,7 @@ define void @_ZN3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef nonnu
 
 463:                                              ; preds = %462, %203, %199
   %464 = load i32, ptr %5, align 4
-  %465 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %465 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %466 = icmp eq i32 %464, %465
   br i1 %466, label %467, label %478
 
@@ -154663,7 +154741,7 @@ define void @_ZN3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef nonnu
   br label %538
 
 478:                                              ; preds = %463
-  %479 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %479 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %480 = icmp eq i32 %464, %479
   br i1 %480, label %481, label %509
 
@@ -154981,7 +155059,7 @@ define void @_ZN3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef nonnu
 
 600:                                              ; preds = %596, %595
   %601 = load i32, ptr %5, align 4
-  %602 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %602 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %603 = icmp eq i32 %601, %602
   br i1 %603, label %604, label %837
 
@@ -155707,7 +155785,7 @@ define void @_ZN3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef nonnu
 
 839:                                              ; preds = %838, %579, %575
   %840 = load i32, ptr %5, align 4
-  %841 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %841 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %842 = icmp eq i32 %840, %841
   br i1 %842, label %843, label %854
 
@@ -155736,7 +155814,7 @@ define void @_ZN3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef nonnu
   br label %914
 
 854:                                              ; preds = %839
-  %855 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %855 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %856 = icmp eq i32 %840, %855
   br i1 %856, label %857, label %885
 
@@ -156054,7 +156132,7 @@ define void @_ZN3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef nonnu
 
 976:                                              ; preds = %972, %971
   %977 = load i32, ptr %5, align 4
-  %978 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %978 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %979 = icmp eq i32 %977, %978
   br i1 %979, label %980, label %1213
 
@@ -156780,7 +156858,7 @@ define void @_ZN3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef nonnu
 
 1215:                                             ; preds = %1214, %955, %951
   %1216 = load i32, ptr %5, align 4
-  %1217 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1217 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1218 = icmp eq i32 %1216, %1217
   br i1 %1218, label %1219, label %1230
 
@@ -156809,7 +156887,7 @@ define void @_ZN3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef nonnu
   br label %1290
 
 1230:                                             ; preds = %1215
-  %1231 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1231 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1232 = icmp eq i32 %1216, %1231
   br i1 %1232, label %1233, label %1261
 
@@ -157127,7 +157205,7 @@ define void @_ZN3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef nonnu
 
 1352:                                             ; preds = %1348, %1347
   %1353 = load i32, ptr %5, align 4
-  %1354 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %1354 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %1355 = icmp eq i32 %1353, %1354
   br i1 %1355, label %1356, label %1532
 
@@ -157671,7 +157749,7 @@ define void @_ZN3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef nonnu
 
 1534:                                             ; preds = %1533, %1331, %1327
   %1535 = load i32, ptr %5, align 4
-  %1536 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %1536 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %1537 = icmp eq i32 %1535, %1536
   br i1 %1537, label %1538, label %1549
 
@@ -157700,7 +157778,7 @@ define void @_ZN3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef nonnu
   br label %1609
 
 1549:                                             ; preds = %1534
-  %1550 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1550 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1551 = icmp eq i32 %1535, %1550
   br i1 %1551, label %1552, label %1580
 
@@ -158028,7 +158106,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_stringLength_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_stringLength_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -158218,7 +158297,7 @@ define void @_ZN3nix32ErrorTraceTest_stringLength_Test8TestBodyEv(ptr noundef no
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -158944,7 +159023,7 @@ define void @_ZN3nix32ErrorTraceTest_stringLength_Test8TestBodyEv(ptr noundef no
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -158973,7 +159052,7 @@ define void @_ZN3nix32ErrorTraceTest_stringLength_Test8TestBodyEv(ptr noundef no
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -159317,7 +159396,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix30ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_hashString_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30ErrorTraceTest_hashString_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -159590,7 +159670,7 @@ define void @_ZN3nix30ErrorTraceTest_hashString_Test8TestBodyEv(ptr noundef nonn
 
 178:                                              ; preds = %174, %173
   %179 = load i32, ptr %5, align 4
-  %180 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %181 = icmp eq i32 %179, %180
   br i1 %181, label %182, label %415
 
@@ -160316,7 +160396,7 @@ define void @_ZN3nix30ErrorTraceTest_hashString_Test8TestBodyEv(ptr noundef nonn
 
 417:                                              ; preds = %416, %157, %153
   %418 = load i32, ptr %5, align 4
-  %419 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %419 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %420 = icmp eq i32 %418, %419
   br i1 %420, label %421, label %432
 
@@ -160345,7 +160425,7 @@ define void @_ZN3nix30ErrorTraceTest_hashString_Test8TestBodyEv(ptr noundef nonn
   br label %492
 
 432:                                              ; preds = %417
-  %433 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %433 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %434 = icmp eq i32 %418, %433
   br i1 %434, label %435, label %463
 
@@ -160663,7 +160743,7 @@ define void @_ZN3nix30ErrorTraceTest_hashString_Test8TestBodyEv(ptr noundef nonn
 
 554:                                              ; preds = %550, %549
   %555 = load i32, ptr %5, align 4
-  %556 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %556 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %557 = icmp eq i32 %555, %556
   br i1 %557, label %558, label %734
 
@@ -161207,7 +161287,7 @@ define void @_ZN3nix30ErrorTraceTest_hashString_Test8TestBodyEv(ptr noundef nonn
 
 736:                                              ; preds = %735, %533, %529
   %737 = load i32, ptr %5, align 4
-  %738 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix10UsageErrorE) #3
+  %738 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix10UsageErrorE) #3
   %739 = icmp eq i32 %737, %738
   br i1 %739, label %740, label %751
 
@@ -161236,7 +161316,7 @@ define void @_ZN3nix30ErrorTraceTest_hashString_Test8TestBodyEv(ptr noundef nonn
   br label %811
 
 751:                                              ; preds = %736
-  %752 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %752 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %753 = icmp eq i32 %737, %752
   br i1 %753, label %754, label %782
 
@@ -161554,7 +161634,7 @@ define void @_ZN3nix30ErrorTraceTest_hashString_Test8TestBodyEv(ptr noundef nonn
 
 873:                                              ; preds = %869, %868
   %874 = load i32, ptr %5, align 4
-  %875 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %875 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %876 = icmp eq i32 %874, %875
   br i1 %876, label %877, label %1110
 
@@ -162280,7 +162360,7 @@ define void @_ZN3nix30ErrorTraceTest_hashString_Test8TestBodyEv(ptr noundef nonn
 
 1112:                                             ; preds = %1111, %852, %848
   %1113 = load i32, ptr %5, align 4
-  %1114 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1114 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1115 = icmp eq i32 %1113, %1114
   br i1 %1115, label %1116, label %1127
 
@@ -162309,7 +162389,7 @@ define void @_ZN3nix30ErrorTraceTest_hashString_Test8TestBodyEv(ptr noundef nonn
   br label %1187
 
 1127:                                             ; preds = %1112
-  %1128 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1128 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1129 = icmp eq i32 %1113, %1128
   br i1 %1129, label %1130, label %1158
 
@@ -162637,7 +162717,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix25ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_match_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_match_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -162910,7 +162991,7 @@ define void @_ZN3nix25ErrorTraceTest_match_Test8TestBodyEv(ptr noundef nonnull a
 
 178:                                              ; preds = %174, %173
   %179 = load i32, ptr %5, align 4
-  %180 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %181 = icmp eq i32 %179, %180
   br i1 %181, label %182, label %415
 
@@ -163636,7 +163717,7 @@ define void @_ZN3nix25ErrorTraceTest_match_Test8TestBodyEv(ptr noundef nonnull a
 
 417:                                              ; preds = %416, %157, %153
   %418 = load i32, ptr %5, align 4
-  %419 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %419 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %420 = icmp eq i32 %418, %419
   br i1 %420, label %421, label %432
 
@@ -163665,7 +163746,7 @@ define void @_ZN3nix25ErrorTraceTest_match_Test8TestBodyEv(ptr noundef nonnull a
   br label %492
 
 432:                                              ; preds = %417
-  %433 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %433 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %434 = icmp eq i32 %418, %433
   br i1 %434, label %435, label %463
 
@@ -163983,7 +164064,7 @@ define void @_ZN3nix25ErrorTraceTest_match_Test8TestBodyEv(ptr noundef nonnull a
 
 554:                                              ; preds = %550, %549
   %555 = load i32, ptr %5, align 4
-  %556 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %556 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %557 = icmp eq i32 %555, %556
   br i1 %557, label %558, label %791
 
@@ -164709,7 +164790,7 @@ define void @_ZN3nix25ErrorTraceTest_match_Test8TestBodyEv(ptr noundef nonnull a
 
 793:                                              ; preds = %792, %533, %529
   %794 = load i32, ptr %5, align 4
-  %795 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %795 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %796 = icmp eq i32 %794, %795
   br i1 %796, label %797, label %808
 
@@ -164738,7 +164819,7 @@ define void @_ZN3nix25ErrorTraceTest_match_Test8TestBodyEv(ptr noundef nonnull a
   br label %868
 
 808:                                              ; preds = %793
-  %809 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %809 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %810 = icmp eq i32 %794, %809
   br i1 %810, label %811, label %839
 
@@ -165056,7 +165137,7 @@ define void @_ZN3nix25ErrorTraceTest_match_Test8TestBodyEv(ptr noundef nonnull a
 
 930:                                              ; preds = %926, %925
   %931 = load i32, ptr %5, align 4
-  %932 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %932 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %933 = icmp eq i32 %931, %932
   br i1 %933, label %934, label %1110
 
@@ -165600,7 +165681,7 @@ define void @_ZN3nix25ErrorTraceTest_match_Test8TestBodyEv(ptr noundef nonnull a
 
 1112:                                             ; preds = %1111, %909, %905
   %1113 = load i32, ptr %5, align 4
-  %1114 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %1114 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %1115 = icmp eq i32 %1113, %1114
   br i1 %1115, label %1116, label %1127
 
@@ -165629,7 +165710,7 @@ define void @_ZN3nix25ErrorTraceTest_match_Test8TestBodyEv(ptr noundef nonnull a
   br label %1187
 
 1127:                                             ; preds = %1112
-  %1128 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1128 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1129 = icmp eq i32 %1113, %1128
   br i1 %1129, label %1130, label %1158
 
@@ -165957,7 +166038,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix25ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_split_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25ErrorTraceTest_split_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -166230,7 +166312,7 @@ define void @_ZN3nix25ErrorTraceTest_split_Test8TestBodyEv(ptr noundef nonnull a
 
 178:                                              ; preds = %174, %173
   %179 = load i32, ptr %5, align 4
-  %180 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %181 = icmp eq i32 %179, %180
   br i1 %181, label %182, label %415
 
@@ -166956,7 +167038,7 @@ define void @_ZN3nix25ErrorTraceTest_split_Test8TestBodyEv(ptr noundef nonnull a
 
 417:                                              ; preds = %416, %157, %153
   %418 = load i32, ptr %5, align 4
-  %419 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %419 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %420 = icmp eq i32 %418, %419
   br i1 %420, label %421, label %432
 
@@ -166985,7 +167067,7 @@ define void @_ZN3nix25ErrorTraceTest_split_Test8TestBodyEv(ptr noundef nonnull a
   br label %492
 
 432:                                              ; preds = %417
-  %433 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %433 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %434 = icmp eq i32 %418, %433
   br i1 %434, label %435, label %463
 
@@ -167303,7 +167385,7 @@ define void @_ZN3nix25ErrorTraceTest_split_Test8TestBodyEv(ptr noundef nonnull a
 
 554:                                              ; preds = %550, %549
   %555 = load i32, ptr %5, align 4
-  %556 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %556 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %557 = icmp eq i32 %555, %556
   br i1 %557, label %558, label %791
 
@@ -168029,7 +168111,7 @@ define void @_ZN3nix25ErrorTraceTest_split_Test8TestBodyEv(ptr noundef nonnull a
 
 793:                                              ; preds = %792, %533, %529
   %794 = load i32, ptr %5, align 4
-  %795 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %795 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %796 = icmp eq i32 %794, %795
   br i1 %796, label %797, label %808
 
@@ -168058,7 +168140,7 @@ define void @_ZN3nix25ErrorTraceTest_split_Test8TestBodyEv(ptr noundef nonnull a
   br label %868
 
 808:                                              ; preds = %793
-  %809 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %809 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %810 = icmp eq i32 %794, %809
   br i1 %810, label %811, label %839
 
@@ -168376,7 +168458,7 @@ define void @_ZN3nix25ErrorTraceTest_split_Test8TestBodyEv(ptr noundef nonnull a
 
 930:                                              ; preds = %926, %925
   %931 = load i32, ptr %5, align 4
-  %932 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %932 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %933 = icmp eq i32 %931, %932
   br i1 %933, label %934, label %1110
 
@@ -168920,7 +169002,7 @@ define void @_ZN3nix25ErrorTraceTest_split_Test8TestBodyEv(ptr noundef nonnull a
 
 1112:                                             ; preds = %1111, %909, %905
   %1113 = load i32, ptr %5, align 4
-  %1114 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9EvalErrorE) #3
+  %1114 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9EvalErrorE) #3
   %1115 = icmp eq i32 %1113, %1114
   br i1 %1115, label %1116, label %1127
 
@@ -168949,7 +169031,7 @@ define void @_ZN3nix25ErrorTraceTest_split_Test8TestBodyEv(ptr noundef nonnull a
   br label %1187
 
 1127:                                             ; preds = %1112
-  %1128 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1128 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1129 = icmp eq i32 %1113, %1128
   br i1 %1129, label %1130, label %1158
 
@@ -169277,7 +169359,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix36ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ErrorTraceTest_concatStringsSep_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36ErrorTraceTest_concatStringsSep_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -169559,7 +169642,7 @@ define void @_ZN3nix36ErrorTraceTest_concatStringsSep_Test8TestBodyEv(ptr nounde
 
 187:                                              ; preds = %183, %182
   %188 = load i32, ptr %5, align 4
-  %189 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %189 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %190 = icmp eq i32 %188, %189
   br i1 %190, label %191, label %424
 
@@ -170285,7 +170368,7 @@ define void @_ZN3nix36ErrorTraceTest_concatStringsSep_Test8TestBodyEv(ptr nounde
 
 426:                                              ; preds = %425, %166, %162
   %427 = load i32, ptr %5, align 4
-  %428 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %428 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %429 = icmp eq i32 %427, %428
   br i1 %429, label %430, label %441
 
@@ -170314,7 +170397,7 @@ define void @_ZN3nix36ErrorTraceTest_concatStringsSep_Test8TestBodyEv(ptr nounde
   br label %501
 
 441:                                              ; preds = %426
-  %442 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %442 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %443 = icmp eq i32 %427, %442
   br i1 %443, label %444, label %472
 
@@ -170632,7 +170715,7 @@ define void @_ZN3nix36ErrorTraceTest_concatStringsSep_Test8TestBodyEv(ptr nounde
 
 563:                                              ; preds = %559, %558
   %564 = load i32, ptr %5, align 4
-  %565 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %565 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %566 = icmp eq i32 %564, %565
   br i1 %566, label %567, label %800
 
@@ -171358,7 +171441,7 @@ define void @_ZN3nix36ErrorTraceTest_concatStringsSep_Test8TestBodyEv(ptr nounde
 
 802:                                              ; preds = %801, %542, %538
   %803 = load i32, ptr %5, align 4
-  %804 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %804 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %805 = icmp eq i32 %803, %804
   br i1 %805, label %806, label %817
 
@@ -171387,7 +171470,7 @@ define void @_ZN3nix36ErrorTraceTest_concatStringsSep_Test8TestBodyEv(ptr nounde
   br label %877
 
 817:                                              ; preds = %802
-  %818 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %818 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %819 = icmp eq i32 %803, %818
   br i1 %819, label %820, label %848
 
@@ -171705,7 +171788,7 @@ define void @_ZN3nix36ErrorTraceTest_concatStringsSep_Test8TestBodyEv(ptr nounde
 
 939:                                              ; preds = %935, %934
   %940 = load i32, ptr %5, align 4
-  %941 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %941 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %942 = icmp eq i32 %940, %941
   br i1 %942, label %943, label %1176
 
@@ -172431,7 +172514,7 @@ define void @_ZN3nix36ErrorTraceTest_concatStringsSep_Test8TestBodyEv(ptr nounde
 
 1178:                                             ; preds = %1177, %918, %914
   %1179 = load i32, ptr %5, align 4
-  %1180 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %1180 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %1181 = icmp eq i32 %1179, %1180
   br i1 %1181, label %1182, label %1193
 
@@ -172460,7 +172543,7 @@ define void @_ZN3nix36ErrorTraceTest_concatStringsSep_Test8TestBodyEv(ptr nounde
   br label %1253
 
 1193:                                             ; preds = %1178
-  %1194 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %1194 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %1195 = icmp eq i32 %1179, %1194
   br i1 %1195, label %1196, label %1224
 
@@ -172788,7 +172871,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_parseDrvName_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_parseDrvName_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -172978,7 +173062,7 @@ define void @_ZN3nix32ErrorTraceTest_parseDrvName_Test8TestBodyEv(ptr noundef no
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -173704,7 +173788,7 @@ define void @_ZN3nix32ErrorTraceTest_parseDrvName_Test8TestBodyEv(ptr noundef no
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -173733,7 +173817,7 @@ define void @_ZN3nix32ErrorTraceTest_parseDrvName_Test8TestBodyEv(ptr noundef no
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -174061,7 +174145,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix35ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35ErrorTraceTest_compareVersions_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35ErrorTraceTest_compareVersions_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -174297,7 +174382,7 @@ define void @_ZN3nix35ErrorTraceTest_compareVersions_Test8TestBodyEv(ptr noundef
 
 141:                                              ; preds = %137, %136
   %142 = load i32, ptr %5, align 4
-  %143 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %144 = icmp eq i32 %142, %143
   br i1 %144, label %145, label %378
 
@@ -175023,7 +175108,7 @@ define void @_ZN3nix35ErrorTraceTest_compareVersions_Test8TestBodyEv(ptr noundef
 
 380:                                              ; preds = %379, %120, %116
   %381 = load i32, ptr %5, align 4
-  %382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %383 = icmp eq i32 %381, %382
   br i1 %383, label %384, label %395
 
@@ -175052,7 +175137,7 @@ define void @_ZN3nix35ErrorTraceTest_compareVersions_Test8TestBodyEv(ptr noundef
   br label %455
 
 395:                                              ; preds = %380
-  %396 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %397 = icmp eq i32 %381, %396
   br i1 %397, label %398, label %426
 
@@ -175370,7 +175455,7 @@ define void @_ZN3nix35ErrorTraceTest_compareVersions_Test8TestBodyEv(ptr noundef
 
 517:                                              ; preds = %513, %512
   %518 = load i32, ptr %5, align 4
-  %519 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %519 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %520 = icmp eq i32 %518, %519
   br i1 %520, label %521, label %754
 
@@ -176096,7 +176181,7 @@ define void @_ZN3nix35ErrorTraceTest_compareVersions_Test8TestBodyEv(ptr noundef
 
 756:                                              ; preds = %755, %496, %492
   %757 = load i32, ptr %5, align 4
-  %758 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %758 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %759 = icmp eq i32 %757, %758
   br i1 %759, label %760, label %771
 
@@ -176125,7 +176210,7 @@ define void @_ZN3nix35ErrorTraceTest_compareVersions_Test8TestBodyEv(ptr noundef
   br label %831
 
 771:                                              ; preds = %756
-  %772 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %772 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %773 = icmp eq i32 %757, %772
   br i1 %773, label %774, label %802
 
@@ -176453,7 +176538,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_splitVersion_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_splitVersion_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -176643,7 +176729,7 @@ define void @_ZN3nix32ErrorTraceTest_splitVersion_Test8TestBodyEv(ptr noundef no
 
 95:                                               ; preds = %91, %90
   %96 = load i32, ptr %5, align 4
-  %97 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9BaseErrorE) #3
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9BaseErrorE) #3
   %98 = icmp eq i32 %96, %97
   br i1 %98, label %99, label %332
 
@@ -177369,7 +177455,7 @@ define void @_ZN3nix32ErrorTraceTest_splitVersion_Test8TestBodyEv(ptr noundef no
 
 334:                                              ; preds = %333, %74, %70
   %335 = load i32, ptr %5, align 4
-  %336 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN3nix9TypeErrorE) #3
+  %336 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN3nix9TypeErrorE) #3
   %337 = icmp eq i32 %335, %336
   br i1 %337, label %338, label %349
 
@@ -177398,7 +177484,7 @@ define void @_ZN3nix32ErrorTraceTest_splitVersion_Test8TestBodyEv(ptr noundef no
   br label %409
 
 349:                                              ; preds = %334
-  %350 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #3
+  %350 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #3
   %351 = icmp eq i32 %335, %350
   br i1 %351, label %352, label %380
 
@@ -177726,7 +177812,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32ErrorTrac
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_traceVerbose_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32ErrorTraceTest_traceVerbose_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -177767,7 +177854,7 @@ define linkonce_odr void @_ZN3nix14ErrorTraceTestD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix14ErrorTraceTestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix14ErrorTraceTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -177780,7 +177867,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix14ErrorTraceTestD1Ev(ptr noundef %0) un
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix14ErrorTraceTestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix14ErrorTraceTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -177822,7 +177909,7 @@ define linkonce_odr void @_ZN3nix11LibExprTestD0Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -177835,7 +177922,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD1Ev(ptr noundef %0) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -177864,7 +177951,7 @@ define linkonce_odr void @_ZN3nix12LibStoreTestD0Ev(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -177877,7 +177964,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD1Ev(ptr noundef %0) unna
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -177911,7 +177998,7 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_TraceBuilder_TestD0Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_TraceBuilder_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_TraceBuilder_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -177924,7 +178011,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_TraceBuilder_TestD1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_TraceBuilder_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_TraceBuilder_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -177958,7 +178045,7 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_NestedThrows_TestD0Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_NestedThrows_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_NestedThrows_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -177971,7 +178058,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_NestedThrows_TestD1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_NestedThrows_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_NestedThrows_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178005,7 +178092,7 @@ define linkonce_odr void @_ZN3nix34ErrorTraceTest_genericClosure_TestD0Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_genericClosure_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_genericClosure_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178018,7 +178105,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_genericClosure_TestD1E
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_genericClosure_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_genericClosure_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178052,7 +178139,7 @@ define linkonce_odr void @_ZN3nix34ErrorTraceTest_replaceStrings_TestD0Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_replaceStrings_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_replaceStrings_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178065,7 +178152,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_replaceStrings_TestD1E
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_replaceStrings_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_replaceStrings_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178099,7 +178186,7 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_scopedImport_TestD0Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_scopedImport_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_scopedImport_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178112,7 +178199,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_scopedImport_TestD1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_scopedImport_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_scopedImport_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178146,7 +178233,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_import_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_import_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_import_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178159,7 +178246,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_import_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_import_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_import_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178193,7 +178280,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_typeOf_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_typeOf_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_typeOf_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178206,7 +178293,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_typeOf_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_typeOf_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_typeOf_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178240,7 +178327,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_isNull_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isNull_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isNull_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178253,7 +178340,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isNull_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isNull_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isNull_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178287,7 +178374,7 @@ define linkonce_odr void @_ZN3nix30ErrorTraceTest_isFunction_TestD0Ev(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_isFunction_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_isFunction_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178300,7 +178387,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_isFunction_TestD1Ev(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_isFunction_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_isFunction_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178334,7 +178421,7 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_isInt_TestD0Ev(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_isInt_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_isInt_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178347,7 +178434,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_isInt_TestD1Ev(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_isInt_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_isInt_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178381,7 +178468,7 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_isFloat_TestD0Ev(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isFloat_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isFloat_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178394,7 +178481,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isFloat_TestD1Ev(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isFloat_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isFloat_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178428,7 +178515,7 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_isString_TestD0Ev(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_isString_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_isString_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178441,7 +178528,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_isString_TestD1Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_isString_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_isString_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178475,7 +178562,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_isBool_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isBool_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isBool_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178488,7 +178575,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isBool_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isBool_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isBool_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178522,7 +178609,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_isPath_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isPath_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isPath_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178535,7 +178622,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isPath_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isPath_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isPath_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178569,7 +178656,7 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_break_TestD0Ev(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_break_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_break_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178582,7 +178669,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_break_TestD1Ev(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_break_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_break_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178616,7 +178703,7 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_abort_TestD0Ev(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_abort_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_abort_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178629,7 +178716,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_abort_TestD1Ev(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_abort_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_abort_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178663,7 +178750,7 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_throw_TestD0Ev(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_throw_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_throw_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178676,7 +178763,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_throw_TestD1Ev(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_throw_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_throw_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178710,7 +178797,7 @@ define linkonce_odr void @_ZN3nix35ErrorTraceTest_addErrorContext_TestD0Ev(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_addErrorContext_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_addErrorContext_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178723,7 +178810,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_addErrorContext_TestD1
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_addErrorContext_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_addErrorContext_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178757,7 +178844,7 @@ define linkonce_odr void @_ZN3nix24ErrorTraceTest_ceil_TestD0Ev(ptr noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_ceil_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_ceil_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178770,7 +178857,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_ceil_TestD1Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_ceil_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_ceil_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178804,7 +178891,7 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_floor_TestD0Ev(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_floor_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_floor_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178817,7 +178904,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_floor_TestD1Ev(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_floor_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_floor_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178851,7 +178938,7 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_tryEval_TestD0Ev(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_tryEval_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_tryEval_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178864,7 +178951,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_tryEval_TestD1Ev(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_tryEval_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_tryEval_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178898,7 +178985,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_getEnv_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_getEnv_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_getEnv_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178911,7 +178998,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_getEnv_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_getEnv_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_getEnv_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178945,7 +179032,7 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_seq_TestD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_seq_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_seq_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178958,7 +179045,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_seq_TestD1Ev(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_seq_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_seq_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -178992,7 +179079,7 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_deepSeq_TestD0Ev(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_deepSeq_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_deepSeq_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179005,7 +179092,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_deepSeq_TestD1Ev(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_deepSeq_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_deepSeq_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179039,7 +179126,7 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_trace_TestD0Ev(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_trace_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_trace_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179052,7 +179139,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_trace_TestD1Ev(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_trace_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_trace_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179086,7 +179173,7 @@ define linkonce_odr void @_ZN3nix31ErrorTraceTest_placeholder_TestD0Ev(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_placeholder_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_placeholder_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179099,7 +179186,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_placeholder_TestD1Ev(p
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_placeholder_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_placeholder_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179133,7 +179220,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_toPath_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toPath_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toPath_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179146,7 +179233,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toPath_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toPath_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toPath_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179180,7 +179267,7 @@ define linkonce_odr void @_ZN3nix29ErrorTraceTest_storePath_TestD0Ev(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_storePath_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_storePath_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179193,7 +179280,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_storePath_TestD1Ev(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_storePath_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_storePath_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179227,7 +179314,7 @@ define linkonce_odr void @_ZN3nix30ErrorTraceTest_pathExists_TestD0Ev(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_pathExists_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_pathExists_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179240,7 +179327,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_pathExists_TestD1Ev(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_pathExists_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_pathExists_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179274,7 +179361,7 @@ define linkonce_odr void @_ZN3nix30ErrorTraceTest_baseNameOf_TestD0Ev(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_baseNameOf_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_baseNameOf_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179287,7 +179374,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_baseNameOf_TestD1Ev(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_baseNameOf_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_baseNameOf_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179321,7 +179408,7 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_dirOf_TestD0Ev(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_dirOf_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_dirOf_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179334,7 +179421,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_dirOf_TestD1Ev(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_dirOf_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_dirOf_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179368,7 +179455,7 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_readFile_TestD0Ev(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_readFile_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_readFile_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179381,7 +179468,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_readFile_TestD1Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_readFile_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_readFile_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179415,7 +179502,7 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_findFile_TestD0Ev(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_findFile_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_findFile_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179428,7 +179515,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_findFile_TestD1Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_findFile_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_findFile_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179462,7 +179549,7 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_hashFile_TestD0Ev(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_hashFile_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_hashFile_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179475,7 +179562,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_hashFile_TestD1Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_hashFile_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_hashFile_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179509,7 +179596,7 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_readDir_TestD0Ev(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_readDir_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_readDir_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179522,7 +179609,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_readDir_TestD1Ev(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_readDir_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_readDir_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179556,7 +179643,7 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_toXML_TestD0Ev(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_toXML_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_toXML_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179569,7 +179656,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_toXML_TestD1Ev(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_toXML_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_toXML_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179603,7 +179690,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_toJSON_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toJSON_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toJSON_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179616,7 +179703,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toJSON_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toJSON_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toJSON_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179650,7 +179737,7 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_fromJSON_TestD0Ev(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_fromJSON_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_fromJSON_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179663,7 +179750,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_fromJSON_TestD1Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_fromJSON_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_fromJSON_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179697,7 +179784,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_toFile_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toFile_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toFile_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179710,7 +179797,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toFile_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toFile_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toFile_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179744,7 +179831,7 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_filterSource_TestD0Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_filterSource_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_filterSource_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179757,7 +179844,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_filterSource_TestD1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_filterSource_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_filterSource_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179791,7 +179878,7 @@ define linkonce_odr void @_ZN3nix24ErrorTraceTest_path_TestD0Ev(ptr noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_path_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_path_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179804,7 +179891,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_path_TestD1Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_path_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_path_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179838,7 +179925,7 @@ define linkonce_odr void @_ZN3nix29ErrorTraceTest_attrNames_TestD0Ev(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_attrNames_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_attrNames_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179851,7 +179938,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_attrNames_TestD1Ev(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_attrNames_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_attrNames_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179885,7 +179972,7 @@ define linkonce_odr void @_ZN3nix30ErrorTraceTest_attrValues_TestD0Ev(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_attrValues_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_attrValues_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179898,7 +179985,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_attrValues_TestD1Ev(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_attrValues_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_attrValues_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179932,7 +180019,7 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_getAttr_TestD0Ev(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_getAttr_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_getAttr_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179945,7 +180032,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_getAttr_TestD1Ev(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_getAttr_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_getAttr_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179979,7 +180066,7 @@ define linkonce_odr void @_ZN3nix36ErrorTraceTest_unsafeGetAttrPos_TestD0Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_unsafeGetAttrPos_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_unsafeGetAttrPos_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -179992,7 +180079,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_unsafeGetAttrPos_TestD
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_unsafeGetAttrPos_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_unsafeGetAttrPos_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180026,7 +180113,7 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_hasAttr_TestD0Ev(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_hasAttr_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_hasAttr_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180039,7 +180126,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_hasAttr_TestD1Ev(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_hasAttr_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_hasAttr_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180073,7 +180160,7 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_isAttrs_TestD0Ev(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180086,7 +180173,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isAttrs_TestD1Ev(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180120,7 +180207,7 @@ define linkonce_odr void @_ZN3nix31ErrorTraceTest_removeAttrs_TestD0Ev(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_removeAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_removeAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180133,7 +180220,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_removeAttrs_TestD1Ev(p
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_removeAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_removeAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180167,7 +180254,7 @@ define linkonce_odr void @_ZN3nix31ErrorTraceTest_listToAttrs_TestD0Ev(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_listToAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_listToAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180180,7 +180267,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_listToAttrs_TestD1Ev(p
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_listToAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_listToAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180214,7 +180301,7 @@ define linkonce_odr void @_ZN3nix34ErrorTraceTest_intersectAttrs_TestD0Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_intersectAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_intersectAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180227,7 +180314,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_intersectAttrs_TestD1E
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_intersectAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_intersectAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180261,7 +180348,7 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_catAttrs_TestD0Ev(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_catAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_catAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180274,7 +180361,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_catAttrs_TestD1Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_catAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_catAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180308,7 +180395,7 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_functionArgs_TestD0Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_functionArgs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_functionArgs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180321,7 +180408,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_functionArgs_TestD1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_functionArgs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_functionArgs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180355,7 +180442,7 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_mapAttrs_TestD0Ev(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_mapAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_mapAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180368,7 +180455,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_mapAttrs_TestD1Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_mapAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_mapAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180402,7 +180489,7 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_zipAttrsWith_TestD0Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_zipAttrsWith_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_zipAttrsWith_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180415,7 +180502,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_zipAttrsWith_TestD1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_zipAttrsWith_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_zipAttrsWith_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180449,7 +180536,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_isList_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isList_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isList_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180462,7 +180549,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isList_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isList_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isList_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180496,7 +180583,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_elemAt_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_elemAt_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_elemAt_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180509,7 +180596,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_elemAt_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_elemAt_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_elemAt_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180543,7 +180630,7 @@ define linkonce_odr void @_ZN3nix24ErrorTraceTest_head_TestD0Ev(ptr noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_head_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_head_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180556,7 +180643,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_head_TestD1Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_head_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_head_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180590,7 +180677,7 @@ define linkonce_odr void @_ZN3nix24ErrorTraceTest_tail_TestD0Ev(ptr noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_tail_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_tail_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180603,7 +180690,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_tail_TestD1Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_tail_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_tail_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180637,7 +180724,7 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_map_TestD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_map_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_map_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180650,7 +180737,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_map_TestD1Ev(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_map_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_map_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180684,7 +180771,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_filter_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_filter_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_filter_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180697,7 +180784,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_filter_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_filter_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_filter_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180731,7 +180818,7 @@ define linkonce_odr void @_ZN3nix24ErrorTraceTest_elem_TestD0Ev(ptr noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_elem_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_elem_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180744,7 +180831,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_elem_TestD1Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_elem_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_elem_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180778,7 +180865,7 @@ define linkonce_odr void @_ZN3nix31ErrorTraceTest_concatLists_TestD0Ev(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_concatLists_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_concatLists_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180791,7 +180878,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_concatLists_TestD1Ev(p
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_concatLists_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_concatLists_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180825,7 +180912,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_length_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_length_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_length_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180838,7 +180925,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_length_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_length_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_length_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180872,7 +180959,7 @@ define linkonce_odr void @_ZN3nix30ErrorTraceTest_foldlPrime_TestD0Ev(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_foldlPrime_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_foldlPrime_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180885,7 +180972,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_foldlPrime_TestD1Ev(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_foldlPrime_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_foldlPrime_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180919,7 +181006,7 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_any_TestD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_any_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_any_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180932,7 +181019,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_any_TestD1Ev(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_any_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_any_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180966,7 +181053,7 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_all_TestD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_all_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_all_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -180979,7 +181066,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_all_TestD1Ev(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_all_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_all_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181013,7 +181100,7 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_genList_TestD0Ev(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_genList_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_genList_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181026,7 +181113,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_genList_TestD1Ev(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_genList_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_genList_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181060,7 +181147,7 @@ define linkonce_odr void @_ZN3nix24ErrorTraceTest_sort_TestD0Ev(ptr noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_sort_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_sort_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181073,7 +181160,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_sort_TestD1Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_sort_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_sort_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181107,7 +181194,7 @@ define linkonce_odr void @_ZN3nix29ErrorTraceTest_partition_TestD0Ev(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_partition_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_partition_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181120,7 +181207,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_partition_TestD1Ev(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_partition_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_partition_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181154,7 +181241,7 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_groupBy_TestD0Ev(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_groupBy_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_groupBy_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181167,7 +181254,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_groupBy_TestD1Ev(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_groupBy_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_groupBy_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181201,7 +181288,7 @@ define linkonce_odr void @_ZN3nix29ErrorTraceTest_concatMap_TestD0Ev(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_concatMap_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_concatMap_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181214,7 +181301,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_concatMap_TestD1Ev(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_concatMap_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_concatMap_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181248,7 +181335,7 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_add_TestD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_add_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_add_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181261,7 +181348,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_add_TestD1Ev(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_add_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_add_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181295,7 +181382,7 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_sub_TestD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_sub_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_sub_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181308,7 +181395,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_sub_TestD1Ev(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_sub_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_sub_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181342,7 +181429,7 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_mul_TestD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_mul_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_mul_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181355,7 +181442,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_mul_TestD1Ev(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_mul_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_mul_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181389,7 +181476,7 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_div_TestD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_div_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_div_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181402,7 +181489,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_div_TestD1Ev(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_div_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_div_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181436,7 +181523,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_bitAnd_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitAnd_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitAnd_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181449,7 +181536,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitAnd_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitAnd_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitAnd_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181483,7 +181570,7 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_bitOr_TestD0Ev(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_bitOr_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_bitOr_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181496,7 +181583,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_bitOr_TestD1Ev(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_bitOr_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_bitOr_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181530,7 +181617,7 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_bitXor_TestD0Ev(ptr noundef no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitXor_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitXor_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181543,7 +181630,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitXor_TestD1Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitXor_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitXor_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181577,7 +181664,7 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_lessThan_TestD0Ev(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_lessThan_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_lessThan_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181590,7 +181677,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_lessThan_TestD1Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_lessThan_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_lessThan_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181624,7 +181711,7 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_toString_TestD0Ev(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_toString_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_toString_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181637,7 +181724,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_toString_TestD1Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_toString_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_toString_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181671,7 +181758,7 @@ define linkonce_odr void @_ZN3nix29ErrorTraceTest_substring_TestD0Ev(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_substring_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_substring_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181684,7 +181771,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_substring_TestD1Ev(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_substring_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_substring_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181718,7 +181805,7 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_stringLength_TestD0Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_stringLength_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_stringLength_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181731,7 +181818,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_stringLength_TestD1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_stringLength_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_stringLength_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181765,7 +181852,7 @@ define linkonce_odr void @_ZN3nix30ErrorTraceTest_hashString_TestD0Ev(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_hashString_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_hashString_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181778,7 +181865,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_hashString_TestD1Ev(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_hashString_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_hashString_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181812,7 +181899,7 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_match_TestD0Ev(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_match_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_match_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181825,7 +181912,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_match_TestD1Ev(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_match_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_match_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181859,7 +181946,7 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_split_TestD0Ev(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_split_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_split_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181872,7 +181959,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_split_TestD1Ev(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_split_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_split_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181906,7 +181993,7 @@ define linkonce_odr void @_ZN3nix36ErrorTraceTest_concatStringsSep_TestD0Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_concatStringsSep_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_concatStringsSep_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181919,7 +182006,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_concatStringsSep_TestD
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_concatStringsSep_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_concatStringsSep_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181953,7 +182040,7 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_parseDrvName_TestD0Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_parseDrvName_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_parseDrvName_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -181966,7 +182053,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_parseDrvName_TestD1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_parseDrvName_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_parseDrvName_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -182000,7 +182087,7 @@ define linkonce_odr void @_ZN3nix35ErrorTraceTest_compareVersions_TestD0Ev(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_compareVersions_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_compareVersions_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -182013,7 +182100,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_compareVersions_TestD1
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_compareVersions_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_compareVersions_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -182047,7 +182134,7 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_splitVersion_TestD0Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_splitVersion_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_splitVersion_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -182060,7 +182147,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_splitVersion_TestD1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_splitVersion_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_splitVersion_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -182094,7 +182181,7 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_traceVerbose_TestD0Ev(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_traceVerbose_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_traceVerbose_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -182107,7 +182194,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_traceVerbose_TestD1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_traceVerbose_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_traceVerbose_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -183108,7 +183195,8 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -183190,7 +183278,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryBaseD0Ev(ptr noundef 
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #14
+declare void @llvm.trap() #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix32ErrorTraceTest_TraceBuilder_TestC1Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -183201,32 +183289,35 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_TraceBuilder_TestC1Ev(ptr noun
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_TraceBuilder_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_TraceBuilder_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_TraceBuilder_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_TraceBuilder_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_TraceBuilder_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_TraceBuilder_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -185124,7 +185215,7 @@ define linkonce_odr noundef ptr @_ZNSt11char_traitsIcE4moveEPcPKcm(ptr noundef %
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
@@ -187193,7 +187284,7 @@ define linkonce_odr void @_ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPKN3nix8
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #15
+declare i1 @llvm.is.constant.i64(i64) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN3nix8PosTable6OriginESt6vectorIS3_SaIS3_EEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
@@ -188704,16 +188795,17 @@ define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESa
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 2
-  store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 4
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %8, align 4
-  %10 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 5
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  %6 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 2
+  store i8 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 4
+  %10 = load i32, ptr %4, align 4
+  store i32 %10, ptr %9, align 4
+  %11 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 5
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #3
   ret void
 }
 
@@ -189185,21 +189277,22 @@ define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESa
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %3)
-          to label %4 unwind label %6
+          to label %5 unwind label %7
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %3, i32 0, i32 5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %3, i32 0, i32 5
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #3
   ret void
 
-6:                                                ; preds = %1
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #20
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 }
 
@@ -192128,7 +192221,7 @@ define linkonce_odr void @_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) #16 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -192172,13 +192265,14 @@ define linkonce_odr void @_ZN5boost2io17bad_format_stringC2Emm(ptr noundef nonnu
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  store i64 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
   ret void
 }
 
@@ -197688,53 +197782,56 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
   call void @_ZN5boost2io17bad_format_stringC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   %10 = getelementptr inbounds i8, ptr %7, i64 32
   invoke void @_ZN5boost9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %10)
-          to label %11 unwind label %16
+          to label %11 unwind label %19
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 2, i32 2), ptr %13, align 8
-  %14 = load ptr, ptr %4, align 8
-  invoke void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %14)
-          to label %15 unwind label %20
+  %12 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %7, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 2, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = load ptr, ptr %4, align 8
+  invoke void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %17)
+          to label %18 unwind label %23
 
-15:                                               ; preds = %11
+18:                                               ; preds = %11
   ret void
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %5, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %6, align 4
-  br label %25
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  br label %28
 
-20:                                               ; preds = %11
-  %21 = landingpad { ptr, i32 }
+23:                                               ; preds = %11
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %5, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %6, align 4
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %24) #3
-  br label %25
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  %27 = getelementptr inbounds i8, ptr %7, i64 32
+  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %27) #3
+  br label %28
 
-25:                                               ; preds = %20, %16
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN5boost2io17bad_format_stringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
+28:                                               ; preds = %23, %19
+  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN5boost2io17bad_format_stringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %27
+  br label %30
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %5, align 8
+  %32 = load i32, ptr %6, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 declare void @__cxa_free_exception(ptr)
@@ -197759,7 +197856,8 @@ define linkonce_odr void @_ZN5boost16exception_detail10clone_baseC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -197772,11 +197870,12 @@ define linkonce_odr void @_ZN5boost2io17bad_format_stringC2ERKS1_(ptr noundef no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false)
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
   ret void
 }
 
@@ -197785,15 +197884,16 @@ define linkonce_odr void @_ZN5boost9exceptionC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 1
-  call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %5 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 2
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 1
+  call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %6 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 2
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 4
-  store i32 -1, ptr %7, align 8
+  %7 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 3
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 4
+  store i32 -1, ptr %8, align 8
   ret void
 }
 
@@ -197811,9 +197911,10 @@ define linkonce_odr void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 1
-  call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 1
+  call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   ret void
 }
 
@@ -197928,7 +198029,7 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -197938,7 +198039,7 @@ define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEE
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -197955,7 +198056,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io17bad_format_string4whatEv(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -197965,7 +198066,7 @@ define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringE
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -197998,7 +198099,8 @@ define linkonce_odr void @_ZN5boost2io12format_errorC2ERKS1_(ptr noundef nonnull
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12format_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io12format_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -198019,7 +198121,8 @@ define linkonce_odr void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 der
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -198128,34 +198231,37 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   invoke void @_ZN5boost9exceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %14)
-          to label %15 unwind label %18
+          to label %15 unwind label %21
 
 15:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 1, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 2, i32 2), ptr %17, align 8
+  %16 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %7, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 1, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %20 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 2, i32 2
+  store ptr %20, ptr %19, align 8
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN5boost2io17bad_format_stringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %5, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %6, align 4
+  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN5boost2io17bad_format_stringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %23
+  br label %26
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i32, ptr %6, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -198284,7 +198390,8 @@ define linkonce_odr void @_ZN5boost16exception_detail10clone_baseC2ERKS1_(ptr no
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -198295,15 +198402,16 @@ define linkonce_odr void @_ZN5boost9exceptionC2ERKS0_(ptr noundef nonnull align 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.boost::exception", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.boost::exception", ptr %7, i32 0, i32 1
-  call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %9 = getelementptr inbounds %"class.boost::exception", ptr %5, i32 0, i32 2
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.boost::exception", ptr %10, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %11, i64 20, i1 false)
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.boost::exception", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"class.boost::exception", ptr %8, i32 0, i32 1
+  call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %10 = getelementptr inbounds %"class.boost::exception", ptr %5, i32 0, i32 2
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"class.boost::exception", ptr %11, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %12, i64 20, i1 false)
   ret void
 }
 
@@ -198391,7 +198499,8 @@ define linkonce_odr void @_ZN5boost2io12format_errorC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12format_errorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io12format_errorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -198400,7 +198509,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -201304,7 +201414,7 @@ define linkonce_odr { ptr, i64 } @_ZNSt6vectorIbSaIbEEixEm(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) #16 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) #15 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -201348,13 +201458,14 @@ define linkonce_odr void @_ZN5boost2io13too_many_argsC2Emm(ptr noundef nonnull a
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %7, i32 0, i32 1
-  %9 = load i64, ptr %5, align 8
-  store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %7, i32 0, i32 2
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  store i64 %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %7, i32 0, i32 2
+  %12 = load i64, ptr %6, align 8
+  store i64 %12, ptr %11, align 8
   ret void
 }
 
@@ -202033,53 +202144,56 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(
   call void @_ZN5boost2io13too_many_argsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   %10 = getelementptr inbounds i8, ptr %7, i64 32
   invoke void @_ZN5boost9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %10)
-          to label %11 unwind label %16
+          to label %11 unwind label %19
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 1, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 2, i32 2), ptr %13, align 8
-  %14 = load ptr, ptr %4, align 8
-  invoke void @_ZN5boost10wrapexceptINS_2io13too_many_argsEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %14)
-          to label %15 unwind label %20
+  %12 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %7, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 1, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 2, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = load ptr, ptr %4, align 8
+  invoke void @_ZN5boost10wrapexceptINS_2io13too_many_argsEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %17)
+          to label %18 unwind label %23
 
-15:                                               ; preds = %11
+18:                                               ; preds = %11
   ret void
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+19:                                               ; preds = %2
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %5, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %6, align 4
-  br label %25
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  br label %28
 
-20:                                               ; preds = %11
-  %21 = landingpad { ptr, i32 }
+23:                                               ; preds = %11
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %5, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %6, align 4
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %24) #3
-  br label %25
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  %27 = getelementptr inbounds i8, ptr %7, i64 32
+  call void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %27) #3
+  br label %28
 
-25:                                               ; preds = %20, %16
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN5boost2io13too_many_argsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
+28:                                               ; preds = %23, %19
+  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN5boost2io13too_many_argsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %27
+  br label %30
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %5, align 8
+  %32 = load i32, ptr %6, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -202104,11 +202218,12 @@ define linkonce_odr void @_ZN5boost2io13too_many_argsC2ERKS1_(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false)
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
   ret void
 }
 
@@ -202232,7 +202347,7 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -202242,7 +202357,7 @@ define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -202259,7 +202374,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io13too_many_args4whatEv(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -202269,7 +202384,7 @@ define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1E
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -202307,34 +202422,37 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS3_(
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   invoke void @_ZN5boost9exceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %14)
-          to label %15 unwind label %18
+          to label %15 unwind label %21
 
 15:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 1, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 2, i32 2), ptr %17, align 8
+  %16 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %7, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 1, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %20 = getelementptr inbounds { [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 2, i32 2
+  store ptr %20, ptr %19, align 8
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN5boost2io13too_many_argsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %5, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %6, align 4
+  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN5boost2io13too_many_argsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
   call void @_ZN5boost16exception_detail10clone_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %23
+  br label %26
 
-23:                                               ; preds = %18
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i32, ptr %6, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -202372,55 +202490,60 @@ define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsI
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load ptr, ptr %4, align 8
   invoke void @_ZN5boost16base_from_memberINS_10shared_ptrINS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEEEELi0EEC2IPS7_NS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEET_T0_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-          to label %11 unwind label %18
+          to label %11 unwind label %23
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 1, i32 3), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = getelementptr inbounds %"class.boost::base_from_member", ptr %13, i32 0, i32 0
-  %15 = call noundef ptr @_ZNK5boost10shared_ptrINS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), ptr noundef %15)
-          to label %16 unwind label %22
+  %12 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3
+  store ptr %12, ptr %7, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 1, i32 3
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds %"class.boost::base_from_member", ptr %15, i32 0, i32 0
+  %17 = call noundef ptr @_ZNK5boost10shared_ptrINS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  %18 = getelementptr inbounds [4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1
+  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %18, ptr noundef %17)
+          to label %19 unwind label %27
 
-16:                                               ; preds = %11
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3), ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 1, i32 3), ptr %17, align 8
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3
+  store ptr %20, ptr %7, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = getelementptr inbounds { [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 1, i32 3
+  store ptr %22, ptr %21, align 8
   ret void
 
-18:                                               ; preds = %2
-  %19 = landingpad { ptr, i32 }
+23:                                               ; preds = %2
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  br label %27
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  br label %32
 
-22:                                               ; preds = %11
-  %23 = landingpad { ptr, i32 }
+27:                                               ; preds = %11
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN5boost16base_from_memberINS_10shared_ptrINS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEEEELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #3
-  br label %27
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %5, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %6, align 4
+  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN5boost16base_from_memberINS_10shared_ptrINS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEEEELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #3
+  br label %32
 
-27:                                               ; preds = %22, %18
-  %28 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %28) #3
-  br label %29
+32:                                               ; preds = %27, %23
+  %33 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %33) #3
+  br label %34
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %5, align 8
-  %31 = load i32, ptr %6, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %5, align 8
+  %36 = load i32, ptr %6, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind writable sret(%"class.std::locale") align 8, ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(8)) #1
@@ -202975,7 +203098,7 @@ define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsI
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -202988,7 +203111,7 @@ define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -203181,10 +203304,11 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_al
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5boost6detail15sp_counted_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
+  %8 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
   ret void
 }
 
@@ -203203,11 +203327,12 @@ define linkonce_odr void @_ZN5boost6detail15sp_counted_baseC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -204091,32 +204216,35 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_NestedThrows_TestC1Ev(ptr noun
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_NestedThrows_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_NestedThrows_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_NestedThrows_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_NestedThrows_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_NestedThrows_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_NestedThrows_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -204190,32 +204318,35 @@ define linkonce_odr void @_ZN3nix34ErrorTraceTest_genericClosure_TestC1Ev(ptr no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix34ErrorTraceTest_genericClosure_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix34ErrorTraceTest_genericClosure_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_genericClosure_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_genericClosure_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_genericClosure_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_genericClosure_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -204677,32 +204808,35 @@ define linkonce_odr void @_ZN3nix34ErrorTraceTest_replaceStrings_TestC1Ev(ptr no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix34ErrorTraceTest_replaceStrings_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix34ErrorTraceTest_replaceStrings_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_replaceStrings_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_replaceStrings_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_replaceStrings_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_replaceStrings_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -204776,32 +204910,35 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_scopedImport_TestC1Ev(ptr noun
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_scopedImport_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_scopedImport_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_scopedImport_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_scopedImport_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_scopedImport_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_scopedImport_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -204875,32 +205012,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_import_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_import_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_import_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_import_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_import_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_import_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_import_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -204974,32 +205114,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_typeOf_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_typeOf_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_typeOf_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_typeOf_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_typeOf_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_typeOf_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_typeOf_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -205073,32 +205216,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_isNull_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_isNull_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_isNull_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isNull_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isNull_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isNull_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isNull_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -205172,32 +205318,35 @@ define linkonce_odr void @_ZN3nix30ErrorTraceTest_isFunction_TestC1Ev(ptr nounde
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_isFunction_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_isFunction_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_isFunction_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_isFunction_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_isFunction_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_isFunction_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -205271,32 +205420,35 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_isInt_TestC1Ev(ptr noundef non
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_isInt_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_isInt_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_isInt_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_isInt_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_isInt_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_isInt_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -205370,32 +205522,35 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_isFloat_TestC1Ev(ptr noundef n
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_isFloat_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_isFloat_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_isFloat_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_isFloat_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_isFloat_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_isFloat_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -205469,32 +205624,35 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_isString_TestC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_isString_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_isString_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_isString_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_isString_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_isString_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_isString_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -205568,32 +205726,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_isBool_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_isBool_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_isBool_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isBool_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isBool_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isBool_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isBool_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -205667,32 +205828,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_isPath_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_isPath_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_isPath_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isPath_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isPath_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isPath_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isPath_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -205766,32 +205930,35 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_break_TestC1Ev(ptr noundef non
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_break_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_break_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_break_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_break_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_break_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_break_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -205865,32 +206032,35 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_abort_TestC1Ev(ptr noundef non
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_abort_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_abort_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_abort_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_abort_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_abort_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_abort_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -205964,32 +206134,35 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_throw_TestC1Ev(ptr noundef non
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_throw_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_throw_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_throw_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_throw_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_throw_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_throw_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -206063,32 +206236,35 @@ define linkonce_odr void @_ZN3nix35ErrorTraceTest_addErrorContext_TestC1Ev(ptr n
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix35ErrorTraceTest_addErrorContext_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix35ErrorTraceTest_addErrorContext_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ErrorTraceTest_addErrorContext_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ErrorTraceTest_addErrorContext_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ErrorTraceTest_addErrorContext_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ErrorTraceTest_addErrorContext_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -206162,32 +206338,35 @@ define linkonce_odr void @_ZN3nix24ErrorTraceTest_ceil_TestC1Ev(ptr noundef nonn
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_ceil_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_ceil_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_ceil_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_ceil_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_ceil_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_ceil_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -206261,32 +206440,35 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_floor_TestC1Ev(ptr noundef non
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_floor_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_floor_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_floor_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_floor_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_floor_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_floor_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -206360,32 +206542,35 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_tryEval_TestC1Ev(ptr noundef n
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_tryEval_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_tryEval_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_tryEval_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_tryEval_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_tryEval_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_tryEval_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -206459,32 +206644,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_getEnv_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_getEnv_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_getEnv_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_getEnv_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_getEnv_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_getEnv_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_getEnv_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -206558,32 +206746,35 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_seq_TestC1Ev(ptr noundef nonnu
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_seq_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_seq_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_seq_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_seq_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_seq_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_seq_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -206657,32 +206848,35 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_deepSeq_TestC1Ev(ptr noundef n
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_deepSeq_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_deepSeq_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_deepSeq_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_deepSeq_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_deepSeq_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_deepSeq_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -206756,32 +206950,35 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_trace_TestC1Ev(ptr noundef non
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_trace_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_trace_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_trace_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_trace_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_trace_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_trace_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -206855,32 +207052,35 @@ define linkonce_odr void @_ZN3nix31ErrorTraceTest_placeholder_TestC1Ev(ptr nound
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31ErrorTraceTest_placeholder_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix31ErrorTraceTest_placeholder_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_placeholder_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_placeholder_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_placeholder_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_placeholder_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -206954,32 +207154,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_toPath_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_toPath_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_toPath_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toPath_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toPath_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toPath_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toPath_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -207053,32 +207256,35 @@ define linkonce_odr void @_ZN3nix29ErrorTraceTest_storePath_TestC1Ev(ptr noundef
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_storePath_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_storePath_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_storePath_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_storePath_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_storePath_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_storePath_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -207152,32 +207358,35 @@ define linkonce_odr void @_ZN3nix30ErrorTraceTest_pathExists_TestC1Ev(ptr nounde
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_pathExists_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_pathExists_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_pathExists_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_pathExists_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_pathExists_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_pathExists_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -207251,32 +207460,35 @@ define linkonce_odr void @_ZN3nix30ErrorTraceTest_baseNameOf_TestC1Ev(ptr nounde
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_baseNameOf_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_baseNameOf_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_baseNameOf_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_baseNameOf_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_baseNameOf_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_baseNameOf_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -207350,32 +207562,35 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_dirOf_TestC1Ev(ptr noundef non
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_dirOf_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_dirOf_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_dirOf_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_dirOf_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_dirOf_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_dirOf_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -207449,32 +207664,35 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_readFile_TestC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_readFile_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_readFile_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_readFile_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_readFile_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_readFile_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_readFile_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -207548,32 +207766,35 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_findFile_TestC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_findFile_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_findFile_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_findFile_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_findFile_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_findFile_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_findFile_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -207647,32 +207868,35 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_hashFile_TestC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_hashFile_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_hashFile_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_hashFile_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_hashFile_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_hashFile_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_hashFile_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -207746,32 +207970,35 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_readDir_TestC1Ev(ptr noundef n
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_readDir_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_readDir_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_readDir_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_readDir_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_readDir_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_readDir_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -207845,32 +208072,35 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_toXML_TestC1Ev(ptr noundef non
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_toXML_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_toXML_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_toXML_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_toXML_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_toXML_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_toXML_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -207944,32 +208174,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_toJSON_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_toJSON_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_toJSON_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toJSON_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toJSON_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toJSON_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toJSON_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -208043,32 +208276,35 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_fromJSON_TestC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_fromJSON_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_fromJSON_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_fromJSON_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_fromJSON_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_fromJSON_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_fromJSON_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -208142,32 +208378,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_toFile_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_toFile_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_toFile_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toFile_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toFile_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toFile_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_toFile_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -208241,32 +208480,35 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_filterSource_TestC1Ev(ptr noun
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_filterSource_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_filterSource_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_filterSource_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_filterSource_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_filterSource_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_filterSource_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -208340,32 +208582,35 @@ define linkonce_odr void @_ZN3nix24ErrorTraceTest_path_TestC1Ev(ptr noundef nonn
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_path_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_path_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_path_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_path_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_path_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_path_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -208439,32 +208684,35 @@ define linkonce_odr void @_ZN3nix29ErrorTraceTest_attrNames_TestC1Ev(ptr noundef
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_attrNames_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_attrNames_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_attrNames_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_attrNames_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_attrNames_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_attrNames_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -208538,32 +208786,35 @@ define linkonce_odr void @_ZN3nix30ErrorTraceTest_attrValues_TestC1Ev(ptr nounde
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_attrValues_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_attrValues_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_attrValues_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_attrValues_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_attrValues_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_attrValues_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -208637,32 +208888,35 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_getAttr_TestC1Ev(ptr noundef n
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_getAttr_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_getAttr_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_getAttr_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_getAttr_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_getAttr_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_getAttr_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -208736,32 +208990,35 @@ define linkonce_odr void @_ZN3nix36ErrorTraceTest_unsafeGetAttrPos_TestC1Ev(ptr 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ErrorTraceTest_unsafeGetAttrPos_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -208835,32 +209092,35 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_hasAttr_TestC1Ev(ptr noundef n
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_hasAttr_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_hasAttr_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_hasAttr_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_hasAttr_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_hasAttr_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_hasAttr_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -208934,32 +209194,35 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_isAttrs_TestC1Ev(ptr noundef n
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_isAttrs_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_isAttrs_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_isAttrs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_isAttrs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_isAttrs_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_isAttrs_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -209033,32 +209296,35 @@ define linkonce_odr void @_ZN3nix31ErrorTraceTest_removeAttrs_TestC1Ev(ptr nound
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31ErrorTraceTest_removeAttrs_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix31ErrorTraceTest_removeAttrs_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_removeAttrs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_removeAttrs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_removeAttrs_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_removeAttrs_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -209132,32 +209398,35 @@ define linkonce_odr void @_ZN3nix31ErrorTraceTest_listToAttrs_TestC1Ev(ptr nound
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31ErrorTraceTest_listToAttrs_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix31ErrorTraceTest_listToAttrs_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_listToAttrs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_listToAttrs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_listToAttrs_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_listToAttrs_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -209231,32 +209500,35 @@ define linkonce_odr void @_ZN3nix34ErrorTraceTest_intersectAttrs_TestC1Ev(ptr no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix34ErrorTraceTest_intersectAttrs_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix34ErrorTraceTest_intersectAttrs_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_intersectAttrs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_intersectAttrs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_intersectAttrs_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34ErrorTraceTest_intersectAttrs_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -209330,32 +209602,35 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_catAttrs_TestC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_catAttrs_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_catAttrs_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_catAttrs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_catAttrs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_catAttrs_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_catAttrs_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -209429,32 +209704,35 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_functionArgs_TestC1Ev(ptr noun
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_functionArgs_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_functionArgs_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_functionArgs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_functionArgs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_functionArgs_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_functionArgs_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -209528,32 +209806,35 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_mapAttrs_TestC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_mapAttrs_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_mapAttrs_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_mapAttrs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_mapAttrs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_mapAttrs_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_mapAttrs_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -209627,32 +209908,35 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_zipAttrsWith_TestC1Ev(ptr noun
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_zipAttrsWith_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_zipAttrsWith_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_zipAttrsWith_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_zipAttrsWith_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_zipAttrsWith_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_zipAttrsWith_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -209726,32 +210010,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_isList_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_isList_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_isList_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isList_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isList_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isList_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_isList_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -209825,32 +210112,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_elemAt_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_elemAt_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_elemAt_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_elemAt_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_elemAt_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_elemAt_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_elemAt_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -209924,32 +210214,35 @@ define linkonce_odr void @_ZN3nix24ErrorTraceTest_head_TestC1Ev(ptr noundef nonn
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_head_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_head_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_head_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_head_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_head_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_head_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -210023,32 +210316,35 @@ define linkonce_odr void @_ZN3nix24ErrorTraceTest_tail_TestC1Ev(ptr noundef nonn
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_tail_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_tail_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_tail_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_tail_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_tail_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_tail_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -210122,32 +210418,35 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_map_TestC1Ev(ptr noundef nonnu
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_map_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_map_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_map_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_map_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_map_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_map_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -210221,32 +210520,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_filter_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_filter_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_filter_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_filter_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_filter_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_filter_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_filter_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -210320,32 +210622,35 @@ define linkonce_odr void @_ZN3nix24ErrorTraceTest_elem_TestC1Ev(ptr noundef nonn
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_elem_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_elem_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_elem_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_elem_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_elem_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_elem_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -210419,32 +210724,35 @@ define linkonce_odr void @_ZN3nix31ErrorTraceTest_concatLists_TestC1Ev(ptr nound
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix31ErrorTraceTest_concatLists_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix31ErrorTraceTest_concatLists_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_concatLists_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_concatLists_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_concatLists_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31ErrorTraceTest_concatLists_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -210518,32 +210826,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_length_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_length_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_length_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_length_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_length_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_length_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_length_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -210617,32 +210928,35 @@ define linkonce_odr void @_ZN3nix30ErrorTraceTest_foldlPrime_TestC1Ev(ptr nounde
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_foldlPrime_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_foldlPrime_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_foldlPrime_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_foldlPrime_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_foldlPrime_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_foldlPrime_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -210716,32 +211030,35 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_any_TestC1Ev(ptr noundef nonnu
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_any_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_any_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_any_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_any_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_any_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_any_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -210815,32 +211132,35 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_all_TestC1Ev(ptr noundef nonnu
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_all_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_all_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_all_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_all_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_all_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_all_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -210914,32 +211234,35 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_genList_TestC1Ev(ptr noundef n
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_genList_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_genList_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_genList_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_genList_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_genList_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_genList_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -211013,32 +211336,35 @@ define linkonce_odr void @_ZN3nix24ErrorTraceTest_sort_TestC1Ev(ptr noundef nonn
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_sort_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix24ErrorTraceTest_sort_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_sort_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_sort_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_sort_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix24ErrorTraceTest_sort_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -211112,32 +211438,35 @@ define linkonce_odr void @_ZN3nix29ErrorTraceTest_partition_TestC1Ev(ptr noundef
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_partition_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_partition_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_partition_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_partition_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_partition_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_partition_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -211211,32 +211540,35 @@ define linkonce_odr void @_ZN3nix27ErrorTraceTest_groupBy_TestC1Ev(ptr noundef n
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_groupBy_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix27ErrorTraceTest_groupBy_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_groupBy_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_groupBy_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_groupBy_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix27ErrorTraceTest_groupBy_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -211310,32 +211642,35 @@ define linkonce_odr void @_ZN3nix29ErrorTraceTest_concatMap_TestC1Ev(ptr noundef
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_concatMap_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_concatMap_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_concatMap_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_concatMap_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_concatMap_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_concatMap_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -211409,32 +211744,35 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_add_TestC1Ev(ptr noundef nonnu
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_add_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_add_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_add_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_add_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_add_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_add_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -211508,32 +211846,35 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_sub_TestC1Ev(ptr noundef nonnu
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_sub_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_sub_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_sub_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_sub_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_sub_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_sub_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -211607,32 +211948,35 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_mul_TestC1Ev(ptr noundef nonnu
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_mul_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_mul_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_mul_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_mul_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_mul_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_mul_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -211706,32 +212050,35 @@ define linkonce_odr void @_ZN3nix23ErrorTraceTest_div_TestC1Ev(ptr noundef nonnu
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_div_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix23ErrorTraceTest_div_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_div_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_div_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_div_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix23ErrorTraceTest_div_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -211805,32 +212152,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_bitAnd_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_bitAnd_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_bitAnd_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_bitAnd_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_bitAnd_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_bitAnd_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_bitAnd_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -211904,32 +212254,35 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_bitOr_TestC1Ev(ptr noundef non
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_bitOr_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_bitOr_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_bitOr_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_bitOr_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_bitOr_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_bitOr_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -212003,32 +212356,35 @@ define linkonce_odr void @_ZN3nix26ErrorTraceTest_bitXor_TestC1Ev(ptr noundef no
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_bitXor_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix26ErrorTraceTest_bitXor_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_bitXor_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_bitXor_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_bitXor_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix26ErrorTraceTest_bitXor_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -212102,32 +212458,35 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_lessThan_TestC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_lessThan_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_lessThan_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_lessThan_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_lessThan_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_lessThan_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_lessThan_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -212201,32 +212560,35 @@ define linkonce_odr void @_ZN3nix28ErrorTraceTest_toString_TestC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_toString_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix28ErrorTraceTest_toString_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_toString_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_toString_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_toString_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28ErrorTraceTest_toString_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -212300,32 +212662,35 @@ define linkonce_odr void @_ZN3nix29ErrorTraceTest_substring_TestC1Ev(ptr noundef
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_substring_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix29ErrorTraceTest_substring_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_substring_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_substring_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_substring_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix29ErrorTraceTest_substring_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -212399,32 +212764,35 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_stringLength_TestC1Ev(ptr noun
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_stringLength_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_stringLength_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_stringLength_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_stringLength_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_stringLength_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_stringLength_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -212498,32 +212866,35 @@ define linkonce_odr void @_ZN3nix30ErrorTraceTest_hashString_TestC1Ev(ptr nounde
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_hashString_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix30ErrorTraceTest_hashString_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_hashString_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_hashString_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_hashString_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix30ErrorTraceTest_hashString_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -212597,32 +212968,35 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_match_TestC1Ev(ptr noundef non
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_match_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_match_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_match_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_match_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_match_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_match_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -212696,32 +213070,35 @@ define linkonce_odr void @_ZN3nix25ErrorTraceTest_split_TestC1Ev(ptr noundef non
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_split_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix25ErrorTraceTest_split_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_split_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_split_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_split_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix25ErrorTraceTest_split_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -212795,32 +213172,35 @@ define linkonce_odr void @_ZN3nix36ErrorTraceTest_concatStringsSep_TestC1Ev(ptr 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix36ErrorTraceTest_concatStringsSep_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix36ErrorTraceTest_concatStringsSep_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ErrorTraceTest_concatStringsSep_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ErrorTraceTest_concatStringsSep_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ErrorTraceTest_concatStringsSep_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36ErrorTraceTest_concatStringsSep_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -212894,32 +213274,35 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_parseDrvName_TestC1Ev(ptr noun
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_parseDrvName_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_parseDrvName_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_parseDrvName_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_parseDrvName_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_parseDrvName_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_parseDrvName_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -212993,32 +213376,35 @@ define linkonce_odr void @_ZN3nix35ErrorTraceTest_compareVersions_TestC1Ev(ptr n
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix35ErrorTraceTest_compareVersions_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix35ErrorTraceTest_compareVersions_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ErrorTraceTest_compareVersions_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ErrorTraceTest_compareVersions_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ErrorTraceTest_compareVersions_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix35ErrorTraceTest_compareVersions_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -213092,32 +213478,35 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_splitVersion_TestC1Ev(ptr noun
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_splitVersion_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_splitVersion_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_splitVersion_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_splitVersion_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_splitVersion_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_splitVersion_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -213191,32 +213580,35 @@ define linkonce_odr void @_ZN3nix32ErrorTraceTest_traceVerbose_TestC1Ev(ptr noun
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1272
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef getelementptr inbounds ([8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_traceVerbose_TestE, i64 0, i64 1))
-          to label %7 unwind label %9
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZTTN3nix32ErrorTraceTest_traceVerbose_TestE, i64 0, i64 1
+  invoke void @_ZN3nix14ErrorTraceTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %5, ptr noundef %7)
+          to label %8 unwind label %12
 
-7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_traceVerbose_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_traceVerbose_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_traceVerbose_TestE, i32 0, i32 0, i32 3
+  store ptr %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 1272
+  %11 = getelementptr inbounds { [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32ErrorTraceTest_traceVerbose_TestE, i32 0, i32 1, i32 7
+  store ptr %11, ptr %10, align 8
   ret void
 
-9:                                                ; preds = %1
-  %10 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %3, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1272
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %3, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %4, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 1272
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %17
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -214468,29 +214860,30 @@ define linkonce_odr void @_ZN3nix11LibExprTest14SetUpTestSuiteEv() #5 comdat ali
   call void @_ZN3nix6initGCEv()
   call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  invoke void @_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(185) getelementptr inbounds (%"struct.nix::EvalSettings", ptr @_ZN3nix12evalSettingsE, i32 0, i32 2), ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %4 unwind label %5
+  %4 = getelementptr inbounds %"struct.nix::EvalSettings", ptr @_ZN3nix12evalSettingsE, i32 0, i32 2
+  invoke void @_ZN3nix7SettingINSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(185) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
+          to label %5 unwind label %6
 
-4:                                                ; preds = %0
+5:                                                ; preds = %0
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
   ret void
 
-5:                                                ; preds = %0
-  %6 = landingpad { ptr, i32 }
+6:                                                ; preds = %0
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %2, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %3, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %2, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %3, align 4
   call void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #3
-  br label %9
+  br label %10
 
-9:                                                ; preds = %5
-  %10 = load ptr, ptr %2, align 8
-  %11 = load i32, ptr %3, align 4
-  %12 = insertvalue { ptr, i32 } poison, ptr %10, 0
-  %13 = insertvalue { ptr, i32 } %12, i32 %11, 1
-  resume { ptr, i32 } %13
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %2, align 8
+  %12 = load i32, ptr %3, align 4
+  %13 = insertvalue { ptr, i32 } poison, ptr %11, 0
+  %14 = insertvalue { ptr, i32 } %13, i32 %12, 1
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -214883,10 +215276,11 @@ define linkonce_odr void @_ZN3nix9EvalErrorC2IJEEERNS_9EvalStateERKNSt7__cxx1112
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZN3nix5ErrorCI2NS_9BaseErrorEIJEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9EvalErrorE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.nix::EvalError", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %5, align 8
-  store ptr %10, ptr %9, align 8
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3nix9EvalErrorE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.nix::EvalError", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %5, align 8
+  store ptr %11, ptr %10, align 8
   ret void
 }
 
@@ -214899,7 +215293,8 @@ define linkonce_odr void @_ZN3nix5ErrorCI2NS_9BaseErrorEIJEEERKNSt7__cxx1112basi
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN3nix9BaseErrorC2IJEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix5ErrorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3nix5ErrorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -214952,47 +215347,48 @@ define linkonce_odr void @_ZN3nix9BaseErrorC2IJEEERKNSt7__cxx1112basic_stringIcS
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.nix::BaseError", ptr %7, i32 0, i32 1
-  %9 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %8, i32 0, i32 0
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %8, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN3nix7HintFmtC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %19
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.nix::BaseError", ptr %7, i32 0, i32 1
+  %10 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %9, i32 0, i32 0
+  store i32 0, ptr %10, align 8
+  %11 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8
+  invoke void @_ZN3nix7HintFmtC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %20
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %8, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN3nix3PosEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  %14 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %8, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 24, i1 false)
-  call void @_ZNSt7__cxx114listIN3nix5TraceESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
-  %15 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %8, i32 0, i32 4
-  store i32 1, ptr %15, align 8
-  %16 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %8, i32 0, i32 5
-  %17 = getelementptr inbounds %"class.nix::Suggestions", ptr %16, i32 0, i32 0
-  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 48, i1 false)
-  call void @_ZNSt3setIN3nix10SuggestionESt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
-  %18 = getelementptr inbounds %"class.nix::BaseError", ptr %7, i32 0, i32 2
-  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #3
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %9, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN3nix3PosEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
+  %15 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %9, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 24, i1 false)
+  call void @_ZNSt7__cxx114listIN3nix5TraceESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  %16 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %9, i32 0, i32 4
+  store i32 1, ptr %16, align 8
+  %17 = getelementptr inbounds %"struct.nix::ErrorInfo", ptr %9, i32 0, i32 5
+  %18 = getelementptr inbounds %"class.nix::Suggestions", ptr %17, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 48, i1 false)
+  call void @_ZNSt3setIN3nix10SuggestionESt4lessIS1_ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #3
+  %19 = getelementptr inbounds %"class.nix::BaseError", ptr %7, i32 0, i32 2
+  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
   ret void
 
-19:                                               ; preds = %2
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %2
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %5, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %6, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %5, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %6, align 4
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %23
+  br label %24
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -215056,11 +215452,12 @@ define linkonce_odr void @_ZN3nix9BaseErrorD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nix::BaseError", ptr %3, i32 0, i32 2
-  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
-  %5 = getelementptr inbounds %"class.nix::BaseError", ptr %3, i32 0, i32 1
-  call void @_ZN3nix9ErrorInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %5) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nix::BaseError", ptr %3, i32 0, i32 2
+  call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
+  %6 = getelementptr inbounds %"class.nix::BaseError", ptr %3, i32 0, i32 1
+  call void @_ZN3nix9ErrorInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %6) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -220256,6 +220653,9 @@ define internal void @_GLOBAL__sub_I_error_traces.cc() #0 section ".text.startup
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -220266,13 +220666,13 @@ attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind memory(none) }
-attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #16 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #15 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind memory(none) }
 attributes #17 = { builtin allocsize(0) }
 attributes #18 = { builtin nounwind }
 attributes #19 = { noreturn }

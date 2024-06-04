@@ -141,8 +141,10 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !11
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-24, 56) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io17CArchiveLoaderZIPE, i64 0, i32 0, i64 3), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io17CArchiveLoaderZIPE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io17CArchiveLoaderZIPE, i64 0, i32 0, i64 3
+  store ptr %1, ptr %this, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io17CArchiveLoaderZIPE, i64 0, i32 1, i64 3
+  store ptr %2, ptr %0, align 8, !tbaa !3
   %FileSystem = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %fs, ptr %FileSystem, align 8, !tbaa !6
   ret void
@@ -444,15 +446,17 @@ entry:
   %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 120
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !14
   %1 = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %1, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10
+  store ptr %2, ptr %1, align 8, !tbaa !3
+  %3 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3
+  store ptr %3, ptr %0, align 8, !tbaa !3
   %Password.i = getelementptr inbounds i8, ptr %this, i64 72
-  %2 = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr %2, ptr %Password.i, align 8, !tbaa !15
+  %4 = getelementptr inbounds i8, ptr %this, i64 88
+  store ptr %4, ptr %Password.i, align 8, !tbaa !15
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !17
-  store i8 0, ptr %2, align 8, !tbaa !20
-  %3 = getelementptr inbounds i8, ptr %this, i64 128
+  store i8 0, ptr %4, align 8, !tbaa !20
+  %5 = getelementptr inbounds i8, ptr %this, i64 128
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #23
   %tobool.not = icmp eq ptr %file, null
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -460,13 +464,13 @@ entry:
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %file, align 8, !tbaa !3
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
-  %4 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef nonnull align 8 dereferenceable(32) ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %file) #23
-  %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %5, ptr %ref.tmp, align 8, !tbaa !15
+  %6 = load ptr, ptr %vfn, align 8
+  %call = tail call noundef nonnull align 8 dereferenceable(32) ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %file) #23
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  store ptr %7, ptr %ref.tmp, align 8, !tbaa !15
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !17
-  store i8 0, ptr %5, align 8, !tbaa !20
+  store i8 0, ptr %7, align 8, !tbaa !20
   %cmp.i.i = icmp eq ptr %ref.tmp, %call
   br i1 %cmp.i.i, label %cond.end, label %if.end.i.i
 
@@ -475,38 +479,43 @@ if.end.i.i:                                       ; preds = %cond.true
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %6, ptr %ref.tmp, align 8, !tbaa !15
+  %8 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  store ptr %8, ptr %ref.tmp, align 8, !tbaa !15
   %_M_string_length.i.i.i.i32 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i32, align 8, !tbaa !17
-  store i8 0, ptr %6, align 8, !tbaa !20
+  store i8 0, ptr %8, align 8, !tbaa !20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 0, i8 noundef signext 0) #23
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %if.end.i.i, %cond.true
-  call void @_ZN3irr2io9CFileListC2ERKNS_4core6stringIcEEbb(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6), ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths) #23
-  %7 = load ptr, ptr %ref.tmp, align 8, !tbaa !21
-  %8 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i.i = icmp eq ptr %7, %8
+  %9 = getelementptr inbounds [10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6
+  call void @_ZN3irr2io9CFileListC2ERKNS_4core6stringIcEEbb(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths) #23
+  %10 = load ptr, ptr %ref.tmp, align 8, !tbaa !21
+  %11 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %cmp.i.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %cond.end
   %_M_string_length.i.i.i.i34 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %9 = load i64, ptr %_M_string_length.i.i.i.i34, align 8, !tbaa !17
-  %cmp3.i.i.i.i = icmp ult i64 %9, 16
+  %12 = load i64, ptr %_M_string_length.i.i.i.i34, align 8, !tbaa !17
+  %cmp3.i.i.i.i = icmp ult i64 %12, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %cond.end
-  call void @_ZdlPv(ptr noundef %7) #24
+  call void @_ZdlPv(ptr noundef %10) #24
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #23
-  store ptr getelementptr inbounds inrange(-40, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %1, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-120, 104) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %3, align 8, !tbaa !3
+  %13 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5
+  store ptr %13, ptr %this, align 8, !tbaa !3
+  %14 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10
+  store ptr %14, ptr %1, align 8, !tbaa !3
+  %15 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3
+  store ptr %15, ptr %0, align 8, !tbaa !3
+  %16 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15
+  store ptr %16, ptr %5, align 8, !tbaa !3
   %FileSystem = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %fs, ptr %FileSystem, align 8, !tbaa !24
   %File = getelementptr inbounds i8, ptr %this, i64 16
@@ -525,8 +534,8 @@ if.then:                                          ; preds = %_ZN3irr4core6string
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr14 = getelementptr inbounds i8, ptr %file, i64 %vbase.offset
   %ReferenceCounter.i35 = getelementptr inbounds i8, ptr %add.ptr14, i64 16
-  %10 = load i32, ptr %ReferenceCounter.i35, align 8, !tbaa !14
-  %inc.i = add nsw i32 %10, 1
+  %17 = load i32, ptr %ReferenceCounter.i35, align 8, !tbaa !14
+  %inc.i = add nsw i32 %17, 1
   store i32 %inc.i, ptr %ReferenceCounter.i35, align 8, !tbaa !14
   br i1 %isGZip, label %while.cond, label %while.cond19
 
@@ -545,8 +554,8 @@ if.end:                                           ; preds = %while.cond19, %whil
   %add.ptr26 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset25
   %vtable27 = load ptr, ptr %add.ptr26, align 8, !tbaa !3
   %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 80
-  %11 = load ptr, ptr %vfn28, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr26) #23
+  %18 = load ptr, ptr %vfn28, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr26) #23
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end, %_ZN3irr4core6stringIcED2Ev.exit
@@ -1816,26 +1825,30 @@ _ZN3irr4core5arrayINS_2io13SZipFileEntryEED2Ev.exit: ; preds = %if.then.i.i.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io10CZipReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %this, align 8, !tbaa !3
+  %0 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5
+  store ptr %0, ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %add.ptr.i, align 8, !tbaa !3
+  %1 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10
+  store ptr %1, ptr %add.ptr.i, align 8, !tbaa !3
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %add.ptr6.i, align 8, !tbaa !3
+  %2 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3
+  store ptr %2, ptr %add.ptr6.i, align 8, !tbaa !3
   %add.ptr10.i = getelementptr inbounds i8, ptr %this, i64 128
-  store ptr getelementptr inbounds inrange(-120, 104) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %add.ptr10.i, align 8, !tbaa !3
+  %3 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15
+  store ptr %3, ptr %add.ptr10.i, align 8, !tbaa !3
   %File.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load ptr, ptr %File.i, align 8, !tbaa !32
-  %tobool.not.i = icmp eq ptr %0, null
+  %4 = load ptr, ptr %File.i, align 8, !tbaa !32
+  %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %vtable12.i = load ptr, ptr %0, align 8, !tbaa !3
+  %vtable12.i = load ptr, ptr %4, align 8, !tbaa !3
   %vbase.offset.ptr13.i = getelementptr i8, ptr %vtable12.i, i64 -24
   %vbase.offset14.i = load i64, ptr %vbase.offset.ptr13.i, align 8
-  %add.ptr15.i = getelementptr inbounds i8, ptr %0, i64 %vbase.offset14.i
+  %add.ptr15.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset14.i
   %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %add.ptr15.i, i64 16
-  %1 = load i32, ptr %ReferenceCounter.i.i, align 8, !tbaa !14
-  %dec.i.i = add nsw i32 %1, -1
+  %5 = load i32, ptr %ReferenceCounter.i.i, align 8, !tbaa !14
+  %dec.i.i = add nsw i32 %5, -1
   store i32 %dec.i.i, ptr %ReferenceCounter.i.i, align 8, !tbaa !14
   %tobool.not.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %tobool.not.i.i, label %delete.notnull.i.i, label %if.end.i
@@ -1843,39 +1856,42 @@ if.then.i:                                        ; preds = %entry
 delete.notnull.i.i:                               ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %add.ptr15.i, align 8, !tbaa !3
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %2 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i) #23
+  %6 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i) #23
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull.i.i, %if.then.i, %entry
   %FileInfo.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load ptr, ptr %FileInfo.i, align 8, !tbaa !60
-  %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
+  %7 = load ptr, ptr %FileInfo.i, align 8, !tbaa !60
+  %tobool.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN3irr2io10CZipReaderD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #24
   br label %_ZN3irr2io10CZipReaderD2Ev.exit
 
 _ZN3irr2io10CZipReaderD2Ev.exit:                  ; preds = %if.then.i.i.i.i.i, %if.end.i
-  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #23
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %add.ptr.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %add.ptr6.i, align 8, !tbaa !3
+  %8 = getelementptr inbounds [10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6
+  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i, ptr noundef nonnull %8) #23
+  %9 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10
+  store ptr %9, ptr %add.ptr.i, align 8, !tbaa !3
+  %10 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3
+  store ptr %10, ptr %add.ptr6.i, align 8, !tbaa !3
   %Password.i = getelementptr inbounds i8, ptr %this, i64 72
-  %4 = load ptr, ptr %Password.i, align 8, !tbaa !21
-  %5 = getelementptr inbounds i8, ptr %this, i64 88
-  %cmp.i.i.i.i.i = icmp eq ptr %4, %5
+  %11 = load ptr, ptr %Password.i, align 8, !tbaa !21
+  %12 = getelementptr inbounds i8, ptr %this, i64 88
+  %cmp.i.i.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %6 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !17
-  %cmp3.i.i.i.i.i = icmp ult i64 %6, 16
+  %13 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !17
+  %cmp3.i.i.i.i.i = icmp ult i64 %13, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
   br label %_ZN3irr2io12IFileArchiveD2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %4) #24
+  tail call void @_ZdlPv(ptr noundef %11) #24
   br label %_ZN3irr2io12IFileArchiveD2Ev.exit
 
 _ZN3irr2io12IFileArchiveD2Ev.exit:                ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
@@ -1892,26 +1908,30 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -80
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-40, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5
+  store ptr %4, ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %add.ptr.i.i, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10
+  store ptr %5, ptr %add.ptr.i.i, align 8, !tbaa !3
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %add.ptr6.i.i, align 8, !tbaa !3
+  %6 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3
+  store ptr %6, ptr %add.ptr6.i.i, align 8, !tbaa !3
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %3, i64 128
-  store ptr getelementptr inbounds inrange(-120, 104) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %add.ptr10.i.i, align 8, !tbaa !3
+  %7 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15
+  store ptr %7, ptr %add.ptr10.i.i, align 8, !tbaa !3
   %File.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %4 = load ptr, ptr %File.i.i, align 8, !tbaa !32
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %8 = load ptr, ptr %File.i.i, align 8, !tbaa !32
+  %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %vtable12.i.i = load ptr, ptr %4, align 8, !tbaa !3
+  %vtable12.i.i = load ptr, ptr %8, align 8, !tbaa !3
   %vbase.offset.ptr13.i.i = getelementptr i8, ptr %vtable12.i.i, i64 -24
   %vbase.offset14.i.i = load i64, ptr %vbase.offset.ptr13.i.i, align 8
-  %add.ptr15.i.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset14.i.i
+  %add.ptr15.i.i = getelementptr inbounds i8, ptr %8, i64 %vbase.offset14.i.i
   %ReferenceCounter.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i, i64 16
-  %5 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
-  %dec.i.i.i = add nsw i32 %5, -1
+  %9 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
+  %dec.i.i.i = add nsw i32 %9, -1
   store i32 %dec.i.i.i, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
   %tobool.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %delete.notnull.i.i.i, label %if.end.i.i
@@ -1919,39 +1939,42 @@ if.then.i.i:                                      ; preds = %entry
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %add.ptr15.i.i, align 8, !tbaa !3
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %6 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i.i) #23
+  %10 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i.i) #23
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull.i.i.i, %if.then.i.i, %entry
   %FileInfo.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = load ptr, ptr %FileInfo.i.i, align 8, !tbaa !60
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
+  %11 = load ptr, ptr %FileInfo.i.i, align 8, !tbaa !60
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3irr2io10CZipReaderD2Ev.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
   br label %_ZN3irr2io10CZipReaderD2Ev.exit.i
 
 _ZN3irr2io10CZipReaderD2Ev.exit.i:                ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i
-  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #23
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %add.ptr.i.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %add.ptr6.i.i, align 8, !tbaa !3
+  %12 = getelementptr inbounds [10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6
+  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i, ptr noundef nonnull %12) #23
+  %13 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10
+  store ptr %13, ptr %add.ptr.i.i, align 8, !tbaa !3
+  %14 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3
+  store ptr %14, ptr %add.ptr6.i.i, align 8, !tbaa !3
   %Password.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  %8 = load ptr, ptr %Password.i.i, align 8, !tbaa !21
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
-  %cmp.i.i.i.i.i.i = icmp eq ptr %8, %9
+  %15 = load ptr, ptr %Password.i.i, align 8, !tbaa !21
+  %16 = getelementptr inbounds i8, ptr %3, i64 88
+  %cmp.i.i.i.i.i.i = icmp eq ptr %15, %16
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
-  %10 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !17
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %10, 16
+  %17 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !17
+  %cmp3.i.i.i.i.i.i = icmp ult i64 %17, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZN3irr2io10CZipReaderD1Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef %8) #24
+  tail call void @_ZdlPv(ptr noundef %15) #24
   br label %_ZN3irr2io10CZipReaderD1Ev.exit
 
 _ZN3irr2io10CZipReaderD1Ev.exit:                  ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
@@ -1965,26 +1988,30 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-40, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5
+  store ptr %4, ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %add.ptr.i.i, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10
+  store ptr %5, ptr %add.ptr.i.i, align 8, !tbaa !3
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %add.ptr6.i.i, align 8, !tbaa !3
+  %6 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3
+  store ptr %6, ptr %add.ptr6.i.i, align 8, !tbaa !3
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %3, i64 128
-  store ptr getelementptr inbounds inrange(-120, 104) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %add.ptr10.i.i, align 8, !tbaa !3
+  %7 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15
+  store ptr %7, ptr %add.ptr10.i.i, align 8, !tbaa !3
   %File.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %4 = load ptr, ptr %File.i.i, align 8, !tbaa !32
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %8 = load ptr, ptr %File.i.i, align 8, !tbaa !32
+  %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %vtable12.i.i = load ptr, ptr %4, align 8, !tbaa !3
+  %vtable12.i.i = load ptr, ptr %8, align 8, !tbaa !3
   %vbase.offset.ptr13.i.i = getelementptr i8, ptr %vtable12.i.i, i64 -24
   %vbase.offset14.i.i = load i64, ptr %vbase.offset.ptr13.i.i, align 8
-  %add.ptr15.i.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset14.i.i
+  %add.ptr15.i.i = getelementptr inbounds i8, ptr %8, i64 %vbase.offset14.i.i
   %ReferenceCounter.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i, i64 16
-  %5 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
-  %dec.i.i.i = add nsw i32 %5, -1
+  %9 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
+  %dec.i.i.i = add nsw i32 %9, -1
   store i32 %dec.i.i.i, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
   %tobool.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %delete.notnull.i.i.i, label %if.end.i.i
@@ -1992,39 +2019,42 @@ if.then.i.i:                                      ; preds = %entry
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %add.ptr15.i.i, align 8, !tbaa !3
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %6 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i.i) #23
+  %10 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i.i) #23
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull.i.i.i, %if.then.i.i, %entry
   %FileInfo.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = load ptr, ptr %FileInfo.i.i, align 8, !tbaa !60
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
+  %11 = load ptr, ptr %FileInfo.i.i, align 8, !tbaa !60
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3irr2io10CZipReaderD2Ev.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
   br label %_ZN3irr2io10CZipReaderD2Ev.exit.i
 
 _ZN3irr2io10CZipReaderD2Ev.exit.i:                ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i
-  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #23
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %add.ptr.i.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %add.ptr6.i.i, align 8, !tbaa !3
+  %12 = getelementptr inbounds [10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6
+  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i, ptr noundef nonnull %12) #23
+  %13 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10
+  store ptr %13, ptr %add.ptr.i.i, align 8, !tbaa !3
+  %14 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3
+  store ptr %14, ptr %add.ptr6.i.i, align 8, !tbaa !3
   %Password.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  %8 = load ptr, ptr %Password.i.i, align 8, !tbaa !21
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
-  %cmp.i.i.i.i.i.i = icmp eq ptr %8, %9
+  %15 = load ptr, ptr %Password.i.i, align 8, !tbaa !21
+  %16 = getelementptr inbounds i8, ptr %3, i64 88
+  %cmp.i.i.i.i.i.i = icmp eq ptr %15, %16
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
-  %10 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !17
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %10, 16
+  %17 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !17
+  %cmp3.i.i.i.i.i.i = icmp ult i64 %17, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZN3irr2io10CZipReaderD1Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef %8) #24
+  tail call void @_ZdlPv(ptr noundef %15) #24
   br label %_ZN3irr2io10CZipReaderD1Ev.exit
 
 _ZN3irr2io10CZipReaderD1Ev.exit:                  ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
@@ -2038,14 +2068,94 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -120
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-40, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5
+  store ptr %4, ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %add.ptr.i.i, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10
+  store ptr %5, ptr %add.ptr.i.i, align 8, !tbaa !3
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %add.ptr6.i.i, align 8, !tbaa !3
+  %6 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3
+  store ptr %6, ptr %add.ptr6.i.i, align 8, !tbaa !3
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %3, i64 128
-  store ptr getelementptr inbounds inrange(-120, 104) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %add.ptr10.i.i, align 8, !tbaa !3
+  %7 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15
+  store ptr %7, ptr %add.ptr10.i.i, align 8, !tbaa !3
   %File.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = load ptr, ptr %File.i.i, align 8, !tbaa !32
+  %tobool.not.i.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %entry
+  %vtable12.i.i = load ptr, ptr %8, align 8, !tbaa !3
+  %vbase.offset.ptr13.i.i = getelementptr i8, ptr %vtable12.i.i, i64 -24
+  %vbase.offset14.i.i = load i64, ptr %vbase.offset.ptr13.i.i, align 8
+  %add.ptr15.i.i = getelementptr inbounds i8, ptr %8, i64 %vbase.offset14.i.i
+  %ReferenceCounter.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i, i64 16
+  %9 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
+  %dec.i.i.i = add nsw i32 %9, -1
+  store i32 %dec.i.i.i, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
+  %tobool.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
+  br i1 %tobool.not.i.i.i, label %delete.notnull.i.i.i, label %if.end.i.i
+
+delete.notnull.i.i.i:                             ; preds = %if.then.i.i
+  %vtable.i.i.i = load ptr, ptr %add.ptr15.i.i, align 8, !tbaa !3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %10 = load ptr, ptr %vfn.i.i.i, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i.i) #23
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %delete.notnull.i.i.i, %if.then.i.i, %entry
+  %FileInfo.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = load ptr, ptr %FileInfo.i.i, align 8, !tbaa !60
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3irr2io10CZipReaderD2Ev.exit.i, label %if.then.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
+  br label %_ZN3irr2io10CZipReaderD2Ev.exit.i
+
+_ZN3irr2io10CZipReaderD2Ev.exit.i:                ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i
+  %12 = getelementptr inbounds [10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6
+  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i, ptr noundef nonnull %12) #23
+  %13 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10
+  store ptr %13, ptr %add.ptr.i.i, align 8, !tbaa !3
+  %14 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3
+  store ptr %14, ptr %add.ptr6.i.i, align 8, !tbaa !3
+  %Password.i.i = getelementptr inbounds i8, ptr %3, i64 72
+  %15 = load ptr, ptr %Password.i.i, align 8, !tbaa !21
+  %16 = getelementptr inbounds i8, ptr %3, i64 88
+  %cmp.i.i.i.i.i.i = icmp eq ptr %15, %16
+  br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
+  %17 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !17
+  %cmp3.i.i.i.i.i.i = icmp ult i64 %17, 16
+  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
+  br label %_ZN3irr2io10CZipReaderD1Ev.exit
+
+if.then.i.i.i.i.i:                                ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i
+  tail call void @_ZdlPv(ptr noundef %15) #24
+  br label %_ZN3irr2io10CZipReaderD1Ev.exit
+
+_ZN3irr2io10CZipReaderD1Ev.exit:                  ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3irr2io10CZipReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #2 align 2 {
+entry:
+  %0 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5
+  store ptr %0, ptr %this, align 8, !tbaa !3
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %1 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10
+  store ptr %1, ptr %add.ptr.i.i, align 8, !tbaa !3
+  %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %2 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3
+  store ptr %2, ptr %add.ptr6.i.i, align 8, !tbaa !3
+  %add.ptr10.i.i = getelementptr inbounds i8, ptr %this, i64 128
+  %3 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15
+  store ptr %3, ptr %add.ptr10.i.i, align 8, !tbaa !3
+  %File.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %File.i.i, align 8, !tbaa !32
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -2070,7 +2180,7 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull.i.i.i, %if.then.i.i, %entry
-  %FileInfo.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %FileInfo.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %FileInfo.i.i, align 8, !tbaa !60
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3irr2io10CZipReaderD2Ev.exit.i, label %if.then.i.i.i.i.i.i
@@ -2080,93 +2190,27 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i
   br label %_ZN3irr2io10CZipReaderD2Ev.exit.i
 
 _ZN3irr2io10CZipReaderD2Ev.exit.i:                ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i
-  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #23
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %add.ptr.i.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %add.ptr6.i.i, align 8, !tbaa !3
-  %Password.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  %8 = load ptr, ptr %Password.i.i, align 8, !tbaa !21
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
-  %cmp.i.i.i.i.i.i = icmp eq ptr %8, %9
-  br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
-  %10 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !17
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %10, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
-  br label %_ZN3irr2io10CZipReaderD1Ev.exit
-
-if.then.i.i.i.i.i:                                ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef %8) #24
-  br label %_ZN3irr2io10CZipReaderD1Ev.exit
-
-_ZN3irr2io10CZipReaderD1Ev.exit:                  ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CZipReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #2 align 2 {
-entry:
-  store ptr getelementptr inbounds inrange(-40, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %this, align 8, !tbaa !3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %add.ptr.i.i, align 8, !tbaa !3
-  %add.ptr6.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %add.ptr6.i.i, align 8, !tbaa !3
-  %add.ptr10.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  store ptr getelementptr inbounds inrange(-120, 104) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %add.ptr10.i.i, align 8, !tbaa !3
-  %File.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load ptr, ptr %File.i.i, align 8, !tbaa !32
-  %tobool.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  %vtable12.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vbase.offset.ptr13.i.i = getelementptr i8, ptr %vtable12.i.i, i64 -24
-  %vbase.offset14.i.i = load i64, ptr %vbase.offset.ptr13.i.i, align 8
-  %add.ptr15.i.i = getelementptr inbounds i8, ptr %0, i64 %vbase.offset14.i.i
-  %ReferenceCounter.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i, i64 16
-  %1 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
-  %dec.i.i.i = add nsw i32 %1, -1
-  store i32 %dec.i.i.i, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
-  %tobool.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %delete.notnull.i.i.i, label %if.end.i.i
-
-delete.notnull.i.i.i:                             ; preds = %if.then.i.i
-  %vtable.i.i.i = load ptr, ptr %add.ptr15.i.i, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %2 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i.i) #23
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %delete.notnull.i.i.i, %if.then.i.i, %entry
-  %FileInfo.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load ptr, ptr %FileInfo.i.i, align 8, !tbaa !60
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3irr2io10CZipReaderD2Ev.exit.i, label %if.then.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #24
-  br label %_ZN3irr2io10CZipReaderD2Ev.exit.i
-
-_ZN3irr2io10CZipReaderD2Ev.exit.i:                ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i
-  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #23
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %add.ptr.i.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %add.ptr6.i.i, align 8, !tbaa !3
+  %8 = getelementptr inbounds [10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6
+  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i, ptr noundef nonnull %8) #23
+  %9 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10
+  store ptr %9, ptr %add.ptr.i.i, align 8, !tbaa !3
+  %10 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3
+  store ptr %10, ptr %add.ptr6.i.i, align 8, !tbaa !3
   %Password.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %4 = load ptr, ptr %Password.i.i, align 8, !tbaa !21
-  %5 = getelementptr inbounds i8, ptr %this, i64 88
-  %cmp.i.i.i.i.i.i = icmp eq ptr %4, %5
+  %11 = load ptr, ptr %Password.i.i, align 8, !tbaa !21
+  %12 = getelementptr inbounds i8, ptr %this, i64 88
+  %cmp.i.i.i.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %6 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !17
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %6, 16
+  %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !17
+  %cmp3.i.i.i.i.i.i = icmp ult i64 %13, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZN3irr2io10CZipReaderD1Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef %4) #24
+  tail call void @_ZdlPv(ptr noundef %11) #24
   br label %_ZN3irr2io10CZipReaderD1Ev.exit
 
 _ZN3irr2io10CZipReaderD1Ev.exit:                  ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
@@ -2184,26 +2228,30 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -80
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-40, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5
+  store ptr %4, ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10
+  store ptr %5, ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %add.ptr6.i.i.i, align 8, !tbaa !3
+  %6 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3
+  store ptr %6, ptr %add.ptr6.i.i.i, align 8, !tbaa !3
   %add.ptr10.i.i.i = getelementptr inbounds i8, ptr %3, i64 128
-  store ptr getelementptr inbounds inrange(-120, 104) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %add.ptr10.i.i.i, align 8, !tbaa !3
+  %7 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15
+  store ptr %7, ptr %add.ptr10.i.i.i, align 8, !tbaa !3
   %File.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %4 = load ptr, ptr %File.i.i.i, align 8, !tbaa !32
-  %tobool.not.i.i.i = icmp eq ptr %4, null
+  %8 = load ptr, ptr %File.i.i.i, align 8, !tbaa !32
+  %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %vtable12.i.i.i = load ptr, ptr %4, align 8, !tbaa !3
+  %vtable12.i.i.i = load ptr, ptr %8, align 8, !tbaa !3
   %vbase.offset.ptr13.i.i.i = getelementptr i8, ptr %vtable12.i.i.i, i64 -24
   %vbase.offset14.i.i.i = load i64, ptr %vbase.offset.ptr13.i.i.i, align 8
-  %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset14.i.i.i
+  %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %8, i64 %vbase.offset14.i.i.i
   %ReferenceCounter.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i.i, i64 16
-  %5 = load i32, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !14
-  %dec.i.i.i.i = add nsw i32 %5, -1
+  %9 = load i32, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !14
+  %dec.i.i.i.i = add nsw i32 %9, -1
   store i32 %dec.i.i.i.i, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !14
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %delete.notnull.i.i.i.i, label %if.end.i.i.i
@@ -2211,39 +2259,42 @@ if.then.i.i.i:                                    ; preds = %entry
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %add.ptr15.i.i.i, align 8, !tbaa !3
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %6 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i.i.i) #23
+  %10 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i.i.i) #23
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %entry
   %FileInfo.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = load ptr, ptr %FileInfo.i.i.i, align 8, !tbaa !60
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
+  %11 = load ptr, ptr %FileInfo.i.i.i, align 8, !tbaa !60
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN3irr2io10CZipReaderD2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
   br label %_ZN3irr2io10CZipReaderD2Ev.exit.i.i
 
 _ZN3irr2io10CZipReaderD2Ev.exit.i.i:              ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i
-  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i.i, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #23
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %add.ptr.i.i.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %add.ptr6.i.i.i, align 8, !tbaa !3
+  %12 = getelementptr inbounds [10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6
+  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i.i, ptr noundef nonnull %12) #23
+  %13 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10
+  store ptr %13, ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  %14 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3
+  store ptr %14, ptr %add.ptr6.i.i.i, align 8, !tbaa !3
   %Password.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  %8 = load ptr, ptr %Password.i.i.i, align 8, !tbaa !21
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %8, %9
+  %15 = load ptr, ptr %Password.i.i.i, align 8, !tbaa !21
+  %16 = getelementptr inbounds i8, ptr %3, i64 88
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %15, %16
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i.i
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
-  %10 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !17
-  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %10, 16
+  %17 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !17
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %17, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   br label %_ZN3irr2io10CZipReaderD0Ev.exit
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef %8) #24
+  tail call void @_ZdlPv(ptr noundef %15) #24
   br label %_ZN3irr2io10CZipReaderD0Ev.exit
 
 _ZN3irr2io10CZipReaderD0Ev.exit:                  ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
@@ -2258,26 +2309,30 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-40, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5
+  store ptr %4, ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10
+  store ptr %5, ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %add.ptr6.i.i.i, align 8, !tbaa !3
+  %6 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3
+  store ptr %6, ptr %add.ptr6.i.i.i, align 8, !tbaa !3
   %add.ptr10.i.i.i = getelementptr inbounds i8, ptr %3, i64 128
-  store ptr getelementptr inbounds inrange(-120, 104) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %add.ptr10.i.i.i, align 8, !tbaa !3
+  %7 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15
+  store ptr %7, ptr %add.ptr10.i.i.i, align 8, !tbaa !3
   %File.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %4 = load ptr, ptr %File.i.i.i, align 8, !tbaa !32
-  %tobool.not.i.i.i = icmp eq ptr %4, null
+  %8 = load ptr, ptr %File.i.i.i, align 8, !tbaa !32
+  %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %vtable12.i.i.i = load ptr, ptr %4, align 8, !tbaa !3
+  %vtable12.i.i.i = load ptr, ptr %8, align 8, !tbaa !3
   %vbase.offset.ptr13.i.i.i = getelementptr i8, ptr %vtable12.i.i.i, i64 -24
   %vbase.offset14.i.i.i = load i64, ptr %vbase.offset.ptr13.i.i.i, align 8
-  %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset14.i.i.i
+  %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %8, i64 %vbase.offset14.i.i.i
   %ReferenceCounter.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i.i, i64 16
-  %5 = load i32, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !14
-  %dec.i.i.i.i = add nsw i32 %5, -1
+  %9 = load i32, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !14
+  %dec.i.i.i.i = add nsw i32 %9, -1
   store i32 %dec.i.i.i.i, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !14
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %delete.notnull.i.i.i.i, label %if.end.i.i.i
@@ -2285,39 +2340,42 @@ if.then.i.i.i:                                    ; preds = %entry
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %add.ptr15.i.i.i, align 8, !tbaa !3
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %6 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i.i.i) #23
+  %10 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i.i.i) #23
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %entry
   %FileInfo.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = load ptr, ptr %FileInfo.i.i.i, align 8, !tbaa !60
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
+  %11 = load ptr, ptr %FileInfo.i.i.i, align 8, !tbaa !60
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN3irr2io10CZipReaderD2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
   br label %_ZN3irr2io10CZipReaderD2Ev.exit.i.i
 
 _ZN3irr2io10CZipReaderD2Ev.exit.i.i:              ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i
-  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i.i, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #23
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %add.ptr.i.i.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %add.ptr6.i.i.i, align 8, !tbaa !3
+  %12 = getelementptr inbounds [10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6
+  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i.i, ptr noundef nonnull %12) #23
+  %13 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10
+  store ptr %13, ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  %14 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3
+  store ptr %14, ptr %add.ptr6.i.i.i, align 8, !tbaa !3
   %Password.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  %8 = load ptr, ptr %Password.i.i.i, align 8, !tbaa !21
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %8, %9
+  %15 = load ptr, ptr %Password.i.i.i, align 8, !tbaa !21
+  %16 = getelementptr inbounds i8, ptr %3, i64 88
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %15, %16
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i.i
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
-  %10 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !17
-  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %10, 16
+  %17 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !17
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %17, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   br label %_ZN3irr2io10CZipReaderD0Ev.exit
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef %8) #24
+  tail call void @_ZdlPv(ptr noundef %15) #24
   br label %_ZN3irr2io10CZipReaderD0Ev.exit
 
 _ZN3irr2io10CZipReaderD0Ev.exit:                  ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
@@ -2332,26 +2390,30 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -120
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds inrange(-40, 56) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5
+  store ptr %4, ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  %5 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10
+  store ptr %5, ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %add.ptr6.i.i.i, align 8, !tbaa !3
+  %6 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3
+  store ptr %6, ptr %add.ptr6.i.i.i, align 8, !tbaa !3
   %add.ptr10.i.i.i = getelementptr inbounds i8, ptr %3, i64 128
-  store ptr getelementptr inbounds inrange(-120, 104) ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %add.ptr10.i.i.i, align 8, !tbaa !3
+  %7 = getelementptr inbounds { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15
+  store ptr %7, ptr %add.ptr10.i.i.i, align 8, !tbaa !3
   %File.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %4 = load ptr, ptr %File.i.i.i, align 8, !tbaa !32
-  %tobool.not.i.i.i = icmp eq ptr %4, null
+  %8 = load ptr, ptr %File.i.i.i, align 8, !tbaa !32
+  %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %vtable12.i.i.i = load ptr, ptr %4, align 8, !tbaa !3
+  %vtable12.i.i.i = load ptr, ptr %8, align 8, !tbaa !3
   %vbase.offset.ptr13.i.i.i = getelementptr i8, ptr %vtable12.i.i.i, i64 -24
   %vbase.offset14.i.i.i = load i64, ptr %vbase.offset.ptr13.i.i.i, align 8
-  %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset14.i.i.i
+  %add.ptr15.i.i.i = getelementptr inbounds i8, ptr %8, i64 %vbase.offset14.i.i.i
   %ReferenceCounter.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i.i, i64 16
-  %5 = load i32, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !14
-  %dec.i.i.i.i = add nsw i32 %5, -1
+  %9 = load i32, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !14
+  %dec.i.i.i.i = add nsw i32 %9, -1
   store i32 %dec.i.i.i.i, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !14
   %tobool.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %delete.notnull.i.i.i.i, label %if.end.i.i.i
@@ -2359,39 +2421,42 @@ if.then.i.i.i:                                    ; preds = %entry
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %add.ptr15.i.i.i, align 8, !tbaa !3
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %6 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i.i.i) #23
+  %10 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr15.i.i.i) #23
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %entry
   %FileInfo.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = load ptr, ptr %FileInfo.i.i.i, align 8, !tbaa !60
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
+  %11 = load ptr, ptr %FileInfo.i.i.i, align 8, !tbaa !60
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN3irr2io10CZipReaderD2Ev.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #24
   br label %_ZN3irr2io10CZipReaderD2Ev.exit.i.i
 
 _ZN3irr2io10CZipReaderD2Ev.exit.i.i:              ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i
-  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i.i, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #23
-  store ptr getelementptr inbounds inrange(-80, 64) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %add.ptr.i.i.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-24, 16) ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %add.ptr6.i.i.i, align 8, !tbaa !3
+  %12 = getelementptr inbounds [10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6
+  tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr10.i.i.i, ptr noundef nonnull %12) #23
+  %13 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10
+  store ptr %13, ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  %14 = getelementptr inbounds { [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3
+  store ptr %14, ptr %add.ptr6.i.i.i, align 8, !tbaa !3
   %Password.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  %8 = load ptr, ptr %Password.i.i.i, align 8, !tbaa !21
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %8, %9
+  %15 = load ptr, ptr %Password.i.i.i, align 8, !tbaa !21
+  %16 = getelementptr inbounds i8, ptr %3, i64 88
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %15, %16
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i.i
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
-  %10 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !17
-  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %10, 16
+  %17 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !17
+  %cmp3.i.i.i.i.i.i.i = icmp ult i64 %17, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   br label %_ZN3irr2io10CZipReaderD0Ev.exit
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN3irr2io10CZipReaderD2Ev.exit.i.i
-  tail call void @_ZdlPv(ptr noundef %8) #24
+  tail call void @_ZdlPv(ptr noundef %15) #24
   br label %_ZN3irr2io10CZipReaderD0Ev.exit
 
 _ZN3irr2io10CZipReaderD0Ev.exit:                  ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i

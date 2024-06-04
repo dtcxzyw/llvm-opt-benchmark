@@ -1043,22 +1043,23 @@ entry:
   %add8 = add i64 %conv7, 8
   %conv9 = trunc i64 %add8 to i32
   store i32 %conv9, ptr %p, align 4
-  store i64 ptrtoint (ptr @lua_newstate to i64), ptr %t10, align 8
+  %7 = ptrtoint ptr @lua_newstate to i64
+  store i64 %7, ptr %t10, align 8
   %arraydecay11 = getelementptr inbounds [24 x i8], ptr %buff, i64 0, i64 0
-  %7 = load i32, ptr %p, align 4
-  %idx.ext12 = sext i32 %7 to i64
+  %8 = load i32, ptr %p, align 4
+  %idx.ext12 = sext i32 %8 to i64
   %add.ptr13 = getelementptr inbounds i8, ptr %arraydecay11, i64 %idx.ext12
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr13, ptr align 8 %t10, i64 8, i1 false)
-  %8 = load i32, ptr %p, align 4
-  %conv14 = sext i32 %8 to i64
+  %9 = load i32, ptr %p, align 4
+  %conv14 = sext i32 %9 to i64
   %add15 = add i64 %conv14, 8
   %conv16 = trunc i64 %add15 to i32
   store i32 %conv16, ptr %p, align 4
   %arraydecay17 = getelementptr inbounds [24 x i8], ptr %buff, i64 0, i64 0
-  %9 = load i32, ptr %p, align 4
-  %conv18 = sext i32 %9 to i64
-  %10 = load i32, ptr %h, align 4
-  %call19 = call i32 @luaS_hash(ptr noundef %arraydecay17, i64 noundef %conv18, i32 noundef %10)
+  %10 = load i32, ptr %p, align 4
+  %conv18 = sext i32 %10 to i64
+  %11 = load i32, ptr %h, align 4
+  %call19 = call i32 @luaS_hash(ptr noundef %arraydecay17, i64 noundef %conv18, i32 noundef %11)
   ret i32 %call19
 }
 

@@ -30,39 +30,40 @@ define internal i32 @generate_node_regex(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 5), align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = call zeroext i1 %9(ptr noundef %10, ptr noundef %7, ptr noundef %6)
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %2
-  store i32 -1366, ptr %3, align 4
-  br label %24
+  %9 = getelementptr inbounds %struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = call zeroext i1 %10(ptr noundef %11, ptr noundef %7, ptr noundef %6)
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %7, align 8
-  %15 = icmp eq ptr null, %14
-  br i1 %15, label %16, label %17
+  store i32 -1366, ptr %3, align 4
+  br label %25
 
-16:                                               ; preds = %13
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %7, align 8
+  %16 = icmp eq ptr null, %15
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
   store i32 -32, ptr %3, align 4
-  br label %24
+  br label %25
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i64, ptr %6, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = call i32 @pack_blob(ptr noundef %18, i64 noundef %19, ptr noundef %20)
-  store i32 %21, ptr %8, align 4
-  %22 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %22) #7
-  %23 = load i32, ptr %8, align 4
-  store i32 %23, ptr %3, align 4
-  br label %24
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i64, ptr %6, align 8
+  %21 = load ptr, ptr %5, align 8
+  %22 = call i32 @pack_blob(ptr noundef %19, i64 noundef %20, ptr noundef %21)
+  store i32 %22, ptr %8, align 4
+  %23 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %23) #7
+  %24 = load i32, ptr %8, align 4
+  store i32 %24, ptr %3, align 4
+  br label %25
 
-24:                                               ; preds = %17, %16, %12
-  %25 = load i32, ptr %3, align 4
-  ret i32 %25
+25:                                               ; preds = %18, %17, %13
+  %26 = load i32, ptr %3, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -75,39 +76,40 @@ define internal i32 @generate_ppn(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 5), align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = call zeroext i1 %9(ptr noundef %10, ptr noundef %7, ptr noundef %6)
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %2
-  store i32 -1366, ptr %3, align 4
-  br label %24
+  %9 = getelementptr inbounds %struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = call zeroext i1 %10(ptr noundef %11, ptr noundef %7, ptr noundef %6)
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %7, align 8
-  %15 = icmp eq ptr null, %14
-  br i1 %15, label %16, label %17
+  store i32 -1366, ptr %3, align 4
+  br label %25
 
-16:                                               ; preds = %13
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %7, align 8
+  %16 = icmp eq ptr null, %15
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
   store i32 -32, ptr %3, align 4
-  br label %24
+  br label %25
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i64, ptr %6, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = call i32 @pack_blob(ptr noundef %18, i64 noundef %19, ptr noundef %20)
-  store i32 %21, ptr %8, align 4
-  %22 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %22) #7
-  %23 = load i32, ptr %8, align 4
-  store i32 %23, ptr %3, align 4
-  br label %24
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i64, ptr %6, align 8
+  %21 = load ptr, ptr %5, align 8
+  %22 = call i32 @pack_blob(ptr noundef %19, i64 noundef %20, ptr noundef %21)
+  store i32 %22, ptr %8, align 4
+  %23 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %23) #7
+  %24 = load i32, ptr %8, align 4
+  store i32 %24, ptr %3, align 4
+  br label %25
 
-24:                                               ; preds = %17, %16, %12
-  %25 = load i32, ptr %3, align 4
-  ret i32 %25
+25:                                               ; preds = %18, %17, %13
+  %26 = load i32, ptr %3, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -129,7 +131,7 @@ define internal i32 @parse_nodes(ptr noundef %0, ptr noundef %1) #0 {
 
 14:                                               ; preds = %2
   store i32 -1366, ptr %3, align 4
-  br label %57
+  br label %58
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %4, align 8
@@ -147,7 +149,7 @@ define internal i32 @parse_nodes(ptr noundef %0, ptr noundef %1) #0 {
 
 26:                                               ; preds = %15
   store i32 -1366, ptr %3, align 4
-  br label %57
+  br label %58
 
 27:                                               ; preds = %15
   %28 = load i32, ptr %10, align 4
@@ -173,36 +175,37 @@ define internal i32 @parse_nodes(ptr noundef %0, ptr noundef %1) #0 {
 
 43:                                               ; preds = %27
   store i32 -32, ptr %3, align 4
-  br label %57
+  br label %58
 
 44:                                               ; preds = %27
-  %45 = load ptr, ptr getelementptr inbounds (%struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 6), align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = load i64, ptr %9, align 8
-  %48 = call zeroext i1 %45(ptr noundef %6, ptr noundef %46, i64 noundef %47)
-  br i1 %48, label %51, label %49
+  %45 = getelementptr inbounds %struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 6
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i64, ptr %9, align 8
+  %49 = call zeroext i1 %46(ptr noundef %6, ptr noundef %47, i64 noundef %48)
+  br i1 %49, label %52, label %50
 
-49:                                               ; preds = %44
-  %50 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %50) #7
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %51) #7
   store i32 -1366, ptr %3, align 4
-  br label %57
+  br label %58
 
-51:                                               ; preds = %44
-  %52 = load ptr, ptr %6, align 8
-  %53 = call ptr @PMIx_Argv_split(ptr noundef %52, i32 noundef 44)
-  store ptr %53, ptr %8, align 8
-  %54 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %54) #7
-  %55 = load ptr, ptr %8, align 8
-  %56 = load ptr, ptr %5, align 8
-  store ptr %55, ptr %56, align 8
+52:                                               ; preds = %44
+  %53 = load ptr, ptr %6, align 8
+  %54 = call ptr @PMIx_Argv_split(ptr noundef %53, i32 noundef 44)
+  store ptr %54, ptr %8, align 8
+  %55 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %55) #7
+  %56 = load ptr, ptr %8, align 8
+  %57 = load ptr, ptr %5, align 8
+  store ptr %56, ptr %57, align 8
   store i32 0, ptr %3, align 4
-  br label %57
+  br label %58
 
-57:                                               ; preds = %51, %49, %43, %26, %14
-  %58 = load i32, ptr %3, align 4
-  ret i32 %58
+58:                                               ; preds = %52, %50, %43, %26, %14
+  %59 = load i32, ptr %3, align 4
+  ret i32 %59
 }
 
 ; Function Attrs: nounwind uwtable
@@ -224,7 +227,7 @@ define internal i32 @parse_procs(ptr noundef %0, ptr noundef %1) #0 {
 
 14:                                               ; preds = %2
   store i32 -1366, ptr %3, align 4
-  br label %57
+  br label %58
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %4, align 8
@@ -242,7 +245,7 @@ define internal i32 @parse_procs(ptr noundef %0, ptr noundef %1) #0 {
 
 26:                                               ; preds = %15
   store i32 -1366, ptr %3, align 4
-  br label %57
+  br label %58
 
 27:                                               ; preds = %15
   %28 = load i32, ptr %10, align 4
@@ -268,36 +271,37 @@ define internal i32 @parse_procs(ptr noundef %0, ptr noundef %1) #0 {
 
 43:                                               ; preds = %27
   store i32 -32, ptr %3, align 4
-  br label %57
+  br label %58
 
 44:                                               ; preds = %27
-  %45 = load ptr, ptr getelementptr inbounds (%struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 6), align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = load i64, ptr %9, align 8
-  %48 = call zeroext i1 %45(ptr noundef %6, ptr noundef %46, i64 noundef %47)
-  br i1 %48, label %51, label %49
+  %45 = getelementptr inbounds %struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 6
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i64, ptr %9, align 8
+  %49 = call zeroext i1 %46(ptr noundef %6, ptr noundef %47, i64 noundef %48)
+  br i1 %49, label %52, label %50
 
-49:                                               ; preds = %44
-  %50 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %50) #7
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %51) #7
   store i32 -1366, ptr %3, align 4
-  br label %57
+  br label %58
 
-51:                                               ; preds = %44
-  %52 = load ptr, ptr %6, align 8
-  %53 = call ptr @PMIx_Argv_split(ptr noundef %52, i32 noundef 59)
-  store ptr %53, ptr %8, align 8
-  %54 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %54) #7
-  %55 = load ptr, ptr %8, align 8
-  %56 = load ptr, ptr %5, align 8
-  store ptr %55, ptr %56, align 8
+52:                                               ; preds = %44
+  %53 = load ptr, ptr %6, align 8
+  %54 = call ptr @PMIx_Argv_split(ptr noundef %53, i32 noundef 59)
+  store ptr %54, ptr %8, align 8
+  %55 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %55) #7
+  %56 = load ptr, ptr %8, align 8
+  %57 = load ptr, ptr %5, align 8
+  store ptr %56, ptr %57, align 8
   store i32 0, ptr %3, align 4
-  br label %57
+  br label %58
 
-57:                                               ; preds = %51, %49, %43, %26, %14
-  %58 = load i32, ptr %3, align 4
-  ret i32 %58
+58:                                               ; preds = %52, %50, %43, %26, %14
+  %59 = load i32, ptr %3, align 4
+  ret i32 %59
 }
 
 ; Function Attrs: nounwind uwtable

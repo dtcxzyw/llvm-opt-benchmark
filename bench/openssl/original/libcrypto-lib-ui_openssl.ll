@@ -663,16 +663,18 @@ entry:
   %ui.addr = alloca ptr, align 8
   store ptr %ui, ptr %ui.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 @tty_new, ptr align 4 @tty_orig, i64 60, i1 false)
-  %0 = load i32, ptr getelementptr inbounds (%struct.termios, ptr @tty_new, i32 0, i32 3), align 4
-  %and = and i32 %0, -9
-  store i32 %and, ptr getelementptr inbounds (%struct.termios, ptr @tty_new, i32 0, i32 3), align 4
-  %1 = load i32, ptr @is_a_tty, align 4
-  %tobool = icmp ne i32 %1, 0
+  %0 = getelementptr inbounds %struct.termios, ptr @tty_new, i32 0, i32 3
+  %1 = load i32, ptr %0, align 4
+  %and = and i32 %1, -9
+  %2 = getelementptr inbounds %struct.termios, ptr @tty_new, i32 0, i32 3
+  store i32 %and, ptr %2, align 4
+  %3 = load i32, ptr @is_a_tty, align 4
+  %tobool = icmp ne i32 %3, 0
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr @tty_in, align 8
-  %call = call i32 @fileno(ptr noundef %2) #7
+  %4 = load ptr, ptr @tty_in, align 8
+  %call = call i32 @fileno(ptr noundef %4) #7
   %call1 = call i32 @tcsetattr(i32 noundef %call, i32 noundef 0, ptr noundef @tty_new) #7
   %cmp = icmp eq i32 %call1, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -686,8 +688,8 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+  %5 = load i32, ptr %retval, align 4
+  ret i32 %5
 }
 
 declare ptr @fgets(ptr noundef, i32 noundef, ptr noundef) #1

@@ -61,39 +61,42 @@ define dso_local ptr @pcc_mbox_request_channel(ptr noundef %0, i32 noundef %1) #
   %4 = load i32, ptr @pcc_chan_count, align 4
   %5 = icmp sgt i32 %4, %1
   %6 = select i1 %3, i1 %5, i1 false
-  br i1 %6, label %7, label %25
+  %7 = inttoptr i64 -2 to ptr
+  br i1 %6, label %8, label %28
 
-7:                                                ; preds = %2
-  %8 = load ptr, ptr @chan_info, align 8
-  %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr %struct.pcc_chan_info, ptr %8, i64 %9
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp ugt ptr %11, inttoptr (i64 -4096 to ptr)
-  br i1 %12, label %17, label %13
+8:                                                ; preds = %2
+  %9 = load ptr, ptr @chan_info, align 8
+  %10 = zext nneg i32 %1 to i64
+  %11 = getelementptr %struct.pcc_chan_info, ptr %9, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  %13 = inttoptr i64 -4096 to ptr
+  %14 = icmp ugt ptr %12, %13
+  br i1 %14, label %19, label %15
 
-13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %19, label %17
+15:                                               ; preds = %8
+  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %22, label %19
 
-17:                                               ; preds = %13, %7
-  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %1) #9
-  br label %25
+19:                                               ; preds = %15, %8
+  %20 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %1) #9
+  %21 = inttoptr i64 -16 to ptr
+  br label %28
 
-19:                                               ; preds = %13
-  %20 = tail call i32 @mbox_bind_client(ptr noundef %11, ptr noundef %0) #10
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %25, label %22
+22:                                               ; preds = %15
+  %23 = tail call i32 @mbox_bind_client(ptr noundef %12, ptr noundef %0) #10
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %28, label %25
 
-22:                                               ; preds = %19
-  %23 = sext i32 %20 to i64
-  %24 = inttoptr i64 %23 to ptr
-  br label %25
+25:                                               ; preds = %22
+  %26 = sext i32 %23 to i64
+  %27 = inttoptr i64 %26 to ptr
+  br label %28
 
-25:                                               ; preds = %22, %19, %17, %2
-  %26 = phi ptr [ inttoptr (i64 -16 to ptr), %17 ], [ %24, %22 ], [ %10, %19 ], [ inttoptr (i64 -2 to ptr), %2 ]
-  ret ptr %26
+28:                                               ; preds = %25, %22, %19, %2
+  %29 = phi ptr [ %21, %19 ], [ %27, %25 ], [ %11, %22 ], [ %7, %2 ]
+  ret ptr %29
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -135,27 +138,28 @@ declare dso_local void @mbox_free_channel(ptr noundef) local_unnamed_addr #3
 define internal i32 @pcc_init() #4 section ".init.text" align 16 {
   %1 = load i32, ptr @acpi_disabled, align 4
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %3, label %12
+  br i1 %2, label %3, label %13
 
 3:                                                ; preds = %0
   %4 = tail call fastcc i32 @acpi_pcc_probe() #11, !range !5
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %12
+  br i1 %5, label %6, label %13
 
 6:                                                ; preds = %3
   %7 = tail call ptr @__platform_create_bundle(ptr noundef nonnull @pcc_mbox_driver, ptr noundef nonnull @pcc_mbox_probe, ptr noundef null, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null) #10
-  %8 = icmp ugt ptr %7, inttoptr (i64 -4096 to ptr)
-  br i1 %8, label %9, label %12
+  %8 = inttoptr i64 -4096 to ptr
+  %9 = icmp ugt ptr %7, %8
+  br i1 %9, label %10, label %13
 
-9:                                                ; preds = %6
+10:                                               ; preds = %6
   store i32 0, ptr @pcc_chan_count, align 4
-  %10 = ptrtoint ptr %7 to i64
-  %11 = trunc i64 %10 to i32
-  br label %12
+  %11 = ptrtoint ptr %7 to i64
+  %12 = trunc i64 %11 to i32
+  br label %13
 
-12:                                               ; preds = %9, %6, %3, %0
-  %13 = phi i32 [ %11, %9 ], [ -19, %0 ], [ -19, %3 ], [ 0, %6 ]
-  ret i32 %13
+13:                                               ; preds = %10, %6, %3, %0
+  %14 = phi i32 [ %12, %10 ], [ -19, %0 ], [ -19, %3 ], [ 0, %6 ]
+  ret i32 %14
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

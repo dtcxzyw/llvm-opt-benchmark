@@ -29,80 +29,84 @@ define ptr @sigset(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %14, %11, %2
-  br label %48
+  br label %51
 
 18:                                               ; preds = %14
   %19 = call i32 @sigemptyset(ptr noundef %7)
   %20 = load i32, ptr %4, align 4
   %21 = call i32 @sigaddset(ptr noundef %7, i32 noundef %20)
   %22 = load ptr, ptr %5, align 8
-  %23 = icmp eq ptr %22, inttoptr (i64 2 to ptr)
-  br i1 %23, label %24, label %30
+  %23 = inttoptr i64 2 to ptr
+  %24 = icmp eq ptr %22, %23
+  br i1 %24, label %25, label %32
 
-24:                                               ; preds = %18
-  %25 = call i32 @sigprocmask(i32 noundef 1, ptr noundef %7, ptr noundef null)
-  store i32 %25, ptr %8, align 4
-  %26 = load i32, ptr %8, align 4
-  %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %29
+25:                                               ; preds = %18
+  %26 = call i32 @sigprocmask(i32 noundef 1, ptr noundef %7, ptr noundef null)
+  store i32 %26, ptr %8, align 4
+  %27 = load i32, ptr %8, align 4
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %24
-  br label %48
+29:                                               ; preds = %25
+  br label %51
 
-29:                                               ; preds = %24
-  store ptr inttoptr (i64 2 to ptr), ptr %6, align 8
-  br label %46
-
-30:                                               ; preds = %18
-  %31 = load i32, ptr %4, align 4
-  %32 = load ptr, ptr %5, align 8
-  %33 = call ptr @signal(i32 noundef %31, ptr noundef %32)
-  store ptr %33, ptr %6, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = icmp ne ptr %34, inttoptr (i64 -1 to ptr)
-  br i1 %35, label %36, label %45
-
-36:                                               ; preds = %30
-  %37 = call i32 @sigprocmask(i32 noundef 2, ptr noundef %7, ptr noundef null)
-  store i32 %37, ptr %8, align 4
-  %38 = load i32, ptr %8, align 4
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %40, label %44
-
-40:                                               ; preds = %36
-  %41 = load i32, ptr %4, align 4
-  %42 = load ptr, ptr %6, align 8
-  %43 = call ptr @signal(i32 noundef %41, ptr noundef %42)
-  br label %48
-
-44:                                               ; preds = %36
-  br label %45
-
-45:                                               ; preds = %44, %30
-  br label %46
-
-46:                                               ; preds = %45, %29
-  %47 = load ptr, ptr %6, align 8
-  store ptr %47, ptr %3, align 8
-  br label %54
-
-48:                                               ; preds = %40, %28, %17
+30:                                               ; preds = %25
+  %31 = inttoptr i64 2 to ptr
+  store ptr %31, ptr %6, align 8
   br label %49
 
-49:                                               ; preds = %48
-  %50 = load i32, ptr %8, align 4
-  %51 = sub nsw i32 0, %50
-  %52 = call ptr @__errno()
-  store i32 %51, ptr %52, align 4
-  br label %53
+32:                                               ; preds = %18
+  %33 = load i32, ptr %4, align 4
+  %34 = load ptr, ptr %5, align 8
+  %35 = call ptr @signal(i32 noundef %33, ptr noundef %34)
+  store ptr %35, ptr %6, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = inttoptr i64 -1 to ptr
+  %38 = icmp ne ptr %36, %37
+  br i1 %38, label %39, label %48
 
-53:                                               ; preds = %49
-  store ptr inttoptr (i64 -1 to ptr), ptr %3, align 8
-  br label %54
+39:                                               ; preds = %32
+  %40 = call i32 @sigprocmask(i32 noundef 2, ptr noundef %7, ptr noundef null)
+  store i32 %40, ptr %8, align 4
+  %41 = load i32, ptr %8, align 4
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %43, label %47
 
-54:                                               ; preds = %53, %46
-  %55 = load ptr, ptr %3, align 8
-  ret ptr %55
+43:                                               ; preds = %39
+  %44 = load i32, ptr %4, align 4
+  %45 = load ptr, ptr %6, align 8
+  %46 = call ptr @signal(i32 noundef %44, ptr noundef %45)
+  br label %51
+
+47:                                               ; preds = %39
+  br label %48
+
+48:                                               ; preds = %47, %32
+  br label %49
+
+49:                                               ; preds = %48, %30
+  %50 = load ptr, ptr %6, align 8
+  store ptr %50, ptr %3, align 8
+  br label %58
+
+51:                                               ; preds = %43, %29, %17
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load i32, ptr %8, align 4
+  %54 = sub nsw i32 0, %53
+  %55 = call ptr @__errno()
+  store i32 %54, ptr %55, align 4
+  br label %56
+
+56:                                               ; preds = %52
+  %57 = inttoptr i64 -1 to ptr
+  store ptr %57, ptr %3, align 8
+  br label %58
+
+58:                                               ; preds = %56, %49
+  %59 = load ptr, ptr %3, align 8
+  ret ptr %59
 }
 
 declare i32 @sigemptyset(ptr noundef) #1

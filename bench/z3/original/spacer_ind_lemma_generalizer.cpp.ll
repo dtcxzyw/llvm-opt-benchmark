@@ -507,24 +507,25 @@ entry:
   %this2 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %ctx.addr, align 8
   call void @_ZN6spacer17lemma_generalizerC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(16) %this2, ptr noundef nonnull align 8 dereferenceable(712) %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_127lemma_inductive_generalizerE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_127lemma_inductive_generalizerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this2, align 8
   %m = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 1
-  %1 = load ptr, ptr %ctx.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZNK6spacer7context15get_ast_managerEv(ptr noundef nonnull align 8 dereferenceable(712) %1)
+  %2 = load ptr, ptr %ctx.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZNK6spacer7context15get_ast_managerEv(ptr noundef nonnull align 8 dereferenceable(712) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %m, align 8
   %m_true = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 2
   %m3 = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 1
-  %2 = load ptr, ptr %m3, align 8
-  %call5 = invoke noundef ptr @_ZNK11ast_manager7mk_trueEv(ptr noundef nonnull align 8 dereferenceable(976) %2)
+  %3 = load ptr, ptr %m3, align 8
+  %call5 = invoke noundef ptr @_ZNK11ast_manager7mk_trueEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %m6 = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 1
-  %3 = load ptr, ptr %m6, align 8
-  invoke void @_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_true, ptr noundef %call5, ptr noundef nonnull align 8 dereferenceable(976) %3)
+  %4 = load ptr, ptr %m6, align 8
+  invoke void @_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_true, ptr noundef %call5, ptr noundef nonnull align 8 dereferenceable(976) %4)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -534,34 +535,34 @@ invoke.cont7:                                     ; preds = %invoke.cont4
 
 invoke.cont9:                                     ; preds = %invoke.cont7
   %m_only_array_eligible = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 4
-  %4 = load i8, ptr %only_array_eligible.addr, align 1
-  %tobool = trunc i8 %4 to i1
+  %5 = load i8, ptr %only_array_eligible.addr, align 1
+  %tobool = trunc i8 %5 to i1
   %frombool10 = zext i1 %tobool to i8
   store i8 %frombool10, ptr %m_only_array_eligible, align 8
   %m_enable_litweak = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 5
-  %5 = load i8, ptr %enable_literal_weakening.addr, align 1
-  %tobool11 = trunc i8 %5 to i1
+  %6 = load i8, ptr %enable_literal_weakening.addr, align 1
+  %tobool11 = trunc i8 %6 to i1
   %frombool12 = zext i1 %tobool11 to i8
   store i8 %frombool12, ptr %m_enable_litweak, align 1
   %m_contains_array_op = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 7
   %m13 = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 1
-  %6 = load ptr, ptr %m13, align 8
-  invoke void @_ZN12_GLOBAL__N_122contains_array_op_procC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(20) %m_contains_array_op, ptr noundef nonnull align 8 dereferenceable(976) %6)
+  %7 = load ptr, ptr %m13, align 8
+  invoke void @_ZN12_GLOBAL__N_122contains_array_op_procC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(20) %m_contains_array_op, ptr noundef nonnull align 8 dereferenceable(976) %7)
           to label %invoke.cont14 unwind label %lpad8
 
 invoke.cont14:                                    ; preds = %invoke.cont9
   %m_contains_array_pred = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 8
   %m_contains_array_op15 = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 7
   %m16 = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 1
-  %7 = load ptr, ptr %m16, align 8
-  invoke void @_ZN10check_predC2ER11i_expr_predR11ast_managerb(ptr noundef nonnull align 8 dereferenceable(137) %m_contains_array_pred, ptr noundef nonnull align 8 dereferenceable(8) %m_contains_array_op15, ptr noundef nonnull align 8 dereferenceable(976) %7, i1 noundef zeroext true)
+  %8 = load ptr, ptr %m16, align 8
+  invoke void @_ZN10check_predC2ER11i_expr_predR11ast_managerb(ptr noundef nonnull align 8 dereferenceable(137) %m_contains_array_pred, ptr noundef nonnull align 8 dereferenceable(8) %m_contains_array_op15, ptr noundef nonnull align 8 dereferenceable(976) %8, i1 noundef zeroext true)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont14
   %m_pinned = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 9
   %m19 = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 1
-  %8 = load ptr, ptr %m19, align 8
-  invoke void @_ZN10ref_vectorI4expr11ast_managerEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_pinned, ptr noundef nonnull align 8 dereferenceable(976) %8)
+  %9 = load ptr, ptr %m19, align 8
+  invoke void @_ZN10ref_vectorI4expr11ast_managerEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_pinned, ptr noundef nonnull align 8 dereferenceable(976) %9)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont18
@@ -580,65 +581,65 @@ invoke.cont21:                                    ; preds = %invoke.cont18
 invoke.cont23:                                    ; preds = %invoke.cont21
   %m_core = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 15
   %m24 = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this2, i32 0, i32 1
-  %9 = load ptr, ptr %m24, align 8
-  invoke void @_ZN10ref_vectorI4expr11ast_managerEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_core, ptr noundef nonnull align 8 dereferenceable(976) %9)
+  %10 = load ptr, ptr %m24, align 8
+  invoke void @_ZN10ref_vectorI4expr11ast_managerEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %m_core, ptr noundef nonnull align 8 dereferenceable(976) %10)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont23
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont, %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup30
 
 lpad8:                                            ; preds = %invoke.cont9, %invoke.cont7
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup29
 
 lpad17:                                           ; preds = %invoke.cont14
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup28
 
 lpad20:                                           ; preds = %invoke.cont18
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup27
 
 lpad22:                                           ; preds = %invoke.cont21
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %exn.slot, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad25:                                           ; preds = %invoke.cont23
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cube) #3
   br label %ehcleanup
 
@@ -678,10 +679,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %ctx, ptr %ctx.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6spacer17lemma_generalizerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6spacer17lemma_generalizerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.spacer::lemma_generalizer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_ctx, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_ctx, align 8
   ret void
 }
 
@@ -753,14 +755,15 @@ entry:
   store ptr %manager, ptr %manager.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11i_expr_predC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122contains_array_op_procE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122contains_array_op_procE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m = getelementptr inbounds %"class.(anonymous namespace)::contains_array_op_proc", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %manager.addr, align 8
-  store ptr %0, ptr %m, align 8
+  %1 = load ptr, ptr %manager.addr, align 8
+  store ptr %1, ptr %m, align 8
   %m_array_fid = getelementptr inbounds %"class.(anonymous namespace)::contains_array_op_proc", ptr %this1, i32 0, i32 2
   %m2 = getelementptr inbounds %"class.(anonymous namespace)::contains_array_op_proc", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m2, align 8
-  invoke void @_ZN10array_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(976) %1)
+  %2 = load ptr, ptr %m2, align 8
+  invoke void @_ZN10array_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(976) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -772,12 +775,12 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN11i_expr_predD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -956,7 +959,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_127lemma_inductive_generalizerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_127lemma_inductive_generalizerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_core = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this1, i32 0, i32 15
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_core) #3
   %m_cube = getelementptr inbounds %"class.(anonymous namespace)::lemma_inductive_generalizer", ptr %this1, i32 0, i32 14
@@ -1460,7 +1464,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11i_expr_pred, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11i_expr_pred, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1634,7 +1639,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8ast_mark, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV8ast_mark, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_expr_marks = getelementptr inbounds %class.ast_mark, ptr %this1, i32 0, i32 1
   call void @_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_expr_marks, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   %m_decl_marks = getelementptr inbounds %class.ast_mark, ptr %this1, i32 0, i32 2
@@ -1645,12 +1651,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_expr_marks) #3
   br label %eh.resume
 
@@ -1668,7 +1674,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8ast_mark, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV8ast_mark, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_decl_marks = getelementptr inbounds %class.ast_mark, ptr %this1, i32 0, i32 2
   call void @_ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decl_marks) #3
   %m_expr_marks = getelementptr inbounds %class.ast_mark, ptr %this1, i32 0, i32 1
@@ -2928,10 +2935,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -2941,7 +2949,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3179,7 +3188,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

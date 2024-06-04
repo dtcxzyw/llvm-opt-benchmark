@@ -23070,29 +23070,30 @@ define void @_ZN4LIEF5MachO12BinaryParserC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ParserC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4LIEF5MachO12BinaryParserE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN4LIEF12BinaryStreamESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
-  %5 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  %6 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 3
-  store i32 -17958193, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 4
-  store i8 1, ptr %7, align 4
-  %8 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 5
-  call void @_ZN4LIEF5MachO12ParserConfigC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %8) #15
-  %9 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 6
-  call void @_ZNSt3setImSt4lessImESaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #15
-  %10 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 7
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4LIEF5MachO6SymbolESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #15
-  %11 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 8
-  call void @_ZNSt3mapImPN4LIEF5MachO6SymbolESt4lessImESaISt4pairIKmS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #15
-  %12 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #15
-  %13 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 10
-  call void @_ZNSt3setImSt4lessImESaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #15
-  %14 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 11
-  store ptr null, ptr %14, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4LIEF5MachO12BinaryParserE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN4LIEF12BinaryStreamESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %6 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  %7 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 3
+  store i32 -17958193, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 4
+  store i8 1, ptr %8, align 4
+  %9 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 5
+  call void @_ZN4LIEF5MachO12ParserConfigC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %9) #15
+  %10 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 6
+  call void @_ZNSt3setImSt4lessImESaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #15
+  %11 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 7
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4LIEF5MachO6SymbolESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #15
+  %12 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 8
+  call void @_ZNSt3mapImPN4LIEF5MachO6SymbolESt4lessImESaISt4pairIKmS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #15
+  %13 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
+  %14 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 10
+  call void @_ZNSt3setImSt4lessImESaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #15
+  %15 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 11
+  store ptr null, ptr %15, align 8
   ret void
 }
 
@@ -23180,21 +23181,22 @@ define void @_ZN4LIEF5MachO12BinaryParserD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4LIEF5MachO12BinaryParserE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 10
-  call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #15
-  %5 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
-  %6 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 8
-  call void @_ZNSt3mapImPN4LIEF5MachO6SymbolESt4lessImESaISt4pairIKmS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #15
-  %7 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 7
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4LIEF5MachO6SymbolESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
-  %8 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 6
-  call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #15
-  %9 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #15
-  %10 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN4LIEF12BinaryStreamESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4LIEF5MachO12BinaryParserE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 10
+  call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #15
+  %6 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorIPN4LIEF5MachO12DylibCommandESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
+  %7 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 8
+  call void @_ZNSt3mapImPN4LIEF5MachO6SymbolESt4lessImESaISt4pairIKmS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #15
+  %8 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 7
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4LIEF5MachO6SymbolESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #15
+  %9 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 6
+  call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #15
+  %10 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
+  %11 = getelementptr inbounds %"class.LIEF::MachO::BinaryParser", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN4LIEF12BinaryStreamESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
   call void @_ZN4LIEF6ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   ret void
 }
@@ -27255,9 +27257,10 @@ define linkonce_odr hidden void @_ZN6spdlog9spdlog_exD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog9spdlog_exE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.spdlog::spdlog_ex", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog9spdlog_exE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.spdlog::spdlog_ex", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   ret void
 }
@@ -27277,15 +27280,16 @@ define linkonce_odr hidden void @_ZN6spdlog6loggerD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6spdlog6loggerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.spdlog::logger", ptr %3, i32 0, i32 6
-  call void @_ZN6spdlog7details10backtracerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %4) #15
-  %5 = getelementptr inbounds %"class.spdlog::logger", ptr %3, i32 0, i32 5
-  call void @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
-  %6 = getelementptr inbounds %"class.spdlog::logger", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
-  %7 = getelementptr inbounds %"class.spdlog::logger", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6spdlog6loggerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.spdlog::logger", ptr %3, i32 0, i32 6
+  call void @_ZN6spdlog7details10backtracerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #15
+  %6 = getelementptr inbounds %"class.spdlog::logger", ptr %3, i32 0, i32 5
+  call void @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
+  %7 = getelementptr inbounds %"class.spdlog::logger", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  %8 = getelementptr inbounds %"class.spdlog::logger", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
   ret void
 }
 
@@ -30553,9 +30557,10 @@ define linkonce_odr hidden void @_ZN4LIEF12VectorStreamD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4LIEF12VectorStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::VectorStream", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN4LIEF12VectorStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::VectorStream", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   call void @_ZN4LIEF12BinaryStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   ret void
 }
@@ -35040,67 +35045,68 @@ define linkonce_odr hidden void @_ZN6spdlog17pattern_formatterC2ENSt7__cxx1112ba
   store ptr %4, ptr %10, align 8
   %14 = load ptr, ptr %6, align 8
   call void @_ZN6spdlog9formatterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #15
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6spdlog17pattern_formatterE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %15 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %1) #15
-  %16 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %3) #15
-  %17 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 3
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 4
-  store i8 0, ptr %19, align 4
-  %20 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6spdlog17pattern_formatterE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %1) #15
+  %17 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %3) #15
+  %18 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 3
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 4
+  store i8 0, ptr %20, align 4
+  %21 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 6
   store i32 0, ptr %11, align 4
-  invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IivEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(4) %11)
-          to label %21 unwind label %27
+  invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IivEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(4) %11)
+          to label %22 unwind label %28
 
-21:                                               ; preds = %5
-  %22 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 7
-  call void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #15
-  %23 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 8
-  call void @_ZNSt13unordered_mapIcSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS2_EESt4hashIcESt8equal_toIcESaISt4pairIKcS5_EEEC2EOSE_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %4) #15
-  %24 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 5
-  call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 56, i1 false)
-  %25 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 1
-  invoke void @_ZN6spdlog17pattern_formatter16compile_pattern_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %14, ptr noundef nonnull align 8 dereferenceable(32) %25)
-          to label %26 unwind label %31
+22:                                               ; preds = %5
+  %23 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 7
+  call void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #15
+  %24 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 8
+  call void @_ZNSt13unordered_mapIcSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS2_EESt4hashIcESt8equal_toIcESaISt4pairIKcS5_EEEC2EOSE_(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %4) #15
+  %25 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 5
+  call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 56, i1 false)
+  %26 = getelementptr inbounds %"class.spdlog::pattern_formatter", ptr %14, i32 0, i32 1
+  invoke void @_ZN6spdlog17pattern_formatter16compile_pattern_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %14, ptr noundef nonnull align 8 dereferenceable(32) %26)
+          to label %27 unwind label %32
 
-26:                                               ; preds = %21
+27:                                               ; preds = %22
   ret void
 
-27:                                               ; preds = %5
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %5
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %12, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %13, align 4
-  br label %35
-
-31:                                               ; preds = %21
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %12, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %13, align 4
-  call void @_ZNSt13unordered_mapIcSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS2_EESt4hashIcESt8equal_toIcESaISt4pairIKcS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %23) #15
-  call void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #15
-  br label %35
-
-35:                                               ; preds = %31, %27
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #15
-  call void @_ZN6spdlog9formatterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #15
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %12, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %13, align 4
   br label %36
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %12, align 8
-  %38 = load i32, ptr %13, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+32:                                               ; preds = %22
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %12, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %13, align 4
+  call void @_ZNSt13unordered_mapIcSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default_deleteIS2_EESt4hashIcESt8equal_toIcESaISt4pairIKcS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %24) #15
+  call void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #15
+  br label %36
+
+36:                                               ; preds = %32, %28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
+  call void @_ZN6spdlog9formatterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #15
+  br label %37
+
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %12, align 8
+  %39 = load i32, ptr %13, align 4
+  %40 = insertvalue { ptr, i32 } poison, ptr %38, 0
+  %41 = insertvalue { ptr, i32 } %40, i32 %39, 1
+  resume { ptr, i32 } %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -35356,7 +35362,8 @@ define linkonce_odr hidden void @_ZN6spdlog9formatterC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6spdlog9formatterE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6spdlog9formatterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -44589,51 +44596,52 @@ define linkonce_odr hidden void @_ZN6spdlog7details14full_formatterC2ENS0_12padd
   %16 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %17 = load i64, ptr %16, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 %15, i64 %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details14full_formatterE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %18 = getelementptr inbounds %"class.spdlog::details::full_formatter", ptr %13, i32 0, i32 1
+  %18 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details14full_formatterE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %13, align 8
+  %19 = getelementptr inbounds %"class.spdlog::details::full_formatter", ptr %13, i32 0, i32 1
   store i32 0, ptr %7, align 4
-  invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IivEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %7)
-          to label %19 unwind label %22
+  invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IivEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %7)
+          to label %20 unwind label %23
 
-19:                                               ; preds = %3
-  %20 = getelementptr inbounds %"class.spdlog::details::full_formatter", ptr %13, i32 0, i32 2
+20:                                               ; preds = %3
+  %21 = getelementptr inbounds %"class.spdlog::details::full_formatter", ptr %13, i32 0, i32 2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #15
-  invoke void @_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(288) %20, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %21 unwind label %26
+  invoke void @_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(288) %21, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %22 unwind label %27
 
-21:                                               ; preds = %19
+22:                                               ; preds = %20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #15
   ret void
 
-22:                                               ; preds = %3
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %3
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %8, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %9, align 4
-  br label %30
-
-26:                                               ; preds = %19
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %8, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %9, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #15
-  br label %30
-
-30:                                               ; preds = %26, %22
-  call void @_ZN6spdlog7details14flag_formatterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %8, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %9, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %8, align 8
-  %33 = load i32, ptr %9, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+27:                                               ; preds = %20
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %8, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %9, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #15
+  br label %31
+
+31:                                               ; preds = %27, %23
+  call void @_ZN6spdlog7details14flag_formatterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %8, align 8
+  %34 = load i32, ptr %9, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -44669,9 +44677,10 @@ define linkonce_odr hidden void @_ZN6spdlog7details14flag_formatterC2ENS0_12padd
   store i64 %2, ptr %7, align 8
   store ptr %0, ptr %5, align 8
   %8 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details14flag_formatterE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.spdlog::details::flag_formatter", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 16, i1 false)
+  %9 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details14flag_formatterE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.spdlog::details::flag_formatter", ptr %8, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %4, i64 16, i1 false)
   ret void
 }
 
@@ -44683,13 +44692,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEEC2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [250 x i8], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 250) #15
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #15
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [250 x i8], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 250) #15
   ret void
 }
 
@@ -45004,16 +45014,17 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef 
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -46654,10 +46665,11 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail15iterator_bufferISt20back_ins
   %6 = load ptr, ptr %4, align 8
   %7 = call noundef i64 @_ZNK3fmt2v96detail6bufferIcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   call void @_ZN3fmt2v96detail6bufferIcEC2Em(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %7) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm250ESaIcEEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %8 = getelementptr inbounds %"class.fmt::v9::detail::iterator_buffer", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
+  %8 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIcLm250ESaIcEEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %5, align 8
+  %9 = getelementptr inbounds %"class.fmt::v9::detail::iterator_buffer", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
   ret void
 }
 
@@ -46680,13 +46692,14 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIcEC2Em(ptr noundef non
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %5, i32 0, i32 2
-  %7 = load i64, ptr %4, align 8
-  store i64 %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %5, i32 0, i32 3
-  %9 = load i64, ptr %4, align 8
-  store i64 %9, ptr %8, align 8
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %5, i32 0, i32 2
+  %8 = load i64, ptr %4, align 8
+  store i64 %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %5, i32 0, i32 3
+  %10 = load i64, ptr %4, align 8
+  store i64 %10, ptr %9, align 8
   ret void
 }
 
@@ -47074,7 +47087,8 @@ define linkonce_odr hidden void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef nonn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -51609,13 +51623,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIiLm500ESaIiEEC2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.715", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.715", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [500 x i32], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 500) #15
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.715", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #15
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.715", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [500 x i32], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 500) #15
   ret void
 }
 
@@ -51741,16 +51756,17 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef 
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.716", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.716", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.716", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.716", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.716", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.716", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -58928,13 +58944,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIcLm500ESaIcEEC2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.735", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.735", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [500 x i8], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 500) #15
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.735", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #15
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.735", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [500 x i8], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 500) #15
   ret void
 }
 
@@ -66949,13 +66966,14 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEEC2E
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.747", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  %8 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.747", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds [32 x i32], ptr %8, i64 0, i64 0
-  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %9, i64 noundef 32) #15
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.747", ptr %5, i32 0, i32 2
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #15
+  %9 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.747", ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds [32 x i32], ptr %9, i64 0, i64 0
+  call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, i64 noundef 32) #15
   ret void
 }
 
@@ -66986,16 +67004,17 @@ define linkonce_odr hidden void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef 
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.748", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.fmt::v9::detail::buffer.748", ptr %9, i32 0, i32 2
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.fmt::v9::detail::buffer.748", ptr %9, i32 0, i32 3
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %14, align 8
+  %10 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.fmt::v9::detail::buffer.748", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.fmt::v9::detail::buffer.748", ptr %9, i32 0, i32 2
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.fmt::v9::detail::buffer.748", ptr %9, i32 0, i32 3
+  %16 = load i64, ptr %8, align 8
+  store i64 %16, ptr %15, align 8
   ret void
 }
 
@@ -67845,21 +67864,22 @@ define linkonce_odr hidden void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEEC2E
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.747", ptr %5, i32 0, i32 2
-  call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
-  %7 = load ptr, ptr %4, align 8
-  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %7)
-          to label %8 unwind label %9
-
-8:                                                ; preds = %2
-  ret void
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.747", ptr %5, i32 0, i32 2
+  call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
+  %8 = load ptr, ptr %4, align 8
+  invoke void @_ZN3fmt2v919basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %8)
+          to label %9 unwind label %10
 
 9:                                                ; preds = %2
-  %10 = landingpad { ptr, i32 }
+  ret void
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #18
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #18
   unreachable
 }
 
@@ -89272,7 +89292,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details14name_formatterINS0_13scoped
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details14name_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details14name_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -89886,7 +89907,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details15level_formatterINS0_13scope
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details15level_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details15level_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -90338,7 +90360,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details21short_level_formatterINS0_1
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details21short_level_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details21short_level_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -90809,7 +90832,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11t_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11t_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11t_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -91333,7 +91357,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11v_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11v_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11v_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -91781,7 +91806,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11a_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11a_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11a_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -92268,7 +92294,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11A_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11A_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11A_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -92732,7 +92759,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11b_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11b_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11b_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -93219,7 +93247,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11B_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11B_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11B_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -93681,7 +93710,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11c_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11c_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11c_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -94258,7 +94288,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11C_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11C_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11C_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -94701,7 +94732,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11Y_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11Y_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11Y_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -95144,7 +95176,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11D_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11D_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11D_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -95618,7 +95651,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11m_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11m_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11m_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -96061,7 +96095,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11d_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11d_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11d_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -96503,7 +96538,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11H_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11H_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11H_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -96945,7 +96981,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11I_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11I_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11I_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -97417,7 +97454,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11M_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11M_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11M_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -97859,7 +97897,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11S_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11S_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11S_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -98301,7 +98340,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11e_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11e_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11e_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -98753,7 +98793,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11f_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11f_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11f_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -99398,7 +99439,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11F_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11F_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11F_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -99989,7 +100031,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11E_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11E_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11E_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -100523,7 +100566,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11p_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11p_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11p_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -101008,7 +101052,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11r_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11r_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11r_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -101512,7 +101557,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11R_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11R_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11R_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -101969,7 +102015,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11T_formatterINS0_13scoped_pa
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11T_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11T_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -102446,41 +102493,42 @@ define linkonce_odr hidden void @_ZN6spdlog7details11z_formatterINS0_13scoped_pa
   %17 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %18 = load i64, ptr %17, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 %16, i64 %18)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11z_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %19 = getelementptr inbounds %"class.spdlog::details::z_formatter", ptr %14, i32 0, i32 1
+  %19 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11z_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %14, align 8
+  %20 = getelementptr inbounds %"class.spdlog::details::z_formatter", ptr %14, i32 0, i32 1
   store i32 0, ptr %9, align 4
   invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IivEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
-          to label %20 unwind label %24
+          to label %21 unwind label %25
 
-20:                                               ; preds = %3
+21:                                               ; preds = %3
   invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC2IlS1_ILl1ELl1EEvEERKNS0_IT_T0_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %21 unwind label %24
-
-21:                                               ; preds = %20
-  invoke void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %22 unwind label %24
+          to label %22 unwind label %25
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds %"class.spdlog::details::z_formatter", ptr %14, i32 0, i32 2
-  store i32 0, ptr %23, align 8
+  invoke void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %23 unwind label %25
+
+23:                                               ; preds = %22
+  %24 = getelementptr inbounds %"class.spdlog::details::z_formatter", ptr %14, i32 0, i32 2
+  store i32 0, ptr %24, align 8
   ret void
 
-24:                                               ; preds = %21, %20, %3
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %22, %21, %3
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %10, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %11, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %10, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %11, align 4
   call void @_ZN6spdlog7details14flag_formatterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #15
-  br label %28
+  br label %29
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %10, align 8
-  %30 = load i32, ptr %11, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %10, align 8
+  %31 = load i32, ptr %11, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -103117,7 +103165,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details13pid_formatterINS0_13scoped_
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details13pid_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details13pid_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -103610,7 +103659,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details21color_start_formatterC2ENS0
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details21color_start_formatterE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details21color_start_formatterE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -104022,7 +104072,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details20color_stop_formatterC2ENS0_
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details20color_stop_formatterE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details20color_stop_formatterE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -104434,7 +104485,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details25source_location_formatterIN
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details25source_location_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details25source_location_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -104973,7 +105025,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details24short_filename_formatterINS
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details24short_filename_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details24short_filename_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -105499,7 +105552,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details25source_filename_formatterIN
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details25source_filename_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details25source_filename_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -105996,7 +106050,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details24source_linenum_formatterINS
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details24source_linenum_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details24source_linenum_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -106463,7 +106518,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details25source_funcname_formatterIN
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details25source_funcname_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details25source_funcname_formatterINS0_13scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -106951,10 +107007,11 @@ define linkonce_odr hidden void @_ZN6spdlog7details12ch_formatterC2Ec(ptr nounde
   store i8 %1, ptr %4, align 1
   %5 = load ptr, ptr %3, align 8
   call void @_ZN6spdlog7details14flag_formatterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details12ch_formatterE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.spdlog::details::ch_formatter", ptr %5, i32 0, i32 1
-  %7 = load i8, ptr %4, align 1
-  store i8 %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details12ch_formatterE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.spdlog::details::ch_formatter", ptr %5, i32 0, i32 1
+  %8 = load i8, ptr %4, align 1
+  store i8 %8, ptr %7, align 8
   ret void
 }
 
@@ -106986,9 +107043,10 @@ define linkonce_odr hidden void @_ZN6spdlog7details14flag_formatterC2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details14flag_formatterE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.spdlog::details::flag_formatter", ptr %3, i32 0, i32 1
-  call void @_ZN6spdlog7details12padding_infoC2Ev(ptr noundef nonnull align 8 dereferenceable(14) %4) #15
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details14flag_formatterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.spdlog::details::flag_formatter", ptr %3, i32 0, i32 1
+  call void @_ZN6spdlog7details12padding_infoC2Ev(ptr noundef nonnull align 8 dereferenceable(14) %5) #15
   ret void
 }
 
@@ -107376,12 +107434,13 @@ define linkonce_odr hidden void @_ZN6spdlog7details17elapsed_formatterINS0_13sco
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %14 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter", ptr %9, i32 0, i32 1
-  %15 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
-  %16 = getelementptr inbounds %"class.std::chrono::time_point", ptr %14, i32 0, i32 0
-  %17 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %16, i32 0, i32 0
-  store i64 %15, ptr %17, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
+  %15 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter", ptr %9, i32 0, i32 1
+  %16 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
+  %17 = getelementptr inbounds %"class.std::chrono::time_point", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %17, i32 0, i32 0
+  store i64 %16, ptr %18, align 8
   ret void
 }
 
@@ -107925,12 +107984,13 @@ define linkonce_odr hidden void @_ZN6spdlog7details17elapsed_formatterINS0_13sco
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %14 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.891", ptr %9, i32 0, i32 1
-  %15 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
-  %16 = getelementptr inbounds %"class.std::chrono::time_point", ptr %14, i32 0, i32 0
-  %17 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %16, i32 0, i32 0
-  store i64 %15, ptr %17, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
+  %15 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.891", ptr %9, i32 0, i32 1
+  %16 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
+  %17 = getelementptr inbounds %"class.std::chrono::time_point", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %17, i32 0, i32 0
+  store i64 %16, ptr %18, align 8
   ret void
 }
 
@@ -108399,12 +108459,13 @@ define linkonce_odr hidden void @_ZN6spdlog7details17elapsed_formatterINS0_13sco
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %14 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.894", ptr %9, i32 0, i32 1
-  %15 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
-  %16 = getelementptr inbounds %"class.std::chrono::time_point", ptr %14, i32 0, i32 0
-  %17 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %16, i32 0, i32 0
-  store i64 %15, ptr %17, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
+  %15 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.894", ptr %9, i32 0, i32 1
+  %16 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
+  %17 = getelementptr inbounds %"class.std::chrono::time_point", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %17, i32 0, i32 0
+  store i64 %16, ptr %18, align 8
   ret void
 }
 
@@ -108873,12 +108934,13 @@ define linkonce_odr hidden void @_ZN6spdlog7details17elapsed_formatterINS0_13sco
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %14 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.897", ptr %9, i32 0, i32 1
-  %15 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
-  %16 = getelementptr inbounds %"class.std::chrono::time_point", ptr %14, i32 0, i32 0
-  %17 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %16, i32 0, i32 0
-  store i64 %15, ptr %17, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_13scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
+  %15 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.897", ptr %9, i32 0, i32 1
+  %16 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
+  %17 = getelementptr inbounds %"class.std::chrono::time_point", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %17, i32 0, i32 0
+  store i64 %16, ptr %18, align 8
   ret void
 }
 
@@ -113299,7 +113361,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details14name_formatterINS0_18null_s
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details14name_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details14name_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -113737,7 +113800,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details15level_formatterINS0_18null_
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details15level_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details15level_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -114166,7 +114230,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details21short_level_formatterINS0_1
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details21short_level_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details21short_level_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -114603,7 +114668,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11t_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11t_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11t_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -115035,7 +115101,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11v_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11v_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11v_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -115460,7 +115527,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11a_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11a_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11a_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -115899,7 +115967,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11A_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11A_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11A_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -116340,7 +116409,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11b_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11b_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11b_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -116779,7 +116849,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11B_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11B_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11B_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -117218,7 +117289,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11c_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11c_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11c_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -117730,7 +117802,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11C_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11C_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11C_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -118150,7 +118223,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11Y_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11Y_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11Y_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -118570,7 +118644,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11D_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11D_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11D_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -119009,7 +119084,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11m_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11m_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11m_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -119429,7 +119505,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11d_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11d_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11d_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -119848,7 +119925,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11H_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11H_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11H_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -120267,7 +120345,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11I_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11I_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11I_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -120685,7 +120764,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11M_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11M_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11M_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -121104,7 +121184,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11S_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11S_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11S_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -121523,7 +121604,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11e_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11e_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11e_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -121952,7 +122034,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11f_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11f_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11f_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -122380,7 +122463,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11F_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11F_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11F_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -122808,7 +122892,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11E_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11E_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11E_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -123238,7 +123323,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11p_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11p_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11p_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -123672,7 +123758,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11r_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11r_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11r_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -124132,7 +124219,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11R_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11R_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11R_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -124560,7 +124648,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details11T_formatterINS0_18null_scop
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11T_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11T_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -125002,41 +125091,42 @@ define linkonce_odr hidden void @_ZN6spdlog7details11z_formatterINS0_18null_scop
   %17 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %18 = load i64, ptr %17, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 %16, i64 %18)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details11z_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %19 = getelementptr inbounds %"class.spdlog::details::z_formatter.1285", ptr %14, i32 0, i32 1
+  %19 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details11z_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %19, ptr %14, align 8
+  %20 = getelementptr inbounds %"class.spdlog::details::z_formatter.1285", ptr %14, i32 0, i32 1
   store i32 0, ptr %9, align 4
   invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IivEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
-          to label %20 unwind label %24
+          to label %21 unwind label %25
 
-20:                                               ; preds = %3
+21:                                               ; preds = %3
   invoke void @_ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC2IlS1_ILl1ELl1EEvEERKNS0_IT_T0_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %21 unwind label %24
-
-21:                                               ; preds = %20
-  invoke void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %22 unwind label %24
+          to label %22 unwind label %25
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds %"class.spdlog::details::z_formatter.1285", ptr %14, i32 0, i32 2
-  store i32 0, ptr %23, align 8
+  invoke void @_ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %23 unwind label %25
+
+23:                                               ; preds = %22
+  %24 = getelementptr inbounds %"class.spdlog::details::z_formatter.1285", ptr %14, i32 0, i32 2
+  store i32 0, ptr %24, align 8
   ret void
 
-24:                                               ; preds = %21, %20, %3
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %22, %21, %3
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %10, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %11, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %10, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %11, align 4
   call void @_ZN6spdlog7details14flag_formatterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #15
-  br label %28
+  br label %29
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %10, align 8
-  %30 = load i32, ptr %11, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %10, align 8
+  %31 = load i32, ptr %11, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -125533,7 +125623,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details13pid_formatterINS0_18null_sc
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details13pid_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details13pid_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -125964,7 +126055,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details25source_location_formatterIN
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details25source_location_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details25source_location_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -126459,7 +126551,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details24short_filename_formatterINS
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details24short_filename_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details24short_filename_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -126930,7 +127023,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details25source_filename_formatterIN
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details25source_filename_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details25source_filename_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -127400,7 +127494,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details24source_linenum_formatterINS
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details24source_linenum_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details24source_linenum_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -127843,7 +127938,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details25source_funcname_formatterIN
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details25source_funcname_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details25source_funcname_formatterINS0_18null_scoped_padderEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 }
 
@@ -128313,12 +128409,13 @@ define linkonce_odr hidden void @_ZN6spdlog7details17elapsed_formatterINS0_18nul
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %14 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.1307", ptr %9, i32 0, i32 1
-  %15 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
-  %16 = getelementptr inbounds %"class.std::chrono::time_point", ptr %14, i32 0, i32 0
-  %17 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %16, i32 0, i32 0
-  store i64 %15, ptr %17, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
+  %15 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.1307", ptr %9, i32 0, i32 1
+  %16 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
+  %17 = getelementptr inbounds %"class.std::chrono::time_point", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %17, i32 0, i32 0
+  store i64 %16, ptr %18, align 8
   ret void
 }
 
@@ -128764,12 +128861,13 @@ define linkonce_odr hidden void @_ZN6spdlog7details17elapsed_formatterINS0_18nul
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %14 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.1310", ptr %9, i32 0, i32 1
-  %15 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
-  %16 = getelementptr inbounds %"class.std::chrono::time_point", ptr %14, i32 0, i32 0
-  %17 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %16, i32 0, i32 0
-  store i64 %15, ptr %17, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
+  %15 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.1310", ptr %9, i32 0, i32 1
+  %16 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
+  %17 = getelementptr inbounds %"class.std::chrono::time_point", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %17, i32 0, i32 0
+  store i64 %16, ptr %18, align 8
   ret void
 }
 
@@ -129215,12 +129313,13 @@ define linkonce_odr hidden void @_ZN6spdlog7details17elapsed_formatterINS0_18nul
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %14 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.1313", ptr %9, i32 0, i32 1
-  %15 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
-  %16 = getelementptr inbounds %"class.std::chrono::time_point", ptr %14, i32 0, i32 0
-  %17 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %16, i32 0, i32 0
-  store i64 %15, ptr %17, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
+  %15 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.1313", ptr %9, i32 0, i32 1
+  %16 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
+  %17 = getelementptr inbounds %"class.std::chrono::time_point", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %17, i32 0, i32 0
+  store i64 %16, ptr %18, align 8
   ret void
 }
 
@@ -129666,12 +129765,13 @@ define linkonce_odr hidden void @_ZN6spdlog7details17elapsed_formatterINS0_18nul
   %12 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN6spdlog7details14flag_formatterC2ENS0_12padding_infoE(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %11, i64 %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %14 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.1316", ptr %9, i32 0, i32 1
-  %15 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
-  %16 = getelementptr inbounds %"class.std::chrono::time_point", ptr %14, i32 0, i32 0
-  %17 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %16, i32 0, i32 0
-  store i64 %15, ptr %17, align 8
+  %14 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details17elapsed_formatterINS0_18null_scoped_padderENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
+  %15 = getelementptr inbounds %"class.spdlog::details::elapsed_formatter.1316", ptr %9, i32 0, i32 1
+  %16 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #15
+  %17 = getelementptr inbounds %"class.std::chrono::time_point", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::chrono::duration.333", ptr %17, i32 0, i32 0
+  store i64 %16, ptr %18, align 8
   ret void
 }
 
@@ -130106,9 +130206,10 @@ define linkonce_odr hidden void @_ZN6spdlog7details19aggregate_formatterC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6spdlog7details14flag_formatterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6spdlog7details19aggregate_formatterE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.spdlog::details::aggregate_formatter", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6spdlog7details19aggregate_formatterE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.spdlog::details::aggregate_formatter", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   ret void
 }
 
@@ -130875,33 +130976,34 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerE
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(208) %9) #15
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(224) %8) #15
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog6loggerEJRS4_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(208) %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(208) %10) #15
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6spdlog6loggerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(224) %8) #15
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN6spdlog6loggerEJRS4_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(208) %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %2
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %6, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %7, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %2
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -131059,11 +131161,12 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -131256,164 +131359,165 @@ define linkonce_odr hidden void @_ZN6spdlog6loggerC2ERKS0_(ptr noundef nonnull a
   store ptr %0, ptr %11, align 8
   store ptr %1, ptr %12, align 8
   %15 = load ptr, ptr %11, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6spdlog6loggerE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %"class.spdlog::logger", ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds %"class.spdlog::logger", ptr %17, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %18)
-  %19 = getelementptr inbounds %"class.spdlog::logger", ptr %15, i32 0, i32 2
-  %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds %"class.spdlog::logger", ptr %20, i32 0, i32 2
-  invoke void @_ZNSt6vectorISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %21)
-          to label %22 unwind label %69
+  %16 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6spdlog6loggerE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.spdlog::logger", ptr %15, i32 0, i32 1
+  %18 = load ptr, ptr %12, align 8
+  %19 = getelementptr inbounds %"class.spdlog::logger", ptr %18, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  %20 = getelementptr inbounds %"class.spdlog::logger", ptr %15, i32 0, i32 2
+  %21 = load ptr, ptr %12, align 8
+  %22 = getelementptr inbounds %"class.spdlog::logger", ptr %21, i32 0, i32 2
+  invoke void @_ZNSt6vectorISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %22)
+          to label %23 unwind label %70
 
-22:                                               ; preds = %2
-  %23 = getelementptr inbounds %"class.spdlog::logger", ptr %15, i32 0, i32 3
-  %24 = load ptr, ptr %12, align 8
-  %25 = getelementptr inbounds %"class.spdlog::logger", ptr %24, i32 0, i32 3
-  store ptr %25, ptr %3, align 8
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds %"class.spdlog::logger", ptr %15, i32 0, i32 3
+  %25 = load ptr, ptr %12, align 8
+  %26 = getelementptr inbounds %"class.spdlog::logger", ptr %25, i32 0, i32 3
+  store ptr %26, ptr %3, align 8
   store i32 0, ptr %4, align 4
-  %26 = load ptr, ptr %3, align 8
-  %27 = load i32, ptr %4, align 4
-  %28 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %27, i32 noundef 65535)
-          to label %29 unwind label %37
+  %27 = load ptr, ptr %3, align 8
+  %28 = load i32, ptr %4, align 4
+  %29 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %28, i32 noundef 65535)
+          to label %30 unwind label %38
 
-29:                                               ; preds = %22
-  store i32 %28, ptr %5, align 4
-  %30 = load i32, ptr %4, align 4
-  switch i32 %30, label %31 [
-    i32 1, label %33
-    i32 2, label %33
-    i32 5, label %35
+30:                                               ; preds = %23
+  store i32 %29, ptr %5, align 4
+  %31 = load i32, ptr %4, align 4
+  switch i32 %31, label %32 [
+    i32 1, label %34
+    i32 2, label %34
+    i32 5, label %36
   ]
 
-31:                                               ; preds = %29
-  %32 = load atomic i32, ptr %26 monotonic, align 4
-  store i32 %32, ptr %6, align 4
-  br label %40
+32:                                               ; preds = %30
+  %33 = load atomic i32, ptr %27 monotonic, align 4
+  store i32 %33, ptr %6, align 4
+  br label %41
 
-33:                                               ; preds = %29, %29
-  %34 = load atomic i32, ptr %26 acquire, align 4
-  store i32 %34, ptr %6, align 4
-  br label %40
+34:                                               ; preds = %30, %30
+  %35 = load atomic i32, ptr %27 acquire, align 4
+  store i32 %35, ptr %6, align 4
+  br label %41
 
-35:                                               ; preds = %29
-  %36 = load atomic i32, ptr %26 seq_cst, align 4
-  store i32 %36, ptr %6, align 4
-  br label %40
+36:                                               ; preds = %30
+  %37 = load atomic i32, ptr %27 seq_cst, align 4
+  store i32 %37, ptr %6, align 4
+  br label %41
 
-37:                                               ; preds = %22
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %23
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #18
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #18
   unreachable
 
-40:                                               ; preds = %35, %33, %31
-  %41 = load i32, ptr %6, align 4
-  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %23, i32 noundef %41) #15
-  %42 = getelementptr inbounds %"class.spdlog::logger", ptr %15, i32 0, i32 4
-  %43 = load ptr, ptr %12, align 8
-  %44 = getelementptr inbounds %"class.spdlog::logger", ptr %43, i32 0, i32 4
-  store ptr %44, ptr %7, align 8
+41:                                               ; preds = %36, %34, %32
+  %42 = load i32, ptr %6, align 4
+  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %24, i32 noundef %42) #15
+  %43 = getelementptr inbounds %"class.spdlog::logger", ptr %15, i32 0, i32 4
+  %44 = load ptr, ptr %12, align 8
+  %45 = getelementptr inbounds %"class.spdlog::logger", ptr %44, i32 0, i32 4
+  store ptr %45, ptr %7, align 8
   store i32 0, ptr %8, align 4
-  %45 = load ptr, ptr %7, align 8
-  %46 = load i32, ptr %8, align 4
-  %47 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %46, i32 noundef 65535)
-          to label %48 unwind label %56
+  %46 = load ptr, ptr %7, align 8
+  %47 = load i32, ptr %8, align 4
+  %48 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %47, i32 noundef 65535)
+          to label %49 unwind label %57
 
-48:                                               ; preds = %40
-  store i32 %47, ptr %9, align 4
-  %49 = load i32, ptr %8, align 4
-  switch i32 %49, label %50 [
-    i32 1, label %52
-    i32 2, label %52
-    i32 5, label %54
+49:                                               ; preds = %41
+  store i32 %48, ptr %9, align 4
+  %50 = load i32, ptr %8, align 4
+  switch i32 %50, label %51 [
+    i32 1, label %53
+    i32 2, label %53
+    i32 5, label %55
   ]
 
-50:                                               ; preds = %48
-  %51 = load atomic i32, ptr %45 monotonic, align 4
-  store i32 %51, ptr %10, align 4
-  br label %59
+51:                                               ; preds = %49
+  %52 = load atomic i32, ptr %46 monotonic, align 4
+  store i32 %52, ptr %10, align 4
+  br label %60
 
-52:                                               ; preds = %48, %48
-  %53 = load atomic i32, ptr %45 acquire, align 4
-  store i32 %53, ptr %10, align 4
-  br label %59
+53:                                               ; preds = %49, %49
+  %54 = load atomic i32, ptr %46 acquire, align 4
+  store i32 %54, ptr %10, align 4
+  br label %60
 
-54:                                               ; preds = %48
-  %55 = load atomic i32, ptr %45 seq_cst, align 4
-  store i32 %55, ptr %10, align 4
-  br label %59
+55:                                               ; preds = %49
+  %56 = load atomic i32, ptr %46 seq_cst, align 4
+  store i32 %56, ptr %10, align 4
+  br label %60
 
-56:                                               ; preds = %40
-  %57 = landingpad { ptr, i32 }
+57:                                               ; preds = %41
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #18
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #18
   unreachable
 
-59:                                               ; preds = %54, %52, %50
-  %60 = load i32, ptr %10, align 4
-  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %42, i32 noundef %60) #15
-  %61 = getelementptr inbounds %"class.spdlog::logger", ptr %15, i32 0, i32 5
-  %62 = load ptr, ptr %12, align 8
-  %63 = getelementptr inbounds %"class.spdlog::logger", ptr %62, i32 0, i32 5
-  invoke void @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %63)
-          to label %64 unwind label %73
+60:                                               ; preds = %55, %53, %51
+  %61 = load i32, ptr %10, align 4
+  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %43, i32 noundef %61) #15
+  %62 = getelementptr inbounds %"class.spdlog::logger", ptr %15, i32 0, i32 5
+  %63 = load ptr, ptr %12, align 8
+  %64 = getelementptr inbounds %"class.spdlog::logger", ptr %63, i32 0, i32 5
+  invoke void @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %64)
+          to label %65 unwind label %74
 
-64:                                               ; preds = %59
-  %65 = getelementptr inbounds %"class.spdlog::logger", ptr %15, i32 0, i32 6
-  %66 = load ptr, ptr %12, align 8
-  %67 = getelementptr inbounds %"class.spdlog::logger", ptr %66, i32 0, i32 6
-  invoke void @_ZN6spdlog7details10backtracerC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %65, ptr noundef nonnull align 8 dereferenceable(104) %67)
-          to label %68 unwind label %77
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds %"class.spdlog::logger", ptr %15, i32 0, i32 6
+  %67 = load ptr, ptr %12, align 8
+  %68 = getelementptr inbounds %"class.spdlog::logger", ptr %67, i32 0, i32 6
+  invoke void @_ZN6spdlog7details10backtracerC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %66, ptr noundef nonnull align 8 dereferenceable(104) %68)
+          to label %69 unwind label %78
 
-68:                                               ; preds = %64
+69:                                               ; preds = %65
   ret void
 
-69:                                               ; preds = %2
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %2
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %71 = extractvalue { ptr, i32 } %70, 0
-  store ptr %71, ptr %13, align 8
-  %72 = extractvalue { ptr, i32 } %70, 1
-  store i32 %72, ptr %14, align 4
-  br label %82
-
-73:                                               ; preds = %59
-  %74 = landingpad { ptr, i32 }
-          cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %13, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %14, align 4
-  br label %81
-
-77:                                               ; preds = %64
-  %78 = landingpad { ptr, i32 }
-          cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %13, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %14, align 4
-  call void @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #15
-  br label %81
-
-81:                                               ; preds = %77, %73
-  call void @_ZNSt6vectorISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #15
-  br label %82
-
-82:                                               ; preds = %81, %69
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %13, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %14, align 4
   br label %83
 
-83:                                               ; preds = %82
-  %84 = load ptr, ptr %13, align 8
-  %85 = load i32, ptr %14, align 4
-  %86 = insertvalue { ptr, i32 } poison, ptr %84, 0
-  %87 = insertvalue { ptr, i32 } %86, i32 %85, 1
-  resume { ptr, i32 } %87
+74:                                               ; preds = %60
+  %75 = landingpad { ptr, i32 }
+          cleanup
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %13, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %14, align 4
+  br label %82
+
+78:                                               ; preds = %65
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %13, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %14, align 4
+  call void @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #15
+  br label %82
+
+82:                                               ; preds = %78, %74
+  call void @_ZNSt6vectorISt10shared_ptrIN6spdlog5sinks4sinkEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #15
+  br label %83
+
+83:                                               ; preds = %82, %70
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #15
+  br label %84
+
+84:                                               ; preds = %83
+  %85 = load ptr, ptr %13, align 8
+  %86 = load i32, ptr %14, align 4
+  %87 = insertvalue { ptr, i32 } poison, ptr %85, 0
+  %88 = insertvalue { ptr, i32 } %87, i32 %86, 1
+  resume { ptr, i32 } %88
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -157699,29 +157803,30 @@ define linkonce_odr hidden void @_ZN4LIEF5MachO8LinkEditCI2NS0_14SegmentCommandE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO14SegmentCommandC2ERKNS0_7details18segment_command_64E(ptr noundef nonnull align 8 dereferenceable(216) %5, ptr noundef nonnull align 8 dereferenceable(72) %6)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4LIEF5MachO8LinkEditE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 1
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 2
+  %7 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4LIEF5MachO8LinkEditE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 1
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 3
+  %9 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 2
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 4
+  %10 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 3
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 5
+  %11 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 4
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 6
+  %12 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 5
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 7
+  %13 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 6
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 7
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 9
+  %15 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 8
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 10
+  %16 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 9
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 11
+  %17 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 10
   store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 11
+  store ptr null, ptr %18, align 8
   ret void
 }
 
@@ -174116,11 +174221,12 @@ define linkonce_odr hidden void @_ZN4LIEF5MachO16BuildToolVersionC2ERKS1_(ptr no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF5MachO16BuildToolVersionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::BuildToolVersion", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::BuildToolVersion", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 16, i1 false)
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF5MachO16BuildToolVersionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::BuildToolVersion", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::BuildToolVersion", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 16, i1 false)
   ret void
 }
 
@@ -198658,7 +198764,8 @@ define linkonce_odr hidden void @_ZN4LIEF5MachO14RelocationDyldCI2NS0_10Relocati
   %8 = load i64, ptr %5, align 8
   %9 = load i8, ptr %6, align 1
   call void @_ZN4LIEF5MachO10RelocationC2Emh(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef %8, i8 noundef zeroext %9)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4LIEF5MachO14RelocationDyldE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN4LIEF5MachO14RelocationDyldE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -222816,29 +222923,30 @@ define linkonce_odr hidden void @_ZN4LIEF5MachO8LinkEditCI2NS0_14SegmentCommandE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO14SegmentCommandC2ERKNS0_7details18segment_command_32E(ptr noundef nonnull align 8 dereferenceable(216) %5, ptr noundef nonnull align 4 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4LIEF5MachO8LinkEditE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 1
-  store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 2
+  %7 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN4LIEF5MachO8LinkEditE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 1
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 3
+  %9 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 2
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 4
+  %10 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 3
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 5
+  %11 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 4
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 6
+  %12 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 5
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 7
+  %13 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 6
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 7
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 9
+  %15 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 8
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 10
+  %16 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 9
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 11
+  %17 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 10
   store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds %"class.LIEF::MachO::LinkEdit", ptr %5, i32 0, i32 11
+  store ptr null, ptr %18, align 8
   ret void
 }
 

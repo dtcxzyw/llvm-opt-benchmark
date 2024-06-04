@@ -799,15 +799,16 @@ define dso_local void @_ZN14ManifestParserC2EP5StateP10FileReader21ManifestParse
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN6ParserC2EP5StateP10FileReader(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV14ManifestParser, i32 0, i32 0, i32 2), ptr %10, align 8
-  %13 = getelementptr inbounds %struct.ManifestParser, ptr %10, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 4 %5, i64 4, i1 false)
-  %14 = getelementptr inbounds %struct.ManifestParser, ptr %10, i32 0, i32 3
-  store i8 0, ptr %14, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds %struct.State, ptr %15, i32 0, i32 3
-  %17 = getelementptr inbounds %struct.ManifestParser, ptr %10, i32 0, i32 1
-  store ptr %16, ptr %17, align 8
+  %13 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV14ManifestParser, i32 0, i32 0, i32 2
+  store ptr %13, ptr %10, align 8
+  %14 = getelementptr inbounds %struct.ManifestParser, ptr %10, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 4 %5, i64 4, i1 false)
+  %15 = getelementptr inbounds %struct.ManifestParser, ptr %10, i32 0, i32 3
+  store i8 0, ptr %15, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds %struct.State, ptr %16, i32 0, i32 3
+  %18 = getelementptr inbounds %struct.ManifestParser, ptr %10, i32 0, i32 1
+  store ptr %17, ptr %18, align 8
   ret void
 }
 
@@ -820,15 +821,16 @@ define linkonce_odr dso_local void @_ZN6ParserC2EP5StateP10FileReader(ptr nounde
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV6Parser, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %struct.Parser, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.Parser, ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.Parser, ptr %7, i32 0, i32 3
-  call void @_ZN5LexerC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12)
+  %8 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTV6Parser, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.Parser, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.Parser, ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.Parser, ptr %7, i32 0, i32 3
+  call void @_ZN5LexerC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13)
   ret void
 }
 
@@ -4810,14 +4812,15 @@ define linkonce_odr dso_local void @_ZN10BindingEnvC2EPS_(ptr noundef nonnull al
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3EnvC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %struct.BindingEnv, ptr %5, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #12
-  %7 = getelementptr inbounds %struct.BindingEnv, ptr %5, i32 0, i32 2
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #12
-  %8 = getelementptr inbounds %struct.BindingEnv, ptr %5, i32 0, i32 3
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %8, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.BindingEnv, ptr %5, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #12
+  %8 = getelementptr inbounds %struct.BindingEnv, ptr %5, i32 0, i32 2
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #12
+  %9 = getelementptr inbounds %struct.BindingEnv, ptr %5, i32 0, i32 3
+  %10 = load ptr, ptr %4, align 8
+  store ptr %10, ptr %9, align 8
   ret void
 }
 
@@ -5991,7 +5994,8 @@ define linkonce_odr dso_local void @_ZN3EnvC2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV3Env, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV3Env, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

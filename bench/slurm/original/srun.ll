@@ -442,7 +442,7 @@ define internal void @_setup_env_working_cluster() #0 {
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %0
-  br label %69
+  br label %70
 
 9:                                                ; preds = %0
   %10 = load ptr, ptr %1, align 8
@@ -486,57 +486,58 @@ define internal void @_setup_env_working_cluster() #0 {
   %32 = getelementptr inbounds i8, ptr %31, i32 1
   store ptr %32, ptr %4, align 8
   store i8 0, ptr %31, align 1
-  %33 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %34 = load ptr, ptr %1, align 8
-  %35 = call i32 @xstrcmp(ptr noundef %33, ptr noundef %34)
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %37, label %67
+  %33 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %1, align 8
+  %36 = call i32 @xstrcmp(ptr noundef %34, ptr noundef %35)
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %68
 
-37:                                               ; preds = %26
-  %38 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 320, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.9, i32 noundef 935, ptr noundef @__func__._setup_env_working_cluster)
-  store ptr %38, ptr @working_cluster_rec, align 8
-  %39 = load ptr, ptr @working_cluster_rec, align 8
-  call void @slurmdb_init_cluster_rec(ptr noundef %39, i1 noundef zeroext false)
-  %40 = load ptr, ptr %1, align 8
-  %41 = call ptr @xstrdup(ptr noundef %40)
-  %42 = load ptr, ptr @working_cluster_rec, align 8
-  %43 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %42, i32 0, i32 11
-  store ptr %41, ptr %43, align 8
-  %44 = load ptr, ptr %2, align 8
-  %45 = call ptr @xstrdup(ptr noundef %44)
-  %46 = load ptr, ptr @working_cluster_rec, align 8
-  %47 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %46, i32 0, i32 4
-  store ptr %45, ptr %47, align 8
-  %48 = load ptr, ptr %3, align 8
-  %49 = call i64 @strtol(ptr noundef %48, ptr noundef null, i32 noundef 10) #10
-  %50 = trunc i64 %49 to i32
-  %51 = load ptr, ptr @working_cluster_rec, align 8
-  %52 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %51, i32 0, i32 5
-  store i32 %50, ptr %52, align 8
-  %53 = load ptr, ptr %4, align 8
-  %54 = call i64 @strtol(ptr noundef %53, ptr noundef null, i32 noundef 10) #10
-  %55 = trunc i64 %54 to i16
-  %56 = load ptr, ptr @working_cluster_rec, align 8
-  %57 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %56, i32 0, i32 14
-  store i16 %55, ptr %57, align 8
-  %58 = load ptr, ptr @working_cluster_rec, align 8
-  %59 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %58, i32 0, i32 3
-  %60 = load ptr, ptr @working_cluster_rec, align 8
-  %61 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %60, i32 0, i32 5
-  %62 = load i32, ptr %61, align 8
-  %63 = trunc i32 %62 to i16
-  %64 = load ptr, ptr @working_cluster_rec, align 8
-  %65 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %64, i32 0, i32 4
-  %66 = load ptr, ptr %65, align 8
-  call void @slurm_set_addr(ptr noundef %59, i16 noundef zeroext %63, ptr noundef %66)
-  br label %67
+38:                                               ; preds = %26
+  %39 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 320, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.9, i32 noundef 935, ptr noundef @__func__._setup_env_working_cluster)
+  store ptr %39, ptr @working_cluster_rec, align 8
+  %40 = load ptr, ptr @working_cluster_rec, align 8
+  call void @slurmdb_init_cluster_rec(ptr noundef %40, i1 noundef zeroext false)
+  %41 = load ptr, ptr %1, align 8
+  %42 = call ptr @xstrdup(ptr noundef %41)
+  %43 = load ptr, ptr @working_cluster_rec, align 8
+  %44 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %43, i32 0, i32 11
+  store ptr %42, ptr %44, align 8
+  %45 = load ptr, ptr %2, align 8
+  %46 = call ptr @xstrdup(ptr noundef %45)
+  %47 = load ptr, ptr @working_cluster_rec, align 8
+  %48 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %47, i32 0, i32 4
+  store ptr %46, ptr %48, align 8
+  %49 = load ptr, ptr %3, align 8
+  %50 = call i64 @strtol(ptr noundef %49, ptr noundef null, i32 noundef 10) #10
+  %51 = trunc i64 %50 to i32
+  %52 = load ptr, ptr @working_cluster_rec, align 8
+  %53 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %52, i32 0, i32 5
+  store i32 %51, ptr %53, align 8
+  %54 = load ptr, ptr %4, align 8
+  %55 = call i64 @strtol(ptr noundef %54, ptr noundef null, i32 noundef 10) #10
+  %56 = trunc i64 %55 to i16
+  %57 = load ptr, ptr @working_cluster_rec, align 8
+  %58 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %57, i32 0, i32 14
+  store i16 %56, ptr %58, align 8
+  %59 = load ptr, ptr @working_cluster_rec, align 8
+  %60 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %59, i32 0, i32 3
+  %61 = load ptr, ptr @working_cluster_rec, align 8
+  %62 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %61, i32 0, i32 5
+  %63 = load i32, ptr %62, align 8
+  %64 = trunc i32 %63 to i16
+  %65 = load ptr, ptr @working_cluster_rec, align 8
+  %66 = getelementptr inbounds %struct.slurmdb_cluster_rec, ptr %65, i32 0, i32 4
+  %67 = load ptr, ptr %66, align 8
+  call void @slurm_set_addr(ptr noundef %60, i16 noundef zeroext %64, ptr noundef %67)
+  br label %68
 
-67:                                               ; preds = %37, %26
+68:                                               ; preds = %38, %26
   call void @slurm_xfree(ptr noundef %1)
-  %68 = call i32 @unsetenv(ptr noundef @.str.46) #10
-  br label %69
+  %69 = call i32 @unsetenv(ptr noundef @.str.46) #10
+  br label %70
 
-69:                                               ; preds = %67, %8
+70:                                               ; preds = %68, %8
   ret void
 }
 
@@ -545,28 +546,30 @@ declare void @init_srun(i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroex
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @_enable_het_job_steps() #0 {
   %1 = alloca i1, align 1
-  %2 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159), align 8
-  %3 = call ptr @xstrcasestr(ptr noundef %2, ptr noundef @.str.6)
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %9, label %5
+  %2 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159
+  %3 = load ptr, ptr %2, align 8
+  %4 = call ptr @xstrcasestr(ptr noundef %3, ptr noundef @.str.6)
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %11, label %6
 
-5:                                                ; preds = %0
-  %6 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159), align 8
-  %7 = call ptr @xstrcasestr(ptr noundef %6, ptr noundef @.str.7)
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %10
+6:                                                ; preds = %0
+  %7 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159
+  %8 = load ptr, ptr %7, align 8
+  %9 = call ptr @xstrcasestr(ptr noundef %8, ptr noundef @.str.7)
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %12
 
-9:                                                ; preds = %5, %0
+11:                                               ; preds = %6, %0
   store i1 false, ptr %1, align 1
-  br label %11
+  br label %13
 
-10:                                               ; preds = %5
+12:                                               ; preds = %6
   store i1 true, ptr %1, align 1
-  br label %11
+  br label %13
 
-11:                                               ; preds = %10, %9
-  %12 = load i1, ptr %1, align 1
-  ret i1 %12
+13:                                               ; preds = %12, %11
+  %14 = load i1, ptr %1, align 1
+  ret i1 %14
 }
 
 declare void @create_srun_job(ptr noundef, ptr noundef) #2
@@ -1518,7 +1521,7 @@ define internal void @_launch_app(ptr noundef %0, ptr noundef %1, i1 noundef zer
   br label %501
 
 501:                                              ; preds = %497, %494
-  br label %636
+  br label %637
 
 502:                                              ; preds = %3
   %503 = load ptr, ptr %4, align 8
@@ -1686,16 +1689,17 @@ define internal void @_launch_app(ptr noundef %0, ptr noundef %1, i1 noundef zer
   %629 = load ptr, ptr %10, align 8
   %630 = getelementptr inbounds %struct._launch_app_data, ptr %629, i32 0, i32 2
   store ptr @opt, ptr %630, align 8
-  store i32 1, ptr getelementptr inbounds (%struct.srun_opt_t, ptr @sropt, i32 0, i32 31), align 8
-  %631 = load ptr, ptr %10, align 8
-  %632 = call ptr @_launch_one_app(ptr noundef %631)
-  %633 = load ptr, ptr %4, align 8
-  %634 = load i8, ptr %6, align 1
-  %635 = trunc i8 %634 to i1
-  call void @fini_srun(ptr noundef %633, i1 noundef zeroext %635, ptr noundef @global_rc)
-  br label %636
+  %631 = getelementptr inbounds %struct.srun_opt_t, ptr @sropt, i32 0, i32 31
+  store i32 1, ptr %631, align 8
+  %632 = load ptr, ptr %10, align 8
+  %633 = call ptr @_launch_one_app(ptr noundef %632)
+  %634 = load ptr, ptr %4, align 8
+  %635 = load i8, ptr %6, align 1
+  %636 = trunc i8 %635 to i1
+  call void @fini_srun(ptr noundef %634, i1 noundef zeroext %636, ptr noundef @global_rc)
+  br label %637
 
-636:                                              ; preds = %619, %501
+637:                                              ; preds = %619, %501
   ret void
 }
 
@@ -3003,218 +3007,220 @@ define internal void @_file_bcast(ptr noundef %0, ptr noundef %1) #0 {
   %35 = load ptr, ptr %6, align 8
   %36 = getelementptr inbounds %struct.bcast_parameters, ptr %35, i32 0, i32 1
   store i16 %34, ptr %36, align 4
-  br label %47
+  br label %48
 
 37:                                               ; preds = %23
-  %38 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 24), align 8
-  %39 = call ptr @conf_get_opt_str(ptr noundef %38, ptr noundef @.str.34)
-  store ptr %39, ptr %7, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %46
+  %38 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 24
+  %39 = load ptr, ptr %38, align 8
+  %40 = call ptr @conf_get_opt_str(ptr noundef %39, ptr noundef @.str.34)
+  store ptr %40, ptr %7, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %47
 
-41:                                               ; preds = %37
-  %42 = load ptr, ptr %7, align 8
-  %43 = call zeroext i16 @parse_compress_type(ptr noundef %42)
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.bcast_parameters, ptr %44, i32 0, i32 1
-  store i16 %43, ptr %45, align 4
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %7, align 8
+  %44 = call zeroext i16 @parse_compress_type(ptr noundef %43)
+  %45 = load ptr, ptr %6, align 8
+  %46 = getelementptr inbounds %struct.bcast_parameters, ptr %45, i32 0, i32 1
+  store i16 %44, ptr %46, align 4
   call void @slurm_xfree(ptr noundef %7)
-  br label %46
-
-46:                                               ; preds = %41, %37
   br label %47
 
-47:                                               ; preds = %46, %31
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct.srun_opt_t, ptr %48, i32 0, i32 2
-  %50 = load ptr, ptr %49, align 8
-  %51 = call ptr @xstrdup(ptr noundef %50)
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct.bcast_parameters, ptr %52, i32 0, i32 2
-  store ptr %51, ptr %53, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.srun_opt_t, ptr %54, i32 0, i32 3
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %73
+47:                                               ; preds = %42, %37
+  br label %48
 
-58:                                               ; preds = %47
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds %struct.srun_opt_t, ptr %59, i32 0, i32 3
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 0
-  %63 = load i8, ptr %62, align 1
-  %64 = sext i8 %63 to i32
-  %65 = icmp eq i32 %64, 47
-  br i1 %65, label %66, label %73
+48:                                               ; preds = %47, %31
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %struct.srun_opt_t, ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8
+  %52 = call ptr @xstrdup(ptr noundef %51)
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds %struct.bcast_parameters, ptr %53, i32 0, i32 2
+  store ptr %52, ptr %54, align 8
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds %struct.srun_opt_t, ptr %55, i32 0, i32 3
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %74
 
-66:                                               ; preds = %58
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct.srun_opt_t, ptr %67, i32 0, i32 3
-  %69 = load ptr, ptr %68, align 8
-  %70 = call ptr @xstrdup(ptr noundef %69)
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct.bcast_parameters, ptr %71, i32 0, i32 3
-  store ptr %70, ptr %72, align 8
-  br label %89
+59:                                               ; preds = %48
+  %60 = load ptr, ptr %5, align 8
+  %61 = getelementptr inbounds %struct.srun_opt_t, ptr %60, i32 0, i32 3
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 0
+  %64 = load i8, ptr %63, align 1
+  %65 = sext i8 %64 to i32
+  %66 = icmp eq i32 %65, 47
+  br i1 %66, label %67, label %74
 
-73:                                               ; preds = %58, %47
-  %74 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 24), align 8
-  %75 = call ptr @conf_get_opt_str(ptr noundef %74, ptr noundef @.str.35)
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct.bcast_parameters, ptr %76, i32 0, i32 3
-  store ptr %75, ptr %77, align 8
-  %78 = icmp ne ptr %75, null
-  br i1 %78, label %79, label %82
+67:                                               ; preds = %59
+  %68 = load ptr, ptr %5, align 8
+  %69 = getelementptr inbounds %struct.srun_opt_t, ptr %68, i32 0, i32 3
+  %70 = load ptr, ptr %69, align 8
+  %71 = call ptr @xstrdup(ptr noundef %70)
+  %72 = load ptr, ptr %6, align 8
+  %73 = getelementptr inbounds %struct.bcast_parameters, ptr %72, i32 0, i32 3
+  store ptr %71, ptr %73, align 8
+  br label %91
 
-79:                                               ; preds = %73
-  %80 = load ptr, ptr %6, align 8
-  %81 = getelementptr inbounds %struct.bcast_parameters, ptr %80, i32 0, i32 3
-  call void @_xstrcatchar(ptr noundef %81, i8 noundef signext 47)
-  br label %88
+74:                                               ; preds = %59, %48
+  %75 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 24
+  %76 = load ptr, ptr %75, align 8
+  %77 = call ptr @conf_get_opt_str(ptr noundef %76, ptr noundef @.str.35)
+  %78 = load ptr, ptr %6, align 8
+  %79 = getelementptr inbounds %struct.bcast_parameters, ptr %78, i32 0, i32 3
+  store ptr %77, ptr %79, align 8
+  %80 = icmp ne ptr %77, null
+  br i1 %80, label %81, label %84
 
-82:                                               ; preds = %73
-  %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr inbounds %struct.bcast_parameters, ptr %83, i32 0, i32 3
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds %struct.slurm_opt_t, ptr %85, i32 0, i32 15
-  %87 = load ptr, ptr %86, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %84, ptr noundef @.str.36, ptr noundef %87)
-  br label %88
+81:                                               ; preds = %74
+  %82 = load ptr, ptr %6, align 8
+  %83 = getelementptr inbounds %struct.bcast_parameters, ptr %82, i32 0, i32 3
+  call void @_xstrcatchar(ptr noundef %83, i8 noundef signext 47)
+  br label %90
 
-88:                                               ; preds = %82, %79
-  br label %89
+84:                                               ; preds = %74
+  %85 = load ptr, ptr %6, align 8
+  %86 = getelementptr inbounds %struct.bcast_parameters, ptr %85, i32 0, i32 3
+  %87 = load ptr, ptr %3, align 8
+  %88 = getelementptr inbounds %struct.slurm_opt_t, ptr %87, i32 0, i32 15
+  %89 = load ptr, ptr %88, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %86, ptr noundef @.str.36, ptr noundef %89)
+  br label %90
 
-89:                                               ; preds = %88, %66
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct.srun_opt_t, ptr %90, i32 0, i32 40
-  %92 = load i8, ptr %91, align 4
-  %93 = trunc i8 %92 to i1
-  br i1 %93, label %94, label %101
+90:                                               ; preds = %84, %81
+  br label %91
 
-94:                                               ; preds = %89
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct.bcast_parameters, ptr %95, i32 0, i32 5
-  %97 = load i16, ptr %96, align 8
-  %98 = zext i16 %97 to i32
-  %99 = or i32 %98, 4
-  %100 = trunc i32 %99 to i16
-  store i16 %100, ptr %96, align 8
-  br label %101
+91:                                               ; preds = %90, %67
+  %92 = load ptr, ptr %5, align 8
+  %93 = getelementptr inbounds %struct.srun_opt_t, ptr %92, i32 0, i32 40
+  %94 = load i8, ptr %93, align 4
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %96, label %103
 
-101:                                              ; preds = %94, %89
-  %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds %struct.bcast_parameters, ptr %102, i32 0, i32 10
-  store i32 0, ptr %103, align 8
-  %104 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 20, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.9, i32 noundef 809, ptr noundef @__func__._file_bcast)
-  %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %struct.bcast_parameters, ptr %105, i32 0, i32 6
-  store ptr %104, ptr %106, align 8
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %6, align 8
+  %98 = getelementptr inbounds %struct.bcast_parameters, ptr %97, i32 0, i32 5
+  %99 = load i16, ptr %98, align 8
+  %100 = zext i16 %99 to i32
+  %101 = or i32 %100, 4
+  %102 = trunc i32 %101 to i16
+  store i16 %102, ptr %98, align 8
+  br label %103
+
+103:                                              ; preds = %96, %91
+  %104 = load ptr, ptr %6, align 8
+  %105 = getelementptr inbounds %struct.bcast_parameters, ptr %104, i32 0, i32 10
+  store i32 0, ptr %105, align 8
+  %106 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 20, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.9, i32 noundef 809, ptr noundef @__func__._file_bcast)
   %107 = load ptr, ptr %6, align 8
   %108 = getelementptr inbounds %struct.bcast_parameters, ptr %107, i32 0, i32 6
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.slurm_selected_step_t, ptr %109, i32 0, i32 0
-  store i32 -2, ptr %110, align 4
-  %111 = load ptr, ptr %6, align 8
-  %112 = getelementptr inbounds %struct.bcast_parameters, ptr %111, i32 0, i32 6
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %struct.slurm_selected_step_t, ptr %113, i32 0, i32 2
-  %115 = load ptr, ptr %4, align 8
-  %116 = getelementptr inbounds %struct.srun_job, ptr %115, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %114, ptr align 8 %116, i64 12, i1 false)
-  %117 = load ptr, ptr %6, align 8
-  %118 = getelementptr inbounds %struct.bcast_parameters, ptr %117, i32 0, i32 5
-  %119 = load i16, ptr %118, align 8
-  %120 = zext i16 %119 to i32
-  %121 = or i32 %120, 1
-  %122 = trunc i32 %121 to i16
-  store i16 %122, ptr %118, align 8
-  %123 = load ptr, ptr %5, align 8
-  %124 = getelementptr inbounds %struct.srun_opt_t, ptr %123, i32 0, i32 30
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp ne ptr %125, null
-  br i1 %126, label %127, label %137
+  store ptr %106, ptr %108, align 8
+  %109 = load ptr, ptr %6, align 8
+  %110 = getelementptr inbounds %struct.bcast_parameters, ptr %109, i32 0, i32 6
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds %struct.slurm_selected_step_t, ptr %111, i32 0, i32 0
+  store i32 -2, ptr %112, align 4
+  %113 = load ptr, ptr %6, align 8
+  %114 = getelementptr inbounds %struct.bcast_parameters, ptr %113, i32 0, i32 6
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds %struct.slurm_selected_step_t, ptr %115, i32 0, i32 2
+  %117 = load ptr, ptr %4, align 8
+  %118 = getelementptr inbounds %struct.srun_job, ptr %117, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %116, ptr align 8 %118, i64 12, i1 false)
+  %119 = load ptr, ptr %6, align 8
+  %120 = getelementptr inbounds %struct.bcast_parameters, ptr %119, i32 0, i32 5
+  %121 = load i16, ptr %120, align 8
+  %122 = zext i16 %121 to i32
+  %123 = or i32 %122, 1
+  %124 = trunc i32 %123 to i16
+  store i16 %124, ptr %120, align 8
+  %125 = load ptr, ptr %5, align 8
+  %126 = getelementptr inbounds %struct.srun_opt_t, ptr %125, i32 0, i32 30
+  %127 = load ptr, ptr %126, align 8
+  %128 = icmp ne ptr %127, null
+  br i1 %128, label %129, label %139
 
-127:                                              ; preds = %101
-  %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds %struct.srun_opt_t, ptr %128, i32 0, i32 30
-  %130 = load ptr, ptr %129, align 8
-  %131 = call i64 @bit_ffs(ptr noundef %130)
-  %132 = trunc i64 %131 to i32
-  %133 = load ptr, ptr %6, align 8
-  %134 = getelementptr inbounds %struct.bcast_parameters, ptr %133, i32 0, i32 6
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds %struct.slurm_selected_step_t, ptr %135, i32 0, i32 1
-  store i32 %132, ptr %136, align 4
-  br label %142
+129:                                              ; preds = %103
+  %130 = load ptr, ptr %5, align 8
+  %131 = getelementptr inbounds %struct.srun_opt_t, ptr %130, i32 0, i32 30
+  %132 = load ptr, ptr %131, align 8
+  %133 = call i64 @bit_ffs(ptr noundef %132)
+  %134 = trunc i64 %133 to i32
+  %135 = load ptr, ptr %6, align 8
+  %136 = getelementptr inbounds %struct.bcast_parameters, ptr %135, i32 0, i32 6
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds %struct.slurm_selected_step_t, ptr %137, i32 0, i32 1
+  store i32 %134, ptr %138, align 4
+  br label %144
 
-137:                                              ; preds = %101
-  %138 = load ptr, ptr %6, align 8
-  %139 = getelementptr inbounds %struct.bcast_parameters, ptr %138, i32 0, i32 6
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds %struct.slurm_selected_step_t, ptr %140, i32 0, i32 1
-  store i32 -2, ptr %141, align 4
-  br label %142
+139:                                              ; preds = %103
+  %140 = load ptr, ptr %6, align 8
+  %141 = getelementptr inbounds %struct.bcast_parameters, ptr %140, i32 0, i32 6
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds %struct.slurm_selected_step_t, ptr %142, i32 0, i32 1
+  store i32 -2, ptr %143, align 4
+  br label %144
 
-142:                                              ; preds = %137, %127
-  %143 = load ptr, ptr %6, align 8
-  %144 = getelementptr inbounds %struct.bcast_parameters, ptr %143, i32 0, i32 5
-  %145 = load i16, ptr %144, align 8
-  %146 = zext i16 %145 to i32
-  %147 = or i32 %146, 2
-  %148 = trunc i32 %147 to i16
-  store i16 %148, ptr %144, align 8
-  %149 = load ptr, ptr %3, align 8
-  %150 = getelementptr inbounds %struct.slurm_opt_t, ptr %149, i32 0, i32 9
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds ptr, ptr %151, i64 0
+144:                                              ; preds = %139, %129
+  %145 = load ptr, ptr %6, align 8
+  %146 = getelementptr inbounds %struct.bcast_parameters, ptr %145, i32 0, i32 5
+  %147 = load i16, ptr %146, align 8
+  %148 = zext i16 %147 to i32
+  %149 = or i32 %148, 2
+  %150 = trunc i32 %149 to i16
+  store i16 %150, ptr %146, align 8
+  %151 = load ptr, ptr %3, align 8
+  %152 = getelementptr inbounds %struct.slurm_opt_t, ptr %151, i32 0, i32 9
   %153 = load ptr, ptr %152, align 8
-  %154 = call ptr @xstrdup(ptr noundef %153)
-  %155 = load ptr, ptr %6, align 8
-  %156 = getelementptr inbounds %struct.bcast_parameters, ptr %155, i32 0, i32 7
-  store ptr %154, ptr %156, align 8
+  %154 = getelementptr inbounds ptr, ptr %153, i64 0
+  %155 = load ptr, ptr %154, align 8
+  %156 = call ptr @xstrdup(ptr noundef %155)
   %157 = load ptr, ptr %6, align 8
-  %158 = getelementptr inbounds %struct.bcast_parameters, ptr %157, i32 0, i32 9
-  store i32 0, ptr %158, align 4
+  %158 = getelementptr inbounds %struct.bcast_parameters, ptr %157, i32 0, i32 7
+  store ptr %156, ptr %158, align 8
   %159 = load ptr, ptr %6, align 8
-  %160 = getelementptr inbounds %struct.bcast_parameters, ptr %159, i32 0, i32 11
+  %160 = getelementptr inbounds %struct.bcast_parameters, ptr %159, i32 0, i32 9
   store i32 0, ptr %160, align 4
   %161 = load ptr, ptr %6, align 8
-  %162 = call i32 @bcast_file(ptr noundef %161)
-  %163 = icmp ne i32 %162, 0
-  br i1 %163, label %164, label %168
+  %162 = getelementptr inbounds %struct.bcast_parameters, ptr %161, i32 0, i32 11
+  store i32 0, ptr %162, align 4
+  %163 = load ptr, ptr %6, align 8
+  %164 = call i32 @bcast_file(ptr noundef %163)
+  %165 = icmp ne i32 %164, 0
+  br i1 %165, label %166, label %170
 
-164:                                              ; preds = %142
-  %165 = load ptr, ptr %6, align 8
-  %166 = getelementptr inbounds %struct.bcast_parameters, ptr %165, i32 0, i32 7
-  %167 = load ptr, ptr %166, align 8
-  call void (ptr, ...) @fatal(ptr noundef @.str.37, ptr noundef %167) #9
+166:                                              ; preds = %144
+  %167 = load ptr, ptr %6, align 8
+  %168 = getelementptr inbounds %struct.bcast_parameters, ptr %167, i32 0, i32 7
+  %169 = load ptr, ptr %168, align 8
+  call void (ptr, ...) @fatal(ptr noundef @.str.37, ptr noundef %169) #9
   unreachable
 
-168:                                              ; preds = %142
-  %169 = load ptr, ptr %5, align 8
-  %170 = getelementptr inbounds %struct.srun_opt_t, ptr %169, i32 0, i32 3
-  call void @slurm_xfree(ptr noundef %170)
-  %171 = load ptr, ptr %6, align 8
-  %172 = getelementptr inbounds %struct.bcast_parameters, ptr %171, i32 0, i32 3
-  %173 = load ptr, ptr %172, align 8
-  %174 = call ptr @xstrdup(ptr noundef %173)
-  %175 = load ptr, ptr %5, align 8
-  %176 = getelementptr inbounds %struct.srun_opt_t, ptr %175, i32 0, i32 3
-  store ptr %174, ptr %176, align 8
-  %177 = load ptr, ptr %6, align 8
-  %178 = getelementptr inbounds %struct.bcast_parameters, ptr %177, i32 0, i32 6
-  %179 = load ptr, ptr %178, align 8
-  call void @slurm_destroy_selected_step(ptr noundef %179)
-  %180 = load ptr, ptr %6, align 8
-  %181 = getelementptr inbounds %struct.bcast_parameters, ptr %180, i32 0, i32 3
-  call void @slurm_xfree(ptr noundef %181)
+170:                                              ; preds = %144
+  %171 = load ptr, ptr %5, align 8
+  %172 = getelementptr inbounds %struct.srun_opt_t, ptr %171, i32 0, i32 3
+  call void @slurm_xfree(ptr noundef %172)
+  %173 = load ptr, ptr %6, align 8
+  %174 = getelementptr inbounds %struct.bcast_parameters, ptr %173, i32 0, i32 3
+  %175 = load ptr, ptr %174, align 8
+  %176 = call ptr @xstrdup(ptr noundef %175)
+  %177 = load ptr, ptr %5, align 8
+  %178 = getelementptr inbounds %struct.srun_opt_t, ptr %177, i32 0, i32 3
+  store ptr %176, ptr %178, align 8
+  %179 = load ptr, ptr %6, align 8
+  %180 = getelementptr inbounds %struct.bcast_parameters, ptr %179, i32 0, i32 6
+  %181 = load ptr, ptr %180, align 8
+  call void @slurm_destroy_selected_step(ptr noundef %181)
   %182 = load ptr, ptr %6, align 8
-  %183 = getelementptr inbounds %struct.bcast_parameters, ptr %182, i32 0, i32 2
+  %183 = getelementptr inbounds %struct.bcast_parameters, ptr %182, i32 0, i32 3
   call void @slurm_xfree(ptr noundef %183)
   %184 = load ptr, ptr %6, align 8
-  %185 = getelementptr inbounds %struct.bcast_parameters, ptr %184, i32 0, i32 7
+  %185 = getelementptr inbounds %struct.bcast_parameters, ptr %184, i32 0, i32 2
   call void @slurm_xfree(ptr noundef %185)
+  %186 = load ptr, ptr %6, align 8
+  %187 = getelementptr inbounds %struct.bcast_parameters, ptr %186, i32 0, i32 7
+  call void @slurm_xfree(ptr noundef %187)
   call void @slurm_xfree(ptr noundef %6)
   ret void
 }

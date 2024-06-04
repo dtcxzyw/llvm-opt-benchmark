@@ -982,7 +982,7 @@ define internal i32 @dissect_ansi_tcap_TransactionID_U(i1 noundef zeroext %0, pt
   store i32 %23, ptr %9, align 4
   %24 = load ptr, ptr %13, align 8
   %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %83
+  br i1 %25, label %26, label %85
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %13, align 8
@@ -992,13 +992,13 @@ define internal i32 @dissect_ansi_tcap_TransactionID_U(i1 noundef zeroext %0, pt
   %30 = load i8, ptr %14, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %59
+  br i1 %32, label %33, label %61
 
 33:                                               ; preds = %26
   %34 = load i8, ptr %14, align 1
   %35 = zext i8 %34 to i32
   %36 = icmp sgt i32 %35, 4
-  br i1 %36, label %37, label %48
+  br i1 %36, label %37, label %49
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %10, align 8
@@ -1011,72 +1011,74 @@ define internal i32 @dissect_ansi_tcap_TransactionID_U(i1 noundef zeroext %0, pt
   %45 = zext i8 %44 to i32
   %46 = sub i32 %45, 4
   %47 = call ptr @tvb_bytes_to_str(ptr noundef %42, ptr noundef %43, i32 noundef 4, i32 noundef %46)
-  store ptr %47, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5), align 8
-  br label %58
+  %48 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5
+  store ptr %47, ptr %48, align 8
+  br label %60
 
-48:                                               ; preds = %33
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct._asn1_ctx_t, ptr %49, i32 0, i32 3
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct._packet_info, ptr %51, i32 0, i32 50
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %13, align 8
-  %55 = load i8, ptr %14, align 1
-  %56 = zext i8 %55 to i32
-  %57 = call ptr @tvb_bytes_to_str(ptr noundef %53, ptr noundef %54, i32 noundef 0, i32 noundef %56)
-  store ptr %57, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5), align 8
-  br label %58
+49:                                               ; preds = %33
+  %50 = load ptr, ptr %10, align 8
+  %51 = getelementptr inbounds %struct._asn1_ctx_t, ptr %50, i32 0, i32 3
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds %struct._packet_info, ptr %52, i32 0, i32 50
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %13, align 8
+  %56 = load i8, ptr %14, align 1
+  %57 = zext i8 %56 to i32
+  %58 = call ptr @tvb_bytes_to_str(ptr noundef %54, ptr noundef %55, i32 noundef 0, i32 noundef %57)
+  %59 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5
+  store ptr %58, ptr %59, align 8
+  br label %60
 
-58:                                               ; preds = %48, %37
-  br label %59
+60:                                               ; preds = %49, %37
+  br label %61
 
-59:                                               ; preds = %58, %26
-  %60 = load i8, ptr %14, align 1
-  %61 = zext i8 %60 to i32
-  switch i32 %61, label %79 [
-    i32 1, label %62
-    i32 2, label %68
-    i32 4, label %74
+61:                                               ; preds = %60, %26
+  %62 = load i8, ptr %14, align 1
+  %63 = zext i8 %62 to i32
+  switch i32 %63, label %81 [
+    i32 1, label %64
+    i32 2, label %70
+    i32 4, label %76
   ]
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %13, align 8
-  %64 = call zeroext i8 @tvb_get_guint8(ptr noundef %63, i32 noundef 0)
-  %65 = zext i8 %64 to i32
-  %66 = load ptr, ptr @gp_tcapsrt_info, align 8
-  %67 = getelementptr inbounds %struct.tcapsrt_info_t, ptr %66, i32 0, i32 1
-  store i32 %65, ptr %67, align 4
-  br label %82
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %13, align 8
+  %66 = call zeroext i8 @tvb_get_guint8(ptr noundef %65, i32 noundef 0)
+  %67 = zext i8 %66 to i32
+  %68 = load ptr, ptr @gp_tcapsrt_info, align 8
+  %69 = getelementptr inbounds %struct.tcapsrt_info_t, ptr %68, i32 0, i32 1
+  store i32 %67, ptr %69, align 4
+  br label %84
 
-68:                                               ; preds = %59
-  %69 = load ptr, ptr %13, align 8
-  %70 = call zeroext i16 @tvb_get_ntohs(ptr noundef %69, i32 noundef 0)
-  %71 = zext i16 %70 to i32
-  %72 = load ptr, ptr @gp_tcapsrt_info, align 8
-  %73 = getelementptr inbounds %struct.tcapsrt_info_t, ptr %72, i32 0, i32 1
-  store i32 %71, ptr %73, align 4
-  br label %82
+70:                                               ; preds = %61
+  %71 = load ptr, ptr %13, align 8
+  %72 = call zeroext i16 @tvb_get_ntohs(ptr noundef %71, i32 noundef 0)
+  %73 = zext i16 %72 to i32
+  %74 = load ptr, ptr @gp_tcapsrt_info, align 8
+  %75 = getelementptr inbounds %struct.tcapsrt_info_t, ptr %74, i32 0, i32 1
+  store i32 %73, ptr %75, align 4
+  br label %84
 
-74:                                               ; preds = %59
-  %75 = load ptr, ptr %13, align 8
-  %76 = call i32 @tvb_get_ntohl(ptr noundef %75, i32 noundef 0)
-  %77 = load ptr, ptr @gp_tcapsrt_info, align 8
-  %78 = getelementptr inbounds %struct.tcapsrt_info_t, ptr %77, i32 0, i32 1
-  store i32 %76, ptr %78, align 4
-  br label %82
+76:                                               ; preds = %61
+  %77 = load ptr, ptr %13, align 8
+  %78 = call i32 @tvb_get_ntohl(ptr noundef %77, i32 noundef 0)
+  %79 = load ptr, ptr @gp_tcapsrt_info, align 8
+  %80 = getelementptr inbounds %struct.tcapsrt_info_t, ptr %79, i32 0, i32 1
+  store i32 %78, ptr %80, align 4
+  br label %84
 
-79:                                               ; preds = %59
-  %80 = load ptr, ptr @gp_tcapsrt_info, align 8
-  %81 = getelementptr inbounds %struct.tcapsrt_info_t, ptr %80, i32 0, i32 1
-  store i32 0, ptr %81, align 4
-  br label %82
+81:                                               ; preds = %61
+  %82 = load ptr, ptr @gp_tcapsrt_info, align 8
+  %83 = getelementptr inbounds %struct.tcapsrt_info_t, ptr %82, i32 0, i32 1
+  store i32 0, ptr %83, align 4
+  br label %84
 
-82:                                               ; preds = %79, %74, %68, %62
-  br label %83
+84:                                               ; preds = %81, %76, %70, %64
+  br label %85
 
-83:                                               ; preds = %82, %6
-  %84 = load i32, ptr %9, align 4
-  ret i32 %84
+85:                                               ; preds = %84, %6
+  %86 = load i32, ptr %9, align 4
+  ret i32 %86
 }
 
 declare i32 @dissect_ber_octet_string(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
@@ -1340,10 +1342,12 @@ define internal i32 @dissect_ansi_tcap_ObjectIDApplicationContext(i1 noundef zer
   %21 = call i32 @dissect_ber_tagged_type(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %20, i8 noundef signext 3, i32 noundef 28, i1 noundef zeroext true, ptr noundef @dissect_ansi_tcap_OBJECT_IDENTIFIER)
   store i32 %21, ptr %9, align 4
   %22 = load ptr, ptr @dissect_ansi_tcap_ObjectIDApplicationContext.oid_str, align 8
-  store ptr %22, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 2), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 1), align 4
-  %23 = load i32, ptr %9, align 4
-  ret i32 %23
+  %23 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 2
+  store ptr %22, ptr %23, align 8
+  %24 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 1
+  store i32 1, ptr %24, align 4
+  %25 = load i32, ptr %9, align 4
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1565,19 +1569,20 @@ define internal i32 @dissect_ansi_tcap_Invoke(i1 noundef zeroext %0, ptr noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  store i32 1, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6), align 8
-  %14 = load i8, ptr %7, align 1
-  %15 = trunc i8 %14 to i1
-  %16 = load ptr, ptr %10, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = load i32, ptr %9, align 4
-  %20 = load i32, ptr %12, align 4
-  %21 = load i32, ptr @ett_ansi_tcap_Invoke, align 4
-  %22 = call i32 @dissect_ber_sequence(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef @Invoke_sequence, i32 noundef %20, i32 noundef %21)
-  store i32 %22, ptr %9, align 4
-  %23 = load i32, ptr %9, align 4
-  ret i32 %23
+  %14 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6
+  store i32 1, ptr %14, align 8
+  %15 = load i8, ptr %7, align 1
+  %16 = trunc i8 %15 to i1
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = load i32, ptr %9, align 4
+  %21 = load i32, ptr %12, align 4
+  %22 = load i32, ptr @ett_ansi_tcap_Invoke, align 4
+  %23 = call i32 @dissect_ber_sequence(i1 noundef zeroext %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef @Invoke_sequence, i32 noundef %21, i32 noundef %22)
+  store i32 %23, ptr %9, align 4
+  %24 = load i32, ptr %9, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1595,19 +1600,20 @@ define internal i32 @dissect_ansi_tcap_ReturnResult(i1 noundef zeroext %0, ptr n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  store i32 2, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6), align 8
-  %14 = load i8, ptr %7, align 1
-  %15 = trunc i8 %14 to i1
-  %16 = load ptr, ptr %10, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = load i32, ptr %9, align 4
-  %20 = load i32, ptr %12, align 4
-  %21 = load i32, ptr @ett_ansi_tcap_ReturnResult, align 4
-  %22 = call i32 @dissect_ber_sequence(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef @ReturnResult_sequence, i32 noundef %20, i32 noundef %21)
-  store i32 %22, ptr %9, align 4
-  %23 = load i32, ptr %9, align 4
-  ret i32 %23
+  %14 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6
+  store i32 2, ptr %14, align 8
+  %15 = load i8, ptr %7, align 1
+  %16 = trunc i8 %15 to i1
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = load i32, ptr %9, align 4
+  %21 = load i32, ptr %12, align 4
+  %22 = load i32, ptr @ett_ansi_tcap_ReturnResult, align 4
+  %23 = call i32 @dissect_ber_sequence(i1 noundef zeroext %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef @ReturnResult_sequence, i32 noundef %21, i32 noundef %22)
+  store i32 %23, ptr %9, align 4
+  %24 = load i32, ptr %9, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1625,19 +1631,20 @@ define internal i32 @dissect_ansi_tcap_ReturnError(i1 noundef zeroext %0, ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  store i32 3, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6), align 8
-  %14 = load i8, ptr %7, align 1
-  %15 = trunc i8 %14 to i1
-  %16 = load ptr, ptr %10, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = load i32, ptr %9, align 4
-  %20 = load i32, ptr %12, align 4
-  %21 = load i32, ptr @ett_ansi_tcap_ReturnError, align 4
-  %22 = call i32 @dissect_ber_sequence(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef @ReturnError_sequence, i32 noundef %20, i32 noundef %21)
-  store i32 %22, ptr %9, align 4
-  %23 = load i32, ptr %9, align 4
-  ret i32 %23
+  %14 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6
+  store i32 3, ptr %14, align 8
+  %15 = load i8, ptr %7, align 1
+  %16 = trunc i8 %15 to i1
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = load i32, ptr %9, align 4
+  %21 = load i32, ptr %12, align 4
+  %22 = load i32, ptr @ett_ansi_tcap_ReturnError, align 4
+  %23 = call i32 @dissect_ber_sequence(i1 noundef zeroext %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef @ReturnError_sequence, i32 noundef %21, i32 noundef %22)
+  store i32 %23, ptr %9, align 4
+  %24 = load i32, ptr %9, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1718,14 +1725,16 @@ define internal i32 @dissect_ansi_tcap_OperationCode(i1 noundef zeroext %0, ptr 
   %17 = load i32, ptr %9, align 4
   %18 = load i32, ptr %12, align 4
   %19 = load i32, ptr @ett_ansi_tcap_OperationCode, align 4
-  %20 = call i32 @dissect_ber_choice(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef %17, ptr noundef @OperationCode_choice, i32 noundef %18, i32 noundef %19, ptr noundef getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 1))
-  store i32 %20, ptr %9, align 4
-  %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds %struct._asn1_ctx_t, ptr %21, i32 0, i32 4
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 4), align 8
-  %24 = load i32, ptr %9, align 4
-  ret i32 %24
+  %20 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 1
+  %21 = call i32 @dissect_ber_choice(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef %17, ptr noundef @OperationCode_choice, i32 noundef %18, i32 noundef %19, ptr noundef %20)
+  store i32 %21, ptr %9, align 4
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds %struct._asn1_ctx_t, ptr %22, i32 0, i32 4
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 4
+  store ptr %24, ptr %25, align 8
+  %26 = load i32, ptr %9, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1790,187 +1799,192 @@ define internal i32 @dissect_ansi_tcap_T_national(i1 noundef zeroext %0, ptr nou
   %24 = load ptr, ptr %8, align 8
   %25 = load i32, ptr %9, align 4
   %26 = load i32, ptr %12, align 4
-  %27 = call i32 @dissect_ber_integer(i1 noundef zeroext %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2))
-  store i32 %27, ptr %9, align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2), align 8
-  %29 = and i32 %28, 32767
-  store i32 %29, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2), align 8
-  %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds %struct._asn1_ctx_t, ptr %30, i32 0, i32 4
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr @ett_ansi_tcap_op_code_nat, align 4
-  %34 = call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33)
-  store ptr %34, ptr %13, align 8
-  %35 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2), align 8
-  %36 = and i32 %35, 32512
-  %37 = ashr i32 %36, 8
-  %38 = trunc i32 %37 to i8
-  store i8 %38, ptr %16, align 1
-  %39 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2), align 8
-  %40 = and i32 %39, 255
-  %41 = trunc i32 %40 to i8
-  store i8 %41, ptr %17, align 1
-  %42 = load ptr, ptr %13, align 8
-  %43 = load i32, ptr @hf_ansi_tcap_bit_h, align 4
-  %44 = load ptr, ptr %8, align 8
-  %45 = load i32, ptr %15, align 4
-  %46 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 2, i32 noundef 0)
+  %27 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2
+  %28 = call i32 @dissect_ber_integer(i1 noundef zeroext %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef %27)
+  store i32 %28, ptr %9, align 4
+  %29 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2
+  %30 = load i32, ptr %29, align 8
+  %31 = and i32 %30, 32767
+  %32 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2
+  store i32 %31, ptr %32, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = getelementptr inbounds %struct._asn1_ctx_t, ptr %33, i32 0, i32 4
+  %35 = load ptr, ptr %34, align 8
+  %36 = load i32, ptr @ett_ansi_tcap_op_code_nat, align 4
+  %37 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36)
+  store ptr %37, ptr %13, align 8
+  %38 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2
+  %39 = load i32, ptr %38, align 8
+  %40 = and i32 %39, 32512
+  %41 = ashr i32 %40, 8
+  %42 = trunc i32 %41 to i8
+  store i8 %42, ptr %16, align 1
+  %43 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2
+  %44 = load i32, ptr %43, align 8
+  %45 = and i32 %44, 255
+  %46 = trunc i32 %45 to i8
+  store i8 %46, ptr %17, align 1
   %47 = load ptr, ptr %13, align 8
-  %48 = load i32, ptr @hf_ansi_tcap_op_family, align 4
+  %48 = load i32, ptr @hf_ansi_tcap_bit_h, align 4
   %49 = load ptr, ptr %8, align 8
   %50 = load i32, ptr %15, align 4
   %51 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef 2, i32 noundef 0)
   %52 = load ptr, ptr %13, align 8
-  %53 = load i32, ptr @hf_ansi_tcap_op_specifier, align 4
+  %53 = load i32, ptr @hf_ansi_tcap_op_family, align 4
   %54 = load ptr, ptr %8, align 8
   %55 = load i32, ptr %15, align 4
   %56 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 2, i32 noundef 0)
-  store ptr %56, ptr %14, align 8
-  %57 = load i8, ptr %16, align 1
-  %58 = zext i8 %57 to i32
-  switch i32 %58, label %123 [
-    i32 0, label %59
-    i32 1, label %60
-    i32 2, label %74
-    i32 3, label %81
-    i32 4, label %95
+  %57 = load ptr, ptr %13, align 8
+  %58 = load i32, ptr @hf_ansi_tcap_op_specifier, align 4
+  %59 = load ptr, ptr %8, align 8
+  %60 = load i32, ptr %15, align 4
+  %61 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef 2, i32 noundef 0)
+  store ptr %61, ptr %14, align 8
+  %62 = load i8, ptr %16, align 1
+  %63 = zext i8 %62 to i32
+  switch i32 %63, label %128 [
+    i32 0, label %64
+    i32 1, label %65
+    i32 2, label %79
+    i32 3, label %86
+    i32 4, label %100
   ]
 
-59:                                               ; preds = %6
+64:                                               ; preds = %6
+  br label %129
+
+65:                                               ; preds = %6
+  %66 = load i8, ptr %17, align 1
+  %67 = zext i8 %66 to i32
+  %68 = icmp eq i32 %67, 1
+  br i1 %68, label %69, label %71
+
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef @.str.195)
+  br label %78
+
+71:                                               ; preds = %65
+  %72 = load i8, ptr %17, align 1
+  %73 = zext i8 %72 to i32
+  %74 = icmp eq i32 %73, 2
+  br i1 %74, label %75, label %77
+
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %76, ptr noundef @.str.196)
+  br label %77
+
+77:                                               ; preds = %75, %71
+  br label %78
+
+78:                                               ; preds = %77, %69
+  br label %129
+
+79:                                               ; preds = %6
+  %80 = load i8, ptr %17, align 1
+  %81 = zext i8 %80 to i32
+  %82 = icmp eq i32 %81, 1
+  br i1 %82, label %83, label %85
+
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %84, ptr noundef @.str.197)
+  br label %85
+
+85:                                               ; preds = %83, %79
+  br label %129
+
+86:                                               ; preds = %6
+  %87 = load i8, ptr %17, align 1
+  %88 = zext i8 %87 to i32
+  %89 = icmp eq i32 %88, 1
+  br i1 %89, label %90, label %92
+
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %91, ptr noundef @.str.198)
+  br label %99
+
+92:                                               ; preds = %86
+  %93 = load i8, ptr %17, align 1
+  %94 = zext i8 %93 to i32
+  %95 = icmp eq i32 %94, 2
+  br i1 %95, label %96, label %98
+
+96:                                               ; preds = %92
+  %97 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef @.str.199)
+  br label %98
+
+98:                                               ; preds = %96, %92
+  br label %99
+
+99:                                               ; preds = %98, %90
+  br label %129
+
+100:                                              ; preds = %6
+  %101 = load i8, ptr %17, align 1
+  %102 = zext i8 %101 to i32
+  %103 = icmp eq i32 %102, 1
+  br i1 %103, label %104, label %106
+
+104:                                              ; preds = %100
+  %105 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %105, ptr noundef @.str.200)
+  br label %127
+
+106:                                              ; preds = %100
+  %107 = load i8, ptr %17, align 1
+  %108 = zext i8 %107 to i32
+  %109 = icmp eq i32 %108, 2
+  br i1 %109, label %110, label %112
+
+110:                                              ; preds = %106
+  %111 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %111, ptr noundef @.str.201)
+  br label %126
+
+112:                                              ; preds = %106
+  %113 = load i8, ptr %17, align 1
+  %114 = zext i8 %113 to i32
+  %115 = icmp eq i32 %114, 3
+  br i1 %115, label %116, label %118
+
+116:                                              ; preds = %112
+  %117 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %117, ptr noundef @.str.202)
+  br label %125
+
+118:                                              ; preds = %112
+  %119 = load i8, ptr %17, align 1
+  %120 = zext i8 %119 to i32
+  %121 = icmp eq i32 %120, 4
+  br i1 %121, label %122, label %124
+
+122:                                              ; preds = %118
+  %123 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %123, ptr noundef @.str.203)
   br label %124
 
-60:                                               ; preds = %6
-  %61 = load i8, ptr %17, align 1
-  %62 = zext i8 %61 to i32
-  %63 = icmp eq i32 %62, 1
-  br i1 %63, label %64, label %66
+124:                                              ; preds = %122, %118
+  br label %125
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef @.str.195)
-  br label %73
+125:                                              ; preds = %124, %116
+  br label %126
 
-66:                                               ; preds = %60
-  %67 = load i8, ptr %17, align 1
-  %68 = zext i8 %67 to i32
-  %69 = icmp eq i32 %68, 2
-  br i1 %69, label %70, label %72
+126:                                              ; preds = %125, %110
+  br label %127
 
-70:                                               ; preds = %66
-  %71 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %71, ptr noundef @.str.196)
-  br label %72
+127:                                              ; preds = %126, %104
+  br label %129
 
-72:                                               ; preds = %70, %66
-  br label %73
+128:                                              ; preds = %6
+  br label %129
 
-73:                                               ; preds = %72, %64
-  br label %124
-
-74:                                               ; preds = %6
-  %75 = load i8, ptr %17, align 1
-  %76 = zext i8 %75 to i32
-  %77 = icmp eq i32 %76, 1
-  br i1 %77, label %78, label %80
-
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %79, ptr noundef @.str.197)
-  br label %80
-
-80:                                               ; preds = %78, %74
-  br label %124
-
-81:                                               ; preds = %6
-  %82 = load i8, ptr %17, align 1
-  %83 = zext i8 %82 to i32
-  %84 = icmp eq i32 %83, 1
-  br i1 %84, label %85, label %87
-
-85:                                               ; preds = %81
-  %86 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef @.str.198)
-  br label %94
-
-87:                                               ; preds = %81
-  %88 = load i8, ptr %17, align 1
-  %89 = zext i8 %88 to i32
-  %90 = icmp eq i32 %89, 2
-  br i1 %90, label %91, label %93
-
-91:                                               ; preds = %87
-  %92 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %92, ptr noundef @.str.199)
-  br label %93
-
-93:                                               ; preds = %91, %87
-  br label %94
-
-94:                                               ; preds = %93, %85
-  br label %124
-
-95:                                               ; preds = %6
-  %96 = load i8, ptr %17, align 1
-  %97 = zext i8 %96 to i32
-  %98 = icmp eq i32 %97, 1
-  br i1 %98, label %99, label %101
-
-99:                                               ; preds = %95
-  %100 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef @.str.200)
-  br label %122
-
-101:                                              ; preds = %95
-  %102 = load i8, ptr %17, align 1
-  %103 = zext i8 %102 to i32
-  %104 = icmp eq i32 %103, 2
-  br i1 %104, label %105, label %107
-
-105:                                              ; preds = %101
-  %106 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %106, ptr noundef @.str.201)
-  br label %121
-
-107:                                              ; preds = %101
-  %108 = load i8, ptr %17, align 1
-  %109 = zext i8 %108 to i32
-  %110 = icmp eq i32 %109, 3
-  br i1 %110, label %111, label %113
-
-111:                                              ; preds = %107
-  %112 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %112, ptr noundef @.str.202)
-  br label %120
-
-113:                                              ; preds = %107
-  %114 = load i8, ptr %17, align 1
-  %115 = zext i8 %114 to i32
-  %116 = icmp eq i32 %115, 4
-  br i1 %116, label %117, label %119
-
-117:                                              ; preds = %113
-  %118 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %118, ptr noundef @.str.203)
-  br label %119
-
-119:                                              ; preds = %117, %113
-  br label %120
-
-120:                                              ; preds = %119, %111
-  br label %121
-
-121:                                              ; preds = %120, %105
-  br label %122
-
-122:                                              ; preds = %121, %99
-  br label %124
-
-123:                                              ; preds = %6
-  br label %124
-
-124:                                              ; preds = %123, %122, %94, %80, %73, %59
-  %125 = load i32, ptr %9, align 4
-  ret i32 %125
+129:                                              ; preds = %128, %127, %99, %85, %78, %64
+  %130 = load i32, ptr %9, align 4
+  ret i32 %130
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1995,10 +2009,11 @@ define internal i32 @dissect_ansi_tcap_T_private(i1 noundef zeroext %0, ptr noun
   %18 = load ptr, ptr %8, align 8
   %19 = load i32, ptr %9, align 4
   %20 = load i32, ptr %12, align 4
-  %21 = call i32 @dissect_ber_integer(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3))
-  store i32 %21, ptr %9, align 4
-  %22 = load i32, ptr %9, align 4
-  ret i32 %22
+  %21 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3
+  %22 = call i32 @dissect_ber_integer(i1 noundef zeroext %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef %21)
+  store i32 %22, ptr %9, align 4
+  %23 = load i32, ptr %9, align 4
+  ret i32 %23
 }
 
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
@@ -2015,178 +2030,192 @@ define internal i32 @find_tcap_subdissector(ptr noundef %0, ptr noundef %1, ptr 
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %11 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6), align 8
-  %12 = icmp eq i32 %11, 1
-  br i1 %12, label %13, label %19
+  %11 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp eq i32 %12, 1
+  br i1 %13, label %14, label %20
 
-13:                                               ; preds = %3
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._asn1_ctx_t, ptr %14, i32 0, i32 3
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %5, align 8
-  call void @save_invoke_data(ptr noundef %16, ptr noundef %17, ptr noundef %18)
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds %struct._asn1_ctx_t, ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %5, align 8
+  call void @save_invoke_data(ptr noundef %17, ptr noundef %18, ptr noundef %19)
+  br label %51
+
+20:                                               ; preds = %3
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds %struct._asn1_ctx_t, ptr %21, i32 0, i32 3
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %7, align 8
+  %25 = load ptr, ptr %5, align 8
+  %26 = call i32 @find_saved_invokedata(ptr noundef %23, ptr noundef %24, ptr noundef %25)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %50
+
+28:                                               ; preds = %20
+  %29 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 1
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %39
+
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr @hf_ansi_tcap_national, align 4
+  %35 = load ptr, ptr %5, align 8
+  %36 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2
+  %37 = load i32, ptr %36, align 8
+  %38 = call ptr @proto_tree_add_int(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef 0, i32 noundef 0, i32 noundef %37)
+  store ptr %38, ptr %8, align 8
   br label %46
 
-19:                                               ; preds = %3
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct._asn1_ctx_t, ptr %20, i32 0, i32 3
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = call i32 @find_saved_invokedata(ptr noundef %22, ptr noundef %23, ptr noundef %24)
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %45
-
-27:                                               ; preds = %19
-  %28 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 1), align 4
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %36
-
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %7, align 8
-  %32 = load i32, ptr @hf_ansi_tcap_national, align 4
-  %33 = load ptr, ptr %5, align 8
-  %34 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2), align 8
-  %35 = call ptr @proto_tree_add_int(ptr noundef %31, i32 noundef %32, ptr noundef %33, i32 noundef 0, i32 noundef 0, i32 noundef %34)
-  store ptr %35, ptr %8, align 8
-  br label %42
-
-36:                                               ; preds = %27
-  %37 = load ptr, ptr %7, align 8
-  %38 = load i32, ptr @hf_ansi_tcap_private, align 4
-  %39 = load ptr, ptr %5, align 8
-  %40 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3), align 4
-  %41 = call ptr @proto_tree_add_int(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef 0, i32 noundef 0, i32 noundef %40)
-  store ptr %41, ptr %8, align 8
-  br label %42
-
-42:                                               ; preds = %36, %30
-  %43 = load ptr, ptr %8, align 8
-  call void @proto_item_set_generated(ptr noundef %43)
-  %44 = load ptr, ptr %8, align 8
-  store ptr %44, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 4), align 8
-  br label %45
-
-45:                                               ; preds = %42, %19
+39:                                               ; preds = %28
+  %40 = load ptr, ptr %7, align 8
+  %41 = load i32, ptr @hf_ansi_tcap_private, align 4
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3
+  %44 = load i32, ptr %43, align 4
+  %45 = call ptr @proto_tree_add_int(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef 0, i32 noundef 0, i32 noundef %44)
+  store ptr %45, ptr %8, align 8
   br label %46
 
-46:                                               ; preds = %45, %13
-  %47 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 1), align 4
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %82
+46:                                               ; preds = %39, %32
+  %47 = load ptr, ptr %8, align 8
+  call void @proto_item_set_generated(ptr noundef %47)
+  %48 = load ptr, ptr %8, align 8
+  %49 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 4
+  store ptr %48, ptr %49, align 8
+  br label %50
 
-49:                                               ; preds = %46
-  %50 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2), align 8
-  %51 = and i32 %50, 32512
-  %52 = ashr i32 %51, 8
-  %53 = trunc i32 %52 to i8
-  store i8 %53, ptr %9, align 1
-  %54 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2), align 8
-  %55 = and i32 %54, 255
-  %56 = trunc i32 %55 to i8
-  store i8 %56, ptr %10, align 1
-  %57 = load ptr, ptr @ansi_tcap_national_opcode_table, align 8
-  %58 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2), align 8
-  %59 = load ptr, ptr %5, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct._asn1_ctx_t, ptr %60, i32 0, i32 3
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct._asn1_ctx_t, ptr %63, i32 0, i32 9
-  %65 = getelementptr inbounds %struct.anon.3, ptr %64, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  %67 = call i32 @dissector_try_uint(ptr noundef %57, i32 noundef %58, ptr noundef %59, ptr noundef %62, ptr noundef %66)
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %81, label %69
+50:                                               ; preds = %46, %20
+  br label %51
 
-69:                                               ; preds = %49
-  %70 = load ptr, ptr %7, align 8
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct._asn1_ctx_t, ptr %71, i32 0, i32 3
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %5, align 8
-  %75 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2), align 8
-  %76 = load i8, ptr %9, align 1
-  %77 = zext i8 %76 to i32
-  %78 = load i8, ptr %10, align 1
-  %79 = zext i8 %78 to i32
-  %80 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %70, ptr noundef %73, ptr noundef @ei_ansi_tcap_dissector_not_implemented, ptr noundef %74, i32 noundef 0, i32 noundef -1, ptr noundef @.str.204, i32 noundef %75, i32 noundef %77, i32 noundef %79)
+51:                                               ; preds = %50, %14
+  %52 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 1
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %92
+
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2
+  %57 = load i32, ptr %56, align 8
+  %58 = and i32 %57, 32512
+  %59 = ashr i32 %58, 8
+  %60 = trunc i32 %59 to i8
+  store i8 %60, ptr %9, align 1
+  %61 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2
+  %62 = load i32, ptr %61, align 8
+  %63 = and i32 %62, 255
+  %64 = trunc i32 %63 to i8
+  store i8 %64, ptr %10, align 1
+  %65 = load ptr, ptr @ansi_tcap_national_opcode_table, align 8
+  %66 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2
+  %67 = load i32, ptr %66, align 8
+  %68 = load ptr, ptr %5, align 8
+  %69 = load ptr, ptr %6, align 8
+  %70 = getelementptr inbounds %struct._asn1_ctx_t, ptr %69, i32 0, i32 3
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %6, align 8
+  %73 = getelementptr inbounds %struct._asn1_ctx_t, ptr %72, i32 0, i32 9
+  %74 = getelementptr inbounds %struct.anon.3, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8
+  %76 = call i32 @dissector_try_uint(ptr noundef %65, i32 noundef %67, ptr noundef %68, ptr noundef %71, ptr noundef %75)
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %91, label %78
+
+78:                                               ; preds = %55
+  %79 = load ptr, ptr %7, align 8
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds %struct._asn1_ctx_t, ptr %80, i32 0, i32 3
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %5, align 8
+  %84 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2
+  %85 = load i32, ptr %84, align 8
+  %86 = load i8, ptr %9, align 1
+  %87 = zext i8 %86 to i32
+  %88 = load i8, ptr %10, align 1
+  %89 = zext i8 %88 to i32
+  %90 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %79, ptr noundef %82, ptr noundef @ei_ansi_tcap_dissector_not_implemented, ptr noundef %83, i32 noundef 0, i32 noundef -1, ptr noundef @.str.204, i32 noundef %85, i32 noundef %87, i32 noundef %89)
   store i32 0, ptr %4, align 4
-  br label %126
+  br label %140
 
-81:                                               ; preds = %49
+91:                                               ; preds = %55
   store i32 1, ptr %4, align 4
-  br label %126
+  br label %140
 
-82:                                               ; preds = %46
-  %83 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 1), align 4
-  %84 = icmp eq i32 %83, 1
-  br i1 %84, label %85, label %117
+92:                                               ; preds = %51
+  %93 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 1
+  %94 = load i32, ptr %93, align 4
+  %95 = icmp eq i32 %94, 1
+  br i1 %95, label %96, label %130
 
-85:                                               ; preds = %82
-  %86 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3), align 4
-  %87 = and i32 %86, 65280
-  %88 = icmp eq i32 %87, 2304
-  br i1 %88, label %89, label %100
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3
+  %98 = load i32, ptr %97, align 4
+  %99 = and i32 %98, 65280
+  %100 = icmp eq i32 %99, 2304
+  br i1 %100, label %101, label %112
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr @ansi_map_handle, align 8
-  %91 = load ptr, ptr %5, align 8
-  %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr inbounds %struct._asn1_ctx_t, ptr %92, i32 0, i32 3
-  %94 = load ptr, ptr %93, align 8
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct._asn1_ctx_t, ptr %95, i32 0, i32 9
-  %97 = getelementptr inbounds %struct.anon.3, ptr %96, i32 0, i32 1
-  %98 = load ptr, ptr %97, align 8
-  %99 = call i32 @call_dissector_with_data(ptr noundef %90, ptr noundef %91, ptr noundef %94, ptr noundef %98, ptr noundef @ansi_tcap_private)
-  store i32 1, ptr %4, align 4
-  br label %126
-
-100:                                              ; preds = %85
-  %101 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3), align 4
-  %102 = and i32 %101, 61440
-  %103 = icmp eq i32 %102, 24576
-  br i1 %103, label %104, label %115
-
-104:                                              ; preds = %100
-  %105 = load ptr, ptr @ain_handle, align 8
-  %106 = load ptr, ptr %5, align 8
+101:                                              ; preds = %96
+  %102 = load ptr, ptr @ansi_map_handle, align 8
+  %103 = load ptr, ptr %5, align 8
+  %104 = load ptr, ptr %6, align 8
+  %105 = getelementptr inbounds %struct._asn1_ctx_t, ptr %104, i32 0, i32 3
+  %106 = load ptr, ptr %105, align 8
   %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds %struct._asn1_ctx_t, ptr %107, i32 0, i32 3
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %6, align 8
-  %111 = getelementptr inbounds %struct._asn1_ctx_t, ptr %110, i32 0, i32 9
-  %112 = getelementptr inbounds %struct.anon.3, ptr %111, i32 0, i32 1
-  %113 = load ptr, ptr %112, align 8
-  %114 = call i32 @call_dissector_with_data(ptr noundef %105, ptr noundef %106, ptr noundef %109, ptr noundef %113, ptr noundef @ansi_tcap_private)
+  %108 = getelementptr inbounds %struct._asn1_ctx_t, ptr %107, i32 0, i32 9
+  %109 = getelementptr inbounds %struct.anon.3, ptr %108, i32 0, i32 1
+  %110 = load ptr, ptr %109, align 8
+  %111 = call i32 @call_dissector_with_data(ptr noundef %102, ptr noundef %103, ptr noundef %106, ptr noundef %110, ptr noundef @ansi_tcap_private)
   store i32 1, ptr %4, align 4
-  br label %126
+  br label %140
 
-115:                                              ; preds = %100
-  br label %116
+112:                                              ; preds = %96
+  %113 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3
+  %114 = load i32, ptr %113, align 4
+  %115 = and i32 %114, 61440
+  %116 = icmp eq i32 %115, 24576
+  br i1 %116, label %117, label %128
 
-116:                                              ; preds = %115
-  br label %117
-
-117:                                              ; preds = %116, %82
-  br label %118
-
-118:                                              ; preds = %117
-  %119 = load ptr, ptr %7, align 8
+117:                                              ; preds = %112
+  %118 = load ptr, ptr @ain_handle, align 8
+  %119 = load ptr, ptr %5, align 8
   %120 = load ptr, ptr %6, align 8
   %121 = getelementptr inbounds %struct._asn1_ctx_t, ptr %120, i32 0, i32 3
   %122 = load ptr, ptr %121, align 8
-  %123 = load ptr, ptr %5, align 8
-  %124 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3), align 4
-  %125 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %119, ptr noundef %122, ptr noundef @ei_ansi_tcap_dissector_not_implemented, ptr noundef %123, i32 noundef 0, i32 noundef -1, ptr noundef @.str.205, i32 noundef %124)
-  store i32 0, ptr %4, align 4
-  br label %126
+  %123 = load ptr, ptr %6, align 8
+  %124 = getelementptr inbounds %struct._asn1_ctx_t, ptr %123, i32 0, i32 9
+  %125 = getelementptr inbounds %struct.anon.3, ptr %124, i32 0, i32 1
+  %126 = load ptr, ptr %125, align 8
+  %127 = call i32 @call_dissector_with_data(ptr noundef %118, ptr noundef %119, ptr noundef %122, ptr noundef %126, ptr noundef @ansi_tcap_private)
+  store i32 1, ptr %4, align 4
+  br label %140
 
-126:                                              ; preds = %118, %104, %89, %81, %69
-  %127 = load i32, ptr %4, align 4
-  ret i32 %127
+128:                                              ; preds = %112
+  br label %129
+
+129:                                              ; preds = %128
+  br label %130
+
+130:                                              ; preds = %129, %92
+  br label %131
+
+131:                                              ; preds = %130
+  %132 = load ptr, ptr %7, align 8
+  %133 = load ptr, ptr %6, align 8
+  %134 = getelementptr inbounds %struct._asn1_ctx_t, ptr %133, i32 0, i32 3
+  %135 = load ptr, ptr %134, align 8
+  %136 = load ptr, ptr %5, align 8
+  %137 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3
+  %138 = load i32, ptr %137, align 4
+  %139 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %132, ptr noundef %135, ptr noundef @ei_ansi_tcap_dissector_not_implemented, ptr noundef %136, i32 noundef 0, i32 noundef -1, ptr noundef @.str.205, i32 noundef %138)
+  store i32 0, ptr %4, align 4
+  br label %140
+
+140:                                              ; preds = %131, %117, %101, %91, %78
+  %141 = load i32, ptr %4, align 4
+  ret i32 %141
 }
 
 declare i32 @tvb_reported_length(ptr noundef) #1
@@ -2226,82 +2255,89 @@ define internal void @save_invoke_data(ptr noundef %0, ptr noundef %1, ptr nound
   %29 = and i16 %28, 1
   %30 = zext i16 %29 to i32
   %31 = icmp ne i32 %30, 0
-  br i1 %31, label %80, label %32
+  br i1 %31, label %87, label %32
 
 32:                                               ; preds = %3
-  %33 = load ptr, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5), align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %80
+  %33 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %87
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr @ansi_tcap_response_matching_type, align 4
-  switch i32 %36, label %51 [
-    i32 0, label %37
-    i32 1, label %43
-    i32 2, label %50
+36:                                               ; preds = %32
+  %37 = load i32, ptr @ansi_tcap_response_matching_type, align 4
+  switch i32 %37, label %54 [
+    i32 0, label %38
+    i32 1, label %45
+    i32 2, label %53
   ]
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct._packet_info, ptr %38, i32 0, i32 50
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5), align 8
-  %42 = call noalias ptr @wmem_strdup(ptr noundef %40, ptr noundef %41)
-  store ptr %42, ptr %10, align 8
-  br label %59
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds %struct._packet_info, ptr %39, i32 0, i32 50
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5
+  %43 = load ptr, ptr %42, align 8
+  %44 = call noalias ptr @wmem_strdup(ptr noundef %41, ptr noundef %43)
+  store ptr %44, ptr %10, align 8
+  br label %63
 
-43:                                               ; preds = %35
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct._packet_info, ptr %44, i32 0, i32 50
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5), align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %46, ptr noundef @.str.206, ptr noundef %47, ptr noundef %48)
-  store ptr %49, ptr %10, align 8
-  br label %59
+45:                                               ; preds = %36
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds %struct._packet_info, ptr %46, i32 0, i32 50
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %8, align 8
+  %52 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %48, ptr noundef @.str.206, ptr noundef %50, ptr noundef %51)
+  store ptr %52, ptr %10, align 8
+  br label %63
 
-50:                                               ; preds = %35
-  br label %51
+53:                                               ; preds = %36
+  br label %54
 
-51:                                               ; preds = %50, %35
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct._packet_info, ptr %52, i32 0, i32 50
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5), align 8
-  %56 = load ptr, ptr %8, align 8
-  %57 = load ptr, ptr %9, align 8
-  %58 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %54, ptr noundef @.str.207, ptr noundef %55, ptr noundef %56, ptr noundef %57)
-  store ptr %58, ptr %10, align 8
-  br label %59
+54:                                               ; preds = %53, %36
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds %struct._packet_info, ptr %55, i32 0, i32 50
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %8, align 8
+  %61 = load ptr, ptr %9, align 8
+  %62 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %57, ptr noundef @.str.207, ptr noundef %59, ptr noundef %60, ptr noundef %61)
+  store ptr %62, ptr %10, align 8
+  br label %63
 
-59:                                               ; preds = %51, %43, %37
-  %60 = call ptr @wmem_file_scope()
-  %61 = call noalias ptr @wmem_alloc(ptr noundef %60, i64 noundef 12)
-  store ptr %61, ptr %7, align 8
-  %62 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 1), align 4
-  %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds %struct.ansi_tcap_invokedata_t, ptr %63, i32 0, i32 0
-  store i32 %62, ptr %64, align 4
-  %65 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2), align 8
-  %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds %struct.ansi_tcap_invokedata_t, ptr %66, i32 0, i32 2
-  store i32 %65, ptr %67, align 4
-  %68 = load i32, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3), align 4
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds %struct.ansi_tcap_invokedata_t, ptr %69, i32 0, i32 1
-  store i32 %68, ptr %70, align 4
-  %71 = load ptr, ptr @TransactionId_table, align 8
-  %72 = call ptr @wmem_file_scope()
-  %73 = load ptr, ptr %10, align 8
-  %74 = call noalias ptr @wmem_strdup(ptr noundef %72, ptr noundef %73)
-  %75 = load ptr, ptr %4, align 8
-  %76 = getelementptr inbounds %struct._packet_info, ptr %75, i32 0, i32 3
-  %77 = load i32, ptr %76, align 4
-  %78 = load ptr, ptr %7, align 8
-  %79 = call zeroext i1 @wmem_multimap_insert32(ptr noundef %71, ptr noundef %74, i32 noundef %77, ptr noundef %78)
-  br label %80
+63:                                               ; preds = %54, %45, %38
+  %64 = call ptr @wmem_file_scope()
+  %65 = call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef 12)
+  store ptr %65, ptr %7, align 8
+  %66 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 1
+  %67 = load i32, ptr %66, align 4
+  %68 = load ptr, ptr %7, align 8
+  %69 = getelementptr inbounds %struct.ansi_tcap_invokedata_t, ptr %68, i32 0, i32 0
+  store i32 %67, ptr %69, align 4
+  %70 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2
+  %71 = load i32, ptr %70, align 8
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds %struct.ansi_tcap_invokedata_t, ptr %72, i32 0, i32 2
+  store i32 %71, ptr %73, align 4
+  %74 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3
+  %75 = load i32, ptr %74, align 4
+  %76 = load ptr, ptr %7, align 8
+  %77 = getelementptr inbounds %struct.ansi_tcap_invokedata_t, ptr %76, i32 0, i32 1
+  store i32 %75, ptr %77, align 4
+  %78 = load ptr, ptr @TransactionId_table, align 8
+  %79 = call ptr @wmem_file_scope()
+  %80 = load ptr, ptr %10, align 8
+  %81 = call noalias ptr @wmem_strdup(ptr noundef %79, ptr noundef %80)
+  %82 = load ptr, ptr %4, align 8
+  %83 = getelementptr inbounds %struct._packet_info, ptr %82, i32 0, i32 3
+  %84 = load i32, ptr %83, align 4
+  %85 = load ptr, ptr %7, align 8
+  %86 = call zeroext i1 @wmem_multimap_insert32(ptr noundef %78, ptr noundef %81, i32 noundef %84, ptr noundef %85)
+  br label %87
 
-80:                                               ; preds = %59, %32, %3
+87:                                               ; preds = %63, %32, %3
   ret void
 }
 
@@ -2318,103 +2354,110 @@ define internal i32 @find_saved_invokedata(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5), align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %71
+  %12 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 50
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 16
-  %21 = call ptr @address_to_str(ptr noundef %18, ptr noundef %20)
-  store ptr %21, ptr %9, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 50
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 17
-  %27 = call ptr @address_to_str(ptr noundef %24, ptr noundef %26)
-  store ptr %27, ptr %10, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 50
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef 1024)
-  store ptr %31, ptr %11, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr i8, ptr %32, i64 0
-  store i8 0, ptr %33, align 1
-  %34 = load i32, ptr @ansi_tcap_response_matching_type, align 4
-  switch i32 %34, label %45 [
-    i32 0, label %35
-    i32 1, label %39
-    i32 2, label %44
+  store i32 0, ptr %4, align 4
+  br label %78
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 50
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 16
+  %22 = call ptr @address_to_str(ptr noundef %19, ptr noundef %21)
+  store ptr %22, ptr %9, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 50
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds %struct._packet_info, ptr %26, i32 0, i32 17
+  %28 = call ptr @address_to_str(ptr noundef %25, ptr noundef %27)
+  store ptr %28, ptr %10, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct._packet_info, ptr %29, i32 0, i32 50
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noalias ptr @wmem_alloc(ptr noundef %31, i64 noundef 1024)
+  store ptr %32, ptr %11, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = getelementptr i8, ptr %33, i64 0
+  store i8 0, ptr %34, align 1
+  %35 = load i32, ptr @ansi_tcap_response_matching_type, align 4
+  switch i32 %35, label %48 [
+    i32 0, label %36
+    i32 1, label %41
+    i32 2, label %47
   ]
 
-35:                                               ; preds = %15
-  %36 = load ptr, ptr %11, align 8
-  %37 = load ptr, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5), align 8
-  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %36, i64 noundef 1024, ptr noundef @.str.208, ptr noundef %37) #4
-  br label %51
+36:                                               ; preds = %16
+  %37 = load ptr, ptr %11, align 8
+  %38 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef 1024, ptr noundef @.str.208, ptr noundef %39) #4
+  br label %55
 
-39:                                               ; preds = %15
-  %40 = load ptr, ptr %11, align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5), align 8
-  %42 = load ptr, ptr %10, align 8
-  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %40, i64 noundef 1024, ptr noundef @.str.206, ptr noundef %41, ptr noundef %42) #4
-  br label %51
+41:                                               ; preds = %16
+  %42 = load ptr, ptr %11, align 8
+  %43 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %10, align 8
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %42, i64 noundef 1024, ptr noundef @.str.206, ptr noundef %44, ptr noundef %45) #4
+  br label %55
 
-44:                                               ; preds = %15
-  br label %45
+47:                                               ; preds = %16
+  br label %48
 
-45:                                               ; preds = %44, %15
-  %46 = load ptr, ptr %11, align 8
-  %47 = load ptr, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5), align 8
-  %48 = load ptr, ptr %10, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %46, i64 noundef 1024, ptr noundef @.str.207, ptr noundef %47, ptr noundef %48, ptr noundef %49) #4
-  br label %51
+48:                                               ; preds = %47, %16
+  %49 = load ptr, ptr %11, align 8
+  %50 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 5
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %10, align 8
+  %53 = load ptr, ptr %9, align 8
+  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %49, i64 noundef 1024, ptr noundef @.str.207, ptr noundef %51, ptr noundef %52, ptr noundef %53) #4
+  br label %55
 
-51:                                               ; preds = %45, %39, %35
-  %52 = load ptr, ptr @TransactionId_table, align 8
-  %53 = load ptr, ptr %11, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct._packet_info, ptr %54, i32 0, i32 3
-  %56 = load i32, ptr %55, align 4
-  %57 = call ptr @wmem_multimap_lookup32_le(ptr noundef %52, ptr noundef %53, i32 noundef %56)
-  store ptr %57, ptr %8, align 8
-  %58 = load ptr, ptr %8, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %60, label %70
+55:                                               ; preds = %48, %41, %36
+  %56 = load ptr, ptr @TransactionId_table, align 8
+  %57 = load ptr, ptr %11, align 8
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds %struct._packet_info, ptr %58, i32 0, i32 3
+  %60 = load i32, ptr %59, align 4
+  %61 = call ptr @wmem_multimap_lookup32_le(ptr noundef %56, ptr noundef %57, i32 noundef %60)
+  store ptr %61, ptr %8, align 8
+  %62 = load ptr, ptr %8, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %77
 
-60:                                               ; preds = %51
-  %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds %struct.ansi_tcap_invokedata_t, ptr %61, i32 0, i32 0
-  %63 = load i32, ptr %62, align 4
-  store i32 %63, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 1), align 4
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds %struct.ansi_tcap_invokedata_t, ptr %64, i32 0, i32 2
-  %66 = load i32, ptr %65, align 4
-  store i32 %66, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2), align 8
-  %67 = load ptr, ptr %8, align 8
-  %68 = getelementptr inbounds %struct.ansi_tcap_invokedata_t, ptr %67, i32 0, i32 1
-  %69 = load i32, ptr %68, align 4
-  store i32 %69, ptr getelementptr inbounds (%struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3), align 4
+64:                                               ; preds = %55
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr inbounds %struct.ansi_tcap_invokedata_t, ptr %65, i32 0, i32 0
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 1
+  store i32 %67, ptr %68, align 4
+  %69 = load ptr, ptr %8, align 8
+  %70 = getelementptr inbounds %struct.ansi_tcap_invokedata_t, ptr %69, i32 0, i32 2
+  %71 = load i32, ptr %70, align 4
+  %72 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 2
+  store i32 %71, ptr %72, align 8
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds %struct.ansi_tcap_invokedata_t, ptr %73, i32 0, i32 1
+  %75 = load i32, ptr %74, align 4
+  %76 = getelementptr inbounds %struct.ansi_tcap_private_t, ptr @ansi_tcap_private, i32 0, i32 6, i32 3
+  store i32 %75, ptr %76, align 4
   store i32 1, ptr %4, align 4
-  br label %71
+  br label %78
 
-70:                                               ; preds = %51
+77:                                               ; preds = %55
   store i32 0, ptr %4, align 4
-  br label %71
+  br label %78
 
-71:                                               ; preds = %70, %60, %14
-  %72 = load i32, ptr %4, align 4
-  ret i32 %72
+78:                                               ; preds = %77, %64, %15
+  %79 = load i32, ptr %4, align 4
+  ret i32 %79
 }
 
 declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1

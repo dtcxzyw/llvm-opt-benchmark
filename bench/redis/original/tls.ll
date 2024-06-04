@@ -377,8 +377,9 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp = icmp slt i32 1, %0
+  %0 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %1 = load i32, ptr %0, align 8
+  %cmp = icmp slt i32 1, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body

@@ -255,13 +255,14 @@ entry:
   %m_parent = getelementptr inbounds %struct.btMultibodyLink, ptr %call, i32 0, i32 2
   %5 = load i32, ptr %m_parent, align 4
   call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %5, i32 noundef 2, i1 noundef zeroext true, i32 noundef 3)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV31btMultiBodyJointLimitConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV31btMultiBodyJointLimitConstraint, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %m_lowerBound = getelementptr inbounds %class.btMultiBodyJointLimitConstraint, ptr %this1, i32 0, i32 1
-  %6 = load float, ptr %lower.addr, align 4
-  store float %6, ptr %m_lowerBound, align 8
+  %7 = load float, ptr %lower.addr, align 4
+  store float %7, ptr %m_lowerBound, align 8
   %m_upperBound = getelementptr inbounds %class.btMultiBodyJointLimitConstraint, ptr %this1, i32 0, i32 2
-  %7 = load float, ptr %upper.addr, align 4
-  store float %7, ptr %m_upperBound, align 4
+  %8 = load float, ptr %upper.addr, align 4
+  store float %8, ptr %m_upperBound, align 4
   ret void
 }
 

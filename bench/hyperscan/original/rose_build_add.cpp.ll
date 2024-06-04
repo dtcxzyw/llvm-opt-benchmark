@@ -78553,10 +78553,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #2
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #2
+  %1 = load ptr, ptr %__p.addr, align 8
+  call void @_ZNSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #2
   ret void
 }
 
@@ -78566,7 +78567,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -107233,48 +107235,49 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3ue27raw_dfaC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(560) %this1, ptr noundef nonnull align 8 dereferenceable(560) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue211raw_som_dfaE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue211raw_som_dfaE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %state_som = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %state_som2 = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %state_som2 = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %3, i32 0, i32 1
   invoke void @_ZNSt6vectorIN3ue210dstate_somESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %state_som, ptr noundef nonnull align 8 dereferenceable(24) %state_som2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %stream_som_loc_width = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %stream_som_loc_width3 = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %stream_som_loc_width3 = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %4, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %stream_som_loc_width, ptr align 8 %stream_som_loc_width3, i64 5, i1 false)
   %new_som_nfa_states = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %.addr, align 8
-  %new_som_nfa_states4 = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %4, i32 0, i32 5
+  %5 = load ptr, ptr %.addr, align 8
+  %new_som_nfa_states4 = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %5, i32 0, i32 5
   invoke void @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %new_som_nfa_states, ptr noundef nonnull align 8 dereferenceable(48) %new_som_nfa_states4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %trigger_nfa_state = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %this1, i32 0, i32 6
-  %5 = load ptr, ptr %.addr, align 8
-  %trigger_nfa_state7 = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %5, i32 0, i32 6
-  %6 = load i32, ptr %trigger_nfa_state7, align 8
-  store i32 %6, ptr %trigger_nfa_state, align 8
+  %6 = load ptr, ptr %.addr, align 8
+  %trigger_nfa_state7 = getelementptr inbounds %"struct.ue2::raw_som_dfa", ptr %6, i32 0, i32 6
+  %7 = load i32, ptr %trigger_nfa_state7, align 8
+  store i32 %7, ptr %trigger_nfa_state, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN3ue210dstate_somESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %state_som) #2
   br label %ehcleanup
 
@@ -107322,19 +107325,20 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %kind = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %kind2 = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %kind2, align 8
-  store i32 %2, ptr %kind, align 8
+  %2 = load ptr, ptr %.addr, align 8
+  %kind2 = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %kind2, align 8
+  store i32 %3, ptr %kind, align 8
   %states = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %states3 = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %states3 = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %4, i32 0, i32 2
   call void @_ZNSt6vectorIN3ue26dstateESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %states, ptr noundef nonnull align 8 dereferenceable(24) %states3)
   %start_anchored = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %.addr, align 8
-  %start_anchored4 = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %4, i32 0, i32 3
+  %5 = load ptr, ptr %.addr, align 8
+  %start_anchored4 = getelementptr inbounds %"struct.ue2::raw_dfa", ptr %5, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %start_anchored, ptr align 8 %start_anchored4, i64 520, i1 false)
   ret void
 }

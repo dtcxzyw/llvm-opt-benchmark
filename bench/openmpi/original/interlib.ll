@@ -60,171 +60,173 @@ define i32 @ompi_interlib_declare(i32 noundef %0, ptr noundef %1) #0 {
 
 15:                                               ; preds = %14
   %16 = load i32, ptr @opal_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %18 = icmp ne i32 %16, %17
-  br i1 %18, label %19, label %20
+  %17 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp ne i32 %16, %18
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %15
+20:                                               ; preds = %15
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %20
+  br label %21
 
-20:                                               ; preds = %19, %15
-  %21 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
-  %22 = getelementptr inbounds %struct.opal_object_t, ptr %21, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %22, align 8
-  %23 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
-  %24 = getelementptr inbounds %struct.opal_object_t, ptr %23, i32 0, i32 1
-  store volatile i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
-  call void @opal_obj_run_constructors(ptr noundef %25)
-  br label %26
-
-26:                                               ; preds = %20
+21:                                               ; preds = %20, %15
+  %22 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
+  %23 = getelementptr inbounds %struct.opal_object_t, ptr %22, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %23, align 8
+  %24 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
+  %25 = getelementptr inbounds %struct.opal_object_t, ptr %24, i32 0, i32 1
+  store volatile i32 1, ptr %25, align 8
+  %26 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
+  call void @opal_obj_run_constructors(ptr noundef %26)
   br label %27
 
-27:                                               ; preds = %26
-  %28 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 1
-  %29 = call i32 @opal_cond_init(ptr noundef %28)
-  %30 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 2
-  store volatile i8 1, ptr %30, align 8
-  %31 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 3
-  store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 5
-  store ptr null, ptr %32, align 8
+27:                                               ; preds = %21
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 1
+  %30 = call i32 @opal_cond_init(ptr noundef %29)
+  %31 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 2
+  store volatile i8 1, ptr %31, align 8
+  %32 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 3
+  store i32 0, ptr %32, align 4
+  %33 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 5
+  store ptr null, ptr %33, align 8
   call void @opal_atomic_wmb()
-  br label %33
+  br label %34
 
-33:                                               ; preds = %27
-  %34 = call i32 @PMIx_Register_event_handler(ptr noundef %10, i64 noundef 1, ptr noundef %7, i64 noundef 1, ptr noundef @model_callback, ptr noundef @evhandler_reg_callbk, ptr noundef %11)
-  br label %35
+34:                                               ; preds = %28
+  %35 = call i32 @PMIx_Register_event_handler(ptr noundef %10, i64 noundef 1, ptr noundef %7, i64 noundef 1, ptr noundef @model_callback, ptr noundef @evhandler_reg_callbk, ptr noundef %11)
+  br label %36
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
-  call void @opal_mutex_lock(ptr noundef %36)
-  br label %37
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
+  call void @opal_mutex_lock(ptr noundef %37)
+  br label %38
 
-37:                                               ; preds = %41, %35
-  %38 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 2
-  %39 = load volatile i8, ptr %38, align 8
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %45
+38:                                               ; preds = %42, %36
+  %39 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 2
+  %40 = load volatile i8, ptr %39, align 8
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %46
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 1
-  %43 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
-  %44 = call i32 @opal_cond_wait(ptr noundef %42, ptr noundef %43)
-  br label %37, !llvm.loop !4
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 1
+  %44 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
+  %45 = call i32 @opal_cond_wait(ptr noundef %43, ptr noundef %44)
+  br label %38, !llvm.loop !4
 
-45:                                               ; preds = %37
+46:                                               ; preds = %38
   call void @opal_atomic_rmb()
-  %46 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
-  call void @opal_mutex_unlock(ptr noundef %46)
-  br label %47
+  %47 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
+  call void @opal_mutex_unlock(ptr noundef %47)
+  br label %48
 
-47:                                               ; preds = %45
+48:                                               ; preds = %46
   call void @PMIx_Info_destruct(ptr noundef %7)
-  %48 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 3
-  %49 = load i32, ptr %48, align 4
-  store i32 %49, ptr %9, align 4
-  br label %50
-
-50:                                               ; preds = %47
-  call void @opal_atomic_rmb()
+  %49 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 3
+  %50 = load i32, ptr %49, align 4
+  store i32 %50, ptr %9, align 4
   br label %51
 
-51:                                               ; preds = %50
-  %52 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
-  call void @opal_obj_run_destructors(ptr noundef %52)
-  br label %53
+51:                                               ; preds = %48
+  call void @opal_atomic_rmb()
+  br label %52
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 1
-  %55 = call i32 @opal_cond_destroy(ptr noundef %54)
-  %56 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 5
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp ne ptr null, %57
-  br i1 %58, label %59, label %62
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 0
+  call void @opal_obj_run_destructors(ptr noundef %53)
+  br label %54
 
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 5
-  %61 = load ptr, ptr %60, align 8
-  call void @free(ptr noundef %61) #4
-  br label %62
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 1
+  %56 = call i32 @opal_cond_destroy(ptr noundef %55)
+  %57 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 5
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp ne ptr null, %58
+  br i1 %59, label %60, label %63
 
-62:                                               ; preds = %59, %53
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds %struct.opal_pmix_lock_t, ptr %11, i32 0, i32 5
+  %62 = load ptr, ptr %61, align 8
+  call void @free(ptr noundef %62) #4
   br label %63
 
-63:                                               ; preds = %62
-  %64 = load i32, ptr %9, align 4
-  %65 = icmp ne i32 0, %64
-  br i1 %65, label %66, label %67
+63:                                               ; preds = %60, %54
+  br label %64
 
-66:                                               ; preds = %63
+64:                                               ; preds = %63
+  %65 = load i32, ptr %9, align 4
+  %66 = icmp ne i32 0, %65
+  br i1 %66, label %67, label %68
+
+67:                                               ; preds = %64
   store i32 -1, ptr %3, align 4
-  br label %102
+  br label %104
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 0
-  %69 = call i32 @PMIx_Info_load(ptr noundef %68, ptr noundef @.str.2, ptr noundef @.str.3, i16 noundef zeroext 3)
-  %70 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 1
-  %71 = call i32 @PMIx_Info_load(ptr noundef %70, ptr noundef @.str.4, ptr noundef @.str.5, i16 noundef zeroext 3)
-  %72 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 2
-  %73 = load ptr, ptr %5, align 8
-  %74 = call i32 @PMIx_Info_load(ptr noundef %72, ptr noundef @.str.6, ptr noundef %73, i16 noundef zeroext 3)
-  %75 = load i32, ptr %4, align 4
-  %76 = icmp eq i32 0, %75
-  br i1 %76, label %77, label %80
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 0
+  %70 = call i32 @PMIx_Info_load(ptr noundef %69, ptr noundef @.str.2, ptr noundef @.str.3, i16 noundef zeroext 3)
+  %71 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 1
+  %72 = call i32 @PMIx_Info_load(ptr noundef %71, ptr noundef @.str.4, ptr noundef @.str.5, i16 noundef zeroext 3)
+  %73 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 2
+  %74 = load ptr, ptr %5, align 8
+  %75 = call i32 @PMIx_Info_load(ptr noundef %73, ptr noundef @.str.6, ptr noundef %74, i16 noundef zeroext 3)
+  %76 = load i32, ptr %4, align 4
+  %77 = icmp eq i32 0, %76
+  br i1 %77, label %78, label %81
 
-77:                                               ; preds = %67
-  %78 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 3
-  %79 = call i32 @PMIx_Info_load(ptr noundef %78, ptr noundef @.str.7, ptr noundef @.str.8, i16 noundef zeroext 3)
-  br label %83
+78:                                               ; preds = %68
+  %79 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 3
+  %80 = call i32 @PMIx_Info_load(ptr noundef %79, ptr noundef @.str.7, ptr noundef @.str.8, i16 noundef zeroext 3)
+  br label %84
 
-80:                                               ; preds = %67
-  %81 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 3
-  %82 = call i32 @PMIx_Info_load(ptr noundef %81, ptr noundef @.str.7, ptr noundef @.str.9, i16 noundef zeroext 3)
-  br label %83
+81:                                               ; preds = %68
+  %82 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 3
+  %83 = call i32 @PMIx_Info_load(ptr noundef %82, ptr noundef @.str.7, ptr noundef @.str.9, i16 noundef zeroext 3)
+  br label %84
 
-83:                                               ; preds = %80, %77
-  %84 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 0
-  %85 = call i32 @PMIx_Init(ptr noundef null, ptr noundef %84, i64 noundef 4)
-  store i32 %85, ptr %9, align 4
-  %86 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 0
-  call void @PMIx_Info_destruct(ptr noundef %86)
-  %87 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 1
+84:                                               ; preds = %81, %78
+  %85 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 0
+  %86 = call i32 @PMIx_Init(ptr noundef null, ptr noundef %85, i64 noundef 4)
+  store i32 %86, ptr %9, align 4
+  %87 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 0
   call void @PMIx_Info_destruct(ptr noundef %87)
-  %88 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 2
+  %88 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 1
   call void @PMIx_Info_destruct(ptr noundef %88)
-  %89 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 3
+  %89 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 2
   call void @PMIx_Info_destruct(ptr noundef %89)
-  %90 = call i32 @PMIx_Finalize(ptr noundef null, i64 noundef 0)
-  %91 = load i8, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 25), align 8
-  %92 = trunc i8 %91 to i1
-  br i1 %92, label %93, label %97
+  %90 = getelementptr inbounds [4 x %struct.pmix_info], ptr %6, i64 0, i64 3
+  call void @PMIx_Info_destruct(ptr noundef %90)
+  %91 = call i32 @PMIx_Finalize(ptr noundef null, i64 noundef 0)
+  %92 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 25
+  %93 = load i8, ptr %92, align 8
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %95, label %99
 
-93:                                               ; preds = %83
-  %94 = load i32, ptr %9, align 4
-  %95 = icmp eq i32 -25, %94
-  br i1 %95, label %96, label %97
+95:                                               ; preds = %84
+  %96 = load i32, ptr %9, align 4
+  %97 = icmp eq i32 -25, %96
+  br i1 %97, label %98, label %99
 
-96:                                               ; preds = %93
+98:                                               ; preds = %95
   store i32 0, ptr %8, align 4
-  br label %100
-
-97:                                               ; preds = %93, %83
-  %98 = load i32, ptr %9, align 4
-  %99 = call i32 @opal_pmix_convert_status(i32 noundef %98)
-  store i32 %99, ptr %8, align 4
-  br label %100
-
-100:                                              ; preds = %97, %96
-  %101 = load i32, ptr %8, align 4
-  store i32 %101, ptr %3, align 4
   br label %102
 
-102:                                              ; preds = %100, %66
-  %103 = load i32, ptr %3, align 4
-  ret i32 %103
+99:                                               ; preds = %95, %84
+  %100 = load i32, ptr %9, align 4
+  %101 = call i32 @opal_pmix_convert_status(i32 noundef %100)
+  store i32 %101, ptr %8, align 4
+  br label %102
+
+102:                                              ; preds = %99, %98
+  %103 = load i32, ptr %8, align 4
+  store i32 %103, ptr %3, align 4
+  br label %104
+
+104:                                              ; preds = %102, %67
+  %105 = load i32, ptr %3, align 4
+  ret i32 %105
 }
 
 declare i32 @PMIx_Info_load(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) #1

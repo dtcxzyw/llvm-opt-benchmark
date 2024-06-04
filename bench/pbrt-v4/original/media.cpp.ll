@@ -3219,425 +3219,565 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store ptr @.str.8, ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i32 0, i32 1), float noundef 0x400251EB80000000, float noundef 0x40031EB860000000, float noundef 0x3FFF851EC0000000)
+  %2 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i32 0, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %2, float noundef 0x400251EB80000000, float noundef 0x40031EB860000000, float noundef 0x3FFF851EC0000000)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i32 0, i32 2), float noundef 0x3F689374C0000000, float noundef 0x3F6BDA5120000000, float noundef 0x3FA78D4FE0000000)
+  %3 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i32 0, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %3, float noundef 0x3F689374C0000000, float noundef 0x3F6BDA5120000000, float noundef 0x3FA78D4FE0000000)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %invoke.cont
-  store ptr @.str.9, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1, i32 1), float noundef 0x3FC3333340000000, float noundef 0x3FCAE147A0000000, float noundef 0x3FD851EB80000000)
+  %4 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1
+  store ptr @.str.9, ptr %4, align 16
+  %5 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %5, float noundef 0x3FC3333340000000, float noundef 0x3FCAE147A0000000, float noundef 0x3FD851EB80000000)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont1
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1, i32 2), float noundef 0x3F8EB851E0000000, float noundef 0x3FB3B645A0000000, float noundef 0x3FC851EB80000000)
+  %6 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 1, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %6, float noundef 0x3F8EB851E0000000, float noundef 0x3FB3B645A0000000, float noundef 0x3FC851EB80000000)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  store ptr @.str.10, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 2), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 2, i32 1), float noundef 0x3FC851EB80000000, float noundef 2.500000e-01, float noundef 0x3FD47AE140000000)
+  %7 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 2
+  store ptr @.str.10, ptr %7, align 16
+  %8 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 2, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %8, float noundef 0x3FC851EB80000000, float noundef 2.500000e-01, float noundef 0x3FD47AE140000000)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 2, i32 2), float noundef 0x3F926E9780000000, float noundef 0x3FB6872B00000000, float noundef 0x3FC99999A0000000)
+  %9 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 2, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %9, float noundef 0x3F926E9780000000, float noundef 0x3FB6872B00000000, float noundef 0x3FC99999A0000000)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  store ptr @.str.11, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 3), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 3, i32 1), float noundef 0x401D851EC0000000, float noundef 0x4015E147A0000000, float noundef 0x4009333340000000)
+  %10 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 3
+  store ptr @.str.11, ptr %10, align 16
+  %11 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 3, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %11, float noundef 0x401D851EC0000000, float noundef 0x4015E147A0000000, float noundef 0x4009333340000000)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont5
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 3, i32 2), float noundef 0x3F2A36E2E0000000, float noundef 0x3F66F00680000000, float noundef 0x3F90B0F280000000)
+  %12 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 3, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %12, float noundef 0x3F2A36E2E0000000, float noundef 0x3F66F00680000000, float noundef 0x3F90B0F280000000)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont6
-  store ptr @.str.12, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 4), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 4, i32 1), float noundef 0x3FC70A3D80000000, float noundef 0x3FB1EB8520000000, float noundef 0x3F9EB851E0000000)
+  %13 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 4
+  store ptr @.str.12, ptr %13, align 16
+  %14 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 4, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %14, float noundef 0x3FC70A3D80000000, float noundef 0x3FB1EB8520000000, float noundef 0x3F9EB851E0000000)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 4, i32 2), float noundef 0x3FAF3B6460000000, float noundef 0x3FEF0A3D80000000, float noundef 0x3FF7333340000000)
+  %15 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 4, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %15, float noundef 0x3FAF3B6460000000, float noundef 0x3FEF0A3D80000000, float noundef 0x3FF7333340000000)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont8
-  store ptr @.str.13, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 5), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 5, i32 1), float noundef 0x4001851EC0000000, float noundef 0x4004F5C280000000, float noundef 3.000000e+00)
+  %16 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 5
+  store ptr @.str.13, ptr %16, align 16
+  %17 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 5, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %17, float noundef 0x4001851EC0000000, float noundef 0x4004F5C280000000, float noundef 3.000000e+00)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 5, i32 2), float noundef 0x3F613404E0000000, float noundef 0x3F70CB2960000000, float noundef 0x3F7D14E3C0000000)
+  %18 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 5, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %18, float noundef 0x3F613404E0000000, float noundef 0x3F70CB2960000000, float noundef 0x3F7D14E3C0000000)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont10
-  store ptr @.str.14, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 6), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 6, i32 1), float noundef 0x3FE5C28F60000000, float noundef 0x3FE6666660000000, float noundef 0x3FE19999A0000000)
+  %19 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 6
+  store ptr @.str.14, ptr %19, align 16
+  %20 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 6, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %20, float noundef 0x3FE5C28F60000000, float noundef 0x3FE6666660000000, float noundef 0x3FE19999A0000000)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont11
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 6, i32 2), float noundef 0x3F63A92A40000000, float noundef 0x3F826E9780000000, float noundef 0x3FBEB851E0000000)
+  %21 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 6, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %21, float noundef 0x3F63A92A40000000, float noundef 0x3F826E9780000000, float noundef 0x3FBEB851E0000000)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont12
-  store ptr @.str.15, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 7), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 7, i32 1), float noundef 0x3FE6666660000000, float noundef 0x3FF3851EC0000000, float noundef 0x3FFE666660000000)
+  %22 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 7
+  store ptr @.str.15, ptr %22, align 16
+  %23 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 7, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %23, float noundef 0x3FE6666660000000, float noundef 0x3FF3851EC0000000, float noundef 0x3FFE666660000000)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont13
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 7, i32 2), float noundef 0x3F56F00680000000, float noundef 0x3F647AE140000000, float noundef 0x3F8D14E3C0000000)
+  %24 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 7, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %24, float noundef 0x3F56F00680000000, float noundef 0x3F647AE140000000, float noundef 0x3F8D14E3C0000000)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont14
-  store ptr @.str.16, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 8), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 8, i32 1), float noundef 0x3FE7AE1480000000, float noundef 0x3FEC28F5C0000000, float noundef 0x3FF028F5C0000000)
+  %25 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 8
+  store ptr @.str.16, ptr %25, align 16
+  %26 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 8, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %26, float noundef 0x3FE7AE1480000000, float noundef 0x3FEC28F5C0000000, float noundef 0x3FF028F5C0000000)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont15
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 8, i32 2), float noundef 0x3FA0624DE0000000, float noundef 0x3FC5C28F60000000, float noundef 0x3FDEB851E0000000)
+  %27 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 8, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %27, float noundef 0x3FA0624DE0000000, float noundef 0x3FC5C28F60000000, float noundef 0x3FDEB851E0000000)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont16
-  store ptr @.str.17, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 9), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 9, i32 1), float noundef 0x3FF170A3E0000000, float noundef 0x3FF970A3E0000000, float noundef 0x3FFCA3D700000000)
+  %28 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 9
+  store ptr @.str.17, ptr %28, align 16
+  %29 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 9, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %29, float noundef 0x3FF170A3E0000000, float noundef 0x3FF970A3E0000000, float noundef 0x3FFCA3D700000000)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont17
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 9, i32 2), float noundef 0x3F8A9FBE80000000, float noundef 0x3FB1EB8520000000, float noundef 0x3FC28F5C20000000)
+  %30 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 9, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %30, float noundef 0x3F8A9FBE80000000, float noundef 0x3FB1EB8520000000, float noundef 0x3FC28F5C20000000)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont18
-  store ptr @.str.18, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 10), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 10, i32 1), float noundef 0x4027333340000000, float noundef 0x4034666660000000, float noundef 0x402DCCCCC0000000)
+  %31 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 10
+  store ptr @.str.18, ptr %31, align 16
+  %32 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 10, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %32, float noundef 0x4027333340000000, float noundef 0x4034666660000000, float noundef 0x402DCCCCC0000000)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont19
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 10, i32 2), float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %33 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 10, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %33, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont20
-  store ptr @.str.19, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 11), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 11, i32 1), float noundef 0x4004666660000000, float noundef 0x4009AE1480000000, float noundef 0x400E28F5C0000000)
+  %34 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 11
+  store ptr @.str.19, ptr %34, align 16
+  %35 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 11, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %35, float noundef 0x4004666660000000, float noundef 0x4009AE1480000000, float noundef 0x400E28F5C0000000)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont21
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 11, i32 2), float noundef 0x3F5205BC00000000, float noundef 0x3F63A92A40000000, float noundef 0x3F8CAC0840000000)
+  %36 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 11, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %36, float noundef 0x3F5205BC00000000, float noundef 0x3F63A92A40000000, float noundef 0x3F8CAC0840000000)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont22
-  store ptr @.str.20, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 12), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 12, i32 1), float noundef 0x3FEC8A3300000000, float noundef 0x3FF837B4A0000000, float noundef 0x4004418940000000)
+  %37 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 12
+  store ptr @.str.20, ptr %37, align 16
+  %38 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 12, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %38, float noundef 0x3FEC8A3300000000, float noundef 0x3FF837B4A0000000, float noundef 0x4004418940000000)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont23
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 12, i32 2), float noundef 0x3F678D4FE0000000, float noundef 0x3F778D4FE0000000, float noundef 0x3F878D4FE0000000)
+  %39 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 12, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %39, float noundef 0x3F678D4FE0000000, float noundef 0x3F778D4FE0000000, float noundef 0x3F878D4FE0000000)
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont24
-  store ptr @.str.21, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 13), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 13, i32 1), float noundef 0x4003E2EB20000000, float noundef 0x400955CFA0000000, float noundef 0x401215E9E0000000)
+  %40 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 13
+  store ptr @.str.21, ptr %40, align 16
+  %41 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 13, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %41, float noundef 0x4003E2EB20000000, float noundef 0x400955CFA0000000, float noundef 0x401215E9E0000000)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %invoke.cont25
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 13, i32 2), float noundef 0x3F64EF7B40000000, float noundef 0x3F74EF6080000000, float noundef 0x3F8A2B5A20000000)
+  %42 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 13, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %42, float noundef 0x3F64EF7B40000000, float noundef 0x3F74EF6080000000, float noundef 0x3F8A2B5A20000000)
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont26
-  store ptr @.str.22, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 14), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 14, i32 1), float noundef 0x4012348800000000, float noundef 0x4017514E40000000, float noundef 0x401C8B43A0000000)
+  %43 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 14
+  store ptr @.str.22, ptr %43, align 16
+  %44 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 14, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %44, float noundef 0x4012348800000000, float noundef 0x4017514E40000000, float noundef 0x401C8B43A0000000)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %invoke.cont27
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 14, i32 2), float noundef 0x3F591F2060000000, float noundef 0x3F72D77320000000, float noundef 0x3F94695100000000)
+  %45 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 14, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %45, float noundef 0x3F591F2060000000, float noundef 0x3F72D77320000000, float noundef 0x3F94695100000000)
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %invoke.cont28
-  store ptr @.str.23, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 15), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 15, i32 1), float noundef 0x3FE72934A0000000, float noundef 0x3FEB0EE8E0000000, float noundef 0x3FF0652BE0000000)
+  %46 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 15
+  store ptr @.str.23, ptr %46, align 16
+  %47 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 15, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %47, float noundef 0x3FE72934A0000000, float noundef 0x3FEB0EE8E0000000, float noundef 0x3FF0652BE0000000)
           to label %invoke.cont30 unwind label %lpad
 
 invoke.cont30:                                    ; preds = %invoke.cont29
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 15, i32 2), float noundef 0x4013318FC0000000, float noundef 0x401A4CE700000000, float noundef 0x4021B2D780000000)
+  %48 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 15, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %48, float noundef 0x4013318FC0000000, float noundef 0x401A4CE700000000, float noundef 0x4021B2D780000000)
           to label %invoke.cont31 unwind label %lpad
 
 invoke.cont31:                                    ; preds = %invoke.cont30
-  store ptr @.str.24, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 16), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 16, i32 1), float noundef 0x3FD439AC00000000, float noundef 0x3FD8AA10E0000000, float noundef 0x3FDECDC880000000)
+  %49 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 16
+  store ptr @.str.24, ptr %49, align 16
+  %50 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 16, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %50, float noundef 0x3FD439AC00000000, float noundef 0x3FD8AA10E0000000, float noundef 0x3FDECDC880000000)
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %invoke.cont31
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 16, i32 2), float noundef 0x400E2D0E60000000, float noundef 0x40174A8C20000000, float noundef 0x401F47AE20000000)
+  %51 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 16, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %51, float noundef 0x400E2D0E60000000, float noundef 0x40174A8C20000000, float noundef 0x401F47AE20000000)
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont32
-  store ptr @.str.25, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 17), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 17, i32 1), float noundef 0x3FD3919260000000, float noundef 0x3FD5E8BC20000000, float noundef 0x3FE3BB83C0000000)
+  %52 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 17
+  store ptr @.str.25, ptr %52, align 16
+  %53 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 17, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %53, float noundef 0x3FD3919260000000, float noundef 0x3FD5E8BC20000000, float noundef 0x3FE3BB83C0000000)
           to label %invoke.cont34 unwind label %lpad
 
 invoke.cont34:                                    ; preds = %invoke.cont33
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 17, i32 2), float noundef 0x3F578D4FE0000000, float noundef 0x3F7D70A3E0000000, float noundef 0x3FA26655A0000000)
+  %54 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 17, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %54, float noundef 0x3F578D4FE0000000, float noundef 0x3F7D70A3E0000000, float noundef 0x3FA26655A0000000)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %invoke.cont34
-  store ptr @.str.26, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 18), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 18, i32 1), float noundef 0x3FE2F38C60000000, float noundef 0x3FE7A31A40000000, float noundef 0x3FF78240C0000000)
+  %55 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 18
+  store ptr @.str.26, ptr %55, align 16
+  %56 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 18, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %56, float noundef 0x3FE2F38C60000000, float noundef 0x3FE7A31A40000000, float noundef 0x3FF78240C0000000)
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %invoke.cont35
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 18, i32 2), float noundef 0x3F5F673900000000, float noundef 0x3F83A068C0000000, float noundef 0x3FB0AEC8E0000000)
+  %57 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 18, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %57, float noundef 0x3F5F673900000000, float noundef 0x3F83A068C0000000, float noundef 0x3FB0AEC8E0000000)
           to label %invoke.cont37 unwind label %lpad
 
 invoke.cont37:                                    ; preds = %invoke.cont36
-  store ptr @.str.27, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 19), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 19, i32 1), float noundef 0x3FE4C6A7E0000000, float noundef 0x3FEADA6620000000, float noundef 0x3FF1B0F280000000)
+  %58 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 19
+  store ptr @.str.27, ptr %58, align 16
+  %59 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 19, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %59, float noundef 0x3FE4C6A7E0000000, float noundef 0x3FEADA6620000000, float noundef 0x3FF1B0F280000000)
           to label %invoke.cont38 unwind label %lpad
 
 invoke.cont38:                                    ; preds = %invoke.cont37
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 19, i32 2), float noundef 0x3F878D4FE0000000, float noundef 0x3FA2D77320000000, float noundef 0x3FC404EA40000000)
+  %60 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 19, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %60, float noundef 0x3F878D4FE0000000, float noundef 0x3FA2D77320000000, float noundef 0x3FC404EA40000000)
           to label %invoke.cont39 unwind label %lpad
 
 invoke.cont39:                                    ; preds = %invoke.cont38
-  store ptr @.str.28, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 20), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 20, i32 1), float noundef 0x3FF7560420000000, float noundef 0x400107FCC0000000, float noundef 0x40079F2120000000)
+  %61 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 20
+  store ptr @.str.28, ptr %61, align 16
+  %62 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 20, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %62, float noundef 0x3FF7560420000000, float noundef 0x400107FCC0000000, float noundef 0x40079F2120000000)
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %invoke.cont39
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 20, i32 2), float noundef 0x3F849BE900000000, float noundef 0x3FA6147AE0000000, float noundef 0x3FC2666660000000)
+  %63 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 20, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %63, float noundef 0x3F849BE900000000, float noundef 0x3FA6147AE0000000, float noundef 0x3FC2666660000000)
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %invoke.cont40
-  store ptr @.str.29, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 21), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 21, i32 1), float noundef 0x3F17583EE0000000, float noundef 0x3F15F25AA0000000, float noundef 0.000000e+00)
+  %64 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 21
+  store ptr @.str.29, ptr %64, align 16
+  %65 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 21, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %65, float noundef 0x3F17583EE0000000, float noundef 0x3F15F25AA0000000, float noundef 0.000000e+00)
           to label %invoke.cont42 unwind label %lpad
 
 invoke.cont42:                                    ; preds = %invoke.cont41
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 21, i32 2), float noundef 0x3FB9A2C660000000, float noundef 0x3FC51FB400000000, float noundef 0x3FCF972480000000)
+  %66 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 21, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %66, float noundef 0x3FB9A2C660000000, float noundef 0x3FC51FB400000000, float noundef 0x3FCF972480000000)
           to label %invoke.cont43 unwind label %lpad
 
 invoke.cont43:                                    ; preds = %invoke.cont42
-  store ptr @.str.30, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 22), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 22, i32 1), float noundef 0x3F102C6A60000000, float noundef 0x3F0650D7E0000000, float noundef 0.000000e+00)
+  %67 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 22
+  store ptr @.str.30, ptr %67, align 16
+  %68 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 22, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %68, float noundef 0x3F102C6A60000000, float noundef 0x3F0650D7E0000000, float noundef 0.000000e+00)
           to label %invoke.cont44 unwind label %lpad
 
 invoke.cont44:                                    ; preds = %invoke.cont43
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 22, i32 2), float noundef 0x3FB775C8E0000000, float noundef 0x3FC21F4B20000000, float noundef 0x3FCA887A80000000)
+  %69 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 22, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %69, float noundef 0x3FB775C8E0000000, float noundef 0x3FC21F4B20000000, float noundef 0x3FCA887A80000000)
           to label %invoke.cont45 unwind label %lpad
 
 invoke.cont45:                                    ; preds = %invoke.cont44
-  store ptr @.str.31, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 23), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 23, i32 1), float noundef 0x3ED94B4EC0000000, float noundef 0x3EDAE6DF60000000, float noundef 0x3EDB797040000000)
+  %70 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 23
+  store ptr @.str.31, ptr %70, align 16
+  %71 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 23, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %71, float noundef 0x3ED94B4EC0000000, float noundef 0x3EDAE6DF60000000, float noundef 0x3EDB797040000000)
           to label %invoke.cont46 unwind label %lpad
 
 invoke.cont46:                                    ; preds = %invoke.cont45
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 23, i32 2), float noundef 0x3F5EE67520000000, float noundef 0x3F5DFEEE80000000, float noundef 0x3F60678C00000000)
+  %72 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 23, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %72, float noundef 0x3F5EE67520000000, float noundef 0x3F5DFEEE80000000, float noundef 0x3F60678C00000000)
           to label %invoke.cont47 unwind label %lpad
 
 invoke.cont47:                                    ; preds = %invoke.cont46
-  store ptr @.str.32, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 24), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 24, i32 1), float noundef 0x3F64218AA0000000, float noundef 0x3F68A222E0000000, float noundef 0x3F6E939EA0000000)
+  %73 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 24
+  store ptr @.str.32, ptr %73, align 16
+  %74 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 24, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %74, float noundef 0x3F64218AA0000000, float noundef 0x3F68A222E0000000, float noundef 0x3F6E939EA0000000)
           to label %invoke.cont48 unwind label %lpad
 
 invoke.cont48:                                    ; preds = %invoke.cont47
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 24, i32 2), float noundef 0x3F99639920000000, float noundef 0x3F93C07EE0000000, float noundef 0x3F822EA100000000)
+  %75 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 24, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %75, float noundef 0x3F99639920000000, float noundef 0x3F93C07EE0000000, float noundef 0x3F822EA100000000)
           to label %invoke.cont49 unwind label %lpad
 
 invoke.cont49:                                    ; preds = %invoke.cont48
-  store ptr @.str.33, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 25), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 25, i32 1), float noundef 0x3EF2DB01A0000000, float noundef 0x3EECDA4520000000, float noundef 0x3EE936CC80000000)
+  %76 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 25
+  store ptr @.str.33, ptr %76, align 16
+  %77 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 25, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %77, float noundef 0x3EF2DB01A0000000, float noundef 0x3EECDA4520000000, float noundef 0x3EE936CC80000000)
           to label %invoke.cont50 unwind label %lpad
 
 invoke.cont50:                                    ; preds = %invoke.cont49
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 25, i32 2), float noundef 0x3F8614DF80000000, float noundef 0x3F88476F20000000, float noundef 0x3F9892AB60000000)
+  %78 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 25, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %78, float noundef 0x3F8614DF80000000, float noundef 0x3F88476F20000000, float noundef 0x3F9892AB60000000)
           to label %invoke.cont51 unwind label %lpad
 
 invoke.cont51:                                    ; preds = %invoke.cont50
-  store ptr @.str.34, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 26), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 26, i32 1), float noundef 0x3EF259E380000000, float noundef 0x3EF3FECBC0000000, float noundef 0x3EEB02E5C0000000)
+  %79 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 26
+  store ptr @.str.34, ptr %79, align 16
+  %80 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 26, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %80, float noundef 0x3EF259E380000000, float noundef 0x3EF3FECBC0000000, float noundef 0x3EEB02E5C0000000)
           to label %invoke.cont52 unwind label %lpad
 
 invoke.cont52:                                    ; preds = %invoke.cont51
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 26, i32 2), float noundef 0x3F88B93460000000, float noundef 0x3F909289E0000000, float noundef 0x3F9451B940000000)
+  %81 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 26, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %81, float noundef 0x3F88B93460000000, float noundef 0x3F909289E0000000, float noundef 0x3F9451B940000000)
           to label %invoke.cont53 unwind label %lpad
 
 invoke.cont53:                                    ; preds = %invoke.cont52
-  store ptr @.str.35, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 27), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 27, i32 1), float noundef 0x3EF627C5E0000000, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %82 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 27
+  store ptr @.str.35, ptr %82, align 16
+  %83 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 27, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %83, float noundef 0x3EF627C5E0000000, float noundef 0.000000e+00, float noundef 0.000000e+00)
           to label %invoke.cont54 unwind label %lpad
 
 invoke.cont54:                                    ; preds = %invoke.cont53
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 27, i32 2), float noundef 0x3FBDC725C0000000, float noundef 0x3FD01F4B20000000, float noundef 0x3FD2D67780000000)
+  %84 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 27, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %84, float noundef 0x3FBDC725C0000000, float noundef 0x3FD01F4B20000000, float noundef 0x3FD2D67780000000)
           to label %invoke.cont55 unwind label %lpad
 
 invoke.cont55:                                    ; preds = %invoke.cont54
-  store ptr @.str.36, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 28), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 28, i32 1), float noundef 0x3EF98A03A0000000, float noundef 0x3EF93FA840000000, float noundef 0x3EE6278120000000)
+  %85 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 28
+  store ptr @.str.36, ptr %85, align 16
+  %86 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 28, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %86, float noundef 0x3EF98A03A0000000, float noundef 0x3EF93FA840000000, float noundef 0x3EE6278120000000)
           to label %invoke.cont56 unwind label %lpad
 
 invoke.cont56:                                    ; preds = %invoke.cont55
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 28, i32 2), float noundef 0x3F87891E20000000, float noundef 0x3F998244E0000000, float noundef 0x3FAD962060000000)
+  %87 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 28, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %87, float noundef 0x3F87891E20000000, float noundef 0x3F998244E0000000, float noundef 0x3FAD962060000000)
           to label %invoke.cont57 unwind label %lpad
 
 invoke.cont57:                                    ; preds = %invoke.cont56
-  store ptr @.str.37, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 29), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 29, i32 1), float noundef 0x3F0AB2A2A0000000, float noundef 0x3F068CB460000000, float noundef 0.000000e+00)
+  %88 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 29
+  store ptr @.str.37, ptr %88, align 16
+  %89 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 29, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %89, float noundef 0x3F0AB2A2A0000000, float noundef 0x3F068CB460000000, float noundef 0.000000e+00)
           to label %invoke.cont58 unwind label %lpad
 
 invoke.cont58:                                    ; preds = %invoke.cont57
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 29, i32 2), float noundef 0x3F793F6C20000000, float noundef 0x3F8CA3A4C0000000, float noundef 0x3FA1E94AC0000000)
+  %90 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 29, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %90, float noundef 0x3F793F6C20000000, float noundef 0x3F8CA3A4C0000000, float noundef 0x3FA1E94AC0000000)
           to label %invoke.cont59 unwind label %lpad
 
 invoke.cont59:                                    ; preds = %invoke.cont58
-  store ptr @.str.38, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 30), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 30, i32 1), float noundef 0x3F63B08140000000, float noundef 0x3F69B36520000000, float noundef 0x3F7058DDE0000000)
+  %91 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 30
+  store ptr @.str.38, ptr %91, align 16
+  %92 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 30, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %92, float noundef 0x3F63B08140000000, float noundef 0x3F69B36520000000, float noundef 0x3F7058DDE0000000)
           to label %invoke.cont60 unwind label %lpad
 
 invoke.cont60:                                    ; preds = %invoke.cont59
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 30, i32 2), float noundef 0x3F6B7A4460000000, float noundef 0x3F8E7FB260000000, float noundef 0x3F9AED99C0000000)
+  %93 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 30, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %93, float noundef 0x3F6B7A4460000000, float noundef 0x3F8E7FB260000000, float noundef 0x3F9AED99C0000000)
           to label %invoke.cont61 unwind label %lpad
 
 invoke.cont61:                                    ; preds = %invoke.cont60
-  store ptr @.str.39, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 31), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 31, i32 1), float noundef 0x3F21D76DE0000000, float noundef 0x3F24C1AE00000000, float noundef 0x3F2DC0DB20000000)
+  %94 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 31
+  store ptr @.str.39, ptr %94, align 16
+  %95 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 31, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %95, float noundef 0x3F21D76DE0000000, float noundef 0x3F24C1AE00000000, float noundef 0x3F2DC0DB20000000)
           to label %invoke.cont62 unwind label %lpad
 
 invoke.cont62:                                    ; preds = %invoke.cont61
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 31, i32 2), float noundef 0x3F8A893320000000, float noundef 0x3F984F8F80000000, float noundef 0x3FAAB7DC80000000)
+  %96 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 31, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %96, float noundef 0x3F8A893320000000, float noundef 0x3F984F8F80000000, float noundef 0x3FAAB7DC80000000)
           to label %invoke.cont63 unwind label %lpad
 
 invoke.cont63:                                    ; preds = %invoke.cont62
-  store ptr @.str.40, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 32), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 32, i32 1), float noundef 0x3F1B44AA00000000, float noundef 0x3F1E877FA0000000, float noundef 0x3F147BD1C0000000)
+  %97 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 32
+  store ptr @.str.40, ptr %97, align 16
+  %98 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 32, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %98, float noundef 0x3F1B44AA00000000, float noundef 0x3F1E877FA0000000, float noundef 0x3F147BD1C0000000)
           to label %invoke.cont64 unwind label %lpad
 
 invoke.cont64:                                    ; preds = %invoke.cont63
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 32, i32 2), float noundef 0x3FA4311620000000, float noundef 0x3FB81EFFA0000000, float noundef 0x3FBFCF80E0000000)
+  %99 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 32, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %99, float noundef 0x3FA4311620000000, float noundef 0x3FB81EFFA0000000, float noundef 0x3FBFCF80E0000000)
           to label %invoke.cont65 unwind label %lpad
 
 invoke.cont65:                                    ; preds = %invoke.cont64
-  store ptr @.str.41, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 33), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 33, i32 1), float noundef 0x3F0C379920000000, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %100 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 33
+  store ptr @.str.41, ptr %100, align 16
+  %101 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 33, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %101, float noundef 0x3F0C379920000000, float noundef 0.000000e+00, float noundef 0.000000e+00)
           to label %invoke.cont66 unwind label %lpad
 
 invoke.cont66:                                    ; preds = %invoke.cont65
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 33, i32 2), float noundef 0x3FBAA25D80000000, float noundef 0x3FCEAA8EC0000000, float noundef 0x3FD2C49BA0000000)
+  %102 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 33, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %102, float noundef 0x3FBAA25D80000000, float noundef 0x3FCEAA8EC0000000, float noundef 0x3FD2C49BA0000000)
           to label %invoke.cont67 unwind label %lpad
 
 invoke.cont67:                                    ; preds = %invoke.cont66
-  store ptr @.str.42, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 34), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 34, i32 1), float noundef 0x3F86883780000000, float noundef 0x3F8660E520000000, float noundef 0x3F869A0AE0000000)
+  %103 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 34
+  store ptr @.str.42, ptr %103, align 16
+  %104 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 34, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %104, float noundef 0x3F86883780000000, float noundef 0x3F8660E520000000, float noundef 0x3F869A0AE0000000)
           to label %invoke.cont68 unwind label %lpad
 
 invoke.cont68:                                    ; preds = %invoke.cont67
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 34, i32 2), float noundef 0x3FB5FB6140000000, float noundef 0x3FC77121A0000000, float noundef 0x3FD02AED20000000)
+  %105 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 34, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %105, float noundef 0x3FB5FB6140000000, float noundef 0x3FC77121A0000000, float noundef 0x3FD02AED20000000)
           to label %invoke.cont69 unwind label %lpad
 
 invoke.cont69:                                    ; preds = %invoke.cont68
-  store ptr @.str.43, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 35), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 35, i32 1), float noundef 0x3FCD379FA0000000, float noundef 0x3FCEB7AA20000000, float noundef 0x3FD4F56EA0000000)
+  %106 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 35
+  store ptr @.str.43, ptr %106, align 16
+  %107 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 35, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %107, float noundef 0x3FCD379FA0000000, float noundef 0x3FCEB7AA20000000, float noundef 0x3FD4F56EA0000000)
           to label %invoke.cont70 unwind label %lpad
 
 invoke.cont70:                                    ; preds = %invoke.cont69
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 35, i32 2), float noundef 0x3F8C432CA0000000, float noundef 0x3F93486F00000000, float noundef 0x3FAD126640000000)
+  %108 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 35, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %108, float noundef 0x3F8C432CA0000000, float noundef 0x3F93486F00000000, float noundef 0x3FAD126640000000)
           to label %invoke.cont71 unwind label %lpad
 
 invoke.cont71:                                    ; preds = %invoke.cont70
-  store ptr @.str.44, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 36), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 36, i32 1), float noundef 0x3F4783AA40000000, float noundef 0x3F4B350FA0000000, float noundef 0x3F4D8B2B40000000)
+  %109 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 36
+  store ptr @.str.44, ptr %109, align 16
+  %110 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 36, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %110, float noundef 0x3F4783AA40000000, float noundef 0x3F4B350FA0000000, float noundef 0x3F4D8B2B40000000)
           to label %invoke.cont72 unwind label %lpad
 
 invoke.cont72:                                    ; preds = %invoke.cont71
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 36, i32 2), float noundef 0x3F8CE42180000000, float noundef 0x3FA76512A0000000, float noundef 0x3FAF995EE0000000)
+  %111 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 36, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %111, float noundef 0x3F8CE42180000000, float noundef 0x3FA76512A0000000, float noundef 0x3FAF995EE0000000)
           to label %invoke.cont73 unwind label %lpad
 
 invoke.cont73:                                    ; preds = %invoke.cont72
-  store ptr @.str.45, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 37), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 37, i32 1), float noundef 0x3F248A50A0000000, float noundef 0x3F24E6ECE0000000, float noundef 0x3EEFD5B360000000)
+  %112 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 37
+  store ptr @.str.45, ptr %112, align 16
+  %113 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 37, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %113, float noundef 0x3F248A50A0000000, float noundef 0x3F24E6ECE0000000, float noundef 0x3EEFD5B360000000)
           to label %invoke.cont74 unwind label %lpad
 
 invoke.cont74:                                    ; preds = %invoke.cont73
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 37, i32 2), float noundef 0x3F8DACEEE0000000, float noundef 0x3FADACEEE0000000, float noundef 0x3FB36922E0000000)
+  %114 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 37, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %114, float noundef 0x3F8DACEEE0000000, float noundef 0x3FADACEEE0000000, float noundef 0x3FB36922E0000000)
           to label %invoke.cont75 unwind label %lpad
 
 invoke.cont75:                                    ; preds = %invoke.cont74
-  store ptr @.str.46, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 38), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 38, i32 1), float noundef 0x3F98605680000000, float noundef 0x3F9D7ECBC0000000, float noundef 0x3FA1908E60000000)
+  %115 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 38
+  store ptr @.str.46, ptr %115, align 16
+  %116 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 38, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %116, float noundef 0x3F98605680000000, float noundef 0x3F9D7ECBC0000000, float noundef 0x3FA1908E60000000)
           to label %invoke.cont76 unwind label %lpad
 
 invoke.cont76:                                    ; preds = %invoke.cont75
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 38, i32 2), float noundef 0x3FB5A9B8C0000000, float noundef 0x3FC414A4E0000000, float noundef 0x3FCA113400000000)
+  %117 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 38, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %117, float noundef 0x3FB5A9B8C0000000, float noundef 0x3FC414A4E0000000, float noundef 0x3FCA113400000000)
           to label %invoke.cont77 unwind label %lpad
 
 invoke.cont77:                                    ; preds = %invoke.cont76
-  store ptr @.str.47, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 39), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 39, i32 1), float noundef 0x3FA4983D80000000, float noundef 0x3FA72CD7C0000000, float noundef 0x3FAA274A00000000)
+  %118 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 39
+  store ptr @.str.47, ptr %118, align 16
+  %119 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 39, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %119, float noundef 0x3FA4983D80000000, float noundef 0x3FA72CD7C0000000, float noundef 0x3FAA274A00000000)
           to label %invoke.cont78 unwind label %lpad
 
 invoke.cont78:                                    ; preds = %invoke.cont77
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 39, i32 2), float noundef 0x40036E2EC0000000, float noundef 0x40124D8440000000, float noundef 0x401CD9CE00000000)
+  %120 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 39, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %120, float noundef 0x40036E2EC0000000, float noundef 0x40124D8440000000, float noundef 0x401CD9CE00000000)
           to label %invoke.cont79 unwind label %lpad
 
 invoke.cont79:                                    ; preds = %invoke.cont78
-  store ptr @.str.48, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 40), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 40, i32 1), float noundef 0x3F24783220000000, float noundef 0x3F26E9FC60000000, float noundef 0x3F27184A80000000)
+  %121 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 40
+  store ptr @.str.48, ptr %121, align 16
+  %122 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 40, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %122, float noundef 0x3F24783220000000, float noundef 0x3F26E9FC60000000, float noundef 0x3F27184A80000000)
           to label %invoke.cont80 unwind label %lpad
 
 invoke.cont80:                                    ; preds = %invoke.cont79
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 40, i32 2), float noundef 0x3F57BD8BE0000000, float noundef 0x3F6C304CC0000000, float noundef 0x3F801A7A00000000)
+  %123 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 40, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %123, float noundef 0x3F57BD8BE0000000, float noundef 0x3F6C304CC0000000, float noundef 0x3F801A7A00000000)
           to label %invoke.cont81 unwind label %lpad
 
 invoke.cont81:                                    ; preds = %invoke.cont80
-  store ptr @.str.49, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 41), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 41, i32 1), float noundef 0x3F1FBA2FA0000000, float noundef 0x3F21229220000000, float noundef 0x3F206BB300000000)
+  %124 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 41
+  store ptr @.str.49, ptr %124, align 16
+  %125 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 41, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %125, float noundef 0x3F1FBA2FA0000000, float noundef 0x3F21229220000000, float noundef 0x3F206BB300000000)
           to label %invoke.cont82 unwind label %lpad
 
 invoke.cont82:                                    ; preds = %invoke.cont81
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 41, i32 2), float noundef 0x3F53165D40000000, float noundef 0x3F6361DCA0000000, float noundef 0x3F6A2C66A0000000)
+  %126 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 41, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %126, float noundef 0x3F53165D40000000, float noundef 0x3F6361DCA0000000, float noundef 0x3F6A2C66A0000000)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %invoke.cont82
-  store ptr @.str.50, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 42), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 42, i32 1), float noundef 0x3FFD7F62C0000000, float noundef 0x4004AE48E0000000, float noundef 0x40015460A0000000)
+  %127 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 42
+  store ptr @.str.50, ptr %127, align 16
+  %128 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 42, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %128, float noundef 0x3FFD7F62C0000000, float noundef 0x4004AE48E0000000, float noundef 0x40015460A0000000)
           to label %invoke.cont84 unwind label %lpad
 
 invoke.cont84:                                    ; preds = %invoke.cont83
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 42, i32 2), float noundef 0x4041EC0840000000, float noundef 0x4048C60420000000, float noundef 0x404E8AC080000000)
+  %129 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 42, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %129, float noundef 0x4041EC0840000000, float noundef 0x4048C60420000000, float noundef 0x404E8AC080000000)
           to label %invoke.cont85 unwind label %lpad
 
 invoke.cont85:                                    ; preds = %invoke.cont84
-  store ptr @.str.51, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 43), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 43, i32 1), float noundef 0x3F9BFD2EA0000000, float noundef 0x3FA09D6AE0000000, float noundef 0x3FA05F8D20000000)
+  %130 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 43
+  store ptr @.str.51, ptr %130, align 16
+  %131 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 43, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %131, float noundef 0x3F9BFD2EA0000000, float noundef 0x3FA09D6AE0000000, float noundef 0x3FA05F8D20000000)
           to label %invoke.cont86 unwind label %lpad
 
 invoke.cont86:                                    ; preds = %invoke.cont85
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 43, i32 2), float noundef 0x3FD22F8380000000, float noundef 0x3FD4D844E0000000, float noundef 0x3FD5DACEE0000000)
+  %132 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 43, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %132, float noundef 0x3FD22F8380000000, float noundef 0x3FD4D844E0000000, float noundef 0x3FD5DACEE0000000)
           to label %invoke.cont87 unwind label %lpad
 
 invoke.cont87:                                    ; preds = %invoke.cont86
-  store ptr @.str.52, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 44), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 44, i32 1), float noundef 0x3F2D313E40000000, float noundef 0x3F30B85F00000000, float noundef 0x3F31C2A020000000)
+  %133 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 44
+  store ptr @.str.52, ptr %133, align 16
+  %134 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 44, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %134, float noundef 0x3F2D313E40000000, float noundef 0x3F30B85F00000000, float noundef 0x3F31C2A020000000)
           to label %invoke.cont88 unwind label %lpad
 
 invoke.cont88:                                    ; preds = %invoke.cont87
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 44, i32 2), float noundef 0x3F89E1F3A0000000, float noundef 0x3F9FCBD560000000, float noundef 0x3FA9A9DA60000000)
+  %135 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 44, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %135, float noundef 0x3F89E1F3A0000000, float noundef 0x3F9FCBD560000000, float noundef 0x3FA9A9DA60000000)
           to label %invoke.cont89 unwind label %lpad
 
 invoke.cont89:                                    ; preds = %invoke.cont88
-  store ptr @.str.53, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 45), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 45, i32 1), float noundef 0x4006621960000000, float noundef 0x400C5C91E0000000, float noundef 0x4011589380000000)
+  %136 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 45
+  store ptr @.str.53, ptr %136, align 16
+  %137 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 45, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %137, float noundef 0x4006621960000000, float noundef 0x400C5C91E0000000, float noundef 0x4011589380000000)
           to label %invoke.cont90 unwind label %lpad
 
 invoke.cont90:                                    ; preds = %invoke.cont89
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 45, i32 2), float noundef 0x4031808320000000, float noundef 0x403B010620000000, float noundef 0x4041B76C80000000)
+  %138 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 45, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %138, float noundef 0x4031808320000000, float noundef 0x403B010620000000, float noundef 0x4041B76C80000000)
           to label %invoke.cont91 unwind label %lpad
 
 invoke.cont91:                                    ; preds = %invoke.cont90
-  store ptr @.str.54, ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 46), align 16
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 46, i32 1), float noundef 0x3F271F0080000000, float noundef 0x3F3508A5C0000000, float noundef 0x3F29B65F80000000)
+  %139 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 46
+  store ptr @.str.54, ptr %139, align 16
+  %140 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 46, i32 1
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %140, float noundef 0x3F271F0080000000, float noundef 0x3F3508A5C0000000, float noundef 0x3F29B65F80000000)
           to label %invoke.cont92 unwind label %lpad
 
 invoke.cont92:                                    ; preds = %invoke.cont91
-  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 46, i32 2), float noundef 0x3FA04DFCE0000000, float noundef 0x3FA009B300000000, float noundef 0x3F9EDEDAE0000000)
+  %141 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 46, i32 2
+  invoke void @_ZN4pbrt3RGBC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %141, float noundef 0x3FA04DFCE0000000, float noundef 0x3FA009B300000000, float noundef 0x3F9EDEDAE0000000)
           to label %invoke.cont93 unwind label %lpad
 
 invoke.cont93:                                    ; preds = %invoke.cont92
@@ -3647,50 +3787,51 @@ invoke.cont93:                                    ; preds = %invoke.cont92
 init.end:                                         ; preds = %invoke.cont93, %init.check, %entry
   store ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, ptr %__range1, align 8
   store ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (%"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 47), ptr %__end1, align 8
+  %142 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr @_ZZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable, i64 47
+  store ptr %142, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %init.end
-  %2 = load ptr, ptr %__begin1, align 8
-  %3 = load ptr, ptr %__end1, align 8
-  %cmp = icmp ne ptr %2, %3
+  %143 = load ptr, ptr %__begin1, align 8
+  %144 = load ptr, ptr %__end1, align 8
+  %cmp = icmp ne ptr %143, %144
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__begin1, align 8
-  store ptr %4, ptr %mss, align 8
-  %5 = load ptr, ptr %name.addr, align 8
-  %6 = load ptr, ptr %mss, align 8
-  %name94 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %name94, align 8
-  %call = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7)
+  %145 = load ptr, ptr %__begin1, align 8
+  store ptr %145, ptr %mss, align 8
+  %146 = load ptr, ptr %name.addr, align 8
+  %147 = load ptr, ptr %mss, align 8
+  %name94 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr %147, i32 0, i32 0
+  %148 = load ptr, ptr %name94, align 8
+  %call = call noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef %148)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %8 = load ptr, ptr @_ZN4pbrt13RGBColorSpace4sRGBE, align 8
-  %9 = load ptr, ptr %mss, align 8
-  %sigma_a95 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr %9, i32 0, i32 2
-  %call96 = call noundef ptr @_ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectIN4pbrt20RGBUnboundedSpectrumEJRKNS5_13RGBColorSpaceERNS5_3RGBEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %alloc, ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull align 4 dereferenceable(12) %sigma_a95)
+  %149 = load ptr, ptr @_ZN4pbrt13RGBColorSpace4sRGBE, align 8
+  %150 = load ptr, ptr %mss, align 8
+  %sigma_a95 = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr %150, i32 0, i32 2
+  %call96 = call noundef ptr @_ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectIN4pbrt20RGBUnboundedSpectrumEJRKNS5_13RGBColorSpaceERNS5_3RGBEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %alloc, ptr noundef nonnull align 8 dereferenceable(152) %149, ptr noundef nonnull align 4 dereferenceable(12) %sigma_a95)
   call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS6_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call96)
-  %10 = load ptr, ptr %sigma_a.addr, align 8
-  %call97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pbrt8SpectrumaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %11 = load ptr, ptr @_ZN4pbrt13RGBColorSpace4sRGBE, align 8
-  %12 = load ptr, ptr %mss, align 8
-  %sigma_prime_s = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr %12, i32 0, i32 1
-  %call99 = call noundef ptr @_ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectIN4pbrt20RGBUnboundedSpectrumEJRKNS5_13RGBColorSpaceERNS5_3RGBEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %alloc, ptr noundef nonnull align 8 dereferenceable(152) %11, ptr noundef nonnull align 4 dereferenceable(12) %sigma_prime_s)
+  %151 = load ptr, ptr %sigma_a.addr, align 8
+  %call97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pbrt8SpectrumaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %152 = load ptr, ptr @_ZN4pbrt13RGBColorSpace4sRGBE, align 8
+  %153 = load ptr, ptr %mss, align 8
+  %sigma_prime_s = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr %153, i32 0, i32 1
+  %call99 = call noundef ptr @_ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectIN4pbrt20RGBUnboundedSpectrumEJRKNS5_13RGBColorSpaceERNS5_3RGBEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %alloc, ptr noundef nonnull align 8 dereferenceable(152) %152, ptr noundef nonnull align 4 dereferenceable(12) %sigma_prime_s)
   call void @_ZN4pbrt8SpectrumCI2NS_13TaggedPointerIJNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEEEIS6_EEPT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp98, ptr noundef %call99)
-  %13 = load ptr, ptr %sigma_s.addr, align 8
-  %call100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pbrt8SpectrumaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp98)
+  %154 = load ptr, ptr %sigma_s.addr, align 8
+  %call100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pbrt8SpectrumaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %154, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp98)
   store i1 true, ptr %retval, align 1
   br label %return
 
 lpad:                                             ; preds = %invoke.cont92, %invoke.cont91, %invoke.cont90, %invoke.cont89, %invoke.cont88, %invoke.cont87, %invoke.cont86, %invoke.cont85, %invoke.cont84, %invoke.cont83, %invoke.cont82, %invoke.cont81, %invoke.cont80, %invoke.cont79, %invoke.cont78, %invoke.cont77, %invoke.cont76, %invoke.cont75, %invoke.cont74, %invoke.cont73, %invoke.cont72, %invoke.cont71, %invoke.cont70, %invoke.cont69, %invoke.cont68, %invoke.cont67, %invoke.cont66, %invoke.cont65, %invoke.cont64, %invoke.cont63, %invoke.cont62, %invoke.cont61, %invoke.cont60, %invoke.cont59, %invoke.cont58, %invoke.cont57, %invoke.cont56, %invoke.cont55, %invoke.cont54, %invoke.cont53, %invoke.cont52, %invoke.cont51, %invoke.cont50, %invoke.cont49, %invoke.cont48, %invoke.cont47, %invoke.cont46, %invoke.cont45, %invoke.cont44, %invoke.cont43, %invoke.cont42, %invoke.cont41, %invoke.cont40, %invoke.cont39, %invoke.cont38, %invoke.cont37, %invoke.cont36, %invoke.cont35, %invoke.cont34, %invoke.cont33, %invoke.cont32, %invoke.cont31, %invoke.cont30, %invoke.cont29, %invoke.cont28, %invoke.cont27, %invoke.cont26, %invoke.cont25, %invoke.cont24, %invoke.cont23, %invoke.cont22, %invoke.cont21, %invoke.cont20, %invoke.cont19, %invoke.cont18, %invoke.cont17, %invoke.cont16, %invoke.cont15, %invoke.cont14, %invoke.cont13, %invoke.cont12, %invoke.cont11, %invoke.cont10, %invoke.cont9, %invoke.cont8, %invoke.cont7, %invoke.cont6, %invoke.cont5, %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont1, %invoke.cont, %init
-  %14 = landingpad { ptr, i32 }
+  %155 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %156 = extractvalue { ptr, i32 } %155, 0
+  store ptr %156, ptr %exn.slot, align 8
+  %157 = extractvalue { ptr, i32 } %155, 1
+  store i32 %157, ptr %ehselector.slot, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN4pbrt29GetMediumScatteringPropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8SpectrumES9_N4pstd3pmr21polymorphic_allocatorISt4byteEEE24SubsurfaceParameterTable) #4
   br label %eh.resume
 
@@ -3698,8 +3839,8 @@ if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %17 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr %17, i32 1
+  %158 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds %"struct.pbrt::MeasuredSS", ptr %158, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -3708,8 +3849,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+  %159 = load i1, ptr %retval, align 1
+  ret i1 %159
 
 eh.resume:                                        ; preds = %lpad
   %exn = load ptr, ptr %exn.slot, align 8
@@ -10889,11 +11030,12 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7nanovdb14GridHandleBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mBuffer = getelementptr inbounds %"class.nanovdb::GridHandle", ptr %this1, i32 0, i32 1
   call void @_ZN4pbrt13NanoVDBBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer) #4
-  %0 = load ptr, ptr %other.addr, align 8
-  %mBuffer2 = getelementptr inbounds %"class.nanovdb::GridHandle", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %other.addr, align 8
+  %mBuffer2 = getelementptr inbounds %"class.nanovdb::GridHandle", ptr %1, i32 0, i32 1
   %mBuffer3 = getelementptr inbounds %"class.nanovdb::GridHandle", ptr %this1, i32 0, i32 1
   %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4pbrt13NanoVDBBufferaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer3, ptr noundef nonnull align 8 dereferenceable(24) %mBuffer2) #4
   ret void
@@ -11211,7 +11353,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEE5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -11222,10 +11365,10 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #20
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #20
   unreachable
 }
 
@@ -12017,7 +12160,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7nanovdb14GridHandleBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mBuffer = getelementptr inbounds %"class.nanovdb::GridHandle", ptr %this1, i32 0, i32 1
   call void @_ZN4pbrt13NanoVDBBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer) #4
   ret void
@@ -12074,7 +12218,7 @@ lpad:                                             ; preds = %entry
 
 catch.dispatch:                                   ; preds = %lpad
   %sel = load i32, ptr %ehselector.slot, align 4
-  %6 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #4
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #4
   %matches = icmp eq i32 %sel, %6
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -21841,7 +21985,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb14GridHandleBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7nanovdb14GridHandleBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -49518,9 +49663,6 @@ unreachable:                                      ; preds = %invoke.cont8
   unreachable
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #17
-
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr dso_local void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEEEvSA_DpOT_(ptr noundef %fmt, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
@@ -50601,12 +50743,13 @@ entry:
   store ptr %buffer, ptr %buffer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7nanovdb14GridHandleBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mBuffer = getelementptr inbounds %"class.nanovdb::GridHandle", ptr %this1, i32 0, i32 1
   call void @_ZN4pbrt13NanoVDBBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer) #4
-  %0 = load ptr, ptr %buffer.addr, align 8
+  %1 = load ptr, ptr %buffer.addr, align 8
   %mBuffer2 = getelementptr inbounds %"class.nanovdb::GridHandle", ptr %this1, i32 0, i32 1
-  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4pbrt13NanoVDBBufferaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer2, ptr noundef nonnull align 8 dereferenceable(24) %0) #4
+  %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4pbrt13NanoVDBBufferaSEOS0_(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer2, ptr noundef nonnull align 8 dereferenceable(24) %1) #4
   ret void
 }
 
@@ -51202,7 +51345,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #18
+declare noalias ptr @malloc(i64 noundef) #17
 
 ; Function Attrs: nounwind
 declare i32 @sprintf(ptr noundef, ptr noundef, ...) #3
@@ -54748,6 +54891,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -54765,8 +54911,8 @@ attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #15 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #16 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #17 = { nounwind memory(none) }
-attributes #18 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #17 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #18 = { nounwind memory(none) }
 attributes #19 = { noreturn }
 attributes #20 = { noreturn nounwind }
 attributes #21 = { builtin nounwind }

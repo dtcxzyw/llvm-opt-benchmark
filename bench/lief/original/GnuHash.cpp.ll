@@ -232,21 +232,22 @@ define void @_ZN4LIEF3ELF7GnuHashC2EjjSt6vectorImSaImEES2_IjSaIjEES6_(ptr nounde
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %7, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF7GnuHashE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 1
-  %15 = load i32, ptr %8, align 4
-  store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 2
-  %17 = load i32, ptr %9, align 4
-  store i32 %17, ptr %16, align 4
-  %18 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 3
-  call void @_ZNSt6vectorImSaImEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %3) #6
-  %19 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 4
-  call void @_ZNSt6vectorIjSaIjEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %4) #6
-  %20 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 5
-  call void @_ZNSt6vectorIjSaIjEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %5) #6
-  %21 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 6
-  store i64 0, ptr %21, align 8
+  %14 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3ELF7GnuHashE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 1
+  %16 = load i32, ptr %8, align 4
+  store i32 %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 2
+  %18 = load i32, ptr %9, align 4
+  store i32 %18, ptr %17, align 4
+  %19 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 3
+  call void @_ZNSt6vectorImSaImEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  %20 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 4
+  call void @_ZNSt6vectorIjSaIjEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %4) #6
+  %21 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 5
+  call void @_ZNSt6vectorIjSaIjEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %5) #6
+  %22 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 6
+  store i64 0, ptr %22, align 8
   ret void
 }
 
@@ -1218,13 +1219,14 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF7GnuHashD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF7GnuHashE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #6
-  %5 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4LIEF3ELF7GnuHashE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #6
-  %6 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #6
+  %6 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #6
+  %7 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #6
   call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   ret void
 }

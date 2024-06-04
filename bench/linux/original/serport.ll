@@ -59,31 +59,32 @@ define internal i32 @serport_init() #0 section ".init.text" align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @serport_ldisc_open(ptr noundef %0) #2 align 16 {
   %2 = tail call zeroext i1 @capable(i32 noundef 21) #11
-  br i1 %2, label %3, label %13
+  br i1 %2, label %3, label %14
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %5 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 56) #13
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %13, label %7
+  %4 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %5 = load ptr, ptr %4, align 16
+  %6 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 56) #13
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %14, label %8
 
-7:                                                ; preds = %3
-  store ptr %0, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 44
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @__init_waitqueue_head(ptr noundef %9, ptr noundef nonnull @.str.1, ptr noundef nonnull @serport_ldisc_open.__key) #11
-  %10 = getelementptr inbounds i8, ptr %0, i64 576
-  store ptr %5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 428
-  store i32 256, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 416
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %12, i32 32, ptr elementtype(i8) %12) #11, !srcloc !6
-  br label %13
+8:                                                ; preds = %3
+  store ptr %0, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 44
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  tail call void @__init_waitqueue_head(ptr noundef %10, ptr noundef nonnull @.str.1, ptr noundef nonnull @serport_ldisc_open.__key) #11
+  %11 = getelementptr inbounds i8, ptr %0, i64 576
+  store ptr %6, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 428
+  store i32 256, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %0, i64 416
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %13, i32 32, ptr elementtype(i8) %13) #11, !srcloc !6
+  br label %14
 
-13:                                               ; preds = %7, %3, %1
-  %14 = phi i32 [ 0, %7 ], [ -1, %1 ], [ -12, %3 ]
-  ret i32 %14
+14:                                               ; preds = %8, %3, %1
+  %15 = phi i32 [ 0, %8 ], [ -1, %1 ], [ -12, %3 ]
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -104,99 +105,100 @@ define internal noundef i64 @serport_ldisc_read(ptr noundef %0, ptr nocapture re
   %12 = icmp ult i8 %11, 2
   tail call void @llvm.assume(i1 %12)
   %13 = icmp eq i8 %11, 0
-  br i1 %13, label %14, label %57
+  br i1 %13, label %14, label %58
 
 14:                                               ; preds = %6
-  %15 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %16 = tail call noalias align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 1096) #13
-  %17 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %16, ptr %17, align 8
-  %18 = icmp eq ptr %16, null
-  br i1 %18, label %57, label %19
+  %15 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noalias align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 1096) #13
+  %18 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %17, ptr %18, align 8
+  %19 = icmp eq ptr %17, null
+  br i1 %19, label %58, label %20
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
-  %21 = tail call i64 @strscpy(ptr noundef %20, ptr noundef nonnull @.str.3, i64 noundef 32) #11
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
-  %23 = tail call ptr @tty_name(ptr noundef %0) #11
-  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %22, i64 noundef 32, ptr noundef nonnull @.str.4, ptr noundef %23) #11
-  %25 = getelementptr inbounds i8, ptr %16, i64 201
-  %26 = getelementptr inbounds i8, ptr %9, i64 40
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %25, align 1
-  store i8 2, ptr %25, align 1
-  %28 = getelementptr inbounds i8, ptr %16, i64 216
-  store ptr @serport_serio_write, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %16, i64 224
-  store ptr @serport_serio_open, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %16, i64 232
-  store ptr @serport_serio_close, ptr %30, align 8
-  store ptr %9, ptr %16, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %16, i64 408
-  store ptr %32, ptr %33, align 8
-  %34 = load ptr, ptr %17, align 8
-  tail call void @__serio_register_port(ptr noundef %34, ptr noundef null) #11
-  %35 = tail call ptr @tty_name(ptr noundef %0) #11
-  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %35) #12
-  %37 = tail call i32 @__SCT__might_resched() #11
-  %38 = load volatile i64, ptr %10, align 8
-  %39 = and i64 %38, 8
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %55
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = tail call i64 @strscpy(ptr noundef %21, ptr noundef nonnull @.str.3, i64 noundef 32) #11
+  %23 = getelementptr inbounds i8, ptr %17, i64 40
+  %24 = tail call ptr @tty_name(ptr noundef %0) #11
+  %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %23, i64 noundef 32, ptr noundef nonnull @.str.4, ptr noundef %24) #11
+  %26 = getelementptr inbounds i8, ptr %17, i64 201
+  %27 = getelementptr inbounds i8, ptr %9, i64 40
+  %28 = load i32, ptr %27, align 8
+  store i32 %28, ptr %26, align 1
+  store i8 2, ptr %26, align 1
+  %29 = getelementptr inbounds i8, ptr %17, i64 216
+  store ptr @serport_serio_write, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %17, i64 224
+  store ptr @serport_serio_open, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %17, i64 232
+  store ptr @serport_serio_close, ptr %31, align 8
+  store ptr %9, ptr %17, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %17, i64 408
+  store ptr %33, ptr %34, align 8
+  %35 = load ptr, ptr %18, align 8
+  tail call void @__serio_register_port(ptr noundef %35, ptr noundef null) #11
+  %36 = tail call ptr @tty_name(ptr noundef %0) #11
+  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %36) #12
+  %38 = tail call i32 @__SCT__might_resched() #11
+  %39 = load volatile i64, ptr %10, align 8
+  %40 = and i64 %39, 8
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %42, label %56
 
-41:                                               ; preds = %19
+42:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !8
   call void @init_wait_entry(ptr noundef nonnull %7, i32 noundef 0) #11
-  %42 = getelementptr inbounds i8, ptr %9, i64 8
-  br label %43
+  %43 = getelementptr inbounds i8, ptr %9, i64 8
+  br label %44
 
-43:                                               ; preds = %51, %41
-  %44 = call i64 @prepare_to_wait_event(ptr noundef %42, ptr noundef nonnull %7, i32 noundef 1) #11
-  %45 = load volatile i64, ptr %10, align 8
-  %46 = and i64 %45, 8
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %51
+44:                                               ; preds = %52, %42
+  %45 = call i64 @prepare_to_wait_event(ptr noundef %43, ptr noundef nonnull %7, i32 noundef 1) #11
+  %46 = load volatile i64, ptr %10, align 8
+  %47 = and i64 %46, 8
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %43
-  %49 = icmp eq i64 %44, 0
-  br i1 %49, label %50, label %51
+49:                                               ; preds = %44
+  %50 = icmp eq i64 %45, 0
+  br i1 %50, label %51, label %52
 
-50:                                               ; preds = %48
+51:                                               ; preds = %49
   call void @schedule() #11
-  br label %51
+  br label %52
 
-51:                                               ; preds = %50, %48, %43
-  %52 = phi i32 [ 0, %50 ], [ 6, %43 ], [ 8, %48 ]
-  switch i32 %52, label %59 [
-    i32 0, label %43
-    i32 6, label %53
-    i32 8, label %54
+52:                                               ; preds = %51, %49, %44
+  %53 = phi i32 [ 0, %51 ], [ 6, %44 ], [ 8, %49 ]
+  switch i32 %53, label %60 [
+    i32 0, label %44
+    i32 6, label %54
+    i32 8, label %55
   ], !llvm.loop !9
 
-53:                                               ; preds = %51
-  call void @finish_wait(ptr noundef %42, ptr noundef nonnull %7) #11
-  br label %54
-
-54:                                               ; preds = %53, %51
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #11
+54:                                               ; preds = %52
+  call void @finish_wait(ptr noundef %43, ptr noundef nonnull %7) #11
   br label %55
 
-55:                                               ; preds = %54, %19
-  %56 = load ptr, ptr %17, align 8
-  call void @serio_unregister_port(ptr noundef %56) #11
-  store ptr null, ptr %17, align 8
+55:                                               ; preds = %54, %52
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #11
+  br label %56
+
+56:                                               ; preds = %55, %20
+  %57 = load ptr, ptr %18, align 8
+  call void @serio_unregister_port(ptr noundef %57) #11
+  store ptr null, ptr %18, align 8
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10, i32 -9, ptr elementtype(i8) %10) #11, !srcloc !11
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10, i32 -3, ptr elementtype(i8) %10) #11, !srcloc !11
-  br label %57
+  br label %58
 
-57:                                               ; preds = %55, %14, %6
-  %58 = phi i64 [ 0, %55 ], [ -16, %6 ], [ -12, %14 ]
-  ret i64 %58
+58:                                               ; preds = %56, %14, %6
+  %59 = phi i64 [ 0, %56 ], [ -16, %6 ], [ -12, %14 ]
+  ret i64 %59
 
-59:                                               ; preds = %51
+60:                                               ; preds = %52
   unreachable
 }
 

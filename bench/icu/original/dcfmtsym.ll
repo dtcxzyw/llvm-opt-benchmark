@@ -915,7 +915,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fSymbols = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 29
@@ -990,20 +991,20 @@ arrayinit.body:                                   ; preds = %arrayinit.body, %ar
 
 arrayinit.end37:                                  ; preds = %arrayinit.body
   %locale38 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7520DecimalFormatSymbols10initializeERKNS_6LocaleER10UErrorCodeaPKNS_15NumberingSystemE(ptr noundef nonnull align 8 dereferenceable(2883) %this1, ptr noundef nonnull align 8 dereferenceable(217) %locale38, ptr noundef nonnull align 4 dereferenceable(4) %1, i8 noundef signext 1, ptr noundef null)
+  %2 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7520DecimalFormatSymbols10initializeERKNS_6LocaleER10UErrorCodeaPKNS_15NumberingSystemE(ptr noundef nonnull align 8 dereferenceable(2883) %this1, ptr noundef nonnull align 8 dereferenceable(217) %locale38, ptr noundef nonnull align 4 dereferenceable(4) %2, i8 noundef signext 1, ptr noundef null)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %arrayinit.end37
   ret void
 
 lpad:                                             ; preds = %arrayctor.loop
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done2, label %arraydestroy.body
 
@@ -1018,30 +1019,30 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body, 
   br label %ehcleanup62
 
 lpad3:                                            ; preds = %arrayctor.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup55
 
 lpad5:                                            ; preds = %invoke.cont4
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup54
 
 lpad11:                                           ; preds = %arrayctor.loop9
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   %arraydestroy.isempty13 = icmp eq ptr %array.begin7, %arrayctor.cur10
   br i1 %arraydestroy.isempty13, label %arraydestroy.done18, label %arraydestroy.body14
 
@@ -1056,12 +1057,12 @@ arraydestroy.done18:                              ; preds = %arraydestroy.body14
   br label %ehcleanup53
 
 lpad26:                                           ; preds = %arrayctor.loop24
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   %arraydestroy.isempty28 = icmp eq ptr %array.begin22, %arrayctor.cur25
   br i1 %arraydestroy.isempty28, label %arraydestroy.done33, label %arraydestroy.body29
 
@@ -1076,18 +1077,18 @@ arraydestroy.done33:                              ; preds = %arraydestroy.body29
   br label %ehcleanup
 
 lpad39:                                           ; preds = %arrayinit.end37
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   %array.begin41 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym, i32 0, i32 0
-  %20 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin41, i64 3
+  %21 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin41, i64 3
   br label %arraydestroy.body42
 
 arraydestroy.body42:                              ; preds = %arraydestroy.body42, %lpad39
-  %arraydestroy.elementPast43 = phi ptr [ %20, %lpad39 ], [ %arraydestroy.element44, %arraydestroy.body42 ]
+  %arraydestroy.elementPast43 = phi ptr [ %21, %lpad39 ], [ %arraydestroy.element44, %arraydestroy.body42 ]
   %arraydestroy.element44 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast43, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element44) #9
   %arraydestroy.done45 = icmp eq ptr %arraydestroy.element44, %array.begin41
@@ -1098,11 +1099,11 @@ arraydestroy.done46:                              ; preds = %arraydestroy.body42
 
 ehcleanup:                                        ; preds = %arraydestroy.done46, %arraydestroy.done33
   %array.begin47 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym, i32 0, i32 0
-  %21 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin47, i64 3
+  %22 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin47, i64 3
   br label %arraydestroy.body48
 
 arraydestroy.body48:                              ; preds = %arraydestroy.body48, %ehcleanup
-  %arraydestroy.elementPast49 = phi ptr [ %21, %ehcleanup ], [ %arraydestroy.element50, %arraydestroy.body48 ]
+  %arraydestroy.elementPast49 = phi ptr [ %22, %ehcleanup ], [ %arraydestroy.element50, %arraydestroy.body48 ]
   %arraydestroy.element50 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast49, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element50) #9
   %arraydestroy.done51 = icmp eq ptr %arraydestroy.element50, %array.begin47
@@ -1121,11 +1122,11 @@ ehcleanup54:                                      ; preds = %ehcleanup53, %lpad5
 
 ehcleanup55:                                      ; preds = %ehcleanup54, %lpad3
   %array.begin56 = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i32 0, i32 0
-  %22 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin56, i64 29
+  %23 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin56, i64 29
   br label %arraydestroy.body57
 
 arraydestroy.body57:                              ; preds = %arraydestroy.body57, %ehcleanup55
-  %arraydestroy.elementPast58 = phi ptr [ %22, %ehcleanup55 ], [ %arraydestroy.element59, %arraydestroy.body57 ]
+  %arraydestroy.elementPast58 = phi ptr [ %23, %ehcleanup55 ], [ %arraydestroy.element59, %arraydestroy.body57 ]
   %arraydestroy.element59 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast58, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element59) #9
   %arraydestroy.done60 = icmp eq ptr %arraydestroy.element59, %array.begin56
@@ -1155,7 +1156,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1166,7 +1168,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -1935,7 +1938,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fSymbols = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 29
@@ -1958,8 +1962,8 @@ arrayctor.cont:                                   ; preds = %invoke.cont
 
 invoke.cont4:                                     ; preds = %arrayctor.cont
   %locale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %loc.addr, align 8
-  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %1)
+  %2 = load ptr, ptr %loc.addr, align 8
+  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %2)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -2011,260 +2015,8 @@ arrayinit.body:                                   ; preds = %arrayinit.body, %ar
 
 arrayinit.end37:                                  ; preds = %arrayinit.body
   %locale38 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7520DecimalFormatSymbols10initializeERKNS_6LocaleER10UErrorCodeaPKNS_15NumberingSystemE(ptr noundef nonnull align 8 dereferenceable(2883) %this1, ptr noundef nonnull align 8 dereferenceable(217) %locale38, ptr noundef nonnull align 4 dereferenceable(4) %2, i8 noundef signext 0, ptr noundef null)
-          to label %invoke.cont40 unwind label %lpad39
-
-invoke.cont40:                                    ; preds = %arrayinit.end37
-  ret void
-
-lpad:                                             ; preds = %arrayctor.loop
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
-  br i1 %arraydestroy.isempty, label %arraydestroy.done2, label %arraydestroy.body
-
-arraydestroy.body:                                ; preds = %arraydestroy.body, %lpad
-  %arraydestroy.elementPast = phi ptr [ %arrayctor.cur, %lpad ], [ %arraydestroy.element, %arraydestroy.body ]
-  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #9
-  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
-  br i1 %arraydestroy.done, label %arraydestroy.done2, label %arraydestroy.body
-
-arraydestroy.done2:                               ; preds = %arraydestroy.body, %lpad
-  br label %ehcleanup62
-
-lpad3:                                            ; preds = %arrayctor.cont
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  br label %ehcleanup55
-
-lpad5:                                            ; preds = %invoke.cont4
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  br label %ehcleanup54
-
-lpad11:                                           ; preds = %arrayctor.loop9
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
-  %arraydestroy.isempty13 = icmp eq ptr %array.begin7, %arrayctor.cur10
-  br i1 %arraydestroy.isempty13, label %arraydestroy.done18, label %arraydestroy.body14
-
-arraydestroy.body14:                              ; preds = %arraydestroy.body14, %lpad11
-  %arraydestroy.elementPast15 = phi ptr [ %arrayctor.cur10, %lpad11 ], [ %arraydestroy.element16, %arraydestroy.body14 ]
-  %arraydestroy.element16 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast15, i64 -1
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element16) #9
-  %arraydestroy.done17 = icmp eq ptr %arraydestroy.element16, %array.begin7
-  br i1 %arraydestroy.done17, label %arraydestroy.done18, label %arraydestroy.body14
-
-arraydestroy.done18:                              ; preds = %arraydestroy.body14, %lpad11
-  br label %ehcleanup53
-
-lpad26:                                           ; preds = %arrayctor.loop24
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
-  %arraydestroy.isempty28 = icmp eq ptr %array.begin22, %arrayctor.cur25
-  br i1 %arraydestroy.isempty28, label %arraydestroy.done33, label %arraydestroy.body29
-
-arraydestroy.body29:                              ; preds = %arraydestroy.body29, %lpad26
-  %arraydestroy.elementPast30 = phi ptr [ %arrayctor.cur25, %lpad26 ], [ %arraydestroy.element31, %arraydestroy.body29 ]
-  %arraydestroy.element31 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast30, i64 -1
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element31) #9
-  %arraydestroy.done32 = icmp eq ptr %arraydestroy.element31, %array.begin22
-  br i1 %arraydestroy.done32, label %arraydestroy.done33, label %arraydestroy.body29
-
-arraydestroy.done33:                              ; preds = %arraydestroy.body29, %lpad26
-  br label %ehcleanup
-
-lpad39:                                           ; preds = %arrayinit.end37
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
-  %array.begin41 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym, i32 0, i32 0
-  %21 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin41, i64 3
-  br label %arraydestroy.body42
-
-arraydestroy.body42:                              ; preds = %arraydestroy.body42, %lpad39
-  %arraydestroy.elementPast43 = phi ptr [ %21, %lpad39 ], [ %arraydestroy.element44, %arraydestroy.body42 ]
-  %arraydestroy.element44 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast43, i64 -1
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element44) #9
-  %arraydestroy.done45 = icmp eq ptr %arraydestroy.element44, %array.begin41
-  br i1 %arraydestroy.done45, label %arraydestroy.done46, label %arraydestroy.body42
-
-arraydestroy.done46:                              ; preds = %arraydestroy.body42
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %arraydestroy.done46, %arraydestroy.done33
-  %array.begin47 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym, i32 0, i32 0
-  %22 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin47, i64 3
-  br label %arraydestroy.body48
-
-arraydestroy.body48:                              ; preds = %arraydestroy.body48, %ehcleanup
-  %arraydestroy.elementPast49 = phi ptr [ %22, %ehcleanup ], [ %arraydestroy.element50, %arraydestroy.body48 ]
-  %arraydestroy.element50 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast49, i64 -1
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element50) #9
-  %arraydestroy.done51 = icmp eq ptr %arraydestroy.element50, %array.begin47
-  br i1 %arraydestroy.done51, label %arraydestroy.done52, label %arraydestroy.body48
-
-arraydestroy.done52:                              ; preds = %arraydestroy.body48
-  br label %ehcleanup53
-
-ehcleanup53:                                      ; preds = %arraydestroy.done52, %arraydestroy.done18
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #9
-  br label %ehcleanup54
-
-ehcleanup54:                                      ; preds = %ehcleanup53, %lpad5
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fNoSymbol) #9
-  br label %ehcleanup55
-
-ehcleanup55:                                      ; preds = %ehcleanup54, %lpad3
-  %array.begin56 = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i32 0, i32 0
-  %23 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin56, i64 29
-  br label %arraydestroy.body57
-
-arraydestroy.body57:                              ; preds = %arraydestroy.body57, %ehcleanup55
-  %arraydestroy.elementPast58 = phi ptr [ %23, %ehcleanup55 ], [ %arraydestroy.element59, %arraydestroy.body57 ]
-  %arraydestroy.element59 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast58, i64 -1
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element59) #9
-  %arraydestroy.done60 = icmp eq ptr %arraydestroy.element59, %array.begin56
-  br i1 %arraydestroy.done60, label %arraydestroy.done61, label %arraydestroy.body57
-
-arraydestroy.done61:                              ; preds = %arraydestroy.body57
-  br label %ehcleanup62
-
-ehcleanup62:                                      ; preds = %arraydestroy.done61, %arraydestroy.done2
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup62
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val63 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val63
-}
-
-declare void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #5
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7520DecimalFormatSymbolsC2ERKNS_6LocaleERKNS_15NumberingSystemER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(86) %ns, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %loc.addr = alloca ptr, align 8
-  %ns.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %loc, ptr %loc.addr, align 8
-  store ptr %ns, ptr %ns.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds i8, ptr %this1, i64 0
-  call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
-  call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %fSymbols = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 1
-  %array.begin = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i32 0, i32 0
-  %arrayctor.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 29
-  br label %arrayctor.loop
-
-arrayctor.loop:                                   ; preds = %invoke.cont, %entry
-  %arrayctor.cur = phi ptr [ %array.begin, %entry ], [ %arrayctor.next, %invoke.cont ]
-  invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %arrayctor.cur)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %arrayctor.loop
-  %arrayctor.next = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur, i64 1
-  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
-
-arrayctor.cont:                                   ; preds = %invoke.cont
-  %fNoSymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 2
-  invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %fNoSymbol)
-          to label %invoke.cont4 unwind label %lpad3
-
-invoke.cont4:                                     ; preds = %arrayctor.cont
-  %locale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 5
-  %1 = load ptr, ptr %loc.addr, align 8
-  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %1)
-          to label %invoke.cont6 unwind label %lpad5
-
-invoke.cont6:                                     ; preds = %invoke.cont4
-  %currPattern = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 9
-  store ptr null, ptr %currPattern, align 8
-  %currencySpcBeforeSym = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 10
-  %array.begin7 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym, i32 0, i32 0
-  %arrayctor.end8 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin7, i64 3
-  br label %arrayctor.loop9
-
-arrayctor.loop9:                                  ; preds = %invoke.cont12, %invoke.cont6
-  %arrayctor.cur10 = phi ptr [ %array.begin7, %invoke.cont6 ], [ %arrayctor.next19, %invoke.cont12 ]
-  invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %arrayctor.cur10)
-          to label %invoke.cont12 unwind label %lpad11
-
-invoke.cont12:                                    ; preds = %arrayctor.loop9
-  %arrayctor.next19 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur10, i64 1
-  %arrayctor.done20 = icmp eq ptr %arrayctor.next19, %arrayctor.end8
-  br i1 %arrayctor.done20, label %arrayctor.cont21, label %arrayctor.loop9
-
-arrayctor.cont21:                                 ; preds = %invoke.cont12
-  %currencySpcAfterSym = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 11
-  %array.begin22 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym, i32 0, i32 0
-  %arrayctor.end23 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin22, i64 3
-  br label %arrayctor.loop24
-
-arrayctor.loop24:                                 ; preds = %invoke.cont27, %arrayctor.cont21
-  %arrayctor.cur25 = phi ptr [ %array.begin22, %arrayctor.cont21 ], [ %arrayctor.next34, %invoke.cont27 ]
-  invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %arrayctor.cur25)
-          to label %invoke.cont27 unwind label %lpad26
-
-invoke.cont27:                                    ; preds = %arrayctor.loop24
-  %arrayctor.next34 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur25, i64 1
-  %arrayctor.done35 = icmp eq ptr %arrayctor.next34, %arrayctor.end23
-  br i1 %arrayctor.done35, label %arrayctor.cont36, label %arrayctor.loop24
-
-arrayctor.cont36:                                 ; preds = %invoke.cont27
-  %nsName = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 14
-  %arrayinit.begin = getelementptr inbounds [9 x i8], ptr %nsName, i64 0, i64 0
-  %arrayinit.end = getelementptr inbounds i8, ptr %arrayinit.begin, i64 9
-  br label %arrayinit.body
-
-arrayinit.body:                                   ; preds = %arrayinit.body, %arrayctor.cont36
-  %arrayinit.cur = phi ptr [ %arrayinit.begin, %arrayctor.cont36 ], [ %arrayinit.next, %arrayinit.body ]
-  store i8 0, ptr %arrayinit.cur, align 1
-  %arrayinit.next = getelementptr inbounds i8, ptr %arrayinit.cur, i64 1
-  %arrayinit.done = icmp eq ptr %arrayinit.next, %arrayinit.end
-  br i1 %arrayinit.done, label %arrayinit.end37, label %arrayinit.body
-
-arrayinit.end37:                                  ; preds = %arrayinit.body
-  %locale38 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %status.addr, align 8
-  %3 = load ptr, ptr %ns.addr, align 8
-  invoke void @_ZN6icu_7520DecimalFormatSymbols10initializeERKNS_6LocaleER10UErrorCodeaPKNS_15NumberingSystemE(ptr noundef nonnull align 8 dereferenceable(2883) %this1, ptr noundef nonnull align 8 dereferenceable(217) %locale38, ptr noundef nonnull align 4 dereferenceable(4) %2, i8 noundef signext 0, ptr noundef %3)
+  %3 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7520DecimalFormatSymbols10initializeERKNS_6LocaleER10UErrorCodeaPKNS_15NumberingSystemE(ptr noundef nonnull align 8 dereferenceable(2883) %this1, ptr noundef nonnull align 8 dereferenceable(217) %locale38, ptr noundef nonnull align 4 dereferenceable(4) %3, i8 noundef signext 0, ptr noundef null)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %arrayinit.end37
@@ -2419,6 +2171,259 @@ eh.resume:                                        ; preds = %ehcleanup62
   resume { ptr, i32 } %lpad.val63
 }
 
+declare void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #5
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7520DecimalFormatSymbolsC2ERKNS_6LocaleERKNS_15NumberingSystemER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(86) %ns, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %loc.addr = alloca ptr, align 8
+  %ns.addr = alloca ptr, align 8
+  %status.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %loc, ptr %loc.addr, align 8
+  store ptr %ns, ptr %ns.addr, align 8
+  store ptr %status, ptr %status.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = getelementptr inbounds i8, ptr %this1, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
+  call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %fSymbols = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 1
+  %array.begin = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i32 0, i32 0
+  %arrayctor.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 29
+  br label %arrayctor.loop
+
+arrayctor.loop:                                   ; preds = %invoke.cont, %entry
+  %arrayctor.cur = phi ptr [ %array.begin, %entry ], [ %arrayctor.next, %invoke.cont ]
+  invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %arrayctor.cur)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %arrayctor.loop
+  %arrayctor.next = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur, i64 1
+  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
+  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
+
+arrayctor.cont:                                   ; preds = %invoke.cont
+  %fNoSymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 2
+  invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %fNoSymbol)
+          to label %invoke.cont4 unwind label %lpad3
+
+invoke.cont4:                                     ; preds = %arrayctor.cont
+  %locale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 5
+  %2 = load ptr, ptr %loc.addr, align 8
+  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %2)
+          to label %invoke.cont6 unwind label %lpad5
+
+invoke.cont6:                                     ; preds = %invoke.cont4
+  %currPattern = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 9
+  store ptr null, ptr %currPattern, align 8
+  %currencySpcBeforeSym = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 10
+  %array.begin7 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym, i32 0, i32 0
+  %arrayctor.end8 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin7, i64 3
+  br label %arrayctor.loop9
+
+arrayctor.loop9:                                  ; preds = %invoke.cont12, %invoke.cont6
+  %arrayctor.cur10 = phi ptr [ %array.begin7, %invoke.cont6 ], [ %arrayctor.next19, %invoke.cont12 ]
+  invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %arrayctor.cur10)
+          to label %invoke.cont12 unwind label %lpad11
+
+invoke.cont12:                                    ; preds = %arrayctor.loop9
+  %arrayctor.next19 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur10, i64 1
+  %arrayctor.done20 = icmp eq ptr %arrayctor.next19, %arrayctor.end8
+  br i1 %arrayctor.done20, label %arrayctor.cont21, label %arrayctor.loop9
+
+arrayctor.cont21:                                 ; preds = %invoke.cont12
+  %currencySpcAfterSym = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 11
+  %array.begin22 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym, i32 0, i32 0
+  %arrayctor.end23 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin22, i64 3
+  br label %arrayctor.loop24
+
+arrayctor.loop24:                                 ; preds = %invoke.cont27, %arrayctor.cont21
+  %arrayctor.cur25 = phi ptr [ %array.begin22, %arrayctor.cont21 ], [ %arrayctor.next34, %invoke.cont27 ]
+  invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %arrayctor.cur25)
+          to label %invoke.cont27 unwind label %lpad26
+
+invoke.cont27:                                    ; preds = %arrayctor.loop24
+  %arrayctor.next34 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur25, i64 1
+  %arrayctor.done35 = icmp eq ptr %arrayctor.next34, %arrayctor.end23
+  br i1 %arrayctor.done35, label %arrayctor.cont36, label %arrayctor.loop24
+
+arrayctor.cont36:                                 ; preds = %invoke.cont27
+  %nsName = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 14
+  %arrayinit.begin = getelementptr inbounds [9 x i8], ptr %nsName, i64 0, i64 0
+  %arrayinit.end = getelementptr inbounds i8, ptr %arrayinit.begin, i64 9
+  br label %arrayinit.body
+
+arrayinit.body:                                   ; preds = %arrayinit.body, %arrayctor.cont36
+  %arrayinit.cur = phi ptr [ %arrayinit.begin, %arrayctor.cont36 ], [ %arrayinit.next, %arrayinit.body ]
+  store i8 0, ptr %arrayinit.cur, align 1
+  %arrayinit.next = getelementptr inbounds i8, ptr %arrayinit.cur, i64 1
+  %arrayinit.done = icmp eq ptr %arrayinit.next, %arrayinit.end
+  br i1 %arrayinit.done, label %arrayinit.end37, label %arrayinit.body
+
+arrayinit.end37:                                  ; preds = %arrayinit.body
+  %locale38 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 5
+  %3 = load ptr, ptr %status.addr, align 8
+  %4 = load ptr, ptr %ns.addr, align 8
+  invoke void @_ZN6icu_7520DecimalFormatSymbols10initializeERKNS_6LocaleER10UErrorCodeaPKNS_15NumberingSystemE(ptr noundef nonnull align 8 dereferenceable(2883) %this1, ptr noundef nonnull align 8 dereferenceable(217) %locale38, ptr noundef nonnull align 4 dereferenceable(4) %3, i8 noundef signext 0, ptr noundef %4)
+          to label %invoke.cont40 unwind label %lpad39
+
+invoke.cont40:                                    ; preds = %arrayinit.end37
+  ret void
+
+lpad:                                             ; preds = %arrayctor.loop
+  %5 = landingpad { ptr, i32 }
+          cleanup
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
+  %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
+  br i1 %arraydestroy.isempty, label %arraydestroy.done2, label %arraydestroy.body
+
+arraydestroy.body:                                ; preds = %arraydestroy.body, %lpad
+  %arraydestroy.elementPast = phi ptr [ %arrayctor.cur, %lpad ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #9
+  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
+  br i1 %arraydestroy.done, label %arraydestroy.done2, label %arraydestroy.body
+
+arraydestroy.done2:                               ; preds = %arraydestroy.body, %lpad
+  br label %ehcleanup62
+
+lpad3:                                            ; preds = %arrayctor.cont
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
+  br label %ehcleanup55
+
+lpad5:                                            ; preds = %invoke.cont4
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
+  br label %ehcleanup54
+
+lpad11:                                           ; preds = %arrayctor.loop9
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
+  %arraydestroy.isempty13 = icmp eq ptr %array.begin7, %arrayctor.cur10
+  br i1 %arraydestroy.isempty13, label %arraydestroy.done18, label %arraydestroy.body14
+
+arraydestroy.body14:                              ; preds = %arraydestroy.body14, %lpad11
+  %arraydestroy.elementPast15 = phi ptr [ %arrayctor.cur10, %lpad11 ], [ %arraydestroy.element16, %arraydestroy.body14 ]
+  %arraydestroy.element16 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast15, i64 -1
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element16) #9
+  %arraydestroy.done17 = icmp eq ptr %arraydestroy.element16, %array.begin7
+  br i1 %arraydestroy.done17, label %arraydestroy.done18, label %arraydestroy.body14
+
+arraydestroy.done18:                              ; preds = %arraydestroy.body14, %lpad11
+  br label %ehcleanup53
+
+lpad26:                                           ; preds = %arrayctor.loop24
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
+  %arraydestroy.isempty28 = icmp eq ptr %array.begin22, %arrayctor.cur25
+  br i1 %arraydestroy.isempty28, label %arraydestroy.done33, label %arraydestroy.body29
+
+arraydestroy.body29:                              ; preds = %arraydestroy.body29, %lpad26
+  %arraydestroy.elementPast30 = phi ptr [ %arrayctor.cur25, %lpad26 ], [ %arraydestroy.element31, %arraydestroy.body29 ]
+  %arraydestroy.element31 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast30, i64 -1
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element31) #9
+  %arraydestroy.done32 = icmp eq ptr %arraydestroy.element31, %array.begin22
+  br i1 %arraydestroy.done32, label %arraydestroy.done33, label %arraydestroy.body29
+
+arraydestroy.done33:                              ; preds = %arraydestroy.body29, %lpad26
+  br label %ehcleanup
+
+lpad39:                                           ; preds = %arrayinit.end37
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
+  %array.begin41 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym, i32 0, i32 0
+  %23 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin41, i64 3
+  br label %arraydestroy.body42
+
+arraydestroy.body42:                              ; preds = %arraydestroy.body42, %lpad39
+  %arraydestroy.elementPast43 = phi ptr [ %23, %lpad39 ], [ %arraydestroy.element44, %arraydestroy.body42 ]
+  %arraydestroy.element44 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast43, i64 -1
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element44) #9
+  %arraydestroy.done45 = icmp eq ptr %arraydestroy.element44, %array.begin41
+  br i1 %arraydestroy.done45, label %arraydestroy.done46, label %arraydestroy.body42
+
+arraydestroy.done46:                              ; preds = %arraydestroy.body42
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %arraydestroy.done46, %arraydestroy.done33
+  %array.begin47 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym, i32 0, i32 0
+  %24 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin47, i64 3
+  br label %arraydestroy.body48
+
+arraydestroy.body48:                              ; preds = %arraydestroy.body48, %ehcleanup
+  %arraydestroy.elementPast49 = phi ptr [ %24, %ehcleanup ], [ %arraydestroy.element50, %arraydestroy.body48 ]
+  %arraydestroy.element50 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast49, i64 -1
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element50) #9
+  %arraydestroy.done51 = icmp eq ptr %arraydestroy.element50, %array.begin47
+  br i1 %arraydestroy.done51, label %arraydestroy.done52, label %arraydestroy.body48
+
+arraydestroy.done52:                              ; preds = %arraydestroy.body48
+  br label %ehcleanup53
+
+ehcleanup53:                                      ; preds = %arraydestroy.done52, %arraydestroy.done18
+  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #9
+  br label %ehcleanup54
+
+ehcleanup54:                                      ; preds = %ehcleanup53, %lpad5
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fNoSymbol) #9
+  br label %ehcleanup55
+
+ehcleanup55:                                      ; preds = %ehcleanup54, %lpad3
+  %array.begin56 = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i32 0, i32 0
+  %25 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin56, i64 29
+  br label %arraydestroy.body57
+
+arraydestroy.body57:                              ; preds = %arraydestroy.body57, %ehcleanup55
+  %arraydestroy.elementPast58 = phi ptr [ %25, %ehcleanup55 ], [ %arraydestroy.element59, %arraydestroy.body57 ]
+  %arraydestroy.element59 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast58, i64 -1
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element59) #9
+  %arraydestroy.done60 = icmp eq ptr %arraydestroy.element59, %array.begin56
+  br i1 %arraydestroy.done60, label %arraydestroy.done61, label %arraydestroy.body57
+
+arraydestroy.done61:                              ; preds = %arraydestroy.body57
+  br label %ehcleanup62
+
+ehcleanup62:                                      ; preds = %arraydestroy.done61, %arraydestroy.done2
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup62
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val63 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val63
+}
+
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7520DecimalFormatSymbolsC2Ev(ptr noundef nonnull align 8 dereferenceable(2883) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
@@ -2430,7 +2435,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fSymbols = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 29
@@ -2521,12 +2527,12 @@ invoke.cont41:                                    ; preds = %arrayinit.end38
   ret void
 
 lpad:                                             ; preds = %arrayctor.loop
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done2, label %arraydestroy.body
 
@@ -2541,30 +2547,30 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body, 
   br label %ehcleanup63
 
 lpad3:                                            ; preds = %arrayctor.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup56
 
 lpad5:                                            ; preds = %invoke.cont6, %invoke.cont4
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup55
 
 lpad12:                                           ; preds = %arrayctor.loop10
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   %arraydestroy.isempty14 = icmp eq ptr %array.begin8, %arrayctor.cur11
   br i1 %arraydestroy.isempty14, label %arraydestroy.done19, label %arraydestroy.body15
 
@@ -2579,12 +2585,12 @@ arraydestroy.done19:                              ; preds = %arraydestroy.body15
   br label %ehcleanup54
 
 lpad27:                                           ; preds = %arrayctor.loop25
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   %arraydestroy.isempty29 = icmp eq ptr %array.begin23, %arrayctor.cur26
   br i1 %arraydestroy.isempty29, label %arraydestroy.done34, label %arraydestroy.body30
 
@@ -2599,18 +2605,18 @@ arraydestroy.done34:                              ; preds = %arraydestroy.body30
   br label %ehcleanup
 
 lpad40:                                           ; preds = %arrayinit.end38
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   %array.begin42 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym, i32 0, i32 0
-  %19 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin42, i64 3
+  %20 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin42, i64 3
   br label %arraydestroy.body43
 
 arraydestroy.body43:                              ; preds = %arraydestroy.body43, %lpad40
-  %arraydestroy.elementPast44 = phi ptr [ %19, %lpad40 ], [ %arraydestroy.element45, %arraydestroy.body43 ]
+  %arraydestroy.elementPast44 = phi ptr [ %20, %lpad40 ], [ %arraydestroy.element45, %arraydestroy.body43 ]
   %arraydestroy.element45 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast44, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element45) #9
   %arraydestroy.done46 = icmp eq ptr %arraydestroy.element45, %array.begin42
@@ -2621,11 +2627,11 @@ arraydestroy.done47:                              ; preds = %arraydestroy.body43
 
 ehcleanup:                                        ; preds = %arraydestroy.done47, %arraydestroy.done34
   %array.begin48 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym, i32 0, i32 0
-  %20 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin48, i64 3
+  %21 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin48, i64 3
   br label %arraydestroy.body49
 
 arraydestroy.body49:                              ; preds = %arraydestroy.body49, %ehcleanup
-  %arraydestroy.elementPast50 = phi ptr [ %20, %ehcleanup ], [ %arraydestroy.element51, %arraydestroy.body49 ]
+  %arraydestroy.elementPast50 = phi ptr [ %21, %ehcleanup ], [ %arraydestroy.element51, %arraydestroy.body49 ]
   %arraydestroy.element51 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast50, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element51) #9
   %arraydestroy.done52 = icmp eq ptr %arraydestroy.element51, %array.begin48
@@ -2644,11 +2650,11 @@ ehcleanup55:                                      ; preds = %ehcleanup54, %lpad5
 
 ehcleanup56:                                      ; preds = %ehcleanup55, %lpad3
   %array.begin57 = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i32 0, i32 0
-  %21 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin57, i64 29
+  %22 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin57, i64 29
   br label %arraydestroy.body58
 
 arraydestroy.body58:                              ; preds = %arraydestroy.body58, %ehcleanup56
-  %arraydestroy.elementPast59 = phi ptr [ %21, %ehcleanup56 ], [ %arraydestroy.element60, %arraydestroy.body58 ]
+  %arraydestroy.elementPast59 = phi ptr [ %22, %ehcleanup56 ], [ %arraydestroy.element60, %arraydestroy.body58 ]
   %arraydestroy.element60 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast59, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element60) #9
   %arraydestroy.done61 = icmp eq ptr %arraydestroy.element60, %array.begin57
@@ -2898,14 +2904,15 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %currencySpcAfterSym = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 11
   %array.begin = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym, i32 0, i32 0
-  %0 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 3
+  %1 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 3
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #9
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -2914,11 +2921,11 @@ arraydestroy.body:                                ; preds = %arraydestroy.body, 
 arraydestroy.done2:                               ; preds = %arraydestroy.body
   %currencySpcBeforeSym = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 10
   %array.begin3 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym, i32 0, i32 0
-  %1 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin3, i64 3
+  %2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin3, i64 3
   br label %arraydestroy.body4
 
 arraydestroy.body4:                               ; preds = %arraydestroy.body4, %arraydestroy.done2
-  %arraydestroy.elementPast5 = phi ptr [ %1, %arraydestroy.done2 ], [ %arraydestroy.element6, %arraydestroy.body4 ]
+  %arraydestroy.elementPast5 = phi ptr [ %2, %arraydestroy.done2 ], [ %arraydestroy.element6, %arraydestroy.body4 ]
   %arraydestroy.element6 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast5, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element6) #9
   %arraydestroy.done7 = icmp eq ptr %arraydestroy.element6, %array.begin3
@@ -2931,11 +2938,11 @@ arraydestroy.done8:                               ; preds = %arraydestroy.body4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fNoSymbol) #9
   %fSymbols = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 1
   %array.begin9 = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i32 0, i32 0
-  %2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin9, i64 29
+  %3 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin9, i64 29
   br label %arraydestroy.body10
 
 arraydestroy.body10:                              ; preds = %arraydestroy.body10, %arraydestroy.done8
-  %arraydestroy.elementPast11 = phi ptr [ %2, %arraydestroy.done8 ], [ %arraydestroy.element12, %arraydestroy.body10 ]
+  %arraydestroy.elementPast11 = phi ptr [ %3, %arraydestroy.done8 ], [ %arraydestroy.element12, %arraydestroy.body10 ]
   %arraydestroy.element12 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast11, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element12) #9
   %arraydestroy.done13 = icmp eq ptr %arraydestroy.element12, %array.begin9
@@ -2969,7 +2976,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %source.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fSymbols = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 29
@@ -3043,20 +3051,20 @@ arrayinit.body:                                   ; preds = %arrayinit.body, %ar
   br i1 %arrayinit.done, label %arrayinit.end37, label %arrayinit.body
 
 arrayinit.end37:                                  ; preds = %arrayinit.body
-  %1 = load ptr, ptr %source.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(2883) ptr @_ZN6icu_7520DecimalFormatSymbolsaSERKS0_(ptr noundef nonnull align 8 dereferenceable(2883) %this1, ptr noundef nonnull align 8 dereferenceable(2883) %1)
+  %2 = load ptr, ptr %source.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(2883) ptr @_ZN6icu_7520DecimalFormatSymbolsaSERKS0_(ptr noundef nonnull align 8 dereferenceable(2883) %this1, ptr noundef nonnull align 8 dereferenceable(2883) %2)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %arrayinit.end37
   ret void
 
 lpad:                                             ; preds = %arrayctor.loop
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done2, label %arraydestroy.body
 
@@ -3071,30 +3079,30 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body, 
   br label %ehcleanup61
 
 lpad3:                                            ; preds = %arrayctor.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup54
 
 lpad5:                                            ; preds = %invoke.cont4
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup53
 
 lpad11:                                           ; preds = %arrayctor.loop9
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   %arraydestroy.isempty13 = icmp eq ptr %array.begin7, %arrayctor.cur10
   br i1 %arraydestroy.isempty13, label %arraydestroy.done18, label %arraydestroy.body14
 
@@ -3109,12 +3117,12 @@ arraydestroy.done18:                              ; preds = %arraydestroy.body14
   br label %ehcleanup52
 
 lpad26:                                           ; preds = %arrayctor.loop24
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   %arraydestroy.isempty28 = icmp eq ptr %array.begin22, %arrayctor.cur25
   br i1 %arraydestroy.isempty28, label %arraydestroy.done33, label %arraydestroy.body29
 
@@ -3129,18 +3137,18 @@ arraydestroy.done33:                              ; preds = %arraydestroy.body29
   br label %ehcleanup
 
 lpad38:                                           ; preds = %arrayinit.end37
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   %array.begin40 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym, i32 0, i32 0
-  %20 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin40, i64 3
+  %21 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin40, i64 3
   br label %arraydestroy.body41
 
 arraydestroy.body41:                              ; preds = %arraydestroy.body41, %lpad38
-  %arraydestroy.elementPast42 = phi ptr [ %20, %lpad38 ], [ %arraydestroy.element43, %arraydestroy.body41 ]
+  %arraydestroy.elementPast42 = phi ptr [ %21, %lpad38 ], [ %arraydestroy.element43, %arraydestroy.body41 ]
   %arraydestroy.element43 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast42, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element43) #9
   %arraydestroy.done44 = icmp eq ptr %arraydestroy.element43, %array.begin40
@@ -3151,11 +3159,11 @@ arraydestroy.done45:                              ; preds = %arraydestroy.body41
 
 ehcleanup:                                        ; preds = %arraydestroy.done45, %arraydestroy.done33
   %array.begin46 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym, i32 0, i32 0
-  %21 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin46, i64 3
+  %22 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin46, i64 3
   br label %arraydestroy.body47
 
 arraydestroy.body47:                              ; preds = %arraydestroy.body47, %ehcleanup
-  %arraydestroy.elementPast48 = phi ptr [ %21, %ehcleanup ], [ %arraydestroy.element49, %arraydestroy.body47 ]
+  %arraydestroy.elementPast48 = phi ptr [ %22, %ehcleanup ], [ %arraydestroy.element49, %arraydestroy.body47 ]
   %arraydestroy.element49 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast48, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element49) #9
   %arraydestroy.done50 = icmp eq ptr %arraydestroy.element49, %array.begin46
@@ -3174,11 +3182,11 @@ ehcleanup53:                                      ; preds = %ehcleanup52, %lpad5
 
 ehcleanup54:                                      ; preds = %ehcleanup53, %lpad3
   %array.begin55 = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i32 0, i32 0
-  %22 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin55, i64 29
+  %23 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin55, i64 29
   br label %arraydestroy.body56
 
 arraydestroy.body56:                              ; preds = %arraydestroy.body56, %ehcleanup54
-  %arraydestroy.elementPast57 = phi ptr [ %22, %ehcleanup54 ], [ %arraydestroy.element58, %arraydestroy.body56 ]
+  %arraydestroy.elementPast57 = phi ptr [ %23, %ehcleanup54 ], [ %arraydestroy.element58, %arraydestroy.body56 ]
   %arraydestroy.element58 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast57, i64 -1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element58) #9
   %arraydestroy.done59 = icmp eq ptr %arraydestroy.element58, %array.begin55
@@ -3207,7 +3215,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -3697,10 +3706,11 @@ entry:
   store ptr %_dfs, ptr %_dfs.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117DecFmtSymDataSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117DecFmtSymDataSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dfs = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DecFmtSymDataSink", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_dfs.addr, align 8
-  store ptr %0, ptr %dfs, align 8
+  %1 = load ptr, ptr %_dfs.addr, align 8
+  store ptr %1, ptr %dfs, align 8
   %seenSymbol = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DecFmtSymDataSink", ptr %this1, i32 0, i32 2
   %arraydecay = getelementptr inbounds [29 x i8], ptr %seenSymbol, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %arraydecay, i8 0, i64 29, i1 false)
@@ -4202,10 +4212,11 @@ entry:
   store ptr %_dfs, ptr %_dfs.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_119CurrencySpacingSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_119CurrencySpacingSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dfs = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CurrencySpacingSink", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_dfs.addr, align 8
-  store ptr %0, ptr %dfs, align 8
+  %1 = load ptr, ptr %_dfs.addr, align 8
+  store ptr %1, ptr %dfs, align 8
   %hasBeforeCurrency = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CurrencySpacingSink", ptr %this1, i32 0, i32 2
   store i8 0, ptr %hasBeforeCurrency, align 8
   %hasAfterCurrency = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CurrencySpacingSink", ptr %this1, i32 0, i32 3
@@ -4758,7 +4769,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4914,7 +4926,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

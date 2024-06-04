@@ -553,11 +553,12 @@ define void @_ZN5Ipopt14IndexSchurDataC2Ev(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt9SchurDataC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %3)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5Ipopt14IndexSchurDataE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
-  %5 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Ipopt14IndexSchurDataE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %6 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   ret void
 }
 
@@ -567,11 +568,12 @@ define linkonce_odr void @_ZN5Ipopt9SchurDataC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5Ipopt9SchurDataE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SchurData", ptr %3, i32 0, i32 1
-  store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds %"class.Ipopt::SchurData", ptr %3, i32 0, i32 2
-  store i32 0, ptr %5, align 8
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Ipopt9SchurDataE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::SchurData", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 4
+  %6 = getelementptr inbounds %"class.Ipopt::SchurData", ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 8
   ret void
 }
 
@@ -596,58 +598,59 @@ define void @_ZN5Ipopt14IndexSchurDataC2ESt6vectorIiSaIiEES3_(ptr noundef nonnul
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5Ipopt9SchurDataC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5Ipopt14IndexSchurDataE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %9, i32 0, i32 1
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
-  %11 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %9, i32 0, i32 2
+  %10 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Ipopt14IndexSchurDataE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %9, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
-  %12 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %9, i32 0, i32 1
-  %13 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %14 unwind label %29
+  %12 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %9, i32 0, i32 2
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #12
+  %13 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %9, i32 0, i32 1
+  %14 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %1)
+          to label %15 unwind label %30
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %9, i32 0, i32 2
-  %16 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %17 unwind label %29
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %9, i32 0, i32 2
+  %17 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %18 unwind label %30
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %9, i32 0, i32 1
-  %19 = call noundef i64 @_ZNKSt6vectorIiSaIiEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #12
-  %20 = trunc i64 %19 to i32
-  %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(20) %9, i32 noundef %20)
-          to label %24 unwind label %29
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %9, i32 0, i32 1
+  %20 = call noundef i64 @_ZNKSt6vectorIiSaIiEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #12
+  %21 = trunc i64 %20 to i32
+  %22 = load ptr, ptr %9, align 8
+  %23 = getelementptr inbounds ptr, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 8
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(20) %9, i32 noundef %21)
+          to label %25 unwind label %30
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %9, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 15
-  %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(20) %9)
-          to label %28 unwind label %29
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %9, align 8
+  %27 = getelementptr inbounds ptr, ptr %26, i64 15
+  %28 = load ptr, ptr %27, align 8
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(20) %9)
+          to label %29 unwind label %30
 
-28:                                               ; preds = %24
+29:                                               ; preds = %25
   ret void
 
-29:                                               ; preds = %24, %17, %14, %3
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %25, %18, %15, %3
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %7, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %8, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %7, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %8, align 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #12
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
   call void @_ZN5Ipopt9SchurDataD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %9) #12
-  br label %33
+  br label %34
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %7, align 8
-  %35 = load i32, ptr %8, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %8, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -871,11 +874,12 @@ define void @_ZN5Ipopt14IndexSchurDataD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5Ipopt14IndexSchurDataE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
-  %5 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5Ipopt14IndexSchurDataE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %6 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   call void @_ZN5Ipopt9SchurDataD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %3) #12
   ret void
 }
@@ -3171,9 +3175,10 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8
   ret void
 }
 
@@ -3211,7 +3216,8 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

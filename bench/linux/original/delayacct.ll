@@ -112,37 +112,39 @@ define internal noundef i32 @delayacct_setup_enable(ptr nocapture readnone %0) #
 define dso_local void @delayacct_init() local_unnamed_addr #1 align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str, i32 noundef 144, i32 noundef 8, i32 noundef 262144, ptr noundef null) #7
   store ptr %1, ptr @delayacct_cache, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 167), align 16
-  %2 = load i32, ptr @delayacct_on, align 4
-  %3 = icmp eq i32 %2, 0
-  br i1 %3, label %8, label %4
+  %2 = getelementptr inbounds %struct.task_struct, ptr @init_task, i64 0, i32 167
+  store ptr null, ptr %2, align 16
+  %3 = load i32, ptr @delayacct_on, align 4
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %10, label %5
 
-4:                                                ; preds = %0
-  %5 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %1, i32 noundef 3520) #7
-  store ptr %5, ptr getelementptr inbounds (%struct.task_struct, ptr @init_task, i64 0, i32 167), align 16
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+5:                                                ; preds = %0
+  %6 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %1, i32 noundef 3520) #7
+  %7 = getelementptr inbounds %struct.task_struct, ptr @init_task, i64 0, i32 167
+  store ptr %6, ptr %7, align 16
+  %8 = icmp eq ptr %6, null
+  br i1 %8, label %10, label %9
 
-7:                                                ; preds = %4
-  store i32 0, ptr %5, align 8
-  br label %8
+9:                                                ; preds = %5
+  store i32 0, ptr %6, align 8
+  br label %10
 
-8:                                                ; preds = %7, %4, %0
-  %9 = load i32, ptr @delayacct_on, align 4
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %12, label %11
+10:                                               ; preds = %9, %5, %0
+  %11 = load i32, ptr @delayacct_on, align 4
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %14, label %13
 
-11:                                               ; preds = %8
+13:                                               ; preds = %10
   tail call void @static_key_enable(ptr noundef nonnull @delayacct_key) #7
   store i32 1, ptr @delayacct_on, align 4
-  br label %13
+  br label %15
 
-12:                                               ; preds = %8
+14:                                               ; preds = %10
   store i32 0, ptr @delayacct_on, align 4
   tail call void @static_key_disable(ptr noundef nonnull @delayacct_key) #7
-  br label %13
+  br label %15
 
-13:                                               ; preds = %12, %11
+15:                                               ; preds = %14, %13
   ret void
 }
 

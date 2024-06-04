@@ -1915,18 +1915,26 @@ entry:
   %ref.tmp1779 = alloca %"class.std::allocator", align 1
   %ref.tmp1784 = alloca %"class.std::allocator.15", align 1
   store i32 1, ptr @_ZN4nodeL13snapshot_dataE, align 8
-  store i8 0, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 1
+  store i8 0, ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 1, i32 1), ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  %1 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 1, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 1, i32 2), ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  %2 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 1, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 1, i32 3), ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
-  store i32 329263457, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 1, i32 4), align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 1, i32 5), align 4
-  %0 = load ptr, ptr @_ZN4nodeL21v8_snapshot_blob_dataE, align 8
-  store ptr %0, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 2), align 8
-  store i32 1435011, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 2, i32 1), align 8
+  %3 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 1, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  %4 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 1, i32 4
+  store i32 329263457, ptr %4, align 8
+  %5 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 1, i32 5
+  store i32 0, ptr %5, align 4
+  %6 = load ptr, ptr @_ZN4nodeL21v8_snapshot_blob_dataE, align 8
+  %7 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 2
+  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 2, i32 1
+  store i32 1435011, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ref.tmp3, ptr align 8 @constinit, i64 3488, i1 false)
   %_M_array = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp, i32 0, i32 0
   %arraystart = getelementptr inbounds [436 x i64], ptr %ref.tmp3, i64 0, i64 0
@@ -1934,11 +1942,12 @@ entry:
   %_M_len = getelementptr inbounds %"class.std::initializer_list", ptr %agg.tmp, i32 0, i32 1
   store i64 436, ptr %_M_len, align 8
   call void @_ZNSaImEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
-  %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
-  %4 = load i64, ptr %3, align 8
-  call void @_ZNSt6vectorImSaImEEC2ESt16initializer_listImERKS0_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 3), ptr %2, i64 %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  %9 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 3
+  call void @_ZNSt6vectorImSaImEEC2ESt16initializer_listImERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr %10, i64 %12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
   %arrayinit.begin7 = getelementptr inbounds [35 x %"struct.node::PropInfo"], ptr %ref.tmp6, i64 0, i64 0
   %name = getelementptr inbounds %"struct.node::PropInfo", ptr %arrayinit.begin7, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #3
@@ -2225,26 +2234,47 @@ entry:
   %_M_len180 = getelementptr inbounds %"class.std::initializer_list.18", ptr %agg.tmp5, i32 0, i32 1
   store i64 35, ptr %_M_len180, align 8
   call void @_ZNSaIN4node8PropInfoEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp181) #3
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 1
-  %8 = load i64, ptr %7, align 8
-  call void @_ZNSt6vectorIN4node8PropInfoESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 3, i32 1), ptr %6, i64 %8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp181)
-  store i64 0, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4), align 8
-  store i64 1, ptr getelementptr inbounds (%"struct.node::AsyncHooks::SerializeInfo", ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4), i32 0, i32 1), align 8
-  store i64 2, ptr getelementptr inbounds (%"struct.node::AsyncHooks::SerializeInfo", ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4), i32 0, i32 2), align 8
-  store i64 3, ptr getelementptr inbounds (%"struct.node::AsyncHooks::SerializeInfo", ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4), i32 0, i32 3), align 8
-  call void @llvm.memset.p0.i64(ptr align 8 getelementptr inbounds (%"struct.node::AsyncHooks::SerializeInfo", ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4), i32 0, i32 4), i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.node::AsyncHooks::SerializeInfo", ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4), i32 0, i32 4)) #3
-  store i64 6, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 1), align 8
-  store i64 4, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 2), align 8
-  store i64 5, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 3), align 8
-  store i64 7, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 4), align 8
-  store i64 8, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 4, i32 1), align 8
-  store i64 9, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 4, i32 2), align 8
-  store i64 10, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 5), align 8
-  store i64 11, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 6), align 8
-  store i64 12, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 7), align 8
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp5, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 3, i32 1
+  call void @_ZNSt6vectorIN4node8PropInfoESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr %15, i64 %17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp181)
+  %19 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4
+  store i64 0, ptr %19, align 8
+  %20 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4
+  %21 = getelementptr inbounds %"struct.node::AsyncHooks::SerializeInfo", ptr %20, i32 0, i32 1
+  store i64 1, ptr %21, align 8
+  %22 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4
+  %23 = getelementptr inbounds %"struct.node::AsyncHooks::SerializeInfo", ptr %22, i32 0, i32 2
+  store i64 2, ptr %23, align 8
+  %24 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4
+  %25 = getelementptr inbounds %"struct.node::AsyncHooks::SerializeInfo", ptr %24, i32 0, i32 3
+  store i64 3, ptr %25, align 8
+  %26 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4
+  %27 = getelementptr inbounds %"struct.node::AsyncHooks::SerializeInfo", ptr %26, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %27, i8 0, i64 24, i1 false)
+  %28 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4
+  %29 = getelementptr inbounds %"struct.node::AsyncHooks::SerializeInfo", ptr %28, i32 0, i32 4
+  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
+  %30 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 1
+  store i64 6, ptr %30, align 8
+  %31 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 2
+  store i64 4, ptr %31, align 8
+  %32 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 3
+  store i64 5, ptr %32, align 8
+  %33 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 4
+  store i64 7, ptr %33, align 8
+  %34 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 4, i32 1
+  store i64 8, ptr %34, align 8
+  %35 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 4, i32 2
+  store i64 9, ptr %35, align 8
+  %36 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 5
+  store i64 10, ptr %36, align 8
+  %37 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 6
+  store i64 11, ptr %37, align 8
+  %38 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 7
+  store i64 12, ptr %38, align 8
   %arrayinit.begin184 = getelementptr inbounds [65 x %"class.std::__cxx11::basic_string"], ptr %ref.tmp183, i64 0, i64 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp185) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.begin184, ptr noundef @.str.39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp185)
@@ -2446,11 +2476,12 @@ entry:
   %_M_len316 = getelementptr inbounds %"class.std::initializer_list.19", ptr %agg.tmp182, i32 0, i32 1
   store i64 65, ptr %_M_len316, align 8
   call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp317) #3
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp182, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp182, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 8), ptr %10, i64 %12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp317)
+  %39 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp182, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp182, i32 0, i32 1
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 8
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr %40, i64 %42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp317)
   %arrayinit.begin320 = getelementptr inbounds [26 x %"struct.node::PropInfo"], ptr %ref.tmp319, i64 0, i64 0
   %name321 = getelementptr inbounds %"struct.node::PropInfo", ptr %arrayinit.begin320, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp322) #3
@@ -2665,11 +2696,12 @@ entry:
   %_M_len452 = getelementptr inbounds %"class.std::initializer_list.18", ptr %agg.tmp318, i32 0, i32 1
   store i64 26, ptr %_M_len452, align 8
   call void @_ZNSaIN4node8PropInfoEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp453) #3
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp318, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp318, i32 0, i32 1
-  %16 = load i64, ptr %15, align 8
-  call void @_ZNSt6vectorIN4node8PropInfoESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 8, i32 1), ptr %14, i64 %16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp453)
+  %44 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp318, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp318, i32 0, i32 1
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 8, i32 1
+  call void @_ZNSt6vectorIN4node8PropInfoESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr %45, i64 %47, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp453)
   %arrayinit.begin456 = getelementptr inbounds [8 x %"struct.node::PropInfo"], ptr %ref.tmp455, i64 0, i64 0
   %name457 = getelementptr inbounds %"struct.node::PropInfo", ptr %arrayinit.begin456, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp458) #3
@@ -2740,2270 +2772,2273 @@ entry:
   %_M_len498 = getelementptr inbounds %"class.std::initializer_list.18", ptr %agg.tmp454, i32 0, i32 1
   store i64 8, ptr %_M_len498, align 8
   call void @_ZNSaIN4node8PropInfoEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp499) #3
-  %17 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp454, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp454, i32 0, i32 1
-  %20 = load i64, ptr %19, align 8
-  call void @_ZNSt6vectorIN4node8PropInfoESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 8, i32 2), ptr %18, i64 %20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp499)
-  store i64 54, ptr getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 8, i32 3), align 8
+  %49 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp454, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp454, i32 0, i32 1
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 8, i32 2
+  call void @_ZNSt6vectorIN4node8PropInfoESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr %50, i64 %52, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp499)
+  %54 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 4, i32 8, i32 3
+  store i64 54, ptr %54, align 8
   %arrayinit.begin502 = getelementptr inbounds [320 x %"struct.node::builtins::CodeCacheInfo"], ptr %ref.tmp501, i64 0, i64 0
   %id503 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.begin502, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp504) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id503, ptr noundef @.str.138, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp504)
   %data = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.begin502, i32 0, i32 1
-  %21 = load ptr, ptr @_ZN4nodeL15zlib_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data, ptr noundef %21, i64 noundef 16200)
+  %55 = load ptr, ptr @_ZN4nodeL15zlib_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data, ptr noundef %55, i64 noundef 16200)
   %arrayinit.element505 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.begin502, i64 1
   %id506 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element505, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp507) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id506, ptr noundef @.str.139, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp507)
   %data508 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element505, i32 0, i32 1
-  %22 = load ptr, ptr @_ZN4nodeL15wasi_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data508, ptr noundef %22, i64 noundef 2864)
+  %56 = load ptr, ptr @_ZN4nodeL15wasi_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data508, ptr noundef %56, i64 noundef 2864)
   %arrayinit.element509 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element505, i64 1
   %id510 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element509, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp511) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id510, ptr noundef @.str.140, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp511)
   %data512 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element509, i32 0, i32 1
-  %23 = load ptr, ptr @_ZN4nodeL13vm_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data512, ptr noundef %23, i64 noundef 4672)
+  %57 = load ptr, ptr @_ZN4nodeL13vm_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data512, ptr noundef %57, i64 noundef 4672)
   %arrayinit.element513 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element509, i64 1
   %id514 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element513, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp515) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id514, ptr noundef @.str.141, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp515)
   %data516 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element513, i32 0, i32 1
-  %24 = load ptr, ptr @_ZN4nodeL13v8_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data516, ptr noundef %24, i64 noundef 7944)
+  %58 = load ptr, ptr @_ZN4nodeL13v8_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data516, ptr noundef %58, i64 noundef 7944)
   %arrayinit.element517 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element513, i64 1
   %id518 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element517, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp519) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id518, ptr noundef @.str.103, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp519)
   %data520 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element517, i32 0, i32 1
-  %25 = load ptr, ptr @_ZN4nodeL15util_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data520, ptr noundef %25, i64 noundef 9776)
+  %59 = load ptr, ptr @_ZN4nodeL15util_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data520, ptr noundef %59, i64 noundef 9776)
   %arrayinit.element521 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element517, i64 1
   %id522 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element521, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp523) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id522, ptr noundef @.str.102, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp523)
   %data524 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element521, i32 0, i32 1
-  %26 = load ptr, ptr @_ZN4nodeL14url_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data524, ptr noundef %26, i64 noundef 7296)
+  %60 = load ptr, ptr @_ZN4nodeL14url_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data524, ptr noundef %60, i64 noundef 7296)
   %arrayinit.element525 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element521, i64 1
   %id526 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element525, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp527) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id526, ptr noundef @.str.142, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp527)
   %data528 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element525, i32 0, i32 1
-  %27 = load ptr, ptr @_ZN4nodeL14tty_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data528, ptr noundef %27, i64 noundef 2848)
+  %61 = load ptr, ptr @_ZN4nodeL14tty_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data528, ptr noundef %61, i64 noundef 2848)
   %arrayinit.element529 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element525, i64 1
   %id530 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element529, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp531) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id530, ptr noundef @.str.143, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp531)
   %data532 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element529, i32 0, i32 1
-  %28 = load ptr, ptr @_ZN4nodeL14tls_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data532, ptr noundef %28, i64 noundef 5552)
+  %62 = load ptr, ptr @_ZN4nodeL14tls_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data532, ptr noundef %62, i64 noundef 5552)
   %arrayinit.element533 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element529, i64 1
   %id534 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element533, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp535) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id534, ptr noundef @.str.101, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp535)
   %data536 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element533, i32 0, i32 1
-  %29 = load ptr, ptr @_ZN4nodeL17timers_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data536, ptr noundef %29, i64 noundef 4648)
+  %63 = load ptr, ptr @_ZN4nodeL17timers_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data536, ptr noundef %63, i64 noundef 4648)
   %arrayinit.element537 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element533, i64 1
   %id538 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element537, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp539) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id538, ptr noundef @.str.144, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp539)
   %data540 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element537, i32 0, i32 1
-  %30 = load ptr, ptr @_ZN4nodeL25test_reporters_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data540, ptr noundef %30, i64 noundef 1608)
+  %64 = load ptr, ptr @_ZN4nodeL25test_reporters_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data540, ptr noundef %64, i64 noundef 1608)
   %arrayinit.element541 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element537, i64 1
   %id542 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element541, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp543) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id542, ptr noundef @.str.145, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp543)
   %data544 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element541, i32 0, i32 1
-  %31 = load ptr, ptr @_ZN4nodeL15test_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data544, ptr noundef %31, i64 noundef 1480)
+  %65 = load ptr, ptr @_ZN4nodeL15test_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data544, ptr noundef %65, i64 noundef 1480)
   %arrayinit.element545 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element541, i64 1
   %id546 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element545, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp547) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id546, ptr noundef @.str.146, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp547)
   %data548 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element545, i32 0, i32 1
-  %32 = load ptr, ptr @_ZN4nodeL14sys_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data548, ptr noundef %32, i64 noundef 848)
+  %66 = load ptr, ptr @_ZN4nodeL14sys_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data548, ptr noundef %66, i64 noundef 848)
   %arrayinit.element549 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element545, i64 1
   %id550 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element549, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp551) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id550, ptr noundef @.str.147, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp551)
   %data552 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element549, i32 0, i32 1
-  %33 = load ptr, ptr @_ZN4nodeL25string_decoder_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data552, ptr noundef %33, i64 noundef 2880)
+  %67 = load ptr, ptr @_ZN4nodeL25string_decoder_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data552, ptr noundef %67, i64 noundef 2880)
   %arrayinit.element553 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element549, i64 1
   %id554 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element553, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp555) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id554, ptr noundef @.str.148, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp555)
   %data556 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element553, i32 0, i32 1
-  %34 = load ptr, ptr @_ZN4nodeL27stream_consumers_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data556, ptr noundef %34, i64 noundef 1472)
+  %68 = load ptr, ptr @_ZN4nodeL27stream_consumers_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data556, ptr noundef %68, i64 noundef 1472)
   %arrayinit.element557 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element553, i64 1
   %id558 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element557, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp559) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id558, ptr noundef @.str.149, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp559)
   %data560 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element557, i32 0, i32 1
-  %35 = load ptr, ptr @_ZN4nodeL19readline_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data560, ptr noundef %35, i64 noundef 10088)
+  %69 = load ptr, ptr @_ZN4nodeL19readline_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data560, ptr noundef %69, i64 noundef 10088)
   %arrayinit.element561 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element557, i64 1
   %id562 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element561, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp563) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id562, ptr noundef @.str.100, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp563)
   %data564 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element561, i32 0, i32 1
-  %36 = load ptr, ptr @_ZN4nodeL22querystring_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data564, ptr noundef %36, i64 noundef 5936)
+  %70 = load ptr, ptr @_ZN4nodeL22querystring_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data564, ptr noundef %70, i64 noundef 5936)
   %arrayinit.element565 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element561, i64 1
   %id566 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element565, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp567) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id566, ptr noundef @.str.150, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp567)
   %data568 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element565, i32 0, i32 1
-  %37 = load ptr, ptr @_ZN4nodeL21perf_hooks_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data568, ptr noundef %37, i64 noundef 1792)
+  %71 = load ptr, ptr @_ZN4nodeL21perf_hooks_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data568, ptr noundef %71, i64 noundef 1792)
   %arrayinit.element569 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element565, i64 1
   %id570 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element569, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp571) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id570, ptr noundef @.str.151, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp571)
   %data572 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element569, i32 0, i32 1
-  %38 = load ptr, ptr @_ZN4nodeL21path_win32_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data572, ptr noundef %38, i64 noundef 728)
+  %72 = load ptr, ptr @_ZN4nodeL21path_win32_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data572, ptr noundef %72, i64 noundef 728)
   %arrayinit.element573 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element569, i64 1
   %id574 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element573, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp575) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id574, ptr noundef @.str.152, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp575)
   %data576 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element573, i32 0, i32 1
-  %39 = load ptr, ptr @_ZN4nodeL21path_posix_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data576, ptr noundef %39, i64 noundef 728)
+  %73 = load ptr, ptr @_ZN4nodeL21path_posix_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data576, ptr noundef %73, i64 noundef 728)
   %arrayinit.element577 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element573, i64 1
   %id578 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element577, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp579) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id578, ptr noundef @.str.99, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp579)
   %data580 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element577, i32 0, i32 1
-  %40 = load ptr, ptr @_ZN4nodeL15path_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data580, ptr noundef %40, i64 noundef 4824)
+  %74 = load ptr, ptr @_ZN4nodeL15path_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data580, ptr noundef %74, i64 noundef 4824)
   %arrayinit.element581 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element577, i64 1
   %id582 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element581, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp583) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id582, ptr noundef @.str.153, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp583)
   %data584 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element581, i32 0, i32 1
-  %41 = load ptr, ptr @_ZN4nodeL19punycode_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data584, ptr noundef %41, i64 noundef 3280)
+  %75 = load ptr, ptr @_ZN4nodeL19punycode_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data584, ptr noundef %75, i64 noundef 3280)
   %arrayinit.element585 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element581, i64 1
   %id586 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element585, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp587) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id586, ptr noundef @.str.154, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp587)
   %data588 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element585, i32 0, i32 1
-  %42 = load ptr, ptr @_ZN4nodeL13os_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data588, ptr noundef %42, i64 noundef 6464)
+  %76 = load ptr, ptr @_ZN4nodeL13os_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data588, ptr noundef %76, i64 noundef 6464)
   %arrayinit.element589 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element585, i64 1
   %id590 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element589, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp591) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id590, ptr noundef @.str.98, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp591)
   %data592 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element589, i32 0, i32 1
-  %43 = load ptr, ptr @_ZN4nodeL42internal_worker_js_transferable_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data592, ptr noundef %43, i64 noundef 1912)
+  %77 = load ptr, ptr @_ZN4nodeL42internal_worker_js_transferable_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data592, ptr noundef %77, i64 noundef 1912)
   %arrayinit.element593 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element589, i64 1
   %id594 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element593, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp595) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id594, ptr noundef @.str.155, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp595)
   %data596 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element593, i32 0, i32 1
-  %44 = load ptr, ptr @_ZN4nodeL26internal_worker_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data596, ptr noundef %44, i64 noundef 9864)
+  %78 = load ptr, ptr @_ZN4nodeL26internal_worker_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data596, ptr noundef %78, i64 noundef 9864)
   %arrayinit.element597 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element593, i64 1
   %id598 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element597, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp599) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id598, ptr noundef @.str.156, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp599)
   %data600 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element597, i32 0, i32 1
-  %45 = load ptr, ptr @_ZN4nodeL45internal_webstreams_writablestream_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data600, ptr noundef %45, i64 noundef 15576)
+  %79 = load ptr, ptr @_ZN4nodeL45internal_webstreams_writablestream_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data600, ptr noundef %79, i64 noundef 15576)
   %arrayinit.element601 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element597, i64 1
   %id602 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element601, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp603) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id602, ptr noundef @.str.97, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp603)
   %data604 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element601, i32 0, i32 1
-  %46 = load ptr, ptr @_ZN4nodeL35internal_webstreams_util_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data604, ptr noundef %46, i64 noundef 5416)
+  %80 = load ptr, ptr @_ZN4nodeL35internal_webstreams_util_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data604, ptr noundef %80, i64 noundef 5416)
   %arrayinit.element605 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element601, i64 1
   %id606 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element605, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp607) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id606, ptr noundef @.str.157, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp607)
   %data608 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element605, i32 0, i32 1
-  %47 = load ptr, ptr @_ZN4nodeL46internal_webstreams_transformstream_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data608, ptr noundef %47, i64 noundef 8888)
+  %81 = load ptr, ptr @_ZN4nodeL46internal_webstreams_transformstream_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data608, ptr noundef %81, i64 noundef 8888)
   %arrayinit.element609 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element605, i64 1
   %id610 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element609, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp611) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id610, ptr noundef @.str.158, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp611)
   %data612 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element609, i32 0, i32 1
-  %48 = load ptr, ptr @_ZN4nodeL39internal_webstreams_transfer_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data612, ptr noundef %48, i64 noundef 4352)
+  %82 = load ptr, ptr @_ZN4nodeL39internal_webstreams_transfer_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data612, ptr noundef %82, i64 noundef 4352)
   %arrayinit.element613 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element609, i64 1
   %id614 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element613, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp615) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id614, ptr noundef @.str.159, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp615)
   %data616 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element613, i32 0, i32 1
-  %49 = load ptr, ptr @_ZN4nodeL45internal_webstreams_readablestream_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data616, ptr noundef %49, i64 noundef 33584)
+  %83 = load ptr, ptr @_ZN4nodeL45internal_webstreams_readablestream_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data616, ptr noundef %83, i64 noundef 33584)
   %arrayinit.element617 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element613, i64 1
   %id618 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element617, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp619) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id618, ptr noundef @.str.160, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp619)
   %data620 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element617, i32 0, i32 1
-  %50 = load ptr, ptr @_ZN4nodeL39internal_webstreams_encoding_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data620, ptr noundef %50, i64 noundef 4344)
+  %84 = load ptr, ptr @_ZN4nodeL39internal_webstreams_encoding_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data620, ptr noundef %84, i64 noundef 4344)
   %arrayinit.element621 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element617, i64 1
   %id622 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element621, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp623) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id622, ptr noundef @.str.161, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp623)
   %data624 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element621, i32 0, i32 1
-  %51 = load ptr, ptr @_ZN4nodeL42internal_webstreams_compression_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data624, ptr noundef %51, i64 noundef 3880)
+  %85 = load ptr, ptr @_ZN4nodeL42internal_webstreams_compression_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data624, ptr noundef %85, i64 noundef 3880)
   %arrayinit.element625 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element621, i64 1
   %id626 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element625, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp627) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id626, ptr noundef @.str.162, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp627)
   %data628 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element625, i32 0, i32 1
-  %52 = load ptr, ptr @_ZN4nodeL39internal_webstreams_adapters_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data628, ptr noundef %52, i64 noundef 5848)
+  %86 = load ptr, ptr @_ZN4nodeL39internal_webstreams_adapters_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data628, ptr noundef %86, i64 noundef 5848)
   %arrayinit.element629 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element625, i64 1
   %id630 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element629, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp631) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id630, ptr noundef @.str.95, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp631)
   %data632 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element629, i32 0, i32 1
-  %53 = load ptr, ptr @_ZN4nodeL26internal_webidl_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data632, ptr noundef %53, i64 noundef 2384)
+  %87 = load ptr, ptr @_ZN4nodeL26internal_webidl_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data632, ptr noundef %87, i64 noundef 2384)
   %arrayinit.element633 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element629, i64 1
   %id634 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element633, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp635) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id634, ptr noundef @.str.163, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp635)
   %data636 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element633, i32 0, i32 1
-  %54 = load ptr, ptr @_ZN4nodeL28internal_watchdog_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data636, ptr noundef %54, i64 noundef 1848)
+  %88 = load ptr, ptr @_ZN4nodeL28internal_watchdog_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data636, ptr noundef %88, i64 noundef 1848)
   %arrayinit.element637 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element633, i64 1
   %id638 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element637, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp639) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id638, ptr noundef @.str.92, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp639)
   %data640 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element637, i32 0, i32 1
-  %55 = load ptr, ptr @_ZN4nodeL30internal_validators_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data640, ptr noundef %55, i64 noundef 6032)
+  %89 = load ptr, ptr @_ZN4nodeL30internal_validators_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data640, ptr noundef %89, i64 noundef 6032)
   %arrayinit.element641 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element637, i64 1
   %id642 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element641, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp643) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id642, ptr noundef @.str.164, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp643)
   %data644 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element641, i32 0, i32 1
-  %56 = load ptr, ptr @_ZN4nodeL36internal_v8_prof_polyfill_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data644, ptr noundef %56, i64 noundef 2576)
+  %90 = load ptr, ptr @_ZN4nodeL36internal_v8_prof_polyfill_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data644, ptr noundef %90, i64 noundef 2576)
   %arrayinit.element645 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element641, i64 1
   %id646 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element645, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp647) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id646, ptr noundef @.str.91, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp647)
   %data648 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element645, i32 0, i32 1
-  %57 = load ptr, ptr @_ZN4nodeL39internal_v8_startup_snapshot_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data648, ptr noundef %57, i64 noundef 2720)
+  %91 = load ptr, ptr @_ZN4nodeL39internal_v8_startup_snapshot_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data648, ptr noundef %91, i64 noundef 2720)
   %arrayinit.element649 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element645, i64 1
   %id650 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element649, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp651) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id650, ptr noundef @.str.165, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp651)
   %data652 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element649, i32 0, i32 1
-  %58 = load ptr, ptr @_ZN4nodeL37internal_v8_prof_processor_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data652, ptr noundef %58, i64 noundef 2864)
+  %92 = load ptr, ptr @_ZN4nodeL37internal_v8_prof_processor_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data652, ptr noundef %92, i64 noundef 2864)
   %arrayinit.element653 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element649, i64 1
   %id654 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element653, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp655) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id654, ptr noundef @.str.90, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp655)
   %data656 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element653, i32 0, i32 1
-  %59 = load ptr, ptr @_ZN4nodeL30internal_util_types_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data656, ptr noundef %59, i64 noundef 2472)
+  %93 = load ptr, ptr @_ZN4nodeL30internal_util_types_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data656, ptr noundef %93, i64 noundef 2472)
   %arrayinit.element657 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element653, i64 1
   %id658 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element657, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp659) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id658, ptr noundef @.str.166, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp659)
   %data660 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element657, i32 0, i32 1
-  %60 = load ptr, ptr @_ZN4nodeL46internal_util_parse_args_parse_args_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data660, ptr noundef %60, i64 noundef 3832)
+  %94 = load ptr, ptr @_ZN4nodeL46internal_util_parse_args_parse_args_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data660, ptr noundef %94, i64 noundef 3832)
   %arrayinit.element661 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element657, i64 1
   %id662 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element661, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp663) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id662, ptr noundef @.str.167, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp663)
   %data664 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element661, i32 0, i32 1
-  %61 = load ptr, ptr @_ZN4nodeL42internal_util_iterable_weak_map_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data664, ptr noundef %61, i64 noundef 2400)
+  %95 = load ptr, ptr @_ZN4nodeL42internal_util_iterable_weak_map_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data664, ptr noundef %95, i64 noundef 2400)
   %arrayinit.element665 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element661, i64 1
   %id666 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element665, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp667) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id666, ptr noundef @.str.89, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp667)
   %data668 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element665, i32 0, i32 1
-  %62 = load ptr, ptr @_ZN4nodeL34internal_util_inspector_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data668, ptr noundef %62, i64 noundef 2664)
+  %96 = load ptr, ptr @_ZN4nodeL34internal_util_inspector_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data668, ptr noundef %96, i64 noundef 2664)
   %arrayinit.element669 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element665, i64 1
   %id670 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element669, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp671) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id670, ptr noundef @.str.88, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp671)
   %data672 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element669, i32 0, i32 1
-  %63 = load ptr, ptr @_ZN4nodeL32internal_util_inspect_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data672, ptr noundef %63, i64 noundef 27280)
+  %97 = load ptr, ptr @_ZN4nodeL32internal_util_inspect_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data672, ptr noundef %97, i64 noundef 27280)
   %arrayinit.element673 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element669, i64 1
   %id674 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element673, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp675) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id674, ptr noundef @.str.168, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp675)
   %data676 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element673, i32 0, i32 1
-  %64 = load ptr, ptr @_ZN4nodeL30internal_http2_core_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data676, ptr noundef %64, i64 noundef 39176)
+  %98 = load ptr, ptr @_ZN4nodeL30internal_http2_core_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data676, ptr noundef %98, i64 noundef 39176)
   %arrayinit.element677 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element673, i64 1
   %id678 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element677, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp679) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id678, ptr noundef @.str.169, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp679)
   %data680 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element677, i32 0, i32 1
-  %65 = load ptr, ptr @_ZN4nodeL29internal_histogram_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data680, ptr noundef %65, i64 noundef 6472)
+  %99 = load ptr, ptr @_ZN4nodeL29internal_histogram_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data680, ptr noundef %99, i64 noundef 6472)
   %arrayinit.element681 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element677, i64 1
   %id682 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element681, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp683) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id682, ptr noundef @.str.170, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp683)
   %data684 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element681, i32 0, i32 1
-  %66 = load ptr, ptr @_ZN4nodeL54internal_test_runner_reporter_v8_serializer_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data684, ptr noundef %66, i64 noundef 1112)
+  %100 = load ptr, ptr @_ZN4nodeL54internal_test_runner_reporter_v8_serializer_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data684, ptr noundef %100, i64 noundef 1112)
   %arrayinit.element685 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element681, i64 1
   %id686 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element685, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp687) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id686, ptr noundef @.str.171, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp687)
   %data688 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element685, i32 0, i32 1
-  %67 = load ptr, ptr @_ZN4nodeL47internal_child_process_serialization_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data688, ptr noundef %67, i64 noundef 3528)
+  %101 = load ptr, ptr @_ZN4nodeL47internal_child_process_serialization_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data688, ptr noundef %101, i64 noundef 3528)
   %arrayinit.element689 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element685, i64 1
   %id690 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element689, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp691) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id690, ptr noundef @.str.172, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp691)
   %data692 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element689, i32 0, i32 1
-  %68 = load ptr, ptr @_ZN4nodeL48internal_modules_esm_shared_constants_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data692, ptr noundef %68, i64 noundef 848)
+  %102 = load ptr, ptr @_ZN4nodeL48internal_modules_esm_shared_constants_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data692, ptr noundef %102, i64 noundef 848)
   %arrayinit.element693 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element689, i64 1
   %id694 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element693, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp695) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id694, ptr noundef @.str.173, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp695)
   %data696 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element693, i32 0, i32 1
-  %69 = load ptr, ptr @_ZN4nodeL38internal_fs_recursive_watch_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data696, ptr noundef %69, i64 noundef 4512)
+  %103 = load ptr, ptr @_ZN4nodeL38internal_fs_recursive_watch_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data696, ptr noundef %103, i64 noundef 4512)
   %arrayinit.element697 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element693, i64 1
   %id698 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element697, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp699) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id698, ptr noundef @.str.174, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp699)
   %data700 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element697, i32 0, i32 1
-  %70 = load ptr, ptr @_ZN4nodeL32internal_wasm_web_api_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data700, ptr noundef %70, i64 noundef 1216)
+  %104 = load ptr, ptr @_ZN4nodeL32internal_wasm_web_api_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data700, ptr noundef %104, i64 noundef 1216)
   %arrayinit.element701 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element697, i64 1
   %id702 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element701, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp703) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id702, ptr noundef @.str.175, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp703)
   %data704 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element701, i32 0, i32 1
-  %71 = load ptr, ptr @_ZN4nodeL40internal_perf_resource_timing_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data704, ptr noundef %71, i64 noundef 5440)
+  %105 = load ptr, ptr @_ZN4nodeL40internal_perf_resource_timing_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data704, ptr noundef %105, i64 noundef 5440)
   %arrayinit.element705 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element701, i64 1
   %id706 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element705, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp707) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id706, ptr noundef @.str.176, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp707)
   %data708 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element705, i32 0, i32 1
-  %72 = load ptr, ptr @_ZN4nodeL35internal_fs_read_context_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data708, ptr noundef %72, i64 noundef 2112)
+  %106 = load ptr, ptr @_ZN4nodeL35internal_fs_read_context_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data708, ptr noundef %106, i64 noundef 2112)
   %arrayinit.element709 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element705, i64 1
   %id710 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element709, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp711) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id710, ptr noundef @.str.177, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp711)
   %data712 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element709, i32 0, i32 1
-  %73 = load ptr, ptr @_ZN4nodeL29internal_worker_io_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data712, ptr noundef %73, i64 noundef 10496)
+  %107 = load ptr, ptr @_ZN4nodeL29internal_worker_io_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data712, ptr noundef %107, i64 noundef 10496)
   %arrayinit.element713 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element709, i64 1
   %id714 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element713, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp715) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id714, ptr noundef @.str.178, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp715)
   %data716 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element713, i32 0, i32 1
-  %74 = load ptr, ptr @_ZN4nodeL26internal_fs_dir_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data716, ptr noundef %74, i64 noundef 4136)
+  %108 = load ptr, ptr @_ZN4nodeL26internal_fs_dir_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data716, ptr noundef %108, i64 noundef 4136)
   %arrayinit.element717 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element713, i64 1
   %id718 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element717, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp719) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id718, ptr noundef @.str.179, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp719)
   %data720 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element717, i32 0, i32 1
-  %75 = load ptr, ptr @_ZN4nodeL33internal_fs_cp_cp_sync_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data720, ptr noundef %75, i64 noundef 4432)
+  %109 = load ptr, ptr @_ZN4nodeL33internal_fs_cp_cp_sync_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data720, ptr noundef %109, i64 noundef 4432)
   %arrayinit.element721 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element717, i64 1
   %id722 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element721, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp723) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id722, ptr noundef @.str.43, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp723)
   %data724 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element721, i32 0, i32 1
-  %76 = load ptr, ptr @_ZN4nodeL26internal_assert_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data724, ptr noundef %76, i64 noundef 992)
+  %110 = load ptr, ptr @_ZN4nodeL26internal_assert_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data724, ptr noundef %110, i64 noundef 992)
   %arrayinit.element725 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element721, i64 1
   %id726 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element725, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp727) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id726, ptr noundef @.str.180, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp727)
   %data728 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element725, i32 0, i32 1
-  %77 = load ptr, ptr @_ZN4nodeL41internal_streams_end_of_stream_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data728, ptr noundef %77, i64 noundef 2888)
+  %111 = load ptr, ptr @_ZN4nodeL41internal_streams_end_of_stream_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data728, ptr noundef %111, i64 noundef 2888)
   %arrayinit.element729 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element725, i64 1
   %id730 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element729, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp731) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id730, ptr noundef @.str.181, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp731)
   %data732 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element729, i32 0, i32 1
-  %78 = load ptr, ptr @_ZN4nodeL36internal_perf_performance_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data732, ptr noundef %78, i64 noundef 5352)
+  %112 = load ptr, ptr @_ZN4nodeL36internal_perf_performance_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data732, ptr noundef %112, i64 noundef 5352)
   %arrayinit.element733 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element729, i64 1
   %id734 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element733, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp735) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id734, ptr noundef @.str.58, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp735)
   %data736 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element733, i32 0, i32 1
-  %79 = load ptr, ptr @_ZN4nodeL26internal_errors_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data736, ptr noundef %79, i64 noundef 47792)
+  %113 = load ptr, ptr @_ZN4nodeL26internal_errors_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data736, ptr noundef %113, i64 noundef 47792)
   %arrayinit.element737 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element733, i64 1
   %id738 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element737, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp739) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id738, ptr noundef @.str.182, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp739)
   %data740 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element737, i32 0, i32 1
-  %80 = load ptr, ptr @_ZN4nodeL31internal_fs_promises_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data740, ptr noundef %80, i64 noundef 16240)
+  %114 = load ptr, ptr @_ZN4nodeL31internal_fs_promises_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data740, ptr noundef %114, i64 noundef 16240)
   %arrayinit.element741 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element737, i64 1
   %id742 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element741, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp743) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id742, ptr noundef @.str.183, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp743)
   %data744 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element741, i32 0, i32 1
-  %81 = load ptr, ptr @_ZN4nodeL29internal_main_repl_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data744, ptr noundef %81, i64 noundef 1784)
+  %115 = load ptr, ptr @_ZN4nodeL29internal_main_repl_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data744, ptr noundef %115, i64 noundef 1784)
   %arrayinit.element745 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element741, i64 1
   %id746 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element745, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp747) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id746, ptr noundef @.str.184, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp747)
   %data748 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element745, i32 0, i32 1
-  %82 = load ptr, ptr @_ZN4nodeL38internal_modules_esm_worker_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data748, ptr noundef %82, i64 noundef 2688)
+  %116 = load ptr, ptr @_ZN4nodeL38internal_modules_esm_worker_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data748, ptr noundef %116, i64 noundef 2688)
   %arrayinit.element749 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element745, i64 1
   %id750 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element749, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp751) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id750, ptr noundef @.str.185, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp751)
   %data752 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element749, i32 0, i32 1
-  %83 = load ptr, ptr @_ZN4nodeL32internal_error_serdes_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data752, ptr noundef %83, i64 noundef 3424)
+  %117 = load ptr, ptr @_ZN4nodeL32internal_error_serdes_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data752, ptr noundef %117, i64 noundef 3424)
   %arrayinit.element753 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element749, i64 1
   %id754 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element753, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp755) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id754, ptr noundef @.str.186, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp755)
   %data756 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element753, i32 0, i32 1
-  %84 = load ptr, ptr @_ZN4nodeL36internal_streams_writable_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data756, ptr noundef %84, i64 noundef 13768)
+  %118 = load ptr, ptr @_ZN4nodeL36internal_streams_writable_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data756, ptr noundef %118, i64 noundef 13768)
   %arrayinit.element757 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element753, i64 1
   %id758 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element757, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp759) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id758, ptr noundef @.str.187, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp759)
   %data760 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element757, i32 0, i32 1
-  %85 = load ptr, ptr @_ZN4nodeL48internal_test_runner_mock_mock_timers_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data760, ptr noundef %85, i64 noundef 8352)
+  %119 = load ptr, ptr @_ZN4nodeL48internal_test_runner_mock_mock_timers_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data760, ptr noundef %119, i64 noundef 8352)
   %arrayinit.element761 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element757, i64 1
   %id762 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element761, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp763) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id762, ptr noundef @.str.188, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp763)
   %data764 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element761, i32 0, i32 1
-  %86 = load ptr, ptr @_ZN4nodeL35internal_streams_compose_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data764, ptr noundef %86, i64 noundef 1912)
+  %120 = load ptr, ptr @_ZN4nodeL35internal_streams_compose_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data764, ptr noundef %120, i64 noundef 1912)
   %arrayinit.element765 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element761, i64 1
   %id766 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element765, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp767) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id766, ptr noundef @.str.189, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp767)
   %data768 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element765, i32 0, i32 1
-  %87 = load ptr, ptr @_ZN4nodeL41internal_dns_callback_resolver_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data768, ptr noundef %87, i64 noundef 2152)
+  %121 = load ptr, ptr @_ZN4nodeL41internal_dns_callback_resolver_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data768, ptr noundef %121, i64 noundef 2152)
   %arrayinit.element769 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element765, i64 1
   %id770 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element769, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp771) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id770, ptr noundef @.str.190, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp771)
   %data772 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element769, i32 0, i32 1
-  %88 = load ptr, ptr @_ZN4nodeL30internal_crypto_aes_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data772, ptr noundef %88, i64 noundef 4296)
+  %122 = load ptr, ptr @_ZN4nodeL30internal_crypto_aes_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data772, ptr noundef %122, i64 noundef 4296)
   %arrayinit.element773 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element769, i64 1
   %id774 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element773, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp775) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id774, ptr noundef @.str.191, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp775)
   %data776 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element773, i32 0, i32 1
-  %89 = load ptr, ptr @_ZN4nodeL28internal_freelist_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data776, ptr noundef %89, i64 noundef 1184)
+  %123 = load ptr, ptr @_ZN4nodeL28internal_freelist_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data776, ptr noundef %123, i64 noundef 1184)
   %arrayinit.element777 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element773, i64 1
   %id778 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element777, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp779) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id778, ptr noundef @.str.192, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp779)
   %data780 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element777, i32 0, i32 1
-  %90 = load ptr, ptr @_ZN4nodeL43internal_debugger_inspect_client_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data780, ptr noundef %90, i64 noundef 3928)
+  %124 = load ptr, ptr @_ZN4nodeL43internal_debugger_inspect_client_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data780, ptr noundef %124, i64 noundef 3928)
   %arrayinit.element781 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element777, i64 1
   %id782 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element781, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp783) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id782, ptr noundef @.str.193, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp783)
   %data784 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element781, i32 0, i32 1
-  %91 = load ptr, ptr @_ZN4nodeL31internal_crypto_x509_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data784, ptr noundef %91, i64 noundef 7328)
+  %125 = load ptr, ptr @_ZN4nodeL31internal_crypto_x509_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data784, ptr noundef %125, i64 noundef 7328)
   %arrayinit.element785 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element781, i64 1
   %id786 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element785, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp787) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id786, ptr noundef @.str.194, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp787)
   %data788 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element785, i32 0, i32 1
-  %92 = load ptr, ptr @_ZN4nodeL30internal_repl_utils_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data788, ptr noundef %92, i64 noundef 3816)
+  %126 = load ptr, ptr @_ZN4nodeL30internal_repl_utils_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data788, ptr noundef %126, i64 noundef 3816)
   %arrayinit.element789 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element785, i64 1
   %id790 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element789, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp791) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id790, ptr noundef @.str.195, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp791)
   %data792 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element789, i32 0, i32 1
-  %93 = load ptr, ptr @_ZN4nodeL35internal_cluster_primary_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data792, ptr noundef %93, i64 noundef 4824)
+  %127 = load ptr, ptr @_ZN4nodeL35internal_cluster_primary_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data792, ptr noundef %127, i64 noundef 4824)
   %arrayinit.element793 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element789, i64 1
   %id794 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element793, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp795) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id794, ptr noundef @.str.196, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp795)
   %data796 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element793, i32 0, i32 1
-  %94 = load ptr, ptr @_ZN4nodeL30internal_crypto_rsa_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data796, ptr noundef %94, i64 noundef 3488)
+  %128 = load ptr, ptr @_ZN4nodeL30internal_crypto_rsa_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data796, ptr noundef %128, i64 noundef 3488)
   %arrayinit.element797 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element793, i64 1
   %id798 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element797, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp799) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id798, ptr noundef @.str.197, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp799)
   %data800 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element797, i32 0, i32 1
-  %95 = load ptr, ptr @_ZN4nodeL31internal_crypto_keys_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data800, ptr noundef %95, i64 noundef 8736)
+  %129 = load ptr, ptr @_ZN4nodeL31internal_crypto_keys_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data800, ptr noundef %129, i64 noundef 8736)
   %arrayinit.element801 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element797, i64 1
   %id802 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element801, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp803) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id802, ptr noundef @.str.198, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp803)
   %data804 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element801, i32 0, i32 1
-  %96 = load ptr, ptr @_ZN4nodeL31internal_crypto_hkdf_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data804, ptr noundef %96, i64 noundef 2688)
+  %130 = load ptr, ptr @_ZN4nodeL31internal_crypto_hkdf_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data804, ptr noundef %130, i64 noundef 2688)
   %arrayinit.element805 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element801, i64 1
   %id806 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element805, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp807) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id806, ptr noundef @.str.199, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp807)
   %data808 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element805, i32 0, i32 1
-  %97 = load ptr, ptr @_ZN4nodeL53internal_modules_esm_create_dynamic_module_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data808, ptr noundef %97, i64 noundef 1472)
+  %131 = load ptr, ptr @_ZN4nodeL53internal_modules_esm_create_dynamic_module_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data808, ptr noundef %131, i64 noundef 1472)
   %arrayinit.element809 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element805, i64 1
   %id810 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element809, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp811) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id810, ptr noundef @.str.200, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp811)
   %data812 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element809, i32 0, i32 1
-  %98 = load ptr, ptr @_ZN4nodeL17domain_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data812, ptr noundef %98, i64 noundef 6112)
+  %132 = load ptr, ptr @_ZN4nodeL17domain_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data812, ptr noundef %132, i64 noundef 6112)
   %arrayinit.element813 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element809, i64 1
   %id814 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element813, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp815) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id814, ptr noundef @.str.201, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp815)
   %data816 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element813, i32 0, i32 1
-  %99 = load ptr, ptr @_ZN4nodeL40internal_main_run_main_module_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data816, ptr noundef %99, i64 noundef 1256)
+  %133 = load ptr, ptr @_ZN4nodeL40internal_main_run_main_module_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data816, ptr noundef %133, i64 noundef 1256)
   %arrayinit.element817 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element813, i64 1
   %id818 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element817, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp819) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id818, ptr noundef @.str.202, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp819)
   %data820 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element817, i32 0, i32 1
-  %100 = load ptr, ptr @_ZN4nodeL27internal_fs_glob_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data820, ptr noundef %100, i64 noundef 5872)
+  %134 = load ptr, ptr @_ZN4nodeL27internal_fs_glob_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data820, ptr noundef %134, i64 noundef 5872)
   %arrayinit.element821 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element817, i64 1
   %id822 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element821, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp823) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id822, ptr noundef @.str.203, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp823)
   %data824 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element821, i32 0, i32 1
-  %101 = load ptr, ptr @_ZN4nodeL40internal_crypto_diffiehellman_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data824, ptr noundef %101, i64 noundef 5400)
+  %135 = load ptr, ptr @_ZN4nodeL40internal_crypto_diffiehellman_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data824, ptr noundef %135, i64 noundef 5400)
   %arrayinit.element825 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element821, i64 1
   %id826 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element825, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp827) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id826, ptr noundef @.str.204, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp827)
   %data828 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element825, i32 0, i32 1
-  %102 = load ptr, ptr @_ZN4nodeL33internal_crypto_cipher_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data828, ptr noundef %102, i64 noundef 5032)
+  %136 = load ptr, ptr @_ZN4nodeL33internal_crypto_cipher_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data828, ptr noundef %136, i64 noundef 5032)
   %arrayinit.element829 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element825, i64 1
   %id830 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element829, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp831) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id830, ptr noundef @.str.205, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp831)
   %data832 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element829, i32 0, i32 1
-  %103 = load ptr, ptr @_ZN4nodeL36internal_debugger_inspect_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data832, ptr noundef %103, i64 noundef 4872)
+  %137 = load ptr, ptr @_ZN4nodeL36internal_debugger_inspect_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data832, ptr noundef %137, i64 noundef 4872)
   %arrayinit.element833 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element829, i64 1
   %id834 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element833, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp835) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id834, ptr noundef @.str.206, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp835)
   %data836 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element833, i32 0, i32 1
-  %104 = load ptr, ptr @_ZN4nodeL27_stream_readable_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data836, ptr noundef %104, i64 noundef 736)
+  %138 = load ptr, ptr @_ZN4nodeL27_stream_readable_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data836, ptr noundef %138, i64 noundef 736)
   %arrayinit.element837 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element833, i64 1
   %id838 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element837, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp839) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id838, ptr noundef @.str.59, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp839)
   %data840 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element837, i32 0, i32 1
-  %105 = load ptr, ptr @_ZN4nodeL32internal_event_target_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data840, ptr noundef %105, i64 noundef 16216)
+  %139 = load ptr, ptr @_ZN4nodeL32internal_event_target_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data840, ptr noundef %139, i64 noundef 16216)
   %arrayinit.element841 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element837, i64 1
   %id842 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element841, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp843) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id842, ptr noundef @.str.207, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp843)
   %data844 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element841, i32 0, i32 1
-  %106 = load ptr, ptr @_ZN4nodeL31internal_crypto_cfrg_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data844, ptr noundef %106, i64 noundef 2800)
+  %140 = load ptr, ptr @_ZN4nodeL31internal_crypto_cfrg_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data844, ptr noundef %140, i64 noundef 2800)
   %arrayinit.element845 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element841, i64 1
   %id846 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element845, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp847) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id846, ptr noundef @.str.208, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp847)
   %data848 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element845, i32 0, i32 1
-  %107 = load ptr, ptr @_ZN4nodeL38internal_crypto_certificate_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data848, ptr noundef %107, i64 noundef 1464)
+  %141 = load ptr, ptr @_ZN4nodeL38internal_crypto_certificate_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data848, ptr noundef %141, i64 noundef 1464)
   %arrayinit.element849 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element845, i64 1
   %id850 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element849, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp851) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id850, ptr noundef @.str.93, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp851)
   %data852 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element849, i32 0, i32 1
-  %108 = load ptr, ptr @_ZN4nodeL22internal_vm_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data852, ptr noundef %108, i64 noundef 2200)
+  %142 = load ptr, ptr @_ZN4nodeL22internal_vm_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data852, ptr noundef %142, i64 noundef 2200)
   %arrayinit.element853 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element849, i64 1
   %id854 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element853, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp855) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id854, ptr noundef @.str.209, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp855)
   %data856 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element853, i32 0, i32 1
-  %109 = load ptr, ptr @_ZN4nodeL36internal_crypto_webcrypto_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data856, ptr noundef %109, i64 noundef 7040)
+  %143 = load ptr, ptr @_ZN4nodeL36internal_crypto_webcrypto_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data856, ptr noundef %143, i64 noundef 7040)
   %arrayinit.element857 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element853, i64 1
   %id858 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element857, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp859) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id858, ptr noundef @.str.210, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp859)
   %data860 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element857, i32 0, i32 1
-  %110 = load ptr, ptr @_ZN4nodeL42internal_modules_esm_get_format_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data860, ptr noundef %110, i64 noundef 3152)
+  %144 = load ptr, ptr @_ZN4nodeL42internal_modules_esm_get_format_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data860, ptr noundef %144, i64 noundef 3152)
   %arrayinit.element861 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element857, i64 1
   %id862 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element861, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp863) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id862, ptr noundef @.str.55, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp863)
   %data864 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element861, i32 0, i32 1
-  %111 = load ptr, ptr @_ZN4nodeL29internal_constants_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data864, ptr noundef %111, i64 noundef 2560)
+  %145 = load ptr, ptr @_ZN4nodeL29internal_constants_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data864, ptr noundef %145, i64 noundef 2560)
   %arrayinit.element865 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element861, i64 1
   %id866 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element865, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp867) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id866, ptr noundef @.str.53, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp867)
   %data868 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element865, i32 0, i32 1
-  %112 = load ptr, ptr @_ZN4nodeL39internal_console_constructor_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data868, ptr noundef %112, i64 noundef 10448)
+  %146 = load ptr, ptr @_ZN4nodeL39internal_console_constructor_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data868, ptr noundef %146, i64 noundef 10448)
   %arrayinit.element869 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element865, i64 1
   %id870 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element869, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp871) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id870, ptr noundef @.str.211, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp871)
   %data872 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element869, i32 0, i32 1
-  %113 = load ptr, ptr @_ZN4nodeL47internal_deps_acorn_acorn_dist_acorn_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data872, ptr noundef %113, i64 noundef 73816)
+  %147 = load ptr, ptr @_ZN4nodeL47internal_deps_acorn_acorn_dist_acorn_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data872, ptr noundef %147, i64 noundef 73816)
   %arrayinit.element873 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element869, i64 1
   %id874 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element873, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp875) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id874, ptr noundef @.str.96, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp875)
   %data876 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element873, i32 0, i32 1
-  %114 = load ptr, ptr @_ZN4nodeL48internal_webstreams_queuingstrategies_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data876, ptr noundef %114, i64 noundef 4056)
+  %148 = load ptr, ptr @_ZN4nodeL48internal_webstreams_queuingstrategies_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data876, ptr noundef %148, i64 noundef 4056)
   %arrayinit.element877 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element873, i64 1
   %id878 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element877, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp879) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id878, ptr noundef @.str.212, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp879)
   %data880 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element877, i32 0, i32 1
-  %115 = load ptr, ptr @_ZN4nodeL42internal_modules_esm_module_job_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data880, ptr noundef %115, i64 noundef 3192)
+  %149 = load ptr, ptr @_ZN4nodeL42internal_modules_esm_module_job_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data880, ptr noundef %149, i64 noundef 3192)
   %arrayinit.element881 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element877, i64 1
   %id882 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element881, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp883) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id882, ptr noundef @.str.213, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp883)
   %data884 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element881, i32 0, i32 1
-  %116 = load ptr, ptr @_ZN4nodeL30internal_fs_streams_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data884, ptr noundef %116, i64 noundef 5936)
+  %150 = load ptr, ptr @_ZN4nodeL30internal_fs_streams_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data884, ptr noundef %150, i64 noundef 5936)
   %arrayinit.element885 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element881, i64 1
   %id886 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element885, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp887) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id886, ptr noundef @.str.214, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp887)
   %data888 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element885, i32 0, i32 1
-  %117 = load ptr, ptr @_ZN4nodeL25_http_outgoing_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data888, ptr noundef %117, i64 noundef 11832)
+  %151 = load ptr, ptr @_ZN4nodeL25_http_outgoing_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data888, ptr noundef %151, i64 noundef 11832)
   %arrayinit.element889 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element885, i64 1
   %id890 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element889, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp891) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id890, ptr noundef @.str.215, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp891)
   %data892 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element889, i32 0, i32 1
-  %118 = load ptr, ptr @_ZN4nodeL31internal_crypto_util_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data892, ptr noundef %118, i64 noundef 9160)
+  %152 = load ptr, ptr @_ZN4nodeL31internal_crypto_util_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data892, ptr noundef %152, i64 noundef 9160)
   %arrayinit.element893 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element889, i64 1
   %id894 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element893, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp895) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id894, ptr noundef @.str.216, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp895)
   %data896 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element893, i32 0, i32 1
-  %119 = load ptr, ptr @_ZN4nodeL43internal_modules_esm_translators_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data896, ptr noundef %119, i64 noundef 6016)
+  %153 = load ptr, ptr @_ZN4nodeL43internal_modules_esm_translators_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data896, ptr noundef %153, i64 noundef 6016)
   %arrayinit.element897 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element893, i64 1
   %id898 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element897, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp899) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id898, ptr noundef @.str.217, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp899)
   %data900 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element897, i32 0, i32 1
-  %120 = load ptr, ptr @_ZN4nodeL52internal_deps_cjs_module_lexer_dist_lexer_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data900, ptr noundef %120, i64 noundef 1240)
+  %154 = load ptr, ptr @_ZN4nodeL52internal_deps_cjs_module_lexer_dist_lexer_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data900, ptr noundef %154, i64 noundef 1240)
   %arrayinit.element901 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element897, i64 1
   %id902 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element901, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp903) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id902, ptr noundef @.str.218, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp903)
   %data904 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element901, i32 0, i32 1
-  %121 = load ptr, ptr @_ZN4nodeL18console_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data904, ptr noundef %121, i64 noundef 720)
+  %155 = load ptr, ptr @_ZN4nodeL18console_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data904, ptr noundef %155, i64 noundef 720)
   %arrayinit.element905 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element901, i64 1
   %id906 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element905, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp907) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id906, ptr noundef @.str.219, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp907)
   %data908 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element905, i32 0, i32 1
-  %122 = load ptr, ptr @_ZN4nodeL23dns_promises_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data908, ptr noundef %122, i64 noundef 728)
+  %156 = load ptr, ptr @_ZN4nodeL23dns_promises_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data908, ptr noundef %156, i64 noundef 728)
   %arrayinit.element909 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element905, i64 1
   %id910 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element909, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp911) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id910, ptr noundef @.str.220, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp911)
   %data912 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element909, i32 0, i32 1
-  %123 = load ptr, ptr @_ZN4nodeL40internal_deps_minimatch_index_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data912, ptr noundef %123, i64 noundef 10112)
+  %157 = load ptr, ptr @_ZN4nodeL40internal_deps_minimatch_index_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data912, ptr noundef %157, i64 noundef 10112)
   %arrayinit.element913 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element909, i64 1
   %id914 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element913, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp915) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id914, ptr noundef @.str.221, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp915)
   %data916 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element913, i32 0, i32 1
-  %124 = load ptr, ptr @_ZN4nodeL24child_process_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data916, ptr noundef %124, i64 noundef 6744)
+  %158 = load ptr, ptr @_ZN4nodeL24child_process_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data916, ptr noundef %158, i64 noundef 6744)
   %arrayinit.element917 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element913, i64 1
   %id918 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element917, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp919) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id918, ptr noundef @.str.222, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp919)
   %data920 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element917, i32 0, i32 1
-  %125 = load ptr, ptr @_ZN4nodeL14dns_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data920, ptr noundef %125, i64 noundef 5392)
+  %159 = load ptr, ptr @_ZN4nodeL14dns_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data920, ptr noundef %159, i64 noundef 5392)
   %arrayinit.element921 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element917, i64 1
   %id922 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element921, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp923) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id922, ptr noundef @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp923)
   %data924 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element921, i32 0, i32 1
-  %126 = load ptr, ptr @_ZN4nodeL20constants_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data924, ptr noundef %126, i64 noundef 992)
+  %160 = load ptr, ptr @_ZN4nodeL20constants_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data924, ptr noundef %160, i64 noundef 992)
   %arrayinit.element925 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element921, i64 1
   %id926 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element925, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp927) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id926, ptr noundef @.str.84, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp927)
   %data928 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element925, i32 0, i32 1
-  %127 = load ptr, ptr @_ZN4nodeL26internal_timers_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data928, ptr noundef %127, i64 noundef 6904)
+  %161 = load ptr, ptr @_ZN4nodeL26internal_timers_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data928, ptr noundef %161, i64 noundef 6904)
   %arrayinit.element929 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element925, i64 1
   %id930 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element929, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp931) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id930, ptr noundef @.str.224, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp931)
   %data932 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element929, i32 0, i32 1
-  %128 = load ptr, ptr @_ZN4nodeL29internal_crypto_ec_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data932, ptr noundef %128, i64 noundef 2904)
+  %162 = load ptr, ptr @_ZN4nodeL29internal_crypto_ec_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data932, ptr noundef %162, i64 noundef 2904)
   %arrayinit.element933 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element929, i64 1
   %id934 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element933, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp935) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id934, ptr noundef @.str.225, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp935)
   %data936 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element933, i32 0, i32 1
-  %129 = load ptr, ptr @_ZN4nodeL18cluster_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data936, ptr noundef %129, i64 noundef 896)
+  %163 = load ptr, ptr @_ZN4nodeL18cluster_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data936, ptr noundef %163, i64 noundef 896)
   %arrayinit.element937 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element933, i64 1
   %id938 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element937, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp939) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id938, ptr noundef @.str.226, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp939)
   %data940 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element937, i32 0, i32 1
-  %130 = load ptr, ptr @_ZN4nodeL23trace_events_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data940, ptr noundef %130, i64 noundef 2968)
+  %164 = load ptr, ptr @_ZN4nodeL23trace_events_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data940, ptr noundef %164, i64 noundef 2968)
   %arrayinit.element941 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element937, i64 1
   %id942 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element941, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp943) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id942, ptr noundef @.str.227, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp943)
   %data944 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element941, i32 0, i32 1
-  %131 = load ptr, ptr @_ZN4nodeL28_stream_transform_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data944, ptr noundef %131, i64 noundef 744)
+  %165 = load ptr, ptr @_ZN4nodeL28_stream_transform_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data944, ptr noundef %165, i64 noundef 744)
   %arrayinit.element945 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element941, i64 1
   %id946 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element945, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp947) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id946, ptr noundef @.str.228, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp947)
   %data948 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element945, i32 0, i32 1
-  %132 = load ptr, ptr @_ZN4nodeL47internal_readline_emitKeypressEvents_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data948, ptr noundef %132, i64 noundef 1696)
+  %166 = load ptr, ptr @_ZN4nodeL47internal_readline_emitKeypressEvents_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data948, ptr noundef %166, i64 noundef 1696)
   %arrayinit.element949 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element945, i64 1
   %id950 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element949, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp951) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id950, ptr noundef @.str.40, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp951)
   %data952 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element949, i32 0, i32 1
-  %133 = load ptr, ptr @_ZN4nodeL17buffer_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data952, ptr noundef %133, i64 noundef 19472)
+  %167 = load ptr, ptr @_ZN4nodeL17buffer_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data952, ptr noundef %167, i64 noundef 19472)
   %arrayinit.element953 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element949, i64 1
   %id954 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element953, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp955) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id954, ptr noundef @.str.229, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp955)
   %data956 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element953, i32 0, i32 1
-  %134 = load ptr, ptr @_ZN4nodeL21stream_web_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data956, ptr noundef %134, i64 noundef 2120)
+  %168 = load ptr, ptr @_ZN4nodeL21stream_web_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data956, ptr noundef %168, i64 noundef 2120)
   %arrayinit.element957 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element953, i64 1
   %id958 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element957, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp959) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id958, ptr noundef @.str.230, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp959)
   %data960 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element957, i32 0, i32 1
-  %135 = load ptr, ptr @_ZN4nodeL18process_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data960, ptr noundef %135, i64 noundef 680)
+  %169 = load ptr, ptr @_ZN4nodeL18process_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data960, ptr noundef %169, i64 noundef 680)
   %arrayinit.element961 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element957, i64 1
   %id962 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element961, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp963) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id962, ptr noundef @.str.231, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp963)
   %data964 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element961, i32 0, i32 1
-  %136 = load ptr, ptr @_ZN4nodeL54internal_modules_esm_initialize_import_meta_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data964, ptr noundef %136, i64 noundef 1416)
+  %170 = load ptr, ptr @_ZN4nodeL54internal_modules_esm_initialize_import_meta_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data964, ptr noundef %170, i64 noundef 1416)
   %arrayinit.element965 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element961, i64 1
   %id966 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element965, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp967) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id966, ptr noundef @.str.232, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp967)
   %data968 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element965, i32 0, i32 1
-  %137 = load ptr, ptr @_ZN4nodeL24internal_http_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data968, ptr noundef %137, i64 noundef 2144)
+  %171 = load ptr, ptr @_ZN4nodeL24internal_http_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data968, ptr noundef %171, i64 noundef 2144)
   %arrayinit.element969 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element965, i64 1
   %id970 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element969, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp971) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id970, ptr noundef @.str.233, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp971)
   %data972 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element969, i32 0, i32 1
-  %138 = load ptr, ptr @_ZN4nodeL38internal_deps_undici_undici_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data972, ptr noundef %138, i64 noundef 19608)
+  %172 = load ptr, ptr @_ZN4nodeL38internal_deps_undici_undici_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data972, ptr noundef %172, i64 noundef 19608)
   %arrayinit.element973 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element969, i64 1
   %id974 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element973, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp975) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id974, ptr noundef @.str.234, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp975)
   %data976 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element973, i32 0, i32 1
-  %139 = load ptr, ptr @_ZN4nodeL44internal_test_runner_reporter_tap_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data976, ptr noundef %139, i64 noundef 2880)
+  %173 = load ptr, ptr @_ZN4nodeL44internal_test_runner_reporter_tap_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data976, ptr noundef %173, i64 noundef 2880)
   %arrayinit.element977 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element973, i64 1
   %id978 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element977, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp979) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id978, ptr noundef @.str.54, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp979)
   %data980 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element977, i32 0, i32 1
-  %140 = load ptr, ptr @_ZN4nodeL34internal_console_global_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data980, ptr noundef %140, i64 noundef 1384)
+  %174 = load ptr, ptr @_ZN4nodeL34internal_console_global_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data980, ptr noundef %174, i64 noundef 1384)
   %arrayinit.element981 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element977, i64 1
   %id982 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element981, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp983) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id982, ptr noundef @.str.235, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp983)
   %data984 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element981, i32 0, i32 1
-  %141 = load ptr, ptr @_ZN4nodeL42internal_bootstrap_shadow_realm_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data984, ptr noundef %141, i64 noundef 896)
+  %175 = load ptr, ptr @_ZN4nodeL42internal_bootstrap_shadow_realm_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data984, ptr noundef %175, i64 noundef 896)
   %arrayinit.element985 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element981, i64 1
   %id986 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element985, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp987) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id986, ptr noundef @.str.236, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp987)
   %data988 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element985, i32 0, i32 1
-  %142 = load ptr, ptr @_ZN4nodeL25_http_incoming_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data988, ptr noundef %142, i64 noundef 4016)
+  %176 = load ptr, ptr @_ZN4nodeL25_http_incoming_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data988, ptr noundef %176, i64 noundef 4016)
   %arrayinit.element989 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element985, i64 1
   %id990 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element989, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp991) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id990, ptr noundef @.str.237, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp991)
   %data992 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element989, i32 0, i32 1
-  %143 = load ptr, ptr @_ZN4nodeL31internal_fs_watchers_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data992, ptr noundef %143, i64 noundef 5192)
+  %177 = load ptr, ptr @_ZN4nodeL31internal_fs_watchers_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data992, ptr noundef %177, i64 noundef 5192)
   %arrayinit.element993 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element989, i64 1
   %id994 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element993, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp995) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id994, ptr noundef @.str.238, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp995)
   %data996 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element993, i32 0, i32 1
-  %144 = load ptr, ptr @_ZN4nodeL30internal_heap_utils_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data996, ptr noundef %144, i64 noundef 2136)
+  %178 = load ptr, ptr @_ZN4nodeL30internal_heap_utils_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data996, ptr noundef %178, i64 noundef 2136)
   %arrayinit.element997 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element993, i64 1
   %id998 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element997, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp999) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id998, ptr noundef @.str.239, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp999)
   %data1000 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element997, i32 0, i32 1
-  %145 = load ptr, ptr @_ZN4nodeL28readline_promises_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1000, ptr noundef %145, i64 noundef 1936)
+  %179 = load ptr, ptr @_ZN4nodeL28readline_promises_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1000, ptr noundef %179, i64 noundef 1936)
   %arrayinit.element1001 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element997, i64 1
   %id1002 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1001, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1003) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1002, ptr noundef @.str.240, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1003)
   %data1004 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1001, i32 0, i32 1
-  %146 = load ptr, ptr @_ZN4nodeL44internal_test_runner_tests_stream_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1004, ptr noundef %146, i64 noundef 3192)
+  %180 = load ptr, ptr @_ZN4nodeL44internal_test_runner_tests_stream_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1004, ptr noundef %180, i64 noundef 3192)
   %arrayinit.element1005 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1001, i64 1
   %id1006 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1005, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1007) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1006, ptr noundef @.str.241, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1007)
   %data1008 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1005, i32 0, i32 1
-  %147 = load ptr, ptr @_ZN4nodeL31internal_crypto_hash_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1008, ptr noundef %147, i64 noundef 3448)
+  %181 = load ptr, ptr @_ZN4nodeL31internal_crypto_hash_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1008, ptr noundef %181, i64 noundef 3448)
   %arrayinit.element1009 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1005, i64 1
   %id1010 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1009, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1011) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1010, ptr noundef @.str.242, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1011)
   %data1012 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1009, i32 0, i32 1
-  %148 = load ptr, ptr @_ZN4nodeL41internal_debugger_inspect_repl_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1012, ptr noundef %148, i64 noundef 10296)
+  %182 = load ptr, ptr @_ZN4nodeL41internal_debugger_inspect_repl_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1012, ptr noundef %182, i64 noundef 10296)
   %arrayinit.element1013 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1009, i64 1
   %id1014 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1013, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1015) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1014, ptr noundef @.str.243, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1015)
   %data1016 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1013, i32 0, i32 1
-  %149 = load ptr, ptr @_ZN4nodeL25_stream_duplex_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1016, ptr noundef %149, i64 noundef 736)
+  %183 = load ptr, ptr @_ZN4nodeL25_stream_duplex_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1016, ptr noundef %183, i64 noundef 736)
   %arrayinit.element1017 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1013, i64 1
   %id1018 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1017, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1019) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1018, ptr noundef @.str.244, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1019)
   %data1020 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1017, i32 0, i32 1
-  %150 = load ptr, ptr @_ZN4nodeL41internal_legacy_processbinding_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1020, ptr noundef %150, i64 noundef 1280)
+  %184 = load ptr, ptr @_ZN4nodeL41internal_legacy_processbinding_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1020, ptr noundef %184, i64 noundef 1280)
   %arrayinit.element1021 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1017, i64 1
   %id1022 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1021, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1023) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1022, ptr noundef @.str.245, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1023)
   %data1024 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1021, i32 0, i32 1
-  %151 = load ptr, ptr @_ZN4nodeL36internal_abort_controller_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1024, ptr noundef %151, i64 noundef 8024)
+  %185 = load ptr, ptr @_ZN4nodeL36internal_abort_controller_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1024, ptr noundef %185, i64 noundef 8024)
   %arrayinit.element1025 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1021, i64 1
   %id1026 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1025, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1027) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1026, ptr noundef @.str.246, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1027)
   %data1028 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1025, i32 0, i32 1
-  %152 = load ptr, ptr @_ZN4nodeL23_http_server_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1028, ptr noundef %152, i64 noundef 15160)
+  %186 = load ptr, ptr @_ZN4nodeL23_http_server_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1028, ptr noundef %186, i64 noundef 15160)
   %arrayinit.element1029 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1025, i64 1
   %id1030 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1029, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1031) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1030, ptr noundef @.str.247, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1031)
   %data1032 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1029, i32 0, i32 1
-  %153 = load ptr, ptr @_ZN4nodeL34internal_util_embedding_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1032, ptr noundef %153, i64 noundef 1584)
+  %187 = load ptr, ptr @_ZN4nodeL34internal_util_embedding_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1032, ptr noundef %187, i64 noundef 1584)
   %arrayinit.element1033 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1029, i64 1
   %id1034 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1033, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1035) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1034, ptr noundef @.str.248, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1035)
   %data1036 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1033, i32 0, i32 1
-  %154 = load ptr, ptr @_ZN4nodeL23_stream_wrap_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1036, ptr noundef %154, i64 noundef 888)
+  %188 = load ptr, ptr @_ZN4nodeL23_stream_wrap_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1036, ptr noundef %188, i64 noundef 888)
   %arrayinit.element1037 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1033, i64 1
   %id1038 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1037, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1039) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1038, ptr noundef @.str.249, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1039)
   %data1040 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1037, i32 0, i32 1
-  %155 = load ptr, ptr @_ZN4nodeL37internal_main_check_syntax_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1040, ptr noundef %155, i64 noundef 2080)
+  %189 = load ptr, ptr @_ZN4nodeL37internal_main_check_syntax_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1040, ptr noundef %189, i64 noundef 2080)
   %arrayinit.element1041 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1037, i64 1
   %id1042 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1041, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1043) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1042, ptr noundef @.str.250, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1043)
   %data1044 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1041, i32 0, i32 1
-  %156 = load ptr, ptr @_ZN4nodeL24assert_strict_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1044, ptr noundef %156, i64 noundef 704)
+  %190 = load ptr, ptr @_ZN4nodeL24assert_strict_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1044, ptr noundef %190, i64 noundef 704)
   %arrayinit.element1045 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1041, i64 1
   %id1046 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1045, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1047) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1046, ptr noundef @.str.45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1047)
   %data1048 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1045, i32 0, i32 1
-  %157 = load ptr, ptr @_ZN4nodeL24internal_blob_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1048, ptr noundef %157, i64 noundef 6120)
+  %191 = load ptr, ptr @_ZN4nodeL24internal_blob_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1048, ptr noundef %191, i64 noundef 6120)
   %arrayinit.element1049 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1045, i64 1
   %id1050 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1049, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1051) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1050, ptr noundef @.str.251, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1051)
   %data1052 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1049, i32 0, i32 1
-  %158 = load ptr, ptr @_ZN4nodeL30internal_crypto_mac_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1052, ptr noundef %158, i64 noundef 2392)
+  %192 = load ptr, ptr @_ZN4nodeL30internal_crypto_mac_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1052, ptr noundef %192, i64 noundef 2392)
   %arrayinit.element1053 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1049, i64 1
   %id1054 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1053, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1055) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1054, ptr noundef @.str.67, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1055)
   %data1056 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1053, i32 0, i32 1
-  %159 = load ptr, ptr @_ZN4nodeL35internal_modules_helpers_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1056, ptr noundef %159, i64 noundef 3896)
+  %193 = load ptr, ptr @_ZN4nodeL35internal_modules_helpers_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1056, ptr noundef %193, i64 noundef 3896)
   %arrayinit.element1057 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1053, i64 1
   %id1058 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1057, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1059) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1058, ptr noundef @.str.252, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1059)
   %data1060 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1057, i32 0, i32 1
-  %160 = load ptr, ptr @_ZN4nodeL37internal_streams_operators_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1060, ptr noundef %160, i64 noundef 4288)
+  %194 = load ptr, ptr @_ZN4nodeL37internal_streams_operators_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1060, ptr noundef %194, i64 noundef 4288)
   %arrayinit.element1061 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1057, i64 1
   %id1062 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1061, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1063) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1062, ptr noundef @.str.42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1063)
   %data1064 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1061, i32 0, i32 1
-  %161 = load ptr, ptr @_ZN4nodeL13fs_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1064, ptr noundef %161, i64 noundef 21488)
+  %195 = load ptr, ptr @_ZN4nodeL13fs_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1064, ptr noundef %195, i64 noundef 21488)
   %arrayinit.element1065 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1061, i64 1
   %id1066 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1065, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1067) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1066, ptr noundef @.str.253, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1067)
   %data1068 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1065, i32 0, i32 1
-  %162 = load ptr, ptr @_ZN4nodeL37internal_main_prof_process_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1068, ptr noundef %162, i64 noundef 832)
+  %196 = load ptr, ptr @_ZN4nodeL37internal_main_prof_process_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1068, ptr noundef %196, i64 noundef 832)
   %arrayinit.element1069 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1065, i64 1
   %id1070 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1069, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1071) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1070, ptr noundef @.str.254, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1071)
   %data1072 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1069, i32 0, i32 1
-  %163 = load ptr, ptr @_ZN4nodeL22fs_promises_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1072, ptr noundef %163, i64 noundef 720)
+  %197 = load ptr, ptr @_ZN4nodeL22fs_promises_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1072, ptr noundef %197, i64 noundef 720)
   %arrayinit.element1073 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1069, i64 1
   %id1074 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1073, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1075) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1074, ptr noundef @.str.255, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1075)
   %data1076 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1073, i32 0, i32 1
-  %164 = load ptr, ptr @_ZN4nodeL20_tls_wrap_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1076, ptr noundef %164, i64 noundef 16160)
+  %198 = load ptr, ptr @_ZN4nodeL20_tls_wrap_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1076, ptr noundef %198, i64 noundef 16160)
   %arrayinit.element1077 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1073, i64 1
   %id1078 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1077, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1079) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1078, ptr noundef @.str.256, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1079)
   %data1080 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1077, i32 0, i32 1
-  %165 = load ptr, ptr @_ZN4nodeL34internal_process_report_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1080, ptr noundef %165, i64 noundef 3376)
+  %199 = load ptr, ptr @_ZN4nodeL34internal_process_report_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1080, ptr noundef %199, i64 noundef 3376)
   %arrayinit.element1081 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1077, i64 1
   %id1082 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1081, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1083) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1082, ptr noundef @.str.257, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1083)
   %data1084 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1081, i32 0, i32 1
-  %166 = load ptr, ptr @_ZN4nodeL41internal_util_parse_args_utils_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1084, ptr noundef %166, i64 noundef 2360)
+  %200 = load ptr, ptr @_ZN4nodeL41internal_util_parse_args_utils_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1084, ptr noundef %200, i64 noundef 2360)
   %arrayinit.element1085 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1081, i64 1
   %id1086 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1085, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1087) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1086, ptr noundef @.str.258, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1087)
   %data1088 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1085, i32 0, i32 1
-  %167 = load ptr, ptr @_ZN4nodeL33internal_crypto_pbkdf2_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1088, ptr noundef %167, i64 noundef 1984)
+  %201 = load ptr, ptr @_ZN4nodeL33internal_crypto_pbkdf2_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1088, ptr noundef %201, i64 noundef 1984)
   %arrayinit.element1089 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1085, i64 1
   %id1090 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1089, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1091) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1090, ptr noundef @.str.259, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1091)
   %data1092 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1089, i32 0, i32 1
-  %168 = load ptr, ptr @_ZN4nodeL17assert_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1092, ptr noundef %168, i64 noundef 9584)
+  %202 = load ptr, ptr @_ZN4nodeL17assert_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1092, ptr noundef %202, i64 noundef 9584)
   %arrayinit.element1093 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1089, i64 1
   %id1094 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1093, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1095) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1094, ptr noundef @.str.260, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1095)
   %data1096 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1093, i32 0, i32 1
-  %169 = load ptr, ptr @_ZN4nodeL20inspector_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1096, ptr noundef %169, i64 noundef 4064)
+  %203 = load ptr, ptr @_ZN4nodeL20inspector_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1096, ptr noundef %203, i64 noundef 4064)
   %arrayinit.element1097 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1093, i64 1
   %id1098 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1097, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1099) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1098, ptr noundef @.str.261, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1099)
   %data1100 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1097, i32 0, i32 1
-  %170 = load ptr, ptr @_ZN4nodeL26timers_promises_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1100, ptr noundef %170, i64 noundef 3008)
+  %204 = load ptr, ptr @_ZN4nodeL26timers_promises_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1100, ptr noundef %204, i64 noundef 3008)
   %arrayinit.element1101 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1097, i64 1
   %id1102 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1101, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1103) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1102, ptr noundef @.str.262, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1103)
   %data1104 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1101, i32 0, i32 1
-  %171 = load ptr, ptr @_ZN4nodeL14net_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1104, ptr noundef %171, i64 noundef 22096)
+  %205 = load ptr, ptr @_ZN4nodeL14net_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1104, ptr noundef %205, i64 noundef 22096)
   %arrayinit.element1105 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1101, i64 1
   %id1106 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1105, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1107) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1106, ptr noundef @.str.263, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1107)
   %data1108 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1105, i32 0, i32 1
-  %172 = load ptr, ptr @_ZN4nodeL29internal_navigator_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1108, ptr noundef %172, i64 noundef 3584)
+  %206 = load ptr, ptr @_ZN4nodeL29internal_navigator_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1108, ptr noundef %206, i64 noundef 3584)
   %arrayinit.element1109 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1105, i64 1
   %id1110 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1109, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1111) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1110, ptr noundef @.str.73, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1111)
   %data1112 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1109, i32 0, i32 1
-  %173 = load ptr, ptr @_ZN4nodeL34internal_priority_queue_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1112, ptr noundef %173, i64 noundef 2296)
+  %207 = load ptr, ptr @_ZN4nodeL34internal_priority_queue_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1112, ptr noundef %207, i64 noundef 2296)
   %arrayinit.element1113 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1109, i64 1
   %id1114 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1113, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1115) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1114, ptr noundef @.str.49, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1115)
   %data1116 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1113, i32 0, i32 1
-  %174 = load ptr, ptr @_ZN4nodeL53internal_bootstrap_switches_is_main_thread_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1116, ptr noundef %174, i64 noundef 3856)
+  %208 = load ptr, ptr @_ZN4nodeL53internal_bootstrap_switches_is_main_thread_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1116, ptr noundef %208, i64 noundef 3856)
   %arrayinit.element1117 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1113, i64 1
   %id1118 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1117, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1119) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1118, ptr noundef @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1119)
   %data1120 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1117, i32 0, i32 1
-  %175 = load ptr, ptr @_ZN4nodeL17events_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1120, ptr noundef %175, i64 noundef 10456)
+  %209 = load ptr, ptr @_ZN4nodeL17events_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1120, ptr noundef %209, i64 noundef 10456)
   %arrayinit.element1121 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1117, i64 1
   %id1122 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1121, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1123) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1122, ptr noundef @.str.69, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1123)
   %data1124 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1121, i32 0, i32 1
-  %176 = load ptr, ptr @_ZN4nodeL36internal_modules_run_main_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1124, ptr noundef %176, i64 noundef 1840)
+  %210 = load ptr, ptr @_ZN4nodeL36internal_modules_run_main_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1124, ptr noundef %210, i64 noundef 1840)
   %arrayinit.element1125 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1121, i64 1
   %id1126 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1125, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1127) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1126, ptr noundef @.str.64, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1127)
   %data1128 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1125, i32 0, i32 1
-  %177 = load ptr, ptr @_ZN4nodeL30internal_linkedlist_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1128, ptr noundef %177, i64 noundef 1160)
+  %211 = load ptr, ptr @_ZN4nodeL30internal_linkedlist_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1128, ptr noundef %211, i64 noundef 1160)
   %arrayinit.element1129 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1125, i64 1
   %id1130 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1129, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1131) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1130, ptr noundef @.str.264, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1131)
   %data1132 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1129, i32 0, i32 1
-  %178 = load ptr, ptr @_ZN4nodeL29internal_fs_rimraf_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1132, ptr noundef %178, i64 noundef 3320)
+  %212 = load ptr, ptr @_ZN4nodeL29internal_fs_rimraf_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1132, ptr noundef %212, i64 noundef 3320)
   %arrayinit.element1133 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1129, i64 1
   %id1134 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1133, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1135) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1134, ptr noundef @.str.265, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1135)
   %data1136 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1133, i32 0, i32 1
-  %179 = load ptr, ptr @_ZN4nodeL32internal_dns_promises_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1136, ptr noundef %179, i64 noundef 5488)
+  %213 = load ptr, ptr @_ZN4nodeL32internal_dns_promises_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1136, ptr noundef %213, i64 noundef 5488)
   %arrayinit.element1137 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1133, i64 1
   %id1138 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1137, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1139) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1138, ptr noundef @.str.266, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1139)
   %data1140 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1137, i32 0, i32 1
-  %180 = load ptr, ptr @_ZN4nodeL39internal_modules_esm_formats_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1140, ptr noundef %180, i64 noundef 1816)
+  %214 = load ptr, ptr @_ZN4nodeL39internal_modules_esm_formats_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1140, ptr noundef %214, i64 noundef 1816)
   %arrayinit.element1141 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1137, i64 1
   %id1142 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1141, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1143) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1142, ptr noundef @.str.267, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1143)
   %data1144 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1141, i32 0, i32 1
-  %181 = load ptr, ptr @_ZN4nodeL47internal_perf_event_loop_utilization_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1144, ptr noundef %181, i64 noundef 1264)
+  %215 = load ptr, ptr @_ZN4nodeL47internal_perf_event_loop_utilization_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1144, ptr noundef %215, i64 noundef 1264)
   %arrayinit.element1145 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1141, i64 1
   %id1146 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1145, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1147) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1146, ptr noundef @.str.268, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1147)
   %data1148 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1145, i32 0, i32 1
-  %182 = load ptr, ptr @_ZN4nodeL51internal_deps_acorn_acorn_walk_dist_walk_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1148, ptr noundef %182, i64 noundef 10640)
+  %216 = load ptr, ptr @_ZN4nodeL51internal_deps_acorn_acorn_walk_dist_walk_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1148, ptr noundef %216, i64 noundef 10640)
   %arrayinit.element1149 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1145, i64 1
   %id1150 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1149, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1151) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1150, ptr noundef @.str.269, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1151)
   %data1152 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1149, i32 0, i32 1
-  %183 = load ptr, ptr @_ZN4nodeL27_stream_writable_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1152, ptr noundef %183, i64 noundef 736)
+  %217 = load ptr, ptr @_ZN4nodeL27_stream_writable_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1152, ptr noundef %217, i64 noundef 736)
   %arrayinit.element1153 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1149, i64 1
   %id1154 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1153, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1155) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1154, ptr noundef @.str.270, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1155)
   %data1156 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1153, i32 0, i32 1
-  %184 = load ptr, ptr @_ZN4nodeL34internal_cluster_worker_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1156, ptr noundef %184, i64 noundef 1624)
+  %218 = load ptr, ptr @_ZN4nodeL34internal_cluster_worker_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1156, ptr noundef %218, i64 noundef 1624)
   %arrayinit.element1157 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1153, i64 1
   %id1158 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1157, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1159) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1158, ptr noundef @.str.271, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1159)
   %data1160 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1157, i32 0, i32 1
-  %185 = load ptr, ptr @_ZN4nodeL37internal_readline_promises_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1160, ptr noundef %185, i64 noundef 2848)
+  %219 = load ptr, ptr @_ZN4nodeL37internal_readline_promises_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1160, ptr noundef %219, i64 noundef 2848)
   %arrayinit.element1161 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1157, i64 1
   %id1162 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1161, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1163) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1162, ptr noundef @.str.272, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1163)
   %data1164 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1161, i32 0, i32 1
-  %186 = load ptr, ptr @_ZN4nodeL21util_types_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1164, ptr noundef %186, i64 noundef 720)
+  %220 = load ptr, ptr @_ZN4nodeL21util_types_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1164, ptr noundef %220, i64 noundef 720)
   %arrayinit.element1165 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1161, i64 1
   %id1166 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1165, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1167) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1166, ptr noundef @.str.273, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1167)
   %data1168 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1165, i32 0, i32 1
-  %187 = load ptr, ptr @_ZN4nodeL40internal_fs_sync_write_stream_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1168, ptr noundef %187, i64 noundef 1560)
+  %221 = load ptr, ptr @_ZN4nodeL40internal_fs_sync_write_stream_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1168, ptr noundef %221, i64 noundef 1560)
   %arrayinit.element1169 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1165, i64 1
   %id1170 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1169, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1171) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1170, ptr noundef @.str.274, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1171)
   %data1172 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1169, i32 0, i32 1
-  %188 = load ptr, ptr @_ZN4nodeL30internal_http2_util_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1172, ptr noundef %188, i64 noundef 12544)
+  %222 = load ptr, ptr @_ZN4nodeL30internal_http2_util_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1172, ptr noundef %222, i64 noundef 12544)
   %arrayinit.element1173 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1169, i64 1
   %id1174 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1173, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1175) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1174, ptr noundef @.str.275, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1175)
   %data1176 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1173, i32 0, i32 1
-  %189 = load ptr, ptr @_ZN4nodeL34internal_process_policy_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1176, ptr noundef %189, i64 noundef 1872)
+  %223 = load ptr, ptr @_ZN4nodeL34internal_process_policy_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1176, ptr noundef %223, i64 noundef 1872)
   %arrayinit.element1177 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1173, i64 1
   %id1178 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1177, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1179) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1178, ptr noundef @.str.276, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1179)
   %data1180 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1177, i32 0, i32 1
-  %190 = load ptr, ptr @_ZN4nodeL22_tls_common_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1180, ptr noundef %190, i64 noundef 2280)
+  %224 = load ptr, ptr @_ZN4nodeL22_tls_common_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1180, ptr noundef %224, i64 noundef 2280)
   %arrayinit.element1181 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1177, i64 1
   %id1182 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1181, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1183) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1182, ptr noundef @.str.277, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1183)
   %data1184 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1181, i32 0, i32 1
-  %191 = load ptr, ptr @_ZN4nodeL23_http_client_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1184, ptr noundef %191, i64 noundef 9256)
+  %225 = load ptr, ptr @_ZN4nodeL23_http_client_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1184, ptr noundef %225, i64 noundef 9256)
   %arrayinit.element1185 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1181, i64 1
   %id1186 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1185, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1187) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1186, ptr noundef @.str.278, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1187)
   %data1188 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1185, i32 0, i32 1
-  %192 = load ptr, ptr @_ZN4nodeL17crypto_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1188, ptr noundef %192, i64 noundef 7640)
+  %226 = load ptr, ptr @_ZN4nodeL17crypto_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1188, ptr noundef %226, i64 noundef 7640)
   %arrayinit.element1189 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1185, i64 1
   %id1190 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1189, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1191) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1190, ptr noundef @.str.279, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1191)
   %data1192 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1189, i32 0, i32 1
-  %193 = load ptr, ptr @_ZN4nodeL29internal_blocklist_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1192, ptr noundef %193, i64 noundef 3288)
+  %227 = load ptr, ptr @_ZN4nodeL29internal_blocklist_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1192, ptr noundef %227, i64 noundef 3288)
   %arrayinit.element1193 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1189, i64 1
   %id1194 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1193, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1195) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1194, ptr noundef @.str.280, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1195)
   %data1196 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1193, i32 0, i32 1
-  %194 = load ptr, ptr @_ZN4nodeL34internal_streams_legacy_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1196, ptr noundef %194, i64 noundef 1304)
+  %228 = load ptr, ptr @_ZN4nodeL34internal_streams_legacy_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1196, ptr noundef %228, i64 noundef 1304)
   %arrayinit.element1197 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1193, i64 1
   %id1198 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1197, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1199) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1198, ptr noundef @.str.281, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1199)
   %data1200 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1197, i32 0, i32 1
-  %195 = load ptr, ptr @_ZN4nodeL28internal_fs_cp_cp_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1200, ptr noundef %195, i64 noundef 4896)
+  %229 = load ptr, ptr @_ZN4nodeL28internal_fs_cp_cp_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1200, ptr noundef %229, i64 noundef 4896)
   %arrayinit.element1201 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1197, i64 1
   %id1202 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1201, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1203) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1202, ptr noundef @.str.282, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1203)
   %data1204 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1201, i32 0, i32 1
-  %196 = load ptr, ptr @_ZN4nodeL26stream_promises_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1204, ptr noundef %196, i64 noundef 1360)
+  %230 = load ptr, ptr @_ZN4nodeL26stream_promises_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1204, ptr noundef %230, i64 noundef 1360)
   %arrayinit.element1205 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1201, i64 1
   %id1206 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1205, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1207) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1206, ptr noundef @.str.283, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1207)
   %data1208 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1205, i32 0, i32 1
-  %197 = load ptr, ptr @_ZN4nodeL16dgram_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1208, ptr noundef %197, i64 noundef 11808)
+  %231 = load ptr, ptr @_ZN4nodeL16dgram_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1208, ptr noundef %231, i64 noundef 11808)
   %arrayinit.element1209 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1205, i64 1
   %id1210 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1209, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1211) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1210, ptr noundef @.str.52, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1211)
   %data1212 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1209, i32 0, i32 1
-  %198 = load ptr, ptr @_ZN4nodeL26internal_buffer_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1212, ptr noundef %198, i64 noundef 11152)
+  %232 = load ptr, ptr @_ZN4nodeL26internal_buffer_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1212, ptr noundef %232, i64 noundef 11152)
   %arrayinit.element1213 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1209, i64 1
   %id1214 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1213, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1215) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1214, ptr noundef @.str.284, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1215)
   %data1216 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1213, i32 0, i32 1
-  %199 = load ptr, ptr @_ZN4nodeL16http2_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1216, ptr noundef %199, i64 noundef 1280)
+  %233 = load ptr, ptr @_ZN4nodeL16http2_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1216, ptr noundef %233, i64 noundef 1280)
   %arrayinit.element1217 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1213, i64 1
   %id1218 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1217, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1219) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1218, ptr noundef @.str.285, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1219)
   %data1220 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1217, i32 0, i32 1
-  %200 = load ptr, ptr @_ZN4nodeL25internal_dgram_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1220, ptr noundef %200, i64 noundef 1864)
+  %234 = load ptr, ptr @_ZN4nodeL25internal_dgram_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1220, ptr noundef %234, i64 noundef 1864)
   %arrayinit.element1221 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1217, i64 1
   %id1222 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1221, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1223) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1222, ptr noundef @.str.286, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1223)
   %data1224 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1221, i32 0, i32 1
-  %201 = load ptr, ptr @_ZN4nodeL16https_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1224, ptr noundef %201, i64 noundef 4312)
+  %235 = load ptr, ptr @_ZN4nodeL16https_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1224, ptr noundef %235, i64 noundef 4312)
   %arrayinit.element1225 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1221, i64 1
   %id1226 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1225, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1227) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1226, ptr noundef @.str.287, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1227)
   %data1228 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1225, i32 0, i32 1
-  %202 = load ptr, ptr @_ZN4nodeL15http_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1228, ptr noundef %202, i64 noundef 2680)
+  %236 = load ptr, ptr @_ZN4nodeL15http_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1228, ptr noundef %236, i64 noundef 2680)
   %arrayinit.element1229 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1225, i64 1
   %id1230 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1229, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1231) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1230, ptr noundef @.str.288, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1231)
   %data1232 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1229, i32 0, i32 1
-  %203 = load ptr, ptr @_ZN4nodeL32internal_streams_from_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1232, ptr noundef %203, i64 noundef 1288)
+  %237 = load ptr, ptr @_ZN4nodeL32internal_streams_from_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1232, ptr noundef %237, i64 noundef 1288)
   %arrayinit.element1233 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1229, i64 1
   %id1234 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1233, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1235) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1234, ptr noundef @.str.289, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1235)
   %data1236 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1233, i32 0, i32 1
-  %204 = load ptr, ptr @_ZN4nodeL37internal_modules_esm_hooks_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1236, ptr noundef %204, i64 noundef 7800)
+  %238 = load ptr, ptr @_ZN4nodeL37internal_modules_esm_hooks_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1236, ptr noundef %238, i64 noundef 7800)
   %arrayinit.element1237 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1233, i64 1
   %id1238 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1237, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1239) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1238, ptr noundef @.str.290, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1239)
   %data1240 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1237, i32 0, i32 1
-  %205 = load ptr, ptr @_ZN4nodeL29inspector_promises_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1240, ptr noundef %205, i64 noundef 1144)
+  %239 = load ptr, ptr @_ZN4nodeL29inspector_promises_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1240, ptr noundef %239, i64 noundef 1144)
   %arrayinit.element1241 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1237, i64 1
   %id1242 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1241, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1243) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1242, ptr noundef @.str.291, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1243)
   %data1244 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1241, i32 0, i32 1
-  %206 = load ptr, ptr @_ZN4nodeL42internal_assert_assertion_error_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1244, ptr noundef %206, i64 noundef 3880)
+  %240 = load ptr, ptr @_ZN4nodeL42internal_assert_assertion_error_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1244, ptr noundef %240, i64 noundef 3880)
   %arrayinit.element1245 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1241, i64 1
   %id1246 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1245, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1247) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1246, ptr noundef @.str.44, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1247)
   %data1248 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1245, i32 0, i32 1
-  %207 = load ptr, ptr @_ZN4nodeL31internal_async_hooks_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1248, ptr noundef %207, i64 noundef 8920)
+  %241 = load ptr, ptr @_ZN4nodeL31internal_async_hooks_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1248, ptr noundef %241, i64 noundef 8920)
   %arrayinit.element1249 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1245, i64 1
   %id1250 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1249, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1251) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1250, ptr noundef @.str.292, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1251)
   %data1252 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1249, i32 0, i32 1
-  %208 = load ptr, ptr @_ZN4nodeL22_http_agent_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1252, ptr noundef %208, i64 noundef 5008)
+  %242 = load ptr, ptr @_ZN4nodeL22_http_agent_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1252, ptr noundef %242, i64 noundef 5008)
   %arrayinit.element1253 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1249, i64 1
   %id1254 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1253, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1255) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1254, ptr noundef @.str.60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1255)
   %data1256 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1253, i32 0, i32 1
-  %209 = load ptr, ptr @_ZN4nodeL31internal_fixed_queue_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1256, ptr noundef %209, i64 noundef 1976)
+  %243 = load ptr, ptr @_ZN4nodeL31internal_fixed_queue_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1256, ptr noundef %243, i64 noundef 1976)
   %arrayinit.element1257 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1253, i64 1
   %id1258 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1257, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1259) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1258, ptr noundef @.str.51, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1259)
   %data1260 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1257, i32 0, i32 1
-  %210 = load ptr, ptr @_ZN4nodeL58internal_bootstrap_web_exposed_window_or_worker_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1260, ptr noundef %210, i64 noundef 2376)
+  %244 = load ptr, ptr @_ZN4nodeL58internal_bootstrap_web_exposed_window_or_worker_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1260, ptr noundef %244, i64 noundef 2376)
   %arrayinit.element1261 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1257, i64 1
   %id1262 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1261, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1263) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1262, ptr noundef @.str.50, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1263)
   %data1264 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1261, i32 0, i32 1
-  %211 = load ptr, ptr @_ZN4nodeL50internal_bootstrap_web_exposed_wildcard_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1264, ptr noundef %211, i64 noundef 3200)
+  %245 = load ptr, ptr @_ZN4nodeL50internal_bootstrap_web_exposed_wildcard_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1264, ptr noundef %245, i64 noundef 3200)
   %arrayinit.element1265 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1261, i64 1
   %id1266 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1265, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1267) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1266, ptr noundef @.str.293, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1267)
   %data1268 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1265, i32 0, i32 1
-  %212 = load ptr, ptr @_ZN4nodeL33internal_child_process_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1268, ptr noundef %212, i64 noundef 10848)
+  %246 = load ptr, ptr @_ZN4nodeL33internal_child_process_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1268, ptr noundef %246, i64 noundef 10848)
   %arrayinit.element1269 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1265, i64 1
   %id1270 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1269, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1271) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1270, ptr noundef @.str.294, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1271)
   %data1272 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1269, i32 0, i32 1
-  %213 = load ptr, ptr @_ZN4nodeL65internal_bootstrap_switches_does_not_own_process_state_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1272, ptr noundef %213, i64 noundef 1832)
+  %247 = load ptr, ptr @_ZN4nodeL65internal_bootstrap_switches_does_not_own_process_state_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1272, ptr noundef %247, i64 noundef 1832)
   %arrayinit.element1273 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1269, i64 1
   %id1274 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1273, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1275) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1274, ptr noundef @.str.295, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1275)
   %data1276 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1273, i32 0, i32 1
-  %214 = load ptr, ptr @_ZN4nodeL29internal_cli_table_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1276, ptr noundef %214, i64 noundef 1992)
+  %248 = load ptr, ptr @_ZN4nodeL29internal_cli_table_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1276, ptr noundef %248, i64 noundef 1992)
   %arrayinit.element1277 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1273, i64 1
   %id1278 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1277, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1279) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1278, ptr noundef @.str.296, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1279)
   %data1280 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1277, i32 0, i32 1
-  %215 = load ptr, ptr @_ZN4nodeL35internal_tls_secure_pair_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1280, ptr noundef %215, i64 noundef 2504)
+  %249 = load ptr, ptr @_ZN4nodeL35internal_tls_secure_pair_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1280, ptr noundef %249, i64 noundef 2504)
   %arrayinit.element1281 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1277, i64 1
   %id1282 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1281, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1283) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1282, ptr noundef @.str.63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1283)
   %data1284 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1281, i32 0, i32 1
-  %216 = load ptr, ptr @_ZN4nodeL40internal_inspector_async_hook_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1284, ptr noundef %216, i64 noundef 1272)
+  %250 = load ptr, ptr @_ZN4nodeL40internal_inspector_async_hook_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1284, ptr noundef %250, i64 noundef 1272)
   %arrayinit.element1285 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1281, i64 1
   %id1286 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1285, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1287) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1286, ptr noundef @.str.297, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1287)
   %data1288 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1285, i32 0, i32 1
-  %217 = load ptr, ptr @_ZN4nodeL36internal_js_stream_socket_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1288, ptr noundef %217, i64 noundef 3488)
+  %251 = load ptr, ptr @_ZN4nodeL36internal_js_stream_socket_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1288, ptr noundef %251, i64 noundef 3488)
   %arrayinit.element1289 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1285, i64 1
   %id1290 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1289, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1291) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1290, ptr noundef @.str.298, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1291)
   %data1292 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1289, i32 0, i32 1
-  %218 = load ptr, ptr @_ZN4nodeL33internal_crypto_scrypt_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1292, ptr noundef %218, i64 noundef 2008)
+  %252 = load ptr, ptr @_ZN4nodeL33internal_crypto_scrypt_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1292, ptr noundef %252, i64 noundef 2008)
   %arrayinit.element1293 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1289, i64 1
   %id1294 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1293, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1295) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1294, ptr noundef @.str.299, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1295)
   %data1296 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1293, i32 0, i32 1
-  %219 = load ptr, ptr @_ZN4nodeL38internal_process_esm_loader_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1296, ptr noundef %219, i64 noundef 1520)
+  %253 = load ptr, ptr @_ZN4nodeL38internal_process_esm_loader_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1296, ptr noundef %253, i64 noundef 1520)
   %arrayinit.element1297 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1293, i64 1
   %id1298 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1297, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1299) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1298, ptr noundef @.str.300, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1299)
   %data1300 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1297, i32 0, i32 1
-  %220 = load ptr, ptr @_ZN4nodeL35internal_streams_destroy_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1300, ptr noundef %220, i64 noundef 3256)
+  %254 = load ptr, ptr @_ZN4nodeL35internal_streams_destroy_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1300, ptr noundef %254, i64 noundef 3256)
   %arrayinit.element1301 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1297, i64 1
   %id1302 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1301, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1303) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1302, ptr noundef @.str.301, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1303)
   %data1304 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1301, i32 0, i32 1
-  %221 = load ptr, ptr @_ZN4nodeL30diagnostics_channel_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1304, ptr noundef %221, i64 noundef 6912)
+  %255 = load ptr, ptr @_ZN4nodeL30diagnostics_channel_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1304, ptr noundef %255, i64 noundef 6912)
   %arrayinit.element1305 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1301, i64 1
   %id1306 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1305, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1307) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1306, ptr noundef @.str.302, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1307)
   %data1308 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1305, i32 0, i32 1
-  %222 = load ptr, ptr @_ZN4nodeL31internal_socket_list_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1308, ptr noundef %222, i64 noundef 1888)
+  %256 = load ptr, ptr @_ZN4nodeL31internal_socket_list_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1308, ptr noundef %256, i64 noundef 1888)
   %arrayinit.element1309 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1305, i64 1
   %id1310 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1309, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1311) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1310, ptr noundef @.str.303, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1311)
   %data1312 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1309, i32 0, i32 1
-  %223 = load ptr, ptr @_ZN4nodeL34internal_main_embedding_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1312, ptr noundef %223, i64 noundef 1264)
+  %257 = load ptr, ptr @_ZN4nodeL34internal_main_embedding_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1312, ptr noundef %257, i64 noundef 1264)
   %arrayinit.element1313 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1309, i64 1
   %id1314 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1313, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1315) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1314, ptr noundef @.str.304, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1315)
   %data1316 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1313, i32 0, i32 1
-  %224 = load ptr, ptr @_ZN4nodeL35internal_main_eval_stdin_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1316, ptr noundef %224, i64 noundef 1176)
+  %258 = load ptr, ptr @_ZN4nodeL35internal_main_eval_stdin_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1316, ptr noundef %258, i64 noundef 1176)
   %arrayinit.element1317 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1313, i64 1
   %id1318 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1317, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1319) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1318, ptr noundef @.str.305, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1319)
   %data1320 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1317, i32 0, i32 1
-  %225 = load ptr, ptr @_ZN4nodeL36internal_main_eval_string_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1320, ptr noundef %225, i64 noundef 2336)
+  %259 = load ptr, ptr @_ZN4nodeL36internal_main_eval_string_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1320, ptr noundef %259, i64 noundef 2336)
   %arrayinit.element1321 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1317, i64 1
   %id1322 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1321, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1323) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1322, ptr noundef @.str.306, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1323)
   %data1324 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1321, i32 0, i32 1
-  %226 = load ptr, ptr @_ZN4nodeL17module_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1324, ptr noundef %226, i64 noundef 1048)
+  %260 = load ptr, ptr @_ZN4nodeL17module_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1324, ptr noundef %260, i64 noundef 1048)
   %arrayinit.element1325 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1321, i64 1
   %id1326 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1325, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1327) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1326, ptr noundef @.str.307, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1327)
   %data1328 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1325, i32 0, i32 1
-  %227 = load ptr, ptr @_ZN4nodeL41internal_cluster_shared_handle_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1328, ptr noundef %227, i64 noundef 1248)
+  %261 = load ptr, ptr @_ZN4nodeL41internal_cluster_shared_handle_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1328, ptr noundef %261, i64 noundef 1248)
   %arrayinit.element1329 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1325, i64 1
   %id1330 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1329, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1331) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1330, ptr noundef @.str.308, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1331)
   %data1332 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1329, i32 0, i32 1
-  %228 = load ptr, ptr @_ZN4nodeL42internal_streams_lazy_transform_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1332, ptr noundef %228, i64 noundef 1576)
+  %262 = load ptr, ptr @_ZN4nodeL42internal_streams_lazy_transform_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1332, ptr noundef %262, i64 noundef 1576)
   %arrayinit.element1333 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1329, i64 1
   %id1334 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1333, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1335) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1334, ptr noundef @.str.309, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1335)
   %data1336 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1333, i32 0, i32 1
-  %229 = load ptr, ptr @_ZN4nodeL32internal_main_inspect_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1336, ptr noundef %229, i64 noundef 928)
+  %263 = load ptr, ptr @_ZN4nodeL32internal_main_inspect_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1336, ptr noundef %263, i64 noundef 928)
   %arrayinit.element1337 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1333, i64 1
   %id1338 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1337, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1339) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1338, ptr noundef @.str.77, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1339)
   %data1340 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1337, i32 0, i32 1
-  %230 = load ptr, ptr @_ZN4nodeL41internal_process_pre_execution_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1340, ptr noundef %230, i64 noundef 6864)
+  %264 = load ptr, ptr @_ZN4nodeL41internal_process_pre_execution_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1340, ptr noundef %264, i64 noundef 6864)
   %arrayinit.element1341 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1337, i64 1
   %id1342 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1341, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1343) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1342, ptr noundef @.str.310, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1343)
   %data1344 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1341, i32 0, i32 1
-  %231 = load ptr, ptr @_ZN4nodeL30internal_crypto_sig_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1344, ptr noundef %231, i64 noundef 3680)
+  %265 = load ptr, ptr @_ZN4nodeL30internal_crypto_sig_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1344, ptr noundef %265, i64 noundef 3680)
   %arrayinit.element1345 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1341, i64 1
   %id1346 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1345, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1347) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1346, ptr noundef @.str.311, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1347)
   %data1348 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1345, i32 0, i32 1
-  %232 = load ptr, ptr @_ZN4nodeL35internal_main_mksnapshot_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1348, ptr noundef %232, i64 noundef 3568)
+  %266 = load ptr, ptr @_ZN4nodeL35internal_main_mksnapshot_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1348, ptr noundef %266, i64 noundef 3568)
   %arrayinit.element1349 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1345, i64 1
   %id1350 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1349, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1351) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1350, ptr noundef @.str.312, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1351)
   %data1352 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1349, i32 0, i32 1
-  %233 = load ptr, ptr @_ZN4nodeL35internal_main_watch_mode_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1352, ptr noundef %233, i64 noundef 4840)
+  %267 = load ptr, ptr @_ZN4nodeL35internal_main_watch_mode_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1352, ptr noundef %267, i64 noundef 4840)
   %arrayinit.element1353 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1349, i64 1
   %id1354 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1353, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1355) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1354, ptr noundef @.str.313, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1355)
   %data1356 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1353, i32 0, i32 1
-  %234 = load ptr, ptr @_ZN4nodeL38internal_main_worker_thread_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1356, ptr noundef %234, i64 noundef 3648)
+  %268 = load ptr, ptr @_ZN4nodeL38internal_main_worker_thread_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1356, ptr noundef %268, i64 noundef 3648)
   %arrayinit.element1357 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1353, i64 1
   %id1358 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1357, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1359) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1358, ptr noundef @.str.314, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1359)
   %data1360 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1357, i32 0, i32 1
-  %235 = load ptr, ptr @_ZN4nodeL24internal_mime_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1360, ptr noundef %235, i64 noundef 5856)
+  %269 = load ptr, ptr @_ZN4nodeL24internal_mime_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1360, ptr noundef %269, i64 noundef 5856)
   %arrayinit.element1361 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1357, i64 1
   %id1362 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1361, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1363) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1362, ptr noundef @.str.315, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1363)
   %data1364 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1361, i32 0, i32 1
-  %236 = load ptr, ptr @_ZN4nodeL25worker_threads_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1364, ptr noundef %236, i64 noundef 1624)
+  %270 = load ptr, ptr @_ZN4nodeL25worker_threads_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1364, ptr noundef %270, i64 noundef 1624)
   %arrayinit.element1365 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1361, i64 1
   %id1366 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1365, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1367) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1366, ptr noundef @.str.66, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1367)
   %data1368 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1365, i32 0, i32 1
-  %237 = load ptr, ptr @_ZN4nodeL37internal_modules_esm_utils_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1368, ptr noundef %237, i64 noundef 3600)
+  %271 = load ptr, ptr @_ZN4nodeL37internal_modules_esm_utils_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1368, ptr noundef %271, i64 noundef 3600)
   %arrayinit.element1369 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1365, i64 1
   %id1370 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1369, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1371) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1370, ptr noundef @.str.82, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1371)
   %data1372 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1369, i32 0, i32 1
-  %238 = load ptr, ptr @_ZN4nodeL31internal_querystring_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1372, ptr noundef %238, i64 noundef 3496)
+  %272 = load ptr, ptr @_ZN4nodeL31internal_querystring_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1372, ptr noundef %272, i64 noundef 3496)
   %arrayinit.element1373 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1369, i64 1
   %id1374 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1373, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1375) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1374, ptr noundef @.str.94, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1375)
   %data1376 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1373, i32 0, i32 1
-  %239 = load ptr, ptr @_ZN4nodeL29internal_vm_module_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1376, ptr noundef %239, i64 noundef 6936)
+  %273 = load ptr, ptr @_ZN4nodeL29internal_vm_module_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1376, ptr noundef %273, i64 noundef 6936)
   %arrayinit.element1377 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1373, i64 1
   %id1378 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1377, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1379) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1378, ptr noundef @.str.65, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1379)
   %data1380 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1377, i32 0, i32 1
-  %240 = load ptr, ptr @_ZN4nodeL38internal_modules_cjs_loader_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1380, ptr noundef %240, i64 noundef 16248)
+  %274 = load ptr, ptr @_ZN4nodeL38internal_modules_cjs_loader_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1380, ptr noundef %274, i64 noundef 16248)
   %arrayinit.element1381 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1377, i64 1
   %id1382 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1381, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1383) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1382, ptr noundef @.str.316, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1383)
   %data1384 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1381, i32 0, i32 1
-  %241 = load ptr, ptr @_ZN4nodeL38internal_modules_esm_assert_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1384, ptr noundef %241, i64 noundef 2016)
+  %275 = load ptr, ptr @_ZN4nodeL38internal_modules_esm_assert_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1384, ptr noundef %275, i64 noundef 2016)
   %arrayinit.element1385 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1381, i64 1
   %id1386 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1385, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1387) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1386, ptr noundef @.str.317, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1387)
   %data1388 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1385, i32 0, i32 1
-  %242 = load ptr, ptr @_ZN4nodeL44internal_modules_esm_fetch_module_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1388, ptr noundef %242, i64 noundef 3256)
+  %276 = load ptr, ptr @_ZN4nodeL44internal_modules_esm_fetch_module_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1388, ptr noundef %276, i64 noundef 3256)
   %arrayinit.element1389 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1385, i64 1
   %id1390 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1389, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1391) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1390, ptr noundef @.str.318, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1391)
   %data1392 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1389, i32 0, i32 1
-  %243 = load ptr, ptr @_ZN4nodeL33internal_crypto_random_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1392, ptr noundef %243, i64 noundef 6072)
+  %277 = load ptr, ptr @_ZN4nodeL33internal_crypto_random_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1392, ptr noundef %277, i64 noundef 6072)
   %arrayinit.element1393 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1389, i64 1
   %id1394 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1393, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1395) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1394, ptr noundef @.str.319, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1395)
   %data1396 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1393, i32 0, i32 1
-  %244 = load ptr, ptr @_ZN4nodeL42internal_perf_performance_entry_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1396, ptr noundef %244, i64 noundef 3744)
+  %278 = load ptr, ptr @_ZN4nodeL42internal_perf_performance_entry_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1396, ptr noundef %278, i64 noundef 3744)
   %arrayinit.element1397 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1393, i64 1
   %id1398 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1397, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1399) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1398, ptr noundef @.str.320, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1399)
   %data1400 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1397, i32 0, i32 1
-  %245 = load ptr, ptr @_ZN4nodeL51internal_modules_esm_handle_process_exit_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1400, ptr noundef %245, i64 noundef 984)
+  %279 = load ptr, ptr @_ZN4nodeL51internal_modules_esm_handle_process_exit_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1400, ptr noundef %279, i64 noundef 984)
   %arrayinit.element1401 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1397, i64 1
   %id1402 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1401, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1403) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1402, ptr noundef @.str.321, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1403)
   %data1404 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1401, i32 0, i32 1
-  %246 = load ptr, ptr @_ZN4nodeL34internal_events_symbols_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1404, ptr noundef %246, i64 noundef 816)
+  %280 = load ptr, ptr @_ZN4nodeL34internal_events_symbols_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1404, ptr noundef %280, i64 noundef 816)
   %arrayinit.element1405 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1401, i64 1
   %id1406 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1405, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1407) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1406, ptr noundef @.str.322, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1407)
   %data1408 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1405, i32 0, i32 1
-  %247 = load ptr, ptr @_ZN4nodeL33internal_crypto_keygen_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1408, ptr noundef %247, i64 noundef 4352)
+  %281 = load ptr, ptr @_ZN4nodeL33internal_crypto_keygen_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1408, ptr noundef %281, i64 noundef 4352)
   %arrayinit.element1409 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1405, i64 1
   %id1410 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1409, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1411) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1410, ptr noundef @.str.323, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1411)
   %data1412 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1409, i32 0, i32 1
-  %248 = load ptr, ptr @_ZN4nodeL46internal_cluster_round_robin_handle_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1412, ptr noundef %248, i64 noundef 1944)
+  %282 = load ptr, ptr @_ZN4nodeL46internal_cluster_round_robin_handle_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1412, ptr noundef %282, i64 noundef 1944)
   %arrayinit.element1413 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1409, i64 1
   %id1414 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1413, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1415) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1414, ptr noundef @.str.324, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1415)
   %data1416 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1413, i32 0, i32 1
-  %249 = load ptr, ptr @_ZN4nodeL36internal_modules_esm_load_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1416, ptr noundef %249, i64 noundef 2976)
+  %283 = load ptr, ptr @_ZN4nodeL36internal_modules_esm_load_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1416, ptr noundef %283, i64 noundef 2976)
   %arrayinit.element1417 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1413, i64 1
   %id1418 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1417, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1419) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1418, ptr noundef @.str.325, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1419)
   %data1420 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1417, i32 0, i32 1
-  %250 = load ptr, ptr @_ZN4nodeL38internal_modules_esm_loader_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1420, ptr noundef %250, i64 noundef 6504)
+  %284 = load ptr, ptr @_ZN4nodeL38internal_modules_esm_loader_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1420, ptr noundef %284, i64 noundef 6504)
   %arrayinit.element1421 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1417, i64 1
   %id1422 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1421, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1423) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1422, ptr noundef @.str.326, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1423)
   %data1424 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1421, i32 0, i32 1
-  %251 = load ptr, ptr @_ZN4nodeL36internal_main_test_runner_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1424, ptr noundef %251, i64 noundef 2984)
+  %285 = load ptr, ptr @_ZN4nodeL36internal_main_test_runner_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1424, ptr noundef %285, i64 noundef 2984)
   %arrayinit.element1425 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1421, i64 1
   %id1426 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1425, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1427) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1426, ptr noundef @.str.327, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1427)
   %data1428 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1425, i32 0, i32 1
-  %252 = load ptr, ptr @_ZN4nodeL23_http_common_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1428, ptr noundef %252, i64 noundef 3832)
+  %286 = load ptr, ptr @_ZN4nodeL23_http_common_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1428, ptr noundef %286, i64 noundef 3832)
   %arrayinit.element1429 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1425, i64 1
   %id1430 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1429, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1431) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1430, ptr noundef @.str.328, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1431)
   %data1432 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1429, i32 0, i32 1
-  %253 = load ptr, ptr @_ZN4nodeL42internal_modules_esm_module_map_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1432, ptr noundef %253, i64 noundef 3000)
+  %287 = load ptr, ptr @_ZN4nodeL42internal_modules_esm_module_map_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1432, ptr noundef %287, i64 noundef 3000)
   %arrayinit.element1433 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1429, i64 1
   %id1434 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1433, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1435) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1434, ptr noundef @.str.329, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1435)
   %data1436 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1433, i32 0, i32 1
-  %254 = load ptr, ptr @_ZN4nodeL57internal_bootstrap_switches_is_not_main_thread_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1436, ptr noundef %254, i64 noundef 1728)
+  %288 = load ptr, ptr @_ZN4nodeL57internal_bootstrap_switches_is_not_main_thread_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1436, ptr noundef %288, i64 noundef 1728)
   %arrayinit.element1437 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1433, i64 1
   %id1438 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1437, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1439) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1438, ptr noundef @.str.68, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1439)
   %data1440 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1437, i32 0, i32 1
-  %255 = load ptr, ptr @_ZN4nodeL47internal_modules_package_json_reader_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1440, ptr noundef %255, i64 noundef 2224)
+  %289 = load ptr, ptr @_ZN4nodeL47internal_modules_package_json_reader_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1440, ptr noundef %289, i64 noundef 2224)
   %arrayinit.element1441 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1437, i64 1
   %id1442 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1441, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1443) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1442, ptr noundef @.str.330, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1443)
   %data1444 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1441, i32 0, i32 1
-  %256 = load ptr, ptr @_ZN4nodeL34internal_streams_duplex_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1444, ptr noundef %256, i64 noundef 3296)
+  %290 = load ptr, ptr @_ZN4nodeL34internal_streams_duplex_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1444, ptr noundef %290, i64 noundef 3296)
   %arrayinit.element1445 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1441, i64 1
   %id1446 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1445, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1447) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1446, ptr noundef @.str.331, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1447)
   %data1448 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1445, i32 0, i32 1
-  %257 = load ptr, ptr @_ZN4nodeL44internal_per_context_domexception_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1448, ptr noundef %257, i64 noundef 5048)
+  %291 = load ptr, ptr @_ZN4nodeL44internal_per_context_domexception_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1448, ptr noundef %291, i64 noundef 5048)
   %arrayinit.element1449 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1445, i64 1
   %id1450 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1449, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1451) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1450, ptr noundef @.str.62, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1451)
   %data1452 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1449, i32 0, i32 1
-  %258 = load ptr, ptr @_ZN4nodeL24internal_idna_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1452, ptr noundef %258, i64 noundef 840)
+  %292 = load ptr, ptr @_ZN4nodeL24internal_idna_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1452, ptr noundef %292, i64 noundef 840)
   %arrayinit.element1453 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1449, i64 1
   %id1454 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1453, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1455) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1454, ptr noundef @.str.332, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1455)
   %data1456 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1453, i32 0, i32 1
-  %259 = load ptr, ptr @_ZN4nodeL43internal_per_context_messageport_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1456, ptr noundef %259, i64 noundef 1272)
+  %293 = load ptr, ptr @_ZN4nodeL43internal_per_context_messageport_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1456, ptr noundef %293, i64 noundef 1272)
   %arrayinit.element1457 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1453, i64 1
   %id1458 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1457, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1459) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1458, ptr noundef @.str.333, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1459)
   %data1460 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1457, i32 0, i32 1
-  %260 = load ptr, ptr @_ZN4nodeL43internal_per_context_primordials_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1460, ptr noundef %260, i64 noundef 11416)
+  %294 = load ptr, ptr @_ZN4nodeL43internal_per_context_primordials_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1460, ptr noundef %294, i64 noundef 11416)
   %arrayinit.element1461 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1457, i64 1
   %id1462 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1461, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1463) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1462, ptr noundef @.str.334, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1463)
   %data1464 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1461, i32 0, i32 1
-  %261 = load ptr, ptr @_ZN4nodeL37internal_streams_transform_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1464, ptr noundef %261, i64 noundef 1928)
+  %295 = load ptr, ptr @_ZN4nodeL37internal_streams_transform_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1464, ptr noundef %295, i64 noundef 1928)
   %arrayinit.element1465 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1461, i64 1
   %id1466 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1465, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1467) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1466, ptr noundef @.str.335, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1467)
   %data1468 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1465, i32 0, i32 1
-  %262 = load ptr, ptr @_ZN4nodeL35internal_perf_nodetiming_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1468, ptr noundef %262, i64 noundef 2408)
+  %296 = load ptr, ptr @_ZN4nodeL35internal_perf_nodetiming_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1468, ptr noundef %296, i64 noundef 2408)
   %arrayinit.element1469 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1465, i64 1
   %id1470 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1469, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1471) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1470, ptr noundef @.str.336, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1471)
   %data1472 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1469, i32 0, i32 1
-  %263 = load ptr, ptr @_ZN4nodeL44internal_test_runner_reporter_dot_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1472, ptr noundef %263, i64 noundef 944)
+  %297 = load ptr, ptr @_ZN4nodeL44internal_test_runner_reporter_dot_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1472, ptr noundef %297, i64 noundef 944)
   %arrayinit.element1473 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1469, i64 1
   %id1474 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1473, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1475) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1474, ptr noundef @.str.337, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1475)
   %data1476 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1473, i32 0, i32 1
-  %264 = load ptr, ptr @_ZN4nodeL33internal_crypto_webidl_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1476, ptr noundef %264, i64 noundef 11592)
+  %298 = load ptr, ptr @_ZN4nodeL33internal_crypto_webidl_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1476, ptr noundef %298, i64 noundef 11592)
   %arrayinit.element1477 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1473, i64 1
   %id1478 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1477, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1479) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1478, ptr noundef @.str.338, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1479)
   %data1480 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1477, i32 0, i32 1
-  %265 = load ptr, ptr @_ZN4nodeL32internal_perf_observe_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1480, ptr noundef %265, i64 noundef 9632)
+  %299 = load ptr, ptr @_ZN4nodeL32internal_perf_observe_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1480, ptr noundef %299, i64 noundef 9632)
   %arrayinit.element1481 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1477, i64 1
   %id1482 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1481, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1483) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1482, ptr noundef @.str.339, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1483)
   %data1484 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1481, i32 0, i32 1
-  %266 = load ptr, ptr @_ZN4nodeL30_stream_passthrough_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1484, ptr noundef %266, i64 noundef 744)
+  %300 = load ptr, ptr @_ZN4nodeL30_stream_passthrough_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1484, ptr noundef %300, i64 noundef 744)
   %arrayinit.element1485 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1481, i64 1
   %id1486 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1485, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1487) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1486, ptr noundef @.str.340, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1487)
   %data1488 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1485, i32 0, i32 1
-  %267 = load ptr, ptr @_ZN4nodeL39internal_modules_esm_resolve_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1488, ptr noundef %267, i64 noundef 10568)
+  %301 = load ptr, ptr @_ZN4nodeL39internal_modules_esm_resolve_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1488, ptr noundef %301, i64 noundef 10568)
   %arrayinit.element1489 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1485, i64 1
   %id1490 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1489, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1491) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1490, ptr noundef @.str.341, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1491)
   %data1492 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1489, i32 0, i32 1
-  %268 = load ptr, ptr @_ZN4nodeL50internal_source_map_prepare_stack_trace_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1492, ptr noundef %268, i64 noundef 2712)
+  %302 = load ptr, ptr @_ZN4nodeL50internal_source_map_prepare_stack_trace_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1492, ptr noundef %302, i64 noundef 2712)
   %arrayinit.element1493 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1489, i64 1
   %id1494 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1493, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1495) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1494, ptr noundef @.str.342, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1495)
   %data1496 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1493, i32 0, i32 1
-  %269 = load ptr, ptr @_ZN4nodeL17stream_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1496, ptr noundef %269, i64 noundef 4680)
+  %303 = load ptr, ptr @_ZN4nodeL17stream_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1496, ptr noundef %303, i64 noundef 4680)
   %arrayinit.element1497 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1493, i64 1
   %id1498 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1497, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1499) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1498, ptr noundef @.str.343, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1499)
   %data1500 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1497, i32 0, i32 1
-  %270 = load ptr, ptr @_ZN4nodeL33internal_perf_timerify_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1500, ptr noundef %270, i64 noundef 1928)
+  %304 = load ptr, ptr @_ZN4nodeL33internal_perf_timerify_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1500, ptr noundef %304, i64 noundef 1928)
   %arrayinit.element1501 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1497, i64 1
   %id1502 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1501, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1503) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1502, ptr noundef @.str.344, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1503)
   %data1504 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1501, i32 0, i32 1
-  %271 = load ptr, ptr @_ZN4nodeL39internal_stream_base_commons_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1504, ptr noundef %271, i64 noundef 3560)
+  %305 = load ptr, ptr @_ZN4nodeL39internal_stream_base_commons_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1504, ptr noundef %305, i64 noundef 3560)
   %arrayinit.element1505 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1501, i64 1
   %id1506 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1505, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1507) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1506, ptr noundef @.str.345, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1507)
   %data1508 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1505, i32 0, i32 1
-  %272 = load ptr, ptr @_ZN4nodeL37internal_test_runner_utils_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1508, ptr noundef %272, i64 noundef 6720)
+  %306 = load ptr, ptr @_ZN4nodeL37internal_test_runner_utils_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1508, ptr noundef %306, i64 noundef 6720)
   %arrayinit.element1509 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1505, i64 1
   %id1510 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1509, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1511) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1510, ptr noundef @.str.346, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1511)
   %data1512 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1509, i32 0, i32 1
-  %273 = load ptr, ptr @_ZN4nodeL35internal_perf_usertiming_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1512, ptr noundef %273, i64 noundef 4344)
+  %307 = load ptr, ptr @_ZN4nodeL35internal_perf_usertiming_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1512, ptr noundef %307, i64 noundef 4344)
   %arrayinit.element1513 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1509, i64 1
   %id1514 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1513, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1515) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1514, ptr noundef @.str.347, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1515)
   %data1516 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1513, i32 0, i32 1
-  %274 = load ptr, ptr @_ZN4nodeL24internal_file_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1516, ptr noundef %274, i64 noundef 2584)
+  %308 = load ptr, ptr @_ZN4nodeL24internal_file_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1516, ptr noundef %308, i64 noundef 2584)
   %arrayinit.element1517 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1513, i64 1
   %id1518 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1517, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1519) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1518, ptr noundef @.str.348, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1519)
   %data1520 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1517, i32 0, i32 1
-  %275 = load ptr, ptr @_ZN4nodeL35internal_policy_manifest_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1520, ptr noundef %275, i64 noundef 6840)
+  %309 = load ptr, ptr @_ZN4nodeL35internal_policy_manifest_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1520, ptr noundef %309, i64 noundef 6840)
   %arrayinit.element1521 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1517, i64 1
   %id1522 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1521, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1523) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1522, ptr noundef @.str.349, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1523)
   %data1524 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1521, i32 0, i32 1
-  %276 = load ptr, ptr @_ZN4nodeL30internal_policy_sri_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1524, ptr noundef %276, i64 noundef 1984)
+  %310 = load ptr, ptr @_ZN4nodeL30internal_policy_sri_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1524, ptr noundef %310, i64 noundef 1984)
   %arrayinit.element1525 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1521, i64 1
   %id1526 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1525, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1527) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1526, ptr noundef @.str.74, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1527)
   %data1528 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1525, i32 0, i32 1
-  %277 = load ptr, ptr @_ZN4nodeL37internal_process_execution_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1528, ptr noundef %277, i64 noundef 3296)
+  %311 = load ptr, ptr @_ZN4nodeL37internal_process_execution_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1528, ptr noundef %311, i64 noundef 3296)
   %arrayinit.element1529 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1525, i64 1
   %id1530 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1529, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1531) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1530, ptr noundef @.str.76, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1531)
   %data1532 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1529, i32 0, i32 1
-  %278 = load ptr, ptr @_ZN4nodeL38internal_process_permission_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1532, ptr noundef %278, i64 noundef 1312)
+  %312 = load ptr, ptr @_ZN4nodeL38internal_process_permission_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1532, ptr noundef %312, i64 noundef 1312)
   %arrayinit.element1533 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1529, i64 1
   %id1534 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1533, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1535) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1534, ptr noundef @.str.350, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1535)
   %data1536 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1533, i32 0, i32 1
-  %279 = load ptr, ptr @_ZN4nodeL33internal_cluster_utils_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1536, ptr noundef %279, i64 noundef 1120)
+  %313 = load ptr, ptr @_ZN4nodeL33internal_cluster_utils_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1536, ptr noundef %313, i64 noundef 1120)
   %arrayinit.element1537 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1533, i64 1
   %id1538 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1537, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1539) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1538, ptr noundef @.str.78, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1539)
   %data1540 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1537, i32 0, i32 1
-  %280 = load ptr, ptr @_ZN4nodeL36internal_process_promises_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1540, ptr noundef %280, i64 noundef 4656)
+  %314 = load ptr, ptr @_ZN4nodeL36internal_process_promises_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1540, ptr noundef %314, i64 noundef 4656)
   %arrayinit.element1541 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1537, i64 1
   %id1542 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1541, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1543) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1542, ptr noundef @.str.351, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1543)
   %data1544 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1541, i32 0, i32 1
-  %281 = load ptr, ptr @_ZN4nodeL33internal_cluster_child_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1544, ptr noundef %281, i64 noundef 3392)
+  %315 = load ptr, ptr @_ZN4nodeL33internal_cluster_child_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1544, ptr noundef %315, i64 noundef 3392)
   %arrayinit.element1545 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1541, i64 1
   %id1546 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1545, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1547) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1546, ptr noundef @.str.352, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1547)
   %data1548 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1545, i32 0, i32 1
-  %282 = load ptr, ptr @_ZN4nodeL45internal_test_runner_reporter_spec_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1548, ptr noundef %282, i64 noundef 3832)
+  %316 = load ptr, ptr @_ZN4nodeL45internal_test_runner_reporter_spec_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1548, ptr noundef %316, i64 noundef 3832)
   %arrayinit.element1549 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1545, i64 1
   %id1550 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1549, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1551) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1550, ptr noundef @.str.353, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1551)
   %data1552 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1549, i32 0, i32 1
-  %283 = load ptr, ptr @_ZN4nodeL32internal_http2_compat_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1552, ptr noundef %283, i64 noundef 14952)
+  %317 = load ptr, ptr @_ZN4nodeL32internal_http2_compat_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1552, ptr noundef %317, i64 noundef 14952)
   %arrayinit.element1553 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1549, i64 1
   %id1554 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1553, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1555) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1554, ptr noundef @.str.79, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1555)
   %data1556 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1553, i32 0, i32 1
-  %284 = load ptr, ptr @_ZN4nodeL34internal_process_signal_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1556, ptr noundef %284, i64 noundef 1472)
+  %318 = load ptr, ptr @_ZN4nodeL34internal_process_signal_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1556, ptr noundef %318, i64 noundef 1472)
   %arrayinit.element1557 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1553, i64 1
   %id1558 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1557, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1559) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1558, ptr noundef @.str.354, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1559)
   %data1560 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1557, i32 0, i32 1
-  %285 = load ptr, ptr @_ZN4nodeL38internal_readline_callbacks_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1560, ptr noundef %285, i64 noundef 1776)
+  %319 = load ptr, ptr @_ZN4nodeL38internal_readline_callbacks_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1560, ptr noundef %319, i64 noundef 1776)
   %arrayinit.element1561 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1557, i64 1
   %id1562 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1561, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1563) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1562, ptr noundef @.str.71, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1563)
   %data1564 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1561, i32 0, i32 1
-  %286 = load ptr, ptr @_ZN4nodeL27internal_options_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1564, ptr noundef %286, i64 noundef 1904)
+  %320 = load ptr, ptr @_ZN4nodeL27internal_options_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1564, ptr noundef %320, i64 noundef 1904)
   %arrayinit.element1565 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1561, i64 1
   %id1566 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1565, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1567) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1566, ptr noundef @.str.80, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1567)
   %data1568 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1565, i32 0, i32 1
-  %287 = load ptr, ptr @_ZN4nodeL39internal_process_task_queues_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1568, ptr noundef %287, i64 noundef 3208)
+  %321 = load ptr, ptr @_ZN4nodeL39internal_process_task_queues_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1568, ptr noundef %321, i64 noundef 3208)
   %arrayinit.element1569 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1565, i64 1
   %id1570 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1569, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1571) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1570, ptr noundef @.str.81, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1571)
   %data1572 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1569, i32 0, i32 1
-  %288 = load ptr, ptr @_ZN4nodeL35internal_process_warning_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1572, ptr noundef %288, i64 noundef 2744)
+  %322 = load ptr, ptr @_ZN4nodeL35internal_process_warning_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1572, ptr noundef %322, i64 noundef 2744)
   %arrayinit.element1573 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1569, i64 1
   %id1574 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1573, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1575) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1574, ptr noundef @.str.355, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1575)
   %data1576 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1573, i32 0, i32 1
-  %289 = load ptr, ptr @_ZN4nodeL46internal_process_worker_thread_only_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1576, ptr noundef %289, i64 noundef 992)
+  %323 = load ptr, ptr @_ZN4nodeL46internal_process_worker_thread_only_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1576, ptr noundef %323, i64 noundef 992)
   %arrayinit.element1577 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1573, i64 1
   %id1578 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1577, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1579) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1578, ptr noundef @.str.356, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1579)
   %data1580 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1577, i32 0, i32 1
-  %290 = load ptr, ptr @_ZN4nodeL33internal_promise_hooks_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1580, ptr noundef %290, i64 noundef 2632)
+  %324 = load ptr, ptr @_ZN4nodeL33internal_promise_hooks_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1580, ptr noundef %324, i64 noundef 2632)
   %arrayinit.element1581 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1577, i64 1
   %id1582 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1581, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1583) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1582, ptr noundef @.str.357, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1583)
   %data1584 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1581, i32 0, i32 1
-  %291 = load ptr, ptr @_ZN4nodeL15repl_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1584, ptr noundef %291, i64 noundef 15832)
+  %325 = load ptr, ptr @_ZN4nodeL15repl_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1584, ptr noundef %325, i64 noundef 15832)
   %arrayinit.element1585 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1581, i64 1
   %id1586 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1585, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1587) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1586, ptr noundef @.str.358, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1587)
   %data1588 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1585, i32 0, i32 1
-  %292 = load ptr, ptr @_ZN4nodeL47internal_deps_cjs_module_lexer_lexer_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1588, ptr noundef %292, i64 noundef 14872)
+  %326 = load ptr, ptr @_ZN4nodeL47internal_deps_cjs_module_lexer_lexer_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1588, ptr noundef %326, i64 noundef 14872)
   %arrayinit.element1589 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1585, i64 1
   %id1590 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1589, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1591) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1590, ptr noundef @.str.359, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1591)
   %data1592 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1589, i32 0, i32 1
-  %293 = load ptr, ptr @_ZN4nodeL34internal_readline_utils_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1592, ptr noundef %293, i64 noundef 2232)
+  %327 = load ptr, ptr @_ZN4nodeL34internal_readline_utils_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1592, ptr noundef %327, i64 noundef 2232)
   %arrayinit.element1593 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1589, i64 1
   %id1594 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1593, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1595) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1594, ptr noundef @.str.360, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1595)
   %data1596 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1593, i32 0, i32 1
-  %294 = load ptr, ptr @_ZN4nodeL24internal_repl_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1596, ptr noundef %294, i64 noundef 1176)
+  %328 = load ptr, ptr @_ZN4nodeL24internal_repl_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1596, ptr noundef %328, i64 noundef 1176)
   %arrayinit.element1597 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1593, i64 1
   %id1598 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1597, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1599) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1598, ptr noundef @.str.361, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1599)
   %data1600 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1597, i32 0, i32 1
-  %295 = load ptr, ptr @_ZN4nodeL41internal_source_map_source_map_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1600, ptr noundef %295, i64 noundef 3984)
+  %329 = load ptr, ptr @_ZN4nodeL41internal_source_map_source_map_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1600, ptr noundef %329, i64 noundef 3984)
   %arrayinit.element1601 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1597, i64 1
   %id1602 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1601, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1603) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1602, ptr noundef @.str.83, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1603)
   %data1604 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1601, i32 0, i32 1
-  %296 = load ptr, ptr @_ZN4nodeL47internal_source_map_source_map_cache_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1604, ptr noundef %296, i64 noundef 4144)
+  %330 = load ptr, ptr @_ZN4nodeL47internal_source_map_source_map_cache_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1604, ptr noundef %330, i64 noundef 4144)
   %arrayinit.element1605 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1601, i64 1
   %id1606 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1605, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1607) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1606, ptr noundef @.str.362, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1607)
   %data1608 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1605, i32 0, i32 1
-  %297 = load ptr, ptr @_ZN4nodeL30internal_repl_await_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1608, ptr noundef %297, i64 noundef 3400)
+  %331 = load ptr, ptr @_ZN4nodeL30internal_repl_await_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1608, ptr noundef %331, i64 noundef 3400)
   %arrayinit.element1609 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1605, i64 1
   %id1610 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1609, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1611) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1610, ptr noundef @.str.46, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1611)
   %data1612 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1609, i32 0, i32 1
-  %298 = load ptr, ptr @_ZN4nodeL34internal_bootstrap_node_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1612, ptr noundef %298, i64 noundef 7624)
+  %332 = load ptr, ptr @_ZN4nodeL34internal_bootstrap_node_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1612, ptr noundef %332, i64 noundef 7624)
   %arrayinit.element1613 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1609, i64 1
   %id1614 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1613, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1615) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1614, ptr noundef @.str.363, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1615)
   %data1616 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1613, i32 0, i32 1
-  %299 = load ptr, ptr @_ZN4nodeL32internal_repl_history_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1616, ptr noundef %299, i64 noundef 2080)
+  %333 = load ptr, ptr @_ZN4nodeL32internal_repl_history_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1616, ptr noundef %333, i64 noundef 2080)
   %arrayinit.element1617 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1613, i64 1
   %id1618 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1617, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1619) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1618, ptr noundef @.str.364, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1619)
   %data1620 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1617, i32 0, i32 1
-  %300 = load ptr, ptr @_ZN4nodeL33internal_socketaddress_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1620, ptr noundef %300, i64 noundef 3488)
+  %334 = load ptr, ptr @_ZN4nodeL33internal_socketaddress_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1620, ptr noundef %334, i64 noundef 3488)
   %arrayinit.element1621 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1617, i64 1
   %id1622 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1621, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1623) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1622, ptr noundef @.str.365, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1623)
   %data1624 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1621, i32 0, i32 1
-  %301 = load ptr, ptr @_ZN4nodeL33internal_test_transfer_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1624, ptr noundef %301, i64 noundef 1840)
+  %335 = load ptr, ptr @_ZN4nodeL33internal_test_transfer_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1624, ptr noundef %335, i64 noundef 1840)
   %arrayinit.element1625 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1621, i64 1
   %id1626 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1625, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1627) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1626, ptr noundef @.str.366, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1627)
   %data1628 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1625, i32 0, i32 1
-  %302 = load ptr, ptr @_ZN4nodeL46internal_test_runner_reporter_junit_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1628, ptr noundef %302, i64 noundef 2296)
+  %336 = load ptr, ptr @_ZN4nodeL46internal_test_runner_reporter_junit_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1628, ptr noundef %336, i64 noundef 2296)
   %arrayinit.element1629 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1625, i64 1
   %id1630 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1629, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1631) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1630, ptr noundef @.str.75, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1631)
   %data1632 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1629, i32 0, i32 1
-  %303 = load ptr, ptr @_ZN4nodeL38internal_process_per_thread_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1632, ptr noundef %303, i64 noundef 4416)
+  %337 = load ptr, ptr @_ZN4nodeL38internal_process_per_thread_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1632, ptr noundef %337, i64 noundef 4416)
   %arrayinit.element1633 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1629, i64 1
   %id1634 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1633, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1635) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1634, ptr noundef @.str.367, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1635)
   %data1636 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1633, i32 0, i32 1
-  %304 = load ptr, ptr @_ZN4nodeL44internal_streams_add_abort_signal_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1636, ptr noundef %304, i64 noundef 1744)
+  %338 = load ptr, ptr @_ZN4nodeL44internal_streams_add_abort_signal_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1636, ptr noundef %338, i64 noundef 1744)
   %arrayinit.element1637 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1633, i64 1
   %id1638 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1637, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1639) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1638, ptr noundef @.str.368, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1639)
   %data1640 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1637, i32 0, i32 1
-  %305 = load ptr, ptr @_ZN4nodeL41internal_perf_event_loop_delay_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1640, ptr noundef %305, i64 noundef 2248)
+  %339 = load ptr, ptr @_ZN4nodeL41internal_perf_event_loop_delay_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1640, ptr noundef %339, i64 noundef 2248)
   %arrayinit.element1641 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1637, i64 1
   %id1642 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1641, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1643) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1642, ptr noundef @.str.369, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1643)
   %data1644 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1641, i32 0, i32 1
-  %306 = load ptr, ptr @_ZN4nodeL39internal_streams_passthrough_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1644, ptr noundef %306, i64 noundef 1152)
+  %340 = load ptr, ptr @_ZN4nodeL39internal_streams_passthrough_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1644, ptr noundef %340, i64 noundef 1152)
   %arrayinit.element1645 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1641, i64 1
   %id1646 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1645, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1647) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1646, ptr noundef @.str.370, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1647)
   %data1648 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1645, i32 0, i32 1
-  %307 = load ptr, ptr @_ZN4nodeL35internal_main_print_help_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1648, ptr noundef %307, i64 noundef 8216)
+  %341 = load ptr, ptr @_ZN4nodeL35internal_main_print_help_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1648, ptr noundef %341, i64 noundef 8216)
   %arrayinit.element1649 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1645, i64 1
   %id1650 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1649, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1651) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1650, ptr noundef @.str.70, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1651)
   %data1652 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1649, i32 0, i32 1
-  %308 = load ptr, ptr @_ZN4nodeL23internal_net_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1652, ptr noundef %308, i64 noundef 2976)
+  %342 = load ptr, ptr @_ZN4nodeL23internal_net_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1652, ptr noundef %342, i64 noundef 2976)
   %arrayinit.element1653 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1649, i64 1
   %id1654 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1653, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1655) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1654, ptr noundef @.str.371, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1655)
   %data1656 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1653, i32 0, i32 1
-  %309 = load ptr, ptr @_ZN4nodeL36internal_streams_pipeline_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1656, ptr noundef %309, i64 noundef 3672)
+  %343 = load ptr, ptr @_ZN4nodeL36internal_streams_pipeline_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1656, ptr noundef %343, i64 noundef 3672)
   %arrayinit.element1657 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1653, i64 1
   %id1658 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1657, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1659) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1658, ptr noundef @.str.61, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1659)
   %data1660 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1657, i32 0, i32 1
-  %310 = load ptr, ptr @_ZN4nodeL28internal_fs_utils_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1660, ptr noundef %310, i64 noundef 15976)
+  %344 = load ptr, ptr @_ZN4nodeL28internal_fs_utils_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1660, ptr noundef %344, i64 noundef 15976)
   %arrayinit.element1661 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1657, i64 1
   %id1662 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1661, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1663) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1662, ptr noundef @.str.372, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1663)
   %data1664 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1661, i32 0, i32 1
-  %311 = load ptr, ptr @_ZN4nodeL37internal_freeze_intrinsics_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1664, ptr noundef %311, i64 noundef 6720)
+  %345 = load ptr, ptr @_ZN4nodeL37internal_freeze_intrinsics_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1664, ptr noundef %345, i64 noundef 6720)
   %arrayinit.element1665 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1661, i64 1
   %id1666 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1665, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1667) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1666, ptr noundef @.str.48, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1667)
   %data1668 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1665, i32 0, i32 1
-  %312 = load ptr, ptr @_ZN4nodeL61internal_bootstrap_switches_does_own_process_state_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1668, ptr noundef %312, i64 noundef 2176)
+  %346 = load ptr, ptr @_ZN4nodeL61internal_bootstrap_switches_does_own_process_state_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1668, ptr noundef %346, i64 noundef 2176)
   %arrayinit.element1669 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1665, i64 1
   %id1670 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1669, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1671) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1670, ptr noundef @.str.373, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1671)
   %data1672 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1669, i32 0, i32 1
-  %313 = load ptr, ptr @_ZN4nodeL36internal_streams_readable_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1672, ptr noundef %313, i64 noundef 17504)
+  %347 = load ptr, ptr @_ZN4nodeL36internal_streams_readable_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1672, ptr noundef %347, i64 noundef 17504)
   %arrayinit.element1673 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1669, i64 1
   %id1674 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1673, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1675) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1674, ptr noundef @.str.374, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1675)
   %data1676 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1673, i32 0, i32 1
-  %314 = load ptr, ptr @_ZN4nodeL33internal_streams_state_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1676, ptr noundef %314, i64 noundef 1600)
+  %348 = load ptr, ptr @_ZN4nodeL33internal_streams_state_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1676, ptr noundef %348, i64 noundef 1600)
   %arrayinit.element1677 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1673, i64 1
   %id1678 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1677, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1679) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1678, ptr noundef @.str.375, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1679)
   %data1680 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1677, i32 0, i32 1
-  %315 = load ptr, ptr @_ZN4nodeL33internal_streams_utils_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1680, ptr noundef %315, i64 noundef 4840)
+  %349 = load ptr, ptr @_ZN4nodeL33internal_streams_utils_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1680, ptr noundef %349, i64 noundef 4840)
   %arrayinit.element1681 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1677, i64 1
   %id1682 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1681, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1683) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1682, ptr noundef @.str.376, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1683)
   %data1684 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1681, i32 0, i32 1
-  %316 = load ptr, ptr @_ZN4nodeL32internal_test_binding_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1684, ptr noundef %316, i64 noundef 1032)
+  %350 = load ptr, ptr @_ZN4nodeL32internal_test_binding_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1684, ptr noundef %350, i64 noundef 1032)
   %arrayinit.element1685 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1681, i64 1
   %id1686 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1685, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1687) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1686, ptr noundef @.str.377, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1687)
   %data1688 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1685, i32 0, i32 1
-  %317 = load ptr, ptr @_ZN4nodeL39internal_test_runner_harness_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1688, ptr noundef %317, i64 noundef 3448)
+  %351 = load ptr, ptr @_ZN4nodeL39internal_test_runner_harness_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1688, ptr noundef %351, i64 noundef 3448)
   %arrayinit.element1689 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1685, i64 1
   %id1690 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1689, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1691) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1690, ptr noundef @.str.378, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1691)
   %data1692 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1689, i32 0, i32 1
-  %318 = load ptr, ptr @_ZN4nodeL38internal_readline_interface_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1692, ptr noundef %318, i64 noundef 13848)
+  %352 = load ptr, ptr @_ZN4nodeL38internal_readline_interface_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1692, ptr noundef %352, i64 noundef 13848)
   %arrayinit.element1693 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1689, i64 1
   %id1694 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1693, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1695) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1694, ptr noundef @.str.379, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1695)
   %data1696 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1693, i32 0, i32 1
-  %319 = load ptr, ptr @_ZN4nodeL41internal_test_runner_mock_mock_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1696, ptr noundef %319, i64 noundef 5624)
+  %353 = load ptr, ptr @_ZN4nodeL41internal_test_runner_mock_mock_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1696, ptr noundef %353, i64 noundef 5624)
   %arrayinit.element1697 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1693, i64 1
   %id1698 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1697, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1699) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1698, ptr noundef @.str.380, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1699)
   %data1700 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1697, i32 0, i32 1
-  %320 = load ptr, ptr @_ZN4nodeL45internal_test_runner_reporter_lcov_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1700, ptr noundef %320, i64 noundef 1208)
+  %354 = load ptr, ptr @_ZN4nodeL45internal_test_runner_reporter_lcov_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1700, ptr noundef %354, i64 noundef 1208)
   %arrayinit.element1701 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1697, i64 1
   %id1702 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1701, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1703) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1702, ptr noundef @.str.381, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1703)
   %data1704 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1701, i32 0, i32 1
-  %321 = load ptr, ptr @_ZN4nodeL37internal_streams_duplexify_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1704, ptr noundef %321, i64 noundef 3080)
+  %355 = load ptr, ptr @_ZN4nodeL37internal_streams_duplexify_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1704, ptr noundef %355, i64 noundef 3080)
   %arrayinit.element1705 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1701, i64 1
   %id1706 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1705, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1707) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1706, ptr noundef @.str.382, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1707)
   %data1708 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1705, i32 0, i32 1
-  %322 = load ptr, ptr @_ZN4nodeL38internal_test_runner_runner_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1708, ptr noundef %322, i64 noundef 8808)
+  %356 = load ptr, ptr @_ZN4nodeL38internal_test_runner_runner_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1708, ptr noundef %356, i64 noundef 8808)
   %arrayinit.element1709 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1705, i64 1
   %id1710 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1709, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1711) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1710, ptr noundef @.str.47, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1711)
   %data1712 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1709, i32 0, i32 1
-  %323 = load ptr, ptr @_ZN4nodeL35internal_bootstrap_realm_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1712, ptr noundef %323, i64 noundef 6936)
+  %357 = load ptr, ptr @_ZN4nodeL35internal_bootstrap_realm_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1712, ptr noundef %357, i64 noundef 6936)
   %arrayinit.element1713 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1709, i64 1
   %id1714 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1713, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1715) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1714, ptr noundef @.str.383, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1715)
   %data1716 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1713, i32 0, i32 1
-  %324 = load ptr, ptr @_ZN4nodeL36internal_test_runner_test_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1716, ptr noundef %324, i64 noundef 12920)
+  %358 = load ptr, ptr @_ZN4nodeL36internal_test_runner_test_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1716, ptr noundef %358, i64 noundef 12920)
   %arrayinit.element1717 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1713, i64 1
   %id1718 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1717, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1719) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1718, ptr noundef @.str.384, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1719)
   %data1720 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1717, i32 0, i32 1
-  %325 = load ptr, ptr @_ZN4nodeL38internal_assert_calltracker_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1720, ptr noundef %325, i64 noundef 4056)
+  %359 = load ptr, ptr @_ZN4nodeL38internal_assert_calltracker_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1720, ptr noundef %359, i64 noundef 4056)
   %arrayinit.element1721 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1717, i64 1
   %id1722 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1721, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1723) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1722, ptr noundef @.str.385, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1723)
   %data1724 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1721, i32 0, i32 1
-  %326 = load ptr, ptr @_ZN4nodeL38internal_tls_secure_context_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1724, ptr noundef %326, i64 noundef 2896)
+  %360 = load ptr, ptr @_ZN4nodeL38internal_tls_secure_context_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1724, ptr noundef %360, i64 noundef 2896)
   %arrayinit.element1725 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1721, i64 1
   %id1726 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1725, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1727) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1726, ptr noundef @.str.386, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1727)
   %data1728 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1725, i32 0, i32 1
-  %327 = load ptr, ptr @_ZN4nodeL44internal_trace_events_async_hooks_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1728, ptr noundef %327, i64 noundef 1704)
+  %361 = load ptr, ptr @_ZN4nodeL44internal_trace_events_async_hooks_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1728, ptr noundef %361, i64 noundef 1704)
   %arrayinit.element1729 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1725, i64 1
   %id1730 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1729, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1731) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1730, ptr noundef @.str.387, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1731)
   %data1732 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1729, i32 0, i32 1
-  %328 = load ptr, ptr @_ZN4nodeL44internal_watch_mode_files_watcher_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1732, ptr noundef %328, i64 noundef 4152)
+  %362 = load ptr, ptr @_ZN4nodeL44internal_watch_mode_files_watcher_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1732, ptr noundef %362, i64 noundef 4152)
   %arrayinit.element1733 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1729, i64 1
   %id1734 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1733, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1735) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1734, ptr noundef @.str.388, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1735)
   %data1736 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1733, i32 0, i32 1
-  %329 = load ptr, ptr @_ZN4nodeL23internal_tty_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1736, ptr noundef %329, i64 noundef 2720)
+  %363 = load ptr, ptr @_ZN4nodeL23internal_tty_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1736, ptr noundef %363, i64 noundef 2720)
   %arrayinit.element1737 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1733, i64 1
   %id1738 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1737, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1739) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1738, ptr noundef @.str.85, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1739)
   %data1740 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1737, i32 0, i32 1
-  %330 = load ptr, ptr @_ZN4nodeL23internal_url_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1740, ptr noundef %330, i64 noundef 19872)
+  %364 = load ptr, ptr @_ZN4nodeL23internal_url_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1740, ptr noundef %364, i64 noundef 19872)
   %arrayinit.element1741 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1737, i64 1
   %id1742 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1741, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1743) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1742, ptr noundef @.str.56, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1743)
   %data1744 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1741, i32 0, i32 1
-  %331 = load ptr, ptr @_ZN4nodeL29internal_dns_utils_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1744, ptr noundef %331, i64 noundef 7144)
+  %365 = load ptr, ptr @_ZN4nodeL29internal_dns_utils_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1744, ptr noundef %365, i64 noundef 7144)
   %arrayinit.element1745 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1741, i64 1
   %id1746 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1745, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1747) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1746, ptr noundef @.str.86, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1747)
   %data1748 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1745, i32 0, i32 1
-  %332 = load ptr, ptr @_ZN4nodeL24internal_util_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1748, ptr noundef %332, i64 noundef 12912)
+  %366 = load ptr, ptr @_ZN4nodeL24internal_util_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1748, ptr noundef %366, i64 noundef 12912)
   %arrayinit.element1749 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1745, i64 1
   %id1750 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1749, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1751) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1750, ptr noundef @.str.39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1751)
   %data1752 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1749, i32 0, i32 1
-  %333 = load ptr, ptr @_ZN4nodeL22async_hooks_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1752, ptr noundef %333, i64 noundef 6672)
+  %367 = load ptr, ptr @_ZN4nodeL22async_hooks_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1752, ptr noundef %367, i64 noundef 6672)
   %arrayinit.element1753 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1749, i64 1
   %id1754 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1753, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1755) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1754, ptr noundef @.str.389, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1755)
   %data1756 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1753, i32 0, i32 1
-  %334 = load ptr, ptr @_ZN4nodeL31internal_util_colors_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1756, ptr noundef %334, i64 noundef 1320)
+  %368 = load ptr, ptr @_ZN4nodeL31internal_util_colors_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1756, ptr noundef %368, i64 noundef 1320)
   %arrayinit.element1757 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1753, i64 1
   %id1758 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1757, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1759) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1758, ptr noundef @.str.390, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1759)
   %data1760 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1757, i32 0, i32 1
-  %335 = load ptr, ptr @_ZN4nodeL40internal_test_runner_coverage_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1760, ptr noundef %335, i64 noundef 4944)
+  %369 = load ptr, ptr @_ZN4nodeL40internal_test_runner_coverage_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1760, ptr noundef %369, i64 noundef 4944)
   %arrayinit.element1761 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1757, i64 1
   %id1762 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1761, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1763) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1762, ptr noundef @.str.72, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1763)
   %data1764 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1761, i32 0, i32 1
-  %336 = load ptr, ptr @_ZN4nodeL30internal_perf_utils_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1764, ptr noundef %336, i64 noundef 1152)
+  %370 = load ptr, ptr @_ZN4nodeL30internal_perf_utils_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1764, ptr noundef %370, i64 noundef 1152)
   %arrayinit.element1765 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1761, i64 1
   %id1766 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1765, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1767) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1766, ptr noundef @.str.391, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1767)
   %data1768 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1765, i32 0, i32 1
-  %337 = load ptr, ptr @_ZN4nodeL36internal_util_comparisons_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1768, ptr noundef %337, i64 noundef 5224)
+  %371 = load ptr, ptr @_ZN4nodeL36internal_util_comparisons_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1768, ptr noundef %371, i64 noundef 5224)
   %arrayinit.element1769 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1765, i64 1
   %id1770 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1769, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1771) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1770, ptr noundef @.str.57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1771)
   %data1772 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1769, i32 0, i32 1
-  %338 = load ptr, ptr @_ZN4nodeL28internal_encoding_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1772, ptr noundef %338, i64 noundef 17432)
+  %372 = load ptr, ptr @_ZN4nodeL28internal_encoding_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1772, ptr noundef %372, i64 noundef 17432)
   %arrayinit.element1773 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1769, i64 1
   %id1774 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1773, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1775) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1774, ptr noundef @.str.392, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1775)
   %data1776 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1773, i32 0, i32 1
-  %339 = load ptr, ptr @_ZN4nodeL36internal_crypto_hashnames_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1776, ptr noundef %339, i64 noundef 2504)
+  %373 = load ptr, ptr @_ZN4nodeL36internal_crypto_hashnames_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1776, ptr noundef %373, i64 noundef 2504)
   %arrayinit.element1777 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1773, i64 1
   %id1778 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1777, i32 0, i32 0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1779) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %id1778, ptr noundef @.str.87, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1779)
   %data1780 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arrayinit.element1777, i32 0, i32 1
-  %340 = load ptr, ptr @_ZN4nodeL33internal_util_debuglog_cache_dataE, align 8
-  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1780, ptr noundef %340, i64 noundef 2088)
+  %374 = load ptr, ptr @_ZN4nodeL33internal_util_debuglog_cache_dataE, align 8
+  call void @_ZN4node8builtins20BuiltinCodeCacheDataC2EPKhm(ptr noundef nonnull align 8 dereferenceable(32) %data1780, ptr noundef %374, i64 noundef 2088)
   %_M_array1781 = getelementptr inbounds %"class.std::initializer_list.20", ptr %agg.tmp500, i32 0, i32 0
   %arraystart1782 = getelementptr inbounds [320 x %"struct.node::builtins::CodeCacheInfo"], ptr %ref.tmp501, i64 0, i64 0
   store ptr %arraystart1782, ptr %_M_array1781, align 8
   %_M_len1783 = getelementptr inbounds %"class.std::initializer_list.20", ptr %agg.tmp500, i32 0, i32 1
   store i64 320, ptr %_M_len1783, align 8
   call void @_ZNSaIN4node8builtins13CodeCacheInfoEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1784) #3
-  %341 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp500, i32 0, i32 0
-  %342 = load ptr, ptr %341, align 8
-  %343 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp500, i32 0, i32 1
-  %344 = load i64, ptr %343, align 8
-  call void @_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 5), ptr %342, i64 %344, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1784)
+  %375 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp500, i32 0, i32 0
+  %376 = load ptr, ptr %375, align 8
+  %377 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp500, i32 0, i32 1
+  %378 = load i64, ptr %377, align 8
+  %379 = getelementptr inbounds %"struct.node::SnapshotData", ptr @_ZN4nodeL13snapshot_dataE, i32 0, i32 5
+  call void @_ZNSt6vectorIN4node8builtins13CodeCacheInfoESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %379, ptr %376, i64 %378, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1784)
   call void @_ZNSaIN4node8builtins13CodeCacheInfoEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1784) #3
   %array.begin = getelementptr inbounds [320 x %"struct.node::builtins::CodeCacheInfo"], ptr %ref.tmp501, i32 0, i32 0
-  %345 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %array.begin, i64 320
+  %380 = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %array.begin, i64 320
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %345, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %380, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"struct.node::builtins::CodeCacheInfo", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN4node8builtins13CodeCacheInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #3
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -5332,11 +5367,11 @@ arraydestroy.done1785:                            ; preds = %arraydestroy.body
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp504) #3
   call void @_ZNSaIN4node8PropInfoEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp499) #3
   %array.begin1786 = getelementptr inbounds [8 x %"struct.node::PropInfo"], ptr %ref.tmp455, i32 0, i32 0
-  %346 = getelementptr inbounds %"struct.node::PropInfo", ptr %array.begin1786, i64 8
+  %381 = getelementptr inbounds %"struct.node::PropInfo", ptr %array.begin1786, i64 8
   br label %arraydestroy.body1787
 
 arraydestroy.body1787:                            ; preds = %arraydestroy.body1787, %arraydestroy.done1785
-  %arraydestroy.elementPast1788 = phi ptr [ %346, %arraydestroy.done1785 ], [ %arraydestroy.element1789, %arraydestroy.body1787 ]
+  %arraydestroy.elementPast1788 = phi ptr [ %381, %arraydestroy.done1785 ], [ %arraydestroy.element1789, %arraydestroy.body1787 ]
   %arraydestroy.element1789 = getelementptr inbounds %"struct.node::PropInfo", ptr %arraydestroy.elementPast1788, i64 -1
   call void @_ZN4node8PropInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element1789) #3
   %arraydestroy.done1790 = icmp eq ptr %arraydestroy.element1789, %array.begin1786
@@ -5353,11 +5388,11 @@ arraydestroy.done1791:                            ; preds = %arraydestroy.body17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp458) #3
   call void @_ZNSaIN4node8PropInfoEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp453) #3
   %array.begin1792 = getelementptr inbounds [26 x %"struct.node::PropInfo"], ptr %ref.tmp319, i32 0, i32 0
-  %347 = getelementptr inbounds %"struct.node::PropInfo", ptr %array.begin1792, i64 26
+  %382 = getelementptr inbounds %"struct.node::PropInfo", ptr %array.begin1792, i64 26
   br label %arraydestroy.body1793
 
 arraydestroy.body1793:                            ; preds = %arraydestroy.body1793, %arraydestroy.done1791
-  %arraydestroy.elementPast1794 = phi ptr [ %347, %arraydestroy.done1791 ], [ %arraydestroy.element1795, %arraydestroy.body1793 ]
+  %arraydestroy.elementPast1794 = phi ptr [ %382, %arraydestroy.done1791 ], [ %arraydestroy.element1795, %arraydestroy.body1793 ]
   %arraydestroy.element1795 = getelementptr inbounds %"struct.node::PropInfo", ptr %arraydestroy.elementPast1794, i64 -1
   call void @_ZN4node8PropInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element1795) #3
   %arraydestroy.done1796 = icmp eq ptr %arraydestroy.element1795, %array.begin1792
@@ -5392,11 +5427,11 @@ arraydestroy.done1797:                            ; preds = %arraydestroy.body17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp322) #3
   call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp317) #3
   %array.begin1798 = getelementptr inbounds [65 x %"class.std::__cxx11::basic_string"], ptr %ref.tmp183, i32 0, i32 0
-  %348 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin1798, i64 65
+  %383 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %array.begin1798, i64 65
   br label %arraydestroy.body1799
 
 arraydestroy.body1799:                            ; preds = %arraydestroy.body1799, %arraydestroy.done1797
-  %arraydestroy.elementPast1800 = phi ptr [ %348, %arraydestroy.done1797 ], [ %arraydestroy.element1801, %arraydestroy.body1799 ]
+  %arraydestroy.elementPast1800 = phi ptr [ %383, %arraydestroy.done1797 ], [ %arraydestroy.element1801, %arraydestroy.body1799 ]
   %arraydestroy.element1801 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arraydestroy.elementPast1800, i64 -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element1801) #3
   %arraydestroy.done1802 = icmp eq ptr %arraydestroy.element1801, %array.begin1798
@@ -5470,11 +5505,11 @@ arraydestroy.done1803:                            ; preds = %arraydestroy.body17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp185) #3
   call void @_ZNSaIN4node8PropInfoEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp181) #3
   %array.begin1804 = getelementptr inbounds [35 x %"struct.node::PropInfo"], ptr %ref.tmp6, i32 0, i32 0
-  %349 = getelementptr inbounds %"struct.node::PropInfo", ptr %array.begin1804, i64 35
+  %384 = getelementptr inbounds %"struct.node::PropInfo", ptr %array.begin1804, i64 35
   br label %arraydestroy.body1805
 
 arraydestroy.body1805:                            ; preds = %arraydestroy.body1805, %arraydestroy.done1803
-  %arraydestroy.elementPast1806 = phi ptr [ %349, %arraydestroy.done1803 ], [ %arraydestroy.element1807, %arraydestroy.body1805 ]
+  %arraydestroy.elementPast1806 = phi ptr [ %384, %arraydestroy.done1803 ], [ %arraydestroy.element1807, %arraydestroy.body1805 ]
   %arraydestroy.element1807 = getelementptr inbounds %"struct.node::PropInfo", ptr %arraydestroy.elementPast1806, i64 -1
   call void @_ZN4node8PropInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element1807) #3
   %arraydestroy.done1808 = icmp eq ptr %arraydestroy.element1807, %array.begin1804
@@ -5520,7 +5555,7 @@ arraydestroy.done1809:                            ; preds = %arraydestroy.body18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  %350 = call i32 @__cxa_atexit(ptr @_ZN4node12SnapshotDataD1Ev, ptr @_ZN4nodeL13snapshot_dataE, ptr @__dso_handle) #3
+  %385 = call i32 @__cxa_atexit(ptr @_ZN4node12SnapshotDataD1Ev, ptr @_ZN4nodeL13snapshot_dataE, ptr @__dso_handle) #3
   ret void
 }
 

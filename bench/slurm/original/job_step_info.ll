@@ -588,96 +588,98 @@ define i32 @slurm_get_job_steps(i64 noundef %0, i32 noundef %1, i32 noundef %2, 
   %23 = zext i16 %22 to i32
   %24 = and i32 %23, 16
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %40
+  br i1 %25, label %26, label %41
 
 26:                                               ; preds = %5
   %27 = call i32 @slurm_load_federation(ptr noundef %15)
   %28 = icmp ne i32 %27, 0
-  br i1 %28, label %33, label %29
+  br i1 %28, label %34, label %29
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %15, align 8
-  %31 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %32 = call zeroext i1 @cluster_in_federation(ptr noundef %30, ptr noundef %31)
-  br i1 %32, label %38, label %33
+  %31 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %32 = load ptr, ptr %31, align 8
+  %33 = call zeroext i1 @cluster_in_federation(ptr noundef %30, ptr noundef %32)
+  br i1 %33, label %39, label %34
 
-33:                                               ; preds = %29, %26
-  %34 = load i16, ptr %10, align 2
-  %35 = zext i16 %34 to i32
-  %36 = or i32 %35, 16
-  %37 = trunc i32 %36 to i16
-  store i16 %37, ptr %10, align 2
-  br label %39
-
-38:                                               ; preds = %29
-  store i64 0, ptr %6, align 8
-  br label %39
-
-39:                                               ; preds = %38, %33
+34:                                               ; preds = %29, %26
+  %35 = load i16, ptr %10, align 2
+  %36 = zext i16 %35 to i32
+  %37 = or i32 %36, 16
+  %38 = trunc i32 %37 to i16
+  store i16 %38, ptr %10, align 2
   br label %40
 
-40:                                               ; preds = %39, %5
+39:                                               ; preds = %29
+  store i64 0, ptr %6, align 8
+  br label %40
+
+40:                                               ; preds = %39, %34
+  br label %41
+
+41:                                               ; preds = %40, %5
   call void @slurm_msg_t_init(ptr noundef %12)
   call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 24, i1 false)
-  %41 = load i64, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.job_step_info_request_msg, ptr %13, i32 0, i32 0
-  store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds %struct.job_step_info_request_msg, ptr %13, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr align 4 %16, i64 12, i1 false)
-  %44 = load i16, ptr %10, align 2
-  %45 = getelementptr inbounds %struct.job_step_info_request_msg, ptr %13, i32 0, i32 2
-  store i16 %44, ptr %45, align 4
-  %46 = getelementptr inbounds %struct.slurm_msg, ptr %12, i32 0, i32 15
-  store i16 2005, ptr %46, align 4
-  %47 = getelementptr inbounds %struct.slurm_msg, ptr %12, i32 0, i32 12
-  store ptr %13, ptr %47, align 8
-  %48 = load ptr, ptr @working_cluster_rec, align 8
-  %49 = icmp ne ptr %48, null
-  br i1 %49, label %58, label %50
+  %42 = load i64, ptr %6, align 8
+  %43 = getelementptr inbounds %struct.job_step_info_request_msg, ptr %13, i32 0, i32 0
+  store i64 %42, ptr %43, align 8
+  %44 = getelementptr inbounds %struct.job_step_info_request_msg, ptr %13, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 4 %16, i64 12, i1 false)
+  %45 = load i16, ptr %10, align 2
+  %46 = getelementptr inbounds %struct.job_step_info_request_msg, ptr %13, i32 0, i32 2
+  store i16 %45, ptr %46, align 4
+  %47 = getelementptr inbounds %struct.slurm_msg, ptr %12, i32 0, i32 15
+  store i16 2005, ptr %47, align 4
+  %48 = getelementptr inbounds %struct.slurm_msg, ptr %12, i32 0, i32 12
+  store ptr %13, ptr %48, align 8
+  %49 = load ptr, ptr @working_cluster_rec, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %59, label %51
 
-50:                                               ; preds = %40
-  %51 = load ptr, ptr %15, align 8
-  %52 = icmp ne ptr %51, null
-  br i1 %52, label %53, label %58
+51:                                               ; preds = %41
+  %52 = load ptr, ptr %15, align 8
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %59
 
-53:                                               ; preds = %50
-  %54 = load i16, ptr %10, align 2
-  %55 = zext i16 %54 to i32
-  %56 = and i32 %55, 16
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %62
+54:                                               ; preds = %51
+  %55 = load i16, ptr %10, align 2
+  %56 = zext i16 %55 to i32
+  %57 = and i32 %56, 16
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %63
 
-58:                                               ; preds = %53, %50, %40
-  %59 = load ptr, ptr %9, align 8
-  %60 = load ptr, ptr @working_cluster_rec, align 8
-  %61 = call i32 @_load_cluster_steps(ptr noundef %12, ptr noundef %59, ptr noundef %60)
-  store i32 %61, ptr %11, align 4
-  br label %69
+59:                                               ; preds = %54, %51, %41
+  %60 = load ptr, ptr %9, align 8
+  %61 = load ptr, ptr @working_cluster_rec, align 8
+  %62 = call i32 @_load_cluster_steps(ptr noundef %12, ptr noundef %60, ptr noundef %61)
+  store i32 %62, ptr %11, align 4
+  br label %71
 
-62:                                               ; preds = %53
-  %63 = load ptr, ptr %15, align 8
-  store ptr %63, ptr %14, align 8
-  %64 = load ptr, ptr %9, align 8
-  %65 = load i16, ptr %10, align 2
-  %66 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28), align 8
-  %67 = load ptr, ptr %14, align 8
-  %68 = call i32 @_load_fed_steps(ptr noundef %12, ptr noundef %64, i16 noundef zeroext %65, ptr noundef %66, ptr noundef %67)
-  store i32 %68, ptr %11, align 4
-  br label %69
+63:                                               ; preds = %54
+  %64 = load ptr, ptr %15, align 8
+  store ptr %64, ptr %14, align 8
+  %65 = load ptr, ptr %9, align 8
+  %66 = load i16, ptr %10, align 2
+  %67 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 28
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %14, align 8
+  %70 = call i32 @_load_fed_steps(ptr noundef %12, ptr noundef %65, i16 noundef zeroext %66, ptr noundef %68, ptr noundef %69)
+  store i32 %70, ptr %11, align 4
+  br label %71
 
-69:                                               ; preds = %62, %58
-  %70 = load ptr, ptr %15, align 8
-  %71 = icmp ne ptr %70, null
-  br i1 %71, label %72, label %74
+71:                                               ; preds = %63, %59
+  %72 = load ptr, ptr %15, align 8
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %74, label %76
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %15, align 8
-  call void @slurm_destroy_federation_rec(ptr noundef %73)
-  br label %74
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %15, align 8
+  call void @slurm_destroy_federation_rec(ptr noundef %75)
+  br label %76
 
-74:                                               ; preds = %72, %69
-  %75 = load i32, ptr %11, align 4
-  ret i32 %75
+76:                                               ; preds = %74, %71
+  %77 = load i32, ptr %11, align 4
+  ret i32 %77
 }
 
 declare i32 @slurm_load_federation(ptr noundef) #1

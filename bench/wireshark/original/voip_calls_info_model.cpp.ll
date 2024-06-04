@@ -424,11 +424,12 @@ define void @_ZN18VoipCallsInfoModelC2EP7QObject(ptr noundef nonnull align 8 der
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV18VoipCallsInfoModel, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.VoipCallsInfoModel, ptr %5, i32 0, i32 1
-  call void @_ZN5QListIPvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #4
-  %8 = getelementptr inbounds %class.VoipCallsInfoModel, ptr %5, i32 0, i32 2
-  store i8 0, ptr %8, align 8
+  %7 = getelementptr inbounds { [51 x ptr] }, ptr @_ZTV18VoipCallsInfoModel, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.VoipCallsInfoModel, ptr %5, i32 0, i32 1
+  call void @_ZN5QListIPvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
+  %9 = getelementptr inbounds %class.VoipCallsInfoModel, ptr %5, i32 0, i32 2
+  store i8 0, ptr %9, align 8
   ret void
 }
 
@@ -2627,7 +2628,8 @@ define void @_ZN24VoipCallsInfoSortedModelC2EP7QObject(ptr noundef nonnull align
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV24VoipCallsInfoSortedModel, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [59 x ptr] }, ptr @_ZTV24VoipCallsInfoSortedModel, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 

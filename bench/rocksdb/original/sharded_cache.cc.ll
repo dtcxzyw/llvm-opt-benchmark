@@ -207,40 +207,41 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #6
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN7rocksdb16ShardedCacheBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [36 x ptr] }, ptr @_ZTVN7rocksdb16ShardedCacheBaseE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %last_id_ = getelementptr inbounds %"class.rocksdb::ShardedCacheBase", ptr %this1, i32 0, i32 1
   call void @_ZNSt6atomicImEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %last_id_, i64 noundef 1) #6
   %shard_mask_ = getelementptr inbounds %"class.rocksdb::ShardedCacheBase", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %opts.addr, align 8
-  %num_shard_bits = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %num_shard_bits, align 8
-  %shl = shl i32 1, %2
+  %2 = load ptr, ptr %opts.addr, align 8
+  %num_shard_bits = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %2, i32 0, i32 2
+  %3 = load i32, ptr %num_shard_bits, align 8
+  %shl = shl i32 1, %3
   %sub = sub i32 %shl, 1
   store i32 %sub, ptr %shard_mask_, align 8
   %hash_seed_ = getelementptr inbounds %"class.rocksdb::ShardedCacheBase", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %opts.addr, align 8
-  %hash_seed = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %3, i32 0, i32 9
-  %4 = load i32, ptr %hash_seed, align 8
-  %call = invoke noundef i32 @_ZN7rocksdb12_GLOBAL__N_113DetermineSeedEi(i32 noundef %4)
+  %4 = load ptr, ptr %opts.addr, align 8
+  %hash_seed = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %4, i32 0, i32 9
+  %5 = load i32, ptr %hash_seed, align 8
+  %call = invoke noundef i32 @_ZN7rocksdb12_GLOBAL__N_113DetermineSeedEi(i32 noundef %5)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store i32 %call, ptr %hash_seed_, align 4
   %strict_capacity_limit_ = getelementptr inbounds %"class.rocksdb::ShardedCacheBase", ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %opts.addr, align 8
-  %strict_capacity_limit = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %5, i32 0, i32 3
-  %6 = load i8, ptr %strict_capacity_limit, align 4
-  %tobool = trunc i8 %6 to i1
+  %6 = load ptr, ptr %opts.addr, align 8
+  %strict_capacity_limit = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %6, i32 0, i32 3
+  %7 = load i8, ptr %strict_capacity_limit, align 4
+  %tobool = trunc i8 %7 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %strict_capacity_limit_, align 8
   %capacity_ = getelementptr inbounds %"class.rocksdb::ShardedCacheBase", ptr %this1, i32 0, i32 5
-  %7 = load ptr, ptr %opts.addr, align 8
-  %capacity = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %7, i32 0, i32 1
-  %8 = load i64, ptr %capacity, align 8
-  store i64 %8, ptr %capacity_, align 8
+  %8 = load ptr, ptr %opts.addr, align 8
+  %capacity = getelementptr inbounds %"struct.rocksdb::ShardedCacheOptions", ptr %8, i32 0, i32 1
+  %9 = load i64, ptr %capacity, align 8
+  store i64 %9, ptr %capacity_, align 8
   %config_mutex_ = getelementptr inbounds %"class.rocksdb::ShardedCacheBase", ptr %this1, i32 0, i32 6
-  %9 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
-  %tobool4 = trunc i8 %9 to i1
+  %10 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
+  %tobool4 = trunc i8 %10 to i1
   invoke void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %config_mutex_, i1 noundef zeroext %tobool4)
           to label %invoke.cont5 unwind label %lpad2
 
@@ -248,22 +249,22 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #6
   br label %eh.resume
 
 lpad2:                                            ; preds = %invoke.cont3, %invoke.cont
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb5CacheD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #6
   br label %eh.resume
 
@@ -296,7 +297,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %allocator, ptr %allocator.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTVN7rocksdb5CacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTVN7rocksdb5CacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %memory_allocator_ = getelementptr inbounds %"class.rocksdb::Cache", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %memory_allocator_, ptr noundef nonnull align 8 dereferenceable(16) %allocator) #6
   %eviction_callback_ = getelementptr inbounds %"class.rocksdb::Cache", ptr %this1, i32 0, i32 2
@@ -499,7 +501,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTVN7rocksdb5CacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [35 x ptr] }, ptr @_ZTVN7rocksdb5CacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %eviction_callback_ = getelementptr inbounds %"class.rocksdb::Cache", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %eviction_callback_) #6
   %memory_allocator_ = getelementptr inbounds %"class.rocksdb::Cache", ptr %this1, i32 0, i32 1
@@ -983,7 +986,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN7rocksdb16ShardedCacheBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [36 x ptr] }, ptr @_ZTVN7rocksdb16ShardedCacheBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %config_mutex_ = getelementptr inbounds %"class.rocksdb::ShardedCacheBase", ptr %this1, i32 0, i32 6
   call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %config_mutex_) #6
   call void @_ZN7rocksdb5CacheD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #6

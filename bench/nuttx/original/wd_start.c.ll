@@ -43,7 +43,7 @@ define i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef
 
 26:                                               ; preds = %23, %20, %4
   store i32 -22, ptr %5, align 4
-  br label %199
+  br label %206
 
 27:                                               ; preds = %23
   %28 = call i64 @up_irq_save()
@@ -96,7 +96,7 @@ define i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef
   %55 = call i32 @nxsched_cancel_timer()
   %56 = load ptr, ptr @g_wdactivelist, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %76
+  br i1 %57, label %58, label %79
 
 58:                                               ; preds = %54
   %59 = call i64 @clock_systime_ticks()
@@ -111,246 +111,253 @@ define i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef
   store ptr null, ptr %63, align 8
   %64 = load ptr, ptr @g_wdactivelist, align 8
   %65 = icmp ne ptr %64, null
-  br i1 %65, label %69, label %66
+  br i1 %65, label %70, label %66
 
 66:                                               ; preds = %60
   %67 = load ptr, ptr %15, align 8
   store ptr %67, ptr @g_wdactivelist, align 8
   %68 = load ptr, ptr %15, align 8
-  store ptr %68, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1), align 8
-  br label %74
+  %69 = getelementptr inbounds %struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1
+  store ptr %68, ptr %69, align 8
+  br label %77
 
-69:                                               ; preds = %60
-  %70 = load ptr, ptr %15, align 8
-  %71 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1), align 8
-  %72 = getelementptr inbounds %struct.sq_entry_s, ptr %71, i32 0, i32 0
-  store ptr %70, ptr %72, align 8
-  %73 = load ptr, ptr %15, align 8
-  store ptr %73, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1), align 8
-  br label %74
+70:                                               ; preds = %60
+  %71 = load ptr, ptr %15, align 8
+  %72 = getelementptr inbounds %struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds %struct.sq_entry_s, ptr %73, i32 0, i32 0
+  store ptr %71, ptr %74, align 8
+  %75 = load ptr, ptr %15, align 8
+  %76 = getelementptr inbounds %struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1
+  store ptr %75, ptr %76, align 8
+  br label %77
 
-74:                                               ; preds = %69, %66
-  br label %75
-
-75:                                               ; preds = %74
-  br label %194
-
-76:                                               ; preds = %54
-  store i64 0, ptr %13, align 8
-  %77 = load ptr, ptr @g_wdactivelist, align 8
-  store ptr %77, ptr %10, align 8
-  store ptr %77, ptr %11, align 8
+77:                                               ; preds = %70, %66
   br label %78
 
-78:                                               ; preds = %92, %76
-  %79 = load ptr, ptr %10, align 8
-  %80 = getelementptr inbounds %struct.wdog_s, ptr %79, i32 0, i32 3
-  %81 = load i64, ptr %80, align 8
-  %82 = load i64, ptr %13, align 8
-  %83 = add nsw i64 %82, %81
-  store i64 %83, ptr %13, align 8
-  %84 = icmp slt i64 %83, 0
-  br i1 %84, label %85, label %90
+78:                                               ; preds = %77
+  br label %201
 
-85:                                               ; preds = %78
-  %86 = load ptr, ptr %10, align 8
-  %87 = getelementptr inbounds %struct.wdog_s, ptr %86, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp ne ptr %88, null
-  br label %90
+79:                                               ; preds = %54
+  store i64 0, ptr %13, align 8
+  %80 = load ptr, ptr @g_wdactivelist, align 8
+  store ptr %80, ptr %10, align 8
+  store ptr %80, ptr %11, align 8
+  br label %81
 
-90:                                               ; preds = %85, %78
-  %91 = phi i1 [ false, %78 ], [ %89, %85 ]
-  br i1 %91, label %92, label %97
+81:                                               ; preds = %95, %79
+  %82 = load ptr, ptr %10, align 8
+  %83 = getelementptr inbounds %struct.wdog_s, ptr %82, i32 0, i32 3
+  %84 = load i64, ptr %83, align 8
+  %85 = load i64, ptr %13, align 8
+  %86 = add nsw i64 %85, %84
+  store i64 %86, ptr %13, align 8
+  %87 = icmp slt i64 %86, 0
+  br i1 %87, label %88, label %93
 
-92:                                               ; preds = %90
-  %93 = load ptr, ptr %10, align 8
-  store ptr %93, ptr %11, align 8
-  %94 = load ptr, ptr %10, align 8
-  %95 = getelementptr inbounds %struct.wdog_s, ptr %94, i32 0, i32 0
-  %96 = load ptr, ptr %95, align 8
-  store ptr %96, ptr %10, align 8
-  br label %78, !llvm.loop !6
+88:                                               ; preds = %81
+  %89 = load ptr, ptr %10, align 8
+  %90 = getelementptr inbounds %struct.wdog_s, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8
+  %92 = icmp ne ptr %91, null
+  br label %93
 
-97:                                               ; preds = %90
-  br label %98
+93:                                               ; preds = %88, %81
+  %94 = phi i1 [ false, %81 ], [ %92, %88 ]
+  br i1 %94, label %95, label %100
 
-98:                                               ; preds = %109, %97
-  %99 = load i64, ptr %13, align 8
-  %100 = load i64, ptr %7, align 8
-  %101 = icmp sle i64 %99, %100
-  br i1 %101, label %102, label %107
+95:                                               ; preds = %93
+  %96 = load ptr, ptr %10, align 8
+  store ptr %96, ptr %11, align 8
+  %97 = load ptr, ptr %10, align 8
+  %98 = getelementptr inbounds %struct.wdog_s, ptr %97, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8
+  store ptr %99, ptr %10, align 8
+  br label %81, !llvm.loop !6
 
-102:                                              ; preds = %98
-  %103 = load ptr, ptr %10, align 8
-  %104 = getelementptr inbounds %struct.wdog_s, ptr %103, i32 0, i32 0
-  %105 = load ptr, ptr %104, align 8
-  %106 = icmp ne ptr %105, null
-  br label %107
+100:                                              ; preds = %93
+  br label %101
 
-107:                                              ; preds = %102, %98
-  %108 = phi i1 [ false, %98 ], [ %106, %102 ]
-  br i1 %108, label %109, label %119
+101:                                              ; preds = %112, %100
+  %102 = load i64, ptr %13, align 8
+  %103 = load i64, ptr %7, align 8
+  %104 = icmp sle i64 %102, %103
+  br i1 %104, label %105, label %110
 
-109:                                              ; preds = %107
-  %110 = load ptr, ptr %10, align 8
-  store ptr %110, ptr %11, align 8
-  %111 = load ptr, ptr %10, align 8
-  %112 = getelementptr inbounds %struct.wdog_s, ptr %111, i32 0, i32 0
-  %113 = load ptr, ptr %112, align 8
-  store ptr %113, ptr %10, align 8
+105:                                              ; preds = %101
+  %106 = load ptr, ptr %10, align 8
+  %107 = getelementptr inbounds %struct.wdog_s, ptr %106, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8
+  %109 = icmp ne ptr %108, null
+  br label %110
+
+110:                                              ; preds = %105, %101
+  %111 = phi i1 [ false, %101 ], [ %109, %105 ]
+  br i1 %111, label %112, label %122
+
+112:                                              ; preds = %110
+  %113 = load ptr, ptr %10, align 8
+  store ptr %113, ptr %11, align 8
   %114 = load ptr, ptr %10, align 8
-  %115 = getelementptr inbounds %struct.wdog_s, ptr %114, i32 0, i32 3
-  %116 = load i64, ptr %115, align 8
-  %117 = load i64, ptr %13, align 8
-  %118 = add nsw i64 %117, %116
-  store i64 %118, ptr %13, align 8
-  br label %98, !llvm.loop !8
+  %115 = getelementptr inbounds %struct.wdog_s, ptr %114, i32 0, i32 0
+  %116 = load ptr, ptr %115, align 8
+  store ptr %116, ptr %10, align 8
+  %117 = load ptr, ptr %10, align 8
+  %118 = getelementptr inbounds %struct.wdog_s, ptr %117, i32 0, i32 3
+  %119 = load i64, ptr %118, align 8
+  %120 = load i64, ptr %13, align 8
+  %121 = add nsw i64 %120, %119
+  store i64 %121, ptr %13, align 8
+  br label %101, !llvm.loop !8
 
-119:                                              ; preds = %107
-  %120 = load i64, ptr %7, align 8
-  %121 = load i64, ptr %13, align 8
-  %122 = icmp slt i64 %120, %121
-  br i1 %122, label %123, label %156
-
-123:                                              ; preds = %119
+122:                                              ; preds = %110
+  %123 = load i64, ptr %7, align 8
   %124 = load i64, ptr %13, align 8
-  %125 = load ptr, ptr %10, align 8
-  %126 = getelementptr inbounds %struct.wdog_s, ptr %125, i32 0, i32 3
-  %127 = load i64, ptr %126, align 8
-  %128 = sub nsw i64 %124, %127
-  %129 = load i64, ptr %7, align 8
-  %130 = sub nsw i64 %129, %128
-  store i64 %130, ptr %7, align 8
-  %131 = load i64, ptr %7, align 8
-  %132 = load ptr, ptr %10, align 8
-  %133 = getelementptr inbounds %struct.wdog_s, ptr %132, i32 0, i32 3
-  %134 = load i64, ptr %133, align 8
-  %135 = sub nsw i64 %134, %131
-  store i64 %135, ptr %133, align 8
-  %136 = load ptr, ptr %10, align 8
-  %137 = load ptr, ptr @g_wdactivelist, align 8
-  %138 = icmp eq ptr %136, %137
-  br i1 %138, label %139, label %152
+  %125 = icmp slt i64 %123, %124
+  br i1 %125, label %126, label %160
 
-139:                                              ; preds = %123
-  br label %140
+126:                                              ; preds = %122
+  %127 = load i64, ptr %13, align 8
+  %128 = load ptr, ptr %10, align 8
+  %129 = getelementptr inbounds %struct.wdog_s, ptr %128, i32 0, i32 3
+  %130 = load i64, ptr %129, align 8
+  %131 = sub nsw i64 %127, %130
+  %132 = load i64, ptr %7, align 8
+  %133 = sub nsw i64 %132, %131
+  store i64 %133, ptr %7, align 8
+  %134 = load i64, ptr %7, align 8
+  %135 = load ptr, ptr %10, align 8
+  %136 = getelementptr inbounds %struct.wdog_s, ptr %135, i32 0, i32 3
+  %137 = load i64, ptr %136, align 8
+  %138 = sub nsw i64 %137, %134
+  store i64 %138, ptr %136, align 8
+  %139 = load ptr, ptr %10, align 8
+  %140 = load ptr, ptr @g_wdactivelist, align 8
+  %141 = icmp eq ptr %139, %140
+  br i1 %141, label %142, label %156
 
-140:                                              ; preds = %139
-  %141 = load ptr, ptr %6, align 8
-  store ptr %141, ptr %16, align 8
-  %142 = load ptr, ptr @g_wdactivelist, align 8
-  %143 = load ptr, ptr %16, align 8
-  %144 = getelementptr inbounds %struct.sq_entry_s, ptr %143, i32 0, i32 0
-  store ptr %142, ptr %144, align 8
+142:                                              ; preds = %126
+  br label %143
+
+143:                                              ; preds = %142
+  %144 = load ptr, ptr %6, align 8
+  store ptr %144, ptr %16, align 8
   %145 = load ptr, ptr @g_wdactivelist, align 8
-  %146 = icmp ne ptr %145, null
-  br i1 %146, label %149, label %147
+  %146 = load ptr, ptr %16, align 8
+  %147 = getelementptr inbounds %struct.sq_entry_s, ptr %146, i32 0, i32 0
+  store ptr %145, ptr %147, align 8
+  %148 = load ptr, ptr @g_wdactivelist, align 8
+  %149 = icmp ne ptr %148, null
+  br i1 %149, label %153, label %150
 
-147:                                              ; preds = %140
-  %148 = load ptr, ptr %16, align 8
-  store ptr %148, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1), align 8
-  br label %149
+150:                                              ; preds = %143
+  %151 = load ptr, ptr %16, align 8
+  %152 = getelementptr inbounds %struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1
+  store ptr %151, ptr %152, align 8
+  br label %153
 
-149:                                              ; preds = %147, %140
-  %150 = load ptr, ptr %16, align 8
-  store ptr %150, ptr @g_wdactivelist, align 8
-  br label %151
-
-151:                                              ; preds = %149
+153:                                              ; preds = %150, %143
+  %154 = load ptr, ptr %16, align 8
+  store ptr %154, ptr @g_wdactivelist, align 8
   br label %155
 
-152:                                              ; preds = %123
-  %153 = load ptr, ptr %11, align 8
-  %154 = load ptr, ptr %6, align 8
-  call void @sq_addafter(ptr noundef %153, ptr noundef %154, ptr noundef @g_wdactivelist)
-  br label %155
+155:                                              ; preds = %153
+  br label %159
 
-155:                                              ; preds = %152, %151
-  br label %193
+156:                                              ; preds = %126
+  %157 = load ptr, ptr %11, align 8
+  %158 = load ptr, ptr %6, align 8
+  call void @sq_addafter(ptr noundef %157, ptr noundef %158, ptr noundef @g_wdactivelist)
+  br label %159
 
-156:                                              ; preds = %119
-  %157 = load i64, ptr %13, align 8
-  %158 = load i64, ptr %7, align 8
-  %159 = sub nsw i64 %158, %157
-  store i64 %159, ptr %7, align 8
-  %160 = load ptr, ptr %10, align 8
-  %161 = getelementptr inbounds %struct.wdog_s, ptr %160, i32 0, i32 0
-  %162 = load ptr, ptr %161, align 8
-  %163 = icmp ne ptr %162, null
-  br i1 %163, label %181, label %164
+159:                                              ; preds = %156, %155
+  br label %200
 
-164:                                              ; preds = %156
-  br label %165
+160:                                              ; preds = %122
+  %161 = load i64, ptr %13, align 8
+  %162 = load i64, ptr %7, align 8
+  %163 = sub nsw i64 %162, %161
+  store i64 %163, ptr %7, align 8
+  %164 = load ptr, ptr %10, align 8
+  %165 = getelementptr inbounds %struct.wdog_s, ptr %164, i32 0, i32 0
+  %166 = load ptr, ptr %165, align 8
+  %167 = icmp ne ptr %166, null
+  br i1 %167, label %188, label %168
 
-165:                                              ; preds = %164
-  %166 = load ptr, ptr %6, align 8
-  store ptr %166, ptr %17, align 8
-  %167 = load ptr, ptr %17, align 8
-  %168 = getelementptr inbounds %struct.sq_entry_s, ptr %167, i32 0, i32 0
-  store ptr null, ptr %168, align 8
-  %169 = load ptr, ptr @g_wdactivelist, align 8
-  %170 = icmp ne ptr %169, null
-  br i1 %170, label %174, label %171
+168:                                              ; preds = %160
+  br label %169
 
-171:                                              ; preds = %165
-  %172 = load ptr, ptr %17, align 8
-  store ptr %172, ptr @g_wdactivelist, align 8
-  %173 = load ptr, ptr %17, align 8
-  store ptr %173, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1), align 8
-  br label %179
+169:                                              ; preds = %168
+  %170 = load ptr, ptr %6, align 8
+  store ptr %170, ptr %17, align 8
+  %171 = load ptr, ptr %17, align 8
+  %172 = getelementptr inbounds %struct.sq_entry_s, ptr %171, i32 0, i32 0
+  store ptr null, ptr %172, align 8
+  %173 = load ptr, ptr @g_wdactivelist, align 8
+  %174 = icmp ne ptr %173, null
+  br i1 %174, label %179, label %175
 
-174:                                              ; preds = %165
-  %175 = load ptr, ptr %17, align 8
-  %176 = load ptr, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1), align 8
-  %177 = getelementptr inbounds %struct.sq_entry_s, ptr %176, i32 0, i32 0
-  store ptr %175, ptr %177, align 8
-  %178 = load ptr, ptr %17, align 8
-  store ptr %178, ptr getelementptr inbounds (%struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1), align 8
-  br label %179
+175:                                              ; preds = %169
+  %176 = load ptr, ptr %17, align 8
+  store ptr %176, ptr @g_wdactivelist, align 8
+  %177 = load ptr, ptr %17, align 8
+  %178 = getelementptr inbounds %struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1
+  store ptr %177, ptr %178, align 8
+  br label %186
 
-179:                                              ; preds = %174, %171
-  br label %180
+179:                                              ; preds = %169
+  %180 = load ptr, ptr %17, align 8
+  %181 = getelementptr inbounds %struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1
+  %182 = load ptr, ptr %181, align 8
+  %183 = getelementptr inbounds %struct.sq_entry_s, ptr %182, i32 0, i32 0
+  store ptr %180, ptr %183, align 8
+  %184 = load ptr, ptr %17, align 8
+  %185 = getelementptr inbounds %struct.sq_queue_s, ptr @g_wdactivelist, i32 0, i32 1
+  store ptr %184, ptr %185, align 8
+  br label %186
 
-180:                                              ; preds = %179
-  br label %192
+186:                                              ; preds = %179, %175
+  br label %187
 
-181:                                              ; preds = %156
-  %182 = load ptr, ptr %10, align 8
-  %183 = getelementptr inbounds %struct.wdog_s, ptr %182, i32 0, i32 0
-  %184 = load ptr, ptr %183, align 8
-  store ptr %184, ptr %12, align 8
-  %185 = load i64, ptr %7, align 8
-  %186 = load ptr, ptr %12, align 8
-  %187 = getelementptr inbounds %struct.wdog_s, ptr %186, i32 0, i32 3
-  %188 = load i64, ptr %187, align 8
-  %189 = sub nsw i64 %188, %185
-  store i64 %189, ptr %187, align 8
-  %190 = load ptr, ptr %10, align 8
-  %191 = load ptr, ptr %6, align 8
-  call void @sq_addafter(ptr noundef %190, ptr noundef %191, ptr noundef @g_wdactivelist)
-  br label %192
-
-192:                                              ; preds = %181, %180
-  br label %193
-
-193:                                              ; preds = %192, %155
-  br label %194
-
-194:                                              ; preds = %193, %75
-  %195 = load i64, ptr %7, align 8
-  %196 = load ptr, ptr %6, align 8
-  %197 = getelementptr inbounds %struct.wdog_s, ptr %196, i32 0, i32 3
-  store i64 %195, ptr %197, align 8
-  call void @nxsched_resume_timer()
-  %198 = load i64, ptr %14, align 8
-  call void @up_irq_restore(i64 noundef %198)
-  store i32 0, ptr %5, align 4
+187:                                              ; preds = %186
   br label %199
 
-199:                                              ; preds = %194, %26
-  %200 = load i32, ptr %5, align 4
-  ret i32 %200
+188:                                              ; preds = %160
+  %189 = load ptr, ptr %10, align 8
+  %190 = getelementptr inbounds %struct.wdog_s, ptr %189, i32 0, i32 0
+  %191 = load ptr, ptr %190, align 8
+  store ptr %191, ptr %12, align 8
+  %192 = load i64, ptr %7, align 8
+  %193 = load ptr, ptr %12, align 8
+  %194 = getelementptr inbounds %struct.wdog_s, ptr %193, i32 0, i32 3
+  %195 = load i64, ptr %194, align 8
+  %196 = sub nsw i64 %195, %192
+  store i64 %196, ptr %194, align 8
+  %197 = load ptr, ptr %10, align 8
+  %198 = load ptr, ptr %6, align 8
+  call void @sq_addafter(ptr noundef %197, ptr noundef %198, ptr noundef @g_wdactivelist)
+  br label %199
+
+199:                                              ; preds = %188, %187
+  br label %200
+
+200:                                              ; preds = %199, %159
+  br label %201
+
+201:                                              ; preds = %200, %78
+  %202 = load i64, ptr %7, align 8
+  %203 = load ptr, ptr %6, align 8
+  %204 = getelementptr inbounds %struct.wdog_s, ptr %203, i32 0, i32 3
+  store i64 %202, ptr %204, align 8
+  call void @nxsched_resume_timer()
+  %205 = load i64, ptr %14, align 8
+  call void @up_irq_restore(i64 noundef %205)
+  store i32 0, ptr %5, align 4
+  br label %206
+
+206:                                              ; preds = %201, %26
+  %207 = load i32, ptr %5, align 4
+  ret i32 %207
 }
 
 ; Function Attrs: nounwind uwtable

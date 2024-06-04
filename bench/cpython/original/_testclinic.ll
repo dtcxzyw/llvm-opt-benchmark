@@ -9808,7 +9808,9 @@ lor.lhs.false:                                    ; preds = %land.lhs.true4
 
 land.lhs.true6:                                   ; preds = %lor.lhs.false
   %7 = load ptr, ptr %kwnames.addr, align 8
-  %call7 = call i32 @PySequence_Contains(ptr noundef %7, ptr noundef getelementptr inbounds (%struct.anon.41, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 248))
+  %8 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %9 = getelementptr inbounds %struct.anon.41, ptr %8, i32 0, i32 3, i32 1, i32 248
+  %call7 = call i32 @PySequence_Contains(ptr noundef %7, ptr noundef %9)
   %tobool8 = icmp ne i32 %call7, 0
   br i1 %tobool8, label %if.then9, label %if.end18
 
@@ -9821,8 +9823,8 @@ if.then12:                                        ; preds = %if.then9
   br label %exit
 
 if.end13:                                         ; preds = %if.then9
-  %8 = load ptr, ptr @PyExc_DeprecationWarning, align 8
-  %call14 = call i32 @PyErr_WarnEx(ptr noundef %8, ptr noundef @.str.176, i64 noundef 1)
+  %10 = load ptr, ptr @PyExc_DeprecationWarning, align 8
+  %call14 = call i32 @PyErr_WarnEx(ptr noundef %10, ptr noundef @.str.176, i64 noundef 1)
   %tobool15 = icmp ne i32 %call14, 0
   br i1 %tobool15, label %if.then16, label %if.end17
 
@@ -9833,19 +9835,19 @@ if.end17:                                         ; preds = %if.end13
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end17, %land.lhs.true6, %lor.lhs.false, %land.lhs.true, %if.end
-  %9 = load ptr, ptr %module.addr, align 8
-  %10 = load ptr, ptr %a, align 8
-  %11 = load ptr, ptr %b, align 8
-  %12 = load ptr, ptr %c, align 8
-  %13 = load ptr, ptr %d, align 8
-  %14 = load i64, ptr %d_length, align 8
-  %call19 = call ptr @depr_kwd_noinline_impl(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i64 noundef %14)
+  %11 = load ptr, ptr %module.addr, align 8
+  %12 = load ptr, ptr %a, align 8
+  %13 = load ptr, ptr %b, align 8
+  %14 = load ptr, ptr %c, align 8
+  %15 = load ptr, ptr %d, align 8
+  %16 = load i64, ptr %d_length, align 8
+  %call19 = call ptr @depr_kwd_noinline_impl(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, i64 noundef %16)
   store ptr %call19, ptr %return_value, align 8
   br label %exit
 
 exit:                                             ; preds = %if.end18, %if.then16, %if.then12, %if.then
-  %15 = load ptr, ptr %return_value, align 8
-  ret ptr %15
+  %17 = load ptr, ptr %return_value, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10164,7 +10166,7 @@ if.then:                                          ; preds = %cond.end
 
 if.end:                                           ; preds = %cond.end
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   store i32 0, ptr %i, align 4
   br label %for.cond
 
@@ -10216,7 +10218,7 @@ if.then9:                                         ; preds = %if.then6
   %13 = load ptr, ptr %arg, align 8
   %call10 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef @.str.78, i32 noundef %12, ptr noundef %13)
   %arraydecay11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay11)
+  call void @llvm.va_end.p0(ptr %arraydecay11)
   %14 = load ptr, ptr %tuple, align 8
   store ptr %14, ptr %op.addr.i, align 8
   %15 = load ptr, ptr %op.addr.i, align 8
@@ -10273,7 +10275,7 @@ for.inc:                                          ; preds = %if.end13
 
 for.end:                                          ; preds = %for.cond
   %arraydecay16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %vargs, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay16)
+  call void @llvm.va_end.p0(ptr %arraydecay16)
   %25 = load ptr, ptr %tuple, align 8
   store ptr %25, ptr %retval, align 8
   br label %return
@@ -10290,15 +10292,9 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 
 declare ptr @PyTuple_New(i64 noundef) #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 declare i32 @_PyObject_IsFreed(ptr noundef) #1
 
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @PyTuple_SET_ITEM(ptr noundef %op, i64 noundef %index, ptr noundef %value) #0 {
@@ -11110,7 +11106,7 @@ do.end:                                           ; preds = %for.end60, %for.end
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 declare ptr @PyLong_FromUnsignedLong(i64 noundef) #1
 
@@ -15140,7 +15136,7 @@ do.end:                                           ; preds = %for.end44, %for.end
 declare { double, double } @PyComplex_AsCComplex(ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @py_complex_converter_impl(ptr noundef %module, double %a.coerce0, double %a.coerce1) #0 {
@@ -16833,7 +16829,7 @@ cond.end4:                                        ; preds = %3, %cond.true2
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #6
+declare i64 @strlen(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @clone_f1_impl(ptr noundef %module, ptr noundef %path) #0 {
@@ -18453,7 +18449,9 @@ lor.lhs.false:                                    ; preds = %land.lhs.true5
 
 land.lhs.true7:                                   ; preds = %lor.lhs.false
   %7 = load ptr, ptr %kwargs.addr, align 8
-  %call8 = call i32 @PyDict_Contains(ptr noundef %7, ptr noundef getelementptr inbounds (%struct.anon.41, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3, i32 1, i32 248))
+  %8 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %9 = getelementptr inbounds %struct.anon.41, ptr %8, i32 0, i32 3, i32 1, i32 248
+  %call8 = call i32 @PyDict_Contains(ptr noundef %7, ptr noundef %9)
   %tobool9 = icmp ne i32 %call8, 0
   br i1 %tobool9, label %if.then10, label %if.end19
 
@@ -18466,8 +18464,8 @@ if.then13:                                        ; preds = %if.then10
   br label %exit
 
 if.end14:                                         ; preds = %if.then10
-  %8 = load ptr, ptr @PyExc_DeprecationWarning, align 8
-  %call15 = call i32 @PyErr_WarnEx(ptr noundef %8, ptr noundef @.str.204, i64 noundef 1)
+  %10 = load ptr, ptr @PyExc_DeprecationWarning, align 8
+  %call15 = call i32 @PyErr_WarnEx(ptr noundef %10, ptr noundef @.str.204, i64 noundef 1)
   %tobool16 = icmp ne i32 %call15, 0
   br i1 %tobool16, label %if.then17, label %if.end18
 
@@ -18478,19 +18476,19 @@ if.end18:                                         ; preds = %if.end14
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end18, %land.lhs.true7, %lor.lhs.false, %land.lhs.true, %if.end
-  %9 = load ptr, ptr %self.addr, align 8
-  %10 = load ptr, ptr %a, align 8
-  %11 = load ptr, ptr %b, align 8
-  %12 = load ptr, ptr %c, align 8
-  %13 = load ptr, ptr %d, align 8
-  %14 = load i64, ptr %d_length, align 8
-  %call20 = call i32 @depr_kwd_init_noinline_impl(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i64 noundef %14)
+  %11 = load ptr, ptr %self.addr, align 8
+  %12 = load ptr, ptr %a, align 8
+  %13 = load ptr, ptr %b, align 8
+  %14 = load ptr, ptr %c, align 8
+  %15 = load ptr, ptr %d, align 8
+  %16 = load i64, ptr %d_length, align 8
+  %call20 = call i32 @depr_kwd_init_noinline_impl(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, i64 noundef %16)
   store i32 %call20, ptr %return_value, align 4
   br label %exit
 
 exit:                                             ; preds = %if.end19, %if.then17, %if.then13, %if.then
-  %15 = load i32, ptr %return_value, align 4
-  ret i32 %15
+  %17 = load i32, ptr %return_value, align 4
+  ret i32 %17
 }
 
 declare i32 @PyDict_Contains(ptr noundef, ptr noundef) #1
@@ -18515,13 +18513,19 @@ entry:
 
 declare void @_Py_Dealloc(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { noreturn nounwind }

@@ -67,21 +67,28 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @mi_heap_main_init() #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6), align 8
-  %cmp = icmp eq i64 %0, 0
+  %0 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6
+  %1 = load i64, ptr %0, align 8
+  %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = call i64 @_mi_thread_id() #7
-  store i64 %call, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4), align 8
-  store i64 1, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6), align 8
-  call void @_mi_random_init(ptr noundef getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 8)) #7
+  %2 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4
+  store i64 %call, ptr %2, align 8
+  %3 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6
+  store i64 1, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 8
+  call void @_mi_random_init(ptr noundef %4) #7
   %call1 = call i64 @_mi_heap_random_next(ptr noundef @_mi_heap_main) #7
-  store i64 %call1, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6), align 8
+  %5 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6
+  store i64 %call1, ptr %5, align 8
   %call2 = call i64 @_mi_heap_random_next(ptr noundef @_mi_heap_main) #7
-  store i64 %call2, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 7), align 8
+  %6 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 7
+  store i64 %call2, ptr %6, align 8
   %call3 = call i64 @_mi_heap_random_next(ptr noundef @_mi_heap_main) #7
-  store i64 %call3, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 7, i64 1), align 8
+  %7 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 7, i64 1
+  store i64 %call3, ptr %7, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -158,19 +165,21 @@ declare void @_mi_os_free(ptr noundef, i64 noundef, ptr noundef byval(%struct.mi
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @_mi_is_main_thread() #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4), align 8
-  %cmp = icmp eq i64 %0, 0
+  %0 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4
+  %1 = load i64, ptr %0, align 8
+  %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4), align 8
+  %2 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4
+  %3 = load i64, ptr %2, align 8
   %call = call i64 @_mi_thread_id() #7
-  %cmp1 = icmp eq i64 %1, %call
+  %cmp1 = icmp eq i64 %3, %call
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %entry
-  %2 = phi i1 [ true, %entry ], [ %cmp1, %lor.rhs ]
-  ret i1 %2
+  %4 = phi i1 [ true, %entry ], [ %cmp1, %lor.rhs ]
+  ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -196,11 +205,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @_mi_stat_increase(ptr noundef getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 9), i64 noundef 1) #7
+  %0 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 9
+  call void @_mi_stat_increase(ptr noundef %0, i64 noundef 1) #7
   store i64 1, ptr %.atomictmp, align 8
-  %0 = load i64, ptr %.atomictmp, align 8
-  %1 = atomicrmw add ptr @thread_count, i64 %0 monotonic, align 8
-  store i64 %1, ptr %atomic-temp, align 8
+  %1 = load i64, ptr %.atomictmp, align 8
+  %2 = atomicrmw add ptr @thread_count, i64 %1 monotonic, align 8
+  store i64 %2, ptr %atomic-temp, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -447,20 +457,21 @@ if.end6:                                          ; preds = %if.end3
   %3 = load i64, ptr %.atomictmp, align 8
   %4 = atomicrmw sub ptr @thread_count, i64 %3 monotonic, align 8
   store i64 %4, ptr %atomic-temp, align 8
-  call void @_mi_stat_decrease(ptr noundef getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 9), i64 noundef 1) #7
-  %5 = load ptr, ptr %heap.addr, align 8
-  %thread_id = getelementptr inbounds %struct.mi_heap_s, ptr %5, i32 0, i32 4
-  %6 = load i64, ptr %thread_id, align 8
+  %5 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 9
+  call void @_mi_stat_decrease(ptr noundef %5, i64 noundef 1) #7
+  %6 = load ptr, ptr %heap.addr, align 8
+  %thread_id = getelementptr inbounds %struct.mi_heap_s, ptr %6, i32 0, i32 4
+  %7 = load i64, ptr %thread_id, align 8
   %call7 = call i64 @_mi_thread_id() #7
-  %cmp8 = icmp ne i64 %6, %call7
+  %cmp8 = icmp ne i64 %7, %call7
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end6
   br label %if.end13
 
 if.end10:                                         ; preds = %if.end6
-  %7 = load ptr, ptr %heap.addr, align 8
-  %call11 = call zeroext i1 @_mi_heap_done(ptr noundef %7) #7
+  %8 = load ptr, ptr %heap.addr, align 8
+  %call11 = call zeroext i1 @_mi_heap_done(ptr noundef %8) #7
   br i1 %call11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end10
@@ -768,7 +779,8 @@ if.then4:                                         ; preds = %lor.lhs.false, %lan
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %lor.lhs.false, %if.end
-  call void @_mi_random_reinit_if_weak(ptr noundef getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 8)) #7
+  %3 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 8
+  call void @_mi_random_reinit_if_weak(ptr noundef %3) #7
   ret void
 }
 
@@ -1144,8 +1156,9 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
 
 if.end10:                                         ; preds = %if.then9, %lor.lhs.false
   call void @mi_allocator_done() #7
-  %3 = load i64, ptr getelementptr inbounds (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4), align 8
-  call void (ptr, ...) @_mi_verbose_message(ptr noundef @.str.6, i64 noundef %3) #7
+  %3 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4
+  %4 = load i64, ptr %3, align 8
+  call void (ptr, ...) @_mi_verbose_message(ptr noundef @.str.6, i64 noundef %4) #7
   store i8 1, ptr @os_preloading, align 1
   br label %return
 

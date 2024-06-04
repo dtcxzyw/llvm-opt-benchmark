@@ -192,61 +192,63 @@ define internal void @hosts_draw(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %5 = call i32 (ptr, ...) @printf(ptr noundef @.str.8)
   %6 = call i32 (ptr, ...) @printf(ptr noundef @.str.9)
-  %7 = load i32, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 4), align 8
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %1
-  br label %12
+  %7 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 4
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr getelementptr inbounds (%struct._capture_file, ptr @cfile, i32 0, i32 2), align 8
-  br label %12
+  br label %14
 
-12:                                               ; preds = %10, %9
-  %13 = phi ptr [ @.str.11, %9 ], [ %11, %10 ]
-  %14 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, ptr noundef %13)
-  %15 = call i32 (ptr, ...) @printf(ptr noundef @.str.12)
-  %16 = load i32, ptr @dump_v4, align 4
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %25
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds %struct._capture_file, ptr @cfile, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8
+  br label %14
 
-18:                                               ; preds = %12
-  %19 = call ptr @get_ipv4_hash_table()
-  store ptr %19, ptr %3, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %24
+14:                                               ; preds = %11, %10
+  %15 = phi ptr [ @.str.11, %10 ], [ %13, %11 ]
+  %16 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, ptr noundef %15)
+  %17 = call i32 (ptr, ...) @printf(ptr noundef @.str.12)
+  %18 = load i32, ptr @dump_v4, align 4
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %27
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %3, align 8
-  call void @wmem_map_foreach(ptr noundef %23, ptr noundef @ipv4_hash_table_print_resolved, ptr noundef null)
-  br label %24
+20:                                               ; preds = %14
+  %21 = call ptr @get_ipv4_hash_table()
+  store ptr %21, ptr %3, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %26
 
-24:                                               ; preds = %22, %18
-  br label %25
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8
+  call void @wmem_map_foreach(ptr noundef %25, ptr noundef @ipv4_hash_table_print_resolved, ptr noundef null)
+  br label %26
 
-25:                                               ; preds = %24, %12
-  %26 = load i32, ptr @dump_v6, align 4
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %35
+26:                                               ; preds = %24, %20
+  br label %27
 
-28:                                               ; preds = %25
-  %29 = call ptr @get_ipv6_hash_table()
-  store ptr %29, ptr %4, align 8
-  %30 = load ptr, ptr %4, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %34
+27:                                               ; preds = %26, %14
+  %28 = load i32, ptr @dump_v6, align 4
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %37
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %4, align 8
-  call void @wmem_map_foreach(ptr noundef %33, ptr noundef @ipv6_hash_table_print_resolved, ptr noundef null)
-  br label %34
+30:                                               ; preds = %27
+  %31 = call ptr @get_ipv6_hash_table()
+  store ptr %31, ptr %4, align 8
+  %32 = load ptr, ptr %4, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %36
 
-34:                                               ; preds = %32, %28
-  br label %35
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %4, align 8
+  call void @wmem_map_foreach(ptr noundef %35, ptr noundef @ipv6_hash_table_print_resolved, ptr noundef null)
+  br label %36
 
-35:                                               ; preds = %34, %25
+36:                                               ; preds = %34, %30
+  br label %37
+
+37:                                               ; preds = %36, %27
   ret void
 }
 

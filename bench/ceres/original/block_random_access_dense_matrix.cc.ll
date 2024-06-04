@@ -358,113 +358,114 @@ define hidden void @_ZN5ceres8internal28BlockRandomAccessDenseMatrixC2ESt6vector
   store i32 %3, ptr %8, align 4
   %15 = load ptr, ptr %5, align 8
   call void @_ZN5ceres8internal23BlockRandomAccessMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #10
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5ceres8internal28BlockRandomAccessDenseMatrixE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %16 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 1
-  call void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
-  %17 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 2
-  %18 = load ptr, ptr %7, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 3
-  %20 = load i32, ptr %8, align 4
-  store i32 %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 4
-  store i32 -1, ptr %21, align 4
-  %22 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 5
-  call void @_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #10
-  %23 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 6
-  call void @_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #10
-  %24 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 1
-  %25 = call noundef i64 @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #10
-  %26 = trunc i64 %25 to i32
-  store i32 %26, ptr %9, align 4
-  %27 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 1
-  %28 = invoke noundef i32 @_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %27)
-          to label %29 unwind label %65
+  %16 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5ceres8internal28BlockRandomAccessDenseMatrixE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 1
+  call void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
+  %18 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 2
+  %19 = load ptr, ptr %7, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 3
+  %21 = load i32, ptr %8, align 4
+  store i32 %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 4
+  store i32 -1, ptr %22, align 4
+  %23 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 5
+  call void @_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #10
+  %24 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 6
+  call void @_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #10
+  %25 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 1
+  %26 = call noundef i64 @_ZNKSt6vectorIN5ceres8internal5BlockESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #10
+  %27 = trunc i64 %26 to i32
+  store i32 %27, ptr %9, align 4
+  %28 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 1
+  %29 = invoke noundef i32 @_ZN5ceres8internal16NumScalarEntriesERKSt6vectorINS0_5BlockESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %28)
+          to label %30 unwind label %66
 
-29:                                               ; preds = %4
-  %30 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 4
-  store i32 %28, ptr %30, align 4
+30:                                               ; preds = %4
   %31 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 4
-  %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 4
-  %34 = load i32, ptr %33, align 4
-  %35 = mul nsw i32 %32, %34
-  %36 = sext i32 %35 to i64
-  invoke void @_ZSt11make_uniqueIA_dENSt8__detail9_MakeUniqIT_E7__arrayEm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %12, i64 noundef %36)
-          to label %37 unwind label %65
+  store i32 %29, ptr %31, align 4
+  %32 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 4
+  %33 = load i32, ptr %32, align 4
+  %34 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 4
+  %35 = load i32, ptr %34, align 4
+  %36 = mul nsw i32 %33, %35
+  %37 = sext i32 %36 to i64
+  invoke void @_ZSt11make_uniqueIA_dENSt8__detail9_MakeUniqIT_E7__arrayEm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %12, i64 noundef %37)
+          to label %38 unwind label %66
 
-37:                                               ; preds = %29
-  %38 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 5
-  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %12) #10
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 5
+  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %12) #10
   call void @_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  %40 = load i32, ptr %9, align 4
   %41 = load i32, ptr %9, align 4
-  %42 = mul nsw i32 %40, %41
-  %43 = sext i32 %42 to i64
-  invoke void @_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.3") align 8 %13, i64 noundef %43)
-          to label %44 unwind label %65
+  %42 = load i32, ptr %9, align 4
+  %43 = mul nsw i32 %41, %42
+  %44 = sext i32 %43 to i64
+  invoke void @_ZSt11make_uniqueIA_N5ceres8internal8CellInfoEENSt8__detail9_MakeUniqIT_E7__arrayEm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.3") align 8 %13, i64 noundef %44)
+          to label %45 unwind label %66
 
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 6
-  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %13) #10
+45:                                               ; preds = %38
+  %46 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 6
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(8) %13) #10
   call void @_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #10
   store i32 0, ptr %14, align 4
-  br label %47
+  br label %48
 
-47:                                               ; preds = %62, %44
-  %48 = load i32, ptr %14, align 4
-  %49 = load i32, ptr %9, align 4
+48:                                               ; preds = %63, %45
+  %49 = load i32, ptr %14, align 4
   %50 = load i32, ptr %9, align 4
-  %51 = mul nsw i32 %49, %50
-  %52 = icmp slt i32 %48, %51
-  br i1 %52, label %53, label %69
+  %51 = load i32, ptr %9, align 4
+  %52 = mul nsw i32 %50, %51
+  %53 = icmp slt i32 %49, %52
+  br i1 %53, label %54, label %70
 
-53:                                               ; preds = %47
-  %54 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 5
-  %55 = call noundef ptr @_ZNKSt10unique_ptrIA_dSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %54) #10
-  %56 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 6
-  %57 = load i32, ptr %14, align 4
-  %58 = sext i32 %57 to i64
-  %59 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNKSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(8) %56, i64 noundef %58)
-          to label %60 unwind label %65
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 5
+  %56 = call noundef ptr @_ZNKSt10unique_ptrIA_dSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %55) #10
+  %57 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %15, i32 0, i32 6
+  %58 = load i32, ptr %14, align 4
+  %59 = sext i32 %58 to i64
+  %60 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNKSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(8) %57, i64 noundef %59)
+          to label %61 unwind label %66
 
-60:                                               ; preds = %53
-  %61 = getelementptr inbounds %"struct.ceres::internal::CellInfo", ptr %59, i32 0, i32 0
-  store ptr %55, ptr %61, align 8
-  br label %62
+61:                                               ; preds = %54
+  %62 = getelementptr inbounds %"struct.ceres::internal::CellInfo", ptr %60, i32 0, i32 0
+  store ptr %56, ptr %62, align 8
+  br label %63
 
-62:                                               ; preds = %60
-  %63 = load i32, ptr %14, align 4
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %14, align 4
-  br label %47, !llvm.loop !4
+63:                                               ; preds = %61
+  %64 = load i32, ptr %14, align 4
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr %14, align 4
+  br label %48, !llvm.loop !4
 
-65:                                               ; preds = %69, %53, %37, %29, %4
-  %66 = landingpad { ptr, i32 }
+66:                                               ; preds = %70, %54, %38, %30, %4
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %67 = extractvalue { ptr, i32 } %66, 0
-  store ptr %67, ptr %10, align 8
-  %68 = extractvalue { ptr, i32 } %66, 1
-  store i32 %68, ptr %11, align 4
-  call void @_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #10
-  call void @_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #10
-  call void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #10
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %10, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %11, align 4
+  call void @_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #10
+  call void @_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #10
+  call void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #10
   call void @_ZN5ceres8internal23BlockRandomAccessMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #10
-  br label %71
+  br label %72
 
-69:                                               ; preds = %47
+70:                                               ; preds = %48
   invoke void @_ZN5ceres8internal28BlockRandomAccessDenseMatrix7SetZeroEv(ptr noundef nonnull align 8 dereferenceable(64) %15)
-          to label %70 unwind label %65
+          to label %71 unwind label %66
 
-70:                                               ; preds = %69
+71:                                               ; preds = %70
   ret void
 
-71:                                               ; preds = %65
-  %72 = load ptr, ptr %10, align 8
-  %73 = load i32, ptr %11, align 4
-  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
-  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
-  resume { ptr, i32 } %75
+72:                                               ; preds = %66
+  %73 = load ptr, ptr %10, align 8
+  %74 = load i32, ptr %11, align 4
+  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
+  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
+  resume { ptr, i32 } %76
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -472,7 +473,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal23BlockRandomAccessMatrixC2Ev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5ceres8internal23BlockRandomAccessMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5ceres8internal23BlockRandomAccessMatrixE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -849,13 +851,14 @@ define linkonce_odr hidden void @_ZN5ceres8internal28BlockRandomAccessDenseMatri
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5ceres8internal28BlockRandomAccessDenseMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %3, i32 0, i32 6
-  call void @_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
-  %5 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %3, i32 0, i32 5
-  call void @_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  %6 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #10
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN5ceres8internal28BlockRandomAccessDenseMatrixE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %3, i32 0, i32 6
+  call void @_ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
+  %6 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %3, i32 0, i32 5
+  call void @_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  %7 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessDenseMatrix", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
   call void @_ZN5ceres8internal23BlockRandomAccessMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret void
 }

@@ -157,13 +157,14 @@ entry:
   store i32 %timeUnitField, ptr %timeUnitField.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_758TimeUnitE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load i32, ptr %timeUnitField.addr, align 4
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_758TimeUnitE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load i32, ptr %timeUnitField.addr, align 4
   %fTimeUnitField = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %this1, i32 0, i32 1
-  store i32 %0, ptr %fTimeUnitField, align 4
+  store i32 %1, ptr %fTimeUnitField, align 4
   %fTimeUnitField2 = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %fTimeUnitField2, align 4
-  switch i32 %1, label %sw.default [
+  %2 = load i32, ptr %fTimeUnitField2, align 4
+  switch i32 %2, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb3
     i32 2, label %sw.bb5
@@ -181,12 +182,12 @@ invoke.cont:                                      ; preds = %sw.bb
   br label %sw.epilog
 
 lpad:                                             ; preds = %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7511MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1) #5
   br label %eh.resume
 
@@ -267,12 +268,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_7511MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr noundef nonnull align 8 dereferenceable(19) %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_758TimeUnitE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_758TimeUnitE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fTimeUnitField = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %fTimeUnitField2 = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %fTimeUnitField2, align 4
-  store i32 %2, ptr %fTimeUnitField, align 4
+  %2 = load ptr, ptr %other.addr, align 8
+  %fTimeUnitField2 = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %fTimeUnitField2, align 4
+  store i32 %3, ptr %fTimeUnitField, align 4
   ret void
 }
 

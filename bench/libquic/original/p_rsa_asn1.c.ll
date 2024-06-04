@@ -108,7 +108,8 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false
   br i1 %tobool5, label %lor.lhs.false6, label %if.then
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = call i32 @CBB_add_bytes(ptr noundef %oid, ptr noundef getelementptr inbounds (%struct.evp_pkey_asn1_method_st, ptr @rsa_asn1_meth, i32 0, i32 1), i64 noundef 9)
+  %1 = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr @rsa_asn1_meth, i32 0, i32 1
+  %call7 = call i32 @CBB_add_bytes(ptr noundef %oid, ptr noundef %1, i64 noundef 9)
   %tobool8 = icmp ne i32 %call7, 0
   br i1 %tobool8, label %lor.lhs.false9, label %if.then
 
@@ -128,16 +129,16 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false12
   br i1 %tobool17, label %lor.lhs.false18, label %if.then
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false15
-  %1 = load ptr, ptr %key.addr, align 8
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %pkey, align 8
-  %call19 = call i32 @RSA_marshal_public_key(ptr noundef %key_bitstring, ptr noundef %2)
+  %2 = load ptr, ptr %key.addr, align 8
+  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %pkey, align 8
+  %call19 = call i32 @RSA_marshal_public_key(ptr noundef %key_bitstring, ptr noundef %3)
   %tobool20 = icmp ne i32 %call19, 0
   br i1 %tobool20, label %lor.lhs.false21, label %if.then
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false18
-  %3 = load ptr, ptr %out.addr, align 8
-  %call22 = call i32 @CBB_flush(ptr noundef %3)
+  %4 = load ptr, ptr %out.addr, align 8
+  %call22 = call i32 @CBB_flush(ptr noundef %4)
   %tobool23 = icmp ne i32 %call22, 0
   br i1 %tobool23, label %if.end, label %if.then
 
@@ -151,8 +152,8 @@ if.end:                                           ; preds = %lor.lhs.false21
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+  %5 = load i32, ptr %retval, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -297,7 +298,8 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false3
   br i1 %tobool8, label %lor.lhs.false9, label %if.then
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false6
-  %call10 = call i32 @CBB_add_bytes(ptr noundef %oid, ptr noundef getelementptr inbounds (%struct.evp_pkey_asn1_method_st, ptr @rsa_asn1_meth, i32 0, i32 1), i64 noundef 9)
+  %1 = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr @rsa_asn1_meth, i32 0, i32 1
+  %call10 = call i32 @CBB_add_bytes(ptr noundef %oid, ptr noundef %1, i64 noundef 9)
   %tobool11 = icmp ne i32 %call10, 0
   br i1 %tobool11, label %lor.lhs.false12, label %if.then
 
@@ -312,16 +314,16 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false12
   br i1 %tobool17, label %lor.lhs.false18, label %if.then
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false15
-  %1 = load ptr, ptr %key.addr, align 8
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %pkey, align 8
-  %call19 = call i32 @RSA_marshal_private_key(ptr noundef %private_key, ptr noundef %2)
+  %2 = load ptr, ptr %key.addr, align 8
+  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %pkey, align 8
+  %call19 = call i32 @RSA_marshal_private_key(ptr noundef %private_key, ptr noundef %3)
   %tobool20 = icmp ne i32 %call19, 0
   br i1 %tobool20, label %lor.lhs.false21, label %if.then
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false18
-  %3 = load ptr, ptr %out.addr, align 8
-  %call22 = call i32 @CBB_flush(ptr noundef %3)
+  %4 = load ptr, ptr %out.addr, align 8
+  %call22 = call i32 @CBB_flush(ptr noundef %4)
   %tobool23 = icmp ne i32 %call22, 0
   br i1 %tobool23, label %if.end, label %if.then
 
@@ -335,8 +337,8 @@ if.end:                                           ; preds = %lor.lhs.false21
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+  %5 = load i32, ptr %retval, align 4
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1729,7 +1729,8 @@ define hidden void @proto_reg_handoff_rtpproxy() #0 {
   %21 = load i32, ptr @rtpproxy_timeout, align 4
   %22 = urem i32 %21, 1000
   %23 = mul i32 %22, 1000
-  store i32 %23, ptr getelementptr inbounds (%struct.nstime_t, ptr @rtpproxy_timeout_ns, i32 0, i32 1), align 8
+  %24 = getelementptr inbounds %struct.nstime_t, ptr @rtpproxy_timeout_ns, i32 0, i32 1
+  store i32 %23, ptr %24, align 8
   ret void
 }
 

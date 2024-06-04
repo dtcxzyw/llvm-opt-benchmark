@@ -595,1016 +595,1012 @@ define internal void @blake2s_compress(ptr noundef %0, ptr noundef %1) #0 {
   %38 = load i32, ptr @blake2s_IV, align 16
   %39 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
   store i32 %38, ptr %39, align 16
-  %40 = load i32, ptr getelementptr inbounds ([8 x i32], ptr @blake2s_IV, i64 0, i64 1), align 4
-  %41 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %40, ptr %41, align 4
-  %42 = load i32, ptr getelementptr inbounds ([8 x i32], ptr @blake2s_IV, i64 0, i64 2), align 8
-  %43 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %42, ptr %43, align 8
-  %44 = load i32, ptr getelementptr inbounds ([8 x i32], ptr @blake2s_IV, i64 0, i64 3), align 4
-  %45 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %44, ptr %45, align 4
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.blake2s_state__, ptr %46, i32 0, i32 1
-  %48 = getelementptr inbounds [2 x i32], ptr %47, i64 0, i64 0
-  %49 = load i32, ptr %48, align 8
-  %50 = load i32, ptr getelementptr inbounds ([8 x i32], ptr @blake2s_IV, i64 0, i64 4), align 16
-  %51 = xor i32 %49, %50
-  %52 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %51, ptr %52, align 16
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.blake2s_state__, ptr %53, i32 0, i32 1
-  %55 = getelementptr inbounds [2 x i32], ptr %54, i64 0, i64 1
-  %56 = load i32, ptr %55, align 4
-  %57 = load i32, ptr getelementptr inbounds ([8 x i32], ptr @blake2s_IV, i64 0, i64 5), align 4
-  %58 = xor i32 %56, %57
-  %59 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %58, ptr %59, align 4
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.blake2s_state__, ptr %60, i32 0, i32 2
-  %62 = getelementptr inbounds [2 x i32], ptr %61, i64 0, i64 0
-  %63 = load i32, ptr %62, align 8
-  %64 = load i32, ptr getelementptr inbounds ([8 x i32], ptr @blake2s_IV, i64 0, i64 6), align 8
-  %65 = xor i32 %63, %64
-  %66 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %65, ptr %66, align 8
-  %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds %struct.blake2s_state__, ptr %67, i32 0, i32 2
-  %69 = getelementptr inbounds [2 x i32], ptr %68, i64 0, i64 1
-  %70 = load i32, ptr %69, align 4
-  %71 = load i32, ptr getelementptr inbounds ([8 x i32], ptr @blake2s_IV, i64 0, i64 7), align 4
-  %72 = xor i32 %70, %71
-  %73 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %72, ptr %73, align 4
-  br label %74
+  %40 = getelementptr inbounds [8 x i32], ptr @blake2s_IV, i64 0, i64 1
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %41, ptr %42, align 4
+  %43 = getelementptr inbounds [8 x i32], ptr @blake2s_IV, i64 0, i64 2
+  %44 = load i32, ptr %43, align 8
+  %45 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %44, ptr %45, align 8
+  %46 = getelementptr inbounds [8 x i32], ptr @blake2s_IV, i64 0, i64 3
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %47, ptr %48, align 4
+  %49 = load ptr, ptr %3, align 8
+  %50 = getelementptr inbounds %struct.blake2s_state__, ptr %49, i32 0, i32 1
+  %51 = getelementptr inbounds [2 x i32], ptr %50, i64 0, i64 0
+  %52 = load i32, ptr %51, align 8
+  %53 = getelementptr inbounds [8 x i32], ptr @blake2s_IV, i64 0, i64 4
+  %54 = load i32, ptr %53, align 16
+  %55 = xor i32 %52, %54
+  %56 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %55, ptr %56, align 16
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds %struct.blake2s_state__, ptr %57, i32 0, i32 1
+  %59 = getelementptr inbounds [2 x i32], ptr %58, i64 0, i64 1
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds [8 x i32], ptr @blake2s_IV, i64 0, i64 5
+  %62 = load i32, ptr %61, align 4
+  %63 = xor i32 %60, %62
+  %64 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %63, ptr %64, align 4
+  %65 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds %struct.blake2s_state__, ptr %65, i32 0, i32 2
+  %67 = getelementptr inbounds [2 x i32], ptr %66, i64 0, i64 0
+  %68 = load i32, ptr %67, align 8
+  %69 = getelementptr inbounds [8 x i32], ptr @blake2s_IV, i64 0, i64 6
+  %70 = load i32, ptr %69, align 8
+  %71 = xor i32 %68, %70
+  %72 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %71, ptr %72, align 8
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds %struct.blake2s_state__, ptr %73, i32 0, i32 2
+  %75 = getelementptr inbounds [2 x i32], ptr %74, i64 0, i64 1
+  %76 = load i32, ptr %75, align 4
+  %77 = getelementptr inbounds [8 x i32], ptr @blake2s_IV, i64 0, i64 7
+  %78 = load i32, ptr %77, align 4
+  %79 = xor i32 %76, %78
+  %80 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %79, ptr %80, align 4
+  br label %81
 
-74:                                               ; preds = %37
-  br label %75
+81:                                               ; preds = %37
+  br label %82
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %77 = load i32, ptr %76, align 16
-  %78 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %79 = load i32, ptr %78, align 16
-  %80 = add i32 %77, %79
-  %81 = load i8, ptr @blake2s_sigma, align 16
-  %82 = zext i8 %81 to i64
-  %83 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %82
-  %84 = load i32, ptr %83, align 4
-  %85 = add i32 %80, %84
-  %86 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %85, ptr %86, align 16
-  %87 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %88 = load i32, ptr %87, align 16
-  %89 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %90 = load i32, ptr %89, align 16
-  %91 = xor i32 %88, %90
-  %92 = call i32 @rotr32(i32 noundef %91, i32 noundef 16)
-  %93 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+82:                                               ; preds = %81
+  %83 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %84 = load i32, ptr %83, align 16
+  %85 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %86 = load i32, ptr %85, align 16
+  %87 = add i32 %84, %86
+  %88 = load i8, ptr @blake2s_sigma, align 16
+  %89 = zext i8 %88 to i64
+  %90 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %89
+  %91 = load i32, ptr %90, align 4
+  %92 = add i32 %87, %91
+  %93 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
   store i32 %92, ptr %93, align 16
-  %94 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %94 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
   %95 = load i32, ptr %94, align 16
-  %96 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %96 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
   %97 = load i32, ptr %96, align 16
-  %98 = add i32 %95, %97
-  %99 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %98, ptr %99, align 16
-  %100 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %101 = load i32, ptr %100, align 16
-  %102 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %103 = load i32, ptr %102, align 16
-  %104 = xor i32 %101, %103
-  %105 = call i32 @rotr32(i32 noundef %104, i32 noundef 12)
-  %106 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %98 = xor i32 %95, %97
+  %99 = call i32 @rotr32(i32 noundef %98, i32 noundef 16)
+  %100 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %99, ptr %100, align 16
+  %101 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %102 = load i32, ptr %101, align 16
+  %103 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %104 = load i32, ptr %103, align 16
+  %105 = add i32 %102, %104
+  %106 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
   store i32 %105, ptr %106, align 16
-  %107 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %107 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
   %108 = load i32, ptr %107, align 16
-  %109 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %109 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
   %110 = load i32, ptr %109, align 16
-  %111 = add i32 %108, %110
-  %112 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 1), align 1
-  %113 = zext i8 %112 to i64
-  %114 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %113
-  %115 = load i32, ptr %114, align 4
-  %116 = add i32 %111, %115
-  %117 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %116, ptr %117, align 16
-  %118 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %119 = load i32, ptr %118, align 16
-  %120 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %121 = load i32, ptr %120, align 16
-  %122 = xor i32 %119, %121
-  %123 = call i32 @rotr32(i32 noundef %122, i32 noundef 8)
-  %124 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %123, ptr %124, align 16
-  %125 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %126 = load i32, ptr %125, align 16
-  %127 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %128 = load i32, ptr %127, align 16
-  %129 = add i32 %126, %128
-  %130 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %129, ptr %130, align 16
-  %131 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %132 = load i32, ptr %131, align 16
+  %111 = xor i32 %108, %110
+  %112 = call i32 @rotr32(i32 noundef %111, i32 noundef 12)
+  %113 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %112, ptr %113, align 16
+  %114 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %115 = load i32, ptr %114, align 16
+  %116 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %117 = load i32, ptr %116, align 16
+  %118 = add i32 %115, %117
+  %119 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 1
+  %120 = load i8, ptr %119, align 1
+  %121 = zext i8 %120 to i64
+  %122 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %121
+  %123 = load i32, ptr %122, align 4
+  %124 = add i32 %118, %123
+  %125 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %124, ptr %125, align 16
+  %126 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %127 = load i32, ptr %126, align 16
+  %128 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %129 = load i32, ptr %128, align 16
+  %130 = xor i32 %127, %129
+  %131 = call i32 @rotr32(i32 noundef %130, i32 noundef 8)
+  %132 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %131, ptr %132, align 16
   %133 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
   %134 = load i32, ptr %133, align 16
-  %135 = xor i32 %132, %134
-  %136 = call i32 @rotr32(i32 noundef %135, i32 noundef 7)
-  %137 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %136, ptr %137, align 16
-  br label %138
+  %135 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %136 = load i32, ptr %135, align 16
+  %137 = add i32 %134, %136
+  %138 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %137, ptr %138, align 16
+  %139 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %140 = load i32, ptr %139, align 16
+  %141 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %142 = load i32, ptr %141, align 16
+  %143 = xor i32 %140, %142
+  %144 = call i32 @rotr32(i32 noundef %143, i32 noundef 7)
+  %145 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %144, ptr %145, align 16
+  br label %146
 
-138:                                              ; preds = %75
-  br label %139
+146:                                              ; preds = %82
+  br label %147
 
-139:                                              ; preds = %138
-  %140 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %141 = load i32, ptr %140, align 4
-  %142 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %143 = load i32, ptr %142, align 4
-  %144 = add i32 %141, %143
-  %145 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 2), align 2
-  %146 = zext i8 %145 to i64
-  %147 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %146
-  %148 = load i32, ptr %147, align 4
-  %149 = add i32 %144, %148
-  %150 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %149, ptr %150, align 4
-  %151 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %154 = load i32, ptr %153, align 4
-  %155 = xor i32 %152, %154
-  %156 = call i32 @rotr32(i32 noundef %155, i32 noundef 16)
-  %157 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %156, ptr %157, align 4
-  %158 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %159 = load i32, ptr %158, align 4
+147:                                              ; preds = %146
+  %148 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %149 = load i32, ptr %148, align 4
+  %150 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %151 = load i32, ptr %150, align 4
+  %152 = add i32 %149, %151
+  %153 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 2
+  %154 = load i8, ptr %153, align 2
+  %155 = zext i8 %154 to i64
+  %156 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %155
+  %157 = load i32, ptr %156, align 4
+  %158 = add i32 %152, %157
+  %159 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %158, ptr %159, align 4
   %160 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
   %161 = load i32, ptr %160, align 4
-  %162 = add i32 %159, %161
-  %163 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %162, ptr %163, align 4
-  %164 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %167 = load i32, ptr %166, align 4
-  %168 = xor i32 %165, %167
-  %169 = call i32 @rotr32(i32 noundef %168, i32 noundef 12)
-  %170 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %169, ptr %170, align 4
-  %171 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %172 = load i32, ptr %171, align 4
+  %162 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %163 = load i32, ptr %162, align 4
+  %164 = xor i32 %161, %163
+  %165 = call i32 @rotr32(i32 noundef %164, i32 noundef 16)
+  %166 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %165, ptr %166, align 4
+  %167 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %168 = load i32, ptr %167, align 4
+  %169 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %170 = load i32, ptr %169, align 4
+  %171 = add i32 %168, %170
+  %172 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %171, ptr %172, align 4
   %173 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %174 = load i32, ptr %173, align 4
-  %175 = add i32 %172, %174
-  %176 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 3), align 1
-  %177 = zext i8 %176 to i64
-  %178 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %177
-  %179 = load i32, ptr %178, align 4
-  %180 = add i32 %175, %179
-  %181 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %180, ptr %181, align 4
-  %182 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %175 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %176 = load i32, ptr %175, align 4
+  %177 = xor i32 %174, %176
+  %178 = call i32 @rotr32(i32 noundef %177, i32 noundef 12)
+  %179 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %178, ptr %179, align 4
+  %180 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %181 = load i32, ptr %180, align 4
+  %182 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %183 = load i32, ptr %182, align 4
-  %184 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %185 = load i32, ptr %184, align 4
-  %186 = xor i32 %183, %185
-  %187 = call i32 @rotr32(i32 noundef %186, i32 noundef 8)
-  %188 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %187, ptr %188, align 4
-  %189 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %190 = load i32, ptr %189, align 4
-  %191 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %192 = load i32, ptr %191, align 4
-  %193 = add i32 %190, %192
-  %194 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %193, ptr %194, align 4
-  %195 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %196 = load i32, ptr %195, align 4
-  %197 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %198 = load i32, ptr %197, align 4
-  %199 = xor i32 %196, %198
-  %200 = call i32 @rotr32(i32 noundef %199, i32 noundef 7)
-  %201 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %200, ptr %201, align 4
-  br label %202
+  %184 = add i32 %181, %183
+  %185 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 3
+  %186 = load i8, ptr %185, align 1
+  %187 = zext i8 %186 to i64
+  %188 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %187
+  %189 = load i32, ptr %188, align 4
+  %190 = add i32 %184, %189
+  %191 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %190, ptr %191, align 4
+  %192 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %193 = load i32, ptr %192, align 4
+  %194 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %195 = load i32, ptr %194, align 4
+  %196 = xor i32 %193, %195
+  %197 = call i32 @rotr32(i32 noundef %196, i32 noundef 8)
+  %198 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %197, ptr %198, align 4
+  %199 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %200 = load i32, ptr %199, align 4
+  %201 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %202 = load i32, ptr %201, align 4
+  %203 = add i32 %200, %202
+  %204 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %203, ptr %204, align 4
+  %205 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %206 = load i32, ptr %205, align 4
+  %207 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %208 = load i32, ptr %207, align 4
+  %209 = xor i32 %206, %208
+  %210 = call i32 @rotr32(i32 noundef %209, i32 noundef 7)
+  %211 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %210, ptr %211, align 4
+  br label %212
 
-202:                                              ; preds = %139
-  br label %203
+212:                                              ; preds = %147
+  br label %213
 
-203:                                              ; preds = %202
-  %204 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %205 = load i32, ptr %204, align 8
-  %206 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %207 = load i32, ptr %206, align 8
-  %208 = add i32 %205, %207
-  %209 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 4), align 4
-  %210 = zext i8 %209 to i64
-  %211 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %210
-  %212 = load i32, ptr %211, align 4
-  %213 = add i32 %208, %212
+213:                                              ; preds = %212
   %214 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %213, ptr %214, align 8
-  %215 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %216 = load i32, ptr %215, align 8
-  %217 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %218 = load i32, ptr %217, align 8
-  %219 = xor i32 %216, %218
-  %220 = call i32 @rotr32(i32 noundef %219, i32 noundef 16)
-  %221 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %220, ptr %221, align 8
-  %222 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %223 = load i32, ptr %222, align 8
-  %224 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %225 = load i32, ptr %224, align 8
-  %226 = add i32 %223, %225
-  %227 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %226, ptr %227, align 8
-  %228 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %215 = load i32, ptr %214, align 8
+  %216 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %217 = load i32, ptr %216, align 8
+  %218 = add i32 %215, %217
+  %219 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 4
+  %220 = load i8, ptr %219, align 4
+  %221 = zext i8 %220 to i64
+  %222 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %221
+  %223 = load i32, ptr %222, align 4
+  %224 = add i32 %218, %223
+  %225 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %224, ptr %225, align 8
+  %226 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %227 = load i32, ptr %226, align 8
+  %228 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
   %229 = load i32, ptr %228, align 8
-  %230 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %231 = load i32, ptr %230, align 8
-  %232 = xor i32 %229, %231
-  %233 = call i32 @rotr32(i32 noundef %232, i32 noundef 12)
-  %234 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %233, ptr %234, align 8
-  %235 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %230 = xor i32 %227, %229
+  %231 = call i32 @rotr32(i32 noundef %230, i32 noundef 16)
+  %232 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %231, ptr %232, align 8
+  %233 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %234 = load i32, ptr %233, align 8
+  %235 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
   %236 = load i32, ptr %235, align 8
-  %237 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %238 = load i32, ptr %237, align 8
-  %239 = add i32 %236, %238
-  %240 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 5), align 1
-  %241 = zext i8 %240 to i64
-  %242 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %241
-  %243 = load i32, ptr %242, align 4
-  %244 = add i32 %239, %243
-  %245 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %237 = add i32 %234, %236
+  %238 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %237, ptr %238, align 8
+  %239 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %240 = load i32, ptr %239, align 8
+  %241 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %242 = load i32, ptr %241, align 8
+  %243 = xor i32 %240, %242
+  %244 = call i32 @rotr32(i32 noundef %243, i32 noundef 12)
+  %245 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
   store i32 %244, ptr %245, align 8
-  %246 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %246 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
   %247 = load i32, ptr %246, align 8
-  %248 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %248 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
   %249 = load i32, ptr %248, align 8
-  %250 = xor i32 %247, %249
-  %251 = call i32 @rotr32(i32 noundef %250, i32 noundef 8)
-  %252 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %251, ptr %252, align 8
-  %253 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %254 = load i32, ptr %253, align 8
-  %255 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %256 = load i32, ptr %255, align 8
-  %257 = add i32 %254, %256
-  %258 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %257, ptr %258, align 8
-  %259 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %260 = load i32, ptr %259, align 8
-  %261 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %262 = load i32, ptr %261, align 8
-  %263 = xor i32 %260, %262
-  %264 = call i32 @rotr32(i32 noundef %263, i32 noundef 7)
-  %265 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %264, ptr %265, align 8
-  br label %266
+  %250 = add i32 %247, %249
+  %251 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 5
+  %252 = load i8, ptr %251, align 1
+  %253 = zext i8 %252 to i64
+  %254 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %253
+  %255 = load i32, ptr %254, align 4
+  %256 = add i32 %250, %255
+  %257 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %256, ptr %257, align 8
+  %258 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %259 = load i32, ptr %258, align 8
+  %260 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %261 = load i32, ptr %260, align 8
+  %262 = xor i32 %259, %261
+  %263 = call i32 @rotr32(i32 noundef %262, i32 noundef 8)
+  %264 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %263, ptr %264, align 8
+  %265 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %266 = load i32, ptr %265, align 8
+  %267 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %268 = load i32, ptr %267, align 8
+  %269 = add i32 %266, %268
+  %270 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %269, ptr %270, align 8
+  %271 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %272 = load i32, ptr %271, align 8
+  %273 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %274 = load i32, ptr %273, align 8
+  %275 = xor i32 %272, %274
+  %276 = call i32 @rotr32(i32 noundef %275, i32 noundef 7)
+  %277 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %276, ptr %277, align 8
+  br label %278
 
-266:                                              ; preds = %203
-  br label %267
+278:                                              ; preds = %213
+  br label %279
 
-267:                                              ; preds = %266
-  %268 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %269 = load i32, ptr %268, align 4
-  %270 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %271 = load i32, ptr %270, align 4
-  %272 = add i32 %269, %271
-  %273 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 6), align 2
-  %274 = zext i8 %273 to i64
-  %275 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %274
-  %276 = load i32, ptr %275, align 4
-  %277 = add i32 %272, %276
-  %278 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %277, ptr %278, align 4
-  %279 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %280 = load i32, ptr %279, align 4
-  %281 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %282 = load i32, ptr %281, align 4
-  %283 = xor i32 %280, %282
-  %284 = call i32 @rotr32(i32 noundef %283, i32 noundef 16)
-  %285 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %284, ptr %285, align 4
-  %286 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %287 = load i32, ptr %286, align 4
-  %288 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+279:                                              ; preds = %278
+  %280 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %281 = load i32, ptr %280, align 4
+  %282 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %283 = load i32, ptr %282, align 4
+  %284 = add i32 %281, %283
+  %285 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 6
+  %286 = load i8, ptr %285, align 2
+  %287 = zext i8 %286 to i64
+  %288 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %287
   %289 = load i32, ptr %288, align 4
-  %290 = add i32 %287, %289
-  %291 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %290 = add i32 %284, %289
+  %291 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   store i32 %290, ptr %291, align 4
-  %292 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %292 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %293 = load i32, ptr %292, align 4
-  %294 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %294 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %295 = load i32, ptr %294, align 4
   %296 = xor i32 %293, %295
-  %297 = call i32 @rotr32(i32 noundef %296, i32 noundef 12)
-  %298 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %297 = call i32 @rotr32(i32 noundef %296, i32 noundef 16)
+  %298 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   store i32 %297, ptr %298, align 4
-  %299 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %299 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %300 = load i32, ptr %299, align 4
-  %301 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %301 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %302 = load i32, ptr %301, align 4
   %303 = add i32 %300, %302
-  %304 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 7), align 1
-  %305 = zext i8 %304 to i64
-  %306 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %305
-  %307 = load i32, ptr %306, align 4
-  %308 = add i32 %303, %307
-  %309 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %308, ptr %309, align 4
-  %310 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %311 = load i32, ptr %310, align 4
+  %304 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %303, ptr %304, align 4
+  %305 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %306 = load i32, ptr %305, align 4
+  %307 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %308 = load i32, ptr %307, align 4
+  %309 = xor i32 %306, %308
+  %310 = call i32 @rotr32(i32 noundef %309, i32 noundef 12)
+  %311 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %310, ptr %311, align 4
   %312 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %313 = load i32, ptr %312, align 4
-  %314 = xor i32 %311, %313
-  %315 = call i32 @rotr32(i32 noundef %314, i32 noundef 8)
-  %316 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %315, ptr %316, align 4
-  %317 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %318 = load i32, ptr %317, align 4
-  %319 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %320 = load i32, ptr %319, align 4
-  %321 = add i32 %318, %320
-  %322 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %321, ptr %322, align 4
-  %323 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %324 = load i32, ptr %323, align 4
-  %325 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %326 = load i32, ptr %325, align 4
-  %327 = xor i32 %324, %326
-  %328 = call i32 @rotr32(i32 noundef %327, i32 noundef 7)
-  %329 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %328, ptr %329, align 4
-  br label %330
-
-330:                                              ; preds = %267
-  br label %331
-
-331:                                              ; preds = %330
-  %332 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %333 = load i32, ptr %332, align 16
-  %334 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %335 = load i32, ptr %334, align 4
-  %336 = add i32 %333, %335
-  %337 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 8), align 8
-  %338 = zext i8 %337 to i64
-  %339 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %338
+  %314 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %315 = load i32, ptr %314, align 4
+  %316 = add i32 %313, %315
+  %317 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 7
+  %318 = load i8, ptr %317, align 1
+  %319 = zext i8 %318 to i64
+  %320 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %319
+  %321 = load i32, ptr %320, align 4
+  %322 = add i32 %316, %321
+  %323 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %322, ptr %323, align 4
+  %324 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %325 = load i32, ptr %324, align 4
+  %326 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %327 = load i32, ptr %326, align 4
+  %328 = xor i32 %325, %327
+  %329 = call i32 @rotr32(i32 noundef %328, i32 noundef 8)
+  %330 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %329, ptr %330, align 4
+  %331 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %332 = load i32, ptr %331, align 4
+  %333 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %334 = load i32, ptr %333, align 4
+  %335 = add i32 %332, %334
+  %336 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %335, ptr %336, align 4
+  %337 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %338 = load i32, ptr %337, align 4
+  %339 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %340 = load i32, ptr %339, align 4
-  %341 = add i32 %336, %340
-  %342 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %341, ptr %342, align 16
-  %343 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %344 = load i32, ptr %343, align 4
-  %345 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %346 = load i32, ptr %345, align 16
-  %347 = xor i32 %344, %346
-  %348 = call i32 @rotr32(i32 noundef %347, i32 noundef 16)
-  %349 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %348, ptr %349, align 4
-  %350 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %351 = load i32, ptr %350, align 8
-  %352 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %353 = load i32, ptr %352, align 4
-  %354 = add i32 %351, %353
-  %355 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %354, ptr %355, align 8
-  %356 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %357 = load i32, ptr %356, align 4
-  %358 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %359 = load i32, ptr %358, align 8
-  %360 = xor i32 %357, %359
-  %361 = call i32 @rotr32(i32 noundef %360, i32 noundef 12)
-  %362 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %361, ptr %362, align 4
-  %363 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %364 = load i32, ptr %363, align 16
-  %365 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %366 = load i32, ptr %365, align 4
-  %367 = add i32 %364, %366
-  %368 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 9), align 1
-  %369 = zext i8 %368 to i64
-  %370 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %369
-  %371 = load i32, ptr %370, align 4
-  %372 = add i32 %367, %371
-  %373 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %372, ptr %373, align 16
-  %374 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %375 = load i32, ptr %374, align 4
-  %376 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %377 = load i32, ptr %376, align 16
-  %378 = xor i32 %375, %377
-  %379 = call i32 @rotr32(i32 noundef %378, i32 noundef 8)
-  %380 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %379, ptr %380, align 4
-  %381 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %382 = load i32, ptr %381, align 8
-  %383 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %384 = load i32, ptr %383, align 4
-  %385 = add i32 %382, %384
-  %386 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %385, ptr %386, align 8
-  %387 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %388 = load i32, ptr %387, align 4
-  %389 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %390 = load i32, ptr %389, align 8
-  %391 = xor i32 %388, %390
-  %392 = call i32 @rotr32(i32 noundef %391, i32 noundef 7)
-  %393 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %392, ptr %393, align 4
-  br label %394
+  %341 = xor i32 %338, %340
+  %342 = call i32 @rotr32(i32 noundef %341, i32 noundef 7)
+  %343 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %342, ptr %343, align 4
+  br label %344
 
-394:                                              ; preds = %331
-  br label %395
+344:                                              ; preds = %279
+  br label %345
 
-395:                                              ; preds = %394
-  %396 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %397 = load i32, ptr %396, align 4
-  %398 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %399 = load i32, ptr %398, align 8
-  %400 = add i32 %397, %399
-  %401 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 10), align 2
-  %402 = zext i8 %401 to i64
-  %403 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %402
+345:                                              ; preds = %344
+  %346 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %347 = load i32, ptr %346, align 16
+  %348 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %349 = load i32, ptr %348, align 4
+  %350 = add i32 %347, %349
+  %351 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 8
+  %352 = load i8, ptr %351, align 8
+  %353 = zext i8 %352 to i64
+  %354 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %353
+  %355 = load i32, ptr %354, align 4
+  %356 = add i32 %350, %355
+  %357 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %356, ptr %357, align 16
+  %358 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %359 = load i32, ptr %358, align 4
+  %360 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %361 = load i32, ptr %360, align 16
+  %362 = xor i32 %359, %361
+  %363 = call i32 @rotr32(i32 noundef %362, i32 noundef 16)
+  %364 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %363, ptr %364, align 4
+  %365 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %366 = load i32, ptr %365, align 8
+  %367 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %368 = load i32, ptr %367, align 4
+  %369 = add i32 %366, %368
+  %370 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %369, ptr %370, align 8
+  %371 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %372 = load i32, ptr %371, align 4
+  %373 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %374 = load i32, ptr %373, align 8
+  %375 = xor i32 %372, %374
+  %376 = call i32 @rotr32(i32 noundef %375, i32 noundef 12)
+  %377 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %376, ptr %377, align 4
+  %378 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %379 = load i32, ptr %378, align 16
+  %380 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %381 = load i32, ptr %380, align 4
+  %382 = add i32 %379, %381
+  %383 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 9
+  %384 = load i8, ptr %383, align 1
+  %385 = zext i8 %384 to i64
+  %386 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %385
+  %387 = load i32, ptr %386, align 4
+  %388 = add i32 %382, %387
+  %389 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %388, ptr %389, align 16
+  %390 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %391 = load i32, ptr %390, align 4
+  %392 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %393 = load i32, ptr %392, align 16
+  %394 = xor i32 %391, %393
+  %395 = call i32 @rotr32(i32 noundef %394, i32 noundef 8)
+  %396 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %395, ptr %396, align 4
+  %397 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %398 = load i32, ptr %397, align 8
+  %399 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %400 = load i32, ptr %399, align 4
+  %401 = add i32 %398, %400
+  %402 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %401, ptr %402, align 8
+  %403 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %404 = load i32, ptr %403, align 4
-  %405 = add i32 %400, %404
-  %406 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %405, ptr %406, align 4
-  %407 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %408 = load i32, ptr %407, align 16
-  %409 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %410 = load i32, ptr %409, align 4
-  %411 = xor i32 %408, %410
-  %412 = call i32 @rotr32(i32 noundef %411, i32 noundef 16)
-  %413 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %412, ptr %413, align 16
-  %414 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %415 = load i32, ptr %414, align 4
-  %416 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %417 = load i32, ptr %416, align 16
-  %418 = add i32 %415, %417
-  %419 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %418, ptr %419, align 4
-  %420 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %421 = load i32, ptr %420, align 8
-  %422 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %423 = load i32, ptr %422, align 4
-  %424 = xor i32 %421, %423
-  %425 = call i32 @rotr32(i32 noundef %424, i32 noundef 12)
-  %426 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %425, ptr %426, align 8
-  %427 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %428 = load i32, ptr %427, align 4
-  %429 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %430 = load i32, ptr %429, align 8
-  %431 = add i32 %428, %430
-  %432 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 11), align 1
-  %433 = zext i8 %432 to i64
-  %434 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %433
-  %435 = load i32, ptr %434, align 4
-  %436 = add i32 %431, %435
-  %437 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %436, ptr %437, align 4
-  %438 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %439 = load i32, ptr %438, align 16
-  %440 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %441 = load i32, ptr %440, align 4
-  %442 = xor i32 %439, %441
-  %443 = call i32 @rotr32(i32 noundef %442, i32 noundef 8)
-  %444 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %443, ptr %444, align 16
-  %445 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %446 = load i32, ptr %445, align 4
-  %447 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %448 = load i32, ptr %447, align 16
-  %449 = add i32 %446, %448
-  %450 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %449, ptr %450, align 4
-  %451 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %452 = load i32, ptr %451, align 8
-  %453 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %454 = load i32, ptr %453, align 4
-  %455 = xor i32 %452, %454
-  %456 = call i32 @rotr32(i32 noundef %455, i32 noundef 7)
-  %457 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %456, ptr %457, align 8
-  br label %458
+  %405 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %406 = load i32, ptr %405, align 8
+  %407 = xor i32 %404, %406
+  %408 = call i32 @rotr32(i32 noundef %407, i32 noundef 7)
+  %409 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %408, ptr %409, align 4
+  br label %410
 
-458:                                              ; preds = %395
-  br label %459
+410:                                              ; preds = %345
+  br label %411
 
-459:                                              ; preds = %458
-  %460 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %461 = load i32, ptr %460, align 8
-  %462 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %463 = load i32, ptr %462, align 4
-  %464 = add i32 %461, %463
-  %465 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 12), align 4
-  %466 = zext i8 %465 to i64
-  %467 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %466
-  %468 = load i32, ptr %467, align 4
-  %469 = add i32 %464, %468
-  %470 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %469, ptr %470, align 8
-  %471 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+411:                                              ; preds = %410
+  %412 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %413 = load i32, ptr %412, align 4
+  %414 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %415 = load i32, ptr %414, align 8
+  %416 = add i32 %413, %415
+  %417 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 10
+  %418 = load i8, ptr %417, align 2
+  %419 = zext i8 %418 to i64
+  %420 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %419
+  %421 = load i32, ptr %420, align 4
+  %422 = add i32 %416, %421
+  %423 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %422, ptr %423, align 4
+  %424 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %425 = load i32, ptr %424, align 16
+  %426 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %427 = load i32, ptr %426, align 4
+  %428 = xor i32 %425, %427
+  %429 = call i32 @rotr32(i32 noundef %428, i32 noundef 16)
+  %430 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %429, ptr %430, align 16
+  %431 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %432 = load i32, ptr %431, align 4
+  %433 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %434 = load i32, ptr %433, align 16
+  %435 = add i32 %432, %434
+  %436 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %435, ptr %436, align 4
+  %437 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %438 = load i32, ptr %437, align 8
+  %439 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %440 = load i32, ptr %439, align 4
+  %441 = xor i32 %438, %440
+  %442 = call i32 @rotr32(i32 noundef %441, i32 noundef 12)
+  %443 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %442, ptr %443, align 8
+  %444 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %445 = load i32, ptr %444, align 4
+  %446 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %447 = load i32, ptr %446, align 8
+  %448 = add i32 %445, %447
+  %449 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 11
+  %450 = load i8, ptr %449, align 1
+  %451 = zext i8 %450 to i64
+  %452 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %451
+  %453 = load i32, ptr %452, align 4
+  %454 = add i32 %448, %453
+  %455 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %454, ptr %455, align 4
+  %456 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %457 = load i32, ptr %456, align 16
+  %458 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %459 = load i32, ptr %458, align 4
+  %460 = xor i32 %457, %459
+  %461 = call i32 @rotr32(i32 noundef %460, i32 noundef 8)
+  %462 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %461, ptr %462, align 16
+  %463 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %464 = load i32, ptr %463, align 4
+  %465 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %466 = load i32, ptr %465, align 16
+  %467 = add i32 %464, %466
+  %468 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %467, ptr %468, align 4
+  %469 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %470 = load i32, ptr %469, align 8
+  %471 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %472 = load i32, ptr %471, align 4
-  %473 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %474 = load i32, ptr %473, align 8
-  %475 = xor i32 %472, %474
-  %476 = call i32 @rotr32(i32 noundef %475, i32 noundef 16)
-  %477 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %476, ptr %477, align 4
-  %478 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %479 = load i32, ptr %478, align 16
-  %480 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %473 = xor i32 %470, %472
+  %474 = call i32 @rotr32(i32 noundef %473, i32 noundef 7)
+  %475 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %474, ptr %475, align 8
+  br label %476
+
+476:                                              ; preds = %411
+  br label %477
+
+477:                                              ; preds = %476
+  %478 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %479 = load i32, ptr %478, align 8
+  %480 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
   %481 = load i32, ptr %480, align 4
   %482 = add i32 %479, %481
-  %483 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %482, ptr %483, align 16
-  %484 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %485 = load i32, ptr %484, align 4
-  %486 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %487 = load i32, ptr %486, align 16
-  %488 = xor i32 %485, %487
-  %489 = call i32 @rotr32(i32 noundef %488, i32 noundef 12)
-  %490 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %489, ptr %490, align 4
-  %491 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %492 = load i32, ptr %491, align 8
-  %493 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %494 = load i32, ptr %493, align 4
-  %495 = add i32 %492, %494
-  %496 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 13), align 1
-  %497 = zext i8 %496 to i64
-  %498 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %497
-  %499 = load i32, ptr %498, align 4
-  %500 = add i32 %495, %499
-  %501 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %500, ptr %501, align 8
-  %502 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %503 = load i32, ptr %502, align 4
-  %504 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %505 = load i32, ptr %504, align 8
-  %506 = xor i32 %503, %505
-  %507 = call i32 @rotr32(i32 noundef %506, i32 noundef 8)
-  %508 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %507, ptr %508, align 4
-  %509 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %510 = load i32, ptr %509, align 16
-  %511 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %512 = load i32, ptr %511, align 4
-  %513 = add i32 %510, %512
-  %514 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %513, ptr %514, align 16
-  %515 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %516 = load i32, ptr %515, align 4
-  %517 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %518 = load i32, ptr %517, align 16
-  %519 = xor i32 %516, %518
-  %520 = call i32 @rotr32(i32 noundef %519, i32 noundef 7)
-  %521 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %520, ptr %521, align 4
-  br label %522
-
-522:                                              ; preds = %459
-  br label %523
-
-523:                                              ; preds = %522
-  %524 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %525 = load i32, ptr %524, align 4
-  %526 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %527 = load i32, ptr %526, align 16
-  %528 = add i32 %525, %527
-  %529 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 14), align 2
-  %530 = zext i8 %529 to i64
-  %531 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %530
+  %483 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 12
+  %484 = load i8, ptr %483, align 4
+  %485 = zext i8 %484 to i64
+  %486 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %485
+  %487 = load i32, ptr %486, align 4
+  %488 = add i32 %482, %487
+  %489 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %488, ptr %489, align 8
+  %490 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %491 = load i32, ptr %490, align 4
+  %492 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %493 = load i32, ptr %492, align 8
+  %494 = xor i32 %491, %493
+  %495 = call i32 @rotr32(i32 noundef %494, i32 noundef 16)
+  %496 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %495, ptr %496, align 4
+  %497 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %498 = load i32, ptr %497, align 16
+  %499 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %500 = load i32, ptr %499, align 4
+  %501 = add i32 %498, %500
+  %502 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %501, ptr %502, align 16
+  %503 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %504 = load i32, ptr %503, align 4
+  %505 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %506 = load i32, ptr %505, align 16
+  %507 = xor i32 %504, %506
+  %508 = call i32 @rotr32(i32 noundef %507, i32 noundef 12)
+  %509 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %508, ptr %509, align 4
+  %510 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %511 = load i32, ptr %510, align 8
+  %512 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %513 = load i32, ptr %512, align 4
+  %514 = add i32 %511, %513
+  %515 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 13
+  %516 = load i8, ptr %515, align 1
+  %517 = zext i8 %516 to i64
+  %518 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %517
+  %519 = load i32, ptr %518, align 4
+  %520 = add i32 %514, %519
+  %521 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %520, ptr %521, align 8
+  %522 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %523 = load i32, ptr %522, align 4
+  %524 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %525 = load i32, ptr %524, align 8
+  %526 = xor i32 %523, %525
+  %527 = call i32 @rotr32(i32 noundef %526, i32 noundef 8)
+  %528 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %527, ptr %528, align 4
+  %529 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %530 = load i32, ptr %529, align 16
+  %531 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
   %532 = load i32, ptr %531, align 4
-  %533 = add i32 %528, %532
-  %534 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %533, ptr %534, align 4
-  %535 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %536 = load i32, ptr %535, align 8
-  %537 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %538 = load i32, ptr %537, align 4
+  %533 = add i32 %530, %532
+  %534 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %533, ptr %534, align 16
+  %535 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %536 = load i32, ptr %535, align 4
+  %537 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %538 = load i32, ptr %537, align 16
   %539 = xor i32 %536, %538
-  %540 = call i32 @rotr32(i32 noundef %539, i32 noundef 16)
-  %541 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %540, ptr %541, align 8
-  %542 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %543 = load i32, ptr %542, align 4
-  %544 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %545 = load i32, ptr %544, align 8
-  %546 = add i32 %543, %545
-  %547 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %546, ptr %547, align 4
-  %548 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %549 = load i32, ptr %548, align 16
-  %550 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %551 = load i32, ptr %550, align 4
-  %552 = xor i32 %549, %551
-  %553 = call i32 @rotr32(i32 noundef %552, i32 noundef 12)
-  %554 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %553, ptr %554, align 16
+  %540 = call i32 @rotr32(i32 noundef %539, i32 noundef 7)
+  %541 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %540, ptr %541, align 4
+  br label %542
+
+542:                                              ; preds = %477
+  br label %543
+
+543:                                              ; preds = %542
+  %544 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %545 = load i32, ptr %544, align 4
+  %546 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %547 = load i32, ptr %546, align 16
+  %548 = add i32 %545, %547
+  %549 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 14
+  %550 = load i8, ptr %549, align 2
+  %551 = zext i8 %550 to i64
+  %552 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %551
+  %553 = load i32, ptr %552, align 4
+  %554 = add i32 %548, %553
   %555 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %556 = load i32, ptr %555, align 4
-  %557 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %558 = load i32, ptr %557, align 16
-  %559 = add i32 %556, %558
-  %560 = load i8, ptr getelementptr inbounds ([16 x i8], ptr @blake2s_sigma, i64 0, i64 15), align 1
-  %561 = zext i8 %560 to i64
-  %562 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %561
-  %563 = load i32, ptr %562, align 4
-  %564 = add i32 %559, %563
-  %565 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %564, ptr %565, align 4
-  %566 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %567 = load i32, ptr %566, align 8
-  %568 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %569 = load i32, ptr %568, align 4
-  %570 = xor i32 %567, %569
-  %571 = call i32 @rotr32(i32 noundef %570, i32 noundef 8)
-  %572 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %571, ptr %572, align 8
-  %573 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %574 = load i32, ptr %573, align 4
-  %575 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %576 = load i32, ptr %575, align 8
-  %577 = add i32 %574, %576
-  %578 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %577, ptr %578, align 4
-  %579 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %580 = load i32, ptr %579, align 16
-  %581 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %582 = load i32, ptr %581, align 4
-  %583 = xor i32 %580, %582
-  %584 = call i32 @rotr32(i32 noundef %583, i32 noundef 7)
-  %585 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %584, ptr %585, align 16
-  br label %586
-
-586:                                              ; preds = %523
-  br label %587
-
-587:                                              ; preds = %586
-  br label %588
-
-588:                                              ; preds = %587
-  br label %589
-
-589:                                              ; preds = %588
-  %590 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %591 = load i32, ptr %590, align 16
-  %592 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %593 = load i32, ptr %592, align 16
-  %594 = add i32 %591, %593
-  %595 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1), align 16
-  %596 = zext i8 %595 to i64
-  %597 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %596
-  %598 = load i32, ptr %597, align 4
-  %599 = add i32 %594, %598
-  %600 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %599, ptr %600, align 16
-  %601 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %554, ptr %555, align 4
+  %556 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %557 = load i32, ptr %556, align 8
+  %558 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %559 = load i32, ptr %558, align 4
+  %560 = xor i32 %557, %559
+  %561 = call i32 @rotr32(i32 noundef %560, i32 noundef 16)
+  %562 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %561, ptr %562, align 8
+  %563 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %564 = load i32, ptr %563, align 4
+  %565 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %566 = load i32, ptr %565, align 8
+  %567 = add i32 %564, %566
+  %568 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %567, ptr %568, align 4
+  %569 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %570 = load i32, ptr %569, align 16
+  %571 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %572 = load i32, ptr %571, align 4
+  %573 = xor i32 %570, %572
+  %574 = call i32 @rotr32(i32 noundef %573, i32 noundef 12)
+  %575 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %574, ptr %575, align 16
+  %576 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %577 = load i32, ptr %576, align 4
+  %578 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %579 = load i32, ptr %578, align 16
+  %580 = add i32 %577, %579
+  %581 = getelementptr inbounds [16 x i8], ptr @blake2s_sigma, i64 0, i64 15
+  %582 = load i8, ptr %581, align 1
+  %583 = zext i8 %582 to i64
+  %584 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %583
+  %585 = load i32, ptr %584, align 4
+  %586 = add i32 %580, %585
+  %587 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %586, ptr %587, align 4
+  %588 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %589 = load i32, ptr %588, align 8
+  %590 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %591 = load i32, ptr %590, align 4
+  %592 = xor i32 %589, %591
+  %593 = call i32 @rotr32(i32 noundef %592, i32 noundef 8)
+  %594 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %593, ptr %594, align 8
+  %595 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %596 = load i32, ptr %595, align 4
+  %597 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %598 = load i32, ptr %597, align 8
+  %599 = add i32 %596, %598
+  %600 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %599, ptr %600, align 4
+  %601 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
   %602 = load i32, ptr %601, align 16
-  %603 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %604 = load i32, ptr %603, align 16
+  %603 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %604 = load i32, ptr %603, align 4
   %605 = xor i32 %602, %604
-  %606 = call i32 @rotr32(i32 noundef %605, i32 noundef 16)
-  %607 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %606 = call i32 @rotr32(i32 noundef %605, i32 noundef 7)
+  %607 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
   store i32 %606, ptr %607, align 16
-  %608 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %609 = load i32, ptr %608, align 16
-  %610 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %611 = load i32, ptr %610, align 16
-  %612 = add i32 %609, %611
-  %613 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %612, ptr %613, align 16
+  br label %608
+
+608:                                              ; preds = %543
+  br label %609
+
+609:                                              ; preds = %608
+  br label %610
+
+610:                                              ; preds = %609
+  br label %611
+
+611:                                              ; preds = %610
+  %612 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %613 = load i32, ptr %612, align 16
   %614 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
   %615 = load i32, ptr %614, align 16
-  %616 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %617 = load i32, ptr %616, align 16
-  %618 = xor i32 %615, %617
-  %619 = call i32 @rotr32(i32 noundef %618, i32 noundef 12)
-  %620 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %619, ptr %620, align 16
-  %621 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %622 = load i32, ptr %621, align 16
-  %623 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %624 = load i32, ptr %623, align 16
-  %625 = add i32 %622, %624
-  %626 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 1), align 1
-  %627 = zext i8 %626 to i64
-  %628 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %627
-  %629 = load i32, ptr %628, align 4
-  %630 = add i32 %625, %629
-  %631 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %630, ptr %631, align 16
-  %632 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %633 = load i32, ptr %632, align 16
-  %634 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %635 = load i32, ptr %634, align 16
-  %636 = xor i32 %633, %635
-  %637 = call i32 @rotr32(i32 noundef %636, i32 noundef 8)
-  %638 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %637, ptr %638, align 16
+  %616 = add i32 %613, %615
+  %617 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1
+  %618 = load i8, ptr %617, align 16
+  %619 = zext i8 %618 to i64
+  %620 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %619
+  %621 = load i32, ptr %620, align 4
+  %622 = add i32 %616, %621
+  %623 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %622, ptr %623, align 16
+  %624 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %625 = load i32, ptr %624, align 16
+  %626 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %627 = load i32, ptr %626, align 16
+  %628 = xor i32 %625, %627
+  %629 = call i32 @rotr32(i32 noundef %628, i32 noundef 16)
+  %630 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %629, ptr %630, align 16
+  %631 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %632 = load i32, ptr %631, align 16
+  %633 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %634 = load i32, ptr %633, align 16
+  %635 = add i32 %632, %634
+  %636 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %635, ptr %636, align 16
+  %637 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %638 = load i32, ptr %637, align 16
   %639 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
   %640 = load i32, ptr %639, align 16
-  %641 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %642 = load i32, ptr %641, align 16
-  %643 = add i32 %640, %642
-  %644 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %643, ptr %644, align 16
-  %645 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %646 = load i32, ptr %645, align 16
-  %647 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %648 = load i32, ptr %647, align 16
-  %649 = xor i32 %646, %648
-  %650 = call i32 @rotr32(i32 noundef %649, i32 noundef 7)
-  %651 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %650, ptr %651, align 16
-  br label %652
+  %641 = xor i32 %638, %640
+  %642 = call i32 @rotr32(i32 noundef %641, i32 noundef 12)
+  %643 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %642, ptr %643, align 16
+  %644 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %645 = load i32, ptr %644, align 16
+  %646 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %647 = load i32, ptr %646, align 16
+  %648 = add i32 %645, %647
+  %649 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 1
+  %650 = load i8, ptr %649, align 1
+  %651 = zext i8 %650 to i64
+  %652 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %651
+  %653 = load i32, ptr %652, align 4
+  %654 = add i32 %648, %653
+  %655 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %654, ptr %655, align 16
+  %656 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %657 = load i32, ptr %656, align 16
+  %658 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %659 = load i32, ptr %658, align 16
+  %660 = xor i32 %657, %659
+  %661 = call i32 @rotr32(i32 noundef %660, i32 noundef 8)
+  %662 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %661, ptr %662, align 16
+  %663 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %664 = load i32, ptr %663, align 16
+  %665 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %666 = load i32, ptr %665, align 16
+  %667 = add i32 %664, %666
+  %668 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %667, ptr %668, align 16
+  %669 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %670 = load i32, ptr %669, align 16
+  %671 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %672 = load i32, ptr %671, align 16
+  %673 = xor i32 %670, %672
+  %674 = call i32 @rotr32(i32 noundef %673, i32 noundef 7)
+  %675 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %674, ptr %675, align 16
+  br label %676
 
-652:                                              ; preds = %589
-  br label %653
+676:                                              ; preds = %611
+  br label %677
 
-653:                                              ; preds = %652
-  %654 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %655 = load i32, ptr %654, align 4
-  %656 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %657 = load i32, ptr %656, align 4
-  %658 = add i32 %655, %657
-  %659 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 2), align 2
-  %660 = zext i8 %659 to i64
-  %661 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %660
-  %662 = load i32, ptr %661, align 4
-  %663 = add i32 %658, %662
-  %664 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %663, ptr %664, align 4
-  %665 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %666 = load i32, ptr %665, align 4
-  %667 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %668 = load i32, ptr %667, align 4
-  %669 = xor i32 %666, %668
-  %670 = call i32 @rotr32(i32 noundef %669, i32 noundef 16)
-  %671 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %670, ptr %671, align 4
-  %672 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %673 = load i32, ptr %672, align 4
-  %674 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %675 = load i32, ptr %674, align 4
-  %676 = add i32 %673, %675
-  %677 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %676, ptr %677, align 4
-  %678 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+677:                                              ; preds = %676
+  %678 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
   %679 = load i32, ptr %678, align 4
-  %680 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %680 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %681 = load i32, ptr %680, align 4
-  %682 = xor i32 %679, %681
-  %683 = call i32 @rotr32(i32 noundef %682, i32 noundef 12)
-  %684 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %683, ptr %684, align 4
-  %685 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %686 = load i32, ptr %685, align 4
-  %687 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %688 = load i32, ptr %687, align 4
-  %689 = add i32 %686, %688
-  %690 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 3), align 1
-  %691 = zext i8 %690 to i64
-  %692 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %691
+  %682 = add i32 %679, %681
+  %683 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 2
+  %684 = load i8, ptr %683, align 2
+  %685 = zext i8 %684 to i64
+  %686 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %685
+  %687 = load i32, ptr %686, align 4
+  %688 = add i32 %682, %687
+  %689 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %688, ptr %689, align 4
+  %690 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %691 = load i32, ptr %690, align 4
+  %692 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
   %693 = load i32, ptr %692, align 4
-  %694 = add i32 %689, %693
-  %695 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %694, ptr %695, align 4
+  %694 = xor i32 %691, %693
+  %695 = call i32 @rotr32(i32 noundef %694, i32 noundef 16)
   %696 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %697 = load i32, ptr %696, align 4
-  %698 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %699 = load i32, ptr %698, align 4
-  %700 = xor i32 %697, %699
-  %701 = call i32 @rotr32(i32 noundef %700, i32 noundef 8)
-  %702 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %695, ptr %696, align 4
+  %697 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %698 = load i32, ptr %697, align 4
+  %699 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %700 = load i32, ptr %699, align 4
+  %701 = add i32 %698, %700
+  %702 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   store i32 %701, ptr %702, align 4
-  %703 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %703 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %704 = load i32, ptr %703, align 4
-  %705 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %705 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   %706 = load i32, ptr %705, align 4
-  %707 = add i32 %704, %706
-  %708 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %707, ptr %708, align 4
+  %707 = xor i32 %704, %706
+  %708 = call i32 @rotr32(i32 noundef %707, i32 noundef 12)
   %709 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %710 = load i32, ptr %709, align 4
-  %711 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %712 = load i32, ptr %711, align 4
-  %713 = xor i32 %710, %712
-  %714 = call i32 @rotr32(i32 noundef %713, i32 noundef 7)
-  %715 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %714, ptr %715, align 4
-  br label %716
+  store i32 %708, ptr %709, align 4
+  %710 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %711 = load i32, ptr %710, align 4
+  %712 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %713 = load i32, ptr %712, align 4
+  %714 = add i32 %711, %713
+  %715 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 3
+  %716 = load i8, ptr %715, align 1
+  %717 = zext i8 %716 to i64
+  %718 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %717
+  %719 = load i32, ptr %718, align 4
+  %720 = add i32 %714, %719
+  %721 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %720, ptr %721, align 4
+  %722 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %723 = load i32, ptr %722, align 4
+  %724 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %725 = load i32, ptr %724, align 4
+  %726 = xor i32 %723, %725
+  %727 = call i32 @rotr32(i32 noundef %726, i32 noundef 8)
+  %728 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %727, ptr %728, align 4
+  %729 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %730 = load i32, ptr %729, align 4
+  %731 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %732 = load i32, ptr %731, align 4
+  %733 = add i32 %730, %732
+  %734 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %733, ptr %734, align 4
+  %735 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %736 = load i32, ptr %735, align 4
+  %737 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %738 = load i32, ptr %737, align 4
+  %739 = xor i32 %736, %738
+  %740 = call i32 @rotr32(i32 noundef %739, i32 noundef 7)
+  %741 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %740, ptr %741, align 4
+  br label %742
 
-716:                                              ; preds = %653
-  br label %717
+742:                                              ; preds = %677
+  br label %743
 
-717:                                              ; preds = %716
-  %718 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %719 = load i32, ptr %718, align 8
-  %720 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %721 = load i32, ptr %720, align 8
-  %722 = add i32 %719, %721
-  %723 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 4), align 4
-  %724 = zext i8 %723 to i64
-  %725 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %724
-  %726 = load i32, ptr %725, align 4
-  %727 = add i32 %722, %726
-  %728 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %727, ptr %728, align 8
-  %729 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %730 = load i32, ptr %729, align 8
-  %731 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %732 = load i32, ptr %731, align 8
-  %733 = xor i32 %730, %732
-  %734 = call i32 @rotr32(i32 noundef %733, i32 noundef 16)
-  %735 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %734, ptr %735, align 8
-  %736 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %737 = load i32, ptr %736, align 8
-  %738 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %739 = load i32, ptr %738, align 8
-  %740 = add i32 %737, %739
-  %741 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %740, ptr %741, align 8
-  %742 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %743 = load i32, ptr %742, align 8
-  %744 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+743:                                              ; preds = %742
+  %744 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
   %745 = load i32, ptr %744, align 8
-  %746 = xor i32 %743, %745
-  %747 = call i32 @rotr32(i32 noundef %746, i32 noundef 12)
-  %748 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %747, ptr %748, align 8
-  %749 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %750 = load i32, ptr %749, align 8
-  %751 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %752 = load i32, ptr %751, align 8
-  %753 = add i32 %750, %752
-  %754 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 5), align 1
-  %755 = zext i8 %754 to i64
-  %756 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %755
-  %757 = load i32, ptr %756, align 4
-  %758 = add i32 %753, %757
-  %759 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %758, ptr %759, align 8
-  %760 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %761 = load i32, ptr %760, align 8
-  %762 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %763 = load i32, ptr %762, align 8
-  %764 = xor i32 %761, %763
-  %765 = call i32 @rotr32(i32 noundef %764, i32 noundef 8)
-  %766 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %765, ptr %766, align 8
-  %767 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %768 = load i32, ptr %767, align 8
-  %769 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %746 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %747 = load i32, ptr %746, align 8
+  %748 = add i32 %745, %747
+  %749 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 4
+  %750 = load i8, ptr %749, align 4
+  %751 = zext i8 %750 to i64
+  %752 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %751
+  %753 = load i32, ptr %752, align 4
+  %754 = add i32 %748, %753
+  %755 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %754, ptr %755, align 8
+  %756 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %757 = load i32, ptr %756, align 8
+  %758 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %759 = load i32, ptr %758, align 8
+  %760 = xor i32 %757, %759
+  %761 = call i32 @rotr32(i32 noundef %760, i32 noundef 16)
+  %762 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %761, ptr %762, align 8
+  %763 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %764 = load i32, ptr %763, align 8
+  %765 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %766 = load i32, ptr %765, align 8
+  %767 = add i32 %764, %766
+  %768 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %767, ptr %768, align 8
+  %769 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
   %770 = load i32, ptr %769, align 8
-  %771 = add i32 %768, %770
-  %772 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %771, ptr %772, align 8
-  %773 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %774 = load i32, ptr %773, align 8
-  %775 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %776 = load i32, ptr %775, align 8
-  %777 = xor i32 %774, %776
-  %778 = call i32 @rotr32(i32 noundef %777, i32 noundef 7)
-  %779 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %778, ptr %779, align 8
-  br label %780
-
-780:                                              ; preds = %717
-  br label %781
-
-781:                                              ; preds = %780
-  %782 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %783 = load i32, ptr %782, align 4
-  %784 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %771 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %772 = load i32, ptr %771, align 8
+  %773 = xor i32 %770, %772
+  %774 = call i32 @rotr32(i32 noundef %773, i32 noundef 12)
+  %775 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %774, ptr %775, align 8
+  %776 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %777 = load i32, ptr %776, align 8
+  %778 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %779 = load i32, ptr %778, align 8
+  %780 = add i32 %777, %779
+  %781 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 5
+  %782 = load i8, ptr %781, align 1
+  %783 = zext i8 %782 to i64
+  %784 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %783
   %785 = load i32, ptr %784, align 4
-  %786 = add i32 %783, %785
-  %787 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 6), align 2
-  %788 = zext i8 %787 to i64
-  %789 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %788
-  %790 = load i32, ptr %789, align 4
-  %791 = add i32 %786, %790
-  %792 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %791, ptr %792, align 4
-  %793 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %794 = load i32, ptr %793, align 4
-  %795 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %796 = load i32, ptr %795, align 4
-  %797 = xor i32 %794, %796
-  %798 = call i32 @rotr32(i32 noundef %797, i32 noundef 16)
-  %799 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %798, ptr %799, align 4
-  %800 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %801 = load i32, ptr %800, align 4
-  %802 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %803 = load i32, ptr %802, align 4
-  %804 = add i32 %801, %803
-  %805 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %804, ptr %805, align 4
-  %806 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %807 = load i32, ptr %806, align 4
-  %808 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %809 = load i32, ptr %808, align 4
-  %810 = xor i32 %807, %809
-  %811 = call i32 @rotr32(i32 noundef %810, i32 noundef 12)
+  %786 = add i32 %780, %785
+  %787 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %786, ptr %787, align 8
+  %788 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %789 = load i32, ptr %788, align 8
+  %790 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %791 = load i32, ptr %790, align 8
+  %792 = xor i32 %789, %791
+  %793 = call i32 @rotr32(i32 noundef %792, i32 noundef 8)
+  %794 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %793, ptr %794, align 8
+  %795 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %796 = load i32, ptr %795, align 8
+  %797 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %798 = load i32, ptr %797, align 8
+  %799 = add i32 %796, %798
+  %800 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %799, ptr %800, align 8
+  %801 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %802 = load i32, ptr %801, align 8
+  %803 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %804 = load i32, ptr %803, align 8
+  %805 = xor i32 %802, %804
+  %806 = call i32 @rotr32(i32 noundef %805, i32 noundef 7)
+  %807 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %806, ptr %807, align 8
+  br label %808
+
+808:                                              ; preds = %743
+  br label %809
+
+809:                                              ; preds = %808
+  %810 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %811 = load i32, ptr %810, align 4
   %812 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %811, ptr %812, align 4
-  %813 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %814 = load i32, ptr %813, align 4
-  %815 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %816 = load i32, ptr %815, align 4
-  %817 = add i32 %814, %816
-  %818 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 7), align 1
-  %819 = zext i8 %818 to i64
-  %820 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %819
-  %821 = load i32, ptr %820, align 4
-  %822 = add i32 %817, %821
-  %823 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %822, ptr %823, align 4
-  %824 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %813 = load i32, ptr %812, align 4
+  %814 = add i32 %811, %813
+  %815 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 6
+  %816 = load i8, ptr %815, align 2
+  %817 = zext i8 %816 to i64
+  %818 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %817
+  %819 = load i32, ptr %818, align 4
+  %820 = add i32 %814, %819
+  %821 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %820, ptr %821, align 4
+  %822 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %823 = load i32, ptr %822, align 4
+  %824 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %825 = load i32, ptr %824, align 4
-  %826 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %827 = load i32, ptr %826, align 4
-  %828 = xor i32 %825, %827
-  %829 = call i32 @rotr32(i32 noundef %828, i32 noundef 8)
-  %830 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %829, ptr %830, align 4
-  %831 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %826 = xor i32 %823, %825
+  %827 = call i32 @rotr32(i32 noundef %826, i32 noundef 16)
+  %828 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %827, ptr %828, align 4
+  %829 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %830 = load i32, ptr %829, align 4
+  %831 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %832 = load i32, ptr %831, align 4
-  %833 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %834 = load i32, ptr %833, align 4
-  %835 = add i32 %832, %834
-  %836 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %835, ptr %836, align 4
-  %837 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %833 = add i32 %830, %832
+  %834 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %833, ptr %834, align 4
+  %835 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %836 = load i32, ptr %835, align 4
+  %837 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %838 = load i32, ptr %837, align 4
-  %839 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %840 = load i32, ptr %839, align 4
-  %841 = xor i32 %838, %840
-  %842 = call i32 @rotr32(i32 noundef %841, i32 noundef 7)
-  %843 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %842, ptr %843, align 4
-  br label %844
-
-844:                                              ; preds = %781
-  br label %845
-
-845:                                              ; preds = %844
-  %846 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %847 = load i32, ptr %846, align 16
-  %848 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %849 = load i32, ptr %848, align 4
-  %850 = add i32 %847, %849
-  %851 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 8), align 8
-  %852 = zext i8 %851 to i64
-  %853 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %852
-  %854 = load i32, ptr %853, align 4
-  %855 = add i32 %850, %854
-  %856 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %855, ptr %856, align 16
-  %857 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %858 = load i32, ptr %857, align 4
-  %859 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %860 = load i32, ptr %859, align 16
-  %861 = xor i32 %858, %860
-  %862 = call i32 @rotr32(i32 noundef %861, i32 noundef 16)
+  %839 = xor i32 %836, %838
+  %840 = call i32 @rotr32(i32 noundef %839, i32 noundef 12)
+  %841 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %840, ptr %841, align 4
+  %842 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %843 = load i32, ptr %842, align 4
+  %844 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %845 = load i32, ptr %844, align 4
+  %846 = add i32 %843, %845
+  %847 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 7
+  %848 = load i8, ptr %847, align 1
+  %849 = zext i8 %848 to i64
+  %850 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %849
+  %851 = load i32, ptr %850, align 4
+  %852 = add i32 %846, %851
+  %853 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %852, ptr %853, align 4
+  %854 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %855 = load i32, ptr %854, align 4
+  %856 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %857 = load i32, ptr %856, align 4
+  %858 = xor i32 %855, %857
+  %859 = call i32 @rotr32(i32 noundef %858, i32 noundef 8)
+  %860 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %859, ptr %860, align 4
+  %861 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %862 = load i32, ptr %861, align 4
   %863 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %862, ptr %863, align 4
-  %864 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %865 = load i32, ptr %864, align 8
-  %866 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %867 = load i32, ptr %866, align 4
-  %868 = add i32 %865, %867
-  %869 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %868, ptr %869, align 8
-  %870 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %871 = load i32, ptr %870, align 4
-  %872 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %873 = load i32, ptr %872, align 8
-  %874 = xor i32 %871, %873
-  %875 = call i32 @rotr32(i32 noundef %874, i32 noundef 12)
-  %876 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %875, ptr %876, align 4
-  %877 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %878 = load i32, ptr %877, align 16
-  %879 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %880 = load i32, ptr %879, align 4
-  %881 = add i32 %878, %880
-  %882 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 9), align 1
+  %864 = load i32, ptr %863, align 4
+  %865 = add i32 %862, %864
+  %866 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %865, ptr %866, align 4
+  %867 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %868 = load i32, ptr %867, align 4
+  %869 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %870 = load i32, ptr %869, align 4
+  %871 = xor i32 %868, %870
+  %872 = call i32 @rotr32(i32 noundef %871, i32 noundef 7)
+  %873 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %872, ptr %873, align 4
+  br label %874
+
+874:                                              ; preds = %809
+  br label %875
+
+875:                                              ; preds = %874
+  %876 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %877 = load i32, ptr %876, align 16
+  %878 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %879 = load i32, ptr %878, align 4
+  %880 = add i32 %877, %879
+  %881 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 8
+  %882 = load i8, ptr %881, align 8
   %883 = zext i8 %882 to i64
   %884 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %883
   %885 = load i32, ptr %884, align 4
-  %886 = add i32 %881, %885
+  %886 = add i32 %880, %885
   %887 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
   store i32 %886, ptr %887, align 16
   %888 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
@@ -1612,7 +1608,7 @@ define internal void @blake2s_compress(ptr noundef %0, ptr noundef %1) #0 {
   %890 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
   %891 = load i32, ptr %890, align 16
   %892 = xor i32 %889, %891
-  %893 = call i32 @rotr32(i32 noundef %892, i32 noundef 8)
+  %893 = call i32 @rotr32(i32 noundef %892, i32 noundef 16)
   %894 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   store i32 %893, ptr %894, align 4
   %895 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
@@ -1627,5192 +1623,5362 @@ define internal void @blake2s_compress(ptr noundef %0, ptr noundef %1) #0 {
   %903 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
   %904 = load i32, ptr %903, align 8
   %905 = xor i32 %902, %904
-  %906 = call i32 @rotr32(i32 noundef %905, i32 noundef 7)
+  %906 = call i32 @rotr32(i32 noundef %905, i32 noundef 12)
   %907 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   store i32 %906, ptr %907, align 4
-  br label %908
-
-908:                                              ; preds = %845
-  br label %909
-
-909:                                              ; preds = %908
-  %910 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %908 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %909 = load i32, ptr %908, align 16
+  %910 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %911 = load i32, ptr %910, align 4
-  %912 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %913 = load i32, ptr %912, align 8
-  %914 = add i32 %911, %913
-  %915 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 10), align 2
-  %916 = zext i8 %915 to i64
-  %917 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %916
-  %918 = load i32, ptr %917, align 4
-  %919 = add i32 %914, %918
-  %920 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %919, ptr %920, align 4
-  %921 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %922 = load i32, ptr %921, align 16
-  %923 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %924 = load i32, ptr %923, align 4
-  %925 = xor i32 %922, %924
-  %926 = call i32 @rotr32(i32 noundef %925, i32 noundef 16)
-  %927 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %926, ptr %927, align 16
-  %928 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %929 = load i32, ptr %928, align 4
-  %930 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %931 = load i32, ptr %930, align 16
-  %932 = add i32 %929, %931
-  %933 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %932, ptr %933, align 4
-  %934 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %935 = load i32, ptr %934, align 8
-  %936 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %937 = load i32, ptr %936, align 4
-  %938 = xor i32 %935, %937
-  %939 = call i32 @rotr32(i32 noundef %938, i32 noundef 12)
-  %940 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %939, ptr %940, align 8
-  %941 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %942 = load i32, ptr %941, align 4
-  %943 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %944 = load i32, ptr %943, align 8
-  %945 = add i32 %942, %944
-  %946 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 11), align 1
-  %947 = zext i8 %946 to i64
-  %948 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %947
-  %949 = load i32, ptr %948, align 4
-  %950 = add i32 %945, %949
-  %951 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %950, ptr %951, align 4
-  %952 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %953 = load i32, ptr %952, align 16
-  %954 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %955 = load i32, ptr %954, align 4
-  %956 = xor i32 %953, %955
-  %957 = call i32 @rotr32(i32 noundef %956, i32 noundef 8)
-  %958 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %957, ptr %958, align 16
-  %959 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %960 = load i32, ptr %959, align 4
-  %961 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %962 = load i32, ptr %961, align 16
-  %963 = add i32 %960, %962
-  %964 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %963, ptr %964, align 4
-  %965 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %966 = load i32, ptr %965, align 8
-  %967 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %968 = load i32, ptr %967, align 4
-  %969 = xor i32 %966, %968
-  %970 = call i32 @rotr32(i32 noundef %969, i32 noundef 7)
-  %971 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %970, ptr %971, align 8
-  br label %972
+  %912 = add i32 %909, %911
+  %913 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 9
+  %914 = load i8, ptr %913, align 1
+  %915 = zext i8 %914 to i64
+  %916 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %915
+  %917 = load i32, ptr %916, align 4
+  %918 = add i32 %912, %917
+  %919 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %918, ptr %919, align 16
+  %920 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %921 = load i32, ptr %920, align 4
+  %922 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %923 = load i32, ptr %922, align 16
+  %924 = xor i32 %921, %923
+  %925 = call i32 @rotr32(i32 noundef %924, i32 noundef 8)
+  %926 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %925, ptr %926, align 4
+  %927 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %928 = load i32, ptr %927, align 8
+  %929 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %930 = load i32, ptr %929, align 4
+  %931 = add i32 %928, %930
+  %932 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %931, ptr %932, align 8
+  %933 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %934 = load i32, ptr %933, align 4
+  %935 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %936 = load i32, ptr %935, align 8
+  %937 = xor i32 %934, %936
+  %938 = call i32 @rotr32(i32 noundef %937, i32 noundef 7)
+  %939 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %938, ptr %939, align 4
+  br label %940
 
-972:                                              ; preds = %909
-  br label %973
+940:                                              ; preds = %875
+  br label %941
 
-973:                                              ; preds = %972
-  %974 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %975 = load i32, ptr %974, align 8
-  %976 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %977 = load i32, ptr %976, align 4
+941:                                              ; preds = %940
+  %942 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %943 = load i32, ptr %942, align 4
+  %944 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %945 = load i32, ptr %944, align 8
+  %946 = add i32 %943, %945
+  %947 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 10
+  %948 = load i8, ptr %947, align 2
+  %949 = zext i8 %948 to i64
+  %950 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %949
+  %951 = load i32, ptr %950, align 4
+  %952 = add i32 %946, %951
+  %953 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %952, ptr %953, align 4
+  %954 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %955 = load i32, ptr %954, align 16
+  %956 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %957 = load i32, ptr %956, align 4
+  %958 = xor i32 %955, %957
+  %959 = call i32 @rotr32(i32 noundef %958, i32 noundef 16)
+  %960 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %959, ptr %960, align 16
+  %961 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %962 = load i32, ptr %961, align 4
+  %963 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %964 = load i32, ptr %963, align 16
+  %965 = add i32 %962, %964
+  %966 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %965, ptr %966, align 4
+  %967 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %968 = load i32, ptr %967, align 8
+  %969 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %970 = load i32, ptr %969, align 4
+  %971 = xor i32 %968, %970
+  %972 = call i32 @rotr32(i32 noundef %971, i32 noundef 12)
+  %973 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %972, ptr %973, align 8
+  %974 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %975 = load i32, ptr %974, align 4
+  %976 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %977 = load i32, ptr %976, align 8
   %978 = add i32 %975, %977
-  %979 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 12), align 4
-  %980 = zext i8 %979 to i64
-  %981 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %980
-  %982 = load i32, ptr %981, align 4
-  %983 = add i32 %978, %982
-  %984 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %983, ptr %984, align 8
-  %985 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %986 = load i32, ptr %985, align 4
-  %987 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %988 = load i32, ptr %987, align 8
-  %989 = xor i32 %986, %988
-  %990 = call i32 @rotr32(i32 noundef %989, i32 noundef 16)
-  %991 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %990, ptr %991, align 4
-  %992 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %993 = load i32, ptr %992, align 16
-  %994 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %995 = load i32, ptr %994, align 4
-  %996 = add i32 %993, %995
-  %997 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %996, ptr %997, align 16
-  %998 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %999 = load i32, ptr %998, align 4
-  %1000 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1001 = load i32, ptr %1000, align 16
-  %1002 = xor i32 %999, %1001
-  %1003 = call i32 @rotr32(i32 noundef %1002, i32 noundef 12)
-  %1004 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %1003, ptr %1004, align 4
-  %1005 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1006 = load i32, ptr %1005, align 8
-  %1007 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %1008 = load i32, ptr %1007, align 4
-  %1009 = add i32 %1006, %1008
-  %1010 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 13), align 1
-  %1011 = zext i8 %1010 to i64
-  %1012 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1011
-  %1013 = load i32, ptr %1012, align 4
-  %1014 = add i32 %1009, %1013
-  %1015 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %1014, ptr %1015, align 8
-  %1016 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %979 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 11
+  %980 = load i8, ptr %979, align 1
+  %981 = zext i8 %980 to i64
+  %982 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %981
+  %983 = load i32, ptr %982, align 4
+  %984 = add i32 %978, %983
+  %985 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %984, ptr %985, align 4
+  %986 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %987 = load i32, ptr %986, align 16
+  %988 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %989 = load i32, ptr %988, align 4
+  %990 = xor i32 %987, %989
+  %991 = call i32 @rotr32(i32 noundef %990, i32 noundef 8)
+  %992 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %991, ptr %992, align 16
+  %993 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %994 = load i32, ptr %993, align 4
+  %995 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %996 = load i32, ptr %995, align 16
+  %997 = add i32 %994, %996
+  %998 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %997, ptr %998, align 4
+  %999 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1000 = load i32, ptr %999, align 8
+  %1001 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %1002 = load i32, ptr %1001, align 4
+  %1003 = xor i32 %1000, %1002
+  %1004 = call i32 @rotr32(i32 noundef %1003, i32 noundef 7)
+  %1005 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %1004, ptr %1005, align 8
+  br label %1006
+
+1006:                                             ; preds = %941
+  br label %1007
+
+1007:                                             ; preds = %1006
+  %1008 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1009 = load i32, ptr %1008, align 8
+  %1010 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1011 = load i32, ptr %1010, align 4
+  %1012 = add i32 %1009, %1011
+  %1013 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 12
+  %1014 = load i8, ptr %1013, align 4
+  %1015 = zext i8 %1014 to i64
+  %1016 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1015
   %1017 = load i32, ptr %1016, align 4
-  %1018 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1019 = load i32, ptr %1018, align 8
-  %1020 = xor i32 %1017, %1019
-  %1021 = call i32 @rotr32(i32 noundef %1020, i32 noundef 8)
-  %1022 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %1021, ptr %1022, align 4
-  %1023 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1024 = load i32, ptr %1023, align 16
-  %1025 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %1026 = load i32, ptr %1025, align 4
-  %1027 = add i32 %1024, %1026
-  %1028 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %1027, ptr %1028, align 16
-  %1029 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1018 = add i32 %1012, %1017
+  %1019 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %1018, ptr %1019, align 8
+  %1020 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1021 = load i32, ptr %1020, align 4
+  %1022 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1023 = load i32, ptr %1022, align 8
+  %1024 = xor i32 %1021, %1023
+  %1025 = call i32 @rotr32(i32 noundef %1024, i32 noundef 16)
+  %1026 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %1025, ptr %1026, align 4
+  %1027 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1028 = load i32, ptr %1027, align 16
+  %1029 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
   %1030 = load i32, ptr %1029, align 4
-  %1031 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1032 = load i32, ptr %1031, align 16
-  %1033 = xor i32 %1030, %1032
-  %1034 = call i32 @rotr32(i32 noundef %1033, i32 noundef 7)
-  %1035 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %1034, ptr %1035, align 4
-  br label %1036
+  %1031 = add i32 %1028, %1030
+  %1032 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %1031, ptr %1032, align 16
+  %1033 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1034 = load i32, ptr %1033, align 4
+  %1035 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1036 = load i32, ptr %1035, align 16
+  %1037 = xor i32 %1034, %1036
+  %1038 = call i32 @rotr32(i32 noundef %1037, i32 noundef 12)
+  %1039 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %1038, ptr %1039, align 4
+  %1040 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1041 = load i32, ptr %1040, align 8
+  %1042 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1043 = load i32, ptr %1042, align 4
+  %1044 = add i32 %1041, %1043
+  %1045 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 13
+  %1046 = load i8, ptr %1045, align 1
+  %1047 = zext i8 %1046 to i64
+  %1048 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1047
+  %1049 = load i32, ptr %1048, align 4
+  %1050 = add i32 %1044, %1049
+  %1051 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %1050, ptr %1051, align 8
+  %1052 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1053 = load i32, ptr %1052, align 4
+  %1054 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1055 = load i32, ptr %1054, align 8
+  %1056 = xor i32 %1053, %1055
+  %1057 = call i32 @rotr32(i32 noundef %1056, i32 noundef 8)
+  %1058 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %1057, ptr %1058, align 4
+  %1059 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1060 = load i32, ptr %1059, align 16
+  %1061 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1062 = load i32, ptr %1061, align 4
+  %1063 = add i32 %1060, %1062
+  %1064 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %1063, ptr %1064, align 16
+  %1065 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1066 = load i32, ptr %1065, align 4
+  %1067 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1068 = load i32, ptr %1067, align 16
+  %1069 = xor i32 %1066, %1068
+  %1070 = call i32 @rotr32(i32 noundef %1069, i32 noundef 7)
+  %1071 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %1070, ptr %1071, align 4
+  br label %1072
 
-1036:                                             ; preds = %973
-  br label %1037
+1072:                                             ; preds = %1007
+  br label %1073
 
-1037:                                             ; preds = %1036
-  %1038 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1039 = load i32, ptr %1038, align 4
-  %1040 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1041 = load i32, ptr %1040, align 16
-  %1042 = add i32 %1039, %1041
-  %1043 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 14), align 2
-  %1044 = zext i8 %1043 to i64
-  %1045 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1044
-  %1046 = load i32, ptr %1045, align 4
-  %1047 = add i32 %1042, %1046
-  %1048 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %1047, ptr %1048, align 4
-  %1049 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1050 = load i32, ptr %1049, align 8
-  %1051 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1052 = load i32, ptr %1051, align 4
-  %1053 = xor i32 %1050, %1052
-  %1054 = call i32 @rotr32(i32 noundef %1053, i32 noundef 16)
-  %1055 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %1054, ptr %1055, align 8
-  %1056 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1057 = load i32, ptr %1056, align 4
-  %1058 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1059 = load i32, ptr %1058, align 8
-  %1060 = add i32 %1057, %1059
-  %1061 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %1060, ptr %1061, align 4
-  %1062 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1063 = load i32, ptr %1062, align 16
-  %1064 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1065 = load i32, ptr %1064, align 4
-  %1066 = xor i32 %1063, %1065
-  %1067 = call i32 @rotr32(i32 noundef %1066, i32 noundef 12)
-  %1068 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %1067, ptr %1068, align 16
-  %1069 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1070 = load i32, ptr %1069, align 4
-  %1071 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1072 = load i32, ptr %1071, align 16
-  %1073 = add i32 %1070, %1072
-  %1074 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 15), align 1
-  %1075 = zext i8 %1074 to i64
-  %1076 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1075
-  %1077 = load i32, ptr %1076, align 4
-  %1078 = add i32 %1073, %1077
-  %1079 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %1078, ptr %1079, align 4
-  %1080 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1081 = load i32, ptr %1080, align 8
-  %1082 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+1073:                                             ; preds = %1072
+  %1074 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1075 = load i32, ptr %1074, align 4
+  %1076 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1077 = load i32, ptr %1076, align 16
+  %1078 = add i32 %1075, %1077
+  %1079 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 14
+  %1080 = load i8, ptr %1079, align 2
+  %1081 = zext i8 %1080 to i64
+  %1082 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1081
   %1083 = load i32, ptr %1082, align 4
-  %1084 = xor i32 %1081, %1083
-  %1085 = call i32 @rotr32(i32 noundef %1084, i32 noundef 8)
+  %1084 = add i32 %1078, %1083
+  %1085 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %1084, ptr %1085, align 4
   %1086 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %1085, ptr %1086, align 8
-  %1087 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1088 = load i32, ptr %1087, align 4
-  %1089 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1090 = load i32, ptr %1089, align 8
-  %1091 = add i32 %1088, %1090
-  %1092 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %1091, ptr %1092, align 4
-  %1093 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1094 = load i32, ptr %1093, align 16
-  %1095 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1096 = load i32, ptr %1095, align 4
-  %1097 = xor i32 %1094, %1096
-  %1098 = call i32 @rotr32(i32 noundef %1097, i32 noundef 7)
+  %1087 = load i32, ptr %1086, align 8
+  %1088 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1089 = load i32, ptr %1088, align 4
+  %1090 = xor i32 %1087, %1089
+  %1091 = call i32 @rotr32(i32 noundef %1090, i32 noundef 16)
+  %1092 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %1091, ptr %1092, align 8
+  %1093 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1094 = load i32, ptr %1093, align 4
+  %1095 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1096 = load i32, ptr %1095, align 8
+  %1097 = add i32 %1094, %1096
+  %1098 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %1097, ptr %1098, align 4
   %1099 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %1098, ptr %1099, align 16
-  br label %1100
-
-1100:                                             ; preds = %1037
-  br label %1101
-
-1101:                                             ; preds = %1100
-  br label %1102
-
-1102:                                             ; preds = %1101
-  br label %1103
-
-1103:                                             ; preds = %1102
-  %1104 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1105 = load i32, ptr %1104, align 16
-  %1106 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1107 = load i32, ptr %1106, align 16
-  %1108 = add i32 %1105, %1107
-  %1109 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2), align 16
-  %1110 = zext i8 %1109 to i64
-  %1111 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1110
-  %1112 = load i32, ptr %1111, align 4
-  %1113 = add i32 %1108, %1112
-  %1114 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %1113, ptr %1114, align 16
-  %1115 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1116 = load i32, ptr %1115, align 16
-  %1117 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1118 = load i32, ptr %1117, align 16
-  %1119 = xor i32 %1116, %1118
-  %1120 = call i32 @rotr32(i32 noundef %1119, i32 noundef 16)
-  %1121 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %1120, ptr %1121, align 16
-  %1122 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1123 = load i32, ptr %1122, align 16
-  %1124 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1125 = load i32, ptr %1124, align 16
-  %1126 = add i32 %1123, %1125
-  %1127 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %1126, ptr %1127, align 16
-  %1128 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1129 = load i32, ptr %1128, align 16
-  %1130 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1131 = load i32, ptr %1130, align 16
-  %1132 = xor i32 %1129, %1131
-  %1133 = call i32 @rotr32(i32 noundef %1132, i32 noundef 12)
-  %1134 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %1133, ptr %1134, align 16
-  %1135 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1136 = load i32, ptr %1135, align 16
+  %1100 = load i32, ptr %1099, align 16
+  %1101 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1102 = load i32, ptr %1101, align 4
+  %1103 = xor i32 %1100, %1102
+  %1104 = call i32 @rotr32(i32 noundef %1103, i32 noundef 12)
+  %1105 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %1104, ptr %1105, align 16
+  %1106 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1107 = load i32, ptr %1106, align 4
+  %1108 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1109 = load i32, ptr %1108, align 16
+  %1110 = add i32 %1107, %1109
+  %1111 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 1, i64 15
+  %1112 = load i8, ptr %1111, align 1
+  %1113 = zext i8 %1112 to i64
+  %1114 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1113
+  %1115 = load i32, ptr %1114, align 4
+  %1116 = add i32 %1110, %1115
+  %1117 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %1116, ptr %1117, align 4
+  %1118 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1119 = load i32, ptr %1118, align 8
+  %1120 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1121 = load i32, ptr %1120, align 4
+  %1122 = xor i32 %1119, %1121
+  %1123 = call i32 @rotr32(i32 noundef %1122, i32 noundef 8)
+  %1124 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %1123, ptr %1124, align 8
+  %1125 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1126 = load i32, ptr %1125, align 4
+  %1127 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1128 = load i32, ptr %1127, align 8
+  %1129 = add i32 %1126, %1128
+  %1130 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %1129, ptr %1130, align 4
+  %1131 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1132 = load i32, ptr %1131, align 16
+  %1133 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1134 = load i32, ptr %1133, align 4
+  %1135 = xor i32 %1132, %1134
+  %1136 = call i32 @rotr32(i32 noundef %1135, i32 noundef 7)
   %1137 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1138 = load i32, ptr %1137, align 16
-  %1139 = add i32 %1136, %1138
-  %1140 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 1), align 1
-  %1141 = zext i8 %1140 to i64
-  %1142 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1141
-  %1143 = load i32, ptr %1142, align 4
-  %1144 = add i32 %1139, %1143
-  %1145 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %1144, ptr %1145, align 16
-  %1146 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1147 = load i32, ptr %1146, align 16
-  %1148 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1149 = load i32, ptr %1148, align 16
-  %1150 = xor i32 %1147, %1149
-  %1151 = call i32 @rotr32(i32 noundef %1150, i32 noundef 8)
-  %1152 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %1151, ptr %1152, align 16
-  %1153 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1154 = load i32, ptr %1153, align 16
-  %1155 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1156 = load i32, ptr %1155, align 16
-  %1157 = add i32 %1154, %1156
-  %1158 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %1157, ptr %1158, align 16
-  %1159 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1160 = load i32, ptr %1159, align 16
+  store i32 %1136, ptr %1137, align 16
+  br label %1138
+
+1138:                                             ; preds = %1073
+  br label %1139
+
+1139:                                             ; preds = %1138
+  br label %1140
+
+1140:                                             ; preds = %1139
+  br label %1141
+
+1141:                                             ; preds = %1140
+  %1142 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1143 = load i32, ptr %1142, align 16
+  %1144 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1145 = load i32, ptr %1144, align 16
+  %1146 = add i32 %1143, %1145
+  %1147 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2
+  %1148 = load i8, ptr %1147, align 16
+  %1149 = zext i8 %1148 to i64
+  %1150 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1149
+  %1151 = load i32, ptr %1150, align 4
+  %1152 = add i32 %1146, %1151
+  %1153 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %1152, ptr %1153, align 16
+  %1154 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1155 = load i32, ptr %1154, align 16
+  %1156 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1157 = load i32, ptr %1156, align 16
+  %1158 = xor i32 %1155, %1157
+  %1159 = call i32 @rotr32(i32 noundef %1158, i32 noundef 16)
+  %1160 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %1159, ptr %1160, align 16
   %1161 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
   %1162 = load i32, ptr %1161, align 16
-  %1163 = xor i32 %1160, %1162
-  %1164 = call i32 @rotr32(i32 noundef %1163, i32 noundef 7)
-  %1165 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %1164, ptr %1165, align 16
-  br label %1166
+  %1163 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1164 = load i32, ptr %1163, align 16
+  %1165 = add i32 %1162, %1164
+  %1166 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %1165, ptr %1166, align 16
+  %1167 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1168 = load i32, ptr %1167, align 16
+  %1169 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1170 = load i32, ptr %1169, align 16
+  %1171 = xor i32 %1168, %1170
+  %1172 = call i32 @rotr32(i32 noundef %1171, i32 noundef 12)
+  %1173 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %1172, ptr %1173, align 16
+  %1174 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1175 = load i32, ptr %1174, align 16
+  %1176 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1177 = load i32, ptr %1176, align 16
+  %1178 = add i32 %1175, %1177
+  %1179 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 1
+  %1180 = load i8, ptr %1179, align 1
+  %1181 = zext i8 %1180 to i64
+  %1182 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1181
+  %1183 = load i32, ptr %1182, align 4
+  %1184 = add i32 %1178, %1183
+  %1185 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %1184, ptr %1185, align 16
+  %1186 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1187 = load i32, ptr %1186, align 16
+  %1188 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1189 = load i32, ptr %1188, align 16
+  %1190 = xor i32 %1187, %1189
+  %1191 = call i32 @rotr32(i32 noundef %1190, i32 noundef 8)
+  %1192 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %1191, ptr %1192, align 16
+  %1193 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1194 = load i32, ptr %1193, align 16
+  %1195 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1196 = load i32, ptr %1195, align 16
+  %1197 = add i32 %1194, %1196
+  %1198 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %1197, ptr %1198, align 16
+  %1199 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1200 = load i32, ptr %1199, align 16
+  %1201 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1202 = load i32, ptr %1201, align 16
+  %1203 = xor i32 %1200, %1202
+  %1204 = call i32 @rotr32(i32 noundef %1203, i32 noundef 7)
+  %1205 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %1204, ptr %1205, align 16
+  br label %1206
 
-1166:                                             ; preds = %1103
-  br label %1167
+1206:                                             ; preds = %1141
+  br label %1207
 
-1167:                                             ; preds = %1166
-  %1168 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1169 = load i32, ptr %1168, align 4
-  %1170 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1171 = load i32, ptr %1170, align 4
-  %1172 = add i32 %1169, %1171
-  %1173 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 2), align 2
-  %1174 = zext i8 %1173 to i64
-  %1175 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1174
-  %1176 = load i32, ptr %1175, align 4
-  %1177 = add i32 %1172, %1176
-  %1178 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %1177, ptr %1178, align 4
-  %1179 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %1180 = load i32, ptr %1179, align 4
-  %1181 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1182 = load i32, ptr %1181, align 4
-  %1183 = xor i32 %1180, %1182
-  %1184 = call i32 @rotr32(i32 noundef %1183, i32 noundef 16)
-  %1185 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %1184, ptr %1185, align 4
-  %1186 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1187 = load i32, ptr %1186, align 4
-  %1188 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %1189 = load i32, ptr %1188, align 4
-  %1190 = add i32 %1187, %1189
-  %1191 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %1190, ptr %1191, align 4
-  %1192 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1193 = load i32, ptr %1192, align 4
-  %1194 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1195 = load i32, ptr %1194, align 4
-  %1196 = xor i32 %1193, %1195
-  %1197 = call i32 @rotr32(i32 noundef %1196, i32 noundef 12)
-  %1198 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %1197, ptr %1198, align 4
-  %1199 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1200 = load i32, ptr %1199, align 4
-  %1201 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1202 = load i32, ptr %1201, align 4
-  %1203 = add i32 %1200, %1202
-  %1204 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 3), align 1
-  %1205 = zext i8 %1204 to i64
-  %1206 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1205
-  %1207 = load i32, ptr %1206, align 4
-  %1208 = add i32 %1203, %1207
-  %1209 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %1208, ptr %1209, align 4
-  %1210 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+1207:                                             ; preds = %1206
+  %1208 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %1209 = load i32, ptr %1208, align 4
+  %1210 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %1211 = load i32, ptr %1210, align 4
-  %1212 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1213 = load i32, ptr %1212, align 4
-  %1214 = xor i32 %1211, %1213
-  %1215 = call i32 @rotr32(i32 noundef %1214, i32 noundef 8)
-  %1216 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %1215, ptr %1216, align 4
-  %1217 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1218 = load i32, ptr %1217, align 4
-  %1219 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %1220 = load i32, ptr %1219, align 4
-  %1221 = add i32 %1218, %1220
-  %1222 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %1221, ptr %1222, align 4
-  %1223 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1224 = load i32, ptr %1223, align 4
-  %1225 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1226 = load i32, ptr %1225, align 4
-  %1227 = xor i32 %1224, %1226
-  %1228 = call i32 @rotr32(i32 noundef %1227, i32 noundef 7)
-  %1229 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %1228, ptr %1229, align 4
-  br label %1230
+  %1212 = add i32 %1209, %1211
+  %1213 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 2
+  %1214 = load i8, ptr %1213, align 2
+  %1215 = zext i8 %1214 to i64
+  %1216 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1215
+  %1217 = load i32, ptr %1216, align 4
+  %1218 = add i32 %1212, %1217
+  %1219 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %1218, ptr %1219, align 4
+  %1220 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1221 = load i32, ptr %1220, align 4
+  %1222 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %1223 = load i32, ptr %1222, align 4
+  %1224 = xor i32 %1221, %1223
+  %1225 = call i32 @rotr32(i32 noundef %1224, i32 noundef 16)
+  %1226 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %1225, ptr %1226, align 4
+  %1227 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1228 = load i32, ptr %1227, align 4
+  %1229 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1230 = load i32, ptr %1229, align 4
+  %1231 = add i32 %1228, %1230
+  %1232 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %1231, ptr %1232, align 4
+  %1233 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1234 = load i32, ptr %1233, align 4
+  %1235 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1236 = load i32, ptr %1235, align 4
+  %1237 = xor i32 %1234, %1236
+  %1238 = call i32 @rotr32(i32 noundef %1237, i32 noundef 12)
+  %1239 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %1238, ptr %1239, align 4
+  %1240 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %1241 = load i32, ptr %1240, align 4
+  %1242 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1243 = load i32, ptr %1242, align 4
+  %1244 = add i32 %1241, %1243
+  %1245 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 3
+  %1246 = load i8, ptr %1245, align 1
+  %1247 = zext i8 %1246 to i64
+  %1248 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1247
+  %1249 = load i32, ptr %1248, align 4
+  %1250 = add i32 %1244, %1249
+  %1251 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %1250, ptr %1251, align 4
+  %1252 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1253 = load i32, ptr %1252, align 4
+  %1254 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %1255 = load i32, ptr %1254, align 4
+  %1256 = xor i32 %1253, %1255
+  %1257 = call i32 @rotr32(i32 noundef %1256, i32 noundef 8)
+  %1258 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %1257, ptr %1258, align 4
+  %1259 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1260 = load i32, ptr %1259, align 4
+  %1261 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1262 = load i32, ptr %1261, align 4
+  %1263 = add i32 %1260, %1262
+  %1264 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %1263, ptr %1264, align 4
+  %1265 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1266 = load i32, ptr %1265, align 4
+  %1267 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1268 = load i32, ptr %1267, align 4
+  %1269 = xor i32 %1266, %1268
+  %1270 = call i32 @rotr32(i32 noundef %1269, i32 noundef 7)
+  %1271 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %1270, ptr %1271, align 4
+  br label %1272
 
-1230:                                             ; preds = %1167
-  br label %1231
+1272:                                             ; preds = %1207
+  br label %1273
 
-1231:                                             ; preds = %1230
-  %1232 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1233 = load i32, ptr %1232, align 8
-  %1234 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1235 = load i32, ptr %1234, align 8
-  %1236 = add i32 %1233, %1235
-  %1237 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 4), align 4
-  %1238 = zext i8 %1237 to i64
-  %1239 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1238
-  %1240 = load i32, ptr %1239, align 4
-  %1241 = add i32 %1236, %1240
-  %1242 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %1241, ptr %1242, align 8
-  %1243 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1244 = load i32, ptr %1243, align 8
-  %1245 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1246 = load i32, ptr %1245, align 8
-  %1247 = xor i32 %1244, %1246
-  %1248 = call i32 @rotr32(i32 noundef %1247, i32 noundef 16)
-  %1249 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %1248, ptr %1249, align 8
-  %1250 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1251 = load i32, ptr %1250, align 8
-  %1252 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1253 = load i32, ptr %1252, align 8
-  %1254 = add i32 %1251, %1253
-  %1255 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %1254, ptr %1255, align 8
-  %1256 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1257 = load i32, ptr %1256, align 8
-  %1258 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1259 = load i32, ptr %1258, align 8
-  %1260 = xor i32 %1257, %1259
-  %1261 = call i32 @rotr32(i32 noundef %1260, i32 noundef 12)
-  %1262 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %1261, ptr %1262, align 8
-  %1263 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1264 = load i32, ptr %1263, align 8
-  %1265 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1266 = load i32, ptr %1265, align 8
-  %1267 = add i32 %1264, %1266
-  %1268 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 5), align 1
-  %1269 = zext i8 %1268 to i64
-  %1270 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1269
-  %1271 = load i32, ptr %1270, align 4
-  %1272 = add i32 %1267, %1271
-  %1273 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %1272, ptr %1273, align 8
-  %1274 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+1273:                                             ; preds = %1272
+  %1274 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
   %1275 = load i32, ptr %1274, align 8
-  %1276 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1276 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
   %1277 = load i32, ptr %1276, align 8
-  %1278 = xor i32 %1275, %1277
-  %1279 = call i32 @rotr32(i32 noundef %1278, i32 noundef 8)
-  %1280 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %1279, ptr %1280, align 8
-  %1281 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1282 = load i32, ptr %1281, align 8
-  %1283 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1284 = load i32, ptr %1283, align 8
-  %1285 = add i32 %1282, %1284
-  %1286 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %1285, ptr %1286, align 8
-  %1287 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1288 = load i32, ptr %1287, align 8
-  %1289 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1290 = load i32, ptr %1289, align 8
-  %1291 = xor i32 %1288, %1290
-  %1292 = call i32 @rotr32(i32 noundef %1291, i32 noundef 7)
-  %1293 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %1292, ptr %1293, align 8
-  br label %1294
-
-1294:                                             ; preds = %1231
-  br label %1295
-
-1295:                                             ; preds = %1294
-  %1296 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1297 = load i32, ptr %1296, align 4
-  %1298 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %1299 = load i32, ptr %1298, align 4
-  %1300 = add i32 %1297, %1299
-  %1301 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 6), align 2
-  %1302 = zext i8 %1301 to i64
-  %1303 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1302
-  %1304 = load i32, ptr %1303, align 4
-  %1305 = add i32 %1300, %1304
-  %1306 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %1305, ptr %1306, align 4
-  %1307 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1308 = load i32, ptr %1307, align 4
-  %1309 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1310 = load i32, ptr %1309, align 4
-  %1311 = xor i32 %1308, %1310
-  %1312 = call i32 @rotr32(i32 noundef %1311, i32 noundef 16)
-  %1313 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %1312, ptr %1313, align 4
-  %1314 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %1278 = add i32 %1275, %1277
+  %1279 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 4
+  %1280 = load i8, ptr %1279, align 4
+  %1281 = zext i8 %1280 to i64
+  %1282 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1281
+  %1283 = load i32, ptr %1282, align 4
+  %1284 = add i32 %1278, %1283
+  %1285 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %1284, ptr %1285, align 8
+  %1286 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1287 = load i32, ptr %1286, align 8
+  %1288 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1289 = load i32, ptr %1288, align 8
+  %1290 = xor i32 %1287, %1289
+  %1291 = call i32 @rotr32(i32 noundef %1290, i32 noundef 16)
+  %1292 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %1291, ptr %1292, align 8
+  %1293 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1294 = load i32, ptr %1293, align 8
+  %1295 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1296 = load i32, ptr %1295, align 8
+  %1297 = add i32 %1294, %1296
+  %1298 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %1297, ptr %1298, align 8
+  %1299 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1300 = load i32, ptr %1299, align 8
+  %1301 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1302 = load i32, ptr %1301, align 8
+  %1303 = xor i32 %1300, %1302
+  %1304 = call i32 @rotr32(i32 noundef %1303, i32 noundef 12)
+  %1305 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %1304, ptr %1305, align 8
+  %1306 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1307 = load i32, ptr %1306, align 8
+  %1308 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1309 = load i32, ptr %1308, align 8
+  %1310 = add i32 %1307, %1309
+  %1311 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 5
+  %1312 = load i8, ptr %1311, align 1
+  %1313 = zext i8 %1312 to i64
+  %1314 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1313
   %1315 = load i32, ptr %1314, align 4
-  %1316 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1317 = load i32, ptr %1316, align 4
-  %1318 = add i32 %1315, %1317
-  %1319 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %1318, ptr %1319, align 4
-  %1320 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %1321 = load i32, ptr %1320, align 4
-  %1322 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1323 = load i32, ptr %1322, align 4
-  %1324 = xor i32 %1321, %1323
-  %1325 = call i32 @rotr32(i32 noundef %1324, i32 noundef 12)
-  %1326 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %1325, ptr %1326, align 4
-  %1327 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1328 = load i32, ptr %1327, align 4
-  %1329 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %1330 = load i32, ptr %1329, align 4
-  %1331 = add i32 %1328, %1330
-  %1332 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 7), align 1
-  %1333 = zext i8 %1332 to i64
-  %1334 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1333
-  %1335 = load i32, ptr %1334, align 4
-  %1336 = add i32 %1331, %1335
-  %1337 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %1336, ptr %1337, align 4
-  %1338 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1339 = load i32, ptr %1338, align 4
+  %1316 = add i32 %1310, %1315
+  %1317 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %1316, ptr %1317, align 8
+  %1318 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1319 = load i32, ptr %1318, align 8
+  %1320 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1321 = load i32, ptr %1320, align 8
+  %1322 = xor i32 %1319, %1321
+  %1323 = call i32 @rotr32(i32 noundef %1322, i32 noundef 8)
+  %1324 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %1323, ptr %1324, align 8
+  %1325 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1326 = load i32, ptr %1325, align 8
+  %1327 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1328 = load i32, ptr %1327, align 8
+  %1329 = add i32 %1326, %1328
+  %1330 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %1329, ptr %1330, align 8
+  %1331 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1332 = load i32, ptr %1331, align 8
+  %1333 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1334 = load i32, ptr %1333, align 8
+  %1335 = xor i32 %1332, %1334
+  %1336 = call i32 @rotr32(i32 noundef %1335, i32 noundef 7)
+  %1337 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %1336, ptr %1337, align 8
+  br label %1338
+
+1338:                                             ; preds = %1273
+  br label %1339
+
+1339:                                             ; preds = %1338
   %1340 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %1341 = load i32, ptr %1340, align 4
-  %1342 = xor i32 %1339, %1341
-  %1343 = call i32 @rotr32(i32 noundef %1342, i32 noundef 8)
-  %1344 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %1343, ptr %1344, align 4
-  %1345 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1346 = load i32, ptr %1345, align 4
-  %1347 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1348 = load i32, ptr %1347, align 4
-  %1349 = add i32 %1346, %1348
-  %1350 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %1349, ptr %1350, align 4
-  %1351 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %1352 = load i32, ptr %1351, align 4
-  %1353 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1354 = load i32, ptr %1353, align 4
-  %1355 = xor i32 %1352, %1354
-  %1356 = call i32 @rotr32(i32 noundef %1355, i32 noundef 7)
-  %1357 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %1356, ptr %1357, align 4
-  br label %1358
-
-1358:                                             ; preds = %1295
-  br label %1359
-
-1359:                                             ; preds = %1358
-  %1360 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1361 = load i32, ptr %1360, align 16
-  %1362 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1363 = load i32, ptr %1362, align 4
-  %1364 = add i32 %1361, %1363
-  %1365 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 8), align 8
-  %1366 = zext i8 %1365 to i64
-  %1367 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1366
+  %1342 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1343 = load i32, ptr %1342, align 4
+  %1344 = add i32 %1341, %1343
+  %1345 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 6
+  %1346 = load i8, ptr %1345, align 2
+  %1347 = zext i8 %1346 to i64
+  %1348 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1347
+  %1349 = load i32, ptr %1348, align 4
+  %1350 = add i32 %1344, %1349
+  %1351 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %1350, ptr %1351, align 4
+  %1352 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1353 = load i32, ptr %1352, align 4
+  %1354 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1355 = load i32, ptr %1354, align 4
+  %1356 = xor i32 %1353, %1355
+  %1357 = call i32 @rotr32(i32 noundef %1356, i32 noundef 16)
+  %1358 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %1357, ptr %1358, align 4
+  %1359 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %1360 = load i32, ptr %1359, align 4
+  %1361 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1362 = load i32, ptr %1361, align 4
+  %1363 = add i32 %1360, %1362
+  %1364 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %1363, ptr %1364, align 4
+  %1365 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1366 = load i32, ptr %1365, align 4
+  %1367 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %1368 = load i32, ptr %1367, align 4
-  %1369 = add i32 %1364, %1368
-  %1370 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %1369, ptr %1370, align 16
-  %1371 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1372 = load i32, ptr %1371, align 4
-  %1373 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1374 = load i32, ptr %1373, align 16
-  %1375 = xor i32 %1372, %1374
-  %1376 = call i32 @rotr32(i32 noundef %1375, i32 noundef 16)
-  %1377 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %1376, ptr %1377, align 4
-  %1378 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1379 = load i32, ptr %1378, align 8
-  %1380 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1369 = xor i32 %1366, %1368
+  %1370 = call i32 @rotr32(i32 noundef %1369, i32 noundef 12)
+  %1371 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %1370, ptr %1371, align 4
+  %1372 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1373 = load i32, ptr %1372, align 4
+  %1374 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1375 = load i32, ptr %1374, align 4
+  %1376 = add i32 %1373, %1375
+  %1377 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 7
+  %1378 = load i8, ptr %1377, align 1
+  %1379 = zext i8 %1378 to i64
+  %1380 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1379
   %1381 = load i32, ptr %1380, align 4
-  %1382 = add i32 %1379, %1381
-  %1383 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %1382, ptr %1383, align 8
-  %1384 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1382 = add i32 %1376, %1381
+  %1383 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %1382, ptr %1383, align 4
+  %1384 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %1385 = load i32, ptr %1384, align 4
-  %1386 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1387 = load i32, ptr %1386, align 8
+  %1386 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1387 = load i32, ptr %1386, align 4
   %1388 = xor i32 %1385, %1387
-  %1389 = call i32 @rotr32(i32 noundef %1388, i32 noundef 12)
-  %1390 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1389 = call i32 @rotr32(i32 noundef %1388, i32 noundef 8)
+  %1390 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   store i32 %1389, ptr %1390, align 4
-  %1391 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1392 = load i32, ptr %1391, align 16
-  %1393 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1391 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %1392 = load i32, ptr %1391, align 4
+  %1393 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %1394 = load i32, ptr %1393, align 4
   %1395 = add i32 %1392, %1394
-  %1396 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 9), align 1
-  %1397 = zext i8 %1396 to i64
-  %1398 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1397
-  %1399 = load i32, ptr %1398, align 4
-  %1400 = add i32 %1395, %1399
-  %1401 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %1400, ptr %1401, align 16
-  %1402 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1403 = load i32, ptr %1402, align 4
-  %1404 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1405 = load i32, ptr %1404, align 16
-  %1406 = xor i32 %1403, %1405
-  %1407 = call i32 @rotr32(i32 noundef %1406, i32 noundef 8)
-  %1408 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %1407, ptr %1408, align 4
-  %1409 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1410 = load i32, ptr %1409, align 8
-  %1411 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1412 = load i32, ptr %1411, align 4
-  %1413 = add i32 %1410, %1412
-  %1414 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %1413, ptr %1414, align 8
-  %1415 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1416 = load i32, ptr %1415, align 4
-  %1417 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1418 = load i32, ptr %1417, align 8
-  %1419 = xor i32 %1416, %1418
-  %1420 = call i32 @rotr32(i32 noundef %1419, i32 noundef 7)
-  %1421 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %1420, ptr %1421, align 4
-  br label %1422
+  %1396 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %1395, ptr %1396, align 4
+  %1397 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1398 = load i32, ptr %1397, align 4
+  %1399 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %1400 = load i32, ptr %1399, align 4
+  %1401 = xor i32 %1398, %1400
+  %1402 = call i32 @rotr32(i32 noundef %1401, i32 noundef 7)
+  %1403 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %1402, ptr %1403, align 4
+  br label %1404
 
-1422:                                             ; preds = %1359
-  br label %1423
+1404:                                             ; preds = %1339
+  br label %1405
 
-1423:                                             ; preds = %1422
-  %1424 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1425 = load i32, ptr %1424, align 4
-  %1426 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1427 = load i32, ptr %1426, align 8
-  %1428 = add i32 %1425, %1427
-  %1429 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 10), align 2
-  %1430 = zext i8 %1429 to i64
-  %1431 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1430
+1405:                                             ; preds = %1404
+  %1406 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1407 = load i32, ptr %1406, align 16
+  %1408 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1409 = load i32, ptr %1408, align 4
+  %1410 = add i32 %1407, %1409
+  %1411 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 8
+  %1412 = load i8, ptr %1411, align 8
+  %1413 = zext i8 %1412 to i64
+  %1414 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1413
+  %1415 = load i32, ptr %1414, align 4
+  %1416 = add i32 %1410, %1415
+  %1417 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %1416, ptr %1417, align 16
+  %1418 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1419 = load i32, ptr %1418, align 4
+  %1420 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1421 = load i32, ptr %1420, align 16
+  %1422 = xor i32 %1419, %1421
+  %1423 = call i32 @rotr32(i32 noundef %1422, i32 noundef 16)
+  %1424 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %1423, ptr %1424, align 4
+  %1425 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1426 = load i32, ptr %1425, align 8
+  %1427 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1428 = load i32, ptr %1427, align 4
+  %1429 = add i32 %1426, %1428
+  %1430 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %1429, ptr %1430, align 8
+  %1431 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %1432 = load i32, ptr %1431, align 4
-  %1433 = add i32 %1428, %1432
-  %1434 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %1433, ptr %1434, align 4
-  %1435 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1436 = load i32, ptr %1435, align 16
-  %1437 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1438 = load i32, ptr %1437, align 4
-  %1439 = xor i32 %1436, %1438
-  %1440 = call i32 @rotr32(i32 noundef %1439, i32 noundef 16)
-  %1441 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %1440, ptr %1441, align 16
-  %1442 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1443 = load i32, ptr %1442, align 4
-  %1444 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1445 = load i32, ptr %1444, align 16
-  %1446 = add i32 %1443, %1445
-  %1447 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %1446, ptr %1447, align 4
-  %1448 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1449 = load i32, ptr %1448, align 8
-  %1450 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %1433 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1434 = load i32, ptr %1433, align 8
+  %1435 = xor i32 %1432, %1434
+  %1436 = call i32 @rotr32(i32 noundef %1435, i32 noundef 12)
+  %1437 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %1436, ptr %1437, align 4
+  %1438 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1439 = load i32, ptr %1438, align 16
+  %1440 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1441 = load i32, ptr %1440, align 4
+  %1442 = add i32 %1439, %1441
+  %1443 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 9
+  %1444 = load i8, ptr %1443, align 1
+  %1445 = zext i8 %1444 to i64
+  %1446 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1445
+  %1447 = load i32, ptr %1446, align 4
+  %1448 = add i32 %1442, %1447
+  %1449 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %1448, ptr %1449, align 16
+  %1450 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %1451 = load i32, ptr %1450, align 4
-  %1452 = xor i32 %1449, %1451
-  %1453 = call i32 @rotr32(i32 noundef %1452, i32 noundef 12)
-  %1454 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %1453, ptr %1454, align 8
-  %1455 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1456 = load i32, ptr %1455, align 4
-  %1457 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1452 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1453 = load i32, ptr %1452, align 16
+  %1454 = xor i32 %1451, %1453
+  %1455 = call i32 @rotr32(i32 noundef %1454, i32 noundef 8)
+  %1456 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %1455, ptr %1456, align 4
+  %1457 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
   %1458 = load i32, ptr %1457, align 8
-  %1459 = add i32 %1456, %1458
-  %1460 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 11), align 1
-  %1461 = zext i8 %1460 to i64
-  %1462 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1461
-  %1463 = load i32, ptr %1462, align 4
-  %1464 = add i32 %1459, %1463
-  %1465 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %1464, ptr %1465, align 4
-  %1466 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1467 = load i32, ptr %1466, align 16
-  %1468 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1469 = load i32, ptr %1468, align 4
-  %1470 = xor i32 %1467, %1469
-  %1471 = call i32 @rotr32(i32 noundef %1470, i32 noundef 8)
-  %1472 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %1471, ptr %1472, align 16
-  %1473 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1474 = load i32, ptr %1473, align 4
-  %1475 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1476 = load i32, ptr %1475, align 16
-  %1477 = add i32 %1474, %1476
-  %1478 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %1477, ptr %1478, align 4
-  %1479 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1480 = load i32, ptr %1479, align 8
-  %1481 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1482 = load i32, ptr %1481, align 4
-  %1483 = xor i32 %1480, %1482
-  %1484 = call i32 @rotr32(i32 noundef %1483, i32 noundef 7)
-  %1485 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %1484, ptr %1485, align 8
-  br label %1486
+  %1459 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1460 = load i32, ptr %1459, align 4
+  %1461 = add i32 %1458, %1460
+  %1462 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %1461, ptr %1462, align 8
+  %1463 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1464 = load i32, ptr %1463, align 4
+  %1465 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1466 = load i32, ptr %1465, align 8
+  %1467 = xor i32 %1464, %1466
+  %1468 = call i32 @rotr32(i32 noundef %1467, i32 noundef 7)
+  %1469 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %1468, ptr %1469, align 4
+  br label %1470
 
-1486:                                             ; preds = %1423
-  br label %1487
+1470:                                             ; preds = %1405
+  br label %1471
 
-1487:                                             ; preds = %1486
-  %1488 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1489 = load i32, ptr %1488, align 8
-  %1490 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %1491 = load i32, ptr %1490, align 4
-  %1492 = add i32 %1489, %1491
-  %1493 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 12), align 4
-  %1494 = zext i8 %1493 to i64
-  %1495 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1494
-  %1496 = load i32, ptr %1495, align 4
-  %1497 = add i32 %1492, %1496
-  %1498 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %1497, ptr %1498, align 8
-  %1499 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+1471:                                             ; preds = %1470
+  %1472 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %1473 = load i32, ptr %1472, align 4
+  %1474 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1475 = load i32, ptr %1474, align 8
+  %1476 = add i32 %1473, %1475
+  %1477 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 10
+  %1478 = load i8, ptr %1477, align 2
+  %1479 = zext i8 %1478 to i64
+  %1480 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1479
+  %1481 = load i32, ptr %1480, align 4
+  %1482 = add i32 %1476, %1481
+  %1483 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %1482, ptr %1483, align 4
+  %1484 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1485 = load i32, ptr %1484, align 16
+  %1486 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %1487 = load i32, ptr %1486, align 4
+  %1488 = xor i32 %1485, %1487
+  %1489 = call i32 @rotr32(i32 noundef %1488, i32 noundef 16)
+  %1490 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %1489, ptr %1490, align 16
+  %1491 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %1492 = load i32, ptr %1491, align 4
+  %1493 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1494 = load i32, ptr %1493, align 16
+  %1495 = add i32 %1492, %1494
+  %1496 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %1495, ptr %1496, align 4
+  %1497 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1498 = load i32, ptr %1497, align 8
+  %1499 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %1500 = load i32, ptr %1499, align 4
-  %1501 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1502 = load i32, ptr %1501, align 8
-  %1503 = xor i32 %1500, %1502
-  %1504 = call i32 @rotr32(i32 noundef %1503, i32 noundef 16)
-  %1505 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %1504, ptr %1505, align 4
-  %1506 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1507 = load i32, ptr %1506, align 16
-  %1508 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %1509 = load i32, ptr %1508, align 4
-  %1510 = add i32 %1507, %1509
-  %1511 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %1510, ptr %1511, align 16
-  %1512 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1501 = xor i32 %1498, %1500
+  %1502 = call i32 @rotr32(i32 noundef %1501, i32 noundef 12)
+  %1503 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %1502, ptr %1503, align 8
+  %1504 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %1505 = load i32, ptr %1504, align 4
+  %1506 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1507 = load i32, ptr %1506, align 8
+  %1508 = add i32 %1505, %1507
+  %1509 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 11
+  %1510 = load i8, ptr %1509, align 1
+  %1511 = zext i8 %1510 to i64
+  %1512 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1511
   %1513 = load i32, ptr %1512, align 4
-  %1514 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1515 = load i32, ptr %1514, align 16
-  %1516 = xor i32 %1513, %1515
-  %1517 = call i32 @rotr32(i32 noundef %1516, i32 noundef 12)
-  %1518 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %1517, ptr %1518, align 4
-  %1519 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1520 = load i32, ptr %1519, align 8
-  %1521 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %1522 = load i32, ptr %1521, align 4
-  %1523 = add i32 %1520, %1522
-  %1524 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 13), align 1
-  %1525 = zext i8 %1524 to i64
-  %1526 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1525
-  %1527 = load i32, ptr %1526, align 4
-  %1528 = add i32 %1523, %1527
-  %1529 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %1528, ptr %1529, align 8
-  %1530 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %1531 = load i32, ptr %1530, align 4
-  %1532 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1533 = load i32, ptr %1532, align 8
-  %1534 = xor i32 %1531, %1533
-  %1535 = call i32 @rotr32(i32 noundef %1534, i32 noundef 8)
-  %1536 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %1535, ptr %1536, align 4
-  %1537 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1538 = load i32, ptr %1537, align 16
-  %1539 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %1540 = load i32, ptr %1539, align 4
-  %1541 = add i32 %1538, %1540
-  %1542 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %1541, ptr %1542, align 16
-  %1543 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %1544 = load i32, ptr %1543, align 4
-  %1545 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1546 = load i32, ptr %1545, align 16
-  %1547 = xor i32 %1544, %1546
-  %1548 = call i32 @rotr32(i32 noundef %1547, i32 noundef 7)
-  %1549 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %1548, ptr %1549, align 4
-  br label %1550
+  %1514 = add i32 %1508, %1513
+  %1515 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %1514, ptr %1515, align 4
+  %1516 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1517 = load i32, ptr %1516, align 16
+  %1518 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %1519 = load i32, ptr %1518, align 4
+  %1520 = xor i32 %1517, %1519
+  %1521 = call i32 @rotr32(i32 noundef %1520, i32 noundef 8)
+  %1522 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %1521, ptr %1522, align 16
+  %1523 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %1524 = load i32, ptr %1523, align 4
+  %1525 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1526 = load i32, ptr %1525, align 16
+  %1527 = add i32 %1524, %1526
+  %1528 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %1527, ptr %1528, align 4
+  %1529 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1530 = load i32, ptr %1529, align 8
+  %1531 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %1532 = load i32, ptr %1531, align 4
+  %1533 = xor i32 %1530, %1532
+  %1534 = call i32 @rotr32(i32 noundef %1533, i32 noundef 7)
+  %1535 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %1534, ptr %1535, align 8
+  br label %1536
 
-1550:                                             ; preds = %1487
-  br label %1551
+1536:                                             ; preds = %1471
+  br label %1537
 
-1551:                                             ; preds = %1550
-  %1552 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1553 = load i32, ptr %1552, align 4
-  %1554 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1555 = load i32, ptr %1554, align 16
-  %1556 = add i32 %1553, %1555
-  %1557 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 14), align 2
-  %1558 = zext i8 %1557 to i64
-  %1559 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1558
+1537:                                             ; preds = %1536
+  %1538 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1539 = load i32, ptr %1538, align 8
+  %1540 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1541 = load i32, ptr %1540, align 4
+  %1542 = add i32 %1539, %1541
+  %1543 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 12
+  %1544 = load i8, ptr %1543, align 4
+  %1545 = zext i8 %1544 to i64
+  %1546 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1545
+  %1547 = load i32, ptr %1546, align 4
+  %1548 = add i32 %1542, %1547
+  %1549 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %1548, ptr %1549, align 8
+  %1550 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1551 = load i32, ptr %1550, align 4
+  %1552 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1553 = load i32, ptr %1552, align 8
+  %1554 = xor i32 %1551, %1553
+  %1555 = call i32 @rotr32(i32 noundef %1554, i32 noundef 16)
+  %1556 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %1555, ptr %1556, align 4
+  %1557 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1558 = load i32, ptr %1557, align 16
+  %1559 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
   %1560 = load i32, ptr %1559, align 4
-  %1561 = add i32 %1556, %1560
-  %1562 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %1561, ptr %1562, align 4
-  %1563 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1564 = load i32, ptr %1563, align 8
-  %1565 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1566 = load i32, ptr %1565, align 4
+  %1561 = add i32 %1558, %1560
+  %1562 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %1561, ptr %1562, align 16
+  %1563 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1564 = load i32, ptr %1563, align 4
+  %1565 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1566 = load i32, ptr %1565, align 16
   %1567 = xor i32 %1564, %1566
-  %1568 = call i32 @rotr32(i32 noundef %1567, i32 noundef 16)
-  %1569 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %1568, ptr %1569, align 8
-  %1570 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1571 = load i32, ptr %1570, align 4
-  %1572 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1573 = load i32, ptr %1572, align 8
+  %1568 = call i32 @rotr32(i32 noundef %1567, i32 noundef 12)
+  %1569 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %1568, ptr %1569, align 4
+  %1570 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1571 = load i32, ptr %1570, align 8
+  %1572 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1573 = load i32, ptr %1572, align 4
   %1574 = add i32 %1571, %1573
-  %1575 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %1574, ptr %1575, align 4
-  %1576 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1577 = load i32, ptr %1576, align 16
-  %1578 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1575 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 13
+  %1576 = load i8, ptr %1575, align 1
+  %1577 = zext i8 %1576 to i64
+  %1578 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1577
   %1579 = load i32, ptr %1578, align 4
-  %1580 = xor i32 %1577, %1579
-  %1581 = call i32 @rotr32(i32 noundef %1580, i32 noundef 12)
-  %1582 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %1581, ptr %1582, align 16
-  %1583 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1584 = load i32, ptr %1583, align 4
-  %1585 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1586 = load i32, ptr %1585, align 16
-  %1587 = add i32 %1584, %1586
-  %1588 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 15), align 1
-  %1589 = zext i8 %1588 to i64
-  %1590 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1589
-  %1591 = load i32, ptr %1590, align 4
-  %1592 = add i32 %1587, %1591
-  %1593 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %1592, ptr %1593, align 4
-  %1594 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1595 = load i32, ptr %1594, align 8
-  %1596 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1597 = load i32, ptr %1596, align 4
-  %1598 = xor i32 %1595, %1597
-  %1599 = call i32 @rotr32(i32 noundef %1598, i32 noundef 8)
-  %1600 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %1599, ptr %1600, align 8
-  %1601 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1602 = load i32, ptr %1601, align 4
-  %1603 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1604 = load i32, ptr %1603, align 8
-  %1605 = add i32 %1602, %1604
-  %1606 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %1605, ptr %1606, align 4
-  %1607 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1608 = load i32, ptr %1607, align 16
-  %1609 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1610 = load i32, ptr %1609, align 4
-  %1611 = xor i32 %1608, %1610
-  %1612 = call i32 @rotr32(i32 noundef %1611, i32 noundef 7)
-  %1613 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %1612, ptr %1613, align 16
-  br label %1614
+  %1580 = add i32 %1574, %1579
+  %1581 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %1580, ptr %1581, align 8
+  %1582 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1583 = load i32, ptr %1582, align 4
+  %1584 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1585 = load i32, ptr %1584, align 8
+  %1586 = xor i32 %1583, %1585
+  %1587 = call i32 @rotr32(i32 noundef %1586, i32 noundef 8)
+  %1588 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %1587, ptr %1588, align 4
+  %1589 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1590 = load i32, ptr %1589, align 16
+  %1591 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1592 = load i32, ptr %1591, align 4
+  %1593 = add i32 %1590, %1592
+  %1594 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %1593, ptr %1594, align 16
+  %1595 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1596 = load i32, ptr %1595, align 4
+  %1597 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1598 = load i32, ptr %1597, align 16
+  %1599 = xor i32 %1596, %1598
+  %1600 = call i32 @rotr32(i32 noundef %1599, i32 noundef 7)
+  %1601 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %1600, ptr %1601, align 4
+  br label %1602
 
-1614:                                             ; preds = %1551
-  br label %1615
+1602:                                             ; preds = %1537
+  br label %1603
 
-1615:                                             ; preds = %1614
-  br label %1616
-
-1616:                                             ; preds = %1615
-  br label %1617
-
-1617:                                             ; preds = %1616
-  %1618 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1619 = load i32, ptr %1618, align 16
-  %1620 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1621 = load i32, ptr %1620, align 16
-  %1622 = add i32 %1619, %1621
-  %1623 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3), align 16
-  %1624 = zext i8 %1623 to i64
-  %1625 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1624
-  %1626 = load i32, ptr %1625, align 4
-  %1627 = add i32 %1622, %1626
-  %1628 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %1627, ptr %1628, align 16
-  %1629 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+1603:                                             ; preds = %1602
+  %1604 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1605 = load i32, ptr %1604, align 4
+  %1606 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1607 = load i32, ptr %1606, align 16
+  %1608 = add i32 %1605, %1607
+  %1609 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 14
+  %1610 = load i8, ptr %1609, align 2
+  %1611 = zext i8 %1610 to i64
+  %1612 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1611
+  %1613 = load i32, ptr %1612, align 4
+  %1614 = add i32 %1608, %1613
+  %1615 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %1614, ptr %1615, align 4
+  %1616 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1617 = load i32, ptr %1616, align 8
+  %1618 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1619 = load i32, ptr %1618, align 4
+  %1620 = xor i32 %1617, %1619
+  %1621 = call i32 @rotr32(i32 noundef %1620, i32 noundef 16)
+  %1622 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %1621, ptr %1622, align 8
+  %1623 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1624 = load i32, ptr %1623, align 4
+  %1625 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1626 = load i32, ptr %1625, align 8
+  %1627 = add i32 %1624, %1626
+  %1628 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %1627, ptr %1628, align 4
+  %1629 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
   %1630 = load i32, ptr %1629, align 16
-  %1631 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1632 = load i32, ptr %1631, align 16
+  %1631 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1632 = load i32, ptr %1631, align 4
   %1633 = xor i32 %1630, %1632
-  %1634 = call i32 @rotr32(i32 noundef %1633, i32 noundef 16)
-  %1635 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1634 = call i32 @rotr32(i32 noundef %1633, i32 noundef 12)
+  %1635 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
   store i32 %1634, ptr %1635, align 16
-  %1636 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1637 = load i32, ptr %1636, align 16
-  %1638 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1636 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1637 = load i32, ptr %1636, align 4
+  %1638 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
   %1639 = load i32, ptr %1638, align 16
   %1640 = add i32 %1637, %1639
-  %1641 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %1640, ptr %1641, align 16
-  %1642 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1643 = load i32, ptr %1642, align 16
-  %1644 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1645 = load i32, ptr %1644, align 16
-  %1646 = xor i32 %1643, %1645
-  %1647 = call i32 @rotr32(i32 noundef %1646, i32 noundef 12)
-  %1648 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %1647, ptr %1648, align 16
-  %1649 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1650 = load i32, ptr %1649, align 16
-  %1651 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1652 = load i32, ptr %1651, align 16
-  %1653 = add i32 %1650, %1652
-  %1654 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 1), align 1
-  %1655 = zext i8 %1654 to i64
-  %1656 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1655
-  %1657 = load i32, ptr %1656, align 4
-  %1658 = add i32 %1653, %1657
-  %1659 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %1658, ptr %1659, align 16
-  %1660 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1661 = load i32, ptr %1660, align 16
-  %1662 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1663 = load i32, ptr %1662, align 16
-  %1664 = xor i32 %1661, %1663
-  %1665 = call i32 @rotr32(i32 noundef %1664, i32 noundef 8)
-  %1666 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %1665, ptr %1666, align 16
-  %1667 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1668 = load i32, ptr %1667, align 16
-  %1669 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1670 = load i32, ptr %1669, align 16
-  %1671 = add i32 %1668, %1670
-  %1672 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %1671, ptr %1672, align 16
-  %1673 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %1674 = load i32, ptr %1673, align 16
-  %1675 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %1676 = load i32, ptr %1675, align 16
-  %1677 = xor i32 %1674, %1676
-  %1678 = call i32 @rotr32(i32 noundef %1677, i32 noundef 7)
-  %1679 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %1678, ptr %1679, align 16
-  br label %1680
+  %1641 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 2, i64 15
+  %1642 = load i8, ptr %1641, align 1
+  %1643 = zext i8 %1642 to i64
+  %1644 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1643
+  %1645 = load i32, ptr %1644, align 4
+  %1646 = add i32 %1640, %1645
+  %1647 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %1646, ptr %1647, align 4
+  %1648 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1649 = load i32, ptr %1648, align 8
+  %1650 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1651 = load i32, ptr %1650, align 4
+  %1652 = xor i32 %1649, %1651
+  %1653 = call i32 @rotr32(i32 noundef %1652, i32 noundef 8)
+  %1654 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %1653, ptr %1654, align 8
+  %1655 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1656 = load i32, ptr %1655, align 4
+  %1657 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1658 = load i32, ptr %1657, align 8
+  %1659 = add i32 %1656, %1658
+  %1660 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %1659, ptr %1660, align 4
+  %1661 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1662 = load i32, ptr %1661, align 16
+  %1663 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1664 = load i32, ptr %1663, align 4
+  %1665 = xor i32 %1662, %1664
+  %1666 = call i32 @rotr32(i32 noundef %1665, i32 noundef 7)
+  %1667 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %1666, ptr %1667, align 16
+  br label %1668
 
-1680:                                             ; preds = %1617
-  br label %1681
+1668:                                             ; preds = %1603
+  br label %1669
 
-1681:                                             ; preds = %1680
-  %1682 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1683 = load i32, ptr %1682, align 4
-  %1684 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1685 = load i32, ptr %1684, align 4
-  %1686 = add i32 %1683, %1685
-  %1687 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 2), align 2
-  %1688 = zext i8 %1687 to i64
-  %1689 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1688
-  %1690 = load i32, ptr %1689, align 4
-  %1691 = add i32 %1686, %1690
-  %1692 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %1691, ptr %1692, align 4
-  %1693 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %1694 = load i32, ptr %1693, align 4
-  %1695 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1696 = load i32, ptr %1695, align 4
-  %1697 = xor i32 %1694, %1696
-  %1698 = call i32 @rotr32(i32 noundef %1697, i32 noundef 16)
-  %1699 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %1698, ptr %1699, align 4
-  %1700 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1701 = load i32, ptr %1700, align 4
-  %1702 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %1703 = load i32, ptr %1702, align 4
-  %1704 = add i32 %1701, %1703
-  %1705 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %1704, ptr %1705, align 4
-  %1706 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1707 = load i32, ptr %1706, align 4
-  %1708 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1709 = load i32, ptr %1708, align 4
-  %1710 = xor i32 %1707, %1709
-  %1711 = call i32 @rotr32(i32 noundef %1710, i32 noundef 12)
-  %1712 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %1711, ptr %1712, align 4
-  %1713 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1714 = load i32, ptr %1713, align 4
-  %1715 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1716 = load i32, ptr %1715, align 4
-  %1717 = add i32 %1714, %1716
-  %1718 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 3), align 1
-  %1719 = zext i8 %1718 to i64
-  %1720 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1719
-  %1721 = load i32, ptr %1720, align 4
-  %1722 = add i32 %1717, %1721
-  %1723 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %1722, ptr %1723, align 4
-  %1724 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %1725 = load i32, ptr %1724, align 4
-  %1726 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1727 = load i32, ptr %1726, align 4
-  %1728 = xor i32 %1725, %1727
-  %1729 = call i32 @rotr32(i32 noundef %1728, i32 noundef 8)
-  %1730 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %1729, ptr %1730, align 4
-  %1731 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1732 = load i32, ptr %1731, align 4
-  %1733 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %1734 = load i32, ptr %1733, align 4
-  %1735 = add i32 %1732, %1734
-  %1736 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %1735, ptr %1736, align 4
-  %1737 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1738 = load i32, ptr %1737, align 4
-  %1739 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %1740 = load i32, ptr %1739, align 4
-  %1741 = xor i32 %1738, %1740
-  %1742 = call i32 @rotr32(i32 noundef %1741, i32 noundef 7)
-  %1743 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %1742, ptr %1743, align 4
-  br label %1744
+1669:                                             ; preds = %1668
+  br label %1670
 
-1744:                                             ; preds = %1681
-  br label %1745
+1670:                                             ; preds = %1669
+  br label %1671
 
-1745:                                             ; preds = %1744
-  %1746 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1747 = load i32, ptr %1746, align 8
-  %1748 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1749 = load i32, ptr %1748, align 8
-  %1750 = add i32 %1747, %1749
-  %1751 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 4), align 4
-  %1752 = zext i8 %1751 to i64
-  %1753 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1752
-  %1754 = load i32, ptr %1753, align 4
-  %1755 = add i32 %1750, %1754
-  %1756 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %1755, ptr %1756, align 8
-  %1757 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1758 = load i32, ptr %1757, align 8
-  %1759 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1760 = load i32, ptr %1759, align 8
-  %1761 = xor i32 %1758, %1760
-  %1762 = call i32 @rotr32(i32 noundef %1761, i32 noundef 16)
-  %1763 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %1762, ptr %1763, align 8
-  %1764 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1765 = load i32, ptr %1764, align 8
-  %1766 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1767 = load i32, ptr %1766, align 8
-  %1768 = add i32 %1765, %1767
-  %1769 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %1768, ptr %1769, align 8
-  %1770 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1771 = load i32, ptr %1770, align 8
-  %1772 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1773 = load i32, ptr %1772, align 8
-  %1774 = xor i32 %1771, %1773
-  %1775 = call i32 @rotr32(i32 noundef %1774, i32 noundef 12)
-  %1776 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %1775, ptr %1776, align 8
-  %1777 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1778 = load i32, ptr %1777, align 8
-  %1779 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1780 = load i32, ptr %1779, align 8
-  %1781 = add i32 %1778, %1780
-  %1782 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 5), align 1
-  %1783 = zext i8 %1782 to i64
-  %1784 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1783
+1671:                                             ; preds = %1670
+  %1672 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1673 = load i32, ptr %1672, align 16
+  %1674 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1675 = load i32, ptr %1674, align 16
+  %1676 = add i32 %1673, %1675
+  %1677 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3
+  %1678 = load i8, ptr %1677, align 16
+  %1679 = zext i8 %1678 to i64
+  %1680 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1679
+  %1681 = load i32, ptr %1680, align 4
+  %1682 = add i32 %1676, %1681
+  %1683 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %1682, ptr %1683, align 16
+  %1684 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1685 = load i32, ptr %1684, align 16
+  %1686 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1687 = load i32, ptr %1686, align 16
+  %1688 = xor i32 %1685, %1687
+  %1689 = call i32 @rotr32(i32 noundef %1688, i32 noundef 16)
+  %1690 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %1689, ptr %1690, align 16
+  %1691 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1692 = load i32, ptr %1691, align 16
+  %1693 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1694 = load i32, ptr %1693, align 16
+  %1695 = add i32 %1692, %1694
+  %1696 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %1695, ptr %1696, align 16
+  %1697 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1698 = load i32, ptr %1697, align 16
+  %1699 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1700 = load i32, ptr %1699, align 16
+  %1701 = xor i32 %1698, %1700
+  %1702 = call i32 @rotr32(i32 noundef %1701, i32 noundef 12)
+  %1703 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %1702, ptr %1703, align 16
+  %1704 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1705 = load i32, ptr %1704, align 16
+  %1706 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1707 = load i32, ptr %1706, align 16
+  %1708 = add i32 %1705, %1707
+  %1709 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 1
+  %1710 = load i8, ptr %1709, align 1
+  %1711 = zext i8 %1710 to i64
+  %1712 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1711
+  %1713 = load i32, ptr %1712, align 4
+  %1714 = add i32 %1708, %1713
+  %1715 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %1714, ptr %1715, align 16
+  %1716 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1717 = load i32, ptr %1716, align 16
+  %1718 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1719 = load i32, ptr %1718, align 16
+  %1720 = xor i32 %1717, %1719
+  %1721 = call i32 @rotr32(i32 noundef %1720, i32 noundef 8)
+  %1722 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %1721, ptr %1722, align 16
+  %1723 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1724 = load i32, ptr %1723, align 16
+  %1725 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %1726 = load i32, ptr %1725, align 16
+  %1727 = add i32 %1724, %1726
+  %1728 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %1727, ptr %1728, align 16
+  %1729 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %1730 = load i32, ptr %1729, align 16
+  %1731 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %1732 = load i32, ptr %1731, align 16
+  %1733 = xor i32 %1730, %1732
+  %1734 = call i32 @rotr32(i32 noundef %1733, i32 noundef 7)
+  %1735 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %1734, ptr %1735, align 16
+  br label %1736
+
+1736:                                             ; preds = %1671
+  br label %1737
+
+1737:                                             ; preds = %1736
+  %1738 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %1739 = load i32, ptr %1738, align 4
+  %1740 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1741 = load i32, ptr %1740, align 4
+  %1742 = add i32 %1739, %1741
+  %1743 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 2
+  %1744 = load i8, ptr %1743, align 2
+  %1745 = zext i8 %1744 to i64
+  %1746 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1745
+  %1747 = load i32, ptr %1746, align 4
+  %1748 = add i32 %1742, %1747
+  %1749 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %1748, ptr %1749, align 4
+  %1750 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1751 = load i32, ptr %1750, align 4
+  %1752 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %1753 = load i32, ptr %1752, align 4
+  %1754 = xor i32 %1751, %1753
+  %1755 = call i32 @rotr32(i32 noundef %1754, i32 noundef 16)
+  %1756 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %1755, ptr %1756, align 4
+  %1757 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1758 = load i32, ptr %1757, align 4
+  %1759 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1760 = load i32, ptr %1759, align 4
+  %1761 = add i32 %1758, %1760
+  %1762 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %1761, ptr %1762, align 4
+  %1763 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1764 = load i32, ptr %1763, align 4
+  %1765 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1766 = load i32, ptr %1765, align 4
+  %1767 = xor i32 %1764, %1766
+  %1768 = call i32 @rotr32(i32 noundef %1767, i32 noundef 12)
+  %1769 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %1768, ptr %1769, align 4
+  %1770 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %1771 = load i32, ptr %1770, align 4
+  %1772 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1773 = load i32, ptr %1772, align 4
+  %1774 = add i32 %1771, %1773
+  %1775 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 3
+  %1776 = load i8, ptr %1775, align 1
+  %1777 = zext i8 %1776 to i64
+  %1778 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1777
+  %1779 = load i32, ptr %1778, align 4
+  %1780 = add i32 %1774, %1779
+  %1781 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %1780, ptr %1781, align 4
+  %1782 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1783 = load i32, ptr %1782, align 4
+  %1784 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
   %1785 = load i32, ptr %1784, align 4
-  %1786 = add i32 %1781, %1785
-  %1787 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %1786, ptr %1787, align 8
-  %1788 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1789 = load i32, ptr %1788, align 8
-  %1790 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %1791 = load i32, ptr %1790, align 8
-  %1792 = xor i32 %1789, %1791
-  %1793 = call i32 @rotr32(i32 noundef %1792, i32 noundef 8)
-  %1794 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %1793, ptr %1794, align 8
-  %1795 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1796 = load i32, ptr %1795, align 8
-  %1797 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %1798 = load i32, ptr %1797, align 8
-  %1799 = add i32 %1796, %1798
-  %1800 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %1799, ptr %1800, align 8
-  %1801 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1802 = load i32, ptr %1801, align 8
-  %1803 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1804 = load i32, ptr %1803, align 8
-  %1805 = xor i32 %1802, %1804
-  %1806 = call i32 @rotr32(i32 noundef %1805, i32 noundef 7)
-  %1807 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %1806, ptr %1807, align 8
-  br label %1808
+  %1786 = xor i32 %1783, %1785
+  %1787 = call i32 @rotr32(i32 noundef %1786, i32 noundef 8)
+  %1788 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %1787, ptr %1788, align 4
+  %1789 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1790 = load i32, ptr %1789, align 4
+  %1791 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %1792 = load i32, ptr %1791, align 4
+  %1793 = add i32 %1790, %1792
+  %1794 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %1793, ptr %1794, align 4
+  %1795 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1796 = load i32, ptr %1795, align 4
+  %1797 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %1798 = load i32, ptr %1797, align 4
+  %1799 = xor i32 %1796, %1798
+  %1800 = call i32 @rotr32(i32 noundef %1799, i32 noundef 7)
+  %1801 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %1800, ptr %1801, align 4
+  br label %1802
 
-1808:                                             ; preds = %1745
-  br label %1809
+1802:                                             ; preds = %1737
+  br label %1803
 
-1809:                                             ; preds = %1808
-  %1810 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1811 = load i32, ptr %1810, align 4
-  %1812 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+1803:                                             ; preds = %1802
+  %1804 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1805 = load i32, ptr %1804, align 8
+  %1806 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1807 = load i32, ptr %1806, align 8
+  %1808 = add i32 %1805, %1807
+  %1809 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 4
+  %1810 = load i8, ptr %1809, align 4
+  %1811 = zext i8 %1810 to i64
+  %1812 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1811
   %1813 = load i32, ptr %1812, align 4
-  %1814 = add i32 %1811, %1813
-  %1815 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 6), align 2
-  %1816 = zext i8 %1815 to i64
-  %1817 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1816
-  %1818 = load i32, ptr %1817, align 4
-  %1819 = add i32 %1814, %1818
-  %1820 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %1819, ptr %1820, align 4
-  %1821 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1822 = load i32, ptr %1821, align 4
-  %1823 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1824 = load i32, ptr %1823, align 4
-  %1825 = xor i32 %1822, %1824
-  %1826 = call i32 @rotr32(i32 noundef %1825, i32 noundef 16)
-  %1827 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %1826, ptr %1827, align 4
-  %1828 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1829 = load i32, ptr %1828, align 4
-  %1830 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1831 = load i32, ptr %1830, align 4
-  %1832 = add i32 %1829, %1831
-  %1833 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %1832, ptr %1833, align 4
-  %1834 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %1835 = load i32, ptr %1834, align 4
-  %1836 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1837 = load i32, ptr %1836, align 4
-  %1838 = xor i32 %1835, %1837
-  %1839 = call i32 @rotr32(i32 noundef %1838, i32 noundef 12)
-  %1840 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %1839, ptr %1840, align 4
-  %1841 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1842 = load i32, ptr %1841, align 4
-  %1843 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %1844 = load i32, ptr %1843, align 4
-  %1845 = add i32 %1842, %1844
-  %1846 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 7), align 1
-  %1847 = zext i8 %1846 to i64
-  %1848 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1847
-  %1849 = load i32, ptr %1848, align 4
-  %1850 = add i32 %1845, %1849
-  %1851 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %1850, ptr %1851, align 4
-  %1852 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1853 = load i32, ptr %1852, align 4
-  %1854 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %1855 = load i32, ptr %1854, align 4
-  %1856 = xor i32 %1853, %1855
-  %1857 = call i32 @rotr32(i32 noundef %1856, i32 noundef 8)
-  %1858 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %1857, ptr %1858, align 4
-  %1859 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1860 = load i32, ptr %1859, align 4
-  %1861 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1862 = load i32, ptr %1861, align 4
-  %1863 = add i32 %1860, %1862
-  %1864 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %1863, ptr %1864, align 4
-  %1865 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %1866 = load i32, ptr %1865, align 4
-  %1867 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1868 = load i32, ptr %1867, align 4
-  %1869 = xor i32 %1866, %1868
-  %1870 = call i32 @rotr32(i32 noundef %1869, i32 noundef 7)
-  %1871 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %1870, ptr %1871, align 4
-  br label %1872
+  %1814 = add i32 %1808, %1813
+  %1815 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %1814, ptr %1815, align 8
+  %1816 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1817 = load i32, ptr %1816, align 8
+  %1818 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1819 = load i32, ptr %1818, align 8
+  %1820 = xor i32 %1817, %1819
+  %1821 = call i32 @rotr32(i32 noundef %1820, i32 noundef 16)
+  %1822 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %1821, ptr %1822, align 8
+  %1823 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1824 = load i32, ptr %1823, align 8
+  %1825 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1826 = load i32, ptr %1825, align 8
+  %1827 = add i32 %1824, %1826
+  %1828 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %1827, ptr %1828, align 8
+  %1829 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1830 = load i32, ptr %1829, align 8
+  %1831 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1832 = load i32, ptr %1831, align 8
+  %1833 = xor i32 %1830, %1832
+  %1834 = call i32 @rotr32(i32 noundef %1833, i32 noundef 12)
+  %1835 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %1834, ptr %1835, align 8
+  %1836 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1837 = load i32, ptr %1836, align 8
+  %1838 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1839 = load i32, ptr %1838, align 8
+  %1840 = add i32 %1837, %1839
+  %1841 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 5
+  %1842 = load i8, ptr %1841, align 1
+  %1843 = zext i8 %1842 to i64
+  %1844 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1843
+  %1845 = load i32, ptr %1844, align 4
+  %1846 = add i32 %1840, %1845
+  %1847 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %1846, ptr %1847, align 8
+  %1848 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1849 = load i32, ptr %1848, align 8
+  %1850 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %1851 = load i32, ptr %1850, align 8
+  %1852 = xor i32 %1849, %1851
+  %1853 = call i32 @rotr32(i32 noundef %1852, i32 noundef 8)
+  %1854 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %1853, ptr %1854, align 8
+  %1855 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1856 = load i32, ptr %1855, align 8
+  %1857 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %1858 = load i32, ptr %1857, align 8
+  %1859 = add i32 %1856, %1858
+  %1860 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %1859, ptr %1860, align 8
+  %1861 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %1862 = load i32, ptr %1861, align 8
+  %1863 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1864 = load i32, ptr %1863, align 8
+  %1865 = xor i32 %1862, %1864
+  %1866 = call i32 @rotr32(i32 noundef %1865, i32 noundef 7)
+  %1867 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %1866, ptr %1867, align 8
+  br label %1868
 
-1872:                                             ; preds = %1809
-  br label %1873
+1868:                                             ; preds = %1803
+  br label %1869
 
-1873:                                             ; preds = %1872
-  %1874 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1875 = load i32, ptr %1874, align 16
-  %1876 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1877 = load i32, ptr %1876, align 4
-  %1878 = add i32 %1875, %1877
-  %1879 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 8), align 8
-  %1880 = zext i8 %1879 to i64
-  %1881 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1880
-  %1882 = load i32, ptr %1881, align 4
-  %1883 = add i32 %1878, %1882
-  %1884 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %1883, ptr %1884, align 16
-  %1885 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1886 = load i32, ptr %1885, align 4
-  %1887 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1888 = load i32, ptr %1887, align 16
-  %1889 = xor i32 %1886, %1888
-  %1890 = call i32 @rotr32(i32 noundef %1889, i32 noundef 16)
+1869:                                             ; preds = %1868
+  %1870 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1871 = load i32, ptr %1870, align 4
+  %1872 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1873 = load i32, ptr %1872, align 4
+  %1874 = add i32 %1871, %1873
+  %1875 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 6
+  %1876 = load i8, ptr %1875, align 2
+  %1877 = zext i8 %1876 to i64
+  %1878 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1877
+  %1879 = load i32, ptr %1878, align 4
+  %1880 = add i32 %1874, %1879
+  %1881 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %1880, ptr %1881, align 4
+  %1882 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1883 = load i32, ptr %1882, align 4
+  %1884 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1885 = load i32, ptr %1884, align 4
+  %1886 = xor i32 %1883, %1885
+  %1887 = call i32 @rotr32(i32 noundef %1886, i32 noundef 16)
+  %1888 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %1887, ptr %1888, align 4
+  %1889 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %1890 = load i32, ptr %1889, align 4
   %1891 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %1890, ptr %1891, align 4
-  %1892 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1893 = load i32, ptr %1892, align 8
-  %1894 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1895 = load i32, ptr %1894, align 4
-  %1896 = add i32 %1893, %1895
-  %1897 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %1896, ptr %1897, align 8
-  %1898 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1899 = load i32, ptr %1898, align 4
-  %1900 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1901 = load i32, ptr %1900, align 8
-  %1902 = xor i32 %1899, %1901
-  %1903 = call i32 @rotr32(i32 noundef %1902, i32 noundef 12)
-  %1904 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %1903, ptr %1904, align 4
-  %1905 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1906 = load i32, ptr %1905, align 16
-  %1907 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %1908 = load i32, ptr %1907, align 4
-  %1909 = add i32 %1906, %1908
-  %1910 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 9), align 1
-  %1911 = zext i8 %1910 to i64
-  %1912 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1911
-  %1913 = load i32, ptr %1912, align 4
-  %1914 = add i32 %1909, %1913
-  %1915 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %1914, ptr %1915, align 16
-  %1916 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1892 = load i32, ptr %1891, align 4
+  %1893 = add i32 %1890, %1892
+  %1894 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %1893, ptr %1894, align 4
+  %1895 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1896 = load i32, ptr %1895, align 4
+  %1897 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %1898 = load i32, ptr %1897, align 4
+  %1899 = xor i32 %1896, %1898
+  %1900 = call i32 @rotr32(i32 noundef %1899, i32 noundef 12)
+  %1901 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %1900, ptr %1901, align 4
+  %1902 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %1903 = load i32, ptr %1902, align 4
+  %1904 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1905 = load i32, ptr %1904, align 4
+  %1906 = add i32 %1903, %1905
+  %1907 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 7
+  %1908 = load i8, ptr %1907, align 1
+  %1909 = zext i8 %1908 to i64
+  %1910 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1909
+  %1911 = load i32, ptr %1910, align 4
+  %1912 = add i32 %1906, %1911
+  %1913 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %1912, ptr %1913, align 4
+  %1914 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1915 = load i32, ptr %1914, align 4
+  %1916 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %1917 = load i32, ptr %1916, align 4
-  %1918 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %1919 = load i32, ptr %1918, align 16
-  %1920 = xor i32 %1917, %1919
-  %1921 = call i32 @rotr32(i32 noundef %1920, i32 noundef 8)
-  %1922 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %1921, ptr %1922, align 4
-  %1923 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1924 = load i32, ptr %1923, align 8
-  %1925 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %1926 = load i32, ptr %1925, align 4
-  %1927 = add i32 %1924, %1926
-  %1928 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %1927, ptr %1928, align 8
-  %1929 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1918 = xor i32 %1915, %1917
+  %1919 = call i32 @rotr32(i32 noundef %1918, i32 noundef 8)
+  %1920 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %1919, ptr %1920, align 4
+  %1921 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %1922 = load i32, ptr %1921, align 4
+  %1923 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1924 = load i32, ptr %1923, align 4
+  %1925 = add i32 %1922, %1924
+  %1926 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %1925, ptr %1926, align 4
+  %1927 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %1928 = load i32, ptr %1927, align 4
+  %1929 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %1930 = load i32, ptr %1929, align 4
-  %1931 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %1932 = load i32, ptr %1931, align 8
-  %1933 = xor i32 %1930, %1932
-  %1934 = call i32 @rotr32(i32 noundef %1933, i32 noundef 7)
-  %1935 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %1934, ptr %1935, align 4
-  br label %1936
+  %1931 = xor i32 %1928, %1930
+  %1932 = call i32 @rotr32(i32 noundef %1931, i32 noundef 7)
+  %1933 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %1932, ptr %1933, align 4
+  br label %1934
 
-1936:                                             ; preds = %1873
-  br label %1937
+1934:                                             ; preds = %1869
+  br label %1935
 
-1937:                                             ; preds = %1936
-  %1938 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+1935:                                             ; preds = %1934
+  %1936 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1937 = load i32, ptr %1936, align 16
+  %1938 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %1939 = load i32, ptr %1938, align 4
-  %1940 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1941 = load i32, ptr %1940, align 8
-  %1942 = add i32 %1939, %1941
-  %1943 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 10), align 2
-  %1944 = zext i8 %1943 to i64
-  %1945 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1944
-  %1946 = load i32, ptr %1945, align 4
-  %1947 = add i32 %1942, %1946
-  %1948 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %1947, ptr %1948, align 4
-  %1949 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1950 = load i32, ptr %1949, align 16
-  %1951 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1952 = load i32, ptr %1951, align 4
-  %1953 = xor i32 %1950, %1952
-  %1954 = call i32 @rotr32(i32 noundef %1953, i32 noundef 16)
-  %1955 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %1954, ptr %1955, align 16
-  %1956 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1957 = load i32, ptr %1956, align 4
-  %1958 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1959 = load i32, ptr %1958, align 16
-  %1960 = add i32 %1957, %1959
-  %1961 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %1960, ptr %1961, align 4
-  %1962 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1963 = load i32, ptr %1962, align 8
-  %1964 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1965 = load i32, ptr %1964, align 4
-  %1966 = xor i32 %1963, %1965
-  %1967 = call i32 @rotr32(i32 noundef %1966, i32 noundef 12)
-  %1968 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %1967, ptr %1968, align 8
-  %1969 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1970 = load i32, ptr %1969, align 4
-  %1971 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1972 = load i32, ptr %1971, align 8
-  %1973 = add i32 %1970, %1972
-  %1974 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 11), align 1
+  %1940 = add i32 %1937, %1939
+  %1941 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 8
+  %1942 = load i8, ptr %1941, align 8
+  %1943 = zext i8 %1942 to i64
+  %1944 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1943
+  %1945 = load i32, ptr %1944, align 4
+  %1946 = add i32 %1940, %1945
+  %1947 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %1946, ptr %1947, align 16
+  %1948 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1949 = load i32, ptr %1948, align 4
+  %1950 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1951 = load i32, ptr %1950, align 16
+  %1952 = xor i32 %1949, %1951
+  %1953 = call i32 @rotr32(i32 noundef %1952, i32 noundef 16)
+  %1954 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %1953, ptr %1954, align 4
+  %1955 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1956 = load i32, ptr %1955, align 8
+  %1957 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1958 = load i32, ptr %1957, align 4
+  %1959 = add i32 %1956, %1958
+  %1960 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %1959, ptr %1960, align 8
+  %1961 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1962 = load i32, ptr %1961, align 4
+  %1963 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1964 = load i32, ptr %1963, align 8
+  %1965 = xor i32 %1962, %1964
+  %1966 = call i32 @rotr32(i32 noundef %1965, i32 noundef 12)
+  %1967 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %1966, ptr %1967, align 4
+  %1968 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1969 = load i32, ptr %1968, align 16
+  %1970 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1971 = load i32, ptr %1970, align 4
+  %1972 = add i32 %1969, %1971
+  %1973 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 9
+  %1974 = load i8, ptr %1973, align 1
   %1975 = zext i8 %1974 to i64
   %1976 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %1975
   %1977 = load i32, ptr %1976, align 4
-  %1978 = add i32 %1973, %1977
-  %1979 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %1978, ptr %1979, align 4
-  %1980 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1981 = load i32, ptr %1980, align 16
-  %1982 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %1983 = load i32, ptr %1982, align 4
+  %1978 = add i32 %1972, %1977
+  %1979 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %1978, ptr %1979, align 16
+  %1980 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1981 = load i32, ptr %1980, align 4
+  %1982 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %1983 = load i32, ptr %1982, align 16
   %1984 = xor i32 %1981, %1983
   %1985 = call i32 @rotr32(i32 noundef %1984, i32 noundef 8)
-  %1986 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %1985, ptr %1986, align 16
-  %1987 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1988 = load i32, ptr %1987, align 4
-  %1989 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %1990 = load i32, ptr %1989, align 16
+  %1986 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %1985, ptr %1986, align 4
+  %1987 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1988 = load i32, ptr %1987, align 8
+  %1989 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %1990 = load i32, ptr %1989, align 4
   %1991 = add i32 %1988, %1990
-  %1992 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %1991, ptr %1992, align 4
-  %1993 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %1994 = load i32, ptr %1993, align 8
-  %1995 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %1996 = load i32, ptr %1995, align 4
+  %1992 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %1991, ptr %1992, align 8
+  %1993 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %1994 = load i32, ptr %1993, align 4
+  %1995 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %1996 = load i32, ptr %1995, align 8
   %1997 = xor i32 %1994, %1996
   %1998 = call i32 @rotr32(i32 noundef %1997, i32 noundef 7)
-  %1999 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %1998, ptr %1999, align 8
+  %1999 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %1998, ptr %1999, align 4
   br label %2000
 
-2000:                                             ; preds = %1937
+2000:                                             ; preds = %1935
   br label %2001
 
 2001:                                             ; preds = %2000
-  %2002 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2003 = load i32, ptr %2002, align 8
-  %2004 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2005 = load i32, ptr %2004, align 4
+  %2002 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2003 = load i32, ptr %2002, align 4
+  %2004 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2005 = load i32, ptr %2004, align 8
   %2006 = add i32 %2003, %2005
-  %2007 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 12), align 4
-  %2008 = zext i8 %2007 to i64
-  %2009 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2008
-  %2010 = load i32, ptr %2009, align 4
-  %2011 = add i32 %2006, %2010
-  %2012 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %2011, ptr %2012, align 8
-  %2013 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2014 = load i32, ptr %2013, align 4
-  %2015 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2016 = load i32, ptr %2015, align 8
-  %2017 = xor i32 %2014, %2016
-  %2018 = call i32 @rotr32(i32 noundef %2017, i32 noundef 16)
-  %2019 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %2018, ptr %2019, align 4
-  %2020 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2021 = load i32, ptr %2020, align 16
-  %2022 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2023 = load i32, ptr %2022, align 4
-  %2024 = add i32 %2021, %2023
-  %2025 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %2024, ptr %2025, align 16
-  %2026 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2027 = load i32, ptr %2026, align 4
-  %2028 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2029 = load i32, ptr %2028, align 16
-  %2030 = xor i32 %2027, %2029
-  %2031 = call i32 @rotr32(i32 noundef %2030, i32 noundef 12)
-  %2032 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %2031, ptr %2032, align 4
-  %2033 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2034 = load i32, ptr %2033, align 8
-  %2035 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2036 = load i32, ptr %2035, align 4
-  %2037 = add i32 %2034, %2036
-  %2038 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 13), align 1
-  %2039 = zext i8 %2038 to i64
-  %2040 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2039
-  %2041 = load i32, ptr %2040, align 4
-  %2042 = add i32 %2037, %2041
-  %2043 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %2042, ptr %2043, align 8
-  %2044 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2045 = load i32, ptr %2044, align 4
-  %2046 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2047 = load i32, ptr %2046, align 8
-  %2048 = xor i32 %2045, %2047
-  %2049 = call i32 @rotr32(i32 noundef %2048, i32 noundef 8)
-  %2050 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %2049, ptr %2050, align 4
-  %2051 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2052 = load i32, ptr %2051, align 16
-  %2053 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2007 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 10
+  %2008 = load i8, ptr %2007, align 2
+  %2009 = zext i8 %2008 to i64
+  %2010 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2009
+  %2011 = load i32, ptr %2010, align 4
+  %2012 = add i32 %2006, %2011
+  %2013 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %2012, ptr %2013, align 4
+  %2014 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2015 = load i32, ptr %2014, align 16
+  %2016 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2017 = load i32, ptr %2016, align 4
+  %2018 = xor i32 %2015, %2017
+  %2019 = call i32 @rotr32(i32 noundef %2018, i32 noundef 16)
+  %2020 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %2019, ptr %2020, align 16
+  %2021 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2022 = load i32, ptr %2021, align 4
+  %2023 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2024 = load i32, ptr %2023, align 16
+  %2025 = add i32 %2022, %2024
+  %2026 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %2025, ptr %2026, align 4
+  %2027 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2028 = load i32, ptr %2027, align 8
+  %2029 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2030 = load i32, ptr %2029, align 4
+  %2031 = xor i32 %2028, %2030
+  %2032 = call i32 @rotr32(i32 noundef %2031, i32 noundef 12)
+  %2033 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %2032, ptr %2033, align 8
+  %2034 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2035 = load i32, ptr %2034, align 4
+  %2036 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2037 = load i32, ptr %2036, align 8
+  %2038 = add i32 %2035, %2037
+  %2039 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 11
+  %2040 = load i8, ptr %2039, align 1
+  %2041 = zext i8 %2040 to i64
+  %2042 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2041
+  %2043 = load i32, ptr %2042, align 4
+  %2044 = add i32 %2038, %2043
+  %2045 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %2044, ptr %2045, align 4
+  %2046 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2047 = load i32, ptr %2046, align 16
+  %2048 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2049 = load i32, ptr %2048, align 4
+  %2050 = xor i32 %2047, %2049
+  %2051 = call i32 @rotr32(i32 noundef %2050, i32 noundef 8)
+  %2052 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %2051, ptr %2052, align 16
+  %2053 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %2054 = load i32, ptr %2053, align 4
-  %2055 = add i32 %2052, %2054
-  %2056 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %2055, ptr %2056, align 16
-  %2057 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2058 = load i32, ptr %2057, align 4
-  %2059 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2060 = load i32, ptr %2059, align 16
-  %2061 = xor i32 %2058, %2060
-  %2062 = call i32 @rotr32(i32 noundef %2061, i32 noundef 7)
-  %2063 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %2062, ptr %2063, align 4
-  br label %2064
+  %2055 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2056 = load i32, ptr %2055, align 16
+  %2057 = add i32 %2054, %2056
+  %2058 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %2057, ptr %2058, align 4
+  %2059 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2060 = load i32, ptr %2059, align 8
+  %2061 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2062 = load i32, ptr %2061, align 4
+  %2063 = xor i32 %2060, %2062
+  %2064 = call i32 @rotr32(i32 noundef %2063, i32 noundef 7)
+  %2065 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %2064, ptr %2065, align 8
+  br label %2066
 
-2064:                                             ; preds = %2001
-  br label %2065
+2066:                                             ; preds = %2001
+  br label %2067
 
-2065:                                             ; preds = %2064
-  %2066 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2067 = load i32, ptr %2066, align 4
-  %2068 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2069 = load i32, ptr %2068, align 16
-  %2070 = add i32 %2067, %2069
-  %2071 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 14), align 2
-  %2072 = zext i8 %2071 to i64
-  %2073 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2072
-  %2074 = load i32, ptr %2073, align 4
-  %2075 = add i32 %2070, %2074
-  %2076 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %2075, ptr %2076, align 4
-  %2077 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2078 = load i32, ptr %2077, align 8
-  %2079 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2080 = load i32, ptr %2079, align 4
-  %2081 = xor i32 %2078, %2080
-  %2082 = call i32 @rotr32(i32 noundef %2081, i32 noundef 16)
-  %2083 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %2082, ptr %2083, align 8
-  %2084 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2085 = load i32, ptr %2084, align 4
-  %2086 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2087 = load i32, ptr %2086, align 8
-  %2088 = add i32 %2085, %2087
-  %2089 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %2088, ptr %2089, align 4
-  %2090 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2091 = load i32, ptr %2090, align 16
-  %2092 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2093 = load i32, ptr %2092, align 4
-  %2094 = xor i32 %2091, %2093
-  %2095 = call i32 @rotr32(i32 noundef %2094, i32 noundef 12)
-  %2096 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %2095, ptr %2096, align 16
-  %2097 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2098 = load i32, ptr %2097, align 4
-  %2099 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2100 = load i32, ptr %2099, align 16
-  %2101 = add i32 %2098, %2100
-  %2102 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 15), align 1
-  %2103 = zext i8 %2102 to i64
-  %2104 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2103
-  %2105 = load i32, ptr %2104, align 4
-  %2106 = add i32 %2101, %2105
-  %2107 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %2106, ptr %2107, align 4
-  %2108 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2109 = load i32, ptr %2108, align 8
-  %2110 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2111 = load i32, ptr %2110, align 4
-  %2112 = xor i32 %2109, %2111
-  %2113 = call i32 @rotr32(i32 noundef %2112, i32 noundef 8)
-  %2114 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %2113, ptr %2114, align 8
-  %2115 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2116 = load i32, ptr %2115, align 4
-  %2117 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2118 = load i32, ptr %2117, align 8
-  %2119 = add i32 %2116, %2118
-  %2120 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %2119, ptr %2120, align 4
-  %2121 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2122 = load i32, ptr %2121, align 16
-  %2123 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2124 = load i32, ptr %2123, align 4
-  %2125 = xor i32 %2122, %2124
-  %2126 = call i32 @rotr32(i32 noundef %2125, i32 noundef 7)
-  %2127 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %2126, ptr %2127, align 16
-  br label %2128
+2067:                                             ; preds = %2066
+  %2068 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2069 = load i32, ptr %2068, align 8
+  %2070 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2071 = load i32, ptr %2070, align 4
+  %2072 = add i32 %2069, %2071
+  %2073 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 12
+  %2074 = load i8, ptr %2073, align 4
+  %2075 = zext i8 %2074 to i64
+  %2076 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2075
+  %2077 = load i32, ptr %2076, align 4
+  %2078 = add i32 %2072, %2077
+  %2079 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %2078, ptr %2079, align 8
+  %2080 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2081 = load i32, ptr %2080, align 4
+  %2082 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2083 = load i32, ptr %2082, align 8
+  %2084 = xor i32 %2081, %2083
+  %2085 = call i32 @rotr32(i32 noundef %2084, i32 noundef 16)
+  %2086 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %2085, ptr %2086, align 4
+  %2087 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2088 = load i32, ptr %2087, align 16
+  %2089 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2090 = load i32, ptr %2089, align 4
+  %2091 = add i32 %2088, %2090
+  %2092 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %2091, ptr %2092, align 16
+  %2093 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2094 = load i32, ptr %2093, align 4
+  %2095 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2096 = load i32, ptr %2095, align 16
+  %2097 = xor i32 %2094, %2096
+  %2098 = call i32 @rotr32(i32 noundef %2097, i32 noundef 12)
+  %2099 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %2098, ptr %2099, align 4
+  %2100 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2101 = load i32, ptr %2100, align 8
+  %2102 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2103 = load i32, ptr %2102, align 4
+  %2104 = add i32 %2101, %2103
+  %2105 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 13
+  %2106 = load i8, ptr %2105, align 1
+  %2107 = zext i8 %2106 to i64
+  %2108 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2107
+  %2109 = load i32, ptr %2108, align 4
+  %2110 = add i32 %2104, %2109
+  %2111 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %2110, ptr %2111, align 8
+  %2112 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2113 = load i32, ptr %2112, align 4
+  %2114 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2115 = load i32, ptr %2114, align 8
+  %2116 = xor i32 %2113, %2115
+  %2117 = call i32 @rotr32(i32 noundef %2116, i32 noundef 8)
+  %2118 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %2117, ptr %2118, align 4
+  %2119 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2120 = load i32, ptr %2119, align 16
+  %2121 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2122 = load i32, ptr %2121, align 4
+  %2123 = add i32 %2120, %2122
+  %2124 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %2123, ptr %2124, align 16
+  %2125 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2126 = load i32, ptr %2125, align 4
+  %2127 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2128 = load i32, ptr %2127, align 16
+  %2129 = xor i32 %2126, %2128
+  %2130 = call i32 @rotr32(i32 noundef %2129, i32 noundef 7)
+  %2131 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %2130, ptr %2131, align 4
+  br label %2132
 
-2128:                                             ; preds = %2065
-  br label %2129
+2132:                                             ; preds = %2067
+  br label %2133
 
-2129:                                             ; preds = %2128
-  br label %2130
-
-2130:                                             ; preds = %2129
-  br label %2131
-
-2131:                                             ; preds = %2130
-  %2132 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2133 = load i32, ptr %2132, align 16
-  %2134 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2135 = load i32, ptr %2134, align 16
-  %2136 = add i32 %2133, %2135
-  %2137 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4), align 16
-  %2138 = zext i8 %2137 to i64
-  %2139 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2138
-  %2140 = load i32, ptr %2139, align 4
-  %2141 = add i32 %2136, %2140
-  %2142 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %2141, ptr %2142, align 16
-  %2143 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %2144 = load i32, ptr %2143, align 16
-  %2145 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2146 = load i32, ptr %2145, align 16
-  %2147 = xor i32 %2144, %2146
-  %2148 = call i32 @rotr32(i32 noundef %2147, i32 noundef 16)
-  %2149 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %2148, ptr %2149, align 16
-  %2150 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2151 = load i32, ptr %2150, align 16
-  %2152 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %2153 = load i32, ptr %2152, align 16
-  %2154 = add i32 %2151, %2153
-  %2155 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %2154, ptr %2155, align 16
-  %2156 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2157 = load i32, ptr %2156, align 16
-  %2158 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2159 = load i32, ptr %2158, align 16
-  %2160 = xor i32 %2157, %2159
-  %2161 = call i32 @rotr32(i32 noundef %2160, i32 noundef 12)
-  %2162 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %2161, ptr %2162, align 16
-  %2163 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2164 = load i32, ptr %2163, align 16
+2133:                                             ; preds = %2132
+  %2134 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2135 = load i32, ptr %2134, align 4
+  %2136 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2137 = load i32, ptr %2136, align 16
+  %2138 = add i32 %2135, %2137
+  %2139 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 14
+  %2140 = load i8, ptr %2139, align 2
+  %2141 = zext i8 %2140 to i64
+  %2142 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2141
+  %2143 = load i32, ptr %2142, align 4
+  %2144 = add i32 %2138, %2143
+  %2145 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %2144, ptr %2145, align 4
+  %2146 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2147 = load i32, ptr %2146, align 8
+  %2148 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2149 = load i32, ptr %2148, align 4
+  %2150 = xor i32 %2147, %2149
+  %2151 = call i32 @rotr32(i32 noundef %2150, i32 noundef 16)
+  %2152 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %2151, ptr %2152, align 8
+  %2153 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2154 = load i32, ptr %2153, align 4
+  %2155 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2156 = load i32, ptr %2155, align 8
+  %2157 = add i32 %2154, %2156
+  %2158 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %2157, ptr %2158, align 4
+  %2159 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2160 = load i32, ptr %2159, align 16
+  %2161 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2162 = load i32, ptr %2161, align 4
+  %2163 = xor i32 %2160, %2162
+  %2164 = call i32 @rotr32(i32 noundef %2163, i32 noundef 12)
   %2165 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2166 = load i32, ptr %2165, align 16
-  %2167 = add i32 %2164, %2166
-  %2168 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 1), align 1
-  %2169 = zext i8 %2168 to i64
-  %2170 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2169
-  %2171 = load i32, ptr %2170, align 4
-  %2172 = add i32 %2167, %2171
-  %2173 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %2172, ptr %2173, align 16
-  %2174 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %2175 = load i32, ptr %2174, align 16
-  %2176 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2177 = load i32, ptr %2176, align 16
-  %2178 = xor i32 %2175, %2177
-  %2179 = call i32 @rotr32(i32 noundef %2178, i32 noundef 8)
-  %2180 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %2179, ptr %2180, align 16
-  %2181 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2182 = load i32, ptr %2181, align 16
-  %2183 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %2184 = load i32, ptr %2183, align 16
-  %2185 = add i32 %2182, %2184
-  %2186 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %2185, ptr %2186, align 16
-  %2187 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2188 = load i32, ptr %2187, align 16
-  %2189 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2190 = load i32, ptr %2189, align 16
-  %2191 = xor i32 %2188, %2190
-  %2192 = call i32 @rotr32(i32 noundef %2191, i32 noundef 7)
-  %2193 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %2192, ptr %2193, align 16
-  br label %2194
+  store i32 %2164, ptr %2165, align 16
+  %2166 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2167 = load i32, ptr %2166, align 4
+  %2168 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2169 = load i32, ptr %2168, align 16
+  %2170 = add i32 %2167, %2169
+  %2171 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 3, i64 15
+  %2172 = load i8, ptr %2171, align 1
+  %2173 = zext i8 %2172 to i64
+  %2174 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2173
+  %2175 = load i32, ptr %2174, align 4
+  %2176 = add i32 %2170, %2175
+  %2177 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %2176, ptr %2177, align 4
+  %2178 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2179 = load i32, ptr %2178, align 8
+  %2180 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2181 = load i32, ptr %2180, align 4
+  %2182 = xor i32 %2179, %2181
+  %2183 = call i32 @rotr32(i32 noundef %2182, i32 noundef 8)
+  %2184 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %2183, ptr %2184, align 8
+  %2185 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2186 = load i32, ptr %2185, align 4
+  %2187 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2188 = load i32, ptr %2187, align 8
+  %2189 = add i32 %2186, %2188
+  %2190 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %2189, ptr %2190, align 4
+  %2191 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2192 = load i32, ptr %2191, align 16
+  %2193 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2194 = load i32, ptr %2193, align 4
+  %2195 = xor i32 %2192, %2194
+  %2196 = call i32 @rotr32(i32 noundef %2195, i32 noundef 7)
+  %2197 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %2196, ptr %2197, align 16
+  br label %2198
 
-2194:                                             ; preds = %2131
-  br label %2195
+2198:                                             ; preds = %2133
+  br label %2199
 
-2195:                                             ; preds = %2194
-  %2196 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2197 = load i32, ptr %2196, align 4
-  %2198 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %2199 = load i32, ptr %2198, align 4
-  %2200 = add i32 %2197, %2199
-  %2201 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 2), align 2
-  %2202 = zext i8 %2201 to i64
-  %2203 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2202
-  %2204 = load i32, ptr %2203, align 4
-  %2205 = add i32 %2200, %2204
-  %2206 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %2205, ptr %2206, align 4
-  %2207 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2208 = load i32, ptr %2207, align 4
-  %2209 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2210 = load i32, ptr %2209, align 4
-  %2211 = xor i32 %2208, %2210
-  %2212 = call i32 @rotr32(i32 noundef %2211, i32 noundef 16)
-  %2213 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %2212, ptr %2213, align 4
-  %2214 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2215 = load i32, ptr %2214, align 4
-  %2216 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2217 = load i32, ptr %2216, align 4
-  %2218 = add i32 %2215, %2217
-  %2219 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %2218, ptr %2219, align 4
-  %2220 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %2221 = load i32, ptr %2220, align 4
-  %2222 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2223 = load i32, ptr %2222, align 4
-  %2224 = xor i32 %2221, %2223
-  %2225 = call i32 @rotr32(i32 noundef %2224, i32 noundef 12)
-  %2226 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %2225, ptr %2226, align 4
-  %2227 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2228 = load i32, ptr %2227, align 4
-  %2229 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %2230 = load i32, ptr %2229, align 4
-  %2231 = add i32 %2228, %2230
-  %2232 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 3), align 1
-  %2233 = zext i8 %2232 to i64
-  %2234 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2233
-  %2235 = load i32, ptr %2234, align 4
-  %2236 = add i32 %2231, %2235
-  %2237 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %2236, ptr %2237, align 4
-  %2238 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2239 = load i32, ptr %2238, align 4
-  %2240 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2241 = load i32, ptr %2240, align 4
-  %2242 = xor i32 %2239, %2241
-  %2243 = call i32 @rotr32(i32 noundef %2242, i32 noundef 8)
-  %2244 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %2243, ptr %2244, align 4
-  %2245 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2246 = load i32, ptr %2245, align 4
-  %2247 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2248 = load i32, ptr %2247, align 4
-  %2249 = add i32 %2246, %2248
-  %2250 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %2249, ptr %2250, align 4
-  %2251 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %2252 = load i32, ptr %2251, align 4
-  %2253 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2254 = load i32, ptr %2253, align 4
-  %2255 = xor i32 %2252, %2254
-  %2256 = call i32 @rotr32(i32 noundef %2255, i32 noundef 7)
-  %2257 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %2256, ptr %2257, align 4
-  br label %2258
+2199:                                             ; preds = %2198
+  br label %2200
 
-2258:                                             ; preds = %2195
-  br label %2259
+2200:                                             ; preds = %2199
+  br label %2201
 
-2259:                                             ; preds = %2258
-  %2260 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2261 = load i32, ptr %2260, align 8
-  %2262 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2263 = load i32, ptr %2262, align 8
-  %2264 = add i32 %2261, %2263
-  %2265 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 4), align 4
-  %2266 = zext i8 %2265 to i64
-  %2267 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2266
-  %2268 = load i32, ptr %2267, align 4
-  %2269 = add i32 %2264, %2268
-  %2270 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %2269, ptr %2270, align 8
-  %2271 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2272 = load i32, ptr %2271, align 8
-  %2273 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2274 = load i32, ptr %2273, align 8
-  %2275 = xor i32 %2272, %2274
-  %2276 = call i32 @rotr32(i32 noundef %2275, i32 noundef 16)
-  %2277 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %2276, ptr %2277, align 8
-  %2278 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2279 = load i32, ptr %2278, align 8
-  %2280 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2281 = load i32, ptr %2280, align 8
-  %2282 = add i32 %2279, %2281
-  %2283 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %2282, ptr %2283, align 8
-  %2284 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2285 = load i32, ptr %2284, align 8
-  %2286 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2287 = load i32, ptr %2286, align 8
-  %2288 = xor i32 %2285, %2287
-  %2289 = call i32 @rotr32(i32 noundef %2288, i32 noundef 12)
-  %2290 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %2289, ptr %2290, align 8
-  %2291 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2292 = load i32, ptr %2291, align 8
-  %2293 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2294 = load i32, ptr %2293, align 8
-  %2295 = add i32 %2292, %2294
-  %2296 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 5), align 1
-  %2297 = zext i8 %2296 to i64
-  %2298 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2297
-  %2299 = load i32, ptr %2298, align 4
-  %2300 = add i32 %2295, %2299
-  %2301 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %2300, ptr %2301, align 8
-  %2302 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2303 = load i32, ptr %2302, align 8
-  %2304 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2305 = load i32, ptr %2304, align 8
-  %2306 = xor i32 %2303, %2305
-  %2307 = call i32 @rotr32(i32 noundef %2306, i32 noundef 8)
-  %2308 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %2307, ptr %2308, align 8
-  %2309 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2310 = load i32, ptr %2309, align 8
-  %2311 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2312 = load i32, ptr %2311, align 8
-  %2313 = add i32 %2310, %2312
-  %2314 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %2313, ptr %2314, align 8
-  %2315 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2316 = load i32, ptr %2315, align 8
-  %2317 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2318 = load i32, ptr %2317, align 8
-  %2319 = xor i32 %2316, %2318
-  %2320 = call i32 @rotr32(i32 noundef %2319, i32 noundef 7)
-  %2321 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %2320, ptr %2321, align 8
-  br label %2322
+2201:                                             ; preds = %2200
+  %2202 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2203 = load i32, ptr %2202, align 16
+  %2204 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2205 = load i32, ptr %2204, align 16
+  %2206 = add i32 %2203, %2205
+  %2207 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4
+  %2208 = load i8, ptr %2207, align 16
+  %2209 = zext i8 %2208 to i64
+  %2210 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2209
+  %2211 = load i32, ptr %2210, align 4
+  %2212 = add i32 %2206, %2211
+  %2213 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %2212, ptr %2213, align 16
+  %2214 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2215 = load i32, ptr %2214, align 16
+  %2216 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2217 = load i32, ptr %2216, align 16
+  %2218 = xor i32 %2215, %2217
+  %2219 = call i32 @rotr32(i32 noundef %2218, i32 noundef 16)
+  %2220 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %2219, ptr %2220, align 16
+  %2221 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2222 = load i32, ptr %2221, align 16
+  %2223 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2224 = load i32, ptr %2223, align 16
+  %2225 = add i32 %2222, %2224
+  %2226 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %2225, ptr %2226, align 16
+  %2227 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2228 = load i32, ptr %2227, align 16
+  %2229 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2230 = load i32, ptr %2229, align 16
+  %2231 = xor i32 %2228, %2230
+  %2232 = call i32 @rotr32(i32 noundef %2231, i32 noundef 12)
+  %2233 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %2232, ptr %2233, align 16
+  %2234 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2235 = load i32, ptr %2234, align 16
+  %2236 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2237 = load i32, ptr %2236, align 16
+  %2238 = add i32 %2235, %2237
+  %2239 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 1
+  %2240 = load i8, ptr %2239, align 1
+  %2241 = zext i8 %2240 to i64
+  %2242 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2241
+  %2243 = load i32, ptr %2242, align 4
+  %2244 = add i32 %2238, %2243
+  %2245 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %2244, ptr %2245, align 16
+  %2246 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2247 = load i32, ptr %2246, align 16
+  %2248 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2249 = load i32, ptr %2248, align 16
+  %2250 = xor i32 %2247, %2249
+  %2251 = call i32 @rotr32(i32 noundef %2250, i32 noundef 8)
+  %2252 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %2251, ptr %2252, align 16
+  %2253 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2254 = load i32, ptr %2253, align 16
+  %2255 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2256 = load i32, ptr %2255, align 16
+  %2257 = add i32 %2254, %2256
+  %2258 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %2257, ptr %2258, align 16
+  %2259 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2260 = load i32, ptr %2259, align 16
+  %2261 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2262 = load i32, ptr %2261, align 16
+  %2263 = xor i32 %2260, %2262
+  %2264 = call i32 @rotr32(i32 noundef %2263, i32 noundef 7)
+  %2265 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %2264, ptr %2265, align 16
+  br label %2266
 
-2322:                                             ; preds = %2259
-  br label %2323
+2266:                                             ; preds = %2201
+  br label %2267
 
-2323:                                             ; preds = %2322
-  %2324 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2325 = load i32, ptr %2324, align 4
-  %2326 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2327 = load i32, ptr %2326, align 4
-  %2328 = add i32 %2325, %2327
-  %2329 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 6), align 2
-  %2330 = zext i8 %2329 to i64
-  %2331 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2330
-  %2332 = load i32, ptr %2331, align 4
-  %2333 = add i32 %2328, %2332
-  %2334 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %2333, ptr %2334, align 4
-  %2335 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2336 = load i32, ptr %2335, align 4
-  %2337 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2338 = load i32, ptr %2337, align 4
-  %2339 = xor i32 %2336, %2338
-  %2340 = call i32 @rotr32(i32 noundef %2339, i32 noundef 16)
-  %2341 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %2340, ptr %2341, align 4
-  %2342 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+2267:                                             ; preds = %2266
+  %2268 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2269 = load i32, ptr %2268, align 4
+  %2270 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2271 = load i32, ptr %2270, align 4
+  %2272 = add i32 %2269, %2271
+  %2273 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 2
+  %2274 = load i8, ptr %2273, align 2
+  %2275 = zext i8 %2274 to i64
+  %2276 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2275
+  %2277 = load i32, ptr %2276, align 4
+  %2278 = add i32 %2272, %2277
+  %2279 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %2278, ptr %2279, align 4
+  %2280 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2281 = load i32, ptr %2280, align 4
+  %2282 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2283 = load i32, ptr %2282, align 4
+  %2284 = xor i32 %2281, %2283
+  %2285 = call i32 @rotr32(i32 noundef %2284, i32 noundef 16)
+  %2286 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %2285, ptr %2286, align 4
+  %2287 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2288 = load i32, ptr %2287, align 4
+  %2289 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2290 = load i32, ptr %2289, align 4
+  %2291 = add i32 %2288, %2290
+  %2292 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %2291, ptr %2292, align 4
+  %2293 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2294 = load i32, ptr %2293, align 4
+  %2295 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2296 = load i32, ptr %2295, align 4
+  %2297 = xor i32 %2294, %2296
+  %2298 = call i32 @rotr32(i32 noundef %2297, i32 noundef 12)
+  %2299 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %2298, ptr %2299, align 4
+  %2300 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2301 = load i32, ptr %2300, align 4
+  %2302 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2303 = load i32, ptr %2302, align 4
+  %2304 = add i32 %2301, %2303
+  %2305 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 3
+  %2306 = load i8, ptr %2305, align 1
+  %2307 = zext i8 %2306 to i64
+  %2308 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2307
+  %2309 = load i32, ptr %2308, align 4
+  %2310 = add i32 %2304, %2309
+  %2311 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %2310, ptr %2311, align 4
+  %2312 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2313 = load i32, ptr %2312, align 4
+  %2314 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2315 = load i32, ptr %2314, align 4
+  %2316 = xor i32 %2313, %2315
+  %2317 = call i32 @rotr32(i32 noundef %2316, i32 noundef 8)
+  %2318 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %2317, ptr %2318, align 4
+  %2319 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2320 = load i32, ptr %2319, align 4
+  %2321 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2322 = load i32, ptr %2321, align 4
+  %2323 = add i32 %2320, %2322
+  %2324 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %2323, ptr %2324, align 4
+  %2325 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2326 = load i32, ptr %2325, align 4
+  %2327 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2328 = load i32, ptr %2327, align 4
+  %2329 = xor i32 %2326, %2328
+  %2330 = call i32 @rotr32(i32 noundef %2329, i32 noundef 7)
+  %2331 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %2330, ptr %2331, align 4
+  br label %2332
+
+2332:                                             ; preds = %2267
+  br label %2333
+
+2333:                                             ; preds = %2332
+  %2334 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2335 = load i32, ptr %2334, align 8
+  %2336 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2337 = load i32, ptr %2336, align 8
+  %2338 = add i32 %2335, %2337
+  %2339 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 4
+  %2340 = load i8, ptr %2339, align 4
+  %2341 = zext i8 %2340 to i64
+  %2342 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2341
   %2343 = load i32, ptr %2342, align 4
-  %2344 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2345 = load i32, ptr %2344, align 4
-  %2346 = add i32 %2343, %2345
-  %2347 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %2346, ptr %2347, align 4
-  %2348 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2349 = load i32, ptr %2348, align 4
-  %2350 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %2351 = load i32, ptr %2350, align 4
-  %2352 = xor i32 %2349, %2351
-  %2353 = call i32 @rotr32(i32 noundef %2352, i32 noundef 12)
-  %2354 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %2353, ptr %2354, align 4
-  %2355 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2356 = load i32, ptr %2355, align 4
-  %2357 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2358 = load i32, ptr %2357, align 4
-  %2359 = add i32 %2356, %2358
-  %2360 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 7), align 1
-  %2361 = zext i8 %2360 to i64
-  %2362 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2361
-  %2363 = load i32, ptr %2362, align 4
-  %2364 = add i32 %2359, %2363
-  %2365 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %2364, ptr %2365, align 4
-  %2366 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2367 = load i32, ptr %2366, align 4
-  %2368 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2369 = load i32, ptr %2368, align 4
-  %2370 = xor i32 %2367, %2369
-  %2371 = call i32 @rotr32(i32 noundef %2370, i32 noundef 8)
-  %2372 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %2371, ptr %2372, align 4
-  %2373 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %2374 = load i32, ptr %2373, align 4
-  %2375 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2376 = load i32, ptr %2375, align 4
-  %2377 = add i32 %2374, %2376
-  %2378 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %2377, ptr %2378, align 4
-  %2379 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2380 = load i32, ptr %2379, align 4
-  %2381 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %2382 = load i32, ptr %2381, align 4
-  %2383 = xor i32 %2380, %2382
-  %2384 = call i32 @rotr32(i32 noundef %2383, i32 noundef 7)
-  %2385 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %2384, ptr %2385, align 4
-  br label %2386
+  %2344 = add i32 %2338, %2343
+  %2345 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %2344, ptr %2345, align 8
+  %2346 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2347 = load i32, ptr %2346, align 8
+  %2348 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2349 = load i32, ptr %2348, align 8
+  %2350 = xor i32 %2347, %2349
+  %2351 = call i32 @rotr32(i32 noundef %2350, i32 noundef 16)
+  %2352 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %2351, ptr %2352, align 8
+  %2353 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %2354 = load i32, ptr %2353, align 8
+  %2355 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2356 = load i32, ptr %2355, align 8
+  %2357 = add i32 %2354, %2356
+  %2358 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %2357, ptr %2358, align 8
+  %2359 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2360 = load i32, ptr %2359, align 8
+  %2361 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %2362 = load i32, ptr %2361, align 8
+  %2363 = xor i32 %2360, %2362
+  %2364 = call i32 @rotr32(i32 noundef %2363, i32 noundef 12)
+  %2365 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %2364, ptr %2365, align 8
+  %2366 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2367 = load i32, ptr %2366, align 8
+  %2368 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2369 = load i32, ptr %2368, align 8
+  %2370 = add i32 %2367, %2369
+  %2371 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 5
+  %2372 = load i8, ptr %2371, align 1
+  %2373 = zext i8 %2372 to i64
+  %2374 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2373
+  %2375 = load i32, ptr %2374, align 4
+  %2376 = add i32 %2370, %2375
+  %2377 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %2376, ptr %2377, align 8
+  %2378 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2379 = load i32, ptr %2378, align 8
+  %2380 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2381 = load i32, ptr %2380, align 8
+  %2382 = xor i32 %2379, %2381
+  %2383 = call i32 @rotr32(i32 noundef %2382, i32 noundef 8)
+  %2384 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %2383, ptr %2384, align 8
+  %2385 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %2386 = load i32, ptr %2385, align 8
+  %2387 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2388 = load i32, ptr %2387, align 8
+  %2389 = add i32 %2386, %2388
+  %2390 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %2389, ptr %2390, align 8
+  %2391 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2392 = load i32, ptr %2391, align 8
+  %2393 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %2394 = load i32, ptr %2393, align 8
+  %2395 = xor i32 %2392, %2394
+  %2396 = call i32 @rotr32(i32 noundef %2395, i32 noundef 7)
+  %2397 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %2396, ptr %2397, align 8
+  br label %2398
 
-2386:                                             ; preds = %2323
-  br label %2387
+2398:                                             ; preds = %2333
+  br label %2399
 
-2387:                                             ; preds = %2386
-  %2388 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2389 = load i32, ptr %2388, align 16
-  %2390 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %2391 = load i32, ptr %2390, align 4
-  %2392 = add i32 %2389, %2391
-  %2393 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 8), align 8
-  %2394 = zext i8 %2393 to i64
-  %2395 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2394
-  %2396 = load i32, ptr %2395, align 4
-  %2397 = add i32 %2392, %2396
-  %2398 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %2397, ptr %2398, align 16
-  %2399 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2400 = load i32, ptr %2399, align 4
-  %2401 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2402 = load i32, ptr %2401, align 16
-  %2403 = xor i32 %2400, %2402
-  %2404 = call i32 @rotr32(i32 noundef %2403, i32 noundef 16)
-  %2405 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %2404, ptr %2405, align 4
-  %2406 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2407 = load i32, ptr %2406, align 8
-  %2408 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+2399:                                             ; preds = %2398
+  %2400 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2401 = load i32, ptr %2400, align 4
+  %2402 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2403 = load i32, ptr %2402, align 4
+  %2404 = add i32 %2401, %2403
+  %2405 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 6
+  %2406 = load i8, ptr %2405, align 2
+  %2407 = zext i8 %2406 to i64
+  %2408 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2407
   %2409 = load i32, ptr %2408, align 4
-  %2410 = add i32 %2407, %2409
-  %2411 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %2410, ptr %2411, align 8
-  %2412 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2410 = add i32 %2404, %2409
+  %2411 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %2410, ptr %2411, align 4
+  %2412 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %2413 = load i32, ptr %2412, align 4
-  %2414 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2415 = load i32, ptr %2414, align 8
+  %2414 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2415 = load i32, ptr %2414, align 4
   %2416 = xor i32 %2413, %2415
-  %2417 = call i32 @rotr32(i32 noundef %2416, i32 noundef 12)
-  %2418 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2417 = call i32 @rotr32(i32 noundef %2416, i32 noundef 16)
+  %2418 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   store i32 %2417, ptr %2418, align 4
-  %2419 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2420 = load i32, ptr %2419, align 16
-  %2421 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2419 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2420 = load i32, ptr %2419, align 4
+  %2421 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %2422 = load i32, ptr %2421, align 4
   %2423 = add i32 %2420, %2422
-  %2424 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 9), align 1
-  %2425 = zext i8 %2424 to i64
-  %2426 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2425
-  %2427 = load i32, ptr %2426, align 4
-  %2428 = add i32 %2423, %2427
-  %2429 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %2428, ptr %2429, align 16
-  %2430 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2431 = load i32, ptr %2430, align 4
-  %2432 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2433 = load i32, ptr %2432, align 16
-  %2434 = xor i32 %2431, %2433
-  %2435 = call i32 @rotr32(i32 noundef %2434, i32 noundef 8)
-  %2436 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %2435, ptr %2436, align 4
-  %2437 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2438 = load i32, ptr %2437, align 8
-  %2439 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2440 = load i32, ptr %2439, align 4
-  %2441 = add i32 %2438, %2440
-  %2442 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %2441, ptr %2442, align 8
-  %2443 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %2444 = load i32, ptr %2443, align 4
-  %2445 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2446 = load i32, ptr %2445, align 8
-  %2447 = xor i32 %2444, %2446
-  %2448 = call i32 @rotr32(i32 noundef %2447, i32 noundef 7)
-  %2449 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %2448, ptr %2449, align 4
-  br label %2450
-
-2450:                                             ; preds = %2387
-  br label %2451
-
-2451:                                             ; preds = %2450
-  %2452 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2453 = load i32, ptr %2452, align 4
-  %2454 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2455 = load i32, ptr %2454, align 8
-  %2456 = add i32 %2453, %2455
-  %2457 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 10), align 2
-  %2458 = zext i8 %2457 to i64
-  %2459 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2458
+  %2424 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %2423, ptr %2424, align 4
+  %2425 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2426 = load i32, ptr %2425, align 4
+  %2427 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2428 = load i32, ptr %2427, align 4
+  %2429 = xor i32 %2426, %2428
+  %2430 = call i32 @rotr32(i32 noundef %2429, i32 noundef 12)
+  %2431 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %2430, ptr %2431, align 4
+  %2432 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2433 = load i32, ptr %2432, align 4
+  %2434 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2435 = load i32, ptr %2434, align 4
+  %2436 = add i32 %2433, %2435
+  %2437 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 7
+  %2438 = load i8, ptr %2437, align 1
+  %2439 = zext i8 %2438 to i64
+  %2440 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2439
+  %2441 = load i32, ptr %2440, align 4
+  %2442 = add i32 %2436, %2441
+  %2443 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %2442, ptr %2443, align 4
+  %2444 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %2445 = load i32, ptr %2444, align 4
+  %2446 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2447 = load i32, ptr %2446, align 4
+  %2448 = xor i32 %2445, %2447
+  %2449 = call i32 @rotr32(i32 noundef %2448, i32 noundef 8)
+  %2450 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %2449, ptr %2450, align 4
+  %2451 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2452 = load i32, ptr %2451, align 4
+  %2453 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %2454 = load i32, ptr %2453, align 4
+  %2455 = add i32 %2452, %2454
+  %2456 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %2455, ptr %2456, align 4
+  %2457 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2458 = load i32, ptr %2457, align 4
+  %2459 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %2460 = load i32, ptr %2459, align 4
-  %2461 = add i32 %2456, %2460
-  %2462 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %2461, ptr %2462, align 4
-  %2463 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %2464 = load i32, ptr %2463, align 16
-  %2465 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2466 = load i32, ptr %2465, align 4
-  %2467 = xor i32 %2464, %2466
-  %2468 = call i32 @rotr32(i32 noundef %2467, i32 noundef 16)
-  %2469 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %2468, ptr %2469, align 16
-  %2470 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %2471 = load i32, ptr %2470, align 4
-  %2472 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %2473 = load i32, ptr %2472, align 16
-  %2474 = add i32 %2471, %2473
-  %2475 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %2474, ptr %2475, align 4
-  %2476 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2477 = load i32, ptr %2476, align 8
-  %2478 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2461 = xor i32 %2458, %2460
+  %2462 = call i32 @rotr32(i32 noundef %2461, i32 noundef 7)
+  %2463 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %2462, ptr %2463, align 4
+  br label %2464
+
+2464:                                             ; preds = %2399
+  br label %2465
+
+2465:                                             ; preds = %2464
+  %2466 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2467 = load i32, ptr %2466, align 16
+  %2468 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2469 = load i32, ptr %2468, align 4
+  %2470 = add i32 %2467, %2469
+  %2471 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 8
+  %2472 = load i8, ptr %2471, align 8
+  %2473 = zext i8 %2472 to i64
+  %2474 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2473
+  %2475 = load i32, ptr %2474, align 4
+  %2476 = add i32 %2470, %2475
+  %2477 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %2476, ptr %2477, align 16
+  %2478 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %2479 = load i32, ptr %2478, align 4
-  %2480 = xor i32 %2477, %2479
-  %2481 = call i32 @rotr32(i32 noundef %2480, i32 noundef 12)
-  %2482 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %2481, ptr %2482, align 8
-  %2483 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2484 = load i32, ptr %2483, align 4
-  %2485 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2480 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2481 = load i32, ptr %2480, align 16
+  %2482 = xor i32 %2479, %2481
+  %2483 = call i32 @rotr32(i32 noundef %2482, i32 noundef 16)
+  %2484 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %2483, ptr %2484, align 4
+  %2485 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
   %2486 = load i32, ptr %2485, align 8
-  %2487 = add i32 %2484, %2486
-  %2488 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 11), align 1
-  %2489 = zext i8 %2488 to i64
-  %2490 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2489
-  %2491 = load i32, ptr %2490, align 4
-  %2492 = add i32 %2487, %2491
-  %2493 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %2492, ptr %2493, align 4
-  %2494 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %2495 = load i32, ptr %2494, align 16
-  %2496 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2497 = load i32, ptr %2496, align 4
-  %2498 = xor i32 %2495, %2497
-  %2499 = call i32 @rotr32(i32 noundef %2498, i32 noundef 8)
-  %2500 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %2499, ptr %2500, align 16
-  %2501 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %2502 = load i32, ptr %2501, align 4
-  %2503 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %2504 = load i32, ptr %2503, align 16
-  %2505 = add i32 %2502, %2504
-  %2506 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %2505, ptr %2506, align 4
-  %2507 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2508 = load i32, ptr %2507, align 8
-  %2509 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %2510 = load i32, ptr %2509, align 4
-  %2511 = xor i32 %2508, %2510
-  %2512 = call i32 @rotr32(i32 noundef %2511, i32 noundef 7)
-  %2513 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %2512, ptr %2513, align 8
-  br label %2514
-
-2514:                                             ; preds = %2451
-  br label %2515
-
-2515:                                             ; preds = %2514
-  %2516 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2517 = load i32, ptr %2516, align 8
-  %2518 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2519 = load i32, ptr %2518, align 4
-  %2520 = add i32 %2517, %2519
-  %2521 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 12), align 4
-  %2522 = zext i8 %2521 to i64
-  %2523 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2522
+  %2487 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %2488 = load i32, ptr %2487, align 4
+  %2489 = add i32 %2486, %2488
+  %2490 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %2489, ptr %2490, align 8
+  %2491 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2492 = load i32, ptr %2491, align 4
+  %2493 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %2494 = load i32, ptr %2493, align 8
+  %2495 = xor i32 %2492, %2494
+  %2496 = call i32 @rotr32(i32 noundef %2495, i32 noundef 12)
+  %2497 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %2496, ptr %2497, align 4
+  %2498 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2499 = load i32, ptr %2498, align 16
+  %2500 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2501 = load i32, ptr %2500, align 4
+  %2502 = add i32 %2499, %2501
+  %2503 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 9
+  %2504 = load i8, ptr %2503, align 1
+  %2505 = zext i8 %2504 to i64
+  %2506 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2505
+  %2507 = load i32, ptr %2506, align 4
+  %2508 = add i32 %2502, %2507
+  %2509 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %2508, ptr %2509, align 16
+  %2510 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %2511 = load i32, ptr %2510, align 4
+  %2512 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2513 = load i32, ptr %2512, align 16
+  %2514 = xor i32 %2511, %2513
+  %2515 = call i32 @rotr32(i32 noundef %2514, i32 noundef 8)
+  %2516 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %2515, ptr %2516, align 4
+  %2517 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %2518 = load i32, ptr %2517, align 8
+  %2519 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %2520 = load i32, ptr %2519, align 4
+  %2521 = add i32 %2518, %2520
+  %2522 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %2521, ptr %2522, align 8
+  %2523 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %2524 = load i32, ptr %2523, align 4
-  %2525 = add i32 %2520, %2524
-  %2526 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %2525, ptr %2526, align 8
-  %2527 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2528 = load i32, ptr %2527, align 4
-  %2529 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2530 = load i32, ptr %2529, align 8
-  %2531 = xor i32 %2528, %2530
-  %2532 = call i32 @rotr32(i32 noundef %2531, i32 noundef 16)
-  %2533 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %2532, ptr %2533, align 4
-  %2534 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2535 = load i32, ptr %2534, align 16
-  %2536 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2537 = load i32, ptr %2536, align 4
-  %2538 = add i32 %2535, %2537
-  %2539 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %2538, ptr %2539, align 16
-  %2540 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2525 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %2526 = load i32, ptr %2525, align 8
+  %2527 = xor i32 %2524, %2526
+  %2528 = call i32 @rotr32(i32 noundef %2527, i32 noundef 7)
+  %2529 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %2528, ptr %2529, align 4
+  br label %2530
+
+2530:                                             ; preds = %2465
+  br label %2531
+
+2531:                                             ; preds = %2530
+  %2532 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2533 = load i32, ptr %2532, align 4
+  %2534 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2535 = load i32, ptr %2534, align 8
+  %2536 = add i32 %2533, %2535
+  %2537 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 10
+  %2538 = load i8, ptr %2537, align 2
+  %2539 = zext i8 %2538 to i64
+  %2540 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2539
   %2541 = load i32, ptr %2540, align 4
-  %2542 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2543 = load i32, ptr %2542, align 16
-  %2544 = xor i32 %2541, %2543
-  %2545 = call i32 @rotr32(i32 noundef %2544, i32 noundef 12)
-  %2546 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %2545, ptr %2546, align 4
-  %2547 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2548 = load i32, ptr %2547, align 8
-  %2549 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2550 = load i32, ptr %2549, align 4
-  %2551 = add i32 %2548, %2550
-  %2552 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 13), align 1
-  %2553 = zext i8 %2552 to i64
-  %2554 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2553
-  %2555 = load i32, ptr %2554, align 4
-  %2556 = add i32 %2551, %2555
-  %2557 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %2556, ptr %2557, align 8
-  %2558 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2559 = load i32, ptr %2558, align 4
-  %2560 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2561 = load i32, ptr %2560, align 8
-  %2562 = xor i32 %2559, %2561
-  %2563 = call i32 @rotr32(i32 noundef %2562, i32 noundef 8)
-  %2564 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %2563, ptr %2564, align 4
-  %2565 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2566 = load i32, ptr %2565, align 16
-  %2567 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2568 = load i32, ptr %2567, align 4
-  %2569 = add i32 %2566, %2568
-  %2570 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %2569, ptr %2570, align 16
-  %2571 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2572 = load i32, ptr %2571, align 4
-  %2573 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2574 = load i32, ptr %2573, align 16
-  %2575 = xor i32 %2572, %2574
-  %2576 = call i32 @rotr32(i32 noundef %2575, i32 noundef 7)
-  %2577 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %2576, ptr %2577, align 4
-  br label %2578
+  %2542 = add i32 %2536, %2541
+  %2543 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %2542, ptr %2543, align 4
+  %2544 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2545 = load i32, ptr %2544, align 16
+  %2546 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2547 = load i32, ptr %2546, align 4
+  %2548 = xor i32 %2545, %2547
+  %2549 = call i32 @rotr32(i32 noundef %2548, i32 noundef 16)
+  %2550 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %2549, ptr %2550, align 16
+  %2551 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2552 = load i32, ptr %2551, align 4
+  %2553 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2554 = load i32, ptr %2553, align 16
+  %2555 = add i32 %2552, %2554
+  %2556 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %2555, ptr %2556, align 4
+  %2557 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2558 = load i32, ptr %2557, align 8
+  %2559 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2560 = load i32, ptr %2559, align 4
+  %2561 = xor i32 %2558, %2560
+  %2562 = call i32 @rotr32(i32 noundef %2561, i32 noundef 12)
+  %2563 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %2562, ptr %2563, align 8
+  %2564 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2565 = load i32, ptr %2564, align 4
+  %2566 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2567 = load i32, ptr %2566, align 8
+  %2568 = add i32 %2565, %2567
+  %2569 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 11
+  %2570 = load i8, ptr %2569, align 1
+  %2571 = zext i8 %2570 to i64
+  %2572 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2571
+  %2573 = load i32, ptr %2572, align 4
+  %2574 = add i32 %2568, %2573
+  %2575 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %2574, ptr %2575, align 4
+  %2576 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2577 = load i32, ptr %2576, align 16
+  %2578 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2579 = load i32, ptr %2578, align 4
+  %2580 = xor i32 %2577, %2579
+  %2581 = call i32 @rotr32(i32 noundef %2580, i32 noundef 8)
+  %2582 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %2581, ptr %2582, align 16
+  %2583 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2584 = load i32, ptr %2583, align 4
+  %2585 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2586 = load i32, ptr %2585, align 16
+  %2587 = add i32 %2584, %2586
+  %2588 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %2587, ptr %2588, align 4
+  %2589 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2590 = load i32, ptr %2589, align 8
+  %2591 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2592 = load i32, ptr %2591, align 4
+  %2593 = xor i32 %2590, %2592
+  %2594 = call i32 @rotr32(i32 noundef %2593, i32 noundef 7)
+  %2595 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %2594, ptr %2595, align 8
+  br label %2596
 
-2578:                                             ; preds = %2515
-  br label %2579
+2596:                                             ; preds = %2531
+  br label %2597
 
-2579:                                             ; preds = %2578
-  %2580 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2581 = load i32, ptr %2580, align 4
-  %2582 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2583 = load i32, ptr %2582, align 16
-  %2584 = add i32 %2581, %2583
-  %2585 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 14), align 2
-  %2586 = zext i8 %2585 to i64
-  %2587 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2586
-  %2588 = load i32, ptr %2587, align 4
-  %2589 = add i32 %2584, %2588
-  %2590 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %2589, ptr %2590, align 4
-  %2591 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2592 = load i32, ptr %2591, align 8
-  %2593 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2594 = load i32, ptr %2593, align 4
-  %2595 = xor i32 %2592, %2594
-  %2596 = call i32 @rotr32(i32 noundef %2595, i32 noundef 16)
-  %2597 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %2596, ptr %2597, align 8
-  %2598 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2599 = load i32, ptr %2598, align 4
-  %2600 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2601 = load i32, ptr %2600, align 8
+2597:                                             ; preds = %2596
+  %2598 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2599 = load i32, ptr %2598, align 8
+  %2600 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2601 = load i32, ptr %2600, align 4
   %2602 = add i32 %2599, %2601
-  %2603 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %2602, ptr %2603, align 4
-  %2604 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2605 = load i32, ptr %2604, align 16
-  %2606 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2603 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 12
+  %2604 = load i8, ptr %2603, align 4
+  %2605 = zext i8 %2604 to i64
+  %2606 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2605
   %2607 = load i32, ptr %2606, align 4
-  %2608 = xor i32 %2605, %2607
-  %2609 = call i32 @rotr32(i32 noundef %2608, i32 noundef 12)
-  %2610 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %2609, ptr %2610, align 16
-  %2611 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2612 = load i32, ptr %2611, align 4
-  %2613 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2614 = load i32, ptr %2613, align 16
-  %2615 = add i32 %2612, %2614
-  %2616 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 15), align 1
-  %2617 = zext i8 %2616 to i64
-  %2618 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2617
-  %2619 = load i32, ptr %2618, align 4
-  %2620 = add i32 %2615, %2619
-  %2621 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %2620, ptr %2621, align 4
-  %2622 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2623 = load i32, ptr %2622, align 8
-  %2624 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2625 = load i32, ptr %2624, align 4
-  %2626 = xor i32 %2623, %2625
-  %2627 = call i32 @rotr32(i32 noundef %2626, i32 noundef 8)
-  %2628 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %2627, ptr %2628, align 8
-  %2629 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2630 = load i32, ptr %2629, align 4
-  %2631 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2632 = load i32, ptr %2631, align 8
-  %2633 = add i32 %2630, %2632
-  %2634 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %2633, ptr %2634, align 4
-  %2635 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2636 = load i32, ptr %2635, align 16
-  %2637 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2638 = load i32, ptr %2637, align 4
-  %2639 = xor i32 %2636, %2638
-  %2640 = call i32 @rotr32(i32 noundef %2639, i32 noundef 7)
-  %2641 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %2640, ptr %2641, align 16
-  br label %2642
-
-2642:                                             ; preds = %2579
-  br label %2643
-
-2643:                                             ; preds = %2642
-  br label %2644
-
-2644:                                             ; preds = %2643
-  br label %2645
-
-2645:                                             ; preds = %2644
-  %2646 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2647 = load i32, ptr %2646, align 16
-  %2648 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2649 = load i32, ptr %2648, align 16
-  %2650 = add i32 %2647, %2649
-  %2651 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5), align 16
-  %2652 = zext i8 %2651 to i64
-  %2653 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2652
-  %2654 = load i32, ptr %2653, align 4
-  %2655 = add i32 %2650, %2654
-  %2656 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %2655, ptr %2656, align 16
-  %2657 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2608 = add i32 %2602, %2607
+  %2609 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %2608, ptr %2609, align 8
+  %2610 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2611 = load i32, ptr %2610, align 4
+  %2612 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2613 = load i32, ptr %2612, align 8
+  %2614 = xor i32 %2611, %2613
+  %2615 = call i32 @rotr32(i32 noundef %2614, i32 noundef 16)
+  %2616 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %2615, ptr %2616, align 4
+  %2617 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2618 = load i32, ptr %2617, align 16
+  %2619 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2620 = load i32, ptr %2619, align 4
+  %2621 = add i32 %2618, %2620
+  %2622 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %2621, ptr %2622, align 16
+  %2623 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2624 = load i32, ptr %2623, align 4
+  %2625 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2626 = load i32, ptr %2625, align 16
+  %2627 = xor i32 %2624, %2626
+  %2628 = call i32 @rotr32(i32 noundef %2627, i32 noundef 12)
+  %2629 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %2628, ptr %2629, align 4
+  %2630 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2631 = load i32, ptr %2630, align 8
+  %2632 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2633 = load i32, ptr %2632, align 4
+  %2634 = add i32 %2631, %2633
+  %2635 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 13
+  %2636 = load i8, ptr %2635, align 1
+  %2637 = zext i8 %2636 to i64
+  %2638 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2637
+  %2639 = load i32, ptr %2638, align 4
+  %2640 = add i32 %2634, %2639
+  %2641 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %2640, ptr %2641, align 8
+  %2642 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2643 = load i32, ptr %2642, align 4
+  %2644 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2645 = load i32, ptr %2644, align 8
+  %2646 = xor i32 %2643, %2645
+  %2647 = call i32 @rotr32(i32 noundef %2646, i32 noundef 8)
+  %2648 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %2647, ptr %2648, align 4
+  %2649 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2650 = load i32, ptr %2649, align 16
+  %2651 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2652 = load i32, ptr %2651, align 4
+  %2653 = add i32 %2650, %2652
+  %2654 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %2653, ptr %2654, align 16
+  %2655 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2656 = load i32, ptr %2655, align 4
+  %2657 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
   %2658 = load i32, ptr %2657, align 16
-  %2659 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2660 = load i32, ptr %2659, align 16
-  %2661 = xor i32 %2658, %2660
-  %2662 = call i32 @rotr32(i32 noundef %2661, i32 noundef 16)
-  %2663 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %2662, ptr %2663, align 16
-  %2664 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2665 = load i32, ptr %2664, align 16
-  %2666 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2659 = xor i32 %2656, %2658
+  %2660 = call i32 @rotr32(i32 noundef %2659, i32 noundef 7)
+  %2661 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %2660, ptr %2661, align 4
+  br label %2662
+
+2662:                                             ; preds = %2597
+  br label %2663
+
+2663:                                             ; preds = %2662
+  %2664 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2665 = load i32, ptr %2664, align 4
+  %2666 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
   %2667 = load i32, ptr %2666, align 16
   %2668 = add i32 %2665, %2667
-  %2669 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %2668, ptr %2669, align 16
-  %2670 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2671 = load i32, ptr %2670, align 16
-  %2672 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2673 = load i32, ptr %2672, align 16
-  %2674 = xor i32 %2671, %2673
-  %2675 = call i32 @rotr32(i32 noundef %2674, i32 noundef 12)
-  %2676 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %2675, ptr %2676, align 16
-  %2677 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2678 = load i32, ptr %2677, align 16
-  %2679 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2680 = load i32, ptr %2679, align 16
-  %2681 = add i32 %2678, %2680
-  %2682 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 1), align 1
-  %2683 = zext i8 %2682 to i64
-  %2684 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2683
-  %2685 = load i32, ptr %2684, align 4
-  %2686 = add i32 %2681, %2685
-  %2687 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %2686, ptr %2687, align 16
-  %2688 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %2689 = load i32, ptr %2688, align 16
-  %2690 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2691 = load i32, ptr %2690, align 16
-  %2692 = xor i32 %2689, %2691
-  %2693 = call i32 @rotr32(i32 noundef %2692, i32 noundef 8)
-  %2694 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %2693, ptr %2694, align 16
-  %2695 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2696 = load i32, ptr %2695, align 16
-  %2697 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %2698 = load i32, ptr %2697, align 16
-  %2699 = add i32 %2696, %2698
-  %2700 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %2699, ptr %2700, align 16
-  %2701 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %2702 = load i32, ptr %2701, align 16
-  %2703 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %2704 = load i32, ptr %2703, align 16
-  %2705 = xor i32 %2702, %2704
-  %2706 = call i32 @rotr32(i32 noundef %2705, i32 noundef 7)
-  %2707 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %2706, ptr %2707, align 16
-  br label %2708
-
-2708:                                             ; preds = %2645
-  br label %2709
-
-2709:                                             ; preds = %2708
-  %2710 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2669 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 14
+  %2670 = load i8, ptr %2669, align 2
+  %2671 = zext i8 %2670 to i64
+  %2672 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2671
+  %2673 = load i32, ptr %2672, align 4
+  %2674 = add i32 %2668, %2673
+  %2675 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %2674, ptr %2675, align 4
+  %2676 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2677 = load i32, ptr %2676, align 8
+  %2678 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2679 = load i32, ptr %2678, align 4
+  %2680 = xor i32 %2677, %2679
+  %2681 = call i32 @rotr32(i32 noundef %2680, i32 noundef 16)
+  %2682 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %2681, ptr %2682, align 8
+  %2683 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2684 = load i32, ptr %2683, align 4
+  %2685 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2686 = load i32, ptr %2685, align 8
+  %2687 = add i32 %2684, %2686
+  %2688 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %2687, ptr %2688, align 4
+  %2689 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2690 = load i32, ptr %2689, align 16
+  %2691 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2692 = load i32, ptr %2691, align 4
+  %2693 = xor i32 %2690, %2692
+  %2694 = call i32 @rotr32(i32 noundef %2693, i32 noundef 12)
+  %2695 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %2694, ptr %2695, align 16
+  %2696 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2697 = load i32, ptr %2696, align 4
+  %2698 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2699 = load i32, ptr %2698, align 16
+  %2700 = add i32 %2697, %2699
+  %2701 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 4, i64 15
+  %2702 = load i8, ptr %2701, align 1
+  %2703 = zext i8 %2702 to i64
+  %2704 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2703
+  %2705 = load i32, ptr %2704, align 4
+  %2706 = add i32 %2700, %2705
+  %2707 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %2706, ptr %2707, align 4
+  %2708 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2709 = load i32, ptr %2708, align 8
+  %2710 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %2711 = load i32, ptr %2710, align 4
-  %2712 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %2713 = load i32, ptr %2712, align 4
-  %2714 = add i32 %2711, %2713
-  %2715 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 2), align 2
-  %2716 = zext i8 %2715 to i64
-  %2717 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2716
-  %2718 = load i32, ptr %2717, align 4
-  %2719 = add i32 %2714, %2718
-  %2720 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2712 = xor i32 %2709, %2711
+  %2713 = call i32 @rotr32(i32 noundef %2712, i32 noundef 8)
+  %2714 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %2713, ptr %2714, align 8
+  %2715 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2716 = load i32, ptr %2715, align 4
+  %2717 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2718 = load i32, ptr %2717, align 8
+  %2719 = add i32 %2716, %2718
+  %2720 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   store i32 %2719, ptr %2720, align 4
-  %2721 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2722 = load i32, ptr %2721, align 4
-  %2723 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2721 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2722 = load i32, ptr %2721, align 16
+  %2723 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   %2724 = load i32, ptr %2723, align 4
   %2725 = xor i32 %2722, %2724
-  %2726 = call i32 @rotr32(i32 noundef %2725, i32 noundef 16)
-  %2727 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %2726, ptr %2727, align 4
-  %2728 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2729 = load i32, ptr %2728, align 4
-  %2730 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2731 = load i32, ptr %2730, align 4
-  %2732 = add i32 %2729, %2731
-  %2733 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %2732, ptr %2733, align 4
-  %2734 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %2735 = load i32, ptr %2734, align 4
-  %2736 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2737 = load i32, ptr %2736, align 4
-  %2738 = xor i32 %2735, %2737
-  %2739 = call i32 @rotr32(i32 noundef %2738, i32 noundef 12)
-  %2740 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %2739, ptr %2740, align 4
-  %2741 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2742 = load i32, ptr %2741, align 4
-  %2743 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %2744 = load i32, ptr %2743, align 4
-  %2745 = add i32 %2742, %2744
-  %2746 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 3), align 1
-  %2747 = zext i8 %2746 to i64
-  %2748 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2747
-  %2749 = load i32, ptr %2748, align 4
-  %2750 = add i32 %2745, %2749
-  %2751 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %2750, ptr %2751, align 4
-  %2752 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2753 = load i32, ptr %2752, align 4
-  %2754 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2755 = load i32, ptr %2754, align 4
-  %2756 = xor i32 %2753, %2755
-  %2757 = call i32 @rotr32(i32 noundef %2756, i32 noundef 8)
-  %2758 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %2757, ptr %2758, align 4
-  %2759 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2760 = load i32, ptr %2759, align 4
-  %2761 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %2762 = load i32, ptr %2761, align 4
-  %2763 = add i32 %2760, %2762
-  %2764 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %2763, ptr %2764, align 4
-  %2765 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %2766 = load i32, ptr %2765, align 4
-  %2767 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %2768 = load i32, ptr %2767, align 4
-  %2769 = xor i32 %2766, %2768
-  %2770 = call i32 @rotr32(i32 noundef %2769, i32 noundef 7)
-  %2771 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %2770, ptr %2771, align 4
-  br label %2772
+  %2726 = call i32 @rotr32(i32 noundef %2725, i32 noundef 7)
+  %2727 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %2726, ptr %2727, align 16
+  br label %2728
 
-2772:                                             ; preds = %2709
-  br label %2773
+2728:                                             ; preds = %2663
+  br label %2729
 
-2773:                                             ; preds = %2772
-  %2774 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2775 = load i32, ptr %2774, align 8
-  %2776 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2777 = load i32, ptr %2776, align 8
-  %2778 = add i32 %2775, %2777
-  %2779 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 4), align 4
-  %2780 = zext i8 %2779 to i64
-  %2781 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2780
-  %2782 = load i32, ptr %2781, align 4
-  %2783 = add i32 %2778, %2782
-  %2784 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %2783, ptr %2784, align 8
-  %2785 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2786 = load i32, ptr %2785, align 8
-  %2787 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2788 = load i32, ptr %2787, align 8
-  %2789 = xor i32 %2786, %2788
-  %2790 = call i32 @rotr32(i32 noundef %2789, i32 noundef 16)
-  %2791 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %2790, ptr %2791, align 8
-  %2792 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2793 = load i32, ptr %2792, align 8
-  %2794 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2795 = load i32, ptr %2794, align 8
-  %2796 = add i32 %2793, %2795
-  %2797 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %2796, ptr %2797, align 8
-  %2798 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2799 = load i32, ptr %2798, align 8
-  %2800 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2801 = load i32, ptr %2800, align 8
-  %2802 = xor i32 %2799, %2801
-  %2803 = call i32 @rotr32(i32 noundef %2802, i32 noundef 12)
-  %2804 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %2803, ptr %2804, align 8
-  %2805 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2806 = load i32, ptr %2805, align 8
-  %2807 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2808 = load i32, ptr %2807, align 8
-  %2809 = add i32 %2806, %2808
-  %2810 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 5), align 1
-  %2811 = zext i8 %2810 to i64
-  %2812 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2811
+2729:                                             ; preds = %2728
+  br label %2730
+
+2730:                                             ; preds = %2729
+  br label %2731
+
+2731:                                             ; preds = %2730
+  %2732 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2733 = load i32, ptr %2732, align 16
+  %2734 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2735 = load i32, ptr %2734, align 16
+  %2736 = add i32 %2733, %2735
+  %2737 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5
+  %2738 = load i8, ptr %2737, align 16
+  %2739 = zext i8 %2738 to i64
+  %2740 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2739
+  %2741 = load i32, ptr %2740, align 4
+  %2742 = add i32 %2736, %2741
+  %2743 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %2742, ptr %2743, align 16
+  %2744 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2745 = load i32, ptr %2744, align 16
+  %2746 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2747 = load i32, ptr %2746, align 16
+  %2748 = xor i32 %2745, %2747
+  %2749 = call i32 @rotr32(i32 noundef %2748, i32 noundef 16)
+  %2750 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %2749, ptr %2750, align 16
+  %2751 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2752 = load i32, ptr %2751, align 16
+  %2753 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2754 = load i32, ptr %2753, align 16
+  %2755 = add i32 %2752, %2754
+  %2756 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %2755, ptr %2756, align 16
+  %2757 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2758 = load i32, ptr %2757, align 16
+  %2759 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2760 = load i32, ptr %2759, align 16
+  %2761 = xor i32 %2758, %2760
+  %2762 = call i32 @rotr32(i32 noundef %2761, i32 noundef 12)
+  %2763 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %2762, ptr %2763, align 16
+  %2764 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2765 = load i32, ptr %2764, align 16
+  %2766 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2767 = load i32, ptr %2766, align 16
+  %2768 = add i32 %2765, %2767
+  %2769 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 1
+  %2770 = load i8, ptr %2769, align 1
+  %2771 = zext i8 %2770 to i64
+  %2772 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2771
+  %2773 = load i32, ptr %2772, align 4
+  %2774 = add i32 %2768, %2773
+  %2775 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %2774, ptr %2775, align 16
+  %2776 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2777 = load i32, ptr %2776, align 16
+  %2778 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2779 = load i32, ptr %2778, align 16
+  %2780 = xor i32 %2777, %2779
+  %2781 = call i32 @rotr32(i32 noundef %2780, i32 noundef 8)
+  %2782 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %2781, ptr %2782, align 16
+  %2783 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2784 = load i32, ptr %2783, align 16
+  %2785 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %2786 = load i32, ptr %2785, align 16
+  %2787 = add i32 %2784, %2786
+  %2788 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %2787, ptr %2788, align 16
+  %2789 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %2790 = load i32, ptr %2789, align 16
+  %2791 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %2792 = load i32, ptr %2791, align 16
+  %2793 = xor i32 %2790, %2792
+  %2794 = call i32 @rotr32(i32 noundef %2793, i32 noundef 7)
+  %2795 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %2794, ptr %2795, align 16
+  br label %2796
+
+2796:                                             ; preds = %2731
+  br label %2797
+
+2797:                                             ; preds = %2796
+  %2798 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2799 = load i32, ptr %2798, align 4
+  %2800 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2801 = load i32, ptr %2800, align 4
+  %2802 = add i32 %2799, %2801
+  %2803 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 2
+  %2804 = load i8, ptr %2803, align 2
+  %2805 = zext i8 %2804 to i64
+  %2806 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2805
+  %2807 = load i32, ptr %2806, align 4
+  %2808 = add i32 %2802, %2807
+  %2809 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %2808, ptr %2809, align 4
+  %2810 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2811 = load i32, ptr %2810, align 4
+  %2812 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
   %2813 = load i32, ptr %2812, align 4
-  %2814 = add i32 %2809, %2813
-  %2815 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %2814, ptr %2815, align 8
-  %2816 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2817 = load i32, ptr %2816, align 8
-  %2818 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %2819 = load i32, ptr %2818, align 8
-  %2820 = xor i32 %2817, %2819
-  %2821 = call i32 @rotr32(i32 noundef %2820, i32 noundef 8)
-  %2822 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %2821, ptr %2822, align 8
-  %2823 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2824 = load i32, ptr %2823, align 8
-  %2825 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %2826 = load i32, ptr %2825, align 8
-  %2827 = add i32 %2824, %2826
-  %2828 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %2827, ptr %2828, align 8
-  %2829 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2830 = load i32, ptr %2829, align 8
-  %2831 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2832 = load i32, ptr %2831, align 8
-  %2833 = xor i32 %2830, %2832
-  %2834 = call i32 @rotr32(i32 noundef %2833, i32 noundef 7)
-  %2835 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %2834, ptr %2835, align 8
-  br label %2836
-
-2836:                                             ; preds = %2773
-  br label %2837
-
-2837:                                             ; preds = %2836
-  %2838 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2814 = xor i32 %2811, %2813
+  %2815 = call i32 @rotr32(i32 noundef %2814, i32 noundef 16)
+  %2816 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %2815, ptr %2816, align 4
+  %2817 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2818 = load i32, ptr %2817, align 4
+  %2819 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2820 = load i32, ptr %2819, align 4
+  %2821 = add i32 %2818, %2820
+  %2822 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %2821, ptr %2822, align 4
+  %2823 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2824 = load i32, ptr %2823, align 4
+  %2825 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2826 = load i32, ptr %2825, align 4
+  %2827 = xor i32 %2824, %2826
+  %2828 = call i32 @rotr32(i32 noundef %2827, i32 noundef 12)
+  %2829 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %2828, ptr %2829, align 4
+  %2830 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2831 = load i32, ptr %2830, align 4
+  %2832 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2833 = load i32, ptr %2832, align 4
+  %2834 = add i32 %2831, %2833
+  %2835 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 3
+  %2836 = load i8, ptr %2835, align 1
+  %2837 = zext i8 %2836 to i64
+  %2838 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2837
   %2839 = load i32, ptr %2838, align 4
-  %2840 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2841 = load i32, ptr %2840, align 4
-  %2842 = add i32 %2839, %2841
-  %2843 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 6), align 2
-  %2844 = zext i8 %2843 to i64
-  %2845 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2844
-  %2846 = load i32, ptr %2845, align 4
-  %2847 = add i32 %2842, %2846
-  %2848 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2840 = add i32 %2834, %2839
+  %2841 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %2840, ptr %2841, align 4
+  %2842 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %2843 = load i32, ptr %2842, align 4
+  %2844 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %2845 = load i32, ptr %2844, align 4
+  %2846 = xor i32 %2843, %2845
+  %2847 = call i32 @rotr32(i32 noundef %2846, i32 noundef 8)
+  %2848 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
   store i32 %2847, ptr %2848, align 4
-  %2849 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %2849 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   %2850 = load i32, ptr %2849, align 4
-  %2851 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2851 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
   %2852 = load i32, ptr %2851, align 4
-  %2853 = xor i32 %2850, %2852
-  %2854 = call i32 @rotr32(i32 noundef %2853, i32 noundef 16)
-  %2855 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %2854, ptr %2855, align 4
-  %2856 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %2857 = load i32, ptr %2856, align 4
-  %2858 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2859 = load i32, ptr %2858, align 4
-  %2860 = add i32 %2857, %2859
-  %2861 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2853 = add i32 %2850, %2852
+  %2854 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %2853, ptr %2854, align 4
+  %2855 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2856 = load i32, ptr %2855, align 4
+  %2857 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %2858 = load i32, ptr %2857, align 4
+  %2859 = xor i32 %2856, %2858
+  %2860 = call i32 @rotr32(i32 noundef %2859, i32 noundef 7)
+  %2861 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   store i32 %2860, ptr %2861, align 4
-  %2862 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2863 = load i32, ptr %2862, align 4
-  %2864 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %2865 = load i32, ptr %2864, align 4
-  %2866 = xor i32 %2863, %2865
-  %2867 = call i32 @rotr32(i32 noundef %2866, i32 noundef 12)
-  %2868 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %2867, ptr %2868, align 4
-  %2869 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2870 = load i32, ptr %2869, align 4
-  %2871 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2872 = load i32, ptr %2871, align 4
-  %2873 = add i32 %2870, %2872
-  %2874 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 7), align 1
-  %2875 = zext i8 %2874 to i64
-  %2876 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2875
-  %2877 = load i32, ptr %2876, align 4
-  %2878 = add i32 %2873, %2877
-  %2879 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %2878, ptr %2879, align 4
-  %2880 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2881 = load i32, ptr %2880, align 4
-  %2882 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %2883 = load i32, ptr %2882, align 4
-  %2884 = xor i32 %2881, %2883
-  %2885 = call i32 @rotr32(i32 noundef %2884, i32 noundef 8)
-  %2886 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %2885, ptr %2886, align 4
-  %2887 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %2888 = load i32, ptr %2887, align 4
-  %2889 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2890 = load i32, ptr %2889, align 4
-  %2891 = add i32 %2888, %2890
-  %2892 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %2891, ptr %2892, align 4
-  %2893 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %2894 = load i32, ptr %2893, align 4
-  %2895 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %2896 = load i32, ptr %2895, align 4
-  %2897 = xor i32 %2894, %2896
-  %2898 = call i32 @rotr32(i32 noundef %2897, i32 noundef 7)
-  %2899 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %2898, ptr %2899, align 4
-  br label %2900
+  br label %2862
 
-2900:                                             ; preds = %2837
-  br label %2901
+2862:                                             ; preds = %2797
+  br label %2863
 
-2901:                                             ; preds = %2900
-  %2902 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2903 = load i32, ptr %2902, align 16
-  %2904 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+2863:                                             ; preds = %2862
+  %2864 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2865 = load i32, ptr %2864, align 8
+  %2866 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2867 = load i32, ptr %2866, align 8
+  %2868 = add i32 %2865, %2867
+  %2869 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 4
+  %2870 = load i8, ptr %2869, align 4
+  %2871 = zext i8 %2870 to i64
+  %2872 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2871
+  %2873 = load i32, ptr %2872, align 4
+  %2874 = add i32 %2868, %2873
+  %2875 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %2874, ptr %2875, align 8
+  %2876 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2877 = load i32, ptr %2876, align 8
+  %2878 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2879 = load i32, ptr %2878, align 8
+  %2880 = xor i32 %2877, %2879
+  %2881 = call i32 @rotr32(i32 noundef %2880, i32 noundef 16)
+  %2882 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %2881, ptr %2882, align 8
+  %2883 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %2884 = load i32, ptr %2883, align 8
+  %2885 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2886 = load i32, ptr %2885, align 8
+  %2887 = add i32 %2884, %2886
+  %2888 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %2887, ptr %2888, align 8
+  %2889 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2890 = load i32, ptr %2889, align 8
+  %2891 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %2892 = load i32, ptr %2891, align 8
+  %2893 = xor i32 %2890, %2892
+  %2894 = call i32 @rotr32(i32 noundef %2893, i32 noundef 12)
+  %2895 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %2894, ptr %2895, align 8
+  %2896 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2897 = load i32, ptr %2896, align 8
+  %2898 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2899 = load i32, ptr %2898, align 8
+  %2900 = add i32 %2897, %2899
+  %2901 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 5
+  %2902 = load i8, ptr %2901, align 1
+  %2903 = zext i8 %2902 to i64
+  %2904 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2903
   %2905 = load i32, ptr %2904, align 4
-  %2906 = add i32 %2903, %2905
-  %2907 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 8), align 8
-  %2908 = zext i8 %2907 to i64
-  %2909 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2908
-  %2910 = load i32, ptr %2909, align 4
-  %2911 = add i32 %2906, %2910
-  %2912 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %2911, ptr %2912, align 16
-  %2913 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2914 = load i32, ptr %2913, align 4
-  %2915 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2916 = load i32, ptr %2915, align 16
-  %2917 = xor i32 %2914, %2916
-  %2918 = call i32 @rotr32(i32 noundef %2917, i32 noundef 16)
-  %2919 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %2918, ptr %2919, align 4
+  %2906 = add i32 %2900, %2905
+  %2907 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %2906, ptr %2907, align 8
+  %2908 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2909 = load i32, ptr %2908, align 8
+  %2910 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %2911 = load i32, ptr %2910, align 8
+  %2912 = xor i32 %2909, %2911
+  %2913 = call i32 @rotr32(i32 noundef %2912, i32 noundef 8)
+  %2914 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %2913, ptr %2914, align 8
+  %2915 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %2916 = load i32, ptr %2915, align 8
+  %2917 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %2918 = load i32, ptr %2917, align 8
+  %2919 = add i32 %2916, %2918
   %2920 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2921 = load i32, ptr %2920, align 8
-  %2922 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2923 = load i32, ptr %2922, align 4
-  %2924 = add i32 %2921, %2923
-  %2925 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %2924, ptr %2925, align 8
-  %2926 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %2927 = load i32, ptr %2926, align 4
-  %2928 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2929 = load i32, ptr %2928, align 8
-  %2930 = xor i32 %2927, %2929
-  %2931 = call i32 @rotr32(i32 noundef %2930, i32 noundef 12)
-  %2932 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %2931, ptr %2932, align 4
-  %2933 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2934 = load i32, ptr %2933, align 16
-  %2935 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %2936 = load i32, ptr %2935, align 4
-  %2937 = add i32 %2934, %2936
-  %2938 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 9), align 1
-  %2939 = zext i8 %2938 to i64
-  %2940 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2939
-  %2941 = load i32, ptr %2940, align 4
-  %2942 = add i32 %2937, %2941
-  %2943 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %2942, ptr %2943, align 16
-  %2944 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %2919, ptr %2920, align 8
+  %2921 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %2922 = load i32, ptr %2921, align 8
+  %2923 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %2924 = load i32, ptr %2923, align 8
+  %2925 = xor i32 %2922, %2924
+  %2926 = call i32 @rotr32(i32 noundef %2925, i32 noundef 7)
+  %2927 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %2926, ptr %2927, align 8
+  br label %2928
+
+2928:                                             ; preds = %2863
+  br label %2929
+
+2929:                                             ; preds = %2928
+  %2930 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2931 = load i32, ptr %2930, align 4
+  %2932 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2933 = load i32, ptr %2932, align 4
+  %2934 = add i32 %2931, %2933
+  %2935 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 6
+  %2936 = load i8, ptr %2935, align 2
+  %2937 = zext i8 %2936 to i64
+  %2938 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2937
+  %2939 = load i32, ptr %2938, align 4
+  %2940 = add i32 %2934, %2939
+  %2941 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %2940, ptr %2941, align 4
+  %2942 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %2943 = load i32, ptr %2942, align 4
+  %2944 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %2945 = load i32, ptr %2944, align 4
-  %2946 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %2947 = load i32, ptr %2946, align 16
-  %2948 = xor i32 %2945, %2947
-  %2949 = call i32 @rotr32(i32 noundef %2948, i32 noundef 8)
-  %2950 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %2949, ptr %2950, align 4
-  %2951 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2952 = load i32, ptr %2951, align 8
-  %2953 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %2954 = load i32, ptr %2953, align 4
-  %2955 = add i32 %2952, %2954
-  %2956 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %2955, ptr %2956, align 8
-  %2957 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2946 = xor i32 %2943, %2945
+  %2947 = call i32 @rotr32(i32 noundef %2946, i32 noundef 16)
+  %2948 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %2947, ptr %2948, align 4
+  %2949 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2950 = load i32, ptr %2949, align 4
+  %2951 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %2952 = load i32, ptr %2951, align 4
+  %2953 = add i32 %2950, %2952
+  %2954 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %2953, ptr %2954, align 4
+  %2955 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2956 = load i32, ptr %2955, align 4
+  %2957 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %2958 = load i32, ptr %2957, align 4
-  %2959 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %2960 = load i32, ptr %2959, align 8
-  %2961 = xor i32 %2958, %2960
-  %2962 = call i32 @rotr32(i32 noundef %2961, i32 noundef 7)
-  %2963 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %2962, ptr %2963, align 4
-  br label %2964
-
-2964:                                             ; preds = %2901
-  br label %2965
-
-2965:                                             ; preds = %2964
-  %2966 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2967 = load i32, ptr %2966, align 4
-  %2968 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2969 = load i32, ptr %2968, align 8
-  %2970 = add i32 %2967, %2969
-  %2971 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 10), align 2
-  %2972 = zext i8 %2971 to i64
-  %2973 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2972
-  %2974 = load i32, ptr %2973, align 4
-  %2975 = add i32 %2970, %2974
-  %2976 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %2975, ptr %2976, align 4
-  %2977 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %2978 = load i32, ptr %2977, align 16
-  %2979 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2980 = load i32, ptr %2979, align 4
-  %2981 = xor i32 %2978, %2980
-  %2982 = call i32 @rotr32(i32 noundef %2981, i32 noundef 16)
-  %2983 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %2982, ptr %2983, align 16
-  %2984 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %2985 = load i32, ptr %2984, align 4
-  %2986 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %2987 = load i32, ptr %2986, align 16
-  %2988 = add i32 %2985, %2987
+  %2959 = xor i32 %2956, %2958
+  %2960 = call i32 @rotr32(i32 noundef %2959, i32 noundef 12)
+  %2961 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %2960, ptr %2961, align 4
+  %2962 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2963 = load i32, ptr %2962, align 4
+  %2964 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2965 = load i32, ptr %2964, align 4
+  %2966 = add i32 %2963, %2965
+  %2967 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 7
+  %2968 = load i8, ptr %2967, align 1
+  %2969 = zext i8 %2968 to i64
+  %2970 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %2969
+  %2971 = load i32, ptr %2970, align 4
+  %2972 = add i32 %2966, %2971
+  %2973 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %2972, ptr %2973, align 4
+  %2974 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %2975 = load i32, ptr %2974, align 4
+  %2976 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %2977 = load i32, ptr %2976, align 4
+  %2978 = xor i32 %2975, %2977
+  %2979 = call i32 @rotr32(i32 noundef %2978, i32 noundef 8)
+  %2980 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %2979, ptr %2980, align 4
+  %2981 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %2982 = load i32, ptr %2981, align 4
+  %2983 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %2984 = load i32, ptr %2983, align 4
+  %2985 = add i32 %2982, %2984
+  %2986 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %2985, ptr %2986, align 4
+  %2987 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %2988 = load i32, ptr %2987, align 4
   %2989 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %2988, ptr %2989, align 4
-  %2990 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %2991 = load i32, ptr %2990, align 8
-  %2992 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %2993 = load i32, ptr %2992, align 4
-  %2994 = xor i32 %2991, %2993
-  %2995 = call i32 @rotr32(i32 noundef %2994, i32 noundef 12)
-  %2996 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %2995, ptr %2996, align 8
-  %2997 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %2998 = load i32, ptr %2997, align 4
-  %2999 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3000 = load i32, ptr %2999, align 8
-  %3001 = add i32 %2998, %3000
-  %3002 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 11), align 1
+  %2990 = load i32, ptr %2989, align 4
+  %2991 = xor i32 %2988, %2990
+  %2992 = call i32 @rotr32(i32 noundef %2991, i32 noundef 7)
+  %2993 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %2992, ptr %2993, align 4
+  br label %2994
+
+2994:                                             ; preds = %2929
+  br label %2995
+
+2995:                                             ; preds = %2994
+  %2996 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %2997 = load i32, ptr %2996, align 16
+  %2998 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %2999 = load i32, ptr %2998, align 4
+  %3000 = add i32 %2997, %2999
+  %3001 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 8
+  %3002 = load i8, ptr %3001, align 8
   %3003 = zext i8 %3002 to i64
   %3004 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3003
   %3005 = load i32, ptr %3004, align 4
-  %3006 = add i32 %3001, %3005
-  %3007 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %3006, ptr %3007, align 4
-  %3008 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3009 = load i32, ptr %3008, align 16
-  %3010 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %3011 = load i32, ptr %3010, align 4
+  %3006 = add i32 %3000, %3005
+  %3007 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %3006, ptr %3007, align 16
+  %3008 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3009 = load i32, ptr %3008, align 4
+  %3010 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3011 = load i32, ptr %3010, align 16
   %3012 = xor i32 %3009, %3011
-  %3013 = call i32 @rotr32(i32 noundef %3012, i32 noundef 8)
-  %3014 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %3013, ptr %3014, align 16
-  %3015 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %3016 = load i32, ptr %3015, align 4
-  %3017 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3018 = load i32, ptr %3017, align 16
+  %3013 = call i32 @rotr32(i32 noundef %3012, i32 noundef 16)
+  %3014 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %3013, ptr %3014, align 4
+  %3015 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3016 = load i32, ptr %3015, align 8
+  %3017 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3018 = load i32, ptr %3017, align 4
   %3019 = add i32 %3016, %3018
-  %3020 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %3019, ptr %3020, align 4
-  %3021 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3022 = load i32, ptr %3021, align 8
-  %3023 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %3024 = load i32, ptr %3023, align 4
+  %3020 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %3019, ptr %3020, align 8
+  %3021 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %3022 = load i32, ptr %3021, align 4
+  %3023 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3024 = load i32, ptr %3023, align 8
   %3025 = xor i32 %3022, %3024
-  %3026 = call i32 @rotr32(i32 noundef %3025, i32 noundef 7)
-  %3027 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %3026, ptr %3027, align 8
-  br label %3028
+  %3026 = call i32 @rotr32(i32 noundef %3025, i32 noundef 12)
+  %3027 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %3026, ptr %3027, align 4
+  %3028 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3029 = load i32, ptr %3028, align 16
+  %3030 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %3031 = load i32, ptr %3030, align 4
+  %3032 = add i32 %3029, %3031
+  %3033 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 9
+  %3034 = load i8, ptr %3033, align 1
+  %3035 = zext i8 %3034 to i64
+  %3036 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3035
+  %3037 = load i32, ptr %3036, align 4
+  %3038 = add i32 %3032, %3037
+  %3039 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %3038, ptr %3039, align 16
+  %3040 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3041 = load i32, ptr %3040, align 4
+  %3042 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3043 = load i32, ptr %3042, align 16
+  %3044 = xor i32 %3041, %3043
+  %3045 = call i32 @rotr32(i32 noundef %3044, i32 noundef 8)
+  %3046 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %3045, ptr %3046, align 4
+  %3047 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3048 = load i32, ptr %3047, align 8
+  %3049 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3050 = load i32, ptr %3049, align 4
+  %3051 = add i32 %3048, %3050
+  %3052 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %3051, ptr %3052, align 8
+  %3053 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %3054 = load i32, ptr %3053, align 4
+  %3055 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3056 = load i32, ptr %3055, align 8
+  %3057 = xor i32 %3054, %3056
+  %3058 = call i32 @rotr32(i32 noundef %3057, i32 noundef 7)
+  %3059 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %3058, ptr %3059, align 4
+  br label %3060
 
-3028:                                             ; preds = %2965
-  br label %3029
+3060:                                             ; preds = %2995
+  br label %3061
 
-3029:                                             ; preds = %3028
-  %3030 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3031 = load i32, ptr %3030, align 8
-  %3032 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3033 = load i32, ptr %3032, align 4
-  %3034 = add i32 %3031, %3033
-  %3035 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 12), align 4
-  %3036 = zext i8 %3035 to i64
-  %3037 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3036
-  %3038 = load i32, ptr %3037, align 4
-  %3039 = add i32 %3034, %3038
-  %3040 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %3039, ptr %3040, align 8
-  %3041 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3042 = load i32, ptr %3041, align 4
-  %3043 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3044 = load i32, ptr %3043, align 8
-  %3045 = xor i32 %3042, %3044
-  %3046 = call i32 @rotr32(i32 noundef %3045, i32 noundef 16)
-  %3047 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %3046, ptr %3047, align 4
-  %3048 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3049 = load i32, ptr %3048, align 16
-  %3050 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3051 = load i32, ptr %3050, align 4
-  %3052 = add i32 %3049, %3051
-  %3053 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %3052, ptr %3053, align 16
-  %3054 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3055 = load i32, ptr %3054, align 4
-  %3056 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3057 = load i32, ptr %3056, align 16
-  %3058 = xor i32 %3055, %3057
-  %3059 = call i32 @rotr32(i32 noundef %3058, i32 noundef 12)
-  %3060 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %3059, ptr %3060, align 4
-  %3061 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3062 = load i32, ptr %3061, align 8
-  %3063 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3064 = load i32, ptr %3063, align 4
-  %3065 = add i32 %3062, %3064
-  %3066 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 13), align 1
-  %3067 = zext i8 %3066 to i64
-  %3068 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3067
-  %3069 = load i32, ptr %3068, align 4
-  %3070 = add i32 %3065, %3069
-  %3071 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %3070, ptr %3071, align 8
-  %3072 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3073 = load i32, ptr %3072, align 4
-  %3074 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3075 = load i32, ptr %3074, align 8
-  %3076 = xor i32 %3073, %3075
-  %3077 = call i32 @rotr32(i32 noundef %3076, i32 noundef 8)
-  %3078 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %3077, ptr %3078, align 4
-  %3079 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3080 = load i32, ptr %3079, align 16
-  %3081 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+3061:                                             ; preds = %3060
+  %3062 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3063 = load i32, ptr %3062, align 4
+  %3064 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3065 = load i32, ptr %3064, align 8
+  %3066 = add i32 %3063, %3065
+  %3067 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 10
+  %3068 = load i8, ptr %3067, align 2
+  %3069 = zext i8 %3068 to i64
+  %3070 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3069
+  %3071 = load i32, ptr %3070, align 4
+  %3072 = add i32 %3066, %3071
+  %3073 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %3072, ptr %3073, align 4
+  %3074 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3075 = load i32, ptr %3074, align 16
+  %3076 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3077 = load i32, ptr %3076, align 4
+  %3078 = xor i32 %3075, %3077
+  %3079 = call i32 @rotr32(i32 noundef %3078, i32 noundef 16)
+  %3080 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %3079, ptr %3080, align 16
+  %3081 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %3082 = load i32, ptr %3081, align 4
-  %3083 = add i32 %3080, %3082
-  %3084 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %3083, ptr %3084, align 16
-  %3085 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3086 = load i32, ptr %3085, align 4
-  %3087 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3088 = load i32, ptr %3087, align 16
-  %3089 = xor i32 %3086, %3088
-  %3090 = call i32 @rotr32(i32 noundef %3089, i32 noundef 7)
-  %3091 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %3090, ptr %3091, align 4
-  br label %3092
-
-3092:                                             ; preds = %3029
-  br label %3093
-
-3093:                                             ; preds = %3092
-  %3094 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %3083 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3084 = load i32, ptr %3083, align 16
+  %3085 = add i32 %3082, %3084
+  %3086 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %3085, ptr %3086, align 4
+  %3087 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3088 = load i32, ptr %3087, align 8
+  %3089 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3090 = load i32, ptr %3089, align 4
+  %3091 = xor i32 %3088, %3090
+  %3092 = call i32 @rotr32(i32 noundef %3091, i32 noundef 12)
+  %3093 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %3092, ptr %3093, align 8
+  %3094 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
   %3095 = load i32, ptr %3094, align 4
-  %3096 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3097 = load i32, ptr %3096, align 16
+  %3096 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3097 = load i32, ptr %3096, align 8
   %3098 = add i32 %3095, %3097
-  %3099 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 14), align 2
-  %3100 = zext i8 %3099 to i64
-  %3101 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3100
-  %3102 = load i32, ptr %3101, align 4
-  %3103 = add i32 %3098, %3102
-  %3104 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %3103, ptr %3104, align 4
-  %3105 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3106 = load i32, ptr %3105, align 8
-  %3107 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3108 = load i32, ptr %3107, align 4
-  %3109 = xor i32 %3106, %3108
-  %3110 = call i32 @rotr32(i32 noundef %3109, i32 noundef 16)
-  %3111 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %3110, ptr %3111, align 8
-  %3112 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3113 = load i32, ptr %3112, align 4
-  %3114 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3115 = load i32, ptr %3114, align 8
-  %3116 = add i32 %3113, %3115
-  %3117 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %3116, ptr %3117, align 4
-  %3118 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3119 = load i32, ptr %3118, align 16
-  %3120 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3121 = load i32, ptr %3120, align 4
-  %3122 = xor i32 %3119, %3121
-  %3123 = call i32 @rotr32(i32 noundef %3122, i32 noundef 12)
-  %3124 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %3123, ptr %3124, align 16
-  %3125 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3126 = load i32, ptr %3125, align 4
-  %3127 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3128 = load i32, ptr %3127, align 16
-  %3129 = add i32 %3126, %3128
-  %3130 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 15), align 1
-  %3131 = zext i8 %3130 to i64
-  %3132 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3131
-  %3133 = load i32, ptr %3132, align 4
-  %3134 = add i32 %3129, %3133
-  %3135 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %3134, ptr %3135, align 4
-  %3136 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3137 = load i32, ptr %3136, align 8
-  %3138 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3139 = load i32, ptr %3138, align 4
-  %3140 = xor i32 %3137, %3139
-  %3141 = call i32 @rotr32(i32 noundef %3140, i32 noundef 8)
-  %3142 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %3141, ptr %3142, align 8
-  %3143 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3144 = load i32, ptr %3143, align 4
-  %3145 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3146 = load i32, ptr %3145, align 8
-  %3147 = add i32 %3144, %3146
-  %3148 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %3147, ptr %3148, align 4
-  %3149 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3150 = load i32, ptr %3149, align 16
-  %3151 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3152 = load i32, ptr %3151, align 4
-  %3153 = xor i32 %3150, %3152
-  %3154 = call i32 @rotr32(i32 noundef %3153, i32 noundef 7)
-  %3155 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %3154, ptr %3155, align 16
-  br label %3156
+  %3099 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 11
+  %3100 = load i8, ptr %3099, align 1
+  %3101 = zext i8 %3100 to i64
+  %3102 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3101
+  %3103 = load i32, ptr %3102, align 4
+  %3104 = add i32 %3098, %3103
+  %3105 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %3104, ptr %3105, align 4
+  %3106 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3107 = load i32, ptr %3106, align 16
+  %3108 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3109 = load i32, ptr %3108, align 4
+  %3110 = xor i32 %3107, %3109
+  %3111 = call i32 @rotr32(i32 noundef %3110, i32 noundef 8)
+  %3112 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %3111, ptr %3112, align 16
+  %3113 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3114 = load i32, ptr %3113, align 4
+  %3115 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3116 = load i32, ptr %3115, align 16
+  %3117 = add i32 %3114, %3116
+  %3118 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %3117, ptr %3118, align 4
+  %3119 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3120 = load i32, ptr %3119, align 8
+  %3121 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3122 = load i32, ptr %3121, align 4
+  %3123 = xor i32 %3120, %3122
+  %3124 = call i32 @rotr32(i32 noundef %3123, i32 noundef 7)
+  %3125 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %3124, ptr %3125, align 8
+  br label %3126
 
-3156:                                             ; preds = %3093
-  br label %3157
+3126:                                             ; preds = %3061
+  br label %3127
 
-3157:                                             ; preds = %3156
-  br label %3158
-
-3158:                                             ; preds = %3157
-  br label %3159
-
-3159:                                             ; preds = %3158
-  %3160 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3161 = load i32, ptr %3160, align 16
-  %3162 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3163 = load i32, ptr %3162, align 16
+3127:                                             ; preds = %3126
+  %3128 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3129 = load i32, ptr %3128, align 8
+  %3130 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3131 = load i32, ptr %3130, align 4
+  %3132 = add i32 %3129, %3131
+  %3133 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 12
+  %3134 = load i8, ptr %3133, align 4
+  %3135 = zext i8 %3134 to i64
+  %3136 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3135
+  %3137 = load i32, ptr %3136, align 4
+  %3138 = add i32 %3132, %3137
+  %3139 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %3138, ptr %3139, align 8
+  %3140 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3141 = load i32, ptr %3140, align 4
+  %3142 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3143 = load i32, ptr %3142, align 8
+  %3144 = xor i32 %3141, %3143
+  %3145 = call i32 @rotr32(i32 noundef %3144, i32 noundef 16)
+  %3146 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %3145, ptr %3146, align 4
+  %3147 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3148 = load i32, ptr %3147, align 16
+  %3149 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3150 = load i32, ptr %3149, align 4
+  %3151 = add i32 %3148, %3150
+  %3152 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %3151, ptr %3152, align 16
+  %3153 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3154 = load i32, ptr %3153, align 4
+  %3155 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3156 = load i32, ptr %3155, align 16
+  %3157 = xor i32 %3154, %3156
+  %3158 = call i32 @rotr32(i32 noundef %3157, i32 noundef 12)
+  %3159 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %3158, ptr %3159, align 4
+  %3160 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3161 = load i32, ptr %3160, align 8
+  %3162 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3163 = load i32, ptr %3162, align 4
   %3164 = add i32 %3161, %3163
-  %3165 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6), align 16
-  %3166 = zext i8 %3165 to i64
-  %3167 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3166
-  %3168 = load i32, ptr %3167, align 4
-  %3169 = add i32 %3164, %3168
-  %3170 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %3169, ptr %3170, align 16
-  %3171 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3172 = load i32, ptr %3171, align 16
-  %3173 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3174 = load i32, ptr %3173, align 16
-  %3175 = xor i32 %3172, %3174
-  %3176 = call i32 @rotr32(i32 noundef %3175, i32 noundef 16)
-  %3177 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %3176, ptr %3177, align 16
-  %3178 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3179 = load i32, ptr %3178, align 16
-  %3180 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3181 = load i32, ptr %3180, align 16
-  %3182 = add i32 %3179, %3181
-  %3183 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %3182, ptr %3183, align 16
-  %3184 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3185 = load i32, ptr %3184, align 16
-  %3186 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3187 = load i32, ptr %3186, align 16
-  %3188 = xor i32 %3185, %3187
-  %3189 = call i32 @rotr32(i32 noundef %3188, i32 noundef 12)
-  %3190 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %3189, ptr %3190, align 16
-  %3191 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3192 = load i32, ptr %3191, align 16
-  %3193 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3194 = load i32, ptr %3193, align 16
-  %3195 = add i32 %3192, %3194
-  %3196 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 1), align 1
-  %3197 = zext i8 %3196 to i64
-  %3198 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3197
-  %3199 = load i32, ptr %3198, align 4
-  %3200 = add i32 %3195, %3199
-  %3201 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %3200, ptr %3201, align 16
-  %3202 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3203 = load i32, ptr %3202, align 16
-  %3204 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3205 = load i32, ptr %3204, align 16
-  %3206 = xor i32 %3203, %3205
-  %3207 = call i32 @rotr32(i32 noundef %3206, i32 noundef 8)
-  %3208 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %3207, ptr %3208, align 16
-  %3209 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3210 = load i32, ptr %3209, align 16
-  %3211 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3212 = load i32, ptr %3211, align 16
-  %3213 = add i32 %3210, %3212
-  %3214 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %3213, ptr %3214, align 16
-  %3215 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3216 = load i32, ptr %3215, align 16
-  %3217 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3218 = load i32, ptr %3217, align 16
-  %3219 = xor i32 %3216, %3218
-  %3220 = call i32 @rotr32(i32 noundef %3219, i32 noundef 7)
-  %3221 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %3220, ptr %3221, align 16
-  br label %3222
+  %3165 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 13
+  %3166 = load i8, ptr %3165, align 1
+  %3167 = zext i8 %3166 to i64
+  %3168 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3167
+  %3169 = load i32, ptr %3168, align 4
+  %3170 = add i32 %3164, %3169
+  %3171 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %3170, ptr %3171, align 8
+  %3172 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3173 = load i32, ptr %3172, align 4
+  %3174 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3175 = load i32, ptr %3174, align 8
+  %3176 = xor i32 %3173, %3175
+  %3177 = call i32 @rotr32(i32 noundef %3176, i32 noundef 8)
+  %3178 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %3177, ptr %3178, align 4
+  %3179 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3180 = load i32, ptr %3179, align 16
+  %3181 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3182 = load i32, ptr %3181, align 4
+  %3183 = add i32 %3180, %3182
+  %3184 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %3183, ptr %3184, align 16
+  %3185 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3186 = load i32, ptr %3185, align 4
+  %3187 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3188 = load i32, ptr %3187, align 16
+  %3189 = xor i32 %3186, %3188
+  %3190 = call i32 @rotr32(i32 noundef %3189, i32 noundef 7)
+  %3191 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %3190, ptr %3191, align 4
+  br label %3192
 
-3222:                                             ; preds = %3159
-  br label %3223
+3192:                                             ; preds = %3127
+  br label %3193
 
-3223:                                             ; preds = %3222
-  %3224 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %3225 = load i32, ptr %3224, align 4
-  %3226 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+3193:                                             ; preds = %3192
+  %3194 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %3195 = load i32, ptr %3194, align 4
+  %3196 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3197 = load i32, ptr %3196, align 16
+  %3198 = add i32 %3195, %3197
+  %3199 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 14
+  %3200 = load i8, ptr %3199, align 2
+  %3201 = zext i8 %3200 to i64
+  %3202 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3201
+  %3203 = load i32, ptr %3202, align 4
+  %3204 = add i32 %3198, %3203
+  %3205 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %3204, ptr %3205, align 4
+  %3206 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3207 = load i32, ptr %3206, align 8
+  %3208 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %3209 = load i32, ptr %3208, align 4
+  %3210 = xor i32 %3207, %3209
+  %3211 = call i32 @rotr32(i32 noundef %3210, i32 noundef 16)
+  %3212 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %3211, ptr %3212, align 8
+  %3213 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3214 = load i32, ptr %3213, align 4
+  %3215 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3216 = load i32, ptr %3215, align 8
+  %3217 = add i32 %3214, %3216
+  %3218 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %3217, ptr %3218, align 4
+  %3219 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3220 = load i32, ptr %3219, align 16
+  %3221 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3222 = load i32, ptr %3221, align 4
+  %3223 = xor i32 %3220, %3222
+  %3224 = call i32 @rotr32(i32 noundef %3223, i32 noundef 12)
+  %3225 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %3224, ptr %3225, align 16
+  %3226 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %3227 = load i32, ptr %3226, align 4
-  %3228 = add i32 %3225, %3227
-  %3229 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 2), align 2
-  %3230 = zext i8 %3229 to i64
-  %3231 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3230
-  %3232 = load i32, ptr %3231, align 4
-  %3233 = add i32 %3228, %3232
-  %3234 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %3233, ptr %3234, align 4
-  %3235 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3236 = load i32, ptr %3235, align 4
-  %3237 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %3238 = load i32, ptr %3237, align 4
-  %3239 = xor i32 %3236, %3238
-  %3240 = call i32 @rotr32(i32 noundef %3239, i32 noundef 16)
-  %3241 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %3240, ptr %3241, align 4
-  %3242 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3243 = load i32, ptr %3242, align 4
-  %3244 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3245 = load i32, ptr %3244, align 4
-  %3246 = add i32 %3243, %3245
-  %3247 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %3246, ptr %3247, align 4
-  %3248 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3249 = load i32, ptr %3248, align 4
+  %3228 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3229 = load i32, ptr %3228, align 16
+  %3230 = add i32 %3227, %3229
+  %3231 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 5, i64 15
+  %3232 = load i8, ptr %3231, align 1
+  %3233 = zext i8 %3232 to i64
+  %3234 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3233
+  %3235 = load i32, ptr %3234, align 4
+  %3236 = add i32 %3230, %3235
+  %3237 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %3236, ptr %3237, align 4
+  %3238 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3239 = load i32, ptr %3238, align 8
+  %3240 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %3241 = load i32, ptr %3240, align 4
+  %3242 = xor i32 %3239, %3241
+  %3243 = call i32 @rotr32(i32 noundef %3242, i32 noundef 8)
+  %3244 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %3243, ptr %3244, align 8
+  %3245 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3246 = load i32, ptr %3245, align 4
+  %3247 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3248 = load i32, ptr %3247, align 8
+  %3249 = add i32 %3246, %3248
   %3250 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3251 = load i32, ptr %3250, align 4
-  %3252 = xor i32 %3249, %3251
-  %3253 = call i32 @rotr32(i32 noundef %3252, i32 noundef 12)
-  %3254 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %3253, ptr %3254, align 4
-  %3255 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %3256 = load i32, ptr %3255, align 4
-  %3257 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3258 = load i32, ptr %3257, align 4
-  %3259 = add i32 %3256, %3258
-  %3260 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 3), align 1
-  %3261 = zext i8 %3260 to i64
-  %3262 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3261
-  %3263 = load i32, ptr %3262, align 4
-  %3264 = add i32 %3259, %3263
-  %3265 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %3264, ptr %3265, align 4
-  %3266 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3267 = load i32, ptr %3266, align 4
-  %3268 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %3269 = load i32, ptr %3268, align 4
-  %3270 = xor i32 %3267, %3269
-  %3271 = call i32 @rotr32(i32 noundef %3270, i32 noundef 8)
-  %3272 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %3271, ptr %3272, align 4
-  %3273 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3274 = load i32, ptr %3273, align 4
-  %3275 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3276 = load i32, ptr %3275, align 4
-  %3277 = add i32 %3274, %3276
-  %3278 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %3277, ptr %3278, align 4
-  %3279 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3280 = load i32, ptr %3279, align 4
-  %3281 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3282 = load i32, ptr %3281, align 4
-  %3283 = xor i32 %3280, %3282
-  %3284 = call i32 @rotr32(i32 noundef %3283, i32 noundef 7)
-  %3285 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %3284, ptr %3285, align 4
-  br label %3286
+  store i32 %3249, ptr %3250, align 4
+  %3251 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3252 = load i32, ptr %3251, align 16
+  %3253 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3254 = load i32, ptr %3253, align 4
+  %3255 = xor i32 %3252, %3254
+  %3256 = call i32 @rotr32(i32 noundef %3255, i32 noundef 7)
+  %3257 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %3256, ptr %3257, align 16
+  br label %3258
 
-3286:                                             ; preds = %3223
-  br label %3287
+3258:                                             ; preds = %3193
+  br label %3259
 
-3287:                                             ; preds = %3286
-  %3288 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3289 = load i32, ptr %3288, align 8
-  %3290 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3291 = load i32, ptr %3290, align 8
-  %3292 = add i32 %3289, %3291
-  %3293 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 4), align 4
-  %3294 = zext i8 %3293 to i64
-  %3295 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3294
-  %3296 = load i32, ptr %3295, align 4
-  %3297 = add i32 %3292, %3296
-  %3298 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %3297, ptr %3298, align 8
-  %3299 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3300 = load i32, ptr %3299, align 8
-  %3301 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3302 = load i32, ptr %3301, align 8
-  %3303 = xor i32 %3300, %3302
-  %3304 = call i32 @rotr32(i32 noundef %3303, i32 noundef 16)
-  %3305 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %3304, ptr %3305, align 8
-  %3306 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3307 = load i32, ptr %3306, align 8
-  %3308 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3309 = load i32, ptr %3308, align 8
-  %3310 = add i32 %3307, %3309
-  %3311 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %3310, ptr %3311, align 8
-  %3312 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3313 = load i32, ptr %3312, align 8
-  %3314 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3315 = load i32, ptr %3314, align 8
-  %3316 = xor i32 %3313, %3315
-  %3317 = call i32 @rotr32(i32 noundef %3316, i32 noundef 12)
-  %3318 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %3317, ptr %3318, align 8
-  %3319 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3320 = load i32, ptr %3319, align 8
-  %3321 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3322 = load i32, ptr %3321, align 8
-  %3323 = add i32 %3320, %3322
-  %3324 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 5), align 1
-  %3325 = zext i8 %3324 to i64
-  %3326 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3325
-  %3327 = load i32, ptr %3326, align 4
-  %3328 = add i32 %3323, %3327
-  %3329 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %3328, ptr %3329, align 8
-  %3330 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3331 = load i32, ptr %3330, align 8
-  %3332 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3333 = load i32, ptr %3332, align 8
-  %3334 = xor i32 %3331, %3333
-  %3335 = call i32 @rotr32(i32 noundef %3334, i32 noundef 8)
-  %3336 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %3335, ptr %3336, align 8
-  %3337 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3338 = load i32, ptr %3337, align 8
-  %3339 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3340 = load i32, ptr %3339, align 8
-  %3341 = add i32 %3338, %3340
-  %3342 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %3341, ptr %3342, align 8
-  %3343 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3344 = load i32, ptr %3343, align 8
-  %3345 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3346 = load i32, ptr %3345, align 8
-  %3347 = xor i32 %3344, %3346
-  %3348 = call i32 @rotr32(i32 noundef %3347, i32 noundef 7)
-  %3349 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %3348, ptr %3349, align 8
-  br label %3350
+3259:                                             ; preds = %3258
+  br label %3260
 
-3350:                                             ; preds = %3287
-  br label %3351
+3260:                                             ; preds = %3259
+  br label %3261
 
-3351:                                             ; preds = %3350
-  %3352 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3353 = load i32, ptr %3352, align 4
-  %3354 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3355 = load i32, ptr %3354, align 4
-  %3356 = add i32 %3353, %3355
-  %3357 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 6), align 2
-  %3358 = zext i8 %3357 to i64
-  %3359 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3358
-  %3360 = load i32, ptr %3359, align 4
-  %3361 = add i32 %3356, %3360
-  %3362 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %3361, ptr %3362, align 4
-  %3363 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3364 = load i32, ptr %3363, align 4
-  %3365 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3366 = load i32, ptr %3365, align 4
-  %3367 = xor i32 %3364, %3366
-  %3368 = call i32 @rotr32(i32 noundef %3367, i32 noundef 16)
-  %3369 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %3368, ptr %3369, align 4
-  %3370 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %3371 = load i32, ptr %3370, align 4
-  %3372 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+3261:                                             ; preds = %3260
+  %3262 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3263 = load i32, ptr %3262, align 16
+  %3264 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3265 = load i32, ptr %3264, align 16
+  %3266 = add i32 %3263, %3265
+  %3267 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6
+  %3268 = load i8, ptr %3267, align 16
+  %3269 = zext i8 %3268 to i64
+  %3270 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3269
+  %3271 = load i32, ptr %3270, align 4
+  %3272 = add i32 %3266, %3271
+  %3273 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %3272, ptr %3273, align 16
+  %3274 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3275 = load i32, ptr %3274, align 16
+  %3276 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3277 = load i32, ptr %3276, align 16
+  %3278 = xor i32 %3275, %3277
+  %3279 = call i32 @rotr32(i32 noundef %3278, i32 noundef 16)
+  %3280 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %3279, ptr %3280, align 16
+  %3281 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3282 = load i32, ptr %3281, align 16
+  %3283 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3284 = load i32, ptr %3283, align 16
+  %3285 = add i32 %3282, %3284
+  %3286 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %3285, ptr %3286, align 16
+  %3287 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3288 = load i32, ptr %3287, align 16
+  %3289 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3290 = load i32, ptr %3289, align 16
+  %3291 = xor i32 %3288, %3290
+  %3292 = call i32 @rotr32(i32 noundef %3291, i32 noundef 12)
+  %3293 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %3292, ptr %3293, align 16
+  %3294 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3295 = load i32, ptr %3294, align 16
+  %3296 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3297 = load i32, ptr %3296, align 16
+  %3298 = add i32 %3295, %3297
+  %3299 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 1
+  %3300 = load i8, ptr %3299, align 1
+  %3301 = zext i8 %3300 to i64
+  %3302 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3301
+  %3303 = load i32, ptr %3302, align 4
+  %3304 = add i32 %3298, %3303
+  %3305 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %3304, ptr %3305, align 16
+  %3306 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3307 = load i32, ptr %3306, align 16
+  %3308 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3309 = load i32, ptr %3308, align 16
+  %3310 = xor i32 %3307, %3309
+  %3311 = call i32 @rotr32(i32 noundef %3310, i32 noundef 8)
+  %3312 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %3311, ptr %3312, align 16
+  %3313 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3314 = load i32, ptr %3313, align 16
+  %3315 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3316 = load i32, ptr %3315, align 16
+  %3317 = add i32 %3314, %3316
+  %3318 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %3317, ptr %3318, align 16
+  %3319 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3320 = load i32, ptr %3319, align 16
+  %3321 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3322 = load i32, ptr %3321, align 16
+  %3323 = xor i32 %3320, %3322
+  %3324 = call i32 @rotr32(i32 noundef %3323, i32 noundef 7)
+  %3325 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %3324, ptr %3325, align 16
+  br label %3326
+
+3326:                                             ; preds = %3261
+  br label %3327
+
+3327:                                             ; preds = %3326
+  %3328 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3329 = load i32, ptr %3328, align 4
+  %3330 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %3331 = load i32, ptr %3330, align 4
+  %3332 = add i32 %3329, %3331
+  %3333 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 2
+  %3334 = load i8, ptr %3333, align 2
+  %3335 = zext i8 %3334 to i64
+  %3336 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3335
+  %3337 = load i32, ptr %3336, align 4
+  %3338 = add i32 %3332, %3337
+  %3339 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %3338, ptr %3339, align 4
+  %3340 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3341 = load i32, ptr %3340, align 4
+  %3342 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3343 = load i32, ptr %3342, align 4
+  %3344 = xor i32 %3341, %3343
+  %3345 = call i32 @rotr32(i32 noundef %3344, i32 noundef 16)
+  %3346 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %3345, ptr %3346, align 4
+  %3347 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3348 = load i32, ptr %3347, align 4
+  %3349 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3350 = load i32, ptr %3349, align 4
+  %3351 = add i32 %3348, %3350
+  %3352 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %3351, ptr %3352, align 4
+  %3353 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %3354 = load i32, ptr %3353, align 4
+  %3355 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3356 = load i32, ptr %3355, align 4
+  %3357 = xor i32 %3354, %3356
+  %3358 = call i32 @rotr32(i32 noundef %3357, i32 noundef 12)
+  %3359 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %3358, ptr %3359, align 4
+  %3360 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3361 = load i32, ptr %3360, align 4
+  %3362 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %3363 = load i32, ptr %3362, align 4
+  %3364 = add i32 %3361, %3363
+  %3365 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 3
+  %3366 = load i8, ptr %3365, align 1
+  %3367 = zext i8 %3366 to i64
+  %3368 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3367
+  %3369 = load i32, ptr %3368, align 4
+  %3370 = add i32 %3364, %3369
+  %3371 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %3370, ptr %3371, align 4
+  %3372 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
   %3373 = load i32, ptr %3372, align 4
-  %3374 = add i32 %3371, %3373
-  %3375 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %3374, ptr %3375, align 4
-  %3376 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3377 = load i32, ptr %3376, align 4
-  %3378 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %3379 = load i32, ptr %3378, align 4
-  %3380 = xor i32 %3377, %3379
-  %3381 = call i32 @rotr32(i32 noundef %3380, i32 noundef 12)
-  %3382 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %3381, ptr %3382, align 4
-  %3383 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3384 = load i32, ptr %3383, align 4
-  %3385 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3374 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3375 = load i32, ptr %3374, align 4
+  %3376 = xor i32 %3373, %3375
+  %3377 = call i32 @rotr32(i32 noundef %3376, i32 noundef 8)
+  %3378 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %3377, ptr %3378, align 4
+  %3379 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3380 = load i32, ptr %3379, align 4
+  %3381 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3382 = load i32, ptr %3381, align 4
+  %3383 = add i32 %3380, %3382
+  %3384 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %3383, ptr %3384, align 4
+  %3385 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %3386 = load i32, ptr %3385, align 4
-  %3387 = add i32 %3384, %3386
-  %3388 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 7), align 1
-  %3389 = zext i8 %3388 to i64
-  %3390 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3389
-  %3391 = load i32, ptr %3390, align 4
-  %3392 = add i32 %3387, %3391
-  %3393 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %3392, ptr %3393, align 4
-  %3394 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3395 = load i32, ptr %3394, align 4
-  %3396 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3397 = load i32, ptr %3396, align 4
-  %3398 = xor i32 %3395, %3397
-  %3399 = call i32 @rotr32(i32 noundef %3398, i32 noundef 8)
-  %3400 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %3399, ptr %3400, align 4
-  %3401 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %3402 = load i32, ptr %3401, align 4
-  %3403 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3404 = load i32, ptr %3403, align 4
-  %3405 = add i32 %3402, %3404
-  %3406 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %3405, ptr %3406, align 4
-  %3407 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3408 = load i32, ptr %3407, align 4
-  %3409 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %3410 = load i32, ptr %3409, align 4
-  %3411 = xor i32 %3408, %3410
-  %3412 = call i32 @rotr32(i32 noundef %3411, i32 noundef 7)
-  %3413 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %3412, ptr %3413, align 4
-  br label %3414
+  %3387 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3388 = load i32, ptr %3387, align 4
+  %3389 = xor i32 %3386, %3388
+  %3390 = call i32 @rotr32(i32 noundef %3389, i32 noundef 7)
+  %3391 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %3390, ptr %3391, align 4
+  br label %3392
 
-3414:                                             ; preds = %3351
-  br label %3415
+3392:                                             ; preds = %3327
+  br label %3393
 
-3415:                                             ; preds = %3414
-  %3416 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3417 = load i32, ptr %3416, align 16
-  %3418 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3419 = load i32, ptr %3418, align 4
-  %3420 = add i32 %3417, %3419
-  %3421 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 8), align 8
-  %3422 = zext i8 %3421 to i64
-  %3423 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3422
-  %3424 = load i32, ptr %3423, align 4
-  %3425 = add i32 %3420, %3424
-  %3426 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %3425, ptr %3426, align 16
-  %3427 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3428 = load i32, ptr %3427, align 4
-  %3429 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3430 = load i32, ptr %3429, align 16
-  %3431 = xor i32 %3428, %3430
-  %3432 = call i32 @rotr32(i32 noundef %3431, i32 noundef 16)
-  %3433 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %3432, ptr %3433, align 4
-  %3434 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3435 = load i32, ptr %3434, align 8
-  %3436 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3437 = load i32, ptr %3436, align 4
-  %3438 = add i32 %3435, %3437
-  %3439 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %3438, ptr %3439, align 8
-  %3440 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3441 = load i32, ptr %3440, align 4
-  %3442 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3443 = load i32, ptr %3442, align 8
-  %3444 = xor i32 %3441, %3443
-  %3445 = call i32 @rotr32(i32 noundef %3444, i32 noundef 12)
-  %3446 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %3445, ptr %3446, align 4
-  %3447 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3448 = load i32, ptr %3447, align 16
-  %3449 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3450 = load i32, ptr %3449, align 4
-  %3451 = add i32 %3448, %3450
-  %3452 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 9), align 1
-  %3453 = zext i8 %3452 to i64
-  %3454 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3453
-  %3455 = load i32, ptr %3454, align 4
-  %3456 = add i32 %3451, %3455
-  %3457 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %3456, ptr %3457, align 16
-  %3458 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3459 = load i32, ptr %3458, align 4
-  %3460 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3461 = load i32, ptr %3460, align 16
-  %3462 = xor i32 %3459, %3461
-  %3463 = call i32 @rotr32(i32 noundef %3462, i32 noundef 8)
-  %3464 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %3463, ptr %3464, align 4
-  %3465 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3466 = load i32, ptr %3465, align 8
-  %3467 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3468 = load i32, ptr %3467, align 4
-  %3469 = add i32 %3466, %3468
-  %3470 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %3469, ptr %3470, align 8
-  %3471 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3472 = load i32, ptr %3471, align 4
-  %3473 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3474 = load i32, ptr %3473, align 8
-  %3475 = xor i32 %3472, %3474
-  %3476 = call i32 @rotr32(i32 noundef %3475, i32 noundef 7)
-  %3477 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %3476, ptr %3477, align 4
-  br label %3478
+3393:                                             ; preds = %3392
+  %3394 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3395 = load i32, ptr %3394, align 8
+  %3396 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3397 = load i32, ptr %3396, align 8
+  %3398 = add i32 %3395, %3397
+  %3399 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 4
+  %3400 = load i8, ptr %3399, align 4
+  %3401 = zext i8 %3400 to i64
+  %3402 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3401
+  %3403 = load i32, ptr %3402, align 4
+  %3404 = add i32 %3398, %3403
+  %3405 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %3404, ptr %3405, align 8
+  %3406 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3407 = load i32, ptr %3406, align 8
+  %3408 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3409 = load i32, ptr %3408, align 8
+  %3410 = xor i32 %3407, %3409
+  %3411 = call i32 @rotr32(i32 noundef %3410, i32 noundef 16)
+  %3412 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %3411, ptr %3412, align 8
+  %3413 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3414 = load i32, ptr %3413, align 8
+  %3415 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3416 = load i32, ptr %3415, align 8
+  %3417 = add i32 %3414, %3416
+  %3418 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %3417, ptr %3418, align 8
+  %3419 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3420 = load i32, ptr %3419, align 8
+  %3421 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3422 = load i32, ptr %3421, align 8
+  %3423 = xor i32 %3420, %3422
+  %3424 = call i32 @rotr32(i32 noundef %3423, i32 noundef 12)
+  %3425 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %3424, ptr %3425, align 8
+  %3426 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3427 = load i32, ptr %3426, align 8
+  %3428 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3429 = load i32, ptr %3428, align 8
+  %3430 = add i32 %3427, %3429
+  %3431 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 5
+  %3432 = load i8, ptr %3431, align 1
+  %3433 = zext i8 %3432 to i64
+  %3434 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3433
+  %3435 = load i32, ptr %3434, align 4
+  %3436 = add i32 %3430, %3435
+  %3437 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %3436, ptr %3437, align 8
+  %3438 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3439 = load i32, ptr %3438, align 8
+  %3440 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3441 = load i32, ptr %3440, align 8
+  %3442 = xor i32 %3439, %3441
+  %3443 = call i32 @rotr32(i32 noundef %3442, i32 noundef 8)
+  %3444 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %3443, ptr %3444, align 8
+  %3445 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3446 = load i32, ptr %3445, align 8
+  %3447 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3448 = load i32, ptr %3447, align 8
+  %3449 = add i32 %3446, %3448
+  %3450 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %3449, ptr %3450, align 8
+  %3451 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3452 = load i32, ptr %3451, align 8
+  %3453 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3454 = load i32, ptr %3453, align 8
+  %3455 = xor i32 %3452, %3454
+  %3456 = call i32 @rotr32(i32 noundef %3455, i32 noundef 7)
+  %3457 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %3456, ptr %3457, align 8
+  br label %3458
 
-3478:                                             ; preds = %3415
-  br label %3479
+3458:                                             ; preds = %3393
+  br label %3459
 
-3479:                                             ; preds = %3478
-  %3480 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %3481 = load i32, ptr %3480, align 4
-  %3482 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3483 = load i32, ptr %3482, align 8
-  %3484 = add i32 %3481, %3483
-  %3485 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 10), align 2
-  %3486 = zext i8 %3485 to i64
-  %3487 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3486
+3459:                                             ; preds = %3458
+  %3460 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %3461 = load i32, ptr %3460, align 4
+  %3462 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3463 = load i32, ptr %3462, align 4
+  %3464 = add i32 %3461, %3463
+  %3465 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 6
+  %3466 = load i8, ptr %3465, align 2
+  %3467 = zext i8 %3466 to i64
+  %3468 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3467
+  %3469 = load i32, ptr %3468, align 4
+  %3470 = add i32 %3464, %3469
+  %3471 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %3470, ptr %3471, align 4
+  %3472 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3473 = load i32, ptr %3472, align 4
+  %3474 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %3475 = load i32, ptr %3474, align 4
+  %3476 = xor i32 %3473, %3475
+  %3477 = call i32 @rotr32(i32 noundef %3476, i32 noundef 16)
+  %3478 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %3477, ptr %3478, align 4
+  %3479 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3480 = load i32, ptr %3479, align 4
+  %3481 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3482 = load i32, ptr %3481, align 4
+  %3483 = add i32 %3480, %3482
+  %3484 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %3483, ptr %3484, align 4
+  %3485 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3486 = load i32, ptr %3485, align 4
+  %3487 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %3488 = load i32, ptr %3487, align 4
-  %3489 = add i32 %3484, %3488
-  %3490 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %3489, ptr %3490, align 4
-  %3491 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3492 = load i32, ptr %3491, align 16
-  %3493 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %3494 = load i32, ptr %3493, align 4
-  %3495 = xor i32 %3492, %3494
-  %3496 = call i32 @rotr32(i32 noundef %3495, i32 noundef 16)
-  %3497 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %3496, ptr %3497, align 16
-  %3498 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %3499 = load i32, ptr %3498, align 4
-  %3500 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3501 = load i32, ptr %3500, align 16
-  %3502 = add i32 %3499, %3501
-  %3503 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3489 = xor i32 %3486, %3488
+  %3490 = call i32 @rotr32(i32 noundef %3489, i32 noundef 12)
+  %3491 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %3490, ptr %3491, align 4
+  %3492 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %3493 = load i32, ptr %3492, align 4
+  %3494 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3495 = load i32, ptr %3494, align 4
+  %3496 = add i32 %3493, %3495
+  %3497 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 7
+  %3498 = load i8, ptr %3497, align 1
+  %3499 = zext i8 %3498 to i64
+  %3500 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3499
+  %3501 = load i32, ptr %3500, align 4
+  %3502 = add i32 %3496, %3501
+  %3503 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   store i32 %3502, ptr %3503, align 4
-  %3504 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3505 = load i32, ptr %3504, align 8
-  %3506 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3504 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3505 = load i32, ptr %3504, align 4
+  %3506 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %3507 = load i32, ptr %3506, align 4
   %3508 = xor i32 %3505, %3507
-  %3509 = call i32 @rotr32(i32 noundef %3508, i32 noundef 12)
-  %3510 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %3509, ptr %3510, align 8
-  %3511 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3509 = call i32 @rotr32(i32 noundef %3508, i32 noundef 8)
+  %3510 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %3509, ptr %3510, align 4
+  %3511 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %3512 = load i32, ptr %3511, align 4
-  %3513 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3514 = load i32, ptr %3513, align 8
+  %3513 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3514 = load i32, ptr %3513, align 4
   %3515 = add i32 %3512, %3514
-  %3516 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 11), align 1
-  %3517 = zext i8 %3516 to i64
-  %3518 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3517
-  %3519 = load i32, ptr %3518, align 4
-  %3520 = add i32 %3515, %3519
-  %3521 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %3520, ptr %3521, align 4
-  %3522 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3523 = load i32, ptr %3522, align 16
-  %3524 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %3525 = load i32, ptr %3524, align 4
-  %3526 = xor i32 %3523, %3525
-  %3527 = call i32 @rotr32(i32 noundef %3526, i32 noundef 8)
-  %3528 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %3527, ptr %3528, align 16
-  %3529 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %3530 = load i32, ptr %3529, align 4
-  %3531 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3532 = load i32, ptr %3531, align 16
-  %3533 = add i32 %3530, %3532
-  %3534 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %3533, ptr %3534, align 4
-  %3535 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3536 = load i32, ptr %3535, align 8
-  %3537 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %3538 = load i32, ptr %3537, align 4
-  %3539 = xor i32 %3536, %3538
-  %3540 = call i32 @rotr32(i32 noundef %3539, i32 noundef 7)
-  %3541 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %3540, ptr %3541, align 8
-  br label %3542
+  %3516 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %3515, ptr %3516, align 4
+  %3517 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3518 = load i32, ptr %3517, align 4
+  %3519 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3520 = load i32, ptr %3519, align 4
+  %3521 = xor i32 %3518, %3520
+  %3522 = call i32 @rotr32(i32 noundef %3521, i32 noundef 7)
+  %3523 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %3522, ptr %3523, align 4
+  br label %3524
 
-3542:                                             ; preds = %3479
-  br label %3543
+3524:                                             ; preds = %3459
+  br label %3525
 
-3543:                                             ; preds = %3542
-  %3544 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3545 = load i32, ptr %3544, align 8
-  %3546 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3547 = load i32, ptr %3546, align 4
-  %3548 = add i32 %3545, %3547
-  %3549 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 12), align 4
-  %3550 = zext i8 %3549 to i64
-  %3551 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3550
+3525:                                             ; preds = %3524
+  %3526 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3527 = load i32, ptr %3526, align 16
+  %3528 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %3529 = load i32, ptr %3528, align 4
+  %3530 = add i32 %3527, %3529
+  %3531 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 8
+  %3532 = load i8, ptr %3531, align 8
+  %3533 = zext i8 %3532 to i64
+  %3534 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3533
+  %3535 = load i32, ptr %3534, align 4
+  %3536 = add i32 %3530, %3535
+  %3537 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %3536, ptr %3537, align 16
+  %3538 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3539 = load i32, ptr %3538, align 4
+  %3540 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3541 = load i32, ptr %3540, align 16
+  %3542 = xor i32 %3539, %3541
+  %3543 = call i32 @rotr32(i32 noundef %3542, i32 noundef 16)
+  %3544 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %3543, ptr %3544, align 4
+  %3545 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3546 = load i32, ptr %3545, align 8
+  %3547 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3548 = load i32, ptr %3547, align 4
+  %3549 = add i32 %3546, %3548
+  %3550 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %3549, ptr %3550, align 8
+  %3551 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %3552 = load i32, ptr %3551, align 4
-  %3553 = add i32 %3548, %3552
-  %3554 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %3553, ptr %3554, align 8
-  %3555 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3556 = load i32, ptr %3555, align 4
-  %3557 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3558 = load i32, ptr %3557, align 8
-  %3559 = xor i32 %3556, %3558
-  %3560 = call i32 @rotr32(i32 noundef %3559, i32 noundef 16)
-  %3561 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %3560, ptr %3561, align 4
-  %3562 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3563 = load i32, ptr %3562, align 16
-  %3564 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3565 = load i32, ptr %3564, align 4
-  %3566 = add i32 %3563, %3565
-  %3567 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %3566, ptr %3567, align 16
-  %3568 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3569 = load i32, ptr %3568, align 4
-  %3570 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3571 = load i32, ptr %3570, align 16
-  %3572 = xor i32 %3569, %3571
-  %3573 = call i32 @rotr32(i32 noundef %3572, i32 noundef 12)
-  %3574 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %3573, ptr %3574, align 4
-  %3575 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3576 = load i32, ptr %3575, align 8
-  %3577 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3578 = load i32, ptr %3577, align 4
-  %3579 = add i32 %3576, %3578
-  %3580 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 13), align 1
-  %3581 = zext i8 %3580 to i64
-  %3582 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3581
-  %3583 = load i32, ptr %3582, align 4
-  %3584 = add i32 %3579, %3583
-  %3585 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %3584, ptr %3585, align 8
-  %3586 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3587 = load i32, ptr %3586, align 4
-  %3588 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3589 = load i32, ptr %3588, align 8
-  %3590 = xor i32 %3587, %3589
-  %3591 = call i32 @rotr32(i32 noundef %3590, i32 noundef 8)
-  %3592 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %3591, ptr %3592, align 4
-  %3593 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3594 = load i32, ptr %3593, align 16
-  %3595 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3596 = load i32, ptr %3595, align 4
-  %3597 = add i32 %3594, %3596
-  %3598 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %3597, ptr %3598, align 16
-  %3599 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3600 = load i32, ptr %3599, align 4
-  %3601 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3602 = load i32, ptr %3601, align 16
-  %3603 = xor i32 %3600, %3602
-  %3604 = call i32 @rotr32(i32 noundef %3603, i32 noundef 7)
-  %3605 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %3604, ptr %3605, align 4
-  br label %3606
+  %3553 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3554 = load i32, ptr %3553, align 8
+  %3555 = xor i32 %3552, %3554
+  %3556 = call i32 @rotr32(i32 noundef %3555, i32 noundef 12)
+  %3557 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %3556, ptr %3557, align 4
+  %3558 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3559 = load i32, ptr %3558, align 16
+  %3560 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %3561 = load i32, ptr %3560, align 4
+  %3562 = add i32 %3559, %3561
+  %3563 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 9
+  %3564 = load i8, ptr %3563, align 1
+  %3565 = zext i8 %3564 to i64
+  %3566 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3565
+  %3567 = load i32, ptr %3566, align 4
+  %3568 = add i32 %3562, %3567
+  %3569 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %3568, ptr %3569, align 16
+  %3570 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3571 = load i32, ptr %3570, align 4
+  %3572 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3573 = load i32, ptr %3572, align 16
+  %3574 = xor i32 %3571, %3573
+  %3575 = call i32 @rotr32(i32 noundef %3574, i32 noundef 8)
+  %3576 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %3575, ptr %3576, align 4
+  %3577 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3578 = load i32, ptr %3577, align 8
+  %3579 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3580 = load i32, ptr %3579, align 4
+  %3581 = add i32 %3578, %3580
+  %3582 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %3581, ptr %3582, align 8
+  %3583 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %3584 = load i32, ptr %3583, align 4
+  %3585 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3586 = load i32, ptr %3585, align 8
+  %3587 = xor i32 %3584, %3586
+  %3588 = call i32 @rotr32(i32 noundef %3587, i32 noundef 7)
+  %3589 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %3588, ptr %3589, align 4
+  br label %3590
 
-3606:                                             ; preds = %3543
-  br label %3607
+3590:                                             ; preds = %3525
+  br label %3591
 
-3607:                                             ; preds = %3606
-  %3608 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3609 = load i32, ptr %3608, align 4
-  %3610 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3611 = load i32, ptr %3610, align 16
-  %3612 = add i32 %3609, %3611
-  %3613 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 14), align 2
-  %3614 = zext i8 %3613 to i64
-  %3615 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3614
-  %3616 = load i32, ptr %3615, align 4
-  %3617 = add i32 %3612, %3616
-  %3618 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %3617, ptr %3618, align 4
-  %3619 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3620 = load i32, ptr %3619, align 8
-  %3621 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3622 = load i32, ptr %3621, align 4
-  %3623 = xor i32 %3620, %3622
-  %3624 = call i32 @rotr32(i32 noundef %3623, i32 noundef 16)
-  %3625 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %3624, ptr %3625, align 8
-  %3626 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3627 = load i32, ptr %3626, align 4
-  %3628 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3629 = load i32, ptr %3628, align 8
-  %3630 = add i32 %3627, %3629
-  %3631 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %3630, ptr %3631, align 4
-  %3632 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3633 = load i32, ptr %3632, align 16
-  %3634 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3635 = load i32, ptr %3634, align 4
-  %3636 = xor i32 %3633, %3635
-  %3637 = call i32 @rotr32(i32 noundef %3636, i32 noundef 12)
-  %3638 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %3637, ptr %3638, align 16
-  %3639 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3640 = load i32, ptr %3639, align 4
-  %3641 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3642 = load i32, ptr %3641, align 16
-  %3643 = add i32 %3640, %3642
-  %3644 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 15), align 1
-  %3645 = zext i8 %3644 to i64
-  %3646 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3645
-  %3647 = load i32, ptr %3646, align 4
-  %3648 = add i32 %3643, %3647
-  %3649 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %3648, ptr %3649, align 4
-  %3650 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3651 = load i32, ptr %3650, align 8
-  %3652 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3653 = load i32, ptr %3652, align 4
-  %3654 = xor i32 %3651, %3653
-  %3655 = call i32 @rotr32(i32 noundef %3654, i32 noundef 8)
-  %3656 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %3655, ptr %3656, align 8
-  %3657 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3658 = load i32, ptr %3657, align 4
-  %3659 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3660 = load i32, ptr %3659, align 8
-  %3661 = add i32 %3658, %3660
-  %3662 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %3661, ptr %3662, align 4
-  %3663 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3664 = load i32, ptr %3663, align 16
-  %3665 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3666 = load i32, ptr %3665, align 4
-  %3667 = xor i32 %3664, %3666
-  %3668 = call i32 @rotr32(i32 noundef %3667, i32 noundef 7)
-  %3669 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %3668, ptr %3669, align 16
-  br label %3670
+3591:                                             ; preds = %3590
+  %3592 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3593 = load i32, ptr %3592, align 4
+  %3594 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3595 = load i32, ptr %3594, align 8
+  %3596 = add i32 %3593, %3595
+  %3597 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 10
+  %3598 = load i8, ptr %3597, align 2
+  %3599 = zext i8 %3598 to i64
+  %3600 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3599
+  %3601 = load i32, ptr %3600, align 4
+  %3602 = add i32 %3596, %3601
+  %3603 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %3602, ptr %3603, align 4
+  %3604 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3605 = load i32, ptr %3604, align 16
+  %3606 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3607 = load i32, ptr %3606, align 4
+  %3608 = xor i32 %3605, %3607
+  %3609 = call i32 @rotr32(i32 noundef %3608, i32 noundef 16)
+  %3610 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %3609, ptr %3610, align 16
+  %3611 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3612 = load i32, ptr %3611, align 4
+  %3613 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3614 = load i32, ptr %3613, align 16
+  %3615 = add i32 %3612, %3614
+  %3616 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %3615, ptr %3616, align 4
+  %3617 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3618 = load i32, ptr %3617, align 8
+  %3619 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3620 = load i32, ptr %3619, align 4
+  %3621 = xor i32 %3618, %3620
+  %3622 = call i32 @rotr32(i32 noundef %3621, i32 noundef 12)
+  %3623 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %3622, ptr %3623, align 8
+  %3624 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3625 = load i32, ptr %3624, align 4
+  %3626 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3627 = load i32, ptr %3626, align 8
+  %3628 = add i32 %3625, %3627
+  %3629 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 11
+  %3630 = load i8, ptr %3629, align 1
+  %3631 = zext i8 %3630 to i64
+  %3632 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3631
+  %3633 = load i32, ptr %3632, align 4
+  %3634 = add i32 %3628, %3633
+  %3635 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %3634, ptr %3635, align 4
+  %3636 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3637 = load i32, ptr %3636, align 16
+  %3638 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3639 = load i32, ptr %3638, align 4
+  %3640 = xor i32 %3637, %3639
+  %3641 = call i32 @rotr32(i32 noundef %3640, i32 noundef 8)
+  %3642 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %3641, ptr %3642, align 16
+  %3643 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3644 = load i32, ptr %3643, align 4
+  %3645 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3646 = load i32, ptr %3645, align 16
+  %3647 = add i32 %3644, %3646
+  %3648 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %3647, ptr %3648, align 4
+  %3649 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3650 = load i32, ptr %3649, align 8
+  %3651 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3652 = load i32, ptr %3651, align 4
+  %3653 = xor i32 %3650, %3652
+  %3654 = call i32 @rotr32(i32 noundef %3653, i32 noundef 7)
+  %3655 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %3654, ptr %3655, align 8
+  br label %3656
 
-3670:                                             ; preds = %3607
-  br label %3671
+3656:                                             ; preds = %3591
+  br label %3657
 
-3671:                                             ; preds = %3670
-  br label %3672
-
-3672:                                             ; preds = %3671
-  br label %3673
-
-3673:                                             ; preds = %3672
-  %3674 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3675 = load i32, ptr %3674, align 16
-  %3676 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3677 = load i32, ptr %3676, align 16
-  %3678 = add i32 %3675, %3677
-  %3679 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7), align 16
-  %3680 = zext i8 %3679 to i64
-  %3681 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3680
-  %3682 = load i32, ptr %3681, align 4
-  %3683 = add i32 %3678, %3682
-  %3684 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %3683, ptr %3684, align 16
-  %3685 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+3657:                                             ; preds = %3656
+  %3658 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3659 = load i32, ptr %3658, align 8
+  %3660 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3661 = load i32, ptr %3660, align 4
+  %3662 = add i32 %3659, %3661
+  %3663 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 12
+  %3664 = load i8, ptr %3663, align 4
+  %3665 = zext i8 %3664 to i64
+  %3666 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3665
+  %3667 = load i32, ptr %3666, align 4
+  %3668 = add i32 %3662, %3667
+  %3669 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %3668, ptr %3669, align 8
+  %3670 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3671 = load i32, ptr %3670, align 4
+  %3672 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3673 = load i32, ptr %3672, align 8
+  %3674 = xor i32 %3671, %3673
+  %3675 = call i32 @rotr32(i32 noundef %3674, i32 noundef 16)
+  %3676 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %3675, ptr %3676, align 4
+  %3677 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3678 = load i32, ptr %3677, align 16
+  %3679 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3680 = load i32, ptr %3679, align 4
+  %3681 = add i32 %3678, %3680
+  %3682 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %3681, ptr %3682, align 16
+  %3683 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3684 = load i32, ptr %3683, align 4
+  %3685 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
   %3686 = load i32, ptr %3685, align 16
-  %3687 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3688 = load i32, ptr %3687, align 16
-  %3689 = xor i32 %3686, %3688
-  %3690 = call i32 @rotr32(i32 noundef %3689, i32 noundef 16)
-  %3691 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %3690, ptr %3691, align 16
-  %3692 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3693 = load i32, ptr %3692, align 16
-  %3694 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3695 = load i32, ptr %3694, align 16
-  %3696 = add i32 %3693, %3695
-  %3697 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %3696, ptr %3697, align 16
-  %3698 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3699 = load i32, ptr %3698, align 16
-  %3700 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3701 = load i32, ptr %3700, align 16
-  %3702 = xor i32 %3699, %3701
-  %3703 = call i32 @rotr32(i32 noundef %3702, i32 noundef 12)
-  %3704 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %3703, ptr %3704, align 16
-  %3705 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3706 = load i32, ptr %3705, align 16
-  %3707 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3708 = load i32, ptr %3707, align 16
-  %3709 = add i32 %3706, %3708
-  %3710 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 1), align 1
-  %3711 = zext i8 %3710 to i64
-  %3712 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3711
-  %3713 = load i32, ptr %3712, align 4
-  %3714 = add i32 %3709, %3713
-  %3715 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %3714, ptr %3715, align 16
-  %3716 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3717 = load i32, ptr %3716, align 16
-  %3718 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3719 = load i32, ptr %3718, align 16
-  %3720 = xor i32 %3717, %3719
-  %3721 = call i32 @rotr32(i32 noundef %3720, i32 noundef 8)
-  %3722 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %3721, ptr %3722, align 16
-  %3723 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3724 = load i32, ptr %3723, align 16
-  %3725 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %3726 = load i32, ptr %3725, align 16
-  %3727 = add i32 %3724, %3726
-  %3728 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %3727, ptr %3728, align 16
-  %3729 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %3730 = load i32, ptr %3729, align 16
-  %3731 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %3732 = load i32, ptr %3731, align 16
-  %3733 = xor i32 %3730, %3732
-  %3734 = call i32 @rotr32(i32 noundef %3733, i32 noundef 7)
-  %3735 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %3734, ptr %3735, align 16
-  br label %3736
+  %3687 = xor i32 %3684, %3686
+  %3688 = call i32 @rotr32(i32 noundef %3687, i32 noundef 12)
+  %3689 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %3688, ptr %3689, align 4
+  %3690 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3691 = load i32, ptr %3690, align 8
+  %3692 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3693 = load i32, ptr %3692, align 4
+  %3694 = add i32 %3691, %3693
+  %3695 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 13
+  %3696 = load i8, ptr %3695, align 1
+  %3697 = zext i8 %3696 to i64
+  %3698 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3697
+  %3699 = load i32, ptr %3698, align 4
+  %3700 = add i32 %3694, %3699
+  %3701 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %3700, ptr %3701, align 8
+  %3702 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3703 = load i32, ptr %3702, align 4
+  %3704 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3705 = load i32, ptr %3704, align 8
+  %3706 = xor i32 %3703, %3705
+  %3707 = call i32 @rotr32(i32 noundef %3706, i32 noundef 8)
+  %3708 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %3707, ptr %3708, align 4
+  %3709 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3710 = load i32, ptr %3709, align 16
+  %3711 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3712 = load i32, ptr %3711, align 4
+  %3713 = add i32 %3710, %3712
+  %3714 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %3713, ptr %3714, align 16
+  %3715 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3716 = load i32, ptr %3715, align 4
+  %3717 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3718 = load i32, ptr %3717, align 16
+  %3719 = xor i32 %3716, %3718
+  %3720 = call i32 @rotr32(i32 noundef %3719, i32 noundef 7)
+  %3721 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %3720, ptr %3721, align 4
+  br label %3722
 
-3736:                                             ; preds = %3673
-  br label %3737
+3722:                                             ; preds = %3657
+  br label %3723
 
-3737:                                             ; preds = %3736
-  %3738 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+3723:                                             ; preds = %3722
+  %3724 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %3725 = load i32, ptr %3724, align 4
+  %3726 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3727 = load i32, ptr %3726, align 16
+  %3728 = add i32 %3725, %3727
+  %3729 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 14
+  %3730 = load i8, ptr %3729, align 2
+  %3731 = zext i8 %3730 to i64
+  %3732 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3731
+  %3733 = load i32, ptr %3732, align 4
+  %3734 = add i32 %3728, %3733
+  %3735 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %3734, ptr %3735, align 4
+  %3736 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3737 = load i32, ptr %3736, align 8
+  %3738 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %3739 = load i32, ptr %3738, align 4
-  %3740 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3741 = load i32, ptr %3740, align 4
-  %3742 = add i32 %3739, %3741
-  %3743 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 2), align 2
-  %3744 = zext i8 %3743 to i64
-  %3745 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3744
-  %3746 = load i32, ptr %3745, align 4
-  %3747 = add i32 %3742, %3746
-  %3748 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3740 = xor i32 %3737, %3739
+  %3741 = call i32 @rotr32(i32 noundef %3740, i32 noundef 16)
+  %3742 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %3741, ptr %3742, align 8
+  %3743 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3744 = load i32, ptr %3743, align 4
+  %3745 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3746 = load i32, ptr %3745, align 8
+  %3747 = add i32 %3744, %3746
+  %3748 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   store i32 %3747, ptr %3748, align 4
-  %3749 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3750 = load i32, ptr %3749, align 4
-  %3751 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3749 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3750 = load i32, ptr %3749, align 16
+  %3751 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   %3752 = load i32, ptr %3751, align 4
   %3753 = xor i32 %3750, %3752
-  %3754 = call i32 @rotr32(i32 noundef %3753, i32 noundef 16)
-  %3755 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %3754, ptr %3755, align 4
-  %3756 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3754 = call i32 @rotr32(i32 noundef %3753, i32 noundef 12)
+  %3755 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %3754, ptr %3755, align 16
+  %3756 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %3757 = load i32, ptr %3756, align 4
-  %3758 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3759 = load i32, ptr %3758, align 4
+  %3758 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3759 = load i32, ptr %3758, align 16
   %3760 = add i32 %3757, %3759
-  %3761 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %3760, ptr %3761, align 4
-  %3762 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3763 = load i32, ptr %3762, align 4
-  %3764 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3761 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 6, i64 15
+  %3762 = load i8, ptr %3761, align 1
+  %3763 = zext i8 %3762 to i64
+  %3764 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3763
   %3765 = load i32, ptr %3764, align 4
-  %3766 = xor i32 %3763, %3765
-  %3767 = call i32 @rotr32(i32 noundef %3766, i32 noundef 12)
-  %3768 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %3767, ptr %3768, align 4
-  %3769 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %3770 = load i32, ptr %3769, align 4
-  %3771 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3772 = load i32, ptr %3771, align 4
-  %3773 = add i32 %3770, %3772
-  %3774 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 3), align 1
-  %3775 = zext i8 %3774 to i64
-  %3776 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3775
-  %3777 = load i32, ptr %3776, align 4
-  %3778 = add i32 %3773, %3777
-  %3779 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %3778, ptr %3779, align 4
-  %3780 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3781 = load i32, ptr %3780, align 4
-  %3782 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %3783 = load i32, ptr %3782, align 4
-  %3784 = xor i32 %3781, %3783
-  %3785 = call i32 @rotr32(i32 noundef %3784, i32 noundef 8)
-  %3786 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %3785, ptr %3786, align 4
-  %3787 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3788 = load i32, ptr %3787, align 4
-  %3789 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %3790 = load i32, ptr %3789, align 4
-  %3791 = add i32 %3788, %3790
-  %3792 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %3791, ptr %3792, align 4
-  %3793 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3794 = load i32, ptr %3793, align 4
-  %3795 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %3796 = load i32, ptr %3795, align 4
-  %3797 = xor i32 %3794, %3796
-  %3798 = call i32 @rotr32(i32 noundef %3797, i32 noundef 7)
-  %3799 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %3798, ptr %3799, align 4
-  br label %3800
+  %3766 = add i32 %3760, %3765
+  %3767 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %3766, ptr %3767, align 4
+  %3768 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3769 = load i32, ptr %3768, align 8
+  %3770 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %3771 = load i32, ptr %3770, align 4
+  %3772 = xor i32 %3769, %3771
+  %3773 = call i32 @rotr32(i32 noundef %3772, i32 noundef 8)
+  %3774 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %3773, ptr %3774, align 8
+  %3775 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3776 = load i32, ptr %3775, align 4
+  %3777 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3778 = load i32, ptr %3777, align 8
+  %3779 = add i32 %3776, %3778
+  %3780 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %3779, ptr %3780, align 4
+  %3781 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3782 = load i32, ptr %3781, align 16
+  %3783 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3784 = load i32, ptr %3783, align 4
+  %3785 = xor i32 %3782, %3784
+  %3786 = call i32 @rotr32(i32 noundef %3785, i32 noundef 7)
+  %3787 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %3786, ptr %3787, align 16
+  br label %3788
 
-3800:                                             ; preds = %3737
-  br label %3801
+3788:                                             ; preds = %3723
+  br label %3789
 
-3801:                                             ; preds = %3800
-  %3802 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3803 = load i32, ptr %3802, align 8
-  %3804 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3805 = load i32, ptr %3804, align 8
-  %3806 = add i32 %3803, %3805
-  %3807 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 4), align 4
-  %3808 = zext i8 %3807 to i64
-  %3809 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3808
-  %3810 = load i32, ptr %3809, align 4
-  %3811 = add i32 %3806, %3810
-  %3812 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %3811, ptr %3812, align 8
-  %3813 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3814 = load i32, ptr %3813, align 8
-  %3815 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3816 = load i32, ptr %3815, align 8
-  %3817 = xor i32 %3814, %3816
-  %3818 = call i32 @rotr32(i32 noundef %3817, i32 noundef 16)
-  %3819 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %3818, ptr %3819, align 8
-  %3820 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3821 = load i32, ptr %3820, align 8
-  %3822 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3823 = load i32, ptr %3822, align 8
-  %3824 = add i32 %3821, %3823
-  %3825 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %3824, ptr %3825, align 8
-  %3826 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3827 = load i32, ptr %3826, align 8
-  %3828 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3829 = load i32, ptr %3828, align 8
-  %3830 = xor i32 %3827, %3829
-  %3831 = call i32 @rotr32(i32 noundef %3830, i32 noundef 12)
-  %3832 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %3831, ptr %3832, align 8
-  %3833 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3834 = load i32, ptr %3833, align 8
-  %3835 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3836 = load i32, ptr %3835, align 8
-  %3837 = add i32 %3834, %3836
-  %3838 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 5), align 1
-  %3839 = zext i8 %3838 to i64
-  %3840 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3839
-  %3841 = load i32, ptr %3840, align 4
-  %3842 = add i32 %3837, %3841
-  %3843 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %3842, ptr %3843, align 8
-  %3844 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3845 = load i32, ptr %3844, align 8
-  %3846 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %3847 = load i32, ptr %3846, align 8
-  %3848 = xor i32 %3845, %3847
-  %3849 = call i32 @rotr32(i32 noundef %3848, i32 noundef 8)
-  %3850 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %3849, ptr %3850, align 8
-  %3851 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3852 = load i32, ptr %3851, align 8
-  %3853 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %3854 = load i32, ptr %3853, align 8
-  %3855 = add i32 %3852, %3854
-  %3856 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %3855, ptr %3856, align 8
-  %3857 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3858 = load i32, ptr %3857, align 8
-  %3859 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3860 = load i32, ptr %3859, align 8
-  %3861 = xor i32 %3858, %3860
-  %3862 = call i32 @rotr32(i32 noundef %3861, i32 noundef 7)
-  %3863 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %3862, ptr %3863, align 8
-  br label %3864
+3789:                                             ; preds = %3788
+  br label %3790
 
-3864:                                             ; preds = %3801
-  br label %3865
+3790:                                             ; preds = %3789
+  br label %3791
 
-3865:                                             ; preds = %3864
-  %3866 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+3791:                                             ; preds = %3790
+  %3792 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3793 = load i32, ptr %3792, align 16
+  %3794 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3795 = load i32, ptr %3794, align 16
+  %3796 = add i32 %3793, %3795
+  %3797 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7
+  %3798 = load i8, ptr %3797, align 16
+  %3799 = zext i8 %3798 to i64
+  %3800 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3799
+  %3801 = load i32, ptr %3800, align 4
+  %3802 = add i32 %3796, %3801
+  %3803 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %3802, ptr %3803, align 16
+  %3804 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3805 = load i32, ptr %3804, align 16
+  %3806 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3807 = load i32, ptr %3806, align 16
+  %3808 = xor i32 %3805, %3807
+  %3809 = call i32 @rotr32(i32 noundef %3808, i32 noundef 16)
+  %3810 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %3809, ptr %3810, align 16
+  %3811 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3812 = load i32, ptr %3811, align 16
+  %3813 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3814 = load i32, ptr %3813, align 16
+  %3815 = add i32 %3812, %3814
+  %3816 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %3815, ptr %3816, align 16
+  %3817 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3818 = load i32, ptr %3817, align 16
+  %3819 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3820 = load i32, ptr %3819, align 16
+  %3821 = xor i32 %3818, %3820
+  %3822 = call i32 @rotr32(i32 noundef %3821, i32 noundef 12)
+  %3823 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %3822, ptr %3823, align 16
+  %3824 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3825 = load i32, ptr %3824, align 16
+  %3826 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3827 = load i32, ptr %3826, align 16
+  %3828 = add i32 %3825, %3827
+  %3829 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 1
+  %3830 = load i8, ptr %3829, align 1
+  %3831 = zext i8 %3830 to i64
+  %3832 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3831
+  %3833 = load i32, ptr %3832, align 4
+  %3834 = add i32 %3828, %3833
+  %3835 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %3834, ptr %3835, align 16
+  %3836 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3837 = load i32, ptr %3836, align 16
+  %3838 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %3839 = load i32, ptr %3838, align 16
+  %3840 = xor i32 %3837, %3839
+  %3841 = call i32 @rotr32(i32 noundef %3840, i32 noundef 8)
+  %3842 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %3841, ptr %3842, align 16
+  %3843 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3844 = load i32, ptr %3843, align 16
+  %3845 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %3846 = load i32, ptr %3845, align 16
+  %3847 = add i32 %3844, %3846
+  %3848 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %3847, ptr %3848, align 16
+  %3849 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %3850 = load i32, ptr %3849, align 16
+  %3851 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %3852 = load i32, ptr %3851, align 16
+  %3853 = xor i32 %3850, %3852
+  %3854 = call i32 @rotr32(i32 noundef %3853, i32 noundef 7)
+  %3855 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %3854, ptr %3855, align 16
+  br label %3856
+
+3856:                                             ; preds = %3791
+  br label %3857
+
+3857:                                             ; preds = %3856
+  %3858 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3859 = load i32, ptr %3858, align 4
+  %3860 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %3861 = load i32, ptr %3860, align 4
+  %3862 = add i32 %3859, %3861
+  %3863 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 2
+  %3864 = load i8, ptr %3863, align 2
+  %3865 = zext i8 %3864 to i64
+  %3866 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3865
   %3867 = load i32, ptr %3866, align 4
-  %3868 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3869 = load i32, ptr %3868, align 4
-  %3870 = add i32 %3867, %3869
-  %3871 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 6), align 2
-  %3872 = zext i8 %3871 to i64
-  %3873 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3872
-  %3874 = load i32, ptr %3873, align 4
-  %3875 = add i32 %3870, %3874
-  %3876 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %3868 = add i32 %3862, %3867
+  %3869 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %3868, ptr %3869, align 4
+  %3870 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3871 = load i32, ptr %3870, align 4
+  %3872 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %3873 = load i32, ptr %3872, align 4
+  %3874 = xor i32 %3871, %3873
+  %3875 = call i32 @rotr32(i32 noundef %3874, i32 noundef 16)
+  %3876 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
   store i32 %3875, ptr %3876, align 4
-  %3877 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3877 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   %3878 = load i32, ptr %3877, align 4
-  %3879 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %3879 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
   %3880 = load i32, ptr %3879, align 4
-  %3881 = xor i32 %3878, %3880
-  %3882 = call i32 @rotr32(i32 noundef %3881, i32 noundef 16)
-  %3883 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %3882, ptr %3883, align 4
-  %3884 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %3885 = load i32, ptr %3884, align 4
-  %3886 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3887 = load i32, ptr %3886, align 4
-  %3888 = add i32 %3885, %3887
-  %3889 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3881 = add i32 %3878, %3880
+  %3882 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %3881, ptr %3882, align 4
+  %3883 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %3884 = load i32, ptr %3883, align 4
+  %3885 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3886 = load i32, ptr %3885, align 4
+  %3887 = xor i32 %3884, %3886
+  %3888 = call i32 @rotr32(i32 noundef %3887, i32 noundef 12)
+  %3889 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   store i32 %3888, ptr %3889, align 4
-  %3890 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3890 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
   %3891 = load i32, ptr %3890, align 4
-  %3892 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3892 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %3893 = load i32, ptr %3892, align 4
-  %3894 = xor i32 %3891, %3893
-  %3895 = call i32 @rotr32(i32 noundef %3894, i32 noundef 12)
-  %3896 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %3895, ptr %3896, align 4
-  %3897 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3898 = load i32, ptr %3897, align 4
-  %3899 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3900 = load i32, ptr %3899, align 4
-  %3901 = add i32 %3898, %3900
-  %3902 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 7), align 1
-  %3903 = zext i8 %3902 to i64
-  %3904 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3903
+  %3894 = add i32 %3891, %3893
+  %3895 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 3
+  %3896 = load i8, ptr %3895, align 1
+  %3897 = zext i8 %3896 to i64
+  %3898 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3897
+  %3899 = load i32, ptr %3898, align 4
+  %3900 = add i32 %3894, %3899
+  %3901 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %3900, ptr %3901, align 4
+  %3902 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3903 = load i32, ptr %3902, align 4
+  %3904 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
   %3905 = load i32, ptr %3904, align 4
-  %3906 = add i32 %3901, %3905
-  %3907 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %3906, ptr %3907, align 4
-  %3908 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3909 = load i32, ptr %3908, align 4
-  %3910 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %3911 = load i32, ptr %3910, align 4
-  %3912 = xor i32 %3909, %3911
-  %3913 = call i32 @rotr32(i32 noundef %3912, i32 noundef 8)
-  %3914 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3906 = xor i32 %3903, %3905
+  %3907 = call i32 @rotr32(i32 noundef %3906, i32 noundef 8)
+  %3908 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %3907, ptr %3908, align 4
+  %3909 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %3910 = load i32, ptr %3909, align 4
+  %3911 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %3912 = load i32, ptr %3911, align 4
+  %3913 = add i32 %3910, %3912
+  %3914 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   store i32 %3913, ptr %3914, align 4
-  %3915 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %3915 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %3916 = load i32, ptr %3915, align 4
-  %3917 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %3917 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   %3918 = load i32, ptr %3917, align 4
-  %3919 = add i32 %3916, %3918
-  %3920 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %3919, ptr %3920, align 4
-  %3921 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %3922 = load i32, ptr %3921, align 4
-  %3923 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %3924 = load i32, ptr %3923, align 4
-  %3925 = xor i32 %3922, %3924
-  %3926 = call i32 @rotr32(i32 noundef %3925, i32 noundef 7)
-  %3927 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %3926, ptr %3927, align 4
-  br label %3928
+  %3919 = xor i32 %3916, %3918
+  %3920 = call i32 @rotr32(i32 noundef %3919, i32 noundef 7)
+  %3921 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %3920, ptr %3921, align 4
+  br label %3922
 
-3928:                                             ; preds = %3865
-  br label %3929
+3922:                                             ; preds = %3857
+  br label %3923
 
-3929:                                             ; preds = %3928
-  %3930 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3931 = load i32, ptr %3930, align 16
-  %3932 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+3923:                                             ; preds = %3922
+  %3924 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3925 = load i32, ptr %3924, align 8
+  %3926 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3927 = load i32, ptr %3926, align 8
+  %3928 = add i32 %3925, %3927
+  %3929 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 4
+  %3930 = load i8, ptr %3929, align 4
+  %3931 = zext i8 %3930 to i64
+  %3932 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3931
   %3933 = load i32, ptr %3932, align 4
-  %3934 = add i32 %3931, %3933
-  %3935 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 8), align 8
-  %3936 = zext i8 %3935 to i64
-  %3937 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3936
-  %3938 = load i32, ptr %3937, align 4
-  %3939 = add i32 %3934, %3938
-  %3940 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %3939, ptr %3940, align 16
-  %3941 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3942 = load i32, ptr %3941, align 4
-  %3943 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3944 = load i32, ptr %3943, align 16
-  %3945 = xor i32 %3942, %3944
-  %3946 = call i32 @rotr32(i32 noundef %3945, i32 noundef 16)
-  %3947 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %3946, ptr %3947, align 4
+  %3934 = add i32 %3928, %3933
+  %3935 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %3934, ptr %3935, align 8
+  %3936 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3937 = load i32, ptr %3936, align 8
+  %3938 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3939 = load i32, ptr %3938, align 8
+  %3940 = xor i32 %3937, %3939
+  %3941 = call i32 @rotr32(i32 noundef %3940, i32 noundef 16)
+  %3942 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %3941, ptr %3942, align 8
+  %3943 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3944 = load i32, ptr %3943, align 8
+  %3945 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3946 = load i32, ptr %3945, align 8
+  %3947 = add i32 %3944, %3946
   %3948 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3949 = load i32, ptr %3948, align 8
-  %3950 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3951 = load i32, ptr %3950, align 4
-  %3952 = add i32 %3949, %3951
-  %3953 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %3952, ptr %3953, align 8
-  %3954 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3955 = load i32, ptr %3954, align 4
-  %3956 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %3947, ptr %3948, align 8
+  %3949 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3950 = load i32, ptr %3949, align 8
+  %3951 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3952 = load i32, ptr %3951, align 8
+  %3953 = xor i32 %3950, %3952
+  %3954 = call i32 @rotr32(i32 noundef %3953, i32 noundef 12)
+  %3955 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %3954, ptr %3955, align 8
+  %3956 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
   %3957 = load i32, ptr %3956, align 8
-  %3958 = xor i32 %3955, %3957
-  %3959 = call i32 @rotr32(i32 noundef %3958, i32 noundef 12)
-  %3960 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %3959, ptr %3960, align 4
-  %3961 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3962 = load i32, ptr %3961, align 16
-  %3963 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3964 = load i32, ptr %3963, align 4
-  %3965 = add i32 %3962, %3964
-  %3966 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 9), align 1
-  %3967 = zext i8 %3966 to i64
-  %3968 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3967
-  %3969 = load i32, ptr %3968, align 4
-  %3970 = add i32 %3965, %3969
-  %3971 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %3970, ptr %3971, align 16
-  %3972 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3973 = load i32, ptr %3972, align 4
-  %3974 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %3975 = load i32, ptr %3974, align 16
-  %3976 = xor i32 %3973, %3975
-  %3977 = call i32 @rotr32(i32 noundef %3976, i32 noundef 8)
-  %3978 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %3977, ptr %3978, align 4
-  %3979 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3980 = load i32, ptr %3979, align 8
-  %3981 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %3982 = load i32, ptr %3981, align 4
-  %3983 = add i32 %3980, %3982
-  %3984 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %3983, ptr %3984, align 8
-  %3985 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %3986 = load i32, ptr %3985, align 4
-  %3987 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %3988 = load i32, ptr %3987, align 8
-  %3989 = xor i32 %3986, %3988
-  %3990 = call i32 @rotr32(i32 noundef %3989, i32 noundef 7)
-  %3991 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %3990, ptr %3991, align 4
-  br label %3992
+  %3958 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3959 = load i32, ptr %3958, align 8
+  %3960 = add i32 %3957, %3959
+  %3961 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 5
+  %3962 = load i8, ptr %3961, align 1
+  %3963 = zext i8 %3962 to i64
+  %3964 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3963
+  %3965 = load i32, ptr %3964, align 4
+  %3966 = add i32 %3960, %3965
+  %3967 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %3966, ptr %3967, align 8
+  %3968 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3969 = load i32, ptr %3968, align 8
+  %3970 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %3971 = load i32, ptr %3970, align 8
+  %3972 = xor i32 %3969, %3971
+  %3973 = call i32 @rotr32(i32 noundef %3972, i32 noundef 8)
+  %3974 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %3973, ptr %3974, align 8
+  %3975 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3976 = load i32, ptr %3975, align 8
+  %3977 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %3978 = load i32, ptr %3977, align 8
+  %3979 = add i32 %3976, %3978
+  %3980 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %3979, ptr %3980, align 8
+  %3981 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %3982 = load i32, ptr %3981, align 8
+  %3983 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %3984 = load i32, ptr %3983, align 8
+  %3985 = xor i32 %3982, %3984
+  %3986 = call i32 @rotr32(i32 noundef %3985, i32 noundef 7)
+  %3987 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %3986, ptr %3987, align 8
+  br label %3988
 
-3992:                                             ; preds = %3929
-  br label %3993
+3988:                                             ; preds = %3923
+  br label %3989
 
-3993:                                             ; preds = %3992
-  %3994 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %3995 = load i32, ptr %3994, align 4
-  %3996 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %3997 = load i32, ptr %3996, align 8
-  %3998 = add i32 %3995, %3997
-  %3999 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 10), align 2
-  %4000 = zext i8 %3999 to i64
-  %4001 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4000
-  %4002 = load i32, ptr %4001, align 4
-  %4003 = add i32 %3998, %4002
-  %4004 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %4003, ptr %4004, align 4
-  %4005 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4006 = load i32, ptr %4005, align 16
-  %4007 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4008 = load i32, ptr %4007, align 4
-  %4009 = xor i32 %4006, %4008
-  %4010 = call i32 @rotr32(i32 noundef %4009, i32 noundef 16)
-  %4011 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %4010, ptr %4011, align 16
-  %4012 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %4013 = load i32, ptr %4012, align 4
-  %4014 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4015 = load i32, ptr %4014, align 16
-  %4016 = add i32 %4013, %4015
+3989:                                             ; preds = %3988
+  %3990 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %3991 = load i32, ptr %3990, align 4
+  %3992 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %3993 = load i32, ptr %3992, align 4
+  %3994 = add i32 %3991, %3993
+  %3995 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 6
+  %3996 = load i8, ptr %3995, align 2
+  %3997 = zext i8 %3996 to i64
+  %3998 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %3997
+  %3999 = load i32, ptr %3998, align 4
+  %4000 = add i32 %3994, %3999
+  %4001 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %4000, ptr %4001, align 4
+  %4002 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4003 = load i32, ptr %4002, align 4
+  %4004 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %4005 = load i32, ptr %4004, align 4
+  %4006 = xor i32 %4003, %4005
+  %4007 = call i32 @rotr32(i32 noundef %4006, i32 noundef 16)
+  %4008 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %4007, ptr %4008, align 4
+  %4009 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4010 = load i32, ptr %4009, align 4
+  %4011 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4012 = load i32, ptr %4011, align 4
+  %4013 = add i32 %4010, %4012
+  %4014 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %4013, ptr %4014, align 4
+  %4015 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4016 = load i32, ptr %4015, align 4
   %4017 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %4016, ptr %4017, align 4
-  %4018 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4019 = load i32, ptr %4018, align 8
-  %4020 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %4021 = load i32, ptr %4020, align 4
-  %4022 = xor i32 %4019, %4021
-  %4023 = call i32 @rotr32(i32 noundef %4022, i32 noundef 12)
-  %4024 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %4023, ptr %4024, align 8
-  %4025 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4026 = load i32, ptr %4025, align 4
-  %4027 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4028 = load i32, ptr %4027, align 8
-  %4029 = add i32 %4026, %4028
-  %4030 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 11), align 1
-  %4031 = zext i8 %4030 to i64
-  %4032 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4031
-  %4033 = load i32, ptr %4032, align 4
-  %4034 = add i32 %4029, %4033
-  %4035 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %4034, ptr %4035, align 4
-  %4036 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4037 = load i32, ptr %4036, align 16
-  %4038 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4039 = load i32, ptr %4038, align 4
-  %4040 = xor i32 %4037, %4039
-  %4041 = call i32 @rotr32(i32 noundef %4040, i32 noundef 8)
-  %4042 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %4041, ptr %4042, align 16
-  %4043 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4018 = load i32, ptr %4017, align 4
+  %4019 = xor i32 %4016, %4018
+  %4020 = call i32 @rotr32(i32 noundef %4019, i32 noundef 12)
+  %4021 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %4020, ptr %4021, align 4
+  %4022 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %4023 = load i32, ptr %4022, align 4
+  %4024 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4025 = load i32, ptr %4024, align 4
+  %4026 = add i32 %4023, %4025
+  %4027 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 7
+  %4028 = load i8, ptr %4027, align 1
+  %4029 = zext i8 %4028 to i64
+  %4030 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4029
+  %4031 = load i32, ptr %4030, align 4
+  %4032 = add i32 %4026, %4031
+  %4033 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %4032, ptr %4033, align 4
+  %4034 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4035 = load i32, ptr %4034, align 4
+  %4036 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %4037 = load i32, ptr %4036, align 4
+  %4038 = xor i32 %4035, %4037
+  %4039 = call i32 @rotr32(i32 noundef %4038, i32 noundef 8)
+  %4040 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %4039, ptr %4040, align 4
+  %4041 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4042 = load i32, ptr %4041, align 4
+  %4043 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %4044 = load i32, ptr %4043, align 4
-  %4045 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4046 = load i32, ptr %4045, align 16
-  %4047 = add i32 %4044, %4046
-  %4048 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %4047, ptr %4048, align 4
-  %4049 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4050 = load i32, ptr %4049, align 8
-  %4051 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %4052 = load i32, ptr %4051, align 4
-  %4053 = xor i32 %4050, %4052
-  %4054 = call i32 @rotr32(i32 noundef %4053, i32 noundef 7)
-  %4055 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %4054, ptr %4055, align 8
-  br label %4056
+  %4045 = add i32 %4042, %4044
+  %4046 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %4045, ptr %4046, align 4
+  %4047 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4048 = load i32, ptr %4047, align 4
+  %4049 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4050 = load i32, ptr %4049, align 4
+  %4051 = xor i32 %4048, %4050
+  %4052 = call i32 @rotr32(i32 noundef %4051, i32 noundef 7)
+  %4053 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %4052, ptr %4053, align 4
+  br label %4054
 
-4056:                                             ; preds = %3993
-  br label %4057
+4054:                                             ; preds = %3989
+  br label %4055
 
-4057:                                             ; preds = %4056
-  %4058 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4059 = load i32, ptr %4058, align 8
-  %4060 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4061 = load i32, ptr %4060, align 4
-  %4062 = add i32 %4059, %4061
-  %4063 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 12), align 4
-  %4064 = zext i8 %4063 to i64
-  %4065 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4064
-  %4066 = load i32, ptr %4065, align 4
-  %4067 = add i32 %4062, %4066
-  %4068 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %4067, ptr %4068, align 8
-  %4069 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4070 = load i32, ptr %4069, align 4
-  %4071 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4072 = load i32, ptr %4071, align 8
-  %4073 = xor i32 %4070, %4072
-  %4074 = call i32 @rotr32(i32 noundef %4073, i32 noundef 16)
-  %4075 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %4074, ptr %4075, align 4
-  %4076 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4077 = load i32, ptr %4076, align 16
-  %4078 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4079 = load i32, ptr %4078, align 4
-  %4080 = add i32 %4077, %4079
-  %4081 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %4080, ptr %4081, align 16
-  %4082 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4083 = load i32, ptr %4082, align 4
-  %4084 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4085 = load i32, ptr %4084, align 16
-  %4086 = xor i32 %4083, %4085
-  %4087 = call i32 @rotr32(i32 noundef %4086, i32 noundef 12)
-  %4088 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %4087, ptr %4088, align 4
-  %4089 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4090 = load i32, ptr %4089, align 8
-  %4091 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4092 = load i32, ptr %4091, align 4
-  %4093 = add i32 %4090, %4092
-  %4094 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 13), align 1
+4055:                                             ; preds = %4054
+  %4056 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4057 = load i32, ptr %4056, align 16
+  %4058 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %4059 = load i32, ptr %4058, align 4
+  %4060 = add i32 %4057, %4059
+  %4061 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 8
+  %4062 = load i8, ptr %4061, align 8
+  %4063 = zext i8 %4062 to i64
+  %4064 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4063
+  %4065 = load i32, ptr %4064, align 4
+  %4066 = add i32 %4060, %4065
+  %4067 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %4066, ptr %4067, align 16
+  %4068 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4069 = load i32, ptr %4068, align 4
+  %4070 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4071 = load i32, ptr %4070, align 16
+  %4072 = xor i32 %4069, %4071
+  %4073 = call i32 @rotr32(i32 noundef %4072, i32 noundef 16)
+  %4074 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %4073, ptr %4074, align 4
+  %4075 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4076 = load i32, ptr %4075, align 8
+  %4077 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4078 = load i32, ptr %4077, align 4
+  %4079 = add i32 %4076, %4078
+  %4080 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %4079, ptr %4080, align 8
+  %4081 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %4082 = load i32, ptr %4081, align 4
+  %4083 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4084 = load i32, ptr %4083, align 8
+  %4085 = xor i32 %4082, %4084
+  %4086 = call i32 @rotr32(i32 noundef %4085, i32 noundef 12)
+  %4087 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %4086, ptr %4087, align 4
+  %4088 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4089 = load i32, ptr %4088, align 16
+  %4090 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %4091 = load i32, ptr %4090, align 4
+  %4092 = add i32 %4089, %4091
+  %4093 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 9
+  %4094 = load i8, ptr %4093, align 1
   %4095 = zext i8 %4094 to i64
   %4096 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4095
   %4097 = load i32, ptr %4096, align 4
-  %4098 = add i32 %4093, %4097
-  %4099 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %4098, ptr %4099, align 8
-  %4100 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4098 = add i32 %4092, %4097
+  %4099 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %4098, ptr %4099, align 16
+  %4100 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %4101 = load i32, ptr %4100, align 4
-  %4102 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4103 = load i32, ptr %4102, align 8
+  %4102 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4103 = load i32, ptr %4102, align 16
   %4104 = xor i32 %4101, %4103
   %4105 = call i32 @rotr32(i32 noundef %4104, i32 noundef 8)
-  %4106 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4106 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   store i32 %4105, ptr %4106, align 4
-  %4107 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4108 = load i32, ptr %4107, align 16
-  %4109 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4107 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4108 = load i32, ptr %4107, align 8
+  %4109 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %4110 = load i32, ptr %4109, align 4
   %4111 = add i32 %4108, %4110
-  %4112 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %4111, ptr %4112, align 16
-  %4113 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4112 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %4111, ptr %4112, align 8
+  %4113 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %4114 = load i32, ptr %4113, align 4
-  %4115 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4116 = load i32, ptr %4115, align 16
+  %4115 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4116 = load i32, ptr %4115, align 8
   %4117 = xor i32 %4114, %4116
   %4118 = call i32 @rotr32(i32 noundef %4117, i32 noundef 7)
-  %4119 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4119 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   store i32 %4118, ptr %4119, align 4
   br label %4120
 
-4120:                                             ; preds = %4057
+4120:                                             ; preds = %4055
   br label %4121
 
 4121:                                             ; preds = %4120
-  %4122 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %4122 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
   %4123 = load i32, ptr %4122, align 4
-  %4124 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4125 = load i32, ptr %4124, align 16
+  %4124 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4125 = load i32, ptr %4124, align 8
   %4126 = add i32 %4123, %4125
-  %4127 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 14), align 2
-  %4128 = zext i8 %4127 to i64
-  %4129 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4128
-  %4130 = load i32, ptr %4129, align 4
-  %4131 = add i32 %4126, %4130
-  %4132 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %4131, ptr %4132, align 4
-  %4133 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4134 = load i32, ptr %4133, align 8
-  %4135 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4136 = load i32, ptr %4135, align 4
-  %4137 = xor i32 %4134, %4136
-  %4138 = call i32 @rotr32(i32 noundef %4137, i32 noundef 16)
-  %4139 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %4138, ptr %4139, align 8
-  %4140 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4141 = load i32, ptr %4140, align 4
-  %4142 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4143 = load i32, ptr %4142, align 8
-  %4144 = add i32 %4141, %4143
-  %4145 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %4144, ptr %4145, align 4
-  %4146 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4147 = load i32, ptr %4146, align 16
-  %4148 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4149 = load i32, ptr %4148, align 4
-  %4150 = xor i32 %4147, %4149
-  %4151 = call i32 @rotr32(i32 noundef %4150, i32 noundef 12)
-  %4152 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %4151, ptr %4152, align 16
-  %4153 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4154 = load i32, ptr %4153, align 4
-  %4155 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4156 = load i32, ptr %4155, align 16
-  %4157 = add i32 %4154, %4156
-  %4158 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 15), align 1
-  %4159 = zext i8 %4158 to i64
-  %4160 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4159
-  %4161 = load i32, ptr %4160, align 4
-  %4162 = add i32 %4157, %4161
-  %4163 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %4162, ptr %4163, align 4
-  %4164 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4165 = load i32, ptr %4164, align 8
-  %4166 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4167 = load i32, ptr %4166, align 4
-  %4168 = xor i32 %4165, %4167
-  %4169 = call i32 @rotr32(i32 noundef %4168, i32 noundef 8)
-  %4170 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %4169, ptr %4170, align 8
-  %4171 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4172 = load i32, ptr %4171, align 4
-  %4173 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4174 = load i32, ptr %4173, align 8
-  %4175 = add i32 %4172, %4174
-  %4176 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %4175, ptr %4176, align 4
-  %4177 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4178 = load i32, ptr %4177, align 16
-  %4179 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4180 = load i32, ptr %4179, align 4
-  %4181 = xor i32 %4178, %4180
-  %4182 = call i32 @rotr32(i32 noundef %4181, i32 noundef 7)
-  %4183 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %4182, ptr %4183, align 16
-  br label %4184
-
-4184:                                             ; preds = %4121
-  br label %4185
-
-4185:                                             ; preds = %4184
+  %4127 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 10
+  %4128 = load i8, ptr %4127, align 2
+  %4129 = zext i8 %4128 to i64
+  %4130 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4129
+  %4131 = load i32, ptr %4130, align 4
+  %4132 = add i32 %4126, %4131
+  %4133 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %4132, ptr %4133, align 4
+  %4134 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4135 = load i32, ptr %4134, align 16
+  %4136 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4137 = load i32, ptr %4136, align 4
+  %4138 = xor i32 %4135, %4137
+  %4139 = call i32 @rotr32(i32 noundef %4138, i32 noundef 16)
+  %4140 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %4139, ptr %4140, align 16
+  %4141 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4142 = load i32, ptr %4141, align 4
+  %4143 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4144 = load i32, ptr %4143, align 16
+  %4145 = add i32 %4142, %4144
+  %4146 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %4145, ptr %4146, align 4
+  %4147 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4148 = load i32, ptr %4147, align 8
+  %4149 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4150 = load i32, ptr %4149, align 4
+  %4151 = xor i32 %4148, %4150
+  %4152 = call i32 @rotr32(i32 noundef %4151, i32 noundef 12)
+  %4153 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %4152, ptr %4153, align 8
+  %4154 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4155 = load i32, ptr %4154, align 4
+  %4156 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4157 = load i32, ptr %4156, align 8
+  %4158 = add i32 %4155, %4157
+  %4159 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 11
+  %4160 = load i8, ptr %4159, align 1
+  %4161 = zext i8 %4160 to i64
+  %4162 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4161
+  %4163 = load i32, ptr %4162, align 4
+  %4164 = add i32 %4158, %4163
+  %4165 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %4164, ptr %4165, align 4
+  %4166 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4167 = load i32, ptr %4166, align 16
+  %4168 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4169 = load i32, ptr %4168, align 4
+  %4170 = xor i32 %4167, %4169
+  %4171 = call i32 @rotr32(i32 noundef %4170, i32 noundef 8)
+  %4172 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %4171, ptr %4172, align 16
+  %4173 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4174 = load i32, ptr %4173, align 4
+  %4175 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4176 = load i32, ptr %4175, align 16
+  %4177 = add i32 %4174, %4176
+  %4178 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %4177, ptr %4178, align 4
+  %4179 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4180 = load i32, ptr %4179, align 8
+  %4181 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4182 = load i32, ptr %4181, align 4
+  %4183 = xor i32 %4180, %4182
+  %4184 = call i32 @rotr32(i32 noundef %4183, i32 noundef 7)
+  %4185 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %4184, ptr %4185, align 8
   br label %4186
 
-4186:                                             ; preds = %4185
+4186:                                             ; preds = %4121
   br label %4187
 
 4187:                                             ; preds = %4186
-  %4188 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4189 = load i32, ptr %4188, align 16
-  %4190 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4191 = load i32, ptr %4190, align 16
+  %4188 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4189 = load i32, ptr %4188, align 8
+  %4190 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4191 = load i32, ptr %4190, align 4
   %4192 = add i32 %4189, %4191
-  %4193 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8), align 16
-  %4194 = zext i8 %4193 to i64
-  %4195 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4194
-  %4196 = load i32, ptr %4195, align 4
-  %4197 = add i32 %4192, %4196
-  %4198 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %4197, ptr %4198, align 16
-  %4199 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4200 = load i32, ptr %4199, align 16
-  %4201 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4202 = load i32, ptr %4201, align 16
-  %4203 = xor i32 %4200, %4202
-  %4204 = call i32 @rotr32(i32 noundef %4203, i32 noundef 16)
-  %4205 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %4204, ptr %4205, align 16
-  %4206 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4207 = load i32, ptr %4206, align 16
-  %4208 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4209 = load i32, ptr %4208, align 16
-  %4210 = add i32 %4207, %4209
-  %4211 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %4210, ptr %4211, align 16
-  %4212 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4213 = load i32, ptr %4212, align 16
-  %4214 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4215 = load i32, ptr %4214, align 16
-  %4216 = xor i32 %4213, %4215
-  %4217 = call i32 @rotr32(i32 noundef %4216, i32 noundef 12)
-  %4218 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %4217, ptr %4218, align 16
-  %4219 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4220 = load i32, ptr %4219, align 16
-  %4221 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4222 = load i32, ptr %4221, align 16
-  %4223 = add i32 %4220, %4222
-  %4224 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 1), align 1
-  %4225 = zext i8 %4224 to i64
-  %4226 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4225
-  %4227 = load i32, ptr %4226, align 4
-  %4228 = add i32 %4223, %4227
-  %4229 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %4228, ptr %4229, align 16
-  %4230 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4231 = load i32, ptr %4230, align 16
-  %4232 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4233 = load i32, ptr %4232, align 16
-  %4234 = xor i32 %4231, %4233
-  %4235 = call i32 @rotr32(i32 noundef %4234, i32 noundef 8)
-  %4236 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %4235, ptr %4236, align 16
-  %4237 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4238 = load i32, ptr %4237, align 16
-  %4239 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4193 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 12
+  %4194 = load i8, ptr %4193, align 4
+  %4195 = zext i8 %4194 to i64
+  %4196 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4195
+  %4197 = load i32, ptr %4196, align 4
+  %4198 = add i32 %4192, %4197
+  %4199 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %4198, ptr %4199, align 8
+  %4200 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4201 = load i32, ptr %4200, align 4
+  %4202 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4203 = load i32, ptr %4202, align 8
+  %4204 = xor i32 %4201, %4203
+  %4205 = call i32 @rotr32(i32 noundef %4204, i32 noundef 16)
+  %4206 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %4205, ptr %4206, align 4
+  %4207 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4208 = load i32, ptr %4207, align 16
+  %4209 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4210 = load i32, ptr %4209, align 4
+  %4211 = add i32 %4208, %4210
+  %4212 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %4211, ptr %4212, align 16
+  %4213 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4214 = load i32, ptr %4213, align 4
+  %4215 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4216 = load i32, ptr %4215, align 16
+  %4217 = xor i32 %4214, %4216
+  %4218 = call i32 @rotr32(i32 noundef %4217, i32 noundef 12)
+  %4219 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %4218, ptr %4219, align 4
+  %4220 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4221 = load i32, ptr %4220, align 8
+  %4222 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4223 = load i32, ptr %4222, align 4
+  %4224 = add i32 %4221, %4223
+  %4225 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 13
+  %4226 = load i8, ptr %4225, align 1
+  %4227 = zext i8 %4226 to i64
+  %4228 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4227
+  %4229 = load i32, ptr %4228, align 4
+  %4230 = add i32 %4224, %4229
+  %4231 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %4230, ptr %4231, align 8
+  %4232 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4233 = load i32, ptr %4232, align 4
+  %4234 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4235 = load i32, ptr %4234, align 8
+  %4236 = xor i32 %4233, %4235
+  %4237 = call i32 @rotr32(i32 noundef %4236, i32 noundef 8)
+  %4238 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %4237, ptr %4238, align 4
+  %4239 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
   %4240 = load i32, ptr %4239, align 16
-  %4241 = add i32 %4238, %4240
-  %4242 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %4241, ptr %4242, align 16
-  %4243 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4244 = load i32, ptr %4243, align 16
-  %4245 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4246 = load i32, ptr %4245, align 16
-  %4247 = xor i32 %4244, %4246
-  %4248 = call i32 @rotr32(i32 noundef %4247, i32 noundef 7)
-  %4249 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %4248, ptr %4249, align 16
-  br label %4250
+  %4241 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4242 = load i32, ptr %4241, align 4
+  %4243 = add i32 %4240, %4242
+  %4244 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %4243, ptr %4244, align 16
+  %4245 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4246 = load i32, ptr %4245, align 4
+  %4247 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4248 = load i32, ptr %4247, align 16
+  %4249 = xor i32 %4246, %4248
+  %4250 = call i32 @rotr32(i32 noundef %4249, i32 noundef 7)
+  %4251 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %4250, ptr %4251, align 4
+  br label %4252
 
-4250:                                             ; preds = %4187
-  br label %4251
+4252:                                             ; preds = %4187
+  br label %4253
 
-4251:                                             ; preds = %4250
-  %4252 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4253 = load i32, ptr %4252, align 4
-  %4254 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+4253:                                             ; preds = %4252
+  %4254 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %4255 = load i32, ptr %4254, align 4
-  %4256 = add i32 %4253, %4255
-  %4257 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 2), align 2
-  %4258 = zext i8 %4257 to i64
-  %4259 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4258
-  %4260 = load i32, ptr %4259, align 4
-  %4261 = add i32 %4256, %4260
-  %4262 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %4261, ptr %4262, align 4
-  %4263 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4264 = load i32, ptr %4263, align 4
-  %4265 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4266 = load i32, ptr %4265, align 4
-  %4267 = xor i32 %4264, %4266
-  %4268 = call i32 @rotr32(i32 noundef %4267, i32 noundef 16)
-  %4269 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %4268, ptr %4269, align 4
-  %4270 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4271 = load i32, ptr %4270, align 4
-  %4272 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4273 = load i32, ptr %4272, align 4
-  %4274 = add i32 %4271, %4273
-  %4275 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %4274, ptr %4275, align 4
-  %4276 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4277 = load i32, ptr %4276, align 4
+  %4256 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4257 = load i32, ptr %4256, align 16
+  %4258 = add i32 %4255, %4257
+  %4259 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 14
+  %4260 = load i8, ptr %4259, align 2
+  %4261 = zext i8 %4260 to i64
+  %4262 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4261
+  %4263 = load i32, ptr %4262, align 4
+  %4264 = add i32 %4258, %4263
+  %4265 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %4264, ptr %4265, align 4
+  %4266 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4267 = load i32, ptr %4266, align 8
+  %4268 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %4269 = load i32, ptr %4268, align 4
+  %4270 = xor i32 %4267, %4269
+  %4271 = call i32 @rotr32(i32 noundef %4270, i32 noundef 16)
+  %4272 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %4271, ptr %4272, align 8
+  %4273 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4274 = load i32, ptr %4273, align 4
+  %4275 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4276 = load i32, ptr %4275, align 8
+  %4277 = add i32 %4274, %4276
   %4278 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4279 = load i32, ptr %4278, align 4
-  %4280 = xor i32 %4277, %4279
-  %4281 = call i32 @rotr32(i32 noundef %4280, i32 noundef 12)
-  %4282 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %4281, ptr %4282, align 4
-  %4283 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4284 = load i32, ptr %4283, align 4
-  %4285 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4286 = load i32, ptr %4285, align 4
-  %4287 = add i32 %4284, %4286
-  %4288 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 3), align 1
-  %4289 = zext i8 %4288 to i64
-  %4290 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4289
-  %4291 = load i32, ptr %4290, align 4
-  %4292 = add i32 %4287, %4291
-  %4293 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %4292, ptr %4293, align 4
-  %4294 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %4277, ptr %4278, align 4
+  %4279 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4280 = load i32, ptr %4279, align 16
+  %4281 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4282 = load i32, ptr %4281, align 4
+  %4283 = xor i32 %4280, %4282
+  %4284 = call i32 @rotr32(i32 noundef %4283, i32 noundef 12)
+  %4285 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %4284, ptr %4285, align 16
+  %4286 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %4287 = load i32, ptr %4286, align 4
+  %4288 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4289 = load i32, ptr %4288, align 16
+  %4290 = add i32 %4287, %4289
+  %4291 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 7, i64 15
+  %4292 = load i8, ptr %4291, align 1
+  %4293 = zext i8 %4292 to i64
+  %4294 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4293
   %4295 = load i32, ptr %4294, align 4
-  %4296 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4297 = load i32, ptr %4296, align 4
-  %4298 = xor i32 %4295, %4297
-  %4299 = call i32 @rotr32(i32 noundef %4298, i32 noundef 8)
-  %4300 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %4299, ptr %4300, align 4
-  %4301 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4302 = load i32, ptr %4301, align 4
-  %4303 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4304 = load i32, ptr %4303, align 4
-  %4305 = add i32 %4302, %4304
-  %4306 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %4305, ptr %4306, align 4
-  %4307 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4308 = load i32, ptr %4307, align 4
-  %4309 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4310 = load i32, ptr %4309, align 4
-  %4311 = xor i32 %4308, %4310
-  %4312 = call i32 @rotr32(i32 noundef %4311, i32 noundef 7)
-  %4313 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %4312, ptr %4313, align 4
-  br label %4314
+  %4296 = add i32 %4290, %4295
+  %4297 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %4296, ptr %4297, align 4
+  %4298 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4299 = load i32, ptr %4298, align 8
+  %4300 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %4301 = load i32, ptr %4300, align 4
+  %4302 = xor i32 %4299, %4301
+  %4303 = call i32 @rotr32(i32 noundef %4302, i32 noundef 8)
+  %4304 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %4303, ptr %4304, align 8
+  %4305 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4306 = load i32, ptr %4305, align 4
+  %4307 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4308 = load i32, ptr %4307, align 8
+  %4309 = add i32 %4306, %4308
+  %4310 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %4309, ptr %4310, align 4
+  %4311 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4312 = load i32, ptr %4311, align 16
+  %4313 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4314 = load i32, ptr %4313, align 4
+  %4315 = xor i32 %4312, %4314
+  %4316 = call i32 @rotr32(i32 noundef %4315, i32 noundef 7)
+  %4317 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %4316, ptr %4317, align 16
+  br label %4318
 
-4314:                                             ; preds = %4251
-  br label %4315
+4318:                                             ; preds = %4253
+  br label %4319
 
-4315:                                             ; preds = %4314
-  %4316 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4317 = load i32, ptr %4316, align 8
-  %4318 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4319 = load i32, ptr %4318, align 8
-  %4320 = add i32 %4317, %4319
-  %4321 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 4), align 4
-  %4322 = zext i8 %4321 to i64
-  %4323 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4322
-  %4324 = load i32, ptr %4323, align 4
-  %4325 = add i32 %4320, %4324
-  %4326 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %4325, ptr %4326, align 8
-  %4327 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4328 = load i32, ptr %4327, align 8
-  %4329 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4330 = load i32, ptr %4329, align 8
-  %4331 = xor i32 %4328, %4330
-  %4332 = call i32 @rotr32(i32 noundef %4331, i32 noundef 16)
-  %4333 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %4332, ptr %4333, align 8
-  %4334 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4335 = load i32, ptr %4334, align 8
-  %4336 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4337 = load i32, ptr %4336, align 8
-  %4338 = add i32 %4335, %4337
-  %4339 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %4338, ptr %4339, align 8
-  %4340 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4341 = load i32, ptr %4340, align 8
-  %4342 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4343 = load i32, ptr %4342, align 8
-  %4344 = xor i32 %4341, %4343
-  %4345 = call i32 @rotr32(i32 noundef %4344, i32 noundef 12)
-  %4346 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %4345, ptr %4346, align 8
-  %4347 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4348 = load i32, ptr %4347, align 8
-  %4349 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4350 = load i32, ptr %4349, align 8
-  %4351 = add i32 %4348, %4350
-  %4352 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 5), align 1
-  %4353 = zext i8 %4352 to i64
-  %4354 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4353
-  %4355 = load i32, ptr %4354, align 4
-  %4356 = add i32 %4351, %4355
-  %4357 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %4356, ptr %4357, align 8
-  %4358 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4359 = load i32, ptr %4358, align 8
-  %4360 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4361 = load i32, ptr %4360, align 8
-  %4362 = xor i32 %4359, %4361
-  %4363 = call i32 @rotr32(i32 noundef %4362, i32 noundef 8)
-  %4364 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %4363, ptr %4364, align 8
-  %4365 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4366 = load i32, ptr %4365, align 8
-  %4367 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4368 = load i32, ptr %4367, align 8
-  %4369 = add i32 %4366, %4368
-  %4370 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %4369, ptr %4370, align 8
-  %4371 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4372 = load i32, ptr %4371, align 8
-  %4373 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4374 = load i32, ptr %4373, align 8
-  %4375 = xor i32 %4372, %4374
-  %4376 = call i32 @rotr32(i32 noundef %4375, i32 noundef 7)
-  %4377 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %4376, ptr %4377, align 8
-  br label %4378
+4319:                                             ; preds = %4318
+  br label %4320
 
-4378:                                             ; preds = %4315
-  br label %4379
+4320:                                             ; preds = %4319
+  br label %4321
 
-4379:                                             ; preds = %4378
-  %4380 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4381 = load i32, ptr %4380, align 4
-  %4382 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4383 = load i32, ptr %4382, align 4
-  %4384 = add i32 %4381, %4383
-  %4385 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 6), align 2
-  %4386 = zext i8 %4385 to i64
-  %4387 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4386
-  %4388 = load i32, ptr %4387, align 4
-  %4389 = add i32 %4384, %4388
-  %4390 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %4389, ptr %4390, align 4
-  %4391 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %4392 = load i32, ptr %4391, align 4
-  %4393 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4394 = load i32, ptr %4393, align 4
-  %4395 = xor i32 %4392, %4394
-  %4396 = call i32 @rotr32(i32 noundef %4395, i32 noundef 16)
-  %4397 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %4396, ptr %4397, align 4
-  %4398 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %4399 = load i32, ptr %4398, align 4
-  %4400 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+4321:                                             ; preds = %4320
+  %4322 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4323 = load i32, ptr %4322, align 16
+  %4324 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4325 = load i32, ptr %4324, align 16
+  %4326 = add i32 %4323, %4325
+  %4327 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8
+  %4328 = load i8, ptr %4327, align 16
+  %4329 = zext i8 %4328 to i64
+  %4330 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4329
+  %4331 = load i32, ptr %4330, align 4
+  %4332 = add i32 %4326, %4331
+  %4333 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %4332, ptr %4333, align 16
+  %4334 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4335 = load i32, ptr %4334, align 16
+  %4336 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4337 = load i32, ptr %4336, align 16
+  %4338 = xor i32 %4335, %4337
+  %4339 = call i32 @rotr32(i32 noundef %4338, i32 noundef 16)
+  %4340 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %4339, ptr %4340, align 16
+  %4341 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4342 = load i32, ptr %4341, align 16
+  %4343 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4344 = load i32, ptr %4343, align 16
+  %4345 = add i32 %4342, %4344
+  %4346 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %4345, ptr %4346, align 16
+  %4347 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4348 = load i32, ptr %4347, align 16
+  %4349 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4350 = load i32, ptr %4349, align 16
+  %4351 = xor i32 %4348, %4350
+  %4352 = call i32 @rotr32(i32 noundef %4351, i32 noundef 12)
+  %4353 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %4352, ptr %4353, align 16
+  %4354 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4355 = load i32, ptr %4354, align 16
+  %4356 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4357 = load i32, ptr %4356, align 16
+  %4358 = add i32 %4355, %4357
+  %4359 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 1
+  %4360 = load i8, ptr %4359, align 1
+  %4361 = zext i8 %4360 to i64
+  %4362 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4361
+  %4363 = load i32, ptr %4362, align 4
+  %4364 = add i32 %4358, %4363
+  %4365 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %4364, ptr %4365, align 16
+  %4366 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4367 = load i32, ptr %4366, align 16
+  %4368 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4369 = load i32, ptr %4368, align 16
+  %4370 = xor i32 %4367, %4369
+  %4371 = call i32 @rotr32(i32 noundef %4370, i32 noundef 8)
+  %4372 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %4371, ptr %4372, align 16
+  %4373 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4374 = load i32, ptr %4373, align 16
+  %4375 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4376 = load i32, ptr %4375, align 16
+  %4377 = add i32 %4374, %4376
+  %4378 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %4377, ptr %4378, align 16
+  %4379 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4380 = load i32, ptr %4379, align 16
+  %4381 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4382 = load i32, ptr %4381, align 16
+  %4383 = xor i32 %4380, %4382
+  %4384 = call i32 @rotr32(i32 noundef %4383, i32 noundef 7)
+  %4385 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %4384, ptr %4385, align 16
+  br label %4386
+
+4386:                                             ; preds = %4321
+  br label %4387
+
+4387:                                             ; preds = %4386
+  %4388 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4389 = load i32, ptr %4388, align 4
+  %4390 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %4391 = load i32, ptr %4390, align 4
+  %4392 = add i32 %4389, %4391
+  %4393 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 2
+  %4394 = load i8, ptr %4393, align 2
+  %4395 = zext i8 %4394 to i64
+  %4396 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4395
+  %4397 = load i32, ptr %4396, align 4
+  %4398 = add i32 %4392, %4397
+  %4399 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %4398, ptr %4399, align 4
+  %4400 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
   %4401 = load i32, ptr %4400, align 4
-  %4402 = add i32 %4399, %4401
-  %4403 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %4402, ptr %4403, align 4
-  %4404 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4405 = load i32, ptr %4404, align 4
-  %4406 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %4407 = load i32, ptr %4406, align 4
-  %4408 = xor i32 %4405, %4407
-  %4409 = call i32 @rotr32(i32 noundef %4408, i32 noundef 12)
-  %4410 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %4409, ptr %4410, align 4
-  %4411 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4412 = load i32, ptr %4411, align 4
-  %4413 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4402 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4403 = load i32, ptr %4402, align 4
+  %4404 = xor i32 %4401, %4403
+  %4405 = call i32 @rotr32(i32 noundef %4404, i32 noundef 16)
+  %4406 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %4405, ptr %4406, align 4
+  %4407 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4408 = load i32, ptr %4407, align 4
+  %4409 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4410 = load i32, ptr %4409, align 4
+  %4411 = add i32 %4408, %4410
+  %4412 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %4411, ptr %4412, align 4
+  %4413 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %4414 = load i32, ptr %4413, align 4
-  %4415 = add i32 %4412, %4414
-  %4416 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 7), align 1
-  %4417 = zext i8 %4416 to i64
-  %4418 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4417
-  %4419 = load i32, ptr %4418, align 4
-  %4420 = add i32 %4415, %4419
-  %4421 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %4420, ptr %4421, align 4
-  %4422 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4415 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4416 = load i32, ptr %4415, align 4
+  %4417 = xor i32 %4414, %4416
+  %4418 = call i32 @rotr32(i32 noundef %4417, i32 noundef 12)
+  %4419 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %4418, ptr %4419, align 4
+  %4420 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4421 = load i32, ptr %4420, align 4
+  %4422 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %4423 = load i32, ptr %4422, align 4
-  %4424 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4425 = load i32, ptr %4424, align 4
-  %4426 = xor i32 %4423, %4425
-  %4427 = call i32 @rotr32(i32 noundef %4426, i32 noundef 8)
-  %4428 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %4427, ptr %4428, align 4
-  %4429 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %4430 = load i32, ptr %4429, align 4
-  %4431 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %4432 = load i32, ptr %4431, align 4
-  %4433 = add i32 %4430, %4432
-  %4434 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %4433, ptr %4434, align 4
-  %4435 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4436 = load i32, ptr %4435, align 4
-  %4437 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %4438 = load i32, ptr %4437, align 4
-  %4439 = xor i32 %4436, %4438
-  %4440 = call i32 @rotr32(i32 noundef %4439, i32 noundef 7)
-  %4441 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %4440, ptr %4441, align 4
-  br label %4442
+  %4424 = add i32 %4421, %4423
+  %4425 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 3
+  %4426 = load i8, ptr %4425, align 1
+  %4427 = zext i8 %4426 to i64
+  %4428 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4427
+  %4429 = load i32, ptr %4428, align 4
+  %4430 = add i32 %4424, %4429
+  %4431 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %4430, ptr %4431, align 4
+  %4432 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4433 = load i32, ptr %4432, align 4
+  %4434 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4435 = load i32, ptr %4434, align 4
+  %4436 = xor i32 %4433, %4435
+  %4437 = call i32 @rotr32(i32 noundef %4436, i32 noundef 8)
+  %4438 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %4437, ptr %4438, align 4
+  %4439 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4440 = load i32, ptr %4439, align 4
+  %4441 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4442 = load i32, ptr %4441, align 4
+  %4443 = add i32 %4440, %4442
+  %4444 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %4443, ptr %4444, align 4
+  %4445 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %4446 = load i32, ptr %4445, align 4
+  %4447 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4448 = load i32, ptr %4447, align 4
+  %4449 = xor i32 %4446, %4448
+  %4450 = call i32 @rotr32(i32 noundef %4449, i32 noundef 7)
+  %4451 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %4450, ptr %4451, align 4
+  br label %4452
 
-4442:                                             ; preds = %4379
-  br label %4443
+4452:                                             ; preds = %4387
+  br label %4453
 
-4443:                                             ; preds = %4442
-  %4444 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4445 = load i32, ptr %4444, align 16
-  %4446 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4447 = load i32, ptr %4446, align 4
-  %4448 = add i32 %4445, %4447
-  %4449 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 8), align 8
-  %4450 = zext i8 %4449 to i64
-  %4451 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4450
-  %4452 = load i32, ptr %4451, align 4
-  %4453 = add i32 %4448, %4452
-  %4454 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %4453, ptr %4454, align 16
-  %4455 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %4456 = load i32, ptr %4455, align 4
-  %4457 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4458 = load i32, ptr %4457, align 16
-  %4459 = xor i32 %4456, %4458
-  %4460 = call i32 @rotr32(i32 noundef %4459, i32 noundef 16)
-  %4461 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %4460, ptr %4461, align 4
-  %4462 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4463 = load i32, ptr %4462, align 8
-  %4464 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %4465 = load i32, ptr %4464, align 4
-  %4466 = add i32 %4463, %4465
-  %4467 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %4466, ptr %4467, align 8
-  %4468 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4469 = load i32, ptr %4468, align 4
-  %4470 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4471 = load i32, ptr %4470, align 8
-  %4472 = xor i32 %4469, %4471
-  %4473 = call i32 @rotr32(i32 noundef %4472, i32 noundef 12)
-  %4474 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %4473, ptr %4474, align 4
-  %4475 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4476 = load i32, ptr %4475, align 16
-  %4477 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4478 = load i32, ptr %4477, align 4
-  %4479 = add i32 %4476, %4478
-  %4480 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 9), align 1
-  %4481 = zext i8 %4480 to i64
-  %4482 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4481
-  %4483 = load i32, ptr %4482, align 4
-  %4484 = add i32 %4479, %4483
-  %4485 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %4484, ptr %4485, align 16
-  %4486 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %4487 = load i32, ptr %4486, align 4
-  %4488 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4489 = load i32, ptr %4488, align 16
-  %4490 = xor i32 %4487, %4489
-  %4491 = call i32 @rotr32(i32 noundef %4490, i32 noundef 8)
-  %4492 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %4491, ptr %4492, align 4
-  %4493 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4494 = load i32, ptr %4493, align 8
-  %4495 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %4496 = load i32, ptr %4495, align 4
-  %4497 = add i32 %4494, %4496
-  %4498 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %4497, ptr %4498, align 8
-  %4499 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4500 = load i32, ptr %4499, align 4
-  %4501 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4502 = load i32, ptr %4501, align 8
-  %4503 = xor i32 %4500, %4502
-  %4504 = call i32 @rotr32(i32 noundef %4503, i32 noundef 7)
-  %4505 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %4504, ptr %4505, align 4
-  br label %4506
+4453:                                             ; preds = %4452
+  %4454 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4455 = load i32, ptr %4454, align 8
+  %4456 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4457 = load i32, ptr %4456, align 8
+  %4458 = add i32 %4455, %4457
+  %4459 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 4
+  %4460 = load i8, ptr %4459, align 4
+  %4461 = zext i8 %4460 to i64
+  %4462 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4461
+  %4463 = load i32, ptr %4462, align 4
+  %4464 = add i32 %4458, %4463
+  %4465 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %4464, ptr %4465, align 8
+  %4466 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4467 = load i32, ptr %4466, align 8
+  %4468 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4469 = load i32, ptr %4468, align 8
+  %4470 = xor i32 %4467, %4469
+  %4471 = call i32 @rotr32(i32 noundef %4470, i32 noundef 16)
+  %4472 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %4471, ptr %4472, align 8
+  %4473 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4474 = load i32, ptr %4473, align 8
+  %4475 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4476 = load i32, ptr %4475, align 8
+  %4477 = add i32 %4474, %4476
+  %4478 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %4477, ptr %4478, align 8
+  %4479 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4480 = load i32, ptr %4479, align 8
+  %4481 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4482 = load i32, ptr %4481, align 8
+  %4483 = xor i32 %4480, %4482
+  %4484 = call i32 @rotr32(i32 noundef %4483, i32 noundef 12)
+  %4485 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %4484, ptr %4485, align 8
+  %4486 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4487 = load i32, ptr %4486, align 8
+  %4488 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4489 = load i32, ptr %4488, align 8
+  %4490 = add i32 %4487, %4489
+  %4491 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 5
+  %4492 = load i8, ptr %4491, align 1
+  %4493 = zext i8 %4492 to i64
+  %4494 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4493
+  %4495 = load i32, ptr %4494, align 4
+  %4496 = add i32 %4490, %4495
+  %4497 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %4496, ptr %4497, align 8
+  %4498 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4499 = load i32, ptr %4498, align 8
+  %4500 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4501 = load i32, ptr %4500, align 8
+  %4502 = xor i32 %4499, %4501
+  %4503 = call i32 @rotr32(i32 noundef %4502, i32 noundef 8)
+  %4504 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %4503, ptr %4504, align 8
+  %4505 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4506 = load i32, ptr %4505, align 8
+  %4507 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4508 = load i32, ptr %4507, align 8
+  %4509 = add i32 %4506, %4508
+  %4510 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %4509, ptr %4510, align 8
+  %4511 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4512 = load i32, ptr %4511, align 8
+  %4513 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4514 = load i32, ptr %4513, align 8
+  %4515 = xor i32 %4512, %4514
+  %4516 = call i32 @rotr32(i32 noundef %4515, i32 noundef 7)
+  %4517 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %4516, ptr %4517, align 8
+  br label %4518
 
-4506:                                             ; preds = %4443
-  br label %4507
+4518:                                             ; preds = %4453
+  br label %4519
 
-4507:                                             ; preds = %4506
-  %4508 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4509 = load i32, ptr %4508, align 4
-  %4510 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4511 = load i32, ptr %4510, align 8
-  %4512 = add i32 %4509, %4511
-  %4513 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 10), align 2
-  %4514 = zext i8 %4513 to i64
-  %4515 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4514
-  %4516 = load i32, ptr %4515, align 4
-  %4517 = add i32 %4512, %4516
-  %4518 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %4517, ptr %4518, align 4
-  %4519 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4520 = load i32, ptr %4519, align 16
-  %4521 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4522 = load i32, ptr %4521, align 4
-  %4523 = xor i32 %4520, %4522
-  %4524 = call i32 @rotr32(i32 noundef %4523, i32 noundef 16)
-  %4525 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %4524, ptr %4525, align 16
-  %4526 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %4527 = load i32, ptr %4526, align 4
-  %4528 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4529 = load i32, ptr %4528, align 16
-  %4530 = add i32 %4527, %4529
-  %4531 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+4519:                                             ; preds = %4518
+  %4520 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %4521 = load i32, ptr %4520, align 4
+  %4522 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4523 = load i32, ptr %4522, align 4
+  %4524 = add i32 %4521, %4523
+  %4525 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 6
+  %4526 = load i8, ptr %4525, align 2
+  %4527 = zext i8 %4526 to i64
+  %4528 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4527
+  %4529 = load i32, ptr %4528, align 4
+  %4530 = add i32 %4524, %4529
+  %4531 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   store i32 %4530, ptr %4531, align 4
-  %4532 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4533 = load i32, ptr %4532, align 8
-  %4534 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4532 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4533 = load i32, ptr %4532, align 4
+  %4534 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %4535 = load i32, ptr %4534, align 4
   %4536 = xor i32 %4533, %4535
-  %4537 = call i32 @rotr32(i32 noundef %4536, i32 noundef 12)
-  %4538 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %4537, ptr %4538, align 8
-  %4539 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4537 = call i32 @rotr32(i32 noundef %4536, i32 noundef 16)
+  %4538 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %4537, ptr %4538, align 4
+  %4539 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %4540 = load i32, ptr %4539, align 4
-  %4541 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4542 = load i32, ptr %4541, align 8
+  %4541 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4542 = load i32, ptr %4541, align 4
   %4543 = add i32 %4540, %4542
-  %4544 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 11), align 1
-  %4545 = zext i8 %4544 to i64
-  %4546 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4545
-  %4547 = load i32, ptr %4546, align 4
-  %4548 = add i32 %4543, %4547
-  %4549 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %4548, ptr %4549, align 4
-  %4550 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4551 = load i32, ptr %4550, align 16
-  %4552 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4544 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %4543, ptr %4544, align 4
+  %4545 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4546 = load i32, ptr %4545, align 4
+  %4547 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4548 = load i32, ptr %4547, align 4
+  %4549 = xor i32 %4546, %4548
+  %4550 = call i32 @rotr32(i32 noundef %4549, i32 noundef 12)
+  %4551 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %4550, ptr %4551, align 4
+  %4552 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %4553 = load i32, ptr %4552, align 4
-  %4554 = xor i32 %4551, %4553
-  %4555 = call i32 @rotr32(i32 noundef %4554, i32 noundef 8)
-  %4556 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %4555, ptr %4556, align 16
-  %4557 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %4558 = load i32, ptr %4557, align 4
-  %4559 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4560 = load i32, ptr %4559, align 16
-  %4561 = add i32 %4558, %4560
-  %4562 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %4561, ptr %4562, align 4
-  %4563 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4564 = load i32, ptr %4563, align 8
-  %4565 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %4566 = load i32, ptr %4565, align 4
-  %4567 = xor i32 %4564, %4566
-  %4568 = call i32 @rotr32(i32 noundef %4567, i32 noundef 7)
-  %4569 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %4568, ptr %4569, align 8
-  br label %4570
-
-4570:                                             ; preds = %4507
-  br label %4571
-
-4571:                                             ; preds = %4570
-  %4572 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4573 = load i32, ptr %4572, align 8
-  %4574 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4575 = load i32, ptr %4574, align 4
-  %4576 = add i32 %4573, %4575
-  %4577 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 12), align 4
-  %4578 = zext i8 %4577 to i64
-  %4579 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4578
+  %4554 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4555 = load i32, ptr %4554, align 4
+  %4556 = add i32 %4553, %4555
+  %4557 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 7
+  %4558 = load i8, ptr %4557, align 1
+  %4559 = zext i8 %4558 to i64
+  %4560 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4559
+  %4561 = load i32, ptr %4560, align 4
+  %4562 = add i32 %4556, %4561
+  %4563 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %4562, ptr %4563, align 4
+  %4564 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4565 = load i32, ptr %4564, align 4
+  %4566 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %4567 = load i32, ptr %4566, align 4
+  %4568 = xor i32 %4565, %4567
+  %4569 = call i32 @rotr32(i32 noundef %4568, i32 noundef 8)
+  %4570 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %4569, ptr %4570, align 4
+  %4571 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4572 = load i32, ptr %4571, align 4
+  %4573 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4574 = load i32, ptr %4573, align 4
+  %4575 = add i32 %4572, %4574
+  %4576 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %4575, ptr %4576, align 4
+  %4577 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4578 = load i32, ptr %4577, align 4
+  %4579 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
   %4580 = load i32, ptr %4579, align 4
-  %4581 = add i32 %4576, %4580
-  %4582 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %4581, ptr %4582, align 8
-  %4583 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4584 = load i32, ptr %4583, align 4
-  %4585 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4586 = load i32, ptr %4585, align 8
-  %4587 = xor i32 %4584, %4586
-  %4588 = call i32 @rotr32(i32 noundef %4587, i32 noundef 16)
-  %4589 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %4588, ptr %4589, align 4
-  %4590 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4591 = load i32, ptr %4590, align 16
-  %4592 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4593 = load i32, ptr %4592, align 4
-  %4594 = add i32 %4591, %4593
-  %4595 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %4594, ptr %4595, align 16
-  %4596 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4597 = load i32, ptr %4596, align 4
-  %4598 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4599 = load i32, ptr %4598, align 16
-  %4600 = xor i32 %4597, %4599
-  %4601 = call i32 @rotr32(i32 noundef %4600, i32 noundef 12)
-  %4602 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %4601, ptr %4602, align 4
-  %4603 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4604 = load i32, ptr %4603, align 8
-  %4605 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4606 = load i32, ptr %4605, align 4
-  %4607 = add i32 %4604, %4606
-  %4608 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 13), align 1
-  %4609 = zext i8 %4608 to i64
-  %4610 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4609
-  %4611 = load i32, ptr %4610, align 4
-  %4612 = add i32 %4607, %4611
-  %4613 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %4612, ptr %4613, align 8
-  %4614 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4615 = load i32, ptr %4614, align 4
-  %4616 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4617 = load i32, ptr %4616, align 8
-  %4618 = xor i32 %4615, %4617
-  %4619 = call i32 @rotr32(i32 noundef %4618, i32 noundef 8)
-  %4620 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %4619, ptr %4620, align 4
-  %4621 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4622 = load i32, ptr %4621, align 16
-  %4623 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4624 = load i32, ptr %4623, align 4
-  %4625 = add i32 %4622, %4624
-  %4626 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %4625, ptr %4626, align 16
-  %4627 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4628 = load i32, ptr %4627, align 4
-  %4629 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4630 = load i32, ptr %4629, align 16
-  %4631 = xor i32 %4628, %4630
-  %4632 = call i32 @rotr32(i32 noundef %4631, i32 noundef 7)
-  %4633 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %4632, ptr %4633, align 4
-  br label %4634
+  %4581 = xor i32 %4578, %4580
+  %4582 = call i32 @rotr32(i32 noundef %4581, i32 noundef 7)
+  %4583 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %4582, ptr %4583, align 4
+  br label %4584
 
-4634:                                             ; preds = %4571
-  br label %4635
+4584:                                             ; preds = %4519
+  br label %4585
 
-4635:                                             ; preds = %4634
-  %4636 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4637 = load i32, ptr %4636, align 4
-  %4638 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4639 = load i32, ptr %4638, align 16
-  %4640 = add i32 %4637, %4639
-  %4641 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 14), align 2
-  %4642 = zext i8 %4641 to i64
-  %4643 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4642
+4585:                                             ; preds = %4584
+  %4586 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4587 = load i32, ptr %4586, align 16
+  %4588 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %4589 = load i32, ptr %4588, align 4
+  %4590 = add i32 %4587, %4589
+  %4591 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 8
+  %4592 = load i8, ptr %4591, align 8
+  %4593 = zext i8 %4592 to i64
+  %4594 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4593
+  %4595 = load i32, ptr %4594, align 4
+  %4596 = add i32 %4590, %4595
+  %4597 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %4596, ptr %4597, align 16
+  %4598 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4599 = load i32, ptr %4598, align 4
+  %4600 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4601 = load i32, ptr %4600, align 16
+  %4602 = xor i32 %4599, %4601
+  %4603 = call i32 @rotr32(i32 noundef %4602, i32 noundef 16)
+  %4604 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %4603, ptr %4604, align 4
+  %4605 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4606 = load i32, ptr %4605, align 8
+  %4607 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4608 = load i32, ptr %4607, align 4
+  %4609 = add i32 %4606, %4608
+  %4610 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %4609, ptr %4610, align 8
+  %4611 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %4612 = load i32, ptr %4611, align 4
+  %4613 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4614 = load i32, ptr %4613, align 8
+  %4615 = xor i32 %4612, %4614
+  %4616 = call i32 @rotr32(i32 noundef %4615, i32 noundef 12)
+  %4617 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %4616, ptr %4617, align 4
+  %4618 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4619 = load i32, ptr %4618, align 16
+  %4620 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %4621 = load i32, ptr %4620, align 4
+  %4622 = add i32 %4619, %4621
+  %4623 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 9
+  %4624 = load i8, ptr %4623, align 1
+  %4625 = zext i8 %4624 to i64
+  %4626 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4625
+  %4627 = load i32, ptr %4626, align 4
+  %4628 = add i32 %4622, %4627
+  %4629 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %4628, ptr %4629, align 16
+  %4630 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4631 = load i32, ptr %4630, align 4
+  %4632 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4633 = load i32, ptr %4632, align 16
+  %4634 = xor i32 %4631, %4633
+  %4635 = call i32 @rotr32(i32 noundef %4634, i32 noundef 8)
+  %4636 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %4635, ptr %4636, align 4
+  %4637 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4638 = load i32, ptr %4637, align 8
+  %4639 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4640 = load i32, ptr %4639, align 4
+  %4641 = add i32 %4638, %4640
+  %4642 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %4641, ptr %4642, align 8
+  %4643 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %4644 = load i32, ptr %4643, align 4
-  %4645 = add i32 %4640, %4644
-  %4646 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %4645, ptr %4646, align 4
-  %4647 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4648 = load i32, ptr %4647, align 8
-  %4649 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4650 = load i32, ptr %4649, align 4
-  %4651 = xor i32 %4648, %4650
-  %4652 = call i32 @rotr32(i32 noundef %4651, i32 noundef 16)
-  %4653 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %4652, ptr %4653, align 8
-  %4654 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4655 = load i32, ptr %4654, align 4
-  %4656 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4657 = load i32, ptr %4656, align 8
-  %4658 = add i32 %4655, %4657
-  %4659 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %4658, ptr %4659, align 4
-  %4660 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4661 = load i32, ptr %4660, align 16
-  %4662 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4663 = load i32, ptr %4662, align 4
-  %4664 = xor i32 %4661, %4663
-  %4665 = call i32 @rotr32(i32 noundef %4664, i32 noundef 12)
-  %4666 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %4665, ptr %4666, align 16
-  %4667 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4668 = load i32, ptr %4667, align 4
-  %4669 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4670 = load i32, ptr %4669, align 16
-  %4671 = add i32 %4668, %4670
-  %4672 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 15), align 1
-  %4673 = zext i8 %4672 to i64
-  %4674 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4673
-  %4675 = load i32, ptr %4674, align 4
-  %4676 = add i32 %4671, %4675
-  %4677 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %4676, ptr %4677, align 4
-  %4678 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4679 = load i32, ptr %4678, align 8
-  %4680 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4681 = load i32, ptr %4680, align 4
-  %4682 = xor i32 %4679, %4681
-  %4683 = call i32 @rotr32(i32 noundef %4682, i32 noundef 8)
-  %4684 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %4683, ptr %4684, align 8
-  %4685 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4686 = load i32, ptr %4685, align 4
-  %4687 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4688 = load i32, ptr %4687, align 8
-  %4689 = add i32 %4686, %4688
-  %4690 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %4689, ptr %4690, align 4
-  %4691 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4692 = load i32, ptr %4691, align 16
-  %4693 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4694 = load i32, ptr %4693, align 4
-  %4695 = xor i32 %4692, %4694
-  %4696 = call i32 @rotr32(i32 noundef %4695, i32 noundef 7)
-  %4697 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %4696, ptr %4697, align 16
-  br label %4698
+  %4645 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4646 = load i32, ptr %4645, align 8
+  %4647 = xor i32 %4644, %4646
+  %4648 = call i32 @rotr32(i32 noundef %4647, i32 noundef 7)
+  %4649 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %4648, ptr %4649, align 4
+  br label %4650
 
-4698:                                             ; preds = %4635
-  br label %4699
+4650:                                             ; preds = %4585
+  br label %4651
 
-4699:                                             ; preds = %4698
-  br label %4700
+4651:                                             ; preds = %4650
+  %4652 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4653 = load i32, ptr %4652, align 4
+  %4654 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4655 = load i32, ptr %4654, align 8
+  %4656 = add i32 %4653, %4655
+  %4657 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 10
+  %4658 = load i8, ptr %4657, align 2
+  %4659 = zext i8 %4658 to i64
+  %4660 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4659
+  %4661 = load i32, ptr %4660, align 4
+  %4662 = add i32 %4656, %4661
+  %4663 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %4662, ptr %4663, align 4
+  %4664 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4665 = load i32, ptr %4664, align 16
+  %4666 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4667 = load i32, ptr %4666, align 4
+  %4668 = xor i32 %4665, %4667
+  %4669 = call i32 @rotr32(i32 noundef %4668, i32 noundef 16)
+  %4670 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %4669, ptr %4670, align 16
+  %4671 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4672 = load i32, ptr %4671, align 4
+  %4673 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4674 = load i32, ptr %4673, align 16
+  %4675 = add i32 %4672, %4674
+  %4676 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %4675, ptr %4676, align 4
+  %4677 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4678 = load i32, ptr %4677, align 8
+  %4679 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4680 = load i32, ptr %4679, align 4
+  %4681 = xor i32 %4678, %4680
+  %4682 = call i32 @rotr32(i32 noundef %4681, i32 noundef 12)
+  %4683 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %4682, ptr %4683, align 8
+  %4684 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4685 = load i32, ptr %4684, align 4
+  %4686 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4687 = load i32, ptr %4686, align 8
+  %4688 = add i32 %4685, %4687
+  %4689 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 11
+  %4690 = load i8, ptr %4689, align 1
+  %4691 = zext i8 %4690 to i64
+  %4692 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4691
+  %4693 = load i32, ptr %4692, align 4
+  %4694 = add i32 %4688, %4693
+  %4695 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %4694, ptr %4695, align 4
+  %4696 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4697 = load i32, ptr %4696, align 16
+  %4698 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4699 = load i32, ptr %4698, align 4
+  %4700 = xor i32 %4697, %4699
+  %4701 = call i32 @rotr32(i32 noundef %4700, i32 noundef 8)
+  %4702 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %4701, ptr %4702, align 16
+  %4703 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4704 = load i32, ptr %4703, align 4
+  %4705 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4706 = load i32, ptr %4705, align 16
+  %4707 = add i32 %4704, %4706
+  %4708 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %4707, ptr %4708, align 4
+  %4709 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4710 = load i32, ptr %4709, align 8
+  %4711 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4712 = load i32, ptr %4711, align 4
+  %4713 = xor i32 %4710, %4712
+  %4714 = call i32 @rotr32(i32 noundef %4713, i32 noundef 7)
+  %4715 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %4714, ptr %4715, align 8
+  br label %4716
 
-4700:                                             ; preds = %4699
-  br label %4701
+4716:                                             ; preds = %4651
+  br label %4717
 
-4701:                                             ; preds = %4700
-  %4702 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4703 = load i32, ptr %4702, align 16
-  %4704 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4705 = load i32, ptr %4704, align 16
-  %4706 = add i32 %4703, %4705
-  %4707 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9), align 16
-  %4708 = zext i8 %4707 to i64
-  %4709 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4708
-  %4710 = load i32, ptr %4709, align 4
-  %4711 = add i32 %4706, %4710
-  %4712 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %4711, ptr %4712, align 16
-  %4713 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4714 = load i32, ptr %4713, align 16
-  %4715 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4716 = load i32, ptr %4715, align 16
-  %4717 = xor i32 %4714, %4716
-  %4718 = call i32 @rotr32(i32 noundef %4717, i32 noundef 16)
-  %4719 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %4718, ptr %4719, align 16
-  %4720 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4721 = load i32, ptr %4720, align 16
-  %4722 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4723 = load i32, ptr %4722, align 16
-  %4724 = add i32 %4721, %4723
-  %4725 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %4724, ptr %4725, align 16
-  %4726 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4727 = load i32, ptr %4726, align 16
-  %4728 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4729 = load i32, ptr %4728, align 16
-  %4730 = xor i32 %4727, %4729
-  %4731 = call i32 @rotr32(i32 noundef %4730, i32 noundef 12)
-  %4732 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %4731, ptr %4732, align 16
-  %4733 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4734 = load i32, ptr %4733, align 16
-  %4735 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4736 = load i32, ptr %4735, align 16
-  %4737 = add i32 %4734, %4736
-  %4738 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 1), align 1
-  %4739 = zext i8 %4738 to i64
-  %4740 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4739
-  %4741 = load i32, ptr %4740, align 4
-  %4742 = add i32 %4737, %4741
-  %4743 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %4742, ptr %4743, align 16
-  %4744 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4745 = load i32, ptr %4744, align 16
-  %4746 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4747 = load i32, ptr %4746, align 16
-  %4748 = xor i32 %4745, %4747
-  %4749 = call i32 @rotr32(i32 noundef %4748, i32 noundef 8)
-  %4750 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %4749, ptr %4750, align 16
-  %4751 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4752 = load i32, ptr %4751, align 16
-  %4753 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %4754 = load i32, ptr %4753, align 16
-  %4755 = add i32 %4752, %4754
-  %4756 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %4755, ptr %4756, align 16
-  %4757 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %4758 = load i32, ptr %4757, align 16
-  %4759 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %4760 = load i32, ptr %4759, align 16
-  %4761 = xor i32 %4758, %4760
-  %4762 = call i32 @rotr32(i32 noundef %4761, i32 noundef 7)
-  %4763 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %4762, ptr %4763, align 16
-  br label %4764
+4717:                                             ; preds = %4716
+  %4718 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4719 = load i32, ptr %4718, align 8
+  %4720 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4721 = load i32, ptr %4720, align 4
+  %4722 = add i32 %4719, %4721
+  %4723 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 12
+  %4724 = load i8, ptr %4723, align 4
+  %4725 = zext i8 %4724 to i64
+  %4726 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4725
+  %4727 = load i32, ptr %4726, align 4
+  %4728 = add i32 %4722, %4727
+  %4729 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %4728, ptr %4729, align 8
+  %4730 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4731 = load i32, ptr %4730, align 4
+  %4732 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4733 = load i32, ptr %4732, align 8
+  %4734 = xor i32 %4731, %4733
+  %4735 = call i32 @rotr32(i32 noundef %4734, i32 noundef 16)
+  %4736 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %4735, ptr %4736, align 4
+  %4737 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4738 = load i32, ptr %4737, align 16
+  %4739 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4740 = load i32, ptr %4739, align 4
+  %4741 = add i32 %4738, %4740
+  %4742 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %4741, ptr %4742, align 16
+  %4743 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4744 = load i32, ptr %4743, align 4
+  %4745 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4746 = load i32, ptr %4745, align 16
+  %4747 = xor i32 %4744, %4746
+  %4748 = call i32 @rotr32(i32 noundef %4747, i32 noundef 12)
+  %4749 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %4748, ptr %4749, align 4
+  %4750 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4751 = load i32, ptr %4750, align 8
+  %4752 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4753 = load i32, ptr %4752, align 4
+  %4754 = add i32 %4751, %4753
+  %4755 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 13
+  %4756 = load i8, ptr %4755, align 1
+  %4757 = zext i8 %4756 to i64
+  %4758 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4757
+  %4759 = load i32, ptr %4758, align 4
+  %4760 = add i32 %4754, %4759
+  %4761 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %4760, ptr %4761, align 8
+  %4762 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4763 = load i32, ptr %4762, align 4
+  %4764 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4765 = load i32, ptr %4764, align 8
+  %4766 = xor i32 %4763, %4765
+  %4767 = call i32 @rotr32(i32 noundef %4766, i32 noundef 8)
+  %4768 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %4767, ptr %4768, align 4
+  %4769 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4770 = load i32, ptr %4769, align 16
+  %4771 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4772 = load i32, ptr %4771, align 4
+  %4773 = add i32 %4770, %4772
+  %4774 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %4773, ptr %4774, align 16
+  %4775 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %4776 = load i32, ptr %4775, align 4
+  %4777 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4778 = load i32, ptr %4777, align 16
+  %4779 = xor i32 %4776, %4778
+  %4780 = call i32 @rotr32(i32 noundef %4779, i32 noundef 7)
+  %4781 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %4780, ptr %4781, align 4
+  br label %4782
 
-4764:                                             ; preds = %4701
-  br label %4765
+4782:                                             ; preds = %4717
+  br label %4783
 
-4765:                                             ; preds = %4764
-  %4766 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4767 = load i32, ptr %4766, align 4
-  %4768 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4769 = load i32, ptr %4768, align 4
-  %4770 = add i32 %4767, %4769
-  %4771 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 2), align 2
-  %4772 = zext i8 %4771 to i64
-  %4773 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4772
-  %4774 = load i32, ptr %4773, align 4
-  %4775 = add i32 %4770, %4774
-  %4776 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %4775, ptr %4776, align 4
-  %4777 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4778 = load i32, ptr %4777, align 4
-  %4779 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4780 = load i32, ptr %4779, align 4
-  %4781 = xor i32 %4778, %4780
-  %4782 = call i32 @rotr32(i32 noundef %4781, i32 noundef 16)
-  %4783 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %4782, ptr %4783, align 4
-  %4784 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+4783:                                             ; preds = %4782
+  %4784 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   %4785 = load i32, ptr %4784, align 4
-  %4786 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4787 = load i32, ptr %4786, align 4
+  %4786 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4787 = load i32, ptr %4786, align 16
   %4788 = add i32 %4785, %4787
-  %4789 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %4788, ptr %4789, align 4
-  %4790 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4791 = load i32, ptr %4790, align 4
-  %4792 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4789 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 14
+  %4790 = load i8, ptr %4789, align 2
+  %4791 = zext i8 %4790 to i64
+  %4792 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4791
   %4793 = load i32, ptr %4792, align 4
-  %4794 = xor i32 %4791, %4793
-  %4795 = call i32 @rotr32(i32 noundef %4794, i32 noundef 12)
-  %4796 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %4795, ptr %4796, align 4
-  %4797 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4798 = load i32, ptr %4797, align 4
-  %4799 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4800 = load i32, ptr %4799, align 4
-  %4801 = add i32 %4798, %4800
-  %4802 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 3), align 1
-  %4803 = zext i8 %4802 to i64
-  %4804 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4803
-  %4805 = load i32, ptr %4804, align 4
-  %4806 = add i32 %4801, %4805
-  %4807 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %4806, ptr %4807, align 4
-  %4808 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4809 = load i32, ptr %4808, align 4
-  %4810 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %4811 = load i32, ptr %4810, align 4
-  %4812 = xor i32 %4809, %4811
-  %4813 = call i32 @rotr32(i32 noundef %4812, i32 noundef 8)
-  %4814 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %4813, ptr %4814, align 4
-  %4815 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4816 = load i32, ptr %4815, align 4
-  %4817 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %4818 = load i32, ptr %4817, align 4
-  %4819 = add i32 %4816, %4818
-  %4820 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %4819, ptr %4820, align 4
-  %4821 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4822 = load i32, ptr %4821, align 4
-  %4823 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %4824 = load i32, ptr %4823, align 4
-  %4825 = xor i32 %4822, %4824
-  %4826 = call i32 @rotr32(i32 noundef %4825, i32 noundef 7)
-  %4827 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %4794 = add i32 %4788, %4793
+  %4795 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %4794, ptr %4795, align 4
+  %4796 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4797 = load i32, ptr %4796, align 8
+  %4798 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %4799 = load i32, ptr %4798, align 4
+  %4800 = xor i32 %4797, %4799
+  %4801 = call i32 @rotr32(i32 noundef %4800, i32 noundef 16)
+  %4802 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %4801, ptr %4802, align 8
+  %4803 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4804 = load i32, ptr %4803, align 4
+  %4805 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4806 = load i32, ptr %4805, align 8
+  %4807 = add i32 %4804, %4806
+  %4808 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %4807, ptr %4808, align 4
+  %4809 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4810 = load i32, ptr %4809, align 16
+  %4811 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4812 = load i32, ptr %4811, align 4
+  %4813 = xor i32 %4810, %4812
+  %4814 = call i32 @rotr32(i32 noundef %4813, i32 noundef 12)
+  %4815 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %4814, ptr %4815, align 16
+  %4816 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %4817 = load i32, ptr %4816, align 4
+  %4818 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4819 = load i32, ptr %4818, align 16
+  %4820 = add i32 %4817, %4819
+  %4821 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 8, i64 15
+  %4822 = load i8, ptr %4821, align 1
+  %4823 = zext i8 %4822 to i64
+  %4824 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4823
+  %4825 = load i32, ptr %4824, align 4
+  %4826 = add i32 %4820, %4825
+  %4827 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
   store i32 %4826, ptr %4827, align 4
-  br label %4828
-
-4828:                                             ; preds = %4765
-  br label %4829
-
-4829:                                             ; preds = %4828
-  %4830 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4831 = load i32, ptr %4830, align 8
-  %4832 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4833 = load i32, ptr %4832, align 8
-  %4834 = add i32 %4831, %4833
-  %4835 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 4), align 4
-  %4836 = zext i8 %4835 to i64
-  %4837 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4836
-  %4838 = load i32, ptr %4837, align 4
-  %4839 = add i32 %4834, %4838
-  %4840 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %4839, ptr %4840, align 8
-  %4841 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4842 = load i32, ptr %4841, align 8
-  %4843 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4844 = load i32, ptr %4843, align 8
+  %4828 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4829 = load i32, ptr %4828, align 8
+  %4830 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %4831 = load i32, ptr %4830, align 4
+  %4832 = xor i32 %4829, %4831
+  %4833 = call i32 @rotr32(i32 noundef %4832, i32 noundef 8)
+  %4834 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %4833, ptr %4834, align 8
+  %4835 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4836 = load i32, ptr %4835, align 4
+  %4837 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4838 = load i32, ptr %4837, align 8
+  %4839 = add i32 %4836, %4838
+  %4840 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %4839, ptr %4840, align 4
+  %4841 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4842 = load i32, ptr %4841, align 16
+  %4843 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4844 = load i32, ptr %4843, align 4
   %4845 = xor i32 %4842, %4844
-  %4846 = call i32 @rotr32(i32 noundef %4845, i32 noundef 16)
-  %4847 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %4846, ptr %4847, align 8
-  %4848 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4849 = load i32, ptr %4848, align 8
-  %4850 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4851 = load i32, ptr %4850, align 8
-  %4852 = add i32 %4849, %4851
-  %4853 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %4852, ptr %4853, align 8
-  %4854 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4855 = load i32, ptr %4854, align 8
-  %4856 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4857 = load i32, ptr %4856, align 8
-  %4858 = xor i32 %4855, %4857
-  %4859 = call i32 @rotr32(i32 noundef %4858, i32 noundef 12)
-  %4860 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %4859, ptr %4860, align 8
-  %4861 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4862 = load i32, ptr %4861, align 8
-  %4863 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4864 = load i32, ptr %4863, align 8
-  %4865 = add i32 %4862, %4864
-  %4866 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 5), align 1
-  %4867 = zext i8 %4866 to i64
-  %4868 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4867
-  %4869 = load i32, ptr %4868, align 4
-  %4870 = add i32 %4865, %4869
-  %4871 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %4870, ptr %4871, align 8
-  %4872 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4873 = load i32, ptr %4872, align 8
-  %4874 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %4875 = load i32, ptr %4874, align 8
-  %4876 = xor i32 %4873, %4875
-  %4877 = call i32 @rotr32(i32 noundef %4876, i32 noundef 8)
-  %4878 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %4877, ptr %4878, align 8
-  %4879 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4880 = load i32, ptr %4879, align 8
-  %4881 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %4882 = load i32, ptr %4881, align 8
-  %4883 = add i32 %4880, %4882
-  %4884 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %4883, ptr %4884, align 8
-  %4885 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %4886 = load i32, ptr %4885, align 8
-  %4887 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4888 = load i32, ptr %4887, align 8
-  %4889 = xor i32 %4886, %4888
-  %4890 = call i32 @rotr32(i32 noundef %4889, i32 noundef 7)
-  %4891 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %4890, ptr %4891, align 8
-  br label %4892
+  %4846 = call i32 @rotr32(i32 noundef %4845, i32 noundef 7)
+  %4847 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %4846, ptr %4847, align 16
+  br label %4848
 
-4892:                                             ; preds = %4829
-  br label %4893
+4848:                                             ; preds = %4783
+  br label %4849
 
-4893:                                             ; preds = %4892
-  %4894 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4895 = load i32, ptr %4894, align 4
-  %4896 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4897 = load i32, ptr %4896, align 4
-  %4898 = add i32 %4895, %4897
-  %4899 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 6), align 2
-  %4900 = zext i8 %4899 to i64
-  %4901 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4900
-  %4902 = load i32, ptr %4901, align 4
-  %4903 = add i32 %4898, %4902
-  %4904 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %4903, ptr %4904, align 4
-  %4905 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %4906 = load i32, ptr %4905, align 4
-  %4907 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4908 = load i32, ptr %4907, align 4
-  %4909 = xor i32 %4906, %4908
-  %4910 = call i32 @rotr32(i32 noundef %4909, i32 noundef 16)
-  %4911 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %4910, ptr %4911, align 4
-  %4912 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %4913 = load i32, ptr %4912, align 4
-  %4914 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %4915 = load i32, ptr %4914, align 4
-  %4916 = add i32 %4913, %4915
-  %4917 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %4916, ptr %4917, align 4
-  %4918 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+4849:                                             ; preds = %4848
+  br label %4850
+
+4850:                                             ; preds = %4849
+  br label %4851
+
+4851:                                             ; preds = %4850
+  %4852 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4853 = load i32, ptr %4852, align 16
+  %4854 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4855 = load i32, ptr %4854, align 16
+  %4856 = add i32 %4853, %4855
+  %4857 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9
+  %4858 = load i8, ptr %4857, align 16
+  %4859 = zext i8 %4858 to i64
+  %4860 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4859
+  %4861 = load i32, ptr %4860, align 4
+  %4862 = add i32 %4856, %4861
+  %4863 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %4862, ptr %4863, align 16
+  %4864 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4865 = load i32, ptr %4864, align 16
+  %4866 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4867 = load i32, ptr %4866, align 16
+  %4868 = xor i32 %4865, %4867
+  %4869 = call i32 @rotr32(i32 noundef %4868, i32 noundef 16)
+  %4870 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %4869, ptr %4870, align 16
+  %4871 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4872 = load i32, ptr %4871, align 16
+  %4873 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4874 = load i32, ptr %4873, align 16
+  %4875 = add i32 %4872, %4874
+  %4876 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %4875, ptr %4876, align 16
+  %4877 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4878 = load i32, ptr %4877, align 16
+  %4879 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4880 = load i32, ptr %4879, align 16
+  %4881 = xor i32 %4878, %4880
+  %4882 = call i32 @rotr32(i32 noundef %4881, i32 noundef 12)
+  %4883 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %4882, ptr %4883, align 16
+  %4884 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4885 = load i32, ptr %4884, align 16
+  %4886 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4887 = load i32, ptr %4886, align 16
+  %4888 = add i32 %4885, %4887
+  %4889 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 1
+  %4890 = load i8, ptr %4889, align 1
+  %4891 = zext i8 %4890 to i64
+  %4892 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4891
+  %4893 = load i32, ptr %4892, align 4
+  %4894 = add i32 %4888, %4893
+  %4895 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %4894, ptr %4895, align 16
+  %4896 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4897 = load i32, ptr %4896, align 16
+  %4898 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %4899 = load i32, ptr %4898, align 16
+  %4900 = xor i32 %4897, %4899
+  %4901 = call i32 @rotr32(i32 noundef %4900, i32 noundef 8)
+  %4902 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %4901, ptr %4902, align 16
+  %4903 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4904 = load i32, ptr %4903, align 16
+  %4905 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %4906 = load i32, ptr %4905, align 16
+  %4907 = add i32 %4904, %4906
+  %4908 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %4907, ptr %4908, align 16
+  %4909 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %4910 = load i32, ptr %4909, align 16
+  %4911 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %4912 = load i32, ptr %4911, align 16
+  %4913 = xor i32 %4910, %4912
+  %4914 = call i32 @rotr32(i32 noundef %4913, i32 noundef 7)
+  %4915 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %4914, ptr %4915, align 16
+  br label %4916
+
+4916:                                             ; preds = %4851
+  br label %4917
+
+4917:                                             ; preds = %4916
+  %4918 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
   %4919 = load i32, ptr %4918, align 4
-  %4920 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4920 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %4921 = load i32, ptr %4920, align 4
-  %4922 = xor i32 %4919, %4921
-  %4923 = call i32 @rotr32(i32 noundef %4922, i32 noundef 12)
-  %4924 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %4923, ptr %4924, align 4
-  %4925 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4926 = load i32, ptr %4925, align 4
-  %4927 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4928 = load i32, ptr %4927, align 4
-  %4929 = add i32 %4926, %4928
-  %4930 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 7), align 1
-  %4931 = zext i8 %4930 to i64
-  %4932 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4931
+  %4922 = add i32 %4919, %4921
+  %4923 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 2
+  %4924 = load i8, ptr %4923, align 2
+  %4925 = zext i8 %4924 to i64
+  %4926 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4925
+  %4927 = load i32, ptr %4926, align 4
+  %4928 = add i32 %4922, %4927
+  %4929 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %4928, ptr %4929, align 4
+  %4930 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4931 = load i32, ptr %4930, align 4
+  %4932 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
   %4933 = load i32, ptr %4932, align 4
-  %4934 = add i32 %4929, %4933
-  %4935 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %4934, ptr %4935, align 4
-  %4936 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %4937 = load i32, ptr %4936, align 4
-  %4938 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %4939 = load i32, ptr %4938, align 4
-  %4940 = xor i32 %4937, %4939
-  %4941 = call i32 @rotr32(i32 noundef %4940, i32 noundef 8)
-  %4942 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4934 = xor i32 %4931, %4933
+  %4935 = call i32 @rotr32(i32 noundef %4934, i32 noundef 16)
+  %4936 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %4935, ptr %4936, align 4
+  %4937 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4938 = load i32, ptr %4937, align 4
+  %4939 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4940 = load i32, ptr %4939, align 4
+  %4941 = add i32 %4938, %4940
+  %4942 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   store i32 %4941, ptr %4942, align 4
-  %4943 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %4943 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %4944 = load i32, ptr %4943, align 4
-  %4945 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4945 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   %4946 = load i32, ptr %4945, align 4
-  %4947 = add i32 %4944, %4946
-  %4948 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %4947, ptr %4948, align 4
-  %4949 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %4950 = load i32, ptr %4949, align 4
-  %4951 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %4952 = load i32, ptr %4951, align 4
-  %4953 = xor i32 %4950, %4952
-  %4954 = call i32 @rotr32(i32 noundef %4953, i32 noundef 7)
-  %4955 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %4954, ptr %4955, align 4
-  br label %4956
-
-4956:                                             ; preds = %4893
-  br label %4957
-
-4957:                                             ; preds = %4956
-  %4958 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4959 = load i32, ptr %4958, align 16
-  %4960 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4961 = load i32, ptr %4960, align 4
-  %4962 = add i32 %4959, %4961
-  %4963 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 8), align 8
-  %4964 = zext i8 %4963 to i64
-  %4965 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4964
-  %4966 = load i32, ptr %4965, align 4
-  %4967 = add i32 %4962, %4966
-  %4968 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %4967, ptr %4968, align 16
-  %4969 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %4947 = xor i32 %4944, %4946
+  %4948 = call i32 @rotr32(i32 noundef %4947, i32 noundef 12)
+  %4949 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %4948, ptr %4949, align 4
+  %4950 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4951 = load i32, ptr %4950, align 4
+  %4952 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %4953 = load i32, ptr %4952, align 4
+  %4954 = add i32 %4951, %4953
+  %4955 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 3
+  %4956 = load i8, ptr %4955, align 1
+  %4957 = zext i8 %4956 to i64
+  %4958 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4957
+  %4959 = load i32, ptr %4958, align 4
+  %4960 = add i32 %4954, %4959
+  %4961 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %4960, ptr %4961, align 4
+  %4962 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4963 = load i32, ptr %4962, align 4
+  %4964 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %4965 = load i32, ptr %4964, align 4
+  %4966 = xor i32 %4963, %4965
+  %4967 = call i32 @rotr32(i32 noundef %4966, i32 noundef 8)
+  %4968 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %4967, ptr %4968, align 4
+  %4969 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
   %4970 = load i32, ptr %4969, align 4
-  %4971 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4972 = load i32, ptr %4971, align 16
-  %4973 = xor i32 %4970, %4972
-  %4974 = call i32 @rotr32(i32 noundef %4973, i32 noundef 16)
-  %4975 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %4974, ptr %4975, align 4
-  %4976 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %4977 = load i32, ptr %4976, align 8
-  %4978 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %4979 = load i32, ptr %4978, align 4
-  %4980 = add i32 %4977, %4979
-  %4981 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %4980, ptr %4981, align 8
-  %4982 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4983 = load i32, ptr %4982, align 4
-  %4984 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %4971 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %4972 = load i32, ptr %4971, align 4
+  %4973 = add i32 %4970, %4972
+  %4974 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %4973, ptr %4974, align 4
+  %4975 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %4976 = load i32, ptr %4975, align 4
+  %4977 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %4978 = load i32, ptr %4977, align 4
+  %4979 = xor i32 %4976, %4978
+  %4980 = call i32 @rotr32(i32 noundef %4979, i32 noundef 7)
+  %4981 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %4980, ptr %4981, align 4
+  br label %4982
+
+4982:                                             ; preds = %4917
+  br label %4983
+
+4983:                                             ; preds = %4982
+  %4984 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
   %4985 = load i32, ptr %4984, align 8
-  %4986 = xor i32 %4983, %4985
-  %4987 = call i32 @rotr32(i32 noundef %4986, i32 noundef 12)
-  %4988 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %4987, ptr %4988, align 4
-  %4989 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %4990 = load i32, ptr %4989, align 16
-  %4991 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %4992 = load i32, ptr %4991, align 4
-  %4993 = add i32 %4990, %4992
-  %4994 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 9), align 1
-  %4995 = zext i8 %4994 to i64
-  %4996 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4995
-  %4997 = load i32, ptr %4996, align 4
-  %4998 = add i32 %4993, %4997
-  %4999 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  store i32 %4998, ptr %4999, align 16
-  %5000 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %5001 = load i32, ptr %5000, align 4
-  %5002 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
-  %5003 = load i32, ptr %5002, align 16
-  %5004 = xor i32 %5001, %5003
-  %5005 = call i32 @rotr32(i32 noundef %5004, i32 noundef 8)
-  %5006 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  store i32 %5005, ptr %5006, align 4
-  %5007 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %5008 = load i32, ptr %5007, align 8
-  %5009 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
-  %5010 = load i32, ptr %5009, align 4
-  %5011 = add i32 %5008, %5010
-  %5012 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  store i32 %5011, ptr %5012, align 8
-  %5013 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  %5014 = load i32, ptr %5013, align 4
-  %5015 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
-  %5016 = load i32, ptr %5015, align 8
-  %5017 = xor i32 %5014, %5016
-  %5018 = call i32 @rotr32(i32 noundef %5017, i32 noundef 7)
-  %5019 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
-  store i32 %5018, ptr %5019, align 4
-  br label %5020
+  %4986 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %4987 = load i32, ptr %4986, align 8
+  %4988 = add i32 %4985, %4987
+  %4989 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 4
+  %4990 = load i8, ptr %4989, align 4
+  %4991 = zext i8 %4990 to i64
+  %4992 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %4991
+  %4993 = load i32, ptr %4992, align 4
+  %4994 = add i32 %4988, %4993
+  %4995 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %4994, ptr %4995, align 8
+  %4996 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %4997 = load i32, ptr %4996, align 8
+  %4998 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %4999 = load i32, ptr %4998, align 8
+  %5000 = xor i32 %4997, %4999
+  %5001 = call i32 @rotr32(i32 noundef %5000, i32 noundef 16)
+  %5002 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %5001, ptr %5002, align 8
+  %5003 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %5004 = load i32, ptr %5003, align 8
+  %5005 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %5006 = load i32, ptr %5005, align 8
+  %5007 = add i32 %5004, %5006
+  %5008 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %5007, ptr %5008, align 8
+  %5009 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %5010 = load i32, ptr %5009, align 8
+  %5011 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %5012 = load i32, ptr %5011, align 8
+  %5013 = xor i32 %5010, %5012
+  %5014 = call i32 @rotr32(i32 noundef %5013, i32 noundef 12)
+  %5015 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %5014, ptr %5015, align 8
+  %5016 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %5017 = load i32, ptr %5016, align 8
+  %5018 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %5019 = load i32, ptr %5018, align 8
+  %5020 = add i32 %5017, %5019
+  %5021 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 5
+  %5022 = load i8, ptr %5021, align 1
+  %5023 = zext i8 %5022 to i64
+  %5024 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5023
+  %5025 = load i32, ptr %5024, align 4
+  %5026 = add i32 %5020, %5025
+  %5027 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %5026, ptr %5027, align 8
+  %5028 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %5029 = load i32, ptr %5028, align 8
+  %5030 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %5031 = load i32, ptr %5030, align 8
+  %5032 = xor i32 %5029, %5031
+  %5033 = call i32 @rotr32(i32 noundef %5032, i32 noundef 8)
+  %5034 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %5033, ptr %5034, align 8
+  %5035 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %5036 = load i32, ptr %5035, align 8
+  %5037 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %5038 = load i32, ptr %5037, align 8
+  %5039 = add i32 %5036, %5038
+  %5040 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %5039, ptr %5040, align 8
+  %5041 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %5042 = load i32, ptr %5041, align 8
+  %5043 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %5044 = load i32, ptr %5043, align 8
+  %5045 = xor i32 %5042, %5044
+  %5046 = call i32 @rotr32(i32 noundef %5045, i32 noundef 7)
+  %5047 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %5046, ptr %5047, align 8
+  br label %5048
 
-5020:                                             ; preds = %4957
-  br label %5021
+5048:                                             ; preds = %4983
+  br label %5049
 
-5021:                                             ; preds = %5020
-  %5022 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %5023 = load i32, ptr %5022, align 4
-  %5024 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %5025 = load i32, ptr %5024, align 8
-  %5026 = add i32 %5023, %5025
-  %5027 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 10), align 2
-  %5028 = zext i8 %5027 to i64
-  %5029 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5028
-  %5030 = load i32, ptr %5029, align 4
-  %5031 = add i32 %5026, %5030
-  %5032 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %5031, ptr %5032, align 4
-  %5033 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %5034 = load i32, ptr %5033, align 16
-  %5035 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %5036 = load i32, ptr %5035, align 4
-  %5037 = xor i32 %5034, %5036
-  %5038 = call i32 @rotr32(i32 noundef %5037, i32 noundef 16)
-  %5039 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %5038, ptr %5039, align 16
-  %5040 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %5041 = load i32, ptr %5040, align 4
-  %5042 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %5043 = load i32, ptr %5042, align 16
-  %5044 = add i32 %5041, %5043
-  %5045 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %5044, ptr %5045, align 4
-  %5046 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %5047 = load i32, ptr %5046, align 8
-  %5048 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %5049 = load i32, ptr %5048, align 4
-  %5050 = xor i32 %5047, %5049
-  %5051 = call i32 @rotr32(i32 noundef %5050, i32 noundef 12)
-  %5052 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %5051, ptr %5052, align 8
-  %5053 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %5054 = load i32, ptr %5053, align 4
-  %5055 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %5056 = load i32, ptr %5055, align 8
-  %5057 = add i32 %5054, %5056
-  %5058 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 11), align 1
-  %5059 = zext i8 %5058 to i64
-  %5060 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5059
-  %5061 = load i32, ptr %5060, align 4
-  %5062 = add i32 %5057, %5061
-  %5063 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  store i32 %5062, ptr %5063, align 4
-  %5064 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %5065 = load i32, ptr %5064, align 16
-  %5066 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
-  %5067 = load i32, ptr %5066, align 4
-  %5068 = xor i32 %5065, %5067
-  %5069 = call i32 @rotr32(i32 noundef %5068, i32 noundef 8)
-  %5070 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  store i32 %5069, ptr %5070, align 16
-  %5071 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+5049:                                             ; preds = %5048
+  %5050 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %5051 = load i32, ptr %5050, align 4
+  %5052 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %5053 = load i32, ptr %5052, align 4
+  %5054 = add i32 %5051, %5053
+  %5055 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 6
+  %5056 = load i8, ptr %5055, align 2
+  %5057 = zext i8 %5056 to i64
+  %5058 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5057
+  %5059 = load i32, ptr %5058, align 4
+  %5060 = add i32 %5054, %5059
+  %5061 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %5060, ptr %5061, align 4
+  %5062 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %5063 = load i32, ptr %5062, align 4
+  %5064 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %5065 = load i32, ptr %5064, align 4
+  %5066 = xor i32 %5063, %5065
+  %5067 = call i32 @rotr32(i32 noundef %5066, i32 noundef 16)
+  %5068 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %5067, ptr %5068, align 4
+  %5069 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %5070 = load i32, ptr %5069, align 4
+  %5071 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %5072 = load i32, ptr %5071, align 4
-  %5073 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
-  %5074 = load i32, ptr %5073, align 16
-  %5075 = add i32 %5072, %5074
-  %5076 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  store i32 %5075, ptr %5076, align 4
-  %5077 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  %5078 = load i32, ptr %5077, align 8
-  %5079 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
-  %5080 = load i32, ptr %5079, align 4
-  %5081 = xor i32 %5078, %5080
-  %5082 = call i32 @rotr32(i32 noundef %5081, i32 noundef 7)
-  %5083 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
-  store i32 %5082, ptr %5083, align 8
-  br label %5084
+  %5073 = add i32 %5070, %5072
+  %5074 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %5073, ptr %5074, align 4
+  %5075 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %5076 = load i32, ptr %5075, align 4
+  %5077 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %5078 = load i32, ptr %5077, align 4
+  %5079 = xor i32 %5076, %5078
+  %5080 = call i32 @rotr32(i32 noundef %5079, i32 noundef 12)
+  %5081 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %5080, ptr %5081, align 4
+  %5082 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %5083 = load i32, ptr %5082, align 4
+  %5084 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %5085 = load i32, ptr %5084, align 4
+  %5086 = add i32 %5083, %5085
+  %5087 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 7
+  %5088 = load i8, ptr %5087, align 1
+  %5089 = zext i8 %5088 to i64
+  %5090 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5089
+  %5091 = load i32, ptr %5090, align 4
+  %5092 = add i32 %5086, %5091
+  %5093 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %5092, ptr %5093, align 4
+  %5094 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %5095 = load i32, ptr %5094, align 4
+  %5096 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %5097 = load i32, ptr %5096, align 4
+  %5098 = xor i32 %5095, %5097
+  %5099 = call i32 @rotr32(i32 noundef %5098, i32 noundef 8)
+  %5100 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %5099, ptr %5100, align 4
+  %5101 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %5102 = load i32, ptr %5101, align 4
+  %5103 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %5104 = load i32, ptr %5103, align 4
+  %5105 = add i32 %5102, %5104
+  %5106 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %5105, ptr %5106, align 4
+  %5107 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %5108 = load i32, ptr %5107, align 4
+  %5109 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %5110 = load i32, ptr %5109, align 4
+  %5111 = xor i32 %5108, %5110
+  %5112 = call i32 @rotr32(i32 noundef %5111, i32 noundef 7)
+  %5113 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %5112, ptr %5113, align 4
+  br label %5114
 
-5084:                                             ; preds = %5021
-  br label %5085
+5114:                                             ; preds = %5049
+  br label %5115
 
-5085:                                             ; preds = %5084
-  %5086 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %5087 = load i32, ptr %5086, align 8
-  %5088 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %5089 = load i32, ptr %5088, align 4
-  %5090 = add i32 %5087, %5089
-  %5091 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 12), align 4
-  %5092 = zext i8 %5091 to i64
-  %5093 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5092
-  %5094 = load i32, ptr %5093, align 4
-  %5095 = add i32 %5090, %5094
-  %5096 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %5095, ptr %5096, align 8
-  %5097 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %5098 = load i32, ptr %5097, align 4
-  %5099 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %5100 = load i32, ptr %5099, align 8
-  %5101 = xor i32 %5098, %5100
-  %5102 = call i32 @rotr32(i32 noundef %5101, i32 noundef 16)
-  %5103 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  store i32 %5102, ptr %5103, align 4
-  %5104 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %5105 = load i32, ptr %5104, align 16
-  %5106 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
-  %5107 = load i32, ptr %5106, align 4
-  %5108 = add i32 %5105, %5107
-  %5109 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %5108, ptr %5109, align 16
-  %5110 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %5111 = load i32, ptr %5110, align 4
-  %5112 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %5113 = load i32, ptr %5112, align 16
-  %5114 = xor i32 %5111, %5113
-  %5115 = call i32 @rotr32(i32 noundef %5114, i32 noundef 12)
-  %5116 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  store i32 %5115, ptr %5116, align 4
-  %5117 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %5118 = load i32, ptr %5117, align 8
-  %5119 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
-  %5120 = load i32, ptr %5119, align 4
-  %5121 = add i32 %5118, %5120
-  %5122 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 13), align 1
+5115:                                             ; preds = %5114
+  %5116 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %5117 = load i32, ptr %5116, align 16
+  %5118 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %5119 = load i32, ptr %5118, align 4
+  %5120 = add i32 %5117, %5119
+  %5121 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 8
+  %5122 = load i8, ptr %5121, align 8
   %5123 = zext i8 %5122 to i64
   %5124 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5123
   %5125 = load i32, ptr %5124, align 4
-  %5126 = add i32 %5121, %5125
-  %5127 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  store i32 %5126, ptr %5127, align 8
-  %5128 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %5126 = add i32 %5120, %5125
+  %5127 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %5126, ptr %5127, align 16
+  %5128 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %5129 = load i32, ptr %5128, align 4
-  %5130 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
-  %5131 = load i32, ptr %5130, align 8
+  %5130 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %5131 = load i32, ptr %5130, align 16
   %5132 = xor i32 %5129, %5131
-  %5133 = call i32 @rotr32(i32 noundef %5132, i32 noundef 8)
-  %5134 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %5133 = call i32 @rotr32(i32 noundef %5132, i32 noundef 16)
+  %5134 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   store i32 %5133, ptr %5134, align 4
-  %5135 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %5136 = load i32, ptr %5135, align 16
-  %5137 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %5135 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %5136 = load i32, ptr %5135, align 8
+  %5137 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
   %5138 = load i32, ptr %5137, align 4
   %5139 = add i32 %5136, %5138
-  %5140 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  store i32 %5139, ptr %5140, align 16
-  %5141 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %5140 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %5139, ptr %5140, align 8
+  %5141 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %5142 = load i32, ptr %5141, align 4
-  %5143 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
-  %5144 = load i32, ptr %5143, align 16
+  %5143 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %5144 = load i32, ptr %5143, align 8
   %5145 = xor i32 %5142, %5144
-  %5146 = call i32 @rotr32(i32 noundef %5145, i32 noundef 7)
-  %5147 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %5146 = call i32 @rotr32(i32 noundef %5145, i32 noundef 12)
+  %5147 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   store i32 %5146, ptr %5147, align 4
-  br label %5148
-
-5148:                                             ; preds = %5085
-  br label %5149
-
-5149:                                             ; preds = %5148
-  %5150 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %5148 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %5149 = load i32, ptr %5148, align 16
+  %5150 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
   %5151 = load i32, ptr %5150, align 4
-  %5152 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %5153 = load i32, ptr %5152, align 16
-  %5154 = add i32 %5151, %5153
-  %5155 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 14), align 2
-  %5156 = zext i8 %5155 to i64
-  %5157 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5156
-  %5158 = load i32, ptr %5157, align 4
-  %5159 = add i32 %5154, %5158
-  %5160 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %5159, ptr %5160, align 4
-  %5161 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %5162 = load i32, ptr %5161, align 8
-  %5163 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %5164 = load i32, ptr %5163, align 4
-  %5165 = xor i32 %5162, %5164
-  %5166 = call i32 @rotr32(i32 noundef %5165, i32 noundef 16)
-  %5167 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %5166, ptr %5167, align 8
-  %5168 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %5169 = load i32, ptr %5168, align 4
-  %5170 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %5171 = load i32, ptr %5170, align 8
-  %5172 = add i32 %5169, %5171
-  %5173 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %5172, ptr %5173, align 4
-  %5174 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %5175 = load i32, ptr %5174, align 16
-  %5176 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %5177 = load i32, ptr %5176, align 4
-  %5178 = xor i32 %5175, %5177
-  %5179 = call i32 @rotr32(i32 noundef %5178, i32 noundef 12)
-  %5180 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %5179, ptr %5180, align 16
-  %5181 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %5182 = load i32, ptr %5181, align 4
-  %5183 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %5184 = load i32, ptr %5183, align 16
-  %5185 = add i32 %5182, %5184
-  %5186 = load i8, ptr getelementptr inbounds ([10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 15), align 1
-  %5187 = zext i8 %5186 to i64
-  %5188 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5187
-  %5189 = load i32, ptr %5188, align 4
-  %5190 = add i32 %5185, %5189
-  %5191 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  store i32 %5190, ptr %5191, align 4
-  %5192 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %5193 = load i32, ptr %5192, align 8
-  %5194 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
-  %5195 = load i32, ptr %5194, align 4
-  %5196 = xor i32 %5193, %5195
-  %5197 = call i32 @rotr32(i32 noundef %5196, i32 noundef 8)
-  %5198 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  store i32 %5197, ptr %5198, align 8
-  %5199 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %5200 = load i32, ptr %5199, align 4
-  %5201 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
-  %5202 = load i32, ptr %5201, align 8
-  %5203 = add i32 %5200, %5202
-  %5204 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  store i32 %5203, ptr %5204, align 4
-  %5205 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  %5206 = load i32, ptr %5205, align 16
-  %5207 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
-  %5208 = load i32, ptr %5207, align 4
-  %5209 = xor i32 %5206, %5208
-  %5210 = call i32 @rotr32(i32 noundef %5209, i32 noundef 7)
-  %5211 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
-  store i32 %5210, ptr %5211, align 16
-  br label %5212
+  %5152 = add i32 %5149, %5151
+  %5153 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 9
+  %5154 = load i8, ptr %5153, align 1
+  %5155 = zext i8 %5154 to i64
+  %5156 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5155
+  %5157 = load i32, ptr %5156, align 4
+  %5158 = add i32 %5152, %5157
+  %5159 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  store i32 %5158, ptr %5159, align 16
+  %5160 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %5161 = load i32, ptr %5160, align 4
+  %5162 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 0
+  %5163 = load i32, ptr %5162, align 16
+  %5164 = xor i32 %5161, %5163
+  %5165 = call i32 @rotr32(i32 noundef %5164, i32 noundef 8)
+  %5166 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  store i32 %5165, ptr %5166, align 4
+  %5167 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %5168 = load i32, ptr %5167, align 8
+  %5169 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 15
+  %5170 = load i32, ptr %5169, align 4
+  %5171 = add i32 %5168, %5170
+  %5172 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  store i32 %5171, ptr %5172, align 8
+  %5173 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  %5174 = load i32, ptr %5173, align 4
+  %5175 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 10
+  %5176 = load i32, ptr %5175, align 8
+  %5177 = xor i32 %5174, %5176
+  %5178 = call i32 @rotr32(i32 noundef %5177, i32 noundef 7)
+  %5179 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 5
+  store i32 %5178, ptr %5179, align 4
+  br label %5180
 
-5212:                                             ; preds = %5149
-  br label %5213
+5180:                                             ; preds = %5115
+  br label %5181
 
-5213:                                             ; preds = %5212
+5181:                                             ; preds = %5180
+  %5182 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %5183 = load i32, ptr %5182, align 4
+  %5184 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %5185 = load i32, ptr %5184, align 8
+  %5186 = add i32 %5183, %5185
+  %5187 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 10
+  %5188 = load i8, ptr %5187, align 2
+  %5189 = zext i8 %5188 to i64
+  %5190 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5189
+  %5191 = load i32, ptr %5190, align 4
+  %5192 = add i32 %5186, %5191
+  %5193 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %5192, ptr %5193, align 4
+  %5194 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %5195 = load i32, ptr %5194, align 16
+  %5196 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %5197 = load i32, ptr %5196, align 4
+  %5198 = xor i32 %5195, %5197
+  %5199 = call i32 @rotr32(i32 noundef %5198, i32 noundef 16)
+  %5200 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %5199, ptr %5200, align 16
+  %5201 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %5202 = load i32, ptr %5201, align 4
+  %5203 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %5204 = load i32, ptr %5203, align 16
+  %5205 = add i32 %5202, %5204
+  %5206 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %5205, ptr %5206, align 4
+  %5207 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %5208 = load i32, ptr %5207, align 8
+  %5209 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %5210 = load i32, ptr %5209, align 4
+  %5211 = xor i32 %5208, %5210
+  %5212 = call i32 @rotr32(i32 noundef %5211, i32 noundef 12)
+  %5213 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %5212, ptr %5213, align 8
+  %5214 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %5215 = load i32, ptr %5214, align 4
+  %5216 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %5217 = load i32, ptr %5216, align 8
+  %5218 = add i32 %5215, %5217
+  %5219 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 11
+  %5220 = load i8, ptr %5219, align 1
+  %5221 = zext i8 %5220 to i64
+  %5222 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5221
+  %5223 = load i32, ptr %5222, align 4
+  %5224 = add i32 %5218, %5223
+  %5225 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  store i32 %5224, ptr %5225, align 4
+  %5226 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %5227 = load i32, ptr %5226, align 16
+  %5228 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 1
+  %5229 = load i32, ptr %5228, align 4
+  %5230 = xor i32 %5227, %5229
+  %5231 = call i32 @rotr32(i32 noundef %5230, i32 noundef 8)
+  %5232 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  store i32 %5231, ptr %5232, align 16
+  %5233 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %5234 = load i32, ptr %5233, align 4
+  %5235 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 12
+  %5236 = load i32, ptr %5235, align 16
+  %5237 = add i32 %5234, %5236
+  %5238 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  store i32 %5237, ptr %5238, align 4
+  %5239 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  %5240 = load i32, ptr %5239, align 8
+  %5241 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 11
+  %5242 = load i32, ptr %5241, align 4
+  %5243 = xor i32 %5240, %5242
+  %5244 = call i32 @rotr32(i32 noundef %5243, i32 noundef 7)
+  %5245 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 6
+  store i32 %5244, ptr %5245, align 8
+  br label %5246
+
+5246:                                             ; preds = %5181
+  br label %5247
+
+5247:                                             ; preds = %5246
+  %5248 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %5249 = load i32, ptr %5248, align 8
+  %5250 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %5251 = load i32, ptr %5250, align 4
+  %5252 = add i32 %5249, %5251
+  %5253 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 12
+  %5254 = load i8, ptr %5253, align 4
+  %5255 = zext i8 %5254 to i64
+  %5256 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5255
+  %5257 = load i32, ptr %5256, align 4
+  %5258 = add i32 %5252, %5257
+  %5259 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %5258, ptr %5259, align 8
+  %5260 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %5261 = load i32, ptr %5260, align 4
+  %5262 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %5263 = load i32, ptr %5262, align 8
+  %5264 = xor i32 %5261, %5263
+  %5265 = call i32 @rotr32(i32 noundef %5264, i32 noundef 16)
+  %5266 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %5265, ptr %5266, align 4
+  %5267 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %5268 = load i32, ptr %5267, align 16
+  %5269 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %5270 = load i32, ptr %5269, align 4
+  %5271 = add i32 %5268, %5270
+  %5272 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %5271, ptr %5272, align 16
+  %5273 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %5274 = load i32, ptr %5273, align 4
+  %5275 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %5276 = load i32, ptr %5275, align 16
+  %5277 = xor i32 %5274, %5276
+  %5278 = call i32 @rotr32(i32 noundef %5277, i32 noundef 12)
+  %5279 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %5278, ptr %5279, align 4
+  %5280 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %5281 = load i32, ptr %5280, align 8
+  %5282 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %5283 = load i32, ptr %5282, align 4
+  %5284 = add i32 %5281, %5283
+  %5285 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 13
+  %5286 = load i8, ptr %5285, align 1
+  %5287 = zext i8 %5286 to i64
+  %5288 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5287
+  %5289 = load i32, ptr %5288, align 4
+  %5290 = add i32 %5284, %5289
+  %5291 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  store i32 %5290, ptr %5291, align 8
+  %5292 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %5293 = load i32, ptr %5292, align 4
+  %5294 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 2
+  %5295 = load i32, ptr %5294, align 8
+  %5296 = xor i32 %5293, %5295
+  %5297 = call i32 @rotr32(i32 noundef %5296, i32 noundef 8)
+  %5298 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  store i32 %5297, ptr %5298, align 4
+  %5299 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %5300 = load i32, ptr %5299, align 16
+  %5301 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 13
+  %5302 = load i32, ptr %5301, align 4
+  %5303 = add i32 %5300, %5302
+  %5304 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  store i32 %5303, ptr %5304, align 16
+  %5305 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  %5306 = load i32, ptr %5305, align 4
+  %5307 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 8
+  %5308 = load i32, ptr %5307, align 16
+  %5309 = xor i32 %5306, %5308
+  %5310 = call i32 @rotr32(i32 noundef %5309, i32 noundef 7)
+  %5311 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 7
+  store i32 %5310, ptr %5311, align 4
+  br label %5312
+
+5312:                                             ; preds = %5247
+  br label %5313
+
+5313:                                             ; preds = %5312
+  %5314 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %5315 = load i32, ptr %5314, align 4
+  %5316 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %5317 = load i32, ptr %5316, align 16
+  %5318 = add i32 %5315, %5317
+  %5319 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 14
+  %5320 = load i8, ptr %5319, align 2
+  %5321 = zext i8 %5320 to i64
+  %5322 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5321
+  %5323 = load i32, ptr %5322, align 4
+  %5324 = add i32 %5318, %5323
+  %5325 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %5324, ptr %5325, align 4
+  %5326 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %5327 = load i32, ptr %5326, align 8
+  %5328 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %5329 = load i32, ptr %5328, align 4
+  %5330 = xor i32 %5327, %5329
+  %5331 = call i32 @rotr32(i32 noundef %5330, i32 noundef 16)
+  %5332 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %5331, ptr %5332, align 8
+  %5333 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %5334 = load i32, ptr %5333, align 4
+  %5335 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %5336 = load i32, ptr %5335, align 8
+  %5337 = add i32 %5334, %5336
+  %5338 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %5337, ptr %5338, align 4
+  %5339 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %5340 = load i32, ptr %5339, align 16
+  %5341 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %5342 = load i32, ptr %5341, align 4
+  %5343 = xor i32 %5340, %5342
+  %5344 = call i32 @rotr32(i32 noundef %5343, i32 noundef 12)
+  %5345 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %5344, ptr %5345, align 16
+  %5346 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %5347 = load i32, ptr %5346, align 4
+  %5348 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %5349 = load i32, ptr %5348, align 16
+  %5350 = add i32 %5347, %5349
+  %5351 = getelementptr inbounds [10 x [16 x i8]], ptr @blake2s_sigma, i64 0, i64 9, i64 15
+  %5352 = load i8, ptr %5351, align 1
+  %5353 = zext i8 %5352 to i64
+  %5354 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %5353
+  %5355 = load i32, ptr %5354, align 4
+  %5356 = add i32 %5350, %5355
+  %5357 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  store i32 %5356, ptr %5357, align 4
+  %5358 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %5359 = load i32, ptr %5358, align 8
+  %5360 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 3
+  %5361 = load i32, ptr %5360, align 4
+  %5362 = xor i32 %5359, %5361
+  %5363 = call i32 @rotr32(i32 noundef %5362, i32 noundef 8)
+  %5364 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  store i32 %5363, ptr %5364, align 8
+  %5365 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %5366 = load i32, ptr %5365, align 4
+  %5367 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 14
+  %5368 = load i32, ptr %5367, align 8
+  %5369 = add i32 %5366, %5368
+  %5370 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  store i32 %5369, ptr %5370, align 4
+  %5371 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  %5372 = load i32, ptr %5371, align 16
+  %5373 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 9
+  %5374 = load i32, ptr %5373, align 4
+  %5375 = xor i32 %5372, %5374
+  %5376 = call i32 @rotr32(i32 noundef %5375, i32 noundef 7)
+  %5377 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 4
+  store i32 %5376, ptr %5377, align 16
+  br label %5378
+
+5378:                                             ; preds = %5313
+  br label %5379
+
+5379:                                             ; preds = %5378
   store i64 0, ptr %7, align 8
-  br label %5214
+  br label %5380
 
-5214:                                             ; preds = %5236, %5213
-  %5215 = load i64, ptr %7, align 8
-  %5216 = icmp ult i64 %5215, 8
-  br i1 %5216, label %5217, label %5239
+5380:                                             ; preds = %5402, %5379
+  %5381 = load i64, ptr %7, align 8
+  %5382 = icmp ult i64 %5381, 8
+  br i1 %5382, label %5383, label %5405
 
-5217:                                             ; preds = %5214
-  %5218 = load ptr, ptr %3, align 8
-  %5219 = getelementptr inbounds %struct.blake2s_state__, ptr %5218, i32 0, i32 0
-  %5220 = load i64, ptr %7, align 8
-  %5221 = getelementptr inbounds [8 x i32], ptr %5219, i64 0, i64 %5220
-  %5222 = load i32, ptr %5221, align 4
-  %5223 = load i64, ptr %7, align 8
-  %5224 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %5223
-  %5225 = load i32, ptr %5224, align 4
-  %5226 = xor i32 %5222, %5225
-  %5227 = load i64, ptr %7, align 8
-  %5228 = add i64 %5227, 8
-  %5229 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %5228
-  %5230 = load i32, ptr %5229, align 4
-  %5231 = xor i32 %5226, %5230
-  %5232 = load ptr, ptr %3, align 8
-  %5233 = getelementptr inbounds %struct.blake2s_state__, ptr %5232, i32 0, i32 0
-  %5234 = load i64, ptr %7, align 8
-  %5235 = getelementptr inbounds [8 x i32], ptr %5233, i64 0, i64 %5234
-  store i32 %5231, ptr %5235, align 4
-  br label %5236
+5383:                                             ; preds = %5380
+  %5384 = load ptr, ptr %3, align 8
+  %5385 = getelementptr inbounds %struct.blake2s_state__, ptr %5384, i32 0, i32 0
+  %5386 = load i64, ptr %7, align 8
+  %5387 = getelementptr inbounds [8 x i32], ptr %5385, i64 0, i64 %5386
+  %5388 = load i32, ptr %5387, align 4
+  %5389 = load i64, ptr %7, align 8
+  %5390 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %5389
+  %5391 = load i32, ptr %5390, align 4
+  %5392 = xor i32 %5388, %5391
+  %5393 = load i64, ptr %7, align 8
+  %5394 = add i64 %5393, 8
+  %5395 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %5394
+  %5396 = load i32, ptr %5395, align 4
+  %5397 = xor i32 %5392, %5396
+  %5398 = load ptr, ptr %3, align 8
+  %5399 = getelementptr inbounds %struct.blake2s_state__, ptr %5398, i32 0, i32 0
+  %5400 = load i64, ptr %7, align 8
+  %5401 = getelementptr inbounds [8 x i32], ptr %5399, i64 0, i64 %5400
+  store i32 %5397, ptr %5401, align 4
+  br label %5402
 
-5236:                                             ; preds = %5217
-  %5237 = load i64, ptr %7, align 8
-  %5238 = add i64 %5237, 1
-  store i64 %5238, ptr %7, align 8
-  br label %5214, !llvm.loop !11
+5402:                                             ; preds = %5383
+  %5403 = load i64, ptr %7, align 8
+  %5404 = add i64 %5403, 1
+  store i64 %5404, ptr %7, align 8
+  br label %5380, !llvm.loop !11
 
-5239:                                             ; preds = %5214
+5405:                                             ; preds = %5380
   ret void
 }
 

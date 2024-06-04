@@ -649,13 +649,14 @@ define void @_ZN5draco37SequentialAttributeDecodersControllerC2ESt10unique_ptrIN
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5draco17AttributesDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco37SequentialAttributeDecodersControllerE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.draco::SequentialAttributeDecodersController", ptr %5, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS2_EESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
-  %7 = getelementptr inbounds %"class.draco::SequentialAttributeDecodersController", ptr %5, i32 0, i32 2
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
-  %8 = getelementptr inbounds %"class.draco::SequentialAttributeDecodersController", ptr %5, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5draco15PointsSequencerESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN5draco37SequentialAttributeDecodersControllerE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.draco::SequentialAttributeDecodersController", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS2_EESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %8 = getelementptr inbounds %"class.draco::SequentialAttributeDecodersController", ptr %5, i32 0, i32 2
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %9 = getelementptr inbounds %"class.draco::SequentialAttributeDecodersController", ptr %5, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5draco15PointsSequencerESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
   ret void
 }
 
@@ -1885,13 +1886,14 @@ define linkonce_odr void @_ZN5draco37SequentialAttributeDecodersControllerD2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco37SequentialAttributeDecodersControllerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::SequentialAttributeDecodersController", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5draco15PointsSequencerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.draco::SequentialAttributeDecodersController", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.draco::SequentialAttributeDecodersController", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN5draco37SequentialAttributeDecodersControllerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::SequentialAttributeDecodersController", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5draco15PointsSequencerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.draco::SequentialAttributeDecodersController", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"class.draco::SequentialAttributeDecodersController", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   call void @_ZN5draco17AttributesDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
   ret void
 }
@@ -2641,11 +2643,12 @@ define linkonce_odr void @_ZN5draco17AttributesDecoderD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco17AttributesDecoderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco17AttributesDecoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   call void @_ZN5draco26AttributesDecoderInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }

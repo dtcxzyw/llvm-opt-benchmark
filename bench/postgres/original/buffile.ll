@@ -976,13 +976,13 @@ define internal void @BufFileDumpBuffer(ptr noundef %0) #0 {
   store i32 0, ptr %3, align 4
   br label %11
 
-11:                                               ; preds = %118, %1
+11:                                               ; preds = %120, %1
   %12 = load i32, ptr %3, align 4
   %13 = load ptr, ptr %2, align 8
   %14 = getelementptr inbounds %struct.BufFile, ptr %13, i32 0, i32 11
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %12, %15
-  br i1 %16, label %17, label %130
+  br i1 %16, label %17, label %134
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %2, align 8
@@ -1123,7 +1123,7 @@ define internal void @BufFileDumpBuffer(ptr noundef %0) #0 {
 105:                                              ; preds = %104, %75
   %106 = load i8, ptr @track_io_timing, align 1
   %107 = trunc i8 %106 to i1
-  br i1 %107, label %108, label %118
+  br i1 %107, label %108, label %120
 
 108:                                              ; preds = %105
   %109 = call i64 @pg_clock_gettime_ns()
@@ -1135,71 +1135,75 @@ define internal void @BufFileDumpBuffer(ptr noundef %0) #0 {
   %113 = getelementptr inbounds %struct.instr_time, ptr %7, i32 0, i32 0
   %114 = load i64, ptr %113, align 8
   %115 = sub i64 %112, %114
-  %116 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 15), align 8
-  %117 = add i64 %116, %115
-  store i64 %117, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 15), align 8
-  br label %118
+  %116 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 15
+  %117 = load i64, ptr %116, align 8
+  %118 = add i64 %117, %115
+  %119 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 15
+  store i64 %118, ptr %119, align 8
+  br label %120
 
-118:                                              ; preds = %108, %105
-  %119 = load i32, ptr %4, align 4
-  %120 = sext i32 %119 to i64
-  %121 = load ptr, ptr %2, align 8
-  %122 = getelementptr inbounds %struct.BufFile, ptr %121, i32 0, i32 9
-  %123 = load i64, ptr %122, align 8
-  %124 = add i64 %123, %120
-  store i64 %124, ptr %122, align 8
-  %125 = load i32, ptr %4, align 4
-  %126 = load i32, ptr %3, align 4
-  %127 = add i32 %126, %125
-  store i32 %127, ptr %3, align 4
-  %128 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 9), align 8
-  %129 = add i64 %128, 1
-  store i64 %129, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 9), align 8
+120:                                              ; preds = %108, %105
+  %121 = load i32, ptr %4, align 4
+  %122 = sext i32 %121 to i64
+  %123 = load ptr, ptr %2, align 8
+  %124 = getelementptr inbounds %struct.BufFile, ptr %123, i32 0, i32 9
+  %125 = load i64, ptr %124, align 8
+  %126 = add i64 %125, %122
+  store i64 %126, ptr %124, align 8
+  %127 = load i32, ptr %4, align 4
+  %128 = load i32, ptr %3, align 4
+  %129 = add i32 %128, %127
+  store i32 %129, ptr %3, align 4
+  %130 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 9
+  %131 = load i64, ptr %130, align 8
+  %132 = add i64 %131, 1
+  %133 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 9
+  store i64 %132, ptr %133, align 8
   br label %11, !llvm.loop !10
 
-130:                                              ; preds = %11
-  %131 = load ptr, ptr %2, align 8
-  %132 = getelementptr inbounds %struct.BufFile, ptr %131, i32 0, i32 3
-  store i8 0, ptr %132, align 1
-  %133 = load ptr, ptr %2, align 8
-  %134 = getelementptr inbounds %struct.BufFile, ptr %133, i32 0, i32 11
-  %135 = load i32, ptr %134, align 4
-  %136 = load ptr, ptr %2, align 8
-  %137 = getelementptr inbounds %struct.BufFile, ptr %136, i32 0, i32 10
-  %138 = load i32, ptr %137, align 8
-  %139 = sub i32 %135, %138
-  %140 = sext i32 %139 to i64
-  %141 = load ptr, ptr %2, align 8
-  %142 = getelementptr inbounds %struct.BufFile, ptr %141, i32 0, i32 9
-  %143 = load i64, ptr %142, align 8
-  %144 = sub i64 %143, %140
-  store i64 %144, ptr %142, align 8
+134:                                              ; preds = %11
+  %135 = load ptr, ptr %2, align 8
+  %136 = getelementptr inbounds %struct.BufFile, ptr %135, i32 0, i32 3
+  store i8 0, ptr %136, align 1
+  %137 = load ptr, ptr %2, align 8
+  %138 = getelementptr inbounds %struct.BufFile, ptr %137, i32 0, i32 11
+  %139 = load i32, ptr %138, align 4
+  %140 = load ptr, ptr %2, align 8
+  %141 = getelementptr inbounds %struct.BufFile, ptr %140, i32 0, i32 10
+  %142 = load i32, ptr %141, align 8
+  %143 = sub i32 %139, %142
+  %144 = sext i32 %143 to i64
   %145 = load ptr, ptr %2, align 8
   %146 = getelementptr inbounds %struct.BufFile, ptr %145, i32 0, i32 9
   %147 = load i64, ptr %146, align 8
-  %148 = icmp slt i64 %147, 0
-  br i1 %148, label %149, label %158
+  %148 = sub i64 %147, %144
+  store i64 %148, ptr %146, align 8
+  %149 = load ptr, ptr %2, align 8
+  %150 = getelementptr inbounds %struct.BufFile, ptr %149, i32 0, i32 9
+  %151 = load i64, ptr %150, align 8
+  %152 = icmp slt i64 %151, 0
+  br i1 %152, label %153, label %162
 
-149:                                              ; preds = %130
-  %150 = load ptr, ptr %2, align 8
-  %151 = getelementptr inbounds %struct.BufFile, ptr %150, i32 0, i32 8
-  %152 = load i32, ptr %151, align 8
-  %153 = add i32 %152, -1
-  store i32 %153, ptr %151, align 8
+153:                                              ; preds = %134
   %154 = load ptr, ptr %2, align 8
-  %155 = getelementptr inbounds %struct.BufFile, ptr %154, i32 0, i32 9
-  %156 = load i64, ptr %155, align 8
-  %157 = add i64 %156, 1073741824
-  store i64 %157, ptr %155, align 8
-  br label %158
+  %155 = getelementptr inbounds %struct.BufFile, ptr %154, i32 0, i32 8
+  %156 = load i32, ptr %155, align 8
+  %157 = add i32 %156, -1
+  store i32 %157, ptr %155, align 8
+  %158 = load ptr, ptr %2, align 8
+  %159 = getelementptr inbounds %struct.BufFile, ptr %158, i32 0, i32 9
+  %160 = load i64, ptr %159, align 8
+  %161 = add i64 %160, 1073741824
+  store i64 %161, ptr %159, align 8
+  br label %162
 
-158:                                              ; preds = %149, %130
-  %159 = load ptr, ptr %2, align 8
-  %160 = getelementptr inbounds %struct.BufFile, ptr %159, i32 0, i32 10
-  store i32 0, ptr %160, align 8
-  %161 = load ptr, ptr %2, align 8
-  %162 = getelementptr inbounds %struct.BufFile, ptr %161, i32 0, i32 11
-  store i32 0, ptr %162, align 4
+162:                                              ; preds = %153, %134
+  %163 = load ptr, ptr %2, align 8
+  %164 = getelementptr inbounds %struct.BufFile, ptr %163, i32 0, i32 10
+  store i32 0, ptr %164, align 8
+  %165 = load ptr, ptr %2, align 8
+  %166 = getelementptr inbounds %struct.BufFile, ptr %165, i32 0, i32 11
+  store i32 0, ptr %166, align 4
   ret void
 }
 
@@ -2178,7 +2182,7 @@ define internal void @BufFileLoadBuffer(ptr noundef %0) #0 {
 76:                                               ; preds = %75, %45
   %77 = load i8, ptr @track_io_timing, align 1
   %78 = trunc i8 %77 to i1
-  br i1 %78, label %79, label %89
+  br i1 %78, label %79, label %91
 
 79:                                               ; preds = %76
   %80 = call i64 @pg_clock_gettime_ns()
@@ -2190,25 +2194,29 @@ define internal void @BufFileLoadBuffer(ptr noundef %0) #0 {
   %84 = getelementptr inbounds %struct.instr_time, ptr %4, i32 0, i32 0
   %85 = load i64, ptr %84, align 8
   %86 = sub i64 %83, %85
-  %87 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 14), align 8
-  %88 = add i64 %87, %86
-  store i64 %88, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 14), align 8
-  br label %89
+  %87 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 14
+  %88 = load i64, ptr %87, align 8
+  %89 = add i64 %88, %86
+  %90 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 14
+  store i64 %89, ptr %90, align 8
+  br label %91
 
-89:                                               ; preds = %79, %76
-  %90 = load ptr, ptr %2, align 8
-  %91 = getelementptr inbounds %struct.BufFile, ptr %90, i32 0, i32 11
-  %92 = load i32, ptr %91, align 4
-  %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %94, label %97
+91:                                               ; preds = %79, %76
+  %92 = load ptr, ptr %2, align 8
+  %93 = getelementptr inbounds %struct.BufFile, ptr %92, i32 0, i32 11
+  %94 = load i32, ptr %93, align 4
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %96, label %101
 
-94:                                               ; preds = %89
-  %95 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 8), align 8
-  %96 = add i64 %95, 1
-  store i64 %96, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 8), align 8
-  br label %97
+96:                                               ; preds = %91
+  %97 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 8
+  %98 = load i64, ptr %97, align 8
+  %99 = add i64 %98, 1
+  %100 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 8
+  store i64 %99, ptr %100, align 8
+  br label %101
 
-97:                                               ; preds = %94, %89
+101:                                              ; preds = %96, %91
   ret void
 }
 

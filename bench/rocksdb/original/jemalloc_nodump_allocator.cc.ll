@@ -1815,44 +1815,56 @@ declare void @__cxa_guard_release(ptr) #4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZL11HasJemallocv() #3 {
 entry:
-  br i1 icmp ne (ptr @mallocx, ptr null), label %land.lhs.true, label %land.end
+  %0 = icmp ne ptr @mallocx, null
+  br i1 %0, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  br i1 icmp ne (ptr @rallocx, ptr null), label %land.lhs.true1, label %land.end
+  %1 = icmp ne ptr @rallocx, null
+  br i1 %1, label %land.lhs.true1, label %land.end
 
 land.lhs.true1:                                   ; preds = %land.lhs.true
-  br i1 icmp ne (ptr @xallocx, ptr null), label %land.lhs.true2, label %land.end
+  %2 = icmp ne ptr @xallocx, null
+  br i1 %2, label %land.lhs.true2, label %land.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true1
-  br i1 icmp ne (ptr @sallocx, ptr null), label %land.lhs.true3, label %land.end
+  %3 = icmp ne ptr @sallocx, null
+  br i1 %3, label %land.lhs.true3, label %land.end
 
 land.lhs.true3:                                   ; preds = %land.lhs.true2
-  br i1 icmp ne (ptr @dallocx, ptr null), label %land.lhs.true4, label %land.end
+  %4 = icmp ne ptr @dallocx, null
+  br i1 %4, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true3
-  br i1 icmp ne (ptr @sdallocx, ptr null), label %land.lhs.true5, label %land.end
+  %5 = icmp ne ptr @sdallocx, null
+  br i1 %5, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true4
-  br i1 icmp ne (ptr @nallocx, ptr null), label %land.lhs.true6, label %land.end
+  %6 = icmp ne ptr @nallocx, null
+  br i1 %6, label %land.lhs.true6, label %land.end
 
 land.lhs.true6:                                   ; preds = %land.lhs.true5
-  br i1 icmp ne (ptr @mallctl, ptr null), label %land.lhs.true7, label %land.end
+  %7 = icmp ne ptr @mallctl, null
+  br i1 %7, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true6
-  br i1 icmp ne (ptr @mallctlnametomib, ptr null), label %land.lhs.true8, label %land.end
+  %8 = icmp ne ptr @mallctlnametomib, null
+  br i1 %8, label %land.lhs.true8, label %land.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true7
-  br i1 icmp ne (ptr @mallctlbymib, ptr null), label %land.lhs.true9, label %land.end
+  %9 = icmp ne ptr @mallctlbymib, null
+  br i1 %9, label %land.lhs.true9, label %land.end
 
 land.lhs.true9:                                   ; preds = %land.lhs.true8
-  br i1 icmp ne (ptr @malloc_stats_print, ptr null), label %land.rhs, label %land.end
+  %10 = icmp ne ptr @malloc_stats_print, null
+  br i1 %10, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true9
+  %11 = icmp ne ptr @malloc_usable_size, null
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true9, %land.lhs.true8, %land.lhs.true7, %land.lhs.true6, %land.lhs.true5, %land.lhs.true4, %land.lhs.true3, %land.lhs.true2, %land.lhs.true1, %land.lhs.true, %entry
-  %0 = phi i1 [ false, %land.lhs.true9 ], [ false, %land.lhs.true8 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true6 ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true1 ], [ false, %land.lhs.true ], [ false, %entry ], [ icmp ne (ptr @malloc_usable_size, ptr null), %land.rhs ]
-  ret i1 %0
+  %12 = phi i1 [ false, %land.lhs.true9 ], [ false, %land.lhs.true8 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true6 ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true1 ], [ false, %land.lhs.true ], [ false, %entry ], [ %11, %land.rhs ]
+  ret i1 %12
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #5
@@ -1868,10 +1880,11 @@ entry:
   store ptr %options, ptr %options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb19BaseMemoryAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7rocksdb23JemallocNodumpAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN7rocksdb23JemallocNodumpAllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::JemallocNodumpAllocator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %options.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %options_, ptr align 8 %0, i64 32, i1 false)
+  %1 = load ptr, ptr %options.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %options_, ptr align 8 %1, i64 32, i1 false)
   %per_arena_hooks_ = getelementptr inbounds %"class.rocksdb::JemallocNodumpAllocator", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorISt10unique_ptrI14extent_hooks_sSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %per_arena_hooks_) #4
   %tcache_ = getelementptr inbounds %"class.rocksdb::JemallocNodumpAllocator", ptr %this1, i32 0, i32 3
@@ -1891,21 +1904,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arena_indexes_) #4
   call void @_ZN7rocksdb14ThreadLocalPtrD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %tcache_) #4
   br label %ehcleanup
@@ -1930,7 +1943,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb15MemoryAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7rocksdb19BaseMemoryAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN7rocksdb19BaseMemoryAllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2122,7 +2136,8 @@ entry:
   %s = alloca %"class.rocksdb::Status", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7rocksdb23JemallocNodumpAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN7rocksdb23JemallocNodumpAllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   invoke void @_ZN7rocksdb10autovectorIPvLm8EEC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %tcache_list)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2133,13 +2148,13 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   store ptr %tcache_list, ptr %__range1, align 8
-  %0 = load ptr, ptr %__range1, align 8
-  invoke void @_ZN7rocksdb10autovectorIPvLm8EE5beginEv(ptr sret(%"class.rocksdb::autovector<void *>::iterator_impl") align 8 %__begin1, ptr noundef nonnull align 8 dereferenceable(104) %0)
+  %1 = load ptr, ptr %__range1, align 8
+  invoke void @_ZN7rocksdb10autovectorIPvLm8EE5beginEv(ptr sret(%"class.rocksdb::autovector<void *>::iterator_impl") align 8 %__begin1, ptr noundef nonnull align 8 dereferenceable(104) %1)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  %1 = load ptr, ptr %__range1, align 8
-  invoke void @_ZN7rocksdb10autovectorIPvLm8EE3endEv(ptr sret(%"class.rocksdb::autovector<void *>::iterator_impl") align 8 %__end1, ptr noundef nonnull align 8 dereferenceable(104) %1)
+  %2 = load ptr, ptr %__range1, align 8
+  invoke void @_ZN7rocksdb10autovectorIPvLm8EE3endEv(ptr sret(%"class.rocksdb::autovector<void *>::iterator_impl") align 8 %__end1, ptr noundef nonnull align 8 dereferenceable(104) %2)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -2162,10 +2177,10 @@ for.body:                                         ; preds = %invoke.cont5
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %for.body
-  %2 = load ptr, ptr %call7, align 8
-  store ptr %2, ptr %tcache_index, align 8
-  %3 = load ptr, ptr %tcache_index, align 8
-  invoke void @_ZN7rocksdb23JemallocNodumpAllocator26DestroyThreadSpecificCacheEPv(ptr noundef %3)
+  %3 = load ptr, ptr %call7, align 8
+  store ptr %3, ptr %tcache_index, align 8
+  %4 = load ptr, ptr %tcache_index, align 8
+  invoke void @_ZN7rocksdb23JemallocNodumpAllocator26DestroyThreadSpecificCacheEPv(ptr noundef %4)
           to label %invoke.cont8 unwind label %terminate.lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -2181,12 +2196,12 @@ invoke.cont9:                                     ; preds = %for.inc
 for.end:                                          ; preds = %for.cond.cleanup
   %arena_indexes_ = getelementptr inbounds %"class.rocksdb::JemallocNodumpAllocator", ptr %this1, i32 0, i32 5
   store ptr %arena_indexes_, ptr %__range111, align 8
-  %4 = load ptr, ptr %__range111, align 8
-  %call13 = call ptr @_ZNSt6vectorIjSaIjEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
+  %5 = load ptr, ptr %__range111, align 8
+  %call13 = call ptr @_ZNSt6vectorIjSaIjEE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin112, i32 0, i32 0
   store ptr %call13, ptr %coerce.dive, align 8
-  %5 = load ptr, ptr %__range111, align 8
-  %call15 = call ptr @_ZNSt6vectorIjSaIjEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  %6 = load ptr, ptr %__range111, align 8
+  %call15 = call ptr @_ZNSt6vectorIjSaIjEE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #4
   %coerce.dive16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end114, i32 0, i32 0
   store ptr %call15, ptr %coerce.dive16, align 8
   br label %for.cond17
@@ -2197,10 +2212,10 @@ for.cond17:                                       ; preds = %for.inc23, %for.end
 
 for.body19:                                       ; preds = %for.cond17
   %call20 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin112) #4
-  %6 = load i32, ptr %call20, align 4
-  store i32 %6, ptr %arena_index, align 4
-  %7 = load i32, ptr %arena_index, align 4
-  invoke void @_ZN7rocksdb23JemallocNodumpAllocator12DestroyArenaEj(ptr sret(%"class.rocksdb::Status") align 8 %s, i32 noundef %7)
+  %7 = load i32, ptr %call20, align 4
+  store i32 %7, ptr %arena_index, align 4
+  %8 = load i32, ptr %arena_index, align 4
+  invoke void @_ZN7rocksdb23JemallocNodumpAllocator12DestroyArenaEj(ptr sret(%"class.rocksdb::Status") align 8 %s, i32 noundef %8)
           to label %invoke.cont21 unwind label %terminate.lpad
 
 invoke.cont21:                                    ; preds = %for.body19
@@ -2227,10 +2242,10 @@ for.end25:                                        ; preds = %for.cond17
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont21, %for.body19, %for.inc, %invoke.cont6, %for.body, %for.cond, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #19
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #19
   unreachable
 }
 
@@ -6192,7 +6207,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12CustomizableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7rocksdb15MemoryAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [24 x ptr] }, ptr @_ZTVN7rocksdb15MemoryAllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6257,7 +6273,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12ConfigurableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN7rocksdb12CustomizableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [21 x ptr] }, ptr @_ZTVN7rocksdb12CustomizableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6286,7 +6303,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #4
   ret void
@@ -6373,7 +6391,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #4
   ret void
@@ -13112,10 +13131,11 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7rocksdb15MemoryAllocatorELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7rocksdb15MemoryAllocatorELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr %0, ptr %_M_ptr, align 8
+  %1 = load ptr, ptr %__p.addr, align 8
+  store ptr %1, ptr %_M_ptr, align 8
   ret void
 }
 
@@ -13125,7 +13145,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2

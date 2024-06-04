@@ -562,15 +562,16 @@ define dso_local void @CLOGShmemInit() #0 {
   br label %14
 
 14:                                               ; preds = %13, %0
-  store ptr @CLOGPagePrecedes, ptr getelementptr inbounds (%struct.SlruCtlData, ptr @XactCtlData, i32 0, i32 4), align 8
-  %15 = call i32 @CLOGShmemBuffers()
-  call void @SimpleLruInit(ptr noundef @XactCtlData, ptr noundef @.str.2, i32 noundef %15, i32 noundef 1024, ptr noundef @.str.3, i32 noundef 53, i32 noundef 90, i32 noundef 1, i1 noundef zeroext false)
-  br label %16
-
-16:                                               ; preds = %14
+  %15 = getelementptr inbounds %struct.SlruCtlData, ptr @XactCtlData, i32 0, i32 4
+  store ptr @CLOGPagePrecedes, ptr %15, align 8
+  %16 = call i32 @CLOGShmemBuffers()
+  call void @SimpleLruInit(ptr noundef @XactCtlData, ptr noundef @.str.2, i32 noundef %16, i32 noundef 1024, ptr noundef @.str.3, i32 noundef 53, i32 noundef 90, i32 noundef 1, i1 noundef zeroext false)
   br label %17
 
-17:                                               ; preds = %16
+17:                                               ; preds = %14
+  br label %18
+
+18:                                               ; preds = %17
   ret void
 }
 

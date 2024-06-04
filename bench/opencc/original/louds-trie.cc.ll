@@ -3694,19 +3694,20 @@ define linkonce_odr void @_ZN6marisa9ExceptionC2EPKci18marisa_error_code_S2_(ptr
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %7, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 2
-  %15 = load i32, ptr %8, align 4
-  store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 3
-  %17 = load i32, ptr %9, align 4
-  store i32 %17, ptr %16, align 4
-  %18 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 4
-  %19 = load ptr, ptr %10, align 8
-  store ptr %19, ptr %18, align 8
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6marisa9ExceptionE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 2
+  %16 = load i32, ptr %8, align 4
+  store i32 %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 3
+  %18 = load i32, ptr %9, align 4
+  store i32 %18, ptr %17, align 4
+  %19 = getelementptr inbounds %"class.marisa::Exception", ptr %11, i32 0, i32 4
+  %20 = load ptr, ptr %10, align 8
+  store ptr %20, ptr %19, align 8
   ret void
 }
 
@@ -10334,7 +10335,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -16139,7 +16141,7 @@ define linkonce_odr void @_ZN6marisa8grimoire4trie9LoudsTrie18build_current_trie
 
 415:                                              ; preds = %414, %52
   %416 = load i32, ptr %13, align 4
-  %417 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #3
+  %417 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #3
   %418 = icmp eq i32 %416, %417
   br i1 %418, label %419, label %435
 
@@ -17092,15 +17094,12 @@ define linkonce_odr void @_ZNSt5queueIN6marisa8grimoire4trie5RangeESt5dequeIS3_S
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #10
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #19
   unreachable
@@ -18770,13 +18769,13 @@ define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIPN6marisa8grimoire4trie
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #12
+declare void @_ZSt28__throw_bad_array_new_lengthv() #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #12
+declare void @_ZSt17__throw_bad_allocv() #11
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__new_allocatorIPN6marisa8grimoire4trie5RangeEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
@@ -19147,7 +19146,7 @@ define linkonce_odr noundef i64 @_ZNKSt5dequeIN6marisa8grimoire4trie5RangeESaIS3
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #12
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN6marisa8grimoire4trie5RangeESaIS3_EE22_M_reserve_map_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) #4 comdat align 2 {
@@ -21690,7 +21689,7 @@ define linkonce_odr void @_ZSt19__iterator_categoryIPN6marisa8grimoire4trie13Wei
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #14
+declare i1 @llvm.is.constant.i64(i64) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIN6marisa8grimoire4trie13WeightedRangeEEEclIPS6_KS6_EEbT_RT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) #4 comdat align 2 {
@@ -24449,7 +24448,7 @@ define linkonce_odr void @_ZNSt4pairIjjE4swapERS0_(ptr noundef nonnull align 4 d
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt16__insertion_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_(ptr noundef %0, ptr noundef %1) #4 comdat {
@@ -25827,7 +25826,7 @@ define linkonce_odr void @_ZN6marisa8grimoire4trie9LoudsTrie18build_current_trie
 
 367:                                              ; preds = %366, %52
   %368 = load i32, ptr %13, align 4
-  %369 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #3
+  %369 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #3
   %370 = icmp eq i32 %368, %369
   br i1 %370, label %371, label %387
 
@@ -28755,6 +28754,9 @@ define internal void @_GLOBAL__sub_I_louds_trie.cc() #0 section ".text.startup" 
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -28765,12 +28767,12 @@ attributes #6 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trap
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind memory(none) }
-attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind memory(none) }
 attributes #16 = { builtin nounwind }
 attributes #17 = { noreturn }
 attributes #18 = { builtin nounwind allocsize(0) }

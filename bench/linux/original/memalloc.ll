@@ -574,7 +574,7 @@ define dso_local ptr @snd_sgbuf_get_page(ptr noundef %0, i64 noundef %1) #0 alig
 
 21:                                               ; preds = %17
   %22 = tail call ptr %19(ptr noundef %0, i64 noundef %1) #8
-  br label %39
+  br label %40
 
 23:                                               ; preds = %17, %14
   %24 = load i64, ptr @vmemmap_base, align 8
@@ -584,19 +584,20 @@ define dso_local ptr @snd_sgbuf_get_page(ptr noundef %0, i64 noundef %1) #0 alig
   %28 = getelementptr i8, ptr %27, i64 %1
   %29 = ptrtoint ptr %28 to i64
   %30 = add i64 %29, 2147483648
-  %31 = icmp ugt ptr %28, inttoptr (i64 -2147483649 to ptr)
-  %32 = load i64, ptr @phys_base, align 8
-  %33 = load i64, ptr @page_offset_base, align 8
-  %34 = sub i64 -2147483648, %33
-  %35 = select i1 %31, i64 %32, i64 %34
-  %36 = add i64 %30, %35
-  %37 = lshr i64 %36, 12
-  %38 = getelementptr %struct.page, ptr %25, i64 %37
-  br label %39
+  %31 = inttoptr i64 -2147483649 to ptr
+  %32 = icmp ugt ptr %28, %31
+  %33 = load i64, ptr @phys_base, align 8
+  %34 = load i64, ptr @page_offset_base, align 8
+  %35 = sub i64 -2147483648, %34
+  %36 = select i1 %32, i64 %33, i64 %35
+  %37 = add i64 %30, %36
+  %38 = lshr i64 %37, 12
+  %39 = getelementptr %struct.page, ptr %25, i64 %38
+  br label %40
 
-39:                                               ; preds = %23, %21
-  %40 = phi ptr [ %22, %21 ], [ %38, %23 ]
-  ret ptr %40
+40:                                               ; preds = %23, %21
+  %41 = phi ptr [ %22, %21 ], [ %39, %23 ]
+  ret ptr %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -655,7 +656,7 @@ define internal ptr @snd_dma_continuous_alloc(ptr nocapture noundef %0, i64 noun
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = tail call noalias ptr @alloc_pages_exact(i64 noundef %1, i32 noundef 76992) #10
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %51, label %8
+  br i1 %7, label %52, label %8
 
 8:                                                ; preds = %2
   %9 = icmp eq ptr %4, null
@@ -663,63 +664,64 @@ define internal ptr @snd_dma_continuous_alloc(ptr nocapture noundef %0, i64 noun
   %11 = getelementptr inbounds i8, ptr %4, i64 568
   br label %12
 
-12:                                               ; preds = %41, %8
-  %13 = phi ptr [ %6, %8 ], [ %43, %41 ]
-  %14 = phi i32 [ 76992, %8 ], [ %42, %41 ]
+12:                                               ; preds = %42, %8
+  %13 = phi ptr [ %6, %8 ], [ %44, %42 ]
+  %14 = phi i32 [ 76992, %8 ], [ %43, %42 ]
   %15 = load i64, ptr @vmemmap_base, align 8
   %16 = inttoptr i64 %15 to ptr
   %17 = ptrtoint ptr %13 to i64
   %18 = add i64 %17, 2147483648
-  %19 = icmp ugt ptr %13, inttoptr (i64 -2147483649 to ptr)
-  %20 = load i64, ptr @phys_base, align 8
-  %21 = load i64, ptr @page_offset_base, align 8
-  %22 = sub i64 -2147483648, %21
-  %23 = select i1 %19, i64 %20, i64 %22
-  %24 = add i64 %18, %23
-  %25 = lshr i64 %24, 12
-  %26 = getelementptr %struct.page, ptr %16, i64 %25
-  %27 = ptrtoint ptr %26 to i64
-  %28 = sub i64 %27, %15
-  %29 = shl i64 %28, 6
-  store i64 %29, ptr %5, align 8
-  br i1 %9, label %51, label %30
+  %19 = inttoptr i64 -2147483649 to ptr
+  %20 = icmp ugt ptr %13, %19
+  %21 = load i64, ptr @phys_base, align 8
+  %22 = load i64, ptr @page_offset_base, align 8
+  %23 = sub i64 -2147483648, %22
+  %24 = select i1 %20, i64 %21, i64 %23
+  %25 = add i64 %18, %24
+  %26 = lshr i64 %25, 12
+  %27 = getelementptr %struct.page, ptr %16, i64 %26
+  %28 = ptrtoint ptr %27 to i64
+  %29 = sub i64 %28, %15
+  %30 = shl i64 %29, 6
+  store i64 %30, ptr %5, align 8
+  br i1 %9, label %52, label %31
 
-30:                                               ; preds = %12
-  %31 = add i64 %10, %29
-  %32 = load i64, ptr %11, align 8
-  %33 = xor i64 %32, -1
-  %34 = and i64 %31, %33
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %51, label %36
+31:                                               ; preds = %12
+  %32 = add i64 %10, %30
+  %33 = load i64, ptr %11, align 8
+  %34 = xor i64 %33, -1
+  %35 = and i64 %32, %34
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %52, label %37
 
-36:                                               ; preds = %30
-  %37 = and i32 %14, 4
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %45
+37:                                               ; preds = %31
+  %38 = and i32 %14, 4
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %36
-  %40 = or disjoint i32 %14, 4
-  br label %41
+40:                                               ; preds = %37
+  %41 = or disjoint i32 %14, 4
+  br label %42
 
-41:                                               ; preds = %48, %39
-  %42 = phi i32 [ %50, %48 ], [ %40, %39 ]
-  %43 = tail call noalias ptr @alloc_pages_exact(i64 noundef %1, i32 noundef %42) #10
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %51, label %12
+42:                                               ; preds = %49, %40
+  %43 = phi i32 [ %51, %49 ], [ %41, %40 ]
+  %44 = tail call noalias ptr @alloc_pages_exact(i64 noundef %1, i32 noundef %43) #10
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %52, label %12
 
-45:                                               ; preds = %36
-  %46 = and i32 %14, 1
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %51
+46:                                               ; preds = %37
+  %47 = and i32 %14, 1
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %45
-  %49 = and i32 %14, -6
-  %50 = or disjoint i32 %49, 1
-  br label %41
+49:                                               ; preds = %46
+  %50 = and i32 %14, -6
+  %51 = or disjoint i32 %50, 1
+  br label %42
 
-51:                                               ; preds = %45, %41, %30, %12, %2
-  %52 = phi ptr [ null, %2 ], [ %6, %12 ], [ null, %41 ], [ %13, %45 ], [ %13, %30 ]
-  ret ptr %52
+52:                                               ; preds = %46, %42, %31, %12, %2
+  %53 = phi ptr [ null, %2 ], [ %6, %12 ], [ null, %42 ], [ %13, %46 ], [ %13, %31 ]
+  ret ptr %53
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -751,7 +753,7 @@ define internal i32 @snd_dma_continuous_mmap(ptr nocapture noundef readonly %0, 
 define internal fastcc ptr @do_alloc_pages(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = tail call noalias ptr @alloc_pages_exact(i64 noundef %1, i32 noundef 76992) #10
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %55, label %7
+  br i1 %6, label %56, label %7
 
 7:                                                ; preds = %4
   %8 = icmp eq ptr %0, null
@@ -759,72 +761,73 @@ define internal fastcc ptr @do_alloc_pages(ptr noundef readonly %0, i64 noundef 
   %10 = getelementptr inbounds i8, ptr %0, i64 568
   br label %11
 
-11:                                               ; preds = %40, %7
-  %12 = phi ptr [ %5, %7 ], [ %42, %40 ]
-  %13 = phi i32 [ 76992, %7 ], [ %41, %40 ]
+11:                                               ; preds = %41, %7
+  %12 = phi ptr [ %5, %7 ], [ %43, %41 ]
+  %13 = phi i32 [ 76992, %7 ], [ %42, %41 ]
   %14 = load i64, ptr @vmemmap_base, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = ptrtoint ptr %12 to i64
   %17 = add i64 %16, 2147483648
-  %18 = icmp ugt ptr %12, inttoptr (i64 -2147483649 to ptr)
-  %19 = load i64, ptr @phys_base, align 8
-  %20 = load i64, ptr @page_offset_base, align 8
-  %21 = sub i64 -2147483648, %20
-  %22 = select i1 %18, i64 %19, i64 %21
-  %23 = add i64 %17, %22
-  %24 = lshr i64 %23, 12
-  %25 = getelementptr %struct.page, ptr %15, i64 %24
-  %26 = ptrtoint ptr %25 to i64
-  %27 = sub i64 %26, %14
-  %28 = shl i64 %27, 6
-  store i64 %28, ptr %2, align 8
-  br i1 %8, label %55, label %29
+  %18 = inttoptr i64 -2147483649 to ptr
+  %19 = icmp ugt ptr %12, %18
+  %20 = load i64, ptr @phys_base, align 8
+  %21 = load i64, ptr @page_offset_base, align 8
+  %22 = sub i64 -2147483648, %21
+  %23 = select i1 %19, i64 %20, i64 %22
+  %24 = add i64 %17, %23
+  %25 = lshr i64 %24, 12
+  %26 = getelementptr %struct.page, ptr %15, i64 %25
+  %27 = ptrtoint ptr %26 to i64
+  %28 = sub i64 %27, %14
+  %29 = shl i64 %28, 6
+  store i64 %29, ptr %2, align 8
+  br i1 %8, label %56, label %30
 
-29:                                               ; preds = %11
-  %30 = add i64 %9, %28
-  %31 = load i64, ptr %10, align 8
-  %32 = xor i64 %31, -1
-  %33 = and i64 %30, %32
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %50, label %35
+30:                                               ; preds = %11
+  %31 = add i64 %9, %29
+  %32 = load i64, ptr %10, align 8
+  %33 = xor i64 %32, -1
+  %34 = and i64 %31, %33
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %51, label %36
 
-35:                                               ; preds = %29
-  %36 = and i32 %13, 4
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %44
+36:                                               ; preds = %30
+  %37 = and i32 %13, 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %45
 
-38:                                               ; preds = %35
-  %39 = or disjoint i32 %13, 4
-  br label %40
+39:                                               ; preds = %36
+  %40 = or disjoint i32 %13, 4
+  br label %41
 
-40:                                               ; preds = %47, %38
-  %41 = phi i32 [ %49, %47 ], [ %39, %38 ]
-  %42 = tail call noalias ptr @alloc_pages_exact(i64 noundef %1, i32 noundef %41) #10
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %55, label %11
+41:                                               ; preds = %48, %39
+  %42 = phi i32 [ %50, %48 ], [ %40, %39 ]
+  %43 = tail call noalias ptr @alloc_pages_exact(i64 noundef %1, i32 noundef %42) #10
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %56, label %11
 
-44:                                               ; preds = %35
-  %45 = and i32 %13, 1
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %50
+45:                                               ; preds = %36
+  %46 = and i32 %13, 1
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %51
 
-47:                                               ; preds = %44
-  %48 = and i32 %13, -6
-  %49 = or disjoint i32 %48, 1
-  br label %40
+48:                                               ; preds = %45
+  %49 = and i32 %13, -6
+  %50 = or disjoint i32 %49, 1
+  br label %41
 
-50:                                               ; preds = %44, %29
-  br i1 %3, label %51, label %55
+51:                                               ; preds = %45, %30
+  br i1 %3, label %52, label %56
 
-51:                                               ; preds = %50
-  %52 = lshr i64 %1, 12
-  %53 = trunc i64 %52 to i32
-  %54 = tail call i32 @set_memory_wc(i64 noundef %16, i32 noundef %53) #8
-  br label %55
+52:                                               ; preds = %51
+  %53 = lshr i64 %1, 12
+  %54 = trunc i64 %53 to i32
+  %55 = tail call i32 @set_memory_wc(i64 noundef %16, i32 noundef %54) #8
+  br label %56
 
-55:                                               ; preds = %51, %50, %40, %11, %4
-  %56 = phi ptr [ %12, %51 ], [ %12, %50 ], [ null, %4 ], [ %5, %11 ], [ null, %40 ]
-  ret ptr %56
+56:                                               ; preds = %52, %51, %41, %11, %4
+  %57 = phi ptr [ %12, %52 ], [ %12, %51 ], [ null, %4 ], [ %5, %11 ], [ null, %41 ]
+  ret ptr %57
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
@@ -1443,240 +1446,243 @@ define internal ptr @snd_dma_sg_fallback_alloc(ptr nocapture noundef %0, i64 nou
   br label %8
 
 8:                                                ; preds = %6, %2
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %10 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 32) #11
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %169, label %12
+  %9 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 32) #11
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %172, label %13
 
-12:                                               ; preds = %8
-  store i8 0, ptr %10, align 8
-  %13 = add i64 %1, 4095
-  %14 = and i64 %13, -4096
-  %15 = lshr i64 %13, 12
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %15, ptr %16, align 8
-  %17 = shl nuw nsw i64 %15, 3
-  %18 = tail call noalias ptr @kvmalloc_node(i64 noundef %17, i32 noundef 3520, i32 noundef -1) #10
-  %19 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %18, ptr %19, align 8
-  %20 = load i64, ptr %16, align 8
-  %21 = icmp ugt i64 %20, 2305843009213693951
-  br i1 %21, label %25, label %22, !prof !5
+13:                                               ; preds = %8
+  store i8 0, ptr %11, align 8
+  %14 = add i64 %1, 4095
+  %15 = and i64 %14, -4096
+  %16 = lshr i64 %14, 12
+  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %16, ptr %17, align 8
+  %18 = shl nuw nsw i64 %16, 3
+  %19 = tail call noalias ptr @kvmalloc_node(i64 noundef %18, i32 noundef 3520, i32 noundef -1) #10
+  %20 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %19, ptr %20, align 8
+  %21 = load i64, ptr %17, align 8
+  %22 = icmp ugt i64 %21, 2305843009213693951
+  br i1 %22, label %26, label %23, !prof !5
 
-22:                                               ; preds = %12
-  %23 = shl nuw i64 %20, 3
-  %24 = tail call noalias ptr @kvmalloc_node(i64 noundef %23, i32 noundef 3520, i32 noundef -1) #10
-  br label %25
+23:                                               ; preds = %13
+  %24 = shl nuw i64 %21, 3
+  %25 = tail call noalias ptr @kvmalloc_node(i64 noundef %24, i32 noundef 3520, i32 noundef -1) #10
+  br label %26
 
-25:                                               ; preds = %22, %12
-  %26 = phi ptr [ %24, %22 ], [ null, %12 ]
-  %27 = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %26, ptr %27, align 8
-  %28 = load ptr, ptr %19, align 8
-  %29 = icmp eq ptr %28, null
-  %30 = icmp eq ptr %26, null
-  %31 = select i1 %29, i1 true, i1 %30
-  br i1 %31, label %168, label %32
+26:                                               ; preds = %23, %13
+  %27 = phi ptr [ %25, %23 ], [ null, %13 ]
+  %28 = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr %27, ptr %28, align 8
+  %29 = load ptr, ptr %20, align 8
+  %30 = icmp eq ptr %29, null
+  %31 = icmp eq ptr %27, null
+  %32 = select i1 %30, i1 true, i1 %31
+  br i1 %32, label %171, label %33
 
-32:                                               ; preds = %25
-  %33 = icmp eq i64 %14, 0
-  br i1 %33, label %146, label %34
+33:                                               ; preds = %26
+  %34 = icmp eq i64 %15, 0
+  br i1 %34, label %149, label %35
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+35:                                               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %37
+  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %38
 
-37:                                               ; preds = %108, %34
-  %38 = phi i64 [ %14, %34 ], [ %112, %108 ]
-  %39 = phi ptr [ %28, %34 ], [ %111, %108 ]
-  %40 = phi ptr [ %26, %34 ], [ %110, %108 ]
-  %41 = phi i64 [ 16773120, %34 ], [ %109, %108 ]
-  %42 = call i64 @llvm.umin.i64(i64 %38, i64 %41)
-  %43 = load i8, ptr %10, align 8, !range !29, !noundef !30
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %48, label %45
+38:                                               ; preds = %110, %35
+  %39 = phi i64 [ %15, %35 ], [ %114, %110 ]
+  %40 = phi ptr [ %29, %35 ], [ %113, %110 ]
+  %41 = phi ptr [ %27, %35 ], [ %112, %110 ]
+  %42 = phi i64 [ 16773120, %35 ], [ %111, %110 ]
+  %43 = call i64 @llvm.umin.i64(i64 %39, i64 %42)
+  %44 = load i8, ptr %11, align 8, !range !29, !noundef !30
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %49, label %46
 
-45:                                               ; preds = %37
-  %46 = load ptr, ptr %35, align 8
-  %47 = call ptr @dma_alloc_attrs(ptr noundef %46, i64 noundef %42, ptr noundef nonnull %3, i32 noundef 27840, i64 noundef 256) #8
-  br label %95
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %36, align 8
+  %48 = call ptr @dma_alloc_attrs(ptr noundef %47, i64 noundef %43, ptr noundef nonnull %3, i32 noundef 27840, i64 noundef 256) #8
+  br label %97
 
-48:                                               ; preds = %37
-  %49 = load ptr, ptr %36, align 8
-  %50 = call noalias ptr @alloc_pages_exact(i64 noundef %42, i32 noundef 76992) #10
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %95, label %52
+49:                                               ; preds = %38
+  %50 = load ptr, ptr %37, align 8
+  %51 = call noalias ptr @alloc_pages_exact(i64 noundef %43, i32 noundef 76992) #10
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %97, label %53
 
-52:                                               ; preds = %48
-  %53 = icmp eq ptr %49, null
-  %54 = add i64 %42, -1
-  %55 = getelementptr inbounds i8, ptr %49, i64 568
-  br label %56
+53:                                               ; preds = %49
+  %54 = icmp eq ptr %50, null
+  %55 = add i64 %43, -1
+  %56 = getelementptr inbounds i8, ptr %50, i64 568
+  br label %57
 
-56:                                               ; preds = %85, %52
-  %57 = phi ptr [ %50, %52 ], [ %87, %85 ]
-  %58 = phi i32 [ 76992, %52 ], [ %86, %85 ]
-  %59 = load i64, ptr @vmemmap_base, align 8
-  %60 = inttoptr i64 %59 to ptr
-  %61 = ptrtoint ptr %57 to i64
-  %62 = add i64 %61, 2147483648
-  %63 = icmp ugt ptr %57, inttoptr (i64 -2147483649 to ptr)
-  %64 = load i64, ptr @phys_base, align 8
-  %65 = load i64, ptr @page_offset_base, align 8
-  %66 = sub i64 -2147483648, %65
-  %67 = select i1 %63, i64 %64, i64 %66
-  %68 = add i64 %62, %67
-  %69 = lshr i64 %68, 12
-  %70 = getelementptr %struct.page, ptr %60, i64 %69
-  %71 = ptrtoint ptr %70 to i64
-  %72 = sub i64 %71, %59
-  %73 = shl i64 %72, 6
-  store i64 %73, ptr %3, align 8
-  br i1 %53, label %95, label %74
+57:                                               ; preds = %87, %53
+  %58 = phi ptr [ %51, %53 ], [ %89, %87 ]
+  %59 = phi i32 [ 76992, %53 ], [ %88, %87 ]
+  %60 = load i64, ptr @vmemmap_base, align 8
+  %61 = inttoptr i64 %60 to ptr
+  %62 = ptrtoint ptr %58 to i64
+  %63 = add i64 %62, 2147483648
+  %64 = inttoptr i64 -2147483649 to ptr
+  %65 = icmp ugt ptr %58, %64
+  %66 = load i64, ptr @phys_base, align 8
+  %67 = load i64, ptr @page_offset_base, align 8
+  %68 = sub i64 -2147483648, %67
+  %69 = select i1 %65, i64 %66, i64 %68
+  %70 = add i64 %63, %69
+  %71 = lshr i64 %70, 12
+  %72 = getelementptr %struct.page, ptr %61, i64 %71
+  %73 = ptrtoint ptr %72 to i64
+  %74 = sub i64 %73, %60
+  %75 = shl i64 %74, 6
+  store i64 %75, ptr %3, align 8
+  br i1 %54, label %97, label %76
 
-74:                                               ; preds = %56
-  %75 = add i64 %54, %73
-  %76 = load i64, ptr %55, align 8
-  %77 = xor i64 %76, -1
-  %78 = and i64 %75, %77
-  %79 = icmp eq i64 %78, 0
-  br i1 %79, label %95, label %80
+76:                                               ; preds = %57
+  %77 = add i64 %55, %75
+  %78 = load i64, ptr %56, align 8
+  %79 = xor i64 %78, -1
+  %80 = and i64 %77, %79
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %97, label %82
 
-80:                                               ; preds = %74
-  %81 = and i32 %58, 4
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %89
+82:                                               ; preds = %76
+  %83 = and i32 %59, 4
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %91
 
-83:                                               ; preds = %80
-  %84 = or disjoint i32 %58, 4
-  br label %85
+85:                                               ; preds = %82
+  %86 = or disjoint i32 %59, 4
+  br label %87
 
-85:                                               ; preds = %92, %83
-  %86 = phi i32 [ %94, %92 ], [ %84, %83 ]
-  %87 = call noalias ptr @alloc_pages_exact(i64 noundef %42, i32 noundef %86) #10
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %95, label %56
+87:                                               ; preds = %94, %85
+  %88 = phi i32 [ %96, %94 ], [ %86, %85 ]
+  %89 = call noalias ptr @alloc_pages_exact(i64 noundef %43, i32 noundef %88) #10
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %97, label %57
 
-89:                                               ; preds = %80
-  %90 = and i32 %58, 1
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %95
+91:                                               ; preds = %82
+  %92 = and i32 %59, 1
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %97
 
-92:                                               ; preds = %89
-  %93 = and i32 %58, -6
-  %94 = or disjoint i32 %93, 1
-  br label %85
+94:                                               ; preds = %91
+  %95 = and i32 %59, -6
+  %96 = or disjoint i32 %95, 1
+  br label %87
 
-95:                                               ; preds = %89, %85, %74, %56, %48, %45
-  %96 = phi ptr [ %47, %45 ], [ null, %48 ], [ %50, %56 ], [ null, %85 ], [ %57, %89 ], [ %57, %74 ]
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %98, label %114
+97:                                               ; preds = %91, %87, %76, %57, %49, %46
+  %98 = phi ptr [ %48, %46 ], [ null, %49 ], [ %51, %57 ], [ null, %87 ], [ %58, %91 ], [ %58, %76 ]
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %116
 
-98:                                               ; preds = %95
-  %99 = icmp ult i64 %42, 4097
-  br i1 %99, label %168, label %100
+100:                                              ; preds = %97
+  %101 = icmp ult i64 %43, 4097
+  br i1 %101, label %171, label %102
 
-100:                                              ; preds = %98
-  %101 = lshr i64 %42, 1
-  %102 = add nsw i64 %101, -1
-  %103 = lshr i64 %102, 12
-  %104 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %103, i32 -1) #9, !srcloc !19
-  %105 = add i32 %104, 1
-  %106 = zext nneg i32 %105 to i64
-  %107 = shl i64 4096, %106
-  br label %108
+102:                                              ; preds = %100
+  %103 = lshr i64 %43, 1
+  %104 = add nsw i64 %103, -1
+  %105 = lshr i64 %104, 12
+  %106 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %105, i32 -1) #9, !srcloc !19
+  %107 = add i32 %106, 1
+  %108 = zext nneg i32 %107 to i64
+  %109 = shl i64 4096, %108
+  br label %110
 
-108:                                              ; preds = %131, %114, %100
-  %109 = phi i64 [ %107, %100 ], [ %42, %114 ], [ %42, %131 ]
-  %110 = phi ptr [ %40, %100 ], [ %40, %114 ], [ %140, %131 ]
-  %111 = phi ptr [ %39, %100 ], [ %39, %114 ], [ %138, %131 ]
-  %112 = phi i64 [ %38, %100 ], [ %115, %114 ], [ %115, %131 ]
-  %113 = icmp eq i64 %112, 0
-  br i1 %113, label %146, label %37, !llvm.loop !35
+110:                                              ; preds = %134, %116, %102
+  %111 = phi i64 [ %109, %102 ], [ %43, %116 ], [ %43, %134 ]
+  %112 = phi ptr [ %41, %102 ], [ %41, %116 ], [ %143, %134 ]
+  %113 = phi ptr [ %40, %102 ], [ %40, %116 ], [ %141, %134 ]
+  %114 = phi i64 [ %39, %102 ], [ %117, %116 ], [ %117, %134 ]
+  %115 = icmp eq i64 %114, 0
+  br i1 %115, label %149, label %38, !llvm.loop !35
 
-114:                                              ; preds = %95
-  %115 = sub i64 %38, %42
-  %116 = lshr i64 %42, 12
-  store i64 %116, ptr %40, align 8
-  %117 = icmp ult i64 %42, 4096
-  br i1 %117, label %108, label %118, !llvm.loop !35
+116:                                              ; preds = %97
+  %117 = sub i64 %39, %43
+  %118 = lshr i64 %43, 12
+  store i64 %118, ptr %41, align 8
+  %119 = icmp ult i64 %43, 4096
+  br i1 %119, label %110, label %120, !llvm.loop !35
 
-118:                                              ; preds = %114
-  %119 = load i64, ptr @vmemmap_base, align 8
-  %120 = inttoptr i64 %119 to ptr
-  %121 = ptrtoint ptr %96 to i64
-  %122 = add i64 %121, 2147483648
-  %123 = icmp ugt ptr %96, inttoptr (i64 -2147483649 to ptr)
-  %124 = load i64, ptr @phys_base, align 8
-  %125 = load i64, ptr @page_offset_base, align 8
-  %126 = sub i64 -2147483648, %125
-  %127 = select i1 %123, i64 %124, i64 %126
-  %128 = add i64 %122, %127
-  %129 = lshr i64 %128, 12
-  %130 = getelementptr %struct.page, ptr %120, i64 %129
-  br label %131
+120:                                              ; preds = %116
+  %121 = load i64, ptr @vmemmap_base, align 8
+  %122 = inttoptr i64 %121 to ptr
+  %123 = ptrtoint ptr %98 to i64
+  %124 = add i64 %123, 2147483648
+  %125 = inttoptr i64 -2147483649 to ptr
+  %126 = icmp ugt ptr %98, %125
+  %127 = load i64, ptr @phys_base, align 8
+  %128 = load i64, ptr @page_offset_base, align 8
+  %129 = sub i64 -2147483648, %128
+  %130 = select i1 %126, i64 %127, i64 %129
+  %131 = add i64 %124, %130
+  %132 = lshr i64 %131, 12
+  %133 = getelementptr %struct.page, ptr %122, i64 %132
+  br label %134
 
-131:                                              ; preds = %131, %118
-  %132 = phi ptr [ %138, %131 ], [ %39, %118 ]
-  %133 = phi ptr [ %140, %131 ], [ %40, %118 ]
-  %134 = phi i64 [ %136, %131 ], [ %116, %118 ]
-  %135 = phi ptr [ %137, %131 ], [ %130, %118 ]
-  %136 = add nsw i64 %134, -1
-  %137 = getelementptr i8, ptr %135, i64 64
-  %138 = getelementptr i8, ptr %132, i64 8
-  store ptr %135, ptr %132, align 8
-  %139 = load i64, ptr %3, align 8
-  %140 = getelementptr i8, ptr %133, i64 8
-  %141 = load i64, ptr %133, align 8
-  %142 = or i64 %141, %139
-  store i64 %142, ptr %133, align 8
-  %143 = load i64, ptr %3, align 8
-  %144 = add i64 %143, 4096
-  store i64 %144, ptr %3, align 8
-  %145 = icmp eq i64 %136, 0
-  br i1 %145, label %108, label %131, !llvm.loop !36
+134:                                              ; preds = %134, %120
+  %135 = phi ptr [ %141, %134 ], [ %40, %120 ]
+  %136 = phi ptr [ %143, %134 ], [ %41, %120 ]
+  %137 = phi i64 [ %139, %134 ], [ %118, %120 ]
+  %138 = phi ptr [ %140, %134 ], [ %133, %120 ]
+  %139 = add nsw i64 %137, -1
+  %140 = getelementptr i8, ptr %138, i64 64
+  %141 = getelementptr i8, ptr %135, i64 8
+  store ptr %138, ptr %135, align 8
+  %142 = load i64, ptr %3, align 8
+  %143 = getelementptr i8, ptr %136, i64 8
+  %144 = load i64, ptr %136, align 8
+  %145 = or i64 %144, %142
+  store i64 %145, ptr %136, align 8
+  %146 = load i64, ptr %3, align 8
+  %147 = add i64 %146, 4096
+  store i64 %147, ptr %3, align 8
+  %148 = icmp eq i64 %139, 0
+  br i1 %148, label %110, label %134, !llvm.loop !36
 
-146:                                              ; preds = %108, %32
-  %147 = load ptr, ptr %19, align 8
-  %148 = load i64, ptr %16, align 8
-  %149 = trunc i64 %148 to i32
-  %150 = load i64, ptr @__default_kernel_pte_mask, align 8
-  %151 = and i64 %150, -9223372036854775453
-  %152 = call ptr @vmap(ptr noundef %147, i32 noundef %149, i64 noundef 4, i64 %151) #8
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %168, label %154
+149:                                              ; preds = %110, %33
+  %150 = load ptr, ptr %20, align 8
+  %151 = load i64, ptr %17, align 8
+  %152 = trunc i64 %151 to i32
+  %153 = load i64, ptr @__default_kernel_pte_mask, align 8
+  %154 = and i64 %153, -9223372036854775453
+  %155 = call ptr @vmap(ptr noundef %150, i32 noundef %152, i64 noundef 4, i64 %154) #8
+  %156 = icmp eq ptr %155, null
+  br i1 %156, label %171, label %157
 
-154:                                              ; preds = %146
-  %155 = load i32, ptr %0, align 8
-  %156 = icmp eq i32 %155, 11
-  br i1 %156, label %157, label %162
+157:                                              ; preds = %149
+  %158 = load i32, ptr %0, align 8
+  %159 = icmp eq i32 %158, 11
+  br i1 %159, label %160, label %165
 
-157:                                              ; preds = %154
-  %158 = load ptr, ptr %19, align 8
-  %159 = load i64, ptr %16, align 8
-  %160 = trunc i64 %159 to i32
-  %161 = call i32 @set_pages_array_wc(ptr noundef %158, i32 noundef %160) #8
-  br label %162
+160:                                              ; preds = %157
+  %161 = load ptr, ptr %20, align 8
+  %162 = load i64, ptr %17, align 8
+  %163 = trunc i64 %162 to i32
+  %164 = call i32 @set_pages_array_wc(ptr noundef %161, i32 noundef %163) #8
+  br label %165
 
-162:                                              ; preds = %157, %154
-  %163 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %10, ptr %163, align 8
-  %164 = load ptr, ptr %27, align 8
-  %165 = load i64, ptr %164, align 8
-  %166 = and i64 %165, -4096
-  %167 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %166, ptr %167, align 8
-  br label %169
+165:                                              ; preds = %160, %157
+  %166 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %11, ptr %166, align 8
+  %167 = load ptr, ptr %28, align 8
+  %168 = load i64, ptr %167, align 8
+  %169 = and i64 %168, -4096
+  %170 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %169, ptr %170, align 8
+  br label %172
 
-168:                                              ; preds = %146, %98, %25
-  call fastcc void @__snd_dma_sg_fallback_free(ptr noundef %0, ptr noundef nonnull %10)
-  br label %169
+171:                                              ; preds = %149, %100, %26
+  call fastcc void @__snd_dma_sg_fallback_free(ptr noundef %0, ptr noundef nonnull %11)
+  br label %172
 
-169:                                              ; preds = %168, %162, %8
-  %170 = phi ptr [ null, %168 ], [ %152, %162 ], [ null, %8 ]
+172:                                              ; preds = %171, %165, %8
+  %173 = phi ptr [ null, %171 ], [ %155, %165 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  ret ptr %170
+  ret ptr %173
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2005,15 +2011,16 @@ define internal void @snd_dma_noncoherent_free(ptr nocapture noundef readonly %0
   %13 = inttoptr i64 %12 to ptr
   %14 = ptrtoint ptr %7 to i64
   %15 = add i64 %14, 2147483648
-  %16 = icmp ugt ptr %7, inttoptr (i64 -2147483649 to ptr)
-  %17 = load i64, ptr @phys_base, align 8
-  %18 = load i64, ptr @page_offset_base, align 8
-  %19 = sub i64 -2147483648, %18
-  %20 = select i1 %16, i64 %17, i64 %19
-  %21 = add i64 %15, %20
-  %22 = lshr i64 %21, 12
-  %23 = getelementptr %struct.page, ptr %13, i64 %22
-  tail call void @dma_free_pages(ptr noundef %3, i64 noundef %5, ptr noundef %23, i64 noundef %9, i32 noundef %11) #8
+  %16 = inttoptr i64 -2147483649 to ptr
+  %17 = icmp ugt ptr %7, %16
+  %18 = load i64, ptr @phys_base, align 8
+  %19 = load i64, ptr @page_offset_base, align 8
+  %20 = sub i64 -2147483648, %19
+  %21 = select i1 %17, i64 %18, i64 %20
+  %22 = add i64 %15, %21
+  %23 = lshr i64 %22, 12
+  %24 = getelementptr %struct.page, ptr %13, i64 %23
+  tail call void @dma_free_pages(ptr noundef %3, i64 noundef %5, ptr noundef %24, i64 noundef %9, i32 noundef %11) #8
   ret void
 }
 
@@ -2036,16 +2043,17 @@ define internal i32 @snd_dma_noncoherent_mmap(ptr nocapture noundef readonly %0,
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = add i64 %17, 2147483648
-  %19 = icmp ugt ptr %16, inttoptr (i64 -2147483649 to ptr)
-  %20 = load i64, ptr @phys_base, align 8
-  %21 = load i64, ptr @page_offset_base, align 8
-  %22 = sub i64 -2147483648, %21
-  %23 = select i1 %19, i64 %20, i64 %22
-  %24 = add i64 %18, %23
-  %25 = lshr i64 %24, 12
-  %26 = getelementptr %struct.page, ptr %14, i64 %25
-  %27 = tail call i32 @dma_mmap_pages(ptr noundef %8, ptr noundef %1, i64 noundef %12, ptr noundef %26) #8
-  ret i32 %27
+  %19 = inttoptr i64 -2147483649 to ptr
+  %20 = icmp ugt ptr %16, %19
+  %21 = load i64, ptr @phys_base, align 8
+  %22 = load i64, ptr @page_offset_base, align 8
+  %23 = sub i64 -2147483648, %22
+  %24 = select i1 %20, i64 %21, i64 %23
+  %25 = add i64 %18, %24
+  %26 = lshr i64 %25, 12
+  %27 = getelementptr %struct.page, ptr %14, i64 %26
+  %28 = tail call i32 @dma_mmap_pages(ptr noundef %8, ptr noundef %1, i64 noundef %12, ptr noundef %27) #8
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

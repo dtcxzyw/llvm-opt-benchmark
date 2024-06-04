@@ -361,7 +361,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) #0 {
 
 21:                                               ; preds = %20
   store i32 0, ptr %3, align 4
-  br label %98
+  br label %99
 
 22:                                               ; preds = %2
   %23 = load i32, ptr %5, align 4
@@ -372,7 +372,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) #0 {
   call void @slurm_xfree(ptr noundef %6)
   %26 = call i32 @cgroup_g_step_suspend()
   store i32 %26, ptr %3, align 4
-  br label %98
+  br label %99
 
 27:                                               ; preds = %22
   %28 = load i32, ptr %5, align 4
@@ -387,11 +387,11 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) #0 {
   store i32 0, ptr %8, align 4
   br label %33
 
-33:                                               ; preds = %89, %32
+33:                                               ; preds = %90, %32
   %34 = load i32, ptr %8, align 4
   %35 = load i32, ptr %7, align 4
   %36 = icmp slt i32 %34, %35
-  br i1 %36, label %37, label %92
+  br i1 %36, label %37, label %93
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %6, align 8
@@ -405,7 +405,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) #0 {
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %37
-  br label %89
+  br label %90
 
 47:                                               ; preds = %37
   %48 = load i64, ptr %4, align 8
@@ -416,87 +416,88 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) #0 {
   %53 = load i32, ptr %52, align 4
   %54 = call i32 @_slurm_cgroup_is_pid_a_slurm_task(i64 noundef %48, i32 noundef %53)
   store i32 %54, ptr %9, align 4
-  %55 = load i8, ptr getelementptr inbounds (%struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i32 0, i32 16), align 1
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %63, label %57
+  %55 = getelementptr inbounds %struct.cgroup_conf_t, ptr @slurm_cgroup_conf, i32 0, i32 16
+  %56 = load i8, ptr %55, align 1
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %64, label %58
 
-57:                                               ; preds = %47
-  %58 = load i32, ptr %9, align 4
-  %59 = icmp eq i32 %58, 1
-  br i1 %59, label %63, label %60
+58:                                               ; preds = %47
+  %59 = load i32, ptr %9, align 4
+  %60 = icmp eq i32 %59, 1
+  br i1 %60, label %64, label %61
 
-60:                                               ; preds = %57
-  %61 = load i32, ptr %5, align 4
-  %62 = icmp eq i32 %61, 9
-  br i1 %62, label %63, label %88
+61:                                               ; preds = %58
+  %62 = load i32, ptr %5, align 4
+  %63 = icmp eq i32 %62, 9
+  br i1 %63, label %64, label %89
 
-63:                                               ; preds = %60, %57, %47
-  br label %64
-
-64:                                               ; preds = %63
+64:                                               ; preds = %61, %58, %47
   br label %65
 
 65:                                               ; preds = %64
-  %66 = call i32 @get_log_level()
-  %67 = icmp sge i32 %66, 6
-  br i1 %67, label %68, label %78
+  br label %66
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %6, align 8
-  %70 = load i32, ptr %8, align 4
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %69, i64 %71
-  %73 = load i32, ptr %72, align 4
-  %74 = load i32, ptr %9, align 4
-  %75 = icmp eq i32 %74, 1
-  %76 = select i1 %75, ptr @.str.8, ptr @.str.9
-  %77 = load i32, ptr %5, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.7, ptr noundef @plugin_type, ptr noundef @__func__.proctrack_p_signal, i32 noundef %73, ptr noundef %76, i32 noundef %77)
-  br label %78
+66:                                               ; preds = %65
+  %67 = call i32 @get_log_level()
+  %68 = icmp sge i32 %67, 6
+  br i1 %68, label %69, label %79
 
-78:                                               ; preds = %68, %65
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %6, align 8
+  %71 = load i32, ptr %8, align 4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i32, ptr %70, i64 %72
+  %74 = load i32, ptr %73, align 4
+  %75 = load i32, ptr %9, align 4
+  %76 = icmp eq i32 %75, 1
+  %77 = select i1 %76, ptr @.str.8, ptr @.str.9
+  %78 = load i32, ptr %5, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.7, ptr noundef @plugin_type, ptr noundef @__func__.proctrack_p_signal, i32 noundef %74, ptr noundef %77, i32 noundef %78)
   br label %79
 
-79:                                               ; preds = %78
+79:                                               ; preds = %69, %66
   br label %80
 
 80:                                               ; preds = %79
-  %81 = load ptr, ptr %6, align 8
-  %82 = load i32, ptr %8, align 4
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i32, ptr %81, i64 %83
-  %85 = load i32, ptr %84, align 4
-  %86 = load i32, ptr %5, align 4
-  %87 = call i32 @kill(i32 noundef %85, i32 noundef %86) #4
-  br label %88
+  br label %81
 
-88:                                               ; preds = %80, %60
+81:                                               ; preds = %80
+  %82 = load ptr, ptr %6, align 8
+  %83 = load i32, ptr %8, align 4
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i32, ptr %82, i64 %84
+  %86 = load i32, ptr %85, align 4
+  %87 = load i32, ptr %5, align 4
+  %88 = call i32 @kill(i32 noundef %86, i32 noundef %87) #4
   br label %89
 
-89:                                               ; preds = %88, %46
-  %90 = load i32, ptr %8, align 4
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %8, align 4
+89:                                               ; preds = %81, %61
+  br label %90
+
+90:                                               ; preds = %89, %46
+  %91 = load i32, ptr %8, align 4
+  %92 = add nsw i32 %91, 1
+  store i32 %92, ptr %8, align 4
   br label %33, !llvm.loop !6
 
-92:                                               ; preds = %33
+93:                                               ; preds = %33
   call void @slurm_xfree(ptr noundef %6)
-  %93 = load i32, ptr %5, align 4
-  %94 = icmp eq i32 %93, 18
-  br i1 %94, label %95, label %97
+  %94 = load i32, ptr %5, align 4
+  %95 = icmp eq i32 %94, 18
+  br i1 %95, label %96, label %98
 
-95:                                               ; preds = %92
-  %96 = call i32 @cgroup_g_step_resume()
-  store i32 %96, ptr %3, align 4
-  br label %98
+96:                                               ; preds = %93
+  %97 = call i32 @cgroup_g_step_resume()
+  store i32 %97, ptr %3, align 4
+  br label %99
 
-97:                                               ; preds = %92
+98:                                               ; preds = %93
   store i32 0, ptr %3, align 4
-  br label %98
+  br label %99
 
-98:                                               ; preds = %97, %95, %25, %21
-  %99 = load i32, ptr %3, align 4
-  ret i32 %99
+99:                                               ; preds = %98, %96, %25, %21
+  %100 = load i32, ptr %3, align 4
+  ret i32 %100
 }
 
 declare i32 @cgroup_g_step_get_pids(ptr noundef, ptr noundef) #3
@@ -581,7 +582,7 @@ define i32 @proctrack_p_wait(i64 noundef %0) #0 {
 
 16:                                               ; preds = %13, %1
   store i32 -1, ptr %2, align 4
-  br label %68
+  br label %69
 
 17:                                               ; preds = %13
   %18 = load i64, ptr %3, align 8
@@ -589,7 +590,7 @@ define i32 @proctrack_p_wait(i64 noundef %0) #0 {
   store i32 %19, ptr %9, align 4
   br label %20
 
-20:                                               ; preds = %64, %17
+20:                                               ; preds = %65, %17
   %21 = load i32, ptr %9, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %26
@@ -601,7 +602,7 @@ define i32 @proctrack_p_wait(i64 noundef %0) #0 {
 
 26:                                               ; preds = %23, %20
   %27 = phi i1 [ false, %20 ], [ %25, %23 ]
-  br i1 %27, label %28, label %67
+  br i1 %27, label %28, label %68
 
 28:                                               ; preds = %26
   %29 = load i32, ptr %8, align 4
@@ -618,58 +619,59 @@ define i32 @proctrack_p_wait(i64 noundef %0) #0 {
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %31
-  br label %67
+  br label %68
 
 39:                                               ; preds = %31, %28
   %40 = call i64 @time(ptr noundef null) #4
   store i64 %40, ptr %6, align 8
   %41 = load i64, ptr %6, align 8
   %42 = load i64, ptr %5, align 8
-  %43 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 215), align 8
-  %44 = zext i16 %43 to i64
-  %45 = add nsw i64 %42, %44
-  %46 = icmp sgt i64 %41, %45
-  br i1 %46, label %47, label %54
+  %43 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 215
+  %44 = load i16, ptr %43, align 8
+  %45 = zext i16 %44 to i64
+  %46 = add nsw i64 %42, %45
+  %47 = icmp sgt i64 %41, %46
+  br i1 %47, label %48, label %55
 
-47:                                               ; preds = %39
-  %48 = load i64, ptr %3, align 8
-  %49 = load i32, ptr %8, align 4
-  %50 = load i64, ptr %6, align 8
-  %51 = load i64, ptr %5, align 8
-  %52 = sub nsw i64 %50, %51
-  %53 = call i32 (ptr, ...) @error(ptr noundef @.str.10, i64 noundef %48, i32 noundef %49, i64 noundef %52)
-  br label %67
-
-54:                                               ; preds = %39
-  %55 = load i64, ptr %3, align 8
-  %56 = call i32 @proctrack_p_signal(i64 noundef %55, i32 noundef 9)
-  %57 = load i32, ptr %4, align 4
-  %58 = call i32 @sleep(i32 noundef %57)
-  %59 = load i32, ptr %4, align 4
-  %60 = icmp slt i32 %59, 32
-  br i1 %60, label %61, label %64
-
-61:                                               ; preds = %54
-  %62 = load i32, ptr %4, align 4
-  %63 = mul nsw i32 %62, 2
-  store i32 %63, ptr %4, align 4
-  br label %64
-
-64:                                               ; preds = %61, %54
-  call void @slurm_xfree(ptr noundef %7)
-  %65 = load i64, ptr %3, align 8
-  %66 = call i32 @proctrack_p_get_pids(i64 noundef %65, ptr noundef %7, ptr noundef %8)
-  store i32 %66, ptr %9, align 4
-  br label %20, !llvm.loop !8
-
-67:                                               ; preds = %47, %38, %26
-  call void @slurm_xfree(ptr noundef %7)
-  store i32 0, ptr %2, align 4
+48:                                               ; preds = %39
+  %49 = load i64, ptr %3, align 8
+  %50 = load i32, ptr %8, align 4
+  %51 = load i64, ptr %6, align 8
+  %52 = load i64, ptr %5, align 8
+  %53 = sub nsw i64 %51, %52
+  %54 = call i32 (ptr, ...) @error(ptr noundef @.str.10, i64 noundef %49, i32 noundef %50, i64 noundef %53)
   br label %68
 
-68:                                               ; preds = %67, %16
-  %69 = load i32, ptr %2, align 4
-  ret i32 %69
+55:                                               ; preds = %39
+  %56 = load i64, ptr %3, align 8
+  %57 = call i32 @proctrack_p_signal(i64 noundef %56, i32 noundef 9)
+  %58 = load i32, ptr %4, align 4
+  %59 = call i32 @sleep(i32 noundef %58)
+  %60 = load i32, ptr %4, align 4
+  %61 = icmp slt i32 %60, 32
+  br i1 %61, label %62, label %65
+
+62:                                               ; preds = %55
+  %63 = load i32, ptr %4, align 4
+  %64 = mul nsw i32 %63, 2
+  store i32 %64, ptr %4, align 4
+  br label %65
+
+65:                                               ; preds = %62, %55
+  call void @slurm_xfree(ptr noundef %7)
+  %66 = load i64, ptr %3, align 8
+  %67 = call i32 @proctrack_p_get_pids(i64 noundef %66, ptr noundef %7, ptr noundef %8)
+  store i32 %67, ptr %9, align 4
+  br label %20, !llvm.loop !8
+
+68:                                               ; preds = %48, %38, %26
+  call void @slurm_xfree(ptr noundef %7)
+  store i32 0, ptr %2, align 4
+  br label %69
+
+69:                                               ; preds = %68, %16
+  %70 = load i32, ptr %2, align 4
+  ret i32 %70
 }
 
 ; Function Attrs: nounwind

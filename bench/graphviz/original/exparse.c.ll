@@ -1502,10 +1502,10 @@ define internal ptr @exprintf(ptr noundef %0, ptr noundef %1, ...) #0 {
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_start(ptr %10)
+  call void @llvm.va_start.p0(ptr %10)
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_copy(ptr %11, ptr %12)
+  call void @llvm.va_copy.p0(ptr %11, ptr %12)
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %15 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %13, ptr noundef %14) #12
@@ -1514,7 +1514,7 @@ define internal ptr @exprintf(ptr noundef %0, ptr noundef %1, ...) #0 {
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %8, align 4
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %18)
+  call void @llvm.va_end.p0(ptr %18)
   %19 = load ptr, ptr %4, align 8
   %20 = load i32, ptr %8, align 4
   %21 = sext i32 %20 to i64
@@ -1526,7 +1526,7 @@ define internal ptr @exprintf(ptr noundef %0, ptr noundef %1, ...) #0 {
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %26)
+  call void @llvm.va_end.p0(ptr %26)
   %27 = call ptr @exnospace()
   store ptr %27, ptr %3, align 8
   br label %37
@@ -1539,7 +1539,7 @@ define internal ptr @exprintf(ptr noundef %0, ptr noundef %1, ...) #0 {
   %33 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
   %34 = call i32 @vsnprintf(ptr noundef %29, i64 noundef %31, ptr noundef %32, ptr noundef %33) #12
   %35 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %6, i64 0, i64 0
-  call void @llvm.va_end(ptr %35)
+  call void @llvm.va_end.p0(ptr %35)
   %36 = load ptr, ptr %9, align 8
   store ptr %36, ptr %3, align 8
   br label %37
@@ -1576,198 +1576,206 @@ define i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %
 14:                                               ; preds = %4
   %15 = call ptr @exnospace()
   store i32 -1, ptr %5, align 4
-  br label %132
+  br label %140
 
 16:                                               ; preds = %4
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr inbounds %struct.Expr_s, ptr %17, i32 0, i32 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp ne ptr %19, null
-  br i1 %20, label %24, label %21
+  br i1 %20, label %25, label %21
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %6, align 8
   %23 = getelementptr inbounds %struct.Expr_s, ptr %22, i32 0, i32 8
-  store ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 3), ptr %23, align 8
-  br label %24
+  %24 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 3
+  store ptr %24, ptr %23, align 8
+  br label %25
 
-24:                                               ; preds = %21, %16
-  %25 = load ptr, ptr %9, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %struct.Exinput_s, ptr %26, i32 0, i32 3
-  store ptr %25, ptr %27, align 8
-  %28 = icmp ne ptr %25, null
-  br i1 %28, label %29, label %32
+25:                                               ; preds = %21, %16
+  %26 = load ptr, ptr %9, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = getelementptr inbounds %struct.Exinput_s, ptr %27, i32 0, i32 3
+  store ptr %26, ptr %28, align 8
+  %29 = icmp ne ptr %26, null
+  br i1 %29, label %30, label %33
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds %struct.Exinput_s, ptr %30, i32 0, i32 1
-  store i32 0, ptr %31, align 8
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %10, align 8
+  %32 = getelementptr inbounds %struct.Exinput_s, ptr %31, i32 0, i32 1
+  store i32 0, ptr %32, align 8
+  br label %69
+
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %7, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %68
+
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %7, align 8
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds %struct.Expr_s, ptr %38, i32 0, i32 7
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds %struct.Exdisc_s, ptr %40, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %6, align 8
+  %44 = getelementptr inbounds %struct.Expr_s, ptr %43, i32 0, i32 7
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %struct.Exdisc_s, ptr %45, i32 0, i32 5
+  %47 = load ptr, ptr %46, align 8
+  %48 = call ptr @pathfind(ptr noundef %37, ptr noundef %42, ptr noundef %47)
+  store ptr %48, ptr %11, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %56
+
+50:                                               ; preds = %36
+  %51 = load ptr, ptr %11, align 8
+  %52 = call noalias ptr @fopen(ptr noundef %51, ptr noundef @.str.8)
+  %53 = load ptr, ptr %10, align 8
+  %54 = getelementptr inbounds %struct.Exinput_s, ptr %53, i32 0, i32 3
+  store ptr %52, ptr %54, align 8
+  %55 = icmp ne ptr %52, null
+  br i1 %55, label %58, label %56
+
+56:                                               ; preds = %50, %36
+  %57 = load ptr, ptr %7, align 8
+  call void (ptr, ...) @exerror(ptr noundef @.str.9, ptr noundef %57)
+  br label %66
+
+58:                                               ; preds = %50
+  %59 = load ptr, ptr %6, align 8
+  %60 = getelementptr inbounds %struct.Expr_s, ptr %59, i32 0, i32 3
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %11, align 8
+  %63 = call ptr @vmstrdup(ptr noundef %61, ptr noundef %62)
+  store ptr %63, ptr %7, align 8
+  %64 = load ptr, ptr %10, align 8
+  %65 = getelementptr inbounds %struct.Exinput_s, ptr %64, i32 0, i32 1
+  store i32 1, ptr %65, align 8
+  br label %66
+
+66:                                               ; preds = %58, %56
+  %67 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %67) #12
   br label %68
 
-32:                                               ; preds = %24
-  %33 = load ptr, ptr %7, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %67
+68:                                               ; preds = %66, %33
+  br label %69
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct.Expr_s, ptr %37, i32 0, i32 7
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.Exdisc_s, ptr %39, i32 0, i32 4
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct.Expr_s, ptr %42, i32 0, i32 7
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.Exdisc_s, ptr %44, i32 0, i32 5
-  %46 = load ptr, ptr %45, align 8
-  %47 = call ptr @pathfind(ptr noundef %36, ptr noundef %41, ptr noundef %46)
-  store ptr %47, ptr %11, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %49, label %55
+69:                                               ; preds = %68, %30
+  %70 = load ptr, ptr %6, align 8
+  %71 = getelementptr inbounds %struct.Expr_s, ptr %70, i32 0, i32 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %10, align 8
+  %74 = getelementptr inbounds %struct.Exinput_s, ptr %73, i32 0, i32 0
+  store ptr %72, ptr %74, align 8
+  %75 = getelementptr inbounds %struct.Exinput_s, ptr %72, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %87, label %78
 
-49:                                               ; preds = %35
-  %50 = load ptr, ptr %11, align 8
-  %51 = call noalias ptr @fopen(ptr noundef %50, ptr noundef @.str.8)
-  %52 = load ptr, ptr %10, align 8
-  %53 = getelementptr inbounds %struct.Exinput_s, ptr %52, i32 0, i32 3
-  store ptr %51, ptr %53, align 8
-  %54 = icmp ne ptr %51, null
-  br i1 %54, label %57, label %55
+78:                                               ; preds = %69
+  %79 = load ptr, ptr %6, align 8
+  %80 = getelementptr inbounds %struct.Expr_s, ptr %79, i32 0, i32 16
+  store i32 0, ptr %80, align 4
+  %81 = load i32, ptr %8, align 4
+  %82 = icmp sge i32 %81, 0
+  br i1 %82, label %83, label %86
 
-55:                                               ; preds = %49, %35
-  %56 = load ptr, ptr %7, align 8
-  call void (ptr, ...) @exerror(ptr noundef @.str.9, ptr noundef %56)
-  br label %65
+83:                                               ; preds = %78
+  %84 = load i32, ptr %8, align 4
+  %85 = getelementptr inbounds %struct.Error_info_s, ptr @_err_info, i32 0, i32 2
+  store i32 %84, ptr %85, align 8
+  br label %86
 
-57:                                               ; preds = %49
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %struct.Expr_s, ptr %58, i32 0, i32 3
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %11, align 8
-  %62 = call ptr @vmstrdup(ptr noundef %60, ptr noundef %61)
-  store ptr %62, ptr %7, align 8
-  %63 = load ptr, ptr %10, align 8
-  %64 = getelementptr inbounds %struct.Exinput_s, ptr %63, i32 0, i32 1
-  store i32 1, ptr %64, align 8
-  br label %65
+86:                                               ; preds = %83, %78
+  br label %94
 
-65:                                               ; preds = %57, %55
-  %66 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %66) #12
-  br label %67
+87:                                               ; preds = %69
+  %88 = load i32, ptr %8, align 4
+  %89 = icmp sge i32 %88, 0
+  br i1 %89, label %90, label %93
 
-67:                                               ; preds = %65, %32
-  br label %68
+90:                                               ; preds = %87
+  %91 = load i32, ptr %8, align 4
+  %92 = getelementptr inbounds %struct.Error_info_s, ptr @_err_info, i32 0, i32 2
+  store i32 %91, ptr %92, align 8
+  br label %93
 
-68:                                               ; preds = %67, %29
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct.Expr_s, ptr %69, i32 0, i32 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %10, align 8
-  %73 = getelementptr inbounds %struct.Exinput_s, ptr %72, i32 0, i32 0
-  store ptr %71, ptr %73, align 8
-  %74 = getelementptr inbounds %struct.Exinput_s, ptr %71, i32 0, i32 0
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp ne ptr %75, null
-  br i1 %76, label %85, label %77
+93:                                               ; preds = %90, %87
+  br label %94
 
-77:                                               ; preds = %68
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds %struct.Expr_s, ptr %78, i32 0, i32 16
-  store i32 0, ptr %79, align 4
-  %80 = load i32, ptr %8, align 4
-  %81 = icmp sge i32 %80, 0
-  br i1 %81, label %82, label %84
-
-82:                                               ; preds = %77
-  %83 = load i32, ptr %8, align 4
-  store i32 %83, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i32 0, i32 2), align 8
-  br label %84
-
-84:                                               ; preds = %82, %77
-  br label %91
-
-85:                                               ; preds = %68
-  %86 = load i32, ptr %8, align 4
-  %87 = icmp sge i32 %86, 0
-  br i1 %87, label %88, label %90
-
-88:                                               ; preds = %85
-  %89 = load i32, ptr %8, align 4
-  store i32 %89, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i32 0, i32 2), align 8
-  br label %90
-
-90:                                               ; preds = %88, %85
-  br label %91
-
-91:                                               ; preds = %90, %84
-  %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr inbounds %struct.Expr_s, ptr %92, i32 0, i32 13
-  %94 = getelementptr inbounds [512 x i8], ptr %93, i64 0, i64 0
+94:                                               ; preds = %93, %86
   %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct.Expr_s, ptr %95, i32 0, i32 14
-  store ptr %94, ptr %96, align 8
-  %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds %struct.Expr_s, ptr %97, i32 0, i32 18
-  store i32 0, ptr %98, align 4
-  %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds %struct.Expr_s, ptr %99, i32 0, i32 15
-  store i32 0, ptr %100, align 8
-  %101 = load ptr, ptr %10, align 8
+  %96 = getelementptr inbounds %struct.Expr_s, ptr %95, i32 0, i32 13
+  %97 = getelementptr inbounds [512 x i8], ptr %96, i64 0, i64 0
+  %98 = load ptr, ptr %6, align 8
+  %99 = getelementptr inbounds %struct.Expr_s, ptr %98, i32 0, i32 14
+  store ptr %97, ptr %99, align 8
+  %100 = load ptr, ptr %6, align 8
+  %101 = getelementptr inbounds %struct.Expr_s, ptr %100, i32 0, i32 18
+  store i32 0, ptr %101, align 4
   %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds %struct.Expr_s, ptr %102, i32 0, i32 8
-  store ptr %101, ptr %103, align 8
-  %104 = load ptr, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i32 0, i32 5), align 8
-  %105 = load ptr, ptr %10, align 8
-  %106 = getelementptr inbounds %struct.Exinput_s, ptr %105, i32 0, i32 2
+  %103 = getelementptr inbounds %struct.Expr_s, ptr %102, i32 0, i32 15
+  store i32 0, ptr %103, align 8
+  %104 = load ptr, ptr %10, align 8
+  %105 = load ptr, ptr %6, align 8
+  %106 = getelementptr inbounds %struct.Expr_s, ptr %105, i32 0, i32 8
   store ptr %104, ptr %106, align 8
-  %107 = load i32, ptr %8, align 4
-  %108 = icmp sge i32 %107, 0
-  br i1 %108, label %109, label %111
+  %107 = getelementptr inbounds %struct.Error_info_s, ptr @_err_info, i32 0, i32 5
+  %108 = load ptr, ptr %107, align 8
+  %109 = load ptr, ptr %10, align 8
+  %110 = getelementptr inbounds %struct.Exinput_s, ptr %109, i32 0, i32 2
+  store ptr %108, ptr %110, align 8
+  %111 = load i32, ptr %8, align 4
+  %112 = icmp sge i32 %111, 0
+  br i1 %112, label %113, label %116
 
-109:                                              ; preds = %91
-  %110 = load ptr, ptr %7, align 8
-  store ptr %110, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i32 0, i32 5), align 8
-  br label %111
+113:                                              ; preds = %94
+  %114 = load ptr, ptr %7, align 8
+  %115 = getelementptr inbounds %struct.Error_info_s, ptr @_err_info, i32 0, i32 5
+  store ptr %114, ptr %115, align 8
+  br label %116
 
-111:                                              ; preds = %109, %91
-  %112 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i32 0, i32 2), align 8
-  %113 = load ptr, ptr %10, align 8
-  %114 = getelementptr inbounds %struct.Exinput_s, ptr %113, i32 0, i32 4
-  store i32 %112, ptr %114, align 8
-  %115 = load ptr, ptr %10, align 8
-  %116 = getelementptr inbounds %struct.Exinput_s, ptr %115, i32 0, i32 5
-  store i32 0, ptr %116, align 4
-  %117 = load ptr, ptr %7, align 8
-  %118 = icmp ne ptr %117, null
-  br i1 %118, label %123, label %119
+116:                                              ; preds = %113, %94
+  %117 = getelementptr inbounds %struct.Error_info_s, ptr @_err_info, i32 0, i32 2
+  %118 = load i32, ptr %117, align 8
+  %119 = load ptr, ptr %10, align 8
+  %120 = getelementptr inbounds %struct.Exinput_s, ptr %119, i32 0, i32 4
+  store i32 %118, ptr %120, align 8
+  %121 = load ptr, ptr %10, align 8
+  %122 = getelementptr inbounds %struct.Exinput_s, ptr %121, i32 0, i32 5
+  store i32 0, ptr %122, align 4
+  %123 = load ptr, ptr %7, align 8
+  %124 = icmp ne ptr %123, null
+  br i1 %124, label %129, label %125
 
-119:                                              ; preds = %111
-  %120 = load i32, ptr %8, align 4
-  %121 = icmp ne i32 %120, 0
-  %122 = xor i1 %121, true
-  br label %123
+125:                                              ; preds = %116
+  %126 = load i32, ptr %8, align 4
+  %127 = icmp ne i32 %126, 0
+  %128 = xor i1 %127, true
+  br label %129
 
-123:                                              ; preds = %119, %111
-  %124 = phi i1 [ false, %111 ], [ %122, %119 ]
-  %125 = zext i1 %124 to i32
-  %126 = load ptr, ptr %10, align 8
-  %127 = getelementptr inbounds %struct.Exinput_s, ptr %126, i32 0, i32 7
-  store i32 %125, ptr %127, align 4
-  %128 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %129 = load ptr, ptr %6, align 8
-  %130 = getelementptr inbounds %struct.Expr_s, ptr %129, i32 0, i32 9
-  store ptr %128, ptr %130, align 8
-  %131 = load ptr, ptr %6, align 8
-  store ptr %131, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+129:                                              ; preds = %125, %116
+  %130 = phi i1 [ false, %116 ], [ %128, %125 ]
+  %131 = zext i1 %130 to i32
+  %132 = load ptr, ptr %10, align 8
+  %133 = getelementptr inbounds %struct.Exinput_s, ptr %132, i32 0, i32 7
+  store i32 %131, ptr %133, align 4
+  %134 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %135 = load ptr, ptr %134, align 8
+  %136 = load ptr, ptr %6, align 8
+  %137 = getelementptr inbounds %struct.Expr_s, ptr %136, i32 0, i32 9
+  store ptr %135, ptr %137, align 8
+  %138 = load ptr, ptr %6, align 8
+  %139 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  store ptr %138, ptr %139, align 8
   store i32 0, ptr %5, align 4
-  br label %132
+  br label %140
 
-132:                                              ; preds = %123, %14
-  %133 = load i32, ptr %5, align 4
-  ret i32 %133
+140:                                              ; preds = %129, %14
+  %141 = load i32, ptr %5, align 4
+  ret i32 %141
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
@@ -1814,7 +1822,7 @@ define i32 @expop(ptr noundef %0) #0 {
 
 20:                                               ; preds = %15, %10, %1
   store i32 -1, ptr %2, align 4
-  br label %119
+  br label %125
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %5, align 8
@@ -1831,145 +1839,151 @@ define i32 @expop(ptr noundef %0) #0 {
   %28 = load ptr, ptr %5, align 8
   %29 = getelementptr inbounds %struct.Exinput_s, ptr %28, i32 0, i32 2
   %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i32 0, i32 5), align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.Exinput_s, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.Exinput_s, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %41
+  %31 = getelementptr inbounds %struct.Error_info_s, ptr @_err_info, i32 0, i32 5
+  store ptr %30, ptr %31, align 8
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds %struct.Exinput_s, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds %struct.Exinput_s, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %43
 
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.Exinput_s, ptr %38, i32 0, i32 4
-  %40 = load i32, ptr %39, align 8
-  store i32 %40, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i32 0, i32 2), align 8
+38:                                               ; preds = %27
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds %struct.Exinput_s, ptr %39, i32 0, i32 4
+  %41 = load i32, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.Error_info_s, ptr @_err_info, i32 0, i32 2
+  store i32 %41, ptr %42, align 8
+  br label %83
+
+43:                                               ; preds = %27
+  %44 = load ptr, ptr %3, align 8
+  %45 = getelementptr inbounds %struct.Expr_s, ptr %44, i32 0, i32 16
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %78
+
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds %struct.Exinput_s, ptr %49, i32 0, i32 3
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %78
+
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr inbounds %struct.Expr_s, ptr %54, i32 0, i32 14
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds %struct.Expr_s, ptr %57, i32 0, i32 13
+  %59 = getelementptr inbounds [512 x i8], ptr %58, i64 0, i64 0
+  %60 = icmp ne ptr %56, %59
+  br i1 %60, label %61, label %78
+
+61:                                               ; preds = %53
+  br label %62
+
+62:                                               ; preds = %76, %61
+  %63 = load ptr, ptr %5, align 8
+  %64 = getelementptr inbounds %struct.Exinput_s, ptr %63, i32 0, i32 3
+  %65 = load ptr, ptr %64, align 8
+  %66 = call i32 @getc(ptr noundef %65)
+  store i32 %66, ptr %4, align 4
+  %67 = icmp ne i32 %66, -1
+  br i1 %67, label %68, label %77
+
+68:                                               ; preds = %62
+  %69 = load i32, ptr %4, align 4
+  %70 = icmp eq i32 %69, 10
+  br i1 %70, label %71, label %76
+
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds %struct.Error_info_s, ptr @_err_info, i32 0, i32 2
+  %73 = load i32, ptr %72, align 8
+  %74 = add nsw i32 %73, 1
+  %75 = getelementptr inbounds %struct.Error_info_s, ptr @_err_info, i32 0, i32 2
+  store i32 %74, ptr %75, align 8
+  br label %77
+
+76:                                               ; preds = %68
+  br label %62
+
+77:                                               ; preds = %71, %62
   br label %78
 
-41:                                               ; preds = %27
-  %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.Expr_s, ptr %42, i32 0, i32 16
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %74
-
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.Exinput_s, ptr %47, i32 0, i32 3
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %74
-
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.Expr_s, ptr %52, i32 0, i32 14
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds %struct.Expr_s, ptr %55, i32 0, i32 13
-  %57 = getelementptr inbounds [512 x i8], ptr %56, i64 0, i64 0
-  %58 = icmp ne ptr %54, %57
-  br i1 %58, label %59, label %74
-
-59:                                               ; preds = %51
-  br label %60
-
-60:                                               ; preds = %72, %59
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %struct.Exinput_s, ptr %61, i32 0, i32 3
-  %63 = load ptr, ptr %62, align 8
-  %64 = call i32 @getc(ptr noundef %63)
-  store i32 %64, ptr %4, align 4
-  %65 = icmp ne i32 %64, -1
-  br i1 %65, label %66, label %73
-
-66:                                               ; preds = %60
-  %67 = load i32, ptr %4, align 4
-  %68 = icmp eq i32 %67, 10
-  br i1 %68, label %69, label %72
-
-69:                                               ; preds = %66
-  %70 = load i32, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i32 0, i32 2), align 8
-  %71 = add nsw i32 %70, 1
-  store i32 %71, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i32 0, i32 2), align 8
-  br label %73
-
-72:                                               ; preds = %66
-  br label %60
-
-73:                                               ; preds = %69, %60
-  br label %74
-
-74:                                               ; preds = %73, %51, %46, %41
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds %struct.Exinput_s, ptr %75, i32 0, i32 4
-  %77 = load i32, ptr %76, align 8
-  store i32 %77, ptr getelementptr inbounds (%struct.Error_info_s, ptr @_err_info, i32 0, i32 2), align 8
-  br label %78
-
-78:                                               ; preds = %74, %37
+78:                                               ; preds = %77, %53, %48, %43
   %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct.Exinput_s, ptr %79, i32 0, i32 3
-  %81 = load ptr, ptr %80, align 8
-  %82 = icmp ne ptr %81, null
-  br i1 %82, label %83, label %93
+  %80 = getelementptr inbounds %struct.Exinput_s, ptr %79, i32 0, i32 4
+  %81 = load i32, ptr %80, align 8
+  %82 = getelementptr inbounds %struct.Error_info_s, ptr @_err_info, i32 0, i32 2
+  store i32 %81, ptr %82, align 8
+  br label %83
 
-83:                                               ; preds = %78
+83:                                               ; preds = %78, %38
   %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds %struct.Exinput_s, ptr %84, i32 0, i32 1
-  %86 = load i32, ptr %85, align 8
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %88, label %93
+  %85 = getelementptr inbounds %struct.Exinput_s, ptr %84, i32 0, i32 3
+  %86 = load ptr, ptr %85, align 8
+  %87 = icmp ne ptr %86, null
+  br i1 %87, label %88, label %98
 
 88:                                               ; preds = %83
   %89 = load ptr, ptr %5, align 8
-  %90 = getelementptr inbounds %struct.Exinput_s, ptr %89, i32 0, i32 3
-  %91 = load ptr, ptr %90, align 8
-  %92 = call i32 @fclose(ptr noundef %91)
-  br label %93
+  %90 = getelementptr inbounds %struct.Exinput_s, ptr %89, i32 0, i32 1
+  %91 = load i32, ptr %90, align 8
+  %92 = icmp ne i32 %91, 0
+  br i1 %92, label %93, label %98
 
-93:                                               ; preds = %88, %83, %78
+93:                                               ; preds = %88
   %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds %struct.Exinput_s, ptr %94, i32 0, i32 8
+  %95 = getelementptr inbounds %struct.Exinput_s, ptr %94, i32 0, i32 3
   %96 = load ptr, ptr %95, align 8
-  call void @free(ptr noundef %96) #12
-  %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds %struct.Exinput_s, ptr %97, i32 0, i32 0
-  %99 = load ptr, ptr %98, align 8
-  %100 = load ptr, ptr %3, align 8
-  %101 = getelementptr inbounds %struct.Expr_s, ptr %100, i32 0, i32 8
-  store ptr %99, ptr %101, align 8
-  %102 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %102) #12
-  %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds %struct.Expr_s, ptr %103, i32 0, i32 13
-  %105 = getelementptr inbounds [512 x i8], ptr %104, i64 0, i64 0
-  %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds %struct.Expr_s, ptr %106, i32 0, i32 14
-  store ptr %105, ptr %107, align 8
-  %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds %struct.Expr_s, ptr %108, i32 0, i32 18
-  store i32 0, ptr %109, align 4
-  %110 = load ptr, ptr %3, align 8
-  %111 = getelementptr inbounds %struct.Expr_s, ptr %110, i32 0, i32 9
-  %112 = load ptr, ptr %111, align 8
-  %113 = icmp ne ptr %112, null
-  br i1 %113, label %114, label %118
+  %97 = call i32 @fclose(ptr noundef %96)
+  br label %98
 
-114:                                              ; preds = %93
+98:                                               ; preds = %93, %88, %83
+  %99 = load ptr, ptr %5, align 8
+  %100 = getelementptr inbounds %struct.Exinput_s, ptr %99, i32 0, i32 8
+  %101 = load ptr, ptr %100, align 8
+  call void @free(ptr noundef %101) #12
+  %102 = load ptr, ptr %5, align 8
+  %103 = getelementptr inbounds %struct.Exinput_s, ptr %102, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8
+  %105 = load ptr, ptr %3, align 8
+  %106 = getelementptr inbounds %struct.Expr_s, ptr %105, i32 0, i32 8
+  store ptr %104, ptr %106, align 8
+  %107 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %107) #12
+  %108 = load ptr, ptr %3, align 8
+  %109 = getelementptr inbounds %struct.Expr_s, ptr %108, i32 0, i32 13
+  %110 = getelementptr inbounds [512 x i8], ptr %109, i64 0, i64 0
+  %111 = load ptr, ptr %3, align 8
+  %112 = getelementptr inbounds %struct.Expr_s, ptr %111, i32 0, i32 14
+  store ptr %110, ptr %112, align 8
+  %113 = load ptr, ptr %3, align 8
+  %114 = getelementptr inbounds %struct.Expr_s, ptr %113, i32 0, i32 18
+  store i32 0, ptr %114, align 4
   %115 = load ptr, ptr %3, align 8
   %116 = getelementptr inbounds %struct.Expr_s, ptr %115, i32 0, i32 9
   %117 = load ptr, ptr %116, align 8
-  store ptr %117, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  br label %118
+  %118 = icmp ne ptr %117, null
+  br i1 %118, label %119, label %124
 
-118:                                              ; preds = %114, %93
+119:                                              ; preds = %98
+  %120 = load ptr, ptr %3, align 8
+  %121 = getelementptr inbounds %struct.Expr_s, ptr %120, i32 0, i32 9
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  store ptr %122, ptr %123, align 8
+  br label %124
+
+124:                                              ; preds = %119, %98
   store i32 0, ptr %2, align 4
-  br label %119
+  br label %125
 
-119:                                              ; preds = %118, %20
-  %120 = load i32, ptr %2, align 4
-  ret i32 %120
+125:                                              ; preds = %124, %20
+  %126 = load i32, ptr %2, align 4
+  ret i32 %126
 }
 
 declare i32 @getc(ptr noundef) #1
@@ -2011,7 +2025,7 @@ define i32 @excomp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %
 
 23:                                               ; preds = %5
   store i32 -1, ptr %6, align 4
-  br label %101
+  br label %105
 
 24:                                               ; preds = %5
   %25 = load i32, ptr %9, align 4
@@ -2045,86 +2059,90 @@ define i32 @excomp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %
   %49 = load ptr, ptr %7, align 8
   %50 = getelementptr inbounds %struct.Expr_s, ptr %49, i32 0, i32 15
   store i32 %48, ptr %50, align 8
-  %51 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 9), align 8
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %100
+  %51 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 9
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %104
 
-53:                                               ; preds = %24
-  %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds %struct.Expr_s, ptr %54, i32 0, i32 1
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct._dt_s, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds %struct.Expr_s, ptr %59, i32 0, i32 1
-  %61 = load ptr, ptr %60, align 8
-  %62 = call ptr %58(ptr noundef %61, ptr noundef null, i32 noundef 128)
-  store ptr %62, ptr %12, align 8
-  br label %63
+54:                                               ; preds = %24
+  %55 = load ptr, ptr %7, align 8
+  %56 = getelementptr inbounds %struct.Expr_s, ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds %struct._dt_s, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %7, align 8
+  %61 = getelementptr inbounds %struct.Expr_s, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8
+  %63 = call ptr %59(ptr noundef %62, ptr noundef null, i32 noundef 128)
+  store ptr %63, ptr %12, align 8
+  br label %64
 
-63:                                               ; preds = %88, %53
-  %64 = load ptr, ptr %12, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %99
+64:                                               ; preds = %91, %54
+  %65 = load ptr, ptr %12, align 8
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %102
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %12, align 8
-  %68 = getelementptr inbounds %struct.Exid_s, ptr %67, i32 0, i32 8
-  %69 = load i64, ptr %68, align 8
-  %70 = icmp ne i64 %69, 0
-  br i1 %70, label %71, label %87
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %12, align 8
+  %69 = getelementptr inbounds %struct.Exid_s, ptr %68, i32 0, i32 8
+  %70 = load i64, ptr %69, align 8
+  %71 = icmp ne i64 %70, 0
+  br i1 %71, label %72, label %90
 
-71:                                               ; preds = %66
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds %struct.Expr_s, ptr %72, i32 0, i32 1
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct._dt_s, ptr %74, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %7, align 8
-  %78 = getelementptr inbounds %struct.Expr_s, ptr %77, i32 0, i32 1
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %12, align 8
-  %81 = call ptr %76(ptr noundef %79, ptr noundef %80, i32 noundef 2)
-  %82 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 9), align 8
-  %83 = add nsw i32 %82, -1
-  store i32 %83, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 9), align 8
-  %84 = icmp ne i32 %83, 0
-  br i1 %84, label %86, label %85
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %7, align 8
+  %74 = getelementptr inbounds %struct.Expr_s, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds %struct._dt_s, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %7, align 8
+  %79 = getelementptr inbounds %struct.Expr_s, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %12, align 8
+  %82 = call ptr %77(ptr noundef %80, ptr noundef %81, i32 noundef 2)
+  %83 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 9
+  %84 = load i32, ptr %83, align 8
+  %85 = add nsw i32 %84, -1
+  %86 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 9
+  store i32 %85, ptr %86, align 8
+  %87 = icmp ne i32 %85, 0
+  br i1 %87, label %89, label %88
 
-85:                                               ; preds = %71
-  br label %99
+88:                                               ; preds = %72
+  br label %102
 
-86:                                               ; preds = %71
-  br label %87
+89:                                               ; preds = %72
+  br label %90
 
-87:                                               ; preds = %86, %66
-  br label %88
+90:                                               ; preds = %89, %67
+  br label %91
 
-88:                                               ; preds = %87
-  %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds %struct.Expr_s, ptr %89, i32 0, i32 1
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %struct._dt_s, ptr %91, i32 0, i32 0
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %7, align 8
-  %95 = getelementptr inbounds %struct.Expr_s, ptr %94, i32 0, i32 1
+91:                                               ; preds = %90
+  %92 = load ptr, ptr %7, align 8
+  %93 = getelementptr inbounds %struct.Expr_s, ptr %92, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds %struct._dt_s, ptr %94, i32 0, i32 0
   %96 = load ptr, ptr %95, align 8
-  %97 = load ptr, ptr %12, align 8
-  %98 = call ptr %93(ptr noundef %96, ptr noundef %97, i32 noundef 8)
-  store ptr %98, ptr %12, align 8
-  br label %63
+  %97 = load ptr, ptr %7, align 8
+  %98 = getelementptr inbounds %struct.Expr_s, ptr %97, i32 0, i32 1
+  %99 = load ptr, ptr %98, align 8
+  %100 = load ptr, ptr %12, align 8
+  %101 = call ptr %96(ptr noundef %99, ptr noundef %100, i32 noundef 8)
+  store ptr %101, ptr %12, align 8
+  br label %64
 
-99:                                               ; preds = %85, %63
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 9), align 8
-  br label %100
+102:                                              ; preds = %88, %64
+  %103 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 9
+  store i32 0, ptr %103, align 8
+  br label %104
 
-100:                                              ; preds = %99, %24
+104:                                              ; preds = %102, %24
   store i32 0, ptr %6, align 4
-  br label %101
+  br label %105
 
-101:                                              ; preds = %100, %23
-  %102 = load i32, ptr %6, align 4
-  ret i32 %102
+105:                                              ; preds = %104, %23
+  %106 = load i32, ptr %6, align 4
+  ret i32 %106
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2208,7 +2226,7 @@ define i32 @ex_parse() #0 {
   store i32 -2, ptr @ex_char, align 4
   br label %63
 
-60:                                               ; preds = %3985, %3837, %299
+60:                                               ; preds = %4208, %4060, %300
   %61 = load ptr, ptr %6, align 8
   %62 = getelementptr inbounds i16, ptr %61, i32 1
   store ptr %62, ptr %6, align 8
@@ -2275,7 +2293,7 @@ define i32 @ex_parse() #0 {
   br i1 %99, label %100, label %101
 
 100:                                              ; preds = %90
-  br label %3989
+  br label %4212
 
 101:                                              ; preds = %90
   %102 = load i64, ptr %3, align 8
@@ -2302,7 +2320,7 @@ define i32 @ex_parse() #0 {
   br i1 %114, label %116, label %115
 
 115:                                              ; preds = %107
-  br label %3989
+  br label %4212
 
 116:                                              ; preds = %107
   br label %117
@@ -2396,7 +2414,7 @@ define i32 @ex_parse() #0 {
   br i1 %173, label %174, label %175
 
 174:                                              ; preds = %167
-  br label %3988
+  br label %4211
 
 175:                                              ; preds = %167
   br label %176
@@ -2407,7 +2425,7 @@ define i32 @ex_parse() #0 {
   br i1 %178, label %179, label %180
 
 179:                                              ; preds = %176
-  br label %3987
+  br label %4210
 
 180:                                              ; preds = %176
   br label %181
@@ -2424,12 +2442,12 @@ define i32 @ex_parse() #0 {
   br i1 %188, label %189, label %190
 
 189:                                              ; preds = %181
-  br label %303
+  br label %304
 
 190:                                              ; preds = %181
   %191 = load i32, ptr @ex_char, align 4
   %192 = icmp eq i32 %191, -2
-  br i1 %192, label %193, label %204
+  br i1 %192, label %193, label %205
 
 193:                                              ; preds = %190
   br label %194
@@ -2448,5613 +2466,5836 @@ define i32 @ex_parse() #0 {
   br label %201
 
 201:                                              ; preds = %200
-  %202 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %203 = call i32 @extoken_fn(ptr noundef %202)
-  store i32 %203, ptr @ex_char, align 4
-  br label %204
+  %202 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %203 = load ptr, ptr %202, align 8
+  %204 = call i32 @extoken_fn(ptr noundef %203)
+  store i32 %204, ptr @ex_char, align 4
+  br label %205
 
-204:                                              ; preds = %201, %190
-  %205 = load i32, ptr @ex_char, align 4
-  %206 = icmp sle i32 %205, 0
-  br i1 %206, label %207, label %216
+205:                                              ; preds = %201, %190
+  %206 = load i32, ptr @ex_char, align 4
+  %207 = icmp sle i32 %206, 0
+  br i1 %207, label %208, label %217
 
-207:                                              ; preds = %204
+208:                                              ; preds = %205
   store i32 0, ptr @ex_char, align 4
   store i32 0, ptr %12, align 4
-  br label %208
+  br label %209
 
-208:                                              ; preds = %207
-  %209 = load i32, ptr @ex_debug, align 4
-  %210 = icmp ne i32 %209, 0
-  br i1 %210, label %211, label %214
+209:                                              ; preds = %208
+  %210 = load i32, ptr @ex_debug, align 4
+  %211 = icmp ne i32 %210, 0
+  br i1 %211, label %212, label %215
 
-211:                                              ; preds = %208
-  %212 = load ptr, ptr @stderr, align 8
-  %213 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef @.str.15) #12
-  br label %214
-
-214:                                              ; preds = %211, %208
+212:                                              ; preds = %209
+  %213 = load ptr, ptr @stderr, align 8
+  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef @.str.15) #12
   br label %215
 
-215:                                              ; preds = %214
-  br label %248
+215:                                              ; preds = %212, %209
+  br label %216
 
-216:                                              ; preds = %204
-  %217 = load i32, ptr @ex_char, align 4
-  %218 = icmp eq i32 %217, 256
-  br i1 %218, label %219, label %220
+216:                                              ; preds = %215
+  br label %249
 
-219:                                              ; preds = %216
+217:                                              ; preds = %205
+  %218 = load i32, ptr @ex_char, align 4
+  %219 = icmp eq i32 %218, 256
+  br i1 %219, label %220, label %221
+
+220:                                              ; preds = %217
   store i32 257, ptr @ex_char, align 4
   store i32 1, ptr %12, align 4
-  br label %3904
+  br label %4127
 
-220:                                              ; preds = %216
-  %221 = load i32, ptr @ex_char, align 4
-  %222 = icmp sle i32 0, %221
-  br i1 %222, label %223, label %232
+221:                                              ; preds = %217
+  %222 = load i32, ptr @ex_char, align 4
+  %223 = icmp sle i32 0, %222
+  br i1 %223, label %224, label %233
 
-223:                                              ; preds = %220
-  %224 = load i32, ptr @ex_char, align 4
-  %225 = icmp sle i32 %224, 336
-  br i1 %225, label %226, label %232
+224:                                              ; preds = %221
+  %225 = load i32, ptr @ex_char, align 4
+  %226 = icmp sle i32 %225, 336
+  br i1 %226, label %227, label %233
 
-226:                                              ; preds = %223
-  %227 = load i32, ptr @ex_char, align 4
-  %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds [337 x i8], ptr @yytranslate, i64 0, i64 %228
-  %230 = load i8, ptr %229, align 1
-  %231 = sext i8 %230 to i32
-  br label %233
+227:                                              ; preds = %224
+  %228 = load i32, ptr @ex_char, align 4
+  %229 = sext i32 %228 to i64
+  %230 = getelementptr inbounds [337 x i8], ptr @yytranslate, i64 0, i64 %229
+  %231 = load i8, ptr %230, align 1
+  %232 = sext i8 %231 to i32
+  br label %234
 
-232:                                              ; preds = %223, %220
-  br label %233
+233:                                              ; preds = %224, %221
+  br label %234
 
-233:                                              ; preds = %232, %226
-  %234 = phi i32 [ %231, %226 ], [ 2, %232 ]
-  store i32 %234, ptr %12, align 4
-  br label %235
+234:                                              ; preds = %233, %227
+  %235 = phi i32 [ %232, %227 ], [ 2, %233 ]
+  store i32 %235, ptr %12, align 4
+  br label %236
 
-235:                                              ; preds = %233
-  %236 = load i32, ptr @ex_debug, align 4
-  %237 = icmp ne i32 %236, 0
-  br i1 %237, label %238, label %245
+236:                                              ; preds = %234
+  %237 = load i32, ptr @ex_debug, align 4
+  %238 = icmp ne i32 %237, 0
+  br i1 %238, label %239, label %246
 
-238:                                              ; preds = %235
-  %239 = load ptr, ptr @stderr, align 8
-  %240 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %239, ptr noundef @.str.16, ptr noundef @.str.17) #12
-  %241 = load ptr, ptr @stderr, align 8
-  %242 = load i32, ptr %12, align 4
-  call void @yy_symbol_print(ptr noundef %241, i32 noundef %242, ptr noundef @ex_lval)
-  %243 = load ptr, ptr @stderr, align 8
-  %244 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef @.str.18) #12
-  br label %245
-
-245:                                              ; preds = %238, %235
+239:                                              ; preds = %236
+  %240 = load ptr, ptr @stderr, align 8
+  %241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef @.str.16, ptr noundef @.str.17) #12
+  %242 = load ptr, ptr @stderr, align 8
+  %243 = load i32, ptr %12, align 4
+  call void @yy_symbol_print(ptr noundef %242, i32 noundef %243, ptr noundef @ex_lval)
+  %244 = load ptr, ptr @stderr, align 8
+  %245 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef @.str.18) #12
   br label %246
 
-246:                                              ; preds = %245
+246:                                              ; preds = %239, %236
   br label %247
 
 247:                                              ; preds = %246
   br label %248
 
-248:                                              ; preds = %247, %215
-  %249 = load i32, ptr %12, align 4
-  %250 = load i32, ptr %10, align 4
-  %251 = add nsw i32 %250, %249
-  store i32 %251, ptr %10, align 4
-  %252 = load i32, ptr %10, align 4
-  %253 = icmp slt i32 %252, 0
-  br i1 %253, label %265, label %254
+248:                                              ; preds = %247
+  br label %249
 
-254:                                              ; preds = %248
-  %255 = load i32, ptr %10, align 4
-  %256 = icmp slt i32 1112, %255
-  br i1 %256, label %265, label %257
+249:                                              ; preds = %248, %216
+  %250 = load i32, ptr %12, align 4
+  %251 = load i32, ptr %10, align 4
+  %252 = add nsw i32 %251, %250
+  store i32 %252, ptr %10, align 4
+  %253 = load i32, ptr %10, align 4
+  %254 = icmp slt i32 %253, 0
+  br i1 %254, label %266, label %255
 
-257:                                              ; preds = %254
-  %258 = load i32, ptr %10, align 4
-  %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds [1113 x i16], ptr @yycheck, i64 0, i64 %259
-  %261 = load i16, ptr %260, align 2
-  %262 = sext i16 %261 to i32
-  %263 = load i32, ptr %12, align 4
-  %264 = icmp ne i32 %262, %263
-  br i1 %264, label %265, label %266
+255:                                              ; preds = %249
+  %256 = load i32, ptr %10, align 4
+  %257 = icmp slt i32 1112, %256
+  br i1 %257, label %266, label %258
 
-265:                                              ; preds = %257, %254, %248
-  br label %303
+258:                                              ; preds = %255
+  %259 = load i32, ptr %10, align 4
+  %260 = sext i32 %259 to i64
+  %261 = getelementptr inbounds [1113 x i16], ptr @yycheck, i64 0, i64 %260
+  %262 = load i16, ptr %261, align 2
+  %263 = sext i16 %262 to i32
+  %264 = load i32, ptr %12, align 4
+  %265 = icmp ne i32 %263, %264
+  br i1 %265, label %266, label %267
 
-266:                                              ; preds = %257
-  %267 = load i32, ptr %10, align 4
-  %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds [1113 x i16], ptr @yytable, i64 0, i64 %268
-  %270 = load i16, ptr %269, align 2
-  %271 = sext i16 %270 to i32
-  store i32 %271, ptr %10, align 4
-  %272 = load i32, ptr %10, align 4
-  %273 = icmp sle i32 %272, 0
-  br i1 %273, label %274, label %281
+266:                                              ; preds = %258, %255, %249
+  br label %304
 
-274:                                              ; preds = %266
-  %275 = load i32, ptr %10, align 4
-  %276 = icmp eq i32 %275, -127
-  br i1 %276, label %277, label %278
+267:                                              ; preds = %258
+  %268 = load i32, ptr %10, align 4
+  %269 = sext i32 %268 to i64
+  %270 = getelementptr inbounds [1113 x i16], ptr @yytable, i64 0, i64 %269
+  %271 = load i16, ptr %270, align 2
+  %272 = sext i16 %271 to i32
+  store i32 %272, ptr %10, align 4
+  %273 = load i32, ptr %10, align 4
+  %274 = icmp sle i32 %273, 0
+  br i1 %274, label %275, label %282
 
-277:                                              ; preds = %274
-  br label %3839
+275:                                              ; preds = %267
+  %276 = load i32, ptr %10, align 4
+  %277 = icmp eq i32 %276, -127
+  br i1 %277, label %278, label %279
 
-278:                                              ; preds = %274
-  %279 = load i32, ptr %10, align 4
-  %280 = sub nsw i32 0, %279
-  store i32 %280, ptr %10, align 4
-  br label %313
+278:                                              ; preds = %275
+  br label %4062
 
-281:                                              ; preds = %266
-  %282 = load i32, ptr %2, align 4
-  %283 = icmp ne i32 %282, 0
-  br i1 %283, label %284, label %287
+279:                                              ; preds = %275
+  %280 = load i32, ptr %10, align 4
+  %281 = sub nsw i32 0, %280
+  store i32 %281, ptr %10, align 4
+  br label %314
 
-284:                                              ; preds = %281
-  %285 = load i32, ptr %2, align 4
-  %286 = add nsw i32 %285, -1
-  store i32 %286, ptr %2, align 4
-  br label %287
+282:                                              ; preds = %267
+  %283 = load i32, ptr %2, align 4
+  %284 = icmp ne i32 %283, 0
+  br i1 %284, label %285, label %288
 
-287:                                              ; preds = %284, %281
+285:                                              ; preds = %282
+  %286 = load i32, ptr %2, align 4
+  %287 = add nsw i32 %286, -1
+  store i32 %287, ptr %2, align 4
   br label %288
 
-288:                                              ; preds = %287
-  %289 = load i32, ptr @ex_debug, align 4
-  %290 = icmp ne i32 %289, 0
-  br i1 %290, label %291, label %298
+288:                                              ; preds = %285, %282
+  br label %289
 
-291:                                              ; preds = %288
-  %292 = load ptr, ptr @stderr, align 8
-  %293 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %292, ptr noundef @.str.16, ptr noundef @.str.19) #12
-  %294 = load ptr, ptr @stderr, align 8
-  %295 = load i32, ptr %12, align 4
-  call void @yy_symbol_print(ptr noundef %294, i32 noundef %295, ptr noundef @ex_lval)
-  %296 = load ptr, ptr @stderr, align 8
-  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %296, ptr noundef @.str.18) #12
-  br label %298
+289:                                              ; preds = %288
+  %290 = load i32, ptr @ex_debug, align 4
+  %291 = icmp ne i32 %290, 0
+  br i1 %291, label %292, label %299
 
-298:                                              ; preds = %291, %288
+292:                                              ; preds = %289
+  %293 = load ptr, ptr @stderr, align 8
+  %294 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %293, ptr noundef @.str.16, ptr noundef @.str.19) #12
+  %295 = load ptr, ptr @stderr, align 8
+  %296 = load i32, ptr %12, align 4
+  call void @yy_symbol_print(ptr noundef %295, i32 noundef %296, ptr noundef @ex_lval)
+  %297 = load ptr, ptr @stderr, align 8
+  %298 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %297, ptr noundef @.str.18) #12
   br label %299
 
-299:                                              ; preds = %298
-  %300 = load i32, ptr %10, align 4
-  store i32 %300, ptr %1, align 4
-  %301 = load ptr, ptr %9, align 8
-  %302 = getelementptr inbounds %union.EX_STYPE, ptr %301, i32 1
-  store ptr %302, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %302, ptr align 8 @ex_lval, i64 8, i1 false)
+299:                                              ; preds = %292, %289
+  br label %300
+
+300:                                              ; preds = %299
+  %301 = load i32, ptr %10, align 4
+  store i32 %301, ptr %1, align 4
+  %302 = load ptr, ptr %9, align 8
+  %303 = getelementptr inbounds %union.EX_STYPE, ptr %302, i32 1
+  store ptr %303, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %303, ptr align 8 @ex_lval, i64 8, i1 false)
   store i32 -2, ptr @ex_char, align 4
   br label %60
 
-303:                                              ; preds = %265, %189
-  %304 = load i32, ptr %1, align 4
-  %305 = sext i32 %304 to i64
-  %306 = getelementptr inbounds [286 x i8], ptr @yydefact, i64 0, i64 %305
-  %307 = load i8, ptr %306, align 1
-  %308 = zext i8 %307 to i32
-  store i32 %308, ptr %10, align 4
-  %309 = load i32, ptr %10, align 4
-  %310 = icmp eq i32 %309, 0
-  br i1 %310, label %311, label %312
+304:                                              ; preds = %266, %189
+  %305 = load i32, ptr %1, align 4
+  %306 = sext i32 %305 to i64
+  %307 = getelementptr inbounds [286 x i8], ptr @yydefact, i64 0, i64 %306
+  %308 = load i8, ptr %307, align 1
+  %309 = zext i8 %308 to i32
+  store i32 %309, ptr %10, align 4
+  %310 = load i32, ptr %10, align 4
+  %311 = icmp eq i32 %310, 0
+  br i1 %311, label %312, label %313
 
-311:                                              ; preds = %303
-  br label %3839
+312:                                              ; preds = %304
+  br label %4062
 
-312:                                              ; preds = %303
-  br label %313
+313:                                              ; preds = %304
+  br label %314
 
-313:                                              ; preds = %312, %278
-  %314 = load i32, ptr %10, align 4
-  %315 = sext i32 %314 to i64
-  %316 = getelementptr inbounds [143 x i8], ptr @yyr2, i64 0, i64 %315
-  %317 = load i8, ptr %316, align 1
-  %318 = sext i8 %317 to i32
-  store i32 %318, ptr %14, align 4
-  %319 = load ptr, ptr %9, align 8
-  %320 = load i32, ptr %14, align 4
-  %321 = sub nsw i32 1, %320
-  %322 = sext i32 %321 to i64
-  %323 = getelementptr inbounds %union.EX_STYPE, ptr %319, i64 %322
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %323, i64 8, i1 false)
-  br label %324
+314:                                              ; preds = %313, %279
+  %315 = load i32, ptr %10, align 4
+  %316 = sext i32 %315 to i64
+  %317 = getelementptr inbounds [143 x i8], ptr @yyr2, i64 0, i64 %316
+  %318 = load i8, ptr %317, align 1
+  %319 = sext i8 %318 to i32
+  store i32 %319, ptr %14, align 4
+  %320 = load ptr, ptr %9, align 8
+  %321 = load i32, ptr %14, align 4
+  %322 = sub nsw i32 1, %321
+  %323 = sext i32 %322 to i64
+  %324 = getelementptr inbounds %union.EX_STYPE, ptr %320, i64 %323
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %324, i64 8, i1 false)
+  br label %325
 
-324:                                              ; preds = %313
-  %325 = load i32, ptr @ex_debug, align 4
-  %326 = icmp ne i32 %325, 0
-  br i1 %326, label %327, label %331
+325:                                              ; preds = %314
+  %326 = load i32, ptr @ex_debug, align 4
+  %327 = icmp ne i32 %326, 0
+  br i1 %327, label %328, label %332
 
-327:                                              ; preds = %324
-  %328 = load ptr, ptr %6, align 8
-  %329 = load ptr, ptr %9, align 8
-  %330 = load i32, ptr %10, align 4
-  call void @yy_reduce_print(ptr noundef %328, ptr noundef %329, i32 noundef %330)
-  br label %331
-
-331:                                              ; preds = %327, %324
+328:                                              ; preds = %325
+  %329 = load ptr, ptr %6, align 8
+  %330 = load ptr, ptr %9, align 8
+  %331 = load i32, ptr %10, align 4
+  call void @yy_reduce_print(ptr noundef %329, ptr noundef %330, i32 noundef %331)
   br label %332
 
-332:                                              ; preds = %331
-  %333 = load i32, ptr %10, align 4
-  switch i32 %333, label %3765 [
-    i32 2, label %334
-    i32 5, label %391
-    i32 6, label %460
-    i32 7, label %525
-    i32 8, label %526
-    i32 9, label %576
-    i32 10, label %580
-    i32 11, label %604
-    i32 12, label %609
-    i32 13, label %616
-    i32 14, label %620
-    i32 15, label %698
-    i32 16, label %772
-    i32 17, label %858
-    i32 18, label %932
-    i32 19, label %957
-    i32 20, label %1026
-    i32 21, label %1088
-    i32 22, label %1094
-    i32 23, label %1126
-    i32 24, label %1177
-    i32 25, label %1178
-    i32 26, label %1228
-    i32 28, label %1274
-    i32 31, label %1373
-    i32 32, label %1444
-    i32 33, label %1447
-    i32 34, label %1448
-    i32 36, label %1449
-    i32 37, label %1480
-    i32 38, label %1487
-    i32 45, label %1701
-    i32 46, label %1702
-    i32 47, label %1706
-    i32 49, label %1707
-    i32 50, label %1711
-    i32 51, label %1742
-    i32 52, label %2020
-    i32 53, label %2021
-    i32 54, label %2022
-    i32 55, label %2023
-    i32 56, label %2024
-    i32 57, label %2025
-    i32 58, label %2026
-    i32 59, label %2027
-    i32 60, label %2028
-    i32 61, label %2029
-    i32 62, label %2030
-    i32 63, label %2031
-    i32 64, label %2032
-    i32 65, label %2033
-    i32 66, label %2034
-    i32 67, label %2035
-    i32 68, label %2099
-    i32 69, label %2100
-    i32 70, label %2130
-    i32 71, label %2131
-    i32 72, label %2132
-    i32 73, label %2343
-    i32 74, label %2444
-    i32 75, label %2466
-    i32 76, label %2467
-    i32 77, label %2468
-    i32 78, label %2472
-    i32 79, label %2484
-    i32 80, label %2504
-    i32 81, label %2524
-    i32 82, label %2530
-    i32 83, label %2536
-    i32 84, label %2542
-    i32 85, label %2557
-    i32 86, label %2575
-    i32 87, label %2603
-    i32 88, label %2606
-    i32 89, label %2609
-    i32 90, label %2637
-    i32 91, label %2655
-    i32 92, label %2664
-    i32 93, label %2754
-    i32 94, label %2934
-    i32 95, label %3034
-    i32 96, label %3059
-    i32 97, label %3084
-    i32 98, label %3153
-    i32 99, label %3154
-    i32 103, label %3155
-    i32 104, label %3193
-    i32 105, label %3202
-    i32 106, label %3211
-    i32 107, label %3220
-    i32 113, label %3229
-    i32 114, label %3238
-    i32 115, label %3360
-    i32 116, label %3387
-    i32 117, label %3388
-    i32 118, label %3389
-    i32 119, label %3411
-    i32 120, label %3412
-    i32 121, label %3416
-    i32 122, label %3417
-    i32 123, label %3438
-    i32 124, label %3458
-    i32 125, label %3482
-    i32 126, label %3483
-    i32 128, label %3492
-    i32 129, label %3503
-    i32 130, label %3533
-    i32 131, label %3540
-    i32 132, label %3579
-    i32 133, label %3580
-    i32 134, label %3597
-    i32 135, label %3629
-    i32 136, label %3633
-    i32 137, label %3637
-    i32 138, label %3638
-    i32 140, label %3654
-    i32 141, label %3708
-    i32 142, label %3719
+332:                                              ; preds = %328, %325
+  br label %333
+
+333:                                              ; preds = %332
+  %334 = load i32, ptr %10, align 4
+  switch i32 %334, label %3988 [
+    i32 2, label %335
+    i32 5, label %399
+    i32 6, label %479
+    i32 7, label %552
+    i32 8, label %553
+    i32 9, label %605
+    i32 10, label %609
+    i32 11, label %634
+    i32 12, label %640
+    i32 13, label %648
+    i32 14, label %653
+    i32 15, label %735
+    i32 16, label %811
+    i32 17, label %903
+    i32 18, label %979
+    i32 19, label %1005
+    i32 20, label %1077
+    i32 21, label %1143
+    i32 22, label %1150
+    i32 23, label %1188
+    i32 24, label %1242
+    i32 25, label %1243
+    i32 26, label %1299
+    i32 28, label %1349
+    i32 31, label %1451
+    i32 32, label %1536
+    i32 33, label %1540
+    i32 34, label %1541
+    i32 36, label %1542
+    i32 37, label %1574
+    i32 38, label %1581
+    i32 45, label %1800
+    i32 46, label %1801
+    i32 47, label %1805
+    i32 49, label %1806
+    i32 50, label %1810
+    i32 51, label %1842
+    i32 52, label %2131
+    i32 53, label %2132
+    i32 54, label %2133
+    i32 55, label %2134
+    i32 56, label %2135
+    i32 57, label %2136
+    i32 58, label %2137
+    i32 59, label %2138
+    i32 60, label %2139
+    i32 61, label %2140
+    i32 62, label %2141
+    i32 63, label %2142
+    i32 64, label %2143
+    i32 65, label %2144
+    i32 66, label %2145
+    i32 67, label %2146
+    i32 68, label %2214
+    i32 69, label %2215
+    i32 70, label %2247
+    i32 71, label %2249
+    i32 72, label %2251
+    i32 73, label %2471
+    i32 74, label %2578
+    i32 75, label %2601
+    i32 76, label %2602
+    i32 77, label %2603
+    i32 78, label %2607
+    i32 79, label %2620
+    i32 80, label %2641
+    i32 81, label %2662
+    i32 82, label %2669
+    i32 83, label %2676
+    i32 84, label %2683
+    i32 85, label %2699
+    i32 86, label %2718
+    i32 87, label %2748
+    i32 88, label %2752
+    i32 89, label %2756
+    i32 90, label %2786
+    i32 91, label %2805
+    i32 92, label %2815
+    i32 93, label %2908
+    i32 94, label %3089
+    i32 95, label %3191
+    i32 96, label %3217
+    i32 97, label %3243
+    i32 98, label %3315
+    i32 99, label %3316
+    i32 103, label %3317
+    i32 104, label %3359
+    i32 105, label %3369
+    i32 106, label %3379
+    i32 107, label %3389
+    i32 113, label %3399
+    i32 114, label %3409
+    i32 115, label %3536
+    i32 116, label %3565
+    i32 117, label %3566
+    i32 118, label %3567
+    i32 119, label %3589
+    i32 120, label %3590
+    i32 121, label %3594
+    i32 122, label %3595
+    i32 123, label %3617
+    i32 124, label %3639
+    i32 125, label %3664
+    i32 126, label %3665
+    i32 128, label %3674
+    i32 129, label %3686
+    i32 130, label %3717
+    i32 131, label %3725
+    i32 132, label %3768
+    i32 133, label %3770
+    i32 134, label %3790
+    i32 135, label %3826
+    i32 136, label %3830
+    i32 137, label %3834
+    i32 138, label %3835
+    i32 140, label %3852
+    i32 141, label %3918
+    i32 142, label %3932
   ]
 
-334:                                              ; preds = %332
-  %335 = load ptr, ptr %9, align 8
-  %336 = getelementptr inbounds %union.EX_STYPE, ptr %335, i64 -1
-  %337 = load ptr, ptr %336, align 8
-  %338 = icmp ne ptr %337, null
-  br i1 %338, label %339, label %390
+335:                                              ; preds = %333
+  %336 = load ptr, ptr %9, align 8
+  %337 = getelementptr inbounds %union.EX_STYPE, ptr %336, i64 -1
+  %338 = load ptr, ptr %337, align 8
+  %339 = icmp ne ptr %338, null
+  br i1 %339, label %340, label %398
 
-339:                                              ; preds = %334
-  %340 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %341 = getelementptr inbounds %struct.Expr_s, ptr %340, i32 0, i32 12
-  %342 = getelementptr inbounds %struct.Exid_s, ptr %341, i32 0, i32 6
-  %343 = load ptr, ptr %342, align 8
-  %344 = icmp ne ptr %343, null
-  br i1 %344, label %345, label %351
+340:                                              ; preds = %335
+  %341 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %342 = load ptr, ptr %341, align 8
+  %343 = getelementptr inbounds %struct.Expr_s, ptr %342, i32 0, i32 12
+  %344 = getelementptr inbounds %struct.Exid_s, ptr %343, i32 0, i32 6
+  %345 = load ptr, ptr %344, align 8
+  %346 = icmp ne ptr %345, null
+  br i1 %346, label %347, label %355
 
-345:                                              ; preds = %339
-  %346 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %347 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %348 = getelementptr inbounds %struct.Expr_s, ptr %347, i32 0, i32 12
-  %349 = getelementptr inbounds %struct.Exid_s, ptr %348, i32 0, i32 6
-  %350 = load ptr, ptr %349, align 8
-  call void @exfreenode(ptr noundef %346, ptr noundef %350)
-  br label %351
-
-351:                                              ; preds = %345, %339
-  %352 = load ptr, ptr %9, align 8
-  %353 = getelementptr inbounds %union.EX_STYPE, ptr %352, i64 -1
+347:                                              ; preds = %340
+  %348 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %349 = load ptr, ptr %348, align 8
+  %350 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %351 = load ptr, ptr %350, align 8
+  %352 = getelementptr inbounds %struct.Expr_s, ptr %351, i32 0, i32 12
+  %353 = getelementptr inbounds %struct.Exid_s, ptr %352, i32 0, i32 6
   %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds %struct.Exnode_s, ptr %354, i32 0, i32 1
-  %356 = load i32, ptr %355, align 4
-  %357 = icmp eq i32 %356, 312
-  br i1 %357, label %358, label %373
+  call void @exfreenode(ptr noundef %349, ptr noundef %354)
+  br label %355
 
-358:                                              ; preds = %351
-  %359 = load ptr, ptr %9, align 8
-  %360 = getelementptr inbounds %union.EX_STYPE, ptr %359, i64 -1
-  %361 = load ptr, ptr %360, align 8
-  store ptr %361, ptr %20, align 8
-  %362 = load ptr, ptr %20, align 8
-  %363 = getelementptr inbounds %struct.Exnode_s, ptr %362, i32 0, i32 5
-  %364 = getelementptr inbounds %struct.anon.3, ptr %363, i32 0, i32 0
+355:                                              ; preds = %347, %340
+  %356 = load ptr, ptr %9, align 8
+  %357 = getelementptr inbounds %union.EX_STYPE, ptr %356, i64 -1
+  %358 = load ptr, ptr %357, align 8
+  %359 = getelementptr inbounds %struct.Exnode_s, ptr %358, i32 0, i32 1
+  %360 = load i32, ptr %359, align 4
+  %361 = icmp eq i32 %360, 312
+  br i1 %361, label %362, label %378
+
+362:                                              ; preds = %355
+  %363 = load ptr, ptr %9, align 8
+  %364 = getelementptr inbounds %union.EX_STYPE, ptr %363, i64 -1
   %365 = load ptr, ptr %364, align 8
-  %366 = load ptr, ptr %9, align 8
-  %367 = getelementptr inbounds %union.EX_STYPE, ptr %366, i64 -1
-  store ptr %365, ptr %367, align 8
-  %368 = load ptr, ptr %20, align 8
-  %369 = getelementptr inbounds %struct.Exnode_s, ptr %368, i32 0, i32 5
-  %370 = getelementptr inbounds %struct.anon.3, ptr %369, i32 0, i32 0
-  store ptr null, ptr %370, align 8
-  %371 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+  store ptr %365, ptr %20, align 8
+  %366 = load ptr, ptr %20, align 8
+  %367 = getelementptr inbounds %struct.Exnode_s, ptr %366, i32 0, i32 5
+  %368 = getelementptr inbounds %struct.anon.3, ptr %367, i32 0, i32 0
+  %369 = load ptr, ptr %368, align 8
+  %370 = load ptr, ptr %9, align 8
+  %371 = getelementptr inbounds %union.EX_STYPE, ptr %370, i64 -1
+  store ptr %369, ptr %371, align 8
   %372 = load ptr, ptr %20, align 8
-  call void @exfreenode(ptr noundef %371, ptr noundef %372)
-  br label %373
+  %373 = getelementptr inbounds %struct.Exnode_s, ptr %372, i32 0, i32 5
+  %374 = getelementptr inbounds %struct.anon.3, ptr %373, i32 0, i32 0
+  store ptr null, ptr %374, align 8
+  %375 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %376 = load ptr, ptr %375, align 8
+  %377 = load ptr, ptr %20, align 8
+  call void @exfreenode(ptr noundef %376, ptr noundef %377)
+  br label %378
 
-373:                                              ; preds = %358, %351
-  %374 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %375 = getelementptr inbounds %struct.Expr_s, ptr %374, i32 0, i32 12
-  %376 = getelementptr inbounds %struct.Exid_s, ptr %375, i32 0, i32 1
-  store i64 293, ptr %376, align 8
-  %377 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %378 = load ptr, ptr %9, align 8
-  %379 = getelementptr inbounds %union.EX_STYPE, ptr %378, i64 -1
+378:                                              ; preds = %362, %355
+  %379 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %380 = load ptr, ptr %379, align 8
-  %381 = getelementptr inbounds %struct.Exnode_s, ptr %380, i32 0, i32 0
-  %382 = load i32, ptr %381, align 8
-  %383 = load ptr, ptr %9, align 8
-  %384 = getelementptr inbounds %union.EX_STYPE, ptr %383, i64 -1
-  %385 = load ptr, ptr %384, align 8
-  %386 = call ptr @exnewnode(ptr noundef %377, i32 noundef 293, i32 noundef 1, i32 noundef %382, ptr noundef null, ptr noundef %385)
-  %387 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %388 = getelementptr inbounds %struct.Expr_s, ptr %387, i32 0, i32 12
-  %389 = getelementptr inbounds %struct.Exid_s, ptr %388, i32 0, i32 6
-  store ptr %386, ptr %389, align 8
-  br label %390
+  %381 = getelementptr inbounds %struct.Expr_s, ptr %380, i32 0, i32 12
+  %382 = getelementptr inbounds %struct.Exid_s, ptr %381, i32 0, i32 1
+  store i64 293, ptr %382, align 8
+  %383 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %384 = load ptr, ptr %383, align 8
+  %385 = load ptr, ptr %9, align 8
+  %386 = getelementptr inbounds %union.EX_STYPE, ptr %385, i64 -1
+  %387 = load ptr, ptr %386, align 8
+  %388 = getelementptr inbounds %struct.Exnode_s, ptr %387, i32 0, i32 0
+  %389 = load i32, ptr %388, align 8
+  %390 = load ptr, ptr %9, align 8
+  %391 = getelementptr inbounds %union.EX_STYPE, ptr %390, i64 -1
+  %392 = load ptr, ptr %391, align 8
+  %393 = call ptr @exnewnode(ptr noundef %384, i32 noundef 293, i32 noundef 1, i32 noundef %389, ptr noundef null, ptr noundef %392)
+  %394 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %395 = load ptr, ptr %394, align 8
+  %396 = getelementptr inbounds %struct.Expr_s, ptr %395, i32 0, i32 12
+  %397 = getelementptr inbounds %struct.Exid_s, ptr %396, i32 0, i32 6
+  store ptr %393, ptr %397, align 8
+  br label %398
 
-390:                                              ; preds = %373, %334
-  br label %3766
+398:                                              ; preds = %378, %335
+  br label %3989
 
-391:                                              ; preds = %332
-  %392 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %393 = icmp ne ptr %392, null
-  br i1 %393, label %394, label %395
+399:                                              ; preds = %333
+  %400 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %401 = load ptr, ptr %400, align 8
+  %402 = icmp ne ptr %401, null
+  br i1 %402, label %403, label %404
 
-394:                                              ; preds = %391
+403:                                              ; preds = %399
   call void (ptr, ...) @exerror(ptr noundef @.str.20)
-  br label %395
+  br label %404
 
-395:                                              ; preds = %394, %391
-  %396 = load ptr, ptr %9, align 8
-  %397 = getelementptr inbounds %union.EX_STYPE, ptr %396, i64 -1
-  %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds %struct.Exid_s, ptr %398, i32 0, i32 1
-  store i64 293, ptr %399, align 8
-  %400 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %401 = load ptr, ptr %9, align 8
-  %402 = getelementptr inbounds %union.EX_STYPE, ptr %401, i64 -1
-  %403 = load ptr, ptr %402, align 8
-  %404 = getelementptr inbounds %struct.Exid_s, ptr %403, i32 0, i32 3
-  %405 = load i64, ptr %404, align 8
-  %406 = trunc i64 %405 to i32
-  %407 = call ptr @exnewnode(ptr noundef %400, i32 noundef 293, i32 noundef 1, i32 noundef %406, ptr noundef null, ptr noundef null)
-  %408 = load ptr, ptr %9, align 8
-  %409 = getelementptr inbounds %union.EX_STYPE, ptr %408, i64 -1
+404:                                              ; preds = %403, %399
+  %405 = load ptr, ptr %9, align 8
+  %406 = getelementptr inbounds %union.EX_STYPE, ptr %405, i64 -1
+  %407 = load ptr, ptr %406, align 8
+  %408 = getelementptr inbounds %struct.Exid_s, ptr %407, i32 0, i32 1
+  store i64 293, ptr %408, align 8
+  %409 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %410 = load ptr, ptr %409, align 8
-  %411 = getelementptr inbounds %struct.Exid_s, ptr %410, i32 0, i32 6
-  store ptr %407, ptr %411, align 8
-  store ptr %407, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %412 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %413 = getelementptr inbounds %struct.Exnode_s, ptr %412, i32 0, i32 0
-  store i32 259, ptr %413, align 8
-  %414 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 40) #13
-  store ptr %414, ptr %21, align 8
-  %415 = icmp ne ptr %414, null
-  br i1 %415, label %418, label %416
+  %411 = load ptr, ptr %9, align 8
+  %412 = getelementptr inbounds %union.EX_STYPE, ptr %411, i64 -1
+  %413 = load ptr, ptr %412, align 8
+  %414 = getelementptr inbounds %struct.Exid_s, ptr %413, i32 0, i32 3
+  %415 = load i64, ptr %414, align 8
+  %416 = trunc i64 %415 to i32
+  %417 = call ptr @exnewnode(ptr noundef %410, i32 noundef 293, i32 noundef 1, i32 noundef %416, ptr noundef null, ptr noundef null)
+  %418 = load ptr, ptr %9, align 8
+  %419 = getelementptr inbounds %union.EX_STYPE, ptr %418, i64 -1
+  %420 = load ptr, ptr %419, align 8
+  %421 = getelementptr inbounds %struct.Exid_s, ptr %420, i32 0, i32 6
+  store ptr %417, ptr %421, align 8
+  %422 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  store ptr %417, ptr %422, align 8
+  %423 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %424 = load ptr, ptr %423, align 8
+  %425 = getelementptr inbounds %struct.Exnode_s, ptr %424, i32 0, i32 0
+  store i32 259, ptr %425, align 8
+  %426 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 40) #13
+  store ptr %426, ptr %21, align 8
+  %427 = icmp ne ptr %426, null
+  br i1 %427, label %430, label %428
 
-416:                                              ; preds = %395
-  %417 = call ptr @exnospace()
-  br label %418
+428:                                              ; preds = %404
+  %429 = call ptr @exnospace()
+  br label %430
 
-418:                                              ; preds = %416, %395
-  %419 = load ptr, ptr %21, align 8
-  %420 = getelementptr inbounds %struct._dtdisc_s, ptr %419, i32 0, i32 0
-  store i32 80, ptr %420, align 8
-  %421 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 7), align 8
-  %422 = icmp ne i32 %421, 0
-  br i1 %422, label %423, label %459
-
-423:                                              ; preds = %418
-  %424 = load ptr, ptr %9, align 8
-  %425 = getelementptr inbounds %union.EX_STYPE, ptr %424, i64 -1
-  %426 = load ptr, ptr %425, align 8
-  %427 = getelementptr inbounds %struct.Exid_s, ptr %426, i32 0, i32 9
-  %428 = getelementptr inbounds [32 x i8], ptr %427, i64 0, i64 0
-  %429 = call zeroext i1 @streq(ptr noundef %428, ptr noundef @.str.21)
-  br i1 %429, label %459, label %430
-
-430:                                              ; preds = %423
+430:                                              ; preds = %428, %404
   %431 = load ptr, ptr %21, align 8
-  %432 = load ptr, ptr @Dtset, align 8
-  %433 = call ptr @dtopen(ptr noundef %431, ptr noundef %432)
-  %434 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %435 = getelementptr inbounds %struct.Exnode_s, ptr %434, i32 0, i32 5
-  %436 = getelementptr inbounds %struct.anon.11, ptr %435, i32 0, i32 2
-  store ptr %433, ptr %436, align 8
-  %437 = icmp ne ptr %433, null
-  br i1 %437, label %438, label %448
+  %432 = getelementptr inbounds %struct._dtdisc_s, ptr %431, i32 0, i32 0
+  store i32 80, ptr %432, align 8
+  %433 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 7
+  %434 = load i32, ptr %433, align 8
+  %435 = icmp ne i32 %434, 0
+  br i1 %435, label %436, label %478
 
-438:                                              ; preds = %430
-  %439 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %440 = getelementptr inbounds %struct.Exnode_s, ptr %439, i32 0, i32 5
-  %441 = getelementptr inbounds %struct.anon.11, ptr %440, i32 0, i32 2
-  %442 = load ptr, ptr %441, align 8
-  %443 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %444 = getelementptr inbounds %struct.Expr_s, ptr %443, i32 0, i32 1
-  %445 = load ptr, ptr %444, align 8
-  %446 = call ptr @dtview(ptr noundef %442, ptr noundef %445)
-  %447 = icmp ne ptr %446, null
-  br i1 %447, label %450, label %448
+436:                                              ; preds = %430
+  %437 = load ptr, ptr %9, align 8
+  %438 = getelementptr inbounds %union.EX_STYPE, ptr %437, i64 -1
+  %439 = load ptr, ptr %438, align 8
+  %440 = getelementptr inbounds %struct.Exid_s, ptr %439, i32 0, i32 9
+  %441 = getelementptr inbounds [32 x i8], ptr %440, i64 0, i64 0
+  %442 = call zeroext i1 @streq(ptr noundef %441, ptr noundef @.str.21)
+  br i1 %442, label %478, label %443
 
-448:                                              ; preds = %438, %430
-  %449 = call ptr @exnospace()
-  br label %450
+443:                                              ; preds = %436
+  %444 = load ptr, ptr %21, align 8
+  %445 = load ptr, ptr @Dtset, align 8
+  %446 = call ptr @dtopen(ptr noundef %444, ptr noundef %445)
+  %447 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %448 = load ptr, ptr %447, align 8
+  %449 = getelementptr inbounds %struct.Exnode_s, ptr %448, i32 0, i32 5
+  %450 = getelementptr inbounds %struct.anon.11, ptr %449, i32 0, i32 2
+  store ptr %446, ptr %450, align 8
+  %451 = icmp ne ptr %446, null
+  br i1 %451, label %452, label %464
 
-450:                                              ; preds = %448, %438
-  %451 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %452 = getelementptr inbounds %struct.Exnode_s, ptr %451, i32 0, i32 5
-  %453 = getelementptr inbounds %struct.anon.11, ptr %452, i32 0, i32 2
+452:                                              ; preds = %443
+  %453 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
   %454 = load ptr, ptr %453, align 8
-  %455 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %456 = getelementptr inbounds %struct.Expr_s, ptr %455, i32 0, i32 5
-  store ptr %454, ptr %456, align 8
-  %457 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %458 = getelementptr inbounds %struct.Expr_s, ptr %457, i32 0, i32 1
-  store ptr %454, ptr %458, align 8
-  br label %459
+  %455 = getelementptr inbounds %struct.Exnode_s, ptr %454, i32 0, i32 5
+  %456 = getelementptr inbounds %struct.anon.11, ptr %455, i32 0, i32 2
+  %457 = load ptr, ptr %456, align 8
+  %458 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %459 = load ptr, ptr %458, align 8
+  %460 = getelementptr inbounds %struct.Expr_s, ptr %459, i32 0, i32 1
+  %461 = load ptr, ptr %460, align 8
+  %462 = call ptr @dtview(ptr noundef %457, ptr noundef %461)
+  %463 = icmp ne ptr %462, null
+  br i1 %463, label %466, label %464
 
-459:                                              ; preds = %450, %423, %418
-  br label %3766
+464:                                              ; preds = %452, %443
+  %465 = call ptr @exnospace()
+  br label %466
 
-460:                                              ; preds = %332
-  store ptr null, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %461 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %462 = getelementptr inbounds %struct.Expr_s, ptr %461, i32 0, i32 5
-  %463 = load ptr, ptr %462, align 8
-  %464 = icmp ne ptr %463, null
-  br i1 %464, label %465, label %479
-
-465:                                              ; preds = %460
-  %466 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %467 = getelementptr inbounds %struct.Expr_s, ptr %466, i32 0, i32 5
+466:                                              ; preds = %464, %452
+  %467 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
   %468 = load ptr, ptr %467, align 8
-  %469 = getelementptr inbounds %struct._dt_s, ptr %468, i32 0, i32 5
-  %470 = load ptr, ptr %469, align 8
-  %471 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %472 = getelementptr inbounds %struct.Expr_s, ptr %471, i32 0, i32 1
-  store ptr %470, ptr %472, align 8
-  %473 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+  %469 = getelementptr inbounds %struct.Exnode_s, ptr %468, i32 0, i32 5
+  %470 = getelementptr inbounds %struct.anon.11, ptr %469, i32 0, i32 2
+  %471 = load ptr, ptr %470, align 8
+  %472 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %473 = load ptr, ptr %472, align 8
   %474 = getelementptr inbounds %struct.Expr_s, ptr %473, i32 0, i32 5
-  %475 = load ptr, ptr %474, align 8
-  %476 = call ptr @dtview(ptr noundef %475, ptr noundef null)
-  %477 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %478 = getelementptr inbounds %struct.Expr_s, ptr %477, i32 0, i32 5
-  store ptr null, ptr %478, align 8
-  br label %479
+  store ptr %471, ptr %474, align 8
+  %475 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %476 = load ptr, ptr %475, align 8
+  %477 = getelementptr inbounds %struct.Expr_s, ptr %476, i32 0, i32 1
+  store ptr %471, ptr %477, align 8
+  br label %478
 
-479:                                              ; preds = %465, %460
-  %480 = load ptr, ptr %9, align 8
-  %481 = getelementptr inbounds %union.EX_STYPE, ptr %480, i64 0
+478:                                              ; preds = %466, %436, %430
+  br label %3989
+
+479:                                              ; preds = %333
+  %480 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  store ptr null, ptr %480, align 8
+  %481 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %482 = load ptr, ptr %481, align 8
-  %483 = icmp ne ptr %482, null
-  br i1 %483, label %484, label %506
+  %483 = getelementptr inbounds %struct.Expr_s, ptr %482, i32 0, i32 5
+  %484 = load ptr, ptr %483, align 8
+  %485 = icmp ne ptr %484, null
+  br i1 %485, label %486, label %504
 
-484:                                              ; preds = %479
-  %485 = load ptr, ptr %9, align 8
-  %486 = getelementptr inbounds %union.EX_STYPE, ptr %485, i64 0
-  %487 = load ptr, ptr %486, align 8
-  %488 = getelementptr inbounds %struct.Exnode_s, ptr %487, i32 0, i32 1
-  %489 = load i32, ptr %488, align 4
-  %490 = icmp eq i32 %489, 312
-  br i1 %490, label %491, label %506
-
-491:                                              ; preds = %484
-  %492 = load ptr, ptr %9, align 8
-  %493 = getelementptr inbounds %union.EX_STYPE, ptr %492, i64 0
+486:                                              ; preds = %479
+  %487 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %488 = load ptr, ptr %487, align 8
+  %489 = getelementptr inbounds %struct.Expr_s, ptr %488, i32 0, i32 5
+  %490 = load ptr, ptr %489, align 8
+  %491 = getelementptr inbounds %struct._dt_s, ptr %490, i32 0, i32 5
+  %492 = load ptr, ptr %491, align 8
+  %493 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %494 = load ptr, ptr %493, align 8
-  store ptr %494, ptr %22, align 8
-  %495 = load ptr, ptr %22, align 8
-  %496 = getelementptr inbounds %struct.Exnode_s, ptr %495, i32 0, i32 5
-  %497 = getelementptr inbounds %struct.anon.3, ptr %496, i32 0, i32 0
-  %498 = load ptr, ptr %497, align 8
-  %499 = load ptr, ptr %9, align 8
-  %500 = getelementptr inbounds %union.EX_STYPE, ptr %499, i64 0
-  store ptr %498, ptr %500, align 8
-  %501 = load ptr, ptr %22, align 8
-  %502 = getelementptr inbounds %struct.Exnode_s, ptr %501, i32 0, i32 5
-  %503 = getelementptr inbounds %struct.anon.3, ptr %502, i32 0, i32 0
+  %495 = getelementptr inbounds %struct.Expr_s, ptr %494, i32 0, i32 1
+  store ptr %492, ptr %495, align 8
+  %496 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %497 = load ptr, ptr %496, align 8
+  %498 = getelementptr inbounds %struct.Expr_s, ptr %497, i32 0, i32 5
+  %499 = load ptr, ptr %498, align 8
+  %500 = call ptr @dtview(ptr noundef %499, ptr noundef null)
+  %501 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %502 = load ptr, ptr %501, align 8
+  %503 = getelementptr inbounds %struct.Expr_s, ptr %502, i32 0, i32 5
   store ptr null, ptr %503, align 8
-  %504 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %505 = load ptr, ptr %22, align 8
-  call void @exfreenode(ptr noundef %504, ptr noundef %505)
-  br label %506
+  br label %504
 
-506:                                              ; preds = %491, %484, %479
-  %507 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %508 = load ptr, ptr %9, align 8
-  %509 = getelementptr inbounds %union.EX_STYPE, ptr %508, i64 0
-  %510 = load ptr, ptr %509, align 8
-  %511 = load ptr, ptr %9, align 8
-  %512 = getelementptr inbounds %union.EX_STYPE, ptr %511, i64 -3
-  %513 = load ptr, ptr %512, align 8
-  %514 = getelementptr inbounds %struct.Exid_s, ptr %513, i32 0, i32 3
-  %515 = load i64, ptr %514, align 8
-  %516 = trunc i64 %515 to i32
-  %517 = call ptr @excast(ptr noundef %507, ptr noundef %510, i32 noundef %516, ptr noundef null, i32 noundef 0)
-  %518 = load ptr, ptr %9, align 8
-  %519 = getelementptr inbounds %union.EX_STYPE, ptr %518, i64 -3
-  %520 = load ptr, ptr %519, align 8
-  %521 = getelementptr inbounds %struct.Exid_s, ptr %520, i32 0, i32 6
-  %522 = load ptr, ptr %521, align 8
-  %523 = getelementptr inbounds %struct.Exnode_s, ptr %522, i32 0, i32 5
-  %524 = getelementptr inbounds %struct.anon.3, ptr %523, i32 0, i32 1
-  store ptr %517, ptr %524, align 8
-  br label %3766
+504:                                              ; preds = %486, %479
+  %505 = load ptr, ptr %9, align 8
+  %506 = getelementptr inbounds %union.EX_STYPE, ptr %505, i64 0
+  %507 = load ptr, ptr %506, align 8
+  %508 = icmp ne ptr %507, null
+  br i1 %508, label %509, label %532
 
-525:                                              ; preds = %332
-  store ptr null, ptr %13, align 8
-  br label %3766
+509:                                              ; preds = %504
+  %510 = load ptr, ptr %9, align 8
+  %511 = getelementptr inbounds %union.EX_STYPE, ptr %510, i64 0
+  %512 = load ptr, ptr %511, align 8
+  %513 = getelementptr inbounds %struct.Exnode_s, ptr %512, i32 0, i32 1
+  %514 = load i32, ptr %513, align 4
+  %515 = icmp eq i32 %514, 312
+  br i1 %515, label %516, label %532
 
-526:                                              ; preds = %332
-  %527 = load ptr, ptr %9, align 8
-  %528 = getelementptr inbounds %union.EX_STYPE, ptr %527, i64 -1
-  %529 = load ptr, ptr %528, align 8
-  %530 = icmp ne ptr %529, null
-  br i1 %530, label %535, label %531
+516:                                              ; preds = %509
+  %517 = load ptr, ptr %9, align 8
+  %518 = getelementptr inbounds %union.EX_STYPE, ptr %517, i64 0
+  %519 = load ptr, ptr %518, align 8
+  store ptr %519, ptr %22, align 8
+  %520 = load ptr, ptr %22, align 8
+  %521 = getelementptr inbounds %struct.Exnode_s, ptr %520, i32 0, i32 5
+  %522 = getelementptr inbounds %struct.anon.3, ptr %521, i32 0, i32 0
+  %523 = load ptr, ptr %522, align 8
+  %524 = load ptr, ptr %9, align 8
+  %525 = getelementptr inbounds %union.EX_STYPE, ptr %524, i64 0
+  store ptr %523, ptr %525, align 8
+  %526 = load ptr, ptr %22, align 8
+  %527 = getelementptr inbounds %struct.Exnode_s, ptr %526, i32 0, i32 5
+  %528 = getelementptr inbounds %struct.anon.3, ptr %527, i32 0, i32 0
+  store ptr null, ptr %528, align 8
+  %529 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %530 = load ptr, ptr %529, align 8
+  %531 = load ptr, ptr %22, align 8
+  call void @exfreenode(ptr noundef %530, ptr noundef %531)
+  br label %532
 
-531:                                              ; preds = %526
-  %532 = load ptr, ptr %9, align 8
-  %533 = getelementptr inbounds %union.EX_STYPE, ptr %532, i64 0
+532:                                              ; preds = %516, %509, %504
+  %533 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %534 = load ptr, ptr %533, align 8
-  store ptr %534, ptr %13, align 8
-  br label %575
-
-535:                                              ; preds = %526
-  %536 = load ptr, ptr %9, align 8
-  %537 = getelementptr inbounds %union.EX_STYPE, ptr %536, i64 0
-  %538 = load ptr, ptr %537, align 8
-  %539 = icmp ne ptr %538, null
-  br i1 %539, label %544, label %540
-
-540:                                              ; preds = %535
-  %541 = load ptr, ptr %9, align 8
-  %542 = getelementptr inbounds %union.EX_STYPE, ptr %541, i64 -1
-  %543 = load ptr, ptr %542, align 8
-  store ptr %543, ptr %13, align 8
-  br label %574
-
-544:                                              ; preds = %535
+  %535 = load ptr, ptr %9, align 8
+  %536 = getelementptr inbounds %union.EX_STYPE, ptr %535, i64 0
+  %537 = load ptr, ptr %536, align 8
+  %538 = load ptr, ptr %9, align 8
+  %539 = getelementptr inbounds %union.EX_STYPE, ptr %538, i64 -3
+  %540 = load ptr, ptr %539, align 8
+  %541 = getelementptr inbounds %struct.Exid_s, ptr %540, i32 0, i32 3
+  %542 = load i64, ptr %541, align 8
+  %543 = trunc i64 %542 to i32
+  %544 = call ptr @excast(ptr noundef %534, ptr noundef %537, i32 noundef %543, ptr noundef null, i32 noundef 0)
   %545 = load ptr, ptr %9, align 8
-  %546 = getelementptr inbounds %union.EX_STYPE, ptr %545, i64 -1
+  %546 = getelementptr inbounds %union.EX_STYPE, ptr %545, i64 -3
   %547 = load ptr, ptr %546, align 8
-  %548 = getelementptr inbounds %struct.Exnode_s, ptr %547, i32 0, i32 1
-  %549 = load i32, ptr %548, align 4
-  %550 = icmp eq i32 %549, 271
-  br i1 %550, label %551, label %559
+  %548 = getelementptr inbounds %struct.Exid_s, ptr %547, i32 0, i32 6
+  %549 = load ptr, ptr %548, align 8
+  %550 = getelementptr inbounds %struct.Exnode_s, ptr %549, i32 0, i32 5
+  %551 = getelementptr inbounds %struct.anon.3, ptr %550, i32 0, i32 1
+  store ptr %544, ptr %551, align 8
+  br label %3989
 
-551:                                              ; preds = %544
-  %552 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %553 = load ptr, ptr %9, align 8
-  %554 = getelementptr inbounds %union.EX_STYPE, ptr %553, i64 -1
-  %555 = load ptr, ptr %554, align 8
-  call void @exfreenode(ptr noundef %552, ptr noundef %555)
-  %556 = load ptr, ptr %9, align 8
-  %557 = getelementptr inbounds %union.EX_STYPE, ptr %556, i64 0
-  %558 = load ptr, ptr %557, align 8
-  store ptr %558, ptr %13, align 8
-  br label %573
+552:                                              ; preds = %333
+  store ptr null, ptr %13, align 8
+  br label %3989
 
-559:                                              ; preds = %544
-  %560 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %561 = load ptr, ptr %9, align 8
-  %562 = getelementptr inbounds %union.EX_STYPE, ptr %561, i64 0
-  %563 = load ptr, ptr %562, align 8
-  %564 = getelementptr inbounds %struct.Exnode_s, ptr %563, i32 0, i32 0
-  %565 = load i32, ptr %564, align 8
-  %566 = load ptr, ptr %9, align 8
-  %567 = getelementptr inbounds %union.EX_STYPE, ptr %566, i64 -1
-  %568 = load ptr, ptr %567, align 8
-  %569 = load ptr, ptr %9, align 8
-  %570 = getelementptr inbounds %union.EX_STYPE, ptr %569, i64 0
-  %571 = load ptr, ptr %570, align 8
-  %572 = call ptr @exnewnode(ptr noundef %560, i32 noundef 59, i32 noundef 1, i32 noundef %565, ptr noundef %568, ptr noundef %571)
-  store ptr %572, ptr %13, align 8
-  br label %573
+553:                                              ; preds = %333
+  %554 = load ptr, ptr %9, align 8
+  %555 = getelementptr inbounds %union.EX_STYPE, ptr %554, i64 -1
+  %556 = load ptr, ptr %555, align 8
+  %557 = icmp ne ptr %556, null
+  br i1 %557, label %562, label %558
 
-573:                                              ; preds = %559, %551
-  br label %574
+558:                                              ; preds = %553
+  %559 = load ptr, ptr %9, align 8
+  %560 = getelementptr inbounds %union.EX_STYPE, ptr %559, i64 0
+  %561 = load ptr, ptr %560, align 8
+  store ptr %561, ptr %13, align 8
+  br label %604
 
-574:                                              ; preds = %573, %540
-  br label %575
+562:                                              ; preds = %553
+  %563 = load ptr, ptr %9, align 8
+  %564 = getelementptr inbounds %union.EX_STYPE, ptr %563, i64 0
+  %565 = load ptr, ptr %564, align 8
+  %566 = icmp ne ptr %565, null
+  br i1 %566, label %571, label %567
 
-575:                                              ; preds = %574, %531
-  br label %3766
+567:                                              ; preds = %562
+  %568 = load ptr, ptr %9, align 8
+  %569 = getelementptr inbounds %union.EX_STYPE, ptr %568, i64 -1
+  %570 = load ptr, ptr %569, align 8
+  store ptr %570, ptr %13, align 8
+  br label %603
 
-576:                                              ; preds = %332
-  %577 = load ptr, ptr %9, align 8
-  %578 = getelementptr inbounds %union.EX_STYPE, ptr %577, i64 -1
-  %579 = load ptr, ptr %578, align 8
-  store ptr %579, ptr %13, align 8
-  br label %3766
+571:                                              ; preds = %562
+  %572 = load ptr, ptr %9, align 8
+  %573 = getelementptr inbounds %union.EX_STYPE, ptr %572, i64 -1
+  %574 = load ptr, ptr %573, align 8
+  %575 = getelementptr inbounds %struct.Exnode_s, ptr %574, i32 0, i32 1
+  %576 = load i32, ptr %575, align 4
+  %577 = icmp eq i32 %576, 271
+  br i1 %577, label %578, label %587
 
-580:                                              ; preds = %332
+578:                                              ; preds = %571
+  %579 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %580 = load ptr, ptr %579, align 8
   %581 = load ptr, ptr %9, align 8
   %582 = getelementptr inbounds %union.EX_STYPE, ptr %581, i64 -1
   %583 = load ptr, ptr %582, align 8
-  %584 = icmp ne ptr %583, null
-  br i1 %584, label %585, label %598
-
-585:                                              ; preds = %580
-  %586 = load ptr, ptr %9, align 8
-  %587 = getelementptr inbounds %union.EX_STYPE, ptr %586, i64 -1
-  %588 = load ptr, ptr %587, align 8
-  %589 = getelementptr inbounds %struct.Exnode_s, ptr %588, i32 0, i32 0
-  %590 = load i32, ptr %589, align 8
-  %591 = icmp eq i32 %590, 263
-  br i1 %591, label %592, label %598
-
-592:                                              ; preds = %585
-  %593 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %594 = load ptr, ptr %9, align 8
-  %595 = getelementptr inbounds %union.EX_STYPE, ptr %594, i64 -1
-  %596 = load ptr, ptr %595, align 8
-  %597 = call ptr @exnewnode(ptr noundef %593, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %596, ptr noundef null)
+  call void @exfreenode(ptr noundef %580, ptr noundef %583)
+  %584 = load ptr, ptr %9, align 8
+  %585 = getelementptr inbounds %union.EX_STYPE, ptr %584, i64 0
+  %586 = load ptr, ptr %585, align 8
+  store ptr %586, ptr %13, align 8
   br label %602
 
-598:                                              ; preds = %585, %580
-  %599 = load ptr, ptr %9, align 8
-  %600 = getelementptr inbounds %union.EX_STYPE, ptr %599, i64 -1
-  %601 = load ptr, ptr %600, align 8
+587:                                              ; preds = %571
+  %588 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %589 = load ptr, ptr %588, align 8
+  %590 = load ptr, ptr %9, align 8
+  %591 = getelementptr inbounds %union.EX_STYPE, ptr %590, i64 0
+  %592 = load ptr, ptr %591, align 8
+  %593 = getelementptr inbounds %struct.Exnode_s, ptr %592, i32 0, i32 0
+  %594 = load i32, ptr %593, align 8
+  %595 = load ptr, ptr %9, align 8
+  %596 = getelementptr inbounds %union.EX_STYPE, ptr %595, i64 -1
+  %597 = load ptr, ptr %596, align 8
+  %598 = load ptr, ptr %9, align 8
+  %599 = getelementptr inbounds %union.EX_STYPE, ptr %598, i64 0
+  %600 = load ptr, ptr %599, align 8
+  %601 = call ptr @exnewnode(ptr noundef %589, i32 noundef 59, i32 noundef 1, i32 noundef %594, ptr noundef %597, ptr noundef %600)
+  store ptr %601, ptr %13, align 8
   br label %602
 
-602:                                              ; preds = %598, %592
-  %603 = phi ptr [ %597, %592 ], [ %601, %598 ]
-  store ptr %603, ptr %13, align 8
-  br label %3766
+602:                                              ; preds = %587, %578
+  br label %603
 
-604:                                              ; preds = %332
-  %605 = load ptr, ptr %9, align 8
-  %606 = getelementptr inbounds %union.EX_STYPE, ptr %605, i64 0
-  %607 = load i64, ptr %606, align 8
-  %608 = trunc i64 %607 to i32
-  store i32 %608, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 8), align 4
-  br label %3766
+603:                                              ; preds = %602, %567
+  br label %604
 
-609:                                              ; preds = %332
+604:                                              ; preds = %603, %558
+  br label %3989
+
+605:                                              ; preds = %333
+  %606 = load ptr, ptr %9, align 8
+  %607 = getelementptr inbounds %union.EX_STYPE, ptr %606, i64 -1
+  %608 = load ptr, ptr %607, align 8
+  store ptr %608, ptr %13, align 8
+  br label %3989
+
+609:                                              ; preds = %333
   %610 = load ptr, ptr %9, align 8
-  %611 = getelementptr inbounds %union.EX_STYPE, ptr %610, i64 0
+  %611 = getelementptr inbounds %union.EX_STYPE, ptr %610, i64 -1
   %612 = load ptr, ptr %611, align 8
-  %613 = getelementptr inbounds %struct.Exid_s, ptr %612, i32 0, i32 3
-  %614 = load i64, ptr %613, align 8
-  %615 = trunc i64 %614 to i32
-  store i32 %615, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 1), align 8
-  br label %3766
+  %613 = icmp ne ptr %612, null
+  br i1 %613, label %614, label %628
 
-616:                                              ; preds = %332
-  %617 = load ptr, ptr %9, align 8
-  %618 = getelementptr inbounds %union.EX_STYPE, ptr %617, i64 -1
-  %619 = load ptr, ptr %618, align 8
-  store ptr %619, ptr %13, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 1), align 8
-  br label %3766
+614:                                              ; preds = %609
+  %615 = load ptr, ptr %9, align 8
+  %616 = getelementptr inbounds %union.EX_STYPE, ptr %615, i64 -1
+  %617 = load ptr, ptr %616, align 8
+  %618 = getelementptr inbounds %struct.Exnode_s, ptr %617, i32 0, i32 0
+  %619 = load i32, ptr %618, align 8
+  %620 = icmp eq i32 %619, 263
+  br i1 %620, label %621, label %628
 
-620:                                              ; preds = %332
-  %621 = load ptr, ptr %9, align 8
-  %622 = getelementptr inbounds %union.EX_STYPE, ptr %621, i64 -3
+621:                                              ; preds = %614
+  %622 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %623 = load ptr, ptr %622, align 8
-  %624 = call i32 @exisAssign(ptr noundef %623)
-  %625 = icmp ne i32 %624, 0
-  br i1 %625, label %626, label %627
+  %624 = load ptr, ptr %9, align 8
+  %625 = getelementptr inbounds %union.EX_STYPE, ptr %624, i64 -1
+  %626 = load ptr, ptr %625, align 8
+  %627 = call ptr @exnewnode(ptr noundef %623, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %626, ptr noundef null)
+  br label %632
 
-626:                                              ; preds = %620
+628:                                              ; preds = %614, %609
+  %629 = load ptr, ptr %9, align 8
+  %630 = getelementptr inbounds %union.EX_STYPE, ptr %629, i64 -1
+  %631 = load ptr, ptr %630, align 8
+  br label %632
+
+632:                                              ; preds = %628, %621
+  %633 = phi ptr [ %627, %621 ], [ %631, %628 ]
+  store ptr %633, ptr %13, align 8
+  br label %3989
+
+634:                                              ; preds = %333
+  %635 = load ptr, ptr %9, align 8
+  %636 = getelementptr inbounds %union.EX_STYPE, ptr %635, i64 0
+  %637 = load i64, ptr %636, align 8
+  %638 = trunc i64 %637 to i32
+  %639 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 8
+  store i32 %638, ptr %639, align 4
+  br label %3989
+
+640:                                              ; preds = %333
+  %641 = load ptr, ptr %9, align 8
+  %642 = getelementptr inbounds %union.EX_STYPE, ptr %641, i64 0
+  %643 = load ptr, ptr %642, align 8
+  %644 = getelementptr inbounds %struct.Exid_s, ptr %643, i32 0, i32 3
+  %645 = load i64, ptr %644, align 8
+  %646 = trunc i64 %645 to i32
+  %647 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 1
+  store i32 %646, ptr %647, align 8
+  br label %3989
+
+648:                                              ; preds = %333
+  %649 = load ptr, ptr %9, align 8
+  %650 = getelementptr inbounds %union.EX_STYPE, ptr %649, i64 -1
+  %651 = load ptr, ptr %650, align 8
+  store ptr %651, ptr %13, align 8
+  %652 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 1
+  store i32 0, ptr %652, align 8
+  br label %3989
+
+653:                                              ; preds = %333
+  %654 = load ptr, ptr %9, align 8
+  %655 = getelementptr inbounds %union.EX_STYPE, ptr %654, i64 -3
+  %656 = load ptr, ptr %655, align 8
+  %657 = call i32 @exisAssign(ptr noundef %656)
+  %658 = icmp ne i32 %657, 0
+  br i1 %658, label %659, label %660
+
+659:                                              ; preds = %653
   call void (ptr, ...) @exwarn(ptr noundef @.str.22)
-  br label %627
+  br label %660
 
-627:                                              ; preds = %626, %620
-  %628 = load ptr, ptr %9, align 8
-  %629 = getelementptr inbounds %union.EX_STYPE, ptr %628, i64 -3
-  %630 = load ptr, ptr %629, align 8
-  %631 = getelementptr inbounds %struct.Exnode_s, ptr %630, i32 0, i32 0
-  %632 = load i32, ptr %631, align 8
-  %633 = icmp eq i32 %632, 263
-  br i1 %633, label %634, label %642
+660:                                              ; preds = %659, %653
+  %661 = load ptr, ptr %9, align 8
+  %662 = getelementptr inbounds %union.EX_STYPE, ptr %661, i64 -3
+  %663 = load ptr, ptr %662, align 8
+  %664 = getelementptr inbounds %struct.Exnode_s, ptr %663, i32 0, i32 0
+  %665 = load i32, ptr %664, align 8
+  %666 = icmp eq i32 %665, 263
+  br i1 %666, label %667, label %676
 
-634:                                              ; preds = %627
-  %635 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %636 = load ptr, ptr %9, align 8
-  %637 = getelementptr inbounds %union.EX_STYPE, ptr %636, i64 -3
-  %638 = load ptr, ptr %637, align 8
-  %639 = call ptr @exnewnode(ptr noundef %635, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %638, ptr noundef null)
-  %640 = load ptr, ptr %9, align 8
-  %641 = getelementptr inbounds %union.EX_STYPE, ptr %640, i64 -3
-  store ptr %639, ptr %641, align 8
-  br label %665
-
-642:                                              ; preds = %627
-  %643 = load ptr, ptr %9, align 8
-  %644 = getelementptr inbounds %union.EX_STYPE, ptr %643, i64 -3
-  %645 = load ptr, ptr %644, align 8
-  %646 = getelementptr inbounds %struct.Exnode_s, ptr %645, i32 0, i32 0
-  %647 = load i32, ptr %646, align 8
-  %648 = icmp sge i32 %647, 259
-  br i1 %648, label %649, label %656
-
-649:                                              ; preds = %642
-  %650 = load ptr, ptr %9, align 8
-  %651 = getelementptr inbounds %union.EX_STYPE, ptr %650, i64 -3
-  %652 = load ptr, ptr %651, align 8
-  %653 = getelementptr inbounds %struct.Exnode_s, ptr %652, i32 0, i32 0
-  %654 = load i32, ptr %653, align 8
-  %655 = icmp sle i32 %654, 261
-  br i1 %655, label %664, label %656
-
-656:                                              ; preds = %649, %642
-  %657 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %658 = load ptr, ptr %9, align 8
-  %659 = getelementptr inbounds %union.EX_STYPE, ptr %658, i64 -3
-  %660 = load ptr, ptr %659, align 8
-  %661 = call ptr @excast(ptr noundef %657, ptr noundef %660, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  %662 = load ptr, ptr %9, align 8
-  %663 = getelementptr inbounds %union.EX_STYPE, ptr %662, i64 -3
-  store ptr %661, ptr %663, align 8
-  br label %664
-
-664:                                              ; preds = %656, %649
-  br label %665
-
-665:                                              ; preds = %664, %634
-  %666 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %667 = load ptr, ptr %9, align 8
-  %668 = getelementptr inbounds %union.EX_STYPE, ptr %667, i64 -5
+667:                                              ; preds = %660
+  %668 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %669 = load ptr, ptr %668, align 8
-  %670 = getelementptr inbounds %struct.Exid_s, ptr %669, i32 0, i32 2
-  %671 = load i64, ptr %670, align 8
-  %672 = trunc i64 %671 to i32
-  %673 = load ptr, ptr %9, align 8
-  %674 = getelementptr inbounds %union.EX_STYPE, ptr %673, i64 -3
-  %675 = load ptr, ptr %674, align 8
-  %676 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+  %670 = load ptr, ptr %9, align 8
+  %671 = getelementptr inbounds %union.EX_STYPE, ptr %670, i64 -3
+  %672 = load ptr, ptr %671, align 8
+  %673 = call ptr @exnewnode(ptr noundef %669, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %672, ptr noundef null)
+  %674 = load ptr, ptr %9, align 8
+  %675 = getelementptr inbounds %union.EX_STYPE, ptr %674, i64 -3
+  store ptr %673, ptr %675, align 8
+  br label %700
+
+676:                                              ; preds = %660
   %677 = load ptr, ptr %9, align 8
-  %678 = getelementptr inbounds %union.EX_STYPE, ptr %677, i64 -1
+  %678 = getelementptr inbounds %union.EX_STYPE, ptr %677, i64 -3
   %679 = load ptr, ptr %678, align 8
-  %680 = icmp ne ptr %679, null
-  br i1 %680, label %681, label %687
+  %680 = getelementptr inbounds %struct.Exnode_s, ptr %679, i32 0, i32 0
+  %681 = load i32, ptr %680, align 8
+  %682 = icmp sge i32 %681, 259
+  br i1 %682, label %683, label %690
 
-681:                                              ; preds = %665
-  %682 = load ptr, ptr %9, align 8
-  %683 = getelementptr inbounds %union.EX_STYPE, ptr %682, i64 -1
-  %684 = load ptr, ptr %683, align 8
-  %685 = getelementptr inbounds %struct.Exnode_s, ptr %684, i32 0, i32 0
-  %686 = load i32, ptr %685, align 8
-  br label %688
+683:                                              ; preds = %676
+  %684 = load ptr, ptr %9, align 8
+  %685 = getelementptr inbounds %union.EX_STYPE, ptr %684, i64 -3
+  %686 = load ptr, ptr %685, align 8
+  %687 = getelementptr inbounds %struct.Exnode_s, ptr %686, i32 0, i32 0
+  %688 = load i32, ptr %687, align 8
+  %689 = icmp sle i32 %688, 261
+  br i1 %689, label %699, label %690
 
-687:                                              ; preds = %665
-  br label %688
-
-688:                                              ; preds = %687, %681
-  %689 = phi i32 [ %686, %681 ], [ 0, %687 ]
-  %690 = load ptr, ptr %9, align 8
-  %691 = getelementptr inbounds %union.EX_STYPE, ptr %690, i64 -1
+690:                                              ; preds = %683, %676
+  %691 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %692 = load ptr, ptr %691, align 8
   %693 = load ptr, ptr %9, align 8
-  %694 = getelementptr inbounds %union.EX_STYPE, ptr %693, i64 0
+  %694 = getelementptr inbounds %union.EX_STYPE, ptr %693, i64 -3
   %695 = load ptr, ptr %694, align 8
-  %696 = call ptr @exnewnode(ptr noundef %676, i32 noundef 58, i32 noundef 1, i32 noundef %689, ptr noundef %692, ptr noundef %695)
-  %697 = call ptr @exnewnode(ptr noundef %666, i32 noundef %672, i32 noundef 1, i32 noundef 259, ptr noundef %675, ptr noundef %696)
-  store ptr %697, ptr %13, align 8
-  br label %3766
+  %696 = call ptr @excast(ptr noundef %692, ptr noundef %695, i32 noundef 259, ptr noundef null, i32 noundef 0)
+  %697 = load ptr, ptr %9, align 8
+  %698 = getelementptr inbounds %union.EX_STYPE, ptr %697, i64 -3
+  store ptr %696, ptr %698, align 8
+  br label %699
 
-698:                                              ; preds = %332
-  %699 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %700 = call ptr @exnewnode(ptr noundef %699, i32 noundef 281, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
-  store ptr %700, ptr %13, align 8
-  %701 = load ptr, ptr %9, align 8
-  %702 = getelementptr inbounds %union.EX_STYPE, ptr %701, i64 -2
-  %703 = load ptr, ptr %702, align 8
-  %704 = load ptr, ptr %13, align 8
-  %705 = getelementptr inbounds %struct.Exnode_s, ptr %704, i32 0, i32 5
-  %706 = getelementptr inbounds %struct.anon.7, ptr %705, i32 0, i32 0
-  store ptr %703, ptr %706, align 8
-  %707 = load ptr, ptr %9, align 8
-  %708 = getelementptr inbounds %union.EX_STYPE, ptr %707, i64 -2
-  %709 = load ptr, ptr %708, align 8
-  %710 = getelementptr inbounds %struct.Exnode_s, ptr %709, i32 0, i32 5
-  %711 = getelementptr inbounds %struct.anon.5, ptr %710, i32 0, i32 2
-  %712 = load ptr, ptr %711, align 8
-  %713 = icmp ne ptr %712, null
-  br i1 %713, label %714, label %724
+699:                                              ; preds = %690, %683
+  br label %700
 
-714:                                              ; preds = %698
-  %715 = load ptr, ptr %9, align 8
-  %716 = getelementptr inbounds %union.EX_STYPE, ptr %715, i64 -2
-  %717 = load ptr, ptr %716, align 8
-  %718 = getelementptr inbounds %struct.Exnode_s, ptr %717, i32 0, i32 5
-  %719 = getelementptr inbounds %struct.anon.5, ptr %718, i32 0, i32 2
-  %720 = load ptr, ptr %719, align 8
-  %721 = getelementptr inbounds %struct.Exnode_s, ptr %720, i32 0, i32 1
-  %722 = load i32, ptr %721, align 4
-  %723 = icmp ne i32 %722, 275
-  br i1 %723, label %724, label %725
+700:                                              ; preds = %699, %667
+  %701 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %702 = load ptr, ptr %701, align 8
+  %703 = load ptr, ptr %9, align 8
+  %704 = getelementptr inbounds %union.EX_STYPE, ptr %703, i64 -5
+  %705 = load ptr, ptr %704, align 8
+  %706 = getelementptr inbounds %struct.Exid_s, ptr %705, i32 0, i32 2
+  %707 = load i64, ptr %706, align 8
+  %708 = trunc i64 %707 to i32
+  %709 = load ptr, ptr %9, align 8
+  %710 = getelementptr inbounds %union.EX_STYPE, ptr %709, i64 -3
+  %711 = load ptr, ptr %710, align 8
+  %712 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %713 = load ptr, ptr %712, align 8
+  %714 = load ptr, ptr %9, align 8
+  %715 = getelementptr inbounds %union.EX_STYPE, ptr %714, i64 -1
+  %716 = load ptr, ptr %715, align 8
+  %717 = icmp ne ptr %716, null
+  br i1 %717, label %718, label %724
 
-724:                                              ; preds = %714, %698
-  call void (ptr, ...) @exerror(ptr noundef @.str.23)
+718:                                              ; preds = %700
+  %719 = load ptr, ptr %9, align 8
+  %720 = getelementptr inbounds %union.EX_STYPE, ptr %719, i64 -1
+  %721 = load ptr, ptr %720, align 8
+  %722 = getelementptr inbounds %struct.Exnode_s, ptr %721, i32 0, i32 0
+  %723 = load i32, ptr %722, align 8
   br label %725
 
-725:                                              ; preds = %724, %714
-  %726 = load ptr, ptr %9, align 8
-  %727 = getelementptr inbounds %union.EX_STYPE, ptr %726, i64 -2
-  %728 = load ptr, ptr %727, align 8
-  %729 = getelementptr inbounds %struct.Exnode_s, ptr %728, i32 0, i32 5
-  %730 = getelementptr inbounds %struct.anon.5, ptr %729, i32 0, i32 2
-  %731 = load ptr, ptr %730, align 8
-  %732 = getelementptr inbounds %struct.Exnode_s, ptr %731, i32 0, i32 5
-  %733 = getelementptr inbounds %struct.anon.5, ptr %732, i32 0, i32 0
-  %734 = load ptr, ptr %733, align 8
-  %735 = load ptr, ptr %13, align 8
-  %736 = getelementptr inbounds %struct.Exnode_s, ptr %735, i32 0, i32 5
-  %737 = getelementptr inbounds %struct.anon.7, ptr %736, i32 0, i32 1
-  store ptr %734, ptr %737, align 8
-  %738 = load ptr, ptr %9, align 8
-  %739 = getelementptr inbounds %union.EX_STYPE, ptr %738, i64 -2
-  %740 = load ptr, ptr %739, align 8
-  %741 = getelementptr inbounds %struct.Exnode_s, ptr %740, i32 0, i32 1
-  %742 = load i32, ptr %741, align 4
-  %743 = icmp eq i32 %742, 283
-  br i1 %743, label %744, label %753
+724:                                              ; preds = %700
+  br label %725
 
-744:                                              ; preds = %725
-  %745 = load ptr, ptr %13, align 8
-  %746 = getelementptr inbounds %struct.Exnode_s, ptr %745, i32 0, i32 5
-  %747 = getelementptr inbounds %struct.anon.7, ptr %746, i32 0, i32 1
-  %748 = load ptr, ptr %747, align 8
-  %749 = getelementptr inbounds %struct.Exid_s, ptr %748, i32 0, i32 3
-  %750 = load i64, ptr %749, align 8
-  %751 = icmp ne i64 %750, 259
-  br i1 %751, label %752, label %753
+725:                                              ; preds = %724, %718
+  %726 = phi i32 [ %723, %718 ], [ 0, %724 ]
+  %727 = load ptr, ptr %9, align 8
+  %728 = getelementptr inbounds %union.EX_STYPE, ptr %727, i64 -1
+  %729 = load ptr, ptr %728, align 8
+  %730 = load ptr, ptr %9, align 8
+  %731 = getelementptr inbounds %union.EX_STYPE, ptr %730, i64 0
+  %732 = load ptr, ptr %731, align 8
+  %733 = call ptr @exnewnode(ptr noundef %713, i32 noundef 58, i32 noundef 1, i32 noundef %726, ptr noundef %729, ptr noundef %732)
+  %734 = call ptr @exnewnode(ptr noundef %702, i32 noundef %708, i32 noundef 1, i32 noundef 259, ptr noundef %711, ptr noundef %733)
+  store ptr %734, ptr %13, align 8
+  br label %3989
 
-752:                                              ; preds = %744
-  call void (ptr, ...) @exerror(ptr noundef @.str.24)
-  br label %753
+735:                                              ; preds = %333
+  %736 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %737 = load ptr, ptr %736, align 8
+  %738 = call ptr @exnewnode(ptr noundef %737, i32 noundef 281, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
+  store ptr %738, ptr %13, align 8
+  %739 = load ptr, ptr %9, align 8
+  %740 = getelementptr inbounds %union.EX_STYPE, ptr %739, i64 -2
+  %741 = load ptr, ptr %740, align 8
+  %742 = load ptr, ptr %13, align 8
+  %743 = getelementptr inbounds %struct.Exnode_s, ptr %742, i32 0, i32 5
+  %744 = getelementptr inbounds %struct.anon.7, ptr %743, i32 0, i32 0
+  store ptr %741, ptr %744, align 8
+  %745 = load ptr, ptr %9, align 8
+  %746 = getelementptr inbounds %union.EX_STYPE, ptr %745, i64 -2
+  %747 = load ptr, ptr %746, align 8
+  %748 = getelementptr inbounds %struct.Exnode_s, ptr %747, i32 0, i32 5
+  %749 = getelementptr inbounds %struct.anon.5, ptr %748, i32 0, i32 2
+  %750 = load ptr, ptr %749, align 8
+  %751 = icmp ne ptr %750, null
+  br i1 %751, label %752, label %762
 
-753:                                              ; preds = %752, %744, %725
-  %754 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %755 = load ptr, ptr %9, align 8
-  %756 = getelementptr inbounds %union.EX_STYPE, ptr %755, i64 -2
-  %757 = load ptr, ptr %756, align 8
-  %758 = getelementptr inbounds %struct.Exnode_s, ptr %757, i32 0, i32 5
-  %759 = getelementptr inbounds %struct.anon.5, ptr %758, i32 0, i32 2
-  %760 = load ptr, ptr %759, align 8
-  call void @exfreenode(ptr noundef %754, ptr noundef %760)
-  %761 = load ptr, ptr %9, align 8
-  %762 = getelementptr inbounds %union.EX_STYPE, ptr %761, i64 -2
-  %763 = load ptr, ptr %762, align 8
-  %764 = getelementptr inbounds %struct.Exnode_s, ptr %763, i32 0, i32 5
-  %765 = getelementptr inbounds %struct.anon.5, ptr %764, i32 0, i32 2
-  store ptr null, ptr %765, align 8
-  %766 = load ptr, ptr %9, align 8
-  %767 = getelementptr inbounds %union.EX_STYPE, ptr %766, i64 0
-  %768 = load ptr, ptr %767, align 8
-  %769 = load ptr, ptr %13, align 8
+752:                                              ; preds = %735
+  %753 = load ptr, ptr %9, align 8
+  %754 = getelementptr inbounds %union.EX_STYPE, ptr %753, i64 -2
+  %755 = load ptr, ptr %754, align 8
+  %756 = getelementptr inbounds %struct.Exnode_s, ptr %755, i32 0, i32 5
+  %757 = getelementptr inbounds %struct.anon.5, ptr %756, i32 0, i32 2
+  %758 = load ptr, ptr %757, align 8
+  %759 = getelementptr inbounds %struct.Exnode_s, ptr %758, i32 0, i32 1
+  %760 = load i32, ptr %759, align 4
+  %761 = icmp ne i32 %760, 275
+  br i1 %761, label %762, label %763
+
+762:                                              ; preds = %752, %735
+  call void (ptr, ...) @exerror(ptr noundef @.str.23)
+  br label %763
+
+763:                                              ; preds = %762, %752
+  %764 = load ptr, ptr %9, align 8
+  %765 = getelementptr inbounds %union.EX_STYPE, ptr %764, i64 -2
+  %766 = load ptr, ptr %765, align 8
+  %767 = getelementptr inbounds %struct.Exnode_s, ptr %766, i32 0, i32 5
+  %768 = getelementptr inbounds %struct.anon.5, ptr %767, i32 0, i32 2
+  %769 = load ptr, ptr %768, align 8
   %770 = getelementptr inbounds %struct.Exnode_s, ptr %769, i32 0, i32 5
-  %771 = getelementptr inbounds %struct.anon.7, ptr %770, i32 0, i32 2
-  store ptr %768, ptr %771, align 8
-  br label %3766
+  %771 = getelementptr inbounds %struct.anon.5, ptr %770, i32 0, i32 0
+  %772 = load ptr, ptr %771, align 8
+  %773 = load ptr, ptr %13, align 8
+  %774 = getelementptr inbounds %struct.Exnode_s, ptr %773, i32 0, i32 5
+  %775 = getelementptr inbounds %struct.anon.7, ptr %774, i32 0, i32 1
+  store ptr %772, ptr %775, align 8
+  %776 = load ptr, ptr %9, align 8
+  %777 = getelementptr inbounds %union.EX_STYPE, ptr %776, i64 -2
+  %778 = load ptr, ptr %777, align 8
+  %779 = getelementptr inbounds %struct.Exnode_s, ptr %778, i32 0, i32 1
+  %780 = load i32, ptr %779, align 4
+  %781 = icmp eq i32 %780, 283
+  br i1 %781, label %782, label %791
 
-772:                                              ; preds = %332
-  %773 = load ptr, ptr %9, align 8
-  %774 = getelementptr inbounds %union.EX_STYPE, ptr %773, i64 -4
-  %775 = load ptr, ptr %774, align 8
-  %776 = icmp ne ptr %775, null
-  br i1 %776, label %787, label %777
+782:                                              ; preds = %763
+  %783 = load ptr, ptr %13, align 8
+  %784 = getelementptr inbounds %struct.Exnode_s, ptr %783, i32 0, i32 5
+  %785 = getelementptr inbounds %struct.anon.7, ptr %784, i32 0, i32 1
+  %786 = load ptr, ptr %785, align 8
+  %787 = getelementptr inbounds %struct.Exid_s, ptr %786, i32 0, i32 3
+  %788 = load i64, ptr %787, align 8
+  %789 = icmp ne i64 %788, 259
+  br i1 %789, label %790, label %791
 
-777:                                              ; preds = %772
-  %778 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %779 = call ptr @exnewnode(ptr noundef %778, i32 noundef 271, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
-  %780 = load ptr, ptr %9, align 8
-  %781 = getelementptr inbounds %union.EX_STYPE, ptr %780, i64 -4
-  store ptr %779, ptr %781, align 8
-  %782 = load ptr, ptr %9, align 8
-  %783 = getelementptr inbounds %union.EX_STYPE, ptr %782, i64 -4
-  %784 = load ptr, ptr %783, align 8
-  %785 = getelementptr inbounds %struct.Exnode_s, ptr %784, i32 0, i32 5
-  %786 = getelementptr inbounds %struct.anon.2, ptr %785, i32 0, i32 0
-  store i64 1, ptr %786, align 8
-  br label %826
+790:                                              ; preds = %782
+  call void (ptr, ...) @exerror(ptr noundef @.str.24)
+  br label %791
 
-787:                                              ; preds = %772
-  %788 = load ptr, ptr %9, align 8
-  %789 = getelementptr inbounds %union.EX_STYPE, ptr %788, i64 -4
-  %790 = load ptr, ptr %789, align 8
-  %791 = getelementptr inbounds %struct.Exnode_s, ptr %790, i32 0, i32 0
-  %792 = load i32, ptr %791, align 8
-  %793 = icmp eq i32 %792, 263
-  br i1 %793, label %794, label %802
-
-794:                                              ; preds = %787
-  %795 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %796 = load ptr, ptr %9, align 8
-  %797 = getelementptr inbounds %union.EX_STYPE, ptr %796, i64 -4
-  %798 = load ptr, ptr %797, align 8
-  %799 = call ptr @exnewnode(ptr noundef %795, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %798, ptr noundef null)
+791:                                              ; preds = %790, %782, %763
+  %792 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %793 = load ptr, ptr %792, align 8
+  %794 = load ptr, ptr %9, align 8
+  %795 = getelementptr inbounds %union.EX_STYPE, ptr %794, i64 -2
+  %796 = load ptr, ptr %795, align 8
+  %797 = getelementptr inbounds %struct.Exnode_s, ptr %796, i32 0, i32 5
+  %798 = getelementptr inbounds %struct.anon.5, ptr %797, i32 0, i32 2
+  %799 = load ptr, ptr %798, align 8
+  call void @exfreenode(ptr noundef %793, ptr noundef %799)
   %800 = load ptr, ptr %9, align 8
-  %801 = getelementptr inbounds %union.EX_STYPE, ptr %800, i64 -4
-  store ptr %799, ptr %801, align 8
-  br label %825
+  %801 = getelementptr inbounds %union.EX_STYPE, ptr %800, i64 -2
+  %802 = load ptr, ptr %801, align 8
+  %803 = getelementptr inbounds %struct.Exnode_s, ptr %802, i32 0, i32 5
+  %804 = getelementptr inbounds %struct.anon.5, ptr %803, i32 0, i32 2
+  store ptr null, ptr %804, align 8
+  %805 = load ptr, ptr %9, align 8
+  %806 = getelementptr inbounds %union.EX_STYPE, ptr %805, i64 0
+  %807 = load ptr, ptr %806, align 8
+  %808 = load ptr, ptr %13, align 8
+  %809 = getelementptr inbounds %struct.Exnode_s, ptr %808, i32 0, i32 5
+  %810 = getelementptr inbounds %struct.anon.7, ptr %809, i32 0, i32 2
+  store ptr %807, ptr %810, align 8
+  br label %3989
 
-802:                                              ; preds = %787
-  %803 = load ptr, ptr %9, align 8
-  %804 = getelementptr inbounds %union.EX_STYPE, ptr %803, i64 -4
-  %805 = load ptr, ptr %804, align 8
-  %806 = getelementptr inbounds %struct.Exnode_s, ptr %805, i32 0, i32 0
-  %807 = load i32, ptr %806, align 8
-  %808 = icmp sge i32 %807, 259
-  br i1 %808, label %809, label %816
+811:                                              ; preds = %333
+  %812 = load ptr, ptr %9, align 8
+  %813 = getelementptr inbounds %union.EX_STYPE, ptr %812, i64 -4
+  %814 = load ptr, ptr %813, align 8
+  %815 = icmp ne ptr %814, null
+  br i1 %815, label %827, label %816
 
-809:                                              ; preds = %802
-  %810 = load ptr, ptr %9, align 8
-  %811 = getelementptr inbounds %union.EX_STYPE, ptr %810, i64 -4
-  %812 = load ptr, ptr %811, align 8
-  %813 = getelementptr inbounds %struct.Exnode_s, ptr %812, i32 0, i32 0
-  %814 = load i32, ptr %813, align 8
-  %815 = icmp sle i32 %814, 261
-  br i1 %815, label %824, label %816
-
-816:                                              ; preds = %809, %802
-  %817 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %818 = load ptr, ptr %9, align 8
-  %819 = getelementptr inbounds %union.EX_STYPE, ptr %818, i64 -4
-  %820 = load ptr, ptr %819, align 8
-  %821 = call ptr @excast(ptr noundef %817, ptr noundef %820, i32 noundef 259, ptr noundef null, i32 noundef 0)
+816:                                              ; preds = %811
+  %817 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %818 = load ptr, ptr %817, align 8
+  %819 = call ptr @exnewnode(ptr noundef %818, i32 noundef 271, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
+  %820 = load ptr, ptr %9, align 8
+  %821 = getelementptr inbounds %union.EX_STYPE, ptr %820, i64 -4
+  store ptr %819, ptr %821, align 8
   %822 = load ptr, ptr %9, align 8
   %823 = getelementptr inbounds %union.EX_STYPE, ptr %822, i64 -4
-  store ptr %821, ptr %823, align 8
-  br label %824
+  %824 = load ptr, ptr %823, align 8
+  %825 = getelementptr inbounds %struct.Exnode_s, ptr %824, i32 0, i32 5
+  %826 = getelementptr inbounds %struct.anon.2, ptr %825, i32 0, i32 0
+  store i64 1, ptr %826, align 8
+  br label %868
 
-824:                                              ; preds = %816, %809
-  br label %825
-
-825:                                              ; preds = %824, %794
-  br label %826
-
-826:                                              ; preds = %825, %777
-  %827 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+827:                                              ; preds = %811
   %828 = load ptr, ptr %9, align 8
-  %829 = getelementptr inbounds %union.EX_STYPE, ptr %828, i64 -8
+  %829 = getelementptr inbounds %union.EX_STYPE, ptr %828, i64 -4
   %830 = load ptr, ptr %829, align 8
-  %831 = getelementptr inbounds %struct.Exid_s, ptr %830, i32 0, i32 2
-  %832 = load i64, ptr %831, align 8
-  %833 = trunc i64 %832 to i32
-  %834 = load ptr, ptr %9, align 8
-  %835 = getelementptr inbounds %union.EX_STYPE, ptr %834, i64 -4
+  %831 = getelementptr inbounds %struct.Exnode_s, ptr %830, i32 0, i32 0
+  %832 = load i32, ptr %831, align 8
+  %833 = icmp eq i32 %832, 263
+  br i1 %833, label %834, label %843
+
+834:                                              ; preds = %827
+  %835 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %836 = load ptr, ptr %835, align 8
-  %837 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %838 = load ptr, ptr %9, align 8
-  %839 = getelementptr inbounds %union.EX_STYPE, ptr %838, i64 -2
-  %840 = load ptr, ptr %839, align 8
+  %837 = load ptr, ptr %9, align 8
+  %838 = getelementptr inbounds %union.EX_STYPE, ptr %837, i64 -4
+  %839 = load ptr, ptr %838, align 8
+  %840 = call ptr @exnewnode(ptr noundef %836, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %839, ptr noundef null)
   %841 = load ptr, ptr %9, align 8
-  %842 = getelementptr inbounds %union.EX_STYPE, ptr %841, i64 0
-  %843 = load ptr, ptr %842, align 8
-  %844 = call ptr @exnewnode(ptr noundef %837, i32 noundef 59, i32 noundef 1, i32 noundef 0, ptr noundef %840, ptr noundef %843)
-  %845 = call ptr @exnewnode(ptr noundef %827, i32 noundef %833, i32 noundef 1, i32 noundef 259, ptr noundef %836, ptr noundef %844)
-  store ptr %845, ptr %13, align 8
-  %846 = load ptr, ptr %9, align 8
-  %847 = getelementptr inbounds %union.EX_STYPE, ptr %846, i64 -6
-  %848 = load ptr, ptr %847, align 8
-  %849 = icmp ne ptr %848, null
+  %842 = getelementptr inbounds %union.EX_STYPE, ptr %841, i64 -4
+  store ptr %840, ptr %842, align 8
+  br label %867
+
+843:                                              ; preds = %827
+  %844 = load ptr, ptr %9, align 8
+  %845 = getelementptr inbounds %union.EX_STYPE, ptr %844, i64 -4
+  %846 = load ptr, ptr %845, align 8
+  %847 = getelementptr inbounds %struct.Exnode_s, ptr %846, i32 0, i32 0
+  %848 = load i32, ptr %847, align 8
+  %849 = icmp sge i32 %848, 259
   br i1 %849, label %850, label %857
 
-850:                                              ; preds = %826
-  %851 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %852 = load ptr, ptr %9, align 8
-  %853 = getelementptr inbounds %union.EX_STYPE, ptr %852, i64 -6
-  %854 = load ptr, ptr %853, align 8
-  %855 = load ptr, ptr %13, align 8
-  %856 = call ptr @exnewnode(ptr noundef %851, i32 noundef 59, i32 noundef 1, i32 noundef 259, ptr noundef %854, ptr noundef %855)
-  store ptr %856, ptr %13, align 8
-  br label %857
+850:                                              ; preds = %843
+  %851 = load ptr, ptr %9, align 8
+  %852 = getelementptr inbounds %union.EX_STYPE, ptr %851, i64 -4
+  %853 = load ptr, ptr %852, align 8
+  %854 = getelementptr inbounds %struct.Exnode_s, ptr %853, i32 0, i32 0
+  %855 = load i32, ptr %854, align 8
+  %856 = icmp sle i32 %855, 261
+  br i1 %856, label %866, label %857
 
-857:                                              ; preds = %850, %826
-  br label %3766
+857:                                              ; preds = %850, %843
+  %858 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %859 = load ptr, ptr %858, align 8
+  %860 = load ptr, ptr %9, align 8
+  %861 = getelementptr inbounds %union.EX_STYPE, ptr %860, i64 -4
+  %862 = load ptr, ptr %861, align 8
+  %863 = call ptr @excast(ptr noundef %859, ptr noundef %862, i32 noundef 259, ptr noundef null, i32 noundef 0)
+  %864 = load ptr, ptr %9, align 8
+  %865 = getelementptr inbounds %union.EX_STYPE, ptr %864, i64 -4
+  store ptr %863, ptr %865, align 8
+  br label %866
 
-858:                                              ; preds = %332
-  %859 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %860 = call ptr @exnewnode(ptr noundef %859, i32 noundef 282, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
-  store ptr %860, ptr %13, align 8
-  %861 = load ptr, ptr %9, align 8
-  %862 = getelementptr inbounds %union.EX_STYPE, ptr %861, i64 -2
-  %863 = load ptr, ptr %862, align 8
-  %864 = load ptr, ptr %13, align 8
-  %865 = getelementptr inbounds %struct.Exnode_s, ptr %864, i32 0, i32 5
-  %866 = getelementptr inbounds %struct.anon.7, ptr %865, i32 0, i32 0
-  store ptr %863, ptr %866, align 8
-  %867 = load ptr, ptr %9, align 8
-  %868 = getelementptr inbounds %union.EX_STYPE, ptr %867, i64 -2
-  %869 = load ptr, ptr %868, align 8
-  %870 = getelementptr inbounds %struct.Exnode_s, ptr %869, i32 0, i32 5
-  %871 = getelementptr inbounds %struct.anon.5, ptr %870, i32 0, i32 2
-  %872 = load ptr, ptr %871, align 8
-  %873 = icmp ne ptr %872, null
-  br i1 %873, label %874, label %884
+866:                                              ; preds = %857, %850
+  br label %867
 
-874:                                              ; preds = %858
-  %875 = load ptr, ptr %9, align 8
-  %876 = getelementptr inbounds %union.EX_STYPE, ptr %875, i64 -2
-  %877 = load ptr, ptr %876, align 8
-  %878 = getelementptr inbounds %struct.Exnode_s, ptr %877, i32 0, i32 5
-  %879 = getelementptr inbounds %struct.anon.5, ptr %878, i32 0, i32 2
-  %880 = load ptr, ptr %879, align 8
-  %881 = getelementptr inbounds %struct.Exnode_s, ptr %880, i32 0, i32 1
-  %882 = load i32, ptr %881, align 4
-  %883 = icmp ne i32 %882, 275
-  br i1 %883, label %884, label %885
+867:                                              ; preds = %866, %834
+  br label %868
 
-884:                                              ; preds = %874, %858
-  call void (ptr, ...) @exerror(ptr noundef @.str.23)
-  br label %885
+868:                                              ; preds = %867, %816
+  %869 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %870 = load ptr, ptr %869, align 8
+  %871 = load ptr, ptr %9, align 8
+  %872 = getelementptr inbounds %union.EX_STYPE, ptr %871, i64 -8
+  %873 = load ptr, ptr %872, align 8
+  %874 = getelementptr inbounds %struct.Exid_s, ptr %873, i32 0, i32 2
+  %875 = load i64, ptr %874, align 8
+  %876 = trunc i64 %875 to i32
+  %877 = load ptr, ptr %9, align 8
+  %878 = getelementptr inbounds %union.EX_STYPE, ptr %877, i64 -4
+  %879 = load ptr, ptr %878, align 8
+  %880 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %881 = load ptr, ptr %880, align 8
+  %882 = load ptr, ptr %9, align 8
+  %883 = getelementptr inbounds %union.EX_STYPE, ptr %882, i64 -2
+  %884 = load ptr, ptr %883, align 8
+  %885 = load ptr, ptr %9, align 8
+  %886 = getelementptr inbounds %union.EX_STYPE, ptr %885, i64 0
+  %887 = load ptr, ptr %886, align 8
+  %888 = call ptr @exnewnode(ptr noundef %881, i32 noundef 59, i32 noundef 1, i32 noundef 0, ptr noundef %884, ptr noundef %887)
+  %889 = call ptr @exnewnode(ptr noundef %870, i32 noundef %876, i32 noundef 1, i32 noundef 259, ptr noundef %879, ptr noundef %888)
+  store ptr %889, ptr %13, align 8
+  %890 = load ptr, ptr %9, align 8
+  %891 = getelementptr inbounds %union.EX_STYPE, ptr %890, i64 -6
+  %892 = load ptr, ptr %891, align 8
+  %893 = icmp ne ptr %892, null
+  br i1 %893, label %894, label %902
 
-885:                                              ; preds = %884, %874
-  %886 = load ptr, ptr %9, align 8
-  %887 = getelementptr inbounds %union.EX_STYPE, ptr %886, i64 -2
-  %888 = load ptr, ptr %887, align 8
-  %889 = getelementptr inbounds %struct.Exnode_s, ptr %888, i32 0, i32 5
-  %890 = getelementptr inbounds %struct.anon.5, ptr %889, i32 0, i32 2
-  %891 = load ptr, ptr %890, align 8
-  %892 = getelementptr inbounds %struct.Exnode_s, ptr %891, i32 0, i32 5
-  %893 = getelementptr inbounds %struct.anon.5, ptr %892, i32 0, i32 0
-  %894 = load ptr, ptr %893, align 8
-  %895 = load ptr, ptr %13, align 8
-  %896 = getelementptr inbounds %struct.Exnode_s, ptr %895, i32 0, i32 5
-  %897 = getelementptr inbounds %struct.anon.7, ptr %896, i32 0, i32 1
-  store ptr %894, ptr %897, align 8
-  %898 = load ptr, ptr %9, align 8
-  %899 = getelementptr inbounds %union.EX_STYPE, ptr %898, i64 -2
-  %900 = load ptr, ptr %899, align 8
-  %901 = getelementptr inbounds %struct.Exnode_s, ptr %900, i32 0, i32 1
-  %902 = load i32, ptr %901, align 4
-  %903 = icmp eq i32 %902, 283
-  br i1 %903, label %904, label %913
+894:                                              ; preds = %868
+  %895 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %896 = load ptr, ptr %895, align 8
+  %897 = load ptr, ptr %9, align 8
+  %898 = getelementptr inbounds %union.EX_STYPE, ptr %897, i64 -6
+  %899 = load ptr, ptr %898, align 8
+  %900 = load ptr, ptr %13, align 8
+  %901 = call ptr @exnewnode(ptr noundef %896, i32 noundef 59, i32 noundef 1, i32 noundef 259, ptr noundef %899, ptr noundef %900)
+  store ptr %901, ptr %13, align 8
+  br label %902
 
-904:                                              ; preds = %885
-  %905 = load ptr, ptr %13, align 8
-  %906 = getelementptr inbounds %struct.Exnode_s, ptr %905, i32 0, i32 5
-  %907 = getelementptr inbounds %struct.anon.7, ptr %906, i32 0, i32 1
-  %908 = load ptr, ptr %907, align 8
-  %909 = getelementptr inbounds %struct.Exid_s, ptr %908, i32 0, i32 3
-  %910 = load i64, ptr %909, align 8
-  %911 = icmp ne i64 %910, 259
-  br i1 %911, label %912, label %913
+902:                                              ; preds = %894, %868
+  br label %3989
 
-912:                                              ; preds = %904
-  call void (ptr, ...) @exerror(ptr noundef @.str.24)
-  br label %913
+903:                                              ; preds = %333
+  %904 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %905 = load ptr, ptr %904, align 8
+  %906 = call ptr @exnewnode(ptr noundef %905, i32 noundef 282, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
+  store ptr %906, ptr %13, align 8
+  %907 = load ptr, ptr %9, align 8
+  %908 = getelementptr inbounds %union.EX_STYPE, ptr %907, i64 -2
+  %909 = load ptr, ptr %908, align 8
+  %910 = load ptr, ptr %13, align 8
+  %911 = getelementptr inbounds %struct.Exnode_s, ptr %910, i32 0, i32 5
+  %912 = getelementptr inbounds %struct.anon.7, ptr %911, i32 0, i32 0
+  store ptr %909, ptr %912, align 8
+  %913 = load ptr, ptr %9, align 8
+  %914 = getelementptr inbounds %union.EX_STYPE, ptr %913, i64 -2
+  %915 = load ptr, ptr %914, align 8
+  %916 = getelementptr inbounds %struct.Exnode_s, ptr %915, i32 0, i32 5
+  %917 = getelementptr inbounds %struct.anon.5, ptr %916, i32 0, i32 2
+  %918 = load ptr, ptr %917, align 8
+  %919 = icmp ne ptr %918, null
+  br i1 %919, label %920, label %930
 
-913:                                              ; preds = %912, %904, %885
-  %914 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %915 = load ptr, ptr %9, align 8
-  %916 = getelementptr inbounds %union.EX_STYPE, ptr %915, i64 -2
-  %917 = load ptr, ptr %916, align 8
-  %918 = getelementptr inbounds %struct.Exnode_s, ptr %917, i32 0, i32 5
-  %919 = getelementptr inbounds %struct.anon.5, ptr %918, i32 0, i32 2
-  %920 = load ptr, ptr %919, align 8
-  call void @exfreenode(ptr noundef %914, ptr noundef %920)
+920:                                              ; preds = %903
   %921 = load ptr, ptr %9, align 8
   %922 = getelementptr inbounds %union.EX_STYPE, ptr %921, i64 -2
   %923 = load ptr, ptr %922, align 8
   %924 = getelementptr inbounds %struct.Exnode_s, ptr %923, i32 0, i32 5
   %925 = getelementptr inbounds %struct.anon.5, ptr %924, i32 0, i32 2
-  store ptr null, ptr %925, align 8
-  %926 = load ptr, ptr %9, align 8
-  %927 = getelementptr inbounds %union.EX_STYPE, ptr %926, i64 0
-  %928 = load ptr, ptr %927, align 8
-  %929 = load ptr, ptr %13, align 8
-  %930 = getelementptr inbounds %struct.Exnode_s, ptr %929, i32 0, i32 5
-  %931 = getelementptr inbounds %struct.anon.7, ptr %930, i32 0, i32 2
-  store ptr %928, ptr %931, align 8
-  br label %3766
+  %926 = load ptr, ptr %925, align 8
+  %927 = getelementptr inbounds %struct.Exnode_s, ptr %926, i32 0, i32 1
+  %928 = load i32, ptr %927, align 4
+  %929 = icmp ne i32 %928, 275
+  br i1 %929, label %930, label %931
 
-932:                                              ; preds = %332
-  %933 = load ptr, ptr %9, align 8
-  %934 = getelementptr inbounds %union.EX_STYPE, ptr %933, i64 -1
-  %935 = load ptr, ptr %934, align 8
-  %936 = getelementptr inbounds %struct.Exid_s, ptr %935, i32 0, i32 7
+930:                                              ; preds = %920, %903
+  call void (ptr, ...) @exerror(ptr noundef @.str.23)
+  br label %931
+
+931:                                              ; preds = %930, %920
+  %932 = load ptr, ptr %9, align 8
+  %933 = getelementptr inbounds %union.EX_STYPE, ptr %932, i64 -2
+  %934 = load ptr, ptr %933, align 8
+  %935 = getelementptr inbounds %struct.Exnode_s, ptr %934, i32 0, i32 5
+  %936 = getelementptr inbounds %struct.anon.5, ptr %935, i32 0, i32 2
   %937 = load ptr, ptr %936, align 8
-  %938 = icmp eq ptr %937, null
-  br i1 %938, label %939, label %945
+  %938 = getelementptr inbounds %struct.Exnode_s, ptr %937, i32 0, i32 5
+  %939 = getelementptr inbounds %struct.anon.5, ptr %938, i32 0, i32 0
+  %940 = load ptr, ptr %939, align 8
+  %941 = load ptr, ptr %13, align 8
+  %942 = getelementptr inbounds %struct.Exnode_s, ptr %941, i32 0, i32 5
+  %943 = getelementptr inbounds %struct.anon.7, ptr %942, i32 0, i32 1
+  store ptr %940, ptr %943, align 8
+  %944 = load ptr, ptr %9, align 8
+  %945 = getelementptr inbounds %union.EX_STYPE, ptr %944, i64 -2
+  %946 = load ptr, ptr %945, align 8
+  %947 = getelementptr inbounds %struct.Exnode_s, ptr %946, i32 0, i32 1
+  %948 = load i32, ptr %947, align 4
+  %949 = icmp eq i32 %948, 283
+  br i1 %949, label %950, label %959
 
-939:                                              ; preds = %932
-  %940 = load ptr, ptr %9, align 8
-  %941 = getelementptr inbounds %union.EX_STYPE, ptr %940, i64 -1
-  %942 = load ptr, ptr %941, align 8
-  %943 = getelementptr inbounds %struct.Exid_s, ptr %942, i32 0, i32 9
-  %944 = getelementptr inbounds [32 x i8], ptr %943, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.25, ptr noundef %944)
-  br label %945
-
-945:                                              ; preds = %939, %932
-  %946 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %947 = call ptr @exnewnode(ptr noundef %946, i32 noundef 306, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
-  store ptr %947, ptr %13, align 8
-  %948 = load ptr, ptr %9, align 8
-  %949 = getelementptr inbounds %union.EX_STYPE, ptr %948, i64 -1
-  %950 = load ptr, ptr %949, align 8
+950:                                              ; preds = %931
   %951 = load ptr, ptr %13, align 8
   %952 = getelementptr inbounds %struct.Exnode_s, ptr %951, i32 0, i32 5
-  %953 = getelementptr inbounds %struct.anon.5, ptr %952, i32 0, i32 0
-  store ptr %950, ptr %953, align 8
-  %954 = load ptr, ptr %13, align 8
-  %955 = getelementptr inbounds %struct.Exnode_s, ptr %954, i32 0, i32 5
-  %956 = getelementptr inbounds %struct.anon.5, ptr %955, i32 0, i32 2
-  store ptr null, ptr %956, align 8
-  br label %3766
+  %953 = getelementptr inbounds %struct.anon.7, ptr %952, i32 0, i32 1
+  %954 = load ptr, ptr %953, align 8
+  %955 = getelementptr inbounds %struct.Exid_s, ptr %954, i32 0, i32 3
+  %956 = load i64, ptr %955, align 8
+  %957 = icmp ne i64 %956, 259
+  br i1 %957, label %958, label %959
 
-957:                                              ; preds = %332
-  %958 = load ptr, ptr %9, align 8
-  %959 = getelementptr inbounds %union.EX_STYPE, ptr %958, i64 -3
-  %960 = load ptr, ptr %959, align 8
-  %961 = getelementptr inbounds %struct.Exid_s, ptr %960, i32 0, i32 7
-  %962 = load ptr, ptr %961, align 8
-  %963 = icmp eq ptr %962, null
-  br i1 %963, label %964, label %970
+958:                                              ; preds = %950
+  call void (ptr, ...) @exerror(ptr noundef @.str.24)
+  br label %959
 
-964:                                              ; preds = %957
-  %965 = load ptr, ptr %9, align 8
-  %966 = getelementptr inbounds %union.EX_STYPE, ptr %965, i64 -3
+959:                                              ; preds = %958, %950, %931
+  %960 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %961 = load ptr, ptr %960, align 8
+  %962 = load ptr, ptr %9, align 8
+  %963 = getelementptr inbounds %union.EX_STYPE, ptr %962, i64 -2
+  %964 = load ptr, ptr %963, align 8
+  %965 = getelementptr inbounds %struct.Exnode_s, ptr %964, i32 0, i32 5
+  %966 = getelementptr inbounds %struct.anon.5, ptr %965, i32 0, i32 2
   %967 = load ptr, ptr %966, align 8
-  %968 = getelementptr inbounds %struct.Exid_s, ptr %967, i32 0, i32 9
-  %969 = getelementptr inbounds [32 x i8], ptr %968, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.25, ptr noundef %969)
-  br label %970
+  call void @exfreenode(ptr noundef %961, ptr noundef %967)
+  %968 = load ptr, ptr %9, align 8
+  %969 = getelementptr inbounds %union.EX_STYPE, ptr %968, i64 -2
+  %970 = load ptr, ptr %969, align 8
+  %971 = getelementptr inbounds %struct.Exnode_s, ptr %970, i32 0, i32 5
+  %972 = getelementptr inbounds %struct.anon.5, ptr %971, i32 0, i32 2
+  store ptr null, ptr %972, align 8
+  %973 = load ptr, ptr %9, align 8
+  %974 = getelementptr inbounds %union.EX_STYPE, ptr %973, i64 0
+  %975 = load ptr, ptr %974, align 8
+  %976 = load ptr, ptr %13, align 8
+  %977 = getelementptr inbounds %struct.Exnode_s, ptr %976, i32 0, i32 5
+  %978 = getelementptr inbounds %struct.anon.7, ptr %977, i32 0, i32 2
+  store ptr %975, ptr %978, align 8
+  br label %3989
 
-970:                                              ; preds = %964, %957
-  %971 = load ptr, ptr %9, align 8
-  %972 = getelementptr inbounds %union.EX_STYPE, ptr %971, i64 -3
-  %973 = load ptr, ptr %972, align 8
-  %974 = getelementptr inbounds %struct.Exid_s, ptr %973, i32 0, i32 4
-  %975 = load i64, ptr %974, align 8
-  %976 = icmp sgt i64 %975, 0
-  br i1 %976, label %977, label %1011
+979:                                              ; preds = %333
+  %980 = load ptr, ptr %9, align 8
+  %981 = getelementptr inbounds %union.EX_STYPE, ptr %980, i64 -1
+  %982 = load ptr, ptr %981, align 8
+  %983 = getelementptr inbounds %struct.Exid_s, ptr %982, i32 0, i32 7
+  %984 = load ptr, ptr %983, align 8
+  %985 = icmp eq ptr %984, null
+  br i1 %985, label %986, label %992
 
-977:                                              ; preds = %970
-  %978 = load ptr, ptr %9, align 8
-  %979 = getelementptr inbounds %union.EX_STYPE, ptr %978, i64 -1
-  %980 = load ptr, ptr %979, align 8
-  %981 = getelementptr inbounds %struct.Exnode_s, ptr %980, i32 0, i32 0
-  %982 = load i32, ptr %981, align 8
-  %983 = sext i32 %982 to i64
-  %984 = load ptr, ptr %9, align 8
-  %985 = getelementptr inbounds %union.EX_STYPE, ptr %984, i64 -3
-  %986 = load ptr, ptr %985, align 8
-  %987 = getelementptr inbounds %struct.Exid_s, ptr %986, i32 0, i32 4
-  %988 = load i64, ptr %987, align 8
-  %989 = icmp ne i64 %983, %988
-  br i1 %989, label %990, label %1011
+986:                                              ; preds = %979
+  %987 = load ptr, ptr %9, align 8
+  %988 = getelementptr inbounds %union.EX_STYPE, ptr %987, i64 -1
+  %989 = load ptr, ptr %988, align 8
+  %990 = getelementptr inbounds %struct.Exid_s, ptr %989, i32 0, i32 9
+  %991 = getelementptr inbounds [32 x i8], ptr %990, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.25, ptr noundef %991)
+  br label %992
 
-990:                                              ; preds = %977
-  %991 = load ptr, ptr %9, align 8
-  %992 = getelementptr inbounds %union.EX_STYPE, ptr %991, i64 -3
-  %993 = load ptr, ptr %992, align 8
-  %994 = getelementptr inbounds %struct.Exid_s, ptr %993, i32 0, i32 9
-  %995 = getelementptr inbounds [32 x i8], ptr %994, i64 0, i64 0
-  %996 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %997 = load ptr, ptr %9, align 8
-  %998 = getelementptr inbounds %union.EX_STYPE, ptr %997, i64 -3
-  %999 = load ptr, ptr %998, align 8
-  %1000 = getelementptr inbounds %struct.Exid_s, ptr %999, i32 0, i32 4
-  %1001 = load i64, ptr %1000, align 8
-  %1002 = trunc i64 %1001 to i32
-  %1003 = call ptr @extypename(ptr noundef %996, i32 noundef %1002)
-  %1004 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1005 = load ptr, ptr %9, align 8
-  %1006 = getelementptr inbounds %union.EX_STYPE, ptr %1005, i64 -1
-  %1007 = load ptr, ptr %1006, align 8
-  %1008 = getelementptr inbounds %struct.Exnode_s, ptr %1007, i32 0, i32 0
-  %1009 = load i32, ptr %1008, align 8
-  %1010 = call ptr @extypename(ptr noundef %1004, i32 noundef %1009)
-  call void (ptr, ...) @exerror(ptr noundef @.str.26, ptr noundef %995, ptr noundef %1003, ptr noundef %1010)
-  br label %1011
+992:                                              ; preds = %986, %979
+  %993 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %994 = load ptr, ptr %993, align 8
+  %995 = call ptr @exnewnode(ptr noundef %994, i32 noundef 306, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
+  store ptr %995, ptr %13, align 8
+  %996 = load ptr, ptr %9, align 8
+  %997 = getelementptr inbounds %union.EX_STYPE, ptr %996, i64 -1
+  %998 = load ptr, ptr %997, align 8
+  %999 = load ptr, ptr %13, align 8
+  %1000 = getelementptr inbounds %struct.Exnode_s, ptr %999, i32 0, i32 5
+  %1001 = getelementptr inbounds %struct.anon.5, ptr %1000, i32 0, i32 0
+  store ptr %998, ptr %1001, align 8
+  %1002 = load ptr, ptr %13, align 8
+  %1003 = getelementptr inbounds %struct.Exnode_s, ptr %1002, i32 0, i32 5
+  %1004 = getelementptr inbounds %struct.anon.5, ptr %1003, i32 0, i32 2
+  store ptr null, ptr %1004, align 8
+  br label %3989
 
-1011:                                             ; preds = %990, %977, %970
-  %1012 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1013 = call ptr @exnewnode(ptr noundef %1012, i32 noundef 306, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
-  store ptr %1013, ptr %13, align 8
-  %1014 = load ptr, ptr %9, align 8
-  %1015 = getelementptr inbounds %union.EX_STYPE, ptr %1014, i64 -3
-  %1016 = load ptr, ptr %1015, align 8
-  %1017 = load ptr, ptr %13, align 8
-  %1018 = getelementptr inbounds %struct.Exnode_s, ptr %1017, i32 0, i32 5
-  %1019 = getelementptr inbounds %struct.anon.5, ptr %1018, i32 0, i32 0
-  store ptr %1016, ptr %1019, align 8
-  %1020 = load ptr, ptr %9, align 8
-  %1021 = getelementptr inbounds %union.EX_STYPE, ptr %1020, i64 -1
-  %1022 = load ptr, ptr %1021, align 8
-  %1023 = load ptr, ptr %13, align 8
-  %1024 = getelementptr inbounds %struct.Exnode_s, ptr %1023, i32 0, i32 5
-  %1025 = getelementptr inbounds %struct.anon.5, ptr %1024, i32 0, i32 2
-  store ptr %1022, ptr %1025, align 8
-  br label %3766
+1005:                                             ; preds = %333
+  %1006 = load ptr, ptr %9, align 8
+  %1007 = getelementptr inbounds %union.EX_STYPE, ptr %1006, i64 -3
+  %1008 = load ptr, ptr %1007, align 8
+  %1009 = getelementptr inbounds %struct.Exid_s, ptr %1008, i32 0, i32 7
+  %1010 = load ptr, ptr %1009, align 8
+  %1011 = icmp eq ptr %1010, null
+  br i1 %1011, label %1012, label %1018
 
-1026:                                             ; preds = %332
-  %1027 = load ptr, ptr %9, align 8
-  %1028 = getelementptr inbounds %union.EX_STYPE, ptr %1027, i64 -2
-  %1029 = load ptr, ptr %1028, align 8
-  %1030 = call i32 @exisAssign(ptr noundef %1029)
-  %1031 = icmp ne i32 %1030, 0
-  br i1 %1031, label %1032, label %1033
+1012:                                             ; preds = %1005
+  %1013 = load ptr, ptr %9, align 8
+  %1014 = getelementptr inbounds %union.EX_STYPE, ptr %1013, i64 -3
+  %1015 = load ptr, ptr %1014, align 8
+  %1016 = getelementptr inbounds %struct.Exid_s, ptr %1015, i32 0, i32 9
+  %1017 = getelementptr inbounds [32 x i8], ptr %1016, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.25, ptr noundef %1017)
+  br label %1018
 
-1032:                                             ; preds = %1026
-  call void (ptr, ...) @exwarn(ptr noundef @.str.27)
-  br label %1033
+1018:                                             ; preds = %1012, %1005
+  %1019 = load ptr, ptr %9, align 8
+  %1020 = getelementptr inbounds %union.EX_STYPE, ptr %1019, i64 -3
+  %1021 = load ptr, ptr %1020, align 8
+  %1022 = getelementptr inbounds %struct.Exid_s, ptr %1021, i32 0, i32 4
+  %1023 = load i64, ptr %1022, align 8
+  %1024 = icmp sgt i64 %1023, 0
+  br i1 %1024, label %1025, label %1061
 
-1033:                                             ; preds = %1032, %1026
-  %1034 = load ptr, ptr %9, align 8
-  %1035 = getelementptr inbounds %union.EX_STYPE, ptr %1034, i64 -2
-  %1036 = load ptr, ptr %1035, align 8
-  %1037 = getelementptr inbounds %struct.Exnode_s, ptr %1036, i32 0, i32 0
-  %1038 = load i32, ptr %1037, align 8
-  %1039 = icmp eq i32 %1038, 263
-  br i1 %1039, label %1040, label %1048
+1025:                                             ; preds = %1018
+  %1026 = load ptr, ptr %9, align 8
+  %1027 = getelementptr inbounds %union.EX_STYPE, ptr %1026, i64 -1
+  %1028 = load ptr, ptr %1027, align 8
+  %1029 = getelementptr inbounds %struct.Exnode_s, ptr %1028, i32 0, i32 0
+  %1030 = load i32, ptr %1029, align 8
+  %1031 = sext i32 %1030 to i64
+  %1032 = load ptr, ptr %9, align 8
+  %1033 = getelementptr inbounds %union.EX_STYPE, ptr %1032, i64 -3
+  %1034 = load ptr, ptr %1033, align 8
+  %1035 = getelementptr inbounds %struct.Exid_s, ptr %1034, i32 0, i32 4
+  %1036 = load i64, ptr %1035, align 8
+  %1037 = icmp ne i64 %1031, %1036
+  br i1 %1037, label %1038, label %1061
 
-1040:                                             ; preds = %1033
-  %1041 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1042 = load ptr, ptr %9, align 8
-  %1043 = getelementptr inbounds %union.EX_STYPE, ptr %1042, i64 -2
-  %1044 = load ptr, ptr %1043, align 8
-  %1045 = call ptr @exnewnode(ptr noundef %1041, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %1044, ptr noundef null)
+1038:                                             ; preds = %1025
+  %1039 = load ptr, ptr %9, align 8
+  %1040 = getelementptr inbounds %union.EX_STYPE, ptr %1039, i64 -3
+  %1041 = load ptr, ptr %1040, align 8
+  %1042 = getelementptr inbounds %struct.Exid_s, ptr %1041, i32 0, i32 9
+  %1043 = getelementptr inbounds [32 x i8], ptr %1042, i64 0, i64 0
+  %1044 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1045 = load ptr, ptr %1044, align 8
   %1046 = load ptr, ptr %9, align 8
-  %1047 = getelementptr inbounds %union.EX_STYPE, ptr %1046, i64 -2
-  store ptr %1045, ptr %1047, align 8
-  br label %1071
+  %1047 = getelementptr inbounds %union.EX_STYPE, ptr %1046, i64 -3
+  %1048 = load ptr, ptr %1047, align 8
+  %1049 = getelementptr inbounds %struct.Exid_s, ptr %1048, i32 0, i32 4
+  %1050 = load i64, ptr %1049, align 8
+  %1051 = trunc i64 %1050 to i32
+  %1052 = call ptr @extypename(ptr noundef %1045, i32 noundef %1051)
+  %1053 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1054 = load ptr, ptr %1053, align 8
+  %1055 = load ptr, ptr %9, align 8
+  %1056 = getelementptr inbounds %union.EX_STYPE, ptr %1055, i64 -1
+  %1057 = load ptr, ptr %1056, align 8
+  %1058 = getelementptr inbounds %struct.Exnode_s, ptr %1057, i32 0, i32 0
+  %1059 = load i32, ptr %1058, align 8
+  %1060 = call ptr @extypename(ptr noundef %1054, i32 noundef %1059)
+  call void (ptr, ...) @exerror(ptr noundef @.str.26, ptr noundef %1043, ptr noundef %1052, ptr noundef %1060)
+  br label %1061
 
-1048:                                             ; preds = %1033
-  %1049 = load ptr, ptr %9, align 8
-  %1050 = getelementptr inbounds %union.EX_STYPE, ptr %1049, i64 -2
-  %1051 = load ptr, ptr %1050, align 8
-  %1052 = getelementptr inbounds %struct.Exnode_s, ptr %1051, i32 0, i32 0
-  %1053 = load i32, ptr %1052, align 8
-  %1054 = icmp sge i32 %1053, 259
-  br i1 %1054, label %1055, label %1062
+1061:                                             ; preds = %1038, %1025, %1018
+  %1062 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1063 = load ptr, ptr %1062, align 8
+  %1064 = call ptr @exnewnode(ptr noundef %1063, i32 noundef 306, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
+  store ptr %1064, ptr %13, align 8
+  %1065 = load ptr, ptr %9, align 8
+  %1066 = getelementptr inbounds %union.EX_STYPE, ptr %1065, i64 -3
+  %1067 = load ptr, ptr %1066, align 8
+  %1068 = load ptr, ptr %13, align 8
+  %1069 = getelementptr inbounds %struct.Exnode_s, ptr %1068, i32 0, i32 5
+  %1070 = getelementptr inbounds %struct.anon.5, ptr %1069, i32 0, i32 0
+  store ptr %1067, ptr %1070, align 8
+  %1071 = load ptr, ptr %9, align 8
+  %1072 = getelementptr inbounds %union.EX_STYPE, ptr %1071, i64 -1
+  %1073 = load ptr, ptr %1072, align 8
+  %1074 = load ptr, ptr %13, align 8
+  %1075 = getelementptr inbounds %struct.Exnode_s, ptr %1074, i32 0, i32 5
+  %1076 = getelementptr inbounds %struct.anon.5, ptr %1075, i32 0, i32 2
+  store ptr %1073, ptr %1076, align 8
+  br label %3989
 
-1055:                                             ; preds = %1048
-  %1056 = load ptr, ptr %9, align 8
-  %1057 = getelementptr inbounds %union.EX_STYPE, ptr %1056, i64 -2
-  %1058 = load ptr, ptr %1057, align 8
-  %1059 = getelementptr inbounds %struct.Exnode_s, ptr %1058, i32 0, i32 0
-  %1060 = load i32, ptr %1059, align 8
-  %1061 = icmp sle i32 %1060, 261
-  br i1 %1061, label %1070, label %1062
+1077:                                             ; preds = %333
+  %1078 = load ptr, ptr %9, align 8
+  %1079 = getelementptr inbounds %union.EX_STYPE, ptr %1078, i64 -2
+  %1080 = load ptr, ptr %1079, align 8
+  %1081 = call i32 @exisAssign(ptr noundef %1080)
+  %1082 = icmp ne i32 %1081, 0
+  br i1 %1082, label %1083, label %1084
 
-1062:                                             ; preds = %1055, %1048
-  %1063 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1064 = load ptr, ptr %9, align 8
-  %1065 = getelementptr inbounds %union.EX_STYPE, ptr %1064, i64 -2
-  %1066 = load ptr, ptr %1065, align 8
-  %1067 = call ptr @excast(ptr noundef %1063, ptr noundef %1066, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  %1068 = load ptr, ptr %9, align 8
-  %1069 = getelementptr inbounds %union.EX_STYPE, ptr %1068, i64 -2
-  store ptr %1067, ptr %1069, align 8
-  br label %1070
+1083:                                             ; preds = %1077
+  call void (ptr, ...) @exwarn(ptr noundef @.str.27)
+  br label %1084
 
-1070:                                             ; preds = %1062, %1055
-  br label %1071
+1084:                                             ; preds = %1083, %1077
+  %1085 = load ptr, ptr %9, align 8
+  %1086 = getelementptr inbounds %union.EX_STYPE, ptr %1085, i64 -2
+  %1087 = load ptr, ptr %1086, align 8
+  %1088 = getelementptr inbounds %struct.Exnode_s, ptr %1087, i32 0, i32 0
+  %1089 = load i32, ptr %1088, align 8
+  %1090 = icmp eq i32 %1089, 263
+  br i1 %1090, label %1091, label %1100
 
-1071:                                             ; preds = %1070, %1040
-  %1072 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1073 = load ptr, ptr %9, align 8
-  %1074 = getelementptr inbounds %union.EX_STYPE, ptr %1073, i64 -4
-  %1075 = load ptr, ptr %1074, align 8
-  %1076 = getelementptr inbounds %struct.Exid_s, ptr %1075, i32 0, i32 2
-  %1077 = load i64, ptr %1076, align 8
-  %1078 = trunc i64 %1077 to i32
-  %1079 = load ptr, ptr %9, align 8
-  %1080 = getelementptr inbounds %union.EX_STYPE, ptr %1079, i64 -2
-  %1081 = load ptr, ptr %1080, align 8
-  %1082 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1083 = load ptr, ptr %9, align 8
-  %1084 = getelementptr inbounds %union.EX_STYPE, ptr %1083, i64 0
-  %1085 = load ptr, ptr %1084, align 8
-  %1086 = call ptr @exnewnode(ptr noundef %1082, i32 noundef 59, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef %1085)
-  %1087 = call ptr @exnewnode(ptr noundef %1072, i32 noundef %1078, i32 noundef 1, i32 noundef 259, ptr noundef %1081, ptr noundef %1086)
-  store ptr %1087, ptr %13, align 8
-  br label %3766
+1091:                                             ; preds = %1084
+  %1092 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1093 = load ptr, ptr %1092, align 8
+  %1094 = load ptr, ptr %9, align 8
+  %1095 = getelementptr inbounds %union.EX_STYPE, ptr %1094, i64 -2
+  %1096 = load ptr, ptr %1095, align 8
+  %1097 = call ptr @exnewnode(ptr noundef %1093, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %1096, ptr noundef null)
+  %1098 = load ptr, ptr %9, align 8
+  %1099 = getelementptr inbounds %union.EX_STYPE, ptr %1098, i64 -2
+  store ptr %1097, ptr %1099, align 8
+  br label %1124
 
-1088:                                             ; preds = %332
-  %1089 = load ptr, ptr %9, align 8
-  %1090 = getelementptr inbounds %union.EX_STYPE, ptr %1089, i64 0
-  %1091 = load ptr, ptr %1090, align 8
-  %1092 = getelementptr inbounds %struct.Exnode_s, ptr %1091, i32 0, i32 0
-  %1093 = load i32, ptr %1092, align 8
-  store i32 %1093, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 1), align 8
-  br label %3766
+1100:                                             ; preds = %1084
+  %1101 = load ptr, ptr %9, align 8
+  %1102 = getelementptr inbounds %union.EX_STYPE, ptr %1101, i64 -2
+  %1103 = load ptr, ptr %1102, align 8
+  %1104 = getelementptr inbounds %struct.Exnode_s, ptr %1103, i32 0, i32 0
+  %1105 = load i32, ptr %1104, align 8
+  %1106 = icmp sge i32 %1105, 259
+  br i1 %1106, label %1107, label %1114
 
-1094:                                             ; preds = %332
-  %1095 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  store ptr %1095, ptr %23, align 8
-  %1096 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1097 = load ptr, ptr %9, align 8
-  %1098 = getelementptr inbounds %union.EX_STYPE, ptr %1097, i64 -7
-  %1099 = load ptr, ptr %1098, align 8
-  %1100 = getelementptr inbounds %struct.Exid_s, ptr %1099, i32 0, i32 2
-  %1101 = load i64, ptr %1100, align 8
-  %1102 = trunc i64 %1101 to i32
-  %1103 = load ptr, ptr %9, align 8
-  %1104 = getelementptr inbounds %union.EX_STYPE, ptr %1103, i64 -5
-  %1105 = load ptr, ptr %1104, align 8
-  %1106 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1107 = load ptr, ptr %23, align 8
-  %1108 = getelementptr inbounds %struct.Switch_s, ptr %1107, i32 0, i32 3
-  %1109 = load ptr, ptr %1108, align 8
-  %1110 = load ptr, ptr %23, align 8
-  %1111 = getelementptr inbounds %struct.Switch_s, ptr %1110, i32 0, i32 1
-  %1112 = load ptr, ptr %1111, align 8
-  %1113 = call ptr @exnewnode(ptr noundef %1106, i32 noundef 274, i32 noundef 1, i32 noundef 0, ptr noundef %1109, ptr noundef %1112)
-  %1114 = call ptr @exnewnode(ptr noundef %1096, i32 noundef %1102, i32 noundef 1, i32 noundef 259, ptr noundef %1105, ptr noundef %1113)
-  store ptr %1114, ptr %13, align 8
-  %1115 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1116 = getelementptr inbounds %struct.Switch_s, ptr %1115, i32 0, i32 0
-  %1117 = load ptr, ptr %1116, align 8
-  store ptr %1117, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1118 = load ptr, ptr %23, align 8
-  %1119 = getelementptr inbounds %struct.Switch_s, ptr %1118, i32 0, i32 4
-  %1120 = load ptr, ptr %1119, align 8
-  call void @free(ptr noundef %1120) #12
-  %1121 = load ptr, ptr %23, align 8
-  %1122 = icmp ne ptr %1121, @swstate
-  br i1 %1122, label %1123, label %1125
+1107:                                             ; preds = %1100
+  %1108 = load ptr, ptr %9, align 8
+  %1109 = getelementptr inbounds %union.EX_STYPE, ptr %1108, i64 -2
+  %1110 = load ptr, ptr %1109, align 8
+  %1111 = getelementptr inbounds %struct.Exnode_s, ptr %1110, i32 0, i32 0
+  %1112 = load i32, ptr %1111, align 8
+  %1113 = icmp sle i32 %1112, 261
+  br i1 %1113, label %1123, label %1114
 
-1123:                                             ; preds = %1094
-  %1124 = load ptr, ptr %23, align 8
-  call void @free(ptr noundef %1124) #12
-  br label %1125
+1114:                                             ; preds = %1107, %1100
+  %1115 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1116 = load ptr, ptr %1115, align 8
+  %1117 = load ptr, ptr %9, align 8
+  %1118 = getelementptr inbounds %union.EX_STYPE, ptr %1117, i64 -2
+  %1119 = load ptr, ptr %1118, align 8
+  %1120 = call ptr @excast(ptr noundef %1116, ptr noundef %1119, i32 noundef 259, ptr noundef null, i32 noundef 0)
+  %1121 = load ptr, ptr %9, align 8
+  %1122 = getelementptr inbounds %union.EX_STYPE, ptr %1121, i64 -2
+  store ptr %1120, ptr %1122, align 8
+  br label %1123
 
-1125:                                             ; preds = %1123, %1094
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 1), align 8
-  br label %3766
+1123:                                             ; preds = %1114, %1107
+  br label %1124
 
-1126:                                             ; preds = %332
-  br label %1127
+1124:                                             ; preds = %1123, %1091
+  %1125 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1126 = load ptr, ptr %1125, align 8
+  %1127 = load ptr, ptr %9, align 8
+  %1128 = getelementptr inbounds %union.EX_STYPE, ptr %1127, i64 -4
+  %1129 = load ptr, ptr %1128, align 8
+  %1130 = getelementptr inbounds %struct.Exid_s, ptr %1129, i32 0, i32 2
+  %1131 = load i64, ptr %1130, align 8
+  %1132 = trunc i64 %1131 to i32
+  %1133 = load ptr, ptr %9, align 8
+  %1134 = getelementptr inbounds %union.EX_STYPE, ptr %1133, i64 -2
+  %1135 = load ptr, ptr %1134, align 8
+  %1136 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1137 = load ptr, ptr %1136, align 8
+  %1138 = load ptr, ptr %9, align 8
+  %1139 = getelementptr inbounds %union.EX_STYPE, ptr %1138, i64 0
+  %1140 = load ptr, ptr %1139, align 8
+  %1141 = call ptr @exnewnode(ptr noundef %1137, i32 noundef 59, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef %1140)
+  %1142 = call ptr @exnewnode(ptr noundef %1126, i32 noundef %1132, i32 noundef 1, i32 noundef 259, ptr noundef %1135, ptr noundef %1141)
+  store ptr %1142, ptr %13, align 8
+  br label %3989
 
-1127:                                             ; preds = %1177, %1126
-  %1128 = load ptr, ptr %9, align 8
-  %1129 = getelementptr inbounds %union.EX_STYPE, ptr %1128, i64 -1
-  %1130 = load ptr, ptr %1129, align 8
-  %1131 = icmp ne ptr %1130, null
-  br i1 %1131, label %1142, label %1132
+1143:                                             ; preds = %333
+  %1144 = load ptr, ptr %9, align 8
+  %1145 = getelementptr inbounds %union.EX_STYPE, ptr %1144, i64 0
+  %1146 = load ptr, ptr %1145, align 8
+  %1147 = getelementptr inbounds %struct.Exnode_s, ptr %1146, i32 0, i32 0
+  %1148 = load i32, ptr %1147, align 8
+  %1149 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 1
+  store i32 %1148, ptr %1149, align 8
+  br label %3989
 
-1132:                                             ; preds = %1127
-  %1133 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1134 = call ptr @exnewnode(ptr noundef %1133, i32 noundef 271, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
-  %1135 = load ptr, ptr %9, align 8
-  %1136 = getelementptr inbounds %union.EX_STYPE, ptr %1135, i64 -1
-  store ptr %1134, ptr %1136, align 8
-  %1137 = load ptr, ptr %9, align 8
-  %1138 = getelementptr inbounds %union.EX_STYPE, ptr %1137, i64 -1
-  %1139 = load ptr, ptr %1138, align 8
-  %1140 = getelementptr inbounds %struct.Exnode_s, ptr %1139, i32 0, i32 5
-  %1141 = getelementptr inbounds %struct.anon.2, ptr %1140, i32 0, i32 0
-  store i64 1, ptr %1141, align 8
-  br label %1165
-
-1142:                                             ; preds = %1127
-  %1143 = load ptr, ptr %9, align 8
-  %1144 = getelementptr inbounds %union.EX_STYPE, ptr %1143, i64 -1
-  %1145 = load ptr, ptr %1144, align 8
-  %1146 = getelementptr inbounds %struct.Exnode_s, ptr %1145, i32 0, i32 0
-  %1147 = load i32, ptr %1146, align 8
-  %1148 = icmp sge i32 %1147, 259
-  br i1 %1148, label %1149, label %1156
-
-1149:                                             ; preds = %1142
-  %1150 = load ptr, ptr %9, align 8
-  %1151 = getelementptr inbounds %union.EX_STYPE, ptr %1150, i64 -1
+1150:                                             ; preds = %333
+  %1151 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
   %1152 = load ptr, ptr %1151, align 8
-  %1153 = getelementptr inbounds %struct.Exnode_s, ptr %1152, i32 0, i32 0
-  %1154 = load i32, ptr %1153, align 8
-  %1155 = icmp sle i32 %1154, 261
-  br i1 %1155, label %1164, label %1156
-
-1156:                                             ; preds = %1149, %1142
-  %1157 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1158 = load ptr, ptr %9, align 8
-  %1159 = getelementptr inbounds %union.EX_STYPE, ptr %1158, i64 -1
-  %1160 = load ptr, ptr %1159, align 8
-  %1161 = call ptr @excast(ptr noundef %1157, ptr noundef %1160, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  %1162 = load ptr, ptr %9, align 8
-  %1163 = getelementptr inbounds %union.EX_STYPE, ptr %1162, i64 -1
-  store ptr %1161, ptr %1163, align 8
-  br label %1164
-
-1164:                                             ; preds = %1156, %1149
-  br label %1165
-
-1165:                                             ; preds = %1164, %1132
-  %1166 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1167 = load ptr, ptr %9, align 8
-  %1168 = getelementptr inbounds %union.EX_STYPE, ptr %1167, i64 -2
-  %1169 = load ptr, ptr %1168, align 8
-  %1170 = getelementptr inbounds %struct.Exid_s, ptr %1169, i32 0, i32 2
-  %1171 = load i64, ptr %1170, align 8
-  %1172 = trunc i64 %1171 to i32
-  %1173 = load ptr, ptr %9, align 8
-  %1174 = getelementptr inbounds %union.EX_STYPE, ptr %1173, i64 -1
+  store ptr %1152, ptr %23, align 8
+  %1153 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1154 = load ptr, ptr %1153, align 8
+  %1155 = load ptr, ptr %9, align 8
+  %1156 = getelementptr inbounds %union.EX_STYPE, ptr %1155, i64 -7
+  %1157 = load ptr, ptr %1156, align 8
+  %1158 = getelementptr inbounds %struct.Exid_s, ptr %1157, i32 0, i32 2
+  %1159 = load i64, ptr %1158, align 8
+  %1160 = trunc i64 %1159 to i32
+  %1161 = load ptr, ptr %9, align 8
+  %1162 = getelementptr inbounds %union.EX_STYPE, ptr %1161, i64 -5
+  %1163 = load ptr, ptr %1162, align 8
+  %1164 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1165 = load ptr, ptr %1164, align 8
+  %1166 = load ptr, ptr %23, align 8
+  %1167 = getelementptr inbounds %struct.Switch_s, ptr %1166, i32 0, i32 3
+  %1168 = load ptr, ptr %1167, align 8
+  %1169 = load ptr, ptr %23, align 8
+  %1170 = getelementptr inbounds %struct.Switch_s, ptr %1169, i32 0, i32 1
+  %1171 = load ptr, ptr %1170, align 8
+  %1172 = call ptr @exnewnode(ptr noundef %1165, i32 noundef 274, i32 noundef 1, i32 noundef 0, ptr noundef %1168, ptr noundef %1171)
+  %1173 = call ptr @exnewnode(ptr noundef %1154, i32 noundef %1160, i32 noundef 1, i32 noundef 259, ptr noundef %1163, ptr noundef %1172)
+  store ptr %1173, ptr %13, align 8
+  %1174 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
   %1175 = load ptr, ptr %1174, align 8
-  %1176 = call ptr @exnewnode(ptr noundef %1166, i32 noundef %1172, i32 noundef 1, i32 noundef 259, ptr noundef %1175, ptr noundef null)
-  store ptr %1176, ptr %13, align 8
-  br label %3766
-
-1177:                                             ; preds = %332
-  br label %1127
-
-1178:                                             ; preds = %332
-  %1179 = load ptr, ptr %9, align 8
-  %1180 = getelementptr inbounds %union.EX_STYPE, ptr %1179, i64 -1
+  %1176 = getelementptr inbounds %struct.Switch_s, ptr %1175, i32 0, i32 0
+  %1177 = load ptr, ptr %1176, align 8
+  %1178 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  store ptr %1177, ptr %1178, align 8
+  %1179 = load ptr, ptr %23, align 8
+  %1180 = getelementptr inbounds %struct.Switch_s, ptr %1179, i32 0, i32 4
   %1181 = load ptr, ptr %1180, align 8
-  %1182 = icmp ne ptr %1181, null
-  br i1 %1182, label %1183, label %1209
+  call void @free(ptr noundef %1181) #12
+  %1182 = load ptr, ptr %23, align 8
+  %1183 = icmp ne ptr %1182, @swstate
+  br i1 %1183, label %1184, label %1186
 
-1183:                                             ; preds = %1178
-  %1184 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %1185 = icmp ne ptr %1184, null
-  br i1 %1185, label %1186, label %1192
+1184:                                             ; preds = %1150
+  %1185 = load ptr, ptr %23, align 8
+  call void @free(ptr noundef %1185) #12
+  br label %1186
 
-1186:                                             ; preds = %1183
-  %1187 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %1188 = getelementptr inbounds %struct.Exnode_s, ptr %1187, i32 0, i32 0
-  %1189 = load i32, ptr %1188, align 8
-  %1190 = icmp ne i32 %1189, 0
-  br i1 %1190, label %1192, label %1191
+1186:                                             ; preds = %1184, %1150
+  %1187 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 1
+  store i32 0, ptr %1187, align 8
+  br label %3989
 
-1191:                                             ; preds = %1186
-  call void (ptr, ...) @exerror(ptr noundef @.str.28)
-  br label %1192
+1188:                                             ; preds = %333
+  br label %1189
 
-1192:                                             ; preds = %1191, %1186, %1183
-  %1193 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1194 = load ptr, ptr %9, align 8
-  %1195 = getelementptr inbounds %union.EX_STYPE, ptr %1194, i64 -1
+1189:                                             ; preds = %1242, %1188
+  %1190 = load ptr, ptr %9, align 8
+  %1191 = getelementptr inbounds %union.EX_STYPE, ptr %1190, i64 -1
+  %1192 = load ptr, ptr %1191, align 8
+  %1193 = icmp ne ptr %1192, null
+  br i1 %1193, label %1205, label %1194
+
+1194:                                             ; preds = %1189
+  %1195 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %1196 = load ptr, ptr %1195, align 8
-  %1197 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %1198 = icmp ne ptr %1197, null
-  br i1 %1198, label %1199, label %1203
+  %1197 = call ptr @exnewnode(ptr noundef %1196, i32 noundef 271, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
+  %1198 = load ptr, ptr %9, align 8
+  %1199 = getelementptr inbounds %union.EX_STYPE, ptr %1198, i64 -1
+  store ptr %1197, ptr %1199, align 8
+  %1200 = load ptr, ptr %9, align 8
+  %1201 = getelementptr inbounds %union.EX_STYPE, ptr %1200, i64 -1
+  %1202 = load ptr, ptr %1201, align 8
+  %1203 = getelementptr inbounds %struct.Exnode_s, ptr %1202, i32 0, i32 5
+  %1204 = getelementptr inbounds %struct.anon.2, ptr %1203, i32 0, i32 0
+  store i64 1, ptr %1204, align 8
+  br label %1229
 
-1199:                                             ; preds = %1192
-  %1200 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %1201 = getelementptr inbounds %struct.Exnode_s, ptr %1200, i32 0, i32 0
-  %1202 = load i32, ptr %1201, align 8
-  br label %1204
+1205:                                             ; preds = %1189
+  %1206 = load ptr, ptr %9, align 8
+  %1207 = getelementptr inbounds %union.EX_STYPE, ptr %1206, i64 -1
+  %1208 = load ptr, ptr %1207, align 8
+  %1209 = getelementptr inbounds %struct.Exnode_s, ptr %1208, i32 0, i32 0
+  %1210 = load i32, ptr %1209, align 8
+  %1211 = icmp sge i32 %1210, 259
+  br i1 %1211, label %1212, label %1219
 
-1203:                                             ; preds = %1192
-  br label %1204
+1212:                                             ; preds = %1205
+  %1213 = load ptr, ptr %9, align 8
+  %1214 = getelementptr inbounds %union.EX_STYPE, ptr %1213, i64 -1
+  %1215 = load ptr, ptr %1214, align 8
+  %1216 = getelementptr inbounds %struct.Exnode_s, ptr %1215, i32 0, i32 0
+  %1217 = load i32, ptr %1216, align 8
+  %1218 = icmp sle i32 %1217, 261
+  br i1 %1218, label %1228, label %1219
 
-1204:                                             ; preds = %1203, %1199
-  %1205 = phi i32 [ %1202, %1199 ], [ 259, %1203 ]
-  %1206 = call ptr @excast(ptr noundef %1193, ptr noundef %1196, i32 noundef %1205, ptr noundef null, i32 noundef 0)
-  %1207 = load ptr, ptr %9, align 8
-  %1208 = getelementptr inbounds %union.EX_STYPE, ptr %1207, i64 -1
-  store ptr %1206, ptr %1208, align 8
-  br label %1209
+1219:                                             ; preds = %1212, %1205
+  %1220 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1221 = load ptr, ptr %1220, align 8
+  %1222 = load ptr, ptr %9, align 8
+  %1223 = getelementptr inbounds %union.EX_STYPE, ptr %1222, i64 -1
+  %1224 = load ptr, ptr %1223, align 8
+  %1225 = call ptr @excast(ptr noundef %1221, ptr noundef %1224, i32 noundef 259, ptr noundef null, i32 noundef 0)
+  %1226 = load ptr, ptr %9, align 8
+  %1227 = getelementptr inbounds %union.EX_STYPE, ptr %1226, i64 -1
+  store ptr %1225, ptr %1227, align 8
+  br label %1228
 
-1209:                                             ; preds = %1204, %1178
-  %1210 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1211 = load ptr, ptr %9, align 8
-  %1212 = getelementptr inbounds %union.EX_STYPE, ptr %1211, i64 -1
-  %1213 = load ptr, ptr %1212, align 8
-  %1214 = icmp ne ptr %1213, null
-  br i1 %1214, label %1215, label %1221
+1228:                                             ; preds = %1219, %1212
+  br label %1229
 
-1215:                                             ; preds = %1209
-  %1216 = load ptr, ptr %9, align 8
-  %1217 = getelementptr inbounds %union.EX_STYPE, ptr %1216, i64 -1
-  %1218 = load ptr, ptr %1217, align 8
-  %1219 = getelementptr inbounds %struct.Exnode_s, ptr %1218, i32 0, i32 0
-  %1220 = load i32, ptr %1219, align 8
-  br label %1222
+1229:                                             ; preds = %1228, %1194
+  %1230 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1231 = load ptr, ptr %1230, align 8
+  %1232 = load ptr, ptr %9, align 8
+  %1233 = getelementptr inbounds %union.EX_STYPE, ptr %1232, i64 -2
+  %1234 = load ptr, ptr %1233, align 8
+  %1235 = getelementptr inbounds %struct.Exid_s, ptr %1234, i32 0, i32 2
+  %1236 = load i64, ptr %1235, align 8
+  %1237 = trunc i64 %1236 to i32
+  %1238 = load ptr, ptr %9, align 8
+  %1239 = getelementptr inbounds %union.EX_STYPE, ptr %1238, i64 -1
+  %1240 = load ptr, ptr %1239, align 8
+  %1241 = call ptr @exnewnode(ptr noundef %1231, i32 noundef %1237, i32 noundef 1, i32 noundef 259, ptr noundef %1240, ptr noundef null)
+  store ptr %1241, ptr %13, align 8
+  br label %3989
 
-1221:                                             ; preds = %1209
-  br label %1222
+1242:                                             ; preds = %333
+  br label %1189
 
-1222:                                             ; preds = %1221, %1215
-  %1223 = phi i32 [ %1220, %1215 ], [ 0, %1221 ]
-  %1224 = load ptr, ptr %9, align 8
-  %1225 = getelementptr inbounds %union.EX_STYPE, ptr %1224, i64 -1
-  %1226 = load ptr, ptr %1225, align 8
-  %1227 = call ptr @exnewnode(ptr noundef %1210, i32 noundef 296, i32 noundef 1, i32 noundef %1223, ptr noundef %1226, ptr noundef null)
-  store ptr %1227, ptr %13, align 8
-  br label %3766
+1243:                                             ; preds = %333
+  %1244 = load ptr, ptr %9, align 8
+  %1245 = getelementptr inbounds %union.EX_STYPE, ptr %1244, i64 -1
+  %1246 = load ptr, ptr %1245, align 8
+  %1247 = icmp ne ptr %1246, null
+  br i1 %1247, label %1248, label %1279
 
-1228:                                             ; preds = %332
-  %1229 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1230 = icmp ne ptr %1229, null
-  br i1 %1230, label %1231, label %1240
+1248:                                             ; preds = %1243
+  %1249 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %1250 = load ptr, ptr %1249, align 8
+  %1251 = icmp ne ptr %1250, null
+  br i1 %1251, label %1252, label %1259
 
-1231:                                             ; preds = %1228
-  %1232 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 64) #13
-  store ptr %1232, ptr %24, align 8
-  %1233 = icmp ne ptr %1232, null
-  br i1 %1233, label %1236, label %1234
+1252:                                             ; preds = %1248
+  %1253 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %1254 = load ptr, ptr %1253, align 8
+  %1255 = getelementptr inbounds %struct.Exnode_s, ptr %1254, i32 0, i32 0
+  %1256 = load i32, ptr %1255, align 8
+  %1257 = icmp ne i32 %1256, 0
+  br i1 %1257, label %1259, label %1258
 
-1234:                                             ; preds = %1231
-  %1235 = call ptr @exnospace()
-  store ptr @swstate, ptr %24, align 8
-  br label %1236
+1258:                                             ; preds = %1252
+  call void (ptr, ...) @exerror(ptr noundef @.str.28)
+  br label %1259
 
-1236:                                             ; preds = %1234, %1231
-  %1237 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1238 = load ptr, ptr %24, align 8
-  %1239 = getelementptr inbounds %struct.Switch_s, ptr %1238, i32 0, i32 0
-  store ptr %1237, ptr %1239, align 8
-  br label %1241
-
-1240:                                             ; preds = %1228
-  store ptr @swstate, ptr %24, align 8
-  br label %1241
-
-1241:                                             ; preds = %1240, %1236
-  %1242 = load ptr, ptr %24, align 8
-  store ptr %1242, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1243 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 1), align 8
-  %1244 = load ptr, ptr %24, align 8
-  %1245 = getelementptr inbounds %struct.Switch_s, ptr %1244, i32 0, i32 8
-  store i32 %1243, ptr %1245, align 4
-  %1246 = load ptr, ptr %24, align 8
-  %1247 = getelementptr inbounds %struct.Switch_s, ptr %1246, i32 0, i32 1
-  store ptr null, ptr %1247, align 8
-  %1248 = load ptr, ptr %24, align 8
-  %1249 = getelementptr inbounds %struct.Switch_s, ptr %1248, i32 0, i32 2
-  store ptr null, ptr %1249, align 8
-  %1250 = load ptr, ptr %24, align 8
-  %1251 = getelementptr inbounds %struct.Switch_s, ptr %1250, i32 0, i32 3
-  store ptr null, ptr %1251, align 8
-  %1252 = load ptr, ptr %24, align 8
-  %1253 = getelementptr inbounds %struct.Switch_s, ptr %1252, i32 0, i32 7
-  store i32 0, ptr %1253, align 8
-  store i64 8, ptr %25, align 8
-  %1254 = load i64, ptr %25, align 8
-  %1255 = call noalias ptr @calloc(i64 noundef %1254, i64 noundef 8) #13
-  %1256 = load ptr, ptr %24, align 8
-  %1257 = getelementptr inbounds %struct.Switch_s, ptr %1256, i32 0, i32 4
-  store ptr %1255, ptr %1257, align 8
-  %1258 = icmp ne ptr %1255, null
-  br i1 %1258, label %1261, label %1259
-
-1259:                                             ; preds = %1241
-  %1260 = call ptr @exnospace()
-  store i64 0, ptr %25, align 8
-  br label %1261
-
-1261:                                             ; preds = %1259, %1241
-  %1262 = load ptr, ptr %24, align 8
-  %1263 = getelementptr inbounds %struct.Switch_s, ptr %1262, i32 0, i32 4
+1259:                                             ; preds = %1258, %1252, %1248
+  %1260 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1261 = load ptr, ptr %1260, align 8
+  %1262 = load ptr, ptr %9, align 8
+  %1263 = getelementptr inbounds %union.EX_STYPE, ptr %1262, i64 -1
   %1264 = load ptr, ptr %1263, align 8
-  %1265 = load ptr, ptr %24, align 8
-  %1266 = getelementptr inbounds %struct.Switch_s, ptr %1265, i32 0, i32 5
-  store ptr %1264, ptr %1266, align 8
-  %1267 = load ptr, ptr %24, align 8
-  %1268 = getelementptr inbounds %struct.Switch_s, ptr %1267, i32 0, i32 4
-  %1269 = load ptr, ptr %1268, align 8
-  %1270 = load i64, ptr %25, align 8
-  %1271 = getelementptr inbounds ptr, ptr %1269, i64 %1270
-  %1272 = load ptr, ptr %24, align 8
-  %1273 = getelementptr inbounds %struct.Switch_s, ptr %1272, i32 0, i32 6
-  store ptr %1271, ptr %1273, align 8
-  br label %3766
+  %1265 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %1266 = load ptr, ptr %1265, align 8
+  %1267 = icmp ne ptr %1266, null
+  br i1 %1267, label %1268, label %1273
 
-1274:                                             ; preds = %332
-  %1275 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  store ptr %1275, ptr %26, align 8
-  %1276 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+1268:                                             ; preds = %1259
+  %1269 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %1270 = load ptr, ptr %1269, align 8
+  %1271 = getelementptr inbounds %struct.Exnode_s, ptr %1270, i32 0, i32 0
+  %1272 = load i32, ptr %1271, align 8
+  br label %1274
+
+1273:                                             ; preds = %1259
+  br label %1274
+
+1274:                                             ; preds = %1273, %1268
+  %1275 = phi i32 [ %1272, %1268 ], [ 259, %1273 ]
+  %1276 = call ptr @excast(ptr noundef %1261, ptr noundef %1264, i32 noundef %1275, ptr noundef null, i32 noundef 0)
   %1277 = load ptr, ptr %9, align 8
-  %1278 = getelementptr inbounds %union.EX_STYPE, ptr %1277, i64 0
-  %1279 = load ptr, ptr %1278, align 8
-  %1280 = call ptr @exnewnode(ptr noundef %1276, i32 noundef 270, i32 noundef 1, i32 noundef 0, ptr noundef %1279, ptr noundef null)
-  store ptr %1280, ptr %13, align 8
-  %1281 = load ptr, ptr %26, align 8
-  %1282 = getelementptr inbounds %struct.Switch_s, ptr %1281, i32 0, i32 5
-  %1283 = load ptr, ptr %1282, align 8
-  %1284 = load ptr, ptr %26, align 8
-  %1285 = getelementptr inbounds %struct.Switch_s, ptr %1284, i32 0, i32 4
-  %1286 = load ptr, ptr %1285, align 8
-  %1287 = icmp ugt ptr %1283, %1286
-  br i1 %1287, label %1288, label %1348
+  %1278 = getelementptr inbounds %union.EX_STYPE, ptr %1277, i64 -1
+  store ptr %1276, ptr %1278, align 8
+  br label %1279
 
-1288:                                             ; preds = %1274
-  %1289 = load ptr, ptr %26, align 8
-  %1290 = getelementptr inbounds %struct.Switch_s, ptr %1289, i32 0, i32 2
-  %1291 = load ptr, ptr %1290, align 8
-  %1292 = icmp ne ptr %1291, null
-  br i1 %1292, label %1293, label %1300
+1279:                                             ; preds = %1274, %1243
+  %1280 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1281 = load ptr, ptr %1280, align 8
+  %1282 = load ptr, ptr %9, align 8
+  %1283 = getelementptr inbounds %union.EX_STYPE, ptr %1282, i64 -1
+  %1284 = load ptr, ptr %1283, align 8
+  %1285 = icmp ne ptr %1284, null
+  br i1 %1285, label %1286, label %1292
 
-1293:                                             ; preds = %1288
-  %1294 = load ptr, ptr %13, align 8
-  %1295 = load ptr, ptr %26, align 8
-  %1296 = getelementptr inbounds %struct.Switch_s, ptr %1295, i32 0, i32 2
+1286:                                             ; preds = %1279
+  %1287 = load ptr, ptr %9, align 8
+  %1288 = getelementptr inbounds %union.EX_STYPE, ptr %1287, i64 -1
+  %1289 = load ptr, ptr %1288, align 8
+  %1290 = getelementptr inbounds %struct.Exnode_s, ptr %1289, i32 0, i32 0
+  %1291 = load i32, ptr %1290, align 8
+  br label %1293
+
+1292:                                             ; preds = %1279
+  br label %1293
+
+1293:                                             ; preds = %1292, %1286
+  %1294 = phi i32 [ %1291, %1286 ], [ 0, %1292 ]
+  %1295 = load ptr, ptr %9, align 8
+  %1296 = getelementptr inbounds %union.EX_STYPE, ptr %1295, i64 -1
   %1297 = load ptr, ptr %1296, align 8
-  %1298 = getelementptr inbounds %struct.Exnode_s, ptr %1297, i32 0, i32 5
-  %1299 = getelementptr inbounds %struct.anon.4, ptr %1298, i32 0, i32 1
-  store ptr %1294, ptr %1299, align 8
-  br label %1304
+  %1298 = call ptr @exnewnode(ptr noundef %1281, i32 noundef 296, i32 noundef 1, i32 noundef %1294, ptr noundef %1297, ptr noundef null)
+  store ptr %1298, ptr %13, align 8
+  br label %3989
 
-1300:                                             ; preds = %1288
-  %1301 = load ptr, ptr %13, align 8
-  %1302 = load ptr, ptr %26, align 8
-  %1303 = getelementptr inbounds %struct.Switch_s, ptr %1302, i32 0, i32 1
-  store ptr %1301, ptr %1303, align 8
-  br label %1304
+1299:                                             ; preds = %333
+  %1300 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1301 = load ptr, ptr %1300, align 8
+  %1302 = icmp ne ptr %1301, null
+  br i1 %1302, label %1303, label %1313
 
-1304:                                             ; preds = %1300, %1293
-  %1305 = load ptr, ptr %13, align 8
-  %1306 = load ptr, ptr %26, align 8
-  %1307 = getelementptr inbounds %struct.Switch_s, ptr %1306, i32 0, i32 2
-  store ptr %1305, ptr %1307, align 8
-  %1308 = load ptr, ptr %26, align 8
-  %1309 = getelementptr inbounds %struct.Switch_s, ptr %1308, i32 0, i32 5
+1303:                                             ; preds = %1299
+  %1304 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 64) #13
+  store ptr %1304, ptr %24, align 8
+  %1305 = icmp ne ptr %1304, null
+  br i1 %1305, label %1308, label %1306
+
+1306:                                             ; preds = %1303
+  %1307 = call ptr @exnospace()
+  store ptr @swstate, ptr %24, align 8
+  br label %1308
+
+1308:                                             ; preds = %1306, %1303
+  %1309 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
   %1310 = load ptr, ptr %1309, align 8
-  %1311 = load ptr, ptr %26, align 8
-  %1312 = getelementptr inbounds %struct.Switch_s, ptr %1311, i32 0, i32 4
-  %1313 = load ptr, ptr %1312, align 8
-  %1314 = ptrtoint ptr %1310 to i64
-  %1315 = ptrtoint ptr %1313 to i64
-  %1316 = sub i64 %1314, %1315
-  %1317 = sdiv exact i64 %1316, 8
-  store i64 %1317, ptr %27, align 8
-  %1318 = load ptr, ptr %26, align 8
-  %1319 = getelementptr inbounds %struct.Switch_s, ptr %1318, i32 0, i32 4
-  %1320 = load ptr, ptr %1319, align 8
-  %1321 = load ptr, ptr %26, align 8
-  %1322 = getelementptr inbounds %struct.Switch_s, ptr %1321, i32 0, i32 5
-  store ptr %1320, ptr %1322, align 8
-  %1323 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1324 = getelementptr inbounds %struct.Expr_s, ptr %1323, i32 0, i32 3
-  %1325 = load ptr, ptr %1324, align 8
-  %1326 = load i64, ptr %27, align 8
-  %1327 = add i64 %1326, 1
-  %1328 = mul i64 %1327, 8
-  %1329 = call ptr @vmalloc(ptr noundef %1325, i64 noundef %1328)
-  %1330 = load ptr, ptr %13, align 8
-  %1331 = getelementptr inbounds %struct.Exnode_s, ptr %1330, i32 0, i32 5
-  %1332 = getelementptr inbounds %struct.anon.4, ptr %1331, i32 0, i32 2
-  store ptr %1329, ptr %1332, align 8
-  %1333 = load ptr, ptr %13, align 8
-  %1334 = getelementptr inbounds %struct.Exnode_s, ptr %1333, i32 0, i32 5
-  %1335 = getelementptr inbounds %struct.anon.4, ptr %1334, i32 0, i32 2
-  %1336 = load ptr, ptr %1335, align 8
-  %1337 = load ptr, ptr %26, align 8
+  %1311 = load ptr, ptr %24, align 8
+  %1312 = getelementptr inbounds %struct.Switch_s, ptr %1311, i32 0, i32 0
+  store ptr %1310, ptr %1312, align 8
+  br label %1314
+
+1313:                                             ; preds = %1299
+  store ptr @swstate, ptr %24, align 8
+  br label %1314
+
+1314:                                             ; preds = %1313, %1308
+  %1315 = load ptr, ptr %24, align 8
+  %1316 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  store ptr %1315, ptr %1316, align 8
+  %1317 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 1
+  %1318 = load i32, ptr %1317, align 8
+  %1319 = load ptr, ptr %24, align 8
+  %1320 = getelementptr inbounds %struct.Switch_s, ptr %1319, i32 0, i32 8
+  store i32 %1318, ptr %1320, align 4
+  %1321 = load ptr, ptr %24, align 8
+  %1322 = getelementptr inbounds %struct.Switch_s, ptr %1321, i32 0, i32 1
+  store ptr null, ptr %1322, align 8
+  %1323 = load ptr, ptr %24, align 8
+  %1324 = getelementptr inbounds %struct.Switch_s, ptr %1323, i32 0, i32 2
+  store ptr null, ptr %1324, align 8
+  %1325 = load ptr, ptr %24, align 8
+  %1326 = getelementptr inbounds %struct.Switch_s, ptr %1325, i32 0, i32 3
+  store ptr null, ptr %1326, align 8
+  %1327 = load ptr, ptr %24, align 8
+  %1328 = getelementptr inbounds %struct.Switch_s, ptr %1327, i32 0, i32 7
+  store i32 0, ptr %1328, align 8
+  store i64 8, ptr %25, align 8
+  %1329 = load i64, ptr %25, align 8
+  %1330 = call noalias ptr @calloc(i64 noundef %1329, i64 noundef 8) #13
+  %1331 = load ptr, ptr %24, align 8
+  %1332 = getelementptr inbounds %struct.Switch_s, ptr %1331, i32 0, i32 4
+  store ptr %1330, ptr %1332, align 8
+  %1333 = icmp ne ptr %1330, null
+  br i1 %1333, label %1336, label %1334
+
+1334:                                             ; preds = %1314
+  %1335 = call ptr @exnospace()
+  store i64 0, ptr %25, align 8
+  br label %1336
+
+1336:                                             ; preds = %1334, %1314
+  %1337 = load ptr, ptr %24, align 8
   %1338 = getelementptr inbounds %struct.Switch_s, ptr %1337, i32 0, i32 4
   %1339 = load ptr, ptr %1338, align 8
-  %1340 = load i64, ptr %27, align 8
-  %1341 = mul i64 %1340, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1336, ptr align 8 %1339, i64 %1341, i1 false)
-  %1342 = load ptr, ptr %13, align 8
-  %1343 = getelementptr inbounds %struct.Exnode_s, ptr %1342, i32 0, i32 5
-  %1344 = getelementptr inbounds %struct.anon.4, ptr %1343, i32 0, i32 2
-  %1345 = load ptr, ptr %1344, align 8
-  %1346 = load i64, ptr %27, align 8
-  %1347 = getelementptr inbounds ptr, ptr %1345, i64 %1346
-  store ptr null, ptr %1347, align 8
-  br label %1352
+  %1340 = load ptr, ptr %24, align 8
+  %1341 = getelementptr inbounds %struct.Switch_s, ptr %1340, i32 0, i32 5
+  store ptr %1339, ptr %1341, align 8
+  %1342 = load ptr, ptr %24, align 8
+  %1343 = getelementptr inbounds %struct.Switch_s, ptr %1342, i32 0, i32 4
+  %1344 = load ptr, ptr %1343, align 8
+  %1345 = load i64, ptr %25, align 8
+  %1346 = getelementptr inbounds ptr, ptr %1344, i64 %1345
+  %1347 = load ptr, ptr %24, align 8
+  %1348 = getelementptr inbounds %struct.Switch_s, ptr %1347, i32 0, i32 6
+  store ptr %1346, ptr %1348, align 8
+  br label %3989
 
-1348:                                             ; preds = %1274
-  %1349 = load ptr, ptr %13, align 8
-  %1350 = getelementptr inbounds %struct.Exnode_s, ptr %1349, i32 0, i32 5
-  %1351 = getelementptr inbounds %struct.anon.4, ptr %1350, i32 0, i32 2
-  store ptr null, ptr %1351, align 8
-  br label %1352
-
-1352:                                             ; preds = %1348, %1304
-  %1353 = load ptr, ptr %26, align 8
-  %1354 = getelementptr inbounds %struct.Switch_s, ptr %1353, i32 0, i32 7
-  %1355 = load i32, ptr %1354, align 8
-  %1356 = icmp ne i32 %1355, 0
-  br i1 %1356, label %1357, label %1372
-
-1357:                                             ; preds = %1352
+1349:                                             ; preds = %333
+  %1350 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1351 = load ptr, ptr %1350, align 8
+  store ptr %1351, ptr %26, align 8
+  %1352 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1353 = load ptr, ptr %1352, align 8
+  %1354 = load ptr, ptr %9, align 8
+  %1355 = getelementptr inbounds %union.EX_STYPE, ptr %1354, i64 0
+  %1356 = load ptr, ptr %1355, align 8
+  %1357 = call ptr @exnewnode(ptr noundef %1353, i32 noundef 270, i32 noundef 1, i32 noundef 0, ptr noundef %1356, ptr noundef null)
+  store ptr %1357, ptr %13, align 8
   %1358 = load ptr, ptr %26, align 8
-  %1359 = getelementptr inbounds %struct.Switch_s, ptr %1358, i32 0, i32 7
-  store i32 0, ptr %1359, align 8
-  %1360 = load ptr, ptr %26, align 8
-  %1361 = getelementptr inbounds %struct.Switch_s, ptr %1360, i32 0, i32 3
-  %1362 = load ptr, ptr %1361, align 8
-  %1363 = icmp ne ptr %1362, null
-  br i1 %1363, label %1364, label %1365
+  %1359 = getelementptr inbounds %struct.Switch_s, ptr %1358, i32 0, i32 5
+  %1360 = load ptr, ptr %1359, align 8
+  %1361 = load ptr, ptr %26, align 8
+  %1362 = getelementptr inbounds %struct.Switch_s, ptr %1361, i32 0, i32 4
+  %1363 = load ptr, ptr %1362, align 8
+  %1364 = icmp ugt ptr %1360, %1363
+  br i1 %1364, label %1365, label %1426
 
-1364:                                             ; preds = %1357
-  call void (ptr, ...) @exerror(ptr noundef @.str.29)
-  br label %1371
-
-1365:                                             ; preds = %1357
-  %1366 = load ptr, ptr %9, align 8
-  %1367 = getelementptr inbounds %union.EX_STYPE, ptr %1366, i64 0
+1365:                                             ; preds = %1349
+  %1366 = load ptr, ptr %26, align 8
+  %1367 = getelementptr inbounds %struct.Switch_s, ptr %1366, i32 0, i32 2
   %1368 = load ptr, ptr %1367, align 8
-  %1369 = load ptr, ptr %26, align 8
-  %1370 = getelementptr inbounds %struct.Switch_s, ptr %1369, i32 0, i32 3
-  store ptr %1368, ptr %1370, align 8
-  br label %1371
+  %1369 = icmp ne ptr %1368, null
+  br i1 %1369, label %1370, label %1377
 
-1371:                                             ; preds = %1365, %1364
-  br label %1372
+1370:                                             ; preds = %1365
+  %1371 = load ptr, ptr %13, align 8
+  %1372 = load ptr, ptr %26, align 8
+  %1373 = getelementptr inbounds %struct.Switch_s, ptr %1372, i32 0, i32 2
+  %1374 = load ptr, ptr %1373, align 8
+  %1375 = getelementptr inbounds %struct.Exnode_s, ptr %1374, i32 0, i32 5
+  %1376 = getelementptr inbounds %struct.anon.4, ptr %1375, i32 0, i32 1
+  store ptr %1371, ptr %1376, align 8
+  br label %1381
 
-1372:                                             ; preds = %1371, %1352
-  br label %3766
+1377:                                             ; preds = %1365
+  %1378 = load ptr, ptr %13, align 8
+  %1379 = load ptr, ptr %26, align 8
+  %1380 = getelementptr inbounds %struct.Switch_s, ptr %1379, i32 0, i32 1
+  store ptr %1378, ptr %1380, align 8
+  br label %1381
 
-1373:                                             ; preds = %332
-  %1374 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1375 = getelementptr inbounds %struct.Switch_s, ptr %1374, i32 0, i32 5
-  %1376 = load ptr, ptr %1375, align 8
-  %1377 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1378 = getelementptr inbounds %struct.Switch_s, ptr %1377, i32 0, i32 6
-  %1379 = load ptr, ptr %1378, align 8
-  %1380 = icmp uge ptr %1376, %1379
-  br i1 %1380, label %1381, label %1418
-
-1381:                                             ; preds = %1373
-  %1382 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1383 = getelementptr inbounds %struct.Switch_s, ptr %1382, i32 0, i32 5
-  %1384 = load ptr, ptr %1383, align 8
-  %1385 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1386 = getelementptr inbounds %struct.Switch_s, ptr %1385, i32 0, i32 4
+1381:                                             ; preds = %1377, %1370
+  %1382 = load ptr, ptr %13, align 8
+  %1383 = load ptr, ptr %26, align 8
+  %1384 = getelementptr inbounds %struct.Switch_s, ptr %1383, i32 0, i32 2
+  store ptr %1382, ptr %1384, align 8
+  %1385 = load ptr, ptr %26, align 8
+  %1386 = getelementptr inbounds %struct.Switch_s, ptr %1385, i32 0, i32 5
   %1387 = load ptr, ptr %1386, align 8
-  %1388 = ptrtoint ptr %1384 to i64
-  %1389 = ptrtoint ptr %1387 to i64
-  %1390 = sub i64 %1388, %1389
-  %1391 = sdiv exact i64 %1390, 8
-  store i64 %1391, ptr %28, align 8
-  %1392 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1393 = getelementptr inbounds %struct.Switch_s, ptr %1392, i32 0, i32 4
-  %1394 = load ptr, ptr %1393, align 8
-  %1395 = load i64, ptr %28, align 8
-  %1396 = mul i64 16, %1395
-  %1397 = call ptr @realloc(ptr noundef %1394, i64 noundef %1396) #15
-  %1398 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1399 = getelementptr inbounds %struct.Switch_s, ptr %1398, i32 0, i32 4
+  %1388 = load ptr, ptr %26, align 8
+  %1389 = getelementptr inbounds %struct.Switch_s, ptr %1388, i32 0, i32 4
+  %1390 = load ptr, ptr %1389, align 8
+  %1391 = ptrtoint ptr %1387 to i64
+  %1392 = ptrtoint ptr %1390 to i64
+  %1393 = sub i64 %1391, %1392
+  %1394 = sdiv exact i64 %1393, 8
+  store i64 %1394, ptr %27, align 8
+  %1395 = load ptr, ptr %26, align 8
+  %1396 = getelementptr inbounds %struct.Switch_s, ptr %1395, i32 0, i32 4
+  %1397 = load ptr, ptr %1396, align 8
+  %1398 = load ptr, ptr %26, align 8
+  %1399 = getelementptr inbounds %struct.Switch_s, ptr %1398, i32 0, i32 5
   store ptr %1397, ptr %1399, align 8
-  %1400 = icmp ne ptr %1397, null
-  br i1 %1400, label %1402, label %1401
+  %1400 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1401 = load ptr, ptr %1400, align 8
+  %1402 = getelementptr inbounds %struct.Expr_s, ptr %1401, i32 0, i32 3
+  %1403 = load ptr, ptr %1402, align 8
+  %1404 = load i64, ptr %27, align 8
+  %1405 = add i64 %1404, 1
+  %1406 = mul i64 %1405, 8
+  %1407 = call ptr @vmalloc(ptr noundef %1403, i64 noundef %1406)
+  %1408 = load ptr, ptr %13, align 8
+  %1409 = getelementptr inbounds %struct.Exnode_s, ptr %1408, i32 0, i32 5
+  %1410 = getelementptr inbounds %struct.anon.4, ptr %1409, i32 0, i32 2
+  store ptr %1407, ptr %1410, align 8
+  %1411 = load ptr, ptr %13, align 8
+  %1412 = getelementptr inbounds %struct.Exnode_s, ptr %1411, i32 0, i32 5
+  %1413 = getelementptr inbounds %struct.anon.4, ptr %1412, i32 0, i32 2
+  %1414 = load ptr, ptr %1413, align 8
+  %1415 = load ptr, ptr %26, align 8
+  %1416 = getelementptr inbounds %struct.Switch_s, ptr %1415, i32 0, i32 4
+  %1417 = load ptr, ptr %1416, align 8
+  %1418 = load i64, ptr %27, align 8
+  %1419 = mul i64 %1418, 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1414, ptr align 8 %1417, i64 %1419, i1 false)
+  %1420 = load ptr, ptr %13, align 8
+  %1421 = getelementptr inbounds %struct.Exnode_s, ptr %1420, i32 0, i32 5
+  %1422 = getelementptr inbounds %struct.anon.4, ptr %1421, i32 0, i32 2
+  %1423 = load ptr, ptr %1422, align 8
+  %1424 = load i64, ptr %27, align 8
+  %1425 = getelementptr inbounds ptr, ptr %1423, i64 %1424
+  store ptr null, ptr %1425, align 8
+  br label %1430
 
-1401:                                             ; preds = %1381
+1426:                                             ; preds = %1349
+  %1427 = load ptr, ptr %13, align 8
+  %1428 = getelementptr inbounds %struct.Exnode_s, ptr %1427, i32 0, i32 5
+  %1429 = getelementptr inbounds %struct.anon.4, ptr %1428, i32 0, i32 2
+  store ptr null, ptr %1429, align 8
+  br label %1430
+
+1430:                                             ; preds = %1426, %1381
+  %1431 = load ptr, ptr %26, align 8
+  %1432 = getelementptr inbounds %struct.Switch_s, ptr %1431, i32 0, i32 7
+  %1433 = load i32, ptr %1432, align 8
+  %1434 = icmp ne i32 %1433, 0
+  br i1 %1434, label %1435, label %1450
+
+1435:                                             ; preds = %1430
+  %1436 = load ptr, ptr %26, align 8
+  %1437 = getelementptr inbounds %struct.Switch_s, ptr %1436, i32 0, i32 7
+  store i32 0, ptr %1437, align 8
+  %1438 = load ptr, ptr %26, align 8
+  %1439 = getelementptr inbounds %struct.Switch_s, ptr %1438, i32 0, i32 3
+  %1440 = load ptr, ptr %1439, align 8
+  %1441 = icmp ne ptr %1440, null
+  br i1 %1441, label %1442, label %1443
+
+1442:                                             ; preds = %1435
+  call void (ptr, ...) @exerror(ptr noundef @.str.29)
+  br label %1449
+
+1443:                                             ; preds = %1435
+  %1444 = load ptr, ptr %9, align 8
+  %1445 = getelementptr inbounds %union.EX_STYPE, ptr %1444, i64 0
+  %1446 = load ptr, ptr %1445, align 8
+  %1447 = load ptr, ptr %26, align 8
+  %1448 = getelementptr inbounds %struct.Switch_s, ptr %1447, i32 0, i32 3
+  store ptr %1446, ptr %1448, align 8
+  br label %1449
+
+1449:                                             ; preds = %1443, %1442
+  br label %1450
+
+1450:                                             ; preds = %1449, %1430
+  br label %3989
+
+1451:                                             ; preds = %333
+  %1452 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1453 = load ptr, ptr %1452, align 8
+  %1454 = getelementptr inbounds %struct.Switch_s, ptr %1453, i32 0, i32 5
+  %1455 = load ptr, ptr %1454, align 8
+  %1456 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1457 = load ptr, ptr %1456, align 8
+  %1458 = getelementptr inbounds %struct.Switch_s, ptr %1457, i32 0, i32 6
+  %1459 = load ptr, ptr %1458, align 8
+  %1460 = icmp uge ptr %1455, %1459
+  br i1 %1460, label %1461, label %1506
+
+1461:                                             ; preds = %1451
+  %1462 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1463 = load ptr, ptr %1462, align 8
+  %1464 = getelementptr inbounds %struct.Switch_s, ptr %1463, i32 0, i32 5
+  %1465 = load ptr, ptr %1464, align 8
+  %1466 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1467 = load ptr, ptr %1466, align 8
+  %1468 = getelementptr inbounds %struct.Switch_s, ptr %1467, i32 0, i32 4
+  %1469 = load ptr, ptr %1468, align 8
+  %1470 = ptrtoint ptr %1465 to i64
+  %1471 = ptrtoint ptr %1469 to i64
+  %1472 = sub i64 %1470, %1471
+  %1473 = sdiv exact i64 %1472, 8
+  store i64 %1473, ptr %28, align 8
+  %1474 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1475 = load ptr, ptr %1474, align 8
+  %1476 = getelementptr inbounds %struct.Switch_s, ptr %1475, i32 0, i32 4
+  %1477 = load ptr, ptr %1476, align 8
+  %1478 = load i64, ptr %28, align 8
+  %1479 = mul i64 16, %1478
+  %1480 = call ptr @realloc(ptr noundef %1477, i64 noundef %1479) #15
+  %1481 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1482 = load ptr, ptr %1481, align 8
+  %1483 = getelementptr inbounds %struct.Switch_s, ptr %1482, i32 0, i32 4
+  store ptr %1480, ptr %1483, align 8
+  %1484 = icmp ne ptr %1480, null
+  br i1 %1484, label %1486, label %1485
+
+1485:                                             ; preds = %1461
   call void (ptr, ...) @exerror(ptr noundef @.str.30)
   store i64 0, ptr %28, align 8
-  br label %1402
+  br label %1486
 
-1402:                                             ; preds = %1401, %1381
-  %1403 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1404 = getelementptr inbounds %struct.Switch_s, ptr %1403, i32 0, i32 4
-  %1405 = load ptr, ptr %1404, align 8
-  %1406 = load i64, ptr %28, align 8
-  %1407 = getelementptr inbounds ptr, ptr %1405, i64 %1406
-  %1408 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1409 = getelementptr inbounds %struct.Switch_s, ptr %1408, i32 0, i32 5
-  store ptr %1407, ptr %1409, align 8
-  %1410 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1411 = getelementptr inbounds %struct.Switch_s, ptr %1410, i32 0, i32 4
-  %1412 = load ptr, ptr %1411, align 8
-  %1413 = load i64, ptr %28, align 8
-  %1414 = mul i64 2, %1413
-  %1415 = getelementptr inbounds ptr, ptr %1412, i64 %1414
-  %1416 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1417 = getelementptr inbounds %struct.Switch_s, ptr %1416, i32 0, i32 6
-  store ptr %1415, ptr %1417, align 8
-  br label %1418
-
-1418:                                             ; preds = %1402, %1373
-  %1419 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1420 = getelementptr inbounds %struct.Switch_s, ptr %1419, i32 0, i32 5
-  %1421 = load ptr, ptr %1420, align 8
-  %1422 = icmp ne ptr %1421, null
-  br i1 %1422, label %1423, label %1443
-
-1423:                                             ; preds = %1418
-  %1424 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1425 = load ptr, ptr %9, align 8
-  %1426 = getelementptr inbounds %union.EX_STYPE, ptr %1425, i64 -1
-  %1427 = load ptr, ptr %1426, align 8
-  %1428 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1429 = getelementptr inbounds %struct.Switch_s, ptr %1428, i32 0, i32 8
-  %1430 = load i32, ptr %1429, align 4
-  %1431 = call ptr @excast(ptr noundef %1424, ptr noundef %1427, i32 noundef %1430, ptr noundef null, i32 noundef 0)
-  %1432 = load ptr, ptr %9, align 8
-  %1433 = getelementptr inbounds %union.EX_STYPE, ptr %1432, i64 -1
-  store ptr %1431, ptr %1433, align 8
-  %1434 = load ptr, ptr %9, align 8
-  %1435 = getelementptr inbounds %union.EX_STYPE, ptr %1434, i64 -1
-  %1436 = load ptr, ptr %1435, align 8
-  %1437 = getelementptr inbounds %struct.Exnode_s, ptr %1436, i32 0, i32 5
-  %1438 = getelementptr inbounds %struct.anon.2, ptr %1437, i32 0, i32 0
-  %1439 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1440 = getelementptr inbounds %struct.Switch_s, ptr %1439, i32 0, i32 5
-  %1441 = load ptr, ptr %1440, align 8
-  %1442 = getelementptr inbounds ptr, ptr %1441, i32 1
-  store ptr %1442, ptr %1440, align 8
-  store ptr %1438, ptr %1441, align 8
-  br label %1443
-
-1443:                                             ; preds = %1423, %1418
-  br label %3766
-
-1444:                                             ; preds = %332
-  %1445 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 10), align 8
-  %1446 = getelementptr inbounds %struct.Switch_s, ptr %1445, i32 0, i32 7
-  store i32 1, ptr %1446, align 8
-  br label %3766
-
-1447:                                             ; preds = %332
-  store i64 0, ptr %13, align 8
-  br label %3766
-
-1448:                                             ; preds = %332
-  store i64 1, ptr %13, align 8
-  br label %3766
-
-1449:                                             ; preds = %332
-  %1450 = load ptr, ptr %9, align 8
-  %1451 = getelementptr inbounds %union.EX_STYPE, ptr %1450, i64 0
-  %1452 = load ptr, ptr %1451, align 8
-  %1453 = icmp ne ptr %1452, null
-  br i1 %1453, label %1454, label %1479
-
-1454:                                             ; preds = %1449
-  %1455 = load ptr, ptr %9, align 8
-  %1456 = getelementptr inbounds %union.EX_STYPE, ptr %1455, i64 -2
-  %1457 = load ptr, ptr %1456, align 8
-  %1458 = icmp ne ptr %1457, null
-  br i1 %1458, label %1459, label %1473
-
-1459:                                             ; preds = %1454
-  %1460 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1461 = load ptr, ptr %9, align 8
-  %1462 = getelementptr inbounds %union.EX_STYPE, ptr %1461, i64 0
-  %1463 = load ptr, ptr %1462, align 8
-  %1464 = getelementptr inbounds %struct.Exnode_s, ptr %1463, i32 0, i32 0
-  %1465 = load i32, ptr %1464, align 8
-  %1466 = load ptr, ptr %9, align 8
-  %1467 = getelementptr inbounds %union.EX_STYPE, ptr %1466, i64 -2
-  %1468 = load ptr, ptr %1467, align 8
-  %1469 = load ptr, ptr %9, align 8
-  %1470 = getelementptr inbounds %union.EX_STYPE, ptr %1469, i64 0
-  %1471 = load ptr, ptr %1470, align 8
-  %1472 = call ptr @exnewnode(ptr noundef %1460, i32 noundef 44, i32 noundef 1, i32 noundef %1465, ptr noundef %1468, ptr noundef %1471)
-  br label %1477
-
-1473:                                             ; preds = %1454
-  %1474 = load ptr, ptr %9, align 8
-  %1475 = getelementptr inbounds %union.EX_STYPE, ptr %1474, i64 0
-  %1476 = load ptr, ptr %1475, align 8
-  br label %1477
-
-1477:                                             ; preds = %1473, %1459
-  %1478 = phi ptr [ %1472, %1459 ], [ %1476, %1473 ]
-  store ptr %1478, ptr %13, align 8
-  br label %1479
-
-1479:                                             ; preds = %1477, %1449
-  br label %3766
-
-1480:                                             ; preds = %332
-  %1481 = load ptr, ptr %9, align 8
-  %1482 = getelementptr inbounds %union.EX_STYPE, ptr %1481, i64 0
-  %1483 = load ptr, ptr %1482, align 8
-  call void @checkName(ptr noundef %1483)
-  %1484 = load ptr, ptr %9, align 8
-  %1485 = getelementptr inbounds %union.EX_STYPE, ptr %1484, i64 0
-  %1486 = load ptr, ptr %1485, align 8
-  store ptr %1486, ptr @expr, align 8
-  br label %3766
-
-1487:                                             ; preds = %332
-  store ptr null, ptr %13, align 8
-  %1488 = load ptr, ptr %9, align 8
-  %1489 = getelementptr inbounds %union.EX_STYPE, ptr %1488, i64 -3
+1486:                                             ; preds = %1485, %1461
+  %1487 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1488 = load ptr, ptr %1487, align 8
+  %1489 = getelementptr inbounds %struct.Switch_s, ptr %1488, i32 0, i32 4
   %1490 = load ptr, ptr %1489, align 8
-  %1491 = getelementptr inbounds %struct.Exid_s, ptr %1490, i32 0, i32 3
-  %1492 = load i64, ptr %1491, align 8
-  %1493 = icmp ne i64 %1492, 0
-  br i1 %1493, label %1494, label %1497
+  %1491 = load i64, ptr %28, align 8
+  %1492 = getelementptr inbounds ptr, ptr %1490, i64 %1491
+  %1493 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1494 = load ptr, ptr %1493, align 8
+  %1495 = getelementptr inbounds %struct.Switch_s, ptr %1494, i32 0, i32 5
+  store ptr %1492, ptr %1495, align 8
+  %1496 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1497 = load ptr, ptr %1496, align 8
+  %1498 = getelementptr inbounds %struct.Switch_s, ptr %1497, i32 0, i32 4
+  %1499 = load ptr, ptr %1498, align 8
+  %1500 = load i64, ptr %28, align 8
+  %1501 = mul i64 2, %1500
+  %1502 = getelementptr inbounds ptr, ptr %1499, i64 %1501
+  %1503 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1504 = load ptr, ptr %1503, align 8
+  %1505 = getelementptr inbounds %struct.Switch_s, ptr %1504, i32 0, i32 6
+  store ptr %1502, ptr %1505, align 8
+  br label %1506
 
-1494:                                             ; preds = %1487
-  %1495 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 1), align 8
-  %1496 = icmp ne i32 %1495, 0
-  br i1 %1496, label %1497, label %1504
+1506:                                             ; preds = %1486, %1451
+  %1507 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1508 = load ptr, ptr %1507, align 8
+  %1509 = getelementptr inbounds %struct.Switch_s, ptr %1508, i32 0, i32 5
+  %1510 = load ptr, ptr %1509, align 8
+  %1511 = icmp ne ptr %1510, null
+  br i1 %1511, label %1512, label %1535
 
-1497:                                             ; preds = %1494, %1487
-  %1498 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 1), align 8
-  %1499 = sext i32 %1498 to i64
-  %1500 = load ptr, ptr %9, align 8
-  %1501 = getelementptr inbounds %union.EX_STYPE, ptr %1500, i64 -3
-  %1502 = load ptr, ptr %1501, align 8
-  %1503 = getelementptr inbounds %struct.Exid_s, ptr %1502, i32 0, i32 3
-  store i64 %1499, ptr %1503, align 8
-  br label %1504
-
-1504:                                             ; preds = %1497, %1494
-  %1505 = load ptr, ptr %9, align 8
-  %1506 = getelementptr inbounds %union.EX_STYPE, ptr %1505, i64 0
-  %1507 = load ptr, ptr %1506, align 8
-  %1508 = icmp ne ptr %1507, null
-  br i1 %1508, label %1509, label %1538
-
-1509:                                             ; preds = %1504
-  %1510 = load ptr, ptr %9, align 8
-  %1511 = getelementptr inbounds %union.EX_STYPE, ptr %1510, i64 0
-  %1512 = load ptr, ptr %1511, align 8
-  %1513 = getelementptr inbounds %struct.Exnode_s, ptr %1512, i32 0, i32 1
-  %1514 = load i32, ptr %1513, align 4
-  %1515 = icmp eq i32 %1514, 293
-  br i1 %1515, label %1516, label %1538
-
-1516:                                             ; preds = %1509
-  %1517 = load ptr, ptr %9, align 8
-  %1518 = getelementptr inbounds %union.EX_STYPE, ptr %1517, i64 -3
+1512:                                             ; preds = %1506
+  %1513 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1514 = load ptr, ptr %1513, align 8
+  %1515 = load ptr, ptr %9, align 8
+  %1516 = getelementptr inbounds %union.EX_STYPE, ptr %1515, i64 -1
+  %1517 = load ptr, ptr %1516, align 8
+  %1518 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
   %1519 = load ptr, ptr %1518, align 8
-  %1520 = getelementptr inbounds %struct.Exid_s, ptr %1519, i32 0, i32 1
-  store i64 293, ptr %1520, align 8
-  %1521 = load ptr, ptr %9, align 8
-  %1522 = getelementptr inbounds %union.EX_STYPE, ptr %1521, i64 0
-  %1523 = load ptr, ptr %1522, align 8
-  %1524 = getelementptr inbounds %struct.Exnode_s, ptr %1523, i32 0, i32 0
-  %1525 = load i32, ptr %1524, align 8
-  %1526 = sext i32 %1525 to i64
-  %1527 = load ptr, ptr %9, align 8
-  %1528 = getelementptr inbounds %union.EX_STYPE, ptr %1527, i64 -3
-  %1529 = load ptr, ptr %1528, align 8
-  %1530 = getelementptr inbounds %struct.Exid_s, ptr %1529, i32 0, i32 3
-  store i64 %1526, ptr %1530, align 8
-  %1531 = load ptr, ptr %9, align 8
-  %1532 = getelementptr inbounds %union.EX_STYPE, ptr %1531, i64 0
+  %1520 = getelementptr inbounds %struct.Switch_s, ptr %1519, i32 0, i32 8
+  %1521 = load i32, ptr %1520, align 4
+  %1522 = call ptr @excast(ptr noundef %1514, ptr noundef %1517, i32 noundef %1521, ptr noundef null, i32 noundef 0)
+  %1523 = load ptr, ptr %9, align 8
+  %1524 = getelementptr inbounds %union.EX_STYPE, ptr %1523, i64 -1
+  store ptr %1522, ptr %1524, align 8
+  %1525 = load ptr, ptr %9, align 8
+  %1526 = getelementptr inbounds %union.EX_STYPE, ptr %1525, i64 -1
+  %1527 = load ptr, ptr %1526, align 8
+  %1528 = getelementptr inbounds %struct.Exnode_s, ptr %1527, i32 0, i32 5
+  %1529 = getelementptr inbounds %struct.anon.2, ptr %1528, i32 0, i32 0
+  %1530 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1531 = load ptr, ptr %1530, align 8
+  %1532 = getelementptr inbounds %struct.Switch_s, ptr %1531, i32 0, i32 5
   %1533 = load ptr, ptr %1532, align 8
-  %1534 = load ptr, ptr %9, align 8
-  %1535 = getelementptr inbounds %union.EX_STYPE, ptr %1534, i64 -3
-  %1536 = load ptr, ptr %1535, align 8
-  %1537 = getelementptr inbounds %struct.Exid_s, ptr %1536, i32 0, i32 6
-  store ptr %1533, ptr %1537, align 8
-  br label %1700
+  %1534 = getelementptr inbounds ptr, ptr %1533, i32 1
+  store ptr %1534, ptr %1532, align 8
+  store ptr %1529, ptr %1533, align 8
+  br label %1535
 
-1538:                                             ; preds = %1509, %1504
-  %1539 = load ptr, ptr %9, align 8
-  %1540 = getelementptr inbounds %union.EX_STYPE, ptr %1539, i64 -3
-  %1541 = load ptr, ptr %1540, align 8
-  %1542 = getelementptr inbounds %struct.Exid_s, ptr %1541, i32 0, i32 1
-  store i64 275, ptr %1542, align 8
-  %1543 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1544 = call ptr @exnewnode(ptr noundef %1543, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %1545 = load ptr, ptr %9, align 8
-  %1546 = getelementptr inbounds %union.EX_STYPE, ptr %1545, i64 -3
-  %1547 = load ptr, ptr %1546, align 8
-  %1548 = getelementptr inbounds %struct.Exid_s, ptr %1547, i32 0, i32 6
-  store ptr %1544, ptr %1548, align 8
-  %1549 = load ptr, ptr %9, align 8
-  %1550 = getelementptr inbounds %union.EX_STYPE, ptr %1549, i64 -1
-  %1551 = load i64, ptr %1550, align 8
-  %1552 = icmp ne i64 %1551, 0
-  br i1 %1552, label %1553, label %1603
+1535:                                             ; preds = %1512, %1506
+  br label %3989
 
-1553:                                             ; preds = %1538
-  %1554 = load ptr, ptr %9, align 8
-  %1555 = getelementptr inbounds %union.EX_STYPE, ptr %1554, i64 -3
-  %1556 = load ptr, ptr %1555, align 8
-  %1557 = getelementptr inbounds %struct.Exid_s, ptr %1556, i32 0, i32 7
-  %1558 = load ptr, ptr %1557, align 8
-  %1559 = icmp eq ptr %1558, null
-  br i1 %1559, label %1560, label %1603
+1536:                                             ; preds = %333
+  %1537 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 10
+  %1538 = load ptr, ptr %1537, align 8
+  %1539 = getelementptr inbounds %struct.Switch_s, ptr %1538, i32 0, i32 7
+  store i32 1, ptr %1539, align 8
+  br label %3989
 
-1560:                                             ; preds = %1553
-  %1561 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 40) #13
-  store ptr %1561, ptr %29, align 8
-  %1562 = icmp ne ptr %1561, null
-  br i1 %1562, label %1565, label %1563
+1540:                                             ; preds = %333
+  store i64 0, ptr %13, align 8
+  br label %3989
 
-1563:                                             ; preds = %1560
-  %1564 = call ptr @exnospace()
-  br label %1565
+1541:                                             ; preds = %333
+  store i64 1, ptr %13, align 8
+  br label %3989
 
-1565:                                             ; preds = %1563, %1560
-  %1566 = load ptr, ptr %9, align 8
-  %1567 = getelementptr inbounds %union.EX_STYPE, ptr %1566, i64 -1
-  %1568 = load i64, ptr %1567, align 8
-  %1569 = icmp eq i64 %1568, 259
-  br i1 %1569, label %1570, label %1577
+1542:                                             ; preds = %333
+  %1543 = load ptr, ptr %9, align 8
+  %1544 = getelementptr inbounds %union.EX_STYPE, ptr %1543, i64 0
+  %1545 = load ptr, ptr %1544, align 8
+  %1546 = icmp ne ptr %1545, null
+  br i1 %1546, label %1547, label %1573
 
-1570:                                             ; preds = %1565
-  %1571 = load ptr, ptr %29, align 8
-  %1572 = getelementptr inbounds %struct._dtdisc_s, ptr %1571, i32 0, i32 0
-  store i32 16, ptr %1572, align 8
-  %1573 = load ptr, ptr %29, align 8
-  %1574 = getelementptr inbounds %struct._dtdisc_s, ptr %1573, i32 0, i32 1
-  store i32 8, ptr %1574, align 4
-  %1575 = load ptr, ptr %29, align 8
-  %1576 = getelementptr inbounds %struct._dtdisc_s, ptr %1575, i32 0, i32 5
-  store ptr @cmpKey, ptr %1576, align 8
-  br label %1580
+1547:                                             ; preds = %1542
+  %1548 = load ptr, ptr %9, align 8
+  %1549 = getelementptr inbounds %union.EX_STYPE, ptr %1548, i64 -2
+  %1550 = load ptr, ptr %1549, align 8
+  %1551 = icmp ne ptr %1550, null
+  br i1 %1551, label %1552, label %1567
 
-1577:                                             ; preds = %1565
-  %1578 = load ptr, ptr %29, align 8
-  %1579 = getelementptr inbounds %struct._dtdisc_s, ptr %1578, i32 0, i32 0
-  store i32 32, ptr %1579, align 8
-  br label %1580
+1552:                                             ; preds = %1547
+  %1553 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1554 = load ptr, ptr %1553, align 8
+  %1555 = load ptr, ptr %9, align 8
+  %1556 = getelementptr inbounds %union.EX_STYPE, ptr %1555, i64 0
+  %1557 = load ptr, ptr %1556, align 8
+  %1558 = getelementptr inbounds %struct.Exnode_s, ptr %1557, i32 0, i32 0
+  %1559 = load i32, ptr %1558, align 8
+  %1560 = load ptr, ptr %9, align 8
+  %1561 = getelementptr inbounds %union.EX_STYPE, ptr %1560, i64 -2
+  %1562 = load ptr, ptr %1561, align 8
+  %1563 = load ptr, ptr %9, align 8
+  %1564 = getelementptr inbounds %union.EX_STYPE, ptr %1563, i64 0
+  %1565 = load ptr, ptr %1564, align 8
+  %1566 = call ptr @exnewnode(ptr noundef %1554, i32 noundef 44, i32 noundef 1, i32 noundef %1559, ptr noundef %1562, ptr noundef %1565)
+  br label %1571
 
-1580:                                             ; preds = %1577, %1570
-  %1581 = load ptr, ptr %29, align 8
-  %1582 = load ptr, ptr @Dtoset, align 8
-  %1583 = call ptr @dtopen(ptr noundef %1581, ptr noundef %1582)
-  %1584 = load ptr, ptr %9, align 8
-  %1585 = getelementptr inbounds %union.EX_STYPE, ptr %1584, i64 -3
-  %1586 = load ptr, ptr %1585, align 8
-  %1587 = getelementptr inbounds %struct.Exid_s, ptr %1586, i32 0, i32 7
-  store ptr %1583, ptr %1587, align 8
-  %1588 = icmp ne ptr %1583, null
-  br i1 %1588, label %1595, label %1589
+1567:                                             ; preds = %1547
+  %1568 = load ptr, ptr %9, align 8
+  %1569 = getelementptr inbounds %union.EX_STYPE, ptr %1568, i64 0
+  %1570 = load ptr, ptr %1569, align 8
+  br label %1571
 
-1589:                                             ; preds = %1580
-  %1590 = load ptr, ptr %9, align 8
-  %1591 = getelementptr inbounds %union.EX_STYPE, ptr %1590, i64 -3
-  %1592 = load ptr, ptr %1591, align 8
-  %1593 = getelementptr inbounds %struct.Exid_s, ptr %1592, i32 0, i32 9
-  %1594 = getelementptr inbounds [32 x i8], ptr %1593, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.31, ptr noundef %1594)
-  br label %1595
+1571:                                             ; preds = %1567, %1552
+  %1572 = phi ptr [ %1566, %1552 ], [ %1570, %1567 ]
+  store ptr %1572, ptr %13, align 8
+  br label %1573
 
-1595:                                             ; preds = %1589, %1580
+1573:                                             ; preds = %1571, %1542
+  br label %3989
+
+1574:                                             ; preds = %333
+  %1575 = load ptr, ptr %9, align 8
+  %1576 = getelementptr inbounds %union.EX_STYPE, ptr %1575, i64 0
+  %1577 = load ptr, ptr %1576, align 8
+  call void @checkName(ptr noundef %1577)
+  %1578 = load ptr, ptr %9, align 8
+  %1579 = getelementptr inbounds %union.EX_STYPE, ptr %1578, i64 0
+  %1580 = load ptr, ptr %1579, align 8
+  store ptr %1580, ptr @expr, align 8
+  br label %3989
+
+1581:                                             ; preds = %333
+  store ptr null, ptr %13, align 8
+  %1582 = load ptr, ptr %9, align 8
+  %1583 = getelementptr inbounds %union.EX_STYPE, ptr %1582, i64 -3
+  %1584 = load ptr, ptr %1583, align 8
+  %1585 = getelementptr inbounds %struct.Exid_s, ptr %1584, i32 0, i32 3
+  %1586 = load i64, ptr %1585, align 8
+  %1587 = icmp ne i64 %1586, 0
+  br i1 %1587, label %1588, label %1592
+
+1588:                                             ; preds = %1581
+  %1589 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 1
+  %1590 = load i32, ptr %1589, align 8
+  %1591 = icmp ne i32 %1590, 0
+  br i1 %1591, label %1592, label %1600
+
+1592:                                             ; preds = %1588, %1581
+  %1593 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 1
+  %1594 = load i32, ptr %1593, align 8
+  %1595 = sext i32 %1594 to i64
   %1596 = load ptr, ptr %9, align 8
-  %1597 = getelementptr inbounds %union.EX_STYPE, ptr %1596, i64 -1
-  %1598 = load i64, ptr %1597, align 8
-  %1599 = load ptr, ptr %9, align 8
-  %1600 = getelementptr inbounds %union.EX_STYPE, ptr %1599, i64 -3
-  %1601 = load ptr, ptr %1600, align 8
-  %1602 = getelementptr inbounds %struct.Exid_s, ptr %1601, i32 0, i32 4
-  store i64 %1598, ptr %1602, align 8
-  br label %1603
+  %1597 = getelementptr inbounds %union.EX_STYPE, ptr %1596, i64 -3
+  %1598 = load ptr, ptr %1597, align 8
+  %1599 = getelementptr inbounds %struct.Exid_s, ptr %1598, i32 0, i32 3
+  store i64 %1595, ptr %1599, align 8
+  br label %1600
 
-1603:                                             ; preds = %1595, %1553, %1538
-  %1604 = load ptr, ptr %9, align 8
-  %1605 = getelementptr inbounds %union.EX_STYPE, ptr %1604, i64 0
-  %1606 = load ptr, ptr %1605, align 8
-  %1607 = icmp ne ptr %1606, null
-  br i1 %1607, label %1608, label %1679
+1600:                                             ; preds = %1592, %1588
+  %1601 = load ptr, ptr %9, align 8
+  %1602 = getelementptr inbounds %union.EX_STYPE, ptr %1601, i64 0
+  %1603 = load ptr, ptr %1602, align 8
+  %1604 = icmp ne ptr %1603, null
+  br i1 %1604, label %1605, label %1634
 
-1608:                                             ; preds = %1603
-  %1609 = load ptr, ptr %9, align 8
-  %1610 = getelementptr inbounds %union.EX_STYPE, ptr %1609, i64 0
-  %1611 = load ptr, ptr %1610, align 8
-  %1612 = getelementptr inbounds %struct.Exnode_s, ptr %1611, i32 0, i32 0
-  %1613 = load i32, ptr %1612, align 8
-  %1614 = sext i32 %1613 to i64
-  %1615 = load ptr, ptr %9, align 8
-  %1616 = getelementptr inbounds %union.EX_STYPE, ptr %1615, i64 -3
-  %1617 = load ptr, ptr %1616, align 8
-  %1618 = getelementptr inbounds %struct.Exid_s, ptr %1617, i32 0, i32 3
-  %1619 = load i64, ptr %1618, align 8
-  %1620 = icmp ne i64 %1614, %1619
-  br i1 %1620, label %1621, label %1651
+1605:                                             ; preds = %1600
+  %1606 = load ptr, ptr %9, align 8
+  %1607 = getelementptr inbounds %union.EX_STYPE, ptr %1606, i64 0
+  %1608 = load ptr, ptr %1607, align 8
+  %1609 = getelementptr inbounds %struct.Exnode_s, ptr %1608, i32 0, i32 1
+  %1610 = load i32, ptr %1609, align 4
+  %1611 = icmp eq i32 %1610, 293
+  br i1 %1611, label %1612, label %1634
 
-1621:                                             ; preds = %1608
-  %1622 = load ptr, ptr %9, align 8
-  %1623 = getelementptr inbounds %union.EX_STYPE, ptr %1622, i64 -3
-  %1624 = load ptr, ptr %1623, align 8
-  %1625 = getelementptr inbounds %struct.Exid_s, ptr %1624, i32 0, i32 3
-  %1626 = load i64, ptr %1625, align 8
-  %1627 = trunc i64 %1626 to i32
-  %1628 = load ptr, ptr %9, align 8
-  %1629 = getelementptr inbounds %union.EX_STYPE, ptr %1628, i64 0
-  %1630 = load ptr, ptr %1629, align 8
-  %1631 = getelementptr inbounds %struct.Exnode_s, ptr %1630, i32 0, i32 0
-  store i32 %1627, ptr %1631, align 8
-  %1632 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1633 = load ptr, ptr %9, align 8
-  %1634 = getelementptr inbounds %union.EX_STYPE, ptr %1633, i64 0
-  %1635 = load ptr, ptr %1634, align 8
-  %1636 = getelementptr inbounds %struct.Exnode_s, ptr %1635, i32 0, i32 5
-  %1637 = getelementptr inbounds %struct.anon.3, ptr %1636, i32 0, i32 1
-  %1638 = load ptr, ptr %1637, align 8
-  %1639 = load ptr, ptr %9, align 8
-  %1640 = getelementptr inbounds %union.EX_STYPE, ptr %1639, i64 -3
-  %1641 = load ptr, ptr %1640, align 8
-  %1642 = getelementptr inbounds %struct.Exid_s, ptr %1641, i32 0, i32 3
-  %1643 = load i64, ptr %1642, align 8
-  %1644 = trunc i64 %1643 to i32
-  %1645 = call ptr @excast(ptr noundef %1632, ptr noundef %1638, i32 noundef %1644, ptr noundef null, i32 noundef 0)
+1612:                                             ; preds = %1605
+  %1613 = load ptr, ptr %9, align 8
+  %1614 = getelementptr inbounds %union.EX_STYPE, ptr %1613, i64 -3
+  %1615 = load ptr, ptr %1614, align 8
+  %1616 = getelementptr inbounds %struct.Exid_s, ptr %1615, i32 0, i32 1
+  store i64 293, ptr %1616, align 8
+  %1617 = load ptr, ptr %9, align 8
+  %1618 = getelementptr inbounds %union.EX_STYPE, ptr %1617, i64 0
+  %1619 = load ptr, ptr %1618, align 8
+  %1620 = getelementptr inbounds %struct.Exnode_s, ptr %1619, i32 0, i32 0
+  %1621 = load i32, ptr %1620, align 8
+  %1622 = sext i32 %1621 to i64
+  %1623 = load ptr, ptr %9, align 8
+  %1624 = getelementptr inbounds %union.EX_STYPE, ptr %1623, i64 -3
+  %1625 = load ptr, ptr %1624, align 8
+  %1626 = getelementptr inbounds %struct.Exid_s, ptr %1625, i32 0, i32 3
+  store i64 %1622, ptr %1626, align 8
+  %1627 = load ptr, ptr %9, align 8
+  %1628 = getelementptr inbounds %union.EX_STYPE, ptr %1627, i64 0
+  %1629 = load ptr, ptr %1628, align 8
+  %1630 = load ptr, ptr %9, align 8
+  %1631 = getelementptr inbounds %union.EX_STYPE, ptr %1630, i64 -3
+  %1632 = load ptr, ptr %1631, align 8
+  %1633 = getelementptr inbounds %struct.Exid_s, ptr %1632, i32 0, i32 6
+  store ptr %1629, ptr %1633, align 8
+  br label %1799
+
+1634:                                             ; preds = %1605, %1600
+  %1635 = load ptr, ptr %9, align 8
+  %1636 = getelementptr inbounds %union.EX_STYPE, ptr %1635, i64 -3
+  %1637 = load ptr, ptr %1636, align 8
+  %1638 = getelementptr inbounds %struct.Exid_s, ptr %1637, i32 0, i32 1
+  store i64 275, ptr %1638, align 8
+  %1639 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1640 = load ptr, ptr %1639, align 8
+  %1641 = call ptr @exnewnode(ptr noundef %1640, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %1642 = load ptr, ptr %9, align 8
+  %1643 = getelementptr inbounds %union.EX_STYPE, ptr %1642, i64 -3
+  %1644 = load ptr, ptr %1643, align 8
+  %1645 = getelementptr inbounds %struct.Exid_s, ptr %1644, i32 0, i32 6
+  store ptr %1641, ptr %1645, align 8
   %1646 = load ptr, ptr %9, align 8
-  %1647 = getelementptr inbounds %union.EX_STYPE, ptr %1646, i64 0
-  %1648 = load ptr, ptr %1647, align 8
-  %1649 = getelementptr inbounds %struct.Exnode_s, ptr %1648, i32 0, i32 5
-  %1650 = getelementptr inbounds %struct.anon.3, ptr %1649, i32 0, i32 1
-  store ptr %1645, ptr %1650, align 8
-  br label %1651
+  %1647 = getelementptr inbounds %union.EX_STYPE, ptr %1646, i64 -1
+  %1648 = load i64, ptr %1647, align 8
+  %1649 = icmp ne i64 %1648, 0
+  br i1 %1649, label %1650, label %1700
 
-1651:                                             ; preds = %1621, %1608
-  %1652 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1653 = load ptr, ptr %9, align 8
-  %1654 = getelementptr inbounds %union.EX_STYPE, ptr %1653, i64 -3
+1650:                                             ; preds = %1634
+  %1651 = load ptr, ptr %9, align 8
+  %1652 = getelementptr inbounds %union.EX_STYPE, ptr %1651, i64 -3
+  %1653 = load ptr, ptr %1652, align 8
+  %1654 = getelementptr inbounds %struct.Exid_s, ptr %1653, i32 0, i32 7
   %1655 = load ptr, ptr %1654, align 8
-  %1656 = getelementptr inbounds %struct.Exid_s, ptr %1655, i32 0, i32 3
-  %1657 = load i64, ptr %1656, align 8
-  %1658 = trunc i64 %1657 to i32
-  %1659 = call ptr @exnewnode(ptr noundef %1652, i32 noundef 275, i32 noundef 0, i32 noundef %1658, ptr noundef null, ptr noundef null)
-  %1660 = load ptr, ptr %9, align 8
-  %1661 = getelementptr inbounds %union.EX_STYPE, ptr %1660, i64 0
-  %1662 = load ptr, ptr %1661, align 8
-  %1663 = getelementptr inbounds %struct.Exnode_s, ptr %1662, i32 0, i32 5
-  %1664 = getelementptr inbounds %struct.anon.3, ptr %1663, i32 0, i32 0
-  store ptr %1659, ptr %1664, align 8
-  %1665 = load ptr, ptr %9, align 8
-  %1666 = getelementptr inbounds %union.EX_STYPE, ptr %1665, i64 -3
-  %1667 = load ptr, ptr %1666, align 8
-  %1668 = load ptr, ptr %9, align 8
-  %1669 = getelementptr inbounds %union.EX_STYPE, ptr %1668, i64 0
-  %1670 = load ptr, ptr %1669, align 8
-  %1671 = getelementptr inbounds %struct.Exnode_s, ptr %1670, i32 0, i32 5
-  %1672 = getelementptr inbounds %struct.anon.3, ptr %1671, i32 0, i32 0
-  %1673 = load ptr, ptr %1672, align 8
-  %1674 = getelementptr inbounds %struct.Exnode_s, ptr %1673, i32 0, i32 5
-  %1675 = getelementptr inbounds %struct.anon.5, ptr %1674, i32 0, i32 0
-  store ptr %1667, ptr %1675, align 8
-  %1676 = load ptr, ptr %9, align 8
-  %1677 = getelementptr inbounds %union.EX_STYPE, ptr %1676, i64 0
-  %1678 = load ptr, ptr %1677, align 8
-  store ptr %1678, ptr %13, align 8
-  br label %1699
+  %1656 = icmp eq ptr %1655, null
+  br i1 %1656, label %1657, label %1700
 
-1679:                                             ; preds = %1603
-  %1680 = load ptr, ptr %9, align 8
-  %1681 = getelementptr inbounds %union.EX_STYPE, ptr %1680, i64 -1
-  %1682 = load i64, ptr %1681, align 8
-  %1683 = icmp ne i64 %1682, 0
-  br i1 %1683, label %1698, label %1684
+1657:                                             ; preds = %1650
+  %1658 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 40) #13
+  store ptr %1658, ptr %29, align 8
+  %1659 = icmp ne ptr %1658, null
+  br i1 %1659, label %1662, label %1660
 
-1684:                                             ; preds = %1679
-  %1685 = load ptr, ptr %9, align 8
-  %1686 = getelementptr inbounds %union.EX_STYPE, ptr %1685, i64 -3
-  %1687 = load ptr, ptr %1686, align 8
-  %1688 = getelementptr inbounds %struct.Exid_s, ptr %1687, i32 0, i32 6
+1660:                                             ; preds = %1657
+  %1661 = call ptr @exnospace()
+  br label %1662
+
+1662:                                             ; preds = %1660, %1657
+  %1663 = load ptr, ptr %9, align 8
+  %1664 = getelementptr inbounds %union.EX_STYPE, ptr %1663, i64 -1
+  %1665 = load i64, ptr %1664, align 8
+  %1666 = icmp eq i64 %1665, 259
+  br i1 %1666, label %1667, label %1674
+
+1667:                                             ; preds = %1662
+  %1668 = load ptr, ptr %29, align 8
+  %1669 = getelementptr inbounds %struct._dtdisc_s, ptr %1668, i32 0, i32 0
+  store i32 16, ptr %1669, align 8
+  %1670 = load ptr, ptr %29, align 8
+  %1671 = getelementptr inbounds %struct._dtdisc_s, ptr %1670, i32 0, i32 1
+  store i32 8, ptr %1671, align 4
+  %1672 = load ptr, ptr %29, align 8
+  %1673 = getelementptr inbounds %struct._dtdisc_s, ptr %1672, i32 0, i32 5
+  store ptr @cmpKey, ptr %1673, align 8
+  br label %1677
+
+1674:                                             ; preds = %1662
+  %1675 = load ptr, ptr %29, align 8
+  %1676 = getelementptr inbounds %struct._dtdisc_s, ptr %1675, i32 0, i32 0
+  store i32 32, ptr %1676, align 8
+  br label %1677
+
+1677:                                             ; preds = %1674, %1667
+  %1678 = load ptr, ptr %29, align 8
+  %1679 = load ptr, ptr @Dtoset, align 8
+  %1680 = call ptr @dtopen(ptr noundef %1678, ptr noundef %1679)
+  %1681 = load ptr, ptr %9, align 8
+  %1682 = getelementptr inbounds %union.EX_STYPE, ptr %1681, i64 -3
+  %1683 = load ptr, ptr %1682, align 8
+  %1684 = getelementptr inbounds %struct.Exid_s, ptr %1683, i32 0, i32 7
+  store ptr %1680, ptr %1684, align 8
+  %1685 = icmp ne ptr %1680, null
+  br i1 %1685, label %1692, label %1686
+
+1686:                                             ; preds = %1677
+  %1687 = load ptr, ptr %9, align 8
+  %1688 = getelementptr inbounds %union.EX_STYPE, ptr %1687, i64 -3
   %1689 = load ptr, ptr %1688, align 8
-  %1690 = getelementptr inbounds %struct.Exnode_s, ptr %1689, i32 0, i32 5
-  %1691 = load ptr, ptr %9, align 8
-  %1692 = getelementptr inbounds %union.EX_STYPE, ptr %1691, i64 -3
-  %1693 = load ptr, ptr %1692, align 8
-  %1694 = getelementptr inbounds %struct.Exid_s, ptr %1693, i32 0, i32 3
+  %1690 = getelementptr inbounds %struct.Exid_s, ptr %1689, i32 0, i32 9
+  %1691 = getelementptr inbounds [32 x i8], ptr %1690, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.31, ptr noundef %1691)
+  br label %1692
+
+1692:                                             ; preds = %1686, %1677
+  %1693 = load ptr, ptr %9, align 8
+  %1694 = getelementptr inbounds %union.EX_STYPE, ptr %1693, i64 -1
   %1695 = load i64, ptr %1694, align 8
-  %1696 = call ptr @exzero(i64 noundef %1695)
-  %1697 = getelementptr inbounds %union.EX_STYPE, ptr %30, i32 0, i32 0
-  store ptr %1696, ptr %1697, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1690, ptr align 8 %30, i64 8, i1 false)
-  br label %1698
-
-1698:                                             ; preds = %1684, %1679
-  br label %1699
-
-1699:                                             ; preds = %1698, %1651
+  %1696 = load ptr, ptr %9, align 8
+  %1697 = getelementptr inbounds %union.EX_STYPE, ptr %1696, i64 -3
+  %1698 = load ptr, ptr %1697, align 8
+  %1699 = getelementptr inbounds %struct.Exid_s, ptr %1698, i32 0, i32 4
+  store i64 %1695, ptr %1699, align 8
   br label %1700
 
-1700:                                             ; preds = %1699, %1516
-  br label %3766
+1700:                                             ; preds = %1692, %1650, %1634
+  %1701 = load ptr, ptr %9, align 8
+  %1702 = getelementptr inbounds %union.EX_STYPE, ptr %1701, i64 0
+  %1703 = load ptr, ptr %1702, align 8
+  %1704 = icmp ne ptr %1703, null
+  br i1 %1704, label %1705, label %1778
 
-1701:                                             ; preds = %332
-  store ptr null, ptr %13, align 8
-  br label %3766
-
-1702:                                             ; preds = %332
-  %1703 = load ptr, ptr %9, align 8
-  %1704 = getelementptr inbounds %union.EX_STYPE, ptr %1703, i64 0
-  %1705 = load ptr, ptr %1704, align 8
-  store ptr %1705, ptr %13, align 8
-  br label %3766
-
-1706:                                             ; preds = %332
-  store ptr null, ptr %13, align 8
-  br label %3766
-
-1707:                                             ; preds = %332
-  %1708 = load ptr, ptr %9, align 8
-  %1709 = getelementptr inbounds %union.EX_STYPE, ptr %1708, i64 -1
-  %1710 = load ptr, ptr %1709, align 8
-  store ptr %1710, ptr %13, align 8
-  br label %3766
-
-1711:                                             ; preds = %332
+1705:                                             ; preds = %1700
+  %1706 = load ptr, ptr %9, align 8
+  %1707 = getelementptr inbounds %union.EX_STYPE, ptr %1706, i64 0
+  %1708 = load ptr, ptr %1707, align 8
+  %1709 = getelementptr inbounds %struct.Exnode_s, ptr %1708, i32 0, i32 0
+  %1710 = load i32, ptr %1709, align 8
+  %1711 = sext i32 %1710 to i64
   %1712 = load ptr, ptr %9, align 8
-  %1713 = getelementptr inbounds %union.EX_STYPE, ptr %1712, i64 0
+  %1713 = getelementptr inbounds %union.EX_STYPE, ptr %1712, i64 -3
   %1714 = load ptr, ptr %1713, align 8
-  %1715 = getelementptr inbounds %struct.Exnode_s, ptr %1714, i32 0, i32 0
-  %1716 = load i32, ptr %1715, align 8
-  %1717 = sext i32 %1716 to i64
-  %1718 = load ptr, ptr %9, align 8
-  %1719 = getelementptr inbounds %union.EX_STYPE, ptr %1718, i64 -2
-  %1720 = load ptr, ptr %1719, align 8
-  %1721 = getelementptr inbounds %struct.Exid_s, ptr %1720, i32 0, i32 3
-  %1722 = load i64, ptr %1721, align 8
-  %1723 = icmp eq i64 %1717, %1722
-  br i1 %1723, label %1724, label %1728
+  %1715 = getelementptr inbounds %struct.Exid_s, ptr %1714, i32 0, i32 3
+  %1716 = load i64, ptr %1715, align 8
+  %1717 = icmp ne i64 %1711, %1716
+  br i1 %1717, label %1718, label %1749
 
-1724:                                             ; preds = %1711
+1718:                                             ; preds = %1705
+  %1719 = load ptr, ptr %9, align 8
+  %1720 = getelementptr inbounds %union.EX_STYPE, ptr %1719, i64 -3
+  %1721 = load ptr, ptr %1720, align 8
+  %1722 = getelementptr inbounds %struct.Exid_s, ptr %1721, i32 0, i32 3
+  %1723 = load i64, ptr %1722, align 8
+  %1724 = trunc i64 %1723 to i32
   %1725 = load ptr, ptr %9, align 8
   %1726 = getelementptr inbounds %union.EX_STYPE, ptr %1725, i64 0
   %1727 = load ptr, ptr %1726, align 8
-  br label %1740
+  %1728 = getelementptr inbounds %struct.Exnode_s, ptr %1727, i32 0, i32 0
+  store i32 %1724, ptr %1728, align 8
+  %1729 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1730 = load ptr, ptr %1729, align 8
+  %1731 = load ptr, ptr %9, align 8
+  %1732 = getelementptr inbounds %union.EX_STYPE, ptr %1731, i64 0
+  %1733 = load ptr, ptr %1732, align 8
+  %1734 = getelementptr inbounds %struct.Exnode_s, ptr %1733, i32 0, i32 5
+  %1735 = getelementptr inbounds %struct.anon.3, ptr %1734, i32 0, i32 1
+  %1736 = load ptr, ptr %1735, align 8
+  %1737 = load ptr, ptr %9, align 8
+  %1738 = getelementptr inbounds %union.EX_STYPE, ptr %1737, i64 -3
+  %1739 = load ptr, ptr %1738, align 8
+  %1740 = getelementptr inbounds %struct.Exid_s, ptr %1739, i32 0, i32 3
+  %1741 = load i64, ptr %1740, align 8
+  %1742 = trunc i64 %1741 to i32
+  %1743 = call ptr @excast(ptr noundef %1730, ptr noundef %1736, i32 noundef %1742, ptr noundef null, i32 noundef 0)
+  %1744 = load ptr, ptr %9, align 8
+  %1745 = getelementptr inbounds %union.EX_STYPE, ptr %1744, i64 0
+  %1746 = load ptr, ptr %1745, align 8
+  %1747 = getelementptr inbounds %struct.Exnode_s, ptr %1746, i32 0, i32 5
+  %1748 = getelementptr inbounds %struct.anon.3, ptr %1747, i32 0, i32 1
+  store ptr %1743, ptr %1748, align 8
+  br label %1749
 
-1728:                                             ; preds = %1711
-  %1729 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1730 = load ptr, ptr %9, align 8
-  %1731 = getelementptr inbounds %union.EX_STYPE, ptr %1730, i64 0
-  %1732 = load ptr, ptr %1731, align 8
-  %1733 = load ptr, ptr %9, align 8
-  %1734 = getelementptr inbounds %union.EX_STYPE, ptr %1733, i64 -2
-  %1735 = load ptr, ptr %1734, align 8
-  %1736 = getelementptr inbounds %struct.Exid_s, ptr %1735, i32 0, i32 3
-  %1737 = load i64, ptr %1736, align 8
-  %1738 = trunc i64 %1737 to i32
-  %1739 = call ptr @excast(ptr noundef %1729, ptr noundef %1732, i32 noundef %1738, ptr noundef null, i32 noundef 0)
-  br label %1740
-
-1740:                                             ; preds = %1728, %1724
-  %1741 = phi ptr [ %1727, %1724 ], [ %1739, %1728 ]
-  store ptr %1741, ptr %13, align 8
-  br label %3766
-
-1742:                                             ; preds = %332
-  br label %1743
-
-1743:                                             ; preds = %2030, %2029, %2028, %2027, %2026, %1742
-  store i32 259, ptr %31, align 4
-  br label %1745
-
-1744:                                             ; preds = %2098, %2034, %2033, %2032, %2031, %2025, %2024, %2023, %2022, %2021, %2020
-  store i32 0, ptr %31, align 4
-  br label %1745
-
-1745:                                             ; preds = %1744, %1743
-  %1746 = load ptr, ptr %9, align 8
-  %1747 = getelementptr inbounds %union.EX_STYPE, ptr %1746, i64 -2
-  %1748 = load ptr, ptr %1747, align 8
-  %1749 = getelementptr inbounds %struct.Exnode_s, ptr %1748, i32 0, i32 0
-  %1750 = load i32, ptr %1749, align 8
-  %1751 = icmp ne i32 %1750, 0
-  br i1 %1751, label %1782, label %1752
-
-1752:                                             ; preds = %1745
-  %1753 = load ptr, ptr %9, align 8
-  %1754 = getelementptr inbounds %union.EX_STYPE, ptr %1753, i64 0
-  %1755 = load ptr, ptr %1754, align 8
-  %1756 = getelementptr inbounds %struct.Exnode_s, ptr %1755, i32 0, i32 0
-  %1757 = load i32, ptr %1756, align 8
-  %1758 = icmp ne i32 %1757, 0
-  br i1 %1758, label %1771, label %1759
-
-1759:                                             ; preds = %1752
-  %1760 = load i32, ptr %31, align 4
-  %1761 = icmp ne i32 %1760, 0
-  %1762 = select i1 %1761, i32 263, i32 259
-  %1763 = load ptr, ptr %9, align 8
-  %1764 = getelementptr inbounds %union.EX_STYPE, ptr %1763, i64 0
-  %1765 = load ptr, ptr %1764, align 8
-  %1766 = getelementptr inbounds %struct.Exnode_s, ptr %1765, i32 0, i32 0
-  store i32 %1762, ptr %1766, align 8
+1749:                                             ; preds = %1718, %1705
+  %1750 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1751 = load ptr, ptr %1750, align 8
+  %1752 = load ptr, ptr %9, align 8
+  %1753 = getelementptr inbounds %union.EX_STYPE, ptr %1752, i64 -3
+  %1754 = load ptr, ptr %1753, align 8
+  %1755 = getelementptr inbounds %struct.Exid_s, ptr %1754, i32 0, i32 3
+  %1756 = load i64, ptr %1755, align 8
+  %1757 = trunc i64 %1756 to i32
+  %1758 = call ptr @exnewnode(ptr noundef %1751, i32 noundef 275, i32 noundef 0, i32 noundef %1757, ptr noundef null, ptr noundef null)
+  %1759 = load ptr, ptr %9, align 8
+  %1760 = getelementptr inbounds %union.EX_STYPE, ptr %1759, i64 0
+  %1761 = load ptr, ptr %1760, align 8
+  %1762 = getelementptr inbounds %struct.Exnode_s, ptr %1761, i32 0, i32 5
+  %1763 = getelementptr inbounds %struct.anon.3, ptr %1762, i32 0, i32 0
+  store ptr %1758, ptr %1763, align 8
+  %1764 = load ptr, ptr %9, align 8
+  %1765 = getelementptr inbounds %union.EX_STYPE, ptr %1764, i64 -3
+  %1766 = load ptr, ptr %1765, align 8
   %1767 = load ptr, ptr %9, align 8
-  %1768 = getelementptr inbounds %union.EX_STYPE, ptr %1767, i64 -2
+  %1768 = getelementptr inbounds %union.EX_STYPE, ptr %1767, i64 0
   %1769 = load ptr, ptr %1768, align 8
-  %1770 = getelementptr inbounds %struct.Exnode_s, ptr %1769, i32 0, i32 0
-  store i32 %1762, ptr %1770, align 8
-  br label %1781
+  %1770 = getelementptr inbounds %struct.Exnode_s, ptr %1769, i32 0, i32 5
+  %1771 = getelementptr inbounds %struct.anon.3, ptr %1770, i32 0, i32 0
+  %1772 = load ptr, ptr %1771, align 8
+  %1773 = getelementptr inbounds %struct.Exnode_s, ptr %1772, i32 0, i32 5
+  %1774 = getelementptr inbounds %struct.anon.5, ptr %1773, i32 0, i32 0
+  store ptr %1766, ptr %1774, align 8
+  %1775 = load ptr, ptr %9, align 8
+  %1776 = getelementptr inbounds %union.EX_STYPE, ptr %1775, i64 0
+  %1777 = load ptr, ptr %1776, align 8
+  store ptr %1777, ptr %13, align 8
+  br label %1798
 
-1771:                                             ; preds = %1752
-  %1772 = load ptr, ptr %9, align 8
-  %1773 = getelementptr inbounds %union.EX_STYPE, ptr %1772, i64 0
-  %1774 = load ptr, ptr %1773, align 8
-  %1775 = getelementptr inbounds %struct.Exnode_s, ptr %1774, i32 0, i32 0
-  %1776 = load i32, ptr %1775, align 8
-  %1777 = load ptr, ptr %9, align 8
-  %1778 = getelementptr inbounds %union.EX_STYPE, ptr %1777, i64 -2
-  %1779 = load ptr, ptr %1778, align 8
-  %1780 = getelementptr inbounds %struct.Exnode_s, ptr %1779, i32 0, i32 0
-  store i32 %1776, ptr %1780, align 8
-  br label %1781
+1778:                                             ; preds = %1700
+  %1779 = load ptr, ptr %9, align 8
+  %1780 = getelementptr inbounds %union.EX_STYPE, ptr %1779, i64 -1
+  %1781 = load i64, ptr %1780, align 8
+  %1782 = icmp ne i64 %1781, 0
+  br i1 %1782, label %1797, label %1783
 
-1781:                                             ; preds = %1771, %1759
-  br label %1800
-
-1782:                                             ; preds = %1745
-  %1783 = load ptr, ptr %9, align 8
-  %1784 = getelementptr inbounds %union.EX_STYPE, ptr %1783, i64 0
-  %1785 = load ptr, ptr %1784, align 8
-  %1786 = getelementptr inbounds %struct.Exnode_s, ptr %1785, i32 0, i32 0
-  %1787 = load i32, ptr %1786, align 8
-  %1788 = icmp ne i32 %1787, 0
-  br i1 %1788, label %1799, label %1789
-
-1789:                                             ; preds = %1782
+1783:                                             ; preds = %1778
+  %1784 = load ptr, ptr %9, align 8
+  %1785 = getelementptr inbounds %union.EX_STYPE, ptr %1784, i64 -3
+  %1786 = load ptr, ptr %1785, align 8
+  %1787 = getelementptr inbounds %struct.Exid_s, ptr %1786, i32 0, i32 6
+  %1788 = load ptr, ptr %1787, align 8
+  %1789 = getelementptr inbounds %struct.Exnode_s, ptr %1788, i32 0, i32 5
   %1790 = load ptr, ptr %9, align 8
-  %1791 = getelementptr inbounds %union.EX_STYPE, ptr %1790, i64 -2
+  %1791 = getelementptr inbounds %union.EX_STYPE, ptr %1790, i64 -3
   %1792 = load ptr, ptr %1791, align 8
-  %1793 = getelementptr inbounds %struct.Exnode_s, ptr %1792, i32 0, i32 0
-  %1794 = load i32, ptr %1793, align 8
-  %1795 = load ptr, ptr %9, align 8
-  %1796 = getelementptr inbounds %union.EX_STYPE, ptr %1795, i64 0
-  %1797 = load ptr, ptr %1796, align 8
-  %1798 = getelementptr inbounds %struct.Exnode_s, ptr %1797, i32 0, i32 0
-  store i32 %1794, ptr %1798, align 8
+  %1793 = getelementptr inbounds %struct.Exid_s, ptr %1792, i32 0, i32 3
+  %1794 = load i64, ptr %1793, align 8
+  %1795 = call ptr @exzero(i64 noundef %1794)
+  %1796 = getelementptr inbounds %union.EX_STYPE, ptr %30, i32 0, i32 0
+  store ptr %1795, ptr %1796, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1789, ptr align 8 %30, i64 8, i1 false)
+  br label %1797
+
+1797:                                             ; preds = %1783, %1778
+  br label %1798
+
+1798:                                             ; preds = %1797, %1749
   br label %1799
 
-1799:                                             ; preds = %1789, %1782
-  br label %1800
+1799:                                             ; preds = %1798, %1612
+  br label %3989
 
-1800:                                             ; preds = %1799, %1781
-  %1801 = load ptr, ptr %9, align 8
-  %1802 = getelementptr inbounds %union.EX_STYPE, ptr %1801, i64 -2
-  %1803 = load ptr, ptr %1802, align 8
-  %1804 = getelementptr inbounds %struct.Exnode_s, ptr %1803, i32 0, i32 0
-  %1805 = load i32, ptr %1804, align 8
-  %1806 = load ptr, ptr %9, align 8
-  %1807 = getelementptr inbounds %union.EX_STYPE, ptr %1806, i64 0
-  %1808 = load ptr, ptr %1807, align 8
-  %1809 = getelementptr inbounds %struct.Exnode_s, ptr %1808, i32 0, i32 0
-  %1810 = load i32, ptr %1809, align 8
-  %1811 = icmp ne i32 %1805, %1810
-  br i1 %1811, label %1812, label %1898
+1800:                                             ; preds = %333
+  store ptr null, ptr %13, align 8
+  br label %3989
 
-1812:                                             ; preds = %1800
-  %1813 = load ptr, ptr %9, align 8
-  %1814 = getelementptr inbounds %union.EX_STYPE, ptr %1813, i64 -2
-  %1815 = load ptr, ptr %1814, align 8
-  %1816 = getelementptr inbounds %struct.Exnode_s, ptr %1815, i32 0, i32 0
-  %1817 = load i32, ptr %1816, align 8
-  %1818 = icmp eq i32 %1817, 263
-  br i1 %1818, label %1819, label %1835
+1801:                                             ; preds = %333
+  %1802 = load ptr, ptr %9, align 8
+  %1803 = getelementptr inbounds %union.EX_STYPE, ptr %1802, i64 0
+  %1804 = load ptr, ptr %1803, align 8
+  store ptr %1804, ptr %13, align 8
+  br label %3989
 
-1819:                                             ; preds = %1812
-  %1820 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1821 = load ptr, ptr %9, align 8
-  %1822 = getelementptr inbounds %union.EX_STYPE, ptr %1821, i64 -2
-  %1823 = load ptr, ptr %1822, align 8
+1805:                                             ; preds = %333
+  store ptr null, ptr %13, align 8
+  br label %3989
+
+1806:                                             ; preds = %333
+  %1807 = load ptr, ptr %9, align 8
+  %1808 = getelementptr inbounds %union.EX_STYPE, ptr %1807, i64 -1
+  %1809 = load ptr, ptr %1808, align 8
+  store ptr %1809, ptr %13, align 8
+  br label %3989
+
+1810:                                             ; preds = %333
+  %1811 = load ptr, ptr %9, align 8
+  %1812 = getelementptr inbounds %union.EX_STYPE, ptr %1811, i64 0
+  %1813 = load ptr, ptr %1812, align 8
+  %1814 = getelementptr inbounds %struct.Exnode_s, ptr %1813, i32 0, i32 0
+  %1815 = load i32, ptr %1814, align 8
+  %1816 = sext i32 %1815 to i64
+  %1817 = load ptr, ptr %9, align 8
+  %1818 = getelementptr inbounds %union.EX_STYPE, ptr %1817, i64 -2
+  %1819 = load ptr, ptr %1818, align 8
+  %1820 = getelementptr inbounds %struct.Exid_s, ptr %1819, i32 0, i32 3
+  %1821 = load i64, ptr %1820, align 8
+  %1822 = icmp eq i64 %1816, %1821
+  br i1 %1822, label %1823, label %1827
+
+1823:                                             ; preds = %1810
   %1824 = load ptr, ptr %9, align 8
   %1825 = getelementptr inbounds %union.EX_STYPE, ptr %1824, i64 0
   %1826 = load ptr, ptr %1825, align 8
-  %1827 = getelementptr inbounds %struct.Exnode_s, ptr %1826, i32 0, i32 0
-  %1828 = load i32, ptr %1827, align 8
-  %1829 = load ptr, ptr %9, align 8
-  %1830 = getelementptr inbounds %union.EX_STYPE, ptr %1829, i64 0
-  %1831 = load ptr, ptr %1830, align 8
-  %1832 = call ptr @excast(ptr noundef %1820, ptr noundef %1823, i32 noundef %1828, ptr noundef %1831, i32 noundef 0)
+  br label %1840
+
+1827:                                             ; preds = %1810
+  %1828 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1829 = load ptr, ptr %1828, align 8
+  %1830 = load ptr, ptr %9, align 8
+  %1831 = getelementptr inbounds %union.EX_STYPE, ptr %1830, i64 0
+  %1832 = load ptr, ptr %1831, align 8
   %1833 = load ptr, ptr %9, align 8
   %1834 = getelementptr inbounds %union.EX_STYPE, ptr %1833, i64 -2
-  store ptr %1832, ptr %1834, align 8
-  br label %1897
+  %1835 = load ptr, ptr %1834, align 8
+  %1836 = getelementptr inbounds %struct.Exid_s, ptr %1835, i32 0, i32 3
+  %1837 = load i64, ptr %1836, align 8
+  %1838 = trunc i64 %1837 to i32
+  %1839 = call ptr @excast(ptr noundef %1829, ptr noundef %1832, i32 noundef %1838, ptr noundef null, i32 noundef 0)
+  br label %1840
 
-1835:                                             ; preds = %1812
-  %1836 = load ptr, ptr %9, align 8
-  %1837 = getelementptr inbounds %union.EX_STYPE, ptr %1836, i64 0
-  %1838 = load ptr, ptr %1837, align 8
-  %1839 = getelementptr inbounds %struct.Exnode_s, ptr %1838, i32 0, i32 0
-  %1840 = load i32, ptr %1839, align 8
-  %1841 = icmp eq i32 %1840, 263
-  br i1 %1841, label %1842, label %1858
+1840:                                             ; preds = %1827, %1823
+  %1841 = phi ptr [ %1826, %1823 ], [ %1839, %1827 ]
+  store ptr %1841, ptr %13, align 8
+  br label %3989
 
-1842:                                             ; preds = %1835
-  %1843 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1844 = load ptr, ptr %9, align 8
-  %1845 = getelementptr inbounds %union.EX_STYPE, ptr %1844, i64 0
-  %1846 = load ptr, ptr %1845, align 8
-  %1847 = load ptr, ptr %9, align 8
-  %1848 = getelementptr inbounds %union.EX_STYPE, ptr %1847, i64 -2
-  %1849 = load ptr, ptr %1848, align 8
-  %1850 = getelementptr inbounds %struct.Exnode_s, ptr %1849, i32 0, i32 0
-  %1851 = load i32, ptr %1850, align 8
-  %1852 = load ptr, ptr %9, align 8
-  %1853 = getelementptr inbounds %union.EX_STYPE, ptr %1852, i64 -2
-  %1854 = load ptr, ptr %1853, align 8
-  %1855 = call ptr @excast(ptr noundef %1843, ptr noundef %1846, i32 noundef %1851, ptr noundef %1854, i32 noundef 0)
-  %1856 = load ptr, ptr %9, align 8
-  %1857 = getelementptr inbounds %union.EX_STYPE, ptr %1856, i64 0
-  store ptr %1855, ptr %1857, align 8
-  br label %1896
+1842:                                             ; preds = %333
+  br label %1843
 
-1858:                                             ; preds = %1835
-  %1859 = load ptr, ptr %9, align 8
-  %1860 = getelementptr inbounds %union.EX_STYPE, ptr %1859, i64 -2
-  %1861 = load ptr, ptr %1860, align 8
-  %1862 = getelementptr inbounds %struct.Exnode_s, ptr %1861, i32 0, i32 0
-  %1863 = load i32, ptr %1862, align 8
-  %1864 = icmp eq i32 %1863, 262
-  br i1 %1864, label %1865, label %1876
+1843:                                             ; preds = %2141, %2140, %2139, %2138, %2137, %1842
+  store i32 259, ptr %31, align 4
+  br label %1845
 
-1865:                                             ; preds = %1858
-  %1866 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+1844:                                             ; preds = %2213, %2145, %2144, %2143, %2142, %2136, %2135, %2134, %2133, %2132, %2131
+  store i32 0, ptr %31, align 4
+  br label %1845
+
+1845:                                             ; preds = %1844, %1843
+  %1846 = load ptr, ptr %9, align 8
+  %1847 = getelementptr inbounds %union.EX_STYPE, ptr %1846, i64 -2
+  %1848 = load ptr, ptr %1847, align 8
+  %1849 = getelementptr inbounds %struct.Exnode_s, ptr %1848, i32 0, i32 0
+  %1850 = load i32, ptr %1849, align 8
+  %1851 = icmp ne i32 %1850, 0
+  br i1 %1851, label %1882, label %1852
+
+1852:                                             ; preds = %1845
+  %1853 = load ptr, ptr %9, align 8
+  %1854 = getelementptr inbounds %union.EX_STYPE, ptr %1853, i64 0
+  %1855 = load ptr, ptr %1854, align 8
+  %1856 = getelementptr inbounds %struct.Exnode_s, ptr %1855, i32 0, i32 0
+  %1857 = load i32, ptr %1856, align 8
+  %1858 = icmp ne i32 %1857, 0
+  br i1 %1858, label %1871, label %1859
+
+1859:                                             ; preds = %1852
+  %1860 = load i32, ptr %31, align 4
+  %1861 = icmp ne i32 %1860, 0
+  %1862 = select i1 %1861, i32 263, i32 259
+  %1863 = load ptr, ptr %9, align 8
+  %1864 = getelementptr inbounds %union.EX_STYPE, ptr %1863, i64 0
+  %1865 = load ptr, ptr %1864, align 8
+  %1866 = getelementptr inbounds %struct.Exnode_s, ptr %1865, i32 0, i32 0
+  store i32 %1862, ptr %1866, align 8
   %1867 = load ptr, ptr %9, align 8
-  %1868 = getelementptr inbounds %union.EX_STYPE, ptr %1867, i64 0
+  %1868 = getelementptr inbounds %union.EX_STYPE, ptr %1867, i64 -2
   %1869 = load ptr, ptr %1868, align 8
-  %1870 = load ptr, ptr %9, align 8
-  %1871 = getelementptr inbounds %union.EX_STYPE, ptr %1870, i64 -2
-  %1872 = load ptr, ptr %1871, align 8
-  %1873 = call ptr @excast(ptr noundef %1866, ptr noundef %1869, i32 noundef 262, ptr noundef %1872, i32 noundef 0)
-  %1874 = load ptr, ptr %9, align 8
-  %1875 = getelementptr inbounds %union.EX_STYPE, ptr %1874, i64 0
-  store ptr %1873, ptr %1875, align 8
-  br label %1895
+  %1870 = getelementptr inbounds %struct.Exnode_s, ptr %1869, i32 0, i32 0
+  store i32 %1862, ptr %1870, align 8
+  br label %1881
 
-1876:                                             ; preds = %1858
+1871:                                             ; preds = %1852
+  %1872 = load ptr, ptr %9, align 8
+  %1873 = getelementptr inbounds %union.EX_STYPE, ptr %1872, i64 0
+  %1874 = load ptr, ptr %1873, align 8
+  %1875 = getelementptr inbounds %struct.Exnode_s, ptr %1874, i32 0, i32 0
+  %1876 = load i32, ptr %1875, align 8
   %1877 = load ptr, ptr %9, align 8
-  %1878 = getelementptr inbounds %union.EX_STYPE, ptr %1877, i64 0
+  %1878 = getelementptr inbounds %union.EX_STYPE, ptr %1877, i64 -2
   %1879 = load ptr, ptr %1878, align 8
   %1880 = getelementptr inbounds %struct.Exnode_s, ptr %1879, i32 0, i32 0
-  %1881 = load i32, ptr %1880, align 8
-  %1882 = icmp eq i32 %1881, 262
-  br i1 %1882, label %1883, label %1894
+  store i32 %1876, ptr %1880, align 8
+  br label %1881
 
-1883:                                             ; preds = %1876
-  %1884 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1885 = load ptr, ptr %9, align 8
-  %1886 = getelementptr inbounds %union.EX_STYPE, ptr %1885, i64 -2
-  %1887 = load ptr, ptr %1886, align 8
-  %1888 = load ptr, ptr %9, align 8
-  %1889 = getelementptr inbounds %union.EX_STYPE, ptr %1888, i64 0
-  %1890 = load ptr, ptr %1889, align 8
-  %1891 = call ptr @excast(ptr noundef %1884, ptr noundef %1887, i32 noundef 262, ptr noundef %1890, i32 noundef 0)
-  %1892 = load ptr, ptr %9, align 8
-  %1893 = getelementptr inbounds %union.EX_STYPE, ptr %1892, i64 -2
-  store ptr %1891, ptr %1893, align 8
-  br label %1894
+1881:                                             ; preds = %1871, %1859
+  br label %1900
 
-1894:                                             ; preds = %1883, %1876
-  br label %1895
+1882:                                             ; preds = %1845
+  %1883 = load ptr, ptr %9, align 8
+  %1884 = getelementptr inbounds %union.EX_STYPE, ptr %1883, i64 0
+  %1885 = load ptr, ptr %1884, align 8
+  %1886 = getelementptr inbounds %struct.Exnode_s, ptr %1885, i32 0, i32 0
+  %1887 = load i32, ptr %1886, align 8
+  %1888 = icmp ne i32 %1887, 0
+  br i1 %1888, label %1899, label %1889
 
-1895:                                             ; preds = %1894, %1865
-  br label %1896
+1889:                                             ; preds = %1882
+  %1890 = load ptr, ptr %9, align 8
+  %1891 = getelementptr inbounds %union.EX_STYPE, ptr %1890, i64 -2
+  %1892 = load ptr, ptr %1891, align 8
+  %1893 = getelementptr inbounds %struct.Exnode_s, ptr %1892, i32 0, i32 0
+  %1894 = load i32, ptr %1893, align 8
+  %1895 = load ptr, ptr %9, align 8
+  %1896 = getelementptr inbounds %union.EX_STYPE, ptr %1895, i64 0
+  %1897 = load ptr, ptr %1896, align 8
+  %1898 = getelementptr inbounds %struct.Exnode_s, ptr %1897, i32 0, i32 0
+  store i32 %1894, ptr %1898, align 8
+  br label %1899
 
-1896:                                             ; preds = %1895, %1842
-  br label %1897
+1899:                                             ; preds = %1889, %1882
+  br label %1900
 
-1897:                                             ; preds = %1896, %1819
-  br label %1898
+1900:                                             ; preds = %1899, %1881
+  %1901 = load ptr, ptr %9, align 8
+  %1902 = getelementptr inbounds %union.EX_STYPE, ptr %1901, i64 -2
+  %1903 = load ptr, ptr %1902, align 8
+  %1904 = getelementptr inbounds %struct.Exnode_s, ptr %1903, i32 0, i32 0
+  %1905 = load i32, ptr %1904, align 8
+  %1906 = load ptr, ptr %9, align 8
+  %1907 = getelementptr inbounds %union.EX_STYPE, ptr %1906, i64 0
+  %1908 = load ptr, ptr %1907, align 8
+  %1909 = getelementptr inbounds %struct.Exnode_s, ptr %1908, i32 0, i32 0
+  %1910 = load i32, ptr %1909, align 8
+  %1911 = icmp ne i32 %1905, %1910
+  br i1 %1911, label %1912, label %2002
 
-1898:                                             ; preds = %1897, %1800
-  %1899 = load i32, ptr %31, align 4
-  %1900 = icmp ne i32 %1899, 0
-  br i1 %1900, label %1927, label %1901
+1912:                                             ; preds = %1900
+  %1913 = load ptr, ptr %9, align 8
+  %1914 = getelementptr inbounds %union.EX_STYPE, ptr %1913, i64 -2
+  %1915 = load ptr, ptr %1914, align 8
+  %1916 = getelementptr inbounds %struct.Exnode_s, ptr %1915, i32 0, i32 0
+  %1917 = load i32, ptr %1916, align 8
+  %1918 = icmp eq i32 %1917, 263
+  br i1 %1918, label %1919, label %1936
 
-1901:                                             ; preds = %1898
-  %1902 = load ptr, ptr %9, align 8
-  %1903 = getelementptr inbounds %union.EX_STYPE, ptr %1902, i64 -2
-  %1904 = load ptr, ptr %1903, align 8
-  %1905 = getelementptr inbounds %struct.Exnode_s, ptr %1904, i32 0, i32 0
-  %1906 = load i32, ptr %1905, align 8
-  %1907 = icmp eq i32 %1906, 263
-  br i1 %1907, label %1908, label %1909
+1919:                                             ; preds = %1912
+  %1920 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1921 = load ptr, ptr %1920, align 8
+  %1922 = load ptr, ptr %9, align 8
+  %1923 = getelementptr inbounds %union.EX_STYPE, ptr %1922, i64 -2
+  %1924 = load ptr, ptr %1923, align 8
+  %1925 = load ptr, ptr %9, align 8
+  %1926 = getelementptr inbounds %union.EX_STYPE, ptr %1925, i64 0
+  %1927 = load ptr, ptr %1926, align 8
+  %1928 = getelementptr inbounds %struct.Exnode_s, ptr %1927, i32 0, i32 0
+  %1929 = load i32, ptr %1928, align 8
+  %1930 = load ptr, ptr %9, align 8
+  %1931 = getelementptr inbounds %union.EX_STYPE, ptr %1930, i64 0
+  %1932 = load ptr, ptr %1931, align 8
+  %1933 = call ptr @excast(ptr noundef %1921, ptr noundef %1924, i32 noundef %1929, ptr noundef %1932, i32 noundef 0)
+  %1934 = load ptr, ptr %9, align 8
+  %1935 = getelementptr inbounds %union.EX_STYPE, ptr %1934, i64 -2
+  store ptr %1933, ptr %1935, align 8
+  br label %2001
 
-1908:                                             ; preds = %1901
-  br label %1925
+1936:                                             ; preds = %1912
+  %1937 = load ptr, ptr %9, align 8
+  %1938 = getelementptr inbounds %union.EX_STYPE, ptr %1937, i64 0
+  %1939 = load ptr, ptr %1938, align 8
+  %1940 = getelementptr inbounds %struct.Exnode_s, ptr %1939, i32 0, i32 0
+  %1941 = load i32, ptr %1940, align 8
+  %1942 = icmp eq i32 %1941, 263
+  br i1 %1942, label %1943, label %1960
 
-1909:                                             ; preds = %1901
-  %1910 = load ptr, ptr %9, align 8
-  %1911 = getelementptr inbounds %union.EX_STYPE, ptr %1910, i64 -2
-  %1912 = load ptr, ptr %1911, align 8
-  %1913 = getelementptr inbounds %struct.Exnode_s, ptr %1912, i32 0, i32 0
-  %1914 = load i32, ptr %1913, align 8
-  %1915 = icmp eq i32 %1914, 260
-  br i1 %1915, label %1916, label %1917
+1943:                                             ; preds = %1936
+  %1944 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1945 = load ptr, ptr %1944, align 8
+  %1946 = load ptr, ptr %9, align 8
+  %1947 = getelementptr inbounds %union.EX_STYPE, ptr %1946, i64 0
+  %1948 = load ptr, ptr %1947, align 8
+  %1949 = load ptr, ptr %9, align 8
+  %1950 = getelementptr inbounds %union.EX_STYPE, ptr %1949, i64 -2
+  %1951 = load ptr, ptr %1950, align 8
+  %1952 = getelementptr inbounds %struct.Exnode_s, ptr %1951, i32 0, i32 0
+  %1953 = load i32, ptr %1952, align 8
+  %1954 = load ptr, ptr %9, align 8
+  %1955 = getelementptr inbounds %union.EX_STYPE, ptr %1954, i64 -2
+  %1956 = load ptr, ptr %1955, align 8
+  %1957 = call ptr @excast(ptr noundef %1945, ptr noundef %1948, i32 noundef %1953, ptr noundef %1956, i32 noundef 0)
+  %1958 = load ptr, ptr %9, align 8
+  %1959 = getelementptr inbounds %union.EX_STYPE, ptr %1958, i64 0
+  store ptr %1957, ptr %1959, align 8
+  br label %2000
 
-1916:                                             ; preds = %1909
-  br label %1923
+1960:                                             ; preds = %1936
+  %1961 = load ptr, ptr %9, align 8
+  %1962 = getelementptr inbounds %union.EX_STYPE, ptr %1961, i64 -2
+  %1963 = load ptr, ptr %1962, align 8
+  %1964 = getelementptr inbounds %struct.Exnode_s, ptr %1963, i32 0, i32 0
+  %1965 = load i32, ptr %1964, align 8
+  %1966 = icmp eq i32 %1965, 262
+  br i1 %1966, label %1967, label %1979
 
-1917:                                             ; preds = %1909
-  %1918 = load ptr, ptr %9, align 8
-  %1919 = getelementptr inbounds %union.EX_STYPE, ptr %1918, i64 0
-  %1920 = load ptr, ptr %1919, align 8
-  %1921 = getelementptr inbounds %struct.Exnode_s, ptr %1920, i32 0, i32 0
-  %1922 = load i32, ptr %1921, align 8
-  br label %1923
+1967:                                             ; preds = %1960
+  %1968 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1969 = load ptr, ptr %1968, align 8
+  %1970 = load ptr, ptr %9, align 8
+  %1971 = getelementptr inbounds %union.EX_STYPE, ptr %1970, i64 0
+  %1972 = load ptr, ptr %1971, align 8
+  %1973 = load ptr, ptr %9, align 8
+  %1974 = getelementptr inbounds %union.EX_STYPE, ptr %1973, i64 -2
+  %1975 = load ptr, ptr %1974, align 8
+  %1976 = call ptr @excast(ptr noundef %1969, ptr noundef %1972, i32 noundef 262, ptr noundef %1975, i32 noundef 0)
+  %1977 = load ptr, ptr %9, align 8
+  %1978 = getelementptr inbounds %union.EX_STYPE, ptr %1977, i64 0
+  store ptr %1976, ptr %1978, align 8
+  br label %1999
 
-1923:                                             ; preds = %1917, %1916
-  %1924 = phi i32 [ 260, %1916 ], [ %1922, %1917 ]
-  br label %1925
+1979:                                             ; preds = %1960
+  %1980 = load ptr, ptr %9, align 8
+  %1981 = getelementptr inbounds %union.EX_STYPE, ptr %1980, i64 0
+  %1982 = load ptr, ptr %1981, align 8
+  %1983 = getelementptr inbounds %struct.Exnode_s, ptr %1982, i32 0, i32 0
+  %1984 = load i32, ptr %1983, align 8
+  %1985 = icmp eq i32 %1984, 262
+  br i1 %1985, label %1986, label %1998
 
-1925:                                             ; preds = %1923, %1908
-  %1926 = phi i32 [ 263, %1908 ], [ %1924, %1923 ]
-  store i32 %1926, ptr %31, align 4
-  br label %1927
-
-1927:                                             ; preds = %1925, %1898
-  %1928 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1929 = load ptr, ptr %9, align 8
-  %1930 = getelementptr inbounds %union.EX_STYPE, ptr %1929, i64 -1
-  %1931 = load i32, ptr %1930, align 8
-  %1932 = load i32, ptr %31, align 4
-  %1933 = load ptr, ptr %9, align 8
-  %1934 = getelementptr inbounds %union.EX_STYPE, ptr %1933, i64 -2
-  %1935 = load ptr, ptr %1934, align 8
-  %1936 = load ptr, ptr %9, align 8
-  %1937 = getelementptr inbounds %union.EX_STYPE, ptr %1936, i64 0
-  %1938 = load ptr, ptr %1937, align 8
-  %1939 = call ptr @exnewnode(ptr noundef %1928, i32 noundef %1931, i32 noundef 1, i32 noundef %1932, ptr noundef %1935, ptr noundef %1938)
-  store ptr %1939, ptr %13, align 8
-  %1940 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1941 = getelementptr inbounds %struct.Expr_s, ptr %1940, i32 0, i32 16
-  %1942 = load i32, ptr %1941, align 4
-  %1943 = icmp ne i32 %1942, 0
-  br i1 %1943, label %1995, label %1944
-
-1944:                                             ; preds = %1927
-  %1945 = load ptr, ptr %9, align 8
-  %1946 = getelementptr inbounds %union.EX_STYPE, ptr %1945, i64 -2
-  %1947 = load ptr, ptr %1946, align 8
-  %1948 = getelementptr inbounds %struct.Exnode_s, ptr %1947, i32 0, i32 1
-  %1949 = load i32, ptr %1948, align 4
-  %1950 = icmp eq i32 %1949, 271
-  br i1 %1950, label %1951, label %1995
-
-1951:                                             ; preds = %1944
-  %1952 = load ptr, ptr %9, align 8
-  %1953 = getelementptr inbounds %union.EX_STYPE, ptr %1952, i64 0
-  %1954 = load ptr, ptr %1953, align 8
-  %1955 = getelementptr inbounds %struct.Exnode_s, ptr %1954, i32 0, i32 1
-  %1956 = load i32, ptr %1955, align 4
-  %1957 = icmp eq i32 %1956, 271
-  br i1 %1957, label %1958, label %1995
-
-1958:                                             ; preds = %1951
-  %1959 = load ptr, ptr %13, align 8
-  %1960 = getelementptr inbounds %struct.Exnode_s, ptr %1959, i32 0, i32 5
-  %1961 = getelementptr inbounds %struct.anon.2, ptr %1960, i32 0, i32 0
-  %1962 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1963 = load ptr, ptr %13, align 8
-  %1964 = call ptr @exeval(ptr noundef %1962, ptr noundef %1963, ptr noundef null)
-  %1965 = getelementptr inbounds %union.EX_STYPE, ptr %32, i32 0, i32 0
-  store ptr %1964, ptr %1965, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1961, ptr align 8 %32, i64 8, i1 false)
-  %1966 = load ptr, ptr %13, align 8
-  %1967 = getelementptr inbounds %struct.Exnode_s, ptr %1966, i32 0, i32 0
-  %1968 = load i32, ptr %1967, align 8
-  %1969 = icmp eq i32 %1968, 263
-  br i1 %1969, label %1970, label %1982
-
-1970:                                             ; preds = %1958
-  %1971 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1972 = getelementptr inbounds %struct.Expr_s, ptr %1971, i32 0, i32 3
-  %1973 = load ptr, ptr %1972, align 8
-  %1974 = load ptr, ptr %13, align 8
-  %1975 = getelementptr inbounds %struct.Exnode_s, ptr %1974, i32 0, i32 5
-  %1976 = getelementptr inbounds %struct.anon.2, ptr %1975, i32 0, i32 0
-  %1977 = load ptr, ptr %1976, align 8
-  %1978 = call ptr @vmstrdup(ptr noundef %1973, ptr noundef %1977)
-  %1979 = load ptr, ptr %13, align 8
-  %1980 = getelementptr inbounds %struct.Exnode_s, ptr %1979, i32 0, i32 5
-  %1981 = getelementptr inbounds %struct.anon.2, ptr %1980, i32 0, i32 0
-  store ptr %1978, ptr %1981, align 8
-  br label %1982
-
-1982:                                             ; preds = %1970, %1958
-  %1983 = load ptr, ptr %13, align 8
-  %1984 = getelementptr inbounds %struct.Exnode_s, ptr %1983, i32 0, i32 2
-  store i32 0, ptr %1984, align 8
-  %1985 = load ptr, ptr %13, align 8
-  %1986 = getelementptr inbounds %struct.Exnode_s, ptr %1985, i32 0, i32 1
-  store i32 271, ptr %1986, align 4
-  %1987 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %1988 = load ptr, ptr %9, align 8
-  %1989 = getelementptr inbounds %union.EX_STYPE, ptr %1988, i64 -2
-  %1990 = load ptr, ptr %1989, align 8
-  call void @exfreenode(ptr noundef %1987, ptr noundef %1990)
-  %1991 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+1986:                                             ; preds = %1979
+  %1987 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %1988 = load ptr, ptr %1987, align 8
+  %1989 = load ptr, ptr %9, align 8
+  %1990 = getelementptr inbounds %union.EX_STYPE, ptr %1989, i64 -2
+  %1991 = load ptr, ptr %1990, align 8
   %1992 = load ptr, ptr %9, align 8
   %1993 = getelementptr inbounds %union.EX_STYPE, ptr %1992, i64 0
   %1994 = load ptr, ptr %1993, align 8
-  call void @exfreenode(ptr noundef %1991, ptr noundef %1994)
-  br label %2019
-
-1995:                                             ; preds = %1951, %1944, %1927
+  %1995 = call ptr @excast(ptr noundef %1988, ptr noundef %1991, i32 noundef 262, ptr noundef %1994, i32 noundef 0)
   %1996 = load ptr, ptr %9, align 8
   %1997 = getelementptr inbounds %union.EX_STYPE, ptr %1996, i64 -2
-  %1998 = load ptr, ptr %1997, align 8
-  %1999 = getelementptr inbounds %struct.Exnode_s, ptr %1998, i32 0, i32 0
-  %2000 = load i32, ptr %1999, align 8
-  %2001 = icmp sgt i32 %2000, 258
-  br i1 %2001, label %2002, label %2009
+  store ptr %1995, ptr %1997, align 8
+  br label %1998
 
-2002:                                             ; preds = %1995
-  %2003 = load ptr, ptr %9, align 8
-  %2004 = getelementptr inbounds %union.EX_STYPE, ptr %2003, i64 0
-  %2005 = load ptr, ptr %2004, align 8
-  %2006 = getelementptr inbounds %struct.Exnode_s, ptr %2005, i32 0, i32 0
-  %2007 = load i32, ptr %2006, align 8
-  %2008 = icmp sgt i32 %2007, 258
-  br i1 %2008, label %2018, label %2009
+1998:                                             ; preds = %1986, %1979
+  br label %1999
 
-2009:                                             ; preds = %2002, %1995
-  %2010 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2011 = load ptr, ptr %9, align 8
-  %2012 = getelementptr inbounds %union.EX_STYPE, ptr %2011, i64 -2
-  %2013 = load ptr, ptr %2012, align 8
-  %2014 = load ptr, ptr %13, align 8
-  %2015 = load ptr, ptr %9, align 8
-  %2016 = getelementptr inbounds %union.EX_STYPE, ptr %2015, i64 0
-  %2017 = load ptr, ptr %2016, align 8
-  call void @checkBinary(ptr noundef %2010, ptr noundef %2013, ptr noundef %2014, ptr noundef %2017)
-  br label %2018
+1999:                                             ; preds = %1998, %1967
+  br label %2000
 
-2018:                                             ; preds = %2009, %2002
-  br label %2019
+2000:                                             ; preds = %1999, %1943
+  br label %2001
 
-2019:                                             ; preds = %2018, %1982
-  br label %3766
+2001:                                             ; preds = %2000, %1919
+  br label %2002
 
-2020:                                             ; preds = %332
-  br label %1744
+2002:                                             ; preds = %2001, %1900
+  %2003 = load i32, ptr %31, align 4
+  %2004 = icmp ne i32 %2003, 0
+  br i1 %2004, label %2031, label %2005
 
-2021:                                             ; preds = %332
-  br label %1744
+2005:                                             ; preds = %2002
+  %2006 = load ptr, ptr %9, align 8
+  %2007 = getelementptr inbounds %union.EX_STYPE, ptr %2006, i64 -2
+  %2008 = load ptr, ptr %2007, align 8
+  %2009 = getelementptr inbounds %struct.Exnode_s, ptr %2008, i32 0, i32 0
+  %2010 = load i32, ptr %2009, align 8
+  %2011 = icmp eq i32 %2010, 263
+  br i1 %2011, label %2012, label %2013
 
-2022:                                             ; preds = %332
-  br label %1744
+2012:                                             ; preds = %2005
+  br label %2029
 
-2023:                                             ; preds = %332
-  br label %1744
+2013:                                             ; preds = %2005
+  %2014 = load ptr, ptr %9, align 8
+  %2015 = getelementptr inbounds %union.EX_STYPE, ptr %2014, i64 -2
+  %2016 = load ptr, ptr %2015, align 8
+  %2017 = getelementptr inbounds %struct.Exnode_s, ptr %2016, i32 0, i32 0
+  %2018 = load i32, ptr %2017, align 8
+  %2019 = icmp eq i32 %2018, 260
+  br i1 %2019, label %2020, label %2021
 
-2024:                                             ; preds = %332
-  br label %1744
+2020:                                             ; preds = %2013
+  br label %2027
 
-2025:                                             ; preds = %332
-  br label %1744
+2021:                                             ; preds = %2013
+  %2022 = load ptr, ptr %9, align 8
+  %2023 = getelementptr inbounds %union.EX_STYPE, ptr %2022, i64 0
+  %2024 = load ptr, ptr %2023, align 8
+  %2025 = getelementptr inbounds %struct.Exnode_s, ptr %2024, i32 0, i32 0
+  %2026 = load i32, ptr %2025, align 8
+  br label %2027
 
-2026:                                             ; preds = %332
-  br label %1743
+2027:                                             ; preds = %2021, %2020
+  %2028 = phi i32 [ 260, %2020 ], [ %2026, %2021 ]
+  br label %2029
 
-2027:                                             ; preds = %332
-  br label %1743
+2029:                                             ; preds = %2027, %2012
+  %2030 = phi i32 [ 263, %2012 ], [ %2028, %2027 ]
+  store i32 %2030, ptr %31, align 4
+  br label %2031
 
-2028:                                             ; preds = %332
-  br label %1743
+2031:                                             ; preds = %2029, %2002
+  %2032 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2033 = load ptr, ptr %2032, align 8
+  %2034 = load ptr, ptr %9, align 8
+  %2035 = getelementptr inbounds %union.EX_STYPE, ptr %2034, i64 -1
+  %2036 = load i32, ptr %2035, align 8
+  %2037 = load i32, ptr %31, align 4
+  %2038 = load ptr, ptr %9, align 8
+  %2039 = getelementptr inbounds %union.EX_STYPE, ptr %2038, i64 -2
+  %2040 = load ptr, ptr %2039, align 8
+  %2041 = load ptr, ptr %9, align 8
+  %2042 = getelementptr inbounds %union.EX_STYPE, ptr %2041, i64 0
+  %2043 = load ptr, ptr %2042, align 8
+  %2044 = call ptr @exnewnode(ptr noundef %2033, i32 noundef %2036, i32 noundef 1, i32 noundef %2037, ptr noundef %2040, ptr noundef %2043)
+  store ptr %2044, ptr %13, align 8
+  %2045 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2046 = load ptr, ptr %2045, align 8
+  %2047 = getelementptr inbounds %struct.Expr_s, ptr %2046, i32 0, i32 16
+  %2048 = load i32, ptr %2047, align 4
+  %2049 = icmp ne i32 %2048, 0
+  br i1 %2049, label %2105, label %2050
 
-2029:                                             ; preds = %332
-  br label %1743
+2050:                                             ; preds = %2031
+  %2051 = load ptr, ptr %9, align 8
+  %2052 = getelementptr inbounds %union.EX_STYPE, ptr %2051, i64 -2
+  %2053 = load ptr, ptr %2052, align 8
+  %2054 = getelementptr inbounds %struct.Exnode_s, ptr %2053, i32 0, i32 1
+  %2055 = load i32, ptr %2054, align 4
+  %2056 = icmp eq i32 %2055, 271
+  br i1 %2056, label %2057, label %2105
 
-2030:                                             ; preds = %332
-  br label %1743
+2057:                                             ; preds = %2050
+  %2058 = load ptr, ptr %9, align 8
+  %2059 = getelementptr inbounds %union.EX_STYPE, ptr %2058, i64 0
+  %2060 = load ptr, ptr %2059, align 8
+  %2061 = getelementptr inbounds %struct.Exnode_s, ptr %2060, i32 0, i32 1
+  %2062 = load i32, ptr %2061, align 4
+  %2063 = icmp eq i32 %2062, 271
+  br i1 %2063, label %2064, label %2105
 
-2031:                                             ; preds = %332
-  br label %1744
+2064:                                             ; preds = %2057
+  %2065 = load ptr, ptr %13, align 8
+  %2066 = getelementptr inbounds %struct.Exnode_s, ptr %2065, i32 0, i32 5
+  %2067 = getelementptr inbounds %struct.anon.2, ptr %2066, i32 0, i32 0
+  %2068 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2069 = load ptr, ptr %2068, align 8
+  %2070 = load ptr, ptr %13, align 8
+  %2071 = call ptr @exeval(ptr noundef %2069, ptr noundef %2070, ptr noundef null)
+  %2072 = getelementptr inbounds %union.EX_STYPE, ptr %32, i32 0, i32 0
+  store ptr %2071, ptr %2072, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2067, ptr align 8 %32, i64 8, i1 false)
+  %2073 = load ptr, ptr %13, align 8
+  %2074 = getelementptr inbounds %struct.Exnode_s, ptr %2073, i32 0, i32 0
+  %2075 = load i32, ptr %2074, align 8
+  %2076 = icmp eq i32 %2075, 263
+  br i1 %2076, label %2077, label %2090
 
-2032:                                             ; preds = %332
-  br label %1744
-
-2033:                                             ; preds = %332
-  br label %1744
-
-2034:                                             ; preds = %332
-  br label %1744
-
-2035:                                             ; preds = %332
-  br label %2036
-
-2036:                                             ; preds = %2099, %2035
-  %2037 = load ptr, ptr %9, align 8
-  %2038 = getelementptr inbounds %union.EX_STYPE, ptr %2037, i64 -2
-  %2039 = load ptr, ptr %2038, align 8
-  %2040 = getelementptr inbounds %struct.Exnode_s, ptr %2039, i32 0, i32 0
-  %2041 = load i32, ptr %2040, align 8
-  %2042 = icmp eq i32 %2041, 263
-  br i1 %2042, label %2043, label %2051
-
-2043:                                             ; preds = %2036
-  %2044 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2045 = load ptr, ptr %9, align 8
-  %2046 = getelementptr inbounds %union.EX_STYPE, ptr %2045, i64 -2
-  %2047 = load ptr, ptr %2046, align 8
-  %2048 = call ptr @exnewnode(ptr noundef %2044, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %2047, ptr noundef null)
-  %2049 = load ptr, ptr %9, align 8
-  %2050 = getelementptr inbounds %union.EX_STYPE, ptr %2049, i64 -2
-  store ptr %2048, ptr %2050, align 8
-  br label %2067
-
-2051:                                             ; preds = %2036
-  %2052 = load ptr, ptr %9, align 8
-  %2053 = getelementptr inbounds %union.EX_STYPE, ptr %2052, i64 -2
-  %2054 = load ptr, ptr %2053, align 8
-  %2055 = getelementptr inbounds %struct.Exnode_s, ptr %2054, i32 0, i32 0
-  %2056 = load i32, ptr %2055, align 8
-  %2057 = icmp sgt i32 %2056, 258
-  br i1 %2057, label %2066, label %2058
-
-2058:                                             ; preds = %2051
-  %2059 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2060 = load ptr, ptr %9, align 8
-  %2061 = getelementptr inbounds %union.EX_STYPE, ptr %2060, i64 -2
-  %2062 = load ptr, ptr %2061, align 8
-  %2063 = call ptr @excast(ptr noundef %2059, ptr noundef %2062, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  %2064 = load ptr, ptr %9, align 8
-  %2065 = getelementptr inbounds %union.EX_STYPE, ptr %2064, i64 -2
-  store ptr %2063, ptr %2065, align 8
-  br label %2066
-
-2066:                                             ; preds = %2058, %2051
-  br label %2067
-
-2067:                                             ; preds = %2066, %2043
-  %2068 = load ptr, ptr %9, align 8
-  %2069 = getelementptr inbounds %union.EX_STYPE, ptr %2068, i64 0
-  %2070 = load ptr, ptr %2069, align 8
-  %2071 = getelementptr inbounds %struct.Exnode_s, ptr %2070, i32 0, i32 0
-  %2072 = load i32, ptr %2071, align 8
-  %2073 = icmp eq i32 %2072, 263
-  br i1 %2073, label %2074, label %2082
-
-2074:                                             ; preds = %2067
-  %2075 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2076 = load ptr, ptr %9, align 8
-  %2077 = getelementptr inbounds %union.EX_STYPE, ptr %2076, i64 0
-  %2078 = load ptr, ptr %2077, align 8
-  %2079 = call ptr @exnewnode(ptr noundef %2075, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %2078, ptr noundef null)
-  %2080 = load ptr, ptr %9, align 8
-  %2081 = getelementptr inbounds %union.EX_STYPE, ptr %2080, i64 0
-  store ptr %2079, ptr %2081, align 8
-  br label %2098
-
-2082:                                             ; preds = %2067
-  %2083 = load ptr, ptr %9, align 8
-  %2084 = getelementptr inbounds %union.EX_STYPE, ptr %2083, i64 0
+2077:                                             ; preds = %2064
+  %2078 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2079 = load ptr, ptr %2078, align 8
+  %2080 = getelementptr inbounds %struct.Expr_s, ptr %2079, i32 0, i32 3
+  %2081 = load ptr, ptr %2080, align 8
+  %2082 = load ptr, ptr %13, align 8
+  %2083 = getelementptr inbounds %struct.Exnode_s, ptr %2082, i32 0, i32 5
+  %2084 = getelementptr inbounds %struct.anon.2, ptr %2083, i32 0, i32 0
   %2085 = load ptr, ptr %2084, align 8
-  %2086 = getelementptr inbounds %struct.Exnode_s, ptr %2085, i32 0, i32 0
-  %2087 = load i32, ptr %2086, align 8
-  %2088 = icmp sgt i32 %2087, 258
-  br i1 %2088, label %2097, label %2089
+  %2086 = call ptr @vmstrdup(ptr noundef %2081, ptr noundef %2085)
+  %2087 = load ptr, ptr %13, align 8
+  %2088 = getelementptr inbounds %struct.Exnode_s, ptr %2087, i32 0, i32 5
+  %2089 = getelementptr inbounds %struct.anon.2, ptr %2088, i32 0, i32 0
+  store ptr %2086, ptr %2089, align 8
+  br label %2090
 
-2089:                                             ; preds = %2082
-  %2090 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2091 = load ptr, ptr %9, align 8
-  %2092 = getelementptr inbounds %union.EX_STYPE, ptr %2091, i64 0
-  %2093 = load ptr, ptr %2092, align 8
-  %2094 = call ptr @excast(ptr noundef %2090, ptr noundef %2093, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  %2095 = load ptr, ptr %9, align 8
-  %2096 = getelementptr inbounds %union.EX_STYPE, ptr %2095, i64 0
-  store ptr %2094, ptr %2096, align 8
-  br label %2097
+2090:                                             ; preds = %2077, %2064
+  %2091 = load ptr, ptr %13, align 8
+  %2092 = getelementptr inbounds %struct.Exnode_s, ptr %2091, i32 0, i32 2
+  store i32 0, ptr %2092, align 8
+  %2093 = load ptr, ptr %13, align 8
+  %2094 = getelementptr inbounds %struct.Exnode_s, ptr %2093, i32 0, i32 1
+  store i32 271, ptr %2094, align 4
+  %2095 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2096 = load ptr, ptr %2095, align 8
+  %2097 = load ptr, ptr %9, align 8
+  %2098 = getelementptr inbounds %union.EX_STYPE, ptr %2097, i64 -2
+  %2099 = load ptr, ptr %2098, align 8
+  call void @exfreenode(ptr noundef %2096, ptr noundef %2099)
+  %2100 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2101 = load ptr, ptr %2100, align 8
+  %2102 = load ptr, ptr %9, align 8
+  %2103 = getelementptr inbounds %union.EX_STYPE, ptr %2102, i64 0
+  %2104 = load ptr, ptr %2103, align 8
+  call void @exfreenode(ptr noundef %2101, ptr noundef %2104)
+  br label %2130
 
-2097:                                             ; preds = %2089, %2082
-  br label %2098
+2105:                                             ; preds = %2057, %2050, %2031
+  %2106 = load ptr, ptr %9, align 8
+  %2107 = getelementptr inbounds %union.EX_STYPE, ptr %2106, i64 -2
+  %2108 = load ptr, ptr %2107, align 8
+  %2109 = getelementptr inbounds %struct.Exnode_s, ptr %2108, i32 0, i32 0
+  %2110 = load i32, ptr %2109, align 8
+  %2111 = icmp sgt i32 %2110, 258
+  br i1 %2111, label %2112, label %2119
 
-2098:                                             ; preds = %2097, %2074
-  br label %1744
+2112:                                             ; preds = %2105
+  %2113 = load ptr, ptr %9, align 8
+  %2114 = getelementptr inbounds %union.EX_STYPE, ptr %2113, i64 0
+  %2115 = load ptr, ptr %2114, align 8
+  %2116 = getelementptr inbounds %struct.Exnode_s, ptr %2115, i32 0, i32 0
+  %2117 = load i32, ptr %2116, align 8
+  %2118 = icmp sgt i32 %2117, 258
+  br i1 %2118, label %2129, label %2119
 
-2099:                                             ; preds = %332
-  br label %2036
-
-2100:                                             ; preds = %332
-  %2101 = load ptr, ptr %9, align 8
-  %2102 = getelementptr inbounds %union.EX_STYPE, ptr %2101, i64 -2
-  %2103 = load ptr, ptr %2102, align 8
-  %2104 = getelementptr inbounds %struct.Exnode_s, ptr %2103, i32 0, i32 1
-  %2105 = load i32, ptr %2104, align 4
-  %2106 = icmp eq i32 %2105, 271
-  br i1 %2106, label %2107, label %2115
-
-2107:                                             ; preds = %2100
-  %2108 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2109 = load ptr, ptr %9, align 8
-  %2110 = getelementptr inbounds %union.EX_STYPE, ptr %2109, i64 -2
-  %2111 = load ptr, ptr %2110, align 8
-  call void @exfreenode(ptr noundef %2108, ptr noundef %2111)
-  %2112 = load ptr, ptr %9, align 8
-  %2113 = getelementptr inbounds %union.EX_STYPE, ptr %2112, i64 0
-  %2114 = load ptr, ptr %2113, align 8
-  store ptr %2114, ptr %13, align 8
-  br label %2129
-
-2115:                                             ; preds = %2100
-  %2116 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2117 = load ptr, ptr %9, align 8
-  %2118 = getelementptr inbounds %union.EX_STYPE, ptr %2117, i64 0
-  %2119 = load ptr, ptr %2118, align 8
-  %2120 = getelementptr inbounds %struct.Exnode_s, ptr %2119, i32 0, i32 0
-  %2121 = load i32, ptr %2120, align 8
+2119:                                             ; preds = %2112, %2105
+  %2120 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2121 = load ptr, ptr %2120, align 8
   %2122 = load ptr, ptr %9, align 8
   %2123 = getelementptr inbounds %union.EX_STYPE, ptr %2122, i64 -2
   %2124 = load ptr, ptr %2123, align 8
-  %2125 = load ptr, ptr %9, align 8
-  %2126 = getelementptr inbounds %union.EX_STYPE, ptr %2125, i64 0
-  %2127 = load ptr, ptr %2126, align 8
-  %2128 = call ptr @exnewnode(ptr noundef %2116, i32 noundef 44, i32 noundef 1, i32 noundef %2121, ptr noundef %2124, ptr noundef %2127)
-  store ptr %2128, ptr %13, align 8
+  %2125 = load ptr, ptr %13, align 8
+  %2126 = load ptr, ptr %9, align 8
+  %2127 = getelementptr inbounds %union.EX_STYPE, ptr %2126, i64 0
+  %2128 = load ptr, ptr %2127, align 8
+  call void @checkBinary(ptr noundef %2121, ptr noundef %2124, ptr noundef %2125, ptr noundef %2128)
   br label %2129
 
-2129:                                             ; preds = %2115, %2107
-  br label %3766
+2129:                                             ; preds = %2119, %2112
+  br label %2130
 
-2130:                                             ; preds = %332
-  store i32 1, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 2), align 4
-  br label %3766
+2130:                                             ; preds = %2129, %2090
+  br label %3989
 
-2131:                                             ; preds = %332
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 2), align 4
-  br label %3766
+2131:                                             ; preds = %333
+  br label %1844
 
-2132:                                             ; preds = %332
-  %2133 = load ptr, ptr %9, align 8
-  %2134 = getelementptr inbounds %union.EX_STYPE, ptr %2133, i64 -3
-  %2135 = load ptr, ptr %2134, align 8
-  %2136 = getelementptr inbounds %struct.Exnode_s, ptr %2135, i32 0, i32 0
-  %2137 = load i32, ptr %2136, align 8
-  %2138 = icmp ne i32 %2137, 0
-  br i1 %2138, label %2166, label %2139
+2132:                                             ; preds = %333
+  br label %1844
 
-2139:                                             ; preds = %2132
-  %2140 = load ptr, ptr %9, align 8
-  %2141 = getelementptr inbounds %union.EX_STYPE, ptr %2140, i64 0
-  %2142 = load ptr, ptr %2141, align 8
-  %2143 = getelementptr inbounds %struct.Exnode_s, ptr %2142, i32 0, i32 0
-  %2144 = load i32, ptr %2143, align 8
-  %2145 = icmp ne i32 %2144, 0
-  br i1 %2145, label %2155, label %2146
+2133:                                             ; preds = %333
+  br label %1844
 
-2146:                                             ; preds = %2139
-  %2147 = load ptr, ptr %9, align 8
-  %2148 = getelementptr inbounds %union.EX_STYPE, ptr %2147, i64 0
-  %2149 = load ptr, ptr %2148, align 8
-  %2150 = getelementptr inbounds %struct.Exnode_s, ptr %2149, i32 0, i32 0
-  store i32 259, ptr %2150, align 8
-  %2151 = load ptr, ptr %9, align 8
-  %2152 = getelementptr inbounds %union.EX_STYPE, ptr %2151, i64 -3
-  %2153 = load ptr, ptr %2152, align 8
-  %2154 = getelementptr inbounds %struct.Exnode_s, ptr %2153, i32 0, i32 0
-  store i32 259, ptr %2154, align 8
-  br label %2165
+2134:                                             ; preds = %333
+  br label %1844
 
-2155:                                             ; preds = %2139
-  %2156 = load ptr, ptr %9, align 8
-  %2157 = getelementptr inbounds %union.EX_STYPE, ptr %2156, i64 0
-  %2158 = load ptr, ptr %2157, align 8
-  %2159 = getelementptr inbounds %struct.Exnode_s, ptr %2158, i32 0, i32 0
-  %2160 = load i32, ptr %2159, align 8
+2135:                                             ; preds = %333
+  br label %1844
+
+2136:                                             ; preds = %333
+  br label %1844
+
+2137:                                             ; preds = %333
+  br label %1843
+
+2138:                                             ; preds = %333
+  br label %1843
+
+2139:                                             ; preds = %333
+  br label %1843
+
+2140:                                             ; preds = %333
+  br label %1843
+
+2141:                                             ; preds = %333
+  br label %1843
+
+2142:                                             ; preds = %333
+  br label %1844
+
+2143:                                             ; preds = %333
+  br label %1844
+
+2144:                                             ; preds = %333
+  br label %1844
+
+2145:                                             ; preds = %333
+  br label %1844
+
+2146:                                             ; preds = %333
+  br label %2147
+
+2147:                                             ; preds = %2214, %2146
+  %2148 = load ptr, ptr %9, align 8
+  %2149 = getelementptr inbounds %union.EX_STYPE, ptr %2148, i64 -2
+  %2150 = load ptr, ptr %2149, align 8
+  %2151 = getelementptr inbounds %struct.Exnode_s, ptr %2150, i32 0, i32 0
+  %2152 = load i32, ptr %2151, align 8
+  %2153 = icmp eq i32 %2152, 263
+  br i1 %2153, label %2154, label %2163
+
+2154:                                             ; preds = %2147
+  %2155 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2156 = load ptr, ptr %2155, align 8
+  %2157 = load ptr, ptr %9, align 8
+  %2158 = getelementptr inbounds %union.EX_STYPE, ptr %2157, i64 -2
+  %2159 = load ptr, ptr %2158, align 8
+  %2160 = call ptr @exnewnode(ptr noundef %2156, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %2159, ptr noundef null)
   %2161 = load ptr, ptr %9, align 8
-  %2162 = getelementptr inbounds %union.EX_STYPE, ptr %2161, i64 -3
-  %2163 = load ptr, ptr %2162, align 8
-  %2164 = getelementptr inbounds %struct.Exnode_s, ptr %2163, i32 0, i32 0
-  store i32 %2160, ptr %2164, align 8
-  br label %2165
+  %2162 = getelementptr inbounds %union.EX_STYPE, ptr %2161, i64 -2
+  store ptr %2160, ptr %2162, align 8
+  br label %2180
 
-2165:                                             ; preds = %2155, %2146
-  br label %2184
+2163:                                             ; preds = %2147
+  %2164 = load ptr, ptr %9, align 8
+  %2165 = getelementptr inbounds %union.EX_STYPE, ptr %2164, i64 -2
+  %2166 = load ptr, ptr %2165, align 8
+  %2167 = getelementptr inbounds %struct.Exnode_s, ptr %2166, i32 0, i32 0
+  %2168 = load i32, ptr %2167, align 8
+  %2169 = icmp sgt i32 %2168, 258
+  br i1 %2169, label %2179, label %2170
 
-2166:                                             ; preds = %2132
-  %2167 = load ptr, ptr %9, align 8
-  %2168 = getelementptr inbounds %union.EX_STYPE, ptr %2167, i64 0
-  %2169 = load ptr, ptr %2168, align 8
-  %2170 = getelementptr inbounds %struct.Exnode_s, ptr %2169, i32 0, i32 0
-  %2171 = load i32, ptr %2170, align 8
-  %2172 = icmp ne i32 %2171, 0
-  br i1 %2172, label %2183, label %2173
+2170:                                             ; preds = %2163
+  %2171 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2172 = load ptr, ptr %2171, align 8
+  %2173 = load ptr, ptr %9, align 8
+  %2174 = getelementptr inbounds %union.EX_STYPE, ptr %2173, i64 -2
+  %2175 = load ptr, ptr %2174, align 8
+  %2176 = call ptr @excast(ptr noundef %2172, ptr noundef %2175, i32 noundef 259, ptr noundef null, i32 noundef 0)
+  %2177 = load ptr, ptr %9, align 8
+  %2178 = getelementptr inbounds %union.EX_STYPE, ptr %2177, i64 -2
+  store ptr %2176, ptr %2178, align 8
+  br label %2179
 
-2173:                                             ; preds = %2166
-  %2174 = load ptr, ptr %9, align 8
-  %2175 = getelementptr inbounds %union.EX_STYPE, ptr %2174, i64 -3
-  %2176 = load ptr, ptr %2175, align 8
-  %2177 = getelementptr inbounds %struct.Exnode_s, ptr %2176, i32 0, i32 0
-  %2178 = load i32, ptr %2177, align 8
-  %2179 = load ptr, ptr %9, align 8
-  %2180 = getelementptr inbounds %union.EX_STYPE, ptr %2179, i64 0
-  %2181 = load ptr, ptr %2180, align 8
-  %2182 = getelementptr inbounds %struct.Exnode_s, ptr %2181, i32 0, i32 0
-  store i32 %2178, ptr %2182, align 8
-  br label %2183
+2179:                                             ; preds = %2170, %2163
+  br label %2180
 
-2183:                                             ; preds = %2173, %2166
-  br label %2184
+2180:                                             ; preds = %2179, %2154
+  %2181 = load ptr, ptr %9, align 8
+  %2182 = getelementptr inbounds %union.EX_STYPE, ptr %2181, i64 0
+  %2183 = load ptr, ptr %2182, align 8
+  %2184 = getelementptr inbounds %struct.Exnode_s, ptr %2183, i32 0, i32 0
+  %2185 = load i32, ptr %2184, align 8
+  %2186 = icmp eq i32 %2185, 263
+  br i1 %2186, label %2187, label %2196
 
-2184:                                             ; preds = %2183, %2165
-  %2185 = load ptr, ptr %9, align 8
-  %2186 = getelementptr inbounds %union.EX_STYPE, ptr %2185, i64 -6
-  %2187 = load ptr, ptr %2186, align 8
-  %2188 = getelementptr inbounds %struct.Exnode_s, ptr %2187, i32 0, i32 0
-  %2189 = load i32, ptr %2188, align 8
-  %2190 = icmp eq i32 %2189, 263
-  br i1 %2190, label %2191, label %2199
+2187:                                             ; preds = %2180
+  %2188 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2189 = load ptr, ptr %2188, align 8
+  %2190 = load ptr, ptr %9, align 8
+  %2191 = getelementptr inbounds %union.EX_STYPE, ptr %2190, i64 0
+  %2192 = load ptr, ptr %2191, align 8
+  %2193 = call ptr @exnewnode(ptr noundef %2189, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %2192, ptr noundef null)
+  %2194 = load ptr, ptr %9, align 8
+  %2195 = getelementptr inbounds %union.EX_STYPE, ptr %2194, i64 0
+  store ptr %2193, ptr %2195, align 8
+  br label %2213
 
-2191:                                             ; preds = %2184
-  %2192 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2193 = load ptr, ptr %9, align 8
-  %2194 = getelementptr inbounds %union.EX_STYPE, ptr %2193, i64 -6
-  %2195 = load ptr, ptr %2194, align 8
-  %2196 = call ptr @exnewnode(ptr noundef %2192, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %2195, ptr noundef null)
+2196:                                             ; preds = %2180
   %2197 = load ptr, ptr %9, align 8
-  %2198 = getelementptr inbounds %union.EX_STYPE, ptr %2197, i64 -6
-  store ptr %2196, ptr %2198, align 8
-  br label %2222
+  %2198 = getelementptr inbounds %union.EX_STYPE, ptr %2197, i64 0
+  %2199 = load ptr, ptr %2198, align 8
+  %2200 = getelementptr inbounds %struct.Exnode_s, ptr %2199, i32 0, i32 0
+  %2201 = load i32, ptr %2200, align 8
+  %2202 = icmp sgt i32 %2201, 258
+  br i1 %2202, label %2212, label %2203
 
-2199:                                             ; preds = %2184
-  %2200 = load ptr, ptr %9, align 8
-  %2201 = getelementptr inbounds %union.EX_STYPE, ptr %2200, i64 -6
-  %2202 = load ptr, ptr %2201, align 8
-  %2203 = getelementptr inbounds %struct.Exnode_s, ptr %2202, i32 0, i32 0
-  %2204 = load i32, ptr %2203, align 8
-  %2205 = icmp sge i32 %2204, 259
-  br i1 %2205, label %2206, label %2213
+2203:                                             ; preds = %2196
+  %2204 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2205 = load ptr, ptr %2204, align 8
+  %2206 = load ptr, ptr %9, align 8
+  %2207 = getelementptr inbounds %union.EX_STYPE, ptr %2206, i64 0
+  %2208 = load ptr, ptr %2207, align 8
+  %2209 = call ptr @excast(ptr noundef %2205, ptr noundef %2208, i32 noundef 259, ptr noundef null, i32 noundef 0)
+  %2210 = load ptr, ptr %9, align 8
+  %2211 = getelementptr inbounds %union.EX_STYPE, ptr %2210, i64 0
+  store ptr %2209, ptr %2211, align 8
+  br label %2212
 
-2206:                                             ; preds = %2199
-  %2207 = load ptr, ptr %9, align 8
-  %2208 = getelementptr inbounds %union.EX_STYPE, ptr %2207, i64 -6
-  %2209 = load ptr, ptr %2208, align 8
-  %2210 = getelementptr inbounds %struct.Exnode_s, ptr %2209, i32 0, i32 0
-  %2211 = load i32, ptr %2210, align 8
-  %2212 = icmp sle i32 %2211, 261
-  br i1 %2212, label %2221, label %2213
+2212:                                             ; preds = %2203, %2196
+  br label %2213
 
-2213:                                             ; preds = %2206, %2199
-  %2214 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2215 = load ptr, ptr %9, align 8
-  %2216 = getelementptr inbounds %union.EX_STYPE, ptr %2215, i64 -6
-  %2217 = load ptr, ptr %2216, align 8
-  %2218 = call ptr @excast(ptr noundef %2214, ptr noundef %2217, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  %2219 = load ptr, ptr %9, align 8
-  %2220 = getelementptr inbounds %union.EX_STYPE, ptr %2219, i64 -6
-  store ptr %2218, ptr %2220, align 8
-  br label %2221
+2213:                                             ; preds = %2212, %2187
+  br label %1844
 
-2221:                                             ; preds = %2213, %2206
-  br label %2222
+2214:                                             ; preds = %333
+  br label %2147
 
-2222:                                             ; preds = %2221, %2191
-  %2223 = load ptr, ptr %9, align 8
-  %2224 = getelementptr inbounds %union.EX_STYPE, ptr %2223, i64 -3
-  %2225 = load ptr, ptr %2224, align 8
-  %2226 = getelementptr inbounds %struct.Exnode_s, ptr %2225, i32 0, i32 0
-  %2227 = load i32, ptr %2226, align 8
+2215:                                             ; preds = %333
+  %2216 = load ptr, ptr %9, align 8
+  %2217 = getelementptr inbounds %union.EX_STYPE, ptr %2216, i64 -2
+  %2218 = load ptr, ptr %2217, align 8
+  %2219 = getelementptr inbounds %struct.Exnode_s, ptr %2218, i32 0, i32 1
+  %2220 = load i32, ptr %2219, align 4
+  %2221 = icmp eq i32 %2220, 271
+  br i1 %2221, label %2222, label %2231
+
+2222:                                             ; preds = %2215
+  %2223 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2224 = load ptr, ptr %2223, align 8
+  %2225 = load ptr, ptr %9, align 8
+  %2226 = getelementptr inbounds %union.EX_STYPE, ptr %2225, i64 -2
+  %2227 = load ptr, ptr %2226, align 8
+  call void @exfreenode(ptr noundef %2224, ptr noundef %2227)
   %2228 = load ptr, ptr %9, align 8
   %2229 = getelementptr inbounds %union.EX_STYPE, ptr %2228, i64 0
   %2230 = load ptr, ptr %2229, align 8
-  %2231 = getelementptr inbounds %struct.Exnode_s, ptr %2230, i32 0, i32 0
-  %2232 = load i32, ptr %2231, align 8
-  %2233 = icmp ne i32 %2227, %2232
-  br i1 %2233, label %2234, label %2282
+  store ptr %2230, ptr %13, align 8
+  br label %2246
 
-2234:                                             ; preds = %2222
-  %2235 = load ptr, ptr %9, align 8
-  %2236 = getelementptr inbounds %union.EX_STYPE, ptr %2235, i64 -3
-  %2237 = load ptr, ptr %2236, align 8
-  %2238 = getelementptr inbounds %struct.Exnode_s, ptr %2237, i32 0, i32 0
-  %2239 = load i32, ptr %2238, align 8
-  %2240 = icmp eq i32 %2239, 263
-  br i1 %2240, label %2248, label %2241
-
-2241:                                             ; preds = %2234
+2231:                                             ; preds = %2215
+  %2232 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2233 = load ptr, ptr %2232, align 8
+  %2234 = load ptr, ptr %9, align 8
+  %2235 = getelementptr inbounds %union.EX_STYPE, ptr %2234, i64 0
+  %2236 = load ptr, ptr %2235, align 8
+  %2237 = getelementptr inbounds %struct.Exnode_s, ptr %2236, i32 0, i32 0
+  %2238 = load i32, ptr %2237, align 8
+  %2239 = load ptr, ptr %9, align 8
+  %2240 = getelementptr inbounds %union.EX_STYPE, ptr %2239, i64 -2
+  %2241 = load ptr, ptr %2240, align 8
   %2242 = load ptr, ptr %9, align 8
   %2243 = getelementptr inbounds %union.EX_STYPE, ptr %2242, i64 0
   %2244 = load ptr, ptr %2243, align 8
-  %2245 = getelementptr inbounds %struct.Exnode_s, ptr %2244, i32 0, i32 0
-  %2246 = load i32, ptr %2245, align 8
-  %2247 = icmp eq i32 %2246, 263
-  br i1 %2247, label %2248, label %2249
+  %2245 = call ptr @exnewnode(ptr noundef %2233, i32 noundef 44, i32 noundef 1, i32 noundef %2238, ptr noundef %2241, ptr noundef %2244)
+  store ptr %2245, ptr %13, align 8
+  br label %2246
 
-2248:                                             ; preds = %2241, %2234
-  call void (ptr, ...) @exerror(ptr noundef @.str.32)
-  br label %2281
+2246:                                             ; preds = %2231, %2222
+  br label %3989
 
-2249:                                             ; preds = %2241
-  %2250 = load ptr, ptr %9, align 8
-  %2251 = getelementptr inbounds %union.EX_STYPE, ptr %2250, i64 -3
-  %2252 = load ptr, ptr %2251, align 8
-  %2253 = getelementptr inbounds %struct.Exnode_s, ptr %2252, i32 0, i32 0
-  %2254 = load i32, ptr %2253, align 8
-  %2255 = icmp eq i32 %2254, 262
-  br i1 %2255, label %2256, label %2264
+2247:                                             ; preds = %333
+  %2248 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 2
+  store i32 1, ptr %2248, align 4
+  br label %3989
 
-2256:                                             ; preds = %2249
-  %2257 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2258 = load ptr, ptr %9, align 8
-  %2259 = getelementptr inbounds %union.EX_STYPE, ptr %2258, i64 0
-  %2260 = load ptr, ptr %2259, align 8
-  %2261 = call ptr @excast(ptr noundef %2257, ptr noundef %2260, i32 noundef 262, ptr noundef null, i32 noundef 0)
-  %2262 = load ptr, ptr %9, align 8
-  %2263 = getelementptr inbounds %union.EX_STYPE, ptr %2262, i64 0
-  store ptr %2261, ptr %2263, align 8
-  br label %2280
+2249:                                             ; preds = %333
+  %2250 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 2
+  store i32 0, ptr %2250, align 4
+  br label %3989
 
-2264:                                             ; preds = %2249
-  %2265 = load ptr, ptr %9, align 8
-  %2266 = getelementptr inbounds %union.EX_STYPE, ptr %2265, i64 0
-  %2267 = load ptr, ptr %2266, align 8
-  %2268 = getelementptr inbounds %struct.Exnode_s, ptr %2267, i32 0, i32 0
-  %2269 = load i32, ptr %2268, align 8
-  %2270 = icmp eq i32 %2269, 262
-  br i1 %2270, label %2271, label %2279
+2251:                                             ; preds = %333
+  %2252 = load ptr, ptr %9, align 8
+  %2253 = getelementptr inbounds %union.EX_STYPE, ptr %2252, i64 -3
+  %2254 = load ptr, ptr %2253, align 8
+  %2255 = getelementptr inbounds %struct.Exnode_s, ptr %2254, i32 0, i32 0
+  %2256 = load i32, ptr %2255, align 8
+  %2257 = icmp ne i32 %2256, 0
+  br i1 %2257, label %2285, label %2258
 
-2271:                                             ; preds = %2264
-  %2272 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2273 = load ptr, ptr %9, align 8
-  %2274 = getelementptr inbounds %union.EX_STYPE, ptr %2273, i64 -3
-  %2275 = load ptr, ptr %2274, align 8
-  %2276 = call ptr @excast(ptr noundef %2272, ptr noundef %2275, i32 noundef 262, ptr noundef null, i32 noundef 0)
-  %2277 = load ptr, ptr %9, align 8
-  %2278 = getelementptr inbounds %union.EX_STYPE, ptr %2277, i64 -3
-  store ptr %2276, ptr %2278, align 8
-  br label %2279
+2258:                                             ; preds = %2251
+  %2259 = load ptr, ptr %9, align 8
+  %2260 = getelementptr inbounds %union.EX_STYPE, ptr %2259, i64 0
+  %2261 = load ptr, ptr %2260, align 8
+  %2262 = getelementptr inbounds %struct.Exnode_s, ptr %2261, i32 0, i32 0
+  %2263 = load i32, ptr %2262, align 8
+  %2264 = icmp ne i32 %2263, 0
+  br i1 %2264, label %2274, label %2265
 
-2279:                                             ; preds = %2271, %2264
-  br label %2280
+2265:                                             ; preds = %2258
+  %2266 = load ptr, ptr %9, align 8
+  %2267 = getelementptr inbounds %union.EX_STYPE, ptr %2266, i64 0
+  %2268 = load ptr, ptr %2267, align 8
+  %2269 = getelementptr inbounds %struct.Exnode_s, ptr %2268, i32 0, i32 0
+  store i32 259, ptr %2269, align 8
+  %2270 = load ptr, ptr %9, align 8
+  %2271 = getelementptr inbounds %union.EX_STYPE, ptr %2270, i64 -3
+  %2272 = load ptr, ptr %2271, align 8
+  %2273 = getelementptr inbounds %struct.Exnode_s, ptr %2272, i32 0, i32 0
+  store i32 259, ptr %2273, align 8
+  br label %2284
 
-2280:                                             ; preds = %2279, %2256
-  br label %2281
+2274:                                             ; preds = %2258
+  %2275 = load ptr, ptr %9, align 8
+  %2276 = getelementptr inbounds %union.EX_STYPE, ptr %2275, i64 0
+  %2277 = load ptr, ptr %2276, align 8
+  %2278 = getelementptr inbounds %struct.Exnode_s, ptr %2277, i32 0, i32 0
+  %2279 = load i32, ptr %2278, align 8
+  %2280 = load ptr, ptr %9, align 8
+  %2281 = getelementptr inbounds %union.EX_STYPE, ptr %2280, i64 -3
+  %2282 = load ptr, ptr %2281, align 8
+  %2283 = getelementptr inbounds %struct.Exnode_s, ptr %2282, i32 0, i32 0
+  store i32 %2279, ptr %2283, align 8
+  br label %2284
 
-2281:                                             ; preds = %2280, %2248
-  br label %2282
+2284:                                             ; preds = %2274, %2265
+  br label %2303
 
-2282:                                             ; preds = %2281, %2222
-  %2283 = load ptr, ptr %9, align 8
-  %2284 = getelementptr inbounds %union.EX_STYPE, ptr %2283, i64 -6
-  %2285 = load ptr, ptr %2284, align 8
-  %2286 = getelementptr inbounds %struct.Exnode_s, ptr %2285, i32 0, i32 1
-  %2287 = load i32, ptr %2286, align 4
-  %2288 = icmp eq i32 %2287, 271
-  br i1 %2288, label %2289, label %2318
+2285:                                             ; preds = %2251
+  %2286 = load ptr, ptr %9, align 8
+  %2287 = getelementptr inbounds %union.EX_STYPE, ptr %2286, i64 0
+  %2288 = load ptr, ptr %2287, align 8
+  %2289 = getelementptr inbounds %struct.Exnode_s, ptr %2288, i32 0, i32 0
+  %2290 = load i32, ptr %2289, align 8
+  %2291 = icmp ne i32 %2290, 0
+  br i1 %2291, label %2302, label %2292
 
-2289:                                             ; preds = %2282
-  %2290 = load ptr, ptr %9, align 8
-  %2291 = getelementptr inbounds %union.EX_STYPE, ptr %2290, i64 -6
-  %2292 = load ptr, ptr %2291, align 8
-  %2293 = getelementptr inbounds %struct.Exnode_s, ptr %2292, i32 0, i32 5
-  %2294 = getelementptr inbounds %struct.anon.2, ptr %2293, i32 0, i32 0
-  %2295 = load i64, ptr %2294, align 8
-  %2296 = icmp ne i64 %2295, 0
-  br i1 %2296, label %2297, label %2305
-
-2297:                                             ; preds = %2289
+2292:                                             ; preds = %2285
+  %2293 = load ptr, ptr %9, align 8
+  %2294 = getelementptr inbounds %union.EX_STYPE, ptr %2293, i64 -3
+  %2295 = load ptr, ptr %2294, align 8
+  %2296 = getelementptr inbounds %struct.Exnode_s, ptr %2295, i32 0, i32 0
+  %2297 = load i32, ptr %2296, align 8
   %2298 = load ptr, ptr %9, align 8
-  %2299 = getelementptr inbounds %union.EX_STYPE, ptr %2298, i64 -3
+  %2299 = getelementptr inbounds %union.EX_STYPE, ptr %2298, i64 0
   %2300 = load ptr, ptr %2299, align 8
-  store ptr %2300, ptr %13, align 8
-  %2301 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2302 = load ptr, ptr %9, align 8
-  %2303 = getelementptr inbounds %union.EX_STYPE, ptr %2302, i64 0
-  %2304 = load ptr, ptr %2303, align 8
-  call void @exfreenode(ptr noundef %2301, ptr noundef %2304)
-  br label %2313
+  %2301 = getelementptr inbounds %struct.Exnode_s, ptr %2300, i32 0, i32 0
+  store i32 %2297, ptr %2301, align 8
+  br label %2302
 
-2305:                                             ; preds = %2289
-  %2306 = load ptr, ptr %9, align 8
-  %2307 = getelementptr inbounds %union.EX_STYPE, ptr %2306, i64 0
-  %2308 = load ptr, ptr %2307, align 8
-  store ptr %2308, ptr %13, align 8
-  %2309 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2310 = load ptr, ptr %9, align 8
-  %2311 = getelementptr inbounds %union.EX_STYPE, ptr %2310, i64 -3
+2302:                                             ; preds = %2292, %2285
+  br label %2303
+
+2303:                                             ; preds = %2302, %2284
+  %2304 = load ptr, ptr %9, align 8
+  %2305 = getelementptr inbounds %union.EX_STYPE, ptr %2304, i64 -6
+  %2306 = load ptr, ptr %2305, align 8
+  %2307 = getelementptr inbounds %struct.Exnode_s, ptr %2306, i32 0, i32 0
+  %2308 = load i32, ptr %2307, align 8
+  %2309 = icmp eq i32 %2308, 263
+  br i1 %2309, label %2310, label %2319
+
+2310:                                             ; preds = %2303
+  %2311 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %2312 = load ptr, ptr %2311, align 8
-  call void @exfreenode(ptr noundef %2309, ptr noundef %2312)
-  br label %2313
+  %2313 = load ptr, ptr %9, align 8
+  %2314 = getelementptr inbounds %union.EX_STYPE, ptr %2313, i64 -6
+  %2315 = load ptr, ptr %2314, align 8
+  %2316 = call ptr @exnewnode(ptr noundef %2312, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %2315, ptr noundef null)
+  %2317 = load ptr, ptr %9, align 8
+  %2318 = getelementptr inbounds %union.EX_STYPE, ptr %2317, i64 -6
+  store ptr %2316, ptr %2318, align 8
+  br label %2343
 
-2313:                                             ; preds = %2305, %2297
-  %2314 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2315 = load ptr, ptr %9, align 8
-  %2316 = getelementptr inbounds %union.EX_STYPE, ptr %2315, i64 -6
-  %2317 = load ptr, ptr %2316, align 8
-  call void @exfreenode(ptr noundef %2314, ptr noundef %2317)
-  br label %2342
-
-2318:                                             ; preds = %2282
-  %2319 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+2319:                                             ; preds = %2303
   %2320 = load ptr, ptr %9, align 8
-  %2321 = getelementptr inbounds %union.EX_STYPE, ptr %2320, i64 -3
+  %2321 = getelementptr inbounds %union.EX_STYPE, ptr %2320, i64 -6
   %2322 = load ptr, ptr %2321, align 8
   %2323 = getelementptr inbounds %struct.Exnode_s, ptr %2322, i32 0, i32 0
   %2324 = load i32, ptr %2323, align 8
-  %2325 = load ptr, ptr %9, align 8
-  %2326 = getelementptr inbounds %union.EX_STYPE, ptr %2325, i64 -6
-  %2327 = load ptr, ptr %2326, align 8
-  %2328 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2329 = load ptr, ptr %9, align 8
-  %2330 = getelementptr inbounds %union.EX_STYPE, ptr %2329, i64 -3
-  %2331 = load ptr, ptr %2330, align 8
-  %2332 = getelementptr inbounds %struct.Exnode_s, ptr %2331, i32 0, i32 0
-  %2333 = load i32, ptr %2332, align 8
-  %2334 = load ptr, ptr %9, align 8
-  %2335 = getelementptr inbounds %union.EX_STYPE, ptr %2334, i64 -3
-  %2336 = load ptr, ptr %2335, align 8
-  %2337 = load ptr, ptr %9, align 8
-  %2338 = getelementptr inbounds %union.EX_STYPE, ptr %2337, i64 0
-  %2339 = load ptr, ptr %2338, align 8
-  %2340 = call ptr @exnewnode(ptr noundef %2328, i32 noundef 58, i32 noundef 1, i32 noundef %2333, ptr noundef %2336, ptr noundef %2339)
-  %2341 = call ptr @exnewnode(ptr noundef %2319, i32 noundef 63, i32 noundef 1, i32 noundef %2324, ptr noundef %2327, ptr noundef %2340)
-  store ptr %2341, ptr %13, align 8
+  %2325 = icmp sge i32 %2324, 259
+  br i1 %2325, label %2326, label %2333
+
+2326:                                             ; preds = %2319
+  %2327 = load ptr, ptr %9, align 8
+  %2328 = getelementptr inbounds %union.EX_STYPE, ptr %2327, i64 -6
+  %2329 = load ptr, ptr %2328, align 8
+  %2330 = getelementptr inbounds %struct.Exnode_s, ptr %2329, i32 0, i32 0
+  %2331 = load i32, ptr %2330, align 8
+  %2332 = icmp sle i32 %2331, 261
+  br i1 %2332, label %2342, label %2333
+
+2333:                                             ; preds = %2326, %2319
+  %2334 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2335 = load ptr, ptr %2334, align 8
+  %2336 = load ptr, ptr %9, align 8
+  %2337 = getelementptr inbounds %union.EX_STYPE, ptr %2336, i64 -6
+  %2338 = load ptr, ptr %2337, align 8
+  %2339 = call ptr @excast(ptr noundef %2335, ptr noundef %2338, i32 noundef 259, ptr noundef null, i32 noundef 0)
+  %2340 = load ptr, ptr %9, align 8
+  %2341 = getelementptr inbounds %union.EX_STYPE, ptr %2340, i64 -6
+  store ptr %2339, ptr %2341, align 8
   br label %2342
 
-2342:                                             ; preds = %2318, %2313
-  br label %3766
+2342:                                             ; preds = %2333, %2326
+  br label %2343
 
-2343:                                             ; preds = %332
-  br label %2344
+2343:                                             ; preds = %2342, %2310
+  %2344 = load ptr, ptr %9, align 8
+  %2345 = getelementptr inbounds %union.EX_STYPE, ptr %2344, i64 -3
+  %2346 = load ptr, ptr %2345, align 8
+  %2347 = getelementptr inbounds %struct.Exnode_s, ptr %2346, i32 0, i32 0
+  %2348 = load i32, ptr %2347, align 8
+  %2349 = load ptr, ptr %9, align 8
+  %2350 = getelementptr inbounds %union.EX_STYPE, ptr %2349, i64 0
+  %2351 = load ptr, ptr %2350, align 8
+  %2352 = getelementptr inbounds %struct.Exnode_s, ptr %2351, i32 0, i32 0
+  %2353 = load i32, ptr %2352, align 8
+  %2354 = icmp ne i32 %2348, %2353
+  br i1 %2354, label %2355, label %2405
 
-2344:                                             ; preds = %2466, %2343
-  %2345 = load ptr, ptr %9, align 8
-  %2346 = getelementptr inbounds %union.EX_STYPE, ptr %2345, i64 0
-  %2347 = load ptr, ptr %2346, align 8
-  %2348 = getelementptr inbounds %struct.Exnode_s, ptr %2347, i32 0, i32 0
-  %2349 = load i32, ptr %2348, align 8
-  %2350 = icmp eq i32 %2349, 263
-  br i1 %2350, label %2351, label %2359
+2355:                                             ; preds = %2343
+  %2356 = load ptr, ptr %9, align 8
+  %2357 = getelementptr inbounds %union.EX_STYPE, ptr %2356, i64 -3
+  %2358 = load ptr, ptr %2357, align 8
+  %2359 = getelementptr inbounds %struct.Exnode_s, ptr %2358, i32 0, i32 0
+  %2360 = load i32, ptr %2359, align 8
+  %2361 = icmp eq i32 %2360, 263
+  br i1 %2361, label %2369, label %2362
 
-2351:                                             ; preds = %2344
-  %2352 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2353 = load ptr, ptr %9, align 8
-  %2354 = getelementptr inbounds %union.EX_STYPE, ptr %2353, i64 0
-  %2355 = load ptr, ptr %2354, align 8
-  %2356 = call ptr @exnewnode(ptr noundef %2352, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %2355, ptr noundef null)
-  %2357 = load ptr, ptr %9, align 8
-  %2358 = getelementptr inbounds %union.EX_STYPE, ptr %2357, i64 0
-  store ptr %2356, ptr %2358, align 8
-  br label %2382
+2362:                                             ; preds = %2355
+  %2363 = load ptr, ptr %9, align 8
+  %2364 = getelementptr inbounds %union.EX_STYPE, ptr %2363, i64 0
+  %2365 = load ptr, ptr %2364, align 8
+  %2366 = getelementptr inbounds %struct.Exnode_s, ptr %2365, i32 0, i32 0
+  %2367 = load i32, ptr %2366, align 8
+  %2368 = icmp eq i32 %2367, 263
+  br i1 %2368, label %2369, label %2370
 
-2359:                                             ; preds = %2344
-  %2360 = load ptr, ptr %9, align 8
-  %2361 = getelementptr inbounds %union.EX_STYPE, ptr %2360, i64 0
-  %2362 = load ptr, ptr %2361, align 8
-  %2363 = getelementptr inbounds %struct.Exnode_s, ptr %2362, i32 0, i32 0
-  %2364 = load i32, ptr %2363, align 8
-  %2365 = icmp sge i32 %2364, 259
-  br i1 %2365, label %2366, label %2373
+2369:                                             ; preds = %2362, %2355
+  call void (ptr, ...) @exerror(ptr noundef @.str.32)
+  br label %2404
 
-2366:                                             ; preds = %2359
-  %2367 = load ptr, ptr %9, align 8
-  %2368 = getelementptr inbounds %union.EX_STYPE, ptr %2367, i64 0
-  %2369 = load ptr, ptr %2368, align 8
-  %2370 = getelementptr inbounds %struct.Exnode_s, ptr %2369, i32 0, i32 0
-  %2371 = load i32, ptr %2370, align 8
-  %2372 = icmp sle i32 %2371, 261
-  br i1 %2372, label %2381, label %2373
+2370:                                             ; preds = %2362
+  %2371 = load ptr, ptr %9, align 8
+  %2372 = getelementptr inbounds %union.EX_STYPE, ptr %2371, i64 -3
+  %2373 = load ptr, ptr %2372, align 8
+  %2374 = getelementptr inbounds %struct.Exnode_s, ptr %2373, i32 0, i32 0
+  %2375 = load i32, ptr %2374, align 8
+  %2376 = icmp eq i32 %2375, 262
+  br i1 %2376, label %2377, label %2386
 
-2373:                                             ; preds = %2366, %2359
-  %2374 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2375 = load ptr, ptr %9, align 8
-  %2376 = getelementptr inbounds %union.EX_STYPE, ptr %2375, i64 0
-  %2377 = load ptr, ptr %2376, align 8
-  %2378 = call ptr @excast(ptr noundef %2374, ptr noundef %2377, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  %2379 = load ptr, ptr %9, align 8
-  %2380 = getelementptr inbounds %union.EX_STYPE, ptr %2379, i64 0
-  store ptr %2378, ptr %2380, align 8
-  br label %2381
+2377:                                             ; preds = %2370
+  %2378 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2379 = load ptr, ptr %2378, align 8
+  %2380 = load ptr, ptr %9, align 8
+  %2381 = getelementptr inbounds %union.EX_STYPE, ptr %2380, i64 0
+  %2382 = load ptr, ptr %2381, align 8
+  %2383 = call ptr @excast(ptr noundef %2379, ptr noundef %2382, i32 noundef 262, ptr noundef null, i32 noundef 0)
+  %2384 = load ptr, ptr %9, align 8
+  %2385 = getelementptr inbounds %union.EX_STYPE, ptr %2384, i64 0
+  store ptr %2383, ptr %2385, align 8
+  br label %2403
 
-2381:                                             ; preds = %2373, %2366
-  br label %2382
+2386:                                             ; preds = %2370
+  %2387 = load ptr, ptr %9, align 8
+  %2388 = getelementptr inbounds %union.EX_STYPE, ptr %2387, i64 0
+  %2389 = load ptr, ptr %2388, align 8
+  %2390 = getelementptr inbounds %struct.Exnode_s, ptr %2389, i32 0, i32 0
+  %2391 = load i32, ptr %2390, align 8
+  %2392 = icmp eq i32 %2391, 262
+  br i1 %2392, label %2393, label %2402
 
-2382:                                             ; preds = %2381, %2351
-  br label %2383
-
-2383:                                             ; preds = %2467, %2382
-  %2384 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2385 = load ptr, ptr %9, align 8
-  %2386 = getelementptr inbounds %union.EX_STYPE, ptr %2385, i64 -1
-  %2387 = load i32, ptr %2386, align 8
-  %2388 = load ptr, ptr %9, align 8
-  %2389 = getelementptr inbounds %union.EX_STYPE, ptr %2388, i64 0
-  %2390 = load ptr, ptr %2389, align 8
-  %2391 = getelementptr inbounds %struct.Exnode_s, ptr %2390, i32 0, i32 0
-  %2392 = load i32, ptr %2391, align 8
-  %2393 = icmp eq i32 %2392, 260
-  br i1 %2393, label %2394, label %2395
-
-2394:                                             ; preds = %2383
-  br label %2401
-
-2395:                                             ; preds = %2383
+2393:                                             ; preds = %2386
+  %2394 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2395 = load ptr, ptr %2394, align 8
   %2396 = load ptr, ptr %9, align 8
-  %2397 = getelementptr inbounds %union.EX_STYPE, ptr %2396, i64 0
+  %2397 = getelementptr inbounds %union.EX_STYPE, ptr %2396, i64 -3
   %2398 = load ptr, ptr %2397, align 8
-  %2399 = getelementptr inbounds %struct.Exnode_s, ptr %2398, i32 0, i32 0
-  %2400 = load i32, ptr %2399, align 8
-  br label %2401
+  %2399 = call ptr @excast(ptr noundef %2395, ptr noundef %2398, i32 noundef 262, ptr noundef null, i32 noundef 0)
+  %2400 = load ptr, ptr %9, align 8
+  %2401 = getelementptr inbounds %union.EX_STYPE, ptr %2400, i64 -3
+  store ptr %2399, ptr %2401, align 8
+  br label %2402
 
-2401:                                             ; preds = %2395, %2394
-  %2402 = phi i32 [ 259, %2394 ], [ %2400, %2395 ]
-  %2403 = load ptr, ptr %9, align 8
-  %2404 = getelementptr inbounds %union.EX_STYPE, ptr %2403, i64 0
-  %2405 = load ptr, ptr %2404, align 8
-  %2406 = call ptr @exnewnode(ptr noundef %2384, i32 noundef %2387, i32 noundef 1, i32 noundef %2402, ptr noundef %2405, ptr noundef null)
-  store ptr %2406, ptr %13, align 8
-  %2407 = load ptr, ptr %9, align 8
-  %2408 = getelementptr inbounds %union.EX_STYPE, ptr %2407, i64 0
-  %2409 = load ptr, ptr %2408, align 8
-  %2410 = getelementptr inbounds %struct.Exnode_s, ptr %2409, i32 0, i32 1
-  %2411 = load i32, ptr %2410, align 4
-  %2412 = icmp eq i32 %2411, 271
-  br i1 %2412, label %2413, label %2429
+2402:                                             ; preds = %2393, %2386
+  br label %2403
 
-2413:                                             ; preds = %2401
-  %2414 = load ptr, ptr %13, align 8
-  %2415 = getelementptr inbounds %struct.Exnode_s, ptr %2414, i32 0, i32 5
-  %2416 = getelementptr inbounds %struct.anon.2, ptr %2415, i32 0, i32 0
-  %2417 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2418 = load ptr, ptr %13, align 8
-  %2419 = call ptr @exeval(ptr noundef %2417, ptr noundef %2418, ptr noundef null)
-  %2420 = getelementptr inbounds %union.EX_STYPE, ptr %33, i32 0, i32 0
-  store ptr %2419, ptr %2420, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2416, ptr align 8 %33, i64 8, i1 false)
-  %2421 = load ptr, ptr %13, align 8
-  %2422 = getelementptr inbounds %struct.Exnode_s, ptr %2421, i32 0, i32 2
-  store i32 0, ptr %2422, align 8
-  %2423 = load ptr, ptr %13, align 8
-  %2424 = getelementptr inbounds %struct.Exnode_s, ptr %2423, i32 0, i32 1
-  store i32 271, ptr %2424, align 4
-  %2425 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+2403:                                             ; preds = %2402, %2377
+  br label %2404
+
+2404:                                             ; preds = %2403, %2369
+  br label %2405
+
+2405:                                             ; preds = %2404, %2343
+  %2406 = load ptr, ptr %9, align 8
+  %2407 = getelementptr inbounds %union.EX_STYPE, ptr %2406, i64 -6
+  %2408 = load ptr, ptr %2407, align 8
+  %2409 = getelementptr inbounds %struct.Exnode_s, ptr %2408, i32 0, i32 1
+  %2410 = load i32, ptr %2409, align 4
+  %2411 = icmp eq i32 %2410, 271
+  br i1 %2411, label %2412, label %2444
+
+2412:                                             ; preds = %2405
+  %2413 = load ptr, ptr %9, align 8
+  %2414 = getelementptr inbounds %union.EX_STYPE, ptr %2413, i64 -6
+  %2415 = load ptr, ptr %2414, align 8
+  %2416 = getelementptr inbounds %struct.Exnode_s, ptr %2415, i32 0, i32 5
+  %2417 = getelementptr inbounds %struct.anon.2, ptr %2416, i32 0, i32 0
+  %2418 = load i64, ptr %2417, align 8
+  %2419 = icmp ne i64 %2418, 0
+  br i1 %2419, label %2420, label %2429
+
+2420:                                             ; preds = %2412
+  %2421 = load ptr, ptr %9, align 8
+  %2422 = getelementptr inbounds %union.EX_STYPE, ptr %2421, i64 -3
+  %2423 = load ptr, ptr %2422, align 8
+  store ptr %2423, ptr %13, align 8
+  %2424 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2425 = load ptr, ptr %2424, align 8
   %2426 = load ptr, ptr %9, align 8
   %2427 = getelementptr inbounds %union.EX_STYPE, ptr %2426, i64 0
   %2428 = load ptr, ptr %2427, align 8
   call void @exfreenode(ptr noundef %2425, ptr noundef %2428)
-  br label %2443
+  br label %2438
 
-2429:                                             ; preds = %2401
+2429:                                             ; preds = %2412
   %2430 = load ptr, ptr %9, align 8
   %2431 = getelementptr inbounds %union.EX_STYPE, ptr %2430, i64 0
   %2432 = load ptr, ptr %2431, align 8
-  %2433 = getelementptr inbounds %struct.Exnode_s, ptr %2432, i32 0, i32 0
-  %2434 = load i32, ptr %2433, align 8
-  %2435 = icmp sgt i32 %2434, 258
-  br i1 %2435, label %2442, label %2436
+  store ptr %2432, ptr %13, align 8
+  %2433 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2434 = load ptr, ptr %2433, align 8
+  %2435 = load ptr, ptr %9, align 8
+  %2436 = getelementptr inbounds %union.EX_STYPE, ptr %2435, i64 -3
+  %2437 = load ptr, ptr %2436, align 8
+  call void @exfreenode(ptr noundef %2434, ptr noundef %2437)
+  br label %2438
 
-2436:                                             ; preds = %2429
-  %2437 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2438 = load ptr, ptr %9, align 8
-  %2439 = getelementptr inbounds %union.EX_STYPE, ptr %2438, i64 0
+2438:                                             ; preds = %2429, %2420
+  %2439 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %2440 = load ptr, ptr %2439, align 8
-  %2441 = load ptr, ptr %13, align 8
-  call void @checkBinary(ptr noundef %2437, ptr noundef %2440, ptr noundef %2441, ptr noundef null)
-  br label %2442
+  %2441 = load ptr, ptr %9, align 8
+  %2442 = getelementptr inbounds %union.EX_STYPE, ptr %2441, i64 -6
+  %2443 = load ptr, ptr %2442, align 8
+  call void @exfreenode(ptr noundef %2440, ptr noundef %2443)
+  br label %2470
 
-2442:                                             ; preds = %2436, %2429
-  br label %2443
-
-2443:                                             ; preds = %2442, %2413
-  br label %3766
-
-2444:                                             ; preds = %332
-  %2445 = load ptr, ptr %9, align 8
-  %2446 = getelementptr inbounds %union.EX_STYPE, ptr %2445, i64 0
-  %2447 = load ptr, ptr %2446, align 8
-  %2448 = getelementptr inbounds %struct.Exid_s, ptr %2447, i32 0, i32 7
+2444:                                             ; preds = %2405
+  %2445 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2446 = load ptr, ptr %2445, align 8
+  %2447 = load ptr, ptr %9, align 8
+  %2448 = getelementptr inbounds %union.EX_STYPE, ptr %2447, i64 -3
   %2449 = load ptr, ptr %2448, align 8
-  %2450 = icmp eq ptr %2449, null
-  br i1 %2450, label %2451, label %2457
-
-2451:                                             ; preds = %2444
+  %2450 = getelementptr inbounds %struct.Exnode_s, ptr %2449, i32 0, i32 0
+  %2451 = load i32, ptr %2450, align 8
   %2452 = load ptr, ptr %9, align 8
-  %2453 = getelementptr inbounds %union.EX_STYPE, ptr %2452, i64 0
+  %2453 = getelementptr inbounds %union.EX_STYPE, ptr %2452, i64 -6
   %2454 = load ptr, ptr %2453, align 8
-  %2455 = getelementptr inbounds %struct.Exid_s, ptr %2454, i32 0, i32 9
-  %2456 = getelementptr inbounds [32 x i8], ptr %2455, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.33, ptr noundef %2456)
-  br label %2457
+  %2455 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2456 = load ptr, ptr %2455, align 8
+  %2457 = load ptr, ptr %9, align 8
+  %2458 = getelementptr inbounds %union.EX_STYPE, ptr %2457, i64 -3
+  %2459 = load ptr, ptr %2458, align 8
+  %2460 = getelementptr inbounds %struct.Exnode_s, ptr %2459, i32 0, i32 0
+  %2461 = load i32, ptr %2460, align 8
+  %2462 = load ptr, ptr %9, align 8
+  %2463 = getelementptr inbounds %union.EX_STYPE, ptr %2462, i64 -3
+  %2464 = load ptr, ptr %2463, align 8
+  %2465 = load ptr, ptr %9, align 8
+  %2466 = getelementptr inbounds %union.EX_STYPE, ptr %2465, i64 0
+  %2467 = load ptr, ptr %2466, align 8
+  %2468 = call ptr @exnewnode(ptr noundef %2456, i32 noundef 58, i32 noundef 1, i32 noundef %2461, ptr noundef %2464, ptr noundef %2467)
+  %2469 = call ptr @exnewnode(ptr noundef %2446, i32 noundef 63, i32 noundef 1, i32 noundef %2451, ptr noundef %2454, ptr noundef %2468)
+  store ptr %2469, ptr %13, align 8
+  br label %2470
 
-2457:                                             ; preds = %2451, %2444
-  %2458 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2459 = call ptr @exnewnode(ptr noundef %2458, i32 noundef 35, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
-  store ptr %2459, ptr %13, align 8
-  %2460 = load ptr, ptr %9, align 8
-  %2461 = getelementptr inbounds %union.EX_STYPE, ptr %2460, i64 0
-  %2462 = load ptr, ptr %2461, align 8
-  %2463 = load ptr, ptr %13, align 8
-  %2464 = getelementptr inbounds %struct.Exnode_s, ptr %2463, i32 0, i32 5
-  %2465 = getelementptr inbounds %struct.anon.5, ptr %2464, i32 0, i32 0
-  store ptr %2462, ptr %2465, align 8
-  br label %3766
+2470:                                             ; preds = %2444, %2438
+  br label %3989
 
-2466:                                             ; preds = %332
-  br label %2344
+2471:                                             ; preds = %333
+  br label %2472
 
-2467:                                             ; preds = %332
-  br label %2383
+2472:                                             ; preds = %2601, %2471
+  %2473 = load ptr, ptr %9, align 8
+  %2474 = getelementptr inbounds %union.EX_STYPE, ptr %2473, i64 0
+  %2475 = load ptr, ptr %2474, align 8
+  %2476 = getelementptr inbounds %struct.Exnode_s, ptr %2475, i32 0, i32 0
+  %2477 = load i32, ptr %2476, align 8
+  %2478 = icmp eq i32 %2477, 263
+  br i1 %2478, label %2479, label %2488
 
-2468:                                             ; preds = %332
-  %2469 = load ptr, ptr %9, align 8
-  %2470 = getelementptr inbounds %union.EX_STYPE, ptr %2469, i64 0
-  %2471 = load ptr, ptr %2470, align 8
-  store ptr %2471, ptr %13, align 8
-  br label %3766
-
-2472:                                             ; preds = %332
-  %2473 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2474 = load ptr, ptr %9, align 8
-  %2475 = getelementptr inbounds %union.EX_STYPE, ptr %2474, i64 0
-  %2476 = load ptr, ptr %2475, align 8
-  %2477 = getelementptr inbounds %struct.Exnode_s, ptr %2476, i32 0, i32 0
-  %2478 = load i32, ptr %2477, align 8
-  %2479 = call i32 @T(i32 noundef %2478)
-  %2480 = load ptr, ptr %9, align 8
-  %2481 = getelementptr inbounds %union.EX_STYPE, ptr %2480, i64 0
-  %2482 = load ptr, ptr %2481, align 8
-  %2483 = call ptr @exnewnode(ptr noundef %2473, i32 noundef 266, i32 noundef 0, i32 noundef %2479, ptr noundef %2482, ptr noundef null)
-  store ptr %2483, ptr %13, align 8
-  br label %3766
-
-2484:                                             ; preds = %332
-  %2485 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+2479:                                             ; preds = %2472
+  %2480 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2481 = load ptr, ptr %2480, align 8
+  %2482 = load ptr, ptr %9, align 8
+  %2483 = getelementptr inbounds %union.EX_STYPE, ptr %2482, i64 0
+  %2484 = load ptr, ptr %2483, align 8
+  %2485 = call ptr @exnewnode(ptr noundef %2481, i32 noundef 312, i32 noundef 1, i32 noundef 259, ptr noundef %2484, ptr noundef null)
   %2486 = load ptr, ptr %9, align 8
-  %2487 = getelementptr inbounds %union.EX_STYPE, ptr %2486, i64 -3
-  %2488 = load ptr, ptr %2487, align 8
-  %2489 = getelementptr inbounds %struct.Exid_s, ptr %2488, i32 0, i32 3
-  %2490 = load i64, ptr %2489, align 8
-  %2491 = trunc i64 %2490 to i32
-  %2492 = call i32 @T(i32 noundef %2491)
-  %2493 = load ptr, ptr %9, align 8
-  %2494 = getelementptr inbounds %union.EX_STYPE, ptr %2493, i64 -3
-  %2495 = load ptr, ptr %2494, align 8
-  %2496 = load ptr, ptr %9, align 8
-  %2497 = getelementptr inbounds %union.EX_STYPE, ptr %2496, i64 -1
-  %2498 = load ptr, ptr %2497, align 8
-  %2499 = call ptr @call(ptr noundef null, ptr noundef %2495, ptr noundef %2498)
-  %2500 = load ptr, ptr %9, align 8
-  %2501 = getelementptr inbounds %union.EX_STYPE, ptr %2500, i64 -1
-  %2502 = load ptr, ptr %2501, align 8
-  %2503 = call ptr @exnewnode(ptr noundef %2485, i32 noundef 267, i32 noundef 1, i32 noundef %2492, ptr noundef %2499, ptr noundef %2502)
-  store ptr %2503, ptr %13, align 8
-  br label %3766
+  %2487 = getelementptr inbounds %union.EX_STYPE, ptr %2486, i64 0
+  store ptr %2485, ptr %2487, align 8
+  br label %2512
 
-2504:                                             ; preds = %332
-  %2505 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2506 = load ptr, ptr %9, align 8
-  %2507 = getelementptr inbounds %union.EX_STYPE, ptr %2506, i64 -3
-  %2508 = load ptr, ptr %2507, align 8
-  %2509 = getelementptr inbounds %struct.Exid_s, ptr %2508, i32 0, i32 3
-  %2510 = load i64, ptr %2509, align 8
-  %2511 = trunc i64 %2510 to i32
-  %2512 = call i32 @T(i32 noundef %2511)
-  %2513 = load ptr, ptr %9, align 8
-  %2514 = getelementptr inbounds %union.EX_STYPE, ptr %2513, i64 -3
+2488:                                             ; preds = %2472
+  %2489 = load ptr, ptr %9, align 8
+  %2490 = getelementptr inbounds %union.EX_STYPE, ptr %2489, i64 0
+  %2491 = load ptr, ptr %2490, align 8
+  %2492 = getelementptr inbounds %struct.Exnode_s, ptr %2491, i32 0, i32 0
+  %2493 = load i32, ptr %2492, align 8
+  %2494 = icmp sge i32 %2493, 259
+  br i1 %2494, label %2495, label %2502
+
+2495:                                             ; preds = %2488
+  %2496 = load ptr, ptr %9, align 8
+  %2497 = getelementptr inbounds %union.EX_STYPE, ptr %2496, i64 0
+  %2498 = load ptr, ptr %2497, align 8
+  %2499 = getelementptr inbounds %struct.Exnode_s, ptr %2498, i32 0, i32 0
+  %2500 = load i32, ptr %2499, align 8
+  %2501 = icmp sle i32 %2500, 261
+  br i1 %2501, label %2511, label %2502
+
+2502:                                             ; preds = %2495, %2488
+  %2503 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2504 = load ptr, ptr %2503, align 8
+  %2505 = load ptr, ptr %9, align 8
+  %2506 = getelementptr inbounds %union.EX_STYPE, ptr %2505, i64 0
+  %2507 = load ptr, ptr %2506, align 8
+  %2508 = call ptr @excast(ptr noundef %2504, ptr noundef %2507, i32 noundef 259, ptr noundef null, i32 noundef 0)
+  %2509 = load ptr, ptr %9, align 8
+  %2510 = getelementptr inbounds %union.EX_STYPE, ptr %2509, i64 0
+  store ptr %2508, ptr %2510, align 8
+  br label %2511
+
+2511:                                             ; preds = %2502, %2495
+  br label %2512
+
+2512:                                             ; preds = %2511, %2479
+  br label %2513
+
+2513:                                             ; preds = %2602, %2512
+  %2514 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %2515 = load ptr, ptr %2514, align 8
   %2516 = load ptr, ptr %9, align 8
   %2517 = getelementptr inbounds %union.EX_STYPE, ptr %2516, i64 -1
-  %2518 = load ptr, ptr %2517, align 8
-  %2519 = call ptr @call(ptr noundef null, ptr noundef %2515, ptr noundef %2518)
-  %2520 = load ptr, ptr %9, align 8
-  %2521 = getelementptr inbounds %union.EX_STYPE, ptr %2520, i64 -1
-  %2522 = load ptr, ptr %2521, align 8
-  %2523 = call ptr @exnewnode(ptr noundef %2505, i32 noundef 279, i32 noundef 1, i32 noundef %2512, ptr noundef %2519, ptr noundef %2522)
-  store ptr %2523, ptr %13, align 8
-  br label %3766
+  %2518 = load i32, ptr %2517, align 8
+  %2519 = load ptr, ptr %9, align 8
+  %2520 = getelementptr inbounds %union.EX_STYPE, ptr %2519, i64 0
+  %2521 = load ptr, ptr %2520, align 8
+  %2522 = getelementptr inbounds %struct.Exnode_s, ptr %2521, i32 0, i32 0
+  %2523 = load i32, ptr %2522, align 8
+  %2524 = icmp eq i32 %2523, 260
+  br i1 %2524, label %2525, label %2526
 
-2524:                                             ; preds = %332
-  %2525 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2526 = load ptr, ptr %9, align 8
-  %2527 = getelementptr inbounds %union.EX_STYPE, ptr %2526, i64 -1
-  %2528 = load ptr, ptr %2527, align 8
-  %2529 = call ptr @exnewsub(ptr noundef %2525, ptr noundef %2528, i32 noundef 280)
-  store ptr %2529, ptr %13, align 8
-  br label %3766
+2525:                                             ; preds = %2513
+  br label %2532
 
-2530:                                             ; preds = %332
-  %2531 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2532 = load ptr, ptr %9, align 8
-  %2533 = getelementptr inbounds %union.EX_STYPE, ptr %2532, i64 -1
-  %2534 = load ptr, ptr %2533, align 8
-  %2535 = call ptr @exnewsub(ptr noundef %2531, ptr noundef %2534, i32 noundef 302)
-  store ptr %2535, ptr %13, align 8
-  br label %3766
+2526:                                             ; preds = %2513
+  %2527 = load ptr, ptr %9, align 8
+  %2528 = getelementptr inbounds %union.EX_STYPE, ptr %2527, i64 0
+  %2529 = load ptr, ptr %2528, align 8
+  %2530 = getelementptr inbounds %struct.Exnode_s, ptr %2529, i32 0, i32 0
+  %2531 = load i32, ptr %2530, align 8
+  br label %2532
 
-2536:                                             ; preds = %332
-  %2537 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+2532:                                             ; preds = %2526, %2525
+  %2533 = phi i32 [ 259, %2525 ], [ %2531, %2526 ]
+  %2534 = load ptr, ptr %9, align 8
+  %2535 = getelementptr inbounds %union.EX_STYPE, ptr %2534, i64 0
+  %2536 = load ptr, ptr %2535, align 8
+  %2537 = call ptr @exnewnode(ptr noundef %2515, i32 noundef %2518, i32 noundef 1, i32 noundef %2533, ptr noundef %2536, ptr noundef null)
+  store ptr %2537, ptr %13, align 8
   %2538 = load ptr, ptr %9, align 8
-  %2539 = getelementptr inbounds %union.EX_STYPE, ptr %2538, i64 -1
+  %2539 = getelementptr inbounds %union.EX_STYPE, ptr %2538, i64 0
   %2540 = load ptr, ptr %2539, align 8
-  %2541 = call ptr @exnewsubstr(ptr noundef %2537, ptr noundef %2540)
-  store ptr %2541, ptr %13, align 8
-  br label %3766
+  %2541 = getelementptr inbounds %struct.Exnode_s, ptr %2540, i32 0, i32 1
+  %2542 = load i32, ptr %2541, align 4
+  %2543 = icmp eq i32 %2542, 271
+  br i1 %2543, label %2544, label %2562
 
-2542:                                             ; preds = %332
-  %2543 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2544 = load ptr, ptr %9, align 8
-  %2545 = getelementptr inbounds %union.EX_STYPE, ptr %2544, i64 -5
-  %2546 = load ptr, ptr %2545, align 8
-  %2547 = getelementptr inbounds %struct.Exid_s, ptr %2546, i32 0, i32 2
-  %2548 = load i64, ptr %2547, align 8
-  %2549 = trunc i64 %2548 to i32
-  %2550 = load ptr, ptr %9, align 8
-  %2551 = getelementptr inbounds %union.EX_STYPE, ptr %2550, i64 -1
-  %2552 = load ptr, ptr %2551, align 8
-  %2553 = load ptr, ptr %9, align 8
-  %2554 = getelementptr inbounds %union.EX_STYPE, ptr %2553, i64 -3
-  %2555 = load ptr, ptr %2554, align 8
-  %2556 = call ptr @exnewsplit(ptr noundef %2543, i32 noundef %2549, ptr noundef %2552, ptr noundef %2555, ptr noundef null)
-  store ptr %2556, ptr %13, align 8
-  br label %3766
-
-2557:                                             ; preds = %332
-  %2558 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+2544:                                             ; preds = %2532
+  %2545 = load ptr, ptr %13, align 8
+  %2546 = getelementptr inbounds %struct.Exnode_s, ptr %2545, i32 0, i32 5
+  %2547 = getelementptr inbounds %struct.anon.2, ptr %2546, i32 0, i32 0
+  %2548 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2549 = load ptr, ptr %2548, align 8
+  %2550 = load ptr, ptr %13, align 8
+  %2551 = call ptr @exeval(ptr noundef %2549, ptr noundef %2550, ptr noundef null)
+  %2552 = getelementptr inbounds %union.EX_STYPE, ptr %33, i32 0, i32 0
+  store ptr %2551, ptr %2552, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2547, ptr align 8 %33, i64 8, i1 false)
+  %2553 = load ptr, ptr %13, align 8
+  %2554 = getelementptr inbounds %struct.Exnode_s, ptr %2553, i32 0, i32 2
+  store i32 0, ptr %2554, align 8
+  %2555 = load ptr, ptr %13, align 8
+  %2556 = getelementptr inbounds %struct.Exnode_s, ptr %2555, i32 0, i32 1
+  store i32 271, ptr %2556, align 4
+  %2557 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2558 = load ptr, ptr %2557, align 8
   %2559 = load ptr, ptr %9, align 8
-  %2560 = getelementptr inbounds %union.EX_STYPE, ptr %2559, i64 -7
+  %2560 = getelementptr inbounds %union.EX_STYPE, ptr %2559, i64 0
   %2561 = load ptr, ptr %2560, align 8
-  %2562 = getelementptr inbounds %struct.Exid_s, ptr %2561, i32 0, i32 2
-  %2563 = load i64, ptr %2562, align 8
-  %2564 = trunc i64 %2563 to i32
-  %2565 = load ptr, ptr %9, align 8
-  %2566 = getelementptr inbounds %union.EX_STYPE, ptr %2565, i64 -3
-  %2567 = load ptr, ptr %2566, align 8
-  %2568 = load ptr, ptr %9, align 8
-  %2569 = getelementptr inbounds %union.EX_STYPE, ptr %2568, i64 -5
-  %2570 = load ptr, ptr %2569, align 8
-  %2571 = load ptr, ptr %9, align 8
-  %2572 = getelementptr inbounds %union.EX_STYPE, ptr %2571, i64 -1
-  %2573 = load ptr, ptr %2572, align 8
-  %2574 = call ptr @exnewsplit(ptr noundef %2558, i32 noundef %2564, ptr noundef %2567, ptr noundef %2570, ptr noundef %2573)
-  store ptr %2574, ptr %13, align 8
-  br label %3766
+  call void @exfreenode(ptr noundef %2558, ptr noundef %2561)
+  br label %2577
 
-2575:                                             ; preds = %332
-  %2576 = load ptr, ptr %9, align 8
-  %2577 = getelementptr inbounds %union.EX_STYPE, ptr %2576, i64 -1
-  %2578 = load ptr, ptr %2577, align 8
-  %2579 = getelementptr inbounds %struct.Exnode_s, ptr %2578, i32 0, i32 0
-  %2580 = load i32, ptr %2579, align 8
-  %2581 = icmp sge i32 %2580, 259
-  br i1 %2581, label %2582, label %2589
+2562:                                             ; preds = %2532
+  %2563 = load ptr, ptr %9, align 8
+  %2564 = getelementptr inbounds %union.EX_STYPE, ptr %2563, i64 0
+  %2565 = load ptr, ptr %2564, align 8
+  %2566 = getelementptr inbounds %struct.Exnode_s, ptr %2565, i32 0, i32 0
+  %2567 = load i32, ptr %2566, align 8
+  %2568 = icmp sgt i32 %2567, 258
+  br i1 %2568, label %2576, label %2569
 
-2582:                                             ; preds = %2575
-  %2583 = load ptr, ptr %9, align 8
-  %2584 = getelementptr inbounds %union.EX_STYPE, ptr %2583, i64 -1
-  %2585 = load ptr, ptr %2584, align 8
-  %2586 = getelementptr inbounds %struct.Exnode_s, ptr %2585, i32 0, i32 0
-  %2587 = load i32, ptr %2586, align 8
-  %2588 = icmp sle i32 %2587, 261
-  br i1 %2588, label %2597, label %2589
+2569:                                             ; preds = %2562
+  %2570 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2571 = load ptr, ptr %2570, align 8
+  %2572 = load ptr, ptr %9, align 8
+  %2573 = getelementptr inbounds %union.EX_STYPE, ptr %2572, i64 0
+  %2574 = load ptr, ptr %2573, align 8
+  %2575 = load ptr, ptr %13, align 8
+  call void @checkBinary(ptr noundef %2571, ptr noundef %2574, ptr noundef %2575, ptr noundef null)
+  br label %2576
 
-2589:                                             ; preds = %2582, %2575
-  %2590 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2591 = load ptr, ptr %9, align 8
-  %2592 = getelementptr inbounds %union.EX_STYPE, ptr %2591, i64 -1
+2576:                                             ; preds = %2569, %2562
+  br label %2577
+
+2577:                                             ; preds = %2576, %2544
+  br label %3989
+
+2578:                                             ; preds = %333
+  %2579 = load ptr, ptr %9, align 8
+  %2580 = getelementptr inbounds %union.EX_STYPE, ptr %2579, i64 0
+  %2581 = load ptr, ptr %2580, align 8
+  %2582 = getelementptr inbounds %struct.Exid_s, ptr %2581, i32 0, i32 7
+  %2583 = load ptr, ptr %2582, align 8
+  %2584 = icmp eq ptr %2583, null
+  br i1 %2584, label %2585, label %2591
+
+2585:                                             ; preds = %2578
+  %2586 = load ptr, ptr %9, align 8
+  %2587 = getelementptr inbounds %union.EX_STYPE, ptr %2586, i64 0
+  %2588 = load ptr, ptr %2587, align 8
+  %2589 = getelementptr inbounds %struct.Exid_s, ptr %2588, i32 0, i32 9
+  %2590 = getelementptr inbounds [32 x i8], ptr %2589, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.33, ptr noundef %2590)
+  br label %2591
+
+2591:                                             ; preds = %2585, %2578
+  %2592 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %2593 = load ptr, ptr %2592, align 8
-  %2594 = call ptr @excast(ptr noundef %2590, ptr noundef %2593, i32 noundef 259, ptr noundef null, i32 noundef 0)
+  %2594 = call ptr @exnewnode(ptr noundef %2593, i32 noundef 35, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
+  store ptr %2594, ptr %13, align 8
   %2595 = load ptr, ptr %9, align 8
-  %2596 = getelementptr inbounds %union.EX_STYPE, ptr %2595, i64 -1
-  store ptr %2594, ptr %2596, align 8
-  br label %2597
+  %2596 = getelementptr inbounds %union.EX_STYPE, ptr %2595, i64 0
+  %2597 = load ptr, ptr %2596, align 8
+  %2598 = load ptr, ptr %13, align 8
+  %2599 = getelementptr inbounds %struct.Exnode_s, ptr %2598, i32 0, i32 5
+  %2600 = getelementptr inbounds %struct.anon.5, ptr %2599, i32 0, i32 0
+  store ptr %2597, ptr %2600, align 8
+  br label %3989
 
-2597:                                             ; preds = %2589, %2582
-  %2598 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2599 = load ptr, ptr %9, align 8
-  %2600 = getelementptr inbounds %union.EX_STYPE, ptr %2599, i64 -1
-  %2601 = load ptr, ptr %2600, align 8
-  %2602 = call ptr @exnewnode(ptr noundef %2598, i32 noundef 277, i32 noundef 1, i32 noundef 259, ptr noundef %2601, ptr noundef null)
-  store ptr %2602, ptr %13, align 8
-  br label %3766
+2601:                                             ; preds = %333
+  br label %2472
 
-2603:                                             ; preds = %332
-  %2604 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2605 = call ptr @exnewnode(ptr noundef %2604, i32 noundef 295, i32 noundef 0, i32 noundef 262, ptr noundef null, ptr noundef null)
-  store ptr %2605, ptr %13, align 8
-  br label %3766
+2602:                                             ; preds = %333
+  br label %2513
 
-2606:                                             ; preds = %332
-  %2607 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2608 = call ptr @exnewnode(ptr noundef %2607, i32 noundef 300, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
-  store ptr %2608, ptr %13, align 8
-  br label %3766
+2603:                                             ; preds = %333
+  %2604 = load ptr, ptr %9, align 8
+  %2605 = getelementptr inbounds %union.EX_STYPE, ptr %2604, i64 0
+  %2606 = load ptr, ptr %2605, align 8
+  store ptr %2606, ptr %13, align 8
+  br label %3989
 
-2609:                                             ; preds = %332
+2607:                                             ; preds = %333
+  %2608 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2609 = load ptr, ptr %2608, align 8
   %2610 = load ptr, ptr %9, align 8
-  %2611 = getelementptr inbounds %union.EX_STYPE, ptr %2610, i64 -1
+  %2611 = getelementptr inbounds %union.EX_STYPE, ptr %2610, i64 0
   %2612 = load ptr, ptr %2611, align 8
   %2613 = getelementptr inbounds %struct.Exnode_s, ptr %2612, i32 0, i32 0
   %2614 = load i32, ptr %2613, align 8
-  %2615 = icmp sge i32 %2614, 259
-  br i1 %2615, label %2616, label %2623
+  %2615 = call i32 @T(i32 noundef %2614)
+  %2616 = load ptr, ptr %9, align 8
+  %2617 = getelementptr inbounds %union.EX_STYPE, ptr %2616, i64 0
+  %2618 = load ptr, ptr %2617, align 8
+  %2619 = call ptr @exnewnode(ptr noundef %2609, i32 noundef 266, i32 noundef 0, i32 noundef %2615, ptr noundef %2618, ptr noundef null)
+  store ptr %2619, ptr %13, align 8
+  br label %3989
 
-2616:                                             ; preds = %2609
-  %2617 = load ptr, ptr %9, align 8
-  %2618 = getelementptr inbounds %union.EX_STYPE, ptr %2617, i64 -1
-  %2619 = load ptr, ptr %2618, align 8
-  %2620 = getelementptr inbounds %struct.Exnode_s, ptr %2619, i32 0, i32 0
-  %2621 = load i32, ptr %2620, align 8
-  %2622 = icmp sle i32 %2621, 261
-  br i1 %2622, label %2631, label %2623
-
-2623:                                             ; preds = %2616, %2609
-  %2624 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2625 = load ptr, ptr %9, align 8
-  %2626 = getelementptr inbounds %union.EX_STYPE, ptr %2625, i64 -1
-  %2627 = load ptr, ptr %2626, align 8
-  %2628 = call ptr @excast(ptr noundef %2624, ptr noundef %2627, i32 noundef 259, ptr noundef null, i32 noundef 0)
-  %2629 = load ptr, ptr %9, align 8
-  %2630 = getelementptr inbounds %union.EX_STYPE, ptr %2629, i64 -1
-  store ptr %2628, ptr %2630, align 8
-  br label %2631
-
-2631:                                             ; preds = %2623, %2616
-  %2632 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+2620:                                             ; preds = %333
+  %2621 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2622 = load ptr, ptr %2621, align 8
+  %2623 = load ptr, ptr %9, align 8
+  %2624 = getelementptr inbounds %union.EX_STYPE, ptr %2623, i64 -3
+  %2625 = load ptr, ptr %2624, align 8
+  %2626 = getelementptr inbounds %struct.Exid_s, ptr %2625, i32 0, i32 3
+  %2627 = load i64, ptr %2626, align 8
+  %2628 = trunc i64 %2627 to i32
+  %2629 = call i32 @T(i32 noundef %2628)
+  %2630 = load ptr, ptr %9, align 8
+  %2631 = getelementptr inbounds %union.EX_STYPE, ptr %2630, i64 -3
+  %2632 = load ptr, ptr %2631, align 8
   %2633 = load ptr, ptr %9, align 8
   %2634 = getelementptr inbounds %union.EX_STYPE, ptr %2633, i64 -1
   %2635 = load ptr, ptr %2634, align 8
-  %2636 = call ptr @exnewnode(ptr noundef %2632, i32 noundef 300, i32 noundef 1, i32 noundef 259, ptr noundef %2635, ptr noundef null)
-  store ptr %2636, ptr %13, align 8
-  br label %3766
+  %2636 = call ptr @call(ptr noundef null, ptr noundef %2632, ptr noundef %2635)
+  %2637 = load ptr, ptr %9, align 8
+  %2638 = getelementptr inbounds %union.EX_STYPE, ptr %2637, i64 -1
+  %2639 = load ptr, ptr %2638, align 8
+  %2640 = call ptr @exnewnode(ptr noundef %2622, i32 noundef 267, i32 noundef 1, i32 noundef %2629, ptr noundef %2636, ptr noundef %2639)
+  store ptr %2640, ptr %13, align 8
+  br label %3989
 
-2637:                                             ; preds = %332
-  %2638 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2639 = load ptr, ptr %9, align 8
-  %2640 = getelementptr inbounds %union.EX_STYPE, ptr %2639, i64 -3
-  %2641 = load ptr, ptr %2640, align 8
-  %2642 = getelementptr inbounds %struct.Exid_s, ptr %2641, i32 0, i32 3
-  %2643 = load i64, ptr %2642, align 8
-  %2644 = trunc i64 %2643 to i32
-  %2645 = load ptr, ptr %9, align 8
-  %2646 = getelementptr inbounds %union.EX_STYPE, ptr %2645, i64 -1
-  %2647 = load ptr, ptr %2646, align 8
-  %2648 = call ptr @exnewnode(ptr noundef %2638, i32 noundef 269, i32 noundef 1, i32 noundef %2644, ptr noundef null, ptr noundef %2647)
-  store ptr %2648, ptr %13, align 8
-  %2649 = load ptr, ptr %9, align 8
-  %2650 = getelementptr inbounds %union.EX_STYPE, ptr %2649, i64 -3
-  %2651 = load ptr, ptr %2650, align 8
-  %2652 = load ptr, ptr %13, align 8
-  %2653 = getelementptr inbounds %struct.Exnode_s, ptr %2652, i32 0, i32 5
-  %2654 = getelementptr inbounds %struct.anon.6, ptr %2653, i32 0, i32 0
-  store ptr %2651, ptr %2654, align 8
-  br label %3766
+2641:                                             ; preds = %333
+  %2642 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2643 = load ptr, ptr %2642, align 8
+  %2644 = load ptr, ptr %9, align 8
+  %2645 = getelementptr inbounds %union.EX_STYPE, ptr %2644, i64 -3
+  %2646 = load ptr, ptr %2645, align 8
+  %2647 = getelementptr inbounds %struct.Exid_s, ptr %2646, i32 0, i32 3
+  %2648 = load i64, ptr %2647, align 8
+  %2649 = trunc i64 %2648 to i32
+  %2650 = call i32 @T(i32 noundef %2649)
+  %2651 = load ptr, ptr %9, align 8
+  %2652 = getelementptr inbounds %union.EX_STYPE, ptr %2651, i64 -3
+  %2653 = load ptr, ptr %2652, align 8
+  %2654 = load ptr, ptr %9, align 8
+  %2655 = getelementptr inbounds %union.EX_STYPE, ptr %2654, i64 -1
+  %2656 = load ptr, ptr %2655, align 8
+  %2657 = call ptr @call(ptr noundef null, ptr noundef %2653, ptr noundef %2656)
+  %2658 = load ptr, ptr %9, align 8
+  %2659 = getelementptr inbounds %union.EX_STYPE, ptr %2658, i64 -1
+  %2660 = load ptr, ptr %2659, align 8
+  %2661 = call ptr @exnewnode(ptr noundef %2643, i32 noundef 279, i32 noundef 1, i32 noundef %2650, ptr noundef %2657, ptr noundef %2660)
+  store ptr %2661, ptr %13, align 8
+  br label %3989
 
-2655:                                             ; preds = %332
-  %2656 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2657 = load ptr, ptr %9, align 8
-  %2658 = getelementptr inbounds %union.EX_STYPE, ptr %2657, i64 -3
-  %2659 = load ptr, ptr %2658, align 8
-  %2660 = load ptr, ptr %9, align 8
-  %2661 = getelementptr inbounds %union.EX_STYPE, ptr %2660, i64 -1
-  %2662 = load ptr, ptr %2661, align 8
-  %2663 = call ptr @exprint(ptr noundef %2656, ptr noundef %2659, ptr noundef %2662)
-  store ptr %2663, ptr %13, align 8
-  br label %3766
+2662:                                             ; preds = %333
+  %2663 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2664 = load ptr, ptr %2663, align 8
+  %2665 = load ptr, ptr %9, align 8
+  %2666 = getelementptr inbounds %union.EX_STYPE, ptr %2665, i64 -1
+  %2667 = load ptr, ptr %2666, align 8
+  %2668 = call ptr @exnewsub(ptr noundef %2664, ptr noundef %2667, i32 noundef 280)
+  store ptr %2668, ptr %13, align 8
+  br label %3989
 
-2664:                                             ; preds = %332
-  %2665 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2666 = load ptr, ptr %9, align 8
-  %2667 = getelementptr inbounds %union.EX_STYPE, ptr %2666, i64 -3
-  %2668 = load ptr, ptr %2667, align 8
-  %2669 = getelementptr inbounds %struct.Exid_s, ptr %2668, i32 0, i32 2
-  %2670 = load i64, ptr %2669, align 8
-  %2671 = trunc i64 %2670 to i32
+2669:                                             ; preds = %333
+  %2670 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2671 = load ptr, ptr %2670, align 8
   %2672 = load ptr, ptr %9, align 8
-  %2673 = getelementptr inbounds %union.EX_STYPE, ptr %2672, i64 -3
+  %2673 = getelementptr inbounds %union.EX_STYPE, ptr %2672, i64 -1
   %2674 = load ptr, ptr %2673, align 8
-  %2675 = getelementptr inbounds %struct.Exid_s, ptr %2674, i32 0, i32 3
-  %2676 = load i64, ptr %2675, align 8
-  %2677 = trunc i64 %2676 to i32
-  %2678 = call ptr @exnewnode(ptr noundef %2665, i32 noundef %2671, i32 noundef 0, i32 noundef %2677, ptr noundef null, ptr noundef null)
-  store ptr %2678, ptr %13, align 8
+  %2675 = call ptr @exnewsub(ptr noundef %2671, ptr noundef %2674, i32 noundef 302)
+  store ptr %2675, ptr %13, align 8
+  br label %3989
+
+2676:                                             ; preds = %333
+  %2677 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2678 = load ptr, ptr %2677, align 8
   %2679 = load ptr, ptr %9, align 8
   %2680 = getelementptr inbounds %union.EX_STYPE, ptr %2679, i64 -1
   %2681 = load ptr, ptr %2680, align 8
-  %2682 = icmp ne ptr %2681, null
-  br i1 %2682, label %2683, label %2711
+  %2682 = call ptr @exnewsubstr(ptr noundef %2678, ptr noundef %2681)
+  store ptr %2682, ptr %13, align 8
+  br label %3989
 
-2683:                                             ; preds = %2664
-  %2684 = load ptr, ptr %9, align 8
-  %2685 = getelementptr inbounds %union.EX_STYPE, ptr %2684, i64 -1
-  %2686 = load ptr, ptr %2685, align 8
-  %2687 = getelementptr inbounds %struct.Exnode_s, ptr %2686, i32 0, i32 5
-  %2688 = getelementptr inbounds %struct.anon.3, ptr %2687, i32 0, i32 0
-  %2689 = load ptr, ptr %2688, align 8
-  %2690 = getelementptr inbounds %struct.Exnode_s, ptr %2689, i32 0, i32 0
-  %2691 = load i32, ptr %2690, align 8
-  %2692 = icmp eq i32 %2691, 259
-  br i1 %2692, label %2693, label %2711
+2683:                                             ; preds = %333
+  %2684 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2685 = load ptr, ptr %2684, align 8
+  %2686 = load ptr, ptr %9, align 8
+  %2687 = getelementptr inbounds %union.EX_STYPE, ptr %2686, i64 -5
+  %2688 = load ptr, ptr %2687, align 8
+  %2689 = getelementptr inbounds %struct.Exid_s, ptr %2688, i32 0, i32 2
+  %2690 = load i64, ptr %2689, align 8
+  %2691 = trunc i64 %2690 to i32
+  %2692 = load ptr, ptr %9, align 8
+  %2693 = getelementptr inbounds %union.EX_STYPE, ptr %2692, i64 -1
+  %2694 = load ptr, ptr %2693, align 8
+  %2695 = load ptr, ptr %9, align 8
+  %2696 = getelementptr inbounds %union.EX_STYPE, ptr %2695, i64 -3
+  %2697 = load ptr, ptr %2696, align 8
+  %2698 = call ptr @exnewsplit(ptr noundef %2685, i32 noundef %2691, ptr noundef %2694, ptr noundef %2697, ptr noundef null)
+  store ptr %2698, ptr %13, align 8
+  br label %3989
 
-2693:                                             ; preds = %2683
-  %2694 = load ptr, ptr %9, align 8
-  %2695 = getelementptr inbounds %union.EX_STYPE, ptr %2694, i64 -1
-  %2696 = load ptr, ptr %2695, align 8
-  %2697 = getelementptr inbounds %struct.Exnode_s, ptr %2696, i32 0, i32 5
-  %2698 = getelementptr inbounds %struct.anon.3, ptr %2697, i32 0, i32 0
-  %2699 = load ptr, ptr %2698, align 8
-  %2700 = load ptr, ptr %13, align 8
-  %2701 = getelementptr inbounds %struct.Exnode_s, ptr %2700, i32 0, i32 5
-  %2702 = getelementptr inbounds %struct.anon.9, ptr %2701, i32 0, i32 0
-  store ptr %2699, ptr %2702, align 8
-  %2703 = load ptr, ptr %9, align 8
-  %2704 = getelementptr inbounds %union.EX_STYPE, ptr %2703, i64 -1
-  %2705 = load ptr, ptr %2704, align 8
-  %2706 = getelementptr inbounds %struct.Exnode_s, ptr %2705, i32 0, i32 5
-  %2707 = getelementptr inbounds %struct.anon.3, ptr %2706, i32 0, i32 1
-  %2708 = load ptr, ptr %2707, align 8
-  %2709 = load ptr, ptr %9, align 8
-  %2710 = getelementptr inbounds %union.EX_STYPE, ptr %2709, i64 -1
-  store ptr %2708, ptr %2710, align 8
-  br label %2746
+2699:                                             ; preds = %333
+  %2700 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2701 = load ptr, ptr %2700, align 8
+  %2702 = load ptr, ptr %9, align 8
+  %2703 = getelementptr inbounds %union.EX_STYPE, ptr %2702, i64 -7
+  %2704 = load ptr, ptr %2703, align 8
+  %2705 = getelementptr inbounds %struct.Exid_s, ptr %2704, i32 0, i32 2
+  %2706 = load i64, ptr %2705, align 8
+  %2707 = trunc i64 %2706 to i32
+  %2708 = load ptr, ptr %9, align 8
+  %2709 = getelementptr inbounds %union.EX_STYPE, ptr %2708, i64 -3
+  %2710 = load ptr, ptr %2709, align 8
+  %2711 = load ptr, ptr %9, align 8
+  %2712 = getelementptr inbounds %union.EX_STYPE, ptr %2711, i64 -5
+  %2713 = load ptr, ptr %2712, align 8
+  %2714 = load ptr, ptr %9, align 8
+  %2715 = getelementptr inbounds %union.EX_STYPE, ptr %2714, i64 -1
+  %2716 = load ptr, ptr %2715, align 8
+  %2717 = call ptr @exnewsplit(ptr noundef %2701, i32 noundef %2707, ptr noundef %2710, ptr noundef %2713, ptr noundef %2716)
+  store ptr %2717, ptr %13, align 8
+  br label %3989
 
-2711:                                             ; preds = %2683, %2664
-  %2712 = load ptr, ptr %9, align 8
-  %2713 = getelementptr inbounds %union.EX_STYPE, ptr %2712, i64 -3
-  %2714 = load ptr, ptr %2713, align 8
-  %2715 = getelementptr inbounds %struct.Exid_s, ptr %2714, i32 0, i32 2
-  %2716 = load i64, ptr %2715, align 8
-  switch i64 %2716, label %2745 [
-    i64 294, label %2717
-    i64 292, label %2729
-    i64 299, label %2741
-  ]
+2718:                                             ; preds = %333
+  %2719 = load ptr, ptr %9, align 8
+  %2720 = getelementptr inbounds %union.EX_STYPE, ptr %2719, i64 -1
+  %2721 = load ptr, ptr %2720, align 8
+  %2722 = getelementptr inbounds %struct.Exnode_s, ptr %2721, i32 0, i32 0
+  %2723 = load i32, ptr %2722, align 8
+  %2724 = icmp sge i32 %2723, 259
+  br i1 %2724, label %2725, label %2732
 
-2717:                                             ; preds = %2711
-  %2718 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2719 = call ptr @exnewnode(ptr noundef %2718, i32 noundef 271, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
-  %2720 = load ptr, ptr %13, align 8
-  %2721 = getelementptr inbounds %struct.Exnode_s, ptr %2720, i32 0, i32 5
-  %2722 = getelementptr inbounds %struct.anon.9, ptr %2721, i32 0, i32 0
-  store ptr %2719, ptr %2722, align 8
-  %2723 = load ptr, ptr %13, align 8
-  %2724 = getelementptr inbounds %struct.Exnode_s, ptr %2723, i32 0, i32 5
-  %2725 = getelementptr inbounds %struct.anon.9, ptr %2724, i32 0, i32 0
-  %2726 = load ptr, ptr %2725, align 8
-  %2727 = getelementptr inbounds %struct.Exnode_s, ptr %2726, i32 0, i32 5
-  %2728 = getelementptr inbounds %struct.anon.2, ptr %2727, i32 0, i32 0
-  store i64 2, ptr %2728, align 8
-  br label %2745
+2725:                                             ; preds = %2718
+  %2726 = load ptr, ptr %9, align 8
+  %2727 = getelementptr inbounds %union.EX_STYPE, ptr %2726, i64 -1
+  %2728 = load ptr, ptr %2727, align 8
+  %2729 = getelementptr inbounds %struct.Exnode_s, ptr %2728, i32 0, i32 0
+  %2730 = load i32, ptr %2729, align 8
+  %2731 = icmp sle i32 %2730, 261
+  br i1 %2731, label %2741, label %2732
 
-2729:                                             ; preds = %2711
-  %2730 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2731 = call ptr @exnewnode(ptr noundef %2730, i32 noundef 271, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
-  %2732 = load ptr, ptr %13, align 8
-  %2733 = getelementptr inbounds %struct.Exnode_s, ptr %2732, i32 0, i32 5
-  %2734 = getelementptr inbounds %struct.anon.9, ptr %2733, i32 0, i32 0
-  store ptr %2731, ptr %2734, align 8
-  %2735 = load ptr, ptr %13, align 8
-  %2736 = getelementptr inbounds %struct.Exnode_s, ptr %2735, i32 0, i32 5
-  %2737 = getelementptr inbounds %struct.anon.9, ptr %2736, i32 0, i32 0
-  %2738 = load ptr, ptr %2737, align 8
-  %2739 = getelementptr inbounds %struct.Exnode_s, ptr %2738, i32 0, i32 5
-  %2740 = getelementptr inbounds %struct.anon.2, ptr %2739, i32 0, i32 0
-  store i64 1, ptr %2740, align 8
-  br label %2745
+2732:                                             ; preds = %2725, %2718
+  %2733 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2734 = load ptr, ptr %2733, align 8
+  %2735 = load ptr, ptr %9, align 8
+  %2736 = getelementptr inbounds %union.EX_STYPE, ptr %2735, i64 -1
+  %2737 = load ptr, ptr %2736, align 8
+  %2738 = call ptr @excast(ptr noundef %2734, ptr noundef %2737, i32 noundef 259, ptr noundef null, i32 noundef 0)
+  %2739 = load ptr, ptr %9, align 8
+  %2740 = getelementptr inbounds %union.EX_STYPE, ptr %2739, i64 -1
+  store ptr %2738, ptr %2740, align 8
+  br label %2741
 
-2741:                                             ; preds = %2711
-  %2742 = load ptr, ptr %13, align 8
-  %2743 = getelementptr inbounds %struct.Exnode_s, ptr %2742, i32 0, i32 5
-  %2744 = getelementptr inbounds %struct.anon.9, ptr %2743, i32 0, i32 0
-  store ptr null, ptr %2744, align 8
-  br label %2745
+2741:                                             ; preds = %2732, %2725
+  %2742 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2743 = load ptr, ptr %2742, align 8
+  %2744 = load ptr, ptr %9, align 8
+  %2745 = getelementptr inbounds %union.EX_STYPE, ptr %2744, i64 -1
+  %2746 = load ptr, ptr %2745, align 8
+  %2747 = call ptr @exnewnode(ptr noundef %2743, i32 noundef 277, i32 noundef 1, i32 noundef 259, ptr noundef %2746, ptr noundef null)
+  store ptr %2747, ptr %13, align 8
+  br label %3989
 
-2745:                                             ; preds = %2741, %2729, %2717, %2711
-  br label %2746
+2748:                                             ; preds = %333
+  %2749 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2750 = load ptr, ptr %2749, align 8
+  %2751 = call ptr @exnewnode(ptr noundef %2750, i32 noundef 295, i32 noundef 0, i32 noundef 262, ptr noundef null, ptr noundef null)
+  store ptr %2751, ptr %13, align 8
+  br label %3989
 
-2746:                                             ; preds = %2745, %2693
-  %2747 = load ptr, ptr %9, align 8
-  %2748 = getelementptr inbounds %union.EX_STYPE, ptr %2747, i64 -1
-  %2749 = load ptr, ptr %2748, align 8
-  %2750 = call ptr @preprint(ptr noundef %2749)
-  %2751 = load ptr, ptr %13, align 8
-  %2752 = getelementptr inbounds %struct.Exnode_s, ptr %2751, i32 0, i32 5
-  %2753 = getelementptr inbounds %struct.anon.9, ptr %2752, i32 0, i32 1
-  store ptr %2750, ptr %2753, align 8
-  br label %3766
+2752:                                             ; preds = %333
+  %2753 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2754 = load ptr, ptr %2753, align 8
+  %2755 = call ptr @exnewnode(ptr noundef %2754, i32 noundef 300, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
+  store ptr %2755, ptr %13, align 8
+  br label %3989
 
-2754:                                             ; preds = %332
-  %2755 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2756 = load ptr, ptr %9, align 8
-  %2757 = getelementptr inbounds %union.EX_STYPE, ptr %2756, i64 -3
-  %2758 = load ptr, ptr %2757, align 8
-  %2759 = getelementptr inbounds %struct.Exid_s, ptr %2758, i32 0, i32 2
-  %2760 = load i64, ptr %2759, align 8
-  %2761 = trunc i64 %2760 to i32
-  %2762 = load ptr, ptr %9, align 8
-  %2763 = getelementptr inbounds %union.EX_STYPE, ptr %2762, i64 -3
-  %2764 = load ptr, ptr %2763, align 8
-  %2765 = getelementptr inbounds %struct.Exid_s, ptr %2764, i32 0, i32 3
-  %2766 = load i64, ptr %2765, align 8
-  %2767 = trunc i64 %2766 to i32
-  %2768 = call ptr @exnewnode(ptr noundef %2755, i32 noundef %2761, i32 noundef 0, i32 noundef %2767, ptr noundef null, ptr noundef null)
-  store ptr %2768, ptr %13, align 8
-  %2769 = load ptr, ptr %9, align 8
-  %2770 = getelementptr inbounds %union.EX_STYPE, ptr %2769, i64 -1
-  %2771 = load ptr, ptr %2770, align 8
-  %2772 = icmp ne ptr %2771, null
-  br i1 %2772, label %2773, label %2801
+2756:                                             ; preds = %333
+  %2757 = load ptr, ptr %9, align 8
+  %2758 = getelementptr inbounds %union.EX_STYPE, ptr %2757, i64 -1
+  %2759 = load ptr, ptr %2758, align 8
+  %2760 = getelementptr inbounds %struct.Exnode_s, ptr %2759, i32 0, i32 0
+  %2761 = load i32, ptr %2760, align 8
+  %2762 = icmp sge i32 %2761, 259
+  br i1 %2762, label %2763, label %2770
 
-2773:                                             ; preds = %2754
-  %2774 = load ptr, ptr %9, align 8
-  %2775 = getelementptr inbounds %union.EX_STYPE, ptr %2774, i64 -1
-  %2776 = load ptr, ptr %2775, align 8
-  %2777 = getelementptr inbounds %struct.Exnode_s, ptr %2776, i32 0, i32 5
-  %2778 = getelementptr inbounds %struct.anon.3, ptr %2777, i32 0, i32 0
-  %2779 = load ptr, ptr %2778, align 8
-  %2780 = getelementptr inbounds %struct.Exnode_s, ptr %2779, i32 0, i32 0
-  %2781 = load i32, ptr %2780, align 8
-  %2782 = icmp eq i32 %2781, 259
-  br i1 %2782, label %2783, label %2801
+2763:                                             ; preds = %2756
+  %2764 = load ptr, ptr %9, align 8
+  %2765 = getelementptr inbounds %union.EX_STYPE, ptr %2764, i64 -1
+  %2766 = load ptr, ptr %2765, align 8
+  %2767 = getelementptr inbounds %struct.Exnode_s, ptr %2766, i32 0, i32 0
+  %2768 = load i32, ptr %2767, align 8
+  %2769 = icmp sle i32 %2768, 261
+  br i1 %2769, label %2779, label %2770
 
-2783:                                             ; preds = %2773
-  %2784 = load ptr, ptr %9, align 8
-  %2785 = getelementptr inbounds %union.EX_STYPE, ptr %2784, i64 -1
-  %2786 = load ptr, ptr %2785, align 8
-  %2787 = getelementptr inbounds %struct.Exnode_s, ptr %2786, i32 0, i32 5
-  %2788 = getelementptr inbounds %struct.anon.3, ptr %2787, i32 0, i32 0
-  %2789 = load ptr, ptr %2788, align 8
-  %2790 = load ptr, ptr %13, align 8
-  %2791 = getelementptr inbounds %struct.Exnode_s, ptr %2790, i32 0, i32 5
-  %2792 = getelementptr inbounds %struct.anon.12, ptr %2791, i32 0, i32 0
-  store ptr %2789, ptr %2792, align 8
-  %2793 = load ptr, ptr %9, align 8
-  %2794 = getelementptr inbounds %union.EX_STYPE, ptr %2793, i64 -1
-  %2795 = load ptr, ptr %2794, align 8
-  %2796 = getelementptr inbounds %struct.Exnode_s, ptr %2795, i32 0, i32 5
-  %2797 = getelementptr inbounds %struct.anon.3, ptr %2796, i32 0, i32 1
-  %2798 = load ptr, ptr %2797, align 8
+2770:                                             ; preds = %2763, %2756
+  %2771 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2772 = load ptr, ptr %2771, align 8
+  %2773 = load ptr, ptr %9, align 8
+  %2774 = getelementptr inbounds %union.EX_STYPE, ptr %2773, i64 -1
+  %2775 = load ptr, ptr %2774, align 8
+  %2776 = call ptr @excast(ptr noundef %2772, ptr noundef %2775, i32 noundef 259, ptr noundef null, i32 noundef 0)
+  %2777 = load ptr, ptr %9, align 8
+  %2778 = getelementptr inbounds %union.EX_STYPE, ptr %2777, i64 -1
+  store ptr %2776, ptr %2778, align 8
+  br label %2779
+
+2779:                                             ; preds = %2770, %2763
+  %2780 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2781 = load ptr, ptr %2780, align 8
+  %2782 = load ptr, ptr %9, align 8
+  %2783 = getelementptr inbounds %union.EX_STYPE, ptr %2782, i64 -1
+  %2784 = load ptr, ptr %2783, align 8
+  %2785 = call ptr @exnewnode(ptr noundef %2781, i32 noundef 300, i32 noundef 1, i32 noundef 259, ptr noundef %2784, ptr noundef null)
+  store ptr %2785, ptr %13, align 8
+  br label %3989
+
+2786:                                             ; preds = %333
+  %2787 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2788 = load ptr, ptr %2787, align 8
+  %2789 = load ptr, ptr %9, align 8
+  %2790 = getelementptr inbounds %union.EX_STYPE, ptr %2789, i64 -3
+  %2791 = load ptr, ptr %2790, align 8
+  %2792 = getelementptr inbounds %struct.Exid_s, ptr %2791, i32 0, i32 3
+  %2793 = load i64, ptr %2792, align 8
+  %2794 = trunc i64 %2793 to i32
+  %2795 = load ptr, ptr %9, align 8
+  %2796 = getelementptr inbounds %union.EX_STYPE, ptr %2795, i64 -1
+  %2797 = load ptr, ptr %2796, align 8
+  %2798 = call ptr @exnewnode(ptr noundef %2788, i32 noundef 269, i32 noundef 1, i32 noundef %2794, ptr noundef null, ptr noundef %2797)
+  store ptr %2798, ptr %13, align 8
   %2799 = load ptr, ptr %9, align 8
-  %2800 = getelementptr inbounds %union.EX_STYPE, ptr %2799, i64 -1
-  store ptr %2798, ptr %2800, align 8
-  br label %2852
+  %2800 = getelementptr inbounds %union.EX_STYPE, ptr %2799, i64 -3
+  %2801 = load ptr, ptr %2800, align 8
+  %2802 = load ptr, ptr %13, align 8
+  %2803 = getelementptr inbounds %struct.Exnode_s, ptr %2802, i32 0, i32 5
+  %2804 = getelementptr inbounds %struct.anon.6, ptr %2803, i32 0, i32 0
+  store ptr %2801, ptr %2804, align 8
+  br label %3989
 
-2801:                                             ; preds = %2773, %2754
-  %2802 = load ptr, ptr %9, align 8
-  %2803 = getelementptr inbounds %union.EX_STYPE, ptr %2802, i64 -3
-  %2804 = load ptr, ptr %2803, align 8
-  %2805 = getelementptr inbounds %struct.Exid_s, ptr %2804, i32 0, i32 2
-  %2806 = load i64, ptr %2805, align 8
-  switch i64 %2806, label %2851 [
-    i64 297, label %2807
-    i64 301, label %2811
-  ]
+2805:                                             ; preds = %333
+  %2806 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2807 = load ptr, ptr %2806, align 8
+  %2808 = load ptr, ptr %9, align 8
+  %2809 = getelementptr inbounds %union.EX_STYPE, ptr %2808, i64 -3
+  %2810 = load ptr, ptr %2809, align 8
+  %2811 = load ptr, ptr %9, align 8
+  %2812 = getelementptr inbounds %union.EX_STYPE, ptr %2811, i64 -1
+  %2813 = load ptr, ptr %2812, align 8
+  %2814 = call ptr @exprint(ptr noundef %2807, ptr noundef %2810, ptr noundef %2813)
+  store ptr %2814, ptr %13, align 8
+  br label %3989
 
-2807:                                             ; preds = %2801
-  %2808 = load ptr, ptr %13, align 8
-  %2809 = getelementptr inbounds %struct.Exnode_s, ptr %2808, i32 0, i32 5
-  %2810 = getelementptr inbounds %struct.anon.12, ptr %2809, i32 0, i32 0
-  store ptr null, ptr %2810, align 8
-  br label %2851
+2815:                                             ; preds = %333
+  %2816 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2817 = load ptr, ptr %2816, align 8
+  %2818 = load ptr, ptr %9, align 8
+  %2819 = getelementptr inbounds %union.EX_STYPE, ptr %2818, i64 -3
+  %2820 = load ptr, ptr %2819, align 8
+  %2821 = getelementptr inbounds %struct.Exid_s, ptr %2820, i32 0, i32 2
+  %2822 = load i64, ptr %2821, align 8
+  %2823 = trunc i64 %2822 to i32
+  %2824 = load ptr, ptr %9, align 8
+  %2825 = getelementptr inbounds %union.EX_STYPE, ptr %2824, i64 -3
+  %2826 = load ptr, ptr %2825, align 8
+  %2827 = getelementptr inbounds %struct.Exid_s, ptr %2826, i32 0, i32 3
+  %2828 = load i64, ptr %2827, align 8
+  %2829 = trunc i64 %2828 to i32
+  %2830 = call ptr @exnewnode(ptr noundef %2817, i32 noundef %2823, i32 noundef 0, i32 noundef %2829, ptr noundef null, ptr noundef null)
+  store ptr %2830, ptr %13, align 8
+  %2831 = load ptr, ptr %9, align 8
+  %2832 = getelementptr inbounds %union.EX_STYPE, ptr %2831, i64 -1
+  %2833 = load ptr, ptr %2832, align 8
+  %2834 = icmp ne ptr %2833, null
+  br i1 %2834, label %2835, label %2863
 
-2811:                                             ; preds = %2801
-  %2812 = load ptr, ptr %9, align 8
-  %2813 = getelementptr inbounds %union.EX_STYPE, ptr %2812, i64 -1
-  %2814 = load ptr, ptr %2813, align 8
-  %2815 = icmp ne ptr %2814, null
-  br i1 %2815, label %2816, label %2844
-
-2816:                                             ; preds = %2811
-  %2817 = load ptr, ptr %9, align 8
-  %2818 = getelementptr inbounds %union.EX_STYPE, ptr %2817, i64 -1
-  %2819 = load ptr, ptr %2818, align 8
-  %2820 = getelementptr inbounds %struct.Exnode_s, ptr %2819, i32 0, i32 5
-  %2821 = getelementptr inbounds %struct.anon.3, ptr %2820, i32 0, i32 0
-  %2822 = load ptr, ptr %2821, align 8
-  %2823 = getelementptr inbounds %struct.Exnode_s, ptr %2822, i32 0, i32 0
-  %2824 = load i32, ptr %2823, align 8
-  %2825 = icmp eq i32 %2824, 263
-  br i1 %2825, label %2826, label %2844
-
-2826:                                             ; preds = %2816
-  %2827 = load ptr, ptr %9, align 8
-  %2828 = getelementptr inbounds %union.EX_STYPE, ptr %2827, i64 -1
-  %2829 = load ptr, ptr %2828, align 8
-  %2830 = getelementptr inbounds %struct.Exnode_s, ptr %2829, i32 0, i32 5
-  %2831 = getelementptr inbounds %struct.anon.3, ptr %2830, i32 0, i32 0
-  %2832 = load ptr, ptr %2831, align 8
-  %2833 = load ptr, ptr %13, align 8
-  %2834 = getelementptr inbounds %struct.Exnode_s, ptr %2833, i32 0, i32 5
-  %2835 = getelementptr inbounds %struct.anon.12, ptr %2834, i32 0, i32 0
-  store ptr %2832, ptr %2835, align 8
+2835:                                             ; preds = %2815
   %2836 = load ptr, ptr %9, align 8
   %2837 = getelementptr inbounds %union.EX_STYPE, ptr %2836, i64 -1
   %2838 = load ptr, ptr %2837, align 8
   %2839 = getelementptr inbounds %struct.Exnode_s, ptr %2838, i32 0, i32 5
-  %2840 = getelementptr inbounds %struct.anon.3, ptr %2839, i32 0, i32 1
+  %2840 = getelementptr inbounds %struct.anon.3, ptr %2839, i32 0, i32 0
   %2841 = load ptr, ptr %2840, align 8
-  %2842 = load ptr, ptr %9, align 8
-  %2843 = getelementptr inbounds %union.EX_STYPE, ptr %2842, i64 -1
-  store ptr %2841, ptr %2843, align 8
-  br label %2850
+  %2842 = getelementptr inbounds %struct.Exnode_s, ptr %2841, i32 0, i32 0
+  %2843 = load i32, ptr %2842, align 8
+  %2844 = icmp eq i32 %2843, 259
+  br i1 %2844, label %2845, label %2863
 
-2844:                                             ; preds = %2816, %2811
-  %2845 = load ptr, ptr %9, align 8
-  %2846 = getelementptr inbounds %union.EX_STYPE, ptr %2845, i64 -3
-  %2847 = load ptr, ptr %2846, align 8
-  %2848 = getelementptr inbounds %struct.Exid_s, ptr %2847, i32 0, i32 9
-  %2849 = getelementptr inbounds [32 x i8], ptr %2848, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.34, ptr noundef %2849)
-  br label %2850
-
-2850:                                             ; preds = %2844, %2826
-  br label %2851
-
-2851:                                             ; preds = %2850, %2807, %2801
-  br label %2852
-
-2852:                                             ; preds = %2851, %2783
-  %2853 = load ptr, ptr %9, align 8
-  %2854 = getelementptr inbounds %union.EX_STYPE, ptr %2853, i64 -1
-  %2855 = load ptr, ptr %2854, align 8
-  %2856 = icmp ne ptr %2855, null
-  br i1 %2856, label %2857, label %2875
-
-2857:                                             ; preds = %2852
-  %2858 = load ptr, ptr %9, align 8
-  %2859 = getelementptr inbounds %union.EX_STYPE, ptr %2858, i64 -1
+2845:                                             ; preds = %2835
+  %2846 = load ptr, ptr %9, align 8
+  %2847 = getelementptr inbounds %union.EX_STYPE, ptr %2846, i64 -1
+  %2848 = load ptr, ptr %2847, align 8
+  %2849 = getelementptr inbounds %struct.Exnode_s, ptr %2848, i32 0, i32 5
+  %2850 = getelementptr inbounds %struct.anon.3, ptr %2849, i32 0, i32 0
+  %2851 = load ptr, ptr %2850, align 8
+  %2852 = load ptr, ptr %13, align 8
+  %2853 = getelementptr inbounds %struct.Exnode_s, ptr %2852, i32 0, i32 5
+  %2854 = getelementptr inbounds %struct.anon.9, ptr %2853, i32 0, i32 0
+  store ptr %2851, ptr %2854, align 8
+  %2855 = load ptr, ptr %9, align 8
+  %2856 = getelementptr inbounds %union.EX_STYPE, ptr %2855, i64 -1
+  %2857 = load ptr, ptr %2856, align 8
+  %2858 = getelementptr inbounds %struct.Exnode_s, ptr %2857, i32 0, i32 5
+  %2859 = getelementptr inbounds %struct.anon.3, ptr %2858, i32 0, i32 1
   %2860 = load ptr, ptr %2859, align 8
-  %2861 = getelementptr inbounds %struct.Exnode_s, ptr %2860, i32 0, i32 5
-  %2862 = getelementptr inbounds %struct.anon.3, ptr %2861, i32 0, i32 0
-  %2863 = load ptr, ptr %2862, align 8
-  %2864 = icmp ne ptr %2863, null
-  br i1 %2864, label %2865, label %2875
+  %2861 = load ptr, ptr %9, align 8
+  %2862 = getelementptr inbounds %union.EX_STYPE, ptr %2861, i64 -1
+  store ptr %2860, ptr %2862, align 8
+  br label %2900
 
-2865:                                             ; preds = %2857
-  %2866 = load ptr, ptr %9, align 8
-  %2867 = getelementptr inbounds %union.EX_STYPE, ptr %2866, i64 -1
-  %2868 = load ptr, ptr %2867, align 8
-  %2869 = getelementptr inbounds %struct.Exnode_s, ptr %2868, i32 0, i32 5
-  %2870 = getelementptr inbounds %struct.anon.3, ptr %2869, i32 0, i32 0
+2863:                                             ; preds = %2835, %2815
+  %2864 = load ptr, ptr %9, align 8
+  %2865 = getelementptr inbounds %union.EX_STYPE, ptr %2864, i64 -3
+  %2866 = load ptr, ptr %2865, align 8
+  %2867 = getelementptr inbounds %struct.Exid_s, ptr %2866, i32 0, i32 2
+  %2868 = load i64, ptr %2867, align 8
+  switch i64 %2868, label %2899 [
+    i64 294, label %2869
+    i64 292, label %2882
+    i64 299, label %2895
+  ]
+
+2869:                                             ; preds = %2863
+  %2870 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %2871 = load ptr, ptr %2870, align 8
-  %2872 = getelementptr inbounds %struct.Exnode_s, ptr %2871, i32 0, i32 0
-  %2873 = load i32, ptr %2872, align 8
-  %2874 = icmp ne i32 %2873, 263
-  br i1 %2874, label %2875, label %2881
+  %2872 = call ptr @exnewnode(ptr noundef %2871, i32 noundef 271, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
+  %2873 = load ptr, ptr %13, align 8
+  %2874 = getelementptr inbounds %struct.Exnode_s, ptr %2873, i32 0, i32 5
+  %2875 = getelementptr inbounds %struct.anon.9, ptr %2874, i32 0, i32 0
+  store ptr %2872, ptr %2875, align 8
+  %2876 = load ptr, ptr %13, align 8
+  %2877 = getelementptr inbounds %struct.Exnode_s, ptr %2876, i32 0, i32 5
+  %2878 = getelementptr inbounds %struct.anon.9, ptr %2877, i32 0, i32 0
+  %2879 = load ptr, ptr %2878, align 8
+  %2880 = getelementptr inbounds %struct.Exnode_s, ptr %2879, i32 0, i32 5
+  %2881 = getelementptr inbounds %struct.anon.2, ptr %2880, i32 0, i32 0
+  store i64 2, ptr %2881, align 8
+  br label %2899
 
-2875:                                             ; preds = %2865, %2857, %2852
-  %2876 = load ptr, ptr %9, align 8
-  %2877 = getelementptr inbounds %union.EX_STYPE, ptr %2876, i64 -3
-  %2878 = load ptr, ptr %2877, align 8
-  %2879 = getelementptr inbounds %struct.Exid_s, ptr %2878, i32 0, i32 9
-  %2880 = getelementptr inbounds [32 x i8], ptr %2879, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.35, ptr noundef %2880)
-  br label %2881
-
-2881:                                             ; preds = %2875, %2865
-  %2882 = load ptr, ptr %9, align 8
-  %2883 = getelementptr inbounds %union.EX_STYPE, ptr %2882, i64 -1
+2882:                                             ; preds = %2863
+  %2883 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %2884 = load ptr, ptr %2883, align 8
-  %2885 = getelementptr inbounds %struct.Exnode_s, ptr %2884, i32 0, i32 5
-  %2886 = getelementptr inbounds %struct.anon.3, ptr %2885, i32 0, i32 0
-  %2887 = load ptr, ptr %2886, align 8
-  %2888 = load ptr, ptr %13, align 8
-  %2889 = getelementptr inbounds %struct.Exnode_s, ptr %2888, i32 0, i32 5
-  %2890 = getelementptr inbounds %struct.anon.12, ptr %2889, i32 0, i32 1
-  store ptr %2887, ptr %2890, align 8
-  %2891 = load ptr, ptr %9, align 8
-  %2892 = getelementptr inbounds %union.EX_STYPE, ptr %2891, i64 -1
-  %2893 = load ptr, ptr %2892, align 8
-  %2894 = getelementptr inbounds %struct.Exnode_s, ptr %2893, i32 0, i32 5
-  %2895 = getelementptr inbounds %struct.anon.3, ptr %2894, i32 0, i32 1
-  %2896 = load ptr, ptr %2895, align 8
-  %2897 = load ptr, ptr %13, align 8
-  %2898 = getelementptr inbounds %struct.Exnode_s, ptr %2897, i32 0, i32 5
-  %2899 = getelementptr inbounds %struct.anon.12, ptr %2898, i32 0, i32 2
-  store ptr %2896, ptr %2899, align 8
-  store ptr %2896, ptr %34, align 8
+  %2885 = call ptr @exnewnode(ptr noundef %2884, i32 noundef 271, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
+  %2886 = load ptr, ptr %13, align 8
+  %2887 = getelementptr inbounds %struct.Exnode_s, ptr %2886, i32 0, i32 5
+  %2888 = getelementptr inbounds %struct.anon.9, ptr %2887, i32 0, i32 0
+  store ptr %2885, ptr %2888, align 8
+  %2889 = load ptr, ptr %13, align 8
+  %2890 = getelementptr inbounds %struct.Exnode_s, ptr %2889, i32 0, i32 5
+  %2891 = getelementptr inbounds %struct.anon.9, ptr %2890, i32 0, i32 0
+  %2892 = load ptr, ptr %2891, align 8
+  %2893 = getelementptr inbounds %struct.Exnode_s, ptr %2892, i32 0, i32 5
+  %2894 = getelementptr inbounds %struct.anon.2, ptr %2893, i32 0, i32 0
+  store i64 1, ptr %2894, align 8
+  br label %2899
+
+2895:                                             ; preds = %2863
+  %2896 = load ptr, ptr %13, align 8
+  %2897 = getelementptr inbounds %struct.Exnode_s, ptr %2896, i32 0, i32 5
+  %2898 = getelementptr inbounds %struct.anon.9, ptr %2897, i32 0, i32 0
+  store ptr null, ptr %2898, align 8
+  br label %2899
+
+2899:                                             ; preds = %2895, %2882, %2869, %2863
   br label %2900
 
-2900:                                             ; preds = %2928, %2881
-  %2901 = load ptr, ptr %34, align 8
-  %2902 = icmp ne ptr %2901, null
-  br i1 %2902, label %2903, label %2933
+2900:                                             ; preds = %2899, %2845
+  %2901 = load ptr, ptr %9, align 8
+  %2902 = getelementptr inbounds %union.EX_STYPE, ptr %2901, i64 -1
+  %2903 = load ptr, ptr %2902, align 8
+  %2904 = call ptr @preprint(ptr noundef %2903)
+  %2905 = load ptr, ptr %13, align 8
+  %2906 = getelementptr inbounds %struct.Exnode_s, ptr %2905, i32 0, i32 5
+  %2907 = getelementptr inbounds %struct.anon.9, ptr %2906, i32 0, i32 1
+  store ptr %2904, ptr %2907, align 8
+  br label %3989
 
-2903:                                             ; preds = %2900
-  %2904 = load ptr, ptr %34, align 8
-  %2905 = getelementptr inbounds %struct.Exnode_s, ptr %2904, i32 0, i32 5
-  %2906 = getelementptr inbounds %struct.anon.3, ptr %2905, i32 0, i32 0
-  %2907 = load ptr, ptr %2906, align 8
-  %2908 = getelementptr inbounds %struct.Exnode_s, ptr %2907, i32 0, i32 1
-  %2909 = load i32, ptr %2908, align 4
-  %2910 = icmp ne i32 %2909, 266
-  br i1 %2910, label %2911, label %2917
+2908:                                             ; preds = %333
+  %2909 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %2910 = load ptr, ptr %2909, align 8
+  %2911 = load ptr, ptr %9, align 8
+  %2912 = getelementptr inbounds %union.EX_STYPE, ptr %2911, i64 -3
+  %2913 = load ptr, ptr %2912, align 8
+  %2914 = getelementptr inbounds %struct.Exid_s, ptr %2913, i32 0, i32 2
+  %2915 = load i64, ptr %2914, align 8
+  %2916 = trunc i64 %2915 to i32
+  %2917 = load ptr, ptr %9, align 8
+  %2918 = getelementptr inbounds %union.EX_STYPE, ptr %2917, i64 -3
+  %2919 = load ptr, ptr %2918, align 8
+  %2920 = getelementptr inbounds %struct.Exid_s, ptr %2919, i32 0, i32 3
+  %2921 = load i64, ptr %2920, align 8
+  %2922 = trunc i64 %2921 to i32
+  %2923 = call ptr @exnewnode(ptr noundef %2910, i32 noundef %2916, i32 noundef 0, i32 noundef %2922, ptr noundef null, ptr noundef null)
+  store ptr %2923, ptr %13, align 8
+  %2924 = load ptr, ptr %9, align 8
+  %2925 = getelementptr inbounds %union.EX_STYPE, ptr %2924, i64 -1
+  %2926 = load ptr, ptr %2925, align 8
+  %2927 = icmp ne ptr %2926, null
+  br i1 %2927, label %2928, label %2956
 
-2911:                                             ; preds = %2903
-  %2912 = load ptr, ptr %9, align 8
-  %2913 = getelementptr inbounds %union.EX_STYPE, ptr %2912, i64 -3
-  %2914 = load ptr, ptr %2913, align 8
-  %2915 = getelementptr inbounds %struct.Exid_s, ptr %2914, i32 0, i32 9
-  %2916 = getelementptr inbounds [32 x i8], ptr %2915, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.36, ptr noundef %2916)
-  br label %2917
+2928:                                             ; preds = %2908
+  %2929 = load ptr, ptr %9, align 8
+  %2930 = getelementptr inbounds %union.EX_STYPE, ptr %2929, i64 -1
+  %2931 = load ptr, ptr %2930, align 8
+  %2932 = getelementptr inbounds %struct.Exnode_s, ptr %2931, i32 0, i32 5
+  %2933 = getelementptr inbounds %struct.anon.3, ptr %2932, i32 0, i32 0
+  %2934 = load ptr, ptr %2933, align 8
+  %2935 = getelementptr inbounds %struct.Exnode_s, ptr %2934, i32 0, i32 0
+  %2936 = load i32, ptr %2935, align 8
+  %2937 = icmp eq i32 %2936, 259
+  br i1 %2937, label %2938, label %2956
 
-2917:                                             ; preds = %2911, %2903
-  %2918 = load ptr, ptr %34, align 8
-  %2919 = getelementptr inbounds %struct.Exnode_s, ptr %2918, i32 0, i32 5
-  %2920 = getelementptr inbounds %struct.anon.3, ptr %2919, i32 0, i32 0
-  %2921 = load ptr, ptr %2920, align 8
-  %2922 = getelementptr inbounds %struct.Exnode_s, ptr %2921, i32 0, i32 5
-  %2923 = getelementptr inbounds %struct.anon.3, ptr %2922, i32 0, i32 0
-  %2924 = load ptr, ptr %2923, align 8
-  %2925 = load ptr, ptr %34, align 8
-  %2926 = getelementptr inbounds %struct.Exnode_s, ptr %2925, i32 0, i32 5
-  %2927 = getelementptr inbounds %struct.anon.3, ptr %2926, i32 0, i32 0
-  store ptr %2924, ptr %2927, align 8
-  br label %2928
-
-2928:                                             ; preds = %2917
-  %2929 = load ptr, ptr %34, align 8
-  %2930 = getelementptr inbounds %struct.Exnode_s, ptr %2929, i32 0, i32 5
-  %2931 = getelementptr inbounds %struct.anon.3, ptr %2930, i32 0, i32 1
-  %2932 = load ptr, ptr %2931, align 8
-  store ptr %2932, ptr %34, align 8
-  br label %2900
-
-2933:                                             ; preds = %2900
-  br label %3766
-
-2934:                                             ; preds = %332
-  %2935 = load ptr, ptr %9, align 8
-  %2936 = getelementptr inbounds %union.EX_STYPE, ptr %2935, i64 0
-  %2937 = load ptr, ptr %2936, align 8
-  %2938 = icmp ne ptr %2937, null
-  br i1 %2938, label %2939, label %3033
-
-2939:                                             ; preds = %2934
-  %2940 = load ptr, ptr %9, align 8
-  %2941 = getelementptr inbounds %union.EX_STYPE, ptr %2940, i64 -1
-  %2942 = load ptr, ptr %2941, align 8
-  %2943 = getelementptr inbounds %struct.Exnode_s, ptr %2942, i32 0, i32 1
-  %2944 = load i32, ptr %2943, align 4
-  %2945 = icmp eq i32 %2944, 283
-  br i1 %2945, label %2946, label %2962
-
-2946:                                             ; preds = %2939
-  %2947 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %2948 = getelementptr inbounds %struct.Expr_s, ptr %2947, i32 0, i32 7
-  %2949 = load ptr, ptr %2948, align 8
-  %2950 = getelementptr inbounds %struct.Exdisc_s, ptr %2949, i32 0, i32 15
-  %2951 = load ptr, ptr %2950, align 8
-  %2952 = icmp ne ptr %2951, null
-  br i1 %2952, label %2962, label %2953
-
-2953:                                             ; preds = %2946
+2938:                                             ; preds = %2928
+  %2939 = load ptr, ptr %9, align 8
+  %2940 = getelementptr inbounds %union.EX_STYPE, ptr %2939, i64 -1
+  %2941 = load ptr, ptr %2940, align 8
+  %2942 = getelementptr inbounds %struct.Exnode_s, ptr %2941, i32 0, i32 5
+  %2943 = getelementptr inbounds %struct.anon.3, ptr %2942, i32 0, i32 0
+  %2944 = load ptr, ptr %2943, align 8
+  %2945 = load ptr, ptr %13, align 8
+  %2946 = getelementptr inbounds %struct.Exnode_s, ptr %2945, i32 0, i32 5
+  %2947 = getelementptr inbounds %struct.anon.12, ptr %2946, i32 0, i32 0
+  store ptr %2944, ptr %2947, align 8
+  %2948 = load ptr, ptr %9, align 8
+  %2949 = getelementptr inbounds %union.EX_STYPE, ptr %2948, i64 -1
+  %2950 = load ptr, ptr %2949, align 8
+  %2951 = getelementptr inbounds %struct.Exnode_s, ptr %2950, i32 0, i32 5
+  %2952 = getelementptr inbounds %struct.anon.3, ptr %2951, i32 0, i32 1
+  %2953 = load ptr, ptr %2952, align 8
   %2954 = load ptr, ptr %9, align 8
   %2955 = getelementptr inbounds %union.EX_STYPE, ptr %2954, i64 -1
-  %2956 = load ptr, ptr %2955, align 8
-  %2957 = getelementptr inbounds %struct.Exnode_s, ptr %2956, i32 0, i32 5
-  %2958 = getelementptr inbounds %struct.anon.5, ptr %2957, i32 0, i32 0
+  store ptr %2953, ptr %2955, align 8
+  br label %3007
+
+2956:                                             ; preds = %2928, %2908
+  %2957 = load ptr, ptr %9, align 8
+  %2958 = getelementptr inbounds %union.EX_STYPE, ptr %2957, i64 -3
   %2959 = load ptr, ptr %2958, align 8
-  %2960 = getelementptr inbounds %struct.Exid_s, ptr %2959, i32 0, i32 9
-  %2961 = getelementptr inbounds [32 x i8], ptr %2960, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.37, ptr noundef %2961)
-  br label %3032
+  %2960 = getelementptr inbounds %struct.Exid_s, ptr %2959, i32 0, i32 2
+  %2961 = load i64, ptr %2960, align 8
+  switch i64 %2961, label %3006 [
+    i64 297, label %2962
+    i64 301, label %2966
+  ]
 
-2962:                                             ; preds = %2946, %2939
-  %2963 = load ptr, ptr %9, align 8
-  %2964 = getelementptr inbounds %union.EX_STYPE, ptr %2963, i64 -1
-  %2965 = load ptr, ptr %2964, align 8
-  %2966 = getelementptr inbounds %struct.Exnode_s, ptr %2965, i32 0, i32 0
-  %2967 = load i32, ptr %2966, align 8
-  %2968 = icmp ne i32 %2967, 0
-  br i1 %2968, label %2979, label %2969
+2962:                                             ; preds = %2956
+  %2963 = load ptr, ptr %13, align 8
+  %2964 = getelementptr inbounds %struct.Exnode_s, ptr %2963, i32 0, i32 5
+  %2965 = getelementptr inbounds %struct.anon.12, ptr %2964, i32 0, i32 0
+  store ptr null, ptr %2965, align 8
+  br label %3006
 
-2969:                                             ; preds = %2962
-  %2970 = load ptr, ptr %9, align 8
-  %2971 = getelementptr inbounds %union.EX_STYPE, ptr %2970, i64 0
-  %2972 = load ptr, ptr %2971, align 8
-  %2973 = getelementptr inbounds %struct.Exnode_s, ptr %2972, i32 0, i32 0
-  %2974 = load i32, ptr %2973, align 8
-  %2975 = load ptr, ptr %9, align 8
-  %2976 = getelementptr inbounds %union.EX_STYPE, ptr %2975, i64 -1
+2966:                                             ; preds = %2956
+  %2967 = load ptr, ptr %9, align 8
+  %2968 = getelementptr inbounds %union.EX_STYPE, ptr %2967, i64 -1
+  %2969 = load ptr, ptr %2968, align 8
+  %2970 = icmp ne ptr %2969, null
+  br i1 %2970, label %2971, label %2999
+
+2971:                                             ; preds = %2966
+  %2972 = load ptr, ptr %9, align 8
+  %2973 = getelementptr inbounds %union.EX_STYPE, ptr %2972, i64 -1
+  %2974 = load ptr, ptr %2973, align 8
+  %2975 = getelementptr inbounds %struct.Exnode_s, ptr %2974, i32 0, i32 5
+  %2976 = getelementptr inbounds %struct.anon.3, ptr %2975, i32 0, i32 0
   %2977 = load ptr, ptr %2976, align 8
   %2978 = getelementptr inbounds %struct.Exnode_s, ptr %2977, i32 0, i32 0
-  store i32 %2974, ptr %2978, align 8
-  br label %3020
+  %2979 = load i32, ptr %2978, align 8
+  %2980 = icmp eq i32 %2979, 263
+  br i1 %2980, label %2981, label %2999
 
-2979:                                             ; preds = %2962
-  %2980 = load ptr, ptr %9, align 8
-  %2981 = getelementptr inbounds %union.EX_STYPE, ptr %2980, i64 0
-  %2982 = load ptr, ptr %2981, align 8
-  %2983 = getelementptr inbounds %struct.Exnode_s, ptr %2982, i32 0, i32 0
-  %2984 = load i32, ptr %2983, align 8
-  %2985 = load ptr, ptr %9, align 8
-  %2986 = getelementptr inbounds %union.EX_STYPE, ptr %2985, i64 -1
+2981:                                             ; preds = %2971
+  %2982 = load ptr, ptr %9, align 8
+  %2983 = getelementptr inbounds %union.EX_STYPE, ptr %2982, i64 -1
+  %2984 = load ptr, ptr %2983, align 8
+  %2985 = getelementptr inbounds %struct.Exnode_s, ptr %2984, i32 0, i32 5
+  %2986 = getelementptr inbounds %struct.anon.3, ptr %2985, i32 0, i32 0
   %2987 = load ptr, ptr %2986, align 8
-  %2988 = getelementptr inbounds %struct.Exnode_s, ptr %2987, i32 0, i32 0
-  %2989 = load i32, ptr %2988, align 8
-  %2990 = icmp ne i32 %2984, %2989
-  br i1 %2990, label %2991, label %3019
-
-2991:                                             ; preds = %2979
-  %2992 = load ptr, ptr %9, align 8
-  %2993 = getelementptr inbounds %union.EX_STYPE, ptr %2992, i64 -1
-  %2994 = load ptr, ptr %2993, align 8
-  %2995 = getelementptr inbounds %struct.Exnode_s, ptr %2994, i32 0, i32 0
-  %2996 = load i32, ptr %2995, align 8
+  %2988 = load ptr, ptr %13, align 8
+  %2989 = getelementptr inbounds %struct.Exnode_s, ptr %2988, i32 0, i32 5
+  %2990 = getelementptr inbounds %struct.anon.12, ptr %2989, i32 0, i32 0
+  store ptr %2987, ptr %2990, align 8
+  %2991 = load ptr, ptr %9, align 8
+  %2992 = getelementptr inbounds %union.EX_STYPE, ptr %2991, i64 -1
+  %2993 = load ptr, ptr %2992, align 8
+  %2994 = getelementptr inbounds %struct.Exnode_s, ptr %2993, i32 0, i32 5
+  %2995 = getelementptr inbounds %struct.anon.3, ptr %2994, i32 0, i32 1
+  %2996 = load ptr, ptr %2995, align 8
   %2997 = load ptr, ptr %9, align 8
-  %2998 = getelementptr inbounds %union.EX_STYPE, ptr %2997, i64 0
-  %2999 = load ptr, ptr %2998, align 8
-  %3000 = getelementptr inbounds %struct.Exnode_s, ptr %2999, i32 0, i32 0
-  store i32 %2996, ptr %3000, align 8
-  %3001 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3002 = load ptr, ptr %9, align 8
-  %3003 = getelementptr inbounds %union.EX_STYPE, ptr %3002, i64 0
-  %3004 = load ptr, ptr %3003, align 8
-  %3005 = getelementptr inbounds %struct.Exnode_s, ptr %3004, i32 0, i32 5
-  %3006 = getelementptr inbounds %struct.anon.3, ptr %3005, i32 0, i32 1
-  %3007 = load ptr, ptr %3006, align 8
+  %2998 = getelementptr inbounds %union.EX_STYPE, ptr %2997, i64 -1
+  store ptr %2996, ptr %2998, align 8
+  br label %3005
+
+2999:                                             ; preds = %2971, %2966
+  %3000 = load ptr, ptr %9, align 8
+  %3001 = getelementptr inbounds %union.EX_STYPE, ptr %3000, i64 -3
+  %3002 = load ptr, ptr %3001, align 8
+  %3003 = getelementptr inbounds %struct.Exid_s, ptr %3002, i32 0, i32 9
+  %3004 = getelementptr inbounds [32 x i8], ptr %3003, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.34, ptr noundef %3004)
+  br label %3005
+
+3005:                                             ; preds = %2999, %2981
+  br label %3006
+
+3006:                                             ; preds = %3005, %2962, %2956
+  br label %3007
+
+3007:                                             ; preds = %3006, %2938
   %3008 = load ptr, ptr %9, align 8
   %3009 = getelementptr inbounds %union.EX_STYPE, ptr %3008, i64 -1
   %3010 = load ptr, ptr %3009, align 8
-  %3011 = getelementptr inbounds %struct.Exnode_s, ptr %3010, i32 0, i32 0
-  %3012 = load i32, ptr %3011, align 8
-  %3013 = call ptr @excast(ptr noundef %3001, ptr noundef %3007, i32 noundef %3012, ptr noundef null, i32 noundef 0)
-  %3014 = load ptr, ptr %9, align 8
-  %3015 = getelementptr inbounds %union.EX_STYPE, ptr %3014, i64 0
-  %3016 = load ptr, ptr %3015, align 8
-  %3017 = getelementptr inbounds %struct.Exnode_s, ptr %3016, i32 0, i32 5
-  %3018 = getelementptr inbounds %struct.anon.3, ptr %3017, i32 0, i32 1
-  store ptr %3013, ptr %3018, align 8
-  br label %3019
+  %3011 = icmp ne ptr %3010, null
+  br i1 %3011, label %3012, label %3030
 
-3019:                                             ; preds = %2991, %2979
-  br label %3020
+3012:                                             ; preds = %3007
+  %3013 = load ptr, ptr %9, align 8
+  %3014 = getelementptr inbounds %union.EX_STYPE, ptr %3013, i64 -1
+  %3015 = load ptr, ptr %3014, align 8
+  %3016 = getelementptr inbounds %struct.Exnode_s, ptr %3015, i32 0, i32 5
+  %3017 = getelementptr inbounds %struct.anon.3, ptr %3016, i32 0, i32 0
+  %3018 = load ptr, ptr %3017, align 8
+  %3019 = icmp ne ptr %3018, null
+  br i1 %3019, label %3020, label %3030
 
-3020:                                             ; preds = %3019, %2969
+3020:                                             ; preds = %3012
   %3021 = load ptr, ptr %9, align 8
   %3022 = getelementptr inbounds %union.EX_STYPE, ptr %3021, i64 -1
   %3023 = load ptr, ptr %3022, align 8
-  %3024 = load ptr, ptr %9, align 8
-  %3025 = getelementptr inbounds %union.EX_STYPE, ptr %3024, i64 0
+  %3024 = getelementptr inbounds %struct.Exnode_s, ptr %3023, i32 0, i32 5
+  %3025 = getelementptr inbounds %struct.anon.3, ptr %3024, i32 0, i32 0
   %3026 = load ptr, ptr %3025, align 8
-  %3027 = getelementptr inbounds %struct.Exnode_s, ptr %3026, i32 0, i32 5
-  %3028 = getelementptr inbounds %struct.anon.3, ptr %3027, i32 0, i32 0
-  store ptr %3023, ptr %3028, align 8
-  %3029 = load ptr, ptr %9, align 8
-  %3030 = getelementptr inbounds %union.EX_STYPE, ptr %3029, i64 0
-  %3031 = load ptr, ptr %3030, align 8
-  store ptr %3031, ptr %13, align 8
-  br label %3032
+  %3027 = getelementptr inbounds %struct.Exnode_s, ptr %3026, i32 0, i32 0
+  %3028 = load i32, ptr %3027, align 8
+  %3029 = icmp ne i32 %3028, 263
+  br i1 %3029, label %3030, label %3036
 
-3032:                                             ; preds = %3020, %2953
-  br label %3033
+3030:                                             ; preds = %3020, %3012, %3007
+  %3031 = load ptr, ptr %9, align 8
+  %3032 = getelementptr inbounds %union.EX_STYPE, ptr %3031, i64 -3
+  %3033 = load ptr, ptr %3032, align 8
+  %3034 = getelementptr inbounds %struct.Exid_s, ptr %3033, i32 0, i32 9
+  %3035 = getelementptr inbounds [32 x i8], ptr %3034, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.35, ptr noundef %3035)
+  br label %3036
 
-3033:                                             ; preds = %3032, %2934
-  br label %3766
+3036:                                             ; preds = %3030, %3020
+  %3037 = load ptr, ptr %9, align 8
+  %3038 = getelementptr inbounds %union.EX_STYPE, ptr %3037, i64 -1
+  %3039 = load ptr, ptr %3038, align 8
+  %3040 = getelementptr inbounds %struct.Exnode_s, ptr %3039, i32 0, i32 5
+  %3041 = getelementptr inbounds %struct.anon.3, ptr %3040, i32 0, i32 0
+  %3042 = load ptr, ptr %3041, align 8
+  %3043 = load ptr, ptr %13, align 8
+  %3044 = getelementptr inbounds %struct.Exnode_s, ptr %3043, i32 0, i32 5
+  %3045 = getelementptr inbounds %struct.anon.12, ptr %3044, i32 0, i32 1
+  store ptr %3042, ptr %3045, align 8
+  %3046 = load ptr, ptr %9, align 8
+  %3047 = getelementptr inbounds %union.EX_STYPE, ptr %3046, i64 -1
+  %3048 = load ptr, ptr %3047, align 8
+  %3049 = getelementptr inbounds %struct.Exnode_s, ptr %3048, i32 0, i32 5
+  %3050 = getelementptr inbounds %struct.anon.3, ptr %3049, i32 0, i32 1
+  %3051 = load ptr, ptr %3050, align 8
+  %3052 = load ptr, ptr %13, align 8
+  %3053 = getelementptr inbounds %struct.Exnode_s, ptr %3052, i32 0, i32 5
+  %3054 = getelementptr inbounds %struct.anon.12, ptr %3053, i32 0, i32 2
+  store ptr %3051, ptr %3054, align 8
+  store ptr %3051, ptr %34, align 8
+  br label %3055
 
-3034:                                             ; preds = %332
-  br label %3035
+3055:                                             ; preds = %3083, %3036
+  %3056 = load ptr, ptr %34, align 8
+  %3057 = icmp ne ptr %3056, null
+  br i1 %3057, label %3058, label %3088
 
-3035:                                             ; preds = %3153, %3034
-  %3036 = load ptr, ptr %9, align 8
-  %3037 = getelementptr inbounds %union.EX_STYPE, ptr %3036, i64 0
-  %3038 = load ptr, ptr %3037, align 8
-  %3039 = getelementptr inbounds %struct.Exnode_s, ptr %3038, i32 0, i32 0
-  %3040 = load i32, ptr %3039, align 8
-  %3041 = icmp eq i32 %3040, 263
-  br i1 %3041, label %3042, label %3043
+3058:                                             ; preds = %3055
+  %3059 = load ptr, ptr %34, align 8
+  %3060 = getelementptr inbounds %struct.Exnode_s, ptr %3059, i32 0, i32 5
+  %3061 = getelementptr inbounds %struct.anon.3, ptr %3060, i32 0, i32 0
+  %3062 = load ptr, ptr %3061, align 8
+  %3063 = getelementptr inbounds %struct.Exnode_s, ptr %3062, i32 0, i32 1
+  %3064 = load i32, ptr %3063, align 4
+  %3065 = icmp ne i32 %3064, 266
+  br i1 %3065, label %3066, label %3072
 
-3042:                                             ; preds = %3035
-  call void (ptr, ...) @exerror(ptr noundef @.str.38)
-  br label %3043
+3066:                                             ; preds = %3058
+  %3067 = load ptr, ptr %9, align 8
+  %3068 = getelementptr inbounds %union.EX_STYPE, ptr %3067, i64 -3
+  %3069 = load ptr, ptr %3068, align 8
+  %3070 = getelementptr inbounds %struct.Exid_s, ptr %3069, i32 0, i32 9
+  %3071 = getelementptr inbounds [32 x i8], ptr %3070, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.36, ptr noundef %3071)
+  br label %3072
 
-3043:                                             ; preds = %3042, %3035
-  %3044 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3045 = load ptr, ptr %9, align 8
-  %3046 = getelementptr inbounds %union.EX_STYPE, ptr %3045, i64 -1
-  %3047 = load i32, ptr %3046, align 8
-  %3048 = load ptr, ptr %9, align 8
-  %3049 = getelementptr inbounds %union.EX_STYPE, ptr %3048, i64 0
-  %3050 = load ptr, ptr %3049, align 8
-  %3051 = getelementptr inbounds %struct.Exnode_s, ptr %3050, i32 0, i32 0
-  %3052 = load i32, ptr %3051, align 8
-  %3053 = load ptr, ptr %9, align 8
-  %3054 = getelementptr inbounds %union.EX_STYPE, ptr %3053, i64 0
-  %3055 = load ptr, ptr %3054, align 8
-  %3056 = call ptr @exnewnode(ptr noundef %3044, i32 noundef %3047, i32 noundef 0, i32 noundef %3052, ptr noundef %3055, ptr noundef null)
-  store ptr %3056, ptr %13, align 8
-  %3057 = load ptr, ptr %13, align 8
-  %3058 = getelementptr inbounds %struct.Exnode_s, ptr %3057, i32 0, i32 6
-  store i32 290, ptr %3058, align 8
-  br label %3766
+3072:                                             ; preds = %3066, %3058
+  %3073 = load ptr, ptr %34, align 8
+  %3074 = getelementptr inbounds %struct.Exnode_s, ptr %3073, i32 0, i32 5
+  %3075 = getelementptr inbounds %struct.anon.3, ptr %3074, i32 0, i32 0
+  %3076 = load ptr, ptr %3075, align 8
+  %3077 = getelementptr inbounds %struct.Exnode_s, ptr %3076, i32 0, i32 5
+  %3078 = getelementptr inbounds %struct.anon.3, ptr %3077, i32 0, i32 0
+  %3079 = load ptr, ptr %3078, align 8
+  %3080 = load ptr, ptr %34, align 8
+  %3081 = getelementptr inbounds %struct.Exnode_s, ptr %3080, i32 0, i32 5
+  %3082 = getelementptr inbounds %struct.anon.3, ptr %3081, i32 0, i32 0
+  store ptr %3079, ptr %3082, align 8
+  br label %3083
 
-3059:                                             ; preds = %332
-  br label %3060
-
-3060:                                             ; preds = %3154, %3059
-  %3061 = load ptr, ptr %9, align 8
-  %3062 = getelementptr inbounds %union.EX_STYPE, ptr %3061, i64 -1
-  %3063 = load ptr, ptr %3062, align 8
-  %3064 = getelementptr inbounds %struct.Exnode_s, ptr %3063, i32 0, i32 0
-  %3065 = load i32, ptr %3064, align 8
-  %3066 = icmp eq i32 %3065, 263
-  br i1 %3066, label %3067, label %3068
-
-3067:                                             ; preds = %3060
-  call void (ptr, ...) @exerror(ptr noundef @.str.38)
-  br label %3068
-
-3068:                                             ; preds = %3067, %3060
-  %3069 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3070 = load ptr, ptr %9, align 8
-  %3071 = getelementptr inbounds %union.EX_STYPE, ptr %3070, i64 0
-  %3072 = load i32, ptr %3071, align 8
-  %3073 = load ptr, ptr %9, align 8
-  %3074 = getelementptr inbounds %union.EX_STYPE, ptr %3073, i64 -1
-  %3075 = load ptr, ptr %3074, align 8
-  %3076 = getelementptr inbounds %struct.Exnode_s, ptr %3075, i32 0, i32 0
-  %3077 = load i32, ptr %3076, align 8
-  %3078 = load ptr, ptr %9, align 8
-  %3079 = getelementptr inbounds %union.EX_STYPE, ptr %3078, i64 -1
-  %3080 = load ptr, ptr %3079, align 8
-  %3081 = call ptr @exnewnode(ptr noundef %3069, i32 noundef %3072, i32 noundef 0, i32 noundef %3077, ptr noundef %3080, ptr noundef null)
-  store ptr %3081, ptr %13, align 8
-  %3082 = load ptr, ptr %13, align 8
-  %3083 = getelementptr inbounds %struct.Exnode_s, ptr %3082, i32 0, i32 6
-  store i32 288, ptr %3083, align 8
-  br label %3766
-
-3084:                                             ; preds = %332
-  %3085 = load ptr, ptr %9, align 8
-  %3086 = getelementptr inbounds %union.EX_STYPE, ptr %3085, i64 0
+3083:                                             ; preds = %3072
+  %3084 = load ptr, ptr %34, align 8
+  %3085 = getelementptr inbounds %struct.Exnode_s, ptr %3084, i32 0, i32 5
+  %3086 = getelementptr inbounds %struct.anon.3, ptr %3085, i32 0, i32 1
   %3087 = load ptr, ptr %3086, align 8
-  %3088 = getelementptr inbounds %struct.Exid_s, ptr %3087, i32 0, i32 7
-  %3089 = load ptr, ptr %3088, align 8
-  %3090 = icmp eq ptr %3089, null
-  br i1 %3090, label %3091, label %3097
+  store ptr %3087, ptr %34, align 8
+  br label %3055
 
-3091:                                             ; preds = %3084
-  %3092 = load ptr, ptr %9, align 8
-  %3093 = getelementptr inbounds %union.EX_STYPE, ptr %3092, i64 0
-  %3094 = load ptr, ptr %3093, align 8
-  %3095 = getelementptr inbounds %struct.Exid_s, ptr %3094, i32 0, i32 9
-  %3096 = getelementptr inbounds [32 x i8], ptr %3095, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.39, ptr noundef %3096)
-  br label %3097
+3088:                                             ; preds = %3055
+  br label %3989
 
-3097:                                             ; preds = %3091, %3084
-  %3098 = load ptr, ptr %9, align 8
-  %3099 = getelementptr inbounds %union.EX_STYPE, ptr %3098, i64 0
-  %3100 = load ptr, ptr %3099, align 8
-  %3101 = getelementptr inbounds %struct.Exid_s, ptr %3100, i32 0, i32 4
-  %3102 = load i64, ptr %3101, align 8
-  %3103 = icmp sgt i64 %3102, 0
-  br i1 %3103, label %3104, label %3138
+3089:                                             ; preds = %333
+  %3090 = load ptr, ptr %9, align 8
+  %3091 = getelementptr inbounds %union.EX_STYPE, ptr %3090, i64 0
+  %3092 = load ptr, ptr %3091, align 8
+  %3093 = icmp ne ptr %3092, null
+  br i1 %3093, label %3094, label %3190
 
-3104:                                             ; preds = %3097
-  %3105 = load ptr, ptr %9, align 8
-  %3106 = getelementptr inbounds %union.EX_STYPE, ptr %3105, i64 -2
+3094:                                             ; preds = %3089
+  %3095 = load ptr, ptr %9, align 8
+  %3096 = getelementptr inbounds %union.EX_STYPE, ptr %3095, i64 -1
+  %3097 = load ptr, ptr %3096, align 8
+  %3098 = getelementptr inbounds %struct.Exnode_s, ptr %3097, i32 0, i32 1
+  %3099 = load i32, ptr %3098, align 4
+  %3100 = icmp eq i32 %3099, 283
+  br i1 %3100, label %3101, label %3118
+
+3101:                                             ; preds = %3094
+  %3102 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3103 = load ptr, ptr %3102, align 8
+  %3104 = getelementptr inbounds %struct.Expr_s, ptr %3103, i32 0, i32 7
+  %3105 = load ptr, ptr %3104, align 8
+  %3106 = getelementptr inbounds %struct.Exdisc_s, ptr %3105, i32 0, i32 15
   %3107 = load ptr, ptr %3106, align 8
-  %3108 = getelementptr inbounds %struct.Exnode_s, ptr %3107, i32 0, i32 0
-  %3109 = load i32, ptr %3108, align 8
-  %3110 = sext i32 %3109 to i64
-  %3111 = load ptr, ptr %9, align 8
-  %3112 = getelementptr inbounds %union.EX_STYPE, ptr %3111, i64 0
-  %3113 = load ptr, ptr %3112, align 8
-  %3114 = getelementptr inbounds %struct.Exid_s, ptr %3113, i32 0, i32 4
-  %3115 = load i64, ptr %3114, align 8
-  %3116 = icmp ne i64 %3110, %3115
-  br i1 %3116, label %3117, label %3138
+  %3108 = icmp ne ptr %3107, null
+  br i1 %3108, label %3118, label %3109
 
-3117:                                             ; preds = %3104
-  %3118 = load ptr, ptr %9, align 8
-  %3119 = getelementptr inbounds %union.EX_STYPE, ptr %3118, i64 0
-  %3120 = load ptr, ptr %3119, align 8
-  %3121 = getelementptr inbounds %struct.Exid_s, ptr %3120, i32 0, i32 9
-  %3122 = getelementptr inbounds [32 x i8], ptr %3121, i64 0, i64 0
-  %3123 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3124 = load ptr, ptr %9, align 8
-  %3125 = getelementptr inbounds %union.EX_STYPE, ptr %3124, i64 0
-  %3126 = load ptr, ptr %3125, align 8
-  %3127 = getelementptr inbounds %struct.Exid_s, ptr %3126, i32 0, i32 4
-  %3128 = load i64, ptr %3127, align 8
-  %3129 = trunc i64 %3128 to i32
-  %3130 = call ptr @extypename(ptr noundef %3123, i32 noundef %3129)
-  %3131 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3132 = load ptr, ptr %9, align 8
-  %3133 = getelementptr inbounds %union.EX_STYPE, ptr %3132, i64 -2
-  %3134 = load ptr, ptr %3133, align 8
-  %3135 = getelementptr inbounds %struct.Exnode_s, ptr %3134, i32 0, i32 0
-  %3136 = load i32, ptr %3135, align 8
-  %3137 = call ptr @extypename(ptr noundef %3131, i32 noundef %3136)
-  call void (ptr, ...) @exerror(ptr noundef @.str.26, ptr noundef %3122, ptr noundef %3130, ptr noundef %3137)
-  br label %3138
+3109:                                             ; preds = %3101
+  %3110 = load ptr, ptr %9, align 8
+  %3111 = getelementptr inbounds %union.EX_STYPE, ptr %3110, i64 -1
+  %3112 = load ptr, ptr %3111, align 8
+  %3113 = getelementptr inbounds %struct.Exnode_s, ptr %3112, i32 0, i32 5
+  %3114 = getelementptr inbounds %struct.anon.5, ptr %3113, i32 0, i32 0
+  %3115 = load ptr, ptr %3114, align 8
+  %3116 = getelementptr inbounds %struct.Exid_s, ptr %3115, i32 0, i32 9
+  %3117 = getelementptr inbounds [32 x i8], ptr %3116, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.37, ptr noundef %3117)
+  br label %3189
 
-3138:                                             ; preds = %3117, %3104, %3097
-  %3139 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3140 = call ptr @exnewnode(ptr noundef %3139, i32 noundef 331, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
-  store ptr %3140, ptr %13, align 8
+3118:                                             ; preds = %3101, %3094
+  %3119 = load ptr, ptr %9, align 8
+  %3120 = getelementptr inbounds %union.EX_STYPE, ptr %3119, i64 -1
+  %3121 = load ptr, ptr %3120, align 8
+  %3122 = getelementptr inbounds %struct.Exnode_s, ptr %3121, i32 0, i32 0
+  %3123 = load i32, ptr %3122, align 8
+  %3124 = icmp ne i32 %3123, 0
+  br i1 %3124, label %3135, label %3125
+
+3125:                                             ; preds = %3118
+  %3126 = load ptr, ptr %9, align 8
+  %3127 = getelementptr inbounds %union.EX_STYPE, ptr %3126, i64 0
+  %3128 = load ptr, ptr %3127, align 8
+  %3129 = getelementptr inbounds %struct.Exnode_s, ptr %3128, i32 0, i32 0
+  %3130 = load i32, ptr %3129, align 8
+  %3131 = load ptr, ptr %9, align 8
+  %3132 = getelementptr inbounds %union.EX_STYPE, ptr %3131, i64 -1
+  %3133 = load ptr, ptr %3132, align 8
+  %3134 = getelementptr inbounds %struct.Exnode_s, ptr %3133, i32 0, i32 0
+  store i32 %3130, ptr %3134, align 8
+  br label %3177
+
+3135:                                             ; preds = %3118
+  %3136 = load ptr, ptr %9, align 8
+  %3137 = getelementptr inbounds %union.EX_STYPE, ptr %3136, i64 0
+  %3138 = load ptr, ptr %3137, align 8
+  %3139 = getelementptr inbounds %struct.Exnode_s, ptr %3138, i32 0, i32 0
+  %3140 = load i32, ptr %3139, align 8
   %3141 = load ptr, ptr %9, align 8
-  %3142 = getelementptr inbounds %union.EX_STYPE, ptr %3141, i64 0
+  %3142 = getelementptr inbounds %union.EX_STYPE, ptr %3141, i64 -1
   %3143 = load ptr, ptr %3142, align 8
-  %3144 = load ptr, ptr %13, align 8
-  %3145 = getelementptr inbounds %struct.Exnode_s, ptr %3144, i32 0, i32 5
-  %3146 = getelementptr inbounds %struct.anon.5, ptr %3145, i32 0, i32 0
-  store ptr %3143, ptr %3146, align 8
-  %3147 = load ptr, ptr %9, align 8
-  %3148 = getelementptr inbounds %union.EX_STYPE, ptr %3147, i64 -2
-  %3149 = load ptr, ptr %3148, align 8
-  %3150 = load ptr, ptr %13, align 8
-  %3151 = getelementptr inbounds %struct.Exnode_s, ptr %3150, i32 0, i32 5
-  %3152 = getelementptr inbounds %struct.anon.5, ptr %3151, i32 0, i32 2
-  store ptr %3149, ptr %3152, align 8
-  br label %3766
+  %3144 = getelementptr inbounds %struct.Exnode_s, ptr %3143, i32 0, i32 0
+  %3145 = load i32, ptr %3144, align 8
+  %3146 = icmp ne i32 %3140, %3145
+  br i1 %3146, label %3147, label %3176
 
-3153:                                             ; preds = %332
-  br label %3035
-
-3154:                                             ; preds = %332
-  br label %3060
-
-3155:                                             ; preds = %332
-  %3156 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3157 = load ptr, ptr %9, align 8
-  %3158 = getelementptr inbounds %union.EX_STYPE, ptr %3157, i64 0
-  %3159 = load ptr, ptr %3158, align 8
-  %3160 = getelementptr inbounds %struct.Exid_s, ptr %3159, i32 0, i32 3
-  %3161 = load i64, ptr %3160, align 8
-  %3162 = trunc i64 %3161 to i32
-  %3163 = call ptr @exnewnode(ptr noundef %3156, i32 noundef 271, i32 noundef 0, i32 noundef %3162, ptr noundef null, ptr noundef null)
-  store ptr %3163, ptr %13, align 8
-  %3164 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3165 = getelementptr inbounds %struct.Expr_s, ptr %3164, i32 0, i32 7
-  %3166 = load ptr, ptr %3165, align 8
-  %3167 = getelementptr inbounds %struct.Exdisc_s, ptr %3166, i32 0, i32 14
-  %3168 = load ptr, ptr %3167, align 8
-  %3169 = icmp ne ptr %3168, null
-  br i1 %3169, label %3176, label %3170
-
-3170:                                             ; preds = %3155
+3147:                                             ; preds = %3135
+  %3148 = load ptr, ptr %9, align 8
+  %3149 = getelementptr inbounds %union.EX_STYPE, ptr %3148, i64 -1
+  %3150 = load ptr, ptr %3149, align 8
+  %3151 = getelementptr inbounds %struct.Exnode_s, ptr %3150, i32 0, i32 0
+  %3152 = load i32, ptr %3151, align 8
+  %3153 = load ptr, ptr %9, align 8
+  %3154 = getelementptr inbounds %union.EX_STYPE, ptr %3153, i64 0
+  %3155 = load ptr, ptr %3154, align 8
+  %3156 = getelementptr inbounds %struct.Exnode_s, ptr %3155, i32 0, i32 0
+  store i32 %3152, ptr %3156, align 8
+  %3157 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3158 = load ptr, ptr %3157, align 8
+  %3159 = load ptr, ptr %9, align 8
+  %3160 = getelementptr inbounds %union.EX_STYPE, ptr %3159, i64 0
+  %3161 = load ptr, ptr %3160, align 8
+  %3162 = getelementptr inbounds %struct.Exnode_s, ptr %3161, i32 0, i32 5
+  %3163 = getelementptr inbounds %struct.anon.3, ptr %3162, i32 0, i32 1
+  %3164 = load ptr, ptr %3163, align 8
+  %3165 = load ptr, ptr %9, align 8
+  %3166 = getelementptr inbounds %union.EX_STYPE, ptr %3165, i64 -1
+  %3167 = load ptr, ptr %3166, align 8
+  %3168 = getelementptr inbounds %struct.Exnode_s, ptr %3167, i32 0, i32 0
+  %3169 = load i32, ptr %3168, align 8
+  %3170 = call ptr @excast(ptr noundef %3158, ptr noundef %3164, i32 noundef %3169, ptr noundef null, i32 noundef 0)
   %3171 = load ptr, ptr %9, align 8
   %3172 = getelementptr inbounds %union.EX_STYPE, ptr %3171, i64 0
   %3173 = load ptr, ptr %3172, align 8
-  %3174 = getelementptr inbounds %struct.Exid_s, ptr %3173, i32 0, i32 9
-  %3175 = getelementptr inbounds [32 x i8], ptr %3174, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.40, ptr noundef %3175)
+  %3174 = getelementptr inbounds %struct.Exnode_s, ptr %3173, i32 0, i32 5
+  %3175 = getelementptr inbounds %struct.anon.3, ptr %3174, i32 0, i32 1
+  store ptr %3170, ptr %3175, align 8
+  br label %3176
+
+3176:                                             ; preds = %3147, %3135
+  br label %3177
+
+3177:                                             ; preds = %3176, %3125
+  %3178 = load ptr, ptr %9, align 8
+  %3179 = getelementptr inbounds %union.EX_STYPE, ptr %3178, i64 -1
+  %3180 = load ptr, ptr %3179, align 8
+  %3181 = load ptr, ptr %9, align 8
+  %3182 = getelementptr inbounds %union.EX_STYPE, ptr %3181, i64 0
+  %3183 = load ptr, ptr %3182, align 8
+  %3184 = getelementptr inbounds %struct.Exnode_s, ptr %3183, i32 0, i32 5
+  %3185 = getelementptr inbounds %struct.anon.3, ptr %3184, i32 0, i32 0
+  store ptr %3180, ptr %3185, align 8
+  %3186 = load ptr, ptr %9, align 8
+  %3187 = getelementptr inbounds %union.EX_STYPE, ptr %3186, i64 0
+  %3188 = load ptr, ptr %3187, align 8
+  store ptr %3188, ptr %13, align 8
+  br label %3189
+
+3189:                                             ; preds = %3177, %3109
+  br label %3190
+
+3190:                                             ; preds = %3189, %3089
+  br label %3989
+
+3191:                                             ; preds = %333
   br label %3192
 
-3176:                                             ; preds = %3155
-  %3177 = load ptr, ptr %13, align 8
-  %3178 = getelementptr inbounds %struct.Exnode_s, ptr %3177, i32 0, i32 5
-  %3179 = getelementptr inbounds %struct.anon.2, ptr %3178, i32 0, i32 0
-  %3180 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3181 = getelementptr inbounds %struct.Expr_s, ptr %3180, i32 0, i32 7
-  %3182 = load ptr, ptr %3181, align 8
-  %3183 = getelementptr inbounds %struct.Exdisc_s, ptr %3182, i32 0, i32 14
-  %3184 = load ptr, ptr %3183, align 8
-  %3185 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3186 = load ptr, ptr %13, align 8
-  %3187 = load ptr, ptr %9, align 8
-  %3188 = getelementptr inbounds %union.EX_STYPE, ptr %3187, i64 0
-  %3189 = load ptr, ptr %3188, align 8
-  %3190 = call ptr %3184(ptr noundef %3185, ptr noundef %3186, ptr noundef %3189, ptr noundef null)
-  %3191 = getelementptr inbounds %union.EX_STYPE, ptr %35, i32 0, i32 0
-  store ptr %3190, ptr %3191, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3179, ptr align 8 %35, i64 8, i1 false)
-  br label %3192
+3192:                                             ; preds = %3315, %3191
+  %3193 = load ptr, ptr %9, align 8
+  %3194 = getelementptr inbounds %union.EX_STYPE, ptr %3193, i64 0
+  %3195 = load ptr, ptr %3194, align 8
+  %3196 = getelementptr inbounds %struct.Exnode_s, ptr %3195, i32 0, i32 0
+  %3197 = load i32, ptr %3196, align 8
+  %3198 = icmp eq i32 %3197, 263
+  br i1 %3198, label %3199, label %3200
 
-3192:                                             ; preds = %3176, %3170
-  br label %3766
+3199:                                             ; preds = %3192
+  call void (ptr, ...) @exerror(ptr noundef @.str.38)
+  br label %3200
 
-3193:                                             ; preds = %332
-  %3194 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3195 = call ptr @exnewnode(ptr noundef %3194, i32 noundef 271, i32 noundef 0, i32 noundef 262, ptr noundef null, ptr noundef null)
-  store ptr %3195, ptr %13, align 8
-  %3196 = load ptr, ptr %9, align 8
-  %3197 = getelementptr inbounds %union.EX_STYPE, ptr %3196, i64 0
-  %3198 = load double, ptr %3197, align 8
-  %3199 = load ptr, ptr %13, align 8
-  %3200 = getelementptr inbounds %struct.Exnode_s, ptr %3199, i32 0, i32 5
-  %3201 = getelementptr inbounds %struct.anon.2, ptr %3200, i32 0, i32 0
-  store double %3198, ptr %3201, align 8
-  br label %3766
+3200:                                             ; preds = %3199, %3192
+  %3201 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3202 = load ptr, ptr %3201, align 8
+  %3203 = load ptr, ptr %9, align 8
+  %3204 = getelementptr inbounds %union.EX_STYPE, ptr %3203, i64 -1
+  %3205 = load i32, ptr %3204, align 8
+  %3206 = load ptr, ptr %9, align 8
+  %3207 = getelementptr inbounds %union.EX_STYPE, ptr %3206, i64 0
+  %3208 = load ptr, ptr %3207, align 8
+  %3209 = getelementptr inbounds %struct.Exnode_s, ptr %3208, i32 0, i32 0
+  %3210 = load i32, ptr %3209, align 8
+  %3211 = load ptr, ptr %9, align 8
+  %3212 = getelementptr inbounds %union.EX_STYPE, ptr %3211, i64 0
+  %3213 = load ptr, ptr %3212, align 8
+  %3214 = call ptr @exnewnode(ptr noundef %3202, i32 noundef %3205, i32 noundef 0, i32 noundef %3210, ptr noundef %3213, ptr noundef null)
+  store ptr %3214, ptr %13, align 8
+  %3215 = load ptr, ptr %13, align 8
+  %3216 = getelementptr inbounds %struct.Exnode_s, ptr %3215, i32 0, i32 6
+  store i32 290, ptr %3216, align 8
+  br label %3989
 
-3202:                                             ; preds = %332
-  %3203 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3204 = call ptr @exnewnode(ptr noundef %3203, i32 noundef 271, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
-  store ptr %3204, ptr %13, align 8
-  %3205 = load ptr, ptr %9, align 8
-  %3206 = getelementptr inbounds %union.EX_STYPE, ptr %3205, i64 0
-  %3207 = load i64, ptr %3206, align 8
-  %3208 = load ptr, ptr %13, align 8
-  %3209 = getelementptr inbounds %struct.Exnode_s, ptr %3208, i32 0, i32 5
-  %3210 = getelementptr inbounds %struct.anon.2, ptr %3209, i32 0, i32 0
-  store i64 %3207, ptr %3210, align 8
-  br label %3766
+3217:                                             ; preds = %333
+  br label %3218
 
-3211:                                             ; preds = %332
-  %3212 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3213 = call ptr @exnewnode(ptr noundef %3212, i32 noundef 271, i32 noundef 0, i32 noundef 263, ptr noundef null, ptr noundef null)
-  store ptr %3213, ptr %13, align 8
-  %3214 = load ptr, ptr %9, align 8
-  %3215 = getelementptr inbounds %union.EX_STYPE, ptr %3214, i64 0
-  %3216 = load ptr, ptr %3215, align 8
-  %3217 = load ptr, ptr %13, align 8
-  %3218 = getelementptr inbounds %struct.Exnode_s, ptr %3217, i32 0, i32 5
-  %3219 = getelementptr inbounds %struct.anon.2, ptr %3218, i32 0, i32 0
-  store ptr %3216, ptr %3219, align 8
-  br label %3766
+3218:                                             ; preds = %3316, %3217
+  %3219 = load ptr, ptr %9, align 8
+  %3220 = getelementptr inbounds %union.EX_STYPE, ptr %3219, i64 -1
+  %3221 = load ptr, ptr %3220, align 8
+  %3222 = getelementptr inbounds %struct.Exnode_s, ptr %3221, i32 0, i32 0
+  %3223 = load i32, ptr %3222, align 8
+  %3224 = icmp eq i32 %3223, 263
+  br i1 %3224, label %3225, label %3226
 
-3220:                                             ; preds = %332
-  %3221 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3222 = call ptr @exnewnode(ptr noundef %3221, i32 noundef 271, i32 noundef 0, i32 noundef 260, ptr noundef null, ptr noundef null)
-  store ptr %3222, ptr %13, align 8
-  %3223 = load ptr, ptr %9, align 8
-  %3224 = getelementptr inbounds %union.EX_STYPE, ptr %3223, i64 0
-  %3225 = load i64, ptr %3224, align 8
-  %3226 = load ptr, ptr %13, align 8
-  %3227 = getelementptr inbounds %struct.Exnode_s, ptr %3226, i32 0, i32 5
-  %3228 = getelementptr inbounds %struct.anon.2, ptr %3227, i32 0, i32 0
-  store i64 %3225, ptr %3228, align 8
-  br label %3766
+3225:                                             ; preds = %3218
+  call void (ptr, ...) @exerror(ptr noundef @.str.38)
+  br label %3226
 
-3229:                                             ; preds = %332
-  %3230 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3231 = load ptr, ptr %9, align 8
-  %3232 = getelementptr inbounds %union.EX_STYPE, ptr %3231, i64 -1
-  %3233 = load ptr, ptr %3232, align 8
-  %3234 = load ptr, ptr %9, align 8
-  %3235 = getelementptr inbounds %union.EX_STYPE, ptr %3234, i64 0
-  %3236 = load ptr, ptr %3235, align 8
-  %3237 = call ptr @makeVar(ptr noundef %3230, ptr noundef %3233, ptr noundef null, ptr noundef null, ptr noundef %3236)
-  store ptr %3237, ptr %13, align 8
-  br label %3766
+3226:                                             ; preds = %3225, %3218
+  %3227 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3228 = load ptr, ptr %3227, align 8
+  %3229 = load ptr, ptr %9, align 8
+  %3230 = getelementptr inbounds %union.EX_STYPE, ptr %3229, i64 0
+  %3231 = load i32, ptr %3230, align 8
+  %3232 = load ptr, ptr %9, align 8
+  %3233 = getelementptr inbounds %union.EX_STYPE, ptr %3232, i64 -1
+  %3234 = load ptr, ptr %3233, align 8
+  %3235 = getelementptr inbounds %struct.Exnode_s, ptr %3234, i32 0, i32 0
+  %3236 = load i32, ptr %3235, align 8
+  %3237 = load ptr, ptr %9, align 8
+  %3238 = getelementptr inbounds %union.EX_STYPE, ptr %3237, i64 -1
+  %3239 = load ptr, ptr %3238, align 8
+  %3240 = call ptr @exnewnode(ptr noundef %3228, i32 noundef %3231, i32 noundef 0, i32 noundef %3236, ptr noundef %3239, ptr noundef null)
+  store ptr %3240, ptr %13, align 8
+  %3241 = load ptr, ptr %13, align 8
+  %3242 = getelementptr inbounds %struct.Exnode_s, ptr %3241, i32 0, i32 6
+  store i32 288, ptr %3242, align 8
+  br label %3989
 
-3238:                                             ; preds = %332
-  %3239 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3240 = load ptr, ptr %9, align 8
-  %3241 = getelementptr inbounds %union.EX_STYPE, ptr %3240, i64 -2
-  %3242 = load ptr, ptr %3241, align 8
-  %3243 = getelementptr inbounds %struct.Exid_s, ptr %3242, i32 0, i32 3
-  %3244 = load i64, ptr %3243, align 8
-  %3245 = trunc i64 %3244 to i32
-  %3246 = call ptr @exnewnode(ptr noundef %3239, i32 noundef 275, i32 noundef 0, i32 noundef %3245, ptr noundef null, ptr noundef null)
-  store ptr %3246, ptr %36, align 8
-  %3247 = load ptr, ptr %9, align 8
-  %3248 = getelementptr inbounds %union.EX_STYPE, ptr %3247, i64 -2
-  %3249 = load ptr, ptr %3248, align 8
-  %3250 = load ptr, ptr %36, align 8
-  %3251 = getelementptr inbounds %struct.Exnode_s, ptr %3250, i32 0, i32 5
-  %3252 = getelementptr inbounds %struct.anon.5, ptr %3251, i32 0, i32 0
-  store ptr %3249, ptr %3252, align 8
-  %3253 = load ptr, ptr %36, align 8
-  %3254 = getelementptr inbounds %struct.Exnode_s, ptr %3253, i32 0, i32 5
-  %3255 = getelementptr inbounds %struct.anon.5, ptr %3254, i32 0, i32 1
-  store ptr null, ptr %3255, align 8
-  %3256 = load ptr, ptr %9, align 8
-  %3257 = getelementptr inbounds %union.EX_STYPE, ptr %3256, i64 -1
-  %3258 = load ptr, ptr %3257, align 8
-  %3259 = load ptr, ptr %36, align 8
-  %3260 = getelementptr inbounds %struct.Exnode_s, ptr %3259, i32 0, i32 5
-  %3261 = getelementptr inbounds %struct.anon.5, ptr %3260, i32 0, i32 2
-  store ptr %3258, ptr %3261, align 8
-  %3262 = icmp eq ptr %3258, null
-  %3263 = zext i1 %3262 to i32
+3243:                                             ; preds = %333
+  %3244 = load ptr, ptr %9, align 8
+  %3245 = getelementptr inbounds %union.EX_STYPE, ptr %3244, i64 0
+  %3246 = load ptr, ptr %3245, align 8
+  %3247 = getelementptr inbounds %struct.Exid_s, ptr %3246, i32 0, i32 7
+  %3248 = load ptr, ptr %3247, align 8
+  %3249 = icmp eq ptr %3248, null
+  br i1 %3249, label %3250, label %3256
+
+3250:                                             ; preds = %3243
+  %3251 = load ptr, ptr %9, align 8
+  %3252 = getelementptr inbounds %union.EX_STYPE, ptr %3251, i64 0
+  %3253 = load ptr, ptr %3252, align 8
+  %3254 = getelementptr inbounds %struct.Exid_s, ptr %3253, i32 0, i32 9
+  %3255 = getelementptr inbounds [32 x i8], ptr %3254, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.39, ptr noundef %3255)
+  br label %3256
+
+3256:                                             ; preds = %3250, %3243
+  %3257 = load ptr, ptr %9, align 8
+  %3258 = getelementptr inbounds %union.EX_STYPE, ptr %3257, i64 0
+  %3259 = load ptr, ptr %3258, align 8
+  %3260 = getelementptr inbounds %struct.Exid_s, ptr %3259, i32 0, i32 4
+  %3261 = load i64, ptr %3260, align 8
+  %3262 = icmp sgt i64 %3261, 0
+  br i1 %3262, label %3263, label %3299
+
+3263:                                             ; preds = %3256
   %3264 = load ptr, ptr %9, align 8
   %3265 = getelementptr inbounds %union.EX_STYPE, ptr %3264, i64 -2
   %3266 = load ptr, ptr %3265, align 8
-  %3267 = getelementptr inbounds %struct.Exid_s, ptr %3266, i32 0, i32 7
-  %3268 = load ptr, ptr %3267, align 8
-  %3269 = icmp eq ptr %3268, null
-  %3270 = zext i1 %3269 to i32
-  %3271 = icmp ne i32 %3263, %3270
-  br i1 %3271, label %3272, label %3285
+  %3267 = getelementptr inbounds %struct.Exnode_s, ptr %3266, i32 0, i32 0
+  %3268 = load i32, ptr %3267, align 8
+  %3269 = sext i32 %3268 to i64
+  %3270 = load ptr, ptr %9, align 8
+  %3271 = getelementptr inbounds %union.EX_STYPE, ptr %3270, i64 0
+  %3272 = load ptr, ptr %3271, align 8
+  %3273 = getelementptr inbounds %struct.Exid_s, ptr %3272, i32 0, i32 4
+  %3274 = load i64, ptr %3273, align 8
+  %3275 = icmp ne i64 %3269, %3274
+  br i1 %3275, label %3276, label %3299
 
-3272:                                             ; preds = %3238
-  %3273 = load ptr, ptr %9, align 8
-  %3274 = getelementptr inbounds %union.EX_STYPE, ptr %3273, i64 -2
-  %3275 = load ptr, ptr %3274, align 8
-  %3276 = getelementptr inbounds %struct.Exid_s, ptr %3275, i32 0, i32 9
-  %3277 = getelementptr inbounds [32 x i8], ptr %3276, i64 0, i64 0
-  %3278 = load ptr, ptr %9, align 8
-  %3279 = getelementptr inbounds %union.EX_STYPE, ptr %3278, i64 -2
-  %3280 = load ptr, ptr %3279, align 8
-  %3281 = getelementptr inbounds %struct.Exid_s, ptr %3280, i32 0, i32 7
-  %3282 = load ptr, ptr %3281, align 8
-  %3283 = icmp ne ptr %3282, null
-  %3284 = select i1 %3283, ptr @.str.42, ptr @.str.43
-  call void (ptr, ...) @exerror(ptr noundef @.str.41, ptr noundef %3277, ptr noundef %3284)
-  br label %3285
-
-3285:                                             ; preds = %3272, %3238
-  %3286 = load ptr, ptr %9, align 8
-  %3287 = getelementptr inbounds %union.EX_STYPE, ptr %3286, i64 -2
-  %3288 = load ptr, ptr %3287, align 8
-  %3289 = getelementptr inbounds %struct.Exid_s, ptr %3288, i32 0, i32 7
-  %3290 = load ptr, ptr %3289, align 8
-  %3291 = icmp ne ptr %3290, null
-  br i1 %3291, label %3292, label %3334
-
-3292:                                             ; preds = %3285
+3276:                                             ; preds = %3263
+  %3277 = load ptr, ptr %9, align 8
+  %3278 = getelementptr inbounds %union.EX_STYPE, ptr %3277, i64 0
+  %3279 = load ptr, ptr %3278, align 8
+  %3280 = getelementptr inbounds %struct.Exid_s, ptr %3279, i32 0, i32 9
+  %3281 = getelementptr inbounds [32 x i8], ptr %3280, i64 0, i64 0
+  %3282 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3283 = load ptr, ptr %3282, align 8
+  %3284 = load ptr, ptr %9, align 8
+  %3285 = getelementptr inbounds %union.EX_STYPE, ptr %3284, i64 0
+  %3286 = load ptr, ptr %3285, align 8
+  %3287 = getelementptr inbounds %struct.Exid_s, ptr %3286, i32 0, i32 4
+  %3288 = load i64, ptr %3287, align 8
+  %3289 = trunc i64 %3288 to i32
+  %3290 = call ptr @extypename(ptr noundef %3283, i32 noundef %3289)
+  %3291 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3292 = load ptr, ptr %3291, align 8
   %3293 = load ptr, ptr %9, align 8
   %3294 = getelementptr inbounds %union.EX_STYPE, ptr %3293, i64 -2
   %3295 = load ptr, ptr %3294, align 8
-  %3296 = getelementptr inbounds %struct.Exid_s, ptr %3295, i32 0, i32 4
-  %3297 = load i64, ptr %3296, align 8
-  %3298 = icmp sgt i64 %3297, 0
-  br i1 %3298, label %3299, label %3334
+  %3296 = getelementptr inbounds %struct.Exnode_s, ptr %3295, i32 0, i32 0
+  %3297 = load i32, ptr %3296, align 8
+  %3298 = call ptr @extypename(ptr noundef %3292, i32 noundef %3297)
+  call void (ptr, ...) @exerror(ptr noundef @.str.26, ptr noundef %3281, ptr noundef %3290, ptr noundef %3298)
+  br label %3299
 
-3299:                                             ; preds = %3292
-  %3300 = load ptr, ptr %9, align 8
-  %3301 = getelementptr inbounds %union.EX_STYPE, ptr %3300, i64 -1
-  %3302 = load ptr, ptr %3301, align 8
-  %3303 = getelementptr inbounds %struct.Exnode_s, ptr %3302, i32 0, i32 0
-  %3304 = load i32, ptr %3303, align 8
-  %3305 = sext i32 %3304 to i64
-  %3306 = load ptr, ptr %9, align 8
-  %3307 = getelementptr inbounds %union.EX_STYPE, ptr %3306, i64 -2
-  %3308 = load ptr, ptr %3307, align 8
-  %3309 = getelementptr inbounds %struct.Exid_s, ptr %3308, i32 0, i32 4
-  %3310 = load i64, ptr %3309, align 8
-  %3311 = icmp ne i64 %3305, %3310
-  br i1 %3311, label %3312, label %3333
+3299:                                             ; preds = %3276, %3263, %3256
+  %3300 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3301 = load ptr, ptr %3300, align 8
+  %3302 = call ptr @exnewnode(ptr noundef %3301, i32 noundef 331, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
+  store ptr %3302, ptr %13, align 8
+  %3303 = load ptr, ptr %9, align 8
+  %3304 = getelementptr inbounds %union.EX_STYPE, ptr %3303, i64 0
+  %3305 = load ptr, ptr %3304, align 8
+  %3306 = load ptr, ptr %13, align 8
+  %3307 = getelementptr inbounds %struct.Exnode_s, ptr %3306, i32 0, i32 5
+  %3308 = getelementptr inbounds %struct.anon.5, ptr %3307, i32 0, i32 0
+  store ptr %3305, ptr %3308, align 8
+  %3309 = load ptr, ptr %9, align 8
+  %3310 = getelementptr inbounds %union.EX_STYPE, ptr %3309, i64 -2
+  %3311 = load ptr, ptr %3310, align 8
+  %3312 = load ptr, ptr %13, align 8
+  %3313 = getelementptr inbounds %struct.Exnode_s, ptr %3312, i32 0, i32 5
+  %3314 = getelementptr inbounds %struct.anon.5, ptr %3313, i32 0, i32 2
+  store ptr %3311, ptr %3314, align 8
+  br label %3989
 
-3312:                                             ; preds = %3299
-  %3313 = load ptr, ptr %9, align 8
-  %3314 = getelementptr inbounds %union.EX_STYPE, ptr %3313, i64 -2
-  %3315 = load ptr, ptr %3314, align 8
-  %3316 = getelementptr inbounds %struct.Exid_s, ptr %3315, i32 0, i32 9
-  %3317 = getelementptr inbounds [32 x i8], ptr %3316, i64 0, i64 0
-  %3318 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3319 = load ptr, ptr %9, align 8
-  %3320 = getelementptr inbounds %union.EX_STYPE, ptr %3319, i64 -2
-  %3321 = load ptr, ptr %3320, align 8
-  %3322 = getelementptr inbounds %struct.Exid_s, ptr %3321, i32 0, i32 4
-  %3323 = load i64, ptr %3322, align 8
-  %3324 = trunc i64 %3323 to i32
-  %3325 = call ptr @extypename(ptr noundef %3318, i32 noundef %3324)
-  %3326 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3327 = load ptr, ptr %9, align 8
-  %3328 = getelementptr inbounds %union.EX_STYPE, ptr %3327, i64 -1
-  %3329 = load ptr, ptr %3328, align 8
-  %3330 = getelementptr inbounds %struct.Exnode_s, ptr %3329, i32 0, i32 0
-  %3331 = load i32, ptr %3330, align 8
-  %3332 = call ptr @extypename(ptr noundef %3326, i32 noundef %3331)
-  call void (ptr, ...) @exerror(ptr noundef @.str.44, ptr noundef %3317, ptr noundef %3325, ptr noundef %3332)
-  br label %3333
+3315:                                             ; preds = %333
+  br label %3192
 
-3333:                                             ; preds = %3312, %3299
-  br label %3334
+3316:                                             ; preds = %333
+  br label %3218
 
-3334:                                             ; preds = %3333, %3292, %3285
+3317:                                             ; preds = %333
+  %3318 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3319 = load ptr, ptr %3318, align 8
+  %3320 = load ptr, ptr %9, align 8
+  %3321 = getelementptr inbounds %union.EX_STYPE, ptr %3320, i64 0
+  %3322 = load ptr, ptr %3321, align 8
+  %3323 = getelementptr inbounds %struct.Exid_s, ptr %3322, i32 0, i32 3
+  %3324 = load i64, ptr %3323, align 8
+  %3325 = trunc i64 %3324 to i32
+  %3326 = call ptr @exnewnode(ptr noundef %3319, i32 noundef 271, i32 noundef 0, i32 noundef %3325, ptr noundef null, ptr noundef null)
+  store ptr %3326, ptr %13, align 8
+  %3327 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3328 = load ptr, ptr %3327, align 8
+  %3329 = getelementptr inbounds %struct.Expr_s, ptr %3328, i32 0, i32 7
+  %3330 = load ptr, ptr %3329, align 8
+  %3331 = getelementptr inbounds %struct.Exdisc_s, ptr %3330, i32 0, i32 14
+  %3332 = load ptr, ptr %3331, align 8
+  %3333 = icmp ne ptr %3332, null
+  br i1 %3333, label %3340, label %3334
+
+3334:                                             ; preds = %3317
   %3335 = load ptr, ptr %9, align 8
   %3336 = getelementptr inbounds %union.EX_STYPE, ptr %3335, i64 0
   %3337 = load ptr, ptr %3336, align 8
-  %3338 = icmp ne ptr %3337, null
-  br i1 %3338, label %3339, label %3357
+  %3338 = getelementptr inbounds %struct.Exid_s, ptr %3337, i32 0, i32 9
+  %3339 = getelementptr inbounds [32 x i8], ptr %3338, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.40, ptr noundef %3339)
+  br label %3358
 
-3339:                                             ; preds = %3334
-  %3340 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3341 = call ptr @exnewnode(ptr noundef %3340, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %3342 = load ptr, ptr %36, align 8
-  %3343 = getelementptr inbounds %struct.Exnode_s, ptr %3342, i32 0, i32 5
-  %3344 = getelementptr inbounds %struct.anon.5, ptr %3343, i32 0, i32 3
-  store ptr %3341, ptr %3344, align 8
-  %3345 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3346 = load ptr, ptr %9, align 8
-  %3347 = getelementptr inbounds %union.EX_STYPE, ptr %3346, i64 -2
-  %3348 = load ptr, ptr %3347, align 8
-  %3349 = load ptr, ptr %9, align 8
-  %3350 = getelementptr inbounds %union.EX_STYPE, ptr %3349, i64 -1
+3340:                                             ; preds = %3317
+  %3341 = load ptr, ptr %13, align 8
+  %3342 = getelementptr inbounds %struct.Exnode_s, ptr %3341, i32 0, i32 5
+  %3343 = getelementptr inbounds %struct.anon.2, ptr %3342, i32 0, i32 0
+  %3344 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3345 = load ptr, ptr %3344, align 8
+  %3346 = getelementptr inbounds %struct.Expr_s, ptr %3345, i32 0, i32 7
+  %3347 = load ptr, ptr %3346, align 8
+  %3348 = getelementptr inbounds %struct.Exdisc_s, ptr %3347, i32 0, i32 14
+  %3349 = load ptr, ptr %3348, align 8
+  %3350 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %3351 = load ptr, ptr %3350, align 8
-  %3352 = load ptr, ptr %36, align 8
+  %3352 = load ptr, ptr %13, align 8
   %3353 = load ptr, ptr %9, align 8
   %3354 = getelementptr inbounds %union.EX_STYPE, ptr %3353, i64 0
   %3355 = load ptr, ptr %3354, align 8
-  %3356 = call ptr @makeVar(ptr noundef %3345, ptr noundef %3348, ptr noundef %3351, ptr noundef %3352, ptr noundef %3355)
-  store ptr %3356, ptr %13, align 8
-  br label %3359
+  %3356 = call ptr %3349(ptr noundef %3351, ptr noundef %3352, ptr noundef %3355, ptr noundef null)
+  %3357 = getelementptr inbounds %union.EX_STYPE, ptr %35, i32 0, i32 0
+  store ptr %3356, ptr %3357, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3343, ptr align 8 %35, i64 8, i1 false)
+  br label %3358
 
-3357:                                             ; preds = %3334
-  %3358 = load ptr, ptr %36, align 8
-  store ptr %3358, ptr %13, align 8
-  br label %3359
+3358:                                             ; preds = %3340, %3334
+  br label %3989
 
-3359:                                             ; preds = %3357, %3339
-  br label %3766
-
-3360:                                             ; preds = %332
-  %3361 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3362 = call ptr @exnewnode(ptr noundef %3361, i32 noundef 283, i32 noundef 0, i32 noundef 263, ptr noundef null, ptr noundef null)
+3359:                                             ; preds = %333
+  %3360 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3361 = load ptr, ptr %3360, align 8
+  %3362 = call ptr @exnewnode(ptr noundef %3361, i32 noundef 271, i32 noundef 0, i32 noundef 262, ptr noundef null, ptr noundef null)
   store ptr %3362, ptr %13, align 8
   %3363 = load ptr, ptr %9, align 8
   %3364 = getelementptr inbounds %union.EX_STYPE, ptr %3363, i64 0
-  %3365 = load ptr, ptr %3364, align 8
+  %3365 = load double, ptr %3364, align 8
   %3366 = load ptr, ptr %13, align 8
   %3367 = getelementptr inbounds %struct.Exnode_s, ptr %3366, i32 0, i32 5
-  %3368 = getelementptr inbounds %struct.anon.5, ptr %3367, i32 0, i32 0
-  store ptr %3365, ptr %3368, align 8
-  %3369 = load ptr, ptr %13, align 8
-  %3370 = getelementptr inbounds %struct.Exnode_s, ptr %3369, i32 0, i32 5
-  %3371 = getelementptr inbounds %struct.anon.5, ptr %3370, i32 0, i32 1
-  store ptr null, ptr %3371, align 8
-  %3372 = load ptr, ptr %13, align 8
-  %3373 = getelementptr inbounds %struct.Exnode_s, ptr %3372, i32 0, i32 5
-  %3374 = getelementptr inbounds %struct.anon.5, ptr %3373, i32 0, i32 2
-  store ptr null, ptr %3374, align 8
-  %3375 = load ptr, ptr %13, align 8
-  %3376 = getelementptr inbounds %struct.Exnode_s, ptr %3375, i32 0, i32 5
-  %3377 = getelementptr inbounds %struct.anon.5, ptr %3376, i32 0, i32 3
-  store ptr null, ptr %3377, align 8
-  %3378 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3379 = getelementptr inbounds %struct.Expr_s, ptr %3378, i32 0, i32 7
-  %3380 = load ptr, ptr %3379, align 8
-  %3381 = getelementptr inbounds %struct.Exdisc_s, ptr %3380, i32 0, i32 1
-  %3382 = load i64, ptr %3381, align 8
-  %3383 = and i64 %3382, 512
-  %3384 = icmp ne i64 %3383, 0
-  br i1 %3384, label %3386, label %3385
+  %3368 = getelementptr inbounds %struct.anon.2, ptr %3367, i32 0, i32 0
+  store double %3365, ptr %3368, align 8
+  br label %3989
 
-3385:                                             ; preds = %3360
-  call void (ptr, ...) @exerror(ptr noundef @.str.45)
-  br label %3386
+3369:                                             ; preds = %333
+  %3370 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3371 = load ptr, ptr %3370, align 8
+  %3372 = call ptr @exnewnode(ptr noundef %3371, i32 noundef 271, i32 noundef 0, i32 noundef 259, ptr noundef null, ptr noundef null)
+  store ptr %3372, ptr %13, align 8
+  %3373 = load ptr, ptr %9, align 8
+  %3374 = getelementptr inbounds %union.EX_STYPE, ptr %3373, i64 0
+  %3375 = load i64, ptr %3374, align 8
+  %3376 = load ptr, ptr %13, align 8
+  %3377 = getelementptr inbounds %struct.Exnode_s, ptr %3376, i32 0, i32 5
+  %3378 = getelementptr inbounds %struct.anon.2, ptr %3377, i32 0, i32 0
+  store i64 %3375, ptr %3378, align 8
+  br label %3989
 
-3386:                                             ; preds = %3385, %3360
-  br label %3766
+3379:                                             ; preds = %333
+  %3380 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3381 = load ptr, ptr %3380, align 8
+  %3382 = call ptr @exnewnode(ptr noundef %3381, i32 noundef 271, i32 noundef 0, i32 noundef 263, ptr noundef null, ptr noundef null)
+  store ptr %3382, ptr %13, align 8
+  %3383 = load ptr, ptr %9, align 8
+  %3384 = getelementptr inbounds %union.EX_STYPE, ptr %3383, i64 0
+  %3385 = load ptr, ptr %3384, align 8
+  %3386 = load ptr, ptr %13, align 8
+  %3387 = getelementptr inbounds %struct.Exnode_s, ptr %3386, i32 0, i32 5
+  %3388 = getelementptr inbounds %struct.anon.2, ptr %3387, i32 0, i32 0
+  store ptr %3385, ptr %3388, align 8
+  br label %3989
 
-3387:                                             ; preds = %332
-  store i64 0, ptr %13, align 8
-  br label %3766
+3389:                                             ; preds = %333
+  %3390 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3391 = load ptr, ptr %3390, align 8
+  %3392 = call ptr @exnewnode(ptr noundef %3391, i32 noundef 271, i32 noundef 0, i32 noundef 260, ptr noundef null, ptr noundef null)
+  store ptr %3392, ptr %13, align 8
+  %3393 = load ptr, ptr %9, align 8
+  %3394 = getelementptr inbounds %union.EX_STYPE, ptr %3393, i64 0
+  %3395 = load i64, ptr %3394, align 8
+  %3396 = load ptr, ptr %13, align 8
+  %3397 = getelementptr inbounds %struct.Exnode_s, ptr %3396, i32 0, i32 5
+  %3398 = getelementptr inbounds %struct.anon.2, ptr %3397, i32 0, i32 0
+  store i64 %3395, ptr %3398, align 8
+  br label %3989
 
-3388:                                             ; preds = %332
-  store i64 -1, ptr %13, align 8
-  br label %3766
-
-3389:                                             ; preds = %332
-  %3390 = load ptr, ptr %9, align 8
-  %3391 = getelementptr inbounds %union.EX_STYPE, ptr %3390, i64 -1
-  %3392 = load ptr, ptr %3391, align 8
-  %3393 = getelementptr inbounds %struct.Exid_s, ptr %3392, i32 0, i32 3
-  %3394 = load i64, ptr %3393, align 8
-  %3395 = icmp sge i64 %3394, 259
-  br i1 %3395, label %3396, label %3404
-
-3396:                                             ; preds = %3389
-  %3397 = load ptr, ptr %9, align 8
-  %3398 = getelementptr inbounds %union.EX_STYPE, ptr %3397, i64 -1
-  %3399 = load ptr, ptr %3398, align 8
-  %3400 = getelementptr inbounds %struct.Exid_s, ptr %3399, i32 0, i32 3
-  %3401 = load i64, ptr %3400, align 8
-  %3402 = icmp sle i64 %3401, 261
-  br i1 %3402, label %3403, label %3404
-
-3403:                                             ; preds = %3396
-  store i64 259, ptr %13, align 8
-  br label %3410
-
-3404:                                             ; preds = %3396, %3389
+3399:                                             ; preds = %333
+  %3400 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3401 = load ptr, ptr %3400, align 8
+  %3402 = load ptr, ptr %9, align 8
+  %3403 = getelementptr inbounds %union.EX_STYPE, ptr %3402, i64 -1
+  %3404 = load ptr, ptr %3403, align 8
   %3405 = load ptr, ptr %9, align 8
-  %3406 = getelementptr inbounds %union.EX_STYPE, ptr %3405, i64 -1
+  %3406 = getelementptr inbounds %union.EX_STYPE, ptr %3405, i64 0
   %3407 = load ptr, ptr %3406, align 8
-  %3408 = getelementptr inbounds %struct.Exid_s, ptr %3407, i32 0, i32 3
-  %3409 = load i64, ptr %3408, align 8
-  store i64 %3409, ptr %13, align 8
-  br label %3410
+  %3408 = call ptr @makeVar(ptr noundef %3401, ptr noundef %3404, ptr noundef null, ptr noundef null, ptr noundef %3407)
+  store ptr %3408, ptr %13, align 8
+  br label %3989
 
-3410:                                             ; preds = %3404, %3403
-  br label %3766
-
-3411:                                             ; preds = %332
-  store ptr null, ptr %13, align 8
-  br label %3766
-
-3412:                                             ; preds = %332
-  %3413 = load ptr, ptr %9, align 8
-  %3414 = getelementptr inbounds %union.EX_STYPE, ptr %3413, i64 -1
-  %3415 = load ptr, ptr %3414, align 8
-  store ptr %3415, ptr %13, align 8
-  br label %3766
-
-3416:                                             ; preds = %332
-  store ptr null, ptr %13, align 8
-  br label %3766
-
-3417:                                             ; preds = %332
-  %3418 = load ptr, ptr %9, align 8
-  %3419 = getelementptr inbounds %union.EX_STYPE, ptr %3418, i64 0
-  %3420 = load ptr, ptr %3419, align 8
-  %3421 = getelementptr inbounds %struct.Exnode_s, ptr %3420, i32 0, i32 5
-  %3422 = getelementptr inbounds %struct.anon.3, ptr %3421, i32 0, i32 0
-  %3423 = load ptr, ptr %3422, align 8
-  store ptr %3423, ptr %13, align 8
-  %3424 = load ptr, ptr %9, align 8
-  %3425 = getelementptr inbounds %union.EX_STYPE, ptr %3424, i64 0
-  %3426 = load ptr, ptr %3425, align 8
-  %3427 = getelementptr inbounds %struct.Exnode_s, ptr %3426, i32 0, i32 5
-  %3428 = getelementptr inbounds %struct.anon.3, ptr %3427, i32 0, i32 1
-  store ptr null, ptr %3428, align 8
-  %3429 = load ptr, ptr %9, align 8
-  %3430 = getelementptr inbounds %union.EX_STYPE, ptr %3429, i64 0
-  %3431 = load ptr, ptr %3430, align 8
+3409:                                             ; preds = %333
+  %3410 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3411 = load ptr, ptr %3410, align 8
+  %3412 = load ptr, ptr %9, align 8
+  %3413 = getelementptr inbounds %union.EX_STYPE, ptr %3412, i64 -2
+  %3414 = load ptr, ptr %3413, align 8
+  %3415 = getelementptr inbounds %struct.Exid_s, ptr %3414, i32 0, i32 3
+  %3416 = load i64, ptr %3415, align 8
+  %3417 = trunc i64 %3416 to i32
+  %3418 = call ptr @exnewnode(ptr noundef %3411, i32 noundef 275, i32 noundef 0, i32 noundef %3417, ptr noundef null, ptr noundef null)
+  store ptr %3418, ptr %36, align 8
+  %3419 = load ptr, ptr %9, align 8
+  %3420 = getelementptr inbounds %union.EX_STYPE, ptr %3419, i64 -2
+  %3421 = load ptr, ptr %3420, align 8
+  %3422 = load ptr, ptr %36, align 8
+  %3423 = getelementptr inbounds %struct.Exnode_s, ptr %3422, i32 0, i32 5
+  %3424 = getelementptr inbounds %struct.anon.5, ptr %3423, i32 0, i32 0
+  store ptr %3421, ptr %3424, align 8
+  %3425 = load ptr, ptr %36, align 8
+  %3426 = getelementptr inbounds %struct.Exnode_s, ptr %3425, i32 0, i32 5
+  %3427 = getelementptr inbounds %struct.anon.5, ptr %3426, i32 0, i32 1
+  store ptr null, ptr %3427, align 8
+  %3428 = load ptr, ptr %9, align 8
+  %3429 = getelementptr inbounds %union.EX_STYPE, ptr %3428, i64 -1
+  %3430 = load ptr, ptr %3429, align 8
+  %3431 = load ptr, ptr %36, align 8
   %3432 = getelementptr inbounds %struct.Exnode_s, ptr %3431, i32 0, i32 5
-  %3433 = getelementptr inbounds %struct.anon.3, ptr %3432, i32 0, i32 0
-  store ptr null, ptr %3433, align 8
-  %3434 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3435 = load ptr, ptr %9, align 8
-  %3436 = getelementptr inbounds %union.EX_STYPE, ptr %3435, i64 0
-  %3437 = load ptr, ptr %3436, align 8
-  call void @exfreenode(ptr noundef %3434, ptr noundef %3437)
-  br label %3766
+  %3433 = getelementptr inbounds %struct.anon.5, ptr %3432, i32 0, i32 2
+  store ptr %3430, ptr %3433, align 8
+  %3434 = icmp eq ptr %3430, null
+  %3435 = zext i1 %3434 to i32
+  %3436 = load ptr, ptr %9, align 8
+  %3437 = getelementptr inbounds %union.EX_STYPE, ptr %3436, i64 -2
+  %3438 = load ptr, ptr %3437, align 8
+  %3439 = getelementptr inbounds %struct.Exid_s, ptr %3438, i32 0, i32 7
+  %3440 = load ptr, ptr %3439, align 8
+  %3441 = icmp eq ptr %3440, null
+  %3442 = zext i1 %3441 to i32
+  %3443 = icmp ne i32 %3435, %3442
+  br i1 %3443, label %3444, label %3457
 
-3438:                                             ; preds = %332
-  %3439 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3440 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3441 = load ptr, ptr %9, align 8
-  %3442 = getelementptr inbounds %union.EX_STYPE, ptr %3441, i64 0
-  %3443 = load ptr, ptr %3442, align 8
-  %3444 = getelementptr inbounds %struct.Exnode_s, ptr %3443, i32 0, i32 0
-  %3445 = load i32, ptr %3444, align 8
-  %3446 = load ptr, ptr %9, align 8
-  %3447 = getelementptr inbounds %union.EX_STYPE, ptr %3446, i64 0
-  %3448 = load ptr, ptr %3447, align 8
-  %3449 = call ptr @exnewnode(ptr noundef %3440, i32 noundef 44, i32 noundef 1, i32 noundef %3445, ptr noundef %3448, ptr noundef null)
-  %3450 = call ptr @exnewnode(ptr noundef %3439, i32 noundef 44, i32 noundef 1, i32 noundef 0, ptr noundef %3449, ptr noundef null)
-  store ptr %3450, ptr %13, align 8
-  %3451 = load ptr, ptr %13, align 8
-  %3452 = getelementptr inbounds %struct.Exnode_s, ptr %3451, i32 0, i32 5
-  %3453 = getelementptr inbounds %struct.anon.3, ptr %3452, i32 0, i32 0
+3444:                                             ; preds = %3409
+  %3445 = load ptr, ptr %9, align 8
+  %3446 = getelementptr inbounds %union.EX_STYPE, ptr %3445, i64 -2
+  %3447 = load ptr, ptr %3446, align 8
+  %3448 = getelementptr inbounds %struct.Exid_s, ptr %3447, i32 0, i32 9
+  %3449 = getelementptr inbounds [32 x i8], ptr %3448, i64 0, i64 0
+  %3450 = load ptr, ptr %9, align 8
+  %3451 = getelementptr inbounds %union.EX_STYPE, ptr %3450, i64 -2
+  %3452 = load ptr, ptr %3451, align 8
+  %3453 = getelementptr inbounds %struct.Exid_s, ptr %3452, i32 0, i32 7
   %3454 = load ptr, ptr %3453, align 8
-  %3455 = load ptr, ptr %13, align 8
-  %3456 = getelementptr inbounds %struct.Exnode_s, ptr %3455, i32 0, i32 5
-  %3457 = getelementptr inbounds %struct.anon.3, ptr %3456, i32 0, i32 1
-  store ptr %3454, ptr %3457, align 8
-  br label %3766
+  %3455 = icmp ne ptr %3454, null
+  %3456 = select i1 %3455, ptr @.str.42, ptr @.str.43
+  call void (ptr, ...) @exerror(ptr noundef @.str.41, ptr noundef %3449, ptr noundef %3456)
+  br label %3457
 
-3458:                                             ; preds = %332
-  %3459 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3460 = load ptr, ptr %9, align 8
-  %3461 = getelementptr inbounds %union.EX_STYPE, ptr %3460, i64 -2
+3457:                                             ; preds = %3444, %3409
+  %3458 = load ptr, ptr %9, align 8
+  %3459 = getelementptr inbounds %union.EX_STYPE, ptr %3458, i64 -2
+  %3460 = load ptr, ptr %3459, align 8
+  %3461 = getelementptr inbounds %struct.Exid_s, ptr %3460, i32 0, i32 7
   %3462 = load ptr, ptr %3461, align 8
-  %3463 = getelementptr inbounds %struct.Exnode_s, ptr %3462, i32 0, i32 0
-  %3464 = load i32, ptr %3463, align 8
+  %3463 = icmp ne ptr %3462, null
+  br i1 %3463, label %3464, label %3508
+
+3464:                                             ; preds = %3457
   %3465 = load ptr, ptr %9, align 8
-  %3466 = getelementptr inbounds %union.EX_STYPE, ptr %3465, i64 0
+  %3466 = getelementptr inbounds %union.EX_STYPE, ptr %3465, i64 -2
   %3467 = load ptr, ptr %3466, align 8
-  %3468 = call ptr @exnewnode(ptr noundef %3459, i32 noundef 44, i32 noundef 1, i32 noundef %3464, ptr noundef %3467, ptr noundef null)
-  %3469 = load ptr, ptr %9, align 8
-  %3470 = getelementptr inbounds %union.EX_STYPE, ptr %3469, i64 -2
-  %3471 = load ptr, ptr %3470, align 8
-  %3472 = getelementptr inbounds %struct.Exnode_s, ptr %3471, i32 0, i32 5
-  %3473 = getelementptr inbounds %struct.anon.3, ptr %3472, i32 0, i32 1
+  %3468 = getelementptr inbounds %struct.Exid_s, ptr %3467, i32 0, i32 4
+  %3469 = load i64, ptr %3468, align 8
+  %3470 = icmp sgt i64 %3469, 0
+  br i1 %3470, label %3471, label %3508
+
+3471:                                             ; preds = %3464
+  %3472 = load ptr, ptr %9, align 8
+  %3473 = getelementptr inbounds %union.EX_STYPE, ptr %3472, i64 -1
   %3474 = load ptr, ptr %3473, align 8
-  %3475 = getelementptr inbounds %struct.Exnode_s, ptr %3474, i32 0, i32 5
-  %3476 = getelementptr inbounds %struct.anon.3, ptr %3475, i32 0, i32 1
-  store ptr %3468, ptr %3476, align 8
-  %3477 = load ptr, ptr %9, align 8
-  %3478 = getelementptr inbounds %union.EX_STYPE, ptr %3477, i64 -2
-  %3479 = load ptr, ptr %3478, align 8
-  %3480 = getelementptr inbounds %struct.Exnode_s, ptr %3479, i32 0, i32 5
-  %3481 = getelementptr inbounds %struct.anon.3, ptr %3480, i32 0, i32 1
-  store ptr %3468, ptr %3481, align 8
-  br label %3766
+  %3475 = getelementptr inbounds %struct.Exnode_s, ptr %3474, i32 0, i32 0
+  %3476 = load i32, ptr %3475, align 8
+  %3477 = sext i32 %3476 to i64
+  %3478 = load ptr, ptr %9, align 8
+  %3479 = getelementptr inbounds %union.EX_STYPE, ptr %3478, i64 -2
+  %3480 = load ptr, ptr %3479, align 8
+  %3481 = getelementptr inbounds %struct.Exid_s, ptr %3480, i32 0, i32 4
+  %3482 = load i64, ptr %3481, align 8
+  %3483 = icmp ne i64 %3477, %3482
+  br i1 %3483, label %3484, label %3507
 
-3482:                                             ; preds = %332
-  store ptr null, ptr %13, align 8
-  br label %3766
+3484:                                             ; preds = %3471
+  %3485 = load ptr, ptr %9, align 8
+  %3486 = getelementptr inbounds %union.EX_STYPE, ptr %3485, i64 -2
+  %3487 = load ptr, ptr %3486, align 8
+  %3488 = getelementptr inbounds %struct.Exid_s, ptr %3487, i32 0, i32 9
+  %3489 = getelementptr inbounds [32 x i8], ptr %3488, i64 0, i64 0
+  %3490 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3491 = load ptr, ptr %3490, align 8
+  %3492 = load ptr, ptr %9, align 8
+  %3493 = getelementptr inbounds %union.EX_STYPE, ptr %3492, i64 -2
+  %3494 = load ptr, ptr %3493, align 8
+  %3495 = getelementptr inbounds %struct.Exid_s, ptr %3494, i32 0, i32 4
+  %3496 = load i64, ptr %3495, align 8
+  %3497 = trunc i64 %3496 to i32
+  %3498 = call ptr @extypename(ptr noundef %3491, i32 noundef %3497)
+  %3499 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3500 = load ptr, ptr %3499, align 8
+  %3501 = load ptr, ptr %9, align 8
+  %3502 = getelementptr inbounds %union.EX_STYPE, ptr %3501, i64 -1
+  %3503 = load ptr, ptr %3502, align 8
+  %3504 = getelementptr inbounds %struct.Exnode_s, ptr %3503, i32 0, i32 0
+  %3505 = load i32, ptr %3504, align 8
+  %3506 = call ptr @extypename(ptr noundef %3500, i32 noundef %3505)
+  call void (ptr, ...) @exerror(ptr noundef @.str.44, ptr noundef %3489, ptr noundef %3498, ptr noundef %3506)
+  br label %3507
 
-3483:                                             ; preds = %332
-  store ptr null, ptr %13, align 8
-  %3484 = load ptr, ptr %9, align 8
-  %3485 = getelementptr inbounds %union.EX_STYPE, ptr %3484, i64 0
-  %3486 = load ptr, ptr %3485, align 8
-  %3487 = getelementptr inbounds %struct.Exid_s, ptr %3486, i32 0, i32 3
-  %3488 = load i64, ptr %3487, align 8
-  %3489 = icmp ne i64 %3488, 0
-  br i1 %3489, label %3490, label %3491
+3507:                                             ; preds = %3484, %3471
+  br label %3508
 
-3490:                                             ; preds = %3483
-  call void (ptr, ...) @exerror(ptr noundef @.str.46)
-  br label %3491
+3508:                                             ; preds = %3507, %3464, %3457
+  %3509 = load ptr, ptr %9, align 8
+  %3510 = getelementptr inbounds %union.EX_STYPE, ptr %3509, i64 0
+  %3511 = load ptr, ptr %3510, align 8
+  %3512 = icmp ne ptr %3511, null
+  br i1 %3512, label %3513, label %3533
 
-3491:                                             ; preds = %3490, %3483
-  br label %3766
+3513:                                             ; preds = %3508
+  %3514 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3515 = load ptr, ptr %3514, align 8
+  %3516 = call ptr @exnewnode(ptr noundef %3515, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %3517 = load ptr, ptr %36, align 8
+  %3518 = getelementptr inbounds %struct.Exnode_s, ptr %3517, i32 0, i32 5
+  %3519 = getelementptr inbounds %struct.anon.5, ptr %3518, i32 0, i32 3
+  store ptr %3516, ptr %3519, align 8
+  %3520 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3521 = load ptr, ptr %3520, align 8
+  %3522 = load ptr, ptr %9, align 8
+  %3523 = getelementptr inbounds %union.EX_STYPE, ptr %3522, i64 -2
+  %3524 = load ptr, ptr %3523, align 8
+  %3525 = load ptr, ptr %9, align 8
+  %3526 = getelementptr inbounds %union.EX_STYPE, ptr %3525, i64 -1
+  %3527 = load ptr, ptr %3526, align 8
+  %3528 = load ptr, ptr %36, align 8
+  %3529 = load ptr, ptr %9, align 8
+  %3530 = getelementptr inbounds %union.EX_STYPE, ptr %3529, i64 0
+  %3531 = load ptr, ptr %3530, align 8
+  %3532 = call ptr @makeVar(ptr noundef %3521, ptr noundef %3524, ptr noundef %3527, ptr noundef %3528, ptr noundef %3531)
+  store ptr %3532, ptr %13, align 8
+  br label %3535
 
-3492:                                             ; preds = %332
-  %3493 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3494 = load ptr, ptr %9, align 8
-  %3495 = getelementptr inbounds %union.EX_STYPE, ptr %3494, i64 0
-  %3496 = load ptr, ptr %3495, align 8
-  %3497 = getelementptr inbounds %struct.Exnode_s, ptr %3496, i32 0, i32 0
-  %3498 = load i32, ptr %3497, align 8
-  %3499 = load ptr, ptr %9, align 8
-  %3500 = getelementptr inbounds %union.EX_STYPE, ptr %3499, i64 0
-  %3501 = load ptr, ptr %3500, align 8
-  %3502 = call ptr @exnewnode(ptr noundef %3493, i32 noundef 44, i32 noundef 1, i32 noundef %3498, ptr noundef %3501, ptr noundef null)
-  store ptr %3502, ptr %13, align 8
-  br label %3766
+3533:                                             ; preds = %3508
+  %3534 = load ptr, ptr %36, align 8
+  store ptr %3534, ptr %13, align 8
+  br label %3535
 
-3503:                                             ; preds = %332
-  %3504 = load ptr, ptr %9, align 8
-  %3505 = getelementptr inbounds %union.EX_STYPE, ptr %3504, i64 -2
-  %3506 = load ptr, ptr %3505, align 8
-  store ptr %3506, ptr %13, align 8
-  %3507 = load ptr, ptr %9, align 8
-  %3508 = getelementptr inbounds %union.EX_STYPE, ptr %3507, i64 -2
-  %3509 = load ptr, ptr %3508, align 8
-  store ptr %3509, ptr %37, align 8
-  br label %3510
+3535:                                             ; preds = %3533, %3513
+  br label %3989
 
-3510:                                             ; preds = %3517, %3503
-  %3511 = load ptr, ptr %37, align 8
-  %3512 = getelementptr inbounds %struct.Exnode_s, ptr %3511, i32 0, i32 5
-  %3513 = getelementptr inbounds %struct.anon.3, ptr %3512, i32 0, i32 1
-  %3514 = load ptr, ptr %3513, align 8
-  store ptr %3514, ptr %38, align 8
-  %3515 = icmp ne ptr %3514, null
-  br i1 %3515, label %3516, label %3519
-
-3516:                                             ; preds = %3510
-  br label %3517
-
-3517:                                             ; preds = %3516
-  %3518 = load ptr, ptr %38, align 8
-  store ptr %3518, ptr %37, align 8
-  br label %3510
-
-3519:                                             ; preds = %3510
-  %3520 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3521 = load ptr, ptr %9, align 8
-  %3522 = getelementptr inbounds %union.EX_STYPE, ptr %3521, i64 0
-  %3523 = load ptr, ptr %3522, align 8
-  %3524 = getelementptr inbounds %struct.Exnode_s, ptr %3523, i32 0, i32 0
-  %3525 = load i32, ptr %3524, align 8
-  %3526 = load ptr, ptr %9, align 8
-  %3527 = getelementptr inbounds %union.EX_STYPE, ptr %3526, i64 0
-  %3528 = load ptr, ptr %3527, align 8
-  %3529 = call ptr @exnewnode(ptr noundef %3520, i32 noundef 44, i32 noundef 1, i32 noundef %3525, ptr noundef %3528, ptr noundef null)
-  %3530 = load ptr, ptr %37, align 8
-  %3531 = getelementptr inbounds %struct.Exnode_s, ptr %3530, i32 0, i32 5
-  %3532 = getelementptr inbounds %struct.anon.3, ptr %3531, i32 0, i32 1
-  store ptr %3529, ptr %3532, align 8
-  br label %3766
-
-3533:                                             ; preds = %332
-  %3534 = load ptr, ptr %9, align 8
-  %3535 = getelementptr inbounds %union.EX_STYPE, ptr %3534, i64 0
-  %3536 = load ptr, ptr %3535, align 8
-  %3537 = getelementptr inbounds %struct.Exid_s, ptr %3536, i32 0, i32 3
-  %3538 = load i64, ptr %3537, align 8
-  %3539 = trunc i64 %3538 to i32
-  store i32 %3539, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 1), align 8
-  br label %3766
-
-3540:                                             ; preds = %332
-  %3541 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3542 = load ptr, ptr %9, align 8
-  %3543 = getelementptr inbounds %union.EX_STYPE, ptr %3542, i64 -2
-  %3544 = load ptr, ptr %3543, align 8
-  %3545 = getelementptr inbounds %struct.Exid_s, ptr %3544, i32 0, i32 3
-  %3546 = load i64, ptr %3545, align 8
-  %3547 = trunc i64 %3546 to i32
-  %3548 = call ptr @exnewnode(ptr noundef %3541, i32 noundef 283, i32 noundef 0, i32 noundef %3547, ptr noundef null, ptr noundef null)
-  store ptr %3548, ptr %13, align 8
-  %3549 = load ptr, ptr %9, align 8
-  %3550 = getelementptr inbounds %union.EX_STYPE, ptr %3549, i64 0
-  %3551 = load ptr, ptr %3550, align 8
+3536:                                             ; preds = %333
+  %3537 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3538 = load ptr, ptr %3537, align 8
+  %3539 = call ptr @exnewnode(ptr noundef %3538, i32 noundef 283, i32 noundef 0, i32 noundef 263, ptr noundef null, ptr noundef null)
+  store ptr %3539, ptr %13, align 8
+  %3540 = load ptr, ptr %9, align 8
+  %3541 = getelementptr inbounds %union.EX_STYPE, ptr %3540, i64 0
+  %3542 = load ptr, ptr %3541, align 8
+  %3543 = load ptr, ptr %13, align 8
+  %3544 = getelementptr inbounds %struct.Exnode_s, ptr %3543, i32 0, i32 5
+  %3545 = getelementptr inbounds %struct.anon.5, ptr %3544, i32 0, i32 0
+  store ptr %3542, ptr %3545, align 8
+  %3546 = load ptr, ptr %13, align 8
+  %3547 = getelementptr inbounds %struct.Exnode_s, ptr %3546, i32 0, i32 5
+  %3548 = getelementptr inbounds %struct.anon.5, ptr %3547, i32 0, i32 1
+  store ptr null, ptr %3548, align 8
+  %3549 = load ptr, ptr %13, align 8
+  %3550 = getelementptr inbounds %struct.Exnode_s, ptr %3549, i32 0, i32 5
+  %3551 = getelementptr inbounds %struct.anon.5, ptr %3550, i32 0, i32 2
+  store ptr null, ptr %3551, align 8
   %3552 = load ptr, ptr %13, align 8
   %3553 = getelementptr inbounds %struct.Exnode_s, ptr %3552, i32 0, i32 5
-  %3554 = getelementptr inbounds %struct.anon.5, ptr %3553, i32 0, i32 0
-  store ptr %3551, ptr %3554, align 8
-  %3555 = load ptr, ptr %9, align 8
-  %3556 = getelementptr inbounds %union.EX_STYPE, ptr %3555, i64 0
-  %3557 = load ptr, ptr %3556, align 8
-  %3558 = getelementptr inbounds %struct.Exid_s, ptr %3557, i32 0, i32 1
-  store i64 275, ptr %3558, align 8
-  %3559 = load ptr, ptr %9, align 8
-  %3560 = getelementptr inbounds %union.EX_STYPE, ptr %3559, i64 -2
-  %3561 = load ptr, ptr %3560, align 8
-  %3562 = getelementptr inbounds %struct.Exid_s, ptr %3561, i32 0, i32 3
-  %3563 = load i64, ptr %3562, align 8
-  %3564 = load ptr, ptr %9, align 8
-  %3565 = getelementptr inbounds %union.EX_STYPE, ptr %3564, i64 0
-  %3566 = load ptr, ptr %3565, align 8
-  %3567 = getelementptr inbounds %struct.Exid_s, ptr %3566, i32 0, i32 3
-  store i64 %3563, ptr %3567, align 8
-  %3568 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3569 = call ptr @exnewnode(ptr noundef %3568, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %3570 = load ptr, ptr %9, align 8
-  %3571 = getelementptr inbounds %union.EX_STYPE, ptr %3570, i64 0
-  %3572 = load ptr, ptr %3571, align 8
-  %3573 = getelementptr inbounds %struct.Exid_s, ptr %3572, i32 0, i32 6
-  store ptr %3569, ptr %3573, align 8
-  %3574 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %3575 = getelementptr inbounds %struct.Exnode_s, ptr %3574, i32 0, i32 5
-  %3576 = getelementptr inbounds %struct.anon.11, ptr %3575, i32 0, i32 3
-  %3577 = load i32, ptr %3576, align 8
-  %3578 = add nsw i32 %3577, 1
-  store i32 %3578, ptr %3576, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 1), align 8
-  br label %3766
+  %3554 = getelementptr inbounds %struct.anon.5, ptr %3553, i32 0, i32 3
+  store ptr null, ptr %3554, align 8
+  %3555 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3556 = load ptr, ptr %3555, align 8
+  %3557 = getelementptr inbounds %struct.Expr_s, ptr %3556, i32 0, i32 7
+  %3558 = load ptr, ptr %3557, align 8
+  %3559 = getelementptr inbounds %struct.Exdisc_s, ptr %3558, i32 0, i32 1
+  %3560 = load i64, ptr %3559, align 8
+  %3561 = and i64 %3560, 512
+  %3562 = icmp ne i64 %3561, 0
+  br i1 %3562, label %3564, label %3563
 
-3579:                                             ; preds = %332
-  store ptr null, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 6), align 8
+3563:                                             ; preds = %3536
+  call void (ptr, ...) @exerror(ptr noundef @.str.45)
+  br label %3564
+
+3564:                                             ; preds = %3563, %3536
+  br label %3989
+
+3565:                                             ; preds = %333
+  store i64 0, ptr %13, align 8
+  br label %3989
+
+3566:                                             ; preds = %333
+  store i64 -1, ptr %13, align 8
+  br label %3989
+
+3567:                                             ; preds = %333
+  %3568 = load ptr, ptr %9, align 8
+  %3569 = getelementptr inbounds %union.EX_STYPE, ptr %3568, i64 -1
+  %3570 = load ptr, ptr %3569, align 8
+  %3571 = getelementptr inbounds %struct.Exid_s, ptr %3570, i32 0, i32 3
+  %3572 = load i64, ptr %3571, align 8
+  %3573 = icmp sge i64 %3572, 259
+  br i1 %3573, label %3574, label %3582
+
+3574:                                             ; preds = %3567
+  %3575 = load ptr, ptr %9, align 8
+  %3576 = getelementptr inbounds %union.EX_STYPE, ptr %3575, i64 -1
+  %3577 = load ptr, ptr %3576, align 8
+  %3578 = getelementptr inbounds %struct.Exid_s, ptr %3577, i32 0, i32 3
+  %3579 = load i64, ptr %3578, align 8
+  %3580 = icmp sle i64 %3579, 261
+  br i1 %3580, label %3581, label %3582
+
+3581:                                             ; preds = %3574
+  store i64 259, ptr %13, align 8
+  br label %3588
+
+3582:                                             ; preds = %3574, %3567
+  %3583 = load ptr, ptr %9, align 8
+  %3584 = getelementptr inbounds %union.EX_STYPE, ptr %3583, i64 -1
+  %3585 = load ptr, ptr %3584, align 8
+  %3586 = getelementptr inbounds %struct.Exid_s, ptr %3585, i32 0, i32 3
+  %3587 = load i64, ptr %3586, align 8
+  store i64 %3587, ptr %13, align 8
+  br label %3588
+
+3588:                                             ; preds = %3582, %3581
+  br label %3989
+
+3589:                                             ; preds = %333
   store ptr null, ptr %13, align 8
-  br label %3766
+  br label %3989
 
-3580:                                             ; preds = %332
-  %3581 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3582 = getelementptr inbounds %struct.Expr_s, ptr %3581, i32 0, i32 3
-  %3583 = load ptr, ptr %3582, align 8
-  %3584 = call ptr @vmalloc(ptr noundef %3583, i64 noundef 24)
-  store ptr %3584, ptr %39, align 8
-  %3585 = load ptr, ptr %39, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %40, i8 0, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3585, ptr align 8 %40, i64 24, i1 false)
-  %3586 = load ptr, ptr %9, align 8
-  %3587 = getelementptr inbounds %union.EX_STYPE, ptr %3586, i64 0
-  %3588 = load ptr, ptr %3587, align 8
-  %3589 = load ptr, ptr %39, align 8
-  %3590 = getelementptr inbounds %struct.Exref_s, ptr %3589, i32 0, i32 1
-  store ptr %3588, ptr %3590, align 8
-  %3591 = load ptr, ptr %39, align 8
-  store ptr %3591, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 6), align 8
-  %3592 = load ptr, ptr %39, align 8
-  %3593 = getelementptr inbounds %struct.Exref_s, ptr %3592, i32 0, i32 0
-  store ptr null, ptr %3593, align 8
-  %3594 = load ptr, ptr %39, align 8
-  %3595 = getelementptr inbounds %struct.Exref_s, ptr %3594, i32 0, i32 2
-  store ptr null, ptr %3595, align 8
-  %3596 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 6), align 8
-  store ptr %3596, ptr %13, align 8
-  br label %3766
+3590:                                             ; preds = %333
+  %3591 = load ptr, ptr %9, align 8
+  %3592 = getelementptr inbounds %union.EX_STYPE, ptr %3591, i64 -1
+  %3593 = load ptr, ptr %3592, align 8
+  store ptr %3593, ptr %13, align 8
+  br label %3989
 
-3597:                                             ; preds = %332
-  %3598 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3599 = getelementptr inbounds %struct.Expr_s, ptr %3598, i32 0, i32 3
-  %3600 = load ptr, ptr %3599, align 8
-  %3601 = call ptr @vmalloc(ptr noundef %3600, i64 noundef 24)
-  store ptr %3601, ptr %41, align 8
-  %3602 = load ptr, ptr %41, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3602, ptr align 8 %43, i64 24, i1 false)
-  %3603 = load ptr, ptr %9, align 8
-  %3604 = getelementptr inbounds %union.EX_STYPE, ptr %3603, i64 0
-  %3605 = load ptr, ptr %3604, align 8
-  %3606 = load ptr, ptr %41, align 8
-  %3607 = getelementptr inbounds %struct.Exref_s, ptr %3606, i32 0, i32 1
-  store ptr %3605, ptr %3607, align 8
-  %3608 = load ptr, ptr %41, align 8
-  %3609 = getelementptr inbounds %struct.Exref_s, ptr %3608, i32 0, i32 2
-  store ptr null, ptr %3609, align 8
-  %3610 = load ptr, ptr %41, align 8
-  %3611 = getelementptr inbounds %struct.Exref_s, ptr %3610, i32 0, i32 0
+3594:                                             ; preds = %333
+  store ptr null, ptr %13, align 8
+  br label %3989
+
+3595:                                             ; preds = %333
+  %3596 = load ptr, ptr %9, align 8
+  %3597 = getelementptr inbounds %union.EX_STYPE, ptr %3596, i64 0
+  %3598 = load ptr, ptr %3597, align 8
+  %3599 = getelementptr inbounds %struct.Exnode_s, ptr %3598, i32 0, i32 5
+  %3600 = getelementptr inbounds %struct.anon.3, ptr %3599, i32 0, i32 0
+  %3601 = load ptr, ptr %3600, align 8
+  store ptr %3601, ptr %13, align 8
+  %3602 = load ptr, ptr %9, align 8
+  %3603 = getelementptr inbounds %union.EX_STYPE, ptr %3602, i64 0
+  %3604 = load ptr, ptr %3603, align 8
+  %3605 = getelementptr inbounds %struct.Exnode_s, ptr %3604, i32 0, i32 5
+  %3606 = getelementptr inbounds %struct.anon.3, ptr %3605, i32 0, i32 1
+  store ptr null, ptr %3606, align 8
+  %3607 = load ptr, ptr %9, align 8
+  %3608 = getelementptr inbounds %union.EX_STYPE, ptr %3607, i64 0
+  %3609 = load ptr, ptr %3608, align 8
+  %3610 = getelementptr inbounds %struct.Exnode_s, ptr %3609, i32 0, i32 5
+  %3611 = getelementptr inbounds %struct.anon.3, ptr %3610, i32 0, i32 0
   store ptr null, ptr %3611, align 8
-  %3612 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3613 = getelementptr inbounds %struct.Expr_s, ptr %3612, i32 0, i32 3
-  %3614 = load ptr, ptr %3613, align 8
-  %3615 = call ptr @vmalloc(ptr noundef %3614, i64 noundef 24)
-  store ptr %3615, ptr %42, align 8
-  %3616 = load ptr, ptr %42, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3616, ptr align 8 %44, i64 24, i1 false)
-  %3617 = load ptr, ptr %9, align 8
-  %3618 = getelementptr inbounds %union.EX_STYPE, ptr %3617, i64 -1
+  %3612 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3613 = load ptr, ptr %3612, align 8
+  %3614 = load ptr, ptr %9, align 8
+  %3615 = getelementptr inbounds %union.EX_STYPE, ptr %3614, i64 0
+  %3616 = load ptr, ptr %3615, align 8
+  call void @exfreenode(ptr noundef %3613, ptr noundef %3616)
+  br label %3989
+
+3617:                                             ; preds = %333
+  %3618 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %3619 = load ptr, ptr %3618, align 8
-  %3620 = load ptr, ptr %42, align 8
-  %3621 = getelementptr inbounds %struct.Exref_s, ptr %3620, i32 0, i32 1
-  store ptr %3619, ptr %3621, align 8
-  %3622 = load ptr, ptr %42, align 8
-  %3623 = getelementptr inbounds %struct.Exref_s, ptr %3622, i32 0, i32 2
-  store ptr null, ptr %3623, align 8
-  %3624 = load ptr, ptr %41, align 8
-  %3625 = load ptr, ptr %42, align 8
-  %3626 = getelementptr inbounds %struct.Exref_s, ptr %3625, i32 0, i32 0
-  store ptr %3624, ptr %3626, align 8
-  %3627 = load ptr, ptr %42, align 8
-  store ptr %3627, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 6), align 8
-  %3628 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 6), align 8
-  store ptr %3628, ptr %13, align 8
-  br label %3766
+  %3620 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3621 = load ptr, ptr %3620, align 8
+  %3622 = load ptr, ptr %9, align 8
+  %3623 = getelementptr inbounds %union.EX_STYPE, ptr %3622, i64 0
+  %3624 = load ptr, ptr %3623, align 8
+  %3625 = getelementptr inbounds %struct.Exnode_s, ptr %3624, i32 0, i32 0
+  %3626 = load i32, ptr %3625, align 8
+  %3627 = load ptr, ptr %9, align 8
+  %3628 = getelementptr inbounds %union.EX_STYPE, ptr %3627, i64 0
+  %3629 = load ptr, ptr %3628, align 8
+  %3630 = call ptr @exnewnode(ptr noundef %3621, i32 noundef 44, i32 noundef 1, i32 noundef %3626, ptr noundef %3629, ptr noundef null)
+  %3631 = call ptr @exnewnode(ptr noundef %3619, i32 noundef 44, i32 noundef 1, i32 noundef 0, ptr noundef %3630, ptr noundef null)
+  store ptr %3631, ptr %13, align 8
+  %3632 = load ptr, ptr %13, align 8
+  %3633 = getelementptr inbounds %struct.Exnode_s, ptr %3632, i32 0, i32 5
+  %3634 = getelementptr inbounds %struct.anon.3, ptr %3633, i32 0, i32 0
+  %3635 = load ptr, ptr %3634, align 8
+  %3636 = load ptr, ptr %13, align 8
+  %3637 = getelementptr inbounds %struct.Exnode_s, ptr %3636, i32 0, i32 5
+  %3638 = getelementptr inbounds %struct.anon.3, ptr %3637, i32 0, i32 1
+  store ptr %3635, ptr %3638, align 8
+  br label %3989
 
-3629:                                             ; preds = %332
-  %3630 = load ptr, ptr %9, align 8
-  %3631 = getelementptr inbounds %union.EX_STYPE, ptr %3630, i64 0
-  %3632 = load ptr, ptr %3631, align 8
-  store ptr %3632, ptr %13, align 8
-  br label %3766
+3639:                                             ; preds = %333
+  %3640 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3641 = load ptr, ptr %3640, align 8
+  %3642 = load ptr, ptr %9, align 8
+  %3643 = getelementptr inbounds %union.EX_STYPE, ptr %3642, i64 -2
+  %3644 = load ptr, ptr %3643, align 8
+  %3645 = getelementptr inbounds %struct.Exnode_s, ptr %3644, i32 0, i32 0
+  %3646 = load i32, ptr %3645, align 8
+  %3647 = load ptr, ptr %9, align 8
+  %3648 = getelementptr inbounds %union.EX_STYPE, ptr %3647, i64 0
+  %3649 = load ptr, ptr %3648, align 8
+  %3650 = call ptr @exnewnode(ptr noundef %3641, i32 noundef 44, i32 noundef 1, i32 noundef %3646, ptr noundef %3649, ptr noundef null)
+  %3651 = load ptr, ptr %9, align 8
+  %3652 = getelementptr inbounds %union.EX_STYPE, ptr %3651, i64 -2
+  %3653 = load ptr, ptr %3652, align 8
+  %3654 = getelementptr inbounds %struct.Exnode_s, ptr %3653, i32 0, i32 5
+  %3655 = getelementptr inbounds %struct.anon.3, ptr %3654, i32 0, i32 1
+  %3656 = load ptr, ptr %3655, align 8
+  %3657 = getelementptr inbounds %struct.Exnode_s, ptr %3656, i32 0, i32 5
+  %3658 = getelementptr inbounds %struct.anon.3, ptr %3657, i32 0, i32 1
+  store ptr %3650, ptr %3658, align 8
+  %3659 = load ptr, ptr %9, align 8
+  %3660 = getelementptr inbounds %union.EX_STYPE, ptr %3659, i64 -2
+  %3661 = load ptr, ptr %3660, align 8
+  %3662 = getelementptr inbounds %struct.Exnode_s, ptr %3661, i32 0, i32 5
+  %3663 = getelementptr inbounds %struct.anon.3, ptr %3662, i32 0, i32 1
+  store ptr %3650, ptr %3663, align 8
+  br label %3989
 
-3633:                                             ; preds = %332
-  %3634 = load ptr, ptr %9, align 8
-  %3635 = getelementptr inbounds %union.EX_STYPE, ptr %3634, i64 0
-  %3636 = load ptr, ptr %3635, align 8
-  store ptr %3636, ptr %13, align 8
-  br label %3766
-
-3637:                                             ; preds = %332
+3664:                                             ; preds = %333
   store ptr null, ptr %13, align 8
-  br label %3766
+  br label %3989
 
-3638:                                             ; preds = %332
-  %3639 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3640 = load ptr, ptr %9, align 8
-  %3641 = getelementptr inbounds %union.EX_STYPE, ptr %3640, i64 0
-  %3642 = load ptr, ptr %3641, align 8
-  %3643 = getelementptr inbounds %struct.Exnode_s, ptr %3642, i32 0, i32 0
-  %3644 = load i32, ptr %3643, align 8
-  %3645 = load ptr, ptr %9, align 8
-  %3646 = getelementptr inbounds %union.EX_STYPE, ptr %3645, i64 0
-  %3647 = load ptr, ptr %3646, align 8
-  %3648 = call ptr @exnewnode(ptr noundef %3639, i32 noundef 61, i32 noundef 1, i32 noundef %3644, ptr noundef null, ptr noundef %3647)
-  store ptr %3648, ptr %13, align 8
-  %3649 = load ptr, ptr %9, align 8
-  %3650 = getelementptr inbounds %union.EX_STYPE, ptr %3649, i64 -1
-  %3651 = load i32, ptr %3650, align 8
-  %3652 = load ptr, ptr %13, align 8
-  %3653 = getelementptr inbounds %struct.Exnode_s, ptr %3652, i32 0, i32 6
-  store i32 %3651, ptr %3653, align 8
-  br label %3766
+3665:                                             ; preds = %333
+  store ptr null, ptr %13, align 8
+  %3666 = load ptr, ptr %9, align 8
+  %3667 = getelementptr inbounds %union.EX_STYPE, ptr %3666, i64 0
+  %3668 = load ptr, ptr %3667, align 8
+  %3669 = getelementptr inbounds %struct.Exid_s, ptr %3668, i32 0, i32 3
+  %3670 = load i64, ptr %3669, align 8
+  %3671 = icmp ne i64 %3670, 0
+  br i1 %3671, label %3672, label %3673
 
-3654:                                             ; preds = %332
-  %3655 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %3656 = icmp ne ptr %3655, null
-  br i1 %3656, label %3657, label %3661
+3672:                                             ; preds = %3665
+  call void (ptr, ...) @exerror(ptr noundef @.str.46)
+  br label %3673
 
-3657:                                             ; preds = %3654
-  %3658 = load ptr, ptr @expr, align 8
-  %3659 = getelementptr inbounds %struct.Exid_s, ptr %3658, i32 0, i32 9
-  %3660 = getelementptr inbounds [32 x i8], ptr %3659, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.47, ptr noundef %3660)
-  br label %3661
+3673:                                             ; preds = %3672, %3665
+  br label %3989
 
-3661:                                             ; preds = %3657, %3654
-  %3662 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3663 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 1), align 8
-  %3664 = call ptr @exnewnode(ptr noundef %3662, i32 noundef 293, i32 noundef 1, i32 noundef %3663, ptr noundef null, ptr noundef null)
-  store ptr %3664, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %3665 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 40) #13
-  store ptr %3665, ptr %45, align 8
-  %3666 = icmp ne ptr %3665, null
-  br i1 %3666, label %3669, label %3667
+3674:                                             ; preds = %333
+  %3675 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3676 = load ptr, ptr %3675, align 8
+  %3677 = load ptr, ptr %9, align 8
+  %3678 = getelementptr inbounds %union.EX_STYPE, ptr %3677, i64 0
+  %3679 = load ptr, ptr %3678, align 8
+  %3680 = getelementptr inbounds %struct.Exnode_s, ptr %3679, i32 0, i32 0
+  %3681 = load i32, ptr %3680, align 8
+  %3682 = load ptr, ptr %9, align 8
+  %3683 = getelementptr inbounds %union.EX_STYPE, ptr %3682, i64 0
+  %3684 = load ptr, ptr %3683, align 8
+  %3685 = call ptr @exnewnode(ptr noundef %3676, i32 noundef 44, i32 noundef 1, i32 noundef %3681, ptr noundef %3684, ptr noundef null)
+  store ptr %3685, ptr %13, align 8
+  br label %3989
 
-3667:                                             ; preds = %3661
-  %3668 = call ptr @exnospace()
-  br label %3669
+3686:                                             ; preds = %333
+  %3687 = load ptr, ptr %9, align 8
+  %3688 = getelementptr inbounds %union.EX_STYPE, ptr %3687, i64 -2
+  %3689 = load ptr, ptr %3688, align 8
+  store ptr %3689, ptr %13, align 8
+  %3690 = load ptr, ptr %9, align 8
+  %3691 = getelementptr inbounds %union.EX_STYPE, ptr %3690, i64 -2
+  %3692 = load ptr, ptr %3691, align 8
+  store ptr %3692, ptr %37, align 8
+  br label %3693
 
-3669:                                             ; preds = %3667, %3661
-  %3670 = load ptr, ptr %45, align 8
-  %3671 = getelementptr inbounds %struct._dtdisc_s, ptr %3670, i32 0, i32 0
-  store i32 80, ptr %3671, align 8
-  %3672 = load ptr, ptr @expr, align 8
-  %3673 = getelementptr inbounds %struct.Exid_s, ptr %3672, i32 0, i32 9
-  %3674 = getelementptr inbounds [32 x i8], ptr %3673, i64 0, i64 0
-  %3675 = call zeroext i1 @streq(ptr noundef %3674, ptr noundef @.str.21)
-  br i1 %3675, label %3707, label %3676
+3693:                                             ; preds = %3700, %3686
+  %3694 = load ptr, ptr %37, align 8
+  %3695 = getelementptr inbounds %struct.Exnode_s, ptr %3694, i32 0, i32 5
+  %3696 = getelementptr inbounds %struct.anon.3, ptr %3695, i32 0, i32 1
+  %3697 = load ptr, ptr %3696, align 8
+  store ptr %3697, ptr %38, align 8
+  %3698 = icmp ne ptr %3697, null
+  br i1 %3698, label %3699, label %3702
 
-3676:                                             ; preds = %3669
-  %3677 = load ptr, ptr %45, align 8
-  %3678 = load ptr, ptr @Dtset, align 8
-  %3679 = call ptr @dtopen(ptr noundef %3677, ptr noundef %3678)
-  %3680 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %3681 = getelementptr inbounds %struct.Exnode_s, ptr %3680, i32 0, i32 5
-  %3682 = getelementptr inbounds %struct.anon.11, ptr %3681, i32 0, i32 2
-  store ptr %3679, ptr %3682, align 8
-  %3683 = icmp ne ptr %3679, null
-  br i1 %3683, label %3684, label %3694
+3699:                                             ; preds = %3693
+  br label %3700
 
-3684:                                             ; preds = %3676
-  %3685 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %3686 = getelementptr inbounds %struct.Exnode_s, ptr %3685, i32 0, i32 5
-  %3687 = getelementptr inbounds %struct.anon.11, ptr %3686, i32 0, i32 2
-  %3688 = load ptr, ptr %3687, align 8
-  %3689 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3690 = getelementptr inbounds %struct.Expr_s, ptr %3689, i32 0, i32 1
-  %3691 = load ptr, ptr %3690, align 8
-  %3692 = call ptr @dtview(ptr noundef %3688, ptr noundef %3691)
-  %3693 = icmp ne ptr %3692, null
-  br i1 %3693, label %3696, label %3694
+3700:                                             ; preds = %3699
+  %3701 = load ptr, ptr %38, align 8
+  store ptr %3701, ptr %37, align 8
+  br label %3693
 
-3694:                                             ; preds = %3684, %3676
-  %3695 = call ptr @exnospace()
-  br label %3696
+3702:                                             ; preds = %3693
+  %3703 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3704 = load ptr, ptr %3703, align 8
+  %3705 = load ptr, ptr %9, align 8
+  %3706 = getelementptr inbounds %union.EX_STYPE, ptr %3705, i64 0
+  %3707 = load ptr, ptr %3706, align 8
+  %3708 = getelementptr inbounds %struct.Exnode_s, ptr %3707, i32 0, i32 0
+  %3709 = load i32, ptr %3708, align 8
+  %3710 = load ptr, ptr %9, align 8
+  %3711 = getelementptr inbounds %union.EX_STYPE, ptr %3710, i64 0
+  %3712 = load ptr, ptr %3711, align 8
+  %3713 = call ptr @exnewnode(ptr noundef %3704, i32 noundef 44, i32 noundef 1, i32 noundef %3709, ptr noundef %3712, ptr noundef null)
+  %3714 = load ptr, ptr %37, align 8
+  %3715 = getelementptr inbounds %struct.Exnode_s, ptr %3714, i32 0, i32 5
+  %3716 = getelementptr inbounds %struct.anon.3, ptr %3715, i32 0, i32 1
+  store ptr %3713, ptr %3716, align 8
+  br label %3989
 
-3696:                                             ; preds = %3694, %3684
-  %3697 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %3698 = getelementptr inbounds %struct.Exnode_s, ptr %3697, i32 0, i32 5
-  %3699 = getelementptr inbounds %struct.anon.11, ptr %3698, i32 0, i32 2
-  %3700 = load ptr, ptr %3699, align 8
-  %3701 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3702 = getelementptr inbounds %struct.Expr_s, ptr %3701, i32 0, i32 5
-  store ptr %3700, ptr %3702, align 8
-  %3703 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3704 = getelementptr inbounds %struct.Expr_s, ptr %3703, i32 0, i32 1
-  store ptr %3700, ptr %3704, align 8
-  %3705 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3706 = getelementptr inbounds %struct.Expr_s, ptr %3705, i32 0, i32 17
-  store i32 1, ptr %3706, align 8
-  br label %3707
+3717:                                             ; preds = %333
+  %3718 = load ptr, ptr %9, align 8
+  %3719 = getelementptr inbounds %union.EX_STYPE, ptr %3718, i64 0
+  %3720 = load ptr, ptr %3719, align 8
+  %3721 = getelementptr inbounds %struct.Exid_s, ptr %3720, i32 0, i32 3
+  %3722 = load i64, ptr %3721, align 8
+  %3723 = trunc i64 %3722 to i32
+  %3724 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 1
+  store i32 %3723, ptr %3724, align 8
+  br label %3989
 
-3707:                                             ; preds = %3696, %3669
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 1), align 8
-  br label %3766
-
-3708:                                             ; preds = %332
-  %3709 = load ptr, ptr @expr, align 8
-  %3710 = getelementptr inbounds %struct.Exid_s, ptr %3709, i32 0, i32 1
-  store i64 293, ptr %3710, align 8
-  %3711 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %3712 = getelementptr inbounds %struct.Exnode_s, ptr %3711, i32 0, i32 0
-  %3713 = load i32, ptr %3712, align 8
-  %3714 = sext i32 %3713 to i64
-  %3715 = load ptr, ptr @expr, align 8
-  %3716 = getelementptr inbounds %struct.Exid_s, ptr %3715, i32 0, i32 3
-  store i64 %3714, ptr %3716, align 8
-  %3717 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3718 = getelementptr inbounds %struct.Expr_s, ptr %3717, i32 0, i32 17
-  store i32 0, ptr %3718, align 8
-  store i32 0, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 1), align 8
-  br label %3766
-
-3719:                                             ; preds = %332
-  %3720 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  store ptr %3720, ptr %13, align 8
-  store ptr null, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 5), align 8
-  %3721 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3722 = getelementptr inbounds %struct.Expr_s, ptr %3721, i32 0, i32 5
-  %3723 = load ptr, ptr %3722, align 8
-  %3724 = icmp ne ptr %3723, null
-  br i1 %3724, label %3725, label %3739
-
-3725:                                             ; preds = %3719
-  %3726 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3727 = getelementptr inbounds %struct.Expr_s, ptr %3726, i32 0, i32 5
-  %3728 = load ptr, ptr %3727, align 8
-  %3729 = getelementptr inbounds %struct._dt_s, ptr %3728, i32 0, i32 5
+3725:                                             ; preds = %333
+  %3726 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3727 = load ptr, ptr %3726, align 8
+  %3728 = load ptr, ptr %9, align 8
+  %3729 = getelementptr inbounds %union.EX_STYPE, ptr %3728, i64 -2
   %3730 = load ptr, ptr %3729, align 8
-  %3731 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3732 = getelementptr inbounds %struct.Expr_s, ptr %3731, i32 0, i32 1
-  store ptr %3730, ptr %3732, align 8
-  %3733 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3734 = getelementptr inbounds %struct.Expr_s, ptr %3733, i32 0, i32 5
-  %3735 = load ptr, ptr %3734, align 8
-  %3736 = call ptr @dtview(ptr noundef %3735, ptr noundef null)
-  %3737 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3738 = getelementptr inbounds %struct.Expr_s, ptr %3737, i32 0, i32 5
-  store ptr null, ptr %3738, align 8
-  br label %3739
-
-3739:                                             ; preds = %3725, %3719
-  %3740 = load ptr, ptr %9, align 8
-  %3741 = getelementptr inbounds %union.EX_STYPE, ptr %3740, i64 -5
-  %3742 = load ptr, ptr %3741, align 8
-  %3743 = load ptr, ptr %13, align 8
-  %3744 = getelementptr inbounds %struct.Exnode_s, ptr %3743, i32 0, i32 5
-  %3745 = getelementptr inbounds %struct.anon.3, ptr %3744, i32 0, i32 0
-  store ptr %3742, ptr %3745, align 8
-  %3746 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3747 = load ptr, ptr %9, align 8
-  %3748 = getelementptr inbounds %union.EX_STYPE, ptr %3747, i64 -1
-  %3749 = load ptr, ptr %3748, align 8
-  %3750 = load ptr, ptr %13, align 8
-  %3751 = getelementptr inbounds %struct.Exnode_s, ptr %3750, i32 0, i32 0
-  %3752 = load i32, ptr %3751, align 8
-  %3753 = call ptr @excast(ptr noundef %3746, ptr noundef %3749, i32 noundef %3752, ptr noundef null, i32 noundef 0)
-  %3754 = load ptr, ptr %13, align 8
-  %3755 = getelementptr inbounds %struct.Exnode_s, ptr %3754, i32 0, i32 5
-  %3756 = getelementptr inbounds %struct.anon.3, ptr %3755, i32 0, i32 1
-  store ptr %3753, ptr %3756, align 8
-  %3757 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3758 = getelementptr inbounds %struct.Expr_s, ptr %3757, i32 0, i32 14
+  %3731 = getelementptr inbounds %struct.Exid_s, ptr %3730, i32 0, i32 3
+  %3732 = load i64, ptr %3731, align 8
+  %3733 = trunc i64 %3732 to i32
+  %3734 = call ptr @exnewnode(ptr noundef %3727, i32 noundef 283, i32 noundef 0, i32 noundef %3733, ptr noundef null, ptr noundef null)
+  store ptr %3734, ptr %13, align 8
+  %3735 = load ptr, ptr %9, align 8
+  %3736 = getelementptr inbounds %union.EX_STYPE, ptr %3735, i64 0
+  %3737 = load ptr, ptr %3736, align 8
+  %3738 = load ptr, ptr %13, align 8
+  %3739 = getelementptr inbounds %struct.Exnode_s, ptr %3738, i32 0, i32 5
+  %3740 = getelementptr inbounds %struct.anon.5, ptr %3739, i32 0, i32 0
+  store ptr %3737, ptr %3740, align 8
+  %3741 = load ptr, ptr %9, align 8
+  %3742 = getelementptr inbounds %union.EX_STYPE, ptr %3741, i64 0
+  %3743 = load ptr, ptr %3742, align 8
+  %3744 = getelementptr inbounds %struct.Exid_s, ptr %3743, i32 0, i32 1
+  store i64 275, ptr %3744, align 8
+  %3745 = load ptr, ptr %9, align 8
+  %3746 = getelementptr inbounds %union.EX_STYPE, ptr %3745, i64 -2
+  %3747 = load ptr, ptr %3746, align 8
+  %3748 = getelementptr inbounds %struct.Exid_s, ptr %3747, i32 0, i32 3
+  %3749 = load i64, ptr %3748, align 8
+  %3750 = load ptr, ptr %9, align 8
+  %3751 = getelementptr inbounds %union.EX_STYPE, ptr %3750, i64 0
+  %3752 = load ptr, ptr %3751, align 8
+  %3753 = getelementptr inbounds %struct.Exid_s, ptr %3752, i32 0, i32 3
+  store i64 %3749, ptr %3753, align 8
+  %3754 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3755 = load ptr, ptr %3754, align 8
+  %3756 = call ptr @exnewnode(ptr noundef %3755, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %3757 = load ptr, ptr %9, align 8
+  %3758 = getelementptr inbounds %union.EX_STYPE, ptr %3757, i64 0
   %3759 = load ptr, ptr %3758, align 8
-  %3760 = getelementptr inbounds i8, ptr %3759, i32 -1
-  store ptr %3760, ptr %3758, align 8
-  %3761 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %3762 = getelementptr inbounds %struct.Expr_s, ptr %3761, i32 0, i32 8
-  %3763 = load ptr, ptr %3762, align 8
-  %3764 = getelementptr inbounds %struct.Exinput_s, ptr %3763, i32 0, i32 6
-  store i32 59, ptr %3764, align 8
-  br label %3766
+  %3760 = getelementptr inbounds %struct.Exid_s, ptr %3759, i32 0, i32 6
+  store ptr %3756, ptr %3760, align 8
+  %3761 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %3762 = load ptr, ptr %3761, align 8
+  %3763 = getelementptr inbounds %struct.Exnode_s, ptr %3762, i32 0, i32 5
+  %3764 = getelementptr inbounds %struct.anon.11, ptr %3763, i32 0, i32 3
+  %3765 = load i32, ptr %3764, align 8
+  %3766 = add nsw i32 %3765, 1
+  store i32 %3766, ptr %3764, align 8
+  %3767 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 1
+  store i32 0, ptr %3767, align 8
+  br label %3989
 
-3765:                                             ; preds = %332
-  br label %3766
+3768:                                             ; preds = %333
+  %3769 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 6
+  store ptr null, ptr %3769, align 8
+  store ptr null, ptr %13, align 8
+  br label %3989
 
-3766:                                             ; preds = %3765, %3739, %3708, %3707, %3638, %3637, %3633, %3629, %3597, %3580, %3579, %3540, %3533, %3519, %3492, %3491, %3482, %3458, %3438, %3417, %3416, %3412, %3411, %3410, %3388, %3387, %3386, %3359, %3229, %3220, %3211, %3202, %3193, %3192, %3138, %3068, %3043, %3033, %2933, %2746, %2655, %2637, %2631, %2606, %2603, %2597, %2557, %2542, %2536, %2530, %2524, %2504, %2484, %2472, %2468, %2457, %2443, %2342, %2131, %2130, %2129, %2019, %1740, %1707, %1706, %1702, %1701, %1700, %1480, %1479, %1448, %1447, %1444, %1443, %1372, %1261, %1222, %1165, %1125, %1088, %1071, %1011, %945, %913, %857, %753, %688, %616, %609, %604, %602, %576, %575, %525, %506, %459, %390
-  br label %3767
+3770:                                             ; preds = %333
+  %3771 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3772 = load ptr, ptr %3771, align 8
+  %3773 = getelementptr inbounds %struct.Expr_s, ptr %3772, i32 0, i32 3
+  %3774 = load ptr, ptr %3773, align 8
+  %3775 = call ptr @vmalloc(ptr noundef %3774, i64 noundef 24)
+  store ptr %3775, ptr %39, align 8
+  %3776 = load ptr, ptr %39, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %40, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3776, ptr align 8 %40, i64 24, i1 false)
+  %3777 = load ptr, ptr %9, align 8
+  %3778 = getelementptr inbounds %union.EX_STYPE, ptr %3777, i64 0
+  %3779 = load ptr, ptr %3778, align 8
+  %3780 = load ptr, ptr %39, align 8
+  %3781 = getelementptr inbounds %struct.Exref_s, ptr %3780, i32 0, i32 1
+  store ptr %3779, ptr %3781, align 8
+  %3782 = load ptr, ptr %39, align 8
+  %3783 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 6
+  store ptr %3782, ptr %3783, align 8
+  %3784 = load ptr, ptr %39, align 8
+  %3785 = getelementptr inbounds %struct.Exref_s, ptr %3784, i32 0, i32 0
+  store ptr null, ptr %3785, align 8
+  %3786 = load ptr, ptr %39, align 8
+  %3787 = getelementptr inbounds %struct.Exref_s, ptr %3786, i32 0, i32 2
+  store ptr null, ptr %3787, align 8
+  %3788 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 6
+  %3789 = load ptr, ptr %3788, align 8
+  store ptr %3789, ptr %13, align 8
+  br label %3989
 
-3767:                                             ; preds = %3766
-  %3768 = load i32, ptr @ex_debug, align 4
-  %3769 = icmp ne i32 %3768, 0
-  br i1 %3769, label %3770, label %3781
+3790:                                             ; preds = %333
+  %3791 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3792 = load ptr, ptr %3791, align 8
+  %3793 = getelementptr inbounds %struct.Expr_s, ptr %3792, i32 0, i32 3
+  %3794 = load ptr, ptr %3793, align 8
+  %3795 = call ptr @vmalloc(ptr noundef %3794, i64 noundef 24)
+  store ptr %3795, ptr %41, align 8
+  %3796 = load ptr, ptr %41, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3796, ptr align 8 %43, i64 24, i1 false)
+  %3797 = load ptr, ptr %9, align 8
+  %3798 = getelementptr inbounds %union.EX_STYPE, ptr %3797, i64 0
+  %3799 = load ptr, ptr %3798, align 8
+  %3800 = load ptr, ptr %41, align 8
+  %3801 = getelementptr inbounds %struct.Exref_s, ptr %3800, i32 0, i32 1
+  store ptr %3799, ptr %3801, align 8
+  %3802 = load ptr, ptr %41, align 8
+  %3803 = getelementptr inbounds %struct.Exref_s, ptr %3802, i32 0, i32 2
+  store ptr null, ptr %3803, align 8
+  %3804 = load ptr, ptr %41, align 8
+  %3805 = getelementptr inbounds %struct.Exref_s, ptr %3804, i32 0, i32 0
+  store ptr null, ptr %3805, align 8
+  %3806 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3807 = load ptr, ptr %3806, align 8
+  %3808 = getelementptr inbounds %struct.Expr_s, ptr %3807, i32 0, i32 3
+  %3809 = load ptr, ptr %3808, align 8
+  %3810 = call ptr @vmalloc(ptr noundef %3809, i64 noundef 24)
+  store ptr %3810, ptr %42, align 8
+  %3811 = load ptr, ptr %42, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3811, ptr align 8 %44, i64 24, i1 false)
+  %3812 = load ptr, ptr %9, align 8
+  %3813 = getelementptr inbounds %union.EX_STYPE, ptr %3812, i64 -1
+  %3814 = load ptr, ptr %3813, align 8
+  %3815 = load ptr, ptr %42, align 8
+  %3816 = getelementptr inbounds %struct.Exref_s, ptr %3815, i32 0, i32 1
+  store ptr %3814, ptr %3816, align 8
+  %3817 = load ptr, ptr %42, align 8
+  %3818 = getelementptr inbounds %struct.Exref_s, ptr %3817, i32 0, i32 2
+  store ptr null, ptr %3818, align 8
+  %3819 = load ptr, ptr %41, align 8
+  %3820 = load ptr, ptr %42, align 8
+  %3821 = getelementptr inbounds %struct.Exref_s, ptr %3820, i32 0, i32 0
+  store ptr %3819, ptr %3821, align 8
+  %3822 = load ptr, ptr %42, align 8
+  %3823 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 6
+  store ptr %3822, ptr %3823, align 8
+  %3824 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 6
+  %3825 = load ptr, ptr %3824, align 8
+  store ptr %3825, ptr %13, align 8
+  br label %3989
 
-3770:                                             ; preds = %3767
-  %3771 = load ptr, ptr @stderr, align 8
-  %3772 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3771, ptr noundef @.str.16, ptr noundef @.str.48) #12
-  %3773 = load ptr, ptr @stderr, align 8
-  %3774 = load i32, ptr %10, align 4
-  %3775 = sext i32 %3774 to i64
-  %3776 = getelementptr inbounds [143 x i8], ptr @yyr1, i64 0, i64 %3775
-  %3777 = load i8, ptr %3776, align 1
-  %3778 = zext i8 %3777 to i32
-  call void @yy_symbol_print(ptr noundef %3773, i32 noundef %3778, ptr noundef %13)
-  %3779 = load ptr, ptr @stderr, align 8
-  %3780 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3779, ptr noundef @.str.18) #12
-  br label %3781
+3826:                                             ; preds = %333
+  %3827 = load ptr, ptr %9, align 8
+  %3828 = getelementptr inbounds %union.EX_STYPE, ptr %3827, i64 0
+  %3829 = load ptr, ptr %3828, align 8
+  store ptr %3829, ptr %13, align 8
+  br label %3989
 
-3781:                                             ; preds = %3770, %3767
-  br label %3782
+3830:                                             ; preds = %333
+  %3831 = load ptr, ptr %9, align 8
+  %3832 = getelementptr inbounds %union.EX_STYPE, ptr %3831, i64 0
+  %3833 = load ptr, ptr %3832, align 8
+  store ptr %3833, ptr %13, align 8
+  br label %3989
 
-3782:                                             ; preds = %3781
-  %3783 = load i32, ptr %14, align 4
-  %3784 = load ptr, ptr %9, align 8
-  %3785 = sext i32 %3783 to i64
-  %3786 = sub i64 0, %3785
-  %3787 = getelementptr inbounds %union.EX_STYPE, ptr %3784, i64 %3786
-  store ptr %3787, ptr %9, align 8
-  %3788 = load i32, ptr %14, align 4
-  %3789 = load ptr, ptr %6, align 8
-  %3790 = sext i32 %3788 to i64
-  %3791 = sub i64 0, %3790
-  %3792 = getelementptr inbounds i16, ptr %3789, i64 %3791
-  store ptr %3792, ptr %6, align 8
-  store i32 0, ptr %14, align 4
-  %3793 = load ptr, ptr %9, align 8
-  %3794 = getelementptr inbounds %union.EX_STYPE, ptr %3793, i32 1
-  store ptr %3794, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3794, ptr align 8 %13, i64 8, i1 false)
-  %3795 = load i32, ptr %10, align 4
-  %3796 = sext i32 %3795 to i64
-  %3797 = getelementptr inbounds [143 x i8], ptr @yyr1, i64 0, i64 %3796
-  %3798 = load i8, ptr %3797, align 1
-  %3799 = zext i8 %3798 to i32
-  %3800 = sub nsw i32 %3799, 107
-  store i32 %3800, ptr %46, align 4
-  %3801 = load i32, ptr %46, align 4
-  %3802 = sext i32 %3801 to i64
-  %3803 = getelementptr inbounds [44 x i16], ptr @yypgoto, i64 0, i64 %3802
-  %3804 = load i16, ptr %3803, align 2
-  %3805 = sext i16 %3804 to i32
-  %3806 = load ptr, ptr %6, align 8
-  %3807 = load i16, ptr %3806, align 2
-  %3808 = sext i16 %3807 to i32
-  %3809 = add nsw i32 %3805, %3808
-  store i32 %3809, ptr %47, align 4
-  %3810 = load i32, ptr %47, align 4
-  %3811 = icmp sle i32 0, %3810
-  br i1 %3811, label %3812, label %3831
+3834:                                             ; preds = %333
+  store ptr null, ptr %13, align 8
+  br label %3989
 
-3812:                                             ; preds = %3782
-  %3813 = load i32, ptr %47, align 4
-  %3814 = icmp sle i32 %3813, 1112
-  br i1 %3814, label %3815, label %3831
+3835:                                             ; preds = %333
+  %3836 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3837 = load ptr, ptr %3836, align 8
+  %3838 = load ptr, ptr %9, align 8
+  %3839 = getelementptr inbounds %union.EX_STYPE, ptr %3838, i64 0
+  %3840 = load ptr, ptr %3839, align 8
+  %3841 = getelementptr inbounds %struct.Exnode_s, ptr %3840, i32 0, i32 0
+  %3842 = load i32, ptr %3841, align 8
+  %3843 = load ptr, ptr %9, align 8
+  %3844 = getelementptr inbounds %union.EX_STYPE, ptr %3843, i64 0
+  %3845 = load ptr, ptr %3844, align 8
+  %3846 = call ptr @exnewnode(ptr noundef %3837, i32 noundef 61, i32 noundef 1, i32 noundef %3842, ptr noundef null, ptr noundef %3845)
+  store ptr %3846, ptr %13, align 8
+  %3847 = load ptr, ptr %9, align 8
+  %3848 = getelementptr inbounds %union.EX_STYPE, ptr %3847, i64 -1
+  %3849 = load i32, ptr %3848, align 8
+  %3850 = load ptr, ptr %13, align 8
+  %3851 = getelementptr inbounds %struct.Exnode_s, ptr %3850, i32 0, i32 6
+  store i32 %3849, ptr %3851, align 8
+  br label %3989
 
-3815:                                             ; preds = %3812
-  %3816 = load i32, ptr %47, align 4
-  %3817 = sext i32 %3816 to i64
-  %3818 = getelementptr inbounds [1113 x i16], ptr @yycheck, i64 0, i64 %3817
-  %3819 = load i16, ptr %3818, align 2
-  %3820 = sext i16 %3819 to i32
-  %3821 = load ptr, ptr %6, align 8
-  %3822 = load i16, ptr %3821, align 2
-  %3823 = sext i16 %3822 to i32
-  %3824 = icmp eq i32 %3820, %3823
-  br i1 %3824, label %3825, label %3831
+3852:                                             ; preds = %333
+  %3853 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %3854 = load ptr, ptr %3853, align 8
+  %3855 = icmp ne ptr %3854, null
+  br i1 %3855, label %3856, label %3860
 
-3825:                                             ; preds = %3815
-  %3826 = load i32, ptr %47, align 4
-  %3827 = sext i32 %3826 to i64
-  %3828 = getelementptr inbounds [1113 x i16], ptr @yytable, i64 0, i64 %3827
-  %3829 = load i16, ptr %3828, align 2
-  %3830 = sext i16 %3829 to i32
-  br label %3837
+3856:                                             ; preds = %3852
+  %3857 = load ptr, ptr @expr, align 8
+  %3858 = getelementptr inbounds %struct.Exid_s, ptr %3857, i32 0, i32 9
+  %3859 = getelementptr inbounds [32 x i8], ptr %3858, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.47, ptr noundef %3859)
+  br label %3860
 
-3831:                                             ; preds = %3815, %3812, %3782
-  %3832 = load i32, ptr %46, align 4
-  %3833 = sext i32 %3832 to i64
-  %3834 = getelementptr inbounds [44 x i16], ptr @yydefgoto, i64 0, i64 %3833
-  %3835 = load i16, ptr %3834, align 2
-  %3836 = sext i16 %3835 to i32
-  br label %3837
+3860:                                             ; preds = %3856, %3852
+  %3861 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3862 = load ptr, ptr %3861, align 8
+  %3863 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 1
+  %3864 = load i32, ptr %3863, align 8
+  %3865 = call ptr @exnewnode(ptr noundef %3862, i32 noundef 293, i32 noundef 1, i32 noundef %3864, ptr noundef null, ptr noundef null)
+  %3866 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  store ptr %3865, ptr %3866, align 8
+  %3867 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 40) #13
+  store ptr %3867, ptr %45, align 8
+  %3868 = icmp ne ptr %3867, null
+  br i1 %3868, label %3871, label %3869
 
-3837:                                             ; preds = %3831, %3825
-  %3838 = phi i32 [ %3830, %3825 ], [ %3836, %3831 ]
-  store i32 %3838, ptr %1, align 4
-  br label %60
+3869:                                             ; preds = %3860
+  %3870 = call ptr @exnospace()
+  br label %3871
 
-3839:                                             ; preds = %311, %277
-  %3840 = load i32, ptr @ex_char, align 4
-  %3841 = icmp eq i32 %3840, -2
-  br i1 %3841, label %3842, label %3843
+3871:                                             ; preds = %3869, %3860
+  %3872 = load ptr, ptr %45, align 8
+  %3873 = getelementptr inbounds %struct._dtdisc_s, ptr %3872, i32 0, i32 0
+  store i32 80, ptr %3873, align 8
+  %3874 = load ptr, ptr @expr, align 8
+  %3875 = getelementptr inbounds %struct.Exid_s, ptr %3874, i32 0, i32 9
+  %3876 = getelementptr inbounds [32 x i8], ptr %3875, i64 0, i64 0
+  %3877 = call zeroext i1 @streq(ptr noundef %3876, ptr noundef @.str.21)
+  br i1 %3877, label %3916, label %3878
 
-3842:                                             ; preds = %3839
-  br label %3858
+3878:                                             ; preds = %3871
+  %3879 = load ptr, ptr %45, align 8
+  %3880 = load ptr, ptr @Dtset, align 8
+  %3881 = call ptr @dtopen(ptr noundef %3879, ptr noundef %3880)
+  %3882 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %3883 = load ptr, ptr %3882, align 8
+  %3884 = getelementptr inbounds %struct.Exnode_s, ptr %3883, i32 0, i32 5
+  %3885 = getelementptr inbounds %struct.anon.11, ptr %3884, i32 0, i32 2
+  store ptr %3881, ptr %3885, align 8
+  %3886 = icmp ne ptr %3881, null
+  br i1 %3886, label %3887, label %3899
 
-3843:                                             ; preds = %3839
-  %3844 = load i32, ptr @ex_char, align 4
-  %3845 = icmp sle i32 0, %3844
-  br i1 %3845, label %3846, label %3855
+3887:                                             ; preds = %3878
+  %3888 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %3889 = load ptr, ptr %3888, align 8
+  %3890 = getelementptr inbounds %struct.Exnode_s, ptr %3889, i32 0, i32 5
+  %3891 = getelementptr inbounds %struct.anon.11, ptr %3890, i32 0, i32 2
+  %3892 = load ptr, ptr %3891, align 8
+  %3893 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3894 = load ptr, ptr %3893, align 8
+  %3895 = getelementptr inbounds %struct.Expr_s, ptr %3894, i32 0, i32 1
+  %3896 = load ptr, ptr %3895, align 8
+  %3897 = call ptr @dtview(ptr noundef %3892, ptr noundef %3896)
+  %3898 = icmp ne ptr %3897, null
+  br i1 %3898, label %3901, label %3899
 
-3846:                                             ; preds = %3843
-  %3847 = load i32, ptr @ex_char, align 4
-  %3848 = icmp sle i32 %3847, 336
-  br i1 %3848, label %3849, label %3855
+3899:                                             ; preds = %3887, %3878
+  %3900 = call ptr @exnospace()
+  br label %3901
 
-3849:                                             ; preds = %3846
-  %3850 = load i32, ptr @ex_char, align 4
-  %3851 = sext i32 %3850 to i64
-  %3852 = getelementptr inbounds [337 x i8], ptr @yytranslate, i64 0, i64 %3851
-  %3853 = load i8, ptr %3852, align 1
-  %3854 = sext i8 %3853 to i32
-  br label %3856
+3901:                                             ; preds = %3899, %3887
+  %3902 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %3903 = load ptr, ptr %3902, align 8
+  %3904 = getelementptr inbounds %struct.Exnode_s, ptr %3903, i32 0, i32 5
+  %3905 = getelementptr inbounds %struct.anon.11, ptr %3904, i32 0, i32 2
+  %3906 = load ptr, ptr %3905, align 8
+  %3907 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3908 = load ptr, ptr %3907, align 8
+  %3909 = getelementptr inbounds %struct.Expr_s, ptr %3908, i32 0, i32 5
+  store ptr %3906, ptr %3909, align 8
+  %3910 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3911 = load ptr, ptr %3910, align 8
+  %3912 = getelementptr inbounds %struct.Expr_s, ptr %3911, i32 0, i32 1
+  store ptr %3906, ptr %3912, align 8
+  %3913 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3914 = load ptr, ptr %3913, align 8
+  %3915 = getelementptr inbounds %struct.Expr_s, ptr %3914, i32 0, i32 17
+  store i32 1, ptr %3915, align 8
+  br label %3916
 
-3855:                                             ; preds = %3846, %3843
-  br label %3856
+3916:                                             ; preds = %3901, %3871
+  %3917 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 1
+  store i32 0, ptr %3917, align 8
+  br label %3989
 
-3856:                                             ; preds = %3855, %3849
-  %3857 = phi i32 [ %3854, %3849 ], [ 2, %3855 ]
-  br label %3858
+3918:                                             ; preds = %333
+  %3919 = load ptr, ptr @expr, align 8
+  %3920 = getelementptr inbounds %struct.Exid_s, ptr %3919, i32 0, i32 1
+  store i64 293, ptr %3920, align 8
+  %3921 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %3922 = load ptr, ptr %3921, align 8
+  %3923 = getelementptr inbounds %struct.Exnode_s, ptr %3922, i32 0, i32 0
+  %3924 = load i32, ptr %3923, align 8
+  %3925 = sext i32 %3924 to i64
+  %3926 = load ptr, ptr @expr, align 8
+  %3927 = getelementptr inbounds %struct.Exid_s, ptr %3926, i32 0, i32 3
+  store i64 %3925, ptr %3927, align 8
+  %3928 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3929 = load ptr, ptr %3928, align 8
+  %3930 = getelementptr inbounds %struct.Expr_s, ptr %3929, i32 0, i32 17
+  store i32 0, ptr %3930, align 8
+  %3931 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 1
+  store i32 0, ptr %3931, align 8
+  br label %3989
 
-3858:                                             ; preds = %3856, %3842
-  %3859 = phi i32 [ -2, %3842 ], [ %3857, %3856 ]
-  store i32 %3859, ptr %12, align 4
-  %3860 = load i32, ptr %2, align 4
-  %3861 = icmp ne i32 %3860, 0
-  br i1 %3861, label %3865, label %3862
+3932:                                             ; preds = %333
+  %3933 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  %3934 = load ptr, ptr %3933, align 8
+  store ptr %3934, ptr %13, align 8
+  %3935 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 5
+  store ptr null, ptr %3935, align 8
+  %3936 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3937 = load ptr, ptr %3936, align 8
+  %3938 = getelementptr inbounds %struct.Expr_s, ptr %3937, i32 0, i32 5
+  %3939 = load ptr, ptr %3938, align 8
+  %3940 = icmp ne ptr %3939, null
+  br i1 %3940, label %3941, label %3959
 
-3862:                                             ; preds = %3858
-  %3863 = load i32, ptr @ex_nerrs, align 4
-  %3864 = add nsw i32 %3863, 1
-  store i32 %3864, ptr @ex_nerrs, align 4
-  call void @ex_error(ptr noundef @.str.49)
-  br label %3865
+3941:                                             ; preds = %3932
+  %3942 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3943 = load ptr, ptr %3942, align 8
+  %3944 = getelementptr inbounds %struct.Expr_s, ptr %3943, i32 0, i32 5
+  %3945 = load ptr, ptr %3944, align 8
+  %3946 = getelementptr inbounds %struct._dt_s, ptr %3945, i32 0, i32 5
+  %3947 = load ptr, ptr %3946, align 8
+  %3948 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3949 = load ptr, ptr %3948, align 8
+  %3950 = getelementptr inbounds %struct.Expr_s, ptr %3949, i32 0, i32 1
+  store ptr %3947, ptr %3950, align 8
+  %3951 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3952 = load ptr, ptr %3951, align 8
+  %3953 = getelementptr inbounds %struct.Expr_s, ptr %3952, i32 0, i32 5
+  %3954 = load ptr, ptr %3953, align 8
+  %3955 = call ptr @dtview(ptr noundef %3954, ptr noundef null)
+  %3956 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3957 = load ptr, ptr %3956, align 8
+  %3958 = getelementptr inbounds %struct.Expr_s, ptr %3957, i32 0, i32 5
+  store ptr null, ptr %3958, align 8
+  br label %3959
 
-3865:                                             ; preds = %3862, %3858
-  %3866 = load i32, ptr %2, align 4
-  %3867 = icmp eq i32 %3866, 3
-  br i1 %3867, label %3868, label %3879
+3959:                                             ; preds = %3941, %3932
+  %3960 = load ptr, ptr %9, align 8
+  %3961 = getelementptr inbounds %union.EX_STYPE, ptr %3960, i64 -5
+  %3962 = load ptr, ptr %3961, align 8
+  %3963 = load ptr, ptr %13, align 8
+  %3964 = getelementptr inbounds %struct.Exnode_s, ptr %3963, i32 0, i32 5
+  %3965 = getelementptr inbounds %struct.anon.3, ptr %3964, i32 0, i32 0
+  store ptr %3962, ptr %3965, align 8
+  %3966 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3967 = load ptr, ptr %3966, align 8
+  %3968 = load ptr, ptr %9, align 8
+  %3969 = getelementptr inbounds %union.EX_STYPE, ptr %3968, i64 -1
+  %3970 = load ptr, ptr %3969, align 8
+  %3971 = load ptr, ptr %13, align 8
+  %3972 = getelementptr inbounds %struct.Exnode_s, ptr %3971, i32 0, i32 0
+  %3973 = load i32, ptr %3972, align 8
+  %3974 = call ptr @excast(ptr noundef %3967, ptr noundef %3970, i32 noundef %3973, ptr noundef null, i32 noundef 0)
+  %3975 = load ptr, ptr %13, align 8
+  %3976 = getelementptr inbounds %struct.Exnode_s, ptr %3975, i32 0, i32 5
+  %3977 = getelementptr inbounds %struct.anon.3, ptr %3976, i32 0, i32 1
+  store ptr %3974, ptr %3977, align 8
+  %3978 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3979 = load ptr, ptr %3978, align 8
+  %3980 = getelementptr inbounds %struct.Expr_s, ptr %3979, i32 0, i32 14
+  %3981 = load ptr, ptr %3980, align 8
+  %3982 = getelementptr inbounds i8, ptr %3981, i32 -1
+  store ptr %3982, ptr %3980, align 8
+  %3983 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %3984 = load ptr, ptr %3983, align 8
+  %3985 = getelementptr inbounds %struct.Expr_s, ptr %3984, i32 0, i32 8
+  %3986 = load ptr, ptr %3985, align 8
+  %3987 = getelementptr inbounds %struct.Exinput_s, ptr %3986, i32 0, i32 6
+  store i32 59, ptr %3987, align 8
+  br label %3989
 
-3868:                                             ; preds = %3865
-  %3869 = load i32, ptr @ex_char, align 4
-  %3870 = icmp sle i32 %3869, 0
-  br i1 %3870, label %3871, label %3876
+3988:                                             ; preds = %333
+  br label %3989
 
-3871:                                             ; preds = %3868
-  %3872 = load i32, ptr @ex_char, align 4
-  %3873 = icmp eq i32 %3872, 0
-  br i1 %3873, label %3874, label %3875
-
-3874:                                             ; preds = %3871
-  br label %3988
-
-3875:                                             ; preds = %3871
-  br label %3878
-
-3876:                                             ; preds = %3868
-  %3877 = load i32, ptr %12, align 4
-  call void @yydestruct(ptr noundef @.str.50, i32 noundef %3877, ptr noundef @ex_lval)
-  store i32 -2, ptr @ex_char, align 4
-  br label %3878
-
-3878:                                             ; preds = %3876, %3875
-  br label %3879
-
-3879:                                             ; preds = %3878, %3865
-  br label %3904
-
-3880:                                             ; No predecessors!
-  %3881 = load i32, ptr @ex_nerrs, align 4
-  %3882 = add nsw i32 %3881, 1
-  store i32 %3882, ptr @ex_nerrs, align 4
-  %3883 = load i32, ptr %14, align 4
-  %3884 = load ptr, ptr %9, align 8
-  %3885 = sext i32 %3883 to i64
-  %3886 = sub i64 0, %3885
-  %3887 = getelementptr inbounds %union.EX_STYPE, ptr %3884, i64 %3886
-  store ptr %3887, ptr %9, align 8
-  %3888 = load i32, ptr %14, align 4
-  %3889 = load ptr, ptr %6, align 8
-  %3890 = sext i32 %3888 to i64
-  %3891 = sub i64 0, %3890
-  %3892 = getelementptr inbounds i16, ptr %3889, i64 %3891
-  store ptr %3892, ptr %6, align 8
-  store i32 0, ptr %14, align 4
-  br label %3893
-
-3893:                                             ; preds = %3880
-  %3894 = load i32, ptr @ex_debug, align 4
-  %3895 = icmp ne i32 %3894, 0
-  br i1 %3895, label %3896, label %3899
-
-3896:                                             ; preds = %3893
-  %3897 = load ptr, ptr %5, align 8
-  %3898 = load ptr, ptr %6, align 8
-  call void @yy_stack_print(ptr noundef %3897, ptr noundef %3898)
-  br label %3899
-
-3899:                                             ; preds = %3896, %3893
-  br label %3900
-
-3900:                                             ; preds = %3899
-  %3901 = load ptr, ptr %6, align 8
-  %3902 = load i16, ptr %3901, align 2
-  %3903 = sext i16 %3902 to i32
-  store i32 %3903, ptr %1, align 4
-  br label %3904
-
-3904:                                             ; preds = %3900, %3879, %219
-  store i32 3, ptr %2, align 4
-  br label %3905
-
-3905:                                             ; preds = %3965, %3904
-  %3906 = load i32, ptr %1, align 4
-  %3907 = sext i32 %3906 to i64
-  %3908 = getelementptr inbounds [286 x i16], ptr @yypact, i64 0, i64 %3907
-  %3909 = load i16, ptr %3908, align 2
-  %3910 = sext i16 %3909 to i32
-  store i32 %3910, ptr %10, align 4
-  %3911 = load i32, ptr %10, align 4
-  %3912 = icmp eq i32 %3911, -144
-  br i1 %3912, label %3939, label %3913
-
-3913:                                             ; preds = %3905
-  %3914 = load i32, ptr %10, align 4
-  %3915 = add nsw i32 %3914, 1
-  store i32 %3915, ptr %10, align 4
-  %3916 = load i32, ptr %10, align 4
-  %3917 = icmp sle i32 0, %3916
-  br i1 %3917, label %3918, label %3938
-
-3918:                                             ; preds = %3913
-  %3919 = load i32, ptr %10, align 4
-  %3920 = icmp sle i32 %3919, 1112
-  br i1 %3920, label %3921, label %3938
-
-3921:                                             ; preds = %3918
-  %3922 = load i32, ptr %10, align 4
-  %3923 = sext i32 %3922 to i64
-  %3924 = getelementptr inbounds [1113 x i16], ptr @yycheck, i64 0, i64 %3923
-  %3925 = load i16, ptr %3924, align 2
-  %3926 = sext i16 %3925 to i32
-  %3927 = icmp eq i32 %3926, 1
-  br i1 %3927, label %3928, label %3938
-
-3928:                                             ; preds = %3921
-  %3929 = load i32, ptr %10, align 4
-  %3930 = sext i32 %3929 to i64
-  %3931 = getelementptr inbounds [1113 x i16], ptr @yytable, i64 0, i64 %3930
-  %3932 = load i16, ptr %3931, align 2
-  %3933 = sext i16 %3932 to i32
-  store i32 %3933, ptr %10, align 4
-  %3934 = load i32, ptr %10, align 4
-  %3935 = icmp slt i32 0, %3934
-  br i1 %3935, label %3936, label %3937
-
-3936:                                             ; preds = %3928
-  br label %3966
-
-3937:                                             ; preds = %3928
-  br label %3938
-
-3938:                                             ; preds = %3937, %3921, %3918, %3913
-  br label %3939
-
-3939:                                             ; preds = %3938, %3905
-  %3940 = load ptr, ptr %6, align 8
-  %3941 = load ptr, ptr %5, align 8
-  %3942 = icmp eq ptr %3940, %3941
-  br i1 %3942, label %3943, label %3944
-
-3943:                                             ; preds = %3939
-  br label %3988
-
-3944:                                             ; preds = %3939
-  %3945 = load i32, ptr %1, align 4
-  %3946 = sext i32 %3945 to i64
-  %3947 = getelementptr inbounds [286 x i8], ptr @yystos, i64 0, i64 %3946
-  %3948 = load i8, ptr %3947, align 1
-  %3949 = zext i8 %3948 to i32
-  %3950 = load ptr, ptr %9, align 8
-  call void @yydestruct(ptr noundef @.str.51, i32 noundef %3949, ptr noundef %3950)
-  %3951 = load ptr, ptr %9, align 8
-  %3952 = getelementptr inbounds %union.EX_STYPE, ptr %3951, i64 -1
-  store ptr %3952, ptr %9, align 8
-  %3953 = load ptr, ptr %6, align 8
-  %3954 = getelementptr inbounds i16, ptr %3953, i64 -1
-  store ptr %3954, ptr %6, align 8
-  %3955 = load ptr, ptr %6, align 8
-  %3956 = load i16, ptr %3955, align 2
-  %3957 = sext i16 %3956 to i32
-  store i32 %3957, ptr %1, align 4
-  br label %3958
-
-3958:                                             ; preds = %3944
-  %3959 = load i32, ptr @ex_debug, align 4
-  %3960 = icmp ne i32 %3959, 0
-  br i1 %3960, label %3961, label %3964
-
-3961:                                             ; preds = %3958
-  %3962 = load ptr, ptr %5, align 8
-  %3963 = load ptr, ptr %6, align 8
-  call void @yy_stack_print(ptr noundef %3962, ptr noundef %3963)
-  br label %3964
-
-3964:                                             ; preds = %3961, %3958
-  br label %3965
-
-3965:                                             ; preds = %3964
-  br label %3905
-
-3966:                                             ; preds = %3936
-  %3967 = load ptr, ptr %9, align 8
-  %3968 = getelementptr inbounds %union.EX_STYPE, ptr %3967, i32 1
-  store ptr %3968, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3968, ptr align 8 @ex_lval, i64 8, i1 false)
-  br label %3969
-
-3969:                                             ; preds = %3966
-  %3970 = load i32, ptr @ex_debug, align 4
-  %3971 = icmp ne i32 %3970, 0
-  br i1 %3971, label %3972, label %3984
-
-3972:                                             ; preds = %3969
-  %3973 = load ptr, ptr @stderr, align 8
-  %3974 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3973, ptr noundef @.str.16, ptr noundef @.str.19) #12
-  %3975 = load ptr, ptr @stderr, align 8
-  %3976 = load i32, ptr %10, align 4
-  %3977 = sext i32 %3976 to i64
-  %3978 = getelementptr inbounds [286 x i8], ptr @yystos, i64 0, i64 %3977
-  %3979 = load i8, ptr %3978, align 1
-  %3980 = zext i8 %3979 to i32
-  %3981 = load ptr, ptr %9, align 8
-  call void @yy_symbol_print(ptr noundef %3975, i32 noundef %3980, ptr noundef %3981)
-  %3982 = load ptr, ptr @stderr, align 8
-  %3983 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3982, ptr noundef @.str.18) #12
-  br label %3984
-
-3984:                                             ; preds = %3972, %3969
-  br label %3985
-
-3985:                                             ; preds = %3984
-  %3986 = load i32, ptr %10, align 4
-  store i32 %3986, ptr %1, align 4
-  br label %60
-
-3987:                                             ; preds = %179
-  store i32 0, ptr %11, align 4
+3989:                                             ; preds = %3988, %3959, %3918, %3916, %3835, %3834, %3830, %3826, %3790, %3770, %3768, %3725, %3717, %3702, %3674, %3673, %3664, %3639, %3617, %3595, %3594, %3590, %3589, %3588, %3566, %3565, %3564, %3535, %3399, %3389, %3379, %3369, %3359, %3358, %3299, %3226, %3200, %3190, %3088, %2900, %2805, %2786, %2779, %2752, %2748, %2741, %2699, %2683, %2676, %2669, %2662, %2641, %2620, %2607, %2603, %2591, %2577, %2470, %2249, %2247, %2246, %2130, %1840, %1806, %1805, %1801, %1800, %1799, %1574, %1573, %1541, %1540, %1536, %1535, %1450, %1336, %1293, %1229, %1186, %1143, %1124, %1061, %992, %959, %902, %791, %725, %648, %640, %634, %632, %605, %604, %552, %532, %478, %398
   br label %3990
 
-3988:                                             ; preds = %3943, %3874, %174
-  store i32 1, ptr %11, align 4
-  br label %3990
-
-3989:                                             ; preds = %115, %100
-  call void @ex_error(ptr noundef @.str.52)
-  store i32 2, ptr %11, align 4
-  br label %3990
-
-3990:                                             ; preds = %3989, %3988, %3987
-  %3991 = load i32, ptr @ex_char, align 4
-  %3992 = icmp ne i32 %3991, -2
-  br i1 %3992, label %3993, label %4009
+3990:                                             ; preds = %3989
+  %3991 = load i32, ptr @ex_debug, align 4
+  %3992 = icmp ne i32 %3991, 0
+  br i1 %3992, label %3993, label %4004
 
 3993:                                             ; preds = %3990
-  %3994 = load i32, ptr @ex_char, align 4
-  %3995 = icmp sle i32 0, %3994
-  br i1 %3995, label %3996, label %4005
+  %3994 = load ptr, ptr @stderr, align 8
+  %3995 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3994, ptr noundef @.str.16, ptr noundef @.str.48) #12
+  %3996 = load ptr, ptr @stderr, align 8
+  %3997 = load i32, ptr %10, align 4
+  %3998 = sext i32 %3997 to i64
+  %3999 = getelementptr inbounds [143 x i8], ptr @yyr1, i64 0, i64 %3998
+  %4000 = load i8, ptr %3999, align 1
+  %4001 = zext i8 %4000 to i32
+  call void @yy_symbol_print(ptr noundef %3996, i32 noundef %4001, ptr noundef %13)
+  %4002 = load ptr, ptr @stderr, align 8
+  %4003 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4002, ptr noundef @.str.18) #12
+  br label %4004
 
-3996:                                             ; preds = %3993
-  %3997 = load i32, ptr @ex_char, align 4
-  %3998 = icmp sle i32 %3997, 336
-  br i1 %3998, label %3999, label %4005
+4004:                                             ; preds = %3993, %3990
+  br label %4005
 
-3999:                                             ; preds = %3996
-  %4000 = load i32, ptr @ex_char, align 4
-  %4001 = sext i32 %4000 to i64
-  %4002 = getelementptr inbounds [337 x i8], ptr @yytranslate, i64 0, i64 %4001
-  %4003 = load i8, ptr %4002, align 1
-  %4004 = sext i8 %4003 to i32
-  br label %4006
-
-4005:                                             ; preds = %3996, %3993
-  br label %4006
-
-4006:                                             ; preds = %4005, %3999
-  %4007 = phi i32 [ %4004, %3999 ], [ 2, %4005 ]
-  store i32 %4007, ptr %12, align 4
-  %4008 = load i32, ptr %12, align 4
-  call void @yydestruct(ptr noundef @.str.53, i32 noundef %4008, ptr noundef @ex_lval)
-  br label %4009
-
-4009:                                             ; preds = %4006, %3990
-  %4010 = load i32, ptr %14, align 4
-  %4011 = load ptr, ptr %9, align 8
-  %4012 = sext i32 %4010 to i64
-  %4013 = sub i64 0, %4012
-  %4014 = getelementptr inbounds %union.EX_STYPE, ptr %4011, i64 %4013
-  store ptr %4014, ptr %9, align 8
-  %4015 = load i32, ptr %14, align 4
-  %4016 = load ptr, ptr %6, align 8
-  %4017 = sext i32 %4015 to i64
-  %4018 = sub i64 0, %4017
-  %4019 = getelementptr inbounds i16, ptr %4016, i64 %4018
-  store ptr %4019, ptr %6, align 8
-  br label %4020
-
-4020:                                             ; preds = %4009
-  %4021 = load i32, ptr @ex_debug, align 4
-  %4022 = icmp ne i32 %4021, 0
-  br i1 %4022, label %4023, label %4026
-
-4023:                                             ; preds = %4020
-  %4024 = load ptr, ptr %5, align 8
-  %4025 = load ptr, ptr %6, align 8
-  call void @yy_stack_print(ptr noundef %4024, ptr noundef %4025)
-  br label %4026
-
-4026:                                             ; preds = %4023, %4020
-  br label %4027
-
-4027:                                             ; preds = %4026
-  br label %4028
-
-4028:                                             ; preds = %4032, %4027
+4005:                                             ; preds = %4004
+  %4006 = load i32, ptr %14, align 4
+  %4007 = load ptr, ptr %9, align 8
+  %4008 = sext i32 %4006 to i64
+  %4009 = sub i64 0, %4008
+  %4010 = getelementptr inbounds %union.EX_STYPE, ptr %4007, i64 %4009
+  store ptr %4010, ptr %9, align 8
+  %4011 = load i32, ptr %14, align 4
+  %4012 = load ptr, ptr %6, align 8
+  %4013 = sext i32 %4011 to i64
+  %4014 = sub i64 0, %4013
+  %4015 = getelementptr inbounds i16, ptr %4012, i64 %4014
+  store ptr %4015, ptr %6, align 8
+  store i32 0, ptr %14, align 4
+  %4016 = load ptr, ptr %9, align 8
+  %4017 = getelementptr inbounds %union.EX_STYPE, ptr %4016, i32 1
+  store ptr %4017, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4017, ptr align 8 %13, i64 8, i1 false)
+  %4018 = load i32, ptr %10, align 4
+  %4019 = sext i32 %4018 to i64
+  %4020 = getelementptr inbounds [143 x i8], ptr @yyr1, i64 0, i64 %4019
+  %4021 = load i8, ptr %4020, align 1
+  %4022 = zext i8 %4021 to i32
+  %4023 = sub nsw i32 %4022, 107
+  store i32 %4023, ptr %46, align 4
+  %4024 = load i32, ptr %46, align 4
+  %4025 = sext i32 %4024 to i64
+  %4026 = getelementptr inbounds [44 x i16], ptr @yypgoto, i64 0, i64 %4025
+  %4027 = load i16, ptr %4026, align 2
+  %4028 = sext i16 %4027 to i32
   %4029 = load ptr, ptr %6, align 8
-  %4030 = load ptr, ptr %5, align 8
-  %4031 = icmp ne ptr %4029, %4030
-  br i1 %4031, label %4032, label %4045
+  %4030 = load i16, ptr %4029, align 2
+  %4031 = sext i16 %4030 to i32
+  %4032 = add nsw i32 %4028, %4031
+  store i32 %4032, ptr %47, align 4
+  %4033 = load i32, ptr %47, align 4
+  %4034 = icmp sle i32 0, %4033
+  br i1 %4034, label %4035, label %4054
 
-4032:                                             ; preds = %4028
-  %4033 = load ptr, ptr %6, align 8
-  %4034 = load i16, ptr %4033, align 2
-  %4035 = sext i16 %4034 to i32
-  %4036 = sext i32 %4035 to i64
-  %4037 = getelementptr inbounds [286 x i8], ptr @yystos, i64 0, i64 %4036
-  %4038 = load i8, ptr %4037, align 1
-  %4039 = zext i8 %4038 to i32
-  %4040 = load ptr, ptr %9, align 8
-  call void @yydestruct(ptr noundef @.str.54, i32 noundef %4039, ptr noundef %4040)
-  %4041 = load ptr, ptr %9, align 8
-  %4042 = getelementptr inbounds %union.EX_STYPE, ptr %4041, i64 -1
-  store ptr %4042, ptr %9, align 8
-  %4043 = load ptr, ptr %6, align 8
-  %4044 = getelementptr inbounds i16, ptr %4043, i64 -1
-  store ptr %4044, ptr %6, align 8
-  br label %4028
+4035:                                             ; preds = %4005
+  %4036 = load i32, ptr %47, align 4
+  %4037 = icmp sle i32 %4036, 1112
+  br i1 %4037, label %4038, label %4054
 
-4045:                                             ; preds = %4028
-  %4046 = load ptr, ptr %5, align 8
-  %4047 = getelementptr inbounds [200 x i16], ptr %4, i64 0, i64 0
-  %4048 = icmp ne ptr %4046, %4047
-  br i1 %4048, label %4049, label %4051
+4038:                                             ; preds = %4035
+  %4039 = load i32, ptr %47, align 4
+  %4040 = sext i32 %4039 to i64
+  %4041 = getelementptr inbounds [1113 x i16], ptr @yycheck, i64 0, i64 %4040
+  %4042 = load i16, ptr %4041, align 2
+  %4043 = sext i16 %4042 to i32
+  %4044 = load ptr, ptr %6, align 8
+  %4045 = load i16, ptr %4044, align 2
+  %4046 = sext i16 %4045 to i32
+  %4047 = icmp eq i32 %4043, %4046
+  br i1 %4047, label %4048, label %4054
 
-4049:                                             ; preds = %4045
-  %4050 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %4050) #12
-  br label %4051
+4048:                                             ; preds = %4038
+  %4049 = load i32, ptr %47, align 4
+  %4050 = sext i32 %4049 to i64
+  %4051 = getelementptr inbounds [1113 x i16], ptr @yytable, i64 0, i64 %4050
+  %4052 = load i16, ptr %4051, align 2
+  %4053 = sext i16 %4052 to i32
+  br label %4060
 
-4051:                                             ; preds = %4049, %4045
-  %4052 = load i32, ptr %11, align 4
-  ret i32 %4052
+4054:                                             ; preds = %4038, %4035, %4005
+  %4055 = load i32, ptr %46, align 4
+  %4056 = sext i32 %4055 to i64
+  %4057 = getelementptr inbounds [44 x i16], ptr @yydefgoto, i64 0, i64 %4056
+  %4058 = load i16, ptr %4057, align 2
+  %4059 = sext i16 %4058 to i32
+  br label %4060
+
+4060:                                             ; preds = %4054, %4048
+  %4061 = phi i32 [ %4053, %4048 ], [ %4059, %4054 ]
+  store i32 %4061, ptr %1, align 4
+  br label %60
+
+4062:                                             ; preds = %312, %278
+  %4063 = load i32, ptr @ex_char, align 4
+  %4064 = icmp eq i32 %4063, -2
+  br i1 %4064, label %4065, label %4066
+
+4065:                                             ; preds = %4062
+  br label %4081
+
+4066:                                             ; preds = %4062
+  %4067 = load i32, ptr @ex_char, align 4
+  %4068 = icmp sle i32 0, %4067
+  br i1 %4068, label %4069, label %4078
+
+4069:                                             ; preds = %4066
+  %4070 = load i32, ptr @ex_char, align 4
+  %4071 = icmp sle i32 %4070, 336
+  br i1 %4071, label %4072, label %4078
+
+4072:                                             ; preds = %4069
+  %4073 = load i32, ptr @ex_char, align 4
+  %4074 = sext i32 %4073 to i64
+  %4075 = getelementptr inbounds [337 x i8], ptr @yytranslate, i64 0, i64 %4074
+  %4076 = load i8, ptr %4075, align 1
+  %4077 = sext i8 %4076 to i32
+  br label %4079
+
+4078:                                             ; preds = %4069, %4066
+  br label %4079
+
+4079:                                             ; preds = %4078, %4072
+  %4080 = phi i32 [ %4077, %4072 ], [ 2, %4078 ]
+  br label %4081
+
+4081:                                             ; preds = %4079, %4065
+  %4082 = phi i32 [ -2, %4065 ], [ %4080, %4079 ]
+  store i32 %4082, ptr %12, align 4
+  %4083 = load i32, ptr %2, align 4
+  %4084 = icmp ne i32 %4083, 0
+  br i1 %4084, label %4088, label %4085
+
+4085:                                             ; preds = %4081
+  %4086 = load i32, ptr @ex_nerrs, align 4
+  %4087 = add nsw i32 %4086, 1
+  store i32 %4087, ptr @ex_nerrs, align 4
+  call void @ex_error(ptr noundef @.str.49)
+  br label %4088
+
+4088:                                             ; preds = %4085, %4081
+  %4089 = load i32, ptr %2, align 4
+  %4090 = icmp eq i32 %4089, 3
+  br i1 %4090, label %4091, label %4102
+
+4091:                                             ; preds = %4088
+  %4092 = load i32, ptr @ex_char, align 4
+  %4093 = icmp sle i32 %4092, 0
+  br i1 %4093, label %4094, label %4099
+
+4094:                                             ; preds = %4091
+  %4095 = load i32, ptr @ex_char, align 4
+  %4096 = icmp eq i32 %4095, 0
+  br i1 %4096, label %4097, label %4098
+
+4097:                                             ; preds = %4094
+  br label %4211
+
+4098:                                             ; preds = %4094
+  br label %4101
+
+4099:                                             ; preds = %4091
+  %4100 = load i32, ptr %12, align 4
+  call void @yydestruct(ptr noundef @.str.50, i32 noundef %4100, ptr noundef @ex_lval)
+  store i32 -2, ptr @ex_char, align 4
+  br label %4101
+
+4101:                                             ; preds = %4099, %4098
+  br label %4102
+
+4102:                                             ; preds = %4101, %4088
+  br label %4127
+
+4103:                                             ; No predecessors!
+  %4104 = load i32, ptr @ex_nerrs, align 4
+  %4105 = add nsw i32 %4104, 1
+  store i32 %4105, ptr @ex_nerrs, align 4
+  %4106 = load i32, ptr %14, align 4
+  %4107 = load ptr, ptr %9, align 8
+  %4108 = sext i32 %4106 to i64
+  %4109 = sub i64 0, %4108
+  %4110 = getelementptr inbounds %union.EX_STYPE, ptr %4107, i64 %4109
+  store ptr %4110, ptr %9, align 8
+  %4111 = load i32, ptr %14, align 4
+  %4112 = load ptr, ptr %6, align 8
+  %4113 = sext i32 %4111 to i64
+  %4114 = sub i64 0, %4113
+  %4115 = getelementptr inbounds i16, ptr %4112, i64 %4114
+  store ptr %4115, ptr %6, align 8
+  store i32 0, ptr %14, align 4
+  br label %4116
+
+4116:                                             ; preds = %4103
+  %4117 = load i32, ptr @ex_debug, align 4
+  %4118 = icmp ne i32 %4117, 0
+  br i1 %4118, label %4119, label %4122
+
+4119:                                             ; preds = %4116
+  %4120 = load ptr, ptr %5, align 8
+  %4121 = load ptr, ptr %6, align 8
+  call void @yy_stack_print(ptr noundef %4120, ptr noundef %4121)
+  br label %4122
+
+4122:                                             ; preds = %4119, %4116
+  br label %4123
+
+4123:                                             ; preds = %4122
+  %4124 = load ptr, ptr %6, align 8
+  %4125 = load i16, ptr %4124, align 2
+  %4126 = sext i16 %4125 to i32
+  store i32 %4126, ptr %1, align 4
+  br label %4127
+
+4127:                                             ; preds = %4123, %4102, %220
+  store i32 3, ptr %2, align 4
+  br label %4128
+
+4128:                                             ; preds = %4188, %4127
+  %4129 = load i32, ptr %1, align 4
+  %4130 = sext i32 %4129 to i64
+  %4131 = getelementptr inbounds [286 x i16], ptr @yypact, i64 0, i64 %4130
+  %4132 = load i16, ptr %4131, align 2
+  %4133 = sext i16 %4132 to i32
+  store i32 %4133, ptr %10, align 4
+  %4134 = load i32, ptr %10, align 4
+  %4135 = icmp eq i32 %4134, -144
+  br i1 %4135, label %4162, label %4136
+
+4136:                                             ; preds = %4128
+  %4137 = load i32, ptr %10, align 4
+  %4138 = add nsw i32 %4137, 1
+  store i32 %4138, ptr %10, align 4
+  %4139 = load i32, ptr %10, align 4
+  %4140 = icmp sle i32 0, %4139
+  br i1 %4140, label %4141, label %4161
+
+4141:                                             ; preds = %4136
+  %4142 = load i32, ptr %10, align 4
+  %4143 = icmp sle i32 %4142, 1112
+  br i1 %4143, label %4144, label %4161
+
+4144:                                             ; preds = %4141
+  %4145 = load i32, ptr %10, align 4
+  %4146 = sext i32 %4145 to i64
+  %4147 = getelementptr inbounds [1113 x i16], ptr @yycheck, i64 0, i64 %4146
+  %4148 = load i16, ptr %4147, align 2
+  %4149 = sext i16 %4148 to i32
+  %4150 = icmp eq i32 %4149, 1
+  br i1 %4150, label %4151, label %4161
+
+4151:                                             ; preds = %4144
+  %4152 = load i32, ptr %10, align 4
+  %4153 = sext i32 %4152 to i64
+  %4154 = getelementptr inbounds [1113 x i16], ptr @yytable, i64 0, i64 %4153
+  %4155 = load i16, ptr %4154, align 2
+  %4156 = sext i16 %4155 to i32
+  store i32 %4156, ptr %10, align 4
+  %4157 = load i32, ptr %10, align 4
+  %4158 = icmp slt i32 0, %4157
+  br i1 %4158, label %4159, label %4160
+
+4159:                                             ; preds = %4151
+  br label %4189
+
+4160:                                             ; preds = %4151
+  br label %4161
+
+4161:                                             ; preds = %4160, %4144, %4141, %4136
+  br label %4162
+
+4162:                                             ; preds = %4161, %4128
+  %4163 = load ptr, ptr %6, align 8
+  %4164 = load ptr, ptr %5, align 8
+  %4165 = icmp eq ptr %4163, %4164
+  br i1 %4165, label %4166, label %4167
+
+4166:                                             ; preds = %4162
+  br label %4211
+
+4167:                                             ; preds = %4162
+  %4168 = load i32, ptr %1, align 4
+  %4169 = sext i32 %4168 to i64
+  %4170 = getelementptr inbounds [286 x i8], ptr @yystos, i64 0, i64 %4169
+  %4171 = load i8, ptr %4170, align 1
+  %4172 = zext i8 %4171 to i32
+  %4173 = load ptr, ptr %9, align 8
+  call void @yydestruct(ptr noundef @.str.51, i32 noundef %4172, ptr noundef %4173)
+  %4174 = load ptr, ptr %9, align 8
+  %4175 = getelementptr inbounds %union.EX_STYPE, ptr %4174, i64 -1
+  store ptr %4175, ptr %9, align 8
+  %4176 = load ptr, ptr %6, align 8
+  %4177 = getelementptr inbounds i16, ptr %4176, i64 -1
+  store ptr %4177, ptr %6, align 8
+  %4178 = load ptr, ptr %6, align 8
+  %4179 = load i16, ptr %4178, align 2
+  %4180 = sext i16 %4179 to i32
+  store i32 %4180, ptr %1, align 4
+  br label %4181
+
+4181:                                             ; preds = %4167
+  %4182 = load i32, ptr @ex_debug, align 4
+  %4183 = icmp ne i32 %4182, 0
+  br i1 %4183, label %4184, label %4187
+
+4184:                                             ; preds = %4181
+  %4185 = load ptr, ptr %5, align 8
+  %4186 = load ptr, ptr %6, align 8
+  call void @yy_stack_print(ptr noundef %4185, ptr noundef %4186)
+  br label %4187
+
+4187:                                             ; preds = %4184, %4181
+  br label %4188
+
+4188:                                             ; preds = %4187
+  br label %4128
+
+4189:                                             ; preds = %4159
+  %4190 = load ptr, ptr %9, align 8
+  %4191 = getelementptr inbounds %union.EX_STYPE, ptr %4190, i32 1
+  store ptr %4191, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4191, ptr align 8 @ex_lval, i64 8, i1 false)
+  br label %4192
+
+4192:                                             ; preds = %4189
+  %4193 = load i32, ptr @ex_debug, align 4
+  %4194 = icmp ne i32 %4193, 0
+  br i1 %4194, label %4195, label %4207
+
+4195:                                             ; preds = %4192
+  %4196 = load ptr, ptr @stderr, align 8
+  %4197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4196, ptr noundef @.str.16, ptr noundef @.str.19) #12
+  %4198 = load ptr, ptr @stderr, align 8
+  %4199 = load i32, ptr %10, align 4
+  %4200 = sext i32 %4199 to i64
+  %4201 = getelementptr inbounds [286 x i8], ptr @yystos, i64 0, i64 %4200
+  %4202 = load i8, ptr %4201, align 1
+  %4203 = zext i8 %4202 to i32
+  %4204 = load ptr, ptr %9, align 8
+  call void @yy_symbol_print(ptr noundef %4198, i32 noundef %4203, ptr noundef %4204)
+  %4205 = load ptr, ptr @stderr, align 8
+  %4206 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4205, ptr noundef @.str.18) #12
+  br label %4207
+
+4207:                                             ; preds = %4195, %4192
+  br label %4208
+
+4208:                                             ; preds = %4207
+  %4209 = load i32, ptr %10, align 4
+  store i32 %4209, ptr %1, align 4
+  br label %60
+
+4210:                                             ; preds = %179
+  store i32 0, ptr %11, align 4
+  br label %4213
+
+4211:                                             ; preds = %4166, %4097, %174
+  store i32 1, ptr %11, align 4
+  br label %4213
+
+4212:                                             ; preds = %115, %100
+  call void @ex_error(ptr noundef @.str.52)
+  store i32 2, ptr %11, align 4
+  br label %4213
+
+4213:                                             ; preds = %4212, %4211, %4210
+  %4214 = load i32, ptr @ex_char, align 4
+  %4215 = icmp ne i32 %4214, -2
+  br i1 %4215, label %4216, label %4232
+
+4216:                                             ; preds = %4213
+  %4217 = load i32, ptr @ex_char, align 4
+  %4218 = icmp sle i32 0, %4217
+  br i1 %4218, label %4219, label %4228
+
+4219:                                             ; preds = %4216
+  %4220 = load i32, ptr @ex_char, align 4
+  %4221 = icmp sle i32 %4220, 336
+  br i1 %4221, label %4222, label %4228
+
+4222:                                             ; preds = %4219
+  %4223 = load i32, ptr @ex_char, align 4
+  %4224 = sext i32 %4223 to i64
+  %4225 = getelementptr inbounds [337 x i8], ptr @yytranslate, i64 0, i64 %4224
+  %4226 = load i8, ptr %4225, align 1
+  %4227 = sext i8 %4226 to i32
+  br label %4229
+
+4228:                                             ; preds = %4219, %4216
+  br label %4229
+
+4229:                                             ; preds = %4228, %4222
+  %4230 = phi i32 [ %4227, %4222 ], [ 2, %4228 ]
+  store i32 %4230, ptr %12, align 4
+  %4231 = load i32, ptr %12, align 4
+  call void @yydestruct(ptr noundef @.str.53, i32 noundef %4231, ptr noundef @ex_lval)
+  br label %4232
+
+4232:                                             ; preds = %4229, %4213
+  %4233 = load i32, ptr %14, align 4
+  %4234 = load ptr, ptr %9, align 8
+  %4235 = sext i32 %4233 to i64
+  %4236 = sub i64 0, %4235
+  %4237 = getelementptr inbounds %union.EX_STYPE, ptr %4234, i64 %4236
+  store ptr %4237, ptr %9, align 8
+  %4238 = load i32, ptr %14, align 4
+  %4239 = load ptr, ptr %6, align 8
+  %4240 = sext i32 %4238 to i64
+  %4241 = sub i64 0, %4240
+  %4242 = getelementptr inbounds i16, ptr %4239, i64 %4241
+  store ptr %4242, ptr %6, align 8
+  br label %4243
+
+4243:                                             ; preds = %4232
+  %4244 = load i32, ptr @ex_debug, align 4
+  %4245 = icmp ne i32 %4244, 0
+  br i1 %4245, label %4246, label %4249
+
+4246:                                             ; preds = %4243
+  %4247 = load ptr, ptr %5, align 8
+  %4248 = load ptr, ptr %6, align 8
+  call void @yy_stack_print(ptr noundef %4247, ptr noundef %4248)
+  br label %4249
+
+4249:                                             ; preds = %4246, %4243
+  br label %4250
+
+4250:                                             ; preds = %4249
+  br label %4251
+
+4251:                                             ; preds = %4255, %4250
+  %4252 = load ptr, ptr %6, align 8
+  %4253 = load ptr, ptr %5, align 8
+  %4254 = icmp ne ptr %4252, %4253
+  br i1 %4254, label %4255, label %4268
+
+4255:                                             ; preds = %4251
+  %4256 = load ptr, ptr %6, align 8
+  %4257 = load i16, ptr %4256, align 2
+  %4258 = sext i16 %4257 to i32
+  %4259 = sext i32 %4258 to i64
+  %4260 = getelementptr inbounds [286 x i8], ptr @yystos, i64 0, i64 %4259
+  %4261 = load i8, ptr %4260, align 1
+  %4262 = zext i8 %4261 to i32
+  %4263 = load ptr, ptr %9, align 8
+  call void @yydestruct(ptr noundef @.str.54, i32 noundef %4262, ptr noundef %4263)
+  %4264 = load ptr, ptr %9, align 8
+  %4265 = getelementptr inbounds %union.EX_STYPE, ptr %4264, i64 -1
+  store ptr %4265, ptr %9, align 8
+  %4266 = load ptr, ptr %6, align 8
+  %4267 = getelementptr inbounds i16, ptr %4266, i64 -1
+  store ptr %4267, ptr %6, align 8
+  br label %4251
+
+4268:                                             ; preds = %4251
+  %4269 = load ptr, ptr %5, align 8
+  %4270 = getelementptr inbounds [200 x i16], ptr %4, i64 0, i64 0
+  %4271 = icmp ne ptr %4269, %4270
+  br i1 %4271, label %4272, label %4274
+
+4272:                                             ; preds = %4268
+  %4273 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %4273) #12
+  br label %4274
+
+4274:                                             ; preds = %4272, %4268
+  %4275 = load i32, ptr %11, align 4
+  ret i32 %4275
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8620,40 +8861,42 @@ define internal i32 @T(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
-  %4 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %5 = getelementptr inbounds %struct.Expr_s, ptr %4, i32 0, i32 7
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %struct.Exdisc_s, ptr %6, i32 0, i32 17
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %21
+  %4 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.Expr_s, ptr %5, i32 0, i32 7
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds %struct.Exdisc_s, ptr %7, i32 0, i32 17
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %23
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %12 = getelementptr inbounds %struct.Expr_s, ptr %11, i32 0, i32 7
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.Exdisc_s, ptr %13, i32 0, i32 17
+  %14 = getelementptr inbounds %struct.Expr_s, ptr %13, i32 0, i32 7
   %15 = load ptr, ptr %14, align 8
-  %16 = load i32, ptr %3, align 4
-  %17 = and i32 %16, 15
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %15, i64 %18
-  %20 = load i32, ptr %19, align 4
-  store i32 %20, ptr %2, align 4
-  br label %27
+  %16 = getelementptr inbounds %struct.Exdisc_s, ptr %15, i32 0, i32 17
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i32, ptr %3, align 4
+  %19 = and i32 %18, 15
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i32, ptr %17, i64 %20
+  %22 = load i32, ptr %21, align 4
+  store i32 %22, ptr %2, align 4
+  br label %29
 
-21:                                               ; preds = %1
-  %22 = load i32, ptr %3, align 4
-  %23 = and i32 %22, 15
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [4 x i32], ptr @a2t, i64 0, i64 %24
-  %26 = load i32, ptr %25, align 4
-  store i32 %26, ptr %2, align 4
-  br label %27
+23:                                               ; preds = %1
+  %24 = load i32, ptr %3, align 4
+  %25 = and i32 %24, 15
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds [4 x i32], ptr @a2t, i64 0, i64 %26
+  %28 = load i32, ptr %27, align 4
+  store i32 %28, ptr %2, align 4
+  br label %29
 
-27:                                               ; preds = %21, %10
-  %28 = load i32, ptr %2, align 4
-  ret i32 %28
+29:                                               ; preds = %23, %11
+  %30 = load i32, ptr %2, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8669,111 +8912,113 @@ define internal ptr @call(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %13 = call ptr @exnewnode(ptr noundef %12, i32 noundef 283, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
-  store ptr %13, ptr %10, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.Exid_s, ptr %14, i32 0, i32 3
-  %16 = load i64, ptr %15, align 8
-  %17 = trunc i64 %16 to i32
-  store i32 %17, ptr %8, align 4
-  %18 = load ptr, ptr %6, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds %struct.Exnode_s, ptr %19, i32 0, i32 5
-  %21 = getelementptr inbounds %struct.anon.5, ptr %20, i32 0, i32 0
-  store ptr %18, ptr %21, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %struct.Exnode_s, ptr %23, i32 0, i32 5
-  %25 = getelementptr inbounds %struct.anon.5, ptr %24, i32 0, i32 1
-  store ptr %22, ptr %25, align 8
+  %12 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8
+  %14 = call ptr @exnewnode(ptr noundef %13, i32 noundef 283, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null)
+  store ptr %14, ptr %10, align 8
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds %struct.Exid_s, ptr %15, i32 0, i32 3
+  %17 = load i64, ptr %16, align 8
+  %18 = trunc i64 %17 to i32
+  store i32 %18, ptr %8, align 4
+  %19 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %struct.Exnode_s, ptr %20, i32 0, i32 5
+  %22 = getelementptr inbounds %struct.anon.5, ptr %21, i32 0, i32 0
+  store ptr %19, ptr %22, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = getelementptr inbounds %struct.Exnode_s, ptr %24, i32 0, i32 5
+  %26 = getelementptr inbounds %struct.anon.5, ptr %25, i32 0, i32 1
+  store ptr %23, ptr %26, align 8
   store i32 0, ptr %11, align 4
-  %26 = load i32, ptr %8, align 4
-  %27 = ashr i32 %26, 4
-  store i32 %27, ptr %8, align 4
-  br label %28
+  %27 = load i32, ptr %8, align 4
+  %28 = ashr i32 %27, 4
+  store i32 %28, ptr %8, align 4
+  br label %29
 
-28:                                               ; preds = %63, %3
-  %29 = load i32, ptr %8, align 4
-  %30 = call i32 @T(i32 noundef %29)
-  store i32 %30, ptr %9, align 4
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %70
+29:                                               ; preds = %65, %3
+  %30 = load i32, ptr %8, align 4
+  %31 = call i32 @T(i32 noundef %30)
+  store i32 %31, ptr %9, align 4
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %72
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %7, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %40, label %35
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %7, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %41, label %36
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.Exid_s, ptr %36, i32 0, i32 9
-  %38 = getelementptr inbounds [32 x i8], ptr %37, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.77, ptr noundef %38)
-  %39 = load ptr, ptr %7, align 8
-  store ptr %39, ptr %4, align 8
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds %struct.Exid_s, ptr %37, i32 0, i32 9
+  %39 = getelementptr inbounds [32 x i8], ptr %38, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.77, ptr noundef %39)
+  %40 = load ptr, ptr %7, align 8
+  store ptr %40, ptr %4, align 8
+  br label %81
+
+41:                                               ; preds = %33
+  %42 = load i32, ptr %11, align 4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %11, align 4
+  %44 = load i32, ptr %9, align 4
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds %struct.Exnode_s, ptr %45, i32 0, i32 5
+  %47 = getelementptr inbounds %struct.anon.3, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds %struct.Exnode_s, ptr %48, i32 0, i32 0
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp ne i32 %44, %50
+  br i1 %51, label %52, label %65
+
+52:                                               ; preds = %41
+  %53 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %7, align 8
+  %56 = getelementptr inbounds %struct.Exnode_s, ptr %55, i32 0, i32 5
+  %57 = getelementptr inbounds %struct.anon.3, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = load i32, ptr %9, align 4
+  %60 = load i32, ptr %11, align 4
+  %61 = call ptr @excast(ptr noundef %54, ptr noundef %58, i32 noundef %59, ptr noundef null, i32 noundef %60)
+  %62 = load ptr, ptr %7, align 8
+  %63 = getelementptr inbounds %struct.Exnode_s, ptr %62, i32 0, i32 5
+  %64 = getelementptr inbounds %struct.anon.3, ptr %63, i32 0, i32 0
+  store ptr %61, ptr %64, align 8
+  br label %65
+
+65:                                               ; preds = %52, %41
+  %66 = load ptr, ptr %7, align 8
+  %67 = getelementptr inbounds %struct.Exnode_s, ptr %66, i32 0, i32 5
+  %68 = getelementptr inbounds %struct.anon.3, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8
+  store ptr %69, ptr %7, align 8
+  %70 = load i32, ptr %8, align 4
+  %71 = ashr i32 %70, 4
+  store i32 %71, ptr %8, align 4
+  br label %29
+
+72:                                               ; preds = %29
+  %73 = load ptr, ptr %7, align 8
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %79
+
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %6, align 8
+  %77 = getelementptr inbounds %struct.Exid_s, ptr %76, i32 0, i32 9
+  %78 = getelementptr inbounds [32 x i8], ptr %77, i64 0, i64 0
+  call void (ptr, ...) @exerror(ptr noundef @.str.78, ptr noundef %78)
   br label %79
 
-40:                                               ; preds = %32
-  %41 = load i32, ptr %11, align 4
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %11, align 4
-  %43 = load i32, ptr %9, align 4
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds %struct.Exnode_s, ptr %44, i32 0, i32 5
-  %46 = getelementptr inbounds %struct.anon.3, ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct.Exnode_s, ptr %47, i32 0, i32 0
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp ne i32 %43, %49
-  br i1 %50, label %51, label %63
+79:                                               ; preds = %75, %72
+  %80 = load ptr, ptr %10, align 8
+  store ptr %80, ptr %4, align 8
+  br label %81
 
-51:                                               ; preds = %40
-  %52 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %struct.Exnode_s, ptr %53, i32 0, i32 5
-  %55 = getelementptr inbounds %struct.anon.3, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %9, align 4
-  %58 = load i32, ptr %11, align 4
-  %59 = call ptr @excast(ptr noundef %52, ptr noundef %56, i32 noundef %57, ptr noundef null, i32 noundef %58)
-  %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds %struct.Exnode_s, ptr %60, i32 0, i32 5
-  %62 = getelementptr inbounds %struct.anon.3, ptr %61, i32 0, i32 0
-  store ptr %59, ptr %62, align 8
-  br label %63
-
-63:                                               ; preds = %51, %40
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds %struct.Exnode_s, ptr %64, i32 0, i32 5
-  %66 = getelementptr inbounds %struct.anon.3, ptr %65, i32 0, i32 1
-  %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr %7, align 8
-  %68 = load i32, ptr %8, align 4
-  %69 = ashr i32 %68, 4
-  store i32 %69, ptr %8, align 4
-  br label %28
-
-70:                                               ; preds = %28
-  %71 = load ptr, ptr %7, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %73, label %77
-
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %struct.Exid_s, ptr %74, i32 0, i32 9
-  %76 = getelementptr inbounds [32 x i8], ptr %75, i64 0, i64 0
-  call void (ptr, ...) @exerror(ptr noundef @.str.78, ptr noundef %76)
-  br label %77
-
-77:                                               ; preds = %73, %70
-  %78 = load ptr, ptr %10, align 8
-  store ptr %78, ptr %4, align 8
-  br label %79
-
-79:                                               ; preds = %77, %35
-  %80 = load ptr, ptr %4, align 8
-  ret ptr %80
+81:                                               ; preds = %79, %36
+  %82 = load ptr, ptr %4, align 8
+  ret ptr %82
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9213,685 +9458,681 @@ define internal ptr @preprint(ptr noundef %0) #0 {
   %32 = getelementptr inbounds %struct.Exnode_s, ptr %31, i32 0, i32 1
   %33 = load i32, ptr %32, align 4
   %34 = icmp ne i32 %33, 271
-  br i1 %34, label %35, label %45
+  br i1 %34, label %35, label %46
 
 35:                                               ; preds = %27
-  %36 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %37 = getelementptr inbounds %struct.Expr_s, ptr %36, i32 0, i32 3
-  %38 = load ptr, ptr %37, align 8
-  %39 = call ptr @vmalloc(ptr noundef %38, i64 noundef 48)
-  store ptr %39, ptr %4, align 8
-  %40 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds %struct.Expr_s, ptr %37, i32 0, i32 3
+  %39 = load ptr, ptr %38, align 8
+  %40 = call ptr @vmalloc(ptr noundef %39, i64 noundef 48)
+  store ptr %40, ptr %4, align 8
+  %41 = load ptr, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %14, i64 48, i1 false)
-  %41 = load ptr, ptr %3, align 8
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.Print_s, ptr %42, i32 0, i32 3
-  store ptr %41, ptr %43, align 8
-  %44 = load ptr, ptr %4, align 8
-  store ptr %44, ptr %2, align 8
-  br label %552
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %14, i64 48, i1 false)
+  %42 = load ptr, ptr %3, align 8
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds %struct.Print_s, ptr %43, i32 0, i32 3
+  store ptr %42, ptr %44, align 8
+  %45 = load ptr, ptr %4, align 8
+  store ptr %45, ptr %2, align 8
+  br label %570
 
-45:                                               ; preds = %27
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.Exnode_s, ptr %46, i32 0, i32 5
-  %48 = getelementptr inbounds %struct.anon.3, ptr %47, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %struct.Exnode_s, ptr %49, i32 0, i32 5
-  %51 = getelementptr inbounds %struct.anon.2, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %11, align 8
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.Exnode_s, ptr %53, i32 0, i32 5
-  %55 = getelementptr inbounds %struct.anon.3, ptr %54, i32 0, i32 1
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %3, align 8
-  %57 = load ptr, ptr %11, align 8
-  store ptr %57, ptr %5, align 8
-  br label %58
+46:                                               ; preds = %27
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds %struct.Exnode_s, ptr %47, i32 0, i32 5
+  %49 = getelementptr inbounds %struct.anon.3, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds %struct.Exnode_s, ptr %50, i32 0, i32 5
+  %52 = getelementptr inbounds %struct.anon.2, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  store ptr %53, ptr %11, align 8
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr inbounds %struct.Exnode_s, ptr %54, i32 0, i32 5
+  %56 = getelementptr inbounds %struct.anon.3, ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8
+  store ptr %57, ptr %3, align 8
+  %58 = load ptr, ptr %11, align 8
+  store ptr %58, ptr %5, align 8
+  br label %59
 
-58:                                               ; preds = %94, %45
-  %59 = load ptr, ptr %5, align 8
-  %60 = load i8, ptr %59, align 1
-  %61 = icmp ne i8 %60, 0
-  br i1 %61, label %62, label %97
+59:                                               ; preds = %97, %46
+  %60 = load ptr, ptr %5, align 8
+  %61 = load i8, ptr %60, align 1
+  %62 = icmp ne i8 %61, 0
+  br i1 %62, label %63, label %100
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %64 = getelementptr inbounds %struct.Expr_s, ptr %63, i32 0, i32 10
-  %65 = load ptr, ptr %5, align 8
-  %66 = load i8, ptr %65, align 1
-  %67 = call i32 @agxbputc(ptr noundef %64, i8 noundef signext %66)
-  %68 = load ptr, ptr %5, align 8
-  %69 = load i8, ptr %68, align 1
-  %70 = sext i8 %69 to i32
-  %71 = icmp eq i32 %70, 37
-  br i1 %71, label %72, label %93
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds %struct.Expr_s, ptr %65, i32 0, i32 10
+  %67 = load ptr, ptr %5, align 8
+  %68 = load i8, ptr %67, align 1
+  %69 = call i32 @agxbputc(ptr noundef %66, i8 noundef signext %68)
+  %70 = load ptr, ptr %5, align 8
+  %71 = load i8, ptr %70, align 1
+  %72 = sext i8 %71 to i32
+  %73 = icmp eq i32 %72, 37
+  br i1 %73, label %74, label %96
 
-72:                                               ; preds = %62
-  %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i32 1
-  store ptr %74, ptr %5, align 8
-  %75 = load i8, ptr %74, align 1
-  %76 = icmp ne i8 %75, 0
-  br i1 %76, label %79, label %77
+74:                                               ; preds = %63
+  %75 = load ptr, ptr %5, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i32 1
+  store ptr %76, ptr %5, align 8
+  %77 = load i8, ptr %76, align 1
+  %78 = icmp ne i8 %77, 0
+  br i1 %78, label %81, label %79
 
-77:                                               ; preds = %72
-  %78 = load ptr, ptr %11, align 8
-  call void (ptr, ...) @exerror(ptr noundef @.str.96, ptr noundef %78)
-  br label %79
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %11, align 8
+  call void (ptr, ...) @exerror(ptr noundef @.str.96, ptr noundef %80)
+  br label %81
 
-79:                                               ; preds = %77, %72
-  %80 = load ptr, ptr %5, align 8
-  %81 = load i8, ptr %80, align 1
-  %82 = sext i8 %81 to i32
-  %83 = icmp ne i32 %82, 37
-  br i1 %83, label %84, label %85
+81:                                               ; preds = %79, %74
+  %82 = load ptr, ptr %5, align 8
+  %83 = load i8, ptr %82, align 1
+  %84 = sext i8 %83 to i32
+  %85 = icmp ne i32 %84, 37
+  br i1 %85, label %86, label %87
 
-84:                                               ; preds = %79
+86:                                               ; preds = %81
+  br label %100
+
+87:                                               ; preds = %81
+  %88 = load ptr, ptr %3, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %95
+
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds %struct.Expr_s, ptr %92, i32 0, i32 10
+  %94 = call i32 @agxbputc(ptr noundef %93, i8 noundef signext 37)
+  br label %95
+
+95:                                               ; preds = %90, %87
+  br label %96
+
+96:                                               ; preds = %95, %63
   br label %97
 
-85:                                               ; preds = %79
-  %86 = load ptr, ptr %3, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %88, label %92
+97:                                               ; preds = %96
+  %98 = load ptr, ptr %5, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i32 1
+  store ptr %99, ptr %5, align 8
+  br label %59
 
-88:                                               ; preds = %85
-  %89 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %90 = getelementptr inbounds %struct.Expr_s, ptr %89, i32 0, i32 10
-  %91 = call i32 @agxbputc(ptr noundef %90, i8 noundef signext 37)
-  br label %92
-
-92:                                               ; preds = %88, %85
-  br label %93
-
-93:                                               ; preds = %92, %62
-  br label %94
-
-94:                                               ; preds = %93
-  %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i32 1
-  store ptr %96, ptr %5, align 8
-  br label %58
-
-97:                                               ; preds = %84, %58
+100:                                              ; preds = %86, %59
   store ptr null, ptr %4, align 8
-  br label %98
+  br label %101
 
-98:                                               ; preds = %541, %97
-  %99 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %100 = getelementptr inbounds %struct.Expr_s, ptr %99, i32 0, i32 3
-  %101 = load ptr, ptr %100, align 8
-  %102 = call ptr @vmalloc(ptr noundef %101, i64 noundef 48)
-  store ptr %102, ptr %13, align 8
-  %103 = load ptr, ptr %4, align 8
-  %104 = icmp ne ptr %103, null
-  br i1 %104, label %105, label %109
-
-105:                                              ; preds = %98
-  %106 = load ptr, ptr %13, align 8
+101:                                              ; preds = %558, %100
+  %102 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds %struct.Expr_s, ptr %103, i32 0, i32 3
+  %105 = load ptr, ptr %104, align 8
+  %106 = call ptr @vmalloc(ptr noundef %105, i64 noundef 48)
+  store ptr %106, ptr %13, align 8
   %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.Print_s, ptr %107, i32 0, i32 0
-  store ptr %106, ptr %108, align 8
-  br label %111
+  %108 = icmp ne ptr %107, null
+  br i1 %108, label %109, label %113
 
-109:                                              ; preds = %98
+109:                                              ; preds = %101
   %110 = load ptr, ptr %13, align 8
-  store ptr %110, ptr %12, align 8
-  br label %111
+  %111 = load ptr, ptr %4, align 8
+  %112 = getelementptr inbounds %struct.Print_s, ptr %111, i32 0, i32 0
+  store ptr %110, ptr %112, align 8
+  br label %115
 
-111:                                              ; preds = %109, %105
-  %112 = load ptr, ptr %13, align 8
-  store ptr %112, ptr %4, align 8
-  %113 = load ptr, ptr %4, align 8
+113:                                              ; preds = %101
+  %114 = load ptr, ptr %13, align 8
+  store ptr %114, ptr %12, align 8
+  br label %115
+
+115:                                              ; preds = %113, %109
+  %116 = load ptr, ptr %13, align 8
+  store ptr %116, ptr %4, align 8
+  %117 = load ptr, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %113, ptr align 8 %15, i64 48, i1 false)
-  %114 = load ptr, ptr %5, align 8
-  %115 = load i8, ptr %114, align 1
-  %116 = icmp ne i8 %115, 0
-  br i1 %116, label %117, label %518
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %117, ptr align 8 %15, i64 48, i1 false)
+  %118 = load ptr, ptr %5, align 8
+  %119 = load i8, ptr %118, align 1
+  %120 = icmp ne i8 %119, 0
+  br i1 %120, label %121, label %533
 
-117:                                              ; preds = %111
+121:                                              ; preds = %115
   store i32 0, ptr %8, align 4
   store i32 259, ptr %7, align 4
-  br label %118
+  br label %122
 
-118:                                              ; preds = %189, %117
-  %119 = load ptr, ptr %5, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i32 1
-  store ptr %120, ptr %5, align 8
-  %121 = load i8, ptr %119, align 1
-  store i8 %121, ptr %6, align 1
-  %122 = sext i8 %121 to i32
-  switch i32 %122, label %183 [
-    i32 0, label %123
-    i32 42, label %124
-    i32 40, label %152
-    i32 99, label %177
-    i32 100, label %177
-    i32 101, label %178
-    i32 102, label %178
-    i32 103, label %178
-    i32 104, label %179
-    i32 108, label %180
-    i32 111, label %181
-    i32 117, label %181
-    i32 120, label %181
-    i32 84, label %181
-    i32 115, label %182
-    i32 83, label %182
+122:                                              ; preds = %194, %121
+  %123 = load ptr, ptr %5, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i32 1
+  store ptr %124, ptr %5, align 8
+  %125 = load i8, ptr %123, align 1
+  store i8 %125, ptr %6, align 1
+  %126 = sext i8 %125 to i32
+  switch i32 %126, label %188 [
+    i32 0, label %127
+    i32 42, label %128
+    i32 40, label %156
+    i32 99, label %182
+    i32 100, label %182
+    i32 101, label %183
+    i32 102, label %183
+    i32 103, label %183
+    i32 104, label %184
+    i32 108, label %185
+    i32 111, label %186
+    i32 117, label %186
+    i32 120, label %186
+    i32 84, label %186
+    i32 115, label %187
+    i32 83, label %187
   ]
 
-123:                                              ; preds = %118
+127:                                              ; preds = %122
   call void (ptr, ...) @exerror(ptr noundef @.str.97)
-  br label %548
+  br label %565
 
-124:                                              ; preds = %118
-  %125 = load i32, ptr %8, align 4
-  %126 = sext i32 %125 to i64
-  %127 = icmp uge i64 %126, 3
-  br i1 %127, label %128, label %131
+128:                                              ; preds = %122
+  %129 = load i32, ptr %8, align 4
+  %130 = sext i32 %129 to i64
+  %131 = icmp uge i64 %130, 3
+  br i1 %131, label %132, label %135
 
-128:                                              ; preds = %124
-  %129 = load ptr, ptr %5, align 8
-  store i8 0, ptr %129, align 1
-  %130 = load ptr, ptr %11, align 8
-  call void (ptr, ...) @exerror(ptr noundef @.str.98, ptr noundef %130)
-  br label %548
+132:                                              ; preds = %128
+  %133 = load ptr, ptr %5, align 8
+  store i8 0, ptr %133, align 1
+  %134 = load ptr, ptr %11, align 8
+  call void (ptr, ...) @exerror(ptr noundef @.str.98, ptr noundef %134)
+  br label %565
 
-131:                                              ; preds = %124
-  %132 = load ptr, ptr %3, align 8
-  %133 = icmp ne ptr %132, null
-  br i1 %133, label %137, label %134
+135:                                              ; preds = %128
+  %136 = load ptr, ptr %3, align 8
+  %137 = icmp ne ptr %136, null
+  br i1 %137, label %141, label %138
 
-134:                                              ; preds = %131
-  %135 = load ptr, ptr %5, align 8
-  store i8 0, ptr %135, align 1
-  %136 = load ptr, ptr %11, align 8
-  call void (ptr, ...) @exerror(ptr noundef @.str.99, ptr noundef %136)
-  br label %548
+138:                                              ; preds = %135
+  %139 = load ptr, ptr %5, align 8
+  store i8 0, ptr %139, align 1
+  %140 = load ptr, ptr %11, align 8
+  call void (ptr, ...) @exerror(ptr noundef @.str.99, ptr noundef %140)
+  br label %565
 
-137:                                              ; preds = %131
-  %138 = load ptr, ptr %3, align 8
-  %139 = getelementptr inbounds %struct.Exnode_s, ptr %138, i32 0, i32 5
-  %140 = getelementptr inbounds %struct.anon.3, ptr %139, i32 0, i32 0
-  %141 = load ptr, ptr %140, align 8
-  %142 = load ptr, ptr %4, align 8
-  %143 = getelementptr inbounds %struct.Print_s, ptr %142, i32 0, i32 2
-  %144 = load i32, ptr %8, align 4
-  %145 = add nsw i32 %144, 1
-  store i32 %145, ptr %8, align 4
-  %146 = sext i32 %144 to i64
-  %147 = getelementptr inbounds [3 x ptr], ptr %143, i64 0, i64 %146
-  store ptr %141, ptr %147, align 8
-  %148 = load ptr, ptr %3, align 8
-  %149 = getelementptr inbounds %struct.Exnode_s, ptr %148, i32 0, i32 5
-  %150 = getelementptr inbounds %struct.anon.3, ptr %149, i32 0, i32 1
-  %151 = load ptr, ptr %150, align 8
-  store ptr %151, ptr %3, align 8
-  br label %189
+141:                                              ; preds = %135
+  %142 = load ptr, ptr %3, align 8
+  %143 = getelementptr inbounds %struct.Exnode_s, ptr %142, i32 0, i32 5
+  %144 = getelementptr inbounds %struct.anon.3, ptr %143, i32 0, i32 0
+  %145 = load ptr, ptr %144, align 8
+  %146 = load ptr, ptr %4, align 8
+  %147 = getelementptr inbounds %struct.Print_s, ptr %146, i32 0, i32 2
+  %148 = load i32, ptr %8, align 4
+  %149 = add nsw i32 %148, 1
+  store i32 %149, ptr %8, align 4
+  %150 = sext i32 %148 to i64
+  %151 = getelementptr inbounds [3 x ptr], ptr %147, i64 0, i64 %150
+  store ptr %145, ptr %151, align 8
+  %152 = load ptr, ptr %3, align 8
+  %153 = getelementptr inbounds %struct.Exnode_s, ptr %152, i32 0, i32 5
+  %154 = getelementptr inbounds %struct.anon.3, ptr %153, i32 0, i32 1
+  %155 = load ptr, ptr %154, align 8
+  store ptr %155, ptr %3, align 8
+  br label %194
 
-152:                                              ; preds = %118
+156:                                              ; preds = %122
   store i32 1, ptr %9, align 4
-  br label %153
+  br label %157
 
-153:                                              ; preds = %174, %173, %165, %152
-  %154 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %155 = getelementptr inbounds %struct.Expr_s, ptr %154, i32 0, i32 10
-  %156 = load i8, ptr %6, align 1
-  %157 = call i32 @agxbputc(ptr noundef %155, i8 noundef signext %156)
-  %158 = load ptr, ptr %5, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i32 1
-  store ptr %159, ptr %5, align 8
-  %160 = load i8, ptr %158, align 1
-  store i8 %160, ptr %6, align 1
-  %161 = sext i8 %160 to i32
-  switch i32 %161, label %174 [
-    i32 0, label %162
-    i32 40, label %165
-    i32 41, label %168
-  ]
-
-162:                                              ; preds = %153
+157:                                              ; preds = %179, %178, %170, %156
+  %158 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds %struct.Expr_s, ptr %159, i32 0, i32 10
+  %161 = load i8, ptr %6, align 1
+  %162 = call i32 @agxbputc(ptr noundef %160, i8 noundef signext %161)
   %163 = load ptr, ptr %5, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i32 -1
+  %164 = getelementptr inbounds i8, ptr %163, i32 1
   store ptr %164, ptr %5, align 8
-  br label %175
-
-165:                                              ; preds = %153
-  %166 = load i32, ptr %9, align 4
-  %167 = add nsw i32 %166, 1
-  store i32 %167, ptr %9, align 4
-  br label %153
-
-168:                                              ; preds = %153
-  %169 = load i32, ptr %9, align 4
-  %170 = add nsw i32 %169, -1
-  store i32 %170, ptr %9, align 4
-  %171 = icmp sle i32 %170, 0
-  br i1 %171, label %172, label %173
-
-172:                                              ; preds = %168
-  br label %175
-
-173:                                              ; preds = %168
-  br label %153
-
-174:                                              ; preds = %153
-  br label %153
-
-175:                                              ; preds = %172, %162
-  br label %176
-
-176:                                              ; preds = %175
-  br label %189
-
-177:                                              ; preds = %118, %118
-  br label %194
-
-178:                                              ; preds = %118, %118, %118
-  store i32 262, ptr %7, align 4
-  br label %194
-
-179:                                              ; preds = %118
-  call void (ptr, ...) @exerror(ptr noundef @.str.100)
-  br label %548
-
-180:                                              ; preds = %118
-  store i32 259, ptr %7, align 4
-  br label %189
-
-181:                                              ; preds = %118, %118, %118, %118
-  store i32 260, ptr %7, align 4
-  br label %194
-
-182:                                              ; preds = %118, %118
-  store i32 263, ptr %7, align 4
-  br label %194
-
-183:                                              ; preds = %118
-  %184 = load i8, ptr %6, align 1
-  %185 = sext i8 %184 to i32
-  %186 = call zeroext i1 @gv_isalpha(i32 noundef %185)
-  br i1 %186, label %187, label %188
-
-187:                                              ; preds = %183
-  br label %194
-
-188:                                              ; preds = %183
-  br label %189
-
-189:                                              ; preds = %188, %180, %176, %137
-  %190 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %191 = getelementptr inbounds %struct.Expr_s, ptr %190, i32 0, i32 10
-  %192 = load i8, ptr %6, align 1
-  %193 = call i32 @agxbputc(ptr noundef %191, i8 noundef signext %192)
-  br label %118
-
-194:                                              ; preds = %187, %182, %181, %178, %177
-  %195 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %196 = getelementptr inbounds %struct.Expr_s, ptr %195, i32 0, i32 10
-  %197 = load i8, ptr %6, align 1
-  %198 = call i32 @agxbputc(ptr noundef %196, i8 noundef signext %197)
-  %199 = load ptr, ptr %5, align 8
-  store ptr %199, ptr %10, align 8
-  br label %200
-
-200:                                              ; preds = %232, %194
-  %201 = load ptr, ptr %5, align 8
-  %202 = load i8, ptr %201, align 1
-  %203 = icmp ne i8 %202, 0
-  br i1 %203, label %204, label %235
-
-204:                                              ; preds = %200
-  %205 = load ptr, ptr %5, align 8
-  %206 = load i8, ptr %205, align 1
-  %207 = sext i8 %206 to i32
-  %208 = icmp eq i32 %207, 37
-  br i1 %208, label %209, label %226
-
-209:                                              ; preds = %204
-  %210 = load ptr, ptr %5, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i32 1
-  store ptr %211, ptr %5, align 8
-  %212 = load i8, ptr %211, align 1
-  %213 = icmp ne i8 %212, 0
-  br i1 %213, label %217, label %214
-
-214:                                              ; preds = %209
-  %215 = load ptr, ptr %10, align 8
-  store i8 0, ptr %215, align 1
-  %216 = load ptr, ptr %11, align 8
-  call void (ptr, ...) @exerror(ptr noundef @.str.96, ptr noundef %216)
-  br label %548
-
-217:                                              ; preds = %209
-  %218 = load ptr, ptr %5, align 8
-  %219 = load i8, ptr %218, align 1
-  %220 = sext i8 %219 to i32
-  %221 = icmp ne i32 %220, 37
-  br i1 %221, label %222, label %225
-
-222:                                              ; preds = %217
-  %223 = load ptr, ptr %5, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i32 -1
-  store ptr %224, ptr %5, align 8
-  br label %235
-
-225:                                              ; preds = %217
-  br label %226
-
-226:                                              ; preds = %225, %204
-  %227 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %228 = getelementptr inbounds %struct.Expr_s, ptr %227, i32 0, i32 10
-  %229 = load ptr, ptr %5, align 8
-  %230 = load i8, ptr %229, align 1
-  %231 = call i32 @agxbputc(ptr noundef %228, i8 noundef signext %230)
-  br label %232
-
-232:                                              ; preds = %226
-  %233 = load ptr, ptr %5, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i32 1
-  store ptr %234, ptr %5, align 8
-  br label %200
-
-235:                                              ; preds = %222, %200
-  %236 = load ptr, ptr %3, align 8
-  %237 = icmp ne ptr %236, null
-  br i1 %237, label %241, label %238
-
-238:                                              ; preds = %235
-  %239 = load ptr, ptr %10, align 8
-  store i8 0, ptr %239, align 1
-  %240 = load ptr, ptr %11, align 8
-  call void (ptr, ...) @exerror(ptr noundef @.str.101, ptr noundef %240)
-  br label %548
-
-241:                                              ; preds = %235
-  %242 = load ptr, ptr %3, align 8
-  %243 = getelementptr inbounds %struct.Exnode_s, ptr %242, i32 0, i32 5
-  %244 = getelementptr inbounds %struct.anon.3, ptr %243, i32 0, i32 0
-  %245 = load ptr, ptr %244, align 8
-  %246 = load ptr, ptr %4, align 8
-  %247 = getelementptr inbounds %struct.Print_s, ptr %246, i32 0, i32 3
-  store ptr %245, ptr %247, align 8
-  %248 = load i32, ptr %7, align 4
-  switch i32 %248, label %513 [
-    i32 262, label %249
-    i32 259, label %304
-    i32 260, label %304
-    i32 263, label %362
+  %165 = load i8, ptr %163, align 1
+  store i8 %165, ptr %6, align 1
+  %166 = sext i8 %165 to i32
+  switch i32 %166, label %179 [
+    i32 0, label %167
+    i32 40, label %170
+    i32 41, label %173
   ]
 
-249:                                              ; preds = %241
-  %250 = load ptr, ptr %4, align 8
-  %251 = getelementptr inbounds %struct.Print_s, ptr %250, i32 0, i32 3
-  %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds %struct.Exnode_s, ptr %252, i32 0, i32 0
-  %254 = load i32, ptr %253, align 8
-  %255 = icmp ne i32 %254, 262
-  br i1 %255, label %256, label %303
+167:                                              ; preds = %157
+  %168 = load ptr, ptr %5, align 8
+  %169 = getelementptr inbounds i8, ptr %168, i32 -1
+  store ptr %169, ptr %5, align 8
+  br label %180
 
-256:                                              ; preds = %249
-  %257 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
+170:                                              ; preds = %157
+  %171 = load i32, ptr %9, align 4
+  %172 = add nsw i32 %171, 1
+  store i32 %172, ptr %9, align 4
+  br label %157
+
+173:                                              ; preds = %157
+  %174 = load i32, ptr %9, align 4
+  %175 = add nsw i32 %174, -1
+  store i32 %175, ptr %9, align 4
+  %176 = icmp sle i32 %175, 0
+  br i1 %176, label %177, label %178
+
+177:                                              ; preds = %173
+  br label %180
+
+178:                                              ; preds = %173
+  br label %157
+
+179:                                              ; preds = %157
+  br label %157
+
+180:                                              ; preds = %177, %167
+  br label %181
+
+181:                                              ; preds = %180
+  br label %194
+
+182:                                              ; preds = %122, %122
+  br label %200
+
+183:                                              ; preds = %122, %122, %122
+  store i32 262, ptr %7, align 4
+  br label %200
+
+184:                                              ; preds = %122
+  call void (ptr, ...) @exerror(ptr noundef @.str.100)
+  br label %565
+
+185:                                              ; preds = %122
+  store i32 259, ptr %7, align 4
+  br label %194
+
+186:                                              ; preds = %122, %122, %122, %122
+  store i32 260, ptr %7, align 4
+  br label %200
+
+187:                                              ; preds = %122, %122
+  store i32 263, ptr %7, align 4
+  br label %200
+
+188:                                              ; preds = %122
+  %189 = load i8, ptr %6, align 1
+  %190 = sext i8 %189 to i32
+  %191 = call zeroext i1 @gv_isalpha(i32 noundef %190)
+  br i1 %191, label %192, label %193
+
+192:                                              ; preds = %188
+  br label %200
+
+193:                                              ; preds = %188
+  br label %194
+
+194:                                              ; preds = %193, %185, %181, %141
+  %195 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds %struct.Expr_s, ptr %196, i32 0, i32 10
+  %198 = load i8, ptr %6, align 1
+  %199 = call i32 @agxbputc(ptr noundef %197, i8 noundef signext %198)
+  br label %122
+
+200:                                              ; preds = %192, %187, %186, %183, %182
+  %201 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %202 = load ptr, ptr %201, align 8
+  %203 = getelementptr inbounds %struct.Expr_s, ptr %202, i32 0, i32 10
+  %204 = load i8, ptr %6, align 1
+  %205 = call i32 @agxbputc(ptr noundef %203, i8 noundef signext %204)
+  %206 = load ptr, ptr %5, align 8
+  store ptr %206, ptr %10, align 8
+  br label %207
+
+207:                                              ; preds = %240, %200
+  %208 = load ptr, ptr %5, align 8
+  %209 = load i8, ptr %208, align 1
+  %210 = icmp ne i8 %209, 0
+  br i1 %210, label %211, label %243
+
+211:                                              ; preds = %207
+  %212 = load ptr, ptr %5, align 8
+  %213 = load i8, ptr %212, align 1
+  %214 = sext i8 %213 to i32
+  %215 = icmp eq i32 %214, 37
+  br i1 %215, label %216, label %233
+
+216:                                              ; preds = %211
+  %217 = load ptr, ptr %5, align 8
+  %218 = getelementptr inbounds i8, ptr %217, i32 1
+  store ptr %218, ptr %5, align 8
+  %219 = load i8, ptr %218, align 1
+  %220 = icmp ne i8 %219, 0
+  br i1 %220, label %224, label %221
+
+221:                                              ; preds = %216
+  %222 = load ptr, ptr %10, align 8
+  store i8 0, ptr %222, align 1
+  %223 = load ptr, ptr %11, align 8
+  call void (ptr, ...) @exerror(ptr noundef @.str.96, ptr noundef %223)
+  br label %565
+
+224:                                              ; preds = %216
+  %225 = load ptr, ptr %5, align 8
+  %226 = load i8, ptr %225, align 1
+  %227 = sext i8 %226 to i32
+  %228 = icmp ne i32 %227, 37
+  br i1 %228, label %229, label %232
+
+229:                                              ; preds = %224
+  %230 = load ptr, ptr %5, align 8
+  %231 = getelementptr inbounds i8, ptr %230, i32 -1
+  store ptr %231, ptr %5, align 8
+  br label %243
+
+232:                                              ; preds = %224
+  br label %233
+
+233:                                              ; preds = %232, %211
+  %234 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %235 = load ptr, ptr %234, align 8
+  %236 = getelementptr inbounds %struct.Expr_s, ptr %235, i32 0, i32 10
+  %237 = load ptr, ptr %5, align 8
+  %238 = load i8, ptr %237, align 1
+  %239 = call i32 @agxbputc(ptr noundef %236, i8 noundef signext %238)
+  br label %240
+
+240:                                              ; preds = %233
+  %241 = load ptr, ptr %5, align 8
+  %242 = getelementptr inbounds i8, ptr %241, i32 1
+  store ptr %242, ptr %5, align 8
+  br label %207
+
+243:                                              ; preds = %229, %207
+  %244 = load ptr, ptr %3, align 8
+  %245 = icmp ne ptr %244, null
+  br i1 %245, label %249, label %246
+
+246:                                              ; preds = %243
+  %247 = load ptr, ptr %10, align 8
+  store i8 0, ptr %247, align 1
+  %248 = load ptr, ptr %11, align 8
+  call void (ptr, ...) @exerror(ptr noundef @.str.101, ptr noundef %248)
+  br label %565
+
+249:                                              ; preds = %243
+  %250 = load ptr, ptr %3, align 8
+  %251 = getelementptr inbounds %struct.Exnode_s, ptr %250, i32 0, i32 5
+  %252 = getelementptr inbounds %struct.anon.3, ptr %251, i32 0, i32 0
+  %253 = load ptr, ptr %252, align 8
+  %254 = load ptr, ptr %4, align 8
+  %255 = getelementptr inbounds %struct.Print_s, ptr %254, i32 0, i32 3
+  store ptr %253, ptr %255, align 8
+  %256 = load i32, ptr %7, align 4
+  switch i32 %256, label %528 [
+    i32 262, label %257
+    i32 259, label %313
+    i32 260, label %313
+    i32 263, label %372
+  ]
+
+257:                                              ; preds = %249
   %258 = load ptr, ptr %4, align 8
   %259 = getelementptr inbounds %struct.Print_s, ptr %258, i32 0, i32 3
   %260 = load ptr, ptr %259, align 8
   %261 = getelementptr inbounds %struct.Exnode_s, ptr %260, i32 0, i32 0
   %262 = load i32, ptr %261, align 8
-  %263 = icmp eq i32 %262, 263
-  br i1 %263, label %264, label %265
+  %263 = icmp ne i32 %262, 262
+  br i1 %263, label %264, label %312
 
-264:                                              ; preds = %256
-  br label %282
+264:                                              ; preds = %257
+  %265 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %266 = load ptr, ptr %265, align 8
+  %267 = load ptr, ptr %4, align 8
+  %268 = getelementptr inbounds %struct.Print_s, ptr %267, i32 0, i32 3
+  %269 = load ptr, ptr %268, align 8
+  %270 = getelementptr inbounds %struct.Exnode_s, ptr %269, i32 0, i32 0
+  %271 = load i32, ptr %270, align 8
+  %272 = icmp eq i32 %271, 263
+  br i1 %272, label %273, label %274
 
-265:                                              ; preds = %256
-  %266 = load ptr, ptr %4, align 8
-  %267 = getelementptr inbounds %struct.Print_s, ptr %266, i32 0, i32 3
-  %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds %struct.Exnode_s, ptr %268, i32 0, i32 0
-  %270 = load i32, ptr %269, align 8
-  %271 = icmp sge i32 %270, 259
-  br i1 %271, label %272, label %279
+273:                                              ; preds = %264
+  br label %291
 
-272:                                              ; preds = %265
-  %273 = load ptr, ptr %4, align 8
-  %274 = getelementptr inbounds %struct.Print_s, ptr %273, i32 0, i32 3
-  %275 = load ptr, ptr %274, align 8
-  %276 = getelementptr inbounds %struct.Exnode_s, ptr %275, i32 0, i32 0
-  %277 = load i32, ptr %276, align 8
-  %278 = icmp sle i32 %277, 261
-  br label %279
+274:                                              ; preds = %264
+  %275 = load ptr, ptr %4, align 8
+  %276 = getelementptr inbounds %struct.Print_s, ptr %275, i32 0, i32 3
+  %277 = load ptr, ptr %276, align 8
+  %278 = getelementptr inbounds %struct.Exnode_s, ptr %277, i32 0, i32 0
+  %279 = load i32, ptr %278, align 8
+  %280 = icmp sge i32 %279, 259
+  br i1 %280, label %281, label %288
 
-279:                                              ; preds = %272, %265
-  %280 = phi i1 [ false, %265 ], [ %278, %272 ]
-  %281 = select i1 %280, i32 310, i32 318
-  br label %282
+281:                                              ; preds = %274
+  %282 = load ptr, ptr %4, align 8
+  %283 = getelementptr inbounds %struct.Print_s, ptr %282, i32 0, i32 3
+  %284 = load ptr, ptr %283, align 8
+  %285 = getelementptr inbounds %struct.Exnode_s, ptr %284, i32 0, i32 0
+  %286 = load i32, ptr %285, align 8
+  %287 = icmp sle i32 %286, 261
+  br label %288
 
-282:                                              ; preds = %279, %264
-  %283 = phi i32 [ 313, %264 ], [ %281, %279 ]
-  %284 = load ptr, ptr %4, align 8
-  %285 = getelementptr inbounds %struct.Print_s, ptr %284, i32 0, i32 3
-  %286 = load ptr, ptr %285, align 8
-  %287 = load ptr, ptr %4, align 8
-  %288 = getelementptr inbounds %struct.Print_s, ptr %287, i32 0, i32 3
-  %289 = load ptr, ptr %288, align 8
-  %290 = getelementptr inbounds %struct.Exnode_s, ptr %289, i32 0, i32 1
-  %291 = load i32, ptr %290, align 4
-  %292 = icmp eq i32 %291, 283
-  br i1 %292, label %293, label %297
+288:                                              ; preds = %281, %274
+  %289 = phi i1 [ false, %274 ], [ %287, %281 ]
+  %290 = select i1 %289, i32 310, i32 318
+  br label %291
 
-293:                                              ; preds = %282
-  %294 = load ptr, ptr %4, align 8
-  %295 = getelementptr inbounds %struct.Print_s, ptr %294, i32 0, i32 3
-  %296 = load ptr, ptr %295, align 8
-  br label %298
+291:                                              ; preds = %288, %273
+  %292 = phi i32 [ 313, %273 ], [ %290, %288 ]
+  %293 = load ptr, ptr %4, align 8
+  %294 = getelementptr inbounds %struct.Print_s, ptr %293, i32 0, i32 3
+  %295 = load ptr, ptr %294, align 8
+  %296 = load ptr, ptr %4, align 8
+  %297 = getelementptr inbounds %struct.Print_s, ptr %296, i32 0, i32 3
+  %298 = load ptr, ptr %297, align 8
+  %299 = getelementptr inbounds %struct.Exnode_s, ptr %298, i32 0, i32 1
+  %300 = load i32, ptr %299, align 4
+  %301 = icmp eq i32 %300, 283
+  br i1 %301, label %302, label %306
 
-297:                                              ; preds = %282
-  br label %298
+302:                                              ; preds = %291
+  %303 = load ptr, ptr %4, align 8
+  %304 = getelementptr inbounds %struct.Print_s, ptr %303, i32 0, i32 3
+  %305 = load ptr, ptr %304, align 8
+  br label %307
 
-298:                                              ; preds = %297, %293
-  %299 = phi ptr [ %296, %293 ], [ null, %297 ]
-  %300 = call ptr @exnewnode(ptr noundef %257, i32 noundef %283, i32 noundef 0, i32 noundef 262, ptr noundef %286, ptr noundef %299)
-  %301 = load ptr, ptr %4, align 8
-  %302 = getelementptr inbounds %struct.Print_s, ptr %301, i32 0, i32 3
-  store ptr %300, ptr %302, align 8
-  br label %303
+306:                                              ; preds = %291
+  br label %307
 
-303:                                              ; preds = %298, %249
-  br label %513
+307:                                              ; preds = %306, %302
+  %308 = phi ptr [ %305, %302 ], [ null, %306 ]
+  %309 = call ptr @exnewnode(ptr noundef %266, i32 noundef %292, i32 noundef 0, i32 noundef 262, ptr noundef %295, ptr noundef %308)
+  %310 = load ptr, ptr %4, align 8
+  %311 = getelementptr inbounds %struct.Print_s, ptr %310, i32 0, i32 3
+  store ptr %309, ptr %311, align 8
+  br label %312
 
-304:                                              ; preds = %241, %241
-  %305 = load ptr, ptr %4, align 8
-  %306 = getelementptr inbounds %struct.Print_s, ptr %305, i32 0, i32 3
-  %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds %struct.Exnode_s, ptr %307, i32 0, i32 0
-  %309 = load i32, ptr %308, align 8
-  %310 = icmp sge i32 %309, 259
-  br i1 %310, label %311, label %318
+312:                                              ; preds = %307, %257
+  br label %528
 
-311:                                              ; preds = %304
-  %312 = load ptr, ptr %4, align 8
-  %313 = getelementptr inbounds %struct.Print_s, ptr %312, i32 0, i32 3
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds %struct.Exnode_s, ptr %314, i32 0, i32 0
-  %316 = load i32, ptr %315, align 8
-  %317 = icmp sle i32 %316, 261
-  br i1 %317, label %356, label %318
+313:                                              ; preds = %249, %249
+  %314 = load ptr, ptr %4, align 8
+  %315 = getelementptr inbounds %struct.Print_s, ptr %314, i32 0, i32 3
+  %316 = load ptr, ptr %315, align 8
+  %317 = getelementptr inbounds %struct.Exnode_s, ptr %316, i32 0, i32 0
+  %318 = load i32, ptr %317, align 8
+  %319 = icmp sge i32 %318, 259
+  br i1 %319, label %320, label %327
 
-318:                                              ; preds = %311, %304
-  %319 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %320 = load ptr, ptr %4, align 8
-  %321 = getelementptr inbounds %struct.Print_s, ptr %320, i32 0, i32 3
-  %322 = load ptr, ptr %321, align 8
-  %323 = getelementptr inbounds %struct.Exnode_s, ptr %322, i32 0, i32 0
-  %324 = load i32, ptr %323, align 8
-  %325 = icmp eq i32 %324, 263
-  br i1 %325, label %326, label %327
+320:                                              ; preds = %313
+  %321 = load ptr, ptr %4, align 8
+  %322 = getelementptr inbounds %struct.Print_s, ptr %321, i32 0, i32 3
+  %323 = load ptr, ptr %322, align 8
+  %324 = getelementptr inbounds %struct.Exnode_s, ptr %323, i32 0, i32 0
+  %325 = load i32, ptr %324, align 8
+  %326 = icmp sle i32 %325, 261
+  br i1 %326, label %366, label %327
 
-326:                                              ; preds = %318
-  br label %335
+327:                                              ; preds = %320, %313
+  %328 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %329 = load ptr, ptr %328, align 8
+  %330 = load ptr, ptr %4, align 8
+  %331 = getelementptr inbounds %struct.Print_s, ptr %330, i32 0, i32 3
+  %332 = load ptr, ptr %331, align 8
+  %333 = getelementptr inbounds %struct.Exnode_s, ptr %332, i32 0, i32 0
+  %334 = load i32, ptr %333, align 8
+  %335 = icmp eq i32 %334, 263
+  br i1 %335, label %336, label %337
 
-327:                                              ; preds = %318
-  %328 = load ptr, ptr %4, align 8
-  %329 = getelementptr inbounds %struct.Print_s, ptr %328, i32 0, i32 3
-  %330 = load ptr, ptr %329, align 8
-  %331 = getelementptr inbounds %struct.Exnode_s, ptr %330, i32 0, i32 0
-  %332 = load i32, ptr %331, align 8
-  %333 = icmp eq i32 %332, 262
-  %334 = select i1 %333, i32 308, i32 319
-  br label %335
+336:                                              ; preds = %327
+  br label %345
 
-335:                                              ; preds = %327, %326
-  %336 = phi i32 [ 314, %326 ], [ %334, %327 ]
-  %337 = load ptr, ptr %4, align 8
-  %338 = getelementptr inbounds %struct.Print_s, ptr %337, i32 0, i32 3
-  %339 = load ptr, ptr %338, align 8
-  %340 = load ptr, ptr %4, align 8
-  %341 = getelementptr inbounds %struct.Print_s, ptr %340, i32 0, i32 3
-  %342 = load ptr, ptr %341, align 8
-  %343 = getelementptr inbounds %struct.Exnode_s, ptr %342, i32 0, i32 1
-  %344 = load i32, ptr %343, align 4
-  %345 = icmp eq i32 %344, 283
-  br i1 %345, label %346, label %350
+337:                                              ; preds = %327
+  %338 = load ptr, ptr %4, align 8
+  %339 = getelementptr inbounds %struct.Print_s, ptr %338, i32 0, i32 3
+  %340 = load ptr, ptr %339, align 8
+  %341 = getelementptr inbounds %struct.Exnode_s, ptr %340, i32 0, i32 0
+  %342 = load i32, ptr %341, align 8
+  %343 = icmp eq i32 %342, 262
+  %344 = select i1 %343, i32 308, i32 319
+  br label %345
 
-346:                                              ; preds = %335
+345:                                              ; preds = %337, %336
+  %346 = phi i32 [ 314, %336 ], [ %344, %337 ]
   %347 = load ptr, ptr %4, align 8
   %348 = getelementptr inbounds %struct.Print_s, ptr %347, i32 0, i32 3
   %349 = load ptr, ptr %348, align 8
-  br label %351
+  %350 = load ptr, ptr %4, align 8
+  %351 = getelementptr inbounds %struct.Print_s, ptr %350, i32 0, i32 3
+  %352 = load ptr, ptr %351, align 8
+  %353 = getelementptr inbounds %struct.Exnode_s, ptr %352, i32 0, i32 1
+  %354 = load i32, ptr %353, align 4
+  %355 = icmp eq i32 %354, 283
+  br i1 %355, label %356, label %360
 
-350:                                              ; preds = %335
-  br label %351
+356:                                              ; preds = %345
+  %357 = load ptr, ptr %4, align 8
+  %358 = getelementptr inbounds %struct.Print_s, ptr %357, i32 0, i32 3
+  %359 = load ptr, ptr %358, align 8
+  br label %361
 
-351:                                              ; preds = %350, %346
-  %352 = phi ptr [ %349, %346 ], [ null, %350 ]
-  %353 = call ptr @exnewnode(ptr noundef %319, i32 noundef %336, i32 noundef 0, i32 noundef 259, ptr noundef %339, ptr noundef %352)
-  %354 = load ptr, ptr %4, align 8
-  %355 = getelementptr inbounds %struct.Print_s, ptr %354, i32 0, i32 3
-  store ptr %353, ptr %355, align 8
-  br label %356
+360:                                              ; preds = %345
+  br label %361
 
-356:                                              ; preds = %351, %311
-  %357 = load i32, ptr %7, align 4
-  %358 = load ptr, ptr %4, align 8
-  %359 = getelementptr inbounds %struct.Print_s, ptr %358, i32 0, i32 3
-  %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds %struct.Exnode_s, ptr %360, i32 0, i32 0
-  store i32 %357, ptr %361, align 8
-  br label %513
+361:                                              ; preds = %360, %356
+  %362 = phi ptr [ %359, %356 ], [ null, %360 ]
+  %363 = call ptr @exnewnode(ptr noundef %329, i32 noundef %346, i32 noundef 0, i32 noundef 259, ptr noundef %349, ptr noundef %362)
+  %364 = load ptr, ptr %4, align 8
+  %365 = getelementptr inbounds %struct.Print_s, ptr %364, i32 0, i32 3
+  store ptr %363, ptr %365, align 8
+  br label %366
 
-362:                                              ; preds = %241
-  %363 = load ptr, ptr %4, align 8
-  %364 = getelementptr inbounds %struct.Print_s, ptr %363, i32 0, i32 3
-  %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr inbounds %struct.Exnode_s, ptr %365, i32 0, i32 0
-  %367 = load i32, ptr %366, align 8
-  %368 = icmp ne i32 %367, 263
-  br i1 %368, label %369, label %512
+366:                                              ; preds = %361, %320
+  %367 = load i32, ptr %7, align 4
+  %368 = load ptr, ptr %4, align 8
+  %369 = getelementptr inbounds %struct.Print_s, ptr %368, i32 0, i32 3
+  %370 = load ptr, ptr %369, align 8
+  %371 = getelementptr inbounds %struct.Exnode_s, ptr %370, i32 0, i32 0
+  store i32 %367, ptr %371, align 8
+  br label %528
 
-369:                                              ; preds = %362
-  %370 = load ptr, ptr %4, align 8
-  %371 = getelementptr inbounds %struct.Print_s, ptr %370, i32 0, i32 3
-  %372 = load ptr, ptr %371, align 8
-  %373 = getelementptr inbounds %struct.Exnode_s, ptr %372, i32 0, i32 1
-  %374 = load i32, ptr %373, align 4
-  %375 = icmp eq i32 %374, 271
-  br i1 %375, label %376, label %420
+372:                                              ; preds = %249
+  %373 = load ptr, ptr %4, align 8
+  %374 = getelementptr inbounds %struct.Print_s, ptr %373, i32 0, i32 3
+  %375 = load ptr, ptr %374, align 8
+  %376 = getelementptr inbounds %struct.Exnode_s, ptr %375, i32 0, i32 0
+  %377 = load i32, ptr %376, align 8
+  %378 = icmp ne i32 %377, 263
+  br i1 %378, label %379, label %527
 
-376:                                              ; preds = %369
-  %377 = load ptr, ptr %4, align 8
-  %378 = getelementptr inbounds %struct.Print_s, ptr %377, i32 0, i32 3
-  %379 = load ptr, ptr %378, align 8
-  %380 = getelementptr inbounds %struct.Exnode_s, ptr %379, i32 0, i32 5
-  %381 = getelementptr inbounds %struct.anon.2, ptr %380, i32 0, i32 1
+379:                                              ; preds = %372
+  %380 = load ptr, ptr %4, align 8
+  %381 = getelementptr inbounds %struct.Print_s, ptr %380, i32 0, i32 3
   %382 = load ptr, ptr %381, align 8
-  %383 = icmp ne ptr %382, null
-  br i1 %383, label %384, label %420
+  %383 = getelementptr inbounds %struct.Exnode_s, ptr %382, i32 0, i32 1
+  %384 = load i32, ptr %383, align 4
+  %385 = icmp eq i32 %384, 271
+  br i1 %385, label %386, label %433
 
-384:                                              ; preds = %376
-  %385 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %386 = getelementptr inbounds %struct.Expr_s, ptr %385, i32 0, i32 7
-  %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds %struct.Exdisc_s, ptr %387, i32 0, i32 7
+386:                                              ; preds = %379
+  %387 = load ptr, ptr %4, align 8
+  %388 = getelementptr inbounds %struct.Print_s, ptr %387, i32 0, i32 3
   %389 = load ptr, ptr %388, align 8
-  %390 = icmp ne ptr %389, null
-  br i1 %390, label %391, label %420
+  %390 = getelementptr inbounds %struct.Exnode_s, ptr %389, i32 0, i32 5
+  %391 = getelementptr inbounds %struct.anon.2, ptr %390, i32 0, i32 1
+  %392 = load ptr, ptr %391, align 8
+  %393 = icmp ne ptr %392, null
+  br i1 %393, label %394, label %433
 
-391:                                              ; preds = %384
-  %392 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %393 = getelementptr inbounds %struct.Expr_s, ptr %392, i32 0, i32 7
-  %394 = load ptr, ptr %393, align 8
-  %395 = getelementptr inbounds %struct.Exdisc_s, ptr %394, i32 0, i32 7
+394:                                              ; preds = %386
+  %395 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %396 = load ptr, ptr %395, align 8
-  %397 = load ptr, ptr %4, align 8
-  %398 = getelementptr inbounds %struct.Print_s, ptr %397, i32 0, i32 3
-  %399 = load ptr, ptr %398, align 8
-  %400 = call i32 %396(ptr noundef %399, i32 noundef 263, i32 noundef 0)
-  %401 = icmp slt i32 %400, 0
-  br i1 %401, label %402, label %403
+  %397 = getelementptr inbounds %struct.Expr_s, ptr %396, i32 0, i32 7
+  %398 = load ptr, ptr %397, align 8
+  %399 = getelementptr inbounds %struct.Exdisc_s, ptr %398, i32 0, i32 7
+  %400 = load ptr, ptr %399, align 8
+  %401 = icmp ne ptr %400, null
+  br i1 %401, label %402, label %433
 
-402:                                              ; preds = %391
-  call void (ptr, ...) @exerror(ptr noundef @.str.102)
-  br label %419
-
-403:                                              ; preds = %391
-  %404 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %405 = getelementptr inbounds %struct.Expr_s, ptr %404, i32 0, i32 3
+402:                                              ; preds = %394
+  %403 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %404 = load ptr, ptr %403, align 8
+  %405 = getelementptr inbounds %struct.Expr_s, ptr %404, i32 0, i32 7
   %406 = load ptr, ptr %405, align 8
-  %407 = load ptr, ptr %4, align 8
-  %408 = getelementptr inbounds %struct.Print_s, ptr %407, i32 0, i32 3
-  %409 = load ptr, ptr %408, align 8
-  %410 = getelementptr inbounds %struct.Exnode_s, ptr %409, i32 0, i32 5
-  %411 = getelementptr inbounds %struct.anon.2, ptr %410, i32 0, i32 0
-  %412 = load ptr, ptr %411, align 8
-  %413 = call ptr @vmstrdup(ptr noundef %406, ptr noundef %412)
-  %414 = load ptr, ptr %4, align 8
-  %415 = getelementptr inbounds %struct.Print_s, ptr %414, i32 0, i32 3
-  %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds %struct.Exnode_s, ptr %416, i32 0, i32 5
-  %418 = getelementptr inbounds %struct.anon.2, ptr %417, i32 0, i32 0
-  store ptr %413, ptr %418, align 8
-  br label %419
+  %407 = getelementptr inbounds %struct.Exdisc_s, ptr %406, i32 0, i32 7
+  %408 = load ptr, ptr %407, align 8
+  %409 = load ptr, ptr %4, align 8
+  %410 = getelementptr inbounds %struct.Print_s, ptr %409, i32 0, i32 3
+  %411 = load ptr, ptr %410, align 8
+  %412 = call i32 %408(ptr noundef %411, i32 noundef 263, i32 noundef 0)
+  %413 = icmp slt i32 %412, 0
+  br i1 %413, label %414, label %415
 
-419:                                              ; preds = %403, %402
-  br label %511
+414:                                              ; preds = %402
+  call void (ptr, ...) @exerror(ptr noundef @.str.102)
+  br label %432
 
-420:                                              ; preds = %384, %376, %369
-  %421 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %422 = getelementptr inbounds %struct.Expr_s, ptr %421, i32 0, i32 7
-  %423 = load ptr, ptr %422, align 8
-  %424 = getelementptr inbounds %struct.Exdisc_s, ptr %423, i32 0, i32 7
+415:                                              ; preds = %402
+  %416 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %417 = load ptr, ptr %416, align 8
+  %418 = getelementptr inbounds %struct.Expr_s, ptr %417, i32 0, i32 3
+  %419 = load ptr, ptr %418, align 8
+  %420 = load ptr, ptr %4, align 8
+  %421 = getelementptr inbounds %struct.Print_s, ptr %420, i32 0, i32 3
+  %422 = load ptr, ptr %421, align 8
+  %423 = getelementptr inbounds %struct.Exnode_s, ptr %422, i32 0, i32 5
+  %424 = getelementptr inbounds %struct.anon.2, ptr %423, i32 0, i32 0
   %425 = load ptr, ptr %424, align 8
-  %426 = icmp ne ptr %425, null
-  br i1 %426, label %427, label %462
+  %426 = call ptr @vmstrdup(ptr noundef %419, ptr noundef %425)
+  %427 = load ptr, ptr %4, align 8
+  %428 = getelementptr inbounds %struct.Print_s, ptr %427, i32 0, i32 3
+  %429 = load ptr, ptr %428, align 8
+  %430 = getelementptr inbounds %struct.Exnode_s, ptr %429, i32 0, i32 5
+  %431 = getelementptr inbounds %struct.anon.2, ptr %430, i32 0, i32 0
+  store ptr %426, ptr %431, align 8
+  br label %432
 
-427:                                              ; preds = %420
-  %428 = load ptr, ptr %4, align 8
-  %429 = getelementptr inbounds %struct.Print_s, ptr %428, i32 0, i32 3
-  %430 = load ptr, ptr %429, align 8
-  %431 = getelementptr inbounds %struct.Exnode_s, ptr %430, i32 0, i32 1
-  %432 = load i32, ptr %431, align 4
-  %433 = icmp ne i32 %432, 283
-  br i1 %433, label %434, label %463
+432:                                              ; preds = %415, %414
+  br label %526
 
-434:                                              ; preds = %427
-  %435 = load ptr, ptr %4, align 8
-  %436 = getelementptr inbounds %struct.Print_s, ptr %435, i32 0, i32 3
+433:                                              ; preds = %394, %386, %379
+  %434 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %435 = load ptr, ptr %434, align 8
+  %436 = getelementptr inbounds %struct.Expr_s, ptr %435, i32 0, i32 7
   %437 = load ptr, ptr %436, align 8
-  %438 = getelementptr inbounds %struct.Exnode_s, ptr %437, i32 0, i32 1
-  %439 = load i32, ptr %438, align 4
-  %440 = icmp ne i32 %439, 275
-  br i1 %440, label %441, label %463
+  %438 = getelementptr inbounds %struct.Exdisc_s, ptr %437, i32 0, i32 7
+  %439 = load ptr, ptr %438, align 8
+  %440 = icmp ne ptr %439, null
+  br i1 %440, label %441, label %476
 
-441:                                              ; preds = %434
+441:                                              ; preds = %433
   %442 = load ptr, ptr %4, align 8
   %443 = getelementptr inbounds %struct.Print_s, ptr %442, i32 0, i32 3
   %444 = load ptr, ptr %443, align 8
   %445 = getelementptr inbounds %struct.Exnode_s, ptr %444, i32 0, i32 1
   %446 = load i32, ptr %445, align 4
-  %447 = icmp ne i32 %446, 315
-  br i1 %447, label %448, label %463
+  %447 = icmp ne i32 %446, 283
+  br i1 %447, label %448, label %477
 
 448:                                              ; preds = %441
   %449 = load ptr, ptr %4, align 8
@@ -9899,8 +10140,8 @@ define internal ptr @preprint(ptr noundef %0) #0 {
   %451 = load ptr, ptr %450, align 8
   %452 = getelementptr inbounds %struct.Exnode_s, ptr %451, i32 0, i32 1
   %453 = load i32, ptr %452, align 4
-  %454 = icmp ne i32 %453, 316
-  br i1 %454, label %455, label %463
+  %454 = icmp ne i32 %453, 275
+  br i1 %454, label %455, label %477
 
 455:                                              ; preds = %448
   %456 = load ptr, ptr %4, align 8
@@ -9908,157 +10149,179 @@ define internal ptr @preprint(ptr noundef %0) #0 {
   %458 = load ptr, ptr %457, align 8
   %459 = getelementptr inbounds %struct.Exnode_s, ptr %458, i32 0, i32 1
   %460 = load i32, ptr %459, align 4
-  %461 = icmp ne i32 %460, 317
-  br i1 %461, label %462, label %463
+  %461 = icmp ne i32 %460, 315
+  br i1 %461, label %462, label %477
 
-462:                                              ; preds = %455, %420
+462:                                              ; preds = %455
+  %463 = load ptr, ptr %4, align 8
+  %464 = getelementptr inbounds %struct.Print_s, ptr %463, i32 0, i32 3
+  %465 = load ptr, ptr %464, align 8
+  %466 = getelementptr inbounds %struct.Exnode_s, ptr %465, i32 0, i32 1
+  %467 = load i32, ptr %466, align 4
+  %468 = icmp ne i32 %467, 316
+  br i1 %468, label %469, label %477
+
+469:                                              ; preds = %462
+  %470 = load ptr, ptr %4, align 8
+  %471 = getelementptr inbounds %struct.Print_s, ptr %470, i32 0, i32 3
+  %472 = load ptr, ptr %471, align 8
+  %473 = getelementptr inbounds %struct.Exnode_s, ptr %472, i32 0, i32 1
+  %474 = load i32, ptr %473, align 4
+  %475 = icmp ne i32 %474, 317
+  br i1 %475, label %476, label %477
+
+476:                                              ; preds = %469, %433
   call void (ptr, ...) @exerror(ptr noundef @.str.103)
-  br label %510
+  br label %525
 
-463:                                              ; preds = %455, %448, %441, %434, %427
-  %464 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %465 = load ptr, ptr %4, align 8
-  %466 = getelementptr inbounds %struct.Print_s, ptr %465, i32 0, i32 3
-  %467 = load ptr, ptr %466, align 8
-  %468 = getelementptr inbounds %struct.Exnode_s, ptr %467, i32 0, i32 0
-  %469 = load i32, ptr %468, align 8
-  %470 = icmp eq i32 %469, 262
-  br i1 %470, label %471, label %472
-
-471:                                              ; preds = %463
-  br label %489
-
-472:                                              ; preds = %463
-  %473 = load ptr, ptr %4, align 8
-  %474 = getelementptr inbounds %struct.Print_s, ptr %473, i32 0, i32 3
-  %475 = load ptr, ptr %474, align 8
-  %476 = getelementptr inbounds %struct.Exnode_s, ptr %475, i32 0, i32 0
-  %477 = load i32, ptr %476, align 8
-  %478 = icmp sge i32 %477, 259
-  br i1 %478, label %479, label %486
-
-479:                                              ; preds = %472
+477:                                              ; preds = %469, %462, %455, %448, %441
+  %478 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %479 = load ptr, ptr %478, align 8
   %480 = load ptr, ptr %4, align 8
   %481 = getelementptr inbounds %struct.Print_s, ptr %480, i32 0, i32 3
   %482 = load ptr, ptr %481, align 8
   %483 = getelementptr inbounds %struct.Exnode_s, ptr %482, i32 0, i32 0
   %484 = load i32, ptr %483, align 8
-  %485 = icmp sle i32 %484, 261
-  br label %486
+  %485 = icmp eq i32 %484, 262
+  br i1 %485, label %486, label %487
 
-486:                                              ; preds = %479, %472
-  %487 = phi i1 [ false, %472 ], [ %485, %479 ]
-  %488 = select i1 %487, i32 311, i32 320
-  br label %489
+486:                                              ; preds = %477
+  br label %504
 
-489:                                              ; preds = %486, %471
-  %490 = phi i32 [ 309, %471 ], [ %488, %486 ]
-  %491 = load ptr, ptr %4, align 8
-  %492 = getelementptr inbounds %struct.Print_s, ptr %491, i32 0, i32 3
-  %493 = load ptr, ptr %492, align 8
-  %494 = load ptr, ptr %4, align 8
-  %495 = getelementptr inbounds %struct.Print_s, ptr %494, i32 0, i32 3
-  %496 = load ptr, ptr %495, align 8
-  %497 = getelementptr inbounds %struct.Exnode_s, ptr %496, i32 0, i32 1
-  %498 = load i32, ptr %497, align 4
-  %499 = icmp eq i32 %498, 283
-  br i1 %499, label %500, label %504
+487:                                              ; preds = %477
+  %488 = load ptr, ptr %4, align 8
+  %489 = getelementptr inbounds %struct.Print_s, ptr %488, i32 0, i32 3
+  %490 = load ptr, ptr %489, align 8
+  %491 = getelementptr inbounds %struct.Exnode_s, ptr %490, i32 0, i32 0
+  %492 = load i32, ptr %491, align 8
+  %493 = icmp sge i32 %492, 259
+  br i1 %493, label %494, label %501
 
-500:                                              ; preds = %489
-  %501 = load ptr, ptr %4, align 8
-  %502 = getelementptr inbounds %struct.Print_s, ptr %501, i32 0, i32 3
-  %503 = load ptr, ptr %502, align 8
-  br label %505
+494:                                              ; preds = %487
+  %495 = load ptr, ptr %4, align 8
+  %496 = getelementptr inbounds %struct.Print_s, ptr %495, i32 0, i32 3
+  %497 = load ptr, ptr %496, align 8
+  %498 = getelementptr inbounds %struct.Exnode_s, ptr %497, i32 0, i32 0
+  %499 = load i32, ptr %498, align 8
+  %500 = icmp sle i32 %499, 261
+  br label %501
 
-504:                                              ; preds = %489
-  br label %505
+501:                                              ; preds = %494, %487
+  %502 = phi i1 [ false, %487 ], [ %500, %494 ]
+  %503 = select i1 %502, i32 311, i32 320
+  br label %504
 
-505:                                              ; preds = %504, %500
-  %506 = phi ptr [ %503, %500 ], [ null, %504 ]
-  %507 = call ptr @exnewnode(ptr noundef %464, i32 noundef %490, i32 noundef 0, i32 noundef 263, ptr noundef %493, ptr noundef %506)
-  %508 = load ptr, ptr %4, align 8
-  %509 = getelementptr inbounds %struct.Print_s, ptr %508, i32 0, i32 3
-  store ptr %507, ptr %509, align 8
-  br label %510
+504:                                              ; preds = %501, %486
+  %505 = phi i32 [ 309, %486 ], [ %503, %501 ]
+  %506 = load ptr, ptr %4, align 8
+  %507 = getelementptr inbounds %struct.Print_s, ptr %506, i32 0, i32 3
+  %508 = load ptr, ptr %507, align 8
+  %509 = load ptr, ptr %4, align 8
+  %510 = getelementptr inbounds %struct.Print_s, ptr %509, i32 0, i32 3
+  %511 = load ptr, ptr %510, align 8
+  %512 = getelementptr inbounds %struct.Exnode_s, ptr %511, i32 0, i32 1
+  %513 = load i32, ptr %512, align 4
+  %514 = icmp eq i32 %513, 283
+  br i1 %514, label %515, label %519
 
-510:                                              ; preds = %505, %462
-  br label %511
+515:                                              ; preds = %504
+  %516 = load ptr, ptr %4, align 8
+  %517 = getelementptr inbounds %struct.Print_s, ptr %516, i32 0, i32 3
+  %518 = load ptr, ptr %517, align 8
+  br label %520
 
-511:                                              ; preds = %510, %419
-  br label %512
+519:                                              ; preds = %504
+  br label %520
 
-512:                                              ; preds = %511, %362
-  br label %513
+520:                                              ; preds = %519, %515
+  %521 = phi ptr [ %518, %515 ], [ null, %519 ]
+  %522 = call ptr @exnewnode(ptr noundef %479, i32 noundef %505, i32 noundef 0, i32 noundef 263, ptr noundef %508, ptr noundef %521)
+  %523 = load ptr, ptr %4, align 8
+  %524 = getelementptr inbounds %struct.Print_s, ptr %523, i32 0, i32 3
+  store ptr %522, ptr %524, align 8
+  br label %525
 
-513:                                              ; preds = %512, %356, %303, %241
-  %514 = load ptr, ptr %3, align 8
-  %515 = getelementptr inbounds %struct.Exnode_s, ptr %514, i32 0, i32 5
-  %516 = getelementptr inbounds %struct.anon.3, ptr %515, i32 0, i32 1
-  %517 = load ptr, ptr %516, align 8
-  store ptr %517, ptr %3, align 8
-  br label %518
+525:                                              ; preds = %520, %476
+  br label %526
 
-518:                                              ; preds = %513, %111
-  %519 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %520 = getelementptr inbounds %struct.Expr_s, ptr %519, i32 0, i32 3
-  %521 = load ptr, ptr %520, align 8
-  %522 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %523 = getelementptr inbounds %struct.Expr_s, ptr %522, i32 0, i32 10
-  %524 = call ptr @agxbuse(ptr noundef %523)
-  %525 = call ptr @vmstrdup(ptr noundef %521, ptr noundef %524)
-  %526 = load ptr, ptr %4, align 8
-  %527 = getelementptr inbounds %struct.Print_s, ptr %526, i32 0, i32 1
-  store ptr %525, ptr %527, align 8
-  %528 = load ptr, ptr %4, align 8
-  %529 = getelementptr inbounds %struct.Print_s, ptr %528, i32 0, i32 1
-  %530 = load ptr, ptr %529, align 8
-  %531 = icmp eq ptr %530, null
-  br i1 %531, label %532, label %536
+526:                                              ; preds = %525, %432
+  br label %527
 
-532:                                              ; preds = %518
-  %533 = call ptr @exnospace()
-  %534 = load ptr, ptr %4, align 8
-  %535 = getelementptr inbounds %struct.Print_s, ptr %534, i32 0, i32 1
-  store ptr %533, ptr %535, align 8
-  br label %536
+527:                                              ; preds = %526, %372
+  br label %528
 
-536:                                              ; preds = %532, %518
-  %537 = load ptr, ptr %5, align 8
-  %538 = load i8, ptr %537, align 1
-  %539 = icmp ne i8 %538, 0
-  br i1 %539, label %541, label %540
+528:                                              ; preds = %527, %366, %312, %249
+  %529 = load ptr, ptr %3, align 8
+  %530 = getelementptr inbounds %struct.Exnode_s, ptr %529, i32 0, i32 5
+  %531 = getelementptr inbounds %struct.anon.3, ptr %530, i32 0, i32 1
+  %532 = load ptr, ptr %531, align 8
+  store ptr %532, ptr %3, align 8
+  br label %533
 
-540:                                              ; preds = %536
-  br label %543
+533:                                              ; preds = %528, %115
+  %534 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %535 = load ptr, ptr %534, align 8
+  %536 = getelementptr inbounds %struct.Expr_s, ptr %535, i32 0, i32 3
+  %537 = load ptr, ptr %536, align 8
+  %538 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %539 = load ptr, ptr %538, align 8
+  %540 = getelementptr inbounds %struct.Expr_s, ptr %539, i32 0, i32 10
+  %541 = call ptr @agxbuse(ptr noundef %540)
+  %542 = call ptr @vmstrdup(ptr noundef %537, ptr noundef %541)
+  %543 = load ptr, ptr %4, align 8
+  %544 = getelementptr inbounds %struct.Print_s, ptr %543, i32 0, i32 1
+  store ptr %542, ptr %544, align 8
+  %545 = load ptr, ptr %4, align 8
+  %546 = getelementptr inbounds %struct.Print_s, ptr %545, i32 0, i32 1
+  %547 = load ptr, ptr %546, align 8
+  %548 = icmp eq ptr %547, null
+  br i1 %548, label %549, label %553
 
-541:                                              ; preds = %536
-  %542 = load ptr, ptr %5, align 8
-  store ptr %542, ptr %11, align 8
-  br label %98
+549:                                              ; preds = %533
+  %550 = call ptr @exnospace()
+  %551 = load ptr, ptr %4, align 8
+  %552 = getelementptr inbounds %struct.Print_s, ptr %551, i32 0, i32 1
+  store ptr %550, ptr %552, align 8
+  br label %553
 
-543:                                              ; preds = %540
-  %544 = load ptr, ptr %3, align 8
-  %545 = icmp ne ptr %544, null
-  br i1 %545, label %546, label %547
+553:                                              ; preds = %549, %533
+  %554 = load ptr, ptr %5, align 8
+  %555 = load i8, ptr %554, align 1
+  %556 = icmp ne i8 %555, 0
+  br i1 %556, label %558, label %557
 
-546:                                              ; preds = %543
+557:                                              ; preds = %553
+  br label %560
+
+558:                                              ; preds = %553
+  %559 = load ptr, ptr %5, align 8
+  store ptr %559, ptr %11, align 8
+  br label %101
+
+560:                                              ; preds = %557
+  %561 = load ptr, ptr %3, align 8
+  %562 = icmp ne ptr %561, null
+  br i1 %562, label %563, label %564
+
+563:                                              ; preds = %560
   call void (ptr, ...) @exerror(ptr noundef @.str.104)
-  br label %547
+  br label %564
 
-547:                                              ; preds = %546, %543
-  br label %548
+564:                                              ; preds = %563, %560
+  br label %565
 
-548:                                              ; preds = %547, %238, %214, %179, %134, %128, %123
-  %549 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %550 = getelementptr inbounds %struct.Expr_s, ptr %549, i32 0, i32 10
-  call void @agxbclear(ptr noundef %550)
-  %551 = load ptr, ptr %12, align 8
-  store ptr %551, ptr %2, align 8
-  br label %552
+565:                                              ; preds = %564, %246, %221, %184, %138, %132, %127
+  %566 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %567 = load ptr, ptr %566, align 8
+  %568 = getelementptr inbounds %struct.Expr_s, ptr %567, i32 0, i32 10
+  call void @agxbclear(ptr noundef %568)
+  %569 = load ptr, ptr %12, align 8
+  store ptr %569, ptr %2, align 8
+  br label %570
 
-552:                                              ; preds = %548, %35
-  %553 = load ptr, ptr %2, align 8
-  ret ptr %553
+570:                                              ; preds = %565, %35
+  %571 = load ptr, ptr %2, align 8
+  ret ptr %571
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10184,41 +10447,43 @@ define internal ptr @makeVar(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %86 = getelementptr inbounds %struct.Exid_s, ptr %85, i32 0, i32 9
   %87 = getelementptr inbounds [32 x i8], ptr %86, i64 0, i64 0
   call void (ptr, ...) @exerror(ptr noundef @.str.40, ptr noundef %87)
-  br label %111
+  br label %113
 
 88:                                               ; preds = %59
-  %89 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %90 = getelementptr inbounds %struct.Expr_s, ptr %89, i32 0, i32 7
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %struct.Exdisc_s, ptr %91, i32 0, i32 14
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp ne ptr %93, null
-  br i1 %94, label %95, label %110
+  %89 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds %struct.Expr_s, ptr %90, i32 0, i32 7
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds %struct.Exdisc_s, ptr %92, i32 0, i32 14
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %112
 
-95:                                               ; preds = %88
-  %96 = load ptr, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i32 0, i32 4), align 8
-  %97 = getelementptr inbounds %struct.Expr_s, ptr %96, i32 0, i32 7
+96:                                               ; preds = %88
+  %97 = getelementptr inbounds %struct.Exstate_s, ptr @expr, i32 0, i32 4
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct.Exdisc_s, ptr %98, i32 0, i32 14
+  %99 = getelementptr inbounds %struct.Expr_s, ptr %98, i32 0, i32 7
   %100 = load ptr, ptr %99, align 8
-  %101 = load ptr, ptr %6, align 8
-  %102 = load ptr, ptr %11, align 8
-  %103 = load ptr, ptr %11, align 8
-  %104 = getelementptr inbounds %struct.Exnode_s, ptr %103, i32 0, i32 5
-  %105 = getelementptr inbounds %struct.anon.5, ptr %104, i32 0, i32 0
-  %106 = load ptr, ptr %105, align 8
-  %107 = load ptr, ptr %10, align 8
-  %108 = call ptr %100(ptr noundef %101, ptr noundef %102, ptr noundef %106, ptr noundef %107)
-  %109 = getelementptr inbounds %union.EX_STYPE, ptr %14, i32 0, i32 0
-  store ptr %108, ptr %109, align 8
-  br label %110
+  %101 = getelementptr inbounds %struct.Exdisc_s, ptr %100, i32 0, i32 14
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr %6, align 8
+  %104 = load ptr, ptr %11, align 8
+  %105 = load ptr, ptr %11, align 8
+  %106 = getelementptr inbounds %struct.Exnode_s, ptr %105, i32 0, i32 5
+  %107 = getelementptr inbounds %struct.anon.5, ptr %106, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8
+  %109 = load ptr, ptr %10, align 8
+  %110 = call ptr %102(ptr noundef %103, ptr noundef %104, ptr noundef %108, ptr noundef %109)
+  %111 = getelementptr inbounds %union.EX_STYPE, ptr %14, i32 0, i32 0
+  store ptr %110, ptr %111, align 8
+  br label %112
 
-110:                                              ; preds = %95, %88
-  br label %111
+112:                                              ; preds = %96, %88
+  br label %113
 
-111:                                              ; preds = %110, %84
-  %112 = load ptr, ptr %11, align 8
-  ret ptr %112
+113:                                              ; preds = %112, %84
+  %114 = load ptr, ptr %11, align 8
+  ret ptr %114
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10445,17 +10710,8 @@ define internal zeroext i1 @gv_isalnum(i32 noundef %0) #0 {
   ret i1 %9
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #9
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @yysymbol_name(i32 noundef %0) #0 {
@@ -11151,7 +11407,7 @@ define internal ptr @gv_calloc(i64 noundef %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @graphviz_exit(i32 noundef %0) #10 {
+define internal void @graphviz_exit(i32 noundef %0) #9 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -11222,7 +11478,7 @@ define internal ptr @gv_realloc(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #11
+declare void @exit(i32 noundef) #10
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @gv_islower(i32 noundef %0) #0 {
@@ -11304,6 +11560,15 @@ define internal zeroext i1 @gv_isdigit(i32 noundef %0) #0 {
   ret i1 %9
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -11313,9 +11578,9 @@ attributes #5 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-mat
 attributes #6 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind allocsize(0,1) }
 attributes #14 = { nounwind allocsize(0) }

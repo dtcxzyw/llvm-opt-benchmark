@@ -1110,7 +1110,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl13base_internal12_GLOBAL__N_142ThreadIdentityTest_BasicIdentityWorks_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl13base_internal12_GLOBAL__N_142ThreadIdentityTest_BasicIdentityWorks_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1245,7 +1246,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl13base_internal12_GLOBAL__N_150ThreadIdentityTest_BasicIdentityWorksThreaded_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl13base_internal12_GLOBAL__N_150ThreadIdentityTest_BasicIdentityWorksThreaded_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1360,7 +1362,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl13base_internal12_GLOBAL__N_153ThreadIdentityTest_ReusedThreadIdentityMutexTest_TestEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl13base_internal12_GLOBAL__N_153ThreadIdentityTest_ReusedThreadIdentityMutexTest_TestEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1372,7 +1375,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1458,7 +1462,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl13base_internal12_GLOBAL__N_142ThreadIdentityTest_BasicIdentityWorks_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl13base_internal12_GLOBAL__N_142ThreadIdentityTest_BasicIdentityWorks_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1544,14 +1549,15 @@ entry:
   %l = alloca %"class.absl::base_internal::SpinLockHolder", align 8
   store ptr %assert_no_identity, ptr %assert_no_identity.addr, align 8
   %0 = load ptr, ptr %assert_no_identity.addr, align 8
-  %cmp = icmp eq ptr %0, inttoptr (i64 1 to ptr)
+  %1 = inttoptr i64 1 to ptr
+  %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %entry
   %call = call noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv()
   store ptr %call, ptr %identity, align 8
-  %1 = load ptr, ptr %identity, align 8
-  %cmp1 = icmp eq ptr %1, null
+  %2 = load ptr, ptr %identity, align 8
+  %cmp1 = icmp eq ptr %2, null
   %frombool = zext i1 %cmp1 to i8
   store i8 %frombool, ptr %ref.tmp, align 1
   call void @_ZN7testing15AssertionResultC2IbEERKT_PNSt9enable_ifIXntsr3std14is_convertibleIS2_S0_EE5valueEvE4typeE(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef null)
@@ -1565,12 +1571,12 @@ if.then3:                                         ; preds = %invoke.cont
   br label %if.end
 
 lpad:                                             ; preds = %if.else, %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup16
 
 if.else:                                          ; preds = %invoke.cont
@@ -1597,30 +1603,30 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   br label %if.end
 
 lpad8:                                            ; preds = %invoke.cont5
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup15
 
 lpad11:                                           ; preds = %invoke.cont9
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad13:                                           ; preds = %invoke.cont12
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6) #3
   br label %ehcleanup
 
@@ -1643,8 +1649,8 @@ ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
 if.end17:                                         ; preds = %if.end, %entry
   %call18 = call noundef ptr @_ZN4absl24synchronization_internal32GetOrCreateCurrentThreadIdentityEv()
   store ptr %call18, ptr %identity, align 8
-  %14 = load ptr, ptr %identity, align 8
-  %cmp21 = icmp ne ptr %14, null
+  %15 = load ptr, ptr %identity, align 8
+  %cmp21 = icmp ne ptr %15, null
   %frombool22 = zext i1 %cmp21 to i8
   store i8 %frombool22, ptr %ref.tmp20, align 1
   call void @_ZN7testing15AssertionResultC2IbEERKT_PNSt9enable_ifIXntsr3std14is_convertibleIS2_S0_EE5valueEvE4typeE(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_19, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20, ptr noundef null)
@@ -1658,12 +1664,12 @@ if.then26:                                        ; preds = %invoke.cont24
   br label %if.end42
 
 lpad23:                                           ; preds = %if.else27, %if.end17
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup43
 
 if.else27:                                        ; preds = %invoke.cont24
@@ -1690,30 +1696,30 @@ invoke.cont38:                                    ; preds = %invoke.cont36
   br label %if.end42
 
 lpad32:                                           ; preds = %invoke.cont29
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup41
 
 lpad35:                                           ; preds = %invoke.cont33
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %ehcleanup40
 
 lpad37:                                           ; preds = %invoke.cont36
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp30) #3
   br label %ehcleanup40
 
@@ -1729,9 +1735,9 @@ if.end42:                                         ; preds = %invoke.cont38, %if.
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_19) #3
   %call44 = call noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv()
   store ptr %call44, ptr %identity_no_init, align 8
-  %27 = load ptr, ptr %identity, align 8
-  %28 = load ptr, ptr %identity_no_init, align 8
-  %cmp47 = icmp eq ptr %27, %28
+  %28 = load ptr, ptr %identity, align 8
+  %29 = load ptr, ptr %identity_no_init, align 8
+  %cmp47 = icmp eq ptr %28, %29
   %frombool48 = zext i1 %cmp47 to i8
   store i8 %frombool48, ptr %ref.tmp46, align 1
   call void @_ZN7testing15AssertionResultC2IbEERKT_PNSt9enable_ifIXntsr3std14is_convertibleIS2_S0_EE5valueEvE4typeE(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46, ptr noundef null)
@@ -1749,12 +1755,12 @@ ehcleanup43:                                      ; preds = %ehcleanup41, %lpad2
   br label %eh.resume
 
 lpad49:                                           ; preds = %if.else53, %if.end42
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %exn.slot, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %ehselector.slot, align 4
   br label %ehcleanup69
 
 if.else53:                                        ; preds = %invoke.cont50
@@ -1781,30 +1787,30 @@ invoke.cont64:                                    ; preds = %invoke.cont62
   br label %if.end68
 
 lpad58:                                           ; preds = %invoke.cont55
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %exn.slot, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %ehselector.slot, align 4
   br label %ehcleanup67
 
 lpad61:                                           ; preds = %invoke.cont59
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %exn.slot, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %ehselector.slot, align 4
   br label %ehcleanup66
 
 lpad63:                                           ; preds = %invoke.cont62
-  %38 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %exn.slot, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %ehselector.slot, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %exn.slot, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %ehselector.slot, align 4
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp56) #3
   br label %ehcleanup66
 
@@ -1819,10 +1825,10 @@ ehcleanup67:                                      ; preds = %ehcleanup66, %lpad5
 if.end68:                                         ; preds = %invoke.cont64, %if.then52
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_45) #3
   store i32 0, ptr %ref.tmp70, align 4
-  %41 = load ptr, ptr %identity, align 8
-  %per_thread_synch = getelementptr inbounds %"struct.absl::base_internal::ThreadIdentity", ptr %41, i32 0, i32 0
-  %42 = ptrtoint ptr %per_thread_synch to i64
-  %rem = srem i64 %42, 256
+  %42 = load ptr, ptr %identity, align 8
+  %per_thread_synch = getelementptr inbounds %"struct.absl::base_internal::ThreadIdentity", ptr %42, i32 0, i32 0
+  %43 = ptrtoint ptr %per_thread_synch to i64
+  %rem = srem i64 %43, 256
   store i64 %rem, ptr %ref.tmp71, align 8
   call void @_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_(ptr sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef @.str.13, ptr noundef @.str.14, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp71)
   %call74 = invoke noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar)
@@ -1839,12 +1845,12 @@ ehcleanup69:                                      ; preds = %ehcleanup67, %lpad4
   br label %eh.resume
 
 lpad72:                                           ; preds = %if.else76, %if.end68
-  %43 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %exn.slot, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %ehselector.slot, align 4
   br label %ehcleanup89
 
 if.else76:                                        ; preds = %invoke.cont73
@@ -1869,21 +1875,21 @@ invoke.cont85:                                    ; preds = %invoke.cont83
   br label %if.end88
 
 lpad80:                                           ; preds = %invoke.cont81, %invoke.cont78
-  %46 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %exn.slot, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %ehselector.slot, align 4
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %exn.slot, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %ehselector.slot, align 4
   br label %ehcleanup87
 
 lpad84:                                           ; preds = %invoke.cont83
-  %49 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %exn.slot, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %ehselector.slot, align 4
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %exn.slot, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %ehselector.slot, align 4
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp79) #3
   br label %ehcleanup87
 
@@ -1893,8 +1899,8 @@ ehcleanup87:                                      ; preds = %lpad84, %lpad80
 
 if.end88:                                         ; preds = %invoke.cont85, %if.then75
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar) #3
-  %52 = load ptr, ptr %identity, align 8
-  %per_thread_synch92 = getelementptr inbounds %"struct.absl::base_internal::ThreadIdentity", ptr %52, i32 0, i32 0
+  %53 = load ptr, ptr %identity, align 8
+  %per_thread_synch92 = getelementptr inbounds %"struct.absl::base_internal::ThreadIdentity", ptr %53, i32 0, i32 0
   %call93 = call noundef ptr @_ZN4absl13base_internal14PerThreadSynch15thread_identityEv(ptr noundef nonnull align 8 dereferenceable(64) %per_thread_synch92)
   store ptr %call93, ptr %ref.tmp91, align 8
   call void @_ZN7testing8internal8EqHelper7CompareIPN4absl13base_internal14ThreadIdentityES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_(ptr sret(%"class.testing::AssertionResult") align 8 %gtest_ar90, ptr noundef @.str.15, ptr noundef @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %identity, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp91)
@@ -1912,12 +1918,12 @@ ehcleanup89:                                      ; preds = %ehcleanup87, %lpad7
   br label %eh.resume
 
 lpad94:                                           ; preds = %if.else98, %if.end88
-  %53 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %exn.slot, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %ehselector.slot, align 4
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %exn.slot, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %ehselector.slot, align 4
   br label %ehcleanup111
 
 if.else98:                                        ; preds = %invoke.cont95
@@ -1942,21 +1948,21 @@ invoke.cont107:                                   ; preds = %invoke.cont105
   br label %if.end110
 
 lpad102:                                          ; preds = %invoke.cont103, %invoke.cont100
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %exn.slot, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %ehselector.slot, align 4
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %exn.slot, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %ehselector.slot, align 4
   br label %ehcleanup109
 
 lpad106:                                          ; preds = %invoke.cont105
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %60 = extractvalue { ptr, i32 } %59, 0
-  store ptr %60, ptr %exn.slot, align 8
-  %61 = extractvalue { ptr, i32 } %59, 1
-  store i32 %61, ptr %ehselector.slot, align 4
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %exn.slot, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %ehselector.slot, align 4
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp101) #3
   br label %ehcleanup109
 
@@ -1967,8 +1973,8 @@ ehcleanup109:                                     ; preds = %lpad106, %lpad102
 if.end110:                                        ; preds = %invoke.cont107, %if.then97
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar90) #3
   call void @_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE(ptr noundef nonnull align 8 dereferenceable(8) %l, ptr noundef @_ZN4absl13base_internal12_GLOBAL__N_18map_lockE)
-  %62 = load i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_121num_identities_reusedE, align 4
-  %inc = add nsw i32 %62, 1
+  %63 = load i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_121num_identities_reusedE, align 4
+  %inc = add nsw i32 %63, 1
   store i32 %inc, ptr @_ZN4absl13base_internal12_GLOBAL__N_121num_identities_reusedE, align 4
   call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l) #3
   ret void
@@ -4161,7 +4167,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl13base_internal12_GLOBAL__N_150ThreadIdentityTest_BasicIdentityWorksThreaded_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl13base_internal12_GLOBAL__N_150ThreadIdentityTest_BasicIdentityWorksThreaded_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5518,23 +5525,24 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPKvES4_EEEEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPKvES4_EEEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this3, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  invoke void @_ZNSt6thread8_InvokerISt5tupleIJPFvPKvES3_EEEC2IJRS4_RKS3_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %_M_func, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  invoke void @_ZNSt6thread8_InvokerISt5tupleIJPFvPKvES3_EEEC2IJRS4_RKS3_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %_M_func, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #3
   br label %eh.resume
 
@@ -5614,7 +5622,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7121,7 +7130,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl13base_internal12_GLOBAL__N_153ThreadIdentityTest_ReusedThreadIdentityMutexTest_TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4absl13base_internal12_GLOBAL__N_153ThreadIdentityTest_ReusedThreadIdentityMutexTest_TestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7482,22 +7492,23 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4absl13base_internal12_GLOBAL__N_153ThreadIdentityTest_ReusedThreadIdentityMutexTest_Test8TestBodyEvE3$_0EEEEEE", i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4absl13base_internal12_GLOBAL__N_153ThreadIdentityTest_ReusedThreadIdentityMutexTest_Test8TestBodyEvE3$_0EEEEEE", i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl.47", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__args.addr, align 8
-  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJZN4absl13base_internal12_GLOBAL__N_153ThreadIdentityTest_ReusedThreadIdentityMutexTest_Test8TestBodyEvE3$_0EEEC2IJS6_EEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(8) %_M_func, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  invoke void @"_ZNSt6thread8_InvokerISt5tupleIJZN4absl13base_internal12_GLOBAL__N_153ThreadIdentityTest_ReusedThreadIdentityMutexTest_Test8TestBodyEvE3$_0EEEC2IJS6_EEEDpOT_"(ptr noundef nonnull align 8 dereferenceable(8) %_M_func, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 

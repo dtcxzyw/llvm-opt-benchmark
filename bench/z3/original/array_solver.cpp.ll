@@ -1151,17 +1151,21 @@ entry:
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef @.str)
   %1 = load i32, ptr %id.addr, align 4
   call void @_ZN3euf13th_euf_solverC2ERNS_6solverERK6symboli(ptr noundef nonnull align 8 dereferenceable(108) %this1, ptr noundef nonnull align 8 dereferenceable(9136) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 32
-  store ptr getelementptr inbounds ({ [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 40
-  store ptr getelementptr inbounds ({ [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %4 = getelementptr inbounds { [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 2, i32 2
+  store ptr %4, ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 48
-  store ptr getelementptr inbounds ({ [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 3, i32 2), ptr %add.ptr3, align 8
+  %5 = getelementptr inbounds { [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 3, i32 2
+  store ptr %5, ptr %add.ptr3, align 8
   %a = getelementptr inbounds %"class.array::solver", ptr %this1, i32 0, i32 1
   %m = getelementptr inbounds %"class.euf::th_solver", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %m, align 8
-  invoke void @_ZN10array_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(976) %2)
+  %6 = load ptr, ptr %m, align 8
+  invoke void @_ZN10array_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(976) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1177,15 +1181,15 @@ invoke.cont4:                                     ; preds = %invoke.cont
 invoke.cont5:                                     ; preds = %invoke.cont4
   %m_sort2epsilon = getelementptr inbounds %"class.array::solver", ptr %this1, i32 0, i32 4
   %m6 = getelementptr inbounds %"class.euf::th_solver", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %m6, align 8
-  invoke void @_ZN16ast2ast_trailmapI4sort3appEC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(56) %m_sort2epsilon, ptr noundef nonnull align 8 dereferenceable(976) %3)
+  %7 = load ptr, ptr %m6, align 8
+  invoke void @_ZN16ast2ast_trailmapI4sort3appEC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(56) %m_sort2epsilon, ptr noundef nonnull align 8 dereferenceable(976) %7)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
   %m_sort2diag = getelementptr inbounds %"class.array::solver", ptr %this1, i32 0, i32 5
   %m9 = getelementptr inbounds %"class.euf::th_solver", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %m9, align 8
-  invoke void @_ZN16ast2ast_trailmapI4sort9func_declEC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(56) %m_sort2diag, ptr noundef nonnull align 8 dereferenceable(976) %4)
+  %8 = load ptr, ptr %m9, align 8
+  invoke void @_ZN16ast2ast_trailmapI4sort9func_declEC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(56) %m_sort2diag, ptr noundef nonnull align 8 dereferenceable(976) %8)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont8
@@ -1292,138 +1296,138 @@ invoke.cont50:                                    ; preds = %invoke.cont48
   ret void
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup63
 
 lpad7:                                            ; preds = %invoke.cont5
-  %8 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup62
 
 lpad10:                                           ; preds = %invoke.cont8
-  %11 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup61
 
 lpad12:                                           ; preds = %invoke.cont11
-  %14 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   br label %ehcleanup60
 
 lpad14:                                           ; preds = %invoke.cont13
-  %17 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   br label %ehcleanup59
 
 lpad16:                                           ; preds = %invoke.cont18, %invoke.cont17, %invoke.cont15
-  %20 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %exn.slot, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %ehselector.slot, align 4
   br label %ehcleanup58
 
 lpad22:                                           ; preds = %invoke.cont21
-  %23 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %exn.slot, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %ehselector.slot, align 4
   br label %ehcleanup57
 
 lpad24:                                           ; preds = %invoke.cont23
-  %26 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %exn.slot, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %ehselector.slot, align 4
   br label %ehcleanup56
 
 lpad26:                                           ; preds = %invoke.cont25
-  %29 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %exn.slot, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %ehselector.slot, align 4
   br label %ehcleanup55
 
 lpad28:                                           ; preds = %invoke.cont27
-  %32 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %exn.slot, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %ehselector.slot, align 4
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %exn.slot, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %ehselector.slot, align 4
   br label %ehcleanup54
 
 lpad30:                                           ; preds = %invoke.cont29
-  %35 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %exn.slot, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %ehselector.slot, align 4
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %exn.slot, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %ehselector.slot, align 4
   br label %ehcleanup53
 
 lpad32:                                           ; preds = %invoke.cont31
-  %38 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %exn.slot, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %ehselector.slot, align 4
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %exn.slot, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %ehselector.slot, align 4
   br label %ehcleanup52
 
 lpad34:                                           ; preds = %invoke.cont33
-  %41 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %exn.slot, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %ehselector.slot, align 4
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %exn.slot, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %ehselector.slot, align 4
   br label %ehcleanup51
 
 lpad36:                                           ; preds = %invoke.cont35
-  %44 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %45 = extractvalue { ptr, i32 } %44, 0
-  store ptr %45, ptr %exn.slot, align 8
-  %46 = extractvalue { ptr, i32 } %44, 1
-  store i32 %46, ptr %ehselector.slot, align 4
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %exn.slot, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad38:                                           ; preds = %invoke.cont48, %invoke.cont45, %invoke.cont42, %invoke.cont40, %invoke.cont39, %invoke.cont37
-  %47 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %exn.slot, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %ehselector.slot, align 4
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %exn.slot, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %ehselector.slot, align 4
   call void @_ZN10ptr_vectorI13ptr_hashtableIN3euf5enodeEN5array6solver8sel_hashENS4_6sel_eqEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_selects_range) #3
   br label %ehcleanup
 
@@ -2116,13 +2120,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [67 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN3euf13th_euf_solverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [67 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN3euf13th_euf_solverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 32
-  store ptr getelementptr inbounds ({ [67 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN3euf13th_euf_solverE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [67 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN3euf13th_euf_solverE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 40
-  store ptr getelementptr inbounds ({ [67 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN3euf13th_euf_solverE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %2 = getelementptr inbounds { [67 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN3euf13th_euf_solverE, i32 0, i32 2, i32 2
+  store ptr %2, ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 48
-  store ptr getelementptr inbounds ({ [67 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN3euf13th_euf_solverE, i32 0, i32 3, i32 2), ptr %add.ptr3, align 8
+  %3 = getelementptr inbounds { [67 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN3euf13th_euf_solverE, i32 0, i32 3, i32 2
+  store ptr %3, ptr %add.ptr3, align 8
   %m_var2enode_lim = getelementptr inbounds %"class.euf::th_euf_solver", ptr %this1, i32 0, i32 3
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_var2enode_lim) #3
   %m_var2enode = getelementptr inbounds %"class.euf::th_euf_solver", ptr %this1, i32 0, i32 2
@@ -2137,13 +2145,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 32
-  store ptr getelementptr inbounds ({ [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 40
-  store ptr getelementptr inbounds ({ [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
+  %2 = getelementptr inbounds { [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 2, i32 2
+  store ptr %2, ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 48
-  store ptr getelementptr inbounds ({ [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 3, i32 2), ptr %add.ptr3, align 8
+  %3 = getelementptr inbounds { [78 x ptr], [10 x ptr], [5 x ptr], [11 x ptr] }, ptr @_ZTVN5array6solverE, i32 0, i32 3, i32 2
+  store ptr %3, ptr %add.ptr3, align 8
   %m_selects_range = getelementptr inbounds %"class.array::solver", ptr %this1, i32 0, i32 21
   call void @_ZN10ptr_vectorI13ptr_hashtableIN3euf5enodeEN5array6solver8sel_hashENS4_6sel_eqEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_selects_range) #3
   %m_selects_domain = getelementptr inbounds %"class.array::solver", ptr %this1, i32 0, i32 20
@@ -2988,14 +3000,15 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %m_value, align 8
-  %m_old_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %value.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  store i32 %2, ptr %m_old_value, align 8
+  store ptr %1, ptr %m_value, align 8
+  %m_old_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %value.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  store i32 %3, ptr %m_old_value, align 8
   ret void
 }
 
@@ -4021,14 +4034,15 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIbE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIbE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail.253, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %m_value, align 8
-  %m_old_value = getelementptr inbounds %class.value_trail.253, ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %value.addr, align 8
-  %2 = load i8, ptr %1, align 1
-  %tobool = trunc i8 %2 to i1
+  store ptr %1, ptr %m_value, align 8
+  %m_old_value = getelementptr inbounds %class.value_trail.253, ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %value.addr, align 8
+  %3 = load i8, ptr %2, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %m_old_value, align 8
   ret void
@@ -4186,10 +4200,11 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16reset_flag_trail, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16reset_flag_trail, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.reset_flag_trail, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %m_value, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  store ptr %1, ptr %m_value, align 8
   ret void
 }
 
@@ -5992,7 +6007,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3euf15th_internalizerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN3euf15th_internalizerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_stack = getelementptr inbounds %"class.euf::th_internalizer", ptr %this1, i32 0, i32 2
   call void @_ZN7svectorIN3sat6eframeEjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_stack) #3
   %m_args = getelementptr inbounds %"class.euf::th_internalizer", ptr %this1, i32 0, i32 1
@@ -6399,7 +6415,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -7145,10 +7162,11 @@ entry:
   store ptr %o, ptr %o.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10union_findIN5array6solverEN3euf6solverEE12mk_var_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN10union_findIN5array6solverEN3euf6solverEE12mk_var_trailE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_owner = getelementptr inbounds %"class.union_find<array::solver, euf::solver>::mk_var_trail", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %o.addr, align 8
-  store ptr %0, ptr %m_owner, align 8
+  %1 = load ptr, ptr %o.addr, align 8
+  store ptr %1, ptr %m_owner, align 8
   ret void
 }
 
@@ -8175,10 +8193,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -8188,7 +8207,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -8426,7 +8446,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -8508,13 +8529,14 @@ entry:
   store i32 %r1, ptr %r1.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10union_findIN5array6solverEN3euf6solverEE11merge_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN10union_findIN5array6solverEN3euf6solverEE11merge_trailE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_owner = getelementptr inbounds %"class.union_find<array::solver, euf::solver>::merge_trail", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %o.addr, align 8
-  store ptr %0, ptr %m_owner, align 8
+  %1 = load ptr, ptr %o.addr, align 8
+  store ptr %1, ptr %m_owner, align 8
   %m_r1 = getelementptr inbounds %"class.union_find<array::solver, euf::solver>::merge_trail", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %r1.addr, align 4
-  store i32 %1, ptr %m_r1, align 8
+  %2 = load i32, ptr %r1.addr, align 4
+  store i32 %2, ptr %m_r1, align 8
   ret void
 }
 
@@ -8617,10 +8639,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10union_findIN5array6solverEN3euf6solverEE11merge_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN10union_findIN5array6solverEN3euf6solverEE11merge_trailE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_owner = getelementptr inbounds %"class.union_find<array::solver, euf::solver>::merge_trail", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_owner2 = getelementptr inbounds %"class.union_find<array::solver, euf::solver>::merge_trail", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_owner2 = getelementptr inbounds %"class.union_find<array::solver, euf::solver>::merge_trail", ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_owner, ptr align 8 %m_owner2, i64 12, i1 false)
   ret void
 }
@@ -8797,7 +8820,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -8936,10 +8960,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_value2 = getelementptr inbounds %class.value_trail, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_value2 = getelementptr inbounds %class.value_trail, ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %m_value2, i64 12, i1 false)
   ret void
 }
@@ -9017,10 +9042,11 @@ entry:
   store ptr %v, ptr %v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15push_back_trailIPN3euf5enodeELb0EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15push_back_trailIPN3euf5enodeELb0EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_vector = getelementptr inbounds %class.push_back_trail, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %v.addr, align 8
-  store ptr %0, ptr %m_vector, align 8
+  %1 = load ptr, ptr %v.addr, align 8
+  store ptr %1, ptr %m_vector, align 8
   ret void
 }
 
@@ -9225,12 +9251,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15push_back_trailIPN3euf5enodeELb0EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV15push_back_trailIPN3euf5enodeELb0EE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_vector = getelementptr inbounds %class.push_back_trail, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_vector2 = getelementptr inbounds %class.push_back_trail, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %m_vector2, align 8
-  store ptr %3, ptr %m_vector, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %m_vector2 = getelementptr inbounds %class.push_back_trail, ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %m_vector2, align 8
+  store ptr %4, ptr %m_vector, align 8
   ret void
 }
 
@@ -9328,10 +9355,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIbE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIbE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail.253, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_value2 = getelementptr inbounds %class.value_trail.253, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_value2 = getelementptr inbounds %class.value_trail.253, ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %m_value2, i64 9, i1 false)
   ret void
 }
@@ -9365,12 +9393,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16reset_flag_trail, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16reset_flag_trail, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.reset_flag_trail, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_value2 = getelementptr inbounds %class.reset_flag_trail, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %m_value2, align 8
-  store ptr %3, ptr %m_value, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %m_value2 = getelementptr inbounds %class.reset_flag_trail, ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %m_value2, align 8
+  store ptr %4, ptr %m_value, align 8
   ret void
 }
 

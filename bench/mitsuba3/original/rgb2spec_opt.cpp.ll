@@ -738,102 +738,106 @@ define hidden void @_Z7cie_labPd(ptr noundef %0) #2 {
   store double 0.000000e+00, ptr %5, align 8
   %11 = load double, ptr @xyz_whitepoint, align 16
   store double %11, ptr %6, align 8
-  %12 = load double, ptr getelementptr inbounds ([3 x double], ptr @xyz_whitepoint, i64 0, i64 1), align 8
-  store double %12, ptr %7, align 8
-  %13 = load double, ptr getelementptr inbounds ([3 x double], ptr @xyz_whitepoint, i64 0, i64 2), align 16
-  store double %13, ptr %8, align 8
+  %12 = getelementptr inbounds [3 x double], ptr @xyz_whitepoint, i64 0, i64 1
+  %13 = load double, ptr %12, align 8
+  store double %13, ptr %7, align 8
+  %14 = getelementptr inbounds [3 x double], ptr @xyz_whitepoint, i64 0, i64 2
+  %15 = load double, ptr %14, align 16
+  store double %15, ptr %8, align 8
   store i32 0, ptr %9, align 4
-  br label %14
+  br label %16
 
-14:                                               ; preds = %54, %1
-  %15 = load i32, ptr %9, align 4
-  %16 = icmp slt i32 %15, 3
-  br i1 %16, label %17, label %57
+16:                                               ; preds = %58, %1
+  %17 = load i32, ptr %9, align 4
+  %18 = icmp slt i32 %17, 3
+  br i1 %18, label %19, label %61
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr %2, align 8
-  %19 = load i32, ptr %9, align 4
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds double, ptr %18, i64 %20
-  %22 = load double, ptr %21, align 8
-  %23 = load i32, ptr %9, align 4
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [3 x double], ptr @rgb_to_xyz, i64 0, i64 %24
-  %26 = load double, ptr %25, align 8
-  %27 = fmul contract double %22, %26
-  %28 = load double, ptr %3, align 8
-  %29 = fadd contract double %28, %27
-  store double %29, ptr %3, align 8
-  %30 = load ptr, ptr %2, align 8
-  %31 = load i32, ptr %9, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds double, ptr %30, i64 %32
-  %34 = load double, ptr %33, align 8
-  %35 = load i32, ptr %9, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [3 x double], ptr getelementptr inbounds ([3 x [3 x double]], ptr @rgb_to_xyz, i64 0, i64 1), i64 0, i64 %36
-  %38 = load double, ptr %37, align 8
-  %39 = fmul contract double %34, %38
-  %40 = load double, ptr %4, align 8
-  %41 = fadd contract double %40, %39
-  store double %41, ptr %4, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = load i32, ptr %9, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds double, ptr %42, i64 %44
-  %46 = load double, ptr %45, align 8
-  %47 = load i32, ptr %9, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [3 x double], ptr getelementptr inbounds ([3 x [3 x double]], ptr @rgb_to_xyz, i64 0, i64 2), i64 0, i64 %48
-  %50 = load double, ptr %49, align 8
-  %51 = fmul contract double %46, %50
-  %52 = load double, ptr %5, align 8
-  %53 = fadd contract double %52, %51
-  store double %53, ptr %5, align 8
-  br label %54
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %2, align 8
+  %21 = load i32, ptr %9, align 4
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds double, ptr %20, i64 %22
+  %24 = load double, ptr %23, align 8
+  %25 = load i32, ptr %9, align 4
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds [3 x double], ptr @rgb_to_xyz, i64 0, i64 %26
+  %28 = load double, ptr %27, align 8
+  %29 = fmul contract double %24, %28
+  %30 = load double, ptr %3, align 8
+  %31 = fadd contract double %30, %29
+  store double %31, ptr %3, align 8
+  %32 = load ptr, ptr %2, align 8
+  %33 = load i32, ptr %9, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds double, ptr %32, i64 %34
+  %36 = load double, ptr %35, align 8
+  %37 = load i32, ptr %9, align 4
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds [3 x [3 x double]], ptr @rgb_to_xyz, i64 0, i64 1
+  %40 = getelementptr inbounds [3 x double], ptr %39, i64 0, i64 %38
+  %41 = load double, ptr %40, align 8
+  %42 = fmul contract double %36, %41
+  %43 = load double, ptr %4, align 8
+  %44 = fadd contract double %43, %42
+  store double %44, ptr %4, align 8
+  %45 = load ptr, ptr %2, align 8
+  %46 = load i32, ptr %9, align 4
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds double, ptr %45, i64 %47
+  %49 = load double, ptr %48, align 8
+  %50 = load i32, ptr %9, align 4
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds [3 x [3 x double]], ptr @rgb_to_xyz, i64 0, i64 2
+  %53 = getelementptr inbounds [3 x double], ptr %52, i64 0, i64 %51
+  %54 = load double, ptr %53, align 8
+  %55 = fmul contract double %49, %54
+  %56 = load double, ptr %5, align 8
+  %57 = fadd contract double %56, %55
+  store double %57, ptr %5, align 8
+  br label %58
 
-54:                                               ; preds = %17
-  %55 = load i32, ptr %9, align 4
-  %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %9, align 4
-  br label %14, !llvm.loop !16
+58:                                               ; preds = %19
+  %59 = load i32, ptr %9, align 4
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %9, align 4
+  br label %16, !llvm.loop !16
 
-57:                                               ; preds = %14
-  %58 = load double, ptr %4, align 8
-  %59 = load double, ptr %7, align 8
-  %60 = fdiv contract double %58, %59
-  %61 = call contract noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %10, double noundef %60)
-  %62 = fmul contract double 1.160000e+02, %61
-  %63 = fsub contract double %62, 1.600000e+01
-  %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds double, ptr %64, i64 0
-  store double %63, ptr %65, align 8
-  %66 = load double, ptr %3, align 8
-  %67 = load double, ptr %6, align 8
-  %68 = fdiv contract double %66, %67
-  %69 = call contract noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %10, double noundef %68)
-  %70 = load double, ptr %4, align 8
-  %71 = load double, ptr %7, align 8
+61:                                               ; preds = %16
+  %62 = load double, ptr %4, align 8
+  %63 = load double, ptr %7, align 8
+  %64 = fdiv contract double %62, %63
+  %65 = call contract noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %10, double noundef %64)
+  %66 = fmul contract double 1.160000e+02, %65
+  %67 = fsub contract double %66, 1.600000e+01
+  %68 = load ptr, ptr %2, align 8
+  %69 = getelementptr inbounds double, ptr %68, i64 0
+  store double %67, ptr %69, align 8
+  %70 = load double, ptr %3, align 8
+  %71 = load double, ptr %6, align 8
   %72 = fdiv contract double %70, %71
   %73 = call contract noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %10, double noundef %72)
-  %74 = fsub contract double %69, %73
-  %75 = fmul contract double 5.000000e+02, %74
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds double, ptr %76, i64 1
-  store double %75, ptr %77, align 8
-  %78 = load double, ptr %4, align 8
-  %79 = load double, ptr %7, align 8
-  %80 = fdiv contract double %78, %79
-  %81 = call contract noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %10, double noundef %80)
-  %82 = load double, ptr %5, align 8
-  %83 = load double, ptr %8, align 8
+  %74 = load double, ptr %4, align 8
+  %75 = load double, ptr %7, align 8
+  %76 = fdiv contract double %74, %75
+  %77 = call contract noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %10, double noundef %76)
+  %78 = fsub contract double %73, %77
+  %79 = fmul contract double 5.000000e+02, %78
+  %80 = load ptr, ptr %2, align 8
+  %81 = getelementptr inbounds double, ptr %80, i64 1
+  store double %79, ptr %81, align 8
+  %82 = load double, ptr %4, align 8
+  %83 = load double, ptr %7, align 8
   %84 = fdiv contract double %82, %83
   %85 = call contract noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %10, double noundef %84)
-  %86 = fsub contract double %81, %85
-  %87 = fmul contract double 2.000000e+02, %86
-  %88 = load ptr, ptr %2, align 8
-  %89 = getelementptr inbounds double, ptr %88, i64 2
-  store double %87, ptr %89, align 8
+  %86 = load double, ptr %5, align 8
+  %87 = load double, ptr %8, align 8
+  %88 = fdiv contract double %86, %87
+  %89 = call contract noundef double @"_ZZ7cie_labPdENK3$_0clEd"(ptr noundef nonnull align 1 dereferenceable(1) %10, double noundef %88)
+  %90 = fsub contract double %85, %89
+  %91 = fmul contract double 2.000000e+02, %90
+  %92 = load ptr, ptr %2, align 8
+  %93 = getelementptr inbounds double, ptr %92, i64 2
+  store double %91, ptr %93, align 8
   ret void
 }
 

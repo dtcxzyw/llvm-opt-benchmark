@@ -47,35 +47,33 @@ define internal void @edge_constructor(ptr noundef %0) #0 {
 
 5:                                                ; preds = %4
   %6 = load i32, ptr @pmix_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_item_t_class, i32 0, i32 4), align 8
-  %8 = icmp ne i32 %6, %7
-  br i1 %8, label %9, label %10
+  %7 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_list_item_t_class, i32 0, i32 4
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp ne i32 %6, %8
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %5
+10:                                               ; preds = %5
   call void @pmix_class_initialize(ptr noundef @pmix_list_item_t_class)
-  br label %10
+  br label %11
 
-10:                                               ; preds = %9, %5
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %11, i32 0, i32 1
-  %13 = getelementptr inbounds %struct.pmix_object_t, ptr %12, i32 0, i32 1
-  store ptr @pmix_list_item_t_class, ptr %13, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %14, i32 0, i32 1
-  %16 = getelementptr inbounds %struct.pmix_object_t, ptr %15, i32 0, i32 2
-  store i32 1, ptr %16, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %17, i32 0, i32 1
-  call void @pmix_obj_construct_tma(ptr noundef %18, ptr noundef null)
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %19, i32 0, i32 1
-  call void @pmix_obj_run_constructors(ptr noundef %20)
-  br label %21
-
-21:                                               ; preds = %10
+11:                                               ; preds = %10, %5
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds %struct.pmix_object_t, ptr %13, i32 0, i32 1
+  store ptr @pmix_list_item_t_class, ptr %14, align 8
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds %struct.pmix_object_t, ptr %16, i32 0, i32 2
+  store i32 1, ptr %17, align 8
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %18, i32 0, i32 1
+  call void @pmix_obj_construct_tma(ptr noundef %19, ptr noundef null)
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %20, i32 0, i32 1
+  call void @pmix_obj_run_constructors(ptr noundef %21)
   br label %22
 
-22:                                               ; preds = %21
+22:                                               ; preds = %11
   br label %23
 
 23:                                               ; preds = %22
@@ -88,39 +86,43 @@ define internal void @edge_constructor(ptr noundef %0) #0 {
   br label %26
 
 26:                                               ; preds = %25
-  %27 = load i32, ptr @pmix_class_init_epoch, align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_item_t_class, i32 0, i32 4), align 8
-  %29 = icmp ne i32 %27, %28
-  br i1 %29, label %30, label %31
+  br label %27
 
-30:                                               ; preds = %26
+27:                                               ; preds = %26
+  %28 = load i32, ptr @pmix_class_init_epoch, align 4
+  %29 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_list_item_t_class, i32 0, i32 4
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp ne i32 %28, %30
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %27
   call void @pmix_class_initialize(ptr noundef @pmix_list_item_t_class)
-  br label %31
+  br label %33
 
-31:                                               ; preds = %30, %26
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %32, i32 0, i32 2
-  %34 = getelementptr inbounds %struct.pmix_object_t, ptr %33, i32 0, i32 1
-  store ptr @pmix_list_item_t_class, ptr %34, align 8
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %35, i32 0, i32 2
-  %37 = getelementptr inbounds %struct.pmix_object_t, ptr %36, i32 0, i32 2
-  store i32 1, ptr %37, align 8
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %38, i32 0, i32 2
-  call void @pmix_obj_construct_tma(ptr noundef %39, ptr noundef null)
+33:                                               ; preds = %32, %27
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %34, i32 0, i32 2
+  %36 = getelementptr inbounds %struct.pmix_object_t, ptr %35, i32 0, i32 1
+  store ptr @pmix_list_item_t_class, ptr %36, align 8
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %37, i32 0, i32 2
+  %39 = getelementptr inbounds %struct.pmix_object_t, ptr %38, i32 0, i32 2
+  store i32 1, ptr %39, align 8
   %40 = load ptr, ptr %2, align 8
   %41 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %40, i32 0, i32 2
-  call void @pmix_obj_run_constructors(ptr noundef %41)
-  br label %42
-
-42:                                               ; preds = %31
-  br label %43
-
-43:                                               ; preds = %42
+  call void @pmix_obj_construct_tma(ptr noundef %41, ptr noundef null)
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds %struct.prte_bp_graph_edge_t, ptr %42, i32 0, i32 2
+  call void @pmix_obj_run_constructors(ptr noundef %43)
   br label %44
 
-44:                                               ; preds = %43
+44:                                               ; preds = %33
+  br label %45
+
+45:                                               ; preds = %44
+  br label %46
+
+46:                                               ; preds = %45
   ret void
 }
 
@@ -167,7 +169,7 @@ define i32 @prte_bp_graph_create(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 12:                                               ; preds = %3
   store i32 -5, ptr %4, align 4
-  br label %66
+  br label %67
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %7, align 8
@@ -188,7 +190,7 @@ define i32 @prte_bp_graph_create(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 21:                                               ; preds = %19
   store i32 -2, ptr %8, align 4
-  br label %63
+  br label %64
 
 22:                                               ; preds = %13
   %23 = load ptr, ptr %9, align 8
@@ -215,66 +217,67 @@ define i32 @prte_bp_graph_create(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 35:                                               ; preds = %34
   %36 = load i32, ptr @pmix_class_init_epoch, align 4
-  %37 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i32 0, i32 4), align 8
-  %38 = icmp ne i32 %36, %37
-  br i1 %38, label %39, label %40
+  %37 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_pointer_array_t_class, i32 0, i32 4
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp ne i32 %36, %38
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %35
+40:                                               ; preds = %35
   call void @pmix_class_initialize(ptr noundef @pmix_pointer_array_t_class)
-  br label %40
+  br label %41
 
-40:                                               ; preds = %39, %35
-  %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds %struct.prte_bp_graph_t, ptr %41, i32 0, i32 1
-  %43 = getelementptr inbounds %struct.pmix_object_t, ptr %42, i32 0, i32 1
-  store ptr @pmix_pointer_array_t_class, ptr %43, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr inbounds %struct.prte_bp_graph_t, ptr %44, i32 0, i32 1
-  %46 = getelementptr inbounds %struct.pmix_object_t, ptr %45, i32 0, i32 2
-  store i32 1, ptr %46, align 8
-  %47 = load ptr, ptr %9, align 8
-  %48 = getelementptr inbounds %struct.prte_bp_graph_t, ptr %47, i32 0, i32 1
-  call void @pmix_obj_construct_tma(ptr noundef %48, ptr noundef null)
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct.prte_bp_graph_t, ptr %49, i32 0, i32 1
-  call void @pmix_obj_run_constructors(ptr noundef %50)
-  br label %51
-
-51:                                               ; preds = %40
+41:                                               ; preds = %40, %35
+  %42 = load ptr, ptr %9, align 8
+  %43 = getelementptr inbounds %struct.prte_bp_graph_t, ptr %42, i32 0, i32 1
+  %44 = getelementptr inbounds %struct.pmix_object_t, ptr %43, i32 0, i32 1
+  store ptr @pmix_pointer_array_t_class, ptr %44, align 8
+  %45 = load ptr, ptr %9, align 8
+  %46 = getelementptr inbounds %struct.prte_bp_graph_t, ptr %45, i32 0, i32 1
+  %47 = getelementptr inbounds %struct.pmix_object_t, ptr %46, i32 0, i32 2
+  store i32 1, ptr %47, align 8
+  %48 = load ptr, ptr %9, align 8
+  %49 = getelementptr inbounds %struct.prte_bp_graph_t, ptr %48, i32 0, i32 1
+  call void @pmix_obj_construct_tma(ptr noundef %49, ptr noundef null)
+  %50 = load ptr, ptr %9, align 8
+  %51 = getelementptr inbounds %struct.prte_bp_graph_t, ptr %50, i32 0, i32 1
+  call void @pmix_obj_run_constructors(ptr noundef %51)
   br label %52
 
-52:                                               ; preds = %51
+52:                                               ; preds = %41
   br label %53
 
 53:                                               ; preds = %52
-  %54 = load ptr, ptr %9, align 8
-  %55 = getelementptr inbounds %struct.prte_bp_graph_t, ptr %54, i32 0, i32 1
-  %56 = call i32 @pmix_pointer_array_init(ptr noundef %55, i32 noundef 0, i32 noundef 2147483647, i32 noundef 32)
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %8, align 4
-  %58 = icmp ne i32 0, %57
-  br i1 %58, label %59, label %60
+  br label %54
 
-59:                                               ; preds = %53
-  br label %63
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %9, align 8
+  %56 = getelementptr inbounds %struct.prte_bp_graph_t, ptr %55, i32 0, i32 1
+  %57 = call i32 @pmix_pointer_array_init(ptr noundef %56, i32 noundef 0, i32 noundef 2147483647, i32 noundef 32)
+  store i32 %57, ptr %8, align 4
+  %58 = load i32, ptr %8, align 4
+  %59 = icmp ne i32 0, %58
+  br i1 %59, label %60, label %61
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %9, align 8
-  %62 = load ptr, ptr %7, align 8
-  store ptr %61, ptr %62, align 8
+60:                                               ; preds = %54
+  br label %64
+
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %9, align 8
+  %63 = load ptr, ptr %7, align 8
+  store ptr %62, ptr %63, align 8
   store i32 0, ptr %4, align 4
-  br label %66
+  br label %67
 
-63:                                               ; preds = %59, %21
-  %64 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %64) #9
-  %65 = load i32, ptr %8, align 4
-  store i32 %65, ptr %4, align 4
-  br label %66
+64:                                               ; preds = %60, %21
+  %65 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %65) #9
+  %66 = load i32, ptr %8, align 4
+  store i32 %66, ptr %4, align 4
+  br label %67
 
-66:                                               ; preds = %63, %60, %12
-  %67 = load i32, ptr %4, align 4
-  ret i32 %67
+67:                                               ; preds = %64, %61, %12
+  %68 = load i32, ptr %4, align 4
+  ret i32 %68
 }
 
 ; Function Attrs: nounwind allocsize(0,1)
@@ -1129,7 +1132,7 @@ define i32 @prte_bp_graph_add_vertex(ptr noundef %0, ptr noundef %1, ptr noundef
 
 15:                                               ; preds = %13
   store i32 -2, ptr %4, align 4
-  br label %90
+  br label %92
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %5, align 8
@@ -1157,7 +1160,7 @@ define i32 @prte_bp_graph_add_vertex(ptr noundef %0, ptr noundef %1, ptr noundef
 
 31:                                               ; preds = %29
   store i32 -2, ptr %4, align 4
-  br label %90
+  br label %92
 
 32:                                               ; preds = %16
   %33 = load ptr, ptr %5, align 8
@@ -1179,35 +1182,33 @@ define i32 @prte_bp_graph_add_vertex(ptr noundef %0, ptr noundef %1, ptr noundef
 
 42:                                               ; preds = %41
   %43 = load i32, ptr @pmix_class_init_epoch, align 4
-  %44 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4), align 8
-  %45 = icmp ne i32 %43, %44
-  br i1 %45, label %46, label %47
+  %44 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4
+  %45 = load i32, ptr %44, align 8
+  %46 = icmp ne i32 %43, %45
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %42
+47:                                               ; preds = %42
   call void @pmix_class_initialize(ptr noundef @pmix_list_t_class)
-  br label %47
+  br label %48
 
-47:                                               ; preds = %46, %42
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %48, i32 0, i32 2
-  %50 = getelementptr inbounds %struct.pmix_object_t, ptr %49, i32 0, i32 1
-  store ptr @pmix_list_t_class, ptr %50, align 8
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %51, i32 0, i32 2
-  %53 = getelementptr inbounds %struct.pmix_object_t, ptr %52, i32 0, i32 2
-  store i32 1, ptr %53, align 8
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %54, i32 0, i32 2
-  call void @pmix_obj_construct_tma(ptr noundef %55, ptr noundef null)
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %56, i32 0, i32 2
-  call void @pmix_obj_run_constructors(ptr noundef %57)
-  br label %58
-
-58:                                               ; preds = %47
+48:                                               ; preds = %47, %42
+  %49 = load ptr, ptr %8, align 8
+  %50 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %49, i32 0, i32 2
+  %51 = getelementptr inbounds %struct.pmix_object_t, ptr %50, i32 0, i32 1
+  store ptr @pmix_list_t_class, ptr %51, align 8
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %52, i32 0, i32 2
+  %54 = getelementptr inbounds %struct.pmix_object_t, ptr %53, i32 0, i32 2
+  store i32 1, ptr %54, align 8
+  %55 = load ptr, ptr %8, align 8
+  %56 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %55, i32 0, i32 2
+  call void @pmix_obj_construct_tma(ptr noundef %56, ptr noundef null)
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %57, i32 0, i32 2
+  call void @pmix_obj_run_constructors(ptr noundef %58)
   br label %59
 
-59:                                               ; preds = %58
+59:                                               ; preds = %48
   br label %60
 
 60:                                               ; preds = %59
@@ -1220,58 +1221,62 @@ define i32 @prte_bp_graph_add_vertex(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %63
 
 63:                                               ; preds = %62
-  %64 = load i32, ptr @pmix_class_init_epoch, align 4
-  %65 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4), align 8
-  %66 = icmp ne i32 %64, %65
-  br i1 %66, label %67, label %68
+  br label %64
 
-67:                                               ; preds = %63
+64:                                               ; preds = %63
+  %65 = load i32, ptr @pmix_class_init_epoch, align 4
+  %66 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4
+  %67 = load i32, ptr %66, align 8
+  %68 = icmp ne i32 %65, %67
+  br i1 %68, label %69, label %70
+
+69:                                               ; preds = %64
   call void @pmix_class_initialize(ptr noundef @pmix_list_t_class)
-  br label %68
+  br label %70
 
-68:                                               ; preds = %67, %63
-  %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %69, i32 0, i32 3
-  %71 = getelementptr inbounds %struct.pmix_object_t, ptr %70, i32 0, i32 1
-  store ptr @pmix_list_t_class, ptr %71, align 8
-  %72 = load ptr, ptr %8, align 8
-  %73 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %72, i32 0, i32 3
-  %74 = getelementptr inbounds %struct.pmix_object_t, ptr %73, i32 0, i32 2
-  store i32 1, ptr %74, align 8
-  %75 = load ptr, ptr %8, align 8
-  %76 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %75, i32 0, i32 3
-  call void @pmix_obj_construct_tma(ptr noundef %76, ptr noundef null)
+70:                                               ; preds = %69, %64
+  %71 = load ptr, ptr %8, align 8
+  %72 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %71, i32 0, i32 3
+  %73 = getelementptr inbounds %struct.pmix_object_t, ptr %72, i32 0, i32 1
+  store ptr @pmix_list_t_class, ptr %73, align 8
+  %74 = load ptr, ptr %8, align 8
+  %75 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %74, i32 0, i32 3
+  %76 = getelementptr inbounds %struct.pmix_object_t, ptr %75, i32 0, i32 2
+  store i32 1, ptr %76, align 8
   %77 = load ptr, ptr %8, align 8
   %78 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %77, i32 0, i32 3
-  call void @pmix_obj_run_constructors(ptr noundef %78)
-  br label %79
-
-79:                                               ; preds = %68
-  br label %80
-
-80:                                               ; preds = %79
+  call void @pmix_obj_construct_tma(ptr noundef %78, ptr noundef null)
+  %79 = load ptr, ptr %8, align 8
+  %80 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %79, i32 0, i32 3
+  call void @pmix_obj_run_constructors(ptr noundef %80)
   br label %81
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr %7, align 8
-  %83 = icmp ne ptr null, %82
-  br i1 %83, label %84, label %89
+81:                                               ; preds = %70
+  br label %82
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %85, i32 0, i32 0
-  %87 = load i32, ptr %86, align 8
-  %88 = load ptr, ptr %7, align 8
-  store i32 %87, ptr %88, align 4
-  br label %89
+82:                                               ; preds = %81
+  br label %83
 
-89:                                               ; preds = %84, %81
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %7, align 8
+  %85 = icmp ne ptr null, %84
+  br i1 %85, label %86, label %91
+
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %8, align 8
+  %88 = getelementptr inbounds %struct.prte_bp_graph_vertex_t, ptr %87, i32 0, i32 0
+  %89 = load i32, ptr %88, align 8
+  %90 = load ptr, ptr %7, align 8
+  store i32 %89, ptr %90, align 4
+  br label %91
+
+91:                                               ; preds = %86, %83
   store i32 0, ptr %4, align 4
-  br label %90
+  br label %92
 
-90:                                               ; preds = %89, %31, %15
-  %91 = load i32, ptr %4, align 4
-  ret i32 %91
+92:                                               ; preds = %91, %31, %15
+  %93 = load i32, ptr %4, align 4
+  ret i32 %93
 }
 
 ; Function Attrs: nounwind uwtable

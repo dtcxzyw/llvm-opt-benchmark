@@ -517,10 +517,11 @@ define internal { ptr, ptr } @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collec
 ; Function Attrs: nonlazybind uwtable
 define internal { i64, ptr } @"_ZN93_$LT$core..ops..range..RangeTo$LT$T$GT$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$11start_bound17h611db89861097ab5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load i64, ptr @anon.937de8463bbb14a9404599c74c8ccb34.9, align 8, !range !8, !noundef !4
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.937de8463bbb14a9404599c74c8ccb34.9, i64 8), align 8
-  %4 = insertvalue { i64, ptr } poison, i64 %2, 0
-  %5 = insertvalue { i64, ptr } %4, ptr %3, 1
-  ret { i64, ptr } %5
+  %3 = getelementptr inbounds i8, ptr @anon.937de8463bbb14a9404599c74c8ccb34.9, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = insertvalue { i64, ptr } poison, i64 %2, 0
+  %6 = insertvalue { i64, ptr } %5, ptr %4, 1
+  ret { i64, ptr } %6
 }
 
 ; Function Attrs: nonlazybind uwtable

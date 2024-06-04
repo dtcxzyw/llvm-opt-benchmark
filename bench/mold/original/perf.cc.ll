@@ -11461,10 +11461,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %segment_allocation_failure_tag = getelementptr inbounds %"class.tbb::detail::d1::segment_table.12", ptr %this1, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %segment_allocation_failure_tag, align 8
+  %0 = inttoptr i64 1 to ptr
+  store ptr %0, ptr %segment_allocation_failure_tag, align 8
   %my_segment_table_allocator = getelementptr inbounds %"class.tbb::detail::d1::segment_table.12", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPPN4mold11TimerRecordEEEC2IS6_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %0) #3
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZN3tbb6detail2d123cache_aligned_allocatorISt6atomicIPPN4mold11TimerRecordEEEC2IS6_EERKNS2_IT_EE(ptr noundef nonnull align 1 dereferenceable(1) %my_segment_table_allocator, ptr noundef nonnull align 1 dereferenceable(1) %1) #3
   %my_segment_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.12", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIPS_IPPN4mold11TimerRecordEEEC2ES5_(ptr noundef nonnull align 8 dereferenceable(8) %my_segment_table, ptr noundef null) #3
   %my_embedded_table = getelementptr inbounds %"class.tbb::detail::d1::segment_table.12", ptr %this1, i32 0, i32 4

@@ -2036,216 +2036,217 @@ define dso_local void @cast_promote_vararg(ptr noundef %0, ptr noundef %1) #0 {
 
 42:                                               ; preds = %39, %36
   %43 = phi i1 [ false, %36 ], [ %41, %39 ]
-  br i1 %43, label %44, label %51
+  br i1 %43, label %44, label %52
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %8, align 8
   %46 = getelementptr inbounds %struct.Type_, ptr %45, i32 0, i32 7
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 255
-  %49 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %50 = icmp ult i32 %48, %49
-  br label %51
+  %49 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp ult i32 %48, %50
+  br label %52
 
-51:                                               ; preds = %44, %42
-  %52 = phi i1 [ false, %42 ], [ %50, %44 ]
-  br i1 %52, label %53, label %78
+52:                                               ; preds = %44, %42
+  %53 = phi i1 [ false, %42 ], [ %51, %44 ]
+  br i1 %53, label %54, label %79
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %18, align 8
-  %55 = load ptr, ptr %19, align 8
-  %56 = load ptr, ptr @type_cint, align 8
-  %57 = load ptr, ptr %19, align 8
-  %58 = getelementptr inbounds %struct.Expr_, ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %10, align 8
-  %60 = load ptr, ptr %10, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %63, label %62
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %18, align 8
+  %56 = load ptr, ptr %19, align 8
+  %57 = load ptr, ptr @type_cint, align 8
+  %58 = load ptr, ptr %19, align 8
+  %59 = getelementptr inbounds %struct.Expr_, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %10, align 8
+  %61 = load ptr, ptr %10, align 8
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %64, label %63
 
-62:                                               ; preds = %53
+63:                                               ; preds = %54
   store i1 false, ptr %9, align 1
-  br label %76
+  br label %77
 
-63:                                               ; preds = %53
-  %64 = load ptr, ptr %10, align 8
-  %65 = load i32, ptr %64, align 8
-  store i32 %65, ptr %11, align 4
-  %66 = load i32, ptr %11, align 4
-  %67 = icmp eq i32 %66, 31
-  br i1 %67, label %68, label %73
+64:                                               ; preds = %54
+  %65 = load ptr, ptr %10, align 8
+  %66 = load i32, ptr %65, align 8
+  store i32 %66, ptr %11, align 4
+  %67 = load i32, ptr %11, align 4
+  %68 = icmp eq i32 %67, 31
+  br i1 %68, label %69, label %74
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %10, align 8
-  %70 = getelementptr inbounds %struct.Type_, ptr %69, i32 0, i32 1
-  %71 = load ptr, ptr %70, align 8
-  %72 = load i32, ptr %71, align 8
-  store i32 %72, ptr %11, align 4
-  br label %73
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %10, align 8
+  %71 = getelementptr inbounds %struct.Type_, ptr %70, i32 0, i32 1
+  %72 = load ptr, ptr %71, align 8
+  %73 = load i32, ptr %72, align 8
+  store i32 %73, ptr %11, align 4
+  br label %74
 
-73:                                               ; preds = %68, %63
-  %74 = load i32, ptr %11, align 4
-  %75 = icmp eq i32 %74, 40
-  store i1 %75, ptr %9, align 1
-  br label %76
+74:                                               ; preds = %69, %64
+  %75 = load i32, ptr %11, align 4
+  %76 = icmp eq i32 %75, 40
+  store i1 %76, ptr %9, align 1
+  br label %77
 
-76:                                               ; preds = %73, %62
-  %77 = load i1, ptr %9, align 1
-  call void @cast_no_check(ptr noundef %54, ptr noundef %55, ptr noundef %56, i1 noundef zeroext %77)
-  br label %173
+77:                                               ; preds = %74, %63
+  %78 = load i1, ptr %9, align 1
+  call void @cast_no_check(ptr noundef %55, ptr noundef %56, ptr noundef %57, i1 noundef zeroext %78)
+  br label %174
 
-78:                                               ; preds = %51
-  %79 = load ptr, ptr %20, align 8
-  store ptr %79, ptr %7, align 8
-  %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds %struct.Type_, ptr %80, i32 0, i32 1
-  %82 = load ptr, ptr %81, align 8
-  store ptr %82, ptr %3, align 8
-  %83 = load ptr, ptr %3, align 8
-  %84 = load i32, ptr %83, align 8
-  store i32 %84, ptr %4, align 4
-  %85 = load i32, ptr %4, align 4
-  %86 = icmp eq i32 %85, 31
-  br i1 %86, label %87, label %92
+79:                                               ; preds = %52
+  %80 = load ptr, ptr %20, align 8
+  store ptr %80, ptr %7, align 8
+  %81 = load ptr, ptr %7, align 8
+  %82 = getelementptr inbounds %struct.Type_, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8
+  store ptr %83, ptr %3, align 8
+  %84 = load ptr, ptr %3, align 8
+  %85 = load i32, ptr %84, align 8
+  store i32 %85, ptr %4, align 4
+  %86 = load i32, ptr %4, align 4
+  %87 = icmp eq i32 %86, 31
+  br i1 %87, label %88, label %93
 
-87:                                               ; preds = %78
-  %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds %struct.Type_, ptr %88, i32 0, i32 1
-  %90 = load ptr, ptr %89, align 8
-  %91 = load i32, ptr %90, align 8
-  store i32 %91, ptr %4, align 4
-  br label %92
+88:                                               ; preds = %79
+  %89 = load ptr, ptr %3, align 8
+  %90 = getelementptr inbounds %struct.Type_, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8
+  %92 = load i32, ptr %91, align 8
+  store i32 %92, ptr %4, align 4
+  br label %93
 
-92:                                               ; preds = %87, %78
-  %93 = load i32, ptr %4, align 4
-  %94 = icmp uge i32 %93, 13
-  br i1 %94, label %95, label %98
+93:                                               ; preds = %88, %79
+  %94 = load i32, ptr %4, align 4
+  %95 = icmp uge i32 %94, 13
+  br i1 %95, label %96, label %99
 
-95:                                               ; preds = %92
-  %96 = load i32, ptr %4, align 4
-  %97 = icmp ule i32 %96, 17
-  br label %98
+96:                                               ; preds = %93
+  %97 = load i32, ptr %4, align 4
+  %98 = icmp ule i32 %97, 17
+  br label %99
 
-98:                                               ; preds = %95, %92
-  %99 = phi i1 [ false, %92 ], [ %97, %95 ]
-  br i1 %99, label %100, label %112
+99:                                               ; preds = %96, %93
+  %100 = phi i1 [ false, %93 ], [ %98, %96 ]
+  br i1 %100, label %101, label %113
 
-100:                                              ; preds = %98
-  %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds %struct.Type_, ptr %101, i32 0, i32 7
-  %103 = load i32, ptr %102, align 8
-  %104 = lshr i32 %103, 8
-  %105 = and i32 %104, 255
-  %106 = load ptr, ptr @type_double, align 8
-  %107 = getelementptr inbounds %struct.Type_, ptr %106, i32 0, i32 7
-  %108 = load i32, ptr %107, align 8
-  %109 = lshr i32 %108, 8
-  %110 = and i32 %109, 255
-  %111 = icmp slt i32 %105, %110
-  br label %112
+101:                                              ; preds = %99
+  %102 = load ptr, ptr %7, align 8
+  %103 = getelementptr inbounds %struct.Type_, ptr %102, i32 0, i32 7
+  %104 = load i32, ptr %103, align 8
+  %105 = lshr i32 %104, 8
+  %106 = and i32 %105, 255
+  %107 = load ptr, ptr @type_double, align 8
+  %108 = getelementptr inbounds %struct.Type_, ptr %107, i32 0, i32 7
+  %109 = load i32, ptr %108, align 8
+  %110 = lshr i32 %109, 8
+  %111 = and i32 %110, 255
+  %112 = icmp slt i32 %106, %111
+  br label %113
 
-112:                                              ; preds = %100, %98
-  %113 = phi i1 [ false, %98 ], [ %111, %100 ]
-  br i1 %113, label %114, label %139
+113:                                              ; preds = %101, %99
+  %114 = phi i1 [ false, %99 ], [ %112, %101 ]
+  br i1 %114, label %115, label %140
 
-114:                                              ; preds = %112
-  %115 = load ptr, ptr %18, align 8
-  %116 = load ptr, ptr %19, align 8
-  %117 = load ptr, ptr @type_double, align 8
-  %118 = load ptr, ptr %19, align 8
-  %119 = getelementptr inbounds %struct.Expr_, ptr %118, i32 0, i32 0
-  %120 = load ptr, ptr %119, align 8
-  store ptr %120, ptr %13, align 8
-  %121 = load ptr, ptr %13, align 8
-  %122 = icmp ne ptr %121, null
-  br i1 %122, label %124, label %123
+115:                                              ; preds = %113
+  %116 = load ptr, ptr %18, align 8
+  %117 = load ptr, ptr %19, align 8
+  %118 = load ptr, ptr @type_double, align 8
+  %119 = load ptr, ptr %19, align 8
+  %120 = getelementptr inbounds %struct.Expr_, ptr %119, i32 0, i32 0
+  %121 = load ptr, ptr %120, align 8
+  store ptr %121, ptr %13, align 8
+  %122 = load ptr, ptr %13, align 8
+  %123 = icmp ne ptr %122, null
+  br i1 %123, label %125, label %124
 
-123:                                              ; preds = %114
+124:                                              ; preds = %115
   store i1 false, ptr %12, align 1
-  br label %137
+  br label %138
 
-124:                                              ; preds = %114
-  %125 = load ptr, ptr %13, align 8
-  %126 = load i32, ptr %125, align 8
-  store i32 %126, ptr %14, align 4
-  %127 = load i32, ptr %14, align 4
-  %128 = icmp eq i32 %127, 31
-  br i1 %128, label %129, label %134
+125:                                              ; preds = %115
+  %126 = load ptr, ptr %13, align 8
+  %127 = load i32, ptr %126, align 8
+  store i32 %127, ptr %14, align 4
+  %128 = load i32, ptr %14, align 4
+  %129 = icmp eq i32 %128, 31
+  br i1 %129, label %130, label %135
 
-129:                                              ; preds = %124
-  %130 = load ptr, ptr %13, align 8
-  %131 = getelementptr inbounds %struct.Type_, ptr %130, i32 0, i32 1
-  %132 = load ptr, ptr %131, align 8
-  %133 = load i32, ptr %132, align 8
-  store i32 %133, ptr %14, align 4
-  br label %134
+130:                                              ; preds = %125
+  %131 = load ptr, ptr %13, align 8
+  %132 = getelementptr inbounds %struct.Type_, ptr %131, i32 0, i32 1
+  %133 = load ptr, ptr %132, align 8
+  %134 = load i32, ptr %133, align 8
+  store i32 %134, ptr %14, align 4
+  br label %135
 
-134:                                              ; preds = %129, %124
-  %135 = load i32, ptr %14, align 4
-  %136 = icmp eq i32 %135, 40
-  store i1 %136, ptr %12, align 1
-  br label %137
+135:                                              ; preds = %130, %125
+  %136 = load i32, ptr %14, align 4
+  %137 = icmp eq i32 %136, 40
+  store i1 %137, ptr %12, align 1
+  br label %138
 
-137:                                              ; preds = %134, %123
-  %138 = load i1, ptr %12, align 1
-  call void @cast_no_check(ptr noundef %115, ptr noundef %116, ptr noundef %117, i1 noundef zeroext %138)
-  br label %173
+138:                                              ; preds = %135, %124
+  %139 = load i1, ptr %12, align 1
+  call void @cast_no_check(ptr noundef %116, ptr noundef %117, ptr noundef %118, i1 noundef zeroext %139)
+  br label %174
 
-139:                                              ; preds = %112
-  %140 = load ptr, ptr %20, align 8
-  %141 = getelementptr inbounds %struct.Type_, ptr %140, i32 0, i32 0
-  %142 = load i32, ptr %141, align 8
-  %143 = icmp eq i32 %142, 34
-  br i1 %143, label %144, label %173
+140:                                              ; preds = %113
+  %141 = load ptr, ptr %20, align 8
+  %142 = getelementptr inbounds %struct.Type_, ptr %141, i32 0, i32 0
+  %143 = load i32, ptr %142, align 8
+  %144 = icmp eq i32 %143, 34
+  br i1 %144, label %145, label %174
 
-144:                                              ; preds = %139
-  %145 = load ptr, ptr %18, align 8
-  %146 = load ptr, ptr %19, align 8
-  %147 = load ptr, ptr %20, align 8
-  %148 = getelementptr inbounds %struct.Type_, ptr %147, i32 0, i32 7
-  %149 = getelementptr inbounds %struct.TypeArray, ptr %148, i32 0, i32 0
-  %150 = load ptr, ptr %149, align 8
-  %151 = call ptr @type_get_ptr(ptr noundef %150)
-  %152 = load ptr, ptr %19, align 8
-  %153 = getelementptr inbounds %struct.Expr_, ptr %152, i32 0, i32 0
-  %154 = load ptr, ptr %153, align 8
-  store ptr %154, ptr %16, align 8
-  %155 = load ptr, ptr %16, align 8
-  %156 = icmp ne ptr %155, null
-  br i1 %156, label %158, label %157
+145:                                              ; preds = %140
+  %146 = load ptr, ptr %18, align 8
+  %147 = load ptr, ptr %19, align 8
+  %148 = load ptr, ptr %20, align 8
+  %149 = getelementptr inbounds %struct.Type_, ptr %148, i32 0, i32 7
+  %150 = getelementptr inbounds %struct.TypeArray, ptr %149, i32 0, i32 0
+  %151 = load ptr, ptr %150, align 8
+  %152 = call ptr @type_get_ptr(ptr noundef %151)
+  %153 = load ptr, ptr %19, align 8
+  %154 = getelementptr inbounds %struct.Expr_, ptr %153, i32 0, i32 0
+  %155 = load ptr, ptr %154, align 8
+  store ptr %155, ptr %16, align 8
+  %156 = load ptr, ptr %16, align 8
+  %157 = icmp ne ptr %156, null
+  br i1 %157, label %159, label %158
 
-157:                                              ; preds = %144
+158:                                              ; preds = %145
   store i1 false, ptr %15, align 1
-  br label %171
+  br label %172
 
-158:                                              ; preds = %144
-  %159 = load ptr, ptr %16, align 8
-  %160 = load i32, ptr %159, align 8
-  store i32 %160, ptr %17, align 4
-  %161 = load i32, ptr %17, align 4
-  %162 = icmp eq i32 %161, 31
-  br i1 %162, label %163, label %168
+159:                                              ; preds = %145
+  %160 = load ptr, ptr %16, align 8
+  %161 = load i32, ptr %160, align 8
+  store i32 %161, ptr %17, align 4
+  %162 = load i32, ptr %17, align 4
+  %163 = icmp eq i32 %162, 31
+  br i1 %163, label %164, label %169
 
-163:                                              ; preds = %158
-  %164 = load ptr, ptr %16, align 8
-  %165 = getelementptr inbounds %struct.Type_, ptr %164, i32 0, i32 1
-  %166 = load ptr, ptr %165, align 8
-  %167 = load i32, ptr %166, align 8
-  store i32 %167, ptr %17, align 4
-  br label %168
+164:                                              ; preds = %159
+  %165 = load ptr, ptr %16, align 8
+  %166 = getelementptr inbounds %struct.Type_, ptr %165, i32 0, i32 1
+  %167 = load ptr, ptr %166, align 8
+  %168 = load i32, ptr %167, align 8
+  store i32 %168, ptr %17, align 4
+  br label %169
 
-168:                                              ; preds = %163, %158
-  %169 = load i32, ptr %17, align 4
-  %170 = icmp eq i32 %169, 40
-  store i1 %170, ptr %15, align 1
-  br label %171
+169:                                              ; preds = %164, %159
+  %170 = load i32, ptr %17, align 4
+  %171 = icmp eq i32 %170, 40
+  store i1 %171, ptr %15, align 1
+  br label %172
 
-171:                                              ; preds = %168, %157
-  %172 = load i1, ptr %15, align 1
-  call void @cast_no_check(ptr noundef %145, ptr noundef %146, ptr noundef %151, i1 noundef zeroext %172)
-  br label %173
+172:                                              ; preds = %169, %158
+  %173 = load i1, ptr %15, align 1
+  call void @cast_no_check(ptr noundef %146, ptr noundef %147, ptr noundef %152, i1 noundef zeroext %173)
+  br label %174
 
-173:                                              ; preds = %171, %139, %137, %76
+174:                                              ; preds = %172, %140, %138, %77
   ret void
 }
 
@@ -3071,7 +3072,7 @@ define dso_local ptr @cast_numeric_arithmetic_promotion(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %44
+  br label %46
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
@@ -3081,19 +3082,19 @@ define dso_local ptr @cast_numeric_arithmetic_promotion(ptr noundef %0) #0 {
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %struct.Type_, ptr %12, i32 0, i32 0
   %14 = load i32, ptr %13, align 8
-  switch i32 %14, label %42 [
+  switch i32 %14, label %44 [
     i32 3, label %15
     i32 4, label %15
     i32 5, label %15
     i32 6, label %15
     i32 7, label %15
-    i32 8, label %26
-    i32 9, label %26
-    i32 10, label %26
-    i32 11, label %26
-    i32 12, label %26
-    i32 13, label %37
-    i32 40, label %39
+    i32 8, label %27
+    i32 9, label %27
+    i32 10, label %27
+    i32 11, label %27
+    i32 12, label %27
+    i32 13, label %39
+    i32 40, label %41
   ]
 
 15:                                               ; preds = %8, %8, %8, %8, %8
@@ -3101,62 +3102,64 @@ define dso_local ptr @cast_numeric_arithmetic_promotion(ptr noundef %0) #0 {
   %17 = getelementptr inbounds %struct.Type_, ptr %16, i32 0, i32 7
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 255
-  %20 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %21 = icmp ult i32 %19, %20
-  br i1 %21, label %22, label %24
+  %20 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp ult i32 %19, %21
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr @type_cint, align 8
-  store ptr %23, ptr %2, align 8
-  br label %44
+23:                                               ; preds = %15
+  %24 = load ptr, ptr @type_cint, align 8
+  store ptr %24, ptr %2, align 8
+  br label %46
 
-24:                                               ; preds = %15
-  %25 = load ptr, ptr %3, align 8
-  store ptr %25, ptr %2, align 8
-  br label %44
+25:                                               ; preds = %15
+  %26 = load ptr, ptr %3, align 8
+  store ptr %26, ptr %2, align 8
+  br label %46
 
-26:                                               ; preds = %8, %8, %8, %8, %8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.Type_, ptr %27, i32 0, i32 7
-  %29 = load i32, ptr %28, align 8
-  %30 = and i32 %29, 255
-  %31 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i32 0, i32 33), align 8
-  %32 = icmp ult i32 %30, %31
-  br i1 %32, label %33, label %35
+27:                                               ; preds = %8, %8, %8, %8, %8
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds %struct.Type_, ptr %28, i32 0, i32 7
+  %30 = load i32, ptr %29, align 8
+  %31 = and i32 %30, 255
+  %32 = getelementptr inbounds %struct.PlatformTarget, ptr @platform_target, i32 0, i32 33
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp ult i32 %31, %33
+  br i1 %34, label %35, label %37
 
-33:                                               ; preds = %26
-  %34 = load ptr, ptr @type_cuint, align 8
-  store ptr %34, ptr %2, align 8
-  br label %44
-
-35:                                               ; preds = %26
-  %36 = load ptr, ptr %3, align 8
+35:                                               ; preds = %27
+  %36 = load ptr, ptr @type_cuint, align 8
   store ptr %36, ptr %2, align 8
-  br label %44
+  br label %46
 
-37:                                               ; preds = %8
-  %38 = load ptr, ptr @type_float, align 8
+37:                                               ; preds = %27
+  %38 = load ptr, ptr %3, align 8
   store ptr %38, ptr %2, align 8
-  br label %44
+  br label %46
 
 39:                                               ; preds = %8
-  br label %40
+  %40 = load ptr, ptr @type_float, align 8
+  store ptr %40, ptr %2, align 8
+  br label %46
 
-40:                                               ; preds = %39
+41:                                               ; preds = %8
+  br label %42
+
+42:                                               ; preds = %41
   call void (ptr, ...) @error_exit(ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @__func__.cast_numeric_arithmetic_promotion, ptr noundef @.str.4, i32 noundef 636) #6
   unreachable
 
-41:                                               ; No predecessors!
-  br label %42
-
-42:                                               ; preds = %41, %8
-  %43 = load ptr, ptr %3, align 8
-  store ptr %43, ptr %2, align 8
+43:                                               ; No predecessors!
   br label %44
 
-44:                                               ; preds = %42, %37, %35, %33, %24, %22, %7
-  %45 = load ptr, ptr %2, align 8
-  ret ptr %45
+44:                                               ; preds = %43, %8
+  %45 = load ptr, ptr %3, align 8
+  store ptr %45, ptr %2, align 8
+  br label %46
+
+46:                                               ; preds = %44, %39, %37, %35, %25, %23, %7
+  %47 = load ptr, ptr %2, align 8
+  ret ptr %47
 }
 
 ; Function Attrs: nounwind uwtable

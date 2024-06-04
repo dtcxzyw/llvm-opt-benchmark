@@ -126,11 +126,13 @@ invoke.cont:                                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !20, !noalias !17
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !22, !noalias !17
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i16.i.i.i.i8, align 8, !tbaa !23, !noalias !17
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly3ssl6detail14OpenSSLSessionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %call5.i.i.i16.i.i.i.i8, align 8, !tbaa !23, !noalias !17
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 16
-  %0 = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 32
-  store i64 0, ptr %0, align 8, !noalias !17
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !23, !noalias !17
+  %1 = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 32
+  store i64 0, ptr %1, align 8, !noalias !17
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !23, !noalias !17
   %activeSession_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i8, i64 24
   store ptr null, ptr %activeSession_.i.i.i.i.i.i.i.i, align 8, !tbaa !7, !noalias !17
   store ptr %call5.i.i.i16.i.i.i.i8, ptr %_M_refcount.i.i.i, align 8, !tbaa !25, !alias.scope !17
@@ -139,52 +141,52 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %1 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !25
-  %cmp.not.i.i = icmp eq ptr %1, null
+  %3 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !25
+  %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont4
-  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %2 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
-  %cmp.i.i.i = icmp eq i64 %2, 4294967297
-  %3 = trunc i64 %2 to i32
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
+  %cmp.i.i.i = icmp eq i64 %4, 4294967297
+  %5 = trunc i64 %4 to i32
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !20
-  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !22
-  %vtable.i.i.i = load ptr, ptr %1, align 8, !tbaa !23
+  %vtable.i.i.i = load ptr, ptr %3, align 8, !tbaa !23
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
-  %4 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
-  %vtable3.i.i.i = load ptr, ptr %1, align 8, !tbaa !23
+  %6 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  %vtable3.i.i.i = load ptr, ptr %3, align 8, !tbaa !23
   %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
-  %5 = load ptr, ptr %vfn4.i.i.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
+  %7 = load ptr, ptr %vfn4.i.i.i, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %tobool.i.not.i.i.i = icmp eq i8 %6, 0
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
+  %tobool.i.not.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %add.i.i.i.i = add nsw i32 %3, -1
+  %add.i.i.i.i = add nsw i32 %5, -1
   store i32 %add.i.i.i.i, ptr %_M_use_count.i.i.i, align 4, !tbaa !29
   br label %invoke.cont.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i, i32 -1 acq_rel, align 4
+  %9 = atomicrmw volatile add ptr %_M_use_count.i.i.i, i32 -1 acq_rel, align 4
   br label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %retval.0.i.i.i.i = phi i32 [ %3, %if.then.i.i.i.i ], [ %7, %if.else.i.i.i.i ]
+  %retval.0.i.i.i.i = phi i32 [ %5, %if.then.i.i.i.i ], [ %9, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.0.i.i.i.i, 1
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !30
 
 if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   br label %_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i, %invoke.cont4
@@ -192,18 +194,18 @@ _ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_polic
   ret void
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN5folly3ssl6detail14OpenSSLSessionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #14
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %9, %lpad3 ], [ %8, %lpad ]
+  %.pn = phi { ptr, i32 } [ %11, %lpad3 ], [ %10, %lpad ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #14
   call void @_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #14
   resume { ptr, i32 } %.pn
@@ -439,13 +441,14 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 define linkonce_odr void @_ZN5folly3ssl6detail14OpenSSLSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !23
   %activeSession_ = getelementptr inbounds i8, ptr %this, i64 8
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #14
-  %0 = load atomic i32, ptr %mutex_.i monotonic, align 8
-  store i32 %0, ptr %state.i.i, align 4, !tbaa !29
-  %cmp.not.i.i = icmp ult i32 %0, 2048
+  %1 = load atomic i32, ptr %mutex_.i monotonic, align 8
+  store i32 %1, ptr %state.i.i, align 4, !tbaa !29
+  %cmp.not.i.i = icmp ult i32 %1, 2048
   br i1 %cmp.not.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i, label %if.then.i.i, !prof !33
 
 if.then.i.i:                                      ; preds = %entry
@@ -453,27 +456,27 @@ if.then.i.i:                                      ; preds = %entry
           to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #16
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i: ; preds = %if.then.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i) #14
-  %3 = load ptr, ptr %activeSession_, align 8, !tbaa !27
-  %cmp.not.i2.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %activeSession_, align 8, !tbaa !27
+  %cmp.not.i2.i = icmp eq ptr %4, null
   br i1 %cmp.not.i2.i, label %_ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %if.then.i3.i
 
 if.then.i3.i:                                     ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %3)
+  invoke void @SSL_SESSION_free(ptr noundef nonnull %4)
           to label %_ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit unwind label %terminate.lpad.i4.i
 
 terminate.lpad.i4.i:                              ; preds = %if.then.i3.i
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #16
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #16
   unreachable
 
 _ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit: ; preds = %if.then.i3.i, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i
@@ -485,13 +488,14 @@ _ZN5folly12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_dele
 define linkonce_odr void @_ZN5folly3ssl6detail14OpenSSLSessionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !23
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5folly3ssl6detail14OpenSSLSessionE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !23
   %activeSession_.i = getelementptr inbounds i8, ptr %this, i64 8
   %mutex_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i) #14
-  %0 = load atomic i32, ptr %mutex_.i.i monotonic, align 8
-  store i32 %0, ptr %state.i.i.i, align 4, !tbaa !29
-  %cmp.not.i.i.i = icmp ult i32 %0, 2048
+  %1 = load atomic i32, ptr %mutex_.i.i monotonic, align 8
+  store i32 %1, ptr %state.i.i.i, align 4, !tbaa !29
+  %cmp.not.i.i.i = icmp ult i32 %1, 2048
   br i1 %cmp.not.i.i.i, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i.i, label %if.then.i.i.i, !prof !33
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -499,27 +503,27 @@ if.then.i.i.i:                                    ; preds = %entry
           to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #16
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i.i: ; preds = %if.then.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i) #14
-  %3 = load ptr, ptr %activeSession_.i, align 8, !tbaa !27
-  %cmp.not.i2.i.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %activeSession_.i, align 8, !tbaa !27
+  %cmp.not.i2.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i2.i.i, label %_ZN5folly3ssl6detail14OpenSSLSessionD2Ev.exit, label %if.then.i3.i.i
 
 if.then.i3.i.i:                                   ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i.i
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %3)
+  invoke void @SSL_SESSION_free(ptr noundef nonnull %4)
           to label %_ZN5folly3ssl6detail14OpenSSLSessionD2Ev.exit unwind label %terminate.lpad.i4.i.i
 
 terminate.lpad.i4.i.i:                            ; preds = %if.then.i3.i.i
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #16
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #16
   unreachable
 
 _ZN5folly3ssl6detail14OpenSSLSessionD2Ev.exit:    ; preds = %if.then.i3.i.i, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEED2Ev.exit.i.i

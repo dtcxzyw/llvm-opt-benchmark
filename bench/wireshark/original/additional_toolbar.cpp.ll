@@ -612,12 +612,14 @@ define void @_ZN17AdditionalToolBarC2EP14_ext_toolbar_tP7QWidget(ptr noundef non
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZN8QToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV17AdditionalToolBar, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV17AdditionalToolBar, i32 0, i32 1, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.AdditionalToolBar, ptr %7, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV17AdditionalToolBar, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV17AdditionalToolBar, i32 0, i32 1, i32 2
   store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %class.AdditionalToolBar, ptr %7, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %12, align 8
   ret void
 }
 
@@ -1127,9 +1129,10 @@ define void @_ZN29AdditionalToolbarWidgetActionC2EP7QObject(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13QWidgetActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29AdditionalToolbarWidgetAction, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %class.AdditionalToolbarWidgetAction, ptr %5, i32 0, i32 1
-  store ptr null, ptr %7, align 8
+  %7 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV29AdditionalToolbarWidgetAction, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %class.AdditionalToolbarWidgetAction, ptr %5, i32 0, i32 1
+  store ptr null, ptr %8, align 8
   ret void
 }
 
@@ -1151,40 +1154,41 @@ define void @_ZN29AdditionalToolbarWidgetActionC2EP14_ext_toolbar_tP7QObject(ptr
   %12 = load ptr, ptr %4, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN13QWidgetActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29AdditionalToolbarWidgetAction, i32 0, i32 0, i32 2), ptr %12, align 8
-  %14 = getelementptr inbounds %class.AdditionalToolbarWidgetAction, ptr %12, i32 0, i32 1
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %14, align 8
-  %16 = load ptr, ptr @mainApp, align 8
+  %14 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV29AdditionalToolbarWidgetAction, i32 0, i32 0, i32 2
+  store ptr %14, ptr %12, align 8
+  %15 = getelementptr inbounds %class.AdditionalToolbarWidgetAction, ptr %12, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %15, align 8
+  %17 = load ptr, ptr @mainApp, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15MainApplication13captureActiveEi to i64), i64 0 }, ptr %8, align 8
-  %17 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
-  %20 = load i64, ptr %19, align 8
+  %18 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN29AdditionalToolbarWidgetAction13captureActiveEi to i64), i64 0 }, ptr %9, align 8
-  invoke void @_ZN7QObject7connectIM15MainApplicationFviEM29AdditionalToolbarWidgetActionFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %7, ptr noundef %16, i64 %18, i64 %20, ptr noundef %12, ptr noundef byval({ i64, i64 }) align 8 %9, i32 noundef 0)
-          to label %21 unwind label %22
+  invoke void @_ZN7QObject7connectIM15MainApplicationFviEM29AdditionalToolbarWidgetActionFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %7, ptr noundef %17, i64 %19, i64 %21, ptr noundef %12, ptr noundef byval({ i64, i64 }) align 8 %9, i32 noundef 0)
+          to label %22 unwind label %23
 
-21:                                               ; preds = %3
+22:                                               ; preds = %3
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   ret void
 
-22:                                               ; preds = %3
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %3
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %10, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %11, align 4
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %10, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %11, align 4
   call void @_ZN13QWidgetActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #15
-  br label %26
+  br label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %10, align 8
-  %28 = load i32, ptr %11, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %10, align 8
+  %29 = load i32, ptr %11, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1317,42 +1321,43 @@ define void @_ZN29AdditionalToolbarWidgetActionC2ERKS_(ptr noundef nonnull align
   %11 = load ptr, ptr %4, align 8
   %12 = call noundef ptr @_ZNK7QObject6parentEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
   call void @_ZN13QWidgetActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29AdditionalToolbarWidgetAction, i32 0, i32 0, i32 2), ptr %10, align 8
-  %13 = getelementptr inbounds %class.AdditionalToolbarWidgetAction, ptr %10, i32 0, i32 1
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %class.AdditionalToolbarWidgetAction, ptr %14, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %13, align 8
-  %17 = load ptr, ptr @mainApp, align 8
+  %13 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV29AdditionalToolbarWidgetAction, i32 0, i32 0, i32 2
+  store ptr %13, ptr %10, align 8
+  %14 = getelementptr inbounds %class.AdditionalToolbarWidgetAction, ptr %10, i32 0, i32 1
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %class.AdditionalToolbarWidgetAction, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %14, align 8
+  %18 = load ptr, ptr @mainApp, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15MainApplication13captureActiveEi to i64), i64 0 }, ptr %6, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 0
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
+  %19 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 0
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds { i64, i64 }, ptr %6, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN29AdditionalToolbarWidgetAction13captureActiveEi to i64), i64 0 }, ptr %7, align 8
-  invoke void @_ZN7QObject7connectIM15MainApplicationFviEM29AdditionalToolbarWidgetActionFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef %17, i64 %19, i64 %21, ptr noundef %10, ptr noundef byval({ i64, i64 }) align 8 %7, i32 noundef 0)
-          to label %22 unwind label %23
+  invoke void @_ZN7QObject7connectIM15MainApplicationFviEM29AdditionalToolbarWidgetActionFviEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef %18, i64 %20, i64 %22, ptr noundef %10, ptr noundef byval({ i64, i64 }) align 8 %7, i32 noundef 0)
+          to label %23 unwind label %24
 
-22:                                               ; preds = %2
+23:                                               ; preds = %2
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %8, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %9, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
   call void @_ZN13QWidgetActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
-  br label %27
+  br label %28
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %8, align 8
-  %29 = load i32, ptr %9, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %8, align 8
+  %30 = load i32, ptr %9, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

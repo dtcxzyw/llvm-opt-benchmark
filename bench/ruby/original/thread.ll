@@ -3245,8 +3245,9 @@ define hidden void @rb_thread_wakeup_timer_thread(i32 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @timer_thread_wakeup_force() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 2, i64 1), align 4
-  call void @signal_communication_pipe(i32 noundef %1)
+  %1 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 2, i64 1
+  %2 = load i32, ptr %1, align 4
+  call void @signal_communication_pipe(i32 noundef %2)
   ret void
 }
 
@@ -3470,50 +3471,53 @@ define dso_local i32 @rb_reserved_fd_p(i32 noundef %0) #0 {
 
 6:                                                ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %27
+  br label %30
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %3, align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 2), align 8
-  %10 = icmp eq i32 %8, %9
-  br i1 %10, label %19, label %11
+  %9 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 2
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp eq i32 %8, %10
+  br i1 %11, label %22, label %12
 
-11:                                               ; preds = %7
-  %12 = load i32, ptr %3, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 2, i64 1), align 4
-  %14 = icmp eq i32 %12, %13
-  br i1 %14, label %19, label %15
+12:                                               ; preds = %7
+  %13 = load i32, ptr %3, align 4
+  %14 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 2, i64 1
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp eq i32 %13, %15
+  br i1 %16, label %22, label %17
 
-15:                                               ; preds = %11
-  %16 = load i32, ptr %3, align 4
-  %17 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 3), align 8
-  %18 = icmp eq i32 %16, %17
-  br i1 %18, label %19, label %20
+17:                                               ; preds = %12
+  %18 = load i32, ptr %3, align 4
+  %19 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 3
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp eq i32 %18, %20
+  br i1 %21, label %22, label %23
 
-19:                                               ; preds = %15, %11, %7
-  br label %21
+22:                                               ; preds = %17, %12, %7
+  br label %24
 
-20:                                               ; preds = %15
+23:                                               ; preds = %17
   store i32 0, ptr %2, align 4
-  br label %27
+  br label %30
 
-21:                                               ; preds = %19
-  %22 = load i64, ptr @timer_th, align 8
-  %23 = load i64, ptr @current_fork_gen, align 8
-  %24 = icmp eq i64 %22, %23
-  br i1 %24, label %25, label %26
+24:                                               ; preds = %22
+  %25 = load i64, ptr @timer_th, align 8
+  %26 = load i64, ptr @current_fork_gen, align 8
+  %27 = icmp eq i64 %25, %26
+  br i1 %27, label %28, label %29
 
-25:                                               ; preds = %21
+28:                                               ; preds = %24
   store i32 1, ptr %2, align 4
-  br label %27
+  br label %30
 
-26:                                               ; preds = %21
+29:                                               ; preds = %24
   store i32 0, ptr %2, align 4
-  br label %27
+  br label %30
 
-27:                                               ; preds = %26, %25, %20, %6
-  %28 = load i32, ptr %2, align 4
-  ret i32 %28
+30:                                               ; preds = %29, %28, %23, %6
+  %31 = load i32, ptr %2, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5572,67 +5576,69 @@ define internal i32 @native_thread_init_stack(ptr noundef %0, ptr noundef %1) #0
   %16 = load i64, ptr @native_main_thread, align 8
   %17 = call i32 @pthread_equal(i64 noundef %15, i64 noundef %16) #30
   %18 = icmp ne i32 %17, 0
-  br i1 %18, label %19, label %32
+  br i1 %18, label %19, label %34
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 2), align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.rb_thread_struct, ptr %21, i32 0, i32 5
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %23, i32 0, i32 21
-  %25 = getelementptr inbounds %struct.anon.11, ptr %24, i32 0, i32 0
-  store ptr %20, ptr %25, align 8
-  %26 = load i64, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 1), align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.rb_thread_struct, ptr %27, i32 0, i32 5
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %29, i32 0, i32 21
-  %31 = getelementptr inbounds %struct.anon.11, ptr %30, i32 0, i32 2
-  store i64 %26, ptr %31, align 8
-  br label %60
+  %20 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds %struct.rb_thread_struct, ptr %22, i32 0, i32 5
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %24, i32 0, i32 21
+  %26 = getelementptr inbounds %struct.anon.11, ptr %25, i32 0, i32 0
+  store ptr %21, ptr %26, align 8
+  %27 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds %struct.rb_thread_struct, ptr %29, i32 0, i32 5
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %31, i32 0, i32 21
+  %33 = getelementptr inbounds %struct.anon.11, ptr %32, i32 0, i32 2
+  store i64 %28, ptr %33, align 8
+  br label %62
 
-32:                                               ; preds = %14
-  %33 = load ptr, ptr %3, align 8
-  %34 = call zeroext i1 @th_has_dedicated_nt(ptr noundef %33)
-  br i1 %34, label %35, label %59
+34:                                               ; preds = %14
+  %35 = load ptr, ptr %3, align 8
+  %36 = call zeroext i1 @th_has_dedicated_nt(ptr noundef %35)
+  br i1 %36, label %37, label %61
 
-35:                                               ; preds = %32
-  %36 = call i32 @get_stack(ptr noundef %6, ptr noundef %7)
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %58
+37:                                               ; preds = %34
+  %38 = call i32 @get_stack(ptr noundef %6, ptr noundef %7)
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %60
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr %6, align 8
-  %40 = ptrtoint ptr %39 to i64
-  %41 = load ptr, ptr %4, align 8
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %6, align 8
   %42 = ptrtoint ptr %41 to i64
-  %43 = sub i64 %40, %42
-  store i64 %43, ptr %8, align 8
-  %44 = load ptr, ptr %4, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.rb_thread_struct, ptr %45, i32 0, i32 5
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %47, i32 0, i32 21
-  %49 = getelementptr inbounds %struct.anon.11, ptr %48, i32 0, i32 0
-  store ptr %44, ptr %49, align 8
-  %50 = load i64, ptr %7, align 8
-  %51 = load i64, ptr %8, align 8
-  %52 = sub i64 %50, %51
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.rb_thread_struct, ptr %53, i32 0, i32 5
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %55, i32 0, i32 21
-  %57 = getelementptr inbounds %struct.anon.11, ptr %56, i32 0, i32 2
-  store i64 %52, ptr %57, align 8
-  br label %58
-
-58:                                               ; preds = %38, %35
-  br label %59
-
-59:                                               ; preds = %58, %32
+  %43 = load ptr, ptr %4, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %45 = sub i64 %42, %44
+  store i64 %45, ptr %8, align 8
+  %46 = load ptr, ptr %4, align 8
+  %47 = load ptr, ptr %3, align 8
+  %48 = getelementptr inbounds %struct.rb_thread_struct, ptr %47, i32 0, i32 5
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %49, i32 0, i32 21
+  %51 = getelementptr inbounds %struct.anon.11, ptr %50, i32 0, i32 0
+  store ptr %46, ptr %51, align 8
+  %52 = load i64, ptr %7, align 8
+  %53 = load i64, ptr %8, align 8
+  %54 = sub i64 %52, %53
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr inbounds %struct.rb_thread_struct, ptr %55, i32 0, i32 5
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds %struct.rb_execution_context_struct, ptr %57, i32 0, i32 21
+  %59 = getelementptr inbounds %struct.anon.11, ptr %58, i32 0, i32 2
+  store i64 %54, ptr %59, align 8
   br label %60
 
-60:                                               ; preds = %59, %19
+60:                                               ; preds = %40, %37
+  br label %61
+
+61:                                               ; preds = %60, %34
+  br label %62
+
+62:                                               ; preds = %61, %19
   ret i32 0
 }
 
@@ -6479,121 +6485,123 @@ define dso_local ptr @rb_nogvl(ptr noundef nonnull %0, ptr noundef %1, ptr nound
   store i32 0, ptr %16, align 4
   store i64 0, ptr %17, align 8
   %31 = load ptr, ptr %8, align 8
-  %32 = icmp eq ptr %31, inttoptr (i64 -1 to ptr)
-  br i1 %32, label %36, label %33
+  %32 = inttoptr i64 -1 to ptr
+  %33 = icmp eq ptr %31, %32
+  br i1 %33, label %38, label %34
 
-33:                                               ; preds = %5
-  %34 = load ptr, ptr %8, align 8
-  %35 = icmp eq ptr %34, inttoptr (i64 -1 to ptr)
-  br i1 %35, label %36, label %38
+34:                                               ; preds = %5
+  %35 = load ptr, ptr %8, align 8
+  %36 = inttoptr i64 -1 to ptr
+  %37 = icmp eq ptr %35, %36
+  br i1 %37, label %38, label %40
 
-36:                                               ; preds = %33, %5
+38:                                               ; preds = %34, %5
   store ptr @ubf_select, ptr %8, align 8
-  %37 = load ptr, ptr %13, align 8
-  store ptr %37, ptr %9, align 8
+  %39 = load ptr, ptr %13, align 8
+  store ptr %39, ptr %9, align 8
+  br label %61
+
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %8, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %60
+
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %13, align 8
+  %45 = getelementptr inbounds %struct.rb_thread_struct, ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = call i32 @rb_ractor_living_thread_num(ptr noundef %46)
+  %48 = icmp eq i32 %47, 1
+  br i1 %48, label %49, label %60
+
+49:                                               ; preds = %43
+  %50 = load i8, ptr %15, align 1
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %60
+
+52:                                               ; preds = %49
+  %53 = load i32, ptr %10, align 4
+  %54 = and i32 %53, 2
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %59
+
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %14, align 8
+  %58 = getelementptr inbounds %struct.rb_vm_struct, ptr %57, i32 0, i32 5
+  store volatile i32 1, ptr %58, align 8
   br label %59
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %8, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %58
-
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %13, align 8
-  %43 = getelementptr inbounds %struct.rb_thread_struct, ptr %42, i32 0, i32 2
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i32 @rb_ractor_living_thread_num(ptr noundef %44)
-  %46 = icmp eq i32 %45, 1
-  br i1 %46, label %47, label %58
-
-47:                                               ; preds = %41
-  %48 = load i8, ptr %15, align 1
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %58
-
-50:                                               ; preds = %47
-  %51 = load i32, ptr %10, align 4
-  %52 = and i32 %51, 2
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %57
-
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %14, align 8
-  %56 = getelementptr inbounds %struct.rb_vm_struct, ptr %55, i32 0, i32 5
-  store volatile i32 1, ptr %56, align 8
-  br label %57
-
-57:                                               ; preds = %54, %50
-  br label %58
-
-58:                                               ; preds = %57, %47, %41, %38
-  br label %59
-
-59:                                               ; preds = %58, %36
+59:                                               ; preds = %56, %52
   br label %60
 
-60:                                               ; preds = %59
-  %61 = load ptr, ptr %13, align 8
-  %62 = load ptr, ptr %8, align 8
-  %63 = load ptr, ptr %9, align 8
-  %64 = load i32, ptr %10, align 4
-  %65 = and i32 %64, 1
-  %66 = call i32 @blocking_region_begin(ptr noundef %61, ptr noundef %18, ptr noundef %62, ptr noundef %63, i32 noundef %65)
-  %67 = icmp ne i32 %66, 0
-  br i1 %67, label %68, label %74
+60:                                               ; preds = %59, %49, %43, %40
+  br label %61
 
-68:                                               ; preds = %60
-  %69 = load ptr, ptr %6, align 8
-  %70 = load ptr, ptr %7, align 8
-  %71 = call ptr %69(ptr noundef %70)
-  store ptr %71, ptr %11, align 8
-  %72 = call i32 @rb_errno()
-  store i32 %72, ptr %16, align 4
-  %73 = load ptr, ptr %13, align 8
-  call void @blocking_region_end(ptr noundef %73, ptr noundef %18)
-  br label %74
+61:                                               ; preds = %60, %38
+  br label %62
 
-74:                                               ; preds = %68, %60
-  br label %75
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %13, align 8
+  %64 = load ptr, ptr %8, align 8
+  %65 = load ptr, ptr %9, align 8
+  %66 = load i32, ptr %10, align 4
+  %67 = and i32 %66, 1
+  %68 = call i32 @blocking_region_begin(ptr noundef %63, ptr noundef %18, ptr noundef %64, ptr noundef %65, i32 noundef %67)
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %76
 
-75:                                               ; preds = %74
-  %76 = load i8, ptr %15, align 1
-  %77 = trunc i8 %76 to i1
-  br i1 %77, label %78, label %81
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %6, align 8
+  %72 = load ptr, ptr %7, align 8
+  %73 = call ptr %71(ptr noundef %72)
+  store ptr %73, ptr %11, align 8
+  %74 = call i32 @rb_errno()
+  store i32 %74, ptr %16, align 4
+  %75 = load ptr, ptr %13, align 8
+  call void @blocking_region_end(ptr noundef %75, ptr noundef %18)
+  br label %76
 
-78:                                               ; preds = %75
-  %79 = load ptr, ptr %14, align 8
-  %80 = getelementptr inbounds %struct.rb_vm_struct, ptr %79, i32 0, i32 5
-  store volatile i32 0, ptr %80, align 8
-  br label %81
+76:                                               ; preds = %70, %62
+  br label %77
 
-81:                                               ; preds = %78, %75
-  %82 = load i32, ptr %10, align 4
-  %83 = and i32 %82, 1
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %88
+77:                                               ; preds = %76
+  %78 = load i8, ptr %15, align 1
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %80, label %83
 
-85:                                               ; preds = %81
-  %86 = load ptr, ptr %12, align 8
-  %87 = call i32 @vm_check_ints_blocking(ptr noundef %86)
-  br label %88
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %14, align 8
+  %82 = getelementptr inbounds %struct.rb_vm_struct, ptr %81, i32 0, i32 5
+  store volatile i32 0, ptr %82, align 8
+  br label %83
 
-88:                                               ; preds = %85, %81
-  %89 = load i64, ptr %17, align 8
-  %90 = icmp ne i64 %89, 0
-  br i1 %90, label %91, label %95
+83:                                               ; preds = %80, %77
+  %84 = load i32, ptr %10, align 4
+  %85 = and i32 %84, 1
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %90
 
-91:                                               ; preds = %88
-  %92 = load i64, ptr %17, align 8
-  %93 = call i64 @rb_thread_kill(i64 noundef %92)
-  %94 = call i64 @thread_value(i64 noundef %93)
-  br label %95
+87:                                               ; preds = %83
+  %88 = load ptr, ptr %12, align 8
+  %89 = call i32 @vm_check_ints_blocking(ptr noundef %88)
+  br label %90
 
-95:                                               ; preds = %91, %88
-  %96 = load i32, ptr %16, align 4
-  call void @rb_errno_set(i32 noundef %96)
-  %97 = load ptr, ptr %11, align 8
-  ret ptr %97
+90:                                               ; preds = %87, %83
+  %91 = load i64, ptr %17, align 8
+  %92 = icmp ne i64 %91, 0
+  br i1 %92, label %93, label %97
+
+93:                                               ; preds = %90
+  %94 = load i64, ptr %17, align 8
+  %95 = call i64 @rb_thread_kill(i64 noundef %94)
+  %96 = call i64 @thread_value(i64 noundef %95)
+  br label %97
+
+97:                                               ; preds = %93, %90
+  %98 = load i32, ptr %16, align 4
+  call void @rb_errno_set(i32 noundef %98)
+  %99 = load ptr, ptr %11, align 8
+  ret ptr %99
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -10852,17 +10860,18 @@ define internal i32 @native_stop_timer_thread() #0 {
   store i32 %5, ptr %1, align 4
   %6 = load i32, ptr %1, align 4
   %7 = icmp ne i32 %6, 0
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %0
   call void @timer_thread_wakeup_force()
-  %9 = load i64, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 1), align 8
-  %10 = call i32 @pthread_join(i64 noundef %9, ptr noundef null)
-  br label %11
+  %9 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8
+  %11 = call i32 @pthread_join(i64 noundef %10, ptr noundef null)
+  br label %12
 
-11:                                               ; preds = %8, %0
-  %12 = load i32, ptr %1, align 4
-  ret i32 %12
+12:                                               ; preds = %8, %0
+  %13 = load i32, ptr %1, align 4
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -10893,29 +10902,36 @@ define internal void @rb_thread_create_timer_thread() #0 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr @current_fork_gen, align 8
   %6 = icmp ne i64 %4, %5
-  br i1 %6, label %7, label %12
+  br i1 %6, label %7, label %18
 
 7:                                                ; preds = %0
   %8 = load i64, ptr %1, align 8
   %9 = icmp ne i64 %8, 0
-  br i1 %9, label %10, label %11
+  br i1 %9, label %10, label %14
 
 10:                                               ; preds = %7
-  call void @close_invalidate_pair(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 2), ptr noundef @.str.199)
-  call void @close_invalidate(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 3), ptr noundef @.str.200)
-  call void @rb_native_mutex_destroy(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
-  br label %11
+  %11 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 2
+  call void @close_invalidate_pair(ptr noundef %11, ptr noundef @.str.199)
+  %12 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 3
+  call void @close_invalidate(ptr noundef %12, ptr noundef @.str.200)
+  %13 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_destroy(ptr noundef %13)
+  br label %14
 
-11:                                               ; preds = %10, %7
-  call void @ccan_list_head_init(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 5))
-  call void @rb_native_mutex_initialize(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
-  call void @setup_communication_pipe_internal(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 2))
+14:                                               ; preds = %10, %7
+  %15 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 5
+  call void @ccan_list_head_init(ptr noundef %15)
+  %16 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_initialize(ptr noundef %16)
+  %17 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 2
+  call void @setup_communication_pipe_internal(ptr noundef %17)
   call void @timer_thread_setup_mn()
-  br label %12
+  br label %18
 
-12:                                               ; preds = %11, %0
-  %13 = call ptr @rb_current_vm()
-  %14 = call i32 @pthread_create(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 1), ptr noundef null, ptr noundef @timer_thread_func, ptr noundef %13) #15
+18:                                               ; preds = %14, %0
+  %19 = call ptr @rb_current_vm()
+  %20 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 1
+  %21 = call i32 @pthread_create(ptr noundef %20, ptr noundef null, ptr noundef @timer_thread_func, ptr noundef %19) #15
   ret void
 }
 
@@ -19629,7 +19645,7 @@ define internal zeroext i1 @timer_thread_register_waiting(ptr noundef %0, i32 no
 
 24:                                               ; preds = %17
   store i1 false, ptr %5, align 1
-  br label %186
+  br label %195
 
 25:                                               ; preds = %21
   br label %26
@@ -19685,7 +19701,7 @@ define internal zeroext i1 @timer_thread_register_waiting(ptr noundef %0, i32 no
 
 56:                                               ; preds = %53
   store i1 false, ptr %5, align 1
-  br label %186
+  br label %195
 
 57:                                               ; preds = %53, %49
   %58 = load i32, ptr %11, align 4
@@ -19715,7 +19731,7 @@ define internal zeroext i1 @timer_thread_register_waiting(ptr noundef %0, i32 no
 
 72:                                               ; preds = %69
   store i1 false, ptr %5, align 1
-  br label %186
+  br label %195
 
 73:                                               ; preds = %69, %65
   %74 = load i32, ptr %11, align 4
@@ -19727,192 +19743,201 @@ define internal zeroext i1 @timer_thread_register_waiting(ptr noundef %0, i32 no
   br label %77
 
 77:                                               ; preds = %76, %61
-  call void @rb_native_mutex_lock(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
-  %78 = load i32, ptr %11, align 4
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %98
+  %78 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_lock(ptr noundef %78)
+  %79 = load i32, ptr %11, align 4
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %101
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds %struct.epoll_event, ptr %12, i32 0, i32 0
-  %82 = load i32, ptr %11, align 4
-  store i32 %82, ptr %81, align 1
-  %83 = getelementptr inbounds %struct.epoll_event, ptr %12, i32 0, i32 1
-  %84 = load ptr, ptr %6, align 8
-  store ptr %84, ptr %83, align 1
-  %85 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 3), align 8
-  %86 = load i32, ptr %7, align 4
-  %87 = call i32 @epoll_ctl(i32 noundef %85, i32 noundef 1, i32 noundef %86, ptr noundef %12) #15
-  %88 = icmp eq i32 %87, -1
-  br i1 %88, label %89, label %97
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds %struct.epoll_event, ptr %12, i32 0, i32 0
+  %83 = load i32, ptr %11, align 4
+  store i32 %83, ptr %82, align 1
+  %84 = getelementptr inbounds %struct.epoll_event, ptr %12, i32 0, i32 1
+  %85 = load ptr, ptr %6, align 8
+  store ptr %85, ptr %84, align 1
+  %86 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 3
+  %87 = load i32, ptr %86, align 8
+  %88 = load i32, ptr %7, align 4
+  %89 = call i32 @epoll_ctl(i32 noundef %87, i32 noundef 1, i32 noundef %88, ptr noundef %12) #15
+  %90 = icmp eq i32 %89, -1
+  br i1 %90, label %91, label %100
 
-89:                                               ; preds = %80
-  %90 = call ptr @rb_errno_ptr()
-  %91 = load i32, ptr %90, align 4
-  switch i32 %91, label %93 [
-    i32 9, label %92
-    i32 1, label %92
-    i32 17, label %92
+91:                                               ; preds = %81
+  %92 = call ptr @rb_errno_ptr()
+  %93 = load i32, ptr %92, align 4
+  switch i32 %93, label %96 [
+    i32 9, label %94
+    i32 1, label %94
+    i32 17, label %94
   ]
 
-92:                                               ; preds = %89, %89, %89
-  call void @rb_native_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
+94:                                               ; preds = %91, %91, %91
+  %95 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_unlock(ptr noundef %95)
   store i1 false, ptr %5, align 1
-  br label %186
+  br label %195
 
-93:                                               ; preds = %89
+96:                                               ; preds = %91
   call void @perror(ptr noundef @.str.166)
-  %94 = load i32, ptr %7, align 4
-  %95 = call ptr @rb_errno_ptr()
-  %96 = load i32, ptr %95, align 4
-  call void (ptr, ...) @rb_bug(ptr noundef @.str.167, i32 noundef %94, i32 noundef %96) #32
+  %97 = load i32, ptr %7, align 4
+  %98 = call ptr @rb_errno_ptr()
+  %99 = load i32, ptr %98, align 4
+  call void (ptr, ...) @rb_bug(ptr noundef @.str.167, i32 noundef %97, i32 noundef %99) #32
   unreachable
 
-97:                                               ; preds = %80
-  br label %98
+100:                                              ; preds = %81
+  br label %101
 
-98:                                               ; preds = %97, %77
-  %99 = load ptr, ptr %6, align 8
-  %100 = icmp ne ptr %99, null
-  br i1 %100, label %101, label %184
+101:                                              ; preds = %100, %77
+  %102 = load ptr, ptr %6, align 8
+  %103 = icmp ne ptr %102, null
+  br i1 %103, label %104, label %192
 
-101:                                              ; preds = %98
-  %102 = load i32, ptr %8, align 4
-  %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds %struct.rb_thread_struct, ptr %103, i32 0, i32 6
-  %105 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %104, i32 0, i32 1
-  %106 = getelementptr inbounds %struct.anon.7, ptr %105, i32 0, i32 0
-  store i32 %102, ptr %106, align 8
-  %107 = load i64, ptr %10, align 8
-  %108 = load ptr, ptr %6, align 8
-  %109 = getelementptr inbounds %struct.rb_thread_struct, ptr %108, i32 0, i32 6
-  %110 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %109, i32 0, i32 1
-  %111 = getelementptr inbounds %struct.anon.7, ptr %110, i32 0, i32 1
-  %112 = getelementptr inbounds %struct.anon.8, ptr %111, i32 0, i32 0
-  store i64 %107, ptr %112, align 8
-  %113 = load i32, ptr %7, align 4
-  %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds %struct.rb_thread_struct, ptr %114, i32 0, i32 6
-  %116 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %115, i32 0, i32 1
-  %117 = getelementptr inbounds %struct.anon.7, ptr %116, i32 0, i32 1
-  %118 = getelementptr inbounds %struct.anon.8, ptr %117, i32 0, i32 1
-  store i32 %113, ptr %118, align 8
-  %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds %struct.rb_thread_struct, ptr %119, i32 0, i32 6
-  %121 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %120, i32 0, i32 1
-  %122 = getelementptr inbounds %struct.anon.7, ptr %121, i32 0, i32 1
-  %123 = getelementptr inbounds %struct.anon.8, ptr %122, i32 0, i32 2
-  store i32 0, ptr %123, align 4
-  %124 = load i64, ptr %10, align 8
-  %125 = icmp eq i64 %124, 0
-  br i1 %125, label %126, label %131
+104:                                              ; preds = %101
+  %105 = load i32, ptr %8, align 4
+  %106 = load ptr, ptr %6, align 8
+  %107 = getelementptr inbounds %struct.rb_thread_struct, ptr %106, i32 0, i32 6
+  %108 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %107, i32 0, i32 1
+  %109 = getelementptr inbounds %struct.anon.7, ptr %108, i32 0, i32 0
+  store i32 %105, ptr %109, align 8
+  %110 = load i64, ptr %10, align 8
+  %111 = load ptr, ptr %6, align 8
+  %112 = getelementptr inbounds %struct.rb_thread_struct, ptr %111, i32 0, i32 6
+  %113 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %112, i32 0, i32 1
+  %114 = getelementptr inbounds %struct.anon.7, ptr %113, i32 0, i32 1
+  %115 = getelementptr inbounds %struct.anon.8, ptr %114, i32 0, i32 0
+  store i64 %110, ptr %115, align 8
+  %116 = load i32, ptr %7, align 4
+  %117 = load ptr, ptr %6, align 8
+  %118 = getelementptr inbounds %struct.rb_thread_struct, ptr %117, i32 0, i32 6
+  %119 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %118, i32 0, i32 1
+  %120 = getelementptr inbounds %struct.anon.7, ptr %119, i32 0, i32 1
+  %121 = getelementptr inbounds %struct.anon.8, ptr %120, i32 0, i32 1
+  store i32 %116, ptr %121, align 8
+  %122 = load ptr, ptr %6, align 8
+  %123 = getelementptr inbounds %struct.rb_thread_struct, ptr %122, i32 0, i32 6
+  %124 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %123, i32 0, i32 1
+  %125 = getelementptr inbounds %struct.anon.7, ptr %124, i32 0, i32 1
+  %126 = getelementptr inbounds %struct.anon.8, ptr %125, i32 0, i32 2
+  store i32 0, ptr %126, align 4
+  %127 = load i64, ptr %10, align 8
+  %128 = icmp eq i64 %127, 0
+  br i1 %128, label %129, label %135
 
-126:                                              ; preds = %101
-  %127 = load ptr, ptr %6, align 8
-  %128 = getelementptr inbounds %struct.rb_thread_struct, ptr %127, i32 0, i32 6
-  %129 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %128, i32 0, i32 1
-  %130 = getelementptr inbounds %struct.anon.7, ptr %129, i32 0, i32 2
-  call void @ccan_list_add_tail_(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 5), ptr noundef %130, ptr noundef @.str.168)
-  br label %183
+129:                                              ; preds = %104
+  %130 = load ptr, ptr %6, align 8
+  %131 = getelementptr inbounds %struct.rb_thread_struct, ptr %130, i32 0, i32 6
+  %132 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %131, i32 0, i32 1
+  %133 = getelementptr inbounds %struct.anon.7, ptr %132, i32 0, i32 2
+  %134 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 5
+  call void @ccan_list_add_tail_(ptr noundef %134, ptr noundef %133, ptr noundef @.str.168)
+  br label %191
 
-131:                                              ; preds = %101
+135:                                              ; preds = %104
   store ptr null, ptr %14, align 8
   store ptr null, ptr %13, align 8
-  %132 = load ptr, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 5), align 8
-  %133 = call ptr @ccan_list_node_to_off_(ptr noundef %132, i64 noundef 160)
-  store ptr %133, ptr %13, align 8
-  br label %134
+  %136 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 5
+  %137 = load ptr, ptr %136, align 8
+  %138 = call ptr @ccan_list_node_to_off_(ptr noundef %137, i64 noundef 160)
+  store ptr %138, ptr %13, align 8
+  br label %139
 
-134:                                              ; preds = %159, %131
-  %135 = load ptr, ptr %13, align 8
-  %136 = call ptr @ccan_list_node_from_off_(ptr noundef %135, i64 noundef 160)
-  %137 = icmp ne ptr %136, getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 5)
-  br i1 %137, label %138, label %165
+139:                                              ; preds = %165, %135
+  %140 = load ptr, ptr %13, align 8
+  %141 = call ptr @ccan_list_node_from_off_(ptr noundef %140, i64 noundef 160)
+  %142 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 5
+  %143 = icmp ne ptr %141, %142
+  br i1 %143, label %144, label %171
 
-138:                                              ; preds = %134
-  %139 = load ptr, ptr %13, align 8
-  %140 = getelementptr inbounds %struct.rb_thread_struct, ptr %139, i32 0, i32 6
-  %141 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %140, i32 0, i32 1
-  %142 = getelementptr inbounds %struct.anon.7, ptr %141, i32 0, i32 0
-  %143 = load i32, ptr %142, align 8
-  %144 = and i32 %143, 1
-  %145 = icmp ne i32 %144, 0
-  br i1 %145, label %146, label %157
+144:                                              ; preds = %139
+  %145 = load ptr, ptr %13, align 8
+  %146 = getelementptr inbounds %struct.rb_thread_struct, ptr %145, i32 0, i32 6
+  %147 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %146, i32 0, i32 1
+  %148 = getelementptr inbounds %struct.anon.7, ptr %147, i32 0, i32 0
+  %149 = load i32, ptr %148, align 8
+  %150 = and i32 %149, 1
+  %151 = icmp ne i32 %150, 0
+  br i1 %151, label %152, label %163
 
-146:                                              ; preds = %138
-  %147 = load ptr, ptr %13, align 8
-  %148 = getelementptr inbounds %struct.rb_thread_struct, ptr %147, i32 0, i32 6
-  %149 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %148, i32 0, i32 1
-  %150 = getelementptr inbounds %struct.anon.7, ptr %149, i32 0, i32 1
-  %151 = getelementptr inbounds %struct.anon.8, ptr %150, i32 0, i32 0
-  %152 = load i64, ptr %151, align 8
-  %153 = load i64, ptr %10, align 8
-  %154 = icmp ult i64 %152, %153
-  br i1 %154, label %155, label %157
+152:                                              ; preds = %144
+  %153 = load ptr, ptr %13, align 8
+  %154 = getelementptr inbounds %struct.rb_thread_struct, ptr %153, i32 0, i32 6
+  %155 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %154, i32 0, i32 1
+  %156 = getelementptr inbounds %struct.anon.7, ptr %155, i32 0, i32 1
+  %157 = getelementptr inbounds %struct.anon.8, ptr %156, i32 0, i32 0
+  %158 = load i64, ptr %157, align 8
+  %159 = load i64, ptr %10, align 8
+  %160 = icmp ult i64 %158, %159
+  br i1 %160, label %161, label %163
 
-155:                                              ; preds = %146
-  %156 = load ptr, ptr %13, align 8
-  store ptr %156, ptr %14, align 8
-  br label %158
+161:                                              ; preds = %152
+  %162 = load ptr, ptr %13, align 8
+  store ptr %162, ptr %14, align 8
+  br label %164
 
-157:                                              ; preds = %146, %138
+163:                                              ; preds = %152, %144
+  br label %171
+
+164:                                              ; preds = %161
   br label %165
 
-158:                                              ; preds = %155
-  br label %159
+165:                                              ; preds = %164
+  %166 = load ptr, ptr %13, align 8
+  %167 = call ptr @ccan_list_node_from_off_(ptr noundef %166, i64 noundef 160)
+  %168 = getelementptr inbounds %struct.ccan_list_node, ptr %167, i32 0, i32 0
+  %169 = load ptr, ptr %168, align 8
+  %170 = call ptr @ccan_list_node_to_off_(ptr noundef %169, i64 noundef 160)
+  store ptr %170, ptr %13, align 8
+  br label %139, !llvm.loop !58
 
-159:                                              ; preds = %158
-  %160 = load ptr, ptr %13, align 8
-  %161 = call ptr @ccan_list_node_from_off_(ptr noundef %160, i64 noundef 160)
-  %162 = getelementptr inbounds %struct.ccan_list_node, ptr %161, i32 0, i32 0
-  %163 = load ptr, ptr %162, align 8
-  %164 = call ptr @ccan_list_node_to_off_(ptr noundef %163, i64 noundef 160)
-  store ptr %164, ptr %13, align 8
-  br label %134, !llvm.loop !58
+171:                                              ; preds = %163, %139
+  %172 = load ptr, ptr %14, align 8
+  %173 = icmp ne ptr %172, null
+  br i1 %173, label %174, label %184
 
-165:                                              ; preds = %157, %134
-  %166 = load ptr, ptr %14, align 8
-  %167 = icmp ne ptr %166, null
-  br i1 %167, label %168, label %177
+174:                                              ; preds = %171
+  %175 = load ptr, ptr %14, align 8
+  %176 = getelementptr inbounds %struct.rb_thread_struct, ptr %175, i32 0, i32 6
+  %177 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %176, i32 0, i32 1
+  %178 = getelementptr inbounds %struct.anon.7, ptr %177, i32 0, i32 2
+  %179 = load ptr, ptr %6, align 8
+  %180 = getelementptr inbounds %struct.rb_thread_struct, ptr %179, i32 0, i32 6
+  %181 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %180, i32 0, i32 1
+  %182 = getelementptr inbounds %struct.anon.7, ptr %181, i32 0, i32 2
+  %183 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 5
+  call void @ccan_list_add_after_(ptr noundef %183, ptr noundef %178, ptr noundef %182, ptr noundef @.str.170)
+  br label %190
 
-168:                                              ; preds = %165
-  %169 = load ptr, ptr %14, align 8
-  %170 = getelementptr inbounds %struct.rb_thread_struct, ptr %169, i32 0, i32 6
-  %171 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %170, i32 0, i32 1
-  %172 = getelementptr inbounds %struct.anon.7, ptr %171, i32 0, i32 2
-  %173 = load ptr, ptr %6, align 8
-  %174 = getelementptr inbounds %struct.rb_thread_struct, ptr %173, i32 0, i32 6
-  %175 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %174, i32 0, i32 1
-  %176 = getelementptr inbounds %struct.anon.7, ptr %175, i32 0, i32 2
-  call void @ccan_list_add_after_(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 5), ptr noundef %172, ptr noundef %176, ptr noundef @.str.170)
-  br label %182
+184:                                              ; preds = %171
+  %185 = load ptr, ptr %6, align 8
+  %186 = getelementptr inbounds %struct.rb_thread_struct, ptr %185, i32 0, i32 6
+  %187 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %186, i32 0, i32 1
+  %188 = getelementptr inbounds %struct.anon.7, ptr %187, i32 0, i32 2
+  %189 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 5
+  call void @ccan_list_add_(ptr noundef %189, ptr noundef %188, ptr noundef @.str.171)
+  br label %190
 
-177:                                              ; preds = %165
-  %178 = load ptr, ptr %6, align 8
-  %179 = getelementptr inbounds %struct.rb_thread_struct, ptr %178, i32 0, i32 6
-  %180 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %179, i32 0, i32 1
-  %181 = getelementptr inbounds %struct.anon.7, ptr %180, i32 0, i32 2
-  call void @ccan_list_add_(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 5), ptr noundef %181, ptr noundef @.str.171)
-  br label %182
-
-182:                                              ; preds = %177, %168
+190:                                              ; preds = %184, %174
   call void @verify_waiting_list()
   call void @timer_thread_wakeup()
-  br label %183
+  br label %191
 
-183:                                              ; preds = %182, %126
-  br label %185
+191:                                              ; preds = %190, %129
+  br label %193
 
-184:                                              ; preds = %98
-  br label %185
+192:                                              ; preds = %101
+  br label %193
 
-185:                                              ; preds = %184, %183
-  call void @rb_native_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
+193:                                              ; preds = %192, %191
+  %194 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_unlock(ptr noundef %194)
   store i1 true, ptr %5, align 1
-  br label %186
+  br label %195
 
-186:                                              ; preds = %185, %92, %72, %56, %24
-  %187 = load i1, ptr %5, align 1
-  ret i1 %187
+195:                                              ; preds = %193, %94, %72, %56, %24
+  %196 = load i1, ptr %5, align 1
+  ret i1 %196
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -19991,66 +20016,68 @@ define internal zeroext i1 @timer_thread_cancel_waiting(ptr noundef %0) #0 {
   %7 = getelementptr inbounds %struct.anon.7, ptr %6, i32 0, i32 0
   %8 = load i32, ptr %7, align 8
   %9 = icmp ne i32 %8, 0
-  br i1 %9, label %10, label %48
+  br i1 %9, label %10, label %50
 
 10:                                               ; preds = %1
-  call void @rb_native_mutex_lock(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.rb_thread_struct, ptr %11, i32 0, i32 6
-  %13 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %12, i32 0, i32 1
-  %14 = getelementptr inbounds %struct.anon.7, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %47
+  %11 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_lock(ptr noundef %11)
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds %struct.rb_thread_struct, ptr %12, i32 0, i32 6
+  %14 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %13, i32 0, i32 1
+  %15 = getelementptr inbounds %struct.anon.7, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %48
 
-17:                                               ; preds = %10
+18:                                               ; preds = %10
   store i8 1, ptr %3, align 1
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.rb_thread_struct, ptr %18, i32 0, i32 6
-  %20 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %19, i32 0, i32 1
-  %21 = getelementptr inbounds %struct.anon.7, ptr %20, i32 0, i32 2
-  call void @ccan_list_del_init_(ptr noundef %21, ptr noundef @.str.172)
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.rb_thread_struct, ptr %22, i32 0, i32 6
-  %24 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %23, i32 0, i32 1
-  %25 = getelementptr inbounds %struct.anon.7, ptr %24, i32 0, i32 0
-  %26 = load i32, ptr %25, align 8
-  %27 = and i32 %26, 10
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %42
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds %struct.rb_thread_struct, ptr %19, i32 0, i32 6
+  %21 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds %struct.anon.7, ptr %21, i32 0, i32 2
+  call void @ccan_list_del_init_(ptr noundef %22, ptr noundef @.str.172)
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds %struct.rb_thread_struct, ptr %23, i32 0, i32 6
+  %25 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %24, i32 0, i32 1
+  %26 = getelementptr inbounds %struct.anon.7, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 8
+  %28 = and i32 %27, 10
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %43
 
-29:                                               ; preds = %17
-  %30 = load ptr, ptr %2, align 8
+30:                                               ; preds = %18
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.rb_thread_struct, ptr %31, i32 0, i32 6
-  %33 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %32, i32 0, i32 1
-  %34 = getelementptr inbounds %struct.anon.7, ptr %33, i32 0, i32 1
-  %35 = getelementptr inbounds %struct.anon.8, ptr %34, i32 0, i32 1
-  %36 = load i32, ptr %35, align 8
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.rb_thread_struct, ptr %37, i32 0, i32 6
-  %39 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %38, i32 0, i32 1
-  %40 = getelementptr inbounds %struct.anon.7, ptr %39, i32 0, i32 0
-  %41 = load i32, ptr %40, align 8
-  call void @timer_thread_unregister_waiting(ptr noundef %30, i32 noundef %36, i32 noundef %41)
-  br label %42
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.rb_thread_struct, ptr %32, i32 0, i32 6
+  %34 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %33, i32 0, i32 1
+  %35 = getelementptr inbounds %struct.anon.7, ptr %34, i32 0, i32 1
+  %36 = getelementptr inbounds %struct.anon.8, ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %36, align 8
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds %struct.rb_thread_struct, ptr %38, i32 0, i32 6
+  %40 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %39, i32 0, i32 1
+  %41 = getelementptr inbounds %struct.anon.7, ptr %40, i32 0, i32 0
+  %42 = load i32, ptr %41, align 8
+  call void @timer_thread_unregister_waiting(ptr noundef %31, i32 noundef %37, i32 noundef %42)
+  br label %43
 
-42:                                               ; preds = %29, %17
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %struct.rb_thread_struct, ptr %43, i32 0, i32 6
-  %45 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %44, i32 0, i32 1
-  %46 = getelementptr inbounds %struct.anon.7, ptr %45, i32 0, i32 0
-  store i32 0, ptr %46, align 8
-  br label %47
-
-47:                                               ; preds = %42, %10
-  call void @rb_native_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
+43:                                               ; preds = %30, %18
+  %44 = load ptr, ptr %2, align 8
+  %45 = getelementptr inbounds %struct.rb_thread_struct, ptr %44, i32 0, i32 6
+  %46 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %45, i32 0, i32 1
+  %47 = getelementptr inbounds %struct.anon.7, ptr %46, i32 0, i32 0
+  store i32 0, ptr %47, align 8
   br label %48
 
-48:                                               ; preds = %47, %1
-  %49 = load i8, ptr %3, align 1
-  %50 = trunc i8 %49 to i1
-  ret i1 %50
+48:                                               ; preds = %43, %10
+  %49 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_unlock(ptr noundef %49)
+  br label %50
+
+50:                                               ; preds = %48, %1
+  %51 = load i8, ptr %3, align 1
+  %52 = trunc i8 %51 to i1
+  ret i1 %52
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -20121,33 +20148,34 @@ define internal void @timer_thread_unregister_waiting(ptr noundef %0, i32 nounde
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 3), align 8
-  %8 = load i32, ptr %5, align 4
-  %9 = call i32 @epoll_ctl(i32 noundef %7, i32 noundef 2, i32 noundef %8, ptr noundef null) #15
-  %10 = icmp eq i32 %9, -1
-  br i1 %10, label %11, label %19
+  %7 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 3
+  %8 = load i32, ptr %7, align 8
+  %9 = load i32, ptr %5, align 4
+  %10 = call i32 @epoll_ctl(i32 noundef %8, i32 noundef 2, i32 noundef %9, ptr noundef null) #15
+  %11 = icmp eq i32 %10, -1
+  br i1 %11, label %12, label %20
 
-11:                                               ; preds = %3
-  %12 = call ptr @rb_errno_ptr()
-  %13 = load i32, ptr %12, align 4
-  switch i32 %13, label %15 [
-    i32 9, label %14
+12:                                               ; preds = %3
+  %13 = call ptr @rb_errno_ptr()
+  %14 = load i32, ptr %13, align 4
+  switch i32 %14, label %16 [
+    i32 9, label %15
   ]
 
-14:                                               ; preds = %11
-  br label %18
-
-15:                                               ; preds = %11
-  call void @perror(ptr noundef @.str.166)
-  %16 = call ptr @rb_errno_ptr()
-  %17 = load i32, ptr %16, align 4
-  call void (ptr, ...) @rb_bug(ptr noundef @.str.173, i32 noundef %17) #32
-  unreachable
-
-18:                                               ; preds = %14
+15:                                               ; preds = %12
   br label %19
 
-19:                                               ; preds = %18, %3
+16:                                               ; preds = %12
+  call void @perror(ptr noundef @.str.166)
+  %17 = call ptr @rb_errno_ptr()
+  %18 = load i32, ptr %17, align 4
+  call void (ptr, ...) @rb_bug(ptr noundef @.str.173, i32 noundef %18) #32
+  unreachable
+
+19:                                               ; preds = %15
+  br label %20
+
+20:                                               ; preds = %19, %3
   ret void
 }
 
@@ -20213,93 +20241,104 @@ define internal void @native_thread_init_main_thread_stack(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %11 = call i64 @pthread_self() #30
   store i64 %11, ptr @native_main_thread, align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 1), align 8
-  %13 = icmp ne i64 %12, 0
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %1
-  br label %64
+  %12 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %1
-  %16 = call i32 @get_stack(ptr noundef %3, ptr noundef %4)
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %23
+  br label %75
 
-18:                                               ; preds = %15
-  %19 = load i64, ptr %4, align 8
-  store i64 %19, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 1), align 8
-  %20 = load ptr, ptr %3, align 8
-  store ptr %20, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 2), align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i64, ptr %4, align 8
-  call void @reserve_stack(ptr noundef %21, i64 noundef %22)
-  br label %49
+16:                                               ; preds = %1
+  %17 = call i32 @get_stack(ptr noundef %3, ptr noundef %4)
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %26
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr @__libc_stack_end, align 8
-  store ptr %24, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 2), align 8
+19:                                               ; preds = %16
+  %20 = load i64, ptr %4, align 8
+  %21 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 1
+  store i64 %20, ptr %21, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 2
+  store ptr %22, ptr %23, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = load i64, ptr %4, align 8
+  call void @reserve_stack(ptr noundef %24, i64 noundef %25)
+  br label %55
+
+26:                                               ; preds = %16
+  %27 = load ptr, ptr @__libc_stack_end, align 8
+  %28 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 2
+  store ptr %27, ptr %28, align 8
   store i64 1048576, ptr %5, align 8
-  %25 = call i32 @getpagesize() #30
-  store i32 %25, ptr %7, align 4
-  %26 = call i32 @getrlimit(i32 noundef 3, ptr noundef %8) #15
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %31
+  %29 = call i32 @getpagesize() #30
+  store i32 %29, ptr %7, align 4
+  %30 = call i32 @getrlimit(i32 noundef 3, ptr noundef %8) #15
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %35
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds %struct.rlimit, ptr %8, i32 0, i32 0
-  %30 = load i64, ptr %29, align 8
-  store i64 %30, ptr %5, align 8
-  br label %31
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds %struct.rlimit, ptr %8, i32 0, i32 0
+  %34 = load i64, ptr %33, align 8
+  store i64 %34, ptr %5, align 8
+  br label %35
 
-31:                                               ; preds = %28, %23
-  %32 = load ptr, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 2), align 8
-  store ptr %32, ptr %2, align 8
-  %33 = load ptr, ptr %2, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = load ptr, ptr %2, align 8
-  %36 = load i64, ptr %5, align 8
-  %37 = sub i64 0, %36
-  %38 = getelementptr i8, ptr %35, i64 %37
+35:                                               ; preds = %32, %26
+  %36 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %2, align 8
+  %38 = load ptr, ptr %2, align 8
   %39 = ptrtoint ptr %38 to i64
-  %40 = load i32, ptr %7, align 4
-  %41 = sext i32 %40 to i64
-  %42 = udiv i64 %39, %41
-  %43 = add i64 %42, 1
-  %44 = load i32, ptr %7, align 4
-  %45 = sext i32 %44 to i64
-  %46 = mul i64 %43, %45
-  %47 = sub i64 %34, %46
-  store i64 %47, ptr %6, align 8
-  %48 = load i64, ptr %6, align 8
-  store i64 %48, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 1), align 8
-  br label %49
+  %40 = load ptr, ptr %2, align 8
+  %41 = load i64, ptr %5, align 8
+  %42 = sub i64 0, %41
+  %43 = getelementptr i8, ptr %40, i64 %42
+  %44 = ptrtoint ptr %43 to i64
+  %45 = load i32, ptr %7, align 4
+  %46 = sext i32 %45 to i64
+  %47 = udiv i64 %44, %46
+  %48 = add i64 %47, 1
+  %49 = load i32, ptr %7, align 4
+  %50 = sext i32 %49 to i64
+  %51 = mul i64 %48, %50
+  %52 = sub i64 %39, %51
+  store i64 %52, ptr %6, align 8
+  %53 = load i64, ptr %6, align 8
+  %54 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 1
+  store i64 %53, ptr %54, align 8
+  br label %55
 
-49:                                               ; preds = %31, %18
-  %50 = load ptr, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 2), align 8
-  %51 = load i64, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 1), align 8
-  %52 = sub i64 0, %51
-  %53 = getelementptr i8, ptr %50, i64 %52
-  store ptr %53, ptr %9, align 8
-  %54 = load ptr, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 2), align 8
-  store ptr %54, ptr %10, align 8
-  %55 = load ptr, ptr %2, align 8
-  %56 = load ptr, ptr %9, align 8
-  %57 = icmp ult ptr %55, %56
-  br i1 %57, label %62, label %58
+55:                                               ; preds = %35, %19
+  %56 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 1
+  %59 = load i64, ptr %58, align 8
+  %60 = sub i64 0, %59
+  %61 = getelementptr i8, ptr %57, i64 %60
+  store ptr %61, ptr %9, align 8
+  %62 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 2
+  %63 = load ptr, ptr %62, align 8
+  store ptr %63, ptr %10, align 8
+  %64 = load ptr, ptr %2, align 8
+  %65 = load ptr, ptr %9, align 8
+  %66 = icmp ult ptr %64, %65
+  br i1 %66, label %71, label %67
 
-58:                                               ; preds = %49
-  %59 = load ptr, ptr %2, align 8
-  %60 = load ptr, ptr %10, align 8
-  %61 = icmp ugt ptr %59, %60
-  br i1 %61, label %62, label %64
+67:                                               ; preds = %55
+  %68 = load ptr, ptr %2, align 8
+  %69 = load ptr, ptr %10, align 8
+  %70 = icmp ugt ptr %68, %69
+  br i1 %70, label %71, label %75
 
-62:                                               ; preds = %58, %49
-  %63 = load ptr, ptr %2, align 8
-  store ptr %63, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 2), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.anon.31, ptr @native_main_thread, i32 0, i32 1), align 8
-  br label %64
+71:                                               ; preds = %67, %55
+  %72 = load ptr, ptr %2, align 8
+  %73 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 2
+  store ptr %72, ptr %73, align 8
+  %74 = getelementptr inbounds %struct.anon.31, ptr @native_main_thread, i32 0, i32 1
+  store i64 0, ptr %74, align 8
+  br label %75
 
-64:                                               ; preds = %62, %58, %14
+75:                                               ; preds = %71, %67, %15
   ret void
 }
 
@@ -23220,98 +23259,99 @@ define internal ptr @nt_alloc_thread_stack_chunk() #0 {
   %12 = call ptr @mmap(ptr noundef null, i64 noundef 536870912, i32 noundef 3, i32 noundef %11, i32 noundef -1, i64 noundef 0) #15
   store ptr %12, ptr %3, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = icmp eq ptr %13, inttoptr (i64 -1 to ptr)
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %0
-  store ptr null, ptr %1, align 8
-  br label %78
+  %14 = inttoptr i64 -1 to ptr
+  %15 = icmp eq ptr %13, %14
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %0
-  %17 = call i64 @nt_thread_stack_size()
-  store i64 %17, ptr %4, align 8
+  store ptr null, ptr %1, align 8
+  br label %79
+
+17:                                               ; preds = %0
+  %18 = call i64 @nt_thread_stack_size()
+  store i64 %18, ptr %4, align 8
   store i32 1, ptr %5, align 4
-  %18 = call i32 @get_sysconf_page_size()
-  %19 = sdiv i32 536870912, %18
-  %20 = sub i32 %19, 1
-  %21 = load i32, ptr %5, align 4
-  %22 = sub i32 %20, %21
-  %23 = call i32 @get_sysconf_page_size()
-  %24 = mul i32 %22, %23
-  %25 = sext i32 %24 to i64
-  %26 = load i64, ptr %4, align 8
-  %27 = udiv i64 %25, %26
-  %28 = trunc i64 %27 to i32
-  store i32 %28, ptr %6, align 4
-  %29 = load i32, ptr %6, align 4
-  %30 = sext i32 %29 to i64
-  %31 = mul i64 2, %30
-  %32 = add i64 24, %31
-  %33 = trunc i64 %32 to i32
-  store i32 %33, ptr %7, align 4
-  %34 = load i32, ptr %7, align 4
-  %35 = call i32 @get_sysconf_page_size()
-  %36 = load i32, ptr %5, align 4
-  %37 = mul i32 %35, %36
-  %38 = icmp sgt i32 %34, %37
-  br i1 %38, label %39, label %57
+  %19 = call i32 @get_sysconf_page_size()
+  %20 = sdiv i32 536870912, %19
+  %21 = sub i32 %20, 1
+  %22 = load i32, ptr %5, align 4
+  %23 = sub i32 %21, %22
+  %24 = call i32 @get_sysconf_page_size()
+  %25 = mul i32 %23, %24
+  %26 = sext i32 %25 to i64
+  %27 = load i64, ptr %4, align 8
+  %28 = udiv i64 %26, %27
+  %29 = trunc i64 %28 to i32
+  store i32 %29, ptr %6, align 4
+  %30 = load i32, ptr %6, align 4
+  %31 = sext i32 %30 to i64
+  %32 = mul i64 2, %31
+  %33 = add i64 24, %32
+  %34 = trunc i64 %33 to i32
+  store i32 %34, ptr %7, align 4
+  %35 = load i32, ptr %7, align 4
+  %36 = call i32 @get_sysconf_page_size()
+  %37 = load i32, ptr %5, align 4
+  %38 = mul i32 %36, %37
+  %39 = icmp sgt i32 %35, %38
+  br i1 %39, label %40, label %58
 
-39:                                               ; preds = %16
-  %40 = load i32, ptr %7, align 4
-  %41 = call i32 @get_sysconf_page_size()
-  %42 = add i32 %40, %41
-  %43 = sub i32 %42, 1
-  %44 = call i32 @get_sysconf_page_size()
-  %45 = sdiv i32 %43, %44
-  store i32 %45, ptr %5, align 4
-  %46 = call i32 @get_sysconf_page_size()
-  %47 = sdiv i32 536870912, %46
-  %48 = sub i32 %47, 1
-  %49 = load i32, ptr %5, align 4
-  %50 = sub i32 %48, %49
-  %51 = call i32 @get_sysconf_page_size()
-  %52 = mul i32 %50, %51
-  %53 = sext i32 %52 to i64
-  %54 = load i64, ptr %4, align 8
-  %55 = udiv i64 %53, %54
-  %56 = trunc i64 %55 to i32
-  store i32 %56, ptr %6, align 4
-  br label %57
+40:                                               ; preds = %17
+  %41 = load i32, ptr %7, align 4
+  %42 = call i32 @get_sysconf_page_size()
+  %43 = add i32 %41, %42
+  %44 = sub i32 %43, 1
+  %45 = call i32 @get_sysconf_page_size()
+  %46 = sdiv i32 %44, %45
+  store i32 %46, ptr %5, align 4
+  %47 = call i32 @get_sysconf_page_size()
+  %48 = sdiv i32 536870912, %47
+  %49 = sub i32 %48, 1
+  %50 = load i32, ptr %5, align 4
+  %51 = sub i32 %49, %50
+  %52 = call i32 @get_sysconf_page_size()
+  %53 = mul i32 %51, %52
+  %54 = sext i32 %53 to i64
+  %55 = load i64, ptr %4, align 8
+  %56 = udiv i64 %54, %55
+  %57 = trunc i64 %56 to i32
+  store i32 %57, ptr %6, align 4
+  br label %58
 
-57:                                               ; preds = %39, %16
-  %58 = load ptr, ptr %3, align 8
-  store ptr %58, ptr %8, align 8
-  %59 = load i32, ptr %5, align 4
-  %60 = trunc i32 %59 to i16
-  %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds %struct.nt_stack_chunk_header, ptr %61, i32 0, i32 2
-  store i16 %60, ptr %62, align 8
-  %63 = load ptr, ptr @nt_stack_chunks, align 8
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds %struct.nt_stack_chunk_header, ptr %64, i32 0, i32 0
-  store ptr %63, ptr %65, align 8
-  %66 = load ptr, ptr @nt_free_stack_chunks, align 8
-  %67 = load ptr, ptr %8, align 8
-  %68 = getelementptr inbounds %struct.nt_stack_chunk_header, ptr %67, i32 0, i32 1
-  store ptr %66, ptr %68, align 8
-  %69 = load i32, ptr %6, align 4
-  %70 = trunc i32 %69 to i16
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds %struct.nt_stack_chunk_header, ptr %71, i32 0, i32 3
-  store i16 %70, ptr %72, align 2
-  %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds %struct.nt_stack_chunk_header, ptr %73, i32 0, i32 4
-  store i16 %70, ptr %74, align 4
-  %75 = load ptr, ptr %8, align 8
-  %76 = getelementptr inbounds %struct.nt_stack_chunk_header, ptr %75, i32 0, i32 5
-  store i16 0, ptr %76, align 2
-  %77 = load ptr, ptr %8, align 8
-  store ptr %77, ptr %1, align 8
-  br label %78
+58:                                               ; preds = %40, %17
+  %59 = load ptr, ptr %3, align 8
+  store ptr %59, ptr %8, align 8
+  %60 = load i32, ptr %5, align 4
+  %61 = trunc i32 %60 to i16
+  %62 = load ptr, ptr %8, align 8
+  %63 = getelementptr inbounds %struct.nt_stack_chunk_header, ptr %62, i32 0, i32 2
+  store i16 %61, ptr %63, align 8
+  %64 = load ptr, ptr @nt_stack_chunks, align 8
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr inbounds %struct.nt_stack_chunk_header, ptr %65, i32 0, i32 0
+  store ptr %64, ptr %66, align 8
+  %67 = load ptr, ptr @nt_free_stack_chunks, align 8
+  %68 = load ptr, ptr %8, align 8
+  %69 = getelementptr inbounds %struct.nt_stack_chunk_header, ptr %68, i32 0, i32 1
+  store ptr %67, ptr %69, align 8
+  %70 = load i32, ptr %6, align 4
+  %71 = trunc i32 %70 to i16
+  %72 = load ptr, ptr %8, align 8
+  %73 = getelementptr inbounds %struct.nt_stack_chunk_header, ptr %72, i32 0, i32 3
+  store i16 %71, ptr %73, align 2
+  %74 = load ptr, ptr %8, align 8
+  %75 = getelementptr inbounds %struct.nt_stack_chunk_header, ptr %74, i32 0, i32 4
+  store i16 %71, ptr %75, align 4
+  %76 = load ptr, ptr %8, align 8
+  %77 = getelementptr inbounds %struct.nt_stack_chunk_header, ptr %76, i32 0, i32 5
+  store i16 0, ptr %77, align 2
+  %78 = load ptr, ptr %8, align 8
+  store ptr %78, ptr %1, align 8
+  br label %79
 
-78:                                               ; preds = %57, %15
-  %79 = load ptr, ptr %1, align 8
-  ret ptr %79
+79:                                               ; preds = %58, %16
+  %80 = load ptr, ptr %1, align 8
+  ret ptr %80
 }
 
 ; Function Attrs: nounwind
@@ -24878,19 +24918,21 @@ define internal void @setup_communication_pipe_internal(ptr noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @timer_thread_setup_mn() #0 {
   %1 = call i32 @epoll_create1(i32 noundef 524288) #15
-  store i32 %1, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 3), align 8
-  %2 = icmp eq i32 %1, -1
-  br i1 %2, label %3, label %6
+  %2 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 3
+  store i32 %1, ptr %2, align 8
+  %3 = icmp eq i32 %1, -1
+  br i1 %3, label %4, label %7
 
-3:                                                ; preds = %0
-  %4 = call ptr @rb_errno_ptr()
-  %5 = load i32, ptr %4, align 4
-  call void (ptr, ...) @rb_bug(ptr noundef @.str.202, i32 noundef %5) #32
+4:                                                ; preds = %0
+  %5 = call ptr @rb_errno_ptr()
+  %6 = load i32, ptr %5, align 4
+  call void (ptr, ...) @rb_bug(ptr noundef @.str.202, i32 noundef %6) #32
   unreachable
 
-6:                                                ; preds = %0
-  %7 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 2), align 8
-  %8 = call zeroext i1 @timer_thread_register_waiting(ptr noundef null, i32 noundef %7, i32 noundef 66, ptr noundef null)
+7:                                                ; preds = %0
+  %8 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 2
+  %9 = load i32, ptr %8, align 8
+  %10 = call zeroext i1 @timer_thread_register_waiting(ptr noundef null, i32 noundef %9, i32 noundef 66, ptr noundef null)
   ret void
 }
 
@@ -25044,24 +25086,26 @@ define internal void @timer_thread_check_timeout(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %5 = call i64 @rb_hrtime_now()
   store i64 %5, ptr %3, align 8
-  call void @rb_native_mutex_lock(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
-  br label %6
+  %6 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_lock(ptr noundef %6)
+  br label %7
 
-6:                                                ; preds = %11, %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = load i64, ptr %3, align 8
-  %9 = call ptr @timer_thread_deq_wakeup(ptr noundef %7, i64 noundef %8)
-  store ptr %9, ptr %4, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %13
+7:                                                ; preds = %12, %1
+  %8 = load ptr, ptr %2, align 8
+  %9 = load i64, ptr %3, align 8
+  %10 = call ptr @timer_thread_deq_wakeup(ptr noundef %8, i64 noundef %9)
+  store ptr %10, ptr %4, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %14
 
-11:                                               ; preds = %6
-  %12 = load ptr, ptr %4, align 8
-  call void @timer_thread_wakeup_thread(ptr noundef %12)
-  br label %6, !llvm.loop !68
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %4, align 8
+  call void @timer_thread_wakeup_thread(ptr noundef %13)
+  br label %7, !llvm.loop !68
 
-13:                                               ; preds = %6
-  call void @rb_native_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
+14:                                               ; preds = %7
+  %15 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_unlock(ptr noundef %15)
   ret void
 }
 
@@ -25150,7 +25194,7 @@ define internal void @timer_thread_polling(ptr noundef %0) #0 {
   call void @ractor_sched_unlock_(ptr noundef %25, ptr noundef null, ptr noundef @.str.165, i32 noundef 906)
   %26 = load ptr, ptr %2, align 8
   %27 = call i32 @native_thread_check_and_create_shared(ptr noundef %26)
-  br label %104
+  br label %109
 
 28:                                               ; preds = %1
   %29 = call ptr @rb_errno_ptr()
@@ -25170,111 +25214,116 @@ define internal void @timer_thread_polling(ptr noundef %0) #0 {
   unreachable
 
 35:                                               ; preds = %31
-  br label %104
+  br label %109
 
 36:                                               ; preds = %1
   store i32 0, ptr %4, align 4
   br label %37
 
-37:                                               ; preds = %100, %36
+37:                                               ; preds = %105, %36
   %38 = load i32, ptr %4, align 4
   %39 = load i32, ptr %3, align 4
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %41, label %103
+  br i1 %40, label %41, label %108
 
 41:                                               ; preds = %37
   %42 = load i32, ptr %4, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr [16 x %struct.epoll_event], ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 4), i64 0, i64 %43
-  %45 = getelementptr inbounds %struct.epoll_event, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 4
-  store ptr %46, ptr %5, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %52
+  %44 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 4
+  %45 = getelementptr [16 x %struct.epoll_event], ptr %44, i64 0, i64 %43
+  %46 = getelementptr inbounds %struct.epoll_event, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 4
+  store ptr %47, ptr %5, align 8
+  %48 = load ptr, ptr %5, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %54
 
-49:                                               ; preds = %41
-  %50 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 2), align 8
-  %51 = call i32 @consume_communication_pipe(i32 noundef %50)
-  br label %99
+50:                                               ; preds = %41
+  %51 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 2
+  %52 = load i32, ptr %51, align 8
+  %53 = call i32 @consume_communication_pipe(i32 noundef %52)
+  br label %104
 
-52:                                               ; preds = %41
-  %53 = load i32, ptr %4, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr [16 x %struct.epoll_event], ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 4), i64 0, i64 %54
-  %56 = getelementptr inbounds %struct.epoll_event, ptr %55, i32 0, i32 0
-  %57 = load i32, ptr %56, align 4
-  store i32 %57, ptr %6, align 4
-  call void @rb_native_mutex_lock(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.rb_thread_struct, ptr %58, i32 0, i32 6
-  %60 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %59, i32 0, i32 1
-  %61 = getelementptr inbounds %struct.anon.7, ptr %60, i32 0, i32 0
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %64, label %97
+54:                                               ; preds = %41
+  %55 = load i32, ptr %4, align 4
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 4
+  %58 = getelementptr [16 x %struct.epoll_event], ptr %57, i64 0, i64 %56
+  %59 = getelementptr inbounds %struct.epoll_event, ptr %58, i32 0, i32 0
+  %60 = load i32, ptr %59, align 4
+  store i32 %60, ptr %6, align 4
+  %61 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_lock(ptr noundef %61)
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds %struct.rb_thread_struct, ptr %62, i32 0, i32 6
+  %64 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %63, i32 0, i32 1
+  %65 = getelementptr inbounds %struct.anon.7, ptr %64, i32 0, i32 0
+  %66 = load i32, ptr %65, align 8
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %101
 
-64:                                               ; preds = %52
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct.rb_thread_struct, ptr %65, i32 0, i32 6
-  %67 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %66, i32 0, i32 1
-  %68 = getelementptr inbounds %struct.anon.7, ptr %67, i32 0, i32 2
-  call void @ccan_list_del_init_(ptr noundef %68, ptr noundef @.str.209)
+68:                                               ; preds = %54
   %69 = load ptr, ptr %5, align 8
-  %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds %struct.rb_thread_struct, ptr %70, i32 0, i32 6
-  %72 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %71, i32 0, i32 1
-  %73 = getelementptr inbounds %struct.anon.7, ptr %72, i32 0, i32 1
-  %74 = getelementptr inbounds %struct.anon.8, ptr %73, i32 0, i32 1
-  %75 = load i32, ptr %74, align 8
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds %struct.rb_thread_struct, ptr %76, i32 0, i32 6
-  %78 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %77, i32 0, i32 1
-  %79 = getelementptr inbounds %struct.anon.7, ptr %78, i32 0, i32 0
-  %80 = load i32, ptr %79, align 8
-  call void @timer_thread_unregister_waiting(ptr noundef %69, i32 noundef %75, i32 noundef %80)
-  %81 = load ptr, ptr %5, align 8
-  %82 = getelementptr inbounds %struct.rb_thread_struct, ptr %81, i32 0, i32 6
-  %83 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %82, i32 0, i32 1
-  %84 = getelementptr inbounds %struct.anon.7, ptr %83, i32 0, i32 0
-  store i32 0, ptr %84, align 8
+  %70 = getelementptr inbounds %struct.rb_thread_struct, ptr %69, i32 0, i32 6
+  %71 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %70, i32 0, i32 1
+  %72 = getelementptr inbounds %struct.anon.7, ptr %71, i32 0, i32 2
+  call void @ccan_list_del_init_(ptr noundef %72, ptr noundef @.str.209)
+  %73 = load ptr, ptr %5, align 8
+  %74 = load ptr, ptr %5, align 8
+  %75 = getelementptr inbounds %struct.rb_thread_struct, ptr %74, i32 0, i32 6
+  %76 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %75, i32 0, i32 1
+  %77 = getelementptr inbounds %struct.anon.7, ptr %76, i32 0, i32 1
+  %78 = getelementptr inbounds %struct.anon.8, ptr %77, i32 0, i32 1
+  %79 = load i32, ptr %78, align 8
+  %80 = load ptr, ptr %5, align 8
+  %81 = getelementptr inbounds %struct.rb_thread_struct, ptr %80, i32 0, i32 6
+  %82 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %81, i32 0, i32 1
+  %83 = getelementptr inbounds %struct.anon.7, ptr %82, i32 0, i32 0
+  %84 = load i32, ptr %83, align 8
+  call void @timer_thread_unregister_waiting(ptr noundef %73, i32 noundef %79, i32 noundef %84)
   %85 = load ptr, ptr %5, align 8
   %86 = getelementptr inbounds %struct.rb_thread_struct, ptr %85, i32 0, i32 6
   %87 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %86, i32 0, i32 1
-  %88 = getelementptr inbounds %struct.anon.7, ptr %87, i32 0, i32 1
-  %89 = getelementptr inbounds %struct.anon.8, ptr %88, i32 0, i32 1
-  store i32 -1, ptr %89, align 8
-  %90 = load i32, ptr %6, align 4
-  %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds %struct.rb_thread_struct, ptr %91, i32 0, i32 6
-  %93 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %92, i32 0, i32 1
-  %94 = getelementptr inbounds %struct.anon.7, ptr %93, i32 0, i32 1
-  %95 = getelementptr inbounds %struct.anon.8, ptr %94, i32 0, i32 2
-  store i32 %90, ptr %95, align 4
-  %96 = load ptr, ptr %5, align 8
-  call void @timer_thread_wakeup_thread(ptr noundef %96)
-  br label %98
+  %88 = getelementptr inbounds %struct.anon.7, ptr %87, i32 0, i32 0
+  store i32 0, ptr %88, align 8
+  %89 = load ptr, ptr %5, align 8
+  %90 = getelementptr inbounds %struct.rb_thread_struct, ptr %89, i32 0, i32 6
+  %91 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %90, i32 0, i32 1
+  %92 = getelementptr inbounds %struct.anon.7, ptr %91, i32 0, i32 1
+  %93 = getelementptr inbounds %struct.anon.8, ptr %92, i32 0, i32 1
+  store i32 -1, ptr %93, align 8
+  %94 = load i32, ptr %6, align 4
+  %95 = load ptr, ptr %5, align 8
+  %96 = getelementptr inbounds %struct.rb_thread_struct, ptr %95, i32 0, i32 6
+  %97 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %96, i32 0, i32 1
+  %98 = getelementptr inbounds %struct.anon.7, ptr %97, i32 0, i32 1
+  %99 = getelementptr inbounds %struct.anon.8, ptr %98, i32 0, i32 2
+  store i32 %94, ptr %99, align 4
+  %100 = load ptr, ptr %5, align 8
+  call void @timer_thread_wakeup_thread(ptr noundef %100)
+  br label %102
 
-97:                                               ; preds = %52
-  br label %98
+101:                                              ; preds = %54
+  br label %102
 
-98:                                               ; preds = %97, %64
-  call void @rb_native_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
-  br label %99
-
-99:                                               ; preds = %98, %49
-  br label %100
-
-100:                                              ; preds = %99
-  %101 = load i32, ptr %4, align 4
-  %102 = add i32 %101, 1
-  store i32 %102, ptr %4, align 4
-  br label %37, !llvm.loop !70
-
-103:                                              ; preds = %37
+102:                                              ; preds = %101, %68
+  %103 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_unlock(ptr noundef %103)
   br label %104
 
-104:                                              ; preds = %103, %35, %24
+104:                                              ; preds = %102, %50
+  br label %105
+
+105:                                              ; preds = %104
+  %106 = load i32, ptr %4, align 4
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %4, align 4
+  br label %37, !llvm.loop !70
+
+108:                                              ; preds = %37
+  br label %109
+
+109:                                              ; preds = %108, %35, %24
   ret void
 }
 
@@ -25286,61 +25335,62 @@ define internal ptr @timer_thread_deq_wakeup(ptr noundef %0, i64 noundef %1) #0 
   %6 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
-  %7 = call ptr @ccan_list_top_(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 5), i64 noundef 160)
-  store ptr %7, ptr %6, align 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %42
+  %7 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 5
+  %8 = call ptr @ccan_list_top_(ptr noundef %7, i64 noundef 160)
+  store ptr %8, ptr %6, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %43
 
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct.rb_thread_struct, ptr %11, i32 0, i32 6
-  %13 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %12, i32 0, i32 1
-  %14 = getelementptr inbounds %struct.anon.7, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
-  %16 = and i32 %15, 1
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %42
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds %struct.rb_thread_struct, ptr %12, i32 0, i32 6
+  %14 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %13, i32 0, i32 1
+  %15 = getelementptr inbounds %struct.anon.7, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 8
+  %17 = and i32 %16, 1
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %43
 
-18:                                               ; preds = %10
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.rb_thread_struct, ptr %19, i32 0, i32 6
-  %21 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %20, i32 0, i32 1
-  %22 = getelementptr inbounds %struct.anon.7, ptr %21, i32 0, i32 1
-  %23 = getelementptr inbounds %struct.anon.8, ptr %22, i32 0, i32 0
-  %24 = load i64, ptr %23, align 8
-  %25 = load i64, ptr %5, align 8
-  %26 = call zeroext i1 @timer_thread_check_exceed(i64 noundef %24, i64 noundef %25)
-  br i1 %26, label %27, label %42
+19:                                               ; preds = %11
+  %20 = load ptr, ptr %6, align 8
+  %21 = getelementptr inbounds %struct.rb_thread_struct, ptr %20, i32 0, i32 6
+  %22 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %21, i32 0, i32 1
+  %23 = getelementptr inbounds %struct.anon.7, ptr %22, i32 0, i32 1
+  %24 = getelementptr inbounds %struct.anon.8, ptr %23, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8
+  %26 = load i64, ptr %5, align 8
+  %27 = call zeroext i1 @timer_thread_check_exceed(i64 noundef %25, i64 noundef %26)
+  br i1 %27, label %28, label %43
 
-27:                                               ; preds = %18
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.rb_thread_struct, ptr %28, i32 0, i32 6
-  %30 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %29, i32 0, i32 1
-  %31 = getelementptr inbounds %struct.anon.7, ptr %30, i32 0, i32 2
-  call void @ccan_list_del_init_(ptr noundef %31, ptr noundef @.str.203)
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.rb_thread_struct, ptr %32, i32 0, i32 6
-  %34 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %33, i32 0, i32 1
-  %35 = getelementptr inbounds %struct.anon.7, ptr %34, i32 0, i32 0
-  store i32 0, ptr %35, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.rb_thread_struct, ptr %36, i32 0, i32 6
-  %38 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %37, i32 0, i32 1
-  %39 = getelementptr inbounds %struct.anon.7, ptr %38, i32 0, i32 1
-  %40 = getelementptr inbounds %struct.anon.8, ptr %39, i32 0, i32 2
-  store i32 0, ptr %40, align 4
-  %41 = load ptr, ptr %6, align 8
-  store ptr %41, ptr %3, align 8
-  br label %43
+28:                                               ; preds = %19
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds %struct.rb_thread_struct, ptr %29, i32 0, i32 6
+  %31 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %30, i32 0, i32 1
+  %32 = getelementptr inbounds %struct.anon.7, ptr %31, i32 0, i32 2
+  call void @ccan_list_del_init_(ptr noundef %32, ptr noundef @.str.203)
+  %33 = load ptr, ptr %6, align 8
+  %34 = getelementptr inbounds %struct.rb_thread_struct, ptr %33, i32 0, i32 6
+  %35 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %34, i32 0, i32 1
+  %36 = getelementptr inbounds %struct.anon.7, ptr %35, i32 0, i32 0
+  store i32 0, ptr %36, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds %struct.rb_thread_struct, ptr %37, i32 0, i32 6
+  %39 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %38, i32 0, i32 1
+  %40 = getelementptr inbounds %struct.anon.7, ptr %39, i32 0, i32 1
+  %41 = getelementptr inbounds %struct.anon.8, ptr %40, i32 0, i32 2
+  store i32 0, ptr %41, align 4
+  %42 = load ptr, ptr %6, align 8
+  store ptr %42, ptr %3, align 8
+  br label %44
 
-42:                                               ; preds = %18, %10, %2
+43:                                               ; preds = %19, %11, %2
   store ptr null, ptr %3, align 8
-  br label %43
+  br label %44
 
-43:                                               ; preds = %42, %27
-  %44 = load ptr, ptr %3, align 8
-  ret ptr %44
+44:                                               ; preds = %43, %28
+  %45 = load ptr, ptr %3, align 8
+  ret ptr %45
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -25460,13 +25510,15 @@ define internal i32 @event_wait(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 3), align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call i32 @timer_thread_set_timeout(ptr noundef %5)
-  %7 = call i32 @epoll_wait(i32 noundef %4, ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 4), i32 noundef 16, i32 noundef %6)
-  store i32 %7, ptr %3, align 4
-  %8 = load i32, ptr %3, align 4
-  ret i32 %8
+  %4 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 3
+  %5 = load i32, ptr %4, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = call i32 @timer_thread_set_timeout(ptr noundef %6)
+  %8 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 4
+  %9 = call i32 @epoll_wait(i32 noundef %5, ptr noundef %8, i32 noundef 16, i32 noundef %7)
+  store i32 %9, ptr %3, align 4
+  %10 = load i32, ptr %3, align 4
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -25658,53 +25710,56 @@ define internal i32 @timer_thread_set_timeout(ptr noundef %0) #0 {
   %38 = getelementptr inbounds %struct.anon.3, ptr %37, i32 0, i32 13
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %69
+  br i1 %40, label %41, label %72
 
 41:                                               ; preds = %33
-  call void @rb_native_mutex_lock(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
-  %42 = call ptr @ccan_list_top_(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 5), i64 noundef 160)
-  store ptr %42, ptr %4, align 8
-  %43 = load ptr, ptr %4, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %68
+  %42 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_lock(ptr noundef %42)
+  %43 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 5
+  %44 = call ptr @ccan_list_top_(ptr noundef %43, i64 noundef 160)
+  store ptr %44, ptr %4, align 8
+  %45 = load ptr, ptr %4, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %70
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.rb_thread_struct, ptr %46, i32 0, i32 6
-  %48 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %47, i32 0, i32 1
-  %49 = getelementptr inbounds %struct.anon.7, ptr %48, i32 0, i32 0
-  %50 = load i32, ptr %49, align 8
-  %51 = and i32 %50, 1
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %68
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %4, align 8
+  %49 = getelementptr inbounds %struct.rb_thread_struct, ptr %48, i32 0, i32 6
+  %50 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %49, i32 0, i32 1
+  %51 = getelementptr inbounds %struct.anon.7, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %51, align 8
+  %53 = and i32 %52, 1
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %70
 
-53:                                               ; preds = %45
-  %54 = call i64 @rb_hrtime_now()
-  store i64 %54, ptr %5, align 8
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds %struct.rb_thread_struct, ptr %55, i32 0, i32 6
-  %57 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %56, i32 0, i32 1
-  %58 = getelementptr inbounds %struct.anon.7, ptr %57, i32 0, i32 1
-  %59 = getelementptr inbounds %struct.anon.8, ptr %58, i32 0, i32 0
-  %60 = load i64, ptr %59, align 8
-  %61 = load i64, ptr %5, align 8
-  %62 = call i64 @rb_hrtime_sub(i64 noundef %60, i64 noundef %61)
-  store i64 %62, ptr %6, align 8
-  %63 = load i64, ptr %6, align 8
-  %64 = add i64 %63, 1000000
-  %65 = sub i64 %64, 1
-  %66 = udiv i64 %65, 1000000
-  %67 = trunc i64 %66 to i32
-  store i32 %67, ptr %3, align 4
-  br label %68
+55:                                               ; preds = %47
+  %56 = call i64 @rb_hrtime_now()
+  store i64 %56, ptr %5, align 8
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds %struct.rb_thread_struct, ptr %57, i32 0, i32 6
+  %59 = getelementptr inbounds %struct.rb_thread_sched_item, ptr %58, i32 0, i32 1
+  %60 = getelementptr inbounds %struct.anon.7, ptr %59, i32 0, i32 1
+  %61 = getelementptr inbounds %struct.anon.8, ptr %60, i32 0, i32 0
+  %62 = load i64, ptr %61, align 8
+  %63 = load i64, ptr %5, align 8
+  %64 = call i64 @rb_hrtime_sub(i64 noundef %62, i64 noundef %63)
+  store i64 %64, ptr %6, align 8
+  %65 = load i64, ptr %6, align 8
+  %66 = add i64 %65, 1000000
+  %67 = sub i64 %66, 1
+  %68 = udiv i64 %67, 1000000
+  %69 = trunc i64 %68 to i32
+  store i32 %69, ptr %3, align 4
+  br label %70
 
-68:                                               ; preds = %53, %45, %41
-  call void @rb_native_mutex_unlock(ptr noundef getelementptr inbounds (%struct.anon.18, ptr @timer_th, i32 0, i32 6))
-  br label %69
+70:                                               ; preds = %55, %47, %41
+  %71 = getelementptr inbounds %struct.anon.18, ptr @timer_th, i32 0, i32 6
+  call void @rb_native_mutex_unlock(ptr noundef %71)
+  br label %72
 
-69:                                               ; preds = %68, %33
-  %70 = load i32, ptr %3, align 4
-  ret i32 %70
+72:                                               ; preds = %70, %33
+  %73 = load i32, ptr %3, align 4
+  ret i32 %73
 }
 
 declare i64 @read(i32 noundef, ptr noundef, i64 noundef) #3

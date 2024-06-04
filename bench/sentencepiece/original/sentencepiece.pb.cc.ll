@@ -658,72 +658,73 @@ define void @_ZN13sentencepiece31SentencePieceText_SentencePieceC2EPN6google8pro
   %8 = load ptr, ptr %4, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %10 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %8, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZN6google8protobuf8internal12ExtensionSetC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %11)
-          to label %12 unwind label %26
+  %10 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %8, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZN6google8protobuf8internal12ExtensionSetC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %12)
+          to label %13 unwind label %27
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %8, i32 0, i32 2
-  store ptr %13, ptr %3, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i32, ptr %14, i64 1
-  br label %16
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %8, i32 0, i32 2
+  store ptr %14, ptr %3, align 8
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds i32, ptr %15, i64 1
+  br label %17
 
-16:                                               ; preds = %16, %12
-  %17 = phi ptr [ %14, %12 ], [ %18, %16 ]
-  store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i32, ptr %17, i64 1
-  %19 = icmp eq ptr %18, %15
-  br i1 %19, label %20, label %16
+17:                                               ; preds = %17, %13
+  %18 = phi ptr [ %15, %13 ], [ %19, %17 ]
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds i32, ptr %18, i64 1
+  %20 = icmp eq ptr %19, %16
+  br i1 %20, label %21, label %17
 
-20:                                               ; preds = %16
-  br label %21
+21:                                               ; preds = %17
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %8, i32 0, i32 3
-  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #3
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %8, i32 0, i32 3
+  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #3
   invoke void @_ZN13sentencepiece31SentencePieceText_SentencePiece10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(80) %8)
-          to label %23 unwind label %30
+          to label %24 unwind label %31
 
-23:                                               ; preds = %21
-  %24 = load ptr, ptr %5, align 8
-  invoke void @_ZN13sentencepiece31SentencePieceText_SentencePiece17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %24)
-          to label %25 unwind label %30
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %5, align 8
+  invoke void @_ZN13sentencepiece31SentencePieceText_SentencePiece17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %25)
+          to label %26 unwind label %31
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   ret void
 
-26:                                               ; preds = %2
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %2
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %6, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %7, align 4
-  br label %34
-
-30:                                               ; preds = %23, %21
-  %31 = landingpad { ptr, i32 }
-          cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %6, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %7, align 4
-  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  br label %34
-
-34:                                               ; preds = %30, %26
-  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %6, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %7, align 4
   br label %35
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr %6, align 8
-  %37 = load i32, ptr %7, align 4
-  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
-  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
-  resume { ptr, i32 } %39
+31:                                               ; preds = %24, %22
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %6, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %7, align 4
+  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  br label %35
+
+35:                                               ; preds = %31, %27
+  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %6, align 8
+  %38 = load i32, ptr %7, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -733,10 +734,11 @@ define linkonce_odr void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr no
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
+  %6 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8)
   ret void
 }
 
@@ -821,201 +823,202 @@ define void @_ZN13sentencepiece31SentencePieceText_SentencePieceC2ERKS0_(ptr nou
   %17 = getelementptr inbounds i8, ptr %16, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 16, i1 false)
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %18 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 1
-  invoke void @_ZN6google8protobuf8internal12ExtensionSetC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18)
-          to label %19 unwind label %79
+  %18 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN13sentencepiece31SentencePieceText_SentencePieceE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %16, align 8
+  %19 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 1
+  invoke void @_ZN6google8protobuf8internal12ExtensionSetC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %80
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 2
-  %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %21, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %22, i64 4, i1 false)
-  %23 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 3
-  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #3
-  %24 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %16, i32 0, i32 1
-  %25 = load ptr, ptr %13, align 8
-  %26 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %25, i32 0, i32 1
-  store ptr %24, ptr %10, align 8
-  store ptr %26, ptr %11, align 8
-  %27 = load ptr, ptr %10, align 8
-  %28 = load ptr, ptr %11, align 8
-  store ptr %28, ptr %9, align 8
-  %29 = load ptr, ptr %9, align 8
-  store ptr %29, ptr %3, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = and i64 %32, 1
-  %34 = trunc i64 %33 to i32
-  %35 = icmp eq i32 %34, 1
-  br label %36
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 2
+  %22 = load ptr, ptr %13, align 8
+  %23 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %22, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %23, i64 4, i1 false)
+  %24 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 3
+  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %24) #3
+  %25 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %16, i32 0, i32 1
+  %26 = load ptr, ptr %13, align 8
+  %27 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %26, i32 0, i32 1
+  store ptr %25, ptr %10, align 8
+  store ptr %27, ptr %11, align 8
+  %28 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %11, align 8
+  store ptr %29, ptr %9, align 8
+  %30 = load ptr, ptr %9, align 8
+  store ptr %30, ptr %3, align 8
+  %31 = load ptr, ptr %3, align 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = and i64 %33, 1
+  %35 = trunc i64 %34 to i32
+  %36 = icmp eq i32 %35, 1
+  br label %37
 
-36:                                               ; preds = %19
-  br i1 %35, label %37, label %58
+37:                                               ; preds = %20
+  br i1 %36, label %38, label %59
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %11, align 8
-  store ptr %38, ptr %7, align 8
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %11, align 8
+  store ptr %39, ptr %7, align 8
   store ptr null, ptr %8, align 8
-  %39 = load ptr, ptr %7, align 8
-  store ptr %39, ptr %5, align 8
-  %40 = load ptr, ptr %5, align 8
-  store ptr %40, ptr %4, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = ptrtoint ptr %42 to i64
-  %44 = and i64 %43, 1
-  %45 = trunc i64 %44 to i32
-  %46 = icmp eq i32 %45, 1
-  br i1 %46, label %47, label %50
+  %40 = load ptr, ptr %7, align 8
+  store ptr %40, ptr %5, align 8
+  %41 = load ptr, ptr %5, align 8
+  store ptr %41, ptr %4, align 8
+  %42 = load ptr, ptr %4, align 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %45 = and i64 %44, 1
+  %46 = trunc i64 %45 to i32
+  %47 = icmp eq i32 %46, 1
+  br i1 %47, label %48, label %51
 
-47:                                               ; preds = %37
-  %48 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %39)
-  %49 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %48, i32 0, i32 1
-  store ptr %49, ptr %6, align 8
-  br label %54
+48:                                               ; preds = %38
+  %49 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %40)
+  %50 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %49, i32 0, i32 1
+  store ptr %50, ptr %6, align 8
+  br label %55
 
-50:                                               ; preds = %37
-  %51 = load ptr, ptr %8, align 8
-  %52 = invoke noundef nonnull align 8 dereferenceable(32) ptr %51()
-          to label %53 unwind label %83
+51:                                               ; preds = %38
+  %52 = load ptr, ptr %8, align 8
+  %53 = invoke noundef nonnull align 8 dereferenceable(32) ptr %52()
+          to label %54 unwind label %84
 
-53:                                               ; preds = %50
-  store ptr %52, ptr %6, align 8
-  br label %54
+54:                                               ; preds = %51
+  store ptr %53, ptr %6, align 8
+  br label %55
 
-54:                                               ; preds = %53, %47
-  %55 = load ptr, ptr %6, align 8
-  br label %56
+55:                                               ; preds = %54, %48
+  %56 = load ptr, ptr %6, align 8
+  br label %57
 
-56:                                               ; preds = %54
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(32) %55)
-          to label %57 unwind label %83
+57:                                               ; preds = %55
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(32) %56)
+          to label %58 unwind label %84
 
-57:                                               ; preds = %56
-  br label %58
-
-58:                                               ; preds = %57, %36
+58:                                               ; preds = %57
   br label %59
 
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 1
-  %61 = load ptr, ptr %13, align 8
-  %62 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %61, i32 0, i32 1
-  invoke void @_ZN6google8protobuf8internal12ExtensionSet9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %62)
-          to label %63 unwind label %83
+59:                                               ; preds = %58, %37
+  br label %60
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 4
-  %65 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-          to label %66 unwind label %83
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 1
+  %62 = load ptr, ptr %13, align 8
+  %63 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %62, i32 0, i32 1
+  invoke void @_ZN6google8protobuf8internal12ExtensionSet9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %63)
+          to label %64 unwind label %84
 
-66:                                               ; preds = %63
-  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %65)
-          to label %67 unwind label %83
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 4
+  %66 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+          to label %67 unwind label %84
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr %13, align 8
-  %69 = invoke noundef zeroext i1 @_ZNK13sentencepiece31SentencePieceText_SentencePiece19_internal_has_pieceEv(ptr noundef nonnull align 8 dereferenceable(80) %68)
-          to label %70 unwind label %83
+67:                                               ; preds = %64
+  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef %66)
+          to label %68 unwind label %84
 
-70:                                               ; preds = %67
-  br i1 %69, label %71, label %87
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %13, align 8
+  %70 = invoke noundef zeroext i1 @_ZNK13sentencepiece31SentencePieceText_SentencePiece19_internal_has_pieceEv(ptr noundef nonnull align 8 dereferenceable(80) %69)
+          to label %71 unwind label %84
 
-71:                                               ; preds = %70
-  %72 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 4
-  %73 = load ptr, ptr %13, align 8
-  %74 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece31SentencePieceText_SentencePiece15_internal_pieceB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(80) %73)
-          to label %75 unwind label %83
+71:                                               ; preds = %68
+  br i1 %70, label %72, label %88
 
-75:                                               ; preds = %71
-  %76 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %77 unwind label %83
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 4
+  %74 = load ptr, ptr %13, align 8
+  %75 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece31SentencePieceText_SentencePiece15_internal_pieceB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(80) %74)
+          to label %76 unwind label %84
 
-77:                                               ; preds = %75
-  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr3SetENS2_12EmptyDefaultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef %76)
-          to label %78 unwind label %83
+76:                                               ; preds = %72
+  %77 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %78 unwind label %84
 
-78:                                               ; preds = %77
-  br label %87
+78:                                               ; preds = %76
+  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr3SetENS2_12EmptyDefaultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef %77)
+          to label %79 unwind label %84
 
-79:                                               ; preds = %2
-  %80 = landingpad { ptr, i32 }
+79:                                               ; preds = %78
+  br label %88
+
+80:                                               ; preds = %2
+  %81 = landingpad { ptr, i32 }
           cleanup
-  %81 = extractvalue { ptr, i32 } %80, 0
-  store ptr %81, ptr %14, align 8
-  %82 = extractvalue { ptr, i32 } %80, 1
-  store i32 %82, ptr %15, align 4
-  br label %113
-
-83:                                               ; preds = %101, %99, %95, %91, %90, %87, %77, %75, %71, %67, %66, %63, %59, %56, %50
-  %84 = landingpad { ptr, i32 }
-          cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %14, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %15, align 4
-  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  br label %113
-
-87:                                               ; preds = %78, %70
-  %88 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 5
-  %89 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-          to label %90 unwind label %83
-
-90:                                               ; preds = %87
-  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef %89)
-          to label %91 unwind label %83
-
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %13, align 8
-  %93 = invoke noundef zeroext i1 @_ZNK13sentencepiece31SentencePieceText_SentencePiece21_internal_has_surfaceEv(ptr noundef nonnull align 8 dereferenceable(80) %92)
-          to label %94 unwind label %83
-
-94:                                               ; preds = %91
-  br i1 %93, label %95, label %103
-
-95:                                               ; preds = %94
-  %96 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 5
-  %97 = load ptr, ptr %13, align 8
-  %98 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece31SentencePieceText_SentencePiece17_internal_surfaceB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(80) %97)
-          to label %99 unwind label %83
-
-99:                                               ; preds = %95
-  %100 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %101 unwind label %83
-
-101:                                              ; preds = %99
-  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr3SetENS2_12EmptyDefaultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef %100)
-          to label %102 unwind label %83
-
-102:                                              ; preds = %101
-  br label %103
-
-103:                                              ; preds = %102, %94
-  %104 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 6
-  %105 = load ptr, ptr %13, align 8
-  %106 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %105, i32 0, i32 6
-  %107 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 8
-  %108 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 6
-  %109 = ptrtoint ptr %107 to i64
-  %110 = ptrtoint ptr %108 to i64
-  %111 = sub i64 %109, %110
-  %112 = add i64 %111, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %104, ptr align 8 %106, i64 %112, i1 false)
-  ret void
-
-113:                                              ; preds = %83, %79
-  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %14, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %15, align 4
   br label %114
 
-114:                                              ; preds = %113
-  %115 = load ptr, ptr %14, align 8
-  %116 = load i32, ptr %15, align 4
-  %117 = insertvalue { ptr, i32 } poison, ptr %115, 0
-  %118 = insertvalue { ptr, i32 } %117, i32 %116, 1
-  resume { ptr, i32 } %118
+84:                                               ; preds = %102, %100, %96, %92, %91, %88, %78, %76, %72, %68, %67, %64, %60, %57, %51
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %14, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %15, align 4
+  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  br label %114
+
+88:                                               ; preds = %79, %71
+  %89 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 5
+  %90 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+          to label %91 unwind label %84
+
+91:                                               ; preds = %88
+  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef %90)
+          to label %92 unwind label %84
+
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %13, align 8
+  %94 = invoke noundef zeroext i1 @_ZNK13sentencepiece31SentencePieceText_SentencePiece21_internal_has_surfaceEv(ptr noundef nonnull align 8 dereferenceable(80) %93)
+          to label %95 unwind label %84
+
+95:                                               ; preds = %92
+  br i1 %94, label %96, label %104
+
+96:                                               ; preds = %95
+  %97 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 5
+  %98 = load ptr, ptr %13, align 8
+  %99 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece31SentencePieceText_SentencePiece17_internal_surfaceB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(80) %98)
+          to label %100 unwind label %84
+
+100:                                              ; preds = %96
+  %101 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %102 unwind label %84
+
+102:                                              ; preds = %100
+  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr3SetENS2_12EmptyDefaultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef %101)
+          to label %103 unwind label %84
+
+103:                                              ; preds = %102
+  br label %104
+
+104:                                              ; preds = %103, %95
+  %105 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 6
+  %106 = load ptr, ptr %13, align 8
+  %107 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %106, i32 0, i32 6
+  %108 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 8
+  %109 = getelementptr inbounds %"class.sentencepiece::SentencePieceText_SentencePiece", ptr %16, i32 0, i32 6
+  %110 = ptrtoint ptr %108 to i64
+  %111 = ptrtoint ptr %109 to i64
+  %112 = sub i64 %110, %111
+  %113 = add i64 %112, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %105, ptr align 8 %107, i64 %113, i1 false)
+  ret void
+
+114:                                              ; preds = %84, %80
+  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %115
+
+115:                                              ; preds = %114
+  %116 = load ptr, ptr %14, align 8
+  %117 = load i32, ptr %15, align 4
+  %118 = insertvalue { ptr, i32 } poison, ptr %116, 0
+  %119 = insertvalue { ptr, i32 } %118, i32 %117, 1
+  resume { ptr, i32 } %119
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1026,9 +1029,10 @@ define linkonce_odr void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
-  call void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
+  call void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
   ret void
 }
 
@@ -3716,91 +3720,92 @@ define void @_ZN13sentencepiece17SentencePieceTextC2EPN6google8protobuf5ArenaE(p
   %8 = load ptr, ptr %4, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %10 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %8, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  invoke void @_ZN6google8protobuf8internal12ExtensionSetC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %11)
-          to label %12 unwind label %29
+  %10 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %8, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  invoke void @_ZN6google8protobuf8internal12ExtensionSetC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %12)
+          to label %13 unwind label %30
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %8, i32 0, i32 2
-  store ptr %13, ptr %3, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i32, ptr %14, i64 1
-  br label %16
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %8, i32 0, i32 2
+  store ptr %14, ptr %3, align 8
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds i32, ptr %15, i64 1
+  br label %17
 
-16:                                               ; preds = %16, %12
-  %17 = phi ptr [ %14, %12 ], [ %18, %16 ]
-  store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i32, ptr %17, i64 1
-  %19 = icmp eq ptr %18, %15
-  br i1 %19, label %20, label %16
+17:                                               ; preds = %17, %13
+  %18 = phi ptr [ %15, %13 ], [ %19, %17 ]
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds i32, ptr %18, i64 1
+  %20 = icmp eq ptr %19, %16
+  br i1 %20, label %21, label %17
 
-20:                                               ; preds = %16
-  br label %21
+21:                                               ; preds = %17
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %8, i32 0, i32 3
-  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #3
-  %23 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %8, i32 0, i32 4
-  %24 = load ptr, ptr %5, align 8
-  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece31SentencePieceText_SentencePieceEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %24)
-          to label %25 unwind label %33
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %8, i32 0, i32 3
+  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #3
+  %24 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %8, i32 0, i32 4
+  %25 = load ptr, ptr %5, align 8
+  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece31SentencePieceText_SentencePieceEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef %25)
+          to label %26 unwind label %34
 
-25:                                               ; preds = %21
+26:                                               ; preds = %22
   invoke void @_ZN13sentencepiece17SentencePieceText10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(88) %8)
-          to label %26 unwind label %37
+          to label %27 unwind label %38
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %5, align 8
-  invoke void @_ZN13sentencepiece17SentencePieceText17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef %27)
-          to label %28 unwind label %37
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %5, align 8
+  invoke void @_ZN13sentencepiece17SentencePieceText17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef %28)
+          to label %29 unwind label %38
 
-28:                                               ; preds = %26
+29:                                               ; preds = %27
   ret void
 
-29:                                               ; preds = %2
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %2
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %6, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %7, align 4
-  br label %42
-
-33:                                               ; preds = %21
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %6, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %7, align 4
-  br label %41
-
-37:                                               ; preds = %26, %25
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %6, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %7, align 4
-  call void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece31SentencePieceText_SentencePieceEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
-  br label %41
-
-41:                                               ; preds = %37, %33
-  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  br label %42
-
-42:                                               ; preds = %41, %29
-  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %6, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %7, align 4
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %6, align 8
-  %45 = load i32, ptr %7, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+34:                                               ; preds = %22
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %6, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %7, align 4
+  br label %42
+
+38:                                               ; preds = %27, %26
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %6, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %7, align 4
+  call void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece31SentencePieceText_SentencePieceEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  br label %43
+
+43:                                               ; preds = %42, %30
+  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %6, align 8
+  %46 = load i32, ptr %7, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3879,182 +3884,183 @@ define void @_ZN13sentencepiece17SentencePieceTextC2ERKS0_(ptr noundef nonnull a
   %17 = getelementptr inbounds i8, ptr %16, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 16, i1 false)
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %18 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 1
-  invoke void @_ZN6google8protobuf8internal12ExtensionSetC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18)
-          to label %19 unwind label %83
+  %18 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN13sentencepiece17SentencePieceTextE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %16, align 8
+  %19 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 1
+  invoke void @_ZN6google8protobuf8internal12ExtensionSetC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %20 unwind label %84
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 2
-  %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %21, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %22, i64 4, i1 false)
-  %23 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 3
-  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #3
-  %24 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 4
-  %25 = load ptr, ptr %13, align 8
-  %26 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %25, i32 0, i32 4
-  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece31SentencePieceText_SentencePieceEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %26)
-          to label %27 unwind label %87
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 2
+  %22 = load ptr, ptr %13, align 8
+  %23 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %22, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %23, i64 4, i1 false)
+  %24 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 3
+  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %24) #3
+  %25 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 4
+  %26 = load ptr, ptr %13, align 8
+  %27 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %26, i32 0, i32 4
+  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece31SentencePieceText_SentencePieceEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %27)
+          to label %28 unwind label %88
 
-27:                                               ; preds = %19
-  %28 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %16, i32 0, i32 1
-  %29 = load ptr, ptr %13, align 8
-  %30 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %29, i32 0, i32 1
-  store ptr %28, ptr %10, align 8
-  store ptr %30, ptr %11, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  store ptr %32, ptr %9, align 8
-  %33 = load ptr, ptr %9, align 8
-  store ptr %33, ptr %3, align 8
-  %34 = load ptr, ptr %3, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = ptrtoint ptr %35 to i64
-  %37 = and i64 %36, 1
-  %38 = trunc i64 %37 to i32
-  %39 = icmp eq i32 %38, 1
-  br label %40
+28:                                               ; preds = %20
+  %29 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %16, i32 0, i32 1
+  %30 = load ptr, ptr %13, align 8
+  %31 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %30, i32 0, i32 1
+  store ptr %29, ptr %10, align 8
+  store ptr %31, ptr %11, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load ptr, ptr %11, align 8
+  store ptr %33, ptr %9, align 8
+  %34 = load ptr, ptr %9, align 8
+  store ptr %34, ptr %3, align 8
+  %35 = load ptr, ptr %3, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = ptrtoint ptr %36 to i64
+  %38 = and i64 %37, 1
+  %39 = trunc i64 %38 to i32
+  %40 = icmp eq i32 %39, 1
+  br label %41
 
-40:                                               ; preds = %27
-  br i1 %39, label %41, label %62
+41:                                               ; preds = %28
+  br i1 %40, label %42, label %63
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %11, align 8
-  store ptr %42, ptr %7, align 8
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %11, align 8
+  store ptr %43, ptr %7, align 8
   store ptr null, ptr %8, align 8
-  %43 = load ptr, ptr %7, align 8
-  store ptr %43, ptr %5, align 8
-  %44 = load ptr, ptr %5, align 8
-  store ptr %44, ptr %4, align 8
-  %45 = load ptr, ptr %4, align 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = ptrtoint ptr %46 to i64
-  %48 = and i64 %47, 1
-  %49 = trunc i64 %48 to i32
-  %50 = icmp eq i32 %49, 1
-  br i1 %50, label %51, label %54
+  %44 = load ptr, ptr %7, align 8
+  store ptr %44, ptr %5, align 8
+  %45 = load ptr, ptr %5, align 8
+  store ptr %45, ptr %4, align 8
+  %46 = load ptr, ptr %4, align 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = ptrtoint ptr %47 to i64
+  %49 = and i64 %48, 1
+  %50 = trunc i64 %49 to i32
+  %51 = icmp eq i32 %50, 1
+  br i1 %51, label %52, label %55
 
-51:                                               ; preds = %41
-  %52 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %43)
-  %53 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %52, i32 0, i32 1
-  store ptr %53, ptr %6, align 8
-  br label %58
+52:                                               ; preds = %42
+  %53 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %44)
+  %54 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %53, i32 0, i32 1
+  store ptr %54, ptr %6, align 8
+  br label %59
 
-54:                                               ; preds = %41
-  %55 = load ptr, ptr %8, align 8
-  %56 = invoke noundef nonnull align 8 dereferenceable(32) ptr %55()
-          to label %57 unwind label %91
+55:                                               ; preds = %42
+  %56 = load ptr, ptr %8, align 8
+  %57 = invoke noundef nonnull align 8 dereferenceable(32) ptr %56()
+          to label %58 unwind label %92
 
-57:                                               ; preds = %54
-  store ptr %56, ptr %6, align 8
-  br label %58
+58:                                               ; preds = %55
+  store ptr %57, ptr %6, align 8
+  br label %59
 
-58:                                               ; preds = %57, %51
-  %59 = load ptr, ptr %6, align 8
-  br label %60
+59:                                               ; preds = %58, %52
+  %60 = load ptr, ptr %6, align 8
+  br label %61
 
-60:                                               ; preds = %58
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(32) %59)
-          to label %61 unwind label %91
+61:                                               ; preds = %59
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(32) %60)
+          to label %62 unwind label %92
 
-61:                                               ; preds = %60
-  br label %62
-
-62:                                               ; preds = %61, %40
+62:                                               ; preds = %61
   br label %63
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 1
-  %65 = load ptr, ptr %13, align 8
-  %66 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %65, i32 0, i32 1
-  invoke void @_ZN6google8protobuf8internal12ExtensionSet9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %66)
-          to label %67 unwind label %91
+63:                                               ; preds = %62, %41
+  br label %64
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 5
-  %69 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-          to label %70 unwind label %91
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 1
+  %66 = load ptr, ptr %13, align 8
+  %67 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %66, i32 0, i32 1
+  invoke void @_ZN6google8protobuf8internal12ExtensionSet9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %67)
+          to label %68 unwind label %92
 
-70:                                               ; preds = %67
-  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef %69)
-          to label %71 unwind label %91
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 5
+  %70 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+          to label %71 unwind label %92
 
-71:                                               ; preds = %70
-  %72 = load ptr, ptr %13, align 8
-  %73 = invoke noundef zeroext i1 @_ZNK13sentencepiece17SentencePieceText18_internal_has_textEv(ptr noundef nonnull align 8 dereferenceable(88) %72)
-          to label %74 unwind label %91
+71:                                               ; preds = %68
+  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef %70)
+          to label %72 unwind label %92
 
-74:                                               ; preds = %71
-  br i1 %73, label %75, label %95
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %13, align 8
+  %74 = invoke noundef zeroext i1 @_ZNK13sentencepiece17SentencePieceText18_internal_has_textEv(ptr noundef nonnull align 8 dereferenceable(88) %73)
+          to label %75 unwind label %92
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 5
-  %77 = load ptr, ptr %13, align 8
-  %78 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece17SentencePieceText14_internal_textB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(88) %77)
-          to label %79 unwind label %91
+75:                                               ; preds = %72
+  br i1 %74, label %76, label %96
 
-79:                                               ; preds = %75
-  %80 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %81 unwind label %91
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 5
+  %78 = load ptr, ptr %13, align 8
+  %79 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece17SentencePieceText14_internal_textB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(88) %78)
+          to label %80 unwind label %92
 
-81:                                               ; preds = %79
-  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr3SetENS2_12EmptyDefaultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef %80)
-          to label %82 unwind label %91
+80:                                               ; preds = %76
+  %81 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %82 unwind label %92
 
-82:                                               ; preds = %81
-  br label %95
+82:                                               ; preds = %80
+  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr3SetENS2_12EmptyDefaultERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef %81)
+          to label %83 unwind label %92
 
-83:                                               ; preds = %2
-  %84 = landingpad { ptr, i32 }
+83:                                               ; preds = %82
+  br label %96
+
+84:                                               ; preds = %2
+  %85 = landingpad { ptr, i32 }
           cleanup
-  %85 = extractvalue { ptr, i32 } %84, 0
-  store ptr %85, ptr %14, align 8
-  %86 = extractvalue { ptr, i32 } %84, 1
-  store i32 %86, ptr %15, align 4
-  br label %101
-
-87:                                               ; preds = %19
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %14, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %15, align 4
-  br label %100
-
-91:                                               ; preds = %81, %79, %75, %71, %70, %67, %63, %60, %54
-  %92 = landingpad { ptr, i32 }
-          cleanup
-  %93 = extractvalue { ptr, i32 } %92, 0
-  store ptr %93, ptr %14, align 8
-  %94 = extractvalue { ptr, i32 } %92, 1
-  store i32 %94, ptr %15, align 4
-  call void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece31SentencePieceText_SentencePieceEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
-  br label %100
-
-95:                                               ; preds = %82, %74
-  %96 = load ptr, ptr %13, align 8
-  %97 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %96, i32 0, i32 6
-  %98 = load float, ptr %97, align 8
-  %99 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 6
-  store float %98, ptr %99, align 8
-  ret void
-
-100:                                              ; preds = %91, %87
-  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  br label %101
-
-101:                                              ; preds = %100, %83
-  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %14, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %15, align 4
   br label %102
 
-102:                                              ; preds = %101
-  %103 = load ptr, ptr %14, align 8
-  %104 = load i32, ptr %15, align 4
-  %105 = insertvalue { ptr, i32 } poison, ptr %103, 0
-  %106 = insertvalue { ptr, i32 } %105, i32 %104, 1
-  resume { ptr, i32 } %106
+88:                                               ; preds = %20
+  %89 = landingpad { ptr, i32 }
+          cleanup
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %14, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %15, align 4
+  br label %101
+
+92:                                               ; preds = %82, %80, %76, %72, %71, %68, %64, %61, %55
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %14, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %15, align 4
+  call void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece31SentencePieceText_SentencePieceEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  br label %101
+
+96:                                               ; preds = %83, %75
+  %97 = load ptr, ptr %13, align 8
+  %98 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %97, i32 0, i32 6
+  %99 = load float, ptr %98, align 8
+  %100 = getelementptr inbounds %"class.sentencepiece::SentencePieceText", ptr %16, i32 0, i32 6
+  store float %99, ptr %100, align 8
+  ret void
+
+101:                                              ; preds = %92, %88
+  call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  br label %102
+
+102:                                              ; preds = %101, %84
+  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %103
+
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %14, align 8
+  %105 = load i32, ptr %15, align 4
+  %106 = insertvalue { ptr, i32 } poison, ptr %104, 0
+  %107 = insertvalue { ptr, i32 } %106, i32 %105, 1
+  resume { ptr, i32 } %107
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5919,55 +5925,56 @@ define void @_ZN13sentencepiece22NBestSentencePieceTextC2EPN6google8protobuf5Are
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds %"class.sentencepiece::NBestSentencePieceText", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
-  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece17SentencePieceTextEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %10)
-          to label %11 unwind label %16
+  %9 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.sentencepiece::NBestSentencePieceText", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece17SentencePieceTextEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %11)
+          to label %12 unwind label %17
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds %"class.sentencepiece::NBestSentencePieceText", ptr %7, i32 0, i32 2
-  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #3
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds %"class.sentencepiece::NBestSentencePieceText", ptr %7, i32 0, i32 2
+  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %13) #3
   invoke void @_ZN13sentencepiece22NBestSentencePieceText10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
-          to label %13 unwind label %20
+          to label %14 unwind label %21
 
-13:                                               ; preds = %11
-  %14 = load ptr, ptr %4, align 8
-  invoke void @_ZN13sentencepiece22NBestSentencePieceText17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %14)
-          to label %15 unwind label %20
+14:                                               ; preds = %12
+  %15 = load ptr, ptr %4, align 8
+  invoke void @_ZN13sentencepiece22NBestSentencePieceText17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %15)
+          to label %16 unwind label %21
 
-15:                                               ; preds = %13
+16:                                               ; preds = %14
   ret void
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %2
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %5, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %6, align 4
-  br label %24
-
-20:                                               ; preds = %13, %11
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %5, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %6, align 4
-  call void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece17SentencePieceTextEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  br label %24
-
-24:                                               ; preds = %20, %16
-  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %5, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %6, align 4
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %5, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+21:                                               ; preds = %14, %12
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %5, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %6, align 4
+  call void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece17SentencePieceTextEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  br label %25
+
+25:                                               ; preds = %21, %17
+  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i32, ptr %6, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6040,114 +6047,115 @@ define void @_ZN13sentencepiece22NBestSentencePieceTextC2ERKS0_(ptr noundef nonn
   %17 = getelementptr inbounds i8, ptr %16, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 16, i1 false)
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i32 0, i32 0, i32 2), ptr %16, align 8
-  %18 = getelementptr inbounds %"class.sentencepiece::NBestSentencePieceText", ptr %16, i32 0, i32 1
-  %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds %"class.sentencepiece::NBestSentencePieceText", ptr %19, i32 0, i32 1
-  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece17SentencePieceTextEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %20)
-          to label %21 unwind label %59
+  %18 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN13sentencepiece22NBestSentencePieceTextE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %16, align 8
+  %19 = getelementptr inbounds %"class.sentencepiece::NBestSentencePieceText", ptr %16, i32 0, i32 1
+  %20 = load ptr, ptr %13, align 8
+  %21 = getelementptr inbounds %"class.sentencepiece::NBestSentencePieceText", ptr %20, i32 0, i32 1
+  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece17SentencePieceTextEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %21)
+          to label %22 unwind label %60
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds %"class.sentencepiece::NBestSentencePieceText", ptr %16, i32 0, i32 2
-  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #3
-  %23 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %16, i32 0, i32 1
-  %24 = load ptr, ptr %13, align 8
-  %25 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %24, i32 0, i32 1
-  store ptr %23, ptr %10, align 8
-  store ptr %25, ptr %11, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = load ptr, ptr %11, align 8
-  store ptr %27, ptr %9, align 8
-  %28 = load ptr, ptr %9, align 8
-  store ptr %28, ptr %3, align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %32 = and i64 %31, 1
-  %33 = trunc i64 %32 to i32
-  %34 = icmp eq i32 %33, 1
-  br label %35
+22:                                               ; preds = %2
+  %23 = getelementptr inbounds %"class.sentencepiece::NBestSentencePieceText", ptr %16, i32 0, i32 2
+  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #3
+  %24 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %16, i32 0, i32 1
+  %25 = load ptr, ptr %13, align 8
+  %26 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %10, align 8
+  store ptr %26, ptr %11, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = load ptr, ptr %11, align 8
+  store ptr %28, ptr %9, align 8
+  %29 = load ptr, ptr %9, align 8
+  store ptr %29, ptr %3, align 8
+  %30 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = ptrtoint ptr %31 to i64
+  %33 = and i64 %32, 1
+  %34 = trunc i64 %33 to i32
+  %35 = icmp eq i32 %34, 1
+  br label %36
 
-35:                                               ; preds = %21
-  br i1 %34, label %36, label %57
+36:                                               ; preds = %22
+  br i1 %35, label %37, label %58
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %11, align 8
-  store ptr %37, ptr %7, align 8
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %11, align 8
+  store ptr %38, ptr %7, align 8
   store ptr null, ptr %8, align 8
-  %38 = load ptr, ptr %7, align 8
-  store ptr %38, ptr %5, align 8
-  %39 = load ptr, ptr %5, align 8
-  store ptr %39, ptr %4, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %43 = and i64 %42, 1
-  %44 = trunc i64 %43 to i32
-  %45 = icmp eq i32 %44, 1
-  br i1 %45, label %46, label %49
+  %39 = load ptr, ptr %7, align 8
+  store ptr %39, ptr %5, align 8
+  %40 = load ptr, ptr %5, align 8
+  store ptr %40, ptr %4, align 8
+  %41 = load ptr, ptr %4, align 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = ptrtoint ptr %42 to i64
+  %44 = and i64 %43, 1
+  %45 = trunc i64 %44 to i32
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %47, label %50
 
-46:                                               ; preds = %36
-  %47 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %38)
-  %48 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %47, i32 0, i32 1
-  store ptr %48, ptr %6, align 8
-  br label %53
+47:                                               ; preds = %37
+  %48 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %39)
+  %49 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %48, i32 0, i32 1
+  store ptr %49, ptr %6, align 8
+  br label %54
 
-49:                                               ; preds = %36
-  %50 = load ptr, ptr %8, align 8
-  %51 = invoke noundef nonnull align 8 dereferenceable(32) ptr %50()
-          to label %52 unwind label %63
+50:                                               ; preds = %37
+  %51 = load ptr, ptr %8, align 8
+  %52 = invoke noundef nonnull align 8 dereferenceable(32) ptr %51()
+          to label %53 unwind label %64
 
-52:                                               ; preds = %49
-  store ptr %51, ptr %6, align 8
-  br label %53
+53:                                               ; preds = %50
+  store ptr %52, ptr %6, align 8
+  br label %54
 
-53:                                               ; preds = %52, %46
-  %54 = load ptr, ptr %6, align 8
-  br label %55
+54:                                               ; preds = %53, %47
+  %55 = load ptr, ptr %6, align 8
+  br label %56
 
-55:                                               ; preds = %53
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(32) %54)
-          to label %56 unwind label %63
+56:                                               ; preds = %54
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(32) %55)
+          to label %57 unwind label %64
 
-56:                                               ; preds = %55
-  br label %57
-
-57:                                               ; preds = %56, %35
+57:                                               ; preds = %56
   br label %58
 
-58:                                               ; preds = %57
+58:                                               ; preds = %57, %36
+  br label %59
+
+59:                                               ; preds = %58
   ret void
 
-59:                                               ; preds = %2
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %2
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %14, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %15, align 4
-  br label %67
-
-63:                                               ; preds = %55, %49
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %14, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %15, align 4
-  call void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece17SentencePieceTextEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
-  br label %67
-
-67:                                               ; preds = %63, %59
-  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %14, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %15, align 4
   br label %68
 
-68:                                               ; preds = %67
-  %69 = load ptr, ptr %14, align 8
-  %70 = load i32, ptr %15, align 4
-  %71 = insertvalue { ptr, i32 } poison, ptr %69, 0
-  %72 = insertvalue { ptr, i32 } %71, i32 %70, 1
-  resume { ptr, i32 } %72
+64:                                               ; preds = %56, %50
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %14, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %15, align 4
+  call void @_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece17SentencePieceTextEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  br label %68
+
+68:                                               ; preds = %64, %60
+  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  br label %69
+
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %14, align 8
+  %71 = load i32, ptr %15, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable

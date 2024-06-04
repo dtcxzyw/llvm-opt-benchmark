@@ -1053,187 +1053,189 @@ entry:
   store i64 %and, ptr %part2, align 8
   store i32 0, ptr %idx, align 4
   store i32 10, ptr %kappa, align 4
-  store ptr getelementptr inbounds (i64, ptr @tens, i64 10), ptr %divp, align 8
+  %18 = getelementptr inbounds i64, ptr @tens, i64 10
+  store ptr %18, ptr %divp, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %18 = load i32, ptr %kappa, align 4
-  %cmp = icmp sgt i32 %18, 0
+  %19 = load i32, ptr %kappa, align 4
+  %cmp = icmp sgt i32 %19, 0
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %19 = load ptr, ptr %divp, align 8
-  %20 = load i64, ptr %19, align 8
-  store i64 %20, ptr %div, align 8
-  %21 = load i64, ptr %part1, align 8
-  %22 = load i64, ptr %div, align 8
-  %div16 = udiv i64 %21, %22
+  %20 = load ptr, ptr %divp, align 8
+  %21 = load i64, ptr %20, align 8
+  store i64 %21, ptr %div, align 8
+  %22 = load i64, ptr %part1, align 8
+  %23 = load i64, ptr %div, align 8
+  %div16 = udiv i64 %22, %23
   %conv = trunc i64 %div16 to i32
   store i32 %conv, ptr %digit, align 4
-  %23 = load i32, ptr %digit, align 4
-  %tobool = icmp ne i32 %23, 0
+  %24 = load i32, ptr %digit, align 4
+  %tobool = icmp ne i32 %24, 0
   br i1 %tobool, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %24 = load i32, ptr %idx, align 4
-  %tobool17 = icmp ne i32 %24, 0
+  %25 = load i32, ptr %idx, align 4
+  %tobool17 = icmp ne i32 %25, 0
   br i1 %tobool17, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %for.body
-  %25 = load i32, ptr %digit, align 4
-  %add = add i32 %25, 48
+  %26 = load i32, ptr %digit, align 4
+  %add = add i32 %26, 48
   %conv18 = trunc i32 %add to i8
-  %26 = load ptr, ptr %digits.addr, align 8
-  %27 = load i32, ptr %idx, align 4
-  %inc = add nsw i32 %27, 1
+  %27 = load ptr, ptr %digits.addr, align 8
+  %28 = load i32, ptr %idx, align 4
+  %inc = add nsw i32 %28, 1
   store i32 %inc, ptr %idx, align 4
-  %idxprom = sext i32 %27 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %26, i64 %idxprom
+  %idxprom = sext i32 %28 to i64
+  %arrayidx = getelementptr inbounds i8, ptr %27, i64 %idxprom
   store i8 %conv18, ptr %arrayidx, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %28 = load i32, ptr %digit, align 4
-  %conv19 = zext i32 %28 to i64
-  %29 = load i64, ptr %div, align 8
-  %mul = mul i64 %conv19, %29
-  %30 = load i64, ptr %part1, align 8
-  %sub20 = sub i64 %30, %mul
+  %29 = load i32, ptr %digit, align 4
+  %conv19 = zext i32 %29 to i64
+  %30 = load i64, ptr %div, align 8
+  %mul = mul i64 %conv19, %30
+  %31 = load i64, ptr %part1, align 8
+  %sub20 = sub i64 %31, %mul
   store i64 %sub20, ptr %part1, align 8
-  %31 = load i32, ptr %kappa, align 4
-  %dec = add nsw i32 %31, -1
+  %32 = load i32, ptr %kappa, align 4
+  %dec = add nsw i32 %32, -1
   store i32 %dec, ptr %kappa, align 4
-  %32 = load i64, ptr %part1, align 8
+  %33 = load i64, ptr %part1, align 8
   %exp21 = getelementptr inbounds %struct.Fp, ptr %one, i32 0, i32 1
-  %33 = load i32, ptr %exp21, align 8
-  %sub22 = sub nsw i32 0, %33
+  %34 = load i32, ptr %exp21, align 8
+  %sub22 = sub nsw i32 0, %34
   %sh_prom23 = zext i32 %sub22 to i64
-  %shl24 = shl i64 %32, %sh_prom23
-  %34 = load i64, ptr %part2, align 8
-  %add25 = add i64 %shl24, %34
+  %shl24 = shl i64 %33, %sh_prom23
+  %35 = load i64, ptr %part2, align 8
+  %add25 = add i64 %shl24, %35
   store i64 %add25, ptr %tmp, align 8
-  %35 = load i64, ptr %tmp, align 8
-  %36 = load i64, ptr %delta, align 8
-  %cmp26 = icmp ule i64 %35, %36
+  %36 = load i64, ptr %tmp, align 8
+  %37 = load i64, ptr %delta, align 8
+  %cmp26 = icmp ule i64 %36, %37
   br i1 %cmp26, label %if.then28, label %if.end34
 
 if.then28:                                        ; preds = %if.end
-  %37 = load i32, ptr %kappa, align 4
-  %38 = load ptr, ptr %K.addr, align 8
-  %39 = load i32, ptr %38, align 4
-  %add29 = add nsw i32 %39, %37
-  store i32 %add29, ptr %38, align 4
-  %40 = load ptr, ptr %digits.addr, align 8
-  %41 = load i32, ptr %idx, align 4
-  %42 = load i64, ptr %delta, align 8
-  %43 = load i64, ptr %tmp, align 8
-  %44 = load i64, ptr %div, align 8
+  %38 = load i32, ptr %kappa, align 4
+  %39 = load ptr, ptr %K.addr, align 8
+  %40 = load i32, ptr %39, align 4
+  %add29 = add nsw i32 %40, %38
+  store i32 %add29, ptr %39, align 4
+  %41 = load ptr, ptr %digits.addr, align 8
+  %42 = load i32, ptr %idx, align 4
+  %43 = load i64, ptr %delta, align 8
+  %44 = load i64, ptr %tmp, align 8
+  %45 = load i64, ptr %div, align 8
   %exp30 = getelementptr inbounds %struct.Fp, ptr %one, i32 0, i32 1
-  %45 = load i32, ptr %exp30, align 8
-  %sub31 = sub nsw i32 0, %45
+  %46 = load i32, ptr %exp30, align 8
+  %sub31 = sub nsw i32 0, %46
   %sh_prom32 = zext i32 %sub31 to i64
-  %shl33 = shl i64 %44, %sh_prom32
-  %46 = load i64, ptr %wfrac, align 8
-  call void @round_digit(ptr noundef %40, i32 noundef %41, i64 noundef %42, i64 noundef %43, i64 noundef %shl33, i64 noundef %46)
-  %47 = load i32, ptr %idx, align 4
-  store i32 %47, ptr %retval, align 4
+  %shl33 = shl i64 %45, %sh_prom32
+  %47 = load i64, ptr %wfrac, align 8
+  call void @round_digit(ptr noundef %41, i32 noundef %42, i64 noundef %43, i64 noundef %44, i64 noundef %shl33, i64 noundef %47)
+  %48 = load i32, ptr %idx, align 4
+  store i32 %48, ptr %retval, align 4
   br label %return
 
 if.end34:                                         ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end34
-  %48 = load ptr, ptr %divp, align 8
-  %incdec.ptr = getelementptr inbounds i64, ptr %48, i32 1
+  %49 = load ptr, ptr %divp, align 8
+  %incdec.ptr = getelementptr inbounds i64, ptr %49, i32 1
   store ptr %incdec.ptr, ptr %divp, align 8
   br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %for.cond
-  store ptr getelementptr inbounds (i64, ptr @tens, i64 18), ptr %unit, align 8
+  %50 = getelementptr inbounds i64, ptr @tens, i64 18
+  store ptr %50, ptr %unit, align 8
   br label %while.body
 
 while.body:                                       ; preds = %if.end63, %for.end
-  %49 = load i64, ptr %part2, align 8
-  %mul35 = mul i64 %49, 10
+  %51 = load i64, ptr %part2, align 8
+  %mul35 = mul i64 %51, 10
   store i64 %mul35, ptr %part2, align 8
-  %50 = load i64, ptr %delta, align 8
-  %mul36 = mul i64 %50, 10
+  %52 = load i64, ptr %delta, align 8
+  %mul36 = mul i64 %52, 10
   store i64 %mul36, ptr %delta, align 8
-  %51 = load i32, ptr %kappa, align 4
-  %dec37 = add nsw i32 %51, -1
+  %53 = load i32, ptr %kappa, align 4
+  %dec37 = add nsw i32 %53, -1
   store i32 %dec37, ptr %kappa, align 4
-  %52 = load i64, ptr %part2, align 8
+  %54 = load i64, ptr %part2, align 8
   %exp39 = getelementptr inbounds %struct.Fp, ptr %one, i32 0, i32 1
-  %53 = load i32, ptr %exp39, align 8
-  %sub40 = sub nsw i32 0, %53
+  %55 = load i32, ptr %exp39, align 8
+  %sub40 = sub nsw i32 0, %55
   %sh_prom41 = zext i32 %sub40 to i64
-  %shr42 = lshr i64 %52, %sh_prom41
+  %shr42 = lshr i64 %54, %sh_prom41
   %conv43 = trunc i64 %shr42 to i32
   store i32 %conv43, ptr %digit38, align 4
-  %54 = load i32, ptr %digit38, align 4
-  %tobool44 = icmp ne i32 %54, 0
+  %56 = load i32, ptr %digit38, align 4
+  %tobool44 = icmp ne i32 %56, 0
   br i1 %tobool44, label %if.then47, label %lor.lhs.false45
 
 lor.lhs.false45:                                  ; preds = %while.body
-  %55 = load i32, ptr %idx, align 4
-  %tobool46 = icmp ne i32 %55, 0
+  %57 = load i32, ptr %idx, align 4
+  %tobool46 = icmp ne i32 %57, 0
   br i1 %tobool46, label %if.then47, label %if.end53
 
 if.then47:                                        ; preds = %lor.lhs.false45, %while.body
-  %56 = load i32, ptr %digit38, align 4
-  %add48 = add i32 %56, 48
+  %58 = load i32, ptr %digit38, align 4
+  %add48 = add i32 %58, 48
   %conv49 = trunc i32 %add48 to i8
-  %57 = load ptr, ptr %digits.addr, align 8
-  %58 = load i32, ptr %idx, align 4
-  %inc50 = add nsw i32 %58, 1
+  %59 = load ptr, ptr %digits.addr, align 8
+  %60 = load i32, ptr %idx, align 4
+  %inc50 = add nsw i32 %60, 1
   store i32 %inc50, ptr %idx, align 4
-  %idxprom51 = sext i32 %58 to i64
-  %arrayidx52 = getelementptr inbounds i8, ptr %57, i64 %idxprom51
+  %idxprom51 = sext i32 %60 to i64
+  %arrayidx52 = getelementptr inbounds i8, ptr %59, i64 %idxprom51
   store i8 %conv49, ptr %arrayidx52, align 1
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then47, %lor.lhs.false45
   %frac54 = getelementptr inbounds %struct.Fp, ptr %one, i32 0, i32 0
-  %59 = load i64, ptr %frac54, align 8
-  %sub55 = sub i64 %59, 1
-  %60 = load i64, ptr %part2, align 8
-  %and56 = and i64 %60, %sub55
+  %61 = load i64, ptr %frac54, align 8
+  %sub55 = sub i64 %61, 1
+  %62 = load i64, ptr %part2, align 8
+  %and56 = and i64 %62, %sub55
   store i64 %and56, ptr %part2, align 8
-  %61 = load i64, ptr %part2, align 8
-  %62 = load i64, ptr %delta, align 8
-  %cmp57 = icmp ult i64 %61, %62
+  %63 = load i64, ptr %part2, align 8
+  %64 = load i64, ptr %delta, align 8
+  %cmp57 = icmp ult i64 %63, %64
   br i1 %cmp57, label %if.then59, label %if.end63
 
 if.then59:                                        ; preds = %if.end53
-  %63 = load i32, ptr %kappa, align 4
-  %64 = load ptr, ptr %K.addr, align 8
-  %65 = load i32, ptr %64, align 4
-  %add60 = add nsw i32 %65, %63
-  store i32 %add60, ptr %64, align 4
-  %66 = load ptr, ptr %digits.addr, align 8
-  %67 = load i32, ptr %idx, align 4
-  %68 = load i64, ptr %delta, align 8
-  %69 = load i64, ptr %part2, align 8
+  %65 = load i32, ptr %kappa, align 4
+  %66 = load ptr, ptr %K.addr, align 8
+  %67 = load i32, ptr %66, align 4
+  %add60 = add nsw i32 %67, %65
+  store i32 %add60, ptr %66, align 4
+  %68 = load ptr, ptr %digits.addr, align 8
+  %69 = load i32, ptr %idx, align 4
+  %70 = load i64, ptr %delta, align 8
+  %71 = load i64, ptr %part2, align 8
   %frac61 = getelementptr inbounds %struct.Fp, ptr %one, i32 0, i32 0
-  %70 = load i64, ptr %frac61, align 8
-  %71 = load i64, ptr %wfrac, align 8
-  %72 = load ptr, ptr %unit, align 8
-  %73 = load i64, ptr %72, align 8
-  %mul62 = mul i64 %71, %73
-  call void @round_digit(ptr noundef %66, i32 noundef %67, i64 noundef %68, i64 noundef %69, i64 noundef %70, i64 noundef %mul62)
-  %74 = load i32, ptr %idx, align 4
-  store i32 %74, ptr %retval, align 4
+  %72 = load i64, ptr %frac61, align 8
+  %73 = load i64, ptr %wfrac, align 8
+  %74 = load ptr, ptr %unit, align 8
+  %75 = load i64, ptr %74, align 8
+  %mul62 = mul i64 %73, %75
+  call void @round_digit(ptr noundef %68, i32 noundef %69, i64 noundef %70, i64 noundef %71, i64 noundef %72, i64 noundef %mul62)
+  %76 = load i32, ptr %idx, align 4
+  store i32 %76, ptr %retval, align 4
   br label %return
 
 if.end63:                                         ; preds = %if.end53
-  %75 = load ptr, ptr %unit, align 8
-  %incdec.ptr64 = getelementptr inbounds i64, ptr %75, i32 -1
+  %77 = load ptr, ptr %unit, align 8
+  %incdec.ptr64 = getelementptr inbounds i64, ptr %77, i32 -1
   store ptr %incdec.ptr64, ptr %unit, align 8
   br label %while.body
 
 return:                                           ; preds = %if.then59, %if.then28
-  %76 = load i32, ptr %retval, align 4
-  ret i32 %76
+  %78 = load i32, ptr %retval, align 4
+  ret i32 %78
 }
 
 ; Function Attrs: nounwind uwtable

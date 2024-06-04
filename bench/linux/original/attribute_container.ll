@@ -49,11 +49,13 @@ define dso_local noundef i32 @attribute_container_register(ptr noundef %0) #2 al
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @klist_init(ptr noundef %3, ptr noundef nonnull @internal_container_klist_get, ptr noundef nonnull @internal_container_klist_put) #7
   tail call void @mutex_lock(ptr noundef nonnull @attribute_container_mutex) #7
-  %4 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @attribute_container_list, i64 0, i32 1), align 8
-  store ptr %0, ptr getelementptr inbounds (%struct.list_head, ptr @attribute_container_list, i64 0, i32 1), align 8
+  %4 = getelementptr inbounds %struct.list_head, ptr @attribute_container_list, i64 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.list_head, ptr @attribute_container_list, i64 0, i32 1
+  store ptr %0, ptr %6, align 8
   store ptr @attribute_container_list, ptr %0, align 8
-  store ptr %4, ptr %2, align 8
-  store volatile ptr %0, ptr %4, align 8
+  store ptr %5, ptr %2, align 8
+  store volatile ptr %0, ptr %5, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @attribute_container_mutex) #7
   ret i32 0
 }
@@ -89,7 +91,7 @@ define dso_local noundef i32 @attribute_container_unregister(ptr noundef %0) #2 
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %13
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -98,15 +100,17 @@ define dso_local noundef i32 @attribute_container_unregister(ptr noundef %0) #2 
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %8, ptr %10, align 8
   store volatile ptr %9, ptr %8, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %7, align 8
-  br label %11
+  %11 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %11, ptr %0, align 8
+  %12 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %12, ptr %7, align 8
+  br label %13
 
-11:                                               ; preds = %6, %1
-  %12 = phi i32 [ 0, %6 ], [ -16, %1 ]
+13:                                               ; preds = %6, %1
+  %14 = phi i32 [ 0, %6 ], [ -16, %1 ]
   tail call void @_raw_spin_unlock(ptr noundef %2) #7
   tail call void @mutex_unlock(ptr noundef nonnull @attribute_container_mutex) #7
-  ret i32 %12
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -114,85 +118,86 @@ define dso_local void @attribute_container_add_device(ptr noundef %0, ptr nounde
   tail call void @mutex_lock(ptr noundef nonnull @attribute_container_mutex) #7
   %3 = load ptr, ptr @attribute_container_list, align 8
   %4 = icmp eq ptr %3, @attribute_container_list
-  br i1 %4, label %50, label %5
+  br i1 %4, label %51, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   %7 = icmp eq ptr %1, null
   br label %8
 
-8:                                                ; preds = %47, %5
-  %9 = phi ptr [ %3, %5 ], [ %48, %47 ]
+8:                                                ; preds = %48, %5
+  %9 = phi ptr [ %3, %5 ], [ %49, %48 ]
   %10 = getelementptr inbounds i8, ptr %9, i64 88
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 1
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %47
+  br i1 %13, label %14, label %48
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %9, i64 80
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %9, ptr noundef %0) #7
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %47, label %19
+  br i1 %18, label %48, label %19
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %21 = tail call noalias noundef align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 768) #8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %19
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str) #9
-  br label %47
+  %20 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %21 = load ptr, ptr %20, align 16
+  %22 = tail call noalias noundef align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 768) #8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %25
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %21, i64 32
-  store ptr %9, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 40
-  tail call void @device_initialize(ptr noundef %26) #7
-  %27 = tail call ptr @get_device(ptr noundef %0) #7
-  %28 = getelementptr inbounds i8, ptr %21, i64 104
-  store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %9, i64 56
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %21, i64 712
-  store ptr %30, ptr %31, align 8
-  %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
-  store ptr @attribute_container_release, ptr %33, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %38
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str) #9
+  br label %48
 
-36:                                               ; preds = %24
-  %37 = load ptr, ptr %0, align 8
-  br label %38
+25:                                               ; preds = %19
+  %26 = getelementptr inbounds i8, ptr %22, i64 32
+  store ptr %9, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %22, i64 40
+  tail call void @device_initialize(ptr noundef %27) #7
+  %28 = tail call ptr @get_device(ptr noundef %0) #7
+  %29 = getelementptr inbounds i8, ptr %22, i64 104
+  store ptr %28, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %9, i64 56
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %22, i64 712
+  store ptr %31, ptr %32, align 8
+  %33 = load ptr, ptr %30, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 48
+  store ptr @attribute_container_release, ptr %34, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %39
 
-38:                                               ; preds = %36, %24
-  %39 = phi ptr [ %37, %36 ], [ %34, %24 ]
-  %40 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %26, ptr noundef nonnull @.str.1, ptr noundef %39) #7
-  br i1 %7, label %43, label %41
+37:                                               ; preds = %25
+  %38 = load ptr, ptr %0, align 8
+  br label %39
 
-41:                                               ; preds = %38
-  %42 = tail call i32 %1(ptr noundef %9, ptr noundef %0, ptr noundef %26) #7
-  br label %45
+39:                                               ; preds = %37, %25
+  %40 = phi ptr [ %38, %37 ], [ %35, %25 ]
+  %41 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %27, ptr noundef nonnull @.str.1, ptr noundef %40) #7
+  br i1 %7, label %44, label %42
 
-43:                                               ; preds = %38
-  %44 = tail call i32 @attribute_container_add_class_device(ptr noundef %26)
-  br label %45
+42:                                               ; preds = %39
+  %43 = tail call i32 %1(ptr noundef %9, ptr noundef %0, ptr noundef %27) #7
+  br label %46
 
-45:                                               ; preds = %43, %41
-  %46 = getelementptr inbounds i8, ptr %9, i64 16
-  tail call void @klist_add_tail(ptr noundef nonnull %21, ptr noundef %46) #7
-  br label %47
+44:                                               ; preds = %39
+  %45 = tail call i32 @attribute_container_add_class_device(ptr noundef %27)
+  br label %46
 
-47:                                               ; preds = %45, %23, %14, %8
-  %48 = load ptr, ptr %9, align 8
-  %49 = icmp eq ptr %48, @attribute_container_list
-  br i1 %49, label %50, label %8, !llvm.loop !5
+46:                                               ; preds = %44, %42
+  %47 = getelementptr inbounds i8, ptr %9, i64 16
+  tail call void @klist_add_tail(ptr noundef nonnull %22, ptr noundef %47) #7
+  br label %48
 
-50:                                               ; preds = %47, %2
+48:                                               ; preds = %46, %24, %14, %8
+  %49 = load ptr, ptr %9, align 8
+  %50 = icmp eq ptr %49, @attribute_container_list
+  br i1 %50, label %51, label %8, !llvm.loop !5
+
+51:                                               ; preds = %48, %2
   tail call void @mutex_unlock(ptr noundef nonnull @attribute_container_mutex) #7
   ret void
 }

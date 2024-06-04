@@ -25,7 +25,8 @@ entry:
   %0 = load ptr, ptr %locale.addr, align 8
   %1 = load ptr, ptr %ec.addr, align 8
   call void @_ZN6icu_7513MeasureFormatC2ERKNS_6LocaleE19UMeasureFormatWidthR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(368) %this1, ptr noundef nonnull align 8 dereferenceable(217) %0, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514CurrencyFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_7514CurrencyFormatE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -41,7 +42,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_7513MeasureFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(368) %this1, ptr noundef nonnull align 8 dereferenceable(368) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514CurrencyFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_7514CurrencyFormatE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 

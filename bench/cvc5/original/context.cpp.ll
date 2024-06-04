@@ -2794,7 +2794,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %pContext, ptr %pContext.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_pScope = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %this1, i32 0, i32 1
   store ptr null, ptr %d_pScope, align 8
   %d_pContextObjRestore = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %this1, i32 0, i32 2
@@ -2821,13 +2822,13 @@ cond.false:                                       ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %0 = load ptr, ptr %pContext.addr, align 8
-  %call8 = call noundef ptr @_ZNK4cvc57context7Context14getBottomScopeEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %1 = load ptr, ptr %pContext.addr, align 8
+  %call8 = call noundef ptr @_ZNK4cvc57context7Context14getBottomScopeEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %d_pScope9 = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %this1, i32 0, i32 1
   store ptr %call8, ptr %d_pScope9, align 8
   %d_pScope10 = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %d_pScope10, align 8
-  call void @_ZN4cvc57context5Scope10addToChainEPNS0_10ContextObjE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %this1)
+  %2 = load ptr, ptr %d_pScope10, align 8
+  call void @_ZN4cvc57context5Scope10addToChainEPNS0_10ContextObjE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %this1)
   ret void
 }
 
@@ -3023,19 +3024,20 @@ entry:
   %frombool = zext i1 %preNotify to i8
   store i8 %frombool, ptr %preNotify.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load i8, ptr %preNotify.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load i8, ptr %preNotify.addr, align 1
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %pContext.addr, align 8
-  call void @_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %this1)
+  %2 = load ptr, ptr %pContext.addr, align 8
+  call void @_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %this1)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %2 = load ptr, ptr %pContext.addr, align 8
-  call void @_ZN4cvc57context7Context16addNotifyObjPostEPNS0_16ContextNotifyObjE(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %this1)
+  %3 = load ptr, ptr %pContext.addr, align 8
+  call void @_ZN4cvc57context7Context16addNotifyObjPostEPNS0_16ContextNotifyObjE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %this1)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -3048,33 +3050,34 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_pCNOnext = getelementptr inbounds %"class.cvc5::context::ContextNotifyObj", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %d_pCNOnext, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %d_pCNOnext, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %d_ppCNOprev = getelementptr inbounds %"class.cvc5::context::ContextNotifyObj", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %d_ppCNOprev, align 8
+  %2 = load ptr, ptr %d_ppCNOprev, align 8
   %d_pCNOnext2 = getelementptr inbounds %"class.cvc5::context::ContextNotifyObj", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %d_pCNOnext2, align 8
-  %d_ppCNOprev3 = getelementptr inbounds %"class.cvc5::context::ContextNotifyObj", ptr %2, i32 0, i32 2
-  store ptr %1, ptr %d_ppCNOprev3, align 8
+  %3 = load ptr, ptr %d_pCNOnext2, align 8
+  %d_ppCNOprev3 = getelementptr inbounds %"class.cvc5::context::ContextNotifyObj", ptr %3, i32 0, i32 2
+  store ptr %2, ptr %d_ppCNOprev3, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %d_ppCNOprev4 = getelementptr inbounds %"class.cvc5::context::ContextNotifyObj", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %d_ppCNOprev4, align 8
-  %cmp5 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %d_ppCNOprev4, align 8
+  %cmp5 = icmp ne ptr %4, null
   br i1 %cmp5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.end
   %d_pCNOnext7 = getelementptr inbounds %"class.cvc5::context::ContextNotifyObj", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %d_pCNOnext7, align 8
+  %5 = load ptr, ptr %d_pCNOnext7, align 8
   %d_ppCNOprev8 = getelementptr inbounds %"class.cvc5::context::ContextNotifyObj", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %d_ppCNOprev8, align 8
-  store ptr %4, ptr %5, align 8
+  %6 = load ptr, ptr %d_ppCNOprev8, align 8
+  store ptr %5, ptr %6, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %if.end

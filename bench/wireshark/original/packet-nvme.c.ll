@@ -5360,65 +5360,67 @@ define internal void @dissect_nvme_cqe_common(ptr noundef %0, ptr noundef %1, i3
   %50 = load i32, ptr %7, align 4
   %51 = add i32 %50, 14
   %52 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %49, i32 noundef %51, i32 noundef 2, i32 noundef -2147483648)
-  br label %60
+  br label %61
 
 53:                                               ; preds = %4
   %54 = load ptr, ptr %10, align 8
-  %55 = load i32, ptr getelementptr inbounds ([7 x i32], ptr @hf_nvme_cqe_status, i64 0, i64 1), align 4
-  %56 = load ptr, ptr %5, align 8
-  %57 = load i32, ptr %7, align 4
-  %58 = add i32 %57, 14
-  %59 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %56, i32 noundef %58, i32 noundef 2, i32 noundef -2147483648)
-  br label %60
+  %55 = getelementptr inbounds [7 x i32], ptr @hf_nvme_cqe_status, i64 0, i64 1
+  %56 = load i32, ptr %55, align 4
+  %57 = load ptr, ptr %5, align 8
+  %58 = load i32, ptr %7, align 4
+  %59 = add i32 %58, 14
+  %60 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %56, ptr noundef %57, i32 noundef %59, i32 noundef 2, i32 noundef -2147483648)
+  br label %61
 
-60:                                               ; preds = %53, %46
-  %61 = load ptr, ptr %10, align 8
-  %62 = load i32, ptr getelementptr inbounds ([7 x i32], ptr @hf_nvme_cqe_status, i64 0, i64 2), align 8
-  %63 = load ptr, ptr %5, align 8
-  %64 = load i32, ptr %7, align 4
-  %65 = add i32 %64, 14
-  %66 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %63, i32 noundef %65, i32 noundef 2, i32 noundef -2147483648)
-  store ptr %66, ptr %9, align 8
-  %67 = load ptr, ptr %9, align 8
-  %68 = load i16, ptr %11, align 2
-  %69 = zext i16 %68 to i32
-  %70 = and i32 %69, 3584
-  %71 = ashr i32 %70, 9
-  %72 = load i16, ptr %11, align 2
-  %73 = zext i16 %72 to i32
-  %74 = and i32 %73, 510
-  %75 = ashr i32 %74, 1
-  %76 = load i32, ptr %8, align 4
-  %77 = call ptr @get_cqe_sc_string(i32 noundef %71, i32 noundef %75, i32 noundef %76)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef @.str.1811, ptr noundef %77)
+61:                                               ; preds = %53, %46
+  %62 = load ptr, ptr %10, align 8
+  %63 = getelementptr inbounds [7 x i32], ptr @hf_nvme_cqe_status, i64 0, i64 2
+  %64 = load i32, ptr %63, align 8
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i32, ptr %7, align 4
+  %67 = add i32 %66, 14
+  %68 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %64, ptr noundef %65, i32 noundef %67, i32 noundef 2, i32 noundef -2147483648)
+  store ptr %68, ptr %9, align 8
+  %69 = load ptr, ptr %9, align 8
+  %70 = load i16, ptr %11, align 2
+  %71 = zext i16 %70 to i32
+  %72 = and i32 %71, 3584
+  %73 = ashr i32 %72, 9
+  %74 = load i16, ptr %11, align 2
+  %75 = zext i16 %74 to i32
+  %76 = and i32 %75, 510
+  %77 = ashr i32 %76, 1
+  %78 = load i32, ptr %8, align 4
+  %79 = call ptr @get_cqe_sc_string(i32 noundef %73, i32 noundef %77, i32 noundef %78)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef @.str.1811, ptr noundef %79)
   store i32 3, ptr %12, align 4
-  br label %78
+  br label %80
 
-78:                                               ; preds = %92, %60
-  %79 = load i32, ptr %12, align 4
-  %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %80, 7
-  br i1 %81, label %82, label %95
+80:                                               ; preds = %94, %61
+  %81 = load i32, ptr %12, align 4
+  %82 = zext i32 %81 to i64
+  %83 = icmp ult i64 %82, 7
+  br i1 %83, label %84, label %97
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %10, align 8
-  %84 = load i32, ptr %12, align 4
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr [7 x i32], ptr @hf_nvme_cqe_status, i64 0, i64 %85
-  %87 = load i32, ptr %86, align 4
-  %88 = load ptr, ptr %5, align 8
-  %89 = load i32, ptr %7, align 4
-  %90 = add i32 %89, 14
-  %91 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %87, ptr noundef %88, i32 noundef %90, i32 noundef 2, i32 noundef -2147483648)
-  br label %92
+84:                                               ; preds = %80
+  %85 = load ptr, ptr %10, align 8
+  %86 = load i32, ptr %12, align 4
+  %87 = zext i32 %86 to i64
+  %88 = getelementptr [7 x i32], ptr @hf_nvme_cqe_status, i64 0, i64 %87
+  %89 = load i32, ptr %88, align 4
+  %90 = load ptr, ptr %5, align 8
+  %91 = load i32, ptr %7, align 4
+  %92 = add i32 %91, 14
+  %93 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %89, ptr noundef %90, i32 noundef %92, i32 noundef 2, i32 noundef -2147483648)
+  br label %94
 
-92:                                               ; preds = %82
-  %93 = load i32, ptr %12, align 4
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %12, align 4
-  br label %78, !llvm.loop !6
+94:                                               ; preds = %84
+  %95 = load i32, ptr %12, align 4
+  %96 = add i32 %95, 1
+  store i32 %96, ptr %12, align 4
+  br label %80, !llvm.loop !6
 
-95:                                               ; preds = %78
+97:                                               ; preds = %80
   ret void
 }
 
@@ -6269,7 +6271,7 @@ define internal void @decode_dword0_cqe(ptr noundef %0, ptr noundef %1, ptr noun
   %14 = getelementptr inbounds %struct.nvme_cmd_ctx, ptr %13, i32 0, i32 10
   %15 = load i8, ptr %14, align 8
   %16 = zext i8 %15 to i32
-  switch i32 %16, label %200 [
+  switch i32 %16, label %202 [
     i32 9, label %17
     i32 10, label %49
     i32 12, label %139
@@ -6322,7 +6324,7 @@ define internal void @decode_dword0_cqe(ptr noundef %0, ptr noundef %1, ptr noun
   br label %48
 
 48:                                               ; preds = %47, %27
-  br label %205
+  br label %207
 
 49:                                               ; preds = %3
   %50 = load ptr, ptr %6, align 8
@@ -6523,7 +6525,7 @@ define internal void @decode_dword0_cqe(ptr noundef %0, ptr noundef %1, ptr noun
   br label %138
 
 138:                                              ; preds = %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55
-  br label %205
+  br label %207
 
 139:                                              ; preds = %3
   %140 = load ptr, ptr %5, align 8
@@ -6613,23 +6615,25 @@ define internal void @decode_dword0_cqe(ptr noundef %0, ptr noundef %1, ptr noun
 
 191:                                              ; preds = %186, %181, %176, %171, %161
   %192 = load ptr, ptr %9, align 8
-  %193 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @hf_nvme_cqe_aev_dword0, i64 0, i64 4), align 16
-  %194 = load ptr, ptr %4, align 8
-  %195 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %193, ptr noundef %194, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
-  %196 = load ptr, ptr %9, align 8
-  %197 = load i32, ptr getelementptr inbounds ([6 x i32], ptr @hf_nvme_cqe_aev_dword0, i64 0, i64 5), align 4
-  %198 = load ptr, ptr %4, align 8
-  %199 = call ptr @proto_tree_add_item(ptr noundef %196, i32 noundef %197, ptr noundef %198, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
-  br label %205
+  %193 = getelementptr inbounds [6 x i32], ptr @hf_nvme_cqe_aev_dword0, i64 0, i64 4
+  %194 = load i32, ptr %193, align 16
+  %195 = load ptr, ptr %4, align 8
+  %196 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %194, ptr noundef %195, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  %197 = load ptr, ptr %9, align 8
+  %198 = getelementptr inbounds [6 x i32], ptr @hf_nvme_cqe_aev_dword0, i64 0, i64 5
+  %199 = load i32, ptr %198, align 4
+  %200 = load ptr, ptr %4, align 8
+  %201 = call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %199, ptr noundef %200, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  br label %207
 
-200:                                              ; preds = %3
-  %201 = load ptr, ptr %5, align 8
-  %202 = load i32, ptr @hf_nvme_cqe_dword0, align 4
-  %203 = load ptr, ptr %4, align 8
-  %204 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %202, ptr noundef %203, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
-  br label %205
+202:                                              ; preds = %3
+  %203 = load ptr, ptr %5, align 8
+  %204 = load i32, ptr @hf_nvme_cqe_dword0, align 4
+  %205 = load ptr, ptr %4, align 8
+  %206 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %204, ptr noundef %205, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  br label %207
 
-205:                                              ; preds = %200, %191, %138, %48
+207:                                              ; preds = %202, %191, %138, %48
   ret void
 }
 

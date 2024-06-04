@@ -618,7 +618,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %config, ptr %config.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16b3CpuNarrowPhase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16b3CpuNarrowPhase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 344) #11
   invoke void @_ZN28b3CpuNarrowPhaseInternalDataC2Ev(ptr noundef nonnull align 8 dereferenceable(340) %call)
           to label %invoke.cont unwind label %lpad
@@ -626,24 +627,24 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %m_data = getelementptr inbounds %class.b3CpuNarrowPhase, ptr %this1, i32 0, i32 1
   store ptr %call, ptr %m_data, align 8
-  %0 = load ptr, ptr %config.addr, align 8
+  %1 = load ptr, ptr %config.addr, align 8
   %m_data2 = getelementptr inbounds %class.b3CpuNarrowPhase, ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_data2, align 8
-  %m_config = getelementptr inbounds %struct.b3CpuNarrowPhaseInternalData, ptr %1, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_config, ptr align 4 %0, i64 48, i1 false)
+  %2 = load ptr, ptr %m_data2, align 8
+  %m_config = getelementptr inbounds %struct.b3CpuNarrowPhaseInternalData, ptr %2, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_config, ptr align 4 %1, i64 48, i1 false)
   %m_data3 = getelementptr inbounds %class.b3CpuNarrowPhase, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %m_data3, align 8
-  %m_numAcceleratedShapes = getelementptr inbounds %struct.b3CpuNarrowPhaseInternalData, ptr %2, i32 0, i32 10
+  %3 = load ptr, ptr %m_data3, align 8
+  %m_numAcceleratedShapes = getelementptr inbounds %struct.b3CpuNarrowPhaseInternalData, ptr %3, i32 0, i32 10
   store i32 0, ptr %m_numAcceleratedShapes, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #12
   br label %eh.resume
 
@@ -838,15 +839,16 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16b3CpuNarrowPhase, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16b3CpuNarrowPhase, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_data = getelementptr inbounds %class.b3CpuNarrowPhase, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_data, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %m_data, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZN28b3CpuNarrowPhaseInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %0) #13
-  call void @_ZdlPv(ptr noundef %0) #12
+  call void @_ZN28b3CpuNarrowPhaseInternalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %1) #13
+  call void @_ZdlPv(ptr noundef %1) #12
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -2682,7 +2684,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15b3ConvexUtility, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV15b3ConvexUtility, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %m_vertices = getelementptr inbounds %class.b3ConvexUtility, ptr %this1, i32 0, i32 8
   call void @_ZN20b3AlignedObjectArrayI9b3Vector3EC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_vertices)
   %m_faces = getelementptr inbounds %class.b3ConvexUtility, ptr %this1, i32 0, i32 9
@@ -2698,21 +2701,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN20b3AlignedObjectArrayI8b3MyFaceED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_faces) #13
   br label %ehcleanup
 

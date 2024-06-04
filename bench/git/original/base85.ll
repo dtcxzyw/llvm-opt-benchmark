@@ -204,8 +204,9 @@ define internal void @prep_base85() #0 {
 entry:
   %i = alloca i32, align 4
   %ch = alloca i32, align 4
-  %0 = load i8, ptr getelementptr inbounds ([256 x i8], ptr @de85, i64 0, i64 90), align 2
-  %tobool = icmp ne i8 %0, 0
+  %0 = getelementptr inbounds [256 x i8], ptr @de85, i64 0, i64 90
+  %1 = load i8, ptr %0, align 2
+  %tobool = icmp ne i8 %1, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -216,30 +217,30 @@ if.end:                                           ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %1 = load i32, ptr %i, align 4
-  %conv = sext i32 %1 to i64
+  %2 = load i32, ptr %i, align 4
+  %conv = sext i32 %2 to i64
   %cmp = icmp ult i64 %conv, 85
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
+  %3 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr inbounds [85 x i8], ptr @en85, i64 0, i64 %idxprom
-  %3 = load i8, ptr %arrayidx, align 1
-  %conv2 = sext i8 %3 to i32
+  %4 = load i8, ptr %arrayidx, align 1
+  %conv2 = sext i8 %4 to i32
   store i32 %conv2, ptr %ch, align 4
-  %4 = load i32, ptr %i, align 4
-  %add = add nsw i32 %4, 1
+  %5 = load i32, ptr %i, align 4
+  %add = add nsw i32 %5, 1
   %conv3 = trunc i32 %add to i8
-  %5 = load i32, ptr %ch, align 4
-  %idxprom4 = sext i32 %5 to i64
+  %6 = load i32, ptr %ch, align 4
+  %idxprom4 = sext i32 %6 to i64
   %arrayidx5 = getelementptr inbounds [256 x i8], ptr @de85, i64 0, i64 %idxprom4
   store i8 %conv3, ptr %arrayidx5, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %6 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %6, 1
+  %7 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %7, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !9
 

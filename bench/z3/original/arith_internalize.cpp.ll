@@ -2866,14 +2866,15 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIbE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIbE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %m_value, align 8
-  %m_old_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %value.addr, align 8
-  %2 = load i8, ptr %1, align 1
-  %tobool = trunc i8 %2 to i1
+  store ptr %1, ptr %m_value, align 8
+  %m_old_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %value.addr, align 8
+  %3 = load i8, ptr %2, align 1
+  %tobool = trunc i8 %3 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %m_old_value, align 8
   ret void
@@ -3327,14 +3328,15 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIP4exprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIP4exprE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail.366, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %m_value, align 8
-  %m_old_value = getelementptr inbounds %class.value_trail.366, ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %value.addr, align 8
-  %2 = load ptr, ptr %1, align 8
-  store ptr %2, ptr %m_old_value, align 8
+  store ptr %1, ptr %m_value, align 8
+  %m_old_value = getelementptr inbounds %class.value_trail.366, ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %value.addr, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr %3, ptr %m_old_value, align 8
   ret void
 }
 
@@ -3549,10 +3551,11 @@ entry:
   store ptr %v, ptr %v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16push_back_vectorI10ptr_vectorI3appEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16push_back_vectorI10ptr_vectorI3appEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_vector = getelementptr inbounds %class.push_back_vector, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %v.addr, align 8
-  store ptr %0, ptr %m_vector, align 8
+  %1 = load ptr, ptr %v.addr, align 8
+  store ptr %1, ptr %m_vector, align 8
   ret void
 }
 
@@ -4054,14 +4057,15 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail.367, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  store ptr %0, ptr %m_value, align 8
-  %m_old_value = getelementptr inbounds %class.value_trail.367, ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %value.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  store i32 %2, ptr %m_old_value, align 8
+  store ptr %1, ptr %m_value, align 8
+  %m_old_value = getelementptr inbounds %class.value_trail.367, ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %value.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  store i32 %3, ptr %m_old_value, align 8
   ret void
 }
 
@@ -7587,10 +7591,11 @@ entry:
   store ptr %v, ptr %v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16push_back_vectorI10ptr_vectorI4exprEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16push_back_vectorI10ptr_vectorI4exprEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_vector = getelementptr inbounds %class.push_back_vector.370, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %v.addr, align 8
-  store ptr %0, ptr %m_vector, align 8
+  %1 = load ptr, ptr %v.addr, align 8
+  store ptr %1, ptr %m_vector, align 8
   ret void
 }
 
@@ -10634,10 +10639,11 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arith6solver10undo_valueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5arith6solver10undo_valueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %s2 = getelementptr inbounds %"struct.arith::solver::undo_value", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  store ptr %0, ptr %s2, align 8
+  %1 = load ptr, ptr %s.addr, align 8
+  store ptr %1, ptr %s2, align 8
   ret void
 }
 
@@ -13685,10 +13691,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -13698,7 +13705,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -13936,7 +13944,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15060,7 +15069,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -18343,10 +18353,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIbE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIbE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_value2 = getelementptr inbounds %class.value_trail, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_value2 = getelementptr inbounds %class.value_trail, ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %m_value2, i64 9, i1 false)
   ret void
 }
@@ -18523,7 +18534,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -18636,10 +18648,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIP4exprE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIP4exprE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail.366, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_value2 = getelementptr inbounds %class.value_trail.366, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_value2 = getelementptr inbounds %class.value_trail.366, ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %m_value2, i64 16, i1 false)
   ret void
 }
@@ -18711,12 +18724,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16push_back_vectorI10ptr_vectorI3appEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16push_back_vectorI10ptr_vectorI3appEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_vector = getelementptr inbounds %class.push_back_vector, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_vector2 = getelementptr inbounds %class.push_back_vector, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %m_vector2, align 8
-  store ptr %3, ptr %m_vector, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %m_vector2 = getelementptr inbounds %class.push_back_vector, ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %m_vector2, align 8
+  store ptr %4, ptr %m_vector, align 8
   ret void
 }
 
@@ -18936,10 +18950,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail.367, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_value2 = getelementptr inbounds %class.value_trail.367, ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %m_value2 = getelementptr inbounds %class.value_trail.367, ptr %3, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_value, ptr align 8 %m_value2, i64 12, i1 false)
   ret void
 }
@@ -19320,12 +19335,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16push_back_vectorI10ptr_vectorI4exprEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16push_back_vectorI10ptr_vectorI4exprEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_vector = getelementptr inbounds %class.push_back_vector.370, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %m_vector2 = getelementptr inbounds %class.push_back_vector.370, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %m_vector2, align 8
-  store ptr %3, ptr %m_vector, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %m_vector2 = getelementptr inbounds %class.push_back_vector.370, ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %m_vector2, align 8
+  store ptr %4, ptr %m_vector, align 8
   ret void
 }
 
@@ -23085,12 +23101,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arith6solver10undo_valueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5arith6solver10undo_valueE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %s = getelementptr inbounds %"struct.arith::solver::undo_value", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %s2 = getelementptr inbounds %"struct.arith::solver::undo_value", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %s2, align 8
-  store ptr %3, ptr %s, align 8
+  %3 = load ptr, ptr %.addr, align 8
+  %s2 = getelementptr inbounds %"struct.arith::solver::undo_value", ptr %3, i32 0, i32 1
+  %4 = load ptr, ptr %s2, align 8
+  store ptr %4, ptr %s, align 8
   ret void
 }
 

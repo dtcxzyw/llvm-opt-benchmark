@@ -139,7 +139,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !annotation !5
   %13 = icmp eq i32 %3, 0
-  br i1 %13, label %159, label %14
+  br i1 %13, label %160, label %14
 
 14:                                               ; preds = %7
   %15 = icmp ugt i8 %2, 1
@@ -148,7 +148,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
 16:                                               ; preds = %14
   %17 = zext i8 %2 to i32
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 318, ptr noundef nonnull @.str, i32 noundef %17) #6
-  br label %159
+  br label %160
 
 18:                                               ; preds = %14
   %19 = icmp eq i8 %2, 1
@@ -157,7 +157,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
 20:                                               ; preds = %18
   %21 = tail call i32 @acpi_hw_validate_io_block(i64 noundef %1, i32 noundef 8, i32 noundef %3) #6
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %159
+  br i1 %22, label %23, label %160
 
 23:                                               ; preds = %20, %18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
@@ -168,243 +168,244 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   %25 = and i64 %24, 512
   %26 = icmp eq i64 %25, 0
   %27 = select i1 %26, i32 2336, i32 3520
-  %28 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %29 = call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %28, i32 noundef %27, i64 noundef 72) #7
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %159, label %31
+  %28 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %29, i32 noundef %27, i64 noundef 72) #7
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %160, label %32
 
-31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %29, i64 48
-  store i64 %1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 64
-  store i8 %2, ptr %33, align 8
-  store ptr %0, ptr %29, align 8
-  %34 = trunc i32 %3 to i16
-  %35 = shl i16 %34, 3
-  %36 = getelementptr inbounds i8, ptr %29, i64 60
-  store i16 %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %29, i64 65
-  store i8 0, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %29, i64 56
-  store i32 %3, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %29, i64 62
-  store i16 %4, ptr %39, align 2
+32:                                               ; preds = %23
+  %33 = getelementptr inbounds i8, ptr %30, i64 48
+  store i64 %1, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %30, i64 64
+  store i8 %2, ptr %34, align 8
+  store ptr %0, ptr %30, align 8
+  %35 = trunc i32 %3 to i16
+  %36 = shl i16 %35, 3
+  %37 = getelementptr inbounds i8, ptr %30, i64 60
+  store i16 %36, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %30, i64 65
+  store i8 0, ptr %38, align 1
+  %39 = getelementptr inbounds i8, ptr %30, i64 56
+  store i32 %3, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %30, i64 62
+  store i16 %4, ptr %40, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
   store i64 0, ptr %10, align 8, !annotation !5
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10) #6, !srcloc !6
-  %40 = load i64, ptr %10, align 8
+  %41 = load i64, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
-  %41 = and i64 %40, 512
-  %42 = icmp eq i64 %41, 0
-  %43 = select i1 %42, i32 2336, i32 3520
-  %44 = zext i32 %3 to i64
-  %45 = mul nuw nsw i64 %44, 40
-  %46 = call noalias align 8 ptr @__kmalloc(i64 noundef %45, i32 noundef %43) #8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %49
+  %42 = and i64 %41, 512
+  %43 = icmp eq i64 %42, 0
+  %44 = select i1 %43, i32 2336, i32 3520
+  %45 = zext i32 %3 to i64
+  %46 = mul nuw nsw i64 %45, 40
+  %47 = call noalias align 8 ptr @__kmalloc(i64 noundef %46, i32 noundef %44) #8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %50
 
-48:                                               ; preds = %31
+49:                                               ; preds = %32
   call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 188, ptr noundef nonnull @.str.4) #6
-  br label %109
+  br label %110
 
-49:                                               ; preds = %31
-  %50 = load i16, ptr %36, align 4
+50:                                               ; preds = %32
+  %51 = load i16, ptr %37, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
   store i64 0, ptr %9, align 8, !annotation !5
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9) #6, !srcloc !6
-  %51 = load i64, ptr %9, align 8
+  %52 = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  %52 = and i64 %51, 512
-  %53 = icmp eq i64 %52, 0
-  %54 = select i1 %53, i32 2336, i32 3520
-  %55 = zext i16 %50 to i64
-  %56 = mul nuw nsw i64 %55, 24
-  %57 = call noalias align 8 ptr @__kmalloc(i64 noundef %56, i32 noundef %54) #8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %60
+  %53 = and i64 %52, 512
+  %54 = icmp eq i64 %53, 0
+  %55 = select i1 %54, i32 2336, i32 3520
+  %56 = zext i16 %51 to i64
+  %57 = mul nuw nsw i64 %56, 24
+  %58 = call noalias align 8 ptr @__kmalloc(i64 noundef %57, i32 noundef %55) #8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %61
 
-59:                                               ; preds = %49
+60:                                               ; preds = %50
   call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 201, ptr noundef nonnull @.str.5) #6
-  br label %106
+  br label %107
 
-60:                                               ; preds = %49
-  %61 = getelementptr inbounds i8, ptr %29, i64 32
-  store ptr %46, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %29, i64 40
-  store ptr %57, ptr %62, align 8
-  %63 = load i32, ptr %38, align 8
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %109, label %65
+61:                                               ; preds = %50
+  %62 = getelementptr inbounds i8, ptr %30, i64 32
+  store ptr %47, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %30, i64 40
+  store ptr %58, ptr %63, align 8
+  %64 = load i32, ptr %39, align 8
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %110, label %66
 
-65:                                               ; preds = %100, %60
-  %66 = phi i64 [ %102, %100 ], [ 0, %60 ]
-  %67 = phi i32 [ %103, %100 ], [ %63, %60 ]
-  %68 = phi ptr [ %101, %100 ], [ %46, %60 ]
-  %69 = phi ptr [ %91, %100 ], [ %57, %60 ]
-  %70 = load i16, ptr %39, align 2
-  %71 = trunc i64 %66 to i16
-  %72 = shl i16 %71, 3
-  %73 = add i16 %70, %72
-  %74 = getelementptr inbounds i8, ptr %68, i64 32
-  store i16 %73, ptr %74, align 8
-  %75 = load i64, ptr %32, align 8
-  %76 = add i64 %75, %66
-  %77 = getelementptr inbounds i8, ptr %68, i64 8
-  store i64 %76, ptr %77, align 8
-  %78 = zext i32 %67 to i64
-  %79 = add i64 %76, %78
-  %80 = getelementptr inbounds i8, ptr %68, i64 16
-  %81 = getelementptr inbounds i8, ptr %68, i64 24
-  store i64 %79, ptr %81, align 8
-  %82 = load i8, ptr %33, align 8
-  store i8 %82, ptr %68, align 8
-  store i8 %82, ptr %80, align 8
-  %83 = zext i16 %73 to i32
-  br label %84
+66:                                               ; preds = %101, %61
+  %67 = phi i64 [ %103, %101 ], [ 0, %61 ]
+  %68 = phi i32 [ %104, %101 ], [ %64, %61 ]
+  %69 = phi ptr [ %102, %101 ], [ %47, %61 ]
+  %70 = phi ptr [ %92, %101 ], [ %58, %61 ]
+  %71 = load i16, ptr %40, align 2
+  %72 = trunc i64 %67 to i16
+  %73 = shl i16 %72, 3
+  %74 = add i16 %71, %73
+  %75 = getelementptr inbounds i8, ptr %69, i64 32
+  store i16 %74, ptr %75, align 8
+  %76 = load i64, ptr %33, align 8
+  %77 = add i64 %76, %67
+  %78 = getelementptr inbounds i8, ptr %69, i64 8
+  store i64 %77, ptr %78, align 8
+  %79 = zext i32 %68 to i64
+  %80 = add i64 %77, %79
+  %81 = getelementptr inbounds i8, ptr %69, i64 16
+  %82 = getelementptr inbounds i8, ptr %69, i64 24
+  store i64 %80, ptr %82, align 8
+  %83 = load i8, ptr %34, align 8
+  store i8 %83, ptr %69, align 8
+  store i8 %83, ptr %81, align 8
+  %84 = zext i16 %74 to i32
+  br label %85
 
-84:                                               ; preds = %84, %65
-  %85 = phi i32 [ 0, %65 ], [ %92, %84 ]
-  %86 = phi ptr [ %69, %65 ], [ %91, %84 ]
-  %87 = add nuw nsw i32 %85, %83
-  %88 = trunc i32 %87 to i8
-  %89 = getelementptr inbounds i8, ptr %86, i64 17
-  store i8 %88, ptr %89, align 1
-  %90 = getelementptr inbounds i8, ptr %86, i64 8
-  store ptr %68, ptr %90, align 8
-  %91 = getelementptr i8, ptr %86, i64 24
-  %92 = add nuw nsw i32 %85, 1
-  %93 = icmp eq i32 %92, 8
-  br i1 %93, label %94, label %84, !llvm.loop !7
+85:                                               ; preds = %85, %66
+  %86 = phi i32 [ 0, %66 ], [ %93, %85 ]
+  %87 = phi ptr [ %70, %66 ], [ %92, %85 ]
+  %88 = add nuw nsw i32 %86, %84
+  %89 = trunc i32 %88 to i8
+  %90 = getelementptr inbounds i8, ptr %87, i64 17
+  store i8 %89, ptr %90, align 1
+  %91 = getelementptr inbounds i8, ptr %87, i64 8
+  store ptr %69, ptr %91, align 8
+  %92 = getelementptr i8, ptr %87, i64 24
+  %93 = add nuw nsw i32 %86, 1
+  %94 = icmp eq i32 %93, 8
+  br i1 %94, label %95, label %85, !llvm.loop !7
 
-94:                                               ; preds = %84
-  %95 = call i32 @acpi_hw_gpe_write(i64 noundef 0, ptr noundef %80) #6
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %106
+95:                                               ; preds = %85
+  %96 = call i32 @acpi_hw_gpe_write(i64 noundef 0, ptr noundef %81) #6
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %107
 
-97:                                               ; preds = %94
-  %98 = call i32 @acpi_hw_gpe_write(i64 noundef 255, ptr noundef %68) #6
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %106
+98:                                               ; preds = %95
+  %99 = call i32 @acpi_hw_gpe_write(i64 noundef 255, ptr noundef %69) #6
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %107
 
-100:                                              ; preds = %97
-  %101 = getelementptr i8, ptr %68, i64 40
-  %102 = add nuw nsw i64 %66, 1
-  %103 = load i32, ptr %38, align 8
-  %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %102, %104
-  br i1 %105, label %65, label %109, !llvm.loop !10
+101:                                              ; preds = %98
+  %102 = getelementptr i8, ptr %69, i64 40
+  %103 = add nuw nsw i64 %67, 1
+  %104 = load i32, ptr %39, align 8
+  %105 = zext i32 %104 to i64
+  %106 = icmp ult i64 %103, %105
+  br i1 %106, label %66, label %110, !llvm.loop !10
 
-106:                                              ; preds = %97, %94, %59
-  %107 = phi i32 [ 4, %59 ], [ %95, %94 ], [ %98, %97 ]
-  call void @kfree(ptr noundef nonnull %46) #6
-  br i1 %58, label %109, label %108
+107:                                              ; preds = %98, %95, %60
+  %108 = phi i32 [ 4, %60 ], [ %96, %95 ], [ %99, %98 ]
+  call void @kfree(ptr noundef nonnull %47) #6
+  br i1 %59, label %110, label %109
 
-108:                                              ; preds = %106
-  call void @kfree(ptr noundef nonnull %57) #6
-  br label %109
+109:                                              ; preds = %107
+  call void @kfree(ptr noundef nonnull %58) #6
+  br label %110
 
-109:                                              ; preds = %108, %106, %100, %60, %48
-  %110 = phi i32 [ 4, %48 ], [ %107, %108 ], [ %107, %106 ], [ 0, %60 ], [ 0, %100 ]
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %113, label %112
+110:                                              ; preds = %109, %107, %101, %61, %49
+  %111 = phi i32 [ 4, %49 ], [ %108, %109 ], [ %108, %107 ], [ 0, %61 ], [ 0, %101 ]
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %114, label %113
 
-112:                                              ; preds = %109
-  call void @kfree(ptr noundef nonnull %29) #6
-  br label %159
+113:                                              ; preds = %110
+  call void @kfree(ptr noundef nonnull %30) #6
+  br label %160
 
-113:                                              ; preds = %109
+114:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
   store ptr null, ptr %8, align 8, !annotation !5
-  %114 = call i32 @acpi_ut_acquire_mutex(i32 noundef 3) #6
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %140
+  %115 = call i32 @acpi_ut_acquire_mutex(i32 noundef 3) #6
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %141
 
-116:                                              ; preds = %113
-  %117 = call i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %5, ptr noundef nonnull %8) #6
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %119, label %138
+117:                                              ; preds = %114
+  %118 = call i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %5, ptr noundef nonnull %8) #6
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %120, label %139
 
-119:                                              ; preds = %116
-  %120 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  %121 = call i64 @acpi_os_acquire_lock(ptr noundef %120) #6
-  %122 = load ptr, ptr %8, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 16
-  %124 = load ptr, ptr %123, align 8
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %134, label %126
+120:                                              ; preds = %117
+  %121 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  %122 = call i64 @acpi_os_acquire_lock(ptr noundef %121) #6
+  %123 = load ptr, ptr %8, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %125 = load ptr, ptr %124, align 8
+  %126 = icmp eq ptr %125, null
+  br i1 %126, label %135, label %127
 
-126:                                              ; preds = %126, %119
-  %127 = phi ptr [ %129, %126 ], [ %124, %119 ]
-  %128 = getelementptr inbounds i8, ptr %127, i64 16
-  %129 = load ptr, ptr %128, align 8
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %131, label %126, !llvm.loop !11
+127:                                              ; preds = %127, %120
+  %128 = phi ptr [ %130, %127 ], [ %125, %120 ]
+  %129 = getelementptr inbounds i8, ptr %128, i64 16
+  %130 = load ptr, ptr %129, align 8
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %132, label %127, !llvm.loop !11
 
-131:                                              ; preds = %126
-  %132 = getelementptr inbounds i8, ptr %127, i64 16
-  store ptr %29, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr %127, ptr %133, align 8
-  br label %135
+132:                                              ; preds = %127
+  %133 = getelementptr inbounds i8, ptr %128, i64 16
+  store ptr %30, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %128, ptr %134, align 8
+  br label %136
 
-134:                                              ; preds = %119
-  store ptr %29, ptr %123, align 8
-  br label %135
+135:                                              ; preds = %120
+  store ptr %30, ptr %124, align 8
+  br label %136
 
-135:                                              ; preds = %134, %131
-  %136 = getelementptr inbounds i8, ptr %29, i64 24
-  store ptr %122, ptr %136, align 8
-  %137 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  call void @acpi_os_release_lock(ptr noundef %137, i64 noundef %121) #6
-  br label %138
+136:                                              ; preds = %135, %132
+  %137 = getelementptr inbounds i8, ptr %30, i64 24
+  store ptr %123, ptr %137, align 8
+  %138 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  call void @acpi_os_release_lock(ptr noundef %138, i64 noundef %122) #6
+  br label %139
 
-138:                                              ; preds = %135, %116
-  %139 = call i32 @acpi_ut_release_mutex(i32 noundef 3) #6
-  br label %140
+139:                                              ; preds = %136, %117
+  %140 = call i32 @acpi_ut_release_mutex(i32 noundef 3) #6
+  br label %141
 
-140:                                              ; preds = %138, %113
-  %141 = phi i32 [ %117, %138 ], [ %114, %113 ]
+141:                                              ; preds = %139, %114
+  %142 = phi i32 [ %118, %139 ], [ %115, %114 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %148, label %143
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %149, label %144
 
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %29, i64 32
-  %145 = load ptr, ptr %144, align 8
-  call void @kfree(ptr noundef %145) #6
-  %146 = getelementptr inbounds i8, ptr %29, i64 40
-  %147 = load ptr, ptr %146, align 8
-  call void @kfree(ptr noundef %147) #6
-  call void @kfree(ptr noundef nonnull %29) #6
-  br label %159
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds i8, ptr %30, i64 32
+  %146 = load ptr, ptr %145, align 8
+  call void @kfree(ptr noundef %146) #6
+  %147 = getelementptr inbounds i8, ptr %30, i64 40
+  %148 = load ptr, ptr %147, align 8
+  call void @kfree(ptr noundef %148) #6
+  call void @kfree(ptr noundef nonnull %30) #6
+  br label %160
 
-148:                                              ; preds = %140
+149:                                              ; preds = %141
   store i8 0, ptr @acpi_gbl_all_gpes_initialized, align 1
-  %149 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %29, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %30, ptr %150, align 8
   store ptr %0, ptr %12, align 8
-  %150 = getelementptr inbounds i8, ptr %12, i64 20
-  store i8 0, ptr %150, align 4
-  %151 = call i32 @acpi_ns_walk_namespace(i32 noundef 8, ptr noundef %0, i32 noundef -1, i32 noundef 0, ptr noundef nonnull @acpi_ev_match_gpe_method, ptr noundef null, ptr noundef nonnull %12, ptr noundef null) #6
-  %152 = icmp eq ptr %6, null
-  br i1 %152, label %154, label %153
+  %151 = getelementptr inbounds i8, ptr %12, i64 20
+  store i8 0, ptr %151, align 4
+  %152 = call i32 @acpi_ns_walk_namespace(i32 noundef 8, ptr noundef %0, i32 noundef -1, i32 noundef 0, ptr noundef nonnull @acpi_ev_match_gpe_method, ptr noundef null, ptr noundef nonnull %12, ptr noundef null) #6
+  %153 = icmp eq ptr %6, null
+  br i1 %153, label %155, label %154
 
-153:                                              ; preds = %148
-  store ptr %29, ptr %6, align 8
-  br label %154
+154:                                              ; preds = %149
+  store ptr %30, ptr %6, align 8
+  br label %155
 
-154:                                              ; preds = %153, %148
-  %155 = load i16, ptr %36, align 4
-  %156 = zext i16 %155 to i32
-  %157 = load i32, ptr @acpi_current_gpe_count, align 4
-  %158 = add i32 %157, %156
-  store i32 %158, ptr @acpi_current_gpe_count, align 4
-  br label %159
+155:                                              ; preds = %154, %149
+  %156 = load i16, ptr %37, align 4
+  %157 = zext i16 %156 to i32
+  %158 = load i32, ptr @acpi_current_gpe_count, align 4
+  %159 = add i32 %158, %157
+  store i32 %159, ptr @acpi_current_gpe_count, align 4
+  br label %160
 
-159:                                              ; preds = %154, %143, %112, %23, %20, %16, %7
-  %160 = phi i32 [ 15, %16 ], [ %110, %112 ], [ %141, %143 ], [ 0, %154 ], [ 0, %7 ], [ %21, %20 ], [ 4, %23 ]
+160:                                              ; preds = %155, %144, %113, %23, %20, %16, %7
+  %161 = phi i32 [ 15, %16 ], [ %111, %113 ], [ %142, %144 ], [ 0, %155 ], [ 0, %7 ], [ %21, %20 ], [ 4, %23 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #6
-  ret i32 %160
+  ret i32 %161
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

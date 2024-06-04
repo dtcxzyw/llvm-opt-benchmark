@@ -49,80 +49,86 @@ define internal fastcc void @__mod_tree_insert(ptr noundef %0) unnamed_addr #0 a
   %4 = add i32 %3, 1
   store i32 %4, ptr @mod_tree, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
-  %5 = load ptr, ptr getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0), align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %22, label %7
+  %5 = getelementptr inbounds %struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  %8 = getelementptr inbounds %struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0
+  br i1 %7, label %24, label %9
 
-7:                                                ; preds = %1
-  %8 = getelementptr i8, ptr %0, i64 -16
-  %9 = load ptr, ptr %8, align 8
-  br label %10
+9:                                                ; preds = %1
+  %10 = getelementptr i8, ptr %0, i64 -16
+  %11 = load ptr, ptr %10, align 8
+  br label %12
 
-10:                                               ; preds = %10, %7
-  %11 = phi ptr [ %5, %7 ], [ %17, %10 ]
-  %12 = getelementptr i8, ptr %11, i64 -24
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp ult ptr %9, %13
-  %15 = select i1 %14, i64 16, i64 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 %15
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %10, !llvm.loop !10
+12:                                               ; preds = %12, %9
+  %13 = phi ptr [ %6, %9 ], [ %19, %12 ]
+  %14 = getelementptr i8, ptr %13, i64 -24
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ult ptr %11, %15
+  %17 = select i1 %16, i64 16, i64 8
+  %18 = getelementptr inbounds i8, ptr %13, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %12, !llvm.loop !10
 
-19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %11, i64 %15
-  %21 = ptrtoint ptr %11 to i64
-  br label %22
+21:                                               ; preds = %12
+  %22 = getelementptr inbounds i8, ptr %13, i64 %17
+  %23 = ptrtoint ptr %13 to i64
+  br label %24
 
-22:                                               ; preds = %19, %1
-  %23 = phi ptr [ %20, %19 ], [ getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0), %1 ]
-  %24 = phi i64 [ %21, %19 ], [ 0, %1 ]
-  store i64 %24, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+24:                                               ; preds = %21, %1
+  %25 = phi ptr [ %22, %21 ], [ %8, %1 ]
+  %26 = phi i64 [ %23, %21 ], [ 0, %1 ]
+  store i64 %26, ptr %2, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
-  store volatile ptr %2, ptr %23, align 8
-  tail call void @rb_insert_color(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0)) #3
+  store volatile ptr %2, ptr %25, align 8
+  %28 = getelementptr inbounds %struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0
+  tail call void @rb_insert_color(ptr noundef %2, ptr noundef nonnull %28) #3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
-  %26 = load i32, ptr @mod_tree, align 8
-  %27 = add i32 %26, 1
-  store i32 %27, ptr @mod_tree, align 8
+  %29 = load i32, ptr @mod_tree, align 8
+  %30 = add i32 %29, 1
+  store i32 %30, ptr @mod_tree, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
-  %28 = load ptr, ptr getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1), align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %45, label %30
-
-30:                                               ; preds = %22
-  %31 = getelementptr i8, ptr %0, i64 -16
+  %31 = getelementptr inbounds %struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1
   %32 = load ptr, ptr %31, align 8
-  br label %33
+  %33 = icmp eq ptr %32, null
+  %34 = getelementptr inbounds %struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1
+  br i1 %33, label %50, label %35
 
-33:                                               ; preds = %33, %30
-  %34 = phi ptr [ %28, %30 ], [ %40, %33 ]
-  %35 = getelementptr i8, ptr %34, i64 -48
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp ult ptr %32, %36
-  %38 = select i1 %37, i64 16, i64 8
-  %39 = getelementptr inbounds i8, ptr %34, i64 %38
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %33, !llvm.loop !10
+35:                                               ; preds = %24
+  %36 = getelementptr i8, ptr %0, i64 -16
+  %37 = load ptr, ptr %36, align 8
+  br label %38
 
-42:                                               ; preds = %33
-  %43 = getelementptr inbounds i8, ptr %34, i64 %38
-  %44 = ptrtoint ptr %34 to i64
-  br label %45
+38:                                               ; preds = %38, %35
+  %39 = phi ptr [ %32, %35 ], [ %45, %38 ]
+  %40 = getelementptr i8, ptr %39, i64 -48
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp ult ptr %37, %41
+  %43 = select i1 %42, i64 16, i64 8
+  %44 = getelementptr inbounds i8, ptr %39, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %38, !llvm.loop !10
 
-45:                                               ; preds = %42, %22
-  %46 = phi ptr [ %43, %42 ], [ getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1), %22 ]
-  %47 = phi i64 [ %44, %42 ], [ 0, %22 ]
-  %48 = getelementptr i8, ptr %0, i64 32
-  store i64 %47, ptr %48, align 8
-  %49 = getelementptr i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
+47:                                               ; preds = %38
+  %48 = getelementptr inbounds i8, ptr %39, i64 %43
+  %49 = ptrtoint ptr %39 to i64
+  br label %50
+
+50:                                               ; preds = %47, %24
+  %51 = phi ptr [ %48, %47 ], [ %34, %24 ]
+  %52 = phi i64 [ %49, %47 ], [ 0, %24 ]
+  %53 = getelementptr i8, ptr %0, i64 32
+  store i64 %52, ptr %53, align 8
+  %54 = getelementptr i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
-  store volatile ptr %48, ptr %46, align 8
-  tail call void @rb_insert_color(ptr noundef %48, ptr noundef nonnull getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1)) #3
+  store volatile ptr %53, ptr %51, align 8
+  %55 = getelementptr inbounds %struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1
+  tail call void @rb_insert_color(ptr noundef %53, ptr noundef nonnull %55) #3
   ret void
 }
 
@@ -131,23 +137,23 @@ define dso_local void @mod_tree_remove_init(ptr noundef %0) local_unnamed_addr #
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   br label %4
 
-3:                                                ; preds = %22
+3:                                                ; preds = %24
   ret void
 
-4:                                                ; preds = %22, %1
-  %5 = phi i64 [ 0, %1 ], [ %23, %22 ]
+4:                                                ; preds = %24, %1
+  %5 = phi i64 [ 0, %1 ], [ %25, %24 ]
   %6 = and i64 %5, 6
   %7 = icmp eq i64 %6, 4
   %8 = icmp eq i64 %5, 6
   %9 = or i1 %8, %7
-  br i1 %9, label %10, label %22
+  br i1 %9, label %10, label %24
 
 10:                                               ; preds = %4
   %11 = getelementptr [7 x %struct.module_memory], ptr %2, i64 0, i64 %5
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %22, label %15
+  br i1 %14, label %24, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %11, i64 24
@@ -156,20 +162,22 @@ define dso_local void @mod_tree_remove_init(ptr noundef %0) local_unnamed_addr #
   %18 = add i32 %17, 1
   store i32 %18, ptr @mod_tree, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
-  tail call void @rb_erase(ptr noundef %16, ptr noundef nonnull getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0)) #3
+  %19 = getelementptr inbounds %struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0
+  tail call void @rb_erase(ptr noundef %16, ptr noundef nonnull %19) #3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
-  %19 = load i32, ptr @mod_tree, align 8
-  %20 = add i32 %19, 1
-  store i32 %20, ptr @mod_tree, align 8
+  %20 = load i32, ptr @mod_tree, align 8
+  %21 = add i32 %20, 1
+  store i32 %21, ptr @mod_tree, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
-  %21 = getelementptr i8, ptr %11, i64 48
-  tail call void @rb_erase(ptr noundef %21, ptr noundef nonnull getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1)) #3
-  br label %22
+  %22 = getelementptr i8, ptr %11, i64 48
+  %23 = getelementptr inbounds %struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1
+  tail call void @rb_erase(ptr noundef %22, ptr noundef nonnull %23) #3
+  br label %24
 
-22:                                               ; preds = %15, %10, %4
-  %23 = add nuw nsw i64 %5, 1
-  %24 = icmp eq i64 %23, 7
-  br i1 %24, label %3, label %4, !llvm.loop !12
+24:                                               ; preds = %15, %10, %4
+  %25 = add nuw nsw i64 %5, 1
+  %26 = icmp eq i64 %25, 7
+  br i1 %26, label %3, label %4, !llvm.loop !12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -177,16 +185,16 @@ define dso_local void @mod_tree_remove(ptr noundef %0) local_unnamed_addr #0 ali
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   br label %4
 
-3:                                                ; preds = %17
+3:                                                ; preds = %19
   ret void
 
-4:                                                ; preds = %17, %1
-  %5 = phi i64 [ 0, %1 ], [ %18, %17 ]
+4:                                                ; preds = %19, %1
+  %5 = phi i64 [ 0, %1 ], [ %20, %19 ]
   %6 = getelementptr [7 x %struct.module_memory], ptr %2, i64 0, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %17, label %10
+  br i1 %9, label %19, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %6, i64 24
@@ -195,20 +203,22 @@ define dso_local void @mod_tree_remove(ptr noundef %0) local_unnamed_addr #0 ali
   %13 = add i32 %12, 1
   store i32 %13, ptr @mod_tree, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
-  tail call void @rb_erase(ptr noundef %11, ptr noundef nonnull getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0)) #3
+  %14 = getelementptr inbounds %struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 0
+  tail call void @rb_erase(ptr noundef %11, ptr noundef nonnull %14) #3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
-  %14 = load i32, ptr @mod_tree, align 8
-  %15 = add i32 %14, 1
-  store i32 %15, ptr @mod_tree, align 8
+  %15 = load i32, ptr @mod_tree, align 8
+  %16 = add i32 %15, 1
+  store i32 %16, ptr @mod_tree, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
-  %16 = getelementptr i8, ptr %6, i64 48
-  tail call void @rb_erase(ptr noundef %16, ptr noundef nonnull getelementptr inbounds (%struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1)) #3
-  br label %17
+  %17 = getelementptr i8, ptr %6, i64 48
+  %18 = getelementptr inbounds %struct.mod_tree_root, ptr @mod_tree, i64 0, i32 0, i32 1, i64 1
+  tail call void @rb_erase(ptr noundef %17, ptr noundef nonnull %18) #3
+  br label %19
 
-17:                                               ; preds = %10, %4
-  %18 = add nuw nsw i64 %5, 1
-  %19 = icmp eq i64 %18, 7
-  br i1 %19, label %3, label %4, !llvm.loop !13
+19:                                               ; preds = %10, %4
+  %20 = add nuw nsw i64 %5, 1
+  %21 = icmp eq i64 %20, 7
+  br i1 %21, label %3, label %4, !llvm.loop !13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

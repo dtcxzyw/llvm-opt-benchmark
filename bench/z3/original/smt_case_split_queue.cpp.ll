@@ -1474,10 +1474,11 @@ entry:
   %0 = load ptr, ptr %ctx.addr, align 8
   %1 = load ptr, ptr %p.addr, align 8
   call void @_ZN12_GLOBAL__N_120act_case_split_queueC2ERN3smt7contextER10smt_params(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121dact_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121dact_case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_delayed_queue = getelementptr inbounds %"class.(anonymous namespace)::dact_case_split_queue", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt7context19get_activity_vectorEv(ptr noundef nonnull align 8 dereferenceable(11616) %2)
+  %3 = load ptr, ptr %ctx.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt7context19get_activity_vectorEv(ptr noundef nonnull align 8 dereferenceable(11616) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1492,12 +1493,12 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN12_GLOBAL__N_120act_case_split_queueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
   br label %eh.resume
 
@@ -1524,15 +1525,16 @@ entry:
   %0 = load ptr, ptr %ctx.addr, align 8
   %1 = load ptr, ptr %p.addr, align 8
   call void @_ZN12_GLOBAL__N_120act_case_split_queueC2ERN3smt7contextER10smt_params(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cact_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cact_case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_cache = getelementptr inbounds %"class.(anonymous namespace)::cact_case_split_queue", ptr %this1, i32 0, i32 1
   invoke void @_ZN7obj_mapI4exprdEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_cache)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_cache_domain = getelementptr inbounds %"class.(anonymous namespace)::cact_case_split_queue", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %2)
+  %3 = load ptr, ptr %ctx.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -1543,21 +1545,21 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont3, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN7obj_mapI4exprdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_cache) #3
   br label %ehcleanup
 
@@ -1586,16 +1588,17 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt16case_split_queueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120rel_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120rel_case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_context = getelementptr inbounds %"class.(anonymous namespace)::rel_case_split_queue", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_context, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_context, align 8
   %m_params = getelementptr inbounds %"class.(anonymous namespace)::rel_case_split_queue", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %p.addr, align 8
-  store ptr %1, ptr %m_params, align 8
+  %2 = load ptr, ptr %p.addr, align 8
+  store ptr %2, ptr %m_params, align 8
   %m_manager = getelementptr inbounds %"class.(anonymous namespace)::rel_case_split_queue", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %2)
+  %3 = load ptr, ptr %ctx.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %3)
   store ptr %call, ptr %m_manager, align 8
   %m_queue = getelementptr inbounds %"class.(anonymous namespace)::rel_case_split_queue", ptr %this1, i32 0, i32 4
   invoke void @_ZN10ptr_vectorI4exprEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_queue)
@@ -1621,30 +1624,30 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup6
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_queue2) #3
   br label %ehcleanup
 
@@ -1678,17 +1681,18 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt16case_split_queueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124rel_act_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124rel_act_case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_context = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_context, align 8
-  %m_manager = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %ctx.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %1)
+  store ptr %1, ptr %m_context, align 8
+  %m_manager = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %this1, i32 0, i32 2
+  %2 = load ptr, ptr %ctx.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %2)
   store ptr %call, ptr %m_manager, align 8
   %m_params = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %p.addr, align 8
-  store ptr %2, ptr %m_params, align 8
+  %3 = load ptr, ptr %p.addr, align 8
+  store ptr %3, ptr %m_params, align 8
   %m_queue = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %this1, i32 0, i32 4
   invoke void @_ZN10ptr_vectorI4exprEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_queue)
           to label %invoke.cont unwind label %lpad
@@ -1699,8 +1703,8 @@ invoke.cont:                                      ; preds = %entry
   %m_bs_num_bool_vars = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %this1, i32 0, i32 6
   store i32 -1, ptr %m_bs_num_bool_vars, align 4
   %m_delayed_queue = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %this1, i32 0, i32 7
-  %3 = load ptr, ptr %ctx.addr, align 8
-  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt7context19get_activity_vectorEv(ptr noundef nonnull align 8 dereferenceable(11616) %3)
+  %4 = load ptr, ptr %ctx.addr, align 8
+  %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt7context19get_activity_vectorEv(ptr noundef nonnull align 8 dereferenceable(11616) %4)
   invoke void @_ZN12_GLOBAL__N_115bool_var_act_ltC2ERK7svectorIdjE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %call2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -1717,30 +1721,30 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup8
 
 lpad3:                                            ; preds = %invoke.cont4, %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad6:                                            ; preds = %invoke.cont5
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_delayed_queue) #3
   br label %ehcleanup
 
@@ -1774,16 +1778,17 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt16case_split_queueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125rel_goal_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125rel_goal_case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_context = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_context, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_context, align 8
   %m_params = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %p.addr, align 8
-  store ptr %1, ptr %m_params, align 8
+  %2 = load ptr, ptr %p.addr, align 8
+  store ptr %2, ptr %m_params, align 8
   %m_manager = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %2)
+  %3 = load ptr, ptr %ctx.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %3)
   store ptr %call, ptr %m_manager, align 8
   %m_queue = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %this1, i32 0, i32 4
   invoke void @_ZN10ptr_vectorI4exprEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_queue)
@@ -1827,48 +1832,48 @@ invoke.cont11:                                    ; preds = %invoke.cont10
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup14
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup13
 
 lpad4:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup12
 
 lpad6:                                            ; preds = %invoke.cont7, %invoke.cont5
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont10, %invoke.cont8
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_priority_queue2) #3
   br label %ehcleanup
 
@@ -1916,21 +1921,22 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt16case_split_queueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128theory_aware_branching_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128theory_aware_branching_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_context = getelementptr inbounds %"class.(anonymous namespace)::theory_aware_branching_queue", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_context, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_context, align 8
   %m_params = getelementptr inbounds %"class.(anonymous namespace)::theory_aware_branching_queue", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %p.addr, align 8
-  store ptr %1, ptr %m_params, align 8
+  %2 = load ptr, ptr %p.addr, align 8
+  store ptr %2, ptr %m_params, align 8
   %m_theory_var_priority = getelementptr inbounds %"class.(anonymous namespace)::theory_aware_branching_queue", ptr %this1, i32 0, i32 3
   invoke void @_ZN3mapIjd8int_hash10default_eqIjEEC2ERKS0_RKS2_(ptr noundef nonnull align 8 dereferenceable(24) %m_theory_var_priority, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_queue = getelementptr inbounds %"class.(anonymous namespace)::theory_aware_branching_queue", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt7context19get_activity_vectorEv(ptr noundef nonnull align 8 dereferenceable(11616) %2)
+  %3 = load ptr, ptr %ctx.addr, align 8
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt7context19get_activity_vectorEv(ptr noundef nonnull align 8 dereferenceable(11616) %3)
   %m_theory_var_priority4 = getelementptr inbounds %"class.(anonymous namespace)::theory_aware_branching_queue", ptr %this1, i32 0, i32 3
   invoke void @_ZN12_GLOBAL__N_119theory_aware_act_ltC2ERK7svectorIdjERK3mapIjd8int_hash10default_eqIjEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(24) %m_theory_var_priority4)
           to label %invoke.cont6 unwind label %lpad5
@@ -1953,39 +1959,39 @@ invoke.cont15:                                    ; preds = %invoke.cont11
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup17
 
 lpad5:                                            ; preds = %invoke.cont6, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup16
 
 lpad10:                                           ; preds = %invoke.cont7
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad14:                                           ; preds = %invoke.cont11
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZN13int_hashtableI8int_hash10default_eqIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %m_theory_vars) #3
   br label %ehcleanup
 
@@ -2023,16 +2029,17 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt16case_split_queueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120act_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120act_case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_context = getelementptr inbounds %"class.(anonymous namespace)::act_case_split_queue", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %ctx.addr, align 8
-  store ptr %0, ptr %m_context, align 8
+  %1 = load ptr, ptr %ctx.addr, align 8
+  store ptr %1, ptr %m_context, align 8
   %m_params = getelementptr inbounds %"class.(anonymous namespace)::act_case_split_queue", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %p.addr, align 8
-  store ptr %1, ptr %m_params, align 8
+  %2 = load ptr, ptr %p.addr, align 8
+  store ptr %2, ptr %m_params, align 8
   %m_queue = getelementptr inbounds %"class.(anonymous namespace)::act_case_split_queue", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt7context19get_activity_vectorEv(ptr noundef nonnull align 8 dereferenceable(11616) %2)
+  %3 = load ptr, ptr %ctx.addr, align 8
+  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt7context19get_activity_vectorEv(ptr noundef nonnull align 8 dereferenceable(11616) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2047,12 +2054,12 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN3smt16case_split_queueD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -2548,7 +2555,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121dact_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121dact_case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_delayed_queue = getelementptr inbounds %"class.(anonymous namespace)::dact_case_split_queue", ptr %this1, i32 0, i32 1
   call void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_delayed_queue) #3
   call void @_ZN12_GLOBAL__N_120act_case_split_queueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
@@ -2586,7 +2594,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3smt16case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN3smt16case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2825,7 +2834,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120act_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120act_case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_queue = getelementptr inbounds %"class.(anonymous namespace)::act_case_split_queue", ptr %this1, i32 0, i32 3
   call void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_queue) #3
   call void @_ZN3smt16case_split_queueD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3691,10 +3701,11 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %msg.addr, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  %1 = load ptr, ptr %msg.addr, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   ret void
 }
 
@@ -3704,7 +3715,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3953,7 +3965,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4915,7 +4928,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cact_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cact_case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_cache_domain = getelementptr inbounds %"class.(anonymous namespace)::cact_case_split_queue", ptr %this1, i32 0, i32 2
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_cache_domain) #3
   %m_cache = getelementptr inbounds %"class.(anonymous namespace)::cact_case_split_queue", ptr %this1, i32 0, i32 1
@@ -5475,12 +5489,13 @@ land.rhs:                                         ; preds = %entry
   %m_data2 = getelementptr inbounds %"class.obj_map<expr, double>::obj_map_entry", ptr %this1, i32 0, i32 0
   %m_key3 = getelementptr inbounds %"struct.obj_map<expr, double>::key_data", ptr %m_data2, i32 0, i32 0
   %1 = load ptr, ptr %m_key3, align 8
-  %cmp4 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %2 = inttoptr i64 1 to ptr
+  %cmp4 = icmp ne ptr %1, %2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7285,7 +7300,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120rel_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120rel_case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_scopes = getelementptr inbounds %"class.(anonymous namespace)::rel_case_split_queue", ptr %this1, i32 0, i32 9
   call void @_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_scopes) #3
   %m_queue2 = getelementptr inbounds %"class.(anonymous namespace)::rel_case_split_queue", ptr %this1, i32 0, i32 7
@@ -9199,7 +9215,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124rel_act_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124rel_act_case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_scopes = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %this1, i32 0, i32 8
   call void @_ZN7svectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeEjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_scopes) #3
   %m_delayed_queue = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %this1, i32 0, i32 7
@@ -10720,7 +10737,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125rel_goal_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125rel_goal_case_split_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_priority_queue2 = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %this1, i32 0, i32 10
   call void @_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_priority_queue2) #3
   %m_scopes = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %this1, i32 0, i32 8
@@ -14666,7 +14684,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128theory_aware_branching_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128theory_aware_branching_queueE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_theory_var_phase = getelementptr inbounds %"class.(anonymous namespace)::theory_aware_branching_queue", ptr %this1, i32 0, i32 6
   call void @_ZN3mapIj5lbool8int_hash10default_eqIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_theory_var_phase) #3
   %m_theory_vars = getelementptr inbounds %"class.(anonymous namespace)::theory_aware_branching_queue", ptr %this1, i32 0, i32 5

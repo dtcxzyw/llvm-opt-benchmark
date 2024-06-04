@@ -34,33 +34,34 @@ define { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h0e3ccdbaf3af4a7
 18:                                               ; preds = %2
   %19 = load i64, ptr %5, align 8, !range !4, !noundef !3
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %25
+  br i1 %20, label %21, label %26
 
 21:                                               ; preds = %18
   %22 = load i64, ptr @anon.9ced971c5d9c843750cb3f28299f5f30.0, align 8, !range !4, !noundef !3
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @anon.9ced971c5d9c843750cb3f28299f5f30.0, i64 8), align 8
+  %23 = getelementptr inbounds i8, ptr @anon.9ced971c5d9c843750cb3f28299f5f30.0, i64 8
+  %24 = load i64, ptr %23, align 8
   store i64 %22, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %23, ptr %24, align 8
-  br label %29
+  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %24, ptr %25, align 8
+  br label %30
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %5, i32 0, i32 1
-  %27 = load i64, ptr %26, align 8, !noundef !3
-  %28 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %27, ptr %28, align 8
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %5, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8, !noundef !3
+  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %28, ptr %29, align 8
   store i64 1, ptr %6, align 8
-  br label %29
+  br label %30
 
-29:                                               ; preds = %25, %21
-  %30 = load i64, ptr %6, align 8, !range !4, !noundef !3
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
-  %32 = load i64, ptr %31, align 8
-  %33 = insertvalue { i64, i64 } poison, i64 %30, 0
-  %34 = insertvalue { i64, i64 } %33, i64 %32, 1
-  ret { i64, i64 } %34
+30:                                               ; preds = %26, %21
+  %31 = load i64, ptr %6, align 8, !range !4, !noundef !3
+  %32 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = insertvalue { i64, i64 } poison, i64 %31, 0
+  %35 = insertvalue { i64, i64 } %34, i64 %33, 1
+  ret { i64, i64 } %35
 
-35:                                               ; No predecessors!
+36:                                               ; No predecessors!
   unreachable
 }
 
@@ -95,33 +96,34 @@ define { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h9241b7eca729c88
 20:                                               ; preds = %4
   %21 = load i64, ptr %7, align 8, !range !4, !noundef !3
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %27
+  br i1 %22, label %23, label %28
 
 23:                                               ; preds = %20
   %24 = load i64, ptr @anon.9ced971c5d9c843750cb3f28299f5f30.0, align 8, !range !4, !noundef !3
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @anon.9ced971c5d9c843750cb3f28299f5f30.0, i64 8), align 8
+  %25 = getelementptr inbounds i8, ptr @anon.9ced971c5d9c843750cb3f28299f5f30.0, i64 8
+  %26 = load i64, ptr %25, align 8
   store i64 %24, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %25, ptr %26, align 8
-  br label %31
+  %27 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %26, ptr %27, align 8
+  br label %32
 
-27:                                               ; preds = %20
-  %28 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %7, i32 0, i32 1
-  %29 = load i64, ptr %28, align 8, !noundef !3
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %29, ptr %30, align 8
+28:                                               ; preds = %20
+  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %7, i32 0, i32 1
+  %30 = load i64, ptr %29, align 8, !noundef !3
+  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %30, ptr %31, align 8
   store i64 1, ptr %8, align 8
-  br label %31
+  br label %32
 
-31:                                               ; preds = %27, %23
-  %32 = load i64, ptr %8, align 8, !range !4, !noundef !3
-  %33 = getelementptr inbounds i8, ptr %8, i64 8
-  %34 = load i64, ptr %33, align 8
-  %35 = insertvalue { i64, i64 } poison, i64 %32, 0
-  %36 = insertvalue { i64, i64 } %35, i64 %34, 1
-  ret { i64, i64 } %36
+32:                                               ; preds = %28, %23
+  %33 = load i64, ptr %8, align 8, !range !4, !noundef !3
+  %34 = getelementptr inbounds i8, ptr %8, i64 8
+  %35 = load i64, ptr %34, align 8
+  %36 = insertvalue { i64, i64 } poison, i64 %33, 0
+  %37 = insertvalue { i64, i64 } %36, i64 %35, 1
+  ret { i64, i64 } %37
 
-37:                                               ; No predecessors!
+38:                                               ; No predecessors!
   unreachable
 }
 

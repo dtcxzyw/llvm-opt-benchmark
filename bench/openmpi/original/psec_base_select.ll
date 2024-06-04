@@ -49,343 +49,372 @@ define i32 @pmix_psec_base_select() #0 {
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %11 = load i8, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i32 0, i32 2), align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %0
-  store i32 0, ptr %1, align 4
-  br label %215
+  %11 = getelementptr inbounds %struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i32 0, i32 2
+  %12 = load i8, ptr %11, align 1
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %0
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i32 0, i32 2), align 1
-  %15 = load ptr, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 12, i32 1, i32 1), align 8
-  store ptr %15, ptr %2, align 8
-  br label %16
+  store i32 0, ptr %1, align 4
+  br label %244
 
-16:                                               ; preds = %181, %14
-  %17 = load ptr, ptr %2, align 8
-  %18 = icmp ne ptr %17, getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 12, i32 1)
-  br i1 %18, label %19, label %185
+15:                                               ; preds = %0
+  %16 = getelementptr inbounds %struct.pmix_psec_globals_t, ptr @pmix_psec_globals, i32 0, i32 2
+  store i8 1, ptr %16, align 1
+  %17 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 12, i32 1, i32 1
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %2, align 8
+  br label %19
 
-19:                                               ; preds = %16
+19:                                               ; preds = %207, %15
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.pmix_mca_base_component_list_item_t, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %3, align 8
-  %23 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %24 = icmp sge i32 %23, 0
-  br i1 %24, label %25, label %40
+  %21 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 12, i32 1
+  %22 = icmp ne ptr %20, %21
+  br i1 %22, label %23, label %211
 
-25:                                               ; preds = %19
-  %26 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %27 = icmp slt i32 %26, 64
-  br i1 %27, label %28, label %40
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds %struct.pmix_mca_base_component_list_item_t, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %3, align 8
+  %27 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp sge i32 %28, 0
+  br i1 %29, label %30, label %48
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %30
-  %32 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %31, i32 0, i32 2
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp sge i32 %33, 5
-  br i1 %34, label %35, label %40
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp slt i32 %32, 64
+  br i1 %33, label %34, label %48
 
-35:                                               ; preds = %28
-  %36 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %37, i32 0, i32 11
-  %39 = getelementptr inbounds [64 x i8], ptr %38, i64 0, i64 0
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %36, ptr noundef @.str, ptr noundef %39)
-  br label %40
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %36 = load i32, ptr %35, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %37
+  %39 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %38, i32 0, i32 2
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp sge i32 %40, 5
+  br i1 %41, label %42, label %48
 
-40:                                               ; preds = %35, %28, %25, %19
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %41, i32 0, i32 17
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr null, %43
-  br i1 %44, label %45, label %64
+42:                                               ; preds = %34
+  %43 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %44 = load i32, ptr %43, align 4
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %45, i32 0, i32 11
+  %47 = getelementptr inbounds [64 x i8], ptr %46, i64 0, i64 0
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %44, ptr noundef @.str, ptr noundef %47)
+  br label %48
 
-45:                                               ; preds = %40
-  %46 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %47 = icmp sge i32 %46, 0
-  br i1 %47, label %48, label %63
+48:                                               ; preds = %42, %34, %30, %23
+  %49 = load ptr, ptr %3, align 8
+  %50 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %49, i32 0, i32 17
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr null, %51
+  br i1 %52, label %53, label %76
 
-48:                                               ; preds = %45
-  %49 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %50 = icmp slt i32 %49, 64
-  br i1 %50, label %51, label %63
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp sge i32 %55, 0
+  br i1 %56, label %57, label %75
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %53
-  %55 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %54, i32 0, i32 2
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp sge i32 %56, 5
-  br i1 %57, label %58, label %63
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp slt i32 %59, 64
+  br i1 %60, label %61, label %75
 
-58:                                               ; preds = %51
-  %59 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %60, i32 0, i32 11
-  %62 = getelementptr inbounds [64 x i8], ptr %61, i64 0, i64 0
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %59, ptr noundef @.str.1, ptr noundef %62)
-  br label %63
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %63 = load i32, ptr %62, align 4
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %64
+  %66 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %65, i32 0, i32 2
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp sge i32 %67, 5
+  br i1 %68, label %69, label %75
 
-63:                                               ; preds = %58, %51, %48, %45
-  br label %181
+69:                                               ; preds = %61
+  %70 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %71 = load i32, ptr %70, align 4
+  %72 = load ptr, ptr %3, align 8
+  %73 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %72, i32 0, i32 11
+  %74 = getelementptr inbounds [64 x i8], ptr %73, i64 0, i64 0
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %71, ptr noundef @.str.1, ptr noundef %74)
+  br label %75
 
-64:                                               ; preds = %40
-  %65 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %66 = icmp sge i32 %65, 0
-  br i1 %66, label %67, label %82
+75:                                               ; preds = %69, %61, %57, %53
+  br label %207
 
-67:                                               ; preds = %64
-  %68 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %69 = icmp slt i32 %68, 64
-  br i1 %69, label %70, label %82
+76:                                               ; preds = %48
+  %77 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %78 = load i32, ptr %77, align 4
+  %79 = icmp sge i32 %78, 0
+  br i1 %79, label %80, label %98
 
-70:                                               ; preds = %67
-  %71 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %72
-  %74 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %73, i32 0, i32 2
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp sge i32 %75, 5
-  br i1 %76, label %77, label %82
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp slt i32 %82, 64
+  br i1 %83, label %84, label %98
 
-77:                                               ; preds = %70
-  %78 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %79, i32 0, i32 11
-  %81 = getelementptr inbounds [64 x i8], ptr %80, i64 0, i64 0
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %78, ptr noundef @.str.2, ptr noundef %81)
-  br label %82
+84:                                               ; preds = %80
+  %85 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %86 = load i32, ptr %85, align 4
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %87
+  %89 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %88, i32 0, i32 2
+  %90 = load i32, ptr %89, align 4
+  %91 = icmp sge i32 %90, 5
+  br i1 %91, label %92, label %98
 
-82:                                               ; preds = %77, %70, %67, %64
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %83, i32 0, i32 17
-  %85 = load ptr, ptr %84, align 8
-  %86 = call i32 %85(ptr noundef %4, ptr noundef %9)
-  store i32 %86, ptr %8, align 4
-  %87 = load i32, ptr %8, align 4
-  %88 = icmp ne i32 0, %87
-  br i1 %88, label %92, label %89
+92:                                               ; preds = %84
+  %93 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %94 = load i32, ptr %93, align 4
+  %95 = load ptr, ptr %3, align 8
+  %96 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %95, i32 0, i32 11
+  %97 = getelementptr inbounds [64 x i8], ptr %96, i64 0, i64 0
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %94, ptr noundef @.str.2, ptr noundef %97)
+  br label %98
 
-89:                                               ; preds = %82
-  %90 = load ptr, ptr %4, align 8
-  %91 = icmp eq ptr null, %90
-  br i1 %91, label %92, label %111
-
-92:                                               ; preds = %89, %82
-  %93 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %94 = icmp sge i32 %93, 0
-  br i1 %94, label %95, label %110
-
-95:                                               ; preds = %92
-  %96 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %97 = icmp slt i32 %96, 64
-  br i1 %97, label %98, label %110
-
-98:                                               ; preds = %95
-  %99 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %100
-  %102 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %101, i32 0, i32 2
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp sge i32 %103, 5
-  br i1 %104, label %105, label %110
+98:                                               ; preds = %92, %84, %80, %76
+  %99 = load ptr, ptr %3, align 8
+  %100 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %99, i32 0, i32 17
+  %101 = load ptr, ptr %100, align 8
+  %102 = call i32 %101(ptr noundef %4, ptr noundef %9)
+  store i32 %102, ptr %8, align 4
+  %103 = load i32, ptr %8, align 4
+  %104 = icmp ne i32 0, %103
+  br i1 %104, label %108, label %105
 
 105:                                              ; preds = %98
-  %106 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %107, i32 0, i32 11
-  %109 = getelementptr inbounds [64 x i8], ptr %108, i64 0, i64 0
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %106, ptr noundef @.str.3, ptr noundef %109)
-  br label %110
+  %106 = load ptr, ptr %4, align 8
+  %107 = icmp eq ptr null, %106
+  br i1 %107, label %108, label %131
 
-110:                                              ; preds = %105, %98, %95, %92
-  br label %181
+108:                                              ; preds = %105, %98
+  %109 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %110 = load i32, ptr %109, align 4
+  %111 = icmp sge i32 %110, 0
+  br i1 %111, label %112, label %130
 
-111:                                              ; preds = %89
-  %112 = load ptr, ptr %4, align 8
-  store ptr %112, ptr %5, align 8
-  %113 = load ptr, ptr %5, align 8
-  %114 = getelementptr inbounds %struct.pmix_psec_module_t, ptr %113, i32 0, i32 1
-  %115 = load ptr, ptr %114, align 8
-  %116 = icmp ne ptr null, %115
-  br i1 %116, label %117, label %142
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %114 = load i32, ptr %113, align 4
+  %115 = icmp slt i32 %114, 64
+  br i1 %115, label %116, label %130
 
-117:                                              ; preds = %111
-  %118 = load ptr, ptr %5, align 8
-  %119 = getelementptr inbounds %struct.pmix_psec_module_t, ptr %118, i32 0, i32 1
-  %120 = load ptr, ptr %119, align 8
-  %121 = call i32 %120()
-  %122 = icmp ne i32 0, %121
-  br i1 %122, label %123, label %142
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %118 = load i32, ptr %117, align 4
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %119
+  %121 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %120, i32 0, i32 2
+  %122 = load i32, ptr %121, align 4
+  %123 = icmp sge i32 %122, 5
+  br i1 %123, label %124, label %130
 
-123:                                              ; preds = %117
-  %124 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %125 = icmp sge i32 %124, 0
-  br i1 %125, label %126, label %141
+124:                                              ; preds = %116
+  %125 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %126 = load i32, ptr %125, align 4
+  %127 = load ptr, ptr %3, align 8
+  %128 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %127, i32 0, i32 11
+  %129 = getelementptr inbounds [64 x i8], ptr %128, i64 0, i64 0
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %126, ptr noundef @.str.3, ptr noundef %129)
+  br label %130
 
-126:                                              ; preds = %123
-  %127 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %128 = icmp slt i32 %127, 64
-  br i1 %128, label %129, label %141
+130:                                              ; preds = %124, %116, %112, %108
+  br label %207
 
-129:                                              ; preds = %126
-  %130 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %131
-  %133 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %132, i32 0, i32 2
-  %134 = load i32, ptr %133, align 4
-  %135 = icmp sge i32 %134, 5
-  br i1 %135, label %136, label %141
+131:                                              ; preds = %105
+  %132 = load ptr, ptr %4, align 8
+  store ptr %132, ptr %5, align 8
+  %133 = load ptr, ptr %5, align 8
+  %134 = getelementptr inbounds %struct.pmix_psec_module_t, ptr %133, i32 0, i32 1
+  %135 = load ptr, ptr %134, align 8
+  %136 = icmp ne ptr null, %135
+  br i1 %136, label %137, label %166
 
-136:                                              ; preds = %129
-  %137 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %138 = load ptr, ptr %3, align 8
-  %139 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %138, i32 0, i32 11
-  %140 = getelementptr inbounds [64 x i8], ptr %139, i64 0, i64 0
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %137, ptr noundef @.str.4, ptr noundef %140)
-  br label %141
+137:                                              ; preds = %131
+  %138 = load ptr, ptr %5, align 8
+  %139 = getelementptr inbounds %struct.pmix_psec_module_t, ptr %138, i32 0, i32 1
+  %140 = load ptr, ptr %139, align 8
+  %141 = call i32 %140()
+  %142 = icmp ne i32 0, %141
+  br i1 %142, label %143, label %166
 
-141:                                              ; preds = %136, %129, %126, %123
-  br label %181
+143:                                              ; preds = %137
+  %144 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %145 = load i32, ptr %144, align 4
+  %146 = icmp sge i32 %145, 0
+  br i1 %146, label %147, label %165
 
-142:                                              ; preds = %117, %111
-  %143 = call ptr @pmix_obj_new_tma(ptr noundef @pmix_psec_base_active_module_t_class, ptr noundef null)
-  store ptr %143, ptr %6, align 8
-  %144 = load i32, ptr %9, align 4
-  %145 = load ptr, ptr %6, align 8
-  %146 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %145, i32 0, i32 1
-  store i32 %144, ptr %146, align 8
-  %147 = load ptr, ptr %5, align 8
-  %148 = load ptr, ptr %6, align 8
-  %149 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %148, i32 0, i32 2
-  store ptr %147, ptr %149, align 8
-  %150 = load ptr, ptr %2, align 8
-  %151 = getelementptr inbounds %struct.pmix_mca_base_component_list_item_t, ptr %150, i32 0, i32 1
-  %152 = load ptr, ptr %151, align 8
-  %153 = load ptr, ptr %6, align 8
-  %154 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %153, i32 0, i32 3
-  store ptr %152, ptr %154, align 8
+147:                                              ; preds = %143
+  %148 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %149 = load i32, ptr %148, align 4
+  %150 = icmp slt i32 %149, 64
+  br i1 %150, label %151, label %165
+
+151:                                              ; preds = %147
+  %152 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %153 = load i32, ptr %152, align 4
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %154
+  %156 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %155, i32 0, i32 2
+  %157 = load i32, ptr %156, align 4
+  %158 = icmp sge i32 %157, 5
+  br i1 %158, label %159, label %165
+
+159:                                              ; preds = %151
+  %160 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %161 = load i32, ptr %160, align 4
+  %162 = load ptr, ptr %3, align 8
+  %163 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %162, i32 0, i32 11
+  %164 = getelementptr inbounds [64 x i8], ptr %163, i64 0, i64 0
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %161, ptr noundef @.str.4, ptr noundef %164)
+  br label %165
+
+165:                                              ; preds = %159, %151, %147, %143
+  br label %207
+
+166:                                              ; preds = %137, %131
+  %167 = call ptr @pmix_obj_new_tma(ptr noundef @pmix_psec_base_active_module_t_class, ptr noundef null)
+  store ptr %167, ptr %6, align 8
+  %168 = load i32, ptr %9, align 4
+  %169 = load ptr, ptr %6, align 8
+  %170 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %169, i32 0, i32 1
+  store i32 %168, ptr %170, align 8
+  %171 = load ptr, ptr %5, align 8
+  %172 = load ptr, ptr %6, align 8
+  %173 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %172, i32 0, i32 2
+  store ptr %171, ptr %173, align 8
+  %174 = load ptr, ptr %2, align 8
+  %175 = getelementptr inbounds %struct.pmix_mca_base_component_list_item_t, ptr %174, i32 0, i32 1
+  %176 = load ptr, ptr %175, align 8
+  %177 = load ptr, ptr %6, align 8
+  %178 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %177, i32 0, i32 3
+  store ptr %176, ptr %178, align 8
   store i8 0, ptr %10, align 1
-  %155 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_psec_globals, i32 0, i32 1, i32 1), align 8
-  store ptr %155, ptr %7, align 8
-  br label %156
-
-156:                                              ; preds = %170, %142
-  %157 = load ptr, ptr %7, align 8
-  %158 = icmp ne ptr %157, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_psec_globals, i32 0, i32 1)
-  br i1 %158, label %159, label %174
-
-159:                                              ; preds = %156
-  %160 = load i32, ptr %9, align 4
-  %161 = load ptr, ptr %7, align 8
-  %162 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %161, i32 0, i32 1
-  %163 = load i32, ptr %162, align 8
-  %164 = icmp sgt i32 %160, %163
-  br i1 %164, label %165, label %169
-
-165:                                              ; preds = %159
-  %166 = load ptr, ptr %7, align 8
-  %167 = load ptr, ptr %6, align 8
-  %168 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %167, i32 0, i32 0
-  call void @pmix_list_insert_pos(ptr noundef @pmix_psec_globals, ptr noundef %166, ptr noundef %168)
-  store i8 1, ptr %10, align 1
-  br label %174
-
-169:                                              ; preds = %159
-  br label %170
-
-170:                                              ; preds = %169
-  %171 = load ptr, ptr %7, align 8
-  %172 = getelementptr inbounds %struct.pmix_list_item_t, ptr %171, i32 0, i32 1
-  %173 = load ptr, ptr %172, align 8
-  store ptr %173, ptr %7, align 8
-  br label %156, !llvm.loop !4
-
-174:                                              ; preds = %165, %156
-  %175 = load i8, ptr %10, align 1
-  %176 = trunc i8 %175 to i1
-  br i1 %176, label %180, label %177
-
-177:                                              ; preds = %174
-  %178 = load ptr, ptr %6, align 8
-  %179 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %178, i32 0, i32 0
-  call void @_pmix_list_append(ptr noundef @pmix_psec_globals, ptr noundef %179)
-  br label %180
-
-180:                                              ; preds = %177, %174
+  %179 = getelementptr inbounds %struct.pmix_list_t, ptr @pmix_psec_globals, i32 0, i32 1, i32 1
+  %180 = load ptr, ptr %179, align 8
+  store ptr %180, ptr %7, align 8
   br label %181
 
-181:                                              ; preds = %180, %141, %110, %63
-  %182 = load ptr, ptr %2, align 8
-  %183 = getelementptr inbounds %struct.pmix_list_item_t, ptr %182, i32 0, i32 1
-  %184 = load ptr, ptr %183, align 8
-  store ptr %184, ptr %2, align 8
-  br label %16, !llvm.loop !6
+181:                                              ; preds = %196, %166
+  %182 = load ptr, ptr %7, align 8
+  %183 = getelementptr inbounds %struct.pmix_list_t, ptr @pmix_psec_globals, i32 0, i32 1
+  %184 = icmp ne ptr %182, %183
+  br i1 %184, label %185, label %200
 
-185:                                              ; preds = %16
-  %186 = call i64 @pmix_list_get_size(ptr noundef @pmix_psec_globals)
-  %187 = icmp eq i64 0, %186
-  br i1 %187, label %188, label %190
+185:                                              ; preds = %181
+  %186 = load i32, ptr %9, align 4
+  %187 = load ptr, ptr %7, align 8
+  %188 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %187, i32 0, i32 1
+  %189 = load i32, ptr %188, align 8
+  %190 = icmp sgt i32 %186, %189
+  br i1 %190, label %191, label %195
 
-188:                                              ; preds = %185
-  %189 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 1, ptr noundef @.str.7)
-  store i32 -2, ptr %1, align 4
-  br label %215
+191:                                              ; preds = %185
+  %192 = load ptr, ptr %7, align 8
+  %193 = load ptr, ptr %6, align 8
+  %194 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %193, i32 0, i32 0
+  call void @pmix_list_insert_pos(ptr noundef @pmix_psec_globals, ptr noundef %192, ptr noundef %194)
+  store i8 1, ptr %10, align 1
+  br label %200
 
-190:                                              ; preds = %185
-  %191 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11), align 4
-  %192 = call i32 @pmix_output_get_verbosity(i32 noundef %191)
-  %193 = icmp slt i32 4, %192
-  br i1 %193, label %194, label %214
-
-194:                                              ; preds = %190
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.8)
-  %195 = load ptr, ptr getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_psec_globals, i32 0, i32 1, i32 1), align 8
-  store ptr %195, ptr %7, align 8
+195:                                              ; preds = %185
   br label %196
 
-196:                                              ; preds = %209, %194
+196:                                              ; preds = %195
   %197 = load ptr, ptr %7, align 8
-  %198 = icmp ne ptr %197, getelementptr inbounds (%struct.pmix_list_t, ptr @pmix_psec_globals, i32 0, i32 1)
-  br i1 %198, label %199, label %213
+  %198 = getelementptr inbounds %struct.pmix_list_item_t, ptr %197, i32 0, i32 1
+  %199 = load ptr, ptr %198, align 8
+  store ptr %199, ptr %7, align 8
+  br label %181, !llvm.loop !4
 
-199:                                              ; preds = %196
-  %200 = load ptr, ptr %7, align 8
-  %201 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %200, i32 0, i32 3
-  %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds %struct.pmix_psec_base_component_t, ptr %202, i32 0, i32 0
-  %204 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %203, i32 0, i32 11
-  %205 = getelementptr inbounds [64 x i8], ptr %204, i64 0, i64 0
-  %206 = load ptr, ptr %7, align 8
-  %207 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %206, i32 0, i32 1
-  %208 = load i32, ptr %207, align 8
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.9, ptr noundef %205, i32 noundef %208)
-  br label %209
+200:                                              ; preds = %191, %181
+  %201 = load i8, ptr %10, align 1
+  %202 = trunc i8 %201 to i1
+  br i1 %202, label %206, label %203
 
-209:                                              ; preds = %199
-  %210 = load ptr, ptr %7, align 8
-  %211 = getelementptr inbounds %struct.pmix_list_item_t, ptr %210, i32 0, i32 1
-  %212 = load ptr, ptr %211, align 8
-  store ptr %212, ptr %7, align 8
-  br label %196, !llvm.loop !7
+203:                                              ; preds = %200
+  %204 = load ptr, ptr %6, align 8
+  %205 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %204, i32 0, i32 0
+  call void @_pmix_list_append(ptr noundef @pmix_psec_globals, ptr noundef %205)
+  br label %206
 
-213:                                              ; preds = %196
-  br label %214
+206:                                              ; preds = %203, %200
+  br label %207
 
-214:                                              ; preds = %213, %190
+207:                                              ; preds = %206, %165, %130, %75
+  %208 = load ptr, ptr %2, align 8
+  %209 = getelementptr inbounds %struct.pmix_list_item_t, ptr %208, i32 0, i32 1
+  %210 = load ptr, ptr %209, align 8
+  store ptr %210, ptr %2, align 8
+  br label %19, !llvm.loop !6
+
+211:                                              ; preds = %19
+  %212 = call i64 @pmix_list_get_size(ptr noundef @pmix_psec_globals)
+  %213 = icmp eq i64 0, %212
+  br i1 %213, label %214, label %216
+
+214:                                              ; preds = %211
+  %215 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.5, ptr noundef @.str.6, i32 noundef 1, ptr noundef @.str.7)
+  store i32 -2, ptr %1, align 4
+  br label %244
+
+216:                                              ; preds = %211
+  %217 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_psec_base_framework, i32 0, i32 11
+  %218 = load i32, ptr %217, align 4
+  %219 = call i32 @pmix_output_get_verbosity(i32 noundef %218)
+  %220 = icmp slt i32 4, %219
+  br i1 %220, label %221, label %243
+
+221:                                              ; preds = %216
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.8)
+  %222 = getelementptr inbounds %struct.pmix_list_t, ptr @pmix_psec_globals, i32 0, i32 1, i32 1
+  %223 = load ptr, ptr %222, align 8
+  store ptr %223, ptr %7, align 8
+  br label %224
+
+224:                                              ; preds = %238, %221
+  %225 = load ptr, ptr %7, align 8
+  %226 = getelementptr inbounds %struct.pmix_list_t, ptr @pmix_psec_globals, i32 0, i32 1
+  %227 = icmp ne ptr %225, %226
+  br i1 %227, label %228, label %242
+
+228:                                              ; preds = %224
+  %229 = load ptr, ptr %7, align 8
+  %230 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %229, i32 0, i32 3
+  %231 = load ptr, ptr %230, align 8
+  %232 = getelementptr inbounds %struct.pmix_psec_base_component_t, ptr %231, i32 0, i32 0
+  %233 = getelementptr inbounds %struct.pmix_mca_base_component_2_1_0_t, ptr %232, i32 0, i32 11
+  %234 = getelementptr inbounds [64 x i8], ptr %233, i64 0, i64 0
+  %235 = load ptr, ptr %7, align 8
+  %236 = getelementptr inbounds %struct.pmix_psec_base_active_module_t, ptr %235, i32 0, i32 1
+  %237 = load i32, ptr %236, align 8
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.9, ptr noundef %234, i32 noundef %237)
+  br label %238
+
+238:                                              ; preds = %228
+  %239 = load ptr, ptr %7, align 8
+  %240 = getelementptr inbounds %struct.pmix_list_item_t, ptr %239, i32 0, i32 1
+  %241 = load ptr, ptr %240, align 8
+  store ptr %241, ptr %7, align 8
+  br label %224, !llvm.loop !7
+
+242:                                              ; preds = %224
+  br label %243
+
+243:                                              ; preds = %242, %216
   store i32 0, ptr %1, align 4
-  br label %215
+  br label %244
 
-215:                                              ; preds = %214, %188, %13
-  %216 = load i32, ptr %1, align 4
-  ret i32 %216
+244:                                              ; preds = %243, %214, %14
+  %245 = load i32, ptr %1, align 4
+  ret i32 %245
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) #1

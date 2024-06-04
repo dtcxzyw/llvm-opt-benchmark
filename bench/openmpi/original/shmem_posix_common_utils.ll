@@ -25,7 +25,7 @@ define i32 @opal_shmem_posix_shm_open(ptr noundef %0, i64 noundef %1) #0 {
   store i32 -1, ptr %6, align 4
   br label %8
 
-8:                                                ; preds = %35, %2
+8:                                                ; preds = %37, %2
   %9 = load ptr, ptr %3, align 8
   %10 = load i64, ptr %4, align 8
   %11 = load i32, ptr %5, align 4
@@ -36,7 +36,7 @@ define i32 @opal_shmem_posix_shm_open(ptr noundef %0, i64 noundef %1) #0 {
   %15 = call i32 @shm_open(ptr noundef %14, i32 noundef 194, i32 noundef 384)
   store i32 %15, ptr %6, align 4
   %16 = icmp eq i32 -1, %15
-  br i1 %16, label %17, label %34
+  br i1 %16, label %17, label %36
 
 17:                                               ; preds = %8
   %18 = call ptr @__errno_location() #5
@@ -47,50 +47,52 @@ define i32 @opal_shmem_posix_shm_open(ptr noundef %0, i64 noundef %1) #0 {
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %17
-  br label %35
+  br label %37
 
 23:                                               ; preds = %17
   br label %24
 
 24:                                               ; preds = %23
-  %25 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %26 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %25)
-  br i1 %26, label %27, label %32
+  %25 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %26 = load i32, ptr %25, align 4
+  %27 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %26)
+  br i1 %27, label %28, label %34
 
-27:                                               ; preds = %24
-  %28 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11), align 4
-  %29 = load i32, ptr %7, align 4
-  %30 = call ptr @strerror(i32 noundef %29) #4
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i32 0, i32 11
+  %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %7, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %28, ptr noundef @.str.2, ptr noundef %30, i32 noundef %31)
-  br label %32
+  %32 = call ptr @strerror(i32 noundef %31) #4
+  %33 = load i32, ptr %7, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %30, ptr noundef @.str.2, ptr noundef %32, i32 noundef %33)
+  br label %34
 
-32:                                               ; preds = %27, %24
-  br label %33
+34:                                               ; preds = %28, %24
+  br label %35
 
-33:                                               ; preds = %32
-  br label %38
+35:                                               ; preds = %34
+  br label %40
 
-34:                                               ; preds = %8
-  br label %38
+36:                                               ; preds = %8
+  br label %40
 
-35:                                               ; preds = %22
-  %36 = load i32, ptr %5, align 4
-  %37 = icmp slt i32 %36, 128
-  br i1 %37, label %8, label %38, !llvm.loop !4
+37:                                               ; preds = %22
+  %38 = load i32, ptr %5, align 4
+  %39 = icmp slt i32 %38, 128
+  br i1 %39, label %8, label %40, !llvm.loop !4
 
-38:                                               ; preds = %35, %34, %33
-  %39 = load i32, ptr %5, align 4
-  %40 = icmp sge i32 %39, 128
-  br i1 %40, label %41, label %42
+40:                                               ; preds = %37, %36, %35
+  %41 = load i32, ptr %5, align 4
+  %42 = icmp sge i32 %41, 128
+  br i1 %42, label %43, label %44
 
-41:                                               ; preds = %38
+43:                                               ; preds = %40
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str.3)
-  br label %42
+  br label %44
 
-42:                                               ; preds = %41, %38
-  %43 = load i32, ptr %6, align 4
-  ret i32 %43
+44:                                               ; preds = %43, %40
+  %45 = load i32, ptr %6, align 4
+  ret i32 %45
 }
 
 ; Function Attrs: nounwind

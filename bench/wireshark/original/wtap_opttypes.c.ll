@@ -2460,7 +2460,7 @@ define i32 @wtap_block_add_string_option_format(ptr noundef %0, i32 noundef %1, 
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_start(ptr %19)
+  call void @llvm.va_start.p0(ptr %19)
   %20 = load ptr, ptr %7, align 8
   %21 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %22 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %20, ptr noundef %21)
@@ -2468,7 +2468,7 @@ define i32 @wtap_block_add_string_option_format(ptr noundef %0, i32 noundef %1, 
   %24 = getelementptr inbounds %struct.wtap_option_t, ptr %23, i32 0, i32 1
   store ptr %22, ptr %24, align 8
   %25 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %25)
+  call void @llvm.va_end.p0(ptr %25)
   store i32 0, ptr %4, align 4
   br label %26
 
@@ -2477,13 +2477,7 @@ define i32 @wtap_block_add_string_option_format(ptr noundef %0, i32 noundef %1, 
   ret i32 %27
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare noalias ptr @wmem_strdup_vprintf(ptr noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @wtap_block_set_string_option_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) #0 {
@@ -2707,7 +2701,7 @@ define i32 @wtap_block_set_string_option_value_format(ptr noundef %0, i32 nounde
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_start(ptr %20)
+  call void @llvm.va_start.p0(ptr %20)
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %6, align 4
   %23 = load ptr, ptr %7, align 8
@@ -2715,7 +2709,7 @@ define i32 @wtap_block_set_string_option_value_format(ptr noundef %0, i32 nounde
   %25 = call i32 @wtap_block_add_string_option_vformat(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24)
   store i32 %25, ptr %8, align 4
   %26 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %26)
+  call void @llvm.va_end.p0(ptr %26)
   %27 = load i32, ptr %8, align 4
   store i32 %27, ptr %4, align 4
   br label %39
@@ -2730,14 +2724,14 @@ define i32 @wtap_block_set_string_option_value_format(ptr noundef %0, i32 nounde
   %32 = load ptr, ptr %31, align 8
   call void @g_free(ptr noundef %32)
   %33 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_start(ptr %33)
+  call void @llvm.va_start.p0(ptr %33)
   %34 = load ptr, ptr %7, align 8
   %35 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
   %36 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %34, ptr noundef %35)
   %37 = load ptr, ptr %9, align 8
   store ptr %36, ptr %37, align 8
   %38 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
-  call void @llvm.va_end(ptr %38)
+  call void @llvm.va_end.p0(ptr %38)
   store i32 0, ptr %4, align 4
   br label %39
 
@@ -2826,14 +2820,14 @@ define i32 @wtap_block_set_nth_string_option_value_format(ptr noundef %0, i32 no
   %23 = load ptr, ptr %22, align 8
   call void @g_free(ptr noundef %23)
   %24 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_start(ptr %24)
+  call void @llvm.va_start.p0(ptr %24)
   %25 = load ptr, ptr %9, align 8
   %26 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
   %27 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %25, ptr noundef %26)
   %28 = load ptr, ptr %11, align 8
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %12, i64 0, i64 0
-  call void @llvm.va_end(ptr %29)
+  call void @llvm.va_end.p0(ptr %29)
   store i32 0, ptr %5, align 4
   br label %30
 
@@ -3144,7 +3138,7 @@ define i32 @wtap_block_get_nth_bytes_option_value(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) #6
+declare ptr @g_memdup2(ptr noundef, i64 noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @wtap_block_get_nflx_custom_option(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) #0 {
@@ -3174,7 +3168,7 @@ define i32 @wtap_block_get_nflx_custom_option(ptr noundef %0, i32 noundef %1, pt
 
 23:                                               ; preds = %4
   store i32 -6, ptr %5, align 4
-  br label %636
+  br label %637
 
 24:                                               ; preds = %4
   %25 = load ptr, ptr %6, align 8
@@ -3182,816 +3176,817 @@ define i32 @wtap_block_get_nflx_custom_option(ptr noundef %0, i32 noundef %1, pt
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds %struct.wtap_blocktype_t, ptr %27, i32 0, i32 6
   %29 = load ptr, ptr %28, align 8
-  %30 = call ptr @g_hash_table_lookup(ptr noundef %29, ptr noundef inttoptr (i64 2989 to ptr))
-  store ptr %30, ptr %10, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %34
-
-33:                                               ; preds = %24
-  store i32 -1, ptr %5, align 4
-  br label %636
+  %30 = inttoptr i64 2989 to ptr
+  %31 = call ptr @g_hash_table_lookup(ptr noundef %29, ptr noundef %30)
+  store ptr %31, ptr %10, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %35
 
 34:                                               ; preds = %24
-  %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds %struct.wtap_opttype_t, ptr %35, i32 0, i32 2
-  %37 = load i32, ptr %36, align 8
-  %38 = icmp ne i32 %37, 7
-  br i1 %38, label %39, label %40
+  store i32 -1, ptr %5, align 4
+  br label %637
 
-39:                                               ; preds = %34
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %10, align 8
+  %37 = getelementptr inbounds %struct.wtap_opttype_t, ptr %36, i32 0, i32 2
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp ne i32 %38, 7
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %35
   store i32 -3, ptr %5, align 4
-  br label %636
+  br label %637
 
-40:                                               ; preds = %34
+41:                                               ; preds = %35
   store i32 0, ptr %12, align 4
-  br label %41
+  br label %42
 
-41:                                               ; preds = %78, %40
-  %42 = load i32, ptr %12, align 4
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct.wtap_block, ptr %43, i32 0, i32 2
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct._GArray, ptr %45, i32 0, i32 1
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp ult i32 %42, %47
-  br i1 %48, label %49, label %81
+42:                                               ; preds = %79, %41
+  %43 = load i32, ptr %12, align 4
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds %struct.wtap_block, ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds %struct._GArray, ptr %46, i32 0, i32 1
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp ult i32 %43, %48
+  br i1 %49, label %50, label %82
 
-49:                                               ; preds = %41
-  %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds %struct.wtap_block, ptr %50, i32 0, i32 2
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct._GArray, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  %55 = load i32, ptr %12, align 4
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr %struct.wtap_option_t, ptr %54, i64 %56
-  store ptr %57, ptr %11, align 8
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct.wtap_option_t, ptr %58, i32 0, i32 0
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp eq i32 %60, 2989
-  br i1 %61, label %62, label %77
+50:                                               ; preds = %42
+  %51 = load ptr, ptr %6, align 8
+  %52 = getelementptr inbounds %struct.wtap_block, ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds %struct._GArray, ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8
+  %56 = load i32, ptr %12, align 4
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr %struct.wtap_option_t, ptr %55, i64 %57
+  store ptr %58, ptr %11, align 8
+  %59 = load ptr, ptr %11, align 8
+  %60 = getelementptr inbounds %struct.wtap_option_t, ptr %59, i32 0, i32 0
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp eq i32 %61, 2989
+  br i1 %62, label %63, label %78
 
-62:                                               ; preds = %49
-  %63 = load ptr, ptr %11, align 8
-  %64 = getelementptr inbounds %struct.wtap_option_t, ptr %63, i32 0, i32 1
-  %65 = getelementptr inbounds %struct.custom_opt_s, ptr %64, i32 0, i32 0
-  %66 = load i32, ptr %65, align 8
-  %67 = icmp eq i32 %66, 10949
-  br i1 %67, label %68, label %77
+63:                                               ; preds = %50
+  %64 = load ptr, ptr %11, align 8
+  %65 = getelementptr inbounds %struct.wtap_option_t, ptr %64, i32 0, i32 1
+  %66 = getelementptr inbounds %struct.custom_opt_s, ptr %65, i32 0, i32 0
+  %67 = load i32, ptr %66, align 8
+  %68 = icmp eq i32 %67, 10949
+  br i1 %68, label %69, label %78
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %11, align 8
-  %70 = getelementptr inbounds %struct.wtap_option_t, ptr %69, i32 0, i32 1
-  %71 = getelementptr inbounds %struct.custom_opt_s, ptr %70, i32 0, i32 1
-  %72 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %71, i32 0, i32 0
-  %73 = load i32, ptr %72, align 8
-  %74 = load i32, ptr %7, align 4
-  %75 = icmp eq i32 %73, %74
-  br i1 %75, label %76, label %77
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %11, align 8
+  %71 = getelementptr inbounds %struct.wtap_option_t, ptr %70, i32 0, i32 1
+  %72 = getelementptr inbounds %struct.custom_opt_s, ptr %71, i32 0, i32 1
+  %73 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %72, i32 0, i32 0
+  %74 = load i32, ptr %73, align 8
+  %75 = load i32, ptr %7, align 4
+  %76 = icmp eq i32 %74, %75
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %68
-  br label %81
+77:                                               ; preds = %69
+  br label %82
 
-77:                                               ; preds = %68, %62, %49
-  br label %78
+78:                                               ; preds = %69, %63, %50
+  br label %79
 
-78:                                               ; preds = %77
-  %79 = load i32, ptr %12, align 4
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %12, align 4
-  br label %41, !llvm.loop !10
+79:                                               ; preds = %78
+  %80 = load i32, ptr %12, align 4
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %12, align 4
+  br label %42, !llvm.loop !10
 
-81:                                               ; preds = %76, %41
-  %82 = load i32, ptr %12, align 4
-  %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr inbounds %struct.wtap_block, ptr %83, i32 0, i32 2
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct._GArray, ptr %85, i32 0, i32 1
-  %87 = load i32, ptr %86, align 8
-  %88 = icmp eq i32 %82, %87
-  br i1 %88, label %89, label %90
+82:                                               ; preds = %77, %42
+  %83 = load i32, ptr %12, align 4
+  %84 = load ptr, ptr %6, align 8
+  %85 = getelementptr inbounds %struct.wtap_block, ptr %84, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds %struct._GArray, ptr %86, i32 0, i32 1
+  %88 = load i32, ptr %87, align 8
+  %89 = icmp eq i32 %83, %88
+  br i1 %89, label %90, label %91
 
-89:                                               ; preds = %81
+90:                                               ; preds = %82
   store i32 -2, ptr %5, align 4
-  br label %636
+  br label %637
 
-90:                                               ; preds = %81
-  %91 = load i64, ptr %9, align 8
-  %92 = load ptr, ptr %11, align 8
-  %93 = getelementptr inbounds %struct.wtap_option_t, ptr %92, i32 0, i32 1
-  %94 = getelementptr inbounds %struct.custom_opt_s, ptr %93, i32 0, i32 1
-  %95 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %94, i32 0, i32 1
-  %96 = load i64, ptr %95, align 8
-  %97 = icmp ult i64 %91, %96
-  br i1 %97, label %98, label %99
+91:                                               ; preds = %82
+  %92 = load i64, ptr %9, align 8
+  %93 = load ptr, ptr %11, align 8
+  %94 = getelementptr inbounds %struct.wtap_option_t, ptr %93, i32 0, i32 1
+  %95 = getelementptr inbounds %struct.custom_opt_s, ptr %94, i32 0, i32 1
+  %96 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %95, i32 0, i32 1
+  %97 = load i64, ptr %96, align 8
+  %98 = icmp ult i64 %92, %97
+  br i1 %98, label %99, label %100
 
-98:                                               ; preds = %90
+99:                                               ; preds = %91
   store i32 -3, ptr %5, align 4
-  br label %636
+  br label %637
 
-99:                                               ; preds = %90
-  %100 = load i32, ptr %7, align 4
-  switch i32 %100, label %634 [
-    i32 1, label %101
-    i32 2, label %113
-    i32 4, label %504
-    i32 5, label %612
-    i32 6, label %624
+100:                                              ; preds = %91
+  %101 = load i32, ptr %7, align 4
+  switch i32 %101, label %635 [
+    i32 1, label %102
+    i32 2, label %114
+    i32 4, label %505
+    i32 5, label %613
+    i32 6, label %625
   ]
 
-101:                                              ; preds = %99
-  br label %102
-
-102:                                              ; preds = %101
+102:                                              ; preds = %100
   br label %103
 
 103:                                              ; preds = %102
-  %104 = load ptr, ptr %11, align 8
-  %105 = getelementptr inbounds %struct.wtap_option_t, ptr %104, i32 0, i32 1
-  %106 = getelementptr inbounds %struct.custom_opt_s, ptr %105, i32 0, i32 1
-  %107 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %106, i32 0, i32 2
-  %108 = load ptr, ptr %107, align 8
-  store ptr %108, ptr %13, align 8
-  %109 = load ptr, ptr %8, align 8
-  store ptr %109, ptr %14, align 8
-  %110 = load ptr, ptr %13, align 8
-  %111 = load i32, ptr %110, align 4
-  %112 = load ptr, ptr %14, align 8
-  store i32 %111, ptr %112, align 4
-  br label %635
+  br label %104
 
-113:                                              ; preds = %99
-  br label %114
+104:                                              ; preds = %103
+  %105 = load ptr, ptr %11, align 8
+  %106 = getelementptr inbounds %struct.wtap_option_t, ptr %105, i32 0, i32 1
+  %107 = getelementptr inbounds %struct.custom_opt_s, ptr %106, i32 0, i32 1
+  %108 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %107, i32 0, i32 2
+  %109 = load ptr, ptr %108, align 8
+  store ptr %109, ptr %13, align 8
+  %110 = load ptr, ptr %8, align 8
+  store ptr %110, ptr %14, align 8
+  %111 = load ptr, ptr %13, align 8
+  %112 = load i32, ptr %111, align 4
+  %113 = load ptr, ptr %14, align 8
+  store i32 %112, ptr %113, align 4
+  br label %636
 
-114:                                              ; preds = %113
+114:                                              ; preds = %100
   br label %115
 
 115:                                              ; preds = %114
-  %116 = load ptr, ptr %11, align 8
-  %117 = getelementptr inbounds %struct.wtap_option_t, ptr %116, i32 0, i32 1
-  %118 = getelementptr inbounds %struct.custom_opt_s, ptr %117, i32 0, i32 1
-  %119 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %118, i32 0, i32 2
-  %120 = load ptr, ptr %119, align 8
-  store ptr %120, ptr %15, align 8
-  %121 = load ptr, ptr %8, align 8
-  store ptr %121, ptr %16, align 8
-  %122 = load ptr, ptr %15, align 8
-  %123 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %122, i32 0, i32 0
-  %124 = load i64, ptr %123, align 8
-  %125 = load ptr, ptr %16, align 8
-  %126 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %125, i32 0, i32 0
-  store i64 %124, ptr %126, align 8
-  %127 = load ptr, ptr %15, align 8
-  %128 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %127, i32 0, i32 1
-  %129 = load i64, ptr %128, align 8
-  %130 = load ptr, ptr %16, align 8
-  %131 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %130, i32 0, i32 1
-  store i64 %129, ptr %131, align 8
-  %132 = load ptr, ptr %15, align 8
-  %133 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %132, i32 0, i32 2
-  %134 = load i32, ptr %133, align 8
-  %135 = load ptr, ptr %16, align 8
-  %136 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %135, i32 0, i32 2
-  store i32 %134, ptr %136, align 8
-  %137 = load ptr, ptr %15, align 8
-  %138 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %137, i32 0, i32 3
-  %139 = load i32, ptr %138, align 4
-  %140 = load ptr, ptr %16, align 8
-  %141 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %140, i32 0, i32 3
-  store i32 %139, ptr %141, align 4
-  %142 = load ptr, ptr %15, align 8
-  %143 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %142, i32 0, i32 4
-  %144 = load i8, ptr %143, align 8
-  %145 = load ptr, ptr %16, align 8
-  %146 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %145, i32 0, i32 4
-  store i8 %144, ptr %146, align 8
-  %147 = load ptr, ptr %15, align 8
-  %148 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %147, i32 0, i32 5
-  %149 = load i8, ptr %148, align 1
-  %150 = load ptr, ptr %16, align 8
-  %151 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %150, i32 0, i32 5
-  store i8 %149, ptr %151, align 1
-  %152 = load ptr, ptr %15, align 8
-  %153 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %152, i32 0, i32 6
-  %154 = load i16, ptr %153, align 2
-  %155 = load ptr, ptr %16, align 8
-  %156 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %155, i32 0, i32 6
-  store i16 %154, ptr %156, align 2
-  %157 = load ptr, ptr %15, align 8
-  %158 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %157, i32 0, i32 7
-  %159 = load i32, ptr %158, align 4
-  %160 = load ptr, ptr %16, align 8
-  %161 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %160, i32 0, i32 7
-  store i32 %159, ptr %161, align 4
-  %162 = load ptr, ptr %15, align 8
-  %163 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %162, i32 0, i32 8
-  %164 = load i32, ptr %163, align 8
-  %165 = load ptr, ptr %16, align 8
-  %166 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %165, i32 0, i32 8
-  store i32 %164, ptr %166, align 8
-  %167 = load ptr, ptr %15, align 8
-  %168 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %167, i32 0, i32 9
-  %169 = load i32, ptr %168, align 4
-  %170 = load ptr, ptr %16, align 8
-  %171 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %170, i32 0, i32 9
-  store i32 %169, ptr %171, align 4
-  %172 = load ptr, ptr %15, align 8
-  %173 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %172, i32 0, i32 10
-  %174 = load i32, ptr %173, align 8
-  %175 = load ptr, ptr %16, align 8
-  %176 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %175, i32 0, i32 10
-  store i32 %174, ptr %176, align 8
-  %177 = load ptr, ptr %15, align 8
-  %178 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %177, i32 0, i32 11
-  %179 = load i32, ptr %178, align 4
-  %180 = load ptr, ptr %16, align 8
-  %181 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %180, i32 0, i32 11
-  store i32 %179, ptr %181, align 4
-  %182 = load ptr, ptr %15, align 8
-  %183 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %182, i32 0, i32 12
-  %184 = load i32, ptr %183, align 8
-  %185 = load ptr, ptr %16, align 8
-  %186 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %185, i32 0, i32 12
-  store i32 %184, ptr %186, align 8
-  %187 = load ptr, ptr %15, align 8
-  %188 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %187, i32 0, i32 13
-  %189 = load i32, ptr %188, align 4
-  %190 = load ptr, ptr %16, align 8
-  %191 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %190, i32 0, i32 13
-  store i32 %189, ptr %191, align 4
-  %192 = load ptr, ptr %15, align 8
-  %193 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %192, i32 0, i32 14
-  %194 = load i32, ptr %193, align 8
-  %195 = load ptr, ptr %16, align 8
-  %196 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %195, i32 0, i32 14
-  store i32 %194, ptr %196, align 8
-  %197 = load ptr, ptr %15, align 8
-  %198 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %197, i32 0, i32 15
-  %199 = load i32, ptr %198, align 4
-  %200 = load ptr, ptr %16, align 8
-  %201 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %200, i32 0, i32 15
-  store i32 %199, ptr %201, align 4
-  %202 = load ptr, ptr %15, align 8
-  %203 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %202, i32 0, i32 16
-  %204 = load i32, ptr %203, align 8
-  %205 = load ptr, ptr %16, align 8
-  %206 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %205, i32 0, i32 16
-  store i32 %204, ptr %206, align 8
-  %207 = load ptr, ptr %15, align 8
-  %208 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %207, i32 0, i32 17
-  %209 = load i32, ptr %208, align 4
-  %210 = load ptr, ptr %16, align 8
-  %211 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %210, i32 0, i32 17
-  store i32 %209, ptr %211, align 4
-  %212 = load ptr, ptr %15, align 8
-  %213 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %212, i32 0, i32 18
-  %214 = load i32, ptr %213, align 8
-  %215 = load ptr, ptr %16, align 8
-  %216 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %215, i32 0, i32 18
-  store i32 %214, ptr %216, align 8
-  %217 = load ptr, ptr %15, align 8
-  %218 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %217, i32 0, i32 19
-  %219 = load i32, ptr %218, align 4
-  %220 = load ptr, ptr %16, align 8
-  %221 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %220, i32 0, i32 19
-  store i32 %219, ptr %221, align 4
-  %222 = load ptr, ptr %15, align 8
-  %223 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %222, i32 0, i32 20
-  %224 = load i32, ptr %223, align 8
-  %225 = load ptr, ptr %16, align 8
-  %226 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %225, i32 0, i32 20
-  store i32 %224, ptr %226, align 8
-  %227 = load ptr, ptr %15, align 8
-  %228 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %227, i32 0, i32 21
-  %229 = load i32, ptr %228, align 4
-  %230 = load ptr, ptr %16, align 8
-  %231 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %230, i32 0, i32 21
-  store i32 %229, ptr %231, align 4
-  %232 = load ptr, ptr %15, align 8
-  %233 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %232, i32 0, i32 22
-  %234 = load i32, ptr %233, align 8
-  %235 = load ptr, ptr %16, align 8
-  %236 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %235, i32 0, i32 22
-  store i32 %234, ptr %236, align 8
-  %237 = load ptr, ptr %15, align 8
-  %238 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %237, i32 0, i32 23
-  %239 = load i32, ptr %238, align 4
-  %240 = load ptr, ptr %16, align 8
-  %241 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %240, i32 0, i32 23
-  store i32 %239, ptr %241, align 4
-  %242 = load ptr, ptr %15, align 8
-  %243 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %242, i32 0, i32 24
-  %244 = load i32, ptr %243, align 8
-  %245 = load ptr, ptr %16, align 8
-  %246 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %245, i32 0, i32 24
-  store i32 %244, ptr %246, align 8
-  %247 = load ptr, ptr %15, align 8
-  %248 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %247, i32 0, i32 25
-  %249 = load i32, ptr %248, align 4
-  %250 = load ptr, ptr %16, align 8
-  %251 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %250, i32 0, i32 25
-  store i32 %249, ptr %251, align 4
-  %252 = load ptr, ptr %15, align 8
-  %253 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %252, i32 0, i32 26
-  %254 = load i32, ptr %253, align 8
-  %255 = load ptr, ptr %16, align 8
-  %256 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %255, i32 0, i32 26
-  store i32 %254, ptr %256, align 8
-  %257 = load ptr, ptr %15, align 8
-  %258 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %257, i32 0, i32 27
-  %259 = load i32, ptr %258, align 4
-  %260 = load ptr, ptr %16, align 8
-  %261 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %260, i32 0, i32 27
-  store i32 %259, ptr %261, align 4
-  %262 = load ptr, ptr %15, align 8
-  %263 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %262, i32 0, i32 28
-  %264 = load i32, ptr %263, align 8
-  %265 = load ptr, ptr %16, align 8
-  %266 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %265, i32 0, i32 28
-  store i32 %264, ptr %266, align 8
-  %267 = load ptr, ptr %15, align 8
-  %268 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %267, i32 0, i32 29
-  %269 = load i32, ptr %268, align 4
-  %270 = load ptr, ptr %16, align 8
-  %271 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %270, i32 0, i32 29
-  store i32 %269, ptr %271, align 4
-  %272 = load ptr, ptr %15, align 8
-  %273 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %272, i32 0, i32 30
-  %274 = load i32, ptr %273, align 8
-  %275 = load ptr, ptr %16, align 8
-  %276 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %275, i32 0, i32 30
-  store i32 %274, ptr %276, align 8
-  %277 = load ptr, ptr %15, align 8
-  %278 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %277, i32 0, i32 31
-  %279 = load i32, ptr %278, align 4
-  %280 = load ptr, ptr %16, align 8
-  %281 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %280, i32 0, i32 31
-  store i32 %279, ptr %281, align 4
-  %282 = load ptr, ptr %15, align 8
-  %283 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %282, i32 0, i32 32
-  %284 = load i32, ptr %283, align 8
-  %285 = load ptr, ptr %16, align 8
-  %286 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %285, i32 0, i32 32
-  store i32 %284, ptr %286, align 8
-  %287 = load ptr, ptr %15, align 8
-  %288 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %287, i32 0, i32 33
-  %289 = load i32, ptr %288, align 4
-  %290 = load ptr, ptr %16, align 8
-  %291 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %290, i32 0, i32 33
-  store i32 %289, ptr %291, align 4
-  %292 = load ptr, ptr %15, align 8
-  %293 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %292, i32 0, i32 34
-  %294 = load i32, ptr %293, align 8
-  %295 = load ptr, ptr %16, align 8
-  %296 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %295, i32 0, i32 34
-  store i32 %294, ptr %296, align 8
-  %297 = load ptr, ptr %15, align 8
-  %298 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %297, i32 0, i32 35
-  %299 = load i32, ptr %298, align 4
-  %300 = load ptr, ptr %16, align 8
-  %301 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %300, i32 0, i32 35
-  store i32 %299, ptr %301, align 4
-  %302 = load ptr, ptr %15, align 8
-  %303 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %302, i32 0, i32 36
-  %304 = load i32, ptr %303, align 8
-  %305 = load ptr, ptr %16, align 8
-  %306 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %305, i32 0, i32 36
-  store i32 %304, ptr %306, align 8
-  %307 = load ptr, ptr %15, align 8
-  %308 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %307, i32 0, i32 37
-  %309 = load i32, ptr %308, align 4
-  %310 = load ptr, ptr %16, align 8
-  %311 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %310, i32 0, i32 37
-  store i32 %309, ptr %311, align 4
-  %312 = load ptr, ptr %15, align 8
-  %313 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %312, i32 0, i32 38
-  %314 = load i32, ptr %313, align 8
-  %315 = load ptr, ptr %16, align 8
-  %316 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %315, i32 0, i32 38
-  store i32 %314, ptr %316, align 8
-  %317 = load ptr, ptr %15, align 8
-  %318 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %317, i32 0, i32 39
-  %319 = load i8, ptr %318, align 4
-  %320 = and i8 %319, 15
-  %321 = load ptr, ptr %16, align 8
-  %322 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %321, i32 0, i32 39
-  %323 = load i8, ptr %322, align 4
-  %324 = and i8 %320, 15
-  %325 = and i8 %323, -16
-  %326 = or i8 %325, %324
-  store i8 %326, ptr %322, align 4
-  %327 = load ptr, ptr %15, align 8
-  %328 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %327, i32 0, i32 39
-  %329 = load i8, ptr %328, align 4
-  %330 = lshr i8 %329, 4
-  %331 = load ptr, ptr %16, align 8
-  %332 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %331, i32 0, i32 39
-  %333 = load i8, ptr %332, align 4
-  %334 = and i8 %330, 15
-  %335 = shl i8 %334, 4
-  %336 = and i8 %333, 15
-  %337 = or i8 %336, %335
-  store i8 %337, ptr %332, align 4
+  br label %116
+
+116:                                              ; preds = %115
+  %117 = load ptr, ptr %11, align 8
+  %118 = getelementptr inbounds %struct.wtap_option_t, ptr %117, i32 0, i32 1
+  %119 = getelementptr inbounds %struct.custom_opt_s, ptr %118, i32 0, i32 1
+  %120 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %119, i32 0, i32 2
+  %121 = load ptr, ptr %120, align 8
+  store ptr %121, ptr %15, align 8
+  %122 = load ptr, ptr %8, align 8
+  store ptr %122, ptr %16, align 8
+  %123 = load ptr, ptr %15, align 8
+  %124 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %123, i32 0, i32 0
+  %125 = load i64, ptr %124, align 8
+  %126 = load ptr, ptr %16, align 8
+  %127 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %126, i32 0, i32 0
+  store i64 %125, ptr %127, align 8
+  %128 = load ptr, ptr %15, align 8
+  %129 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %128, i32 0, i32 1
+  %130 = load i64, ptr %129, align 8
+  %131 = load ptr, ptr %16, align 8
+  %132 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %131, i32 0, i32 1
+  store i64 %130, ptr %132, align 8
+  %133 = load ptr, ptr %15, align 8
+  %134 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %133, i32 0, i32 2
+  %135 = load i32, ptr %134, align 8
+  %136 = load ptr, ptr %16, align 8
+  %137 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %136, i32 0, i32 2
+  store i32 %135, ptr %137, align 8
+  %138 = load ptr, ptr %15, align 8
+  %139 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %138, i32 0, i32 3
+  %140 = load i32, ptr %139, align 4
+  %141 = load ptr, ptr %16, align 8
+  %142 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %141, i32 0, i32 3
+  store i32 %140, ptr %142, align 4
+  %143 = load ptr, ptr %15, align 8
+  %144 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %143, i32 0, i32 4
+  %145 = load i8, ptr %144, align 8
+  %146 = load ptr, ptr %16, align 8
+  %147 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %146, i32 0, i32 4
+  store i8 %145, ptr %147, align 8
+  %148 = load ptr, ptr %15, align 8
+  %149 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %148, i32 0, i32 5
+  %150 = load i8, ptr %149, align 1
+  %151 = load ptr, ptr %16, align 8
+  %152 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %151, i32 0, i32 5
+  store i8 %150, ptr %152, align 1
+  %153 = load ptr, ptr %15, align 8
+  %154 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %153, i32 0, i32 6
+  %155 = load i16, ptr %154, align 2
+  %156 = load ptr, ptr %16, align 8
+  %157 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %156, i32 0, i32 6
+  store i16 %155, ptr %157, align 2
+  %158 = load ptr, ptr %15, align 8
+  %159 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %158, i32 0, i32 7
+  %160 = load i32, ptr %159, align 4
+  %161 = load ptr, ptr %16, align 8
+  %162 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %161, i32 0, i32 7
+  store i32 %160, ptr %162, align 4
+  %163 = load ptr, ptr %15, align 8
+  %164 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %163, i32 0, i32 8
+  %165 = load i32, ptr %164, align 8
+  %166 = load ptr, ptr %16, align 8
+  %167 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %166, i32 0, i32 8
+  store i32 %165, ptr %167, align 8
+  %168 = load ptr, ptr %15, align 8
+  %169 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %168, i32 0, i32 9
+  %170 = load i32, ptr %169, align 4
+  %171 = load ptr, ptr %16, align 8
+  %172 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %171, i32 0, i32 9
+  store i32 %170, ptr %172, align 4
+  %173 = load ptr, ptr %15, align 8
+  %174 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %173, i32 0, i32 10
+  %175 = load i32, ptr %174, align 8
+  %176 = load ptr, ptr %16, align 8
+  %177 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %176, i32 0, i32 10
+  store i32 %175, ptr %177, align 8
+  %178 = load ptr, ptr %15, align 8
+  %179 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %178, i32 0, i32 11
+  %180 = load i32, ptr %179, align 4
+  %181 = load ptr, ptr %16, align 8
+  %182 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %181, i32 0, i32 11
+  store i32 %180, ptr %182, align 4
+  %183 = load ptr, ptr %15, align 8
+  %184 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %183, i32 0, i32 12
+  %185 = load i32, ptr %184, align 8
+  %186 = load ptr, ptr %16, align 8
+  %187 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %186, i32 0, i32 12
+  store i32 %185, ptr %187, align 8
+  %188 = load ptr, ptr %15, align 8
+  %189 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %188, i32 0, i32 13
+  %190 = load i32, ptr %189, align 4
+  %191 = load ptr, ptr %16, align 8
+  %192 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %191, i32 0, i32 13
+  store i32 %190, ptr %192, align 4
+  %193 = load ptr, ptr %15, align 8
+  %194 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %193, i32 0, i32 14
+  %195 = load i32, ptr %194, align 8
+  %196 = load ptr, ptr %16, align 8
+  %197 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %196, i32 0, i32 14
+  store i32 %195, ptr %197, align 8
+  %198 = load ptr, ptr %15, align 8
+  %199 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %198, i32 0, i32 15
+  %200 = load i32, ptr %199, align 4
+  %201 = load ptr, ptr %16, align 8
+  %202 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %201, i32 0, i32 15
+  store i32 %200, ptr %202, align 4
+  %203 = load ptr, ptr %15, align 8
+  %204 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %203, i32 0, i32 16
+  %205 = load i32, ptr %204, align 8
+  %206 = load ptr, ptr %16, align 8
+  %207 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %206, i32 0, i32 16
+  store i32 %205, ptr %207, align 8
+  %208 = load ptr, ptr %15, align 8
+  %209 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %208, i32 0, i32 17
+  %210 = load i32, ptr %209, align 4
+  %211 = load ptr, ptr %16, align 8
+  %212 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %211, i32 0, i32 17
+  store i32 %210, ptr %212, align 4
+  %213 = load ptr, ptr %15, align 8
+  %214 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %213, i32 0, i32 18
+  %215 = load i32, ptr %214, align 8
+  %216 = load ptr, ptr %16, align 8
+  %217 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %216, i32 0, i32 18
+  store i32 %215, ptr %217, align 8
+  %218 = load ptr, ptr %15, align 8
+  %219 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %218, i32 0, i32 19
+  %220 = load i32, ptr %219, align 4
+  %221 = load ptr, ptr %16, align 8
+  %222 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %221, i32 0, i32 19
+  store i32 %220, ptr %222, align 4
+  %223 = load ptr, ptr %15, align 8
+  %224 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %223, i32 0, i32 20
+  %225 = load i32, ptr %224, align 8
+  %226 = load ptr, ptr %16, align 8
+  %227 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %226, i32 0, i32 20
+  store i32 %225, ptr %227, align 8
+  %228 = load ptr, ptr %15, align 8
+  %229 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %228, i32 0, i32 21
+  %230 = load i32, ptr %229, align 4
+  %231 = load ptr, ptr %16, align 8
+  %232 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %231, i32 0, i32 21
+  store i32 %230, ptr %232, align 4
+  %233 = load ptr, ptr %15, align 8
+  %234 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %233, i32 0, i32 22
+  %235 = load i32, ptr %234, align 8
+  %236 = load ptr, ptr %16, align 8
+  %237 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %236, i32 0, i32 22
+  store i32 %235, ptr %237, align 8
+  %238 = load ptr, ptr %15, align 8
+  %239 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %238, i32 0, i32 23
+  %240 = load i32, ptr %239, align 4
+  %241 = load ptr, ptr %16, align 8
+  %242 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %241, i32 0, i32 23
+  store i32 %240, ptr %242, align 4
+  %243 = load ptr, ptr %15, align 8
+  %244 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %243, i32 0, i32 24
+  %245 = load i32, ptr %244, align 8
+  %246 = load ptr, ptr %16, align 8
+  %247 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %246, i32 0, i32 24
+  store i32 %245, ptr %247, align 8
+  %248 = load ptr, ptr %15, align 8
+  %249 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %248, i32 0, i32 25
+  %250 = load i32, ptr %249, align 4
+  %251 = load ptr, ptr %16, align 8
+  %252 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %251, i32 0, i32 25
+  store i32 %250, ptr %252, align 4
+  %253 = load ptr, ptr %15, align 8
+  %254 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %253, i32 0, i32 26
+  %255 = load i32, ptr %254, align 8
+  %256 = load ptr, ptr %16, align 8
+  %257 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %256, i32 0, i32 26
+  store i32 %255, ptr %257, align 8
+  %258 = load ptr, ptr %15, align 8
+  %259 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %258, i32 0, i32 27
+  %260 = load i32, ptr %259, align 4
+  %261 = load ptr, ptr %16, align 8
+  %262 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %261, i32 0, i32 27
+  store i32 %260, ptr %262, align 4
+  %263 = load ptr, ptr %15, align 8
+  %264 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %263, i32 0, i32 28
+  %265 = load i32, ptr %264, align 8
+  %266 = load ptr, ptr %16, align 8
+  %267 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %266, i32 0, i32 28
+  store i32 %265, ptr %267, align 8
+  %268 = load ptr, ptr %15, align 8
+  %269 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %268, i32 0, i32 29
+  %270 = load i32, ptr %269, align 4
+  %271 = load ptr, ptr %16, align 8
+  %272 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %271, i32 0, i32 29
+  store i32 %270, ptr %272, align 4
+  %273 = load ptr, ptr %15, align 8
+  %274 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %273, i32 0, i32 30
+  %275 = load i32, ptr %274, align 8
+  %276 = load ptr, ptr %16, align 8
+  %277 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %276, i32 0, i32 30
+  store i32 %275, ptr %277, align 8
+  %278 = load ptr, ptr %15, align 8
+  %279 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %278, i32 0, i32 31
+  %280 = load i32, ptr %279, align 4
+  %281 = load ptr, ptr %16, align 8
+  %282 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %281, i32 0, i32 31
+  store i32 %280, ptr %282, align 4
+  %283 = load ptr, ptr %15, align 8
+  %284 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %283, i32 0, i32 32
+  %285 = load i32, ptr %284, align 8
+  %286 = load ptr, ptr %16, align 8
+  %287 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %286, i32 0, i32 32
+  store i32 %285, ptr %287, align 8
+  %288 = load ptr, ptr %15, align 8
+  %289 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %288, i32 0, i32 33
+  %290 = load i32, ptr %289, align 4
+  %291 = load ptr, ptr %16, align 8
+  %292 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %291, i32 0, i32 33
+  store i32 %290, ptr %292, align 4
+  %293 = load ptr, ptr %15, align 8
+  %294 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %293, i32 0, i32 34
+  %295 = load i32, ptr %294, align 8
+  %296 = load ptr, ptr %16, align 8
+  %297 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %296, i32 0, i32 34
+  store i32 %295, ptr %297, align 8
+  %298 = load ptr, ptr %15, align 8
+  %299 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %298, i32 0, i32 35
+  %300 = load i32, ptr %299, align 4
+  %301 = load ptr, ptr %16, align 8
+  %302 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %301, i32 0, i32 35
+  store i32 %300, ptr %302, align 4
+  %303 = load ptr, ptr %15, align 8
+  %304 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %303, i32 0, i32 36
+  %305 = load i32, ptr %304, align 8
+  %306 = load ptr, ptr %16, align 8
+  %307 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %306, i32 0, i32 36
+  store i32 %305, ptr %307, align 8
+  %308 = load ptr, ptr %15, align 8
+  %309 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %308, i32 0, i32 37
+  %310 = load i32, ptr %309, align 4
+  %311 = load ptr, ptr %16, align 8
+  %312 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %311, i32 0, i32 37
+  store i32 %310, ptr %312, align 4
+  %313 = load ptr, ptr %15, align 8
+  %314 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %313, i32 0, i32 38
+  %315 = load i32, ptr %314, align 8
+  %316 = load ptr, ptr %16, align 8
+  %317 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %316, i32 0, i32 38
+  store i32 %315, ptr %317, align 8
+  %318 = load ptr, ptr %15, align 8
+  %319 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %318, i32 0, i32 39
+  %320 = load i8, ptr %319, align 4
+  %321 = and i8 %320, 15
+  %322 = load ptr, ptr %16, align 8
+  %323 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %322, i32 0, i32 39
+  %324 = load i8, ptr %323, align 4
+  %325 = and i8 %321, 15
+  %326 = and i8 %324, -16
+  %327 = or i8 %326, %325
+  store i8 %327, ptr %323, align 4
+  %328 = load ptr, ptr %15, align 8
+  %329 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %328, i32 0, i32 39
+  %330 = load i8, ptr %329, align 4
+  %331 = lshr i8 %330, 4
+  %332 = load ptr, ptr %16, align 8
+  %333 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %332, i32 0, i32 39
+  %334 = load i8, ptr %333, align 4
+  %335 = and i8 %331, 15
+  %336 = shl i8 %335, 4
+  %337 = and i8 %334, 15
+  %338 = or i8 %337, %336
+  store i8 %338, ptr %333, align 4
   store i32 0, ptr %12, align 4
-  br label %338
+  br label %339
 
-338:                                              ; preds = %353, %115
-  %339 = load i32, ptr %12, align 4
-  %340 = icmp ult i32 %339, 3
-  br i1 %340, label %341, label %356
+339:                                              ; preds = %354, %116
+  %340 = load i32, ptr %12, align 4
+  %341 = icmp ult i32 %340, 3
+  br i1 %341, label %342, label %357
 
-341:                                              ; preds = %338
-  %342 = load ptr, ptr %15, align 8
-  %343 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %342, i32 0, i32 40
-  %344 = load i32, ptr %12, align 4
-  %345 = zext i32 %344 to i64
-  %346 = getelementptr [3 x i8], ptr %343, i64 0, i64 %345
-  %347 = load i8, ptr %346, align 1
-  %348 = load ptr, ptr %16, align 8
-  %349 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %348, i32 0, i32 40
-  %350 = load i32, ptr %12, align 4
-  %351 = zext i32 %350 to i64
-  %352 = getelementptr [3 x i8], ptr %349, i64 0, i64 %351
-  store i8 %347, ptr %352, align 1
-  br label %353
+342:                                              ; preds = %339
+  %343 = load ptr, ptr %15, align 8
+  %344 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %343, i32 0, i32 40
+  %345 = load i32, ptr %12, align 4
+  %346 = zext i32 %345 to i64
+  %347 = getelementptr [3 x i8], ptr %344, i64 0, i64 %346
+  %348 = load i8, ptr %347, align 1
+  %349 = load ptr, ptr %16, align 8
+  %350 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %349, i32 0, i32 40
+  %351 = load i32, ptr %12, align 4
+  %352 = zext i32 %351 to i64
+  %353 = getelementptr [3 x i8], ptr %350, i64 0, i64 %352
+  store i8 %348, ptr %353, align 1
+  br label %354
 
-353:                                              ; preds = %341
-  %354 = load i32, ptr %12, align 4
-  %355 = add i32 %354, 1
-  store i32 %355, ptr %12, align 4
-  br label %338, !llvm.loop !11
+354:                                              ; preds = %342
+  %355 = load i32, ptr %12, align 4
+  %356 = add i32 %355, 1
+  store i32 %356, ptr %12, align 4
+  br label %339, !llvm.loop !11
 
-356:                                              ; preds = %338
-  %357 = load ptr, ptr %15, align 8
-  %358 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %357, i32 0, i32 41
-  %359 = load i64, ptr %358, align 8
-  %360 = load ptr, ptr %16, align 8
-  %361 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %360, i32 0, i32 41
-  store i64 %359, ptr %361, align 8
-  %362 = load ptr, ptr %15, align 8
-  %363 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %362, i32 0, i32 42
-  %364 = load i64, ptr %363, align 8
-  %365 = load ptr, ptr %16, align 8
-  %366 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %365, i32 0, i32 42
-  store i64 %364, ptr %366, align 8
-  %367 = load ptr, ptr %15, align 8
-  %368 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %367, i32 0, i32 43
-  %369 = load i64, ptr %368, align 8
-  %370 = load ptr, ptr %16, align 8
-  %371 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %370, i32 0, i32 43
-  store i64 %369, ptr %371, align 8
-  %372 = load ptr, ptr %15, align 8
-  %373 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %372, i32 0, i32 44
-  %374 = load i64, ptr %373, align 8
-  %375 = load ptr, ptr %16, align 8
-  %376 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %375, i32 0, i32 44
-  store i64 %374, ptr %376, align 8
-  %377 = load ptr, ptr %15, align 8
-  %378 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %377, i32 0, i32 45
-  %379 = load i32, ptr %378, align 8
-  %380 = load ptr, ptr %16, align 8
-  %381 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %380, i32 0, i32 45
-  store i32 %379, ptr %381, align 8
-  %382 = load ptr, ptr %15, align 8
-  %383 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %382, i32 0, i32 46
-  %384 = load i32, ptr %383, align 4
-  %385 = load ptr, ptr %16, align 8
-  %386 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %385, i32 0, i32 46
-  store i32 %384, ptr %386, align 4
-  %387 = load ptr, ptr %15, align 8
-  %388 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %387, i32 0, i32 47
-  %389 = load i32, ptr %388, align 8
-  %390 = load ptr, ptr %16, align 8
-  %391 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %390, i32 0, i32 47
-  store i32 %389, ptr %391, align 8
-  %392 = load ptr, ptr %15, align 8
-  %393 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %392, i32 0, i32 48
-  %394 = load i32, ptr %393, align 4
-  %395 = load ptr, ptr %16, align 8
-  %396 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %395, i32 0, i32 48
-  store i32 %394, ptr %396, align 4
-  %397 = load ptr, ptr %15, align 8
-  %398 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %397, i32 0, i32 49
-  %399 = load i32, ptr %398, align 8
-  %400 = load ptr, ptr %16, align 8
-  %401 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %400, i32 0, i32 49
-  store i32 %399, ptr %401, align 8
-  %402 = load ptr, ptr %15, align 8
-  %403 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %402, i32 0, i32 50
-  %404 = load i32, ptr %403, align 4
-  %405 = load ptr, ptr %16, align 8
-  %406 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %405, i32 0, i32 50
-  store i32 %404, ptr %406, align 4
-  %407 = load ptr, ptr %15, align 8
-  %408 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %407, i32 0, i32 51
-  %409 = load i32, ptr %408, align 8
-  %410 = load ptr, ptr %16, align 8
-  %411 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %410, i32 0, i32 51
-  store i32 %409, ptr %411, align 8
-  %412 = load ptr, ptr %15, align 8
-  %413 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %412, i32 0, i32 52
-  %414 = load i32, ptr %413, align 4
-  %415 = load ptr, ptr %16, align 8
-  %416 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %415, i32 0, i32 52
-  store i32 %414, ptr %416, align 4
-  %417 = load ptr, ptr %15, align 8
-  %418 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %417, i32 0, i32 53
-  %419 = load i32, ptr %418, align 8
-  %420 = load ptr, ptr %16, align 8
-  %421 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %420, i32 0, i32 53
-  store i32 %419, ptr %421, align 8
-  %422 = load ptr, ptr %15, align 8
-  %423 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %422, i32 0, i32 54
-  %424 = load i32, ptr %423, align 4
-  %425 = load ptr, ptr %16, align 8
-  %426 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %425, i32 0, i32 54
-  store i32 %424, ptr %426, align 4
-  %427 = load ptr, ptr %15, align 8
-  %428 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %427, i32 0, i32 55
-  %429 = load i32, ptr %428, align 8
-  %430 = load ptr, ptr %16, align 8
-  %431 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %430, i32 0, i32 55
-  store i32 %429, ptr %431, align 8
-  %432 = load ptr, ptr %15, align 8
-  %433 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %432, i32 0, i32 56
-  %434 = load i32, ptr %433, align 4
-  %435 = load ptr, ptr %16, align 8
-  %436 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %435, i32 0, i32 56
-  store i32 %434, ptr %436, align 4
-  %437 = load ptr, ptr %15, align 8
-  %438 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %437, i32 0, i32 57
-  %439 = load i32, ptr %438, align 8
-  %440 = load ptr, ptr %16, align 8
-  %441 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %440, i32 0, i32 57
-  store i32 %439, ptr %441, align 8
-  %442 = load ptr, ptr %15, align 8
-  %443 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %442, i32 0, i32 58
-  %444 = load i32, ptr %443, align 4
-  %445 = load ptr, ptr %16, align 8
-  %446 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %445, i32 0, i32 58
-  store i32 %444, ptr %446, align 4
-  %447 = load ptr, ptr %15, align 8
-  %448 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %447, i32 0, i32 58
-  %449 = load i32, ptr %448, align 4
-  %450 = trunc i32 %449 to i16
-  %451 = load ptr, ptr %16, align 8
-  %452 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %451, i32 0, i32 59
-  store i16 %450, ptr %452, align 8
-  %453 = load ptr, ptr %15, align 8
-  %454 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %453, i32 0, i32 58
-  %455 = load i32, ptr %454, align 4
-  %456 = trunc i32 %455 to i16
-  %457 = load ptr, ptr %16, align 8
-  %458 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %457, i32 0, i32 60
-  store i16 %456, ptr %458, align 2
-  %459 = load ptr, ptr %15, align 8
-  %460 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %459, i32 0, i32 61
-  %461 = load i16, ptr %460, align 4
-  %462 = load ptr, ptr %16, align 8
-  %463 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %462, i32 0, i32 61
-  store i16 %461, ptr %463, align 4
-  %464 = load ptr, ptr %15, align 8
-  %465 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %464, i32 0, i32 62
-  %466 = load i8, ptr %465, align 2
-  %467 = load ptr, ptr %16, align 8
-  %468 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %467, i32 0, i32 62
-  store i8 %466, ptr %468, align 2
-  %469 = load ptr, ptr %15, align 8
-  %470 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %469, i32 0, i32 63
-  %471 = load i8, ptr %470, align 1
-  %472 = load ptr, ptr %16, align 8
-  %473 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %472, i32 0, i32 63
-  store i8 %471, ptr %473, align 1
-  %474 = load ptr, ptr %15, align 8
-  %475 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %474, i32 0, i32 64
-  %476 = load i8, ptr %475, align 8
-  %477 = load ptr, ptr %16, align 8
-  %478 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %477, i32 0, i32 64
-  store i8 %476, ptr %478, align 8
-  %479 = load ptr, ptr %15, align 8
-  %480 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %479, i32 0, i32 65
-  %481 = load i8, ptr %480, align 1
-  %482 = load ptr, ptr %16, align 8
-  %483 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %482, i32 0, i32 65
-  store i8 %481, ptr %483, align 1
-  %484 = load ptr, ptr %15, align 8
-  %485 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %484, i32 0, i32 66
-  %486 = load i8, ptr %485, align 2
-  %487 = load ptr, ptr %16, align 8
-  %488 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %487, i32 0, i32 66
-  store i8 %486, ptr %488, align 2
-  %489 = load ptr, ptr %15, align 8
-  %490 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %489, i32 0, i32 67
-  %491 = load i8, ptr %490, align 1
-  %492 = load ptr, ptr %16, align 8
-  %493 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %492, i32 0, i32 67
-  store i8 %491, ptr %493, align 1
-  %494 = load ptr, ptr %15, align 8
-  %495 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %494, i32 0, i32 68
-  %496 = load i32, ptr %495, align 4
-  %497 = load ptr, ptr %16, align 8
-  %498 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %497, i32 0, i32 68
-  store i32 %496, ptr %498, align 4
-  %499 = load ptr, ptr %15, align 8
-  %500 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %499, i32 0, i32 69
-  %501 = load i32, ptr %500, align 8
-  %502 = load ptr, ptr %16, align 8
-  %503 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %502, i32 0, i32 69
-  store i32 %501, ptr %503, align 8
-  br label %635
+357:                                              ; preds = %339
+  %358 = load ptr, ptr %15, align 8
+  %359 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %358, i32 0, i32 41
+  %360 = load i64, ptr %359, align 8
+  %361 = load ptr, ptr %16, align 8
+  %362 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %361, i32 0, i32 41
+  store i64 %360, ptr %362, align 8
+  %363 = load ptr, ptr %15, align 8
+  %364 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %363, i32 0, i32 42
+  %365 = load i64, ptr %364, align 8
+  %366 = load ptr, ptr %16, align 8
+  %367 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %366, i32 0, i32 42
+  store i64 %365, ptr %367, align 8
+  %368 = load ptr, ptr %15, align 8
+  %369 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %368, i32 0, i32 43
+  %370 = load i64, ptr %369, align 8
+  %371 = load ptr, ptr %16, align 8
+  %372 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %371, i32 0, i32 43
+  store i64 %370, ptr %372, align 8
+  %373 = load ptr, ptr %15, align 8
+  %374 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %373, i32 0, i32 44
+  %375 = load i64, ptr %374, align 8
+  %376 = load ptr, ptr %16, align 8
+  %377 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %376, i32 0, i32 44
+  store i64 %375, ptr %377, align 8
+  %378 = load ptr, ptr %15, align 8
+  %379 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %378, i32 0, i32 45
+  %380 = load i32, ptr %379, align 8
+  %381 = load ptr, ptr %16, align 8
+  %382 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %381, i32 0, i32 45
+  store i32 %380, ptr %382, align 8
+  %383 = load ptr, ptr %15, align 8
+  %384 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %383, i32 0, i32 46
+  %385 = load i32, ptr %384, align 4
+  %386 = load ptr, ptr %16, align 8
+  %387 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %386, i32 0, i32 46
+  store i32 %385, ptr %387, align 4
+  %388 = load ptr, ptr %15, align 8
+  %389 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %388, i32 0, i32 47
+  %390 = load i32, ptr %389, align 8
+  %391 = load ptr, ptr %16, align 8
+  %392 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %391, i32 0, i32 47
+  store i32 %390, ptr %392, align 8
+  %393 = load ptr, ptr %15, align 8
+  %394 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %393, i32 0, i32 48
+  %395 = load i32, ptr %394, align 4
+  %396 = load ptr, ptr %16, align 8
+  %397 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %396, i32 0, i32 48
+  store i32 %395, ptr %397, align 4
+  %398 = load ptr, ptr %15, align 8
+  %399 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %398, i32 0, i32 49
+  %400 = load i32, ptr %399, align 8
+  %401 = load ptr, ptr %16, align 8
+  %402 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %401, i32 0, i32 49
+  store i32 %400, ptr %402, align 8
+  %403 = load ptr, ptr %15, align 8
+  %404 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %403, i32 0, i32 50
+  %405 = load i32, ptr %404, align 4
+  %406 = load ptr, ptr %16, align 8
+  %407 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %406, i32 0, i32 50
+  store i32 %405, ptr %407, align 4
+  %408 = load ptr, ptr %15, align 8
+  %409 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %408, i32 0, i32 51
+  %410 = load i32, ptr %409, align 8
+  %411 = load ptr, ptr %16, align 8
+  %412 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %411, i32 0, i32 51
+  store i32 %410, ptr %412, align 8
+  %413 = load ptr, ptr %15, align 8
+  %414 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %413, i32 0, i32 52
+  %415 = load i32, ptr %414, align 4
+  %416 = load ptr, ptr %16, align 8
+  %417 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %416, i32 0, i32 52
+  store i32 %415, ptr %417, align 4
+  %418 = load ptr, ptr %15, align 8
+  %419 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %418, i32 0, i32 53
+  %420 = load i32, ptr %419, align 8
+  %421 = load ptr, ptr %16, align 8
+  %422 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %421, i32 0, i32 53
+  store i32 %420, ptr %422, align 8
+  %423 = load ptr, ptr %15, align 8
+  %424 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %423, i32 0, i32 54
+  %425 = load i32, ptr %424, align 4
+  %426 = load ptr, ptr %16, align 8
+  %427 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %426, i32 0, i32 54
+  store i32 %425, ptr %427, align 4
+  %428 = load ptr, ptr %15, align 8
+  %429 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %428, i32 0, i32 55
+  %430 = load i32, ptr %429, align 8
+  %431 = load ptr, ptr %16, align 8
+  %432 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %431, i32 0, i32 55
+  store i32 %430, ptr %432, align 8
+  %433 = load ptr, ptr %15, align 8
+  %434 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %433, i32 0, i32 56
+  %435 = load i32, ptr %434, align 4
+  %436 = load ptr, ptr %16, align 8
+  %437 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %436, i32 0, i32 56
+  store i32 %435, ptr %437, align 4
+  %438 = load ptr, ptr %15, align 8
+  %439 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %438, i32 0, i32 57
+  %440 = load i32, ptr %439, align 8
+  %441 = load ptr, ptr %16, align 8
+  %442 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %441, i32 0, i32 57
+  store i32 %440, ptr %442, align 8
+  %443 = load ptr, ptr %15, align 8
+  %444 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %443, i32 0, i32 58
+  %445 = load i32, ptr %444, align 4
+  %446 = load ptr, ptr %16, align 8
+  %447 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %446, i32 0, i32 58
+  store i32 %445, ptr %447, align 4
+  %448 = load ptr, ptr %15, align 8
+  %449 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %448, i32 0, i32 58
+  %450 = load i32, ptr %449, align 4
+  %451 = trunc i32 %450 to i16
+  %452 = load ptr, ptr %16, align 8
+  %453 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %452, i32 0, i32 59
+  store i16 %451, ptr %453, align 8
+  %454 = load ptr, ptr %15, align 8
+  %455 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %454, i32 0, i32 58
+  %456 = load i32, ptr %455, align 4
+  %457 = trunc i32 %456 to i16
+  %458 = load ptr, ptr %16, align 8
+  %459 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %458, i32 0, i32 60
+  store i16 %457, ptr %459, align 2
+  %460 = load ptr, ptr %15, align 8
+  %461 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %460, i32 0, i32 61
+  %462 = load i16, ptr %461, align 4
+  %463 = load ptr, ptr %16, align 8
+  %464 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %463, i32 0, i32 61
+  store i16 %462, ptr %464, align 4
+  %465 = load ptr, ptr %15, align 8
+  %466 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %465, i32 0, i32 62
+  %467 = load i8, ptr %466, align 2
+  %468 = load ptr, ptr %16, align 8
+  %469 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %468, i32 0, i32 62
+  store i8 %467, ptr %469, align 2
+  %470 = load ptr, ptr %15, align 8
+  %471 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %470, i32 0, i32 63
+  %472 = load i8, ptr %471, align 1
+  %473 = load ptr, ptr %16, align 8
+  %474 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %473, i32 0, i32 63
+  store i8 %472, ptr %474, align 1
+  %475 = load ptr, ptr %15, align 8
+  %476 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %475, i32 0, i32 64
+  %477 = load i8, ptr %476, align 8
+  %478 = load ptr, ptr %16, align 8
+  %479 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %478, i32 0, i32 64
+  store i8 %477, ptr %479, align 8
+  %480 = load ptr, ptr %15, align 8
+  %481 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %480, i32 0, i32 65
+  %482 = load i8, ptr %481, align 1
+  %483 = load ptr, ptr %16, align 8
+  %484 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %483, i32 0, i32 65
+  store i8 %482, ptr %484, align 1
+  %485 = load ptr, ptr %15, align 8
+  %486 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %485, i32 0, i32 66
+  %487 = load i8, ptr %486, align 2
+  %488 = load ptr, ptr %16, align 8
+  %489 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %488, i32 0, i32 66
+  store i8 %487, ptr %489, align 2
+  %490 = load ptr, ptr %15, align 8
+  %491 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %490, i32 0, i32 67
+  %492 = load i8, ptr %491, align 1
+  %493 = load ptr, ptr %16, align 8
+  %494 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %493, i32 0, i32 67
+  store i8 %492, ptr %494, align 1
+  %495 = load ptr, ptr %15, align 8
+  %496 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %495, i32 0, i32 68
+  %497 = load i32, ptr %496, align 4
+  %498 = load ptr, ptr %16, align 8
+  %499 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %498, i32 0, i32 68
+  store i32 %497, ptr %499, align 4
+  %500 = load ptr, ptr %15, align 8
+  %501 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %500, i32 0, i32 69
+  %502 = load i32, ptr %501, align 8
+  %503 = load ptr, ptr %16, align 8
+  %504 = getelementptr inbounds %struct.nflx_tcpinfo, ptr %503, i32 0, i32 69
+  store i32 %502, ptr %504, align 8
+  br label %636
 
-504:                                              ; preds = %99
-  br label %505
-
-505:                                              ; preds = %504
+505:                                              ; preds = %100
   br label %506
 
 506:                                              ; preds = %505
-  %507 = load ptr, ptr %11, align 8
-  %508 = getelementptr inbounds %struct.wtap_option_t, ptr %507, i32 0, i32 1
-  %509 = getelementptr inbounds %struct.custom_opt_s, ptr %508, i32 0, i32 1
-  %510 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %509, i32 0, i32 2
-  %511 = load ptr, ptr %510, align 8
-  store ptr %511, ptr %17, align 8
-  %512 = load ptr, ptr %8, align 8
-  store ptr %512, ptr %18, align 8
-  %513 = load ptr, ptr %17, align 8
-  %514 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %513, i32 0, i32 0
-  %515 = load i32, ptr %514, align 8
-  %516 = load ptr, ptr %18, align 8
-  %517 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %516, i32 0, i32 0
-  store i32 %515, ptr %517, align 8
-  %518 = load ptr, ptr %17, align 8
-  %519 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %518, i32 0, i32 1
-  %520 = load i32, ptr %519, align 4
-  %521 = load ptr, ptr %18, align 8
-  %522 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %521, i32 0, i32 1
-  store i32 %520, ptr %522, align 4
-  %523 = load ptr, ptr %17, align 8
-  %524 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %523, i32 0, i32 2
-  %525 = load i64, ptr %524, align 8
-  %526 = load ptr, ptr %18, align 8
-  %527 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %526, i32 0, i32 2
-  store i64 %525, ptr %527, align 8
-  %528 = load ptr, ptr %17, align 8
-  %529 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %528, i32 0, i32 3
-  %530 = load i16, ptr %529, align 8
-  %531 = load ptr, ptr %18, align 8
-  %532 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %531, i32 0, i32 3
-  store i16 %530, ptr %532, align 8
-  %533 = load ptr, ptr %17, align 8
-  %534 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %533, i32 0, i32 4
-  %535 = load i16, ptr %534, align 2
-  %536 = load ptr, ptr %18, align 8
-  %537 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %536, i32 0, i32 4
-  store i16 %535, ptr %537, align 2
+  br label %507
+
+507:                                              ; preds = %506
+  %508 = load ptr, ptr %11, align 8
+  %509 = getelementptr inbounds %struct.wtap_option_t, ptr %508, i32 0, i32 1
+  %510 = getelementptr inbounds %struct.custom_opt_s, ptr %509, i32 0, i32 1
+  %511 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %510, i32 0, i32 2
+  %512 = load ptr, ptr %511, align 8
+  store ptr %512, ptr %17, align 8
+  %513 = load ptr, ptr %8, align 8
+  store ptr %513, ptr %18, align 8
+  %514 = load ptr, ptr %17, align 8
+  %515 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %514, i32 0, i32 0
+  %516 = load i32, ptr %515, align 8
+  %517 = load ptr, ptr %18, align 8
+  %518 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %517, i32 0, i32 0
+  store i32 %516, ptr %518, align 8
+  %519 = load ptr, ptr %17, align 8
+  %520 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %519, i32 0, i32 1
+  %521 = load i32, ptr %520, align 4
+  %522 = load ptr, ptr %18, align 8
+  %523 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %522, i32 0, i32 1
+  store i32 %521, ptr %523, align 4
+  %524 = load ptr, ptr %17, align 8
+  %525 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %524, i32 0, i32 2
+  %526 = load i64, ptr %525, align 8
+  %527 = load ptr, ptr %18, align 8
+  %528 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %527, i32 0, i32 2
+  store i64 %526, ptr %528, align 8
+  %529 = load ptr, ptr %17, align 8
+  %530 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %529, i32 0, i32 3
+  %531 = load i16, ptr %530, align 8
+  %532 = load ptr, ptr %18, align 8
+  %533 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %532, i32 0, i32 3
+  store i16 %531, ptr %533, align 8
+  %534 = load ptr, ptr %17, align 8
+  %535 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %534, i32 0, i32 4
+  %536 = load i16, ptr %535, align 2
+  %537 = load ptr, ptr %18, align 8
+  %538 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %537, i32 0, i32 4
+  store i16 %536, ptr %538, align 2
   store i32 0, ptr %12, align 4
-  br label %538
+  br label %539
 
-538:                                              ; preds = %564, %506
-  %539 = load i32, ptr %12, align 4
-  %540 = icmp ult i32 %539, 4
-  br i1 %540, label %541, label %567
+539:                                              ; preds = %565, %507
+  %540 = load i32, ptr %12, align 4
+  %541 = icmp ult i32 %540, 4
+  br i1 %541, label %542, label %568
 
-541:                                              ; preds = %538
-  %542 = load ptr, ptr %17, align 8
-  %543 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %542, i32 0, i32 5
-  %544 = load i32, ptr %12, align 4
-  %545 = zext i32 %544 to i64
-  %546 = getelementptr [4 x i32], ptr %543, i64 0, i64 %545
-  %547 = load i32, ptr %546, align 4
-  %548 = load ptr, ptr %18, align 8
-  %549 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %548, i32 0, i32 5
-  %550 = load i32, ptr %12, align 4
-  %551 = zext i32 %550 to i64
-  %552 = getelementptr [4 x i32], ptr %549, i64 0, i64 %551
-  store i32 %547, ptr %552, align 4
-  %553 = load ptr, ptr %17, align 8
-  %554 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %553, i32 0, i32 6
-  %555 = load i32, ptr %12, align 4
-  %556 = zext i32 %555 to i64
-  %557 = getelementptr [4 x i32], ptr %554, i64 0, i64 %556
-  %558 = load i32, ptr %557, align 4
-  %559 = load ptr, ptr %18, align 8
-  %560 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %559, i32 0, i32 6
-  %561 = load i32, ptr %12, align 4
-  %562 = zext i32 %561 to i64
-  %563 = getelementptr [4 x i32], ptr %560, i64 0, i64 %562
-  store i32 %558, ptr %563, align 4
-  br label %564
+542:                                              ; preds = %539
+  %543 = load ptr, ptr %17, align 8
+  %544 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %543, i32 0, i32 5
+  %545 = load i32, ptr %12, align 4
+  %546 = zext i32 %545 to i64
+  %547 = getelementptr [4 x i32], ptr %544, i64 0, i64 %546
+  %548 = load i32, ptr %547, align 4
+  %549 = load ptr, ptr %18, align 8
+  %550 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %549, i32 0, i32 5
+  %551 = load i32, ptr %12, align 4
+  %552 = zext i32 %551 to i64
+  %553 = getelementptr [4 x i32], ptr %550, i64 0, i64 %552
+  store i32 %548, ptr %553, align 4
+  %554 = load ptr, ptr %17, align 8
+  %555 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %554, i32 0, i32 6
+  %556 = load i32, ptr %12, align 4
+  %557 = zext i32 %556 to i64
+  %558 = getelementptr [4 x i32], ptr %555, i64 0, i64 %557
+  %559 = load i32, ptr %558, align 4
+  %560 = load ptr, ptr %18, align 8
+  %561 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %560, i32 0, i32 6
+  %562 = load i32, ptr %12, align 4
+  %563 = zext i32 %562 to i64
+  %564 = getelementptr [4 x i32], ptr %561, i64 0, i64 %563
+  store i32 %559, ptr %564, align 4
+  br label %565
 
-564:                                              ; preds = %541
-  %565 = load i32, ptr %12, align 4
-  %566 = add i32 %565, 1
-  store i32 %566, ptr %12, align 4
-  br label %538, !llvm.loop !12
+565:                                              ; preds = %542
+  %566 = load i32, ptr %12, align 4
+  %567 = add i32 %566, 1
+  store i32 %567, ptr %12, align 4
+  br label %539, !llvm.loop !12
 
-567:                                              ; preds = %538
-  %568 = load ptr, ptr %17, align 8
-  %569 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %568, i32 0, i32 7
-  %570 = load i32, ptr %569, align 4
-  %571 = load ptr, ptr %18, align 8
-  %572 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %571, i32 0, i32 7
-  store i32 %570, ptr %572, align 4
-  %573 = load ptr, ptr %17, align 8
-  %574 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %573, i32 0, i32 8
-  %575 = load i64, ptr %574, align 8
-  %576 = load ptr, ptr %18, align 8
-  %577 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %576, i32 0, i32 8
-  store i64 %575, ptr %577, align 8
-  %578 = load ptr, ptr %17, align 8
-  %579 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %578, i32 0, i32 9
-  %580 = load i64, ptr %579, align 8
-  %581 = load ptr, ptr %18, align 8
-  %582 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %581, i32 0, i32 9
-  store i64 %580, ptr %582, align 8
-  %583 = load ptr, ptr %18, align 8
-  %584 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %583, i32 0, i32 10
-  %585 = getelementptr inbounds [64 x i8], ptr %584, i64 0, i64 0
-  %586 = load ptr, ptr %17, align 8
-  %587 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %586, i32 0, i32 10
-  %588 = getelementptr inbounds [64 x i8], ptr %587, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %585, ptr align 8 %588, i64 64, i1 false)
-  %589 = load ptr, ptr %18, align 8
-  %590 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %589, i32 0, i32 11
-  %591 = getelementptr inbounds [32 x i8], ptr %590, i64 0, i64 0
-  %592 = load ptr, ptr %17, align 8
-  %593 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %592, i32 0, i32 11
-  %594 = getelementptr inbounds [32 x i8], ptr %593, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %591, ptr align 8 %594, i64 32, i1 false)
-  %595 = load ptr, ptr %18, align 8
-  %596 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %595, i32 0, i32 12
-  %597 = getelementptr inbounds [32 x i8], ptr %596, i64 0, i64 0
-  %598 = load ptr, ptr %17, align 8
-  %599 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %598, i32 0, i32 12
-  %600 = getelementptr inbounds [32 x i8], ptr %599, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %597, ptr align 8 %600, i64 32, i1 false)
-  %601 = load ptr, ptr %17, align 8
-  %602 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %601, i32 0, i32 13
-  %603 = load i8, ptr %602, align 8
-  %604 = load ptr, ptr %18, align 8
-  %605 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %604, i32 0, i32 13
-  store i8 %603, ptr %605, align 8
-  %606 = load ptr, ptr %18, align 8
-  %607 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %606, i32 0, i32 14
-  %608 = getelementptr inbounds [7 x i8], ptr %607, i64 0, i64 0
-  %609 = load ptr, ptr %17, align 8
-  %610 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %609, i32 0, i32 14
-  %611 = getelementptr inbounds [7 x i8], ptr %610, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %608, ptr align 1 %611, i64 7, i1 false)
-  br label %635
+568:                                              ; preds = %539
+  %569 = load ptr, ptr %17, align 8
+  %570 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %569, i32 0, i32 7
+  %571 = load i32, ptr %570, align 4
+  %572 = load ptr, ptr %18, align 8
+  %573 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %572, i32 0, i32 7
+  store i32 %571, ptr %573, align 4
+  %574 = load ptr, ptr %17, align 8
+  %575 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %574, i32 0, i32 8
+  %576 = load i64, ptr %575, align 8
+  %577 = load ptr, ptr %18, align 8
+  %578 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %577, i32 0, i32 8
+  store i64 %576, ptr %578, align 8
+  %579 = load ptr, ptr %17, align 8
+  %580 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %579, i32 0, i32 9
+  %581 = load i64, ptr %580, align 8
+  %582 = load ptr, ptr %18, align 8
+  %583 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %582, i32 0, i32 9
+  store i64 %581, ptr %583, align 8
+  %584 = load ptr, ptr %18, align 8
+  %585 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %584, i32 0, i32 10
+  %586 = getelementptr inbounds [64 x i8], ptr %585, i64 0, i64 0
+  %587 = load ptr, ptr %17, align 8
+  %588 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %587, i32 0, i32 10
+  %589 = getelementptr inbounds [64 x i8], ptr %588, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %586, ptr align 8 %589, i64 64, i1 false)
+  %590 = load ptr, ptr %18, align 8
+  %591 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %590, i32 0, i32 11
+  %592 = getelementptr inbounds [32 x i8], ptr %591, i64 0, i64 0
+  %593 = load ptr, ptr %17, align 8
+  %594 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %593, i32 0, i32 11
+  %595 = getelementptr inbounds [32 x i8], ptr %594, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %592, ptr align 8 %595, i64 32, i1 false)
+  %596 = load ptr, ptr %18, align 8
+  %597 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %596, i32 0, i32 12
+  %598 = getelementptr inbounds [32 x i8], ptr %597, i64 0, i64 0
+  %599 = load ptr, ptr %17, align 8
+  %600 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %599, i32 0, i32 12
+  %601 = getelementptr inbounds [32 x i8], ptr %600, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %598, ptr align 8 %601, i64 32, i1 false)
+  %602 = load ptr, ptr %17, align 8
+  %603 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %602, i32 0, i32 13
+  %604 = load i8, ptr %603, align 8
+  %605 = load ptr, ptr %18, align 8
+  %606 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %605, i32 0, i32 13
+  store i8 %604, ptr %606, align 8
+  %607 = load ptr, ptr %18, align 8
+  %608 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %607, i32 0, i32 14
+  %609 = getelementptr inbounds [7 x i8], ptr %608, i64 0, i64 0
+  %610 = load ptr, ptr %17, align 8
+  %611 = getelementptr inbounds %struct.nflx_dumpinfo, ptr %610, i32 0, i32 14
+  %612 = getelementptr inbounds [7 x i8], ptr %611, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %609, ptr align 1 %612, i64 7, i1 false)
+  br label %636
 
-612:                                              ; preds = %99
-  br label %613
-
-613:                                              ; preds = %612
+613:                                              ; preds = %100
   br label %614
 
 614:                                              ; preds = %613
-  %615 = load ptr, ptr %11, align 8
-  %616 = getelementptr inbounds %struct.wtap_option_t, ptr %615, i32 0, i32 1
-  %617 = getelementptr inbounds %struct.custom_opt_s, ptr %616, i32 0, i32 1
-  %618 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %617, i32 0, i32 2
-  %619 = load ptr, ptr %618, align 8
-  store ptr %619, ptr %19, align 8
-  %620 = load ptr, ptr %8, align 8
-  store ptr %620, ptr %20, align 8
-  %621 = load ptr, ptr %19, align 8
-  %622 = load i64, ptr %621, align 8
-  %623 = load ptr, ptr %20, align 8
-  store i64 %622, ptr %623, align 8
-  br label %635
+  br label %615
 
-624:                                              ; preds = %99
-  br label %625
+615:                                              ; preds = %614
+  %616 = load ptr, ptr %11, align 8
+  %617 = getelementptr inbounds %struct.wtap_option_t, ptr %616, i32 0, i32 1
+  %618 = getelementptr inbounds %struct.custom_opt_s, ptr %617, i32 0, i32 1
+  %619 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %618, i32 0, i32 2
+  %620 = load ptr, ptr %619, align 8
+  store ptr %620, ptr %19, align 8
+  %621 = load ptr, ptr %8, align 8
+  store ptr %621, ptr %20, align 8
+  %622 = load ptr, ptr %19, align 8
+  %623 = load i64, ptr %622, align 8
+  %624 = load ptr, ptr %20, align 8
+  store i64 %623, ptr %624, align 8
+  br label %636
 
-625:                                              ; preds = %624
+625:                                              ; preds = %100
   br label %626
 
 626:                                              ; preds = %625
-  %627 = load ptr, ptr %8, align 8
-  %628 = load ptr, ptr %11, align 8
-  %629 = getelementptr inbounds %struct.wtap_option_t, ptr %628, i32 0, i32 1
-  %630 = getelementptr inbounds %struct.custom_opt_s, ptr %629, i32 0, i32 1
-  %631 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %630, i32 0, i32 2
-  %632 = load ptr, ptr %631, align 8
-  %633 = load i64, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %627, ptr align 1 %632, i64 %633, i1 false)
-  br label %635
+  br label %627
 
-634:                                              ; preds = %99
+627:                                              ; preds = %626
+  %628 = load ptr, ptr %8, align 8
+  %629 = load ptr, ptr %11, align 8
+  %630 = getelementptr inbounds %struct.wtap_option_t, ptr %629, i32 0, i32 1
+  %631 = getelementptr inbounds %struct.custom_opt_s, ptr %630, i32 0, i32 1
+  %632 = getelementptr inbounds %struct.nflx_custom_opt_data, ptr %631, i32 0, i32 2
+  %633 = load ptr, ptr %632, align 8
+  %634 = load i64, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %628, ptr align 1 %633, i64 %634, i1 false)
+  br label %636
+
+635:                                              ; preds = %100
   store i32 -2, ptr %5, align 4
-  br label %636
+  br label %637
 
-635:                                              ; preds = %626, %614, %567, %356, %103
+636:                                              ; preds = %627, %615, %568, %357, %104
   store i32 0, ptr %5, align 4
-  br label %636
+  br label %637
 
-636:                                              ; preds = %635, %634, %98, %89, %39, %33, %23
-  %637 = load i32, ptr %5, align 4
-  ret i32 %637
+637:                                              ; preds = %636, %635, %99, %90, %40, %34, %23
+  %638 = load i32, ptr %5, align 4
+  ret i32 %638
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5229,28 +5224,33 @@ define internal void @wtap_opttype_block_register(ptr noundef %0) #0 {
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds %struct.wtap_blocktype_t, ptr %20, i32 0, i32 6
   %22 = load ptr, ptr %21, align 8
-  %23 = call i32 @g_hash_table_insert(ptr noundef %22, ptr noundef inttoptr (i64 1 to ptr), ptr noundef @wtap_opttype_block_register.opt_comment)
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.wtap_blocktype_t, ptr %24, i32 0, i32 6
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef inttoptr (i64 2988 to ptr), ptr noundef @wtap_opttype_block_register.opt_custom)
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.wtap_blocktype_t, ptr %28, i32 0, i32 6
-  %30 = load ptr, ptr %29, align 8
-  %31 = call i32 @g_hash_table_insert(ptr noundef %30, ptr noundef inttoptr (i64 2989 to ptr), ptr noundef @wtap_opttype_block_register.opt_custom)
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.wtap_blocktype_t, ptr %32, i32 0, i32 6
-  %34 = load ptr, ptr %33, align 8
-  %35 = call i32 @g_hash_table_insert(ptr noundef %34, ptr noundef inttoptr (i64 19372 to ptr), ptr noundef @wtap_opttype_block_register.opt_custom)
-  %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds %struct.wtap_blocktype_t, ptr %36, i32 0, i32 6
-  %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @g_hash_table_insert(ptr noundef %38, ptr noundef inttoptr (i64 19373 to ptr), ptr noundef @wtap_opttype_block_register.opt_custom)
+  %23 = inttoptr i64 1 to ptr
+  %24 = call i32 @g_hash_table_insert(ptr noundef %22, ptr noundef %23, ptr noundef @wtap_opttype_block_register.opt_comment)
+  %25 = load ptr, ptr %2, align 8
+  %26 = getelementptr inbounds %struct.wtap_blocktype_t, ptr %25, i32 0, i32 6
+  %27 = load ptr, ptr %26, align 8
+  %28 = inttoptr i64 2988 to ptr
+  %29 = call i32 @g_hash_table_insert(ptr noundef %27, ptr noundef %28, ptr noundef @wtap_opttype_block_register.opt_custom)
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds %struct.wtap_blocktype_t, ptr %30, i32 0, i32 6
+  %32 = load ptr, ptr %31, align 8
+  %33 = inttoptr i64 2989 to ptr
+  %34 = call i32 @g_hash_table_insert(ptr noundef %32, ptr noundef %33, ptr noundef @wtap_opttype_block_register.opt_custom)
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds %struct.wtap_blocktype_t, ptr %35, i32 0, i32 6
+  %37 = load ptr, ptr %36, align 8
+  %38 = inttoptr i64 19372 to ptr
+  %39 = call i32 @g_hash_table_insert(ptr noundef %37, ptr noundef %38, ptr noundef @wtap_opttype_block_register.opt_custom)
   %40 = load ptr, ptr %2, align 8
-  %41 = load i32, ptr %3, align 4
-  %42 = zext i32 %41 to i64
-  %43 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %42
-  store ptr %40, ptr %43, align 8
+  %41 = getelementptr inbounds %struct.wtap_blocktype_t, ptr %40, i32 0, i32 6
+  %42 = load ptr, ptr %41, align 8
+  %43 = inttoptr i64 19373 to ptr
+  %44 = call i32 @g_hash_table_insert(ptr noundef %42, ptr noundef %43, ptr noundef @wtap_opttype_block_register.opt_custom)
+  %45 = load ptr, ptr %2, align 8
+  %46 = load i32, ptr %3, align 4
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %47
+  store ptr %45, ptr %48, align 8
   ret void
 }
 
@@ -5499,7 +5499,7 @@ define internal ptr @wtap_block_get_nth_option(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 declare noalias ptr @g_strdup(ptr noundef) #1
 
@@ -5515,22 +5515,28 @@ declare void @g_list_free_full(ptr noundef, ptr noundef) #1
 declare ptr @g_hash_table_new(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #8
+declare i32 @g_direct_hash(ptr noundef) #7
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #8
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #7
 
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn }
 attributes #9 = { allocsize(0,1) }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { allocsize(1) }

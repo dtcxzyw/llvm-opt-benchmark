@@ -85,25 +85,26 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %bufsize_.addr, align 8
   call void @_ZN3zmq14encoder_base_tINS_12v2_encoder_tEEC2Em(ptr noundef nonnull align 8 dereferenceable(72) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq12v2_encoder_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3zmq12v2_encoder_tE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq12v2_encoder_t13message_readyEv to i64), i64 0 }, ptr %coerce, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
-  %2 = load i64, ptr %1, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
-  %4 = load i64, ptr %3, align 8
-  invoke void @_ZN3zmq14encoder_base_tINS_12v2_encoder_tEE9next_stepEPvmMS1_FvvEb(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null, i64 noundef 0, i64 %2, i64 %4, i1 noundef zeroext true)
+  %2 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  invoke void @_ZN3zmq14encoder_base_tINS_12v2_encoder_tEE9next_stepEPvmMS1_FvvEb(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null, i64 noundef 0, i64 %3, i64 %5, i1 noundef zeroext true)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN3zmq14encoder_base_tINS_12v2_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #9
   br label %eh.resume
 
@@ -126,7 +127,8 @@ entry:
   store i64 %bufsize_, ptr %bufsize_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3zmq9i_encoderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_write_pos = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_write_pos, align 8
   %_to_write = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 2
@@ -136,11 +138,11 @@ entry:
   %_new_msg_flag = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 4
   store i8 0, ptr %_new_msg_flag, align 8
   %_buf_size = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 5
-  %0 = load i64, ptr %bufsize_.addr, align 8
-  store i64 %0, ptr %_buf_size, align 8
-  %_buf = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 6
   %1 = load i64, ptr %bufsize_.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef %1) #10
+  store i64 %1, ptr %_buf_size, align 8
+  %_buf = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 6
+  %2 = load i64, ptr %bufsize_.addr, align 8
+  %call = call noalias ptr @malloc(i64 noundef %2) #10
   store ptr %call, ptr %_buf, align 8
   %_in_progress = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 7
   store ptr null, ptr %_in_progress, align 8
@@ -148,19 +150,19 @@ entry:
 
 do.body:                                          ; preds = %entry
   %_buf2 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %_buf2, align 8
-  %tobool = icmp ne ptr %2, null
+  %3 = load ptr, ptr %_buf2, align 8
+  %tobool = icmp ne ptr %3, null
   %lnot = xor i1 %tobool, true
   br i1 %lnot, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %3 = load ptr, ptr @stderr, align 8
-  %call3 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 39)
+  %4 = load ptr, ptr @stderr, align 8
+  %call3 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 39)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %4 = load ptr, ptr @stderr, align 8
-  %call5 = invoke i32 @fflush(ptr noundef %4)
+  %5 = load ptr, ptr @stderr, align 8
+  %call5 = invoke i32 @fflush(ptr noundef %5)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -171,12 +173,12 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont4, %invoke.cont, %if.then
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN3zmq9i_encoderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
   br label %eh.resume
 
@@ -859,7 +861,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq9i_encoderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3zmq9i_encoderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -878,10 +881,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_buf = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 6
-  %0 = load ptr, ptr %_buf, align 8
-  call void @free(ptr noundef %0) #9
+  %1 = load ptr, ptr %_buf, align 8
+  call void @free(ptr noundef %1) #9
   call void @_ZN3zmq9i_encoderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
   ret void
 }

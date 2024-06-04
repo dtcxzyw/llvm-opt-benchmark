@@ -51,259 +51,288 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
   store i32 0, ptr %3, align 4
   store i32 %0, ptr %4, align 4
   store ptr %1, ptr %5, align 8
-  store ptr @.str, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 10), align 8
-  store ptr @.str, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 11), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 2), align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = load ptr, ptr %5, align 8
-  %12 = call i32 @init(i32 noundef %10, ptr noundef %11, ptr noundef @opts)
-  store i32 %12, ptr %6, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 8), align 8
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %19
-
-15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 9), align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 11), align 8
-  %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.1, ptr noundef %17) #6
-  store ptr @dirfn, ptr %7, align 8
-  br label %23
+  %10 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 10
+  store ptr @.str, ptr %10, align 8
+  %11 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 11
+  store ptr @.str, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 2
+  store i32 1, ptr %12, align 8
+  %13 = load i32, ptr %4, align 4
+  %14 = load ptr, ptr %5, align 8
+  %15 = call i32 @init(i32 noundef %13, ptr noundef %14, ptr noundef @opts)
+  store i32 %15, ptr %6, align 4
+  %16 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 8
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %25
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 9), align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 11), align 8
-  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef @.str.2, ptr noundef %21) #6
-  store ptr @undirfn, ptr %7, align 8
-  br label %23
+  %20 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 9
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 11
+  %23 = load ptr, ptr %22, align 8
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef @.str.1, ptr noundef %23) #6
+  store ptr @dirfn, ptr %7, align 8
+  br label %31
 
-23:                                               ; preds = %19, %15
-  %24 = load i32, ptr %6, align 4
-  switch i32 %24, label %133 [
-    i32 1, label %25
-    i32 2, label %31
-    i32 5, label %34
-    i32 6, label %37
-    i32 17, label %48
-    i32 12, label %51
-    i32 7, label %55
-    i32 8, label %72
-    i32 9, label %76
-    i32 13, label %80
-    i32 3, label %90
-    i32 10, label %93
-    i32 11, label %97
-    i32 4, label %120
-    i32 14, label %124
-    i32 15, label %127
-    i32 16, label %130
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 9
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 11
+  %29 = load ptr, ptr %28, align 8
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str.2, ptr noundef %29) #6
+  store ptr @undirfn, ptr %7, align 8
+  br label %31
+
+31:                                               ; preds = %25, %19
+  %32 = load i32, ptr %6, align 4
+  switch i32 %32, label %161 [
+    i32 1, label %33
+    i32 2, label %42
+    i32 5, label %45
+    i32 6, label %48
+    i32 17, label %61
+    i32 12, label %64
+    i32 7, label %69
+    i32 8, label %92
+    i32 9, label %97
+    i32 13, label %102
+    i32 3, label %113
+    i32 10, label %116
+    i32 11, label %121
+    i32 4, label %147
+    i32 14, label %152
+    i32 15, label %155
+    i32 16, label %158
   ]
 
-25:                                               ; preds = %23
-  %26 = load i32, ptr @opts, align 8
-  %27 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 1), align 4
-  %28 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 7), align 4
-  %29 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 6), align 8
-  %30 = load ptr, ptr %7, align 8
-  call void @makeSquareGrid(i32 noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29, ptr noundef %30)
-  br label %134
+33:                                               ; preds = %31
+  %34 = load i32, ptr @opts, align 8
+  %35 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 1
+  %36 = load i32, ptr %35, align 4
+  %37 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 7
+  %38 = load i32, ptr %37, align 4
+  %39 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 6
+  %40 = load i32, ptr %39, align 8
+  %41 = load ptr, ptr %7, align 8
+  call void @makeSquareGrid(i32 noundef %34, i32 noundef %36, i32 noundef %38, i32 noundef %40, ptr noundef %41)
+  br label %162
 
-31:                                               ; preds = %23
-  %32 = load i32, ptr @opts, align 8
-  %33 = load ptr, ptr %7, align 8
-  call void @makeCircle(i32 noundef %32, ptr noundef %33)
-  br label %134
+42:                                               ; preds = %31
+  %43 = load i32, ptr @opts, align 8
+  %44 = load ptr, ptr %7, align 8
+  call void @makeCircle(i32 noundef %43, ptr noundef %44)
+  br label %162
 
-34:                                               ; preds = %23
-  %35 = load i32, ptr @opts, align 8
-  %36 = load ptr, ptr %7, align 8
-  call void @makePath(i32 noundef %35, ptr noundef %36)
-  br label %134
+45:                                               ; preds = %31
+  %46 = load i32, ptr @opts, align 8
+  %47 = load ptr, ptr %7, align 8
+  call void @makePath(i32 noundef %46, ptr noundef %47)
+  br label %162
 
-37:                                               ; preds = %23
-  %38 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 1), align 4
-  %39 = icmp eq i32 %38, 2
-  br i1 %39, label %40, label %43
+48:                                               ; preds = %31
+  %49 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 1
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp eq i32 %50, 2
+  br i1 %51, label %52, label %55
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr @opts, align 8
-  %42 = load ptr, ptr %7, align 8
-  call void @makeBinaryTree(i32 noundef %41, ptr noundef %42)
-  br label %47
-
-43:                                               ; preds = %37
-  %44 = load i32, ptr @opts, align 8
-  %45 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 1), align 4
-  %46 = load ptr, ptr %7, align 8
-  call void @makeTree(i32 noundef %44, i32 noundef %45, ptr noundef %46)
-  br label %47
-
-47:                                               ; preds = %43, %40
-  br label %134
-
-48:                                               ; preds = %23
-  %49 = load i32, ptr @opts, align 8
-  %50 = load ptr, ptr %7, align 8
-  call void @makeTriMesh(i32 noundef %49, ptr noundef %50)
-  br label %134
-
-51:                                               ; preds = %23
-  %52 = load i32, ptr @opts, align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 1), align 4
+52:                                               ; preds = %48
+  %53 = load i32, ptr @opts, align 8
   %54 = load ptr, ptr %7, align 8
-  call void @makeBall(i32 noundef %52, i32 noundef %53, ptr noundef %54)
-  br label %134
+  call void @makeBinaryTree(i32 noundef %53, ptr noundef %54)
+  br label %60
 
-55:                                               ; preds = %23
-  %56 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 3), align 4
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %65
+55:                                               ; preds = %48
+  %56 = load i32, ptr @opts, align 8
+  %57 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 1
+  %58 = load i32, ptr %57, align 4
+  %59 = load ptr, ptr %7, align 8
+  call void @makeTree(i32 noundef %56, i32 noundef %58, ptr noundef %59)
+  br label %60
 
-58:                                               ; preds = %55
-  %59 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 4), align 8
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %65
+60:                                               ; preds = %55, %52
+  br label %162
 
-61:                                               ; preds = %58
+61:                                               ; preds = %31
   %62 = load i32, ptr @opts, align 8
-  %63 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 1), align 4
-  %64 = load ptr, ptr %7, align 8
-  call void @makeTorus(i32 noundef %62, i32 noundef %63, ptr noundef %64)
-  br label %71
+  %63 = load ptr, ptr %7, align 8
+  call void @makeTriMesh(i32 noundef %62, ptr noundef %63)
+  br label %162
 
-65:                                               ; preds = %58, %55
-  %66 = load i32, ptr @opts, align 8
-  %67 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 1), align 4
-  %68 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 3), align 4
-  %69 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 4), align 8
-  %70 = load ptr, ptr %7, align 8
-  call void @makeTwistedTorus(i32 noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef %70)
-  br label %71
+64:                                               ; preds = %31
+  %65 = load i32, ptr @opts, align 8
+  %66 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 1
+  %67 = load i32, ptr %66, align 4
+  %68 = load ptr, ptr %7, align 8
+  call void @makeBall(i32 noundef %65, i32 noundef %67, ptr noundef %68)
+  br label %162
 
-71:                                               ; preds = %65, %61
-  br label %134
+69:                                               ; preds = %31
+  %70 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 3
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %82
 
-72:                                               ; preds = %23
-  %73 = load i32, ptr @opts, align 8
-  %74 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 1), align 4
-  %75 = load ptr, ptr %7, align 8
-  call void @makeCylinder(i32 noundef %73, i32 noundef %74, ptr noundef %75)
-  br label %134
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 4
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %82
 
-76:                                               ; preds = %23
-  %77 = load i32, ptr @opts, align 8
-  %78 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 1), align 4
-  %79 = load ptr, ptr %7, align 8
-  call void @makeMobius(i32 noundef %77, i32 noundef %78, ptr noundef %79)
-  br label %134
+77:                                               ; preds = %73
+  %78 = load i32, ptr @opts, align 8
+  %79 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 1
+  %80 = load i32, ptr %79, align 4
+  %81 = load ptr, ptr %7, align 8
+  call void @makeTorus(i32 noundef %78, i32 noundef %80, ptr noundef %81)
+  br label %91
 
-80:                                               ; preds = %23
-  %81 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 1), align 4
-  %82 = icmp eq i32 %81, 2
-  br i1 %82, label %83, label %86
+82:                                               ; preds = %73, %69
+  %83 = load i32, ptr @opts, align 8
+  %84 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 1
+  %85 = load i32, ptr %84, align 4
+  %86 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 3
+  %87 = load i32, ptr %86, align 4
+  %88 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 4
+  %89 = load i32, ptr %88, align 8
+  %90 = load ptr, ptr %7, align 8
+  call void @makeTwistedTorus(i32 noundef %83, i32 noundef %85, i32 noundef %87, i32 noundef %89, ptr noundef %90)
+  br label %91
 
-83:                                               ; preds = %80
-  %84 = load i32, ptr @opts, align 8
-  %85 = load ptr, ptr %7, align 8
-  call void @makeSierpinski(i32 noundef %84, ptr noundef %85)
-  br label %89
+91:                                               ; preds = %82, %77
+  br label %162
 
-86:                                               ; preds = %80
-  %87 = load i32, ptr @opts, align 8
-  %88 = load ptr, ptr %7, align 8
-  call void @makeTetrix(i32 noundef %87, ptr noundef %88)
-  br label %89
-
-89:                                               ; preds = %86, %83
-  br label %134
-
-90:                                               ; preds = %23
-  %91 = load i32, ptr @opts, align 8
-  %92 = load ptr, ptr %7, align 8
-  call void @makeComplete(i32 noundef %91, ptr noundef %92)
-  br label %134
-
-93:                                               ; preds = %23
-  %94 = load i32, ptr @opts, align 8
-  %95 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 1), align 4
+92:                                               ; preds = %31
+  %93 = load i32, ptr @opts, align 8
+  %94 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 1
+  %95 = load i32, ptr %94, align 4
   %96 = load ptr, ptr %7, align 8
-  call void @makeRandom(i32 noundef %94, i32 noundef %95, ptr noundef %96)
-  br label %134
+  call void @makeCylinder(i32 noundef %93, i32 noundef %95, ptr noundef %96)
+  br label %162
 
-97:                                               ; preds = %23
+97:                                               ; preds = %31
   %98 = load i32, ptr @opts, align 8
-  %99 = call ptr @makeTreeGen(i32 noundef %98)
-  store ptr %99, ptr %9, align 8
-  store i32 1, ptr %8, align 4
-  br label %100
+  %99 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 1
+  %100 = load i32, ptr %99, align 4
+  %101 = load ptr, ptr %7, align 8
+  call void @makeMobius(i32 noundef %98, i32 noundef %100, ptr noundef %101)
+  br label %162
 
-100:                                              ; preds = %112, %97
-  %101 = load i32, ptr %8, align 4
-  %102 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 2), align 8
-  %103 = icmp sle i32 %101, %102
-  br i1 %103, label %104, label %115
+102:                                              ; preds = %31
+  %103 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 1
+  %104 = load i32, ptr %103, align 4
+  %105 = icmp eq i32 %104, 2
+  br i1 %105, label %106, label %109
 
-104:                                              ; preds = %100
-  %105 = load ptr, ptr %9, align 8
-  %106 = load ptr, ptr %7, align 8
-  call void @makeRandomTree(ptr noundef %105, ptr noundef %106)
-  %107 = load i32, ptr %8, align 4
-  %108 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 2), align 8
-  %109 = icmp ne i32 %107, %108
-  br i1 %109, label %110, label %111
-
-110:                                              ; preds = %104
-  call void @closeOpen()
-  br label %111
-
-111:                                              ; preds = %110, %104
+106:                                              ; preds = %102
+  %107 = load i32, ptr @opts, align 8
+  %108 = load ptr, ptr %7, align 8
+  call void @makeSierpinski(i32 noundef %107, ptr noundef %108)
   br label %112
 
-112:                                              ; preds = %111
-  %113 = load i32, ptr %8, align 4
-  %114 = add nsw i32 %113, 1
-  store i32 %114, ptr %8, align 4
-  br label %100
+109:                                              ; preds = %102
+  %110 = load i32, ptr @opts, align 8
+  %111 = load ptr, ptr %7, align 8
+  call void @makeTetrix(i32 noundef %110, ptr noundef %111)
+  br label %112
 
-115:                                              ; preds = %100
-  %116 = load ptr, ptr %9, align 8
-  call void @freeTreeGen(ptr noundef %116)
+112:                                              ; preds = %109, %106
+  br label %162
+
+113:                                              ; preds = %31
+  %114 = load i32, ptr @opts, align 8
+  %115 = load ptr, ptr %7, align 8
+  call void @makeComplete(i32 noundef %114, ptr noundef %115)
+  br label %162
+
+116:                                              ; preds = %31
   %117 = load i32, ptr @opts, align 8
-  %118 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 1), align 4
-  %119 = load ptr, ptr %7, align 8
-  call void @makeRandom(i32 noundef %117, i32 noundef %118, ptr noundef %119)
-  br label %134
+  %118 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 1
+  %119 = load i32, ptr %118, align 4
+  %120 = load ptr, ptr %7, align 8
+  call void @makeRandom(i32 noundef %117, i32 noundef %119, ptr noundef %120)
+  br label %162
 
-120:                                              ; preds = %23
-  %121 = load i32, ptr @opts, align 8
-  %122 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 1), align 4
-  %123 = load ptr, ptr %7, align 8
-  call void @makeCompleteB(i32 noundef %121, i32 noundef %122, ptr noundef %123)
-  br label %134
+121:                                              ; preds = %31
+  %122 = load i32, ptr @opts, align 8
+  %123 = call ptr @makeTreeGen(i32 noundef %122)
+  store ptr %123, ptr %9, align 8
+  store i32 1, ptr %8, align 4
+  br label %124
 
-124:                                              ; preds = %23
-  %125 = load i32, ptr @opts, align 8
-  %126 = load ptr, ptr %7, align 8
-  call void @makeHypercube(i32 noundef %125, ptr noundef %126)
-  br label %134
+124:                                              ; preds = %138, %121
+  %125 = load i32, ptr %8, align 4
+  %126 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 2
+  %127 = load i32, ptr %126, align 8
+  %128 = icmp sle i32 %125, %127
+  br i1 %128, label %129, label %141
 
-127:                                              ; preds = %23
-  %128 = load i32, ptr @opts, align 8
-  %129 = load ptr, ptr %7, align 8
-  call void @makeStar(i32 noundef %128, ptr noundef %129)
-  br label %134
+129:                                              ; preds = %124
+  %130 = load ptr, ptr %9, align 8
+  %131 = load ptr, ptr %7, align 8
+  call void @makeRandomTree(ptr noundef %130, ptr noundef %131)
+  %132 = load i32, ptr %8, align 4
+  %133 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 2
+  %134 = load i32, ptr %133, align 8
+  %135 = icmp ne i32 %132, %134
+  br i1 %135, label %136, label %137
 
-130:                                              ; preds = %23
-  %131 = load i32, ptr @opts, align 8
-  %132 = load ptr, ptr %7, align 8
-  call void @makeWheel(i32 noundef %131, ptr noundef %132)
-  br label %134
+136:                                              ; preds = %129
+  call void @closeOpen()
+  br label %137
 
-133:                                              ; preds = %23
-  br label %134
+137:                                              ; preds = %136, %129
+  br label %138
 
-134:                                              ; preds = %133, %130, %127, %124, %120, %115, %93, %90, %89, %76, %72, %71, %51, %48, %47, %34, %31, %25
-  %135 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 9), align 8
-  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef @.str.3) #6
+138:                                              ; preds = %137
+  %139 = load i32, ptr %8, align 4
+  %140 = add nsw i32 %139, 1
+  store i32 %140, ptr %8, align 4
+  br label %124
+
+141:                                              ; preds = %124
+  %142 = load ptr, ptr %9, align 8
+  call void @freeTreeGen(ptr noundef %142)
+  %143 = load i32, ptr @opts, align 8
+  %144 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 1
+  %145 = load i32, ptr %144, align 4
+  %146 = load ptr, ptr %7, align 8
+  call void @makeRandom(i32 noundef %143, i32 noundef %145, ptr noundef %146)
+  br label %162
+
+147:                                              ; preds = %31
+  %148 = load i32, ptr @opts, align 8
+  %149 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 1
+  %150 = load i32, ptr %149, align 4
+  %151 = load ptr, ptr %7, align 8
+  call void @makeCompleteB(i32 noundef %148, i32 noundef %150, ptr noundef %151)
+  br label %162
+
+152:                                              ; preds = %31
+  %153 = load i32, ptr @opts, align 8
+  %154 = load ptr, ptr %7, align 8
+  call void @makeHypercube(i32 noundef %153, ptr noundef %154)
+  br label %162
+
+155:                                              ; preds = %31
+  %156 = load i32, ptr @opts, align 8
+  %157 = load ptr, ptr %7, align 8
+  call void @makeStar(i32 noundef %156, ptr noundef %157)
+  br label %162
+
+158:                                              ; preds = %31
+  %159 = load i32, ptr @opts, align 8
+  %160 = load ptr, ptr %7, align 8
+  call void @makeWheel(i32 noundef %159, ptr noundef %160)
+  br label %162
+
+161:                                              ; preds = %31
+  br label %162
+
+162:                                              ; preds = %161, %158, %155, %152, %147, %141, %116, %113, %112, %97, %92, %91, %64, %61, %60, %45, %42, %33
+  %163 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 9
+  %164 = load ptr, ptr %163, align 8
+  %165 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef @.str.3) #6
   call void @graphviz_exit(i32 noundef 0) #7
   unreachable
 }
@@ -792,25 +821,30 @@ define internal void @dirfn(i32 noundef %0, i32 noundef %1) #0 {
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %14
+  br i1 %6, label %7, label %17
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 9), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 10), align 8
-  %10 = load i32, ptr %3, align 4
-  %11 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 10), align 8
-  %12 = load i32, ptr %4, align 4
-  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.19, ptr noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12) #6
-  br label %19
+  %8 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 9
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 10
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i32, ptr %3, align 4
+  %13 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 10
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.19, ptr noundef %11, i32 noundef %12, ptr noundef %14, i32 noundef %15) #6
+  br label %24
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 9), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 10), align 8
-  %17 = load i32, ptr %3, align 4
-  %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.20, ptr noundef %16, i32 noundef %17) #6
-  br label %19
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 9
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 10
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i32, ptr %3, align 4
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.20, ptr noundef %21, i32 noundef %22) #6
+  br label %24
 
-19:                                               ; preds = %14, %7
+24:                                               ; preds = %17, %7
   ret void
 }
 
@@ -822,25 +856,30 @@ define internal void @undirfn(i32 noundef %0, i32 noundef %1) #0 {
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %14
+  br i1 %6, label %7, label %17
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 9), align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 10), align 8
-  %10 = load i32, ptr %3, align 4
-  %11 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 10), align 8
-  %12 = load i32, ptr %4, align 4
-  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef @.str.21, ptr noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12) #6
-  br label %19
+  %8 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 9
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 10
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i32, ptr %3, align 4
+  %13 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 10
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef @.str.21, ptr noundef %11, i32 noundef %12, ptr noundef %14, i32 noundef %15) #6
+  br label %24
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 9), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 10), align 8
-  %17 = load i32, ptr %3, align 4
-  %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.20, ptr noundef %16, i32 noundef %17) #6
-  br label %19
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 9
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 10
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i32, ptr %3, align 4
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.20, ptr noundef %21, i32 noundef %22) #6
+  br label %24
 
-19:                                               ; preds = %14, %7
+24:                                               ; preds = %17, %7
   ret void
 }
 
@@ -880,21 +919,24 @@ declare void @makeRandomTree(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @closeOpen() #0 {
-  %1 = load i32, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 8), align 8
-  %2 = icmp ne i32 %1, 0
-  br i1 %2, label %3, label %6
+  %1 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 8
+  %2 = load i32, ptr %1, align 8
+  %3 = icmp ne i32 %2, 0
+  br i1 %3, label %4, label %8
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 9), align 8
-  %5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.22) #6
-  br label %9
+4:                                                ; preds = %0
+  %5 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 9
+  %6 = load ptr, ptr %5, align 8
+  %7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.22) #6
+  br label %12
 
-6:                                                ; preds = %0
-  %7 = load ptr, ptr getelementptr inbounds (%struct.opts_t, ptr @opts, i32 0, i32 9), align 8
-  %8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.23) #6
-  br label %9
+8:                                                ; preds = %0
+  %9 = getelementptr inbounds %struct.opts_t, ptr @opts, i32 0, i32 9
+  %10 = load ptr, ptr %9, align 8
+  %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.23) #6
+  br label %12
 
-9:                                                ; preds = %6, %3
+12:                                               ; preds = %8, %4
   ret void
 }
 

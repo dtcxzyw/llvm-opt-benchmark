@@ -1107,14 +1107,16 @@ if.then30:                                        ; preds = %if.end27
 
 if.end31:                                         ; preds = %if.end27
   %23 = load i64, ptr %calc_time_ms, align 8
-  store i64 %23, ptr getelementptr inbounds (%struct.DirtyRateConfig, ptr @qmp_calc_dirty_rate.config, i32 0, i32 1), align 8
-  %24 = load i64, ptr %sample_pages.addr, align 8
-  store i64 %24, ptr @qmp_calc_dirty_rate.config, align 8
-  %25 = load i32, ptr %mode.addr, align 4
-  store i32 %25, ptr getelementptr inbounds (%struct.DirtyRateConfig, ptr @qmp_calc_dirty_rate.config, i32 0, i32 2), align 8
-  call void @cleanup_dirtyrate_stat(ptr noundef byval(%struct.DirtyRateConfig) align 8 @qmp_calc_dirty_rate.config)
+  %24 = getelementptr inbounds %struct.DirtyRateConfig, ptr @qmp_calc_dirty_rate.config, i32 0, i32 1
+  store i64 %23, ptr %24, align 8
+  %25 = load i64, ptr %sample_pages.addr, align 8
+  store i64 %25, ptr @qmp_calc_dirty_rate.config, align 8
   %26 = load i32, ptr %mode.addr, align 4
-  store i32 %26, ptr @dirtyrate_mode, align 4
+  %27 = getelementptr inbounds %struct.DirtyRateConfig, ptr @qmp_calc_dirty_rate.config, i32 0, i32 2
+  store i32 %26, ptr %27, align 8
+  call void @cleanup_dirtyrate_stat(ptr noundef byval(%struct.DirtyRateConfig) align 8 @qmp_calc_dirty_rate.config)
+  %28 = load i32, ptr %mode.addr, align 4
+  store i32 %28, ptr @dirtyrate_mode, align 4
   call void @init_dirtyrate_stat(ptr noundef byval(%struct.DirtyRateConfig) align 8 @qmp_calc_dirty_rate.config)
   call void @qemu_thread_create(ptr noundef %thread, ptr noundef @.str.8, ptr noundef @get_dirtyrate_thread, ptr noundef @qmp_calc_dirty_rate.config, i32 noundef 1)
   br label %return
@@ -1241,9 +1243,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.VcpuStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 1), align 8
-  call void @free(ptr noundef %1) #10
-  store ptr null, ptr getelementptr inbounds (%struct.VcpuStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 1), align 8
+  %1 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %2 = getelementptr inbounds %struct.VcpuStat, ptr %1, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %3) #10
+  %4 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %5 = getelementptr inbounds %struct.VcpuStat, ptr %4, i32 0, i32 1
+  store ptr null, ptr %5, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1256,29 +1262,40 @@ entry:
   store i64 -1, ptr @DirtyStat, align 8
   %call = call i64 @qemu_clock_get_ms(i32 noundef 2)
   %div = sdiv i64 %call, 1000
-  store i64 %div, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 1
+  store i64 %div, ptr %0, align 8
   %calc_time_ms = getelementptr inbounds %struct.DirtyRateConfig, ptr %config, i32 0, i32 1
-  %0 = load i64, ptr %calc_time_ms, align 8
-  store i64 %0, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2), align 8
+  %1 = load i64, ptr %calc_time_ms, align 8
+  %2 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2
+  store i64 %1, ptr %2, align 8
   %sample_pages_per_gigabytes = getelementptr inbounds %struct.DirtyRateConfig, ptr %config, i32 0, i32 0
-  %1 = load i64, ptr %sample_pages_per_gigabytes, align 8
-  store i64 %1, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 3), align 8
+  %3 = load i64, ptr %sample_pages_per_gigabytes, align 8
+  %4 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 3
+  store i64 %3, ptr %4, align 8
   %mode = getelementptr inbounds %struct.DirtyRateConfig, ptr %config, i32 0, i32 2
-  %2 = load i32, ptr %mode, align 8
-  switch i32 %2, label %sw.default [
+  %5 = load i32, ptr %mode, align 8
+  switch i32 %5, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb1
   ]
 
 sw.bb:                                            ; preds = %entry
-  store i64 0, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.SampleVMStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 1), align 8
-  store i64 0, ptr getelementptr inbounds (%struct.SampleVMStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 2), align 8
+  %6 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  store i64 0, ptr %6, align 8
+  %7 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %8 = getelementptr inbounds %struct.SampleVMStat, ptr %7, i32 0, i32 1
+  store i64 0, ptr %8, align 8
+  %9 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %10 = getelementptr inbounds %struct.SampleVMStat, ptr %9, i32 0, i32 2
+  store i64 0, ptr %10, align 8
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  store i32 -1, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.VcpuStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 1), align 8
+  %11 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  store i32 -1, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %13 = getelementptr inbounds %struct.VcpuStat, ptr %12, i32 0, i32 1
+  store ptr null, ptr %13, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -1340,28 +1357,31 @@ entry:
   %2 = load ptr, ptr %info, align 8
   %status = getelementptr inbounds %struct.DirtyRateInfo, ptr %2, i32 0, i32 2
   store i32 %1, ptr %status, align 8
-  %3 = load i64, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 1), align 8
-  %4 = load ptr, ptr %info, align 8
-  %start_time = getelementptr inbounds %struct.DirtyRateInfo, ptr %4, i32 0, i32 3
-  store i64 %3, ptr %start_time, align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2), align 8
-  %6 = load i32, ptr %calc_time_unit.addr, align 4
-  %call1 = call i64 @convert_time_unit(i64 noundef %5, i32 noundef 1, i32 noundef %6)
-  %7 = load ptr, ptr %info, align 8
-  %calc_time = getelementptr inbounds %struct.DirtyRateInfo, ptr %7, i32 0, i32 4
-  store i64 %call1, ptr %calc_time, align 8
+  %3 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %5 = load ptr, ptr %info, align 8
+  %start_time = getelementptr inbounds %struct.DirtyRateInfo, ptr %5, i32 0, i32 3
+  store i64 %4, ptr %start_time, align 8
+  %6 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8
   %8 = load i32, ptr %calc_time_unit.addr, align 4
+  %call1 = call i64 @convert_time_unit(i64 noundef %7, i32 noundef 1, i32 noundef %8)
   %9 = load ptr, ptr %info, align 8
-  %calc_time_unit2 = getelementptr inbounds %struct.DirtyRateInfo, ptr %9, i32 0, i32 5
-  store i32 %8, ptr %calc_time_unit2, align 8
-  %10 = load i64, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 3), align 8
+  %calc_time = getelementptr inbounds %struct.DirtyRateInfo, ptr %9, i32 0, i32 4
+  store i64 %call1, ptr %calc_time, align 8
+  %10 = load i32, ptr %calc_time_unit.addr, align 4
   %11 = load ptr, ptr %info, align 8
-  %sample_pages = getelementptr inbounds %struct.DirtyRateInfo, ptr %11, i32 0, i32 6
-  store i64 %10, ptr %sample_pages, align 8
-  %12 = load i32, ptr @dirtyrate_mode, align 4
-  %13 = load ptr, ptr %info, align 8
-  %mode = getelementptr inbounds %struct.DirtyRateInfo, ptr %13, i32 0, i32 7
-  store i32 %12, ptr %mode, align 8
+  %calc_time_unit2 = getelementptr inbounds %struct.DirtyRateInfo, ptr %11, i32 0, i32 5
+  store i32 %10, ptr %calc_time_unit2, align 8
+  %12 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 3
+  %13 = load i64, ptr %12, align 8
+  %14 = load ptr, ptr %info, align 8
+  %sample_pages = getelementptr inbounds %struct.DirtyRateInfo, ptr %14, i32 0, i32 6
+  store i64 %13, ptr %sample_pages, align 8
+  %15 = load i32, ptr @dirtyrate_mode, align 4
+  %16 = load ptr, ptr %info, align 8
+  %mode = getelementptr inbounds %struct.DirtyRateInfo, ptr %16, i32 0, i32 7
+  store i32 %15, ptr %mode, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %do.end, %entry
@@ -1378,77 +1398,82 @@ do.end:                                           ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %14 = load atomic i32, ptr @CalculatingState monotonic, align 4
-  store i32 %14, ptr %atomic-temp, align 4
-  %15 = load i32, ptr %atomic-temp, align 4
-  store i32 %15, ptr %tmp, align 4
-  %16 = load i32, ptr %tmp, align 4
-  %cmp = icmp eq i32 %16, 2
+  %17 = load atomic i32, ptr @CalculatingState monotonic, align 4
+  store i32 %17, ptr %atomic-temp, align 4
+  %18 = load i32, ptr %atomic-temp, align 4
+  store i32 %18, ptr %tmp, align 4
+  %19 = load i32, ptr %tmp, align 4
+  %cmp = icmp eq i32 %19, 2
   br i1 %cmp, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %while.end
-  %17 = load ptr, ptr %info, align 8
-  %has_dirty_rate = getelementptr inbounds %struct.DirtyRateInfo, ptr %17, i32 0, i32 0
+  %20 = load ptr, ptr %info, align 8
+  %has_dirty_rate = getelementptr inbounds %struct.DirtyRateInfo, ptr %20, i32 0, i32 0
   store i8 1, ptr %has_dirty_rate, align 8
-  %18 = load i64, ptr %dirty_rate, align 8
-  %19 = load ptr, ptr %info, align 8
-  %dirty_rate3 = getelementptr inbounds %struct.DirtyRateInfo, ptr %19, i32 0, i32 1
-  store i64 %18, ptr %dirty_rate3, align 8
-  %20 = load i32, ptr @dirtyrate_mode, align 4
-  %cmp4 = icmp eq i32 %20, 1
+  %21 = load i64, ptr %dirty_rate, align 8
+  %22 = load ptr, ptr %info, align 8
+  %dirty_rate3 = getelementptr inbounds %struct.DirtyRateInfo, ptr %22, i32 0, i32 1
+  store i64 %21, ptr %dirty_rate3, align 8
+  %23 = load i32, ptr @dirtyrate_mode, align 4
+  %cmp4 = icmp eq i32 %23, 1
   br i1 %cmp4, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then
-  %21 = load ptr, ptr %info, align 8
-  %sample_pages6 = getelementptr inbounds %struct.DirtyRateInfo, ptr %21, i32 0, i32 6
+  %24 = load ptr, ptr %info, align 8
+  %sample_pages6 = getelementptr inbounds %struct.DirtyRateInfo, ptr %24, i32 0, i32 6
   store i64 0, ptr %sample_pages6, align 8
-  %22 = load ptr, ptr %info, align 8
-  %has_vcpu_dirty_rate = getelementptr inbounds %struct.DirtyRateInfo, ptr %22, i32 0, i32 8
+  %25 = load ptr, ptr %info, align 8
+  %has_vcpu_dirty_rate = getelementptr inbounds %struct.DirtyRateInfo, ptr %25, i32 0, i32 8
   store i8 1, ptr %has_vcpu_dirty_rate, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then5
-  %23 = load i32, ptr %i, align 4
-  %24 = load i32, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), align 8
-  %cmp7 = icmp slt i32 %23, %24
+  %26 = load i32, ptr %i, align 4
+  %27 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %28 = load i32, ptr %27, align 8
+  %cmp7 = icmp slt i32 %26, %28
   br i1 %cmp7, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %call8 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
   store ptr %call8, ptr %rate, align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.VcpuStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 1), align 8
-  %26 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %26 to i64
-  %arrayidx = getelementptr %struct.DirtyRateVcpu, ptr %25, i64 %idxprom
+  %29 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %30 = getelementptr inbounds %struct.VcpuStat, ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %32 to i64
+  %arrayidx = getelementptr %struct.DirtyRateVcpu, ptr %31, i64 %idxprom
   %id = getelementptr inbounds %struct.DirtyRateVcpu, ptr %arrayidx, i32 0, i32 0
-  %27 = load i64, ptr %id, align 8
-  %28 = load ptr, ptr %rate, align 8
-  %id9 = getelementptr inbounds %struct.DirtyRateVcpu, ptr %28, i32 0, i32 0
-  store i64 %27, ptr %id9, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.VcpuStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 1), align 8
-  %30 = load i32, ptr %i, align 4
-  %idxprom10 = sext i32 %30 to i64
-  %arrayidx11 = getelementptr %struct.DirtyRateVcpu, ptr %29, i64 %idxprom10
+  %33 = load i64, ptr %id, align 8
+  %34 = load ptr, ptr %rate, align 8
+  %id9 = getelementptr inbounds %struct.DirtyRateVcpu, ptr %34, i32 0, i32 0
+  store i64 %33, ptr %id9, align 8
+  %35 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %36 = getelementptr inbounds %struct.VcpuStat, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8
+  %38 = load i32, ptr %i, align 4
+  %idxprom10 = sext i32 %38 to i64
+  %arrayidx11 = getelementptr %struct.DirtyRateVcpu, ptr %37, i64 %idxprom10
   %dirty_rate12 = getelementptr inbounds %struct.DirtyRateVcpu, ptr %arrayidx11, i32 0, i32 1
-  %31 = load i64, ptr %dirty_rate12, align 8
-  %32 = load ptr, ptr %rate, align 8
-  %dirty_rate13 = getelementptr inbounds %struct.DirtyRateVcpu, ptr %32, i32 0, i32 1
-  store i64 %31, ptr %dirty_rate13, align 8
+  %39 = load i64, ptr %dirty_rate12, align 8
+  %40 = load ptr, ptr %rate, align 8
+  %dirty_rate13 = getelementptr inbounds %struct.DirtyRateVcpu, ptr %40, i32 0, i32 1
+  store i64 %39, ptr %dirty_rate13, align 8
   br label %do.body14
 
 do.body14:                                        ; preds = %for.body
   %call15 = call noalias ptr @g_malloc0(i64 noundef 16) #13
-  %33 = load ptr, ptr %tail, align 8
-  store ptr %call15, ptr %33, align 8
-  %34 = load ptr, ptr %rate, align 8
-  %35 = load ptr, ptr %tail, align 8
-  %36 = load ptr, ptr %35, align 8
-  %value = getelementptr inbounds %struct.DirtyRateVcpuList, ptr %36, i32 0, i32 1
-  store ptr %34, ptr %value, align 8
-  %37 = load ptr, ptr %tail, align 8
-  %38 = load ptr, ptr %37, align 8
-  %next = getelementptr inbounds %struct.DirtyRateVcpuList, ptr %38, i32 0, i32 0
+  %41 = load ptr, ptr %tail, align 8
+  store ptr %call15, ptr %41, align 8
+  %42 = load ptr, ptr %rate, align 8
+  %43 = load ptr, ptr %tail, align 8
+  %44 = load ptr, ptr %43, align 8
+  %value = getelementptr inbounds %struct.DirtyRateVcpuList, ptr %44, i32 0, i32 1
+  store ptr %42, ptr %value, align 8
+  %45 = load ptr, ptr %tail, align 8
+  %46 = load ptr, ptr %45, align 8
+  %next = getelementptr inbounds %struct.DirtyRateVcpuList, ptr %46, i32 0, i32 0
   store ptr %next, ptr %tail, align 8
   br label %do.end16
 
@@ -1456,26 +1481,26 @@ do.end16:                                         ; preds = %do.body14
   br label %for.inc
 
 for.inc:                                          ; preds = %do.end16
-  %39 = load i32, ptr %i, align 4
-  %inc = add i32 %39, 1
+  %47 = load i32, ptr %i, align 4
+  %inc = add i32 %47, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !17
 
 for.end:                                          ; preds = %for.cond
-  %40 = load ptr, ptr %head, align 8
-  %41 = load ptr, ptr %info, align 8
-  %vcpu_dirty_rate = getelementptr inbounds %struct.DirtyRateInfo, ptr %41, i32 0, i32 9
-  store ptr %40, ptr %vcpu_dirty_rate, align 8
+  %48 = load ptr, ptr %head, align 8
+  %49 = load ptr, ptr %info, align 8
+  %vcpu_dirty_rate = getelementptr inbounds %struct.DirtyRateInfo, ptr %49, i32 0, i32 9
+  store ptr %48, ptr %vcpu_dirty_rate, align 8
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %if.then
-  %42 = load i32, ptr @dirtyrate_mode, align 4
-  %cmp17 = icmp eq i32 %42, 2
+  %50 = load i32, ptr @dirtyrate_mode, align 4
+  %cmp17 = icmp eq i32 %50, 2
   br i1 %cmp17, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %if.end
-  %43 = load ptr, ptr %info, align 8
-  %sample_pages19 = getelementptr inbounds %struct.DirtyRateInfo, ptr %43, i32 0, i32 6
+  %51 = load ptr, ptr %info, align 8
+  %sample_pages19 = getelementptr inbounds %struct.DirtyRateInfo, ptr %51, i32 0, i32 6
   store i64 0, ptr %sample_pages19, align 8
   br label %if.end20
 
@@ -1483,11 +1508,11 @@ if.end20:                                         ; preds = %if.then18, %if.end
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end20, %while.end
-  %44 = load i32, ptr @CalculatingState, align 4
-  %call22 = call ptr @qapi_enum_lookup(ptr noundef @DirtyRateStatus_lookup, i32 noundef %44)
+  %52 = load i32, ptr @CalculatingState, align 4
+  %call22 = call ptr @qapi_enum_lookup(ptr noundef @DirtyRateStatus_lookup, i32 noundef %52)
   call void @trace_query_dirty_rate_info(ptr noundef %call22)
-  %45 = load ptr, ptr %info, align 8
-  ret ptr %45
+  %53 = load ptr, ptr %info, align 8
+  ret ptr %53
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1998,20 +2023,23 @@ entry:
   store i64 %call, ptr %start_time, align 8
   %call1 = call i64 @qemu_clock_get_ms(i32 noundef 2)
   %div = sdiv i64 %call1, 1000
-  store i64 %div, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 1
+  store i64 %div, ptr %0, align 8
   %calc_time_ms = getelementptr inbounds %struct.DirtyRateConfig, ptr %config, i32 0, i32 1
-  %0 = load i64, ptr %calc_time_ms, align 8
-  %1 = load i64, ptr %start_time, align 8
-  %call2 = call i64 @dirty_stat_wait(i64 noundef %0, i64 noundef %1)
-  store i64 %call2, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2), align 8
+  %1 = load i64, ptr %calc_time_ms, align 8
+  %2 = load i64, ptr %start_time, align 8
+  %call2 = call i64 @dirty_stat_wait(i64 noundef %1, i64 noundef %2)
+  %3 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2
+  store i64 %call2, ptr %3, align 8
   call void @global_dirty_log_sync(i32 noundef 2, i1 noundef zeroext true)
   call void @record_dirtypages_bitmap(ptr noundef %dirty_pages, i1 noundef zeroext false)
-  %2 = load i64, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2), align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %dirty_pages, i32 0, i32 0
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds { i64, i64 }, ptr %dirty_pages, i32 0, i32 1
-  %6 = load i64, ptr %5, align 8
-  %call3 = call i64 @do_calculate_dirtyrate(i64 %4, i64 %6, i64 noundef %2)
+  %4 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr inbounds { i64, i64 }, ptr %dirty_pages, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds { i64, i64 }, ptr %dirty_pages, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8
+  %call3 = call i64 @do_calculate_dirtyrate(i64 %7, i64 %9, i64 noundef %5)
   store i64 %call3, ptr @DirtyStat, align 8
   ret void
 }
@@ -2028,50 +2056,58 @@ entry:
   call void @global_dirty_log_change(i32 noundef 2, i1 noundef zeroext true)
   %call = call i64 @qemu_clock_get_ms(i32 noundef 2)
   %div = sdiv i64 %call, 1000
-  store i64 %div, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 1
+  store i64 %div, ptr %0, align 8
   %calc_time_ms = getelementptr inbounds %struct.DirtyRateConfig, ptr %config, i32 0, i32 1
-  %0 = load i64, ptr %calc_time_ms, align 8
-  %call1 = call i64 @vcpu_calculate_dirtyrate(i64 noundef %0, ptr noundef getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 noundef 2, i1 noundef zeroext true)
-  store i64 %call1, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2), align 8
+  %1 = load i64, ptr %calc_time_ms, align 8
+  %2 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %call1 = call i64 @vcpu_calculate_dirtyrate(i64 noundef %1, ptr noundef %2, i32 noundef 2, i1 noundef zeroext true)
+  %3 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2
+  store i64 %call1, ptr %3, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), align 8
-  %cmp = icmp slt i32 %1, %2
+  %4 = load i32, ptr %i, align 4
+  %5 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %6 = load i32, ptr %5, align 8
+  %cmp = icmp slt i32 %4, %6
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr getelementptr inbounds (%struct.VcpuStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 1), align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr %struct.DirtyRateVcpu, ptr %3, i64 %idxprom
+  %7 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %8 = getelementptr inbounds %struct.VcpuStat, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %10 to i64
+  %arrayidx = getelementptr %struct.DirtyRateVcpu, ptr %9, i64 %idxprom
   %dirty_rate = getelementptr inbounds %struct.DirtyRateVcpu, ptr %arrayidx, i32 0, i32 1
-  %5 = load i64, ptr %dirty_rate, align 8
-  store i64 %5, ptr %dirtyrate, align 8
-  %6 = load i64, ptr %dirtyrate, align 8
-  %7 = load ptr, ptr getelementptr inbounds (%struct.VcpuStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 1), align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %8 to i64
-  %arrayidx3 = getelementptr %struct.DirtyRateVcpu, ptr %7, i64 %idxprom2
+  %11 = load i64, ptr %dirty_rate, align 8
+  store i64 %11, ptr %dirtyrate, align 8
+  %12 = load i64, ptr %dirtyrate, align 8
+  %13 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %14 = getelementptr inbounds %struct.VcpuStat, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i32, ptr %i, align 4
+  %idxprom2 = sext i32 %16 to i64
+  %arrayidx3 = getelementptr %struct.DirtyRateVcpu, ptr %15, i64 %idxprom2
   %dirty_rate4 = getelementptr inbounds %struct.DirtyRateVcpu, ptr %arrayidx3, i32 0, i32 1
-  store i64 %6, ptr %dirty_rate4, align 8
-  %9 = load i64, ptr %dirtyrate, align 8
-  %10 = load i64, ptr %dirtyrate_sum, align 8
-  %add = add i64 %10, %9
+  store i64 %12, ptr %dirty_rate4, align 8
+  %17 = load i64, ptr %dirtyrate, align 8
+  %18 = load i64, ptr %dirtyrate_sum, align 8
+  %add = add i64 %18, %17
   store i64 %add, ptr %dirtyrate_sum, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %11 = load i32, ptr %i, align 4
-  %inc = add i32 %11, 1
+  %19 = load i32, ptr %i, align 4
+  %inc = add i32 %19, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !19
 
 for.end:                                          ; preds = %for.cond
-  %12 = load i64, ptr %dirtyrate_sum, align 8
-  store i64 %12, ptr @DirtyStat, align 8
+  %20 = load i64, ptr %dirtyrate_sum, align 8
+  store i64 %20, ptr @DirtyStat, align 8
   ret void
 }
 
@@ -2088,7 +2124,8 @@ entry:
   store i64 %call, ptr %initial_time, align 8
   %call1 = call i64 @qemu_clock_get_ms(i32 noundef 2)
   %div = sdiv i64 %call1, 1000
-  store i64 %div, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 1
+  store i64 %div, ptr %0, align 8
   %call2 = call zeroext i1 @record_ramblock_hash_info(ptr noundef %block_dinfo, ptr noundef byval(%struct.DirtyRateConfig) align 8 %config, ptr noundef %block_count)
   br i1 %call2, label %if.end, label %if.then
 
@@ -2098,29 +2135,31 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @rcu_read_unlock()
   %calc_time_ms = getelementptr inbounds %struct.DirtyRateConfig, ptr %config, i32 0, i32 1
-  %0 = load i64, ptr %calc_time_ms, align 8
-  %1 = load i64, ptr %initial_time, align 8
-  %call3 = call i64 @dirty_stat_wait(i64 noundef %0, i64 noundef %1)
-  store i64 %call3, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2), align 8
+  %1 = load i64, ptr %calc_time_ms, align 8
+  %2 = load i64, ptr %initial_time, align 8
+  %call3 = call i64 @dirty_stat_wait(i64 noundef %1, i64 noundef %2)
+  %3 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2
+  store i64 %call3, ptr %3, align 8
   call void @rcu_read_lock()
-  %2 = load ptr, ptr %block_dinfo, align 8
-  %3 = load i32, ptr %block_count, align 4
-  %call4 = call zeroext i1 @compare_page_hash_info(ptr noundef %2, i32 noundef %3)
+  %4 = load ptr, ptr %block_dinfo, align 8
+  %5 = load i32, ptr %block_count, align 4
+  %call4 = call zeroext i1 @compare_page_hash_info(ptr noundef %4, i32 noundef %5)
   br i1 %call4, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
   br label %out
 
 if.end6:                                          ; preds = %if.end
-  %4 = load i64, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2), align 8
-  call void @update_dirtyrate(i64 noundef %4)
+  %6 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8
+  call void @update_dirtyrate(i64 noundef %7)
   br label %out
 
 out:                                              ; preds = %if.end6, %if.then5, %if.then
   call void @rcu_read_unlock()
-  %5 = load ptr, ptr %block_dinfo, align 8
-  %6 = load i32, ptr %block_count, align 4
-  call void @free_ramblock_dirty_info(ptr noundef %5, i32 noundef %6)
+  %8 = load ptr, ptr %block_dinfo, align 8
+  %9 = load i32, ptr %block_count, align 4
+  call void @free_ramblock_dirty_info(ptr noundef %8, i32 noundef %9)
   ret void
 }
 
@@ -2177,36 +2216,37 @@ do.end:                                           ; preds = %do.cond
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %1 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 2) monotonic, align 8
-  store i64 %1, ptr %_val18, align 8
+  %1 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 2
+  %2 = load atomic i64, ptr %1 monotonic, align 8
+  store i64 %2, ptr %_val18, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
-  %2 = load ptr, ptr %_val18, align 8
-  store ptr %2, ptr %tmp, align 8
-  %3 = load ptr, ptr %tmp, align 8
-  store ptr %3, ptr %block, align 8
+  %3 = load ptr, ptr %_val18, align 8
+  store ptr %3, ptr %tmp, align 8
+  %4 = load ptr, ptr %tmp, align 8
+  store ptr %4, ptr %block, align 8
   br label %for.cond1
 
 for.cond1:                                        ; preds = %while.end10, %while.end
-  %4 = load ptr, ptr %block, align 8
-  %tobool2 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %block, align 8
+  %tobool2 = icmp ne ptr %5, null
   br i1 %tobool2, label %for.body3, label %for.end
 
 for.body3:                                        ; preds = %for.cond1
-  %5 = load ptr, ptr %block, align 8
-  %call4 = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %5)
+  %6 = load ptr, ptr %block, align 8
+  %call4 = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %6)
   br i1 %call4, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body3
   br label %if.end
 
 if.else:                                          ; preds = %for.body3
-  %6 = load ptr, ptr %block, align 8
-  %mr = getelementptr inbounds %struct.RAMBlock, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %mr, align 8
-  %8 = load ptr, ptr %block, align 8
-  %used_length = getelementptr inbounds %struct.RAMBlock, ptr %8, i32 0, i32 5
-  %9 = load i64, ptr %used_length, align 8
-  call void @memory_region_clear_dirty_bitmap(ptr noundef %7, i64 noundef 0, i64 noundef %9)
+  %7 = load ptr, ptr %block, align 8
+  %mr = getelementptr inbounds %struct.RAMBlock, ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %mr, align 8
+  %9 = load ptr, ptr %block, align 8
+  %used_length = getelementptr inbounds %struct.RAMBlock, ptr %9, i32 0, i32 5
+  %10 = load i64, ptr %used_length, align 8
+  call void @memory_region_clear_dirty_bitmap(ptr noundef %8, i64 noundef 0, i64 noundef %10)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -2232,24 +2272,24 @@ do.end9:                                          ; preds = %do.cond8
   br label %while.cond5
 
 while.end10:                                      ; preds = %while.cond5
-  %10 = load ptr, ptr %block, align 8
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %10, i32 0, i32 10
+  %11 = load ptr, ptr %block, align 8
+  %next = getelementptr inbounds %struct.RAMBlock, ptr %11, i32 0, i32 10
   %le_next = getelementptr inbounds %struct.anon.9, ptr %next, i32 0, i32 0
-  %11 = load atomic i64, ptr %le_next monotonic, align 8
-  store i64 %11, ptr %_val19, align 8
+  %12 = load atomic i64, ptr %le_next monotonic, align 8
+  store i64 %12, ptr %_val19, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !21
-  %12 = load ptr, ptr %_val19, align 8
-  store ptr %12, ptr %tmp11, align 8
-  %13 = load ptr, ptr %tmp11, align 8
-  store ptr %13, ptr %block, align 8
+  %13 = load ptr, ptr %_val19, align 8
+  store ptr %13, ptr %tmp11, align 8
+  %14 = load ptr, ptr %tmp11, align 8
+  store ptr %14, ptr %block, align 8
   br label %for.cond1, !llvm.loop !22
 
 for.end:                                          ; preds = %for.cond1
   br label %for.inc12
 
 for.inc12:                                        ; preds = %for.end
-  %14 = load ptr, ptr %_rcu_read_auto17, align 8
-  call void @rcu_read_auto_unlock(ptr noundef %14)
+  %15 = load ptr, ptr %_rcu_read_auto17, align 8
+  call void @rcu_read_auto_unlock(ptr noundef %15)
   store ptr null, ptr %_rcu_read_auto17, align 8
   br label %for.cond, !llvm.loop !23
 
@@ -2291,7 +2331,8 @@ if.end:                                           ; preds = %if.else, %if.then
 define internal ptr @rcu_read_auto_lock() #0 {
 entry:
   call void @rcu_read_lock()
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2598,39 +2639,40 @@ do.end:                                           ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 2) monotonic, align 8
-  store i64 %0, ptr %_val11, align 8
+  %0 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 2
+  %1 = load atomic i64, ptr %0 monotonic, align 8
+  store i64 %1, ptr %_val11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
-  %1 = load ptr, ptr %_val11, align 8
-  store ptr %1, ptr %tmp, align 8
-  %2 = load ptr, ptr %tmp, align 8
-  store ptr %2, ptr %block, align 8
+  %2 = load ptr, ptr %_val11, align 8
+  store ptr %2, ptr %tmp, align 8
+  %3 = load ptr, ptr %tmp, align 8
+  store ptr %3, ptr %block, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %while.end8, %while.end
-  %3 = load ptr, ptr %block, align 8
-  %tobool = icmp ne ptr %3, null
+  %4 = load ptr, ptr %block, align 8
+  %tobool = icmp ne ptr %4, null
   br i1 %tobool, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %block, align 8
-  %call = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %4)
+  %5 = load ptr, ptr %block, align 8
+  %call = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %5)
   br i1 %call, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
   br label %if.end3
 
 if.else:                                          ; preds = %for.body
-  %5 = load ptr, ptr %block, align 8
-  %call1 = call zeroext i1 @skip_sample_ramblock(ptr noundef %5)
+  %6 = load ptr, ptr %block, align 8
+  %call1 = call zeroext i1 @skip_sample_ramblock(ptr noundef %6)
   br i1 %call1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.else
   br label %for.inc
 
 if.end:                                           ; preds = %if.else
-  %6 = load i32, ptr %total_count, align 4
-  %inc = add i32 %6, 1
+  %7 = load i32, ptr %total_count, align 4
+  %inc = add i32 %7, 1
   store i32 %inc, ptr %total_count, align 4
   br label %if.end3
 
@@ -2654,25 +2696,25 @@ do.end7:                                          ; No predecessors!
   br label %while.cond4
 
 while.end8:                                       ; preds = %while.cond4
-  %7 = load ptr, ptr %block, align 8
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %7, i32 0, i32 10
+  %8 = load ptr, ptr %block, align 8
+  %next = getelementptr inbounds %struct.RAMBlock, ptr %8, i32 0, i32 10
   %le_next = getelementptr inbounds %struct.anon.9, ptr %next, i32 0, i32 0
-  %8 = load atomic i64, ptr %le_next monotonic, align 8
-  store i64 %8, ptr %_val12, align 8
+  %9 = load atomic i64, ptr %le_next monotonic, align 8
+  store i64 %9, ptr %_val12, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !27
-  %9 = load ptr, ptr %_val12, align 8
-  store ptr %9, ptr %tmp9, align 8
-  %10 = load ptr, ptr %tmp9, align 8
-  store ptr %10, ptr %block, align 8
+  %10 = load ptr, ptr %_val12, align 8
+  store ptr %10, ptr %tmp9, align 8
+  %11 = load ptr, ptr %tmp9, align 8
+  store ptr %11, ptr %block, align 8
   br label %for.cond, !llvm.loop !28
 
 for.end:                                          ; preds = %for.cond
-  %11 = load i32, ptr %total_count, align 4
-  %conv = sext i32 %11 to i64
+  %12 = load i32, ptr %total_count, align 4
+  %conv = sext i32 %12 to i64
   %call10 = call noalias ptr @g_try_malloc0_n(i64 noundef %conv, i64 noundef 304) #11
   store ptr %call10, ptr %dinfo, align 8
-  %12 = load ptr, ptr %dinfo, align 8
-  %cmp = icmp eq ptr %12, null
+  %13 = load ptr, ptr %dinfo, align 8
+  %cmp = icmp eq ptr %13, null
   br i1 %cmp, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %for.end
@@ -2695,64 +2737,65 @@ do.end17:                                         ; No predecessors!
   br label %while.cond14
 
 while.end18:                                      ; preds = %while.cond14
-  %13 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 2) monotonic, align 8
-  store i64 %13, ptr %_val13, align 8
+  %14 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 2
+  %15 = load atomic i64, ptr %14 monotonic, align 8
+  store i64 %15, ptr %_val13, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !29
-  %14 = load ptr, ptr %_val13, align 8
-  store ptr %14, ptr %tmp19, align 8
-  %15 = load ptr, ptr %tmp19, align 8
-  store ptr %15, ptr %block, align 8
+  %16 = load ptr, ptr %_val13, align 8
+  store ptr %16, ptr %tmp19, align 8
+  %17 = load ptr, ptr %tmp19, align 8
+  store ptr %17, ptr %block, align 8
   br label %for.cond20
 
 for.cond20:                                       ; preds = %while.end43, %while.end18
-  %16 = load ptr, ptr %block, align 8
-  %tobool21 = icmp ne ptr %16, null
+  %18 = load ptr, ptr %block, align 8
+  %tobool21 = icmp ne ptr %18, null
   br i1 %tobool21, label %for.body22, label %for.end47
 
 for.body22:                                       ; preds = %for.cond20
-  %17 = load ptr, ptr %block, align 8
-  %call23 = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %17)
+  %19 = load ptr, ptr %block, align 8
+  %call23 = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %19)
   br i1 %call23, label %if.else25, label %if.then24
 
 if.then24:                                        ; preds = %for.body22
   br label %if.end37
 
 if.else25:                                        ; preds = %for.body22
-  %18 = load ptr, ptr %block, align 8
-  %call26 = call zeroext i1 @skip_sample_ramblock(ptr noundef %18)
+  %20 = load ptr, ptr %block, align 8
+  %call26 = call zeroext i1 @skip_sample_ramblock(ptr noundef %20)
   br i1 %call26, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %if.else25
   br label %for.inc38
 
 if.end28:                                         ; preds = %if.else25
-  %19 = load i32, ptr %index, align 4
-  %20 = load i32, ptr %total_count, align 4
-  %cmp29 = icmp sge i32 %19, %20
+  %21 = load i32, ptr %index, align 4
+  %22 = load i32, ptr %total_count, align 4
+  %cmp29 = icmp sge i32 %21, %22
   br i1 %cmp29, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.end28
   br label %for.end47
 
 if.end32:                                         ; preds = %if.end28
-  %21 = load ptr, ptr %dinfo, align 8
-  %22 = load i32, ptr %index, align 4
-  %idxprom = sext i32 %22 to i64
-  %arrayidx = getelementptr %struct.RamblockDirtyInfo, ptr %21, i64 %idxprom
+  %23 = load ptr, ptr %dinfo, align 8
+  %24 = load i32, ptr %index, align 4
+  %idxprom = sext i32 %24 to i64
+  %arrayidx = getelementptr %struct.RamblockDirtyInfo, ptr %23, i64 %idxprom
   store ptr %arrayidx, ptr %info, align 8
-  %23 = load ptr, ptr %block, align 8
-  %24 = load ptr, ptr %info, align 8
-  call void @get_ramblock_dirty_info(ptr noundef %23, ptr noundef %24, ptr noundef %config)
-  %25 = load ptr, ptr %info, align 8
-  %call33 = call zeroext i1 @save_ramblock_hash(ptr noundef %25)
+  %25 = load ptr, ptr %block, align 8
+  %26 = load ptr, ptr %info, align 8
+  call void @get_ramblock_dirty_info(ptr noundef %25, ptr noundef %26, ptr noundef %config)
+  %27 = load ptr, ptr %info, align 8
+  %call33 = call zeroext i1 @save_ramblock_hash(ptr noundef %27)
   br i1 %call33, label %if.end35, label %if.then34
 
 if.then34:                                        ; preds = %if.end32
   br label %out
 
 if.end35:                                         ; preds = %if.end32
-  %26 = load i32, ptr %index, align 4
-  %inc36 = add i32 %26, 1
+  %28 = load i32, ptr %index, align 4
+  %inc36 = add i32 %28, 1
   store i32 %inc36, ptr %index, align 4
   br label %if.end37
 
@@ -2776,16 +2819,16 @@ do.end42:                                         ; No predecessors!
   br label %while.cond39
 
 while.end43:                                      ; preds = %while.cond39
-  %27 = load ptr, ptr %block, align 8
-  %next44 = getelementptr inbounds %struct.RAMBlock, ptr %27, i32 0, i32 10
+  %29 = load ptr, ptr %block, align 8
+  %next44 = getelementptr inbounds %struct.RAMBlock, ptr %29, i32 0, i32 10
   %le_next45 = getelementptr inbounds %struct.anon.9, ptr %next44, i32 0, i32 0
-  %28 = load atomic i64, ptr %le_next45 monotonic, align 8
-  store i64 %28, ptr %_val14, align 8
+  %30 = load atomic i64, ptr %le_next45 monotonic, align 8
+  store i64 %30, ptr %_val14, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !30
-  %29 = load ptr, ptr %_val14, align 8
-  store ptr %29, ptr %tmp46, align 8
-  %30 = load ptr, ptr %tmp46, align 8
-  store ptr %30, ptr %block, align 8
+  %31 = load ptr, ptr %_val14, align 8
+  store ptr %31, ptr %tmp46, align 8
+  %32 = load ptr, ptr %tmp46, align 8
+  store ptr %32, ptr %block, align 8
   br label %for.cond20, !llvm.loop !31
 
 for.end47:                                        ; preds = %if.then31, %for.cond20
@@ -2793,14 +2836,14 @@ for.end47:                                        ; preds = %if.then31, %for.con
   br label %out
 
 out:                                              ; preds = %for.end47, %if.then34, %if.then12
-  %31 = load i32, ptr %index, align 4
-  %32 = load ptr, ptr %block_count.addr, align 8
-  store i32 %31, ptr %32, align 4
-  %33 = load ptr, ptr %dinfo, align 8
-  %34 = load ptr, ptr %block_dinfo.addr, align 8
-  store ptr %33, ptr %34, align 8
-  %35 = load i8, ptr %ret, align 1
-  %tobool48 = trunc i8 %35 to i1
+  %33 = load i32, ptr %index, align 4
+  %34 = load ptr, ptr %block_count.addr, align 8
+  store i32 %33, ptr %34, align 4
+  %35 = load ptr, ptr %dinfo, align 8
+  %36 = load ptr, ptr %block_dinfo.addr, align 8
+  store ptr %35, ptr %36, align 8
+  %37 = load i8, ptr %ret, align 1
+  %tobool48 = trunc i8 %37 to i1
   ret i1 %tobool48
 }
 
@@ -2836,54 +2879,55 @@ do.end:                                           ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %0 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 2) monotonic, align 8
-  store i64 %0, ptr %_val15, align 8
+  %0 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 2
+  %1 = load atomic i64, ptr %0 monotonic, align 8
+  store i64 %1, ptr %_val15, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !32
-  %1 = load ptr, ptr %_val15, align 8
-  store ptr %1, ptr %tmp, align 8
-  %2 = load ptr, ptr %tmp, align 8
-  store ptr %2, ptr %block, align 8
+  %2 = load ptr, ptr %_val15, align 8
+  store ptr %2, ptr %tmp, align 8
+  %3 = load ptr, ptr %tmp, align 8
+  store ptr %3, ptr %block, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %while.end11, %while.end
-  %3 = load ptr, ptr %block, align 8
-  %tobool = icmp ne ptr %3, null
+  %4 = load ptr, ptr %block, align 8
+  %tobool = icmp ne ptr %4, null
   br i1 %tobool, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %block, align 8
-  %call = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %4)
+  %5 = load ptr, ptr %block, align 8
+  %call = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %5)
   br i1 %call, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
   br label %if.end6
 
 if.else:                                          ; preds = %for.body
-  %5 = load ptr, ptr %block, align 8
-  %call1 = call zeroext i1 @skip_sample_ramblock(ptr noundef %5)
+  %6 = load ptr, ptr %block, align 8
+  %call1 = call zeroext i1 @skip_sample_ramblock(ptr noundef %6)
   br i1 %call1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.else
   br label %for.inc
 
 if.end:                                           ; preds = %if.else
-  %6 = load ptr, ptr %block, align 8
-  %7 = load i32, ptr %block_count.addr, align 4
-  %8 = load ptr, ptr %info.addr, align 8
-  %call3 = call ptr @find_block_matched(ptr noundef %6, i32 noundef %7, ptr noundef %8)
+  %7 = load ptr, ptr %block, align 8
+  %8 = load i32, ptr %block_count.addr, align 4
+  %9 = load ptr, ptr %info.addr, align 8
+  %call3 = call ptr @find_block_matched(ptr noundef %7, i32 noundef %8, ptr noundef %9)
   store ptr %call3, ptr %block_dinfo, align 8
-  %9 = load ptr, ptr %block_dinfo, align 8
-  %cmp = icmp eq ptr %9, null
+  %10 = load ptr, ptr %block_dinfo, align 8
+  %cmp = icmp eq ptr %10, null
   br i1 %cmp, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
   br label %for.inc
 
 if.end5:                                          ; preds = %if.end
-  %10 = load ptr, ptr %block_dinfo, align 8
-  call void @calc_page_dirty_rate(ptr noundef %10)
   %11 = load ptr, ptr %block_dinfo, align 8
-  call void @update_dirtyrate_stat(ptr noundef %11)
+  call void @calc_page_dirty_rate(ptr noundef %11)
+  %12 = load ptr, ptr %block_dinfo, align 8
+  call void @update_dirtyrate_stat(ptr noundef %12)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end5, %if.then
@@ -2906,21 +2950,23 @@ do.end10:                                         ; No predecessors!
   br label %while.cond7
 
 while.end11:                                      ; preds = %while.cond7
-  %12 = load ptr, ptr %block, align 8
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %12, i32 0, i32 10
+  %13 = load ptr, ptr %block, align 8
+  %next = getelementptr inbounds %struct.RAMBlock, ptr %13, i32 0, i32 10
   %le_next = getelementptr inbounds %struct.anon.9, ptr %next, i32 0, i32 0
-  %13 = load atomic i64, ptr %le_next monotonic, align 8
-  store i64 %13, ptr %_val16, align 8
+  %14 = load atomic i64, ptr %le_next monotonic, align 8
+  store i64 %14, ptr %_val16, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !33
-  %14 = load ptr, ptr %_val16, align 8
-  store ptr %14, ptr %tmp12, align 8
-  %15 = load ptr, ptr %tmp12, align 8
-  store ptr %15, ptr %block, align 8
+  %15 = load ptr, ptr %_val16, align 8
+  store ptr %15, ptr %tmp12, align 8
+  %16 = load ptr, ptr %tmp12, align 8
+  store ptr %16, ptr %block, align 8
   br label %for.cond, !llvm.loop !34
 
 for.end:                                          ; preds = %for.cond
-  %16 = load i64, ptr getelementptr inbounds (%struct.SampleVMStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 1), align 8
-  %cmp13 = icmp eq i64 %16, 0
+  %17 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %18 = getelementptr inbounds %struct.SampleVMStat, ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8
+  %cmp13 = icmp eq i64 %19, 0
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %for.end
@@ -2932,8 +2978,8 @@ if.end15:                                         ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.end15, %if.then14
-  %17 = load i1, ptr %retval, align 1
-  ret i1 %17
+  %20 = load i1, ptr %retval, align 1
+  ret i1 %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2945,23 +2991,28 @@ entry:
   %total_sample_count = alloca i64, align 8
   %total_block_mem_MB = alloca i64, align 8
   store i64 %msec, ptr %msec.addr, align 8
-  %0 = load i64, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), align 8
-  store i64 %0, ptr %total_dirty_samples, align 8
-  %1 = load i64, ptr getelementptr inbounds (%struct.SampleVMStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 1), align 8
-  store i64 %1, ptr %total_sample_count, align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.SampleVMStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 2), align 8
-  store i64 %2, ptr %total_block_mem_MB, align 8
-  %3 = load i64, ptr %total_dirty_samples, align 8
-  %4 = load i64, ptr %total_block_mem_MB, align 8
-  %mul = mul i64 %3, %4
+  %0 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %1 = load i64, ptr %0, align 8
+  store i64 %1, ptr %total_dirty_samples, align 8
+  %2 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %3 = getelementptr inbounds %struct.SampleVMStat, ptr %2, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  store i64 %4, ptr %total_sample_count, align 8
+  %5 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %6 = getelementptr inbounds %struct.SampleVMStat, ptr %5, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8
+  store i64 %7, ptr %total_block_mem_MB, align 8
+  %8 = load i64, ptr %total_dirty_samples, align 8
+  %9 = load i64, ptr %total_block_mem_MB, align 8
+  %mul = mul i64 %8, %9
   %mul1 = mul i64 %mul, 1000
-  %5 = load i64, ptr %total_sample_count, align 8
-  %6 = load i64, ptr %msec.addr, align 8
-  %mul2 = mul i64 %5, %6
+  %10 = load i64, ptr %total_sample_count, align 8
+  %11 = load i64, ptr %msec.addr, align 8
+  %mul2 = mul i64 %10, %11
   %div = udiv i64 %mul1, %mul2
   store i64 %div, ptr %dirtyrate, align 8
-  %7 = load i64, ptr %dirtyrate, align 8
-  store i64 %7, ptr @DirtyStat, align 8
+  %12 = load i64, ptr %dirtyrate, align 8
+  store i64 %12, ptr @DirtyStat, align 8
   ret void
 }
 
@@ -3841,22 +3892,32 @@ entry:
   %0 = load ptr, ptr %info.addr, align 8
   %sample_dirty_count = getelementptr inbounds %struct.RamblockDirtyInfo, ptr %0, i32 0, i32 5
   %1 = load i64, ptr %sample_dirty_count, align 8
-  %2 = load i64, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), align 8
-  %add = add i64 %2, %1
-  store i64 %add, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), align 8
-  %3 = load ptr, ptr %info.addr, align 8
-  %sample_pages_count = getelementptr inbounds %struct.RamblockDirtyInfo, ptr %3, i32 0, i32 4
-  %4 = load i64, ptr %sample_pages_count, align 8
-  %5 = load i64, ptr getelementptr inbounds (%struct.SampleVMStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 1), align 8
-  %add1 = add i64 %5, %4
-  store i64 %add1, ptr getelementptr inbounds (%struct.SampleVMStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 1), align 8
-  %6 = load ptr, ptr %info.addr, align 8
-  %ramblock_pages = getelementptr inbounds %struct.RamblockDirtyInfo, ptr %6, i32 0, i32 2
-  %7 = load i64, ptr %ramblock_pages, align 8
-  %call = call i64 @qemu_target_pages_to_MiB(i64 noundef %7)
-  %8 = load i64, ptr getelementptr inbounds (%struct.SampleVMStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 2), align 8
-  %add2 = add i64 %8, %call
-  store i64 %add2, ptr getelementptr inbounds (%struct.SampleVMStat, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4), i32 0, i32 2), align 8
+  %2 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %3 = load i64, ptr %2, align 8
+  %add = add i64 %3, %1
+  %4 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  store i64 %add, ptr %4, align 8
+  %5 = load ptr, ptr %info.addr, align 8
+  %sample_pages_count = getelementptr inbounds %struct.RamblockDirtyInfo, ptr %5, i32 0, i32 4
+  %6 = load i64, ptr %sample_pages_count, align 8
+  %7 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %8 = getelementptr inbounds %struct.SampleVMStat, ptr %7, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8
+  %add1 = add i64 %9, %6
+  %10 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %11 = getelementptr inbounds %struct.SampleVMStat, ptr %10, i32 0, i32 1
+  store i64 %add1, ptr %11, align 8
+  %12 = load ptr, ptr %info.addr, align 8
+  %ramblock_pages = getelementptr inbounds %struct.RamblockDirtyInfo, ptr %12, i32 0, i32 2
+  %13 = load i64, ptr %ramblock_pages, align 8
+  %call = call i64 @qemu_target_pages_to_MiB(i64 noundef %13)
+  %14 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %15 = getelementptr inbounds %struct.SampleVMStat, ptr %14, i32 0, i32 2
+  %16 = load i64, ptr %15, align 8
+  %add2 = add i64 %16, %call
+  %17 = getelementptr inbounds %struct.DirtyRateStat, ptr @DirtyStat, i32 0, i32 4
+  %18 = getelementptr inbounds %struct.SampleVMStat, ptr %17, i32 0, i32 2
+  store i64 %add2, ptr %18, align 8
   ret void
 }
 

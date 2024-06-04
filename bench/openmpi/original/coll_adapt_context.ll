@@ -41,98 +41,101 @@ define internal void @adapt_constant_reduce_context_construct(ptr noundef %0) #0
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %10, i32 0, i32 25
-  %12 = getelementptr inbounds %struct.opal_object_t, ptr %11, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %12, align 16
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %13, i32 0, i32 25
-  %15 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 1
-  store volatile i32 1, ptr %15, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %16, i32 0, i32 25
-  call void @opal_obj_run_constructors(ptr noundef %17)
-  br label %18
-
-18:                                               ; preds = %9
+10:                                               ; preds = %9, %4
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %11, i32 0, i32 25
+  %13 = getelementptr inbounds %struct.opal_object_t, ptr %12, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %13, align 16
+  %14 = load ptr, ptr %2, align 8
+  %15 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %14, i32 0, i32 25
+  %16 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
+  store volatile i32 1, ptr %16, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %17, i32 0, i32 25
+  call void @opal_obj_run_constructors(ptr noundef %18)
   br label %19
 
-19:                                               ; preds = %18
+19:                                               ; preds = %10
   br label %20
 
 20:                                               ; preds = %19
   br label %21
 
 21:                                               ; preds = %20
-  %22 = load i32, ptr @opal_class_init_epoch, align 4
-  %23 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %24 = icmp ne i32 %22, %23
-  br i1 %24, label %25, label %26
+  br label %22
 
-25:                                               ; preds = %21
+22:                                               ; preds = %21
+  %23 = load i32, ptr @opal_class_init_epoch, align 4
+  %24 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ne i32 %23, %25
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %22
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %26
+  br label %28
 
-26:                                               ; preds = %25, %21
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %27, i32 0, i32 24
-  %29 = getelementptr inbounds %struct.opal_object_t, ptr %28, i32 0, i32 0
-  store ptr @opal_mutex_t_class, ptr %29, align 16
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %30, i32 0, i32 24
-  %32 = getelementptr inbounds %struct.opal_object_t, ptr %31, i32 0, i32 1
-  store volatile i32 1, ptr %32, align 8
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %33, i32 0, i32 24
-  call void @opal_obj_run_constructors(ptr noundef %34)
-  br label %35
-
-35:                                               ; preds = %26
-  br label %36
-
-36:                                               ; preds = %35
+28:                                               ; preds = %27, %22
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %29, i32 0, i32 24
+  %31 = getelementptr inbounds %struct.opal_object_t, ptr %30, i32 0, i32 0
+  store ptr @opal_mutex_t_class, ptr %31, align 16
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %32, i32 0, i32 24
+  %34 = getelementptr inbounds %struct.opal_object_t, ptr %33, i32 0, i32 1
+  store volatile i32 1, ptr %34, align 8
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %35, i32 0, i32 24
+  call void @opal_obj_run_constructors(ptr noundef %36)
   br label %37
 
-37:                                               ; preds = %36
+37:                                               ; preds = %28
   br label %38
 
 38:                                               ; preds = %37
-  %39 = load i32, ptr @opal_class_init_epoch, align 4
-  %40 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4), align 8
-  %41 = icmp ne i32 %39, %40
-  br i1 %41, label %42, label %43
+  br label %39
 
-42:                                               ; preds = %38
+39:                                               ; preds = %38
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load i32, ptr @opal_class_init_epoch, align 4
+  %42 = getelementptr inbounds %struct.opal_class_t, ptr @opal_free_list_t_class, i32 0, i32 4
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp ne i32 %41, %43
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %40
   call void @opal_class_initialize(ptr noundef @opal_free_list_t_class)
-  br label %43
+  br label %46
 
-43:                                               ; preds = %42, %38
-  %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %44, i32 0, i32 23
-  %46 = getelementptr inbounds %struct.opal_object_t, ptr %45, i32 0, i32 0
-  store ptr @opal_free_list_t_class, ptr %46, align 16
+46:                                               ; preds = %45, %40
   %47 = load ptr, ptr %2, align 8
   %48 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %47, i32 0, i32 23
-  %49 = getelementptr inbounds %struct.opal_object_t, ptr %48, i32 0, i32 1
-  store volatile i32 1, ptr %49, align 8
+  %49 = getelementptr inbounds %struct.opal_object_t, ptr %48, i32 0, i32 0
+  store ptr @opal_free_list_t_class, ptr %49, align 16
   %50 = load ptr, ptr %2, align 8
   %51 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %50, i32 0, i32 23
-  call void @opal_obj_run_constructors(ptr noundef %51)
-  br label %52
+  %52 = getelementptr inbounds %struct.opal_object_t, ptr %51, i32 0, i32 1
+  store volatile i32 1, ptr %52, align 8
+  %53 = load ptr, ptr %2, align 8
+  %54 = getelementptr inbounds %struct.ompi_coll_adapt_constant_reduce_context_s, ptr %53, i32 0, i32 23
+  call void @opal_obj_run_constructors(ptr noundef %54)
+  br label %55
 
-52:                                               ; preds = %43
-  br label %53
+55:                                               ; preds = %46
+  br label %56
 
-53:                                               ; preds = %52
+56:                                               ; preds = %55
   ret void
 }
 

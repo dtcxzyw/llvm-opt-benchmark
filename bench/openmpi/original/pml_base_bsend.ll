@@ -59,7 +59,7 @@ define i32 @mca_pml_base_bsend_init() #0 {
 
 5:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %40
+  br label %44
 
 6:                                                ; preds = %0
   br label %7
@@ -69,88 +69,92 @@ define i32 @mca_pml_base_bsend_init() #0 {
 
 8:                                                ; preds = %7
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4), align 8
-  %11 = icmp ne i32 %9, %10
-  br i1 %11, label %12, label %13
+  %10 = getelementptr inbounds %struct.opal_class_t, ptr @opal_mutex_t_class, i32 0, i32 4
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ne i32 %9, %11
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %8
+13:                                               ; preds = %8
   call void @opal_class_initialize(ptr noundef @opal_mutex_t_class)
-  br label %13
-
-13:                                               ; preds = %12, %8
-  store ptr @opal_mutex_t_class, ptr @mca_pml_bsend_mutex, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_pml_bsend_mutex, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @mca_pml_bsend_mutex)
   br label %14
 
-14:                                               ; preds = %13
-  br label %15
-
-15:                                               ; preds = %14
+14:                                               ; preds = %13, %8
+  store ptr @opal_mutex_t_class, ptr @mca_pml_bsend_mutex, align 8
+  %15 = getelementptr inbounds %struct.opal_object_t, ptr @mca_pml_bsend_mutex, i32 0, i32 1
+  store volatile i32 1, ptr %15, align 8
+  call void @opal_obj_run_constructors(ptr noundef @mca_pml_bsend_mutex)
   br label %16
 
-16:                                               ; preds = %15
+16:                                               ; preds = %14
   br label %17
 
 17:                                               ; preds = %16
-  %18 = load i32, ptr @opal_class_init_epoch, align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_condition_t_class, i32 0, i32 4), align 8
-  %20 = icmp ne i32 %18, %19
-  br i1 %20, label %21, label %22
+  br label %18
 
-21:                                               ; preds = %17
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
+  %20 = load i32, ptr @opal_class_init_epoch, align 4
+  %21 = getelementptr inbounds %struct.opal_class_t, ptr @opal_condition_t_class, i32 0, i32 4
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp ne i32 %20, %22
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %19
   call void @opal_class_initialize(ptr noundef @opal_condition_t_class)
-  br label %22
+  br label %25
 
-22:                                               ; preds = %21, %17
+25:                                               ; preds = %24, %19
   store ptr @opal_condition_t_class, ptr @mca_pml_bsend_condition, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @mca_pml_bsend_condition, i32 0, i32 1), align 8
+  %26 = getelementptr inbounds %struct.opal_object_t, ptr @mca_pml_bsend_condition, i32 0, i32 1
+  store volatile i32 1, ptr %26, align 8
   call void @opal_obj_run_constructors(ptr noundef @mca_pml_bsend_condition)
-  br label %23
+  br label %27
 
-23:                                               ; preds = %22
-  br label %24
+27:                                               ; preds = %25
+  br label %28
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr @ompi_pml_base_bsend_allocator_name, align 8
-  %26 = call ptr @mca_allocator_component_lookup(ptr noundef %25)
-  store ptr %26, ptr @mca_pml_bsend_allocator_component, align 8
-  %27 = icmp eq ptr null, %26
-  br i1 %27, label %28, label %29
+28:                                               ; preds = %27
+  %29 = load ptr, ptr @ompi_pml_base_bsend_allocator_name, align 8
+  %30 = call ptr @mca_allocator_component_lookup(ptr noundef %29)
+  store ptr %30, ptr @mca_pml_bsend_allocator_component, align 8
+  %31 = icmp eq ptr null, %30
+  br i1 %31, label %32, label %33
 
-28:                                               ; preds = %24
+32:                                               ; preds = %28
   store i32 -30, ptr %1, align 4
-  br label %40
+  br label %44
 
-29:                                               ; preds = %24
-  %30 = call i64 @sysconf(i32 noundef 30) #3
-  store i64 %30, ptr @mca_pml_bsend_pagesz, align 8
-  store i64 %30, ptr %2, align 8
+33:                                               ; preds = %28
+  %34 = call i64 @sysconf(i32 noundef 30) #3
+  store i64 %34, ptr @mca_pml_bsend_pagesz, align 8
+  store i64 %34, ptr %2, align 8
   store i32 0, ptr @mca_pml_bsend_pagebits, align 4
-  br label %31
+  br label %35
 
-31:                                               ; preds = %34, %29
-  %32 = load i64, ptr %2, align 8
-  %33 = icmp ne i64 %32, 0
-  br i1 %33, label %34, label %39
+35:                                               ; preds = %38, %33
+  %36 = load i64, ptr %2, align 8
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %43
 
-34:                                               ; preds = %31
-  %35 = load i64, ptr %2, align 8
-  %36 = lshr i64 %35, 1
-  store i64 %36, ptr %2, align 8
-  %37 = load i32, ptr @mca_pml_bsend_pagebits, align 4
-  %38 = add nsw i32 %37, 1
-  store i32 %38, ptr @mca_pml_bsend_pagebits, align 4
-  br label %31, !llvm.loop !4
+38:                                               ; preds = %35
+  %39 = load i64, ptr %2, align 8
+  %40 = lshr i64 %39, 1
+  store i64 %40, ptr %2, align 8
+  %41 = load i32, ptr @mca_pml_bsend_pagebits, align 4
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr @mca_pml_bsend_pagebits, align 4
+  br label %35, !llvm.loop !4
 
-39:                                               ; preds = %31
+43:                                               ; preds = %35
   call void @opal_finalize_append_cleanup(ptr noundef @mca_pml_base_bsend_fini, ptr noundef @.str, ptr noundef null)
   store i32 0, ptr %1, align 4
-  br label %40
+  br label %44
 
-40:                                               ; preds = %39, %28, %5
-  %41 = load i32, ptr %1, align 4
-  ret i32 %41
+44:                                               ; preds = %43, %32, %5
+  %45 = load i32, ptr %1, align 4
+  ret i32 %45
 }
 
 ; Function Attrs: nounwind uwtable

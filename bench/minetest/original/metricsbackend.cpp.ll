@@ -141,9 +141,11 @@ _ZNSt12__shared_ptrI19SimpleMetricCounterLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !7, !noalias !4
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !12, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19SimpleMetricCounterSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !13, !noalias !4
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19SimpleMetricCounterSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !13, !noalias !4
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 16
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTV19SimpleMetricCounter, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !13, !noalias !4
+  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV19SimpleMetricCounter, i64 0, i32 0, i64 2
+  store ptr %1, ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !13, !noalias !4
   %m_mutex.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_mutex.i.i.i.i.i.i.i.i, i8 0, i64 48, i1 false), !noalias !4
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8, !tbaa !15
@@ -160,9 +162,11 @@ _ZNSt12__shared_ptrI17SimpleMetricGaugeLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !7, !noalias !20
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !12, !noalias !20
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17SimpleMetricGaugeSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !13, !noalias !20
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17SimpleMetricGaugeSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2
+  store ptr %0, ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !13, !noalias !20
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 16
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTV17SimpleMetricGauge, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !13, !noalias !20
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV17SimpleMetricGauge, i64 0, i32 0, i64 2
+  store ptr %1, ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !13, !noalias !20
   %m_mutex.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_mutex.i.i.i.i.i.i.i.i, i8 0, i64 48, i1 false), !noalias !20
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8, !tbaa !23

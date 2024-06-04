@@ -47,33 +47,34 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_current_is_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @async_schedule_node_domain(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 2336, i64 noundef 96) #5
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %11, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 2336, i64 noundef 96) #5
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %12, label %9
 
-8:                                                ; preds = %4
-  %9 = load volatile i32, ptr @entry_count, align 4
-  %10 = icmp sgt i32 %9, 32768
-  br i1 %10, label %11, label %15
+9:                                                ; preds = %4
+  %10 = load volatile i32, ptr @entry_count, align 4
+  %11 = icmp sgt i32 %10, 32768
+  br i1 %11, label %12, label %16
 
-11:                                               ; preds = %8, %4
-  tail call void @kfree(ptr noundef %6) #6
-  %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @async_lock) #6
-  %13 = load i64, ptr @next_cookie, align 8
-  %14 = add i64 %13, 1
-  store i64 %14, ptr @next_cookie, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @async_lock, i64 noundef %12) #6
-  tail call void %0(ptr noundef %1, i64 noundef %13) #6
-  br label %17
+12:                                               ; preds = %9, %4
+  tail call void @kfree(ptr noundef %7) #6
+  %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @async_lock) #6
+  %14 = load i64, ptr @next_cookie, align 8
+  %15 = add i64 %14, 1
+  store i64 %15, ptr @next_cookie, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @async_lock, i64 noundef %13) #6
+  tail call void %0(ptr noundef %1, i64 noundef %14) #6
+  br label %18
 
-15:                                               ; preds = %8
-  %16 = tail call fastcc i64 @__async_schedule_node_domain(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %6)
-  br label %17
+16:                                               ; preds = %9
+  %17 = tail call fastcc i64 @__async_schedule_node_domain(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %7)
+  br label %18
 
-17:                                               ; preds = %15, %11
-  %18 = phi i64 [ %13, %11 ], [ %16, %15 ]
-  ret i64 %18
+18:                                               ; preds = %16, %12
+  %19 = phi i64 [ %14, %12 ], [ %17, %16 ]
+  ret i64 %19
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -127,80 +128,84 @@ define internal fastcc i64 @__async_schedule_node_domain(ptr noundef %0, ptr nou
   %23 = load i8, ptr %22, align 8
   %24 = and i8 %23, 1
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %28, label %26
+  br i1 %25, label %30, label %26
 
 26:                                               ; preds = %5
-  %27 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @async_global_pending, i64 0, i32 1), align 8
-  store ptr %7, ptr getelementptr inbounds (%struct.list_head, ptr @async_global_pending, i64 0, i32 1), align 8
+  %27 = getelementptr inbounds %struct.list_head, ptr @async_global_pending, i64 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds %struct.list_head, ptr @async_global_pending, i64 0, i32 1
+  store ptr %7, ptr %29, align 8
   store ptr @async_global_pending, ptr %7, align 8
-  store ptr %27, ptr %8, align 8
-  store volatile ptr %7, ptr %27, align 8
-  br label %28
+  store ptr %28, ptr %8, align 8
+  store volatile ptr %7, ptr %28, align 8
+  br label %30
 
-28:                                               ; preds = %26, %5
+30:                                               ; preds = %26, %5
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @entry_count, ptr nonnull elementtype(i32) @entry_count) #6, !srcloc !5
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @async_lock, i64 noundef %16) #6
-  %29 = load ptr, ptr @system_unbound_wq, align 8
-  %30 = tail call zeroext i1 @queue_work_node(i32 noundef %2, ptr noundef %29, ptr noundef %9) #6
+  %31 = load ptr, ptr @system_unbound_wq, align 8
+  %32 = tail call zeroext i1 @queue_work_node(i32 noundef %2, ptr noundef %31, ptr noundef %9) #6
   ret i64 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @async_schedule_node(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 2336, i64 noundef 96) #5
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %10, label %7
+  %4 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 2336, i64 noundef 96) #5
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %11, label %8
 
-7:                                                ; preds = %3
-  %8 = load volatile i32, ptr @entry_count, align 4
-  %9 = icmp sgt i32 %8, 32768
-  br i1 %9, label %10, label %14
+8:                                                ; preds = %3
+  %9 = load volatile i32, ptr @entry_count, align 4
+  %10 = icmp sgt i32 %9, 32768
+  br i1 %10, label %11, label %15
 
-10:                                               ; preds = %7, %3
-  tail call void @kfree(ptr noundef %5) #6
-  %11 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @async_lock) #6
-  %12 = load i64, ptr @next_cookie, align 8
-  %13 = add i64 %12, 1
-  store i64 %13, ptr @next_cookie, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @async_lock, i64 noundef %11) #6
-  tail call void %0(ptr noundef %1, i64 noundef %12) #6
-  br label %16
+11:                                               ; preds = %8, %3
+  tail call void @kfree(ptr noundef %6) #6
+  %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @async_lock) #6
+  %13 = load i64, ptr @next_cookie, align 8
+  %14 = add i64 %13, 1
+  store i64 %14, ptr @next_cookie, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @async_lock, i64 noundef %12) #6
+  tail call void %0(ptr noundef %1, i64 noundef %13) #6
+  br label %17
 
-14:                                               ; preds = %7
-  %15 = tail call fastcc i64 @__async_schedule_node_domain(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @async_dfl_domain, ptr noundef nonnull %5)
-  br label %16
+15:                                               ; preds = %8
+  %16 = tail call fastcc i64 @__async_schedule_node_domain(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @async_dfl_domain, ptr noundef nonnull %6)
+  br label %17
 
-16:                                               ; preds = %14, %10
-  %17 = phi i64 [ %12, %10 ], [ %15, %14 ]
-  ret i64 %17
+17:                                               ; preds = %15, %11
+  %18 = phi i64 [ %13, %11 ], [ %16, %15 ]
+  ret i64 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @async_schedule_dev_nocall(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %4 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 96) #5
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %9, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 96) #5
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %10, label %7
 
-6:                                                ; preds = %2
-  %7 = load volatile i32, ptr @entry_count, align 4
-  %8 = icmp sgt i32 %7, 32768
-  br i1 %8, label %9, label %10
+7:                                                ; preds = %2
+  %8 = load volatile i32, ptr @entry_count, align 4
+  %9 = icmp sgt i32 %8, 32768
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %6, %2
-  tail call void @kfree(ptr noundef %4) #6
-  br label %14
+10:                                               ; preds = %7, %2
+  tail call void @kfree(ptr noundef %5) #6
+  br label %15
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 640
-  %12 = load i32, ptr %11, align 8
-  %13 = tail call fastcc i64 @__async_schedule_node_domain(ptr noundef %0, ptr noundef %1, i32 noundef %12, ptr noundef nonnull @async_dfl_domain, ptr noundef nonnull %4)
-  br label %14
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds i8, ptr %1, i64 640
+  %13 = load i32, ptr %12, align 8
+  %14 = tail call fastcc i64 @__async_schedule_node_domain(ptr noundef %0, ptr noundef %1, i32 noundef %13, ptr noundef nonnull @async_dfl_domain, ptr noundef nonnull %5)
+  br label %15
 
-14:                                               ; preds = %10, %9
-  %15 = phi i1 [ false, %9 ], [ true, %10 ]
-  ret i1 %15
+15:                                               ; preds = %11, %10
+  %16 = phi i1 [ false, %10 ], [ true, %11 ]
+  ret i1 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -332,38 +337,39 @@ define dso_local void @async_synchronize_cookie(i64 noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @current_is_async() #0 align 16 {
-  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #7, !srcloc !7
-  %2 = and i32 %1, 16711936
-  %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %13
+  %1 = getelementptr inbounds %struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1
+  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %1) #7, !srcloc !7
+  %3 = and i32 %2, 16711936
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %5, label %14
 
-4:                                                ; preds = %0
-  %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !8
-  %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 44
-  %8 = load i32, ptr %7, align 4
-  %9 = and i32 %8, 32
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %13, label %11
+5:                                                ; preds = %0
+  %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !8
+  %7 = inttoptr i64 %6 to ptr
+  %8 = getelementptr inbounds i8, ptr %7, i64 44
+  %9 = load i32, ptr %8, align 4
+  %10 = and i32 %9, 32
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %14, label %12
 
-11:                                               ; preds = %4
-  %12 = tail call ptr @kthread_data(ptr noundef %6) #6
-  br label %13
+12:                                               ; preds = %5
+  %13 = tail call ptr @kthread_data(ptr noundef %7) #6
+  br label %14
 
-13:                                               ; preds = %11, %4, %0
-  %14 = phi ptr [ %12, %11 ], [ null, %4 ], [ null, %0 ]
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %20, label %16
+14:                                               ; preds = %12, %5, %0
+  %15 = phi ptr [ %13, %12 ], [ null, %5 ], [ null, %0 ]
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %21, label %17
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, @async_run_entry_fn
-  br label %20
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds i8, ptr %15, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, @async_run_entry_fn
+  br label %21
 
-20:                                               ; preds = %16, %13
-  %21 = phi i1 [ false, %13 ], [ %19, %16 ]
-  ret i1 %21
+21:                                               ; preds = %17, %14
+  %22 = phi i1 [ false, %14 ], [ %20, %17 ]
+  ret i1 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

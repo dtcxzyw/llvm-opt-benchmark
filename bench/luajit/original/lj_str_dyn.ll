@@ -316,16 +316,17 @@ while.body:                                       ; preds = %while.cond
   store i32 %conv, ptr %c, align 4
   %8 = load i32, ptr %c, align 4
   %idxprom = sext i32 %8 to i64
-  %arrayidx = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom
-  %9 = load i8, ptr %arrayidx, align 1
-  %conv2 = zext i8 %9 to i32
+  %9 = getelementptr inbounds i8, ptr @lj_char_bits, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %9, i64 %idxprom
+  %10 = load i8, ptr %arrayidx, align 1
+  %conv2 = zext i8 %10 to i32
   %and = and i32 %conv2, 4
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %while.body
-  %10 = load i32, ptr %c, align 4
-  %call = call ptr @strchr(ptr noundef @.str, i32 noundef %10) #7
+  %11 = load i32, ptr %c, align 4
+  %call = call ptr @strchr(ptr noundef @.str, i32 noundef %11) #7
   %tobool3 = icmp ne ptr %call, null
   br i1 %tobool3, label %if.then, label %if.end
 
@@ -341,8 +342,8 @@ while.end:                                        ; preds = %while.cond
   br label %return
 
 return:                                           ; preds = %while.end, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+  %12 = load i32, ptr %retval, align 4
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

@@ -2329,66 +2329,67 @@ entry:
   %tmp = alloca i32, align 4
   store ptr %s, ptr %s.addr, align 8
   store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.USBDescIface, ptr @desc_iface0, i32 0, i32 9), align 8
-  %arrayidx = getelementptr %struct.USBDescEndpoint, ptr %0, i64 0
+  %0 = getelementptr inbounds %struct.USBDescIface, ptr @desc_iface0, i32 0, i32 9
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr %struct.USBDescEndpoint, ptr %1, i64 0
   %wMaxPacketSize = getelementptr inbounds %struct.USBDescEndpoint, ptr %arrayidx, i32 0, i32 2
-  %1 = load i16, ptr %wMaxPacketSize, align 2
-  %conv = zext i16 %1 to i32
+  %2 = load i16, ptr %wMaxPacketSize, align 2
+  %conv = zext i16 %2 to i32
   store i32 %conv, ptr %max_packet_size, align 4
-  %2 = load ptr, ptr %p.addr, align 8
-  %iov = getelementptr inbounds %struct.USBPacket, ptr %2, i32 0, i32 4
-  %3 = getelementptr inbounds %struct.QEMUIOVector, ptr %iov, i32 0, i32 2
-  %size = getelementptr inbounds %struct.anon.5, ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %size, align 8
-  %conv1 = trunc i64 %4 to i32
+  %3 = load ptr, ptr %p.addr, align 8
+  %iov = getelementptr inbounds %struct.USBPacket, ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds %struct.QEMUIOVector, ptr %iov, i32 0, i32 2
+  %size = getelementptr inbounds %struct.anon.5, ptr %4, i32 0, i32 1
+  %5 = load i64, ptr %size, align 8
+  %conv1 = trunc i64 %5 to i32
   store i32 %conv1, ptr %packet_len, align 4
-  %5 = load i32, ptr %packet_len, align 4
-  %cmp = icmp sle i32 %5, 2
+  %6 = load i32, ptr %packet_len, align 4
+  %cmp = icmp sle i32 %6, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %p.addr, align 8
-  %status = getelementptr inbounds %struct.USBPacket, ptr %6, i32 0, i32 8
+  %7 = load ptr, ptr %p.addr, align 8
+  %status = getelementptr inbounds %struct.USBPacket, ptr %7, i32 0, i32 8
   store i32 -2, ptr %status, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %7 = load ptr, ptr %s.addr, align 8
-  %call = call zeroext i8 @usb_get_modem_lines(ptr noundef %7)
+  %8 = load ptr, ptr %s.addr, align 8
+  %call = call zeroext i8 @usb_get_modem_lines(ptr noundef %8)
   %conv3 = zext i8 %call to i32
   %or = or i32 %conv3, 1
   %conv4 = trunc i32 %or to i8
   %arrayidx5 = getelementptr [2 x i8], ptr %header, i64 0, i64 0
   store i8 %conv4, ptr %arrayidx5, align 1
-  %8 = load ptr, ptr %s.addr, align 8
-  %event_trigger = getelementptr inbounds %struct.USBSerialState, ptr %8, i32 0, i32 7
-  %9 = load i8, ptr %event_trigger, align 2
-  %conv6 = zext i8 %9 to i32
+  %9 = load ptr, ptr %s.addr, align 8
+  %event_trigger = getelementptr inbounds %struct.USBSerialState, ptr %9, i32 0, i32 7
+  %10 = load i8, ptr %event_trigger, align 2
+  %conv6 = zext i8 %10 to i32
   %tobool = icmp ne i32 %conv6, 0
   br i1 %tobool, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
-  %10 = load ptr, ptr %s.addr, align 8
-  %event_trigger7 = getelementptr inbounds %struct.USBSerialState, ptr %10, i32 0, i32 7
-  %11 = load i8, ptr %event_trigger7, align 2
-  %conv8 = zext i8 %11 to i32
+  %11 = load ptr, ptr %s.addr, align 8
+  %event_trigger7 = getelementptr inbounds %struct.USBSerialState, ptr %11, i32 0, i32 7
+  %12 = load i8, ptr %event_trigger7, align 2
+  %conv8 = zext i8 %12 to i32
   %and = and i32 %conv8, 16
   %tobool9 = icmp ne i32 %and, 0
   br i1 %tobool9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %land.lhs.true
-  %12 = load ptr, ptr %s.addr, align 8
-  %event_trigger11 = getelementptr inbounds %struct.USBSerialState, ptr %12, i32 0, i32 7
-  %13 = load i8, ptr %event_trigger11, align 2
-  %conv12 = zext i8 %13 to i32
+  %13 = load ptr, ptr %s.addr, align 8
+  %event_trigger11 = getelementptr inbounds %struct.USBSerialState, ptr %13, i32 0, i32 7
+  %14 = load i8, ptr %event_trigger11, align 2
+  %conv12 = zext i8 %14 to i32
   %and13 = and i32 %conv12, -17
   %conv14 = trunc i32 %and13 to i8
   store i8 %conv14, ptr %event_trigger11, align 2
   %arrayidx15 = getelementptr [2 x i8], ptr %header, i64 0, i64 1
   store i8 16, ptr %arrayidx15, align 1
-  %14 = load ptr, ptr %p.addr, align 8
+  %15 = load ptr, ptr %p.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %header, i64 0, i64 0
-  call void @usb_packet_copy(ptr noundef %14, ptr noundef %arraydecay, i64 noundef 2)
+  call void @usb_packet_copy(ptr noundef %15, ptr noundef %arraydecay, i64 noundef 2)
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
@@ -2397,15 +2398,15 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else
-  %15 = load ptr, ptr %s.addr, align 8
-  %recv_used = getelementptr inbounds %struct.USBSerialState, ptr %15, i32 0, i32 4
-  %16 = load i16, ptr %recv_used, align 2
-  %tobool18 = icmp ne i16 %16, 0
+  %16 = load ptr, ptr %s.addr, align 8
+  %recv_used = getelementptr inbounds %struct.USBSerialState, ptr %16, i32 0, i32 4
+  %17 = load i16, ptr %recv_used, align 2
+  %tobool18 = icmp ne i16 %17, 0
   br i1 %tobool18, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %17 = load ptr, ptr %p.addr, align 8
-  %status20 = getelementptr inbounds %struct.USBPacket, ptr %17, i32 0, i32 8
+  %18 = load ptr, ptr %p.addr, align 8
+  %status20 = getelementptr inbounds %struct.USBPacket, ptr %18, i32 0, i32 8
   store i32 -2, ptr %status20, align 4
   br label %return
 
@@ -2413,139 +2414,139 @@ if.end21:                                         ; preds = %if.end17
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end55, %if.end21
-  %18 = load ptr, ptr %s.addr, align 8
-  %recv_used22 = getelementptr inbounds %struct.USBSerialState, ptr %18, i32 0, i32 4
-  %19 = load i16, ptr %recv_used22, align 2
-  %conv23 = zext i16 %19 to i32
+  %19 = load ptr, ptr %s.addr, align 8
+  %recv_used22 = getelementptr inbounds %struct.USBSerialState, ptr %19, i32 0, i32 4
+  %20 = load i16, ptr %recv_used22, align 2
+  %conv23 = zext i16 %20 to i32
   %tobool24 = icmp ne i32 %conv23, 0
   br i1 %tobool24, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond
-  %20 = load i32, ptr %packet_len, align 4
-  %cmp25 = icmp sgt i32 %20, 2
+  %21 = load i32, ptr %packet_len, align 4
+  %cmp25 = icmp sgt i32 %21, 2
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond
-  %21 = phi i1 [ false, %while.cond ], [ %cmp25, %land.rhs ]
-  br i1 %21, label %while.body, label %while.end
+  %22 = phi i1 [ false, %while.cond ], [ %cmp25, %land.rhs ]
+  br i1 %22, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
-  %22 = load i32, ptr %packet_len, align 4
-  store i32 %22, ptr %_a1, align 4
-  %23 = load i32, ptr %max_packet_size, align 4
-  store i32 %23, ptr %_b2, align 4
-  %24 = load i32, ptr %_a1, align 4
-  %25 = load i32, ptr %_b2, align 4
-  %cmp27 = icmp slt i32 %24, %25
+  %23 = load i32, ptr %packet_len, align 4
+  store i32 %23, ptr %_a1, align 4
+  %24 = load i32, ptr %max_packet_size, align 4
+  store i32 %24, ptr %_b2, align 4
+  %25 = load i32, ptr %_a1, align 4
+  %26 = load i32, ptr %_b2, align 4
+  %cmp27 = icmp slt i32 %25, %26
   br i1 %cmp27, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %while.body
-  %26 = load i32, ptr %_a1, align 4
+  %27 = load i32, ptr %_a1, align 4
   br label %cond.end
 
 cond.false:                                       ; preds = %while.body
-  %27 = load i32, ptr %_b2, align 4
+  %28 = load i32, ptr %_b2, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %26, %cond.true ], [ %27, %cond.false ]
+  %cond = phi i32 [ %27, %cond.true ], [ %28, %cond.false ]
   store i32 %cond, ptr %tmp, align 4
-  %28 = load i32, ptr %tmp, align 4
-  store i32 %28, ptr %len, align 4
-  %29 = load i32, ptr %len, align 4
-  %sub = sub i32 %29, 2
-  store i32 %sub, ptr %len, align 4
+  %29 = load i32, ptr %tmp, align 4
+  store i32 %29, ptr %len, align 4
   %30 = load i32, ptr %len, align 4
-  %31 = load ptr, ptr %s.addr, align 8
-  %recv_used29 = getelementptr inbounds %struct.USBSerialState, ptr %31, i32 0, i32 4
-  %32 = load i16, ptr %recv_used29, align 2
-  %conv30 = zext i16 %32 to i32
-  %cmp31 = icmp sgt i32 %30, %conv30
+  %sub = sub i32 %30, 2
+  store i32 %sub, ptr %len, align 4
+  %31 = load i32, ptr %len, align 4
+  %32 = load ptr, ptr %s.addr, align 8
+  %recv_used29 = getelementptr inbounds %struct.USBSerialState, ptr %32, i32 0, i32 4
+  %33 = load i16, ptr %recv_used29, align 2
+  %conv30 = zext i16 %33 to i32
+  %cmp31 = icmp sgt i32 %31, %conv30
   br i1 %cmp31, label %if.then33, label %if.end36
 
 if.then33:                                        ; preds = %cond.end
-  %33 = load ptr, ptr %s.addr, align 8
-  %recv_used34 = getelementptr inbounds %struct.USBSerialState, ptr %33, i32 0, i32 4
-  %34 = load i16, ptr %recv_used34, align 2
-  %conv35 = zext i16 %34 to i32
+  %34 = load ptr, ptr %s.addr, align 8
+  %recv_used34 = getelementptr inbounds %struct.USBSerialState, ptr %34, i32 0, i32 4
+  %35 = load i16, ptr %recv_used34, align 2
+  %conv35 = zext i16 %35 to i32
   store i32 %conv35, ptr %len, align 4
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then33, %cond.end
-  %35 = load ptr, ptr %s.addr, align 8
-  %recv_ptr = getelementptr inbounds %struct.USBSerialState, ptr %35, i32 0, i32 3
-  %36 = load i16, ptr %recv_ptr, align 8
-  %conv37 = zext i16 %36 to i32
+  %36 = load ptr, ptr %s.addr, align 8
+  %recv_ptr = getelementptr inbounds %struct.USBSerialState, ptr %36, i32 0, i32 3
+  %37 = load i16, ptr %recv_ptr, align 8
+  %conv37 = zext i16 %37 to i32
   %sub38 = sub i32 496, %conv37
   store i32 %sub38, ptr %first_len, align 4
-  %37 = load i32, ptr %first_len, align 4
-  %38 = load i32, ptr %len, align 4
-  %cmp39 = icmp sgt i32 %37, %38
+  %38 = load i32, ptr %first_len, align 4
+  %39 = load i32, ptr %len, align 4
+  %cmp39 = icmp sgt i32 %38, %39
   br i1 %cmp39, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end36
-  %39 = load i32, ptr %len, align 4
-  store i32 %39, ptr %first_len, align 4
+  %40 = load i32, ptr %len, align 4
+  store i32 %40, ptr %first_len, align 4
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %if.end36
-  %40 = load ptr, ptr %p.addr, align 8
-  %arraydecay43 = getelementptr inbounds [2 x i8], ptr %header, i64 0, i64 0
-  call void @usb_packet_copy(ptr noundef %40, ptr noundef %arraydecay43, i64 noundef 2)
   %41 = load ptr, ptr %p.addr, align 8
-  %42 = load ptr, ptr %s.addr, align 8
-  %recv_buf = getelementptr inbounds %struct.USBSerialState, ptr %42, i32 0, i32 2
-  %arraydecay44 = getelementptr inbounds [496 x i8], ptr %recv_buf, i64 0, i64 0
+  %arraydecay43 = getelementptr inbounds [2 x i8], ptr %header, i64 0, i64 0
+  call void @usb_packet_copy(ptr noundef %41, ptr noundef %arraydecay43, i64 noundef 2)
+  %42 = load ptr, ptr %p.addr, align 8
   %43 = load ptr, ptr %s.addr, align 8
-  %recv_ptr45 = getelementptr inbounds %struct.USBSerialState, ptr %43, i32 0, i32 3
-  %44 = load i16, ptr %recv_ptr45, align 8
-  %conv46 = zext i16 %44 to i32
+  %recv_buf = getelementptr inbounds %struct.USBSerialState, ptr %43, i32 0, i32 2
+  %arraydecay44 = getelementptr inbounds [496 x i8], ptr %recv_buf, i64 0, i64 0
+  %44 = load ptr, ptr %s.addr, align 8
+  %recv_ptr45 = getelementptr inbounds %struct.USBSerialState, ptr %44, i32 0, i32 3
+  %45 = load i16, ptr %recv_ptr45, align 8
+  %conv46 = zext i16 %45 to i32
   %idx.ext = sext i32 %conv46 to i64
   %add.ptr = getelementptr i8, ptr %arraydecay44, i64 %idx.ext
-  %45 = load i32, ptr %first_len, align 4
-  %conv47 = sext i32 %45 to i64
-  call void @usb_packet_copy(ptr noundef %41, ptr noundef %add.ptr, i64 noundef %conv47)
-  %46 = load i32, ptr %len, align 4
-  %47 = load i32, ptr %first_len, align 4
-  %cmp48 = icmp sgt i32 %46, %47
+  %46 = load i32, ptr %first_len, align 4
+  %conv47 = sext i32 %46 to i64
+  call void @usb_packet_copy(ptr noundef %42, ptr noundef %add.ptr, i64 noundef %conv47)
+  %47 = load i32, ptr %len, align 4
+  %48 = load i32, ptr %first_len, align 4
+  %cmp48 = icmp sgt i32 %47, %48
   br i1 %cmp48, label %if.then50, label %if.end55
 
 if.then50:                                        ; preds = %if.end42
-  %48 = load ptr, ptr %p.addr, align 8
-  %49 = load ptr, ptr %s.addr, align 8
-  %recv_buf51 = getelementptr inbounds %struct.USBSerialState, ptr %49, i32 0, i32 2
+  %49 = load ptr, ptr %p.addr, align 8
+  %50 = load ptr, ptr %s.addr, align 8
+  %recv_buf51 = getelementptr inbounds %struct.USBSerialState, ptr %50, i32 0, i32 2
   %arraydecay52 = getelementptr inbounds [496 x i8], ptr %recv_buf51, i64 0, i64 0
-  %50 = load i32, ptr %len, align 4
-  %51 = load i32, ptr %first_len, align 4
-  %sub53 = sub i32 %50, %51
+  %51 = load i32, ptr %len, align 4
+  %52 = load i32, ptr %first_len, align 4
+  %sub53 = sub i32 %51, %52
   %conv54 = sext i32 %sub53 to i64
-  call void @usb_packet_copy(ptr noundef %48, ptr noundef %arraydecay52, i64 noundef %conv54)
+  call void @usb_packet_copy(ptr noundef %49, ptr noundef %arraydecay52, i64 noundef %conv54)
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then50, %if.end42
-  %52 = load i32, ptr %len, align 4
-  %53 = load ptr, ptr %s.addr, align 8
-  %recv_used56 = getelementptr inbounds %struct.USBSerialState, ptr %53, i32 0, i32 4
-  %54 = load i16, ptr %recv_used56, align 2
-  %conv57 = zext i16 %54 to i32
-  %sub58 = sub i32 %conv57, %52
+  %53 = load i32, ptr %len, align 4
+  %54 = load ptr, ptr %s.addr, align 8
+  %recv_used56 = getelementptr inbounds %struct.USBSerialState, ptr %54, i32 0, i32 4
+  %55 = load i16, ptr %recv_used56, align 2
+  %conv57 = zext i16 %55 to i32
+  %sub58 = sub i32 %conv57, %53
   %conv59 = trunc i32 %sub58 to i16
   store i16 %conv59, ptr %recv_used56, align 2
-  %55 = load ptr, ptr %s.addr, align 8
-  %recv_ptr60 = getelementptr inbounds %struct.USBSerialState, ptr %55, i32 0, i32 3
-  %56 = load i16, ptr %recv_ptr60, align 8
-  %conv61 = zext i16 %56 to i32
-  %57 = load i32, ptr %len, align 4
-  %add = add i32 %conv61, %57
+  %56 = load ptr, ptr %s.addr, align 8
+  %recv_ptr60 = getelementptr inbounds %struct.USBSerialState, ptr %56, i32 0, i32 3
+  %57 = load i16, ptr %recv_ptr60, align 8
+  %conv61 = zext i16 %57 to i32
+  %58 = load i32, ptr %len, align 4
+  %add = add i32 %conv61, %58
   %rem = srem i32 %add, 496
   %conv62 = trunc i32 %rem to i16
-  %58 = load ptr, ptr %s.addr, align 8
-  %recv_ptr63 = getelementptr inbounds %struct.USBSerialState, ptr %58, i32 0, i32 3
+  %59 = load ptr, ptr %s.addr, align 8
+  %recv_ptr63 = getelementptr inbounds %struct.USBSerialState, ptr %59, i32 0, i32 3
   store i16 %conv62, ptr %recv_ptr63, align 8
-  %59 = load i32, ptr %len, align 4
-  %add64 = add i32 %59, 2
-  %60 = load i32, ptr %packet_len, align 4
-  %sub65 = sub i32 %60, %add64
+  %60 = load i32, ptr %len, align 4
+  %add64 = add i32 %60, 2
+  %61 = load i32, ptr %packet_len, align 4
+  %sub65 = sub i32 %61, %add64
   store i32 %sub65, ptr %packet_len, align 4
   br label %while.cond, !llvm.loop !7
 

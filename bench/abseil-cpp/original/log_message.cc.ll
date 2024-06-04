@@ -4122,14 +4122,16 @@ terminate.lpad:                                   ; preds = %invoke.cont5, %invo
 define dso_local void @_ZN4absl12log_internal10LogMessage21FailWithoutStackTraceEv() #9 align 2 {
 entry:
   %call = call noundef zeroext i1 @_ZN4absl12log_internal24SetSuppressSigabortTraceEb(i1 noundef zeroext true)
-  br i1 icmp ne (ptr @__gcov_dump, ptr null), label %if.then, label %if.else
+  %0 = icmp ne ptr @__gcov_dump, null
+  br i1 %0, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   call void @__gcov_dump()
   br label %if.end2
 
 if.else:                                          ; preds = %entry
-  br i1 icmp ne (ptr @__gcov_flush, ptr null), label %if.then1, label %if.end
+  %1 = icmp ne ptr @__gcov_flush, null
+  br i1 %1, label %if.then1, label %if.end
 
 if.then1:                                         ; preds = %if.else
   call void @__gcov_flush()
@@ -4860,14 +4862,15 @@ entry:
   store ptr %message_data, ptr %message_data.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4absl12log_internal10LogMessage11OstreamViewE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN4absl12log_internal10LogMessage11OstreamViewE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.absl::log_internal::LogMessage::OstreamView", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %message_data.addr, align 8
-  store ptr %0, ptr %data_, align 8
+  %1 = load ptr, ptr %message_data.addr, align 8
+  store ptr %1, ptr %data_, align 8
   %encoded_remaining_copy_ = getelementptr inbounds %"class.absl::log_internal::LogMessage::OstreamView", ptr %this1, i32 0, i32 2
   %data_2 = getelementptr inbounds %"class.absl::log_internal::LogMessage::OstreamView", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %data_2, align 8
-  %encoded_remaining = getelementptr inbounds %"struct.absl::log_internal::LogMessage::LogMessageData", ptr %1, i32 0, i32 8
+  %2 = load ptr, ptr %data_2, align 8
+  %encoded_remaining = getelementptr inbounds %"struct.absl::log_internal::LogMessage::LogMessageData", ptr %2, i32 0, i32 8
   call void @_ZN4absl4SpanIcEC2IS1_vS1_TnNSt9enable_ifIXsr6IsViewIT_EE5valueEiE4typeELi0EEERS4_(ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining_copy_, ptr noundef nonnull align 8 dereferenceable(16) %encoded_remaining) #17
   %message_start_ = getelementptr inbounds %"class.absl::log_internal::LogMessage::OstreamView", ptr %this1, i32 0, i32 3
   call void @_ZN4absl4SpanIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %message_start_) #17
@@ -4880,12 +4883,12 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 0
-  %3 = extractvalue { ptr, i64 } %call5, 0
-  store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 1
-  %5 = extractvalue { ptr, i64 } %call5, 1
-  store i64 %5, ptr %4, align 8
+  %3 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 0
+  %4 = extractvalue { ptr, i64 } %call5, 0
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i32 0, i32 1
+  %6 = extractvalue { ptr, i64 } %call5, 1
+  store i64 %6, ptr %5, align 8
   %message_start_6 = getelementptr inbounds %"class.absl::log_internal::LogMessage::OstreamView", ptr %this1, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %message_start_6, ptr align 8 %ref.tmp, i64 16, i1 false)
   %encoded_remaining_copy_8 = getelementptr inbounds %"class.absl::log_internal::LogMessage::OstreamView", ptr %this1, i32 0, i32 2
@@ -4895,12 +4898,12 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp7, i32 0, i32 0
-  %7 = extractvalue { ptr, i64 } %call12, 0
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp7, i32 0, i32 1
-  %9 = extractvalue { ptr, i64 } %call12, 1
-  store i64 %9, ptr %8, align 8
+  %7 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp7, i32 0, i32 0
+  %8 = extractvalue { ptr, i64 } %call12, 0
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp7, i32 0, i32 1
+  %10 = extractvalue { ptr, i64 } %call12, 1
+  store i64 %10, ptr %9, align 8
   %string_start_13 = getelementptr inbounds %"class.absl::log_internal::LogMessage::OstreamView", ptr %this1, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %string_start_13, ptr align 8 %ref.tmp7, i64 16, i1 false)
   %encoded_remaining_copy_14 = getelementptr inbounds %"class.absl::log_internal::LogMessage::OstreamView", ptr %this1, i32 0, i32 2
@@ -4915,8 +4918,8 @@ invoke.cont11:                                    ; preds = %invoke.cont
 
 invoke.cont20:                                    ; preds = %invoke.cont11
   %data_21 = getelementptr inbounds %"class.absl::log_internal::LogMessage::OstreamView", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %data_21, align 8
-  %manipulated = getelementptr inbounds %"struct.absl::log_internal::LogMessage::LogMessageData", ptr %10, i32 0, i32 6
+  %11 = load ptr, ptr %data_21, align 8
+  %manipulated = getelementptr inbounds %"struct.absl::log_internal::LogMessage::LogMessageData", ptr %11, i32 0, i32 6
   %vtable = load ptr, ptr %manipulated, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -4928,12 +4931,12 @@ invoke.cont23:                                    ; preds = %invoke.cont20
   ret void
 
 lpad:                                             ; preds = %invoke.cont20, %invoke.cont11, %invoke.cont, %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #17
   br label %eh.resume
 

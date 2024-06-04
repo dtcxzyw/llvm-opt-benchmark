@@ -25,51 +25,52 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef zeroext i1 @tfp410_init(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
-  %4 = tail call noalias noundef align 8 dereferenceable_or_null(1) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 1) #6
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %24, label %6
+  %3 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(1) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 1) #6
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %25, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %4, ptr %8, align 8
-  store i8 1, ptr %4, align 8
-  %9 = tail call fastcc i32 @tfp410_getid(ptr noundef %0, i32 noundef 0), !range !5
-  %10 = icmp eq i32 %9, 332
-  br i1 %10, label %15, label %11
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %1, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %5, ptr %9, align 8
+  store i8 1, ptr %5, align 8
+  %10 = tail call fastcc i32 @tfp410_getid(ptr noundef %0, i32 noundef 0), !range !5
+  %11 = icmp eq i32 %10, 332
+  br i1 %11, label %16, label %12
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 852
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
-  %14 = load i32, ptr %13, align 4
-  tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %9, ptr noundef %12, i32 noundef %14) #7
-  br label %23
-
-15:                                               ; preds = %6
-  %16 = tail call fastcc i32 @tfp410_getid(ptr noundef %0, i32 noundef 2), !range !5
-  %17 = icmp eq i32 %16, 1040
-  br i1 %17, label %22, label %18
-
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 852
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
-  %21 = load i32, ptr %20, align 4
-  tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef %16, ptr noundef %19, i32 noundef %21) #7
-  br label %23
-
-22:                                               ; preds = %15
-  store i8 0, ptr %4, align 8
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %1, i64 852
+  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = load i32, ptr %14, align 4
+  tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %10, ptr noundef %13, i32 noundef %15) #7
   br label %24
 
-23:                                               ; preds = %18, %11
-  tail call void @kfree(ptr noundef nonnull %4) #7
+16:                                               ; preds = %7
+  %17 = tail call fastcc i32 @tfp410_getid(ptr noundef %0, i32 noundef 2), !range !5
+  %18 = icmp eq i32 %17, 1040
+  br i1 %18, label %23, label %19
+
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %1, i64 852
+  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = load i32, ptr %21, align 4
+  tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef %17, ptr noundef %20, i32 noundef %22) #7
   br label %24
 
-24:                                               ; preds = %23, %22, %2
-  %25 = phi i1 [ false, %23 ], [ true, %22 ], [ false, %2 ]
-  ret i1 %25
+23:                                               ; preds = %16
+  store i8 0, ptr %5, align 8
+  br label %25
+
+24:                                               ; preds = %19, %12
+  tail call void @kfree(ptr noundef nonnull %5) #7
+  br label %25
+
+25:                                               ; preds = %24, %23, %2
+  %26 = phi i1 [ false, %24 ], [ true, %23 ], [ false, %2 ]
+  ret i1 %26
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

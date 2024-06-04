@@ -2826,17 +2826,18 @@ define void @validateFileOpened(i32 noundef %0, ptr noundef %1, ptr noundef %2) 
   store ptr %2, ptr %6, align 8
   %7 = load i32, ptr %4, align 4
   %8 = icmp ne i32 %7, 0
-  br i1 %8, label %14, label %9
+  br i1 %8, label %15, label %9
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr getelementptr inbounds ([92 x ptr], ptr @errorMessages, i64 0, i64 29), align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef @errMsgBuffer, ptr noundef %10, ptr noundef %11) #6
-  %13 = load ptr, ptr %6, align 8
-  call void @invalidQuESTInputError(ptr noundef @errMsgBuffer, ptr noundef %13)
-  br label %14
+  %10 = getelementptr inbounds [92 x ptr], ptr @errorMessages, i64 0, i64 29
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef @errMsgBuffer, ptr noundef %11, ptr noundef %12) #6
+  %14 = load ptr, ptr %6, align 8
+  call void @invalidQuESTInputError(ptr noundef @errMsgBuffer, ptr noundef %14)
+  br label %15
 
-14:                                               ; preds = %9, %3
+15:                                               ; preds = %9, %3
   ret void
 }
 
@@ -3387,19 +3388,20 @@ define void @validateHamilFileParams(i32 noundef %0, i32 noundef %1, ptr noundef
 13:                                               ; preds = %5
   %14 = load i32, ptr %7, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %23, label %16
+  br i1 %15, label %24, label %16
 
 16:                                               ; preds = %13, %5
   %17 = load ptr, ptr %8, align 8
   %18 = call i32 @fclose(ptr noundef %17)
-  %19 = load ptr, ptr getelementptr inbounds ([92 x ptr], ptr @errorMessages, i64 0, i64 59), align 8
-  %20 = load ptr, ptr %9, align 8
-  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef @errMsgBuffer, ptr noundef %19, ptr noundef %20) #6
-  %22 = load ptr, ptr %10, align 8
-  call void @invalidQuESTInputError(ptr noundef @errMsgBuffer, ptr noundef %22)
-  br label %23
+  %19 = getelementptr inbounds [92 x ptr], ptr @errorMessages, i64 0, i64 59
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %9, align 8
+  %22 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef @errMsgBuffer, ptr noundef %20, ptr noundef %21) #6
+  %23 = load ptr, ptr %10, align 8
+  call void @invalidQuESTInputError(ptr noundef @errMsgBuffer, ptr noundef %23)
+  br label %24
 
-23:                                               ; preds = %16, %13
+24:                                               ; preds = %16, %13
   ret void
 }
 
@@ -3417,20 +3419,21 @@ define void @validateHamilFileCoeffParsed(i32 noundef %0, ptr noundef byval(%str
   store ptr %4, ptr %9, align 8
   %10 = load i32, ptr %6, align 4
   %11 = icmp ne i32 %10, 0
-  br i1 %11, label %19, label %12
+  br i1 %11, label %20, label %12
 
 12:                                               ; preds = %5
   call void @destroyPauliHamil(ptr noundef byval(%struct.PauliHamil) align 8 %1)
   %13 = load ptr, ptr %7, align 8
   %14 = call i32 @fclose(ptr noundef %13)
-  %15 = load ptr, ptr getelementptr inbounds ([92 x ptr], ptr @errorMessages, i64 0, i64 60), align 16
-  %16 = load ptr, ptr %8, align 8
-  %17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef @errMsgBuffer, ptr noundef %15, ptr noundef %16) #6
-  %18 = load ptr, ptr %9, align 8
-  call void @invalidQuESTInputError(ptr noundef @errMsgBuffer, ptr noundef %18)
-  br label %19
+  %15 = getelementptr inbounds [92 x ptr], ptr @errorMessages, i64 0, i64 60
+  %16 = load ptr, ptr %15, align 16
+  %17 = load ptr, ptr %8, align 8
+  %18 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef @errMsgBuffer, ptr noundef %16, ptr noundef %17) #6
+  %19 = load ptr, ptr %9, align 8
+  call void @invalidQuESTInputError(ptr noundef @errMsgBuffer, ptr noundef %19)
+  br label %20
 
-19:                                               ; preds = %12, %5
+20:                                               ; preds = %12, %5
   ret void
 }
 
@@ -3448,20 +3451,21 @@ define void @validateHamilFilePauliParsed(i32 noundef %0, ptr noundef byval(%str
   store ptr %4, ptr %9, align 8
   %10 = load i32, ptr %6, align 4
   %11 = icmp ne i32 %10, 0
-  br i1 %11, label %19, label %12
+  br i1 %11, label %20, label %12
 
 12:                                               ; preds = %5
   call void @destroyPauliHamil(ptr noundef byval(%struct.PauliHamil) align 8 %1)
   %13 = load ptr, ptr %7, align 8
   %14 = call i32 @fclose(ptr noundef %13)
-  %15 = load ptr, ptr getelementptr inbounds ([92 x ptr], ptr @errorMessages, i64 0, i64 61), align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef @errMsgBuffer, ptr noundef %15, ptr noundef %16) #6
-  %18 = load ptr, ptr %9, align 8
-  call void @invalidQuESTInputError(ptr noundef @errMsgBuffer, ptr noundef %18)
-  br label %19
+  %15 = getelementptr inbounds [92 x ptr], ptr @errorMessages, i64 0, i64 61
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef @errMsgBuffer, ptr noundef %16, ptr noundef %17) #6
+  %19 = load ptr, ptr %9, align 8
+  call void @invalidQuESTInputError(ptr noundef @errMsgBuffer, ptr noundef %19)
+  br label %20
 
-19:                                               ; preds = %12, %5
+20:                                               ; preds = %12, %5
   ret void
 }
 
@@ -3478,21 +3482,22 @@ define void @validateHamilFilePauliCode(i32 noundef %0, ptr noundef byval(%struc
   %10 = load i32, ptr %6, align 4
   %11 = call i32 @isValidPauliCode(i32 noundef %10)
   %12 = icmp ne i32 %11, 0
-  br i1 %12, label %21, label %13
+  br i1 %12, label %22, label %13
 
 13:                                               ; preds = %5
   call void @destroyPauliHamil(ptr noundef byval(%struct.PauliHamil) align 8 %1)
   %14 = load ptr, ptr %7, align 8
   %15 = call i32 @fclose(ptr noundef %14)
-  %16 = load ptr, ptr getelementptr inbounds ([92 x ptr], ptr @errorMessages, i64 0, i64 62), align 16
-  %17 = load ptr, ptr %8, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef @errMsgBuffer, ptr noundef %16, ptr noundef %17, i32 noundef %18) #6
-  %20 = load ptr, ptr %9, align 8
-  call void @invalidQuESTInputError(ptr noundef @errMsgBuffer, ptr noundef %20)
-  br label %21
+  %16 = getelementptr inbounds [92 x ptr], ptr @errorMessages, i64 0, i64 62
+  %17 = load ptr, ptr %16, align 16
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef @errMsgBuffer, ptr noundef %17, ptr noundef %18, i32 noundef %19) #6
+  %21 = load ptr, ptr %9, align 8
+  call void @invalidQuESTInputError(ptr noundef @errMsgBuffer, ptr noundef %21)
+  br label %22
 
-21:                                               ; preds = %13, %5
+22:                                               ; preds = %13, %5
   ret void
 }
 
@@ -5372,9 +5377,10 @@ define void @validateDiagonalOpGPUAllocation(ptr noundef %0, ptr noundef byval(%
 define void @raiseQASMBufferOverflow(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds ([92 x ptr], ptr @errorMessages, i64 0, i64 91), align 8
-  %4 = load ptr, ptr %2, align 8
-  call void @invalidQuESTInputError(ptr noundef %3, ptr noundef %4)
+  %3 = getelementptr inbounds [92 x ptr], ptr @errorMessages, i64 0, i64 91
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  call void @invalidQuESTInputError(ptr noundef %4, ptr noundef %5)
   ret void
 }
 

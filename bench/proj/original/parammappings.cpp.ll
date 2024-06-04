@@ -764,12 +764,16 @@ $_ZNKSt12__shared_ptrIN5osgeo4proj9operation18OperationParameterELN9__gnu_cxx12_
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
   store ptr @.str.11, ptr @_ZN5osgeo4proj9operation22paramLatitudeNatOriginE, align 8
-  store i32 8801, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operation22paramLatitudeNatOriginE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_ORIGINE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operation22paramLatitudeNatOriginE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operation22paramLatitudeNatOriginE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operation22paramLatitudeNatOriginE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operation22paramLatitudeNatOriginE, i32 0, i32 1
+  store i32 8801, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_ORIGINE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operation22paramLatitudeNatOriginE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operation22paramLatitudeNatOriginE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operation22paramLatitudeNatOriginE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
@@ -820,46 +824,47 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef %0
   store i32 %0, ptr %3, align 4
   store ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, ptr %4, align 8
   store ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, ptr %5, align 8
-  store ptr getelementptr inbounds (%"struct.osgeo::proj::operation::MethodMapping", ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 96), ptr %6, align 8
-  br label %8
+  %8 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 96
+  store ptr %8, ptr %6, align 8
+  br label %9
 
-8:                                                ; preds = %22, %1
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = icmp ne ptr %9, %10
-  br i1 %11, label %12, label %25
+9:                                                ; preds = %23, %1
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = icmp ne ptr %10, %11
+  br i1 %12, label %13, label %26
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %7, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %14, i32 0, i32 1
-  %16 = load i32, ptr %15, align 8
-  %17 = load i32, ptr %3, align 4
-  %18 = icmp eq i32 %16, %17
-  br i1 %18, label %19, label %21
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %5, align 8
+  store ptr %14, ptr %7, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 8
+  %18 = load i32, ptr %3, align 4
+  %19 = icmp eq i32 %17, %18
+  br i1 %19, label %20, label %22
 
-19:                                               ; preds = %12
-  %20 = load ptr, ptr %7, align 8
-  store ptr %20, ptr %2, align 8
-  br label %26
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %7, align 8
+  store ptr %21, ptr %2, align 8
+  br label %27
 
-21:                                               ; preds = %12
-  br label %22
+22:                                               ; preds = %13
+  br label %23
 
-22:                                               ; preds = %21
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %23, i32 1
-  store ptr %24, ptr %5, align 8
-  br label %8
+23:                                               ; preds = %22
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %24, i32 1
+  store ptr %25, ptr %5, align 8
+  br label %9
 
-25:                                               ; preds = %8
+26:                                               ; preds = %9
   store ptr null, ptr %2, align 8
-  br label %26
+  br label %27
 
-26:                                               ; preds = %25, %19
-  %27 = load ptr, ptr %2, align 8
-  ret ptr %27
+27:                                               ; preds = %26, %20
+  %28 = load ptr, ptr %2, align 8
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -881,60 +886,61 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_15Operatio
   store i32 %13, ptr %5, align 4
   store ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, ptr %6, align 8
   store ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, ptr %7, align 8
-  store ptr getelementptr inbounds (%"struct.osgeo::proj::operation::MethodMapping", ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 96), ptr %8, align 8
-  br label %14
+  %14 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 96
+  store ptr %14, ptr %8, align 8
+  br label %15
 
-14:                                               ; preds = %38, %1
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = icmp ne ptr %15, %16
-  br i1 %17, label %18, label %41
+15:                                               ; preds = %39, %1
+  %16 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = icmp ne ptr %16, %17
+  br i1 %18, label %19, label %42
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %9, align 8
-  %20 = load i32, ptr %5, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %22, label %28
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  store ptr %20, ptr %9, align 8
+  %21 = load i32, ptr %5, align 4
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %29
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %23, i32 0, i32 1
-  %25 = load i32, ptr %24, align 8
-  %26 = load i32, ptr %5, align 4
-  %27 = icmp eq i32 %25, %26
-  br i1 %27, label %35, label %28
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %9, align 8
+  %25 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %24, i32 0, i32 1
+  %26 = load i32, ptr %25, align 8
+  %27 = load i32, ptr %5, align 4
+  %28 = icmp eq i32 %26, %27
+  br i1 %28, label %36, label %29
 
-28:                                               ; preds = %22, %18
-  %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #12
-  %34 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %31, ptr noundef %33) #12
-  br i1 %34, label %35, label %37
+29:                                               ; preds = %23, %19
+  %30 = load ptr, ptr %9, align 8
+  %31 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %4, align 8
+  %34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %33) #12
+  %35 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %32, ptr noundef %34) #12
+  br i1 %35, label %36, label %38
 
-35:                                               ; preds = %28, %22
-  %36 = load ptr, ptr %9, align 8
-  store ptr %36, ptr %2, align 8
-  br label %42
+36:                                               ; preds = %29, %23
+  %37 = load ptr, ptr %9, align 8
+  store ptr %37, ptr %2, align 8
+  br label %43
 
-37:                                               ; preds = %28
-  br label %38
+38:                                               ; preds = %29
+  br label %39
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %39, i32 1
-  store ptr %40, ptr %7, align 8
-  br label %14
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %7, align 8
+  %41 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %40, i32 1
+  store ptr %41, ptr %7, align 8
+  br label %15
 
-41:                                               ; preds = %14
+42:                                               ; preds = %15
   store ptr null, ptr %2, align 8
-  br label %42
+  br label %43
 
-42:                                               ; preds = %41, %35
-  %43 = load ptr, ptr %2, align 8
-  ret ptr %43
+43:                                               ; preds = %42, %36
+  %44 = load ptr, ptr %2, align 8
+  ret ptr %44
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -963,7 +969,7 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation18getMappingFromWKT1ERKNSt7__
   %10 = load ptr, ptr %3, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %11 unwind label %42
+          to label %11 unwind label %43
 
 11:                                               ; preds = %1
   %12 = call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %4) #12
@@ -974,65 +980,66 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation18getMappingFromWKT1ERKNSt7__
 13:                                               ; preds = %11
   %14 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9807) #12
   store ptr %14, ptr %2, align 8
-  br label %40
+  br label %41
 
 15:                                               ; preds = %11
   store ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, ptr %6, align 8
   store ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, ptr %7, align 8
-  store ptr getelementptr inbounds (%"struct.osgeo::proj::operation::MethodMapping", ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 96), ptr %8, align 8
-  br label %16
+  %16 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 96
+  store ptr %16, ptr %8, align 8
+  br label %17
 
-16:                                               ; preds = %36, %15
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = icmp ne ptr %17, %18
-  br i1 %19, label %20, label %39
+17:                                               ; preds = %37, %15
+  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = icmp ne ptr %18, %19
+  br i1 %20, label %21, label %40
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %7, align 8
-  store ptr %21, ptr %9, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %22, i32 0, i32 2
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %35
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %7, align 8
+  store ptr %22, ptr %9, align 8
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %36
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %27, i32 0, i32 2
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #12
-  %32 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %29, ptr noundef %31) #12
-  br i1 %32, label %33, label %35
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %9, align 8
+  %29 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %3, align 8
+  %32 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #12
+  %33 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %30, ptr noundef %32) #12
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %26
-  %34 = load ptr, ptr %9, align 8
-  store ptr %34, ptr %2, align 8
-  br label %40
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %9, align 8
+  store ptr %35, ptr %2, align 8
+  br label %41
 
-35:                                               ; preds = %26, %20
-  br label %36
+36:                                               ; preds = %27, %21
+  br label %37
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %37, i32 1
-  store ptr %38, ptr %7, align 8
-  br label %16
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %7, align 8
+  %39 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %38, i32 1
+  store ptr %39, ptr %7, align 8
+  br label %17
 
-39:                                               ; preds = %16
+40:                                               ; preds = %17
   store ptr null, ptr %2, align 8
-  br label %40
+  br label %41
 
-40:                                               ; preds = %39, %33, %13
-  %41 = load ptr, ptr %2, align 8
-  ret ptr %41
+41:                                               ; preds = %40, %34, %13
+  %42 = load ptr, ptr %2, align 8
+  ret ptr %42
 
-42:                                               ; preds = %1
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %1
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #13
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #13
   unreachable
 }
 
@@ -1078,82 +1085,84 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef 
   store ptr %0, ptr %3, align 8
   store ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, ptr %4, align 8
   store ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, ptr %5, align 8
-  store ptr getelementptr inbounds (%"struct.osgeo::proj::operation::MethodMapping", ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 96), ptr %6, align 8
-  br label %12
+  %12 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 96
+  store ptr %12, ptr %6, align 8
+  br label %13
 
-12:                                               ; preds = %26, %1
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = icmp ne ptr %13, %14
-  br i1 %15, label %16, label %29
+13:                                               ; preds = %27, %1
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %6, align 8
+  %16 = icmp ne ptr %14, %15
+  br i1 %16, label %17, label %30
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %5, align 8
-  store ptr %17, ptr %7, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %20, ptr noundef %21) #12
-  br i1 %22, label %23, label %25
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8
+  store ptr %18, ptr %7, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %21, ptr noundef %22) #12
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %7, align 8
-  store ptr %24, ptr %2, align 8
-  br label %48
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %7, align 8
+  store ptr %25, ptr %2, align 8
+  br label %50
 
-25:                                               ; preds = %16
-  br label %26
+26:                                               ; preds = %17
+  br label %27
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %27, i32 1
-  store ptr %28, ptr %5, align 8
-  br label %12
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %28, i32 1
+  store ptr %29, ptr %5, align 8
+  br label %13
 
-29:                                               ; preds = %12
+30:                                               ; preds = %13
   store ptr @_ZN5osgeo4proj9operationL19otherMethodMappingsE, ptr %8, align 8
   store ptr @_ZN5osgeo4proj9operationL19otherMethodMappingsE, ptr %9, align 8
-  store ptr getelementptr inbounds (%"struct.osgeo::proj::operation::MethodMapping", ptr @_ZN5osgeo4proj9operationL19otherMethodMappingsE, i64 50), ptr %10, align 8
-  br label %30
+  %31 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr @_ZN5osgeo4proj9operationL19otherMethodMappingsE, i64 50
+  store ptr %31, ptr %10, align 8
+  br label %32
 
-30:                                               ; preds = %44, %29
-  %31 = load ptr, ptr %9, align 8
-  %32 = load ptr, ptr %10, align 8
-  %33 = icmp ne ptr %31, %32
-  br i1 %33, label %34, label %47
+32:                                               ; preds = %46, %30
+  %33 = load ptr, ptr %9, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = icmp ne ptr %33, %34
+  br i1 %35, label %36, label %49
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %9, align 8
-  store ptr %35, ptr %11, align 8
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %3, align 8
-  %40 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %38, ptr noundef %39) #12
-  br i1 %40, label %41, label %43
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %9, align 8
+  store ptr %37, ptr %11, align 8
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %3, align 8
+  %42 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %40, ptr noundef %41) #12
+  br i1 %42, label %43, label %45
 
-41:                                               ; preds = %34
-  %42 = load ptr, ptr %11, align 8
-  store ptr %42, ptr %2, align 8
-  br label %48
+43:                                               ; preds = %36
+  %44 = load ptr, ptr %11, align 8
+  store ptr %44, ptr %2, align 8
+  br label %50
 
-43:                                               ; preds = %34
-  br label %44
+45:                                               ; preds = %36
+  br label %46
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %45, i32 1
-  store ptr %46, ptr %9, align 8
-  br label %30
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %9, align 8
+  %48 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %47, i32 1
+  store ptr %48, ptr %9, align 8
+  br label %32
 
-47:                                               ; preds = %30
+49:                                               ; preds = %32
   store ptr null, ptr %2, align 8
-  br label %48
+  br label %50
 
-48:                                               ; preds = %47, %41, %23
-  %49 = load ptr, ptr %2, align 8
-  ret ptr %49
+50:                                               ; preds = %49, %43, %24
+  %51 = load ptr, ptr %2, align 8
+  ret ptr %51
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1174,81 +1183,82 @@ define hidden void @_ZN5osgeo4proj9operation23getMappingsFromPROJNameERKNSt7__cx
   call void @_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
   store ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, ptr %6, align 8
   store ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, ptr %7, align 8
-  store ptr getelementptr inbounds (%"struct.osgeo::proj::operation::MethodMapping", ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 96), ptr %8, align 8
-  br label %13
+  %13 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 96
+  store ptr %13, ptr %8, align 8
+  br label %14
 
-13:                                               ; preds = %38, %2
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = icmp ne ptr %14, %15
-  br i1 %16, label %17, label %41
+14:                                               ; preds = %39, %2
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = icmp ne ptr %15, %16
+  br i1 %17, label %18, label %42
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %7, align 8
-  store ptr %18, ptr %9, align 8
-  %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %19, i32 0, i32 3
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %37
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  store ptr %19, ptr %9, align 8
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %38
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %4, align 8
-  %25 = load ptr, ptr %9, align 8
-  %26 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %25, i32 0, i32 3
-  %27 = load ptr, ptr %26, align 8
-  %28 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef %27)
-          to label %29 unwind label %33
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %4, align 8
+  %26 = load ptr, ptr %9, align 8
+  %27 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %26, i32 0, i32 3
+  %28 = load ptr, ptr %27, align 8
+  %29 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef %28)
+          to label %30 unwind label %34
 
-29:                                               ; preds = %23
-  br i1 %28, label %30, label %37
+30:                                               ; preds = %24
+  br i1 %29, label %31, label %38
 
-30:                                               ; preds = %29
-  %31 = load ptr, ptr %9, align 8
-  store ptr %31, ptr %12, align 8
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %9, align 8
+  store ptr %32, ptr %12, align 8
   invoke void @_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %32 unwind label %33
+          to label %33 unwind label %34
 
-32:                                               ; preds = %30
-  br label %37
+33:                                               ; preds = %31
+  br label %38
 
-33:                                               ; preds = %30, %23
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %31, %24
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %10, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %11, align 4
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %10, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %11, align 4
+  call void @_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  br label %46
+
+38:                                               ; preds = %33, %30, %18
+  br label %39
+
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %7, align 8
+  %41 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %40, i32 1
+  store ptr %41, ptr %7, align 8
+  br label %14
+
+42:                                               ; preds = %14
+  store i1 true, ptr %5, align 1
+  %43 = load i1, ptr %5, align 1
+  br i1 %43, label %45, label %44
+
+44:                                               ; preds = %42
   call void @_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
   br label %45
 
-37:                                               ; preds = %32, %29, %17
-  br label %38
-
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodMapping", ptr %39, i32 1
-  store ptr %40, ptr %7, align 8
-  br label %13
-
-41:                                               ; preds = %13
-  store i1 true, ptr %5, align 1
-  %42 = load i1, ptr %5, align 1
-  br i1 %42, label %44, label %43
-
-43:                                               ; preds = %41
-  call void @_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  br label %44
-
-44:                                               ; preds = %43, %41
+45:                                               ; preds = %44, %42
   ret void
 
-45:                                               ; preds = %33
-  %46 = load ptr, ptr %10, align 8
-  %47 = load i32, ptr %11, align 4
-  %48 = insertvalue { ptr, i32 } poison, ptr %46, 0
-  %49 = insertvalue { ptr, i32 } %48, i32 %47, 1
-  resume { ptr, i32 } %49
+46:                                               ; preds = %34
+  %47 = load ptr, ptr %10, align 8
+  %48 = load i32, ptr %11, align 4
+  %49 = insertvalue { ptr, i32 } poison, ptr %47, 0
+  %50 = insertvalue { ptr, i32 } %49, i32 %48, 1
+  resume { ptr, i32 } %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1724,538 +1734,722 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation18getMappingFromWKT1EPKNS1_13
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.249() #0 section ".text.startup" {
   store ptr @.str.248, ptr @_ZN5osgeo4proj9operationL23paramLongitudeNatOriginE, align 8
-  store i32 8802, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLongitudeNatOriginE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation21WKT1_CENTRAL_MERIDIANE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLongitudeNatOriginE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLongitudeNatOriginE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLongitudeNatOriginE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLongitudeNatOriginE, i32 0, i32 1
+  store i32 8802, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation21WKT1_CENTRAL_MERIDIANE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLongitudeNatOriginE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLongitudeNatOriginE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLongitudeNatOriginE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.252() #0 section ".text.startup" {
   store ptr @.str.251, ptr @_ZN5osgeo4proj9operationL17paramScaleFactorKE, align 8
-  store i32 8805, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramScaleFactorKE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation17WKT1_SCALE_FACTORE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramScaleFactorKE, i32 0, i32 2), align 8
-  store i32 4, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramScaleFactorKE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL1kE, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramScaleFactorKE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramScaleFactorKE, i32 0, i32 1
+  store i32 8805, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation17WKT1_SCALE_FACTORE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramScaleFactorKE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramScaleFactorKE, i32 0, i32 3
+  store i32 4, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL1kE, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramScaleFactorKE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.255() #0 section ".text.startup" {
   store ptr @.str.254, ptr @_ZN5osgeo4proj9operationL17paramFalseEastingE, align 8
-  store i32 8806, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramFalseEastingE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation18WKT1_FALSE_EASTINGE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramFalseEastingE, i32 0, i32 2), align 8
-  store i32 3, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramFalseEastingE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL3x_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramFalseEastingE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramFalseEastingE, i32 0, i32 1
+  store i32 8806, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation18WKT1_FALSE_EASTINGE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramFalseEastingE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramFalseEastingE, i32 0, i32 3
+  store i32 3, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL3x_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL17paramFalseEastingE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.258() #0 section ".text.startup" {
   store ptr @.str.257, ptr @_ZN5osgeo4proj9operationL18paramFalseNorthingE, align 8
-  store i32 8807, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramFalseNorthingE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation19WKT1_FALSE_NORTHINGE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramFalseNorthingE, i32 0, i32 2), align 8
-  store i32 3, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramFalseNorthingE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL3y_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramFalseNorthingE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramFalseNorthingE, i32 0, i32 1
+  store i32 8807, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation19WKT1_FALSE_NORTHINGE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramFalseNorthingE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramFalseNorthingE, i32 0, i32 3
+  store i32 3, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL3y_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramFalseNorthingE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.262() #0 section ".text.startup" {
   store ptr @.str.260, ptr @_ZN5osgeo4proj9operationL18paramLatFirstPointE, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatFirstPointE, i32 0, i32 1), align 8
-  store ptr @.str.261, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatFirstPointE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatFirstPointE, i32 0, i32 3), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_1E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatFirstPointE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatFirstPointE, i32 0, i32 1
+  store i32 0, ptr %1, align 8
+  %2 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatFirstPointE, i32 0, i32 2
+  store ptr @.str.261, ptr %2, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatFirstPointE, i32 0, i32 3
+  store i32 2, ptr %3, align 8
+  %4 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_1E, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatFirstPointE, i32 0, i32 4
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.266() #0 section ".text.startup" {
   store ptr @.str.264, ptr @_ZN5osgeo4proj9operationL19paramLongFirstPointE, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongFirstPointE, i32 0, i32 1), align 8
-  store ptr @.str.265, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongFirstPointE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongFirstPointE, i32 0, i32 3), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_1E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongFirstPointE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongFirstPointE, i32 0, i32 1
+  store i32 0, ptr %1, align 8
+  %2 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongFirstPointE, i32 0, i32 2
+  store ptr @.str.265, ptr %2, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongFirstPointE, i32 0, i32 3
+  store i32 2, ptr %3, align 8
+  %4 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_1E, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongFirstPointE, i32 0, i32 4
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.270() #0 section ".text.startup" {
   store ptr @.str.268, ptr @_ZN5osgeo4proj9operationL19paramLatSecondPointE, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatSecondPointE, i32 0, i32 1), align 8
-  store ptr @.str.269, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatSecondPointE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatSecondPointE, i32 0, i32 3), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_2E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatSecondPointE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatSecondPointE, i32 0, i32 1
+  store i32 0, ptr %1, align 8
+  %2 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatSecondPointE, i32 0, i32 2
+  store ptr @.str.269, ptr %2, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatSecondPointE, i32 0, i32 3
+  store i32 2, ptr %3, align 8
+  %4 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_2E, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatSecondPointE, i32 0, i32 4
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.274() #0 section ".text.startup" {
   store ptr @.str.272, ptr @_ZN5osgeo4proj9operationL20paramLongSecondPointE, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLongSecondPointE, i32 0, i32 1), align 8
-  store ptr @.str.273, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLongSecondPointE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLongSecondPointE, i32 0, i32 3), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_2E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLongSecondPointE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLongSecondPointE, i32 0, i32 1
+  store i32 0, ptr %1, align 8
+  %2 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLongSecondPointE, i32 0, i32 2
+  store ptr @.str.273, ptr %2, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLongSecondPointE, i32 0, i32 3
+  store i32 2, ptr %3, align 8
+  %4 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_2E, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLongSecondPointE, i32 0, i32 4
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.277() #0 section ".text.startup" {
   store ptr @.str.276, ptr @_ZN5osgeo4proj9operationL24paramLatitudeFalseOriginE, align 8
-  store i32 8821, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLatitudeFalseOriginE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_ORIGINE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLatitudeFalseOriginE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLatitudeFalseOriginE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLatitudeFalseOriginE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLatitudeFalseOriginE, i32 0, i32 1
+  store i32 8821, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_ORIGINE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLatitudeFalseOriginE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLatitudeFalseOriginE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLatitudeFalseOriginE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.279() #0 section ".text.startup" {
   store ptr @.str.278, ptr @_ZN5osgeo4proj9operationL25paramLongitudeFalseOriginE, align 8
-  store i32 8822, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongitudeFalseOriginE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation21WKT1_CENTRAL_MERIDIANE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongitudeFalseOriginE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongitudeFalseOriginE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongitudeFalseOriginE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongitudeFalseOriginE, i32 0, i32 1
+  store i32 8822, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation21WKT1_CENTRAL_MERIDIANE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongitudeFalseOriginE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongitudeFalseOriginE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongitudeFalseOriginE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.281() #0 section ".text.startup" {
   store ptr @.str.280, ptr @_ZN5osgeo4proj9operationL23paramEastingFalseOriginE, align 8
-  store i32 8826, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramEastingFalseOriginE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation18WKT1_FALSE_EASTINGE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramEastingFalseOriginE, i32 0, i32 2), align 8
-  store i32 3, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramEastingFalseOriginE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL3x_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramEastingFalseOriginE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramEastingFalseOriginE, i32 0, i32 1
+  store i32 8826, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation18WKT1_FALSE_EASTINGE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramEastingFalseOriginE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramEastingFalseOriginE, i32 0, i32 3
+  store i32 3, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL3x_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramEastingFalseOriginE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.283() #0 section ".text.startup" {
   store ptr @.str.282, ptr @_ZN5osgeo4proj9operationL24paramNorthingFalseOriginE, align 8
-  store i32 8827, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramNorthingFalseOriginE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation19WKT1_FALSE_NORTHINGE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramNorthingFalseOriginE, i32 0, i32 2), align 8
-  store i32 3, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramNorthingFalseOriginE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL3y_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramNorthingFalseOriginE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramNorthingFalseOriginE, i32 0, i32 1
+  store i32 8827, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation19WKT1_FALSE_NORTHINGE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramNorthingFalseOriginE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramNorthingFalseOriginE, i32 0, i32 3
+  store i32 3, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL3y_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramNorthingFalseOriginE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.284() #0 section ".text.startup" {
   store ptr @.str.276, ptr @_ZN5osgeo4proj9operationL30paramLatFalseOriginLatOfCenterE, align 8
-  store i32 8821, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL30paramLatFalseOriginLatOfCenterE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_CENTERE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL30paramLatFalseOriginLatOfCenterE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL30paramLatFalseOriginLatOfCenterE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL30paramLatFalseOriginLatOfCenterE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL30paramLatFalseOriginLatOfCenterE, i32 0, i32 1
+  store i32 8821, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_CENTERE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL30paramLatFalseOriginLatOfCenterE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL30paramLatFalseOriginLatOfCenterE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL30paramLatFalseOriginLatOfCenterE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.285() #0 section ".text.startup" {
   store ptr @.str.278, ptr @_ZN5osgeo4proj9operationL32paramLongFalseOriginLongOfCenterE, align 8
-  store i32 8822, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL32paramLongFalseOriginLongOfCenterE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_LONGITUDE_OF_CENTERE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL32paramLongFalseOriginLongOfCenterE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL32paramLongFalseOriginLongOfCenterE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL32paramLongFalseOriginLongOfCenterE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL32paramLongFalseOriginLongOfCenterE, i32 0, i32 1
+  store i32 8822, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_LONGITUDE_OF_CENTERE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL32paramLongFalseOriginLongOfCenterE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL32paramLongFalseOriginLongOfCenterE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL32paramLongFalseOriginLongOfCenterE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.287() #0 section ".text.startup" {
   store ptr @.str.286, ptr @_ZN5osgeo4proj9operationL27paramLatitude1stStdParallelE, align 8
-  store i32 8823, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude1stStdParallelE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_STANDARD_PARALLEL_1E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude1stStdParallelE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude1stStdParallelE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_1E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude1stStdParallelE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude1stStdParallelE, i32 0, i32 1
+  store i32 8823, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_STANDARD_PARALLEL_1E, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude1stStdParallelE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude1stStdParallelE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_1E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude1stStdParallelE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.289() #0 section ".text.startup" {
   store ptr @.str.288, ptr @_ZN5osgeo4proj9operationL27paramLatitude2ndStdParallelE, align 8
-  store i32 8824, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude2ndStdParallelE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_STANDARD_PARALLEL_2E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude2ndStdParallelE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude2ndStdParallelE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_2E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude2ndStdParallelE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude2ndStdParallelE, i32 0, i32 1
+  store i32 8824, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_STANDARD_PARALLEL_2E, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude2ndStdParallelE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude2ndStdParallelE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_2E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLatitude2ndStdParallelE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.290() #0 section ".text.startup" {
   store ptr @.str.11, ptr @_ZN5osgeo4proj9operationL28paramLatitudeNatOriginLCC1SPE, align 8
-  store i32 8801, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL28paramLatitudeNatOriginLCC1SPE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_ORIGINE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL28paramLatitudeNatOriginLCC1SPE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL28paramLatitudeNatOriginLCC1SPE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_1E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL28paramLatitudeNatOriginLCC1SPE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL28paramLatitudeNatOriginLCC1SPE, i32 0, i32 1
+  store i32 8801, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_ORIGINE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL28paramLatitudeNatOriginLCC1SPE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL28paramLatitudeNatOriginLCC1SPE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_1E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL28paramLatitudeNatOriginLCC1SPE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.291() #0 section ".text.startup" {
   store ptr @.str.251, ptr @_ZN5osgeo4proj9operationL16paramScaleFactorE, align 8
-  store i32 8805, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramScaleFactorE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation17WKT1_SCALE_FACTORE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramScaleFactorE, i32 0, i32 2), align 8
-  store i32 4, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramScaleFactorE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL3k_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramScaleFactorE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramScaleFactorE, i32 0, i32 1
+  store i32 8805, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation17WKT1_SCALE_FACTORE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramScaleFactorE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramScaleFactorE, i32 0, i32 3
+  store i32 4, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL3k_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramScaleFactorE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.294() #0 section ".text.startup" {
   store ptr @.str.293, ptr @_ZN5osgeo4proj9operationL25paramEllipsoidScaleFactorE, align 8
-  store i32 1038, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramEllipsoidScaleFactorE, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramEllipsoidScaleFactorE, i32 0, i32 2), align 8
-  store i32 4, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramEllipsoidScaleFactorE, i32 0, i32 3), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operationL3k_0E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramEllipsoidScaleFactorE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramEllipsoidScaleFactorE, i32 0, i32 1
+  store i32 1038, ptr %1, align 8
+  %2 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramEllipsoidScaleFactorE, i32 0, i32 2
+  store ptr null, ptr %2, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramEllipsoidScaleFactorE, i32 0, i32 3
+  store i32 4, ptr %3, align 8
+  %4 = load ptr, ptr @_ZN5osgeo4proj9operationL3k_0E, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramEllipsoidScaleFactorE, i32 0, i32 4
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.295() #0 section ".text.startup" {
   store ptr @.str.11, ptr @_ZN5osgeo4proj9operationL20paramLatNatLatCenterE, align 8
-  store i32 8801, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLatNatLatCenterE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_CENTERE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLatNatLatCenterE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLatNatLatCenterE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLatNatLatCenterE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLatNatLatCenterE, i32 0, i32 1
+  store i32 8801, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_CENTERE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLatNatLatCenterE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLatNatLatCenterE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramLatNatLatCenterE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.296() #0 section ".text.startup" {
   store ptr @.str.248, ptr @_ZN5osgeo4proj9operationL22paramLongNatLongCenterE, align 8
-  store i32 8802, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL22paramLongNatLongCenterE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_LONGITUDE_OF_CENTERE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL22paramLongNatLongCenterE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL22paramLongNatLongCenterE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL22paramLongNatLongCenterE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL22paramLongNatLongCenterE, i32 0, i32 1
+  store i32 8802, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_LONGITUDE_OF_CENTERE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL22paramLongNatLongCenterE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL22paramLongNatLongCenterE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL22paramLongNatLongCenterE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.297() #0 section ".text.startup" {
   store ptr @.str.11, ptr @_ZN5osgeo4proj9operationL21paramLatNatOriginLat1E, align 8
-  store i32 8801, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatNatOriginLat1E, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_STANDARD_PARALLEL_1E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatNatOriginLat1E, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatNatOriginLat1E, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_1E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatNatOriginLat1E, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatNatOriginLat1E, i32 0, i32 1
+  store i32 8801, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_STANDARD_PARALLEL_1E, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatNatOriginLat1E, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatNatOriginLat1E, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_1E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatNatOriginLat1E, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.298() #0 section ".text.startup" {
   store ptr @.str.286, ptr @_ZN5osgeo4proj9operationL24paramLat1stParallelLatTsE, align 8
-  store i32 8823, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLat1stParallelLatTsE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_STANDARD_PARALLEL_1E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLat1stParallelLatTsE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLat1stParallelLatTsE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL6lat_tsE, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLat1stParallelLatTsE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLat1stParallelLatTsE, i32 0, i32 1
+  store i32 8823, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_STANDARD_PARALLEL_1E, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLat1stParallelLatTsE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLat1stParallelLatTsE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL6lat_tsE, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL24paramLat1stParallelLatTsE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.302() #0 section ".text.startup" {
   store ptr @.str.300, ptr @_ZN5osgeo4proj9operationL20paramSatelliteHeightE, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramSatelliteHeightE, i32 0, i32 1), align 8
-  store ptr @.str.301, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramSatelliteHeightE, i32 0, i32 2), align 8
-  store i32 3, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramSatelliteHeightE, i32 0, i32 3), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operationL1hE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramSatelliteHeightE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramSatelliteHeightE, i32 0, i32 1
+  store i32 0, ptr %1, align 8
+  %2 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramSatelliteHeightE, i32 0, i32 2
+  store ptr @.str.301, ptr %2, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramSatelliteHeightE, i32 0, i32 3
+  store i32 3, ptr %3, align 8
+  %4 = load ptr, ptr @_ZN5osgeo4proj9operationL1hE, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramSatelliteHeightE, i32 0, i32 4
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.305() #0 section ".text.startup" {
   store ptr @.str.304, ptr @_ZN5osgeo4proj9operationL23paramLatCentreLatCenterE, align 8
-  store i32 8811, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLatCentreLatCenterE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_CENTERE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLatCentreLatCenterE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLatCentreLatCenterE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLatCentreLatCenterE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLatCentreLatCenterE, i32 0, i32 1
+  store i32 8811, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_CENTERE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLatCentreLatCenterE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLatCentreLatCenterE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramLatCentreLatCenterE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.307() #0 section ".text.startup" {
   store ptr @.str.306, ptr @_ZN5osgeo4proj9operationL27paramLonCentreLonCenterLoncE, align 8
-  store i32 8812, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLonCentreLonCenterLoncE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_LONGITUDE_OF_CENTERE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLonCentreLonCenterLoncE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLonCentreLonCenterLoncE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL4loncE, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLonCentreLonCenterLoncE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLonCentreLonCenterLoncE, i32 0, i32 1
+  store i32 8812, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_LONGITUDE_OF_CENTERE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLonCentreLonCenterLoncE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLonCentreLonCenterLoncE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL4loncE, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramLonCentreLonCenterLoncE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.310() #0 section ".text.startup" {
   store ptr @.str.309, ptr @_ZN5osgeo4proj9operationL12paramAzimuthE, align 8
-  store i32 8813, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL12paramAzimuthE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation12WKT1_AZIMUTHE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL12paramAzimuthE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL12paramAzimuthE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5alphaE, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL12paramAzimuthE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL12paramAzimuthE, i32 0, i32 1
+  store i32 8813, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation12WKT1_AZIMUTHE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL12paramAzimuthE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL12paramAzimuthE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5alphaE, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL12paramAzimuthE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.313() #0 section ".text.startup" {
   store ptr @.str.312, ptr @_ZN5osgeo4proj9operationL20paramAngleToSkewGridE, align 8
-  store i32 8814, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramAngleToSkewGridE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation25WKT1_RECTIFIED_GRID_ANGLEE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramAngleToSkewGridE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramAngleToSkewGridE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5gammaE, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramAngleToSkewGridE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramAngleToSkewGridE, i32 0, i32 1
+  store i32 8814, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation25WKT1_RECTIFIED_GRID_ANGLEE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramAngleToSkewGridE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramAngleToSkewGridE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5gammaE, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL20paramAngleToSkewGridE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.316() #0 section ".text.startup" {
   store ptr @.str.315, ptr @_ZN5osgeo4proj9operationL27paramScaleFactorInitialLineE, align 8
-  store i32 8815, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramScaleFactorInitialLineE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation17WKT1_SCALE_FACTORE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramScaleFactorInitialLineE, i32 0, i32 2), align 8
-  store i32 4, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramScaleFactorInitialLineE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL1kE, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramScaleFactorInitialLineE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramScaleFactorInitialLineE, i32 0, i32 1
+  store i32 8815, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation17WKT1_SCALE_FACTORE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramScaleFactorInitialLineE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramScaleFactorInitialLineE, i32 0, i32 3
+  store i32 4, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL1kE, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL27paramScaleFactorInitialLineE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.318() #0 section ".text.startup" {
   store ptr @.str.317, ptr @_ZN5osgeo4proj9operationL33paramFalseEastingProjectionCentreE, align 8
-  store i32 8816, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramFalseEastingProjectionCentreE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation18WKT1_FALSE_EASTINGE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramFalseEastingProjectionCentreE, i32 0, i32 2), align 8
-  store i32 3, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramFalseEastingProjectionCentreE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL3x_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramFalseEastingProjectionCentreE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramFalseEastingProjectionCentreE, i32 0, i32 1
+  store i32 8816, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation18WKT1_FALSE_EASTINGE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramFalseEastingProjectionCentreE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramFalseEastingProjectionCentreE, i32 0, i32 3
+  store i32 3, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL3x_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramFalseEastingProjectionCentreE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.320() #0 section ".text.startup" {
   store ptr @.str.319, ptr @_ZN5osgeo4proj9operationL34paramFalseNorthingProjectionCentreE, align 8
-  store i32 8817, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramFalseNorthingProjectionCentreE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation19WKT1_FALSE_NORTHINGE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramFalseNorthingProjectionCentreE, i32 0, i32 2), align 8
-  store i32 3, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramFalseNorthingProjectionCentreE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL3y_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramFalseNorthingProjectionCentreE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramFalseNorthingProjectionCentreE, i32 0, i32 1
+  store i32 8817, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation19WKT1_FALSE_NORTHINGE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramFalseNorthingProjectionCentreE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramFalseNorthingProjectionCentreE, i32 0, i32 3
+  store i32 3, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL3y_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramFalseNorthingProjectionCentreE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.322() #0 section ".text.startup" {
   store ptr @.str.260, ptr @_ZN5osgeo4proj9operationL14paramLatPoint1E, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint1E, i32 0, i32 1), align 8
-  store ptr @.str.321, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint1E, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint1E, i32 0, i32 3), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_1E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint1E, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint1E, i32 0, i32 1
+  store i32 0, ptr %1, align 8
+  %2 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint1E, i32 0, i32 2
+  store ptr @.str.321, ptr %2, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint1E, i32 0, i32 3
+  store i32 2, ptr %3, align 8
+  %4 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_1E, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint1E, i32 0, i32 4
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.324() #0 section ".text.startup" {
   store ptr @.str.264, ptr @_ZN5osgeo4proj9operationL15paramLongPoint1E, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint1E, i32 0, i32 1), align 8
-  store ptr @.str.323, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint1E, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint1E, i32 0, i32 3), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_1E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint1E, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint1E, i32 0, i32 1
+  store i32 0, ptr %1, align 8
+  %2 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint1E, i32 0, i32 2
+  store ptr @.str.323, ptr %2, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint1E, i32 0, i32 3
+  store i32 2, ptr %3, align 8
+  %4 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_1E, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint1E, i32 0, i32 4
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.326() #0 section ".text.startup" {
   store ptr @.str.268, ptr @_ZN5osgeo4proj9operationL14paramLatPoint2E, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint2E, i32 0, i32 1), align 8
-  store ptr @.str.325, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint2E, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint2E, i32 0, i32 3), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_2E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint2E, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint2E, i32 0, i32 1
+  store i32 0, ptr %1, align 8
+  %2 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint2E, i32 0, i32 2
+  store ptr @.str.325, ptr %2, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint2E, i32 0, i32 3
+  store i32 2, ptr %3, align 8
+  %4 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_2E, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL14paramLatPoint2E, i32 0, i32 4
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.328() #0 section ".text.startup" {
   store ptr @.str.272, ptr @_ZN5osgeo4proj9operationL15paramLongPoint2E, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint2E, i32 0, i32 1), align 8
-  store ptr @.str.327, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint2E, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint2E, i32 0, i32 3), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_2E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint2E, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint2E, i32 0, i32 1
+  store i32 0, ptr %1, align 8
+  %2 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint2E, i32 0, i32 2
+  store ptr @.str.327, ptr %2, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint2E, i32 0, i32 3
+  store i32 2, ptr %3, align 8
+  %4 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_2E, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongPoint2E, i32 0, i32 4
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.330() #0 section ".text.startup" {
   store ptr @.str.329, ptr @_ZN5osgeo4proj9operationL25paramLongCentreLongCenterE, align 8
-  store i32 8833, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongCentreLongCenterE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_LONGITUDE_OF_CENTERE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongCentreLongCenterE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongCentreLongCenterE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongCentreLongCenterE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongCentreLongCenterE, i32 0, i32 1
+  store i32 8833, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_LONGITUDE_OF_CENTERE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongCentreLongCenterE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongCentreLongCenterE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL25paramLongCentreLongCenterE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.332() #0 section ".text.startup" {
   store ptr @.str.331, ptr @_ZN5osgeo4proj9operationL23paramColatitudeConeAxisE, align 8
-  store i32 1036, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramColatitudeConeAxisE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation12WKT1_AZIMUTHE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramColatitudeConeAxisE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramColatitudeConeAxisE, i32 0, i32 3), align 8
-  store ptr @.str.311, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramColatitudeConeAxisE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramColatitudeConeAxisE, i32 0, i32 1
+  store i32 1036, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation12WKT1_AZIMUTHE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramColatitudeConeAxisE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramColatitudeConeAxisE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL23paramColatitudeConeAxisE, i32 0, i32 4
+  store ptr @.str.311, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.336() #0 section ".text.startup" {
   store ptr @.str.335, ptr @_ZN5osgeo4proj9operationL33paramScaleFactorPseudoStdParallelE, align 8
-  store i32 8819, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramScaleFactorPseudoStdParallelE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation17WKT1_SCALE_FACTORE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramScaleFactorPseudoStdParallelE, i32 0, i32 2), align 8
-  store i32 4, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramScaleFactorPseudoStdParallelE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL1kE, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramScaleFactorPseudoStdParallelE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramScaleFactorPseudoStdParallelE, i32 0, i32 1
+  store i32 8819, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation17WKT1_SCALE_FACTORE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramScaleFactorPseudoStdParallelE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramScaleFactorPseudoStdParallelE, i32 0, i32 3
+  store i32 4, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL1kE, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL33paramScaleFactorPseudoStdParallelE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.338() #0 section ".text.startup" {
   store ptr @.str.337, ptr @_ZN5osgeo4proj9operationL19paramLatStdParallelE, align 8
-  store i32 8832, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatStdParallelE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_ORIGINE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatStdParallelE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatStdParallelE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL6lat_tsE, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatStdParallelE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatStdParallelE, i32 0, i32 1
+  store i32 8832, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_ORIGINE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatStdParallelE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatStdParallelE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL6lat_tsE, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLatStdParallelE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.339() #0 section ".text.startup" {
   store ptr @.str.329, ptr @_ZN5osgeo4proj9operationL16paramsLongOriginE, align 8
-  store i32 8833, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramsLongOriginE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation21WKT1_CENTRAL_MERIDIANE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramsLongOriginE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramsLongOriginE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramsLongOriginE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramsLongOriginE, i32 0, i32 1
+  store i32 8833, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation21WKT1_CENTRAL_MERIDIANE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramsLongOriginE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramsLongOriginE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL16paramsLongOriginE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.341() #0 section ".text.startup" {
   store ptr @.str.340, ptr @_ZN5osgeo4proj9operationL21paramLatTrueScaleWag3E, align 8
-  store i32 0, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatTrueScaleWag3E, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_ORIGINE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatTrueScaleWag3E, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatTrueScaleWag3E, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL6lat_tsE, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatTrueScaleWag3E, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatTrueScaleWag3E, i32 0, i32 1
+  store i32 0, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_ORIGINE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatTrueScaleWag3E, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatTrueScaleWag3E, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL6lat_tsE, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL21paramLatTrueScaleWag3E, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.354() #0 section ".text.startup" {
   store ptr @.str.11, ptr @_ZN5osgeo4proj9operationL13paramLatLoximE, align 8
-  store i32 8801, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL13paramLatLoximE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_ORIGINE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL13paramLatLoximE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL13paramLatLoximE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_1E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL13paramLatLoximE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL13paramLatLoximE, i32 0, i32 1
+  store i32 8801, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation23WKT1_LATITUDE_OF_ORIGINE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL13paramLatLoximE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL13paramLatLoximE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_1E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL13paramLatLoximE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.355() #0 section ".text.startup" {
   store ptr @.str.306, ptr @_ZN5osgeo4proj9operationL15paramLongCentreE, align 8
-  store i32 8812, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongCentreE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_LONGITUDE_OF_CENTERE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongCentreE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongCentreE, i32 0, i32 3), align 8
-  %2 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
-  store ptr %2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongCentreE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongCentreE, i32 0, i32 1
+  store i32 8812, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation24WKT1_LONGITUDE_OF_CENTERE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongCentreE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongCentreE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
+  %6 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL15paramLongCentreE, i32 0, i32 4
+  store ptr %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.356() #0 section ".text.startup" {
   store ptr @.str.309, ptr @_ZN5osgeo4proj9operationL34paramLabordeObliqueMercatorAzimuthE, align 8
-  store i32 8813, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramLabordeObliqueMercatorAzimuthE, i32 0, i32 1), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operation12WKT1_AZIMUTHE, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramLabordeObliqueMercatorAzimuthE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramLabordeObliqueMercatorAzimuthE, i32 0, i32 3), align 8
-  store ptr @.str.357, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramLabordeObliqueMercatorAzimuthE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramLabordeObliqueMercatorAzimuthE, i32 0, i32 1
+  store i32 8813, ptr %1, align 8
+  %2 = load ptr, ptr @_ZN5osgeo4proj9operation12WKT1_AZIMUTHE, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramLabordeObliqueMercatorAzimuthE, i32 0, i32 2
+  store ptr %2, ptr %3, align 8
+  %4 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramLabordeObliqueMercatorAzimuthE, i32 0, i32 3
+  store i32 2, ptr %4, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL34paramLabordeObliqueMercatorAzimuthE, i32 0, i32 4
+  store ptr @.str.357, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.359() #0 section ".text.startup" {
   store ptr @.str.358, ptr @_ZN5osgeo4proj9operationL18paramLatTopoOriginE, align 8
-  store i32 8834, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatTopoOriginE, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatTopoOriginE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatTopoOriginE, i32 0, i32 3), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_0E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatTopoOriginE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatTopoOriginE, i32 0, i32 1
+  store i32 8834, ptr %1, align 8
+  %2 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatTopoOriginE, i32 0, i32 2
+  store ptr null, ptr %2, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatTopoOriginE, i32 0, i32 3
+  store i32 2, ptr %3, align 8
+  %4 = load ptr, ptr @_ZN5osgeo4proj9operationL5lat_0E, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL18paramLatTopoOriginE, i32 0, i32 4
+  store ptr %4, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.361() #0 section ".text.startup" {
   store ptr @.str.360, ptr @_ZN5osgeo4proj9operationL19paramLongTopoOriginE, align 8
-  store i32 8835, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongTopoOriginE, i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongTopoOriginE, i32 0, i32 2), align 8
-  store i32 2, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongTopoOriginE, i32 0, i32 3), align 8
-  %1 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
-  store ptr %1, ptr getelementptr inbounds (%"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongTopoOriginE, i32 0, i32 4), align 8
+  %1 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongTopoOriginE, i32 0, i32 1
+  store i32 8835, ptr %1, align 8
+  %2 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongTopoOriginE, i32 0, i32 2
+  store ptr null, ptr %2, align 8
+  %3 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongTopoOriginE, i32 0, i32 3
+  store i32 2, ptr %3, align 8
+  %4 = load ptr, ptr @_ZN5osgeo4proj9operationL5lon_0E, align 8
+  %5 = getelementptr inbounds %"struct.osgeo::proj::operation::ParamMapping", ptr @_ZN5osgeo4proj9operationL19paramLongTopoOriginE, i32 0, i32 4
+  store ptr %4, ptr %5, align 8
   ret void
 }
 

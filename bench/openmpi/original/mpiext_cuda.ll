@@ -10,10 +10,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @MPIX_Query_cuda_support() #0 {
-  %1 = call i32 @strcmp(ptr noundef getelementptr inbounds (%struct.mca_base_component_2_1_0_t, ptr @opal_accelerator_base_selected_component, i32 0, i32 11), ptr noundef @.str) #2
-  %2 = icmp eq i32 0, %1
-  %3 = zext i1 %2 to i32
-  ret i32 %3
+  %1 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr @opal_accelerator_base_selected_component, i32 0, i32 11
+  %2 = call i32 @strcmp(ptr noundef %1, ptr noundef @.str) #2
+  %3 = icmp eq i32 0, %2
+  %4 = zext i1 %3 to i32
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

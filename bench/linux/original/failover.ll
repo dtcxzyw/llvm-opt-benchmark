@@ -180,95 +180,100 @@ define dso_local noundef ptr @failover_register(ptr noundef %0, ptr noundef %1) 
   %3 = getelementptr inbounds i8, ptr %0, i64 552
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 1
-  br i1 %5, label %6, label %55
+  %6 = inttoptr i64 -22 to ptr
+  br i1 %5, label %7, label %60
 
-6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %8 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 32) #7
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %55, label %10
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 32) #7
+  %11 = icmp eq ptr %10, null
+  %12 = inttoptr i64 -12 to ptr
+  br i1 %11, label %60, label %13
 
-10:                                               ; preds = %6
+13:                                               ; preds = %7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !14
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
-  store volatile ptr %1, ptr %11, align 8
-  %12 = icmp eq ptr %0, null
-  br i1 %12, label %16, label %13
+  %14 = getelementptr inbounds i8, ptr %10, i64 24
+  store volatile ptr %1, ptr %14, align 8
+  %15 = icmp eq ptr %0, null
+  br i1 %15, label %19, label %16
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 1280
-  %15 = load ptr, ptr %14, align 8
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15, ptr elementtype(i32) %15) #6, !srcloc !15
-  br label %16
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %0, i64 1280
+  %18 = load ptr, ptr %17, align 8
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18, ptr elementtype(i32) %18) #6, !srcloc !15
+  br label %19
 
-16:                                               ; preds = %13, %10
-  %17 = load i64, ptr %0, align 8
-  %18 = or i64 %17, 134217728
-  store i64 %18, ptr %0, align 8
+19:                                               ; preds = %16, %13
+  %20 = load i64, ptr %0, align 8
+  %21 = or i64 %20, 134217728
+  store i64 %21, ptr %0, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !16
-  %19 = getelementptr inbounds i8, ptr %8, i64 16
-  store volatile ptr %0, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %10, i64 16
+  store volatile ptr %0, ptr %22, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @failover_lock) #6
-  %20 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @failover_list, i64 0, i32 1), align 8
-  store ptr %8, ptr getelementptr inbounds (%struct.list_head, ptr @failover_list, i64 0, i32 1), align 8
-  store ptr @failover_list, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %20, ptr %21, align 8
-  store volatile ptr %8, ptr %20, align 8
-  tail call void @_raw_spin_unlock(ptr noundef nonnull @failover_lock) #6
-  %22 = getelementptr inbounds i8, ptr %0, i64 296
-  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %22) #8
-  %23 = getelementptr inbounds i8, ptr %0, i64 272
+  %23 = getelementptr inbounds %struct.list_head, ptr @failover_list, i64 0, i32 1
   %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds %struct.list_head, ptr @failover_list, i64 0, i32 1
+  store ptr %10, ptr %25, align 8
+  store ptr @failover_list, ptr %10, align 8
+  %26 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %24, ptr %26, align 8
+  store volatile ptr %10, ptr %24, align 8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull @failover_lock) #6
+  %27 = getelementptr inbounds i8, ptr %0, i64 296
+  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %27) #8
+  %28 = getelementptr inbounds i8, ptr %0, i64 272
+  %29 = load ptr, ptr %28, align 8
   tail call void @rtnl_lock() #6
-  %25 = getelementptr inbounds i8, ptr %24, i64 144
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, %25
-  br i1 %27, label %54, label %28
+  %30 = getelementptr inbounds i8, ptr %29, i64 144
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, %30
+  br i1 %32, label %59, label %33
 
-28:                                               ; preds = %16
-  %29 = getelementptr inbounds i8, ptr %0, i64 780
-  %30 = getelementptr i8, ptr %0, i64 784
-  br label %31
+33:                                               ; preds = %19
+  %34 = getelementptr inbounds i8, ptr %0, i64 780
+  %35 = getelementptr i8, ptr %0, i64 784
+  br label %36
 
-31:                                               ; preds = %51, %28
-  %32 = phi ptr [ %26, %28 ], [ %52, %51 ]
-  %33 = getelementptr i8, ptr %32, i64 -360
-  %34 = load i64, ptr %33, align 8
-  %35 = and i64 %34, 134217728
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %51
+36:                                               ; preds = %56, %33
+  %37 = phi ptr [ %31, %33 ], [ %57, %56 ]
+  %38 = getelementptr i8, ptr %37, i64 -360
+  %39 = load i64, ptr %38, align 8
+  %40 = and i64 %39, 134217728
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %42, label %56
 
-37:                                               ; preds = %31
-  %38 = getelementptr i8, ptr %32, i64 420
-  %39 = load i32, ptr %29, align 4
-  %40 = load i32, ptr %38, align 4
-  %41 = xor i32 %40, %39
-  %42 = load i16, ptr %30, align 2
-  %43 = getelementptr i8, ptr %32, i64 424
-  %44 = load i16, ptr %43, align 2
-  %45 = xor i16 %44, %42
-  %46 = zext i16 %45 to i32
-  %47 = or i32 %41, %46
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %51
+42:                                               ; preds = %36
+  %43 = getelementptr i8, ptr %37, i64 420
+  %44 = load i32, ptr %34, align 4
+  %45 = load i32, ptr %43, align 4
+  %46 = xor i32 %45, %44
+  %47 = load i16, ptr %35, align 2
+  %48 = getelementptr i8, ptr %37, i64 424
+  %49 = load i16, ptr %48, align 2
+  %50 = xor i16 %49, %47
+  %51 = zext i16 %50 to i32
+  %52 = or i32 %46, %51
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %56
 
-49:                                               ; preds = %37
-  %50 = tail call fastcc i32 @failover_slave_register(ptr noundef %33), !range !17
-  br label %51
+54:                                               ; preds = %42
+  %55 = tail call fastcc i32 @failover_slave_register(ptr noundef %38), !range !17
+  br label %56
 
-51:                                               ; preds = %49, %37, %31
-  %52 = load ptr, ptr %32, align 8
-  %53 = icmp eq ptr %52, %25
-  br i1 %53, label %54, label %31, !llvm.loop !18
+56:                                               ; preds = %54, %42, %36
+  %57 = load ptr, ptr %37, align 8
+  %58 = icmp eq ptr %57, %30
+  br i1 %58, label %59, label %36, !llvm.loop !18
 
-54:                                               ; preds = %51, %16
+59:                                               ; preds = %56, %19
   tail call void @rtnl_unlock() #6
-  br label %55
+  br label %60
 
-55:                                               ; preds = %54, %6, %2
-  %56 = phi ptr [ %8, %54 ], [ inttoptr (i64 -22 to ptr), %2 ], [ inttoptr (i64 -12 to ptr), %6 ]
-  ret ptr %56
+60:                                               ; preds = %59, %7, %2
+  %61 = phi ptr [ %10, %59 ], [ %6, %2 ], [ %12, %7 ]
+  ret ptr %61
 }
 
 ; Function Attrs: cold null_pointer_is_valid
@@ -300,8 +305,10 @@ define dso_local void @failover_unregister(ptr noundef %0) #0 align 16 {
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %13, ptr %15, align 8
   store volatile ptr %14, ptr %13, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %12, align 8
+  %16 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %16, ptr %0, align 8
+  %17 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %17, ptr %12, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @failover_lock) #6
   tail call void @kfree(ptr noundef %0) #6
   ret void

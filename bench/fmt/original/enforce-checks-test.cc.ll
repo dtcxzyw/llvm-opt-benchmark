@@ -5688,10 +5688,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt3v106detail6bufferIwEC2EPwmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v10::basic_memory_buffer", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIwEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIwEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #15
   %store_ = getelementptr inbounds %"class.fmt::v10::basic_memory_buffer", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [500 x i32], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt3v106detail6bufferIwE3setEPwm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 500) #15
@@ -6247,16 +6248,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIwEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIwEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -12136,10 +12138,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt3v106detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v10::basic_memory_buffer.61", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #15
   %store_ = getelementptr inbounds %"class.fmt::v10::basic_memory_buffer.61", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [500 x i8], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt3v106detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 500) #15
@@ -12759,16 +12762,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -16021,10 +16025,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt3v106detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIiLm500ESaIiEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v10::basic_memory_buffer.75", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIiEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #15
   %store_ = getelementptr inbounds %"class.fmt::v10::basic_memory_buffer.75", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [500 x i32], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt3v106detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 500) #15
@@ -16156,16 +16161,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIiEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v10::detail::buffer.76", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v10::detail::buffer.76", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v10::detail::buffer.76", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -30660,10 +30666,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt3v106detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v10::basic_memory_buffer.115", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIjEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #15
   %store_ = getelementptr inbounds %"class.fmt::v10::basic_memory_buffer.115", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [32 x i32], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt3v106detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 32) #15
@@ -30700,16 +30707,17 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v10::detail::buffer.116", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %size_ = getelementptr inbounds %"class.fmt::v10::detail::buffer.116", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %size_, align 8
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %size_, align 8
   %capacity_ = getelementptr inbounds %"class.fmt::v10::detail::buffer.116", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %cap.addr, align 8
-  store i64 %2, ptr %capacity_, align 8
+  %3 = load i64, ptr %cap.addr, align 8
+  store i64 %3, ptr %capacity_, align 8
   ret void
 }
 
@@ -31640,21 +31648,22 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt3v106detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v10::basic_memory_buffer.115", ptr %this1, i32 0, i32 2
   call void @_ZNSaIjEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_) #15
-  %0 = load ptr, ptr %other.addr, align 8
-  invoke void @_ZN3fmt3v1019basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef nonnull align 8 dereferenceable(168) %0)
+  %1 = load ptr, ptr %other.addr, align 8
+  invoke void @_ZN3fmt3v1019basic_memory_bufferIjLm32ESaIjEE4moveERS3_(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef nonnull align 8 dereferenceable(168) %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #18
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #18
   unreachable
 }
 
@@ -32300,7 +32309,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -51428,11 +51438,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %n.addr, align 8
   call void @_ZN3fmt3v106detail13buffer_traitsC2Em(ptr noundef nonnull align 1 dereferenceable(1) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorISt6vectorIcSaIcEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorISt6vectorIcSaIcEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.fmt::v10::detail::iterator_buffer", ptr %this1, i32 0, i32 2
   %arraydecay = getelementptr inbounds [256 x i8], ptr %data_, i64 0, i64 0
   call void @_ZN3fmt3v106detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 0, i64 noundef 256) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorISt6vectorIcSaIcEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorISt6vectorIcSaIcEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %out_ = getelementptr inbounds %"class.fmt::v10::detail::iterator_buffer", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %out_, ptr align 8 %out, i64 8, i1 false)
   ret void
@@ -52337,10 +52349,11 @@ entry:
   %2 = load ptr, ptr %out.addr, align 8
   %3 = load i64, ptr %n.addr, align 8
   call void @_ZN3fmt3v106detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %2, i64 noundef 0, i64 noundef %3) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferIPccNS1_19fixed_buffer_traitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferIPccNS1_19fixed_buffer_traitsEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %out_ = getelementptr inbounds %"class.fmt::v10::detail::iterator_buffer.172", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %out.addr, align 8
-  store ptr %4, ptr %out_, align 8
+  %5 = load ptr, ptr %out.addr, align 8
+  store ptr %5, ptr %out_, align 8
   ret void
 }
 
@@ -52726,10 +52739,11 @@ entry:
   %2 = load ptr, ptr %out.addr, align 8
   %3 = load i64, ptr %n.addr, align 8
   call void @_ZN3fmt3v106detail6bufferIwEC2EPwmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %2, i64 noundef 0, i64 noundef %3) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferIPwwNS1_19fixed_buffer_traitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferIPwwNS1_19fixed_buffer_traitsEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %out_ = getelementptr inbounds %"class.fmt::v10::detail::iterator_buffer.173", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %out.addr, align 8
-  store ptr %4, ptr %out_, align 8
+  %5 = load ptr, ptr %out.addr, align 8
+  store ptr %5, ptr %out_, align 8
   ret void
 }
 
@@ -61078,10 +61092,11 @@ entry:
   store ptr %buf, ptr %buf.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN3fmt3v106detail9formatbufISt15basic_streambufIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN3fmt3v106detail9formatbufISt15basic_streambufIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.fmt::v10::detail::formatbuf", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %buf.addr, align 8
-  store ptr %0, ptr %buffer_, align 8
+  %1 = load ptr, ptr %buf.addr, align 8
+  store ptr %1, ptr %buffer_, align 8
   ret void
 }
 
@@ -61648,10 +61663,11 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt3v106detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm128ESaIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm128ESaIcEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v10::basic_memory_buffer.189", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %alloc.addr, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  %1 = load ptr, ptr %alloc.addr, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %1) #15
   %store_ = getelementptr inbounds %"class.fmt::v10::basic_memory_buffer.189", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [128 x i8], ptr %store_, i64 0, i64 0
   call void @_ZN3fmt3v106detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %arraydecay, i64 noundef 128) #15
@@ -71355,10 +71371,11 @@ entry:
   %0 = load ptr, ptr %c.addr, align 8
   %call = call noundef i64 @_ZNK3fmt3v106detail6bufferIwE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   call void @_ZN3fmt3v106detail6bufferIwEC2Em(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %call) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %container_ = getelementptr inbounds %"class.fmt::v10::detail::iterator_buffer.207", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %c.addr, align 8
-  store ptr %1, ptr %container_, align 8
+  %2 = load ptr, ptr %c.addr, align 8
+  store ptr %2, ptr %container_, align 8
   ret void
 }
 
@@ -71370,13 +71387,14 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i64 %sz, ptr %sz.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIwEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIwEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %size_ = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %this1, i32 0, i32 2
-  %0 = load i64, ptr %sz.addr, align 8
-  store i64 %0, ptr %size_, align 8
-  %capacity_ = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %this1, i32 0, i32 3
   %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %capacity_, align 8
+  store i64 %1, ptr %size_, align 8
+  %capacity_ = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %this1, i32 0, i32 3
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %capacity_, align 8
   ret void
 }
 
@@ -71425,10 +71443,11 @@ entry:
   store ptr %buf, ptr %buf.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt15basic_streambufIwSt11char_traitsIwEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN3fmt3v106detail9formatbufISt15basic_streambufIwSt11char_traitsIwEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN3fmt3v106detail9formatbufISt15basic_streambufIwSt11char_traitsIwEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.fmt::v10::detail::formatbuf.208", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %buf.addr, align 8
-  store ptr %0, ptr %buffer_, align 8
+  %1 = load ptr, ptr %buf.addr, align 8
+  store ptr %1, ptr %buffer_, align 8
   ret void
 }
 
@@ -74500,10 +74519,11 @@ entry:
   %0 = load ptr, ptr %c.addr, align 8
   %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   call void @_ZN3fmt3v106detail6bufferIcEC2Em(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %call) #15
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %container_ = getelementptr inbounds %"class.fmt::v10::detail::iterator_buffer.220", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %c.addr, align 8
-  store ptr %1, ptr %container_, align 8
+  %2 = load ptr, ptr %c.addr, align 8
+  store ptr %2, ptr %container_, align 8
   ret void
 }
 
@@ -74531,13 +74551,14 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i64 %sz, ptr %sz.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %size_ = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %this1, i32 0, i32 2
-  %0 = load i64, ptr %sz.addr, align 8
-  store i64 %0, ptr %size_, align 8
-  %capacity_ = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %this1, i32 0, i32 3
   %1 = load i64, ptr %sz.addr, align 8
-  store i64 %1, ptr %capacity_, align 8
+  store i64 %1, ptr %size_, align 8
+  %capacity_ = getelementptr inbounds %"class.fmt::v10::detail::buffer.62", ptr %this1, i32 0, i32 3
+  %2 = load i64, ptr %sz.addr, align 8
+  store i64 %2, ptr %capacity_, align 8
   ret void
 }
 

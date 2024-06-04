@@ -805,15 +805,16 @@ entry:
   store ptr %filter_bits_builder, ptr %filter_bits_builder.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb18FilterBlockBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb22FullFilterBlockBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN7rocksdb22FullFilterBlockBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %filter_bits_builder_ = getelementptr inbounds %"class.rocksdb::FullFilterBlockBuilder", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN7rocksdb17FilterBitsBuilderESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %filter_bits_builder_) #3
   %prefix_extractor_ = getelementptr inbounds %"class.rocksdb::FullFilterBlockBuilder", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %_prefix_extractor.addr, align 8
-  store ptr %0, ptr %prefix_extractor_, align 8
+  %1 = load ptr, ptr %_prefix_extractor.addr, align 8
+  store ptr %1, ptr %prefix_extractor_, align 8
   %whole_key_filtering_ = getelementptr inbounds %"class.rocksdb::FullFilterBlockBuilder", ptr %this1, i32 0, i32 3
-  %1 = load i8, ptr %whole_key_filtering.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %whole_key_filtering.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %whole_key_filtering_, align 8
   %last_whole_key_recorded_ = getelementptr inbounds %"class.rocksdb::FullFilterBlockBuilder", ptr %this1, i32 0, i32 4
@@ -831,8 +832,8 @@ entry:
   %filter_data_ = getelementptr inbounds %"class.rocksdb::FullFilterBlockBuilder", ptr %this1, i32 0, i32 10
   call void @_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %filter_data_) #3
   %filter_bits_builder_3 = getelementptr inbounds %"class.rocksdb::FullFilterBlockBuilder", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %filter_bits_builder.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb17FilterBitsBuilderESt14default_deleteIS1_EE5resetEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %filter_bits_builder_3, ptr noundef %2) #3
+  %3 = load ptr, ptr %filter_bits_builder.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb17FilterBitsBuilderESt14default_deleteIS1_EE5resetEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %filter_bits_builder_3, ptr noundef %3) #3
   ret void
 }
 
@@ -842,7 +843,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb18FilterBlockBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN7rocksdb18FilterBlockBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1428,7 +1430,8 @@ entry:
   %0 = load ptr, ptr %t.addr, align 8
   %1 = load ptr, ptr %filter_block.addr, align 8
   call void @_ZN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEC2EPKNS_15BlockBasedTableEONS_13CachableEntryIS1_EE(ptr noundef nonnull align 8 dereferenceable(57) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(25) %1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb21FullFilterBlockReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN7rocksdb21FullFilterBlockReaderE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -1446,13 +1449,14 @@ entry:
   store ptr %filter_block, ptr %filter_block.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb17FilterBlockReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %table_ = getelementptr inbounds %"class.rocksdb::FilterBlockReaderCommon", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %t.addr, align 8
-  store ptr %0, ptr %table_, align 8
+  %1 = load ptr, ptr %t.addr, align 8
+  store ptr %1, ptr %table_, align 8
   %filter_block_ = getelementptr inbounds %"class.rocksdb::FilterBlockReaderCommon", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %filter_block.addr, align 8
-  call void @_ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(25) %filter_block_, ptr noundef nonnull align 8 dereferenceable(25) %1) #3
+  %2 = load ptr, ptr %filter_block.addr, align 8
+  call void @_ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(25) %filter_block_, ptr noundef nonnull align 8 dereferenceable(25) %2) #3
   %prefix_extractor_full_length_ = getelementptr inbounds %"class.rocksdb::FilterBlockReaderCommon", ptr %this1, i32 0, i32 3
   store i64 0, ptr %prefix_extractor_full_length_, align 8
   %full_length_enabled_ = getelementptr inbounds %"class.rocksdb::FilterBlockReaderCommon", ptr %this1, i32 0, i32 4
@@ -1462,17 +1466,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %prefix_extractor, align 8
-  %2 = load ptr, ptr %prefix_extractor, align 8
-  %tobool = icmp ne ptr %2, null
+  %3 = load ptr, ptr %prefix_extractor, align 8
+  %tobool = icmp ne ptr %3, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  %3 = load ptr, ptr %prefix_extractor, align 8
+  %4 = load ptr, ptr %prefix_extractor, align 8
   %prefix_extractor_full_length_2 = getelementptr inbounds %"class.rocksdb::FilterBlockReaderCommon", ptr %this1, i32 0, i32 3
-  %vtable = load ptr, ptr %3, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
-  %4 = load ptr, ptr %vfn, align 8
-  %call4 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %prefix_extractor_full_length_2)
+  %5 = load ptr, ptr %vfn, align 8
+  %call4 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %prefix_extractor_full_length_2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.then
@@ -1482,12 +1486,12 @@ invoke.cont3:                                     ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %filter_block_) #3
   call void @_ZN7rocksdb17FilterBlockReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
@@ -2002,28 +2006,30 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb10perf_levelE() #8 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb10perf_levelE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  ret ptr %4
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() #8 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb12perf_contextE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2873,7 +2879,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb22FullFilterBlockBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN7rocksdb22FullFilterBlockBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %filter_data_ = getelementptr inbounds %"class.rocksdb::FullFilterBlockBuilder", ptr %this1, i32 0, i32 10
   call void @_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %filter_data_) #3
   %last_prefix_str_ = getelementptr inbounds %"class.rocksdb::FullFilterBlockBuilder", ptr %this1, i32 0, i32 7
@@ -4187,7 +4194,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %filter_block_ = getelementptr inbounds %"class.rocksdb::FilterBlockReaderCommon", ptr %this1, i32 0, i32 2
   call void @_ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %filter_block_) #3
   call void @_ZN7rocksdb17FilterBlockReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -4912,7 +4920,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb17FilterBlockReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN7rocksdb17FilterBlockReaderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

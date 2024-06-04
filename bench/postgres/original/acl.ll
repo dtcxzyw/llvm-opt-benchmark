@@ -12010,15 +12010,17 @@ define internal void @RoleMembershipCacheCallback(i64 noundef %0, i32 noundef %1
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  br label %18
+  br label %20
 
 17:                                               ; preds = %13, %9, %3
   store i32 0, ptr @cached_role, align 4
-  store i32 0, ptr getelementptr inbounds ([3 x i32], ptr @cached_role, i64 0, i64 1), align 4
-  store i32 0, ptr getelementptr inbounds ([3 x i32], ptr @cached_role, i64 0, i64 2), align 4
-  br label %18
+  %18 = getelementptr inbounds [3 x i32], ptr @cached_role, i64 0, i64 1
+  store i32 0, ptr %18, align 4
+  %19 = getelementptr inbounds [3 x i32], ptr @cached_role, i64 0, i64 2
+  store i32 0, ptr %19, align 4
+  br label %20
 
-18:                                               ; preds = %17, %16
+20:                                               ; preds = %17, %16
   ret void
 }
 

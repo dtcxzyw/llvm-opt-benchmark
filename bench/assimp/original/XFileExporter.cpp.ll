@@ -1348,16 +1348,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #11
   br label %eh.resume
 
@@ -1526,30 +1527,31 @@ entry:
   store ptr %file, ptr %file.addr, align 8
   store ptr %pProperties, ptr %pProperties.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp13XFileExporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp13XFileExporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mOutput = getelementptr inbounds %"class.Assimp::XFileExporter", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %mOutput)
   %mProperties = getelementptr inbounds %"class.Assimp::XFileExporter", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %pProperties.addr, align 8
-  store ptr %0, ptr %mProperties, align 8
+  %1 = load ptr, ptr %pProperties.addr, align 8
+  store ptr %1, ptr %mProperties, align 8
   %mIOSystem = getelementptr inbounds %"class.Assimp::XFileExporter", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %pIOSystem.addr, align 8
-  store ptr %1, ptr %mIOSystem, align 8
+  %2 = load ptr, ptr %pIOSystem.addr, align 8
+  store ptr %2, ptr %mIOSystem, align 8
   %mPath = getelementptr inbounds %"class.Assimp::XFileExporter", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %path.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mPath, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %3 = load ptr, ptr %path.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mPath, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %mFile = getelementptr inbounds %"class.Assimp::XFileExporter", ptr %this1, i32 0, i32 5
-  %3 = load ptr, ptr %file.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mFile, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %4 = load ptr, ptr %file.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mFile, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %mScene = getelementptr inbounds %"class.Assimp::XFileExporter", ptr %this1, i32 0, i32 6
-  %4 = load ptr, ptr %pScene.addr, align 8
-  store ptr %4, ptr %mScene, align 8
+  %5 = load ptr, ptr %pScene.addr, align 8
+  store ptr %5, ptr %mScene, align 8
   %mSceneOwned = getelementptr inbounds %"class.Assimp::XFileExporter", ptr %this1, i32 0, i32 7
   store i8 0, ptr %mSceneOwned, align 8
   %startstr = getelementptr inbounds %"class.Assimp::XFileExporter", ptr %this1, i32 0, i32 8
@@ -1592,49 +1594,49 @@ invoke.cont18:                                    ; preds = %invoke.cont17
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup22
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup21
 
 lpad4:                                            ; preds = %invoke.cont3
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   br label %ehcleanup19
 
 lpad8:                                            ; preds = %invoke.cont17, %invoke.cont11, %invoke.cont5
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont9
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7) #11
   br label %ehcleanup
 
@@ -1751,21 +1753,22 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp13XFileExporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN6Assimp13XFileExporterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mSceneOwned = getelementptr inbounds %"class.Assimp::XFileExporter", ptr %this1, i32 0, i32 7
-  %0 = load i8, ptr %mSceneOwned, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %mSceneOwned, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %mScene = getelementptr inbounds %"class.Assimp::XFileExporter", ptr %this1, i32 0, i32 6
-  %1 = load ptr, ptr %mScene, align 8
-  %isnull = icmp eq ptr %1, null
+  %2 = load ptr, ptr %mScene, align 8
+  %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  call void @_ZN7aiSceneD1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %1) #11
-  call void @_ZdlPv(ptr noundef %1) #13
+  call void @_ZN7aiSceneD1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %2) #11
+  call void @_ZdlPv(ptr noundef %2) #13
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then
@@ -4464,7 +4467,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #11
   ret void

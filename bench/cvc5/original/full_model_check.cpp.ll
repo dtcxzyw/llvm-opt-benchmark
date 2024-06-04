@@ -10479,7 +10479,8 @@ entry:
   %3 = load ptr, ptr %qr.addr, align 8
   %4 = load ptr, ptr %tr.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers13QModelBuilderC2ERNS0_3EnvERNS2_16QuantifiersStateERNS2_27QuantifiersInferenceManagerERNS2_19QuantifiersRegistryERNS2_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(376) %2, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef nonnull align 8 dereferenceable(208) %4)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers7fmcheck16FullModelCheckerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %5 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers7fmcheck16FullModelCheckerE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this1, align 8
   %d_true = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::fmcheck::FullModelChecker", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_true)
           to label %invoke.cont unwind label %lpad
@@ -10513,11 +10514,11 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %5 = load ptr, ptr %env.addr, align 8
-  %6 = load ptr, ptr %qs.addr, align 8
-  %7 = load ptr, ptr %qr.addr, align 8
-  %8 = load ptr, ptr %tr.addr, align 8
-  invoke void @_ZN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmcC1ERNS0_3EnvERNS2_16QuantifiersStateERNS2_19QuantifiersRegistryERNS2_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(752) %call, ptr noundef nonnull align 8 dereferenceable(576) %5, ptr noundef nonnull align 8 dereferenceable(248) %6, ptr noundef nonnull align 8 dereferenceable(488) %7, ptr noundef nonnull align 8 dereferenceable(208) %8)
+  %6 = load ptr, ptr %env.addr, align 8
+  %7 = load ptr, ptr %qs.addr, align 8
+  %8 = load ptr, ptr %qr.addr, align 8
+  %9 = load ptr, ptr %tr.addr, align 8
+  invoke void @_ZN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmcC1ERNS0_3EnvERNS2_16QuantifiersStateERNS2_19QuantifiersRegistryERNS2_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(752) %call, ptr noundef nonnull align 8 dereferenceable(576) %6, ptr noundef nonnull align 8 dereferenceable(248) %7, ptr noundef nonnull align 8 dereferenceable(488) %8, ptr noundef nonnull align 8 dereferenceable(208) %9)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -10555,68 +10556,68 @@ invoke.cont24:                                    ; preds = %invoke.cont21
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup37
 
 lpad2:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup36
 
 lpad4:                                            ; preds = %invoke.cont3
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup26
 
 lpad6:                                            ; preds = %invoke.cont5
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #21
   br label %ehcleanup26
 
 lpad8:                                            ; preds = %invoke.cont18, %invoke.cont15, %invoke.cont9, %invoke.cont7
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad14:                                           ; preds = %invoke.cont12
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   br label %ehcleanup
 
 lpad23:                                           ; preds = %invoke.cont21
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17) #3
   br label %ehcleanup
 
@@ -10899,7 +10900,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers13QModelBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers13QModelBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_modelAloc = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QModelBuilder", ptr %this1, i32 0, i32 8
   call void @_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers15FirstOrderModelESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_modelAloc) #3
   call void @_ZN4cvc58internal6theory24TheoryEngineModelBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this1) #3
@@ -23655,34 +23657,35 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers7fmcheck16RepBoundFmcEntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers7fmcheck16RepBoundFmcEntryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
   %d_entry = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::fmcheck::RepBoundFmcEntry", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_entry, ptr noundef nonnull align 8 dereferenceable(8) %e)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %d_fm = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::fmcheck::RepBoundFmcEntry", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %fmc.addr, align 8
-  store ptr %4, ptr %d_fm, align 8
+  %5 = load ptr, ptr %fmc.addr, align 8
+  store ptr %5, ptr %d_fm, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
   br label %eh.resume
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory11quantifiers12QRepBoundExtD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this1) #3
   br label %eh.resume
 
@@ -24138,7 +24141,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers7fmcheck16RepBoundFmcEntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers7fmcheck16RepBoundFmcEntryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_entry = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::fmcheck::RepBoundFmcEntry", ptr %this1, i32 0, i32 1
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_entry) #3
   call void @_ZN4cvc58internal6theory11quantifiers12QRepBoundExtD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this1) #3
@@ -30549,7 +30553,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers7fmcheck16FullModelCheckerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers7fmcheck16FullModelCheckerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_fm = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::fmcheck::FullModelChecker", ptr %this1, i32 0, i32 12
   call void @_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmcESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_fm) #3
   %d_preinitialized_types = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::fmcheck::FullModelChecker", ptr %this1, i32 0, i32 11
@@ -34915,7 +34920,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory24TheoryEngineModelBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory24TheoryEngineModelBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_constantReps = getelementptr inbounds %"class.cvc5::internal::theory::TheoryEngineModelBuilder", ptr %this1, i32 0, i32 2
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_constantReps) #3
   %d_normalizedCache = getelementptr inbounds %"class.cvc5::internal::theory::TheoryEngineModelBuilder", ptr %this1, i32 0, i32 1
@@ -37847,7 +37853,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12QRepBoundExtE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12QRepBoundExtE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_instMatch = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QRepBoundExt", ptr %this1, i32 0, i32 4
   call void @_ZN4cvc58internal6theory11quantifiers9InstMatchD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %d_instMatch) #3
   %d_bound_int = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::QRepBoundExt", ptr %this1, i32 0, i32 3
@@ -37977,7 +37984,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9InstMatchE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9InstMatchE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_quant = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstMatch", ptr %this1, i32 0, i32 4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_quant) #3
   %d_vals = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstMatch", ptr %this1, i32 0, i32 3

@@ -416,17 +416,19 @@ define void @gpu_g_step_hardware_init(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops, ptr @ops, i32 0, i32 1), align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  call void %5(ptr noundef %6, ptr noundef %7)
+  %5 = getelementptr inbounds %struct.slurm_ops, ptr @ops, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  call void %6(ptr noundef %7, ptr noundef %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @gpu_g_step_hardware_fini() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops, ptr @ops, i32 0, i32 2), align 8
-  call void %1()
+  %1 = getelementptr inbounds %struct.slurm_ops, ptr @ops, i32 0, i32 2
+  %2 = load ptr, ptr %1, align 8
+  call void %2()
   ret void
 }
 
@@ -434,10 +436,11 @@ define void @gpu_g_step_hardware_fini() #0 {
 define ptr @gpu_g_test_cpu_conv(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops, ptr @ops, i32 0, i32 3), align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = call ptr %3(ptr noundef %4)
-  ret ptr %5
+  %3 = getelementptr inbounds %struct.slurm_ops, ptr @ops, i32 0, i32 3
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call ptr %4(ptr noundef %5)
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -446,20 +449,22 @@ define i32 @gpu_g_energy_read(i32 noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops, ptr @ops, i32 0, i32 4), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.slurm_ops, ptr @ops, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
 define void @gpu_g_get_device_count(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops, ptr @ops, i32 0, i32 5), align 8
-  %4 = load ptr, ptr %2, align 8
-  call void %3(ptr noundef %4)
+  %3 = getelementptr inbounds %struct.slurm_ops, ptr @ops, i32 0, i32 5
+  %4 = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  call void %4(ptr noundef %5)
   ret void
 }
 
@@ -469,11 +474,12 @@ define i32 @gpu_g_usage_read(i32 noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (%struct.slurm_ops, ptr @ops, i32 0, i32 6), align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i32 %5(i32 noundef %6, ptr noundef %7)
-  ret i32 %8
+  %5 = getelementptr inbounds %struct.slurm_ops, ptr @ops, i32 0, i32 6
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %3, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = call i32 %6(i32 noundef %7, ptr noundef %8)
+  ret i32 %9
 }
 
 declare i32 @gres_get_autodetect_flags() #4

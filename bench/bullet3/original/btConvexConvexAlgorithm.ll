@@ -544,14 +544,15 @@ entry:
   store ptr %pdSolver, ptr %pdSolver.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN30btCollisionAlgorithmCreateFuncC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN23btConvexConvexAlgorithm10CreateFuncE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN23btConvexConvexAlgorithm10CreateFuncE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_numPerturbationIterations = getelementptr inbounds %"struct.btConvexConvexAlgorithm::CreateFunc", ptr %this1, i32 0, i32 2
   store i32 0, ptr %m_numPerturbationIterations, align 8
   %m_minimumPointsPerturbationThreshold = getelementptr inbounds %"struct.btConvexConvexAlgorithm::CreateFunc", ptr %this1, i32 0, i32 3
   store i32 3, ptr %m_minimumPointsPerturbationThreshold, align 4
-  %0 = load ptr, ptr %pdSolver.addr, align 8
+  %1 = load ptr, ptr %pdSolver.addr, align 8
   %m_pdSolver = getelementptr inbounds %"struct.btConvexConvexAlgorithm::CreateFunc", ptr %this1, i32 0, i32 1
-  store ptr %0, ptr %m_pdSolver, align 8
+  store ptr %1, ptr %m_pdSolver, align 8
   ret void
 }
 
@@ -561,7 +562,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV30btCollisionAlgorithmCreateFunc, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV30btCollisionAlgorithmCreateFunc, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_swapped = getelementptr inbounds %struct.btCollisionAlgorithmCreateFunc, ptr %this1, i32 0, i32 1
   store i8 0, ptr %m_swapped, align 8
   ret void
@@ -617,10 +619,11 @@ entry:
   %1 = load ptr, ptr %body0Wrap.addr, align 8
   %2 = load ptr, ptr %body1Wrap.addr, align 8
   call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV23btConvexConvexAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV23btConvexConvexAlgorithm, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %m_pdSolver = getelementptr inbounds %class.btConvexConvexAlgorithm, ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %pdSolver.addr, align 8
-  store ptr %3, ptr %m_pdSolver, align 8
+  %4 = load ptr, ptr %pdSolver.addr, align 8
+  store ptr %4, ptr %m_pdSolver, align 8
   %worldVertsB1 = getelementptr inbounds %class.btConvexConvexAlgorithm, ptr %this1, i32 0, i32 2
   invoke void @_ZN20btAlignedObjectArrayI9btVector3EC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %worldVertsB1)
           to label %invoke.cont unwind label %lpad
@@ -634,34 +637,34 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %m_ownManifold = getelementptr inbounds %class.btConvexConvexAlgorithm, ptr %this1, i32 0, i32 4
   store i8 0, ptr %m_ownManifold, align 8
   %m_manifoldPtr = getelementptr inbounds %class.btConvexConvexAlgorithm, ptr %this1, i32 0, i32 6
-  %4 = load ptr, ptr %mf.addr, align 8
-  store ptr %4, ptr %m_manifoldPtr, align 8
+  %5 = load ptr, ptr %mf.addr, align 8
+  store ptr %5, ptr %m_manifoldPtr, align 8
   %m_lowLevelOfDetail = getelementptr inbounds %class.btConvexConvexAlgorithm, ptr %this1, i32 0, i32 7
   store i8 0, ptr %m_lowLevelOfDetail, align 8
   %m_numPerturbationIterations = getelementptr inbounds %class.btConvexConvexAlgorithm, ptr %this1, i32 0, i32 9
-  %5 = load i32, ptr %numPerturbationIterations.addr, align 4
-  store i32 %5, ptr %m_numPerturbationIterations, align 4
+  %6 = load i32, ptr %numPerturbationIterations.addr, align 4
+  store i32 %6, ptr %m_numPerturbationIterations, align 4
   %m_minimumPointsPerturbationThreshold = getelementptr inbounds %class.btConvexConvexAlgorithm, ptr %this1, i32 0, i32 10
-  %6 = load i32, ptr %minimumPointsPerturbationThreshold.addr, align 4
-  store i32 %6, ptr %m_minimumPointsPerturbationThreshold, align 8
+  %7 = load i32, ptr %minimumPointsPerturbationThreshold.addr, align 4
+  store i32 %7, ptr %m_minimumPointsPerturbationThreshold, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %worldVertsB1) #11
   br label %ehcleanup
 
@@ -722,27 +725,28 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV23btConvexConvexAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV23btConvexConvexAlgorithm, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_ownManifold = getelementptr inbounds %class.btConvexConvexAlgorithm, ptr %this1, i32 0, i32 4
-  %0 = load i8, ptr %m_ownManifold, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %m_ownManifold, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
   %m_manifoldPtr = getelementptr inbounds %class.btConvexConvexAlgorithm, ptr %this1, i32 0, i32 6
-  %1 = load ptr, ptr %m_manifoldPtr, align 8
-  %tobool2 = icmp ne ptr %1, null
+  %2 = load ptr, ptr %m_manifoldPtr, align 8
+  %tobool2 = icmp ne ptr %2, null
   br i1 %tobool2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
   %m_dispatcher = getelementptr inbounds %class.btCollisionAlgorithm, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %m_dispatcher, align 8
+  %3 = load ptr, ptr %m_dispatcher, align 8
   %m_manifoldPtr4 = getelementptr inbounds %class.btConvexConvexAlgorithm, ptr %this1, i32 0, i32 6
-  %3 = load ptr, ptr %m_manifoldPtr4, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %m_manifoldPtr4, align 8
+  %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %4 = load ptr, ptr %vfn, align 8
-  invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
+  %5 = load ptr, ptr %vfn, align 8
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then3
@@ -760,10 +764,10 @@ if.end5:                                          ; preds = %if.end, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #13
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #13
   unreachable
 }
 
@@ -3155,7 +3159,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN36btDiscreteCollisionDetectorInterface6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZN23btConvexConvexAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResultE13btDummyResult, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVZN23btConvexConvexAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResultE13btDummyResult, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_normalOnBInWorld = getelementptr inbounds %struct.btDummyResult, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_normalOnBInWorld)
           to label %invoke.cont unwind label %lpad
@@ -3171,12 +3176,12 @@ invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN36btDiscreteCollisionDetectorInterface6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -3203,32 +3208,33 @@ entry:
   store float %marginOnB, ptr %marginOnB.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN36btDiscreteCollisionDetectorInterface6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZN23btConvexConvexAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResultE21btWithoutMarginResult, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVZN23btConvexConvexAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResultE21btWithoutMarginResult, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_originalResult = getelementptr inbounds %struct.btWithoutMarginResult, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %result.addr, align 8
-  store ptr %0, ptr %m_originalResult, align 8
+  %1 = load ptr, ptr %result.addr, align 8
+  store ptr %1, ptr %m_originalResult, align 8
   %m_reportedNormalOnWorld = getelementptr inbounds %struct.btWithoutMarginResult, ptr %this1, i32 0, i32 2
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_reportedNormalOnWorld)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_marginOnA = getelementptr inbounds %struct.btWithoutMarginResult, ptr %this1, i32 0, i32 3
-  %1 = load float, ptr %marginOnA.addr, align 4
-  store float %1, ptr %m_marginOnA, align 8
+  %2 = load float, ptr %marginOnA.addr, align 4
+  store float %2, ptr %m_marginOnA, align 8
   %m_marginOnB = getelementptr inbounds %struct.btWithoutMarginResult, ptr %this1, i32 0, i32 4
-  %2 = load float, ptr %marginOnB.addr, align 4
-  store float %2, ptr %m_marginOnB, align 4
+  %3 = load float, ptr %marginOnB.addr, align 4
+  store float %3, ptr %m_marginOnB, align 4
   %m_foundResult = getelementptr inbounds %struct.btWithoutMarginResult, ptr %this1, i32 0, i32 6
   store i8 0, ptr %m_foundResult, align 4
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN36btDiscreteCollisionDetectorInterface6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -4437,45 +4443,46 @@ entry:
   store ptr %debugDrawer, ptr %debugDrawer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN16btManifoldResultC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV24btPerturbedContactResult, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV24btPerturbedContactResult, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_originalManifoldResult = getelementptr inbounds %struct.btPerturbedContactResult, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %originalResult.addr, align 8
-  store ptr %0, ptr %m_originalManifoldResult, align 8
+  %1 = load ptr, ptr %originalResult.addr, align 8
+  store ptr %1, ptr %m_originalManifoldResult, align 8
   %m_transformA = getelementptr inbounds %struct.btPerturbedContactResult, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %transformA.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_transformA, ptr noundef nonnull align 4 dereferenceable(64) %1)
+  %2 = load ptr, ptr %transformA.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_transformA, ptr noundef nonnull align 4 dereferenceable(64) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_transformB = getelementptr inbounds %struct.btPerturbedContactResult, ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %transformB.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %2)
+  %3 = load ptr, ptr %transformB.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %m_unPerturbedTransform = getelementptr inbounds %struct.btPerturbedContactResult, ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %unPerturbedTransform.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_unPerturbedTransform, ptr noundef nonnull align 4 dereferenceable(64) %3)
+  %4 = load ptr, ptr %unPerturbedTransform.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_unPerturbedTransform, ptr noundef nonnull align 4 dereferenceable(64) %4)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   %m_perturbA = getelementptr inbounds %struct.btPerturbedContactResult, ptr %this1, i32 0, i32 5
-  %4 = load i8, ptr %perturbA.addr, align 1
-  %tobool = trunc i8 %4 to i1
+  %5 = load i8, ptr %perturbA.addr, align 1
+  %tobool = trunc i8 %5 to i1
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %m_perturbA, align 8
   %m_debugDrawer = getelementptr inbounds %struct.btPerturbedContactResult, ptr %this1, i32 0, i32 6
-  %5 = load ptr, ptr %debugDrawer.addr, align 8
-  store ptr %5, ptr %m_debugDrawer, align 8
+  %6 = load ptr, ptr %debugDrawer.addr, align 8
+  store ptr %6, ptr %m_debugDrawer, align 8
   ret void
 
 lpad:                                             ; preds = %invoke.cont2, %invoke.cont, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN16btManifoldResultD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this1) #11
   br label %eh.resume
 
@@ -4981,7 +4988,8 @@ entry:
   store float %radius, ptr %radius.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13btSphereShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTV13btSphereShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 8, ptr %m_shapeType, align 8
   %m_localScaling = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 1
@@ -4995,25 +5003,25 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %m_implicitShapeDimensions4 = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 2
-  %0 = load float, ptr %radius.addr, align 4
-  invoke void @_ZN9btVector34setXEf(ptr noundef nonnull align 4 dereferenceable(16) %m_implicitShapeDimensions4, float noundef %0)
+  %1 = load float, ptr %radius.addr, align 4
+  invoke void @_ZN9btVector34setXEf(ptr noundef nonnull align 4 dereferenceable(16) %m_implicitShapeDimensions4, float noundef %1)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %1 = load float, ptr %radius.addr, align 4
+  %2 = load float, ptr %radius.addr, align 4
   %m_collisionMargin = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 3
-  store float %1, ptr %m_collisionMargin, align 8
+  store float %2, ptr %m_collisionMargin, align 8
   %m_padding = getelementptr inbounds %class.btConvexInternalShape, ptr %this1, i32 0, i32 4
   store float 0.000000e+00, ptr %m_padding, align 4
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN21btConvexInternalShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #11
   br label %eh.resume
 
@@ -5031,7 +5039,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12btConvexCast10CastResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN12btConvexCast10CastResultE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_hitTransformA = getelementptr inbounds %"struct.btConvexCast::CastResult", ptr %this1, i32 0, i32 1
   call void @_ZN11btTransformC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %m_hitTransformA)
   %m_hitTransformB = getelementptr inbounds %"struct.btConvexCast::CastResult", ptr %this1, i32 0, i32 2
@@ -5775,7 +5784,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN36btDiscreteCollisionDetectorInterface6ResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN36btDiscreteCollisionDetectorInterface6ResultE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6943,7 +6953,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN36btDiscreteCollisionDetectorInterface6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16btManifoldResult, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV16btManifoldResult, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_closestPointDistanceThreshold = getelementptr inbounds %class.btManifoldResult, ptr %this1, i32 0, i32 8
   store float 0.000000e+00, ptr %m_closestPointDistanceThreshold, align 8
   ret void

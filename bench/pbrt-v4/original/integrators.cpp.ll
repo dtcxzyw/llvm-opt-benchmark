@@ -8228,7 +8228,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %infiniteLights = getelementptr inbounds %"class.pbrt::Integrator", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %infiniteLights) #14
   %lights = getelementptr inbounds %"class.pbrt::Integrator", ptr %this1, i32 0, i32 2
@@ -14109,52 +14110,53 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp5) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %maxDepth6 = getelementptr inbounds %"class.pbrt::SimplePathIntegrator", ptr %this2, i32 0, i32 1
-  %0 = load i32, ptr %maxDepth.addr, align 4
-  store i32 %0, ptr %maxDepth6, align 8
+  %1 = load i32, ptr %maxDepth.addr, align 4
+  store i32 %1, ptr %maxDepth6, align 8
   %sampleLights7 = getelementptr inbounds %"class.pbrt::SimplePathIntegrator", ptr %this2, i32 0, i32 2
-  %1 = load i8, ptr %sampleLights.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %sampleLights.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool8 = zext i1 %tobool to i8
   store i8 %frombool8, ptr %sampleLights7, align 4
   %sampleBSDF9 = getelementptr inbounds %"class.pbrt::SimplePathIntegrator", ptr %this2, i32 0, i32 3
-  %2 = load i8, ptr %sampleBSDF.addr, align 1
-  %tobool10 = trunc i8 %2 to i1
+  %3 = load i8, ptr %sampleBSDF.addr, align 1
+  %tobool10 = trunc i8 %3 to i1
   %frombool11 = zext i1 %tobool10 to i8
   store i8 %frombool11, ptr %sampleBSDF9, align 1
   %lightSampler = getelementptr inbounds %"class.pbrt::SimplePathIntegrator", ptr %this2, i32 0, i32 4
   call void @_ZN4pstd4spanIKN4pbrt5LightEEC2IS2_EERSt6vectorIT_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %lights) #14
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp13) #14
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i32 0, i32 0
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i32 0, i32 1
-  %6 = load i64, ptr %5, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
   %coerce.dive = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.30", ptr %agg.tmp13, i32 0, i32 0
-  %7 = load ptr, ptr %coerce.dive, align 8
-  invoke void @_ZN4pbrt19UniformLightSamplerC2EN4pstd4spanIKNS_5LightEEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(32) %lightSampler, ptr %4, i64 %6, ptr %7)
+  %8 = load ptr, ptr %coerce.dive, align 8
+  invoke void @_ZN4pbrt19UniformLightSamplerC2EN4pstd4spanIKNS_5LightEEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(32) %lightSampler, ptr %5, i64 %7, ptr %8)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp5) #14
   br label %eh.resume
 
 lpad14:                                           ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN4pbrt13RayIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this2) #14
   br label %eh.resume
 
@@ -14297,16 +14299,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt13RayIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4pbrt13RayIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
   br label %eh.resume
 
@@ -16987,42 +16990,43 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt19LightPathIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt19LightPathIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %maxDepth5 = getelementptr inbounds %"class.pbrt::LightPathIntegrator", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %maxDepth.addr, align 4
-  store i32 %0, ptr %maxDepth5, align 8
+  %1 = load i32, ptr %maxDepth.addr, align 4
+  store i32 %1, ptr %maxDepth5, align 8
   %lightSampler = getelementptr inbounds %"class.pbrt::LightPathIntegrator", ptr %this1, i32 0, i32 2
   call void @_ZN4pstd4spanIKN4pbrt5LightEEC2IS2_EERSt6vectorIT_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(24) %lights) #14
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp7) #14
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp6, i32 0, i32 0
-  %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp6, i32 0, i32 1
-  %4 = load i64, ptr %3, align 8
+  %2 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp6, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp6, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
   %coerce.dive = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.30", ptr %agg.tmp7, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive, align 8
-  invoke void @_ZN4pbrt17PowerLightSamplerC1EN4pstd4spanIKNS_5LightEEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(104) %lightSampler, ptr %2, i64 %4, ptr %5)
+  %6 = load ptr, ptr %coerce.dive, align 8
+  invoke void @_ZN4pbrt17PowerLightSamplerC1EN4pstd4spanIKNS_5LightEEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(104) %lightSampler, ptr %3, i64 %5, ptr %6)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
   br label %eh.resume
 
 lpad8:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN4pbrt19ImageTileIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #14
   br label %eh.resume
 
@@ -17059,7 +17063,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt19ImageTileIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt19ImageTileIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %camera3 = getelementptr inbounds %"class.pbrt::ImageTileIntegrator", ptr %this1, i32 0, i32 1
   invoke void @_ZN4pbrt6CameraC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %camera3, ptr noundef nonnull align 8 dereferenceable(8) %camera)
           to label %invoke.cont5 unwind label %lpad4
@@ -17073,22 +17078,22 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2) #14
   br label %eh.resume
 
 lpad4:                                            ; preds = %invoke.cont5, %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN4pbrt10IntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #14
   br label %eh.resume
 
@@ -19034,48 +19039,49 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt14PathIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4pbrt14PathIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %maxDepth5 = getelementptr inbounds %"class.pbrt::PathIntegrator", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %maxDepth.addr, align 4
-  store i32 %0, ptr %maxDepth5, align 8
+  %1 = load i32, ptr %maxDepth.addr, align 4
+  store i32 %1, ptr %maxDepth5, align 8
   %lightSampler = getelementptr inbounds %"class.pbrt::PathIntegrator", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %lightSampleStrategy.addr, align 8
+  %2 = load ptr, ptr %lightSampleStrategy.addr, align 8
   call void @_ZN4pstd4spanIKN4pbrt5LightEEC2IS2_EERSt6vectorIT_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(24) %lights) #14
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp7) #14
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp6, i32 0, i32 0
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp6, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
+  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp6, i32 0, i32 0
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp6, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8
   %coerce.dive = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.30", ptr %agg.tmp7, i32 0, i32 0
-  %6 = load ptr, ptr %coerce.dive, align 8
-  invoke void @_ZN4pbrt12LightSampler6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd4spanIKNS_5LightEEENS9_3pmr21polymorphic_allocatorISt4byteEE(ptr sret(%"class.pbrt::LightSampler") align 8 %lightSampler, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %3, i64 %5, ptr %6)
+  %7 = load ptr, ptr %coerce.dive, align 8
+  invoke void @_ZN4pbrt12LightSampler6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd4spanIKNS_5LightEEENS9_3pmr21polymorphic_allocatorISt4byteEE(ptr sret(%"class.pbrt::LightSampler") align 8 %lightSampler, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %4, i64 %6, ptr %7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
   %regularize10 = getelementptr inbounds %"class.pbrt::PathIntegrator", ptr %this1, i32 0, i32 4
-  %7 = load i8, ptr %regularize.addr, align 1
-  %tobool = trunc i8 %7 to i1
+  %8 = load i8, ptr %regularize.addr, align 1
+  %tobool = trunc i8 %8 to i1
   %frombool11 = zext i1 %tobool to i8
   store i8 %frombool11, ptr %regularize10, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
   br label %eh.resume
 
 lpad8:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN4pbrt13RayIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #14
   br label %eh.resume
 
@@ -21697,17 +21703,18 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt23SimpleVolPathIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4pbrt23SimpleVolPathIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %maxDepth5 = getelementptr inbounds %"class.pbrt::SimpleVolPathIntegrator", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %maxDepth.addr, align 4
-  store i32 %0, ptr %maxDepth5, align 8
+  %1 = load i32, ptr %maxDepth.addr, align 4
+  store i32 %1, ptr %maxDepth5, align 8
   store ptr %lights, ptr %__range1, align 8
-  %1 = load ptr, ptr %__range1, align 8
-  %call = call ptr @_ZNSt6vectorIN4pbrt5LightESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #14
+  %2 = load ptr, ptr %__range1, align 8
+  %call = call ptr @_ZNSt6vectorIN4pbrt5LightESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.177", ptr %__begin1, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
-  %2 = load ptr, ptr %__range1, align 8
-  %call6 = call ptr @_ZNSt6vectorIN4pbrt5LightESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
+  %3 = load ptr, ptr %__range1, align 8
+  %call6 = call ptr @_ZNSt6vectorIN4pbrt5LightESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
   %coerce.dive7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.177", ptr %__end1, i32 0, i32 0
   store ptr %call6, ptr %coerce.dive7, align 8
   br label %for.cond
@@ -21740,22 +21747,22 @@ invoke.cont16:                                    ; preds = %if.then
   unreachable
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
   br label %eh.resume
 
 lpad10:                                           ; preds = %if.then, %invoke.cont12, %invoke.cont11, %for.body
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN4pbrt13RayIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #14
   br label %eh.resume
 
@@ -26889,15 +26896,16 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt12AOIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4pbrt12AOIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cosSample5 = getelementptr inbounds %"class.pbrt::AOIntegrator", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %cosSample.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %cosSample.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool6 = zext i1 %tobool to i8
   store i8 %frombool6, ptr %cosSample5, align 8
   %maxDist7 = getelementptr inbounds %"class.pbrt::AOIntegrator", ptr %this1, i32 0, i32 3
-  %1 = load float, ptr %maxDist.addr, align 4
-  store float %1, ptr %maxDist7, align 4
+  %2 = load float, ptr %maxDist.addr, align 4
+  store float %2, ptr %maxDist7, align 4
   %illuminant8 = getelementptr inbounds %"class.pbrt::AOIntegrator", ptr %this1, i32 0, i32 4
   invoke void @_ZN4pbrt8SpectrumC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %illuminant8, ptr noundef nonnull align 8 dereferenceable(8) %illuminant)
           to label %invoke.cont10 unwind label %lpad9
@@ -26917,22 +26925,22 @@ invoke.cont13:                                    ; preds = %invoke.cont12
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
   br label %eh.resume
 
 lpad9:                                            ; preds = %invoke.cont12, %invoke.cont10, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN4pbrt13RayIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #14
   br label %eh.resume
 
@@ -42937,15 +42945,16 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt18FunctionIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4pbrt18FunctionIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %func3 = getelementptr inbounds %"class.pbrt::FunctionIntegrator", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt8functionIFdN4pbrt6Point2IfEEEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %func3, ptr noundef nonnull align 8 dereferenceable(32) %func)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   %outputFilename6 = getelementptr inbounds %"class.pbrt::FunctionIntegrator", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %outputFilename.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %outputFilename6, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %outputFilename.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %outputFilename6, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
@@ -42960,8 +42969,8 @@ invoke.cont11:                                    ; preds = %invoke.cont8
 
 invoke.cont12:                                    ; preds = %invoke.cont11
   %skipBad13 = getelementptr inbounds %"class.pbrt::FunctionIntegrator", ptr %this1, i32 0, i32 5
-  %1 = load i8, ptr %skipBad.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %skipBad.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool14 = zext i1 %tobool to i8
   store i8 %frombool14, ptr %skipBad13, align 8
   %imageFilename15 = getelementptr inbounds %"class.pbrt::FunctionIntegrator", ptr %this1, i32 0, i32 6
@@ -42972,40 +42981,40 @@ invoke.cont16:                                    ; preds = %invoke.cont12
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2) #14
   br label %eh.resume
 
 lpad4:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup17
 
 lpad7:                                            ; preds = %invoke.cont5
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont12, %invoke.cont11, %invoke.cont8
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %outputFilename6) #14
   br label %ehcleanup
 
@@ -43065,7 +43074,8 @@ entry:
   store ptr %aggregate, ptr %aggregate.indirect_addr, align 8
   store ptr %lights, ptr %lights.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %aggregate2 = getelementptr inbounds %"class.pbrt::Integrator", ptr %this1, i32 0, i32 1
   call void @_ZN4pbrt9PrimitiveC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %aggregate2, ptr noundef nonnull align 8 dereferenceable(8) %aggregate)
   %lights3 = getelementptr inbounds %"class.pbrt::Integrator", ptr %this1, i32 0, i32 2
@@ -43093,8 +43103,8 @@ invoke.cont5:                                     ; preds = %cond.false
   br label %cond.end
 
 cond.end:                                         ; preds = %invoke.cont5, %invoke.cont4
-  %0 = load i32, ptr @_ZN4pbrt7logging8logLevelE, align 4
-  %cmp = icmp sge i32 0, %0
+  %1 = load i32, ptr @_ZN4pbrt7logging8logLevelE, align 4
+  %cmp = icmp sge i32 0, %1
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %cond.end
@@ -43106,12 +43116,12 @@ invoke.cont6:                                     ; preds = %land.rhs
 
 land.end:                                         ; preds = %invoke.cont6, %cond.end
   store ptr %lights, ptr %__range2, align 8
-  %1 = load ptr, ptr %__range2, align 8
-  %call7 = call ptr @_ZNSt6vectorIN4pbrt5LightESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #14
+  %2 = load ptr, ptr %__range2, align 8
+  %call7 = call ptr @_ZNSt6vectorIN4pbrt5LightESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.177", ptr %__begin2, i32 0, i32 0
   store ptr %call7, ptr %coerce.dive, align 8
-  %2 = load ptr, ptr %__range2, align 8
-  %call8 = call ptr @_ZNSt6vectorIN4pbrt5LightESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
+  %3 = load ptr, ptr %__range2, align 8
+  %call8 = call ptr @_ZNSt6vectorIN4pbrt5LightESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
   %coerce.dive9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.177", ptr %__end2, i32 0, i32 0
   store ptr %call8, ptr %coerce.dive9, align 8
   br label %for.cond
@@ -43123,13 +43133,13 @@ for.cond:                                         ; preds = %for.inc, %land.end
 for.body:                                         ; preds = %for.cond
   %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4pbrt5LightESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2) #14
   store ptr %call11, ptr %light, align 8
-  %3 = load ptr, ptr %light, align 8
-  invoke void @_ZN4pbrt5Light10PreprocessERKNS_7Bounds3IfEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(24) %sceneBounds)
+  %4 = load ptr, ptr %light, align 8
+  invoke void @_ZN4pbrt5Light10PreprocessERKNS_7Bounds3IfEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(24) %sceneBounds)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %for.body
-  %4 = load ptr, ptr %light, align 8
-  %call14 = invoke noundef i32 @_ZNK4pbrt5Light4TypeEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %5 = load ptr, ptr %light, align 8
+  %call14 = invoke noundef i32 @_ZNK4pbrt5Light4TypeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont12
@@ -43138,20 +43148,20 @@ invoke.cont13:                                    ; preds = %invoke.cont12
 
 if.then:                                          ; preds = %invoke.cont13
   %infiniteLights16 = getelementptr inbounds %"class.pbrt::Integrator", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %light, align 8
-  invoke void @_ZNSt6vectorIN4pbrt5LightESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %infiniteLights16, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %6 = load ptr, ptr %light, align 8
+  invoke void @_ZNSt6vectorIN4pbrt5LightESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %infiniteLights16, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then, %invoke.cont12, %for.body, %land.rhs, %cond.false, %cond.true, %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %infiniteLights) #14
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %lights3) #14
   br label %eh.resume
@@ -48013,7 +48023,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt14BDPTIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4pbrt14BDPTIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %weightFilms = getelementptr inbounds %"class.pbrt::BDPTIntegrator", ptr %this1, i32 0, i32 6
   call void @_ZNSt6vectorIN4pbrt4FilmESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %weightFilms) #14
   call void @_ZN4pbrt13RayIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #14
@@ -48079,7 +48090,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lightSampler = getelementptr inbounds %"class.pbrt::SimplePathIntegrator", ptr %this1, i32 0, i32 4
   call void @_ZN4pbrt19UniformLightSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %lightSampler) #14
   call void @_ZN4pbrt13RayIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #14
@@ -48103,7 +48115,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt19LightPathIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4pbrt19LightPathIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %lightSampler = getelementptr inbounds %"class.pbrt::LightPathIntegrator", ptr %this1, i32 0, i32 2
   call void @_ZN4pbrt17PowerLightSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %lightSampler) #14
   call void @_ZN4pbrt19ImageTileIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #14
@@ -48190,7 +48203,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt18FunctionIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4pbrt18FunctionIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %imageFilename = getelementptr inbounds %"class.pbrt::FunctionIntegrator", ptr %this1, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %imageFilename) #14
   %outputFilename = getelementptr inbounds %"class.pbrt::FunctionIntegrator", ptr %this1, i32 0, i32 2
@@ -103914,19 +103928,20 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt20RandomWalkIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4pbrt20RandomWalkIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %maxDepth5 = getelementptr inbounds %"class.pbrt::RandomWalkIntegrator", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %maxDepth.addr, align 4
-  store i32 %0, ptr %maxDepth5, align 8
+  %1 = load i32, ptr %maxDepth.addr, align 4
+  store i32 %1, ptr %maxDepth5, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
   br label %eh.resume
 
@@ -146615,48 +146630,49 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt17VolPathIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4pbrt17VolPathIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %maxDepth5 = getelementptr inbounds %"class.pbrt::VolPathIntegrator", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %maxDepth.addr, align 4
-  store i32 %0, ptr %maxDepth5, align 8
+  %1 = load i32, ptr %maxDepth.addr, align 4
+  store i32 %1, ptr %maxDepth5, align 8
   %lightSampler = getelementptr inbounds %"class.pbrt::VolPathIntegrator", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %lightSampleStrategy.addr, align 8
+  %2 = load ptr, ptr %lightSampleStrategy.addr, align 8
   call void @_ZN4pstd4spanIKN4pbrt5LightEEC2IS2_EERSt6vectorIT_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(24) %lights) #14
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp7) #14
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp6, i32 0, i32 0
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp6, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
+  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp6, i32 0, i32 0
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp6, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8
   %coerce.dive = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.30", ptr %agg.tmp7, i32 0, i32 0
-  %6 = load ptr, ptr %coerce.dive, align 8
-  invoke void @_ZN4pbrt12LightSampler6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd4spanIKNS_5LightEEENS9_3pmr21polymorphic_allocatorISt4byteEE(ptr sret(%"class.pbrt::LightSampler") align 8 %lightSampler, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %3, i64 %5, ptr %6)
+  %7 = load ptr, ptr %coerce.dive, align 8
+  invoke void @_ZN4pbrt12LightSampler6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd4spanIKNS_5LightEEENS9_3pmr21polymorphic_allocatorISt4byteEE(ptr sret(%"class.pbrt::LightSampler") align 8 %lightSampler, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %4, i64 %6, ptr %7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
   %regularize10 = getelementptr inbounds %"class.pbrt::VolPathIntegrator", ptr %this1, i32 0, i32 4
-  %7 = load i8, ptr %regularize.addr, align 1
-  %tobool = trunc i8 %7 to i1
+  %8 = load i8, ptr %regularize.addr, align 1
+  %tobool = trunc i8 %8 to i1
   %frombool11 = zext i1 %tobool to i8
   store i8 %frombool11, ptr %regularize10, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4) #14
   br label %eh.resume
 
 lpad8:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN4pbrt13RayIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #14
   br label %eh.resume
 
@@ -153405,13 +153421,14 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp6) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt14BDPTIntegratorE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4pbrt14BDPTIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %maxDepth7 = getelementptr inbounds %"class.pbrt::BDPTIntegrator", ptr %this3, i32 0, i32 1
-  %0 = load i32, ptr %maxDepth.addr, align 4
-  store i32 %0, ptr %maxDepth7, align 8
+  %1 = load i32, ptr %maxDepth.addr, align 4
+  store i32 %1, ptr %maxDepth7, align 8
   %regularize8 = getelementptr inbounds %"class.pbrt::BDPTIntegrator", ptr %this3, i32 0, i32 2
-  %1 = load i8, ptr %regularize.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %regularize.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool9 = zext i1 %tobool to i8
   store i8 %frombool9, ptr %regularize8, align 4
   %lightSampler = getelementptr inbounds %"class.pbrt::BDPTIntegrator", ptr %this3, i32 0, i32 3
@@ -153421,13 +153438,13 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont11:                                    ; preds = %invoke.cont
   call void @_ZN4pstd4spanIKN4pbrt5LightEEC2IS2_EERSt6vectorIT_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %lights) #14
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp13) #14
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i32 0, i32 0
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
+  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i32 0, i32 0
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp12, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8
   %coerce.dive = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.30", ptr %agg.tmp13, i32 0, i32 0
-  %6 = load ptr, ptr %coerce.dive, align 8
-  invoke void @_ZN4pbrt17PowerLightSamplerC1EN4pstd4spanIKNS_5LightEEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(104) %call, ptr %3, i64 %5, ptr %6)
+  %7 = load ptr, ptr %coerce.dive, align 8
+  invoke void @_ZN4pbrt17PowerLightSamplerC1EN4pstd4spanIKNS_5LightEEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(104) %call, ptr %4, i64 %6, ptr %7)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont11
@@ -153436,13 +153453,13 @@ invoke.cont15:                                    ; preds = %invoke.cont11
 
 invoke.cont16:                                    ; preds = %invoke.cont15
   %visualizeStrategies17 = getelementptr inbounds %"class.pbrt::BDPTIntegrator", ptr %this3, i32 0, i32 4
-  %7 = load i8, ptr %visualizeStrategies.addr, align 1
-  %tobool18 = trunc i8 %7 to i1
+  %8 = load i8, ptr %visualizeStrategies.addr, align 1
+  %tobool18 = trunc i8 %8 to i1
   %frombool19 = zext i1 %tobool18 to i8
   store i8 %frombool19, ptr %visualizeStrategies17, align 8
   %visualizeWeights20 = getelementptr inbounds %"class.pbrt::BDPTIntegrator", ptr %this3, i32 0, i32 5
-  %8 = load i8, ptr %visualizeWeights.addr, align 1
-  %tobool21 = trunc i8 %8 to i1
+  %9 = load i8, ptr %visualizeWeights.addr, align 1
+  %tobool21 = trunc i8 %9 to i1
   %frombool22 = zext i1 %tobool21 to i8
   store i8 %frombool22, ptr %visualizeWeights20, align 1
   %weightFilms = getelementptr inbounds %"class.pbrt::BDPTIntegrator", ptr %this3, i32 0, i32 6
@@ -153450,31 +153467,31 @@ invoke.cont16:                                    ; preds = %invoke.cont15
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp6) #14
   br label %eh.resume
 
 lpad10:                                           ; preds = %invoke.cont15, %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad14:                                           ; preds = %invoke.cont11
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #21
   br label %ehcleanup
 
@@ -159268,15 +159285,16 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt13MLTIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4pbrt13MLTIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %camera3 = getelementptr inbounds %"class.pbrt::MLTIntegrator", ptr %this1, i32 0, i32 1
   invoke void @_ZN4pbrt6CameraC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %camera3, ptr noundef nonnull align 8 dereferenceable(8) %camera)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   %regularize6 = getelementptr inbounds %"class.pbrt::MLTIntegrator", ptr %this1, i32 0, i32 2
-  %0 = load i8, ptr %regularize.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %regularize.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool7 = zext i1 %tobool to i8
   store i8 %frombool7, ptr %regularize6, align 8
   %lightSampler = getelementptr inbounds %"class.pbrt::MLTIntegrator", ptr %this1, i32 0, i32 3
@@ -159286,13 +159304,13 @@ invoke.cont5:                                     ; preds = %invoke.cont
 invoke.cont8:                                     ; preds = %invoke.cont5
   call void @_ZN4pstd4spanIKN4pbrt5LightEEC2IS2_EERSt6vectorIT_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(24) %lights) #14
   call void @_ZN4pstd3pmr21polymorphic_allocatorISt4byteEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp10) #14
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp9, i32 0, i32 0
-  %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp9, i32 0, i32 1
-  %4 = load i64, ptr %3, align 8
+  %2 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp9, i32 0, i32 0
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp9, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
   %coerce.dive = getelementptr inbounds %"class.pstd::pmr::polymorphic_allocator.30", ptr %agg.tmp10, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive, align 8
-  invoke void @_ZN4pbrt17PowerLightSamplerC1EN4pstd4spanIKNS_5LightEEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(104) %call, ptr %2, i64 %4, ptr %5)
+  %6 = load ptr, ptr %coerce.dive, align 8
+  invoke void @_ZN4pbrt17PowerLightSamplerC1EN4pstd4spanIKNS_5LightEEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(104) %call, ptr %3, i64 %5, ptr %6)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont8
@@ -159301,51 +159319,51 @@ invoke.cont12:                                    ; preds = %invoke.cont8
 
 invoke.cont13:                                    ; preds = %invoke.cont12
   %maxDepth14 = getelementptr inbounds %"class.pbrt::MLTIntegrator", ptr %this1, i32 0, i32 4
-  %6 = load i32, ptr %maxDepth.addr, align 4
-  store i32 %6, ptr %maxDepth14, align 8
+  %7 = load i32, ptr %maxDepth.addr, align 4
+  store i32 %7, ptr %maxDepth14, align 8
   %nBootstrap15 = getelementptr inbounds %"class.pbrt::MLTIntegrator", ptr %this1, i32 0, i32 5
-  %7 = load i32, ptr %nBootstrap.addr, align 4
-  store i32 %7, ptr %nBootstrap15, align 4
+  %8 = load i32, ptr %nBootstrap.addr, align 4
+  store i32 %8, ptr %nBootstrap15, align 4
   %mutationsPerPixel16 = getelementptr inbounds %"class.pbrt::MLTIntegrator", ptr %this1, i32 0, i32 6
-  %8 = load i32, ptr %mutationsPerPixel.addr, align 4
-  store i32 %8, ptr %mutationsPerPixel16, align 8
+  %9 = load i32, ptr %mutationsPerPixel.addr, align 4
+  store i32 %9, ptr %mutationsPerPixel16, align 8
   %sigma17 = getelementptr inbounds %"class.pbrt::MLTIntegrator", ptr %this1, i32 0, i32 7
-  %9 = load float, ptr %sigma.addr, align 4
-  store float %9, ptr %sigma17, align 4
+  %10 = load float, ptr %sigma.addr, align 4
+  store float %10, ptr %sigma17, align 4
   %largeStepProbability18 = getelementptr inbounds %"class.pbrt::MLTIntegrator", ptr %this1, i32 0, i32 8
-  %10 = load float, ptr %largeStepProbability.addr, align 4
-  store float %10, ptr %largeStepProbability18, align 8
+  %11 = load float, ptr %largeStepProbability.addr, align 4
+  store float %11, ptr %largeStepProbability18, align 8
   %nChains19 = getelementptr inbounds %"class.pbrt::MLTIntegrator", ptr %this1, i32 0, i32 9
-  %11 = load i32, ptr %nChains.addr, align 4
-  store i32 %11, ptr %nChains19, align 4
+  %12 = load i32, ptr %nChains.addr, align 4
+  store i32 %12, ptr %nChains19, align 4
   ret void
 
 lpad:                                             ; preds = %entry
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2) #14
   br label %eh.resume
 
 lpad4:                                            ; preds = %invoke.cont12, %invoke.cont5, %invoke.cont
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont8
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #21
   br label %ehcleanup
 
@@ -170106,33 +170124,34 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt14SPPMIntegratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4pbrt14SPPMIntegratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %camera3 = getelementptr inbounds %"class.pbrt::SPPMIntegrator", ptr %this1, i32 0, i32 1
   invoke void @_ZN4pbrt6CameraC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %camera3, ptr noundef nonnull align 8 dereferenceable(8) %camera)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   %initialSearchRadius6 = getelementptr inbounds %"class.pbrt::SPPMIntegrator", ptr %this1, i32 0, i32 2
-  %0 = load float, ptr %initialSearchRadius.addr, align 4
-  store float %0, ptr %initialSearchRadius6, align 8
+  %1 = load float, ptr %initialSearchRadius.addr, align 4
+  store float %1, ptr %initialSearchRadius6, align 8
   %samplerPrototype = getelementptr inbounds %"class.pbrt::SPPMIntegrator", ptr %this1, i32 0, i32 3
   invoke void @_ZN4pbrt7SamplerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %samplerPrototype, ptr noundef nonnull align 8 dereferenceable(8) %sampler)
           to label %invoke.cont7 unwind label %lpad4
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %digitPermutationsSeed = getelementptr inbounds %"class.pbrt::SPPMIntegrator", ptr %this1, i32 0, i32 4
-  %1 = load i32, ptr %seed.addr, align 4
-  store i32 %1, ptr %digitPermutationsSeed, align 8
+  %2 = load i32, ptr %seed.addr, align 4
+  store i32 %2, ptr %digitPermutationsSeed, align 8
   %maxDepth8 = getelementptr inbounds %"class.pbrt::SPPMIntegrator", ptr %this1, i32 0, i32 5
-  %2 = load i32, ptr %maxDepth.addr, align 4
-  store i32 %2, ptr %maxDepth8, align 4
+  %3 = load i32, ptr %maxDepth.addr, align 4
+  store i32 %3, ptr %maxDepth8, align 4
   %photonsPerIteration9 = getelementptr inbounds %"class.pbrt::SPPMIntegrator", ptr %this1, i32 0, i32 6
-  %3 = load i32, ptr %photonsPerIteration.addr, align 4
-  %cmp = icmp sgt i32 %3, 0
+  %4 = load i32, ptr %photonsPerIteration.addr, align 4
+  %cmp = icmp sgt i32 %4, 0
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %invoke.cont7
-  %4 = load i32, ptr %photonsPerIteration.addr, align 4
+  %5 = load i32, ptr %photonsPerIteration.addr, align 4
   br label %cond.end
 
 cond.false:                                       ; preds = %invoke.cont7
@@ -170144,12 +170163,12 @@ invoke.cont11:                                    ; preds = %cond.false
           to label %invoke.cont12 unwind label %lpad4
 
 invoke.cont12:                                    ; preds = %invoke.cont11
-  %5 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 0
-  %6 = extractvalue { i64, i64 } %call, 0
-  store i64 %6, ptr %5, align 4
-  %7 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 1
-  %8 = extractvalue { i64, i64 } %call, 1
-  store i64 %8, ptr %7, align 4
+  %6 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 0
+  %7 = extractvalue { i64, i64 } %call, 0
+  store i64 %7, ptr %6, align 4
+  %8 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i32 0, i32 1
+  %9 = extractvalue { i64, i64 } %call, 1
+  store i64 %9, ptr %8, align 4
   %call14 = invoke noundef i32 @_ZNK4pbrt7Bounds2IiE4AreaEv(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
           to label %invoke.cont13 unwind label %lpad4
 
@@ -170157,30 +170176,30 @@ invoke.cont13:                                    ; preds = %invoke.cont12
   br label %cond.end
 
 cond.end:                                         ; preds = %invoke.cont13, %cond.true
-  %cond = phi i32 [ %4, %cond.true ], [ %call14, %invoke.cont13 ]
+  %cond = phi i32 [ %5, %cond.true ], [ %call14, %invoke.cont13 ]
   store i32 %cond, ptr %photonsPerIteration9, align 8
   %colorSpace15 = getelementptr inbounds %"class.pbrt::SPPMIntegrator", ptr %this1, i32 0, i32 7
-  %9 = load ptr, ptr %colorSpace.addr, align 8
-  store ptr %9, ptr %colorSpace15, align 8
+  %10 = load ptr, ptr %colorSpace.addr, align 8
+  store ptr %10, ptr %colorSpace15, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2) #14
   br label %eh.resume
 
 lpad4:                                            ; preds = %invoke.cont12, %invoke.cont11, %cond.false, %invoke.cont5, %invoke.cont
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN4pbrt10IntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #14
   br label %eh.resume
 

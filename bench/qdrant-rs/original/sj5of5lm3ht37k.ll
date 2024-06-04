@@ -31,7 +31,7 @@ define void @_ZN3std10sys_common4once5futex4Once4call17h5b7bbf83cb8fd6c0E(ptr al
   store i32 %17, ptr %16, align 4
   br label %18
 
-18:                                               ; preds = %92, %87, %45, %4
+18:                                               ; preds = %94, %88, %46, %4
   %19 = load i32, ptr %16, align 4, !noundef !3
   switch i32 %19, label %20 [
     i32 1, label %21
@@ -60,132 +60,134 @@ define void @_ZN3std10sys_common4once5futex4Once4call17h5b7bbf83cb8fd6c0E(ptr al
   %28 = load i32, ptr %14, align 4, !range !4, !noundef !3
   %29 = zext i32 %28 to i64
   %30 = icmp eq i64 %29, 1
-  br i1 %30, label %45, label %48
+  br i1 %30, label %46, label %49
 
 31:                                               ; preds = %18, %18
   %32 = load i32, ptr %16, align 4, !noundef !3
   %33 = icmp eq i32 %32, 2
-  br i1 %33, label %79, label %78
+  br i1 %33, label %80, label %79
 
-34:                                               ; preds = %67, %18
+34:                                               ; preds = %68, %18
   ret void
 
 35:                                               ; preds = %21
-  br i1 false, label %44, label %36
+  br i1 false, label %45, label %36
 
 36:                                               ; preds = %35
   store ptr @anon.755e62861954131ef957983adba46fb3.1, ptr %15, align 8
   %37 = getelementptr inbounds i8, ptr %15, i64 8
   store i64 1, ptr %37, align 8
   %38 = load ptr, ptr @anon.755e62861954131ef957983adba46fb3.3, align 8, !align !5, !noundef !3
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @anon.755e62861954131ef957983adba46fb3.3, i64 8), align 8
-  %40 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %15, i32 0, i32 2
-  store ptr %38, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  store i64 %39, ptr %41, align 8
-  %42 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %15, i32 0, i32 1
-  store ptr @anon.755e62861954131ef957983adba46fb3.2, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  store i64 0, ptr %43, align 8
+  %39 = getelementptr inbounds i8, ptr @anon.755e62861954131ef957983adba46fb3.3, i64 8
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %15, i32 0, i32 2
+  store ptr %38, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  store i64 %40, ptr %42, align 8
+  %43 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %15, i32 0, i32 1
+  store ptr @anon.755e62861954131ef957983adba46fb3.2, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  store i64 0, ptr %44, align 8
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr align 8 %15, ptr align 8 %3) #5
   unreachable
 
-44:                                               ; preds = %35
+45:                                               ; preds = %35
   call void @_ZN4core3fmt9Arguments9new_const17h8427244b232e06ceE(ptr sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr align 8 @anon.755e62861954131ef957983adba46fb3.5, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr align 8 %6, ptr align 8 @anon.755e62861954131ef957983adba46fb3.7) #5
   unreachable
 
-45:                                               ; preds = %22
-  %46 = getelementptr inbounds i8, ptr %14, i64 4
-  %47 = load i32, ptr %46, align 4, !noundef !3
-  store i32 %47, ptr %16, align 4
+46:                                               ; preds = %22
+  %47 = getelementptr inbounds i8, ptr %14, i64 4
+  %48 = load i32, ptr %47, align 4, !noundef !3
+  store i32 %48, ptr %16, align 4
   br label %18
 
-48:                                               ; preds = %22
+49:                                               ; preds = %22
   store ptr %0, ptr %13, align 8
-  %49 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 1, ptr %49, align 8
-  %50 = load i32, ptr %16, align 4, !noundef !3
-  %51 = icmp eq i32 %50, 1
-  %52 = getelementptr inbounds i8, ptr %11, i64 4
-  %53 = zext i1 %51 to i8
-  store i8 %53, ptr %52, align 4
+  %50 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 1, ptr %50, align 8
+  %51 = load i32, ptr %16, align 4, !noundef !3
+  %52 = icmp eq i32 %51, 1
+  %53 = getelementptr inbounds i8, ptr %11, i64 4
+  %54 = zext i1 %52 to i8
+  store i8 %54, ptr %53, align 4
   store i32 4, ptr %11, align 4
-  %54 = load i32, ptr %11, align 4, !noundef !3
-  %55 = getelementptr inbounds i8, ptr %11, i64 4
-  %56 = load i8, ptr %55, align 4, !range !6, !noundef !3
-  %57 = trunc i8 %56 to i1
-  store i32 %54, ptr %12, align 4
-  %58 = getelementptr inbounds i8, ptr %12, i64 4
-  %59 = zext i1 %57 to i8
-  store i8 %59, ptr %58, align 4
+  %55 = load i32, ptr %11, align 4, !noundef !3
+  %56 = getelementptr inbounds i8, ptr %11, i64 4
+  %57 = load i8, ptr %56, align 4, !range !6, !noundef !3
+  %58 = trunc i8 %57 to i1
+  store i32 %55, ptr %12, align 4
+  %59 = getelementptr inbounds i8, ptr %12, i64 4
+  %60 = zext i1 %58 to i8
+  store i8 %60, ptr %59, align 4
   store ptr %12, ptr %10, align 8
-  %60 = load ptr, ptr %10, align 8, !nonnull !3, !align !7, !noundef !3
-  invoke void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17h640144baa6301d94E"(ptr align 8 %2, ptr align 4 %60)
-          to label %67 unwind label %62
+  %61 = load ptr, ptr %10, align 8, !nonnull !3, !align !7, !noundef !3
+  invoke void @"_ZN3std4sync4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17h640144baa6301d94E"(ptr align 8 %2, ptr align 4 %61)
+          to label %68 unwind label %63
 
-61:                                               ; preds = %62
+62:                                               ; preds = %63
   invoke void @"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h9d0227cdf44e3296E"(ptr align 8 %13) #6
-          to label %72 unwind label %70
+          to label %73 unwind label %71
 
-62:                                               ; preds = %48
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %49
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %64 = extractvalue { ptr, i32 } %63, 0
-  %65 = extractvalue { ptr, i32 } %63, 1
-  store ptr %64, ptr %5, align 8
-  %66 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %65, ptr %66, align 8
-  br label %61
+  %65 = extractvalue { ptr, i32 } %64, 0
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store ptr %65, ptr %5, align 8
+  %67 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %66, ptr %67, align 8
+  br label %62
 
-67:                                               ; preds = %48
-  %68 = load i32, ptr %12, align 4, !noundef !3
-  %69 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 %68, ptr %69, align 8
+68:                                               ; preds = %49
+  %69 = load i32, ptr %12, align 4, !noundef !3
+  %70 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 %69, ptr %70, align 8
   call void @"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h9d0227cdf44e3296E"(ptr align 8 %13)
   br label %34
 
-70:                                               ; preds = %61
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %62
+  %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #7
   unreachable
 
-72:                                               ; preds = %61
-  %73 = load ptr, ptr %5, align 8, !noundef !3
-  %74 = getelementptr inbounds i8, ptr %5, i64 8
-  %75 = load i32, ptr %74, align 8, !noundef !3
-  %76 = insertvalue { ptr, i32 } poison, ptr %73, 0
-  %77 = insertvalue { ptr, i32 } %76, i32 %75, 1
-  resume { ptr, i32 } %77
-
-78:                                               ; preds = %31
-  br label %87
+73:                                               ; preds = %62
+  %74 = load ptr, ptr %5, align 8, !noundef !3
+  %75 = getelementptr inbounds i8, ptr %5, i64 8
+  %76 = load i32, ptr %75, align 8, !noundef !3
+  %77 = insertvalue { ptr, i32 } poison, ptr %74, 0
+  %78 = insertvalue { ptr, i32 } %77, i32 %76, 1
+  resume { ptr, i32 } %78
 
 79:                                               ; preds = %31
-  %80 = call { i32, i32 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17hdf8878055e71a1cdE(ptr %0, i32 2, i32 3, i8 0, i8 2)
-  %81 = extractvalue { i32, i32 } %80, 0
-  %82 = extractvalue { i32, i32 } %80, 1
-  store i32 %81, ptr %9, align 4
-  %83 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %82, ptr %83, align 4
-  %84 = load i32, ptr %9, align 4, !range !4, !noundef !3
-  %85 = zext i32 %84 to i64
-  %86 = icmp eq i64 %85, 1
-  br i1 %86, label %92, label %87
+  br label %88
 
-87:                                               ; preds = %79, %78
-  %88 = load i64, ptr @anon.755e62861954131ef957983adba46fb3.8, align 8
-  %89 = load i32, ptr getelementptr inbounds (i8, ptr @anon.755e62861954131ef957983adba46fb3.8, i64 8), align 8, !range !8, !noundef !3
-  %90 = call zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h9d42f2bb88c1b75dE(ptr align 4 %0, i32 3, i64 %88, i32 %89)
-  %91 = call i32 @_ZN4core4sync6atomic11atomic_load17h67b7f231097a5cdfE(ptr %0, i8 2)
-  store i32 %91, ptr %16, align 4
+80:                                               ; preds = %31
+  %81 = call { i32, i32 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17hdf8878055e71a1cdE(ptr %0, i32 2, i32 3, i8 0, i8 2)
+  %82 = extractvalue { i32, i32 } %81, 0
+  %83 = extractvalue { i32, i32 } %81, 1
+  store i32 %82, ptr %9, align 4
+  %84 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %83, ptr %84, align 4
+  %85 = load i32, ptr %9, align 4, !range !4, !noundef !3
+  %86 = zext i32 %85 to i64
+  %87 = icmp eq i64 %86, 1
+  br i1 %87, label %94, label %88
+
+88:                                               ; preds = %80, %79
+  %89 = load i64, ptr @anon.755e62861954131ef957983adba46fb3.8, align 8
+  %90 = getelementptr inbounds i8, ptr @anon.755e62861954131ef957983adba46fb3.8, i64 8
+  %91 = load i32, ptr %90, align 8, !range !8, !noundef !3
+  %92 = call zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h9d42f2bb88c1b75dE(ptr align 4 %0, i32 3, i64 %89, i32 %91)
+  %93 = call i32 @_ZN4core4sync6atomic11atomic_load17h67b7f231097a5cdfE(ptr %0, i8 2)
+  store i32 %93, ptr %16, align 4
   br label %18
 
-92:                                               ; preds = %79
-  %93 = getelementptr inbounds i8, ptr %9, i64 4
-  %94 = load i32, ptr %93, align 4, !noundef !3
-  store i32 %94, ptr %16, align 4
+94:                                               ; preds = %80
+  %95 = getelementptr inbounds i8, ptr %9, i64 4
+  %96 = load i32, ptr %95, align 4, !noundef !3
+  store i32 %96, ptr %16, align 4
   br label %18
 }
 

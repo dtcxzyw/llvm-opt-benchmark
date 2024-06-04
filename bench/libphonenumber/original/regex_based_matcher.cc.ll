@@ -528,71 +528,72 @@ define dso_local void @_ZN4i18n12phonenumbers17RegexBasedMatcherC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers10MatcherApiC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegexBasedMatcherE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.i18n::phonenumbers::RegexBasedMatcher", ptr %5, i32 0, i32 1
-  %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #15
-          to label %8 unwind label %15
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegexBasedMatcherE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.i18n::phonenumbers::RegexBasedMatcher", ptr %5, i32 0, i32 1
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #15
+          to label %9 unwind label %16
 
-8:                                                ; preds = %1
-  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 8, i1 false)
-  call void @_ZN4i18n12phonenumbers16ICURegExpFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers21AbstractRegExpFactoryEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7) #3
-  %9 = getelementptr inbounds %"class.i18n::phonenumbers::RegexBasedMatcher", ptr %5, i32 0, i32 2
-  %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #15
-          to label %11 unwind label %19
+9:                                                ; preds = %1
+  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 8, i1 false)
+  call void @_ZN4i18n12phonenumbers16ICURegExpFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers21AbstractRegExpFactoryEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8) #3
+  %10 = getelementptr inbounds %"class.i18n::phonenumbers::RegexBasedMatcher", ptr %5, i32 0, i32 2
+  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #15
+          to label %12 unwind label %20
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds %"class.i18n::phonenumbers::RegexBasedMatcher", ptr %5, i32 0, i32 1
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5boost10scoped_ptrIKN4i18n12phonenumbers21AbstractRegExpFactoryEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  invoke void @_ZN4i18n12phonenumbers11RegExpCacheC1ERKNS0_21AbstractRegExpFactoryEm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 128)
-          to label %14 unwind label %23
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds %"class.i18n::phonenumbers::RegexBasedMatcher", ptr %5, i32 0, i32 1
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5boost10scoped_ptrIKN4i18n12phonenumbers21AbstractRegExpFactoryEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  invoke void @_ZN4i18n12phonenumbers11RegExpCacheC1ERKNS0_21AbstractRegExpFactoryEm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 128)
+          to label %15 unwind label %24
 
-14:                                               ; preds = %11
-  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpCacheEEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10) #3
+15:                                               ; preds = %12
+  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpCacheEEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11) #3
   ret void
 
-15:                                               ; preds = %1
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
-  br label %28
-
-19:                                               ; preds = %8
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %3, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %4, align 4
-  br label %27
-
-23:                                               ; preds = %11
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %3, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %10) #16
-  br label %27
-
-27:                                               ; preds = %23, %19
-  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers21AbstractRegExpFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  br label %28
-
-28:                                               ; preds = %27, %15
-  call void @_ZN4i18n12phonenumbers10MatcherApiD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %3, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %4, align 4
   br label %29
 
-29:                                               ; preds = %28
-  %30 = load ptr, ptr %3, align 8
-  %31 = load i32, ptr %4, align 4
-  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
-  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
-  resume { ptr, i32 } %33
+20:                                               ; preds = %9
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %3, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %4, align 4
+  br label %28
+
+24:                                               ; preds = %12
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %3, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %11) #16
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers21AbstractRegExpFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %29
+
+29:                                               ; preds = %28, %16
+  call void @_ZN4i18n12phonenumbers10MatcherApiD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %3, align 8
+  %32 = load i32, ptr %4, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -600,7 +601,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers10MatcherApiC2Ev(ptr n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4i18n12phonenumbers10MatcherApiE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4i18n12phonenumbers10MatcherApiE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -616,7 +618,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers16ICURegExpFactoryC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers21AbstractRegExpFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers16ICURegExpFactoryE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers16ICURegExpFactoryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -677,11 +680,12 @@ define dso_local void @_ZN4i18n12phonenumbers17RegexBasedMatcherD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegexBasedMatcherE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::RegexBasedMatcher", ptr %3, i32 0, i32 2
-  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.i18n::phonenumbers::RegexBasedMatcher", ptr %3, i32 0, i32 1
-  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers21AbstractRegExpFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegexBasedMatcherE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.i18n::phonenumbers::RegexBasedMatcher", ptr %3, i32 0, i32 2
+  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.i18n::phonenumbers::RegexBasedMatcher", ptr %3, i32 0, i32 1
+  call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers21AbstractRegExpFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN4i18n12phonenumbers10MatcherApiD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -1225,7 +1229,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers21AbstractRegExpFactor
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers21AbstractRegExpFactoryE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers21AbstractRegExpFactoryE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1553,27 +1558,21 @@ define linkonce_odr dso_local void @_ZN5boost6system6detail8snprintfEPcmPKcz(ptr
   store i64 %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %4, align 8
   %10 = load i64, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %13 = call i32 @vsnprintf(ptr noundef %9, i64 noundef %10, ptr noundef %11, ptr noundef %12) #3
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %14)
+  call void @llvm.va_end.p0(ptr %14)
   ret void
 }
 
 declare void @__cxa_end_catch()
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5boost6system6detail29system_error_category_messageB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) #4 comdat {
@@ -1606,7 +1605,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #12
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #5 comdat align 2 {
@@ -1870,6 +1869,12 @@ define internal void @_GLOBAL__sub_I_regex_based_matcher.cc() #0 section ".text.
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1881,8 +1886,8 @@ attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { noreturn }
 attributes #15 = { builtin allocsize(0) }

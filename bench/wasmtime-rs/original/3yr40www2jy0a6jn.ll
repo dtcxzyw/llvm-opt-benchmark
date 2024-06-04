@@ -388,41 +388,42 @@ define void @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter.
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
-  br i1 false, label %12, label %10
+  br i1 false, label %13, label %11
 
 9:                                                ; preds = %2
-  store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
+  %10 = inttoptr i64 8 to ptr
+  store ptr %10, ptr %3, align 8
+  br label %15
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %8, i64 -1
+  store ptr %12, ptr %3, align 8
   br label %14
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %8, i64 -1
-  store ptr %11, ptr %3, align 8
-  br label %13
-
-12:                                               ; preds = %7
+13:                                               ; preds = %7
   store ptr %8, ptr %3, align 8
-  br label %13
-
-13:                                               ; preds = %12, %10
   br label %14
 
-14:                                               ; preds = %13, %9
-  %15 = load ptr, ptr %3, align 8, !noundef !3
-  %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %15, i32 0, i32 1
-  store ptr %15, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %17, ptr %18, align 8
-  %19 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
-  %21 = load ptr, ptr %20, align 8, !nonnull !3, !align !5, !noundef !3
-  store ptr %19, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %21, ptr %22, align 8
-  %23 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
-  %25 = load ptr, ptr %24, align 8, !nonnull !3, !align !5, !noundef !3
-  call void @"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hc28561b7f4b2e4c3E"(ptr align 8 %16, ptr align 8 %23, ptr align 8 %25)
+14:                                               ; preds = %13, %11
+  br label %15
+
+15:                                               ; preds = %14, %9
+  %16 = load ptr, ptr %3, align 8, !noundef !3
+  %17 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  %18 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %16, i32 0, i32 1
+  store ptr %16, ptr %4, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %18, ptr %19, align 8
+  %20 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
+  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !5, !noundef !3
+  store ptr %20, ptr %5, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %22, ptr %23, align 8
+  %24 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
+  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = load ptr, ptr %25, align 8, !nonnull !3, !align !5, !noundef !3
+  call void @"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hc28561b7f4b2e4c3E"(ptr align 8 %17, ptr align 8 %24, ptr align 8 %26)
   ret void
 }
 
@@ -437,41 +438,42 @@ define void @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter.
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
-  br i1 false, label %12, label %10
+  br i1 false, label %13, label %11
 
 9:                                                ; preds = %2
-  store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
+  %10 = inttoptr i64 8 to ptr
+  store ptr %10, ptr %3, align 8
+  br label %15
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { ptr, [4 x i64] } }, { { i64, ptr, {} }, i64 } }, ptr %8, i64 -1
+  store ptr %12, ptr %3, align 8
   br label %14
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { ptr, [4 x i64] } }, { { i64, ptr, {} }, i64 } }, ptr %8, i64 -1
-  store ptr %11, ptr %3, align 8
-  br label %13
-
-12:                                               ; preds = %7
+13:                                               ; preds = %7
   store ptr %8, ptr %3, align 8
-  br label %13
-
-13:                                               ; preds = %12, %10
   br label %14
 
-14:                                               ; preds = %13, %9
-  %15 = load ptr, ptr %3, align 8, !noundef !3
-  %16 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %17 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { ptr, [4 x i64] } }, { { i64, ptr, {} }, i64 } }, ptr %15, i32 0, i32 1
-  store ptr %15, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %17, ptr %18, align 8
-  %19 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
-  %21 = load ptr, ptr %20, align 8, !nonnull !3, !align !5, !noundef !3
-  store ptr %19, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %21, ptr %22, align 8
-  %23 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
-  %25 = load ptr, ptr %24, align 8, !nonnull !3, !align !5, !noundef !3
-  call void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5b01b5eccf8153E"(ptr align 8 %16, ptr align 8 %23, ptr align 8 %25)
+14:                                               ; preds = %13, %11
+  br label %15
+
+15:                                               ; preds = %14, %9
+  %16 = load ptr, ptr %3, align 8, !noundef !3
+  %17 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  %18 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { ptr, [4 x i64] } }, { { i64, ptr, {} }, i64 } }, ptr %16, i32 0, i32 1
+  store ptr %16, ptr %4, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %18, ptr %19, align 8
+  %20 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
+  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !5, !noundef !3
+  store ptr %20, ptr %5, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %22, ptr %23, align 8
+  %24 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
+  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = load ptr, ptr %25, align 8, !nonnull !3, !align !5, !noundef !3
+  call void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5b01b5eccf8153E"(ptr align 8 %17, ptr align 8 %24, ptr align 8 %26)
   ret void
 }
 
@@ -489,64 +491,66 @@ define { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$cor
   %10 = icmp eq i64 %9, 0
   %11 = select i1 %10, i64 0, i64 1
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %17
+  br i1 %12, label %13, label %18
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr @anon.abd22b0cd77f55635799cb5351a30d71.2, align 8, !align !5, !noundef !3
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.abd22b0cd77f55635799cb5351a30d71.2, i64 8), align 8
+  %15 = getelementptr inbounds i8, ptr @anon.abd22b0cd77f55635799cb5351a30d71.2, i64 8
+  %16 = load ptr, ptr %15, align 8
   store ptr %14, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %15, ptr %16, align 8
-  br label %19
+  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %16, ptr %17, align 8
+  br label %20
 
-17:                                               ; preds = %1
-  %18 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
-  store ptr %18, ptr %4, align 8
-  br i1 false, label %27, label %25
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
+  store ptr %19, ptr %4, align 8
+  br i1 false, label %28, label %26
 
-19:                                               ; preds = %32, %13
-  %20 = load ptr, ptr %6, align 8, !align !5, !noundef !3
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = insertvalue { ptr, ptr } poison, ptr %20, 0
-  %24 = insertvalue { ptr, ptr } %23, ptr %22, 1
-  ret { ptr, ptr } %24
+20:                                               ; preds = %34, %13
+  %21 = load ptr, ptr %6, align 8, !align !5, !noundef !3
+  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = insertvalue { ptr, ptr } poison, ptr %21, 0
+  %25 = insertvalue { ptr, ptr } %24, ptr %23, 1
+  ret { ptr, ptr } %25
 
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
-  br i1 false, label %30, label %28
+26:                                               ; preds = %18
+  %27 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
+  br i1 false, label %32, label %30
 
-27:                                               ; preds = %17
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  br label %32
-
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, {} }, ptr %26, i64 -1
+28:                                               ; preds = %18
+  %29 = inttoptr i64 8 to ptr
   store ptr %29, ptr %2, align 8
-  br label %31
+  br label %34
 
-30:                                               ; preds = %25
-  store ptr %26, ptr %2, align 8
-  br label %31
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, {} }, ptr %27, i64 -1
+  store ptr %31, ptr %2, align 8
+  br label %33
 
-31:                                               ; preds = %30, %28
-  br label %32
+32:                                               ; preds = %26
+  store ptr %27, ptr %2, align 8
+  br label %33
 
-32:                                               ; preds = %31, %27
-  %33 = load ptr, ptr %2, align 8, !noundef !3
-  %34 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, {} }, ptr %33, i32 0, i32 1
-  store ptr %33, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %34, ptr %35, align 8
-  %36 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
+33:                                               ; preds = %32, %30
+  br label %34
+
+34:                                               ; preds = %33, %28
+  %35 = load ptr, ptr %2, align 8, !noundef !3
+  %36 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, {} }, ptr %35, i32 0, i32 1
+  store ptr %35, ptr %3, align 8
   %37 = getelementptr inbounds i8, ptr %3, i64 8
-  %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !6, !noundef !3
-  store ptr %36, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %38, ptr %39, align 8
-  br label %19
+  store ptr %36, ptr %37, align 8
+  %38 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
+  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  %40 = load ptr, ptr %39, align 8, !nonnull !3, !align !6, !noundef !3
+  store ptr %38, ptr %6, align 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %40, ptr %41, align 8
+  br label %20
 
-40:                                               ; No predecessors!
+42:                                               ; No predecessors!
   unreachable
 }
 
@@ -598,64 +602,66 @@ define { ptr, ptr } @"_ZN95_$LT$hashbrown..map..IterMut$LT$K$C$V$GT$$u20$as$u20$
   %10 = icmp eq i64 %9, 0
   %11 = select i1 %10, i64 0, i64 1
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %17
+  br i1 %12, label %13, label %18
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr @anon.abd22b0cd77f55635799cb5351a30d71.2, align 8, !align !5, !noundef !3
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @anon.abd22b0cd77f55635799cb5351a30d71.2, i64 8), align 8
+  %15 = getelementptr inbounds i8, ptr @anon.abd22b0cd77f55635799cb5351a30d71.2, i64 8
+  %16 = load ptr, ptr %15, align 8
   store ptr %14, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %15, ptr %16, align 8
-  br label %19
+  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %16, ptr %17, align 8
+  br label %20
 
-17:                                               ; preds = %1
-  %18 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
-  store ptr %18, ptr %4, align 8
-  br i1 false, label %27, label %25
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
+  store ptr %19, ptr %4, align 8
+  br i1 false, label %28, label %26
 
-19:                                               ; preds = %32, %13
-  %20 = load ptr, ptr %6, align 8, !align !5, !noundef !3
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = insertvalue { ptr, ptr } poison, ptr %20, 0
-  %24 = insertvalue { ptr, ptr } %23, ptr %22, 1
-  ret { ptr, ptr } %24
+20:                                               ; preds = %34, %13
+  %21 = load ptr, ptr %6, align 8, !align !5, !noundef !3
+  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = insertvalue { ptr, ptr } poison, ptr %21, 0
+  %25 = insertvalue { ptr, ptr } %24, ptr %23, 1
+  ret { ptr, ptr } %25
 
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
-  br i1 false, label %30, label %28
+26:                                               ; preds = %18
+  %27 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
+  br i1 false, label %32, label %30
 
-27:                                               ; preds = %17
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  br label %32
-
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %26, i64 -1
+28:                                               ; preds = %18
+  %29 = inttoptr i64 8 to ptr
   store ptr %29, ptr %2, align 8
-  br label %31
+  br label %34
 
-30:                                               ; preds = %25
-  store ptr %26, ptr %2, align 8
-  br label %31
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %27, i64 -1
+  store ptr %31, ptr %2, align 8
+  br label %33
 
-31:                                               ; preds = %30, %28
-  br label %32
+32:                                               ; preds = %26
+  store ptr %27, ptr %2, align 8
+  br label %33
 
-32:                                               ; preds = %31, %27
-  %33 = load ptr, ptr %2, align 8, !noundef !3
-  %34 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %33, i32 0, i32 1
-  store ptr %33, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %34, ptr %35, align 8
-  %36 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
+33:                                               ; preds = %32, %30
+  br label %34
+
+34:                                               ; preds = %33, %28
+  %35 = load ptr, ptr %2, align 8, !noundef !3
+  %36 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %35, i32 0, i32 1
+  store ptr %35, ptr %3, align 8
   %37 = getelementptr inbounds i8, ptr %3, i64 8
-  %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !5, !noundef !3
-  store ptr %36, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %38, ptr %39, align 8
-  br label %19
+  store ptr %36, ptr %37, align 8
+  %38 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
+  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  %40 = load ptr, ptr %39, align 8, !nonnull !3, !align !5, !noundef !3
+  store ptr %38, ptr %6, align 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %40, ptr %41, align 8
+  br label %20
 
-40:                                               ; No predecessors!
+42:                                               ; No predecessors!
   unreachable
 }
 
@@ -1307,7 +1313,7 @@ define i40 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h4b2e3f167d
 24:                                               ; preds = %27
   %25 = load i8, ptr %7, align 1, !range !4, !noundef !3
   %26 = trunc i8 %25 to i1
-  br i1 %26, label %73, label %70
+  br i1 %26, label %74, label %71
 
 27:                                               ; preds = %42, %32, %4
   %28 = landingpad { ptr, i32 }
@@ -1354,75 +1360,76 @@ define i40 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h4b2e3f167d
   %49 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { i8, i8, i8, i8, i8 }, [3 x i8] }, ptr %10, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 1 %9, i64 5, i1 false)
   %50 = invoke ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hcc4687faa576346dE"(ptr align 8 %0, i64 %23, i64 %44, ptr align 8 %10)
-          to label %65 unwind label %27
+          to label %66 unwind label %27
 
 51:                                               ; preds = %39
   %52 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
-  br i1 false, label %56, label %54
+  br i1 false, label %57, label %55
 
 53:                                               ; preds = %39
-  store ptr inttoptr (i64 8 to ptr), ptr %6, align 8
+  %54 = inttoptr i64 8 to ptr
+  store ptr %54, ptr %6, align 8
+  br label %59
+
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { i8, i8, i8, i8, i8 }, [3 x i8] }, ptr %52, i64 -1
+  store ptr %56, ptr %6, align 8
   br label %58
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { i8, i8, i8, i8, i8 }, [3 x i8] }, ptr %52, i64 -1
-  store ptr %55, ptr %6, align 8
-  br label %57
-
-56:                                               ; preds = %51
+57:                                               ; preds = %51
   store ptr %52, ptr %6, align 8
-  br label %57
-
-57:                                               ; preds = %56, %54
   br label %58
 
-58:                                               ; preds = %57, %53
-  %59 = load ptr, ptr %6, align 8, !noundef !3
+58:                                               ; preds = %57, %55
+  br label %59
+
+59:                                               ; preds = %58, %53
+  %60 = load ptr, ptr %6, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %19, i64 5, i1 false)
-  %60 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { i8, i8, i8, i8, i8 }, [3 x i8] }, ptr %59, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 8 %60, i64 5, i1 false)
-  %61 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { i8, i8, i8, i8, i8 }, [3 x i8] }, ptr %59, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %61, ptr align 1 %11, i64 5, i1 false)
+  %61 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { i8, i8, i8, i8, i8 }, [3 x i8] }, ptr %60, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 8 %61, i64 5, i1 false)
+  %62 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { i8, i8, i8, i8, i8 }, [3 x i8] }, ptr %60, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %62, ptr align 1 %11, i64 5, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %12, i64 5, i1 false)
-  br label %62
+  br label %63
 
-62:                                               ; preds = %65, %58
-  %63 = load i8, ptr %8, align 1, !range !4, !noundef !3
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %68, label %66
+63:                                               ; preds = %66, %59
+  %64 = load i8, ptr %8, align 1, !range !4, !noundef !3
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %69, label %67
 
-65:                                               ; preds = %42
+66:                                               ; preds = %42
   store i8 2, ptr %17, align 1
-  br label %62
+  br label %63
 
-66:                                               ; preds = %68, %62
-  %67 = load i40, ptr %17, align 1
-  ret i40 %67
+67:                                               ; preds = %69, %63
+  %68 = load i40, ptr %17, align 1
+  ret i40 %68
 
-68:                                               ; preds = %62
-  br label %66
+69:                                               ; preds = %63
+  br label %67
 
-69:                                               ; No predecessors!
+70:                                               ; No predecessors!
   unreachable
 
-70:                                               ; preds = %73, %24
-  %71 = load i8, ptr %8, align 1, !range !4, !noundef !3
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %80, label %74
+71:                                               ; preds = %74, %24
+  %72 = load i8, ptr %8, align 1, !range !4, !noundef !3
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %81, label %75
 
-73:                                               ; preds = %24
-  br label %70
+74:                                               ; preds = %24
+  br label %71
 
-74:                                               ; preds = %80, %70
-  %75 = load ptr, ptr %5, align 8, !noundef !3
-  %76 = getelementptr inbounds i8, ptr %5, i64 8
-  %77 = load i32, ptr %76, align 8, !noundef !3
-  %78 = insertvalue { ptr, i32 } poison, ptr %75, 0
-  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
-  resume { ptr, i32 } %79
+75:                                               ; preds = %81, %71
+  %76 = load ptr, ptr %5, align 8, !noundef !3
+  %77 = getelementptr inbounds i8, ptr %5, i64 8
+  %78 = load i32, ptr %77, align 8, !noundef !3
+  %79 = insertvalue { ptr, i32 } poison, ptr %76, 0
+  %80 = insertvalue { ptr, i32 } %79, i32 %78, 1
+  resume { ptr, i32 } %80
 
-80:                                               ; preds = %70
-  br label %74
+81:                                               ; preds = %71
+  br label %75
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1448,7 +1455,7 @@ define zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h72c
 16:                                               ; preds = %19
   %17 = load i8, ptr %5, align 1, !range !4, !noundef !3
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %60, label %57
+  br i1 %18, label %61, label %58
 
 19:                                               ; preds = %34, %24, %2
   %20 = landingpad { ptr, i32 }
@@ -1489,70 +1496,71 @@ define zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h72c
   store ptr %37, ptr %7, align 8
   %38 = load ptr, ptr %7, align 8, !nonnull !3, !align !5, !noundef !3
   %39 = invoke ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h476b92d05e15d8c3E"(ptr align 8 %0, i64 %15, i64 %36, ptr align 8 %38)
-          to label %51 unwind label %19
+          to label %52 unwind label %19
 
 40:                                               ; preds = %31
   %41 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  br i1 false, label %45, label %43
+  br i1 false, label %46, label %44
 
 42:                                               ; preds = %31
-  store ptr inttoptr (i64 8 to ptr), ptr %4, align 8
+  %43 = inttoptr i64 8 to ptr
+  store ptr %43, ptr %4, align 8
+  br label %48
+
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds ptr, ptr %41, i64 -1
+  store ptr %45, ptr %4, align 8
   br label %47
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds ptr, ptr %41, i64 -1
-  store ptr %44, ptr %4, align 8
-  br label %46
-
-45:                                               ; preds = %40
+46:                                               ; preds = %40
   store ptr %41, ptr %4, align 8
-  br label %46
-
-46:                                               ; preds = %45, %43
   br label %47
 
-47:                                               ; preds = %46, %42
+47:                                               ; preds = %46, %44
+  br label %48
+
+48:                                               ; preds = %47, %42
   store i8 1, ptr %12, align 1
-  br label %48
+  br label %49
 
-48:                                               ; preds = %51, %47
-  %49 = load i8, ptr %6, align 1, !range !4, !noundef !3
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %55, label %52
+49:                                               ; preds = %52, %48
+  %50 = load i8, ptr %6, align 1, !range !4, !noundef !3
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %56, label %53
 
-51:                                               ; preds = %34
+52:                                               ; preds = %34
   store i8 0, ptr %12, align 1
-  br label %48
+  br label %49
 
-52:                                               ; preds = %55, %48
-  %53 = load i8, ptr %12, align 1, !range !4, !noundef !3
-  %54 = trunc i8 %53 to i1
-  ret i1 %54
+53:                                               ; preds = %56, %49
+  %54 = load i8, ptr %12, align 1, !range !4, !noundef !3
+  %55 = trunc i8 %54 to i1
+  ret i1 %55
 
-55:                                               ; preds = %48
-  br label %52
+56:                                               ; preds = %49
+  br label %53
 
-56:                                               ; No predecessors!
+57:                                               ; No predecessors!
   unreachable
 
-57:                                               ; preds = %60, %16
-  %58 = load i8, ptr %6, align 1, !range !4, !noundef !3
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %67, label %61
+58:                                               ; preds = %61, %16
+  %59 = load i8, ptr %6, align 1, !range !4, !noundef !3
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %68, label %62
 
-60:                                               ; preds = %16
-  br label %57
+61:                                               ; preds = %16
+  br label %58
 
-61:                                               ; preds = %67, %57
-  %62 = load ptr, ptr %3, align 8, !noundef !3
-  %63 = getelementptr inbounds i8, ptr %3, i64 8
-  %64 = load i32, ptr %63, align 8, !noundef !3
-  %65 = insertvalue { ptr, i32 } poison, ptr %62, 0
-  %66 = insertvalue { ptr, i32 } %65, i32 %64, 1
-  resume { ptr, i32 } %66
+62:                                               ; preds = %68, %58
+  %63 = load ptr, ptr %3, align 8, !noundef !3
+  %64 = getelementptr inbounds i8, ptr %3, i64 8
+  %65 = load i32, ptr %64, align 8, !noundef !3
+  %66 = insertvalue { ptr, i32 } poison, ptr %63, 0
+  %67 = insertvalue { ptr, i32 } %66, i32 %65, 1
+  resume { ptr, i32 } %67
 
-67:                                               ; preds = %57
-  br label %61
+68:                                               ; preds = %58
+  br label %62
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1577,7 +1585,7 @@ define zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h783
 16:                                               ; preds = %19
   %17 = load i8, ptr %5, align 1, !range !4, !noundef !3
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %58, label %55
+  br i1 %18, label %59, label %56
 
 19:                                               ; preds = %34, %24, %2
   %20 = landingpad { ptr, i32 }
@@ -1617,75 +1625,76 @@ define zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h783
   store i8 0, ptr %5, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %7, i64 24, i1 false)
   %37 = invoke ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h42b5d57e8c8106f7E"(ptr align 8 %0, i64 %15, i64 %36, ptr align 8 %8)
-          to label %49 unwind label %19
+          to label %50 unwind label %19
 
 38:                                               ; preds = %31
   %39 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  br i1 false, label %43, label %41
+  br i1 false, label %44, label %42
 
 40:                                               ; preds = %31
-  store ptr inttoptr (i64 8 to ptr), ptr %4, align 8
+  %41 = inttoptr i64 8 to ptr
+  store ptr %41, ptr %4, align 8
+  br label %46
+
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, {} }, ptr %39, i64 -1
+  store ptr %43, ptr %4, align 8
   br label %45
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, {} }, ptr %39, i64 -1
-  store ptr %42, ptr %4, align 8
-  br label %44
-
-43:                                               ; preds = %38
+44:                                               ; preds = %38
   store ptr %39, ptr %4, align 8
-  br label %44
-
-44:                                               ; preds = %43, %41
   br label %45
 
-45:                                               ; preds = %44, %40
+45:                                               ; preds = %44, %42
+  br label %46
+
+46:                                               ; preds = %45, %40
   store i8 1, ptr %13, align 1
-  br label %46
+  br label %47
 
-46:                                               ; preds = %49, %45
-  %47 = load i8, ptr %6, align 1, !range !4, !noundef !3
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %53, label %50
+47:                                               ; preds = %50, %46
+  %48 = load i8, ptr %6, align 1, !range !4, !noundef !3
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %54, label %51
 
-49:                                               ; preds = %34
+50:                                               ; preds = %34
   store i8 0, ptr %13, align 1
-  br label %46
+  br label %47
 
-50:                                               ; preds = %53, %46
-  %51 = load i8, ptr %13, align 1, !range !4, !noundef !3
-  %52 = trunc i8 %51 to i1
-  ret i1 %52
+51:                                               ; preds = %54, %47
+  %52 = load i8, ptr %13, align 1, !range !4, !noundef !3
+  %53 = trunc i8 %52 to i1
+  ret i1 %53
 
-53:                                               ; preds = %46
+54:                                               ; preds = %47
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr align 8 %1)
-  br label %50
+  br label %51
 
-54:                                               ; No predecessors!
+55:                                               ; No predecessors!
   unreachable
 
-55:                                               ; preds = %58, %16
-  %56 = load i8, ptr %6, align 1, !range !4, !noundef !3
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %65, label %59
+56:                                               ; preds = %59, %16
+  %57 = load i8, ptr %6, align 1, !range !4, !noundef !3
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %66, label %60
 
-58:                                               ; preds = %16
-  br label %55
+59:                                               ; preds = %16
+  br label %56
 
-59:                                               ; preds = %65, %55
-  %60 = load ptr, ptr %3, align 8, !noundef !3
-  %61 = getelementptr inbounds i8, ptr %3, i64 8
-  %62 = load i32, ptr %61, align 8, !noundef !3
-  %63 = insertvalue { ptr, i32 } poison, ptr %60, 0
-  %64 = insertvalue { ptr, i32 } %63, i32 %62, 1
-  resume { ptr, i32 } %64
+60:                                               ; preds = %66, %56
+  %61 = load ptr, ptr %3, align 8, !noundef !3
+  %62 = getelementptr inbounds i8, ptr %3, i64 8
+  %63 = load i32, ptr %62, align 8, !noundef !3
+  %64 = insertvalue { ptr, i32 } poison, ptr %61, 0
+  %65 = insertvalue { ptr, i32 } %64, i32 %63, 1
+  resume { ptr, i32 } %65
 
-65:                                               ; preds = %55
+66:                                               ; preds = %56
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr align 8 %1) #4
-          to label %59 unwind label %66
+          to label %60 unwind label %67
 
-66:                                               ; preds = %65
-  %67 = landingpad { ptr, i32 }
+67:                                               ; preds = %66
+  %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
@@ -1718,7 +1727,7 @@ define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8c02afddc
 22:                                               ; preds = %25
   %23 = load i8, ptr %8, align 1, !range !4, !noundef !3
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %71, label %68
+  br i1 %24, label %72, label %69
 
 25:                                               ; preds = %40, %30, %5
   %26 = landingpad { ptr, i32 }
@@ -1765,82 +1774,83 @@ define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8c02afddc
   %47 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { [3 x i64], i64, [2 x i64] } }, ptr %11, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr align 8 %10, i64 48, i1 false)
   %48 = invoke ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h97624f4eeec4b0daE"(ptr align 8 %1, i64 %21, i64 %42, ptr align 8 %11)
-          to label %63 unwind label %25
+          to label %64 unwind label %25
 
 49:                                               ; preds = %37
   %50 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  br i1 false, label %54, label %52
+  br i1 false, label %55, label %53
 
 51:                                               ; preds = %37
-  store ptr inttoptr (i64 8 to ptr), ptr %7, align 8
+  %52 = inttoptr i64 8 to ptr
+  store ptr %52, ptr %7, align 8
+  br label %57
+
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { [3 x i64], i64, [2 x i64] } }, ptr %50, i64 -1
+  store ptr %54, ptr %7, align 8
   br label %56
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { [3 x i64], i64, [2 x i64] } }, ptr %50, i64 -1
-  store ptr %53, ptr %7, align 8
-  br label %55
-
-54:                                               ; preds = %49
+55:                                               ; preds = %49
   store ptr %50, ptr %7, align 8
-  br label %55
-
-55:                                               ; preds = %54, %52
   br label %56
 
-56:                                               ; preds = %55, %51
-  %57 = load ptr, ptr %7, align 8, !noundef !3
+56:                                               ; preds = %55, %53
+  br label %57
+
+57:                                               ; preds = %56, %51
+  %58 = load ptr, ptr %7, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %4, i64 48, i1 false)
-  %58 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { [3 x i64], i64, [2 x i64] } }, ptr %57, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %58, i64 48, i1 false)
-  %59 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { [3 x i64], i64, [2 x i64] } }, ptr %57, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %59, ptr align 8 %12, i64 48, i1 false)
+  %59 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { [3 x i64], i64, [2 x i64] } }, ptr %58, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %59, i64 48, i1 false)
+  %60 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, { [3 x i64], i64, [2 x i64] } }, ptr %58, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %60, ptr align 8 %12, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %13, i64 48, i1 false)
-  br label %60
+  br label %61
 
-60:                                               ; preds = %63, %56
-  %61 = load i8, ptr %9, align 1, !range !4, !noundef !3
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %66, label %65
+61:                                               ; preds = %64, %57
+  %62 = load i8, ptr %9, align 1, !range !4, !noundef !3
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %67, label %66
 
-63:                                               ; preds = %40
-  %64 = getelementptr inbounds { [3 x i64], i64, [2 x i64] }, ptr %0, i32 0, i32 1
-  store i64 -9223372036854775807, ptr %64, align 8
-  br label %60
+64:                                               ; preds = %40
+  %65 = getelementptr inbounds { [3 x i64], i64, [2 x i64] }, ptr %0, i32 0, i32 1
+  store i64 -9223372036854775807, ptr %65, align 8
+  br label %61
 
-65:                                               ; preds = %66, %60
+66:                                               ; preds = %67, %61
   ret void
 
-66:                                               ; preds = %60
-  br label %65
+67:                                               ; preds = %61
+  br label %66
 
-67:                                               ; No predecessors!
+68:                                               ; No predecessors!
   unreachable
 
-68:                                               ; preds = %71, %22
-  %69 = load i8, ptr %9, align 1, !range !4, !noundef !3
-  %70 = trunc i8 %69 to i1
-  br i1 %70, label %80, label %74
+69:                                               ; preds = %72, %22
+  %70 = load i8, ptr %9, align 1, !range !4, !noundef !3
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %81, label %75
 
-71:                                               ; preds = %22
+72:                                               ; preds = %22
   invoke void @"_ZN4core3ptr56drop_in_place$LT$wasmtime_wit_bindgen..InterfaceName$GT$17h1500d0bb215c7579E"(ptr align 8 %4) #4
-          to label %68 unwind label %72
+          to label %69 unwind label %73
 
-72:                                               ; preds = %71
-  %73 = landingpad { ptr, i32 }
+73:                                               ; preds = %72
+  %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #5
   unreachable
 
-74:                                               ; preds = %80, %68
-  %75 = load ptr, ptr %6, align 8, !noundef !3
-  %76 = getelementptr inbounds i8, ptr %6, i64 8
-  %77 = load i32, ptr %76, align 8, !noundef !3
-  %78 = insertvalue { ptr, i32 } poison, ptr %75, 0
-  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
-  resume { ptr, i32 } %79
+75:                                               ; preds = %81, %69
+  %76 = load ptr, ptr %6, align 8, !noundef !3
+  %77 = getelementptr inbounds i8, ptr %6, i64 8
+  %78 = load i32, ptr %77, align 8, !noundef !3
+  %79 = insertvalue { ptr, i32 } poison, ptr %76, 0
+  %80 = insertvalue { ptr, i32 } %79, i32 %78, 1
+  resume { ptr, i32 } %80
 
-80:                                               ; preds = %68
-  br label %74
+81:                                               ; preds = %69
+  br label %75
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1868,7 +1878,7 @@ define i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hc8f0d17e9a3
 19:                                               ; preds = %22
   %20 = load i8, ptr %7, align 1, !range !4, !noundef !3
   %21 = trunc i8 %20 to i1
-  br i1 %21, label %73, label %70
+  br i1 %21, label %74, label %71
 
 22:                                               ; preds = %37, %27, %4
   %23 = landingpad { ptr, i32 }
@@ -1915,77 +1925,78 @@ define i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hc8f0d17e9a3
   %45 = zext i1 %3 to i8
   store i8 %45, ptr %44, align 8
   %46 = invoke ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h24c0acfee21e2424E"(ptr align 8 %0, i64 %18, i64 %39, ptr align 8 %9)
-          to label %65 unwind label %22
+          to label %66 unwind label %22
 
 47:                                               ; preds = %34
   %48 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  br i1 false, label %52, label %50
+  br i1 false, label %53, label %51
 
 49:                                               ; preds = %34
-  store ptr inttoptr (i64 8 to ptr), ptr %6, align 8
+  %50 = inttoptr i64 8 to ptr
+  store ptr %50, ptr %6, align 8
+  br label %55
+
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, i8, [7 x i8] }, ptr %48, i64 -1
+  store ptr %52, ptr %6, align 8
   br label %54
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, i8, [7 x i8] }, ptr %48, i64 -1
-  store ptr %51, ptr %6, align 8
-  br label %53
-
-52:                                               ; preds = %47
+53:                                               ; preds = %47
   store ptr %48, ptr %6, align 8
-  br label %53
-
-53:                                               ; preds = %52, %50
   br label %54
 
-54:                                               ; preds = %53, %49
-  %55 = load ptr, ptr %6, align 8, !noundef !3
-  %56 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, i8, [7 x i8] }, ptr %55, i32 0, i32 1
-  %57 = load i8, ptr %56, align 8, !range !4, !noundef !3
-  %58 = trunc i8 %57 to i1
-  %59 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, i8, [7 x i8] }, ptr %55, i32 0, i32 1
-  %60 = zext i1 %3 to i8
-  store i8 %60, ptr %59, align 8
-  %61 = zext i1 %58 to i8
-  store i8 %61, ptr %14, align 1
-  br label %62
+54:                                               ; preds = %53, %51
+  br label %55
 
-62:                                               ; preds = %65, %54
-  %63 = load i8, ptr %8, align 1, !range !4, !noundef !3
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %68, label %66
+55:                                               ; preds = %54, %49
+  %56 = load ptr, ptr %6, align 8, !noundef !3
+  %57 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, i8, [7 x i8] }, ptr %56, i32 0, i32 1
+  %58 = load i8, ptr %57, align 8, !range !4, !noundef !3
+  %59 = trunc i8 %58 to i1
+  %60 = getelementptr inbounds { { i64, i32, {}, [4 x i8] }, i8, [7 x i8] }, ptr %56, i32 0, i32 1
+  %61 = zext i1 %3 to i8
+  store i8 %61, ptr %60, align 8
+  %62 = zext i1 %59 to i8
+  store i8 %62, ptr %14, align 1
+  br label %63
 
-65:                                               ; preds = %37
+63:                                               ; preds = %66, %55
+  %64 = load i8, ptr %8, align 1, !range !4, !noundef !3
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %69, label %67
+
+66:                                               ; preds = %37
   store i8 2, ptr %14, align 1
-  br label %62
+  br label %63
 
-66:                                               ; preds = %68, %62
-  %67 = load i8, ptr %14, align 1, !range !8, !noundef !3
-  ret i8 %67
+67:                                               ; preds = %69, %63
+  %68 = load i8, ptr %14, align 1, !range !8, !noundef !3
+  ret i8 %68
 
-68:                                               ; preds = %62
-  br label %66
+69:                                               ; preds = %63
+  br label %67
 
-69:                                               ; No predecessors!
+70:                                               ; No predecessors!
   unreachable
 
-70:                                               ; preds = %73, %19
-  %71 = load i8, ptr %8, align 1, !range !4, !noundef !3
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %80, label %74
+71:                                               ; preds = %74, %19
+  %72 = load i8, ptr %8, align 1, !range !4, !noundef !3
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %81, label %75
 
-73:                                               ; preds = %19
-  br label %70
+74:                                               ; preds = %19
+  br label %71
 
-74:                                               ; preds = %80, %70
-  %75 = load ptr, ptr %5, align 8, !noundef !3
-  %76 = getelementptr inbounds i8, ptr %5, i64 8
-  %77 = load i32, ptr %76, align 8, !noundef !3
-  %78 = insertvalue { ptr, i32 } poison, ptr %75, 0
-  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
-  resume { ptr, i32 } %79
+75:                                               ; preds = %81, %71
+  %76 = load ptr, ptr %5, align 8, !noundef !3
+  %77 = getelementptr inbounds i8, ptr %5, i64 8
+  %78 = load i32, ptr %77, align 8, !noundef !3
+  %79 = insertvalue { ptr, i32 } poison, ptr %76, 0
+  %80 = insertvalue { ptr, i32 } %79, i32 %78, 1
+  resume { ptr, i32 } %80
 
-80:                                               ; preds = %70
-  br label %74
+81:                                               ; preds = %71
+  br label %75
 }
 
 ; Function Attrs: nonlazybind uwtable

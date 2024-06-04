@@ -739,7 +739,7 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
 8:                                                ; preds = %1
   %9 = tail call fastcc i32 @i8042_controller_selftest(), !range !17
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %367
+  br i1 %10, label %11, label %370
 
 11:                                               ; preds = %8, %1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #10
@@ -870,7 +870,7 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
   %81 = phi i32 [ -5, %16 ], [ %36, %32 ], [ -5, %76 ], [ 0, %78 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %367
+  br i1 %82, label %83, label %370
 
 83:                                               ; preds = %80
   %84 = load i8, ptr @i8042_dritek, align 1, !range !5, !noundef !6
@@ -905,7 +905,7 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
 97:                                               ; preds = %96, %83
   %98 = load i8, ptr @i8042_noaux, align 1, !range !5, !noundef !6
   %99 = icmp eq i8 %98, 0
-  br i1 %99, label %100, label %261
+  br i1 %99, label %100, label %262
 
 100:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
@@ -931,18 +931,18 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
 
 112:                                              ; preds = %106
   %113 = load i1, ptr @i8042_present, align 1
-  br i1 %113, label %114, label %200
+  br i1 %113, label %114, label %201
 
 114:                                              ; preds = %112
   %115 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
   %116 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 425)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %115) #10
   %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %200
+  br i1 %117, label %118, label %201
 
 118:                                              ; preds = %114
   %119 = load i8, ptr %3, align 1
-  switch i8 %119, label %200 [
+  switch i8 %119, label %201 [
     i8 -1, label %120
     i8 -6, label %120
     i8 0, label %120
@@ -966,7 +966,7 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
 129:                                              ; preds = %126, %122
   %130 = tail call fastcc i32 @i8042_toggle_aux(i1 noundef zeroext true), !range !19
   %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %200
+  br i1 %131, label %132, label %201
 
 132:                                              ; preds = %129
   %133 = load i8, ptr @i8042_kbdreset, align 1, !range !5, !noundef !6
@@ -985,14 +985,14 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
   %142 = icmp ne i8 %141, 0
   %143 = select i1 %140, i1 true, i1 %142
   %144 = or i1 %123, %143
-  br i1 %144, label %182, label %145
+  br i1 %144, label %183, label %145
 
 145:                                              ; preds = %138
   %146 = load i32, ptr @i8042_aux_irq, align 4
   %147 = load ptr, ptr @i8042_platform_device, align 8
   %148 = tail call i32 @request_threaded_irq(i32 noundef %146, ptr noundef nonnull @i8042_aux_test_irq, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %147) #10
   %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %182
+  br i1 %149, label %150, label %183
 
 150:                                              ; preds = %145
   %151 = load i8, ptr @i8042_ctr, align 1
@@ -1015,361 +1015,364 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
   %162 = or disjoint i8 %161, 32
   store i8 %162, ptr @i8042_ctr, align 1
   %163 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36) #11
-  br label %182
+  br label %183
 
 164:                                              ; preds = %155
   %165 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
   store i32 0, ptr @i8042_aux_irq_delivered, align 8
-  tail call void @__init_swait_queue_head(ptr noundef nonnull getelementptr inbounds (%struct.completion, ptr @i8042_aux_irq_delivered, i64 0, i32 1), ptr noundef nonnull @.str.24, ptr noundef nonnull @init_completion.__key) #10
+  %166 = getelementptr inbounds %struct.completion, ptr @i8042_aux_irq_delivered, i64 0, i32 1
+  tail call void @__init_swait_queue_head(ptr noundef nonnull %166, ptr noundef nonnull @.str.24, ptr noundef nonnull @init_completion.__key) #10
   store i1 true, ptr @i8042_irq_being_tested, align 1
   store i8 -91, ptr %3, align 1
-  %166 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4307)
+  %167 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4307)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %165) #10
-  %167 = icmp eq i32 %166, 0
-  br i1 %167, label %168, label %182
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %169, label %183
 
-168:                                              ; preds = %164
-  %169 = tail call i64 @wait_for_completion_timeout(ptr noundef nonnull @i8042_aux_irq_delivered, i64 noundef 250) #10
-  %170 = icmp eq i64 %169, 0
-  br i1 %170, label %171, label %182
+169:                                              ; preds = %164
+  %170 = tail call i64 @wait_for_completion_timeout(ptr noundef nonnull @i8042_aux_irq_delivered, i64 noundef 250) #10
+  %171 = icmp eq i64 %170, 0
+  br i1 %171, label %172, label %183
 
-171:                                              ; preds = %168
-  %172 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
-  %173 = icmp eq i8 %172, 0
-  br i1 %173, label %180, label %174
+172:                                              ; preds = %169
+  %173 = load i8, ptr @i8042_debug, align 1, !range !5, !noundef !6
+  %174 = icmp eq i8 %173, 0
+  br i1 %174, label %181, label %175
 
-174:                                              ; preds = %171
-  %175 = load volatile i64, ptr @jiffies, align 64
-  %176 = load i64, ptr @i8042_start_time, align 8
-  %177 = sub i64 %175, %176
-  %178 = trunc i64 %177 to i32
-  %179 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, i32 noundef %178) #11
-  br label %180
+175:                                              ; preds = %172
+  %176 = load volatile i64, ptr @jiffies, align 64
+  %177 = load i64, ptr @i8042_start_time, align 8
+  %178 = sub i64 %176, %177
+  %179 = trunc i64 %178 to i32
+  %180 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, i32 noundef %179) #11
+  br label %181
 
-180:                                              ; preds = %174, %171
-  %181 = tail call fastcc i32 @i8042_flush(), !range !15
-  br label %182
+181:                                              ; preds = %175, %172
+  %182 = tail call fastcc i32 @i8042_flush(), !range !15
+  br label %183
 
-182:                                              ; preds = %180, %168, %164, %159, %145, %138
-  %183 = phi i1 [ false, %145 ], [ true, %164 ], [ true, %180 ], [ true, %168 ], [ false, %138 ], [ true, %159 ]
-  %184 = phi i32 [ %107, %145 ], [ %166, %164 ], [ -1, %180 ], [ 0, %168 ], [ 0, %138 ], [ %107, %159 ]
-  %185 = load i8, ptr @i8042_ctr, align 1
-  %186 = and i8 %185, -35
-  %187 = or disjoint i8 %186, 32
-  store i8 %187, ptr @i8042_ctr, align 1
-  %188 = load i1, ptr @i8042_present, align 1
-  br i1 %188, label %189, label %194
+183:                                              ; preds = %181, %169, %164, %159, %145, %138
+  %184 = phi i1 [ false, %145 ], [ true, %164 ], [ true, %181 ], [ true, %169 ], [ false, %138 ], [ true, %159 ]
+  %185 = phi i32 [ %107, %145 ], [ %167, %164 ], [ -1, %181 ], [ 0, %169 ], [ 0, %138 ], [ %107, %159 ]
+  %186 = load i8, ptr @i8042_ctr, align 1
+  %187 = and i8 %186, -35
+  %188 = or disjoint i8 %187, 32
+  store i8 %188, ptr @i8042_ctr, align 1
+  %189 = load i1, ptr @i8042_present, align 1
+  br i1 %189, label %190, label %195
 
-189:                                              ; preds = %182
-  %190 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
-  %191 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %190) #10
-  %192 = icmp eq i32 %191, 0
-  %193 = select i1 %192, i32 %184, i32 -1
-  br label %194
+190:                                              ; preds = %183
+  %191 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
+  %192 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %191) #10
+  %193 = icmp eq i32 %192, 0
+  %194 = select i1 %193, i32 %185, i32 -1
+  br label %195
 
-194:                                              ; preds = %189, %182
-  %195 = phi i32 [ %193, %189 ], [ -1, %182 ]
-  br i1 %183, label %196, label %200
+195:                                              ; preds = %190, %183
+  %196 = phi i32 [ %194, %190 ], [ -1, %183 ]
+  br i1 %184, label %197, label %201
 
-196:                                              ; preds = %194
-  %197 = load i32, ptr @i8042_aux_irq, align 4
-  %198 = load ptr, ptr @i8042_platform_device, align 8
-  %199 = tail call ptr @free_irq(i32 noundef %197, ptr noundef %198) #10
-  br label %200
+197:                                              ; preds = %195
+  %198 = load i32, ptr @i8042_aux_irq, align 4
+  %199 = load ptr, ptr @i8042_platform_device, align 8
+  %200 = tail call ptr @free_irq(i32 noundef %198, ptr noundef %199) #10
+  br label %201
 
-200:                                              ; preds = %196, %194, %129, %118, %114, %112
-  %201 = phi i32 [ -1, %118 ], [ -1, %114 ], [ -1, %129 ], [ %195, %196 ], [ %195, %194 ], [ -1, %112 ]
+201:                                              ; preds = %197, %195, %129, %118, %114, %112
+  %202 = phi i32 [ -1, %118 ], [ -1, %114 ], [ -1, %129 ], [ %196, %197 ], [ %196, %195 ], [ -1, %112 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
-  %202 = icmp eq i32 %201, 0
-  br i1 %202, label %203, label %259
+  %203 = icmp eq i32 %202, 0
+  br i1 %203, label %204, label %260
 
-203:                                              ; preds = %200
-  %204 = load i8, ptr @i8042_nomux, align 1, !range !5, !noundef !6
-  %205 = icmp eq i8 %204, 0
-  br i1 %205, label %206, label %227
+204:                                              ; preds = %201
+  %205 = load i8, ptr @i8042_nomux, align 1, !range !5, !noundef !6
+  %206 = icmp eq i8 %205, 0
+  br i1 %206, label %207, label %228
 
-206:                                              ; preds = %203
+207:                                              ; preds = %204
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #10
   store i8 0, ptr %2, align 1, !annotation !16
-  %207 = call fastcc i32 @i8042_set_mux_mode(i1 noundef zeroext true, ptr noundef nonnull %2), !range !19
-  %208 = icmp eq i32 %207, 0
-  br i1 %208, label %209, label %226
+  %208 = call fastcc i32 @i8042_set_mux_mode(i1 noundef zeroext true, ptr noundef nonnull %2), !range !19
+  %209 = icmp eq i32 %208, 0
+  br i1 %209, label %210, label %227
 
-209:                                              ; preds = %206
-  %210 = load i8, ptr %2, align 1
-  %211 = zext i8 %210 to i32
-  %212 = lshr i32 %211, 4
-  %213 = and i32 %211, 15
-  %214 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %212, i32 noundef %213) #11
-  %215 = load i8, ptr @i8042_ctr, align 1
-  %216 = and i8 %215, -35
-  %217 = or disjoint i8 %216, 32
-  store i8 %217, ptr @i8042_ctr, align 1
-  %218 = load i1, ptr @i8042_present, align 1
-  br i1 %218, label %219, label %223
+210:                                              ; preds = %207
+  %211 = load i8, ptr %2, align 1
+  %212 = zext i8 %211 to i32
+  %213 = lshr i32 %212, 4
+  %214 = and i32 %212, 15
+  %215 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %213, i32 noundef %214) #11
+  %216 = load i8, ptr @i8042_ctr, align 1
+  %217 = and i8 %216, -35
+  %218 = or disjoint i8 %217, 32
+  store i8 %218, ptr @i8042_ctr, align 1
+  %219 = load i1, ptr @i8042_present, align 1
+  br i1 %219, label %220, label %224
 
-219:                                              ; preds = %209
-  %220 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
-  %221 = call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %220) #10
-  %222 = icmp eq i32 %221, 0
-  br i1 %222, label %225, label %223
+220:                                              ; preds = %210
+  %221 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
+  %222 = call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %221) #10
+  %223 = icmp eq i32 %222, 0
+  br i1 %223, label %226, label %224
 
-223:                                              ; preds = %219, %209
-  %224 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26) #11
-  br label %226
-
-225:                                              ; preds = %219
-  store i1 true, ptr @i8042_mux_present, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
-  br label %233
-
-226:                                              ; preds = %223, %206
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+224:                                              ; preds = %220, %210
+  %225 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26) #11
   br label %227
 
-227:                                              ; preds = %226, %203
-  %228 = call fastcc i32 @i8042_create_aux_port(i32 noundef -1), !range !20
-  %229 = icmp eq i32 %228, 0
-  br i1 %229, label %237, label %251
+226:                                              ; preds = %220
+  store i1 true, ptr @i8042_mux_present, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  br label %234
 
-230:                                              ; preds = %233
-  %231 = add nuw nsw i32 %234, 1
-  %232 = icmp eq i32 %231, 4
-  br i1 %232, label %237, label %233, !llvm.loop !21
+227:                                              ; preds = %224, %207
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  br label %228
 
-233:                                              ; preds = %230, %225
-  %234 = phi i32 [ 0, %225 ], [ %231, %230 ]
-  %235 = call fastcc i32 @i8042_create_aux_port(i32 noundef %234), !range !20
-  %236 = icmp eq i32 %235, 0
-  br i1 %236, label %230, label %251
+228:                                              ; preds = %227, %204
+  %229 = call fastcc i32 @i8042_create_aux_port(i32 noundef -1), !range !20
+  %230 = icmp eq i32 %229, 0
+  br i1 %230, label %238, label %252
 
-237:                                              ; preds = %230, %227
-  %238 = phi ptr [ @i8042_enable_aux_port, %227 ], [ @i8042_enable_mux_ports, %230 ]
-  %239 = load i32, ptr @i8042_aux_irq, align 4
-  %240 = load ptr, ptr @i8042_platform_device, align 8
-  %241 = call i32 @request_threaded_irq(i32 noundef %239, ptr noundef nonnull @i8042_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %240) #10
-  %242 = icmp eq i32 %241, 0
-  br i1 %242, label %243, label %251
+231:                                              ; preds = %234
+  %232 = add nuw nsw i32 %235, 1
+  %233 = icmp eq i32 %232, 4
+  br i1 %233, label %238, label %234, !llvm.loop !21
 
-243:                                              ; preds = %237
-  %244 = call i32 %238() #10, !callees !22
-  %245 = icmp eq i32 %244, 0
-  br i1 %245, label %246, label %247
+234:                                              ; preds = %231, %226
+  %235 = phi i32 [ 0, %226 ], [ %232, %231 ]
+  %236 = call fastcc i32 @i8042_create_aux_port(i32 noundef %235), !range !20
+  %237 = icmp eq i32 %236, 0
+  br i1 %237, label %231, label %252
 
-246:                                              ; preds = %243
+238:                                              ; preds = %231, %228
+  %239 = phi ptr [ @i8042_enable_aux_port, %228 ], [ @i8042_enable_mux_ports, %231 ]
+  %240 = load i32, ptr @i8042_aux_irq, align 4
+  %241 = load ptr, ptr @i8042_platform_device, align 8
+  %242 = call i32 @request_threaded_irq(i32 noundef %240, ptr noundef nonnull @i8042_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %241) #10
+  %243 = icmp eq i32 %242, 0
+  br i1 %243, label %244, label %252
+
+244:                                              ; preds = %238
+  %245 = call i32 %239() #10, !callees !22
+  %246 = icmp eq i32 %245, 0
+  br i1 %246, label %247, label %248
+
+247:                                              ; preds = %244
   store i1 true, ptr @i8042_aux_irq_registered, align 1
-  br label %259
+  br label %260
 
-247:                                              ; preds = %243
-  %248 = load i32, ptr @i8042_aux_irq, align 4
-  %249 = load ptr, ptr @i8042_platform_device, align 8
-  %250 = call ptr @free_irq(i32 noundef %248, ptr noundef %249) #10
-  br label %251
+248:                                              ; preds = %244
+  %249 = load i32, ptr @i8042_aux_irq, align 4
+  %250 = load ptr, ptr @i8042_platform_device, align 8
+  %251 = call ptr @free_irq(i32 noundef %249, ptr noundef %250) #10
+  br label %252
 
-251:                                              ; preds = %247, %237, %233, %227
-  %252 = phi i32 [ %228, %227 ], [ %241, %237 ], [ %244, %247 ], [ %235, %233 ]
-  br label %253
+252:                                              ; preds = %248, %238, %234, %228
+  %253 = phi i32 [ %229, %228 ], [ %242, %238 ], [ %245, %248 ], [ %236, %234 ]
+  br label %254
 
-253:                                              ; preds = %253, %251
-  %254 = phi i64 [ 1, %251 ], [ %257, %253 ]
-  %255 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %254
-  %256 = load ptr, ptr %255, align 16
-  call void @kfree(ptr noundef %256) #10
-  store ptr null, ptr %255, align 16
-  %257 = add nuw nsw i64 %254, 1
-  %258 = icmp eq i64 %257, 6
-  br i1 %258, label %259, label %253, !llvm.loop !23
+254:                                              ; preds = %254, %252
+  %255 = phi i64 [ 1, %252 ], [ %258, %254 ]
+  %256 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %255
+  %257 = load ptr, ptr %256, align 16
+  call void @kfree(ptr noundef %257) #10
+  store ptr null, ptr %256, align 16
+  %258 = add nuw nsw i64 %255, 1
+  %259 = icmp eq i64 %258, 6
+  br i1 %259, label %260, label %254, !llvm.loop !23
 
-259:                                              ; preds = %253, %246, %200
-  %260 = phi i32 [ 0, %246 ], [ -19, %200 ], [ %252, %253 ]
-  switch i32 %260, label %346 [
-    i32 -16, label %261
-    i32 -19, label %261
-    i32 0, label %261
+260:                                              ; preds = %254, %247, %201
+  %261 = phi i32 [ 0, %247 ], [ -19, %201 ], [ %253, %254 ]
+  switch i32 %261, label %349 [
+    i32 -16, label %262
+    i32 -19, label %262
+    i32 0, label %262
   ]
 
-261:                                              ; preds = %259, %259, %259, %97
-  %262 = load i8, ptr @i8042_nokbd, align 1, !range !5, !noundef !6
-  %263 = icmp eq i8 %262, 0
-  br i1 %263, label %264, label %328
+262:                                              ; preds = %260, %260, %260, %97
+  %263 = load i8, ptr @i8042_nokbd, align 1, !range !5, !noundef !6
+  %264 = icmp eq i8 %263, 0
+  br i1 %264, label %265, label %331
 
-264:                                              ; preds = %261
-  %265 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %266 = call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %265, i32 noundef 3520, i64 noundef 1096) #13
-  %267 = icmp eq ptr %266, null
-  br i1 %267, label %293, label %268
+265:                                              ; preds = %262
+  %266 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11
+  %267 = load ptr, ptr %266, align 8
+  %268 = call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %267, i32 noundef 3520, i64 noundef 1096) #13
+  %269 = icmp eq ptr %268, null
+  br i1 %269, label %296, label %270
 
-268:                                              ; preds = %264
-  %269 = load i8, ptr @i8042_direct, align 1, !range !5, !noundef !6
-  %270 = icmp eq i8 %269, 0
-  %271 = select i1 %270, i8 6, i8 1
-  %272 = getelementptr inbounds i8, ptr %266, i64 201
-  store i8 %271, ptr %272, align 1
-  %273 = load i8, ptr @i8042_dumbkbd, align 1, !range !5, !noundef !6
-  %274 = icmp eq i8 %273, 0
-  %275 = select i1 %274, ptr @i8042_kbd_write, ptr null
-  %276 = getelementptr inbounds i8, ptr %266, i64 216
-  store ptr %275, ptr %276, align 8
-  %277 = getelementptr inbounds i8, ptr %266, i64 240
-  store ptr @i8042_start, ptr %277, align 8
-  %278 = getelementptr inbounds i8, ptr %266, i64 248
-  store ptr @i8042_stop, ptr %278, align 8
-  %279 = getelementptr inbounds i8, ptr %266, i64 232
-  store ptr @i8042_port_close, ptr %279, align 8
-  %280 = getelementptr inbounds i8, ptr %266, i64 1088
-  store ptr @i8042_mutex, ptr %280, align 8
-  store ptr @i8042_ports, ptr %266, align 8
-  %281 = load ptr, ptr @i8042_platform_device, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 16
-  %283 = getelementptr inbounds i8, ptr %266, i64 344
-  %284 = getelementptr inbounds i8, ptr %266, i64 408
-  store ptr %282, ptr %284, align 8
-  %285 = getelementptr inbounds i8, ptr %266, i64 8
-  %286 = call i64 @strscpy(ptr noundef %285, ptr noundef nonnull @.str.46, i64 noundef 32) #10
-  %287 = getelementptr inbounds i8, ptr %266, i64 40
-  %288 = call i64 @strscpy(ptr noundef %287, ptr noundef nonnull @.str.47, i64 noundef 32) #10
-  %289 = getelementptr inbounds i8, ptr %266, i64 72
-  %290 = call i64 @strscpy(ptr noundef %289, ptr noundef nonnull @i8042_kbd_firmware_id, i64 noundef 128) #10
-  %291 = load ptr, ptr @i8042_kbd_fwnode, align 8
-  call void @set_primary_fwnode(ptr noundef %283, ptr noundef %291) #10
-  store ptr %266, ptr @i8042_ports, align 16
-  %292 = load i32, ptr @i8042_kbd_irq, align 4
-  store i32 %292, ptr getelementptr inbounds ([6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 0, i32 1), align 8
-  br label %293
+270:                                              ; preds = %265
+  %271 = load i8, ptr @i8042_direct, align 1, !range !5, !noundef !6
+  %272 = icmp eq i8 %271, 0
+  %273 = select i1 %272, i8 6, i8 1
+  %274 = getelementptr inbounds i8, ptr %268, i64 201
+  store i8 %273, ptr %274, align 1
+  %275 = load i8, ptr @i8042_dumbkbd, align 1, !range !5, !noundef !6
+  %276 = icmp eq i8 %275, 0
+  %277 = select i1 %276, ptr @i8042_kbd_write, ptr null
+  %278 = getelementptr inbounds i8, ptr %268, i64 216
+  store ptr %277, ptr %278, align 8
+  %279 = getelementptr inbounds i8, ptr %268, i64 240
+  store ptr @i8042_start, ptr %279, align 8
+  %280 = getelementptr inbounds i8, ptr %268, i64 248
+  store ptr @i8042_stop, ptr %280, align 8
+  %281 = getelementptr inbounds i8, ptr %268, i64 232
+  store ptr @i8042_port_close, ptr %281, align 8
+  %282 = getelementptr inbounds i8, ptr %268, i64 1088
+  store ptr @i8042_mutex, ptr %282, align 8
+  store ptr @i8042_ports, ptr %268, align 8
+  %283 = load ptr, ptr @i8042_platform_device, align 8
+  %284 = getelementptr inbounds i8, ptr %283, i64 16
+  %285 = getelementptr inbounds i8, ptr %268, i64 344
+  %286 = getelementptr inbounds i8, ptr %268, i64 408
+  store ptr %284, ptr %286, align 8
+  %287 = getelementptr inbounds i8, ptr %268, i64 8
+  %288 = call i64 @strscpy(ptr noundef %287, ptr noundef nonnull @.str.46, i64 noundef 32) #10
+  %289 = getelementptr inbounds i8, ptr %268, i64 40
+  %290 = call i64 @strscpy(ptr noundef %289, ptr noundef nonnull @.str.47, i64 noundef 32) #10
+  %291 = getelementptr inbounds i8, ptr %268, i64 72
+  %292 = call i64 @strscpy(ptr noundef %291, ptr noundef nonnull @i8042_kbd_firmware_id, i64 noundef 128) #10
+  %293 = load ptr, ptr @i8042_kbd_fwnode, align 8
+  call void @set_primary_fwnode(ptr noundef %285, ptr noundef %293) #10
+  store ptr %268, ptr @i8042_ports, align 16
+  %294 = load i32, ptr @i8042_kbd_irq, align 4
+  %295 = getelementptr inbounds [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 0, i32 1
+  store i32 %294, ptr %295, align 8
+  br label %296
 
-293:                                              ; preds = %268, %264
-  %294 = phi i32 [ 0, %268 ], [ -12, %264 ]
-  br i1 %267, label %325, label %295
+296:                                              ; preds = %270, %265
+  %297 = phi i32 [ 0, %270 ], [ -12, %265 ]
+  br i1 %269, label %328, label %298
 
-295:                                              ; preds = %293
-  %296 = load i32, ptr @i8042_kbd_irq, align 4
-  %297 = load ptr, ptr @i8042_platform_device, align 8
-  %298 = call i32 @request_threaded_irq(i32 noundef %296, ptr noundef nonnull @i8042_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %297) #10
-  %299 = icmp eq i32 %298, 0
-  br i1 %299, label %300, label %322
+298:                                              ; preds = %296
+  %299 = load i32, ptr @i8042_kbd_irq, align 4
+  %300 = load ptr, ptr @i8042_platform_device, align 8
+  %301 = call i32 @request_threaded_irq(i32 noundef %299, ptr noundef nonnull @i8042_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %300) #10
+  %302 = icmp eq i32 %301, 0
+  br i1 %302, label %303, label %325
 
-300:                                              ; preds = %295
-  %301 = load i8, ptr @i8042_ctr, align 1
-  %302 = and i8 %301, -18
-  %303 = or disjoint i8 %302, 1
-  store i8 %303, ptr @i8042_ctr, align 1
-  %304 = load i1, ptr @i8042_present, align 1
-  br i1 %304, label %305, label %309
+303:                                              ; preds = %298
+  %304 = load i8, ptr @i8042_ctr, align 1
+  %305 = and i8 %304, -18
+  %306 = or disjoint i8 %305, 1
+  store i8 %306, ptr @i8042_ctr, align 1
+  %307 = load i1, ptr @i8042_present, align 1
+  br i1 %307, label %308, label %312
 
-305:                                              ; preds = %300
-  %306 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
-  %307 = call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %306) #10
-  %308 = icmp eq i32 %307, 0
-  br i1 %308, label %314, label %309
+308:                                              ; preds = %303
+  %309 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
+  %310 = call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %309) #10
+  %311 = icmp eq i32 %310, 0
+  br i1 %311, label %317, label %312
 
-309:                                              ; preds = %305, %300
-  %310 = load i8, ptr @i8042_ctr, align 1
-  %311 = and i8 %310, -18
-  %312 = or disjoint i8 %311, 16
-  store i8 %312, ptr @i8042_ctr, align 1
-  %313 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48) #11
-  br label %314
+312:                                              ; preds = %308, %303
+  %313 = load i8, ptr @i8042_ctr, align 1
+  %314 = and i8 %313, -18
+  %315 = or disjoint i8 %314, 16
+  store i8 %315, ptr @i8042_ctr, align 1
+  %316 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48) #11
+  br label %317
 
-314:                                              ; preds = %309, %305
-  %315 = phi i1 [ false, %309 ], [ true, %305 ]
-  %316 = phi i32 [ -5, %309 ], [ 0, %305 ]
-  br i1 %315, label %317, label %318
+317:                                              ; preds = %312, %308
+  %318 = phi i1 [ false, %312 ], [ true, %308 ]
+  %319 = phi i32 [ -5, %312 ], [ 0, %308 ]
+  br i1 %318, label %320, label %321
 
-317:                                              ; preds = %314
+320:                                              ; preds = %317
   store i1 true, ptr @i8042_kbd_irq_registered, align 1
+  br label %328
+
+321:                                              ; preds = %317
+  %322 = load i32, ptr @i8042_kbd_irq, align 4
+  %323 = load ptr, ptr @i8042_platform_device, align 8
+  %324 = call ptr @free_irq(i32 noundef %322, ptr noundef %323) #10
   br label %325
 
-318:                                              ; preds = %314
-  %319 = load i32, ptr @i8042_kbd_irq, align 4
-  %320 = load ptr, ptr @i8042_platform_device, align 8
-  %321 = call ptr @free_irq(i32 noundef %319, ptr noundef %320) #10
-  br label %322
-
-322:                                              ; preds = %318, %295
-  %323 = phi i32 [ %298, %295 ], [ %316, %318 ]
-  %324 = load ptr, ptr @i8042_ports, align 16
-  call void @kfree(ptr noundef %324) #10
+325:                                              ; preds = %321, %298
+  %326 = phi i32 [ %301, %298 ], [ %319, %321 ]
+  %327 = load ptr, ptr @i8042_ports, align 16
+  call void @kfree(ptr noundef %327) #10
   store ptr null, ptr @i8042_ports, align 16
-  br label %325
+  br label %328
 
-325:                                              ; preds = %322, %317, %293
-  %326 = phi i32 [ %323, %322 ], [ 0, %317 ], [ %294, %293 ]
-  %327 = icmp eq i32 %326, 0
-  br i1 %327, label %328, label %346
+328:                                              ; preds = %325, %320, %296
+  %329 = phi i32 [ %326, %325 ], [ 0, %320 ], [ %297, %296 ]
+  %330 = icmp eq i32 %329, 0
+  br i1 %330, label %331, label %349
 
-328:                                              ; preds = %325, %261
-  br label %329
+331:                                              ; preds = %328, %262
+  br label %332
 
-329:                                              ; preds = %343, %328
-  %330 = phi i64 [ %344, %343 ], [ 0, %328 ]
-  %331 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %330
-  %332 = load ptr, ptr %331, align 16
-  %333 = icmp eq ptr %332, null
-  br i1 %333, label %343, label %334
+332:                                              ; preds = %346, %331
+  %333 = phi i64 [ %347, %346 ], [ 0, %331 ]
+  %334 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %333
+  %335 = load ptr, ptr %334, align 16
+  %336 = icmp eq ptr %335, null
+  br i1 %336, label %346, label %337
 
-334:                                              ; preds = %329
-  %335 = getelementptr inbounds i8, ptr %332, i64 8
-  %336 = load i32, ptr @i8042_data_reg, align 4
-  %337 = sext i32 %336 to i64
-  %338 = load i32, ptr @i8042_command_reg, align 4
-  %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds i8, ptr %331, i64 8
-  %341 = load i32, ptr %340, align 8
-  %342 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, ptr noundef %335, i64 noundef %337, i64 noundef %339, i32 noundef %341) #11
-  call void @__serio_register_port(ptr noundef nonnull %332, ptr noundef null) #10
-  br label %343
+337:                                              ; preds = %332
+  %338 = getelementptr inbounds i8, ptr %335, i64 8
+  %339 = load i32, ptr @i8042_data_reg, align 4
+  %340 = sext i32 %339 to i64
+  %341 = load i32, ptr @i8042_command_reg, align 4
+  %342 = sext i32 %341 to i64
+  %343 = getelementptr inbounds i8, ptr %334, i64 8
+  %344 = load i32, ptr %343, align 8
+  %345 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, ptr noundef %338, i64 noundef %340, i64 noundef %342, i32 noundef %344) #11
+  call void @__serio_register_port(ptr noundef nonnull %335, ptr noundef null) #10
+  br label %346
 
-343:                                              ; preds = %334, %329
-  %344 = add nuw nsw i64 %330, 1
-  %345 = icmp eq i64 %344, 6
-  br i1 %345, label %367, label %329, !llvm.loop !24
+346:                                              ; preds = %337, %332
+  %347 = add nuw nsw i64 %333, 1
+  %348 = icmp eq i64 %347, 6
+  br i1 %348, label %370, label %332, !llvm.loop !24
 
-346:                                              ; preds = %325, %259
-  %347 = phi i32 [ %326, %325 ], [ %260, %259 ]
-  br label %348
+349:                                              ; preds = %328, %260
+  %350 = phi i32 [ %329, %328 ], [ %261, %260 ]
+  br label %351
 
-348:                                              ; preds = %348, %346
-  %349 = phi i64 [ 1, %346 ], [ %352, %348 ]
-  %350 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %349
-  %351 = load ptr, ptr %350, align 16
-  call void @kfree(ptr noundef %351) #10
-  store ptr null, ptr %350, align 16
-  %352 = add nuw nsw i64 %349, 1
-  %353 = icmp eq i64 %352, 6
-  br i1 %353, label %354, label %348, !llvm.loop !23
+351:                                              ; preds = %351, %349
+  %352 = phi i64 [ 1, %349 ], [ %355, %351 ]
+  %353 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %352
+  %354 = load ptr, ptr %353, align 16
+  call void @kfree(ptr noundef %354) #10
+  store ptr null, ptr %353, align 16
+  %355 = add nuw nsw i64 %352, 1
+  %356 = icmp eq i64 %355, 6
+  br i1 %356, label %357, label %351, !llvm.loop !23
 
-354:                                              ; preds = %348
-  %355 = load i1, ptr @i8042_aux_irq_registered, align 1
-  br i1 %355, label %356, label %360
+357:                                              ; preds = %351
+  %358 = load i1, ptr @i8042_aux_irq_registered, align 1
+  br i1 %358, label %359, label %363
 
-356:                                              ; preds = %354
-  %357 = load i32, ptr @i8042_aux_irq, align 4
-  %358 = load ptr, ptr @i8042_platform_device, align 8
-  %359 = call ptr @free_irq(i32 noundef %357, ptr noundef %358) #10
-  br label %360
+359:                                              ; preds = %357
+  %360 = load i32, ptr @i8042_aux_irq, align 4
+  %361 = load ptr, ptr @i8042_platform_device, align 8
+  %362 = call ptr @free_irq(i32 noundef %360, ptr noundef %361) #10
+  br label %363
 
-360:                                              ; preds = %356, %354
-  %361 = load i1, ptr @i8042_kbd_irq_registered, align 1
-  br i1 %361, label %362, label %366
+363:                                              ; preds = %359, %357
+  %364 = load i1, ptr @i8042_kbd_irq_registered, align 1
+  br i1 %364, label %365, label %369
 
-362:                                              ; preds = %360
-  %363 = load i32, ptr @i8042_kbd_irq, align 4
-  %364 = load ptr, ptr @i8042_platform_device, align 8
-  %365 = call ptr @free_irq(i32 noundef %363, ptr noundef %364) #10
-  br label %366
+365:                                              ; preds = %363
+  %366 = load i32, ptr @i8042_kbd_irq, align 4
+  %367 = load ptr, ptr @i8042_platform_device, align 8
+  %368 = call ptr @free_irq(i32 noundef %366, ptr noundef %367) #10
+  br label %369
 
-366:                                              ; preds = %362, %360
+369:                                              ; preds = %365, %363
   store i1 false, ptr @i8042_kbd_irq_registered, align 1
   store i1 false, ptr @i8042_aux_irq_registered, align 1
   call fastcc void @i8042_controller_reset(i1 noundef zeroext false)
-  br label %367
+  br label %370
 
-367:                                              ; preds = %366, %343, %80, %8
-  %368 = phi i32 [ %347, %366 ], [ %9, %8 ], [ %81, %80 ], [ 0, %343 ]
-  ret i32 %368
+370:                                              ; preds = %369, %346, %80, %8
+  %371 = phi i32 [ %350, %369 ], [ %9, %8 ], [ %81, %80 ], [ 0, %346 ]
+  ret i32 %371
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1612,61 +1615,62 @@ define internal fastcc noundef i32 @i8042_create_aux_port(i32 noundef %0) unname
   %4 = select i1 %2, i32 1, i32 %3
   %5 = sext i32 %4 to i64
   %6 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %5
-  %7 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
-  %8 = tail call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 1096) #13
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %38, label %10
+  %7 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 1096) #13
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %39, label %11
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %8, i64 201
-  store i8 1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 216
-  store ptr @i8042_aux_write, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 240
-  store ptr @i8042_start, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 248
-  store ptr @i8042_stop, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 1088
-  store ptr @i8042_mutex, ptr %15, align 8
-  store ptr %6, ptr %8, align 8
-  %16 = load ptr, ptr @i8042_platform_device, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = getelementptr inbounds i8, ptr %8, i64 408
-  store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 40
-  br i1 %2, label %21, label %27
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds i8, ptr %9, i64 201
+  store i8 1, ptr %12, align 1
+  %13 = getelementptr inbounds i8, ptr %9, i64 216
+  store ptr @i8042_aux_write, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 240
+  store ptr @i8042_start, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 248
+  store ptr @i8042_stop, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %9, i64 1088
+  store ptr @i8042_mutex, ptr %16, align 8
+  store ptr %6, ptr %9, align 8
+  %17 = load ptr, ptr @i8042_platform_device, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds i8, ptr %9, i64 408
+  store ptr %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %9, i64 8
+  %21 = getelementptr inbounds i8, ptr %9, i64 40
+  br i1 %2, label %22, label %28
 
-21:                                               ; preds = %10
-  %22 = tail call i64 @strscpy(ptr noundef %19, ptr noundef nonnull @.str.27, i64 noundef 32) #10
-  %23 = tail call i64 @strscpy(ptr noundef %20, ptr noundef nonnull @.str.28, i64 noundef 32) #10
-  %24 = getelementptr inbounds i8, ptr %8, i64 72
-  %25 = tail call i64 @strscpy(ptr noundef %24, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #10
-  %26 = getelementptr inbounds i8, ptr %8, i64 232
-  store ptr @i8042_port_close, ptr %26, align 8
-  br label %33
+22:                                               ; preds = %11
+  %23 = tail call i64 @strscpy(ptr noundef %20, ptr noundef nonnull @.str.27, i64 noundef 32) #10
+  %24 = tail call i64 @strscpy(ptr noundef %21, ptr noundef nonnull @.str.28, i64 noundef 32) #10
+  %25 = getelementptr inbounds i8, ptr %9, i64 72
+  %26 = tail call i64 @strscpy(ptr noundef %25, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #10
+  %27 = getelementptr inbounds i8, ptr %9, i64 232
+  store ptr @i8042_port_close, ptr %27, align 8
+  br label %34
 
-27:                                               ; preds = %10
-  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %19, i64 noundef 32, ptr noundef nonnull @.str.29, i32 noundef %0) #10
-  %29 = add nuw nsw i32 %0, 1
-  %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %20, i64 noundef 32, ptr noundef nonnull @.str.30, i32 noundef %29) #10
-  %31 = getelementptr inbounds i8, ptr %8, i64 72
-  %32 = tail call i64 @strscpy(ptr noundef %31, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #10
-  br label %33
+28:                                               ; preds = %11
+  %29 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %20, i64 noundef 32, ptr noundef nonnull @.str.29, i32 noundef %0) #10
+  %30 = add nuw nsw i32 %0, 1
+  %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %21, i64 noundef 32, ptr noundef nonnull @.str.30, i32 noundef %30) #10
+  %32 = getelementptr inbounds i8, ptr %9, i64 72
+  %33 = tail call i64 @strscpy(ptr noundef %32, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #10
+  br label %34
 
-33:                                               ; preds = %27, %21
-  store ptr %8, ptr %6, align 16
-  %34 = trunc i32 %0 to i8
-  %35 = getelementptr inbounds i8, ptr %6, i64 14
-  store i8 %34, ptr %35, align 2
-  %36 = load i32, ptr @i8042_aux_irq, align 4
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %36, ptr %37, align 8
-  br label %38
+34:                                               ; preds = %28, %22
+  store ptr %9, ptr %6, align 16
+  %35 = trunc i32 %0 to i8
+  %36 = getelementptr inbounds i8, ptr %6, i64 14
+  store i8 %35, ptr %36, align 2
+  %37 = load i32, ptr @i8042_aux_irq, align 4
+  %38 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %37, ptr %38, align 8
+  br label %39
 
-38:                                               ; preds = %33, %1
-  %39 = phi i32 [ 0, %33 ], [ -12, %1 ]
-  ret i32 %39
+39:                                               ; preds = %34, %1
+  %40 = phi i32 [ 0, %34 ], [ -12, %1 ]
+  ret i32 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2343,51 +2347,52 @@ declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i8042_port_close(ptr noundef readnone %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 1), align 16
-  %3 = icmp eq ptr %2, %0
-  %4 = select i1 %3, ptr @.str.32, ptr @.str.33
-  %5 = select i1 %3, i8 -33, i8 -17
-  %6 = select i1 %3, i8 2, i8 1
-  %7 = load i8, ptr @i8042_ctr, align 1
-  %8 = xor i8 %6, -1
-  %9 = and i8 %7, %8
-  store i8 %9, ptr @i8042_ctr, align 1
-  %10 = load i1, ptr @i8042_present, align 1
-  br i1 %10, label %11, label %15
+  %2 = getelementptr inbounds [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 1
+  %3 = load ptr, ptr %2, align 16
+  %4 = icmp eq ptr %3, %0
+  %5 = select i1 %4, ptr @.str.32, ptr @.str.33
+  %6 = select i1 %4, i8 -33, i8 -17
+  %7 = select i1 %4, i8 2, i8 1
+  %8 = load i8, ptr @i8042_ctr, align 1
+  %9 = xor i8 %7, -1
+  %10 = and i8 %8, %9
+  store i8 %10, ptr @i8042_ctr, align 1
+  %11 = load i1, ptr @i8042_present, align 1
+  br i1 %11, label %12, label %16
 
-11:                                               ; preds = %1
-  %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
-  %13 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %12) #10
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %17, label %15
+12:                                               ; preds = %1
+  %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
+  %14 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %13) #10
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %18, label %16
 
-15:                                               ; preds = %11, %1
-  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.34, ptr noundef nonnull %4) #11
-  br label %17
+16:                                               ; preds = %12, %1
+  %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.34, ptr noundef nonnull %5) #11
+  br label %18
 
-17:                                               ; preds = %15, %11
+18:                                               ; preds = %16, %12
   tail call void @__const_udelay(i64 noundef 214750) #10
-  %18 = load i8, ptr @i8042_ctr, align 1
-  %19 = and i8 %18, %5
-  %20 = or i8 %19, %6
-  store i8 %20, ptr @i8042_ctr, align 1
-  %21 = load i1, ptr @i8042_present, align 1
-  br i1 %21, label %22, label %26
+  %19 = load i8, ptr @i8042_ctr, align 1
+  %20 = and i8 %19, %6
+  %21 = or i8 %20, %7
+  store i8 %21, ptr @i8042_ctr, align 1
+  %22 = load i1, ptr @i8042_present, align 1
+  br i1 %22, label %23, label %27
 
-22:                                               ; preds = %17
-  %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
-  %24 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %23) #10
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %28, label %26
+23:                                               ; preds = %18
+  %24 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
+  %25 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %24) #10
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %29, label %27
 
-26:                                               ; preds = %22, %17
-  %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef nonnull %4) #11
-  br label %28
+27:                                               ; preds = %23, %18
+  %28 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef nonnull %5) #11
+  br label %29
 
-28:                                               ; preds = %26, %22
-  %29 = tail call i32 @i8042_interrupt(i32 noundef 0, ptr poison), !range !32
+29:                                               ; preds = %27, %23
+  %30 = tail call i32 @i8042_interrupt(i32 noundef 0, ptr poison), !range !32
   ret void
 }
 
@@ -2583,7 +2588,7 @@ define internal fastcc noundef i32 @i8042_controller_resume(i1 noundef zeroext %
 
 7:                                                ; preds = %5, %1
   %8 = phi i32 [ -19, %5 ], [ 0, %1 ]
-  br i1 %4, label %9, label %96
+  br i1 %4, label %9, label %97
 
 9:                                                ; preds = %7
   %10 = load i32, ptr @i8042_reset, align 4
@@ -2598,7 +2603,7 @@ define internal fastcc noundef i32 @i8042_controller_resume(i1 noundef zeroext %
 12:                                               ; preds = %11, %9
   %13 = tail call fastcc i32 @i8042_controller_selftest(), !range !17
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %96
+  br i1 %14, label %15, label %97
 
 15:                                               ; preds = %12, %11, %9
   %16 = load i8, ptr @i8042_initial_ctr, align 1
@@ -2636,7 +2641,7 @@ define internal fastcc noundef i32 @i8042_controller_resume(i1 noundef zeroext %
 
 34:                                               ; preds = %30
   %35 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.53) #11
-  br label %96
+  br label %97
 
 36:                                               ; preds = %30, %26
   %37 = load i8, ptr @i8042_dritek, align 1, !range !5, !noundef !6
@@ -2675,80 +2680,81 @@ define internal fastcc noundef i32 @i8042_controller_resume(i1 noundef zeroext %
 52:                                               ; preds = %50
   %53 = tail call fastcc i32 @i8042_set_mux_mode(i1 noundef zeroext true, ptr noundef null), !range !19
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %74
+  br i1 %54, label %55, label %75
 
 55:                                               ; preds = %52
   %56 = tail call i32 @i8042_enable_mux_ports(), !range !15
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %77, label %74
+  br i1 %57, label %78, label %75
 
 58:                                               ; preds = %50
-  %59 = load ptr, ptr getelementptr inbounds ([6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 1), align 16
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %77, label %61
+  %59 = getelementptr inbounds [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 1
+  %60 = load ptr, ptr %59, align 16
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %78, label %62
 
-61:                                               ; preds = %58
-  %62 = load i8, ptr @i8042_ctr, align 1
-  %63 = and i8 %62, -35
-  %64 = or disjoint i8 %63, 2
-  store i8 %64, ptr @i8042_ctr, align 1
-  %65 = load i1, ptr @i8042_present, align 1
-  br i1 %65, label %66, label %70
+62:                                               ; preds = %58
+  %63 = load i8, ptr @i8042_ctr, align 1
+  %64 = and i8 %63, -35
+  %65 = or disjoint i8 %64, 2
+  store i8 %65, ptr @i8042_ctr, align 1
+  %66 = load i1, ptr @i8042_present, align 1
+  br i1 %66, label %67, label %71
 
-66:                                               ; preds = %61
-  %67 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
-  %68 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %67) #10
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %77, label %70
+67:                                               ; preds = %62
+  %68 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
+  %69 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %68) #10
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %78, label %71
 
-70:                                               ; preds = %66, %61
-  %71 = load i8, ptr @i8042_ctr, align 1
-  %72 = and i8 %71, -35
-  %73 = or disjoint i8 %72, 32
-  store i8 %73, ptr @i8042_ctr, align 1
-  br label %74
+71:                                               ; preds = %67, %62
+  %72 = load i8, ptr @i8042_ctr, align 1
+  %73 = and i8 %72, -35
+  %74 = or disjoint i8 %73, 32
+  store i8 %74, ptr @i8042_ctr, align 1
+  br label %75
 
-74:                                               ; preds = %70, %55, %52
-  %75 = phi ptr [ @.str.36, %70 ], [ @.str.54, %52 ], [ @.str.54, %55 ]
-  %76 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %75) #11
-  br label %77
+75:                                               ; preds = %71, %55, %52
+  %76 = phi ptr [ @.str.36, %71 ], [ @.str.54, %52 ], [ @.str.54, %55 ]
+  %77 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %76) #11
+  br label %78
 
-77:                                               ; preds = %74, %66, %58, %55
-  %78 = load ptr, ptr @i8042_ports, align 16
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %94, label %80
+78:                                               ; preds = %75, %67, %58, %55
+  %79 = load ptr, ptr @i8042_ports, align 16
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %95, label %81
 
-80:                                               ; preds = %77
-  %81 = load i8, ptr @i8042_ctr, align 1
-  %82 = and i8 %81, -18
-  %83 = or disjoint i8 %82, 1
-  store i8 %83, ptr @i8042_ctr, align 1
-  %84 = load i1, ptr @i8042_present, align 1
-  br i1 %84, label %85, label %89
+81:                                               ; preds = %78
+  %82 = load i8, ptr @i8042_ctr, align 1
+  %83 = and i8 %82, -18
+  %84 = or disjoint i8 %83, 1
+  store i8 %84, ptr @i8042_ctr, align 1
+  %85 = load i1, ptr @i8042_present, align 1
+  br i1 %85, label %86, label %90
 
-85:                                               ; preds = %80
-  %86 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
-  %87 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %86) #10
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %94, label %89
+86:                                               ; preds = %81
+  %87 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
+  %88 = tail call fastcc i32 @__i8042_command(ptr noundef nonnull @i8042_ctr, i32 noundef 4192)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @i8042_lock, i64 noundef %87) #10
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %95, label %90
 
-89:                                               ; preds = %85, %80
-  %90 = load i8, ptr @i8042_ctr, align 1
-  %91 = and i8 %90, -18
-  %92 = or disjoint i8 %91, 16
-  store i8 %92, ptr @i8042_ctr, align 1
-  %93 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48) #11
-  br label %94
+90:                                               ; preds = %86, %81
+  %91 = load i8, ptr @i8042_ctr, align 1
+  %92 = and i8 %91, -18
+  %93 = or disjoint i8 %92, 16
+  store i8 %93, ptr @i8042_ctr, align 1
+  %94 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48) #11
+  br label %95
 
-94:                                               ; preds = %89, %85, %77
-  %95 = tail call i32 @i8042_interrupt(i32 noundef 0, ptr poison), !range !32
-  br label %96
+95:                                               ; preds = %90, %86, %78
+  %96 = tail call i32 @i8042_interrupt(i32 noundef 0, ptr poison), !range !32
+  br label %97
 
-96:                                               ; preds = %94, %34, %12, %7
-  %97 = phi i32 [ -5, %34 ], [ 0, %94 ], [ %8, %7 ], [ %13, %12 ]
-  ret i32 %97
+97:                                               ; preds = %95, %34, %12, %7
+  %98 = phi i32 [ -5, %34 ], [ 0, %95 ], [ %8, %7 ], [ %13, %12 ]
+  ret i32 %98
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3078,27 +3084,28 @@ define internal fastcc noundef i32 @i8042_platform_init() unnamed_addr #3 sectio
   %1 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #10
   store i8 -33, ptr %1, align 1
-  %2 = load i32, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11), align 8
-  %3 = icmp eq i32 %2, 0
-  br i1 %3, label %10, label %4
+  %2 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11
+  %3 = load i32, ptr %2, align 8
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %11, label %5
 
-4:                                                ; preds = %0
+5:                                                ; preds = %0
   store i32 1, ptr @i8042_kbd_irq, align 4
   store i32 12, ptr @i8042_aux_irq, align 4
   tail call fastcc void @i8042_check_quirks() #12
-  %5 = tail call fastcc i32 @i8042_pnp_init() #12, !range !17
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %10
+  %6 = tail call fastcc i32 @i8042_pnp_init() #12, !range !17
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %4
-  %8 = call i32 @i8042_command(ptr noundef nonnull %1, i32 noundef 4305)
-  %9 = tail call i32 @i8042_command(ptr noundef null, i32 noundef 255)
-  br label %10
+8:                                                ; preds = %5
+  %9 = call i32 @i8042_command(ptr noundef nonnull %1, i32 noundef 4305)
+  %10 = tail call i32 @i8042_command(ptr noundef null, i32 noundef 255)
+  br label %11
 
-10:                                               ; preds = %7, %4, %0
-  %11 = phi i32 [ 0, %7 ], [ -19, %0 ], [ %5, %4 ]
+11:                                               ; preds = %8, %5, %0
+  %12 = phi i32 [ 0, %8 ], [ -19, %0 ], [ %6, %5 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #10
-  ret i32 %11
+  ret i32 %12
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3360,7 +3367,7 @@ define internal fastcc noundef i32 @i8042_pnp_init() unnamed_addr #3 section ".i
 
 5:                                                ; preds = %0
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.61) #11
-  br label %124
+  br label %125
 
 7:                                                ; preds = %0
   %8 = tail call i32 @pnp_register_driver(ptr noundef nonnull @i8042_pnp_kbd_driver) #10
@@ -3386,7 +3393,7 @@ define internal fastcc noundef i32 @i8042_pnp_init() unnamed_addr #3 section ".i
   %18 = load i32, ptr @i8042_pnp_aux_devices, align 4
   %19 = icmp ne i32 %18, 0
   %20 = select i1 %17, i1 true, i1 %19
-  br i1 %20, label %33, label %21
+  br i1 %20, label %34, label %21
 
 21:                                               ; preds = %15
   %22 = load i1, ptr @i8042_pnp_kbd_registered, align 1
@@ -3408,162 +3415,163 @@ define internal fastcc noundef i32 @i8042_pnp_init() unnamed_addr #3 section ".i
 
 27:                                               ; preds = %26, %24
   %28 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62) #11
-  %29 = load i32, ptr getelementptr inbounds (%struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11), align 8
-  %30 = icmp eq i32 %29, 2
-  br i1 %30, label %31, label %124
+  %29 = getelementptr inbounds %struct.x86_platform_ops, ptr @x86_platform, i64 0, i32 11
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, 2
+  br i1 %31, label %32, label %125
 
-31:                                               ; preds = %27
-  %32 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.63) #11
-  br label %124
+32:                                               ; preds = %27
+  %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.63) #11
+  br label %125
 
-33:                                               ; preds = %15
-  br i1 %17, label %34, label %37
+34:                                               ; preds = %15
+  br i1 %17, label %35, label %38
 
-34:                                               ; preds = %33
-  %35 = load i32, ptr @i8042_pnp_kbd_irq, align 4
-  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 4, ptr noundef nonnull @.str.64, i32 noundef %35) #10
-  br label %37
+35:                                               ; preds = %34
+  %36 = load i32, ptr @i8042_pnp_kbd_irq, align 4
+  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 4, ptr noundef nonnull @.str.64, i32 noundef %36) #10
+  br label %38
 
-37:                                               ; preds = %34, %33
-  %38 = load i32, ptr @i8042_pnp_aux_devices, align 4
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %43, label %40
+38:                                               ; preds = %35, %34
+  %39 = load i32, ptr @i8042_pnp_aux_devices, align 4
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %44, label %41
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr @i8042_pnp_aux_irq, align 4
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4, ptr noundef nonnull @.str.64, i32 noundef %41) #10
-  br label %43
+41:                                               ; preds = %38
+  %42 = load i32, ptr @i8042_pnp_aux_irq, align 4
+  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4, ptr noundef nonnull @.str.64, i32 noundef %42) #10
+  br label %44
 
-43:                                               ; preds = %40, %37
-  %44 = load i32, ptr @i8042_pnp_kbd_devices, align 4
-  %45 = icmp ne i32 %44, 0
-  %46 = load i32, ptr @i8042_pnp_aux_devices, align 4
-  %47 = icmp ne i32 %46, 0
-  %48 = select i1 %45, i1 %47, i1 false
-  %49 = select i1 %48, ptr @.str.66, ptr @.str.41
-  %50 = load i32, ptr @i8042_pnp_data_reg, align 4
-  %51 = load i32, ptr @i8042_pnp_command_reg, align 4
-  %52 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.65, ptr noundef nonnull @i8042_pnp_kbd_name, ptr noundef nonnull %49, ptr noundef nonnull @i8042_pnp_aux_name, i32 noundef %50, i32 noundef %51, ptr noundef nonnull %1, ptr noundef nonnull %49, ptr noundef nonnull %2) #11
-  %53 = load i32, ptr @i8042_pnp_data_reg, align 4
-  %54 = load i32, ptr @i8042_data_reg, align 4
-  %55 = xor i32 %54, %53
-  %56 = icmp ult i32 %55, 16
-  br i1 %56, label %57, label %61
+44:                                               ; preds = %41, %38
+  %45 = load i32, ptr @i8042_pnp_kbd_devices, align 4
+  %46 = icmp ne i32 %45, 0
+  %47 = load i32, ptr @i8042_pnp_aux_devices, align 4
+  %48 = icmp ne i32 %47, 0
+  %49 = select i1 %46, i1 %48, i1 false
+  %50 = select i1 %49, ptr @.str.66, ptr @.str.41
+  %51 = load i32, ptr @i8042_pnp_data_reg, align 4
+  %52 = load i32, ptr @i8042_pnp_command_reg, align 4
+  %53 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.65, ptr noundef nonnull @i8042_pnp_kbd_name, ptr noundef nonnull %50, ptr noundef nonnull @i8042_pnp_aux_name, i32 noundef %51, i32 noundef %52, ptr noundef nonnull %1, ptr noundef nonnull %50, ptr noundef nonnull %2) #11
+  %54 = load i32, ptr @i8042_pnp_data_reg, align 4
+  %55 = load i32, ptr @i8042_data_reg, align 4
+  %56 = xor i32 %55, %54
+  %57 = icmp ult i32 %56, 16
+  br i1 %57, label %58, label %62
 
-57:                                               ; preds = %43
-  %58 = icmp eq i32 %53, %54
-  %59 = icmp ne i32 %53, 0
-  %60 = and i1 %59, %58
-  br i1 %60, label %66, label %63
+58:                                               ; preds = %44
+  %59 = icmp eq i32 %54, %55
+  %60 = icmp ne i32 %54, 0
+  %61 = and i1 %60, %59
+  br i1 %61, label %67, label %64
 
-61:                                               ; preds = %43
-  %62 = icmp eq i32 %53, 0
-  br i1 %62, label %63, label %66
+62:                                               ; preds = %44
+  %63 = icmp eq i32 %54, 0
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %61, %57
-  %64 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.67, i32 noundef %53, i32 noundef %54) #11
-  %65 = load i32, ptr @i8042_data_reg, align 4
-  store i32 %65, ptr @i8042_pnp_data_reg, align 4
-  br label %66
+64:                                               ; preds = %62, %58
+  %65 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.67, i32 noundef %54, i32 noundef %55) #11
+  %66 = load i32, ptr @i8042_data_reg, align 4
+  store i32 %66, ptr @i8042_pnp_data_reg, align 4
+  br label %67
 
-66:                                               ; preds = %63, %61, %57
-  %67 = phi i8 [ 0, %57 ], [ 1, %63 ], [ 0, %61 ]
-  %68 = load i32, ptr @i8042_pnp_command_reg, align 4
-  %69 = load i32, ptr @i8042_command_reg, align 4
-  %70 = xor i32 %69, %68
-  %71 = icmp ult i32 %70, 16
-  br i1 %71, label %72, label %76
+67:                                               ; preds = %64, %62, %58
+  %68 = phi i8 [ 0, %58 ], [ 1, %64 ], [ 0, %62 ]
+  %69 = load i32, ptr @i8042_pnp_command_reg, align 4
+  %70 = load i32, ptr @i8042_command_reg, align 4
+  %71 = xor i32 %70, %69
+  %72 = icmp ult i32 %71, 16
+  br i1 %72, label %73, label %77
 
-72:                                               ; preds = %66
-  %73 = icmp eq i32 %68, %69
-  %74 = icmp ne i32 %68, 0
-  %75 = and i1 %74, %73
-  br i1 %75, label %81, label %78
+73:                                               ; preds = %67
+  %74 = icmp eq i32 %69, %70
+  %75 = icmp ne i32 %69, 0
+  %76 = and i1 %75, %74
+  br i1 %76, label %82, label %79
 
-76:                                               ; preds = %66
-  %77 = icmp eq i32 %68, 0
-  br i1 %77, label %78, label %81
+77:                                               ; preds = %67
+  %78 = icmp eq i32 %69, 0
+  br i1 %78, label %79, label %82
 
-78:                                               ; preds = %76, %72
-  %79 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.68, i32 noundef %68, i32 noundef %69) #11
-  %80 = load i32, ptr @i8042_command_reg, align 4
-  store i32 %80, ptr @i8042_pnp_command_reg, align 4
-  br label %81
+79:                                               ; preds = %77, %73
+  %80 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.68, i32 noundef %69, i32 noundef %70) #11
+  %81 = load i32, ptr @i8042_command_reg, align 4
+  store i32 %81, ptr @i8042_pnp_command_reg, align 4
+  br label %82
 
-81:                                               ; preds = %78, %76, %72
-  %82 = phi i8 [ %67, %72 ], [ 1, %78 ], [ %67, %76 ]
-  %83 = load i8, ptr @i8042_nokbd, align 1, !range !5, !noundef !6
-  %84 = icmp ne i8 %83, 0
-  %85 = load i32, ptr @i8042_pnp_kbd_irq, align 4
-  %86 = icmp ne i32 %85, 0
-  %87 = select i1 %84, i1 true, i1 %86
-  br i1 %87, label %92, label %88
+82:                                               ; preds = %79, %77, %73
+  %83 = phi i8 [ %68, %73 ], [ 1, %79 ], [ %68, %77 ]
+  %84 = load i8, ptr @i8042_nokbd, align 1, !range !5, !noundef !6
+  %85 = icmp ne i8 %84, 0
+  %86 = load i32, ptr @i8042_pnp_kbd_irq, align 4
+  %87 = icmp ne i32 %86, 0
+  %88 = select i1 %85, i1 true, i1 %87
+  br i1 %88, label %93, label %89
 
-88:                                               ; preds = %81
-  %89 = load i32, ptr @i8042_kbd_irq, align 4
-  %90 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.69, i32 noundef %89) #11
-  %91 = load i32, ptr @i8042_kbd_irq, align 4
-  store i32 %91, ptr @i8042_pnp_kbd_irq, align 4
-  br label %92
+89:                                               ; preds = %82
+  %90 = load i32, ptr @i8042_kbd_irq, align 4
+  %91 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.69, i32 noundef %90) #11
+  %92 = load i32, ptr @i8042_kbd_irq, align 4
+  store i32 %92, ptr @i8042_pnp_kbd_irq, align 4
+  br label %93
 
-92:                                               ; preds = %88, %81
-  %93 = phi i8 [ %82, %81 ], [ 1, %88 ]
-  %94 = load i8, ptr @i8042_noaux, align 1, !range !5, !noundef !6
-  %95 = icmp ne i8 %94, 0
-  %96 = load i32, ptr @i8042_pnp_aux_irq, align 4
-  %97 = icmp ne i32 %96, 0
-  %98 = select i1 %95, i1 true, i1 %97
-  br i1 %98, label %111, label %99
+93:                                               ; preds = %89, %82
+  %94 = phi i8 [ %83, %82 ], [ 1, %89 ]
+  %95 = load i8, ptr @i8042_noaux, align 1, !range !5, !noundef !6
+  %96 = icmp ne i8 %95, 0
+  %97 = load i32, ptr @i8042_pnp_aux_irq, align 4
+  %98 = icmp ne i32 %97, 0
+  %99 = select i1 %96, i1 true, i1 %98
+  br i1 %99, label %112, label %100
 
-99:                                               ; preds = %92
-  %100 = and i8 %93, 1
-  %101 = icmp eq i8 %100, 0
-  %102 = load i32, ptr @i8042_pnp_kbd_irq, align 4
-  %103 = icmp ne i32 %102, 0
-  %104 = select i1 %101, i1 %103, i1 false
-  br i1 %104, label %105, label %107
+100:                                              ; preds = %93
+  %101 = and i8 %94, 1
+  %102 = icmp eq i8 %101, 0
+  %103 = load i32, ptr @i8042_pnp_kbd_irq, align 4
+  %104 = icmp ne i32 %103, 0
+  %105 = select i1 %102, i1 %104, i1 false
+  br i1 %105, label %106, label %108
 
-105:                                              ; preds = %99
-  %106 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70) #11
+106:                                              ; preds = %100
+  %107 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70) #11
   store i8 1, ptr @i8042_noaux, align 1
-  br label %111
+  br label %112
 
-107:                                              ; preds = %99
-  %108 = load i32, ptr @i8042_aux_irq, align 4
-  %109 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.71, i32 noundef %108) #11
-  %110 = load i32, ptr @i8042_aux_irq, align 4
-  store i32 %110, ptr @i8042_pnp_aux_irq, align 4
-  br label %111
+108:                                              ; preds = %100
+  %109 = load i32, ptr @i8042_aux_irq, align 4
+  %110 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.71, i32 noundef %109) #11
+  %111 = load i32, ptr @i8042_aux_irq, align 4
+  store i32 %111, ptr @i8042_pnp_aux_irq, align 4
+  br label %112
 
-111:                                              ; preds = %107, %105, %92
-  %112 = load i32, ptr @i8042_pnp_data_reg, align 4
-  store i32 %112, ptr @i8042_data_reg, align 4
-  %113 = load i32, ptr @i8042_pnp_command_reg, align 4
-  store i32 %113, ptr @i8042_command_reg, align 4
-  %114 = load i32, ptr @i8042_pnp_kbd_irq, align 4
-  store i32 %114, ptr @i8042_kbd_irq, align 4
-  %115 = load i32, ptr @i8042_pnp_aux_irq, align 4
-  store i32 %115, ptr @i8042_aux_irq, align 4
-  %116 = and i8 %93, 1
-  %117 = icmp eq i8 %116, 0
-  br i1 %117, label %118, label %122
+112:                                              ; preds = %108, %106, %93
+  %113 = load i32, ptr @i8042_pnp_data_reg, align 4
+  store i32 %113, ptr @i8042_data_reg, align 4
+  %114 = load i32, ptr @i8042_pnp_command_reg, align 4
+  store i32 %114, ptr @i8042_command_reg, align 4
+  %115 = load i32, ptr @i8042_pnp_kbd_irq, align 4
+  store i32 %115, ptr @i8042_kbd_irq, align 4
+  %116 = load i32, ptr @i8042_pnp_aux_irq, align 4
+  store i32 %116, ptr @i8042_aux_irq, align 4
+  %117 = and i8 %94, 1
+  %118 = icmp eq i8 %117, 0
+  br i1 %118, label %119, label %123
 
-118:                                              ; preds = %111
-  %119 = call i32 @dmi_check_system(ptr noundef nonnull @i8042_dmi_laptop_table) #10
-  %120 = icmp ne i32 %119, 0
-  %121 = zext i1 %120 to i8
-  br label %122
+119:                                              ; preds = %112
+  %120 = call i32 @dmi_check_system(ptr noundef nonnull @i8042_dmi_laptop_table) #10
+  %121 = icmp ne i32 %120, 0
+  %122 = zext i1 %121 to i8
+  br label %123
 
-122:                                              ; preds = %118, %111
-  %123 = phi i8 [ 0, %111 ], [ %121, %118 ]
-  store i8 %123, ptr @i8042_bypass_aux_irq_test, align 1
-  br label %124
+123:                                              ; preds = %119, %112
+  %124 = phi i8 [ 0, %112 ], [ %122, %119 ]
+  store i8 %124, ptr @i8042_bypass_aux_irq_test, align 1
+  br label %125
 
-124:                                              ; preds = %122, %31, %27, %5
-  %125 = phi i32 [ 0, %5 ], [ 0, %122 ], [ 0, %31 ], [ -19, %27 ]
+125:                                              ; preds = %123, %32, %27, %5
+  %126 = phi i32 [ 0, %5 ], [ 0, %123 ], [ 0, %32 ], [ -19, %27 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
-  ret i32 %125
+  ret i32 %126
 }
 
 ; Function Attrs: null_pointer_is_valid

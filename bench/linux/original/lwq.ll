@@ -20,49 +20,50 @@ define dso_local ptr @__lwq_dequeue(ptr noundef %0) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %27, label %9
+  br i1 %8, label %28, label %9
 
 9:                                                ; preds = %5, %1
   tail call void @_raw_spin_lock(ptr noundef %0) #3
   %10 = load ptr, ptr %2, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %21
+  br i1 %11, label %12, label %22
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %21, label %16
+  br i1 %15, label %22, label %16
 
 16:                                               ; preds = %12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !6
-  store volatile ptr inttoptr (i64 1 to ptr), ptr %2, align 8
-  %17 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %13, ptr null, ptr elementtype(ptr) %13) #3, !srcloc !7
-  %18 = tail call ptr @llist_reverse_order(ptr noundef %17) #3
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %21
+  %17 = inttoptr i64 1 to ptr
+  store volatile ptr %17, ptr %2, align 8
+  %18 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %13, ptr null, ptr elementtype(ptr) %13) #3, !srcloc !7
+  %19 = tail call ptr @llist_reverse_order(ptr noundef %18) #3
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %16
+21:                                               ; preds = %16
   store ptr null, ptr %2, align 8
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %16, %12, %9
-  %22 = phi ptr [ %10, %9 ], [ null, %12 ], [ %18, %16 ], [ null, %20 ]
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %26, label %24
+22:                                               ; preds = %21, %16, %12, %9
+  %23 = phi ptr [ %10, %9 ], [ null, %12 ], [ %19, %16 ], [ null, %21 ]
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %27, label %25
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %22, align 8
-  store ptr %25, ptr %2, align 8
-  br label %26
-
-26:                                               ; preds = %24, %21
-  tail call void @_raw_spin_unlock(ptr noundef %0) #3
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %23, align 8
+  store ptr %26, ptr %2, align 8
   br label %27
 
-27:                                               ; preds = %26, %5
-  %28 = phi ptr [ %22, %26 ], [ null, %5 ]
-  ret ptr %28
+27:                                               ; preds = %25, %22
+  tail call void @_raw_spin_unlock(ptr noundef %0) #3
+  br label %28
+
+28:                                               ; preds = %27, %5
+  %29 = phi ptr [ %23, %27 ], [ null, %5 ]
+  ret ptr %29
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

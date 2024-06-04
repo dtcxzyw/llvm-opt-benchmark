@@ -7672,7 +7672,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23EvalSygusInvarianceTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23EvalSygusInvarianceTestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_result = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EvalSygusInvarianceTest", ptr %this1, i32 0, i32 3
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_result) #3
   %d_var = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EvalSygusInvarianceTest", ptr %this1, i32 0, i32 2
@@ -7700,7 +7701,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24EquivSygusInvarianceTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24EquivSygusInvarianceTestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_exo = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EquivSygusInvarianceTest", ptr %this1, i32 0, i32 4
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_exo) #3
   %d_bvr = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EquivSygusInvarianceTest", ptr %this1, i32 0, i32 3
@@ -7749,7 +7751,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers30NegContainsSygusInvarianceTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers30NegContainsSygusInvarianceTestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_neg_con_indices = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::NegContainsSygusInvarianceTest", ptr %this1, i32 0, i32 4
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_neg_con_indices) #3
   %d_exo = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::NegContainsSygusInvarianceTest", ptr %this1, i32 0, i32 3
@@ -9206,7 +9209,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers19SygusInvarianceTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers19SygusInvarianceTestE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_update_nvn = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusInvarianceTest", ptr %this1, i32 0, i32 2
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_update_nvn) #3
   ret void

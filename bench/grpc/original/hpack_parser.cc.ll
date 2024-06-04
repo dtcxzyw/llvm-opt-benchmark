@@ -10189,16 +10189,17 @@ entry:
   store i64 %hard_limit, ptr %hard_limit.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core29CallTracerAnnotationInterface10AnnotationC2ENS0_14AnnotationTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11HPackParser23MetadataSizesAnnotationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core11HPackParser23MetadataSizesAnnotationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %metadata_buffer_ = getelementptr inbounds %"class.grpc_core::HPackParser::MetadataSizesAnnotation", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %metadata_buffer.addr, align 8
-  store ptr %0, ptr %metadata_buffer_, align 8
+  %1 = load ptr, ptr %metadata_buffer.addr, align 8
+  store ptr %1, ptr %metadata_buffer_, align 8
   %soft_limit_ = getelementptr inbounds %"class.grpc_core::HPackParser::MetadataSizesAnnotation", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %soft_limit.addr, align 8
-  store i64 %1, ptr %soft_limit_, align 8
+  %2 = load i64, ptr %soft_limit.addr, align 8
+  store i64 %2, ptr %soft_limit_, align 8
   %hard_limit_ = getelementptr inbounds %"class.grpc_core::HPackParser::MetadataSizesAnnotation", ptr %this1, i32 0, i32 3
-  %2 = load i64, ptr %hard_limit.addr, align 8
-  store i64 %2, ptr %hard_limit_, align 8
+  %3 = load i64, ptr %hard_limit.addr, align 8
+  store i64 %3, ptr %hard_limit_, align 8
   ret void
 }
 
@@ -11994,7 +11995,8 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN19grpc_slice_refcount12NoopRefcountEv() #5 comdat align 2 {
 entry:
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14186,10 +14188,11 @@ entry:
   store ptr %__reason, ptr %__reason.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__reason.addr, align 8
-  store ptr %0, ptr %_M_reason, align 8
+  %1 = load ptr, ptr %__reason.addr, align 8
+  store ptr %1, ptr %_M_reason, align 8
   ret void
 }
 
@@ -14211,7 +14214,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -15718,15 +15722,16 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN9grpc_core20PerCpuShardingHelper6state_E() #12 comdat {
-  br i1 icmp ne (ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15756,10 +15761,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %type, ptr %type.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core29CallTracerAnnotationInterface10AnnotationE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN9grpc_core29CallTracerAnnotationInterface10AnnotationE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.grpc_core::CallTracerAnnotationInterface::Annotation", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %type.addr, align 4
-  store i32 %0, ptr %type_, align 8
+  %1 = load i32, ptr %type.addr, align 4
+  store i32 %1, ptr %type_, align 8
   ret void
 }
 
@@ -27912,10 +27918,11 @@ entry:
   store i8 %incoming_status, ptr %incoming_status.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10RefCountedINS_16HpackParseResult21HpackParseResultStateENS_19PolymorphicRefCountENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %status = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %incoming_status.addr, align 1
-  invoke void @_ZN9grpc_core16HpackParseResult13StatusWrapperC2ENS_16HpackParseStatusE(ptr noundef nonnull align 1 dereferenceable(1) %status, i8 noundef zeroext %0)
+  %1 = load i8, ptr %incoming_status.addr, align 1
+  invoke void @_ZN9grpc_core16HpackParseResult13StatusWrapperC2ENS_16HpackParseStatusE(ptr noundef nonnull align 1 dereferenceable(1) %status, i8 noundef zeroext %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -27926,12 +27933,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core10RefCountedINS_16HpackParseResult21HpackParseResultStateENS_19PolymorphicRefCountENS_11UnrefDeleteEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -27970,23 +27977,24 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_16HpackParseResult21HpackParseResultStateENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_16HpackParseResult21HpackParseResultStateENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %initial_refcount.addr, align 8
-  %1 = load ptr, ptr %trace.addr, align 8
-  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %0, ptr noundef %1)
+  %1 = load i64, ptr %initial_refcount.addr, align 8
+  %2 = load ptr, ptr %trace.addr, align 8
+  invoke void @_ZN9grpc_core8RefCountC2ElPKc(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core19PolymorphicRefCountD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -28031,7 +28039,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %materialized_status = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %this1, i32 0, i32 4
   call void @_ZNSt8optionalIN4absl12lts_202308026StatusEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %materialized_status) #3
   %key = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %this1, i32 0, i32 3
@@ -28057,7 +28066,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -36811,18 +36821,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core16HttpPathMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_16HttpPathMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -37722,18 +37740,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core21HttpAuthorityMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_21HttpAuthorityMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -38168,18 +38194,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialINS_18HttpMethodMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS4_12ParseMementoES7_bSI_EEEEvPS7_bSI_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialINS_18HttpMethodMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS4_12ParseMementoES7_bSI_EEEEvPS7_bSI_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core18HttpMethodMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpMethodMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -39140,18 +39174,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialIjTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEXadL_ZNS_22SimpleIntBasedMetadataIjLj0EE12ParseMementoES5_bSG_EEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialIjTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEXadL_ZNS_22SimpleIntBasedMetadataIjLj0EE12ParseMementoES5_bSG_EEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core18HttpStatusMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpStatusMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -39925,18 +39967,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialINS_18HttpSchemeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS4_12ParseMementoES7_bSI_EEEEvPS7_bSI_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialINS_18HttpSchemeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS4_12ParseMementoES7_bSI_EEEEvPS7_bSI_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core18HttpSchemeMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18HttpSchemeMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -40742,18 +40792,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialINS_19ContentTypeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS4_12ParseMementoES7_bSI_EEEEvPS7_bSI_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialINS_19ContentTypeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS4_12ParseMementoES7_bSI_EEEEvPS7_bSI_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core19ContentTypeMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19ContentTypeMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -41549,18 +41607,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialINS_10TeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS4_12ParseMementoES7_bSI_EEEEvPS7_bSI_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialINS_10TeMetadata9ValueTypeETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS4_12ParseMementoES7_bSI_EEEEvPS7_bSI_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core10TeMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_10TeMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -42346,18 +42412,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS6_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES6_bSH_EEEEvPS6_bSH_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS6_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES6_bSH_EEEEvPS6_bSH_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core20GrpcEncodingMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_20GrpcEncodingMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -43041,18 +43115,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS6_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES6_bSH_EEEEvPS6_bSH_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialI26grpc_compression_algorithmTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS6_EEEEXadL_ZNS_33CompressionAlgorithmBasedMetadata12ParseMementoES6_bSH_EEEEvPS6_bSH_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core27GrpcInternalEncodingRequest3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcInternalEncodingRequestEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -43641,19 +43723,27 @@ init:                                             ; preds = %init.check
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFvSB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr %call3, ptr %14, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call5, ptr %15, align 8
   %call7 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvENKUlPNS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEPS2_E_cvPFvS9_bSK_SL_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #3
-  store ptr %call7, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr %call7, ptr %16, align 8
   %call9 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE0_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #3
-  store ptr %call9, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call9, ptr %17, align 8
   %call10 = call { i64, ptr } @_ZN9grpc_core26GrpcAcceptEncodingMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call10, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call10, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call10, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call10, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_26GrpcAcceptEncodingMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -44667,18 +44757,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialI16grpc_status_codeTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS6_EEEEXadL_ZNS_22SimpleIntBasedMetadataIS4_LS4_2EE12ParseMementoES6_bSH_EEEEvPS6_bSH_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialI16grpc_status_codeTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS6_EEEEXadL_ZNS_22SimpleIntBasedMetadataIS4_LS4_2EE12ParseMementoES6_bSH_EEEEvPS6_bSH_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core18GrpcStatusMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_18GrpcStatusMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -45435,18 +45533,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS6_EEEEXadL_ZNS_19GrpcTimeoutMetadata12ParseMementoES6_bSH_EEEEvPS6_bSH_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS6_EEEEXadL_ZNS_19GrpcTimeoutMetadata12ParseMementoES6_bSH_EEEEvPS6_bSH_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core19GrpcTimeoutMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_19GrpcTimeoutMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -46103,18 +46209,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialIjTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEXadL_ZNS_22SimpleIntBasedMetadataIjLj0EE12ParseMementoES5_bSG_EEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialIjTnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEXadL_ZNS_22SimpleIntBasedMetadataIjLj0EE12ParseMementoES5_bSG_EEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core31GrpcPreviousRpcAttemptsMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_31GrpcPreviousRpcAttemptsMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -46688,18 +46802,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS6_EEEEXadL_ZNS_27GrpcRetryPushbackMsMetadata12ParseMementoES6_bSH_EEEEvPS6_bSH_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialINS_8DurationETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS6_EEEEXadL_ZNS_27GrpcRetryPushbackMsMetadata12ParseMementoES6_bSH_EEEEvPS6_bSH_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core27GrpcRetryPushbackMsMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_27GrpcRetryPushbackMsMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -47371,18 +47493,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core17UserAgentMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_17UserAgentMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -47784,18 +47914,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core19GrpcMessageMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcMessageMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -48187,18 +48325,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core12HostMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_12HostMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -48580,18 +48726,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core30EndpointLoadMetricsBinMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_30EndpointLoadMetricsBinMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -48963,18 +49117,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core26GrpcServerStatsBinMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_26GrpcServerStatsBinMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -49336,18 +49498,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core20GrpcTraceBinMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_20GrpcTraceBinMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -49699,18 +49869,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core19GrpcTagsBinMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_19GrpcTagsBinMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -50122,18 +50300,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail21DestroyTrivialMementoERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialIPNS_17GrpcLbClientStatsETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_25GrpcLbClientStatsMetadata12ParseMementoES7_bSI_EEEEvPS7_bSI_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE22WithNewValueSetTrivialIPNS_17GrpcLbClientStatsETnPFT_NS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS7_EEEEXadL_ZNS_25GrpcLbClientStatsMetadata12ParseMementoES7_bSI_EEEEvPS7_bSI_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core25GrpcLbClientStatsMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE18TrivialTraitVTableINS_25GrpcLbClientStatsMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -50846,19 +51032,27 @@ init:                                             ; preds = %init.check
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFvSB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr %call3, ptr %14, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call5, ptr %15, align 8
   %call7 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvENKUlPNS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS8_EEEPS2_E_cvPFvS9_bSK_SL_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #3
-  store ptr %call7, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr %call7, ptr %16, align 8
   %call9 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE0_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #3
-  store ptr %call9, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call9, ptr %17, align 8
   %call10 = call { i64, ptr } @_ZN9grpc_core17LbCostBinMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call10, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call10, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call10, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call10, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE21NonTrivialTraitVTableINS_17LbCostBinMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -53024,18 +53218,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core15LbTokenMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_15LbTokenMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -53357,18 +53559,26 @@ init:                                             ; preds = %init.check
   %call2 = call noundef zeroext i1 @_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %7, ptr %9, i64 %11, ptr %13) #3
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, align 8
-  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 1
+  store ptr @_ZN9grpc_core15metadata_detail17DestroySliceValueERKNS0_6BufferE, ptr %14, align 8
   %call3 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEPS1_E_cvPFvSB_SC_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
-  store ptr %call3, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2), align 8
-  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3), align 8
+  %15 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 2
+  store ptr %call3, ptr %15, align 8
+  %16 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 3
+  store ptr @_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE20WithNewValueSetSliceIXadL_ZNS_24SimpleSliceBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS5_EEEEEEEvPS5_bSG_PS2_, ptr %16, align 8
   %call5 = call noundef ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvENKUlRKNS_15metadata_detail6BufferEE_cvPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #3
-  store ptr %call5, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4), align 8
+  %17 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 4
+  store ptr %call5, ptr %17, align 8
   %call6 = call { i64, ptr } @_ZN9grpc_core18XEnvoyPeerMetadata3keyEv()
-  %14 = extractvalue { i64, ptr } %call6, 0
-  store i64 %14, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), align 8
-  %15 = extractvalue { i64, ptr } %call6, 1
-  store ptr %15, ptr getelementptr inbounds ({ i64, ptr }, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5), i32 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6), align 8
+  %18 = extractvalue { i64, ptr } %call6, 0
+  %19 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  store i64 %18, ptr %19, align 8
+  %20 = extractvalue { i64, ptr } %call6, 1
+  %21 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 5
+  %22 = getelementptr inbounds { i64, ptr }, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds %"struct.grpc_core::ParsedMetadata<grpc_metadata_batch>::VTable", ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable, i32 0, i32 6
+  store ptr null, ptr %23, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE16SliceTraitVTableINS_18XEnvoyPeerMetadataEEEPKNS2_6VTableEvE6vtable) #3
   br label %init.end
 
@@ -55079,7 +55289,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -55089,7 +55300,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

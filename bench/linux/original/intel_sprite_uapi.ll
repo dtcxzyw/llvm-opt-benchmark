@@ -18,7 +18,7 @@ define dso_local i32 @intel_sprite_set_colorkey_ioctl(ptr noundef %0, ptr nocapt
   %9 = and i32 %6, 6
   %10 = icmp eq i32 %9, 6
   %11 = or i1 %8, %10
-  br i1 %11, label %145, label %12
+  br i1 %11, label %147, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %0, i64 7184
@@ -28,7 +28,7 @@ define dso_local i32 @intel_sprite_set_colorkey_ioctl(ptr noundef %0, ptr nocapt
   %17 = and i32 %6, 2
   %18 = icmp eq i32 %17, 0
   %19 = or i1 %18, %16
-  br i1 %19, label %20, label %145
+  br i1 %19, label %20, label %147
 
 20:                                               ; preds = %12
   %21 = load i32, ptr %1, align 4
@@ -37,13 +37,13 @@ define dso_local i32 @intel_sprite_set_colorkey_ioctl(ptr noundef %0, ptr nocapt
   %24 = getelementptr i8, ptr %22, i64 -88
   %25 = icmp eq ptr %24, null
   %26 = or i1 %23, %25
-  br i1 %26, label %145, label %27
+  br i1 %26, label %147, label %27
 
 27:                                               ; preds = %20
   %28 = getelementptr i8, ptr %22, i64 1136
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %145
+  br i1 %30, label %31, label %147
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %0, i64 2632
@@ -61,14 +61,14 @@ define dso_local i32 @intel_sprite_set_colorkey_ioctl(ptr noundef %0, ptr nocapt
   %40 = load i32, ptr %5, align 4
   %41 = and i32 %40, 2
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %145
+  br i1 %42, label %43, label %147
 
 43:                                               ; preds = %39, %35, %31
   call void @drm_modeset_acquire_init(ptr noundef nonnull %4, i32 noundef 0) #5
   %44 = load ptr, ptr %24, align 8
   %45 = call ptr @drm_atomic_state_alloc(ptr noundef %44) #5
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %143, label %47
+  br i1 %46, label %145, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %45, i64 72
@@ -78,172 +78,174 @@ define dso_local i32 @intel_sprite_set_colorkey_ioctl(ptr noundef %0, ptr nocapt
   %50 = getelementptr i8, ptr %22, i64 1240
   br label %51
 
-51:                                               ; preds = %132, %47
+51:                                               ; preds = %134, %47
   %52 = call ptr @drm_atomic_get_plane_state(ptr noundef nonnull %45, ptr noundef nonnull %24) #5
-  %53 = icmp ugt ptr %52, inttoptr (i64 -4096 to ptr)
-  %54 = ptrtoint ptr %52 to i64
-  %55 = trunc i64 %54 to i32
-  %56 = select i1 %53, i32 %55, i32 0
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %124
+  %53 = inttoptr i64 -4096 to ptr
+  %54 = icmp ugt ptr %52, %53
+  %55 = ptrtoint ptr %52 to i64
+  %56 = trunc i64 %55 to i32
+  %57 = select i1 %54, i32 %56, i32 0
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %126
 
-58:                                               ; preds = %51
-  %59 = load ptr, ptr %52, align 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %52, i64 412
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %61, ptr noundef align 4 dereferenceable(20) %1, i64 20, i1 false)
-  %62 = getelementptr inbounds i8, ptr %59, i64 1324
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %71
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %52, align 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %52, i64 412
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %62, ptr noundef align 4 dereferenceable(20) %1, i64 20, i1 false)
+  %63 = getelementptr inbounds i8, ptr %60, i64 1324
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %72
 
-65:                                               ; preds = %58
-  %66 = load i32, ptr %5, align 4
-  %67 = and i32 %66, 4
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %71, label %69
+66:                                               ; preds = %59
+  %67 = load i32, ptr %5, align 4
+  %68 = and i32 %67, 4
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %72, label %70
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %52, i64 428
-  store i32 0, ptr %70, align 4
-  br label %71
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds i8, ptr %52, i64 428
+  store i32 0, ptr %71, align 4
+  br label %72
 
-71:                                               ; preds = %69, %65, %58
-  %72 = getelementptr inbounds i8, ptr %60, i64 2632
-  %73 = load i16, ptr %72, align 8
-  %74 = icmp ugt i16 %73, 8
-  br i1 %74, label %75, label %84
+72:                                               ; preds = %70, %66, %59
+  %73 = getelementptr inbounds i8, ptr %61, i64 2632
+  %74 = load i16, ptr %73, align 8
+  %75 = icmp ugt i16 %74, 8
+  br i1 %75, label %76, label %85
 
-75:                                               ; preds = %71
-  %76 = load i32, ptr %62, align 4
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %84, label %78
+76:                                               ; preds = %72
+  %77 = load i32, ptr %63, align 4
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %85, label %79
 
-78:                                               ; preds = %75
-  %79 = load i32, ptr %5, align 4
-  %80 = and i32 %79, 2
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %84, label %82
+79:                                               ; preds = %76
+  %80 = load i32, ptr %5, align 4
+  %81 = and i32 %80, 2
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %85, label %83
 
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %52, i64 428
-  store i32 0, ptr %83, align 4
-  br label %84
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds i8, ptr %52, i64 428
+  store i32 0, ptr %84, align 4
+  br label %85
 
-84:                                               ; preds = %82, %78, %75, %71
-  %85 = load i16, ptr %32, align 8
-  %86 = icmp ugt i16 %85, 8
-  br i1 %86, label %87, label %124
+85:                                               ; preds = %83, %79, %76, %72
+  %86 = load i16, ptr %32, align 8
+  %87 = icmp ugt i16 %86, 8
+  br i1 %87, label %88, label %126
 
-87:                                               ; preds = %84
-  %88 = load i32, ptr %50, align 8
-  %89 = call ptr @intel_crtc_for_pipe(ptr noundef %0, i32 noundef %88) #5
-  %90 = getelementptr inbounds i8, ptr %89, i64 128
-  %91 = load ptr, ptr %90, align 8
-  %92 = call ptr @drm_atomic_get_plane_state(ptr noundef nonnull %45, ptr noundef %91) #5
-  %93 = icmp ugt ptr %92, inttoptr (i64 -4096 to ptr)
-  %94 = ptrtoint ptr %92 to i64
-  %95 = trunc i64 %94 to i32
-  %96 = select i1 %93, i32 %95, i32 0
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %124
+88:                                               ; preds = %85
+  %89 = load i32, ptr %50, align 8
+  %90 = call ptr @intel_crtc_for_pipe(ptr noundef %0, i32 noundef %89) #5
+  %91 = getelementptr inbounds i8, ptr %90, i64 128
+  %92 = load ptr, ptr %91, align 8
+  %93 = call ptr @drm_atomic_get_plane_state(ptr noundef nonnull %45, ptr noundef %92) #5
+  %94 = inttoptr i64 -4096 to ptr
+  %95 = icmp ugt ptr %93, %94
+  %96 = ptrtoint ptr %93 to i64
+  %97 = trunc i64 %96 to i32
+  %98 = select i1 %95, i32 %97, i32 0
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %126
 
-98:                                               ; preds = %87
-  %99 = load ptr, ptr %92, align 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %92, i64 412
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %101, ptr noundef align 4 dereferenceable(20) %1, i64 20, i1 false)
-  %102 = getelementptr inbounds i8, ptr %99, i64 1324
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %111
+100:                                              ; preds = %88
+  %101 = load ptr, ptr %93, align 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %93, i64 412
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %103, ptr noundef align 4 dereferenceable(20) %1, i64 20, i1 false)
+  %104 = getelementptr inbounds i8, ptr %101, i64 1324
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %113
 
-105:                                              ; preds = %98
-  %106 = load i32, ptr %5, align 4
-  %107 = and i32 %106, 4
-  %108 = icmp eq i32 %107, 0
-  br i1 %108, label %111, label %109
+107:                                              ; preds = %100
+  %108 = load i32, ptr %5, align 4
+  %109 = and i32 %108, 4
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %113, label %111
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %92, i64 428
-  store i32 0, ptr %110, align 4
-  br label %111
+111:                                              ; preds = %107
+  %112 = getelementptr inbounds i8, ptr %93, i64 428
+  store i32 0, ptr %112, align 4
+  br label %113
 
-111:                                              ; preds = %109, %105, %98
-  %112 = getelementptr inbounds i8, ptr %100, i64 2632
-  %113 = load i16, ptr %112, align 8
-  %114 = icmp ugt i16 %113, 8
-  br i1 %114, label %115, label %124
+113:                                              ; preds = %111, %107, %100
+  %114 = getelementptr inbounds i8, ptr %102, i64 2632
+  %115 = load i16, ptr %114, align 8
+  %116 = icmp ugt i16 %115, 8
+  br i1 %116, label %117, label %126
 
-115:                                              ; preds = %111
-  %116 = load i32, ptr %102, align 4
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %124, label %118
+117:                                              ; preds = %113
+  %118 = load i32, ptr %104, align 4
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %126, label %120
 
-118:                                              ; preds = %115
-  %119 = load i32, ptr %5, align 4
-  %120 = and i32 %119, 2
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %124, label %122
+120:                                              ; preds = %117
+  %121 = load i32, ptr %5, align 4
+  %122 = and i32 %121, 2
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %126, label %124
 
-122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %92, i64 428
-  store i32 0, ptr %123, align 4
-  br label %124
+124:                                              ; preds = %120
+  %125 = getelementptr inbounds i8, ptr %93, i64 428
+  store i32 0, ptr %125, align 4
+  br label %126
 
-124:                                              ; preds = %122, %118, %115, %111, %87, %84, %51
-  %125 = phi i32 [ 0, %84 ], [ %96, %87 ], [ %56, %51 ], [ %96, %111 ], [ %96, %115 ], [ %96, %118 ], [ %96, %122 ]
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %129
+126:                                              ; preds = %124, %120, %117, %113, %88, %85, %51
+  %127 = phi i32 [ 0, %85 ], [ %98, %88 ], [ %57, %51 ], [ %98, %113 ], [ %98, %117 ], [ %98, %120 ], [ %98, %124 ]
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %129, label %131
 
-127:                                              ; preds = %124
-  %128 = call i32 @drm_atomic_commit(ptr noundef nonnull %45) #5
-  br label %129
+129:                                              ; preds = %126
+  %130 = call i32 @drm_atomic_commit(ptr noundef nonnull %45) #5
+  br label %131
 
-129:                                              ; preds = %127, %124
-  %130 = phi i32 [ %125, %124 ], [ %128, %127 ]
-  %131 = icmp eq i32 %130, -35
-  br i1 %131, label %132, label %134
+131:                                              ; preds = %129, %126
+  %132 = phi i32 [ %127, %126 ], [ %130, %129 ]
+  %133 = icmp eq i32 %132, -35
+  br i1 %133, label %134, label %136
 
-132:                                              ; preds = %129
+134:                                              ; preds = %131
   call void @drm_atomic_state_clear(ptr noundef nonnull %45) #5
-  %133 = call i32 @drm_modeset_backoff(ptr noundef nonnull %4) #5
+  %135 = call i32 @drm_modeset_backoff(ptr noundef nonnull %4) #5
   br label %51, !llvm.loop !6
 
-134:                                              ; preds = %129
-  %135 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %45, i32 -1, ptr nonnull elementtype(i32) %45) #5, !srcloc !8
-  %136 = icmp eq i32 %135, 1
-  br i1 %136, label %137, label %138
+136:                                              ; preds = %131
+  %137 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %45, i32 -1, ptr nonnull elementtype(i32) %45) #5, !srcloc !8
+  %138 = icmp eq i32 %137, 1
+  br i1 %138, label %139, label %140
 
-137:                                              ; preds = %134
+139:                                              ; preds = %136
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  br label %141
-
-138:                                              ; preds = %134
-  %139 = icmp sgt i32 %135, 0
-  br i1 %139, label %141, label %140, !prof !10
-
-140:                                              ; preds = %138
-  call void @refcount_warn_saturate(ptr noundef nonnull %45, i32 noundef 3) #5
-  br label %141
-
-141:                                              ; preds = %140, %138, %137
-  br i1 %136, label %142, label %143
-
-142:                                              ; preds = %141
-  call void @__drm_atomic_state_free(ptr noundef nonnull %45) #5
   br label %143
 
-143:                                              ; preds = %142, %141, %43
-  %144 = phi i32 [ -12, %43 ], [ %130, %141 ], [ %130, %142 ]
-  call void @drm_modeset_drop_locks(ptr noundef nonnull %4) #5
-  call void @drm_modeset_acquire_fini(ptr noundef nonnull %4) #5
+140:                                              ; preds = %136
+  %141 = icmp sgt i32 %137, 0
+  br i1 %141, label %143, label %142, !prof !10
+
+142:                                              ; preds = %140
+  call void @refcount_warn_saturate(ptr noundef nonnull %45, i32 noundef 3) #5
+  br label %143
+
+143:                                              ; preds = %142, %140, %139
+  br i1 %138, label %144, label %145
+
+144:                                              ; preds = %143
+  call void @__drm_atomic_state_free(ptr noundef nonnull %45) #5
   br label %145
 
-145:                                              ; preds = %143, %39, %27, %20, %12, %3
-  %146 = phi i32 [ %144, %143 ], [ -22, %3 ], [ -2, %27 ], [ -2, %20 ], [ -22, %39 ], [ -22, %12 ]
+145:                                              ; preds = %144, %143, %43
+  %146 = phi i32 [ -12, %43 ], [ %132, %143 ], [ %132, %144 ]
+  call void @drm_modeset_drop_locks(ptr noundef nonnull %4) #5
+  call void @drm_modeset_acquire_fini(ptr noundef nonnull %4) #5
+  br label %147
+
+147:                                              ; preds = %145, %39, %27, %20, %12, %3
+  %148 = phi i32 [ %146, %145 ], [ -22, %3 ], [ -2, %27 ], [ -2, %20 ], [ -22, %39 ], [ -22, %12 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
-  ret i32 %146
+  ret i32 %148
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

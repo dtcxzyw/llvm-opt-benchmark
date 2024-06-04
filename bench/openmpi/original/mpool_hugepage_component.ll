@@ -71,95 +71,108 @@ define internal i32 @mca_mpool_hugepage_open() #0 {
 
 7:                                                ; preds = %6
   %8 = load i32, ptr @opal_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %10 = icmp ne i32 %8, %9
-  br i1 %10, label %11, label %12
+  %9 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp ne i32 %8, %10
+  br i1 %11, label %12, label %13
 
-11:                                               ; preds = %7
+12:                                               ; preds = %7
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %12
-
-12:                                               ; preds = %11, %7
-  store ptr @opal_list_t_class, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2), align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2), i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2))
   br label %13
 
-13:                                               ; preds = %12
-  br label %14
+13:                                               ; preds = %12, %7
+  %14 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2
+  store ptr @opal_list_t_class, ptr %14, align 8
+  %15 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2
+  %16 = getelementptr inbounds %struct.opal_object_t, ptr %15, i32 0, i32 1
+  store volatile i32 1, ptr %16, align 8
+  %17 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2
+  call void @opal_obj_run_constructors(ptr noundef %17)
+  br label %18
 
-14:                                               ; preds = %13
+18:                                               ; preds = %13
+  br label %19
+
+19:                                               ; preds = %18
   call void @mca_mpool_hugepage_find_hugepages()
-  %15 = call i64 @opal_list_get_size(ptr noundef getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2))
-  %16 = icmp eq i64 0, %15
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %14
-  store i32 0, ptr %1, align 4
-  br label %49
-
-18:                                               ; preds = %14
-  %19 = call i64 @opal_list_get_size(ptr noundef getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2))
-  %20 = call noalias ptr @calloc(i64 noundef %19, i64 noundef 576) #6
-  store ptr %20, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3), align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3), align 8
-  %22 = icmp eq ptr null, %21
+  %20 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2
+  %21 = call i64 @opal_list_get_size(ptr noundef %20)
+  %22 = icmp eq i64 0, %21
   br i1 %22, label %23, label %24
 
-23:                                               ; preds = %18
-  store i32 -2, ptr %1, align 4
-  br label %49
-
-24:                                               ; preds = %18
-  store i32 0, ptr %4, align 4
-  %25 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2, i32 1, i32 1), align 8
-  store ptr %25, ptr %3, align 8
-  br label %26
-
-26:                                               ; preds = %43, %24
-  %27 = load ptr, ptr %3, align 8
-  %28 = icmp ne ptr %27, getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2, i32 1)
-  br i1 %28, label %29, label %47
-
-29:                                               ; preds = %26
-  %30 = load ptr, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3), align 8
-  %31 = load i32, ptr %4, align 4
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %30, i64 %32
-  store ptr %33, ptr %2, align 8
-  %34 = load ptr, ptr %2, align 8
-  %35 = load ptr, ptr %3, align 8
-  %36 = call i32 @mca_mpool_hugepage_module_init(ptr noundef %34, ptr noundef %35)
-  store i32 %36, ptr %5, align 4
-  %37 = load i32, ptr %5, align 4
-  %38 = icmp ne i32 0, %37
-  br i1 %38, label %39, label %40
-
-39:                                               ; preds = %29
-  br label %43
-
-40:                                               ; preds = %29
-  %41 = load i32, ptr %4, align 4
-  %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %4, align 4
-  br label %43
-
-43:                                               ; preds = %40, %39
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.opal_list_item_t, ptr %44, i32 0, i32 1
-  %46 = load volatile ptr, ptr %45, align 8
-  store ptr %46, ptr %3, align 8
-  br label %26, !llvm.loop !4
-
-47:                                               ; preds = %26
-  %48 = load i32, ptr %4, align 4
-  store i32 %48, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 4), align 8
+23:                                               ; preds = %19
   store i32 0, ptr %1, align 4
-  br label %49
+  br label %62
 
-49:                                               ; preds = %47, %23, %17
-  %50 = load i32, ptr %1, align 4
-  ret i32 %50
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2
+  %26 = call i64 @opal_list_get_size(ptr noundef %25)
+  %27 = call noalias ptr @calloc(i64 noundef %26, i64 noundef 576) #6
+  %28 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr null, %30
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %24
+  store i32 -2, ptr %1, align 4
+  br label %62
+
+33:                                               ; preds = %24
+  store i32 0, ptr %4, align 4
+  %34 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2, i32 1, i32 1
+  %35 = load volatile ptr, ptr %34, align 8
+  store ptr %35, ptr %3, align 8
+  br label %36
+
+36:                                               ; preds = %55, %33
+  %37 = load ptr, ptr %3, align 8
+  %38 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2, i32 1
+  %39 = icmp ne ptr %37, %38
+  br i1 %39, label %40, label %59
+
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i32, ptr %4, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %42, i64 %44
+  store ptr %45, ptr %2, align 8
+  %46 = load ptr, ptr %2, align 8
+  %47 = load ptr, ptr %3, align 8
+  %48 = call i32 @mca_mpool_hugepage_module_init(ptr noundef %46, ptr noundef %47)
+  store i32 %48, ptr %5, align 4
+  %49 = load i32, ptr %5, align 4
+  %50 = icmp ne i32 0, %49
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %40
+  br label %55
+
+52:                                               ; preds = %40
+  %53 = load i32, ptr %4, align 4
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %4, align 4
+  br label %55
+
+55:                                               ; preds = %52, %51
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds %struct.opal_list_item_t, ptr %56, i32 0, i32 1
+  %58 = load volatile ptr, ptr %57, align 8
+  store ptr %58, ptr %3, align 8
+  br label %36, !llvm.loop !4
+
+59:                                               ; preds = %36
+  %60 = load i32, ptr %4, align 4
+  %61 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 4
+  store i32 %60, ptr %61, align 8
+  store i32 0, ptr %1, align 4
+  br label %62
+
+62:                                               ; preds = %59, %32, %23
+  %63 = load i32, ptr %1, align 4
+  ret i32 %63
 }
 
 ; Function Attrs: nounwind uwtable
@@ -172,95 +185,103 @@ define internal i32 @mca_mpool_hugepage_close() #0 {
   br label %6
 
 6:                                                ; preds = %0
-  %7 = load volatile i32, ptr getelementptr inbounds (%struct.opal_object_t, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2), i32 0, i32 1), align 8
-  %8 = icmp eq i32 1, %7
-  br i1 %8, label %9, label %27
+  %7 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2
+  %8 = getelementptr inbounds %struct.opal_object_t, ptr %7, i32 0, i32 1
+  %9 = load volatile i32, ptr %8, align 8
+  %10 = icmp eq i32 1, %9
+  br i1 %10, label %11, label %30
 
-9:                                                ; preds = %6
-  br label %10
+11:                                               ; preds = %6
+  br label %12
 
-10:                                               ; preds = %25, %9
-  %11 = call ptr @opal_list_remove_first(ptr noundef getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2))
-  store ptr %11, ptr %3, align 8
-  %12 = icmp ne ptr null, %11
-  br i1 %12, label %13, label %26
+12:                                               ; preds = %28, %11
+  %13 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2
+  %14 = call ptr @opal_list_remove_first(ptr noundef %13)
+  store ptr %14, ptr %3, align 8
+  %15 = icmp ne ptr null, %14
+  br i1 %15, label %16, label %29
 
-13:                                               ; preds = %10
-  br label %14
+16:                                               ; preds = %12
+  br label %17
 
-14:                                               ; preds = %13
-  %15 = load ptr, ptr %3, align 8
-  store ptr %15, ptr %1, align 8
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %3, align 8
+  store ptr %18, ptr %1, align 8
   store i32 -1, ptr %2, align 4
-  %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds %struct.opal_object_t, ptr %16, i32 0, i32 1
-  %18 = load i32, ptr %2, align 4
-  %19 = call i32 @opal_thread_add_fetch_32(ptr noundef %17, i32 noundef %18)
-  %20 = icmp eq i32 0, %19
-  br i1 %20, label %21, label %24
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds %struct.opal_object_t, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %2, align 4
+  %22 = call i32 @opal_thread_add_fetch_32(ptr noundef %20, i32 noundef %21)
+  %23 = icmp eq i32 0, %22
+  br i1 %23, label %24, label %27
 
-21:                                               ; preds = %14
-  %22 = load ptr, ptr %3, align 8
-  call void @opal_obj_run_destructors(ptr noundef %22)
-  %23 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %23) #7
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %3, align 8
+  call void @opal_obj_run_destructors(ptr noundef %25)
+  %26 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %26) #7
   store ptr null, ptr %3, align 8
-  br label %24
-
-24:                                               ; preds = %21, %14
-  br label %25
-
-25:                                               ; preds = %24
-  br label %10, !llvm.loop !6
-
-26:                                               ; preds = %10
   br label %27
 
-27:                                               ; preds = %26, %6
+27:                                               ; preds = %24, %17
   br label %28
 
 28:                                               ; preds = %27
-  call void @opal_obj_run_destructors(ptr noundef getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2))
-  br label %29
+  br label %12, !llvm.loop !6
 
-29:                                               ; preds = %28
+29:                                               ; preds = %12
   br label %30
 
-30:                                               ; preds = %29
-  store i32 0, ptr %4, align 4
+30:                                               ; preds = %29, %6
   br label %31
 
-31:                                               ; preds = %46, %30
-  %32 = load i32, ptr %4, align 4
-  %33 = load i32, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 4), align 8
-  %34 = icmp slt i32 %32, %33
-  br i1 %34, label %35, label %49
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2
+  call void @opal_obj_run_destructors(ptr noundef %32)
+  br label %33
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3), align 8
-  %37 = load i32, ptr %4, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %36, i64 %38
-  store ptr %39, ptr %5, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %40, i32 0, i32 0
-  %42 = getelementptr inbounds %struct.mca_mpool_base_module_t, ptr %41, i32 0, i32 5
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %44, i32 0, i32 0
-  call void %43(ptr noundef %45)
-  br label %46
+33:                                               ; preds = %31
+  br label %34
 
-46:                                               ; preds = %35
-  %47 = load i32, ptr %4, align 4
-  %48 = add nsw i32 %47, 1
-  store i32 %48, ptr %4, align 4
-  br label %31, !llvm.loop !7
+34:                                               ; preds = %33
+  store i32 0, ptr %4, align 4
+  br label %35
 
-49:                                               ; preds = %31
-  %50 = load ptr, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3), align 8
-  call void @free(ptr noundef %50) #7
-  store ptr null, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3), align 8
+35:                                               ; preds = %52, %34
+  %36 = load i32, ptr %4, align 4
+  %37 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 4
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp slt i32 %36, %38
+  br i1 %39, label %40, label %55
+
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i32, ptr %4, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %42, i64 %44
+  store ptr %45, ptr %5, align 8
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %46, i32 0, i32 0
+  %48 = getelementptr inbounds %struct.mca_mpool_base_module_t, ptr %47, i32 0, i32 5
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %50, i32 0, i32 0
+  call void %49(ptr noundef %51)
+  br label %52
+
+52:                                               ; preds = %40
+  %53 = load i32, ptr %4, align 4
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %4, align 4
+  br label %35, !llvm.loop !7
+
+55:                                               ; preds = %35
+  %56 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3
+  %57 = load ptr, ptr %56, align 8
+  call void @free(ptr noundef %57) #7
+  %58 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3
+  store ptr null, ptr %58, align 8
   ret i32 0
 }
 
@@ -270,8 +291,10 @@ define internal i32 @mca_mpool_hugepage_register() #0 {
   %1 = call i32 @mca_base_component_var_register(ptr noundef @mca_mpool_hugepage_component, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 2, ptr noundef @mca_mpool_hugepage_priority)
   store i64 2097152, ptr @mca_mpool_hugepage_page_size, align 8
   %2 = call i32 @mca_base_component_var_register(ptr noundef @mca_mpool_hugepage_component, ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 2, ptr noundef @mca_mpool_hugepage_page_size)
-  store volatile i64 0, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 5), align 8
-  %3 = call i32 @mca_base_component_pvar_register(ptr noundef @mca_mpool_hugepage_component, ptr noundef @.str.4, ptr noundef @.str.5, i32 noundef 2, i32 noundef 2, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 384, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 5))
+  %3 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 5
+  store volatile i64 0, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 5
+  %5 = call i32 @mca_base_component_pvar_register(ptr noundef @mca_mpool_hugepage_component, ptr noundef @.str.4, ptr noundef @.str.5, i32 noundef 2, i32 noundef 2, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 384, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %4)
   ret i32 0
 }
 
@@ -298,397 +321,412 @@ define internal i32 @mca_mpool_hugepage_query(ptr noundef %0, ptr noundef %1, pt
   %18 = load i32, ptr @mca_mpool_hugepage_priority, align 4
   store i32 %18, ptr %10, align 4
   store i8 0, ptr %12, align 1
-  %19 = load i32, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 4), align 8
-  %20 = icmp eq i32 0, %19
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %3
-  store i32 -16, ptr %4, align 4
-  br label %219
+  %19 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 4
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp eq i32 0, %20
+  br i1 %21, label %22, label %23
 
 22:                                               ; preds = %3
-  %23 = load ptr, ptr %5, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %128
+  store i32 -16, ptr %4, align 4
+  br label %234
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %5, align 8
-  %27 = call noalias ptr @opal_argv_split(ptr noundef %26, i32 noundef 44)
-  store ptr %27, ptr %9, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = icmp eq ptr null, %28
-  br i1 %29, label %30, label %31
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %5, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %135
 
-30:                                               ; preds = %25
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %5, align 8
+  %28 = call noalias ptr @opal_argv_split(ptr noundef %27, i32 noundef 44)
+  store ptr %28, ptr %9, align 8
+  %29 = load ptr, ptr %9, align 8
+  %30 = icmp eq ptr null, %29
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %26
   store i32 -2, ptr %4, align 4
-  br label %219
+  br label %234
 
-31:                                               ; preds = %25
+32:                                               ; preds = %26
   store i32 0, ptr %13, align 4
-  br label %32
+  br label %33
 
-32:                                               ; preds = %123, %31
-  %33 = load ptr, ptr %9, align 8
-  %34 = load i32, ptr %13, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %33, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %126
+33:                                               ; preds = %130, %32
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %13, align 4
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds ptr, ptr %34, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %133
 
-39:                                               ; preds = %32
-  %40 = load ptr, ptr %9, align 8
-  %41 = load i32, ptr %13, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %40, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %14, align 8
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i32, ptr %13, align 4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds ptr, ptr %41, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %14, align 8
   store ptr null, ptr %15, align 8
-  %45 = load ptr, ptr %14, align 8
-  %46 = call ptr @strchr(ptr noundef %45, i32 noundef 61) #8
-  store ptr %46, ptr %11, align 8
-  %47 = icmp ne ptr null, %46
-  br i1 %47, label %48, label %52
+  %46 = load ptr, ptr %14, align 8
+  %47 = call ptr @strchr(ptr noundef %46, i32 noundef 61) #8
+  store ptr %47, ptr %11, align 8
+  %48 = icmp ne ptr null, %47
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %39
-  %49 = load ptr, ptr %11, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store ptr %50, ptr %15, align 8
-  %51 = load ptr, ptr %11, align 8
-  store i8 0, ptr %51, align 1
-  br label %52
+49:                                               ; preds = %40
+  %50 = load ptr, ptr %11, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 1
+  store ptr %51, ptr %15, align 8
+  %52 = load ptr, ptr %11, align 8
+  store i8 0, ptr %52, align 1
+  br label %53
 
-52:                                               ; preds = %48, %39
-  %53 = load ptr, ptr %14, align 8
-  %54 = call i32 @strcasecmp(ptr noundef @.str.14, ptr noundef %53) #8
-  %55 = icmp eq i32 0, %54
-  br i1 %55, label %56, label %85
+53:                                               ; preds = %49, %40
+  %54 = load ptr, ptr %14, align 8
+  %55 = call i32 @strcasecmp(ptr noundef @.str.14, ptr noundef %54) #8
+  %56 = icmp eq i32 0, %55
+  br i1 %56, label %57, label %90
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %15, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %73
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %15, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %76
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %15, align 8
-  %61 = call i32 @strcasecmp(ptr noundef @.str.15, ptr noundef %60) #8
-  %62 = icmp eq i32 0, %61
-  br i1 %62, label %63, label %73
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %15, align 8
+  %62 = call i32 @strcasecmp(ptr noundef @.str.15, ptr noundef %61) #8
+  %63 = icmp eq i32 0, %62
+  br i1 %63, label %64, label %76
 
-63:                                               ; preds = %59
+64:                                               ; preds = %60
   store i32 100, ptr %10, align 4
-  br label %64
+  br label %65
 
-64:                                               ; preds = %63
-  %65 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %66 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %65)
-  br i1 %66, label %67, label %71
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %67 = load i32, ptr %66, align 4
+  %68 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %67)
+  br i1 %68, label %69, label %74
 
-67:                                               ; preds = %64
-  %68 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %69 = load ptr, ptr %14, align 8
-  %70 = load ptr, ptr %15, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %68, ptr noundef @.str.16, ptr noundef %69, ptr noundef %70)
-  br label %71
-
-71:                                               ; preds = %67, %64
-  br label %72
-
-72:                                               ; preds = %71
-  br label %84
-
-73:                                               ; preds = %59, %56
-  store i32 0, ptr %10, align 4
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %71 = load i32, ptr %70, align 4
+  %72 = load ptr, ptr %14, align 8
+  %73 = load ptr, ptr %15, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %71, ptr noundef @.str.16, ptr noundef %72, ptr noundef %73)
   br label %74
 
-74:                                               ; preds = %73
-  %75 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %76 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %75)
-  br i1 %76, label %77, label %81
+74:                                               ; preds = %69, %65
+  br label %75
 
-77:                                               ; preds = %74
-  %78 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %79 = load ptr, ptr %14, align 8
-  %80 = load ptr, ptr %15, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %78, ptr noundef @.str.17, ptr noundef %79, ptr noundef %80)
-  br label %81
+75:                                               ; preds = %74
+  br label %89
 
-81:                                               ; preds = %77, %74
-  br label %82
+76:                                               ; preds = %60, %57
+  store i32 0, ptr %10, align 4
+  br label %77
 
-82:                                               ; preds = %81
-  %83 = load ptr, ptr %9, align 8
-  call void @opal_argv_free(ptr noundef %83)
+77:                                               ; preds = %76
+  %78 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %79 = load i32, ptr %78, align 4
+  %80 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %79)
+  br i1 %80, label %81, label %86
+
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %83 = load i32, ptr %82, align 4
+  %84 = load ptr, ptr %14, align 8
+  %85 = load ptr, ptr %15, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %83, ptr noundef @.str.17, ptr noundef %84, ptr noundef %85)
+  br label %86
+
+86:                                               ; preds = %81, %77
+  br label %87
+
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %9, align 8
+  call void @opal_argv_free(ptr noundef %88)
   store i32 -13, ptr %4, align 4
-  br label %219
+  br label %234
 
-84:                                               ; preds = %72
-  br label %85
+89:                                               ; preds = %75
+  br label %90
 
-85:                                               ; preds = %84, %52
-  %86 = load ptr, ptr %14, align 8
-  %87 = call i32 @strcasecmp(ptr noundef @.str.2, ptr noundef %86) #8
-  %88 = icmp eq i32 0, %87
-  br i1 %88, label %89, label %122
+90:                                               ; preds = %89, %53
+  %91 = load ptr, ptr %14, align 8
+  %92 = call i32 @strcasecmp(ptr noundef @.str.2, ptr noundef %91) #8
+  %93 = icmp eq i32 0, %92
+  br i1 %93, label %94, label %129
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr %15, align 8
-  %91 = icmp ne ptr %90, null
-  br i1 %91, label %92, label %122
+94:                                               ; preds = %90
+  %95 = load ptr, ptr %15, align 8
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %97, label %129
 
-92:                                               ; preds = %89
-  %93 = load ptr, ptr %15, align 8
-  %94 = call i64 @strtoul(ptr noundef %93, ptr noundef %11, i32 noundef 0) #7
-  store i64 %94, ptr %8, align 8
-  %95 = load ptr, ptr %11, align 8
-  %96 = load i8, ptr %95, align 1
-  %97 = icmp ne i8 %96, 0
-  br i1 %97, label %98, label %113
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %15, align 8
+  %99 = call i64 @strtoul(ptr noundef %98, ptr noundef %11, i32 noundef 0) #7
+  store i64 %99, ptr %8, align 8
+  %100 = load ptr, ptr %11, align 8
+  %101 = load i8, ptr %100, align 1
+  %102 = icmp ne i8 %101, 0
+  br i1 %102, label %103, label %118
 
-98:                                               ; preds = %92
-  %99 = load ptr, ptr %11, align 8
-  %100 = load i8, ptr %99, align 1
-  %101 = sext i8 %100 to i32
-  switch i32 %101, label %111 [
-    i32 103, label %102
-    i32 71, label %102
-    i32 109, label %105
-    i32 77, label %105
-    i32 107, label %108
-    i32 75, label %108
+103:                                              ; preds = %97
+  %104 = load ptr, ptr %11, align 8
+  %105 = load i8, ptr %104, align 1
+  %106 = sext i8 %105 to i32
+  switch i32 %106, label %116 [
+    i32 103, label %107
+    i32 71, label %107
+    i32 109, label %110
+    i32 77, label %110
+    i32 107, label %113
+    i32 75, label %113
   ]
 
-102:                                              ; preds = %98, %98
-  %103 = load i64, ptr %8, align 8
-  %104 = mul i64 %103, 1024
-  store i64 %104, ptr %8, align 8
-  br label %105
+107:                                              ; preds = %103, %103
+  %108 = load i64, ptr %8, align 8
+  %109 = mul i64 %108, 1024
+  store i64 %109, ptr %8, align 8
+  br label %110
 
-105:                                              ; preds = %102, %98, %98
-  %106 = load i64, ptr %8, align 8
-  %107 = mul i64 %106, 1024
-  store i64 %107, ptr %8, align 8
-  br label %108
-
-108:                                              ; preds = %105, %98, %98
-  %109 = load i64, ptr %8, align 8
-  %110 = mul i64 %109, 1024
-  store i64 %110, ptr %8, align 8
-  br label %112
-
-111:                                              ; preds = %98
-  store i64 -1, ptr %8, align 8
-  br label %112
-
-112:                                              ; preds = %111, %108
+110:                                              ; preds = %107, %103, %103
+  %111 = load i64, ptr %8, align 8
+  %112 = mul i64 %111, 1024
+  store i64 %112, ptr %8, align 8
   br label %113
 
-113:                                              ; preds = %112, %92
-  br label %114
+113:                                              ; preds = %110, %103, %103
+  %114 = load i64, ptr %8, align 8
+  %115 = mul i64 %114, 1024
+  store i64 %115, ptr %8, align 8
+  br label %117
 
-114:                                              ; preds = %113
-  %115 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %116 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %115)
-  br i1 %116, label %117, label %120
+116:                                              ; preds = %103
+  store i64 -1, ptr %8, align 8
+  br label %117
 
-117:                                              ; preds = %114
-  %118 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %119 = load i64, ptr %8, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %118, ptr noundef @.str.18, i64 noundef %119)
-  br label %120
+117:                                              ; preds = %116, %113
+  br label %118
 
-120:                                              ; preds = %117, %114
-  br label %121
+118:                                              ; preds = %117, %97
+  br label %119
 
-121:                                              ; preds = %120
-  br label %122
+119:                                              ; preds = %118
+  %120 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %121 = load i32, ptr %120, align 4
+  %122 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %121)
+  br i1 %122, label %123, label %127
 
-122:                                              ; preds = %121, %89, %85
-  br label %123
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %125 = load i32, ptr %124, align 4
+  %126 = load i64, ptr %8, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %125, ptr noundef @.str.18, i64 noundef %126)
+  br label %127
 
-123:                                              ; preds = %122
-  %124 = load i32, ptr %13, align 4
-  %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %13, align 4
-  br label %32, !llvm.loop !8
-
-126:                                              ; preds = %32
-  %127 = load ptr, ptr %9, align 8
-  call void @opal_argv_free(ptr noundef %127)
+127:                                              ; preds = %123, %119
   br label %128
 
-128:                                              ; preds = %126, %22
-  %129 = load i64, ptr %8, align 8
-  %130 = icmp eq i64 0, %129
-  br i1 %130, label %131, label %145
+128:                                              ; preds = %127
+  br label %129
 
-131:                                              ; preds = %128
-  %132 = load i64, ptr @mca_mpool_hugepage_page_size, align 8
-  store i64 %132, ptr %8, align 8
-  %133 = load i32, ptr %10, align 4
-  %134 = icmp slt i32 %133, 100
-  br i1 %134, label %135, label %136
+129:                                              ; preds = %128, %94, %90
+  br label %130
 
-135:                                              ; preds = %131
+130:                                              ; preds = %129
+  %131 = load i32, ptr %13, align 4
+  %132 = add nsw i32 %131, 1
+  store i32 %132, ptr %13, align 4
+  br label %33, !llvm.loop !8
+
+133:                                              ; preds = %33
+  %134 = load ptr, ptr %9, align 8
+  call void @opal_argv_free(ptr noundef %134)
+  br label %135
+
+135:                                              ; preds = %133, %23
+  %136 = load i64, ptr %8, align 8
+  %137 = icmp eq i64 0, %136
+  br i1 %137, label %138, label %154
+
+138:                                              ; preds = %135
+  %139 = load i64, ptr @mca_mpool_hugepage_page_size, align 8
+  store i64 %139, ptr %8, align 8
+  %140 = load i32, ptr %10, align 4
+  %141 = icmp slt i32 %140, 100
+  br i1 %141, label %142, label %143
+
+142:                                              ; preds = %138
   store i32 0, ptr %10, align 4
-  br label %136
-
-136:                                              ; preds = %135, %131
-  br label %137
-
-137:                                              ; preds = %136
-  %138 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %139 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 20, i32 noundef %138)
-  br i1 %139, label %140, label %143
-
-140:                                              ; preds = %137
-  %141 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %142 = load ptr, ptr %5, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %141, ptr noundef @.str.19, ptr noundef %142)
   br label %143
 
-143:                                              ; preds = %140, %137
+143:                                              ; preds = %142, %138
   br label %144
 
 144:                                              ; preds = %143
-  br label %145
+  %145 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %146 = load i32, ptr %145, align 4
+  %147 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 20, i32 noundef %146)
+  br i1 %147, label %148, label %152
 
-145:                                              ; preds = %144, %128
+148:                                              ; preds = %144
+  %149 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %150 = load i32, ptr %149, align 4
+  %151 = load ptr, ptr %5, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %150, ptr noundef @.str.19, ptr noundef %151)
+  br label %152
+
+152:                                              ; preds = %148, %144
+  br label %153
+
+153:                                              ; preds = %152
+  br label %154
+
+154:                                              ; preds = %153, %135
   store i32 0, ptr %16, align 4
-  br label %146
+  br label %155
 
-146:                                              ; preds = %197, %145
-  %147 = load i32, ptr %16, align 4
-  %148 = load i32, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 4), align 8
-  %149 = icmp slt i32 %147, %148
-  br i1 %149, label %150, label %200
+155:                                              ; preds = %210, %154
+  %156 = load i32, ptr %16, align 4
+  %157 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 4
+  %158 = load i32, ptr %157, align 8
+  %159 = icmp slt i32 %156, %158
+  br i1 %159, label %160, label %213
 
-150:                                              ; preds = %146
-  %151 = load ptr, ptr getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3), align 8
-  %152 = load i32, ptr %16, align 4
-  %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %151, i64 %153
-  store ptr %154, ptr %17, align 8
-  %155 = load ptr, ptr %17, align 8
-  %156 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %155, i32 0, i32 1
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %157, i32 0, i32 1
-  %159 = load i64, ptr %158, align 8
-  %160 = load i64, ptr %8, align 8
-  %161 = icmp ne i64 %159, %160
-  br i1 %161, label %162, label %163
+160:                                              ; preds = %155
+  %161 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 3
+  %162 = load ptr, ptr %161, align 8
+  %163 = load i32, ptr %16, align 4
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %162, i64 %164
+  store ptr %165, ptr %17, align 8
+  %166 = load ptr, ptr %17, align 8
+  %167 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %166, i32 0, i32 1
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %168, i32 0, i32 1
+  %170 = load i64, ptr %169, align 8
+  %171 = load i64, ptr %8, align 8
+  %172 = icmp ne i64 %170, %171
+  br i1 %172, label %173, label %174
 
-162:                                              ; preds = %150
-  br label %197
-
-163:                                              ; preds = %150
-  %164 = load i32, ptr %10, align 4
-  %165 = icmp slt i32 %164, 80
-  br i1 %165, label %166, label %169
-
-166:                                              ; preds = %163
-  %167 = load i32, ptr %10, align 4
-  %168 = add nsw i32 %167, 20
-  br label %170
-
-169:                                              ; preds = %163
-  br label %170
-
-170:                                              ; preds = %169, %166
-  %171 = phi i32 [ %168, %166 ], [ 100, %169 ]
-  store i32 %171, ptr %10, align 4
-  %172 = load ptr, ptr %7, align 8
-  %173 = icmp ne ptr %172, null
-  br i1 %173, label %174, label %178
-
-174:                                              ; preds = %170
-  %175 = load ptr, ptr %17, align 8
-  %176 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %175, i32 0, i32 0
-  %177 = load ptr, ptr %7, align 8
-  store ptr %176, ptr %177, align 8
-  br label %178
-
-178:                                              ; preds = %174, %170
-  br label %179
-
-179:                                              ; preds = %178
-  %180 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %181 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %180)
-  br i1 %181, label %182, label %195
-
-182:                                              ; preds = %179
-  %183 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %184 = load i64, ptr %8, align 8
-  %185 = load ptr, ptr %17, align 8
-  %186 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %185, i32 0, i32 1
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %187, i32 0, i32 2
-  %189 = load ptr, ptr %188, align 8
-  %190 = load ptr, ptr %17, align 8
-  %191 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %190, i32 0, i32 1
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %192, i32 0, i32 4
-  %194 = load i32, ptr %193, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %183, ptr noundef @.str.20, i64 noundef %184, ptr noundef %189, i32 noundef %194)
-  br label %195
-
-195:                                              ; preds = %182, %179
-  br label %196
-
-196:                                              ; preds = %195
-  store i8 1, ptr %12, align 1
-  br label %200
-
-197:                                              ; preds = %162
-  %198 = load i32, ptr %16, align 4
-  %199 = add nsw i32 %198, 1
-  store i32 %199, ptr %16, align 4
-  br label %146, !llvm.loop !9
-
-200:                                              ; preds = %196, %146
-  %201 = load i8, ptr %12, align 1
-  %202 = trunc i8 %201 to i1
-  br i1 %202, label %212, label %203
-
-203:                                              ; preds = %200
-  br label %204
-
-204:                                              ; preds = %203
-  %205 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %206 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 20, i32 noundef %205)
-  br i1 %206, label %207, label %210
-
-207:                                              ; preds = %204
-  %208 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %209 = load i64, ptr %8, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %208, ptr noundef @.str.21, i64 noundef %209)
+173:                                              ; preds = %160
   br label %210
 
-210:                                              ; preds = %207, %204
-  br label %211
+174:                                              ; preds = %160
+  %175 = load i32, ptr %10, align 4
+  %176 = icmp slt i32 %175, 80
+  br i1 %176, label %177, label %180
 
-211:                                              ; preds = %210
+177:                                              ; preds = %174
+  %178 = load i32, ptr %10, align 4
+  %179 = add nsw i32 %178, 20
+  br label %181
+
+180:                                              ; preds = %174
+  br label %181
+
+181:                                              ; preds = %180, %177
+  %182 = phi i32 [ %179, %177 ], [ 100, %180 ]
+  store i32 %182, ptr %10, align 4
+  %183 = load ptr, ptr %7, align 8
+  %184 = icmp ne ptr %183, null
+  br i1 %184, label %185, label %189
+
+185:                                              ; preds = %181
+  %186 = load ptr, ptr %17, align 8
+  %187 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %186, i32 0, i32 0
+  %188 = load ptr, ptr %7, align 8
+  store ptr %187, ptr %188, align 8
+  br label %189
+
+189:                                              ; preds = %185, %181
+  br label %190
+
+190:                                              ; preds = %189
+  %191 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %192 = load i32, ptr %191, align 4
+  %193 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %192)
+  br i1 %193, label %194, label %208
+
+194:                                              ; preds = %190
+  %195 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %196 = load i32, ptr %195, align 4
+  %197 = load i64, ptr %8, align 8
+  %198 = load ptr, ptr %17, align 8
+  %199 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %198, i32 0, i32 1
+  %200 = load ptr, ptr %199, align 8
+  %201 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %200, i32 0, i32 2
+  %202 = load ptr, ptr %201, align 8
+  %203 = load ptr, ptr %17, align 8
+  %204 = getelementptr inbounds %struct.mca_mpool_hugepage_module_t, ptr %203, i32 0, i32 1
+  %205 = load ptr, ptr %204, align 8
+  %206 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %205, i32 0, i32 4
+  %207 = load i32, ptr %206, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %196, ptr noundef @.str.20, i64 noundef %197, ptr noundef %202, i32 noundef %207)
+  br label %208
+
+208:                                              ; preds = %194, %190
+  br label %209
+
+209:                                              ; preds = %208
+  store i8 1, ptr %12, align 1
+  br label %213
+
+210:                                              ; preds = %173
+  %211 = load i32, ptr %16, align 4
+  %212 = add nsw i32 %211, 1
+  store i32 %212, ptr %16, align 4
+  br label %155, !llvm.loop !9
+
+213:                                              ; preds = %209, %155
+  %214 = load i8, ptr %12, align 1
+  %215 = trunc i8 %214 to i1
+  br i1 %215, label %227, label %216
+
+216:                                              ; preds = %213
+  br label %217
+
+217:                                              ; preds = %216
+  %218 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %219 = load i32, ptr %218, align 4
+  %220 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 20, i32 noundef %219)
+  br i1 %220, label %221, label %225
+
+221:                                              ; preds = %217
+  %222 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %223 = load i32, ptr %222, align 4
+  %224 = load i64, ptr %8, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %223, ptr noundef @.str.21, i64 noundef %224)
+  br label %225
+
+225:                                              ; preds = %221, %217
+  br label %226
+
+226:                                              ; preds = %225
   store i32 -13, ptr %4, align 4
-  br label %219
+  br label %234
 
-212:                                              ; preds = %200
-  %213 = load ptr, ptr %6, align 8
-  %214 = icmp ne ptr %213, null
-  br i1 %214, label %215, label %218
+227:                                              ; preds = %213
+  %228 = load ptr, ptr %6, align 8
+  %229 = icmp ne ptr %228, null
+  br i1 %229, label %230, label %233
 
-215:                                              ; preds = %212
-  %216 = load i32, ptr %10, align 4
-  %217 = load ptr, ptr %6, align 8
-  store i32 %216, ptr %217, align 4
-  br label %218
+230:                                              ; preds = %227
+  %231 = load i32, ptr %10, align 4
+  %232 = load ptr, ptr %6, align 8
+  store i32 %231, ptr %232, align 4
+  br label %233
 
-218:                                              ; preds = %215, %212
+233:                                              ; preds = %230, %227
   store i32 0, ptr %4, align 4
-  br label %219
+  br label %234
 
-219:                                              ; preds = %218, %211, %82, %30, %21
-  %220 = load i32, ptr %4, align 4
-  ret i32 %220
+234:                                              ; preds = %233, %226, %87, %31, %22
+  %235 = load i32, ptr %4, align 4
+  ret i32 %235
 }
 
 declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
@@ -749,17 +787,17 @@ define internal void @mca_mpool_hugepage_find_hugepages() #0 {
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %0
-  br label %142
+  br label %148
 
 15:                                               ; preds = %0
   br label %16
 
-16:                                               ; preds = %137, %68, %26, %15
+16:                                               ; preds = %142, %68, %26, %15
   %17 = load ptr, ptr %4, align 8
   %18 = call ptr @getmntent(ptr noundef %17) #7
   store ptr %18, ptr %5, align 8
   %19 = icmp ne ptr null, %18
-  br i1 %19, label %20, label %138
+  br i1 %19, label %20, label %143
 
 20:                                               ; preds = %16
   store i64 0, ptr %9, align 8
@@ -784,7 +822,7 @@ define internal void @mca_mpool_hugepage_find_hugepages() #0 {
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %27
-  br label %138
+  br label %143
 
 35:                                               ; preds = %27
   %36 = load ptr, ptr %6, align 8
@@ -854,7 +892,7 @@ define internal void @mca_mpool_hugepage_find_hugepages() #0 {
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %69
-  br label %138
+  br label %143
 
 74:                                               ; preds = %69
   %75 = load ptr, ptr %5, align 8
@@ -873,102 +911,108 @@ define internal void @mca_mpool_hugepage_find_hugepages() #0 {
   %86 = load ptr, ptr %85, align 8
   %87 = call i32 @access(ptr noundef %86, i32 noundef 6) #7
   %88 = icmp eq i32 0, %87
-  br i1 %88, label %89, label %108
+  br i1 %88, label %89, label %111
 
 89:                                               ; preds = %74
   br label %90
 
 90:                                               ; preds = %89
-  %91 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %92 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %91)
-  br i1 %92, label %93, label %104
+  %91 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %92 = load i32, ptr %91, align 4
+  %93 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %92)
+  br i1 %93, label %94, label %106
 
-93:                                               ; preds = %90
-  %94 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %95, i32 0, i32 1
-  %97 = load i64, ptr %96, align 8
-  %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %98, i32 0, i32 2
-  %100 = load ptr, ptr %99, align 8
-  %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %101, i32 0, i32 4
-  %103 = load i32, ptr %102, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %94, ptr noundef @.str.12, i64 noundef %97, ptr noundef %100, i32 noundef %103)
-  br label %104
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %96 = load i32, ptr %95, align 4
+  %97 = load ptr, ptr %3, align 8
+  %98 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %97, i32 0, i32 1
+  %99 = load i64, ptr %98, align 8
+  %100 = load ptr, ptr %3, align 8
+  %101 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %100, i32 0, i32 2
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr %3, align 8
+  %104 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %103, i32 0, i32 4
+  %105 = load i32, ptr %104, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %96, ptr noundef @.str.12, i64 noundef %99, ptr noundef %102, i32 noundef %105)
+  br label %106
 
-104:                                              ; preds = %93, %90
-  br label %105
+106:                                              ; preds = %94, %90
+  br label %107
 
-105:                                              ; preds = %104
-  %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %106, i32 0, i32 0
-  call void @_opal_list_append(ptr noundef getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2), ptr noundef %107)
-  br label %137
-
-108:                                              ; preds = %74
-  br label %109
-
-109:                                              ; preds = %108
-  %110 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %111 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %110)
-  br i1 %111, label %112, label %123
-
-112:                                              ; preds = %109
-  %113 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11), align 4
-  %114 = load ptr, ptr %3, align 8
-  %115 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %114, i32 0, i32 1
-  %116 = load i64, ptr %115, align 8
-  %117 = load ptr, ptr %3, align 8
-  %118 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %117, i32 0, i32 2
-  %119 = load ptr, ptr %118, align 8
-  %120 = load ptr, ptr %3, align 8
-  %121 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %120, i32 0, i32 4
-  %122 = load i32, ptr %121, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %113, ptr noundef @.str.13, i64 noundef %116, ptr noundef %119, i32 noundef %122)
-  br label %123
-
-123:                                              ; preds = %112, %109
-  br label %124
-
-124:                                              ; preds = %123
-  br label %125
-
-125:                                              ; preds = %124
-  %126 = load ptr, ptr %3, align 8
-  store ptr %126, ptr %1, align 8
-  store i32 -1, ptr %2, align 4
-  %127 = load ptr, ptr %1, align 8
-  %128 = getelementptr inbounds %struct.opal_object_t, ptr %127, i32 0, i32 1
-  %129 = load i32, ptr %2, align 4
-  %130 = call i32 @opal_thread_add_fetch_32(ptr noundef %128, i32 noundef %129)
-  %131 = icmp eq i32 0, %130
-  br i1 %131, label %132, label %135
-
-132:                                              ; preds = %125
-  %133 = load ptr, ptr %3, align 8
-  call void @opal_obj_run_destructors(ptr noundef %133)
-  %134 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %134) #7
-  store ptr null, ptr %3, align 8
-  br label %135
-
-135:                                              ; preds = %132, %125
-  br label %136
-
-136:                                              ; preds = %135
-  br label %137
-
-137:                                              ; preds = %136, %105
-  br label %16, !llvm.loop !11
-
-138:                                              ; preds = %73, %34, %16
-  %139 = call i32 @opal_list_sort(ptr noundef getelementptr inbounds (%struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2), ptr noundef @page_compare)
-  %140 = load ptr, ptr %4, align 8
-  %141 = call i32 @endmntent(ptr noundef %140) #7
+107:                                              ; preds = %106
+  %108 = load ptr, ptr %3, align 8
+  %109 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %108, i32 0, i32 0
+  %110 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2
+  call void @_opal_list_append(ptr noundef %110, ptr noundef %109)
   br label %142
 
-142:                                              ; preds = %138, %14
+111:                                              ; preds = %74
+  br label %112
+
+112:                                              ; preds = %111
+  %113 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %114 = load i32, ptr %113, align 4
+  %115 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %114)
+  br i1 %115, label %116, label %128
+
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 11
+  %118 = load i32, ptr %117, align 4
+  %119 = load ptr, ptr %3, align 8
+  %120 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %119, i32 0, i32 1
+  %121 = load i64, ptr %120, align 8
+  %122 = load ptr, ptr %3, align 8
+  %123 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %122, i32 0, i32 2
+  %124 = load ptr, ptr %123, align 8
+  %125 = load ptr, ptr %3, align 8
+  %126 = getelementptr inbounds %struct.mca_mpool_hugepage_hugepage_t, ptr %125, i32 0, i32 4
+  %127 = load i32, ptr %126, align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %118, ptr noundef @.str.13, i64 noundef %121, ptr noundef %124, i32 noundef %127)
+  br label %128
+
+128:                                              ; preds = %116, %112
+  br label %129
+
+129:                                              ; preds = %128
+  br label %130
+
+130:                                              ; preds = %129
+  %131 = load ptr, ptr %3, align 8
+  store ptr %131, ptr %1, align 8
+  store i32 -1, ptr %2, align 4
+  %132 = load ptr, ptr %1, align 8
+  %133 = getelementptr inbounds %struct.opal_object_t, ptr %132, i32 0, i32 1
+  %134 = load i32, ptr %2, align 4
+  %135 = call i32 @opal_thread_add_fetch_32(ptr noundef %133, i32 noundef %134)
+  %136 = icmp eq i32 0, %135
+  br i1 %136, label %137, label %140
+
+137:                                              ; preds = %130
+  %138 = load ptr, ptr %3, align 8
+  call void @opal_obj_run_destructors(ptr noundef %138)
+  %139 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %139) #7
+  store ptr null, ptr %3, align 8
+  br label %140
+
+140:                                              ; preds = %137, %130
+  br label %141
+
+141:                                              ; preds = %140
+  br label %142
+
+142:                                              ; preds = %141, %107
+  br label %16, !llvm.loop !11
+
+143:                                              ; preds = %73, %34, %16
+  %144 = getelementptr inbounds %struct.mca_mpool_hugepage_component_t, ptr @mca_mpool_hugepage_component, i32 0, i32 2
+  %145 = call i32 @opal_list_sort(ptr noundef %144, ptr noundef @page_compare)
+  %146 = load ptr, ptr %4, align 8
+  %147 = call i32 @endmntent(ptr noundef %146) #7
+  br label %148
+
+148:                                              ; preds = %143, %14
   ret void
 }
 

@@ -73,93 +73,94 @@ define internal void @rtpstreams_stat_draw_cb(ptr noundef %0) #0 {
   %10 = call noalias ptr @g_strdup(ptr noundef %9)
   store ptr %10, ptr %6, align 8
   %11 = call ptr @setlocale(i32 noundef 1, ptr noundef @.str.19) #3
-  %12 = load ptr, ptr getelementptr inbounds (%struct._rtpstream_tapinfo, ptr @the_tapinfo_struct, i32 0, i32 5), align 8
-  store ptr %12, ptr %3, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = call ptr @g_list_first(ptr noundef %13)
-  store ptr %14, ptr %3, align 8
-  br label %15
+  %12 = getelementptr inbounds %struct._rtpstream_tapinfo, ptr @the_tapinfo_struct, i32 0, i32 5
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8
+  %15 = call ptr @g_list_first(ptr noundef %14)
+  store ptr %15, ptr %3, align 8
+  br label %16
 
-15:                                               ; preds = %73, %1
-  %16 = load ptr, ptr %3, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %75
+16:                                               ; preds = %74, %1
+  %17 = load ptr, ptr %3, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %76
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct._GList, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %4, align 8
-  %22 = load ptr, ptr %4, align 8
-  call void @rtpstream_info_calculate(ptr noundef %22, ptr noundef %5)
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds %struct._GList, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %4, align 8
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct._rtpstream_info, ptr %23, i32 0, i32 13
-  %25 = call double @nstime_to_sec(ptr noundef %24)
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct._rtpstream_info, ptr %26, i32 0, i32 14
-  %28 = call double @nstime_to_sec(ptr noundef %27)
-  %29 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 1
-  %32 = load i16, ptr %31, align 8
-  %33 = zext i16 %32 to i32
-  %34 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 2
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 3
-  %37 = load i16, ptr %36, align 8
-  %38 = zext i16 %37 to i32
-  %39 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 4
-  %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 5
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 6
-  %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 9
-  %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 10
-  %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 12
-  %50 = load double, ptr %49, align 8
-  %51 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 13
-  %52 = load double, ptr %51, align 8
-  %53 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 11
-  %54 = load double, ptr %53, align 8
-  %55 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 14
-  %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 17
-  %58 = load double, ptr %57, align 8
-  %59 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 15
-  %60 = load double, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 18
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp ne i32 %62, 0
-  %64 = select i1 %63, ptr @.str.21, ptr @.str.22
-  %65 = call i32 (ptr, ...) @printf(ptr noundef @.str.20, double noundef %25, double noundef %28, ptr noundef %30, i32 noundef %33, ptr noundef %35, i32 noundef %38, i32 noundef %40, ptr noundef %42, i32 noundef %44, i32 noundef %46, double noundef %48, double noundef %50, double noundef %52, double noundef %54, double noundef %56, double noundef %58, double noundef %60, ptr noundef %64)
+  call void @rtpstream_info_calculate(ptr noundef %23, ptr noundef %5)
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %struct._rtpstream_info, ptr %24, i32 0, i32 13
+  %26 = call double @nstime_to_sec(ptr noundef %25)
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %struct._rtpstream_info, ptr %27, i32 0, i32 14
+  %29 = call double @nstime_to_sec(ptr noundef %28)
+  %30 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 1
+  %33 = load i16, ptr %32, align 8
+  %34 = zext i16 %33 to i32
+  %35 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 3
+  %38 = load i16, ptr %37, align 8
+  %39 = zext i16 %38 to i32
+  %40 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 4
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 5
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 6
+  %45 = load i32, ptr %44, align 8
+  %46 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 9
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 10
+  %49 = load double, ptr %48, align 8
+  %50 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 12
+  %51 = load double, ptr %50, align 8
+  %52 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 13
+  %53 = load double, ptr %52, align 8
+  %54 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 11
+  %55 = load double, ptr %54, align 8
+  %56 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 14
+  %57 = load double, ptr %56, align 8
+  %58 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 17
+  %59 = load double, ptr %58, align 8
+  %60 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 15
+  %61 = load double, ptr %60, align 8
+  %62 = getelementptr inbounds %struct._rtpstream_info_calc, ptr %5, i32 0, i32 18
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp ne i32 %63, 0
+  %65 = select i1 %64, ptr @.str.21, ptr @.str.22
+  %66 = call i32 (ptr, ...) @printf(ptr noundef @.str.20, double noundef %26, double noundef %29, ptr noundef %31, i32 noundef %34, ptr noundef %36, i32 noundef %39, i32 noundef %41, ptr noundef %43, i32 noundef %45, i32 noundef %47, double noundef %49, double noundef %51, double noundef %53, double noundef %55, double noundef %57, double noundef %59, double noundef %61, ptr noundef %65)
   call void @rtpstream_info_calc_free(ptr noundef %5)
-  %66 = load ptr, ptr %3, align 8
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %72
+  %67 = load ptr, ptr %3, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %73
 
-68:                                               ; preds = %18
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct._GList, ptr %69, i32 0, i32 1
-  %71 = load ptr, ptr %70, align 8
-  br label %73
+69:                                               ; preds = %19
+  %70 = load ptr, ptr %3, align 8
+  %71 = getelementptr inbounds %struct._GList, ptr %70, i32 0, i32 1
+  %72 = load ptr, ptr %71, align 8
+  br label %74
 
-72:                                               ; preds = %18
-  br label %73
+73:                                               ; preds = %19
+  br label %74
 
-73:                                               ; preds = %72, %68
-  %74 = phi ptr [ %71, %68 ], [ null, %72 ]
-  store ptr %74, ptr %3, align 8
-  br label %15, !llvm.loop !5
+74:                                               ; preds = %73, %69
+  %75 = phi ptr [ %72, %69 ], [ null, %73 ]
+  store ptr %75, ptr %3, align 8
+  br label %16, !llvm.loop !5
 
-75:                                               ; preds = %15
-  %76 = call i32 (ptr, ...) @printf(ptr noundef @.str.23)
-  %77 = load ptr, ptr %6, align 8
-  %78 = call ptr @setlocale(i32 noundef 1, ptr noundef %77) #3
-  %79 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %79)
+76:                                               ; preds = %16
+  %77 = call i32 (ptr, ...) @printf(ptr noundef @.str.23)
+  %78 = load ptr, ptr %6, align 8
+  %79 = call ptr @setlocale(i32 noundef 1, ptr noundef %78) #3
+  %80 = load ptr, ptr %6, align 8
+  call void @g_free(ptr noundef %80)
   ret void
 }
 

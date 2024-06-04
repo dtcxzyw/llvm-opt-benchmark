@@ -5689,7 +5689,7 @@ lpad532:                                          ; preds = %invoke.cont530
 
 catch.dispatch:                                   ; preds = %lpad532
   %sel = load i32, ptr %ehselector.slot, align 4
-  %272 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %272 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches = icmp eq i32 %sel, %272
   br i1 %matches, label %catch543, label %catch535
 
@@ -5840,7 +5840,7 @@ lpad572:                                          ; preds = %invoke.cont570
 
 catch.dispatch575:                                ; preds = %lpad572
   %sel576 = load i32, ptr %ehselector.slot, align 4
-  %291 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %291 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches577 = icmp eq i32 %sel576, %291
   br i1 %matches577, label %catch586, label %catch578
 
@@ -5991,7 +5991,7 @@ lpad617:                                          ; preds = %invoke.cont615
 
 catch.dispatch620:                                ; preds = %lpad617
   %sel621 = load i32, ptr %ehselector.slot, align 4
-  %310 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %310 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches622 = icmp eq i32 %sel621, %310
   br i1 %matches622, label %catch631, label %catch623
 
@@ -6142,7 +6142,7 @@ lpad662:                                          ; preds = %invoke.cont660
 
 catch.dispatch665:                                ; preds = %lpad662
   %sel666 = load i32, ptr %ehselector.slot, align 4
-  %329 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %329 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches667 = icmp eq i32 %sel666, %329
   br i1 %matches667, label %catch676, label %catch668
 
@@ -6293,7 +6293,7 @@ lpad707:                                          ; preds = %invoke.cont705
 
 catch.dispatch710:                                ; preds = %lpad707
   %sel711 = load i32, ptr %ehselector.slot, align 4
-  %348 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %348 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches712 = icmp eq i32 %sel711, %348
   br i1 %matches712, label %catch721, label %catch713
 
@@ -6444,7 +6444,7 @@ lpad752:                                          ; preds = %invoke.cont750
 
 catch.dispatch755:                                ; preds = %lpad752
   %sel756 = load i32, ptr %ehselector.slot, align 4
-  %367 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %367 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches757 = icmp eq i32 %sel756, %367
   br i1 %matches757, label %catch766, label %catch758
 
@@ -7330,7 +7330,7 @@ lpad1066:                                         ; preds = %invoke.cont1064
 
 catch.dispatch1069:                               ; preds = %lpad1066
   %sel1070 = load i32, ptr %ehselector.slot, align 4
-  %512 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %512 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1071 = icmp eq i32 %sel1070, %512
   br i1 %matches1071, label %catch1080, label %catch1072
 
@@ -7580,7 +7580,7 @@ lpad1138:                                         ; preds = %invoke.cont1136
 
 catch.dispatch1141:                               ; preds = %lpad1138
   %sel1142 = load i32, ptr %ehselector.slot, align 4
-  %544 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %544 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1143 = icmp eq i32 %sel1142, %544
   br i1 %matches1143, label %catch1152, label %catch1144
 
@@ -7731,7 +7731,7 @@ lpad1183:                                         ; preds = %invoke.cont1181
 
 catch.dispatch1186:                               ; preds = %lpad1183
   %sel1187 = load i32, ptr %ehselector.slot, align 4
-  %563 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %563 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1188 = icmp eq i32 %sel1187, %563
   br i1 %matches1188, label %catch1197, label %catch1189
 
@@ -7882,7 +7882,7 @@ lpad1228:                                         ; preds = %invoke.cont1226
 
 catch.dispatch1231:                               ; preds = %lpad1228
   %sel1232 = load i32, ptr %ehselector.slot, align 4
-  %582 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %582 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1233 = icmp eq i32 %sel1232, %582
   br i1 %matches1233, label %catch1242, label %catch1234
 
@@ -8033,7 +8033,7 @@ lpad1273:                                         ; preds = %invoke.cont1271
 
 catch.dispatch1276:                               ; preds = %lpad1273
   %sel1277 = load i32, ptr %ehselector.slot, align 4
-  %601 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %601 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1278 = icmp eq i32 %sel1277, %601
   br i1 %matches1278, label %catch1287, label %catch1279
 
@@ -8184,7 +8184,7 @@ lpad1318:                                         ; preds = %invoke.cont1316
 
 catch.dispatch1321:                               ; preds = %lpad1318
   %sel1322 = load i32, ptr %ehselector.slot, align 4
-  %620 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %620 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1323 = icmp eq i32 %sel1322, %620
   br i1 %matches1323, label %catch1332, label %catch1324
 
@@ -8586,7 +8586,7 @@ lpad1443:                                         ; preds = %invoke.cont1441
 
 catch.dispatch1446:                               ; preds = %lpad1443
   %sel1447 = load i32, ptr %ehselector.slot, align 4
-  %687 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %687 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1448 = icmp eq i32 %sel1447, %687
   br i1 %matches1448, label %catch1457, label %catch1449
 
@@ -8737,7 +8737,7 @@ lpad1488:                                         ; preds = %invoke.cont1486
 
 catch.dispatch1491:                               ; preds = %lpad1488
   %sel1492 = load i32, ptr %ehselector.slot, align 4
-  %706 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %706 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1493 = icmp eq i32 %sel1492, %706
   br i1 %matches1493, label %catch1502, label %catch1494
 
@@ -8987,7 +8987,7 @@ lpad1560:                                         ; preds = %invoke.cont1558
 
 catch.dispatch1563:                               ; preds = %lpad1560
   %sel1564 = load i32, ptr %ehselector.slot, align 4
-  %738 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %738 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1565 = icmp eq i32 %sel1564, %738
   br i1 %matches1565, label %catch1574, label %catch1566
 
@@ -9138,7 +9138,7 @@ lpad1605:                                         ; preds = %invoke.cont1603
 
 catch.dispatch1608:                               ; preds = %lpad1605
   %sel1609 = load i32, ptr %ehselector.slot, align 4
-  %757 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %757 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1610 = icmp eq i32 %sel1609, %757
   br i1 %matches1610, label %catch1619, label %catch1611
 
@@ -9289,7 +9289,7 @@ lpad1650:                                         ; preds = %invoke.cont1648
 
 catch.dispatch1653:                               ; preds = %lpad1650
   %sel1654 = load i32, ptr %ehselector.slot, align 4
-  %776 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %776 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1655 = icmp eq i32 %sel1654, %776
   br i1 %matches1655, label %catch1664, label %catch1656
 
@@ -9440,7 +9440,7 @@ lpad1695:                                         ; preds = %invoke.cont1693
 
 catch.dispatch1698:                               ; preds = %lpad1695
   %sel1699 = load i32, ptr %ehselector.slot, align 4
-  %795 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %795 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1700 = icmp eq i32 %sel1699, %795
   br i1 %matches1700, label %catch1709, label %catch1701
 
@@ -9816,7 +9816,7 @@ lpad1819:                                         ; preds = %invoke.cont1817
 
 catch.dispatch1822:                               ; preds = %lpad1819
   %sel1823 = load i32, ptr %ehselector.slot, align 4
-  %856 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %856 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1824 = icmp eq i32 %sel1823, %856
   br i1 %matches1824, label %catch1833, label %catch1825
 
@@ -9967,7 +9967,7 @@ lpad1864:                                         ; preds = %invoke.cont1862
 
 catch.dispatch1867:                               ; preds = %lpad1864
   %sel1868 = load i32, ptr %ehselector.slot, align 4
-  %875 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %875 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1869 = icmp eq i32 %sel1868, %875
   br i1 %matches1869, label %catch1878, label %catch1870
 
@@ -10118,7 +10118,7 @@ lpad1909:                                         ; preds = %invoke.cont1907
 
 catch.dispatch1912:                               ; preds = %lpad1909
   %sel1913 = load i32, ptr %ehselector.slot, align 4
-  %894 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %894 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1914 = icmp eq i32 %sel1913, %894
   br i1 %matches1914, label %catch1923, label %catch1915
 
@@ -10368,7 +10368,7 @@ lpad1981:                                         ; preds = %invoke.cont1979
 
 catch.dispatch1984:                               ; preds = %lpad1981
   %sel1985 = load i32, ptr %ehselector.slot, align 4
-  %926 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %926 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches1986 = icmp eq i32 %sel1985, %926
   br i1 %matches1986, label %catch1995, label %catch1987
 
@@ -10519,7 +10519,7 @@ lpad2026:                                         ; preds = %invoke.cont2024
 
 catch.dispatch2029:                               ; preds = %lpad2026
   %sel2030 = load i32, ptr %ehselector.slot, align 4
-  %945 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %945 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2031 = icmp eq i32 %sel2030, %945
   br i1 %matches2031, label %catch2040, label %catch2032
 
@@ -10670,7 +10670,7 @@ lpad2071:                                         ; preds = %invoke.cont2069
 
 catch.dispatch2074:                               ; preds = %lpad2071
   %sel2075 = load i32, ptr %ehselector.slot, align 4
-  %964 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %964 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2076 = icmp eq i32 %sel2075, %964
   br i1 %matches2076, label %catch2085, label %catch2077
 
@@ -11044,7 +11044,7 @@ lpad2194:                                         ; preds = %invoke.cont2192
 
 catch.dispatch2197:                               ; preds = %lpad2194
   %sel2198 = load i32, ptr %ehselector.slot, align 4
-  %1025 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1025 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2199 = icmp eq i32 %sel2198, %1025
   br i1 %matches2199, label %catch2208, label %catch2200
 
@@ -11195,7 +11195,7 @@ lpad2239:                                         ; preds = %invoke.cont2237
 
 catch.dispatch2242:                               ; preds = %lpad2239
   %sel2243 = load i32, ptr %ehselector.slot, align 4
-  %1044 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1044 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2244 = icmp eq i32 %sel2243, %1044
   br i1 %matches2244, label %catch2253, label %catch2245
 
@@ -11346,7 +11346,7 @@ lpad2284:                                         ; preds = %invoke.cont2282
 
 catch.dispatch2287:                               ; preds = %lpad2284
   %sel2288 = load i32, ptr %ehselector.slot, align 4
-  %1063 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1063 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2289 = icmp eq i32 %sel2288, %1063
   br i1 %matches2289, label %catch2298, label %catch2290
 
@@ -11497,7 +11497,7 @@ lpad2329:                                         ; preds = %invoke.cont2327
 
 catch.dispatch2332:                               ; preds = %lpad2329
   %sel2333 = load i32, ptr %ehselector.slot, align 4
-  %1082 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1082 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2334 = icmp eq i32 %sel2333, %1082
   br i1 %matches2334, label %catch2343, label %catch2335
 
@@ -11747,7 +11747,7 @@ lpad2401:                                         ; preds = %invoke.cont2399
 
 catch.dispatch2404:                               ; preds = %lpad2401
   %sel2405 = load i32, ptr %ehselector.slot, align 4
-  %1114 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1114 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2406 = icmp eq i32 %sel2405, %1114
   br i1 %matches2406, label %catch2415, label %catch2407
 
@@ -11898,7 +11898,7 @@ lpad2446:                                         ; preds = %invoke.cont2444
 
 catch.dispatch2449:                               ; preds = %lpad2446
   %sel2450 = load i32, ptr %ehselector.slot, align 4
-  %1133 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1133 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2451 = icmp eq i32 %sel2450, %1133
   br i1 %matches2451, label %catch2460, label %catch2452
 
@@ -12272,7 +12272,7 @@ lpad2569:                                         ; preds = %invoke.cont2567
 
 catch.dispatch2572:                               ; preds = %lpad2569
   %sel2573 = load i32, ptr %ehselector.slot, align 4
-  %1194 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1194 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2574 = icmp eq i32 %sel2573, %1194
   br i1 %matches2574, label %catch2583, label %catch2575
 
@@ -12423,7 +12423,7 @@ lpad2614:                                         ; preds = %invoke.cont2612
 
 catch.dispatch2617:                               ; preds = %lpad2614
   %sel2618 = load i32, ptr %ehselector.slot, align 4
-  %1213 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1213 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2619 = icmp eq i32 %sel2618, %1213
   br i1 %matches2619, label %catch2628, label %catch2620
 
@@ -12574,7 +12574,7 @@ lpad2659:                                         ; preds = %invoke.cont2657
 
 catch.dispatch2662:                               ; preds = %lpad2659
   %sel2663 = load i32, ptr %ehselector.slot, align 4
-  %1232 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1232 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2664 = icmp eq i32 %sel2663, %1232
   br i1 %matches2664, label %catch2673, label %catch2665
 
@@ -12725,7 +12725,7 @@ lpad2704:                                         ; preds = %invoke.cont2702
 
 catch.dispatch2707:                               ; preds = %lpad2704
   %sel2708 = load i32, ptr %ehselector.slot, align 4
-  %1251 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1251 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2709 = icmp eq i32 %sel2708, %1251
   br i1 %matches2709, label %catch2718, label %catch2710
 
@@ -12975,7 +12975,7 @@ lpad2776:                                         ; preds = %invoke.cont2774
 
 catch.dispatch2779:                               ; preds = %lpad2776
   %sel2780 = load i32, ptr %ehselector.slot, align 4
-  %1283 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1283 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2781 = icmp eq i32 %sel2780, %1283
   br i1 %matches2781, label %catch2790, label %catch2782
 
@@ -13349,7 +13349,7 @@ lpad2899:                                         ; preds = %invoke.cont2897
 
 catch.dispatch2902:                               ; preds = %lpad2899
   %sel2903 = load i32, ptr %ehselector.slot, align 4
-  %1344 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1344 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2904 = icmp eq i32 %sel2903, %1344
   br i1 %matches2904, label %catch2913, label %catch2905
 
@@ -13500,7 +13500,7 @@ lpad2944:                                         ; preds = %invoke.cont2942
 
 catch.dispatch2947:                               ; preds = %lpad2944
   %sel2948 = load i32, ptr %ehselector.slot, align 4
-  %1363 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1363 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2949 = icmp eq i32 %sel2948, %1363
   br i1 %matches2949, label %catch2958, label %catch2950
 
@@ -13651,7 +13651,7 @@ lpad2989:                                         ; preds = %invoke.cont2987
 
 catch.dispatch2992:                               ; preds = %lpad2989
   %sel2993 = load i32, ptr %ehselector.slot, align 4
-  %1382 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1382 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches2994 = icmp eq i32 %sel2993, %1382
   br i1 %matches2994, label %catch3003, label %catch2995
 
@@ -13802,7 +13802,7 @@ lpad3034:                                         ; preds = %invoke.cont3032
 
 catch.dispatch3037:                               ; preds = %lpad3034
   %sel3038 = load i32, ptr %ehselector.slot, align 4
-  %1401 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1401 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches3039 = icmp eq i32 %sel3038, %1401
   br i1 %matches3039, label %catch3048, label %catch3040
 
@@ -13953,7 +13953,7 @@ lpad3079:                                         ; preds = %invoke.cont3077
 
 catch.dispatch3082:                               ; preds = %lpad3079
   %sel3083 = load i32, ptr %ehselector.slot, align 4
-  %1420 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1420 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches3084 = icmp eq i32 %sel3083, %1420
   br i1 %matches3084, label %catch3093, label %catch3085
 
@@ -14104,7 +14104,7 @@ lpad3124:                                         ; preds = %invoke.cont3122
 
 catch.dispatch3127:                               ; preds = %lpad3124
   %sel3128 = load i32, ptr %ehselector.slot, align 4
-  %1439 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
+  %1439 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #16
   %matches3129 = icmp eq i32 %sel3128, %1439
   br i1 %matches3129, label %catch3138, label %catch3130
 
@@ -15455,9 +15455,6 @@ entry:
   %call = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE12get_ref_implIRS3_ISD_SaISD_EESD_EET_RT0_(ptr noundef nonnull align 8 dereferenceable(16) %this1)
   ret ptr %call
 }
-
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE7get_refIRS9_TnNSt9enable_ifIXsr3std12is_referenceIT_EE5valueEiE4typeELi0EEESH_v(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 comdat align 2 {
@@ -20230,7 +20227,7 @@ entry:
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNKSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
@@ -20474,13 +20471,13 @@ if.end4:                                          ; preds = %entry
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #8
+declare void @_ZSt28__throw_bad_array_new_lengthv() #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #8
+declare void @_ZSt17__throw_bad_allocv() #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE14_S_do_relocateEPSD_SG_SG_RSE_St17integral_constantIbLb1EE(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #1 comdat align 2 {
@@ -20681,7 +20678,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #10
+declare void @_ZdlPv(ptr noundef) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZSt13__copy_move_aILb1EN9__gnu_cxx17__normal_iteratorIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESt20back_insert_iteratorISJ_EET1_T0_SO_SN_(ptr %__first.coerce, ptr %__last.coerce, ptr %__result.coerce) #4 comdat {
@@ -20744,7 +20741,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local ptr @_ZSt12__niter_wrapISt20back_insert_iteratorISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES1_IhSaIhEEvEESaISF_EEEET_RKSJ_SJ_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %__res.coerce) #1 comdat {
@@ -21290,7 +21287,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #12
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEvEES5_ISF_SaISF_EEEEbRKNS_17__normal_iteratorIT_T0_EESP_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #1 comdat {
@@ -27747,7 +27744,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11other_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail11other_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -28077,7 +28075,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #12
+declare i64 @strlen(ptr noundef) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN8nlohmann16json_abi_v3_11_36detail13concat_lengthINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJcS8_A3_cEEEmRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef nonnull align 1 dereferenceable(1) %rest, ptr noundef nonnull align 8 dereferenceable(32) %rest1, ptr noundef nonnull align 1 dereferenceable(3) %rest3) #4 comdat {
@@ -28433,25 +28431,26 @@ entry:
   store ptr %what_arg, ptr %what_arg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %id = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %id_.addr, align 4
-  store i32 %0, ptr %id, align 8
+  %1 = load i32, ptr %id_.addr, align 4
+  store i32 %1, ptr %id, align 8
   %m = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %what_arg.addr, align 8
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef %1)
+  %2 = load ptr, ptr %what_arg.addr, align 8
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #16
   br label %eh.resume
 
@@ -28491,7 +28490,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -28506,7 +28506,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::exception", ptr %this1, i32 0, i32 2
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m) #16
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #16
@@ -29567,7 +29568,8 @@ entry:
   %0 = load i32, ptr %id_.addr, align 4
   %1 = load ptr, ptr %what_arg.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail10type_errorE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -32024,7 +32026,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #13
+declare void @llvm.trap() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNKSt15__uniq_ptr_implISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaISE_EEZNSE_6createISG_JRKSG_EEEPT_DpOT0_EUlPSG_E_E6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
@@ -33572,7 +33574,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
@@ -34429,7 +34431,7 @@ entry:
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #12
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSP_PSt13_Rb_tree_nodeISH_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef %__z) #4 comdat align 2 {
@@ -38186,7 +38188,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #14
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE17is_number_integerEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
@@ -38213,7 +38215,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #12
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS6_blmdSaNS9_14adl_serializerESC_IhSaIhEEvEEEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__x) unnamed_addr #1 comdat align 2 {
@@ -39867,12 +39869,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #16
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #16
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEEJRSoEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEEJRSoEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1) #16
   ret void
 }
 
@@ -40042,7 +40045,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -40255,10 +40259,11 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail21output_stream_adapterIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::output_stream_adapter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %s.addr, align 8
-  store ptr %0, ptr %stream, align 8
+  %1 = load ptr, ptr %s.addr, align 8
+  store ptr %1, ptr %stream, align 8
   ret void
 }
 
@@ -40268,7 +40273,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocolIcEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -42618,7 +42624,7 @@ entry:
 declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #5
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm512EE4dataEv(ptr noundef nonnull align 1 dereferenceable(512) %this) #15 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm512EE4dataEv(ptr noundef nonnull align 1 dereferenceable(512) %this) #14 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -42629,7 +42635,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm512EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(512) %this) #15 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm512EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(512) %this) #14 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -43330,7 +43336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm64EE5beginEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #15 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm64EE5beginEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #14 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -43461,7 +43467,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm64EE4dataEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #15 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNSt5arrayIcLm64EE4dataEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #14 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -43709,7 +43715,7 @@ return:                                           ; preds = %if.end5, %if.then1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm64EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #15 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNKSt5arrayIcLm64EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(64) %this) #14 comdat align 2 {
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
@@ -55070,6 +55076,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -55077,15 +55086,15 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind memory(none) }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind memory(none) }
 attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { noreturn }

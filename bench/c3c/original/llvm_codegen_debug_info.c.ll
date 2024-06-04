@@ -482,7 +482,7 @@ define dso_local void @llvm_emit_debug_function(ptr noundef %0, ptr noundef %1) 
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %2
-  br label %91
+  br label %92
 
 14:                                               ; preds = %2
   %15 = load i32, ptr %5, align 4
@@ -560,25 +560,26 @@ define dso_local void @llvm_emit_debug_function(ptr noundef %0, ptr noundef %1) 
   %74 = zext i1 %73 to i32
   %75 = load i32, ptr %6, align 4
   %76 = load i32, ptr %5, align 4
-  %77 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 42), align 8
-  %78 = icmp ne i32 %77, 0
-  %79 = zext i1 %78 to i32
-  %80 = call ptr @LLVMDIBuilderCreateFunction(ptr noundef %45, ptr noundef %50, ptr noundef %53, i64 noundef %57, ptr noundef %60, i64 noundef %64, ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %74, i32 noundef 1, i32 noundef %75, i32 noundef %76, i32 noundef %79)
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.GenContext_, ptr %81, i32 0, i32 36
-  %83 = getelementptr inbounds %struct.DebugContext, ptr %82, i32 0, i32 5
-  store ptr %80, ptr %83, align 8
-  %84 = load ptr, ptr %4, align 8
-  %85 = getelementptr inbounds %struct.Decl_, ptr %84, i32 0, i32 4
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct.GenContext_, ptr %87, i32 0, i32 36
-  %89 = getelementptr inbounds %struct.DebugContext, ptr %88, i32 0, i32 5
-  %90 = load ptr, ptr %89, align 8
-  call void @LLVMSetSubprogram(ptr noundef %86, ptr noundef %90)
-  br label %91
+  %77 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 42
+  %78 = load i32, ptr %77, align 8
+  %79 = icmp ne i32 %78, 0
+  %80 = zext i1 %79 to i32
+  %81 = call ptr @LLVMDIBuilderCreateFunction(ptr noundef %45, ptr noundef %50, ptr noundef %53, i64 noundef %57, ptr noundef %60, i64 noundef %64, ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %74, i32 noundef 1, i32 noundef %75, i32 noundef %76, i32 noundef %80)
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds %struct.GenContext_, ptr %82, i32 0, i32 36
+  %84 = getelementptr inbounds %struct.DebugContext, ptr %83, i32 0, i32 5
+  store ptr %81, ptr %84, align 8
+  %85 = load ptr, ptr %4, align 8
+  %86 = getelementptr inbounds %struct.Decl_, ptr %85, i32 0, i32 4
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %3, align 8
+  %89 = getelementptr inbounds %struct.GenContext_, ptr %88, i32 0, i32 36
+  %90 = getelementptr inbounds %struct.DebugContext, ptr %89, i32 0, i32 5
+  %91 = load ptr, ptr %90, align 8
+  call void @LLVMSetSubprogram(ptr noundef %87, ptr noundef %91)
+  br label %92
 
-91:                                               ; preds = %36, %13
+92:                                               ; preds = %36, %13
   ret void
 }
 
@@ -685,47 +686,48 @@ define dso_local void @llvm_emit_debug_local_var(ptr noundef %0, ptr noundef %1)
   %67 = getelementptr inbounds %struct.Decl_, ptr %66, i32 0, i32 10
   %68 = load ptr, ptr %67, align 8
   %69 = call ptr @llvm_get_debug_type(ptr noundef %65, ptr noundef %68)
-  %70 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i32 0, i32 42), align 8
-  %71 = icmp ne i32 %70, 0
-  %72 = zext i1 %71 to i32
-  %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds %struct.Decl_, ptr %73, i32 0, i32 5
-  %75 = load i32, ptr %74, align 8
-  %76 = call ptr @LLVMDIBuilderCreateAutoVariable(ptr noundef %54, ptr noundef %55, ptr noundef %56, i64 noundef %58, ptr noundef %63, i32 noundef %64, ptr noundef %69, i32 noundef %72, i32 noundef 0, i32 noundef %75)
-  store ptr %76, ptr %9, align 8
-  %77 = load ptr, ptr %9, align 8
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds %struct.Decl_, ptr %78, i32 0, i32 11
-  %80 = getelementptr inbounds %struct.VarDecl_, ptr %79, i32 0, i32 3
-  %81 = getelementptr inbounds %struct.anon.17, ptr %80, i32 0, i32 0
-  store ptr %77, ptr %81, align 8
+  %70 = getelementptr inbounds %struct.BuildTarget, ptr @active_target, i32 0, i32 42
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp ne i32 %71, 0
+  %73 = zext i1 %72 to i32
+  %74 = load ptr, ptr %4, align 8
+  %75 = getelementptr inbounds %struct.Decl_, ptr %74, i32 0, i32 5
+  %76 = load i32, ptr %75, align 8
+  %77 = call ptr @LLVMDIBuilderCreateAutoVariable(ptr noundef %54, ptr noundef %55, ptr noundef %56, i64 noundef %58, ptr noundef %63, i32 noundef %64, ptr noundef %69, i32 noundef %73, i32 noundef 0, i32 noundef %76)
+  store ptr %77, ptr %9, align 8
+  %78 = load ptr, ptr %9, align 8
+  %79 = load ptr, ptr %4, align 8
+  %80 = getelementptr inbounds %struct.Decl_, ptr %79, i32 0, i32 11
+  %81 = getelementptr inbounds %struct.VarDecl_, ptr %80, i32 0, i32 3
+  %82 = getelementptr inbounds %struct.anon.17, ptr %81, i32 0, i32 0
+  store ptr %78, ptr %82, align 8
   store ptr null, ptr %10, align 8
-  %82 = load ptr, ptr %3, align 8
-  %83 = getelementptr inbounds %struct.GenContext_, ptr %82, i32 0, i32 36
-  %84 = getelementptr inbounds %struct.DebugContext, ptr %83, i32 0, i32 1
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.Decl_, ptr %86, i32 0, i32 4
-  %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr %9, align 8
-  %90 = load ptr, ptr %3, align 8
-  %91 = getelementptr inbounds %struct.GenContext_, ptr %90, i32 0, i32 36
-  %92 = getelementptr inbounds %struct.DebugContext, ptr %91, i32 0, i32 1
-  %93 = load ptr, ptr %92, align 8
-  %94 = call ptr @LLVMDIBuilderCreateExpression(ptr noundef %93, ptr noundef null, i64 noundef 0)
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds %struct.GenContext_, ptr %95, i32 0, i32 5
-  %97 = load ptr, ptr %96, align 8
-  %98 = load i32, ptr %5, align 4
-  %99 = load i32, ptr %6, align 4
-  %100 = load ptr, ptr %8, align 8
-  %101 = load ptr, ptr %10, align 8
-  %102 = call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %97, i32 noundef %98, i32 noundef %99, ptr noundef %100, ptr noundef %101)
-  %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds %struct.GenContext_, ptr %103, i32 0, i32 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = call ptr @LLVMGetInsertBlock(ptr noundef %105)
-  %107 = call ptr @LLVMDIBuilderInsertDeclareAtEnd(ptr noundef %85, ptr noundef %88, ptr noundef %89, ptr noundef %94, ptr noundef %102, ptr noundef %106)
+  %83 = load ptr, ptr %3, align 8
+  %84 = getelementptr inbounds %struct.GenContext_, ptr %83, i32 0, i32 36
+  %85 = getelementptr inbounds %struct.DebugContext, ptr %84, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %4, align 8
+  %88 = getelementptr inbounds %struct.Decl_, ptr %87, i32 0, i32 4
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %9, align 8
+  %91 = load ptr, ptr %3, align 8
+  %92 = getelementptr inbounds %struct.GenContext_, ptr %91, i32 0, i32 36
+  %93 = getelementptr inbounds %struct.DebugContext, ptr %92, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8
+  %95 = call ptr @LLVMDIBuilderCreateExpression(ptr noundef %94, ptr noundef null, i64 noundef 0)
+  %96 = load ptr, ptr %3, align 8
+  %97 = getelementptr inbounds %struct.GenContext_, ptr %96, i32 0, i32 5
+  %98 = load ptr, ptr %97, align 8
+  %99 = load i32, ptr %5, align 4
+  %100 = load i32, ptr %6, align 4
+  %101 = load ptr, ptr %8, align 8
+  %102 = load ptr, ptr %10, align 8
+  %103 = call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %98, i32 noundef %99, i32 noundef %100, ptr noundef %101, ptr noundef %102)
+  %104 = load ptr, ptr %3, align 8
+  %105 = getelementptr inbounds %struct.GenContext_, ptr %104, i32 0, i32 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = call ptr @LLVMGetInsertBlock(ptr noundef %106)
+  %108 = call ptr @LLVMDIBuilderInsertDeclareAtEnd(ptr noundef %86, ptr noundef %89, ptr noundef %90, ptr noundef %95, ptr noundef %103, ptr noundef %107)
   ret void
 }
 

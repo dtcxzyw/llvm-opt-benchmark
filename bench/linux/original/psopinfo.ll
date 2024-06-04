@@ -12,29 +12,31 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local nonnull ptr @acpi_ps_get_opcode_info(i16 noundef zeroext %0) local_unnamed_addr #0 align 16 {
   %2 = and i16 %0, -256
-  switch i16 %2, label %14 [
-    i16 0, label %6
-    i16 23296, label %3
+  %3 = getelementptr inbounds [131 x %struct.acpi_opcode_info], ptr @acpi_gbl_aml_op_info, i64 0, i64 107
+  switch i16 %2, label %16 [
+    i16 0, label %8
+    i16 23296, label %4
   ]
 
-3:                                                ; preds = %1
-  %4 = and i16 %0, 255
-  %5 = icmp ult i16 %4, 137
-  br i1 %5, label %6, label %14
+4:                                                ; preds = %1
+  %5 = and i16 %0, 255
+  %6 = icmp ult i16 %5, 137
+  %7 = getelementptr inbounds [131 x %struct.acpi_opcode_info], ptr @acpi_gbl_aml_op_info, i64 0, i64 107
+  br i1 %6, label %8, label %16
 
-6:                                                ; preds = %3, %1
-  %7 = phi i16 [ %0, %1 ], [ %4, %3 ]
-  %8 = phi ptr [ @acpi_gbl_short_op_index, %1 ], [ @acpi_gbl_long_op_index, %3 ]
-  %9 = zext nneg i16 %7 to i64
-  %10 = getelementptr [0 x i8], ptr %8, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i64
-  %13 = getelementptr [131 x %struct.acpi_opcode_info], ptr @acpi_gbl_aml_op_info, i64 0, i64 %12
-  br label %14
+8:                                                ; preds = %4, %1
+  %9 = phi i16 [ %0, %1 ], [ %5, %4 ]
+  %10 = phi ptr [ @acpi_gbl_short_op_index, %1 ], [ @acpi_gbl_long_op_index, %4 ]
+  %11 = zext nneg i16 %9 to i64
+  %12 = getelementptr [0 x i8], ptr %10, i64 0, i64 %11
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i64
+  %15 = getelementptr [131 x %struct.acpi_opcode_info], ptr @acpi_gbl_aml_op_info, i64 0, i64 %14
+  br label %16
 
-14:                                               ; preds = %6, %3, %1
-  %15 = phi ptr [ getelementptr inbounds ([131 x %struct.acpi_opcode_info], ptr @acpi_gbl_aml_op_info, i64 0, i64 107), %1 ], [ getelementptr inbounds ([131 x %struct.acpi_opcode_info], ptr @acpi_gbl_aml_op_info, i64 0, i64 107), %3 ], [ %13, %6 ]
-  ret ptr %15
+16:                                               ; preds = %8, %4, %1
+  %17 = phi ptr [ %3, %1 ], [ %7, %4 ], [ %15, %8 ]
+  ret ptr %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

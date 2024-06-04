@@ -4893,13 +4893,14 @@ entry:
   store ptr %converter, ptr %converter.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_756Locale8IteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %it_ = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %begin.addr, align 8
-  store ptr %0, ptr %it_, align 8
+  %1 = load ptr, ptr %begin.addr, align 8
+  store ptr %1, ptr %it_, align 8
   %end_ = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %end.addr, align 8
-  store ptr %1, ptr %end_, align 8
+  %2 = load ptr, ptr %end.addr, align 8
+  store ptr %2, ptr %end_, align 8
   %converter_ = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %this1, i32 0, i32 3
   invoke void @_ZN12_GLOBAL__N_113LocaleFromTagC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(224) %converter_, ptr noundef nonnull align 8 dereferenceable(224) %converter)
           to label %invoke.cont unwind label %lpad
@@ -4908,12 +4909,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -5214,7 +5215,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %converter_ = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %this1, i32 0, i32 3
   call void @_ZN12_GLOBAL__N_113LocaleFromTagD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %converter_) #11
   call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -5424,17 +5426,18 @@ entry:
   store ptr %list, ptr %list.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_756Locale8IteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7518LocalePriorityList8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_7518LocalePriorityList8IteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %list2 = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %list.addr, align 8
-  store ptr %0, ptr %list2, align 8
+  %1 = load ptr, ptr %list.addr, align 8
+  store ptr %1, ptr %list2, align 8
   %index = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %this1, i32 0, i32 2
   store i32 0, ptr %index, align 8
   %count = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %this1, i32 0, i32 3
   store i32 0, ptr %count, align 4
   %length = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %list.addr, align 8
-  %call = invoke noundef i32 @_ZNK6icu_7518LocalePriorityList9getLengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load ptr, ptr %list.addr, align 8
+  %call = invoke noundef i32 @_ZNK6icu_7518LocalePriorityList9getLengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -5442,12 +5445,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
   br label %eh.resume
 
@@ -5465,7 +5468,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6icu_756Locale8IteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

@@ -10681,9 +10681,10 @@ define internal void @_ZZN5vcpkg18create_remove_planERKSt6vectorINS_11PackageSpe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg17AdjacencyProviderINS_11PackageSpecES1_EC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN5vcpkg18create_remove_planERKSt6vectorINS_11PackageSpecESaIS1_EERKNS_16StatusParagraphsEE23RemoveAdjacencyProvider, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.RemoveAdjacencyProvider, ptr %3, i32 0, i32 1
-  call void @_ZNSt13unordered_mapIN5vcpkg11PackageSpecESt6vectorIS1_SaIS1_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN5vcpkg18create_remove_planERKSt6vectorINS_11PackageSpecESaIS1_EERKNS_16StatusParagraphsEE23RemoveAdjacencyProvider, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.RemoveAdjacencyProvider, ptr %3, i32 0, i32 1
+  call void @_ZNSt13unordered_mapIN5vcpkg11PackageSpecESt6vectorIS1_SaIS1_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #18
   ret void
 }
 
@@ -11609,13 +11610,14 @@ define internal void @_ZZN5vcpkg18create_export_planERKSt6vectorINS_11PackageSpe
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg17AdjacencyProviderINS_11PackageSpecENS_16ExportPlanActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN5vcpkg18create_export_planERKSt6vectorINS_11PackageSpecESaIS1_EERKNS_16StatusParagraphsEE23ExportAdjacencyProvider, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %struct.ExportAdjacencyProvider, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.ExportAdjacencyProvider, ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN5vcpkg18create_export_planERKSt6vectorINS_11PackageSpecESaIS1_EERKNS_16StatusParagraphsEE23ExportAdjacencyProvider, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.ExportAdjacencyProvider, ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %struct.ExportAdjacencyProvider, ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
   ret void
 }
 
@@ -22235,7 +22237,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg17AdjacencyProviderINS_11PackageSpe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5vcpkg17AdjacencyProviderINS_11PackageSpecES1_EE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5vcpkg17AdjacencyProviderINS_11PackageSpecES1_EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -24559,7 +24562,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg17AdjacencyProviderINS_11PackageSpe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5vcpkg17AdjacencyProviderINS_11PackageSpecENS_16ExportPlanActionEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5vcpkg17AdjacencyProviderINS_11PackageSpecENS_16ExportPlanActionEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -60311,7 +60315,8 @@ define internal void @_ZZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15Gr
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15GraphRandomizerEEN16BaseEdgeProviderC2ERKNS0_12ClusterGraphE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(64) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15GraphRandomizerEE18RemoveEdgeProvider, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15GraphRandomizerEE18RemoveEdgeProvider, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -60324,7 +60329,8 @@ define internal void @_ZZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15Gr
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15GraphRandomizerEEN16BaseEdgeProviderC2ERKNS0_12ClusterGraphE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(64) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15GraphRandomizerEE19InstallEdgeProvider, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15GraphRandomizerEE19InstallEdgeProvider, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -61487,10 +61493,11 @@ define internal void @_ZZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15Gr
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg17AdjacencyProviderINS_11PackageSpecEPKNS_12_GLOBAL__N_17ClusterEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15GraphRandomizerEE16BaseEdgeProvider, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %struct.BaseEdgeProvider, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15GraphRandomizerEE16BaseEdgeProvider, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.BaseEdgeProvider, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -61602,7 +61609,8 @@ define internal void @_ZN5vcpkg17AdjacencyProviderINS_11PackageSpecEPKNS_12_GLOB
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5vcpkg17AdjacencyProviderINS_11PackageSpecEPKNS_12_GLOBAL__N_17ClusterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5vcpkg17AdjacencyProviderINS_11PackageSpecEPKNS_12_GLOBAL__N_17ClusterEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

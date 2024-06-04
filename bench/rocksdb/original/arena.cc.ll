@@ -531,10 +531,11 @@ entry:
   store i64 %huge_page_size, ptr %huge_page_size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb9AllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb5ArenaE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7rocksdb5ArenaE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %kBlockSize = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %block_size.addr, align 8
-  %call = invoke noundef i64 @_ZN7rocksdb5Arena17OptimizeBlockSizeEm(i64 noundef %0)
+  %1 = load i64, ptr %block_size.addr, align 8
+  %call = invoke noundef i64 @_ZN7rocksdb5Arena17OptimizeBlockSizeEm(i64 noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -562,15 +563,15 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %blocks_memory_ = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 11
   store i64 0, ptr %blocks_memory_, align 16
   %tracker_ = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 12
-  %1 = load ptr, ptr %tracker.addr, align 8
-  store ptr %1, ptr %tracker_, align 8
+  %2 = load ptr, ptr %tracker.addr, align 8
+  store ptr %2, ptr %tracker_, align 8
   %alloc_bytes_remaining_5 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 9
   store i64 2048, ptr %alloc_bytes_remaining_5, align 16
   %alloc_bytes_remaining_6 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 9
-  %2 = load i64, ptr %alloc_bytes_remaining_6, align 16
+  %3 = load i64, ptr %alloc_bytes_remaining_6, align 16
   %blocks_memory_7 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 11
-  %3 = load i64, ptr %blocks_memory_7, align 16
-  %add = add i64 %3, %2
+  %4 = load i64, ptr %blocks_memory_7, align 16
+  %add = add i64 %4, %3
   store i64 %add, ptr %blocks_memory_7, align 16
   %inline_block_ = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 2
   %arraydecay = getelementptr inbounds [2048 x i8], ptr %inline_block_, i64 0, i64 0
@@ -579,81 +580,81 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %inline_block_9 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 2
   %arraydecay10 = getelementptr inbounds [2048 x i8], ptr %inline_block_9, i64 0, i64 0
   %alloc_bytes_remaining_11 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 9
-  %4 = load i64, ptr %alloc_bytes_remaining_11, align 16
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay10, i64 %4
+  %5 = load i64, ptr %alloc_bytes_remaining_11, align 16
+  %add.ptr = getelementptr inbounds i8, ptr %arraydecay10, i64 %5
   %unaligned_alloc_ptr_12 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 7
   store ptr %add.ptr, ptr %unaligned_alloc_ptr_12, align 16
-  %5 = load i64, ptr %huge_page_size.addr, align 8
+  %6 = load i64, ptr %huge_page_size.addr, align 8
   %hugetlb_size_13 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 10
-  store i64 %5, ptr %hugetlb_size_13, align 8
+  store i64 %6, ptr %hugetlb_size_13, align 8
   %hugetlb_size_14 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 10
-  %6 = load i64, ptr %hugetlb_size_14, align 8
-  %tobool = icmp ne i64 %6, 0
+  %7 = load i64, ptr %hugetlb_size_14, align 8
+  %tobool = icmp ne i64 %7, 0
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %invoke.cont4
   %kBlockSize15 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 3
-  %7 = load i64, ptr %kBlockSize15, align 16
+  %8 = load i64, ptr %kBlockSize15, align 16
   %hugetlb_size_16 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 10
-  %8 = load i64, ptr %hugetlb_size_16, align 8
-  %cmp = icmp ugt i64 %7, %8
+  %9 = load i64, ptr %hugetlb_size_16, align 8
+  %cmp = icmp ugt i64 %8, %9
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %kBlockSize17 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 3
-  %9 = load i64, ptr %kBlockSize17, align 16
-  %sub = sub i64 %9, 1
+  %10 = load i64, ptr %kBlockSize17, align 16
+  %sub = sub i64 %10, 1
   %hugetlb_size_18 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 10
-  %10 = load i64, ptr %hugetlb_size_18, align 8
-  %div = udiv i64 %sub, %10
+  %11 = load i64, ptr %hugetlb_size_18, align 8
+  %div = udiv i64 %sub, %11
   %add19 = add i64 %div, 1
   %hugetlb_size_20 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 10
-  %11 = load i64, ptr %hugetlb_size_20, align 8
-  %mul = mul i64 %add19, %11
+  %12 = load i64, ptr %hugetlb_size_20, align 8
+  %mul = mul i64 %add19, %12
   %hugetlb_size_21 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 10
   store i64 %mul, ptr %hugetlb_size_21, align 8
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup29
 
 lpad3:                                            ; preds = %invoke.cont2
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %invoke.cont4
   %tracker_22 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 12
-  %18 = load ptr, ptr %tracker_22, align 8
-  %cmp23 = icmp ne ptr %18, null
+  %19 = load ptr, ptr %tracker_22, align 8
+  %cmp23 = icmp ne ptr %19, null
   br i1 %cmp23, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end
   %tracker_25 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 12
-  %19 = load ptr, ptr %tracker_25, align 8
-  invoke void @_ZN7rocksdb12AllocTracker8AllocateEm(ptr noundef nonnull align 8 dereferenceable(18) %19, i64 noundef 2048)
+  %20 = load ptr, ptr %tracker_25, align 8
+  invoke void @_ZN7rocksdb12AllocTracker8AllocateEm(ptr noundef nonnull align 8 dereferenceable(18) %20, i64 noundef 2048)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %if.then24
   br label %if.end28
 
 lpad26:                                           ; preds = %if.then24
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %exn.slot, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %ehselector.slot, align 4
   call void @_ZNSt5dequeIN7rocksdb10MemMappingESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %huge_blocks_) #11
   br label %ehcleanup
 
@@ -682,7 +683,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb9AllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7rocksdb9AllocatorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -768,16 +770,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb5ArenaE, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN7rocksdb5ArenaE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %tracker_ = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 12
-  %0 = load ptr, ptr %tracker_, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %tracker_, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %tracker_2 = getelementptr inbounds %"class.rocksdb::Arena", ptr %this1, i32 0, i32 12
-  %1 = load ptr, ptr %tracker_2, align 8
-  invoke void @_ZN7rocksdb12AllocTracker7FreeMemEv(ptr noundef nonnull align 8 dereferenceable(18) %1)
+  %2 = load ptr, ptr %tracker_2, align 8
+  invoke void @_ZN7rocksdb12AllocTracker7FreeMemEv(ptr noundef nonnull align 8 dereferenceable(18) %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -792,10 +795,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #12
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #12
   unreachable
 }
 

@@ -3695,12 +3695,13 @@ define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.sentencepiece::ImmutableSentencePieceText", ptr %3, i32 0, i32 1
-  %5 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN13sentencepiece17SentencePieceText16default_instanceEv()
-  store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds %"class.sentencepiece::ImmutableSentencePieceText", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN13sentencepiece17SentencePieceTextEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.sentencepiece::ImmutableSentencePieceText", ptr %3, i32 0, i32 1
+  %6 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN13sentencepiece17SentencePieceText16default_instanceEv()
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.sentencepiece::ImmutableSentencePieceText", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN13sentencepiece17SentencePieceTextEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
   ret void
 }
 
@@ -3722,12 +3723,13 @@ define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2ERKNS_17SentencePie
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.sentencepiece::ImmutableSentencePieceText", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.sentencepiece::ImmutableSentencePieceText", ptr %5, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN13sentencepiece17SentencePieceTextEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.sentencepiece::ImmutableSentencePieceText", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.sentencepiece::ImmutableSentencePieceText", ptr %5, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN13sentencepiece17SentencePieceTextEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   ret void
 }
 
@@ -3736,9 +3738,10 @@ define void @_ZN13sentencepiece26ImmutableSentencePieceTextD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.sentencepiece::ImmutableSentencePieceText", ptr %3, i32 0, i32 2
-  call void @_ZNSt10shared_ptrIN13sentencepiece17SentencePieceTextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.sentencepiece::ImmutableSentencePieceText", ptr %3, i32 0, i32 2
+  call void @_ZNSt10shared_ptrIN13sentencepiece17SentencePieceTextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 }
 
@@ -4552,9 +4555,10 @@ define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece31ImmutableNBestSentencePieceTextE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.sentencepiece::ImmutableNBestSentencePieceText", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN13sentencepiece22NBestSentencePieceTextEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece31ImmutableNBestSentencePieceTextE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.sentencepiece::ImmutableNBestSentencePieceText", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN13sentencepiece22NBestSentencePieceTextEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 }
 
@@ -4572,9 +4576,10 @@ define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN13sentencepiece31ImmutableNBestSentencePieceTextE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.sentencepiece::ImmutableNBestSentencePieceText", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN13sentencepiece22NBestSentencePieceTextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN13sentencepiece31ImmutableNBestSentencePieceTextE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.sentencepiece::ImmutableNBestSentencePieceText", ptr %3, i32 0, i32 1
+  call void @_ZNSt10shared_ptrIN13sentencepiece22NBestSentencePieceTextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 }
 
@@ -5261,19 +5266,20 @@ define void @_ZN13sentencepiece22SentencePieceProcessorC2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 584) ({ [75 x ptr] }, ptr @_ZTVN13sentencepiece22SentencePieceProcessorE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN13sentencepiece14ModelInterfaceESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer10NormalizerESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %6 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [75 x ptr] }, ptr @_ZTVN13sentencepiece22SentencePieceProcessorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN13sentencepiece14ModelInterfaceESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer10NormalizerESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 4
-  call void @_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIN13sentencepiece22SentencePieceProcessor11ExtraOptionESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %9 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 6
+  %7 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer10NormalizerESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %8 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 4
+  call void @_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %9 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIN13sentencepiece22SentencePieceProcessor11ExtraOptionESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIN13sentencepiece22SentencePieceProcessor11ExtraOptionESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
   ret void
 }
 
@@ -5324,19 +5330,20 @@ define void @_ZN13sentencepiece22SentencePieceProcessorD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 584) ({ [75 x ptr] }, ptr @_ZTVN13sentencepiece22SentencePieceProcessorE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIN13sentencepiece22SentencePieceProcessor11ExtraOptionESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds { [75 x ptr] }, ptr @_ZTVN13sentencepiece22SentencePieceProcessorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIN13sentencepiece22SentencePieceProcessor11ExtraOptionESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 4
-  call void @_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer10NormalizerESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 2
+  %6 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIN13sentencepiece22SentencePieceProcessor11ExtraOptionESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 4
+  call void @_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %8 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer10NormalizerESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  %9 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN13sentencepiece14ModelInterfaceESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %9 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN13sentencepiece10normalizer10NormalizerESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %10 = getelementptr inbounds %"class.sentencepiece::SentencePieceProcessor", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN13sentencepiece14ModelInterfaceESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
   ret void
 }
 
@@ -38237,32 +38244,33 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN13sentencepiece17Sente
   store ptr %0, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN13sentencepiece17SentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN13sentencepiece17SentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(88) %7) #3
-  %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN13sentencepiece17SentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #3
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN13sentencepiece17SentencePieceTextEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %8)
-          to label %9 unwind label %10
-
-9:                                                ; preds = %1
-  ret void
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN13sentencepiece17SentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN13sentencepiece17SentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(88) %8) #3
+  %9 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN13sentencepiece17SentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #3
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN13sentencepiece17SentencePieceTextEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %9)
+          to label %10 unwind label %11
 
 10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %4, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %5, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  br label %14
+  ret void
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %4, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %5, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  br label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8
+  %17 = load i32, ptr %5, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -38420,11 +38428,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -39649,32 +39658,33 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN13sentencepiece22NBest
   store ptr %0, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN13sentencepiece22NBestSentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.216", ptr %6, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN13sentencepiece22NBestSentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN13sentencepiece22NBestSentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #3
-  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN13sentencepiece22NBestSentencePieceTextEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %8)
-          to label %9 unwind label %10
-
-9:                                                ; preds = %1
-  ret void
+  %7 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN13sentencepiece22NBestSentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.216", ptr %6, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN13sentencepiece22NBestSentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %9 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN13sentencepiece22NBestSentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #3
+  invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN13sentencepiece22NBestSentencePieceTextEJEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %9)
+          to label %10 unwind label %11
 
 10:                                               ; preds = %1
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %4, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %5, align 4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  br label %14
+  ret void
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %4, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %5, align 4
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  br label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8
+  %17 = load i32, ptr %5, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -42,66 +42,67 @@ define dso_local i32 @pconfig_target_supported(i32 noundef %0) local_unnamed_add
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @intel_pconfig_init() #1 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 64), align 8
-  %2 = and i64 %1, 262144
-  %3 = icmp eq i64 %2, 0
-  br i1 %3, label %36, label %4
+  %1 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 64
+  %2 = load volatile i64, ptr %1, align 8
+  %3 = and i64 %2, 262144
+  %4 = icmp eq i64 %3, 0
+  br i1 %4, label %37, label %5
 
-4:                                                ; preds = %33, %0
-  %5 = phi i32 [ %34, %33 ], [ 0, %0 ]
-  %6 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 27, i32 %5) #2, !srcloc !9
-  %7 = extractvalue { i32, i32, i32, i32 } %6, 0
-  %8 = extractvalue { i32, i32, i32, i32 } %6, 1
-  %9 = extractvalue { i32, i32, i32, i32 } %6, 2
-  %10 = extractvalue { i32, i32, i32, i32 } %6, 3
-  %11 = and i32 %7, 4095
-  switch i32 %11, label %33 [
-    i32 0, label %36
-    i32 1, label %12
+5:                                                ; preds = %34, %0
+  %6 = phi i32 [ %35, %34 ], [ 0, %0 ]
+  %7 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 27, i32 %6) #2, !srcloc !9
+  %8 = extractvalue { i32, i32, i32, i32 } %7, 0
+  %9 = extractvalue { i32, i32, i32, i32 } %7, 1
+  %10 = extractvalue { i32, i32, i32, i32 } %7, 2
+  %11 = extractvalue { i32, i32, i32, i32 } %7, 3
+  %12 = and i32 %8, 4095
+  switch i32 %12, label %34 [
+    i32 0, label %37
+    i32 1, label %13
   ]
 
-12:                                               ; preds = %4
-  %13 = icmp ult i32 %8, 64
-  br i1 %13, label %14, label %19
+13:                                               ; preds = %5
+  %14 = icmp ult i32 %9, 64
+  br i1 %14, label %15, label %20
 
-14:                                               ; preds = %12
-  %15 = zext nneg i32 %8 to i64
-  %16 = shl nuw i64 1, %15
-  %17 = load i64, ptr @targets_supported, align 8
-  %18 = or i64 %17, %16
-  store i64 %18, ptr @targets_supported, align 8
-  br label %19
+15:                                               ; preds = %13
+  %16 = zext nneg i32 %9 to i64
+  %17 = shl nuw i64 1, %16
+  %18 = load i64, ptr @targets_supported, align 8
+  %19 = or i64 %18, %17
+  store i64 %19, ptr @targets_supported, align 8
+  br label %20
 
-19:                                               ; preds = %14, %12
-  %20 = icmp ult i32 %9, 64
-  br i1 %20, label %21, label %26
+20:                                               ; preds = %15, %13
+  %21 = icmp ult i32 %10, 64
+  br i1 %21, label %22, label %27
 
-21:                                               ; preds = %19
-  %22 = zext nneg i32 %9 to i64
-  %23 = shl nuw i64 1, %22
-  %24 = load i64, ptr @targets_supported, align 8
-  %25 = or i64 %24, %23
-  store i64 %25, ptr @targets_supported, align 8
-  br label %26
+22:                                               ; preds = %20
+  %23 = zext nneg i32 %10 to i64
+  %24 = shl nuw i64 1, %23
+  %25 = load i64, ptr @targets_supported, align 8
+  %26 = or i64 %25, %24
+  store i64 %26, ptr @targets_supported, align 8
+  br label %27
 
-26:                                               ; preds = %21, %19
-  %27 = icmp ult i32 %10, 64
-  br i1 %27, label %28, label %33
+27:                                               ; preds = %22, %20
+  %28 = icmp ult i32 %11, 64
+  br i1 %28, label %29, label %34
 
-28:                                               ; preds = %26
-  %29 = zext nneg i32 %10 to i64
-  %30 = shl nuw i64 1, %29
-  %31 = load i64, ptr @targets_supported, align 8
-  %32 = or i64 %31, %30
-  store i64 %32, ptr @targets_supported, align 8
-  br label %33
+29:                                               ; preds = %27
+  %30 = zext nneg i32 %11 to i64
+  %31 = shl nuw i64 1, %30
+  %32 = load i64, ptr @targets_supported, align 8
+  %33 = or i64 %32, %31
+  store i64 %33, ptr @targets_supported, align 8
+  br label %34
 
-33:                                               ; preds = %28, %26, %4
-  %34 = add nuw nsw i32 %5, 1
-  %35 = icmp eq i32 %34, 2147483647
-  br i1 %35, label %36, label %4, !llvm.loop !10
+34:                                               ; preds = %29, %27, %5
+  %35 = add nuw nsw i32 %6, 1
+  %36 = icmp eq i32 %35, 2147483647
+  br i1 %36, label %37, label %5, !llvm.loop !10
 
-36:                                               ; preds = %33, %4, %0
+37:                                               ; preds = %34, %5, %0
   ret i32 0
 }
 

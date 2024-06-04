@@ -1730,25 +1730,27 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 5976
-  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %d_variables = getelementptr inbounds %"class.cvc5::internal::theory::bv::NodeBitblaster", ptr %this1, i32 0, i32 2
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_variables) #3
   %d_bbAtoms = getelementptr inbounds %"class.cvc5::internal::theory::bv::NodeBitblaster", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_bbAtoms) #3
   %d_state = getelementptr inbounds %"class.cvc5::internal::theory::bv::NodeBitblaster", ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %s.addr, align 8
-  store ptr %2, ptr %d_state, align 8
+  %4 = load ptr, ptr %s.addr, align 8
+  store ptr %4, ptr %d_state, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(5976) %this1) #3
   br label %eh.resume
 
@@ -1768,7 +1770,8 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_termCache = getelementptr inbounds %"class.cvc5::internal::theory::bv::TBitblaster", ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %d_termCache, i8 0, i64 56, i1 false)
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_termCache) #3
@@ -1798,31 +1801,31 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #19
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont5, %invoke.cont3
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN4cvc58internal4prop9CnfStreamESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_cnfStream) #3
   call void @_ZNSt10unique_ptrIN4cvc57context7ContextESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_nullContext) #3
   br label %ehcleanup
@@ -4163,15 +4166,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 5976
-  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %d_bbAtoms = getelementptr inbounds %"class.cvc5::internal::theory::bv::NodeBitblaster", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_bbAtoms) #3
   %d_variables = getelementptr inbounds %"class.cvc5::internal::theory::bv::NodeBitblaster", ptr %this1, i32 0, i32 2
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_variables) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 5976
-  call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #3
+  %2 = getelementptr inbounds i8, ptr %this1, i64 5976
+  call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #3
   call void @_ZN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(5976) %this1) #3
   ret void
 }
@@ -6172,7 +6177,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_cnfStream = getelementptr inbounds %"class.cvc5::internal::theory::bv::TBitblaster", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN4cvc58internal4prop9CnfStreamESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_cnfStream) #3
   %d_nullContext = getelementptr inbounds %"class.cvc5::internal::theory::bv::TBitblaster", ptr %this1, i32 0, i32 3

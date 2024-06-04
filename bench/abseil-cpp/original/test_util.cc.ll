@@ -77,10 +77,12 @@ if.then:                                          ; preds = %do.body
   br label %do.body2
 
 do.body2:                                         ; preds = %if.then
-  store ptr getelementptr (i8, ptr @.str, i64 118), ptr %absl_raw_log_internal_basename, align 8
-  %9 = load ptr, ptr %name.addr, align 8
-  %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef getelementptr (i8, ptr @.str, i64 118), i32 noundef 26, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef %call3)
+  %9 = getelementptr i8, ptr @.str, i64 118
+  store ptr %9, ptr %absl_raw_log_internal_basename, align 8
+  %10 = load ptr, ptr %name.addr, align 8
+  %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #6
+  %11 = getelementptr i8, ptr @.str, i64 118
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef %11, i32 noundef 26, ptr noundef @.str.1, ptr noundef @.str.2, ptr noundef %call3)
   br label %do.body4
 
 do.body4:                                         ; preds = %do.body2
@@ -98,8 +100,8 @@ if.end:                                           ; preds = %do.end5, %do.body
 do.end6:                                          ; preds = %if.end
   %coerce.dive = getelementptr inbounds %"class.absl::TimeZone", ptr %retval, i32 0, i32 0
   %coerce.dive7 = getelementptr inbounds %"class.absl::time_internal::cctz::time_zone", ptr %coerce.dive, i32 0, i32 0
-  %10 = load ptr, ptr %coerce.dive7, align 8
-  ret ptr %10
+  %12 = load ptr, ptr %coerce.dive7, align 8
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress uwtable

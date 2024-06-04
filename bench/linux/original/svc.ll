@@ -542,61 +542,62 @@ declare dso_local ptr @svc_create(ptr noundef, i32 noundef, ptr noundef) local_u
 define internal noundef i32 @lockd(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr @lockd_net_id, align 4
   tail call void @__rcu_read_lock() #8
-  %3 = load volatile ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 41), align 8
-  %4 = zext i32 %2 to i64
-  %5 = getelementptr [0 x ptr], ptr %3, i64 0, i64 %4
-  %6 = load ptr, ptr %5, align 8
+  %3 = getelementptr inbounds %struct.net, ptr @init_net, i64 0, i32 41
+  %4 = load volatile ptr, ptr %3, align 8
+  %5 = zext i32 %2 to i64
+  %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
+  %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #8
-  %7 = tail call zeroext i1 @set_freezable() #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 328
-  %9 = getelementptr inbounds i8, ptr %0, i64 11280
+  %8 = tail call zeroext i1 @set_freezable() #8
+  %9 = getelementptr inbounds i8, ptr %0, i64 328
   %10 = getelementptr inbounds i8, ptr %0, i64 11280
-  %11 = getelementptr inbounds i8, ptr %0, i64 320
-  br label %12
+  %11 = getelementptr inbounds i8, ptr %0, i64 11280
+  %12 = getelementptr inbounds i8, ptr %0, i64 320
+  br label %13
 
-12:                                               ; preds = %23, %1
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 184
-  %15 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 1, ptr elementtype(i64) %14) #8, !srcloc !14
-  %16 = icmp ult i8 %15, 2
-  tail call void @llvm.assume(i1 %16)
-  %17 = icmp eq i8 %15, 0
-  br i1 %17, label %19, label %18
+13:                                               ; preds = %24, %1
+  %14 = load ptr, ptr %9, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 184
+  %16 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %15, i64 1, ptr elementtype(i64) %15) #8, !srcloc !14
+  %17 = icmp ult i8 %16, 2
+  tail call void @llvm.assume(i1 %17)
+  %18 = icmp eq i8 %16, 0
+  br i1 %18, label %20, label %19
 
-18:                                               ; preds = %12
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %9, i32 16, ptr elementtype(i8) %9) #8, !srcloc !15
-  br label %19
+19:                                               ; preds = %13
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %10, i32 16, ptr elementtype(i8) %10) #8, !srcloc !15
+  br label %20
 
-19:                                               ; preds = %18, %12
-  %20 = load volatile i64, ptr %10, align 8
-  %21 = and i64 %20, 16
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %27
+20:                                               ; preds = %19, %13
+  %21 = load volatile i64, ptr %11, align 8
+  %22 = and i64 %21, 16
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %24, label %28
 
-23:                                               ; preds = %19
-  %24 = load i32, ptr @nlm_max_connections, align 4
-  %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
-  store i32 %24, ptr %26, align 8
+24:                                               ; preds = %20
+  %25 = load i32, ptr @nlm_max_connections, align 4
+  %26 = load ptr, ptr %12, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  store i32 %25, ptr %27, align 8
   tail call void @nlmsvc_retry_blocked(ptr noundef %0) #8
   tail call void @svc_recv(ptr noundef %0) #8
-  br label %12, !llvm.loop !16
+  br label %13, !llvm.loop !16
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr @nlmsvc_ops, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %31, label %30
+28:                                               ; preds = %20
+  %29 = load ptr, ptr @nlmsvc_ops, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %32, label %31
 
-30:                                               ; preds = %27
+31:                                               ; preds = %28
   tail call void @nlmsvc_invalidate_all() #8
-  br label %31
+  br label %32
 
-31:                                               ; preds = %30, %27
+32:                                               ; preds = %31, %28
   tail call void @nlm_shutdown_hosts() #8
-  %32 = getelementptr inbounds i8, ptr %6, i64 24
-  %33 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef %32) #8
-  %34 = getelementptr inbounds i8, ptr %6, i64 112
-  tail call void @locks_end_grace(ptr noundef %34) #8
+  %33 = getelementptr inbounds i8, ptr %7, i64 24
+  %34 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef %33) #8
+  %35 = getelementptr inbounds i8, ptr %7, i64 112
+  tail call void @locks_end_grace(ptr noundef %35) #8
   tail call void @svc_exit_thread(ptr noundef %0) #8
   ret i32 0
 }

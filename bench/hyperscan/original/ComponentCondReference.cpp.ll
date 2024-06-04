@@ -306,12 +306,13 @@ entry:
   store i32 %ref, ptr %ref.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue217ComponentSequenceC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %kind = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 1
   store i32 0, ptr %kind, align 8
   %ref_id = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %ref.addr, align 4
-  store i32 %0, ptr %ref_id, align 4
+  %1 = load i32, ptr %ref.addr, align 4
+  store i32 %1, ptr %ref_id, align 4
   %ref_name = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref_name) #10
   %assertion = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 4
@@ -349,14 +350,15 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue217ComponentSequenceC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %kind = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 1
   store i32 1, ptr %kind, align 8
   %ref_id = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 2
   store i32 0, ptr %ref_id, align 4
   %ref_name = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %name.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref_name, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %1 = load ptr, ptr %name.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref_name, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -367,12 +369,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN3ue217ComponentSequenceD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #10
   br label %eh.resume
 
@@ -400,7 +402,8 @@ entry:
   store ptr %c, ptr %c.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue217ComponentSequenceC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %kind = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 1
   store i32 2, ptr %kind, align 8
   %ref_id = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 2
@@ -435,7 +438,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %assertion = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %assertion) #10
   %ref_name = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 3
@@ -511,20 +515,21 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN3ue217ComponentSequenceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(88) %0)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN3ue222ComponentCondReferenceE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %kind = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %kind2 = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %kind2, align 8
-  store i32 %2, ptr %kind, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %kind2 = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %kind2, align 8
+  store i32 %3, ptr %kind, align 8
   %ref_id = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %other.addr, align 8
-  %ref_id3 = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %3, i32 0, i32 2
-  %4 = load i32, ptr %ref_id3, align 4
-  store i32 %4, ptr %ref_id, align 4
+  %4 = load ptr, ptr %other.addr, align 8
+  %ref_id3 = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %4, i32 0, i32 2
+  %5 = load i32, ptr %ref_id3, align 4
+  store i32 %5, ptr %ref_id, align 4
   %ref_name = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %other.addr, align 8
-  %ref_name4 = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %5, i32 0, i32 3
+  %6 = load ptr, ptr %other.addr, align 8
+  %ref_name4 = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %6, i32 0, i32 3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref_name, ptr noundef nonnull align 8 dereferenceable(32) %ref_name4)
           to label %invoke.cont unwind label %lpad
 
@@ -532,26 +537,26 @@ invoke.cont:                                      ; preds = %entry
   %assertion = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %assertion) #10
   %hasBothBranches = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 5
-  %6 = load ptr, ptr %other.addr, align 8
-  %hasBothBranches5 = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %6, i32 0, i32 5
-  %7 = load i8, ptr %hasBothBranches5, align 8
-  %tobool = trunc i8 %7 to i1
+  %7 = load ptr, ptr %other.addr, align 8
+  %hasBothBranches5 = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %7, i32 0, i32 5
+  %8 = load i8, ptr %hasBothBranches5, align 8
+  %tobool = trunc i8 %8 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %hasBothBranches, align 8
   %kind6 = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 1
-  %8 = load i32, ptr %kind6, align 8
-  %cmp = icmp eq i32 %8, 2
+  %9 = load i32, ptr %kind6, align 8
+  %cmp = icmp eq i32 %9, 2
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
   %assertion7 = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %this1, i32 0, i32 4
-  %9 = load ptr, ptr %other.addr, align 8
-  %assertion8 = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %9, i32 0, i32 4
+  %10 = load ptr, ptr %other.addr, align 8
+  %assertion8 = getelementptr inbounds %"class.ue2::ComponentCondReference", ptr %10, i32 0, i32 4
   %call = call noundef ptr @_ZNKSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %assertion8) #10
   %vtable = load ptr, ptr %call, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %10 = load ptr, ptr %vfn, align 8
-  %call11 = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %call)
+  %11 = load ptr, ptr %vfn, align 8
+  %call11 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %call)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %if.then
@@ -559,21 +564,21 @@ invoke.cont10:                                    ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad9:                                            ; preds = %if.then
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %assertion) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref_name) #10
   br label %ehcleanup
@@ -1450,7 +1455,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #10
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue217LocatedParseErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3ue217LocatedParseErrorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %finalized = getelementptr inbounds %"class.ue2::LocatedParseError", ptr %this1, i32 0, i32 1
   store i8 0, ptr %finalized, align 8
   %reason = getelementptr inbounds %"class.ue2::CompileError", ptr %this1, i32 0, i32 1
@@ -1458,21 +1464,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #10
   br label %ehcleanup
 
@@ -1862,7 +1868,8 @@ entry:
   store ptr %why, ptr %why.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue212CompileErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(32) %why)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

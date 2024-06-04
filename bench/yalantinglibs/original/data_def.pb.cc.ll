@@ -1455,27 +1455,28 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this1, i32 0, i32 4
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   invoke void @_ZN6mygame4Vec310SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6mygame4Vec317RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %1)
+  %2 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6mygame4Vec317RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %2)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -1497,7 +1498,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1571,23 +1573,24 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this1, i32 0, i32 4
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %from.addr, align 8
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %from.addr, align 8
+  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %1, i32 0, i32 1
   store ptr %_internal_metadata_, ptr %this.addr.i, align 8
   store ptr %_internal_metadata_2, ptr %other.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load ptr, ptr %other.addr.i, align 8
-  store ptr %1, ptr %this.addr.i8, align 8
+  %2 = load ptr, ptr %other.addr.i, align 8
+  store ptr %2, ptr %this.addr.i8, align 8
   %this1.i9 = load ptr, ptr %this.addr.i8, align 8
   store ptr %this1.i9, ptr %this.addr.i16, align 8
   %this1.i17 = load ptr, ptr %this.addr.i16, align 8
-  %2 = load ptr, ptr %this1.i17, align 8
-  %3 = ptrtoint ptr %2 to i64
-  %and.i18 = and i64 %3, 1
+  %3 = load ptr, ptr %this1.i17, align 8
+  %4 = ptrtoint ptr %3 to i64
+  %and.i18 = and i64 %4, 1
   %conv.i19 = trunc i64 %and.i18 to i32
   %cmp.i = icmp eq i32 %conv.i19, 1
   br label %call.i.noexc
@@ -1596,17 +1599,17 @@ call.i.noexc:                                     ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 if.then.i:                                        ; preds = %call.i.noexc
-  %4 = load ptr, ptr %other.addr.i, align 8
-  store ptr %4, ptr %this.addr.i10, align 8
+  %5 = load ptr, ptr %other.addr.i, align 8
+  store ptr %5, ptr %this.addr.i10, align 8
   store ptr null, ptr %default_instance.addr.i, align 8
   %this1.i11 = load ptr, ptr %this.addr.i10, align 8
   store ptr %this1.i11, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
   store ptr %this1.i.i, ptr %this.addr.i14, align 8
   %this1.i15 = load ptr, ptr %this.addr.i14, align 8
-  %5 = load ptr, ptr %this1.i15, align 8
-  %6 = ptrtoint ptr %5 to i64
-  %and.i = and i64 %6, 1
+  %6 = load ptr, ptr %this1.i15, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %and.i = and i64 %7, 1
   %conv.i = trunc i64 %and.i to i32
   %cmp.i.i = icmp eq i32 %conv.i, 1
   br i1 %cmp.i.i, label %if.then.i12, label %if.else.i
@@ -1618,8 +1621,8 @@ if.then.i12:                                      ; preds = %if.then.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %7 = load ptr, ptr %default_instance.addr.i, align 8
-  %call3.i13 = invoke noundef nonnull align 8 dereferenceable(24) ptr %7()
+  %8 = load ptr, ptr %default_instance.addr.i, align 8
+  %call3.i13 = invoke noundef nonnull align 8 dereferenceable(24) ptr %8()
           to label %call3.i.noexc unwind label %lpad
 
 call3.i.noexc:                                    ; preds = %if.else.i
@@ -1627,11 +1630,11 @@ call3.i.noexc:                                    ; preds = %if.else.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit: ; preds = %call3.i.noexc, %if.then.i12
-  %8 = load ptr, ptr %retval.i, align 8
+  %9 = load ptr, ptr %retval.i, align 8
   br label %call2.i.noexc
 
 call2.i.noexc:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call2.i.noexc
@@ -1642,8 +1645,8 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 
 invoke.cont:                                      ; preds = %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
   %x_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %from.addr, align 8
-  %x_3 = getelementptr inbounds %"class.mygame::Vec3", ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr %from.addr, align 8
+  %x_3 = getelementptr inbounds %"class.mygame::Vec3", ptr %10, i32 0, i32 1
   %z_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this1, i32 0, i32 3
   %x_4 = getelementptr inbounds %"class.mygame::Vec3", ptr %this1, i32 0, i32 1
   %sub.ptr.lhs.cast = ptrtoint ptr %z_ to i64
@@ -1654,12 +1657,12 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   ret void
 
 lpad:                                             ; preds = %call2.i.noexc, %if.else.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -1678,7 +1681,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3451,11 +3455,12 @@ define linkonce_odr dso_local { ptr, ptr } @_ZN6mygame4Vec317GetMetadataStaticEv
 entry:
   %retval = alloca %"struct.google::protobuf::Metadata", align 8
   call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13), align 8
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 0
+  %0 = getelementptr inbounds %"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %1, i64 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %arrayidx, i64 16, i1 false)
-  %1 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %1
+  %2 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3476,27 +3481,28 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this1, i32 0, i32 3
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   invoke void @_ZN6mygame6Weapon10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6mygame6Weapon17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %1)
+  %2 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6mygame6Weapon17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %2)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -3553,23 +3559,24 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this1, i32 0, i32 3
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %from.addr, align 8
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %from.addr, align 8
+  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %1, i32 0, i32 1
   store ptr %_internal_metadata_, ptr %this.addr.i, align 8
   store ptr %_internal_metadata_2, ptr %other.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load ptr, ptr %other.addr.i, align 8
-  store ptr %1, ptr %this.addr.i21, align 8
+  %2 = load ptr, ptr %other.addr.i, align 8
+  store ptr %2, ptr %this.addr.i21, align 8
   %this1.i22 = load ptr, ptr %this.addr.i21, align 8
   store ptr %this1.i22, ptr %this.addr.i29, align 8
   %this1.i30 = load ptr, ptr %this.addr.i29, align 8
-  %2 = load ptr, ptr %this1.i30, align 8
-  %3 = ptrtoint ptr %2 to i64
-  %and.i31 = and i64 %3, 1
+  %3 = load ptr, ptr %this1.i30, align 8
+  %4 = ptrtoint ptr %3 to i64
+  %and.i31 = and i64 %4, 1
   %conv.i32 = trunc i64 %and.i31 to i32
   %cmp.i = icmp eq i32 %conv.i32, 1
   br label %call.i.noexc
@@ -3578,17 +3585,17 @@ call.i.noexc:                                     ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 if.then.i:                                        ; preds = %call.i.noexc
-  %4 = load ptr, ptr %other.addr.i, align 8
-  store ptr %4, ptr %this.addr.i23, align 8
+  %5 = load ptr, ptr %other.addr.i, align 8
+  store ptr %5, ptr %this.addr.i23, align 8
   store ptr null, ptr %default_instance.addr.i, align 8
   %this1.i24 = load ptr, ptr %this.addr.i23, align 8
   store ptr %this1.i24, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
   store ptr %this1.i.i, ptr %this.addr.i27, align 8
   %this1.i28 = load ptr, ptr %this.addr.i27, align 8
-  %5 = load ptr, ptr %this1.i28, align 8
-  %6 = ptrtoint ptr %5 to i64
-  %and.i = and i64 %6, 1
+  %6 = load ptr, ptr %this1.i28, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %and.i = and i64 %7, 1
   %conv.i = trunc i64 %and.i to i32
   %cmp.i.i = icmp eq i32 %conv.i, 1
   br i1 %cmp.i.i, label %if.then.i25, label %if.else.i
@@ -3600,8 +3607,8 @@ if.then.i25:                                      ; preds = %if.then.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %7 = load ptr, ptr %default_instance.addr.i, align 8
-  %call3.i26 = invoke noundef nonnull align 8 dereferenceable(24) ptr %7()
+  %8 = load ptr, ptr %default_instance.addr.i, align 8
+  %call3.i26 = invoke noundef nonnull align 8 dereferenceable(24) ptr %8()
           to label %call3.i.noexc unwind label %lpad
 
 call3.i.noexc:                                    ; preds = %if.else.i
@@ -3609,11 +3616,11 @@ call3.i.noexc:                                    ; preds = %if.else.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit: ; preds = %call3.i.noexc, %if.then.i25
-  %8 = load ptr, ptr %retval.i, align 8
+  %9 = load ptr, ptr %retval.i, align 8
   br label %call2.i.noexc
 
 call2.i.noexc:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call2.i.noexc
@@ -3632,8 +3639,8 @@ invoke.cont4:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  %9 = load ptr, ptr %from.addr, align 8
-  %call7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame6Weapon14_internal_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %10 = load ptr, ptr %from.addr, align 8
+  %call7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame6Weapon14_internal_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont5
@@ -3646,8 +3653,8 @@ if.then:                                          ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %if.then
-  %10 = load ptr, ptr %from.addr, align 8
-  %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame6Weapon14_internal_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %11 = load ptr, ptr %from.addr, align 8
+  %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame6Weapon14_internal_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -3662,21 +3669,21 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont14, %invoke.cont12, %invoke.cont10, %if.then, %invoke.cont5, %invoke.cont4, %invoke.cont, %call2.i.noexc, %if.else.i
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont16, %invoke.cont6
-  %14 = load ptr, ptr %from.addr, align 8
-  %damage_ = getelementptr inbounds %"class.mygame::Weapon", ptr %14, i32 0, i32 2
-  %15 = load i32, ptr %damage_, align 8
+  %15 = load ptr, ptr %from.addr, align 8
+  %damage_ = getelementptr inbounds %"class.mygame::Weapon", ptr %15, i32 0, i32 2
+  %16 = load i32, ptr %damage_, align 8
   %damage_17 = getelementptr inbounds %"class.mygame::Weapon", ptr %this1, i32 0, i32 2
-  store i32 %15, ptr %damage_17, align 8
+  store i32 %16, ptr %damage_17, align 8
   ret void
 
 eh.resume:                                        ; preds = %lpad
@@ -5223,11 +5230,12 @@ define linkonce_odr dso_local { ptr, ptr } @_ZN6mygame6Weapon17GetMetadataStatic
 entry:
   %retval = alloca %"struct.google::protobuf::Metadata", align 8
   call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13), align 8
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 1
+  %0 = getelementptr inbounds %"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %1, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %arrayidx, i64 16, i1 false)
-  %1 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %1
+  %2 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5288,16 +5296,17 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %weapons_ = getelementptr inbounds %"class.mygame::Monster", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %weapons_, ptr noundef %1)
+  %2 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %weapons_, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %path_ = getelementptr inbounds %"class.mygame::Monster", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %path_, ptr noundef %2)
+  %3 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %path_, ptr noundef %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -5307,38 +5316,38 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %3 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6mygame7Monster17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(112) %this1, ptr noundef %3)
+  %4 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6mygame7Monster17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(112) %this1, ptr noundef %4)
           to label %invoke.cont6 unwind label %lpad4
 
 invoke.cont6:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup7
 
 lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont5, %invoke.cont3
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %path_) #3
   br label %ehcleanup
 
@@ -5480,17 +5489,18 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %weapons_ = getelementptr inbounds %"class.mygame::Monster", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %from.addr, align 8
-  %weapons_2 = getelementptr inbounds %"class.mygame::Monster", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %from.addr, align 8
+  %weapons_2 = getelementptr inbounds %"class.mygame::Monster", ptr %1, i32 0, i32 1
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %weapons_, ptr noundef nonnull align 8 dereferenceable(24) %weapons_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %path_ = getelementptr inbounds %"class.mygame::Monster", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %from.addr, align 8
-  %path_3 = getelementptr inbounds %"class.mygame::Monster", ptr %1, i32 0, i32 2
+  %2 = load ptr, ptr %from.addr, align 8
+  %path_3 = getelementptr inbounds %"class.mygame::Monster", ptr %2, i32 0, i32 2
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame4Vec3EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %path_, ptr noundef nonnull align 8 dereferenceable(24) %path_3)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -5498,19 +5508,19 @@ invoke.cont5:                                     ; preds = %invoke.cont
   %_cached_size_ = getelementptr inbounds %"class.mygame::Monster", ptr %this1, i32 0, i32 10
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %from.addr, align 8
-  %_internal_metadata_6 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %from.addr, align 8
+  %_internal_metadata_6 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
   store ptr %_internal_metadata_, ptr %this.addr.i, align 8
   store ptr %_internal_metadata_6, ptr %other.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %3 = load ptr, ptr %other.addr.i, align 8
-  store ptr %3, ptr %this.addr.i68, align 8
+  %4 = load ptr, ptr %other.addr.i, align 8
+  store ptr %4, ptr %this.addr.i68, align 8
   %this1.i69 = load ptr, ptr %this.addr.i68, align 8
   store ptr %this1.i69, ptr %this.addr.i76, align 8
   %this1.i77 = load ptr, ptr %this.addr.i76, align 8
-  %4 = load ptr, ptr %this1.i77, align 8
-  %5 = ptrtoint ptr %4 to i64
-  %and.i78 = and i64 %5, 1
+  %5 = load ptr, ptr %this1.i77, align 8
+  %6 = ptrtoint ptr %5 to i64
+  %and.i78 = and i64 %6, 1
   %conv.i79 = trunc i64 %and.i78 to i32
   %cmp.i = icmp eq i32 %conv.i79, 1
   br label %call.i.noexc
@@ -5519,17 +5529,17 @@ call.i.noexc:                                     ; preds = %invoke.cont5
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 if.then.i:                                        ; preds = %call.i.noexc
-  %6 = load ptr, ptr %other.addr.i, align 8
-  store ptr %6, ptr %this.addr.i70, align 8
+  %7 = load ptr, ptr %other.addr.i, align 8
+  store ptr %7, ptr %this.addr.i70, align 8
   store ptr null, ptr %default_instance.addr.i, align 8
   %this1.i71 = load ptr, ptr %this.addr.i70, align 8
   store ptr %this1.i71, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
   store ptr %this1.i.i, ptr %this.addr.i74, align 8
   %this1.i75 = load ptr, ptr %this.addr.i74, align 8
-  %7 = load ptr, ptr %this1.i75, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %and.i = and i64 %8, 1
+  %8 = load ptr, ptr %this1.i75, align 8
+  %9 = ptrtoint ptr %8 to i64
+  %and.i = and i64 %9, 1
   %conv.i = trunc i64 %and.i to i32
   %cmp.i.i = icmp eq i32 %conv.i, 1
   br i1 %cmp.i.i, label %if.then.i72, label %if.else.i
@@ -5541,8 +5551,8 @@ if.then.i72:                                      ; preds = %if.then.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %9 = load ptr, ptr %default_instance.addr.i, align 8
-  %call3.i73 = invoke noundef nonnull align 8 dereferenceable(24) ptr %9()
+  %10 = load ptr, ptr %default_instance.addr.i, align 8
+  %call3.i73 = invoke noundef nonnull align 8 dereferenceable(24) ptr %10()
           to label %call3.i.noexc unwind label %lpad7
 
 call3.i.noexc:                                    ; preds = %if.else.i
@@ -5550,11 +5560,11 @@ call3.i.noexc:                                    ; preds = %if.else.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit: ; preds = %call3.i.noexc, %if.then.i72
-  %10 = load ptr, ptr %retval.i, align 8
+  %11 = load ptr, ptr %retval.i, align 8
   br label %call2.i.noexc
 
 call2.i.noexc:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %.noexc unwind label %lpad7
 
 .noexc:                                           ; preds = %call2.i.noexc
@@ -5573,8 +5583,8 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %invoke.cont11 unwind label %lpad7
 
 invoke.cont11:                                    ; preds = %invoke.cont10
-  %11 = load ptr, ptr %from.addr, align 8
-  %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame7Monster14_internal_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %11)
+  %12 = load ptr, ptr %from.addr, align 8
+  %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame7Monster14_internal_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %12)
           to label %invoke.cont12 unwind label %lpad7
 
 invoke.cont12:                                    ; preds = %invoke.cont11
@@ -5587,8 +5597,8 @@ if.then:                                          ; preds = %invoke.cont12
           to label %invoke.cont16 unwind label %lpad7
 
 invoke.cont16:                                    ; preds = %if.then
-  %12 = load ptr, ptr %from.addr, align 8
-  %call19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame7Monster14_internal_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %12)
+  %13 = load ptr, ptr %from.addr, align 8
+  %call19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame7Monster14_internal_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %13)
           to label %invoke.cont18 unwind label %lpad7
 
 invoke.cont18:                                    ; preds = %invoke.cont16
@@ -5603,30 +5613,30 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup64
 
 lpad4:                                            ; preds = %invoke.cont
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %exn.slot, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %ehselector.slot, align 4
   br label %ehcleanup63
 
 lpad7:                                            ; preds = %if.then52, %if.end49, %if.then42, %if.end39, %invoke.cont36, %invoke.cont34, %invoke.cont32, %if.then30, %invoke.cont26, %invoke.cont24, %if.end, %invoke.cont20, %invoke.cont18, %invoke.cont16, %if.then, %invoke.cont11, %invoke.cont10, %invoke.cont8, %call2.i.noexc, %if.else.i
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %exn.slot, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont22, %invoke.cont12
@@ -5639,8 +5649,8 @@ invoke.cont24:                                    ; preds = %if.end
           to label %invoke.cont26 unwind label %lpad7
 
 invoke.cont26:                                    ; preds = %invoke.cont24
-  %22 = load ptr, ptr %from.addr, align 8
-  %call28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame7Monster19_internal_inventoryB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %22)
+  %23 = load ptr, ptr %from.addr, align 8
+  %call28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame7Monster19_internal_inventoryB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %invoke.cont27 unwind label %lpad7
 
 invoke.cont27:                                    ; preds = %invoke.cont26
@@ -5653,8 +5663,8 @@ if.then30:                                        ; preds = %invoke.cont27
           to label %invoke.cont32 unwind label %lpad7
 
 invoke.cont32:                                    ; preds = %if.then30
-  %23 = load ptr, ptr %from.addr, align 8
-  %call35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame7Monster19_internal_inventoryB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %23)
+  %24 = load ptr, ptr %from.addr, align 8
+  %call35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame7Monster19_internal_inventoryB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %24)
           to label %invoke.cont34 unwind label %lpad7
 
 invoke.cont34:                                    ; preds = %invoke.cont32
@@ -5669,8 +5679,8 @@ invoke.cont38:                                    ; preds = %invoke.cont36
   br label %if.end39
 
 if.end39:                                         ; preds = %invoke.cont38, %invoke.cont27
-  %24 = load ptr, ptr %from.addr, align 8
-  %call41 = invoke noundef zeroext i1 @_ZNK6mygame7Monster17_internal_has_posEv(ptr noundef nonnull align 8 dereferenceable(112) %24)
+  %25 = load ptr, ptr %from.addr, align 8
+  %call41 = invoke noundef zeroext i1 @_ZNK6mygame7Monster17_internal_has_posEv(ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %invoke.cont40 unwind label %lpad7
 
 invoke.cont40:                                    ; preds = %if.end39
@@ -5681,10 +5691,10 @@ if.then42:                                        ; preds = %invoke.cont40
           to label %invoke.cont43 unwind label %lpad7
 
 invoke.cont43:                                    ; preds = %if.then42
-  %25 = load ptr, ptr %from.addr, align 8
-  %pos_ = getelementptr inbounds %"class.mygame::Monster", ptr %25, i32 0, i32 5
-  %26 = load ptr, ptr %pos_, align 8
-  invoke void @_ZN6mygame4Vec3C1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call44, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  %26 = load ptr, ptr %from.addr, align 8
+  %pos_ = getelementptr inbounds %"class.mygame::Monster", ptr %26, i32 0, i32 5
+  %27 = load ptr, ptr %pos_, align 8
+  invoke void @_ZN6mygame4Vec3C1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call44, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont43
@@ -5693,12 +5703,12 @@ invoke.cont46:                                    ; preds = %invoke.cont43
   br label %if.end49
 
 lpad45:                                           ; preds = %invoke.cont43
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call44) #15
   br label %ehcleanup
 
@@ -5708,8 +5718,8 @@ if.else:                                          ; preds = %invoke.cont40
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else, %invoke.cont46
-  %30 = load ptr, ptr %from.addr, align 8
-  %call51 = invoke noundef zeroext i1 @_ZNK6mygame7Monster22_internal_has_equippedEv(ptr noundef nonnull align 8 dereferenceable(112) %30)
+  %31 = load ptr, ptr %from.addr, align 8
+  %call51 = invoke noundef zeroext i1 @_ZNK6mygame7Monster22_internal_has_equippedEv(ptr noundef nonnull align 8 dereferenceable(112) %31)
           to label %invoke.cont50 unwind label %lpad7
 
 invoke.cont50:                                    ; preds = %if.end49
@@ -5720,10 +5730,10 @@ if.then52:                                        ; preds = %invoke.cont50
           to label %invoke.cont53 unwind label %lpad7
 
 invoke.cont53:                                    ; preds = %if.then52
-  %31 = load ptr, ptr %from.addr, align 8
-  %equipped_ = getelementptr inbounds %"class.mygame::Monster", ptr %31, i32 0, i32 6
-  %32 = load ptr, ptr %equipped_, align 8
-  invoke void @_ZN6mygame6WeaponC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call54, ptr noundef nonnull align 8 dereferenceable(32) %32)
+  %32 = load ptr, ptr %from.addr, align 8
+  %equipped_ = getelementptr inbounds %"class.mygame::Monster", ptr %32, i32 0, i32 6
+  %33 = load ptr, ptr %equipped_, align 8
+  invoke void @_ZN6mygame6WeaponC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call54, ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %invoke.cont56 unwind label %lpad55
 
 invoke.cont56:                                    ; preds = %invoke.cont53
@@ -5732,12 +5742,12 @@ invoke.cont56:                                    ; preds = %invoke.cont53
   br label %if.end60
 
 lpad55:                                           ; preds = %invoke.cont53
-  %33 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %exn.slot, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %ehselector.slot, align 4
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %exn.slot, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call54) #15
   br label %ehcleanup
 
@@ -5748,8 +5758,8 @@ if.else58:                                        ; preds = %invoke.cont50
 
 if.end60:                                         ; preds = %if.else58, %invoke.cont56
   %mana_ = getelementptr inbounds %"class.mygame::Monster", ptr %this1, i32 0, i32 7
-  %36 = load ptr, ptr %from.addr, align 8
-  %mana_61 = getelementptr inbounds %"class.mygame::Monster", ptr %36, i32 0, i32 7
+  %37 = load ptr, ptr %from.addr, align 8
+  %mana_61 = getelementptr inbounds %"class.mygame::Monster", ptr %37, i32 0, i32 7
   %color_ = getelementptr inbounds %"class.mygame::Monster", ptr %this1, i32 0, i32 9
   %mana_62 = getelementptr inbounds %"class.mygame::Monster", ptr %this1, i32 0, i32 7
   %sub.ptr.lhs.cast = ptrtoint ptr %color_ to i64
@@ -8881,11 +8891,12 @@ define linkonce_odr dso_local { ptr, ptr } @_ZN6mygame7Monster17GetMetadataStati
 entry:
   %retval = alloca %"struct.google::protobuf::Metadata", align 8
   call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13), align 8
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 2
+  %0 = getelementptr inbounds %"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %1, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %arrayidx, i64 16, i1 false)
-  %1 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %1
+  %2 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8906,10 +8917,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %monsters_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %monsters_, ptr noundef %1)
+  %2 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %monsters_, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -8919,29 +8931,29 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %2 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6mygame8Monsters17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %2)
+  %3 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6mygame8Monsters17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %3)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont3, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monsters_) #3
   br label %ehcleanup
 
@@ -9030,10 +9042,11 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %monsters_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %from.addr, align 8
-  %monsters_2 = getelementptr inbounds %"class.mygame::Monsters", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %from.addr, align 8
+  %monsters_2 = getelementptr inbounds %"class.mygame::Monsters", ptr %1, i32 0, i32 1
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %monsters_, ptr noundef nonnull align 8 dereferenceable(24) %monsters_2)
           to label %invoke.cont unwind label %lpad
 
@@ -9041,19 +9054,19 @@ invoke.cont:                                      ; preds = %entry
   %_cached_size_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this1, i32 0, i32 2
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %from.addr, align 8
-  %_internal_metadata_3 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %from.addr, align 8
+  %_internal_metadata_3 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %2, i32 0, i32 1
   store ptr %_internal_metadata_, ptr %this.addr.i, align 8
   store ptr %_internal_metadata_3, ptr %other.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %2 = load ptr, ptr %other.addr.i, align 8
-  store ptr %2, ptr %this.addr.i9, align 8
+  %3 = load ptr, ptr %other.addr.i, align 8
+  store ptr %3, ptr %this.addr.i9, align 8
   %this1.i10 = load ptr, ptr %this.addr.i9, align 8
   store ptr %this1.i10, ptr %this.addr.i17, align 8
   %this1.i18 = load ptr, ptr %this.addr.i17, align 8
-  %3 = load ptr, ptr %this1.i18, align 8
-  %4 = ptrtoint ptr %3 to i64
-  %and.i19 = and i64 %4, 1
+  %4 = load ptr, ptr %this1.i18, align 8
+  %5 = ptrtoint ptr %4 to i64
+  %and.i19 = and i64 %5, 1
   %conv.i20 = trunc i64 %and.i19 to i32
   %cmp.i = icmp eq i32 %conv.i20, 1
   br label %call.i.noexc
@@ -9062,17 +9075,17 @@ call.i.noexc:                                     ; preds = %invoke.cont
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 if.then.i:                                        ; preds = %call.i.noexc
-  %5 = load ptr, ptr %other.addr.i, align 8
-  store ptr %5, ptr %this.addr.i11, align 8
+  %6 = load ptr, ptr %other.addr.i, align 8
+  store ptr %6, ptr %this.addr.i11, align 8
   store ptr null, ptr %default_instance.addr.i, align 8
   %this1.i12 = load ptr, ptr %this.addr.i11, align 8
   store ptr %this1.i12, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
   store ptr %this1.i.i, ptr %this.addr.i15, align 8
   %this1.i16 = load ptr, ptr %this.addr.i15, align 8
-  %6 = load ptr, ptr %this1.i16, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %and.i = and i64 %7, 1
+  %7 = load ptr, ptr %this1.i16, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %and.i = and i64 %8, 1
   %conv.i = trunc i64 %and.i to i32
   %cmp.i.i = icmp eq i32 %conv.i, 1
   br i1 %cmp.i.i, label %if.then.i13, label %if.else.i
@@ -9084,8 +9097,8 @@ if.then.i13:                                      ; preds = %if.then.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %8 = load ptr, ptr %default_instance.addr.i, align 8
-  %call3.i14 = invoke noundef nonnull align 8 dereferenceable(24) ptr %8()
+  %9 = load ptr, ptr %default_instance.addr.i, align 8
+  %call3.i14 = invoke noundef nonnull align 8 dereferenceable(24) ptr %9()
           to label %call3.i.noexc unwind label %lpad4
 
 call3.i.noexc:                                    ; preds = %if.else.i
@@ -9093,11 +9106,11 @@ call3.i.noexc:                                    ; preds = %if.else.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit: ; preds = %call3.i.noexc, %if.then.i13
-  %9 = load ptr, ptr %retval.i, align 8
+  %10 = load ptr, ptr %retval.i, align 8
   br label %call2.i.noexc
 
 call2.i.noexc:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %.noexc unwind label %lpad4
 
 .noexc:                                           ; preds = %call2.i.noexc
@@ -9110,21 +9123,21 @@ invoke.cont5:                                     ; preds = %_ZN6google8protobuf
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %call2.i.noexc, %if.else.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %monsters_) #3
   br label %ehcleanup
 
@@ -10460,11 +10473,12 @@ define linkonce_odr dso_local { ptr, ptr } @_ZN6mygame8Monsters17GetMetadataStat
 entry:
   %retval = alloca %"struct.google::protobuf::Metadata", align 8
   call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13), align 8
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 3
+  %0 = getelementptr inbounds %"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %1, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %arrayidx, i64 16, i1 false)
-  %1 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %1
+  %2 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10485,27 +10499,28 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::rect32", ptr %this1, i32 0, i32 5
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   invoke void @_ZN6mygame6rect3210SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6mygame6rect3217RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %1)
+  %2 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6mygame6rect3217RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %2)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -10564,23 +10579,24 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::rect32", ptr %this1, i32 0, i32 5
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %from.addr, align 8
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %from.addr, align 8
+  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %1, i32 0, i32 1
   store ptr %_internal_metadata_, ptr %this.addr.i, align 8
   store ptr %_internal_metadata_2, ptr %other.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load ptr, ptr %other.addr.i, align 8
-  store ptr %1, ptr %this.addr.i8, align 8
+  %2 = load ptr, ptr %other.addr.i, align 8
+  store ptr %2, ptr %this.addr.i8, align 8
   %this1.i9 = load ptr, ptr %this.addr.i8, align 8
   store ptr %this1.i9, ptr %this.addr.i16, align 8
   %this1.i17 = load ptr, ptr %this.addr.i16, align 8
-  %2 = load ptr, ptr %this1.i17, align 8
-  %3 = ptrtoint ptr %2 to i64
-  %and.i18 = and i64 %3, 1
+  %3 = load ptr, ptr %this1.i17, align 8
+  %4 = ptrtoint ptr %3 to i64
+  %and.i18 = and i64 %4, 1
   %conv.i19 = trunc i64 %and.i18 to i32
   %cmp.i = icmp eq i32 %conv.i19, 1
   br label %call.i.noexc
@@ -10589,17 +10605,17 @@ call.i.noexc:                                     ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 if.then.i:                                        ; preds = %call.i.noexc
-  %4 = load ptr, ptr %other.addr.i, align 8
-  store ptr %4, ptr %this.addr.i10, align 8
+  %5 = load ptr, ptr %other.addr.i, align 8
+  store ptr %5, ptr %this.addr.i10, align 8
   store ptr null, ptr %default_instance.addr.i, align 8
   %this1.i11 = load ptr, ptr %this.addr.i10, align 8
   store ptr %this1.i11, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
   store ptr %this1.i.i, ptr %this.addr.i14, align 8
   %this1.i15 = load ptr, ptr %this.addr.i14, align 8
-  %5 = load ptr, ptr %this1.i15, align 8
-  %6 = ptrtoint ptr %5 to i64
-  %and.i = and i64 %6, 1
+  %6 = load ptr, ptr %this1.i15, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %and.i = and i64 %7, 1
   %conv.i = trunc i64 %and.i to i32
   %cmp.i.i = icmp eq i32 %conv.i, 1
   br i1 %cmp.i.i, label %if.then.i12, label %if.else.i
@@ -10611,8 +10627,8 @@ if.then.i12:                                      ; preds = %if.then.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %7 = load ptr, ptr %default_instance.addr.i, align 8
-  %call3.i13 = invoke noundef nonnull align 8 dereferenceable(24) ptr %7()
+  %8 = load ptr, ptr %default_instance.addr.i, align 8
+  %call3.i13 = invoke noundef nonnull align 8 dereferenceable(24) ptr %8()
           to label %call3.i.noexc unwind label %lpad
 
 call3.i.noexc:                                    ; preds = %if.else.i
@@ -10620,11 +10636,11 @@ call3.i.noexc:                                    ; preds = %if.else.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit: ; preds = %call3.i.noexc, %if.then.i12
-  %8 = load ptr, ptr %retval.i, align 8
+  %9 = load ptr, ptr %retval.i, align 8
   br label %call2.i.noexc
 
 call2.i.noexc:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call2.i.noexc
@@ -10635,8 +10651,8 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 
 invoke.cont:                                      ; preds = %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
   %x_ = getelementptr inbounds %"class.mygame::rect32", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %from.addr, align 8
-  %x_3 = getelementptr inbounds %"class.mygame::rect32", ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr %from.addr, align 8
+  %x_3 = getelementptr inbounds %"class.mygame::rect32", ptr %10, i32 0, i32 1
   %height_ = getelementptr inbounds %"class.mygame::rect32", ptr %this1, i32 0, i32 4
   %x_4 = getelementptr inbounds %"class.mygame::rect32", ptr %this1, i32 0, i32 1
   %sub.ptr.lhs.cast = ptrtoint ptr %height_ to i64
@@ -10647,12 +10663,12 @@ invoke.cont:                                      ; preds = %_ZN6google8protobuf
   ret void
 
 lpad:                                             ; preds = %call2.i.noexc, %if.else.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -12122,11 +12138,12 @@ define linkonce_odr dso_local { ptr, ptr } @_ZN6mygame6rect3217GetMetadataStatic
 entry:
   %retval = alloca %"struct.google::protobuf::Metadata", align 8
   call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13), align 8
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 4
+  %0 = getelementptr inbounds %"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %1, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %arrayidx, i64 16, i1 false)
-  %1 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %1
+  %2 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12147,10 +12164,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %rect32_list_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_, ptr noundef %1)
+  %2 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -12160,29 +12178,29 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %2 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6mygame7rect32s17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %2)
+  %3 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6mygame7rect32s17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %3)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont3, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_) #3
   br label %ehcleanup
 
@@ -12271,10 +12289,11 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %rect32_list_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %from.addr, align 8
-  %rect32_list_2 = getelementptr inbounds %"class.mygame::rect32s", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %from.addr, align 8
+  %rect32_list_2 = getelementptr inbounds %"class.mygame::rect32s", ptr %1, i32 0, i32 1
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_, ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_2)
           to label %invoke.cont unwind label %lpad
 
@@ -12282,19 +12301,19 @@ invoke.cont:                                      ; preds = %entry
   %_cached_size_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this1, i32 0, i32 2
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %from.addr, align 8
-  %_internal_metadata_3 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %from.addr, align 8
+  %_internal_metadata_3 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %2, i32 0, i32 1
   store ptr %_internal_metadata_, ptr %this.addr.i, align 8
   store ptr %_internal_metadata_3, ptr %other.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %2 = load ptr, ptr %other.addr.i, align 8
-  store ptr %2, ptr %this.addr.i9, align 8
+  %3 = load ptr, ptr %other.addr.i, align 8
+  store ptr %3, ptr %this.addr.i9, align 8
   %this1.i10 = load ptr, ptr %this.addr.i9, align 8
   store ptr %this1.i10, ptr %this.addr.i17, align 8
   %this1.i18 = load ptr, ptr %this.addr.i17, align 8
-  %3 = load ptr, ptr %this1.i18, align 8
-  %4 = ptrtoint ptr %3 to i64
-  %and.i19 = and i64 %4, 1
+  %4 = load ptr, ptr %this1.i18, align 8
+  %5 = ptrtoint ptr %4 to i64
+  %and.i19 = and i64 %5, 1
   %conv.i20 = trunc i64 %and.i19 to i32
   %cmp.i = icmp eq i32 %conv.i20, 1
   br label %call.i.noexc
@@ -12303,17 +12322,17 @@ call.i.noexc:                                     ; preds = %invoke.cont
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 if.then.i:                                        ; preds = %call.i.noexc
-  %5 = load ptr, ptr %other.addr.i, align 8
-  store ptr %5, ptr %this.addr.i11, align 8
+  %6 = load ptr, ptr %other.addr.i, align 8
+  store ptr %6, ptr %this.addr.i11, align 8
   store ptr null, ptr %default_instance.addr.i, align 8
   %this1.i12 = load ptr, ptr %this.addr.i11, align 8
   store ptr %this1.i12, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
   store ptr %this1.i.i, ptr %this.addr.i15, align 8
   %this1.i16 = load ptr, ptr %this.addr.i15, align 8
-  %6 = load ptr, ptr %this1.i16, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %and.i = and i64 %7, 1
+  %7 = load ptr, ptr %this1.i16, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %and.i = and i64 %8, 1
   %conv.i = trunc i64 %and.i to i32
   %cmp.i.i = icmp eq i32 %conv.i, 1
   br i1 %cmp.i.i, label %if.then.i13, label %if.else.i
@@ -12325,8 +12344,8 @@ if.then.i13:                                      ; preds = %if.then.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %8 = load ptr, ptr %default_instance.addr.i, align 8
-  %call3.i14 = invoke noundef nonnull align 8 dereferenceable(24) ptr %8()
+  %9 = load ptr, ptr %default_instance.addr.i, align 8
+  %call3.i14 = invoke noundef nonnull align 8 dereferenceable(24) ptr %9()
           to label %call3.i.noexc unwind label %lpad4
 
 call3.i.noexc:                                    ; preds = %if.else.i
@@ -12334,11 +12353,11 @@ call3.i.noexc:                                    ; preds = %if.else.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit: ; preds = %call3.i.noexc, %if.then.i13
-  %9 = load ptr, ptr %retval.i, align 8
+  %10 = load ptr, ptr %retval.i, align 8
   br label %call2.i.noexc
 
 call2.i.noexc:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %.noexc unwind label %lpad4
 
 .noexc:                                           ; preds = %call2.i.noexc
@@ -12351,21 +12370,21 @@ invoke.cont5:                                     ; preds = %_ZN6google8protobuf
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %call2.i.noexc, %if.else.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_) #3
   br label %ehcleanup
 
@@ -13689,11 +13708,12 @@ define linkonce_odr dso_local { ptr, ptr } @_ZN6mygame7rect32s17GetMetadataStati
 entry:
   %retval = alloca %"struct.google::protobuf::Metadata", align 8
   call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13), align 8
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 5
+  %0 = getelementptr inbounds %"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %1, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %arrayidx, i64 16, i1 false)
-  %1 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %1
+  %2 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13714,27 +13734,28 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame6personE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::person", ptr %this1, i32 0, i32 5
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   invoke void @_ZN6mygame6person10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(48) %this1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6mygame6person17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %1)
+  %2 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6mygame6person17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %2)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -13797,23 +13818,24 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame6personE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::person", ptr %this1, i32 0, i32 5
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %from.addr, align 8
-  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %from.addr, align 8
+  %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %1, i32 0, i32 1
   store ptr %_internal_metadata_, ptr %this.addr.i, align 8
   store ptr %_internal_metadata_2, ptr %other.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load ptr, ptr %other.addr.i, align 8
-  store ptr %1, ptr %this.addr.i22, align 8
+  %2 = load ptr, ptr %other.addr.i, align 8
+  store ptr %2, ptr %this.addr.i22, align 8
   %this1.i23 = load ptr, ptr %this.addr.i22, align 8
   store ptr %this1.i23, ptr %this.addr.i30, align 8
   %this1.i31 = load ptr, ptr %this.addr.i30, align 8
-  %2 = load ptr, ptr %this1.i31, align 8
-  %3 = ptrtoint ptr %2 to i64
-  %and.i32 = and i64 %3, 1
+  %3 = load ptr, ptr %this1.i31, align 8
+  %4 = ptrtoint ptr %3 to i64
+  %and.i32 = and i64 %4, 1
   %conv.i33 = trunc i64 %and.i32 to i32
   %cmp.i = icmp eq i32 %conv.i33, 1
   br label %call.i.noexc
@@ -13822,17 +13844,17 @@ call.i.noexc:                                     ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 if.then.i:                                        ; preds = %call.i.noexc
-  %4 = load ptr, ptr %other.addr.i, align 8
-  store ptr %4, ptr %this.addr.i24, align 8
+  %5 = load ptr, ptr %other.addr.i, align 8
+  store ptr %5, ptr %this.addr.i24, align 8
   store ptr null, ptr %default_instance.addr.i, align 8
   %this1.i25 = load ptr, ptr %this.addr.i24, align 8
   store ptr %this1.i25, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
   store ptr %this1.i.i, ptr %this.addr.i28, align 8
   %this1.i29 = load ptr, ptr %this.addr.i28, align 8
-  %5 = load ptr, ptr %this1.i29, align 8
-  %6 = ptrtoint ptr %5 to i64
-  %and.i = and i64 %6, 1
+  %6 = load ptr, ptr %this1.i29, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %and.i = and i64 %7, 1
   %conv.i = trunc i64 %and.i to i32
   %cmp.i.i = icmp eq i32 %conv.i, 1
   br i1 %cmp.i.i, label %if.then.i26, label %if.else.i
@@ -13844,8 +13866,8 @@ if.then.i26:                                      ; preds = %if.then.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %7 = load ptr, ptr %default_instance.addr.i, align 8
-  %call3.i27 = invoke noundef nonnull align 8 dereferenceable(24) ptr %7()
+  %8 = load ptr, ptr %default_instance.addr.i, align 8
+  %call3.i27 = invoke noundef nonnull align 8 dereferenceable(24) ptr %8()
           to label %call3.i.noexc unwind label %lpad
 
 call3.i.noexc:                                    ; preds = %if.else.i
@@ -13853,11 +13875,11 @@ call3.i.noexc:                                    ; preds = %if.else.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit: ; preds = %call3.i.noexc, %if.then.i26
-  %8 = load ptr, ptr %retval.i, align 8
+  %9 = load ptr, ptr %retval.i, align 8
   br label %call2.i.noexc
 
 call2.i.noexc:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call2.i.noexc
@@ -13876,8 +13898,8 @@ invoke.cont4:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  %9 = load ptr, ptr %from.addr, align 8
-  %call7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame6person14_internal_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %10 = load ptr, ptr %from.addr, align 8
+  %call7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame6person14_internal_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont5
@@ -13890,8 +13912,8 @@ if.then:                                          ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %if.then
-  %10 = load ptr, ptr %from.addr, align 8
-  %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame6person14_internal_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(48) %10)
+  %11 = load ptr, ptr %from.addr, align 8
+  %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6mygame6person14_internal_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(48) %11)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -13906,19 +13928,19 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont14, %invoke.cont12, %invoke.cont10, %if.then, %invoke.cont5, %invoke.cont4, %invoke.cont, %call2.i.noexc, %if.else.i
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont16, %invoke.cont6
   %id_ = getelementptr inbounds %"class.mygame::person", ptr %this1, i32 0, i32 2
-  %14 = load ptr, ptr %from.addr, align 8
-  %id_17 = getelementptr inbounds %"class.mygame::person", ptr %14, i32 0, i32 2
+  %15 = load ptr, ptr %from.addr, align 8
+  %id_17 = getelementptr inbounds %"class.mygame::person", ptr %15, i32 0, i32 2
   %salary_ = getelementptr inbounds %"class.mygame::person", ptr %this1, i32 0, i32 4
   %id_18 = getelementptr inbounds %"class.mygame::person", ptr %this1, i32 0, i32 2
   %sub.ptr.lhs.cast = ptrtoint ptr %salary_ to i64
@@ -15422,11 +15444,12 @@ define linkonce_odr dso_local { ptr, ptr } @_ZN6mygame6person17GetMetadataStatic
 entry:
   %retval = alloca %"struct.google::protobuf::Metadata", align 8
   call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13), align 8
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 6
+  %0 = getelementptr inbounds %"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %1, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %arrayidx, i64 16, i1 false)
-  %1 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %1
+  %2 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15447,10 +15470,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %person_list_ = getelementptr inbounds %"class.mygame::persons", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %person_list_, ptr noundef %1)
+  %2 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %person_list_, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -15460,29 +15484,29 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %2 = load ptr, ptr %arena.addr, align 8
-  invoke void @_ZN6mygame7persons17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %2)
+  %3 = load ptr, ptr %arena.addr, align 8
+  invoke void @_ZN6mygame7persons17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %3)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont3, %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %person_list_) #3
   br label %ehcleanup
 
@@ -15571,10 +15595,11 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %person_list_ = getelementptr inbounds %"class.mygame::persons", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %from.addr, align 8
-  %person_list_2 = getelementptr inbounds %"class.mygame::persons", ptr %0, i32 0, i32 1
+  %1 = load ptr, ptr %from.addr, align 8
+  %person_list_2 = getelementptr inbounds %"class.mygame::persons", ptr %1, i32 0, i32 1
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %person_list_, ptr noundef nonnull align 8 dereferenceable(24) %person_list_2)
           to label %invoke.cont unwind label %lpad
 
@@ -15582,19 +15607,19 @@ invoke.cont:                                      ; preds = %entry
   %_cached_size_ = getelementptr inbounds %"class.mygame::persons", ptr %this1, i32 0, i32 2
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %from.addr, align 8
-  %_internal_metadata_3 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %from.addr, align 8
+  %_internal_metadata_3 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %2, i32 0, i32 1
   store ptr %_internal_metadata_, ptr %this.addr.i, align 8
   store ptr %_internal_metadata_3, ptr %other.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %2 = load ptr, ptr %other.addr.i, align 8
-  store ptr %2, ptr %this.addr.i9, align 8
+  %3 = load ptr, ptr %other.addr.i, align 8
+  store ptr %3, ptr %this.addr.i9, align 8
   %this1.i10 = load ptr, ptr %this.addr.i9, align 8
   store ptr %this1.i10, ptr %this.addr.i17, align 8
   %this1.i18 = load ptr, ptr %this.addr.i17, align 8
-  %3 = load ptr, ptr %this1.i18, align 8
-  %4 = ptrtoint ptr %3 to i64
-  %and.i19 = and i64 %4, 1
+  %4 = load ptr, ptr %this1.i18, align 8
+  %5 = ptrtoint ptr %4 to i64
+  %and.i19 = and i64 %5, 1
   %conv.i20 = trunc i64 %and.i19 to i32
   %cmp.i = icmp eq i32 %conv.i20, 1
   br label %call.i.noexc
@@ -15603,17 +15628,17 @@ call.i.noexc:                                     ; preds = %invoke.cont
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
 if.then.i:                                        ; preds = %call.i.noexc
-  %5 = load ptr, ptr %other.addr.i, align 8
-  store ptr %5, ptr %this.addr.i11, align 8
+  %6 = load ptr, ptr %other.addr.i, align 8
+  store ptr %6, ptr %this.addr.i11, align 8
   store ptr null, ptr %default_instance.addr.i, align 8
   %this1.i12 = load ptr, ptr %this.addr.i11, align 8
   store ptr %this1.i12, ptr %this.addr.i.i, align 8
   %this1.i.i = load ptr, ptr %this.addr.i.i, align 8
   store ptr %this1.i.i, ptr %this.addr.i15, align 8
   %this1.i16 = load ptr, ptr %this.addr.i15, align 8
-  %6 = load ptr, ptr %this1.i16, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %and.i = and i64 %7, 1
+  %7 = load ptr, ptr %this1.i16, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %and.i = and i64 %8, 1
   %conv.i = trunc i64 %and.i to i32
   %cmp.i.i = icmp eq i32 %conv.i, 1
   br i1 %cmp.i.i, label %if.then.i13, label %if.else.i
@@ -15625,8 +15650,8 @@ if.then.i13:                                      ; preds = %if.then.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %8 = load ptr, ptr %default_instance.addr.i, align 8
-  %call3.i14 = invoke noundef nonnull align 8 dereferenceable(24) ptr %8()
+  %9 = load ptr, ptr %default_instance.addr.i, align 8
+  %call3.i14 = invoke noundef nonnull align 8 dereferenceable(24) ptr %9()
           to label %call3.i.noexc unwind label %lpad4
 
 call3.i.noexc:                                    ; preds = %if.else.i
@@ -15634,11 +15659,11 @@ call3.i.noexc:                                    ; preds = %if.else.i
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit: ; preds = %call3.i.noexc, %if.then.i13
-  %9 = load ptr, ptr %retval.i, align 8
+  %10 = load ptr, ptr %retval.i, align 8
   br label %call2.i.noexc
 
 call2.i.noexc:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFieldSetEEERKT_PFS7_vE.exit
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %this1.i, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %.noexc unwind label %lpad4
 
 .noexc:                                           ; preds = %call2.i.noexc
@@ -15651,21 +15676,21 @@ invoke.cont5:                                     ; preds = %_ZN6google8protobuf
   ret void
 
 lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %call2.i.noexc, %if.else.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
   call void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %person_list_) #3
   br label %ehcleanup
 
@@ -16989,11 +17014,12 @@ define linkonce_odr dso_local { ptr, ptr } @_ZN6mygame7persons17GetMetadataStati
 entry:
   %retval = alloca %"struct.google::protobuf::Metadata", align 8
   call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef @descriptor_table_data_5fdef_2eproto, i1 noundef zeroext false)
-  %0 = load ptr, ptr getelementptr inbounds (%"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13), align 8
-  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %0, i64 7
+  %0 = getelementptr inbounds %"struct.google::protobuf::internal::DescriptorTable", ptr @descriptor_table_data_5fdef_2eproto, i32 0, i32 13
+  %1 = load ptr, ptr %0, align 8
+  %arrayidx = getelementptr inbounds %"struct.google::protobuf::Metadata", ptr %1, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %arrayidx, i64 16, i1 false)
-  %1 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %1
+  %2 = load { ptr, ptr }, ptr %retval, align 8
+  ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -18038,10 +18064,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %arena, ptr %arena.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %arena.addr, align 8
-  call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef %0)
+  %1 = load ptr, ptr %arena.addr, align 8
+  call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef %1)
   ret void
 }
 
@@ -18100,7 +18127,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
   call void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_)
   ret void

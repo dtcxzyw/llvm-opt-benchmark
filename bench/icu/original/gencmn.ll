@@ -73,164 +73,183 @@ if.end4:                                          ; preds = %if.end, %if.then
   br i1 %cmp5, label %if.then9, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
-  %9 = load i8, ptr getelementptr inbounds (%struct.UOption, ptr @options, i32 0, i32 6), align 2
-  %conv = sext i8 %9 to i32
+  %9 = getelementptr inbounds %struct.UOption, ptr @options, i32 0, i32 6
+  %10 = load i8, ptr %9, align 2
+  %conv = sext i8 %10 to i32
   %tobool = icmp ne i32 %conv, 0
   br i1 %tobool, label %if.then9, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %10 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 1, i32 6), align 2
-  %conv7 = sext i8 %10 to i32
+  %11 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 1, i32 6
+  %12 = load i8, ptr %11, align 2
+  %conv7 = sext i8 %12 to i32
   %tobool8 = icmp ne i32 %conv7, 0
   br i1 %tobool8, label %if.then9, label %if.end29
 
 if.then9:                                         ; preds = %lor.lhs.false6, %lor.lhs.false, %if.end4
-  %11 = load i32, ptr %argc.addr, align 4
-  %cmp10 = icmp slt i32 %11, 0
+  %13 = load i32, ptr %argc.addr, align 4
+  %cmp10 = icmp slt i32 %13, 0
   br i1 %cmp10, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then9
-  %12 = load ptr, ptr @stderr, align 8
+  %14 = load ptr, ptr @stderr, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then9
-  %13 = load ptr, ptr @stdout, align 8
+  %15 = load ptr, ptr @stdout, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %12, %cond.true ], [ %13, %cond.false ]
+  %cond = phi ptr [ %14, %cond.true ], [ %15, %cond.false ]
   store ptr %cond, ptr %where, align 8
-  %14 = load ptr, ptr %where, align 8
-  %15 = load i32, ptr %argc.addr, align 4
-  %cmp12 = icmp slt i32 %15, 0
+  %16 = load ptr, ptr %where, align 8
+  %17 = load i32, ptr %argc.addr, align 4
+  %cmp12 = icmp slt i32 %17, 0
   %cond14 = select i1 %cmp12, i32 117, i32 85
-  %16 = load ptr, ptr %argv.addr, align 8
-  %17 = load ptr, ptr %16, align 8
-  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.1, i32 noundef %cond14, ptr noundef %17)
-  %18 = load i8, ptr getelementptr inbounds (%struct.UOption, ptr @options, i32 0, i32 6), align 2
-  %conv16 = sext i8 %18 to i32
+  %18 = load ptr, ptr %argv.addr, align 8
+  %19 = load ptr, ptr %18, align 8
+  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.1, i32 noundef %cond14, ptr noundef %19)
+  %20 = getelementptr inbounds %struct.UOption, ptr @options, i32 0, i32 6
+  %21 = load i8, ptr %20, align 2
+  %conv16 = sext i8 %21 to i32
   %tobool17 = icmp ne i32 %conv16, 0
   br i1 %tobool17, label %if.then21, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %cond.end
-  %19 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 1, i32 6), align 2
-  %conv19 = sext i8 %19 to i32
+  %22 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 1, i32 6
+  %23 = load i8, ptr %22, align 2
+  %conv19 = sext i8 %23 to i32
   %tobool20 = icmp ne i32 %conv19, 0
   br i1 %tobool20, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %lor.lhs.false18, %cond.end
-  %20 = load ptr, ptr %where, align 8
-  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef @.str.2)
-  %21 = load ptr, ptr %where, align 8
-  %call23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef @.str.3)
-  %22 = load ptr, ptr %where, align 8
-  %call24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.4)
+  %24 = load ptr, ptr %where, align 8
+  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.2)
+  %25 = load ptr, ptr %where, align 8
+  %call23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.3)
+  %26 = load ptr, ptr %where, align 8
+  %call24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str.4)
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then21, %lor.lhs.false18
-  %23 = load i32, ptr %argc.addr, align 4
-  %cmp26 = icmp slt i32 %23, 0
+  %27 = load i32, ptr %argc.addr, align 4
+  %cmp26 = icmp slt i32 %27, 0
   %cond28 = select i1 %cmp26, i32 1, i32 0
   store i32 %cond28, ptr %retval, align 4
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false6
-  %24 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 8, i32 6), align 2
-  store i8 %24, ptr %sourceTOC, align 1
-  %25 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 6), align 2
-  store i8 %25, ptr %verbose, align 1
-  %26 = load ptr, ptr %argv.addr, align 8
-  %arrayidx30 = getelementptr inbounds ptr, ptr %26, i64 1
-  %27 = load ptr, ptr %arrayidx30, align 8
-  %call31 = call i64 @strtoul(ptr noundef %27, ptr noundef null, i32 noundef 0) #3
+  %28 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 8, i32 6
+  %29 = load i8, ptr %28, align 2
+  store i8 %29, ptr %sourceTOC, align 1
+  %30 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 6
+  %31 = load i8, ptr %30, align 2
+  store i8 %31, ptr %verbose, align 1
+  %32 = load ptr, ptr %argv.addr, align 8
+  %arrayidx30 = getelementptr inbounds ptr, ptr %32, i64 1
+  %33 = load ptr, ptr %arrayidx30, align 8
+  %call31 = call i64 @strtoul(ptr noundef %33, ptr noundef null, i32 noundef 0) #3
   %conv32 = trunc i64 %call31 to i32
   store i32 %conv32, ptr %maxSize, align 4
-  %28 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 4, i32 6), align 2
-  %conv33 = sext i8 %28 to i32
+  %34 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 4, i32 6
+  %35 = load i8, ptr %34, align 2
+  %conv33 = sext i8 %35 to i32
   %tobool34 = icmp ne i32 %conv33, 0
   br i1 %tobool34, label %cond.true35, label %cond.false36
 
 cond.true35:                                      ; preds = %if.end29
-  %29 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 4, i32 1), align 8
+  %36 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 4, i32 1
+  %37 = load ptr, ptr %36, align 8
   br label %cond.end37
 
 cond.false36:                                     ; preds = %if.end29
   br label %cond.end37
 
 cond.end37:                                       ; preds = %cond.false36, %cond.true35
-  %cond38 = phi ptr [ %29, %cond.true35 ], [ null, %cond.false36 ]
-  %30 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 6, i32 6), align 2
-  %conv39 = sext i8 %30 to i32
+  %cond38 = phi ptr [ %37, %cond.true35 ], [ null, %cond.false36 ]
+  %38 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 6, i32 6
+  %39 = load i8, ptr %38, align 2
+  %conv39 = sext i8 %39 to i32
   %tobool40 = icmp ne i32 %conv39, 0
   br i1 %tobool40, label %cond.true41, label %cond.false42
 
 cond.true41:                                      ; preds = %cond.end37
-  %31 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 6, i32 1), align 8
+  %40 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 6, i32 1
+  %41 = load ptr, ptr %40, align 8
   br label %cond.end43
 
 cond.false42:                                     ; preds = %cond.end37
   br label %cond.end43
 
 cond.end43:                                       ; preds = %cond.false42, %cond.true41
-  %cond44 = phi ptr [ %31, %cond.true41 ], [ null, %cond.false42 ]
-  %32 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 6), align 2
-  %conv45 = sext i8 %32 to i32
+  %cond44 = phi ptr [ %41, %cond.true41 ], [ null, %cond.false42 ]
+  %42 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 6
+  %43 = load i8, ptr %42, align 2
+  %conv45 = sext i8 %43 to i32
   %tobool46 = icmp ne i32 %conv45, 0
   br i1 %tobool46, label %cond.true47, label %cond.false48
 
 cond.true47:                                      ; preds = %cond.end43
-  %33 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 1), align 8
+  %44 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 1
+  %45 = load ptr, ptr %44, align 8
   br label %cond.end55
 
 cond.false48:                                     ; preds = %cond.end43
-  %34 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 6, i32 6), align 2
-  %conv49 = sext i8 %34 to i32
+  %46 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 6, i32 6
+  %47 = load i8, ptr %46, align 2
+  %conv49 = sext i8 %47 to i32
   %tobool50 = icmp ne i32 %conv49, 0
   br i1 %tobool50, label %cond.true51, label %cond.false52
 
 cond.true51:                                      ; preds = %cond.false48
-  %35 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 6, i32 1), align 8
+  %48 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 6, i32 1
+  %49 = load ptr, ptr %48, align 8
   br label %cond.end53
 
 cond.false52:                                     ; preds = %cond.false48
   br label %cond.end53
 
 cond.end53:                                       ; preds = %cond.false52, %cond.true51
-  %cond54 = phi ptr [ %35, %cond.true51 ], [ null, %cond.false52 ]
+  %cond54 = phi ptr [ %49, %cond.true51 ], [ null, %cond.false52 ]
   br label %cond.end55
 
 cond.end55:                                       ; preds = %cond.end53, %cond.true47
-  %cond56 = phi ptr [ %33, %cond.true47 ], [ %cond54, %cond.end53 ]
-  %36 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 7, i32 6), align 2
-  %conv57 = sext i8 %36 to i32
+  %cond56 = phi ptr [ %45, %cond.true47 ], [ %cond54, %cond.end53 ]
+  %50 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 7, i32 6
+  %51 = load i8, ptr %50, align 2
+  %conv57 = sext i8 %51 to i32
   %tobool58 = icmp ne i32 %conv57, 0
   br i1 %tobool58, label %cond.true59, label %cond.false60
 
 cond.true59:                                      ; preds = %cond.end55
-  %37 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 7, i32 1), align 8
+  %52 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 7, i32 1
+  %53 = load ptr, ptr %52, align 8
   br label %cond.end61
 
 cond.false60:                                     ; preds = %cond.end55
   br label %cond.end61
 
 cond.end61:                                       ; preds = %cond.false60, %cond.true59
-  %cond62 = phi ptr [ %37, %cond.true59 ], [ null, %cond.false60 ]
-  %38 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 10, i32 6), align 2
-  %conv63 = sext i8 %38 to i32
+  %cond62 = phi ptr [ %53, %cond.true59 ], [ null, %cond.false60 ]
+  %54 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 10, i32 6
+  %55 = load i8, ptr %54, align 2
+  %conv63 = sext i8 %55 to i32
   %tobool64 = icmp ne i32 %conv63, 0
   br i1 %tobool64, label %cond.true65, label %cond.false66
 
 cond.true65:                                      ; preds = %cond.end61
-  %39 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 10, i32 1), align 8
+  %56 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 10, i32 1
+  %57 = load ptr, ptr %56, align 8
   br label %cond.end67
 
 cond.false66:                                     ; preds = %cond.end61
   br label %cond.end67
 
 cond.end67:                                       ; preds = %cond.false66, %cond.true65
-  %cond68 = phi ptr [ %39, %cond.true65 ], [ null, %cond.false66 ]
-  %40 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 3, i32 6), align 2
-  %conv69 = sext i8 %40 to i32
+  %cond68 = phi ptr [ %57, %cond.true65 ], [ null, %cond.false66 ]
+  %58 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 3, i32 6
+  %59 = load i8, ptr %58, align 2
+  %conv69 = sext i8 %59 to i32
   %tobool70 = icmp ne i32 %conv69, 0
   br i1 %tobool70, label %cond.true71, label %cond.false72
 
@@ -238,49 +257,51 @@ cond.true71:                                      ; preds = %cond.end67
   br label %cond.end79
 
 cond.false72:                                     ; preds = %cond.end67
-  %41 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 6), align 2
-  %conv73 = sext i8 %41 to i32
+  %60 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 6
+  %61 = load i8, ptr %60, align 2
+  %conv73 = sext i8 %61 to i32
   %tobool74 = icmp ne i32 %conv73, 0
   br i1 %tobool74, label %cond.true75, label %cond.false76
 
 cond.true75:                                      ; preds = %cond.false72
-  %42 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 8
+  %62 = getelementptr inbounds [11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1
+  %63 = load ptr, ptr %62, align 8
   br label %cond.end77
 
 cond.false76:                                     ; preds = %cond.false72
   br label %cond.end77
 
 cond.end77:                                       ; preds = %cond.false76, %cond.true75
-  %cond78 = phi ptr [ %42, %cond.true75 ], [ null, %cond.false76 ]
+  %cond78 = phi ptr [ %63, %cond.true75 ], [ null, %cond.false76 ]
   br label %cond.end79
 
 cond.end79:                                       ; preds = %cond.end77, %cond.true71
   %cond80 = phi ptr [ @.str.5, %cond.true71 ], [ %cond78, %cond.end77 ]
-  %43 = load i32, ptr %argc.addr, align 4
-  %cmp81 = icmp eq i32 %43, 2
+  %64 = load i32, ptr %argc.addr, align 4
+  %cmp81 = icmp eq i32 %64, 2
   br i1 %cmp81, label %cond.true83, label %cond.false84
 
 cond.true83:                                      ; preds = %cond.end79
   br label %cond.end86
 
 cond.false84:                                     ; preds = %cond.end79
-  %44 = load ptr, ptr %argv.addr, align 8
-  %arrayidx85 = getelementptr inbounds ptr, ptr %44, i64 2
-  %45 = load ptr, ptr %arrayidx85, align 8
+  %65 = load ptr, ptr %argv.addr, align 8
+  %arrayidx85 = getelementptr inbounds ptr, ptr %65, i64 2
+  %66 = load ptr, ptr %arrayidx85, align 8
   br label %cond.end86
 
 cond.end86:                                       ; preds = %cond.false84, %cond.true83
-  %cond87 = phi ptr [ null, %cond.true83 ], [ %45, %cond.false84 ]
-  %46 = load i32, ptr %maxSize, align 4
-  %47 = load i8, ptr %sourceTOC, align 1
-  %48 = load i8, ptr %verbose, align 1
-  call void @createCommonDataFile(ptr noundef %cond38, ptr noundef %cond44, ptr noundef %cond56, ptr noundef %cond62, ptr noundef %cond68, ptr noundef %cond80, ptr noundef %cond87, i32 noundef %46, i8 noundef signext %47, i8 noundef signext %48, ptr noundef null)
+  %cond87 = phi ptr [ null, %cond.true83 ], [ %66, %cond.false84 ]
+  %67 = load i32, ptr %maxSize, align 4
+  %68 = load i8, ptr %sourceTOC, align 1
+  %69 = load i8, ptr %verbose, align 1
+  call void @createCommonDataFile(ptr noundef %cond38, ptr noundef %cond44, ptr noundef %cond56, ptr noundef %cond62, ptr noundef %cond68, ptr noundef %cond80, ptr noundef %cond87, i32 noundef %67, i8 noundef signext %68, i8 noundef signext %69, ptr noundef null)
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %cond.end86, %if.end25
-  %49 = load i32, ptr %retval, align 4
-  ret i32 %49
+  %70 = load i32, ptr %retval, align 4
+  ret i32 %70
 }
 
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) #1

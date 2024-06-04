@@ -572,10 +572,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop18TheoryPreregistrarE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop18TheoryPreregistrarE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_theoryEngine = getelementptr inbounds %"class.cvc5::internal::prop::TheoryPreregistrar", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %te.addr, align 8
-  store ptr %1, ptr %d_theoryEngine, align 8
+  %2 = load ptr, ptr %te.addr, align 8
+  store ptr %2, ptr %d_theoryEngine, align 8
   %d_sat_literals = getelementptr inbounds %"class.cvc5::internal::prop::TheoryPreregistrar", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorISt4pairIN4cvc58internal12NodeTemplateILb1EEEjESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_sat_literals) #3
   %d_notify = getelementptr inbounds %"class.cvc5::internal::prop::TheoryPreregistrar", ptr %this1, i32 0, i32 3
@@ -583,8 +584,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %env.addr, align 8
-  invoke void @_ZN4cvc58internal4prop24TheoryPreregistrarNotifyC2ERNS0_3EnvERNS1_18TheoryPreregistrarE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(576) %2, ptr noundef nonnull align 8 dereferenceable(56) %this1)
+  %3 = load ptr, ptr %env.addr, align 8
+  invoke void @_ZN4cvc58internal4prop24TheoryPreregistrarNotifyC2ERNS0_3EnvERNS1_18TheoryPreregistrarE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(576) %3, ptr noundef nonnull align 8 dereferenceable(56) %this1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -592,21 +593,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZdlPv(ptr noundef %call) #13
   br label %ehcleanup
 
@@ -653,10 +654,11 @@ entry:
   %0 = load ptr, ptr %env.addr, align 8
   %call = call noundef ptr @_ZN4cvc58internal3Env14getUserContextEv(ptr noundef nonnull align 8 dereferenceable(576) %0)
   call void @_ZN4cvc57context16ContextNotifyObjC2EPNS0_7ContextEb(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %call, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal4prop24TheoryPreregistrarNotifyE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4cvc58internal4prop24TheoryPreregistrarNotifyE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_prr = getelementptr inbounds %"class.cvc5::internal::prop::TheoryPreregistrarNotify", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %prr.addr, align 8
-  store ptr %1, ptr %d_prr, align 8
+  %2 = load ptr, ptr %prr.addr, align 8
+  store ptr %2, ptr %d_prr, align 8
   ret void
 }
 
@@ -729,7 +731,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop18TheoryPreregistrarE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop18TheoryPreregistrarE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_notify = getelementptr inbounds %"class.cvc5::internal::prop::TheoryPreregistrar", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN4cvc58internal4prop24TheoryPreregistrarNotifyESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_notify) #3
   %d_sat_literals = getelementptr inbounds %"class.cvc5::internal::prop::TheoryPreregistrar", ptr %this1, i32 0, i32 2

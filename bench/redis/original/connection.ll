@@ -83,16 +83,17 @@ if.then5:                                         ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.then5
-  %9 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp6 = icmp slt i32 3, %9
+  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %10 = load i32, ptr %9, align 8
+  %cmp6 = icmp slt i32 3, %10
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %do.body
   br label %do.end
 
 if.end8:                                          ; preds = %do.body
-  %10 = load ptr, ptr %typename, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str, ptr noundef %10)
+  %11 = load ptr, ptr %typename, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str, ptr noundef %11)
   br label %do.end
 
 do.end:                                           ; preds = %if.end8, %if.then7
@@ -103,8 +104,8 @@ if.end9:                                          ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end9
-  %11 = load i32, ptr %type, align 4
-  %inc = add nsw i32 %11, 1
+  %12 = load i32, ptr %type, align 4
+  %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %type, align 4
   br label %for.cond, !llvm.loop !5
 
@@ -112,35 +113,36 @@ for.end:                                          ; preds = %if.then, %for.cond
   br label %do.body10
 
 do.body10:                                        ; preds = %for.end
-  %12 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp11 = icmp slt i32 1, %12
+  %13 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %14 = load i32, ptr %13, align 8
+  %cmp11 = icmp slt i32 1, %14
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %do.body10
   br label %do.end14
 
 if.end13:                                         ; preds = %do.body10
-  %13 = load ptr, ptr %typename, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef @.str.1, ptr noundef %13)
+  %15 = load ptr, ptr %typename, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef @.str.1, ptr noundef %15)
   br label %do.end14
 
 do.end14:                                         ; preds = %if.end13, %if.then12
-  %14 = load ptr, ptr %ct.addr, align 8
-  %15 = load i32, ptr %type, align 4
-  %idxprom15 = sext i32 %15 to i64
-  %arrayidx16 = getelementptr inbounds [8 x ptr], ptr @connTypes, i64 0, i64 %idxprom15
-  store ptr %14, ptr %arrayidx16, align 8
   %16 = load ptr, ptr %ct.addr, align 8
-  %init = getelementptr inbounds %struct.ConnectionType, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %init, align 8
-  %tobool17 = icmp ne ptr %17, null
+  %17 = load i32, ptr %type, align 4
+  %idxprom15 = sext i32 %17 to i64
+  %arrayidx16 = getelementptr inbounds [8 x ptr], ptr @connTypes, i64 0, i64 %idxprom15
+  store ptr %16, ptr %arrayidx16, align 8
+  %18 = load ptr, ptr %ct.addr, align 8
+  %init = getelementptr inbounds %struct.ConnectionType, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %init, align 8
+  %tobool17 = icmp ne ptr %19, null
   br i1 %tobool17, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %do.end14
-  %18 = load ptr, ptr %ct.addr, align 8
-  %init19 = getelementptr inbounds %struct.ConnectionType, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %init19, align 8
-  call void %19()
+  %20 = load ptr, ptr %ct.addr, align 8
+  %init19 = getelementptr inbounds %struct.ConnectionType, ptr %20, i32 0, i32 1
+  %21 = load ptr, ptr %init19, align 8
+  call void %21()
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %do.end14
@@ -148,8 +150,8 @@ if.end20:                                         ; preds = %if.then18, %do.end1
   br label %return
 
 return:                                           ; preds = %if.end20, %do.end
-  %20 = load i32, ptr %retval, align 4
-  ret i32 %20
+  %22 = load i32, ptr %retval, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -274,16 +276,17 @@ for.end:                                          ; preds = %if.then, %for.cond
   br label %do.body
 
 do.body:                                          ; preds = %for.end
-  %9 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 156), align 8
-  %cmp5 = icmp slt i32 3, %9
+  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 156
+  %10 = load i32, ptr %9, align 8
+  %cmp5 = icmp slt i32 3, %10
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %do.body
   br label %do.end
 
 if.end7:                                          ; preds = %do.body
-  %10 = load ptr, ptr %typename.addr, align 8
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.5, ptr noundef %10)
+  %11 = load ptr, ptr %typename.addr, align 8
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef @.str.5, ptr noundef %11)
   br label %do.end
 
 do.end:                                           ; preds = %if.end7, %if.then6
@@ -291,8 +294,8 @@ do.end:                                           ; preds = %if.end7, %if.then6
   br label %return
 
 return:                                           ; preds = %do.end, %if.then3
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+  %12 = load ptr, ptr %retval, align 8
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -640,89 +643,90 @@ for.cond:                                         ; preds = %for.inc15, %entry
 for.body:                                         ; preds = %for.cond
   %1 = load i32, ptr %j, align 4
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [8 x %struct.connListener], ptr getelementptr inbounds (%struct.redisServer, ptr @server, i32 0, i32 52), i64 0, i64 %idxprom
+  %2 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 52
+  %arrayidx = getelementptr inbounds [8 x %struct.connListener], ptr %2, i64 0, i64 %idxprom
   store ptr %arrayidx, ptr %listener, align 8
-  %2 = load ptr, ptr %listener, align 8
-  %ct = getelementptr inbounds %struct.connListener, ptr %2, i32 0, i32 5
-  %3 = load ptr, ptr %ct, align 8
-  %cmp1 = icmp eq ptr %3, null
+  %3 = load ptr, ptr %listener, align 8
+  %ct = getelementptr inbounds %struct.connListener, ptr %3, i32 0, i32 5
+  %4 = load ptr, ptr %ct, align 8
+  %cmp1 = icmp eq ptr %4, null
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
   br label %for.inc15
 
 if.end:                                           ; preds = %for.body
-  %4 = load ptr, ptr %info.addr, align 8
-  %5 = load i32, ptr %j, align 4
-  %6 = load ptr, ptr %listener, align 8
-  %ct2 = getelementptr inbounds %struct.connListener, ptr %6, i32 0, i32 5
-  %7 = load ptr, ptr %ct2, align 8
-  %get_type = getelementptr inbounds %struct.ConnectionType, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %get_type, align 8
-  %call = call ptr %8(ptr noundef null)
-  %call3 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %4, ptr noundef @.str.10, i32 noundef %5, ptr noundef %call)
+  %5 = load ptr, ptr %info.addr, align 8
+  %6 = load i32, ptr %j, align 4
+  %7 = load ptr, ptr %listener, align 8
+  %ct2 = getelementptr inbounds %struct.connListener, ptr %7, i32 0, i32 5
+  %8 = load ptr, ptr %ct2, align 8
+  %get_type = getelementptr inbounds %struct.ConnectionType, ptr %8, i32 0, i32 0
+  %9 = load ptr, ptr %get_type, align 8
+  %call = call ptr %9(ptr noundef null)
+  %call3 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %5, ptr noundef @.str.10, i32 noundef %6, ptr noundef %call)
   store ptr %call3, ptr %info.addr, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond4
 
 for.cond4:                                        ; preds = %for.inc, %if.end
-  %9 = load i32, ptr %i, align 4
-  %10 = load ptr, ptr %listener, align 8
-  %count = getelementptr inbounds %struct.connListener, ptr %10, i32 0, i32 1
-  %11 = load i32, ptr %count, align 8
-  %cmp5 = icmp slt i32 %9, %11
+  %10 = load i32, ptr %i, align 4
+  %11 = load ptr, ptr %listener, align 8
+  %count = getelementptr inbounds %struct.connListener, ptr %11, i32 0, i32 1
+  %12 = load i32, ptr %count, align 8
+  %cmp5 = icmp slt i32 %10, %12
   br i1 %cmp5, label %for.body6, label %for.end
 
 for.body6:                                        ; preds = %for.cond4
-  %12 = load ptr, ptr %info.addr, align 8
-  %13 = load ptr, ptr %listener, align 8
-  %bindaddr = getelementptr inbounds %struct.connListener, ptr %13, i32 0, i32 2
-  %14 = load ptr, ptr %bindaddr, align 8
-  %15 = load i32, ptr %i, align 4
-  %idxprom7 = sext i32 %15 to i64
-  %arrayidx8 = getelementptr inbounds ptr, ptr %14, i64 %idxprom7
-  %16 = load ptr, ptr %arrayidx8, align 8
-  %call9 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %12, ptr noundef @.str.11, ptr noundef %16)
+  %13 = load ptr, ptr %info.addr, align 8
+  %14 = load ptr, ptr %listener, align 8
+  %bindaddr = getelementptr inbounds %struct.connListener, ptr %14, i32 0, i32 2
+  %15 = load ptr, ptr %bindaddr, align 8
+  %16 = load i32, ptr %i, align 4
+  %idxprom7 = sext i32 %16 to i64
+  %arrayidx8 = getelementptr inbounds ptr, ptr %15, i64 %idxprom7
+  %17 = load ptr, ptr %arrayidx8, align 8
+  %call9 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %13, ptr noundef @.str.11, ptr noundef %17)
   store ptr %call9, ptr %info.addr, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body6
-  %17 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %17, 1
+  %18 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %18, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond4, !llvm.loop !12
 
 for.end:                                          ; preds = %for.cond4
-  %18 = load ptr, ptr %listener, align 8
-  %port = getelementptr inbounds %struct.connListener, ptr %18, i32 0, i32 4
-  %19 = load i32, ptr %port, align 4
-  %tobool = icmp ne i32 %19, 0
+  %19 = load ptr, ptr %listener, align 8
+  %port = getelementptr inbounds %struct.connListener, ptr %19, i32 0, i32 4
+  %20 = load i32, ptr %port, align 4
+  %tobool = icmp ne i32 %20, 0
   br i1 %tobool, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %for.end
-  %20 = load ptr, ptr %info.addr, align 8
-  %21 = load ptr, ptr %listener, align 8
-  %port11 = getelementptr inbounds %struct.connListener, ptr %21, i32 0, i32 4
-  %22 = load i32, ptr %port11, align 4
-  %call12 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %20, ptr noundef @.str.12, i32 noundef %22)
+  %21 = load ptr, ptr %info.addr, align 8
+  %22 = load ptr, ptr %listener, align 8
+  %port11 = getelementptr inbounds %struct.connListener, ptr %22, i32 0, i32 4
+  %23 = load i32, ptr %port11, align 4
+  %call12 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %21, ptr noundef @.str.12, i32 noundef %23)
   store ptr %call12, ptr %info.addr, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %for.end
-  %23 = load ptr, ptr %info.addr, align 8
-  %call14 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %23, ptr noundef @.str.13)
+  %24 = load ptr, ptr %info.addr, align 8
+  %call14 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %24, ptr noundef @.str.13)
   store ptr %call14, ptr %info.addr, align 8
   br label %for.inc15
 
 for.inc15:                                        ; preds = %if.end13, %if.then
-  %24 = load i32, ptr %j, align 4
-  %inc16 = add nsw i32 %24, 1
+  %25 = load i32, ptr %j, align 4
+  %inc16 = add nsw i32 %25, 1
   store i32 %inc16, ptr %j, align 4
   br label %for.cond, !llvm.loop !13
 
 for.end17:                                        ; preds = %for.cond
-  %25 = load ptr, ptr %info.addr, align 8
-  ret ptr %25
+  %26 = load ptr, ptr %info.addr, align 8
+  ret ptr %26
 }
 
 declare ptr @sdscatfmt(ptr noundef, ptr noundef, ...) #2

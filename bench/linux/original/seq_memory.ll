@@ -1030,30 +1030,31 @@ declare dso_local i64 @schedule_timeout_uninterruptible(i64 noundef) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @snd_seq_pool_new(i32 noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 88) #14
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %12, label %5
+  %2 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 88) #14
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %13, label %6
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 80
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
-  store volatile i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
-  store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 56
-  tail call void @__init_waitqueue_head(ptr noundef %9, ptr noundef nonnull @.str, ptr noundef nonnull @snd_seq_pool_new.__key) #11
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 36
-  store i32 0, ptr %11, align 4
-  br label %12
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
+  store volatile i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 56
+  tail call void @__init_waitqueue_head(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef nonnull @snd_seq_pool_new.__key) #11
+  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 %0, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 36
+  store i32 0, ptr %12, align 4
+  br label %13
 
-12:                                               ; preds = %5, %1
-  %13 = phi ptr [ %3, %5 ], [ null, %1 ]
-  ret ptr %13
+13:                                               ; preds = %6, %1
+  %14 = phi ptr [ %4, %6 ], [ null, %1 ]
+  ret ptr %14
 }
 
 ; Function Attrs: null_pointer_is_valid

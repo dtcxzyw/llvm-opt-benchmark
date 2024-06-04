@@ -707,17 +707,17 @@ define internal ptr @disasm_x86(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   store i32 0, ptr %34, align 4
   br label %35
 
-35:                                               ; preds = %2155, %2135, %1970, %1942, %1858, %1747, %1728, %1587, %1578, %1136, %1127, %823, %714, %652, %226, %130, %3
+35:                                               ; preds = %2164, %2144, %1978, %1950, %1866, %1755, %1736, %1594, %1585, %1140, %1131, %827, %718, %656, %227, %131, %3
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds %struct.DISASMED, ptr %36, i32 0, i32 2
   %38 = load i32, ptr %37, align 4
-  switch i32 %38, label %2154 [
+  switch i32 %38, label %2163 [
     i32 0, label %39
-    i32 3, label %131
-    i32 1, label %552
-    i32 2, label %1732
-    i32 6, label %2139
-    i32 4, label %2141
+    i32 3, label %132
+    i32 1, label %556
+    i32 2, label %1740
+    i32 6, label %2148
+    i32 4, label %2150
   ]
 
 39:                                               ; preds = %35
@@ -746,7 +746,7 @@ define internal ptr @disasm_x86(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %54 = load ptr, ptr %7, align 8
   %55 = getelementptr inbounds %struct.DISASMED, ptr %54, i32 0, i32 2
   store i32 6, ptr %55, align 4
-  br label %2140
+  br label %2149
 
 56:                                               ; preds = %43
   %57 = load i32, ptr %11, align 4
@@ -767,7 +767,7 @@ define internal ptr @disasm_x86(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %71 = getelementptr inbounds %struct.DISASMED, ptr %70, i32 0, i32 1
   %72 = load i16, ptr %71, align 2
   %73 = zext i16 %72 to i32
-  switch i32 %73, label %127 [
+  switch i32 %73, label %128 [
     i32 200, label %74
     i32 199, label %77
     i32 196, label %78
@@ -779,23 +779,23 @@ define internal ptr @disasm_x86(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %75 = load ptr, ptr %7, align 8
   %76 = getelementptr inbounds %struct.DISASMED, ptr %75, i32 0, i32 2
   store i32 3, ptr %76, align 4
-  br label %130
+  br label %131
 
 77:                                               ; preds = %56
   store i32 1, ptr %11, align 4
-  br label %130
+  br label %131
 
 78:                                               ; preds = %56
   %79 = load ptr, ptr %7, align 8
   %80 = getelementptr inbounds %struct.DISASMED, ptr %79, i32 0, i32 3
   store i32 1, ptr %80, align 8
-  br label %130
+  br label %131
 
 81:                                               ; preds = %56
   %82 = load ptr, ptr %7, align 8
   %83 = getelementptr inbounds %struct.DISASMED, ptr %82, i32 0, i32 4
   store i32 1, ptr %83, align 4
-  br label %130
+  br label %131
 
 84:                                               ; preds = %56
   %85 = load i32, ptr %11, align 4
@@ -844,2623 +844,2622 @@ define internal ptr @disasm_x86(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %119 = getelementptr inbounds %struct.OPCODES, ptr %118, i32 0, i32 0
   %120 = load i32, ptr %119, align 4
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds [14 x i8], ptr getelementptr inbounds ([4 x [14 x i8]], ptr @regmap, i64 0, i64 2), i64 0, i64 %121
-  %123 = load i8, ptr %122, align 1
-  %124 = zext i8 %123 to i32
-  %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds %struct.DISASMED, ptr %125, i32 0, i32 5
-  store i32 %124, ptr %126, align 8
-  br label %130
+  %122 = getelementptr inbounds [4 x [14 x i8]], ptr @regmap, i64 0, i64 2
+  %123 = getelementptr inbounds [14 x i8], ptr %122, i64 0, i64 %121
+  %124 = load i8, ptr %123, align 1
+  %125 = zext i8 %124 to i32
+  %126 = load ptr, ptr %7, align 8
+  %127 = getelementptr inbounds %struct.DISASMED, ptr %126, i32 0, i32 5
+  store i32 %125, ptr %127, align 8
+  br label %131
 
-127:                                              ; preds = %56
-  %128 = load ptr, ptr %7, align 8
-  %129 = getelementptr inbounds %struct.DISASMED, ptr %128, i32 0, i32 2
-  store i32 1, ptr %129, align 4
-  br label %130
+128:                                              ; preds = %56
+  %129 = load ptr, ptr %7, align 8
+  %130 = getelementptr inbounds %struct.DISASMED, ptr %129, i32 0, i32 2
+  store i32 1, ptr %130, align 4
+  br label %131
 
-130:                                              ; preds = %127, %110, %81, %78, %77, %74
+131:                                              ; preds = %128, %110, %81, %78, %77, %74
   br label %35
 
-131:                                              ; preds = %35
-  %132 = load ptr, ptr %7, align 8
-  %133 = getelementptr inbounds %struct.DISASMED, ptr %132, i32 0, i32 0
-  %134 = load i16, ptr %133, align 8
-  %135 = zext i16 %134 to i32
-  %136 = sub nsw i32 %135, 216
-  store i32 %136, ptr %11, align 4
-  %137 = load i32, ptr %11, align 4
-  %138 = icmp ult i32 %137, 8
-  br i1 %138, label %139, label %140
+132:                                              ; preds = %35
+  %133 = load ptr, ptr %7, align 8
+  %134 = getelementptr inbounds %struct.DISASMED, ptr %133, i32 0, i32 0
+  %135 = load i16, ptr %134, align 8
+  %136 = zext i16 %135 to i32
+  %137 = sub nsw i32 %136, 216
+  store i32 %137, ptr %11, align 4
+  %138 = load i32, ptr %11, align 4
+  %139 = icmp ult i32 %138, 8
+  br i1 %139, label %140, label %141
 
-139:                                              ; preds = %131
-  br label %141
+140:                                              ; preds = %132
+  br label %142
 
-140:                                              ; preds = %131
+141:                                              ; preds = %132
   call void @__assert_fail(ptr noundef @.str.3, ptr noundef @.str.2, i32 noundef 1311, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-141:                                              ; preds = %139
-  %142 = load i32, ptr %6, align 4
-  %143 = add i32 %142, -1
-  store i32 %143, ptr %6, align 4
-  %144 = icmp ne i32 %142, 0
-  br i1 %144, label %145, label %150
+142:                                              ; preds = %140
+  %143 = load i32, ptr %6, align 4
+  %144 = add i32 %143, -1
+  store i32 %144, ptr %6, align 4
+  %145 = icmp ne i32 %143, 0
+  br i1 %145, label %146, label %151
 
-145:                                              ; preds = %141
-  %146 = load ptr, ptr %5, align 8
-  %147 = load i8, ptr %146, align 1
-  store i8 %147, ptr %13, align 1
-  %148 = load ptr, ptr %5, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i32 1
-  store ptr %149, ptr %5, align 8
-  br label %155
+146:                                              ; preds = %142
+  %147 = load ptr, ptr %5, align 8
+  %148 = load i8, ptr %147, align 1
+  store i8 %148, ptr %13, align 1
+  %149 = load ptr, ptr %5, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i32 1
+  store ptr %150, ptr %5, align 8
+  br label %156
 
-150:                                              ; preds = %141
-  %151 = load ptr, ptr %7, align 8
-  %152 = getelementptr inbounds %struct.DISASMED, ptr %151, i32 0, i32 0
-  store i16 0, ptr %152, align 8
-  %153 = load ptr, ptr %7, align 8
-  %154 = getelementptr inbounds %struct.DISASMED, ptr %153, i32 0, i32 2
-  store i32 6, ptr %154, align 4
-  br label %2140
+151:                                              ; preds = %142
+  %152 = load ptr, ptr %7, align 8
+  %153 = getelementptr inbounds %struct.DISASMED, ptr %152, i32 0, i32 0
+  store i16 0, ptr %153, align 8
+  %154 = load ptr, ptr %7, align 8
+  %155 = getelementptr inbounds %struct.DISASMED, ptr %154, i32 0, i32 2
+  store i32 6, ptr %155, align 4
+  br label %2149
 
-155:                                              ; preds = %145
-  %156 = load i8, ptr %13, align 1
-  %157 = zext i8 %156 to i32
-  %158 = icmp sge i32 %157, 192
-  br i1 %158, label %159, label %229
+156:                                              ; preds = %146
+  %157 = load i8, ptr %13, align 1
+  %158 = zext i8 %157 to i32
+  %159 = icmp sge i32 %158, 192
+  br i1 %159, label %160, label %230
 
-159:                                              ; preds = %155
-  %160 = load i8, ptr %13, align 1
-  %161 = zext i8 %160 to i32
-  %162 = and i32 %161, 63
-  %163 = trunc i32 %162 to i8
-  store i8 %163, ptr %13, align 1
-  %164 = load i32, ptr %11, align 4
-  %165 = zext i32 %164 to i64
-  %166 = getelementptr inbounds [8 x [64 x %struct.anon.0]], ptr @x87_st, i64 0, i64 %165
-  %167 = load i8, ptr %13, align 1
-  %168 = zext i8 %167 to i64
-  %169 = getelementptr inbounds [64 x %struct.anon.0], ptr %166, i64 0, i64 %168
-  %170 = getelementptr inbounds %struct.anon.0, ptr %169, i32 0, i32 0
-  %171 = load i32, ptr %170, align 8
-  %172 = trunc i32 %171 to i16
-  %173 = load ptr, ptr %7, align 8
-  %174 = getelementptr inbounds %struct.DISASMED, ptr %173, i32 0, i32 1
-  store i16 %172, ptr %174, align 2
-  %175 = zext i16 %172 to i32
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %177, label %182
+160:                                              ; preds = %156
+  %161 = load i8, ptr %13, align 1
+  %162 = zext i8 %161 to i32
+  %163 = and i32 %162, 63
+  %164 = trunc i32 %163 to i8
+  store i8 %164, ptr %13, align 1
+  %165 = load i32, ptr %11, align 4
+  %166 = zext i32 %165 to i64
+  %167 = getelementptr inbounds [8 x [64 x %struct.anon.0]], ptr @x87_st, i64 0, i64 %166
+  %168 = load i8, ptr %13, align 1
+  %169 = zext i8 %168 to i64
+  %170 = getelementptr inbounds [64 x %struct.anon.0], ptr %167, i64 0, i64 %169
+  %171 = getelementptr inbounds %struct.anon.0, ptr %170, i32 0, i32 0
+  %172 = load i32, ptr %171, align 8
+  %173 = trunc i32 %172 to i16
+  %174 = load ptr, ptr %7, align 8
+  %175 = getelementptr inbounds %struct.DISASMED, ptr %174, i32 0, i32 1
+  store i16 %173, ptr %175, align 2
+  %176 = zext i16 %173 to i32
+  %177 = icmp eq i32 %176, 0
+  br i1 %177, label %178, label %183
 
-177:                                              ; preds = %159
-  %178 = load ptr, ptr %7, align 8
-  %179 = getelementptr inbounds %struct.DISASMED, ptr %178, i32 0, i32 0
-  store i16 0, ptr %179, align 8
-  %180 = load ptr, ptr %7, align 8
-  %181 = getelementptr inbounds %struct.DISASMED, ptr %180, i32 0, i32 2
-  store i32 6, ptr %181, align 4
-  br label %2140
+178:                                              ; preds = %160
+  %179 = load ptr, ptr %7, align 8
+  %180 = getelementptr inbounds %struct.DISASMED, ptr %179, i32 0, i32 0
+  store i16 0, ptr %180, align 8
+  %181 = load ptr, ptr %7, align 8
+  %182 = getelementptr inbounds %struct.DISASMED, ptr %181, i32 0, i32 2
+  store i32 6, ptr %182, align 4
+  br label %2149
 
-182:                                              ; preds = %159
-  %183 = load i32, ptr %11, align 4
-  %184 = zext i32 %183 to i64
-  %185 = getelementptr inbounds [8 x [64 x %struct.anon.0]], ptr @x87_st, i64 0, i64 %184
-  %186 = load i8, ptr %13, align 1
-  %187 = zext i8 %186 to i64
-  %188 = getelementptr inbounds [64 x %struct.anon.0], ptr %185, i64 0, i64 %187
-  %189 = getelementptr inbounds %struct.anon.0, ptr %188, i32 0, i32 1
-  %190 = load i32, ptr %189, align 4
-  switch i32 %190, label %225 [
-    i32 2, label %191
-    i32 3, label %192
-    i32 1, label %207
-    i32 0, label %224
+183:                                              ; preds = %160
+  %184 = load i32, ptr %11, align 4
+  %185 = zext i32 %184 to i64
+  %186 = getelementptr inbounds [8 x [64 x %struct.anon.0]], ptr @x87_st, i64 0, i64 %185
+  %187 = load i8, ptr %13, align 1
+  %188 = zext i8 %187 to i64
+  %189 = getelementptr inbounds [64 x %struct.anon.0], ptr %186, i64 0, i64 %188
+  %190 = getelementptr inbounds %struct.anon.0, ptr %189, i32 0, i32 1
+  %191 = load i32, ptr %190, align 4
+  switch i32 %191, label %226 [
+    i32 2, label %192
+    i32 3, label %193
+    i32 1, label %208
+    i32 0, label %225
   ]
 
-191:                                              ; preds = %182
+192:                                              ; preds = %183
   store i32 1, ptr %8, align 4
-  br label %192
+  br label %193
 
-192:                                              ; preds = %191, %182
-  %193 = load ptr, ptr %7, align 8
-  %194 = getelementptr inbounds %struct.DISASMED, ptr %193, i32 0, i32 7
-  %195 = load i32, ptr %8, align 4
-  %196 = xor i32 %195, 1
-  %197 = zext i32 %196 to i64
-  %198 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %194, i64 0, i64 %197
-  %199 = getelementptr inbounds %struct.DIS_ARGS, ptr %198, i32 0, i32 0
-  store i32 3, ptr %199, align 8
-  %200 = load ptr, ptr %7, align 8
-  %201 = getelementptr inbounds %struct.DISASMED, ptr %200, i32 0, i32 7
-  %202 = load i32, ptr %8, align 4
-  %203 = xor i32 %202, 1
-  %204 = zext i32 %203 to i64
-  %205 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %201, i64 0, i64 %204
-  %206 = getelementptr inbounds %struct.DIS_ARGS, ptr %205, i32 0, i32 2
-  store i32 46, ptr %206, align 8
-  br label %207
+193:                                              ; preds = %192, %183
+  %194 = load ptr, ptr %7, align 8
+  %195 = getelementptr inbounds %struct.DISASMED, ptr %194, i32 0, i32 7
+  %196 = load i32, ptr %8, align 4
+  %197 = xor i32 %196, 1
+  %198 = zext i32 %197 to i64
+  %199 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %195, i64 0, i64 %198
+  %200 = getelementptr inbounds %struct.DIS_ARGS, ptr %199, i32 0, i32 0
+  store i32 3, ptr %200, align 8
+  %201 = load ptr, ptr %7, align 8
+  %202 = getelementptr inbounds %struct.DISASMED, ptr %201, i32 0, i32 7
+  %203 = load i32, ptr %8, align 4
+  %204 = xor i32 %203, 1
+  %205 = zext i32 %204 to i64
+  %206 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %202, i64 0, i64 %205
+  %207 = getelementptr inbounds %struct.DIS_ARGS, ptr %206, i32 0, i32 2
+  store i32 46, ptr %207, align 8
+  br label %208
 
-207:                                              ; preds = %192, %182
-  %208 = load ptr, ptr %7, align 8
-  %209 = getelementptr inbounds %struct.DISASMED, ptr %208, i32 0, i32 7
-  %210 = load i32, ptr %8, align 4
-  %211 = zext i32 %210 to i64
-  %212 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %209, i64 0, i64 %211
-  %213 = getelementptr inbounds %struct.DIS_ARGS, ptr %212, i32 0, i32 0
-  store i32 3, ptr %213, align 8
-  %214 = load i8, ptr %13, align 1
-  %215 = zext i8 %214 to i32
-  %216 = and i32 %215, 7
-  %217 = add nsw i32 46, %216
-  %218 = load ptr, ptr %7, align 8
-  %219 = getelementptr inbounds %struct.DISASMED, ptr %218, i32 0, i32 7
-  %220 = load i32, ptr %8, align 4
-  %221 = zext i32 %220 to i64
-  %222 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %219, i64 0, i64 %221
-  %223 = getelementptr inbounds %struct.DIS_ARGS, ptr %222, i32 0, i32 2
-  store i32 %217, ptr %223, align 8
-  br label %226
+208:                                              ; preds = %193, %183
+  %209 = load ptr, ptr %7, align 8
+  %210 = getelementptr inbounds %struct.DISASMED, ptr %209, i32 0, i32 7
+  %211 = load i32, ptr %8, align 4
+  %212 = zext i32 %211 to i64
+  %213 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %210, i64 0, i64 %212
+  %214 = getelementptr inbounds %struct.DIS_ARGS, ptr %213, i32 0, i32 0
+  store i32 3, ptr %214, align 8
+  %215 = load i8, ptr %13, align 1
+  %216 = zext i8 %215 to i32
+  %217 = and i32 %216, 7
+  %218 = add nsw i32 46, %217
+  %219 = load ptr, ptr %7, align 8
+  %220 = getelementptr inbounds %struct.DISASMED, ptr %219, i32 0, i32 7
+  %221 = load i32, ptr %8, align 4
+  %222 = zext i32 %221 to i64
+  %223 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %220, i64 0, i64 %222
+  %224 = getelementptr inbounds %struct.DIS_ARGS, ptr %223, i32 0, i32 2
+  store i32 %218, ptr %224, align 8
+  br label %227
 
-224:                                              ; preds = %182
-  br label %226
+225:                                              ; preds = %183
+  br label %227
 
-225:                                              ; preds = %182
+226:                                              ; preds = %183
   call void @__assert_fail(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 1331, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-226:                                              ; preds = %224, %207
-  %227 = load ptr, ptr %7, align 8
-  %228 = getelementptr inbounds %struct.DISASMED, ptr %227, i32 0, i32 2
-  store i32 4, ptr %228, align 4
+227:                                              ; preds = %225, %208
+  %228 = load ptr, ptr %7, align 8
+  %229 = getelementptr inbounds %struct.DISASMED, ptr %228, i32 0, i32 2
+  store i32 4, ptr %229, align 4
   br label %35
 
-229:                                              ; preds = %155
-  %230 = load i8, ptr %13, align 1
-  %231 = zext i8 %230 to i32
-  %232 = ashr i32 %231, 6
-  %233 = trunc i32 %232 to i8
-  store i8 %233, ptr %12, align 1
-  %234 = load i8, ptr %13, align 1
-  %235 = zext i8 %234 to i32
-  %236 = ashr i32 %235, 3
-  %237 = and i32 %236, 7
-  %238 = trunc i32 %237 to i8
-  store i8 %238, ptr %14, align 1
-  %239 = load i8, ptr %13, align 1
-  %240 = zext i8 %239 to i32
-  %241 = and i32 %240, 7
-  %242 = trunc i32 %241 to i8
-  store i8 %242, ptr %13, align 1
-  %243 = load i32, ptr %11, align 4
-  %244 = zext i32 %243 to i64
-  %245 = getelementptr inbounds [8 x [8 x %struct.anon.1]], ptr @x87_mrm, i64 0, i64 %244
-  %246 = load i8, ptr %14, align 1
-  %247 = zext i8 %246 to i64
-  %248 = getelementptr inbounds [8 x %struct.anon.1], ptr %245, i64 0, i64 %247
-  %249 = getelementptr inbounds %struct.anon.1, ptr %248, i32 0, i32 0
-  %250 = load i32, ptr %249, align 8
-  %251 = trunc i32 %250 to i16
-  %252 = load ptr, ptr %7, align 8
-  %253 = getelementptr inbounds %struct.DISASMED, ptr %252, i32 0, i32 1
-  store i16 %251, ptr %253, align 2
-  %254 = zext i16 %251 to i32
-  %255 = icmp eq i32 %254, 0
-  br i1 %255, label %256, label %261
+230:                                              ; preds = %156
+  %231 = load i8, ptr %13, align 1
+  %232 = zext i8 %231 to i32
+  %233 = ashr i32 %232, 6
+  %234 = trunc i32 %233 to i8
+  store i8 %234, ptr %12, align 1
+  %235 = load i8, ptr %13, align 1
+  %236 = zext i8 %235 to i32
+  %237 = ashr i32 %236, 3
+  %238 = and i32 %237, 7
+  %239 = trunc i32 %238 to i8
+  store i8 %239, ptr %14, align 1
+  %240 = load i8, ptr %13, align 1
+  %241 = zext i8 %240 to i32
+  %242 = and i32 %241, 7
+  %243 = trunc i32 %242 to i8
+  store i8 %243, ptr %13, align 1
+  %244 = load i32, ptr %11, align 4
+  %245 = zext i32 %244 to i64
+  %246 = getelementptr inbounds [8 x [8 x %struct.anon.1]], ptr @x87_mrm, i64 0, i64 %245
+  %247 = load i8, ptr %14, align 1
+  %248 = zext i8 %247 to i64
+  %249 = getelementptr inbounds [8 x %struct.anon.1], ptr %246, i64 0, i64 %248
+  %250 = getelementptr inbounds %struct.anon.1, ptr %249, i32 0, i32 0
+  %251 = load i32, ptr %250, align 8
+  %252 = trunc i32 %251 to i16
+  %253 = load ptr, ptr %7, align 8
+  %254 = getelementptr inbounds %struct.DISASMED, ptr %253, i32 0, i32 1
+  store i16 %252, ptr %254, align 2
+  %255 = zext i16 %252 to i32
+  %256 = icmp eq i32 %255, 0
+  br i1 %256, label %257, label %262
 
-256:                                              ; preds = %229
-  %257 = load ptr, ptr %7, align 8
-  %258 = getelementptr inbounds %struct.DISASMED, ptr %257, i32 0, i32 0
-  store i16 0, ptr %258, align 8
-  %259 = load ptr, ptr %7, align 8
-  %260 = getelementptr inbounds %struct.DISASMED, ptr %259, i32 0, i32 2
-  store i32 6, ptr %260, align 4
-  br label %2140
+257:                                              ; preds = %230
+  %258 = load ptr, ptr %7, align 8
+  %259 = getelementptr inbounds %struct.DISASMED, ptr %258, i32 0, i32 0
+  store i16 0, ptr %259, align 8
+  %260 = load ptr, ptr %7, align 8
+  %261 = getelementptr inbounds %struct.DISASMED, ptr %260, i32 0, i32 2
+  store i32 6, ptr %261, align 4
+  br label %2149
 
-261:                                              ; preds = %229
-  %262 = load i32, ptr %11, align 4
-  %263 = zext i32 %262 to i64
-  %264 = getelementptr inbounds [8 x [8 x %struct.anon.1]], ptr @x87_mrm, i64 0, i64 %263
-  %265 = load i8, ptr %14, align 1
-  %266 = zext i8 %265 to i64
-  %267 = getelementptr inbounds [8 x %struct.anon.1], ptr %264, i64 0, i64 %266
-  %268 = getelementptr inbounds %struct.anon.1, ptr %267, i32 0, i32 1
-  %269 = load i32, ptr %268, align 4
-  %270 = load ptr, ptr %7, align 8
-  %271 = getelementptr inbounds %struct.DISASMED, ptr %270, i32 0, i32 7
-  %272 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %271, i64 0, i64 0
-  %273 = getelementptr inbounds %struct.DIS_ARGS, ptr %272, i32 0, i32 1
-  store i32 %269, ptr %273, align 4
-  %274 = load ptr, ptr %7, align 8
-  %275 = getelementptr inbounds %struct.DISASMED, ptr %274, i32 0, i32 7
-  %276 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %275, i64 0, i64 0
-  %277 = getelementptr inbounds %struct.DIS_ARGS, ptr %276, i32 0, i32 0
-  store i32 4, ptr %277, align 8
-  %278 = load ptr, ptr %7, align 8
-  %279 = getelementptr inbounds %struct.DISASMED, ptr %278, i32 0, i32 4
-  %280 = load i32, ptr %279, align 4
-  %281 = icmp ne i32 %280, 0
-  br i1 %281, label %472, label %282
+262:                                              ; preds = %230
+  %263 = load i32, ptr %11, align 4
+  %264 = zext i32 %263 to i64
+  %265 = getelementptr inbounds [8 x [8 x %struct.anon.1]], ptr @x87_mrm, i64 0, i64 %264
+  %266 = load i8, ptr %14, align 1
+  %267 = zext i8 %266 to i64
+  %268 = getelementptr inbounds [8 x %struct.anon.1], ptr %265, i64 0, i64 %267
+  %269 = getelementptr inbounds %struct.anon.1, ptr %268, i32 0, i32 1
+  %270 = load i32, ptr %269, align 4
+  %271 = load ptr, ptr %7, align 8
+  %272 = getelementptr inbounds %struct.DISASMED, ptr %271, i32 0, i32 7
+  %273 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %272, i64 0, i64 0
+  %274 = getelementptr inbounds %struct.DIS_ARGS, ptr %273, i32 0, i32 1
+  store i32 %270, ptr %274, align 4
+  %275 = load ptr, ptr %7, align 8
+  %276 = getelementptr inbounds %struct.DISASMED, ptr %275, i32 0, i32 7
+  %277 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %276, i64 0, i64 0
+  %278 = getelementptr inbounds %struct.DIS_ARGS, ptr %277, i32 0, i32 0
+  store i32 4, ptr %278, align 8
+  %279 = load ptr, ptr %7, align 8
+  %280 = getelementptr inbounds %struct.DISASMED, ptr %279, i32 0, i32 4
+  %281 = load i32, ptr %280, align 4
+  %282 = icmp ne i32 %281, 0
+  br i1 %282, label %476, label %283
 
-282:                                              ; preds = %261
-  %283 = load i8, ptr %13, align 1
-  %284 = zext i8 %283 to i32
-  %285 = icmp eq i32 %284, 4
-  br i1 %285, label %286, label %388
+283:                                              ; preds = %262
+  %284 = load i8, ptr %13, align 1
+  %285 = zext i8 %284 to i32
+  %286 = icmp eq i32 %285, 4
+  br i1 %286, label %287, label %391
 
-286:                                              ; preds = %282
-  %287 = load i32, ptr %6, align 4
-  %288 = add i32 %287, -1
-  store i32 %288, ptr %6, align 4
-  %289 = icmp ne i32 %287, 0
-  br i1 %289, label %290, label %295
+287:                                              ; preds = %283
+  %288 = load i32, ptr %6, align 4
+  %289 = add i32 %288, -1
+  store i32 %289, ptr %6, align 4
+  %290 = icmp ne i32 %288, 0
+  br i1 %290, label %291, label %296
 
-290:                                              ; preds = %286
-  %291 = load ptr, ptr %5, align 8
-  %292 = load i8, ptr %291, align 1
-  store i8 %292, ptr %16, align 1
-  %293 = load ptr, ptr %5, align 8
-  %294 = getelementptr inbounds i8, ptr %293, i32 1
-  store ptr %294, ptr %5, align 8
-  br label %300
+291:                                              ; preds = %287
+  %292 = load ptr, ptr %5, align 8
+  %293 = load i8, ptr %292, align 1
+  store i8 %293, ptr %16, align 1
+  %294 = load ptr, ptr %5, align 8
+  %295 = getelementptr inbounds i8, ptr %294, i32 1
+  store ptr %295, ptr %5, align 8
+  br label %301
 
-295:                                              ; preds = %286
-  %296 = load ptr, ptr %7, align 8
-  %297 = getelementptr inbounds %struct.DISASMED, ptr %296, i32 0, i32 0
-  store i16 0, ptr %297, align 8
-  %298 = load ptr, ptr %7, align 8
-  %299 = getelementptr inbounds %struct.DISASMED, ptr %298, i32 0, i32 2
-  store i32 6, ptr %299, align 4
-  br label %2140
+296:                                              ; preds = %287
+  %297 = load ptr, ptr %7, align 8
+  %298 = getelementptr inbounds %struct.DISASMED, ptr %297, i32 0, i32 0
+  store i16 0, ptr %298, align 8
+  %299 = load ptr, ptr %7, align 8
+  %300 = getelementptr inbounds %struct.DISASMED, ptr %299, i32 0, i32 2
+  store i32 6, ptr %300, align 4
+  br label %2149
 
-300:                                              ; preds = %290
-  %301 = load i8, ptr %16, align 1
-  %302 = zext i8 %301 to i32
-  %303 = ashr i32 %302, 6
-  %304 = trunc i32 %303 to i8
-  store i8 %304, ptr %15, align 1
-  %305 = load i8, ptr %16, align 1
-  %306 = zext i8 %305 to i32
-  %307 = ashr i32 %306, 3
-  %308 = and i32 %307, 7
-  %309 = trunc i32 %308 to i8
-  store i8 %309, ptr %17, align 1
-  %310 = load i8, ptr %16, align 1
-  %311 = zext i8 %310 to i32
-  %312 = and i32 %311, 7
-  %313 = trunc i32 %312 to i8
-  store i8 %313, ptr %16, align 1
-  %314 = load i8, ptr %15, align 1
-  %315 = zext i8 %314 to i32
-  %316 = shl i32 1, %315
-  %317 = trunc i32 %316 to i8
-  %318 = load ptr, ptr %7, align 8
-  %319 = getelementptr inbounds %struct.DISASMED, ptr %318, i32 0, i32 7
-  %320 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %319, i64 0, i64 0
-  %321 = getelementptr inbounds %struct.DIS_ARGS, ptr %320, i32 0, i32 3
-  %322 = getelementptr inbounds %struct.anon, ptr %321, i32 0, i32 2
-  store i8 %317, ptr %322, align 8
-  %323 = load i8, ptr %16, align 1
-  %324 = zext i8 %323 to i64
-  %325 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds ([3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 2), i64 0, i64 %324
-  %326 = load i8, ptr %325, align 1
-  %327 = zext i8 %326 to i32
-  %328 = load ptr, ptr %7, align 8
-  %329 = getelementptr inbounds %struct.DISASMED, ptr %328, i32 0, i32 7
-  %330 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %329, i64 0, i64 0
-  %331 = getelementptr inbounds %struct.DIS_ARGS, ptr %330, i32 0, i32 3
-  %332 = getelementptr inbounds %struct.anon, ptr %331, i32 0, i32 1
-  store i32 %327, ptr %332, align 4
-  %333 = icmp eq i32 %327, 5
-  br i1 %333, label %334, label %344
+301:                                              ; preds = %291
+  %302 = load i8, ptr %16, align 1
+  %303 = zext i8 %302 to i32
+  %304 = ashr i32 %303, 6
+  %305 = trunc i32 %304 to i8
+  store i8 %305, ptr %15, align 1
+  %306 = load i8, ptr %16, align 1
+  %307 = zext i8 %306 to i32
+  %308 = ashr i32 %307, 3
+  %309 = and i32 %308, 7
+  %310 = trunc i32 %309 to i8
+  store i8 %310, ptr %17, align 1
+  %311 = load i8, ptr %16, align 1
+  %312 = zext i8 %311 to i32
+  %313 = and i32 %312, 7
+  %314 = trunc i32 %313 to i8
+  store i8 %314, ptr %16, align 1
+  %315 = load i8, ptr %15, align 1
+  %316 = zext i8 %315 to i32
+  %317 = shl i32 1, %316
+  %318 = trunc i32 %317 to i8
+  %319 = load ptr, ptr %7, align 8
+  %320 = getelementptr inbounds %struct.DISASMED, ptr %319, i32 0, i32 7
+  %321 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %320, i64 0, i64 0
+  %322 = getelementptr inbounds %struct.DIS_ARGS, ptr %321, i32 0, i32 3
+  %323 = getelementptr inbounds %struct.anon, ptr %322, i32 0, i32 2
+  store i8 %318, ptr %323, align 8
+  %324 = load i8, ptr %16, align 1
+  %325 = zext i8 %324 to i64
+  %326 = getelementptr inbounds [3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 2
+  %327 = getelementptr inbounds [8 x i8], ptr %326, i64 0, i64 %325
+  %328 = load i8, ptr %327, align 1
+  %329 = zext i8 %328 to i32
+  %330 = load ptr, ptr %7, align 8
+  %331 = getelementptr inbounds %struct.DISASMED, ptr %330, i32 0, i32 7
+  %332 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %331, i64 0, i64 0
+  %333 = getelementptr inbounds %struct.DIS_ARGS, ptr %332, i32 0, i32 3
+  %334 = getelementptr inbounds %struct.anon, ptr %333, i32 0, i32 1
+  store i32 %329, ptr %334, align 4
+  %335 = icmp eq i32 %329, 5
+  br i1 %335, label %336, label %346
 
-334:                                              ; preds = %300
-  %335 = load i8, ptr %12, align 1
-  %336 = zext i8 %335 to i32
-  %337 = icmp eq i32 %336, 0
-  br i1 %337, label %338, label %344
+336:                                              ; preds = %301
+  %337 = load i8, ptr %12, align 1
+  %338 = zext i8 %337 to i32
+  %339 = icmp eq i32 %338, 0
+  br i1 %339, label %340, label %346
 
-338:                                              ; preds = %334
-  %339 = load ptr, ptr %7, align 8
-  %340 = getelementptr inbounds %struct.DISASMED, ptr %339, i32 0, i32 7
-  %341 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %340, i64 0, i64 0
-  %342 = getelementptr inbounds %struct.DIS_ARGS, ptr %341, i32 0, i32 3
-  %343 = getelementptr inbounds %struct.anon, ptr %342, i32 0, i32 1
-  store i32 54, ptr %343, align 4
+340:                                              ; preds = %336
+  %341 = load ptr, ptr %7, align 8
+  %342 = getelementptr inbounds %struct.DISASMED, ptr %341, i32 0, i32 7
+  %343 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %342, i64 0, i64 0
+  %344 = getelementptr inbounds %struct.DIS_ARGS, ptr %343, i32 0, i32 3
+  %345 = getelementptr inbounds %struct.anon, ptr %344, i32 0, i32 1
+  store i32 54, ptr %345, align 4
   store i8 2, ptr %12, align 1
-  br label %344
+  br label %346
 
-344:                                              ; preds = %338, %334, %300
-  %345 = load i8, ptr %17, align 1
-  %346 = zext i8 %345 to i64
-  %347 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds ([3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 2), i64 0, i64 %346
-  %348 = load i8, ptr %347, align 1
-  %349 = zext i8 %348 to i32
-  %350 = load ptr, ptr %7, align 8
-  %351 = getelementptr inbounds %struct.DISASMED, ptr %350, i32 0, i32 7
-  %352 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %351, i64 0, i64 0
-  %353 = getelementptr inbounds %struct.DIS_ARGS, ptr %352, i32 0, i32 3
-  %354 = getelementptr inbounds %struct.anon, ptr %353, i32 0, i32 0
-  store i32 %349, ptr %354, align 8
-  %355 = icmp eq i32 %349, 4
-  br i1 %355, label %356, label %387
+346:                                              ; preds = %340, %336, %301
+  %347 = load i8, ptr %17, align 1
+  %348 = zext i8 %347 to i64
+  %349 = getelementptr inbounds [3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 2
+  %350 = getelementptr inbounds [8 x i8], ptr %349, i64 0, i64 %348
+  %351 = load i8, ptr %350, align 1
+  %352 = zext i8 %351 to i32
+  %353 = load ptr, ptr %7, align 8
+  %354 = getelementptr inbounds %struct.DISASMED, ptr %353, i32 0, i32 7
+  %355 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %354, i64 0, i64 0
+  %356 = getelementptr inbounds %struct.DIS_ARGS, ptr %355, i32 0, i32 3
+  %357 = getelementptr inbounds %struct.anon, ptr %356, i32 0, i32 0
+  store i32 %352, ptr %357, align 8
+  %358 = icmp eq i32 %352, 4
+  br i1 %358, label %359, label %390
 
-356:                                              ; preds = %344
-  %357 = load ptr, ptr %7, align 8
-  %358 = getelementptr inbounds %struct.DISASMED, ptr %357, i32 0, i32 7
-  %359 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %358, i64 0, i64 0
-  %360 = getelementptr inbounds %struct.DIS_ARGS, ptr %359, i32 0, i32 3
-  %361 = getelementptr inbounds %struct.anon, ptr %360, i32 0, i32 1
-  %362 = load i32, ptr %361, align 4
-  %363 = load ptr, ptr %7, align 8
-  %364 = getelementptr inbounds %struct.DISASMED, ptr %363, i32 0, i32 7
-  %365 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %364, i64 0, i64 0
-  %366 = getelementptr inbounds %struct.DIS_ARGS, ptr %365, i32 0, i32 3
-  %367 = getelementptr inbounds %struct.anon, ptr %366, i32 0, i32 0
-  store i32 %362, ptr %367, align 8
-  %368 = load ptr, ptr %7, align 8
-  %369 = getelementptr inbounds %struct.DISASMED, ptr %368, i32 0, i32 7
-  %370 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %369, i64 0, i64 0
-  %371 = getelementptr inbounds %struct.DIS_ARGS, ptr %370, i32 0, i32 3
-  %372 = getelementptr inbounds %struct.anon, ptr %371, i32 0, i32 1
-  %373 = load i32, ptr %372, align 4
-  %374 = icmp ne i32 %373, 54
-  %375 = zext i1 %374 to i32
-  %376 = trunc i32 %375 to i8
-  %377 = load ptr, ptr %7, align 8
-  %378 = getelementptr inbounds %struct.DISASMED, ptr %377, i32 0, i32 7
-  %379 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %378, i64 0, i64 0
-  %380 = getelementptr inbounds %struct.DIS_ARGS, ptr %379, i32 0, i32 3
-  %381 = getelementptr inbounds %struct.anon, ptr %380, i32 0, i32 2
-  store i8 %376, ptr %381, align 8
-  %382 = load ptr, ptr %7, align 8
-  %383 = getelementptr inbounds %struct.DISASMED, ptr %382, i32 0, i32 7
-  %384 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %383, i64 0, i64 0
-  %385 = getelementptr inbounds %struct.DIS_ARGS, ptr %384, i32 0, i32 3
-  %386 = getelementptr inbounds %struct.anon, ptr %385, i32 0, i32 1
-  store i32 54, ptr %386, align 4
-  br label %387
+359:                                              ; preds = %346
+  %360 = load ptr, ptr %7, align 8
+  %361 = getelementptr inbounds %struct.DISASMED, ptr %360, i32 0, i32 7
+  %362 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %361, i64 0, i64 0
+  %363 = getelementptr inbounds %struct.DIS_ARGS, ptr %362, i32 0, i32 3
+  %364 = getelementptr inbounds %struct.anon, ptr %363, i32 0, i32 1
+  %365 = load i32, ptr %364, align 4
+  %366 = load ptr, ptr %7, align 8
+  %367 = getelementptr inbounds %struct.DISASMED, ptr %366, i32 0, i32 7
+  %368 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %367, i64 0, i64 0
+  %369 = getelementptr inbounds %struct.DIS_ARGS, ptr %368, i32 0, i32 3
+  %370 = getelementptr inbounds %struct.anon, ptr %369, i32 0, i32 0
+  store i32 %365, ptr %370, align 8
+  %371 = load ptr, ptr %7, align 8
+  %372 = getelementptr inbounds %struct.DISASMED, ptr %371, i32 0, i32 7
+  %373 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %372, i64 0, i64 0
+  %374 = getelementptr inbounds %struct.DIS_ARGS, ptr %373, i32 0, i32 3
+  %375 = getelementptr inbounds %struct.anon, ptr %374, i32 0, i32 1
+  %376 = load i32, ptr %375, align 4
+  %377 = icmp ne i32 %376, 54
+  %378 = zext i1 %377 to i32
+  %379 = trunc i32 %378 to i8
+  %380 = load ptr, ptr %7, align 8
+  %381 = getelementptr inbounds %struct.DISASMED, ptr %380, i32 0, i32 7
+  %382 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %381, i64 0, i64 0
+  %383 = getelementptr inbounds %struct.DIS_ARGS, ptr %382, i32 0, i32 3
+  %384 = getelementptr inbounds %struct.anon, ptr %383, i32 0, i32 2
+  store i8 %379, ptr %384, align 8
+  %385 = load ptr, ptr %7, align 8
+  %386 = getelementptr inbounds %struct.DISASMED, ptr %385, i32 0, i32 7
+  %387 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %386, i64 0, i64 0
+  %388 = getelementptr inbounds %struct.DIS_ARGS, ptr %387, i32 0, i32 3
+  %389 = getelementptr inbounds %struct.anon, ptr %388, i32 0, i32 1
+  store i32 54, ptr %389, align 4
+  br label %390
 
-387:                                              ; preds = %356, %344
-  br label %424
+390:                                              ; preds = %359, %346
+  br label %428
 
-388:                                              ; preds = %282
-  %389 = load i8, ptr %12, align 1
-  %390 = zext i8 %389 to i32
-  %391 = icmp eq i32 %390, 0
-  br i1 %391, label %392, label %402
+391:                                              ; preds = %283
+  %392 = load i8, ptr %12, align 1
+  %393 = zext i8 %392 to i32
+  %394 = icmp eq i32 %393, 0
+  br i1 %394, label %395, label %405
 
-392:                                              ; preds = %388
-  %393 = load i8, ptr %13, align 1
-  %394 = zext i8 %393 to i32
-  %395 = icmp eq i32 %394, 5
-  br i1 %395, label %396, label %402
+395:                                              ; preds = %391
+  %396 = load i8, ptr %13, align 1
+  %397 = zext i8 %396 to i32
+  %398 = icmp eq i32 %397, 5
+  br i1 %398, label %399, label %405
 
-396:                                              ; preds = %392
+399:                                              ; preds = %395
   store i8 2, ptr %12, align 1
-  %397 = load ptr, ptr %7, align 8
-  %398 = getelementptr inbounds %struct.DISASMED, ptr %397, i32 0, i32 7
-  %399 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %398, i64 0, i64 0
-  %400 = getelementptr inbounds %struct.DIS_ARGS, ptr %399, i32 0, i32 3
-  %401 = getelementptr inbounds %struct.anon, ptr %400, i32 0, i32 0
-  store i32 54, ptr %401, align 8
-  br label %418
+  %400 = load ptr, ptr %7, align 8
+  %401 = getelementptr inbounds %struct.DISASMED, ptr %400, i32 0, i32 7
+  %402 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %401, i64 0, i64 0
+  %403 = getelementptr inbounds %struct.DIS_ARGS, ptr %402, i32 0, i32 3
+  %404 = getelementptr inbounds %struct.anon, ptr %403, i32 0, i32 0
+  store i32 54, ptr %404, align 8
+  br label %422
 
-402:                                              ; preds = %392, %388
-  %403 = load ptr, ptr %7, align 8
-  %404 = getelementptr inbounds %struct.DISASMED, ptr %403, i32 0, i32 7
-  %405 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %404, i64 0, i64 0
-  %406 = getelementptr inbounds %struct.DIS_ARGS, ptr %405, i32 0, i32 3
-  %407 = getelementptr inbounds %struct.anon, ptr %406, i32 0, i32 2
-  store i8 1, ptr %407, align 8
-  %408 = load i8, ptr %13, align 1
-  %409 = zext i8 %408 to i64
-  %410 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds ([3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 2), i64 0, i64 %409
-  %411 = load i8, ptr %410, align 1
-  %412 = zext i8 %411 to i32
-  %413 = load ptr, ptr %7, align 8
-  %414 = getelementptr inbounds %struct.DISASMED, ptr %413, i32 0, i32 7
-  %415 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %414, i64 0, i64 0
-  %416 = getelementptr inbounds %struct.DIS_ARGS, ptr %415, i32 0, i32 3
-  %417 = getelementptr inbounds %struct.anon, ptr %416, i32 0, i32 0
-  store i32 %412, ptr %417, align 8
-  br label %418
+405:                                              ; preds = %395, %391
+  %406 = load ptr, ptr %7, align 8
+  %407 = getelementptr inbounds %struct.DISASMED, ptr %406, i32 0, i32 7
+  %408 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %407, i64 0, i64 0
+  %409 = getelementptr inbounds %struct.DIS_ARGS, ptr %408, i32 0, i32 3
+  %410 = getelementptr inbounds %struct.anon, ptr %409, i32 0, i32 2
+  store i8 1, ptr %410, align 8
+  %411 = load i8, ptr %13, align 1
+  %412 = zext i8 %411 to i64
+  %413 = getelementptr inbounds [3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 2
+  %414 = getelementptr inbounds [8 x i8], ptr %413, i64 0, i64 %412
+  %415 = load i8, ptr %414, align 1
+  %416 = zext i8 %415 to i32
+  %417 = load ptr, ptr %7, align 8
+  %418 = getelementptr inbounds %struct.DISASMED, ptr %417, i32 0, i32 7
+  %419 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %418, i64 0, i64 0
+  %420 = getelementptr inbounds %struct.DIS_ARGS, ptr %419, i32 0, i32 3
+  %421 = getelementptr inbounds %struct.anon, ptr %420, i32 0, i32 0
+  store i32 %416, ptr %421, align 8
+  br label %422
 
-418:                                              ; preds = %402, %396
-  %419 = load ptr, ptr %7, align 8
-  %420 = getelementptr inbounds %struct.DISASMED, ptr %419, i32 0, i32 7
-  %421 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %420, i64 0, i64 0
-  %422 = getelementptr inbounds %struct.DIS_ARGS, ptr %421, i32 0, i32 3
-  %423 = getelementptr inbounds %struct.anon, ptr %422, i32 0, i32 1
-  store i32 54, ptr %423, align 4
-  br label %424
+422:                                              ; preds = %405, %399
+  %423 = load ptr, ptr %7, align 8
+  %424 = getelementptr inbounds %struct.DISASMED, ptr %423, i32 0, i32 7
+  %425 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %424, i64 0, i64 0
+  %426 = getelementptr inbounds %struct.DIS_ARGS, ptr %425, i32 0, i32 3
+  %427 = getelementptr inbounds %struct.anon, ptr %426, i32 0, i32 1
+  store i32 54, ptr %427, align 4
+  br label %428
 
-424:                                              ; preds = %418, %387
-  %425 = load i8, ptr %12, align 1
-  %426 = zext i8 %425 to i32
-  %427 = icmp eq i32 %426, 2
-  br i1 %427, label %428, label %435
-
-428:                                              ; preds = %424
+428:                                              ; preds = %422, %390
   %429 = load i8, ptr %12, align 1
   %430 = zext i8 %429 to i32
-  %431 = load i8, ptr %12, align 1
-  %432 = zext i8 %431 to i32
-  %433 = add nsw i32 %432, %430
-  %434 = trunc i32 %433 to i8
-  store i8 %434, ptr %12, align 1
-  br label %435
+  %431 = icmp eq i32 %430, 2
+  br i1 %431, label %432, label %439
 
-435:                                              ; preds = %428, %424
+432:                                              ; preds = %428
+  %433 = load i8, ptr %12, align 1
+  %434 = zext i8 %433 to i32
+  %435 = load i8, ptr %12, align 1
+  %436 = zext i8 %435 to i32
+  %437 = add nsw i32 %436, %434
+  %438 = trunc i32 %437 to i8
+  store i8 %438, ptr %12, align 1
+  br label %439
+
+439:                                              ; preds = %432, %428
   store i32 0, ptr %9, align 4
-  br label %436
+  br label %440
 
-436:                                              ; preds = %468, %435
-  %437 = load i32, ptr %9, align 4
-  %438 = load i8, ptr %12, align 1
-  %439 = zext i8 %438 to i32
-  %440 = icmp ult i32 %437, %439
-  br i1 %440, label %441, label %471
+440:                                              ; preds = %472, %439
+  %441 = load i32, ptr %9, align 4
+  %442 = load i8, ptr %12, align 1
+  %443 = zext i8 %442 to i32
+  %444 = icmp ult i32 %441, %443
+  br i1 %444, label %445, label %475
 
-441:                                              ; preds = %436
-  %442 = load i32, ptr %6, align 4
-  %443 = add i32 %442, -1
-  store i32 %443, ptr %6, align 4
-  %444 = icmp ne i32 %442, 0
-  br i1 %444, label %445, label %450
+445:                                              ; preds = %440
+  %446 = load i32, ptr %6, align 4
+  %447 = add i32 %446, -1
+  store i32 %447, ptr %6, align 4
+  %448 = icmp ne i32 %446, 0
+  br i1 %448, label %449, label %454
 
-445:                                              ; preds = %441
-  %446 = load ptr, ptr %5, align 8
-  %447 = load i8, ptr %446, align 1
-  store i8 %447, ptr %10, align 1
-  %448 = load ptr, ptr %5, align 8
-  %449 = getelementptr inbounds i8, ptr %448, i32 1
-  store ptr %449, ptr %5, align 8
-  br label %455
+449:                                              ; preds = %445
+  %450 = load ptr, ptr %5, align 8
+  %451 = load i8, ptr %450, align 1
+  store i8 %451, ptr %10, align 1
+  %452 = load ptr, ptr %5, align 8
+  %453 = getelementptr inbounds i8, ptr %452, i32 1
+  store ptr %453, ptr %5, align 8
+  br label %459
 
-450:                                              ; preds = %441
-  %451 = load ptr, ptr %7, align 8
-  %452 = getelementptr inbounds %struct.DISASMED, ptr %451, i32 0, i32 0
-  store i16 0, ptr %452, align 8
-  %453 = load ptr, ptr %7, align 8
-  %454 = getelementptr inbounds %struct.DISASMED, ptr %453, i32 0, i32 2
-  store i32 6, ptr %454, align 4
-  br label %2140
+454:                                              ; preds = %445
+  %455 = load ptr, ptr %7, align 8
+  %456 = getelementptr inbounds %struct.DISASMED, ptr %455, i32 0, i32 0
+  store i16 0, ptr %456, align 8
+  %457 = load ptr, ptr %7, align 8
+  %458 = getelementptr inbounds %struct.DISASMED, ptr %457, i32 0, i32 2
+  store i32 6, ptr %458, align 4
+  br label %2149
 
-455:                                              ; preds = %445
-  %456 = load i8, ptr %10, align 1
-  %457 = zext i8 %456 to i32
-  %458 = load i32, ptr %9, align 4
-  %459 = mul i32 %458, 8
-  %460 = shl i32 %457, %459
-  %461 = load ptr, ptr %7, align 8
-  %462 = getelementptr inbounds %struct.DISASMED, ptr %461, i32 0, i32 7
-  %463 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %462, i64 0, i64 0
-  %464 = getelementptr inbounds %struct.DIS_ARGS, ptr %463, i32 0, i32 3
-  %465 = getelementptr inbounds %struct.anon, ptr %464, i32 0, i32 3
-  %466 = load i32, ptr %465, align 4
-  %467 = add nsw i32 %466, %460
-  store i32 %467, ptr %465, align 4
-  br label %468
+459:                                              ; preds = %449
+  %460 = load i8, ptr %10, align 1
+  %461 = zext i8 %460 to i32
+  %462 = load i32, ptr %9, align 4
+  %463 = mul i32 %462, 8
+  %464 = shl i32 %461, %463
+  %465 = load ptr, ptr %7, align 8
+  %466 = getelementptr inbounds %struct.DISASMED, ptr %465, i32 0, i32 7
+  %467 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %466, i64 0, i64 0
+  %468 = getelementptr inbounds %struct.DIS_ARGS, ptr %467, i32 0, i32 3
+  %469 = getelementptr inbounds %struct.anon, ptr %468, i32 0, i32 3
+  %470 = load i32, ptr %469, align 4
+  %471 = add nsw i32 %470, %464
+  store i32 %471, ptr %469, align 4
+  br label %472
 
-468:                                              ; preds = %455
-  %469 = load i32, ptr %9, align 4
-  %470 = add i32 %469, 1
-  store i32 %470, ptr %9, align 4
-  br label %436
+472:                                              ; preds = %459
+  %473 = load i32, ptr %9, align 4
+  %474 = add i32 %473, 1
+  store i32 %474, ptr %9, align 4
+  br label %440
 
-471:                                              ; preds = %436
-  br label %549
+475:                                              ; preds = %440
+  br label %553
 
-472:                                              ; preds = %261
-  %473 = load i8, ptr %12, align 1
-  %474 = zext i8 %473 to i32
-  %475 = icmp eq i32 %474, 0
-  br i1 %475, label %476, label %486
-
-476:                                              ; preds = %472
-  %477 = load i8, ptr %13, align 1
+476:                                              ; preds = %262
+  %477 = load i8, ptr %12, align 1
   %478 = zext i8 %477 to i32
-  %479 = icmp eq i32 %478, 6
-  br i1 %479, label %480, label %486
+  %479 = icmp eq i32 %478, 0
+  br i1 %479, label %480, label %490
 
 480:                                              ; preds = %476
-  %481 = load ptr, ptr %7, align 8
-  %482 = getelementptr inbounds %struct.DISASMED, ptr %481, i32 0, i32 7
-  %483 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %482, i64 0, i64 0
-  %484 = getelementptr inbounds %struct.DIS_ARGS, ptr %483, i32 0, i32 3
-  %485 = getelementptr inbounds %struct.anon, ptr %484, i32 0, i32 0
-  store i32 54, ptr %485, align 8
+  %481 = load i8, ptr %13, align 1
+  %482 = zext i8 %481 to i32
+  %483 = icmp eq i32 %482, 6
+  br i1 %483, label %484, label %490
+
+484:                                              ; preds = %480
+  %485 = load ptr, ptr %7, align 8
+  %486 = getelementptr inbounds %struct.DISASMED, ptr %485, i32 0, i32 7
+  %487 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %486, i64 0, i64 0
+  %488 = getelementptr inbounds %struct.DIS_ARGS, ptr %487, i32 0, i32 3
+  %489 = getelementptr inbounds %struct.anon, ptr %488, i32 0, i32 0
+  store i32 54, ptr %489, align 8
   store i8 2, ptr %12, align 1
-  br label %512
+  br label %516
 
-486:                                              ; preds = %476, %472
-  %487 = load ptr, ptr %7, align 8
-  %488 = getelementptr inbounds %struct.DISASMED, ptr %487, i32 0, i32 7
-  %489 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %488, i64 0, i64 0
-  %490 = getelementptr inbounds %struct.DIS_ARGS, ptr %489, i32 0, i32 3
-  %491 = getelementptr inbounds %struct.anon, ptr %490, i32 0, i32 2
-  store i8 1, ptr %491, align 8
-  %492 = load i8, ptr %13, align 1
-  %493 = zext i8 %492 to i64
-  %494 = getelementptr inbounds [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %493
-  %495 = getelementptr inbounds %struct.anon.2, ptr %494, i32 0, i32 0
-  %496 = load i32, ptr %495, align 8
-  %497 = load ptr, ptr %7, align 8
-  %498 = getelementptr inbounds %struct.DISASMED, ptr %497, i32 0, i32 7
-  %499 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %498, i64 0, i64 0
-  %500 = getelementptr inbounds %struct.DIS_ARGS, ptr %499, i32 0, i32 3
-  %501 = getelementptr inbounds %struct.anon, ptr %500, i32 0, i32 0
-  store i32 %496, ptr %501, align 8
-  %502 = load i8, ptr %13, align 1
-  %503 = zext i8 %502 to i64
-  %504 = getelementptr inbounds [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %503
-  %505 = getelementptr inbounds %struct.anon.2, ptr %504, i32 0, i32 1
-  %506 = load i32, ptr %505, align 4
-  %507 = load ptr, ptr %7, align 8
-  %508 = getelementptr inbounds %struct.DISASMED, ptr %507, i32 0, i32 7
-  %509 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %508, i64 0, i64 0
-  %510 = getelementptr inbounds %struct.DIS_ARGS, ptr %509, i32 0, i32 3
-  %511 = getelementptr inbounds %struct.anon, ptr %510, i32 0, i32 1
-  store i32 %506, ptr %511, align 4
-  br label %512
+490:                                              ; preds = %480, %476
+  %491 = load ptr, ptr %7, align 8
+  %492 = getelementptr inbounds %struct.DISASMED, ptr %491, i32 0, i32 7
+  %493 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %492, i64 0, i64 0
+  %494 = getelementptr inbounds %struct.DIS_ARGS, ptr %493, i32 0, i32 3
+  %495 = getelementptr inbounds %struct.anon, ptr %494, i32 0, i32 2
+  store i8 1, ptr %495, align 8
+  %496 = load i8, ptr %13, align 1
+  %497 = zext i8 %496 to i64
+  %498 = getelementptr inbounds [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %497
+  %499 = getelementptr inbounds %struct.anon.2, ptr %498, i32 0, i32 0
+  %500 = load i32, ptr %499, align 8
+  %501 = load ptr, ptr %7, align 8
+  %502 = getelementptr inbounds %struct.DISASMED, ptr %501, i32 0, i32 7
+  %503 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %502, i64 0, i64 0
+  %504 = getelementptr inbounds %struct.DIS_ARGS, ptr %503, i32 0, i32 3
+  %505 = getelementptr inbounds %struct.anon, ptr %504, i32 0, i32 0
+  store i32 %500, ptr %505, align 8
+  %506 = load i8, ptr %13, align 1
+  %507 = zext i8 %506 to i64
+  %508 = getelementptr inbounds [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %507
+  %509 = getelementptr inbounds %struct.anon.2, ptr %508, i32 0, i32 1
+  %510 = load i32, ptr %509, align 4
+  %511 = load ptr, ptr %7, align 8
+  %512 = getelementptr inbounds %struct.DISASMED, ptr %511, i32 0, i32 7
+  %513 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %512, i64 0, i64 0
+  %514 = getelementptr inbounds %struct.DIS_ARGS, ptr %513, i32 0, i32 3
+  %515 = getelementptr inbounds %struct.anon, ptr %514, i32 0, i32 1
+  store i32 %510, ptr %515, align 4
+  br label %516
 
-512:                                              ; preds = %486, %480
+516:                                              ; preds = %490, %484
   store i32 0, ptr %9, align 4
-  br label %513
+  br label %517
 
-513:                                              ; preds = %545, %512
-  %514 = load i32, ptr %9, align 4
-  %515 = load i8, ptr %12, align 1
-  %516 = zext i8 %515 to i32
-  %517 = icmp ult i32 %514, %516
-  br i1 %517, label %518, label %548
+517:                                              ; preds = %549, %516
+  %518 = load i32, ptr %9, align 4
+  %519 = load i8, ptr %12, align 1
+  %520 = zext i8 %519 to i32
+  %521 = icmp ult i32 %518, %520
+  br i1 %521, label %522, label %552
 
-518:                                              ; preds = %513
-  %519 = load i32, ptr %6, align 4
-  %520 = add i32 %519, -1
-  store i32 %520, ptr %6, align 4
-  %521 = icmp ne i32 %519, 0
-  br i1 %521, label %522, label %527
+522:                                              ; preds = %517
+  %523 = load i32, ptr %6, align 4
+  %524 = add i32 %523, -1
+  store i32 %524, ptr %6, align 4
+  %525 = icmp ne i32 %523, 0
+  br i1 %525, label %526, label %531
 
-522:                                              ; preds = %518
-  %523 = load ptr, ptr %5, align 8
-  %524 = load i8, ptr %523, align 1
-  store i8 %524, ptr %10, align 1
-  %525 = load ptr, ptr %5, align 8
-  %526 = getelementptr inbounds i8, ptr %525, i32 1
-  store ptr %526, ptr %5, align 8
-  br label %532
+526:                                              ; preds = %522
+  %527 = load ptr, ptr %5, align 8
+  %528 = load i8, ptr %527, align 1
+  store i8 %528, ptr %10, align 1
+  %529 = load ptr, ptr %5, align 8
+  %530 = getelementptr inbounds i8, ptr %529, i32 1
+  store ptr %530, ptr %5, align 8
+  br label %536
 
-527:                                              ; preds = %518
-  %528 = load ptr, ptr %7, align 8
-  %529 = getelementptr inbounds %struct.DISASMED, ptr %528, i32 0, i32 0
-  store i16 0, ptr %529, align 8
-  %530 = load ptr, ptr %7, align 8
-  %531 = getelementptr inbounds %struct.DISASMED, ptr %530, i32 0, i32 2
-  store i32 6, ptr %531, align 4
-  br label %2140
+531:                                              ; preds = %522
+  %532 = load ptr, ptr %7, align 8
+  %533 = getelementptr inbounds %struct.DISASMED, ptr %532, i32 0, i32 0
+  store i16 0, ptr %533, align 8
+  %534 = load ptr, ptr %7, align 8
+  %535 = getelementptr inbounds %struct.DISASMED, ptr %534, i32 0, i32 2
+  store i32 6, ptr %535, align 4
+  br label %2149
 
-532:                                              ; preds = %522
-  %533 = load i8, ptr %10, align 1
-  %534 = zext i8 %533 to i32
-  %535 = load i32, ptr %9, align 4
-  %536 = mul i32 %535, 8
-  %537 = shl i32 %534, %536
-  %538 = load ptr, ptr %7, align 8
-  %539 = getelementptr inbounds %struct.DISASMED, ptr %538, i32 0, i32 7
-  %540 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %539, i64 0, i64 0
-  %541 = getelementptr inbounds %struct.DIS_ARGS, ptr %540, i32 0, i32 3
-  %542 = getelementptr inbounds %struct.anon, ptr %541, i32 0, i32 3
-  %543 = load i32, ptr %542, align 4
-  %544 = add nsw i32 %543, %537
-  store i32 %544, ptr %542, align 4
-  br label %545
-
-545:                                              ; preds = %532
-  %546 = load i32, ptr %9, align 4
-  %547 = add i32 %546, 1
-  store i32 %547, ptr %9, align 4
-  br label %513
-
-548:                                              ; preds = %513
+536:                                              ; preds = %526
+  %537 = load i8, ptr %10, align 1
+  %538 = zext i8 %537 to i32
+  %539 = load i32, ptr %9, align 4
+  %540 = mul i32 %539, 8
+  %541 = shl i32 %538, %540
+  %542 = load ptr, ptr %7, align 8
+  %543 = getelementptr inbounds %struct.DISASMED, ptr %542, i32 0, i32 7
+  %544 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %543, i64 0, i64 0
+  %545 = getelementptr inbounds %struct.DIS_ARGS, ptr %544, i32 0, i32 3
+  %546 = getelementptr inbounds %struct.anon, ptr %545, i32 0, i32 3
+  %547 = load i32, ptr %546, align 4
+  %548 = add nsw i32 %547, %541
+  store i32 %548, ptr %546, align 4
   br label %549
 
-549:                                              ; preds = %548, %471
-  %550 = load ptr, ptr %7, align 8
-  %551 = getelementptr inbounds %struct.DISASMED, ptr %550, i32 0, i32 2
-  store i32 4, ptr %551, align 4
-  br label %2155
+549:                                              ; preds = %536
+  %550 = load i32, ptr %9, align 4
+  %551 = add i32 %550, 1
+  store i32 %551, ptr %9, align 4
+  br label %517
 
-552:                                              ; preds = %35
-  %553 = load i32, ptr %11, align 4
-  %554 = zext i32 %553 to i64
-  %555 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %554
-  %556 = load ptr, ptr %7, align 8
-  %557 = getelementptr inbounds %struct.DISASMED, ptr %556, i32 0, i32 0
-  %558 = load i16, ptr %557, align 8
-  %559 = zext i16 %558 to i64
-  %560 = getelementptr inbounds [256 x %struct.OPCODES], ptr %555, i64 0, i64 %559
-  %561 = getelementptr inbounds %struct.OPCODES, ptr %560, i32 0, i32 0
-  %562 = load i32, ptr %561, align 4
-  switch i32 %562, label %1731 [
-    i32 12, label %563
-    i32 13, label %563
-    i32 8, label %563
-    i32 9, label %563
-    i32 10, label %563
-    i32 11, label %563
-    i32 4, label %578
-    i32 5, label %578
-    i32 6, label %578
-    i32 7, label %578
-    i32 0, label %605
-    i32 1, label %605
-    i32 2, label %605
-    i32 3, label %605
-    i32 30, label %676
-    i32 28, label %721
-    i32 27, label %721
-    i32 17, label %848
-    i32 18, label %848
-    i32 20, label %848
-    i32 25, label %848
-    i32 26, label %848
-    i32 16, label %849
-    i32 19, label %849
-    i32 21, label %849
-    i32 22, label %849
-    i32 23, label %849
-    i32 24, label %849
-    i32 15, label %1590
+552:                                              ; preds = %517
+  br label %553
+
+553:                                              ; preds = %552, %475
+  %554 = load ptr, ptr %7, align 8
+  %555 = getelementptr inbounds %struct.DISASMED, ptr %554, i32 0, i32 2
+  store i32 4, ptr %555, align 4
+  br label %2164
+
+556:                                              ; preds = %35
+  %557 = load i32, ptr %11, align 4
+  %558 = zext i32 %557 to i64
+  %559 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %558
+  %560 = load ptr, ptr %7, align 8
+  %561 = getelementptr inbounds %struct.DISASMED, ptr %560, i32 0, i32 0
+  %562 = load i16, ptr %561, align 8
+  %563 = zext i16 %562 to i64
+  %564 = getelementptr inbounds [256 x %struct.OPCODES], ptr %559, i64 0, i64 %563
+  %565 = getelementptr inbounds %struct.OPCODES, ptr %564, i32 0, i32 0
+  %566 = load i32, ptr %565, align 4
+  switch i32 %566, label %1739 [
+    i32 12, label %567
+    i32 13, label %567
+    i32 8, label %567
+    i32 9, label %567
+    i32 10, label %567
+    i32 11, label %567
+    i32 4, label %582
+    i32 5, label %582
+    i32 6, label %582
+    i32 7, label %582
+    i32 0, label %609
+    i32 1, label %609
+    i32 2, label %609
+    i32 3, label %609
+    i32 30, label %680
+    i32 28, label %725
+    i32 27, label %725
+    i32 17, label %852
+    i32 18, label %852
+    i32 20, label %852
+    i32 25, label %852
+    i32 26, label %852
+    i32 16, label %853
+    i32 19, label %853
+    i32 21, label %853
+    i32 22, label %853
+    i32 23, label %853
+    i32 24, label %853
+    i32 15, label %1597
   ]
 
-563:                                              ; preds = %552, %552, %552, %552, %552, %552
-  %564 = load i32, ptr %11, align 4
-  %565 = zext i32 %564 to i64
-  %566 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %565
-  %567 = load ptr, ptr %7, align 8
-  %568 = getelementptr inbounds %struct.DISASMED, ptr %567, i32 0, i32 0
-  %569 = load i16, ptr %568, align 8
-  %570 = zext i16 %569 to i64
-  %571 = getelementptr inbounds [256 x %struct.OPCODES], ptr %566, i64 0, i64 %570
-  %572 = getelementptr inbounds %struct.OPCODES, ptr %571, i32 0, i32 1
-  %573 = load i32, ptr %572, align 4
-  %574 = icmp eq i32 %573, 2
-  br i1 %574, label %575, label %576
+567:                                              ; preds = %556, %556, %556, %556, %556, %556
+  %568 = load i32, ptr %11, align 4
+  %569 = zext i32 %568 to i64
+  %570 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %569
+  %571 = load ptr, ptr %7, align 8
+  %572 = getelementptr inbounds %struct.DISASMED, ptr %571, i32 0, i32 0
+  %573 = load i16, ptr %572, align 8
+  %574 = zext i16 %573 to i64
+  %575 = getelementptr inbounds [256 x %struct.OPCODES], ptr %570, i64 0, i64 %574
+  %576 = getelementptr inbounds %struct.OPCODES, ptr %575, i32 0, i32 1
+  %577 = load i32, ptr %576, align 4
+  %578 = icmp eq i32 %577, 2
+  br i1 %578, label %579, label %580
 
-575:                                              ; preds = %563
-  br label %577
+579:                                              ; preds = %567
+  br label %581
 
-576:                                              ; preds = %563
+580:                                              ; preds = %567
   call void @__assert_fail(ptr noundef @.str.5, ptr noundef @.str.2, i32 noundef 1407, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-577:                                              ; preds = %575
-  br label %578
+581:                                              ; preds = %579
+  br label %582
 
-578:                                              ; preds = %577, %552, %552, %552, %552
-  %579 = load i32, ptr %11, align 4
-  %580 = zext i32 %579 to i64
-  %581 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %580
-  %582 = load ptr, ptr %7, align 8
-  %583 = getelementptr inbounds %struct.DISASMED, ptr %582, i32 0, i32 0
-  %584 = load i16, ptr %583, align 8
-  %585 = zext i16 %584 to i64
-  %586 = getelementptr inbounds [256 x %struct.OPCODES], ptr %581, i64 0, i64 %585
-  %587 = getelementptr inbounds %struct.OPCODES, ptr %586, i32 0, i32 1
-  %588 = load i32, ptr %587, align 4
-  %589 = icmp ne i32 %588, 0
-  br i1 %589, label %590, label %603
+582:                                              ; preds = %581, %556, %556, %556, %556
+  %583 = load i32, ptr %11, align 4
+  %584 = zext i32 %583 to i64
+  %585 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %584
+  %586 = load ptr, ptr %7, align 8
+  %587 = getelementptr inbounds %struct.DISASMED, ptr %586, i32 0, i32 0
+  %588 = load i16, ptr %587, align 8
+  %589 = zext i16 %588 to i64
+  %590 = getelementptr inbounds [256 x %struct.OPCODES], ptr %585, i64 0, i64 %589
+  %591 = getelementptr inbounds %struct.OPCODES, ptr %590, i32 0, i32 1
+  %592 = load i32, ptr %591, align 4
+  %593 = icmp ne i32 %592, 0
+  br i1 %593, label %594, label %607
 
-590:                                              ; preds = %578
-  %591 = load i32, ptr %11, align 4
-  %592 = zext i32 %591 to i64
-  %593 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %592
-  %594 = load ptr, ptr %7, align 8
-  %595 = getelementptr inbounds %struct.DISASMED, ptr %594, i32 0, i32 0
-  %596 = load i16, ptr %595, align 8
-  %597 = zext i16 %596 to i64
-  %598 = getelementptr inbounds [256 x %struct.OPCODES], ptr %593, i64 0, i64 %597
-  %599 = getelementptr inbounds %struct.OPCODES, ptr %598, i32 0, i32 1
-  %600 = load i32, ptr %599, align 4
-  %601 = icmp ne i32 %600, 1
-  br i1 %601, label %602, label %603
+594:                                              ; preds = %582
+  %595 = load i32, ptr %11, align 4
+  %596 = zext i32 %595 to i64
+  %597 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %596
+  %598 = load ptr, ptr %7, align 8
+  %599 = getelementptr inbounds %struct.DISASMED, ptr %598, i32 0, i32 0
+  %600 = load i16, ptr %599, align 8
+  %601 = zext i16 %600 to i64
+  %602 = getelementptr inbounds [256 x %struct.OPCODES], ptr %597, i64 0, i64 %601
+  %603 = getelementptr inbounds %struct.OPCODES, ptr %602, i32 0, i32 1
+  %604 = load i32, ptr %603, align 4
+  %605 = icmp ne i32 %604, 1
+  br i1 %605, label %606, label %607
 
-602:                                              ; preds = %590
-  br label %604
+606:                                              ; preds = %594
+  br label %608
 
-603:                                              ; preds = %590, %578
+607:                                              ; preds = %594, %582
   call void @__assert_fail(ptr noundef @.str.6, ptr noundef @.str.2, i32 noundef 1413, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-604:                                              ; preds = %602
-  br label %605
+608:                                              ; preds = %606
+  br label %609
 
-605:                                              ; preds = %604, %552, %552, %552, %552
-  %606 = load i32, ptr %11, align 4
-  %607 = zext i32 %606 to i64
-  %608 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %607
-  %609 = load ptr, ptr %7, align 8
-  %610 = getelementptr inbounds %struct.DISASMED, ptr %609, i32 0, i32 0
-  %611 = load i16, ptr %610, align 8
-  %612 = zext i16 %611 to i64
-  %613 = getelementptr inbounds [256 x %struct.OPCODES], ptr %608, i64 0, i64 %612
-  %614 = getelementptr inbounds %struct.OPCODES, ptr %613, i32 0, i32 1
-  %615 = load i32, ptr %614, align 4
-  %616 = icmp ule i32 %615, 5
-  br i1 %616, label %617, label %618
+609:                                              ; preds = %608, %556, %556, %556, %556
+  %610 = load i32, ptr %11, align 4
+  %611 = zext i32 %610 to i64
+  %612 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %611
+  %613 = load ptr, ptr %7, align 8
+  %614 = getelementptr inbounds %struct.DISASMED, ptr %613, i32 0, i32 0
+  %615 = load i16, ptr %614, align 8
+  %616 = zext i16 %615 to i64
+  %617 = getelementptr inbounds [256 x %struct.OPCODES], ptr %612, i64 0, i64 %616
+  %618 = getelementptr inbounds %struct.OPCODES, ptr %617, i32 0, i32 1
+  %619 = load i32, ptr %618, align 4
+  %620 = icmp ule i32 %619, 5
+  br i1 %620, label %621, label %622
 
-617:                                              ; preds = %605
-  br label %619
+621:                                              ; preds = %609
+  br label %623
 
-618:                                              ; preds = %605
+622:                                              ; preds = %609
   call void @__assert_fail(ptr noundef @.str.7, ptr noundef @.str.2, i32 noundef 1419, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-619:                                              ; preds = %617
-  %620 = load ptr, ptr %7, align 8
-  %621 = getelementptr inbounds %struct.DISASMED, ptr %620, i32 0, i32 7
-  %622 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %621, i64 0, i64 0
-  %623 = getelementptr inbounds %struct.DIS_ARGS, ptr %622, i32 0, i32 0
-  store i32 3, ptr %623, align 8
-  %624 = load i32, ptr %11, align 4
-  %625 = zext i32 %624 to i64
-  %626 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %625
-  %627 = load ptr, ptr %7, align 8
-  %628 = getelementptr inbounds %struct.DISASMED, ptr %627, i32 0, i32 0
-  %629 = load i16, ptr %628, align 8
-  %630 = zext i16 %629 to i64
-  %631 = getelementptr inbounds [256 x %struct.OPCODES], ptr %626, i64 0, i64 %630
-  %632 = getelementptr inbounds %struct.OPCODES, ptr %631, i32 0, i32 1
-  %633 = load i32, ptr %632, align 4
-  %634 = icmp ne i32 %633, 5
-  br i1 %634, label %635, label %646
+623:                                              ; preds = %621
+  %624 = load ptr, ptr %7, align 8
+  %625 = getelementptr inbounds %struct.DISASMED, ptr %624, i32 0, i32 7
+  %626 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %625, i64 0, i64 0
+  %627 = getelementptr inbounds %struct.DIS_ARGS, ptr %626, i32 0, i32 0
+  store i32 3, ptr %627, align 8
+  %628 = load i32, ptr %11, align 4
+  %629 = zext i32 %628 to i64
+  %630 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %629
+  %631 = load ptr, ptr %7, align 8
+  %632 = getelementptr inbounds %struct.DISASMED, ptr %631, i32 0, i32 0
+  %633 = load i16, ptr %632, align 8
+  %634 = zext i16 %633 to i64
+  %635 = getelementptr inbounds [256 x %struct.OPCODES], ptr %630, i64 0, i64 %634
+  %636 = getelementptr inbounds %struct.OPCODES, ptr %635, i32 0, i32 1
+  %637 = load i32, ptr %636, align 4
+  %638 = icmp ne i32 %637, 5
+  br i1 %638, label %639, label %650
 
-635:                                              ; preds = %619
-  %636 = load i32, ptr %11, align 4
-  %637 = zext i32 %636 to i64
-  %638 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %637
-  %639 = load ptr, ptr %7, align 8
-  %640 = getelementptr inbounds %struct.DISASMED, ptr %639, i32 0, i32 0
-  %641 = load i16, ptr %640, align 8
-  %642 = zext i16 %641 to i64
-  %643 = getelementptr inbounds [256 x %struct.OPCODES], ptr %638, i64 0, i64 %642
-  %644 = getelementptr inbounds %struct.OPCODES, ptr %643, i32 0, i32 1
-  %645 = load i32, ptr %644, align 4
-  br label %652
+639:                                              ; preds = %623
+  %640 = load i32, ptr %11, align 4
+  %641 = zext i32 %640 to i64
+  %642 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %641
+  %643 = load ptr, ptr %7, align 8
+  %644 = getelementptr inbounds %struct.DISASMED, ptr %643, i32 0, i32 0
+  %645 = load i16, ptr %644, align 8
+  %646 = zext i16 %645 to i64
+  %647 = getelementptr inbounds [256 x %struct.OPCODES], ptr %642, i64 0, i64 %646
+  %648 = getelementptr inbounds %struct.OPCODES, ptr %647, i32 0, i32 1
+  %649 = load i32, ptr %648, align 4
+  br label %656
 
-646:                                              ; preds = %619
-  %647 = load ptr, ptr %7, align 8
-  %648 = getelementptr inbounds %struct.DISASMED, ptr %647, i32 0, i32 3
-  %649 = load i32, ptr %648, align 8
-  %650 = icmp ne i32 %649, 0
-  %651 = select i1 %650, i32 2, i32 3
-  br label %652
+650:                                              ; preds = %623
+  %651 = load ptr, ptr %7, align 8
+  %652 = getelementptr inbounds %struct.DISASMED, ptr %651, i32 0, i32 3
+  %653 = load i32, ptr %652, align 8
+  %654 = icmp ne i32 %653, 0
+  %655 = select i1 %654, i32 2, i32 3
+  br label %656
 
-652:                                              ; preds = %646, %635
-  %653 = phi i32 [ %645, %635 ], [ %651, %646 ]
-  %654 = zext i32 %653 to i64
-  %655 = getelementptr inbounds [4 x [14 x i8]], ptr @regmap, i64 0, i64 %654
-  %656 = load i32, ptr %11, align 4
-  %657 = zext i32 %656 to i64
-  %658 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %657
-  %659 = load ptr, ptr %7, align 8
-  %660 = getelementptr inbounds %struct.DISASMED, ptr %659, i32 0, i32 0
-  %661 = load i16, ptr %660, align 8
-  %662 = zext i16 %661 to i64
-  %663 = getelementptr inbounds [256 x %struct.OPCODES], ptr %658, i64 0, i64 %662
-  %664 = getelementptr inbounds %struct.OPCODES, ptr %663, i32 0, i32 0
-  %665 = load i32, ptr %664, align 4
-  %666 = zext i32 %665 to i64
-  %667 = getelementptr inbounds [14 x i8], ptr %655, i64 0, i64 %666
-  %668 = load i8, ptr %667, align 1
-  %669 = zext i8 %668 to i32
-  %670 = load ptr, ptr %7, align 8
-  %671 = getelementptr inbounds %struct.DISASMED, ptr %670, i32 0, i32 7
-  %672 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %671, i64 0, i64 0
-  %673 = getelementptr inbounds %struct.DIS_ARGS, ptr %672, i32 0, i32 2
-  store i32 %669, ptr %673, align 8
+656:                                              ; preds = %650, %639
+  %657 = phi i32 [ %649, %639 ], [ %655, %650 ]
+  %658 = zext i32 %657 to i64
+  %659 = getelementptr inbounds [4 x [14 x i8]], ptr @regmap, i64 0, i64 %658
+  %660 = load i32, ptr %11, align 4
+  %661 = zext i32 %660 to i64
+  %662 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %661
+  %663 = load ptr, ptr %7, align 8
+  %664 = getelementptr inbounds %struct.DISASMED, ptr %663, i32 0, i32 0
+  %665 = load i16, ptr %664, align 8
+  %666 = zext i16 %665 to i64
+  %667 = getelementptr inbounds [256 x %struct.OPCODES], ptr %662, i64 0, i64 %666
+  %668 = getelementptr inbounds %struct.OPCODES, ptr %667, i32 0, i32 0
+  %669 = load i32, ptr %668, align 4
+  %670 = zext i32 %669 to i64
+  %671 = getelementptr inbounds [14 x i8], ptr %659, i64 0, i64 %670
+  %672 = load i8, ptr %671, align 1
+  %673 = zext i8 %672 to i32
   %674 = load ptr, ptr %7, align 8
-  %675 = getelementptr inbounds %struct.DISASMED, ptr %674, i32 0, i32 2
-  store i32 2, ptr %675, align 4
+  %675 = getelementptr inbounds %struct.DISASMED, ptr %674, i32 0, i32 7
+  %676 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %675, i64 0, i64 0
+  %677 = getelementptr inbounds %struct.DIS_ARGS, ptr %676, i32 0, i32 2
+  store i32 %673, ptr %677, align 8
+  %678 = load ptr, ptr %7, align 8
+  %679 = getelementptr inbounds %struct.DISASMED, ptr %678, i32 0, i32 2
+  store i32 2, ptr %679, align 4
   br label %35
 
-676:                                              ; preds = %552
-  %677 = load i32, ptr %11, align 4
-  %678 = zext i32 %677 to i64
-  %679 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %678
-  %680 = load ptr, ptr %7, align 8
-  %681 = getelementptr inbounds %struct.DISASMED, ptr %680, i32 0, i32 0
-  %682 = load i16, ptr %681, align 8
-  %683 = zext i16 %682 to i64
-  %684 = getelementptr inbounds [256 x %struct.OPCODES], ptr %679, i64 0, i64 %683
-  %685 = getelementptr inbounds %struct.OPCODES, ptr %684, i32 0, i32 1
-  %686 = load i32, ptr %685, align 4
-  %687 = icmp ne i32 %686, 7
-  br i1 %687, label %688, label %714
+680:                                              ; preds = %556
+  %681 = load i32, ptr %11, align 4
+  %682 = zext i32 %681 to i64
+  %683 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %682
+  %684 = load ptr, ptr %7, align 8
+  %685 = getelementptr inbounds %struct.DISASMED, ptr %684, i32 0, i32 0
+  %686 = load i16, ptr %685, align 8
+  %687 = zext i16 %686 to i64
+  %688 = getelementptr inbounds [256 x %struct.OPCODES], ptr %683, i64 0, i64 %687
+  %689 = getelementptr inbounds %struct.OPCODES, ptr %688, i32 0, i32 1
+  %690 = load i32, ptr %689, align 4
+  %691 = icmp ne i32 %690, 7
+  br i1 %691, label %692, label %718
 
-688:                                              ; preds = %676
-  %689 = load i32, ptr %11, align 4
-  %690 = zext i32 %689 to i64
-  %691 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %690
-  %692 = load ptr, ptr %7, align 8
-  %693 = getelementptr inbounds %struct.DISASMED, ptr %692, i32 0, i32 0
-  %694 = load i16, ptr %693, align 8
-  %695 = zext i16 %694 to i64
-  %696 = getelementptr inbounds [256 x %struct.OPCODES], ptr %691, i64 0, i64 %695
-  %697 = getelementptr inbounds %struct.OPCODES, ptr %696, i32 0, i32 1
-  %698 = load i32, ptr %697, align 4
-  %699 = icmp eq i32 %698, 5
-  br i1 %699, label %700, label %701
+692:                                              ; preds = %680
+  %693 = load i32, ptr %11, align 4
+  %694 = zext i32 %693 to i64
+  %695 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %694
+  %696 = load ptr, ptr %7, align 8
+  %697 = getelementptr inbounds %struct.DISASMED, ptr %696, i32 0, i32 0
+  %698 = load i16, ptr %697, align 8
+  %699 = zext i16 %698 to i64
+  %700 = getelementptr inbounds [256 x %struct.OPCODES], ptr %695, i64 0, i64 %699
+  %701 = getelementptr inbounds %struct.OPCODES, ptr %700, i32 0, i32 1
+  %702 = load i32, ptr %701, align 4
+  %703 = icmp eq i32 %702, 5
+  br i1 %703, label %704, label %705
 
-700:                                              ; preds = %688
-  br label %702
+704:                                              ; preds = %692
+  br label %706
 
-701:                                              ; preds = %688
+705:                                              ; preds = %692
   call void @__assert_fail(ptr noundef @.str.8, ptr noundef @.str.2, i32 noundef 1427, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-702:                                              ; preds = %700
-  %703 = load ptr, ptr %7, align 8
-  %704 = getelementptr inbounds %struct.DISASMED, ptr %703, i32 0, i32 3
-  %705 = load i32, ptr %704, align 8
-  %706 = icmp ne i32 %705, 0
-  %707 = zext i1 %706 to i32
-  %708 = load ptr, ptr %7, align 8
-  %709 = getelementptr inbounds %struct.DISASMED, ptr %708, i32 0, i32 1
-  %710 = load i16, ptr %709, align 2
-  %711 = zext i16 %710 to i32
-  %712 = add nsw i32 %711, %707
-  %713 = trunc i32 %712 to i16
-  store i16 %713, ptr %709, align 2
-  br label %714
+706:                                              ; preds = %704
+  %707 = load ptr, ptr %7, align 8
+  %708 = getelementptr inbounds %struct.DISASMED, ptr %707, i32 0, i32 3
+  %709 = load i32, ptr %708, align 8
+  %710 = icmp ne i32 %709, 0
+  %711 = zext i1 %710 to i32
+  %712 = load ptr, ptr %7, align 8
+  %713 = getelementptr inbounds %struct.DISASMED, ptr %712, i32 0, i32 1
+  %714 = load i16, ptr %713, align 2
+  %715 = zext i16 %714 to i32
+  %716 = add nsw i32 %715, %711
+  %717 = trunc i32 %716 to i16
+  store i16 %717, ptr %713, align 2
+  br label %718
 
-714:                                              ; preds = %702, %676
-  %715 = load ptr, ptr %7, align 8
-  %716 = getelementptr inbounds %struct.DISASMED, ptr %715, i32 0, i32 7
-  %717 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %716, i64 0, i64 0
-  %718 = getelementptr inbounds %struct.DIS_ARGS, ptr %717, i32 0, i32 0
-  store i32 0, ptr %718, align 8
+718:                                              ; preds = %706, %680
   %719 = load ptr, ptr %7, align 8
-  %720 = getelementptr inbounds %struct.DISASMED, ptr %719, i32 0, i32 2
-  store i32 4, ptr %720, align 4
+  %720 = getelementptr inbounds %struct.DISASMED, ptr %719, i32 0, i32 7
+  %721 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %720, i64 0, i64 0
+  %722 = getelementptr inbounds %struct.DIS_ARGS, ptr %721, i32 0, i32 0
+  store i32 0, ptr %722, align 8
+  %723 = load ptr, ptr %7, align 8
+  %724 = getelementptr inbounds %struct.DISASMED, ptr %723, i32 0, i32 2
+  store i32 4, ptr %724, align 4
   br label %35
 
-721:                                              ; preds = %552, %552
-  %722 = load i32, ptr %11, align 4
-  %723 = zext i32 %722 to i64
-  %724 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %723
-  %725 = load ptr, ptr %7, align 8
-  %726 = getelementptr inbounds %struct.DISASMED, ptr %725, i32 0, i32 0
-  %727 = load i16, ptr %726, align 8
-  %728 = zext i16 %727 to i64
-  %729 = getelementptr inbounds [256 x %struct.OPCODES], ptr %724, i64 0, i64 %728
-  %730 = getelementptr inbounds %struct.OPCODES, ptr %729, i32 0, i32 0
-  %731 = load i32, ptr %730, align 4
-  %732 = sub i32 %731, 27
-  %733 = add i32 %732, 1
-  %734 = load ptr, ptr %7, align 8
-  %735 = getelementptr inbounds %struct.DISASMED, ptr %734, i32 0, i32 7
-  %736 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %735, i64 0, i64 0
-  %737 = getelementptr inbounds %struct.DIS_ARGS, ptr %736, i32 0, i32 0
-  store i32 %733, ptr %737, align 8
-  %738 = load i32, ptr %11, align 4
-  %739 = zext i32 %738 to i64
-  %740 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %739
-  %741 = load ptr, ptr %7, align 8
-  %742 = getelementptr inbounds %struct.DISASMED, ptr %741, i32 0, i32 0
-  %743 = load i16, ptr %742, align 8
-  %744 = zext i16 %743 to i64
-  %745 = getelementptr inbounds [256 x %struct.OPCODES], ptr %740, i64 0, i64 %744
-  %746 = getelementptr inbounds %struct.OPCODES, ptr %745, i32 0, i32 1
-  %747 = load i32, ptr %746, align 4
-  %748 = icmp ult i32 %747, 7
-  br i1 %748, label %749, label %755
+725:                                              ; preds = %556, %556
+  %726 = load i32, ptr %11, align 4
+  %727 = zext i32 %726 to i64
+  %728 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %727
+  %729 = load ptr, ptr %7, align 8
+  %730 = getelementptr inbounds %struct.DISASMED, ptr %729, i32 0, i32 0
+  %731 = load i16, ptr %730, align 8
+  %732 = zext i16 %731 to i64
+  %733 = getelementptr inbounds [256 x %struct.OPCODES], ptr %728, i64 0, i64 %732
+  %734 = getelementptr inbounds %struct.OPCODES, ptr %733, i32 0, i32 0
+  %735 = load i32, ptr %734, align 4
+  %736 = sub i32 %735, 27
+  %737 = add i32 %736, 1
+  %738 = load ptr, ptr %7, align 8
+  %739 = getelementptr inbounds %struct.DISASMED, ptr %738, i32 0, i32 7
+  %740 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %739, i64 0, i64 0
+  %741 = getelementptr inbounds %struct.DIS_ARGS, ptr %740, i32 0, i32 0
+  store i32 %737, ptr %741, align 8
+  %742 = load i32, ptr %11, align 4
+  %743 = zext i32 %742 to i64
+  %744 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %743
+  %745 = load ptr, ptr %7, align 8
+  %746 = getelementptr inbounds %struct.DISASMED, ptr %745, i32 0, i32 0
+  %747 = load i16, ptr %746, align 8
+  %748 = zext i16 %747 to i64
+  %749 = getelementptr inbounds [256 x %struct.OPCODES], ptr %744, i64 0, i64 %748
+  %750 = getelementptr inbounds %struct.OPCODES, ptr %749, i32 0, i32 1
+  %751 = load i32, ptr %750, align 4
+  %752 = icmp ult i32 %751, 7
+  br i1 %752, label %753, label %759
 
-749:                                              ; preds = %721
-  %750 = load ptr, ptr %7, align 8
-  %751 = getelementptr inbounds %struct.DISASMED, ptr %750, i32 0, i32 3
-  %752 = load i32, ptr %751, align 8
-  %753 = icmp ult i32 %752, 2
-  br i1 %753, label %754, label %755
+753:                                              ; preds = %725
+  %754 = load ptr, ptr %7, align 8
+  %755 = getelementptr inbounds %struct.DISASMED, ptr %754, i32 0, i32 3
+  %756 = load i32, ptr %755, align 8
+  %757 = icmp ult i32 %756, 2
+  br i1 %757, label %758, label %759
 
-754:                                              ; preds = %749
-  br label %756
+758:                                              ; preds = %753
+  br label %760
 
-755:                                              ; preds = %749, %721
+759:                                              ; preds = %753, %725
   call void @__assert_fail(ptr noundef @.str.9, ptr noundef @.str.2, i32 noundef 1438, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-756:                                              ; preds = %754
-  %757 = load i32, ptr %11, align 4
-  %758 = zext i32 %757 to i64
-  %759 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %758
-  %760 = load ptr, ptr %7, align 8
-  %761 = getelementptr inbounds %struct.DISASMED, ptr %760, i32 0, i32 0
-  %762 = load i16, ptr %761, align 8
-  %763 = zext i16 %762 to i64
-  %764 = getelementptr inbounds [256 x %struct.OPCODES], ptr %759, i64 0, i64 %763
-  %765 = getelementptr inbounds %struct.OPCODES, ptr %764, i32 0, i32 1
-  %766 = load i32, ptr %765, align 4
-  %767 = zext i32 %766 to i64
-  %768 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %767
-  %769 = load ptr, ptr %7, align 8
-  %770 = getelementptr inbounds %struct.DISASMED, ptr %769, i32 0, i32 3
-  %771 = load i32, ptr %770, align 8
-  %772 = zext i32 %771 to i64
-  %773 = getelementptr inbounds [2 x i8], ptr %768, i64 0, i64 %772
-  %774 = load i8, ptr %773, align 1
-  store i8 %774, ptr %18, align 1
-  %775 = load i8, ptr %18, align 1
-  %776 = zext i8 %775 to i32
-  %777 = icmp ne i32 %776, 255
-  br i1 %777, label %778, label %779
+760:                                              ; preds = %758
+  %761 = load i32, ptr %11, align 4
+  %762 = zext i32 %761 to i64
+  %763 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %762
+  %764 = load ptr, ptr %7, align 8
+  %765 = getelementptr inbounds %struct.DISASMED, ptr %764, i32 0, i32 0
+  %766 = load i16, ptr %765, align 8
+  %767 = zext i16 %766 to i64
+  %768 = getelementptr inbounds [256 x %struct.OPCODES], ptr %763, i64 0, i64 %767
+  %769 = getelementptr inbounds %struct.OPCODES, ptr %768, i32 0, i32 1
+  %770 = load i32, ptr %769, align 4
+  %771 = zext i32 %770 to i64
+  %772 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %771
+  %773 = load ptr, ptr %7, align 8
+  %774 = getelementptr inbounds %struct.DISASMED, ptr %773, i32 0, i32 3
+  %775 = load i32, ptr %774, align 8
+  %776 = zext i32 %775 to i64
+  %777 = getelementptr inbounds [2 x i8], ptr %772, i64 0, i64 %776
+  %778 = load i8, ptr %777, align 1
+  store i8 %778, ptr %18, align 1
+  %779 = load i8, ptr %18, align 1
+  %780 = zext i8 %779 to i32
+  %781 = icmp ne i32 %780, 255
+  br i1 %781, label %782, label %783
 
-778:                                              ; preds = %756
-  br label %780
+782:                                              ; preds = %760
+  br label %784
 
-779:                                              ; preds = %756
+783:                                              ; preds = %760
   call void @__assert_fail(ptr noundef @.str.10, ptr noundef @.str.2, i32 noundef 1440, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-780:                                              ; preds = %778
-  %781 = load i8, ptr %18, align 1
-  %782 = zext i8 %781 to i32
-  %783 = ashr i32 %782, 1
-  %784 = load ptr, ptr %7, align 8
-  %785 = getelementptr inbounds %struct.DISASMED, ptr %784, i32 0, i32 7
-  %786 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %785, i64 0, i64 0
-  %787 = getelementptr inbounds %struct.DIS_ARGS, ptr %786, i32 0, i32 1
-  store i32 %783, ptr %787, align 4
+784:                                              ; preds = %782
+  %785 = load i8, ptr %18, align 1
+  %786 = zext i8 %785 to i32
+  %787 = ashr i32 %786, 1
+  %788 = load ptr, ptr %7, align 8
+  %789 = getelementptr inbounds %struct.DISASMED, ptr %788, i32 0, i32 7
+  %790 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %789, i64 0, i64 0
+  %791 = getelementptr inbounds %struct.DIS_ARGS, ptr %790, i32 0, i32 1
+  store i32 %787, ptr %791, align 4
   store i32 0, ptr %9, align 4
-  br label %788
+  br label %792
 
-788:                                              ; preds = %820, %780
-  %789 = load i32, ptr %9, align 4
-  %790 = load i8, ptr %18, align 1
-  %791 = zext i8 %790 to i32
-  %792 = icmp ult i32 %789, %791
-  br i1 %792, label %793, label %823
+792:                                              ; preds = %824, %784
+  %793 = load i32, ptr %9, align 4
+  %794 = load i8, ptr %18, align 1
+  %795 = zext i8 %794 to i32
+  %796 = icmp ult i32 %793, %795
+  br i1 %796, label %797, label %827
 
-793:                                              ; preds = %788
-  %794 = load i32, ptr %6, align 4
-  %795 = add i32 %794, -1
-  store i32 %795, ptr %6, align 4
-  %796 = icmp ne i32 %794, 0
-  br i1 %796, label %797, label %802
+797:                                              ; preds = %792
+  %798 = load i32, ptr %6, align 4
+  %799 = add i32 %798, -1
+  store i32 %799, ptr %6, align 4
+  %800 = icmp ne i32 %798, 0
+  br i1 %800, label %801, label %806
 
-797:                                              ; preds = %793
-  %798 = load ptr, ptr %5, align 8
-  %799 = load i8, ptr %798, align 1
-  store i8 %799, ptr %10, align 1
-  %800 = load ptr, ptr %5, align 8
-  %801 = getelementptr inbounds i8, ptr %800, i32 1
-  store ptr %801, ptr %5, align 8
-  br label %807
+801:                                              ; preds = %797
+  %802 = load ptr, ptr %5, align 8
+  %803 = load i8, ptr %802, align 1
+  store i8 %803, ptr %10, align 1
+  %804 = load ptr, ptr %5, align 8
+  %805 = getelementptr inbounds i8, ptr %804, i32 1
+  store ptr %805, ptr %5, align 8
+  br label %811
 
-802:                                              ; preds = %793
-  %803 = load ptr, ptr %7, align 8
-  %804 = getelementptr inbounds %struct.DISASMED, ptr %803, i32 0, i32 0
-  store i16 0, ptr %804, align 8
-  %805 = load ptr, ptr %7, align 8
-  %806 = getelementptr inbounds %struct.DISASMED, ptr %805, i32 0, i32 2
-  store i32 6, ptr %806, align 4
-  br label %2140
+806:                                              ; preds = %797
+  %807 = load ptr, ptr %7, align 8
+  %808 = getelementptr inbounds %struct.DISASMED, ptr %807, i32 0, i32 0
+  store i16 0, ptr %808, align 8
+  %809 = load ptr, ptr %7, align 8
+  %810 = getelementptr inbounds %struct.DISASMED, ptr %809, i32 0, i32 2
+  store i32 6, ptr %810, align 4
+  br label %2149
 
-807:                                              ; preds = %797
-  %808 = load i8, ptr %10, align 1
-  %809 = zext i8 %808 to i64
-  %810 = load i32, ptr %9, align 4
-  %811 = mul i32 %810, 8
-  %812 = zext i32 %811 to i64
-  %813 = shl i64 %809, %812
-  %814 = load ptr, ptr %7, align 8
-  %815 = getelementptr inbounds %struct.DISASMED, ptr %814, i32 0, i32 7
-  %816 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %815, i64 0, i64 0
-  %817 = getelementptr inbounds %struct.DIS_ARGS, ptr %816, i32 0, i32 3
-  %818 = load i64, ptr %817, align 8
-  %819 = add i64 %818, %813
-  store i64 %819, ptr %817, align 8
-  br label %820
+811:                                              ; preds = %801
+  %812 = load i8, ptr %10, align 1
+  %813 = zext i8 %812 to i64
+  %814 = load i32, ptr %9, align 4
+  %815 = mul i32 %814, 8
+  %816 = zext i32 %815 to i64
+  %817 = shl i64 %813, %816
+  %818 = load ptr, ptr %7, align 8
+  %819 = getelementptr inbounds %struct.DISASMED, ptr %818, i32 0, i32 7
+  %820 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %819, i64 0, i64 0
+  %821 = getelementptr inbounds %struct.DIS_ARGS, ptr %820, i32 0, i32 3
+  %822 = load i64, ptr %821, align 8
+  %823 = add i64 %822, %817
+  store i64 %823, ptr %821, align 8
+  br label %824
 
-820:                                              ; preds = %807
-  %821 = load i32, ptr %9, align 4
-  %822 = add i32 %821, 1
-  store i32 %822, ptr %9, align 4
-  br label %788
+824:                                              ; preds = %811
+  %825 = load i32, ptr %9, align 4
+  %826 = add i32 %825, 1
+  store i32 %826, ptr %9, align 4
+  br label %792
 
-823:                                              ; preds = %788
-  %824 = load i8, ptr %18, align 1
-  %825 = zext i8 %824 to i32
-  %826 = sub nsw i32 8, %825
-  %827 = mul nsw i32 %826, 8
-  %828 = load ptr, ptr %7, align 8
-  %829 = getelementptr inbounds %struct.DISASMED, ptr %828, i32 0, i32 7
-  %830 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %829, i64 0, i64 0
-  %831 = getelementptr inbounds %struct.DIS_ARGS, ptr %830, i32 0, i32 3
-  %832 = load i64, ptr %831, align 8
-  %833 = zext i32 %827 to i64
-  %834 = shl i64 %832, %833
-  store i64 %834, ptr %831, align 8
-  %835 = load i8, ptr %18, align 1
-  %836 = zext i8 %835 to i32
-  %837 = sub nsw i32 8, %836
-  %838 = mul nsw i32 %837, 8
-  %839 = load ptr, ptr %7, align 8
-  %840 = getelementptr inbounds %struct.DISASMED, ptr %839, i32 0, i32 7
-  %841 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %840, i64 0, i64 0
-  %842 = getelementptr inbounds %struct.DIS_ARGS, ptr %841, i32 0, i32 3
-  %843 = load i64, ptr %842, align 8
-  %844 = zext i32 %838 to i64
-  %845 = ashr i64 %843, %844
-  store i64 %845, ptr %842, align 8
-  %846 = load ptr, ptr %7, align 8
-  %847 = getelementptr inbounds %struct.DISASMED, ptr %846, i32 0, i32 2
-  store i32 2, ptr %847, align 4
+827:                                              ; preds = %792
+  %828 = load i8, ptr %18, align 1
+  %829 = zext i8 %828 to i32
+  %830 = sub nsw i32 8, %829
+  %831 = mul nsw i32 %830, 8
+  %832 = load ptr, ptr %7, align 8
+  %833 = getelementptr inbounds %struct.DISASMED, ptr %832, i32 0, i32 7
+  %834 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %833, i64 0, i64 0
+  %835 = getelementptr inbounds %struct.DIS_ARGS, ptr %834, i32 0, i32 3
+  %836 = load i64, ptr %835, align 8
+  %837 = zext i32 %831 to i64
+  %838 = shl i64 %836, %837
+  store i64 %838, ptr %835, align 8
+  %839 = load i8, ptr %18, align 1
+  %840 = zext i8 %839 to i32
+  %841 = sub nsw i32 8, %840
+  %842 = mul nsw i32 %841, 8
+  %843 = load ptr, ptr %7, align 8
+  %844 = getelementptr inbounds %struct.DISASMED, ptr %843, i32 0, i32 7
+  %845 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %844, i64 0, i64 0
+  %846 = getelementptr inbounds %struct.DIS_ARGS, ptr %845, i32 0, i32 3
+  %847 = load i64, ptr %846, align 8
+  %848 = zext i32 %842 to i64
+  %849 = ashr i64 %847, %848
+  store i64 %849, ptr %846, align 8
+  %850 = load ptr, ptr %7, align 8
+  %851 = getelementptr inbounds %struct.DISASMED, ptr %850, i32 0, i32 2
+  store i32 2, ptr %851, align 4
   br label %35
 
-848:                                              ; preds = %552, %552, %552, %552, %552
+852:                                              ; preds = %556, %556, %556, %556, %556
   store i32 1, ptr %8, align 4
-  br label %849
+  br label %853
 
-849:                                              ; preds = %848, %552, %552, %552, %552, %552, %552
+853:                                              ; preds = %852, %556, %556, %556, %556, %556, %556
   store i64 0, ptr %25, align 8
-  %850 = load i32, ptr %6, align 4
-  %851 = add i32 %850, -1
-  store i32 %851, ptr %6, align 4
-  %852 = icmp ne i32 %850, 0
-  br i1 %852, label %853, label %858
+  %854 = load i32, ptr %6, align 4
+  %855 = add i32 %854, -1
+  store i32 %855, ptr %6, align 4
+  %856 = icmp ne i32 %854, 0
+  br i1 %856, label %857, label %862
 
-853:                                              ; preds = %849
-  %854 = load ptr, ptr %5, align 8
-  %855 = load i8, ptr %854, align 1
-  store i8 %855, ptr %20, align 1
-  %856 = load ptr, ptr %5, align 8
-  %857 = getelementptr inbounds i8, ptr %856, i32 1
-  store ptr %857, ptr %5, align 8
-  br label %863
+857:                                              ; preds = %853
+  %858 = load ptr, ptr %5, align 8
+  %859 = load i8, ptr %858, align 1
+  store i8 %859, ptr %20, align 1
+  %860 = load ptr, ptr %5, align 8
+  %861 = getelementptr inbounds i8, ptr %860, i32 1
+  store ptr %861, ptr %5, align 8
+  br label %867
 
-858:                                              ; preds = %849
-  %859 = load ptr, ptr %7, align 8
-  %860 = getelementptr inbounds %struct.DISASMED, ptr %859, i32 0, i32 0
-  store i16 0, ptr %860, align 8
-  %861 = load ptr, ptr %7, align 8
-  %862 = getelementptr inbounds %struct.DISASMED, ptr %861, i32 0, i32 2
-  store i32 6, ptr %862, align 4
-  br label %2140
+862:                                              ; preds = %853
+  %863 = load ptr, ptr %7, align 8
+  %864 = getelementptr inbounds %struct.DISASMED, ptr %863, i32 0, i32 0
+  store i16 0, ptr %864, align 8
+  %865 = load ptr, ptr %7, align 8
+  %866 = getelementptr inbounds %struct.DISASMED, ptr %865, i32 0, i32 2
+  store i32 6, ptr %866, align 4
+  br label %2149
 
-863:                                              ; preds = %853
-  %864 = load i8, ptr %20, align 1
-  %865 = zext i8 %864 to i32
-  %866 = ashr i32 %865, 6
-  %867 = trunc i32 %866 to i8
-  store i8 %867, ptr %19, align 1
+867:                                              ; preds = %857
   %868 = load i8, ptr %20, align 1
   %869 = zext i8 %868 to i32
-  %870 = ashr i32 %869, 3
-  %871 = and i32 %870, 7
-  %872 = trunc i32 %871 to i8
-  store i8 %872, ptr %21, align 1
-  %873 = load i8, ptr %20, align 1
-  %874 = zext i8 %873 to i32
+  %870 = ashr i32 %869, 6
+  %871 = trunc i32 %870 to i8
+  store i8 %871, ptr %19, align 1
+  %872 = load i8, ptr %20, align 1
+  %873 = zext i8 %872 to i32
+  %874 = ashr i32 %873, 3
   %875 = and i32 %874, 7
   %876 = trunc i32 %875 to i8
-  store i8 %876, ptr %20, align 1
-  %877 = load i32, ptr %11, align 4
-  %878 = zext i32 %877 to i64
-  %879 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %878
-  %880 = load ptr, ptr %7, align 8
-  %881 = getelementptr inbounds %struct.DISASMED, ptr %880, i32 0, i32 0
-  %882 = load i16, ptr %881, align 8
-  %883 = zext i16 %882 to i64
-  %884 = getelementptr inbounds [256 x %struct.OPCODES], ptr %879, i64 0, i64 %883
-  %885 = getelementptr inbounds %struct.OPCODES, ptr %884, i32 0, i32 0
-  %886 = load i32, ptr %885, align 4
-  switch i32 %886, label %890 [
-    i32 23, label %887
-    i32 25, label %887
-    i32 24, label %888
-    i32 26, label %888
-    i32 20, label %889
-    i32 19, label %889
+  store i8 %876, ptr %21, align 1
+  %877 = load i8, ptr %20, align 1
+  %878 = zext i8 %877 to i32
+  %879 = and i32 %878, 7
+  %880 = trunc i32 %879 to i8
+  store i8 %880, ptr %20, align 1
+  %881 = load i32, ptr %11, align 4
+  %882 = zext i32 %881 to i64
+  %883 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %882
+  %884 = load ptr, ptr %7, align 8
+  %885 = getelementptr inbounds %struct.DISASMED, ptr %884, i32 0, i32 0
+  %886 = load i16, ptr %885, align 8
+  %887 = zext i16 %886 to i64
+  %888 = getelementptr inbounds [256 x %struct.OPCODES], ptr %883, i64 0, i64 %887
+  %889 = getelementptr inbounds %struct.OPCODES, ptr %888, i32 0, i32 0
+  %890 = load i32, ptr %889, align 4
+  switch i32 %890, label %894 [
+    i32 23, label %891
+    i32 25, label %891
+    i32 24, label %892
+    i32 26, label %892
+    i32 20, label %893
+    i32 19, label %893
   ]
 
-887:                                              ; preds = %863, %863
+891:                                              ; preds = %867, %867
   store ptr @mrm_cregmap, ptr %26, align 8
   store i8 3, ptr %19, align 1
-  br label %891
+  br label %895
 
-888:                                              ; preds = %863, %863
+892:                                              ; preds = %867, %867
   store ptr @mrm_dregmap, ptr %26, align 8
   store i8 3, ptr %19, align 1
-  br label %891
+  br label %895
 
-889:                                              ; preds = %863, %863
+893:                                              ; preds = %867, %867
   store ptr @mrm_sregmap, ptr %26, align 8
-  br label %891
+  br label %895
 
-890:                                              ; preds = %863
+894:                                              ; preds = %867
   store ptr @mrm_regmap, ptr %26, align 8
-  br label %891
+  br label %895
 
-891:                                              ; preds = %890, %889, %888, %887
-  %892 = load ptr, ptr %7, align 8
-  %893 = getelementptr inbounds %struct.DISASMED, ptr %892, i32 0, i32 7
-  %894 = load i32, ptr %8, align 4
-  %895 = zext i32 %894 to i64
-  %896 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %893, i64 0, i64 %895
-  %897 = getelementptr inbounds %struct.DIS_ARGS, ptr %896, i32 0, i32 1
-  store i32 0, ptr %897, align 4
-  %898 = load i32, ptr %11, align 4
+895:                                              ; preds = %894, %893, %892, %891
+  %896 = load ptr, ptr %7, align 8
+  %897 = getelementptr inbounds %struct.DISASMED, ptr %896, i32 0, i32 7
+  %898 = load i32, ptr %8, align 4
   %899 = zext i32 %898 to i64
-  %900 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %899
-  %901 = load ptr, ptr %7, align 8
-  %902 = getelementptr inbounds %struct.DISASMED, ptr %901, i32 0, i32 0
-  %903 = load i16, ptr %902, align 8
-  %904 = zext i16 %903 to i64
-  %905 = getelementptr inbounds [256 x %struct.OPCODES], ptr %900, i64 0, i64 %904
-  %906 = getelementptr inbounds %struct.OPCODES, ptr %905, i32 0, i32 1
-  %907 = load i32, ptr %906, align 4
-  switch i32 %907, label %939 [
-    i32 3, label %908
-    i32 5, label %915
-    i32 2, label %929
-    i32 0, label %938
+  %900 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %897, i64 0, i64 %899
+  %901 = getelementptr inbounds %struct.DIS_ARGS, ptr %900, i32 0, i32 1
+  store i32 0, ptr %901, align 4
+  %902 = load i32, ptr %11, align 4
+  %903 = zext i32 %902 to i64
+  %904 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %903
+  %905 = load ptr, ptr %7, align 8
+  %906 = getelementptr inbounds %struct.DISASMED, ptr %905, i32 0, i32 0
+  %907 = load i16, ptr %906, align 8
+  %908 = zext i16 %907 to i64
+  %909 = getelementptr inbounds [256 x %struct.OPCODES], ptr %904, i64 0, i64 %908
+  %910 = getelementptr inbounds %struct.OPCODES, ptr %909, i32 0, i32 1
+  %911 = load i32, ptr %910, align 4
+  switch i32 %911, label %943 [
+    i32 3, label %912
+    i32 5, label %919
+    i32 2, label %933
+    i32 0, label %942
   ]
 
-908:                                              ; preds = %891
-  %909 = load ptr, ptr %7, align 8
-  %910 = getelementptr inbounds %struct.DISASMED, ptr %909, i32 0, i32 7
-  %911 = load i32, ptr %8, align 4
-  %912 = zext i32 %911 to i64
-  %913 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %910, i64 0, i64 %912
-  %914 = getelementptr inbounds %struct.DIS_ARGS, ptr %913, i32 0, i32 1
-  store i32 2, ptr %914, align 4
-  br label %940
+912:                                              ; preds = %895
+  %913 = load ptr, ptr %7, align 8
+  %914 = getelementptr inbounds %struct.DISASMED, ptr %913, i32 0, i32 7
+  %915 = load i32, ptr %8, align 4
+  %916 = zext i32 %915 to i64
+  %917 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %914, i64 0, i64 %916
+  %918 = getelementptr inbounds %struct.DIS_ARGS, ptr %917, i32 0, i32 1
+  store i32 2, ptr %918, align 4
+  br label %944
 
-915:                                              ; preds = %891
-  %916 = load ptr, ptr %7, align 8
-  %917 = getelementptr inbounds %struct.DISASMED, ptr %916, i32 0, i32 3
-  %918 = load i32, ptr %917, align 8
-  %919 = icmp eq i32 %918, 0
-  %920 = zext i1 %919 to i32
-  %921 = load ptr, ptr %7, align 8
-  %922 = getelementptr inbounds %struct.DISASMED, ptr %921, i32 0, i32 7
-  %923 = load i32, ptr %8, align 4
-  %924 = zext i32 %923 to i64
-  %925 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %922, i64 0, i64 %924
-  %926 = getelementptr inbounds %struct.DIS_ARGS, ptr %925, i32 0, i32 1
-  %927 = load i32, ptr %926, align 4
-  %928 = add i32 %927, %920
-  store i32 %928, ptr %926, align 4
-  br label %929
+919:                                              ; preds = %895
+  %920 = load ptr, ptr %7, align 8
+  %921 = getelementptr inbounds %struct.DISASMED, ptr %920, i32 0, i32 3
+  %922 = load i32, ptr %921, align 8
+  %923 = icmp eq i32 %922, 0
+  %924 = zext i1 %923 to i32
+  %925 = load ptr, ptr %7, align 8
+  %926 = getelementptr inbounds %struct.DISASMED, ptr %925, i32 0, i32 7
+  %927 = load i32, ptr %8, align 4
+  %928 = zext i32 %927 to i64
+  %929 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %926, i64 0, i64 %928
+  %930 = getelementptr inbounds %struct.DIS_ARGS, ptr %929, i32 0, i32 1
+  %931 = load i32, ptr %930, align 4
+  %932 = add i32 %931, %924
+  store i32 %932, ptr %930, align 4
+  br label %933
 
-929:                                              ; preds = %915, %891
-  %930 = load ptr, ptr %7, align 8
-  %931 = getelementptr inbounds %struct.DISASMED, ptr %930, i32 0, i32 7
-  %932 = load i32, ptr %8, align 4
-  %933 = zext i32 %932 to i64
-  %934 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %931, i64 0, i64 %933
-  %935 = getelementptr inbounds %struct.DIS_ARGS, ptr %934, i32 0, i32 1
-  %936 = load i32, ptr %935, align 4
-  %937 = add i32 %936, 1
-  store i32 %937, ptr %935, align 4
-  br label %938
+933:                                              ; preds = %919, %895
+  %934 = load ptr, ptr %7, align 8
+  %935 = getelementptr inbounds %struct.DISASMED, ptr %934, i32 0, i32 7
+  %936 = load i32, ptr %8, align 4
+  %937 = zext i32 %936 to i64
+  %938 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %935, i64 0, i64 %937
+  %939 = getelementptr inbounds %struct.DIS_ARGS, ptr %938, i32 0, i32 1
+  %940 = load i32, ptr %939, align 4
+  %941 = add i32 %940, 1
+  store i32 %941, ptr %939, align 4
+  br label %942
 
-938:                                              ; preds = %929, %891
-  br label %940
+942:                                              ; preds = %933, %895
+  br label %944
 
-939:                                              ; preds = %891
+943:                                              ; preds = %895
   call void @__assert_fail(ptr noundef @.str.11, ptr noundef @.str.2, i32 noundef 1515, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-940:                                              ; preds = %938, %908
-  %941 = load ptr, ptr %7, align 8
-  %942 = getelementptr inbounds %struct.DISASMED, ptr %941, i32 0, i32 7
-  %943 = load i32, ptr %8, align 4
-  %944 = xor i32 %943, 1
-  %945 = zext i32 %944 to i64
-  %946 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %942, i64 0, i64 %945
-  %947 = getelementptr inbounds %struct.DIS_ARGS, ptr %946, i32 0, i32 0
-  store i32 3, ptr %947, align 8
-  %948 = load ptr, ptr %26, align 8
-  %949 = load ptr, ptr %7, align 8
-  %950 = getelementptr inbounds %struct.DISASMED, ptr %949, i32 0, i32 7
-  %951 = load i32, ptr %8, align 4
-  %952 = zext i32 %951 to i64
-  %953 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %950, i64 0, i64 %952
-  %954 = getelementptr inbounds %struct.DIS_ARGS, ptr %953, i32 0, i32 1
-  %955 = load i32, ptr %954, align 4
+944:                                              ; preds = %942, %912
+  %945 = load ptr, ptr %7, align 8
+  %946 = getelementptr inbounds %struct.DISASMED, ptr %945, i32 0, i32 7
+  %947 = load i32, ptr %8, align 4
+  %948 = xor i32 %947, 1
+  %949 = zext i32 %948 to i64
+  %950 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %946, i64 0, i64 %949
+  %951 = getelementptr inbounds %struct.DIS_ARGS, ptr %950, i32 0, i32 0
+  store i32 3, ptr %951, align 8
+  %952 = load ptr, ptr %26, align 8
+  %953 = load ptr, ptr %7, align 8
+  %954 = getelementptr inbounds %struct.DISASMED, ptr %953, i32 0, i32 7
+  %955 = load i32, ptr %8, align 4
   %956 = zext i32 %955 to i64
-  %957 = getelementptr inbounds [8 x i8], ptr %948, i64 %956
-  %958 = load i8, ptr %21, align 1
-  %959 = zext i8 %958 to i64
-  %960 = getelementptr inbounds [8 x i8], ptr %957, i64 0, i64 %959
-  %961 = load i8, ptr %960, align 1
-  %962 = zext i8 %961 to i32
-  %963 = load ptr, ptr %7, align 8
-  %964 = getelementptr inbounds %struct.DISASMED, ptr %963, i32 0, i32 7
-  %965 = load i32, ptr %8, align 4
-  %966 = xor i32 %965, 1
-  %967 = zext i32 %966 to i64
-  %968 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %964, i64 0, i64 %967
-  %969 = getelementptr inbounds %struct.DIS_ARGS, ptr %968, i32 0, i32 2
-  store i32 %962, ptr %969, align 8
-  %970 = icmp eq i32 %962, 54
-  br i1 %970, label %971, label %976
+  %957 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %954, i64 0, i64 %956
+  %958 = getelementptr inbounds %struct.DIS_ARGS, ptr %957, i32 0, i32 1
+  %959 = load i32, ptr %958, align 4
+  %960 = zext i32 %959 to i64
+  %961 = getelementptr inbounds [8 x i8], ptr %952, i64 %960
+  %962 = load i8, ptr %21, align 1
+  %963 = zext i8 %962 to i64
+  %964 = getelementptr inbounds [8 x i8], ptr %961, i64 0, i64 %963
+  %965 = load i8, ptr %964, align 1
+  %966 = zext i8 %965 to i32
+  %967 = load ptr, ptr %7, align 8
+  %968 = getelementptr inbounds %struct.DISASMED, ptr %967, i32 0, i32 7
+  %969 = load i32, ptr %8, align 4
+  %970 = xor i32 %969, 1
+  %971 = zext i32 %970 to i64
+  %972 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %968, i64 0, i64 %971
+  %973 = getelementptr inbounds %struct.DIS_ARGS, ptr %972, i32 0, i32 2
+  store i32 %966, ptr %973, align 8
+  %974 = icmp eq i32 %966, 54
+  br i1 %974, label %975, label %980
 
-971:                                              ; preds = %940
-  %972 = load ptr, ptr %7, align 8
-  %973 = getelementptr inbounds %struct.DISASMED, ptr %972, i32 0, i32 0
-  store i16 0, ptr %973, align 8
-  %974 = load ptr, ptr %7, align 8
-  %975 = getelementptr inbounds %struct.DISASMED, ptr %974, i32 0, i32 2
-  store i32 6, ptr %975, align 4
-  br label %2140
+975:                                              ; preds = %944
+  %976 = load ptr, ptr %7, align 8
+  %977 = getelementptr inbounds %struct.DISASMED, ptr %976, i32 0, i32 0
+  store i16 0, ptr %977, align 8
+  %978 = load ptr, ptr %7, align 8
+  %979 = getelementptr inbounds %struct.DISASMED, ptr %978, i32 0, i32 2
+  store i32 6, ptr %979, align 4
+  br label %2149
 
-976:                                              ; preds = %940
-  %977 = load ptr, ptr %7, align 8
-  %978 = getelementptr inbounds %struct.DISASMED, ptr %977, i32 0, i32 1
-  %979 = load i16, ptr %978, align 2
-  %980 = zext i16 %979 to i32
-  %981 = icmp eq i32 %980, 114
-  br i1 %981, label %988, label %982
+980:                                              ; preds = %944
+  %981 = load ptr, ptr %7, align 8
+  %982 = getelementptr inbounds %struct.DISASMED, ptr %981, i32 0, i32 1
+  %983 = load i16, ptr %982, align 2
+  %984 = zext i16 %983 to i32
+  %985 = icmp eq i32 %984, 114
+  br i1 %985, label %992, label %986
 
-982:                                              ; preds = %976
-  %983 = load ptr, ptr %7, align 8
-  %984 = getelementptr inbounds %struct.DISASMED, ptr %983, i32 0, i32 1
-  %985 = load i16, ptr %984, align 2
-  %986 = zext i16 %985 to i32
-  %987 = icmp eq i32 %986, 113
-  br i1 %987, label %988, label %1001
+986:                                              ; preds = %980
+  %987 = load ptr, ptr %7, align 8
+  %988 = getelementptr inbounds %struct.DISASMED, ptr %987, i32 0, i32 1
+  %989 = load i16, ptr %988, align 2
+  %990 = zext i16 %989 to i32
+  %991 = icmp eq i32 %990, 113
+  br i1 %991, label %992, label %1005
 
-988:                                              ; preds = %982, %976
-  %989 = load ptr, ptr %7, align 8
-  %990 = getelementptr inbounds %struct.DISASMED, ptr %989, i32 0, i32 0
-  %991 = load i16, ptr %990, align 8
-  %992 = zext i16 %991 to i32
-  %993 = and i32 %992, 1
-  %994 = add nsw i32 0, %993
-  %995 = load ptr, ptr %7, align 8
-  %996 = getelementptr inbounds %struct.DISASMED, ptr %995, i32 0, i32 7
-  %997 = load i32, ptr %8, align 4
-  %998 = zext i32 %997 to i64
-  %999 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %996, i64 0, i64 %998
-  %1000 = getelementptr inbounds %struct.DIS_ARGS, ptr %999, i32 0, i32 1
-  store i32 %994, ptr %1000, align 4
-  br label %1001
+992:                                              ; preds = %986, %980
+  %993 = load ptr, ptr %7, align 8
+  %994 = getelementptr inbounds %struct.DISASMED, ptr %993, i32 0, i32 0
+  %995 = load i16, ptr %994, align 8
+  %996 = zext i16 %995 to i32
+  %997 = and i32 %996, 1
+  %998 = add nsw i32 0, %997
+  %999 = load ptr, ptr %7, align 8
+  %1000 = getelementptr inbounds %struct.DISASMED, ptr %999, i32 0, i32 7
+  %1001 = load i32, ptr %8, align 4
+  %1002 = zext i32 %1001 to i64
+  %1003 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1000, i64 0, i64 %1002
+  %1004 = getelementptr inbounds %struct.DIS_ARGS, ptr %1003, i32 0, i32 1
+  store i32 %998, ptr %1004, align 4
+  br label %1005
 
-1001:                                             ; preds = %988, %982
-  %1002 = load i8, ptr %19, align 1
-  %1003 = zext i8 %1002 to i32
-  %1004 = icmp eq i32 %1003, 3
-  br i1 %1004, label %1005, label %1139
+1005:                                             ; preds = %992, %986
+  %1006 = load i8, ptr %19, align 1
+  %1007 = zext i8 %1006 to i32
+  %1008 = icmp eq i32 %1007, 3
+  br i1 %1008, label %1009, label %1143
 
-1005:                                             ; preds = %1001
-  %1006 = load i32, ptr %11, align 4
-  %1007 = zext i32 %1006 to i64
-  %1008 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1007
-  %1009 = load ptr, ptr %7, align 8
-  %1010 = getelementptr inbounds %struct.DISASMED, ptr %1009, i32 0, i32 0
-  %1011 = load i16, ptr %1010, align 8
-  %1012 = zext i16 %1011 to i64
-  %1013 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1008, i64 0, i64 %1012
-  %1014 = getelementptr inbounds %struct.OPCODES, ptr %1013, i32 0, i32 0
-  %1015 = load i32, ptr %1014, align 4
-  %1016 = icmp eq i32 %1015, 18
-  br i1 %1016, label %1029, label %1017
+1009:                                             ; preds = %1005
+  %1010 = load i32, ptr %11, align 4
+  %1011 = zext i32 %1010 to i64
+  %1012 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1011
+  %1013 = load ptr, ptr %7, align 8
+  %1014 = getelementptr inbounds %struct.DISASMED, ptr %1013, i32 0, i32 0
+  %1015 = load i16, ptr %1014, align 8
+  %1016 = zext i16 %1015 to i64
+  %1017 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1012, i64 0, i64 %1016
+  %1018 = getelementptr inbounds %struct.OPCODES, ptr %1017, i32 0, i32 0
+  %1019 = load i32, ptr %1018, align 4
+  %1020 = icmp eq i32 %1019, 18
+  br i1 %1020, label %1033, label %1021
 
-1017:                                             ; preds = %1005
-  %1018 = load i32, ptr %11, align 4
-  %1019 = zext i32 %1018 to i64
-  %1020 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1019
-  %1021 = load ptr, ptr %7, align 8
-  %1022 = getelementptr inbounds %struct.DISASMED, ptr %1021, i32 0, i32 0
-  %1023 = load i16, ptr %1022, align 8
-  %1024 = zext i16 %1023 to i64
-  %1025 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1020, i64 0, i64 %1024
-  %1026 = getelementptr inbounds %struct.OPCODES, ptr %1025, i32 0, i32 0
-  %1027 = load i32, ptr %1026, align 4
-  %1028 = icmp eq i32 %1027, 22
-  br i1 %1028, label %1029, label %1034
+1021:                                             ; preds = %1009
+  %1022 = load i32, ptr %11, align 4
+  %1023 = zext i32 %1022 to i64
+  %1024 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1023
+  %1025 = load ptr, ptr %7, align 8
+  %1026 = getelementptr inbounds %struct.DISASMED, ptr %1025, i32 0, i32 0
+  %1027 = load i16, ptr %1026, align 8
+  %1028 = zext i16 %1027 to i64
+  %1029 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1024, i64 0, i64 %1028
+  %1030 = getelementptr inbounds %struct.OPCODES, ptr %1029, i32 0, i32 0
+  %1031 = load i32, ptr %1030, align 4
+  %1032 = icmp eq i32 %1031, 22
+  br i1 %1032, label %1033, label %1038
 
-1029:                                             ; preds = %1017, %1005
-  %1030 = load ptr, ptr %7, align 8
-  %1031 = getelementptr inbounds %struct.DISASMED, ptr %1030, i32 0, i32 0
-  store i16 0, ptr %1031, align 8
-  %1032 = load ptr, ptr %7, align 8
-  %1033 = getelementptr inbounds %struct.DISASMED, ptr %1032, i32 0, i32 2
-  store i32 6, ptr %1033, align 4
-  br label %2140
+1033:                                             ; preds = %1021, %1009
+  %1034 = load ptr, ptr %7, align 8
+  %1035 = getelementptr inbounds %struct.DISASMED, ptr %1034, i32 0, i32 0
+  store i16 0, ptr %1035, align 8
+  %1036 = load ptr, ptr %7, align 8
+  %1037 = getelementptr inbounds %struct.DISASMED, ptr %1036, i32 0, i32 2
+  store i32 6, ptr %1037, align 4
+  br label %2149
 
-1034:                                             ; preds = %1017
-  %1035 = load ptr, ptr %7, align 8
-  %1036 = getelementptr inbounds %struct.DISASMED, ptr %1035, i32 0, i32 7
-  %1037 = load i32, ptr %8, align 4
-  %1038 = zext i32 %1037 to i64
-  %1039 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1036, i64 0, i64 %1038
-  %1040 = getelementptr inbounds %struct.DIS_ARGS, ptr %1039, i32 0, i32 0
-  store i32 3, ptr %1040, align 8
-  %1041 = load ptr, ptr %7, align 8
-  %1042 = getelementptr inbounds %struct.DISASMED, ptr %1041, i32 0, i32 7
-  %1043 = load i32, ptr %8, align 4
-  %1044 = zext i32 %1043 to i64
-  %1045 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1042, i64 0, i64 %1044
-  %1046 = getelementptr inbounds %struct.DIS_ARGS, ptr %1045, i32 0, i32 1
-  %1047 = load i32, ptr %1046, align 4
+1038:                                             ; preds = %1021
+  %1039 = load ptr, ptr %7, align 8
+  %1040 = getelementptr inbounds %struct.DISASMED, ptr %1039, i32 0, i32 7
+  %1041 = load i32, ptr %8, align 4
+  %1042 = zext i32 %1041 to i64
+  %1043 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1040, i64 0, i64 %1042
+  %1044 = getelementptr inbounds %struct.DIS_ARGS, ptr %1043, i32 0, i32 0
+  store i32 3, ptr %1044, align 8
+  %1045 = load ptr, ptr %7, align 8
+  %1046 = getelementptr inbounds %struct.DISASMED, ptr %1045, i32 0, i32 7
+  %1047 = load i32, ptr %8, align 4
   %1048 = zext i32 %1047 to i64
-  %1049 = getelementptr inbounds [3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 %1048
-  %1050 = load i8, ptr %20, align 1
-  %1051 = zext i8 %1050 to i64
-  %1052 = getelementptr inbounds [8 x i8], ptr %1049, i64 0, i64 %1051
-  %1053 = load i8, ptr %1052, align 1
-  %1054 = zext i8 %1053 to i32
-  %1055 = load ptr, ptr %7, align 8
-  %1056 = getelementptr inbounds %struct.DISASMED, ptr %1055, i32 0, i32 7
-  %1057 = load i32, ptr %8, align 4
-  %1058 = zext i32 %1057 to i64
-  %1059 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1056, i64 0, i64 %1058
-  %1060 = getelementptr inbounds %struct.DIS_ARGS, ptr %1059, i32 0, i32 2
-  store i32 %1054, ptr %1060, align 8
-  %1061 = load i32, ptr %11, align 4
+  %1049 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1046, i64 0, i64 %1048
+  %1050 = getelementptr inbounds %struct.DIS_ARGS, ptr %1049, i32 0, i32 1
+  %1051 = load i32, ptr %1050, align 4
+  %1052 = zext i32 %1051 to i64
+  %1053 = getelementptr inbounds [3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 %1052
+  %1054 = load i8, ptr %20, align 1
+  %1055 = zext i8 %1054 to i64
+  %1056 = getelementptr inbounds [8 x i8], ptr %1053, i64 0, i64 %1055
+  %1057 = load i8, ptr %1056, align 1
+  %1058 = zext i8 %1057 to i32
+  %1059 = load ptr, ptr %7, align 8
+  %1060 = getelementptr inbounds %struct.DISASMED, ptr %1059, i32 0, i32 7
+  %1061 = load i32, ptr %8, align 4
   %1062 = zext i32 %1061 to i64
-  %1063 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1062
-  %1064 = load ptr, ptr %7, align 8
-  %1065 = getelementptr inbounds %struct.DISASMED, ptr %1064, i32 0, i32 0
-  %1066 = load i16, ptr %1065, align 8
-  %1067 = zext i16 %1066 to i64
-  %1068 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1063, i64 0, i64 %1067
-  %1069 = getelementptr inbounds %struct.OPCODES, ptr %1068, i32 0, i32 0
-  %1070 = load i32, ptr %1069, align 4
-  %1071 = icmp eq i32 %1070, 21
-  br i1 %1071, label %1072, label %1131
+  %1063 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1060, i64 0, i64 %1062
+  %1064 = getelementptr inbounds %struct.DIS_ARGS, ptr %1063, i32 0, i32 2
+  store i32 %1058, ptr %1064, align 8
+  %1065 = load i32, ptr %11, align 4
+  %1066 = zext i32 %1065 to i64
+  %1067 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1066
+  %1068 = load ptr, ptr %7, align 8
+  %1069 = getelementptr inbounds %struct.DISASMED, ptr %1068, i32 0, i32 0
+  %1070 = load i16, ptr %1069, align 8
+  %1071 = zext i16 %1070 to i64
+  %1072 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1067, i64 0, i64 %1071
+  %1073 = getelementptr inbounds %struct.OPCODES, ptr %1072, i32 0, i32 0
+  %1074 = load i32, ptr %1073, align 4
+  %1075 = icmp eq i32 %1074, 21
+  br i1 %1075, label %1076, label %1135
 
-1072:                                             ; preds = %1034
-  %1073 = load ptr, ptr %7, align 8
-  %1074 = getelementptr inbounds %struct.DISASMED, ptr %1073, i32 0, i32 1
-  %1075 = load i16, ptr %1074, align 2
-  %1076 = trunc i16 %1075 to i8
-  store i8 %1076, ptr %27, align 1
-  %1077 = load i8, ptr %27, align 1
-  %1078 = zext i8 %1077 to i64
-  %1079 = icmp ult i64 %1078, 216
-  br i1 %1079, label %1080, label %1081
+1076:                                             ; preds = %1038
+  %1077 = load ptr, ptr %7, align 8
+  %1078 = getelementptr inbounds %struct.DISASMED, ptr %1077, i32 0, i32 1
+  %1079 = load i16, ptr %1078, align 2
+  %1080 = trunc i16 %1079 to i8
+  store i8 %1080, ptr %27, align 1
+  %1081 = load i8, ptr %27, align 1
+  %1082 = zext i8 %1081 to i64
+  %1083 = icmp ult i64 %1082, 216
+  br i1 %1083, label %1084, label %1085
 
-1080:                                             ; preds = %1072
-  br label %1082
+1084:                                             ; preds = %1076
+  br label %1086
 
-1081:                                             ; preds = %1072
+1085:                                             ; preds = %1076
   call void @__assert_fail(ptr noundef @.str.12, ptr noundef @.str.2, i32 noundef 1532, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-1082:                                             ; preds = %1080
-  %1083 = load i8, ptr %27, align 1
-  %1084 = zext i8 %1083 to i64
-  %1085 = getelementptr inbounds [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %1084
-  %1086 = load i8, ptr %21, align 1
-  %1087 = zext i8 %1086 to i64
-  %1088 = getelementptr inbounds [8 x %struct.anon.3], ptr %1085, i64 0, i64 %1087
-  %1089 = getelementptr inbounds %struct.anon.3, ptr %1088, i32 0, i32 1
-  %1090 = load i32, ptr %1089, align 4
-  %1091 = load ptr, ptr %7, align 8
-  %1092 = getelementptr inbounds %struct.DISASMED, ptr %1091, i32 0, i32 7
-  %1093 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1092, i64 0, i64 0
-  %1094 = getelementptr inbounds %struct.DIS_ARGS, ptr %1093, i32 0, i32 1
-  %1095 = load i32, ptr %1094, align 4
-  %1096 = add i32 %1095, %1090
-  store i32 %1096, ptr %1094, align 4
-  %1097 = load i8, ptr %27, align 1
-  %1098 = zext i8 %1097 to i64
-  %1099 = getelementptr inbounds [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %1098
-  %1100 = load i8, ptr %21, align 1
-  %1101 = zext i8 %1100 to i64
-  %1102 = getelementptr inbounds [8 x %struct.anon.3], ptr %1099, i64 0, i64 %1101
-  %1103 = getelementptr inbounds %struct.anon.3, ptr %1102, i32 0, i32 0
-  %1104 = load i32, ptr %1103, align 8
-  %1105 = trunc i32 %1104 to i16
-  %1106 = load ptr, ptr %7, align 8
-  %1107 = getelementptr inbounds %struct.DISASMED, ptr %1106, i32 0, i32 1
-  store i16 %1105, ptr %1107, align 2
-  %1108 = zext i16 %1105 to i32
-  %1109 = icmp eq i32 %1108, 0
-  br i1 %1109, label %1110, label %1115
+1086:                                             ; preds = %1084
+  %1087 = load i8, ptr %27, align 1
+  %1088 = zext i8 %1087 to i64
+  %1089 = getelementptr inbounds [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %1088
+  %1090 = load i8, ptr %21, align 1
+  %1091 = zext i8 %1090 to i64
+  %1092 = getelementptr inbounds [8 x %struct.anon.3], ptr %1089, i64 0, i64 %1091
+  %1093 = getelementptr inbounds %struct.anon.3, ptr %1092, i32 0, i32 1
+  %1094 = load i32, ptr %1093, align 4
+  %1095 = load ptr, ptr %7, align 8
+  %1096 = getelementptr inbounds %struct.DISASMED, ptr %1095, i32 0, i32 7
+  %1097 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1096, i64 0, i64 0
+  %1098 = getelementptr inbounds %struct.DIS_ARGS, ptr %1097, i32 0, i32 1
+  %1099 = load i32, ptr %1098, align 4
+  %1100 = add i32 %1099, %1094
+  store i32 %1100, ptr %1098, align 4
+  %1101 = load i8, ptr %27, align 1
+  %1102 = zext i8 %1101 to i64
+  %1103 = getelementptr inbounds [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %1102
+  %1104 = load i8, ptr %21, align 1
+  %1105 = zext i8 %1104 to i64
+  %1106 = getelementptr inbounds [8 x %struct.anon.3], ptr %1103, i64 0, i64 %1105
+  %1107 = getelementptr inbounds %struct.anon.3, ptr %1106, i32 0, i32 0
+  %1108 = load i32, ptr %1107, align 8
+  %1109 = trunc i32 %1108 to i16
+  %1110 = load ptr, ptr %7, align 8
+  %1111 = getelementptr inbounds %struct.DISASMED, ptr %1110, i32 0, i32 1
+  store i16 %1109, ptr %1111, align 2
+  %1112 = zext i16 %1109 to i32
+  %1113 = icmp eq i32 %1112, 0
+  br i1 %1113, label %1114, label %1119
 
-1110:                                             ; preds = %1082
-  %1111 = load ptr, ptr %7, align 8
-  %1112 = getelementptr inbounds %struct.DISASMED, ptr %1111, i32 0, i32 0
-  store i16 0, ptr %1112, align 8
-  %1113 = load ptr, ptr %7, align 8
-  %1114 = getelementptr inbounds %struct.DISASMED, ptr %1113, i32 0, i32 2
-  store i32 6, ptr %1114, align 4
-  br label %2140
+1114:                                             ; preds = %1086
+  %1115 = load ptr, ptr %7, align 8
+  %1116 = getelementptr inbounds %struct.DISASMED, ptr %1115, i32 0, i32 0
+  store i16 0, ptr %1116, align 8
+  %1117 = load ptr, ptr %7, align 8
+  %1118 = getelementptr inbounds %struct.DISASMED, ptr %1117, i32 0, i32 2
+  store i32 6, ptr %1118, align 4
+  br label %2149
 
-1115:                                             ; preds = %1082
-  %1116 = load ptr, ptr %7, align 8
-  %1117 = getelementptr inbounds %struct.DISASMED, ptr %1116, i32 0, i32 7
-  %1118 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1117, i64 0, i64 1
-  %1119 = getelementptr inbounds %struct.DIS_ARGS, ptr %1118, i32 0, i32 0
-  store i32 0, ptr %1119, align 8
-  %1120 = load i8, ptr %27, align 1
-  %1121 = zext i8 %1120 to i32
-  %1122 = icmp eq i32 %1121, 6
-  br i1 %1122, label %1123, label %1130
-
-1123:                                             ; preds = %1115
-  %1124 = load i8, ptr %21, align 1
+1119:                                             ; preds = %1086
+  %1120 = load ptr, ptr %7, align 8
+  %1121 = getelementptr inbounds %struct.DISASMED, ptr %1120, i32 0, i32 7
+  %1122 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1121, i64 0, i64 1
+  %1123 = getelementptr inbounds %struct.DIS_ARGS, ptr %1122, i32 0, i32 0
+  store i32 0, ptr %1123, align 8
+  %1124 = load i8, ptr %27, align 1
   %1125 = zext i8 %1124 to i32
-  %1126 = icmp ne i32 %1125, 0
-  br i1 %1126, label %1127, label %1130
+  %1126 = icmp eq i32 %1125, 6
+  br i1 %1126, label %1127, label %1134
 
-1127:                                             ; preds = %1123
-  %1128 = load ptr, ptr %7, align 8
-  %1129 = getelementptr inbounds %struct.DISASMED, ptr %1128, i32 0, i32 2
-  store i32 4, ptr %1129, align 4
-  br label %35
+1127:                                             ; preds = %1119
+  %1128 = load i8, ptr %21, align 1
+  %1129 = zext i8 %1128 to i32
+  %1130 = icmp ne i32 %1129, 0
+  br i1 %1130, label %1131, label %1134
 
-1130:                                             ; preds = %1123, %1115
-  br label %1136
-
-1131:                                             ; preds = %1034
+1131:                                             ; preds = %1127
   %1132 = load ptr, ptr %7, align 8
-  %1133 = getelementptr inbounds %struct.DISASMED, ptr %1132, i32 0, i32 6
-  %1134 = load i8, ptr %1133, align 4
-  %1135 = add i8 %1134, 1
-  store i8 %1135, ptr %1133, align 4
-  br label %1136
-
-1136:                                             ; preds = %1131, %1130
-  %1137 = load ptr, ptr %7, align 8
-  %1138 = getelementptr inbounds %struct.DISASMED, ptr %1137, i32 0, i32 2
-  store i32 2, ptr %1138, align 4
+  %1133 = getelementptr inbounds %struct.DISASMED, ptr %1132, i32 0, i32 2
+  store i32 4, ptr %1133, align 4
   br label %35
 
-1139:                                             ; preds = %1001
-  %1140 = load ptr, ptr %7, align 8
-  %1141 = getelementptr inbounds %struct.DISASMED, ptr %1140, i32 0, i32 7
-  %1142 = load i32, ptr %8, align 4
-  %1143 = zext i32 %1142 to i64
-  %1144 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1141, i64 0, i64 %1143
-  %1145 = getelementptr inbounds %struct.DIS_ARGS, ptr %1144, i32 0, i32 0
-  store i32 4, ptr %1145, align 8
-  %1146 = load ptr, ptr %7, align 8
-  %1147 = getelementptr inbounds %struct.DISASMED, ptr %1146, i32 0, i32 4
-  %1148 = load i32, ptr %1147, align 4
-  %1149 = icmp ne i32 %1148, 0
-  br i1 %1149, label %1396, label %1150
+1134:                                             ; preds = %1127, %1119
+  br label %1140
 
-1150:                                             ; preds = %1139
-  %1151 = load i8, ptr %20, align 1
-  %1152 = zext i8 %1151 to i32
-  %1153 = icmp eq i32 %1152, 4
-  br i1 %1153, label %1154, label %1274
+1135:                                             ; preds = %1038
+  %1136 = load ptr, ptr %7, align 8
+  %1137 = getelementptr inbounds %struct.DISASMED, ptr %1136, i32 0, i32 6
+  %1138 = load i8, ptr %1137, align 4
+  %1139 = add i8 %1138, 1
+  store i8 %1139, ptr %1137, align 4
+  br label %1140
 
-1154:                                             ; preds = %1150
-  %1155 = load i32, ptr %6, align 4
-  %1156 = add i32 %1155, -1
-  store i32 %1156, ptr %6, align 4
-  %1157 = icmp ne i32 %1155, 0
-  br i1 %1157, label %1158, label %1163
+1140:                                             ; preds = %1135, %1134
+  %1141 = load ptr, ptr %7, align 8
+  %1142 = getelementptr inbounds %struct.DISASMED, ptr %1141, i32 0, i32 2
+  store i32 2, ptr %1142, align 4
+  br label %35
+
+1143:                                             ; preds = %1005
+  %1144 = load ptr, ptr %7, align 8
+  %1145 = getelementptr inbounds %struct.DISASMED, ptr %1144, i32 0, i32 7
+  %1146 = load i32, ptr %8, align 4
+  %1147 = zext i32 %1146 to i64
+  %1148 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1145, i64 0, i64 %1147
+  %1149 = getelementptr inbounds %struct.DIS_ARGS, ptr %1148, i32 0, i32 0
+  store i32 4, ptr %1149, align 8
+  %1150 = load ptr, ptr %7, align 8
+  %1151 = getelementptr inbounds %struct.DISASMED, ptr %1150, i32 0, i32 4
+  %1152 = load i32, ptr %1151, align 4
+  %1153 = icmp ne i32 %1152, 0
+  br i1 %1153, label %1403, label %1154
+
+1154:                                             ; preds = %1143
+  %1155 = load i8, ptr %20, align 1
+  %1156 = zext i8 %1155 to i32
+  %1157 = icmp eq i32 %1156, 4
+  br i1 %1157, label %1158, label %1280
 
 1158:                                             ; preds = %1154
-  %1159 = load ptr, ptr %5, align 8
-  %1160 = load i8, ptr %1159, align 1
-  store i8 %1160, ptr %23, align 1
-  %1161 = load ptr, ptr %5, align 8
-  %1162 = getelementptr inbounds i8, ptr %1161, i32 1
-  store ptr %1162, ptr %5, align 8
-  br label %1168
+  %1159 = load i32, ptr %6, align 4
+  %1160 = add i32 %1159, -1
+  store i32 %1160, ptr %6, align 4
+  %1161 = icmp ne i32 %1159, 0
+  br i1 %1161, label %1162, label %1167
 
-1163:                                             ; preds = %1154
-  %1164 = load ptr, ptr %7, align 8
-  %1165 = getelementptr inbounds %struct.DISASMED, ptr %1164, i32 0, i32 0
-  store i16 0, ptr %1165, align 8
-  %1166 = load ptr, ptr %7, align 8
-  %1167 = getelementptr inbounds %struct.DISASMED, ptr %1166, i32 0, i32 2
-  store i32 6, ptr %1167, align 4
-  br label %2140
+1162:                                             ; preds = %1158
+  %1163 = load ptr, ptr %5, align 8
+  %1164 = load i8, ptr %1163, align 1
+  store i8 %1164, ptr %23, align 1
+  %1165 = load ptr, ptr %5, align 8
+  %1166 = getelementptr inbounds i8, ptr %1165, i32 1
+  store ptr %1166, ptr %5, align 8
+  br label %1172
 
-1168:                                             ; preds = %1158
-  %1169 = load i8, ptr %23, align 1
-  %1170 = zext i8 %1169 to i32
-  %1171 = ashr i32 %1170, 6
-  %1172 = trunc i32 %1171 to i8
-  store i8 %1172, ptr %22, align 1
+1167:                                             ; preds = %1158
+  %1168 = load ptr, ptr %7, align 8
+  %1169 = getelementptr inbounds %struct.DISASMED, ptr %1168, i32 0, i32 0
+  store i16 0, ptr %1169, align 8
+  %1170 = load ptr, ptr %7, align 8
+  %1171 = getelementptr inbounds %struct.DISASMED, ptr %1170, i32 0, i32 2
+  store i32 6, ptr %1171, align 4
+  br label %2149
+
+1172:                                             ; preds = %1162
   %1173 = load i8, ptr %23, align 1
   %1174 = zext i8 %1173 to i32
-  %1175 = ashr i32 %1174, 3
-  %1176 = and i32 %1175, 7
-  %1177 = trunc i32 %1176 to i8
-  store i8 %1177, ptr %24, align 1
-  %1178 = load i8, ptr %23, align 1
-  %1179 = zext i8 %1178 to i32
+  %1175 = ashr i32 %1174, 6
+  %1176 = trunc i32 %1175 to i8
+  store i8 %1176, ptr %22, align 1
+  %1177 = load i8, ptr %23, align 1
+  %1178 = zext i8 %1177 to i32
+  %1179 = ashr i32 %1178, 3
   %1180 = and i32 %1179, 7
   %1181 = trunc i32 %1180 to i8
-  store i8 %1181, ptr %23, align 1
-  %1182 = load i8, ptr %22, align 1
+  store i8 %1181, ptr %24, align 1
+  %1182 = load i8, ptr %23, align 1
   %1183 = zext i8 %1182 to i32
-  %1184 = shl i32 1, %1183
+  %1184 = and i32 %1183, 7
   %1185 = trunc i32 %1184 to i8
-  %1186 = load ptr, ptr %7, align 8
-  %1187 = getelementptr inbounds %struct.DISASMED, ptr %1186, i32 0, i32 7
-  %1188 = load i32, ptr %8, align 4
-  %1189 = zext i32 %1188 to i64
-  %1190 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1187, i64 0, i64 %1189
-  %1191 = getelementptr inbounds %struct.DIS_ARGS, ptr %1190, i32 0, i32 3
-  %1192 = getelementptr inbounds %struct.anon, ptr %1191, i32 0, i32 2
-  store i8 %1185, ptr %1192, align 8
-  %1193 = load i8, ptr %23, align 1
-  %1194 = zext i8 %1193 to i64
-  %1195 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds ([3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 2), i64 0, i64 %1194
-  %1196 = load i8, ptr %1195, align 1
-  %1197 = zext i8 %1196 to i32
-  %1198 = load ptr, ptr %7, align 8
-  %1199 = getelementptr inbounds %struct.DISASMED, ptr %1198, i32 0, i32 7
-  %1200 = load i32, ptr %8, align 4
-  %1201 = zext i32 %1200 to i64
-  %1202 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1199, i64 0, i64 %1201
-  %1203 = getelementptr inbounds %struct.DIS_ARGS, ptr %1202, i32 0, i32 3
-  %1204 = getelementptr inbounds %struct.anon, ptr %1203, i32 0, i32 1
-  store i32 %1197, ptr %1204, align 4
-  %1205 = icmp eq i32 %1197, 5
-  br i1 %1205, label %1206, label %1218
+  store i8 %1185, ptr %23, align 1
+  %1186 = load i8, ptr %22, align 1
+  %1187 = zext i8 %1186 to i32
+  %1188 = shl i32 1, %1187
+  %1189 = trunc i32 %1188 to i8
+  %1190 = load ptr, ptr %7, align 8
+  %1191 = getelementptr inbounds %struct.DISASMED, ptr %1190, i32 0, i32 7
+  %1192 = load i32, ptr %8, align 4
+  %1193 = zext i32 %1192 to i64
+  %1194 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1191, i64 0, i64 %1193
+  %1195 = getelementptr inbounds %struct.DIS_ARGS, ptr %1194, i32 0, i32 3
+  %1196 = getelementptr inbounds %struct.anon, ptr %1195, i32 0, i32 2
+  store i8 %1189, ptr %1196, align 8
+  %1197 = load i8, ptr %23, align 1
+  %1198 = zext i8 %1197 to i64
+  %1199 = getelementptr inbounds [3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 2
+  %1200 = getelementptr inbounds [8 x i8], ptr %1199, i64 0, i64 %1198
+  %1201 = load i8, ptr %1200, align 1
+  %1202 = zext i8 %1201 to i32
+  %1203 = load ptr, ptr %7, align 8
+  %1204 = getelementptr inbounds %struct.DISASMED, ptr %1203, i32 0, i32 7
+  %1205 = load i32, ptr %8, align 4
+  %1206 = zext i32 %1205 to i64
+  %1207 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1204, i64 0, i64 %1206
+  %1208 = getelementptr inbounds %struct.DIS_ARGS, ptr %1207, i32 0, i32 3
+  %1209 = getelementptr inbounds %struct.anon, ptr %1208, i32 0, i32 1
+  store i32 %1202, ptr %1209, align 4
+  %1210 = icmp eq i32 %1202, 5
+  br i1 %1210, label %1211, label %1223
 
-1206:                                             ; preds = %1168
-  %1207 = load i8, ptr %19, align 1
-  %1208 = zext i8 %1207 to i32
-  %1209 = icmp eq i32 %1208, 0
-  br i1 %1209, label %1210, label %1218
+1211:                                             ; preds = %1172
+  %1212 = load i8, ptr %19, align 1
+  %1213 = zext i8 %1212 to i32
+  %1214 = icmp eq i32 %1213, 0
+  br i1 %1214, label %1215, label %1223
 
-1210:                                             ; preds = %1206
-  %1211 = load ptr, ptr %7, align 8
-  %1212 = getelementptr inbounds %struct.DISASMED, ptr %1211, i32 0, i32 7
-  %1213 = load i32, ptr %8, align 4
-  %1214 = zext i32 %1213 to i64
-  %1215 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1212, i64 0, i64 %1214
-  %1216 = getelementptr inbounds %struct.DIS_ARGS, ptr %1215, i32 0, i32 3
-  %1217 = getelementptr inbounds %struct.anon, ptr %1216, i32 0, i32 1
-  store i32 54, ptr %1217, align 4
+1215:                                             ; preds = %1211
+  %1216 = load ptr, ptr %7, align 8
+  %1217 = getelementptr inbounds %struct.DISASMED, ptr %1216, i32 0, i32 7
+  %1218 = load i32, ptr %8, align 4
+  %1219 = zext i32 %1218 to i64
+  %1220 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1217, i64 0, i64 %1219
+  %1221 = getelementptr inbounds %struct.DIS_ARGS, ptr %1220, i32 0, i32 3
+  %1222 = getelementptr inbounds %struct.anon, ptr %1221, i32 0, i32 1
+  store i32 54, ptr %1222, align 4
   store i8 2, ptr %19, align 1
-  br label %1218
+  br label %1223
 
-1218:                                             ; preds = %1210, %1206, %1168
-  %1219 = load i8, ptr %24, align 1
-  %1220 = zext i8 %1219 to i64
-  %1221 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds ([3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 2), i64 0, i64 %1220
-  %1222 = load i8, ptr %1221, align 1
-  %1223 = zext i8 %1222 to i32
-  %1224 = load ptr, ptr %7, align 8
-  %1225 = getelementptr inbounds %struct.DISASMED, ptr %1224, i32 0, i32 7
-  %1226 = load i32, ptr %8, align 4
-  %1227 = zext i32 %1226 to i64
-  %1228 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1225, i64 0, i64 %1227
-  %1229 = getelementptr inbounds %struct.DIS_ARGS, ptr %1228, i32 0, i32 3
-  %1230 = getelementptr inbounds %struct.anon, ptr %1229, i32 0, i32 0
-  store i32 %1223, ptr %1230, align 8
-  %1231 = icmp eq i32 %1223, 4
-  br i1 %1231, label %1232, label %1273
+1223:                                             ; preds = %1215, %1211, %1172
+  %1224 = load i8, ptr %24, align 1
+  %1225 = zext i8 %1224 to i64
+  %1226 = getelementptr inbounds [3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 2
+  %1227 = getelementptr inbounds [8 x i8], ptr %1226, i64 0, i64 %1225
+  %1228 = load i8, ptr %1227, align 1
+  %1229 = zext i8 %1228 to i32
+  %1230 = load ptr, ptr %7, align 8
+  %1231 = getelementptr inbounds %struct.DISASMED, ptr %1230, i32 0, i32 7
+  %1232 = load i32, ptr %8, align 4
+  %1233 = zext i32 %1232 to i64
+  %1234 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1231, i64 0, i64 %1233
+  %1235 = getelementptr inbounds %struct.DIS_ARGS, ptr %1234, i32 0, i32 3
+  %1236 = getelementptr inbounds %struct.anon, ptr %1235, i32 0, i32 0
+  store i32 %1229, ptr %1236, align 8
+  %1237 = icmp eq i32 %1229, 4
+  br i1 %1237, label %1238, label %1279
 
-1232:                                             ; preds = %1218
-  %1233 = load ptr, ptr %7, align 8
-  %1234 = getelementptr inbounds %struct.DISASMED, ptr %1233, i32 0, i32 7
-  %1235 = load i32, ptr %8, align 4
-  %1236 = zext i32 %1235 to i64
-  %1237 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1234, i64 0, i64 %1236
-  %1238 = getelementptr inbounds %struct.DIS_ARGS, ptr %1237, i32 0, i32 3
-  %1239 = getelementptr inbounds %struct.anon, ptr %1238, i32 0, i32 1
-  %1240 = load i32, ptr %1239, align 4
-  %1241 = load ptr, ptr %7, align 8
-  %1242 = getelementptr inbounds %struct.DISASMED, ptr %1241, i32 0, i32 7
-  %1243 = load i32, ptr %8, align 4
-  %1244 = zext i32 %1243 to i64
-  %1245 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1242, i64 0, i64 %1244
-  %1246 = getelementptr inbounds %struct.DIS_ARGS, ptr %1245, i32 0, i32 3
-  %1247 = getelementptr inbounds %struct.anon, ptr %1246, i32 0, i32 0
-  store i32 %1240, ptr %1247, align 8
-  %1248 = load ptr, ptr %7, align 8
-  %1249 = getelementptr inbounds %struct.DISASMED, ptr %1248, i32 0, i32 7
-  %1250 = load i32, ptr %8, align 4
-  %1251 = zext i32 %1250 to i64
-  %1252 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1249, i64 0, i64 %1251
-  %1253 = getelementptr inbounds %struct.DIS_ARGS, ptr %1252, i32 0, i32 3
-  %1254 = getelementptr inbounds %struct.anon, ptr %1253, i32 0, i32 1
-  %1255 = load i32, ptr %1254, align 4
-  %1256 = icmp ne i32 %1255, 54
-  %1257 = zext i1 %1256 to i32
-  %1258 = trunc i32 %1257 to i8
-  %1259 = load ptr, ptr %7, align 8
-  %1260 = getelementptr inbounds %struct.DISASMED, ptr %1259, i32 0, i32 7
-  %1261 = load i32, ptr %8, align 4
-  %1262 = zext i32 %1261 to i64
-  %1263 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1260, i64 0, i64 %1262
-  %1264 = getelementptr inbounds %struct.DIS_ARGS, ptr %1263, i32 0, i32 3
-  %1265 = getelementptr inbounds %struct.anon, ptr %1264, i32 0, i32 2
-  store i8 %1258, ptr %1265, align 8
-  %1266 = load ptr, ptr %7, align 8
-  %1267 = getelementptr inbounds %struct.DISASMED, ptr %1266, i32 0, i32 7
-  %1268 = load i32, ptr %8, align 4
-  %1269 = zext i32 %1268 to i64
-  %1270 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1267, i64 0, i64 %1269
-  %1271 = getelementptr inbounds %struct.DIS_ARGS, ptr %1270, i32 0, i32 3
-  %1272 = getelementptr inbounds %struct.anon, ptr %1271, i32 0, i32 1
-  store i32 54, ptr %1272, align 4
-  br label %1273
+1238:                                             ; preds = %1223
+  %1239 = load ptr, ptr %7, align 8
+  %1240 = getelementptr inbounds %struct.DISASMED, ptr %1239, i32 0, i32 7
+  %1241 = load i32, ptr %8, align 4
+  %1242 = zext i32 %1241 to i64
+  %1243 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1240, i64 0, i64 %1242
+  %1244 = getelementptr inbounds %struct.DIS_ARGS, ptr %1243, i32 0, i32 3
+  %1245 = getelementptr inbounds %struct.anon, ptr %1244, i32 0, i32 1
+  %1246 = load i32, ptr %1245, align 4
+  %1247 = load ptr, ptr %7, align 8
+  %1248 = getelementptr inbounds %struct.DISASMED, ptr %1247, i32 0, i32 7
+  %1249 = load i32, ptr %8, align 4
+  %1250 = zext i32 %1249 to i64
+  %1251 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1248, i64 0, i64 %1250
+  %1252 = getelementptr inbounds %struct.DIS_ARGS, ptr %1251, i32 0, i32 3
+  %1253 = getelementptr inbounds %struct.anon, ptr %1252, i32 0, i32 0
+  store i32 %1246, ptr %1253, align 8
+  %1254 = load ptr, ptr %7, align 8
+  %1255 = getelementptr inbounds %struct.DISASMED, ptr %1254, i32 0, i32 7
+  %1256 = load i32, ptr %8, align 4
+  %1257 = zext i32 %1256 to i64
+  %1258 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1255, i64 0, i64 %1257
+  %1259 = getelementptr inbounds %struct.DIS_ARGS, ptr %1258, i32 0, i32 3
+  %1260 = getelementptr inbounds %struct.anon, ptr %1259, i32 0, i32 1
+  %1261 = load i32, ptr %1260, align 4
+  %1262 = icmp ne i32 %1261, 54
+  %1263 = zext i1 %1262 to i32
+  %1264 = trunc i32 %1263 to i8
+  %1265 = load ptr, ptr %7, align 8
+  %1266 = getelementptr inbounds %struct.DISASMED, ptr %1265, i32 0, i32 7
+  %1267 = load i32, ptr %8, align 4
+  %1268 = zext i32 %1267 to i64
+  %1269 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1266, i64 0, i64 %1268
+  %1270 = getelementptr inbounds %struct.DIS_ARGS, ptr %1269, i32 0, i32 3
+  %1271 = getelementptr inbounds %struct.anon, ptr %1270, i32 0, i32 2
+  store i8 %1264, ptr %1271, align 8
+  %1272 = load ptr, ptr %7, align 8
+  %1273 = getelementptr inbounds %struct.DISASMED, ptr %1272, i32 0, i32 7
+  %1274 = load i32, ptr %8, align 4
+  %1275 = zext i32 %1274 to i64
+  %1276 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1273, i64 0, i64 %1275
+  %1277 = getelementptr inbounds %struct.DIS_ARGS, ptr %1276, i32 0, i32 3
+  %1278 = getelementptr inbounds %struct.anon, ptr %1277, i32 0, i32 1
+  store i32 54, ptr %1278, align 4
+  br label %1279
 
-1273:                                             ; preds = %1232, %1218
-  br label %1318
+1279:                                             ; preds = %1238, %1223
+  br label %1325
 
-1274:                                             ; preds = %1150
-  %1275 = load i8, ptr %19, align 1
-  %1276 = zext i8 %1275 to i32
-  %1277 = icmp eq i32 %1276, 0
-  br i1 %1277, label %1278, label %1290
+1280:                                             ; preds = %1154
+  %1281 = load i8, ptr %19, align 1
+  %1282 = zext i8 %1281 to i32
+  %1283 = icmp eq i32 %1282, 0
+  br i1 %1283, label %1284, label %1296
 
-1278:                                             ; preds = %1274
-  %1279 = load i8, ptr %20, align 1
-  %1280 = zext i8 %1279 to i32
-  %1281 = icmp eq i32 %1280, 5
-  br i1 %1281, label %1282, label %1290
+1284:                                             ; preds = %1280
+  %1285 = load i8, ptr %20, align 1
+  %1286 = zext i8 %1285 to i32
+  %1287 = icmp eq i32 %1286, 5
+  br i1 %1287, label %1288, label %1296
 
-1282:                                             ; preds = %1278
+1288:                                             ; preds = %1284
   store i8 2, ptr %19, align 1
-  %1283 = load ptr, ptr %7, align 8
-  %1284 = getelementptr inbounds %struct.DISASMED, ptr %1283, i32 0, i32 7
-  %1285 = load i32, ptr %8, align 4
-  %1286 = zext i32 %1285 to i64
-  %1287 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1284, i64 0, i64 %1286
-  %1288 = getelementptr inbounds %struct.DIS_ARGS, ptr %1287, i32 0, i32 3
-  %1289 = getelementptr inbounds %struct.anon, ptr %1288, i32 0, i32 0
-  store i32 54, ptr %1289, align 8
-  br label %1310
+  %1289 = load ptr, ptr %7, align 8
+  %1290 = getelementptr inbounds %struct.DISASMED, ptr %1289, i32 0, i32 7
+  %1291 = load i32, ptr %8, align 4
+  %1292 = zext i32 %1291 to i64
+  %1293 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1290, i64 0, i64 %1292
+  %1294 = getelementptr inbounds %struct.DIS_ARGS, ptr %1293, i32 0, i32 3
+  %1295 = getelementptr inbounds %struct.anon, ptr %1294, i32 0, i32 0
+  store i32 54, ptr %1295, align 8
+  br label %1317
 
-1290:                                             ; preds = %1278, %1274
-  %1291 = load ptr, ptr %7, align 8
-  %1292 = getelementptr inbounds %struct.DISASMED, ptr %1291, i32 0, i32 7
-  %1293 = load i32, ptr %8, align 4
-  %1294 = zext i32 %1293 to i64
-  %1295 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1292, i64 0, i64 %1294
-  %1296 = getelementptr inbounds %struct.DIS_ARGS, ptr %1295, i32 0, i32 3
-  %1297 = getelementptr inbounds %struct.anon, ptr %1296, i32 0, i32 2
-  store i8 1, ptr %1297, align 8
-  %1298 = load i8, ptr %20, align 1
-  %1299 = zext i8 %1298 to i64
-  %1300 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds ([3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 2), i64 0, i64 %1299
-  %1301 = load i8, ptr %1300, align 1
-  %1302 = zext i8 %1301 to i32
-  %1303 = load ptr, ptr %7, align 8
-  %1304 = getelementptr inbounds %struct.DISASMED, ptr %1303, i32 0, i32 7
-  %1305 = load i32, ptr %8, align 4
-  %1306 = zext i32 %1305 to i64
-  %1307 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1304, i64 0, i64 %1306
-  %1308 = getelementptr inbounds %struct.DIS_ARGS, ptr %1307, i32 0, i32 3
-  %1309 = getelementptr inbounds %struct.anon, ptr %1308, i32 0, i32 0
-  store i32 %1302, ptr %1309, align 8
-  br label %1310
+1296:                                             ; preds = %1284, %1280
+  %1297 = load ptr, ptr %7, align 8
+  %1298 = getelementptr inbounds %struct.DISASMED, ptr %1297, i32 0, i32 7
+  %1299 = load i32, ptr %8, align 4
+  %1300 = zext i32 %1299 to i64
+  %1301 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1298, i64 0, i64 %1300
+  %1302 = getelementptr inbounds %struct.DIS_ARGS, ptr %1301, i32 0, i32 3
+  %1303 = getelementptr inbounds %struct.anon, ptr %1302, i32 0, i32 2
+  store i8 1, ptr %1303, align 8
+  %1304 = load i8, ptr %20, align 1
+  %1305 = zext i8 %1304 to i64
+  %1306 = getelementptr inbounds [3 x [8 x i8]], ptr @mrm_regmap, i64 0, i64 2
+  %1307 = getelementptr inbounds [8 x i8], ptr %1306, i64 0, i64 %1305
+  %1308 = load i8, ptr %1307, align 1
+  %1309 = zext i8 %1308 to i32
+  %1310 = load ptr, ptr %7, align 8
+  %1311 = getelementptr inbounds %struct.DISASMED, ptr %1310, i32 0, i32 7
+  %1312 = load i32, ptr %8, align 4
+  %1313 = zext i32 %1312 to i64
+  %1314 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1311, i64 0, i64 %1313
+  %1315 = getelementptr inbounds %struct.DIS_ARGS, ptr %1314, i32 0, i32 3
+  %1316 = getelementptr inbounds %struct.anon, ptr %1315, i32 0, i32 0
+  store i32 %1309, ptr %1316, align 8
+  br label %1317
 
-1310:                                             ; preds = %1290, %1282
-  %1311 = load ptr, ptr %7, align 8
-  %1312 = getelementptr inbounds %struct.DISASMED, ptr %1311, i32 0, i32 7
-  %1313 = load i32, ptr %8, align 4
-  %1314 = zext i32 %1313 to i64
-  %1315 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1312, i64 0, i64 %1314
-  %1316 = getelementptr inbounds %struct.DIS_ARGS, ptr %1315, i32 0, i32 3
-  %1317 = getelementptr inbounds %struct.anon, ptr %1316, i32 0, i32 1
-  store i32 54, ptr %1317, align 4
-  br label %1318
+1317:                                             ; preds = %1296, %1288
+  %1318 = load ptr, ptr %7, align 8
+  %1319 = getelementptr inbounds %struct.DISASMED, ptr %1318, i32 0, i32 7
+  %1320 = load i32, ptr %8, align 4
+  %1321 = zext i32 %1320 to i64
+  %1322 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1319, i64 0, i64 %1321
+  %1323 = getelementptr inbounds %struct.DIS_ARGS, ptr %1322, i32 0, i32 3
+  %1324 = getelementptr inbounds %struct.anon, ptr %1323, i32 0, i32 1
+  store i32 54, ptr %1324, align 4
+  br label %1325
 
-1318:                                             ; preds = %1310, %1273
-  %1319 = load i8, ptr %19, align 1
-  %1320 = zext i8 %1319 to i32
-  %1321 = icmp eq i32 %1320, 2
-  br i1 %1321, label %1322, label %1329
+1325:                                             ; preds = %1317, %1279
+  %1326 = load i8, ptr %19, align 1
+  %1327 = zext i8 %1326 to i32
+  %1328 = icmp eq i32 %1327, 2
+  br i1 %1328, label %1329, label %1336
 
-1322:                                             ; preds = %1318
-  %1323 = load i8, ptr %19, align 1
-  %1324 = zext i8 %1323 to i32
-  %1325 = load i8, ptr %19, align 1
-  %1326 = zext i8 %1325 to i32
-  %1327 = add nsw i32 %1326, %1324
-  %1328 = trunc i32 %1327 to i8
-  store i8 %1328, ptr %19, align 1
-  br label %1329
-
-1329:                                             ; preds = %1322, %1318
-  store i32 0, ptr %9, align 4
-  br label %1330
-
-1330:                                             ; preds = %1358, %1329
-  %1331 = load i32, ptr %9, align 4
+1329:                                             ; preds = %1325
+  %1330 = load i8, ptr %19, align 1
+  %1331 = zext i8 %1330 to i32
   %1332 = load i8, ptr %19, align 1
   %1333 = zext i8 %1332 to i32
-  %1334 = icmp ult i32 %1331, %1333
-  br i1 %1334, label %1335, label %1361
+  %1334 = add nsw i32 %1333, %1331
+  %1335 = trunc i32 %1334 to i8
+  store i8 %1335, ptr %19, align 1
+  br label %1336
 
-1335:                                             ; preds = %1330
-  %1336 = load i32, ptr %6, align 4
-  %1337 = add i32 %1336, -1
-  store i32 %1337, ptr %6, align 4
-  %1338 = icmp ne i32 %1336, 0
-  br i1 %1338, label %1339, label %1344
-
-1339:                                             ; preds = %1335
-  %1340 = load ptr, ptr %5, align 8
-  %1341 = load i8, ptr %1340, align 1
-  store i8 %1341, ptr %10, align 1
-  %1342 = load ptr, ptr %5, align 8
-  %1343 = getelementptr inbounds i8, ptr %1342, i32 1
-  store ptr %1343, ptr %5, align 8
-  br label %1349
-
-1344:                                             ; preds = %1335
-  %1345 = load ptr, ptr %7, align 8
-  %1346 = getelementptr inbounds %struct.DISASMED, ptr %1345, i32 0, i32 0
-  store i16 0, ptr %1346, align 8
-  %1347 = load ptr, ptr %7, align 8
-  %1348 = getelementptr inbounds %struct.DISASMED, ptr %1347, i32 0, i32 2
-  store i32 6, ptr %1348, align 4
-  br label %2140
-
-1349:                                             ; preds = %1339
-  %1350 = load i8, ptr %10, align 1
-  %1351 = zext i8 %1350 to i32
-  %1352 = load i32, ptr %9, align 4
-  %1353 = mul i32 %1352, 8
-  %1354 = shl i32 %1351, %1353
-  %1355 = sext i32 %1354 to i64
-  %1356 = load i64, ptr %25, align 8
-  %1357 = add nsw i64 %1356, %1355
-  store i64 %1357, ptr %25, align 8
-  br label %1358
-
-1358:                                             ; preds = %1349
-  %1359 = load i32, ptr %9, align 4
-  %1360 = add i32 %1359, 1
-  store i32 %1360, ptr %9, align 4
-  br label %1330
-
-1361:                                             ; preds = %1330
-  %1362 = load i8, ptr %19, align 1
-  %1363 = icmp ne i8 %1362, 0
-  br i1 %1363, label %1364, label %1387
-
-1364:                                             ; preds = %1361
-  %1365 = load i8, ptr %19, align 1
-  %1366 = zext i8 %1365 to i32
-  %1367 = sub nsw i32 8, %1366
-  %1368 = mul nsw i32 %1367, 8
-  %1369 = load i64, ptr %25, align 8
-  %1370 = zext i32 %1368 to i64
-  %1371 = shl i64 %1369, %1370
-  store i64 %1371, ptr %25, align 8
-  %1372 = load i64, ptr %25, align 8
-  %1373 = load i8, ptr %19, align 1
-  %1374 = zext i8 %1373 to i32
-  %1375 = sub nsw i32 8, %1374
-  %1376 = mul nsw i32 %1375, 8
-  %1377 = zext i32 %1376 to i64
-  %1378 = ashr i64 %1372, %1377
-  %1379 = trunc i64 %1378 to i32
-  %1380 = load ptr, ptr %7, align 8
-  %1381 = getelementptr inbounds %struct.DISASMED, ptr %1380, i32 0, i32 7
-  %1382 = load i32, ptr %8, align 4
-  %1383 = zext i32 %1382 to i64
-  %1384 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1381, i64 0, i64 %1383
-  %1385 = getelementptr inbounds %struct.DIS_ARGS, ptr %1384, i32 0, i32 3
-  %1386 = getelementptr inbounds %struct.anon, ptr %1385, i32 0, i32 3
-  store i32 %1379, ptr %1386, align 4
-  br label %1395
-
-1387:                                             ; preds = %1361
-  %1388 = load ptr, ptr %7, align 8
-  %1389 = getelementptr inbounds %struct.DISASMED, ptr %1388, i32 0, i32 7
-  %1390 = load i32, ptr %8, align 4
-  %1391 = zext i32 %1390 to i64
-  %1392 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1389, i64 0, i64 %1391
-  %1393 = getelementptr inbounds %struct.DIS_ARGS, ptr %1392, i32 0, i32 3
-  %1394 = getelementptr inbounds %struct.anon, ptr %1393, i32 0, i32 3
-  store i32 0, ptr %1394, align 4
-  br label %1395
-
-1395:                                             ; preds = %1387, %1364
-  br label %1499
-
-1396:                                             ; preds = %1139
-  %1397 = load i8, ptr %19, align 1
-  %1398 = zext i8 %1397 to i32
-  %1399 = icmp eq i32 %1398, 0
-  br i1 %1399, label %1400, label %1412
-
-1400:                                             ; preds = %1396
-  %1401 = load i8, ptr %20, align 1
-  %1402 = zext i8 %1401 to i32
-  %1403 = icmp eq i32 %1402, 6
-  br i1 %1403, label %1404, label %1412
-
-1404:                                             ; preds = %1400
-  %1405 = load ptr, ptr %7, align 8
-  %1406 = getelementptr inbounds %struct.DISASMED, ptr %1405, i32 0, i32 7
-  %1407 = load i32, ptr %8, align 4
-  %1408 = zext i32 %1407 to i64
-  %1409 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1406, i64 0, i64 %1408
-  %1410 = getelementptr inbounds %struct.DIS_ARGS, ptr %1409, i32 0, i32 3
-  %1411 = getelementptr inbounds %struct.anon, ptr %1410, i32 0, i32 0
-  store i32 54, ptr %1411, align 8
-  store i8 2, ptr %19, align 1
-  br label %1444
-
-1412:                                             ; preds = %1400, %1396
-  %1413 = load ptr, ptr %7, align 8
-  %1414 = getelementptr inbounds %struct.DISASMED, ptr %1413, i32 0, i32 7
-  %1415 = load i32, ptr %8, align 4
-  %1416 = zext i32 %1415 to i64
-  %1417 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1414, i64 0, i64 %1416
-  %1418 = getelementptr inbounds %struct.DIS_ARGS, ptr %1417, i32 0, i32 3
-  %1419 = getelementptr inbounds %struct.anon, ptr %1418, i32 0, i32 2
-  store i8 1, ptr %1419, align 8
-  %1420 = load i8, ptr %20, align 1
-  %1421 = zext i8 %1420 to i64
-  %1422 = getelementptr inbounds [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %1421
-  %1423 = getelementptr inbounds %struct.anon.2, ptr %1422, i32 0, i32 0
-  %1424 = load i32, ptr %1423, align 8
-  %1425 = load ptr, ptr %7, align 8
-  %1426 = getelementptr inbounds %struct.DISASMED, ptr %1425, i32 0, i32 7
-  %1427 = load i32, ptr %8, align 4
-  %1428 = zext i32 %1427 to i64
-  %1429 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1426, i64 0, i64 %1428
-  %1430 = getelementptr inbounds %struct.DIS_ARGS, ptr %1429, i32 0, i32 3
-  %1431 = getelementptr inbounds %struct.anon, ptr %1430, i32 0, i32 0
-  store i32 %1424, ptr %1431, align 8
-  %1432 = load i8, ptr %20, align 1
-  %1433 = zext i8 %1432 to i64
-  %1434 = getelementptr inbounds [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %1433
-  %1435 = getelementptr inbounds %struct.anon.2, ptr %1434, i32 0, i32 1
-  %1436 = load i32, ptr %1435, align 4
-  %1437 = load ptr, ptr %7, align 8
-  %1438 = getelementptr inbounds %struct.DISASMED, ptr %1437, i32 0, i32 7
-  %1439 = load i32, ptr %8, align 4
-  %1440 = zext i32 %1439 to i64
-  %1441 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1438, i64 0, i64 %1440
-  %1442 = getelementptr inbounds %struct.DIS_ARGS, ptr %1441, i32 0, i32 3
-  %1443 = getelementptr inbounds %struct.anon, ptr %1442, i32 0, i32 1
-  store i32 %1436, ptr %1443, align 4
-  br label %1444
-
-1444:                                             ; preds = %1412, %1404
+1336:                                             ; preds = %1329, %1325
   store i32 0, ptr %9, align 4
-  br label %1445
+  br label %1337
 
-1445:                                             ; preds = %1473, %1444
-  %1446 = load i32, ptr %9, align 4
-  %1447 = load i8, ptr %19, align 1
-  %1448 = zext i8 %1447 to i32
-  %1449 = icmp ult i32 %1446, %1448
-  br i1 %1449, label %1450, label %1476
+1337:                                             ; preds = %1365, %1336
+  %1338 = load i32, ptr %9, align 4
+  %1339 = load i8, ptr %19, align 1
+  %1340 = zext i8 %1339 to i32
+  %1341 = icmp ult i32 %1338, %1340
+  br i1 %1341, label %1342, label %1368
 
-1450:                                             ; preds = %1445
-  %1451 = load i32, ptr %6, align 4
-  %1452 = add i32 %1451, -1
-  store i32 %1452, ptr %6, align 4
-  %1453 = icmp ne i32 %1451, 0
-  br i1 %1453, label %1454, label %1459
+1342:                                             ; preds = %1337
+  %1343 = load i32, ptr %6, align 4
+  %1344 = add i32 %1343, -1
+  store i32 %1344, ptr %6, align 4
+  %1345 = icmp ne i32 %1343, 0
+  br i1 %1345, label %1346, label %1351
 
-1454:                                             ; preds = %1450
-  %1455 = load ptr, ptr %5, align 8
-  %1456 = load i8, ptr %1455, align 1
-  store i8 %1456, ptr %10, align 1
-  %1457 = load ptr, ptr %5, align 8
-  %1458 = getelementptr inbounds i8, ptr %1457, i32 1
-  store ptr %1458, ptr %5, align 8
-  br label %1464
+1346:                                             ; preds = %1342
+  %1347 = load ptr, ptr %5, align 8
+  %1348 = load i8, ptr %1347, align 1
+  store i8 %1348, ptr %10, align 1
+  %1349 = load ptr, ptr %5, align 8
+  %1350 = getelementptr inbounds i8, ptr %1349, i32 1
+  store ptr %1350, ptr %5, align 8
+  br label %1356
 
-1459:                                             ; preds = %1450
-  %1460 = load ptr, ptr %7, align 8
-  %1461 = getelementptr inbounds %struct.DISASMED, ptr %1460, i32 0, i32 0
-  store i16 0, ptr %1461, align 8
-  %1462 = load ptr, ptr %7, align 8
-  %1463 = getelementptr inbounds %struct.DISASMED, ptr %1462, i32 0, i32 2
-  store i32 6, ptr %1463, align 4
-  br label %2140
+1351:                                             ; preds = %1342
+  %1352 = load ptr, ptr %7, align 8
+  %1353 = getelementptr inbounds %struct.DISASMED, ptr %1352, i32 0, i32 0
+  store i16 0, ptr %1353, align 8
+  %1354 = load ptr, ptr %7, align 8
+  %1355 = getelementptr inbounds %struct.DISASMED, ptr %1354, i32 0, i32 2
+  store i32 6, ptr %1355, align 4
+  br label %2149
 
-1464:                                             ; preds = %1454
-  %1465 = load i8, ptr %10, align 1
-  %1466 = zext i8 %1465 to i32
-  %1467 = load i32, ptr %9, align 4
-  %1468 = mul i32 %1467, 8
-  %1469 = shl i32 %1466, %1468
-  %1470 = sext i32 %1469 to i64
-  %1471 = load i64, ptr %25, align 8
-  %1472 = add nsw i64 %1471, %1470
-  store i64 %1472, ptr %25, align 8
-  br label %1473
+1356:                                             ; preds = %1346
+  %1357 = load i8, ptr %10, align 1
+  %1358 = zext i8 %1357 to i32
+  %1359 = load i32, ptr %9, align 4
+  %1360 = mul i32 %1359, 8
+  %1361 = shl i32 %1358, %1360
+  %1362 = sext i32 %1361 to i64
+  %1363 = load i64, ptr %25, align 8
+  %1364 = add nsw i64 %1363, %1362
+  store i64 %1364, ptr %25, align 8
+  br label %1365
 
-1473:                                             ; preds = %1464
+1365:                                             ; preds = %1356
+  %1366 = load i32, ptr %9, align 4
+  %1367 = add i32 %1366, 1
+  store i32 %1367, ptr %9, align 4
+  br label %1337
+
+1368:                                             ; preds = %1337
+  %1369 = load i8, ptr %19, align 1
+  %1370 = icmp ne i8 %1369, 0
+  br i1 %1370, label %1371, label %1394
+
+1371:                                             ; preds = %1368
+  %1372 = load i8, ptr %19, align 1
+  %1373 = zext i8 %1372 to i32
+  %1374 = sub nsw i32 8, %1373
+  %1375 = mul nsw i32 %1374, 8
+  %1376 = load i64, ptr %25, align 8
+  %1377 = zext i32 %1375 to i64
+  %1378 = shl i64 %1376, %1377
+  store i64 %1378, ptr %25, align 8
+  %1379 = load i64, ptr %25, align 8
+  %1380 = load i8, ptr %19, align 1
+  %1381 = zext i8 %1380 to i32
+  %1382 = sub nsw i32 8, %1381
+  %1383 = mul nsw i32 %1382, 8
+  %1384 = zext i32 %1383 to i64
+  %1385 = ashr i64 %1379, %1384
+  %1386 = trunc i64 %1385 to i32
+  %1387 = load ptr, ptr %7, align 8
+  %1388 = getelementptr inbounds %struct.DISASMED, ptr %1387, i32 0, i32 7
+  %1389 = load i32, ptr %8, align 4
+  %1390 = zext i32 %1389 to i64
+  %1391 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1388, i64 0, i64 %1390
+  %1392 = getelementptr inbounds %struct.DIS_ARGS, ptr %1391, i32 0, i32 3
+  %1393 = getelementptr inbounds %struct.anon, ptr %1392, i32 0, i32 3
+  store i32 %1386, ptr %1393, align 4
+  br label %1402
+
+1394:                                             ; preds = %1368
+  %1395 = load ptr, ptr %7, align 8
+  %1396 = getelementptr inbounds %struct.DISASMED, ptr %1395, i32 0, i32 7
+  %1397 = load i32, ptr %8, align 4
+  %1398 = zext i32 %1397 to i64
+  %1399 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1396, i64 0, i64 %1398
+  %1400 = getelementptr inbounds %struct.DIS_ARGS, ptr %1399, i32 0, i32 3
+  %1401 = getelementptr inbounds %struct.anon, ptr %1400, i32 0, i32 3
+  store i32 0, ptr %1401, align 4
+  br label %1402
+
+1402:                                             ; preds = %1394, %1371
+  br label %1506
+
+1403:                                             ; preds = %1143
+  %1404 = load i8, ptr %19, align 1
+  %1405 = zext i8 %1404 to i32
+  %1406 = icmp eq i32 %1405, 0
+  br i1 %1406, label %1407, label %1419
+
+1407:                                             ; preds = %1403
+  %1408 = load i8, ptr %20, align 1
+  %1409 = zext i8 %1408 to i32
+  %1410 = icmp eq i32 %1409, 6
+  br i1 %1410, label %1411, label %1419
+
+1411:                                             ; preds = %1407
+  %1412 = load ptr, ptr %7, align 8
+  %1413 = getelementptr inbounds %struct.DISASMED, ptr %1412, i32 0, i32 7
+  %1414 = load i32, ptr %8, align 4
+  %1415 = zext i32 %1414 to i64
+  %1416 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1413, i64 0, i64 %1415
+  %1417 = getelementptr inbounds %struct.DIS_ARGS, ptr %1416, i32 0, i32 3
+  %1418 = getelementptr inbounds %struct.anon, ptr %1417, i32 0, i32 0
+  store i32 54, ptr %1418, align 8
+  store i8 2, ptr %19, align 1
+  br label %1451
+
+1419:                                             ; preds = %1407, %1403
+  %1420 = load ptr, ptr %7, align 8
+  %1421 = getelementptr inbounds %struct.DISASMED, ptr %1420, i32 0, i32 7
+  %1422 = load i32, ptr %8, align 4
+  %1423 = zext i32 %1422 to i64
+  %1424 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1421, i64 0, i64 %1423
+  %1425 = getelementptr inbounds %struct.DIS_ARGS, ptr %1424, i32 0, i32 3
+  %1426 = getelementptr inbounds %struct.anon, ptr %1425, i32 0, i32 2
+  store i8 1, ptr %1426, align 8
+  %1427 = load i8, ptr %20, align 1
+  %1428 = zext i8 %1427 to i64
+  %1429 = getelementptr inbounds [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %1428
+  %1430 = getelementptr inbounds %struct.anon.2, ptr %1429, i32 0, i32 0
+  %1431 = load i32, ptr %1430, align 8
+  %1432 = load ptr, ptr %7, align 8
+  %1433 = getelementptr inbounds %struct.DISASMED, ptr %1432, i32 0, i32 7
+  %1434 = load i32, ptr %8, align 4
+  %1435 = zext i32 %1434 to i64
+  %1436 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1433, i64 0, i64 %1435
+  %1437 = getelementptr inbounds %struct.DIS_ARGS, ptr %1436, i32 0, i32 3
+  %1438 = getelementptr inbounds %struct.anon, ptr %1437, i32 0, i32 0
+  store i32 %1431, ptr %1438, align 8
+  %1439 = load i8, ptr %20, align 1
+  %1440 = zext i8 %1439 to i64
+  %1441 = getelementptr inbounds [8 x %struct.anon.2], ptr @mrm_regmapw, i64 0, i64 %1440
+  %1442 = getelementptr inbounds %struct.anon.2, ptr %1441, i32 0, i32 1
+  %1443 = load i32, ptr %1442, align 4
+  %1444 = load ptr, ptr %7, align 8
+  %1445 = getelementptr inbounds %struct.DISASMED, ptr %1444, i32 0, i32 7
+  %1446 = load i32, ptr %8, align 4
+  %1447 = zext i32 %1446 to i64
+  %1448 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1445, i64 0, i64 %1447
+  %1449 = getelementptr inbounds %struct.DIS_ARGS, ptr %1448, i32 0, i32 3
+  %1450 = getelementptr inbounds %struct.anon, ptr %1449, i32 0, i32 1
+  store i32 %1443, ptr %1450, align 4
+  br label %1451
+
+1451:                                             ; preds = %1419, %1411
+  store i32 0, ptr %9, align 4
+  br label %1452
+
+1452:                                             ; preds = %1480, %1451
+  %1453 = load i32, ptr %9, align 4
+  %1454 = load i8, ptr %19, align 1
+  %1455 = zext i8 %1454 to i32
+  %1456 = icmp ult i32 %1453, %1455
+  br i1 %1456, label %1457, label %1483
+
+1457:                                             ; preds = %1452
+  %1458 = load i32, ptr %6, align 4
+  %1459 = add i32 %1458, -1
+  store i32 %1459, ptr %6, align 4
+  %1460 = icmp ne i32 %1458, 0
+  br i1 %1460, label %1461, label %1466
+
+1461:                                             ; preds = %1457
+  %1462 = load ptr, ptr %5, align 8
+  %1463 = load i8, ptr %1462, align 1
+  store i8 %1463, ptr %10, align 1
+  %1464 = load ptr, ptr %5, align 8
+  %1465 = getelementptr inbounds i8, ptr %1464, i32 1
+  store ptr %1465, ptr %5, align 8
+  br label %1471
+
+1466:                                             ; preds = %1457
+  %1467 = load ptr, ptr %7, align 8
+  %1468 = getelementptr inbounds %struct.DISASMED, ptr %1467, i32 0, i32 0
+  store i16 0, ptr %1468, align 8
+  %1469 = load ptr, ptr %7, align 8
+  %1470 = getelementptr inbounds %struct.DISASMED, ptr %1469, i32 0, i32 2
+  store i32 6, ptr %1470, align 4
+  br label %2149
+
+1471:                                             ; preds = %1461
+  %1472 = load i8, ptr %10, align 1
+  %1473 = zext i8 %1472 to i32
   %1474 = load i32, ptr %9, align 4
-  %1475 = add i32 %1474, 1
-  store i32 %1475, ptr %9, align 4
-  br label %1445
+  %1475 = mul i32 %1474, 8
+  %1476 = shl i32 %1473, %1475
+  %1477 = sext i32 %1476 to i64
+  %1478 = load i64, ptr %25, align 8
+  %1479 = add nsw i64 %1478, %1477
+  store i64 %1479, ptr %25, align 8
+  br label %1480
 
-1476:                                             ; preds = %1445
-  %1477 = load i8, ptr %19, align 1
-  %1478 = zext i8 %1477 to i32
-  %1479 = sub nsw i32 8, %1478
-  %1480 = mul nsw i32 %1479, 8
-  %1481 = load i64, ptr %25, align 8
-  %1482 = zext i32 %1480 to i64
-  %1483 = shl i64 %1481, %1482
-  store i64 %1483, ptr %25, align 8
-  %1484 = load i64, ptr %25, align 8
-  %1485 = load i8, ptr %19, align 1
-  %1486 = zext i8 %1485 to i32
-  %1487 = sub nsw i32 8, %1486
-  %1488 = mul nsw i32 %1487, 8
-  %1489 = zext i32 %1488 to i64
-  %1490 = ashr i64 %1484, %1489
-  %1491 = trunc i64 %1490 to i32
-  %1492 = load ptr, ptr %7, align 8
-  %1493 = getelementptr inbounds %struct.DISASMED, ptr %1492, i32 0, i32 7
-  %1494 = load i32, ptr %8, align 4
-  %1495 = zext i32 %1494 to i64
-  %1496 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1493, i64 0, i64 %1495
-  %1497 = getelementptr inbounds %struct.DIS_ARGS, ptr %1496, i32 0, i32 3
-  %1498 = getelementptr inbounds %struct.anon, ptr %1497, i32 0, i32 3
-  store i32 %1491, ptr %1498, align 4
-  br label %1499
+1480:                                             ; preds = %1471
+  %1481 = load i32, ptr %9, align 4
+  %1482 = add i32 %1481, 1
+  store i32 %1482, ptr %9, align 4
+  br label %1452
 
-1499:                                             ; preds = %1476, %1395
-  %1500 = load i32, ptr %11, align 4
-  %1501 = zext i32 %1500 to i64
-  %1502 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1501
-  %1503 = load ptr, ptr %7, align 8
-  %1504 = getelementptr inbounds %struct.DISASMED, ptr %1503, i32 0, i32 0
-  %1505 = load i16, ptr %1504, align 8
-  %1506 = zext i16 %1505 to i64
-  %1507 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1502, i64 0, i64 %1506
-  %1508 = getelementptr inbounds %struct.OPCODES, ptr %1507, i32 0, i32 0
-  %1509 = load i32, ptr %1508, align 4
-  %1510 = icmp eq i32 %1509, 21
-  br i1 %1510, label %1523, label %1511
+1483:                                             ; preds = %1452
+  %1484 = load i8, ptr %19, align 1
+  %1485 = zext i8 %1484 to i32
+  %1486 = sub nsw i32 8, %1485
+  %1487 = mul nsw i32 %1486, 8
+  %1488 = load i64, ptr %25, align 8
+  %1489 = zext i32 %1487 to i64
+  %1490 = shl i64 %1488, %1489
+  store i64 %1490, ptr %25, align 8
+  %1491 = load i64, ptr %25, align 8
+  %1492 = load i8, ptr %19, align 1
+  %1493 = zext i8 %1492 to i32
+  %1494 = sub nsw i32 8, %1493
+  %1495 = mul nsw i32 %1494, 8
+  %1496 = zext i32 %1495 to i64
+  %1497 = ashr i64 %1491, %1496
+  %1498 = trunc i64 %1497 to i32
+  %1499 = load ptr, ptr %7, align 8
+  %1500 = getelementptr inbounds %struct.DISASMED, ptr %1499, i32 0, i32 7
+  %1501 = load i32, ptr %8, align 4
+  %1502 = zext i32 %1501 to i64
+  %1503 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1500, i64 0, i64 %1502
+  %1504 = getelementptr inbounds %struct.DIS_ARGS, ptr %1503, i32 0, i32 3
+  %1505 = getelementptr inbounds %struct.anon, ptr %1504, i32 0, i32 3
+  store i32 %1498, ptr %1505, align 4
+  br label %1506
 
-1511:                                             ; preds = %1499
-  %1512 = load i32, ptr %11, align 4
-  %1513 = zext i32 %1512 to i64
-  %1514 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1513
-  %1515 = load ptr, ptr %7, align 8
-  %1516 = getelementptr inbounds %struct.DISASMED, ptr %1515, i32 0, i32 0
-  %1517 = load i16, ptr %1516, align 8
-  %1518 = zext i16 %1517 to i64
-  %1519 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1514, i64 0, i64 %1518
-  %1520 = getelementptr inbounds %struct.OPCODES, ptr %1519, i32 0, i32 0
-  %1521 = load i32, ptr %1520, align 4
-  %1522 = icmp eq i32 %1521, 22
-  br i1 %1522, label %1523, label %1582
+1506:                                             ; preds = %1483, %1402
+  %1507 = load i32, ptr %11, align 4
+  %1508 = zext i32 %1507 to i64
+  %1509 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1508
+  %1510 = load ptr, ptr %7, align 8
+  %1511 = getelementptr inbounds %struct.DISASMED, ptr %1510, i32 0, i32 0
+  %1512 = load i16, ptr %1511, align 8
+  %1513 = zext i16 %1512 to i64
+  %1514 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1509, i64 0, i64 %1513
+  %1515 = getelementptr inbounds %struct.OPCODES, ptr %1514, i32 0, i32 0
+  %1516 = load i32, ptr %1515, align 4
+  %1517 = icmp eq i32 %1516, 21
+  br i1 %1517, label %1530, label %1518
 
-1523:                                             ; preds = %1511, %1499
-  %1524 = load ptr, ptr %7, align 8
-  %1525 = getelementptr inbounds %struct.DISASMED, ptr %1524, i32 0, i32 1
-  %1526 = load i16, ptr %1525, align 2
-  %1527 = trunc i16 %1526 to i8
-  store i8 %1527, ptr %28, align 1
-  %1528 = load i8, ptr %28, align 1
-  %1529 = zext i8 %1528 to i64
-  %1530 = icmp ult i64 %1529, 216
-  br i1 %1530, label %1531, label %1532
+1518:                                             ; preds = %1506
+  %1519 = load i32, ptr %11, align 4
+  %1520 = zext i32 %1519 to i64
+  %1521 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1520
+  %1522 = load ptr, ptr %7, align 8
+  %1523 = getelementptr inbounds %struct.DISASMED, ptr %1522, i32 0, i32 0
+  %1524 = load i16, ptr %1523, align 8
+  %1525 = zext i16 %1524 to i64
+  %1526 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1521, i64 0, i64 %1525
+  %1527 = getelementptr inbounds %struct.OPCODES, ptr %1526, i32 0, i32 0
+  %1528 = load i32, ptr %1527, align 4
+  %1529 = icmp eq i32 %1528, 22
+  br i1 %1529, label %1530, label %1589
 
-1531:                                             ; preds = %1523
-  br label %1533
+1530:                                             ; preds = %1518, %1506
+  %1531 = load ptr, ptr %7, align 8
+  %1532 = getelementptr inbounds %struct.DISASMED, ptr %1531, i32 0, i32 1
+  %1533 = load i16, ptr %1532, align 2
+  %1534 = trunc i16 %1533 to i8
+  store i8 %1534, ptr %28, align 1
+  %1535 = load i8, ptr %28, align 1
+  %1536 = zext i8 %1535 to i64
+  %1537 = icmp ult i64 %1536, 216
+  br i1 %1537, label %1538, label %1539
 
-1532:                                             ; preds = %1523
+1538:                                             ; preds = %1530
+  br label %1540
+
+1539:                                             ; preds = %1530
   call void @__assert_fail(ptr noundef @.str.12, ptr noundef @.str.2, i32 noundef 1604, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-1533:                                             ; preds = %1531
-  %1534 = load i8, ptr %28, align 1
-  %1535 = zext i8 %1534 to i64
-  %1536 = getelementptr inbounds [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %1535
-  %1537 = load i8, ptr %21, align 1
-  %1538 = zext i8 %1537 to i64
-  %1539 = getelementptr inbounds [8 x %struct.anon.3], ptr %1536, i64 0, i64 %1538
-  %1540 = getelementptr inbounds %struct.anon.3, ptr %1539, i32 0, i32 1
-  %1541 = load i32, ptr %1540, align 4
-  %1542 = load ptr, ptr %7, align 8
-  %1543 = getelementptr inbounds %struct.DISASMED, ptr %1542, i32 0, i32 7
-  %1544 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1543, i64 0, i64 0
-  %1545 = getelementptr inbounds %struct.DIS_ARGS, ptr %1544, i32 0, i32 1
-  %1546 = load i32, ptr %1545, align 4
-  %1547 = add i32 %1546, %1541
-  store i32 %1547, ptr %1545, align 4
-  %1548 = load i8, ptr %28, align 1
-  %1549 = zext i8 %1548 to i64
-  %1550 = getelementptr inbounds [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %1549
-  %1551 = load i8, ptr %21, align 1
-  %1552 = zext i8 %1551 to i64
-  %1553 = getelementptr inbounds [8 x %struct.anon.3], ptr %1550, i64 0, i64 %1552
-  %1554 = getelementptr inbounds %struct.anon.3, ptr %1553, i32 0, i32 0
-  %1555 = load i32, ptr %1554, align 8
-  %1556 = trunc i32 %1555 to i16
-  %1557 = load ptr, ptr %7, align 8
-  %1558 = getelementptr inbounds %struct.DISASMED, ptr %1557, i32 0, i32 1
-  store i16 %1556, ptr %1558, align 2
-  %1559 = zext i16 %1556 to i32
-  %1560 = icmp eq i32 %1559, 0
-  br i1 %1560, label %1561, label %1566
-
-1561:                                             ; preds = %1533
-  %1562 = load ptr, ptr %7, align 8
-  %1563 = getelementptr inbounds %struct.DISASMED, ptr %1562, i32 0, i32 0
-  store i16 0, ptr %1563, align 8
+1540:                                             ; preds = %1538
+  %1541 = load i8, ptr %28, align 1
+  %1542 = zext i8 %1541 to i64
+  %1543 = getelementptr inbounds [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %1542
+  %1544 = load i8, ptr %21, align 1
+  %1545 = zext i8 %1544 to i64
+  %1546 = getelementptr inbounds [8 x %struct.anon.3], ptr %1543, i64 0, i64 %1545
+  %1547 = getelementptr inbounds %struct.anon.3, ptr %1546, i32 0, i32 1
+  %1548 = load i32, ptr %1547, align 4
+  %1549 = load ptr, ptr %7, align 8
+  %1550 = getelementptr inbounds %struct.DISASMED, ptr %1549, i32 0, i32 7
+  %1551 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1550, i64 0, i64 0
+  %1552 = getelementptr inbounds %struct.DIS_ARGS, ptr %1551, i32 0, i32 1
+  %1553 = load i32, ptr %1552, align 4
+  %1554 = add i32 %1553, %1548
+  store i32 %1554, ptr %1552, align 4
+  %1555 = load i8, ptr %28, align 1
+  %1556 = zext i8 %1555 to i64
+  %1557 = getelementptr inbounds [27 x [8 x %struct.anon.3]], ptr @extra_1a, i64 0, i64 %1556
+  %1558 = load i8, ptr %21, align 1
+  %1559 = zext i8 %1558 to i64
+  %1560 = getelementptr inbounds [8 x %struct.anon.3], ptr %1557, i64 0, i64 %1559
+  %1561 = getelementptr inbounds %struct.anon.3, ptr %1560, i32 0, i32 0
+  %1562 = load i32, ptr %1561, align 8
+  %1563 = trunc i32 %1562 to i16
   %1564 = load ptr, ptr %7, align 8
-  %1565 = getelementptr inbounds %struct.DISASMED, ptr %1564, i32 0, i32 2
-  store i32 6, ptr %1565, align 4
-  br label %2140
+  %1565 = getelementptr inbounds %struct.DISASMED, ptr %1564, i32 0, i32 1
+  store i16 %1563, ptr %1565, align 2
+  %1566 = zext i16 %1563 to i32
+  %1567 = icmp eq i32 %1566, 0
+  br i1 %1567, label %1568, label %1573
 
-1566:                                             ; preds = %1533
-  %1567 = load ptr, ptr %7, align 8
-  %1568 = getelementptr inbounds %struct.DISASMED, ptr %1567, i32 0, i32 7
-  %1569 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1568, i64 0, i64 1
-  %1570 = getelementptr inbounds %struct.DIS_ARGS, ptr %1569, i32 0, i32 0
-  store i32 0, ptr %1570, align 8
-  %1571 = load i8, ptr %28, align 1
-  %1572 = zext i8 %1571 to i32
-  %1573 = icmp eq i32 %1572, 6
-  br i1 %1573, label %1574, label %1581
+1568:                                             ; preds = %1540
+  %1569 = load ptr, ptr %7, align 8
+  %1570 = getelementptr inbounds %struct.DISASMED, ptr %1569, i32 0, i32 0
+  store i16 0, ptr %1570, align 8
+  %1571 = load ptr, ptr %7, align 8
+  %1572 = getelementptr inbounds %struct.DISASMED, ptr %1571, i32 0, i32 2
+  store i32 6, ptr %1572, align 4
+  br label %2149
 
-1574:                                             ; preds = %1566
-  %1575 = load i8, ptr %21, align 1
-  %1576 = zext i8 %1575 to i32
-  %1577 = icmp ne i32 %1576, 0
-  br i1 %1577, label %1578, label %1581
+1573:                                             ; preds = %1540
+  %1574 = load ptr, ptr %7, align 8
+  %1575 = getelementptr inbounds %struct.DISASMED, ptr %1574, i32 0, i32 7
+  %1576 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1575, i64 0, i64 1
+  %1577 = getelementptr inbounds %struct.DIS_ARGS, ptr %1576, i32 0, i32 0
+  store i32 0, ptr %1577, align 8
+  %1578 = load i8, ptr %28, align 1
+  %1579 = zext i8 %1578 to i32
+  %1580 = icmp eq i32 %1579, 6
+  br i1 %1580, label %1581, label %1588
 
-1578:                                             ; preds = %1574
-  %1579 = load ptr, ptr %7, align 8
-  %1580 = getelementptr inbounds %struct.DISASMED, ptr %1579, i32 0, i32 2
-  store i32 4, ptr %1580, align 4
+1581:                                             ; preds = %1573
+  %1582 = load i8, ptr %21, align 1
+  %1583 = zext i8 %1582 to i32
+  %1584 = icmp ne i32 %1583, 0
+  br i1 %1584, label %1585, label %1588
+
+1585:                                             ; preds = %1581
+  %1586 = load ptr, ptr %7, align 8
+  %1587 = getelementptr inbounds %struct.DISASMED, ptr %1586, i32 0, i32 2
+  store i32 4, ptr %1587, align 4
   br label %35
 
-1581:                                             ; preds = %1574, %1566
-  br label %1587
+1588:                                             ; preds = %1581, %1573
+  br label %1594
 
-1582:                                             ; preds = %1511
-  %1583 = load ptr, ptr %7, align 8
-  %1584 = getelementptr inbounds %struct.DISASMED, ptr %1583, i32 0, i32 6
-  %1585 = load i8, ptr %1584, align 4
-  %1586 = add i8 %1585, 1
-  store i8 %1586, ptr %1584, align 4
-  br label %1587
+1589:                                             ; preds = %1518
+  %1590 = load ptr, ptr %7, align 8
+  %1591 = getelementptr inbounds %struct.DISASMED, ptr %1590, i32 0, i32 6
+  %1592 = load i8, ptr %1591, align 4
+  %1593 = add i8 %1592, 1
+  store i8 %1593, ptr %1591, align 4
+  br label %1594
 
-1587:                                             ; preds = %1582, %1581
-  %1588 = load ptr, ptr %7, align 8
-  %1589 = getelementptr inbounds %struct.DISASMED, ptr %1588, i32 0, i32 2
-  store i32 2, ptr %1589, align 4
+1594:                                             ; preds = %1589, %1588
+  %1595 = load ptr, ptr %7, align 8
+  %1596 = getelementptr inbounds %struct.DISASMED, ptr %1595, i32 0, i32 2
+  store i32 2, ptr %1596, align 4
   br label %35
 
-1590:                                             ; preds = %552
-  %1591 = load ptr, ptr %7, align 8
-  %1592 = getelementptr inbounds %struct.DISASMED, ptr %1591, i32 0, i32 7
-  %1593 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1592, i64 0, i64 0
-  %1594 = getelementptr inbounds %struct.DIS_ARGS, ptr %1593, i32 0, i32 0
-  store i32 4, ptr %1594, align 8
-  %1595 = load i32, ptr %11, align 4
-  %1596 = zext i32 %1595 to i64
-  %1597 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1596
+1597:                                             ; preds = %556
   %1598 = load ptr, ptr %7, align 8
-  %1599 = getelementptr inbounds %struct.DISASMED, ptr %1598, i32 0, i32 0
-  %1600 = load i16, ptr %1599, align 8
-  %1601 = zext i16 %1600 to i64
-  %1602 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1597, i64 0, i64 %1601
-  %1603 = getelementptr inbounds %struct.OPCODES, ptr %1602, i32 0, i32 1
-  %1604 = load i32, ptr %1603, align 4
-  %1605 = icmp eq i32 %1604, 0
-  br i1 %1605, label %1618, label %1606
+  %1599 = getelementptr inbounds %struct.DISASMED, ptr %1598, i32 0, i32 7
+  %1600 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1599, i64 0, i64 0
+  %1601 = getelementptr inbounds %struct.DIS_ARGS, ptr %1600, i32 0, i32 0
+  store i32 4, ptr %1601, align 8
+  %1602 = load i32, ptr %11, align 4
+  %1603 = zext i32 %1602 to i64
+  %1604 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1603
+  %1605 = load ptr, ptr %7, align 8
+  %1606 = getelementptr inbounds %struct.DISASMED, ptr %1605, i32 0, i32 0
+  %1607 = load i16, ptr %1606, align 8
+  %1608 = zext i16 %1607 to i64
+  %1609 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1604, i64 0, i64 %1608
+  %1610 = getelementptr inbounds %struct.OPCODES, ptr %1609, i32 0, i32 1
+  %1611 = load i32, ptr %1610, align 4
+  %1612 = icmp eq i32 %1611, 0
+  br i1 %1612, label %1625, label %1613
 
-1606:                                             ; preds = %1590
-  %1607 = load i32, ptr %11, align 4
-  %1608 = zext i32 %1607 to i64
-  %1609 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1608
-  %1610 = load ptr, ptr %7, align 8
-  %1611 = getelementptr inbounds %struct.DISASMED, ptr %1610, i32 0, i32 0
-  %1612 = load i16, ptr %1611, align 8
-  %1613 = zext i16 %1612 to i64
-  %1614 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1609, i64 0, i64 %1613
-  %1615 = getelementptr inbounds %struct.OPCODES, ptr %1614, i32 0, i32 1
-  %1616 = load i32, ptr %1615, align 4
-  %1617 = icmp eq i32 %1616, 5
-  br i1 %1617, label %1618, label %1624
+1613:                                             ; preds = %1597
+  %1614 = load i32, ptr %11, align 4
+  %1615 = zext i32 %1614 to i64
+  %1616 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1615
+  %1617 = load ptr, ptr %7, align 8
+  %1618 = getelementptr inbounds %struct.DISASMED, ptr %1617, i32 0, i32 0
+  %1619 = load i16, ptr %1618, align 8
+  %1620 = zext i16 %1619 to i64
+  %1621 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1616, i64 0, i64 %1620
+  %1622 = getelementptr inbounds %struct.OPCODES, ptr %1621, i32 0, i32 1
+  %1623 = load i32, ptr %1622, align 4
+  %1624 = icmp eq i32 %1623, 5
+  br i1 %1624, label %1625, label %1631
 
-1618:                                             ; preds = %1606, %1590
-  %1619 = load ptr, ptr %7, align 8
-  %1620 = getelementptr inbounds %struct.DISASMED, ptr %1619, i32 0, i32 4
-  %1621 = load i32, ptr %1620, align 4
-  %1622 = icmp ult i32 %1621, 2
-  br i1 %1622, label %1623, label %1624
-
-1623:                                             ; preds = %1618
-  br label %1625
-
-1624:                                             ; preds = %1618, %1606
-  call void @__assert_fail(ptr noundef @.str.13, ptr noundef @.str.2, i32 noundef 1622, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
-  unreachable
-
-1625:                                             ; preds = %1623
+1625:                                             ; preds = %1613, %1597
   %1626 = load ptr, ptr %7, align 8
   %1627 = getelementptr inbounds %struct.DISASMED, ptr %1626, i32 0, i32 4
   %1628 = load i32, ptr %1627, align 4
-  %1629 = zext i32 %1628 to i64
-  %1630 = getelementptr inbounds [2 x i8], ptr getelementptr inbounds ([8 x [2 x i8]], ptr @sizemap, i64 0, i64 5), i64 0, i64 %1629
-  %1631 = load i8, ptr %1630, align 1
-  store i8 %1631, ptr %29, align 1
-  %1632 = load i8, ptr %29, align 1
-  %1633 = zext i8 %1632 to i32
-  %1634 = icmp ne i32 %1633, 255
-  br i1 %1634, label %1635, label %1636
+  %1629 = icmp ult i32 %1628, 2
+  br i1 %1629, label %1630, label %1631
 
-1635:                                             ; preds = %1625
-  br label %1637
+1630:                                             ; preds = %1625
+  br label %1632
 
-1636:                                             ; preds = %1625
+1631:                                             ; preds = %1625, %1613
+  call void @__assert_fail(ptr noundef @.str.13, ptr noundef @.str.2, i32 noundef 1622, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
+  unreachable
+
+1632:                                             ; preds = %1630
+  %1633 = load ptr, ptr %7, align 8
+  %1634 = getelementptr inbounds %struct.DISASMED, ptr %1633, i32 0, i32 4
+  %1635 = load i32, ptr %1634, align 4
+  %1636 = zext i32 %1635 to i64
+  %1637 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 5
+  %1638 = getelementptr inbounds [2 x i8], ptr %1637, i64 0, i64 %1636
+  %1639 = load i8, ptr %1638, align 1
+  store i8 %1639, ptr %29, align 1
+  %1640 = load i8, ptr %29, align 1
+  %1641 = zext i8 %1640 to i32
+  %1642 = icmp ne i32 %1641, 255
+  br i1 %1642, label %1643, label %1644
+
+1643:                                             ; preds = %1632
+  br label %1645
+
+1644:                                             ; preds = %1632
   call void @__assert_fail(ptr noundef @.str.10, ptr noundef @.str.2, i32 noundef 1624, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-1637:                                             ; preds = %1635
-  %1638 = load ptr, ptr %7, align 8
-  %1639 = getelementptr inbounds %struct.DISASMED, ptr %1638, i32 0, i32 3
-  %1640 = load i32, ptr %1639, align 8
-  %1641 = icmp ult i32 %1640, 2
-  br i1 %1641, label %1642, label %1643
+1645:                                             ; preds = %1643
+  %1646 = load ptr, ptr %7, align 8
+  %1647 = getelementptr inbounds %struct.DISASMED, ptr %1646, i32 0, i32 3
+  %1648 = load i32, ptr %1647, align 8
+  %1649 = icmp ult i32 %1648, 2
+  br i1 %1649, label %1650, label %1651
 
-1642:                                             ; preds = %1637
-  br label %1644
+1650:                                             ; preds = %1645
+  br label %1652
 
-1643:                                             ; preds = %1637
+1651:                                             ; preds = %1645
   call void @__assert_fail(ptr noundef @.str.14, ptr noundef @.str.2, i32 noundef 1625, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-1644:                                             ; preds = %1642
-  %1645 = load i32, ptr %11, align 4
-  %1646 = zext i32 %1645 to i64
-  %1647 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1646
-  %1648 = load ptr, ptr %7, align 8
-  %1649 = getelementptr inbounds %struct.DISASMED, ptr %1648, i32 0, i32 0
-  %1650 = load i16, ptr %1649, align 8
-  %1651 = zext i16 %1650 to i64
-  %1652 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1647, i64 0, i64 %1651
-  %1653 = getelementptr inbounds %struct.OPCODES, ptr %1652, i32 0, i32 1
-  %1654 = load i32, ptr %1653, align 4
-  %1655 = zext i32 %1654 to i64
-  %1656 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %1655
-  %1657 = load ptr, ptr %7, align 8
-  %1658 = getelementptr inbounds %struct.DISASMED, ptr %1657, i32 0, i32 3
-  %1659 = load i32, ptr %1658, align 8
-  %1660 = zext i32 %1659 to i64
-  %1661 = getelementptr inbounds [2 x i8], ptr %1656, i64 0, i64 %1660
-  %1662 = load i8, ptr %1661, align 1
-  %1663 = zext i8 %1662 to i32
-  %1664 = load ptr, ptr %7, align 8
-  %1665 = getelementptr inbounds %struct.DISASMED, ptr %1664, i32 0, i32 7
-  %1666 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1665, i64 0, i64 0
-  %1667 = getelementptr inbounds %struct.DIS_ARGS, ptr %1666, i32 0, i32 1
-  store i32 %1663, ptr %1667, align 4
-  %1668 = load ptr, ptr %7, align 8
-  %1669 = getelementptr inbounds %struct.DISASMED, ptr %1668, i32 0, i32 7
-  %1670 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1669, i64 0, i64 0
-  %1671 = getelementptr inbounds %struct.DIS_ARGS, ptr %1670, i32 0, i32 1
-  %1672 = load i32, ptr %1671, align 4
-  %1673 = icmp ne i32 %1672, 255
-  br i1 %1673, label %1674, label %1675
+1652:                                             ; preds = %1650
+  %1653 = load i32, ptr %11, align 4
+  %1654 = zext i32 %1653 to i64
+  %1655 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1654
+  %1656 = load ptr, ptr %7, align 8
+  %1657 = getelementptr inbounds %struct.DISASMED, ptr %1656, i32 0, i32 0
+  %1658 = load i16, ptr %1657, align 8
+  %1659 = zext i16 %1658 to i64
+  %1660 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1655, i64 0, i64 %1659
+  %1661 = getelementptr inbounds %struct.OPCODES, ptr %1660, i32 0, i32 1
+  %1662 = load i32, ptr %1661, align 4
+  %1663 = zext i32 %1662 to i64
+  %1664 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %1663
+  %1665 = load ptr, ptr %7, align 8
+  %1666 = getelementptr inbounds %struct.DISASMED, ptr %1665, i32 0, i32 3
+  %1667 = load i32, ptr %1666, align 8
+  %1668 = zext i32 %1667 to i64
+  %1669 = getelementptr inbounds [2 x i8], ptr %1664, i64 0, i64 %1668
+  %1670 = load i8, ptr %1669, align 1
+  %1671 = zext i8 %1670 to i32
+  %1672 = load ptr, ptr %7, align 8
+  %1673 = getelementptr inbounds %struct.DISASMED, ptr %1672, i32 0, i32 7
+  %1674 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1673, i64 0, i64 0
+  %1675 = getelementptr inbounds %struct.DIS_ARGS, ptr %1674, i32 0, i32 1
+  store i32 %1671, ptr %1675, align 4
+  %1676 = load ptr, ptr %7, align 8
+  %1677 = getelementptr inbounds %struct.DISASMED, ptr %1676, i32 0, i32 7
+  %1678 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1677, i64 0, i64 0
+  %1679 = getelementptr inbounds %struct.DIS_ARGS, ptr %1678, i32 0, i32 1
+  %1680 = load i32, ptr %1679, align 4
+  %1681 = icmp ne i32 %1680, 255
+  br i1 %1681, label %1682, label %1683
 
-1674:                                             ; preds = %1644
-  br label %1676
+1682:                                             ; preds = %1652
+  br label %1684
 
-1675:                                             ; preds = %1644
+1683:                                             ; preds = %1652
   call void @__assert_fail(ptr noundef @.str.15, ptr noundef @.str.2, i32 noundef 1627, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-1676:                                             ; preds = %1674
-  %1677 = load ptr, ptr %7, align 8
-  %1678 = getelementptr inbounds %struct.DISASMED, ptr %1677, i32 0, i32 7
-  %1679 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1678, i64 0, i64 0
-  %1680 = getelementptr inbounds %struct.DIS_ARGS, ptr %1679, i32 0, i32 1
-  %1681 = load i32, ptr %1680, align 4
-  %1682 = lshr i32 %1681, 1
-  store i32 %1682, ptr %1680, align 4
-  %1683 = load ptr, ptr %7, align 8
-  %1684 = getelementptr inbounds %struct.DISASMED, ptr %1683, i32 0, i32 7
-  %1685 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1684, i64 0, i64 0
-  %1686 = getelementptr inbounds %struct.DIS_ARGS, ptr %1685, i32 0, i32 3
-  %1687 = getelementptr inbounds %struct.anon, ptr %1686, i32 0, i32 0
-  store i32 54, ptr %1687, align 8
-  %1688 = load ptr, ptr %7, align 8
-  %1689 = getelementptr inbounds %struct.DISASMED, ptr %1688, i32 0, i32 7
-  %1690 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1689, i64 0, i64 0
-  %1691 = getelementptr inbounds %struct.DIS_ARGS, ptr %1690, i32 0, i32 3
-  %1692 = getelementptr inbounds %struct.anon, ptr %1691, i32 0, i32 1
-  store i32 54, ptr %1692, align 4
+1684:                                             ; preds = %1682
+  %1685 = load ptr, ptr %7, align 8
+  %1686 = getelementptr inbounds %struct.DISASMED, ptr %1685, i32 0, i32 7
+  %1687 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1686, i64 0, i64 0
+  %1688 = getelementptr inbounds %struct.DIS_ARGS, ptr %1687, i32 0, i32 1
+  %1689 = load i32, ptr %1688, align 4
+  %1690 = lshr i32 %1689, 1
+  store i32 %1690, ptr %1688, align 4
+  %1691 = load ptr, ptr %7, align 8
+  %1692 = getelementptr inbounds %struct.DISASMED, ptr %1691, i32 0, i32 7
+  %1693 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1692, i64 0, i64 0
+  %1694 = getelementptr inbounds %struct.DIS_ARGS, ptr %1693, i32 0, i32 3
+  %1695 = getelementptr inbounds %struct.anon, ptr %1694, i32 0, i32 0
+  store i32 54, ptr %1695, align 8
+  %1696 = load ptr, ptr %7, align 8
+  %1697 = getelementptr inbounds %struct.DISASMED, ptr %1696, i32 0, i32 7
+  %1698 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1697, i64 0, i64 0
+  %1699 = getelementptr inbounds %struct.DIS_ARGS, ptr %1698, i32 0, i32 3
+  %1700 = getelementptr inbounds %struct.anon, ptr %1699, i32 0, i32 1
+  store i32 54, ptr %1700, align 4
   store i32 0, ptr %9, align 4
-  br label %1693
+  br label %1701
 
-1693:                                             ; preds = %1725, %1676
-  %1694 = load i32, ptr %9, align 4
-  %1695 = load i8, ptr %29, align 1
-  %1696 = zext i8 %1695 to i32
-  %1697 = icmp ult i32 %1694, %1696
-  br i1 %1697, label %1698, label %1728
+1701:                                             ; preds = %1733, %1684
+  %1702 = load i32, ptr %9, align 4
+  %1703 = load i8, ptr %29, align 1
+  %1704 = zext i8 %1703 to i32
+  %1705 = icmp ult i32 %1702, %1704
+  br i1 %1705, label %1706, label %1736
 
-1698:                                             ; preds = %1693
-  %1699 = load i32, ptr %6, align 4
-  %1700 = add i32 %1699, -1
-  store i32 %1700, ptr %6, align 4
-  %1701 = icmp ne i32 %1699, 0
-  br i1 %1701, label %1702, label %1707
+1706:                                             ; preds = %1701
+  %1707 = load i32, ptr %6, align 4
+  %1708 = add i32 %1707, -1
+  store i32 %1708, ptr %6, align 4
+  %1709 = icmp ne i32 %1707, 0
+  br i1 %1709, label %1710, label %1715
 
-1702:                                             ; preds = %1698
-  %1703 = load ptr, ptr %5, align 8
-  %1704 = load i8, ptr %1703, align 1
-  store i8 %1704, ptr %10, align 1
-  %1705 = load ptr, ptr %5, align 8
-  %1706 = getelementptr inbounds i8, ptr %1705, i32 1
-  store ptr %1706, ptr %5, align 8
-  br label %1712
+1710:                                             ; preds = %1706
+  %1711 = load ptr, ptr %5, align 8
+  %1712 = load i8, ptr %1711, align 1
+  store i8 %1712, ptr %10, align 1
+  %1713 = load ptr, ptr %5, align 8
+  %1714 = getelementptr inbounds i8, ptr %1713, i32 1
+  store ptr %1714, ptr %5, align 8
+  br label %1720
 
-1707:                                             ; preds = %1698
-  %1708 = load ptr, ptr %7, align 8
-  %1709 = getelementptr inbounds %struct.DISASMED, ptr %1708, i32 0, i32 0
-  store i16 0, ptr %1709, align 8
-  %1710 = load ptr, ptr %7, align 8
-  %1711 = getelementptr inbounds %struct.DISASMED, ptr %1710, i32 0, i32 2
-  store i32 6, ptr %1711, align 4
-  br label %2140
-
-1712:                                             ; preds = %1702
-  %1713 = load i8, ptr %10, align 1
-  %1714 = zext i8 %1713 to i32
-  %1715 = load i32, ptr %9, align 4
-  %1716 = mul i32 %1715, 8
-  %1717 = shl i32 %1714, %1716
+1715:                                             ; preds = %1706
+  %1716 = load ptr, ptr %7, align 8
+  %1717 = getelementptr inbounds %struct.DISASMED, ptr %1716, i32 0, i32 0
+  store i16 0, ptr %1717, align 8
   %1718 = load ptr, ptr %7, align 8
-  %1719 = getelementptr inbounds %struct.DISASMED, ptr %1718, i32 0, i32 7
-  %1720 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1719, i64 0, i64 0
-  %1721 = getelementptr inbounds %struct.DIS_ARGS, ptr %1720, i32 0, i32 3
-  %1722 = getelementptr inbounds %struct.anon, ptr %1721, i32 0, i32 3
-  %1723 = load i32, ptr %1722, align 4
-  %1724 = add nsw i32 %1723, %1717
-  store i32 %1724, ptr %1722, align 4
-  br label %1725
+  %1719 = getelementptr inbounds %struct.DISASMED, ptr %1718, i32 0, i32 2
+  store i32 6, ptr %1719, align 4
+  br label %2149
 
-1725:                                             ; preds = %1712
-  %1726 = load i32, ptr %9, align 4
-  %1727 = add i32 %1726, 1
-  store i32 %1727, ptr %9, align 4
-  br label %1693
+1720:                                             ; preds = %1710
+  %1721 = load i8, ptr %10, align 1
+  %1722 = zext i8 %1721 to i32
+  %1723 = load i32, ptr %9, align 4
+  %1724 = mul i32 %1723, 8
+  %1725 = shl i32 %1722, %1724
+  %1726 = load ptr, ptr %7, align 8
+  %1727 = getelementptr inbounds %struct.DISASMED, ptr %1726, i32 0, i32 7
+  %1728 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1727, i64 0, i64 0
+  %1729 = getelementptr inbounds %struct.DIS_ARGS, ptr %1728, i32 0, i32 3
+  %1730 = getelementptr inbounds %struct.anon, ptr %1729, i32 0, i32 3
+  %1731 = load i32, ptr %1730, align 4
+  %1732 = add nsw i32 %1731, %1725
+  store i32 %1732, ptr %1730, align 4
+  br label %1733
 
-1728:                                             ; preds = %1693
-  %1729 = load ptr, ptr %7, align 8
-  %1730 = getelementptr inbounds %struct.DISASMED, ptr %1729, i32 0, i32 2
-  store i32 2, ptr %1730, align 4
+1733:                                             ; preds = %1720
+  %1734 = load i32, ptr %9, align 4
+  %1735 = add i32 %1734, 1
+  store i32 %1735, ptr %9, align 4
+  br label %1701
+
+1736:                                             ; preds = %1701
+  %1737 = load ptr, ptr %7, align 8
+  %1738 = getelementptr inbounds %struct.DISASMED, ptr %1737, i32 0, i32 2
+  store i32 2, ptr %1738, align 4
   br label %35
 
-1731:                                             ; preds = %552
+1739:                                             ; preds = %556
   call void @__assert_fail(ptr noundef @.str.16, ptr noundef @.str.2, i32 noundef 1640, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-1732:                                             ; preds = %35
-  %1733 = load ptr, ptr %7, align 8
-  %1734 = getelementptr inbounds %struct.DISASMED, ptr %1733, i32 0, i32 6
-  %1735 = load i8, ptr %1734, align 4
-  %1736 = add i8 %1735, 1
-  store i8 %1736, ptr %1734, align 4
-  %1737 = load i32, ptr %11, align 4
-  %1738 = zext i32 %1737 to i64
-  %1739 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1738
-  %1740 = load ptr, ptr %7, align 8
-  %1741 = getelementptr inbounds %struct.DISASMED, ptr %1740, i32 0, i32 0
-  %1742 = load i16, ptr %1741, align 8
-  %1743 = zext i16 %1742 to i64
-  %1744 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1739, i64 0, i64 %1743
-  %1745 = getelementptr inbounds %struct.OPCODES, ptr %1744, i32 0, i32 2
-  %1746 = load i32, ptr %1745, align 4
-  switch i32 %1746, label %2138 [
-    i32 30, label %1747
-    i32 27, label %1750
-    i32 0, label %1891
-    i32 1, label %1891
-    i32 2, label %1891
-    i32 29, label %1970
-    i32 15, label %1997
+1740:                                             ; preds = %35
+  %1741 = load ptr, ptr %7, align 8
+  %1742 = getelementptr inbounds %struct.DISASMED, ptr %1741, i32 0, i32 6
+  %1743 = load i8, ptr %1742, align 4
+  %1744 = add i8 %1743, 1
+  store i8 %1744, ptr %1742, align 4
+  %1745 = load i32, ptr %11, align 4
+  %1746 = zext i32 %1745 to i64
+  %1747 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1746
+  %1748 = load ptr, ptr %7, align 8
+  %1749 = getelementptr inbounds %struct.DISASMED, ptr %1748, i32 0, i32 0
+  %1750 = load i16, ptr %1749, align 8
+  %1751 = zext i16 %1750 to i64
+  %1752 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1747, i64 0, i64 %1751
+  %1753 = getelementptr inbounds %struct.OPCODES, ptr %1752, i32 0, i32 2
+  %1754 = load i32, ptr %1753, align 4
+  switch i32 %1754, label %2147 [
+    i32 30, label %1755
+    i32 27, label %1758
+    i32 0, label %1899
+    i32 1, label %1899
+    i32 2, label %1899
+    i32 29, label %1978
+    i32 15, label %2005
   ]
 
-1747:                                             ; preds = %1732
-  %1748 = load ptr, ptr %7, align 8
-  %1749 = getelementptr inbounds %struct.DISASMED, ptr %1748, i32 0, i32 2
-  store i32 4, ptr %1749, align 4
+1755:                                             ; preds = %1740
+  %1756 = load ptr, ptr %7, align 8
+  %1757 = getelementptr inbounds %struct.DISASMED, ptr %1756, i32 0, i32 2
+  store i32 4, ptr %1757, align 4
   br label %35
 
-1750:                                             ; preds = %1732
-  %1751 = load ptr, ptr %7, align 8
-  %1752 = getelementptr inbounds %struct.DISASMED, ptr %1751, i32 0, i32 7
-  %1753 = load ptr, ptr %7, align 8
-  %1754 = getelementptr inbounds %struct.DISASMED, ptr %1753, i32 0, i32 6
-  %1755 = load i8, ptr %1754, align 4
-  %1756 = zext i8 %1755 to i64
-  %1757 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1752, i64 0, i64 %1756
-  %1758 = getelementptr inbounds %struct.DIS_ARGS, ptr %1757, i32 0, i32 0
-  store i32 1, ptr %1758, align 8
-  %1759 = load i32, ptr %11, align 4
-  %1760 = zext i32 %1759 to i64
-  %1761 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1760
-  %1762 = load ptr, ptr %7, align 8
-  %1763 = getelementptr inbounds %struct.DISASMED, ptr %1762, i32 0, i32 0
-  %1764 = load i16, ptr %1763, align 8
-  %1765 = zext i16 %1764 to i64
-  %1766 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1761, i64 0, i64 %1765
-  %1767 = getelementptr inbounds %struct.OPCODES, ptr %1766, i32 0, i32 3
-  %1768 = load i32, ptr %1767, align 4
-  %1769 = icmp eq i32 %1768, 5
-  br i1 %1769, label %1782, label %1770
+1758:                                             ; preds = %1740
+  %1759 = load ptr, ptr %7, align 8
+  %1760 = getelementptr inbounds %struct.DISASMED, ptr %1759, i32 0, i32 7
+  %1761 = load ptr, ptr %7, align 8
+  %1762 = getelementptr inbounds %struct.DISASMED, ptr %1761, i32 0, i32 6
+  %1763 = load i8, ptr %1762, align 4
+  %1764 = zext i8 %1763 to i64
+  %1765 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1760, i64 0, i64 %1764
+  %1766 = getelementptr inbounds %struct.DIS_ARGS, ptr %1765, i32 0, i32 0
+  store i32 1, ptr %1766, align 8
+  %1767 = load i32, ptr %11, align 4
+  %1768 = zext i32 %1767 to i64
+  %1769 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1768
+  %1770 = load ptr, ptr %7, align 8
+  %1771 = getelementptr inbounds %struct.DISASMED, ptr %1770, i32 0, i32 0
+  %1772 = load i16, ptr %1771, align 8
+  %1773 = zext i16 %1772 to i64
+  %1774 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1769, i64 0, i64 %1773
+  %1775 = getelementptr inbounds %struct.OPCODES, ptr %1774, i32 0, i32 3
+  %1776 = load i32, ptr %1775, align 4
+  %1777 = icmp eq i32 %1776, 5
+  br i1 %1777, label %1790, label %1778
 
-1770:                                             ; preds = %1750
-  %1771 = load i32, ptr %11, align 4
-  %1772 = zext i32 %1771 to i64
-  %1773 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1772
-  %1774 = load ptr, ptr %7, align 8
-  %1775 = getelementptr inbounds %struct.DISASMED, ptr %1774, i32 0, i32 0
-  %1776 = load i16, ptr %1775, align 8
-  %1777 = zext i16 %1776 to i64
-  %1778 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1773, i64 0, i64 %1777
-  %1779 = getelementptr inbounds %struct.OPCODES, ptr %1778, i32 0, i32 3
-  %1780 = load i32, ptr %1779, align 4
-  %1781 = icmp eq i32 %1780, 0
-  br i1 %1781, label %1782, label %1788
+1778:                                             ; preds = %1758
+  %1779 = load i32, ptr %11, align 4
+  %1780 = zext i32 %1779 to i64
+  %1781 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1780
+  %1782 = load ptr, ptr %7, align 8
+  %1783 = getelementptr inbounds %struct.DISASMED, ptr %1782, i32 0, i32 0
+  %1784 = load i16, ptr %1783, align 8
+  %1785 = zext i16 %1784 to i64
+  %1786 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1781, i64 0, i64 %1785
+  %1787 = getelementptr inbounds %struct.OPCODES, ptr %1786, i32 0, i32 3
+  %1788 = load i32, ptr %1787, align 4
+  %1789 = icmp eq i32 %1788, 0
+  br i1 %1789, label %1790, label %1796
 
-1782:                                             ; preds = %1770, %1750
-  %1783 = load ptr, ptr %7, align 8
-  %1784 = getelementptr inbounds %struct.DISASMED, ptr %1783, i32 0, i32 3
-  %1785 = load i32, ptr %1784, align 8
-  %1786 = icmp ult i32 %1785, 2
-  br i1 %1786, label %1787, label %1788
+1790:                                             ; preds = %1778, %1758
+  %1791 = load ptr, ptr %7, align 8
+  %1792 = getelementptr inbounds %struct.DISASMED, ptr %1791, i32 0, i32 3
+  %1793 = load i32, ptr %1792, align 8
+  %1794 = icmp ult i32 %1793, 2
+  br i1 %1794, label %1795, label %1796
 
-1787:                                             ; preds = %1782
-  br label %1789
+1795:                                             ; preds = %1790
+  br label %1797
 
-1788:                                             ; preds = %1782, %1770
+1796:                                             ; preds = %1790, %1778
   call void @__assert_fail(ptr noundef @.str.17, ptr noundef @.str.2, i32 noundef 1653, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-1789:                                             ; preds = %1787
-  %1790 = load i32, ptr %11, align 4
-  %1791 = zext i32 %1790 to i64
-  %1792 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1791
-  %1793 = load ptr, ptr %7, align 8
-  %1794 = getelementptr inbounds %struct.DISASMED, ptr %1793, i32 0, i32 0
-  %1795 = load i16, ptr %1794, align 8
-  %1796 = zext i16 %1795 to i64
-  %1797 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1792, i64 0, i64 %1796
-  %1798 = getelementptr inbounds %struct.OPCODES, ptr %1797, i32 0, i32 3
-  %1799 = load i32, ptr %1798, align 4
-  %1800 = zext i32 %1799 to i64
-  %1801 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %1800
-  %1802 = load ptr, ptr %7, align 8
-  %1803 = getelementptr inbounds %struct.DISASMED, ptr %1802, i32 0, i32 3
-  %1804 = load i32, ptr %1803, align 8
-  %1805 = zext i32 %1804 to i64
-  %1806 = getelementptr inbounds [2 x i8], ptr %1801, i64 0, i64 %1805
-  %1807 = load i8, ptr %1806, align 1
-  store i8 %1807, ptr %30, align 1
-  %1808 = load i8, ptr %30, align 1
-  %1809 = zext i8 %1808 to i32
-  %1810 = ashr i32 %1809, 1
-  %1811 = load ptr, ptr %7, align 8
-  %1812 = getelementptr inbounds %struct.DISASMED, ptr %1811, i32 0, i32 7
-  %1813 = load ptr, ptr %7, align 8
-  %1814 = getelementptr inbounds %struct.DISASMED, ptr %1813, i32 0, i32 6
-  %1815 = load i8, ptr %1814, align 4
-  %1816 = zext i8 %1815 to i64
-  %1817 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1812, i64 0, i64 %1816
-  %1818 = getelementptr inbounds %struct.DIS_ARGS, ptr %1817, i32 0, i32 1
-  store i32 %1810, ptr %1818, align 4
+1797:                                             ; preds = %1795
+  %1798 = load i32, ptr %11, align 4
+  %1799 = zext i32 %1798 to i64
+  %1800 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1799
+  %1801 = load ptr, ptr %7, align 8
+  %1802 = getelementptr inbounds %struct.DISASMED, ptr %1801, i32 0, i32 0
+  %1803 = load i16, ptr %1802, align 8
+  %1804 = zext i16 %1803 to i64
+  %1805 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1800, i64 0, i64 %1804
+  %1806 = getelementptr inbounds %struct.OPCODES, ptr %1805, i32 0, i32 3
+  %1807 = load i32, ptr %1806, align 4
+  %1808 = zext i32 %1807 to i64
+  %1809 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %1808
+  %1810 = load ptr, ptr %7, align 8
+  %1811 = getelementptr inbounds %struct.DISASMED, ptr %1810, i32 0, i32 3
+  %1812 = load i32, ptr %1811, align 8
+  %1813 = zext i32 %1812 to i64
+  %1814 = getelementptr inbounds [2 x i8], ptr %1809, i64 0, i64 %1813
+  %1815 = load i8, ptr %1814, align 1
+  store i8 %1815, ptr %30, align 1
+  %1816 = load i8, ptr %30, align 1
+  %1817 = zext i8 %1816 to i32
+  %1818 = ashr i32 %1817, 1
+  %1819 = load ptr, ptr %7, align 8
+  %1820 = getelementptr inbounds %struct.DISASMED, ptr %1819, i32 0, i32 7
+  %1821 = load ptr, ptr %7, align 8
+  %1822 = getelementptr inbounds %struct.DISASMED, ptr %1821, i32 0, i32 6
+  %1823 = load i8, ptr %1822, align 4
+  %1824 = zext i8 %1823 to i64
+  %1825 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1820, i64 0, i64 %1824
+  %1826 = getelementptr inbounds %struct.DIS_ARGS, ptr %1825, i32 0, i32 1
+  store i32 %1818, ptr %1826, align 4
   store i32 0, ptr %9, align 4
-  br label %1819
+  br label %1827
 
-1819:                                             ; preds = %1855, %1789
-  %1820 = load i32, ptr %9, align 4
-  %1821 = load i8, ptr %30, align 1
-  %1822 = zext i8 %1821 to i32
-  %1823 = icmp ult i32 %1820, %1822
-  br i1 %1823, label %1824, label %1858
+1827:                                             ; preds = %1863, %1797
+  %1828 = load i32, ptr %9, align 4
+  %1829 = load i8, ptr %30, align 1
+  %1830 = zext i8 %1829 to i32
+  %1831 = icmp ult i32 %1828, %1830
+  br i1 %1831, label %1832, label %1866
 
-1824:                                             ; preds = %1819
-  %1825 = load i32, ptr %6, align 4
-  %1826 = add i32 %1825, -1
-  store i32 %1826, ptr %6, align 4
-  %1827 = icmp ne i32 %1825, 0
-  br i1 %1827, label %1828, label %1833
+1832:                                             ; preds = %1827
+  %1833 = load i32, ptr %6, align 4
+  %1834 = add i32 %1833, -1
+  store i32 %1834, ptr %6, align 4
+  %1835 = icmp ne i32 %1833, 0
+  br i1 %1835, label %1836, label %1841
 
-1828:                                             ; preds = %1824
-  %1829 = load ptr, ptr %5, align 8
-  %1830 = load i8, ptr %1829, align 1
-  store i8 %1830, ptr %10, align 1
-  %1831 = load ptr, ptr %5, align 8
-  %1832 = getelementptr inbounds i8, ptr %1831, i32 1
-  store ptr %1832, ptr %5, align 8
-  br label %1838
+1836:                                             ; preds = %1832
+  %1837 = load ptr, ptr %5, align 8
+  %1838 = load i8, ptr %1837, align 1
+  store i8 %1838, ptr %10, align 1
+  %1839 = load ptr, ptr %5, align 8
+  %1840 = getelementptr inbounds i8, ptr %1839, i32 1
+  store ptr %1840, ptr %5, align 8
+  br label %1846
 
-1833:                                             ; preds = %1824
-  %1834 = load ptr, ptr %7, align 8
-  %1835 = getelementptr inbounds %struct.DISASMED, ptr %1834, i32 0, i32 0
-  store i16 0, ptr %1835, align 8
-  %1836 = load ptr, ptr %7, align 8
-  %1837 = getelementptr inbounds %struct.DISASMED, ptr %1836, i32 0, i32 2
-  store i32 6, ptr %1837, align 4
-  br label %2140
+1841:                                             ; preds = %1832
+  %1842 = load ptr, ptr %7, align 8
+  %1843 = getelementptr inbounds %struct.DISASMED, ptr %1842, i32 0, i32 0
+  store i16 0, ptr %1843, align 8
+  %1844 = load ptr, ptr %7, align 8
+  %1845 = getelementptr inbounds %struct.DISASMED, ptr %1844, i32 0, i32 2
+  store i32 6, ptr %1845, align 4
+  br label %2149
 
-1838:                                             ; preds = %1828
-  %1839 = load i8, ptr %10, align 1
-  %1840 = zext i8 %1839 to i32
-  %1841 = load i32, ptr %9, align 4
-  %1842 = mul i32 %1841, 8
-  %1843 = shl i32 %1840, %1842
-  %1844 = sext i32 %1843 to i64
-  %1845 = load ptr, ptr %7, align 8
-  %1846 = getelementptr inbounds %struct.DISASMED, ptr %1845, i32 0, i32 7
-  %1847 = load ptr, ptr %7, align 8
-  %1848 = getelementptr inbounds %struct.DISASMED, ptr %1847, i32 0, i32 6
-  %1849 = load i8, ptr %1848, align 4
-  %1850 = zext i8 %1849 to i64
-  %1851 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1846, i64 0, i64 %1850
-  %1852 = getelementptr inbounds %struct.DIS_ARGS, ptr %1851, i32 0, i32 3
-  %1853 = load i64, ptr %1852, align 8
-  %1854 = add i64 %1853, %1844
-  store i64 %1854, ptr %1852, align 8
-  br label %1855
+1846:                                             ; preds = %1836
+  %1847 = load i8, ptr %10, align 1
+  %1848 = zext i8 %1847 to i32
+  %1849 = load i32, ptr %9, align 4
+  %1850 = mul i32 %1849, 8
+  %1851 = shl i32 %1848, %1850
+  %1852 = sext i32 %1851 to i64
+  %1853 = load ptr, ptr %7, align 8
+  %1854 = getelementptr inbounds %struct.DISASMED, ptr %1853, i32 0, i32 7
+  %1855 = load ptr, ptr %7, align 8
+  %1856 = getelementptr inbounds %struct.DISASMED, ptr %1855, i32 0, i32 6
+  %1857 = load i8, ptr %1856, align 4
+  %1858 = zext i8 %1857 to i64
+  %1859 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1854, i64 0, i64 %1858
+  %1860 = getelementptr inbounds %struct.DIS_ARGS, ptr %1859, i32 0, i32 3
+  %1861 = load i64, ptr %1860, align 8
+  %1862 = add i64 %1861, %1852
+  store i64 %1862, ptr %1860, align 8
+  br label %1863
 
-1855:                                             ; preds = %1838
-  %1856 = load i32, ptr %9, align 4
-  %1857 = add i32 %1856, 1
-  store i32 %1857, ptr %9, align 4
-  br label %1819
+1863:                                             ; preds = %1846
+  %1864 = load i32, ptr %9, align 4
+  %1865 = add i32 %1864, 1
+  store i32 %1865, ptr %9, align 4
+  br label %1827
 
-1858:                                             ; preds = %1819
-  %1859 = load i8, ptr %30, align 1
-  %1860 = zext i8 %1859 to i32
-  %1861 = sub nsw i32 8, %1860
-  %1862 = mul nsw i32 %1861, 8
-  %1863 = load ptr, ptr %7, align 8
-  %1864 = getelementptr inbounds %struct.DISASMED, ptr %1863, i32 0, i32 7
-  %1865 = load ptr, ptr %7, align 8
-  %1866 = getelementptr inbounds %struct.DISASMED, ptr %1865, i32 0, i32 6
-  %1867 = load i8, ptr %1866, align 4
-  %1868 = zext i8 %1867 to i64
-  %1869 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1864, i64 0, i64 %1868
-  %1870 = getelementptr inbounds %struct.DIS_ARGS, ptr %1869, i32 0, i32 3
-  %1871 = load i64, ptr %1870, align 8
-  %1872 = zext i32 %1862 to i64
-  %1873 = shl i64 %1871, %1872
-  store i64 %1873, ptr %1870, align 8
-  %1874 = load i8, ptr %30, align 1
-  %1875 = zext i8 %1874 to i32
-  %1876 = sub nsw i32 8, %1875
-  %1877 = mul nsw i32 %1876, 8
-  %1878 = load ptr, ptr %7, align 8
-  %1879 = getelementptr inbounds %struct.DISASMED, ptr %1878, i32 0, i32 7
-  %1880 = load ptr, ptr %7, align 8
-  %1881 = getelementptr inbounds %struct.DISASMED, ptr %1880, i32 0, i32 6
-  %1882 = load i8, ptr %1881, align 4
-  %1883 = zext i8 %1882 to i64
-  %1884 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1879, i64 0, i64 %1883
-  %1885 = getelementptr inbounds %struct.DIS_ARGS, ptr %1884, i32 0, i32 3
-  %1886 = load i64, ptr %1885, align 8
-  %1887 = zext i32 %1877 to i64
-  %1888 = ashr i64 %1886, %1887
-  store i64 %1888, ptr %1885, align 8
-  %1889 = load ptr, ptr %7, align 8
-  %1890 = getelementptr inbounds %struct.DISASMED, ptr %1889, i32 0, i32 2
-  store i32 4, ptr %1890, align 4
+1866:                                             ; preds = %1827
+  %1867 = load i8, ptr %30, align 1
+  %1868 = zext i8 %1867 to i32
+  %1869 = sub nsw i32 8, %1868
+  %1870 = mul nsw i32 %1869, 8
+  %1871 = load ptr, ptr %7, align 8
+  %1872 = getelementptr inbounds %struct.DISASMED, ptr %1871, i32 0, i32 7
+  %1873 = load ptr, ptr %7, align 8
+  %1874 = getelementptr inbounds %struct.DISASMED, ptr %1873, i32 0, i32 6
+  %1875 = load i8, ptr %1874, align 4
+  %1876 = zext i8 %1875 to i64
+  %1877 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1872, i64 0, i64 %1876
+  %1878 = getelementptr inbounds %struct.DIS_ARGS, ptr %1877, i32 0, i32 3
+  %1879 = load i64, ptr %1878, align 8
+  %1880 = zext i32 %1870 to i64
+  %1881 = shl i64 %1879, %1880
+  store i64 %1881, ptr %1878, align 8
+  %1882 = load i8, ptr %30, align 1
+  %1883 = zext i8 %1882 to i32
+  %1884 = sub nsw i32 8, %1883
+  %1885 = mul nsw i32 %1884, 8
+  %1886 = load ptr, ptr %7, align 8
+  %1887 = getelementptr inbounds %struct.DISASMED, ptr %1886, i32 0, i32 7
+  %1888 = load ptr, ptr %7, align 8
+  %1889 = getelementptr inbounds %struct.DISASMED, ptr %1888, i32 0, i32 6
+  %1890 = load i8, ptr %1889, align 4
+  %1891 = zext i8 %1890 to i64
+  %1892 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1887, i64 0, i64 %1891
+  %1893 = getelementptr inbounds %struct.DIS_ARGS, ptr %1892, i32 0, i32 3
+  %1894 = load i64, ptr %1893, align 8
+  %1895 = zext i32 %1885 to i64
+  %1896 = ashr i64 %1894, %1895
+  store i64 %1896, ptr %1893, align 8
+  %1897 = load ptr, ptr %7, align 8
+  %1898 = getelementptr inbounds %struct.DISASMED, ptr %1897, i32 0, i32 2
+  store i32 4, ptr %1898, align 4
   br label %35
 
-1891:                                             ; preds = %1732, %1732, %1732
-  %1892 = load i32, ptr %11, align 4
-  %1893 = zext i32 %1892 to i64
-  %1894 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1893
-  %1895 = load ptr, ptr %7, align 8
-  %1896 = getelementptr inbounds %struct.DISASMED, ptr %1895, i32 0, i32 0
-  %1897 = load i16, ptr %1896, align 8
-  %1898 = zext i16 %1897 to i64
-  %1899 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1894, i64 0, i64 %1898
-  %1900 = getelementptr inbounds %struct.OPCODES, ptr %1899, i32 0, i32 3
-  %1901 = load i32, ptr %1900, align 4
-  %1902 = icmp ule i32 %1901, 5
-  br i1 %1902, label %1903, label %1904
+1899:                                             ; preds = %1740, %1740, %1740
+  %1900 = load i32, ptr %11, align 4
+  %1901 = zext i32 %1900 to i64
+  %1902 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1901
+  %1903 = load ptr, ptr %7, align 8
+  %1904 = getelementptr inbounds %struct.DISASMED, ptr %1903, i32 0, i32 0
+  %1905 = load i16, ptr %1904, align 8
+  %1906 = zext i16 %1905 to i64
+  %1907 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1902, i64 0, i64 %1906
+  %1908 = getelementptr inbounds %struct.OPCODES, ptr %1907, i32 0, i32 3
+  %1909 = load i32, ptr %1908, align 4
+  %1910 = icmp ule i32 %1909, 5
+  br i1 %1910, label %1911, label %1912
 
-1903:                                             ; preds = %1891
-  br label %1905
+1911:                                             ; preds = %1899
+  br label %1913
 
-1904:                                             ; preds = %1891
+1912:                                             ; preds = %1899
   call void @__assert_fail(ptr noundef @.str.18, ptr noundef @.str.2, i32 noundef 1669, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-1905:                                             ; preds = %1903
-  %1906 = load ptr, ptr %7, align 8
-  %1907 = getelementptr inbounds %struct.DISASMED, ptr %1906, i32 0, i32 7
-  %1908 = load ptr, ptr %7, align 8
-  %1909 = getelementptr inbounds %struct.DISASMED, ptr %1908, i32 0, i32 6
-  %1910 = load i8, ptr %1909, align 4
-  %1911 = zext i8 %1910 to i64
-  %1912 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1907, i64 0, i64 %1911
-  %1913 = getelementptr inbounds %struct.DIS_ARGS, ptr %1912, i32 0, i32 0
-  store i32 3, ptr %1913, align 8
-  %1914 = load i32, ptr %11, align 4
-  %1915 = zext i32 %1914 to i64
-  %1916 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1915
-  %1917 = load ptr, ptr %7, align 8
-  %1918 = getelementptr inbounds %struct.DISASMED, ptr %1917, i32 0, i32 0
-  %1919 = load i16, ptr %1918, align 8
-  %1920 = zext i16 %1919 to i64
-  %1921 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1916, i64 0, i64 %1920
-  %1922 = getelementptr inbounds %struct.OPCODES, ptr %1921, i32 0, i32 3
-  %1923 = load i32, ptr %1922, align 4
-  %1924 = icmp ne i32 %1923, 5
-  br i1 %1924, label %1925, label %1936
+1913:                                             ; preds = %1911
+  %1914 = load ptr, ptr %7, align 8
+  %1915 = getelementptr inbounds %struct.DISASMED, ptr %1914, i32 0, i32 7
+  %1916 = load ptr, ptr %7, align 8
+  %1917 = getelementptr inbounds %struct.DISASMED, ptr %1916, i32 0, i32 6
+  %1918 = load i8, ptr %1917, align 4
+  %1919 = zext i8 %1918 to i64
+  %1920 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1915, i64 0, i64 %1919
+  %1921 = getelementptr inbounds %struct.DIS_ARGS, ptr %1920, i32 0, i32 0
+  store i32 3, ptr %1921, align 8
+  %1922 = load i32, ptr %11, align 4
+  %1923 = zext i32 %1922 to i64
+  %1924 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1923
+  %1925 = load ptr, ptr %7, align 8
+  %1926 = getelementptr inbounds %struct.DISASMED, ptr %1925, i32 0, i32 0
+  %1927 = load i16, ptr %1926, align 8
+  %1928 = zext i16 %1927 to i64
+  %1929 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1924, i64 0, i64 %1928
+  %1930 = getelementptr inbounds %struct.OPCODES, ptr %1929, i32 0, i32 3
+  %1931 = load i32, ptr %1930, align 4
+  %1932 = icmp ne i32 %1931, 5
+  br i1 %1932, label %1933, label %1944
 
-1925:                                             ; preds = %1905
-  %1926 = load i32, ptr %11, align 4
-  %1927 = zext i32 %1926 to i64
-  %1928 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1927
-  %1929 = load ptr, ptr %7, align 8
-  %1930 = getelementptr inbounds %struct.DISASMED, ptr %1929, i32 0, i32 0
-  %1931 = load i16, ptr %1930, align 8
-  %1932 = zext i16 %1931 to i64
-  %1933 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1928, i64 0, i64 %1932
-  %1934 = getelementptr inbounds %struct.OPCODES, ptr %1933, i32 0, i32 3
-  %1935 = load i32, ptr %1934, align 4
-  br label %1942
-
-1936:                                             ; preds = %1905
+1933:                                             ; preds = %1913
+  %1934 = load i32, ptr %11, align 4
+  %1935 = zext i32 %1934 to i64
+  %1936 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1935
   %1937 = load ptr, ptr %7, align 8
-  %1938 = getelementptr inbounds %struct.DISASMED, ptr %1937, i32 0, i32 3
-  %1939 = load i32, ptr %1938, align 8
-  %1940 = icmp ne i32 %1939, 0
-  %1941 = select i1 %1940, i32 2, i32 3
-  br label %1942
+  %1938 = getelementptr inbounds %struct.DISASMED, ptr %1937, i32 0, i32 0
+  %1939 = load i16, ptr %1938, align 8
+  %1940 = zext i16 %1939 to i64
+  %1941 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1936, i64 0, i64 %1940
+  %1942 = getelementptr inbounds %struct.OPCODES, ptr %1941, i32 0, i32 3
+  %1943 = load i32, ptr %1942, align 4
+  br label %1950
 
-1942:                                             ; preds = %1936, %1925
-  %1943 = phi i32 [ %1935, %1925 ], [ %1941, %1936 ]
-  %1944 = zext i32 %1943 to i64
-  %1945 = getelementptr inbounds [4 x [14 x i8]], ptr @regmap, i64 0, i64 %1944
-  %1946 = load i32, ptr %11, align 4
-  %1947 = zext i32 %1946 to i64
-  %1948 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1947
-  %1949 = load ptr, ptr %7, align 8
-  %1950 = getelementptr inbounds %struct.DISASMED, ptr %1949, i32 0, i32 0
-  %1951 = load i16, ptr %1950, align 8
-  %1952 = zext i16 %1951 to i64
-  %1953 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1948, i64 0, i64 %1952
-  %1954 = getelementptr inbounds %struct.OPCODES, ptr %1953, i32 0, i32 2
-  %1955 = load i32, ptr %1954, align 4
-  %1956 = zext i32 %1955 to i64
-  %1957 = getelementptr inbounds [14 x i8], ptr %1945, i64 0, i64 %1956
-  %1958 = load i8, ptr %1957, align 1
-  %1959 = zext i8 %1958 to i32
-  %1960 = load ptr, ptr %7, align 8
-  %1961 = getelementptr inbounds %struct.DISASMED, ptr %1960, i32 0, i32 7
-  %1962 = load ptr, ptr %7, align 8
-  %1963 = getelementptr inbounds %struct.DISASMED, ptr %1962, i32 0, i32 6
-  %1964 = load i8, ptr %1963, align 4
-  %1965 = zext i8 %1964 to i64
-  %1966 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1961, i64 0, i64 %1965
-  %1967 = getelementptr inbounds %struct.DIS_ARGS, ptr %1966, i32 0, i32 2
-  store i32 %1959, ptr %1967, align 8
+1944:                                             ; preds = %1913
+  %1945 = load ptr, ptr %7, align 8
+  %1946 = getelementptr inbounds %struct.DISASMED, ptr %1945, i32 0, i32 3
+  %1947 = load i32, ptr %1946, align 8
+  %1948 = icmp ne i32 %1947, 0
+  %1949 = select i1 %1948, i32 2, i32 3
+  br label %1950
+
+1950:                                             ; preds = %1944, %1933
+  %1951 = phi i32 [ %1943, %1933 ], [ %1949, %1944 ]
+  %1952 = zext i32 %1951 to i64
+  %1953 = getelementptr inbounds [4 x [14 x i8]], ptr @regmap, i64 0, i64 %1952
+  %1954 = load i32, ptr %11, align 4
+  %1955 = zext i32 %1954 to i64
+  %1956 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %1955
+  %1957 = load ptr, ptr %7, align 8
+  %1958 = getelementptr inbounds %struct.DISASMED, ptr %1957, i32 0, i32 0
+  %1959 = load i16, ptr %1958, align 8
+  %1960 = zext i16 %1959 to i64
+  %1961 = getelementptr inbounds [256 x %struct.OPCODES], ptr %1956, i64 0, i64 %1960
+  %1962 = getelementptr inbounds %struct.OPCODES, ptr %1961, i32 0, i32 2
+  %1963 = load i32, ptr %1962, align 4
+  %1964 = zext i32 %1963 to i64
+  %1965 = getelementptr inbounds [14 x i8], ptr %1953, i64 0, i64 %1964
+  %1966 = load i8, ptr %1965, align 1
+  %1967 = zext i8 %1966 to i32
   %1968 = load ptr, ptr %7, align 8
-  %1969 = getelementptr inbounds %struct.DISASMED, ptr %1968, i32 0, i32 2
-  store i32 4, ptr %1969, align 4
+  %1969 = getelementptr inbounds %struct.DISASMED, ptr %1968, i32 0, i32 7
+  %1970 = load ptr, ptr %7, align 8
+  %1971 = getelementptr inbounds %struct.DISASMED, ptr %1970, i32 0, i32 6
+  %1972 = load i8, ptr %1971, align 4
+  %1973 = zext i8 %1972 to i64
+  %1974 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1969, i64 0, i64 %1973
+  %1975 = getelementptr inbounds %struct.DIS_ARGS, ptr %1974, i32 0, i32 2
+  store i32 %1967, ptr %1975, align 8
+  %1976 = load ptr, ptr %7, align 8
+  %1977 = getelementptr inbounds %struct.DISASMED, ptr %1976, i32 0, i32 2
+  store i32 4, ptr %1977, align 4
   br label %35
 
-1970:                                             ; preds = %1732
-  %1971 = load ptr, ptr %7, align 8
-  %1972 = getelementptr inbounds %struct.DISASMED, ptr %1971, i32 0, i32 7
-  %1973 = load ptr, ptr %7, align 8
-  %1974 = getelementptr inbounds %struct.DISASMED, ptr %1973, i32 0, i32 6
-  %1975 = load i8, ptr %1974, align 4
-  %1976 = zext i8 %1975 to i64
-  %1977 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1972, i64 0, i64 %1976
-  %1978 = getelementptr inbounds %struct.DIS_ARGS, ptr %1977, i32 0, i32 0
-  store i32 1, ptr %1978, align 8
+1978:                                             ; preds = %1740
   %1979 = load ptr, ptr %7, align 8
   %1980 = getelementptr inbounds %struct.DISASMED, ptr %1979, i32 0, i32 7
   %1981 = load ptr, ptr %7, align 8
@@ -3468,8 +3467,8 @@ define internal ptr @disasm_x86(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %1983 = load i8, ptr %1982, align 4
   %1984 = zext i8 %1983 to i64
   %1985 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1980, i64 0, i64 %1984
-  %1986 = getelementptr inbounds %struct.DIS_ARGS, ptr %1985, i32 0, i32 1
-  store i32 1, ptr %1986, align 4
+  %1986 = getelementptr inbounds %struct.DIS_ARGS, ptr %1985, i32 0, i32 0
+  store i32 1, ptr %1986, align 8
   %1987 = load ptr, ptr %7, align 8
   %1988 = getelementptr inbounds %struct.DISASMED, ptr %1987, i32 0, i32 7
   %1989 = load ptr, ptr %7, align 8
@@ -3477,260 +3476,270 @@ define internal ptr @disasm_x86(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %1991 = load i8, ptr %1990, align 4
   %1992 = zext i8 %1991 to i64
   %1993 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1988, i64 0, i64 %1992
-  %1994 = getelementptr inbounds %struct.DIS_ARGS, ptr %1993, i32 0, i32 3
-  store i64 1, ptr %1994, align 8
+  %1994 = getelementptr inbounds %struct.DIS_ARGS, ptr %1993, i32 0, i32 1
+  store i32 1, ptr %1994, align 4
   %1995 = load ptr, ptr %7, align 8
-  %1996 = getelementptr inbounds %struct.DISASMED, ptr %1995, i32 0, i32 2
-  store i32 4, ptr %1996, align 4
+  %1996 = getelementptr inbounds %struct.DISASMED, ptr %1995, i32 0, i32 7
+  %1997 = load ptr, ptr %7, align 8
+  %1998 = getelementptr inbounds %struct.DISASMED, ptr %1997, i32 0, i32 6
+  %1999 = load i8, ptr %1998, align 4
+  %2000 = zext i8 %1999 to i64
+  %2001 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1996, i64 0, i64 %2000
+  %2002 = getelementptr inbounds %struct.DIS_ARGS, ptr %2001, i32 0, i32 3
+  store i64 1, ptr %2002, align 8
+  %2003 = load ptr, ptr %7, align 8
+  %2004 = getelementptr inbounds %struct.DISASMED, ptr %2003, i32 0, i32 2
+  store i32 4, ptr %2004, align 4
   br label %35
 
-1997:                                             ; preds = %1732
-  %1998 = load ptr, ptr %7, align 8
-  %1999 = getelementptr inbounds %struct.DISASMED, ptr %1998, i32 0, i32 7
-  %2000 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %1999, i64 0, i64 1
-  %2001 = getelementptr inbounds %struct.DIS_ARGS, ptr %2000, i32 0, i32 0
-  store i32 4, ptr %2001, align 8
-  %2002 = load i32, ptr %11, align 4
-  %2003 = zext i32 %2002 to i64
-  %2004 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %2003
-  %2005 = load ptr, ptr %7, align 8
-  %2006 = getelementptr inbounds %struct.DISASMED, ptr %2005, i32 0, i32 0
-  %2007 = load i16, ptr %2006, align 8
-  %2008 = zext i16 %2007 to i64
-  %2009 = getelementptr inbounds [256 x %struct.OPCODES], ptr %2004, i64 0, i64 %2008
-  %2010 = getelementptr inbounds %struct.OPCODES, ptr %2009, i32 0, i32 3
-  %2011 = load i32, ptr %2010, align 4
-  %2012 = icmp eq i32 %2011, 0
-  br i1 %2012, label %2025, label %2013
+2005:                                             ; preds = %1740
+  %2006 = load ptr, ptr %7, align 8
+  %2007 = getelementptr inbounds %struct.DISASMED, ptr %2006, i32 0, i32 7
+  %2008 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %2007, i64 0, i64 1
+  %2009 = getelementptr inbounds %struct.DIS_ARGS, ptr %2008, i32 0, i32 0
+  store i32 4, ptr %2009, align 8
+  %2010 = load i32, ptr %11, align 4
+  %2011 = zext i32 %2010 to i64
+  %2012 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %2011
+  %2013 = load ptr, ptr %7, align 8
+  %2014 = getelementptr inbounds %struct.DISASMED, ptr %2013, i32 0, i32 0
+  %2015 = load i16, ptr %2014, align 8
+  %2016 = zext i16 %2015 to i64
+  %2017 = getelementptr inbounds [256 x %struct.OPCODES], ptr %2012, i64 0, i64 %2016
+  %2018 = getelementptr inbounds %struct.OPCODES, ptr %2017, i32 0, i32 3
+  %2019 = load i32, ptr %2018, align 4
+  %2020 = icmp eq i32 %2019, 0
+  br i1 %2020, label %2033, label %2021
 
-2013:                                             ; preds = %1997
-  %2014 = load i32, ptr %11, align 4
-  %2015 = zext i32 %2014 to i64
-  %2016 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %2015
-  %2017 = load ptr, ptr %7, align 8
-  %2018 = getelementptr inbounds %struct.DISASMED, ptr %2017, i32 0, i32 0
-  %2019 = load i16, ptr %2018, align 8
-  %2020 = zext i16 %2019 to i64
-  %2021 = getelementptr inbounds [256 x %struct.OPCODES], ptr %2016, i64 0, i64 %2020
-  %2022 = getelementptr inbounds %struct.OPCODES, ptr %2021, i32 0, i32 3
-  %2023 = load i32, ptr %2022, align 4
-  %2024 = icmp eq i32 %2023, 5
-  br i1 %2024, label %2025, label %2031
+2021:                                             ; preds = %2005
+  %2022 = load i32, ptr %11, align 4
+  %2023 = zext i32 %2022 to i64
+  %2024 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %2023
+  %2025 = load ptr, ptr %7, align 8
+  %2026 = getelementptr inbounds %struct.DISASMED, ptr %2025, i32 0, i32 0
+  %2027 = load i16, ptr %2026, align 8
+  %2028 = zext i16 %2027 to i64
+  %2029 = getelementptr inbounds [256 x %struct.OPCODES], ptr %2024, i64 0, i64 %2028
+  %2030 = getelementptr inbounds %struct.OPCODES, ptr %2029, i32 0, i32 3
+  %2031 = load i32, ptr %2030, align 4
+  %2032 = icmp eq i32 %2031, 5
+  br i1 %2032, label %2033, label %2039
 
-2025:                                             ; preds = %2013, %1997
-  %2026 = load ptr, ptr %7, align 8
-  %2027 = getelementptr inbounds %struct.DISASMED, ptr %2026, i32 0, i32 4
-  %2028 = load i32, ptr %2027, align 4
-  %2029 = icmp ult i32 %2028, 2
-  br i1 %2029, label %2030, label %2031
+2033:                                             ; preds = %2021, %2005
+  %2034 = load ptr, ptr %7, align 8
+  %2035 = getelementptr inbounds %struct.DISASMED, ptr %2034, i32 0, i32 4
+  %2036 = load i32, ptr %2035, align 4
+  %2037 = icmp ult i32 %2036, 2
+  br i1 %2037, label %2038, label %2039
 
-2030:                                             ; preds = %2025
-  br label %2032
+2038:                                             ; preds = %2033
+  br label %2040
 
-2031:                                             ; preds = %2025, %2013
+2039:                                             ; preds = %2033, %2021
   call void @__assert_fail(ptr noundef @.str.19, ptr noundef @.str.2, i32 noundef 1685, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-2032:                                             ; preds = %2030
-  %2033 = load ptr, ptr %7, align 8
-  %2034 = getelementptr inbounds %struct.DISASMED, ptr %2033, i32 0, i32 4
-  %2035 = load i32, ptr %2034, align 4
-  %2036 = zext i32 %2035 to i64
-  %2037 = getelementptr inbounds [2 x i8], ptr getelementptr inbounds ([8 x [2 x i8]], ptr @sizemap, i64 0, i64 5), i64 0, i64 %2036
-  %2038 = load i8, ptr %2037, align 1
-  store i8 %2038, ptr %31, align 1
-  %2039 = load i8, ptr %31, align 1
-  %2040 = zext i8 %2039 to i32
-  %2041 = icmp ne i32 %2040, 255
-  br i1 %2041, label %2042, label %2043
+2040:                                             ; preds = %2038
+  %2041 = load ptr, ptr %7, align 8
+  %2042 = getelementptr inbounds %struct.DISASMED, ptr %2041, i32 0, i32 4
+  %2043 = load i32, ptr %2042, align 4
+  %2044 = zext i32 %2043 to i64
+  %2045 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 5
+  %2046 = getelementptr inbounds [2 x i8], ptr %2045, i64 0, i64 %2044
+  %2047 = load i8, ptr %2046, align 1
+  store i8 %2047, ptr %31, align 1
+  %2048 = load i8, ptr %31, align 1
+  %2049 = zext i8 %2048 to i32
+  %2050 = icmp ne i32 %2049, 255
+  br i1 %2050, label %2051, label %2052
 
-2042:                                             ; preds = %2032
-  br label %2044
+2051:                                             ; preds = %2040
+  br label %2053
 
-2043:                                             ; preds = %2032
+2052:                                             ; preds = %2040
   call void @__assert_fail(ptr noundef @.str.10, ptr noundef @.str.2, i32 noundef 1687, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-2044:                                             ; preds = %2042
-  %2045 = load ptr, ptr %7, align 8
-  %2046 = getelementptr inbounds %struct.DISASMED, ptr %2045, i32 0, i32 3
-  %2047 = load i32, ptr %2046, align 8
-  %2048 = icmp ult i32 %2047, 2
-  br i1 %2048, label %2049, label %2050
+2053:                                             ; preds = %2051
+  %2054 = load ptr, ptr %7, align 8
+  %2055 = getelementptr inbounds %struct.DISASMED, ptr %2054, i32 0, i32 3
+  %2056 = load i32, ptr %2055, align 8
+  %2057 = icmp ult i32 %2056, 2
+  br i1 %2057, label %2058, label %2059
 
-2049:                                             ; preds = %2044
-  br label %2051
+2058:                                             ; preds = %2053
+  br label %2060
 
-2050:                                             ; preds = %2044
+2059:                                             ; preds = %2053
   call void @__assert_fail(ptr noundef @.str.14, ptr noundef @.str.2, i32 noundef 1688, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-2051:                                             ; preds = %2049
-  %2052 = load i32, ptr %11, align 4
-  %2053 = zext i32 %2052 to i64
-  %2054 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %2053
-  %2055 = load ptr, ptr %7, align 8
-  %2056 = getelementptr inbounds %struct.DISASMED, ptr %2055, i32 0, i32 0
-  %2057 = load i16, ptr %2056, align 8
-  %2058 = zext i16 %2057 to i64
-  %2059 = getelementptr inbounds [256 x %struct.OPCODES], ptr %2054, i64 0, i64 %2058
-  %2060 = getelementptr inbounds %struct.OPCODES, ptr %2059, i32 0, i32 3
-  %2061 = load i32, ptr %2060, align 4
+2060:                                             ; preds = %2058
+  %2061 = load i32, ptr %11, align 4
   %2062 = zext i32 %2061 to i64
-  %2063 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %2062
+  %2063 = getelementptr inbounds [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %2062
   %2064 = load ptr, ptr %7, align 8
-  %2065 = getelementptr inbounds %struct.DISASMED, ptr %2064, i32 0, i32 3
-  %2066 = load i32, ptr %2065, align 8
-  %2067 = zext i32 %2066 to i64
-  %2068 = getelementptr inbounds [2 x i8], ptr %2063, i64 0, i64 %2067
-  %2069 = load i8, ptr %2068, align 1
-  %2070 = zext i8 %2069 to i32
-  %2071 = load ptr, ptr %7, align 8
-  %2072 = getelementptr inbounds %struct.DISASMED, ptr %2071, i32 0, i32 7
-  %2073 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %2072, i64 0, i64 1
-  %2074 = getelementptr inbounds %struct.DIS_ARGS, ptr %2073, i32 0, i32 1
-  store i32 %2070, ptr %2074, align 4
-  %2075 = load ptr, ptr %7, align 8
-  %2076 = getelementptr inbounds %struct.DISASMED, ptr %2075, i32 0, i32 7
-  %2077 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %2076, i64 0, i64 1
-  %2078 = getelementptr inbounds %struct.DIS_ARGS, ptr %2077, i32 0, i32 1
-  %2079 = load i32, ptr %2078, align 4
-  %2080 = icmp ne i32 %2079, 255
-  br i1 %2080, label %2081, label %2082
-
-2081:                                             ; preds = %2051
-  br label %2083
-
-2082:                                             ; preds = %2051
-  call void @__assert_fail(ptr noundef @.str.20, ptr noundef @.str.2, i32 noundef 1690, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
-  unreachable
-
-2083:                                             ; preds = %2081
+  %2065 = getelementptr inbounds %struct.DISASMED, ptr %2064, i32 0, i32 0
+  %2066 = load i16, ptr %2065, align 8
+  %2067 = zext i16 %2066 to i64
+  %2068 = getelementptr inbounds [256 x %struct.OPCODES], ptr %2063, i64 0, i64 %2067
+  %2069 = getelementptr inbounds %struct.OPCODES, ptr %2068, i32 0, i32 3
+  %2070 = load i32, ptr %2069, align 4
+  %2071 = zext i32 %2070 to i64
+  %2072 = getelementptr inbounds [8 x [2 x i8]], ptr @sizemap, i64 0, i64 %2071
+  %2073 = load ptr, ptr %7, align 8
+  %2074 = getelementptr inbounds %struct.DISASMED, ptr %2073, i32 0, i32 3
+  %2075 = load i32, ptr %2074, align 8
+  %2076 = zext i32 %2075 to i64
+  %2077 = getelementptr inbounds [2 x i8], ptr %2072, i64 0, i64 %2076
+  %2078 = load i8, ptr %2077, align 1
+  %2079 = zext i8 %2078 to i32
+  %2080 = load ptr, ptr %7, align 8
+  %2081 = getelementptr inbounds %struct.DISASMED, ptr %2080, i32 0, i32 7
+  %2082 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %2081, i64 0, i64 1
+  %2083 = getelementptr inbounds %struct.DIS_ARGS, ptr %2082, i32 0, i32 1
+  store i32 %2079, ptr %2083, align 4
   %2084 = load ptr, ptr %7, align 8
   %2085 = getelementptr inbounds %struct.DISASMED, ptr %2084, i32 0, i32 7
   %2086 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %2085, i64 0, i64 1
   %2087 = getelementptr inbounds %struct.DIS_ARGS, ptr %2086, i32 0, i32 1
   %2088 = load i32, ptr %2087, align 4
-  %2089 = lshr i32 %2088, 1
-  store i32 %2089, ptr %2087, align 4
-  %2090 = load ptr, ptr %7, align 8
-  %2091 = getelementptr inbounds %struct.DISASMED, ptr %2090, i32 0, i32 7
-  %2092 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %2091, i64 0, i64 1
-  %2093 = getelementptr inbounds %struct.DIS_ARGS, ptr %2092, i32 0, i32 3
-  %2094 = getelementptr inbounds %struct.anon, ptr %2093, i32 0, i32 0
-  store i32 54, ptr %2094, align 8
-  %2095 = load ptr, ptr %7, align 8
-  %2096 = getelementptr inbounds %struct.DISASMED, ptr %2095, i32 0, i32 7
-  %2097 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %2096, i64 0, i64 1
-  %2098 = getelementptr inbounds %struct.DIS_ARGS, ptr %2097, i32 0, i32 3
-  %2099 = getelementptr inbounds %struct.anon, ptr %2098, i32 0, i32 1
-  store i32 54, ptr %2099, align 4
+  %2089 = icmp ne i32 %2088, 255
+  br i1 %2089, label %2090, label %2091
+
+2090:                                             ; preds = %2060
+  br label %2092
+
+2091:                                             ; preds = %2060
+  call void @__assert_fail(ptr noundef @.str.20, ptr noundef @.str.2, i32 noundef 1690, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
+  unreachable
+
+2092:                                             ; preds = %2090
+  %2093 = load ptr, ptr %7, align 8
+  %2094 = getelementptr inbounds %struct.DISASMED, ptr %2093, i32 0, i32 7
+  %2095 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %2094, i64 0, i64 1
+  %2096 = getelementptr inbounds %struct.DIS_ARGS, ptr %2095, i32 0, i32 1
+  %2097 = load i32, ptr %2096, align 4
+  %2098 = lshr i32 %2097, 1
+  store i32 %2098, ptr %2096, align 4
+  %2099 = load ptr, ptr %7, align 8
+  %2100 = getelementptr inbounds %struct.DISASMED, ptr %2099, i32 0, i32 7
+  %2101 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %2100, i64 0, i64 1
+  %2102 = getelementptr inbounds %struct.DIS_ARGS, ptr %2101, i32 0, i32 3
+  %2103 = getelementptr inbounds %struct.anon, ptr %2102, i32 0, i32 0
+  store i32 54, ptr %2103, align 8
+  %2104 = load ptr, ptr %7, align 8
+  %2105 = getelementptr inbounds %struct.DISASMED, ptr %2104, i32 0, i32 7
+  %2106 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %2105, i64 0, i64 1
+  %2107 = getelementptr inbounds %struct.DIS_ARGS, ptr %2106, i32 0, i32 3
+  %2108 = getelementptr inbounds %struct.anon, ptr %2107, i32 0, i32 1
+  store i32 54, ptr %2108, align 4
   store i32 0, ptr %9, align 4
-  br label %2100
+  br label %2109
 
-2100:                                             ; preds = %2132, %2083
-  %2101 = load i32, ptr %9, align 4
-  %2102 = load i8, ptr %31, align 1
-  %2103 = zext i8 %2102 to i32
-  %2104 = icmp ult i32 %2101, %2103
-  br i1 %2104, label %2105, label %2135
+2109:                                             ; preds = %2141, %2092
+  %2110 = load i32, ptr %9, align 4
+  %2111 = load i8, ptr %31, align 1
+  %2112 = zext i8 %2111 to i32
+  %2113 = icmp ult i32 %2110, %2112
+  br i1 %2113, label %2114, label %2144
 
-2105:                                             ; preds = %2100
-  %2106 = load i32, ptr %6, align 4
-  %2107 = add i32 %2106, -1
-  store i32 %2107, ptr %6, align 4
-  %2108 = icmp ne i32 %2106, 0
-  br i1 %2108, label %2109, label %2114
+2114:                                             ; preds = %2109
+  %2115 = load i32, ptr %6, align 4
+  %2116 = add i32 %2115, -1
+  store i32 %2116, ptr %6, align 4
+  %2117 = icmp ne i32 %2115, 0
+  br i1 %2117, label %2118, label %2123
 
-2109:                                             ; preds = %2105
-  %2110 = load ptr, ptr %5, align 8
-  %2111 = load i8, ptr %2110, align 1
-  store i8 %2111, ptr %10, align 1
-  %2112 = load ptr, ptr %5, align 8
-  %2113 = getelementptr inbounds i8, ptr %2112, i32 1
-  store ptr %2113, ptr %5, align 8
-  br label %2119
+2118:                                             ; preds = %2114
+  %2119 = load ptr, ptr %5, align 8
+  %2120 = load i8, ptr %2119, align 1
+  store i8 %2120, ptr %10, align 1
+  %2121 = load ptr, ptr %5, align 8
+  %2122 = getelementptr inbounds i8, ptr %2121, i32 1
+  store ptr %2122, ptr %5, align 8
+  br label %2128
 
-2114:                                             ; preds = %2105
-  %2115 = load ptr, ptr %7, align 8
-  %2116 = getelementptr inbounds %struct.DISASMED, ptr %2115, i32 0, i32 0
-  store i16 0, ptr %2116, align 8
-  %2117 = load ptr, ptr %7, align 8
-  %2118 = getelementptr inbounds %struct.DISASMED, ptr %2117, i32 0, i32 2
-  store i32 6, ptr %2118, align 4
-  br label %2140
+2123:                                             ; preds = %2114
+  %2124 = load ptr, ptr %7, align 8
+  %2125 = getelementptr inbounds %struct.DISASMED, ptr %2124, i32 0, i32 0
+  store i16 0, ptr %2125, align 8
+  %2126 = load ptr, ptr %7, align 8
+  %2127 = getelementptr inbounds %struct.DISASMED, ptr %2126, i32 0, i32 2
+  store i32 6, ptr %2127, align 4
+  br label %2149
 
-2119:                                             ; preds = %2109
-  %2120 = load i8, ptr %10, align 1
-  %2121 = zext i8 %2120 to i32
-  %2122 = load i32, ptr %9, align 4
-  %2123 = mul i32 %2122, 8
-  %2124 = shl i32 %2121, %2123
-  %2125 = load ptr, ptr %7, align 8
-  %2126 = getelementptr inbounds %struct.DISASMED, ptr %2125, i32 0, i32 7
-  %2127 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %2126, i64 0, i64 1
-  %2128 = getelementptr inbounds %struct.DIS_ARGS, ptr %2127, i32 0, i32 3
-  %2129 = getelementptr inbounds %struct.anon, ptr %2128, i32 0, i32 3
-  %2130 = load i32, ptr %2129, align 4
-  %2131 = add nsw i32 %2130, %2124
-  store i32 %2131, ptr %2129, align 4
-  br label %2132
+2128:                                             ; preds = %2118
+  %2129 = load i8, ptr %10, align 1
+  %2130 = zext i8 %2129 to i32
+  %2131 = load i32, ptr %9, align 4
+  %2132 = mul i32 %2131, 8
+  %2133 = shl i32 %2130, %2132
+  %2134 = load ptr, ptr %7, align 8
+  %2135 = getelementptr inbounds %struct.DISASMED, ptr %2134, i32 0, i32 7
+  %2136 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %2135, i64 0, i64 1
+  %2137 = getelementptr inbounds %struct.DIS_ARGS, ptr %2136, i32 0, i32 3
+  %2138 = getelementptr inbounds %struct.anon, ptr %2137, i32 0, i32 3
+  %2139 = load i32, ptr %2138, align 4
+  %2140 = add nsw i32 %2139, %2133
+  store i32 %2140, ptr %2138, align 4
+  br label %2141
 
-2132:                                             ; preds = %2119
-  %2133 = load i32, ptr %9, align 4
-  %2134 = add i32 %2133, 1
-  store i32 %2134, ptr %9, align 4
-  br label %2100
+2141:                                             ; preds = %2128
+  %2142 = load i32, ptr %9, align 4
+  %2143 = add i32 %2142, 1
+  store i32 %2143, ptr %9, align 4
+  br label %2109
 
-2135:                                             ; preds = %2100
-  %2136 = load ptr, ptr %7, align 8
-  %2137 = getelementptr inbounds %struct.DISASMED, ptr %2136, i32 0, i32 2
-  store i32 4, ptr %2137, align 4
+2144:                                             ; preds = %2109
+  %2145 = load ptr, ptr %7, align 8
+  %2146 = getelementptr inbounds %struct.DISASMED, ptr %2145, i32 0, i32 2
+  store i32 4, ptr %2146, align 4
   br label %35
 
-2138:                                             ; preds = %1732
+2147:                                             ; preds = %1740
   call void @__assert_fail(ptr noundef @.str.21, ptr noundef @.str.2, i32 noundef 1703, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-2139:                                             ; preds = %35
-  br label %2140
+2148:                                             ; preds = %35
+  br label %2149
 
-2140:                                             ; preds = %2147, %2139, %2114, %1833, %1707, %1561, %1459, %1344, %1163, %1110, %1029, %971, %858, %802, %527, %450, %295, %256, %177, %150, %51
+2149:                                             ; preds = %2156, %2148, %2123, %1841, %1715, %1568, %1466, %1351, %1167, %1114, %1033, %975, %862, %806, %531, %454, %296, %257, %178, %151, %51
   store ptr null, ptr %4, align 8
-  br label %2156
+  br label %2165
 
-2141:                                             ; preds = %35
-  %2142 = load ptr, ptr %7, align 8
-  %2143 = getelementptr inbounds %struct.DISASMED, ptr %2142, i32 0, i32 1
-  %2144 = load i16, ptr %2143, align 2
-  %2145 = zext i16 %2144 to i32
-  %2146 = icmp eq i32 %2145, 0
-  br i1 %2146, label %2147, label %2152
+2150:                                             ; preds = %35
+  %2151 = load ptr, ptr %7, align 8
+  %2152 = getelementptr inbounds %struct.DISASMED, ptr %2151, i32 0, i32 1
+  %2153 = load i16, ptr %2152, align 2
+  %2154 = zext i16 %2153 to i32
+  %2155 = icmp eq i32 %2154, 0
+  br i1 %2155, label %2156, label %2161
 
-2147:                                             ; preds = %2141
-  %2148 = load ptr, ptr %7, align 8
-  %2149 = getelementptr inbounds %struct.DISASMED, ptr %2148, i32 0, i32 0
-  store i16 0, ptr %2149, align 8
-  %2150 = load ptr, ptr %7, align 8
-  %2151 = getelementptr inbounds %struct.DISASMED, ptr %2150, i32 0, i32 2
-  store i32 6, ptr %2151, align 4
-  br label %2140
+2156:                                             ; preds = %2150
+  %2157 = load ptr, ptr %7, align 8
+  %2158 = getelementptr inbounds %struct.DISASMED, ptr %2157, i32 0, i32 0
+  store i16 0, ptr %2158, align 8
+  %2159 = load ptr, ptr %7, align 8
+  %2160 = getelementptr inbounds %struct.DISASMED, ptr %2159, i32 0, i32 2
+  store i32 6, ptr %2160, align 4
+  br label %2149
 
-2152:                                             ; preds = %2141
-  %2153 = load ptr, ptr %5, align 8
-  store ptr %2153, ptr %4, align 8
-  br label %2156
+2161:                                             ; preds = %2150
+  %2162 = load ptr, ptr %5, align 8
+  store ptr %2162, ptr %4, align 8
+  br label %2165
 
-2154:                                             ; preds = %35
+2163:                                             ; preds = %35
   call void @__assert_fail(ptr noundef @.str.22, ptr noundef @.str.2, i32 noundef 1715, ptr noundef @__PRETTY_FUNCTION__.disasm_x86) #6
   unreachable
 
-2155:                                             ; preds = %549
+2164:                                             ; preds = %553
   br label %35
 
-2156:                                             ; preds = %2152, %2140
-  %2157 = load ptr, ptr %4, align 8
-  ret ptr %2157
+2165:                                             ; preds = %2161, %2149
+  %2166 = load ptr, ptr %4, align 8
+  ret ptr %2166
 }
 
 ; Function Attrs: nounwind uwtable

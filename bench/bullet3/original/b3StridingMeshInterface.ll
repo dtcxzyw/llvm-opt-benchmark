@@ -1240,7 +1240,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN31b3InternalTriangleIndexCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN23b3StridingMeshInterface23calculateAabbBruteForceER9b3Vector3S1_E23AabbCalculationCallback, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN23b3StridingMeshInterface23calculateAabbBruteForceER9b3Vector3S1_E23AabbCalculationCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   %m_aabbMin2 = getelementptr inbounds %struct.AabbCalculationCallback, ptr %this1, i32 0, i32 2
   store float 0x43ABC16D60000000, ptr %ref.tmp, align 4
   store float 0x43ABC16D60000000, ptr %ref.tmp3, align 4
@@ -1314,7 +1315,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV31b3InternalTriangleIndexCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV31b3InternalTriangleIndexCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

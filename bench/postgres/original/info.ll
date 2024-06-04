@@ -639,7 +639,7 @@ define internal void @create_rel_filename_map(ptr noundef %0, ptr noundef %1, pt
   %24 = load ptr, ptr %14, align 8
   %25 = getelementptr inbounds %struct.FileNameMap, ptr %24, i32 0, i32 2
   store ptr @.str.5, ptr %25, align 8
-  br label %35
+  br label %36
 
 26:                                               ; preds = %7
   %27 = load ptr, ptr %12, align 8
@@ -648,68 +648,70 @@ define internal void @create_rel_filename_map(ptr noundef %0, ptr noundef %1, pt
   %30 = load ptr, ptr %14, align 8
   %31 = getelementptr inbounds %struct.FileNameMap, ptr %30, i32 0, i32 0
   store ptr %29, ptr %31, align 8
-  %32 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 12), align 8
-  %33 = load ptr, ptr %14, align 8
-  %34 = getelementptr inbounds %struct.FileNameMap, ptr %33, i32 0, i32 2
-  store ptr %32, ptr %34, align 8
-  br label %35
+  %32 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 12
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %14, align 8
+  %35 = getelementptr inbounds %struct.FileNameMap, ptr %34, i32 0, i32 2
+  store ptr %33, ptr %35, align 8
+  br label %36
 
-35:                                               ; preds = %26, %20
-  %36 = load ptr, ptr %13, align 8
-  %37 = getelementptr inbounds %struct.RelInfo, ptr %36, i32 0, i32 6
-  %38 = load ptr, ptr %37, align 8
-  %39 = call i64 @strlen(ptr noundef %38) #5
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %47
+36:                                               ; preds = %26, %20
+  %37 = load ptr, ptr %13, align 8
+  %38 = getelementptr inbounds %struct.RelInfo, ptr %37, i32 0, i32 6
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i64 @strlen(ptr noundef %39) #5
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %42, label %48
 
-41:                                               ; preds = %35
-  %42 = load ptr, ptr %9, align 8
-  %43 = load ptr, ptr %14, align 8
-  %44 = getelementptr inbounds %struct.FileNameMap, ptr %43, i32 0, i32 1
-  store ptr %42, ptr %44, align 8
-  %45 = load ptr, ptr %14, align 8
-  %46 = getelementptr inbounds %struct.FileNameMap, ptr %45, i32 0, i32 3
-  store ptr @.str.5, ptr %46, align 8
-  br label %56
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %9, align 8
+  %44 = load ptr, ptr %14, align 8
+  %45 = getelementptr inbounds %struct.FileNameMap, ptr %44, i32 0, i32 1
+  store ptr %43, ptr %45, align 8
+  %46 = load ptr, ptr %14, align 8
+  %47 = getelementptr inbounds %struct.FileNameMap, ptr %46, i32 0, i32 3
+  store ptr @.str.5, ptr %47, align 8
+  br label %58
 
-47:                                               ; preds = %35
-  %48 = load ptr, ptr %13, align 8
-  %49 = getelementptr inbounds %struct.RelInfo, ptr %48, i32 0, i32 6
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %14, align 8
-  %52 = getelementptr inbounds %struct.FileNameMap, ptr %51, i32 0, i32 1
-  store ptr %50, ptr %52, align 8
-  %53 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @new_cluster, i32 0, i32 12), align 8
-  %54 = load ptr, ptr %14, align 8
-  %55 = getelementptr inbounds %struct.FileNameMap, ptr %54, i32 0, i32 3
-  store ptr %53, ptr %55, align 8
-  br label %56
+48:                                               ; preds = %36
+  %49 = load ptr, ptr %13, align 8
+  %50 = getelementptr inbounds %struct.RelInfo, ptr %49, i32 0, i32 6
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %14, align 8
+  %53 = getelementptr inbounds %struct.FileNameMap, ptr %52, i32 0, i32 1
+  store ptr %51, ptr %53, align 8
+  %54 = getelementptr inbounds %struct.ClusterInfo, ptr @new_cluster, i32 0, i32 12
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = getelementptr inbounds %struct.FileNameMap, ptr %56, i32 0, i32 3
+  store ptr %55, ptr %57, align 8
+  br label %58
 
-56:                                               ; preds = %47, %41
-  %57 = load ptr, ptr %10, align 8
-  %58 = getelementptr inbounds %struct.DbInfo, ptr %57, i32 0, i32 0
-  %59 = load i32, ptr %58, align 8
-  %60 = load ptr, ptr %14, align 8
-  %61 = getelementptr inbounds %struct.FileNameMap, ptr %60, i32 0, i32 4
-  store i32 %59, ptr %61, align 8
-  %62 = load ptr, ptr %12, align 8
-  %63 = getelementptr inbounds %struct.RelInfo, ptr %62, i32 0, i32 3
-  %64 = load i32, ptr %63, align 4
-  %65 = load ptr, ptr %14, align 8
-  %66 = getelementptr inbounds %struct.FileNameMap, ptr %65, i32 0, i32 5
-  store i32 %64, ptr %66, align 4
-  %67 = load ptr, ptr %12, align 8
-  %68 = getelementptr inbounds %struct.RelInfo, ptr %67, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %14, align 8
-  %71 = getelementptr inbounds %struct.FileNameMap, ptr %70, i32 0, i32 6
-  store ptr %69, ptr %71, align 8
-  %72 = load ptr, ptr %12, align 8
-  %73 = getelementptr inbounds %struct.RelInfo, ptr %72, i32 0, i32 1
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %14, align 8
-  %76 = getelementptr inbounds %struct.FileNameMap, ptr %75, i32 0, i32 7
-  store ptr %74, ptr %76, align 8
+58:                                               ; preds = %48, %42
+  %59 = load ptr, ptr %10, align 8
+  %60 = getelementptr inbounds %struct.DbInfo, ptr %59, i32 0, i32 0
+  %61 = load i32, ptr %60, align 8
+  %62 = load ptr, ptr %14, align 8
+  %63 = getelementptr inbounds %struct.FileNameMap, ptr %62, i32 0, i32 4
+  store i32 %61, ptr %63, align 8
+  %64 = load ptr, ptr %12, align 8
+  %65 = getelementptr inbounds %struct.RelInfo, ptr %64, i32 0, i32 3
+  %66 = load i32, ptr %65, align 4
+  %67 = load ptr, ptr %14, align 8
+  %68 = getelementptr inbounds %struct.FileNameMap, ptr %67, i32 0, i32 5
+  store i32 %66, ptr %68, align 4
+  %69 = load ptr, ptr %12, align 8
+  %70 = getelementptr inbounds %struct.RelInfo, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8
+  %72 = load ptr, ptr %14, align 8
+  %73 = getelementptr inbounds %struct.FileNameMap, ptr %72, i32 0, i32 6
+  store ptr %71, ptr %73, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = getelementptr inbounds %struct.RelInfo, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %14, align 8
+  %78 = getelementptr inbounds %struct.FileNameMap, ptr %77, i32 0, i32 7
+  store ptr %76, ptr %78, align 8
   ret void
 }
 
@@ -803,17 +805,18 @@ define dso_local void @get_db_rel_and_slot_infos(ptr noundef %0, i1 noundef zero
   br label %52
 
 52:                                               ; preds = %51, %50
-  %53 = load i8, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i32 0, i32 1), align 8
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %55, label %58
+  %53 = getelementptr inbounds %struct.LogOpts, ptr @log_opts, i32 0, i32 1
+  %54 = load i8, ptr %53, align 8
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %59
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.ClusterInfo, ptr %56, i32 0, i32 2
-  call void @print_db_infos(ptr noundef %57)
-  br label %58
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds %struct.ClusterInfo, ptr %57, i32 0, i32 2
+  call void @print_db_infos(ptr noundef %58)
+  br label %59
 
-58:                                               ; preds = %55, %52
+59:                                               ; preds = %56, %52
   ret void
 }
 
@@ -1463,157 +1466,158 @@ define internal void @get_old_cluster_logical_slot_infos(ptr noundef %0, i1 noun
   %17 = zext i1 %1 to i8
   store i8 %17, ptr %4, align 1
   store ptr null, ptr %7, align 8
-  %18 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 9), align 4
-  %19 = udiv i32 %18, 100
-  %20 = icmp ule i32 %19, 1600
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %2
-  br label %127
+  %18 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 9
+  %19 = load i32, ptr %18, align 4
+  %20 = udiv i32 %19, 100
+  %21 = icmp ule i32 %20, 1600
+  br i1 %21, label %22, label %23
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.DbInfo, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %26 = call ptr @connectToServer(ptr noundef @old_cluster, ptr noundef %25)
-  store ptr %26, ptr %5, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i8, ptr %4, align 1
-  %29 = trunc i8 %28 to i1
-  %30 = select i1 %29, ptr @.str.42, ptr @.str.43
-  %31 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %27, ptr noundef @.str.41, ptr noundef %30)
-  store ptr %31, ptr %6, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = call i32 @PQntuples(ptr noundef %32)
-  store i32 %33, ptr %8, align 4
-  %34 = load i32, ptr %8, align 4
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %116
+  br label %128
 
-36:                                               ; preds = %22
-  %37 = load i32, ptr %8, align 4
-  %38 = sext i32 %37 to i64
-  %39 = mul i64 24, %38
-  %40 = call ptr @pg_malloc(i64 noundef %39)
-  store ptr %40, ptr %7, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = call i32 @PQfnumber(ptr noundef %41, ptr noundef @.str.44)
-  store i32 %42, ptr %9, align 4
-  %43 = load ptr, ptr %6, align 8
-  %44 = call i32 @PQfnumber(ptr noundef %43, ptr noundef @.str.45)
-  store i32 %44, ptr %10, align 4
-  %45 = load ptr, ptr %6, align 8
-  %46 = call i32 @PQfnumber(ptr noundef %45, ptr noundef @.str.46)
-  store i32 %46, ptr %11, align 4
-  %47 = load ptr, ptr %6, align 8
-  %48 = call i32 @PQfnumber(ptr noundef %47, ptr noundef @.str.47)
-  store i32 %48, ptr %12, align 4
-  %49 = load ptr, ptr %6, align 8
-  %50 = call i32 @PQfnumber(ptr noundef %49, ptr noundef @.str.48)
-  store i32 %50, ptr %13, align 4
-  %51 = load ptr, ptr %6, align 8
-  %52 = call i32 @PQfnumber(ptr noundef %51, ptr noundef @.str.49)
-  store i32 %52, ptr %14, align 4
+23:                                               ; preds = %2
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds %struct.DbInfo, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  %27 = call ptr @connectToServer(ptr noundef @old_cluster, ptr noundef %26)
+  store ptr %27, ptr %5, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i8, ptr %4, align 1
+  %30 = trunc i8 %29 to i1
+  %31 = select i1 %30, ptr @.str.42, ptr @.str.43
+  %32 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %28, ptr noundef @.str.41, ptr noundef %31)
+  store ptr %32, ptr %6, align 8
+  %33 = load ptr, ptr %6, align 8
+  %34 = call i32 @PQntuples(ptr noundef %33)
+  store i32 %34, ptr %8, align 4
+  %35 = load i32, ptr %8, align 4
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %117
+
+37:                                               ; preds = %23
+  %38 = load i32, ptr %8, align 4
+  %39 = sext i32 %38 to i64
+  %40 = mul i64 24, %39
+  %41 = call ptr @pg_malloc(i64 noundef %40)
+  store ptr %41, ptr %7, align 8
+  %42 = load ptr, ptr %6, align 8
+  %43 = call i32 @PQfnumber(ptr noundef %42, ptr noundef @.str.44)
+  store i32 %43, ptr %9, align 4
+  %44 = load ptr, ptr %6, align 8
+  %45 = call i32 @PQfnumber(ptr noundef %44, ptr noundef @.str.45)
+  store i32 %45, ptr %10, align 4
+  %46 = load ptr, ptr %6, align 8
+  %47 = call i32 @PQfnumber(ptr noundef %46, ptr noundef @.str.46)
+  store i32 %47, ptr %11, align 4
+  %48 = load ptr, ptr %6, align 8
+  %49 = call i32 @PQfnumber(ptr noundef %48, ptr noundef @.str.47)
+  store i32 %49, ptr %12, align 4
+  %50 = load ptr, ptr %6, align 8
+  %51 = call i32 @PQfnumber(ptr noundef %50, ptr noundef @.str.48)
+  store i32 %51, ptr %13, align 4
+  %52 = load ptr, ptr %6, align 8
+  %53 = call i32 @PQfnumber(ptr noundef %52, ptr noundef @.str.49)
+  store i32 %53, ptr %14, align 4
   store i32 0, ptr %15, align 4
-  br label %53
+  br label %54
 
-53:                                               ; preds = %112, %36
-  %54 = load i32, ptr %15, align 4
-  %55 = load i32, ptr %8, align 4
-  %56 = icmp slt i32 %54, %55
-  br i1 %56, label %57, label %115
+54:                                               ; preds = %113, %37
+  %55 = load i32, ptr %15, align 4
+  %56 = load i32, ptr %8, align 4
+  %57 = icmp slt i32 %55, %56
+  br i1 %57, label %58, label %116
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %7, align 8
-  %59 = load i32, ptr %15, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr %struct.LogicalSlotInfo, ptr %58, i64 %60
-  store ptr %61, ptr %16, align 8
-  %62 = load ptr, ptr %6, align 8
-  %63 = load i32, ptr %15, align 4
-  %64 = load i32, ptr %9, align 4
-  %65 = call ptr @PQgetvalue(ptr noundef %62, i32 noundef %63, i32 noundef %64)
-  %66 = call ptr @pg_strdup(ptr noundef %65)
-  %67 = load ptr, ptr %16, align 8
-  %68 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %67, i32 0, i32 0
-  store ptr %66, ptr %68, align 8
-  %69 = load ptr, ptr %6, align 8
-  %70 = load i32, ptr %15, align 4
-  %71 = load i32, ptr %10, align 4
-  %72 = call ptr @PQgetvalue(ptr noundef %69, i32 noundef %70, i32 noundef %71)
-  %73 = call ptr @pg_strdup(ptr noundef %72)
-  %74 = load ptr, ptr %16, align 8
-  %75 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %74, i32 0, i32 1
-  store ptr %73, ptr %75, align 8
-  %76 = load ptr, ptr %6, align 8
-  %77 = load i32, ptr %15, align 4
-  %78 = load i32, ptr %11, align 4
-  %79 = call ptr @PQgetvalue(ptr noundef %76, i32 noundef %77, i32 noundef %78)
-  %80 = call i32 @strcmp(ptr noundef %79, ptr noundef @.str.50) #5
-  %81 = icmp eq i32 %80, 0
-  %82 = load ptr, ptr %16, align 8
-  %83 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %82, i32 0, i32 2
-  %84 = zext i1 %81 to i8
-  store i8 %84, ptr %83, align 8
-  %85 = load ptr, ptr %6, align 8
-  %86 = load i32, ptr %15, align 4
-  %87 = load i32, ptr %12, align 4
-  %88 = call ptr @PQgetvalue(ptr noundef %85, i32 noundef %86, i32 noundef %87)
-  %89 = call i32 @strcmp(ptr noundef %88, ptr noundef @.str.50) #5
-  %90 = icmp eq i32 %89, 0
-  %91 = load ptr, ptr %16, align 8
-  %92 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %91, i32 0, i32 5
-  %93 = zext i1 %90 to i8
-  store i8 %93, ptr %92, align 1
-  %94 = load ptr, ptr %6, align 8
-  %95 = load i32, ptr %15, align 4
-  %96 = load i32, ptr %13, align 4
-  %97 = call ptr @PQgetvalue(ptr noundef %94, i32 noundef %95, i32 noundef %96)
-  %98 = call i32 @strcmp(ptr noundef %97, ptr noundef @.str.50) #5
-  %99 = icmp eq i32 %98, 0
-  %100 = load ptr, ptr %16, align 8
-  %101 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %100, i32 0, i32 3
-  %102 = zext i1 %99 to i8
-  store i8 %102, ptr %101, align 1
-  %103 = load ptr, ptr %6, align 8
-  %104 = load i32, ptr %15, align 4
-  %105 = load i32, ptr %14, align 4
-  %106 = call ptr @PQgetvalue(ptr noundef %103, i32 noundef %104, i32 noundef %105)
-  %107 = call i32 @strcmp(ptr noundef %106, ptr noundef @.str.50) #5
-  %108 = icmp eq i32 %107, 0
-  %109 = load ptr, ptr %16, align 8
-  %110 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %109, i32 0, i32 4
-  %111 = zext i1 %108 to i8
-  store i8 %111, ptr %110, align 2
-  br label %112
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %7, align 8
+  %60 = load i32, ptr %15, align 4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr %struct.LogicalSlotInfo, ptr %59, i64 %61
+  store ptr %62, ptr %16, align 8
+  %63 = load ptr, ptr %6, align 8
+  %64 = load i32, ptr %15, align 4
+  %65 = load i32, ptr %9, align 4
+  %66 = call ptr @PQgetvalue(ptr noundef %63, i32 noundef %64, i32 noundef %65)
+  %67 = call ptr @pg_strdup(ptr noundef %66)
+  %68 = load ptr, ptr %16, align 8
+  %69 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %68, i32 0, i32 0
+  store ptr %67, ptr %69, align 8
+  %70 = load ptr, ptr %6, align 8
+  %71 = load i32, ptr %15, align 4
+  %72 = load i32, ptr %10, align 4
+  %73 = call ptr @PQgetvalue(ptr noundef %70, i32 noundef %71, i32 noundef %72)
+  %74 = call ptr @pg_strdup(ptr noundef %73)
+  %75 = load ptr, ptr %16, align 8
+  %76 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %75, i32 0, i32 1
+  store ptr %74, ptr %76, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = load i32, ptr %15, align 4
+  %79 = load i32, ptr %11, align 4
+  %80 = call ptr @PQgetvalue(ptr noundef %77, i32 noundef %78, i32 noundef %79)
+  %81 = call i32 @strcmp(ptr noundef %80, ptr noundef @.str.50) #5
+  %82 = icmp eq i32 %81, 0
+  %83 = load ptr, ptr %16, align 8
+  %84 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %83, i32 0, i32 2
+  %85 = zext i1 %82 to i8
+  store i8 %85, ptr %84, align 8
+  %86 = load ptr, ptr %6, align 8
+  %87 = load i32, ptr %15, align 4
+  %88 = load i32, ptr %12, align 4
+  %89 = call ptr @PQgetvalue(ptr noundef %86, i32 noundef %87, i32 noundef %88)
+  %90 = call i32 @strcmp(ptr noundef %89, ptr noundef @.str.50) #5
+  %91 = icmp eq i32 %90, 0
+  %92 = load ptr, ptr %16, align 8
+  %93 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %92, i32 0, i32 5
+  %94 = zext i1 %91 to i8
+  store i8 %94, ptr %93, align 1
+  %95 = load ptr, ptr %6, align 8
+  %96 = load i32, ptr %15, align 4
+  %97 = load i32, ptr %13, align 4
+  %98 = call ptr @PQgetvalue(ptr noundef %95, i32 noundef %96, i32 noundef %97)
+  %99 = call i32 @strcmp(ptr noundef %98, ptr noundef @.str.50) #5
+  %100 = icmp eq i32 %99, 0
+  %101 = load ptr, ptr %16, align 8
+  %102 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %101, i32 0, i32 3
+  %103 = zext i1 %100 to i8
+  store i8 %103, ptr %102, align 1
+  %104 = load ptr, ptr %6, align 8
+  %105 = load i32, ptr %15, align 4
+  %106 = load i32, ptr %14, align 4
+  %107 = call ptr @PQgetvalue(ptr noundef %104, i32 noundef %105, i32 noundef %106)
+  %108 = call i32 @strcmp(ptr noundef %107, ptr noundef @.str.50) #5
+  %109 = icmp eq i32 %108, 0
+  %110 = load ptr, ptr %16, align 8
+  %111 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %110, i32 0, i32 4
+  %112 = zext i1 %109 to i8
+  store i8 %112, ptr %111, align 2
+  br label %113
 
-112:                                              ; preds = %57
-  %113 = load i32, ptr %15, align 4
-  %114 = add i32 %113, 1
-  store i32 %114, ptr %15, align 4
-  br label %53, !llvm.loop !13
+113:                                              ; preds = %58
+  %114 = load i32, ptr %15, align 4
+  %115 = add i32 %114, 1
+  store i32 %115, ptr %15, align 4
+  br label %54, !llvm.loop !13
 
-115:                                              ; preds = %53
-  br label %116
+116:                                              ; preds = %54
+  br label %117
 
-116:                                              ; preds = %115, %22
-  %117 = load ptr, ptr %6, align 8
-  call void @PQclear(ptr noundef %117)
-  %118 = load ptr, ptr %5, align 8
-  call void @PQfinish(ptr noundef %118)
-  %119 = load ptr, ptr %7, align 8
-  %120 = load ptr, ptr %3, align 8
-  %121 = getelementptr inbounds %struct.DbInfo, ptr %120, i32 0, i32 4
-  %122 = getelementptr inbounds %struct.LogicalSlotInfoArr, ptr %121, i32 0, i32 1
-  store ptr %119, ptr %122, align 8
-  %123 = load i32, ptr %8, align 4
-  %124 = load ptr, ptr %3, align 8
-  %125 = getelementptr inbounds %struct.DbInfo, ptr %124, i32 0, i32 4
-  %126 = getelementptr inbounds %struct.LogicalSlotInfoArr, ptr %125, i32 0, i32 0
-  store i32 %123, ptr %126, align 8
-  br label %127
+117:                                              ; preds = %116, %23
+  %118 = load ptr, ptr %6, align 8
+  call void @PQclear(ptr noundef %118)
+  %119 = load ptr, ptr %5, align 8
+  call void @PQfinish(ptr noundef %119)
+  %120 = load ptr, ptr %7, align 8
+  %121 = load ptr, ptr %3, align 8
+  %122 = getelementptr inbounds %struct.DbInfo, ptr %121, i32 0, i32 4
+  %123 = getelementptr inbounds %struct.LogicalSlotInfoArr, ptr %122, i32 0, i32 1
+  store ptr %120, ptr %123, align 8
+  %124 = load i32, ptr %8, align 4
+  %125 = load ptr, ptr %3, align 8
+  %126 = getelementptr inbounds %struct.DbInfo, ptr %125, i32 0, i32 4
+  %127 = getelementptr inbounds %struct.LogicalSlotInfoArr, ptr %126, i32 0, i32 0
+  store i32 %124, ptr %127, align 8
+  br label %128
 
-127:                                              ; preds = %116, %21
+128:                                              ; preds = %117, %22
   ret void
 }
 
@@ -1623,39 +1627,40 @@ define internal void @get_db_subscription_count(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %5 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 9), align 4
-  %6 = udiv i32 %5, 100
-  %7 = icmp ult i32 %6, 1700
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %1
-  br label %26
+  %5 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 9
+  %6 = load i32, ptr %5, align 4
+  %7 = udiv i32 %6, 100
+  %8 = icmp ult i32 %7, 1700
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.DbInfo, ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
-  %13 = call ptr @connectToServer(ptr noundef @old_cluster, ptr noundef %12)
-  store ptr %13, ptr %3, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.DbInfo, ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 8
-  %18 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %14, ptr noundef @.str.51, i32 noundef %17)
-  store ptr %18, ptr %4, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = call ptr @PQgetvalue(ptr noundef %19, i32 noundef 0, i32 noundef 0)
-  %21 = call i32 @atoi(ptr noundef %20) #5
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.DbInfo, ptr %22, i32 0, i32 5
-  store i32 %21, ptr %23, align 8
-  %24 = load ptr, ptr %4, align 8
-  call void @PQclear(ptr noundef %24)
-  %25 = load ptr, ptr %3, align 8
-  call void @PQfinish(ptr noundef %25)
-  br label %26
+  br label %27
 
-26:                                               ; preds = %9, %8
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %2, align 8
+  %12 = getelementptr inbounds %struct.DbInfo, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  %14 = call ptr @connectToServer(ptr noundef @old_cluster, ptr noundef %13)
+  store ptr %14, ptr %3, align 8
+  %15 = load ptr, ptr %3, align 8
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds %struct.DbInfo, ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %17, align 8
+  %19 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %15, ptr noundef @.str.51, i32 noundef %18)
+  store ptr %19, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = call ptr @PQgetvalue(ptr noundef %20, i32 noundef 0, i32 noundef 0)
+  %22 = call i32 @atoi(ptr noundef %21) #5
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds %struct.DbInfo, ptr %23, i32 0, i32 5
+  store i32 %22, ptr %24, align 8
+  %25 = load ptr, ptr %4, align 8
+  call void @PQclear(ptr noundef %25)
+  %26 = load ptr, ptr %3, align 8
+  call void @PQfinish(ptr noundef %26)
+  br label %27
+
+27:                                               ; preds = %10, %9
   ret void
 }
 
@@ -1714,34 +1719,36 @@ define dso_local i32 @count_old_cluster_logical_slots() #0 {
   store i32 0, ptr %2, align 4
   br label %3
 
-3:                                                ; preds = %17, %0
+3:                                                ; preds = %19, %0
   %4 = load i32, ptr %2, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2, i32 1), align 8
-  %6 = icmp slt i32 %4, %5
-  br i1 %6, label %7, label %20
+  %5 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2, i32 1
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp slt i32 %4, %6
+  br i1 %7, label %8, label %22
 
-7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2), align 8
-  %9 = load i32, ptr %2, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.DbInfo, ptr %8, i64 %10
-  %12 = getelementptr inbounds %struct.DbInfo, ptr %11, i32 0, i32 4
-  %13 = getelementptr inbounds %struct.LogicalSlotInfoArr, ptr %12, i32 0, i32 0
-  %14 = load i32, ptr %13, align 8
-  %15 = load i32, ptr %1, align 4
-  %16 = add i32 %15, %14
-  store i32 %16, ptr %1, align 4
-  br label %17
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %2, align 4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr %struct.DbInfo, ptr %10, i64 %12
+  %14 = getelementptr inbounds %struct.DbInfo, ptr %13, i32 0, i32 4
+  %15 = getelementptr inbounds %struct.LogicalSlotInfoArr, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 8
+  %17 = load i32, ptr %1, align 4
+  %18 = add i32 %17, %16
+  store i32 %18, ptr %1, align 4
+  br label %19
 
-17:                                               ; preds = %7
-  %18 = load i32, ptr %2, align 4
-  %19 = add i32 %18, 1
-  store i32 %19, ptr %2, align 4
+19:                                               ; preds = %8
+  %20 = load i32, ptr %2, align 4
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %2, align 4
   br label %3, !llvm.loop !15
 
-20:                                               ; preds = %3
-  %21 = load i32, ptr %1, align 4
-  ret i32 %21
+22:                                               ; preds = %3
+  %23 = load i32, ptr %1, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1752,33 +1759,35 @@ define dso_local i32 @count_old_cluster_subscriptions() #0 {
   store i32 0, ptr %2, align 4
   br label %3
 
-3:                                                ; preds = %16, %0
+3:                                                ; preds = %18, %0
   %4 = load i32, ptr %2, align 4
-  %5 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2, i32 1), align 8
-  %6 = icmp slt i32 %4, %5
-  br i1 %6, label %7, label %19
+  %5 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2, i32 1
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp slt i32 %4, %6
+  br i1 %7, label %8, label %21
 
-7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2), align 8
-  %9 = load i32, ptr %2, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.DbInfo, ptr %8, i64 %10
-  %12 = getelementptr inbounds %struct.DbInfo, ptr %11, i32 0, i32 5
-  %13 = load i32, ptr %12, align 8
-  %14 = load i32, ptr %1, align 4
-  %15 = add i32 %14, %13
-  store i32 %15, ptr %1, align 4
-  br label %16
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i32, ptr %2, align 4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr %struct.DbInfo, ptr %10, i64 %12
+  %14 = getelementptr inbounds %struct.DbInfo, ptr %13, i32 0, i32 5
+  %15 = load i32, ptr %14, align 8
+  %16 = load i32, ptr %1, align 4
+  %17 = add i32 %16, %15
+  store i32 %17, ptr %1, align 4
+  br label %18
 
-16:                                               ; preds = %7
-  %17 = load i32, ptr %2, align 4
-  %18 = add i32 %17, 1
-  store i32 %18, ptr %2, align 4
+18:                                               ; preds = %8
+  %19 = load i32, ptr %2, align 4
+  %20 = add i32 %19, 1
+  store i32 %20, ptr %2, align 4
   br label %3, !llvm.loop !16
 
-19:                                               ; preds = %3
-  %20 = load i32, ptr %1, align 4
-  ret i32 %20
+21:                                               ; preds = %3
+  %22 = load i32, ptr %1, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

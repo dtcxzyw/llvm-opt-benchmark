@@ -180,8 +180,10 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @prte_schizo_base_register(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  store i8 0, ptr getelementptr inbounds (%struct.prte_schizo_base_t, ptr @prte_schizo_base, i32 0, i32 1), align 8
-  %3 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.121, ptr noundef @.str.122, ptr noundef @.str.123, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.prte_schizo_base_t, ptr @prte_schizo_base, i32 0, i32 1))
+  %3 = getelementptr inbounds %struct.prte_schizo_base_t, ptr @prte_schizo_base, i32 0, i32 1
+  store i8 0, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.prte_schizo_base_t, ptr @prte_schizo_base, i32 0, i32 1
+  %5 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.121, ptr noundef @.str.122, ptr noundef @.str.123, i32 noundef 7, ptr noundef %4)
   ret i32 0
 }
 
@@ -200,33 +202,36 @@ define internal i32 @prte_schizo_base_open(i32 noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load i32, ptr @pmix_class_init_epoch, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4), align 8
-  %9 = icmp ne i32 %7, %8
-  br i1 %9, label %10, label %11
+  %8 = getelementptr inbounds %struct.pmix_class_t, ptr @pmix_list_t_class, i32 0, i32 4
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp ne i32 %7, %9
+  br i1 %10, label %11, label %12
 
-10:                                               ; preds = %6
+11:                                               ; preds = %6
   call void @pmix_class_initialize(ptr noundef @pmix_list_t_class)
-  br label %11
-
-11:                                               ; preds = %10, %6
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (%struct.pmix_object_t, ptr @prte_schizo_base, i32 0, i32 1), align 8
-  store i32 1, ptr getelementptr inbounds (%struct.pmix_object_t, ptr @prte_schizo_base, i32 0, i32 2), align 8
-  call void @pmix_obj_construct_tma(ptr noundef @prte_schizo_base, ptr noundef null)
-  call void @pmix_obj_run_constructors(ptr noundef @prte_schizo_base)
   br label %12
 
-12:                                               ; preds = %11
-  br label %13
+12:                                               ; preds = %11, %6
+  %13 = getelementptr inbounds %struct.pmix_object_t, ptr @prte_schizo_base, i32 0, i32 1
+  store ptr @pmix_list_t_class, ptr %13, align 8
+  %14 = getelementptr inbounds %struct.pmix_object_t, ptr @prte_schizo_base, i32 0, i32 2
+  store i32 1, ptr %14, align 8
+  call void @pmix_obj_construct_tma(ptr noundef @prte_schizo_base, ptr noundef null)
+  call void @pmix_obj_run_constructors(ptr noundef @prte_schizo_base)
+  br label %15
 
-13:                                               ; preds = %12
-  br label %14
+15:                                               ; preds = %12
+  br label %16
 
-14:                                               ; preds = %13
-  %15 = load i32, ptr %2, align 4
-  %16 = call i32 @pmix_mca_base_framework_components_open(ptr noundef @prte_schizo_base_framework, i32 noundef %15)
-  store i32 %16, ptr %3, align 4
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+16:                                               ; preds = %15
+  br label %17
+
+17:                                               ; preds = %16
+  %18 = load i32, ptr %2, align 4
+  %19 = call i32 @pmix_mca_base_framework_components_open(ptr noundef @prte_schizo_base_framework, i32 noundef %18)
+  store i32 %19, ptr %3, align 4
+  %20 = load i32, ptr %3, align 4
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable

@@ -282,29 +282,30 @@ define void @_ZN8RichShotC2ERK7QStringRKN3vcg4ShotIfNS3_8Matrix44IfEEEES2_S2_bS2
   %25 = trunc i8 %24 to i1
   %26 = load ptr, ptr %14, align 8
   invoke void @_ZN13RichParameterC2ERK7QStringRK5ValueS2_S2_bS2_(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, i1 noundef zeroext %25, ptr noundef nonnull align 8 dereferenceable(8) %26)
-          to label %27 unwind label %28
+          to label %27 unwind label %29
 
 27:                                               ; preds = %7
   call void @_ZN9ShotValueD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %15) #5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichShot, i32 0, i32 0, i32 2), ptr %19, align 8
+  %28 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV8RichShot, i32 0, i32 0, i32 2
+  store ptr %28, ptr %19, align 8
   ret void
 
-28:                                               ; preds = %7
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %7
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %16, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %17, align 4
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %16, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %17, align 4
   call void @_ZN9ShotValueD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %15) #5
-  br label %32
+  br label %33
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %16, align 8
-  %34 = load i32, ptr %17, align 4
-  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
-  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
-  resume { ptr, i32 } %36
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %16, align 8
+  %35 = load i32, ptr %17, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 declare void @_ZN9ShotValueC1ERKN3vcg4ShotIfNS0_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 4 dereferenceable(132)) unnamed_addr #1
@@ -419,7 +420,8 @@ define linkonce_odr void @_ZN8RichShotC2ERKS_(ptr noundef nonnull align 8 derefe
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichShot, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTV8RichShot, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 

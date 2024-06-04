@@ -57,7 +57,7 @@ define internal i32 @opal_show_help_internal(ptr noundef %0, ptr noundef %1, i32
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %9)
+  call void @llvm.va_start.p0(ptr %9)
   %10 = load ptr, ptr @opal_show_vhelp, align 8
   %11 = load ptr, ptr %4, align 8
   %12 = load ptr, ptr %5, align 8
@@ -66,7 +66,7 @@ define internal i32 @opal_show_help_internal(ptr noundef %0, ptr noundef %1, i32
   %15 = call i32 %10(ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %14)
   store i32 %15, ptr %8, align 4
   %16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %16)
+  call void @llvm.va_end.p0(ptr %16)
   %17 = load i32, ptr %8, align 4
   ret i32 %17
 }
@@ -118,32 +118,34 @@ define i32 @opal_show_help_init() #0 {
 
 4:                                                ; preds = %3
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_output_stream_t_class, i32 0, i32 4), align 8
-  %7 = icmp ne i32 %5, %6
-  br i1 %7, label %8, label %9
+  %6 = getelementptr inbounds %struct.opal_class_t, ptr @opal_output_stream_t_class, i32 0, i32 4
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ne i32 %5, %7
+  br i1 %8, label %9, label %10
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @opal_class_initialize(ptr noundef @opal_output_stream_t_class)
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %4
-  %10 = getelementptr inbounds %struct.opal_object_t, ptr %1, i32 0, i32 0
-  store ptr @opal_output_stream_t_class, ptr %10, align 8
-  %11 = getelementptr inbounds %struct.opal_object_t, ptr %1, i32 0, i32 1
-  store volatile i32 1, ptr %11, align 8
+10:                                               ; preds = %9, %4
+  %11 = getelementptr inbounds %struct.opal_object_t, ptr %1, i32 0, i32 0
+  store ptr @opal_output_stream_t_class, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.opal_object_t, ptr %1, i32 0, i32 1
+  store volatile i32 1, ptr %12, align 8
   call void @opal_obj_run_constructors(ptr noundef %1)
-  br label %12
-
-12:                                               ; preds = %9
   br label %13
 
-13:                                               ; preds = %12
-  %14 = getelementptr inbounds %struct.opal_output_stream_t, ptr %1, i32 0, i32 9
-  store i8 1, ptr %14, align 1
-  %15 = call i32 @opal_output_open(ptr noundef %1)
-  store i32 %15, ptr @output_stream, align 4
-  %16 = load ptr, ptr getelementptr inbounds (%struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 14), align 8
-  %17 = call i32 @opal_argv_append_nosize(ptr noundef @search_dirs, ptr noundef %16)
+13:                                               ; preds = %10
+  br label %14
+
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds %struct.opal_output_stream_t, ptr %1, i32 0, i32 9
+  store i8 1, ptr %15, align 1
+  %16 = call i32 @opal_output_open(ptr noundef %1)
+  store i32 %16, ptr @output_stream, align 4
+  %17 = getelementptr inbounds %struct.opal_install_dirs_t, ptr @opal_install_dirs, i32 0, i32 14
+  %18 = load ptr, ptr %17, align 8
+  %19 = call i32 @opal_argv_append_nosize(ptr noundef @search_dirs, ptr noundef %18)
   call void @opal_finalize_append_cleanup(ptr noundef @opal_show_help_finalize, ptr noundef @.str.4, ptr noundef null)
   ret i32 0
 }
@@ -521,7 +523,7 @@ define ptr @opal_show_help_string(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_start(ptr %9)
+  call void @llvm.va_start.p0(ptr %9)
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %6, align 4
@@ -529,16 +531,10 @@ define ptr @opal_show_help_string(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %14 = call ptr @opal_show_help_vstring(ptr noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %13)
   store ptr %14, ptr %7, align 8
   %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %8, i64 0, i64 0
-  call void @llvm.va_end(ptr %15)
+  call void @llvm.va_end.p0(ptr %15)
   %16 = load ptr, ptr %7, align 8
   ret ptr %16
 }
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @opal_show_help_add_dir(ptr noundef %0) #0 {
@@ -888,13 +884,13 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) #1
 declare ptr @strerror(i32 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #4
+declare ptr @__errno_location() #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #5
+declare i64 @strlen(ptr noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #5
+declare i32 @strcmp(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @opal_show_help_error(ptr noundef %0, ptr noundef %1) #0 {
@@ -1058,7 +1054,7 @@ declare ptr @PMIx_Info_create(i64 noundef) #1
 declare i32 @PMIx_Info_load(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) #1
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #6
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #5
 
 declare i32 @PMIx_Log_nb(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
@@ -1154,19 +1150,25 @@ declare noalias ptr @strdup(ptr noundef) #2
 declare i32 @opal_argv_count(ptr noundef) #1
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #7
+declare noalias ptr @malloc(i64 noundef) #6
 
 ; Function Attrs: nounwind
 declare ptr @strcat(ptr noundef, ptr noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nounwind allocsize(0) }

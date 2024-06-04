@@ -36770,25 +36770,25 @@ define internal i32 @dissect_s1ap_RAT_Type(ptr noundef %0, i32 noundef %1, ptr n
   %26 = getelementptr inbounds %struct.s1ap_private_data, ptr %25, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
   %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %79
+  br i1 %28, label %29, label %80
 
 29:                                               ; preds = %5
   %30 = load ptr, ptr %12, align 8
   %31 = getelementptr inbounds %struct.s1ap_private_data, ptr %30, i32 0, i32 7
   %32 = load ptr, ptr %31, align 8
   %33 = icmp ne ptr %32, null
-  br i1 %33, label %34, label %79
+  br i1 %33, label %34, label %80
 
 34:                                               ; preds = %29
   %35 = load i32, ptr %11, align 4
   %36 = icmp ule i32 %35, 4
-  br i1 %36, label %37, label %79
+  br i1 %36, label %37, label %80
 
 37:                                               ; preds = %34
   store i32 0, ptr %14, align 4
   br label %38
 
-38:                                               ; preds = %75, %37
+38:                                               ; preds = %76, %37
   %39 = load i32, ptr %14, align 4
   %40 = load ptr, ptr %12, align 8
   %41 = getelementptr inbounds %struct.s1ap_private_data, ptr %40, i32 0, i32 7
@@ -36797,7 +36797,7 @@ define internal i32 @dissect_s1ap_RAT_Type(ptr noundef %0, i32 noundef %1, ptr n
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 @wmem_array_get_count(ptr noundef %44)
   %46 = icmp ult i32 %39, %45
-  br i1 %46, label %47, label %78
+  br i1 %46, label %47, label %79
 
 47:                                               ; preds = %38
   %48 = call ptr @wmem_file_scope()
@@ -36828,21 +36828,22 @@ define internal i32 @dissect_s1ap_RAT_Type(ptr noundef %0, i32 noundef %1, ptr n
   %71 = getelementptr inbounds %struct.s1ap_conv_info, ptr %70, i32 0, i32 0
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %13, align 8
-  %74 = call ptr @wmem_map_insert(ptr noundef %72, ptr noundef %73, ptr noundef inttoptr (i64 1 to ptr))
-  br label %75
+  %74 = inttoptr i64 1 to ptr
+  %75 = call ptr @wmem_map_insert(ptr noundef %72, ptr noundef %73, ptr noundef %74)
+  br label %76
 
-75:                                               ; preds = %47
-  %76 = load i32, ptr %14, align 4
-  %77 = add i32 %76, 1
-  store i32 %77, ptr %14, align 4
+76:                                               ; preds = %47
+  %77 = load i32, ptr %14, align 4
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %14, align 4
   br label %38, !llvm.loop !6
 
-78:                                               ; preds = %38
-  br label %79
+79:                                               ; preds = %38
+  br label %80
 
-79:                                               ; preds = %78, %34, %29, %5
-  %80 = load i32, ptr %7, align 4
-  ret i32 %80
+80:                                               ; preds = %79, %34, %29, %5
+  %81 = load i32, ptr %7, align 4
+  ret i32 %81
 }
 
 declare i32 @wmem_array_get_count(ptr noundef) #1

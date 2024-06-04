@@ -137,17 +137,23 @@ entry:
 define dso_local void @_ZN2EA6EAMain23InitializeSignalHandlerEv() #3 {
 entry:
   store ptr @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, ptr @_ZN2EA6EAMain10ABRTActionE, align 8
-  store i32 4, ptr getelementptr inbounds (%struct.sigaction, ptr @_ZN2EA6EAMain10ABRTActionE, i32 0, i32 2), align 8
+  %0 = getelementptr inbounds %struct.sigaction, ptr @_ZN2EA6EAMain10ABRTActionE, i32 0, i32 2
+  store i32 4, ptr %0, align 8
   store ptr @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, ptr @_ZN2EA6EAMain10SEGVActionE, align 8
-  store i32 4, ptr getelementptr inbounds (%struct.sigaction, ptr @_ZN2EA6EAMain10SEGVActionE, i32 0, i32 2), align 8
+  %1 = getelementptr inbounds %struct.sigaction, ptr @_ZN2EA6EAMain10SEGVActionE, i32 0, i32 2
+  store i32 4, ptr %1, align 8
   store ptr @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, ptr @_ZN2EA6EAMain12SIGILLActionE, align 8
-  store i32 4, ptr getelementptr inbounds (%struct.sigaction, ptr @_ZN2EA6EAMain12SIGILLActionE, i32 0, i32 2), align 8
+  %2 = getelementptr inbounds %struct.sigaction, ptr @_ZN2EA6EAMain12SIGILLActionE, i32 0, i32 2
+  store i32 4, ptr %2, align 8
   store ptr @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, ptr @_ZN2EA6EAMain12SIGHUPActionE, align 8
-  store i32 4, ptr getelementptr inbounds (%struct.sigaction, ptr @_ZN2EA6EAMain12SIGHUPActionE, i32 0, i32 2), align 8
+  %3 = getelementptr inbounds %struct.sigaction, ptr @_ZN2EA6EAMain12SIGHUPActionE, i32 0, i32 2
+  store i32 4, ptr %3, align 8
   store ptr @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, ptr @_ZN2EA6EAMain12SIGFPEActionE, align 8
-  store i32 4, ptr getelementptr inbounds (%struct.sigaction, ptr @_ZN2EA6EAMain12SIGFPEActionE, i32 0, i32 2), align 8
+  %4 = getelementptr inbounds %struct.sigaction, ptr @_ZN2EA6EAMain12SIGFPEActionE, i32 0, i32 2
+  store i32 4, ptr %4, align 8
   store ptr @_ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, ptr @_ZN2EA6EAMain12SIGBUSActionE, align 8
-  store i32 4, ptr getelementptr inbounds (%struct.sigaction, ptr @_ZN2EA6EAMain12SIGBUSActionE, i32 0, i32 2), align 8
+  %5 = getelementptr inbounds %struct.sigaction, ptr @_ZN2EA6EAMain12SIGBUSActionE, i32 0, i32 2
+  store i32 4, ptr %5, align 8
   %call = call i32 @sigaction(i32 noundef 6, ptr noundef @_ZN2EA6EAMain10ABRTActionE, ptr noundef null) #6
   %call1 = call i32 @sigaction(i32 noundef 11, ptr noundef @_ZN2EA6EAMain10SEGVActionE, ptr noundef null) #6
   %call2 = call i32 @sigaction(i32 noundef 4, ptr noundef @_ZN2EA6EAMain12SIGILLActionE, ptr noundef null) #6

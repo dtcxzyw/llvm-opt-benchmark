@@ -25,7 +25,7 @@ define i32 @pthread_cancel(i32 noundef %0) #0 {
 
 7:                                                ; preds = %1
   store i32 3, ptr %2, align 4
-  br label %36
+  br label %38
 
 8:                                                ; preds = %1
   %9 = load i32, ptr %3, align 4
@@ -37,7 +37,7 @@ define i32 @pthread_cancel(i32 noundef %0) #0 {
 
 13:                                               ; preds = %8
   store i32 3, ptr %2, align 4
-  br label %36
+  br label %38
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %4, align 8
@@ -50,7 +50,7 @@ define i32 @pthread_cancel(i32 noundef %0) #0 {
 
 21:                                               ; preds = %14
   store i32 3, ptr %2, align 4
-  br label %36
+  br label %38
 
 22:                                               ; preds = %14
   %23 = load ptr, ptr %4, align 8
@@ -59,29 +59,31 @@ define i32 @pthread_cancel(i32 noundef %0) #0 {
 
 25:                                               ; preds = %22
   store i32 0, ptr %2, align 4
-  br label %36
+  br label %38
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %4, align 8
   %28 = load ptr, ptr @g_readytorun, align 8
   %29 = icmp eq ptr %27, %28
-  br i1 %29, label %30, label %31
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26
-  call void @pthread_exit(ptr noundef inttoptr (i64 -1 to ptr)) #3
+  %31 = inttoptr i64 -1 to ptr
+  call void @pthread_exit(ptr noundef %31) #3
   unreachable
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr %3, align 4
-  %33 = call i32 @pthread_completejoin(i32 noundef %32, ptr noundef inttoptr (i64 -1 to ptr))
-  %34 = load i32, ptr %3, align 4
-  %35 = call i32 @nxtask_terminate(i32 noundef %34)
-  store i32 %35, ptr %2, align 4
-  br label %36
+32:                                               ; preds = %26
+  %33 = load i32, ptr %3, align 4
+  %34 = inttoptr i64 -1 to ptr
+  %35 = call i32 @pthread_completejoin(i32 noundef %33, ptr noundef %34)
+  %36 = load i32, ptr %3, align 4
+  %37 = call i32 @nxtask_terminate(i32 noundef %36)
+  store i32 %37, ptr %2, align 4
+  br label %38
 
-36:                                               ; preds = %31, %25, %21, %13, %7
-  %37 = load i32, ptr %2, align 4
-  ret i32 %37
+38:                                               ; preds = %32, %25, %21, %13, %7
+  %39 = load i32, ptr %2, align 4
+  ret i32 %39
 }
 
 declare ptr @nxsched_get_tcb(i32 noundef) #1

@@ -4551,13 +4551,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   %1 = load ptr, ptr %err.addr, align 8
   %2 = load ptr, ptr %fmt.addr, align 8
   %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
   call void @strbuf_vaddf(ptr noundef %1, ptr noundef %2, ptr noundef %arraydecay1)
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
+  call void @llvm.va_end.p0(ptr %arraydecay2)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -11010,7 +11010,8 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @hash_algos to i64)
+  %1 = ptrtoint ptr @hash_algos to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %1
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 104
   %conv = trunc i64 %sub.ptr.div to i32
   ret i32 %conv
@@ -11061,13 +11062,7 @@ return:                                           ; preds = %if.end, %if.then
 
 declare i32 @repo_dwim_ref(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 ; Function Attrs: nounwind
 declare ptr @gettext(ptr noundef) #4
@@ -12009,6 +12004,12 @@ return:                                           ; preds = %if.end, %if.then
   %13 = load i1, ptr %retval, align 1
   ret i1 %13
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }

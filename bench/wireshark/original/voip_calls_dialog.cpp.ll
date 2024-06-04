@@ -1560,733 +1560,735 @@ define void @_ZN15VoipCallsDialogC2ER7QWidgetR11CaptureFileb(ptr noundef nonnull
   %42 = load ptr, ptr %6, align 8
   %43 = load ptr, ptr %7, align 8
   call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %41, ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(48) %43)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15VoipCallsDialog, i32 0, i32 0, i32 2), ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15VoipCallsDialog, i32 0, i32 1, i32 2), ptr %44, align 8
-  %45 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 1
-  %46 = load i8, ptr %8, align 1
-  %47 = trunc i8 %46 to i1
-  %48 = zext i1 %47 to i8
-  store i8 %48, ptr %45, align 1
-  %49 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #16
-          to label %51 unwind label %300
+  %44 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15VoipCallsDialog, i32 0, i32 0, i32 2
+  store ptr %44, ptr %41, align 8
+  %45 = getelementptr inbounds i8, ptr %41, i64 16
+  %46 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15VoipCallsDialog, i32 0, i32 1, i32 2
+  store ptr %46, ptr %45, align 8
+  %47 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 1
+  %48 = load i8, ptr %8, align 1
+  %49 = trunc i8 %48 to i1
+  %50 = zext i1 %49 to i8
+  store i8 %50, ptr %47, align 1
+  %51 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
+  %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #16
+          to label %53 unwind label %302
 
-51:                                               ; preds = %4
-  store ptr %50, ptr %49, align 8
-  %52 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 6
-  %53 = load ptr, ptr %6, align 8
-  store ptr %53, ptr %52, align 8
-  %54 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 13
-  store i8 0, ptr %54, align 8
-  %55 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %56 = load ptr, ptr %55, align 8
-  invoke void @_ZN18Ui_VoipCallsDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(136) %56, ptr noundef %41)
-          to label %57 unwind label %300
+53:                                               ; preds = %4
+  store ptr %52, ptr %51, align 8
+  %54 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 6
+  %55 = load ptr, ptr %6, align 8
+  store ptr %55, ptr %54, align 8
+  %56 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 13
+  store i8 0, ptr %56, align 8
+  %57 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
+  %58 = load ptr, ptr %57, align 8
+  invoke void @_ZN18Ui_VoipCallsDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(136) %58, ptr noundef %41)
+          to label %59 unwind label %302
 
-57:                                               ; preds = %51
-  %58 = load ptr, ptr %6, align 8
-  %59 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %58)
-          to label %60 unwind label %300
+59:                                               ; preds = %53
+  %60 = load ptr, ptr %6, align 8
+  %61 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %60)
+          to label %62 unwind label %302
 
-60:                                               ; preds = %57
-  %61 = mul i32 %59, 4
-  %62 = sdiv i32 %61, 5
-  %63 = load ptr, ptr %6, align 8
-  %64 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %63)
-          to label %65 unwind label %300
+62:                                               ; preds = %59
+  %63 = mul i32 %61, 4
+  %64 = sdiv i32 %63, 5
+  %65 = load ptr, ptr %6, align 8
+  %66 = invoke noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %65)
+          to label %67 unwind label %302
 
-65:                                               ; preds = %60
-  %66 = mul i32 %64, 2
-  %67 = sdiv i32 %66, 3
+67:                                               ; preds = %62
+  %68 = mul i32 %66, 2
+  %69 = sdiv i32 %68, 3
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %41, i32 noundef %62, i32 noundef %67, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %68 unwind label %304
+  invoke void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64) %41, i32 noundef %64, i32 noundef %69, ptr noundef nonnull align 8 dereferenceable(24) %11)
+          to label %70 unwind label %306
 
-68:                                               ; preds = %65
+70:                                               ; preds = %67
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  %69 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %70, i32 0, i32 10
+  %71 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %72 = load ptr, ptr %71, align 8
-  invoke void @_ZN7QObject18installEventFilterEPS_(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef %41)
-          to label %73 unwind label %300
+  %73 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %72, i32 0, i32 10
+  %74 = load ptr, ptr %73, align 8
+  invoke void @_ZN7QObject18installEventFilterEPS_(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef %41)
+          to label %75 unwind label %302
 
-73:                                               ; preds = %68
-  %74 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #16
-          to label %75 unwind label %300
+75:                                               ; preds = %70
+  %76 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #16
+          to label %77 unwind label %302
 
-75:                                               ; preds = %73
-  invoke void @_ZN18VoipCallsInfoModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(41) %74, ptr noundef %41)
-          to label %76 unwind label %308
+77:                                               ; preds = %75
+  invoke void @_ZN18VoipCallsInfoModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(41) %76, ptr noundef %41)
+          to label %78 unwind label %310
 
-76:                                               ; preds = %75
-  %77 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 3
-  store ptr %74, ptr %77, align 8
-  %78 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #16
-          to label %79 unwind label %300
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 3
+  store ptr %76, ptr %79, align 8
+  %80 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #16
+          to label %81 unwind label %302
 
-79:                                               ; preds = %76
-  invoke void @_ZN15CacheProxyModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef %41)
-          to label %80 unwind label %312
+81:                                               ; preds = %78
+  invoke void @_ZN15CacheProxyModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef %41)
+          to label %82 unwind label %314
 
-80:                                               ; preds = %79
-  %81 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 4
-  store ptr %78, ptr %81, align 8
-  %82 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 4
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 3
+82:                                               ; preds = %81
+  %83 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 4
+  store ptr %80, ptr %83, align 8
+  %84 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 4
   %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %83, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 49
-  %88 = load ptr, ptr %87, align 8
-  invoke void %88(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef %85)
-          to label %89 unwind label %300
+  %86 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 3
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %85, align 8
+  %89 = getelementptr inbounds ptr, ptr %88, i64 49
+  %90 = load ptr, ptr %89, align 8
+  invoke void %90(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef %87)
+          to label %91 unwind label %302
 
-89:                                               ; preds = %80
-  %90 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #16
-          to label %91 unwind label %300
+91:                                               ; preds = %82
+  %92 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #16
+          to label %93 unwind label %302
 
-91:                                               ; preds = %89
-  invoke void @_ZN24VoipCallsInfoSortedModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef %41)
-          to label %92 unwind label %316
+93:                                               ; preds = %91
+  invoke void @_ZN24VoipCallsInfoSortedModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef %41)
+          to label %94 unwind label %318
 
-92:                                               ; preds = %91
-  %93 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 5
-  store ptr %90, ptr %93, align 8
-  %94 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 5
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 4
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 5
+  store ptr %92, ptr %95, align 8
+  %96 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 5
   %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr %95, align 8
-  %99 = getelementptr inbounds ptr, ptr %98, i64 49
-  %100 = load ptr, ptr %99, align 8
-  invoke void %100(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef %97)
-          to label %101 unwind label %300
+  %98 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 4
+  %99 = load ptr, ptr %98, align 8
+  %100 = load ptr, ptr %97, align 8
+  %101 = getelementptr inbounds ptr, ptr %100, i64 49
+  %102 = load ptr, ptr %101, align 8
+  invoke void %102(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef %99)
+          to label %103 unwind label %302
 
-101:                                              ; preds = %92
-  %102 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %103, i32 0, i32 10
+103:                                              ; preds = %94
+  %104 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 5
+  %106 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %105, i32 0, i32 10
   %107 = load ptr, ptr %106, align 8
-  %108 = load ptr, ptr %105, align 8
-  %109 = getelementptr inbounds ptr, ptr %108, i64 57
-  %110 = load ptr, ptr %109, align 8
-  invoke void %110(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef %107)
-          to label %111 unwind label %300
+  %108 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 5
+  %109 = load ptr, ptr %108, align 8
+  %110 = load ptr, ptr %107, align 8
+  %111 = getelementptr inbounds ptr, ptr %110, i64 57
+  %112 = load ptr, ptr %111, align 8
+  invoke void %112(ptr noundef nonnull align 8 dereferenceable(40) %107, ptr noundef %109)
+          to label %113 unwind label %302
 
-111:                                              ; preds = %101
-  %112 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %113, i32 0, i32 10
+113:                                              ; preds = %103
+  %114 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %115 = load ptr, ptr %114, align 8
-  %116 = invoke noundef ptr @_ZNK17QAbstractItemView14selectionModelEv(ptr noundef nonnull align 8 dereferenceable(40) %115)
-          to label %117 unwind label %300
+  %116 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %115, i32 0, i32 10
+  %117 = load ptr, ptr %116, align 8
+  %118 = invoke noundef ptr @_ZNK17QAbstractItemView14selectionModelEv(ptr noundef nonnull align 8 dereferenceable(40) %117)
+          to label %119 unwind label %302
 
-117:                                              ; preds = %111
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %12, ptr noundef %116, ptr noundef @.str.2, ptr noundef %41, ptr noundef @.str.3, i32 noundef 0)
-          to label %118 unwind label %300
+119:                                              ; preds = %113
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %12, ptr noundef %118, ptr noundef @.str.2, ptr noundef %41, ptr noundef @.str.3, i32 noundef 0)
+          to label %120 unwind label %302
 
-118:                                              ; preds = %117
+120:                                              ; preds = %119
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
-  %119 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %120, i32 0, i32 10
+  %121 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %122 = load ptr, ptr %121, align 8
-  invoke void @_ZN9QTreeView12sortByColumnEiN2Qt9SortOrderE(ptr noundef nonnull align 8 dereferenceable(40) %122, i32 noundef 0, i32 noundef 0)
-          to label %123 unwind label %300
+  %123 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %122, i32 0, i32 10
+  %124 = load ptr, ptr %123, align 8
+  invoke void @_ZN9QTreeView12sortByColumnEiN2Qt9SortOrderE(ptr noundef nonnull align 8 dereferenceable(40) %124, i32 noundef 0, i32 noundef 0)
+          to label %125 unwind label %302
 
-123:                                              ; preds = %118
-  %124 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 1
-  %125 = load i8, ptr %124, align 1
-  %126 = trunc i8 %125 to i1
-  br i1 %126, label %127, label %129
+125:                                              ; preds = %120
+  %126 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 1
+  %127 = load i8, ptr %126, align 1
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %129, label %131
 
-127:                                              ; preds = %123
+129:                                              ; preds = %125
   invoke void @_ZN15VoipCallsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %13, ptr noundef @.str.4, ptr noundef null, i32 noundef -1)
-          to label %128 unwind label %300
-
-128:                                              ; preds = %127
-  br label %131
-
-129:                                              ; preds = %123
-  invoke void @_ZN15VoipCallsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %13, ptr noundef @.str.5, ptr noundef null, i32 noundef -1)
-          to label %130 unwind label %300
+          to label %130 unwind label %302
 
 130:                                              ; preds = %129
-  br label %131
+  br label %133
 
-131:                                              ; preds = %130, %128
-  invoke void @_ZN15WiresharkDialog17setWindowSubtitleERK7QString(ptr noundef nonnull align 8 dereferenceable(133) %41, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %132 unwind label %320
+131:                                              ; preds = %125
+  invoke void @_ZN15VoipCallsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %13, ptr noundef @.str.5, ptr noundef null, i32 noundef -1)
+          to label %132 unwind label %302
 
 132:                                              ; preds = %131
+  br label %133
+
+133:                                              ; preds = %132, %130
+  invoke void @_ZN15WiresharkDialog17setWindowSubtitleERK7QString(ptr noundef nonnull align 8 dereferenceable(133) %41, ptr noundef nonnull align 8 dereferenceable(24) %13)
+          to label %134 unwind label %322
+
+134:                                              ; preds = %133
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  %133 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %134, i32 0, i32 16
+  %135 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
+  %137 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %136, i32 0, i32 16
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %138, i32 0, i32 0
+  %139 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %140 = load ptr, ptr %139, align 8
-  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %140)
-          to label %141 unwind label %300
+  %141 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %140, i32 0, i32 0
+  %142 = load ptr, ptr %141, align 8
+  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %142)
+          to label %143 unwind label %302
 
-141:                                              ; preds = %132
-  %142 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %136, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 3)
-          to label %143 unwind label %324
+143:                                              ; preds = %134
+  %144 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %138, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 3)
+          to label %145 unwind label %326
 
-143:                                              ; preds = %141
-  %144 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 10
-  store ptr %142, ptr %144, align 8
+145:                                              ; preds = %143
+  %146 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 10
+  store ptr %144, ptr %146, align 8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  %145 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 10
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
+  %147 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 10
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %148, i32 0, i32 0
+  %149 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %150 = load ptr, ptr %149, align 8
-  invoke void @_ZNK7QAction7toolTipEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %150)
-          to label %151 unwind label %300
+  %151 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %150, i32 0, i32 0
+  %152 = load ptr, ptr %151, align 8
+  invoke void @_ZNK7QAction7toolTipEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %152)
+          to label %153 unwind label %302
 
-151:                                              ; preds = %143
-  invoke void @_ZN7QWidget10setToolTipERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %146, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %152 unwind label %328
+153:                                              ; preds = %145
+  invoke void @_ZN7QWidget10setToolTipERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %148, ptr noundef nonnull align 8 dereferenceable(24) %15)
+          to label %154 unwind label %330
 
-152:                                              ; preds = %151
+154:                                              ; preds = %153
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  %153 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %154, i32 0, i32 16
+  %155 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
+  %157 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %156, i32 0, i32 16
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %158, i32 0, i32 1
+  %159 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %160 = load ptr, ptr %159, align 8
-  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %160)
-          to label %161 unwind label %300
+  %161 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %160, i32 0, i32 1
+  %162 = load ptr, ptr %161, align 8
+  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %162)
+          to label %163 unwind label %302
 
-161:                                              ; preds = %152
-  %162 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %156, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 3)
-          to label %163 unwind label %332
+163:                                              ; preds = %154
+  %164 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %158, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 3)
+          to label %165 unwind label %334
 
-163:                                              ; preds = %161
-  %164 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 9
-  store ptr %162, ptr %164, align 8
+165:                                              ; preds = %163
+  %166 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 9
+  store ptr %164, ptr %166, align 8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  %165 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 9
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
+  %167 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 9
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %168, i32 0, i32 1
+  %169 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %170 = load ptr, ptr %169, align 8
-  invoke void @_ZNK7QAction7toolTipEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %170)
-          to label %171 unwind label %300
+  %171 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %170, i32 0, i32 1
+  %172 = load ptr, ptr %171, align 8
+  invoke void @_ZNK7QAction7toolTipEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %172)
+          to label %173 unwind label %302
 
-171:                                              ; preds = %163
-  invoke void @_ZN7QWidget10setToolTipERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %166, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %172 unwind label %336
+173:                                              ; preds = %165
+  invoke void @_ZN7QWidget10setToolTipERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %168, ptr noundef nonnull align 8 dereferenceable(24) %17)
+          to label %174 unwind label %338
 
-172:                                              ; preds = %171
+174:                                              ; preds = %173
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #17
-  %173 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %174, i32 0, i32 16
+  %175 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %176 = load ptr, ptr %175, align 8
-  %177 = invoke noundef ptr @_ZN15RtpPlayerDialog15addPlayerButtonEP16QDialogButtonBoxP7QDialog(ptr noundef %176, ptr noundef %41)
-          to label %178 unwind label %300
+  %177 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %176, i32 0, i32 16
+  %178 = load ptr, ptr %177, align 8
+  %179 = invoke noundef ptr @_ZN15RtpPlayerDialog15addPlayerButtonEP16QDialogButtonBoxP7QDialog(ptr noundef %178, ptr noundef %41)
+          to label %180 unwind label %302
 
-178:                                              ; preds = %172
-  %179 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 11
-  store ptr %177, ptr %179, align 8
-  %180 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %181, i32 0, i32 14
+180:                                              ; preds = %174
+  %181 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 11
+  store ptr %179, ptr %181, align 8
+  %182 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %183, i32 0, i32 14
+  %185 = load ptr, ptr %184, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7toggledEb to i64), i64 0 }, ptr %19, align 8
-  %184 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 0
-  %185 = load i64, ptr %184, align 8
-  %186 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 1
+  %186 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 0
   %187 = load i64, ptr %186, align 8
+  %188 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 1
+  %189 = load i64, ptr %188, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15VoipCallsDialog15switchTimeOfDayEv to i64), i64 0 }, ptr %20, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15VoipCallsDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %18, ptr noundef %183, i64 %185, i64 %187, ptr noundef %41, ptr noundef byval({ i64, i64 }) align 8 %20, i32 noundef 0)
-          to label %188 unwind label %300
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15VoipCallsDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %18, ptr noundef %185, i64 %187, i64 %189, ptr noundef %41, ptr noundef byval({ i64, i64 }) align 8 %20, i32 noundef 0)
+          to label %190 unwind label %302
 
-188:                                              ; preds = %178
+190:                                              ; preds = %180
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #17
-  %189 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %190, i32 0, i32 16
+  %191 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
+  %193 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %192, i32 0, i32 16
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %194, i32 0, i32 2
+  %195 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %196 = load ptr, ptr %195, align 8
-  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %196)
-          to label %197 unwind label %300
+  %197 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %196, i32 0, i32 2
+  %198 = load ptr, ptr %197, align 8
+  invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %198)
+          to label %199 unwind label %302
 
-197:                                              ; preds = %188
-  %198 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %192, ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef 3)
-          to label %199 unwind label %340
+199:                                              ; preds = %190
+  %200 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %194, ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef 3)
+          to label %201 unwind label %342
 
-199:                                              ; preds = %197
-  %200 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 12
-  store ptr %198, ptr %200, align 8
+201:                                              ; preds = %199
+  %202 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 12
+  store ptr %200, ptr %202, align 8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #17
-  %201 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 12
-  %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
+  %203 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 12
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %204, i32 0, i32 2
+  %205 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %206 = load ptr, ptr %205, align 8
-  invoke void @_ZNK7QAction7toolTipEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %206)
-          to label %207 unwind label %300
+  %207 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %206, i32 0, i32 2
+  %208 = load ptr, ptr %207, align 8
+  invoke void @_ZNK7QAction7toolTipEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %208)
+          to label %209 unwind label %302
 
-207:                                              ; preds = %199
-  invoke void @_ZN7QWidget10setToolTipERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %202, ptr noundef nonnull align 8 dereferenceable(24) %22)
-          to label %208 unwind label %344
+209:                                              ; preds = %201
+  invoke void @_ZN7QWidget10setToolTipERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %204, ptr noundef nonnull align 8 dereferenceable(24) %22)
+          to label %210 unwind label %346
 
-208:                                              ; preds = %207
+210:                                              ; preds = %209
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
-  %209 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #16
-          to label %210 unwind label %300
+  %211 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #16
+          to label %212 unwind label %302
 
-210:                                              ; preds = %208
-  %211 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 12
-  %212 = load ptr, ptr %211, align 8
-  invoke void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %209, ptr noundef %212)
-          to label %213 unwind label %348
+212:                                              ; preds = %210
+  %213 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 12
+  %214 = load ptr, ptr %213, align 8
+  invoke void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %211, ptr noundef %214)
+          to label %215 unwind label %350
 
-213:                                              ; preds = %210
-  store ptr %209, ptr %23, align 8
-  %214 = load ptr, ptr %23, align 8
+215:                                              ; preds = %212
+  store ptr %211, ptr %23, align 8
+  %216 = load ptr, ptr %23, align 8
   invoke void @_ZN15VoipCallsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %25, ptr noundef @.str.6, ptr noundef null, i32 noundef -1)
-          to label %215 unwind label %300
-
-215:                                              ; preds = %213
-  %216 = invoke noundef ptr @_ZN5QMenu9addActionERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %214, ptr noundef nonnull align 8 dereferenceable(24) %25)
-          to label %217 unwind label %352
+          to label %217 unwind label %302
 
 217:                                              ; preds = %215
-  store ptr %216, ptr %24, align 8
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #17
-  %218 = load ptr, ptr %24, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %26, ptr noundef %218, ptr noundef @.str.7, ptr noundef %41, ptr noundef @.str.8, i32 noundef 0)
-          to label %219 unwind label %300
+  %218 = invoke noundef ptr @_ZN5QMenu9addActionERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %216, ptr noundef nonnull align 8 dereferenceable(24) %25)
+          to label %219 unwind label %354
 
 219:                                              ; preds = %217
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #17
-  %220 = load ptr, ptr %23, align 8
-  invoke void @_ZN15VoipCallsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %27, ptr noundef @.str.9, ptr noundef null, i32 noundef -1)
-          to label %221 unwind label %300
+  store ptr %218, ptr %24, align 8
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #17
+  %220 = load ptr, ptr %24, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %26, ptr noundef %220, ptr noundef @.str.7, ptr noundef %41, ptr noundef @.str.8, i32 noundef 0)
+          to label %221 unwind label %302
 
 221:                                              ; preds = %219
-  %222 = invoke noundef ptr @_ZN5QMenu9addActionERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %220, ptr noundef nonnull align 8 dereferenceable(24) %27)
-          to label %223 unwind label %356
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #17
+  %222 = load ptr, ptr %23, align 8
+  invoke void @_ZN15VoipCallsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %27, ptr noundef @.str.9, ptr noundef null, i32 noundef -1)
+          to label %223 unwind label %302
 
 223:                                              ; preds = %221
-  store ptr %222, ptr %24, align 8
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
-  %224 = load ptr, ptr %24, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %28, ptr noundef %224, ptr noundef @.str.7, ptr noundef %41, ptr noundef @.str.10, i32 noundef 0)
-          to label %225 unwind label %300
+  %224 = invoke noundef ptr @_ZN5QMenu9addActionERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %222, ptr noundef nonnull align 8 dereferenceable(24) %27)
+          to label %225 unwind label %358
 
 225:                                              ; preds = %223
+  store ptr %224, ptr %24, align 8
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
+  %226 = load ptr, ptr %24, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %28, ptr noundef %226, ptr noundef @.str.7, ptr noundef %41, ptr noundef @.str.10, i32 noundef 0)
+          to label %227 unwind label %302
+
+227:                                              ; preds = %225
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #17
-  %226 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 12
-  %227 = load ptr, ptr %226, align 8
-  %228 = load ptr, ptr %23, align 8
-  invoke void @_ZN11QPushButton7setMenuEP5QMenu(ptr noundef nonnull align 8 dereferenceable(40) %227, ptr noundef %228)
-          to label %229 unwind label %300
+  %228 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 12
+  %229 = load ptr, ptr %228, align 8
+  %230 = load ptr, ptr %23, align 8
+  invoke void @_ZN11QPushButton7setMenuEP5QMenu(ptr noundef nonnull align 8 dereferenceable(40) %229, ptr noundef %230)
+          to label %231 unwind label %302
 
-229:                                              ; preds = %225
-  %230 = getelementptr inbounds %class.WiresharkDialog, ptr %41, i32 0, i32 1
-  %231 = load ptr, ptr %230, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %29, ptr noundef %231, ptr noundef @.str.11, ptr noundef %41, ptr noundef @.str.12, i32 noundef 0)
-          to label %232 unwind label %300
+231:                                              ; preds = %227
+  %232 = getelementptr inbounds %class.WiresharkDialog, ptr %41, i32 0, i32 1
+  %233 = load ptr, ptr %232, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %29, ptr noundef %233, ptr noundef @.str.11, ptr noundef %41, ptr noundef @.str.12, i32 noundef 0)
+          to label %234 unwind label %302
 
-232:                                              ; preds = %229
+234:                                              ; preds = %231
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #17
-  %233 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 6
-  %234 = load ptr, ptr %233, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %30, ptr noundef %41, ptr noundef @.str.13, ptr noundef %234, ptr noundef @.str.14, i32 noundef 0)
-          to label %235 unwind label %300
+  %235 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 6
+  %236 = load ptr, ptr %235, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %30, ptr noundef %41, ptr noundef @.str.13, ptr noundef %236, ptr noundef @.str.14, i32 noundef 0)
+          to label %237 unwind label %302
 
-235:                                              ; preds = %232
+237:                                              ; preds = %234
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #17
-  %236 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 6
-  %237 = load ptr, ptr %236, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %31, ptr noundef %41, ptr noundef @.str.15, ptr noundef %237, ptr noundef @.str.16, i32 noundef 0)
-          to label %238 unwind label %300
+  %238 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 6
+  %239 = load ptr, ptr %238, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %31, ptr noundef %41, ptr noundef @.str.15, ptr noundef %239, ptr noundef @.str.16, i32 noundef 0)
+          to label %240 unwind label %302
 
-238:                                              ; preds = %235
+240:                                              ; preds = %237
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #17
-  %239 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  call void @llvm.memset.p0.i64(ptr align 8 %239, i8 0, i64 248, i1 false)
-  %240 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  %241 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %240, i32 0, i32 1
-  store ptr @_ZN15VoipCallsDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj, ptr %241, align 8
+  %241 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
+  call void @llvm.memset.p0.i64(ptr align 8 %241, i8 0, i64 248, i1 false)
   %242 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  %243 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %242, i32 0, i32 0
-  store ptr @_ZN15VoipCallsDialog8tapResetEPv, ptr %243, align 8
+  %243 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %242, i32 0, i32 1
+  store ptr @_ZN15VoipCallsDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj, ptr %243, align 8
   %244 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  %245 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %244, i32 0, i32 2
-  store ptr @_ZN15VoipCallsDialog7tapDrawEPv, ptr %245, align 8
+  %245 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %244, i32 0, i32 0
+  store ptr @_ZN15VoipCallsDialog8tapResetEPv, ptr %245, align 8
   %246 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  %247 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %246, i32 0, i32 3
-  store ptr %41, ptr %247, align 8
-  %248 = invoke ptr @g_queue_new()
-          to label %249 unwind label %300
+  %247 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %246, i32 0, i32 2
+  store ptr @_ZN15VoipCallsDialog7tapDrawEPv, ptr %247, align 8
+  %248 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
+  %249 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %248, i32 0, i32 3
+  store ptr %41, ptr %249, align 8
+  %250 = invoke ptr @g_queue_new()
+          to label %251 unwind label %302
 
-249:                                              ; preds = %238
-  %250 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  %251 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %250, i32 0, i32 5
-  store ptr %248, ptr %251, align 8
+251:                                              ; preds = %240
   %252 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  %253 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %252, i32 0, i32 33
-  store i32 13, ptr %253, align 4
-  %254 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 1
-  %255 = load i8, ptr %254, align 1
-  %256 = trunc i8 %255 to i1
-  %257 = select i1 %256, i32 0, i32 1
-  %258 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  %259 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %258, i32 0, i32 39
-  store i32 %257, ptr %259, align 4
-  %260 = invoke ptr @sequence_analysis_info_new()
-          to label %261 unwind label %300
+  %253 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %252, i32 0, i32 5
+  store ptr %250, ptr %253, align 8
+  %254 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
+  %255 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %254, i32 0, i32 33
+  store i32 13, ptr %255, align 4
+  %256 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 1
+  %257 = load i8, ptr %256, align 1
+  %258 = trunc i8 %257 to i1
+  %259 = select i1 %258, i32 0, i32 1
+  %260 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
+  %261 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %260, i32 0, i32 39
+  store i32 %259, ptr %261, align 4
+  %262 = invoke ptr @sequence_analysis_info_new()
+          to label %263 unwind label %302
 
-261:                                              ; preds = %249
-  %262 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  %263 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %262, i32 0, i32 12
-  store ptr %260, ptr %263, align 8
+263:                                              ; preds = %251
   %264 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
   %265 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %264, i32 0, i32 12
-  %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds %struct._seq_analysis_info, ptr %266, i32 0, i32 0
-  store ptr @.str.17, ptr %267, align 8
-  %268 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #16
-          to label %269 unwind label %300
+  store ptr %262, ptr %265, align 8
+  %266 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
+  %267 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %266, i32 0, i32 12
+  %268 = load ptr, ptr %267, align 8
+  %269 = getelementptr inbounds %struct._seq_analysis_info, ptr %268, i32 0, i32 0
+  store ptr @.str.17, ptr %269, align 8
+  %270 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #16
+          to label %271 unwind label %302
 
-269:                                              ; preds = %261
-  %270 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  %271 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %270, i32 0, i32 12
-  %272 = load ptr, ptr %271, align 8
-  invoke void @_ZN12SequenceInfoC1EP18_seq_analysis_info(ptr noundef nonnull align 8 dereferenceable(12) %268, ptr noundef %272)
-          to label %273 unwind label %360
+271:                                              ; preds = %263
+  %272 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
+  %273 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %272, i32 0, i32 12
+  %274 = load ptr, ptr %273, align 8
+  invoke void @_ZN12SequenceInfoC1EP18_seq_analysis_info(ptr noundef nonnull align 8 dereferenceable(12) %270, ptr noundef %274)
+          to label %275 unwind label %362
 
-273:                                              ; preds = %269
-  %274 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 8
-  store ptr %268, ptr %274, align 8
-  %275 = invoke ptr @g_queue_new()
-          to label %276 unwind label %300
+275:                                              ; preds = %271
+  %276 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 8
+  store ptr %270, ptr %276, align 8
+  %277 = invoke ptr @g_queue_new()
+          to label %278 unwind label %302
 
-276:                                              ; preds = %273
-  %277 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 14
-  store ptr %275, ptr %277, align 8
-  %278 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  invoke void @voip_calls_init_all_taps(ptr noundef %278)
-          to label %279 unwind label %300
+278:                                              ; preds = %275
+  %279 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 14
+  store ptr %277, ptr %279, align 8
+  %280 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
+  invoke void @voip_calls_init_all_taps(ptr noundef %280)
+          to label %281 unwind label %302
 
-279:                                              ; preds = %276
-  %280 = getelementptr inbounds %class.WiresharkDialog, ptr %41, i32 0, i32 1
-  %281 = load ptr, ptr %280, align 8
-  %282 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %281)
-          to label %283 unwind label %300
+281:                                              ; preds = %278
+  %282 = getelementptr inbounds %class.WiresharkDialog, ptr %41, i32 0, i32 1
+  %283 = load ptr, ptr %282, align 8
+  %284 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %283)
+          to label %285 unwind label %302
 
-283:                                              ; preds = %279
-  br i1 %282, label %284, label %364
+285:                                              ; preds = %281
+  br i1 %284, label %286, label %366
 
-284:                                              ; preds = %283
-  %285 = getelementptr inbounds %class.WiresharkDialog, ptr %41, i32 0, i32 1
-  %286 = load ptr, ptr %285, align 8
-  %287 = invoke noundef ptr @_ZNK11CaptureFile7capFileEv(ptr noundef nonnull align 8 dereferenceable(48) %286)
-          to label %288 unwind label %300
+286:                                              ; preds = %285
+  %287 = getelementptr inbounds %class.WiresharkDialog, ptr %41, i32 0, i32 1
+  %288 = load ptr, ptr %287, align 8
+  %289 = invoke noundef ptr @_ZNK11CaptureFile7capFileEv(ptr noundef nonnull align 8 dereferenceable(48) %288)
+          to label %290 unwind label %302
 
-288:                                              ; preds = %284
-  %289 = getelementptr inbounds %struct._capture_file, ptr %287, i32 0, i32 25
-  %290 = load ptr, ptr %289, align 8
-  %291 = icmp ne ptr %290, null
-  br i1 %291, label %292, label %364
+290:                                              ; preds = %286
+  %291 = getelementptr inbounds %struct._capture_file, ptr %289, i32 0, i32 25
+  %292 = load ptr, ptr %291, align 8
+  %293 = icmp ne ptr %292, null
+  br i1 %293, label %294, label %366
 
-292:                                              ; preds = %288
-  %293 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  %294 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %293, i32 0, i32 41
-  store i32 1, ptr %294, align 4
-  %295 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %296 = load ptr, ptr %295, align 8
-  %297 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %296, i32 0, i32 13
+294:                                              ; preds = %290
+  %295 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
+  %296 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %295, i32 0, i32 41
+  store i32 1, ptr %296, align 4
+  %297 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %298 = load ptr, ptr %297, align 8
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %298, i1 noundef zeroext true)
-          to label %299 unwind label %300
+  %299 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %298, i32 0, i32 13
+  %300 = load ptr, ptr %299, align 8
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %300, i1 noundef zeroext true)
+          to label %301 unwind label %302
 
-299:                                              ; preds = %292
-  br label %364
+301:                                              ; preds = %294
+  br label %366
 
-300:                                              ; preds = %402, %398, %393, %389, %383, %381, %379, %377, %375, %373, %364, %292, %284, %279, %276, %273, %261, %249, %238, %235, %232, %229, %225, %223, %219, %217, %213, %208, %199, %188, %178, %172, %163, %152, %143, %132, %129, %127, %118, %117, %111, %101, %92, %89, %80, %76, %73, %68, %60, %57, %51, %4
-  %301 = landingpad { ptr, i32 }
+302:                                              ; preds = %404, %400, %395, %391, %385, %383, %381, %379, %377, %375, %366, %294, %286, %281, %278, %275, %263, %251, %240, %237, %234, %231, %227, %225, %221, %219, %215, %210, %201, %190, %180, %174, %165, %154, %145, %134, %131, %129, %120, %119, %113, %103, %94, %91, %82, %78, %75, %70, %62, %59, %53, %4
+  %303 = landingpad { ptr, i32 }
           cleanup
-  %302 = extractvalue { ptr, i32 } %301, 0
-  store ptr %302, ptr %9, align 8
-  %303 = extractvalue { ptr, i32 } %301, 1
-  store i32 %303, ptr %10, align 4
-  br label %411
+  %304 = extractvalue { ptr, i32 } %303, 0
+  store ptr %304, ptr %9, align 8
+  %305 = extractvalue { ptr, i32 } %303, 1
+  store i32 %305, ptr %10, align 4
+  br label %413
 
-304:                                              ; preds = %65
-  %305 = landingpad { ptr, i32 }
+306:                                              ; preds = %67
+  %307 = landingpad { ptr, i32 }
           cleanup
-  %306 = extractvalue { ptr, i32 } %305, 0
-  store ptr %306, ptr %9, align 8
-  %307 = extractvalue { ptr, i32 } %305, 1
-  store i32 %307, ptr %10, align 4
+  %308 = extractvalue { ptr, i32 } %307, 0
+  store ptr %308, ptr %9, align 8
+  %309 = extractvalue { ptr, i32 } %307, 1
+  store i32 %309, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  br label %411
+  br label %413
 
-308:                                              ; preds = %75
-  %309 = landingpad { ptr, i32 }
+310:                                              ; preds = %77
+  %311 = landingpad { ptr, i32 }
           cleanup
-  %310 = extractvalue { ptr, i32 } %309, 0
-  store ptr %310, ptr %9, align 8
-  %311 = extractvalue { ptr, i32 } %309, 1
-  store i32 %311, ptr %10, align 4
-  call void @_ZdlPv(ptr noundef %74) #18
-  br label %411
+  %312 = extractvalue { ptr, i32 } %311, 0
+  store ptr %312, ptr %9, align 8
+  %313 = extractvalue { ptr, i32 } %311, 1
+  store i32 %313, ptr %10, align 4
+  call void @_ZdlPv(ptr noundef %76) #18
+  br label %413
 
-312:                                              ; preds = %79
-  %313 = landingpad { ptr, i32 }
+314:                                              ; preds = %81
+  %315 = landingpad { ptr, i32 }
           cleanup
-  %314 = extractvalue { ptr, i32 } %313, 0
-  store ptr %314, ptr %9, align 8
-  %315 = extractvalue { ptr, i32 } %313, 1
-  store i32 %315, ptr %10, align 4
-  call void @_ZdlPv(ptr noundef %78) #18
-  br label %411
+  %316 = extractvalue { ptr, i32 } %315, 0
+  store ptr %316, ptr %9, align 8
+  %317 = extractvalue { ptr, i32 } %315, 1
+  store i32 %317, ptr %10, align 4
+  call void @_ZdlPv(ptr noundef %80) #18
+  br label %413
 
-316:                                              ; preds = %91
-  %317 = landingpad { ptr, i32 }
+318:                                              ; preds = %93
+  %319 = landingpad { ptr, i32 }
           cleanup
-  %318 = extractvalue { ptr, i32 } %317, 0
-  store ptr %318, ptr %9, align 8
-  %319 = extractvalue { ptr, i32 } %317, 1
-  store i32 %319, ptr %10, align 4
-  call void @_ZdlPv(ptr noundef %90) #18
-  br label %411
+  %320 = extractvalue { ptr, i32 } %319, 0
+  store ptr %320, ptr %9, align 8
+  %321 = extractvalue { ptr, i32 } %319, 1
+  store i32 %321, ptr %10, align 4
+  call void @_ZdlPv(ptr noundef %92) #18
+  br label %413
 
-320:                                              ; preds = %131
-  %321 = landingpad { ptr, i32 }
+322:                                              ; preds = %133
+  %323 = landingpad { ptr, i32 }
           cleanup
-  %322 = extractvalue { ptr, i32 } %321, 0
-  store ptr %322, ptr %9, align 8
-  %323 = extractvalue { ptr, i32 } %321, 1
-  store i32 %323, ptr %10, align 4
+  %324 = extractvalue { ptr, i32 } %323, 0
+  store ptr %324, ptr %9, align 8
+  %325 = extractvalue { ptr, i32 } %323, 1
+  store i32 %325, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  br label %411
+  br label %413
 
-324:                                              ; preds = %141
-  %325 = landingpad { ptr, i32 }
+326:                                              ; preds = %143
+  %327 = landingpad { ptr, i32 }
           cleanup
-  %326 = extractvalue { ptr, i32 } %325, 0
-  store ptr %326, ptr %9, align 8
-  %327 = extractvalue { ptr, i32 } %325, 1
-  store i32 %327, ptr %10, align 4
+  %328 = extractvalue { ptr, i32 } %327, 0
+  store ptr %328, ptr %9, align 8
+  %329 = extractvalue { ptr, i32 } %327, 1
+  store i32 %329, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  br label %411
+  br label %413
 
-328:                                              ; preds = %151
-  %329 = landingpad { ptr, i32 }
+330:                                              ; preds = %153
+  %331 = landingpad { ptr, i32 }
           cleanup
-  %330 = extractvalue { ptr, i32 } %329, 0
-  store ptr %330, ptr %9, align 8
-  %331 = extractvalue { ptr, i32 } %329, 1
-  store i32 %331, ptr %10, align 4
+  %332 = extractvalue { ptr, i32 } %331, 0
+  store ptr %332, ptr %9, align 8
+  %333 = extractvalue { ptr, i32 } %331, 1
+  store i32 %333, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  br label %411
+  br label %413
 
-332:                                              ; preds = %161
-  %333 = landingpad { ptr, i32 }
+334:                                              ; preds = %163
+  %335 = landingpad { ptr, i32 }
           cleanup
-  %334 = extractvalue { ptr, i32 } %333, 0
-  store ptr %334, ptr %9, align 8
-  %335 = extractvalue { ptr, i32 } %333, 1
-  store i32 %335, ptr %10, align 4
+  %336 = extractvalue { ptr, i32 } %335, 0
+  store ptr %336, ptr %9, align 8
+  %337 = extractvalue { ptr, i32 } %335, 1
+  store i32 %337, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  br label %411
+  br label %413
 
-336:                                              ; preds = %171
-  %337 = landingpad { ptr, i32 }
+338:                                              ; preds = %173
+  %339 = landingpad { ptr, i32 }
           cleanup
-  %338 = extractvalue { ptr, i32 } %337, 0
-  store ptr %338, ptr %9, align 8
-  %339 = extractvalue { ptr, i32 } %337, 1
-  store i32 %339, ptr %10, align 4
+  %340 = extractvalue { ptr, i32 } %339, 0
+  store ptr %340, ptr %9, align 8
+  %341 = extractvalue { ptr, i32 } %339, 1
+  store i32 %341, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #17
-  br label %411
+  br label %413
 
-340:                                              ; preds = %197
-  %341 = landingpad { ptr, i32 }
+342:                                              ; preds = %199
+  %343 = landingpad { ptr, i32 }
           cleanup
-  %342 = extractvalue { ptr, i32 } %341, 0
-  store ptr %342, ptr %9, align 8
-  %343 = extractvalue { ptr, i32 } %341, 1
-  store i32 %343, ptr %10, align 4
+  %344 = extractvalue { ptr, i32 } %343, 0
+  store ptr %344, ptr %9, align 8
+  %345 = extractvalue { ptr, i32 } %343, 1
+  store i32 %345, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #17
-  br label %411
+  br label %413
 
-344:                                              ; preds = %207
-  %345 = landingpad { ptr, i32 }
+346:                                              ; preds = %209
+  %347 = landingpad { ptr, i32 }
           cleanup
-  %346 = extractvalue { ptr, i32 } %345, 0
-  store ptr %346, ptr %9, align 8
-  %347 = extractvalue { ptr, i32 } %345, 1
-  store i32 %347, ptr %10, align 4
+  %348 = extractvalue { ptr, i32 } %347, 0
+  store ptr %348, ptr %9, align 8
+  %349 = extractvalue { ptr, i32 } %347, 1
+  store i32 %349, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
-  br label %411
+  br label %413
 
-348:                                              ; preds = %210
-  %349 = landingpad { ptr, i32 }
+350:                                              ; preds = %212
+  %351 = landingpad { ptr, i32 }
           cleanup
-  %350 = extractvalue { ptr, i32 } %349, 0
-  store ptr %350, ptr %9, align 8
-  %351 = extractvalue { ptr, i32 } %349, 1
-  store i32 %351, ptr %10, align 4
-  call void @_ZdlPv(ptr noundef %209) #18
-  br label %411
+  %352 = extractvalue { ptr, i32 } %351, 0
+  store ptr %352, ptr %9, align 8
+  %353 = extractvalue { ptr, i32 } %351, 1
+  store i32 %353, ptr %10, align 4
+  call void @_ZdlPv(ptr noundef %211) #18
+  br label %413
 
-352:                                              ; preds = %215
-  %353 = landingpad { ptr, i32 }
+354:                                              ; preds = %217
+  %355 = landingpad { ptr, i32 }
           cleanup
-  %354 = extractvalue { ptr, i32 } %353, 0
-  store ptr %354, ptr %9, align 8
-  %355 = extractvalue { ptr, i32 } %353, 1
-  store i32 %355, ptr %10, align 4
+  %356 = extractvalue { ptr, i32 } %355, 0
+  store ptr %356, ptr %9, align 8
+  %357 = extractvalue { ptr, i32 } %355, 1
+  store i32 %357, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #17
-  br label %411
+  br label %413
 
-356:                                              ; preds = %221
-  %357 = landingpad { ptr, i32 }
+358:                                              ; preds = %223
+  %359 = landingpad { ptr, i32 }
           cleanup
-  %358 = extractvalue { ptr, i32 } %357, 0
-  store ptr %358, ptr %9, align 8
-  %359 = extractvalue { ptr, i32 } %357, 1
-  store i32 %359, ptr %10, align 4
+  %360 = extractvalue { ptr, i32 } %359, 0
+  store ptr %360, ptr %9, align 8
+  %361 = extractvalue { ptr, i32 } %359, 1
+  store i32 %361, ptr %10, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
-  br label %411
+  br label %413
 
-360:                                              ; preds = %269
-  %361 = landingpad { ptr, i32 }
+362:                                              ; preds = %271
+  %363 = landingpad { ptr, i32 }
           cleanup
-  %362 = extractvalue { ptr, i32 } %361, 0
-  store ptr %362, ptr %9, align 8
-  %363 = extractvalue { ptr, i32 } %361, 1
-  store i32 %363, ptr %10, align 4
-  call void @_ZdlPv(ptr noundef %268) #18
-  br label %411
+  %364 = extractvalue { ptr, i32 } %363, 0
+  store ptr %364, ptr %9, align 8
+  %365 = extractvalue { ptr, i32 } %363, 1
+  store i32 %365, ptr %10, align 4
+  call void @_ZdlPv(ptr noundef %270) #18
+  br label %413
 
-364:                                              ; preds = %299, %288, %283
-  %365 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %366, i32 0, i32 13
+366:                                              ; preds = %301, %290, %285
+  %367 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %368 = load ptr, ptr %367, align 8
+  %369 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %368, i32 0, i32 13
+  %370 = load ptr, ptr %369, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7toggledEb to i64), i64 0 }, ptr %33, align 8
-  %369 = getelementptr inbounds { i64, i64 }, ptr %33, i32 0, i32 0
-  %370 = load i64, ptr %369, align 8
-  %371 = getelementptr inbounds { i64, i64 }, ptr %33, i32 0, i32 1
+  %371 = getelementptr inbounds { i64, i64 }, ptr %33, i32 0, i32 0
   %372 = load i64, ptr %371, align 8
+  %373 = getelementptr inbounds { i64, i64 }, ptr %33, i32 0, i32 1
+  %374 = load i64, ptr %373, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15VoipCallsDialog28displayFilterCheckBoxToggledEb to i64), i64 0 }, ptr %34, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15VoipCallsDialogFvbEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %32, ptr noundef %368, i64 %370, i64 %372, ptr noundef %41, ptr noundef byval({ i64, i64 }) align 8 %34, i32 noundef 0)
-          to label %373 unwind label %300
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM15VoipCallsDialogFvbEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %32, ptr noundef %370, i64 %372, i64 %374, ptr noundef %41, ptr noundef byval({ i64, i64 }) align 8 %34, i32 noundef 0)
+          to label %375 unwind label %302
 
-373:                                              ; preds = %364
+375:                                              ; preds = %366
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #17
-  %374 = load ptr, ptr %6, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %35, ptr noundef %41, ptr noundef @.str.18, ptr noundef %374, ptr noundef @.str.19, i32 noundef 0)
-          to label %375 unwind label %300
-
-375:                                              ; preds = %373
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #17
   %376 = load ptr, ptr %6, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %36, ptr noundef %376, ptr noundef @.str.20, ptr noundef %41, ptr noundef @.str.21, i32 noundef 0)
-          to label %377 unwind label %300
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %35, ptr noundef %41, ptr noundef @.str.18, ptr noundef %376, ptr noundef @.str.19, i32 noundef 0)
+          to label %377 unwind label %302
 
 377:                                              ; preds = %375
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #17
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #17
   %378 = load ptr, ptr %6, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %37, ptr noundef %41, ptr noundef @.str.22, ptr noundef %378, ptr noundef @.str.23, i32 noundef 0)
-          to label %379 unwind label %300
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %36, ptr noundef %378, ptr noundef @.str.20, ptr noundef %41, ptr noundef @.str.21, i32 noundef 0)
+          to label %379 unwind label %302
 
 379:                                              ; preds = %377
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #17
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #17
   %380 = load ptr, ptr %6, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %38, ptr noundef %41, ptr noundef @.str.24, ptr noundef %380, ptr noundef @.str.25, i32 noundef 0)
-          to label %381 unwind label %300
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %37, ptr noundef %41, ptr noundef @.str.22, ptr noundef %380, ptr noundef @.str.23, i32 noundef 0)
+          to label %381 unwind label %302
 
 381:                                              ; preds = %379
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #17
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #17
   %382 = load ptr, ptr %6, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %39, ptr noundef %41, ptr noundef @.str.26, ptr noundef %382, ptr noundef @.str.27, i32 noundef 0)
-          to label %383 unwind label %300
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %38, ptr noundef %41, ptr noundef @.str.24, ptr noundef %382, ptr noundef @.str.25, i32 noundef 0)
+          to label %383 unwind label %302
 
 383:                                              ; preds = %381
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #17
+  %384 = load ptr, ptr %6, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %39, ptr noundef %41, ptr noundef @.str.26, ptr noundef %384, ptr noundef @.str.27, i32 noundef 0)
+          to label %385 unwind label %302
+
+385:                                              ; preds = %383
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #17
-  %384 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
-  %385 = load ptr, ptr %384, align 8
-  %386 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %385, i32 0, i32 16
+  %386 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 2
   %387 = load ptr, ptr %386, align 8
-  %388 = load ptr, ptr %6, align 8
-  invoke void @_ZN13ProgressFrame14addToButtonBoxEP16QDialogButtonBoxP7QObject(ptr noundef %387, ptr noundef %388)
-          to label %389 unwind label %300
+  %388 = getelementptr inbounds %class.Ui_VoipCallsDialog, ptr %387, i32 0, i32 16
+  %389 = load ptr, ptr %388, align 8
+  %390 = load ptr, ptr %6, align 8
+  invoke void @_ZN13ProgressFrame14addToButtonBoxEP16QDialogButtonBoxP7QObject(ptr noundef %389, ptr noundef %390)
+          to label %391 unwind label %302
 
-389:                                              ; preds = %383
-  %390 = load ptr, ptr %41, align 8
-  %391 = getelementptr inbounds ptr, ptr %390, i64 58
-  %392 = load ptr, ptr %391, align 8
-  invoke void %392(ptr noundef nonnull align 8 dereferenceable(480) %41)
-          to label %393 unwind label %300
+391:                                              ; preds = %385
+  %392 = load ptr, ptr %41, align 8
+  %393 = getelementptr inbounds ptr, ptr %392, i64 58
+  %394 = load ptr, ptr %393, align 8
+  invoke void %394(ptr noundef nonnull align 8 dereferenceable(480) %41)
+          to label %395 unwind label %302
 
-393:                                              ; preds = %389
-  %394 = getelementptr inbounds %class.WiresharkDialog, ptr %41, i32 0, i32 1
-  %395 = load ptr, ptr %394, align 8
-  %396 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %395)
-          to label %397 unwind label %300
+395:                                              ; preds = %391
+  %396 = getelementptr inbounds %class.WiresharkDialog, ptr %41, i32 0, i32 1
+  %397 = load ptr, ptr %396, align 8
+  %398 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %397)
+          to label %399 unwind label %302
 
-397:                                              ; preds = %393
-  br i1 %396, label %398, label %410
+399:                                              ; preds = %395
+  br i1 %398, label %400, label %412
 
-398:                                              ; preds = %397
-  %399 = getelementptr inbounds %class.WiresharkDialog, ptr %41, i32 0, i32 1
-  %400 = load ptr, ptr %399, align 8
-  %401 = invoke noundef ptr @_ZNK11CaptureFile7capFileEv(ptr noundef nonnull align 8 dereferenceable(48) %400)
-          to label %402 unwind label %300
+400:                                              ; preds = %399
+  %401 = getelementptr inbounds %class.WiresharkDialog, ptr %41, i32 0, i32 1
+  %402 = load ptr, ptr %401, align 8
+  %403 = invoke noundef ptr @_ZNK11CaptureFile7capFileEv(ptr noundef nonnull align 8 dereferenceable(48) %402)
+          to label %404 unwind label %302
 
-402:                                              ; preds = %398
-  %403 = getelementptr inbounds %struct._capture_file, ptr %401, i32 0, i32 0
-  %404 = load ptr, ptr %403, align 8
-  %405 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
-  %406 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %405, i32 0, i32 13
-  store ptr %404, ptr %406, align 8
-  %407 = getelementptr inbounds %class.WiresharkDialog, ptr %41, i32 0, i32 1
-  %408 = load ptr, ptr %407, align 8
-  invoke void @_ZN11CaptureFile19delayedRetapPacketsEv(ptr noundef nonnull align 8 dereferenceable(48) %408)
-          to label %409 unwind label %300
+404:                                              ; preds = %400
+  %405 = getelementptr inbounds %struct._capture_file, ptr %403, i32 0, i32 0
+  %406 = load ptr, ptr %405, align 8
+  %407 = getelementptr inbounds %class.VoipCallsDialog, ptr %41, i32 0, i32 7
+  %408 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %407, i32 0, i32 13
+  store ptr %406, ptr %408, align 8
+  %409 = getelementptr inbounds %class.WiresharkDialog, ptr %41, i32 0, i32 1
+  %410 = load ptr, ptr %409, align 8
+  invoke void @_ZN11CaptureFile19delayedRetapPacketsEv(ptr noundef nonnull align 8 dereferenceable(48) %410)
+          to label %411 unwind label %302
 
-409:                                              ; preds = %402
-  br label %410
-
-410:                                              ; preds = %409, %397
-  ret void
-
-411:                                              ; preds = %360, %356, %352, %348, %344, %340, %336, %332, %328, %324, %320, %316, %312, %308, %304, %300
-  call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %41) #17
+411:                                              ; preds = %404
   br label %412
 
-412:                                              ; preds = %411
-  %413 = load ptr, ptr %9, align 8
-  %414 = load i32, ptr %10, align 4
-  %415 = insertvalue { ptr, i32 } poison, ptr %413, 0
-  %416 = insertvalue { ptr, i32 } %415, i32 %414, 1
-  resume { ptr, i32 } %416
+412:                                              ; preds = %411, %399
+  ret void
+
+413:                                              ; preds = %362, %358, %354, %350, %346, %342, %338, %334, %330, %326, %322, %318, %314, %310, %306, %302
+  call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %41) #17
+  br label %414
+
+414:                                              ; preds = %413
+  %415 = load ptr, ptr %9, align 8
+  %416 = load i32, ptr %10, align 4
+  %417 = insertvalue { ptr, i32 } poison, ptr %415, 0
+  %418 = insertvalue { ptr, i32 } %417, i32 %416, 1
+  resume { ptr, i32 } %418
 }
 
 declare void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #3
@@ -3971,13 +3973,15 @@ define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
-  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  %6 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
+  %4 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
+  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
+  %8 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #17
   ret void
 }
@@ -4402,111 +4406,113 @@ define void @_ZN15VoipCallsDialogD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %3 = alloca %"class.std::lock_guard", align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15VoipCallsDialog, i32 0, i32 0, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15VoipCallsDialog, i32 0, i32 1, i32 2), ptr %5, align 8
+  %5 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15VoipCallsDialog, i32 0, i32 0, i32 2
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15VoipCallsDialog, i32 0, i32 1, i32 2
+  store ptr %7, ptr %6, align 8
   invoke void @_ZNSt10lock_guardISt5mutexEC2ERS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(40) @_ZN15VoipCallsDialog11init_mutex_E)
-          to label %6 unwind label %53
+          to label %8 unwind label %55
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 1
-  %8 = load i8, ptr %7, align 1
-  %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %13
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 1
+  %10 = load i8, ptr %9, align 1
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %15
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr @_ZN15VoipCallsDialog14pinstance_sip_E, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %20, label %13
+12:                                               ; preds = %8
+  %13 = load ptr, ptr @_ZN15VoipCallsDialog14pinstance_sip_E, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %22, label %15
 
-13:                                               ; preds = %10, %6
-  %14 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 1
-  %15 = load i8, ptr %14, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %52, label %17
+15:                                               ; preds = %12, %8
+  %16 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 1
+  %17 = load i8, ptr %16, align 1
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %54, label %19
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr @_ZN15VoipCallsDialog15pinstance_voip_E, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %52
+19:                                               ; preds = %15
+  %20 = load ptr, ptr @_ZN15VoipCallsDialog15pinstance_voip_E, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %54
 
-20:                                               ; preds = %17, %10
-  %21 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 2
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %25, label %24
+22:                                               ; preds = %19, %12
+  %23 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %27, label %26
 
-24:                                               ; preds = %20
-  call void @_ZdlPv(ptr noundef %22) #18
-  br label %25
+26:                                               ; preds = %22
+  call void @_ZdlPv(ptr noundef %24) #18
+  br label %27
 
-25:                                               ; preds = %24, %20
-  %26 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 7
-  invoke void @voip_calls_reset_all_taps(ptr noundef %26)
-          to label %27 unwind label %53
+27:                                               ; preds = %26, %22
+  %28 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 7
+  invoke void @voip_calls_reset_all_taps(ptr noundef %28)
+          to label %29 unwind label %55
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 13
-  %29 = load i8, ptr %28, align 8
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %35, label %31
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 13
+  %31 = load i8, ptr %30, align 8
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %37, label %33
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 7
-  invoke void @voip_calls_remove_all_tap_listeners(ptr noundef %32)
-          to label %33 unwind label %53
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 7
+  invoke void @voip_calls_remove_all_tap_listeners(ptr noundef %34)
+          to label %35 unwind label %55
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 13
-  store i8 1, ptr %34, align 8
-  br label %35
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 13
+  store i8 1, ptr %36, align 8
+  br label %37
 
-35:                                               ; preds = %33, %27
-  %36 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 8
-  %37 = load ptr, ptr %36, align 8
-  invoke void @_ZN12SequenceInfo5unrefEv(ptr noundef nonnull align 8 dereferenceable(12) %37)
-          to label %38 unwind label %53
+37:                                               ; preds = %35, %29
+  %38 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 8
+  %39 = load ptr, ptr %38, align 8
+  invoke void @_ZN12SequenceInfo5unrefEv(ptr noundef nonnull align 8 dereferenceable(12) %39)
+          to label %40 unwind label %55
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 7
-  %40 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %39, i32 0, i32 5
-  %41 = load ptr, ptr %40, align 8
-  invoke void @g_queue_free(ptr noundef %41)
-          to label %42 unwind label %53
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 7
+  %42 = getelementptr inbounds %struct._voip_calls_tapinfo, ptr %41, i32 0, i32 5
+  %43 = load ptr, ptr %42, align 8
+  invoke void @g_queue_free(ptr noundef %43)
+          to label %44 unwind label %55
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 14
-  %44 = load ptr, ptr %43, align 8
-  invoke void @g_queue_free(ptr noundef %44)
-          to label %45 unwind label %53
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 14
+  %46 = load ptr, ptr %45, align 8
+  invoke void @g_queue_free(ptr noundef %46)
+          to label %47 unwind label %55
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 1
-  %47 = load i8, ptr %46, align 1
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %50
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds %class.VoipCallsDialog, ptr %4, i32 0, i32 1
+  %49 = load i8, ptr %48, align 1
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %52
 
-49:                                               ; preds = %45
+51:                                               ; preds = %47
   store ptr null, ptr @_ZN15VoipCallsDialog14pinstance_sip_E, align 8
-  br label %51
+  br label %53
 
-50:                                               ; preds = %45
+52:                                               ; preds = %47
   store ptr null, ptr @_ZN15VoipCallsDialog15pinstance_voip_E, align 8
-  br label %51
+  br label %53
 
-51:                                               ; preds = %50, %49
-  br label %52
+53:                                               ; preds = %52, %51
+  br label %54
 
-52:                                               ; preds = %51, %17, %13
+54:                                               ; preds = %53, %19, %15
   call void @_ZNSt10lock_guardISt5mutexED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
   call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %4) #17
   ret void
 
-53:                                               ; preds = %42, %38, %35, %31, %25, %1
-  %54 = landingpad { ptr, i32 }
+55:                                               ; preds = %44, %40, %37, %33, %27, %1
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #19
+  %57 = extractvalue { ptr, i32 } %56, 0
+  call void @__clang_call_terminate(ptr %57) #19
   unreachable
 }
 
@@ -9006,19 +9012,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.38, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #17
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #17
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #17
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #17
   ret void
 }
 
@@ -9411,9 +9418,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

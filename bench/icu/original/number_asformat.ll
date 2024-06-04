@@ -847,58 +847,59 @@ entry:
   store ptr %locale, ptr %locale.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fFormatter = getelementptr inbounds %"class.icu_75::number::impl::LocalizedNumberFormatterAsFormat", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %formatter.addr, align 8
-  invoke void @_ZN6icu_756number24LocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(496) %fFormatter, ptr noundef nonnull align 8 dereferenceable(496) %0)
+  %1 = load ptr, ptr %formatter.addr, align 8
+  invoke void @_ZN6icu_756number24LocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(496) %fFormatter, ptr noundef nonnull align 8 dereferenceable(496) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %fLocale = getelementptr inbounds %"class.icu_75::number::impl::LocalizedNumberFormatterAsFormat", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %locale.addr, align 8
-  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLocale, ptr noundef nonnull align 8 dereferenceable(217) %1)
+  %2 = load ptr, ptr %locale.addr, align 8
+  invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLocale, ptr noundef nonnull align 8 dereferenceable(217) %2)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %2 = load ptr, ptr %locale.addr, align 8
-  %call = invoke noundef ptr @_ZNK6icu_756Locale7getNameEv(ptr noundef nonnull align 8 dereferenceable(217) %2)
+  %3 = load ptr, ptr %locale.addr, align 8
+  %call = invoke noundef ptr @_ZNK6icu_756Locale7getNameEv(ptr noundef nonnull align 8 dereferenceable(217) %3)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   store ptr %call, ptr %localeName, align 8
-  %3 = load ptr, ptr %localeName, align 8
   %4 = load ptr, ptr %localeName, align 8
-  invoke void @_ZN6icu_756Format12setLocaleIDsEPKcS2_(ptr noundef nonnull align 8 dereferenceable(322) %this1, ptr noundef %3, ptr noundef %4)
+  %5 = load ptr, ptr %localeName, align 8
+  invoke void @_ZN6icu_756Format12setLocaleIDsEPKcS2_(ptr noundef nonnull align 8 dereferenceable(322) %this1, ptr noundef %4, ptr noundef %5)
           to label %invoke.cont6 unwind label %lpad4
 
 invoke.cont6:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup7
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont5, %invoke.cont3
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLocale) #8
   br label %ehcleanup
 
@@ -952,7 +953,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fLocale = getelementptr inbounds %"class.icu_75::number::impl::LocalizedNumberFormatterAsFormat", ptr %this1, i32 0, i32 2
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLocale) #8
   %fFormatter = getelementptr inbounds %"class.icu_75::number::impl::LocalizedNumberFormatterAsFormat", ptr %this1, i32 0, i32 1
@@ -1196,17 +1198,18 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6icu_756FormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(322) %this1, ptr noundef nonnull align 8 dereferenceable(322) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %fFormatter = getelementptr inbounds %"class.icu_75::number::impl::LocalizedNumberFormatterAsFormat", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %fFormatter2 = getelementptr inbounds %"class.icu_75::number::impl::LocalizedNumberFormatterAsFormat", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %fFormatter2 = getelementptr inbounds %"class.icu_75::number::impl::LocalizedNumberFormatterAsFormat", ptr %3, i32 0, i32 1
   invoke void @_ZN6icu_756number24LocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(496) %fFormatter, ptr noundef nonnull align 8 dereferenceable(496) %fFormatter2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %fLocale = getelementptr inbounds %"class.icu_75::number::impl::LocalizedNumberFormatterAsFormat", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %fLocale3 = getelementptr inbounds %"class.icu_75::number::impl::LocalizedNumberFormatterAsFormat", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %fLocale3 = getelementptr inbounds %"class.icu_75::number::impl::LocalizedNumberFormatterAsFormat", ptr %4, i32 0, i32 2
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLocale, ptr noundef nonnull align 8 dereferenceable(217) %fLocale3)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -1214,21 +1217,21 @@ invoke.cont5:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756number24LocalizedNumberFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %fFormatter) #8
   br label %ehcleanup
 
@@ -1459,7 +1462,8 @@ entry:
   %coerce.dive = getelementptr inbounds %"struct.icu_75::FormattedStringBuilder::Field", ptr %agg.tmp, i32 0, i32 0
   %0 = load i8, ptr %coerce.dive, align 1
   call void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %this1, i8 %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %quantity = getelementptr inbounds %"class.icu_75::number::impl::UFormattedNumberData", ptr %this1, i32 0, i32 2
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity)
           to label %invoke.cont unwind label %lpad
@@ -1475,21 +1479,21 @@ invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity) #8
   br label %ehcleanup
 

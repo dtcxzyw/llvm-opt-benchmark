@@ -5437,18 +5437,21 @@ do.body17:                                        ; preds = %for.end
   %21 = load ptr, ptr %rom.addr, align 8
   %next18 = getelementptr inbounds %struct.Rom, ptr %21, i32 0, i32 13
   store ptr null, ptr %next18, align 8
-  %22 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @roms, i32 0, i32 1), align 8
-  %23 = load ptr, ptr %rom.addr, align 8
-  %next19 = getelementptr inbounds %struct.Rom, ptr %23, i32 0, i32 13
-  %tql_prev20 = getelementptr inbounds %struct.QTailQLink, ptr %next19, i32 0, i32 1
-  store ptr %22, ptr %tql_prev20, align 8
+  %22 = getelementptr inbounds %struct.QTailQLink, ptr @roms, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %rom.addr, align 8
-  %25 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @roms, i32 0, i32 1), align 8
-  %tql_next21 = getelementptr inbounds %struct.QTailQLink, ptr %25, i32 0, i32 0
-  store ptr %24, ptr %tql_next21, align 8
-  %26 = load ptr, ptr %rom.addr, align 8
-  %next22 = getelementptr inbounds %struct.Rom, ptr %26, i32 0, i32 13
-  store ptr %next22, ptr getelementptr inbounds (%struct.QTailQLink, ptr @roms, i32 0, i32 1), align 8
+  %next19 = getelementptr inbounds %struct.Rom, ptr %24, i32 0, i32 13
+  %tql_prev20 = getelementptr inbounds %struct.QTailQLink, ptr %next19, i32 0, i32 1
+  store ptr %23, ptr %tql_prev20, align 8
+  %25 = load ptr, ptr %rom.addr, align 8
+  %26 = getelementptr inbounds %struct.QTailQLink, ptr @roms, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  %tql_next21 = getelementptr inbounds %struct.QTailQLink, ptr %27, i32 0, i32 0
+  store ptr %25, ptr %tql_next21, align 8
+  %28 = load ptr, ptr %rom.addr, align 8
+  %next22 = getelementptr inbounds %struct.Rom, ptr %28, i32 0, i32 13
+  %29 = getelementptr inbounds %struct.QTailQLink, ptr @roms, i32 0, i32 1
+  store ptr %next22, ptr %29, align 8
   br label %do.end23
 
 do.end23:                                         ; preds = %do.body17, %do.end
@@ -6367,43 +6370,44 @@ if.else11:                                        ; preds = %do.body
   %next12 = getelementptr inbounds %struct.Rom, ptr %15, i32 0, i32 13
   %tql_prev13 = getelementptr inbounds %struct.QTailQLink, ptr %next12, i32 0, i32 1
   %16 = load ptr, ptr %tql_prev13, align 8
-  store ptr %16, ptr getelementptr inbounds (%struct.QTailQLink, ptr @roms, i32 0, i32 1), align 8
+  %17 = getelementptr inbounds %struct.QTailQLink, ptr @roms, i32 0, i32 1
+  store ptr %16, ptr %17, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else11, %if.then6
-  %17 = load ptr, ptr %rom, align 8
-  %next15 = getelementptr inbounds %struct.Rom, ptr %17, i32 0, i32 13
-  %18 = load ptr, ptr %next15, align 8
-  %19 = load ptr, ptr %rom, align 8
-  %next16 = getelementptr inbounds %struct.Rom, ptr %19, i32 0, i32 13
+  %18 = load ptr, ptr %rom, align 8
+  %next15 = getelementptr inbounds %struct.Rom, ptr %18, i32 0, i32 13
+  %19 = load ptr, ptr %next15, align 8
+  %20 = load ptr, ptr %rom, align 8
+  %next16 = getelementptr inbounds %struct.Rom, ptr %20, i32 0, i32 13
   %tql_prev17 = getelementptr inbounds %struct.QTailQLink, ptr %next16, i32 0, i32 1
-  %20 = load ptr, ptr %tql_prev17, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %20, i32 0, i32 0
-  store ptr %18, ptr %tql_next, align 8
-  %21 = load ptr, ptr %rom, align 8
-  %next18 = getelementptr inbounds %struct.Rom, ptr %21, i32 0, i32 13
+  %21 = load ptr, ptr %tql_prev17, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %21, i32 0, i32 0
+  store ptr %19, ptr %tql_next, align 8
+  %22 = load ptr, ptr %rom, align 8
+  %next18 = getelementptr inbounds %struct.Rom, ptr %22, i32 0, i32 13
   %tql_prev19 = getelementptr inbounds %struct.QTailQLink, ptr %next18, i32 0, i32 1
   store ptr null, ptr %tql_prev19, align 8
-  %22 = load ptr, ptr %rom, align 8
-  %next20 = getelementptr inbounds %struct.Rom, ptr %22, i32 0, i32 13
+  %23 = load ptr, ptr %rom, align 8
+  %next20 = getelementptr inbounds %struct.Rom, ptr %23, i32 0, i32 13
   %tql_next21 = getelementptr inbounds %struct.QTailQLink, ptr %next20, i32 0, i32 0
   store ptr null, ptr %tql_next21, align 8
-  %23 = load ptr, ptr %rom, align 8
-  %next22 = getelementptr inbounds %struct.Rom, ptr %23, i32 0, i32 13
+  %24 = load ptr, ptr %rom, align 8
+  %next22 = getelementptr inbounds %struct.Rom, ptr %24, i32 0, i32 13
   store ptr null, ptr %next22, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end14
-  %24 = load ptr, ptr %rom, align 8
-  call void @rom_free(ptr noundef %24)
+  %25 = load ptr, ptr %rom, align 8
+  call void @rom_free(ptr noundef %25)
   br label %if.end23
 
 if.end23:                                         ; preds = %do.end, %if.then3
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end23, %if.then
-  %25 = load ptr, ptr %tmp, align 8
-  store ptr %25, ptr %rom, align 8
+  %26 = load ptr, ptr %tmp, align 8
+  store ptr %26, ptr %rom, align 8
   br label %for.cond, !llvm.loop !22
 
 for.end:                                          ; preds = %land.end
@@ -7147,7 +7151,8 @@ return:                                           ; preds = %cleanup, %if.then
 define internal ptr @rcu_read_auto_lock() #0 {
 entry:
   call void @rcu_read_lock()
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

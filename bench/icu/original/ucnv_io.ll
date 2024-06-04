@@ -643,20 +643,22 @@ if.then11:                                        ; preds = %land.lhs.true8
   %call12 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %11, ptr noundef %12, ptr noundef %13)
   store i32 %call12, ptr %convNum, align 4
   %14 = load i32, ptr %convNum, align 4
-  %15 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %cmp13 = icmp ult i32 %14, %15
+  %15 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %16 = load i32, ptr %15, align 8
+  %cmp13 = icmp ult i32 %14, %16
   br i1 %cmp13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.then11
-  %16 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
-  %17 = load ptr, ptr @_ZL10gMainTable, align 8
-  %18 = load i32, ptr %convNum, align 4
-  %idxprom = zext i32 %18 to i64
-  %arrayidx15 = getelementptr inbounds i16, ptr %17, i64 %idxprom
-  %19 = load i16, ptr %arrayidx15, align 2
-  %conv16 = zext i16 %19 to i32
+  %17 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr @_ZL10gMainTable, align 8
+  %20 = load i32, ptr %convNum, align 4
+  %idxprom = zext i32 %20 to i64
+  %arrayidx15 = getelementptr inbounds i16, ptr %19, i64 %idxprom
+  %21 = load i16, ptr %arrayidx15, align 2
+  %conv16 = zext i16 %21 to i32
   %idx.ext = sext i32 %conv16 to i64
-  %add.ptr17 = getelementptr inbounds i16, ptr %16, i64 %idx.ext
+  %add.ptr17 = getelementptr inbounds i16, ptr %18, i64 %idx.ext
   store ptr %add.ptr17, ptr %retval, align 8
   br label %return
 
@@ -670,8 +672,8 @@ if.end20:                                         ; preds = %if.end18
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end20
-  %20 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %20, 1
+  %22 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %22, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !10
 
@@ -680,8 +682,8 @@ for.end:                                          ; preds = %if.else19, %if.else
   br label %return
 
 return:                                           ; preds = %for.end, %if.then14
-  %21 = load ptr, ptr %retval, align 8
-  ret ptr %21
+  %23 = load ptr, ptr %retval, align 8
+  ret ptr %23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -747,179 +749,189 @@ entry:
   store ptr %alias, ptr %alias.addr, align 8
   store ptr %containsOption, ptr %containsOption.addr, align 8
   store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6), align 8
-  %stringNormalizationType = getelementptr inbounds %struct.UConverterAliasOptions, ptr %0, i32 0, i32 0
-  %1 = load i16, ptr %stringNormalizationType, align 2
-  %conv = zext i16 %1 to i32
+  %0 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6
+  %1 = load ptr, ptr %0, align 8
+  %stringNormalizationType = getelementptr inbounds %struct.UConverterAliasOptions, ptr %1, i32 0, i32 0
+  %2 = load i16, ptr %stringNormalizationType, align 2
+  %conv = zext i16 %2 to i32
   %cmp = icmp eq i32 %conv, 0
   %conv1 = zext i1 %cmp to i32
   store i32 %conv1, ptr %isUnnormalized, align 4
-  %2 = load i32, ptr %isUnnormalized, align 4
-  %tobool = icmp ne i32 %2, 0
+  %3 = load i32, ptr %isUnnormalized, align 4
+  %tobool = icmp ne i32 %3, 0
   br i1 %tobool, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %alias.addr, align 8
-  %call = call i64 @strlen(ptr noundef %3) #8
+  %4 = load ptr, ptr %alias.addr, align 8
+  %call = call i64 @strlen(ptr noundef %4) #8
   %cmp2 = icmp uge i64 %call, 60
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  %4 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 15, ptr %4, align 4
+  %5 = load ptr, ptr %pErrorCode.addr, align 8
+  store i32 15, ptr %5, align 4
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %if.then
   %arraydecay = getelementptr inbounds [60 x i8], ptr %strippedName, i64 0, i64 0
-  %5 = load ptr, ptr %alias.addr, align 8
-  %call4 = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef %arraydecay, ptr noundef %5)
+  %6 = load ptr, ptr %alias.addr, align 8
+  %call4 = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef %arraydecay, ptr noundef %6)
   %arraydecay5 = getelementptr inbounds [60 x i8], ptr %strippedName, i64 0, i64 0
   store ptr %arraydecay5, ptr %alias.addr, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
   store i32 0, ptr %start, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 12), align 4
-  store i32 %6, ptr %limit, align 4
-  %7 = load i32, ptr %limit, align 4
-  store i32 %7, ptr %mid, align 4
+  %7 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 12
+  %8 = load i32, ptr %7, align 4
+  store i32 %8, ptr %limit, align 4
+  %9 = load i32, ptr %limit, align 4
+  store i32 %9, ptr %mid, align 4
   store i32 -1, ptr %lastMid, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end51, %if.end6
-  %8 = load i32, ptr %start, align 4
-  %9 = load i32, ptr %limit, align 4
-  %add = add i32 %8, %9
+  %10 = load i32, ptr %start, align 4
+  %11 = load i32, ptr %limit, align 4
+  %add = add i32 %10, %11
   %div = udiv i32 %add, 2
   store i32 %div, ptr %mid, align 4
-  %10 = load i32, ptr %lastMid, align 4
-  %11 = load i32, ptr %mid, align 4
-  %cmp7 = icmp eq i32 %10, %11
+  %12 = load i32, ptr %lastMid, align 4
+  %13 = load i32, ptr %mid, align 4
+  %cmp7 = icmp eq i32 %12, %13
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %for.cond
   br label %for.end
 
 if.end9:                                          ; preds = %for.cond
-  %12 = load i32, ptr %mid, align 4
-  store i32 %12, ptr %lastMid, align 4
-  %13 = load i32, ptr %isUnnormalized, align 4
-  %tobool10 = icmp ne i32 %13, 0
+  %14 = load i32, ptr %mid, align 4
+  store i32 %14, ptr %lastMid, align 4
+  %15 = load i32, ptr %isUnnormalized, align 4
+  %tobool10 = icmp ne i32 %15, 0
   br i1 %tobool10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end9
-  %14 = load ptr, ptr %alias.addr, align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
-  %16 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 2), align 8
-  %17 = load i32, ptr %mid, align 4
-  %idxprom = zext i32 %17 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %16, i64 %idxprom
-  %18 = load i16, ptr %arrayidx, align 2
-  %conv12 = zext i16 %18 to i32
+  %16 = load ptr, ptr %alias.addr, align 8
+  %17 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %mid, align 4
+  %idxprom = zext i32 %21 to i64
+  %arrayidx = getelementptr inbounds i16, ptr %20, i64 %idxprom
+  %22 = load i16, ptr %arrayidx, align 2
+  %conv12 = zext i16 %22 to i32
   %idx.ext = sext i32 %conv12 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %15, i64 %idx.ext
-  %call13 = call i32 @ucnv_compareNames_75(ptr noundef %14, ptr noundef %add.ptr)
+  %add.ptr = getelementptr inbounds i16, ptr %18, i64 %idx.ext
+  %call13 = call i32 @ucnv_compareNames_75(ptr noundef %16, ptr noundef %add.ptr)
   store i32 %call13, ptr %result, align 4
   br label %if.end20
 
 if.else:                                          ; preds = %if.end9
-  %19 = load ptr, ptr %alias.addr, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 8), align 8
-  %21 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 2), align 8
-  %22 = load i32, ptr %mid, align 4
-  %idxprom14 = zext i32 %22 to i64
-  %arrayidx15 = getelementptr inbounds i16, ptr %21, i64 %idxprom14
-  %23 = load i16, ptr %arrayidx15, align 2
-  %conv16 = zext i16 %23 to i32
+  %23 = load ptr, ptr %alias.addr, align 8
+  %24 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i32, ptr %mid, align 4
+  %idxprom14 = zext i32 %28 to i64
+  %arrayidx15 = getelementptr inbounds i16, ptr %27, i64 %idxprom14
+  %29 = load i16, ptr %arrayidx15, align 2
+  %conv16 = zext i16 %29 to i32
   %idx.ext17 = sext i32 %conv16 to i64
-  %add.ptr18 = getelementptr inbounds i16, ptr %20, i64 %idx.ext17
-  %call19 = call i32 @strcmp(ptr noundef %19, ptr noundef %add.ptr18) #8
+  %add.ptr18 = getelementptr inbounds i16, ptr %25, i64 %idx.ext17
+  %call19 = call i32 @strcmp(ptr noundef %23, ptr noundef %add.ptr18) #8
   store i32 %call19, ptr %result, align 4
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.then11
-  %24 = load i32, ptr %result, align 4
-  %cmp21 = icmp slt i32 %24, 0
+  %30 = load i32, ptr %result, align 4
+  %cmp21 = icmp slt i32 %30, 0
   br i1 %cmp21, label %if.then22, label %if.else23
 
 if.then22:                                        ; preds = %if.end20
-  %25 = load i32, ptr %mid, align 4
-  store i32 %25, ptr %limit, align 4
+  %31 = load i32, ptr %mid, align 4
+  store i32 %31, ptr %limit, align 4
   br label %if.end51
 
 if.else23:                                        ; preds = %if.end20
-  %26 = load i32, ptr %result, align 4
-  %cmp24 = icmp sgt i32 %26, 0
+  %32 = load i32, ptr %result, align 4
+  %cmp24 = icmp sgt i32 %32, 0
   br i1 %cmp24, label %if.then25, label %if.else26
 
 if.then25:                                        ; preds = %if.else23
-  %27 = load i32, ptr %mid, align 4
-  store i32 %27, ptr %start, align 4
+  %33 = load i32, ptr %mid, align 4
+  store i32 %33, ptr %start, align 4
   br label %if.end50
 
 if.else26:                                        ; preds = %if.else23
-  %28 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3), align 8
-  %29 = load i32, ptr %mid, align 4
-  %idxprom27 = zext i32 %29 to i64
-  %arrayidx28 = getelementptr inbounds i16, ptr %28, i64 %idxprom27
-  %30 = load i16, ptr %arrayidx28, align 2
-  %conv29 = zext i16 %30 to i32
+  %34 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3
+  %35 = load ptr, ptr %34, align 8
+  %36 = load i32, ptr %mid, align 4
+  %idxprom27 = zext i32 %36 to i64
+  %arrayidx28 = getelementptr inbounds i16, ptr %35, i64 %idxprom27
+  %37 = load i16, ptr %arrayidx28, align 2
+  %conv29 = zext i16 %37 to i32
   %and = and i32 %conv29, 32768
   %tobool30 = icmp ne i32 %and, 0
   br i1 %tobool30, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.else26
-  %31 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 -122, ptr %31, align 4
+  %38 = load ptr, ptr %pErrorCode.addr, align 8
+  store i32 -122, ptr %38, align 4
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then31, %if.else26
-  %32 = load ptr, ptr %containsOption.addr, align 8
-  %tobool33 = icmp ne ptr %32, null
+  %39 = load ptr, ptr %containsOption.addr, align 8
+  %tobool33 = icmp ne ptr %39, null
   br i1 %tobool33, label %if.then34, label %if.end45
 
 if.then34:                                        ; preds = %if.end32
-  %33 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6), align 8
-  %containsCnvOptionInfo35 = getelementptr inbounds %struct.UConverterAliasOptions, ptr %33, i32 0, i32 1
-  %34 = load i16, ptr %containsCnvOptionInfo35, align 2
-  %conv36 = trunc i16 %34 to i8
+  %40 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6
+  %41 = load ptr, ptr %40, align 8
+  %containsCnvOptionInfo35 = getelementptr inbounds %struct.UConverterAliasOptions, ptr %41, i32 0, i32 1
+  %42 = load i16, ptr %containsCnvOptionInfo35, align 2
+  %conv36 = trunc i16 %42 to i8
   store i8 %conv36, ptr %containsCnvOptionInfo, align 1
-  %35 = load i8, ptr %containsCnvOptionInfo, align 1
-  %tobool37 = icmp ne i8 %35, 0
+  %43 = load i8, ptr %containsCnvOptionInfo, align 1
+  %tobool37 = icmp ne i8 %43, 0
   br i1 %tobool37, label %land.lhs.true, label %lor.rhs
 
 land.lhs.true:                                    ; preds = %if.then34
-  %36 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3), align 8
-  %37 = load i32, ptr %mid, align 4
-  %idxprom38 = zext i32 %37 to i64
-  %arrayidx39 = getelementptr inbounds i16, ptr %36, i64 %idxprom38
-  %38 = load i16, ptr %arrayidx39, align 2
-  %conv40 = zext i16 %38 to i32
+  %44 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8
+  %46 = load i32, ptr %mid, align 4
+  %idxprom38 = zext i32 %46 to i64
+  %arrayidx39 = getelementptr inbounds i16, ptr %45, i64 %idxprom38
+  %47 = load i16, ptr %arrayidx39, align 2
+  %conv40 = zext i16 %47 to i32
   %and41 = and i32 %conv40, 16384
   %cmp42 = icmp ne i32 %and41, 0
   br i1 %cmp42, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.lhs.true, %if.then34
-  %39 = load i8, ptr %containsCnvOptionInfo, align 1
-  %tobool43 = icmp ne i8 %39, 0
+  %48 = load i8, ptr %containsCnvOptionInfo, align 1
+  %tobool43 = icmp ne i8 %48, 0
   %lnot = xor i1 %tobool43, true
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.lhs.true
-  %40 = phi i1 [ true, %land.lhs.true ], [ %lnot, %lor.rhs ]
-  %conv44 = zext i1 %40 to i8
-  %41 = load ptr, ptr %containsOption.addr, align 8
-  store i8 %conv44, ptr %41, align 1
+  %49 = phi i1 [ true, %land.lhs.true ], [ %lnot, %lor.rhs ]
+  %conv44 = zext i1 %49 to i8
+  %50 = load ptr, ptr %containsOption.addr, align 8
+  store i8 %conv44, ptr %50, align 1
   br label %if.end45
 
 if.end45:                                         ; preds = %lor.end, %if.end32
-  %42 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3), align 8
-  %43 = load i32, ptr %mid, align 4
-  %idxprom46 = zext i32 %43 to i64
-  %arrayidx47 = getelementptr inbounds i16, ptr %42, i64 %idxprom46
-  %44 = load i16, ptr %arrayidx47, align 2
-  %conv48 = zext i16 %44 to i32
+  %51 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %mid, align 4
+  %idxprom46 = zext i32 %53 to i64
+  %arrayidx47 = getelementptr inbounds i16, ptr %52, i64 %idxprom46
+  %54 = load i16, ptr %arrayidx47, align 2
+  %conv48 = zext i16 %54 to i32
   %and49 = and i32 %conv48, 4095
   store i32 %and49, ptr %retval, align 4
   br label %return
@@ -935,8 +947,8 @@ for.end:                                          ; preds = %if.then8
   br label %return
 
 return:                                           ; preds = %for.end, %if.end45, %if.then3
-  %45 = load i32, ptr %retval, align 4
-  ret i32 %45
+  %55 = load i32, ptr %retval, align 4
+  ret i32 %55
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -972,20 +984,21 @@ if.then:                                          ; preds = %land.lhs.true
   %call3 = call noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef %3, ptr noundef %4, ptr noundef %5)
   store i32 %call3, ptr %listOffset, align 4
   %6 = load i32, ptr %listOffset, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14), align 4
-  %cmp = icmp ult i32 %6, %7
+  %7 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14
+  %8 = load i32, ptr %7, align 4
+  %cmp = icmp ult i32 %6, %8
   br i1 %cmp, label %if.then4, label %if.end13
 
 if.then4:                                         ; preds = %if.then
   %call5 = call noalias ptr @uprv_malloc_75(i64 noundef 56) #9
   store ptr %call5, ptr %myEnum, align 8
-  %8 = load ptr, ptr %myEnum, align 8
-  %cmp6 = icmp eq ptr %8, null
+  %9 = load ptr, ptr %myEnum, align 8
+  %cmp6 = icmp eq ptr %9, null
   br i1 %cmp6, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %if.then4
-  %9 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %9, align 4
+  %10 = load ptr, ptr %pErrorCode.addr, align 8
+  store i32 7, ptr %10, align 4
   store ptr null, ptr %retval, align 8
   br label %return
 
@@ -993,50 +1006,50 @@ if.end:                                           ; preds = %if.then4
   br label %do.body
 
 do.body:                                          ; preds = %if.end
-  %10 = load ptr, ptr %myEnum, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 @_ZL12gEnumAliases, i64 56, i1 false)
+  %11 = load ptr, ptr %myEnum, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 @_ZL12gEnumAliases, i64 56, i1 false)
   br label %do.end
 
 do.end:                                           ; preds = %do.body
   %call8 = call noalias ptr @uprv_malloc_75(i64 noundef 8) #9
   store ptr %call8, ptr %myContext, align 8
-  %11 = load ptr, ptr %myContext, align 8
-  %cmp9 = icmp eq ptr %11, null
+  %12 = load ptr, ptr %myContext, align 8
+  %cmp9 = icmp eq ptr %12, null
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %do.end
-  %12 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %12, align 4
-  %13 = load ptr, ptr %myEnum, align 8
-  call void @uprv_free_75(ptr noundef %13)
+  %13 = load ptr, ptr %pErrorCode.addr, align 8
+  store i32 7, ptr %13, align 4
+  %14 = load ptr, ptr %myEnum, align 8
+  call void @uprv_free_75(ptr noundef %14)
   store ptr null, ptr %retval, align 8
   br label %return
 
 if.end11:                                         ; preds = %do.end
-  %14 = load i32, ptr %listOffset, align 4
-  %15 = load ptr, ptr %myContext, align 8
-  %listOffset12 = getelementptr inbounds %struct.UAliasContext, ptr %15, i32 0, i32 0
-  store i32 %14, ptr %listOffset12, align 4
+  %15 = load i32, ptr %listOffset, align 4
   %16 = load ptr, ptr %myContext, align 8
-  %listIdx = getelementptr inbounds %struct.UAliasContext, ptr %16, i32 0, i32 1
-  store i32 0, ptr %listIdx, align 4
+  %listOffset12 = getelementptr inbounds %struct.UAliasContext, ptr %16, i32 0, i32 0
+  store i32 %15, ptr %listOffset12, align 4
   %17 = load ptr, ptr %myContext, align 8
-  %18 = load ptr, ptr %myEnum, align 8
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %18, i32 0, i32 1
-  store ptr %17, ptr %context, align 8
+  %listIdx = getelementptr inbounds %struct.UAliasContext, ptr %17, i32 0, i32 1
+  store i32 0, ptr %listIdx, align 4
+  %18 = load ptr, ptr %myContext, align 8
+  %19 = load ptr, ptr %myEnum, align 8
+  %context = getelementptr inbounds %struct.UEnumeration, ptr %19, i32 0, i32 1
+  store ptr %18, ptr %context, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end11, %if.then
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end13, %land.lhs.true, %entry
-  %19 = load ptr, ptr %myEnum, align 8
-  store ptr %19, ptr %retval, align 8
+  %20 = load ptr, ptr %myEnum, align 8
+  store ptr %20, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end14, %if.then10, %if.then7
-  %20 = load ptr, ptr %retval, align 8
-  ret ptr %20
+  %21 = load ptr, ptr %retval, align 8
+  ret ptr %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1076,51 +1089,56 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %5 = load i32, ptr %tagNum, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4
-  %sub = sub i32 %6, 1
+  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
+  %7 = load i32, ptr %6, align 4
+  %sub = sub i32 %7, 1
   %cmp2 = icmp ult i32 %5, %sub
   br i1 %cmp2, label %land.lhs.true, label %if.end40
 
 land.lhs.true:                                    ; preds = %if.end
-  %7 = load i32, ptr %convNum, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %cmp3 = icmp ult i32 %7, %8
+  %8 = load i32, ptr %convNum, align 4
+  %9 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %10 = load i32, ptr %9, align 8
+  %cmp3 = icmp ult i32 %8, %10
   br i1 %cmp3, label %if.then4, label %if.end40
 
 if.then4:                                         ; preds = %land.lhs.true
-  %9 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8
-  %10 = load i32, ptr %tagNum, align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %mul = mul i32 %10, %11
-  %12 = load i32, ptr %convNum, align 4
-  %add = add i32 %mul, %12
+  %11 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i32, ptr %tagNum, align 4
+  %14 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %15 = load i32, ptr %14, align 8
+  %mul = mul i32 %13, %15
+  %16 = load i32, ptr %convNum, align 4
+  %add = add i32 %mul, %16
   %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
-  %13 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %13 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %12, i64 %idxprom
+  %17 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %17 to i32
   store i32 %conv, ptr %listOffset, align 4
-  %14 = load i32, ptr %listOffset, align 4
-  %tobool = icmp ne i32 %14, 0
+  %18 = load i32, ptr %listOffset, align 4
+  %tobool = icmp ne i32 %18, 0
   br i1 %tobool, label %land.lhs.true5, label %if.end11
 
 land.lhs.true5:                                   ; preds = %if.then4
-  %15 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %16 = load i32, ptr %listOffset, align 4
-  %add6 = add i32 %16, 1
+  %19 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %listOffset, align 4
+  %add6 = add i32 %21, 1
   %idxprom7 = zext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %15, i64 %idxprom7
-  %17 = load i16, ptr %arrayidx8, align 2
-  %tobool9 = icmp ne i16 %17, 0
+  %arrayidx8 = getelementptr inbounds i16, ptr %20, i64 %idxprom7
+  %22 = load i16, ptr %arrayidx8, align 2
+  %tobool9 = icmp ne i16 %22, 0
   br i1 %tobool9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %land.lhs.true5
-  %18 = load i32, ptr %listOffset, align 4
-  store i32 %18, ptr %retval, align 4
+  %23 = load i32, ptr %listOffset, align 4
+  store i32 %23, ptr %retval, align 4
   br label %return
 
 if.end11:                                         ; preds = %land.lhs.true5, %if.then4
-  %19 = load i32, ptr %myErr, align 4
-  %cmp12 = icmp eq i32 %19, -122
+  %24 = load i32, ptr %myErr, align 4
+  %cmp12 = icmp eq i32 %24, -122
   br i1 %cmp12, label %if.then13, label %if.end39
 
 if.then13:                                        ; preds = %if.end11
@@ -1128,69 +1146,76 @@ if.then13:                                        ; preds = %if.end11
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then13
-  %20 = load i32, ptr %idx, align 4
-  %21 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 13), align 8
-  %cmp14 = icmp ult i32 %20, %21
+  %25 = load i32, ptr %idx, align 4
+  %26 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 13
+  %27 = load i32, ptr %26, align 8
+  %cmp14 = icmp ult i32 %25, %27
   br i1 %cmp14, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %22 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8
-  %23 = load i32, ptr %idx, align 4
-  %idxprom15 = zext i32 %23 to i64
-  %arrayidx16 = getelementptr inbounds i16, ptr %22, i64 %idxprom15
-  %24 = load i16, ptr %arrayidx16, align 2
-  %conv17 = zext i16 %24 to i32
+  %28 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr %idx, align 4
+  %idxprom15 = zext i32 %30 to i64
+  %arrayidx16 = getelementptr inbounds i16, ptr %29, i64 %idxprom15
+  %31 = load i16, ptr %arrayidx16, align 2
+  %conv17 = zext i16 %31 to i32
   store i32 %conv17, ptr %listOffset, align 4
-  %25 = load i32, ptr %listOffset, align 4
-  %tobool18 = icmp ne i32 %25, 0
+  %32 = load i32, ptr %listOffset, align 4
+  %tobool18 = icmp ne i32 %32, 0
   br i1 %tobool18, label %land.lhs.true19, label %if.end38
 
 land.lhs.true19:                                  ; preds = %for.body
-  %26 = load ptr, ptr %alias.addr, align 8
-  %27 = load i32, ptr %listOffset, align 4
-  %call20 = call noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %26, i32 noundef %27)
+  %33 = load ptr, ptr %alias.addr, align 8
+  %34 = load i32, ptr %listOffset, align 4
+  %call20 = call noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %33, i32 noundef %34)
   %tobool21 = icmp ne i8 %call20, 0
   br i1 %tobool21, label %if.then22, label %if.end38
 
 if.then22:                                        ; preds = %land.lhs.true19
-  %28 = load i32, ptr %idx, align 4
-  %29 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %div = udiv i32 %28, %29
+  %35 = load i32, ptr %idx, align 4
+  %36 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %37 = load i32, ptr %36, align 8
+  %div = udiv i32 %35, %37
   store i32 %div, ptr %currTagNum, align 4
-  %30 = load i32, ptr %idx, align 4
-  %31 = load i32, ptr %currTagNum, align 4
-  %32 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %mul23 = mul i32 %31, %32
-  %sub24 = sub i32 %30, %mul23
+  %38 = load i32, ptr %idx, align 4
+  %39 = load i32, ptr %currTagNum, align 4
+  %40 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %41 = load i32, ptr %40, align 8
+  %mul23 = mul i32 %39, %41
+  %sub24 = sub i32 %38, %mul23
   store i32 %sub24, ptr %currConvNum, align 4
-  %33 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8
-  %34 = load i32, ptr %tagNum, align 4
-  %35 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %mul25 = mul i32 %34, %35
-  %36 = load i32, ptr %currConvNum, align 4
-  %add26 = add i32 %mul25, %36
+  %42 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
+  %43 = load ptr, ptr %42, align 8
+  %44 = load i32, ptr %tagNum, align 4
+  %45 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %46 = load i32, ptr %45, align 8
+  %mul25 = mul i32 %44, %46
+  %47 = load i32, ptr %currConvNum, align 4
+  %add26 = add i32 %mul25, %47
   %idxprom27 = zext i32 %add26 to i64
-  %arrayidx28 = getelementptr inbounds i16, ptr %33, i64 %idxprom27
-  %37 = load i16, ptr %arrayidx28, align 2
-  %conv29 = zext i16 %37 to i32
+  %arrayidx28 = getelementptr inbounds i16, ptr %43, i64 %idxprom27
+  %48 = load i16, ptr %arrayidx28, align 2
+  %conv29 = zext i16 %48 to i32
   store i32 %conv29, ptr %tempListOffset, align 4
-  %38 = load i32, ptr %tempListOffset, align 4
-  %tobool30 = icmp ne i32 %38, 0
+  %49 = load i32, ptr %tempListOffset, align 4
+  %tobool30 = icmp ne i32 %49, 0
   br i1 %tobool30, label %land.lhs.true31, label %if.end37
 
 land.lhs.true31:                                  ; preds = %if.then22
-  %39 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %40 = load i32, ptr %tempListOffset, align 4
-  %add32 = add i32 %40, 1
+  %50 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i32, ptr %tempListOffset, align 4
+  %add32 = add i32 %52, 1
   %idxprom33 = zext i32 %add32 to i64
-  %arrayidx34 = getelementptr inbounds i16, ptr %39, i64 %idxprom33
-  %41 = load i16, ptr %arrayidx34, align 2
-  %tobool35 = icmp ne i16 %41, 0
+  %arrayidx34 = getelementptr inbounds i16, ptr %51, i64 %idxprom33
+  %53 = load i16, ptr %arrayidx34, align 2
+  %tobool35 = icmp ne i16 %53, 0
   br i1 %tobool35, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %land.lhs.true31
-  %42 = load i32, ptr %tempListOffset, align 4
-  store i32 %42, ptr %retval, align 4
+  %54 = load i32, ptr %tempListOffset, align 4
+  store i32 %54, ptr %retval, align 4
   br label %return
 
 if.end37:                                         ; preds = %land.lhs.true31, %if.then22
@@ -1200,8 +1225,8 @@ if.end38:                                         ; preds = %if.end37, %land.lhs
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end38
-  %43 = load i32, ptr %idx, align 4
-  %inc = add i32 %43, 1
+  %55 = load i32, ptr %idx, align 4
+  %inc = add i32 %55, 1
   store i32 %inc, ptr %idx, align 4
   br label %for.cond, !llvm.loop !12
 
@@ -1217,8 +1242,8 @@ if.end40:                                         ; preds = %land.lhs.true, %if.
   br label %return
 
 return:                                           ; preds = %if.end40, %if.end39, %if.then36, %if.then10
-  %44 = load i32, ptr %retval, align 4
-  ret i32 %44
+  %56 = load i32, ptr %retval, align 4
+  ret i32 %56
 }
 
 ; Function Attrs: allocsize(0)
@@ -1245,27 +1270,30 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load i16, ptr %n.addr, align 2
   %conv = zext i16 %1 to i32
-  %2 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4
-  %sub = sub i32 %2, 1
+  %2 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
+  %3 = load i32, ptr %2, align 4
+  %sub = sub i32 %3, 1
   %cmp = icmp ult i32 %conv, %sub
   br i1 %cmp, label %if.then1, label %if.end
 
 if.then1:                                         ; preds = %if.then
-  %3 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1), align 8
-  %5 = load i16, ptr %n.addr, align 2
-  %idxprom = zext i16 %5 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
-  %6 = load i16, ptr %arrayidx, align 2
-  %conv2 = zext i16 %6 to i32
+  %4 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = load i16, ptr %n.addr, align 2
+  %idxprom = zext i16 %8 to i64
+  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %idxprom
+  %9 = load i16, ptr %arrayidx, align 2
+  %conv2 = zext i16 %9 to i32
   %idx.ext = sext i32 %conv2 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %3, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %5, i64 %idx.ext
   store ptr %add.ptr, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %7 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %7, align 4
+  %10 = load ptr, ptr %pErrorCode.addr, align 8
+  store i32 8, ptr %10, align 4
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end, %entry
@@ -1273,8 +1301,8 @@ if.end3:                                          ; preds = %if.end, %entry
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then1
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
+  %11 = load ptr, ptr %retval, align 8
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1313,31 +1341,34 @@ if.then:                                          ; preds = %land.lhs.true
 
 land.lhs.true4:                                   ; preds = %if.then
   %7 = load i32, ptr %listOffset, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14), align 4
-  %cmp5 = icmp ult i32 %7, %8
+  %8 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14
+  %9 = load i32, ptr %8, align 4
+  %cmp5 = icmp ult i32 %7, %9
   br i1 %cmp5, label %if.then6, label %if.end13
 
 if.then6:                                         ; preds = %land.lhs.true4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %10 = load i32, ptr %listOffset, align 4
-  %idx.ext = zext i32 %10 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %9, i64 %idx.ext
+  %10 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i32, ptr %listOffset, align 4
+  %idx.ext = zext i32 %12 to i64
+  %add.ptr = getelementptr inbounds i16, ptr %11, i64 %idx.ext
   %add.ptr7 = getelementptr inbounds i16, ptr %add.ptr, i64 1
   store ptr %add.ptr7, ptr %currList, align 8
-  %11 = load ptr, ptr %currList, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %11, i64 0
-  %12 = load i16, ptr %arrayidx, align 2
-  %tobool8 = icmp ne i16 %12, 0
+  %13 = load ptr, ptr %currList, align 8
+  %arrayidx = getelementptr inbounds i16, ptr %13, i64 0
+  %14 = load i16, ptr %arrayidx, align 2
+  %tobool8 = icmp ne i16 %14, 0
   br i1 %tobool8, label %if.then9, label %if.end
 
 if.then9:                                         ; preds = %if.then6
-  %13 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
-  %14 = load ptr, ptr %currList, align 8
-  %arrayidx10 = getelementptr inbounds i16, ptr %14, i64 0
-  %15 = load i16, ptr %arrayidx10, align 2
-  %conv = zext i16 %15 to i32
+  %15 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %currList, align 8
+  %arrayidx10 = getelementptr inbounds i16, ptr %17, i64 0
+  %18 = load i16, ptr %arrayidx10, align 2
+  %conv = zext i16 %18 to i32
   %idx.ext11 = sext i32 %conv to i64
-  %add.ptr12 = getelementptr inbounds i16, ptr %13, i64 %idx.ext11
+  %add.ptr12 = getelementptr inbounds i16, ptr %16, i64 %idx.ext11
   store ptr %add.ptr12, ptr %retval, align 8
   br label %return
 
@@ -1352,8 +1383,8 @@ if.end14:                                         ; preds = %if.end13, %land.lhs
   br label %return
 
 return:                                           ; preds = %if.end14, %if.then9
-  %16 = load ptr, ptr %retval, align 8
-  ret ptr %16
+  %19 = load ptr, ptr %retval, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1397,34 +1428,39 @@ if.then:                                          ; preds = %land.lhs.true
   %call3 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %3, ptr noundef null, ptr noundef %4)
   store i32 %call3, ptr %convNum, align 4
   %5 = load i32, ptr %convNum, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %cmp = icmp ult i32 %5, %6
+  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %7 = load i32, ptr %6, align 8
+  %cmp = icmp ult i32 %5, %7
   br i1 %cmp, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %if.then
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4
-  %sub = sub i32 %8, 1
-  %9 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %mul = mul i32 %sub, %9
-  %10 = load i32, ptr %convNum, align 4
-  %add = add i32 %mul, %10
+  %8 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
+  %11 = load i32, ptr %10, align 4
+  %sub = sub i32 %11, 1
+  %12 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %13 = load i32, ptr %12, align 8
+  %mul = mul i32 %sub, %13
+  %14 = load i32, ptr %convNum, align 4
+  %add = add i32 %mul, %14
   %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %idxprom
-  %11 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %11 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
+  %15 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %15 to i32
   store i32 %conv, ptr %listOffset, align 4
-  %12 = load i32, ptr %listOffset, align 4
-  %tobool5 = icmp ne i32 %12, 0
+  %16 = load i32, ptr %listOffset, align 4
+  %tobool5 = icmp ne i32 %16, 0
   br i1 %tobool5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then4
-  %13 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %14 = load i32, ptr %listOffset, align 4
-  %idxprom7 = sext i32 %14 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %13, i64 %idxprom7
-  %15 = load i16, ptr %arrayidx8, align 2
-  store i16 %15, ptr %retval, align 2
+  %17 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i32, ptr %listOffset, align 4
+  %idxprom7 = sext i32 %19 to i64
+  %arrayidx8 = getelementptr inbounds i16, ptr %18, i64 %idxprom7
+  %20 = load i16, ptr %arrayidx8, align 2
+  store i16 %20, ptr %retval, align 2
   br label %return
 
 if.end:                                           ; preds = %if.then4
@@ -1438,8 +1474,8 @@ if.end10:                                         ; preds = %if.end9, %land.lhs.
   br label %return
 
 return:                                           ; preds = %if.end10, %if.then6
-  %16 = load i16, ptr %retval, align 2
-  ret i16 %16
+  %21 = load i16, ptr %retval, align 2
+  ret i16 %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1490,63 +1526,70 @@ if.then:                                          ; preds = %land.lhs.true
   %call3 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %3, ptr noundef null, ptr noundef %4)
   store i32 %call3, ptr %convNum, align 4
   %5 = load i32, ptr %convNum, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %cmp = icmp ult i32 %5, %6
+  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %7 = load i32, ptr %6, align 8
+  %cmp = icmp ult i32 %5, %7
   br i1 %cmp, label %if.then4, label %if.end20
 
 if.then4:                                         ; preds = %if.then
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4
-  %sub = sub i32 %8, 1
-  %9 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %mul = mul i32 %sub, %9
-  %10 = load i32, ptr %convNum, align 4
-  %add = add i32 %mul, %10
+  %8 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
+  %11 = load i32, ptr %10, align 4
+  %sub = sub i32 %11, 1
+  %12 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %13 = load i32, ptr %12, align 8
+  %mul = mul i32 %sub, %13
+  %14 = load i32, ptr %convNum, align 4
+  %add = add i32 %mul, %14
   %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %idxprom
-  %11 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %11 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
+  %15 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %15 to i32
   store i32 %conv, ptr %listOffset, align 4
-  %12 = load i32, ptr %listOffset, align 4
-  %tobool5 = icmp ne i32 %12, 0
+  %16 = load i32, ptr %listOffset, align 4
+  %tobool5 = icmp ne i32 %16, 0
   br i1 %tobool5, label %if.then6, label %if.end19
 
 if.then6:                                         ; preds = %if.then4
-  %13 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %14 = load i32, ptr %listOffset, align 4
-  %idxprom7 = sext i32 %14 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %13, i64 %idxprom7
-  %15 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %15 to i32
+  %17 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i32, ptr %listOffset, align 4
+  %idxprom7 = sext i32 %19 to i64
+  %arrayidx8 = getelementptr inbounds i16, ptr %18, i64 %idxprom7
+  %20 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %20 to i32
   store i32 %conv9, ptr %listCount, align 4
-  %16 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %17 = load i32, ptr %listOffset, align 4
-  %idx.ext = sext i32 %17 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %16, i64 %idx.ext
+  %21 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr %listOffset, align 4
+  %idx.ext = sext i32 %23 to i64
+  %add.ptr = getelementptr inbounds i16, ptr %22, i64 %idx.ext
   %add.ptr10 = getelementptr inbounds i16, ptr %add.ptr, i64 1
   store ptr %add.ptr10, ptr %currList, align 8
-  %18 = load i16, ptr %n.addr, align 2
-  %conv11 = zext i16 %18 to i32
-  %19 = load i32, ptr %listCount, align 4
-  %cmp12 = icmp ult i32 %conv11, %19
+  %24 = load i16, ptr %n.addr, align 2
+  %conv11 = zext i16 %24 to i32
+  %25 = load i32, ptr %listCount, align 4
+  %cmp12 = icmp ult i32 %conv11, %25
   br i1 %cmp12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.then6
-  %20 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
-  %21 = load ptr, ptr %currList, align 8
-  %22 = load i16, ptr %n.addr, align 2
-  %idxprom14 = zext i16 %22 to i64
-  %arrayidx15 = getelementptr inbounds i16, ptr %21, i64 %idxprom14
-  %23 = load i16, ptr %arrayidx15, align 2
-  %conv16 = zext i16 %23 to i32
+  %26 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %currList, align 8
+  %29 = load i16, ptr %n.addr, align 2
+  %idxprom14 = zext i16 %29 to i64
+  %arrayidx15 = getelementptr inbounds i16, ptr %28, i64 %idxprom14
+  %30 = load i16, ptr %arrayidx15, align 2
+  %conv16 = zext i16 %30 to i32
   %idx.ext17 = sext i32 %conv16 to i64
-  %add.ptr18 = getelementptr inbounds i16, ptr %20, i64 %idx.ext17
+  %add.ptr18 = getelementptr inbounds i16, ptr %27, i64 %idx.ext17
   store ptr %add.ptr18, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %if.then6
-  %24 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %24, align 4
+  %31 = load ptr, ptr %pErrorCode.addr, align 8
+  store i32 8, ptr %31, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end, %if.then4
@@ -1560,8 +1603,8 @@ if.end21:                                         ; preds = %if.end20, %land.lhs
   br label %return
 
 return:                                           ; preds = %if.end21, %if.then13
-  %25 = load ptr, ptr %retval, align 8
-  ret ptr %25
+  %32 = load ptr, ptr %retval, align 8
+  ret ptr %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1614,72 +1657,79 @@ if.then:                                          ; preds = %land.lhs.true
   %call3 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %3, ptr noundef null, ptr noundef %4)
   store i32 %call3, ptr %convNum, align 4
   %5 = load i32, ptr %convNum, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %cmp = icmp ult i32 %5, %6
+  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %7 = load i32, ptr %6, align 8
+  %cmp = icmp ult i32 %5, %7
   br i1 %cmp, label %if.then4, label %if.end20
 
 if.then4:                                         ; preds = %if.then
-  %7 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8
-  %8 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4
-  %sub = sub i32 %8, 1
-  %9 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %mul = mul i32 %sub, %9
-  %10 = load i32, ptr %convNum, align 4
-  %add = add i32 %mul, %10
+  %8 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
+  %11 = load i32, ptr %10, align 4
+  %sub = sub i32 %11, 1
+  %12 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %13 = load i32, ptr %12, align 8
+  %mul = mul i32 %sub, %13
+  %14 = load i32, ptr %convNum, align 4
+  %add = add i32 %mul, %14
   %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %idxprom
-  %11 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %11 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
+  %15 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %15 to i32
   store i32 %conv, ptr %listOffset, align 4
-  %12 = load i32, ptr %listOffset, align 4
-  %tobool5 = icmp ne i32 %12, 0
+  %16 = load i32, ptr %listOffset, align 4
+  %tobool5 = icmp ne i32 %16, 0
   br i1 %tobool5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then4
-  %13 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %14 = load i32, ptr %listOffset, align 4
-  %idxprom7 = sext i32 %14 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %13, i64 %idxprom7
-  %15 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %15 to i32
+  %17 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i32, ptr %listOffset, align 4
+  %idxprom7 = sext i32 %19 to i64
+  %arrayidx8 = getelementptr inbounds i16, ptr %18, i64 %idxprom7
+  %20 = load i16, ptr %arrayidx8, align 2
+  %conv9 = zext i16 %20 to i32
   store i32 %conv9, ptr %listCount, align 4
-  %16 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %17 = load i32, ptr %listOffset, align 4
-  %idx.ext = sext i32 %17 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %16, i64 %idx.ext
+  %21 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr %listOffset, align 4
+  %idx.ext = sext i32 %23 to i64
+  %add.ptr = getelementptr inbounds i16, ptr %22, i64 %idx.ext
   %add.ptr10 = getelementptr inbounds i16, ptr %add.ptr, i64 1
   store ptr %add.ptr10, ptr %currList, align 8
-  %18 = load i16, ptr %start.addr, align 2
-  %conv11 = zext i16 %18 to i32
+  %24 = load i16, ptr %start.addr, align 2
+  %conv11 = zext i16 %24 to i32
   store i32 %conv11, ptr %currAlias, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then6
-  %19 = load i32, ptr %currAlias, align 4
-  %20 = load i32, ptr %listCount, align 4
-  %cmp12 = icmp ult i32 %19, %20
+  %25 = load i32, ptr %currAlias, align 4
+  %26 = load i32, ptr %listCount, align 4
+  %cmp12 = icmp ult i32 %25, %26
   br i1 %cmp12, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %21 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
-  %22 = load ptr, ptr %currList, align 8
-  %23 = load i32, ptr %currAlias, align 4
-  %idxprom13 = zext i32 %23 to i64
-  %arrayidx14 = getelementptr inbounds i16, ptr %22, i64 %idxprom13
-  %24 = load i16, ptr %arrayidx14, align 2
-  %conv15 = zext i16 %24 to i32
+  %27 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %currList, align 8
+  %30 = load i32, ptr %currAlias, align 4
+  %idxprom13 = zext i32 %30 to i64
+  %arrayidx14 = getelementptr inbounds i16, ptr %29, i64 %idxprom13
+  %31 = load i16, ptr %arrayidx14, align 2
+  %conv15 = zext i16 %31 to i32
   %idx.ext16 = sext i32 %conv15 to i64
-  %add.ptr17 = getelementptr inbounds i16, ptr %21, i64 %idx.ext16
-  %25 = load ptr, ptr %aliases.addr, align 8
-  %26 = load i32, ptr %currAlias, align 4
-  %idxprom18 = zext i32 %26 to i64
-  %arrayidx19 = getelementptr inbounds ptr, ptr %25, i64 %idxprom18
+  %add.ptr17 = getelementptr inbounds i16, ptr %28, i64 %idx.ext16
+  %32 = load ptr, ptr %aliases.addr, align 8
+  %33 = load i32, ptr %currAlias, align 4
+  %idxprom18 = zext i32 %33 to i64
+  %arrayidx19 = getelementptr inbounds ptr, ptr %32, i64 %idxprom18
   store ptr %add.ptr17, ptr %arrayidx19, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %27 = load i32, ptr %currAlias, align 4
-  %inc = add i32 %27, 1
+  %34 = load i32, ptr %currAlias, align 4
+  %inc = add i32 %34, 1
   store i32 %inc, ptr %currAlias, align 4
   br label %for.cond, !llvm.loop !13
 
@@ -1717,8 +1767,9 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4
-  %sub = sub i32 %1, 1
+  %1 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
+  %2 = load i32, ptr %1, align 4
+  %sub = sub i32 %2, 1
   %conv = trunc i32 %sub to i16
   store i16 %conv, ptr %retval, align 2
   br label %return
@@ -1728,8 +1779,8 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %2 = load i16, ptr %retval, align 2
-  ret i16 %2
+  %3 = load i16, ptr %retval, align 2
+  ret i16 %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1762,20 +1813,22 @@ if.then:                                          ; preds = %land.lhs.true
   %call3 = call noundef i32 @_ZL22findTaggedConverterNumPKcS0_P10UErrorCode(ptr noundef %3, ptr noundef %4, ptr noundef %5)
   store i32 %call3, ptr %convNum, align 4
   %6 = load i32, ptr %convNum, align 4
-  %7 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %cmp = icmp ult i32 %6, %7
+  %7 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %8 = load i32, ptr %7, align 8
+  %cmp = icmp ult i32 %6, %8
   br i1 %cmp, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %8 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
-  %9 = load ptr, ptr @_ZL10gMainTable, align 8
-  %10 = load i32, ptr %convNum, align 4
-  %idxprom = zext i32 %10 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
-  %11 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %11 to i32
+  %9 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr @_ZL10gMainTable, align 8
+  %12 = load i32, ptr %convNum, align 4
+  %idxprom = zext i32 %12 to i64
+  %arrayidx = getelementptr inbounds i16, ptr %11, i64 %idxprom
+  %13 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %13 to i32
   %idx.ext = sext i32 %conv to i64
-  %add.ptr = getelementptr inbounds i16, ptr %8, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %10, i64 %idx.ext
   store ptr %add.ptr, ptr %retval, align 8
   br label %return
 
@@ -1787,8 +1840,8 @@ if.end5:                                          ; preds = %if.end, %land.lhs.t
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then4
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+  %14 = load ptr, ptr %retval, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1827,93 +1880,100 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %5 = load i32, ptr %tagNum, align 4
-  %6 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4
-  %sub = sub i32 %6, 1
+  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
+  %7 = load i32, ptr %6, align 4
+  %sub = sub i32 %7, 1
   %cmp2 = icmp ult i32 %5, %sub
   br i1 %cmp2, label %land.lhs.true, label %if.end27
 
 land.lhs.true:                                    ; preds = %if.end
-  %7 = load i32, ptr %convNum, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %cmp3 = icmp ult i32 %7, %8
+  %8 = load i32, ptr %convNum, align 4
+  %9 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %10 = load i32, ptr %9, align 8
+  %cmp3 = icmp ult i32 %8, %10
   br i1 %cmp3, label %if.then4, label %if.end27
 
 if.then4:                                         ; preds = %land.lhs.true
-  %9 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8
-  %10 = load i32, ptr %tagNum, align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %mul = mul i32 %10, %11
-  %12 = load i32, ptr %convNum, align 4
-  %add = add i32 %mul, %12
+  %11 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i32, ptr %tagNum, align 4
+  %14 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %15 = load i32, ptr %14, align 8
+  %mul = mul i32 %13, %15
+  %16 = load i32, ptr %convNum, align 4
+  %add = add i32 %mul, %16
   %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
-  %13 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %13 to i32
+  %arrayidx = getelementptr inbounds i16, ptr %12, i64 %idxprom
+  %17 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %17 to i32
   store i32 %conv, ptr %listOffset, align 4
-  %14 = load i32, ptr %listOffset, align 4
-  %tobool = icmp ne i32 %14, 0
+  %18 = load i32, ptr %listOffset, align 4
+  %tobool = icmp ne i32 %18, 0
   br i1 %tobool, label %land.lhs.true5, label %if.end9
 
 land.lhs.true5:                                   ; preds = %if.then4
-  %15 = load ptr, ptr %alias.addr, align 8
-  %16 = load i32, ptr %listOffset, align 4
-  %call6 = call noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %15, i32 noundef %16)
+  %19 = load ptr, ptr %alias.addr, align 8
+  %20 = load i32, ptr %listOffset, align 4
+  %call6 = call noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %19, i32 noundef %20)
   %tobool7 = icmp ne i8 %call6, 0
   br i1 %tobool7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %land.lhs.true5
-  %17 = load i32, ptr %convNum, align 4
-  store i32 %17, ptr %retval, align 4
+  %21 = load i32, ptr %convNum, align 4
+  store i32 %21, ptr %retval, align 4
   br label %return
 
 if.end9:                                          ; preds = %land.lhs.true5, %if.then4
-  %18 = load i32, ptr %myErr, align 4
-  %cmp10 = icmp eq i32 %18, -122
+  %22 = load i32, ptr %myErr, align 4
+  %cmp10 = icmp eq i32 %22, -122
   br i1 %cmp10, label %if.then11, label %if.end26
 
 if.then11:                                        ; preds = %if.end9
-  %19 = load i32, ptr %tagNum, align 4
-  %20 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %mul12 = mul i32 %19, %20
+  %23 = load i32, ptr %tagNum, align 4
+  %24 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %25 = load i32, ptr %24, align 8
+  %mul12 = mul i32 %23, %25
   store i32 %mul12, ptr %convStart, align 4
-  %21 = load i32, ptr %tagNum, align 4
-  %add13 = add i32 %21, 1
-  %22 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %mul14 = mul i32 %add13, %22
+  %26 = load i32, ptr %tagNum, align 4
+  %add13 = add i32 %26, 1
+  %27 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %28 = load i32, ptr %27, align 8
+  %mul14 = mul i32 %add13, %28
   store i32 %mul14, ptr %convLimit, align 4
-  %23 = load i32, ptr %convStart, align 4
-  store i32 %23, ptr %idx, align 4
+  %29 = load i32, ptr %convStart, align 4
+  store i32 %29, ptr %idx, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then11
-  %24 = load i32, ptr %idx, align 4
-  %25 = load i32, ptr %convLimit, align 4
-  %cmp15 = icmp ult i32 %24, %25
+  %30 = load i32, ptr %idx, align 4
+  %31 = load i32, ptr %convLimit, align 4
+  %cmp15 = icmp ult i32 %30, %31
   br i1 %cmp15, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %26 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8
-  %27 = load i32, ptr %idx, align 4
-  %idxprom16 = zext i32 %27 to i64
-  %arrayidx17 = getelementptr inbounds i16, ptr %26, i64 %idxprom16
-  %28 = load i16, ptr %arrayidx17, align 2
-  %conv18 = zext i16 %28 to i32
+  %32 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i32, ptr %idx, align 4
+  %idxprom16 = zext i32 %34 to i64
+  %arrayidx17 = getelementptr inbounds i16, ptr %33, i64 %idxprom16
+  %35 = load i16, ptr %arrayidx17, align 2
+  %conv18 = zext i16 %35 to i32
   store i32 %conv18, ptr %listOffset, align 4
-  %29 = load i32, ptr %listOffset, align 4
-  %tobool19 = icmp ne i32 %29, 0
+  %36 = load i32, ptr %listOffset, align 4
+  %tobool19 = icmp ne i32 %36, 0
   br i1 %tobool19, label %land.lhs.true20, label %if.end25
 
 land.lhs.true20:                                  ; preds = %for.body
-  %30 = load ptr, ptr %alias.addr, align 8
-  %31 = load i32, ptr %listOffset, align 4
-  %call21 = call noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %30, i32 noundef %31)
+  %37 = load ptr, ptr %alias.addr, align 8
+  %38 = load i32, ptr %listOffset, align 4
+  %call21 = call noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %37, i32 noundef %38)
   %tobool22 = icmp ne i8 %call21, 0
   br i1 %tobool22, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %land.lhs.true20
-  %32 = load i32, ptr %idx, align 4
-  %33 = load i32, ptr %convStart, align 4
-  %sub24 = sub i32 %32, %33
+  %39 = load i32, ptr %idx, align 4
+  %40 = load i32, ptr %convStart, align 4
+  %sub24 = sub i32 %39, %40
   store i32 %sub24, ptr %retval, align 4
   br label %return
 
@@ -1921,8 +1981,8 @@ if.end25:                                         ; preds = %land.lhs.true20, %f
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end25
-  %34 = load i32, ptr %idx, align 4
-  %inc = add i32 %34, 1
+  %41 = load i32, ptr %idx, align 4
+  %inc = add i32 %41, 1
   store i32 %inc, ptr %idx, align 4
   br label %for.cond, !llvm.loop !14
 
@@ -1937,8 +1997,8 @@ if.end27:                                         ; preds = %if.end26, %land.lhs
   br label %return
 
 return:                                           ; preds = %if.end27, %if.then23, %if.then8
-  %35 = load i32, ptr %retval, align 4
-  ret i32 %35
+  %42 = load i32, ptr %retval, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2022,8 +2082,9 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %conv = trunc i32 %1 to i16
+  %1 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %2 = load i32, ptr %1, align 8
+  %conv = trunc i32 %2 to i16
   store i16 %conv, ptr %retval, align 2
   br label %return
 
@@ -2032,8 +2093,8 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %2 = load i16, ptr %retval, align 2
-  ret i16 %2
+  %3 = load i16, ptr %retval, align 2
+  ret i16 %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3059,169 +3120,198 @@ if.end4:                                          ; preds = %if.end
   %11 = load ptr, ptr %sectionSizes, align 8
   %arrayidx5 = getelementptr inbounds i32, ptr %11, i64 1
   %12 = load i32, ptr %arrayidx5, align 4
-  store i32 %12, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %13 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %13, i64 2
-  %14 = load i32, ptr %arrayidx6, align 4
-  store i32 %14, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4
-  %15 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx7 = getelementptr inbounds i32, ptr %15, i64 3
-  %16 = load i32, ptr %arrayidx7, align 4
-  store i32 %16, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 11), align 8
+  %13 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  store i32 %12, ptr %13, align 8
+  %14 = load ptr, ptr %sectionSizes, align 8
+  %arrayidx6 = getelementptr inbounds i32, ptr %14, i64 2
+  %15 = load i32, ptr %arrayidx6, align 4
+  %16 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
+  store i32 %15, ptr %16, align 4
   %17 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx8 = getelementptr inbounds i32, ptr %17, i64 4
-  %18 = load i32, ptr %arrayidx8, align 4
-  store i32 %18, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 12), align 4
-  %19 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx9 = getelementptr inbounds i32, ptr %19, i64 5
-  %20 = load i32, ptr %arrayidx9, align 4
-  store i32 %20, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 13), align 8
-  %21 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx10 = getelementptr inbounds i32, ptr %21, i64 6
-  %22 = load i32, ptr %arrayidx10, align 4
-  store i32 %22, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14), align 4
+  %arrayidx7 = getelementptr inbounds i32, ptr %17, i64 3
+  %18 = load i32, ptr %arrayidx7, align 4
+  %19 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 11
+  store i32 %18, ptr %19, align 8
+  %20 = load ptr, ptr %sectionSizes, align 8
+  %arrayidx8 = getelementptr inbounds i32, ptr %20, i64 4
+  %21 = load i32, ptr %arrayidx8, align 4
+  %22 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 12
+  store i32 %21, ptr %22, align 4
   %23 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx11 = getelementptr inbounds i32, ptr %23, i64 7
-  %24 = load i32, ptr %arrayidx11, align 4
-  store i32 %24, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 15), align 8
-  %25 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx12 = getelementptr inbounds i32, ptr %25, i64 8
-  %26 = load i32, ptr %arrayidx12, align 4
-  store i32 %26, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 16), align 4
-  %27 = load i32, ptr %tableStart, align 4
-  %cmp13 = icmp ugt i32 %27, 8
+  %arrayidx9 = getelementptr inbounds i32, ptr %23, i64 5
+  %24 = load i32, ptr %arrayidx9, align 4
+  %25 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 13
+  store i32 %24, ptr %25, align 8
+  %26 = load ptr, ptr %sectionSizes, align 8
+  %arrayidx10 = getelementptr inbounds i32, ptr %26, i64 6
+  %27 = load i32, ptr %arrayidx10, align 4
+  %28 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14
+  store i32 %27, ptr %28, align 4
+  %29 = load ptr, ptr %sectionSizes, align 8
+  %arrayidx11 = getelementptr inbounds i32, ptr %29, i64 7
+  %30 = load i32, ptr %arrayidx11, align 4
+  %31 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 15
+  store i32 %30, ptr %31, align 8
+  %32 = load ptr, ptr %sectionSizes, align 8
+  %arrayidx12 = getelementptr inbounds i32, ptr %32, i64 8
+  %33 = load i32, ptr %arrayidx12, align 4
+  %34 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 16
+  store i32 %33, ptr %34, align 4
+  %35 = load i32, ptr %tableStart, align 4
+  %cmp13 = icmp ugt i32 %35, 8
   br i1 %cmp13, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end4
-  %28 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx15 = getelementptr inbounds i32, ptr %28, i64 9
-  %29 = load i32, ptr %arrayidx15, align 4
-  store i32 %29, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 17), align 8
+  %36 = load ptr, ptr %sectionSizes, align 8
+  %arrayidx15 = getelementptr inbounds i32, ptr %36, i64 9
+  %37 = load i32, ptr %arrayidx15, align 4
+  %38 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 17
+  store i32 %37, ptr %38, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %if.end4
-  %30 = load i32, ptr %tableStart, align 4
-  %conv = zext i32 %30 to i64
+  %39 = load i32, ptr %tableStart, align 4
+  %conv = zext i32 %39 to i64
   %mul = mul i64 %conv, 2
   %add = add i64 %mul, 2
   %conv17 = trunc i64 %add to i32
   store i32 %conv17, ptr %currOffset, align 4
-  %31 = load ptr, ptr %table, align 8
-  %32 = load i32, ptr %currOffset, align 4
-  %idx.ext = zext i32 %32 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %31, i64 %idx.ext
+  %40 = load ptr, ptr %table, align 8
+  %41 = load i32, ptr %currOffset, align 4
+  %idx.ext = zext i32 %41 to i64
+  %add.ptr = getelementptr inbounds i16, ptr %40, i64 %idx.ext
   store ptr %add.ptr, ptr @_ZL10gMainTable, align 8
-  %33 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %34 = load i32, ptr %currOffset, align 4
-  %add18 = add i32 %34, %33
-  store i32 %add18, ptr %currOffset, align 4
-  %35 = load ptr, ptr %table, align 8
-  %36 = load i32, ptr %currOffset, align 4
-  %idx.ext19 = zext i32 %36 to i64
-  %add.ptr20 = getelementptr inbounds i16, ptr %35, i64 %idx.ext19
-  store ptr %add.ptr20, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1), align 8
-  %37 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4
-  %38 = load i32, ptr %currOffset, align 4
-  %add21 = add i32 %38, %37
-  store i32 %add21, ptr %currOffset, align 4
-  %39 = load ptr, ptr %table, align 8
-  %40 = load i32, ptr %currOffset, align 4
-  %idx.ext22 = zext i32 %40 to i64
-  %add.ptr23 = getelementptr inbounds i16, ptr %39, i64 %idx.ext22
-  store ptr %add.ptr23, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 2), align 8
-  %41 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 11), align 8
-  %42 = load i32, ptr %currOffset, align 4
-  %add24 = add i32 %42, %41
-  store i32 %add24, ptr %currOffset, align 4
-  %43 = load ptr, ptr %table, align 8
+  %42 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %43 = load i32, ptr %42, align 8
   %44 = load i32, ptr %currOffset, align 4
-  %idx.ext25 = zext i32 %44 to i64
-  %add.ptr26 = getelementptr inbounds i16, ptr %43, i64 %idx.ext25
-  store ptr %add.ptr26, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3), align 8
-  %45 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 12), align 4
+  %add18 = add i32 %44, %43
+  store i32 %add18, ptr %currOffset, align 4
+  %45 = load ptr, ptr %table, align 8
   %46 = load i32, ptr %currOffset, align 4
-  %add27 = add i32 %46, %45
-  store i32 %add27, ptr %currOffset, align 4
-  %47 = load ptr, ptr %table, align 8
-  %48 = load i32, ptr %currOffset, align 4
-  %idx.ext28 = zext i32 %48 to i64
-  %add.ptr29 = getelementptr inbounds i16, ptr %47, i64 %idx.ext28
-  store ptr %add.ptr29, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8
-  %49 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 13), align 8
+  %idx.ext19 = zext i32 %46 to i64
+  %add.ptr20 = getelementptr inbounds i16, ptr %45, i64 %idx.ext19
+  %47 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1
+  store ptr %add.ptr20, ptr %47, align 8
+  %48 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
+  %49 = load i32, ptr %48, align 4
   %50 = load i32, ptr %currOffset, align 4
-  %add30 = add i32 %50, %49
-  store i32 %add30, ptr %currOffset, align 4
+  %add21 = add i32 %50, %49
+  store i32 %add21, ptr %currOffset, align 4
   %51 = load ptr, ptr %table, align 8
   %52 = load i32, ptr %currOffset, align 4
-  %idx.ext31 = zext i32 %52 to i64
-  %add.ptr32 = getelementptr inbounds i16, ptr %51, i64 %idx.ext31
-  store ptr %add.ptr32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %53 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14), align 4
-  %54 = load i32, ptr %currOffset, align 4
-  %add33 = add i32 %54, %53
+  %idx.ext22 = zext i32 %52 to i64
+  %add.ptr23 = getelementptr inbounds i16, ptr %51, i64 %idx.ext22
+  %53 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 2
+  store ptr %add.ptr23, ptr %53, align 8
+  %54 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 11
+  %55 = load i32, ptr %54, align 8
+  %56 = load i32, ptr %currOffset, align 4
+  %add24 = add i32 %56, %55
+  store i32 %add24, ptr %currOffset, align 4
+  %57 = load ptr, ptr %table, align 8
+  %58 = load i32, ptr %currOffset, align 4
+  %idx.ext25 = zext i32 %58 to i64
+  %add.ptr26 = getelementptr inbounds i16, ptr %57, i64 %idx.ext25
+  %59 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3
+  store ptr %add.ptr26, ptr %59, align 8
+  %60 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 12
+  %61 = load i32, ptr %60, align 4
+  %62 = load i32, ptr %currOffset, align 4
+  %add27 = add i32 %62, %61
+  store i32 %add27, ptr %currOffset, align 4
+  %63 = load ptr, ptr %table, align 8
+  %64 = load i32, ptr %currOffset, align 4
+  %idx.ext28 = zext i32 %64 to i64
+  %add.ptr29 = getelementptr inbounds i16, ptr %63, i64 %idx.ext28
+  %65 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
+  store ptr %add.ptr29, ptr %65, align 8
+  %66 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 13
+  %67 = load i32, ptr %66, align 8
+  %68 = load i32, ptr %currOffset, align 4
+  %add30 = add i32 %68, %67
+  store i32 %add30, ptr %currOffset, align 4
+  %69 = load ptr, ptr %table, align 8
+  %70 = load i32, ptr %currOffset, align 4
+  %idx.ext31 = zext i32 %70 to i64
+  %add.ptr32 = getelementptr inbounds i16, ptr %69, i64 %idx.ext31
+  %71 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  store ptr %add.ptr32, ptr %71, align 8
+  %72 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14
+  %73 = load i32, ptr %72, align 4
+  %74 = load i32, ptr %currOffset, align 4
+  %add33 = add i32 %74, %73
   store i32 %add33, ptr %currOffset, align 4
-  %55 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 15), align 8
-  %cmp34 = icmp ugt i32 %55, 0
+  %75 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 15
+  %76 = load i32, ptr %75, align 8
+  %cmp34 = icmp ugt i32 %76, 0
   br i1 %cmp34, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end16
-  %56 = load ptr, ptr %table, align 8
-  %57 = load i32, ptr %currOffset, align 4
-  %idx.ext35 = zext i32 %57 to i64
-  %add.ptr36 = getelementptr inbounds i16, ptr %56, i64 %idx.ext35
+  %77 = load ptr, ptr %table, align 8
+  %78 = load i32, ptr %currOffset, align 4
+  %idx.ext35 = zext i32 %78 to i64
+  %add.ptr36 = getelementptr inbounds i16, ptr %77, i64 %idx.ext35
   %stringNormalizationType = getelementptr inbounds %struct.UConverterAliasOptions, ptr %add.ptr36, i32 0, i32 0
-  %58 = load i16, ptr %stringNormalizationType, align 2
-  %conv37 = zext i16 %58 to i32
+  %79 = load i16, ptr %stringNormalizationType, align 2
+  %conv37 = zext i16 %79 to i32
   %cmp38 = icmp slt i32 %conv37, 2
   br i1 %cmp38, label %if.then39, label %if.else
 
 if.then39:                                        ; preds = %land.lhs.true
-  %59 = load ptr, ptr %table, align 8
-  %60 = load i32, ptr %currOffset, align 4
-  %idx.ext40 = zext i32 %60 to i64
-  %add.ptr41 = getelementptr inbounds i16, ptr %59, i64 %idx.ext40
-  store ptr %add.ptr41, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6), align 8
+  %80 = load ptr, ptr %table, align 8
+  %81 = load i32, ptr %currOffset, align 4
+  %idx.ext40 = zext i32 %81 to i64
+  %add.ptr41 = getelementptr inbounds i16, ptr %80, i64 %idx.ext40
+  %82 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6
+  store ptr %add.ptr41, ptr %82, align 8
   br label %if.end42
 
 if.else:                                          ; preds = %land.lhs.true, %if.end16
-  store ptr @_ZL19defaultTableOptions, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6), align 8
+  %83 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6
+  store ptr @_ZL19defaultTableOptions, ptr %83, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.else, %if.then39
-  %61 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 15), align 8
-  %62 = load i32, ptr %currOffset, align 4
-  %add43 = add i32 %62, %61
+  %84 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 15
+  %85 = load i32, ptr %84, align 8
+  %86 = load i32, ptr %currOffset, align 4
+  %add43 = add i32 %86, %85
   store i32 %add43, ptr %currOffset, align 4
-  %63 = load ptr, ptr %table, align 8
-  %64 = load i32, ptr %currOffset, align 4
-  %idx.ext44 = zext i32 %64 to i64
-  %add.ptr45 = getelementptr inbounds i16, ptr %63, i64 %idx.ext44
-  store ptr %add.ptr45, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
-  %65 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 16), align 4
-  %66 = load i32, ptr %currOffset, align 4
-  %add46 = add i32 %66, %65
+  %87 = load ptr, ptr %table, align 8
+  %88 = load i32, ptr %currOffset, align 4
+  %idx.ext44 = zext i32 %88 to i64
+  %add.ptr45 = getelementptr inbounds i16, ptr %87, i64 %idx.ext44
+  %89 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  store ptr %add.ptr45, ptr %89, align 8
+  %90 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 16
+  %91 = load i32, ptr %90, align 4
+  %92 = load i32, ptr %currOffset, align 4
+  %add46 = add i32 %92, %91
   store i32 %add46, ptr %currOffset, align 4
-  %67 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6), align 8
-  %stringNormalizationType47 = getelementptr inbounds %struct.UConverterAliasOptions, ptr %67, i32 0, i32 0
-  %68 = load i16, ptr %stringNormalizationType47, align 2
-  %conv48 = zext i16 %68 to i32
+  %93 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6
+  %94 = load ptr, ptr %93, align 8
+  %stringNormalizationType47 = getelementptr inbounds %struct.UConverterAliasOptions, ptr %94, i32 0, i32 0
+  %95 = load i16, ptr %stringNormalizationType47, align 2
+  %conv48 = zext i16 %95 to i32
   %cmp49 = icmp eq i32 %conv48, 0
   br i1 %cmp49, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end42
-  %69 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
+  %96 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  %97 = load ptr, ptr %96, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end42
-  %70 = load ptr, ptr %table, align 8
-  %71 = load i32, ptr %currOffset, align 4
-  %idx.ext50 = zext i32 %71 to i64
-  %add.ptr51 = getelementptr inbounds i16, ptr %70, i64 %idx.ext50
+  %98 = load ptr, ptr %table, align 8
+  %99 = load i32, ptr %currOffset, align 4
+  %idx.ext50 = zext i32 %99 to i64
+  %add.ptr51 = getelementptr inbounds i16, ptr %98, i64 %idx.ext50
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %69, %cond.true ], [ %add.ptr51, %cond.false ]
-  store ptr %cond, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 8), align 8
+  %cond = phi ptr [ %97, %cond.true ], [ %add.ptr51, %cond.false ]
+  %100 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 8
+  store ptr %cond, ptr %100, align 8
   br label %return
 
 return:                                           ; preds = %cond.end, %if.then3, %if.then
@@ -3496,8 +3586,9 @@ entry:
   %tagname.addr = alloca ptr, align 8
   %tagNum = alloca i32, align 4
   store ptr %tagname, ptr %tagname.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1), align 8
-  %tobool = icmp ne ptr %0, null
+  %0 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
@@ -3505,37 +3596,40 @@ if.then:                                          ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then
-  %1 = load i32, ptr %tagNum, align 4
-  %2 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4
-  %cmp = icmp ult i32 %1, %2
+  %2 = load i32, ptr %tagNum, align 4
+  %3 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
+  %4 = load i32, ptr %3, align 4
+  %cmp = icmp ult i32 %2, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1), align 8
-  %5 = load i32, ptr %tagNum, align 4
-  %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
-  %6 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %6 to i32
+  %5 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i32, ptr %tagNum, align 4
+  %idxprom = zext i32 %9 to i64
+  %arrayidx = getelementptr inbounds i16, ptr %8, i64 %idxprom
+  %10 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %10 to i32
   %idx.ext = sext i32 %conv to i64
-  %add.ptr = getelementptr inbounds i16, ptr %3, i64 %idx.ext
-  %7 = load ptr, ptr %tagname.addr, align 8
-  %call = call i32 @uprv_stricmp_75(ptr noundef %add.ptr, ptr noundef %7)
+  %add.ptr = getelementptr inbounds i16, ptr %6, i64 %idx.ext
+  %11 = load ptr, ptr %tagname.addr, align 8
+  %call = call i32 @uprv_stricmp_75(ptr noundef %add.ptr, ptr noundef %11)
   %tobool1 = icmp ne i32 %call, 0
   br i1 %tobool1, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %for.body
-  %8 = load i32, ptr %tagNum, align 4
-  store i32 %8, ptr %retval, align 4
+  %12 = load i32, ptr %tagNum, align 4
+  store i32 %12, ptr %retval, align 4
   br label %return
 
 if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %9 = load i32, ptr %tagNum, align 4
-  %inc = add i32 %9, 1
+  %13 = load i32, ptr %tagNum, align 4
+  %inc = add i32 %13, 1
   store i32 %inc, ptr %tagNum, align 4
   br label %for.cond, !llvm.loop !21
 
@@ -3547,8 +3641,8 @@ if.end3:                                          ; preds = %for.end, %entry
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+  %14 = load i32, ptr %retval, align 4
+  ret i32 %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3567,49 +3661,52 @@ entry:
   br i1 %tobool, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %2 = load i32, ptr %listOffset.addr, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %1, i64 %idxprom
-  %3 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %3 to i32
+  %1 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %2 = load ptr, ptr %1, align 8
+  %3 = load i32, ptr %listOffset.addr, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
+  %4 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %4 to i32
   store i32 %conv, ptr %listCount, align 4
-  %4 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %5 = load i32, ptr %listOffset.addr, align 4
-  %idx.ext = zext i32 %5 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %4, i64 %idx.ext
+  %5 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %listOffset.addr, align 4
+  %idx.ext = zext i32 %7 to i64
+  %add.ptr = getelementptr inbounds i16, ptr %6, i64 %idx.ext
   %add.ptr1 = getelementptr inbounds i16, ptr %add.ptr, i64 1
   store ptr %add.ptr1, ptr %currList, align 8
   store i32 0, ptr %currAlias, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then
-  %6 = load i32, ptr %currAlias, align 4
-  %7 = load i32, ptr %listCount, align 4
-  %cmp = icmp ult i32 %6, %7
+  %8 = load i32, ptr %currAlias, align 4
+  %9 = load i32, ptr %listCount, align 4
+  %cmp = icmp ult i32 %8, %9
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %8 = load ptr, ptr %currList, align 8
-  %9 = load i32, ptr %currAlias, align 4
-  %idxprom2 = zext i32 %9 to i64
-  %arrayidx3 = getelementptr inbounds i16, ptr %8, i64 %idxprom2
-  %10 = load i16, ptr %arrayidx3, align 2
-  %tobool4 = icmp ne i16 %10, 0
+  %10 = load ptr, ptr %currList, align 8
+  %11 = load i32, ptr %currAlias, align 4
+  %idxprom2 = zext i32 %11 to i64
+  %arrayidx3 = getelementptr inbounds i16, ptr %10, i64 %idxprom2
+  %12 = load i16, ptr %arrayidx3, align 2
+  %tobool4 = icmp ne i16 %12, 0
   br i1 %tobool4, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %for.body
-  %11 = load ptr, ptr %alias.addr, align 8
-  %12 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
-  %13 = load ptr, ptr %currList, align 8
-  %14 = load i32, ptr %currAlias, align 4
-  %idxprom5 = zext i32 %14 to i64
-  %arrayidx6 = getelementptr inbounds i16, ptr %13, i64 %idxprom5
-  %15 = load i16, ptr %arrayidx6, align 2
-  %conv7 = zext i16 %15 to i32
+  %13 = load ptr, ptr %alias.addr, align 8
+  %14 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %currList, align 8
+  %17 = load i32, ptr %currAlias, align 4
+  %idxprom5 = zext i32 %17 to i64
+  %arrayidx6 = getelementptr inbounds i16, ptr %16, i64 %idxprom5
+  %18 = load i16, ptr %arrayidx6, align 2
+  %conv7 = zext i16 %18 to i32
   %idx.ext8 = sext i32 %conv7 to i64
-  %add.ptr9 = getelementptr inbounds i16, ptr %12, i64 %idx.ext8
-  %call = call i32 @ucnv_compareNames_75(ptr noundef %11, ptr noundef %add.ptr9)
+  %add.ptr9 = getelementptr inbounds i16, ptr %15, i64 %idx.ext8
+  %call = call i32 @ucnv_compareNames_75(ptr noundef %13, ptr noundef %add.ptr9)
   %cmp10 = icmp eq i32 %call, 0
   br i1 %cmp10, label %if.then11, label %if.end
 
@@ -3621,8 +3718,8 @@ if.end:                                           ; preds = %land.lhs.true, %for
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %16 = load i32, ptr %currAlias, align 4
-  %inc = add i32 %16, 1
+  %19 = load i32, ptr %currAlias, align 4
+  %inc = add i32 %19, 1
   store i32 %inc, ptr %currAlias, align 4
   br label %for.cond, !llvm.loop !22
 
@@ -3634,8 +3731,8 @@ if.end12:                                         ; preds = %for.end, %entry
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then11
-  %17 = load i8, ptr %retval, align 1
-  ret i8 %17
+  %20 = load i8, ptr %retval, align 1
+  ret i8 %20
 }
 
 declare i32 @uprv_stricmp_75(ptr noundef, ptr noundef) #4
@@ -3678,18 +3775,19 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %7 = load i32, ptr %listOffset, align 4
-  %idxprom = zext i32 %7 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %6, i64 %idxprom
-  %8 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %8 to i32
+  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %7 = load ptr, ptr %6, align 8
+  %8 = load i32, ptr %listOffset, align 4
+  %idxprom = zext i32 %8 to i64
+  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %idxprom
+  %9 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %9 to i32
   store i32 %conv, ptr %value, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %9 = load i32, ptr %value, align 4
-  ret i32 %9
+  %10 = load i32, ptr %value, align 4
+  ret i32 %10
 }
 
 declare ptr @uenum_unextDefault_75(ptr noundef, ptr noundef, ptr noundef) #4
@@ -3722,69 +3820,72 @@ entry:
   br i1 %tobool, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %7 = load i32, ptr %listOffset, align 4
-  %idxprom = zext i32 %7 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %6, i64 %idxprom
-  %8 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %8 to i32
+  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %7 = load ptr, ptr %6, align 8
+  %8 = load i32, ptr %listOffset, align 4
+  %idxprom = zext i32 %8 to i64
+  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %idxprom
+  %9 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %9 to i32
   store i32 %conv, ptr %listCount, align 4
-  %9 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8
-  %10 = load i32, ptr %listOffset, align 4
-  %idx.ext = zext i32 %10 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %9, i64 %idx.ext
+  %10 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i32, ptr %listOffset, align 4
+  %idx.ext = zext i32 %12 to i64
+  %add.ptr = getelementptr inbounds i16, ptr %11, i64 %idx.ext
   %add.ptr2 = getelementptr inbounds i16, ptr %add.ptr, i64 1
   store ptr %add.ptr2, ptr %currList, align 8
-  %11 = load ptr, ptr %myContext, align 8
-  %listIdx = getelementptr inbounds %struct.UAliasContext, ptr %11, i32 0, i32 1
-  %12 = load i32, ptr %listIdx, align 4
-  %13 = load i32, ptr %listCount, align 4
-  %cmp = icmp ult i32 %12, %13
+  %13 = load ptr, ptr %myContext, align 8
+  %listIdx = getelementptr inbounds %struct.UAliasContext, ptr %13, i32 0, i32 1
+  %14 = load i32, ptr %listIdx, align 4
+  %15 = load i32, ptr %listCount, align 4
+  %cmp = icmp ult i32 %14, %15
   br i1 %cmp, label %if.then3, label %if.end13
 
 if.then3:                                         ; preds = %if.then
-  %14 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
-  %15 = load ptr, ptr %currList, align 8
-  %16 = load ptr, ptr %myContext, align 8
-  %listIdx4 = getelementptr inbounds %struct.UAliasContext, ptr %16, i32 0, i32 1
-  %17 = load i32, ptr %listIdx4, align 4
-  %inc = add i32 %17, 1
+  %16 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %currList, align 8
+  %19 = load ptr, ptr %myContext, align 8
+  %listIdx4 = getelementptr inbounds %struct.UAliasContext, ptr %19, i32 0, i32 1
+  %20 = load i32, ptr %listIdx4, align 4
+  %inc = add i32 %20, 1
   store i32 %inc, ptr %listIdx4, align 4
-  %idxprom5 = zext i32 %17 to i64
-  %arrayidx6 = getelementptr inbounds i16, ptr %15, i64 %idxprom5
-  %18 = load i16, ptr %arrayidx6, align 2
-  %conv7 = zext i16 %18 to i32
+  %idxprom5 = zext i32 %20 to i64
+  %arrayidx6 = getelementptr inbounds i16, ptr %18, i64 %idxprom5
+  %21 = load i16, ptr %arrayidx6, align 2
+  %conv7 = zext i16 %21 to i32
   %idx.ext8 = sext i32 %conv7 to i64
-  %add.ptr9 = getelementptr inbounds i16, ptr %14, i64 %idx.ext8
+  %add.ptr9 = getelementptr inbounds i16, ptr %17, i64 %idx.ext8
   store ptr %add.ptr9, ptr %myStr, align 8
-  %19 = load ptr, ptr %resultLength.addr, align 8
-  %tobool10 = icmp ne ptr %19, null
+  %22 = load ptr, ptr %resultLength.addr, align 8
+  %tobool10 = icmp ne ptr %22, null
   br i1 %tobool10, label %if.then11, label %if.end
 
 if.then11:                                        ; preds = %if.then3
-  %20 = load ptr, ptr %myStr, align 8
-  %call = call i64 @strlen(ptr noundef %20) #8
+  %23 = load ptr, ptr %myStr, align 8
+  %call = call i64 @strlen(ptr noundef %23) #8
   %conv12 = trunc i64 %call to i32
-  %21 = load ptr, ptr %resultLength.addr, align 8
-  store i32 %conv12, ptr %21, align 4
+  %24 = load ptr, ptr %resultLength.addr, align 8
+  store i32 %conv12, ptr %24, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then11, %if.then3
-  %22 = load ptr, ptr %myStr, align 8
-  store ptr %22, ptr %retval, align 8
+  %25 = load ptr, ptr %myStr, align 8
+  store ptr %25, ptr %retval, align 8
   br label %return
 
 if.end13:                                         ; preds = %if.then
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end13, %entry
-  %23 = load ptr, ptr %resultLength.addr, align 8
-  %tobool15 = icmp ne ptr %23, null
+  %26 = load ptr, ptr %resultLength.addr, align 8
+  %tobool15 = icmp ne ptr %26, null
   br i1 %tobool15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end14
-  %24 = load ptr, ptr %resultLength.addr, align 8
-  store i32 0, ptr %24, align 4
+  %27 = load ptr, ptr %resultLength.addr, align 8
+  store i32 0, ptr %27, align 4
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %if.end14
@@ -3792,8 +3893,8 @@ if.end17:                                         ; preds = %if.then16, %if.end1
   br label %return
 
 return:                                           ; preds = %if.end17, %if.end
-  %25 = load ptr, ptr %retval, align 8
-  ret ptr %25
+  %28 = load ptr, ptr %retval, align 8
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3818,8 +3919,9 @@ entry:
   %.addr1 = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
   store ptr %1, ptr %.addr1, align 8
-  %2 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  ret i32 %2
+  %2 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %3 = load i32, ptr %2, align 8
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3841,49 +3943,51 @@ entry:
   %3 = load ptr, ptr %myContext, align 8
   %4 = load i16, ptr %3, align 2
   %conv = zext i16 %4 to i32
-  %5 = load i32, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8
-  %cmp = icmp ult i32 %conv, %5
+  %5 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
+  %6 = load i32, ptr %5, align 8
+  %cmp = icmp ult i32 %conv, %6
   br i1 %cmp, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr getelementptr inbounds (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8
-  %7 = load ptr, ptr @_ZL10gMainTable, align 8
-  %8 = load ptr, ptr %myContext, align 8
-  %9 = load i16, ptr %8, align 2
-  %inc = add i16 %9, 1
-  store i16 %inc, ptr %8, align 2
-  %idxprom = zext i16 %9 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %idxprom
-  %10 = load i16, ptr %arrayidx, align 2
-  %conv1 = zext i16 %10 to i32
+  %7 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr @_ZL10gMainTable, align 8
+  %10 = load ptr, ptr %myContext, align 8
+  %11 = load i16, ptr %10, align 2
+  %inc = add i16 %11, 1
+  store i16 %inc, ptr %10, align 2
+  %idxprom = zext i16 %11 to i64
+  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
+  %12 = load i16, ptr %arrayidx, align 2
+  %conv1 = zext i16 %12 to i32
   %idx.ext = sext i32 %conv1 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %6, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %8, i64 %idx.ext
   store ptr %add.ptr, ptr %myStr, align 8
-  %11 = load ptr, ptr %resultLength.addr, align 8
-  %tobool = icmp ne ptr %11, null
+  %13 = load ptr, ptr %resultLength.addr, align 8
+  %tobool = icmp ne ptr %13, null
   br i1 %tobool, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
-  %12 = load ptr, ptr %myStr, align 8
-  %call = call i64 @strlen(ptr noundef %12) #8
+  %14 = load ptr, ptr %myStr, align 8
+  %call = call i64 @strlen(ptr noundef %14) #8
   %conv3 = trunc i64 %call to i32
-  %13 = load ptr, ptr %resultLength.addr, align 8
-  store i32 %conv3, ptr %13, align 4
+  %15 = load ptr, ptr %resultLength.addr, align 8
+  store i32 %conv3, ptr %15, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
-  %14 = load ptr, ptr %myStr, align 8
-  store ptr %14, ptr %retval, align 8
+  %16 = load ptr, ptr %myStr, align 8
+  store ptr %16, ptr %retval, align 8
   br label %return
 
 if.end4:                                          ; preds = %entry
-  %15 = load ptr, ptr %resultLength.addr, align 8
-  %tobool5 = icmp ne ptr %15, null
+  %17 = load ptr, ptr %resultLength.addr, align 8
+  %tobool5 = icmp ne ptr %17, null
   br i1 %tobool5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
-  %16 = load ptr, ptr %resultLength.addr, align 8
-  store i32 0, ptr %16, align 4
+  %18 = load ptr, ptr %resultLength.addr, align 8
+  store i32 0, ptr %18, align 4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end4
@@ -3891,8 +3995,8 @@ if.end7:                                          ; preds = %if.then6, %if.end4
   br label %return
 
 return:                                           ; preds = %if.end7, %if.end
-  %17 = load ptr, ptr %retval, align 8
-  ret ptr %17
+  %19 = load ptr, ptr %retval, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

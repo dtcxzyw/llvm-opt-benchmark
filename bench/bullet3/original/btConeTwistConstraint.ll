@@ -397,7 +397,8 @@ entry:
   %0 = load ptr, ptr %rbA.addr, align 8
   %1 = load ptr, ptr %rbB.addr, align 8
   call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(744) %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV21btConeTwistConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV21btConeTwistConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_jac = getelementptr inbounds %class.btConeTwistConstraint, ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [3 x %class.btJacobianEntry], ptr %m_jac, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %class.btJacobianEntry, ptr %array.begin, i64 3
@@ -415,14 +416,14 @@ invoke.cont:                                      ; preds = %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   %m_rbAFrame = getelementptr inbounds %class.btConeTwistConstraint, ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %rbAFrame.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_rbAFrame, ptr noundef nonnull align 4 dereferenceable(64) %2)
+  %3 = load ptr, ptr %rbAFrame.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_rbAFrame, ptr noundef nonnull align 4 dereferenceable(64) %3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %arrayctor.cont
   %m_rbBFrame = getelementptr inbounds %class.btConeTwistConstraint, ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %rbBFrame.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_rbBFrame, ptr noundef nonnull align 4 dereferenceable(64) %3)
+  %4 = load ptr, ptr %rbBFrame.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_rbBFrame, ptr noundef nonnull align 4 dereferenceable(64) %4)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
@@ -462,12 +463,12 @@ invoke.cont9:                                     ; preds = %invoke.cont8
   ret void
 
 lpad:                                             ; preds = %invoke.cont8, %invoke.cont7, %invoke.cont6, %invoke.cont5, %invoke.cont4, %invoke.cont3, %invoke.cont2, %arrayctor.cont, %arrayctor.loop
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #10
   br label %eh.resume
 
@@ -589,7 +590,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %rbA.addr, align 8
   call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBody(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(744) %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV21btConeTwistConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV21btConeTwistConstraint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_jac = getelementptr inbounds %class.btConeTwistConstraint, ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [3 x %class.btJacobianEntry], ptr %m_jac, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %class.btJacobianEntry, ptr %array.begin, i64 3
@@ -607,8 +609,8 @@ invoke.cont:                                      ; preds = %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   %m_rbAFrame = getelementptr inbounds %class.btConeTwistConstraint, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %rbAFrame.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_rbAFrame, ptr noundef nonnull align 4 dereferenceable(64) %1)
+  %2 = load ptr, ptr %rbAFrame.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_rbAFrame, ptr noundef nonnull align 4 dereferenceable(64) %2)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %arrayctor.cont
@@ -671,12 +673,12 @@ invoke.cont18:                                    ; preds = %invoke.cont17
   ret void
 
 lpad:                                             ; preds = %invoke.cont17, %invoke.cont16, %invoke.cont11, %invoke.cont8, %invoke.cont7, %invoke.cont6, %invoke.cont5, %invoke.cont4, %invoke.cont3, %invoke.cont2, %arrayctor.cont, %arrayctor.loop
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #10
   br label %eh.resume
 
@@ -7777,7 +7779,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

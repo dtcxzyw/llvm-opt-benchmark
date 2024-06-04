@@ -2518,13 +2518,13 @@ define hidden void @ssl_debug_printf(ptr noundef %0, ...) #1 {
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr @ssl_debug_file, align 8
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
   %12 = call i32 @vfprintf(ptr noundef %9, ptr noundef %10, ptr noundef %11) #10
   %13 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %3, i64 0, i64 0
-  call void @llvm.va_end(ptr %13)
+  call void @llvm.va_end.p0(ptr %13)
   br label %14
 
 14:                                               ; preds = %7, %6
@@ -7360,61 +7360,62 @@ define internal i32 @ssl_cipher_decrypt(ptr noundef %0, ptr noundef %1, i32 noun
   store i32 %4, ptr %11, align 4
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, inttoptr (i64 -1 to ptr)
-  br i1 %14, label %15, label %35
+  %14 = inttoptr i64 -1 to ptr
+  %15 = icmp eq ptr %13, %14
+  br i1 %15, label %16, label %36
 
-15:                                               ; preds = %5
-  %16 = load ptr, ptr %10, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %34
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %10, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %35
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr %11, align 4
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %34
+19:                                               ; preds = %16
+  %20 = load i32, ptr %11, align 4
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %35
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %8, align 8
-  %23 = load ptr, ptr %10, align 8
-  %24 = load i32, ptr %9, align 4
-  %25 = load i32, ptr %11, align 4
-  %26 = icmp slt i32 %24, %25
-  br i1 %26, label %27, label %29
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %8, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = load i32, ptr %9, align 4
+  %26 = load i32, ptr %11, align 4
+  %27 = icmp slt i32 %25, %26
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %21
-  %28 = load i32, ptr %9, align 4
-  br label %31
+28:                                               ; preds = %22
+  %29 = load i32, ptr %9, align 4
+  br label %32
 
-29:                                               ; preds = %21
-  %30 = load i32, ptr %11, align 4
-  br label %31
+30:                                               ; preds = %22
+  %31 = load i32, ptr %11, align 4
+  br label %32
 
-31:                                               ; preds = %29, %27
-  %32 = phi i32 [ %28, %27 ], [ %30, %29 ]
-  %33 = sext i32 %32 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %23, i64 %33, i1 false)
-  br label %34
+32:                                               ; preds = %30, %28
+  %33 = phi i32 [ %29, %28 ], [ %31, %30 ]
+  %34 = sext i32 %33 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %24, i64 %34, i1 false)
+  br label %35
 
-34:                                               ; preds = %31, %18, %15
+35:                                               ; preds = %32, %19, %16
   store i32 0, ptr %6, align 4
-  br label %45
+  br label %46
 
-35:                                               ; preds = %5
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = load i32, ptr %9, align 4
-  %40 = sext i32 %39 to i64
-  %41 = load ptr, ptr %10, align 8
-  %42 = load i32, ptr %11, align 4
-  %43 = sext i32 %42 to i64
-  %44 = call i32 @gcry_cipher_decrypt(ptr noundef %37, ptr noundef %38, i64 noundef %40, ptr noundef %41, i64 noundef %43)
-  store i32 %44, ptr %6, align 4
-  br label %45
+36:                                               ; preds = %5
+  %37 = load ptr, ptr %7, align 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %8, align 8
+  %40 = load i32, ptr %9, align 4
+  %41 = sext i32 %40 to i64
+  %42 = load ptr, ptr %10, align 8
+  %43 = load i32, ptr %11, align 4
+  %44 = sext i32 %43 to i64
+  %45 = call i32 @gcry_cipher_decrypt(ptr noundef %38, ptr noundef %39, i64 noundef %41, ptr noundef %42, i64 noundef %44)
+  store i32 %45, ptr %6, align 4
+  br label %46
 
-45:                                               ; preds = %35, %34
-  %46 = load i32, ptr %6, align 4
-  ret i32 %46
+46:                                               ; preds = %36, %35
+  %47 = load i32, ptr %6, align 4
+  ret i32 %47
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11340,14 +11341,8 @@ define hidden void @ssl_debug_flush() #1 {
 
 declare i32 @fflush(ptr noundef) #0
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 ; Function Attrs: nounwind
 declare i32 @vfprintf(ptr noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: nounwind
 declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
@@ -21384,78 +21379,79 @@ define internal i32 @ssl_cipher_init(ptr noundef %0, i32 noundef %1, ptr noundef
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %12, ptr align 16 @__const.ssl_cipher_init.gcry_modes, i64 24, i1 false)
   %14 = load i32, ptr %8, align 4
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %18
+  br i1 %15, label %16, label %19
 
 16:                                               ; preds = %5
   %17 = load ptr, ptr %7, align 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %17, align 8
+  %18 = inttoptr i64 -1 to ptr
+  store ptr %18, ptr %17, align 8
   store i32 0, ptr %6, align 4
-  br label %54
+  br label %55
 
-18:                                               ; preds = %5
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %8, align 4
-  %21 = load i32, ptr %11, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr [6 x i32], ptr %12, i64 0, i64 %22
-  %24 = load i32, ptr %23, align 4
-  %25 = call i32 @gcry_cipher_open(ptr noundef %19, i32 noundef %20, i32 noundef %24, i32 noundef 0)
-  store i32 %25, ptr %13, align 4
-  %26 = load i32, ptr %13, align 4
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %29
+19:                                               ; preds = %5
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load i32, ptr %11, align 4
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr [6 x i32], ptr %12, i64 0, i64 %23
+  %25 = load i32, ptr %24, align 4
+  %26 = call i32 @gcry_cipher_open(ptr noundef %20, i32 noundef %21, i32 noundef %25, i32 noundef 0)
+  store i32 %26, ptr %13, align 4
+  %27 = load i32, ptr %13, align 4
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %18
+29:                                               ; preds = %19
   store i32 -1, ptr %6, align 4
-  br label %54
+  br label %55
 
-29:                                               ; preds = %18
-  %30 = load ptr, ptr %7, align 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %9, align 8
-  %33 = load i32, ptr %8, align 4
-  %34 = call i64 @gcry_cipher_get_algo_keylen(i32 noundef %33)
-  %35 = call i32 @gcry_cipher_setkey(ptr noundef %31, ptr noundef %32, i64 noundef %34)
-  store i32 %35, ptr %13, align 4
-  %36 = load i32, ptr %13, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %39
+30:                                               ; preds = %19
+  %31 = load ptr, ptr %7, align 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = call i64 @gcry_cipher_get_algo_keylen(i32 noundef %34)
+  %36 = call i32 @gcry_cipher_setkey(ptr noundef %32, ptr noundef %33, i64 noundef %35)
+  store i32 %36, ptr %13, align 4
+  %37 = load i32, ptr %13, align 4
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %29
+39:                                               ; preds = %30
   store i32 -1, ptr %6, align 4
-  br label %54
+  br label %55
 
-39:                                               ; preds = %29
-  %40 = load i32, ptr %11, align 4
-  %41 = icmp eq i32 %40, 1
-  br i1 %41, label %42, label %53
+40:                                               ; preds = %30
+  %41 = load i32, ptr %11, align 4
+  %42 = icmp eq i32 %41, 1
+  br i1 %42, label %43, label %54
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %7, align 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %10, align 8
-  %46 = load i32, ptr %8, align 4
-  %47 = call i64 @gcry_cipher_get_algo_blklen(i32 noundef %46)
-  %48 = call i32 @gcry_cipher_setiv(ptr noundef %44, ptr noundef %45, i64 noundef %47)
-  store i32 %48, ptr %13, align 4
-  %49 = load i32, ptr %13, align 4
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %52
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %7, align 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %10, align 8
+  %47 = load i32, ptr %8, align 4
+  %48 = call i64 @gcry_cipher_get_algo_blklen(i32 noundef %47)
+  %49 = call i32 @gcry_cipher_setiv(ptr noundef %45, ptr noundef %46, i64 noundef %48)
+  store i32 %49, ptr %13, align 4
+  %50 = load i32, ptr %13, align 4
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %42
+52:                                               ; preds = %43
   store i32 -1, ptr %6, align 4
+  br label %55
+
+53:                                               ; preds = %43
   br label %54
 
-52:                                               ; preds = %42
-  br label %53
-
-53:                                               ; preds = %52, %39
+54:                                               ; preds = %53, %40
   store i32 0, ptr %6, align 4
-  br label %54
+  br label %55
 
-54:                                               ; preds = %53, %51, %38, %28, %16
-  %55 = load i32, ptr %6, align 4
-  ret i32 %55
+55:                                               ; preds = %54, %52, %39, %29, %16
+  %56 = load i32, ptr %6, align 4
+  ret i32 %56
 }
 
 ; Function Attrs: nounwind uwtable
@@ -21493,18 +21489,19 @@ define internal void @ssl_cipher_cleanup(ptr noundef %0) #1 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp ne ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %6, label %9
+  %5 = inttoptr i64 -1 to ptr
+  %6 = icmp ne ptr %4, %5
+  br i1 %6, label %7, label %10
 
-6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = load ptr, ptr %7, align 8
-  call void @gcry_cipher_close(ptr noundef %8)
-  br label %9
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8
+  %9 = load ptr, ptr %8, align 8
+  call void @gcry_cipher_close(ptr noundef %9)
+  br label %10
 
-9:                                                ; preds = %6, %1
-  %10 = load ptr, ptr %2, align 8
-  store ptr null, ptr %10, align 8
+10:                                               ; preds = %7, %1
+  %11 = load ptr, ptr %2, align 8
+  store ptr null, ptr %11, align 8
   ret void
 }
 
@@ -27304,6 +27301,12 @@ define internal i32 @dissect_tls_ecparameters(ptr noundef %0, ptr noundef %1, pt
   %44 = load i32, ptr %6, align 4
   ret i32 %44
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

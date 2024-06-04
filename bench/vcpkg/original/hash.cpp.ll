@@ -1728,16 +1728,17 @@ define internal void @_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256Algorit
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg4Hash6HasherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher", ptr %3, i32 0, i32 1
-  call void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha256AlgorithmC2Ev(ptr noundef nonnull align 4 dereferenceable(32) %4) #16
-  %5 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher", ptr %3, i32 0, i32 2
-  %6 = getelementptr inbounds %"struct.std::array.22", ptr %5, i32 0, i32 0
-  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 64, i1 false)
-  %7 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher", ptr %3, i32 0, i32 3
-  store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher", ptr %3, i32 0, i32 1
+  call void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha256AlgorithmC2Ev(ptr noundef nonnull align 4 dereferenceable(32) %5) #16
+  %6 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher", ptr %3, i32 0, i32 2
+  %7 = getelementptr inbounds %"struct.std::array.22", ptr %6, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 64, i1 false)
+  %8 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher", ptr %3, i32 0, i32 3
   store i64 0, ptr %8, align 8
+  %9 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher", ptr %3, i32 0, i32 4
+  store i64 0, ptr %9, align 8
   ret void
 }
 
@@ -1769,7 +1770,8 @@ define linkonce_odr dso_local void @_ZN5vcpkg4Hash6HasherC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg4Hash6HasherE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5vcpkg4Hash6HasherE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3554,37 +3556,38 @@ define internal void @_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512Algorit
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg4Hash6HasherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher.26", ptr %5, i32 0, i32 1
-  call void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha512AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #16
-  %7 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher.26", ptr %5, i32 0, i32 2
-  %8 = getelementptr inbounds %"struct.std::array.27", ptr %7, i32 0, i32 0
-  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 128, i1 false)
-  %9 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher.26", ptr %5, i32 0, i32 3
-  store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher.26", ptr %5, i32 0, i32 4
-  invoke void @_ZN5vcpkg7UInt128C2Em(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef 0)
-          to label %11 unwind label %12
-
-11:                                               ; preds = %1
-  ret void
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher.26", ptr %5, i32 0, i32 1
+  call void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha512AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #16
+  %8 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher.26", ptr %5, i32 0, i32 2
+  %9 = getelementptr inbounds %"struct.std::array.27", ptr %8, i32 0, i32 0
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 128, i1 false)
+  %10 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher.26", ptr %5, i32 0, i32 3
+  store i64 0, ptr %10, align 8
+  %11 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher.26", ptr %5, i32 0, i32 4
+  invoke void @_ZN5vcpkg7UInt128C2Em(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef 0)
+          to label %12 unwind label %13
 
 12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  call void @_ZN5vcpkg4Hash6HasherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  br label %16
+  ret void
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %3, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %4, align 4
+  call void @_ZN5vcpkg4Hash6HasherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %3, align 8
+  %19 = load i32, ptr %4, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

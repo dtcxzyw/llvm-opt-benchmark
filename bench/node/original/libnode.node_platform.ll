@@ -4306,9 +4306,11 @@ entry:
   call void @_ZN2v810TaskRunnerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
   %1 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZNSt23enable_shared_from_thisIN4node22PerIsolatePlatformDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %shutdown_callbacks_ = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN4node22PerIsolatePlatformData16ShutdownCallbackESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %shutdown_callbacks_) #3
   %self_reference_ = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 4
@@ -4316,11 +4318,11 @@ entry:
   %uv_handle_count_ = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 5
   store i32 1, ptr %uv_handle_count_, align 8
   %isolate_ = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %isolate.addr, align 8
-  store ptr %2, ptr %isolate_, align 8
+  %4 = load ptr, ptr %isolate.addr, align 8
+  store ptr %4, ptr %isolate_, align 8
   %loop_ = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 7
-  %3 = load ptr, ptr %loop.addr, align 8
-  store ptr %3, ptr %loop_, align 8
+  %5 = load ptr, ptr %loop.addr, align 8
+  store ptr %5, ptr %loop_, align 8
   %flush_tasks_ = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 8
   store ptr null, ptr %flush_tasks_, align 8
   %foreground_tasks_ = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 9
@@ -4336,10 +4338,10 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %4 = load ptr, ptr %loop.addr, align 8
+  %6 = load ptr, ptr %loop.addr, align 8
   %flush_tasks_3 = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 8
-  %5 = load ptr, ptr %flush_tasks_3, align 8
-  %call4 = call i32 @uv_async_init(ptr noundef %4, ptr noundef %5, ptr noundef @_ZN4node22PerIsolatePlatformData10FlushTasksEP10uv_async_s)
+  %7 = load ptr, ptr %flush_tasks_3, align 8
+  %call4 = call i32 @uv_async_init(ptr noundef %6, ptr noundef %7, ptr noundef @_ZN4node22PerIsolatePlatformData10FlushTasksEP10uv_async_s)
   %cmp = icmp eq i32 0, %call4
   %lnot = xor i1 %cmp, true
   %lnot5 = xor i1 %lnot, true
@@ -4362,12 +4364,12 @@ if.end:                                           ; preds = %do.end, %do.body
 
 do.end8:                                          ; preds = %if.end
   %flush_tasks_9 = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 8
-  %6 = load ptr, ptr %flush_tasks_9, align 8
-  %data = getelementptr inbounds %struct.uv_async_s, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %flush_tasks_9, align 8
+  %data = getelementptr inbounds %struct.uv_async_s, ptr %8, i32 0, i32 0
   store ptr %this1, ptr %data, align 8
   %flush_tasks_10 = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 8
-  %7 = load ptr, ptr %flush_tasks_10, align 8
-  call void @uv_unref(ptr noundef %7)
+  %9 = load ptr, ptr %flush_tasks_10, align 8
+  call void @uv_unref(ptr noundef %9)
   ret void
 }
 
@@ -4377,7 +4379,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node23IsolatePlatformDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4node23IsolatePlatformDelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4387,7 +4390,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN2v810TaskRunnerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN2v810TaskRunnerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4985,15 +4989,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
   %flush_tasks_ = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %flush_tasks_, align 8
-  %tobool = icmp ne ptr %0, null
+  %2 = load ptr, ptr %flush_tasks_, align 8
+  %tobool = icmp ne ptr %2, null
   %lnot = xor i1 %tobool, true
   %lnot2 = xor i1 %lnot, true
   %lnot3 = xor i1 %lnot2, true
@@ -5031,10 +5037,10 @@ do.end7:                                          ; preds = %do.cond6
   call void @_ZNSt10shared_ptrIN4node22PerIsolatePlatformDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %self_reference_) #3
   %shutdown_callbacks_ = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN4node22PerIsolatePlatformData16ShutdownCallbackESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %shutdown_callbacks_) #3
-  %1 = getelementptr inbounds i8, ptr %this1, i64 16
-  call void @_ZNSt23enable_shared_from_thisIN4node22PerIsolatePlatformDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  %2 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN2v810TaskRunnerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
+  %3 = getelementptr inbounds i8, ptr %this1, i64 16
+  call void @_ZNSt23enable_shared_from_thisIN4node22PerIsolatePlatformDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  %4 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN2v810TaskRunnerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   ret void
 }
 
@@ -5539,7 +5545,8 @@ entry:
   store ptr %page_allocator, ptr %page_allocator.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node20MultiIsolatePlatformC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4node12NodePlatformE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [36 x ptr] }, ptr @_ZTVN4node12NodePlatformE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %per_isolate_mutex_ = getelementptr inbounds %"class.node::NodePlatform", ptr %this1, i32 0, i32 1
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %per_isolate_mutex_)
   %per_isolate_ = getelementptr inbounds %"class.node::NodePlatform", ptr %this1, i32 0, i32 2
@@ -5548,14 +5555,14 @@ entry:
   call void @_ZNSt10shared_ptrIN4node23WorkerThreadsTaskRunnerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %worker_thread_task_runner_) #3
   %has_shut_down_ = getelementptr inbounds %"class.node::NodePlatform", ptr %this1, i32 0, i32 6
   store i8 0, ptr %has_shut_down_, align 8
-  %0 = load ptr, ptr %tracing_controller.addr, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %tracing_controller.addr, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %tracing_controller.addr, align 8
+  %2 = load ptr, ptr %tracing_controller.addr, align 8
   %tracing_controller_ = getelementptr inbounds %"class.node::NodePlatform", ptr %this1, i32 0, i32 3
-  store ptr %1, ptr %tracing_controller_, align 8
+  store ptr %2, ptr %tracing_controller_, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -5567,14 +5574,14 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %2 = load ptr, ptr %page_allocator.addr, align 8
+  %3 = load ptr, ptr %page_allocator.addr, align 8
   %page_allocator_ = getelementptr inbounds %"class.node::NodePlatform", ptr %this1, i32 0, i32 4
-  store ptr %2, ptr %page_allocator_, align 8
+  store ptr %3, ptr %page_allocator_, align 8
   %tracing_controller_3 = getelementptr inbounds %"class.node::NodePlatform", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %tracing_controller_3, align 8
-  call void @_ZN4node20SetTracingControllerEPN2v817TracingControllerE(ptr noundef %3)
-  %4 = load i32, ptr %thread_pool_size.addr, align 4
-  %call4 = call noundef i32 @_ZN4node12_GLOBAL__N_123GetActualThreadPoolSizeEi(i32 noundef %4)
+  %4 = load ptr, ptr %tracing_controller_3, align 8
+  call void @_ZN4node20SetTracingControllerEPN2v817TracingControllerE(ptr noundef %4)
+  %5 = load i32, ptr %thread_pool_size.addr, align 4
+  %call4 = call noundef i32 @_ZN4node12_GLOBAL__N_123GetActualThreadPoolSizeEi(i32 noundef %5)
   store i32 %call4, ptr %thread_pool_size.addr, align 4
   call void @_ZSt11make_sharedIN4node23WorkerThreadsTaskRunnerEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr sret(%"class.std::shared_ptr.87") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %thread_pool_size.addr)
   %worker_thread_task_runner_5 = getelementptr inbounds %"class.node::NodePlatform", ptr %this1, i32 0, i32 5
@@ -5590,7 +5597,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v88PlatformC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4node20MultiIsolatePlatformE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [36 x ptr] }, ptr @_ZTVN4node20MultiIsolatePlatformE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5621,7 +5629,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2v817TracingControllerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN2v817TracingControllerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5697,7 +5706,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4node12NodePlatformE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [36 x ptr] }, ptr @_ZTVN4node12NodePlatformE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   call void @_ZN4node12NodePlatform8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(137) %this1)
   %worker_thread_task_runner_ = getelementptr inbounds %"class.node::NodePlatform", ptr %this1, i32 0, i32 5
   call void @_ZNSt10shared_ptrIN4node23WorkerThreadsTaskRunnerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %worker_thread_task_runner_) #3
@@ -10261,15 +10271,16 @@ entry:
   store double %delay_in_seconds, ptr %delay_in_seconds.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v84TaskC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %scheduler_ = getelementptr inbounds %"class.node::WorkerThreadsTaskRunner::DelayedTaskScheduler::ScheduleTask", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %scheduler.addr, align 8
-  store ptr %0, ptr %scheduler_, align 8
+  %1 = load ptr, ptr %scheduler.addr, align 8
+  store ptr %1, ptr %scheduler_, align 8
   %task_ = getelementptr inbounds %"class.node::WorkerThreadsTaskRunner::DelayedTaskScheduler::ScheduleTask", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %task_, ptr noundef nonnull align 8 dereferenceable(8) %task) #3
   %delay_in_seconds_ = getelementptr inbounds %"class.node::WorkerThreadsTaskRunner::DelayedTaskScheduler::ScheduleTask", ptr %this1, i32 0, i32 3
-  %1 = load double, ptr %delay_in_seconds.addr, align 8
-  store double %1, ptr %delay_in_seconds_, align 8
+  %2 = load double, ptr %delay_in_seconds.addr, align 8
+  store double %2, ptr %delay_in_seconds_, align 8
   ret void
 }
 
@@ -10293,7 +10304,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2v84TaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN2v84TaskE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -10303,7 +10315,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %task_ = getelementptr inbounds %"class.node::WorkerThreadsTaskRunner::DelayedTaskScheduler::ScheduleTask", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %task_) #3
   call void @_ZN2v84TaskD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -13356,10 +13369,11 @@ entry:
   store ptr %scheduler, ptr %scheduler.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v84TaskC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler8StopTaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler8StopTaskE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %scheduler_ = getelementptr inbounds %"class.node::WorkerThreadsTaskRunner::DelayedTaskScheduler::StopTask", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %scheduler.addr, align 8
-  store ptr %0, ptr %scheduler_, align 8
+  %1 = load ptr, ptr %scheduler.addr, align 8
+  store ptr %1, ptr %scheduler_, align 8
   ret void
 }
 
@@ -17012,7 +17026,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTVN2v88PlatformE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [30 x ptr] }, ptr @_ZTVN2v88PlatformE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -24729,12 +24744,13 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node23WorkerThreadsTaskRunnerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node23WorkerThreadsTaskRunnerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node23WorkerThreadsTaskRunnerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(256) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node23WorkerThreadsTaskRunnerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(272) %this1) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node23WorkerThreadsTaskRunnerEJRiEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %1 = load ptr, ptr %__args.addr, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node23WorkerThreadsTaskRunnerEJRiEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %1)
   ret void
 }
 
@@ -24894,7 +24910,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -25614,13 +25631,14 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node22PerIsolatePlatformDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node22PerIsolatePlatformDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.350", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node22PerIsolatePlatformDataESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(576) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node22PerIsolatePlatformDataESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(592) %this3) #3
-  %0 = load ptr, ptr %__args.addr, align 8
-  %1 = load ptr, ptr %__args.addr2, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node22PerIsolatePlatformDataEJRPN2v87IsolateERP9uv_loop_sEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %1 = load ptr, ptr %__args.addr, align 8
+  %2 = load ptr, ptr %__args.addr2, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN4node22PerIsolatePlatformDataEJRPN2v87IsolateERP9uv_loop_sEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   ret void
 }
 

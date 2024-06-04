@@ -89,7 +89,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh21PrettyStackTraceEntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4llvh21PrettyStackTraceEntryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -182,43 +183,44 @@ entry:
   store ptr %Format, ptr %Format.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Str = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this1, i32 0, i32 1
   call void @_ZN4llvh11SmallVectorIcLj32EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %Str)
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %AP, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
-  %0 = load ptr, ptr %Format.addr, align 8
+  call void @llvm.va_start.p0(ptr %arraydecay)
+  %1 = load ptr, ptr %Format.addr, align 8
   %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %AP, i64 0, i64 0
-  %call = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %0, ptr noundef %arraydecay2) #10
+  %call = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef %arraydecay2) #10
   store i32 %call, ptr %SizeOrError, align 4
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %AP, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
-  %1 = load i32, ptr %SizeOrError, align 4
-  %cmp = icmp slt i32 %1, 0
+  call void @llvm.va_end.p0(ptr %arraydecay3)
+  %2 = load i32, ptr %SizeOrError, align 4
+  %cmp = icmp slt i32 %2, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %SizeOrError, align 4
-  %add = add nsw i32 %2, 1
+  %3 = load i32, ptr %SizeOrError, align 4
+  %add = add nsw i32 %3, 1
   store i32 %add, ptr %Size, align 4
   %Str4 = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this1, i32 0, i32 1
-  %3 = load i32, ptr %Size, align 4
-  %conv = sext i32 %3 to i64
+  %4 = load i32, ptr %Size, align 4
+  %conv = sext i32 %4 to i64
   call void @_ZN4llvh15SmallVectorImplIcE6resizeEm(ptr noundef nonnull align 8 dereferenceable(16) %Str4, i64 noundef %conv)
   %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %AP, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay5)
+  call void @llvm.va_start.p0(ptr %arraydecay5)
   %Str6 = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this1, i32 0, i32 1
   %call7 = call noundef ptr @_ZN4llvh25SmallVectorTemplateCommonIcvE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %Str6)
-  %4 = load i32, ptr %Size, align 4
-  %conv8 = sext i32 %4 to i64
-  %5 = load ptr, ptr %Format.addr, align 8
+  %5 = load i32, ptr %Size, align 4
+  %conv8 = sext i32 %5 to i64
+  %6 = load ptr, ptr %Format.addr, align 8
   %arraydecay9 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %AP, i64 0, i64 0
-  %call10 = call i32 @vsnprintf(ptr noundef %call7, i64 noundef %conv8, ptr noundef %5, ptr noundef %arraydecay9) #10
+  %call10 = call i32 @vsnprintf(ptr noundef %call7, i64 noundef %conv8, ptr noundef %6, ptr noundef %arraydecay9) #10
   %arraydecay11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %AP, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay11)
+  call void @llvm.va_end.p0(ptr %arraydecay11)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -235,14 +237,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
 ; Function Attrs: nounwind
-declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
+declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh15SmallVectorImplIcE6resizeEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %N) #0 comdat align 2 {
@@ -552,7 +548,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %Str = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this1, i32 0, i32 1
   call void @_ZN4llvh11SmallVectorIcLj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %Str) #10
   call void @_ZN4llvh21PrettyStackTraceEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #10
@@ -640,13 +637,13 @@ return:                                           ; preds = %if.end8, %if.then
   ret ptr %14
 }
 
-declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef, i64 noundef) #4
+declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #6
+declare i64 @strlen(ptr noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvh25SmallVectorTemplateCommonIcvE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #0 comdat align 2 {
@@ -673,10 +670,10 @@ entry:
   ret i64 %conv
 }
 
-declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36), i8 noundef zeroext) #4
+declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36), i8 noundef zeroext) #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #7
+declare void @_ZdlPv(ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh11SmallVectorIcLj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
@@ -747,7 +744,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvh25SmallVectorTemplateCommonIcvE10getFirstElEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #0 comdat align 2 {
@@ -879,16 +876,22 @@ entry:
   ret void
 }
 
-declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) #4
+declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #2 = { nocallback nofree nosync nounwind willreturn }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
 attributes #8 = { noreturn nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nounwind }

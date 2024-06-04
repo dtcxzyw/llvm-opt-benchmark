@@ -2963,7 +2963,8 @@ if.end:                                           ; preds = %do.end, %do.body
 
 do.end4:                                          ; preds = %if.end
   %next_in = getelementptr inbounds %struct.z_stream_s, ptr %strm, i32 0, i32 0
-  store ptr getelementptr inbounds (i8, ptr @_ZN4node9inspector12_GLOBAL__N_113PROTOCOL_JSONE, i64 3), ptr %next_in, align 8
+  %0 = getelementptr inbounds i8, ptr @_ZN4node9inspector12_GLOBAL__N_113PROTOCOL_JSONE, i64 3
+  store ptr %0, ptr %next_in, align 8
   %avail_in = getelementptr inbounds %struct.z_stream_s, ptr %strm, i32 0, i32 1
   store i32 17243, ptr %avail_in, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
@@ -3011,8 +3012,8 @@ do.end19:                                         ; preds = %do.cond18
 
 do.body20:                                        ; preds = %do.end19
   %avail_out21 = getelementptr inbounds %struct.z_stream_s, ptr %strm, i32 0, i32 4
-  %0 = load i32, ptr %avail_out21, align 8
-  %cmp22 = icmp eq i32 0, %0
+  %1 = load i32, ptr %avail_out21, align 8
+  %cmp22 = icmp eq i32 0, %1
   %lnot23 = xor i1 %cmp22, true
   %lnot24 = xor i1 %lnot23, true
   %lnot25 = xor i1 %lnot24, true
@@ -3070,8 +3071,8 @@ do.cond46:                                        ; preds = %if.end45
   br label %do.end47
 
 do.end47:                                         ; preds = %do.cond46
-  %1 = load ptr, ptr %socket.addr, align 8
-  call void @_ZN4node9inspector12_GLOBAL__N_116SendHttpResponseEPNS0_15InspectorSocketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %data, i32 noundef 200)
+  %2 = load ptr, ptr %socket.addr, align 8
+  call void @_ZN4node9inspector12_GLOBAL__N_116SendHttpResponseEPNS0_15InspectorSocketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %data, i32 noundef 200)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data) #12
   ret void
 }
@@ -4447,13 +4448,14 @@ entry:
   store i32 %session_id, ptr %session_id.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector15InspectorSocket8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector13SocketSession8DelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4node9inspector13SocketSession8DelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %server_ = getelementptr inbounds %"class.node::inspector::SocketSession::Delegate", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %server.addr, align 8
-  store ptr %0, ptr %server_, align 8
+  %1 = load ptr, ptr %server.addr, align 8
+  store ptr %1, ptr %server_, align 8
   %session_id_ = getelementptr inbounds %"class.node::inspector::SocketSession::Delegate", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %session_id.addr, align 4
-  store i32 %1, ptr %session_id_, align 8
+  %2 = load i32, ptr %session_id.addr, align 4
+  store i32 %2, ptr %session_id_, align 8
   ret void
 }
 
@@ -5090,12 +5092,13 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector13SocketSession8DelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4node9inspector13SocketSession8DelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %server_ = getelementptr inbounds %"class.node::inspector::SocketSession::Delegate", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %server_, align 8
+  %1 = load ptr, ptr %server_, align 8
   %session_id_ = getelementptr inbounds %"class.node::inspector::SocketSession::Delegate", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %session_id_, align 8
-  call void @_ZN4node9inspector21InspectorSocketServer17SessionTerminatedEi(ptr noundef nonnull align 8 dereferenceable(148) %0, i32 noundef %1)
+  %2 = load i32, ptr %session_id_, align 8
+  call void @_ZN4node9inspector21InspectorSocketServer17SessionTerminatedEi(ptr noundef nonnull align 8 dereferenceable(148) %1, i32 noundef %2)
   call void @_ZN4node9inspector15InspectorSocket8DelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
   ret void
 }
@@ -7080,7 +7083,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector15InspectorSocket8DelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN4node9inspector15InspectorSocket8DelegateE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

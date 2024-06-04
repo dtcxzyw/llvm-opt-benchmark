@@ -36132,55 +36132,80 @@ define hidden void @proto_register_asterix() #0 {
   %7 = call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null)
   store ptr %7, ptr %1, align 8
   %8 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %8, ptr noundef @.str.10825, ptr noundef @.str.10826, ptr noundef @.str.10827, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 1), ptr noundef @I001_versions, i32 noundef 0)
-  %9 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %9, ptr noundef @.str.10828, ptr noundef @.str.10829, ptr noundef @.str.10830, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 2), ptr noundef @I002_versions, i32 noundef 0)
+  %9 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 1
+  call void @prefs_register_enum_preference(ptr noundef %8, ptr noundef @.str.10825, ptr noundef @.str.10826, ptr noundef @.str.10827, ptr noundef %9, ptr noundef @I001_versions, i32 noundef 0)
   %10 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %10, ptr noundef @.str.10831, ptr noundef @.str.10832, ptr noundef @.str.10833, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 4), ptr noundef @I004_versions, i32 noundef 0)
-  %11 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %11, ptr noundef @.str.10834, ptr noundef @.str.10835, ptr noundef @.str.10836, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 8), ptr noundef @I008_versions, i32 noundef 0)
+  %11 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 2
+  call void @prefs_register_enum_preference(ptr noundef %10, ptr noundef @.str.10828, ptr noundef @.str.10829, ptr noundef @.str.10830, ptr noundef %11, ptr noundef @I002_versions, i32 noundef 0)
   %12 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %12, ptr noundef @.str.10837, ptr noundef @.str.10838, ptr noundef @.str.10839, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 9), ptr noundef @I009_versions, i32 noundef 0)
-  %13 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %13, ptr noundef @.str.10840, ptr noundef @.str.10841, ptr noundef @.str.10842, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 10), ptr noundef @I010_versions, i32 noundef 0)
+  %13 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 4
+  call void @prefs_register_enum_preference(ptr noundef %12, ptr noundef @.str.10831, ptr noundef @.str.10832, ptr noundef @.str.10833, ptr noundef %13, ptr noundef @I004_versions, i32 noundef 0)
   %14 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %14, ptr noundef @.str.10843, ptr noundef @.str.10844, ptr noundef @.str.10845, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 11), ptr noundef @I011_versions, i32 noundef 0)
-  %15 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %15, ptr noundef @.str.10846, ptr noundef @.str.10847, ptr noundef @.str.10848, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 15), ptr noundef @I015_versions, i32 noundef 0)
+  %15 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 8
+  call void @prefs_register_enum_preference(ptr noundef %14, ptr noundef @.str.10834, ptr noundef @.str.10835, ptr noundef @.str.10836, ptr noundef %15, ptr noundef @I008_versions, i32 noundef 0)
   %16 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %16, ptr noundef @.str.10849, ptr noundef @.str.10850, ptr noundef @.str.10851, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 16), ptr noundef @I016_versions, i32 noundef 0)
-  %17 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %17, ptr noundef @.str.10852, ptr noundef @.str.10853, ptr noundef @.str.10854, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 17), ptr noundef @I017_versions, i32 noundef 0)
+  %17 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 9
+  call void @prefs_register_enum_preference(ptr noundef %16, ptr noundef @.str.10837, ptr noundef @.str.10838, ptr noundef @.str.10839, ptr noundef %17, ptr noundef @I009_versions, i32 noundef 0)
   %18 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %18, ptr noundef @.str.10855, ptr noundef @.str.10856, ptr noundef @.str.10857, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 18), ptr noundef @I018_versions, i32 noundef 0)
-  %19 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %19, ptr noundef @.str.10858, ptr noundef @.str.10859, ptr noundef @.str.10860, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 19), ptr noundef @I019_versions, i32 noundef 0)
+  %19 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 10
+  call void @prefs_register_enum_preference(ptr noundef %18, ptr noundef @.str.10840, ptr noundef @.str.10841, ptr noundef @.str.10842, ptr noundef %19, ptr noundef @I010_versions, i32 noundef 0)
   %20 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %20, ptr noundef @.str.10861, ptr noundef @.str.10862, ptr noundef @.str.10863, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 20), ptr noundef @I020_versions, i32 noundef 0)
-  %21 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %21, ptr noundef @.str.10864, ptr noundef @.str.10865, ptr noundef @.str.10866, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 21), ptr noundef @I021_versions, i32 noundef 0)
+  %21 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 11
+  call void @prefs_register_enum_preference(ptr noundef %20, ptr noundef @.str.10843, ptr noundef @.str.10844, ptr noundef @.str.10845, ptr noundef %21, ptr noundef @I011_versions, i32 noundef 0)
   %22 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %22, ptr noundef @.str.10867, ptr noundef @.str.10868, ptr noundef @.str.10869, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 23), ptr noundef @I023_versions, i32 noundef 0)
-  %23 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %23, ptr noundef @.str.10870, ptr noundef @.str.10871, ptr noundef @.str.10872, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 25), ptr noundef @I025_versions, i32 noundef 0)
+  %23 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 15
+  call void @prefs_register_enum_preference(ptr noundef %22, ptr noundef @.str.10846, ptr noundef @.str.10847, ptr noundef @.str.10848, ptr noundef %23, ptr noundef @I015_versions, i32 noundef 0)
   %24 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %24, ptr noundef @.str.10873, ptr noundef @.str.10874, ptr noundef @.str.10875, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 32), ptr noundef @I032_versions, i32 noundef 0)
-  %25 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %25, ptr noundef @.str.10876, ptr noundef @.str.10877, ptr noundef @.str.10878, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 34), ptr noundef @I034_versions, i32 noundef 0)
+  %25 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 16
+  call void @prefs_register_enum_preference(ptr noundef %24, ptr noundef @.str.10849, ptr noundef @.str.10850, ptr noundef @.str.10851, ptr noundef %25, ptr noundef @I016_versions, i32 noundef 0)
   %26 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %26, ptr noundef @.str.10879, ptr noundef @.str.10880, ptr noundef @.str.10881, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 48), ptr noundef @I048_versions, i32 noundef 0)
-  %27 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %27, ptr noundef @.str.10882, ptr noundef @.str.10883, ptr noundef @.str.10884, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 62), ptr noundef @I062_versions, i32 noundef 0)
+  %27 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 17
+  call void @prefs_register_enum_preference(ptr noundef %26, ptr noundef @.str.10852, ptr noundef @.str.10853, ptr noundef @.str.10854, ptr noundef %27, ptr noundef @I017_versions, i32 noundef 0)
   %28 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %28, ptr noundef @.str.10885, ptr noundef @.str.10886, ptr noundef @.str.10887, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 63), ptr noundef @I063_versions, i32 noundef 0)
-  %29 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %29, ptr noundef @.str.10888, ptr noundef @.str.10889, ptr noundef @.str.10890, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 65), ptr noundef @I065_versions, i32 noundef 0)
+  %29 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 18
+  call void @prefs_register_enum_preference(ptr noundef %28, ptr noundef @.str.10855, ptr noundef @.str.10856, ptr noundef @.str.10857, ptr noundef %29, ptr noundef @I018_versions, i32 noundef 0)
   %30 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %30, ptr noundef @.str.10891, ptr noundef @.str.10892, ptr noundef @.str.10893, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 205), ptr noundef @I205_versions, i32 noundef 0)
-  %31 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %31, ptr noundef @.str.10894, ptr noundef @.str.10895, ptr noundef @.str.10896, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 240), ptr noundef @I240_versions, i32 noundef 0)
+  %31 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 19
+  call void @prefs_register_enum_preference(ptr noundef %30, ptr noundef @.str.10858, ptr noundef @.str.10859, ptr noundef @.str.10860, ptr noundef %31, ptr noundef @I019_versions, i32 noundef 0)
   %32 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %32, ptr noundef @.str.10897, ptr noundef @.str.10898, ptr noundef @.str.10899, ptr noundef getelementptr inbounds ([256 x i32], ptr @global_categories_version, i64 0, i64 247), ptr noundef @I247_versions, i32 noundef 0)
+  %33 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 20
+  call void @prefs_register_enum_preference(ptr noundef %32, ptr noundef @.str.10861, ptr noundef @.str.10862, ptr noundef @.str.10863, ptr noundef %33, ptr noundef @I020_versions, i32 noundef 0)
+  %34 = load ptr, ptr %1, align 8
+  %35 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 21
+  call void @prefs_register_enum_preference(ptr noundef %34, ptr noundef @.str.10864, ptr noundef @.str.10865, ptr noundef @.str.10866, ptr noundef %35, ptr noundef @I021_versions, i32 noundef 0)
+  %36 = load ptr, ptr %1, align 8
+  %37 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 23
+  call void @prefs_register_enum_preference(ptr noundef %36, ptr noundef @.str.10867, ptr noundef @.str.10868, ptr noundef @.str.10869, ptr noundef %37, ptr noundef @I023_versions, i32 noundef 0)
+  %38 = load ptr, ptr %1, align 8
+  %39 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 25
+  call void @prefs_register_enum_preference(ptr noundef %38, ptr noundef @.str.10870, ptr noundef @.str.10871, ptr noundef @.str.10872, ptr noundef %39, ptr noundef @I025_versions, i32 noundef 0)
+  %40 = load ptr, ptr %1, align 8
+  %41 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 32
+  call void @prefs_register_enum_preference(ptr noundef %40, ptr noundef @.str.10873, ptr noundef @.str.10874, ptr noundef @.str.10875, ptr noundef %41, ptr noundef @I032_versions, i32 noundef 0)
+  %42 = load ptr, ptr %1, align 8
+  %43 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 34
+  call void @prefs_register_enum_preference(ptr noundef %42, ptr noundef @.str.10876, ptr noundef @.str.10877, ptr noundef @.str.10878, ptr noundef %43, ptr noundef @I034_versions, i32 noundef 0)
+  %44 = load ptr, ptr %1, align 8
+  %45 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 48
+  call void @prefs_register_enum_preference(ptr noundef %44, ptr noundef @.str.10879, ptr noundef @.str.10880, ptr noundef @.str.10881, ptr noundef %45, ptr noundef @I048_versions, i32 noundef 0)
+  %46 = load ptr, ptr %1, align 8
+  %47 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 62
+  call void @prefs_register_enum_preference(ptr noundef %46, ptr noundef @.str.10882, ptr noundef @.str.10883, ptr noundef @.str.10884, ptr noundef %47, ptr noundef @I062_versions, i32 noundef 0)
+  %48 = load ptr, ptr %1, align 8
+  %49 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 63
+  call void @prefs_register_enum_preference(ptr noundef %48, ptr noundef @.str.10885, ptr noundef @.str.10886, ptr noundef @.str.10887, ptr noundef %49, ptr noundef @I063_versions, i32 noundef 0)
+  %50 = load ptr, ptr %1, align 8
+  %51 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 65
+  call void @prefs_register_enum_preference(ptr noundef %50, ptr noundef @.str.10888, ptr noundef @.str.10889, ptr noundef @.str.10890, ptr noundef %51, ptr noundef @I065_versions, i32 noundef 0)
+  %52 = load ptr, ptr %1, align 8
+  %53 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 205
+  call void @prefs_register_enum_preference(ptr noundef %52, ptr noundef @.str.10891, ptr noundef @.str.10892, ptr noundef @.str.10893, ptr noundef %53, ptr noundef @I205_versions, i32 noundef 0)
+  %54 = load ptr, ptr %1, align 8
+  %55 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 240
+  call void @prefs_register_enum_preference(ptr noundef %54, ptr noundef @.str.10894, ptr noundef @.str.10895, ptr noundef @.str.10896, ptr noundef %55, ptr noundef @I240_versions, i32 noundef 0)
+  %56 = load ptr, ptr %1, align 8
+  %57 = getelementptr inbounds [256 x i32], ptr @global_categories_version, i64 0, i64 247
+  call void @prefs_register_enum_preference(ptr noundef %56, ptr noundef @.str.10897, ptr noundef @.str.10898, ptr noundef @.str.10899, ptr noundef %57, ptr noundef @I247_versions, i32 noundef 0)
   ret void
 }
 

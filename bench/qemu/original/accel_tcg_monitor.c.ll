@@ -339,13 +339,14 @@ do.end:                                           ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %34 = load atomic i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i32 0, i32 1) monotonic, align 8
-  store i32 %34, ptr %atomic-temp, align 4
-  %35 = load i32, ptr %atomic-temp, align 4
-  store i32 %35, ptr %tmp, align 4
-  %36 = load i32, ptr %tmp, align 4
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %33, ptr noundef @.str.17, i32 noundef %36)
-  %37 = load ptr, ptr %buf.addr, align 8
+  %34 = getelementptr inbounds %struct.TBContext, ptr @tb_ctx, i32 0, i32 1
+  %35 = load atomic i32, ptr %34 monotonic, align 8
+  store i32 %35, ptr %atomic-temp, align 4
+  %36 = load i32, ptr %atomic-temp, align 4
+  store i32 %36, ptr %tmp, align 4
+  %37 = load i32, ptr %tmp, align 4
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %33, ptr noundef @.str.17, i32 noundef %37)
+  %38 = load ptr, ptr %buf.addr, align 8
   br label %while.cond42
 
 while.cond42:                                     ; preds = %do.end45, %while.end
@@ -362,24 +363,25 @@ do.end45:                                         ; No predecessors!
   br label %while.cond42
 
 while.end46:                                      ; preds = %while.cond42
-  %38 = load atomic i32, ptr getelementptr inbounds (%struct.TBContext, ptr @tb_ctx, i32 0, i32 2) monotonic, align 4
-  store i32 %38, ptr %atomic-temp48, align 4
-  %39 = load i32, ptr %atomic-temp48, align 4
-  store i32 %39, ptr %tmp47, align 4
-  %40 = load i32, ptr %tmp47, align 4
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %37, ptr noundef @.str.18, i32 noundef %40)
+  %39 = getelementptr inbounds %struct.TBContext, ptr @tb_ctx, i32 0, i32 2
+  %40 = load atomic i32, ptr %39 monotonic, align 4
+  store i32 %40, ptr %atomic-temp48, align 4
+  %41 = load i32, ptr %atomic-temp48, align 4
+  store i32 %41, ptr %tmp47, align 4
+  %42 = load i32, ptr %tmp47, align 4
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %38, ptr noundef @.str.18, i32 noundef %42)
   call void @tlb_flush_counts(ptr noundef %flush_full, ptr noundef %flush_part, ptr noundef %flush_elide)
-  %41 = load ptr, ptr %buf.addr, align 8
-  %42 = load i64, ptr %flush_full, align 8
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %41, ptr noundef @.str.19, i64 noundef %42)
   %43 = load ptr, ptr %buf.addr, align 8
-  %44 = load i64, ptr %flush_part, align 8
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %43, ptr noundef @.str.20, i64 noundef %44)
+  %44 = load i64, ptr %flush_full, align 8
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %43, ptr noundef @.str.19, i64 noundef %44)
   %45 = load ptr, ptr %buf.addr, align 8
-  %46 = load i64, ptr %flush_elide, align 8
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %45, ptr noundef @.str.21, i64 noundef %46)
+  %46 = load i64, ptr %flush_part, align 8
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %45, ptr noundef @.str.20, i64 noundef %46)
   %47 = load ptr, ptr %buf.addr, align 8
-  call void @tcg_dump_info(ptr noundef %47)
+  %48 = load i64, ptr %flush_elide, align 8
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %47, ptr noundef @.str.21, i64 noundef %48)
+  %49 = load ptr, ptr %buf.addr, align 8
+  call void @tcg_dump_info(ptr noundef %49)
   ret void
 }
 

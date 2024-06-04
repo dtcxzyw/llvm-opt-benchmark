@@ -1157,7 +1157,8 @@ entry:
   %4 = load ptr, ptr %qr.addr, align 8
   %5 = load ptr, ptr %tr.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers12InstStrategyC2ERNS0_3EnvERNS2_4inst15TriggerDatabaseERNS2_16QuantifiersStateERNS2_27QuantifiersInferenceManagerERNS2_19QuantifiersRegistryERNS2_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull align 1 %3, ptr noundef nonnull align 1 %4, ptr noundef nonnull align 1 %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24InstStrategyUserPatternsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24InstStrategyUserPatternsE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %this1, align 8
   %d_user_gen = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyUserPatterns", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIPNS1_6theory11quantifiers4inst7TriggerESaIS9_EESt4lessIS3_ESaISt4pairIKS3_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_user_gen) #3
   %d_user_gen_wait = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyUserPatterns", ptr %this1, i32 0, i32 2
@@ -1208,7 +1209,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24InstStrategyUserPatternsE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24InstStrategyUserPatternsE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_counter = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyUserPatterns", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEiSt4lessIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_counter) #3
   %d_user_gen_wait = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyUserPatterns", ptr %this1, i32 0, i32 2

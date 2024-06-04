@@ -26,7 +26,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN4FLAC7Decoder6StreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [39 x ptr] }, ptr @_ZTVN4FLAC7Decoder6StreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %decoder_ = getelementptr inbounds %"class.FLAC::Decoder::Stream", ptr %this1, i32 0, i32 1
   %call = call ptr @FLAC__stream_decoder_new()
   store ptr %call, ptr %decoder_, align 8
@@ -41,22 +42,23 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN4FLAC7Decoder6StreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [39 x ptr] }, ptr @_ZTVN4FLAC7Decoder6StreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %decoder_ = getelementptr inbounds %"class.FLAC::Decoder::Stream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %decoder_, align 8
-  %cmp = icmp ne ptr null, %0
+  %1 = load ptr, ptr %decoder_, align 8
+  %cmp = icmp ne ptr null, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %decoder_2 = getelementptr inbounds %"class.FLAC::Decoder::Stream", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %decoder_2, align 8
-  %call = invoke i32 @FLAC__stream_decoder_finish(ptr noundef %1)
+  %2 = load ptr, ptr %decoder_2, align 8
+  %call = invoke i32 @FLAC__stream_decoder_finish(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
   %decoder_3 = getelementptr inbounds %"class.FLAC::Decoder::Stream", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %decoder_3, align 8
-  invoke void @FLAC__stream_decoder_delete(ptr noundef %2)
+  %3 = load ptr, ptr %decoder_3, align 8
+  invoke void @FLAC__stream_decoder_delete(ptr noundef %3)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -66,10 +68,10 @@ if.end:                                           ; preds = %invoke.cont4, %entr
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %if.then
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #6
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #6
   unreachable
 }
 
@@ -780,7 +782,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4FLAC7Decoder6StreamC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [45 x ptr] }, ptr @_ZTVN4FLAC7Decoder4FileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [45 x ptr] }, ptr @_ZTVN4FLAC7Decoder4FileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

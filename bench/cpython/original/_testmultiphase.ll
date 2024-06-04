@@ -588,12 +588,13 @@ entry:
   %temp = alloca ptr, align 8
   store ptr %m, ptr %m.addr, align 8
   store ptr null, ptr %temp, align 8
-  store ptr @PyUnicode_Type, ptr getelementptr inbounds (%struct.PyType_Slot, ptr @Str_Type_slots, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.PyType_Slot, ptr @Str_Type_slots, i32 0, i32 1
+  store ptr @PyUnicode_Type, ptr %0, align 8
   %call = call ptr @PyType_FromSpec(ptr noundef @Example_Type_spec)
   store ptr %call, ptr %temp, align 8
-  %0 = load ptr, ptr %m.addr, align 8
-  %1 = load ptr, ptr %temp, align 8
-  %call1 = call i32 @PyModule_Add(ptr noundef %0, ptr noundef @.str.8, ptr noundef %1)
+  %1 = load ptr, ptr %m.addr, align 8
+  %2 = load ptr, ptr %temp, align 8
+  %call1 = call i32 @PyModule_Add(ptr noundef %1, ptr noundef @.str.8, ptr noundef %2)
   %cmp = icmp ne i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -603,9 +604,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call2 = call ptr @PyErr_NewException(ptr noundef @.str.9, ptr noundef null, ptr noundef null)
   store ptr %call2, ptr %temp, align 8
-  %2 = load ptr, ptr %m.addr, align 8
-  %3 = load ptr, ptr %temp, align 8
-  %call3 = call i32 @PyModule_Add(ptr noundef %2, ptr noundef @.str.10, ptr noundef %3)
+  %3 = load ptr, ptr %m.addr, align 8
+  %4 = load ptr, ptr %temp, align 8
+  %call3 = call i32 @PyModule_Add(ptr noundef %3, ptr noundef @.str.10, ptr noundef %4)
   %cmp4 = icmp ne i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %if.end6
 
@@ -615,9 +616,9 @@ if.then5:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.end
   %call7 = call ptr @PyType_FromSpec(ptr noundef @Str_Type_spec)
   store ptr %call7, ptr %temp, align 8
-  %4 = load ptr, ptr %m.addr, align 8
-  %5 = load ptr, ptr %temp, align 8
-  %call8 = call i32 @PyModule_Add(ptr noundef %4, ptr noundef @.str.11, ptr noundef %5)
+  %5 = load ptr, ptr %m.addr, align 8
+  %6 = load ptr, ptr %temp, align 8
+  %call8 = call i32 @PyModule_Add(ptr noundef %5, ptr noundef @.str.11, ptr noundef %6)
   %cmp9 = icmp ne i32 %call8, 0
   br i1 %cmp9, label %if.then10, label %if.end11
 
@@ -625,8 +626,8 @@ if.then10:                                        ; preds = %if.end6
   br label %fail
 
 if.end11:                                         ; preds = %if.end6
-  %6 = load ptr, ptr %m.addr, align 8
-  %call12 = call i32 @PyModule_AddIntConstant(ptr noundef %6, ptr noundef @.str.12, i64 noundef 1969)
+  %7 = load ptr, ptr %m.addr, align 8
+  %call12 = call i32 @PyModule_AddIntConstant(ptr noundef %7, ptr noundef @.str.12, i64 noundef 1969)
   %cmp13 = icmp ne i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %if.end15
 
@@ -634,8 +635,8 @@ if.then14:                                        ; preds = %if.end11
   br label %fail
 
 if.end15:                                         ; preds = %if.end11
-  %7 = load ptr, ptr %m.addr, align 8
-  %call16 = call i32 @PyModule_AddStringConstant(ptr noundef %7, ptr noundef @.str.13, ptr noundef @.str.14)
+  %8 = load ptr, ptr %m.addr, align 8
+  %call16 = call i32 @PyModule_AddStringConstant(ptr noundef %8, ptr noundef @.str.13, ptr noundef @.str.14)
   %cmp17 = icmp ne i32 %call16, 0
   br i1 %cmp17, label %if.then18, label %if.end19
 
@@ -651,8 +652,8 @@ fail:                                             ; preds = %if.then18, %if.then
   br label %return
 
 return:                                           ; preds = %fail, %if.end19
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+  %9 = load i32, ptr %retval, align 4
+  ret i32 %9
 }
 
 declare ptr @PyType_FromSpec(ptr noundef) #1

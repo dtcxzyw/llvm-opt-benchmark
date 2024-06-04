@@ -15103,57 +15103,59 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_vm_interface_info, i32 0, i32 4), align 8
-  %2 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp ne ptr %3, null
+  %1 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_vm_interface_info, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load i32, ptr %n, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_vm_interface_info, i32 0, i32 4), align 8
-  %5 = load i32, ptr %n, align 4
-  %idxprom3 = zext i32 %5 to i64
-  %arrayidx4 = getelementptr ptr, ptr %4, i64 %idxprom3
-  %6 = load ptr, ptr %arrayidx4, align 8
-  store ptr %6, ptr %info, align 8
-  %7 = load ptr, ptr %info, align 8
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %flags, align 8
-  %and = and i32 %8, 1
+  %5 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_vm_interface_info, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %n, align 4
+  %idxprom3 = zext i32 %7 to i64
+  %arrayidx4 = getelementptr ptr, ptr %6, i64 %idxprom3
+  %8 = load ptr, ptr %arrayidx4, align 8
+  store ptr %8, ptr %info, align 8
+  %9 = load ptr, ptr %info, align 8
+  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %flags, align 8
+  %and = and i32 %10, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr %skeleton, align 8
+  %11 = load ptr, ptr %skeleton, align 8
   %call5 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %call5)
+  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %call5)
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6)
-  %10 = load ptr, ptr %skeleton, align 8
+  %12 = load ptr, ptr %skeleton, align 8
   %call8 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %call8)
+  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %call8)
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9)
-  %11 = load ptr, ptr %info, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %name, align 8
-  %13 = load ptr, ptr %skeleton, align 8
-  %call11 = call ptr @_qemu_dbus_display1_vm_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.10, ptr noundef %12, ptr noundef null, ptr noundef %13)
+  %13 = load ptr, ptr %info, align 8
+  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %name, align 8
+  %15 = load ptr, ptr %skeleton, align 8
+  %call11 = call ptr @_qemu_dbus_display1_vm_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.10, ptr noundef %14, ptr noundef null, ptr noundef %15)
   store ptr %call11, ptr %value, align 8
-  %14 = load ptr, ptr %value, align 8
-  %cmp12 = icmp ne ptr %14, null
+  %16 = load ptr, ptr %value, align 8
+  %cmp12 = icmp ne ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.then
-  %15 = load ptr, ptr %value, align 8
-  %call14 = call ptr @g_variant_take_ref(ptr noundef %15)
-  %16 = load ptr, ptr %info, align 8
-  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %name15, align 8
-  %18 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %value, align 8
-  call void @g_variant_unref(ptr noundef %19)
+  %17 = load ptr, ptr %value, align 8
+  %call14 = call ptr @g_variant_take_ref(ptr noundef %17)
+  %18 = load ptr, ptr %info, align 8
+  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %name15, align 8
+  %20 = load ptr, ptr %value, align 8
+  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %value, align 8
+  call void @g_variant_unref(ptr noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then
@@ -15163,8 +15165,8 @@ if.end16:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %20 = load i32, ptr %n, align 4
-  %inc = add i32 %20, 1
+  %22 = load i32, ptr %n, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !11
 
@@ -18024,57 +18026,59 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_console_interface_info, i32 0, i32 4), align 8
-  %2 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp ne ptr %3, null
+  %1 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_console_interface_info, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load i32, ptr %n, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_console_interface_info, i32 0, i32 4), align 8
-  %5 = load i32, ptr %n, align 4
-  %idxprom3 = zext i32 %5 to i64
-  %arrayidx4 = getelementptr ptr, ptr %4, i64 %idxprom3
-  %6 = load ptr, ptr %arrayidx4, align 8
-  store ptr %6, ptr %info, align 8
-  %7 = load ptr, ptr %info, align 8
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %flags, align 8
-  %and = and i32 %8, 1
+  %5 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_console_interface_info, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %n, align 4
+  %idxprom3 = zext i32 %7 to i64
+  %arrayidx4 = getelementptr ptr, ptr %6, i64 %idxprom3
+  %8 = load ptr, ptr %arrayidx4, align 8
+  store ptr %8, ptr %info, align 8
+  %9 = load ptr, ptr %info, align 8
+  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %flags, align 8
+  %and = and i32 %10, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr %skeleton, align 8
+  %11 = load ptr, ptr %skeleton, align 8
   %call5 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %call5)
+  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %call5)
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6)
-  %10 = load ptr, ptr %skeleton, align 8
+  %12 = load ptr, ptr %skeleton, align 8
   %call8 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %call8)
+  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %call8)
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9)
-  %11 = load ptr, ptr %info, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %name, align 8
-  %13 = load ptr, ptr %skeleton, align 8
-  %call11 = call ptr @_qemu_dbus_display1_console_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.24, ptr noundef %12, ptr noundef null, ptr noundef %13)
+  %13 = load ptr, ptr %info, align 8
+  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %name, align 8
+  %15 = load ptr, ptr %skeleton, align 8
+  %call11 = call ptr @_qemu_dbus_display1_console_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.24, ptr noundef %14, ptr noundef null, ptr noundef %15)
   store ptr %call11, ptr %value, align 8
-  %14 = load ptr, ptr %value, align 8
-  %cmp12 = icmp ne ptr %14, null
+  %16 = load ptr, ptr %value, align 8
+  %cmp12 = icmp ne ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.then
-  %15 = load ptr, ptr %value, align 8
-  %call14 = call ptr @g_variant_take_ref(ptr noundef %15)
-  %16 = load ptr, ptr %info, align 8
-  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %name15, align 8
-  %18 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %value, align 8
-  call void @g_variant_unref(ptr noundef %19)
+  %17 = load ptr, ptr %value, align 8
+  %call14 = call ptr @g_variant_take_ref(ptr noundef %17)
+  %18 = load ptr, ptr %info, align 8
+  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %name15, align 8
+  %20 = load ptr, ptr %value, align 8
+  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %value, align 8
+  call void @g_variant_unref(ptr noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then
@@ -18084,8 +18088,8 @@ if.end16:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %20 = load i32, ptr %n, align 4
-  %inc = add i32 %20, 1
+  %22 = load i32, ptr %n, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !23
 
@@ -20268,57 +20272,59 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_keyboard_interface_info, i32 0, i32 4), align 8
-  %2 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp ne ptr %3, null
+  %1 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_keyboard_interface_info, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load i32, ptr %n, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_keyboard_interface_info, i32 0, i32 4), align 8
-  %5 = load i32, ptr %n, align 4
-  %idxprom3 = zext i32 %5 to i64
-  %arrayidx4 = getelementptr ptr, ptr %4, i64 %idxprom3
-  %6 = load ptr, ptr %arrayidx4, align 8
-  store ptr %6, ptr %info, align 8
-  %7 = load ptr, ptr %info, align 8
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %flags, align 8
-  %and = and i32 %8, 1
+  %5 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_keyboard_interface_info, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %n, align 4
+  %idxprom3 = zext i32 %7 to i64
+  %arrayidx4 = getelementptr ptr, ptr %6, i64 %idxprom3
+  %8 = load ptr, ptr %arrayidx4, align 8
+  store ptr %8, ptr %info, align 8
+  %9 = load ptr, ptr %info, align 8
+  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %flags, align 8
+  %and = and i32 %10, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr %skeleton, align 8
+  %11 = load ptr, ptr %skeleton, align 8
   %call5 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %call5)
+  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %call5)
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6)
-  %10 = load ptr, ptr %skeleton, align 8
+  %12 = load ptr, ptr %skeleton, align 8
   %call8 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %call8)
+  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %call8)
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9)
-  %11 = load ptr, ptr %info, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %name, align 8
-  %13 = load ptr, ptr %skeleton, align 8
-  %call11 = call ptr @_qemu_dbus_display1_keyboard_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.30, ptr noundef %12, ptr noundef null, ptr noundef %13)
+  %13 = load ptr, ptr %info, align 8
+  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %name, align 8
+  %15 = load ptr, ptr %skeleton, align 8
+  %call11 = call ptr @_qemu_dbus_display1_keyboard_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.30, ptr noundef %14, ptr noundef null, ptr noundef %15)
   store ptr %call11, ptr %value, align 8
-  %14 = load ptr, ptr %value, align 8
-  %cmp12 = icmp ne ptr %14, null
+  %16 = load ptr, ptr %value, align 8
+  %cmp12 = icmp ne ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.then
-  %15 = load ptr, ptr %value, align 8
-  %call14 = call ptr @g_variant_take_ref(ptr noundef %15)
-  %16 = load ptr, ptr %info, align 8
-  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %name15, align 8
-  %18 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %value, align 8
-  call void @g_variant_unref(ptr noundef %19)
+  %17 = load ptr, ptr %value, align 8
+  %call14 = call ptr @g_variant_take_ref(ptr noundef %17)
+  %18 = load ptr, ptr %info, align 8
+  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %name15, align 8
+  %20 = load ptr, ptr %value, align 8
+  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %value, align 8
+  call void @g_variant_unref(ptr noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then
@@ -20328,8 +20334,8 @@ if.end16:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %20 = load i32, ptr %n, align 4
-  %inc = add i32 %20, 1
+  %22 = load i32, ptr %n, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !34
 
@@ -22318,57 +22324,59 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_mouse_interface_info, i32 0, i32 4), align 8
-  %2 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp ne ptr %3, null
+  %1 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_mouse_interface_info, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load i32, ptr %n, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_mouse_interface_info, i32 0, i32 4), align 8
-  %5 = load i32, ptr %n, align 4
-  %idxprom3 = zext i32 %5 to i64
-  %arrayidx4 = getelementptr ptr, ptr %4, i64 %idxprom3
-  %6 = load ptr, ptr %arrayidx4, align 8
-  store ptr %6, ptr %info, align 8
-  %7 = load ptr, ptr %info, align 8
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %flags, align 8
-  %and = and i32 %8, 1
+  %5 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_mouse_interface_info, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %n, align 4
+  %idxprom3 = zext i32 %7 to i64
+  %arrayidx4 = getelementptr ptr, ptr %6, i64 %idxprom3
+  %8 = load ptr, ptr %arrayidx4, align 8
+  store ptr %8, ptr %info, align 8
+  %9 = load ptr, ptr %info, align 8
+  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %flags, align 8
+  %and = and i32 %10, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr %skeleton, align 8
+  %11 = load ptr, ptr %skeleton, align 8
   %call5 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %call5)
+  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %call5)
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6)
-  %10 = load ptr, ptr %skeleton, align 8
+  %12 = load ptr, ptr %skeleton, align 8
   %call8 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %call8)
+  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %call8)
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9)
-  %11 = load ptr, ptr %info, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %name, align 8
-  %13 = load ptr, ptr %skeleton, align 8
-  %call11 = call ptr @_qemu_dbus_display1_mouse_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.37, ptr noundef %12, ptr noundef null, ptr noundef %13)
+  %13 = load ptr, ptr %info, align 8
+  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %name, align 8
+  %15 = load ptr, ptr %skeleton, align 8
+  %call11 = call ptr @_qemu_dbus_display1_mouse_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.37, ptr noundef %14, ptr noundef null, ptr noundef %15)
   store ptr %call11, ptr %value, align 8
-  %14 = load ptr, ptr %value, align 8
-  %cmp12 = icmp ne ptr %14, null
+  %16 = load ptr, ptr %value, align 8
+  %cmp12 = icmp ne ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.then
-  %15 = load ptr, ptr %value, align 8
-  %call14 = call ptr @g_variant_take_ref(ptr noundef %15)
-  %16 = load ptr, ptr %info, align 8
-  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %name15, align 8
-  %18 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %value, align 8
-  call void @g_variant_unref(ptr noundef %19)
+  %17 = load ptr, ptr %value, align 8
+  %call14 = call ptr @g_variant_take_ref(ptr noundef %17)
+  %18 = load ptr, ptr %info, align 8
+  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %name15, align 8
+  %20 = load ptr, ptr %value, align 8
+  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %value, align 8
+  call void @g_variant_unref(ptr noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then
@@ -22378,8 +22386,8 @@ if.end16:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %20 = load i32, ptr %n, align 4
-  %inc = add i32 %20, 1
+  %22 = load i32, ptr %n, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !45
 
@@ -24368,57 +24376,59 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_multi_touch_interface_info, i32 0, i32 4), align 8
-  %2 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp ne ptr %3, null
+  %1 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_multi_touch_interface_info, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load i32, ptr %n, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_multi_touch_interface_info, i32 0, i32 4), align 8
-  %5 = load i32, ptr %n, align 4
-  %idxprom3 = zext i32 %5 to i64
-  %arrayidx4 = getelementptr ptr, ptr %4, i64 %idxprom3
-  %6 = load ptr, ptr %arrayidx4, align 8
-  store ptr %6, ptr %info, align 8
-  %7 = load ptr, ptr %info, align 8
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %flags, align 8
-  %and = and i32 %8, 1
+  %5 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_multi_touch_interface_info, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %n, align 4
+  %idxprom3 = zext i32 %7 to i64
+  %arrayidx4 = getelementptr ptr, ptr %6, i64 %idxprom3
+  %8 = load ptr, ptr %arrayidx4, align 8
+  store ptr %8, ptr %info, align 8
+  %9 = load ptr, ptr %info, align 8
+  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %flags, align 8
+  %and = and i32 %10, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr %skeleton, align 8
+  %11 = load ptr, ptr %skeleton, align 8
   %call5 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %call5)
+  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %call5)
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6)
-  %10 = load ptr, ptr %skeleton, align 8
+  %12 = load ptr, ptr %skeleton, align 8
   %call8 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %call8)
+  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %call8)
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9)
-  %11 = load ptr, ptr %info, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %name, align 8
-  %13 = load ptr, ptr %skeleton, align 8
-  %call11 = call ptr @_qemu_dbus_display1_multi_touch_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.42, ptr noundef %12, ptr noundef null, ptr noundef %13)
+  %13 = load ptr, ptr %info, align 8
+  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %name, align 8
+  %15 = load ptr, ptr %skeleton, align 8
+  %call11 = call ptr @_qemu_dbus_display1_multi_touch_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.42, ptr noundef %14, ptr noundef null, ptr noundef %15)
   store ptr %call11, ptr %value, align 8
-  %14 = load ptr, ptr %value, align 8
-  %cmp12 = icmp ne ptr %14, null
+  %16 = load ptr, ptr %value, align 8
+  %cmp12 = icmp ne ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.then
-  %15 = load ptr, ptr %value, align 8
-  %call14 = call ptr @g_variant_take_ref(ptr noundef %15)
-  %16 = load ptr, ptr %info, align 8
-  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %name15, align 8
-  %18 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %value, align 8
-  call void @g_variant_unref(ptr noundef %19)
+  %17 = load ptr, ptr %value, align 8
+  %call14 = call ptr @g_variant_take_ref(ptr noundef %17)
+  %18 = load ptr, ptr %info, align 8
+  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %name15, align 8
+  %20 = load ptr, ptr %value, align 8
+  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %value, align 8
+  call void @g_variant_unref(ptr noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then
@@ -24428,8 +24438,8 @@ if.end16:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %20 = load i32, ptr %n, align 4
-  %inc = add i32 %20, 1
+  %22 = load i32, ptr %n, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !56
 
@@ -26444,57 +26454,59 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_listener_interface_info, i32 0, i32 4), align 8
-  %2 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp ne ptr %3, null
+  %1 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_listener_interface_info, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load i32, ptr %n, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_listener_interface_info, i32 0, i32 4), align 8
-  %5 = load i32, ptr %n, align 4
-  %idxprom3 = zext i32 %5 to i64
-  %arrayidx4 = getelementptr ptr, ptr %4, i64 %idxprom3
-  %6 = load ptr, ptr %arrayidx4, align 8
-  store ptr %6, ptr %info, align 8
-  %7 = load ptr, ptr %info, align 8
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %flags, align 8
-  %and = and i32 %8, 1
+  %5 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_listener_interface_info, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %n, align 4
+  %idxprom3 = zext i32 %7 to i64
+  %arrayidx4 = getelementptr ptr, ptr %6, i64 %idxprom3
+  %8 = load ptr, ptr %arrayidx4, align 8
+  store ptr %8, ptr %info, align 8
+  %9 = load ptr, ptr %info, align 8
+  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %flags, align 8
+  %and = and i32 %10, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr %skeleton, align 8
+  %11 = load ptr, ptr %skeleton, align 8
   %call5 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %call5)
+  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %call5)
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6)
-  %10 = load ptr, ptr %skeleton, align 8
+  %12 = load ptr, ptr %skeleton, align 8
   %call8 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %call8)
+  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %call8)
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9)
-  %11 = load ptr, ptr %info, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %name, align 8
-  %13 = load ptr, ptr %skeleton, align 8
-  %call11 = call ptr @_qemu_dbus_display1_listener_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.57, ptr noundef %12, ptr noundef null, ptr noundef %13)
+  %13 = load ptr, ptr %info, align 8
+  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %name, align 8
+  %15 = load ptr, ptr %skeleton, align 8
+  %call11 = call ptr @_qemu_dbus_display1_listener_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.57, ptr noundef %14, ptr noundef null, ptr noundef %15)
   store ptr %call11, ptr %value, align 8
-  %14 = load ptr, ptr %value, align 8
-  %cmp12 = icmp ne ptr %14, null
+  %16 = load ptr, ptr %value, align 8
+  %cmp12 = icmp ne ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.then
-  %15 = load ptr, ptr %value, align 8
-  %call14 = call ptr @g_variant_take_ref(ptr noundef %15)
-  %16 = load ptr, ptr %info, align 8
-  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %name15, align 8
-  %18 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %value, align 8
-  call void @g_variant_unref(ptr noundef %19)
+  %17 = load ptr, ptr %value, align 8
+  %call14 = call ptr @g_variant_take_ref(ptr noundef %17)
+  %18 = load ptr, ptr %info, align 8
+  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %name15, align 8
+  %20 = load ptr, ptr %value, align 8
+  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %value, align 8
+  call void @g_variant_unref(ptr noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then
@@ -26504,8 +26516,8 @@ if.end16:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %20 = load i32, ptr %n, align 4
-  %inc = add i32 %20, 1
+  %22 = load i32, ptr %n, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !67
 
@@ -30590,57 +30602,59 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_clipboard_interface_info, i32 0, i32 4), align 8
-  %2 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp ne ptr %3, null
+  %1 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_clipboard_interface_info, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load i32, ptr %n, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_clipboard_interface_info, i32 0, i32 4), align 8
-  %5 = load i32, ptr %n, align 4
-  %idxprom3 = zext i32 %5 to i64
-  %arrayidx4 = getelementptr ptr, ptr %4, i64 %idxprom3
-  %6 = load ptr, ptr %arrayidx4, align 8
-  store ptr %6, ptr %info, align 8
-  %7 = load ptr, ptr %info, align 8
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %flags, align 8
-  %and = and i32 %8, 1
+  %5 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_clipboard_interface_info, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %n, align 4
+  %idxprom3 = zext i32 %7 to i64
+  %arrayidx4 = getelementptr ptr, ptr %6, i64 %idxprom3
+  %8 = load ptr, ptr %arrayidx4, align 8
+  store ptr %8, ptr %info, align 8
+  %9 = load ptr, ptr %info, align 8
+  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %flags, align 8
+  %and = and i32 %10, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr %skeleton, align 8
+  %11 = load ptr, ptr %skeleton, align 8
   %call5 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %call5)
+  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %call5)
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6)
-  %10 = load ptr, ptr %skeleton, align 8
+  %12 = load ptr, ptr %skeleton, align 8
   %call8 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %call8)
+  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %call8)
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9)
-  %11 = load ptr, ptr %info, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %name, align 8
-  %13 = load ptr, ptr %skeleton, align 8
-  %call11 = call ptr @_qemu_dbus_display1_clipboard_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.76, ptr noundef %12, ptr noundef null, ptr noundef %13)
+  %13 = load ptr, ptr %info, align 8
+  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %name, align 8
+  %15 = load ptr, ptr %skeleton, align 8
+  %call11 = call ptr @_qemu_dbus_display1_clipboard_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.76, ptr noundef %14, ptr noundef null, ptr noundef %15)
   store ptr %call11, ptr %value, align 8
-  %14 = load ptr, ptr %value, align 8
-  %cmp12 = icmp ne ptr %14, null
+  %16 = load ptr, ptr %value, align 8
+  %cmp12 = icmp ne ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.then
-  %15 = load ptr, ptr %value, align 8
-  %call14 = call ptr @g_variant_take_ref(ptr noundef %15)
-  %16 = load ptr, ptr %info, align 8
-  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %name15, align 8
-  %18 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %value, align 8
-  call void @g_variant_unref(ptr noundef %19)
+  %17 = load ptr, ptr %value, align 8
+  %call14 = call ptr @g_variant_take_ref(ptr noundef %17)
+  %18 = load ptr, ptr %info, align 8
+  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %name15, align 8
+  %20 = load ptr, ptr %value, align 8
+  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %value, align 8
+  call void @g_variant_unref(ptr noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then
@@ -30650,8 +30664,8 @@ if.end16:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %20 = load i32, ptr %n, align 4
-  %inc = add i32 %20, 1
+  %22 = load i32, ptr %n, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !90
 
@@ -32666,57 +32680,59 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_audio_interface_info, i32 0, i32 4), align 8
-  %2 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp ne ptr %3, null
+  %1 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_audio_interface_info, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load i32, ptr %n, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_audio_interface_info, i32 0, i32 4), align 8
-  %5 = load i32, ptr %n, align 4
-  %idxprom3 = zext i32 %5 to i64
-  %arrayidx4 = getelementptr ptr, ptr %4, i64 %idxprom3
-  %6 = load ptr, ptr %arrayidx4, align 8
-  store ptr %6, ptr %info, align 8
-  %7 = load ptr, ptr %info, align 8
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %flags, align 8
-  %and = and i32 %8, 1
+  %5 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_audio_interface_info, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %n, align 4
+  %idxprom3 = zext i32 %7 to i64
+  %arrayidx4 = getelementptr ptr, ptr %6, i64 %idxprom3
+  %8 = load ptr, ptr %arrayidx4, align 8
+  store ptr %8, ptr %info, align 8
+  %9 = load ptr, ptr %info, align 8
+  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %flags, align 8
+  %and = and i32 %10, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr %skeleton, align 8
+  %11 = load ptr, ptr %skeleton, align 8
   %call5 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %call5)
+  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %call5)
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6)
-  %10 = load ptr, ptr %skeleton, align 8
+  %12 = load ptr, ptr %skeleton, align 8
   %call8 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %call8)
+  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %call8)
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9)
-  %11 = load ptr, ptr %info, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %name, align 8
-  %13 = load ptr, ptr %skeleton, align 8
-  %call11 = call ptr @_qemu_dbus_display1_audio_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.80, ptr noundef %12, ptr noundef null, ptr noundef %13)
+  %13 = load ptr, ptr %info, align 8
+  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %name, align 8
+  %15 = load ptr, ptr %skeleton, align 8
+  %call11 = call ptr @_qemu_dbus_display1_audio_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.80, ptr noundef %14, ptr noundef null, ptr noundef %15)
   store ptr %call11, ptr %value, align 8
-  %14 = load ptr, ptr %value, align 8
-  %cmp12 = icmp ne ptr %14, null
+  %16 = load ptr, ptr %value, align 8
+  %cmp12 = icmp ne ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.then
-  %15 = load ptr, ptr %value, align 8
-  %call14 = call ptr @g_variant_take_ref(ptr noundef %15)
-  %16 = load ptr, ptr %info, align 8
-  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %name15, align 8
-  %18 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %value, align 8
-  call void @g_variant_unref(ptr noundef %19)
+  %17 = load ptr, ptr %value, align 8
+  %call14 = call ptr @g_variant_take_ref(ptr noundef %17)
+  %18 = load ptr, ptr %info, align 8
+  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %name15, align 8
+  %20 = load ptr, ptr %value, align 8
+  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %value, align 8
+  call void @g_variant_unref(ptr noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then
@@ -32726,8 +32742,8 @@ if.end16:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %20 = load i32, ptr %n, align 4
-  %inc = add i32 %20, 1
+  %22 = load i32, ptr %n, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !101
 
@@ -34742,57 +34758,59 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_audio_out_listener_interface_info, i32 0, i32 4), align 8
-  %2 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp ne ptr %3, null
+  %1 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_audio_out_listener_interface_info, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load i32, ptr %n, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_audio_out_listener_interface_info, i32 0, i32 4), align 8
-  %5 = load i32, ptr %n, align 4
-  %idxprom3 = zext i32 %5 to i64
-  %arrayidx4 = getelementptr ptr, ptr %4, i64 %idxprom3
-  %6 = load ptr, ptr %arrayidx4, align 8
-  store ptr %6, ptr %info, align 8
-  %7 = load ptr, ptr %info, align 8
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %flags, align 8
-  %and = and i32 %8, 1
+  %5 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_audio_out_listener_interface_info, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %n, align 4
+  %idxprom3 = zext i32 %7 to i64
+  %arrayidx4 = getelementptr ptr, ptr %6, i64 %idxprom3
+  %8 = load ptr, ptr %arrayidx4, align 8
+  store ptr %8, ptr %info, align 8
+  %9 = load ptr, ptr %info, align 8
+  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %flags, align 8
+  %and = and i32 %10, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr %skeleton, align 8
+  %11 = load ptr, ptr %skeleton, align 8
   %call5 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %call5)
+  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %call5)
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6)
-  %10 = load ptr, ptr %skeleton, align 8
+  %12 = load ptr, ptr %skeleton, align 8
   %call8 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %call8)
+  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %call8)
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9)
-  %11 = load ptr, ptr %info, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %name, align 8
-  %13 = load ptr, ptr %skeleton, align 8
-  %call11 = call ptr @_qemu_dbus_display1_audio_out_listener_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.92, ptr noundef %12, ptr noundef null, ptr noundef %13)
+  %13 = load ptr, ptr %info, align 8
+  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %name, align 8
+  %15 = load ptr, ptr %skeleton, align 8
+  %call11 = call ptr @_qemu_dbus_display1_audio_out_listener_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.92, ptr noundef %14, ptr noundef null, ptr noundef %15)
   store ptr %call11, ptr %value, align 8
-  %14 = load ptr, ptr %value, align 8
-  %cmp12 = icmp ne ptr %14, null
+  %16 = load ptr, ptr %value, align 8
+  %cmp12 = icmp ne ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.then
-  %15 = load ptr, ptr %value, align 8
-  %call14 = call ptr @g_variant_take_ref(ptr noundef %15)
-  %16 = load ptr, ptr %info, align 8
-  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %name15, align 8
-  %18 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %value, align 8
-  call void @g_variant_unref(ptr noundef %19)
+  %17 = load ptr, ptr %value, align 8
+  %call14 = call ptr @g_variant_take_ref(ptr noundef %17)
+  %18 = load ptr, ptr %info, align 8
+  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %name15, align 8
+  %20 = load ptr, ptr %value, align 8
+  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %value, align 8
+  call void @g_variant_unref(ptr noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then
@@ -34802,8 +34820,8 @@ if.end16:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %20 = load i32, ptr %n, align 4
-  %inc = add i32 %20, 1
+  %22 = load i32, ptr %n, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !112
 
@@ -36818,57 +36836,59 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_audio_in_listener_interface_info, i32 0, i32 4), align 8
-  %2 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp ne ptr %3, null
+  %1 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_audio_in_listener_interface_info, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load i32, ptr %n, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_audio_in_listener_interface_info, i32 0, i32 4), align 8
-  %5 = load i32, ptr %n, align 4
-  %idxprom3 = zext i32 %5 to i64
-  %arrayidx4 = getelementptr ptr, ptr %4, i64 %idxprom3
-  %6 = load ptr, ptr %arrayidx4, align 8
-  store ptr %6, ptr %info, align 8
-  %7 = load ptr, ptr %info, align 8
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %flags, align 8
-  %and = and i32 %8, 1
+  %5 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_audio_in_listener_interface_info, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %n, align 4
+  %idxprom3 = zext i32 %7 to i64
+  %arrayidx4 = getelementptr ptr, ptr %6, i64 %idxprom3
+  %8 = load ptr, ptr %arrayidx4, align 8
+  store ptr %8, ptr %info, align 8
+  %9 = load ptr, ptr %info, align 8
+  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %flags, align 8
+  %and = and i32 %10, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr %skeleton, align 8
+  %11 = load ptr, ptr %skeleton, align 8
   %call5 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %call5)
+  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %call5)
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6)
-  %10 = load ptr, ptr %skeleton, align 8
+  %12 = load ptr, ptr %skeleton, align 8
   %call8 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %call8)
+  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %call8)
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9)
-  %11 = load ptr, ptr %info, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %name, align 8
-  %13 = load ptr, ptr %skeleton, align 8
-  %call11 = call ptr @_qemu_dbus_display1_audio_in_listener_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.97, ptr noundef %12, ptr noundef null, ptr noundef %13)
+  %13 = load ptr, ptr %info, align 8
+  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %name, align 8
+  %15 = load ptr, ptr %skeleton, align 8
+  %call11 = call ptr @_qemu_dbus_display1_audio_in_listener_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.97, ptr noundef %14, ptr noundef null, ptr noundef %15)
   store ptr %call11, ptr %value, align 8
-  %14 = load ptr, ptr %value, align 8
-  %cmp12 = icmp ne ptr %14, null
+  %16 = load ptr, ptr %value, align 8
+  %cmp12 = icmp ne ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.then
-  %15 = load ptr, ptr %value, align 8
-  %call14 = call ptr @g_variant_take_ref(ptr noundef %15)
-  %16 = load ptr, ptr %info, align 8
-  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %name15, align 8
-  %18 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %value, align 8
-  call void @g_variant_unref(ptr noundef %19)
+  %17 = load ptr, ptr %value, align 8
+  %call14 = call ptr @g_variant_take_ref(ptr noundef %17)
+  %18 = load ptr, ptr %info, align 8
+  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %name15, align 8
+  %20 = load ptr, ptr %value, align 8
+  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %value, align 8
+  call void @g_variant_unref(ptr noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then
@@ -36878,8 +36898,8 @@ if.end16:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %20 = load i32, ptr %n, align 4
-  %inc = add i32 %20, 1
+  %22 = load i32, ptr %n, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !123
 
@@ -39086,57 +39106,59 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_chardev_interface_info, i32 0, i32 4), align 8
-  %2 = load i32, ptr %n, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp = icmp ne ptr %3, null
+  %1 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_chardev_interface_info, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %3 = load i32, ptr %n, align 4
+  %idxprom = zext i32 %3 to i64
+  %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp = icmp ne ptr %4, null
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr getelementptr inbounds (%struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_chardev_interface_info, i32 0, i32 4), align 8
-  %5 = load i32, ptr %n, align 4
-  %idxprom3 = zext i32 %5 to i64
-  %arrayidx4 = getelementptr ptr, ptr %4, i64 %idxprom3
-  %6 = load ptr, ptr %arrayidx4, align 8
-  store ptr %6, ptr %info, align 8
-  %7 = load ptr, ptr %info, align 8
-  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %7, i32 0, i32 3
-  %8 = load i32, ptr %flags, align 8
-  %and = and i32 %8, 1
+  %5 = getelementptr inbounds %struct._GDBusInterfaceInfo, ptr @_qemu_dbus_display1_chardev_interface_info, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %n, align 4
+  %idxprom3 = zext i32 %7 to i64
+  %arrayidx4 = getelementptr ptr, ptr %6, i64 %idxprom3
+  %8 = load ptr, ptr %arrayidx4, align 8
+  store ptr %8, ptr %info, align 8
+  %9 = load ptr, ptr %info, align 8
+  %flags = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %9, i32 0, i32 3
+  %10 = load i32, ptr %flags, align 8
+  %and = and i32 %10, 1
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %for.body
-  %9 = load ptr, ptr %skeleton, align 8
+  %11 = load ptr, ptr %skeleton, align 8
   %call5 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %call5)
+  %call6 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %call5)
   %call7 = call ptr @g_dbus_interface_skeleton_get_connection(ptr noundef %call6)
-  %10 = load ptr, ptr %skeleton, align 8
+  %12 = load ptr, ptr %skeleton, align 8
   %call8 = call i64 @g_dbus_interface_skeleton_get_type() #8
-  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %call8)
+  %call9 = call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %call8)
   %call10 = call ptr @g_dbus_interface_skeleton_get_object_path(ptr noundef %call9)
-  %11 = load ptr, ptr %info, align 8
-  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %name, align 8
-  %13 = load ptr, ptr %skeleton, align 8
-  %call11 = call ptr @_qemu_dbus_display1_chardev_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.103, ptr noundef %12, ptr noundef null, ptr noundef %13)
+  %13 = load ptr, ptr %info, align 8
+  %name = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %name, align 8
+  %15 = load ptr, ptr %skeleton, align 8
+  %call11 = call ptr @_qemu_dbus_display1_chardev_skeleton_handle_get_property(ptr noundef %call7, ptr noundef null, ptr noundef %call10, ptr noundef @.str.103, ptr noundef %14, ptr noundef null, ptr noundef %15)
   store ptr %call11, ptr %value, align 8
-  %14 = load ptr, ptr %value, align 8
-  %cmp12 = icmp ne ptr %14, null
+  %16 = load ptr, ptr %value, align 8
+  %cmp12 = icmp ne ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.then
-  %15 = load ptr, ptr %value, align 8
-  %call14 = call ptr @g_variant_take_ref(ptr noundef %15)
-  %16 = load ptr, ptr %info, align 8
-  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %name15, align 8
-  %18 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %value, align 8
-  call void @g_variant_unref(ptr noundef %19)
+  %17 = load ptr, ptr %value, align 8
+  %call14 = call ptr @g_variant_take_ref(ptr noundef %17)
+  %18 = load ptr, ptr %info, align 8
+  %name15 = getelementptr inbounds %struct._GDBusPropertyInfo, ptr %18, i32 0, i32 1
+  %19 = load ptr, ptr %name15, align 8
+  %20 = load ptr, ptr %value, align 8
+  call void (ptr, ptr, ...) @g_variant_builder_add(ptr noundef %builder, ptr noundef @.str.124, ptr noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %value, align 8
+  call void @g_variant_unref(ptr noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then
@@ -39146,8 +39168,8 @@ if.end16:                                         ; preds = %if.end, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16
-  %20 = load i32, ptr %n, align 4
-  %inc = add i32 %20, 1
+  %22 = load i32, ptr %n, align 4
+  %inc = add i32 %22, 1
   store i32 %inc, ptr %n, align 4
   br label %for.cond, !llvm.loop !134
 

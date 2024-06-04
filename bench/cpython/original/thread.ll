@@ -901,15 +901,17 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyThread_init_thread() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14), align 8
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14
+  %1 = load i32, ptr %0, align 8
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14), align 8
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14
+  store i32 1, ptr %2, align 8
   call void @PyThread__init_thread()
   br label %return
 
@@ -939,8 +941,9 @@ entry:
   %cond.addr = alloca ptr, align 8
   store ptr %cond, ptr %cond.addr, align 8
   %0 = load ptr, ptr %cond.addr, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14, i32 1), align 8
-  %call = call i32 @pthread_cond_init(ptr noundef %0, ptr noundef %1) #8
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %call = call i32 @pthread_cond_init(ptr noundef %0, ptr noundef %2) #8
   ret i32 %call
 }
 
@@ -959,8 +962,9 @@ entry:
   %0 = load i64, ptr %us.addr, align 8
   %call = call i64 @_PyTime_FromMicrosecondsClamp(i64 noundef %0)
   store i64 %call, ptr %timeout, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14, i32 1), align 8
-  %tobool = icmp ne ptr %1, null
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14, i32 1
+  %2 = load ptr, ptr %1, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -974,13 +978,13 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %2 = load i64, ptr %t, align 8
-  %3 = load i64, ptr %timeout, align 8
-  %call3 = call i64 @_PyTime_Add(i64 noundef %2, i64 noundef %3)
+  %3 = load i64, ptr %t, align 8
+  %4 = load i64, ptr %timeout, align 8
+  %call3 = call i64 @_PyTime_Add(i64 noundef %3, i64 noundef %4)
   store i64 %call3, ptr %t, align 8
-  %4 = load i64, ptr %t, align 8
-  %5 = load ptr, ptr %abs.addr, align 8
-  call void @_PyTime_AsTimespec_clamp(i64 noundef %4, ptr noundef %5)
+  %5 = load i64, ptr %t, align 8
+  %6 = load ptr, ptr %abs.addr, align 8
+  call void @_PyTime_AsTimespec_clamp(i64 noundef %5, ptr noundef %6)
   ret void
 }
 
@@ -1050,8 +1054,9 @@ entry:
   store ptr %func, ptr %func.addr, align 8
   store ptr %arg, ptr %arg.addr, align 8
   store ptr %out_id, ptr %out_id.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14), align 8
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14
+  %1 = load i32, ptr %0, align 8
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1070,46 +1075,46 @@ if.then1:                                         ; preds = %if.end
 if.end2:                                          ; preds = %if.end
   %call3 = call ptr @_PyThreadState_GET()
   store ptr %call3, ptr %tstate, align 8
-  %1 = load ptr, ptr %tstate, align 8
-  %tobool4 = icmp ne ptr %1, null
+  %2 = load ptr, ptr %tstate, align 8
+  %tobool4 = icmp ne ptr %2, null
   br i1 %tobool4, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end2
-  %2 = load ptr, ptr %tstate, align 8
-  %interp = getelementptr inbounds %struct._ts, ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %interp, align 8
-  %threads = getelementptr inbounds %struct._is, ptr %3, i32 0, i32 9
+  %3 = load ptr, ptr %tstate, align 8
+  %interp = getelementptr inbounds %struct._ts, ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %interp, align 8
+  %threads = getelementptr inbounds %struct._is, ptr %4, i32 0, i32 9
   %stacksize5 = getelementptr inbounds %struct.pythreads, ptr %threads, i32 0, i32 4
-  %4 = load i64, ptr %stacksize5, align 8
+  %5 = load i64, ptr %stacksize5, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end2
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %4, %cond.true ], [ 0, %cond.false ]
+  %cond = phi i64 [ %5, %cond.true ], [ 0, %cond.false ]
   store i64 %cond, ptr %stacksize, align 8
-  %5 = load i64, ptr %stacksize, align 8
-  %cmp6 = icmp ne i64 %5, 0
+  %6 = load i64, ptr %stacksize, align 8
+  %cmp6 = icmp ne i64 %6, 0
   br i1 %cmp6, label %cond.true7, label %cond.false8
 
 cond.true7:                                       ; preds = %cond.end
-  %6 = load i64, ptr %stacksize, align 8
+  %7 = load i64, ptr %stacksize, align 8
   br label %cond.end9
 
 cond.false8:                                      ; preds = %cond.end
   br label %cond.end9
 
 cond.end9:                                        ; preds = %cond.false8, %cond.true7
-  %cond10 = phi i64 [ %6, %cond.true7 ], [ 0, %cond.false8 ]
+  %cond10 = phi i64 [ %7, %cond.true7 ], [ 0, %cond.false8 ]
   store i64 %cond10, ptr %tss, align 8
-  %7 = load i64, ptr %tss, align 8
-  %cmp11 = icmp ne i64 %7, 0
+  %8 = load i64, ptr %tss, align 8
+  %cmp11 = icmp ne i64 %8, 0
   br i1 %cmp11, label %if.then12, label %if.end18
 
 if.then12:                                        ; preds = %cond.end9
-  %8 = load i64, ptr %tss, align 8
-  %call13 = call i32 @pthread_attr_setstacksize(ptr noundef %attrs, i64 noundef %8) #8
+  %9 = load i64, ptr %tss, align 8
+  %call13 = call i32 @pthread_attr_setstacksize(ptr noundef %attrs, i64 noundef %9) #8
   %cmp14 = icmp ne i32 %call13, 0
   br i1 %cmp14, label %if.then15, label %if.end17
 
@@ -1125,8 +1130,8 @@ if.end18:                                         ; preds = %if.end17, %cond.end
   %call19 = call i32 @pthread_attr_setscope(ptr noundef %attrs, i32 noundef 0) #8
   %call20 = call ptr @PyMem_RawMalloc(i64 noundef 16)
   store ptr %call20, ptr %callback, align 8
-  %9 = load ptr, ptr %callback, align 8
-  %cmp21 = icmp eq ptr %9, null
+  %10 = load ptr, ptr %callback, align 8
+  %cmp21 = icmp eq ptr %10, null
   br i1 %cmp21, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.end18
@@ -1134,38 +1139,38 @@ if.then22:                                        ; preds = %if.end18
   br label %return
 
 if.end23:                                         ; preds = %if.end18
-  %10 = load ptr, ptr %func.addr, align 8
-  %11 = load ptr, ptr %callback, align 8
-  %func24 = getelementptr inbounds %struct.pythread_callback, ptr %11, i32 0, i32 0
-  store ptr %10, ptr %func24, align 8
-  %12 = load ptr, ptr %arg.addr, align 8
-  %13 = load ptr, ptr %callback, align 8
-  %arg25 = getelementptr inbounds %struct.pythread_callback, ptr %13, i32 0, i32 1
-  store ptr %12, ptr %arg25, align 8
+  %11 = load ptr, ptr %func.addr, align 8
+  %12 = load ptr, ptr %callback, align 8
+  %func24 = getelementptr inbounds %struct.pythread_callback, ptr %12, i32 0, i32 0
+  store ptr %11, ptr %func24, align 8
+  %13 = load ptr, ptr %arg.addr, align 8
   %14 = load ptr, ptr %callback, align 8
-  %call26 = call i32 @pthread_create(ptr noundef %th, ptr noundef %attrs, ptr noundef @pythread_wrapper, ptr noundef %14) #8
+  %arg25 = getelementptr inbounds %struct.pythread_callback, ptr %14, i32 0, i32 1
+  store ptr %13, ptr %arg25, align 8
+  %15 = load ptr, ptr %callback, align 8
+  %call26 = call i32 @pthread_create(ptr noundef %th, ptr noundef %attrs, ptr noundef @pythread_wrapper, ptr noundef %15) #8
   store i32 %call26, ptr %status, align 4
   %call27 = call i32 @pthread_attr_destroy(ptr noundef %attrs) #8
-  %15 = load i32, ptr %status, align 4
-  %cmp28 = icmp ne i32 %15, 0
+  %16 = load i32, ptr %status, align 4
+  %cmp28 = icmp ne i32 %16, 0
   br i1 %cmp28, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %if.end23
-  %16 = load ptr, ptr %callback, align 8
-  call void @PyMem_RawFree(ptr noundef %16)
+  %17 = load ptr, ptr %callback, align 8
+  call void @PyMem_RawFree(ptr noundef %17)
   store i32 -1, ptr %retval, align 4
   br label %return
 
 if.end30:                                         ; preds = %if.end23
-  %17 = load i64, ptr %th, align 8
-  %18 = load ptr, ptr %out_id.addr, align 8
-  store i64 %17, ptr %18, align 8
+  %18 = load i64, ptr %th, align 8
+  %19 = load ptr, ptr %out_id.addr, align 8
+  store i64 %18, ptr %19, align 8
   store i32 0, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end30, %if.then29, %if.then22, %if.then15, %if.then1
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
+  %20 = load i32, ptr %retval, align 4
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1251,8 +1256,9 @@ declare i64 @pthread_self() #3
 define dso_local i64 @PyThread_get_thread_ident_ex() #0 {
 entry:
   %threadid = alloca i64, align 8
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14), align 8
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14
+  %1 = load i32, ptr %0, align 8
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1262,8 +1268,8 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %call = call i64 @pthread_self() #9
   store volatile i64 %call, ptr %threadid, align 8
-  %1 = load volatile i64, ptr %threadid, align 8
-  ret i64 %1
+  %2 = load volatile i64, ptr %threadid, align 8
+  ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1277,8 +1283,9 @@ entry:
 define dso_local i64 @PyThread_get_thread_native_id() #0 {
 entry:
   %native_id = alloca i32, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14), align 8
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14
+  %1 = load i32, ptr %0, align 8
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1289,8 +1296,8 @@ if.end:                                           ; preds = %if.then, %entry
   %call = call i64 (i64, ...) @syscall(i64 noundef 186) #8
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %native_id, align 4
-  %1 = load i32, ptr %native_id, align 4
-  %conv1 = sext i32 %1 to i64
+  %2 = load i32, ptr %native_id, align 4
+  %conv1 = sext i32 %2 to i64
   ret i64 %conv1
 }
 
@@ -1300,8 +1307,9 @@ declare i64 @syscall(i64 noundef, ...) #1
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @PyThread_exit_thread() #4 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14), align 8
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14
+  %1 = load i32, ptr %0, align 8
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1326,8 +1334,9 @@ entry:
   %status = alloca i32, align 4
   %error = alloca i32, align 4
   store i32 0, ptr %error, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14), align 8
-  %tobool = icmp ne i32 %0, 0
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14
+  %1 = load i32, ptr %0, align 8
+  %tobool = icmp ne i32 %1, 0
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1337,16 +1346,16 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %call = call ptr @PyMem_RawMalloc(i64 noundef 32)
   store ptr %call, ptr %lock, align 8
-  %1 = load ptr, ptr %lock, align 8
-  %tobool1 = icmp ne ptr %1, null
+  %2 = load ptr, ptr %lock, align 8
+  %tobool1 = icmp ne ptr %2, null
   br i1 %tobool1, label %if.then2, label %if.end9
 
 if.then2:                                         ; preds = %if.end
-  %2 = load ptr, ptr %lock, align 8
-  %call3 = call i32 @sem_init(ptr noundef %2, i32 noundef 0, i32 noundef 1) #8
+  %3 = load ptr, ptr %lock, align 8
+  %call3 = call i32 @sem_init(ptr noundef %3, i32 noundef 0, i32 noundef 1) #8
   store i32 %call3, ptr %status, align 4
-  %3 = load i32, ptr %status, align 4
-  %cmp = icmp ne i32 %3, 0
+  %4 = load i32, ptr %status, align 4
+  %cmp = icmp ne i32 %4, 0
   br i1 %cmp, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.then2
@@ -1355,13 +1364,13 @@ if.then4:                                         ; preds = %if.then2
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %if.then2
-  %4 = load i32, ptr %error, align 4
-  %tobool6 = icmp ne i32 %4, 0
+  %5 = load i32, ptr %error, align 4
+  %tobool6 = icmp ne i32 %5, 0
   br i1 %tobool6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end5
-  %5 = load ptr, ptr %lock, align 8
-  call void @PyMem_RawFree(ptr noundef %5)
+  %6 = load ptr, ptr %lock, align 8
+  call void @PyMem_RawFree(ptr noundef %6)
   store ptr null, ptr %lock, align 8
   br label %if.end8
 
@@ -1369,8 +1378,8 @@ if.end8:                                          ; preds = %if.then7, %if.end5
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end8, %if.end
-  %6 = load ptr, ptr %lock, align 8
-  ret ptr %6
+  %7 = load ptr, ptr %lock, align 8
+  ret ptr %7
 }
 
 declare ptr @PyMem_RawMalloc(i64 noundef) #2
@@ -2613,13 +2622,17 @@ declare void @_PyStructSequence_FiniBuiltin(ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define internal void @init_condattr() #0 {
 entry:
-  %call = call i32 @pthread_condattr_init(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14, i32 1, i32 1)) #8
-  %call1 = call i32 @pthread_condattr_setclock(ptr noundef getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14, i32 1, i32 1), i32 noundef 1) #8
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14, i32 1, i32 1
+  %call = call i32 @pthread_condattr_init(ptr noundef %0) #8
+  %1 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14, i32 1, i32 1
+  %call1 = call i32 @pthread_condattr_setclock(ptr noundef %1, i32 noundef 1) #8
   %cmp = icmp eq i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14, i32 1, i32 1), ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14, i32 1), align 8
+  %2 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14, i32 1, i32 1
+  %3 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 14, i32 1
+  store ptr %2, ptr %3, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

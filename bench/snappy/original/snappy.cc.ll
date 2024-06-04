@@ -2990,13 +2990,14 @@ entry:
   store i64 %n, ptr %n.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6snappy6SourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6snappy15ByteArraySourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6snappy15ByteArraySourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
+  %1 = load ptr, ptr %p.addr, align 8
+  store ptr %1, ptr %ptr_, align 8
   %left_ = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %n.addr, align 8
-  store i64 %1, ptr %left_, align 8
+  %2 = load i64, ptr %n.addr, align 8
+  store i64 %2, ptr %left_, align 8
   ret void
 }
 
@@ -3436,10 +3437,11 @@ entry:
   store ptr %dest, ptr %dest.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6snappy4SinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %dest_ = getelementptr inbounds %"class.snappy::UncheckedByteArraySink", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %dest.addr, align 8
-  store ptr %0, ptr %dest_, align 8
+  %1 = load ptr, ptr %dest.addr, align 8
+  store ptr %1, ptr %dest_, align 8
   ret void
 }
 
@@ -3499,55 +3501,56 @@ entry:
   store i64 %total_size, ptr %total_size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6snappy6SourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %curr_iov_ = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %iov.addr, align 8
-  store ptr %0, ptr %curr_iov_, align 8
+  %1 = load ptr, ptr %iov.addr, align 8
+  store ptr %1, ptr %curr_iov_, align 8
   %curr_pos_ = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %total_size.addr, align 8
-  %cmp = icmp ugt i64 %1, 0
+  %2 = load i64, ptr %total_size.addr, align 8
+  %cmp = icmp ugt i64 %2, 0
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr %iov.addr, align 8
-  %iov_base = getelementptr inbounds %struct.iovec, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %iov_base, align 8
+  %3 = load ptr, ptr %iov.addr, align 8
+  %iov_base = getelementptr inbounds %struct.iovec, ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %iov_base, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %3, %cond.true ], [ null, %cond.false ]
+  %cond = phi ptr [ %4, %cond.true ], [ null, %cond.false ]
   store ptr %cond, ptr %curr_pos_, align 8
   %curr_size_remaining_ = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this1, i32 0, i32 3
-  %4 = load i64, ptr %total_size.addr, align 8
-  %cmp2 = icmp ugt i64 %4, 0
+  %5 = load i64, ptr %total_size.addr, align 8
+  %cmp2 = icmp ugt i64 %5, 0
   br i1 %cmp2, label %cond.true3, label %cond.false4
 
 cond.true3:                                       ; preds = %cond.end
-  %5 = load ptr, ptr %iov.addr, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %5, i32 0, i32 1
-  %6 = load i64, ptr %iov_len, align 8
+  %6 = load ptr, ptr %iov.addr, align 8
+  %iov_len = getelementptr inbounds %struct.iovec, ptr %6, i32 0, i32 1
+  %7 = load i64, ptr %iov_len, align 8
   br label %cond.end5
 
 cond.false4:                                      ; preds = %cond.end
   br label %cond.end5
 
 cond.end5:                                        ; preds = %cond.false4, %cond.true3
-  %cond6 = phi i64 [ %6, %cond.true3 ], [ 0, %cond.false4 ]
+  %cond6 = phi i64 [ %7, %cond.true3 ], [ 0, %cond.false4 ]
   store i64 %cond6, ptr %curr_size_remaining_, align 8
   %total_size_remaining_ = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this1, i32 0, i32 4
-  %7 = load i64, ptr %total_size.addr, align 8
-  store i64 %7, ptr %total_size_remaining_, align 8
   %8 = load i64, ptr %total_size.addr, align 8
-  %cmp7 = icmp ugt i64 %8, 0
+  store i64 %8, ptr %total_size_remaining_, align 8
+  %9 = load i64, ptr %total_size.addr, align 8
+  %cmp7 = icmp ugt i64 %9, 0
   br i1 %cmp7, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %cond.end5
   %curr_size_remaining_8 = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this1, i32 0, i32 3
-  %9 = load i64, ptr %curr_size_remaining_8, align 8
-  %cmp9 = icmp eq i64 %9, 0
+  %10 = load i64, ptr %curr_size_remaining_8, align 8
+  %cmp9 = icmp eq i64 %10, 0
   br i1 %cmp9, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
@@ -4090,7 +4093,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6snappy6SourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6snappy6SourceE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -4119,7 +4123,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6snappy4SinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6snappy4SinkE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -5695,41 +5700,42 @@ init.i:                                           ; preds = %init.check.i
   %83 = extractvalue { i64, i64 } %call.i, 0
   store i64 %83, ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, align 1
   %84 = extractvalue { i64, i64 } %call.i, 1
-  store i64 %84, ptr getelementptr inbounds ({ i64, i64 }, ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, i32 0, i32 1), align 1
+  %85 = getelementptr inbounds { i64, i64 }, ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, i32 0, i32 1
+  store i64 %84, ptr %85, align 1
   call void @__cxa_guard_release(ptr @_ZGVZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes) #11
   br label %init.end.i
 
 init.end.i:                                       ; preds = %init.i, %init.check.i, %for.end.i
-  %85 = load i64, ptr %offset.addr.i, align 8
-  %call7.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm16EEixEm(ptr noundef nonnull align 1 dereferenceable(16) @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, i64 noundef %85) #11
-  %86 = load i8, ptr %call7.i, align 1
-  %conv.i58 = zext i8 %86 to i64
+  %86 = load i64, ptr %offset.addr.i, align 8
+  %call7.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt5arrayIhLm16EEixEm(ptr noundef nonnull align 1 dereferenceable(16) @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, i64 noundef %86) #11
+  %87 = load i8, ptr %call7.i, align 1
+  %conv.i58 = zext i8 %87 to i64
   store i64 %conv.i58, ptr %offset.addr.i, align 8
   store i32 1, ptr %i8.i, align 4
   br label %for.cond9.i
 
 for.cond9.i:                                      ; preds = %for.body11.i, %init.end.i
-  %87 = load i32, ptr %i8.i, align 4
-  %cmp10.i = icmp slt i32 %87, 4
+  %88 = load i32, ptr %i8.i, align 4
+  %cmp10.i = icmp slt i32 %88, 4
   br i1 %cmp10.i, label %for.body11.i, label %for.end20.i
 
 for.body11.i:                                     ; preds = %for.cond9.i
-  %88 = load ptr, ptr %dst.addr.i, align 8
-  %89 = load i32, ptr %i8.i, align 4
-  %mul.i = mul nsw i32 %89, 16
+  %89 = load ptr, ptr %dst.addr.i, align 8
+  %90 = load i32, ptr %i8.i, align 4
+  %mul.i = mul nsw i32 %90, 16
   %idx.ext.i = sext i32 %mul.i to i64
-  %add.ptr12.i = getelementptr inbounds i8, ptr %88, i64 %idx.ext.i
-  %90 = load ptr, ptr %dst.addr.i, align 8
-  %91 = load i32, ptr %i8.i, align 4
-  %mul13.i = mul nsw i32 %91, 16
+  %add.ptr12.i = getelementptr inbounds i8, ptr %89, i64 %idx.ext.i
+  %91 = load ptr, ptr %dst.addr.i, align 8
+  %92 = load i32, ptr %i8.i, align 4
+  %mul13.i = mul nsw i32 %92, 16
   %idx.ext14.i = sext i32 %mul13.i to i64
-  %add.ptr15.i = getelementptr inbounds i8, ptr %90, i64 %idx.ext14.i
-  %92 = load i64, ptr %offset.addr.i, align 8
-  %idx.neg16.i = sub i64 0, %92
+  %add.ptr15.i = getelementptr inbounds i8, ptr %91, i64 %idx.ext14.i
+  %93 = load i64, ptr %offset.addr.i, align 8
+  %idx.neg16.i = sub i64 0, %93
   %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr15.i, i64 %idx.neg16.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr12.i, ptr align 1 %add.ptr17.i, i64 16, i1 false)
-  %93 = load i32, ptr %i8.i, align 4
-  %inc19.i = add nsw i32 %93, 1
+  %94 = load i32, ptr %i8.i, align 4
+  %inc19.i = add nsw i32 %94, 1
   store i32 %inc19.i, ptr %i8.i, align 4
   br label %for.cond9.i, !llvm.loop !30
 
@@ -5742,27 +5748,27 @@ if.end21.i:                                       ; preds = %lor.rhs
   br label %for.cond23.i
 
 for.cond23.i:                                     ; preds = %for.body25.i, %if.end21.i
-  %94 = load i32, ptr %i22.i, align 4
-  %cmp24.i = icmp slt i32 %94, 4
+  %95 = load i32, ptr %i22.i, align 4
+  %cmp24.i = icmp slt i32 %95, 4
   br i1 %cmp24.i, label %for.body25.i, label %for.end36.i
 
 for.body25.i:                                     ; preds = %for.cond23.i
-  %95 = load ptr, ptr %dst.addr.i, align 8
-  %96 = load i32, ptr %i22.i, align 4
-  %mul26.i = mul nsw i32 %96, 16
+  %96 = load ptr, ptr %dst.addr.i, align 8
+  %97 = load i32, ptr %i22.i, align 4
+  %mul26.i = mul nsw i32 %97, 16
   %idx.ext27.i = sext i32 %mul26.i to i64
-  %add.ptr28.i = getelementptr inbounds i8, ptr %95, i64 %idx.ext27.i
-  %97 = load ptr, ptr %dst.addr.i, align 8
-  %98 = load i32, ptr %i22.i, align 4
-  %mul29.i = mul nsw i32 %98, 16
+  %add.ptr28.i = getelementptr inbounds i8, ptr %96, i64 %idx.ext27.i
+  %98 = load ptr, ptr %dst.addr.i, align 8
+  %99 = load i32, ptr %i22.i, align 4
+  %mul29.i = mul nsw i32 %99, 16
   %idx.ext30.i = sext i32 %mul29.i to i64
-  %add.ptr31.i = getelementptr inbounds i8, ptr %97, i64 %idx.ext30.i
-  %99 = load i64, ptr %offset.addr.i, align 8
-  %idx.neg32.i = sub i64 0, %99
+  %add.ptr31.i = getelementptr inbounds i8, ptr %98, i64 %idx.ext30.i
+  %100 = load i64, ptr %offset.addr.i, align 8
+  %idx.neg32.i = sub i64 0, %100
   %add.ptr33.i = getelementptr inbounds i8, ptr %add.ptr31.i, i64 %idx.neg32.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr28.i, ptr align 1 %add.ptr33.i, i64 16, i1 false)
-  %100 = load i32, ptr %i22.i, align 4
-  %inc35.i = add nsw i32 %100, 1
+  %101 = load i32, ptr %i22.i, align 4
+  %inc35.i = add nsw i32 %101, 1
   store i32 %inc35.i, ptr %i22.i, align 4
   br label %for.cond23.i, !llvm.loop !31
 
@@ -5771,97 +5777,97 @@ for.end36.i:                                      ; preds = %for.cond23.i
   br label %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit
 
 _ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit: ; preds = %for.end36.i, %for.end20.i, %if.then3.i
-  %101 = load i1, ptr %retval.i, align 1
-  %lnot = xor i1 %101, true
+  %102 = load i1, ptr %retval.i, align 1
+  %lnot = xor i1 %102, true
   br label %lor.end
 
 lor.end:                                          ; preds = %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit, %if.end
-  %102 = phi i1 [ true, %if.end ], [ %lnot, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit ]
-  br i1 %102, label %if.then26, label %if.end27
+  %103 = phi i1 [ true, %if.end ], [ %lnot, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit ]
+  br i1 %103, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %lor.end
   br label %break_loop
 
 if.end27:                                         ; preds = %lor.end
-  %103 = load i64, ptr %len, align 8
-  %104 = load i64, ptr %op.addr, align 8
-  %add28 = add i64 %104, %103
+  %104 = load i64, ptr %len, align 8
+  %105 = load i64, ptr %op.addr, align 8
+  %add28 = add i64 %105, %104
   store i64 %add28, ptr %op.addr, align 8
   br label %for.inc
 
 if.end29:                                         ; preds = %_ZN6snappy28AdvanceToNextTagX86OptimizedEPPKhPm.exit
-  %105 = load i64, ptr %op.addr, align 8
-  %106 = load i64, ptr %deferred_length, align 8
-  %add31 = add i64 %105, %106
-  %107 = load i64, ptr %len_min_offset, align 8
-  %add32 = add i64 %add31, %107
-  %108 = load i64, ptr %len, align 8
-  %sub33 = sub i64 %add32, %108
+  %106 = load i64, ptr %op.addr, align 8
+  %107 = load i64, ptr %deferred_length, align 8
+  %add31 = add i64 %106, %107
+  %108 = load i64, ptr %len_min_offset, align 8
+  %add32 = add i64 %add31, %108
+  %109 = load i64, ptr %len, align 8
+  %sub33 = sub i64 %add32, %109
   store i64 %sub33, ptr %delta30, align 8
-  %109 = load i64, ptr %delta30, align 8
-  %cmp34 = icmp slt i64 %109, 0
+  %110 = load i64, ptr %delta30, align 8
+  %cmp34 = icmp slt i64 %110, 0
   br i1 %cmp34, label %if.then36, label %if.end42
 
 if.then36:                                        ; preds = %if.end29
-  %110 = load i64, ptr %tag_type, align 8
-  %cmp37 = icmp ne i64 %110, 0
+  %111 = load i64, ptr %tag_type, align 8
+  %cmp37 = icmp ne i64 %111, 0
   br i1 %cmp37, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %if.then36
   br label %break_loop
 
 if.end39:                                         ; preds = %if.then36
-  %111 = load ptr, ptr %op_base.addr, align 8
-  %112 = load i64, ptr %op.addr, align 8
-  %add.ptr40 = getelementptr inbounds i8, ptr %111, i64 %112
-  %113 = load ptr, ptr %deferred_src, align 8
-  %114 = load i64, ptr %deferred_length, align 8
-  call void @_ZN6snappy9MemCopy64EPcPKvm(ptr noundef %add.ptr40, ptr noundef %113, i64 noundef %114)
+  %112 = load ptr, ptr %op_base.addr, align 8
+  %113 = load i64, ptr %op.addr, align 8
+  %add.ptr40 = getelementptr inbounds i8, ptr %112, i64 %113
+  %114 = load ptr, ptr %deferred_src, align 8
   %115 = load i64, ptr %deferred_length, align 8
-  %116 = load i64, ptr %op.addr, align 8
-  %add41 = add i64 %116, %115
+  call void @_ZN6snappy9MemCopy64EPcPKvm(ptr noundef %add.ptr40, ptr noundef %114, i64 noundef %115)
+  %116 = load i64, ptr %deferred_length, align 8
+  %117 = load i64, ptr %op.addr, align 8
+  %add41 = add i64 %117, %116
   store i64 %add41, ptr %op.addr, align 8
-  %117 = load ptr, ptr %old_ip, align 8
-  %118 = load i64, ptr %len, align 8
-  call void @_ZN6snappy12DeferMemCopyEPPKvPmS1_m(ptr noundef %deferred_src, ptr noundef %deferred_length, ptr noundef %117, i64 noundef %118)
+  %118 = load ptr, ptr %old_ip, align 8
+  %119 = load i64, ptr %len, align 8
+  call void @_ZN6snappy12DeferMemCopyEPPKvPmS1_m(ptr noundef %deferred_src, ptr noundef %deferred_length, ptr noundef %118, i64 noundef %119)
   br label %for.inc
 
 if.end42:                                         ; preds = %if.end29
-  %119 = load i64, ptr %tag_type, align 8
-  %tobool43 = icmp ne i64 %119, 0
+  %120 = load i64, ptr %tag_type, align 8
+  %tobool43 = icmp ne i64 %120, 0
   br i1 %tobool43, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end42
-  %120 = load ptr, ptr %op_base.addr, align 8
-  %121 = load i64, ptr %delta30, align 8
-  %add.ptr44 = getelementptr inbounds i8, ptr %120, i64 %121
+  %121 = load ptr, ptr %op_base.addr, align 8
+  %122 = load i64, ptr %delta30, align 8
+  %add.ptr44 = getelementptr inbounds i8, ptr %121, i64 %122
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end42
-  %122 = load ptr, ptr %old_ip, align 8
+  %123 = load ptr, ptr %old_ip, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr44, %cond.true ], [ %122, %cond.false ]
+  %cond = phi ptr [ %add.ptr44, %cond.true ], [ %123, %cond.false ]
   store ptr %cond, ptr %from, align 8
-  %123 = load ptr, ptr %op_base.addr, align 8
-  %124 = load i64, ptr %op.addr, align 8
-  %add.ptr45 = getelementptr inbounds i8, ptr %123, i64 %124
-  %125 = load ptr, ptr %deferred_src, align 8
-  %126 = load i64, ptr %deferred_length, align 8
-  call void @_ZN6snappy9MemCopy64EPcPKvm(ptr noundef %add.ptr45, ptr noundef %125, i64 noundef %126)
+  %124 = load ptr, ptr %op_base.addr, align 8
+  %125 = load i64, ptr %op.addr, align 8
+  %add.ptr45 = getelementptr inbounds i8, ptr %124, i64 %125
+  %126 = load ptr, ptr %deferred_src, align 8
   %127 = load i64, ptr %deferred_length, align 8
-  %128 = load i64, ptr %op.addr, align 8
-  %add46 = add i64 %128, %127
+  call void @_ZN6snappy9MemCopy64EPcPKvm(ptr noundef %add.ptr45, ptr noundef %126, i64 noundef %127)
+  %128 = load i64, ptr %deferred_length, align 8
+  %129 = load i64, ptr %op.addr, align 8
+  %add46 = add i64 %129, %128
   store i64 %add46, ptr %op.addr, align 8
-  %129 = load ptr, ptr %from, align 8
-  %130 = load i64, ptr %len, align 8
-  call void @_ZN6snappy12DeferMemCopyEPPKvPmS1_m(ptr noundef %deferred_src, ptr noundef %deferred_length, ptr noundef %129, i64 noundef %130)
+  %130 = load ptr, ptr %from, align 8
+  %131 = load i64, ptr %len, align 8
+  call void @_ZN6snappy12DeferMemCopyEPPKvPmS1_m(ptr noundef %deferred_src, ptr noundef %deferred_length, ptr noundef %130, i64 noundef %131)
   br label %for.inc
 
 for.inc:                                          ; preds = %cond.end, %if.end39, %if.end27
-  %131 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %131, 1
+  %132 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %132, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !32
 
@@ -5869,47 +5875,47 @@ for.end:                                          ; preds = %for.cond
   br label %do.cond
 
 do.cond:                                          ; preds = %for.end
-  %132 = load ptr, ptr %ip.addr, align 8
-  %133 = load ptr, ptr %ip_limit_min_slop, align 8
-  %cmp47 = icmp ult ptr %132, %133
+  %133 = load ptr, ptr %ip.addr, align 8
+  %134 = load ptr, ptr %ip_limit_min_slop, align 8
+  %cmp47 = icmp ult ptr %133, %134
   br i1 %cmp47, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %do.cond
-  %134 = load i64, ptr %op.addr, align 8
-  %135 = load i64, ptr %deferred_length, align 8
-  %add48 = add i64 %134, %135
-  %136 = load i64, ptr %op_limit_min_slop.addr, align 8
-  %cmp49 = icmp slt i64 %add48, %136
+  %135 = load i64, ptr %op.addr, align 8
+  %136 = load i64, ptr %deferred_length, align 8
+  %add48 = add i64 %135, %136
+  %137 = load i64, ptr %op_limit_min_slop.addr, align 8
+  %cmp49 = icmp slt i64 %add48, %137
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %do.cond
-  %137 = phi i1 [ false, %do.cond ], [ %cmp49, %land.rhs ]
-  br i1 %137, label %do.body, label %do.end, !llvm.loop !33
+  %138 = phi i1 [ false, %do.cond ], [ %cmp49, %land.rhs ]
+  br i1 %138, label %do.body, label %do.end, !llvm.loop !33
 
 do.end:                                           ; preds = %land.end
   br label %exit
 
 exit:                                             ; preds = %do.end, %break_loop
-  %138 = load ptr, ptr %ip.addr, align 8
-  %incdec.ptr50 = getelementptr inbounds i8, ptr %138, i32 -1
+  %139 = load ptr, ptr %ip.addr, align 8
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %139, i32 -1
   store ptr %incdec.ptr50, ptr %ip.addr, align 8
   br label %if.end51
 
 if.end51:                                         ; preds = %exit, %land.lhs.true, %entry
-  %139 = load i64, ptr %deferred_length, align 8
-  %tobool52 = icmp ne i64 %139, 0
+  %140 = load i64, ptr %deferred_length, align 8
+  %tobool52 = icmp ne i64 %140, 0
   br i1 %tobool52, label %if.then53, label %if.end57
 
 if.then53:                                        ; preds = %if.end51
-  %140 = load ptr, ptr %op_base.addr, align 8
-  %141 = load i64, ptr %op.addr, align 8
-  %add.ptr54 = getelementptr inbounds i8, ptr %140, i64 %141
-  %142 = load ptr, ptr %deferred_src, align 8
-  %143 = load i64, ptr %deferred_length, align 8
-  call void @_ZN6snappy9MemCopy64EPcPKvm(ptr noundef %add.ptr54, ptr noundef %142, i64 noundef %143)
+  %141 = load ptr, ptr %op_base.addr, align 8
+  %142 = load i64, ptr %op.addr, align 8
+  %add.ptr54 = getelementptr inbounds i8, ptr %141, i64 %142
+  %143 = load ptr, ptr %deferred_src, align 8
   %144 = load i64, ptr %deferred_length, align 8
-  %145 = load i64, ptr %op.addr, align 8
-  %add55 = add i64 %145, %144
+  call void @_ZN6snappy9MemCopy64EPcPKvm(ptr noundef %add.ptr54, ptr noundef %143, i64 noundef %144)
+  %145 = load i64, ptr %deferred_length, align 8
+  %146 = load i64, ptr %op.addr, align 8
+  %add55 = add i64 %146, %145
   store i64 %add55, ptr %op.addr, align 8
   %arraydecay56 = getelementptr inbounds [64 x i8], ptr %safe_source, i64 0, i64 0
   call void @_ZN6snappy13ClearDeferredEPPKvPmPh(ptr noundef %deferred_src, ptr noundef %deferred_length, ptr noundef %arraydecay56)
@@ -5917,8 +5923,8 @@ if.then53:                                        ; preds = %if.end51
 
 if.end57:                                         ; preds = %if.then53, %if.end51
   call void @_ZNSt4pairIPKhlEC2IRS1_RlTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ip.addr, ptr noundef nonnull align 8 dereferenceable(8) %op.addr)
-  %146 = load { ptr, i64 }, ptr %retval, align 8
-  ret { ptr, i64 } %146
+  %147 = load { ptr, i64 }, ptr %retval, align 8
+  ret { ptr, i64 } %147
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

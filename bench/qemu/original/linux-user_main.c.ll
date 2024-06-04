@@ -362,7 +362,8 @@ if.else:                                          ; preds = %do.body10
   %node18 = getelementptr inbounds %struct.CPUState, ptr %21, i32 0, i32 35
   %tql_prev19 = getelementptr inbounds %struct.QTailQLink, ptr %node18, i32 0, i32 1
   %22 = load ptr, ptr %tql_prev19, align 8
-  store ptr %22, ptr getelementptr inbounds (%struct.QTailQLink, ptr @cpus_queue, i32 0, i32 1), align 8
+  %23 = getelementptr inbounds %struct.QTailQLink, ptr @cpus_queue, i32 0, i32 1
+  store ptr %22, ptr %23, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then13
@@ -385,22 +386,22 @@ do.end24:                                         ; No predecessors!
   br label %while.cond21
 
 while.end25:                                      ; preds = %while.cond21
-  %23 = load ptr, ptr %cpu, align 8
-  %node26 = getelementptr inbounds %struct.CPUState, ptr %23, i32 0, i32 35
+  %24 = load ptr, ptr %cpu, align 8
+  %node26 = getelementptr inbounds %struct.CPUState, ptr %24, i32 0, i32 35
   %tql_prev27 = getelementptr inbounds %struct.QTailQLink, ptr %node26, i32 0, i32 1
-  %24 = load ptr, ptr %tql_prev27, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %cpu, align 8
-  %node28 = getelementptr inbounds %struct.CPUState, ptr %25, i32 0, i32 35
-  %26 = load ptr, ptr %node28, align 8
-  store ptr %26, ptr %.atomictmp, align 8
-  %27 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %27, ptr %tql_next monotonic, align 8
+  %25 = load ptr, ptr %tql_prev27, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %25, i32 0, i32 0
+  %26 = load ptr, ptr %cpu, align 8
+  %node28 = getelementptr inbounds %struct.CPUState, ptr %26, i32 0, i32 35
+  %27 = load ptr, ptr %node28, align 8
+  store ptr %27, ptr %.atomictmp, align 8
+  %28 = load i64, ptr %.atomictmp, align 8
+  store atomic i64 %28, ptr %tql_next monotonic, align 8
   br label %do.end29
 
 do.end29:                                         ; preds = %while.end25
-  %28 = load ptr, ptr %cpu, align 8
-  %node30 = getelementptr inbounds %struct.CPUState, ptr %28, i32 0, i32 35
+  %29 = load ptr, ptr %cpu, align 8
+  %node30 = getelementptr inbounds %struct.CPUState, ptr %29, i32 0, i32 35
   %tql_prev31 = getelementptr inbounds %struct.QTailQLink, ptr %node30, i32 0, i32 1
   store ptr null, ptr %tql_prev31, align 8
   br label %do.end32
@@ -412,15 +413,15 @@ if.end33:                                         ; preds = %do.end32, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end33
-  %29 = load ptr, ptr %next_cpu, align 8
-  store ptr %29, ptr %cpu, align 8
+  %30 = load ptr, ptr %next_cpu, align 8
+  store ptr %30, ptr %cpu, align 8
   br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %land.end
   call void @qemu_init_cpu_list()
-  %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %31 = load ptr, ptr %30, align 8
-  call void @gdbserver_fork(ptr noundef %31)
+  %31 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %32 = load ptr, ptr %31, align 8
+  call void @gdbserver_fork(ptr noundef %32)
   br label %if.end35
 
 if.else34:                                        ; preds = %entry

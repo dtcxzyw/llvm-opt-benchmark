@@ -249,10 +249,11 @@ entry:
   %frombool = zext i1 %is_snapshot to i8
   store i8 %frombool, ptr %is_snapshot.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %is_snapshot_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %is_snapshot.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %is_snapshot.addr, align 1
+  %tobool = trunc i8 %1 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %is_snapshot_, align 8
   %dq_prev_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this1, i32 0, i32 2
@@ -261,34 +262,34 @@ entry:
   store ptr null, ptr %dq_next_, align 8
   %call = call noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv()
   store ptr %call, ptr %global_queue, align 8
-  %1 = load i8, ptr %is_snapshot.addr, align 1
-  %tobool3 = trunc i8 %1 to i1
+  %2 = load i8, ptr %is_snapshot.addr, align 1
+  %tobool3 = trunc i8 %2 to i1
   br i1 %tobool3, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %global_queue, align 8
-  %mutex = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %2, i32 0, i32 0
-  call void @_ZN4absl9MutexLockC2EPNS_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %lock, ptr noundef %mutex)
   %3 = load ptr, ptr %global_queue, align 8
-  %dq_tail4 = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %3, i32 0, i32 1
+  %mutex = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %3, i32 0, i32 0
+  call void @_ZN4absl9MutexLockC2EPNS_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %lock, ptr noundef %mutex)
+  %4 = load ptr, ptr %global_queue, align 8
+  %dq_tail4 = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %4, i32 0, i32 1
   %call5 = call noundef ptr @_ZNKSt6atomicIPN4absl13cord_internal11CordzHandleEE4loadESt12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %dq_tail4, i32 noundef 2) #4
   store ptr %call5, ptr %dq_tail, align 8
-  %4 = load ptr, ptr %dq_tail, align 8
-  %cmp = icmp ne ptr %4, null
+  %5 = load ptr, ptr %dq_tail, align 8
+  %cmp = icmp ne ptr %5, null
   br i1 %cmp, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %5 = load ptr, ptr %dq_tail, align 8
-  %dq_prev_7 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this1, i32 0, i32 2
-  store ptr %5, ptr %dq_prev_7, align 8
   %6 = load ptr, ptr %dq_tail, align 8
-  %dq_next_8 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %6, i32 0, i32 3
+  %dq_prev_7 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this1, i32 0, i32 2
+  store ptr %6, ptr %dq_prev_7, align 8
+  %7 = load ptr, ptr %dq_tail, align 8
+  %dq_next_8 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %7, i32 0, i32 3
   store ptr %this1, ptr %dq_next_8, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then6, %if.then
-  %7 = load ptr, ptr %global_queue, align 8
-  %dq_tail9 = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %7, i32 0, i32 1
+  %8 = load ptr, ptr %global_queue, align 8
+  %dq_tail9 = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %8, i32 0, i32 1
   call void @_ZNSt6atomicIPN4absl13cord_internal11CordzHandleEE5storeES3_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %dq_tail9, ptr noundef %this1, i32 noundef 3) #4
   call void @_ZN4absl9MutexLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lock) #4
   br label %if.end10
@@ -521,105 +522,106 @@ entry:
   %handle = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %call = invoke noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv()
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %global_queue, align 8
   %is_snapshot_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %is_snapshot_, align 8
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %is_snapshot_, align 8
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end24
 
 if.then:                                          ; preds = %invoke.cont
   call void @_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %to_delete) #4
-  %1 = load ptr, ptr %global_queue, align 8
-  %mutex = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %1, i32 0, i32 0
+  %2 = load ptr, ptr %global_queue, align 8
+  %mutex = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %2, i32 0, i32 0
   invoke void @_ZN4absl9MutexLockC2EPNS_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %lock, ptr noundef %mutex)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %if.then
   %dq_next_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %dq_next_, align 8
-  store ptr %2, ptr %next, align 8
+  %3 = load ptr, ptr %dq_next_, align 8
+  store ptr %3, ptr %next, align 8
   %dq_prev_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %dq_prev_, align 8
-  %cmp = icmp eq ptr %3, null
+  %4 = load ptr, ptr %dq_prev_, align 8
+  %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %invoke.cont2
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont7, %if.then3
-  %4 = load ptr, ptr %next, align 8
-  %tobool4 = icmp ne ptr %4, null
+  %5 = load ptr, ptr %next, align 8
+  %tobool4 = icmp ne ptr %5, null
   br i1 %tobool4, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond
-  %5 = load ptr, ptr %next, align 8
-  %is_snapshot_5 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %5, i32 0, i32 1
-  %6 = load i8, ptr %is_snapshot_5, align 8
-  %tobool6 = trunc i8 %6 to i1
+  %6 = load ptr, ptr %next, align 8
+  %is_snapshot_5 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %6, i32 0, i32 1
+  %7 = load i8, ptr %is_snapshot_5, align 8
+  %tobool6 = trunc i8 %7 to i1
   %lnot = xor i1 %tobool6, true
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond
-  %7 = phi i1 [ false, %while.cond ], [ %lnot, %land.rhs ]
-  br i1 %7, label %while.body, label %while.end
+  %8 = phi i1 [ false, %while.cond ], [ %lnot, %land.rhs ]
+  br i1 %8, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
   invoke void @_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %to_delete, ptr noundef nonnull align 8 dereferenceable(8) %next)
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %while.body
-  %8 = load ptr, ptr %next, align 8
-  %dq_next_8 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %8, i32 0, i32 3
-  %9 = load ptr, ptr %dq_next_8, align 8
-  store ptr %9, ptr %next, align 8
+  %9 = load ptr, ptr %next, align 8
+  %dq_next_8 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %9, i32 0, i32 3
+  %10 = load ptr, ptr %dq_next_8, align 8
+  store ptr %10, ptr %next, align 8
   br label %while.cond, !llvm.loop !6
 
 while.end:                                        ; preds = %land.end
   br label %if.end
 
 if.else:                                          ; preds = %invoke.cont2
-  %10 = load ptr, ptr %next, align 8
+  %11 = load ptr, ptr %next, align 8
   %dq_prev_9 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this1, i32 0, i32 2
-  %11 = load ptr, ptr %dq_prev_9, align 8
-  %dq_next_10 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %11, i32 0, i32 3
-  store ptr %10, ptr %dq_next_10, align 8
+  %12 = load ptr, ptr %dq_prev_9, align 8
+  %dq_next_10 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %12, i32 0, i32 3
+  store ptr %11, ptr %dq_next_10, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %while.end
-  %12 = load ptr, ptr %next, align 8
-  %tobool11 = icmp ne ptr %12, null
+  %13 = load ptr, ptr %next, align 8
+  %tobool11 = icmp ne ptr %13, null
   br i1 %tobool11, label %if.then12, label %if.else15
 
 if.then12:                                        ; preds = %if.end
   %dq_prev_13 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this1, i32 0, i32 2
-  %13 = load ptr, ptr %dq_prev_13, align 8
-  %14 = load ptr, ptr %next, align 8
-  %dq_prev_14 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %14, i32 0, i32 2
-  store ptr %13, ptr %dq_prev_14, align 8
+  %14 = load ptr, ptr %dq_prev_13, align 8
+  %15 = load ptr, ptr %next, align 8
+  %dq_prev_14 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %15, i32 0, i32 2
+  store ptr %14, ptr %dq_prev_14, align 8
   br label %if.end17
 
 if.else15:                                        ; preds = %if.end
-  %15 = load ptr, ptr %global_queue, align 8
-  %dq_tail = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %15, i32 0, i32 1
+  %16 = load ptr, ptr %global_queue, align 8
+  %dq_tail = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %16, i32 0, i32 1
   %dq_prev_16 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this1, i32 0, i32 2
-  %16 = load ptr, ptr %dq_prev_16, align 8
-  call void @_ZNSt6atomicIPN4absl13cord_internal11CordzHandleEE5storeES3_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %dq_tail, ptr noundef %16, i32 noundef 3) #4
+  %17 = load ptr, ptr %dq_prev_16, align 8
+  call void @_ZNSt6atomicIPN4absl13cord_internal11CordzHandleEE5storeES3_St12memory_order(ptr noundef nonnull align 8 dereferenceable(8) %dq_tail, ptr noundef %17, i32 noundef 3) #4
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else15, %if.then12
   call void @_ZN4absl9MutexLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lock) #4
   store ptr %to_delete, ptr %__range3, align 8
-  %17 = load ptr, ptr %__range3, align 8
-  %call18 = call ptr @_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #4
+  %18 = load ptr, ptr %__range3, align 8
+  %call18 = call ptr @_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #4
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__begin3, i32 0, i32 0
   store ptr %call18, ptr %coerce.dive, align 8
-  %18 = load ptr, ptr %__range3, align 8
-  %call19 = call ptr @_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #4
+  %19 = load ptr, ptr %__range3, align 8
+  %call19 = call ptr @_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
   %coerce.dive20 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__end3, i32 0, i32 0
   store ptr %call19, ptr %coerce.dive20, align 8
   br label %for.cond
@@ -630,17 +632,17 @@ for.cond:                                         ; preds = %for.inc, %if.end17
 
 for.body:                                         ; preds = %for.cond
   %call22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN4absl13cord_internal11CordzHandleESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin3) #4
-  %19 = load ptr, ptr %call22, align 8
-  store ptr %19, ptr %handle, align 8
-  %20 = load ptr, ptr %handle, align 8
-  %isnull = icmp eq ptr %20, null
+  %20 = load ptr, ptr %call22, align 8
+  store ptr %20, ptr %handle, align 8
+  %21 = load ptr, ptr %handle, align 8
+  %isnull = icmp eq ptr %21, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %vtable = load ptr, ptr %20, align 8
+  %vtable = load ptr, ptr %21, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %21 = load ptr, ptr %vfn, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(32) %20) #4
+  %22 = load ptr, ptr %vfn, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %21) #4
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
@@ -658,10 +660,10 @@ if.end24:                                         ; preds = %for.end, %invoke.co
   ret void
 
 terminate.lpad:                                   ; preds = %while.body, %if.then, %entry
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #11
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #11
   unreachable
 }
 

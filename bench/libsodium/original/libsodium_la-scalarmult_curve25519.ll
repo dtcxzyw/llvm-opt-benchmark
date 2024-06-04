@@ -84,10 +84,11 @@ entry:
   %n.addr = alloca ptr, align 8
   store ptr %q, ptr %q.addr, align 8
   store ptr %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.crypto_scalarmult_curve25519_implementation, ptr @crypto_scalarmult_curve25519_ref10_implementation, i32 0, i32 1), align 8
-  %1 = load ptr, ptr %q.addr, align 8
-  %2 = load ptr, ptr %n.addr, align 8
-  %call = call i32 %0(ptr noundef %1, ptr noundef %2)
+  %0 = getelementptr inbounds %struct.crypto_scalarmult_curve25519_implementation, ptr @crypto_scalarmult_curve25519_ref10_implementation, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %q.addr, align 8
+  %3 = load ptr, ptr %n.addr, align 8
+  %call = call i32 %1(ptr noundef %2, ptr noundef %3)
   ret i32 %call
 }
 

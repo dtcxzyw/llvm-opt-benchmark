@@ -3667,7 +3667,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56AsYouTypeFormatterTest_ConvertUnicodeStringPosition_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56AsYouTypeFormatterTest_ConvertUnicodeStringPosition_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4428,7 +4429,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39AsYouTypeFormatterTest_Constructor_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39AsYouTypeFormatterTest_Constructor_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -4751,7 +4753,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_InvalidPlusSign_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_InvalidPlusSign_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5975,7 +5978,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers70AsYouTypeFormatterTest_TooLongNumberMatchingMultipleLeadingDigits_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers70AsYouTypeFormatterTest_TooLongNumberMatchingMultipleLeadingDigits_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -7462,7 +7466,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers74AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRule_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers74AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRule_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -8286,7 +8291,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers84AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRuleAndLongNdd_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers84AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRuleAndLongNdd_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9217,7 +9223,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_US_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_US_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -15489,7 +15496,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers54AsYouTypeFormatterTest_AYTF_USFullWidthCharacters_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers54AsYouTypeFormatterTest_AYTF_USFullWidthCharacters_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -16652,7 +16660,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50AsYouTypeFormatterTest_AYTF_USMobileShortCode_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50AsYouTypeFormatterTest_AYTF_USMobileShortCode_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -17203,7 +17212,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47AsYouTypeFormatterTest_AYTF_USVanityNumber_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47AsYouTypeFormatterTest_AYTF_USVanityNumber_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -18286,7 +18296,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53AsYouTypeFormatterTest_AYTFAndRememberPositionUS_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53AsYouTypeFormatterTest_AYTFAndRememberPositionUS_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -27385,7 +27396,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44AsYouTypeFormatterTest_AYTF_GBFixedLine_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44AsYouTypeFormatterTest_AYTF_GBFixedLine_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -28555,7 +28567,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_GBTollFree_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_GBTollFree_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -29562,7 +29575,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46AsYouTypeFormatterTest_AYTF_GBPremiumRate_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46AsYouTypeFormatterTest_AYTF_GBPremiumRate_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -30569,7 +30583,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_NZMobile_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_NZMobile_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -31429,7 +31444,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_DE_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_DE_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -33815,7 +33831,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_AR_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_AR_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -34827,7 +34844,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_ARMobile_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_ARMobile_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -36062,7 +36080,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_KR_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_KR_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -41348,7 +41367,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_MX_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_MX_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -47391,7 +47411,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56AsYouTypeFormatterTest_AYTF_International_Toll_Free_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56AsYouTypeFormatterTest_AYTF_International_Toll_Free_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -48474,7 +48495,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers61AsYouTypeFormatterTest_AYTF_MultipleLeadingDigitPatterns_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers61AsYouTypeFormatterTest_AYTF_MultipleLeadingDigitPatterns_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -51927,7 +51949,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_AU_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_AU_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -55605,7 +55628,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_KR_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_KR_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -56992,7 +57016,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_KR_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_KR_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -59294,7 +59319,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_SG_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_SG_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -60534,7 +60560,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_AU_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_AU_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -64821,7 +64848,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_KR_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_KR_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -66901,7 +66929,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_MX_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_MX_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -69054,7 +69083,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49AsYouTypeFormatterTest_AYTF_NoNationalPrefix_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49AsYouTypeFormatterTest_AYTF_NoNationalPrefix_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -69686,7 +69716,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63AsYouTypeFormatterTest_AYTF_NoNationalPrefixFormattingRule_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63AsYouTypeFormatterTest_AYTF_NoNationalPrefixFormattingRule_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -70318,7 +70349,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_US_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_US_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -71179,7 +71211,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers59AsYouTypeFormatterTest_AYTF_ClearNDDAfterIDDExtraction_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers59AsYouTypeFormatterTest_AYTF_ClearNDDAfterIDDExtraction_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -73219,7 +73252,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers83AsYouTypeFormatterTest_NumberPatternsBecomingInvalidShouldNotResultInDigitLoss_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers83AsYouTypeFormatterTest_NumberPatternsBecomingInvalidShouldNotResultInDigitLoss_TestEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -75060,7 +75094,8 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -75138,7 +75173,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers56AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers56AsYouTypeFormatterTest_ConvertUnicodeStringPosition_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers56AsYouTypeFormatterTest_ConvertUnicodeStringPosition_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -75150,79 +75186,80 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.i18n::phonenumbers::AsYouTypeFormatterTest", ptr %5, i32 0, i32 1
-  %7 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
-          to label %8 unwind label %17
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.i18n::phonenumbers::AsYouTypeFormatterTest", ptr %5, i32 0, i32 1
+  %8 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
+          to label %9 unwind label %18
 
-8:                                                ; preds = %1
-  store ptr %7, ptr %6, align 8
-  %9 = getelementptr inbounds %"class.i18n::phonenumbers::AsYouTypeFormatterTest", ptr %5, i32 0, i32 2
-  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef null) #6
-  %10 = getelementptr inbounds %"class.i18n::phonenumbers::AsYouTypeFormatterTest", ptr %5, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #6
-  %11 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
-          to label %12 unwind label %21
+9:                                                ; preds = %1
+  store ptr %8, ptr %7, align 8
+  %10 = getelementptr inbounds %"class.i18n::phonenumbers::AsYouTypeFormatterTest", ptr %5, i32 0, i32 2
+  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef null) #6
+  %11 = getelementptr inbounds %"class.i18n::phonenumbers::AsYouTypeFormatterTest", ptr %5, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #6
+  %12 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
+          to label %13 unwind label %22
 
-12:                                               ; preds = %8
-  %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #16
-          to label %14 unwind label %21
+13:                                               ; preds = %9
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #16
+          to label %15 unwind label %22
 
-14:                                               ; preds = %12
-  call void @llvm.memset.p0.i64(ptr align 16 %13, i8 0, i64 16, i1 false)
-  invoke void @_ZN4i18n12phonenumbers12StdoutLoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %13)
-          to label %15 unwind label %25
-
-15:                                               ; preds = %14
-  invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef %13)
-          to label %16 unwind label %21
+15:                                               ; preds = %13
+  call void @llvm.memset.p0.i64(ptr align 16 %14, i8 0, i64 16, i1 false)
+  invoke void @_ZN4i18n12phonenumbers12StdoutLoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %14)
+          to label %16 unwind label %26
 
 16:                                               ; preds = %15
+  invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef %14)
+          to label %17 unwind label %22
+
+17:                                               ; preds = %16
   ret void
 
-17:                                               ; preds = %1
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %1
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %3, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %4, align 4
-  br label %30
-
-21:                                               ; preds = %15, %12, %8
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %3, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %4, align 4
-  br label %29
-
-25:                                               ; preds = %14
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %3, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %13) #17
-  br label %29
-
-29:                                               ; preds = %25, %21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #6
-  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #6
-  br label %30
-
-30:                                               ; preds = %29, %17
-  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #6
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %3, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %4, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %3, align 8
-  %33 = load i32, ptr %4, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+22:                                               ; preds = %16, %13, %9
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %3, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %4, align 4
+  br label %30
+
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %3, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %14) #17
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #6
+  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #6
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %3, align 8
+  %34 = load i32, ptr %4, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
@@ -75256,7 +75293,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers12StdoutLoggerC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers6LoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -75279,11 +75317,12 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::AsYouTypeFormatterTest", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
-  %5 = getelementptr inbounds %"class.i18n::phonenumbers::AsYouTypeFormatterTest", ptr %3, i32 0, i32 2
-  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.i18n::phonenumbers::AsYouTypeFormatterTest", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #6
+  %6 = getelementptr inbounds %"class.i18n::phonenumbers::AsYouTypeFormatterTest", ptr %3, i32 0, i32 2
+  call void @_ZN5boost10scoped_ptrIN4i18n12phonenumbers18AsYouTypeFormatterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
   call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   ret void
 }
@@ -75301,9 +75340,10 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers6LoggerC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers6LoggerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::Logger", ptr %3, i32 0, i32 1
-  store i32 2, ptr %4, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers6LoggerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.i18n::phonenumbers::Logger", ptr %3, i32 0, i32 1
+  store i32 2, ptr %5, align 8
   ret void
 }
 
@@ -76183,7 +76223,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers39AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39AsYouTypeFormatterTest_Constructor_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39AsYouTypeFormatterTest_Constructor_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76243,7 +76284,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_InvalidPlusSign_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_InvalidPlusSign_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76303,7 +76345,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers70AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers70AsYouTypeFormatterTest_TooLongNumberMatchingMultipleLeadingDigits_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers70AsYouTypeFormatterTest_TooLongNumberMatchingMultipleLeadingDigits_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76363,7 +76406,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers74AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers74AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRule_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers74AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRule_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76423,7 +76467,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers84AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers84AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRuleAndLongNdd_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers84AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRuleAndLongNdd_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76483,7 +76528,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_US_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_US_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76543,7 +76589,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers54AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers54AsYouTypeFormatterTest_AYTF_USFullWidthCharacters_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers54AsYouTypeFormatterTest_AYTF_USFullWidthCharacters_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76603,7 +76650,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers50AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50AsYouTypeFormatterTest_AYTF_USMobileShortCode_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50AsYouTypeFormatterTest_AYTF_USMobileShortCode_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76663,7 +76711,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers47AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers47AsYouTypeFormatterTest_AYTF_USVanityNumber_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers47AsYouTypeFormatterTest_AYTF_USVanityNumber_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76723,7 +76772,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers53AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53AsYouTypeFormatterTest_AYTFAndRememberPositionUS_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53AsYouTypeFormatterTest_AYTFAndRememberPositionUS_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76783,7 +76833,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers44AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44AsYouTypeFormatterTest_AYTF_GBFixedLine_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44AsYouTypeFormatterTest_AYTF_GBFixedLine_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76843,7 +76894,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_GBTollFree_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_GBTollFree_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76903,7 +76955,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46AsYouTypeFormatterTest_AYTF_GBPremiumRate_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46AsYouTypeFormatterTest_AYTF_GBPremiumRate_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -76963,7 +77016,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_NZMobile_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_NZMobile_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77023,7 +77077,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_DE_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_DE_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77083,7 +77138,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_AR_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_AR_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77143,7 +77199,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_ARMobile_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_ARMobile_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77203,7 +77260,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_KR_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_KR_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77263,7 +77321,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_MX_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_MX_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77323,7 +77382,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers56AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers56AsYouTypeFormatterTest_AYTF_International_Toll_Free_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers56AsYouTypeFormatterTest_AYTF_International_Toll_Free_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77383,7 +77443,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers61AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers61AsYouTypeFormatterTest_AYTF_MultipleLeadingDigitPatterns_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers61AsYouTypeFormatterTest_AYTF_MultipleLeadingDigitPatterns_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77443,7 +77504,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_AU_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_AU_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77503,7 +77565,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_KR_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_KR_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77563,7 +77626,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_KR_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_KR_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77623,7 +77687,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_SG_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_SG_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77683,7 +77748,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_AU_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_AU_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77743,7 +77809,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_KR_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_KR_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77803,7 +77870,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_MX_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_MX_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77863,7 +77931,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers49AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers49AsYouTypeFormatterTest_AYTF_NoNationalPrefix_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers49AsYouTypeFormatterTest_AYTF_NoNationalPrefix_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77923,7 +77992,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers63AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers63AsYouTypeFormatterTest_AYTF_NoNationalPrefixFormattingRule_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers63AsYouTypeFormatterTest_AYTF_NoNationalPrefixFormattingRule_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -77983,7 +78053,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_US_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_US_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -78043,7 +78114,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers59AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers59AsYouTypeFormatterTest_AYTF_ClearNDDAfterIDDExtraction_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers59AsYouTypeFormatterTest_AYTF_ClearNDDAfterIDDExtraction_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -78105,7 +78177,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers83AsYouTypeFormatterTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers83AsYouTypeFormatterTest_NumberPatternsBecomingInvalidShouldNotResultInDigitLoss_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers83AsYouTypeFormatterTest_NumberPatternsBecomingInvalidShouldNotResultInDigitLoss_TestE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -78392,27 +78465,21 @@ define linkonce_odr dso_local void @_ZN5boost6system6detail8snprintfEPcmPKcz(ptr
   store i64 %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_start(ptr %8)
+  call void @llvm.va_start.p0(ptr %8)
   %9 = load ptr, ptr %4, align 8
   %10 = load i64, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
   %13 = call i32 @vsnprintf(ptr noundef %9, i64 noundef %10, ptr noundef %11, ptr noundef %12) #6
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
-  call void @llvm.va_end(ptr %14)
+  call void @llvm.va_end.p0(ptr %14)
   ret void
 }
 
 declare void @__cxa_end_catch()
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 ; Function Attrs: nounwind
 declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5boost6system6detail29system_error_category_messageB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) #0 comdat {
@@ -78445,7 +78512,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #13
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #1 comdat align 2 {
@@ -82780,6 +82847,12 @@ define internal void @_GLOBAL__sub_I_asyoutypeformatter_test.cc() #4 section ".t
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -82792,8 +82865,8 @@ attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind willreturn }
 attributes #14 = { noreturn nounwind }
 attributes #15 = { noreturn }
 attributes #16 = { builtin allocsize(0) }

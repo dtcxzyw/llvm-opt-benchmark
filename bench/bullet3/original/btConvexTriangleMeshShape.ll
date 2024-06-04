@@ -187,14 +187,15 @@ entry:
   store i8 %frombool, ptr %calcAabb.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV25btConvexTriangleMeshShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [34 x ptr] }, ptr @_ZTV25btConvexTriangleMeshShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_stridingMesh = getelementptr inbounds %class.btConvexTriangleMeshShape, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %meshInterface.addr, align 8
-  store ptr %0, ptr %m_stridingMesh, align 8
+  %1 = load ptr, ptr %meshInterface.addr, align 8
+  store ptr %1, ptr %m_stridingMesh, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 3, ptr %m_shapeType, align 8
-  %1 = load i8, ptr %calcAabb.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %calcAabb.addr, align 1
+  %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -205,12 +206,12 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN34btPolyhedralConvexAabbCachingShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1) #10
   br label %eh.resume
 
@@ -494,7 +495,8 @@ entry:
   store ptr %supportVecLocal, ptr %supportVecLocal.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN31btInternalTriangleIndexCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26LocalSupportVertexCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV26LocalSupportVertexCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_supportVertexLocal = getelementptr inbounds %class.LocalSupportVertexCallback, ptr %this1, i32 0, i32 1
   store float 0.000000e+00, ptr %ref.tmp, align 4
   store float 0.000000e+00, ptr %ref.tmp2, align 4
@@ -506,17 +508,17 @@ invoke.cont:                                      ; preds = %entry
   %m_maxDot = getelementptr inbounds %class.LocalSupportVertexCallback, ptr %this1, i32 0, i32 2
   store float 0xC3ABC16D60000000, ptr %m_maxDot, align 8
   %m_supportVecLocal = getelementptr inbounds %class.LocalSupportVertexCallback, ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %supportVecLocal.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_supportVecLocal, ptr align 4 %0, i64 16, i1 false)
+  %1 = load ptr, ptr %supportVecLocal.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_supportVecLocal, ptr align 4 %1, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
   br label %eh.resume
 
@@ -1214,7 +1216,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN31btInternalTriangleIndexCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE14CenterCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE14CenterCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %first = getelementptr inbounds %class.CenterCallback, ptr %this1, i32 0, i32 1
   store i8 1, ptr %first, align 8
   %ref = getelementptr inbounds %class.CenterCallback, ptr %this1, i32 0, i32 2
@@ -1238,12 +1241,12 @@ invoke.cont7:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
   br label %eh.resume
 
@@ -1337,7 +1340,8 @@ entry:
   store ptr %center, ptr %center.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN31btInternalTriangleIndexCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE15InertiaCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTransformER11btTransformR9btVector3RfE15InertiaCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %sum = getelementptr inbounds %class.InertiaCallback, ptr %this1, i32 0, i32 1
   store float 0.000000e+00, ptr %ref.tmp, align 4
   store float 0.000000e+00, ptr %ref.tmp2, align 4
@@ -1353,17 +1357,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %center10 = getelementptr inbounds %class.InertiaCallback, ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %center.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %center10, ptr align 4 %0, i64 16, i1 false)
+  %1 = load ptr, ptr %center.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %center10, ptr align 4 %1, i64 16, i1 false)
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
   br label %eh.resume
 
@@ -2076,7 +2080,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV31btInternalTriangleIndexCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV31btInternalTriangleIndexCallback, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

@@ -288,28 +288,30 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool6, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true
-  %2 = load ptr, ptr getelementptr inbounds (%struct.ossl_param_st, ptr @greeting_request, i32 0, i32 2), align 16
-  store ptr %2, ptr %greeting, align 8
-  %call8 = call i32 @test_ptr(ptr noundef @.str.6, i32 noundef 31, ptr noundef @.str.11, ptr noundef %2)
+  %2 = getelementptr inbounds %struct.ossl_param_st, ptr @greeting_request, i32 0, i32 2
+  %3 = load ptr, ptr %2, align 16
+  store ptr %3, ptr %greeting, align 8
+  %call8 = call i32 @test_ptr(ptr noundef @.str.6, i32 noundef 31, ptr noundef @.str.11, ptr noundef %3)
   %tobool9 = icmp ne i32 %call8, 0
   br i1 %tobool9, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
-  %3 = load i64, ptr getelementptr inbounds (%struct.ossl_param_st, ptr @greeting_request, i32 0, i32 3), align 8
-  %call11 = call i32 @test_size_t_gt(ptr noundef @.str.6, i32 noundef 32, ptr noundef @.str.12, ptr noundef @.str.13, i64 noundef %3, i64 noundef 0)
+  %4 = getelementptr inbounds %struct.ossl_param_st, ptr @greeting_request, i32 0, i32 3
+  %5 = load i64, ptr %4, align 8
+  %call11 = call i32 @test_size_t_gt(ptr noundef @.str.6, i32 noundef 32, ptr noundef @.str.12, ptr noundef @.str.13, i64 noundef %5, i64 noundef 0)
   %tobool12 = icmp ne i32 %call11, 0
   br i1 %tobool12, label %land.lhs.true13, label %land.end
 
 land.lhs.true13:                                  ; preds = %land.lhs.true10
-  %4 = load ptr, ptr %greeting, align 8
-  %5 = load ptr, ptr %expected_greeting.addr, align 8
-  %call14 = call i32 @test_str_eq(ptr noundef @.str.6, i32 noundef 33, ptr noundef @.str.14, ptr noundef @.str.15, ptr noundef %4, ptr noundef %5)
+  %6 = load ptr, ptr %greeting, align 8
+  %7 = load ptr, ptr %expected_greeting.addr, align 8
+  %call14 = call i32 @test_str_eq(ptr noundef @.str.6, i32 noundef 33, ptr noundef @.str.14, ptr noundef @.str.15, ptr noundef %6, ptr noundef %7)
   %tobool15 = icmp ne i32 %call14, 0
   br i1 %tobool15, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true13
-  %6 = load ptr, ptr %prov.addr, align 8
-  %call16 = call i32 @ossl_provider_deactivate(ptr noundef %6, i32 noundef 1)
+  %8 = load ptr, ptr %prov.addr, align 8
+  %call16 = call i32 @ossl_provider_deactivate(ptr noundef %8, i32 noundef 1)
   %cmp17 = icmp ne i32 %call16, 0
   %conv18 = zext i1 %cmp17 to i32
   %call19 = call i32 @test_true(ptr noundef @.str.6, i32 noundef 34, ptr noundef @.str.16, i32 noundef %conv18)
@@ -317,15 +319,15 @@ land.rhs:                                         ; preds = %land.lhs.true13
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true13, %land.lhs.true10, %land.lhs.true7, %land.lhs.true, %entry
-  %7 = phi i1 [ false, %land.lhs.true13 ], [ false, %land.lhs.true10 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true ], [ false, %entry ], [ %tobool20, %land.rhs ]
-  %land.ext = zext i1 %7 to i32
+  %9 = phi i1 [ false, %land.lhs.true13 ], [ false, %land.lhs.true10 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true ], [ false, %entry ], [ %tobool20, %land.rhs ]
+  %land.ext = zext i1 %9 to i32
   store i32 %land.ext, ptr %ret, align 4
-  %8 = load ptr, ptr %greeting, align 8
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str.6, i32 noundef 36, ptr noundef @.str.17, ptr noundef %8)
-  %9 = load ptr, ptr %prov.addr, align 8
-  call void @ossl_provider_free(ptr noundef %9)
-  %10 = load i32, ptr %ret, align 4
-  ret i32 %10
+  %10 = load ptr, ptr %greeting, align 8
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef @.str.6, i32 noundef 36, ptr noundef @.str.17, ptr noundef %10)
+  %11 = load ptr, ptr %prov.addr, align 8
+  call void @ossl_provider_free(ptr noundef %11)
+  %12 = load i32, ptr %ret, align 4
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable

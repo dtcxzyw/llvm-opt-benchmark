@@ -126,89 +126,91 @@ define void @_ZN8TFHandleC2EP10CHART_INFO6QColor7QPointFP6TF_KEYii(ptr noundef n
   %32 = getelementptr inbounds { double, double }, ptr %17, i32 0, i32 1
   %33 = load double, ptr %32, align 8
   call void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef %27, ptr noundef %16, double %31, double %33, i32 noundef %28, i32 noundef %29)
-  store ptr getelementptr inbounds ({ [20 x ptr], [39 x ptr] }, ptr @_ZTV8TFHandle, i32 0, i32 0, i32 2), ptr %26, align 8
-  %34 = getelementptr inbounds i8, ptr %26, i64 16
-  store ptr getelementptr inbounds ({ [20 x ptr], [39 x ptr] }, ptr @_ZTV8TFHandle, i32 0, i32 1, i32 2), ptr %34, align 8
+  %34 = getelementptr inbounds { [20 x ptr], [39 x ptr] }, ptr @_ZTV8TFHandle, i32 0, i32 0, i32 2
+  store ptr %34, ptr %26, align 8
+  %35 = getelementptr inbounds i8, ptr %26, i64 16
+  %36 = getelementptr inbounds { [20 x ptr], [39 x ptr] }, ptr @_ZTV8TFHandle, i32 0, i32 1, i32 2
+  store ptr %36, ptr %35, align 8
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %18, i32 noundef 7) #8
-  %35 = call noundef zeroext i1 @_ZNK6QColoreqERKS_(ptr noundef nonnull align 4 dereferenceable(14) %2, ptr noundef nonnull align 4 dereferenceable(14) %18) #8
-  br i1 %35, label %36, label %38
-
-36:                                               ; preds = %8
-  %37 = getelementptr inbounds %class.TFHandle, ptr %26, i32 0, i32 1
-  store i32 0, ptr %37, align 8
-  br label %50
+  %37 = call noundef zeroext i1 @_ZNK6QColoreqERKS_(ptr noundef nonnull align 4 dereferenceable(14) %2, ptr noundef nonnull align 4 dereferenceable(14) %18) #8
+  br i1 %37, label %38, label %40
 
 38:                                               ; preds = %8
+  %39 = getelementptr inbounds %class.TFHandle, ptr %26, i32 0, i32 1
+  store i32 0, ptr %39, align 8
+  br label %52
+
+40:                                               ; preds = %8
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %19, i32 noundef 8) #8
-  %39 = call noundef zeroext i1 @_ZNK6QColoreqERKS_(ptr noundef nonnull align 4 dereferenceable(14) %2, ptr noundef nonnull align 4 dereferenceable(14) %19) #8
-  br i1 %39, label %40, label %42
+  %41 = call noundef zeroext i1 @_ZNK6QColoreqERKS_(ptr noundef nonnull align 4 dereferenceable(14) %2, ptr noundef nonnull align 4 dereferenceable(14) %19) #8
+  br i1 %41, label %42, label %44
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds %class.TFHandle, ptr %26, i32 0, i32 1
-  store i32 1, ptr %41, align 8
-  br label %49
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds %class.TFHandle, ptr %26, i32 0, i32 1
+  store i32 1, ptr %43, align 8
+  br label %51
 
-42:                                               ; preds = %38
+44:                                               ; preds = %40
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %20, i32 noundef 9) #8
-  %43 = call noundef zeroext i1 @_ZNK6QColoreqERKS_(ptr noundef nonnull align 4 dereferenceable(14) %2, ptr noundef nonnull align 4 dereferenceable(14) %20) #8
-  br i1 %43, label %44, label %46
+  %45 = call noundef zeroext i1 @_ZNK6QColoreqERKS_(ptr noundef nonnull align 4 dereferenceable(14) %2, ptr noundef nonnull align 4 dereferenceable(14) %20) #8
+  br i1 %45, label %46, label %48
 
-44:                                               ; preds = %42
-  %45 = getelementptr inbounds %class.TFHandle, ptr %26, i32 0, i32 1
-  store i32 2, ptr %45, align 8
-  br label %48
-
-46:                                               ; preds = %42
+46:                                               ; preds = %44
   %47 = getelementptr inbounds %class.TFHandle, ptr %26, i32 0, i32 1
-  store i32 -1, ptr %47, align 8
-  br label %48
-
-48:                                               ; preds = %46, %44
-  br label %49
-
-49:                                               ; preds = %48, %40
+  store i32 2, ptr %47, align 8
   br label %50
 
-50:                                               ; preds = %49, %36
-  %51 = load ptr, ptr %13, align 8
-  %52 = getelementptr inbounds %class.TFHandle, ptr %26, i32 0, i32 3
-  store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds %class.TFHandle, ptr %26, i32 0, i32 4
-  store i8 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %26, i64 16
-  %55 = load i32, ptr %14, align 4
-  %56 = sitofp i32 %55 to double
-  invoke void @_ZN13QGraphicsItem9setZValueEd(ptr noundef nonnull align 8 dereferenceable(16) %54, double noundef %56)
-          to label %57 unwind label %63
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds %class.TFHandle, ptr %26, i32 0, i32 1
+  store i32 -1, ptr %49, align 8
+  br label %50
 
-57:                                               ; preds = %50
+50:                                               ; preds = %48, %46
+  br label %51
+
+51:                                               ; preds = %50, %42
+  br label %52
+
+52:                                               ; preds = %51, %38
+  %53 = load ptr, ptr %13, align 8
+  %54 = getelementptr inbounds %class.TFHandle, ptr %26, i32 0, i32 3
+  store ptr %53, ptr %54, align 8
+  %55 = getelementptr inbounds %class.TFHandle, ptr %26, i32 0, i32 4
+  store i8 0, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %26, i64 16
+  %57 = load i32, ptr %14, align 4
+  %58 = sitofp i32 %57 to double
+  invoke void @_ZN13QGraphicsItem9setZValueEd(ptr noundef nonnull align 8 dereferenceable(16) %56, double noundef %58)
+          to label %59 unwind label %65
+
+59:                                               ; preds = %52
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %9, i64 16, i1 false)
-  %58 = getelementptr inbounds { double, double }, ptr %23, i32 0, i32 0
-  %59 = load double, ptr %58, align 8
-  %60 = getelementptr inbounds { double, double }, ptr %23, i32 0, i32 1
+  %60 = getelementptr inbounds { double, double }, ptr %23, i32 0, i32 0
   %61 = load double, ptr %60, align 8
-  invoke void @_ZN8TFHandle20updateTfHandlesStateE7QPointF(ptr noundef nonnull align 8 dereferenceable(81) %26, double %59, double %61)
-          to label %62 unwind label %63
+  %62 = getelementptr inbounds { double, double }, ptr %23, i32 0, i32 1
+  %63 = load double, ptr %62, align 8
+  invoke void @_ZN8TFHandle20updateTfHandlesStateE7QPointF(ptr noundef nonnull align 8 dereferenceable(81) %26, double %61, double %63)
+          to label %64 unwind label %65
 
-62:                                               ; preds = %57
+64:                                               ; preds = %59
   ret void
 
-63:                                               ; preds = %57, %50
-  %64 = landingpad { ptr, i32 }
+65:                                               ; preds = %59, %52
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %21, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %22, align 4
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %21, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %22, align 4
   call void @_ZN6HandleD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %26) #8
-  br label %67
+  br label %69
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %21, align 8
-  %69 = load i32, ptr %22, align 4
-  %70 = insertvalue { ptr, i32 } poison, ptr %68, 0
-  %71 = insertvalue { ptr, i32 } %70, i32 %69, 1
-  resume { ptr, i32 } %71
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %21, align 8
+  %71 = load i32, ptr %22, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

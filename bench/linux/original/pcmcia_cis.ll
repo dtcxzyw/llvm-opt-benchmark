@@ -25,50 +25,51 @@ define dso_local i32 @pccard_read_tuple(ptr noundef %0, i32 noundef %1, i8 nound
   %5 = alloca %struct.tuple_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !5
-  %6 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
-  %7 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3264, i64 noundef 256) #9
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %11
+  %6 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8
+  %7 = load ptr, ptr %6, align 16
+  %8 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 256) #9
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %12
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 560
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %10, ptr noundef nonnull @.str) #10
-  br label %27
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %0, i64 560
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %11, ptr noundef nonnull @.str) #10
+  br label %28
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 4
-  store i8 %2, ptr %12, align 4
-  %13 = icmp eq i32 %1, 255
-  %14 = select i1 %13, i32 2, i32 0
-  store i32 %14, ptr %5, align 8
-  %15 = call i32 @pccard_get_first_tuple(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %5) #8
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %25
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  store i8 %2, ptr %13, align 4
+  %14 = icmp eq i32 %1, 255
+  %15 = select i1 %14, i32 2, i32 0
+  store i32 %15, ptr %5, align 8
+  %16 = call i32 @pccard_get_first_tuple(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %5) #8
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %26
 
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %7, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 22
-  store i8 0, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %5, i64 23
-  store i8 -1, ptr %20, align 1
-  %21 = call i32 @pccard_get_tuple_data(ptr noundef %0, ptr noundef nonnull %5) #8
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %25
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %8, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %5, i64 22
+  store i8 0, ptr %20, align 2
+  %21 = getelementptr inbounds i8, ptr %5, i64 23
+  store i8 -1, ptr %21, align 1
+  %22 = call i32 @pccard_get_tuple_data(ptr noundef %0, ptr noundef nonnull %5) #8
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %17
-  %24 = call i32 @pcmcia_parse_tuple(ptr noundef nonnull %5, ptr noundef %3) #8
-  br label %25
+24:                                               ; preds = %18
+  %25 = call i32 @pcmcia_parse_tuple(ptr noundef nonnull %5, ptr noundef %3) #8
+  br label %26
 
-25:                                               ; preds = %23, %17, %11
-  %26 = phi i32 [ %15, %11 ], [ %21, %17 ], [ %24, %23 ]
-  call void @kfree(ptr noundef nonnull %7) #8
-  br label %27
+26:                                               ; preds = %24, %18, %12
+  %27 = phi i32 [ %16, %12 ], [ %22, %18 ], [ %25, %24 ]
+  call void @kfree(ptr noundef nonnull %8) #8
+  br label %28
 
-27:                                               ; preds = %25, %9
-  %28 = phi i32 [ -12, %9 ], [ %26, %25 ]
+28:                                               ; preds = %26, %10
+  %29 = phi i32 [ -12, %10 ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #8
-  ret i32 %28
+  ret i32 %29
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -97,29 +98,30 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pcmcia_loop_config(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %5 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 768) #9
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %16, label %7
+  %4 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10
+  %5 = load ptr, ptr %4, align 16
+  %6 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 768) #9
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %17, label %8
 
-7:                                                ; preds = %3
-  store ptr %0, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %2, ptr %9, align 8
-  %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
-  %15 = tail call fastcc i32 @pccard_loop_tuple(ptr noundef %10, i32 noundef %13, i8 noundef zeroext 27, ptr noundef %14, ptr noundef nonnull %5, ptr noundef nonnull @pcmcia_do_loop_config)
-  tail call void @kfree(ptr noundef nonnull %5) #8
-  br label %16
+8:                                                ; preds = %3
+  store ptr %0, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %2, ptr %10, align 8
+  %11 = load ptr, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 17
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i32
+  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %16 = tail call fastcc i32 @pccard_loop_tuple(ptr noundef %11, i32 noundef %14, i8 noundef zeroext 27, ptr noundef %15, ptr noundef nonnull %6, ptr noundef nonnull @pcmcia_do_loop_config)
+  tail call void @kfree(ptr noundef nonnull %6) #8
+  br label %17
 
-16:                                               ; preds = %7, %3
-  %17 = phi i32 [ %15, %7 ], [ -12, %3 ]
-  ret i32 %17
+17:                                               ; preds = %8, %3
+  %18 = phi i32 [ %16, %8 ], [ -12, %3 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -127,66 +129,67 @@ define internal fastcc i32 @pccard_loop_tuple(ptr noundef %0, i32 noundef %1, i8
   %7 = alloca %struct.tuple_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !5
-  %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
-  %9 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 256) #9
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %13
+  %8 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8
+  %9 = load ptr, ptr %8, align 16
+  %10 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 256) #9
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %14
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 560
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %12, ptr noundef nonnull @.str) #10
-  br label %37
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds i8, ptr %0, i64 560
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %13, ptr noundef nonnull @.str) #10
+  br label %38
 
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 23
-  store i8 -1, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 22
-  store i8 0, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 4
-  store i8 %2, ptr %17, align 4
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr %10, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %7, i64 23
+  store i8 -1, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %7, i64 22
+  store i8 0, ptr %17, align 2
+  %18 = getelementptr inbounds i8, ptr %7, i64 4
+  store i8 %2, ptr %18, align 4
   store i32 0, ptr %7, align 8
-  %18 = call i32 @pccard_get_first_tuple(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %7) #8
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %35
+  %19 = call i32 @pccard_get_first_tuple(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %7) #8
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %36
 
-20:                                               ; preds = %13
-  %21 = icmp eq ptr %3, null
-  br label %22
+21:                                               ; preds = %14
+  %22 = icmp eq ptr %3, null
+  br label %23
 
-22:                                               ; preds = %32, %20
-  %23 = call i32 @pccard_get_tuple_data(ptr noundef %0, ptr noundef nonnull %7) #8
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %32
+23:                                               ; preds = %33, %21
+  %24 = call i32 @pccard_get_tuple_data(ptr noundef %0, ptr noundef nonnull %7) #8
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %33
 
-25:                                               ; preds = %22
-  br i1 %21, label %29, label %26
+26:                                               ; preds = %23
+  br i1 %22, label %30, label %27
 
-26:                                               ; preds = %25
-  %27 = call i32 @pcmcia_parse_tuple(ptr noundef nonnull %7, ptr noundef nonnull %3) #8
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %32
+27:                                               ; preds = %26
+  %28 = call i32 @pcmcia_parse_tuple(ptr noundef nonnull %7, ptr noundef nonnull %3) #8
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %33
 
-29:                                               ; preds = %26, %25
-  %30 = call i32 %5(ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4) #8, !callees !6
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %35, label %32
+30:                                               ; preds = %27, %26
+  %31 = call i32 %5(ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4) #8, !callees !6
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %36, label %33
 
-32:                                               ; preds = %29, %26, %22
-  %33 = call i32 @pccard_get_next_tuple(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %7) #8
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %22, label %35, !llvm.loop !7
+33:                                               ; preds = %30, %27, %23
+  %34 = call i32 @pccard_get_next_tuple(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %7) #8
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %23, label %36, !llvm.loop !7
 
-35:                                               ; preds = %32, %29, %13
-  %36 = phi i32 [ %18, %13 ], [ %33, %32 ], [ 0, %29 ]
-  call void @kfree(ptr noundef nonnull %9) #8
-  br label %37
+36:                                               ; preds = %33, %30, %14
+  %37 = phi i32 [ %19, %14 ], [ %34, %33 ], [ 0, %30 ]
+  call void @kfree(ptr noundef nonnull %10) #8
+  br label %38
 
-37:                                               ; preds = %35, %11
-  %38 = phi i32 [ -12, %11 ], [ %36, %35 ]
+38:                                               ; preds = %36, %12
+  %39 = phi i32 [ -12, %12 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #8
-  ret i32 %38
+  ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -475,54 +478,55 @@ define dso_local i32 @pcmcia_loop_tuple(ptr noundef %0, i8 noundef zeroext %1, p
   %9 = zext i8 %8 to i32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !5
-  %10 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8), align 16
-  %11 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 256) #9
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %15
+  %10 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 8
+  %11 = load ptr, ptr %10, align 16
+  %12 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 256) #9
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %16
 
-13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %6, i64 560
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %14, ptr noundef nonnull @.str) #10
-  br label %33
+14:                                               ; preds = %4
+  %15 = getelementptr inbounds i8, ptr %6, i64 560
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %15, ptr noundef nonnull @.str) #10
+  br label %34
 
-15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %11, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 23
-  store i8 -1, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %5, i64 22
-  store i8 0, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %5, i64 4
-  store i8 %1, ptr %19, align 4
+16:                                               ; preds = %4
+  %17 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %12, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %5, i64 23
+  store i8 -1, ptr %18, align 1
+  %19 = getelementptr inbounds i8, ptr %5, i64 22
+  store i8 0, ptr %19, align 2
+  %20 = getelementptr inbounds i8, ptr %5, i64 4
+  store i8 %1, ptr %20, align 4
   store i32 0, ptr %5, align 8
-  %20 = call i32 @pccard_get_first_tuple(ptr noundef %6, i32 noundef %9, ptr noundef nonnull %5) #8
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %31
+  %21 = call i32 @pccard_get_first_tuple(ptr noundef %6, i32 noundef %9, ptr noundef nonnull %5) #8
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %32
 
-22:                                               ; preds = %28, %15
-  %23 = call i32 @pccard_get_tuple_data(ptr noundef %6, ptr noundef nonnull %5) #8
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %28
+23:                                               ; preds = %29, %16
+  %24 = call i32 @pccard_get_tuple_data(ptr noundef %6, ptr noundef nonnull %5) #8
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %29
 
-25:                                               ; preds = %22
-  %26 = call i32 %2(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %3) #8
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %31, label %28
+26:                                               ; preds = %23
+  %27 = call i32 %2(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %3) #8
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %32, label %29
 
-28:                                               ; preds = %25, %22
-  %29 = call i32 @pccard_get_next_tuple(ptr noundef %6, i32 noundef %9, ptr noundef nonnull %5) #8
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %22, label %31, !llvm.loop !7
+29:                                               ; preds = %26, %23
+  %30 = call i32 @pccard_get_next_tuple(ptr noundef %6, i32 noundef %9, ptr noundef nonnull %5) #8
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %23, label %32, !llvm.loop !7
 
-31:                                               ; preds = %28, %25, %15
-  %32 = phi i32 [ %20, %15 ], [ %29, %28 ], [ 0, %25 ]
-  call void @kfree(ptr noundef nonnull %11) #8
-  br label %33
+32:                                               ; preds = %29, %26, %16
+  %33 = phi i32 [ %21, %16 ], [ %30, %29 ], [ 0, %26 ]
+  call void @kfree(ptr noundef nonnull %12) #8
+  br label %34
 
-33:                                               ; preds = %31, %13
-  %34 = phi i32 [ -12, %13 ], [ %32, %31 ]
+34:                                               ; preds = %32, %14
+  %35 = phi i32 [ -12, %14 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #8
-  ret i32 %34
+  ret i32 %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

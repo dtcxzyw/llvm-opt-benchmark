@@ -389,15 +389,16 @@ define ptr @SuiteSparse_free(ptr noundef %0) #3 {
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %8
+  br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (%struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 2), align 8
-  %7 = load ptr, ptr %2, align 8
-  call void %6(ptr noundef %7)
-  br label %8
+  %6 = getelementptr inbounds %struct.SuiteSparse_config_struct, ptr @SuiteSparse_config, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %2, align 8
+  call void %7(ptr noundef %8)
+  br label %9
 
-8:                                                ; preds = %5, %1
+9:                                                ; preds = %5, %1
   ret ptr null
 }
 

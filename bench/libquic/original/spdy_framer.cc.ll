@@ -1611,7 +1611,8 @@ entry:
   store i32 %version, ptr %version.addr, align 4
   store ptr %adapter_factory, ptr %adapter_factory.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %send_frame_size_limit_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this1, i32 0, i32 8
   store i64 16384, ptr %send_frame_size_limit_, align 8
   %recv_frame_size_limit_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this1, i32 0, i32 9
@@ -1653,8 +1654,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %decoder_adapter_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this1, i32 0, i32 26
   call void @_ZNSt10unique_ptrIN3net24SpdyFramerDecoderAdapterESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %decoder_adapter_) #13
   %protocol_version_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this1, i32 0, i32 27
-  %0 = load i32, ptr %version.addr, align 4
-  store i32 %0, ptr %protocol_version_, align 8
+  %1 = load i32, ptr %version.addr, align 4
+  store i32 %1, ptr %protocol_version_, align 8
   %enable_compression_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this1, i32 0, i32 29
   store i8 1, ptr %enable_compression_, align 1
   %syn_frame_processed_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this1, i32 0, i32 30
@@ -1666,26 +1667,26 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %process_single_input_frame_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this1, i32 0, i32 33
   store i8 0, ptr %process_single_input_frame_, align 1
   %use_new_methods_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this1, i32 0, i32 34
-  %1 = load i8, ptr @FLAGS_chromium_http2_flag_spdy_framer_use_new_methods4, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr @FLAGS_chromium_http2_flag_spdy_framer_use_new_methods4, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %use_new_methods_, align 2
   invoke void @_ZN3net10SpdyFramer5ResetEv(ptr noundef nonnull align 8 dereferenceable(259) %this1)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %2 = load i32, ptr %version.addr, align 4
-  %cmp = icmp eq i32 %2, 2
+  %3 = load i32, ptr %version.addr, align 4
+  %cmp = icmp eq i32 %3, 2
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %invoke.cont5
-  %3 = load ptr, ptr %adapter_factory.addr, align 8
-  %cmp6 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %adapter_factory.addr, align 8
+  %cmp6 = icmp ne ptr %4, null
   br i1 %cmp6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr %adapter_factory.addr, align 8
-  invoke void %4(ptr sret(%"class.std::unique_ptr.42") align 8 %ref.tmp7, ptr noundef %this1)
+  %5 = load ptr, ptr %adapter_factory.addr, align 8
+  invoke void %5(ptr sret(%"class.std::unique_ptr.42") align 8 %ref.tmp7, ptr noundef %this1)
           to label %invoke.cont8 unwind label %lpad4
 
 invoke.cont8:                                     ; preds = %if.then
@@ -1695,31 +1696,31 @@ invoke.cont8:                                     ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   br label %ehcleanup16
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   br label %ehcleanup
 
 lpad4:                                            ; preds = %if.then, %invoke.cont3
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZNSt10unique_ptrIN3net24SpdyFramerDecoderAdapterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %decoder_adapter_) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %display_protocol_) #13
   br label %ehcleanup
@@ -2229,7 +2230,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %header_compressor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this1, i32 0, i32 17
   %call = call noundef ptr @_ZNKSt10unique_ptrI10z_stream_sSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %header_compressor_) #13
   %tobool = icmp ne ptr %call, null
@@ -2283,10 +2285,10 @@ if.end12:                                         ; preds = %invoke.cont10, %if.
   ret void
 
 terminate.lpad:                                   ; preds = %if.then7, %if.then
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #15
+  %2 = extractvalue { ptr, i32 } %1, 0
+  call void @__clang_call_terminate(ptr %2) #15
   unreachable
 }
 
@@ -20225,10 +20227,11 @@ entry:
   store ptr %framer, ptr %framer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net16SpdyFrameVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %framer.addr, align 8
-  store ptr %0, ptr %framer_, align 8
+  %1 = load ptr, ptr %framer.addr, align 8
+  store ptr %1, ptr %framer_, align 8
   %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this1, i32 0, i32 2
   invoke void @_ZN3net19SpdySerializedFrameC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %frame_)
           to label %invoke.cont unwind label %lpad
@@ -20237,12 +20240,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN3net16SpdyFrameVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
   br label %eh.resume
 
@@ -20273,7 +20276,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this1, i32 0, i32 2
   call void @_ZN3net19SpdySerializedFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %frame_) #13
   call void @_ZN3net16SpdyFrameVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
@@ -23149,7 +23153,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net16SpdyFrameVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN3net16SpdyFrameVisitorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

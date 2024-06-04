@@ -1309,8 +1309,9 @@ for.inc38:                                        ; preds = %if.end37
 
 for.end40:                                        ; preds = %for.cond12
   %25 = load ptr, ptr %store, align 8
-  %26 = load ptr, ptr getelementptr inbounds (%struct.anon.3, ptr @test_register_deregister.impls, i32 0, i32 2), align 16
-  %call41 = call i32 @ossl_method_store_remove(ptr noundef %25, i32 noundef 6, ptr noundef %26)
+  %26 = getelementptr inbounds %struct.anon.3, ptr @test_register_deregister.impls, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 16
+  %call41 = call i32 @ossl_method_store_remove(ptr noundef %25, i32 noundef 6, ptr noundef %27)
   %cmp42 = icmp ne i32 %call41, 0
   %conv43 = zext i1 %cmp42 to i32
   %call44 = call i32 @test_false(ptr noundef @.str.12, i32 noundef 413, ptr noundef @.str.212, i32 noundef %conv43)
@@ -1325,10 +1326,10 @@ if.end47:                                         ; preds = %if.then46, %for.end
   br label %err
 
 err:                                              ; preds = %if.end47, %if.then34, %if.then10, %if.then
-  %27 = load ptr, ptr %store, align 8
-  call void @ossl_method_store_free(ptr noundef %27)
-  %28 = load i32, ptr %ret, align 4
-  ret i32 %28
+  %28 = load ptr, ptr %store, align 8
+  call void @ossl_method_store_free(ptr noundef %28)
+  %29 = load i32, ptr %ret, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2177,7 +2178,7 @@ entry:
   store ptr %n, ptr %n.addr, align 8
   store i32 1, ptr %res, align 4
   %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
+  call void @llvm.va_start.p0(ptr %arraydecay)
   br label %do.body
 
 do.body:                                          ; preds = %vaarg.end, %entry
@@ -2225,7 +2226,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
 
 do.end:                                           ; preds = %vaarg.end
   %arraydecay3 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay3)
+  call void @llvm.va_end.p0(ptr %arraydecay3)
   %5 = load i32, ptr %res, align 4
   ret i32 %5
 }
@@ -2235,12 +2236,6 @@ declare ptr @ossl_parse_query(ptr noundef, ptr noundef, i32 noundef) #1
 declare i32 @ossl_property_match_count(ptr noundef, ptr noundef) #1
 
 declare void @ossl_property_free(ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 declare ptr @ossl_parse_property(ptr noundef, ptr noundef) #1
 
@@ -2259,7 +2254,7 @@ declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare ptr @ossl_prop_defn_get(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 declare i32 @ossl_method_store_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
@@ -2312,15 +2307,21 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) #1
 declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #3
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

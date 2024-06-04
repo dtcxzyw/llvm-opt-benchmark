@@ -5312,9 +5312,10 @@ define linkonce_odr void @_ZN16RarCheckPasswordC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN13CheckPasswordC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV16RarCheckPassword, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.RarCheckPassword, ptr %3, i32 0, i32 1
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV16RarCheckPassword, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.RarCheckPassword, ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
   ret void
 }
 
@@ -5535,18 +5536,19 @@ define linkonce_odr void @_ZN16RarCheckPasswordD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV16RarCheckPassword, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.RarCheckPassword, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %8, label %7
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV16RarCheckPassword, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.RarCheckPassword, ptr %3, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-7:                                                ; preds = %1
-  call void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %5) #12
-  call void @_ZdlPv(ptr noundef %5) #14
-  br label %8
+8:                                                ; preds = %1
+  call void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2516) %6) #12
+  call void @_ZdlPv(ptr noundef %6) #14
+  br label %9
 
-8:                                                ; preds = %7, %1
+9:                                                ; preds = %8, %1
   ret void
 }
 
@@ -7020,7 +7022,8 @@ define linkonce_odr void @_ZN13CheckPasswordC2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV13CheckPassword, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV13CheckPassword, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

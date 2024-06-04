@@ -22,7 +22,8 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %1 = load ptr, ptr %prompt.addr, align 8
   %call = call ptr @strncpy(ptr noundef @prompt_string, ptr noundef %1, i64 noundef 79) #4
-  store i8 0, ptr getelementptr inbounds ([80 x i8], ptr @prompt_string, i64 0, i64 79), align 1
+  %2 = getelementptr inbounds [80 x i8], ptr @prompt_string, i64 0, i64 79
+  store i8 0, ptr %2, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

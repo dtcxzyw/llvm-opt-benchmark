@@ -668,95 +668,98 @@ define dso_local i32 @snd_hda_jack_detect_state_mst(ptr noundef %0, i16 noundef 
 define dso_local ptr @snd_hda_jack_detect_enable_callback_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = tail call fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %63, label %7
+  %7 = inttoptr i64 -12 to ptr
+  br i1 %6, label %66, label %8
 
-7:                                                ; preds = %4
-  %8 = icmp eq ptr %3, null
-  br i1 %8, label %22, label %9
+8:                                                ; preds = %4
+  %9 = icmp eq ptr %3, null
+  br i1 %9, label %23, label %10
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %22, label %13
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %23, label %14
 
-13:                                               ; preds = %18, %9
-  %14 = phi ptr [ %20, %18 ], [ %11, %9 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %3
-  br i1 %17, label %22, label %18
+14:                                               ; preds = %19, %10
+  %15 = phi ptr [ %21, %19 ], [ %12, %10 ]
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, %3
+  br i1 %18, label %23, label %19
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %14, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %13, !llvm.loop !14
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %15, i64 32
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %14, !llvm.loop !14
 
-22:                                               ; preds = %18, %13, %9, %7
-  %23 = phi ptr [ null, %7 ], [ null, %9 ], [ null, %18 ], [ %14, %13 ]
-  %24 = icmp ne ptr %23, null
-  %25 = or i1 %8, %24
-  br i1 %25, label %39, label %26
+23:                                               ; preds = %19, %14, %10, %8
+  %24 = phi ptr [ null, %8 ], [ null, %10 ], [ null, %19 ], [ %15, %14 ]
+  %25 = icmp ne ptr %24, null
+  %26 = or i1 %9, %25
+  br i1 %26, label %42, label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %28 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3520, i64 noundef 40) #12
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %63, label %30
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %29 = load ptr, ptr %28, align 16
+  %30 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %29, i32 noundef 3520, i64 noundef 40) #12
+  %31 = icmp eq ptr %30, null
+  %32 = inttoptr i64 -12 to ptr
+  br i1 %31, label %66, label %33
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %3, ptr %31, align 8
-  %32 = load i16, ptr %5, align 8
-  store i16 %32, ptr %28, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %28, i64 4
-  store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %5, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %28, i64 32
-  store ptr %37, ptr %38, align 8
-  store ptr %28, ptr %36, align 8
-  br label %39
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %3, ptr %34, align 8
+  %35 = load i16, ptr %5, align 8
+  store i16 %35, ptr %30, align 8
+  %36 = getelementptr inbounds i8, ptr %5, i64 4
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds i8, ptr %30, i64 4
+  store i32 %37, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %5, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %30, i64 32
+  store ptr %40, ptr %41, align 8
+  store ptr %30, ptr %39, align 8
+  br label %42
 
-39:                                               ; preds = %30, %22
-  %40 = phi ptr [ %23, %22 ], [ %28, %30 ]
-  %41 = getelementptr inbounds i8, ptr %5, i64 28
-  %42 = load i8, ptr %41, align 4
-  %43 = and i8 %42, 1
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %63
+42:                                               ; preds = %33, %23
+  %43 = phi ptr [ %24, %23 ], [ %30, %33 ]
+  %44 = getelementptr inbounds i8, ptr %5, i64 28
+  %45 = load i8, ptr %44, align 4
+  %46 = and i8 %45, 1
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %48, label %66
 
-45:                                               ; preds = %39
-  %46 = or disjoint i8 %42, 1
-  store i8 %46, ptr %41, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 1504
-  %48 = load i64, ptr %47, align 8
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %63
+48:                                               ; preds = %42
+  %49 = or disjoint i8 %45, 1
+  store i8 %49, ptr %44, align 4
+  %50 = getelementptr inbounds i8, ptr %0, i64 1504
+  %51 = load i64, ptr %50, align 8
+  %52 = icmp eq i64 %51, 0
+  br i1 %52, label %53, label %66
 
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
-  %52 = load i8, ptr %51, align 8
-  %53 = or i8 %52, -128
-  %54 = zext i8 %53 to i32
-  %55 = zext i16 %1 to i32
-  %56 = shl i32 %55, 20
-  %57 = or disjoint i32 %56, 985088
-  %58 = tail call i32 @snd_hdac_regmap_write_raw(ptr noundef %0, i32 noundef %57, i32 noundef %54) #11
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %60, label %63
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds i8, ptr %5, i64 8
+  %55 = load i8, ptr %54, align 8
+  %56 = or i8 %55, -128
+  %57 = zext i8 %56 to i32
+  %58 = zext i16 %1 to i32
+  %59 = shl i32 %58, 20
+  %60 = or disjoint i32 %59, 985088
+  %61 = tail call i32 @snd_hdac_regmap_write_raw(ptr noundef %0, i32 noundef %60, i32 noundef %57) #11
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %66
 
-60:                                               ; preds = %50
-  %61 = sext i32 %58 to i64
-  %62 = inttoptr i64 %61 to ptr
-  br label %63
+63:                                               ; preds = %53
+  %64 = sext i32 %61 to i64
+  %65 = inttoptr i64 %64 to ptr
+  br label %66
 
-63:                                               ; preds = %60, %50, %45, %39, %26, %4
-  %64 = phi ptr [ %62, %60 ], [ %40, %39 ], [ %40, %45 ], [ %40, %50 ], [ inttoptr (i64 -12 to ptr), %4 ], [ inttoptr (i64 -12 to ptr), %26 ]
-  ret ptr %64
+66:                                               ; preds = %63, %53, %48, %42, %27, %4
+  %67 = phi ptr [ %65, %63 ], [ %43, %42 ], [ %43, %48 ], [ %43, %53 ], [ %7, %4 ], [ %32, %27 ]
+  ret ptr %67
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -883,47 +886,49 @@ define internal fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zer
 define dso_local i32 @snd_hda_jack_detect_enable(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = tail call fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2)
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %29, label %6
+  %6 = inttoptr i64 -12 to ptr
+  br i1 %5, label %30, label %7
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
-  %8 = load i8, ptr %7, align 4
-  %9 = and i8 %8, 1
-  %10 = icmp eq i8 %9, 0
-  br i1 %10, label %11, label %29
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = load i8, ptr %8, align 4
+  %10 = and i8 %9, 1
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %12, label %30
 
-11:                                               ; preds = %6
-  %12 = or disjoint i8 %8, 1
-  store i8 %12, ptr %7, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 1504
-  %14 = load i64, ptr %13, align 8
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %16, label %29
+12:                                               ; preds = %7
+  %13 = or disjoint i8 %9, 1
+  store i8 %13, ptr %8, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 1504
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %17, label %30
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = load i8, ptr %17, align 8
-  %19 = or i8 %18, -128
-  %20 = zext i8 %19 to i32
-  %21 = zext i16 %1 to i32
-  %22 = shl i32 %21, 20
-  %23 = or disjoint i32 %22, 985088
-  %24 = tail call i32 @snd_hdac_regmap_write_raw(ptr noundef %0, i32 noundef %23, i32 noundef %20) #11
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %29
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = load i8, ptr %18, align 8
+  %20 = or i8 %19, -128
+  %21 = zext i8 %20 to i32
+  %22 = zext i16 %1 to i32
+  %23 = shl i32 %22, 20
+  %24 = or disjoint i32 %23, 985088
+  %25 = tail call i32 @snd_hdac_regmap_write_raw(ptr noundef %0, i32 noundef %24, i32 noundef %21) #11
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %30
 
-26:                                               ; preds = %16
-  %27 = sext i32 %24 to i64
-  %28 = inttoptr i64 %27 to ptr
-  br label %29
+27:                                               ; preds = %17
+  %28 = sext i32 %25 to i64
+  %29 = inttoptr i64 %28 to ptr
+  br label %30
 
-29:                                               ; preds = %26, %16, %11, %6, %3
-  %30 = phi ptr [ %28, %26 ], [ null, %6 ], [ null, %11 ], [ null, %16 ], [ inttoptr (i64 -12 to ptr), %3 ]
-  %31 = icmp ugt ptr %30, inttoptr (i64 -4096 to ptr)
-  %32 = ptrtoint ptr %30 to i64
-  %33 = trunc i64 %32 to i32
-  %34 = select i1 %31, i32 %33, i32 0
-  ret i32 %34
+30:                                               ; preds = %27, %17, %12, %7, %3
+  %31 = phi ptr [ %29, %27 ], [ null, %7 ], [ null, %12 ], [ null, %17 ], [ %6, %3 ]
+  %32 = inttoptr i64 -4096 to ptr
+  %33 = icmp ugt ptr %31, %32
+  %34 = ptrtoint ptr %31 to i64
+  %35 = trunc i64 %34 to i32
+  %36 = select i1 %33, i32 %35, i32 0
+  ret i32 %36
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1667,13 +1672,13 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
 
 12:                                               ; preds = %11, %4
   %13 = icmp eq i16 %1, 0
-  br i1 %13, label %108, label %14
+  br i1 %13, label %110, label %14
 
 14:                                               ; preds = %12
   %15 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %1) #11
   %16 = and i32 %15, -1073741824
   %17 = icmp eq i32 %16, 1073741824
-  br i1 %17, label %108, label %18
+  br i1 %17, label %110, label %18
 
 18:                                               ; preds = %14
   %19 = icmp ult i32 %15, 1073741824
@@ -1764,57 +1769,59 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   %73 = call i32 @snd_hda_jack_add_kctl_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 0, ptr noundef nonnull %6, i1 noundef zeroext %61, i32 noundef 0, ptr noundef null), !range !40
   %74 = icmp slt i32 %73, 0
   %75 = or i1 %61, %74
-  br i1 %75, label %108, label %76
+  br i1 %75, label %110, label %76
 
 76:                                               ; preds = %72
   %77 = call fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 0)
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %102, label %79
+  %79 = inttoptr i64 -12 to ptr
+  br i1 %78, label %103, label %80
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %77, i64 28
-  %81 = load i8, ptr %80, align 4
-  %82 = and i8 %81, 1
-  %83 = icmp eq i8 %82, 0
-  br i1 %83, label %84, label %102
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds i8, ptr %77, i64 28
+  %82 = load i8, ptr %81, align 4
+  %83 = and i8 %82, 1
+  %84 = icmp eq i8 %83, 0
+  br i1 %84, label %85, label %103
 
-84:                                               ; preds = %79
-  %85 = or disjoint i8 %81, 1
-  store i8 %85, ptr %80, align 4
-  %86 = getelementptr inbounds i8, ptr %0, i64 1504
-  %87 = load i64, ptr %86, align 8
-  %88 = icmp eq i64 %87, 0
-  br i1 %88, label %89, label %102
+85:                                               ; preds = %80
+  %86 = or disjoint i8 %82, 1
+  store i8 %86, ptr %81, align 4
+  %87 = getelementptr inbounds i8, ptr %0, i64 1504
+  %88 = load i64, ptr %87, align 8
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %90, label %103
 
-89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %77, i64 8
-  %91 = load i8, ptr %90, align 8
-  %92 = or i8 %91, -128
-  %93 = zext i8 %92 to i32
-  %94 = zext i16 %1 to i32
-  %95 = shl i32 %94, 20
-  %96 = or disjoint i32 %95, 985088
-  %97 = call i32 @snd_hdac_regmap_write_raw(ptr noundef %0, i32 noundef %96, i32 noundef %93) #11
-  %98 = icmp slt i32 %97, 0
-  br i1 %98, label %99, label %102
+90:                                               ; preds = %85
+  %91 = getelementptr inbounds i8, ptr %77, i64 8
+  %92 = load i8, ptr %91, align 8
+  %93 = or i8 %92, -128
+  %94 = zext i8 %93 to i32
+  %95 = zext i16 %1 to i32
+  %96 = shl i32 %95, 20
+  %97 = or disjoint i32 %96, 985088
+  %98 = call i32 @snd_hdac_regmap_write_raw(ptr noundef %0, i32 noundef %97, i32 noundef %94) #11
+  %99 = icmp slt i32 %98, 0
+  br i1 %99, label %100, label %103
 
-99:                                               ; preds = %89
-  %100 = sext i32 %97 to i64
-  %101 = inttoptr i64 %100 to ptr
-  br label %102
+100:                                              ; preds = %90
+  %101 = sext i32 %98 to i64
+  %102 = inttoptr i64 %101 to ptr
+  br label %103
 
-102:                                              ; preds = %99, %89, %84, %79, %76
-  %103 = phi ptr [ %101, %99 ], [ null, %79 ], [ null, %84 ], [ null, %89 ], [ inttoptr (i64 -12 to ptr), %76 ]
-  %104 = icmp ugt ptr %103, inttoptr (i64 -4096 to ptr)
-  %105 = ptrtoint ptr %103 to i64
-  %106 = trunc i64 %105 to i32
-  %107 = select i1 %104, i32 %106, i32 0
-  br label %108
+103:                                              ; preds = %100, %90, %85, %80, %76
+  %104 = phi ptr [ %102, %100 ], [ null, %80 ], [ null, %85 ], [ null, %90 ], [ %79, %76 ]
+  %105 = inttoptr i64 -4096 to ptr
+  %106 = icmp ugt ptr %104, %105
+  %107 = ptrtoint ptr %104 to i64
+  %108 = trunc i64 %107 to i32
+  %109 = select i1 %106, i32 %108, i32 0
+  br label %110
 
-108:                                              ; preds = %102, %72, %14, %12
-  %109 = phi i32 [ %107, %102 ], [ 0, %12 ], [ 0, %14 ], [ %73, %72 ]
+110:                                              ; preds = %103, %72, %14, %12
+  %111 = phi i32 [ %109, %103 ], [ 0, %12 ], [ 0, %14 ], [ %73, %72 ]
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %6) #11
-  ret i32 %109
+  ret i32 %111
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

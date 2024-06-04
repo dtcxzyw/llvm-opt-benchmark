@@ -17,13 +17,33 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @intel64_lowsetup() #0 {
-  store ptr inttoptr (i64 add (i64 ptrtoint (ptr @g_pdpt_low to i64), i64 4294967296) to ptr), ptr @g_pdpt, align 8
-  store ptr inttoptr (i64 add (i64 ptrtoint (ptr @g_pd_low to i64), i64 4294967296) to ptr), ptr @g_pd, align 8
-  store ptr inttoptr (i64 add (i64 ptrtoint (ptr @g_pt_low to i64), i64 4294967296) to ptr), ptr @g_pt, align 8
-  store ptr inttoptr (i64 add (i64 ptrtoint (ptr @g_ist64_low to i64), i64 4294967296) to ptr), ptr @g_ist64, align 8
-  store ptr inttoptr (i64 add (i64 ptrtoint (ptr @g_gdt64_low to i64), i64 4294967296) to ptr), ptr @g_gdt64, align 8
-  %1 = load ptr, ptr @g_gdt64, align 8
-  call void @setgdt(ptr noundef %1, i32 noundef trunc (i64 sub (i64 sub (i64 ptrtoint (ptr @g_gdt64_low_end to i64), i64 ptrtoint (ptr @g_gdt64_low to i64)), i64 1) to i32))
+  %1 = ptrtoint ptr @g_pdpt_low to i64
+  %2 = add i64 %1, 4294967296
+  %3 = inttoptr i64 %2 to ptr
+  store ptr %3, ptr @g_pdpt, align 8
+  %4 = ptrtoint ptr @g_pd_low to i64
+  %5 = add i64 %4, 4294967296
+  %6 = inttoptr i64 %5 to ptr
+  store ptr %6, ptr @g_pd, align 8
+  %7 = ptrtoint ptr @g_pt_low to i64
+  %8 = add i64 %7, 4294967296
+  %9 = inttoptr i64 %8 to ptr
+  store ptr %9, ptr @g_pt, align 8
+  %10 = ptrtoint ptr @g_ist64_low to i64
+  %11 = add i64 %10, 4294967296
+  %12 = inttoptr i64 %11 to ptr
+  store ptr %12, ptr @g_ist64, align 8
+  %13 = ptrtoint ptr @g_gdt64_low to i64
+  %14 = add i64 %13, 4294967296
+  %15 = inttoptr i64 %14 to ptr
+  store ptr %15, ptr @g_gdt64, align 8
+  %16 = load ptr, ptr @g_gdt64, align 8
+  %17 = ptrtoint ptr @g_gdt64_low_end to i64
+  %18 = ptrtoint ptr @g_gdt64_low to i64
+  %19 = sub i64 %17, %18
+  %20 = sub i64 %19, 1
+  %21 = trunc i64 %20 to i32
+  call void @setgdt(ptr noundef %16, i32 noundef %21)
   call void @__revoke_low_memory()
   ret void
 }

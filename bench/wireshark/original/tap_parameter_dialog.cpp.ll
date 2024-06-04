@@ -1259,290 +1259,292 @@ define void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonn
   %25 = load ptr, ptr %6, align 8
   %26 = load ptr, ptr %7, align 8
   call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %24, ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(48) %26)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV18TapParameterDialog, i32 0, i32 0, i32 2), ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV18TapParameterDialog, i32 0, i32 1, i32 2), ptr %27, align 8
-  %28 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
-  %29 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #22
-          to label %30 unwind label %104
-
-30:                                               ; preds = %4
+  %27 = getelementptr inbounds { [68 x ptr], [10 x ptr] }, ptr @_ZTV18TapParameterDialog, i32 0, i32 0, i32 2
+  store ptr %27, ptr %24, align 8
+  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds { [68 x ptr], [10 x ptr] }, ptr @_ZTV18TapParameterDialog, i32 0, i32 1, i32 2
   store ptr %29, ptr %28, align 8
-  %31 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 2
-  invoke void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef null)
-          to label %32 unwind label %104
+  %30 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
+  %31 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #22
+          to label %32 unwind label %106
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 3
-  call void @_ZN5QListIP7QActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #2
-  %34 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 4
-  %35 = load i32, ptr %8, align 4
-  store i32 %35, ptr %34, align 8
-  %36 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  invoke void @_ZN21Ui_TapParameterDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(80) %37, ptr noundef %24)
-          to label %38 unwind label %108
+32:                                               ; preds = %4
+  store ptr %31, ptr %30, align 8
+  %33 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 2
+  invoke void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef null)
+          to label %34 unwind label %106
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %40, i32 0, i32 4
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 3
+  call void @_ZN5QListIP7QActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #2
+  %36 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 4
+  %37 = load i32, ptr %8, align 4
+  store i32 %37, ptr %36, align 8
+  %38 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  invoke void @_ZN21Ui_TapParameterDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef %24)
+          to label %40 unwind label %110
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
-  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %42)
-          to label %43 unwind label %108
+  %43 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %42, i32 0, i32 4
+  %44 = load ptr, ptr %43, align 8
+  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %44)
+          to label %45 unwind label %110
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 2
-  %45 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %46, i32 0, i32 0
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 2
+  %47 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
   %48 = load ptr, ptr %47, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef %48)
-          to label %49 unwind label %108
+  %49 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef %50)
+          to label %51 unwind label %110
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 2
-  %51 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %52, i32 0, i32 1
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 2
+  %53 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
   %54 = load ptr, ptr %53, align 8
-  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef %54)
-          to label %55 unwind label %108
+  %55 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8
+  invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef %56)
+          to label %57 unwind label %110
 
-55:                                               ; preds = %49
-  %56 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %57, i32 0, i32 9
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
   %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %59, i32 0, i32 9
+  %61 = load ptr, ptr %60, align 8
   invoke void @_ZN18TapParameterDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, ptr noundef @.str.2, ptr noundef null, i32 noundef -1)
-          to label %60 unwind label %108
+          to label %62 unwind label %110
 
-60:                                               ; preds = %55
-  %61 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 3)
-          to label %62 unwind label %112
+62:                                               ; preds = %57
+  %63 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 3)
+          to label %64 unwind label %114
 
-62:                                               ; preds = %60
-  store ptr %61, ptr %11, align 8
+64:                                               ; preds = %62
+  store ptr %63, ptr %11, align 8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #2
-  %63 = load ptr, ptr %11, align 8
+  %65 = load ptr, ptr %11, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %14, align 8
-  %64 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 0
-  %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 1
+  %66 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 0
   %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds { i64, i64 }, ptr %14, i32 0, i32 1
+  %69 = load i64, ptr %68, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18TapParameterDialog34on_actionCopyToClipboard_triggeredEv to i64), i64 0 }, ptr %15, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM18TapParameterDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %13, ptr noundef %63, i64 %65, i64 %67, ptr noundef %24, ptr noundef byval({ i64, i64 }) align 8 %15, i32 noundef 0)
-          to label %68 unwind label %108
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM18TapParameterDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %13, ptr noundef %65, i64 %67, i64 %69, ptr noundef %24, ptr noundef byval({ i64, i64 }) align 8 %15, i32 noundef 0)
+          to label %70 unwind label %110
 
-68:                                               ; preds = %62
+70:                                               ; preds = %64
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #2
-  %69 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %70, i32 0, i32 9
+  %71 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
   %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %72, i32 0, i32 9
+  %74 = load ptr, ptr %73, align 8
   invoke void @_ZN18TapParameterDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %16, ptr noundef @.str.3, ptr noundef null, i32 noundef -1)
-          to label %73 unwind label %108
+          to label %75 unwind label %110
 
-73:                                               ; preds = %68
-  %74 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 3)
-          to label %75 unwind label %116
+75:                                               ; preds = %70
+  %76 = invoke noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 3)
+          to label %77 unwind label %118
 
-75:                                               ; preds = %73
-  store ptr %74, ptr %11, align 8
+77:                                               ; preds = %75
+  store ptr %76, ptr %11, align 8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #2
-  %76 = load ptr, ptr %11, align 8
+  %78 = load ptr, ptr %11, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractButton7clickedEb to i64), i64 0 }, ptr %18, align 8
-  %77 = getelementptr inbounds { i64, i64 }, ptr %18, i32 0, i32 0
-  %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds { i64, i64 }, ptr %18, i32 0, i32 1
+  %79 = getelementptr inbounds { i64, i64 }, ptr %18, i32 0, i32 0
   %80 = load i64, ptr %79, align 8
+  %81 = getelementptr inbounds { i64, i64 }, ptr %18, i32 0, i32 1
+  %82 = load i64, ptr %81, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN18TapParameterDialog25on_actionSaveAs_triggeredEv to i64), i64 0 }, ptr %19, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM18TapParameterDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %17, ptr noundef %76, i64 %78, i64 %80, ptr noundef %24, ptr noundef byval({ i64, i64 }) align 8 %19, i32 noundef 0)
-          to label %81 unwind label %108
+  invoke void @_ZN7QObject7connectIM15QAbstractButtonFvbEM18TapParameterDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %17, ptr noundef %78, i64 %80, i64 %82, ptr noundef %24, ptr noundef byval({ i64, i64 }) align 8 %19, i32 noundef 0)
+          to label %83 unwind label %110
 
-81:                                               ; preds = %75
+83:                                               ; preds = %77
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #2
-  %82 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %83, i32 0, i32 7
+  %84 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
   %85 = load ptr, ptr %84, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %20, ptr noundef %85, ptr noundef @.str.4, ptr noundef %24, ptr noundef @.str.5, i32 noundef 0)
-          to label %86 unwind label %108
+  %86 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %85, i32 0, i32 7
+  %87 = load ptr, ptr %86, align 8
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %20, ptr noundef %87, ptr noundef @.str.4, ptr noundef %24, ptr noundef @.str.5, i32 noundef 0)
+          to label %88 unwind label %110
 
-86:                                               ; preds = %81
+88:                                               ; preds = %83
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #2
-  %87 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %88, i32 0, i32 9
+  %89 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
   %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %6, align 8
-  invoke void @_ZN13ProgressFrame14addToButtonBoxEP16QDialogButtonBoxP7QObject(ptr noundef %90, ptr noundef %91)
-          to label %92 unwind label %108
+  %91 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %90, i32 0, i32 9
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %6, align 8
+  invoke void @_ZN13ProgressFrame14addToButtonBoxEP16QDialogButtonBoxP7QObject(ptr noundef %92, ptr noundef %93)
+          to label %94 unwind label %110
 
-92:                                               ; preds = %86
-  %93 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 4
-  %94 = load i32, ptr %93, align 8
-  %95 = icmp slt i32 %94, 1
-  br i1 %95, label %96, label %120
+94:                                               ; preds = %88
+  %95 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 4
+  %96 = load i32, ptr %95, align 8
+  %97 = icmp slt i32 %96, 1
+  br i1 %97, label %98, label %122
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %98, i32 0, i32 9
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
   %100 = load ptr, ptr %99, align 8
-  %101 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %100, i32 noundef 16777216)
-          to label %102 unwind label %108
+  %101 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %100, i32 0, i32 9
+  %102 = load ptr, ptr %101, align 8
+  %103 = invoke noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40) %102, i32 noundef 16777216)
+          to label %104 unwind label %110
 
-102:                                              ; preds = %96
-  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %101)
-          to label %103 unwind label %108
+104:                                              ; preds = %98
+  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %103)
+          to label %105 unwind label %110
 
-103:                                              ; preds = %102
-  br label %120
+105:                                              ; preds = %104
+  br label %122
 
-104:                                              ; preds = %30, %4
-  %105 = landingpad { ptr, i32 }
+106:                                              ; preds = %32, %4
+  %107 = landingpad { ptr, i32 }
           cleanup
-  %106 = extractvalue { ptr, i32 } %105, 0
-  store ptr %106, ptr %9, align 8
-  %107 = extractvalue { ptr, i32 } %105, 1
-  store i32 %107, ptr %10, align 4
-  br label %159
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %9, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %10, align 4
+  br label %161
 
-108:                                              ; preds = %151, %148, %144, %129, %120, %102, %96, %86, %81, %75, %68, %62, %55, %49, %43, %38, %32
-  %109 = landingpad { ptr, i32 }
+110:                                              ; preds = %153, %150, %146, %131, %122, %104, %98, %88, %83, %77, %70, %64, %57, %51, %45, %40, %34
+  %111 = landingpad { ptr, i32 }
           cleanup
-  %110 = extractvalue { ptr, i32 } %109, 0
-  store ptr %110, ptr %9, align 8
-  %111 = extractvalue { ptr, i32 } %109, 1
-  store i32 %111, ptr %10, align 4
-  br label %158
-
-112:                                              ; preds = %60
-  %113 = landingpad { ptr, i32 }
-          cleanup
-  %114 = extractvalue { ptr, i32 } %113, 0
-  store ptr %114, ptr %9, align 8
-  %115 = extractvalue { ptr, i32 } %113, 1
-  store i32 %115, ptr %10, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #2
-  br label %158
-
-116:                                              ; preds = %73
-  %117 = landingpad { ptr, i32 }
-          cleanup
-  %118 = extractvalue { ptr, i32 } %117, 0
-  store ptr %118, ptr %9, align 8
-  %119 = extractvalue { ptr, i32 } %117, 1
-  store i32 %119, ptr %10, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #2
-  br label %158
-
-120:                                              ; preds = %103, %92
-  %121 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %122, i32 0, i32 7
-  %124 = load ptr, ptr %123, align 8
-  invoke void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %21, ptr noundef nonnull align 8 dereferenceable(40) %124)
-          to label %125 unwind label %108
-
-125:                                              ; preds = %120
-  %126 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %21)
-          to label %127 unwind label %136
-
-127:                                              ; preds = %125
-  %128 = xor i1 %126, true
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #2
-  br i1 %128, label %129, label %144
-
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %131, i32 0, i32 7
-  %133 = load ptr, ptr %132, align 8
-  invoke void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %22, ptr noundef nonnull align 8 dereferenceable(40) %133)
-          to label %134 unwind label %108
-
-134:                                              ; preds = %129
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %22) #2
-  invoke void @_ZN18TapParameterDialog12updateFilterE7QString(ptr noundef nonnull align 8 dereferenceable(224) %24, ptr noundef %23)
-          to label %135 unwind label %140
-
-135:                                              ; preds = %134
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #2
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #2
-  br label %144
-
-136:                                              ; preds = %125
-  %137 = landingpad { ptr, i32 }
-          cleanup
-  %138 = extractvalue { ptr, i32 } %137, 0
-  store ptr %138, ptr %9, align 8
-  %139 = extractvalue { ptr, i32 } %137, 1
-  store i32 %139, ptr %10, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #2
-  br label %158
-
-140:                                              ; preds = %134
-  %141 = landingpad { ptr, i32 }
-          cleanup
-  %142 = extractvalue { ptr, i32 } %141, 0
-  store ptr %142, ptr %9, align 8
-  %143 = extractvalue { ptr, i32 } %141, 1
-  store i32 %143, ptr %10, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #2
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #2
-  br label %158
-
-144:                                              ; preds = %135, %127
-  %145 = load ptr, ptr %24, align 8
-  %146 = getelementptr inbounds ptr, ptr %145, i64 58
-  %147 = load ptr, ptr %146, align 8
-  invoke void %147(ptr noundef nonnull align 8 dereferenceable(224) %24)
-          to label %148 unwind label %108
-
-148:                                              ; preds = %144
-  %149 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #22
-          to label %150 unwind label %108
-
-150:                                              ; preds = %148
-  invoke void @_ZN6QTimerC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef %24)
-          to label %151 unwind label %154
-
-151:                                              ; preds = %150
-  %152 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 5
-  store ptr %149, ptr %152, align 8
-  invoke void @_ZN18TapParameterDialog14setRetapOnShowEb(ptr noundef nonnull align 8 dereferenceable(224) %24, i1 noundef zeroext true)
-          to label %153 unwind label %108
-
-153:                                              ; preds = %151
-  ret void
-
-154:                                              ; preds = %150
-  %155 = landingpad { ptr, i32 }
-          cleanup
-  %156 = extractvalue { ptr, i32 } %155, 0
-  store ptr %156, ptr %9, align 8
-  %157 = extractvalue { ptr, i32 } %155, 1
-  store i32 %157, ptr %10, align 4
-  call void @_ZdlPv(ptr noundef %149) #21
-  br label %158
-
-158:                                              ; preds = %154, %140, %136, %116, %112, %108
-  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #2
-  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %31) #2
-  br label %159
-
-159:                                              ; preds = %158, %104
-  call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %24) #2
+  %112 = extractvalue { ptr, i32 } %111, 0
+  store ptr %112, ptr %9, align 8
+  %113 = extractvalue { ptr, i32 } %111, 1
+  store i32 %113, ptr %10, align 4
   br label %160
 
-160:                                              ; preds = %159
-  %161 = load ptr, ptr %9, align 8
-  %162 = load i32, ptr %10, align 4
-  %163 = insertvalue { ptr, i32 } poison, ptr %161, 0
-  %164 = insertvalue { ptr, i32 } %163, i32 %162, 1
-  resume { ptr, i32 } %164
+114:                                              ; preds = %62
+  %115 = landingpad { ptr, i32 }
+          cleanup
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %9, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %10, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #2
+  br label %160
+
+118:                                              ; preds = %75
+  %119 = landingpad { ptr, i32 }
+          cleanup
+  %120 = extractvalue { ptr, i32 } %119, 0
+  store ptr %120, ptr %9, align 8
+  %121 = extractvalue { ptr, i32 } %119, 1
+  store i32 %121, ptr %10, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #2
+  br label %160
+
+122:                                              ; preds = %105, %94
+  %123 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %124, i32 0, i32 7
+  %126 = load ptr, ptr %125, align 8
+  invoke void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %21, ptr noundef nonnull align 8 dereferenceable(40) %126)
+          to label %127 unwind label %110
+
+127:                                              ; preds = %122
+  %128 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %21)
+          to label %129 unwind label %138
+
+129:                                              ; preds = %127
+  %130 = xor i1 %128, true
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #2
+  br i1 %130, label %131, label %146
+
+131:                                              ; preds = %129
+  %132 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 1
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds %class.Ui_TapParameterDialog, ptr %133, i32 0, i32 7
+  %135 = load ptr, ptr %134, align 8
+  invoke void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %22, ptr noundef nonnull align 8 dereferenceable(40) %135)
+          to label %136 unwind label %110
+
+136:                                              ; preds = %131
+  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %22) #2
+  invoke void @_ZN18TapParameterDialog12updateFilterE7QString(ptr noundef nonnull align 8 dereferenceable(224) %24, ptr noundef %23)
+          to label %137 unwind label %142
+
+137:                                              ; preds = %136
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #2
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #2
+  br label %146
+
+138:                                              ; preds = %127
+  %139 = landingpad { ptr, i32 }
+          cleanup
+  %140 = extractvalue { ptr, i32 } %139, 0
+  store ptr %140, ptr %9, align 8
+  %141 = extractvalue { ptr, i32 } %139, 1
+  store i32 %141, ptr %10, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #2
+  br label %160
+
+142:                                              ; preds = %136
+  %143 = landingpad { ptr, i32 }
+          cleanup
+  %144 = extractvalue { ptr, i32 } %143, 0
+  store ptr %144, ptr %9, align 8
+  %145 = extractvalue { ptr, i32 } %143, 1
+  store i32 %145, ptr %10, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #2
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #2
+  br label %160
+
+146:                                              ; preds = %137, %129
+  %147 = load ptr, ptr %24, align 8
+  %148 = getelementptr inbounds ptr, ptr %147, i64 58
+  %149 = load ptr, ptr %148, align 8
+  invoke void %149(ptr noundef nonnull align 8 dereferenceable(224) %24)
+          to label %150 unwind label %110
+
+150:                                              ; preds = %146
+  %151 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #22
+          to label %152 unwind label %110
+
+152:                                              ; preds = %150
+  invoke void @_ZN6QTimerC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef %24)
+          to label %153 unwind label %156
+
+153:                                              ; preds = %152
+  %154 = getelementptr inbounds %class.TapParameterDialog, ptr %24, i32 0, i32 5
+  store ptr %151, ptr %154, align 8
+  invoke void @_ZN18TapParameterDialog14setRetapOnShowEb(ptr noundef nonnull align 8 dereferenceable(224) %24, i1 noundef zeroext true)
+          to label %155 unwind label %110
+
+155:                                              ; preds = %153
+  ret void
+
+156:                                              ; preds = %152
+  %157 = landingpad { ptr, i32 }
+          cleanup
+  %158 = extractvalue { ptr, i32 } %157, 0
+  store ptr %158, ptr %9, align 8
+  %159 = extractvalue { ptr, i32 } %157, 1
+  store i32 %159, ptr %10, align 4
+  call void @_ZdlPv(ptr noundef %151) #21
+  br label %160
+
+160:                                              ; preds = %156, %142, %138, %118, %114, %110
+  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #2
+  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %33) #2
+  br label %161
+
+161:                                              ; preds = %160, %106
+  call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %24) #2
+  br label %162
+
+162:                                              ; preds = %161
+  %163 = load ptr, ptr %9, align 8
+  %164 = load i32, ptr %10, align 4
+  %165 = insertvalue { ptr, i32 } poison, ptr %163, 0
+  %166 = insertvalue { ptr, i32 } %165, i32 %164, 1
+  resume { ptr, i32 } %166
 }
 
 declare void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #4
@@ -3061,13 +3063,15 @@ define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
-  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #2
-  %6 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #2
+  %4 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
+  call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #2
+  %8 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #2
   call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #2
   ret void
 }
@@ -3077,50 +3081,52 @@ define void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV18TapParameterDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV18TapParameterDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.TapParameterDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [68 x ptr], [10 x ptr] }, ptr @_ZTV18TapParameterDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [68 x ptr], [10 x ptr] }, ptr @_ZTV18TapParameterDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.TapParameterDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #21
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #21
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.TapParameterDialog, ptr %3, i32 0, i32 5
-  %11 = load ptr, ptr %10, align 8
-  invoke void @_ZN6QTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %12 unwind label %23
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.TapParameterDialog, ptr %3, i32 0, i32 5
+  %13 = load ptr, ptr %12, align 8
+  invoke void @_ZN6QTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %14 unwind label %25
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds %class.TapParameterDialog, ptr %3, i32 0, i32 5
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %20, label %16
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds %class.TapParameterDialog, ptr %3, i32 0, i32 5
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %22, label %18
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 4
-  %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %14) #2
-  br label %20
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %16, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 4
+  %21 = load ptr, ptr %20, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %16) #2
+  br label %22
 
-20:                                               ; preds = %16, %12
-  %21 = getelementptr inbounds %class.TapParameterDialog, ptr %3, i32 0, i32 3
-  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #2
-  %22 = getelementptr inbounds %class.TapParameterDialog, ptr %3, i32 0, i32 2
-  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #2
+22:                                               ; preds = %18, %14
+  %23 = getelementptr inbounds %class.TapParameterDialog, ptr %3, i32 0, i32 3
+  call void @_ZN5QListIP7QActionED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #2
+  %24 = getelementptr inbounds %class.TapParameterDialog, ptr %3, i32 0, i32 2
+  call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %24) #2
   call void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %3) #2
   ret void
 
-23:                                               ; preds = %9
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %11
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #24
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #24
   unreachable
 }
 

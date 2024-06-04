@@ -122,35 +122,36 @@ if.else11:                                        ; preds = %do.body4
   %events12 = getelementptr inbounds %struct.Event, ptr %10, i32 0, i32 4
   %tql_prev13 = getelementptr inbounds %struct.QTailQLink, ptr %events12, i32 0, i32 1
   %11 = load ptr, ptr %tql_prev13, align 8
-  store ptr %11, ptr getelementptr inbounds (%struct.QTailQLink, ptr @events_list, i32 0, i32 1), align 8
+  %12 = getelementptr inbounds %struct.QTailQLink, ptr @events_list, i32 0, i32 1
+  store ptr %11, ptr %12, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else11, %if.then6
-  %12 = load ptr, ptr %event, align 8
-  %events15 = getelementptr inbounds %struct.Event, ptr %12, i32 0, i32 4
-  %13 = load ptr, ptr %events15, align 8
-  %14 = load ptr, ptr %event, align 8
-  %events16 = getelementptr inbounds %struct.Event, ptr %14, i32 0, i32 4
+  %13 = load ptr, ptr %event, align 8
+  %events15 = getelementptr inbounds %struct.Event, ptr %13, i32 0, i32 4
+  %14 = load ptr, ptr %events15, align 8
+  %15 = load ptr, ptr %event, align 8
+  %events16 = getelementptr inbounds %struct.Event, ptr %15, i32 0, i32 4
   %tql_prev17 = getelementptr inbounds %struct.QTailQLink, ptr %events16, i32 0, i32 1
-  %15 = load ptr, ptr %tql_prev17, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %15, i32 0, i32 0
-  store ptr %13, ptr %tql_next, align 8
-  %16 = load ptr, ptr %event, align 8
-  %events18 = getelementptr inbounds %struct.Event, ptr %16, i32 0, i32 4
+  %16 = load ptr, ptr %tql_prev17, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %16, i32 0, i32 0
+  store ptr %14, ptr %tql_next, align 8
+  %17 = load ptr, ptr %event, align 8
+  %events18 = getelementptr inbounds %struct.Event, ptr %17, i32 0, i32 4
   %tql_prev19 = getelementptr inbounds %struct.QTailQLink, ptr %events18, i32 0, i32 1
   store ptr null, ptr %tql_prev19, align 8
-  %17 = load ptr, ptr %event, align 8
-  %events20 = getelementptr inbounds %struct.Event, ptr %17, i32 0, i32 4
+  %18 = load ptr, ptr %event, align 8
+  %events20 = getelementptr inbounds %struct.Event, ptr %18, i32 0, i32 4
   %tql_next21 = getelementptr inbounds %struct.QTailQLink, ptr %events20, i32 0, i32 0
   store ptr null, ptr %tql_next21, align 8
-  %18 = load ptr, ptr %event, align 8
-  %events22 = getelementptr inbounds %struct.Event, ptr %18, i32 0, i32 4
+  %19 = load ptr, ptr %event, align 8
+  %events22 = getelementptr inbounds %struct.Event, ptr %19, i32 0, i32 4
   store ptr null, ptr %events22, align 8
   br label %do.end23
 
 do.end23:                                         ; preds = %if.end14
-  %19 = load ptr, ptr %event, align 8
-  call void @g_free(ptr noundef %19)
+  %20 = load ptr, ptr %event, align 8
+  call void @g_free(ptr noundef %20)
   br label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond, %if.then
@@ -362,18 +363,21 @@ do.body18:                                        ; preds = %do.end
   %16 = load ptr, ptr %event, align 8
   %events = getelementptr inbounds %struct.Event, ptr %16, i32 0, i32 4
   store ptr null, ptr %events, align 8
-  %17 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @events_list, i32 0, i32 1), align 8
-  %18 = load ptr, ptr %event, align 8
-  %events19 = getelementptr inbounds %struct.Event, ptr %18, i32 0, i32 4
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %events19, i32 0, i32 1
-  store ptr %17, ptr %tql_prev, align 8
+  %17 = getelementptr inbounds %struct.QTailQLink, ptr @events_list, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %event, align 8
-  %20 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @events_list, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %20, i32 0, i32 0
-  store ptr %19, ptr %tql_next, align 8
-  %21 = load ptr, ptr %event, align 8
-  %events20 = getelementptr inbounds %struct.Event, ptr %21, i32 0, i32 4
-  store ptr %events20, ptr getelementptr inbounds (%struct.QTailQLink, ptr @events_list, i32 0, i32 1), align 8
+  %events19 = getelementptr inbounds %struct.Event, ptr %19, i32 0, i32 4
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %events19, i32 0, i32 1
+  store ptr %18, ptr %tql_prev, align 8
+  %20 = load ptr, ptr %event, align 8
+  %21 = getelementptr inbounds %struct.QTailQLink, ptr @events_list, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %22, i32 0, i32 0
+  store ptr %20, ptr %tql_next, align 8
+  %23 = load ptr, ptr %event, align 8
+  %events20 = getelementptr inbounds %struct.Event, ptr %23, i32 0, i32 4
+  %24 = getelementptr inbounds %struct.QTailQLink, ptr @events_list, i32 0, i32 1
+  store ptr %events20, ptr %24, align 8
   br label %do.end21
 
 do.end21:                                         ; preds = %do.body18
@@ -393,13 +397,13 @@ do.end23:                                         ; No predecessors!
   br label %while.cond
 
 while.end:                                        ; preds = %while.cond
-  %22 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  store i64 %22, ptr %_val0, align 8
+  %25 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  store i64 %25, ptr %_val0, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
-  %23 = load ptr, ptr %_val0, align 8
-  store ptr %23, ptr %tmp, align 8
-  %24 = load ptr, ptr %tmp, align 8
-  call void @qemu_cpu_kick(ptr noundef %24)
+  %26 = load ptr, ptr %_val0, align 8
+  store ptr %26, ptr %tmp, align 8
+  %27 = load ptr, ptr %tmp, align 8
+  call void @qemu_cpu_kick(ptr noundef %27)
   br label %return
 
 return:                                           ; preds = %while.end, %if.then4
@@ -587,35 +591,36 @@ if.else8:                                         ; preds = %do.body1
   %events9 = getelementptr inbounds %struct.Event, ptr %10, i32 0, i32 4
   %tql_prev10 = getelementptr inbounds %struct.QTailQLink, ptr %events9, i32 0, i32 1
   %11 = load ptr, ptr %tql_prev10, align 8
-  store ptr %11, ptr getelementptr inbounds (%struct.QTailQLink, ptr @events_list, i32 0, i32 1), align 8
+  %12 = getelementptr inbounds %struct.QTailQLink, ptr @events_list, i32 0, i32 1
+  store ptr %11, ptr %12, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else8, %if.then3
-  %12 = load ptr, ptr %event, align 8
-  %events12 = getelementptr inbounds %struct.Event, ptr %12, i32 0, i32 4
-  %13 = load ptr, ptr %events12, align 8
-  %14 = load ptr, ptr %event, align 8
-  %events13 = getelementptr inbounds %struct.Event, ptr %14, i32 0, i32 4
+  %13 = load ptr, ptr %event, align 8
+  %events12 = getelementptr inbounds %struct.Event, ptr %13, i32 0, i32 4
+  %14 = load ptr, ptr %events12, align 8
+  %15 = load ptr, ptr %event, align 8
+  %events13 = getelementptr inbounds %struct.Event, ptr %15, i32 0, i32 4
   %tql_prev14 = getelementptr inbounds %struct.QTailQLink, ptr %events13, i32 0, i32 1
-  %15 = load ptr, ptr %tql_prev14, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %15, i32 0, i32 0
-  store ptr %13, ptr %tql_next, align 8
-  %16 = load ptr, ptr %event, align 8
-  %events15 = getelementptr inbounds %struct.Event, ptr %16, i32 0, i32 4
+  %16 = load ptr, ptr %tql_prev14, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %16, i32 0, i32 0
+  store ptr %14, ptr %tql_next, align 8
+  %17 = load ptr, ptr %event, align 8
+  %events15 = getelementptr inbounds %struct.Event, ptr %17, i32 0, i32 4
   %tql_prev16 = getelementptr inbounds %struct.QTailQLink, ptr %events15, i32 0, i32 1
   store ptr null, ptr %tql_prev16, align 8
-  %17 = load ptr, ptr %event, align 8
-  %events17 = getelementptr inbounds %struct.Event, ptr %17, i32 0, i32 4
+  %18 = load ptr, ptr %event, align 8
+  %events17 = getelementptr inbounds %struct.Event, ptr %18, i32 0, i32 4
   %tql_next18 = getelementptr inbounds %struct.QTailQLink, ptr %events17, i32 0, i32 0
   store ptr null, ptr %tql_next18, align 8
-  %18 = load ptr, ptr %event, align 8
-  %events19 = getelementptr inbounds %struct.Event, ptr %18, i32 0, i32 4
+  %19 = load ptr, ptr %event, align 8
+  %events19 = getelementptr inbounds %struct.Event, ptr %19, i32 0, i32 4
   store ptr null, ptr %events19, align 8
   br label %do.end20
 
 do.end20:                                         ; preds = %if.end11
-  %19 = load ptr, ptr %event, align 8
-  call void @g_free(ptr noundef %19)
+  %20 = load ptr, ptr %event, align 8
+  call void @g_free(ptr noundef %20)
   br label %while.cond, !llvm.loop !8
 
 while.end:                                        ; preds = %while.cond
@@ -748,24 +753,26 @@ do.end:                                           ; preds = %if.end
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end4, %do.end
-  %0 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 3), align 4
-  %cmp = icmp uge i32 %0, 3
+  %0 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 3
+  %1 = load i32, ptr %0, align 4
+  %cmp = icmp uge i32 %1, 3
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %while.cond
-  %1 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 3), align 4
-  %cmp1 = icmp ule i32 %1, 9
+  %2 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 3
+  %3 = load i32, ptr %2, align 4
+  %cmp1 = icmp ule i32 %3, 9
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %while.cond
-  %2 = phi i1 [ false, %while.cond ], [ %cmp1, %land.rhs ]
-  br i1 %2, label %while.body, label %while.end
+  %4 = phi i1 [ false, %while.cond ], [ %cmp1, %land.rhs ]
+  br i1 %4, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.end
   %call2 = call ptr @replay_read_event()
   store ptr %call2, ptr %event, align 8
-  %3 = load ptr, ptr %event, align 8
-  %tobool = icmp ne ptr %3, null
+  %5 = load ptr, ptr %event, align 8
+  %tobool = icmp ne ptr %5, null
   br i1 %tobool, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %while.body
@@ -773,11 +780,12 @@ if.then3:                                         ; preds = %while.body
 
 if.end4:                                          ; preds = %while.body
   call void @replay_finish_event()
-  store i64 -1, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 8), align 8
-  %4 = load ptr, ptr %event, align 8
-  call void @replay_run_event(ptr noundef %4)
-  %5 = load ptr, ptr %event, align 8
-  call void @g_free(ptr noundef %5)
+  %6 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 8
+  store i64 -1, ptr %6, align 8
+  %7 = load ptr, ptr %event, align 8
+  call void @replay_run_event(ptr noundef %7)
+  %8 = load ptr, ptr %event, align 8
+  call void @g_free(ptr noundef %8)
   br label %while.cond, !llvm.loop !9
 
 while.end:                                        ; preds = %if.then3, %land.end
@@ -790,11 +798,12 @@ entry:
   %retval = alloca ptr, align 8
   %event = alloca ptr, align 8
   %event_kind = alloca i32, align 4
-  %0 = load i32, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 3), align 4
-  %sub = sub i32 %0, 3
+  %0 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 3
+  %1 = load i32, ptr %0, align 4
+  %sub = sub i32 %1, 3
   store i32 %sub, ptr %event_kind, align 4
-  %1 = load i32, ptr %event_kind, align 4
-  switch i32 %1, label %sw.default [
+  %2 = load i32, ptr %event_kind, align 4
+  switch i32 %2, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb
     i32 2, label %sw.bb1
@@ -805,13 +814,15 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry
-  %2 = load i64, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 8), align 8
-  %cmp = icmp eq i64 %2, -1
+  %3 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 8
+  %4 = load i64, ptr %3, align 8
+  %cmp = icmp eq i64 %4, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb
   %call = call i64 @replay_get_qword()
-  store i64 %call, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 8), align 8
+  %5 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 8
+  store i64 %call, ptr %5, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sw.bb
@@ -820,55 +831,57 @@ if.end:                                           ; preds = %if.then, %sw.bb
 sw.bb1:                                           ; preds = %entry
   %call2 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #7
   store ptr %call2, ptr %event, align 8
-  %3 = load i32, ptr %event_kind, align 4
-  %4 = load ptr, ptr %event, align 8
-  %event_kind3 = getelementptr inbounds %struct.Event, ptr %4, i32 0, i32 0
-  store i32 %3, ptr %event_kind3, align 8
+  %6 = load i32, ptr %event_kind, align 4
+  %7 = load ptr, ptr %event, align 8
+  %event_kind3 = getelementptr inbounds %struct.Event, ptr %7, i32 0, i32 0
+  store i32 %6, ptr %event_kind3, align 8
   %call4 = call ptr @replay_read_input_event()
-  %5 = load ptr, ptr %event, align 8
-  %opaque = getelementptr inbounds %struct.Event, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %event, align 8
+  %opaque = getelementptr inbounds %struct.Event, ptr %8, i32 0, i32 1
   store ptr %call4, ptr %opaque, align 8
-  %6 = load ptr, ptr %event, align 8
-  store ptr %6, ptr %retval, align 8
+  %9 = load ptr, ptr %event, align 8
+  store ptr %9, ptr %retval, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   %call6 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #7
   store ptr %call6, ptr %event, align 8
-  %7 = load i32, ptr %event_kind, align 4
-  %8 = load ptr, ptr %event, align 8
-  %event_kind7 = getelementptr inbounds %struct.Event, ptr %8, i32 0, i32 0
-  store i32 %7, ptr %event_kind7, align 8
-  %9 = load ptr, ptr %event, align 8
-  %opaque8 = getelementptr inbounds %struct.Event, ptr %9, i32 0, i32 1
+  %10 = load i32, ptr %event_kind, align 4
+  %11 = load ptr, ptr %event, align 8
+  %event_kind7 = getelementptr inbounds %struct.Event, ptr %11, i32 0, i32 0
+  store i32 %10, ptr %event_kind7, align 8
+  %12 = load ptr, ptr %event, align 8
+  %opaque8 = getelementptr inbounds %struct.Event, ptr %12, i32 0, i32 1
   store ptr null, ptr %opaque8, align 8
-  %10 = load ptr, ptr %event, align 8
-  store ptr %10, ptr %retval, align 8
+  %13 = load ptr, ptr %event, align 8
+  store ptr %13, ptr %retval, align 8
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   %call10 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #7
   store ptr %call10, ptr %event, align 8
-  %11 = load i32, ptr %event_kind, align 4
-  %12 = load ptr, ptr %event, align 8
-  %event_kind11 = getelementptr inbounds %struct.Event, ptr %12, i32 0, i32 0
-  store i32 %11, ptr %event_kind11, align 8
+  %14 = load i32, ptr %event_kind, align 4
+  %15 = load ptr, ptr %event, align 8
+  %event_kind11 = getelementptr inbounds %struct.Event, ptr %15, i32 0, i32 0
+  store i32 %14, ptr %event_kind11, align 8
   %call12 = call ptr @replay_event_char_read_load()
-  %13 = load ptr, ptr %event, align 8
-  %opaque13 = getelementptr inbounds %struct.Event, ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %event, align 8
+  %opaque13 = getelementptr inbounds %struct.Event, ptr %16, i32 0, i32 1
   store ptr %call12, ptr %opaque13, align 8
-  %14 = load ptr, ptr %event, align 8
-  store ptr %14, ptr %retval, align 8
+  %17 = load ptr, ptr %event, align 8
+  store ptr %17, ptr %retval, align 8
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %15 = load i64, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 8), align 8
-  %cmp15 = icmp eq i64 %15, -1
+  %18 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 8
+  %19 = load i64, ptr %18, align 8
+  %cmp15 = icmp eq i64 %19, -1
   br i1 %cmp15, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %sw.bb14
   %call17 = call i64 @replay_get_qword()
-  store i64 %call17, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 8), align 8
+  %20 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 8
+  store i64 %call17, ptr %20, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then16, %sw.bb14
@@ -877,53 +890,55 @@ if.end18:                                         ; preds = %if.then16, %sw.bb14
 sw.bb19:                                          ; preds = %entry
   %call20 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #7
   store ptr %call20, ptr %event, align 8
-  %16 = load i32, ptr %event_kind, align 4
-  %17 = load ptr, ptr %event, align 8
-  %event_kind21 = getelementptr inbounds %struct.Event, ptr %17, i32 0, i32 0
-  store i32 %16, ptr %event_kind21, align 8
+  %21 = load i32, ptr %event_kind, align 4
+  %22 = load ptr, ptr %event, align 8
+  %event_kind21 = getelementptr inbounds %struct.Event, ptr %22, i32 0, i32 0
+  store i32 %21, ptr %event_kind21, align 8
   %call22 = call ptr @replay_event_net_load()
-  %18 = load ptr, ptr %event, align 8
-  %opaque23 = getelementptr inbounds %struct.Event, ptr %18, i32 0, i32 1
+  %23 = load ptr, ptr %event, align 8
+  %opaque23 = getelementptr inbounds %struct.Event, ptr %23, i32 0, i32 1
   store ptr %call22, ptr %opaque23, align 8
-  %19 = load ptr, ptr %event, align 8
-  store ptr %19, ptr %retval, align 8
+  %24 = load ptr, ptr %event, align 8
+  store ptr %24, ptr %retval, align 8
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %20 = load i32, ptr %event_kind, align 4
-  call void (ptr, ...) @error_report(ptr noundef @.str.7, i32 noundef %20)
+  %25 = load i32, ptr %event_kind, align 4
+  call void (ptr, ...) @error_report(ptr noundef @.str.7, i32 noundef %25)
   call void @exit(i32 noundef 1) #6
   unreachable
 
 sw.epilog:                                        ; preds = %if.end18, %if.end
-  %21 = load ptr, ptr @events_list, align 8
-  store ptr %21, ptr %event, align 8
+  %26 = load ptr, ptr @events_list, align 8
+  store ptr %26, ptr %event, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %sw.epilog
-  %22 = load ptr, ptr %event, align 8
-  %tobool = icmp ne ptr %22, null
+  %27 = load ptr, ptr %event, align 8
+  %tobool = icmp ne ptr %27, null
   br i1 %tobool, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %23 = load ptr, ptr %event, align 8
-  %event_kind24 = getelementptr inbounds %struct.Event, ptr %23, i32 0, i32 0
-  %24 = load i32, ptr %event_kind24, align 8
-  %25 = load i32, ptr %event_kind, align 4
-  %cmp25 = icmp eq i32 %24, %25
+  %28 = load ptr, ptr %event, align 8
+  %event_kind24 = getelementptr inbounds %struct.Event, ptr %28, i32 0, i32 0
+  %29 = load i32, ptr %event_kind24, align 8
+  %30 = load i32, ptr %event_kind, align 4
+  %cmp25 = icmp eq i32 %29, %30
   br i1 %cmp25, label %land.lhs.true, label %if.end29
 
 land.lhs.true:                                    ; preds = %for.body
-  %26 = load i64, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 8), align 8
-  %cmp26 = icmp eq i64 %26, -1
+  %31 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 8
+  %32 = load i64, ptr %31, align 8
+  %cmp26 = icmp eq i64 %32, -1
   br i1 %cmp26, label %if.then28, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %27 = load i64, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 8), align 8
-  %28 = load ptr, ptr %event, align 8
-  %id = getelementptr inbounds %struct.Event, ptr %28, i32 0, i32 3
-  %29 = load i64, ptr %id, align 8
-  %cmp27 = icmp eq i64 %27, %29
+  %33 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 8
+  %34 = load i64, ptr %33, align 8
+  %35 = load ptr, ptr %event, align 8
+  %id = getelementptr inbounds %struct.Event, ptr %35, i32 0, i32 3
+  %36 = load i64, ptr %id, align 8
+  %cmp27 = icmp eq i64 %34, %36
   br i1 %cmp27, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %lor.lhs.false, %land.lhs.true
@@ -933,68 +948,69 @@ if.end29:                                         ; preds = %lor.lhs.false, %for
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end29
-  %30 = load ptr, ptr %event, align 8
-  %events = getelementptr inbounds %struct.Event, ptr %30, i32 0, i32 4
-  %31 = load ptr, ptr %events, align 8
-  store ptr %31, ptr %event, align 8
+  %37 = load ptr, ptr %event, align 8
+  %events = getelementptr inbounds %struct.Event, ptr %37, i32 0, i32 4
+  %38 = load ptr, ptr %events, align 8
+  store ptr %38, ptr %event, align 8
   br label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %if.then28, %for.cond
-  %32 = load ptr, ptr %event, align 8
-  %tobool30 = icmp ne ptr %32, null
+  %39 = load ptr, ptr %event, align 8
+  %tobool30 = icmp ne ptr %39, null
   br i1 %tobool30, label %if.then31, label %if.end50
 
 if.then31:                                        ; preds = %for.end
   br label %do.body
 
 do.body:                                          ; preds = %if.then31
-  %33 = load ptr, ptr %event, align 8
-  %events32 = getelementptr inbounds %struct.Event, ptr %33, i32 0, i32 4
-  %34 = load ptr, ptr %events32, align 8
-  %cmp33 = icmp ne ptr %34, null
+  %40 = load ptr, ptr %event, align 8
+  %events32 = getelementptr inbounds %struct.Event, ptr %40, i32 0, i32 4
+  %41 = load ptr, ptr %events32, align 8
+  %cmp33 = icmp ne ptr %41, null
   br i1 %cmp33, label %if.then34, label %if.else
 
 if.then34:                                        ; preds = %do.body
-  %35 = load ptr, ptr %event, align 8
-  %events35 = getelementptr inbounds %struct.Event, ptr %35, i32 0, i32 4
+  %42 = load ptr, ptr %event, align 8
+  %events35 = getelementptr inbounds %struct.Event, ptr %42, i32 0, i32 4
   %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %events35, i32 0, i32 1
-  %36 = load ptr, ptr %tql_prev, align 8
-  %37 = load ptr, ptr %event, align 8
-  %events36 = getelementptr inbounds %struct.Event, ptr %37, i32 0, i32 4
-  %38 = load ptr, ptr %events36, align 8
-  %events37 = getelementptr inbounds %struct.Event, ptr %38, i32 0, i32 4
+  %43 = load ptr, ptr %tql_prev, align 8
+  %44 = load ptr, ptr %event, align 8
+  %events36 = getelementptr inbounds %struct.Event, ptr %44, i32 0, i32 4
+  %45 = load ptr, ptr %events36, align 8
+  %events37 = getelementptr inbounds %struct.Event, ptr %45, i32 0, i32 4
   %tql_prev38 = getelementptr inbounds %struct.QTailQLink, ptr %events37, i32 0, i32 1
-  store ptr %36, ptr %tql_prev38, align 8
+  store ptr %43, ptr %tql_prev38, align 8
   br label %if.end41
 
 if.else:                                          ; preds = %do.body
-  %39 = load ptr, ptr %event, align 8
-  %events39 = getelementptr inbounds %struct.Event, ptr %39, i32 0, i32 4
+  %46 = load ptr, ptr %event, align 8
+  %events39 = getelementptr inbounds %struct.Event, ptr %46, i32 0, i32 4
   %tql_prev40 = getelementptr inbounds %struct.QTailQLink, ptr %events39, i32 0, i32 1
-  %40 = load ptr, ptr %tql_prev40, align 8
-  store ptr %40, ptr getelementptr inbounds (%struct.QTailQLink, ptr @events_list, i32 0, i32 1), align 8
+  %47 = load ptr, ptr %tql_prev40, align 8
+  %48 = getelementptr inbounds %struct.QTailQLink, ptr @events_list, i32 0, i32 1
+  store ptr %47, ptr %48, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %if.else, %if.then34
-  %41 = load ptr, ptr %event, align 8
-  %events42 = getelementptr inbounds %struct.Event, ptr %41, i32 0, i32 4
-  %42 = load ptr, ptr %events42, align 8
-  %43 = load ptr, ptr %event, align 8
-  %events43 = getelementptr inbounds %struct.Event, ptr %43, i32 0, i32 4
+  %49 = load ptr, ptr %event, align 8
+  %events42 = getelementptr inbounds %struct.Event, ptr %49, i32 0, i32 4
+  %50 = load ptr, ptr %events42, align 8
+  %51 = load ptr, ptr %event, align 8
+  %events43 = getelementptr inbounds %struct.Event, ptr %51, i32 0, i32 4
   %tql_prev44 = getelementptr inbounds %struct.QTailQLink, ptr %events43, i32 0, i32 1
-  %44 = load ptr, ptr %tql_prev44, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %44, i32 0, i32 0
-  store ptr %42, ptr %tql_next, align 8
-  %45 = load ptr, ptr %event, align 8
-  %events45 = getelementptr inbounds %struct.Event, ptr %45, i32 0, i32 4
+  %52 = load ptr, ptr %tql_prev44, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %52, i32 0, i32 0
+  store ptr %50, ptr %tql_next, align 8
+  %53 = load ptr, ptr %event, align 8
+  %events45 = getelementptr inbounds %struct.Event, ptr %53, i32 0, i32 4
   %tql_prev46 = getelementptr inbounds %struct.QTailQLink, ptr %events45, i32 0, i32 1
   store ptr null, ptr %tql_prev46, align 8
-  %46 = load ptr, ptr %event, align 8
-  %events47 = getelementptr inbounds %struct.Event, ptr %46, i32 0, i32 4
+  %54 = load ptr, ptr %event, align 8
+  %events47 = getelementptr inbounds %struct.Event, ptr %54, i32 0, i32 4
   %tql_next48 = getelementptr inbounds %struct.QTailQLink, ptr %events47, i32 0, i32 0
   store ptr null, ptr %tql_next48, align 8
-  %47 = load ptr, ptr %event, align 8
-  %events49 = getelementptr inbounds %struct.Event, ptr %47, i32 0, i32 4
+  %55 = load ptr, ptr %event, align 8
+  %events49 = getelementptr inbounds %struct.Event, ptr %55, i32 0, i32 4
   store ptr null, ptr %events49, align 8
   br label %do.end
 
@@ -1002,13 +1018,13 @@ do.end:                                           ; preds = %if.end41
   br label %if.end50
 
 if.end50:                                         ; preds = %do.end, %for.end
-  %48 = load ptr, ptr %event, align 8
-  store ptr %48, ptr %retval, align 8
+  %56 = load ptr, ptr %event, align 8
+  store ptr %56, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.end50, %sw.bb19, %sw.bb9, %sw.bb5, %sw.bb1
-  %49 = load ptr, ptr %retval, align 8
-  ret ptr %49
+  %57 = load ptr, ptr %retval, align 8
+  ret ptr %57
 }
 
 declare void @replay_finish_event() #1
@@ -1016,7 +1032,8 @@ declare void @replay_finish_event() #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_init_events() #0 {
 entry:
-  store i64 -1, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 8), align 8
+  %0 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 8
+  store i64 -1, ptr %0, align 8
   ret void
 }
 
@@ -1044,10 +1061,12 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 6), align 8
-  %inc = add i64 %0, 1
-  store i64 %inc, ptr getelementptr inbounds (%struct.ReplayState, ptr @replay_state, i32 0, i32 6), align 8
-  store i64 %0, ptr %retval, align 8
+  %0 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 6
+  %1 = load i64, ptr %0, align 8
+  %inc = add i64 %1, 1
+  %2 = getelementptr inbounds %struct.ReplayState, ptr @replay_state, i32 0, i32 6
+  store i64 %inc, ptr %2, align 8
+  store i64 %1, ptr %retval, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1055,8 +1074,8 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %1 = load i64, ptr %retval, align 8
-  ret i64 %1
+  %3 = load i64, ptr %retval, align 8
+  ret i64 %3
 }
 
 declare void @aio_bh_call(ptr noundef) #1

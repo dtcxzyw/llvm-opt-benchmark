@@ -3190,43 +3190,47 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 5), align 8
-  %1 = load ptr, ptr %n.addr, align 8
-  %next = getelementptr inbounds %struct.RAMBlockNotifier, ptr %1, i32 0, i32 3
+  %0 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %n.addr, align 8
+  %next = getelementptr inbounds %struct.RAMBlockNotifier, ptr %2, i32 0, i32 3
   %le_next = getelementptr inbounds %struct.anon.2, ptr %next, i32 0, i32 0
-  store ptr %0, ptr %le_next, align 8
-  %cmp = icmp ne ptr %0, null
+  store ptr %1, ptr %le_next, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %2 = load ptr, ptr %n.addr, align 8
-  %next1 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %2, i32 0, i32 3
+  %3 = load ptr, ptr %n.addr, align 8
+  %next1 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %3, i32 0, i32 3
   %le_next2 = getelementptr inbounds %struct.anon.2, ptr %next1, i32 0, i32 0
-  %3 = load ptr, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 5), align 8
-  %next3 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 5
+  %5 = load ptr, ptr %4, align 8
+  %next3 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %5, i32 0, i32 3
   %le_prev = getelementptr inbounds %struct.anon.2, ptr %next3, i32 0, i32 1
   store ptr %le_next2, ptr %le_prev, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %do.body
-  %4 = load ptr, ptr %n.addr, align 8
-  store ptr %4, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 5), align 8
-  %5 = load ptr, ptr %n.addr, align 8
-  %next4 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %5, i32 0, i32 3
+  %6 = load ptr, ptr %n.addr, align 8
+  %7 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 5
+  store ptr %6, ptr %7, align 8
+  %8 = load ptr, ptr %n.addr, align 8
+  %next4 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %8, i32 0, i32 3
   %le_prev5 = getelementptr inbounds %struct.anon.2, ptr %next4, i32 0, i32 1
-  store ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 5), ptr %le_prev5, align 8
+  %9 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 5
+  store ptr %9, ptr %le_prev5, align 8
   br label %do.end
 
 do.end:                                           ; preds = %if.end
-  %6 = load ptr, ptr %n.addr, align 8
-  %ram_block_added = getelementptr inbounds %struct.RAMBlockNotifier, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %ram_block_added, align 8
-  %tobool = icmp ne ptr %7, null
+  %10 = load ptr, ptr %n.addr, align 8
+  %ram_block_added = getelementptr inbounds %struct.RAMBlockNotifier, ptr %10, i32 0, i32 0
+  %11 = load ptr, ptr %ram_block_added, align 8
+  %tobool = icmp ne ptr %11, null
   br i1 %tobool, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %do.end
-  %8 = load ptr, ptr %n.addr, align 8
-  %call = call i32 @qemu_ram_foreach_block(ptr noundef @ram_block_notify_add_single, ptr noundef %8)
+  %12 = load ptr, ptr %n.addr, align 8
+  %call = call i32 @qemu_ram_foreach_block(ptr noundef @ram_block_notify_add_single, ptr noundef %12)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %do.end
@@ -3393,51 +3397,52 @@ entry:
   store ptr %host, ptr %host.addr, align 8
   store i64 %size, ptr %size.addr, align 8
   store i64 %max_size, ptr %max_size.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 5), align 8
-  store ptr %0, ptr %notifier, align 8
+  %0 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  store ptr %1, ptr %notifier, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr %notifier, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr %notifier, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %notifier, align 8
-  %next1 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %2, i32 0, i32 3
+  %3 = load ptr, ptr %notifier, align 8
+  %next1 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %3, i32 0, i32 3
   %le_next = getelementptr inbounds %struct.anon.2, ptr %next1, i32 0, i32 0
-  %3 = load ptr, ptr %le_next, align 8
-  store ptr %3, ptr %next, align 8
+  %4 = load ptr, ptr %le_next, align 8
+  store ptr %4, ptr %next, align 8
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond
-  %4 = phi i1 [ false, %for.cond ], [ true, %land.rhs ]
-  br i1 %4, label %for.body, label %for.end
+  %5 = phi i1 [ false, %for.cond ], [ true, %land.rhs ]
+  br i1 %5, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
-  %5 = load ptr, ptr %notifier, align 8
-  %ram_block_added = getelementptr inbounds %struct.RAMBlockNotifier, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %ram_block_added, align 8
-  %tobool2 = icmp ne ptr %6, null
+  %6 = load ptr, ptr %notifier, align 8
+  %ram_block_added = getelementptr inbounds %struct.RAMBlockNotifier, ptr %6, i32 0, i32 0
+  %7 = load ptr, ptr %ram_block_added, align 8
+  %tobool2 = icmp ne ptr %7, null
   br i1 %tobool2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %7 = load ptr, ptr %notifier, align 8
-  %ram_block_added3 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %ram_block_added3, align 8
-  %9 = load ptr, ptr %notifier, align 8
-  %10 = load ptr, ptr %host.addr, align 8
-  %11 = load i64, ptr %size.addr, align 8
-  %12 = load i64, ptr %max_size.addr, align 8
-  call void %8(ptr noundef %9, ptr noundef %10, i64 noundef %11, i64 noundef %12)
+  %8 = load ptr, ptr %notifier, align 8
+  %ram_block_added3 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %8, i32 0, i32 0
+  %9 = load ptr, ptr %ram_block_added3, align 8
+  %10 = load ptr, ptr %notifier, align 8
+  %11 = load ptr, ptr %host.addr, align 8
+  %12 = load i64, ptr %size.addr, align 8
+  %13 = load i64, ptr %max_size.addr, align 8
+  call void %9(ptr noundef %10, ptr noundef %11, i64 noundef %12, i64 noundef %13)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %13 = load ptr, ptr %next, align 8
-  store ptr %13, ptr %notifier, align 8
+  %14 = load ptr, ptr %next, align 8
+  store ptr %14, ptr %notifier, align 8
   br label %for.cond, !llvm.loop !21
 
 for.end:                                          ; preds = %land.end
@@ -3455,51 +3460,52 @@ entry:
   store ptr %host, ptr %host.addr, align 8
   store i64 %size, ptr %size.addr, align 8
   store i64 %max_size, ptr %max_size.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 5), align 8
-  store ptr %0, ptr %notifier, align 8
+  %0 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  store ptr %1, ptr %notifier, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr %notifier, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr %notifier, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %notifier, align 8
-  %next1 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %2, i32 0, i32 3
+  %3 = load ptr, ptr %notifier, align 8
+  %next1 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %3, i32 0, i32 3
   %le_next = getelementptr inbounds %struct.anon.2, ptr %next1, i32 0, i32 0
-  %3 = load ptr, ptr %le_next, align 8
-  store ptr %3, ptr %next, align 8
+  %4 = load ptr, ptr %le_next, align 8
+  store ptr %4, ptr %next, align 8
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond
-  %4 = phi i1 [ false, %for.cond ], [ true, %land.rhs ]
-  br i1 %4, label %for.body, label %for.end
+  %5 = phi i1 [ false, %for.cond ], [ true, %land.rhs ]
+  br i1 %5, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
-  %5 = load ptr, ptr %notifier, align 8
-  %ram_block_removed = getelementptr inbounds %struct.RAMBlockNotifier, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %ram_block_removed, align 8
-  %tobool2 = icmp ne ptr %6, null
+  %6 = load ptr, ptr %notifier, align 8
+  %ram_block_removed = getelementptr inbounds %struct.RAMBlockNotifier, ptr %6, i32 0, i32 1
+  %7 = load ptr, ptr %ram_block_removed, align 8
+  %tobool2 = icmp ne ptr %7, null
   br i1 %tobool2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %7 = load ptr, ptr %notifier, align 8
-  %ram_block_removed3 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %ram_block_removed3, align 8
-  %9 = load ptr, ptr %notifier, align 8
-  %10 = load ptr, ptr %host.addr, align 8
-  %11 = load i64, ptr %size.addr, align 8
-  %12 = load i64, ptr %max_size.addr, align 8
-  call void %8(ptr noundef %9, ptr noundef %10, i64 noundef %11, i64 noundef %12)
+  %8 = load ptr, ptr %notifier, align 8
+  %ram_block_removed3 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %8, i32 0, i32 1
+  %9 = load ptr, ptr %ram_block_removed3, align 8
+  %10 = load ptr, ptr %notifier, align 8
+  %11 = load ptr, ptr %host.addr, align 8
+  %12 = load i64, ptr %size.addr, align 8
+  %13 = load i64, ptr %max_size.addr, align 8
+  call void %9(ptr noundef %10, ptr noundef %11, i64 noundef %12, i64 noundef %13)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %13 = load ptr, ptr %next, align 8
-  store ptr %13, ptr %notifier, align 8
+  %14 = load ptr, ptr %next, align 8
+  store ptr %14, ptr %notifier, align 8
   br label %for.cond, !llvm.loop !22
 
 for.end:                                          ; preds = %land.end
@@ -3517,51 +3523,52 @@ entry:
   store ptr %host, ptr %host.addr, align 8
   store i64 %old_size, ptr %old_size.addr, align 8
   store i64 %new_size, ptr %new_size.addr, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i32 0, i32 5), align 8
-  store ptr %0, ptr %notifier, align 8
+  %0 = getelementptr inbounds %struct.RAMList, ptr @ram_list, i32 0, i32 5
+  %1 = load ptr, ptr %0, align 8
+  store ptr %1, ptr %notifier, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr %notifier, align 8
-  %tobool = icmp ne ptr %1, null
+  %2 = load ptr, ptr %notifier, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %notifier, align 8
-  %next1 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %2, i32 0, i32 3
+  %3 = load ptr, ptr %notifier, align 8
+  %next1 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %3, i32 0, i32 3
   %le_next = getelementptr inbounds %struct.anon.2, ptr %next1, i32 0, i32 0
-  %3 = load ptr, ptr %le_next, align 8
-  store ptr %3, ptr %next, align 8
+  %4 = load ptr, ptr %le_next, align 8
+  store ptr %4, ptr %next, align 8
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %for.cond
-  %4 = phi i1 [ false, %for.cond ], [ true, %land.rhs ]
-  br i1 %4, label %for.body, label %for.end
+  %5 = phi i1 [ false, %for.cond ], [ true, %land.rhs ]
+  br i1 %5, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.end
-  %5 = load ptr, ptr %notifier, align 8
-  %ram_block_resized = getelementptr inbounds %struct.RAMBlockNotifier, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %ram_block_resized, align 8
-  %tobool2 = icmp ne ptr %6, null
+  %6 = load ptr, ptr %notifier, align 8
+  %ram_block_resized = getelementptr inbounds %struct.RAMBlockNotifier, ptr %6, i32 0, i32 2
+  %7 = load ptr, ptr %ram_block_resized, align 8
+  %tobool2 = icmp ne ptr %7, null
   br i1 %tobool2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %7 = load ptr, ptr %notifier, align 8
-  %ram_block_resized3 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %ram_block_resized3, align 8
-  %9 = load ptr, ptr %notifier, align 8
-  %10 = load ptr, ptr %host.addr, align 8
-  %11 = load i64, ptr %old_size.addr, align 8
-  %12 = load i64, ptr %new_size.addr, align 8
-  call void %8(ptr noundef %9, ptr noundef %10, i64 noundef %11, i64 noundef %12)
+  %8 = load ptr, ptr %notifier, align 8
+  %ram_block_resized3 = getelementptr inbounds %struct.RAMBlockNotifier, ptr %8, i32 0, i32 2
+  %9 = load ptr, ptr %ram_block_resized3, align 8
+  %10 = load ptr, ptr %notifier, align 8
+  %11 = load ptr, ptr %host.addr, align 8
+  %12 = load i64, ptr %old_size.addr, align 8
+  %13 = load i64, ptr %new_size.addr, align 8
+  call void %9(ptr noundef %10, ptr noundef %11, i64 noundef %12, i64 noundef %13)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end
-  %13 = load ptr, ptr %next, align 8
-  store ptr %13, ptr %notifier, align 8
+  %14 = load ptr, ptr %next, align 8
+  store ptr %14, ptr %notifier, align 8
   br label %for.cond, !llvm.loop !23
 
 for.end:                                          ; preds = %land.end

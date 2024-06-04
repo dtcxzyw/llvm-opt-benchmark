@@ -1222,14 +1222,15 @@ entry:
   %3 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds %struct.repository, ptr %3, i32 0, i32 15
   %4 = load ptr, ptr %hash_algo, align 8
-  %cmp = icmp ne ptr %4, getelementptr inbounds ([3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1)
+  %5 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 1
+  %cmp = icmp ne ptr %4, %5
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %filter = getelementptr inbounds %struct.rev_info, ptr %revs, i32 0, i32 5
   %choice = getelementptr inbounds %struct.list_objects_filter_options, ptr %filter, i32 0, i32 1
-  %5 = load i32, ptr %choice, align 8
-  %tobool = icmp ne i32 %5, 0
+  %6 = load i32, ptr %choice, align 8
+  %tobool = icmp ne i32 %6, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -1237,28 +1238,28 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %6 = load i32, ptr %argc.addr, align 4
-  %cmp4 = icmp sgt i32 %6, 1
+  %7 = load i32, ptr %argc.addr, align 4
+  %cmp4 = icmp sgt i32 %7, 1
   br i1 %cmp4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end
   %call6 = call ptr @_(ptr noundef @.str.17)
-  %7 = load ptr, ptr %argv.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 1
-  %8 = load ptr, ptr %arrayidx, align 8
-  %call7 = call i32 (ptr, ...) @error(ptr noundef %call6, ptr noundef %8)
+  %8 = load ptr, ptr %argv.addr, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 1
+  %9 = load ptr, ptr %arrayidx, align 8
+  %call7 = call i32 (ptr, ...) @error(ptr noundef %call6, ptr noundef %9)
   %call8 = call i32 @const_error()
   br label %err
 
 if.end9:                                          ; preds = %if.end
-  %9 = load ptr, ptr %path.addr, align 8
-  %call10 = call i32 @strcmp(ptr noundef %9, ptr noundef @.str.2) #7
+  %10 = load ptr, ptr %path.addr, align 8
+  %call10 = call i32 @strcmp(ptr noundef %10, ptr noundef @.str.2) #7
   %tobool11 = icmp ne i32 %call10, 0
   %lnot = xor i1 %tobool11, true
   %lnot.ext = zext i1 %lnot to i32
   store i32 %lnot.ext, ptr %bundle_to_stdout, align 4
-  %10 = load i32, ptr %bundle_to_stdout, align 4
-  %tobool12 = icmp ne i32 %10, 0
+  %11 = load i32, ptr %bundle_to_stdout, align 4
+  %tobool12 = icmp ne i32 %11, 0
   br i1 %tobool12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end9
@@ -1266,92 +1267,92 @@ if.then13:                                        ; preds = %if.end9
   br label %if.end15
 
 if.else:                                          ; preds = %if.end9
-  %11 = load ptr, ptr %path.addr, align 8
-  %call14 = call i32 @hold_lock_file_for_update(ptr noundef %lock, ptr noundef %11, i32 noundef 1)
+  %12 = load ptr, ptr %path.addr, align 8
+  %call14 = call i32 @hold_lock_file_for_update(ptr noundef %lock, ptr noundef %12, i32 noundef 1)
   store i32 %call14, ptr %bundle_fd, align 4
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then13
-  %12 = load i32, ptr %version.addr, align 4
-  %cmp16 = icmp eq i32 %12, -1
+  %13 = load i32, ptr %version.addr, align 4
+  %cmp16 = icmp eq i32 %13, -1
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end15
-  %13 = load i32, ptr %min_version, align 4
-  store i32 %13, ptr %version.addr, align 4
+  %14 = load i32, ptr %min_version, align 4
+  store i32 %14, ptr %version.addr, align 4
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %if.end15
-  %14 = load i32, ptr %version.addr, align 4
-  %cmp19 = icmp slt i32 %14, 2
+  %15 = load i32, ptr %version.addr, align 4
+  %cmp19 = icmp slt i32 %15, 2
   br i1 %cmp19, label %if.then22, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %if.end18
-  %15 = load i32, ptr %version.addr, align 4
-  %cmp21 = icmp sgt i32 %15, 3
+  %16 = load i32, ptr %version.addr, align 4
+  %cmp21 = icmp sgt i32 %16, 3
   br i1 %cmp21, label %if.then22, label %if.else24
 
 if.then22:                                        ; preds = %lor.lhs.false20, %if.end18
   %call23 = call ptr @_(ptr noundef @.str.18)
-  %16 = load i32, ptr %version.addr, align 4
-  call void (ptr, ...) @die(ptr noundef %call23, i32 noundef %16) #9
+  %17 = load i32, ptr %version.addr, align 4
+  call void (ptr, ...) @die(ptr noundef %call23, i32 noundef %17) #9
   unreachable
 
 if.else24:                                        ; preds = %lor.lhs.false20
-  %17 = load i32, ptr %version.addr, align 4
-  %18 = load i32, ptr %min_version, align 4
-  %cmp25 = icmp slt i32 %17, %18
+  %18 = load i32, ptr %version.addr, align 4
+  %19 = load i32, ptr %min_version, align 4
+  %cmp25 = icmp slt i32 %18, %19
   br i1 %cmp25, label %if.then26, label %if.else29
 
 if.then26:                                        ; preds = %if.else24
   %call27 = call ptr @_(ptr noundef @.str.19)
-  %19 = load i32, ptr %version.addr, align 4
-  %20 = load ptr, ptr @the_repository, align 8
-  %hash_algo28 = getelementptr inbounds %struct.repository, ptr %20, i32 0, i32 15
-  %21 = load ptr, ptr %hash_algo28, align 8
-  %name = getelementptr inbounds %struct.git_hash_algo, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %name, align 8
-  call void (ptr, ...) @die(ptr noundef %call27, i32 noundef %19, ptr noundef %22) #9
+  %20 = load i32, ptr %version.addr, align 4
+  %21 = load ptr, ptr @the_repository, align 8
+  %hash_algo28 = getelementptr inbounds %struct.repository, ptr %21, i32 0, i32 15
+  %22 = load ptr, ptr %hash_algo28, align 8
+  %name = getelementptr inbounds %struct.git_hash_algo, ptr %22, i32 0, i32 0
+  %23 = load ptr, ptr %name, align 8
+  call void (ptr, ...) @die(ptr noundef %call27, i32 noundef %20, ptr noundef %23) #9
   unreachable
 
 if.else29:                                        ; preds = %if.else24
-  %23 = load i32, ptr %version.addr, align 4
-  %cmp30 = icmp eq i32 %23, 2
+  %24 = load i32, ptr %version.addr, align 4
+  %cmp30 = icmp eq i32 %24, 2
   br i1 %cmp30, label %if.then31, label %if.else32
 
 if.then31:                                        ; preds = %if.else29
-  %24 = load i32, ptr %bundle_fd, align 4
-  call void @write_or_die(i32 noundef %24, ptr noundef @v2_bundle_signature, i64 noundef 16)
+  %25 = load i32, ptr %bundle_fd, align 4
+  call void @write_or_die(i32 noundef %25, ptr noundef @v2_bundle_signature, i64 noundef 16)
   br label %if.end48
 
 if.else32:                                        ; preds = %if.else29
   store ptr @.str.20, ptr %capability, align 8
-  %25 = load i32, ptr %bundle_fd, align 4
-  call void @write_or_die(i32 noundef %25, ptr noundef @v3_bundle_signature, i64 noundef 16)
   %26 = load i32, ptr %bundle_fd, align 4
-  %27 = load ptr, ptr %capability, align 8
+  call void @write_or_die(i32 noundef %26, ptr noundef @v3_bundle_signature, i64 noundef 16)
+  %27 = load i32, ptr %bundle_fd, align 4
   %28 = load ptr, ptr %capability, align 8
-  %call33 = call i64 @strlen(ptr noundef %28) #7
-  call void @write_or_die(i32 noundef %26, ptr noundef %27, i64 noundef %call33)
-  %29 = load i32, ptr %bundle_fd, align 4
-  %30 = load ptr, ptr @the_repository, align 8
-  %hash_algo34 = getelementptr inbounds %struct.repository, ptr %30, i32 0, i32 15
-  %31 = load ptr, ptr %hash_algo34, align 8
-  %name35 = getelementptr inbounds %struct.git_hash_algo, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %name35, align 8
-  %33 = load ptr, ptr @the_repository, align 8
-  %hash_algo36 = getelementptr inbounds %struct.repository, ptr %33, i32 0, i32 15
-  %34 = load ptr, ptr %hash_algo36, align 8
-  %name37 = getelementptr inbounds %struct.git_hash_algo, ptr %34, i32 0, i32 0
-  %35 = load ptr, ptr %name37, align 8
-  %call38 = call i64 @strlen(ptr noundef %35) #7
-  call void @write_or_die(i32 noundef %29, ptr noundef %32, i64 noundef %call38)
-  %36 = load i32, ptr %bundle_fd, align 4
-  call void @write_or_die(i32 noundef %36, ptr noundef @.str.21, i64 noundef 1)
+  %29 = load ptr, ptr %capability, align 8
+  %call33 = call i64 @strlen(ptr noundef %29) #7
+  call void @write_or_die(i32 noundef %27, ptr noundef %28, i64 noundef %call33)
+  %30 = load i32, ptr %bundle_fd, align 4
+  %31 = load ptr, ptr @the_repository, align 8
+  %hash_algo34 = getelementptr inbounds %struct.repository, ptr %31, i32 0, i32 15
+  %32 = load ptr, ptr %hash_algo34, align 8
+  %name35 = getelementptr inbounds %struct.git_hash_algo, ptr %32, i32 0, i32 0
+  %33 = load ptr, ptr %name35, align 8
+  %34 = load ptr, ptr @the_repository, align 8
+  %hash_algo36 = getelementptr inbounds %struct.repository, ptr %34, i32 0, i32 15
+  %35 = load ptr, ptr %hash_algo36, align 8
+  %name37 = getelementptr inbounds %struct.git_hash_algo, ptr %35, i32 0, i32 0
+  %36 = load ptr, ptr %name37, align 8
+  %call38 = call i64 @strlen(ptr noundef %36) #7
+  call void @write_or_die(i32 noundef %30, ptr noundef %33, i64 noundef %call38)
+  %37 = load i32, ptr %bundle_fd, align 4
+  call void @write_or_die(i32 noundef %37, ptr noundef @.str.21, i64 noundef 1)
   %filter39 = getelementptr inbounds %struct.rev_info, ptr %revs, i32 0, i32 5
   %choice40 = getelementptr inbounds %struct.list_objects_filter_options, ptr %filter39, i32 0, i32 1
-  %37 = load i32, ptr %choice40, align 8
-  %tobool41 = icmp ne i32 %37, 0
+  %38 = load i32, ptr %choice40, align 8
+  %tobool41 = icmp ne i32 %38, 0
   br i1 %tobool41, label %if.then42, label %if.end47
 
 if.then42:                                        ; preds = %if.else32
@@ -1359,18 +1360,18 @@ if.then42:                                        ; preds = %if.else32
   %call44 = call ptr @expand_list_objects_filter_spec(ptr noundef %filter43)
   store ptr %call44, ptr %value, align 8
   store ptr @.str.22, ptr %capability, align 8
-  %38 = load i32, ptr %bundle_fd, align 4
-  %39 = load ptr, ptr %capability, align 8
+  %39 = load i32, ptr %bundle_fd, align 4
   %40 = load ptr, ptr %capability, align 8
-  %call45 = call i64 @strlen(ptr noundef %40) #7
-  call void @write_or_die(i32 noundef %38, ptr noundef %39, i64 noundef %call45)
-  %41 = load i32, ptr %bundle_fd, align 4
-  %42 = load ptr, ptr %value, align 8
+  %41 = load ptr, ptr %capability, align 8
+  %call45 = call i64 @strlen(ptr noundef %41) #7
+  call void @write_or_die(i32 noundef %39, ptr noundef %40, i64 noundef %call45)
+  %42 = load i32, ptr %bundle_fd, align 4
   %43 = load ptr, ptr %value, align 8
-  %call46 = call i64 @strlen(ptr noundef %43) #7
-  call void @write_or_die(i32 noundef %41, ptr noundef %42, i64 noundef %call46)
-  %44 = load i32, ptr %bundle_fd, align 4
-  call void @write_or_die(i32 noundef %44, ptr noundef @.str.21, i64 noundef 1)
+  %44 = load ptr, ptr %value, align 8
+  %call46 = call i64 @strlen(ptr noundef %44) #7
+  call void @write_or_die(i32 noundef %42, ptr noundef %43, i64 noundef %call46)
+  %45 = load i32, ptr %bundle_fd, align 4
+  call void @write_or_die(i32 noundef %45, ptr noundef @.str.21, i64 noundef 1)
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then42, %if.else32
@@ -1397,48 +1398,48 @@ if.end50:                                         ; preds = %if.end49
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end50
-  %45 = load i32, ptr %i, align 4
+  %46 = load i32, ptr %i, align 4
   %pending53 = getelementptr inbounds %struct.rev_info, ptr %revs, i32 0, i32 1
   %nr54 = getelementptr inbounds %struct.object_array, ptr %pending53, i32 0, i32 0
-  %46 = load i32, ptr %nr54, align 8
-  %cmp55 = icmp ult i32 %45, %46
+  %47 = load i32, ptr %nr54, align 8
+  %cmp55 = icmp ult i32 %46, %47
   br i1 %cmp55, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %pending56 = getelementptr inbounds %struct.rev_info, ptr %revs, i32 0, i32 1
   %objects57 = getelementptr inbounds %struct.object_array, ptr %pending56, i32 0, i32 2
-  %47 = load ptr, ptr %objects57, align 8
-  %48 = load i32, ptr %i, align 4
-  %idx.ext = sext i32 %48 to i64
-  %add.ptr = getelementptr inbounds %struct.object_array_entry, ptr %47, i64 %idx.ext
+  %48 = load ptr, ptr %objects57, align 8
+  %49 = load i32, ptr %i, align 4
+  %idx.ext = sext i32 %49 to i64
+  %add.ptr = getelementptr inbounds %struct.object_array_entry, ptr %48, i64 %idx.ext
   store ptr %add.ptr, ptr %e, align 8
-  %49 = load ptr, ptr %e, align 8
-  %tobool58 = icmp ne ptr %49, null
+  %50 = load ptr, ptr %e, align 8
+  %tobool58 = icmp ne ptr %50, null
   br i1 %tobool58, label %if.then59, label %if.end63
 
 if.then59:                                        ; preds = %for.body
-  %50 = load ptr, ptr %e, align 8
-  %item = getelementptr inbounds %struct.object_array_entry, ptr %50, i32 0, i32 0
-  %51 = load ptr, ptr %item, align 8
-  %52 = load ptr, ptr %e, align 8
-  %name60 = getelementptr inbounds %struct.object_array_entry, ptr %52, i32 0, i32 1
-  %53 = load ptr, ptr %name60, align 8
+  %51 = load ptr, ptr %e, align 8
+  %item = getelementptr inbounds %struct.object_array_entry, ptr %51, i32 0, i32 0
+  %52 = load ptr, ptr %item, align 8
+  %53 = load ptr, ptr %e, align 8
+  %name60 = getelementptr inbounds %struct.object_array_entry, ptr %53, i32 0, i32 1
+  %54 = load ptr, ptr %name60, align 8
   %pending61 = getelementptr inbounds %struct.rev_info, ptr %revs_copy, i32 0, i32 1
-  %54 = load ptr, ptr %e, align 8
-  %mode = getelementptr inbounds %struct.object_array_entry, ptr %54, i32 0, i32 3
-  %55 = load i32, ptr %mode, align 8
-  %56 = load ptr, ptr %e, align 8
-  %path62 = getelementptr inbounds %struct.object_array_entry, ptr %56, i32 0, i32 2
-  %57 = load ptr, ptr %path62, align 8
-  call void @add_object_array_with_path(ptr noundef %51, ptr noundef %53, ptr noundef %pending61, i32 noundef %55, ptr noundef %57)
+  %55 = load ptr, ptr %e, align 8
+  %mode = getelementptr inbounds %struct.object_array_entry, ptr %55, i32 0, i32 3
+  %56 = load i32, ptr %mode, align 8
+  %57 = load ptr, ptr %e, align 8
+  %path62 = getelementptr inbounds %struct.object_array_entry, ptr %57, i32 0, i32 2
+  %58 = load ptr, ptr %path62, align 8
+  call void @add_object_array_with_path(ptr noundef %52, ptr noundef %54, ptr noundef %pending61, i32 noundef %56, ptr noundef %58)
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then59, %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end63
-  %58 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %58, 1
+  %59 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %59, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !11
 
@@ -1457,9 +1458,9 @@ if.then69:                                        ; preds = %for.end
   unreachable
 
 if.end70:                                         ; preds = %for.end
-  %59 = load i32, ptr %bundle_fd, align 4
+  %60 = load i32, ptr %bundle_fd, align 4
   %fd = getelementptr inbounds %struct.bundle_prerequisites_info, ptr %bpi, i32 0, i32 1
-  store i32 %59, ptr %fd, align 8
+  store i32 %60, ptr %fd, align 8
   %pending71 = getelementptr inbounds %struct.rev_info, ptr %revs_copy, i32 0, i32 1
   %pending72 = getelementptr inbounds %struct.bundle_prerequisites_info, ptr %bpi, i32 0, i32 0
   store ptr %pending71, ptr %pending72, align 8
@@ -1476,11 +1477,11 @@ if.end70:                                         ; preds = %for.end
   call void @traverse_commit_list(ptr noundef %revs, ptr noundef @write_bundle_prerequisites, ptr noundef null, ptr noundef %bpi)
   %pending81 = getelementptr inbounds %struct.rev_info, ptr %revs_copy, i32 0, i32 1
   call void @object_array_remove_duplicates(ptr noundef %pending81)
-  %60 = load i32, ptr %bundle_fd, align 4
-  %call82 = call i32 @write_bundle_refs(i32 noundef %60, ptr noundef %revs_copy)
+  %61 = load i32, ptr %bundle_fd, align 4
+  %call82 = call i32 @write_bundle_refs(i32 noundef %61, ptr noundef %revs_copy)
   store i32 %call82, ptr %ref_count, align 4
-  %61 = load i32, ptr %ref_count, align 4
-  %tobool83 = icmp ne i32 %61, 0
+  %62 = load i32, ptr %ref_count, align 4
+  %tobool83 = icmp ne i32 %62, 0
   br i1 %tobool83, label %if.else86, label %if.then84
 
 if.then84:                                        ; preds = %if.end70
@@ -1489,8 +1490,8 @@ if.then84:                                        ; preds = %if.end70
   unreachable
 
 if.else86:                                        ; preds = %if.end70
-  %62 = load i32, ptr %ref_count, align 4
-  %cmp87 = icmp slt i32 %62, 0
+  %63 = load i32, ptr %ref_count, align 4
+  %cmp87 = icmp slt i32 %63, 0
   br i1 %cmp87, label %if.then88, label %if.end89
 
 if.then88:                                        ; preds = %if.else86
@@ -1500,9 +1501,9 @@ if.end89:                                         ; preds = %if.else86
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end89
-  %63 = load i32, ptr %bundle_fd, align 4
-  %64 = load ptr, ptr %pack_options.addr, align 8
-  %call91 = call i32 @write_pack_data(i32 noundef %63, ptr noundef %revs_copy, ptr noundef %64)
+  %64 = load i32, ptr %bundle_fd, align 4
+  %65 = load ptr, ptr %pack_options.addr, align 8
+  %call91 = call i32 @write_pack_data(i32 noundef %64, ptr noundef %revs_copy, ptr noundef %65)
   %tobool92 = icmp ne i32 %call91, 0
   br i1 %tobool92, label %if.then93, label %if.end94
 
@@ -1510,8 +1511,8 @@ if.then93:                                        ; preds = %if.end90
   br label %err
 
 if.end94:                                         ; preds = %if.end90
-  %65 = load i32, ptr %bundle_to_stdout, align 4
-  %tobool95 = icmp ne i32 %65, 0
+  %66 = load i32, ptr %bundle_to_stdout, align 4
+  %tobool95 = icmp ne i32 %66, 0
   br i1 %tobool95, label %if.end102, label %if.then96
 
 if.then96:                                        ; preds = %if.end94
@@ -1521,8 +1522,8 @@ if.then96:                                        ; preds = %if.end94
 
 if.then99:                                        ; preds = %if.then96
   %call100 = call ptr @_(ptr noundef @.str.25)
-  %66 = load ptr, ptr %path.addr, align 8
-  call void (ptr, ...) @die_errno(ptr noundef %call100, ptr noundef %66) #9
+  %67 = load ptr, ptr %path.addr, align 8
+  call void (ptr, ...) @die_errno(ptr noundef %call100, ptr noundef %67) #9
   unreachable
 
 if.end101:                                        ; preds = %if.then96
@@ -1538,8 +1539,8 @@ err:                                              ; preds = %if.then93, %if.then
   br label %return
 
 return:                                           ; preds = %err, %if.end102
-  %67 = load i32, ptr %retval, align 4
-  ret i32 %67
+  %68 = load i32, ptr %retval, align 4
+  ret i32 %68
 }
 
 declare void @repo_init_revisions(ptr noundef, ptr noundef, ptr noundef) #2

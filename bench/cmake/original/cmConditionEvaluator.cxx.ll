@@ -818,7 +818,8 @@ define internal void @__cxx_global_var_init.2() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_16keyANDE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_16keyANDE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_16keyANDE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -849,7 +850,8 @@ define internal void @__cxx_global_var_init.3() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_110keyCOMMANDE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_110keyCOMMANDE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_110keyCOMMANDE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -859,7 +861,8 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_110keyDEFINEDE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_110keyDEFINEDE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_110keyDEFINEDE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -869,7 +872,8 @@ define internal void @__cxx_global_var_init.7() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_18keyEQUALE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_18keyEQUALE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_18keyEQUALE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -879,7 +883,8 @@ define internal void @__cxx_global_var_init.9() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_19keyEXISTSE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_19keyEXISTSE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_19keyEXISTSE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -889,7 +894,8 @@ define internal void @__cxx_global_var_init.11() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_114keyIS_READABLEE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_114keyIS_READABLEE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_114keyIS_READABLEE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -899,7 +905,8 @@ define internal void @__cxx_global_var_init.13() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_114keyIS_WRITABLEE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_114keyIS_WRITABLEE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_114keyIS_WRITABLEE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -909,7 +916,8 @@ define internal void @__cxx_global_var_init.15() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_116keyIS_EXECUTABLEE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_116keyIS_EXECUTABLEE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_116keyIS_EXECUTABLEE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -919,7 +927,8 @@ define internal void @__cxx_global_var_init.17() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_110keyGREATERE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_110keyGREATERE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_110keyGREATERE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -929,7 +938,8 @@ define internal void @__cxx_global_var_init.19() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_116keyGREATER_EQUALE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_116keyGREATER_EQUALE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_116keyGREATER_EQUALE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -939,7 +949,8 @@ define internal void @__cxx_global_var_init.21() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_110keyIN_LISTE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_110keyIN_LISTE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_110keyIN_LISTE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -949,7 +960,8 @@ define internal void @__cxx_global_var_init.23() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_114keyIS_ABSOLUTEE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_114keyIS_ABSOLUTEE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_114keyIS_ABSOLUTEE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -959,7 +971,8 @@ define internal void @__cxx_global_var_init.25() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_115keyIS_DIRECTORYE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_115keyIS_DIRECTORYE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_115keyIS_DIRECTORYE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -969,7 +982,8 @@ define internal void @__cxx_global_var_init.27() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_116keyIS_NEWER_THANE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_116keyIS_NEWER_THANE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_116keyIS_NEWER_THANE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -979,7 +993,8 @@ define internal void @__cxx_global_var_init.29() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_113keyIS_SYMLINKE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_113keyIS_SYMLINKE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_113keyIS_SYMLINKE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -989,7 +1004,8 @@ define internal void @__cxx_global_var_init.31() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_17keyLESSE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_17keyLESSE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_17keyLESSE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -999,7 +1015,8 @@ define internal void @__cxx_global_var_init.33() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_113keyLESS_EQUALE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_113keyLESS_EQUALE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_113keyLESS_EQUALE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1009,7 +1026,8 @@ define internal void @__cxx_global_var_init.35() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_110keyMATCHESE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_110keyMATCHESE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_110keyMATCHESE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1019,7 +1037,8 @@ define internal void @__cxx_global_var_init.37() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_16keyNOTE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_16keyNOTE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_16keyNOTE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1029,7 +1048,8 @@ define internal void @__cxx_global_var_init.39() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_15keyORE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_15keyORE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_15keyORE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1039,7 +1059,8 @@ define internal void @__cxx_global_var_init.41() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_19keyParenLE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_19keyParenLE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_19keyParenLE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1049,7 +1070,8 @@ define internal void @__cxx_global_var_init.43() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_19keyParenRE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_19keyParenRE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_19keyParenRE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1059,7 +1081,8 @@ define internal void @__cxx_global_var_init.45() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_19keyPOLICYE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_19keyPOLICYE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_19keyPOLICYE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1069,7 +1092,8 @@ define internal void @__cxx_global_var_init.47() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_111keySTREQUALE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_111keySTREQUALE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_111keySTREQUALE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1079,7 +1103,8 @@ define internal void @__cxx_global_var_init.49() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_113keySTRGREATERE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_113keySTRGREATERE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_113keySTRGREATERE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1089,7 +1114,8 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_119keySTRGREATER_EQUALE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_119keySTRGREATER_EQUALE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_119keySTRGREATER_EQUALE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1099,7 +1125,8 @@ define internal void @__cxx_global_var_init.53() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_110keySTRLESSE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_110keySTRLESSE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_110keySTRLESSE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1109,7 +1136,8 @@ define internal void @__cxx_global_var_init.55() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_116keySTRLESS_EQUALE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_116keySTRLESS_EQUALE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_116keySTRLESS_EQUALE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1119,7 +1147,8 @@ define internal void @__cxx_global_var_init.57() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_19keyTARGETE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_19keyTARGETE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_19keyTARGETE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1129,7 +1158,8 @@ define internal void @__cxx_global_var_init.59() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_17keyTESTE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_17keyTESTE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_17keyTESTE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1139,7 +1169,8 @@ define internal void @__cxx_global_var_init.61() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_116keyVERSION_EQUALE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_116keyVERSION_EQUALE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_116keyVERSION_EQUALE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1149,7 +1180,8 @@ define internal void @__cxx_global_var_init.63() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_118keyVERSION_GREATERE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_118keyVERSION_GREATERE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_118keyVERSION_GREATERE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1159,7 +1191,8 @@ define internal void @__cxx_global_var_init.65() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_124keyVERSION_GREATER_EQUALE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_124keyVERSION_GREATER_EQUALE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_124keyVERSION_GREATER_EQUALE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1169,7 +1202,8 @@ define internal void @__cxx_global_var_init.67() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_115keyVERSION_LESSE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_115keyVERSION_LESSE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_115keyVERSION_LESSE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1179,7 +1213,8 @@ define internal void @__cxx_global_var_init.69() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_121keyVERSION_LESS_EQUALE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_121keyVERSION_LESS_EQUALE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_121keyVERSION_LESS_EQUALE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1189,7 +1224,8 @@ define internal void @__cxx_global_var_init.71() #0 section ".text.startup" {
   %2 = extractvalue { i64, ptr } %1, 0
   store i64 %2, ptr @_ZN12_GLOBAL__N_113keyPATH_EQUALE, align 8
   %3 = extractvalue { i64, ptr } %1, 1
-  store ptr %3, ptr getelementptr inbounds ({ i64, ptr }, ptr @_ZN12_GLOBAL__N_113keyPATH_EQUALE, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { i64, ptr }, ptr @_ZN12_GLOBAL__N_113keyPATH_EQUALE, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
   ret void
 }
 
@@ -1323,7 +1359,7 @@ define dso_local noundef zeroext i1 @_ZN20cmConditionEvaluator6IsTrueERKSt6vecto
 
 28:                                               ; preds = %4
   store i1 false, ptr %5, align 1
-  br label %125
+  br label %130
 
 29:                                               ; preds = %4
   %30 = load ptr, ptr %7, align 8
@@ -1340,7 +1376,7 @@ define dso_local noundef zeroext i1 @_ZN20cmConditionEvaluator6IsTrueERKSt6vecto
   %38 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %12, i32 0, i32 0
   %39 = load ptr, ptr %38, align 8
   invoke void @_ZN20cmConditionEvaluator14cmArgumentListCI2NSt7__cxx114listI25cmExpandedCommandArgumentSaIS3_EEEIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_S4_EEEvEET_SC_RKS4_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %37, ptr %39, ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %40 unwind label %76
+          to label %40 unwind label %81
 
 40:                                               ; preds = %29
   call void @_ZNSaI25cmExpandedCommandArgumentED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
@@ -1348,175 +1384,180 @@ define dso_local noundef zeroext i1 @_ZN20cmConditionEvaluator6IsTrueERKSt6vecto
   %41 = getelementptr inbounds %"struct.std::array", ptr %16, i32 0, i32 0
   %42 = getelementptr inbounds [5 x { i64, i64 }], ptr %41, i32 0, i32 0
   %43 = getelementptr inbounds { i64, i64 }, ptr %42, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN20cmConditionEvaluator12HandleLevel0ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageType to i64), ptr %43, align 8
-  %44 = getelementptr inbounds [5 x { i64, i64 }], ptr %41, i32 0, i32 1
-  %45 = getelementptr inbounds { i64, i64 }, ptr %44, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageType to i64), ptr %45, align 8
-  %46 = getelementptr inbounds [5 x { i64, i64 }], ptr %41, i32 0, i32 2
-  %47 = getelementptr inbounds { i64, i64 }, ptr %46, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageType to i64), ptr %47, align 8
-  %48 = getelementptr inbounds [5 x { i64, i64 }], ptr %41, i32 0, i32 3
+  %44 = ptrtoint ptr @_ZN20cmConditionEvaluator12HandleLevel0ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageType to i64
+  store i64 %44, ptr %43, align 8
+  %45 = getelementptr inbounds [5 x { i64, i64 }], ptr %41, i32 0, i32 1
+  %46 = getelementptr inbounds { i64, i64 }, ptr %45, i32 0, i32 0
+  %47 = ptrtoint ptr @_ZN20cmConditionEvaluator12HandleLevel1ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageType to i64
+  store i64 %47, ptr %46, align 8
+  %48 = getelementptr inbounds [5 x { i64, i64 }], ptr %41, i32 0, i32 2
   %49 = getelementptr inbounds { i64, i64 }, ptr %48, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN20cmConditionEvaluator12HandleLevel3ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageType to i64), ptr %49, align 8
-  %50 = getelementptr inbounds [5 x { i64, i64 }], ptr %41, i32 0, i32 4
-  %51 = getelementptr inbounds { i64, i64 }, ptr %50, i32 0, i32 0
-  store i64 ptrtoint (ptr @_ZN20cmConditionEvaluator12HandleLevel4ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageType to i64), ptr %51, align 8
+  %50 = ptrtoint ptr @_ZN20cmConditionEvaluator12HandleLevel2ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageType to i64
+  store i64 %50, ptr %49, align 8
+  %51 = getelementptr inbounds [5 x { i64, i64 }], ptr %41, i32 0, i32 3
+  %52 = getelementptr inbounds { i64, i64 }, ptr %51, i32 0, i32 0
+  %53 = ptrtoint ptr @_ZN20cmConditionEvaluator12HandleLevel3ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageType to i64
+  store i64 %53, ptr %52, align 8
+  %54 = getelementptr inbounds [5 x { i64, i64 }], ptr %41, i32 0, i32 4
+  %55 = getelementptr inbounds { i64, i64 }, ptr %54, i32 0, i32 0
+  %56 = ptrtoint ptr @_ZN20cmConditionEvaluator12HandleLevel4ERNS_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageType to i64
+  store i64 %56, ptr %55, align 8
   store ptr %16, ptr %17, align 8
-  %52 = load ptr, ptr %17, align 8
-  %53 = call noundef ptr @_ZNKSt5arrayIM20cmConditionEvaluatorFbRNS0_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeELm5EE5beginEv(ptr noundef nonnull align 8 dereferenceable(80) %52) #3
-  store ptr %53, ptr %18, align 8
-  %54 = load ptr, ptr %17, align 8
-  %55 = call noundef ptr @_ZNKSt5arrayIM20cmConditionEvaluatorFbRNS0_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeELm5EE3endEv(ptr noundef nonnull align 8 dereferenceable(80) %54) #3
-  store ptr %55, ptr %19, align 8
-  br label %56
+  %57 = load ptr, ptr %17, align 8
+  %58 = call noundef ptr @_ZNKSt5arrayIM20cmConditionEvaluatorFbRNS0_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeELm5EE5beginEv(ptr noundef nonnull align 8 dereferenceable(80) %57) #3
+  store ptr %58, ptr %18, align 8
+  %59 = load ptr, ptr %17, align 8
+  %60 = call noundef ptr @_ZNKSt5arrayIM20cmConditionEvaluatorFbRNS0_14cmArgumentListERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeELm5EE3endEv(ptr noundef nonnull align 8 dereferenceable(80) %59) #3
+  store ptr %60, ptr %19, align 8
+  br label %61
 
-56:                                               ; preds = %107, %40
-  %57 = load ptr, ptr %18, align 8
-  %58 = load ptr, ptr %19, align 8
-  %59 = icmp ne ptr %57, %58
-  br i1 %59, label %60, label %110
+61:                                               ; preds = %112, %40
+  %62 = load ptr, ptr %18, align 8
+  %63 = load ptr, ptr %19, align 8
+  %64 = icmp ne ptr %62, %63
+  br i1 %64, label %65, label %115
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %18, align 8
-  %62 = load { i64, i64 }, ptr %61, align 8
-  store { i64, i64 } %62, ptr %20, align 8
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %18, align 8
+  %67 = load { i64, i64 }, ptr %66, align 8
+  store { i64, i64 } %67, ptr %20, align 8
   store i8 1, ptr %21, align 1
-  %63 = call noundef i64 @_ZNKSt7__cxx114listI25cmExpandedCommandArgumentSaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  store i64 %63, ptr %22, align 8
-  br label %64
+  %68 = call noundef i64 @_ZNKSt7__cxx114listI25cmExpandedCommandArgumentSaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  store i64 %68, ptr %22, align 8
+  br label %69
 
-64:                                               ; preds = %96, %60
-  %65 = load { i64, i64 }, ptr %20, align 8
-  %66 = extractvalue { i64, i64 } %65, 1
-  %67 = getelementptr inbounds i8, ptr %24, i64 %66
-  %68 = extractvalue { i64, i64 } %65, 0
-  %69 = and i64 %68, 1
-  %70 = icmp ne i64 %69, 0
-  br i1 %70, label %71, label %80
+69:                                               ; preds = %101, %65
+  %70 = load { i64, i64 }, ptr %20, align 8
+  %71 = extractvalue { i64, i64 } %70, 1
+  %72 = getelementptr inbounds i8, ptr %24, i64 %71
+  %73 = extractvalue { i64, i64 } %70, 0
+  %74 = and i64 %73, 1
+  %75 = icmp ne i64 %74, 0
+  br i1 %75, label %76, label %85
 
-71:                                               ; preds = %64
-  %72 = load ptr, ptr %67, align 8
-  %73 = sub i64 %68, 1
-  %74 = getelementptr i8, ptr %72, i64 %73, !nosanitize !5
-  %75 = load ptr, ptr %74, align 8, !nosanitize !5
-  br label %82
+76:                                               ; preds = %69
+  %77 = load ptr, ptr %72, align 8
+  %78 = sub i64 %73, 1
+  %79 = getelementptr i8, ptr %77, i64 %78, !nosanitize !5
+  %80 = load ptr, ptr %79, align 8, !nosanitize !5
+  br label %87
 
-76:                                               ; preds = %29
-  %77 = landingpad { ptr, i32 }
+81:                                               ; preds = %29
+  %82 = landingpad { ptr, i32 }
           cleanup
-  %78 = extractvalue { ptr, i32 } %77, 0
-  store ptr %78, ptr %14, align 8
-  %79 = extractvalue { ptr, i32 } %77, 1
-  store i32 %79, ptr %15, align 4
+  %83 = extractvalue { ptr, i32 } %82, 0
+  store ptr %83, ptr %14, align 8
+  %84 = extractvalue { ptr, i32 } %82, 1
+  store i32 %84, ptr %15, align 4
   call void @_ZNSaI25cmExpandedCommandArgumentED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
-  br label %127
+  br label %132
 
-80:                                               ; preds = %64
-  %81 = inttoptr i64 %68 to ptr
-  br label %82
+85:                                               ; preds = %69
+  %86 = inttoptr i64 %73 to ptr
+  br label %87
 
-82:                                               ; preds = %80, %71
-  %83 = phi ptr [ %75, %71 ], [ %81, %80 ]
-  %84 = load ptr, ptr %8, align 8
-  %85 = load ptr, ptr %9, align 8
-  %86 = invoke noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(44) %67, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 4 dereferenceable(4) %85)
-          to label %87 unwind label %98
+87:                                               ; preds = %85, %76
+  %88 = phi ptr [ %80, %76 ], [ %86, %85 ]
+  %89 = load ptr, ptr %8, align 8
+  %90 = load ptr, ptr %9, align 8
+  %91 = invoke noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(44) %72, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 4 dereferenceable(4) %90)
+          to label %92 unwind label %103
 
-87:                                               ; preds = %82
-  %88 = zext i1 %86 to i8
-  store i8 %88, ptr %21, align 1
-  br i1 %86, label %89, label %93
+92:                                               ; preds = %87
+  %93 = zext i1 %91 to i8
+  store i8 %93, ptr %21, align 1
+  br i1 %91, label %94, label %98
 
-89:                                               ; preds = %87
-  %90 = call noundef i64 @_ZNKSt7__cxx114listI25cmExpandedCommandArgumentSaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %91 = load i64, ptr %22, align 8
-  %92 = icmp ult i64 %90, %91
-  br label %93
+94:                                               ; preds = %92
+  %95 = call noundef i64 @_ZNKSt7__cxx114listI25cmExpandedCommandArgumentSaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %96 = load i64, ptr %22, align 8
+  %97 = icmp ult i64 %95, %96
+  br label %98
 
-93:                                               ; preds = %89, %87
-  %94 = phi i1 [ false, %87 ], [ %92, %89 ]
-  br i1 %94, label %95, label %102
+98:                                               ; preds = %94, %92
+  %99 = phi i1 [ false, %92 ], [ %97, %94 ]
+  br i1 %99, label %100, label %107
 
-95:                                               ; preds = %93
-  br label %96
+100:                                              ; preds = %98
+  br label %101
 
-96:                                               ; preds = %95
-  %97 = call noundef i64 @_ZNKSt7__cxx114listI25cmExpandedCommandArgumentSaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  store i64 %97, ptr %22, align 8
-  br label %64, !llvm.loop !6
+101:                                              ; preds = %100
+  %102 = call noundef i64 @_ZNKSt7__cxx114listI25cmExpandedCommandArgumentSaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  store i64 %102, ptr %22, align 8
+  br label %69, !llvm.loop !6
 
-98:                                               ; preds = %118, %113, %82
-  %99 = landingpad { ptr, i32 }
+103:                                              ; preds = %123, %118, %87
+  %104 = landingpad { ptr, i32 }
           cleanup
-  %100 = extractvalue { ptr, i32 } %99, 0
-  store ptr %100, ptr %14, align 8
-  %101 = extractvalue { ptr, i32 } %99, 1
-  store i32 %101, ptr %15, align 4
+  %105 = extractvalue { ptr, i32 } %104, 0
+  store ptr %105, ptr %14, align 8
+  %106 = extractvalue { ptr, i32 } %104, 1
+  store i32 %106, ptr %15, align 4
   call void @_ZN20cmConditionEvaluator14cmArgumentListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  br label %127
+  br label %132
 
-102:                                              ; preds = %93
-  %103 = load i8, ptr %21, align 1
-  %104 = trunc i8 %103 to i1
-  br i1 %104, label %106, label %105
+107:                                              ; preds = %98
+  %108 = load i8, ptr %21, align 1
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %111, label %110
 
-105:                                              ; preds = %102
+110:                                              ; preds = %107
   store i1 false, ptr %5, align 1
   store i32 1, ptr %23, align 4
-  br label %124
+  br label %129
 
-106:                                              ; preds = %102
-  br label %107
+111:                                              ; preds = %107
+  br label %112
 
-107:                                              ; preds = %106
-  %108 = load ptr, ptr %18, align 8
-  %109 = getelementptr inbounds { i64, i64 }, ptr %108, i32 1
-  store ptr %109, ptr %18, align 8
-  br label %56
+112:                                              ; preds = %111
+  %113 = load ptr, ptr %18, align 8
+  %114 = getelementptr inbounds { i64, i64 }, ptr %113, i32 1
+  store ptr %114, ptr %18, align 8
+  br label %61
 
-110:                                              ; preds = %56
-  %111 = call noundef i64 @_ZNKSt7__cxx114listI25cmExpandedCommandArgumentSaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %112 = icmp ne i64 %111, 1
-  br i1 %112, label %113, label %118
+115:                                              ; preds = %61
+  %116 = call noundef i64 @_ZNKSt7__cxx114listI25cmExpandedCommandArgumentSaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %117 = icmp ne i64 %116, 1
+  br i1 %117, label %118, label %123
 
-113:                                              ; preds = %110
-  %114 = load ptr, ptr %8, align 8
-  %115 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef @.str.73)
-          to label %116 unwind label %98
+118:                                              ; preds = %115
+  %119 = load ptr, ptr %8, align 8
+  %120 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef @.str.73)
+          to label %121 unwind label %103
 
-116:                                              ; preds = %113
-  %117 = load ptr, ptr %9, align 8
-  store i32 2, ptr %117, align 4
+121:                                              ; preds = %118
+  %122 = load ptr, ptr %9, align 8
+  store i32 2, ptr %122, align 4
   store i1 false, ptr %5, align 1
   store i32 1, ptr %23, align 4
-  br label %124
+  br label %129
 
-118:                                              ; preds = %110
-  %119 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZNSt7__cxx114listI25cmExpandedCommandArgumentSaIS1_EE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %120 = load ptr, ptr %8, align 8
-  %121 = load ptr, ptr %9, align 8
-  %122 = invoke noundef zeroext i1 @_ZNK20cmConditionEvaluator34GetBooleanValueWithAutoDereferenceER25cmExpandedCommandArgumentRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeb(ptr noundef nonnull align 8 dereferenceable(44) %24, ptr noundef nonnull align 8 dereferenceable(33) %119, ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull align 4 dereferenceable(4) %121, i1 noundef zeroext true)
-          to label %123 unwind label %98
+123:                                              ; preds = %115
+  %124 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZNSt7__cxx114listI25cmExpandedCommandArgumentSaIS1_EE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %125 = load ptr, ptr %8, align 8
+  %126 = load ptr, ptr %9, align 8
+  %127 = invoke noundef zeroext i1 @_ZNK20cmConditionEvaluator34GetBooleanValueWithAutoDereferenceER25cmExpandedCommandArgumentRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER11MessageTypeb(ptr noundef nonnull align 8 dereferenceable(44) %24, ptr noundef nonnull align 8 dereferenceable(33) %124, ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 4 dereferenceable(4) %126, i1 noundef zeroext true)
+          to label %128 unwind label %103
 
-123:                                              ; preds = %118
-  store i1 %122, ptr %5, align 1
+128:                                              ; preds = %123
+  store i1 %127, ptr %5, align 1
   store i32 1, ptr %23, align 4
-  br label %124
+  br label %129
 
-124:                                              ; preds = %123, %116, %105
+129:                                              ; preds = %128, %121, %110
   call void @_ZN20cmConditionEvaluator14cmArgumentListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  br label %125
+  br label %130
 
-125:                                              ; preds = %124, %28
-  %126 = load i1, ptr %5, align 1
-  ret i1 %126
+130:                                              ; preds = %129, %28
+  %131 = load i1, ptr %5, align 1
+  ret i1 %131
 
-127:                                              ; preds = %98, %76
-  %128 = load ptr, ptr %14, align 8
-  %129 = load i32, ptr %15, align 4
-  %130 = insertvalue { ptr, i32 } poison, ptr %128, 0
-  %131 = insertvalue { ptr, i32 } %130, i32 %129, 1
-  resume { ptr, i32 } %131
+132:                                              ; preds = %103, %81
+  %133 = load ptr, ptr %14, align 8
+  %134 = load i32, ptr %15, align 4
+  %135 = insertvalue { ptr, i32 } poison, ptr %133, 0
+  %136 = insertvalue { ptr, i32 } %135, i32 %134, 1
+  resume { ptr, i32 } %136
 }
 
 ; Function Attrs: nounwind

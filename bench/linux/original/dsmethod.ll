@@ -420,24 +420,24 @@ define dso_local i32 @acpi_ds_call_control_method(ptr noundef %0, ptr noundef %1
   %5 = getelementptr inbounds i8, ptr %1, i64 992
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %75, label %8
+  br i1 %7, label %76, label %8
 
 8:                                                ; preds = %3
   %9 = tail call ptr @acpi_ns_get_attached_object(ptr noundef nonnull %6) #5
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %75, label %11
+  br i1 %10, label %76, label %11
 
 11:                                               ; preds = %8
   %12 = tail call i32 @acpi_ds_begin_method_execution(ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef %1)
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %75
+  br i1 %13, label %14, label %76
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %9, i64 52
   %16 = load i16, ptr %15, align 4
   %17 = tail call ptr @acpi_ds_create_walk_state(i16 noundef zeroext %16, ptr noundef null, ptr noundef nonnull %9, ptr noundef %0) #5
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %73, label %19
+  br i1 %18, label %74, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %1, i64 872
@@ -454,81 +454,82 @@ define dso_local i32 @acpi_ds_call_control_method(ptr noundef %0, ptr noundef %1
   %26 = and i64 %25, 512
   %27 = icmp eq i64 %26, 0
   %28 = select i1 %27, i32 2336, i32 3520
-  %29 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %30 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %29, i32 noundef %28, i64 noundef 88) #7
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %70, label %32
+  %29 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %30 = load ptr, ptr %29, align 8
+  %31 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %30, i32 noundef %28, i64 noundef 88) #7
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %71, label %33
 
-32:                                               ; preds = %19
-  %33 = getelementptr inbounds i8, ptr %30, i64 16
-  store ptr %20, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %9, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 48
-  %37 = load i32, ptr %36, align 8
-  %38 = call i32 @acpi_ds_init_aml_walk(ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull %6, ptr noundef %35, i32 noundef %37, ptr noundef nonnull %30, i8 noundef zeroext 3) #5
-  call void @kfree(ptr noundef nonnull %30) #5
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %70
+33:                                               ; preds = %19
+  %34 = getelementptr inbounds i8, ptr %31, i64 16
+  store ptr %20, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %9, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %9, i64 48
+  %38 = load i32, ptr %37, align 8
+  %39 = call i32 @acpi_ds_init_aml_walk(ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull %6, ptr noundef %36, i32 noundef %38, ptr noundef nonnull %31, i8 noundef zeroext 3) #5
+  call void @kfree(ptr noundef nonnull %31) #5
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %71
 
-40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %1, i64 144
-  %42 = load i16, ptr %41, align 8
-  %43 = add i16 %42, 1
-  %44 = getelementptr inbounds i8, ptr %17, i64 144
-  store i16 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %9, i64 14
-  %46 = load i8, ptr %45, align 2
-  %47 = icmp eq i8 %46, 0
-  br i1 %47, label %56, label %48
+41:                                               ; preds = %33
+  %42 = getelementptr inbounds i8, ptr %1, i64 144
+  %43 = load i16, ptr %42, align 8
+  %44 = add i16 %43, 1
+  %45 = getelementptr inbounds i8, ptr %17, i64 144
+  store i16 %44, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %9, i64 14
+  %47 = load i8, ptr %46, align 2
+  %48 = icmp eq i8 %47, 0
+  br i1 %48, label %57, label %49
 
-48:                                               ; preds = %48, %40
-  %49 = phi i64 [ %52, %48 ], [ 0, %40 ]
-  %50 = getelementptr [9 x ptr], ptr %20, i64 0, i64 %49
-  %51 = load ptr, ptr %50, align 8
-  call void @acpi_ut_remove_reference(ptr noundef %51) #5
-  store ptr null, ptr %50, align 8
-  %52 = add nuw nsw i64 %49, 1
-  %53 = load i8, ptr %45, align 2
-  %54 = zext i8 %53 to i64
-  %55 = icmp ult i64 %52, %54
-  br i1 %55, label %48, label %56, !llvm.loop !8
+49:                                               ; preds = %49, %41
+  %50 = phi i64 [ %53, %49 ], [ 0, %41 ]
+  %51 = getelementptr [9 x ptr], ptr %20, i64 0, i64 %50
+  %52 = load ptr, ptr %51, align 8
+  call void @acpi_ut_remove_reference(ptr noundef %52) #5
+  store ptr null, ptr %51, align 8
+  %53 = add nuw nsw i64 %50, 1
+  %54 = load i8, ptr %46, align 2
+  %55 = zext i8 %54 to i64
+  %56 = icmp ult i64 %53, %55
+  br i1 %56, label %49, label %57, !llvm.loop !8
 
-56:                                               ; preds = %48, %40
+57:                                               ; preds = %49, %41
   store i8 0, ptr %21, align 1
-  %57 = call ptr @acpi_ns_get_normalized_pathname(ptr noundef nonnull %6, i8 noundef zeroext 1) #5
-  %58 = getelementptr inbounds i8, ptr %1, i64 1024
-  store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 146
-  store i8 1, ptr %59, align 2
-  %60 = getelementptr inbounds i8, ptr %9, i64 13
-  %61 = load i8, ptr %60, align 1
-  %62 = and i8 %61, 2
-  %63 = icmp eq i8 %62, 0
-  br i1 %63, label %75, label %64
+  %58 = call ptr @acpi_ns_get_normalized_pathname(ptr noundef nonnull %6, i8 noundef zeroext 1) #5
+  %59 = getelementptr inbounds i8, ptr %1, i64 1024
+  store ptr %58, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %1, i64 146
+  store i8 1, ptr %60, align 2
+  %61 = getelementptr inbounds i8, ptr %9, i64 13
+  %62 = load i8, ptr %61, align 1
+  %63 = and i8 %62, 2
+  %64 = icmp eq i8 %63, 0
+  br i1 %64, label %76, label %65
 
-64:                                               ; preds = %56
-  %65 = getelementptr inbounds i8, ptr %9, i64 40
-  %66 = load ptr, ptr %65, align 8
-  %67 = call i32 %66(ptr noundef nonnull %17) #5
-  %68 = icmp eq i32 %67, 0
-  %69 = select i1 %68, i32 16387, i32 %67
-  br label %75
+65:                                               ; preds = %57
+  %66 = getelementptr inbounds i8, ptr %9, i64 40
+  %67 = load ptr, ptr %66, align 8
+  %68 = call i32 %67(ptr noundef nonnull %17) #5
+  %69 = icmp eq i32 %68, 0
+  %70 = select i1 %69, i32 16387, i32 %68
+  br label %76
 
-70:                                               ; preds = %32, %19
-  %71 = phi i32 [ %38, %32 ], [ 4, %19 ]
-  %72 = call ptr @acpi_ds_pop_walk_state(ptr noundef %0) #5
-  br label %73
+71:                                               ; preds = %33, %19
+  %72 = phi i32 [ %39, %33 ], [ 4, %19 ]
+  %73 = call ptr @acpi_ds_pop_walk_state(ptr noundef %0) #5
+  br label %74
 
-73:                                               ; preds = %70, %14
-  %74 = phi i32 [ %71, %70 ], [ 4, %14 ]
+74:                                               ; preds = %71, %14
+  %75 = phi i32 [ %72, %71 ], [ 4, %14 ]
   call void @acpi_ds_terminate_control_method(ptr noundef nonnull %9, ptr noundef %17)
   call void @acpi_ds_delete_walk_state(ptr noundef %17) #5
-  br label %75
+  br label %76
 
-75:                                               ; preds = %73, %64, %56, %11, %8, %3
-  %76 = phi i32 [ %74, %73 ], [ 10, %3 ], [ 9, %8 ], [ %12, %11 ], [ %69, %64 ], [ 0, %56 ]
-  ret i32 %76
+76:                                               ; preds = %74, %65, %57, %11, %8, %3
+  %77 = phi i32 [ %75, %74 ], [ 10, %3 ], [ 9, %8 ], [ %12, %11 ], [ %70, %65 ], [ 0, %57 ]
+  ret i32 %77
 }
 
 ; Function Attrs: null_pointer_is_valid

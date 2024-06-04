@@ -716,46 +716,48 @@ define dso_local i32 @register_all_submodule_odb_as_alternates() #0 {
 entry:
   %i = alloca i32, align 4
   %ret = alloca i32, align 4
-  %0 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @added_submodule_odb_paths, i32 0, i32 1), align 8
-  %conv = trunc i64 %0 to i32
+  %0 = getelementptr inbounds %struct.string_list, ptr @added_submodule_odb_paths, i32 0, i32 1
+  %1 = load i64, ptr %0, align 8
+  %conv = trunc i64 %1 to i32
   store i32 %conv, ptr %ret, align 4
   store i32 0, ptr %i, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %conv1 = sext i32 %1 to i64
-  %2 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @added_submodule_odb_paths, i32 0, i32 1), align 8
-  %cmp = icmp ult i64 %conv1, %2
+  %2 = load i32, ptr %i, align 4
+  %conv1 = sext i32 %2 to i64
+  %3 = getelementptr inbounds %struct.string_list, ptr @added_submodule_odb_paths, i32 0, i32 1
+  %4 = load i64, ptr %3, align 8
+  %cmp = icmp ult i64 %conv1, %4
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr @added_submodule_odb_paths, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %3, i64 %idxprom
+  %5 = load ptr, ptr @added_submodule_odb_paths, align 8
+  %6 = load i32, ptr %i, align 4
+  %idxprom = sext i32 %6 to i64
+  %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %5, i64 %idxprom
   %string = getelementptr inbounds %struct.string_list_item, ptr %arrayidx, i32 0, i32 0
-  %5 = load ptr, ptr %string, align 8
-  call void @add_to_alternates_memory(ptr noundef %5)
+  %7 = load ptr, ptr %string, align 8
+  call void @add_to_alternates_memory(ptr noundef %7)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %6 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %6, 1
+  %8 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %8, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
-  %7 = load i32, ptr %ret, align 4
-  %tobool = icmp ne i32 %7, 0
+  %9 = load i32, ptr %ret, align 4
+  %tobool = icmp ne i32 %9, 0
   br i1 %tobool, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %for.end
   call void @string_list_clear(ptr noundef @added_submodule_odb_paths, i32 noundef 0)
-  %8 = load ptr, ptr @the_repository, align 8
-  %9 = load i32, ptr %ret, align 4
-  %conv3 = sext i32 %9 to i64
-  call void @trace2_data_intmax_fl(ptr noundef @.str.9, i32 noundef 192, ptr noundef @.str.10, ptr noundef %8, ptr noundef @.str.11, i64 noundef %conv3)
+  %10 = load ptr, ptr @the_repository, align 8
+  %11 = load i32, ptr %ret, align 4
+  %conv3 = sext i32 %11 to i64
+  call void @trace2_data_intmax_fl(ptr noundef @.str.9, i32 noundef 192, ptr noundef @.str.10, ptr noundef %10, ptr noundef @.str.11, i64 noundef %conv3)
   %call = call i32 @git_env_bool(ptr noundef @.str.12, i32 noundef 0)
   %tobool4 = icmp ne i32 %call, 0
   br i1 %tobool4, label %if.then5, label %if.end
@@ -768,8 +770,8 @@ if.end:                                           ; preds = %if.then
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %for.end
-  %10 = load i32, ptr %ret, align 4
-  ret i32 %10
+  %12 = load i32, ptr %ret, align 4
+  ret i32 %12
 }
 
 declare void @add_to_alternates_memory(ptr noundef) #1

@@ -1729,10 +1729,11 @@ define linkonce_odr void @_ZN6google8protobuf24ZeroCopyCodedInputStreamC2EPNS0_2
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN6google8protobuf2io19ZeroCopyInputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6google8protobuf24ZeroCopyCodedInputStreamE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.google::protobuf::ZeroCopyCodedInputStream", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6google8protobuf24ZeroCopyCodedInputStreamE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.google::protobuf::ZeroCopyCodedInputStream", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -2098,11 +2099,12 @@ define linkonce_odr void @_ZN6google8protobuf2io15FileInputStreamD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %3, i32 0, i32 2
-  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %4) #3
-  %5 = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %3, i32 0, i32 1
-  call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(21) %5) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %3, i32 0, i32 2
+  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %5) #3
+  %6 = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %3, i32 0, i32 1
+  call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(21) %6) #3
   call void @_ZN6google8protobuf2io19ZeroCopyInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -2218,11 +2220,12 @@ define linkonce_odr void @_ZN6google8protobuf2io18IstreamInputStreamD2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %3, i32 0, i32 2
-  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %4) #3
-  %5 = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %3, i32 0, i32 1
-  call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %3, i32 0, i32 2
+  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %5) #3
+  %6 = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %3, i32 0, i32 1
+  call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZN6google8protobuf2io19ZeroCopyInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -4971,7 +4974,8 @@ define linkonce_odr void @_ZN6google8protobuf2io19ZeroCopyInputStreamC2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6google8protobuf2io19ZeroCopyInputStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN6google8protobuf2io19ZeroCopyInputStreamE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

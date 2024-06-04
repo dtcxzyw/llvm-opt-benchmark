@@ -571,7 +571,7 @@ define hidden void @_ZN8nanobind6detail28default_exception_translatorERKNSt15__e
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %16 = load ptr, ptr %3, align 8
-  call void @_ZNSt15__exception_ptr13exception_ptrC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %16) #14
+  call void @_ZNSt15__exception_ptr13exception_ptrC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %16) #13
   invoke void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef %5) #15
           to label %17 unwind label %18
 
@@ -593,25 +593,25 @@ define hidden void @_ZN8nanobind6detail28default_exception_translatorERKNSt15__e
   store ptr %20, ptr %6, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %7, align 4
-  call void @_ZNSt15__exception_ptr13exception_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZNSt15__exception_ptr13exception_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   br label %22
 
 22:                                               ; preds = %18
   %23 = load i32, ptr %7, align 4
-  %24 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9bad_alloc) #14
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9bad_alloc) #13
   %25 = icmp eq i32 %23, %24
   br i1 %25, label %26, label %37
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %6, align 8
-  %28 = call ptr @__cxa_begin_catch(ptr %27) #14
+  %28 = call ptr @__cxa_begin_catch(ptr %27) #13
   store ptr %28, ptr %15, align 8
   %29 = load ptr, ptr @PyExc_MemoryError, align 8
   %30 = load ptr, ptr %15, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds ptr, ptr %31, i64 2
   %33 = load ptr, ptr %32, align 8
-  %34 = call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(8) %30) #14
+  %34 = call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(8) %30) #13
   invoke void @PyErr_SetString(ptr noundef %29, ptr noundef %34)
           to label %35 unwind label %163
 
@@ -623,20 +623,20 @@ define hidden void @_ZN8nanobind6detail28default_exception_translatorERKNSt15__e
   ret void
 
 37:                                               ; preds = %22
-  %38 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12domain_error) #14
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12domain_error) #13
   %39 = icmp eq i32 %23, %38
   br i1 %39, label %40, label %50
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %6, align 8
-  %42 = call ptr @__cxa_begin_catch(ptr %41) #14
+  %42 = call ptr @__cxa_begin_catch(ptr %41) #13
   store ptr %42, ptr %14, align 8
   %43 = load ptr, ptr @PyExc_ValueError, align 8
   %44 = load ptr, ptr %14, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds ptr, ptr %45, i64 2
   %47 = load ptr, ptr %46, align 8
-  %48 = call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(16) %44) #14
+  %48 = call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(16) %44) #13
   invoke void @PyErr_SetString(ptr noundef %43, ptr noundef %48)
           to label %49 unwind label %158
 
@@ -645,20 +645,20 @@ define hidden void @_ZN8nanobind6detail28default_exception_translatorERKNSt15__e
   br label %36
 
 50:                                               ; preds = %37
-  %51 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt16invalid_argument) #14
+  %51 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt16invalid_argument) #13
   %52 = icmp eq i32 %23, %51
   br i1 %52, label %53, label %63
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr %6, align 8
-  %55 = call ptr @__cxa_begin_catch(ptr %54) #14
+  %55 = call ptr @__cxa_begin_catch(ptr %54) #13
   store ptr %55, ptr %13, align 8
   %56 = load ptr, ptr @PyExc_ValueError, align 8
   %57 = load ptr, ptr %13, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds ptr, ptr %58, i64 2
   %60 = load ptr, ptr %59, align 8
-  %61 = call noundef ptr %60(ptr noundef nonnull align 8 dereferenceable(16) %57) #14
+  %61 = call noundef ptr %60(ptr noundef nonnull align 8 dereferenceable(16) %57) #13
   invoke void @PyErr_SetString(ptr noundef %56, ptr noundef %61)
           to label %62 unwind label %153
 
@@ -667,20 +667,20 @@ define hidden void @_ZN8nanobind6detail28default_exception_translatorERKNSt15__e
   br label %36
 
 63:                                               ; preds = %50
-  %64 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12length_error) #14
+  %64 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12length_error) #13
   %65 = icmp eq i32 %23, %64
   br i1 %65, label %66, label %76
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %6, align 8
-  %68 = call ptr @__cxa_begin_catch(ptr %67) #14
+  %68 = call ptr @__cxa_begin_catch(ptr %67) #13
   store ptr %68, ptr %12, align 8
   %69 = load ptr, ptr @PyExc_ValueError, align 8
   %70 = load ptr, ptr %12, align 8
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds ptr, ptr %71, i64 2
   %73 = load ptr, ptr %72, align 8
-  %74 = call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(16) %70) #14
+  %74 = call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(16) %70) #13
   invoke void @PyErr_SetString(ptr noundef %69, ptr noundef %74)
           to label %75 unwind label %148
 
@@ -689,20 +689,20 @@ define hidden void @_ZN8nanobind6detail28default_exception_translatorERKNSt15__e
   br label %36
 
 76:                                               ; preds = %63
-  %77 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt12out_of_range) #14
+  %77 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt12out_of_range) #13
   %78 = icmp eq i32 %23, %77
   br i1 %78, label %79, label %89
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %6, align 8
-  %81 = call ptr @__cxa_begin_catch(ptr %80) #14
+  %81 = call ptr @__cxa_begin_catch(ptr %80) #13
   store ptr %81, ptr %11, align 8
   %82 = load ptr, ptr @PyExc_IndexError, align 8
   %83 = load ptr, ptr %11, align 8
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds ptr, ptr %84, i64 2
   %86 = load ptr, ptr %85, align 8
-  %87 = call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(16) %83) #14
+  %87 = call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(16) %83) #13
   invoke void @PyErr_SetString(ptr noundef %82, ptr noundef %87)
           to label %88 unwind label %143
 
@@ -711,20 +711,20 @@ define hidden void @_ZN8nanobind6detail28default_exception_translatorERKNSt15__e
   br label %36
 
 89:                                               ; preds = %76
-  %90 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt11range_error) #14
+  %90 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt11range_error) #13
   %91 = icmp eq i32 %23, %90
   br i1 %91, label %92, label %102
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %6, align 8
-  %94 = call ptr @__cxa_begin_catch(ptr %93) #14
+  %94 = call ptr @__cxa_begin_catch(ptr %93) #13
   store ptr %94, ptr %10, align 8
   %95 = load ptr, ptr @PyExc_ValueError, align 8
   %96 = load ptr, ptr %10, align 8
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds ptr, ptr %97, i64 2
   %99 = load ptr, ptr %98, align 8
-  %100 = call noundef ptr %99(ptr noundef nonnull align 8 dereferenceable(16) %96) #14
+  %100 = call noundef ptr %99(ptr noundef nonnull align 8 dereferenceable(16) %96) #13
   invoke void @PyErr_SetString(ptr noundef %95, ptr noundef %100)
           to label %101 unwind label %138
 
@@ -733,20 +733,20 @@ define hidden void @_ZN8nanobind6detail28default_exception_translatorERKNSt15__e
   br label %36
 
 102:                                              ; preds = %89
-  %103 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt14overflow_error) #14
+  %103 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt14overflow_error) #13
   %104 = icmp eq i32 %23, %103
   br i1 %104, label %105, label %115
 
 105:                                              ; preds = %102
   %106 = load ptr, ptr %6, align 8
-  %107 = call ptr @__cxa_begin_catch(ptr %106) #14
+  %107 = call ptr @__cxa_begin_catch(ptr %106) #13
   store ptr %107, ptr %9, align 8
   %108 = load ptr, ptr @PyExc_OverflowError, align 8
   %109 = load ptr, ptr %9, align 8
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds ptr, ptr %110, i64 2
   %112 = load ptr, ptr %111, align 8
-  %113 = call noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(16) %109) #14
+  %113 = call noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(16) %109) #13
   invoke void @PyErr_SetString(ptr noundef %108, ptr noundef %113)
           to label %114 unwind label %133
 
@@ -755,20 +755,20 @@ define hidden void @_ZN8nanobind6detail28default_exception_translatorERKNSt15__e
   br label %36
 
 115:                                              ; preds = %102
-  %116 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #14
+  %116 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #13
   %117 = icmp eq i32 %23, %116
   br i1 %117, label %118, label %168
 
 118:                                              ; preds = %115
   %119 = load ptr, ptr %6, align 8
-  %120 = call ptr @__cxa_begin_catch(ptr %119) #14
+  %120 = call ptr @__cxa_begin_catch(ptr %119) #13
   store ptr %120, ptr %8, align 8
   %121 = load ptr, ptr @PyExc_RuntimeError, align 8
   %122 = load ptr, ptr %8, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds ptr, ptr %123, i64 2
   %125 = load ptr, ptr %124, align 8
-  %126 = call noundef ptr %125(ptr noundef nonnull align 8 dereferenceable(8) %122) #14
+  %126 = call noundef ptr %125(ptr noundef nonnull align 8 dereferenceable(8) %122) #13
   invoke void @PyErr_SetString(ptr noundef %121, ptr noundef %126)
           to label %127 unwind label %128
 
@@ -916,7 +916,7 @@ define linkonce_odr void @_ZNSt15__exception_ptr13exception_ptrC2ERKS0_(ptr noun
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   br label %14
 
 14:                                               ; preds = %13, %2
@@ -936,25 +936,22 @@ define linkonce_odr void @_ZNSt15__exception_ptr13exception_ptrD2Ev(ptr noundef 
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   br label %8
 
 8:                                                ; preds = %7, %1
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #3
-
 declare ptr @__cxa_begin_catch(ptr)
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) #4
+declare void @PyErr_SetString(ptr noundef, ptr noundef) #3
 
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #14
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #4 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #13
   call void @_ZSt9terminatev() #16
   unreachable
 }
@@ -991,7 +988,7 @@ define void @_ZN8nanobind6detail4initEPKc(ptr noundef %0) #0 personality ptr @__
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %1
-  br label %193
+  br label %194
 
 19:                                               ; preds = %1
   %20 = call ptr @PyInterpreterState_Get()
@@ -1064,13 +1061,13 @@ define void @_ZN8nanobind6detail4initEPKc(ptr noundef %0) #0 personality ptr @__
   %58 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %57, i32 0, i32 18
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr @_ZN8nanobind6detailL12is_alive_ptrE, align 8
-  br label %193
+  br label %194
 
 60:                                               ; preds = %39
   %61 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 520) #17
   call void @llvm.memset.p0.i64(ptr align 16 %61, i8 0, i64 520, i1 false)
   invoke void @_ZN8nanobind6detail12nb_internalsC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %61)
-          to label %62 unwind label %123
+          to label %62 unwind label %124
 
 62:                                               ; preds = %60
   store ptr %61, ptr %7, align 8
@@ -1082,274 +1079,275 @@ define void @_ZN8nanobind6detail4initEPKc(ptr noundef %0) #0 personality ptr @__
 
 65:                                               ; preds = %62
   %66 = invoke ptr @PyModule_NewObject(ptr noundef %64)
-          to label %67 unwind label %127
+          to label %67 unwind label %128
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr %7, align 8
   %69 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %68, i32 0, i32 0
   store ptr %66, ptr %69, align 8
-  store ptr @PyType_Type, ptr getelementptr inbounds (%struct.PyType_Slot, ptr @_ZN8nanobind6detailL13nb_meta_slotsE, i32 0, i32 1), align 8
-  %70 = invoke ptr @PyType_FromSpec(ptr noundef @_ZN8nanobind6detailL12nb_meta_specE)
-          to label %71 unwind label %127
+  %70 = getelementptr inbounds %struct.PyType_Slot, ptr @_ZN8nanobind6detailL13nb_meta_slotsE, i32 0, i32 1
+  store ptr @PyType_Type, ptr %70, align 8
+  %71 = invoke ptr @PyType_FromSpec(ptr noundef @_ZN8nanobind6detailL12nb_meta_specE)
+          to label %72 unwind label %128
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %72, i32 0, i32 1
-  store ptr %70, ptr %73, align 8
-  store ptr %70, ptr @_ZN8nanobind6detail13nb_meta_cacheE, align 8
-  %74 = invoke ptr @PyDict_New()
-          to label %75 unwind label %127
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %7, align 8
+  %74 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %73, i32 0, i32 1
+  store ptr %71, ptr %74, align 8
+  store ptr %71, ptr @_ZN8nanobind6detail13nb_meta_cacheE, align 8
+  %75 = invoke ptr @PyDict_New()
+          to label %76 unwind label %128
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %76, i32 0, i32 2
-  store ptr %74, ptr %77, align 8
-  %78 = invoke ptr @PyType_FromSpec(ptr noundef @_ZN8nanobind6detailL12nb_func_specE)
-          to label %79 unwind label %127
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %7, align 8
+  %78 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %77, i32 0, i32 2
+  store ptr %75, ptr %78, align 8
+  %79 = invoke ptr @PyType_FromSpec(ptr noundef @_ZN8nanobind6detailL12nb_func_specE)
+          to label %80 unwind label %128
 
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %80, i32 0, i32 3
-  store ptr %78, ptr %81, align 8
-  %82 = invoke ptr @PyType_FromSpec(ptr noundef @_ZN8nanobind6detailL14nb_method_specE)
-          to label %83 unwind label %127
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %7, align 8
+  %82 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %81, i32 0, i32 3
+  store ptr %79, ptr %82, align 8
+  %83 = invoke ptr @PyType_FromSpec(ptr noundef @_ZN8nanobind6detailL14nb_method_specE)
+          to label %84 unwind label %128
 
-83:                                               ; preds = %79
-  %84 = load ptr, ptr %7, align 8
-  %85 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %84, i32 0, i32 4
-  store ptr %82, ptr %85, align 8
-  %86 = invoke ptr @PyType_FromSpec(ptr noundef @_ZN8nanobind6detailL20nb_bound_method_specE)
-          to label %87 unwind label %127
+84:                                               ; preds = %80
+  %85 = load ptr, ptr %7, align 8
+  %86 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %85, i32 0, i32 4
+  store ptr %83, ptr %86, align 8
+  %87 = invoke ptr @PyType_FromSpec(ptr noundef @_ZN8nanobind6detailL20nb_bound_method_specE)
+          to label %88 unwind label %128
 
-87:                                               ; preds = %83
-  %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %88, i32 0, i32 5
-  store ptr %86, ptr %89, align 8
-  %90 = load ptr, ptr %7, align 8
-  %91 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %90, i32 0, i32 0
-  %92 = load ptr, ptr %91, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %119
+88:                                               ; preds = %84
+  %89 = load ptr, ptr %7, align 8
+  %90 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %89, i32 0, i32 5
+  store ptr %87, ptr %90, align 8
+  %91 = load ptr, ptr %7, align 8
+  %92 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %91, i32 0, i32 0
+  %93 = load ptr, ptr %92, align 8
+  %94 = icmp ne ptr %93, null
+  br i1 %94, label %95, label %120
 
-94:                                               ; preds = %87
-  %95 = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %95, i32 0, i32 1
-  %97 = load ptr, ptr %96, align 8
-  %98 = icmp ne ptr %97, null
-  br i1 %98, label %99, label %119
+95:                                               ; preds = %88
+  %96 = load ptr, ptr %7, align 8
+  %97 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8
+  %99 = icmp ne ptr %98, null
+  br i1 %99, label %100, label %120
 
-99:                                               ; preds = %94
-  %100 = load ptr, ptr %7, align 8
-  %101 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %100, i32 0, i32 2
-  %102 = load ptr, ptr %101, align 8
-  %103 = icmp ne ptr %102, null
-  br i1 %103, label %104, label %119
+100:                                              ; preds = %95
+  %101 = load ptr, ptr %7, align 8
+  %102 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %101, i32 0, i32 2
+  %103 = load ptr, ptr %102, align 8
+  %104 = icmp ne ptr %103, null
+  br i1 %104, label %105, label %120
 
-104:                                              ; preds = %99
-  %105 = load ptr, ptr %7, align 8
-  %106 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %105, i32 0, i32 3
-  %107 = load ptr, ptr %106, align 8
-  %108 = icmp ne ptr %107, null
-  br i1 %108, label %109, label %119
+105:                                              ; preds = %100
+  %106 = load ptr, ptr %7, align 8
+  %107 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %106, i32 0, i32 3
+  %108 = load ptr, ptr %107, align 8
+  %109 = icmp ne ptr %108, null
+  br i1 %109, label %110, label %120
 
-109:                                              ; preds = %104
-  %110 = load ptr, ptr %7, align 8
-  %111 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %110, i32 0, i32 4
-  %112 = load ptr, ptr %111, align 8
-  %113 = icmp ne ptr %112, null
-  br i1 %113, label %114, label %119
+110:                                              ; preds = %105
+  %111 = load ptr, ptr %7, align 8
+  %112 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %111, i32 0, i32 4
+  %113 = load ptr, ptr %112, align 8
+  %114 = icmp ne ptr %113, null
+  br i1 %114, label %115, label %120
 
-114:                                              ; preds = %109
-  %115 = load ptr, ptr %7, align 8
-  %116 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %115, i32 0, i32 5
-  %117 = load ptr, ptr %116, align 8
-  %118 = icmp ne ptr %117, null
-  br label %119
+115:                                              ; preds = %110
+  %116 = load ptr, ptr %7, align 8
+  %117 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %116, i32 0, i32 5
+  %118 = load ptr, ptr %117, align 8
+  %119 = icmp ne ptr %118, null
+  br label %120
 
-119:                                              ; preds = %114, %109, %104, %99, %94, %87
-  %120 = phi i1 [ false, %109 ], [ false, %104 ], [ false, %99 ], [ false, %94 ], [ false, %87 ], [ %118, %114 ]
-  %121 = xor i1 %120, true
-  br i1 %121, label %122, label %131
+120:                                              ; preds = %115, %110, %105, %100, %95, %88
+  %121 = phi i1 [ false, %110 ], [ false, %105 ], [ false, %100 ], [ false, %95 ], [ false, %88 ], [ %119, %115 ]
+  %122 = xor i1 %121, true
+  br i1 %122, label %123, label %132
 
-122:                                              ; preds = %119
+123:                                              ; preds = %120
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #16
   unreachable
 
-123:                                              ; preds = %60
-  %124 = landingpad { ptr, i32 }
+124:                                              ; preds = %60
+  %125 = landingpad { ptr, i32 }
           cleanup
-  %125 = extractvalue { ptr, i32 } %124, 0
-  store ptr %125, ptr %8, align 8
-  %126 = extractvalue { ptr, i32 } %124, 1
-  store i32 %126, ptr %9, align 4
+  %126 = extractvalue { ptr, i32 } %125, 0
+  store ptr %126, ptr %8, align 8
+  %127 = extractvalue { ptr, i32 } %125, 1
+  store i32 %127, ptr %9, align 4
   call void @_ZdlPv(ptr noundef %61) #18
-  br label %194
+  br label %195
 
-127:                                              ; preds = %189, %187, %172, %169, %162, %160, %157, %155, %153, %148, %145, %131, %83, %79, %75, %71, %67, %65
-  %128 = landingpad { ptr, i32 }
+128:                                              ; preds = %190, %188, %173, %170, %163, %161, %158, %156, %154, %149, %146, %132, %84, %80, %76, %72, %67, %65
+  %129 = landingpad { ptr, i32 }
           cleanup
-  %129 = extractvalue { ptr, i32 } %128, 0
-  store ptr %129, ptr %8, align 8
-  %130 = extractvalue { ptr, i32 } %128, 1
-  store i32 %130, ptr %9, align 4
-  call void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #14
-  br label %194
+  %130 = extractvalue { ptr, i32 } %129, 0
+  store ptr %130, ptr %8, align 8
+  %131 = extractvalue { ptr, i32 } %129, 1
+  store i32 %131, ptr %9, align 4
+  call void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #13
+  br label %195
 
-131:                                              ; preds = %119
-  %132 = getelementptr inbounds %"struct.nanobind::detail::nb_translator_seq", ptr %11, i32 0, i32 0
-  store ptr @_ZN8nanobind6detail28default_exception_translatorERKNSt15__exception_ptr13exception_ptrEPv, ptr %132, align 8
-  %133 = getelementptr inbounds %"struct.nanobind::detail::nb_translator_seq", ptr %11, i32 0, i32 1
-  store ptr null, ptr %133, align 8
-  %134 = getelementptr inbounds %"struct.nanobind::detail::nb_translator_seq", ptr %11, i32 0, i32 2
+132:                                              ; preds = %120
+  %133 = getelementptr inbounds %"struct.nanobind::detail::nb_translator_seq", ptr %11, i32 0, i32 0
+  store ptr @_ZN8nanobind6detail28default_exception_translatorERKNSt15__exception_ptr13exception_ptrEPv, ptr %133, align 8
+  %134 = getelementptr inbounds %"struct.nanobind::detail::nb_translator_seq", ptr %11, i32 0, i32 1
   store ptr null, ptr %134, align 8
-  %135 = load ptr, ptr %7, align 8
-  %136 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %135, i32 0, i32 15
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %136, ptr align 8 %11, i64 24, i1 false)
+  %135 = getelementptr inbounds %"struct.nanobind::detail::nb_translator_seq", ptr %11, i32 0, i32 2
+  store ptr null, ptr %135, align 8
+  %136 = load ptr, ptr %7, align 8
+  %137 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %136, i32 0, i32 15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %137, ptr align 8 %11, i64 24, i1 false)
   store i8 1, ptr @_ZN8nanobind6detailL14is_alive_valueE, align 1
   store ptr @_ZN8nanobind6detailL14is_alive_valueE, ptr @_ZN8nanobind6detailL12is_alive_ptrE, align 8
-  %137 = load ptr, ptr @_ZN8nanobind6detailL12is_alive_ptrE, align 8
-  %138 = load ptr, ptr %7, align 8
-  %139 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %138, i32 0, i32 18
-  store ptr %137, ptr %139, align 8
+  %138 = load ptr, ptr @_ZN8nanobind6detailL12is_alive_ptrE, align 8
+  %139 = load ptr, ptr %7, align 8
+  %140 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %139, i32 0, i32 18
+  store ptr %138, ptr %140, align 8
   store ptr @.str.5, ptr %12, align 8
-  %140 = load ptr, ptr %12, align 8
-  %141 = invoke ptr @Py_CompileStringExFlags(ptr noundef %140, ptr noundef @.str.6, i32 noundef 257, ptr noundef null, i32 noundef -1)
-          to label %142 unwind label %127
+  %141 = load ptr, ptr %12, align 8
+  %142 = invoke ptr @Py_CompileStringExFlags(ptr noundef %141, ptr noundef @.str.6, i32 noundef 257, ptr noundef null, i32 noundef -1)
+          to label %143 unwind label %128
 
-142:                                              ; preds = %131
-  store ptr %141, ptr %13, align 8
-  %143 = load ptr, ptr %13, align 8
-  %144 = icmp ne ptr %143, null
-  br i1 %144, label %145, label %160
+143:                                              ; preds = %132
+  store ptr %142, ptr %13, align 8
+  %144 = load ptr, ptr %13, align 8
+  %145 = icmp ne ptr %144, null
+  br i1 %145, label %146, label %161
 
-145:                                              ; preds = %142
-  %146 = load ptr, ptr %13, align 8
-  %147 = invoke ptr @PyEval_GetGlobals()
-          to label %148 unwind label %127
+146:                                              ; preds = %143
+  %147 = load ptr, ptr %13, align 8
+  %148 = invoke ptr @PyEval_GetGlobals()
+          to label %149 unwind label %128
 
-148:                                              ; preds = %145
-  %149 = invoke ptr @PyEval_EvalCode(ptr noundef %146, ptr noundef %147, ptr noundef null)
-          to label %150 unwind label %127
+149:                                              ; preds = %146
+  %150 = invoke ptr @PyEval_EvalCode(ptr noundef %147, ptr noundef %148, ptr noundef null)
+          to label %151 unwind label %128
 
-150:                                              ; preds = %148
-  store ptr %149, ptr %14, align 8
-  %151 = load ptr, ptr %14, align 8
-  %152 = icmp ne ptr %151, null
-  br i1 %152, label %155, label %153
+151:                                              ; preds = %149
+  store ptr %150, ptr %14, align 8
+  %152 = load ptr, ptr %14, align 8
+  %153 = icmp ne ptr %152, null
+  br i1 %153, label %156, label %154
 
-153:                                              ; preds = %150
+154:                                              ; preds = %151
   invoke void @PyErr_Clear()
-          to label %154 unwind label %127
+          to label %155 unwind label %128
 
-154:                                              ; preds = %153
-  br label %155
+155:                                              ; preds = %154
+  br label %156
 
-155:                                              ; preds = %154, %150
-  %156 = load ptr, ptr %14, align 8
-  invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %156)
-          to label %157 unwind label %127
+156:                                              ; preds = %155, %151
+  %157 = load ptr, ptr %14, align 8
+  invoke void @_ZL11_Py_XDECREFP7_object(ptr noundef %157)
+          to label %158 unwind label %128
 
-157:                                              ; preds = %155
-  %158 = load ptr, ptr %13, align 8
-  invoke void @_ZL10_Py_DECREFP7_object(ptr noundef %158)
-          to label %159 unwind label %127
+158:                                              ; preds = %156
+  %159 = load ptr, ptr %13, align 8
+  invoke void @_ZL10_Py_DECREFP7_object(ptr noundef %159)
+          to label %160 unwind label %128
 
-159:                                              ; preds = %157
-  br label %162
+160:                                              ; preds = %158
+  br label %163
 
-160:                                              ; preds = %142
+161:                                              ; preds = %143
   invoke void @PyErr_Clear()
-          to label %161 unwind label %127
+          to label %162 unwind label %128
 
-161:                                              ; preds = %160
-  br label %162
+162:                                              ; preds = %161
+  br label %163
 
-162:                                              ; preds = %161, %159
-  %163 = invoke i32 @Py_AtExit(ptr noundef @_ZN8nanobind6detailL17internals_cleanupEv)
-          to label %164 unwind label %127
+163:                                              ; preds = %162, %160
+  %164 = invoke i32 @Py_AtExit(ptr noundef @_ZN8nanobind6detailL17internals_cleanupEv)
+          to label %165 unwind label %128
 
-164:                                              ; preds = %162
-  %165 = icmp ne i32 %163, 0
-  br i1 %165, label %166, label %169
+165:                                              ; preds = %163
+  %166 = icmp ne i32 %164, 0
+  br i1 %166, label %167, label %170
 
-166:                                              ; preds = %164
-  %167 = load ptr, ptr @stderr, align 8
-  %168 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef @.str.7) #14
-  br label %169
+167:                                              ; preds = %165
+  %168 = load ptr, ptr @stderr, align 8
+  %169 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef @.str.7) #13
+  br label %170
 
-169:                                              ; preds = %166, %164
-  %170 = load ptr, ptr %7, align 8
-  %171 = invoke ptr @PyCapsule_New(ptr noundef %170, ptr noundef @.str.3, ptr noundef null)
-          to label %172 unwind label %127
+170:                                              ; preds = %167, %165
+  %171 = load ptr, ptr %7, align 8
+  %172 = invoke ptr @PyCapsule_New(ptr noundef %171, ptr noundef @.str.3, ptr noundef null)
+          to label %173 unwind label %128
 
-172:                                              ; preds = %169
-  store ptr %171, ptr %6, align 8
-  %173 = load ptr, ptr %4, align 8
-  %174 = load ptr, ptr %5, align 8
-  %175 = load ptr, ptr %6, align 8
-  %176 = invoke i32 @PyDict_SetItem(ptr noundef %173, ptr noundef %174, ptr noundef %175)
-          to label %177 unwind label %127
+173:                                              ; preds = %170
+  store ptr %172, ptr %6, align 8
+  %174 = load ptr, ptr %4, align 8
+  %175 = load ptr, ptr %5, align 8
+  %176 = load ptr, ptr %6, align 8
+  %177 = invoke i32 @PyDict_SetItem(ptr noundef %174, ptr noundef %175, ptr noundef %176)
+          to label %178 unwind label %128
 
-177:                                              ; preds = %172
-  store i32 %176, ptr %15, align 4
-  %178 = load i32, ptr %15, align 4
-  %179 = icmp ne i32 %178, 0
-  br i1 %179, label %183, label %180
+178:                                              ; preds = %173
+  store i32 %177, ptr %15, align 4
+  %179 = load i32, ptr %15, align 4
+  %180 = icmp ne i32 %179, 0
+  br i1 %180, label %184, label %181
 
-180:                                              ; preds = %177
-  %181 = load ptr, ptr %6, align 8
-  %182 = icmp ne ptr %181, null
-  br label %183
+181:                                              ; preds = %178
+  %182 = load ptr, ptr %6, align 8
+  %183 = icmp ne ptr %182, null
+  br label %184
 
-183:                                              ; preds = %180, %177
-  %184 = phi i1 [ false, %177 ], [ %182, %180 ]
-  %185 = xor i1 %184, true
-  br i1 %185, label %186, label %187
+184:                                              ; preds = %181, %178
+  %185 = phi i1 [ false, %178 ], [ %183, %181 ]
+  %186 = xor i1 %185, true
+  br i1 %186, label %187, label %188
 
-186:                                              ; preds = %183
+187:                                              ; preds = %184
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #16
   unreachable
 
-187:                                              ; preds = %183
-  %188 = load ptr, ptr %6, align 8
-  invoke void @_ZL10_Py_DECREFP7_object(ptr noundef %188)
-          to label %189 unwind label %127
+188:                                              ; preds = %184
+  %189 = load ptr, ptr %6, align 8
+  invoke void @_ZL10_Py_DECREFP7_object(ptr noundef %189)
+          to label %190 unwind label %128
 
-189:                                              ; preds = %187
-  %190 = load ptr, ptr %5, align 8
-  invoke void @_ZL10_Py_DECREFP7_object(ptr noundef %190)
-          to label %191 unwind label %127
+190:                                              ; preds = %188
+  %191 = load ptr, ptr %5, align 8
+  invoke void @_ZL10_Py_DECREFP7_object(ptr noundef %191)
+          to label %192 unwind label %128
 
-191:                                              ; preds = %189
-  %192 = load ptr, ptr %7, align 8
-  store ptr %192, ptr @_ZN8nanobind6detail9internalsE, align 8
-  call void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #14
-  br label %193
+192:                                              ; preds = %190
+  %193 = load ptr, ptr %7, align 8
+  store ptr %193, ptr @_ZN8nanobind6detail9internalsE, align 8
+  call void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #13
+  br label %194
 
-193:                                              ; preds = %191, %53, %18
+194:                                              ; preds = %192, %53, %18
   ret void
 
-194:                                              ; preds = %127, %123
-  %195 = load ptr, ptr %8, align 8
-  %196 = load i32, ptr %9, align 4
-  %197 = insertvalue { ptr, i32 } poison, ptr %195, 0
-  %198 = insertvalue { ptr, i32 } %197, i32 %196, 1
-  resume { ptr, i32 } %198
+195:                                              ; preds = %128, %124
+  %196 = load ptr, ptr %8, align 8
+  %197 = load i32, ptr %9, align 4
+  %198 = insertvalue { ptr, i32 } poison, ptr %196, 0
+  %199 = insertvalue { ptr, i32 } %198, i32 %197, 1
+  resume { ptr, i32 } %199
 }
 
-declare ptr @PyInterpreterState_GetDict(ptr noundef) #4
+declare ptr @PyInterpreterState_GetDict(ptr noundef) #3
 
-declare ptr @PyInterpreterState_Get() #4
+declare ptr @PyInterpreterState_Get() #3
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN8nanobind6detail16fail_unspecifiedEv() #6 {
+define hidden void @_ZN8nanobind6detail16fail_unspecifiedEv() #5 {
   call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef @.str.8) #16
   unreachable
 }
 
-declare ptr @PyUnicode_FromFormat(ptr noundef, ...) #4
+declare ptr @PyUnicode_FromFormat(ptr noundef, ...) #3
 
-declare ptr @PyDict_GetItem(ptr noundef, ptr noundef) #4
+declare ptr @PyDict_GetItem(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL10_Py_DECREFP7_object(ptr noundef %0) #0 {
@@ -1375,13 +1373,13 @@ define internal void @_ZL10_Py_DECREFP7_object(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) #4
+declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8nanobind6detail12nb_internalsC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1421,7 +1419,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail12nb_internalsC2Ev(ptr nound
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %5, i32 0, i32 15
-  call void @_ZN8nanobind6detail17nb_translator_seqC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
+  call void @_ZN8nanobind6detail17nb_translator_seqC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   %20 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %5, i32 0, i32 16
   store i8 1, ptr %20, align 8
   %21 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %5, i32 0, i32 17
@@ -1464,19 +1462,19 @@ define linkonce_odr hidden void @_ZN8nanobind6detail12nb_internalsC2Ev(ptr nound
   store ptr %37, ptr %3, align 8
   %38 = extractvalue { ptr, i32 } %36, 1
   store i32 %38, ptr %4, align 4
-  call void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #14
+  call void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #13
   br label %39
 
 39:                                               ; preds = %35, %31
-  call void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %13) #14
+  call void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %13) #13
   br label %40
 
 40:                                               ; preds = %39, %27
-  call void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #14
+  call void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #13
   br label %41
 
 41:                                               ; preds = %40, %23
-  call void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #14
+  call void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #13
   br label %42
 
 42:                                               ; preds = %41
@@ -1488,7 +1486,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail12nb_internalsC2Ev(ptr nound
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #9
+declare void @_ZdlPv(ptr noundef) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8nanobind3strC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
@@ -1513,22 +1511,22 @@ define linkonce_odr hidden void @_ZN8nanobind3strC2EPKc(ptr noundef nonnull alig
   ret void
 }
 
-declare ptr @PyModule_NewObject(ptr noundef) #4
+declare ptr @PyModule_NewObject(ptr noundef) #3
 
-declare ptr @PyType_FromSpec(ptr noundef) #4
+declare ptr @PyType_FromSpec(ptr noundef) #3
 
-declare ptr @PyDict_New() #4
+declare ptr @PyDict_New() #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
-declare ptr @Py_CompileStringExFlags(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #4
+declare ptr @Py_CompileStringExFlags(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
-declare ptr @PyEval_EvalCode(ptr noundef, ptr noundef, ptr noundef) #4
+declare ptr @PyEval_EvalCode(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @PyEval_GetGlobals() #4
+declare ptr @PyEval_GetGlobals() #3
 
-declare void @PyErr_Clear() #4
+declare void @PyErr_Clear() #3
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL11_Py_XDECREFP7_object(ptr noundef %0) #0 {
@@ -1547,7 +1545,7 @@ define internal void @_ZL11_Py_XDECREFP7_object(ptr noundef %0) #0 {
   ret void
 }
 
-declare i32 @Py_AtExit(ptr noundef) #4
+declare i32 @Py_AtExit(ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
@@ -1594,7 +1592,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
   store i8 %34, ptr %3, align 1
   %35 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %36 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %35, i32 0, i32 10
-  %37 = call noundef zeroext i1 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %36) #14
+  %37 = call noundef zeroext i1 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %36) #13
   br i1 %37, label %76, label %38
 
 38:                                               ; preds = %28
@@ -1606,17 +1604,17 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
   %42 = load ptr, ptr @stderr, align 8
   %43 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %44 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %43, i32 0, i32 10
-  %45 = call noundef i64 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %44) #14
-  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.21, i64 noundef %45) #14
+  %45 = call noundef i64 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %44) #13
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.21, i64 noundef %45) #13
   %47 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %48 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %47, i32 0, i32 10
   store ptr %48, ptr %4, align 8
   %49 = load ptr, ptr %4, align 8
-  %50 = call ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(80) %49) #14
+  %50 = call ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(80) %49) #13
   %51 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %5, i32 0, i32 0
   store ptr %50, ptr %51, align 8
   %52 = load ptr, ptr %4, align 8
-  %53 = call ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(80) %52) #14
+  %53 = call ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(80) %52) #13
   %54 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %6, i32 0, i32 0
   store ptr %53, ptr %54, align 8
   br label %55
@@ -1628,9 +1626,9 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
 57:                                               ; preds = %55
   %58 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %58, i64 16, i1 false)
-  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EPvS0_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EPvS0_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   store ptr %59, ptr %8, align 8
-  %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EPvS0_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EPvS0_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   store ptr %60, ptr %9, align 8
   %61 = load ptr, ptr %9, align 8
   %62 = load ptr, ptr %61, align 8
@@ -1643,7 +1641,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
   %68 = load ptr, ptr %10, align 8
   %69 = getelementptr inbounds %struct._typeobject, ptr %68, i32 0, i32 1
   %70 = load ptr, ptr %69, align 8
-  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef @.str.22, ptr noundef %67, ptr noundef %70) #14
+  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef @.str.22, ptr noundef %67, ptr noundef %70) #13
   br label %72
 
 72:                                               ; preds = %57
@@ -1660,7 +1658,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
 76:                                               ; preds = %75, %28
   %77 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %78 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %77, i32 0, i32 13
-  %79 = call noundef zeroext i1 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %78) #14
+  %79 = call noundef zeroext i1 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %78) #13
   br i1 %79, label %90, label %80
 
 80:                                               ; preds = %76
@@ -1672,8 +1670,8 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
   %84 = load ptr, ptr @stderr, align 8
   %85 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %86 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %85, i32 0, i32 13
-  %87 = call noundef i64 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %86) #14
-  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef @.str.23, i64 noundef %87) #14
+  %87 = call noundef i64 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %86) #13
+  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef @.str.23, i64 noundef %87) #13
   br label %89
 
 89:                                               ; preds = %83, %80
@@ -1683,13 +1681,13 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
 90:                                               ; preds = %89, %76
   %91 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %92 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %91, i32 0, i32 12
-  %93 = call noundef zeroext i1 @_ZNK3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %92) #14
+  %93 = call noundef zeroext i1 @_ZNK3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %92) #13
   br i1 %93, label %94, label %98
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %96 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %95, i32 0, i32 11
-  %97 = call noundef zeroext i1 @_ZNK3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %96) #14
+  %97 = call noundef zeroext i1 @_ZNK3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %96) #13
   br i1 %97, label %137, label %98
 
 98:                                               ; preds = %94, %90
@@ -1701,18 +1699,18 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
   %102 = load ptr, ptr @stderr, align 8
   %103 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %104 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %103, i32 0, i32 12
-  %105 = call noundef i64 @_ZNK3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %104) #14
-  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef @.str.24, i64 noundef %105) #14
+  %105 = call noundef i64 @_ZNK3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %104) #13
+  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef @.str.24, i64 noundef %105) #13
   store i32 0, ptr %11, align 4
   %107 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %108 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %107, i32 0, i32 12
   store ptr %108, ptr %12, align 8
   %109 = load ptr, ptr %12, align 8
-  %110 = call ptr @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(80) %109) #14
+  %110 = call ptr @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(80) %109) #13
   %111 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<const std::type_info *, nanobind::detail::type_data *>, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::KeySelect, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::ValueSelect, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq, std::allocator<std::pair<const std::type_info *, nanobind::detail::type_data *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %13, i32 0, i32 0
   store ptr %110, ptr %111, align 8
   %112 = load ptr, ptr %12, align 8
-  %113 = call ptr @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(80) %112) #14
+  %113 = call ptr @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(80) %112) #13
   %114 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<const std::type_info *, nanobind::detail::type_data *>, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::KeySelect, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::ValueSelect, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq, std::allocator<std::pair<const std::type_info *, nanobind::detail::type_data *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %14, i32 0, i32 0
   store ptr %113, ptr %114, align 8
   br label %115
@@ -1730,7 +1728,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds %"struct.nanobind::detail::type_data", ptr %122, i32 0, i32 2
   %124 = load ptr, ptr %123, align 8
-  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef @.str.25, ptr noundef %124) #14
+  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef @.str.25, ptr noundef %124) #13
   %126 = load i32, ptr %11, align 4
   %127 = add nsw i32 %126, 1
   store i32 %127, ptr %11, align 4
@@ -1739,7 +1737,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
 
 129:                                              ; preds = %117
   %130 = load ptr, ptr @stderr, align 8
-  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef @.str.26) #14
+  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef @.str.26) #13
   br label %135
 
 132:                                              ; preds = %117
@@ -1759,7 +1757,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
 137:                                              ; preds = %136, %94
   %138 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %139 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %138, i32 0, i32 14
-  %140 = call noundef zeroext i1 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %139) #14
+  %140 = call noundef zeroext i1 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %139) #13
   br i1 %140, label %183, label %141
 
 141:                                              ; preds = %137
@@ -1771,18 +1769,18 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
   %145 = load ptr, ptr @stderr, align 8
   %146 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %147 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %146, i32 0, i32 14
-  %148 = call noundef i64 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %147) #14
-  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef @.str.27, i64 noundef %148) #14
+  %148 = call noundef i64 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %147) #13
+  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef @.str.27, i64 noundef %148) #13
   store i32 0, ptr %16, align 4
   %150 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %151 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %150, i32 0, i32 14
   store ptr %151, ptr %17, align 8
   %152 = load ptr, ptr %17, align 8
-  %153 = call ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(80) %152) #14
+  %153 = call ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(80) %152) #13
   %154 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %18, i32 0, i32 0
   store ptr %153, ptr %154, align 8
   %155 = load ptr, ptr %17, align 8
-  %156 = call ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(80) %155) #14
+  %156 = call ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(80) %155) #13
   %157 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %19, i32 0, i32 0
   store ptr %156, ptr %157, align 8
   br label %158
@@ -1794,9 +1792,9 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
 160:                                              ; preds = %158
   %161 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %161, i64 16, i1 false)
-  %162 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EPvS0_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %20) #14
+  %162 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EPvS0_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %20) #13
   store ptr %162, ptr %21, align 8
-  %163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EPvS0_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %20) #14
+  %163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EPvS0_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %20) #13
   store ptr %163, ptr %22, align 8
   %164 = load ptr, ptr @stderr, align 8
   %165 = load ptr, ptr %21, align 8
@@ -1806,7 +1804,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
   %168 = getelementptr inbounds i8, ptr %167, i64 40
   %169 = getelementptr inbounds %"struct.nanobind::detail::func_data_prelim", ptr %168, i32 0, i32 8
   %170 = load ptr, ptr %169, align 8
-  %171 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef @.str.28, ptr noundef %170) #14
+  %171 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef @.str.28, ptr noundef %170) #13
   %172 = load i32, ptr %16, align 4
   %173 = add nsw i32 %172, 1
   store i32 %173, ptr %16, align 4
@@ -1815,7 +1813,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
 
 175:                                              ; preds = %160
   %176 = load ptr, ptr @stderr, align 8
-  %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef @.str.26) #14
+  %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef @.str.26) #13
   br label %181
 
 178:                                              ; preds = %160
@@ -1874,7 +1872,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
   br i1 %205, label %207, label %206
 
 206:                                              ; preds = %203
-  call void @_ZN8nanobind6detail12nb_internalsD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %204) #14
+  call void @_ZN8nanobind6detail12nb_internalsD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %204) #13
   call void @_ZdlPv(ptr noundef %204) #18
   br label %207
 
@@ -1890,7 +1888,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
 
 211:                                              ; preds = %208
   %212 = load ptr, ptr @stderr, align 8
-  %213 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef @.str.29) #14
+  %213 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef @.str.29) #13
   br label %214
 
 214:                                              ; preds = %211, %208
@@ -1902,31 +1900,31 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #11
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #10
 
-declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) #4
+declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN8nanobind6detail4failEPKcz(ptr noundef, ...) #12
+declare void @_ZN8nanobind6detail4failEPKcz(ptr noundef, ...) #11
 
 ; Function Attrs: nounwind
-declare void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8)) #11
+declare void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8)) #10
 
 ; Function Attrs: nounwind
-declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) #11
+declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) #10
 
-declare void @_Py_Dealloc(ptr noundef) #4
+declare void @_Py_Dealloc(ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1938,12 +1936,12 @@ define linkonce_odr hidden void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_ha
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %8 = load ptr, ptr %2, align 8
-  call void @_ZNSaISt4pairIPvS0_EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaISt4pairIPvS0_EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   invoke void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEEC2EmRKS4_RKS6_RKS9_(ptr noundef nonnull align 8 dereferenceable(80) %8, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaISt4pairIPvS0_EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaISt4pairIPvS0_EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   ret void
 
 10:                                               ; preds = %1
@@ -1953,7 +1951,7 @@ define linkonce_odr hidden void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_ha
   store ptr %12, ptr %6, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %7, align 4
-  call void @_ZNSaISt4pairIPvS0_EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaISt4pairIPvS0_EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   br label %14
 
 14:                                               ; preds = %10
@@ -1974,12 +1972,12 @@ define linkonce_odr hidden void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6det
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %8 = load ptr, ptr %2, align 8
-  call void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   invoke void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEEC2EmRKS8_RKSA_RKSD_(ptr noundef nonnull align 8 dereferenceable(80) %8, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   ret void
 
 10:                                               ; preds = %1
@@ -1989,7 +1987,7 @@ define linkonce_odr hidden void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6det
   store ptr %12, ptr %6, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %7, align 4
-  call void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   br label %14
 
 14:                                               ; preds = %10
@@ -2010,12 +2008,12 @@ define linkonce_odr hidden void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6det
   %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %8 = load ptr, ptr %2, align 8
-  call void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   invoke void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEEC2EmRKS8_RKS9_RKSC_(ptr noundef nonnull align 8 dereferenceable(80) %8, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   ret void
 
 10:                                               ; preds = %1
@@ -2025,7 +2023,7 @@ define linkonce_odr hidden void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6det
   store ptr %12, ptr %6, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %7, align 4
-  call void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   br label %14
 
 14:                                               ; preds = %10
@@ -2052,7 +2050,7 @@ define linkonce_odr hidden void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_ha
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::robin_map", ptr %3, i32 0, i32 0
-  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #14
+  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #13
   ret void
 }
 
@@ -2062,7 +2060,7 @@ define linkonce_odr hidden void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6det
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::robin_map.10", ptr %3, i32 0, i32 0
-  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_ED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #14
+  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_ED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #13
   ret void
 }
 
@@ -2072,7 +2070,7 @@ define linkonce_odr hidden void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6det
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::robin_map.0", ptr %3, i32 0, i32 0
-  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_ED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #14
+  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_ED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #13
   ret void
 }
 
@@ -2081,7 +2079,7 @@ define linkonce_odr void @_ZNSaISt4pairIPvS0_EEC2Ev(ptr noundef nonnull align 1 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt4pairIPvS1_EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt15__new_allocatorISt4pairIPvS1_EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -2112,7 +2110,7 @@ define linkonce_odr void @_ZNSaISt4pairIPvS0_EED2Ev(ptr noundef nonnull align 1 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt4pairIPvS1_EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt15__new_allocatorISt4pairIPvS1_EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -2147,24 +2145,24 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %19 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %18, i32 0, i32 1
   %20 = load i64, ptr %9, align 8
   %21 = load ptr, ptr %12, align 8
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEEC2IS4_EERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %21) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEEC2IS4_EERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %21) #13
   invoke void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EEC2EmRKS7_(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %22 unwind label %45
 
 22:                                               ; preds = %7
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   %23 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %18, i32 0, i32 2
   %24 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %18, i32 0, i32 1
-  %25 = call noundef zeroext i1 @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
+  %25 = call noundef zeroext i1 @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %22
-  %27 = call noundef ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEv(ptr noundef nonnull align 8 dereferenceable(74) %18) #14
+  %27 = call noundef ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEv(ptr noundef nonnull align 8 dereferenceable(74) %18) #13
   br label %31
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %18, i32 0, i32 1
-  %30 = call noundef ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
+  %30 = call noundef ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
   br label %31
 
 31:                                               ; preds = %28, %26
@@ -2188,7 +2186,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   br i1 %41, label %42, label %57
 
 42:                                               ; preds = %40
-  %43 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %43 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef @.str.9)
           to label %44 unwind label %53
 
@@ -2203,7 +2201,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store ptr %47, ptr %16, align 8
   %48 = extractvalue { ptr, i32 } %46, 1
   store i32 %48, ptr %17, align 4
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   br label %70
 
 49:                                               ; preds = %66, %64, %44, %31
@@ -2222,7 +2220,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store ptr %55, ptr %16, align 8
   %56 = extractvalue { ptr, i32 } %54, 1
   store i32 %56, ptr %17, align 4
-  call void @__cxa_free_exception(ptr %43) #14
+  call void @__cxa_free_exception(ptr %43) #13
   br label %69
 
 57:                                               ; preds = %40
@@ -2233,8 +2231,8 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %18, i32 0, i32 1
-  %63 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #14
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE18set_as_last_bucketEv(ptr noundef nonnull align 8 dereferenceable(24) %63) #14
+  %63 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #13
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE18set_as_last_bucketEv(ptr noundef nonnull align 8 dereferenceable(24) %63) #13
   br label %64
 
 64:                                               ; preds = %61, %57
@@ -2251,7 +2249,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   ret void
 
 69:                                               ; preds = %53, %49
-  call void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
+  call void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   br label %70
 
 70:                                               ; preds = %69, %45
@@ -2281,7 +2279,7 @@ define linkonce_odr hidden void @_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2E
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %2
-  %13 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %13 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef @.str.10)
           to label %14 unwind label %15
 
@@ -2296,7 +2294,7 @@ define linkonce_odr hidden void @_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2E
   store ptr %17, ptr %5, align 8
   %18 = extractvalue { ptr, i32 } %16, 1
   store i32 %18, ptr %6, align 4
-  call void @__cxa_free_exception(ptr %13) #14
+  call void @__cxa_free_exception(ptr %13) #13
   br label %35
 
 19:                                               ; preds = %2
@@ -2341,7 +2339,7 @@ define linkonce_odr hidden void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   ret void
 }
 
@@ -2375,7 +2373,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_e
   store ptr %18, ptr %7, align 8
   %19 = extractvalue { ptr, i32 } %17, 1
   store i32 %19, ptr %8, align 4
-  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   br label %20
 
 20:                                               ; preds = %16
@@ -2391,7 +2389,7 @@ define linkonce_odr hidden void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -2402,13 +2400,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt6vectorIN3tsl17detail_robin
   %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = call ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = call ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
-  %8 = call ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %8 = call ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEEbRKNS_17__normal_iteratorIT_T0_EESI_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEEbRKNS_17__normal_iteratorIT_T0_EESI_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret i1 %10
 }
 
@@ -2421,14 +2419,14 @@ define linkonce_odr hidden noundef ptr @_ZN3tsl17detail_robin_hash10robin_hashIS
   br i1 %4, label %5, label %10, !prof !6
 
 5:                                                ; preds = %1
-  %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #14
+  %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #13
   %7 = icmp ne i32 %6, 0
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEC2Eb(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, i1 noundef zeroext true) #14
-  %9 = call i32 @__cxa_atexit(ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EED2Ev, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, ptr @__dso_handle) #14
-  call void @__cxa_guard_release(ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #14
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEC2Eb(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, i1 noundef zeroext true) #13
+  %9 = call i32 @__cxa_atexit(ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EED2Ev, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, ptr @__dso_handle) #13
+  call void @__cxa_guard_release(ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #13
   br label %10
 
 10:                                               ; preds = %8, %5, %1
@@ -2443,7 +2441,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12b
   %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE11_M_data_ptrIS6_EEPT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #14
+  %7 = call noundef ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE11_M_data_ptrIS6_EEPT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #13
   ret ptr %7
 }
 
@@ -2457,7 +2455,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashI
   %6 = call noundef i64 @_ZNK3tsl2rh26power_of_two_growth_policyILm2EE16max_bucket_countEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
   store i64 %6, ptr %3, align 8
   %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %5, i32 0, i32 1
-  %8 = call noundef i64 @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %8 = call noundef i64 @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   store i64 %8, ptr %4, align 8
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %10 = load i64, ptr %9, align 8
@@ -2466,12 +2464,12 @@ define linkonce_odr hidden noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashI
 
 declare ptr @__cxa_allocate_exception(i64)
 
-declare void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #4
+declare void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
 
 declare void @__cxa_free_exception(ptr)
 
 ; Function Attrs: nounwind
-declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
+declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #10
 
 declare void @__cxa_throw(ptr, ptr, ptr)
 
@@ -2482,13 +2480,13 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.16", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = call ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = call ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.16", ptr %4, i32 0, i32 0
   store ptr %6, ptr %7, align 8
-  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #14
+  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #13
   %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.16", ptr %3, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %10
 }
 
@@ -2557,12 +2555,12 @@ define linkonce_odr hidden void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_e
   %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %8, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   invoke void @_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
 
 11:                                               ; preds = %1
-  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 
 12:                                               ; preds = %1
@@ -2577,7 +2575,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_e
 define linkonce_odr hidden noundef i64 @_ZNK3tsl2rh26power_of_two_growth_policyILm2EE16max_bucket_countEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = call noundef i64 @_ZNSt14numeric_limitsImE3maxEv() #14
+  %3 = call noundef i64 @_ZNSt14numeric_limitsImE3maxEv() #13
   %4 = udiv i64 %3, 2
   %5 = add i64 %4, 1
   ret i64 %5
@@ -2687,10 +2685,10 @@ define linkonce_odr hidden noundef i64 @_ZNSt6vectorIN3tsl17detail_robin_hash12b
   store ptr %1, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEEC2ERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7) #14
-  %8 = call noundef i64 @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE11_S_max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEEC2ERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7) #13
+  %8 = call noundef i64 @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE11_S_max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   %9 = icmp ugt i64 %6, %8
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
@@ -2715,7 +2713,7 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12b
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %9, i32 0, i32 0
   %11 = load ptr, ptr %6, align 8
-  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE12_Vector_implC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE12_Vector_implC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #13
   %12 = load i64, ptr %5, align 8
   invoke void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %12)
           to label %13 unwind label %14
@@ -2730,7 +2728,7 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12b
   store ptr %16, ptr %7, align 8
   %17 = extractvalue { ptr, i32 } %15, 1
   store i32 %17, ptr %8, align 4
-  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   br label %18
 
 18:                                               ; preds = %14
@@ -2752,7 +2750,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_e
   %7 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %4, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %11 = call noundef ptr @_ZSt27__uninitialized_default_n_aIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEmS6_ET_S8_T0_RSaIT1_E(ptr noundef %8, i64 noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
   %12 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
   %13 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data", ptr %12, i32 0, i32 1
@@ -2783,7 +2781,7 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12b
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   ret void
 
 19:                                               ; preds = %1
@@ -2802,7 +2800,7 @@ define linkonce_odr hidden noundef i64 @_ZNSt6vectorIN3tsl17detail_robin_hash12b
   store ptr %0, ptr %2, align 8
   store i64 384307168202282325, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEE8max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEE8max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   store i64 %6, ptr %4, align 8
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %8 unwind label %10
@@ -2827,7 +2825,7 @@ define linkonce_odr hidden void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEC2ERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEC2ERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #13
   ret void
 }
 
@@ -2839,7 +2837,7 @@ define linkonce_odr hidden noundef i64 @_ZNSt16allocator_traitsISaIN3tsl17detail
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret i64 %4
 }
 
@@ -2877,7 +2875,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_ro
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret i64 %4
 }
 
@@ -2905,8 +2903,8 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12b
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEEC2ERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #14
-  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEEC2ERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #13
+  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   ret void
 }
 
@@ -2944,7 +2942,7 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12b
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -3009,7 +3007,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorIN3tsl17detail_rob
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   %10 = icmp ugt i64 %8, %9
   br i1 %10, label %11, label %16
 
@@ -3129,7 +3127,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %6, align 8
-  %26 = call ptr @__cxa_begin_catch(ptr %25) #14
+  %26 = call ptr @__cxa_begin_catch(ptr %25) #13
   %27 = load ptr, ptr %3, align 8
   %28 = load ptr, ptr %5, align 8
   invoke void @_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvT_S8_(ptr noundef %27, ptr noundef %28)
@@ -3183,7 +3181,7 @@ define linkonce_odr hidden void @_ZSt10_ConstructIN3tsl17detail_robin_hash12buck
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
@@ -3202,7 +3200,7 @@ define linkonce_odr hidden void @_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket
 declare void @__cxa_rethrow()
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #13
+declare void @llvm.trap() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
@@ -3252,7 +3250,7 @@ define linkonce_odr hidden void @_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
@@ -3261,7 +3259,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pai
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
@@ -3270,11 +3268,11 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pai
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   %6 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %3, i32 0, i32 1
   store i16 -1, ptr %6, align 4
   br label %7
@@ -3300,7 +3298,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pai
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
@@ -3310,7 +3308,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN3
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %3, i32 0, i32 4
-  %5 = call noundef ptr @_ZSt7launderISt4pairIPvS1_EEPT_S4_(ptr noundef %4) #14
+  %5 = call noundef ptr @_ZSt7launderISt4pairIPvS1_EEPT_S4_(ptr noundef %4) #13
   ret ptr %5
 }
 
@@ -3381,10 +3379,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN3tsl17detail_r
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %7, %10
   ret i1 %11
@@ -3398,7 +3396,7 @@ define linkonce_odr hidden ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_e
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -3412,7 +3410,7 @@ define linkonce_odr hidden ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_e
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -3442,7 +3440,7 @@ define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKN3tsl17detai
 }
 
 ; Function Attrs: nounwind
-declare i32 @__cxa_guard_acquire(ptr) #14
+declare i32 @__cxa_guard_acquire(ptr) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EEC2Eb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1) unnamed_addr #2 comdat align 2 {
@@ -3465,10 +3463,10 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pai
 }
 
 ; Function Attrs: nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) #14
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #13
 
 ; Function Attrs: nounwind
-declare void @__cxa_guard_release(ptr) #14
+declare void @__cxa_guard_release(ptr) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE11_M_data_ptrIS6_EEPT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #2 comdat align 2 {
@@ -3485,8 +3483,8 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN3tsl17detail_robin_hash12
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
-  %5 = call noundef i64 @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE11_S_max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  %5 = call noundef i64 @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE11_S_max_sizeERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   ret i64 %5
 }
 
@@ -3507,7 +3505,7 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_en
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<void *, void *>, true>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.16", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -3528,7 +3526,7 @@ define linkonce_odr hidden ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3tsl17detail
   %11 = sub i64 0, %10
   %12 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %9, i64 %11
   store ptr %12, ptr %6, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS5_ELb1EEESt6vectorIS7_SaIS7_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.16", ptr %3, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   ret ptr %14
@@ -3668,7 +3666,7 @@ define linkonce_odr hidden void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt15__new_allocatorISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -3699,7 +3697,7 @@ define linkonce_odr hidden void @_ZNSaISt4pairIPKSt9type_infoPN8nanobind6detail9
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt15__new_allocatorISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -3734,24 +3732,24 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %19 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.1", ptr %18, i32 0, i32 1
   %20 = load i64, ptr %9, align 8
   %21 = load ptr, ptr %12, align 8
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEC2ISA_EERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %21) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEC2ISA_EERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %21) #13
   invoke void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EEC2EmRKSD_(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %22 unwind label %45
 
 22:                                               ; preds = %7
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   %23 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.1", ptr %18, i32 0, i32 2
   %24 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.1", ptr %18, i32 0, i32 1
-  %25 = call noundef zeroext i1 @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
+  %25 = call noundef zeroext i1 @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %22
-  %27 = call noundef ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEv(ptr noundef nonnull align 8 dereferenceable(74) %18) #14
+  %27 = call noundef ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEv(ptr noundef nonnull align 8 dereferenceable(74) %18) #13
   br label %31
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.1", ptr %18, i32 0, i32 1
-  %30 = call noundef ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
+  %30 = call noundef ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
   br label %31
 
 31:                                               ; preds = %28, %26
@@ -3775,7 +3773,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   br i1 %41, label %42, label %57
 
 42:                                               ; preds = %40
-  %43 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %43 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef @.str.9)
           to label %44 unwind label %53
 
@@ -3790,7 +3788,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store ptr %47, ptr %16, align 8
   %48 = extractvalue { ptr, i32 } %46, 1
   store i32 %48, ptr %17, align 4
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   br label %70
 
 49:                                               ; preds = %66, %64, %44, %31
@@ -3809,7 +3807,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store ptr %55, ptr %16, align 8
   %56 = extractvalue { ptr, i32 } %54, 1
   store i32 %56, ptr %17, align 4
-  call void @__cxa_free_exception(ptr %43) #14
+  call void @__cxa_free_exception(ptr %43) #13
   br label %69
 
 57:                                               ; preds = %40
@@ -3820,8 +3818,8 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.1", ptr %18, i32 0, i32 1
-  %63 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #14
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE18set_as_last_bucketEv(ptr noundef nonnull align 8 dereferenceable(24) %63) #14
+  %63 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #13
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE18set_as_last_bucketEv(ptr noundef nonnull align 8 dereferenceable(24) %63) #13
   br label %64
 
 64:                                               ; preds = %61, %57
@@ -3838,7 +3836,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   ret void
 
 69:                                               ; preds = %53, %49
-  call void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
+  call void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   br label %70
 
 70:                                               ; preds = %69, %45
@@ -3859,7 +3857,7 @@ define linkonce_odr hidden void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   ret void
 }
 
@@ -3893,7 +3891,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_e
   store ptr %18, ptr %7, align 8
   %19 = extractvalue { ptr, i32 } %17, 1
   store i32 %19, ptr %8, align 4
-  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
+  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   br label %20
 
 20:                                               ; preds = %16
@@ -3909,7 +3907,7 @@ define linkonce_odr hidden void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -3920,13 +3918,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNKSt6vectorIN3tsl17detail_robin
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.23", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = call ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = call ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.23", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
-  %8 = call ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %8 = call ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.23", ptr %4, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEEbRKNS_17__normal_iteratorIT_T0_EESO_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #14
+  %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEEbRKNS_17__normal_iteratorIT_T0_EESO_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   ret i1 %10
 }
 
@@ -3939,14 +3937,14 @@ define linkonce_odr hidden noundef ptr @_ZN3tsl17detail_robin_hash10robin_hashIS
   br i1 %4, label %5, label %10, !prof !6
 
 5:                                                ; preds = %1
-  %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #14
+  %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #13
   %7 = icmp ne i32 %6, 0
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEC2Eb(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, i1 noundef zeroext true) #14
-  %9 = call i32 @__cxa_atexit(ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EED2Ev, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, ptr @__dso_handle) #14
-  call void @__cxa_guard_release(ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #14
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEC2Eb(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, i1 noundef zeroext true) #13
+  %9 = call i32 @__cxa_atexit(ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EED2Ev, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, ptr @__dso_handle) #13
+  call void @__cxa_guard_release(ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #13
   br label %10
 
 10:                                               ; preds = %8, %5, %1
@@ -3961,7 +3959,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12b
   %4 = getelementptr inbounds %"struct.std::_Vector_base.5", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
-  %7 = call noundef ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE11_M_data_ptrISC_EEPT_SH_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #14
+  %7 = call noundef ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE11_M_data_ptrISC_EEPT_SH_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #13
   ret ptr %7
 }
 
@@ -3975,7 +3973,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashI
   %6 = call noundef i64 @_ZNK3tsl2rh26power_of_two_growth_policyILm2EE16max_bucket_countEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
   store i64 %6, ptr %3, align 8
   %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.1", ptr %5, i32 0, i32 1
-  %8 = call noundef i64 @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %8 = call noundef i64 @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   store i64 %8, ptr %4, align 8
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %10 = load i64, ptr %9, align 8
@@ -3989,13 +3987,13 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.24", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = call ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = call ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.24", ptr %4, i32 0, i32 0
   store ptr %6, ptr %7, align 8
-  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #14
+  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #13
   %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.24", ptr %3, i32 0, i32 0
   store ptr %8, ptr %9, align 8
-  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret ptr %10
 }
 
@@ -4064,12 +4062,12 @@ define linkonce_odr hidden void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_e
   %7 = getelementptr inbounds %"struct.std::_Vector_base.5", ptr %3, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %8, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   invoke void @_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
 
 11:                                               ; preds = %1
-  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 
 12:                                               ; preds = %1
@@ -4096,10 +4094,10 @@ define linkonce_odr hidden noundef i64 @_ZNSt6vectorIN3tsl17detail_robin_hash12b
   store ptr %1, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEC2ERKSC_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7) #14
-  %8 = call noundef i64 @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE11_S_max_sizeERKSD_(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEC2ERKSC_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7) #13
+  %8 = call noundef i64 @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE11_S_max_sizeERKSD_(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   %9 = icmp ugt i64 %6, %8
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
@@ -4124,7 +4122,7 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12b
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds %"struct.std::_Vector_base.5", ptr %9, i32 0, i32 0
   %11 = load ptr, ptr %6, align 8
-  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE12_Vector_implC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE12_Vector_implC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #13
   %12 = load i64, ptr %5, align 8
   invoke void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %12)
           to label %13 unwind label %14
@@ -4139,7 +4137,7 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12b
   store ptr %16, ptr %7, align 8
   %17 = extractvalue { ptr, i32 } %15, 1
   store i32 %17, ptr %8, align 4
-  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   br label %18
 
 18:                                               ; preds = %14
@@ -4161,7 +4159,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_e
   %7 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %4, align 8
-  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %11 = call noundef ptr @_ZSt27__uninitialized_default_n_aIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEmSC_ET_SE_T0_RSaIT1_E(ptr noundef %8, i64 noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
   %12 = getelementptr inbounds %"struct.std::_Vector_base.5", ptr %5, i32 0, i32 0
   %13 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>>>::_Vector_impl_data", ptr %12, i32 0, i32 1
@@ -4192,7 +4190,7 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12b
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds %"struct.std::_Vector_base.5", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   ret void
 
 19:                                               ; preds = %1
@@ -4211,7 +4209,7 @@ define linkonce_odr hidden noundef i64 @_ZNSt6vectorIN3tsl17detail_robin_hash12b
   store ptr %0, ptr %2, align 8
   store i64 384307168202282325, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEE8max_sizeERKSD_(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEE8max_sizeERKSD_(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   store i64 %6, ptr %4, align 8
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %8 = load i64, ptr %7, align 8
@@ -4226,7 +4224,7 @@ define linkonce_odr hidden void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEC2ERKSD_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEC2ERKSD_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #13
   ret void
 }
 
@@ -4235,7 +4233,7 @@ define linkonce_odr hidden noundef i64 @_ZNSt16allocator_traitsISaIN3tsl17detail
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret i64 %4
 }
 
@@ -4244,7 +4242,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_ro
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret i64 %4
 }
 
@@ -4272,8 +4270,8 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12b
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEC2ERKSC_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #14
-  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEC2ERKSC_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #13
+  call void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   ret void
 }
 
@@ -4311,7 +4309,7 @@ define linkonce_odr hidden void @_ZNSt12_Vector_baseIN3tsl17detail_robin_hash12b
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   ret void
 }
 
@@ -4376,7 +4374,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorIN3tsl17detail_rob
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = load i64, ptr %5, align 8
-  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   %10 = icmp ugt i64 %8, %9
   br i1 %10, label %11, label %16
 
@@ -4490,7 +4488,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %6, align 8
-  %26 = call ptr @__cxa_begin_catch(ptr %25) #14
+  %26 = call ptr @__cxa_begin_catch(ptr %25) #13
   %27 = load ptr, ptr %3, align 8
   %28 = load ptr, ptr %5, align 8
   invoke void @_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvT_SE_(ptr noundef %27, ptr noundef %28)
@@ -4544,7 +4542,7 @@ define linkonce_odr hidden void @_ZSt10_ConstructIN3tsl17detail_robin_hash12buck
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
@@ -4608,7 +4606,7 @@ define linkonce_odr hidden void @_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
@@ -4617,7 +4615,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pai
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
@@ -4626,11 +4624,11 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pai
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   %6 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry.20", ptr %3, i32 0, i32 1
   store i16 -1, ptr %6, align 4
   br label %7
@@ -4656,7 +4654,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pai
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
   ret void
 }
 
@@ -4666,7 +4664,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN3
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry.20", ptr %3, i32 0, i32 4
-  %5 = call noundef ptr @_ZSt7launderISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEEPT_SA_(ptr noundef %4) #14
+  %5 = call noundef ptr @_ZSt7launderISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEEEPT_SA_(ptr noundef %4) #13
   ret ptr %5
 }
 
@@ -4737,10 +4735,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN3tsl17detail_r
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %7, %10
   ret i1 %11
@@ -4754,7 +4752,7 @@ define linkonce_odr hidden ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_e
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"struct.std::_Vector_base.5", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEC2ERKSF_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEC2ERKSF_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.23", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -4768,7 +4766,7 @@ define linkonce_odr hidden ptr @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_e
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"struct.std::_Vector_base.5", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEC2ERKSF_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEC2ERKSF_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.23", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -4832,8 +4830,8 @@ define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN3tsl17detail_robin_hash12
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #14
-  %5 = call noundef i64 @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE11_S_max_sizeERKSD_(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #13
+  %5 = call noundef i64 @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE11_S_max_sizeERKSD_(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   ret i64 %5
 }
 
@@ -4854,7 +4852,7 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_en
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"struct.std::_Vector_base.5", ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds %"struct.std::_Vector_base<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>, std::allocator<tsl::detail_robin_hash::bucket_entry<std::pair<const std::type_info *, nanobind::detail::type_data *>, true>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.24", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
@@ -4875,7 +4873,7 @@ define linkonce_odr hidden ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN3tsl17detail
   %11 = sub i64 0, %10
   %12 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry.20", ptr %9, i64 %11
   store ptr %12, ptr %6, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESt6vectorISD_SaISD_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.24", ptr %3, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   ret ptr %14
@@ -4982,24 +4980,24 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %19 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.11", ptr %18, i32 0, i32 1
   %20 = load i64, ptr %9, align 8
   %21 = load ptr, ptr %12, align 8
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEC2ISA_EERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %21) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEC2ISA_EERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %21) #13
   invoke void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EEC2EmRKSD_(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %22 unwind label %45
 
 22:                                               ; preds = %7
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   %23 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.11", ptr %18, i32 0, i32 2
   %24 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.11", ptr %18, i32 0, i32 1
-  %25 = call noundef zeroext i1 @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
+  %25 = call noundef zeroext i1 @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #13
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %22
-  %27 = call noundef ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEv(ptr noundef nonnull align 8 dereferenceable(74) %18) #14
+  %27 = call noundef ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEv(ptr noundef nonnull align 8 dereferenceable(74) %18) #13
   br label %31
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.11", ptr %18, i32 0, i32 1
-  %30 = call noundef ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #14
+  %30 = call noundef ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
   br label %31
 
 31:                                               ; preds = %28, %26
@@ -5023,7 +5021,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   br i1 %41, label %42, label %57
 
 42:                                               ; preds = %40
-  %43 = call ptr @__cxa_allocate_exception(i64 16) #14
+  %43 = call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef @.str.9)
           to label %44 unwind label %53
 
@@ -5038,7 +5036,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store ptr %47, ptr %16, align 8
   %48 = extractvalue { ptr, i32 } %46, 1
   store i32 %48, ptr %17, align 4
-  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #14
+  call void @_ZNSaIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   br label %70
 
 49:                                               ; preds = %66, %64, %44, %31
@@ -5057,7 +5055,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store ptr %55, ptr %16, align 8
   %56 = extractvalue { ptr, i32 } %54, 1
   store i32 %56, ptr %17, align 4
-  call void @__cxa_free_exception(ptr %43) #14
+  call void @__cxa_free_exception(ptr %43) #13
   br label %69
 
 57:                                               ; preds = %40
@@ -5068,8 +5066,8 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.11", ptr %18, i32 0, i32 1
-  %63 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #14
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE18set_as_last_bucketEv(ptr noundef nonnull align 8 dereferenceable(24) %63) #14
+  %63 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #13
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE18set_as_last_bucketEv(ptr noundef nonnull align 8 dereferenceable(24) %63) #13
   br label %64
 
 64:                                               ; preds = %61, %57
@@ -5086,7 +5084,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   ret void
 
 69:                                               ; preds = %53, %49
-  call void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
+  call void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   br label %70
 
 70:                                               ; preds = %69, %45
@@ -5109,14 +5107,14 @@ define linkonce_odr hidden noundef ptr @_ZN3tsl17detail_robin_hash10robin_hashIS
   br i1 %4, label %5, label %10, !prof !6
 
 5:                                                ; preds = %1
-  %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket) #14
+  %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket) #13
   %7 = icmp ne i32 %6, 0
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEC2Eb(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, i1 noundef zeroext true) #14
-  %9 = call i32 @__cxa_atexit(ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EED2Ev, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, ptr @__dso_handle) #14
-  call void @__cxa_guard_release(ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket) #14
+  call void @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEC2Eb(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, i1 noundef zeroext true) #13
+  %9 = call i32 @__cxa_atexit(ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EED2Ev, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, ptr @__dso_handle) #13
+  call void @__cxa_guard_release(ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket) #13
   br label %10
 
 10:                                               ; preds = %8, %5, %1
@@ -5133,7 +5131,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashI
   %6 = call noundef i64 @_ZNK3tsl2rh26power_of_two_growth_policyILm2EE16max_bucket_countEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
   store i64 %6, ptr %3, align 8
   %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.11", ptr %5, i32 0, i32 1
-  %8 = call noundef i64 @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %8 = call noundef i64 @_ZNKSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   store i64 %8, ptr %4, align 8
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %10 = load i64, ptr %9, align 8
@@ -5200,7 +5198,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  call void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret void
 }
 
@@ -5210,7 +5208,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.11", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  call void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret void
 }
 
@@ -5220,11 +5218,11 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.1", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  call void @_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   ret void
 }
 
-declare noundef ptr @_ZN8nanobind6detail13str_from_cstrEPKc(ptr noundef) #4
+declare noundef ptr @_ZN8nanobind6detail13str_from_cstrEPKc(ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7steal_tE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #2 comdat align 2 {
@@ -5238,31 +5236,31 @@ define linkonce_odr hidden void @_ZN8nanobind6objectC2ENS_6handleENS_6detail7ste
   ret void
 }
 
-declare hidden noundef ptr @_ZN8nanobind6detail16nb_func_getattroEP7_objectS2_(ptr noundef, ptr noundef) #4
+declare hidden noundef ptr @_ZN8nanobind6detail16nb_func_getattroEP7_objectS2_(ptr noundef, ptr noundef) #3
 
-declare hidden noundef i32 @_ZN8nanobind6detail16nb_func_traverseEP7_objectPFiS2_PvES3_(ptr noundef, ptr noundef, ptr noundef) #4
+declare hidden noundef i32 @_ZN8nanobind6detail16nb_func_traverseEP7_objectPFiS2_PvES3_(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare hidden noundef i32 @_ZN8nanobind6detail13nb_func_clearEP7_object(ptr noundef) #4
+declare hidden noundef i32 @_ZN8nanobind6detail13nb_func_clearEP7_object(ptr noundef) #3
 
-declare hidden void @_ZN8nanobind6detail15nb_func_deallocEP7_object(ptr noundef) #4
+declare hidden void @_ZN8nanobind6detail15nb_func_deallocEP7_object(ptr noundef) #3
 
-declare ptr @PyType_GenericNew(ptr noundef, ptr noundef, ptr noundef) #4
+declare ptr @PyType_GenericNew(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @PyVectorcall_Call(ptr noundef, ptr noundef, ptr noundef) #4
+declare ptr @PyVectorcall_Call(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare hidden noundef ptr @_ZN8nanobind6detail15nb_func_get_docEP7_objectPv(ptr noundef, ptr noundef) #4
+declare hidden noundef ptr @_ZN8nanobind6detail15nb_func_get_docEP7_objectPv(ptr noundef, ptr noundef) #3
 
-declare hidden noundef ptr @_ZN8nanobind6detail24nb_func_get_nb_signatureEP7_objectPv(ptr noundef, ptr noundef) #4
+declare hidden noundef ptr @_ZN8nanobind6detail24nb_func_get_nb_signatureEP7_objectPv(ptr noundef, ptr noundef) #3
 
-declare hidden noundef ptr @_ZN8nanobind6detail19nb_method_descr_getEP7_objectS2_S2_(ptr noundef, ptr noundef, ptr noundef) #4
+declare hidden noundef ptr @_ZN8nanobind6detail19nb_method_descr_getEP7_objectS2_S2_(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare hidden noundef ptr @_ZN8nanobind6detail24nb_bound_method_getattroEP7_objectS2_(ptr noundef, ptr noundef) #4
+declare hidden noundef ptr @_ZN8nanobind6detail24nb_bound_method_getattroEP7_objectS2_(ptr noundef, ptr noundef) #3
 
-declare hidden noundef i32 @_ZN8nanobind6detail24nb_bound_method_traverseEP7_objectPFiS2_PvES3_(ptr noundef, ptr noundef, ptr noundef) #4
+declare hidden noundef i32 @_ZN8nanobind6detail24nb_bound_method_traverseEP7_objectPFiS2_PvES3_(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare hidden noundef i32 @_ZN8nanobind6detail21nb_bound_method_clearEP7_object(ptr noundef) #4
+declare hidden noundef i32 @_ZN8nanobind6detail21nb_bound_method_clearEP7_object(ptr noundef) #3
 
-declare hidden void @_ZN8nanobind6detail23nb_bound_method_deallocEP7_object(ptr noundef) #4
+declare hidden void @_ZN8nanobind6detail23nb_bound_method_deallocEP7_object(ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
@@ -5270,7 +5268,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3tsl9robin_mapIPvS1_N8nanobin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::robin_map", ptr %3, i32 0, i32 0
-  %5 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E5emptyEv(ptr noundef nonnull align 8 dereferenceable(74) %4) #14
+  %5 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E5emptyEv(ptr noundef nonnull align 8 dereferenceable(74) %4) #13
   ret i1 %5
 }
 
@@ -5280,7 +5278,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3tsl9robin_mapIPvS1_N8nanobind6detai
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::robin_map", ptr %3, i32 0, i32 0
-  %5 = call noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4sizeEv(ptr noundef nonnull align 8 dereferenceable(74) %4) #14
+  %5 = call noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E4sizeEv(ptr noundef nonnull align 8 dereferenceable(74) %4) #13
   ret i64 %5
 }
 
@@ -5291,7 +5289,7 @@ define linkonce_odr hidden ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_has
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"class.tsl::robin_map", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E5beginEv(ptr noundef nonnull align 8 dereferenceable(74) %5) #14
+  %6 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E5beginEv(ptr noundef nonnull align 8 dereferenceable(74) %5) #13
   %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
@@ -5306,7 +5304,7 @@ define linkonce_odr hidden ptr @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_has
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"class.tsl::robin_map", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E3endEv(ptr noundef nonnull align 8 dereferenceable(74) %5) #14
+  %6 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E3endEv(ptr noundef nonnull align 8 dereferenceable(74) %5) #13
   %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
@@ -5334,7 +5332,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   ret ptr %6
 }
 
@@ -5343,7 +5341,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm0EE10__move_getIPvS2_EEOT_OSt4pairIS3_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm0EE10__move_getIPvS2_EEOT_OSt4pairIS3_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   ret ptr %4
 }
 
@@ -5352,7 +5350,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm1EE10__move_getIPvS2_EEOT0_OSt4pairIT_S3_E(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm1EE10__move_getIPvS2_EEOT0_OSt4pairIT_S3_E(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   ret ptr %4
 }
 
@@ -5367,7 +5365,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3t
 5:                                                ; preds = %21, %1
   %6 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %4, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
-  %8 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE11last_bucketEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %8 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE11last_bucketEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %5
@@ -5385,7 +5383,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3t
   store ptr %16, ptr %14, align 8
   %17 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %4, i32 0, i32 0
   %18 = load ptr, ptr %17, align 8
-  %19 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  %19 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %13
@@ -5406,7 +5404,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3tsl9robin_mapIPKSt9type_info
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::robin_map.10", ptr %3, i32 0, i32 0
-  %5 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E5emptyEv(ptr noundef nonnull align 8 dereferenceable(74) %4) #14
+  %5 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E5emptyEv(ptr noundef nonnull align 8 dereferenceable(74) %4) #13
   ret i1 %5
 }
 
@@ -5416,7 +5414,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3tsl9robin_mapIPKSt9type_info
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::robin_map.0", ptr %3, i32 0, i32 0
-  %5 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E5emptyEv(ptr noundef nonnull align 8 dereferenceable(74) %4) #14
+  %5 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E5emptyEv(ptr noundef nonnull align 8 dereferenceable(74) %4) #13
   ret i1 %5
 }
 
@@ -5426,7 +5424,7 @@ define linkonce_odr hidden noundef i64 @_ZNK3tsl9robin_mapIPKSt9type_infoPN8nano
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::robin_map.10", ptr %3, i32 0, i32 0
-  %5 = call noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E4sizeEv(ptr noundef nonnull align 8 dereferenceable(74) %4) #14
+  %5 = call noundef i64 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E4sizeEv(ptr noundef nonnull align 8 dereferenceable(74) %4) #13
   ret i64 %5
 }
 
@@ -5437,7 +5435,7 @@ define linkonce_odr hidden ptr @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6deta
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"class.tsl::robin_map.10", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E5beginEv(ptr noundef nonnull align 8 dereferenceable(74) %5) #14
+  %6 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E5beginEv(ptr noundef nonnull align 8 dereferenceable(74) %5) #13
   %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<const std::type_info *, nanobind::detail::type_data *>, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::KeySelect, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::ValueSelect, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq, std::allocator<std::pair<const std::type_info *, nanobind::detail::type_data *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<const std::type_info *, nanobind::detail::type_data *>, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::KeySelect, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::ValueSelect, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq, std::allocator<std::pair<const std::type_info *, nanobind::detail::type_data *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
@@ -5452,7 +5450,7 @@ define linkonce_odr hidden ptr @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6deta
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"class.tsl::robin_map.10", ptr %4, i32 0, i32 0
-  %6 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E3endEv(ptr noundef nonnull align 8 dereferenceable(74) %5) #14
+  %6 = call ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E3endEv(ptr noundef nonnull align 8 dereferenceable(74) %5) #13
   %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<const std::type_info *, nanobind::detail::type_data *>, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::KeySelect, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::ValueSelect, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq, std::allocator<std::pair<const std::type_info *, nanobind::detail::type_data *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<const std::type_info *, nanobind::detail::type_data *>, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::KeySelect, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::ValueSelect, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq, std::allocator<std::pair<const std::type_info *, nanobind::detail::type_data *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
@@ -5480,7 +5478,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<const std::type_info *, nanobind::detail::type_data *>, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::KeySelect, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::ValueSelect, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq, std::allocator<std::pair<const std::type_info *, nanobind::detail::type_data *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
-  %6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
+  %6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   ret ptr %6
 }
 
@@ -5495,7 +5493,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3t
 5:                                                ; preds = %21, %1
   %6 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<const std::type_info *, nanobind::detail::type_data *>, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::KeySelect, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::ValueSelect, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq, std::allocator<std::pair<const std::type_info *, nanobind::detail::type_data *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %4, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
-  %8 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE11last_bucketEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
+  %8 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE11last_bucketEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %5
@@ -5513,7 +5511,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3t
   store ptr %16, ptr %14, align 8
   %17 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<const std::type_info *, nanobind::detail::type_data *>, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::KeySelect, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::ValueSelect, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq, std::allocator<std::pair<const std::type_info *, nanobind::detail::type_data *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %4, i32 0, i32 0
   %18 = load ptr, ptr %17, align 8
-  %19 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #14
+  %19 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %13
@@ -5534,20 +5532,20 @@ define linkonce_odr hidden void @_ZN8nanobind6detail12nb_internalsD2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %3, i32 0, i32 14
-  call void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #14
+  call void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #13
   %5 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %3, i32 0, i32 13
-  call void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #14
+  call void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
   %6 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %3, i32 0, i32 12
-  call void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #14
+  call void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #13
   %7 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %3, i32 0, i32 11
-  call void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #14
+  call void @_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #13
   %8 = getelementptr inbounds %"struct.nanobind::detail::nb_internals", ptr %3, i32 0, i32 10
-  call void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #14
+  call void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #13
   ret void
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #12
+declare void @abort() #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E5emptyEv(ptr noundef nonnull align 8 dereferenceable(74) %0) #2 comdat align 2 {
@@ -5592,7 +5590,7 @@ define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIP
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %4, align 8
   %15 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %13, i64 %14
-  %16 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  %16 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   br label %17
 
 17:                                               ; preds = %11, %6
@@ -5610,7 +5608,7 @@ define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIP
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %4, align 8
   %26 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %24, i64 %25
-  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEC2EPNS0_12bucket_entryIS4_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %26) #14
+  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEC2EPNS0_12bucket_entryIS4_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %26) #13
   %27 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
   %28 = load ptr, ptr %27, align 8
   ret ptr %28
@@ -5640,7 +5638,7 @@ define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIP
   %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash", ptr %4, i32 0, i32 3
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %6, i64 %8
-  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEC2EPNS0_12bucket_entryIS4_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #14
+  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E14robin_iteratorILb0EEC2EPNS0_12bucket_entryIS4_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #13
   %10 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<void *, void *>, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::KeySelect, tsl::robin_map<void *, void *, nanobind::detail::ptr_hash>::ValueSelect, nanobind::detail::ptr_hash, std::equal_to<void *>, std::allocator<std::pair<void *, void *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
@@ -5745,7 +5743,7 @@ define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIP
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %4, align 8
   %15 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry.20", ptr %13, i64 %14
-  %16 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #14
+  %16 = call noundef zeroext i1 @_ZNK3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   br label %17
 
 17:                                               ; preds = %11, %6
@@ -5763,7 +5761,7 @@ define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIP
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %4, align 8
   %26 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry.20", ptr %24, i64 %25
-  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E14robin_iteratorILb0EEC2EPNS0_12bucket_entryISA_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %26) #14
+  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E14robin_iteratorILb0EEC2EPNS0_12bucket_entryISA_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %26) #13
   %27 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<const std::type_info *, nanobind::detail::type_data *>, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::KeySelect, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::ValueSelect, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq, std::allocator<std::pair<const std::type_info *, nanobind::detail::type_data *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
   %28 = load ptr, ptr %27, align 8
   ret ptr %28
@@ -5793,7 +5791,7 @@ define linkonce_odr hidden ptr @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIP
   %7 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash.11", ptr %4, i32 0, i32 3
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry.20", ptr %6, i64 %8
-  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E14robin_iteratorILb0EEC2EPNS0_12bucket_entryISA_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #14
+  call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E14robin_iteratorILb0EEC2EPNS0_12bucket_entryISA_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #13
   %10 = getelementptr inbounds %"class.tsl::detail_robin_hash::robin_hash<std::pair<const std::type_info *, nanobind::detail::type_data *>, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::KeySelect, tsl::robin_map<const std::type_info *, nanobind::detail::type_data *, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq>::ValueSelect, nanobind::detail::std_typeinfo_hash, nanobind::detail::std_typeinfo_eq, std::allocator<std::pair<const std::type_info *, nanobind::detail::type_data *>>, false, tsl::rh::power_of_two_growth_policy<2>>::robin_iterator", ptr %2, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
@@ -5831,7 +5829,7 @@ define linkonce_odr hidden void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
 
@@ -5856,21 +5854,24 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR
   unreachable
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #14
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind memory(none) }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #14 = { nounwind }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind memory(none) }
 attributes #15 = { noreturn }
 attributes #16 = { noreturn nounwind }
 attributes #17 = { builtin allocsize(0) }

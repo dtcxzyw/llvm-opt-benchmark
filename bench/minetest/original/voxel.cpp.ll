@@ -81,7 +81,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16VoxelManipulatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV16VoxelManipulator, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16VoxelManipulator, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !4
   %m_area.i = getelementptr inbounds i8, ptr %this, i64 8
   store i16 1, ptr %m_area.i, align 8, !tbaa !7
   %ref.tmp.sroa.5.0.m_area.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 10
@@ -91,23 +92,23 @@ entry:
   %ref.tmp.sroa.7.0.m_area.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %ref.tmp.sroa.7.0.m_area.sroa_idx.i, i8 0, i64 12, i1 false)
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load ptr, ptr %m_data.i, align 8, !tbaa !10
-  %isnull.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %m_data.i, align 8, !tbaa !10
+  %isnull.i = icmp eq ptr %1, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #17
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %entry
   store ptr null, ptr %m_data.i, align 8, !tbaa !10
   %m_flags.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %m_flags.i, align 8, !tbaa !15
-  %isnull3.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %m_flags.i, align 8, !tbaa !15
+  %isnull3.i = icmp eq ptr %2, null
   br i1 %isnull3.i, label %invoke.cont, label %delete.notnull4.i
 
 delete.notnull4.i:                                ; preds = %delete.end.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #17
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %delete.notnull4.i, %delete.end.i
@@ -131,7 +132,8 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16VoxelManipulatorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTV16VoxelManipulator, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV16VoxelManipulator, i64 0, i32 0, i64 2
+  store ptr %0, ptr %this, align 8, !tbaa !4
   %m_area.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i16 1, ptr %m_area.i.i, align 8, !tbaa !7
   %ref.tmp.sroa.5.0.m_area.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 10
@@ -141,23 +143,23 @@ entry:
   %ref.tmp.sroa.7.0.m_area.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %ref.tmp.sroa.7.0.m_area.sroa_idx.i.i, i8 0, i64 12, i1 false)
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %0 = load ptr, ptr %m_data.i.i, align 8, !tbaa !10
-  %isnull.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %m_data.i.i, align 8, !tbaa !10
+  %isnull.i.i = icmp eq ptr %1, null
   br i1 %isnull.i.i, label %delete.end.i.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #17
   br label %delete.end.i.i
 
 delete.end.i.i:                                   ; preds = %delete.notnull.i.i, %entry
   store ptr null, ptr %m_data.i.i, align 8, !tbaa !10
   %m_flags.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %m_flags.i.i, align 8, !tbaa !15
-  %isnull3.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %m_flags.i.i, align 8, !tbaa !15
+  %isnull3.i.i = icmp eq ptr %2, null
   br i1 %isnull3.i.i, label %_ZN16VoxelManipulatorD2Ev.exit, label %delete.notnull4.i.i
 
 delete.notnull4.i.i:                              ; preds = %delete.end.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #17
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #17
   br label %_ZN16VoxelManipulatorD2Ev.exit
 
 _ZN16VoxelManipulatorD2Ev.exit:                   ; preds = %delete.notnull4.i.i, %delete.end.i.i
@@ -1501,9 +1503,11 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   store i16 127, ptr @_ZN16VoxelManipulator17ContentIgnoreNodeE, align 4, !tbaa !107
-  store i8 0, ptr getelementptr inbounds (%struct.MapNode, ptr @_ZN16VoxelManipulator17ContentIgnoreNodeE, i64 0, i32 1), align 2, !tbaa !114
-  store i8 0, ptr getelementptr inbounds (%struct.MapNode, ptr @_ZN16VoxelManipulator17ContentIgnoreNodeE, i64 0, i32 2), align 1, !tbaa !115
-  %1 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN16VoxelManipulator17ContentIgnoreNodeE)
+  %1 = getelementptr inbounds %struct.MapNode, ptr @_ZN16VoxelManipulator17ContentIgnoreNodeE, i64 0, i32 1
+  store i8 0, ptr %1, align 2, !tbaa !114
+  %2 = getelementptr inbounds %struct.MapNode, ptr @_ZN16VoxelManipulator17ContentIgnoreNodeE, i64 0, i32 2
+  store i8 0, ptr %2, align 1, !tbaa !115
+  %3 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN16VoxelManipulator17ContentIgnoreNodeE)
   ret void
 }
 

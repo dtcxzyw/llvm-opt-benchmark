@@ -12,9 +12,9 @@ define dso_local i32 @acpi_ex_opcode_3A_0T_0R(ptr nocapture noundef readonly %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 872
   %4 = getelementptr inbounds i8, ptr %0, i64 10
   %5 = load i16, ptr %4, align 2
-  switch i16 %5, label %34 [
+  switch i16 %5, label %35 [
     i16 23346, label %6
-    i16 21, label %33
+    i16 21, label %34
   ]
 
 6:                                                ; preds = %1
@@ -26,50 +26,51 @@ define dso_local i32 @acpi_ex_opcode_3A_0T_0R(ptr nocapture noundef readonly %0)
   %8 = and i64 %7, 512
   %9 = icmp eq i64 %8, 0
   %10 = select i1 %9, i32 2080, i32 3264
-  %11 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %12 = call noalias noundef align 8 dereferenceable_or_null(12) ptr @kmalloc_trace(ptr noundef %11, i32 noundef %10, i64 noundef 12) #7
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %31, label %14
+  %11 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %12 = load ptr, ptr %11, align 16
+  %13 = call noalias noundef align 8 dereferenceable_or_null(12) ptr @kmalloc_trace(ptr noundef %12, i32 noundef %10, i64 noundef 12) #7
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %32, label %15
 
-14:                                               ; preds = %6
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
-  %17 = load i64, ptr %16, align 8
-  %18 = trunc i64 %17 to i32
-  store i32 %18, ptr %12, align 8
-  %19 = getelementptr i8, ptr %0, i64 880
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
-  %22 = load i64, ptr %21, align 8
-  %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %12, i64 4
-  store i32 %23, ptr %24, align 4
-  %25 = getelementptr i8, ptr %0, i64 888
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
-  %28 = load i64, ptr %27, align 8
-  %29 = trunc i64 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 %29, ptr %30, align 8
-  br label %31
+15:                                               ; preds = %6
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = load i64, ptr %17, align 8
+  %19 = trunc i64 %18 to i32
+  store i32 %19, ptr %13, align 8
+  %20 = getelementptr i8, ptr %0, i64 880
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = load i64, ptr %22, align 8
+  %24 = trunc i64 %23 to i32
+  %25 = getelementptr inbounds i8, ptr %13, i64 4
+  store i32 %24, ptr %25, align 4
+  %26 = getelementptr i8, ptr %0, i64 888
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = load i64, ptr %28, align 8
+  %30 = trunc i64 %29 to i32
+  %31 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 %30, ptr %31, align 8
+  br label %32
 
-31:                                               ; preds = %14, %6
-  %32 = call i32 @acpi_os_signal(i32 noundef 0, ptr noundef %12) #6
-  call void @kfree(ptr noundef %12) #6
-  br label %36
-
-33:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 95, ptr noundef nonnull @.str) #6
-  br label %36
+32:                                               ; preds = %15, %6
+  %33 = call i32 @acpi_os_signal(i32 noundef 0, ptr noundef %13) #6
+  call void @kfree(ptr noundef %13) #6
+  br label %37
 
 34:                                               ; preds = %1
-  %35 = zext i16 %5 to i32
-  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 101, ptr noundef nonnull @.str.1, i32 noundef %35) #6
-  br label %36
+  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 95, ptr noundef nonnull @.str) #6
+  br label %37
 
-36:                                               ; preds = %34, %33, %31
-  %37 = phi i32 [ 12289, %34 ], [ 0, %33 ], [ %32, %31 ]
-  ret i32 %37
+35:                                               ; preds = %1
+  %36 = zext i16 %5 to i32
+  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 101, ptr noundef nonnull @.str.1, i32 noundef %36) #6
+  br label %37
+
+37:                                               ; preds = %35, %34, %32
+  %38 = phi i32 [ 12289, %35 ], [ 0, %34 ], [ %33, %32 ]
+  ret i32 %38
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

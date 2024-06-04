@@ -592,7 +592,7 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 51:                                               ; preds = %49
   call void @pgstat_bestart()
-  br label %468
+  br label %469
 
 52:                                               ; preds = %49
   %53 = load i8, ptr %13, align 1
@@ -622,7 +622,7 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
 64:                                               ; preds = %62, %60, %57
   call void @InitializeSessionUserIdStandalone()
   store i8 1, ptr %14, align 1
-  br label %124
+  br label %125
 
 65:                                               ; preds = %62
   %66 = load i8, ptr @IsUnderPostmaster, align 1
@@ -676,7 +676,7 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %89
 
 89:                                               ; preds = %88, %68
-  br label %123
+  br label %124
 
 90:                                               ; preds = %65
   %91 = load i8, ptr @IsBackgroundWorker, align 1
@@ -711,7 +711,7 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %108
 
 108:                                              ; preds = %100, %99
-  br label %122
+  br label %123
 
 109:                                              ; preds = %90
   %110 = load ptr, ptr @MyProcPort, align 8
@@ -721,680 +721,681 @@ define dso_local void @InitPostgres(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @InitializeSessionUserId(ptr noundef %111, i32 noundef %112, i1 noundef zeroext false)
   %113 = load ptr, ptr @MyClientConnectionInfo, align 8
   %114 = icmp ne ptr %113, null
-  br i1 %114, label %115, label %119
+  br i1 %114, label %115, label %120
 
 115:                                              ; preds = %109
   %116 = load ptr, ptr @MyClientConnectionInfo, align 8
-  %117 = load i32, ptr getelementptr inbounds (%struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i32 0, i32 1), align 8
-  %118 = call ptr @hba_authname(i32 noundef %117)
-  call void @InitializeSystemUser(ptr noundef %116, ptr noundef %118)
-  br label %119
+  %117 = getelementptr inbounds %struct.ClientConnectionInfo, ptr @MyClientConnectionInfo, i32 0, i32 1
+  %118 = load i32, ptr %117, align 8
+  %119 = call ptr @hba_authname(i32 noundef %118)
+  call void @InitializeSystemUser(ptr noundef %116, ptr noundef %119)
+  br label %120
 
-119:                                              ; preds = %115, %109
-  %120 = call zeroext i1 @superuser()
-  %121 = zext i1 %120 to i8
-  store i8 %121, ptr %14, align 1
-  br label %122
-
-122:                                              ; preds = %119, %108
+120:                                              ; preds = %115, %109
+  %121 = call zeroext i1 @superuser()
+  %122 = zext i1 %121 to i8
+  store i8 %122, ptr %14, align 1
   br label %123
 
-123:                                              ; preds = %122, %89
+123:                                              ; preds = %120, %108
   br label %124
 
-124:                                              ; preds = %123, %64
-  %125 = load i8, ptr @IsBinaryUpgrade, align 1
-  %126 = trunc i8 %125 to i1
-  br i1 %126, label %127, label %141
+124:                                              ; preds = %123, %89
+  br label %125
 
-127:                                              ; preds = %124
-  %128 = load i8, ptr %14, align 1
-  %129 = trunc i8 %128 to i1
-  br i1 %129, label %141, label %130
+125:                                              ; preds = %124, %64
+  %126 = load i8, ptr @IsBinaryUpgrade, align 1
+  %127 = trunc i8 %126 to i1
+  br i1 %127, label %128, label %142
 
-130:                                              ; preds = %127
-  br label %131
+128:                                              ; preds = %125
+  %129 = load i8, ptr %14, align 1
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %142, label %131
 
-131:                                              ; preds = %130
-  br i1 true, label %132, label %134
+131:                                              ; preds = %128
+  br label %132
 
 132:                                              ; preds = %131
-  %133 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
-  br i1 %133, label %136, label %139
+  br i1 true, label %133, label %135
 
-134:                                              ; preds = %131
-  %135 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %135, label %136, label %139
+133:                                              ; preds = %132
+  %134 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  br i1 %134, label %137, label %140
 
-136:                                              ; preds = %134, %132
-  %137 = call i32 @errcode(i32 noundef 16797828)
-  %138 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.6)
+135:                                              ; preds = %132
+  %136 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %136, label %137, label %140
+
+137:                                              ; preds = %135, %133
+  %138 = call i32 @errcode(i32 noundef 16797828)
+  %139 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.6)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 926, ptr noundef @.str.2)
-  br label %139
+  br label %140
 
-139:                                              ; preds = %136, %134, %132
+140:                                              ; preds = %137, %135, %133
   unreachable
 
-140:                                              ; No predecessors!
-  br label %141
+141:                                              ; No predecessors!
+  br label %142
 
-141:                                              ; preds = %140, %127, %124
-  %142 = load i8, ptr %14, align 1
-  %143 = trunc i8 %142 to i1
-  br i1 %143, label %187, label %144
+142:                                              ; preds = %141, %128, %125
+  %143 = load i8, ptr %14, align 1
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %188, label %145
 
-144:                                              ; preds = %141
-  %145 = load i8, ptr @am_walsender, align 1
-  %146 = trunc i8 %145 to i1
-  br i1 %146, label %187, label %147
+145:                                              ; preds = %142
+  %146 = load i8, ptr @am_walsender, align 1
+  %147 = trunc i8 %146 to i1
+  br i1 %147, label %188, label %148
 
-147:                                              ; preds = %144
-  %148 = load i32, ptr @SuperuserReservedConnections, align 4
-  %149 = load i32, ptr @ReservedConnections, align 4
-  %150 = add i32 %148, %149
-  %151 = icmp sgt i32 %150, 0
-  br i1 %151, label %152, label %187
+148:                                              ; preds = %145
+  %149 = load i32, ptr @SuperuserReservedConnections, align 4
+  %150 = load i32, ptr @ReservedConnections, align 4
+  %151 = add i32 %149, %150
+  %152 = icmp sgt i32 %151, 0
+  br i1 %152, label %153, label %188
 
-152:                                              ; preds = %147
-  %153 = load i32, ptr @SuperuserReservedConnections, align 4
-  %154 = load i32, ptr @ReservedConnections, align 4
-  %155 = add i32 %153, %154
-  %156 = call zeroext i1 @HaveNFreeProcs(i32 noundef %155, ptr noundef %17)
-  br i1 %156, label %187, label %157
+153:                                              ; preds = %148
+  %154 = load i32, ptr @SuperuserReservedConnections, align 4
+  %155 = load i32, ptr @ReservedConnections, align 4
+  %156 = add i32 %154, %155
+  %157 = call zeroext i1 @HaveNFreeProcs(i32 noundef %156, ptr noundef %17)
+  br i1 %157, label %188, label %158
 
-157:                                              ; preds = %152
-  %158 = load i32, ptr %17, align 4
-  %159 = load i32, ptr @SuperuserReservedConnections, align 4
-  %160 = icmp slt i32 %158, %159
-  br i1 %160, label %161, label %172
+158:                                              ; preds = %153
+  %159 = load i32, ptr %17, align 4
+  %160 = load i32, ptr @SuperuserReservedConnections, align 4
+  %161 = icmp slt i32 %159, %160
+  br i1 %161, label %162, label %173
 
-161:                                              ; preds = %157
-  br label %162
-
-162:                                              ; preds = %161
-  br i1 true, label %163, label %165
+162:                                              ; preds = %158
+  br label %163
 
 163:                                              ; preds = %162
-  %164 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
-  br i1 %164, label %167, label %170
+  br i1 true, label %164, label %166
 
-165:                                              ; preds = %162
-  %166 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %166, label %167, label %170
+164:                                              ; preds = %163
+  %165 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  br i1 %165, label %168, label %171
 
-167:                                              ; preds = %165, %163
-  %168 = call i32 @errcode(i32 noundef 12485)
-  %169 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef @.str.8)
+166:                                              ; preds = %163
+  %167 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %167, label %168, label %171
+
+168:                                              ; preds = %166, %164
+  %169 = call i32 @errcode(i32 noundef 12485)
+  %170 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.7, ptr noundef @.str.8)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 948, ptr noundef @.str.2)
-  br label %170
+  br label %171
 
-170:                                              ; preds = %167, %165, %163
+171:                                              ; preds = %168, %166, %164
   unreachable
 
-171:                                              ; No predecessors!
-  br label %172
+172:                                              ; No predecessors!
+  br label %173
 
-172:                                              ; preds = %171, %157
-  %173 = call i32 @GetUserId()
-  %174 = call zeroext i1 @has_privs_of_role(i32 noundef %173, i32 noundef 4550)
-  br i1 %174, label %186, label %175
+173:                                              ; preds = %172, %158
+  %174 = call i32 @GetUserId()
+  %175 = call zeroext i1 @has_privs_of_role(i32 noundef %174, i32 noundef 4550)
+  br i1 %175, label %187, label %176
 
-175:                                              ; preds = %172
-  br label %176
-
-176:                                              ; preds = %175
-  br i1 true, label %177, label %179
+176:                                              ; preds = %173
+  br label %177
 
 177:                                              ; preds = %176
-  %178 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
-  br i1 %178, label %181, label %184
+  br i1 true, label %178, label %180
 
-179:                                              ; preds = %176
-  %180 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %180, label %181, label %184
+178:                                              ; preds = %177
+  %179 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  br i1 %179, label %182, label %185
 
-181:                                              ; preds = %179, %177
-  %182 = call i32 @errcode(i32 noundef 12485)
-  %183 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.9, ptr noundef @.str.10)
+180:                                              ; preds = %177
+  %181 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %181, label %182, label %185
+
+182:                                              ; preds = %180, %178
+  %183 = call i32 @errcode(i32 noundef 12485)
+  %184 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.9, ptr noundef @.str.10)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 954, ptr noundef @.str.2)
-  br label %184
+  br label %185
 
-184:                                              ; preds = %181, %179, %177
+185:                                              ; preds = %182, %180, %178
   unreachable
 
-185:                                              ; No predecessors!
-  br label %186
-
-186:                                              ; preds = %185, %172
+186:                                              ; No predecessors!
   br label %187
 
-187:                                              ; preds = %186, %152, %147, %144, %141
-  %188 = load i8, ptr @am_walsender, align 1
-  %189 = trunc i8 %188 to i1
-  br i1 %189, label %190, label %206
+187:                                              ; preds = %186, %173
+  br label %188
 
-190:                                              ; preds = %187
-  %191 = call i32 @GetUserId()
-  %192 = call zeroext i1 @has_rolreplication(i32 noundef %191)
-  br i1 %192, label %205, label %193
+188:                                              ; preds = %187, %153, %148, %145, %142
+  %189 = load i8, ptr @am_walsender, align 1
+  %190 = trunc i8 %189 to i1
+  br i1 %190, label %191, label %207
 
-193:                                              ; preds = %190
-  br label %194
+191:                                              ; preds = %188
+  %192 = call i32 @GetUserId()
+  %193 = call zeroext i1 @has_rolreplication(i32 noundef %192)
+  br i1 %193, label %206, label %194
 
-194:                                              ; preds = %193
-  br i1 true, label %195, label %197
+194:                                              ; preds = %191
+  br label %195
 
 195:                                              ; preds = %194
-  %196 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
-  br i1 %196, label %199, label %203
+  br i1 true, label %196, label %198
 
-197:                                              ; preds = %194
-  %198 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %198, label %199, label %203
+196:                                              ; preds = %195
+  %197 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  br i1 %197, label %200, label %204
 
-199:                                              ; preds = %197, %195
-  %200 = call i32 @errcode(i32 noundef 16797828)
-  %201 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11)
-  %202 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.12, ptr noundef @.str.13)
+198:                                              ; preds = %195
+  %199 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %199, label %200, label %204
+
+200:                                              ; preds = %198, %196
+  %201 = call i32 @errcode(i32 noundef 16797828)
+  %202 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11)
+  %203 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.12, ptr noundef @.str.13)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 967, ptr noundef @.str.2)
-  br label %203
+  br label %204
 
-203:                                              ; preds = %199, %197, %195
+204:                                              ; preds = %200, %198, %196
   unreachable
 
-204:                                              ; No predecessors!
-  br label %205
-
-205:                                              ; preds = %204, %190
+205:                                              ; No predecessors!
   br label %206
 
-206:                                              ; preds = %205, %187
-  %207 = load i8, ptr @am_walsender, align 1
-  %208 = trunc i8 %207 to i1
-  br i1 %208, label %209, label %227
+206:                                              ; preds = %205, %191
+  br label %207
 
-209:                                              ; preds = %206
-  %210 = load i8, ptr @am_db_walsender, align 1
-  %211 = trunc i8 %210 to i1
-  br i1 %211, label %227, label %212
+207:                                              ; preds = %206, %188
+  %208 = load i8, ptr @am_walsender, align 1
+  %209 = trunc i8 %208 to i1
+  br i1 %209, label %210, label %228
 
-212:                                              ; preds = %209
-  %213 = load ptr, ptr @MyProcPort, align 8
-  %214 = icmp ne ptr %213, null
-  br i1 %214, label %215, label %219
+210:                                              ; preds = %207
+  %211 = load i8, ptr @am_db_walsender, align 1
+  %212 = trunc i8 %211 to i1
+  br i1 %212, label %228, label %213
 
-215:                                              ; preds = %212
-  %216 = load ptr, ptr @MyProcPort, align 8
-  %217 = load i8, ptr %14, align 1
-  %218 = trunc i8 %217 to i1
-  call void @process_startup_options(ptr noundef %216, i1 noundef zeroext %218)
-  br label %219
+213:                                              ; preds = %210
+  %214 = load ptr, ptr @MyProcPort, align 8
+  %215 = icmp ne ptr %214, null
+  br i1 %215, label %216, label %220
 
-219:                                              ; preds = %215, %212
-  %220 = load i32, ptr @PostAuthDelay, align 4
-  %221 = icmp sgt i32 %220, 0
-  br i1 %221, label %222, label %226
+216:                                              ; preds = %213
+  %217 = load ptr, ptr @MyProcPort, align 8
+  %218 = load i8, ptr %14, align 1
+  %219 = trunc i8 %218 to i1
+  call void @process_startup_options(ptr noundef %217, i1 noundef zeroext %219)
+  br label %220
 
-222:                                              ; preds = %219
-  %223 = load i32, ptr @PostAuthDelay, align 4
-  %224 = sext i32 %223 to i64
-  %225 = mul i64 %224, 1000000
-  call void @pg_usleep(i64 noundef %225)
-  br label %226
+220:                                              ; preds = %216, %213
+  %221 = load i32, ptr @PostAuthDelay, align 4
+  %222 = icmp sgt i32 %221, 0
+  br i1 %222, label %223, label %227
 
-226:                                              ; preds = %222, %219
+223:                                              ; preds = %220
+  %224 = load i32, ptr @PostAuthDelay, align 4
+  %225 = sext i32 %224 to i64
+  %226 = mul i64 %225, 1000000
+  call void @pg_usleep(i64 noundef %226)
+  br label %227
+
+227:                                              ; preds = %223, %220
   call void @InitializeClientEncoding()
   call void @pgstat_bestart()
   call void @CommitTransactionCommand()
-  br label %468
+  br label %469
 
-227:                                              ; preds = %209, %206
-  %228 = load i8, ptr %13, align 1
-  %229 = trunc i8 %228 to i1
-  br i1 %229, label %230, label %231
+228:                                              ; preds = %210, %207
+  %229 = load i8, ptr %13, align 1
+  %230 = trunc i8 %229 to i1
+  br i1 %230, label %231, label %232
 
-230:                                              ; preds = %227
+231:                                              ; preds = %228
   store i32 1, ptr %8, align 4
   store i32 1663, ptr @MyDatabaseTableSpace, align 4
-  br label %276
+  br label %277
 
-231:                                              ; preds = %227
-  %232 = load ptr, ptr %7, align 8
-  %233 = icmp ne ptr %232, null
-  br i1 %233, label %234, label %266
+232:                                              ; preds = %228
+  %233 = load ptr, ptr %7, align 8
+  %234 = icmp ne ptr %233, null
+  br i1 %234, label %235, label %267
 
-234:                                              ; preds = %231
-  %235 = load ptr, ptr %7, align 8
-  %236 = call ptr @GetDatabaseTuple(ptr noundef %235)
-  store ptr %236, ptr %18, align 8
-  %237 = load ptr, ptr %18, align 8
-  %238 = icmp ne ptr %237, null
-  br i1 %238, label %251, label %239
+235:                                              ; preds = %232
+  %236 = load ptr, ptr %7, align 8
+  %237 = call ptr @GetDatabaseTuple(ptr noundef %236)
+  store ptr %237, ptr %18, align 8
+  %238 = load ptr, ptr %18, align 8
+  %239 = icmp ne ptr %238, null
+  br i1 %239, label %252, label %240
 
-239:                                              ; preds = %234
-  br label %240
-
-240:                                              ; preds = %239
-  br i1 true, label %241, label %243
+240:                                              ; preds = %235
+  br label %241
 
 241:                                              ; preds = %240
-  %242 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
-  br i1 %242, label %245, label %249
+  br i1 true, label %242, label %244
 
-243:                                              ; preds = %240
-  %244 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %244, label %245, label %249
+242:                                              ; preds = %241
+  %243 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  br i1 %243, label %246, label %250
 
-245:                                              ; preds = %243, %241
-  %246 = call i32 @errcode(i32 noundef 1283)
-  %247 = load ptr, ptr %7, align 8
-  %248 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.14, ptr noundef %247)
+244:                                              ; preds = %241
+  %245 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %245, label %246, label %250
+
+246:                                              ; preds = %244, %242
+  %247 = call i32 @errcode(i32 noundef 1283)
+  %248 = load ptr, ptr %7, align 8
+  %249 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.14, ptr noundef %248)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 1019, ptr noundef @.str.2)
-  br label %249
+  br label %250
 
-249:                                              ; preds = %245, %243, %241
+250:                                              ; preds = %246, %244, %242
   unreachable
 
-250:                                              ; No predecessors!
-  br label %251
+251:                                              ; No predecessors!
+  br label %252
 
-251:                                              ; preds = %250, %234
-  %252 = load ptr, ptr %18, align 8
-  %253 = getelementptr inbounds %struct.HeapTupleData, ptr %252, i32 0, i32 3
-  %254 = load ptr, ptr %253, align 8
-  %255 = load ptr, ptr %18, align 8
-  %256 = getelementptr inbounds %struct.HeapTupleData, ptr %255, i32 0, i32 3
-  %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %257, i32 0, i32 4
-  %259 = load i8, ptr %258, align 2
-  %260 = zext i8 %259 to i32
-  %261 = sext i32 %260 to i64
-  %262 = getelementptr i8, ptr %254, i64 %261
-  store ptr %262, ptr %19, align 8
-  %263 = load ptr, ptr %19, align 8
-  %264 = getelementptr inbounds %struct.FormData_pg_database, ptr %263, i32 0, i32 0
-  %265 = load i32, ptr %264, align 4
-  store i32 %265, ptr %8, align 4
-  br label %275
-
-266:                                              ; preds = %231
-  %267 = load i32, ptr %8, align 4
-  %268 = icmp ne i32 %267, 0
-  br i1 %268, label %274, label %269
-
-269:                                              ; preds = %266
-  %270 = load i8, ptr %13, align 1
-  %271 = trunc i8 %270 to i1
-  br i1 %271, label %273, label %272
-
-272:                                              ; preds = %269
-  call void @pgstat_bestart()
-  call void @CommitTransactionCommand()
-  br label %273
-
-273:                                              ; preds = %272, %269
-  br label %468
-
-274:                                              ; preds = %266
-  br label %275
-
-275:                                              ; preds = %274, %251
+252:                                              ; preds = %251, %235
+  %253 = load ptr, ptr %18, align 8
+  %254 = getelementptr inbounds %struct.HeapTupleData, ptr %253, i32 0, i32 3
+  %255 = load ptr, ptr %254, align 8
+  %256 = load ptr, ptr %18, align 8
+  %257 = getelementptr inbounds %struct.HeapTupleData, ptr %256, i32 0, i32 3
+  %258 = load ptr, ptr %257, align 8
+  %259 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %258, i32 0, i32 4
+  %260 = load i8, ptr %259, align 2
+  %261 = zext i8 %260 to i32
+  %262 = sext i32 %261 to i64
+  %263 = getelementptr i8, ptr %255, i64 %262
+  store ptr %263, ptr %19, align 8
+  %264 = load ptr, ptr %19, align 8
+  %265 = getelementptr inbounds %struct.FormData_pg_database, ptr %264, i32 0, i32 0
+  %266 = load i32, ptr %265, align 4
+  store i32 %266, ptr %8, align 4
   br label %276
 
-276:                                              ; preds = %275, %230
-  %277 = load i8, ptr %13, align 1
-  %278 = trunc i8 %277 to i1
-  br i1 %278, label %281, label %279
+267:                                              ; preds = %232
+  %268 = load i32, ptr %8, align 4
+  %269 = icmp ne i32 %268, 0
+  br i1 %269, label %275, label %270
 
-279:                                              ; preds = %276
-  %280 = load i32, ptr %8, align 4
-  call void @LockSharedObject(i32 noundef 1262, i32 noundef %280, i16 noundef zeroext 0, i32 noundef 3)
-  br label %281
+270:                                              ; preds = %267
+  %271 = load i8, ptr %13, align 1
+  %272 = trunc i8 %271 to i1
+  br i1 %272, label %274, label %273
 
-281:                                              ; preds = %279, %276
-  %282 = load i8, ptr %13, align 1
-  %283 = trunc i8 %282 to i1
-  br i1 %283, label %380, label %284
+273:                                              ; preds = %270
+  call void @pgstat_bestart()
+  call void @CommitTransactionCommand()
+  br label %274
 
-284:                                              ; preds = %281
-  %285 = load i32, ptr %8, align 4
-  %286 = call ptr @GetDatabaseTupleByOid(i32 noundef %285)
-  store ptr %286, ptr %20, align 8
-  %287 = load ptr, ptr %20, align 8
-  %288 = icmp ne ptr %287, null
-  br i1 %288, label %289, label %301
+274:                                              ; preds = %273, %270
+  br label %469
 
-289:                                              ; preds = %284
-  %290 = load ptr, ptr %20, align 8
-  %291 = getelementptr inbounds %struct.HeapTupleData, ptr %290, i32 0, i32 3
-  %292 = load ptr, ptr %291, align 8
-  %293 = load ptr, ptr %20, align 8
-  %294 = getelementptr inbounds %struct.HeapTupleData, ptr %293, i32 0, i32 3
-  %295 = load ptr, ptr %294, align 8
-  %296 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %295, i32 0, i32 4
-  %297 = load i8, ptr %296, align 2
-  %298 = zext i8 %297 to i32
-  %299 = sext i32 %298 to i64
-  %300 = getelementptr i8, ptr %292, i64 %299
-  store ptr %300, ptr %21, align 8
-  br label %301
+275:                                              ; preds = %267
+  br label %276
 
-301:                                              ; preds = %289, %284
-  %302 = load ptr, ptr %20, align 8
-  %303 = icmp ne ptr %302, null
-  br i1 %303, label %304, label %313
+276:                                              ; preds = %275, %252
+  br label %277
 
-304:                                              ; preds = %301
-  %305 = load ptr, ptr %7, align 8
-  %306 = icmp ne ptr %305, null
-  br i1 %306, label %307, label %342
+277:                                              ; preds = %276, %231
+  %278 = load i8, ptr %13, align 1
+  %279 = trunc i8 %278 to i1
+  br i1 %279, label %282, label %280
 
-307:                                              ; preds = %304
-  %308 = load ptr, ptr %21, align 8
-  %309 = getelementptr inbounds %struct.FormData_pg_database, ptr %308, i32 0, i32 1
-  %310 = load ptr, ptr %7, align 8
-  %311 = call i32 @namestrcmp(ptr noundef %309, ptr noundef %310)
-  %312 = icmp ne i32 %311, 0
-  br i1 %312, label %313, label %342
+280:                                              ; preds = %277
+  %281 = load i32, ptr %8, align 4
+  call void @LockSharedObject(i32 noundef 1262, i32 noundef %281, i16 noundef zeroext 0, i32 noundef 3)
+  br label %282
 
-313:                                              ; preds = %307, %301
-  %314 = load ptr, ptr %7, align 8
-  %315 = icmp ne ptr %314, null
-  br i1 %315, label %316, label %329
+282:                                              ; preds = %280, %277
+  %283 = load i8, ptr %13, align 1
+  %284 = trunc i8 %283 to i1
+  br i1 %284, label %381, label %285
 
-316:                                              ; preds = %313
-  br label %317
+285:                                              ; preds = %282
+  %286 = load i32, ptr %8, align 4
+  %287 = call ptr @GetDatabaseTupleByOid(i32 noundef %286)
+  store ptr %287, ptr %20, align 8
+  %288 = load ptr, ptr %20, align 8
+  %289 = icmp ne ptr %288, null
+  br i1 %289, label %290, label %302
 
-317:                                              ; preds = %316
-  br i1 true, label %318, label %320
+290:                                              ; preds = %285
+  %291 = load ptr, ptr %20, align 8
+  %292 = getelementptr inbounds %struct.HeapTupleData, ptr %291, i32 0, i32 3
+  %293 = load ptr, ptr %292, align 8
+  %294 = load ptr, ptr %20, align 8
+  %295 = getelementptr inbounds %struct.HeapTupleData, ptr %294, i32 0, i32 3
+  %296 = load ptr, ptr %295, align 8
+  %297 = getelementptr inbounds %struct.HeapTupleHeaderData, ptr %296, i32 0, i32 4
+  %298 = load i8, ptr %297, align 2
+  %299 = zext i8 %298 to i32
+  %300 = sext i32 %299 to i64
+  %301 = getelementptr i8, ptr %293, i64 %300
+  store ptr %301, ptr %21, align 8
+  br label %302
+
+302:                                              ; preds = %290, %285
+  %303 = load ptr, ptr %20, align 8
+  %304 = icmp ne ptr %303, null
+  br i1 %304, label %305, label %314
+
+305:                                              ; preds = %302
+  %306 = load ptr, ptr %7, align 8
+  %307 = icmp ne ptr %306, null
+  br i1 %307, label %308, label %343
+
+308:                                              ; preds = %305
+  %309 = load ptr, ptr %21, align 8
+  %310 = getelementptr inbounds %struct.FormData_pg_database, ptr %309, i32 0, i32 1
+  %311 = load ptr, ptr %7, align 8
+  %312 = call i32 @namestrcmp(ptr noundef %310, ptr noundef %311)
+  %313 = icmp ne i32 %312, 0
+  br i1 %313, label %314, label %343
+
+314:                                              ; preds = %308, %302
+  %315 = load ptr, ptr %7, align 8
+  %316 = icmp ne ptr %315, null
+  br i1 %316, label %317, label %330
+
+317:                                              ; preds = %314
+  br label %318
 
 318:                                              ; preds = %317
-  %319 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
-  br i1 %319, label %322, label %327
+  br i1 true, label %319, label %321
 
-320:                                              ; preds = %317
-  %321 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %321, label %322, label %327
+319:                                              ; preds = %318
+  %320 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  br i1 %320, label %323, label %328
 
-322:                                              ; preds = %320, %318
-  %323 = call i32 @errcode(i32 noundef 1283)
-  %324 = load ptr, ptr %7, align 8
-  %325 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.14, ptr noundef %324)
-  %326 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.15)
+321:                                              ; preds = %318
+  %322 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %322, label %323, label %328
+
+323:                                              ; preds = %321, %319
+  %324 = call i32 @errcode(i32 noundef 1283)
+  %325 = load ptr, ptr %7, align 8
+  %326 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.14, ptr noundef %325)
+  %327 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.15)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 1084, ptr noundef @.str.2)
-  br label %327
+  br label %328
 
-327:                                              ; preds = %322, %320, %318
+328:                                              ; preds = %323, %321, %319
   unreachable
 
-328:                                              ; No predecessors!
-  br label %341
-
-329:                                              ; preds = %313
-  br label %330
-
-330:                                              ; preds = %329
-  br i1 true, label %331, label %333
-
-331:                                              ; preds = %330
-  %332 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
-  br i1 %332, label %335, label %339
-
-333:                                              ; preds = %330
-  %334 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %334, label %335, label %339
-
-335:                                              ; preds = %333, %331
-  %336 = call i32 @errcode(i32 noundef 1283)
-  %337 = load i32, ptr %8, align 4
-  %338 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16, i32 noundef %337)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1088, ptr noundef @.str.2)
-  br label %339
-
-339:                                              ; preds = %335, %333, %331
-  unreachable
-
-340:                                              ; No predecessors!
-  br label %341
-
-341:                                              ; preds = %340, %328
+329:                                              ; No predecessors!
   br label %342
 
-342:                                              ; preds = %341, %307, %304
-  %343 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %344 = load ptr, ptr %21, align 8
-  %345 = getelementptr inbounds %struct.FormData_pg_database, ptr %344, i32 0, i32 1
-  %346 = getelementptr inbounds %struct.nameData, ptr %345, i32 0, i32 0
-  %347 = getelementptr inbounds [64 x i8], ptr %346, i64 0, i64 0
-  %348 = call i64 @strlcpy(ptr noundef %343, ptr noundef %347, i64 noundef 64)
-  %349 = load ptr, ptr %21, align 8
-  %350 = call zeroext i1 @database_is_invalid_form(ptr noundef %349)
-  br i1 %350, label %351, label %364
+330:                                              ; preds = %314
+  br label %331
 
-351:                                              ; preds = %342
-  br label %352
+331:                                              ; preds = %330
+  br i1 true, label %332, label %334
 
-352:                                              ; preds = %351
-  br i1 true, label %353, label %355
+332:                                              ; preds = %331
+  %333 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  br i1 %333, label %336, label %340
+
+334:                                              ; preds = %331
+  %335 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %335, label %336, label %340
+
+336:                                              ; preds = %334, %332
+  %337 = call i32 @errcode(i32 noundef 1283)
+  %338 = load i32, ptr %8, align 4
+  %339 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.16, i32 noundef %338)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1088, ptr noundef @.str.2)
+  br label %340
+
+340:                                              ; preds = %336, %334, %332
+  unreachable
+
+341:                                              ; No predecessors!
+  br label %342
+
+342:                                              ; preds = %341, %329
+  br label %343
+
+343:                                              ; preds = %342, %308, %305
+  %344 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
+  %345 = load ptr, ptr %21, align 8
+  %346 = getelementptr inbounds %struct.FormData_pg_database, ptr %345, i32 0, i32 1
+  %347 = getelementptr inbounds %struct.nameData, ptr %346, i32 0, i32 0
+  %348 = getelementptr inbounds [64 x i8], ptr %347, i64 0, i64 0
+  %349 = call i64 @strlcpy(ptr noundef %344, ptr noundef %348, i64 noundef 64)
+  %350 = load ptr, ptr %21, align 8
+  %351 = call zeroext i1 @database_is_invalid_form(ptr noundef %350)
+  br i1 %351, label %352, label %365
+
+352:                                              ; preds = %343
+  br label %353
 
 353:                                              ; preds = %352
-  %354 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
-  br i1 %354, label %357, label %362
+  br i1 true, label %354, label %356
 
-355:                                              ; preds = %352
-  %356 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %356, label %357, label %362
+354:                                              ; preds = %353
+  %355 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  br i1 %355, label %358, label %363
 
-357:                                              ; preds = %355, %353
-  %358 = call i32 @errcode(i32 noundef 325)
-  %359 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %360 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.17, ptr noundef %359)
-  %361 = call i32 (ptr, ...) @errhint(ptr noundef @.str.18)
+356:                                              ; preds = %353
+  %357 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %357, label %358, label %363
+
+358:                                              ; preds = %356, %354
+  %359 = call i32 @errcode(i32 noundef 325)
+  %360 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
+  %361 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.17, ptr noundef %360)
+  %362 = call i32 (ptr, ...) @errhint(ptr noundef @.str.18)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 1098, ptr noundef @.str.2)
-  br label %362
+  br label %363
 
-362:                                              ; preds = %357, %355, %353
+363:                                              ; preds = %358, %356, %354
   unreachable
 
-363:                                              ; No predecessors!
-  br label %364
+364:                                              ; No predecessors!
+  br label %365
 
-364:                                              ; preds = %363, %342
-  %365 = load ptr, ptr %21, align 8
-  %366 = getelementptr inbounds %struct.FormData_pg_database, ptr %365, i32 0, i32 11
-  %367 = load i32, ptr %366, align 4
-  store i32 %367, ptr @MyDatabaseTableSpace, align 4
-  %368 = load ptr, ptr %21, align 8
-  %369 = getelementptr inbounds %struct.FormData_pg_database, ptr %368, i32 0, i32 7
-  %370 = load i8, ptr %369, align 1
-  %371 = trunc i8 %370 to i1
-  %372 = zext i1 %371 to i8
-  store i8 %372, ptr @MyDatabaseHasLoginEventTriggers, align 1
-  %373 = load ptr, ptr %12, align 8
-  %374 = icmp ne ptr %373, null
-  br i1 %374, label %375, label %379
+365:                                              ; preds = %364, %343
+  %366 = load ptr, ptr %21, align 8
+  %367 = getelementptr inbounds %struct.FormData_pg_database, ptr %366, i32 0, i32 11
+  %368 = load i32, ptr %367, align 4
+  store i32 %368, ptr @MyDatabaseTableSpace, align 4
+  %369 = load ptr, ptr %21, align 8
+  %370 = getelementptr inbounds %struct.FormData_pg_database, ptr %369, i32 0, i32 7
+  %371 = load i8, ptr %370, align 1
+  %372 = trunc i8 %371 to i1
+  %373 = zext i1 %372 to i8
+  store i8 %373, ptr @MyDatabaseHasLoginEventTriggers, align 1
+  %374 = load ptr, ptr %12, align 8
+  %375 = icmp ne ptr %374, null
+  br i1 %375, label %376, label %380
 
-375:                                              ; preds = %364
-  %376 = load ptr, ptr %12, align 8
-  %377 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %378 = call ptr @strcpy(ptr noundef %376, ptr noundef %377) #8
-  br label %379
-
-379:                                              ; preds = %375, %364
+376:                                              ; preds = %365
+  %377 = load ptr, ptr %12, align 8
+  %378 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
+  %379 = call ptr @strcpy(ptr noundef %377, ptr noundef %378) #8
   br label %380
 
-380:                                              ; preds = %379, %281
-  %381 = load i32, ptr %8, align 4
-  store i32 %381, ptr @MyDatabaseId, align 4
-  %382 = load i32, ptr @MyDatabaseId, align 4
-  %383 = load ptr, ptr @MyProc, align 8
-  %384 = getelementptr inbounds %struct.PGPROC, ptr %383, i32 0, i32 10
-  store i32 %382, ptr %384, align 4
+380:                                              ; preds = %376, %365
+  br label %381
+
+381:                                              ; preds = %380, %282
+  %382 = load i32, ptr %8, align 4
+  store i32 %382, ptr @MyDatabaseId, align 4
+  %383 = load i32, ptr @MyDatabaseId, align 4
+  %384 = load ptr, ptr @MyProc, align 8
+  %385 = getelementptr inbounds %struct.PGPROC, ptr %384, i32 0, i32 10
+  store i32 %383, ptr %385, align 4
   call void @InvalidateCatalogSnapshot()
-  %385 = load i32, ptr @MyDatabaseId, align 4
-  %386 = load i32, ptr @MyDatabaseTableSpace, align 4
-  %387 = call ptr @GetDatabasePath(i32 noundef %385, i32 noundef %386)
-  store ptr %387, ptr %15, align 8
-  %388 = load i8, ptr %13, align 1
-  %389 = trunc i8 %388 to i1
-  br i1 %389, label %427, label %390
+  %386 = load i32, ptr @MyDatabaseId, align 4
+  %387 = load i32, ptr @MyDatabaseTableSpace, align 4
+  %388 = call ptr @GetDatabasePath(i32 noundef %386, i32 noundef %387)
+  store ptr %388, ptr %15, align 8
+  %389 = load i8, ptr %13, align 1
+  %390 = trunc i8 %389 to i1
+  br i1 %390, label %428, label %391
 
-390:                                              ; preds = %380
-  %391 = load ptr, ptr %15, align 8
-  %392 = call i32 @access(ptr noundef %391, i32 noundef 0) #8
-  %393 = icmp eq i32 %392, -1
-  br i1 %393, label %394, label %425
+391:                                              ; preds = %381
+  %392 = load ptr, ptr %15, align 8
+  %393 = call i32 @access(ptr noundef %392, i32 noundef 0) #8
+  %394 = icmp eq i32 %393, -1
+  br i1 %394, label %395, label %426
 
-394:                                              ; preds = %390
-  %395 = call ptr @__errno_location() #6
-  %396 = load i32, ptr %395, align 4
-  %397 = icmp eq i32 %396, 2
-  br i1 %397, label %398, label %412
+395:                                              ; preds = %391
+  %396 = call ptr @__errno_location() #6
+  %397 = load i32, ptr %396, align 4
+  %398 = icmp eq i32 %397, 2
+  br i1 %398, label %399, label %413
 
-398:                                              ; preds = %394
-  br label %399
-
-399:                                              ; preds = %398
-  br i1 true, label %400, label %402
+399:                                              ; preds = %395
+  br label %400
 
 400:                                              ; preds = %399
-  %401 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
-  br i1 %401, label %404, label %410
+  br i1 true, label %401, label %403
 
-402:                                              ; preds = %399
-  %403 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %403, label %404, label %410
+401:                                              ; preds = %400
+  %402 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  br i1 %402, label %405, label %411
 
-404:                                              ; preds = %402, %400
-  %405 = call i32 @errcode(i32 noundef 1283)
-  %406 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %407 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.14, ptr noundef %406)
-  %408 = load ptr, ptr %15, align 8
-  %409 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.19, ptr noundef %408)
+403:                                              ; preds = %400
+  %404 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %404, label %405, label %411
+
+405:                                              ; preds = %403, %401
+  %406 = call i32 @errcode(i32 noundef 1283)
+  %407 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
+  %408 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.14, ptr noundef %407)
+  %409 = load ptr, ptr %15, align 8
+  %410 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.19, ptr noundef %409)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 1159, ptr noundef @.str.2)
-  br label %410
+  br label %411
 
-410:                                              ; preds = %404, %402, %400
+411:                                              ; preds = %405, %403, %401
   unreachable
 
-411:                                              ; No predecessors!
-  br label %424
-
-412:                                              ; preds = %394
-  br label %413
-
-413:                                              ; preds = %412
-  br i1 true, label %414, label %416
-
-414:                                              ; preds = %413
-  %415 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
-  br i1 %415, label %418, label %422
-
-416:                                              ; preds = %413
-  %417 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
-  br i1 %417, label %418, label %422
-
-418:                                              ; preds = %416, %414
-  %419 = call i32 @errcode_for_file_access()
-  %420 = load ptr, ptr %15, align 8
-  %421 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.20, ptr noundef %420)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 1164, ptr noundef @.str.2)
-  br label %422
-
-422:                                              ; preds = %418, %416, %414
-  unreachable
-
-423:                                              ; No predecessors!
-  br label %424
-
-424:                                              ; preds = %423, %411
+412:                                              ; No predecessors!
   br label %425
 
-425:                                              ; preds = %424, %390
-  %426 = load ptr, ptr %15, align 8
-  call void @ValidatePgVersion(ptr noundef %426)
-  br label %427
+413:                                              ; preds = %395
+  br label %414
 
-427:                                              ; preds = %425, %380
-  %428 = load ptr, ptr %15, align 8
-  call void @SetDatabasePath(ptr noundef %428)
+414:                                              ; preds = %413
+  br i1 true, label %415, label %417
+
+415:                                              ; preds = %414
+  %416 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  br i1 %416, label %419, label %423
+
+417:                                              ; preds = %414
+  %418 = call zeroext i1 @errstart(i32 noundef 22, ptr noundef null)
+  br i1 %418, label %419, label %423
+
+419:                                              ; preds = %417, %415
+  %420 = call i32 @errcode_for_file_access()
+  %421 = load ptr, ptr %15, align 8
+  %422 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.20, ptr noundef %421)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 1164, ptr noundef @.str.2)
+  br label %423
+
+423:                                              ; preds = %419, %417, %415
+  unreachable
+
+424:                                              ; No predecessors!
+  br label %425
+
+425:                                              ; preds = %424, %412
+  br label %426
+
+426:                                              ; preds = %425, %391
+  %427 = load ptr, ptr %15, align 8
+  call void @ValidatePgVersion(ptr noundef %427)
+  br label %428
+
+428:                                              ; preds = %426, %381
   %429 = load ptr, ptr %15, align 8
-  call void @pfree(ptr noundef %429)
+  call void @SetDatabasePath(ptr noundef %429)
+  %430 = load ptr, ptr %15, align 8
+  call void @pfree(ptr noundef %430)
   call void @RelationCacheInitializePhase3()
   call void @initialize_acl()
-  %430 = load i8, ptr %13, align 1
-  %431 = trunc i8 %430 to i1
-  br i1 %431, label %439, label %432
+  %431 = load i8, ptr %13, align 1
+  %432 = trunc i8 %431 to i1
+  br i1 %432, label %440, label %433
 
-432:                                              ; preds = %427
-  %433 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %434 = load i8, ptr %14, align 1
-  %435 = trunc i8 %434 to i1
-  %436 = load i32, ptr %11, align 4
-  %437 = and i32 %436, 2
-  %438 = icmp ne i32 %437, 0
-  call void @CheckMyDatabase(ptr noundef %433, i1 noundef zeroext %435, i1 noundef zeroext %438)
-  br label %439
+433:                                              ; preds = %428
+  %434 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
+  %435 = load i8, ptr %14, align 1
+  %436 = trunc i8 %435 to i1
+  %437 = load i32, ptr %11, align 4
+  %438 = and i32 %437, 2
+  %439 = icmp ne i32 %438, 0
+  call void @CheckMyDatabase(ptr noundef %434, i1 noundef zeroext %436, i1 noundef zeroext %439)
+  br label %440
 
-439:                                              ; preds = %432, %427
-  %440 = load ptr, ptr @MyProcPort, align 8
-  %441 = icmp ne ptr %440, null
-  br i1 %441, label %442, label %446
+440:                                              ; preds = %433, %428
+  %441 = load ptr, ptr @MyProcPort, align 8
+  %442 = icmp ne ptr %441, null
+  br i1 %442, label %443, label %447
 
-442:                                              ; preds = %439
-  %443 = load ptr, ptr @MyProcPort, align 8
-  %444 = load i8, ptr %14, align 1
-  %445 = trunc i8 %444 to i1
-  call void @process_startup_options(ptr noundef %443, i1 noundef zeroext %445)
-  br label %446
+443:                                              ; preds = %440
+  %444 = load ptr, ptr @MyProcPort, align 8
+  %445 = load i8, ptr %14, align 1
+  %446 = trunc i8 %445 to i1
+  call void @process_startup_options(ptr noundef %444, i1 noundef zeroext %446)
+  br label %447
 
-446:                                              ; preds = %442, %439
-  %447 = load i32, ptr @MyDatabaseId, align 4
-  %448 = call i32 @GetSessionUserId()
-  call void @process_settings(i32 noundef %447, i32 noundef %448)
-  %449 = load i32, ptr @PostAuthDelay, align 4
-  %450 = icmp sgt i32 %449, 0
-  br i1 %450, label %451, label %455
+447:                                              ; preds = %443, %440
+  %448 = load i32, ptr @MyDatabaseId, align 4
+  %449 = call i32 @GetSessionUserId()
+  call void @process_settings(i32 noundef %448, i32 noundef %449)
+  %450 = load i32, ptr @PostAuthDelay, align 4
+  %451 = icmp sgt i32 %450, 0
+  br i1 %451, label %452, label %456
 
-451:                                              ; preds = %446
-  %452 = load i32, ptr @PostAuthDelay, align 4
-  %453 = sext i32 %452 to i64
-  %454 = mul i64 %453, 1000000
-  call void @pg_usleep(i64 noundef %454)
-  br label %455
+452:                                              ; preds = %447
+  %453 = load i32, ptr @PostAuthDelay, align 4
+  %454 = sext i32 %453 to i64
+  %455 = mul i64 %454, 1000000
+  call void @pg_usleep(i64 noundef %455)
+  br label %456
 
-455:                                              ; preds = %451, %446
+456:                                              ; preds = %452, %447
   call void @InitializeSearchPath()
   call void @InitializeClientEncoding()
   call void @InitializeSession()
-  %456 = load i32, ptr %11, align 4
-  %457 = and i32 %456, 1
-  %458 = icmp ne i32 %457, 0
-  br i1 %458, label %459, label %460
+  %457 = load i32, ptr %11, align 4
+  %458 = and i32 %457, 1
+  %459 = icmp ne i32 %458, 0
+  br i1 %459, label %460, label %461
 
-459:                                              ; preds = %455
+460:                                              ; preds = %456
   call void @process_session_preload_libraries()
-  br label %460
+  br label %461
 
-460:                                              ; preds = %459, %455
-  %461 = load i8, ptr %13, align 1
-  %462 = trunc i8 %461 to i1
-  br i1 %462, label %464, label %463
+461:                                              ; preds = %460, %456
+  %462 = load i8, ptr %13, align 1
+  %463 = trunc i8 %462 to i1
+  br i1 %463, label %465, label %464
 
-463:                                              ; preds = %460
+464:                                              ; preds = %461
   call void @pgstat_bestart()
-  br label %464
+  br label %465
 
-464:                                              ; preds = %463, %460
-  %465 = load i8, ptr %13, align 1
-  %466 = trunc i8 %465 to i1
-  br i1 %466, label %468, label %467
+465:                                              ; preds = %464, %461
+  %466 = load i8, ptr %13, align 1
+  %467 = trunc i8 %466 to i1
+  br i1 %467, label %469, label %468
 
-467:                                              ; preds = %464
+468:                                              ; preds = %465
   call void @CommitTransactionCommand()
-  br label %468
+  br label %469
 
-468:                                              ; preds = %467, %464, %273, %226, %51
+469:                                              ; preds = %468, %465, %274, %227, %51
   ret void
 }
 
@@ -2313,119 +2314,120 @@ define internal void @CheckMyDatabase(ptr noundef %0, i1 noundef zeroext %1, i1 
   %231 = getelementptr inbounds %struct.FormData_pg_database, ptr %230, i32 0, i32 4
   %232 = load i8, ptr %231, align 4
   store i8 %232, ptr @default_locale, align 8
-  store i8 1, ptr getelementptr inbounds (%struct.pg_locale_struct, ptr @default_locale, i32 0, i32 1), align 1
-  %233 = load ptr, ptr %7, align 8
-  %234 = call i64 @SysCacheGetAttr(i32 noundef 21, ptr noundef %233, i16 noundef signext 17, ptr noundef %10)
-  store i64 %234, ptr %9, align 8
-  %235 = load i8, ptr %10, align 1
-  %236 = trunc i8 %235 to i1
-  br i1 %236, label %293, label %237
+  %233 = getelementptr inbounds %struct.pg_locale_struct, ptr @default_locale, i32 0, i32 1
+  store i8 1, ptr %233, align 1
+  %234 = load ptr, ptr %7, align 8
+  %235 = call i64 @SysCacheGetAttr(i32 noundef 21, ptr noundef %234, i16 noundef signext 17, ptr noundef %10)
+  store i64 %235, ptr %9, align 8
+  %236 = load i8, ptr %10, align 1
+  %237 = trunc i8 %236 to i1
+  br i1 %237, label %294, label %238
 
-237:                                              ; preds = %229
-  %238 = load i64, ptr %9, align 8
-  %239 = call ptr @DatumGetPointer(i64 noundef %238)
-  %240 = call ptr @text_to_cstring(ptr noundef %239)
-  store ptr %240, ptr %16, align 8
-  %241 = load ptr, ptr %8, align 8
-  %242 = getelementptr inbounds %struct.FormData_pg_database, ptr %241, i32 0, i32 4
-  %243 = load i8, ptr %242, align 4
-  %244 = load ptr, ptr %8, align 8
-  %245 = getelementptr inbounds %struct.FormData_pg_database, ptr %244, i32 0, i32 4
-  %246 = load i8, ptr %245, align 4
-  %247 = sext i8 %246 to i32
-  %248 = icmp eq i32 %247, 105
-  br i1 %248, label %249, label %251
+238:                                              ; preds = %229
+  %239 = load i64, ptr %9, align 8
+  %240 = call ptr @DatumGetPointer(i64 noundef %239)
+  %241 = call ptr @text_to_cstring(ptr noundef %240)
+  store ptr %241, ptr %16, align 8
+  %242 = load ptr, ptr %8, align 8
+  %243 = getelementptr inbounds %struct.FormData_pg_database, ptr %242, i32 0, i32 4
+  %244 = load i8, ptr %243, align 4
+  %245 = load ptr, ptr %8, align 8
+  %246 = getelementptr inbounds %struct.FormData_pg_database, ptr %245, i32 0, i32 4
+  %247 = load i8, ptr %246, align 4
+  %248 = sext i8 %247 to i32
+  %249 = icmp eq i32 %248, 105
+  br i1 %249, label %250, label %252
 
-249:                                              ; preds = %237
-  %250 = load ptr, ptr %13, align 8
-  br label %253
+250:                                              ; preds = %238
+  %251 = load ptr, ptr %13, align 8
+  br label %254
 
-251:                                              ; preds = %237
-  %252 = load ptr, ptr %11, align 8
-  br label %253
+252:                                              ; preds = %238
+  %253 = load ptr, ptr %11, align 8
+  br label %254
 
-253:                                              ; preds = %251, %249
-  %254 = phi ptr [ %250, %249 ], [ %252, %251 ]
-  %255 = call ptr @get_collation_actual_version(i8 noundef signext %243, ptr noundef %254)
-  store ptr %255, ptr %15, align 8
-  %256 = load ptr, ptr %15, align 8
-  %257 = icmp ne ptr %256, null
-  br i1 %257, label %269, label %258
+254:                                              ; preds = %252, %250
+  %255 = phi ptr [ %251, %250 ], [ %253, %252 ]
+  %256 = call ptr @get_collation_actual_version(i8 noundef signext %244, ptr noundef %255)
+  store ptr %256, ptr %15, align 8
+  %257 = load ptr, ptr %15, align 8
+  %258 = icmp ne ptr %257, null
+  br i1 %258, label %270, label %259
 
-258:                                              ; preds = %253
-  br label %259
-
-259:                                              ; preds = %258
-  br i1 false, label %260, label %262
+259:                                              ; preds = %254
+  br label %260
 
 260:                                              ; preds = %259
-  %261 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #7
-  br i1 %261, label %264, label %267
+  br i1 false, label %261, label %263
 
-262:                                              ; preds = %259
-  %263 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
-  br i1 %263, label %264, label %267
+261:                                              ; preds = %260
+  %262 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #7
+  br i1 %262, label %265, label %268
 
-264:                                              ; preds = %262, %260
-  %265 = load ptr, ptr %4, align 8
-  %266 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.43, ptr noundef %265)
+263:                                              ; preds = %260
+  %264 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
+  br i1 %264, label %265, label %268
+
+265:                                              ; preds = %263, %261
+  %266 = load ptr, ptr %4, align 8
+  %267 = call i32 (ptr, ...) @errmsg_internal(ptr noundef @.str.43, ptr noundef %266)
   call void @errfinish(ptr noundef @.str.1, i32 noundef 474, ptr noundef @__func__.CheckMyDatabase)
-  br label %267
-
-267:                                              ; preds = %264, %262, %260
   br label %268
 
-268:                                              ; preds = %267
-  br label %292
+268:                                              ; preds = %265, %263, %261
+  br label %269
 
-269:                                              ; preds = %253
-  %270 = load ptr, ptr %15, align 8
-  %271 = load ptr, ptr %16, align 8
-  %272 = call i32 @strcmp(ptr noundef %270, ptr noundef %271) #9
-  %273 = icmp ne i32 %272, 0
-  br i1 %273, label %274, label %291
-
-274:                                              ; preds = %269
-  br label %275
-
-275:                                              ; preds = %274
-  br i1 false, label %276, label %278
-
-276:                                              ; preds = %275
-  %277 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #7
-  br i1 %277, label %280, label %289
-
-278:                                              ; preds = %275
-  %279 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
-  br i1 %279, label %280, label %289
-
-280:                                              ; preds = %278, %276
-  %281 = load ptr, ptr %4, align 8
-  %282 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.44, ptr noundef %281)
-  %283 = load ptr, ptr %16, align 8
-  %284 = load ptr, ptr %15, align 8
-  %285 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.45, ptr noundef %283, ptr noundef %284)
-  %286 = load ptr, ptr %4, align 8
-  %287 = call ptr @quote_identifier(ptr noundef %286)
-  %288 = call i32 (ptr, ...) @errhint(ptr noundef @.str.46, ptr noundef %287)
-  call void @errfinish(ptr noundef @.str.1, i32 noundef 485, ptr noundef @__func__.CheckMyDatabase)
-  br label %289
-
-289:                                              ; preds = %280, %278, %276
-  br label %290
-
-290:                                              ; preds = %289
-  br label %291
-
-291:                                              ; preds = %290, %269
-  br label %292
-
-292:                                              ; preds = %291, %268
+269:                                              ; preds = %268
   br label %293
 
-293:                                              ; preds = %292, %229
-  %294 = load ptr, ptr %7, align 8
-  call void @ReleaseSysCache(ptr noundef %294)
+270:                                              ; preds = %254
+  %271 = load ptr, ptr %15, align 8
+  %272 = load ptr, ptr %16, align 8
+  %273 = call i32 @strcmp(ptr noundef %271, ptr noundef %272) #9
+  %274 = icmp ne i32 %273, 0
+  br i1 %274, label %275, label %292
+
+275:                                              ; preds = %270
+  br label %276
+
+276:                                              ; preds = %275
+  br i1 false, label %277, label %279
+
+277:                                              ; preds = %276
+  %278 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #7
+  br i1 %278, label %281, label %290
+
+279:                                              ; preds = %276
+  %280 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
+  br i1 %280, label %281, label %290
+
+281:                                              ; preds = %279, %277
+  %282 = load ptr, ptr %4, align 8
+  %283 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.44, ptr noundef %282)
+  %284 = load ptr, ptr %16, align 8
+  %285 = load ptr, ptr %15, align 8
+  %286 = call i32 (ptr, ...) @errdetail(ptr noundef @.str.45, ptr noundef %284, ptr noundef %285)
+  %287 = load ptr, ptr %4, align 8
+  %288 = call ptr @quote_identifier(ptr noundef %287)
+  %289 = call i32 (ptr, ...) @errhint(ptr noundef @.str.46, ptr noundef %288)
+  call void @errfinish(ptr noundef @.str.1, i32 noundef 485, ptr noundef @__func__.CheckMyDatabase)
+  br label %290
+
+290:                                              ; preds = %281, %279, %277
+  br label %291
+
+291:                                              ; preds = %290
+  br label %292
+
+292:                                              ; preds = %291, %270
+  br label %293
+
+293:                                              ; preds = %292, %269
+  br label %294
+
+294:                                              ; preds = %293, %229
+  %295 = load ptr, ptr %7, align 8
+  call void @ReleaseSysCache(ptr noundef %295)
   ret void
 }
 

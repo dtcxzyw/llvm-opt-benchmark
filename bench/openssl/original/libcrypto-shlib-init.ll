@@ -534,7 +534,8 @@ if.then133:                                       ; preds = %if.end130
   br i1 %tobool136, label %if.end166, label %if.then137
 
 if.then137:                                       ; preds = %if.then133
-  %call138 = call i32 @CRYPTO_THREAD_set_local(ptr noundef @in_init_config_local, ptr noundef inttoptr (i64 -1 to ptr))
+  %33 = inttoptr i64 -1 to ptr
+  %call138 = call i32 @CRYPTO_THREAD_set_local(ptr noundef @in_init_config_local, ptr noundef %33)
   %tobool139 = icmp ne i32 %call138, 0
   br i1 %tobool139, label %if.end141, label %if.then140
 
@@ -543,8 +544,8 @@ if.then140:                                       ; preds = %if.then137
   br label %return
 
 if.end141:                                        ; preds = %if.then137
-  %33 = load ptr, ptr %settings.addr, align 8
-  %cmp142 = icmp eq ptr %33, null
+  %34 = load ptr, ptr %settings.addr, align 8
+  %cmp142 = icmp eq ptr %34, null
   br i1 %cmp142, label %if.then144, label %if.else149
 
 if.then144:                                       ; preds = %if.end141
@@ -553,20 +554,20 @@ if.then144:                                       ; preds = %if.end141
   br i1 %tobool146, label %cond.true147, label %cond.false148
 
 cond.true147:                                     ; preds = %if.then144
-  %34 = load i32, ptr @ossl_init_config_ossl_ret_, align 4
+  %35 = load i32, ptr @ossl_init_config_ossl_ret_, align 4
   br label %cond.end
 
 cond.false148:                                    ; preds = %if.then144
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false148, %cond.true147
-  %cond = phi i32 [ %34, %cond.true147 ], [ 0, %cond.false148 ]
+  %cond = phi i32 [ %35, %cond.true147 ], [ 0, %cond.false148 ]
   store i32 %cond, ptr %ret, align 4
   br label %if.end161
 
 if.else149:                                       ; preds = %if.end141
-  %35 = load ptr, ptr @init_lock, align 8
-  %call150 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %35)
+  %36 = load ptr, ptr @init_lock, align 8
+  %call150 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %36)
   %tobool151 = icmp ne i32 %call150, 0
   br i1 %tobool151, label %if.end153, label %if.then152
 
@@ -575,30 +576,30 @@ if.then152:                                       ; preds = %if.else149
   br label %return
 
 if.end153:                                        ; preds = %if.else149
-  %36 = load ptr, ptr %settings.addr, align 8
-  store ptr %36, ptr @conf_settings, align 8
+  %37 = load ptr, ptr %settings.addr, align 8
+  store ptr %37, ptr @conf_settings, align 8
   %call154 = call i32 @CRYPTO_THREAD_run_once(ptr noundef @config, ptr noundef @ossl_init_config_settings_ossl_)
   %tobool155 = icmp ne i32 %call154, 0
   br i1 %tobool155, label %cond.true156, label %cond.false157
 
 cond.true156:                                     ; preds = %if.end153
-  %37 = load i32, ptr @ossl_init_config_ossl_ret_, align 4
+  %38 = load i32, ptr @ossl_init_config_ossl_ret_, align 4
   br label %cond.end158
 
 cond.false157:                                    ; preds = %if.end153
   br label %cond.end158
 
 cond.end158:                                      ; preds = %cond.false157, %cond.true156
-  %cond159 = phi i32 [ %37, %cond.true156 ], [ 0, %cond.false157 ]
+  %cond159 = phi i32 [ %38, %cond.true156 ], [ 0, %cond.false157 ]
   store i32 %cond159, ptr %ret, align 4
   store ptr null, ptr @conf_settings, align 8
-  %38 = load ptr, ptr @init_lock, align 8
-  %call160 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %38)
+  %39 = load ptr, ptr @init_lock, align 8
+  %call160 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %39)
   br label %if.end161
 
 if.end161:                                        ; preds = %cond.end158, %cond.end
-  %39 = load i32, ptr %ret, align 4
-  %cmp162 = icmp sle i32 %39, 0
+  %40 = load i32, ptr %ret, align 4
+  %cmp162 = icmp sle i32 %40, 0
   br i1 %cmp162, label %if.then164, label %if.end165
 
 if.then164:                                       ; preds = %if.end161
@@ -612,8 +613,8 @@ if.end166:                                        ; preds = %if.end165, %if.then
   br label %if.end167
 
 if.end167:                                        ; preds = %if.end166, %if.end130
-  %40 = load i64, ptr %opts.addr, align 8
-  %and168 = and i64 %40, 256
+  %41 = load i64, ptr %opts.addr, align 8
+  %and168 = and i64 %41, 256
   %tobool169 = icmp ne i64 %and168, 0
   br i1 %tobool169, label %land.lhs.true170, label %if.end177
 
@@ -623,8 +624,8 @@ land.lhs.true170:                                 ; preds = %if.end167
   br i1 %tobool172, label %cond.true173, label %cond.false175
 
 cond.true173:                                     ; preds = %land.lhs.true170
-  %41 = load i32, ptr @ossl_init_async_ossl_ret_, align 4
-  %tobool174 = icmp ne i32 %41, 0
+  %42 = load i32, ptr @ossl_init_async_ossl_ret_, align 4
+  %tobool174 = icmp ne i32 %42, 0
   br i1 %tobool174, label %if.end177, label %if.then176
 
 cond.false175:                                    ; preds = %land.lhs.true170
@@ -635,8 +636,8 @@ if.then176:                                       ; preds = %cond.false175, %con
   br label %return
 
 if.end177:                                        ; preds = %cond.false175, %cond.true173, %if.end167
-  %42 = load i64, ptr %opts.addr, align 8
-  %and178 = and i64 %42, 2048
+  %43 = load i64, ptr %opts.addr, align 8
+  %and178 = and i64 %43, 2048
   %tobool179 = icmp ne i64 %and178, 0
   br i1 %tobool179, label %land.lhs.true180, label %if.end187
 
@@ -646,8 +647,8 @@ land.lhs.true180:                                 ; preds = %if.end177
   br i1 %tobool182, label %cond.true183, label %cond.false185
 
 cond.true183:                                     ; preds = %land.lhs.true180
-  %43 = load i32, ptr @ossl_init_engine_openssl_ossl_ret_, align 4
-  %tobool184 = icmp ne i32 %43, 0
+  %44 = load i32, ptr @ossl_init_engine_openssl_ossl_ret_, align 4
+  %tobool184 = icmp ne i32 %44, 0
   br i1 %tobool184, label %if.end187, label %if.then186
 
 cond.false185:                                    ; preds = %land.lhs.true180
@@ -658,8 +659,8 @@ if.then186:                                       ; preds = %cond.false185, %con
   br label %return
 
 if.end187:                                        ; preds = %cond.false185, %cond.true183, %if.end177
-  %44 = load i64, ptr %opts.addr, align 8
-  %and188 = and i64 %44, 512
+  %45 = load i64, ptr %opts.addr, align 8
+  %and188 = and i64 %45, 512
   %tobool189 = icmp ne i64 %and188, 0
   br i1 %tobool189, label %land.lhs.true190, label %if.end197
 
@@ -669,8 +670,8 @@ land.lhs.true190:                                 ; preds = %if.end187
   br i1 %tobool192, label %cond.true193, label %cond.false195
 
 cond.true193:                                     ; preds = %land.lhs.true190
-  %45 = load i32, ptr @ossl_init_engine_rdrand_ossl_ret_, align 4
-  %tobool194 = icmp ne i32 %45, 0
+  %46 = load i32, ptr @ossl_init_engine_rdrand_ossl_ret_, align 4
+  %tobool194 = icmp ne i32 %46, 0
   br i1 %tobool194, label %if.end197, label %if.then196
 
 cond.false195:                                    ; preds = %land.lhs.true190
@@ -681,8 +682,8 @@ if.then196:                                       ; preds = %cond.false195, %con
   br label %return
 
 if.end197:                                        ; preds = %cond.false195, %cond.true193, %if.end187
-  %46 = load i64, ptr %opts.addr, align 8
-  %and198 = and i64 %46, 1024
+  %47 = load i64, ptr %opts.addr, align 8
+  %and198 = and i64 %47, 1024
   %tobool199 = icmp ne i64 %and198, 0
   br i1 %tobool199, label %land.lhs.true200, label %if.end207
 
@@ -692,8 +693,8 @@ land.lhs.true200:                                 ; preds = %if.end197
   br i1 %tobool202, label %cond.true203, label %cond.false205
 
 cond.true203:                                     ; preds = %land.lhs.true200
-  %47 = load i32, ptr @ossl_init_engine_dynamic_ossl_ret_, align 4
-  %tobool204 = icmp ne i32 %47, 0
+  %48 = load i32, ptr @ossl_init_engine_dynamic_ossl_ret_, align 4
+  %tobool204 = icmp ne i32 %48, 0
   br i1 %tobool204, label %if.end207, label %if.then206
 
 cond.false205:                                    ; preds = %land.lhs.true200
@@ -704,8 +705,8 @@ if.then206:                                       ; preds = %cond.false205, %con
   br label %return
 
 if.end207:                                        ; preds = %cond.false205, %cond.true203, %if.end197
-  %48 = load i64, ptr %opts.addr, align 8
-  %and208 = and i64 %48, 65024
+  %49 = load i64, ptr %opts.addr, align 8
+  %and208 = and i64 %49, 65024
   %tobool209 = icmp ne i64 %and208, 0
   br i1 %tobool209, label %if.then210, label %if.end212
 
@@ -714,9 +715,9 @@ if.then210:                                       ; preds = %if.end207
   br label %if.end212
 
 if.end212:                                        ; preds = %if.then210, %if.end207
-  %49 = load i64, ptr %opts.addr, align 8
-  %50 = load ptr, ptr @optsdone_lock, align 8
-  %call213 = call i32 @CRYPTO_atomic_or(ptr noundef @optsdone, i64 noundef %49, ptr noundef %tmp, ptr noundef %50)
+  %50 = load i64, ptr %opts.addr, align 8
+  %51 = load ptr, ptr @optsdone_lock, align 8
+  %call213 = call i32 @CRYPTO_atomic_or(ptr noundef @optsdone, i64 noundef %50, ptr noundef %tmp, ptr noundef %51)
   %tobool214 = icmp ne i32 %call213, 0
   br i1 %tobool214, label %if.end216, label %if.then215
 
@@ -729,8 +730,8 @@ if.end216:                                        ; preds = %if.end212
   br label %return
 
 return:                                           ; preds = %if.end216, %if.then215, %if.then206, %if.then196, %if.then186, %if.then176, %if.then164, %if.then152, %if.then140, %if.then129, %if.then119, %if.then112, %if.then102, %if.then92, %if.then82, %if.then72, %if.then62, %if.then53, %if.then45, %if.then38, %if.then27, %if.then23, %if.then17, %if.then13, %if.then7, %if.end
-  %51 = load i32, ptr %retval, align 4
-  ret i32 %51
+  %52 = load i32, ptr %retval, align 4
+  ret i32 %52
 }
 
 declare void @ERR_new() #1

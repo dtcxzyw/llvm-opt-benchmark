@@ -25,40 +25,41 @@ define i32 @PMPI_T_pvar_read(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
 
 11:                                               ; preds = %3
   store i32 55, ptr %4, align 4
-  br label %28
+  br label %29
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %6, align 8
-  %14 = icmp eq ptr inttoptr (i64 -1 to ptr), %13
-  br i1 %14, label %21, label %15
+  %14 = inttoptr i64 -1 to ptr
+  %15 = icmp eq ptr %14, %13
+  br i1 %15, label %22, label %16
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %5, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.mca_base_pvar_handle_t, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp ne ptr %16, %19
-  br i1 %20, label %21, label %22
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = getelementptr inbounds %struct.mca_base_pvar_handle_t, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %17, %20
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %15, %12
+22:                                               ; preds = %16, %12
   store i32 59, ptr %4, align 4
-  br label %28
+  br label %29
 
-22:                                               ; preds = %15
+23:                                               ; preds = %16
   call void @ompi_mpit_lock()
-  %23 = load ptr, ptr %6, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = call i32 @mca_base_pvar_handle_read_value(ptr noundef %23, ptr noundef %24)
-  store i32 %25, ptr %8, align 4
+  %24 = load ptr, ptr %6, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = call i32 @mca_base_pvar_handle_read_value(ptr noundef %24, ptr noundef %25)
+  store i32 %26, ptr %8, align 4
   call void @ompi_mpit_unlock()
-  %26 = load i32, ptr %8, align 4
-  %27 = call i32 @ompit_opal_to_mpit_error(i32 noundef %26)
-  store i32 %27, ptr %4, align 4
-  br label %28
+  %27 = load i32, ptr %8, align 4
+  %28 = call i32 @ompit_opal_to_mpit_error(i32 noundef %27)
+  store i32 %28, ptr %4, align 4
+  br label %29
 
-28:                                               ; preds = %22, %21, %11
-  %29 = load i32, ptr %4, align 4
-  ret i32 %29
+29:                                               ; preds = %23, %22, %11
+  %30 = load i32, ptr %4, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable

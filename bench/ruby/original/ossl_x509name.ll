@@ -578,109 +578,110 @@ define internal i64 @ossl_x509name_add_entry(i32 noundef %0, ptr noundef %1, i64
   store i32 0, ptr %15, align 4
   %17 = load i64, ptr @ossl_x509name_add_entry.kwargs_ids, align 16
   %18 = icmp ne i64 %17, 0
-  br i1 %18, label %22, label %19
+  br i1 %18, label %23, label %19
 
 19:                                               ; preds = %3
   %20 = call i64 @rb_intern_const(ptr noundef @.str.35) #17
   store i64 %20, ptr @ossl_x509name_add_entry.kwargs_ids, align 16
   %21 = call i64 @rb_intern_const(ptr noundef @.str.36) #17
-  store i64 %21, ptr getelementptr inbounds ([2 x i64], ptr @ossl_x509name_add_entry.kwargs_ids, i64 0, i64 1), align 8
-  br label %22
+  %22 = getelementptr inbounds [2 x i64], ptr @ossl_x509name_add_entry.kwargs_ids, i64 0, i64 1
+  store i64 %21, ptr %22, align 8
+  br label %23
 
-22:                                               ; preds = %19, %3
-  %23 = load i32, ptr %4, align 4
-  %24 = load ptr, ptr %5, align 8
-  %25 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %23, ptr noundef %24, ptr noundef @.str.37, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  %26 = load i64, ptr %11, align 8
-  %27 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
-  %28 = call i32 @rb_get_kwargs(i64 noundef %26, ptr noundef @ossl_x509name_add_entry.kwargs_ids, i32 noundef 0, i32 noundef 2, ptr noundef %27)
-  %29 = call ptr @rb_string_value_cstr(ptr noundef %8)
-  store ptr %29, ptr %13, align 8
-  %30 = call i64 @rb_string_value(ptr noundef %9)
-  %31 = load i64, ptr %10, align 8
-  %32 = call zeroext i1 @RB_NIL_P(i64 noundef %31) #15
-  br i1 %32, label %33, label %41
+23:                                               ; preds = %19, %3
+  %24 = load i32, ptr %4, align 4
+  %25 = load ptr, ptr %5, align 8
+  %26 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %24, ptr noundef %25, ptr noundef @.str.37, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %27 = load i64, ptr %11, align 8
+  %28 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
+  %29 = call i32 @rb_get_kwargs(i64 noundef %27, ptr noundef @ossl_x509name_add_entry.kwargs_ids, i32 noundef 0, i32 noundef 2, ptr noundef %28)
+  %30 = call ptr @rb_string_value_cstr(ptr noundef %8)
+  store ptr %30, ptr %13, align 8
+  %31 = call i64 @rb_string_value(ptr noundef %9)
+  %32 = load i64, ptr %10, align 8
+  %33 = call zeroext i1 @RB_NIL_P(i64 noundef %32) #15
+  br i1 %33, label %34, label %42
 
-33:                                               ; preds = %22
-  %34 = load i64, ptr @cX509Name, align 8
-  %35 = call i64 @rbimpl_intern_const(ptr noundef @ossl_x509name_add_entry.rbimpl_id, ptr noundef @.str.25) #16
-  store i64 %35, ptr %16, align 8
-  %36 = load i64, ptr %16, align 8
-  %37 = call i64 @rb_const_get(i64 noundef %34, i64 noundef %36)
-  %38 = load i64, ptr @id_aref, align 8
-  %39 = load i64, ptr %8, align 8
-  %40 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %37, i64 noundef %38, i32 noundef 1, i64 noundef %39)
-  store i64 %40, ptr %10, align 8
-  br label %41
+34:                                               ; preds = %23
+  %35 = load i64, ptr @cX509Name, align 8
+  %36 = call i64 @rbimpl_intern_const(ptr noundef @ossl_x509name_add_entry.rbimpl_id, ptr noundef @.str.25) #16
+  store i64 %36, ptr %16, align 8
+  %37 = load i64, ptr %16, align 8
+  %38 = call i64 @rb_const_get(i64 noundef %35, i64 noundef %37)
+  %39 = load i64, ptr @id_aref, align 8
+  %40 = load i64, ptr %8, align 8
+  %41 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %38, i64 noundef %39, i32 noundef 1, i64 noundef %40)
+  store i64 %41, ptr %10, align 8
+  br label %42
 
-41:                                               ; preds = %33, %22
-  %42 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
-  %43 = load i64, ptr %42, align 16
-  %44 = icmp ne i64 %43, 36
-  br i1 %44, label %45, label %49
+42:                                               ; preds = %34, %23
+  %43 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
+  %44 = load i64, ptr %43, align 16
+  %45 = icmp ne i64 %44, 36
+  br i1 %45, label %46, label %50
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
-  %47 = load i64, ptr %46, align 16
-  %48 = call i32 @rb_num2int_inline(i64 noundef %47)
-  store i32 %48, ptr %14, align 4
-  br label %49
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 0
+  %48 = load i64, ptr %47, align 16
+  %49 = call i32 @rb_num2int_inline(i64 noundef %48)
+  store i32 %49, ptr %14, align 4
+  br label %50
 
-49:                                               ; preds = %45, %41
-  %50 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 1
-  %51 = load i64, ptr %50, align 8
-  %52 = icmp ne i64 %51, 36
-  br i1 %52, label %53, label %57
+50:                                               ; preds = %46, %42
+  %51 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 1
+  %52 = load i64, ptr %51, align 8
+  %53 = icmp ne i64 %52, 36
+  br i1 %53, label %54, label %58
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 1
-  %55 = load i64, ptr %54, align 8
-  %56 = call i32 @rb_num2int_inline(i64 noundef %55)
-  store i32 %56, ptr %15, align 4
-  br label %57
-
-57:                                               ; preds = %53, %49
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds [2 x i64], ptr %12, i64 0, i64 1
+  %56 = load i64, ptr %55, align 8
+  %57 = call i32 @rb_num2int_inline(i64 noundef %56)
+  store i32 %57, ptr %15, align 4
   br label %58
 
-58:                                               ; preds = %57
-  %59 = load i64, ptr %6, align 8
-  %60 = call ptr @rb_check_typeddata(i64 noundef %59, ptr noundef @ossl_x509name_type)
-  store ptr %60, ptr %7, align 8
-  %61 = load ptr, ptr %7, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %65, label %63
+58:                                               ; preds = %54, %50
+  br label %59
 
-63:                                               ; preds = %58
-  %64 = load i64, ptr @rb_eRuntimeError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %64, ptr noundef @.str) #14
+59:                                               ; preds = %58
+  %60 = load i64, ptr %6, align 8
+  %61 = call ptr @rb_check_typeddata(i64 noundef %60, ptr noundef @ossl_x509name_type)
+  store ptr %61, ptr %7, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %66, label %64
+
+64:                                               ; preds = %59
+  %65 = load i64, ptr @rb_eRuntimeError, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %65, ptr noundef @.str) #14
   unreachable
 
-65:                                               ; preds = %58
-  br label %66
+66:                                               ; preds = %59
+  br label %67
 
-66:                                               ; preds = %65
-  %67 = load ptr, ptr %7, align 8
-  %68 = load ptr, ptr %13, align 8
-  %69 = load i64, ptr %10, align 8
-  %70 = call i32 @rb_num2int_inline(i64 noundef %69)
-  %71 = load i64, ptr %9, align 8
-  %72 = call ptr @RSTRING_PTR(i64 noundef %71)
-  %73 = load i64, ptr %9, align 8
-  %74 = call i32 @RSTRING_LENINT(i64 noundef %73)
-  %75 = load i32, ptr %14, align 4
-  %76 = load i32, ptr %15, align 4
-  %77 = call i32 @X509_NAME_add_entry_by_txt(ptr noundef %67, ptr noundef %68, i32 noundef %70, ptr noundef %72, i32 noundef %74, i32 noundef %75, i32 noundef %76)
-  %78 = icmp ne i32 %77, 0
-  br i1 %78, label %81, label %79
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %7, align 8
+  %69 = load ptr, ptr %13, align 8
+  %70 = load i64, ptr %10, align 8
+  %71 = call i32 @rb_num2int_inline(i64 noundef %70)
+  %72 = load i64, ptr %9, align 8
+  %73 = call ptr @RSTRING_PTR(i64 noundef %72)
+  %74 = load i64, ptr %9, align 8
+  %75 = call i32 @RSTRING_LENINT(i64 noundef %74)
+  %76 = load i32, ptr %14, align 4
+  %77 = load i32, ptr %15, align 4
+  %78 = call i32 @X509_NAME_add_entry_by_txt(ptr noundef %68, ptr noundef %69, i32 noundef %71, ptr noundef %73, i32 noundef %75, i32 noundef %76, i32 noundef %77)
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %82, label %80
 
-79:                                               ; preds = %66
-  %80 = load i64, ptr @eX509NameError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %80, ptr noundef @.str.38) #14
+80:                                               ; preds = %67
+  %81 = load i64, ptr @eX509NameError, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %81, ptr noundef @.str.38) #14
   unreachable
 
-81:                                               ; preds = %66
-  %82 = load i64, ptr %6, align 8
-  ret i64 %82
+82:                                               ; preds = %67
+  %83 = load i64, ptr %6, align 8
+  ret i64 %83
 }
 
 ; Function Attrs: nounwind uwtable

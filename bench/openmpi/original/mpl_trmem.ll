@@ -513,7 +513,7 @@ define internal ptr @trmalloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, i3
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %5
-  br label %347
+  br label %356
 
 37:                                               ; preds = %5
   %38 = load i32, ptr @TRdebugLevel, align 4
@@ -528,7 +528,7 @@ define internal ptr @trmalloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, i3
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %40
-  br label %347
+  br label %356
 
 46:                                               ; preds = %40
   br label %47
@@ -566,7 +566,7 @@ define internal ptr @trmalloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, i3
 67:                                               ; preds = %64
   %68 = load ptr, ptr @stderr, align 8
   %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef @.str.30) #7
-  br label %347
+  br label %356
 
 70:                                               ; preds = %64, %58
   %71 = load i64, ptr %6, align 8
@@ -583,7 +583,7 @@ define internal ptr @trmalloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, i3
   br i1 %79, label %81, label %80
 
 80:                                               ; preds = %70
-  br label %347
+  br label %356
 
 81:                                               ; preds = %70
   %82 = load i32, ptr @TRSetBytes, align 4
@@ -644,363 +644,372 @@ define internal ptr @trmalloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, i3
   %117 = getelementptr inbounds i8, ptr %116, i64 %115
   store ptr %117, ptr %12, align 8
   %118 = load volatile ptr, ptr @TRhead, align 16
-  %119 = icmp ne ptr %118, inttoptr (i64 3134058241 to ptr)
-  br i1 %119, label %123, label %120
+  %119 = inttoptr i64 3134058241 to ptr
+  %120 = icmp ne ptr %118, %119
+  br i1 %120, label %126, label %121
 
-120:                                              ; preds = %107
-  %121 = load volatile ptr, ptr getelementptr inbounds ([3 x ptr], ptr @TRhead, i64 0, i64 2), align 16
-  %122 = icmp ne ptr %121, inttoptr (i64 285138106 to ptr)
-  br i1 %122, label %123, label %129
+121:                                              ; preds = %107
+  %122 = getelementptr inbounds [3 x ptr], ptr @TRhead, i64 0, i64 2
+  %123 = load volatile ptr, ptr %122, align 16
+  %124 = inttoptr i64 285138106 to ptr
+  %125 = icmp ne ptr %123, %124
+  br i1 %125, label %126, label %132
 
-123:                                              ; preds = %120, %107
-  %124 = load ptr, ptr @stderr, align 8
-  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef @.str.15) #7
-  %126 = load ptr, ptr %11, align 8
-  %127 = getelementptr inbounds %struct.TRSPACE, ptr %126, i32 0, i32 8
-  %128 = load ptr, ptr %127, align 8
-  call void @free(ptr noundef %128) #7
+126:                                              ; preds = %121, %107
+  %127 = load ptr, ptr @stderr, align 8
+  %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef @.str.15) #7
+  %129 = load ptr, ptr %11, align 8
+  %130 = getelementptr inbounds %struct.TRSPACE, ptr %129, i32 0, i32 8
+  %131 = load ptr, ptr %130, align 8
+  call void @free(ptr noundef %131) #7
   store ptr null, ptr %12, align 8
-  br label %347
+  br label %356
 
-129:                                              ; preds = %120
-  %130 = load volatile ptr, ptr getelementptr inbounds ([3 x ptr], ptr @TRhead, i64 0, i64 1), align 8
-  %131 = icmp ne ptr %130, null
-  br i1 %131, label %132, label %164
+132:                                              ; preds = %121
+  %133 = getelementptr inbounds [3 x ptr], ptr @TRhead, i64 0, i64 1
+  %134 = load volatile ptr, ptr %133, align 8
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %136, label %171
 
-132:                                              ; preds = %129
-  br label %133
+136:                                              ; preds = %132
+  br label %137
 
-133:                                              ; preds = %132
-  %134 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 0
-  store volatile i64 1296236546, ptr %134, align 16
-  %135 = load volatile ptr, ptr getelementptr inbounds ([3 x ptr], ptr @TRhead, i64 0, i64 1), align 8
-  %136 = getelementptr inbounds %struct.TRSPACE, ptr %135, i32 0, i32 10
-  %137 = ptrtoint ptr %136 to i64
-  %138 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 1
-  store volatile i64 %137, ptr %138, align 8
-  %139 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 2
-  store volatile i64 8, ptr %139, align 16
-  %140 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 3
-  store volatile i64 0, ptr %140, align 8
-  %141 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 4
-  store volatile i64 0, ptr %141, align 16
-  %142 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 5
-  store volatile i64 0, ptr %142, align 8
-  %143 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 0
-  %144 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %143, i64 0) #7, !srcloc !4
-  store volatile i64 %144, ptr %19, align 8
-  %145 = load volatile i64, ptr %19, align 8
-  store i64 %145, ptr %20, align 8
-  br label %146
+137:                                              ; preds = %136
+  %138 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 0
+  store volatile i64 1296236546, ptr %138, align 16
+  %139 = getelementptr inbounds [3 x ptr], ptr @TRhead, i64 0, i64 1
+  %140 = load volatile ptr, ptr %139, align 8
+  %141 = getelementptr inbounds %struct.TRSPACE, ptr %140, i32 0, i32 10
+  %142 = ptrtoint ptr %141 to i64
+  %143 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 1
+  store volatile i64 %142, ptr %143, align 8
+  %144 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 2
+  store volatile i64 8, ptr %144, align 16
+  %145 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 3
+  store volatile i64 0, ptr %145, align 8
+  %146 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 4
+  store volatile i64 0, ptr %146, align 16
+  %147 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 5
+  store volatile i64 0, ptr %147, align 8
+  %148 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 0
+  %149 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %148, i64 0) #7, !srcloc !4
+  store volatile i64 %149, ptr %19, align 8
+  %150 = load volatile i64, ptr %19, align 8
+  store i64 %150, ptr %20, align 8
+  br label %151
 
-146:                                              ; preds = %133
-  %147 = load ptr, ptr %11, align 8
-  %148 = load volatile ptr, ptr getelementptr inbounds ([3 x ptr], ptr @TRhead, i64 0, i64 1), align 8
-  %149 = getelementptr inbounds %struct.TRSPACE, ptr %148, i32 0, i32 10
-  store ptr %147, ptr %149, align 8
-  br label %150
+151:                                              ; preds = %137
+  %152 = load ptr, ptr %11, align 8
+  %153 = getelementptr inbounds [3 x ptr], ptr @TRhead, i64 0, i64 1
+  %154 = load volatile ptr, ptr %153, align 8
+  %155 = getelementptr inbounds %struct.TRSPACE, ptr %154, i32 0, i32 10
+  store ptr %152, ptr %155, align 8
+  br label %156
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 0
-  store volatile i64 1296236544, ptr %151, align 16
-  %152 = load volatile ptr, ptr getelementptr inbounds ([3 x ptr], ptr @TRhead, i64 0, i64 1), align 8
-  %153 = getelementptr inbounds %struct.TRSPACE, ptr %152, i32 0, i32 10
-  %154 = ptrtoint ptr %153 to i64
-  %155 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 1
-  store volatile i64 %154, ptr %155, align 8
-  %156 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 2
-  store volatile i64 8, ptr %156, align 16
-  %157 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 3
-  store volatile i64 0, ptr %157, align 8
-  %158 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 4
-  store volatile i64 0, ptr %158, align 16
-  %159 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 5
-  store volatile i64 0, ptr %159, align 8
-  %160 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 0
-  %161 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %160, i64 0) #7, !srcloc !5
-  store volatile i64 %161, ptr %22, align 8
-  %162 = load volatile i64, ptr %22, align 8
-  store i64 %162, ptr %23, align 8
-  br label %163
+156:                                              ; preds = %151
+  %157 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 0
+  store volatile i64 1296236544, ptr %157, align 16
+  %158 = getelementptr inbounds [3 x ptr], ptr @TRhead, i64 0, i64 1
+  %159 = load volatile ptr, ptr %158, align 8
+  %160 = getelementptr inbounds %struct.TRSPACE, ptr %159, i32 0, i32 10
+  %161 = ptrtoint ptr %160 to i64
+  %162 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 1
+  store volatile i64 %161, ptr %162, align 8
+  %163 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 2
+  store volatile i64 8, ptr %163, align 16
+  %164 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 3
+  store volatile i64 0, ptr %164, align 8
+  %165 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 4
+  store volatile i64 0, ptr %165, align 16
+  %166 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 5
+  store volatile i64 0, ptr %166, align 8
+  %167 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 0
+  %168 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %167, i64 0) #7, !srcloc !5
+  store volatile i64 %168, ptr %22, align 8
+  %169 = load volatile i64, ptr %22, align 8
+  store i64 %169, ptr %23, align 8
+  br label %170
 
-163:                                              ; preds = %150
-  br label %164
+170:                                              ; preds = %156
+  br label %171
 
-164:                                              ; preds = %163, %129
-  %165 = load volatile ptr, ptr getelementptr inbounds ([3 x ptr], ptr @TRhead, i64 0, i64 1), align 8
-  %166 = load ptr, ptr %11, align 8
-  %167 = getelementptr inbounds %struct.TRSPACE, ptr %166, i32 0, i32 9
-  store volatile ptr %165, ptr %167, align 8
-  %168 = load ptr, ptr %11, align 8
-  store volatile ptr %168, ptr getelementptr inbounds ([3 x ptr], ptr @TRhead, i64 0, i64 1), align 8
-  %169 = load ptr, ptr %11, align 8
-  %170 = getelementptr inbounds %struct.TRSPACE, ptr %169, i32 0, i32 0
-  store i32 0, ptr %170, align 8
-  %171 = load i32, ptr %8, align 4
-  %172 = load ptr, ptr %11, align 8
-  %173 = getelementptr inbounds %struct.TRSPACE, ptr %172, i32 0, i32 1
-  store i32 %171, ptr %173, align 4
+171:                                              ; preds = %170, %132
+  %172 = getelementptr inbounds [3 x ptr], ptr @TRhead, i64 0, i64 1
+  %173 = load volatile ptr, ptr %172, align 8
   %174 = load ptr, ptr %11, align 8
-  %175 = getelementptr inbounds %struct.TRSPACE, ptr %174, i32 0, i32 10
-  store ptr null, ptr %175, align 8
-  %176 = load i64, ptr %14, align 8
-  %177 = load ptr, ptr %11, align 8
-  %178 = getelementptr inbounds %struct.TRSPACE, ptr %177, i32 0, i32 2
-  store i64 %176, ptr %178, align 8
-  %179 = load volatile i32, ptr @TRid, align 4
-  %180 = load ptr, ptr %11, align 8
-  %181 = getelementptr inbounds %struct.TRSPACE, ptr %180, i32 0, i32 3
-  store i32 %179, ptr %181, align 8
-  %182 = load i32, ptr %9, align 4
+  %175 = getelementptr inbounds %struct.TRSPACE, ptr %174, i32 0, i32 9
+  store volatile ptr %173, ptr %175, align 8
+  %176 = load ptr, ptr %11, align 8
+  %177 = getelementptr inbounds [3 x ptr], ptr @TRhead, i64 0, i64 1
+  store volatile ptr %176, ptr %177, align 8
+  %178 = load ptr, ptr %11, align 8
+  %179 = getelementptr inbounds %struct.TRSPACE, ptr %178, i32 0, i32 0
+  store i32 0, ptr %179, align 8
+  %180 = load i32, ptr %8, align 4
+  %181 = load ptr, ptr %11, align 8
+  %182 = getelementptr inbounds %struct.TRSPACE, ptr %181, i32 0, i32 1
+  store i32 %180, ptr %182, align 4
   %183 = load ptr, ptr %11, align 8
-  %184 = getelementptr inbounds %struct.TRSPACE, ptr %183, i32 0, i32 4
-  store i32 %182, ptr %184, align 4
-  %185 = load ptr, ptr %10, align 8
-  %186 = call i64 @strlen(ptr noundef %185) #8
-  %187 = trunc i64 %186 to i32
-  store i32 %187, ptr %17, align 4
-  %188 = icmp sgt i32 %187, 47
-  br i1 %188, label %189, label %195
+  %184 = getelementptr inbounds %struct.TRSPACE, ptr %183, i32 0, i32 10
+  store ptr null, ptr %184, align 8
+  %185 = load i64, ptr %14, align 8
+  %186 = load ptr, ptr %11, align 8
+  %187 = getelementptr inbounds %struct.TRSPACE, ptr %186, i32 0, i32 2
+  store i64 %185, ptr %187, align 8
+  %188 = load volatile i32, ptr @TRid, align 4
+  %189 = load ptr, ptr %11, align 8
+  %190 = getelementptr inbounds %struct.TRSPACE, ptr %189, i32 0, i32 3
+  store i32 %188, ptr %190, align 8
+  %191 = load i32, ptr %9, align 4
+  %192 = load ptr, ptr %11, align 8
+  %193 = getelementptr inbounds %struct.TRSPACE, ptr %192, i32 0, i32 4
+  store i32 %191, ptr %193, align 4
+  %194 = load ptr, ptr %10, align 8
+  %195 = call i64 @strlen(ptr noundef %194) #8
+  %196 = trunc i64 %195 to i32
+  store i32 %196, ptr %17, align 4
+  %197 = icmp sgt i32 %196, 47
+  br i1 %197, label %198, label %204
 
-189:                                              ; preds = %164
-  %190 = load i32, ptr %17, align 4
-  %191 = sub nsw i32 %190, 47
-  %192 = load ptr, ptr %10, align 8
-  %193 = sext i32 %191 to i64
-  %194 = getelementptr inbounds i8, ptr %192, i64 %193
-  store ptr %194, ptr %10, align 8
-  br label %195
+198:                                              ; preds = %171
+  %199 = load i32, ptr %17, align 4
+  %200 = sub nsw i32 %199, 47
+  %201 = load ptr, ptr %10, align 8
+  %202 = sext i32 %200 to i64
+  %203 = getelementptr inbounds i8, ptr %201, i64 %202
+  store ptr %203, ptr %10, align 8
+  br label %204
 
-195:                                              ; preds = %189, %164
-  %196 = load ptr, ptr %11, align 8
-  %197 = getelementptr inbounds %struct.TRSPACE, ptr %196, i32 0, i32 7
-  %198 = getelementptr inbounds [48 x i8], ptr %197, i64 0, i64 0
-  %199 = load ptr, ptr %10, align 8
-  %200 = call i32 @MPL_strncpy(ptr noundef %198, ptr noundef %199, i64 noundef 48)
-  %201 = load ptr, ptr %11, align 8
-  %202 = getelementptr inbounds %struct.TRSPACE, ptr %201, i32 0, i32 7
-  %203 = getelementptr inbounds [48 x i8], ptr %202, i64 0, i64 47
-  store i8 0, ptr %203, align 1
-  %204 = load ptr, ptr %11, align 8
-  %205 = getelementptr inbounds %struct.TRSPACE, ptr %204, i32 0, i32 11
-  store i64 4041265353, ptr %205, align 8
-  %206 = load ptr, ptr %12, align 8
-  %207 = load i64, ptr %14, align 8
-  %208 = getelementptr inbounds i8, ptr %206, i64 %207
-  store ptr %208, ptr %13, align 8
-  %209 = load ptr, ptr %13, align 8
-  %210 = getelementptr inbounds i64, ptr %209, i64 0
-  store i64 4041265353, ptr %210, align 8
-  %211 = load i32, ptr @classes_initialized, align 4
-  %212 = icmp ne i32 %211, 0
-  br i1 %212, label %214, label %213
+204:                                              ; preds = %198, %171
+  %205 = load ptr, ptr %11, align 8
+  %206 = getelementptr inbounds %struct.TRSPACE, ptr %205, i32 0, i32 7
+  %207 = getelementptr inbounds [48 x i8], ptr %206, i64 0, i64 0
+  %208 = load ptr, ptr %10, align 8
+  %209 = call i32 @MPL_strncpy(ptr noundef %207, ptr noundef %208, i64 noundef 48)
+  %210 = load ptr, ptr %11, align 8
+  %211 = getelementptr inbounds %struct.TRSPACE, ptr %210, i32 0, i32 7
+  %212 = getelementptr inbounds [48 x i8], ptr %211, i64 0, i64 47
+  store i8 0, ptr %212, align 1
+  %213 = load ptr, ptr %11, align 8
+  %214 = getelementptr inbounds %struct.TRSPACE, ptr %213, i32 0, i32 11
+  store i64 4041265353, ptr %214, align 8
+  %215 = load ptr, ptr %12, align 8
+  %216 = load i64, ptr %14, align 8
+  %217 = getelementptr inbounds i8, ptr %215, i64 %216
+  store ptr %217, ptr %13, align 8
+  %218 = load ptr, ptr %13, align 8
+  %219 = getelementptr inbounds i64, ptr %218, i64 0
+  store i64 4041265353, ptr %219, align 8
+  %220 = load i32, ptr @classes_initialized, align 4
+  %221 = icmp ne i32 %220, 0
+  br i1 %221, label %223, label %222
 
-213:                                              ; preds = %195
+222:                                              ; preds = %204
   call void @init_classes()
-  br label %214
+  br label %223
 
-214:                                              ; preds = %213, %195
-  %215 = load i64, ptr %14, align 8
-  %216 = load i32, ptr %8, align 4
-  %217 = zext i32 %216 to i64
-  %218 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %217
-  %219 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %218, i32 0, i32 1
-  %220 = load i64, ptr %219, align 8
-  %221 = add i64 %220, %215
-  store i64 %221, ptr %219, align 8
-  %222 = load i64, ptr %14, align 8
-  %223 = load i32, ptr %8, align 4
-  %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %224
-  %226 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %225, i32 0, i32 2
-  %227 = load i64, ptr %226, align 16
-  %228 = add i64 %227, %222
-  store i64 %228, ptr %226, align 16
-  %229 = load i32, ptr %8, align 4
-  %230 = zext i32 %229 to i64
-  %231 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %230
-  %232 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %231, i32 0, i32 3
-  %233 = load i64, ptr %232, align 8
-  %234 = add nsw i64 %233, 1
-  store i64 %234, ptr %232, align 8
-  %235 = load i32, ptr %8, align 4
-  %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %236
-  %238 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %237, i32 0, i32 1
-  %239 = load i64, ptr %238, align 8
-  %240 = load i32, ptr %8, align 4
-  %241 = zext i32 %240 to i64
-  %242 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %241
-  %243 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %242, i32 0, i32 0
-  %244 = load i64, ptr %243, align 16
-  %245 = icmp sgt i64 %239, %244
-  br i1 %245, label %246, label %256
+223:                                              ; preds = %222, %204
+  %224 = load i64, ptr %14, align 8
+  %225 = load i32, ptr %8, align 4
+  %226 = zext i32 %225 to i64
+  %227 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %226
+  %228 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %227, i32 0, i32 1
+  %229 = load i64, ptr %228, align 8
+  %230 = add i64 %229, %224
+  store i64 %230, ptr %228, align 8
+  %231 = load i64, ptr %14, align 8
+  %232 = load i32, ptr %8, align 4
+  %233 = zext i32 %232 to i64
+  %234 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %233
+  %235 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %234, i32 0, i32 2
+  %236 = load i64, ptr %235, align 16
+  %237 = add i64 %236, %231
+  store i64 %237, ptr %235, align 16
+  %238 = load i32, ptr %8, align 4
+  %239 = zext i32 %238 to i64
+  %240 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %239
+  %241 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %240, i32 0, i32 3
+  %242 = load i64, ptr %241, align 8
+  %243 = add nsw i64 %242, 1
+  store i64 %243, ptr %241, align 8
+  %244 = load i32, ptr %8, align 4
+  %245 = zext i32 %244 to i64
+  %246 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %245
+  %247 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %246, i32 0, i32 1
+  %248 = load i64, ptr %247, align 8
+  %249 = load i32, ptr %8, align 4
+  %250 = zext i32 %249 to i64
+  %251 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %250
+  %252 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %251, i32 0, i32 0
+  %253 = load i64, ptr %252, align 16
+  %254 = icmp sgt i64 %248, %253
+  br i1 %254, label %255, label %265
 
-246:                                              ; preds = %214
-  %247 = load i32, ptr %8, align 4
-  %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %248
-  %250 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %249, i32 0, i32 1
-  %251 = load i64, ptr %250, align 8
-  %252 = load i32, ptr %8, align 4
-  %253 = zext i32 %252 to i64
-  %254 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %253
-  %255 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %254, i32 0, i32 0
-  store i64 %251, ptr %255, align 16
-  br label %256
+255:                                              ; preds = %223
+  %256 = load i32, ptr %8, align 4
+  %257 = zext i32 %256 to i64
+  %258 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %257
+  %259 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %258, i32 0, i32 1
+  %260 = load i64, ptr %259, align 8
+  %261 = load i32, ptr %8, align 4
+  %262 = zext i32 %261 to i64
+  %263 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %262
+  %264 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %263, i32 0, i32 0
+  store i64 %260, ptr %264, align 16
+  br label %265
 
-256:                                              ; preds = %246, %214
-  %257 = load i64, ptr %14, align 8
-  %258 = load volatile i64, ptr @allocated, align 8
-  %259 = add i64 %258, %257
-  store volatile i64 %259, ptr @allocated, align 8
-  %260 = load volatile i64, ptr @allocated, align 8
-  %261 = load volatile i64, ptr @TRMaxMem, align 8
-  %262 = icmp ugt i64 %260, %261
-  br i1 %262, label %263, label %266
+265:                                              ; preds = %255, %223
+  %266 = load i64, ptr %14, align 8
+  %267 = load volatile i64, ptr @allocated, align 8
+  %268 = add i64 %267, %266
+  store volatile i64 %268, ptr @allocated, align 8
+  %269 = load volatile i64, ptr @allocated, align 8
+  %270 = load volatile i64, ptr @TRMaxMem, align 8
+  %271 = icmp ugt i64 %269, %270
+  br i1 %271, label %272, label %275
 
-263:                                              ; preds = %256
-  %264 = load volatile i64, ptr @allocated, align 8
-  store volatile i64 %264, ptr @TRMaxMem, align 8
-  %265 = load volatile i32, ptr @TRid, align 4
-  store volatile i32 %265, ptr @TRMaxMemId, align 4
-  br label %266
+272:                                              ; preds = %265
+  %273 = load volatile i64, ptr @allocated, align 8
+  store volatile i64 %273, ptr @TRMaxMem, align 8
+  %274 = load volatile i32, ptr @TRid, align 4
+  store volatile i32 %274, ptr @TRMaxMemId, align 4
+  br label %275
 
-266:                                              ; preds = %263, %256
-  %267 = load volatile i64, ptr @frags, align 8
-  %268 = add nsw i64 %267, 1
-  store volatile i64 %268, ptr @frags, align 8
-  %269 = load volatile i32, ptr @TRlevel, align 4
-  %270 = and i32 %269, 1
-  %271 = icmp ne i32 %270, 0
-  br i1 %271, label %272, label %281
+275:                                              ; preds = %272, %265
+  %276 = load volatile i64, ptr @frags, align 8
+  %277 = add nsw i64 %276, 1
+  store volatile i64 %277, ptr @frags, align 8
+  %278 = load volatile i32, ptr @TRlevel, align 4
+  %279 = and i32 %278, 1
+  %280 = icmp ne i32 %279, 0
+  br i1 %280, label %281, label %290
 
-272:                                              ; preds = %266
-  %273 = load ptr, ptr @stderr, align 8
-  %274 = load i32, ptr @world_rank, align 4
-  %275 = load i64, ptr %7, align 8
-  %276 = load i64, ptr %14, align 8
-  %277 = load ptr, ptr %12, align 8
-  %278 = load ptr, ptr %10, align 8
-  %279 = load i32, ptr %9, align 4
-  %280 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %273, ptr noundef @.str.31, i32 noundef %274, i64 noundef %275, i64 noundef %276, ptr noundef %277, ptr noundef %278, i32 noundef %279) #7
-  br label %281
+281:                                              ; preds = %275
+  %282 = load ptr, ptr @stderr, align 8
+  %283 = load i32, ptr @world_rank, align 4
+  %284 = load i64, ptr %7, align 8
+  %285 = load i64, ptr %14, align 8
+  %286 = load ptr, ptr %12, align 8
+  %287 = load ptr, ptr %10, align 8
+  %288 = load i32, ptr %9, align 4
+  %289 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %282, ptr noundef @.str.31, i32 noundef %283, i64 noundef %284, i64 noundef %285, ptr noundef %286, ptr noundef %287, i32 noundef %288) #7
+  br label %290
 
-281:                                              ; preds = %272, %266
-  %282 = load i64, ptr %16, align 8
-  %283 = add i64 160, %282
-  %284 = load volatile i64, ptr @TRCurOverhead, align 8
-  %285 = add i64 %284, %283
-  store volatile i64 %285, ptr @TRCurOverhead, align 8
-  %286 = load volatile i64, ptr @TRCurOverhead, align 8
-  %287 = load volatile i64, ptr @TRMaxOverhead, align 8
-  %288 = icmp ugt i64 %286, %287
-  br i1 %288, label %289, label %302
-
-289:                                              ; preds = %281
-  %290 = load volatile i64, ptr @TRMaxOverhead, align 8
-  %291 = icmp ne i64 %290, 0
-  br i1 %291, label %292, label %302
-
-292:                                              ; preds = %289
-  %293 = load ptr, ptr @stderr, align 8
-  %294 = load i32, ptr @world_rank, align 4
+290:                                              ; preds = %281, %275
+  %291 = load i64, ptr %16, align 8
+  %292 = add i64 160, %291
+  %293 = load volatile i64, ptr @TRCurOverhead, align 8
+  %294 = add i64 %293, %292
+  store volatile i64 %294, ptr @TRCurOverhead, align 8
   %295 = load volatile i64, ptr @TRCurOverhead, align 8
-  %296 = uitofp i64 %295 to double
-  %297 = fdiv double %296, 1.024000e+03
-  %298 = fdiv double %297, 1.024000e+03
-  %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %293, ptr noundef @.str.32, i32 noundef %294, double noundef %298) #7
-  %300 = load volatile i64, ptr @TRMaxOverhead, align 8
-  %301 = mul i64 %300, 2
-  store volatile i64 %301, ptr @TRMaxOverhead, align 8
-  br label %302
+  %296 = load volatile i64, ptr @TRMaxOverhead, align 8
+  %297 = icmp ugt i64 %295, %296
+  br i1 %297, label %298, label %311
 
-302:                                              ; preds = %292, %289, %281
-  br label %303
+298:                                              ; preds = %290
+  %299 = load volatile i64, ptr @TRMaxOverhead, align 8
+  %300 = icmp ne i64 %299, 0
+  br i1 %300, label %301, label %311
 
-303:                                              ; preds = %302
-  %304 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 0
-  store volatile i64 1296236545, ptr %304, align 16
-  %305 = load ptr, ptr %12, align 8
-  %306 = ptrtoint ptr %305 to i64
-  %307 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 1
-  store volatile i64 %306, ptr %307, align 8
-  %308 = load i64, ptr %14, align 8
-  %309 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 2
-  store volatile i64 %308, ptr %309, align 16
-  %310 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 3
-  store volatile i64 0, ptr %310, align 8
-  %311 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 4
-  store volatile i64 0, ptr %311, align 16
-  %312 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 5
-  store volatile i64 0, ptr %312, align 8
+301:                                              ; preds = %298
+  %302 = load ptr, ptr @stderr, align 8
+  %303 = load i32, ptr @world_rank, align 4
+  %304 = load volatile i64, ptr @TRCurOverhead, align 8
+  %305 = uitofp i64 %304 to double
+  %306 = fdiv double %305, 1.024000e+03
+  %307 = fdiv double %306, 1.024000e+03
+  %308 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %302, ptr noundef @.str.32, i32 noundef %303, double noundef %307) #7
+  %309 = load volatile i64, ptr @TRMaxOverhead, align 8
+  %310 = mul i64 %309, 2
+  store volatile i64 %310, ptr @TRMaxOverhead, align 8
+  br label %311
+
+311:                                              ; preds = %301, %298, %290
+  br label %312
+
+312:                                              ; preds = %311
   %313 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 0
-  %314 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %313, i64 0) #7, !srcloc !6
-  store volatile i64 %314, ptr %25, align 8
-  %315 = load volatile i64, ptr %25, align 8
-  store i64 %315, ptr %26, align 8
-  br label %316
+  store volatile i64 1296236545, ptr %313, align 16
+  %314 = load ptr, ptr %12, align 8
+  %315 = ptrtoint ptr %314 to i64
+  %316 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 1
+  store volatile i64 %315, ptr %316, align 8
+  %317 = load i64, ptr %14, align 8
+  %318 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 2
+  store volatile i64 %317, ptr %318, align 16
+  %319 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 3
+  store volatile i64 0, ptr %319, align 8
+  %320 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 4
+  store volatile i64 0, ptr %320, align 16
+  %321 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 5
+  store volatile i64 0, ptr %321, align 8
+  %322 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 0
+  %323 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %322, i64 0) #7, !srcloc !6
+  store volatile i64 %323, ptr %25, align 8
+  %324 = load volatile i64, ptr %25, align 8
+  store i64 %324, ptr %26, align 8
+  br label %325
 
-316:                                              ; preds = %303
-  br label %317
+325:                                              ; preds = %312
+  br label %326
 
-317:                                              ; preds = %316
-  %318 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 0
-  store volatile i64 1296236544, ptr %318, align 16
-  %319 = load ptr, ptr %11, align 8
-  %320 = getelementptr inbounds %struct.TRSPACE, ptr %319, i32 0, i32 8
-  %321 = load ptr, ptr %320, align 8
-  %322 = ptrtoint ptr %321 to i64
-  %323 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 1
-  store volatile i64 %322, ptr %323, align 8
-  %324 = load i64, ptr %16, align 8
-  %325 = add i64 160, %324
-  %326 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 2
-  store volatile i64 %325, ptr %326, align 16
-  %327 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 3
-  store volatile i64 0, ptr %327, align 8
-  %328 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 4
-  store volatile i64 0, ptr %328, align 16
-  %329 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 5
-  store volatile i64 0, ptr %329, align 8
-  %330 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 0
-  %331 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %330, i64 0) #7, !srcloc !7
-  store volatile i64 %331, ptr %28, align 8
-  %332 = load volatile i64, ptr %28, align 8
-  store i64 %332, ptr %29, align 8
-  br label %333
+326:                                              ; preds = %325
+  %327 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 0
+  store volatile i64 1296236544, ptr %327, align 16
+  %328 = load ptr, ptr %11, align 8
+  %329 = getelementptr inbounds %struct.TRSPACE, ptr %328, i32 0, i32 8
+  %330 = load ptr, ptr %329, align 8
+  %331 = ptrtoint ptr %330 to i64
+  %332 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 1
+  store volatile i64 %331, ptr %332, align 8
+  %333 = load i64, ptr %16, align 8
+  %334 = add i64 160, %333
+  %335 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 2
+  store volatile i64 %334, ptr %335, align 16
+  %336 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 3
+  store volatile i64 0, ptr %336, align 8
+  %337 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 4
+  store volatile i64 0, ptr %337, align 16
+  %338 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 5
+  store volatile i64 0, ptr %338, align 8
+  %339 = getelementptr inbounds [6 x i64], ptr %27, i64 0, i64 0
+  %340 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %339, i64 0) #7, !srcloc !7
+  store volatile i64 %340, ptr %28, align 8
+  %341 = load volatile i64, ptr %28, align 8
+  store i64 %341, ptr %29, align 8
+  br label %342
 
-333:                                              ; preds = %317
-  br label %334
+342:                                              ; preds = %326
+  br label %343
 
-334:                                              ; preds = %333
-  %335 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 0
-  store volatile i64 1296236544, ptr %335, align 16
-  %336 = load ptr, ptr %13, align 8
-  %337 = ptrtoint ptr %336 to i64
-  %338 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 1
-  store volatile i64 %337, ptr %338, align 8
-  %339 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 2
-  store volatile i64 8, ptr %339, align 16
-  %340 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 3
-  store volatile i64 0, ptr %340, align 8
-  %341 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 4
-  store volatile i64 0, ptr %341, align 16
-  %342 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 5
-  store volatile i64 0, ptr %342, align 8
-  %343 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 0
-  %344 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %343, i64 0) #7, !srcloc !8
-  store volatile i64 %344, ptr %31, align 8
-  %345 = load volatile i64, ptr %31, align 8
-  store i64 %345, ptr %32, align 8
-  br label %346
+343:                                              ; preds = %342
+  %344 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 0
+  store volatile i64 1296236544, ptr %344, align 16
+  %345 = load ptr, ptr %13, align 8
+  %346 = ptrtoint ptr %345 to i64
+  %347 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 1
+  store volatile i64 %346, ptr %347, align 8
+  %348 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 2
+  store volatile i64 8, ptr %348, align 16
+  %349 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 3
+  store volatile i64 0, ptr %349, align 8
+  %350 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 4
+  store volatile i64 0, ptr %350, align 16
+  %351 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 5
+  store volatile i64 0, ptr %351, align 8
+  %352 = getelementptr inbounds [6 x i64], ptr %30, i64 0, i64 0
+  %353 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %352, i64 0) #7, !srcloc !8
+  store volatile i64 %353, ptr %31, align 8
+  %354 = load volatile i64, ptr %31, align 8
+  store i64 %354, ptr %32, align 8
+  br label %355
 
-346:                                              ; preds = %334
-  br label %347
+355:                                              ; preds = %343
+  br label %356
 
-347:                                              ; preds = %346, %123, %80, %67, %45, %36
-  %348 = load ptr, ptr %12, align 8
-  ret ptr %348
+356:                                              ; preds = %355, %126, %80, %67, %45, %36
+  %357 = load ptr, ptr %12, align 8
+  ret ptr %357
 }
 
 ; Function Attrs: nounwind
@@ -1287,7 +1296,7 @@ define internal void @trfree(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %3
-  br label %386
+  br label %387
 
 35:                                               ; preds = %3
   %36 = load i32, ptr @TRdebugLevel, align 4
@@ -1302,7 +1311,7 @@ define internal void @trfree(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %38
-  br label %386
+  br label %387
 
 44:                                               ; preds = %38
   br label %45
@@ -1349,7 +1358,7 @@ define internal void @trfree(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 
   %69 = load ptr, ptr %6, align 8
   %70 = load i32, ptr %5, align 4
   %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef @.str.34, i32 noundef %67, ptr noundef %68, ptr noundef %69, i32 noundef %70) #7
-  br label %386
+  br label %387
 
 72:                                               ; preds = %60
   %73 = load ptr, ptr %4, align 8
@@ -1371,7 +1380,7 @@ define internal void @trfree(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 
   %86 = load ptr, ptr %6, align 8
   %87 = load i32, ptr %5, align 4
   %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef @.str.35, i32 noundef %84, ptr noundef %85, ptr noundef %86, i32 noundef %87) #7
-  br label %386
+  br label %387
 
 89:                                               ; preds = %72
   br label %90
@@ -1462,7 +1471,7 @@ define internal void @trfree(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 
   %151 = getelementptr inbounds %struct.TRSPACE, ptr %150, i32 0, i32 4
   %152 = load i32, ptr %151, align 4
   %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef @.str.39, i32 noundef %146, ptr noundef %149, i32 noundef %152) #7
-  br label %386
+  br label %387
 
 154:                                              ; preds = %106
   %155 = load volatile i32, ptr @TRidSet, align 4
@@ -1634,182 +1643,183 @@ define internal void @trfree(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 
   br label %274
 
 274:                                              ; preds = %259
-  br label %279
+  br label %280
 
 275:                                              ; preds = %207
   %276 = load ptr, ptr %7, align 8
   %277 = getelementptr inbounds %struct.TRSPACE, ptr %276, i32 0, i32 9
   %278 = load volatile ptr, ptr %277, align 8
-  store volatile ptr %278, ptr getelementptr inbounds ([3 x ptr], ptr @TRhead, i64 0, i64 1), align 8
-  br label %279
+  %279 = getelementptr inbounds [3 x ptr], ptr @TRhead, i64 0, i64 1
+  store volatile ptr %278, ptr %279, align 8
+  br label %280
 
-279:                                              ; preds = %275, %274
-  %280 = load ptr, ptr %7, align 8
-  %281 = getelementptr inbounds %struct.TRSPACE, ptr %280, i32 0, i32 9
-  %282 = load volatile ptr, ptr %281, align 8
-  %283 = icmp ne ptr %282, null
-  br i1 %283, label %284, label %324
+280:                                              ; preds = %275, %274
+  %281 = load ptr, ptr %7, align 8
+  %282 = getelementptr inbounds %struct.TRSPACE, ptr %281, i32 0, i32 9
+  %283 = load volatile ptr, ptr %282, align 8
+  %284 = icmp ne ptr %283, null
+  br i1 %284, label %285, label %325
 
-284:                                              ; preds = %279
-  br label %285
+285:                                              ; preds = %280
+  br label %286
 
-285:                                              ; preds = %284
-  %286 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 0
-  store volatile i64 1296236546, ptr %286, align 16
-  %287 = load ptr, ptr %7, align 8
-  %288 = getelementptr inbounds %struct.TRSPACE, ptr %287, i32 0, i32 9
-  %289 = load volatile ptr, ptr %288, align 8
-  %290 = getelementptr inbounds %struct.TRSPACE, ptr %289, i32 0, i32 10
-  %291 = ptrtoint ptr %290 to i64
-  %292 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 1
-  store volatile i64 %291, ptr %292, align 8
-  %293 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 2
-  store volatile i64 8, ptr %293, align 16
-  %294 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 3
-  store volatile i64 0, ptr %294, align 8
-  %295 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 4
-  store volatile i64 0, ptr %295, align 16
-  %296 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 5
-  store volatile i64 0, ptr %296, align 8
-  %297 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 0
-  %298 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %297, i64 0) #7, !srcloc !13
-  store volatile i64 %298, ptr %24, align 8
-  %299 = load volatile i64, ptr %24, align 8
-  store i64 %299, ptr %25, align 8
-  br label %300
+286:                                              ; preds = %285
+  %287 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 0
+  store volatile i64 1296236546, ptr %287, align 16
+  %288 = load ptr, ptr %7, align 8
+  %289 = getelementptr inbounds %struct.TRSPACE, ptr %288, i32 0, i32 9
+  %290 = load volatile ptr, ptr %289, align 8
+  %291 = getelementptr inbounds %struct.TRSPACE, ptr %290, i32 0, i32 10
+  %292 = ptrtoint ptr %291 to i64
+  %293 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 1
+  store volatile i64 %292, ptr %293, align 8
+  %294 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 2
+  store volatile i64 8, ptr %294, align 16
+  %295 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 3
+  store volatile i64 0, ptr %295, align 8
+  %296 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 4
+  store volatile i64 0, ptr %296, align 16
+  %297 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 5
+  store volatile i64 0, ptr %297, align 8
+  %298 = getelementptr inbounds [6 x i64], ptr %23, i64 0, i64 0
+  %299 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %298, i64 0) #7, !srcloc !13
+  store volatile i64 %299, ptr %24, align 8
+  %300 = load volatile i64, ptr %24, align 8
+  store i64 %300, ptr %25, align 8
+  br label %301
 
-300:                                              ; preds = %285
-  %301 = load ptr, ptr %7, align 8
-  %302 = getelementptr inbounds %struct.TRSPACE, ptr %301, i32 0, i32 10
-  %303 = load ptr, ptr %302, align 8
-  %304 = load ptr, ptr %7, align 8
-  %305 = getelementptr inbounds %struct.TRSPACE, ptr %304, i32 0, i32 9
-  %306 = load volatile ptr, ptr %305, align 8
-  %307 = getelementptr inbounds %struct.TRSPACE, ptr %306, i32 0, i32 10
-  store ptr %303, ptr %307, align 8
-  br label %308
+301:                                              ; preds = %286
+  %302 = load ptr, ptr %7, align 8
+  %303 = getelementptr inbounds %struct.TRSPACE, ptr %302, i32 0, i32 10
+  %304 = load ptr, ptr %303, align 8
+  %305 = load ptr, ptr %7, align 8
+  %306 = getelementptr inbounds %struct.TRSPACE, ptr %305, i32 0, i32 9
+  %307 = load volatile ptr, ptr %306, align 8
+  %308 = getelementptr inbounds %struct.TRSPACE, ptr %307, i32 0, i32 10
+  store ptr %304, ptr %308, align 8
+  br label %309
 
-308:                                              ; preds = %300
-  %309 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 0
-  store volatile i64 1296236544, ptr %309, align 16
-  %310 = load ptr, ptr %7, align 8
-  %311 = getelementptr inbounds %struct.TRSPACE, ptr %310, i32 0, i32 9
-  %312 = load volatile ptr, ptr %311, align 8
-  %313 = getelementptr inbounds %struct.TRSPACE, ptr %312, i32 0, i32 10
-  %314 = ptrtoint ptr %313 to i64
-  %315 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 1
-  store volatile i64 %314, ptr %315, align 8
-  %316 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 2
-  store volatile i64 8, ptr %316, align 16
-  %317 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 3
-  store volatile i64 0, ptr %317, align 8
-  %318 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 4
-  store volatile i64 0, ptr %318, align 16
-  %319 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 5
-  store volatile i64 0, ptr %319, align 8
-  %320 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 0
-  %321 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %320, i64 0) #7, !srcloc !14
-  store volatile i64 %321, ptr %27, align 8
-  %322 = load volatile i64, ptr %27, align 8
-  store i64 %322, ptr %28, align 8
-  br label %323
-
-323:                                              ; preds = %308
+309:                                              ; preds = %301
+  %310 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 0
+  store volatile i64 1296236544, ptr %310, align 16
+  %311 = load ptr, ptr %7, align 8
+  %312 = getelementptr inbounds %struct.TRSPACE, ptr %311, i32 0, i32 9
+  %313 = load volatile ptr, ptr %312, align 8
+  %314 = getelementptr inbounds %struct.TRSPACE, ptr %313, i32 0, i32 10
+  %315 = ptrtoint ptr %314 to i64
+  %316 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 1
+  store volatile i64 %315, ptr %316, align 8
+  %317 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 2
+  store volatile i64 8, ptr %317, align 16
+  %318 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 3
+  store volatile i64 0, ptr %318, align 8
+  %319 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 4
+  store volatile i64 0, ptr %319, align 16
+  %320 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 5
+  store volatile i64 0, ptr %320, align 8
+  %321 = getelementptr inbounds [6 x i64], ptr %26, i64 0, i64 0
+  %322 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %321, i64 0) #7, !srcloc !14
+  store volatile i64 %322, ptr %27, align 8
+  %323 = load volatile i64, ptr %27, align 8
+  store i64 %323, ptr %28, align 8
   br label %324
 
-324:                                              ; preds = %323, %279
-  %325 = load volatile i32, ptr @TRlevel, align 4
-  %326 = and i32 %325, 2
-  %327 = icmp ne i32 %326, 0
-  br i1 %327, label %328, label %338
+324:                                              ; preds = %309
+  br label %325
 
-328:                                              ; preds = %324
-  %329 = load ptr, ptr @stderr, align 8
-  %330 = load i32, ptr @world_rank, align 4
-  %331 = load ptr, ptr %7, align 8
-  %332 = getelementptr inbounds %struct.TRSPACE, ptr %331, i32 0, i32 2
-  %333 = load i64, ptr %332, align 8
-  %334 = load ptr, ptr %4, align 8
-  %335 = load ptr, ptr %6, align 8
-  %336 = load i32, ptr %5, align 4
-  %337 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %329, ptr noundef @.str.41, i32 noundef %330, i64 noundef %333, ptr noundef %334, ptr noundef %335, i32 noundef %336) #7
-  br label %338
+325:                                              ; preds = %324, %280
+  %326 = load volatile i32, ptr @TRlevel, align 4
+  %327 = and i32 %326, 2
+  %328 = icmp ne i32 %327, 0
+  br i1 %328, label %329, label %339
 
-338:                                              ; preds = %328, %324
-  %339 = load ptr, ptr %4, align 8
-  %340 = ptrtoint ptr %339 to i64
-  %341 = load ptr, ptr %7, align 8
-  %342 = getelementptr inbounds %struct.TRSPACE, ptr %341, i32 0, i32 8
-  %343 = load ptr, ptr %342, align 8
-  %344 = ptrtoint ptr %343 to i64
-  %345 = sub i64 %340, %344
-  %346 = load volatile i64, ptr @TRCurOverhead, align 8
-  %347 = sub i64 %346, %345
-  store volatile i64 %347, ptr @TRCurOverhead, align 8
-  %348 = load ptr, ptr %7, align 8
-  %349 = getelementptr inbounds %struct.TRSPACE, ptr %348, i32 0, i32 2
-  %350 = load i64, ptr %349, align 8
-  %351 = icmp ugt i64 %350, 8
-  br i1 %351, label %352, label %382
+329:                                              ; preds = %325
+  %330 = load ptr, ptr @stderr, align 8
+  %331 = load i32, ptr @world_rank, align 4
+  %332 = load ptr, ptr %7, align 8
+  %333 = getelementptr inbounds %struct.TRSPACE, ptr %332, i32 0, i32 2
+  %334 = load i64, ptr %333, align 8
+  %335 = load ptr, ptr %4, align 8
+  %336 = load ptr, ptr %6, align 8
+  %337 = load i32, ptr %5, align 4
+  %338 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %330, ptr noundef @.str.41, i32 noundef %331, i64 noundef %334, ptr noundef %335, ptr noundef %336, i32 noundef %337) #7
+  br label %339
 
-352:                                              ; preds = %338
-  %353 = load ptr, ptr %7, align 8
-  %354 = getelementptr inbounds %struct.TRSPACE, ptr %353, i32 0, i32 2
-  %355 = load i64, ptr %354, align 8
-  %356 = sub i64 %355, 8
-  store i64 %356, ptr %9, align 8
-  br label %357
+339:                                              ; preds = %329, %325
+  %340 = load ptr, ptr %4, align 8
+  %341 = ptrtoint ptr %340 to i64
+  %342 = load ptr, ptr %7, align 8
+  %343 = getelementptr inbounds %struct.TRSPACE, ptr %342, i32 0, i32 8
+  %344 = load ptr, ptr %343, align 8
+  %345 = ptrtoint ptr %344 to i64
+  %346 = sub i64 %341, %345
+  %347 = load volatile i64, ptr @TRCurOverhead, align 8
+  %348 = sub i64 %347, %346
+  store volatile i64 %348, ptr @TRCurOverhead, align 8
+  %349 = load ptr, ptr %7, align 8
+  %350 = getelementptr inbounds %struct.TRSPACE, ptr %349, i32 0, i32 2
+  %351 = load i64, ptr %350, align 8
+  %352 = icmp ugt i64 %351, 8
+  br i1 %352, label %353, label %383
 
-357:                                              ; preds = %352
-  %358 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 0
-  store volatile i64 1296236545, ptr %358, align 16
-  %359 = load ptr, ptr %4, align 8
-  %360 = getelementptr inbounds i8, ptr %359, i64 8
-  %361 = ptrtoint ptr %360 to i64
-  %362 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 1
-  store volatile i64 %361, ptr %362, align 8
-  %363 = load i64, ptr %9, align 8
-  %364 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 2
-  store volatile i64 %363, ptr %364, align 16
-  %365 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 3
-  store volatile i64 0, ptr %365, align 8
-  %366 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 4
-  store volatile i64 0, ptr %366, align 16
-  %367 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 5
-  store volatile i64 0, ptr %367, align 8
-  %368 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 0
-  %369 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %368, i64 0) #7, !srcloc !15
-  store volatile i64 %369, ptr %30, align 8
-  %370 = load volatile i64, ptr %30, align 8
-  store i64 %370, ptr %31, align 8
-  br label %371
+353:                                              ; preds = %339
+  %354 = load ptr, ptr %7, align 8
+  %355 = getelementptr inbounds %struct.TRSPACE, ptr %354, i32 0, i32 2
+  %356 = load i64, ptr %355, align 8
+  %357 = sub i64 %356, 8
+  store i64 %357, ptr %9, align 8
+  br label %358
 
-371:                                              ; preds = %357
-  %372 = load i32, ptr @TRSetBytes, align 4
-  %373 = icmp ne i32 %372, 0
-  br i1 %373, label %374, label %381
+358:                                              ; preds = %353
+  %359 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 0
+  store volatile i64 1296236545, ptr %359, align 16
+  %360 = load ptr, ptr %4, align 8
+  %361 = getelementptr inbounds i8, ptr %360, i64 8
+  %362 = ptrtoint ptr %361 to i64
+  %363 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 1
+  store volatile i64 %362, ptr %363, align 8
+  %364 = load i64, ptr %9, align 8
+  %365 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 2
+  store volatile i64 %364, ptr %365, align 16
+  %366 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 3
+  store volatile i64 0, ptr %366, align 8
+  %367 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 4
+  store volatile i64 0, ptr %367, align 16
+  %368 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 5
+  store volatile i64 0, ptr %368, align 8
+  %369 = getelementptr inbounds [6 x i64], ptr %29, i64 0, i64 0
+  %370 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %369, i64 0) #7, !srcloc !15
+  store volatile i64 %370, ptr %30, align 8
+  %371 = load volatile i64, ptr %30, align 8
+  store i64 %371, ptr %31, align 8
+  br label %372
 
-374:                                              ; preds = %371
-  %375 = load ptr, ptr %4, align 8
-  %376 = getelementptr inbounds i8, ptr %375, i64 8
-  %377 = load i8, ptr @TRFreedByte, align 1
-  %378 = zext i8 %377 to i32
-  %379 = trunc i32 %378 to i8
-  %380 = load i64, ptr %9, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %376, i8 %379, i64 %380, i1 false)
-  br label %381
+372:                                              ; preds = %358
+  %373 = load i32, ptr @TRSetBytes, align 4
+  %374 = icmp ne i32 %373, 0
+  br i1 %374, label %375, label %382
 
-381:                                              ; preds = %374, %371
+375:                                              ; preds = %372
+  %376 = load ptr, ptr %4, align 8
+  %377 = getelementptr inbounds i8, ptr %376, i64 8
+  %378 = load i8, ptr @TRFreedByte, align 1
+  %379 = zext i8 %378 to i32
+  %380 = trunc i32 %379 to i8
+  %381 = load i64, ptr %9, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %377, i8 %380, i64 %381, i1 false)
   br label %382
 
-382:                                              ; preds = %381, %338
-  %383 = load ptr, ptr %7, align 8
-  %384 = getelementptr inbounds %struct.TRSPACE, ptr %383, i32 0, i32 8
-  %385 = load ptr, ptr %384, align 8
-  call void @free(ptr noundef %385) #7
-  br label %386
+382:                                              ; preds = %375, %372
+  br label %383
 
-386:                                              ; preds = %382, %129, %82, %65, %43, %34
+383:                                              ; preds = %382, %339
+  %384 = load ptr, ptr %7, align 8
+  %385 = getelementptr inbounds %struct.TRSPACE, ptr %384, i32 0, i32 8
+  %386 = load ptr, ptr %385, align 8
+  call void @free(ptr noundef %386) #7
+  br label %387
+
+387:                                              ; preds = %383, %129, %82, %65, %43, %34
   ret void
 }
 
@@ -1843,309 +1853,313 @@ define i32 @MPL_trvalid2(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   store ptr %2, ptr %6, align 8
   store i32 0, ptr %11, align 4
   %27 = load volatile ptr, ptr @TRhead, align 16
-  %28 = icmp ne ptr %27, inttoptr (i64 3134058241 to ptr)
-  br i1 %28, label %32, label %29
+  %28 = inttoptr i64 3134058241 to ptr
+  %29 = icmp ne ptr %27, %28
+  br i1 %29, label %35, label %30
 
-29:                                               ; preds = %3
-  %30 = load volatile ptr, ptr getelementptr inbounds ([3 x ptr], ptr @TRhead, i64 0, i64 2), align 16
-  %31 = icmp ne ptr %30, inttoptr (i64 285138106 to ptr)
-  br i1 %31, label %32, label %37
+30:                                               ; preds = %3
+  %31 = getelementptr inbounds [3 x ptr], ptr @TRhead, i64 0, i64 2
+  %32 = load volatile ptr, ptr %31, align 16
+  %33 = inttoptr i64 285138106 to ptr
+  %34 = icmp ne ptr %32, %33
+  br i1 %34, label %35, label %40
 
-32:                                               ; preds = %29, %3
-  %33 = load ptr, ptr @stderr, align 8
-  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.15) #7
-  %35 = load i32, ptr %11, align 4
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %11, align 4
-  br label %211
+35:                                               ; preds = %30, %3
+  %36 = load ptr, ptr @stderr, align 8
+  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef @.str.15) #7
+  %38 = load i32, ptr %11, align 4
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %11, align 4
+  br label %215
 
-37:                                               ; preds = %29
-  %38 = load volatile ptr, ptr getelementptr inbounds ([3 x ptr], ptr @TRhead, i64 0, i64 1), align 8
-  store ptr %38, ptr %7, align 8
-  br label %39
-
-39:                                               ; preds = %208, %37
-  %40 = load ptr, ptr %7, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %210
-
-42:                                               ; preds = %39
+40:                                               ; preds = %30
+  %41 = getelementptr inbounds [3 x ptr], ptr @TRhead, i64 0, i64 1
+  %42 = load volatile ptr, ptr %41, align 8
+  store ptr %42, ptr %7, align 8
   br label %43
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 0
-  store volatile i64 1296236546, ptr %44, align 16
-  %45 = load ptr, ptr %7, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %47 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 1
-  store volatile i64 %46, ptr %47, align 8
-  %48 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 2
-  store volatile i64 160, ptr %48, align 16
-  %49 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 3
-  store volatile i64 0, ptr %49, align 8
-  %50 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 4
-  store volatile i64 0, ptr %50, align 16
-  %51 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 5
-  store volatile i64 0, ptr %51, align 8
-  %52 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 0
-  %53 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %52, i64 0) #7, !srcloc !16
-  store volatile i64 %53, ptr %13, align 8
-  %54 = load volatile i64, ptr %13, align 8
-  store i64 %54, ptr %14, align 8
-  br label %55
+43:                                               ; preds = %212, %40
+  %44 = load ptr, ptr %7, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %214
 
-55:                                               ; preds = %43
-  %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds %struct.TRSPACE, ptr %56, i32 0, i32 11
-  %58 = load i64, ptr %57, align 8
-  %59 = icmp ne i64 %58, 4041265353
-  br i1 %59, label %60, label %98
+46:                                               ; preds = %43
+  br label %47
 
-60:                                               ; preds = %55
-  %61 = load i32, ptr %11, align 4
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %77, label %63
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 0
+  store volatile i64 1296236546, ptr %48, align 16
+  %49 = load ptr, ptr %7, align 8
+  %50 = ptrtoint ptr %49 to i64
+  %51 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 1
+  store volatile i64 %50, ptr %51, align 8
+  %52 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 2
+  store volatile i64 160, ptr %52, align 16
+  %53 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 3
+  store volatile i64 0, ptr %53, align 8
+  %54 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 4
+  store volatile i64 0, ptr %54, align 16
+  %55 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 5
+  store volatile i64 0, ptr %55, align 8
+  %56 = getelementptr inbounds [6 x i64], ptr %12, i64 0, i64 0
+  %57 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %56, i64 0) #7, !srcloc !16
+  store volatile i64 %57, ptr %13, align 8
+  %58 = load volatile i64, ptr %13, align 8
+  store i64 %58, ptr %14, align 8
+  br label %59
 
-63:                                               ; preds = %60
-  %64 = load i32, ptr %5, align 4
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %66, label %72
+59:                                               ; preds = %47
+  %60 = load ptr, ptr %7, align 8
+  %61 = getelementptr inbounds %struct.TRSPACE, ptr %60, i32 0, i32 11
+  %62 = load i64, ptr %61, align 8
+  %63 = icmp ne i64 %62, 4041265353
+  br i1 %63, label %64, label %102
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr @stderr, align 8
-  %68 = load ptr, ptr %4, align 8
-  %69 = load i32, ptr %5, align 4
-  %70 = load ptr, ptr %6, align 8
-  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef %68, i32 noundef %69, ptr noundef %70) #7
-  br label %76
+64:                                               ; preds = %59
+  %65 = load i32, ptr %11, align 4
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %81, label %67
 
-72:                                               ; preds = %63
-  %73 = load ptr, ptr @stderr, align 8
-  %74 = load ptr, ptr %4, align 8
-  %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef @.str.16, ptr noundef %74) #7
-  br label %76
+67:                                               ; preds = %64
+  %68 = load i32, ptr %5, align 4
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %70, label %76
 
-76:                                               ; preds = %72, %66
-  br label %77
+70:                                               ; preds = %67
+  %71 = load ptr, ptr @stderr, align 8
+  %72 = load ptr, ptr %4, align 8
+  %73 = load i32, ptr %5, align 4
+  %74 = load ptr, ptr %6, align 8
+  %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef %72, i32 noundef %73, ptr noundef %74) #7
+  br label %80
 
-77:                                               ; preds = %76, %60
-  %78 = load i32, ptr %11, align 4
-  %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %11, align 4
-  %80 = load ptr, ptr @stderr, align 8
-  %81 = load i32, ptr @world_rank, align 4
-  %82 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds %struct.TRSPACE, ptr %82, i64 1
-  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef @.str.17, i32 noundef %81, ptr noundef %83) #7
-  br label %85
+76:                                               ; preds = %67
+  %77 = load ptr, ptr @stderr, align 8
+  %78 = load ptr, ptr %4, align 8
+  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef @.str.16, ptr noundef %78) #7
+  br label %80
 
-85:                                               ; preds = %77
-  %86 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 0
-  store volatile i64 1296236544, ptr %86, align 16
-  %87 = load ptr, ptr %7, align 8
-  %88 = ptrtoint ptr %87 to i64
-  %89 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 1
-  store volatile i64 %88, ptr %89, align 8
-  %90 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 2
-  store volatile i64 160, ptr %90, align 16
-  %91 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 3
-  store volatile i64 0, ptr %91, align 8
-  %92 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 4
-  store volatile i64 0, ptr %92, align 16
-  %93 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 5
-  store volatile i64 0, ptr %93, align 8
-  %94 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 0
-  %95 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %94, i64 0) #7, !srcloc !17
-  store volatile i64 %95, ptr %16, align 8
-  %96 = load volatile i64, ptr %16, align 8
-  store i64 %96, ptr %17, align 8
-  br label %97
+80:                                               ; preds = %76, %70
+  br label %81
 
-97:                                               ; preds = %85
-  br label %211
+81:                                               ; preds = %80, %64
+  %82 = load i32, ptr %11, align 4
+  %83 = add nsw i32 %82, 1
+  store i32 %83, ptr %11, align 4
+  %84 = load ptr, ptr @stderr, align 8
+  %85 = load i32, ptr @world_rank, align 4
+  %86 = load ptr, ptr %7, align 8
+  %87 = getelementptr inbounds %struct.TRSPACE, ptr %86, i64 1
+  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef @.str.17, i32 noundef %85, ptr noundef %87) #7
+  br label %89
 
-98:                                               ; preds = %55
-  %99 = load ptr, ptr %7, align 8
-  %100 = getelementptr inbounds %union.TrSPACE, ptr %99, i64 1
-  store ptr %100, ptr %9, align 8
-  %101 = load ptr, ptr %9, align 8
-  %102 = load ptr, ptr %7, align 8
-  %103 = getelementptr inbounds %struct.TRSPACE, ptr %102, i32 0, i32 2
-  %104 = load i64, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %101, i64 %104
-  store ptr %105, ptr %10, align 8
-  br label %106
+89:                                               ; preds = %81
+  %90 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 0
+  store volatile i64 1296236544, ptr %90, align 16
+  %91 = load ptr, ptr %7, align 8
+  %92 = ptrtoint ptr %91 to i64
+  %93 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 1
+  store volatile i64 %92, ptr %93, align 8
+  %94 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 2
+  store volatile i64 160, ptr %94, align 16
+  %95 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 3
+  store volatile i64 0, ptr %95, align 8
+  %96 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 4
+  store volatile i64 0, ptr %96, align 16
+  %97 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 5
+  store volatile i64 0, ptr %97, align 8
+  %98 = getelementptr inbounds [6 x i64], ptr %15, i64 0, i64 0
+  %99 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %98, i64 0) #7, !srcloc !17
+  store volatile i64 %99, ptr %16, align 8
+  %100 = load volatile i64, ptr %16, align 8
+  store i64 %100, ptr %17, align 8
+  br label %101
 
-106:                                              ; preds = %98
-  %107 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 0
-  store volatile i64 1296236546, ptr %107, align 16
-  %108 = load ptr, ptr %10, align 8
-  %109 = ptrtoint ptr %108 to i64
-  %110 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 1
-  store volatile i64 %109, ptr %110, align 8
-  %111 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 2
-  store volatile i64 8, ptr %111, align 16
-  %112 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 3
-  store volatile i64 0, ptr %112, align 8
-  %113 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 4
-  store volatile i64 0, ptr %113, align 16
-  %114 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 5
-  store volatile i64 0, ptr %114, align 8
-  %115 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 0
-  %116 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %115, i64 0) #7, !srcloc !18
-  store volatile i64 %116, ptr %19, align 8
-  %117 = load volatile i64, ptr %19, align 8
-  store i64 %117, ptr %20, align 8
-  br label %118
+101:                                              ; preds = %89
+  br label %215
 
-118:                                              ; preds = %106
-  %119 = load ptr, ptr %10, align 8
-  %120 = getelementptr inbounds i64, ptr %119, i64 0
-  %121 = load i64, ptr %120, align 8
-  %122 = icmp ne i64 %121, 4041265353
-  br i1 %122, label %123, label %179
+102:                                              ; preds = %59
+  %103 = load ptr, ptr %7, align 8
+  %104 = getelementptr inbounds %union.TrSPACE, ptr %103, i64 1
+  store ptr %104, ptr %9, align 8
+  %105 = load ptr, ptr %9, align 8
+  %106 = load ptr, ptr %7, align 8
+  %107 = getelementptr inbounds %struct.TRSPACE, ptr %106, i32 0, i32 2
+  %108 = load i64, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %105, i64 %108
+  store ptr %109, ptr %10, align 8
+  br label %110
 
-123:                                              ; preds = %118
-  %124 = load i32, ptr %11, align 4
-  %125 = icmp ne i32 %124, 0
-  br i1 %125, label %140, label %126
+110:                                              ; preds = %102
+  %111 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 0
+  store volatile i64 1296236546, ptr %111, align 16
+  %112 = load ptr, ptr %10, align 8
+  %113 = ptrtoint ptr %112 to i64
+  %114 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 1
+  store volatile i64 %113, ptr %114, align 8
+  %115 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 2
+  store volatile i64 8, ptr %115, align 16
+  %116 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 3
+  store volatile i64 0, ptr %116, align 8
+  %117 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 4
+  store volatile i64 0, ptr %117, align 16
+  %118 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 5
+  store volatile i64 0, ptr %118, align 8
+  %119 = getelementptr inbounds [6 x i64], ptr %18, i64 0, i64 0
+  %120 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %119, i64 0) #7, !srcloc !18
+  store volatile i64 %120, ptr %19, align 8
+  %121 = load volatile i64, ptr %19, align 8
+  store i64 %121, ptr %20, align 8
+  br label %122
 
-126:                                              ; preds = %123
-  %127 = load i32, ptr %5, align 4
-  %128 = icmp sgt i32 %127, 0
-  br i1 %128, label %129, label %135
+122:                                              ; preds = %110
+  %123 = load ptr, ptr %10, align 8
+  %124 = getelementptr inbounds i64, ptr %123, i64 0
+  %125 = load i64, ptr %124, align 8
+  %126 = icmp ne i64 %125, 4041265353
+  br i1 %126, label %127, label %183
 
-129:                                              ; preds = %126
-  %130 = load ptr, ptr @stderr, align 8
-  %131 = load ptr, ptr %4, align 8
-  %132 = load i32, ptr %5, align 4
-  %133 = load ptr, ptr %6, align 8
-  %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef %131, i32 noundef %132, ptr noundef %133) #7
-  br label %139
+127:                                              ; preds = %122
+  %128 = load i32, ptr %11, align 4
+  %129 = icmp ne i32 %128, 0
+  br i1 %129, label %144, label %130
 
-135:                                              ; preds = %126
-  %136 = load ptr, ptr @stderr, align 8
-  %137 = load ptr, ptr %4, align 8
-  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef @.str.16, ptr noundef %137) #7
-  br label %139
+130:                                              ; preds = %127
+  %131 = load i32, ptr %5, align 4
+  %132 = icmp sgt i32 %131, 0
+  br i1 %132, label %133, label %139
 
-139:                                              ; preds = %135, %129
-  br label %140
+133:                                              ; preds = %130
+  %134 = load ptr, ptr @stderr, align 8
+  %135 = load ptr, ptr %4, align 8
+  %136 = load i32, ptr %5, align 4
+  %137 = load ptr, ptr %6, align 8
+  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef %135, i32 noundef %136, ptr noundef %137) #7
+  br label %143
 
-140:                                              ; preds = %139, %123
-  %141 = load i32, ptr %11, align 4
-  %142 = add nsw i32 %141, 1
-  store i32 %142, ptr %11, align 4
-  %143 = load ptr, ptr %7, align 8
-  %144 = getelementptr inbounds %struct.TRSPACE, ptr %143, i32 0, i32 7
-  %145 = getelementptr inbounds [48 x i8], ptr %144, i64 0, i64 47
-  store i8 0, ptr %145, align 1
-  %146 = load volatile i32, ptr @TRidSet, align 4
-  %147 = icmp ne i32 %146, 0
-  br i1 %147, label %148, label %159
+139:                                              ; preds = %130
+  %140 = load ptr, ptr @stderr, align 8
+  %141 = load ptr, ptr %4, align 8
+  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef @.str.16, ptr noundef %141) #7
+  br label %143
 
-148:                                              ; preds = %140
-  %149 = load ptr, ptr @stderr, align 8
-  %150 = load i32, ptr @world_rank, align 4
-  %151 = load ptr, ptr %7, align 8
-  %152 = getelementptr inbounds %struct.TRSPACE, ptr %151, i32 0, i32 3
-  %153 = load i32, ptr %152, align 8
-  %154 = load ptr, ptr %7, align 8
-  %155 = getelementptr inbounds %struct.TRSPACE, ptr %154, i32 0, i32 2
-  %156 = load i64, ptr %155, align 8
-  %157 = load ptr, ptr %9, align 8
-  %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef @.str.18, i32 noundef %150, i32 noundef %153, i64 noundef %156, ptr noundef %157) #7
-  br label %164
+143:                                              ; preds = %139, %133
+  br label %144
 
-159:                                              ; preds = %140
-  %160 = load ptr, ptr @stderr, align 8
-  %161 = load i32, ptr @world_rank, align 4
-  %162 = load ptr, ptr %9, align 8
-  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %160, ptr noundef @.str.19, i32 noundef %161, ptr noundef %162) #7
-  br label %164
+144:                                              ; preds = %143, %127
+  %145 = load i32, ptr %11, align 4
+  %146 = add nsw i32 %145, 1
+  store i32 %146, ptr %11, align 4
+  %147 = load ptr, ptr %7, align 8
+  %148 = getelementptr inbounds %struct.TRSPACE, ptr %147, i32 0, i32 7
+  %149 = getelementptr inbounds [48 x i8], ptr %148, i64 0, i64 47
+  store i8 0, ptr %149, align 1
+  %150 = load volatile i32, ptr @TRidSet, align 4
+  %151 = icmp ne i32 %150, 0
+  br i1 %151, label %152, label %163
 
-164:                                              ; preds = %159, %148
-  %165 = load ptr, ptr @stderr, align 8
-  %166 = load i32, ptr @world_rank, align 4
-  %167 = load ptr, ptr %7, align 8
-  %168 = getelementptr inbounds %struct.TRSPACE, ptr %167, i32 0, i32 7
-  %169 = getelementptr inbounds [48 x i8], ptr %168, i64 0, i64 0
-  %170 = load ptr, ptr %7, align 8
-  %171 = getelementptr inbounds %struct.TRSPACE, ptr %170, i32 0, i32 4
-  %172 = load i32, ptr %171, align 4
-  %173 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef @.str.20, i32 noundef %166, ptr noundef %169, i32 noundef %172) #7
-  %174 = load ptr, ptr @stderr, align 8
-  %175 = load i32, ptr @world_rank, align 4
-  %176 = load ptr, ptr %10, align 8
-  %177 = load i64, ptr %176, align 8
-  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %174, ptr noundef @.str.21, i32 noundef %175, i64 noundef 4041265353, i64 noundef %177) #7
-  br label %179
+152:                                              ; preds = %144
+  %153 = load ptr, ptr @stderr, align 8
+  %154 = load i32, ptr @world_rank, align 4
+  %155 = load ptr, ptr %7, align 8
+  %156 = getelementptr inbounds %struct.TRSPACE, ptr %155, i32 0, i32 3
+  %157 = load i32, ptr %156, align 8
+  %158 = load ptr, ptr %7, align 8
+  %159 = getelementptr inbounds %struct.TRSPACE, ptr %158, i32 0, i32 2
+  %160 = load i64, ptr %159, align 8
+  %161 = load ptr, ptr %9, align 8
+  %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef @.str.18, i32 noundef %154, i32 noundef %157, i64 noundef %160, ptr noundef %161) #7
+  br label %168
 
-179:                                              ; preds = %164, %118
-  %180 = load ptr, ptr %7, align 8
-  %181 = getelementptr inbounds %struct.TRSPACE, ptr %180, i32 0, i32 9
-  %182 = load volatile ptr, ptr %181, align 8
-  store ptr %182, ptr %8, align 8
+163:                                              ; preds = %144
+  %164 = load ptr, ptr @stderr, align 8
+  %165 = load i32, ptr @world_rank, align 4
+  %166 = load ptr, ptr %9, align 8
+  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef @.str.19, i32 noundef %165, ptr noundef %166) #7
+  br label %168
+
+168:                                              ; preds = %163, %152
+  %169 = load ptr, ptr @stderr, align 8
+  %170 = load i32, ptr @world_rank, align 4
+  %171 = load ptr, ptr %7, align 8
+  %172 = getelementptr inbounds %struct.TRSPACE, ptr %171, i32 0, i32 7
+  %173 = getelementptr inbounds [48 x i8], ptr %172, i64 0, i64 0
+  %174 = load ptr, ptr %7, align 8
+  %175 = getelementptr inbounds %struct.TRSPACE, ptr %174, i32 0, i32 4
+  %176 = load i32, ptr %175, align 4
+  %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %169, ptr noundef @.str.20, i32 noundef %170, ptr noundef %173, i32 noundef %176) #7
+  %178 = load ptr, ptr @stderr, align 8
+  %179 = load i32, ptr @world_rank, align 4
+  %180 = load ptr, ptr %10, align 8
+  %181 = load i64, ptr %180, align 8
+  %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %178, ptr noundef @.str.21, i32 noundef %179, i64 noundef 4041265353, i64 noundef %181) #7
   br label %183
 
-183:                                              ; preds = %179
-  %184 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 0
-  store volatile i64 1296236544, ptr %184, align 16
-  %185 = load ptr, ptr %7, align 8
-  %186 = ptrtoint ptr %185 to i64
-  %187 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 1
-  store volatile i64 %186, ptr %187, align 8
-  %188 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 2
-  store volatile i64 160, ptr %188, align 16
-  %189 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 3
-  store volatile i64 0, ptr %189, align 8
-  %190 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 4
-  store volatile i64 0, ptr %190, align 16
-  %191 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 5
-  store volatile i64 0, ptr %191, align 8
-  %192 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 0
-  %193 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %192, i64 0) #7, !srcloc !19
-  store volatile i64 %193, ptr %22, align 8
-  %194 = load volatile i64, ptr %22, align 8
-  store i64 %194, ptr %23, align 8
-  br label %195
+183:                                              ; preds = %168, %122
+  %184 = load ptr, ptr %7, align 8
+  %185 = getelementptr inbounds %struct.TRSPACE, ptr %184, i32 0, i32 9
+  %186 = load volatile ptr, ptr %185, align 8
+  store ptr %186, ptr %8, align 8
+  br label %187
 
-195:                                              ; preds = %183
-  br label %196
+187:                                              ; preds = %183
+  %188 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 0
+  store volatile i64 1296236544, ptr %188, align 16
+  %189 = load ptr, ptr %7, align 8
+  %190 = ptrtoint ptr %189 to i64
+  %191 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 1
+  store volatile i64 %190, ptr %191, align 8
+  %192 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 2
+  store volatile i64 160, ptr %192, align 16
+  %193 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 3
+  store volatile i64 0, ptr %193, align 8
+  %194 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 4
+  store volatile i64 0, ptr %194, align 16
+  %195 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 5
+  store volatile i64 0, ptr %195, align 8
+  %196 = getelementptr inbounds [6 x i64], ptr %21, i64 0, i64 0
+  %197 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %196, i64 0) #7, !srcloc !19
+  store volatile i64 %197, ptr %22, align 8
+  %198 = load volatile i64, ptr %22, align 8
+  store i64 %198, ptr %23, align 8
+  br label %199
 
-196:                                              ; preds = %195
-  %197 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 0
-  store volatile i64 1296236544, ptr %197, align 16
-  %198 = load ptr, ptr %10, align 8
-  %199 = ptrtoint ptr %198 to i64
-  %200 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 1
-  store volatile i64 %199, ptr %200, align 8
-  %201 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 2
-  store volatile i64 8, ptr %201, align 16
-  %202 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 3
-  store volatile i64 0, ptr %202, align 8
-  %203 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 4
-  store volatile i64 0, ptr %203, align 16
-  %204 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 5
-  store volatile i64 0, ptr %204, align 8
-  %205 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 0
-  %206 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %205, i64 0) #7, !srcloc !20
-  store volatile i64 %206, ptr %25, align 8
-  %207 = load volatile i64, ptr %25, align 8
-  store i64 %207, ptr %26, align 8
-  br label %208
+199:                                              ; preds = %187
+  br label %200
 
-208:                                              ; preds = %196
-  %209 = load ptr, ptr %8, align 8
-  store ptr %209, ptr %7, align 8
-  br label %39, !llvm.loop !21
+200:                                              ; preds = %199
+  %201 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 0
+  store volatile i64 1296236544, ptr %201, align 16
+  %202 = load ptr, ptr %10, align 8
+  %203 = ptrtoint ptr %202 to i64
+  %204 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 1
+  store volatile i64 %203, ptr %204, align 8
+  %205 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 2
+  store volatile i64 8, ptr %205, align 16
+  %206 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 3
+  store volatile i64 0, ptr %206, align 8
+  %207 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 4
+  store volatile i64 0, ptr %207, align 16
+  %208 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 5
+  store volatile i64 0, ptr %208, align 8
+  %209 = getelementptr inbounds [6 x i64], ptr %24, i64 0, i64 0
+  %210 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %209, i64 0) #7, !srcloc !20
+  store volatile i64 %210, ptr %25, align 8
+  %211 = load volatile i64, ptr %25, align 8
+  store i64 %211, ptr %26, align 8
+  br label %212
 
-210:                                              ; preds = %39
-  br label %211
+212:                                              ; preds = %200
+  %213 = load ptr, ptr %8, align 8
+  store ptr %213, ptr %7, align 8
+  br label %43, !llvm.loop !21
 
-211:                                              ; preds = %210, %97, %32
-  %212 = load i32, ptr %11, align 4
-  ret i32 %212
+214:                                              ; preds = %43
+  br label %215
+
+215:                                              ; preds = %214, %101, %35
+  %216 = load i32, ptr %11, align 4
+  ret i32 %216
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2411,146 +2425,150 @@ define internal void @trdump(ptr noundef %0, i32 noundef %1) #0 {
 
 18:                                               ; preds = %16, %2
   %19 = load volatile ptr, ptr @TRhead, align 16
-  %20 = icmp ne ptr %19, inttoptr (i64 3134058241 to ptr)
-  br i1 %20, label %24, label %21
+  %20 = inttoptr i64 3134058241 to ptr
+  %21 = icmp ne ptr %19, %20
+  br i1 %21, label %27, label %22
 
-21:                                               ; preds = %18
-  %22 = load volatile ptr, ptr getelementptr inbounds ([3 x ptr], ptr @TRhead, i64 0, i64 2), align 16
-  %23 = icmp ne ptr %22, inttoptr (i64 285138106 to ptr)
-  br i1 %23, label %24, label %27
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds [3 x ptr], ptr @TRhead, i64 0, i64 2
+  %24 = load volatile ptr, ptr %23, align 16
+  %25 = inttoptr i64 285138106 to ptr
+  %26 = icmp ne ptr %24, %25
+  br i1 %26, label %27, label %30
 
-24:                                               ; preds = %21, %18
-  %25 = load ptr, ptr @stderr, align 8
-  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.15) #7
-  br label %108
+27:                                               ; preds = %22, %18
+  %28 = load ptr, ptr @stderr, align 8
+  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str.15) #7
+  br label %112
 
-27:                                               ; preds = %21
-  %28 = load volatile ptr, ptr getelementptr inbounds ([3 x ptr], ptr @TRhead, i64 0, i64 1), align 8
-  store ptr %28, ptr %5, align 8
-  br label %29
-
-29:                                               ; preds = %107, %27
-  %30 = load ptr, ptr %5, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %108
-
-32:                                               ; preds = %29
+30:                                               ; preds = %22
+  %31 = getelementptr inbounds [3 x ptr], ptr @TRhead, i64 0, i64 1
+  %32 = load volatile ptr, ptr %31, align 8
+  store ptr %32, ptr %5, align 8
   br label %33
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 0
-  store volatile i64 1296236546, ptr %34, align 16
-  %35 = load ptr, ptr %5, align 8
-  %36 = ptrtoint ptr %35 to i64
-  %37 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 1
-  store volatile i64 %36, ptr %37, align 8
-  %38 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 2
-  store volatile i64 160, ptr %38, align 16
-  %39 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 3
-  store volatile i64 0, ptr %39, align 8
-  %40 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 4
-  store volatile i64 0, ptr %40, align 16
-  %41 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 5
-  store volatile i64 0, ptr %41, align 8
-  %42 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 0
-  %43 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %42, i64 0) #7, !srcloc !23
-  store volatile i64 %43, ptr %9, align 8
-  %44 = load volatile i64, ptr %9, align 8
-  store i64 %44, ptr %10, align 8
-  br label %45
+33:                                               ; preds = %111, %30
+  %34 = load ptr, ptr %5, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %112
 
-45:                                               ; preds = %33
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds %struct.TRSPACE, ptr %46, i32 0, i32 3
-  %48 = load i32, ptr %47, align 8
-  %49 = load i32, ptr %4, align 4
-  %50 = icmp sge i32 %48, %49
-  br i1 %50, label %51, label %90
+36:                                               ; preds = %33
+  br label %37
 
-51:                                               ; preds = %45
-  %52 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 255
-  store i8 0, ptr %52, align 1
-  %53 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
-  %54 = load i32, ptr @world_rank, align 4
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.TRSPACE, ptr %55, i32 0, i32 2
-  %57 = load i64, ptr %56, align 8
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 160
-  %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %53, i64 noundef 255, ptr noundef @.str.42, i32 noundef %54, i64 noundef %57, ptr noundef %59) #7
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %struct.TRSPACE, ptr %61, i32 0, i32 7
-  %63 = getelementptr inbounds [48 x i8], ptr %62, i64 0, i64 47
-  store i8 0, ptr %63, align 1
-  %64 = load volatile i32, ptr @TRidSet, align 4
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %66, label %79
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 0
+  store volatile i64 1296236546, ptr %38, align 16
+  %39 = load ptr, ptr %5, align 8
+  %40 = ptrtoint ptr %39 to i64
+  %41 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 1
+  store volatile i64 %40, ptr %41, align 8
+  %42 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 2
+  store volatile i64 160, ptr %42, align 16
+  %43 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 3
+  store volatile i64 0, ptr %43, align 8
+  %44 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 4
+  store volatile i64 0, ptr %44, align 16
+  %45 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 5
+  store volatile i64 0, ptr %45, align 8
+  %46 = getelementptr inbounds [6 x i64], ptr %8, i64 0, i64 0
+  %47 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %46, i64 0) #7, !srcloc !23
+  store volatile i64 %47, ptr %9, align 8
+  %48 = load volatile i64, ptr %9, align 8
+  store i64 %48, ptr %10, align 8
+  br label %49
 
-66:                                               ; preds = %51
-  %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.TRSPACE, ptr %69, i32 0, i32 3
-  %71 = load i32, ptr %70, align 8
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds %struct.TRSPACE, ptr %72, i32 0, i32 7
-  %74 = getelementptr inbounds [48 x i8], ptr %73, i64 0, i64 0
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds %struct.TRSPACE, ptr %75, i32 0, i32 4
-  %77 = load i32, ptr %76, align 4
-  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef @.str.43, ptr noundef %68, i32 noundef %71, ptr noundef %74, i32 noundef %77) #7
-  br label %89
+49:                                               ; preds = %37
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds %struct.TRSPACE, ptr %50, i32 0, i32 3
+  %52 = load i32, ptr %51, align 8
+  %53 = load i32, ptr %4, align 4
+  %54 = icmp sge i32 %52, %53
+  br i1 %54, label %55, label %94
 
-79:                                               ; preds = %51
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds %struct.TRSPACE, ptr %82, i32 0, i32 7
-  %84 = getelementptr inbounds [48 x i8], ptr %83, i64 0, i64 0
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %struct.TRSPACE, ptr %85, i32 0, i32 4
-  %87 = load i32, ptr %86, align 4
-  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef @.str.44, ptr noundef %81, ptr noundef %84, i32 noundef %87) #7
-  br label %89
+55:                                               ; preds = %49
+  %56 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 255
+  store i8 0, ptr %56, align 1
+  %57 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
+  %58 = load i32, ptr @world_rank, align 4
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds %struct.TRSPACE, ptr %59, i32 0, i32 2
+  %61 = load i64, ptr %60, align 8
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 160
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %57, i64 noundef 255, ptr noundef @.str.42, i32 noundef %58, i64 noundef %61, ptr noundef %63) #7
+  %65 = load ptr, ptr %5, align 8
+  %66 = getelementptr inbounds %struct.TRSPACE, ptr %65, i32 0, i32 7
+  %67 = getelementptr inbounds [48 x i8], ptr %66, i64 0, i64 47
+  store i8 0, ptr %67, align 1
+  %68 = load volatile i32, ptr @TRidSet, align 4
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %83
 
-89:                                               ; preds = %79, %66
-  br label %90
+70:                                               ; preds = %55
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds %struct.TRSPACE, ptr %73, i32 0, i32 3
+  %75 = load i32, ptr %74, align 8
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds %struct.TRSPACE, ptr %76, i32 0, i32 7
+  %78 = getelementptr inbounds [48 x i8], ptr %77, i64 0, i64 0
+  %79 = load ptr, ptr %5, align 8
+  %80 = getelementptr inbounds %struct.TRSPACE, ptr %79, i32 0, i32 4
+  %81 = load i32, ptr %80, align 4
+  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef @.str.43, ptr noundef %72, i32 noundef %75, ptr noundef %78, i32 noundef %81) #7
+  br label %93
 
-90:                                               ; preds = %89, %45
-  %91 = load ptr, ptr %5, align 8
-  store ptr %91, ptr %6, align 8
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds %struct.TRSPACE, ptr %92, i32 0, i32 9
-  %94 = load volatile ptr, ptr %93, align 8
-  store ptr %94, ptr %5, align 8
-  br label %95
+83:                                               ; preds = %55
+  %84 = load ptr, ptr %3, align 8
+  %85 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
+  %86 = load ptr, ptr %5, align 8
+  %87 = getelementptr inbounds %struct.TRSPACE, ptr %86, i32 0, i32 7
+  %88 = getelementptr inbounds [48 x i8], ptr %87, i64 0, i64 0
+  %89 = load ptr, ptr %5, align 8
+  %90 = getelementptr inbounds %struct.TRSPACE, ptr %89, i32 0, i32 4
+  %91 = load i32, ptr %90, align 4
+  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef @.str.44, ptr noundef %85, ptr noundef %88, i32 noundef %91) #7
+  br label %93
 
-95:                                               ; preds = %90
-  %96 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 0
-  store volatile i64 1296236544, ptr %96, align 16
-  %97 = load ptr, ptr %6, align 8
-  %98 = ptrtoint ptr %97 to i64
-  %99 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 1
-  store volatile i64 %98, ptr %99, align 8
-  %100 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 2
-  store volatile i64 160, ptr %100, align 16
-  %101 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 3
-  store volatile i64 0, ptr %101, align 8
-  %102 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 4
-  store volatile i64 0, ptr %102, align 16
-  %103 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 5
-  store volatile i64 0, ptr %103, align 8
-  %104 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 0
-  %105 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %104, i64 0) #7, !srcloc !24
-  store volatile i64 %105, ptr %12, align 8
-  %106 = load volatile i64, ptr %12, align 8
-  store i64 %106, ptr %13, align 8
-  br label %107
+93:                                               ; preds = %83, %70
+  br label %94
 
-107:                                              ; preds = %95
-  br label %29, !llvm.loop !25
+94:                                               ; preds = %93, %49
+  %95 = load ptr, ptr %5, align 8
+  store ptr %95, ptr %6, align 8
+  %96 = load ptr, ptr %5, align 8
+  %97 = getelementptr inbounds %struct.TRSPACE, ptr %96, i32 0, i32 9
+  %98 = load volatile ptr, ptr %97, align 8
+  store ptr %98, ptr %5, align 8
+  br label %99
 
-108:                                              ; preds = %29, %24
+99:                                               ; preds = %94
+  %100 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 0
+  store volatile i64 1296236544, ptr %100, align 16
+  %101 = load ptr, ptr %6, align 8
+  %102 = ptrtoint ptr %101 to i64
+  %103 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 1
+  store volatile i64 %102, ptr %103, align 8
+  %104 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 2
+  store volatile i64 160, ptr %104, align 16
+  %105 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 3
+  store volatile i64 0, ptr %105, align 8
+  %106 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 4
+  store volatile i64 0, ptr %106, align 16
+  %107 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 5
+  store volatile i64 0, ptr %107, align 8
+  %108 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 0
+  %109 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %108, i64 0) #7, !srcloc !24
+  store volatile i64 %109, ptr %12, align 8
+  %110 = load volatile i64, ptr %12, align 8
+  store i64 %110, ptr %13, align 8
+  br label %111
+
+111:                                              ; preds = %99
+  br label %33, !llvm.loop !25
+
+112:                                              ; preds = %33, %27
   ret void
 }
 
@@ -3186,94 +3204,95 @@ define internal ptr @trmmap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 
   %26 = call ptr @mmap(ptr noundef %20, i64 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24, i64 noundef %25) #7
   store ptr %26, ptr %19, align 8
   %27 = load ptr, ptr %19, align 8
-  %28 = icmp eq ptr %27, inttoptr (i64 -1 to ptr)
-  br i1 %28, label %29, label %30
-
-29:                                               ; preds = %9
-  br label %90
+  %28 = inttoptr i64 -1 to ptr
+  %29 = icmp eq ptr %27, %28
+  br i1 %29, label %30, label %31
 
 30:                                               ; preds = %9
-  %31 = load volatile i32, ptr @TRlevel, align 4
-  %32 = and i32 %31, 4
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %43
+  br label %91
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr @stderr, align 8
-  %36 = load i32, ptr @world_rank, align 4
-  %37 = load i64, ptr %11, align 8
+31:                                               ; preds = %9
+  %32 = load volatile i32, ptr @TRlevel, align 4
+  %33 = and i32 %32, 4
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %44
+
+35:                                               ; preds = %31
+  %36 = load ptr, ptr @stderr, align 8
+  %37 = load i32, ptr @world_rank, align 4
   %38 = load i64, ptr %11, align 8
-  %39 = load ptr, ptr %19, align 8
-  %40 = load ptr, ptr %18, align 8
-  %41 = load i32, ptr %17, align 4
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef @.str.46, i32 noundef %36, i64 noundef %37, i64 noundef %38, ptr noundef %39, ptr noundef %40, i32 noundef %41) #7
-  br label %43
+  %39 = load i64, ptr %11, align 8
+  %40 = load ptr, ptr %19, align 8
+  %41 = load ptr, ptr %18, align 8
+  %42 = load i32, ptr %17, align 4
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef @.str.46, i32 noundef %37, i64 noundef %38, i64 noundef %39, ptr noundef %40, ptr noundef %41, i32 noundef %42) #7
+  br label %44
 
-43:                                               ; preds = %34, %30
-  %44 = load i32, ptr @classes_initialized, align 4
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %47, label %46
+44:                                               ; preds = %35, %31
+  %45 = load i32, ptr @classes_initialized, align 4
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %48, label %47
 
-46:                                               ; preds = %43
+47:                                               ; preds = %44
   call void @init_classes()
-  br label %47
+  br label %48
 
-47:                                               ; preds = %46, %43
-  %48 = load i64, ptr %11, align 8
-  %49 = load i32, ptr %16, align 4
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %50
-  %52 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %51, i32 0, i32 1
-  %53 = load i64, ptr %52, align 8
-  %54 = add i64 %53, %48
-  store i64 %54, ptr %52, align 8
-  %55 = load i64, ptr %11, align 8
-  %56 = load i32, ptr %16, align 4
-  %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %57
-  %59 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %58, i32 0, i32 2
-  %60 = load i64, ptr %59, align 16
-  %61 = add i64 %60, %55
-  store i64 %61, ptr %59, align 16
-  %62 = load i32, ptr %16, align 4
-  %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %63
-  %65 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %64, i32 0, i32 3
-  %66 = load i64, ptr %65, align 8
-  %67 = add nsw i64 %66, 1
-  store i64 %67, ptr %65, align 8
-  %68 = load i32, ptr %16, align 4
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %69
-  %71 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %70, i32 0, i32 0
-  %72 = load i64, ptr %71, align 16
-  %73 = load i32, ptr %16, align 4
-  %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %74
-  %76 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %75, i32 0, i32 1
-  %77 = load i64, ptr %76, align 8
-  %78 = icmp slt i64 %72, %77
-  br i1 %78, label %79, label %89
+48:                                               ; preds = %47, %44
+  %49 = load i64, ptr %11, align 8
+  %50 = load i32, ptr %16, align 4
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %51
+  %53 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %52, i32 0, i32 1
+  %54 = load i64, ptr %53, align 8
+  %55 = add i64 %54, %49
+  store i64 %55, ptr %53, align 8
+  %56 = load i64, ptr %11, align 8
+  %57 = load i32, ptr %16, align 4
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %58
+  %60 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %59, i32 0, i32 2
+  %61 = load i64, ptr %60, align 16
+  %62 = add i64 %61, %56
+  store i64 %62, ptr %60, align 16
+  %63 = load i32, ptr %16, align 4
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %64
+  %66 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %65, i32 0, i32 3
+  %67 = load i64, ptr %66, align 8
+  %68 = add nsw i64 %67, 1
+  store i64 %68, ptr %66, align 8
+  %69 = load i32, ptr %16, align 4
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %70
+  %72 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %71, i32 0, i32 0
+  %73 = load i64, ptr %72, align 16
+  %74 = load i32, ptr %16, align 4
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %75
+  %77 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %76, i32 0, i32 1
+  %78 = load i64, ptr %77, align 8
+  %79 = icmp slt i64 %73, %78
+  br i1 %79, label %80, label %90
 
-79:                                               ; preds = %47
-  %80 = load i32, ptr %16, align 4
-  %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %81
-  %83 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %82, i32 0, i32 1
-  %84 = load i64, ptr %83, align 8
-  %85 = load i32, ptr %16, align 4
-  %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %86
-  %88 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %87, i32 0, i32 0
-  store i64 %84, ptr %88, align 16
-  br label %89
-
-89:                                               ; preds = %79, %47
+80:                                               ; preds = %48
+  %81 = load i32, ptr %16, align 4
+  %82 = zext i32 %81 to i64
+  %83 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %82
+  %84 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %83, i32 0, i32 1
+  %85 = load i64, ptr %84, align 8
+  %86 = load i32, ptr %16, align 4
+  %87 = zext i32 %86 to i64
+  %88 = getelementptr inbounds [19 x %struct.MPL_memory_allocation_t], ptr @allocation_classes, i64 0, i64 %87
+  %89 = getelementptr inbounds %struct.MPL_memory_allocation_t, ptr %88, i32 0, i32 0
+  store i64 %85, ptr %89, align 16
   br label %90
 
-90:                                               ; preds = %89, %29
-  %91 = load ptr, ptr %19, align 8
-  ret ptr %91
+90:                                               ; preds = %80, %48
+  br label %91
+
+91:                                               ; preds = %90, %30
+  %92 = load ptr, ptr %19, align 8
+  ret ptr %92
 }
 
 ; Function Attrs: nounwind uwtable

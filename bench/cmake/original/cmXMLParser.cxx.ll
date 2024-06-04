@@ -88,15 +88,16 @@ define dso_local void @_ZN11cmXMLParserC2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV11cmXMLParser, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmXMLParser, ptr %3, i32 0, i32 4
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %class.cmXMLParser, ptr %3, i32 0, i32 1
-  store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds %class.cmXMLParser, ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %class.cmXMLParser, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV11cmXMLParser, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmXMLParser, ptr %3, i32 0, i32 4
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %class.cmXMLParser, ptr %3, i32 0, i32 1
+  store i32 0, ptr %6, align 8
+  %7 = getelementptr inbounds %class.cmXMLParser, ptr %3, i32 0, i32 2
   store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %class.cmXMLParser, ptr %3, i32 0, i32 3
+  store ptr null, ptr %8, align 8
   ret void
 }
 
@@ -105,30 +106,31 @@ define dso_local void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV11cmXMLParser, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmXMLParser, ptr %3, i32 0, i32 4
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %13
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTV11cmXMLParser, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmXMLParser, ptr %3, i32 0, i32 4
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %14
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 6
-  %10 = load ptr, ptr %9, align 8
-  %11 = invoke noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(40) %3)
-          to label %12 unwind label %14
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 6
+  %11 = load ptr, ptr %10, align 8
+  %12 = invoke noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(40) %3)
+          to label %13 unwind label %15
 
-12:                                               ; preds = %7
-  br label %13
+13:                                               ; preds = %8
+  br label %14
 
-13:                                               ; preds = %12, %1
+14:                                               ; preds = %13, %1
   ret void
 
-14:                                               ; preds = %7
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #10
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #10
   unreachable
 }
 

@@ -5763,26 +5763,27 @@ if.then2:                                         ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call ptr @signal(i32 noundef 13, ptr noundef inttoptr (i64 1 to ptr)) #12
-  %5 = load i32, ptr %udp.addr, align 4
-  %tobool5 = icmp ne i32 %5, 0
+  %5 = inttoptr i64 1 to ptr
+  %call4 = call ptr @signal(i32 noundef 13, ptr noundef %5) #12
+  %6 = load i32, ptr %udp.addr, align 4
+  %tobool5 = icmp ne i32 %6, 0
   br i1 %tobool5, label %if.end12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %6 = load i32, ptr %sctp.addr, align 4
-  %tobool6 = icmp ne i32 %6, 0
+  %7 = load i32, ptr %sctp.addr, align 4
+  %tobool6 = icmp ne i32 %7, 0
   br i1 %tobool6, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
   store i32 1, ptr %on, align 4
   store i32 4, ptr %len, align 4
-  %7 = load ptr, ptr %sockfd.addr, align 8
-  %8 = load i32, ptr %7, align 4
-  %9 = load i32, ptr %len, align 4
-  %call8 = call i32 @setsockopt(i32 noundef %8, i32 noundef 6, i32 noundef 1, ptr noundef %on, i32 noundef %9) #12
+  %8 = load ptr, ptr %sockfd.addr, align 8
+  %9 = load i32, ptr %8, align 4
+  %10 = load i32, ptr %len, align 4
+  %call8 = call i32 @setsockopt(i32 noundef %9, i32 noundef 6, i32 noundef 1, ptr noundef %on, i32 noundef %10) #12
   store i32 %call8, ptr %res, align 4
-  %10 = load i32, ptr %res, align 4
-  %cmp9 = icmp slt i32 %10, 0
+  %11 = load i32, ptr %res, align 4
+  %cmp9 = icmp slt i32 %11, 0
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.then7

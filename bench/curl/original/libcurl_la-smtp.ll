@@ -303,21 +303,22 @@ lor.lhs.false19:                                  ; preds = %if.then14
 
 if.then22:                                        ; preds = %lor.lhs.false19, %if.then14
   %23 = load ptr, ptr @Curl_cstrdup, align 8
-  %call = call ptr %23(ptr noundef getelementptr inbounds ([6 x i8], ptr @.str.3, i64 0, i64 2))
+  %24 = getelementptr inbounds [6 x i8], ptr @.str.3, i64 0, i64 2
+  %call = call ptr %23(ptr noundef %24)
   store ptr %call, ptr %eob, align 8
   store i64 3, ptr %len, align 8
   br label %if.end25
 
 if.else23:                                        ; preds = %lor.lhs.false19
-  %24 = load ptr, ptr @Curl_cstrdup, align 8
-  %call24 = call ptr %24(ptr noundef @.str.3)
+  %25 = load ptr, ptr @Curl_cstrdup, align 8
+  %call24 = call ptr %25(ptr noundef @.str.3)
   store ptr %call24, ptr %eob, align 8
   store i64 5, ptr %len, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.else23, %if.then22
-  %25 = load ptr, ptr %eob, align 8
-  %tobool26 = icmp ne ptr %25, null
+  %26 = load ptr, ptr %eob, align 8
+  %tobool26 = icmp ne ptr %26, null
   br i1 %tobool26, label %if.end28, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
@@ -325,71 +326,71 @@ if.then27:                                        ; preds = %if.end25
   br label %return
 
 if.end28:                                         ; preds = %if.end25
-  %26 = load ptr, ptr %data.addr, align 8
-  %27 = load ptr, ptr %conn, align 8
-  %writesockfd = getelementptr inbounds %struct.connectdata, ptr %27, i32 0, i32 32
-  %28 = load i32, ptr %writesockfd, align 4
-  %29 = load ptr, ptr %eob, align 8
-  %30 = load i64, ptr %len, align 8
-  %call29 = call i32 @Curl_write(ptr noundef %26, i32 noundef %28, ptr noundef %29, i64 noundef %30, ptr noundef %bytes_written)
+  %27 = load ptr, ptr %data.addr, align 8
+  %28 = load ptr, ptr %conn, align 8
+  %writesockfd = getelementptr inbounds %struct.connectdata, ptr %28, i32 0, i32 32
+  %29 = load i32, ptr %writesockfd, align 4
+  %30 = load ptr, ptr %eob, align 8
+  %31 = load i64, ptr %len, align 8
+  %call29 = call i32 @Curl_write(ptr noundef %27, i32 noundef %29, ptr noundef %30, i64 noundef %31, ptr noundef %bytes_written)
   store i32 %call29, ptr %result, align 4
-  %31 = load i32, ptr %result, align 4
-  %tobool30 = icmp ne i32 %31, 0
+  %32 = load i32, ptr %result, align 4
+  %tobool30 = icmp ne i32 %32, 0
   br i1 %tobool30, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.end28
-  %32 = load ptr, ptr @Curl_cfree, align 8
-  %33 = load ptr, ptr %eob, align 8
-  call void %32(ptr noundef %33)
-  %34 = load i32, ptr %result, align 4
-  store i32 %34, ptr %retval, align 4
+  %33 = load ptr, ptr @Curl_cfree, align 8
+  %34 = load ptr, ptr %eob, align 8
+  call void %33(ptr noundef %34)
+  %35 = load i32, ptr %result, align 4
+  store i32 %35, ptr %retval, align 4
   br label %return
 
 if.end32:                                         ; preds = %if.end28
-  %35 = load i64, ptr %bytes_written, align 8
-  %36 = load i64, ptr %len, align 8
-  %cmp = icmp ne i64 %35, %36
+  %36 = load i64, ptr %bytes_written, align 8
+  %37 = load i64, ptr %len, align 8
+  %cmp = icmp ne i64 %36, %37
   br i1 %cmp, label %if.then33, label %if.else34
 
 if.then33:                                        ; preds = %if.end32
-  %37 = load ptr, ptr %eob, align 8
-  %38 = load ptr, ptr %pp, align 8
-  %sendthis = getelementptr inbounds %struct.pingpong, ptr %38, i32 0, i32 5
-  store ptr %37, ptr %sendthis, align 8
-  %39 = load i64, ptr %len, align 8
-  %40 = load ptr, ptr %pp, align 8
-  %sendsize = getelementptr inbounds %struct.pingpong, ptr %40, i32 0, i32 7
-  store i64 %39, ptr %sendsize, align 8
-  %41 = load i64, ptr %len, align 8
-  %42 = load i64, ptr %bytes_written, align 8
-  %sub = sub nsw i64 %41, %42
-  %43 = load ptr, ptr %pp, align 8
-  %sendleft = getelementptr inbounds %struct.pingpong, ptr %43, i32 0, i32 6
+  %38 = load ptr, ptr %eob, align 8
+  %39 = load ptr, ptr %pp, align 8
+  %sendthis = getelementptr inbounds %struct.pingpong, ptr %39, i32 0, i32 5
+  store ptr %38, ptr %sendthis, align 8
+  %40 = load i64, ptr %len, align 8
+  %41 = load ptr, ptr %pp, align 8
+  %sendsize = getelementptr inbounds %struct.pingpong, ptr %41, i32 0, i32 7
+  store i64 %40, ptr %sendsize, align 8
+  %42 = load i64, ptr %len, align 8
+  %43 = load i64, ptr %bytes_written, align 8
+  %sub = sub nsw i64 %42, %43
+  %44 = load ptr, ptr %pp, align 8
+  %sendleft = getelementptr inbounds %struct.pingpong, ptr %44, i32 0, i32 6
   store i64 %sub, ptr %sendleft, align 8
   br label %if.end36
 
 if.else34:                                        ; preds = %if.end32
-  %44 = load ptr, ptr %pp, align 8
-  %response = getelementptr inbounds %struct.pingpong, ptr %44, i32 0, i32 8
+  %45 = load ptr, ptr %pp, align 8
+  %response = getelementptr inbounds %struct.pingpong, ptr %45, i32 0, i32 8
   %call35 = call { i64, i32 } @Curl_now()
-  %45 = getelementptr inbounds { i64, i32 }, ptr %tmp, i32 0, i32 0
-  %46 = extractvalue { i64, i32 } %call35, 0
-  store i64 %46, ptr %45, align 8
-  %47 = getelementptr inbounds { i64, i32 }, ptr %tmp, i32 0, i32 1
-  %48 = extractvalue { i64, i32 } %call35, 1
-  store i32 %48, ptr %47, align 8
+  %46 = getelementptr inbounds { i64, i32 }, ptr %tmp, i32 0, i32 0
+  %47 = extractvalue { i64, i32 } %call35, 0
+  store i64 %47, ptr %46, align 8
+  %48 = getelementptr inbounds { i64, i32 }, ptr %tmp, i32 0, i32 1
+  %49 = extractvalue { i64, i32 } %call35, 1
+  store i32 %49, ptr %48, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %response, ptr align 8 %tmp, i64 16, i1 false)
-  %49 = load ptr, ptr @Curl_cfree, align 8
-  %50 = load ptr, ptr %eob, align 8
-  call void %49(ptr noundef %50)
+  %50 = load ptr, ptr @Curl_cfree, align 8
+  %51 = load ptr, ptr %eob, align 8
+  call void %50(ptr noundef %51)
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else34, %if.then33
-  %51 = load ptr, ptr %data.addr, align 8
-  call void @smtp_state(ptr noundef %51, i32 noundef 11)
   %52 = load ptr, ptr %data.addr, align 8
-  %53 = load ptr, ptr %conn, align 8
-  %call37 = call i32 @smtp_block_statemach(ptr noundef %52, ptr noundef %53, i1 noundef zeroext false)
+  call void @smtp_state(ptr noundef %52, i32 noundef 11)
+  %53 = load ptr, ptr %data.addr, align 8
+  %54 = load ptr, ptr %conn, align 8
+  %call37 = call i32 @smtp_block_statemach(ptr noundef %53, ptr noundef %54, i1 noundef zeroext false)
   store i32 %call37, ptr %result, align 4
   br label %if.end38
 
@@ -397,16 +398,16 @@ if.end38:                                         ; preds = %if.end36, %lor.lhs.
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end38, %if.then6
-  %54 = load ptr, ptr %smtp, align 8
-  %transfer = getelementptr inbounds %struct.SMTP, ptr %54, i32 0, i32 0
+  %55 = load ptr, ptr %smtp, align 8
+  %transfer = getelementptr inbounds %struct.SMTP, ptr %55, i32 0, i32 0
   store i32 0, ptr %transfer, align 8
-  %55 = load i32, ptr %result, align 4
-  store i32 %55, ptr %retval, align 4
+  %56 = load i32, ptr %result, align 4
+  store i32 %56, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end39, %if.then31, %if.then27, %if.then
-  %56 = load i32, ptr %retval, align 4
-  ret i32 %56
+  %57 = load i32, ptr %retval, align 4
+  ret i32 %57
 }
 
 ; Function Attrs: nounwind uwtable

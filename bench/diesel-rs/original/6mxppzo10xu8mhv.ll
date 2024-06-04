@@ -101,572 +101,573 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   %93 = getelementptr inbounds { i64, ptr }, ptr %92, i32 0, i32 0
   store i64 0, ptr %93, align 8
   %94 = getelementptr inbounds { i64, ptr }, ptr %92, i32 0, i32 1
-  store ptr inttoptr (i64 8 to ptr), ptr %94, align 8
-  %95 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %92, i32 0, i32 1
-  store i64 0, ptr %95, align 8
-  br label %96
-
-96:                                               ; preds = %140, %2
-  invoke void @_ZN3syn5parse11ParseBuffer4fork17hc207e8b1954acb53E(ptr sret({ { ptr, ptr }, ptr, i32, {}, [4 x i8] }) align 8 %91, ptr align 8 %1)
-          to label %106 unwind label %100
-
-97:                                               ; preds = %378, %161, %107, %100
-  %98 = load i8, ptr %39, align 1, !range !3, !noundef !4
-  %99 = trunc i8 %98 to i1
-  br i1 %99, label %386, label %380
-
-100:                                              ; preds = %377, %143, %142, %140, %137, %96
-  %101 = landingpad { ptr, i32 }
-          cleanup
-  %102 = extractvalue { ptr, i32 } %101, 0
-  %103 = extractvalue { ptr, i32 } %101, 1
-  %104 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
-  store ptr %102, ptr %104, align 8
-  %105 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  store i32 %103, ptr %105, align 8
+  %95 = inttoptr i64 8 to ptr
+  store ptr %95, ptr %94, align 8
+  %96 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %92, i32 0, i32 1
+  store i64 0, ptr %96, align 8
   br label %97
 
-106:                                              ; preds = %96
-  invoke void @"_ZN3syn4item7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..item..ItemUse$GT$5parse17h85b2e3fea84aa8ecE"(ptr sret({ i64, [18 x i64] }) align 8 %90, ptr align 8 %91)
-          to label %114 unwind label %108
+97:                                               ; preds = %141, %2
+  invoke void @_ZN3syn5parse11ParseBuffer4fork17hc207e8b1954acb53E(ptr sret({ { ptr, ptr }, ptr, i32, {}, [4 x i8] }) align 8 %91, ptr align 8 %1)
+          to label %107 unwind label %101
 
-107:                                              ; preds = %108
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %91) #4
-          to label %97 unwind label %358
+98:                                               ; preds = %379, %162, %108, %101
+  %99 = load i8, ptr %39, align 1, !range !3, !noundef !4
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %387, label %381
 
-108:                                              ; preds = %136, %121, %120, %119, %106
-  %109 = landingpad { ptr, i32 }
+101:                                              ; preds = %378, %144, %143, %141, %138, %97
+  %102 = landingpad { ptr, i32 }
           cleanup
-  %110 = extractvalue { ptr, i32 } %109, 0
-  %111 = extractvalue { ptr, i32 } %109, 1
-  %112 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
-  store ptr %110, ptr %112, align 8
-  %113 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  store i32 %111, ptr %113, align 8
-  br label %107
+  %103 = extractvalue { ptr, i32 } %102, 0
+  %104 = extractvalue { ptr, i32 } %102, 1
+  %105 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
+  store ptr %103, ptr %105, align 8
+  %106 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  store i32 %104, ptr %106, align 8
+  br label %98
 
-114:                                              ; preds = %106
-  %115 = load i64, ptr %90, align 8, !range !5, !noundef !4
-  %116 = icmp eq i64 %115, -9223372036854775808
-  %117 = select i1 %116, i64 1, i64 0
-  %118 = icmp eq i64 %117, 0
-  br i1 %118, label %119, label %120
+107:                                              ; preds = %97
+  invoke void @"_ZN3syn4item7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..item..ItemUse$GT$5parse17h85b2e3fea84aa8ecE"(ptr sret({ i64, [18 x i64] }) align 8 %90, ptr align 8 %91)
+          to label %115 unwind label %109
 
-119:                                              ; preds = %114
+108:                                              ; preds = %109
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %91) #4
+          to label %98 unwind label %359
+
+109:                                              ; preds = %137, %122, %121, %120, %107
+  %110 = landingpad { ptr, i32 }
+          cleanup
+  %111 = extractvalue { ptr, i32 } %110, 0
+  %112 = extractvalue { ptr, i32 } %110, 1
+  %113 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
+  store ptr %111, ptr %113, align 8
+  %114 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  store i32 %112, ptr %114, align 8
+  br label %108
+
+115:                                              ; preds = %107
+  %116 = load i64, ptr %90, align 8, !range !5, !noundef !4
+  %117 = icmp eq i64 %116, -9223372036854775808
+  %118 = select i1 %117, i64 1, i64 0
+  %119 = icmp eq i64 %118, 0
+  br i1 %119, label %120, label %121
+
+120:                                              ; preds = %115
   invoke void @"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$syn..item..ItemUse$C$syn..error..Error$GT$$GT$17h92a057fa54b41a9fE"(ptr align 8 %90)
-          to label %121 unwind label %108
+          to label %122 unwind label %109
 
-120:                                              ; preds = %114
+121:                                              ; preds = %115
   invoke void @"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$syn..item..ItemUse$C$syn..error..Error$GT$$GT$17h92a057fa54b41a9fE"(ptr align 8 %90)
-          to label %142 unwind label %108
+          to label %143 unwind label %109
 
-121:                                              ; preds = %119
+122:                                              ; preds = %120
   invoke void @"_ZN3syn4item7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..item..ItemUse$GT$5parse17h85b2e3fea84aa8ecE"(ptr sret({ i64, [18 x i64] }) align 8 %88, ptr align 8 %1)
-          to label %122 unwind label %108
+          to label %123 unwind label %109
 
-122:                                              ; preds = %121
-  %123 = load i64, ptr %88, align 8, !range !5, !noundef !4
-  %124 = icmp eq i64 %123, -9223372036854775808
-  %125 = select i1 %124, i64 1, i64 0
-  %126 = icmp eq i64 %125, 0
-  br i1 %126, label %127, label %128
+123:                                              ; preds = %122
+  %124 = load i64, ptr %88, align 8, !range !5, !noundef !4
+  %125 = icmp eq i64 %124, -9223372036854775808
+  %126 = select i1 %125, i64 1, i64 0
+  %127 = icmp eq i64 %126, 0
+  br i1 %127, label %128, label %129
 
-127:                                              ; preds = %122
+128:                                              ; preds = %123
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 %88, i64 152, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %89, ptr align 8 %38, i64 152, i1 false)
-  br label %131
+  br label %132
 
-128:                                              ; preds = %122
-  %129 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %88, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %129, i64 24, i1 false)
+129:                                              ; preds = %123
+  %130 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %88, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %130, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %37, i64 24, i1 false)
-  %130 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %89, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %130, ptr align 8 %36, i64 24, i1 false)
+  %131 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %89, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %131, ptr align 8 %36, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %89, align 8
-  br label %131
+  br label %132
 
-131:                                              ; preds = %128, %127
-  %132 = load i64, ptr %89, align 8, !range !5, !noundef !4
-  %133 = icmp eq i64 %132, -9223372036854775808
-  %134 = select i1 %133, i64 1, i64 0
-  %135 = icmp eq i64 %134, 0
-  br i1 %135, label %136, label %137
+132:                                              ; preds = %129, %128
+  %133 = load i64, ptr %89, align 8, !range !5, !noundef !4
+  %134 = icmp eq i64 %133, -9223372036854775808
+  %135 = select i1 %134, i64 1, i64 0
+  %136 = icmp eq i64 %135, 0
+  br i1 %136, label %137, label %138
 
-136:                                              ; preds = %131
+137:                                              ; preds = %132
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %86, ptr align 8 %89, i64 152, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hacab200d8e89dafcE"(ptr align 8 %92, ptr align 8 %86)
-          to label %140 unwind label %108
+          to label %141 unwind label %109
 
-137:                                              ; preds = %131
-  %138 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %89, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %87, ptr align 8 %138, i64 24, i1 false)
+138:                                              ; preds = %132
+  %139 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %89, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %87, ptr align 8 %139, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %87, i64 24, i1 false)
-  %139 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %139, ptr align 8 %35, i64 24, i1 false)
+  %140 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %140, ptr align 8 %35, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %91)
-          to label %141 unwind label %100
+          to label %142 unwind label %101
 
-140:                                              ; preds = %136
+141:                                              ; preds = %137
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %91)
-          to label %96 unwind label %100
+          to label %97 unwind label %101
 
-141:                                              ; preds = %377, %158, %137
+142:                                              ; preds = %378, %159, %138
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$syn..item..ItemUse$GT$$GT$17hcc74d761130ecf7eE"(ptr align 8 %92)
-  br label %354
+  br label %355
 
-142:                                              ; preds = %120
+143:                                              ; preds = %121
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %91)
-          to label %143 unwind label %100
-
-143:                                              ; preds = %142
-  invoke void @_ZN3syn4attr9Attribute11parse_outer17h4146c56cddd9fe43E(ptr sret({ i64, [3 x i64] }) align 8 %83, ptr align 8 %1)
-          to label %144 unwind label %100
+          to label %144 unwind label %101
 
 144:                                              ; preds = %143
-  %145 = load i64, ptr %83, align 8, !range !6, !noundef !4
-  %146 = icmp eq i64 %145, 0
-  br i1 %146, label %147, label %150
+  invoke void @_ZN3syn4attr9Attribute11parse_outer17h4146c56cddd9fe43E(ptr sret({ i64, [3 x i64] }) align 8 %83, ptr align 8 %1)
+          to label %145 unwind label %101
 
-147:                                              ; preds = %144
-  %148 = getelementptr inbounds { [1 x i64], { { i64, ptr }, i64 } }, ptr %83, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %148, i64 24, i1 false)
-  %149 = getelementptr inbounds { [1 x i64], { { i64, ptr }, i64 } }, ptr %84, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %149, ptr align 8 %34, i64 24, i1 false)
+145:                                              ; preds = %144
+  %146 = load i64, ptr %83, align 8, !range !6, !noundef !4
+  %147 = icmp eq i64 %146, 0
+  br i1 %147, label %148, label %151
+
+148:                                              ; preds = %145
+  %149 = getelementptr inbounds { [1 x i64], { { i64, ptr }, i64 } }, ptr %83, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %149, i64 24, i1 false)
+  %150 = getelementptr inbounds { [1 x i64], { { i64, ptr }, i64 } }, ptr %84, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %150, ptr align 8 %34, i64 24, i1 false)
   store i64 0, ptr %84, align 8
-  br label %153
+  br label %154
 
-150:                                              ; preds = %144
-  %151 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %83, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %151, i64 24, i1 false)
+151:                                              ; preds = %145
+  %152 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %83, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %152, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 8 %33, i64 24, i1 false)
-  %152 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %84, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %152, ptr align 8 %32, i64 24, i1 false)
+  %153 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %84, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %153, ptr align 8 %32, i64 24, i1 false)
   store i64 1, ptr %84, align 8
-  br label %153
+  br label %154
 
-153:                                              ; preds = %150, %147
-  %154 = load i64, ptr %84, align 8, !range !6, !noundef !4
-  %155 = icmp eq i64 %154, 0
-  br i1 %155, label %156, label %158
+154:                                              ; preds = %151, %148
+  %155 = load i64, ptr %84, align 8, !range !6, !noundef !4
+  %156 = icmp eq i64 %155, 0
+  br i1 %156, label %157, label %159
 
-156:                                              ; preds = %153
-  %157 = getelementptr inbounds { [1 x i64], { { i64, ptr }, i64 } }, ptr %84, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %81, ptr align 8 %157, i64 24, i1 false)
+157:                                              ; preds = %154
+  %158 = getelementptr inbounds { [1 x i64], { { i64, ptr }, i64 } }, ptr %84, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %81, ptr align 8 %158, i64 24, i1 false)
   store i8 1, ptr %40, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %85, ptr align 8 %81, i64 24, i1 false)
   invoke void @_ZN3syn5parse11ParseBuffer4fork17hc207e8b1954acb53E(ptr sret({ { ptr, ptr }, ptr, i32, {}, [4 x i8] }) align 8 %80, ptr align 8 %1)
-          to label %170 unwind label %164
+          to label %171 unwind label %165
 
-158:                                              ; preds = %153
-  %159 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %84, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %82, ptr align 8 %159, i64 24, i1 false)
+159:                                              ; preds = %154
+  %160 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %84, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %82, ptr align 8 %160, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %82, i64 24, i1 false)
-  %160 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %160, ptr align 8 %31, i64 24, i1 false)
+  %161 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %161, ptr align 8 %31, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %141
+  br label %142
 
-161:                                              ; preds = %171, %164
-  %162 = load i8, ptr %40, align 1, !range !3, !noundef !4
-  %163 = trunc i8 %162 to i1
-  br i1 %163, label %378, label %97
+162:                                              ; preds = %172, %165
+  %163 = load i8, ptr %40, align 1, !range !3, !noundef !4
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %379, label %98
 
-164:                                              ; preds = %353, %208, %156
-  %165 = landingpad { ptr, i32 }
+165:                                              ; preds = %354, %209, %157
+  %166 = landingpad { ptr, i32 }
           cleanup
-  %166 = extractvalue { ptr, i32 } %165, 0
-  %167 = extractvalue { ptr, i32 } %165, 1
-  %168 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
-  store ptr %166, ptr %168, align 8
-  %169 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  store i32 %167, ptr %169, align 8
-  br label %161
+  %167 = extractvalue { ptr, i32 } %166, 0
+  %168 = extractvalue { ptr, i32 } %166, 1
+  %169 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
+  store ptr %167, ptr %169, align 8
+  %170 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  store i32 %168, ptr %170, align 8
+  br label %162
 
-170:                                              ; preds = %156
+171:                                              ; preds = %157
   invoke void @_ZN25diesel_table_macro_syntax23parse_table_with_schema17h6604c15ba41dd5e2E(ptr sret({ i64, [8 x i64] }) align 8 %77, ptr align 8 %80)
-          to label %178 unwind label %172
+          to label %179 unwind label %173
 
-171:                                              ; preds = %376, %363, %172
+172:                                              ; preds = %377, %364, %173
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %80) #4
-          to label %161 unwind label %358
+          to label %162 unwind label %359
 
-172:                                              ; preds = %372, %209, %185, %184, %183, %170
-  %173 = landingpad { ptr, i32 }
+173:                                              ; preds = %373, %210, %186, %185, %184, %171
+  %174 = landingpad { ptr, i32 }
           cleanup
-  %174 = extractvalue { ptr, i32 } %173, 0
-  %175 = extractvalue { ptr, i32 } %173, 1
-  %176 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
-  store ptr %174, ptr %176, align 8
-  %177 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  store i32 %175, ptr %177, align 8
-  br label %171
+  %175 = extractvalue { ptr, i32 } %174, 0
+  %176 = extractvalue { ptr, i32 } %174, 1
+  %177 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
+  store ptr %175, ptr %177, align 8
+  %178 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  store i32 %176, ptr %178, align 8
+  br label %172
 
-178:                                              ; preds = %170
-  %179 = load i64, ptr %77, align 8, !range !7, !noundef !4
-  %180 = icmp eq i64 %179, -9223372036854775807
-  %181 = select i1 %180, i64 1, i64 0
-  %182 = icmp eq i64 %181, 0
-  br i1 %182, label %183, label %184
+179:                                              ; preds = %171
+  %180 = load i64, ptr %77, align 8, !range !7, !noundef !4
+  %181 = icmp eq i64 %180, -9223372036854775807
+  %182 = select i1 %181, i64 1, i64 0
+  %183 = icmp eq i64 %182, 0
+  br i1 %183, label %184, label %185
 
-183:                                              ; preds = %178
+184:                                              ; preds = %179
   invoke void @"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$proc_macro2..Ident$C$syn..token..Dot$C$proc_macro2..Ident$RP$$C$syn..error..Error$GT$$GT$17he77a3b67c89a0b9eE"(ptr align 8 %77)
-          to label %185 unwind label %172
+          to label %186 unwind label %173
 
-184:                                              ; preds = %178
+185:                                              ; preds = %179
   invoke void @"_ZN4core3ptr134drop_in_place$LT$core..result..Result$LT$$LP$proc_macro2..Ident$C$syn..token..Dot$C$proc_macro2..Ident$RP$$C$syn..error..Error$GT$$GT$17he77a3b67c89a0b9eE"(ptr align 8 %77)
-          to label %209 unwind label %172
+          to label %210 unwind label %173
 
-185:                                              ; preds = %183
+186:                                              ; preds = %184
   invoke void @_ZN25diesel_table_macro_syntax23parse_table_with_schema17h6604c15ba41dd5e2E(ptr sret({ i64, [8 x i64] }) align 8 %75, ptr align 8 %1)
-          to label %186 unwind label %172
+          to label %187 unwind label %173
 
-186:                                              ; preds = %185
-  %187 = load i64, ptr %75, align 8, !range !7, !noundef !4
-  %188 = icmp eq i64 %187, -9223372036854775807
-  %189 = select i1 %188, i64 1, i64 0
-  %190 = icmp eq i64 %189, 0
-  br i1 %190, label %191, label %192
+187:                                              ; preds = %186
+  %188 = load i64, ptr %75, align 8, !range !7, !noundef !4
+  %189 = icmp eq i64 %188, -9223372036854775807
+  %190 = select i1 %189, i64 1, i64 0
+  %191 = icmp eq i64 %190, 0
+  br i1 %191, label %192, label %193
 
-191:                                              ; preds = %186
+192:                                              ; preds = %187
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %75, i64 72, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %76, ptr align 8 %30, i64 72, i1 false)
-  br label %195
+  br label %196
 
-192:                                              ; preds = %186
-  %193 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %75, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %193, i64 24, i1 false)
+193:                                              ; preds = %187
+  %194 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %75, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr align 8 %194, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr align 8 %29, i64 24, i1 false)
-  %194 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %76, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %194, ptr align 8 %28, i64 24, i1 false)
+  %195 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %76, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %195, ptr align 8 %28, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %76, align 8
-  br label %195
+  br label %196
 
-195:                                              ; preds = %192, %191
-  %196 = load i64, ptr %76, align 8, !range !7, !noundef !4
-  %197 = icmp eq i64 %196, -9223372036854775807
-  %198 = select i1 %197, i64 1, i64 0
-  %199 = icmp eq i64 %198, 0
-  br i1 %199, label %200, label %204
+196:                                              ; preds = %193, %192
+  %197 = load i64, ptr %76, align 8, !range !7, !noundef !4
+  %198 = icmp eq i64 %197, -9223372036854775807
+  %199 = select i1 %198, i64 1, i64 0
+  %200 = icmp eq i64 %199, 0
+  br i1 %200, label %201, label %205
 
-200:                                              ; preds = %195
+201:                                              ; preds = %196
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %76, i64 32, i1 false)
-  %201 = getelementptr inbounds { { { i64, [3 x i64] }, { {} } }, { [1 x i32] }, [1 x i32], { { i64, [3 x i64] }, { {} } } }, ptr %76, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 8 %201, i64 4, i1 false)
-  %202 = getelementptr inbounds { { { i64, [3 x i64] }, { {} } }, { [1 x i32] }, [1 x i32], { { i64, [3 x i64] }, { {} } } }, ptr %76, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %202, i64 32, i1 false)
+  %202 = getelementptr inbounds { { { i64, [3 x i64] }, { {} } }, { [1 x i32] }, [1 x i32], { { i64, [3 x i64] }, { {} } } }, ptr %76, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 8 %202, i64 4, i1 false)
+  %203 = getelementptr inbounds { { { i64, [3 x i64] }, { {} } }, { [1 x i32] }, [1 x i32], { { i64, [3 x i64] }, { {} } } }, ptr %76, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %203, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 32, i1 false)
-  %203 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %9, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %203, ptr align 4 %5, i64 4, i1 false)
+  %204 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %204, ptr align 4 %5, i64 4, i1 false)
   store i32 1, ptr %9, align 4
-  br label %207
-
-204:                                              ; preds = %195
-  %205 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %76, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %74, ptr align 8 %205, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %74, i64 24, i1 false)
-  %206 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %206, ptr align 8 %27, i64 24, i1 false)
-  store i64 -9223372036854775808, ptr %0, align 8
   br label %208
 
-207:                                              ; preds = %224, %200
+205:                                              ; preds = %196
+  %206 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %76, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %74, ptr align 8 %206, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %74, i64 24, i1 false)
+  %207 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %207, ptr align 8 %27, i64 24, i1 false)
+  store i64 -9223372036854775808, ptr %0, align 8
+  br label %209
+
+208:                                              ; preds = %225, %201
   store i8 1, ptr %41, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %79, ptr align 8 %10, i64 32, i1 false)
   store i8 1, ptr %42, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %78, ptr align 8 %4, i64 32, i1 false)
   invoke void @_ZN3syn5parse11ParseBuffer4fork17hc207e8b1954acb53E(ptr sret({ { ptr, ptr }, ptr, i32, {}, [4 x i8] }) align 8 %70, ptr align 8 %1)
-          to label %237 unwind label %231
+          to label %238 unwind label %232
 
-208:                                              ; preds = %372, %225, %204
+209:                                              ; preds = %373, %226, %205
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %80)
-          to label %377 unwind label %164
+          to label %378 unwind label %165
 
-209:                                              ; preds = %184
+210:                                              ; preds = %185
   invoke void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$proc_macro2..Ident$GT$5parse17hb4074eb879d2535cE"(ptr sret({ i64, [3 x i64] }) align 8 %72, ptr align 8 %1)
-          to label %210 unwind label %172
+          to label %211 unwind label %173
 
-210:                                              ; preds = %209
-  %211 = load i64, ptr %72, align 8, !range !7, !noundef !4
-  %212 = icmp eq i64 %211, -9223372036854775807
-  %213 = select i1 %212, i64 1, i64 0
-  %214 = icmp eq i64 %213, 0
-  br i1 %214, label %215, label %216
+211:                                              ; preds = %210
+  %212 = load i64, ptr %72, align 8, !range !7, !noundef !4
+  %213 = icmp eq i64 %212, -9223372036854775807
+  %214 = select i1 %213, i64 1, i64 0
+  %215 = icmp eq i64 %214, 0
+  br i1 %215, label %216, label %217
 
-215:                                              ; preds = %210
+216:                                              ; preds = %211
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %72, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %73, ptr align 8 %26, i64 32, i1 false)
-  br label %219
+  br label %220
 
-216:                                              ; preds = %210
-  %217 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %72, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %217, i64 24, i1 false)
+217:                                              ; preds = %211
+  %218 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %72, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %218, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %24, ptr align 8 %25, i64 24, i1 false)
-  %218 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %73, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %218, ptr align 8 %24, i64 24, i1 false)
+  %219 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %73, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %219, ptr align 8 %24, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %73, align 8
-  br label %219
+  br label %220
 
-219:                                              ; preds = %216, %215
-  %220 = load i64, ptr %73, align 8, !range !7, !noundef !4
-  %221 = icmp eq i64 %220, -9223372036854775807
-  %222 = select i1 %221, i64 1, i64 0
-  %223 = icmp eq i64 %222, 0
-  br i1 %223, label %224, label %225
+220:                                              ; preds = %217, %216
+  %221 = load i64, ptr %73, align 8, !range !7, !noundef !4
+  %222 = icmp eq i64 %221, -9223372036854775807
+  %223 = select i1 %222, i64 1, i64 0
+  %224 = icmp eq i64 %223, 0
+  br i1 %224, label %225, label %226
 
-224:                                              ; preds = %219
+225:                                              ; preds = %220
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %73, i64 32, i1 false)
   store i64 -9223372036854775807, ptr %10, align 8
   store i32 0, ptr %9, align 4
-  br label %207
-
-225:                                              ; preds = %219
-  %226 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %73, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %71, ptr align 8 %226, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %71, i64 24, i1 false)
-  %227 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %227, ptr align 8 %23, i64 24, i1 false)
-  store i64 -9223372036854775808, ptr %0, align 8
   br label %208
 
-228:                                              ; preds = %238, %231
-  %229 = load i8, ptr %42, align 1, !range !3, !noundef !4
-  %230 = trunc i8 %229 to i1
-  br i1 %230, label %375, label %363
+226:                                              ; preds = %220
+  %227 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %73, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %71, ptr align 8 %227, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %71, i64 24, i1 false)
+  %228 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %228, ptr align 8 %23, i64 24, i1 false)
+  store i64 -9223372036854775808, ptr %0, align 8
+  br label %209
 
-231:                                              ; preds = %352, %272, %207
-  %232 = landingpad { ptr, i32 }
+229:                                              ; preds = %239, %232
+  %230 = load i8, ptr %42, align 1, !range !3, !noundef !4
+  %231 = trunc i8 %230 to i1
+  br i1 %231, label %376, label %364
+
+232:                                              ; preds = %353, %273, %208
+  %233 = landingpad { ptr, i32 }
           cleanup
-  %233 = extractvalue { ptr, i32 } %232, 0
-  %234 = extractvalue { ptr, i32 } %232, 1
-  %235 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
-  store ptr %233, ptr %235, align 8
-  %236 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  store i32 %234, ptr %236, align 8
-  br label %228
+  %234 = extractvalue { ptr, i32 } %233, 0
+  %235 = extractvalue { ptr, i32 } %233, 1
+  %236 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
+  store ptr %234, ptr %236, align 8
+  %237 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  store i32 %235, ptr %237, align 8
+  br label %229
 
-237:                                              ; preds = %207
+238:                                              ; preds = %208
   invoke void @"_ZN75_$LT$diesel_table_macro_syntax..PrimaryKey$u20$as$u20$syn..parse..Parse$GT$5parse17h463a0ff60937da97E"(ptr sret({ i64, [5 x i64] }) align 8 %68, ptr align 8 %70)
-          to label %245 unwind label %239
+          to label %246 unwind label %240
 
-238:                                              ; preds = %374, %343, %239
+239:                                              ; preds = %375, %344, %240
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %70) #4
-          to label %228 unwind label %358
+          to label %229 unwind label %359
 
-239:                                              ; preds = %360, %252, %251, %250, %237
-  %240 = landingpad { ptr, i32 }
+240:                                              ; preds = %361, %253, %252, %251, %238
+  %241 = landingpad { ptr, i32 }
           cleanup
-  %241 = extractvalue { ptr, i32 } %240, 0
-  %242 = extractvalue { ptr, i32 } %240, 1
-  %243 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
-  store ptr %241, ptr %243, align 8
-  %244 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  store i32 %242, ptr %244, align 8
-  br label %238
+  %242 = extractvalue { ptr, i32 } %241, 0
+  %243 = extractvalue { ptr, i32 } %241, 1
+  %244 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
+  store ptr %242, ptr %244, align 8
+  %245 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  store i32 %243, ptr %245, align 8
+  br label %239
 
-245:                                              ; preds = %237
-  %246 = load i64, ptr %68, align 8, !range !5, !noundef !4
-  %247 = icmp eq i64 %246, -9223372036854775808
-  %248 = select i1 %247, i64 1, i64 0
-  %249 = icmp eq i64 %248, 0
-  br i1 %249, label %250, label %251
+246:                                              ; preds = %238
+  %247 = load i64, ptr %68, align 8, !range !5, !noundef !4
+  %248 = icmp eq i64 %247, -9223372036854775808
+  %249 = select i1 %248, i64 1, i64 0
+  %250 = icmp eq i64 %249, 0
+  br i1 %250, label %251, label %252
 
-250:                                              ; preds = %245
+251:                                              ; preds = %246
   invoke void @"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$diesel_table_macro_syntax..PrimaryKey$C$syn..error..Error$GT$$GT$17hc511fd77a87cc09fE"(ptr align 8 %68)
-          to label %252 unwind label %239
+          to label %253 unwind label %240
 
-251:                                              ; preds = %245
+252:                                              ; preds = %246
   invoke void @"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$diesel_table_macro_syntax..PrimaryKey$C$syn..error..Error$GT$$GT$17hc511fd77a87cc09fE"(ptr align 8 %68)
-          to label %273 unwind label %239
+          to label %274 unwind label %240
 
-252:                                              ; preds = %250
+253:                                              ; preds = %251
   invoke void @"_ZN75_$LT$diesel_table_macro_syntax..PrimaryKey$u20$as$u20$syn..parse..Parse$GT$5parse17h463a0ff60937da97E"(ptr sret({ i64, [5 x i64] }) align 8 %66, ptr align 8 %1)
-          to label %253 unwind label %239
+          to label %254 unwind label %240
 
-253:                                              ; preds = %252
-  %254 = load i64, ptr %66, align 8, !range !5, !noundef !4
-  %255 = icmp eq i64 %254, -9223372036854775808
-  %256 = select i1 %255, i64 1, i64 0
-  %257 = icmp eq i64 %256, 0
-  br i1 %257, label %258, label %259
+254:                                              ; preds = %253
+  %255 = load i64, ptr %66, align 8, !range !5, !noundef !4
+  %256 = icmp eq i64 %255, -9223372036854775808
+  %257 = select i1 %256, i64 1, i64 0
+  %258 = icmp eq i64 %257, 0
+  br i1 %258, label %259, label %260
 
-258:                                              ; preds = %253
+259:                                              ; preds = %254
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %66, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %67, ptr align 8 %22, i64 48, i1 false)
-  br label %262
+  br label %263
 
-259:                                              ; preds = %253
-  %260 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %66, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %260, i64 24, i1 false)
+260:                                              ; preds = %254
+  %261 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %66, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %261, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %21, i64 24, i1 false)
-  %261 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %67, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %261, ptr align 8 %20, i64 24, i1 false)
+  %262 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %67, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %262, ptr align 8 %20, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %67, align 8
-  br label %262
+  br label %263
 
-262:                                              ; preds = %259, %258
-  %263 = load i64, ptr %67, align 8, !range !5, !noundef !4
-  %264 = icmp eq i64 %263, -9223372036854775808
-  %265 = select i1 %264, i64 1, i64 0
-  %266 = icmp eq i64 %265, 0
-  br i1 %266, label %267, label %268
+263:                                              ; preds = %260, %259
+  %264 = load i64, ptr %67, align 8, !range !5, !noundef !4
+  %265 = icmp eq i64 %264, -9223372036854775808
+  %266 = select i1 %265, i64 1, i64 0
+  %267 = icmp eq i64 %266, 0
+  br i1 %267, label %268, label %269
 
-267:                                              ; preds = %262
+268:                                              ; preds = %263
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %64, ptr align 8 %67, i64 48, i1 false)
   store i8 1, ptr %43, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %69, ptr align 8 %64, i64 48, i1 false)
-  br label %271
-
-268:                                              ; preds = %262
-  %269 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %67, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %65, ptr align 8 %269, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %65, i64 24, i1 false)
-  %270 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %270, ptr align 8 %19, i64 24, i1 false)
-  store i64 -9223372036854775808, ptr %0, align 8
   br label %272
 
-271:                                              ; preds = %273, %267
+269:                                              ; preds = %263
+  %270 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %67, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %65, ptr align 8 %270, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %65, i64 24, i1 false)
+  %271 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %271, ptr align 8 %19, i64 24, i1 false)
+  store i64 -9223372036854775808, ptr %0, align 8
+  br label %273
+
+272:                                              ; preds = %274, %268
   invoke void @_ZN3syn5group12parse_braces17ha3700d757ef4a2b4E(ptr sret({ i64, [6 x i64] }) align 8 %62, ptr align 8 %1)
-          to label %283 unwind label %277
+          to label %284 unwind label %278
 
-272:                                              ; preds = %360, %268
+273:                                              ; preds = %361, %269
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %70)
-          to label %362 unwind label %231
+          to label %363 unwind label %232
 
-273:                                              ; preds = %251
+274:                                              ; preds = %252
   store i8 1, ptr %43, align 1
   store i64 -9223372036854775808, ptr %69, align 8
-  br label %271
+  br label %272
 
-274:                                              ; preds = %311, %277
-  %275 = load i8, ptr %44, align 1, !range !3, !noundef !4
-  %276 = trunc i8 %275 to i1
-  br i1 %276, label %373, label %343
+275:                                              ; preds = %312, %278
+  %276 = load i8, ptr %44, align 1, !range !3, !noundef !4
+  %277 = trunc i8 %276 to i1
+  br i1 %277, label %374, label %344
 
-277:                                              ; preds = %340, %286, %271
-  %278 = landingpad { ptr, i32 }
+278:                                              ; preds = %341, %287, %272
+  %279 = landingpad { ptr, i32 }
           cleanup
-  %279 = extractvalue { ptr, i32 } %278, 0
-  %280 = extractvalue { ptr, i32 } %278, 1
-  %281 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
-  store ptr %279, ptr %281, align 8
-  %282 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  store i32 %280, ptr %282, align 8
-  br label %274
+  %280 = extractvalue { ptr, i32 } %279, 0
+  %281 = extractvalue { ptr, i32 } %279, 1
+  %282 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
+  store ptr %280, ptr %282, align 8
+  %283 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  store i32 %281, ptr %283, align 8
+  br label %275
 
-283:                                              ; preds = %271
-  %284 = load i64, ptr %62, align 8, !range !6, !noundef !4
-  %285 = icmp eq i64 %284, 0
-  br i1 %285, label %286, label %290
+284:                                              ; preds = %272
+  %285 = load i64, ptr %62, align 8, !range !6, !noundef !4
+  %286 = icmp eq i64 %285, 0
+  br i1 %286, label %287, label %291
 
-286:                                              ; preds = %283
-  %287 = getelementptr inbounds { [1 x i64], { { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] } }, ptr %62, i32 0, i32 1
-  %288 = getelementptr inbounds { { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %287, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 8 %288, i64 12, i1 false)
-  %289 = getelementptr inbounds { [1 x i64], { { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] } }, ptr %62, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %289, i64 32, i1 false)
+287:                                              ; preds = %284
+  %288 = getelementptr inbounds { [1 x i64], { { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] } }, ptr %62, i32 0, i32 1
+  %289 = getelementptr inbounds { { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %288, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 8 %289, i64 12, i1 false)
+  %290 = getelementptr inbounds { [1 x i64], { { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] } }, ptr %62, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %290, i64 32, i1 false)
   store i8 1, ptr %44, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %63, ptr align 8 %7, i64 32, i1 false)
   invoke void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_with17hb15f7eeb4403cf11E"(ptr sret({ i64, [3 x i64] }) align 8 %58, ptr align 8 %63, ptr @"_ZN74_$LT$diesel_table_macro_syntax..ColumnDef$u20$as$u20$syn..parse..Parse$GT$5parse17h7fd84d3b75333561E")
-          to label %293 unwind label %277
+          to label %294 unwind label %278
 
-290:                                              ; preds = %283
-  %291 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %62, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %61, ptr align 8 %291, i64 24, i1 false)
-  %292 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %292, ptr align 8 %61, i64 24, i1 false)
+291:                                              ; preds = %284
+  %292 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %62, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %61, ptr align 8 %292, i64 24, i1 false)
+  %293 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %293, ptr align 8 %61, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %355
+  br label %356
 
-293:                                              ; preds = %286
-  %294 = load i64, ptr %58, align 8, !range !5, !noundef !4
-  %295 = icmp eq i64 %294, -9223372036854775808
-  %296 = select i1 %295, i64 1, i64 0
-  %297 = icmp eq i64 %296, 0
-  br i1 %297, label %298, label %299
+294:                                              ; preds = %287
+  %295 = load i64, ptr %58, align 8, !range !5, !noundef !4
+  %296 = icmp eq i64 %295, -9223372036854775808
+  %297 = select i1 %296, i64 1, i64 0
+  %298 = icmp eq i64 %297, 0
+  br i1 %298, label %299, label %300
 
-298:                                              ; preds = %293
+299:                                              ; preds = %294
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %58, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %59, ptr align 8 %18, i64 32, i1 false)
-  br label %302
+  br label %303
 
-299:                                              ; preds = %293
-  %300 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %58, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %300, i64 24, i1 false)
+300:                                              ; preds = %294
+  %301 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %58, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %301, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %17, i64 24, i1 false)
-  %301 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %59, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %301, ptr align 8 %16, i64 24, i1 false)
+  %302 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %59, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %302, ptr align 8 %16, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %59, align 8
-  br label %302
+  br label %303
 
-302:                                              ; preds = %299, %298
-  %303 = load i64, ptr %59, align 8, !range !5, !noundef !4
-  %304 = icmp eq i64 %303, -9223372036854775808
-  %305 = select i1 %304, i64 1, i64 0
-  %306 = icmp eq i64 %305, 0
-  br i1 %306, label %307, label %308
+303:                                              ; preds = %300, %299
+  %304 = load i64, ptr %59, align 8, !range !5, !noundef !4
+  %305 = icmp eq i64 %304, -9223372036854775808
+  %306 = select i1 %305, i64 1, i64 0
+  %307 = icmp eq i64 %306, 0
+  br i1 %307, label %308, label %309
 
-307:                                              ; preds = %302
+308:                                              ; preds = %303
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 8 %59, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %60, ptr align 8 %56, i64 32, i1 false)
   invoke void @_ZN25diesel_table_macro_syntax12get_sql_name17h1f151bb9721c3855E(ptr sret({ i64, [3 x i64] }) align 8 %54, ptr align 8 %85, ptr align 8 %78)
-          to label %318 unwind label %312
+          to label %319 unwind label %313
 
-308:                                              ; preds = %302
-  %309 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %59, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %57, ptr align 8 %309, i64 24, i1 false)
+309:                                              ; preds = %303
+  %310 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %59, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %57, ptr align 8 %310, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %57, i64 24, i1 false)
-  %310 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %310, ptr align 8 %15, i64 24, i1 false)
+  %311 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %311, ptr align 8 %15, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %355
+  br label %356
 
-311:                                              ; preds = %312
+312:                                              ; preds = %313
   invoke void @"_ZN4core3ptr112drop_in_place$LT$syn..punctuated..Punctuated$LT$diesel_table_macro_syntax..ColumnDef$C$syn..token..Comma$GT$$GT$17h2d634bdd6e00d14eE"(ptr align 8 %60) #4
-          to label %274 unwind label %358
+          to label %275 unwind label %359
 
-312:                                              ; preds = %307
-  %313 = landingpad { ptr, i32 }
+313:                                              ; preds = %308
+  %314 = landingpad { ptr, i32 }
           cleanup
-  %314 = extractvalue { ptr, i32 } %313, 0
-  %315 = extractvalue { ptr, i32 } %313, 1
-  %316 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
-  store ptr %314, ptr %316, align 8
-  %317 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  store i32 %315, ptr %317, align 8
-  br label %311
+  %315 = extractvalue { ptr, i32 } %314, 0
+  %316 = extractvalue { ptr, i32 } %314, 1
+  %317 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
+  store ptr %315, ptr %317, align 8
+  %318 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  store i32 %316, ptr %318, align 8
+  br label %312
 
-318:                                              ; preds = %307
-  %319 = load i64, ptr %54, align 8, !range !6, !noundef !4
-  %320 = icmp eq i64 %319, 0
-  br i1 %320, label %321, label %324
+319:                                              ; preds = %308
+  %320 = load i64, ptr %54, align 8, !range !6, !noundef !4
+  %321 = icmp eq i64 %320, 0
+  br i1 %321, label %322, label %325
 
-321:                                              ; preds = %318
-  %322 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %54, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %322, i64 24, i1 false)
-  %323 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %55, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %323, ptr align 8 %14, i64 24, i1 false)
+322:                                              ; preds = %319
+  %323 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %54, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %323, i64 24, i1 false)
+  %324 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %55, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %324, ptr align 8 %14, i64 24, i1 false)
   store i64 0, ptr %55, align 8
-  br label %327
+  br label %328
 
-324:                                              ; preds = %318
-  %325 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %54, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %325, i64 24, i1 false)
+325:                                              ; preds = %319
+  %326 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %54, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %326, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 24, i1 false)
-  %326 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %55, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %326, ptr align 8 %12, i64 24, i1 false)
+  %327 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %55, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %327, ptr align 8 %12, i64 24, i1 false)
   store i64 1, ptr %55, align 8
-  br label %327
+  br label %328
 
-327:                                              ; preds = %324, %321
-  %328 = load i64, ptr %55, align 8, !range !6, !noundef !4
-  %329 = icmp eq i64 %328, 0
-  br i1 %329, label %330, label %340
+328:                                              ; preds = %325, %322
+  %329 = load i64, ptr %55, align 8, !range !6, !noundef !4
+  %330 = icmp eq i64 %329, 0
+  br i1 %330, label %331, label %341
 
-330:                                              ; preds = %327
-  %331 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %55, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr align 8 %331, i64 24, i1 false)
+331:                                              ; preds = %328
+  %332 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %55, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr align 8 %332, i64 24, i1 false)
   store i8 0, ptr %39, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %92, i64 24, i1 false)
   store i8 0, ptr %40, align 1
@@ -679,144 +680,144 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   store i8 0, ptr %41, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %45, ptr align 8 %79, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %51, ptr align 8 %50, i64 24, i1 false)
-  %332 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %332, ptr align 8 %49, i64 24, i1 false)
-  %333 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %333, ptr align 8 %45, i64 32, i1 false)
-  %334 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %334, ptr align 4 %9, i64 8, i1 false)
-  %335 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %335, ptr align 8 %52, i64 24, i1 false)
-  %336 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %336, ptr align 8 %48, i64 32, i1 false)
-  %337 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %337, ptr align 8 %47, i64 48, i1 false)
-  %338 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %338, ptr align 4 %8, i64 12, i1 false)
-  %339 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %339, ptr align 8 %46, i64 32, i1 false)
+  %333 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %333, ptr align 8 %49, i64 24, i1 false)
+  %334 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %334, ptr align 8 %45, i64 32, i1 false)
+  %335 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %335, ptr align 4 %9, i64 8, i1 false)
+  %336 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %336, ptr align 8 %52, i64 24, i1 false)
+  %337 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %337, ptr align 8 %48, i64 32, i1 false)
+  %338 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %338, ptr align 8 %47, i64 48, i1 false)
+  %339 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %339, ptr align 4 %8, i64 12, i1 false)
+  %340 = getelementptr inbounds { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i32, [1 x i32] }, { { { [2 x i32], i32 }, { {} } } }, [1 x i32] }, ptr %51, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %340, ptr align 8 %46, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %51, i64 240, i1 false)
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %63)
-          to label %352 unwind label %346
+          to label %353 unwind label %347
 
-340:                                              ; preds = %327
-  %341 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %55, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %341, i64 24, i1 false)
+341:                                              ; preds = %328
+  %342 = getelementptr inbounds { [1 x i64], { { { { i64, ptr }, i64 } } } }, ptr %55, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %342, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %53, i64 24, i1 false)
-  %342 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %342, ptr align 8 %11, i64 24, i1 false)
+  %343 = getelementptr inbounds { [1 x i64], { { { i64, ptr }, i64 } } }, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %343, ptr align 8 %11, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr112drop_in_place$LT$syn..punctuated..Punctuated$LT$diesel_table_macro_syntax..ColumnDef$C$syn..token..Comma$GT$$GT$17h2d634bdd6e00d14eE"(ptr align 8 %60)
-          to label %355 unwind label %277
+          to label %356 unwind label %278
 
-343:                                              ; preds = %373, %346, %274
-  %344 = load i8, ptr %43, align 1, !range !3, !noundef !4
-  %345 = trunc i8 %344 to i1
-  br i1 %345, label %374, label %238
+344:                                              ; preds = %374, %347, %275
+  %345 = load i8, ptr %43, align 1, !range !3, !noundef !4
+  %346 = trunc i8 %345 to i1
+  br i1 %346, label %375, label %239
 
-346:                                              ; preds = %361, %330
-  %347 = landingpad { ptr, i32 }
+347:                                              ; preds = %362, %331
+  %348 = landingpad { ptr, i32 }
           cleanup
-  %348 = extractvalue { ptr, i32 } %347, 0
-  %349 = extractvalue { ptr, i32 } %347, 1
-  %350 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
-  store ptr %348, ptr %350, align 8
-  %351 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  store i32 %349, ptr %351, align 8
-  br label %343
+  %349 = extractvalue { ptr, i32 } %348, 0
+  %350 = extractvalue { ptr, i32 } %348, 1
+  %351 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
+  store ptr %349, ptr %351, align 8
+  %352 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  store i32 %350, ptr %352, align 8
+  br label %344
 
-352:                                              ; preds = %330
+353:                                              ; preds = %331
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %70)
-          to label %353 unwind label %231
+          to label %354 unwind label %232
 
-353:                                              ; preds = %352
+354:                                              ; preds = %353
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %80)
-          to label %354 unwind label %164
+          to label %355 unwind label %165
 
-354:                                              ; preds = %353, %141
+355:                                              ; preds = %354, %142
   ret void
 
-355:                                              ; preds = %340, %308, %290
-  %356 = load i8, ptr %44, align 1, !range !3, !noundef !4
-  %357 = trunc i8 %356 to i1
-  br i1 %357, label %361, label %360
+356:                                              ; preds = %341, %309, %291
+  %357 = load i8, ptr %44, align 1, !range !3, !noundef !4
+  %358 = trunc i8 %357 to i1
+  br i1 %358, label %362, label %361
 
-358:                                              ; preds = %386, %378, %376, %375, %374, %373, %311, %238, %171, %107
-  %359 = landingpad { ptr, i32 }
+359:                                              ; preds = %387, %379, %377, %376, %375, %374, %312, %239, %172, %108
+  %360 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #5
   unreachable
 
-360:                                              ; preds = %361, %355
+361:                                              ; preds = %362, %356
   invoke void @"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$diesel_table_macro_syntax..PrimaryKey$GT$$GT$17h817316a4c1ff7760E"(ptr align 8 %69)
-          to label %272 unwind label %239
+          to label %273 unwind label %240
 
-361:                                              ; preds = %355
+362:                                              ; preds = %356
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %63)
-          to label %360 unwind label %346
+          to label %361 unwind label %347
 
-362:                                              ; preds = %272
+363:                                              ; preds = %273
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17hd77a02f7128d44e3E"(ptr align 8 %78)
-          to label %372 unwind label %366
+          to label %373 unwind label %367
 
-363:                                              ; preds = %375, %366, %228
-  %364 = load i8, ptr %41, align 1, !range !3, !noundef !4
-  %365 = trunc i8 %364 to i1
-  br i1 %365, label %376, label %171
+364:                                              ; preds = %376, %367, %229
+  %365 = load i8, ptr %41, align 1, !range !3, !noundef !4
+  %366 = trunc i8 %365 to i1
+  br i1 %366, label %377, label %172
 
-366:                                              ; preds = %362
-  %367 = landingpad { ptr, i32 }
+367:                                              ; preds = %363
+  %368 = landingpad { ptr, i32 }
           cleanup
-  %368 = extractvalue { ptr, i32 } %367, 0
-  %369 = extractvalue { ptr, i32 } %367, 1
-  %370 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
-  store ptr %368, ptr %370, align 8
-  %371 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  store i32 %369, ptr %371, align 8
-  br label %363
+  %369 = extractvalue { ptr, i32 } %368, 0
+  %370 = extractvalue { ptr, i32 } %368, 1
+  %371 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 0
+  store ptr %369, ptr %371, align 8
+  %372 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  store i32 %370, ptr %372, align 8
+  br label %364
 
-372:                                              ; preds = %362
+373:                                              ; preds = %363
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$17he1765364b70bc707E"(ptr align 8 %79)
-          to label %208 unwind label %172
+          to label %209 unwind label %173
 
-373:                                              ; preds = %274
+374:                                              ; preds = %275
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr align 8 %63) #4
-          to label %343 unwind label %358
+          to label %344 unwind label %359
 
-374:                                              ; preds = %343
+375:                                              ; preds = %344
   invoke void @"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$diesel_table_macro_syntax..PrimaryKey$GT$$GT$17h817316a4c1ff7760E"(ptr align 8 %69) #4
-          to label %238 unwind label %358
+          to label %239 unwind label %359
 
-375:                                              ; preds = %228
+376:                                              ; preds = %229
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17hd77a02f7128d44e3E"(ptr align 8 %78) #4
-          to label %363 unwind label %358
+          to label %364 unwind label %359
 
-376:                                              ; preds = %363
+377:                                              ; preds = %364
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$17he1765364b70bc707E"(ptr align 8 %79) #4
-          to label %171 unwind label %358
+          to label %172 unwind label %359
 
-377:                                              ; preds = %208
+378:                                              ; preds = %209
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$syn..attr..Attribute$GT$$GT$17h78578bc7b7ee0514E"(ptr align 8 %85)
-          to label %141 unwind label %100
+          to label %142 unwind label %101
 
-378:                                              ; preds = %161
+379:                                              ; preds = %162
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$syn..attr..Attribute$GT$$GT$17h78578bc7b7ee0514E"(ptr align 8 %85) #4
-          to label %97 unwind label %358
+          to label %98 unwind label %359
 
-379:                                              ; No predecessors!
+380:                                              ; No predecessors!
   unreachable
 
-380:                                              ; preds = %386, %97
-  %381 = load ptr, ptr %3, align 8, !noundef !4
-  %382 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
-  %383 = load i32, ptr %382, align 8, !noundef !4
-  %384 = insertvalue { ptr, i32 } poison, ptr %381, 0
-  %385 = insertvalue { ptr, i32 } %384, i32 %383, 1
-  resume { ptr, i32 } %385
+381:                                              ; preds = %387, %98
+  %382 = load ptr, ptr %3, align 8, !noundef !4
+  %383 = getelementptr inbounds { ptr, i32 }, ptr %3, i32 0, i32 1
+  %384 = load i32, ptr %383, align 8, !noundef !4
+  %385 = insertvalue { ptr, i32 } poison, ptr %382, 0
+  %386 = insertvalue { ptr, i32 } %385, i32 %384, 1
+  resume { ptr, i32 } %386
 
-386:                                              ; preds = %97
+387:                                              ; preds = %98
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$syn..item..ItemUse$GT$$GT$17hcc74d761130ecf7eE"(ptr align 8 %92) #4
-          to label %380 unwind label %358
+          to label %381 unwind label %359
 }
 
 ; Function Attrs: nonlazybind uwtable

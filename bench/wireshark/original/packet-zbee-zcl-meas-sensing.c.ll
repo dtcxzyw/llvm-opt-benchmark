@@ -1961,14 +1961,15 @@ define internal void @dissect_zcl_relhum_meas_attr_data(ptr noundef %0, ptr noun
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_occ_sen() #0 {
   store ptr @ett_zbee_zcl_occ_sen, ptr @proto_register_zbee_zcl_occ_sen.ett, align 16
-  store ptr @ett_zbee_zcl_occ_sen_occupancy, ptr getelementptr inbounds ([2 x ptr], ptr @proto_register_zbee_zcl_occ_sen.ett, i64 0, i64 1), align 8
-  %1 = call i32 @proto_register_protocol(ptr noundef @.str.74, ptr noundef @.str.75, ptr noundef @.str.76)
-  store i32 %1, ptr @proto_zbee_zcl_occ_sen, align 4
-  %2 = load i32, ptr @proto_zbee_zcl_occ_sen, align 4
-  call void @proto_register_field_array(i32 noundef %2, ptr noundef @proto_register_zbee_zcl_occ_sen.hf, i32 noundef 4)
-  call void @proto_register_subtree_array(ptr noundef @proto_register_zbee_zcl_occ_sen.ett, i32 noundef 2)
+  %1 = getelementptr inbounds [2 x ptr], ptr @proto_register_zbee_zcl_occ_sen.ett, i64 0, i64 1
+  store ptr @ett_zbee_zcl_occ_sen_occupancy, ptr %1, align 8
+  %2 = call i32 @proto_register_protocol(ptr noundef @.str.74, ptr noundef @.str.75, ptr noundef @.str.76)
+  store i32 %2, ptr @proto_zbee_zcl_occ_sen, align 4
   %3 = load i32, ptr @proto_zbee_zcl_occ_sen, align 4
-  %4 = call ptr @register_dissector(ptr noundef @.str.76, ptr noundef @dissect_zbee_zcl_occ_sen, i32 noundef %3)
+  call void @proto_register_field_array(i32 noundef %3, ptr noundef @proto_register_zbee_zcl_occ_sen.hf, i32 noundef 4)
+  call void @proto_register_subtree_array(ptr noundef @proto_register_zbee_zcl_occ_sen.ett, i32 noundef 2)
+  %4 = load i32, ptr @proto_zbee_zcl_occ_sen, align 4
+  %5 = call ptr @register_dissector(ptr noundef @.str.76, ptr noundef @dissect_zbee_zcl_occ_sen, i32 noundef %4)
   ret void
 }
 

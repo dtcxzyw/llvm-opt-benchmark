@@ -1242,10 +1242,11 @@ define { i8, i8 } @"_ZN112_$LT$cranelift_codegen_meta..cdsl..types..LaneTypeIter
 
 37:                                               ; preds = %17
   %38 = load i8, ptr @anon.96edb2e12b1c90f4cebcfcaadf93dceb.30, align 1, !range !11, !noundef !4
-  %39 = load i8, ptr getelementptr inbounds (i8, ptr @anon.96edb2e12b1c90f4cebcfcaadf93dceb.30, i64 1), align 1
+  %39 = getelementptr inbounds i8, ptr @anon.96edb2e12b1c90f4cebcfcaadf93dceb.30, i64 1
+  %40 = load i8, ptr %39, align 1
   store i8 %38, ptr %4, align 1
-  %40 = getelementptr inbounds i8, ptr %4, i64 1
-  store i8 %39, ptr %40, align 1
+  %41 = getelementptr inbounds i8, ptr %4, i64 1
+  store i8 %40, ptr %41, align 1
   br label %24
 }
 

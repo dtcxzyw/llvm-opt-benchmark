@@ -994,7 +994,8 @@ entry:
   store ptr %activity, ptr %activity.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail20FreestandingActivity6HandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail20FreestandingActivity6HandleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity::Handle", ptr %this1, i32 0, i32 1
   call void @_ZNSt6atomicImEC2Em(ptr noundef nonnull align 8 dereferenceable(8) %refs_, i64 noundef 2) #3
   %mu_ = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity::Handle", ptr %this1, i32 0, i32 2
@@ -1003,17 +1004,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %activity_ = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity::Handle", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %activity.addr, align 8
-  store ptr %0, ptr %activity_, align 8
+  %1 = load ptr, ptr %activity.addr, align 8
+  store ptr %1, ptr %activity_, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN9grpc_core8WakeableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -1534,12 +1535,14 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail20FreestandingActivityE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [12 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail20FreestandingActivityE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail20FreestandingActivityE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [12 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail20FreestandingActivityE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %handle_ = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this1, i32 0, i32 5
-  %0 = load ptr, ptr %handle_, align 8
-  %tobool = icmp ne ptr %0, null
+  %2 = load ptr, ptr %handle_, align 8
+  %tobool = icmp ne ptr %2, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1552,16 +1555,16 @@ invoke.cont:                                      ; preds = %if.then
 if.end:                                           ; preds = %invoke.cont, %entry
   %mu_ = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this1, i32 0, i32 2
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #3
-  %1 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN9grpc_core8WakeableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  %3 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN9grpc_core8WakeableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   call void @_ZN9grpc_core8ActivityD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #16
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #16
   unreachable
 }
 
@@ -1727,7 +1730,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2664,7 +2668,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

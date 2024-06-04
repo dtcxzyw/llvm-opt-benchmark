@@ -433,12 +433,13 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22ExpressionMinerManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22ExpressionMinerManagerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_doFilterLogicalStrength = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ExpressionMinerManager", ptr %this1, i32 0, i32 1
   store i8 0, ptr %d_doFilterLogicalStrength, align 8
   %d_sols = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ExpressionMinerManager", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %env.addr, align 8
-  invoke void @_ZN4cvc58internal6theory11quantifiers22SolutionFilterStrengthC1ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(544) %d_sols, ptr noundef nonnull align 8 dereferenceable(576) %1)
+  %2 = load ptr, ptr %env.addr, align 8
+  invoke void @_ZN4cvc58internal6theory11quantifiers22SolutionFilterStrengthC1ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(544) %d_sols, ptr noundef nonnull align 8 dereferenceable(576) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -447,12 +448,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN4cvc58internal6EnvObjD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
   br label %eh.resume
 
@@ -1000,7 +1001,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22ExpressionMinerManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22ExpressionMinerManagerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_vars = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ExpressionMinerManager", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_vars) #3
   %d_sols = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ExpressionMinerManager", ptr %this1, i32 0, i32 2
@@ -2446,7 +2448,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22SolutionFilterStrengthE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22SolutionFilterStrengthE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_subOptions = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SolutionFilterStrength", ptr %this1, i32 0, i32 3
   call void @_ZN4cvc58internal7OptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %d_subOptions) #3
   %d_curr_sols = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SolutionFilterStrength", ptr %this1, i32 0, i32 1
@@ -2464,7 +2467,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9ExprMinerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9ExprMinerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_fv_to_skolem = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ExprMiner", ptr %this1, i32 0, i32 4
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_fv_to_skolem) #3
   %d_skolems = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ExprMiner", ptr %this1, i32 0, i32 2

@@ -2004,49 +2004,50 @@ define void @_ZN5dtm_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(928) %
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(696) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV5dtm_t, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %class.dtm_t, ptr %9, i32 0, i32 1
-  invoke void @_ZN9context_tC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %13 unwind label %16
+  %12 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV5dtm_t, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %class.dtm_t, ptr %9, i32 0, i32 1
+  invoke void @_ZN9context_tC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %14 unwind label %17
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds %class.dtm_t, ptr %9, i32 0, i32 10
-  store i8 0, ptr %14, align 4
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds %class.dtm_t, ptr %9, i32 0, i32 10
+  store i8 0, ptr %15, align 4
   invoke void @_ZN5dtm_t17start_host_threadEv(ptr noundef nonnull align 8 dereferenceable(928) %9)
-          to label %15 unwind label %20
+          to label %16 unwind label %21
 
-15:                                               ; preds = %13
+16:                                               ; preds = %14
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %7, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %8, align 4
-  br label %24
-
-20:                                               ; preds = %13
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %7, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %8, align 4
-  call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #7
-  br label %24
-
-24:                                               ; preds = %20, %16
-  call void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %9) #7
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %7, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %8, align 4
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %7, align 8
-  %27 = load i32, ptr %8, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+21:                                               ; preds = %14
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %7, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %8, align 4
+  call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #7
+  br label %25
+
+25:                                               ; preds = %21, %17
+  call void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %9) #7
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 declare void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(696), i32 noundef, ptr noundef) unnamed_addr #2
@@ -2064,9 +2065,10 @@ define void @_ZN5dtm_tD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %0) 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV5dtm_t, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.dtm_t, ptr %3, i32 0, i32 1
-  call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
+  %4 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV5dtm_t, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.dtm_t, ptr %3, i32 0, i32 1
+  call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   call void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %3) #7
   ret void
 }

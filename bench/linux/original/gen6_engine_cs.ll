@@ -17,87 +17,90 @@ define dso_local i32 @gen6_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   %14 = add i32 %13, 128
   %15 = add i32 %14, %12
   %16 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 6) #4
-  %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
-  br i1 %17, label %18, label %21
+  %17 = inttoptr i64 -4096 to ptr
+  %18 = icmp ugt ptr %16, %17
+  br i1 %18, label %19, label %22
 
-18:                                               ; preds = %2
-  %19 = ptrtoint ptr %16 to i64
-  %20 = trunc i64 %19 to i32
-  br label %39
+19:                                               ; preds = %2
+  %20 = ptrtoint ptr %16 to i64
+  %21 = trunc i64 %20 to i32
+  br label %41
 
-21:                                               ; preds = %2
-  %22 = getelementptr i8, ptr %16, i64 4
+22:                                               ; preds = %2
+  %23 = getelementptr i8, ptr %16, i64 4
   store i32 2046820355, ptr %16, align 4
-  %23 = getelementptr i8, ptr %16, i64 8
-  store i32 1048578, ptr %22, align 4
-  %24 = or i32 %15, 4
-  %25 = getelementptr i8, ptr %16, i64 12
-  store i32 %24, ptr %23, align 4
-  %26 = getelementptr i8, ptr %16, i64 16
-  store i32 0, ptr %25, align 4
-  %27 = getelementptr i8, ptr %16, i64 20
+  %24 = getelementptr i8, ptr %16, i64 8
+  store i32 1048578, ptr %23, align 4
+  %25 = or i32 %15, 4
+  %26 = getelementptr i8, ptr %16, i64 12
+  store i32 %25, ptr %24, align 4
+  %27 = getelementptr i8, ptr %16, i64 16
   store i32 0, ptr %26, align 4
+  %28 = getelementptr i8, ptr %16, i64 20
   store i32 0, ptr %27, align 4
-  %28 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 6) #4
-  %29 = icmp ugt ptr %28, inttoptr (i64 -4096 to ptr)
-  br i1 %29, label %30, label %33
+  store i32 0, ptr %28, align 4
+  %29 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 6) #4
+  %30 = inttoptr i64 -4096 to ptr
+  %31 = icmp ugt ptr %29, %30
+  br i1 %31, label %32, label %35
 
-30:                                               ; preds = %21
-  %31 = ptrtoint ptr %28 to i64
-  %32 = trunc i64 %31 to i32
-  br label %39
+32:                                               ; preds = %22
+  %33 = ptrtoint ptr %29 to i64
+  %34 = trunc i64 %33 to i32
+  br label %41
 
-33:                                               ; preds = %21
-  %34 = getelementptr i8, ptr %28, i64 4
-  store i32 2046820355, ptr %28, align 4
-  %35 = getelementptr i8, ptr %28, i64 8
-  store i32 16384, ptr %34, align 4
-  %36 = getelementptr i8, ptr %28, i64 12
-  store i32 %24, ptr %35, align 4
-  %37 = getelementptr i8, ptr %28, i64 16
-  store i32 0, ptr %36, align 4
-  %38 = getelementptr i8, ptr %28, i64 20
-  store i32 0, ptr %37, align 4
+35:                                               ; preds = %22
+  %36 = getelementptr i8, ptr %29, i64 4
+  store i32 2046820355, ptr %29, align 4
+  %37 = getelementptr i8, ptr %29, i64 8
+  store i32 16384, ptr %36, align 4
+  %38 = getelementptr i8, ptr %29, i64 12
+  store i32 %25, ptr %37, align 4
+  %39 = getelementptr i8, ptr %29, i64 16
   store i32 0, ptr %38, align 4
-  br label %39
+  %40 = getelementptr i8, ptr %29, i64 20
+  store i32 0, ptr %39, align 4
+  store i32 0, ptr %40, align 4
+  br label %41
 
-39:                                               ; preds = %33, %30, %18
-  %40 = phi i32 [ %20, %18 ], [ %32, %30 ], [ 0, %33 ]
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %61
+41:                                               ; preds = %35, %32, %19
+  %42 = phi i32 [ %21, %19 ], [ %34, %32 ], [ 0, %35 ]
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %64
 
-42:                                               ; preds = %39
-  %43 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 4) #4
-  %44 = icmp ugt ptr %43, inttoptr (i64 -4096 to ptr)
-  br i1 %44, label %45, label %48
+44:                                               ; preds = %41
+  %45 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 4) #4
+  %46 = inttoptr i64 -4096 to ptr
+  %47 = icmp ugt ptr %45, %46
+  br i1 %47, label %48, label %51
 
-45:                                               ; preds = %42
-  %46 = ptrtoint ptr %43 to i64
-  %47 = trunc i64 %46 to i32
-  br label %61
+48:                                               ; preds = %44
+  %49 = ptrtoint ptr %45 to i64
+  %50 = trunc i64 %49 to i32
+  br label %64
 
-48:                                               ; preds = %42
-  %49 = zext i32 %1 to i64
-  %50 = and i64 %49, 1
-  %51 = icmp eq i64 %50, 0
-  %52 = and i64 %49, 2
-  %53 = icmp eq i64 %52, 0
-  %54 = select i1 %53, i32 0, i32 1052673
-  %55 = or i32 %54, 1330204
-  %56 = select i1 %51, i32 %54, i32 %55
-  %57 = getelementptr i8, ptr %43, i64 4
-  store i32 2046820354, ptr %43, align 4
-  %58 = getelementptr i8, ptr %43, i64 8
-  store i32 %56, ptr %57, align 4
-  %59 = or i32 %15, 4
-  %60 = getelementptr i8, ptr %43, i64 12
-  store i32 %59, ptr %58, align 4
-  store i32 0, ptr %60, align 4
-  br label %61
+51:                                               ; preds = %44
+  %52 = zext i32 %1 to i64
+  %53 = and i64 %52, 1
+  %54 = icmp eq i64 %53, 0
+  %55 = and i64 %52, 2
+  %56 = icmp eq i64 %55, 0
+  %57 = select i1 %56, i32 0, i32 1052673
+  %58 = or i32 %57, 1330204
+  %59 = select i1 %54, i32 %57, i32 %58
+  %60 = getelementptr i8, ptr %45, i64 4
+  store i32 2046820354, ptr %45, align 4
+  %61 = getelementptr i8, ptr %45, i64 8
+  store i32 %59, ptr %60, align 4
+  %62 = or i32 %15, 4
+  %63 = getelementptr i8, ptr %45, i64 12
+  store i32 %62, ptr %61, align 4
+  store i32 0, ptr %63, align 4
+  br label %64
 
-61:                                               ; preds = %48, %45, %39
-  %62 = phi i32 [ %47, %45 ], [ 0, %48 ], [ %40, %39 ]
-  ret i32 %62
+64:                                               ; preds = %51, %48, %41
+  %65 = phi i32 [ %50, %48 ], [ 0, %51 ], [ %42, %41 ]
+  ret i32 %65
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -183,111 +186,115 @@ define dso_local noundef ptr @gen6_emit_breadcrumb_rcs(ptr nocapture noundef %0,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @gen6_emit_flush_xcs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 4) #4
-  %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
-  br i1 %4, label %5, label %8
+  %4 = inttoptr i64 -4096 to ptr
+  %5 = icmp ugt ptr %3, %4
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %2
-  %6 = ptrtoint ptr %3 to i64
-  %7 = trunc i64 %6 to i32
-  br label %15
+6:                                                ; preds = %2
+  %7 = ptrtoint ptr %3 to i64
+  %8 = trunc i64 %7 to i32
+  br label %16
 
-8:                                                ; preds = %2
-  %9 = and i32 %1, 1
-  %10 = icmp eq i32 %9, 0
-  %11 = select i1 %10, i32 320880641, i32 321142785
-  %12 = getelementptr i8, ptr %3, i64 4
-  store i32 %11, ptr %3, align 4
-  %13 = getelementptr i8, ptr %3, i64 8
-  store i32 516, ptr %12, align 4
-  %14 = getelementptr i8, ptr %3, i64 12
-  store i32 0, ptr %13, align 4
+9:                                                ; preds = %2
+  %10 = and i32 %1, 1
+  %11 = icmp eq i32 %10, 0
+  %12 = select i1 %11, i32 320880641, i32 321142785
+  %13 = getelementptr i8, ptr %3, i64 4
+  store i32 %12, ptr %3, align 4
+  %14 = getelementptr i8, ptr %3, i64 8
+  store i32 516, ptr %13, align 4
+  %15 = getelementptr i8, ptr %3, i64 12
   store i32 0, ptr %14, align 4
-  br label %15
+  store i32 0, ptr %15, align 4
+  br label %16
 
-15:                                               ; preds = %8, %5
-  %16 = phi i32 [ %7, %5 ], [ 0, %8 ]
-  ret i32 %16
+16:                                               ; preds = %9, %6
+  %17 = phi i32 [ %8, %6 ], [ 0, %9 ]
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @gen6_emit_flush_vcs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 4) #4
-  %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
-  br i1 %4, label %5, label %8
+  %4 = inttoptr i64 -4096 to ptr
+  %5 = icmp ugt ptr %3, %4
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %2
-  %6 = ptrtoint ptr %3 to i64
-  %7 = trunc i64 %6 to i32
-  br label %15
+6:                                                ; preds = %2
+  %7 = ptrtoint ptr %3 to i64
+  %8 = trunc i64 %7 to i32
+  br label %16
 
-8:                                                ; preds = %2
-  %9 = and i32 %1, 1
-  %10 = icmp eq i32 %9, 0
-  %11 = select i1 %10, i32 320880641, i32 321142913
-  %12 = getelementptr i8, ptr %3, i64 4
-  store i32 %11, ptr %3, align 4
-  %13 = getelementptr i8, ptr %3, i64 8
-  store i32 516, ptr %12, align 4
-  %14 = getelementptr i8, ptr %3, i64 12
-  store i32 0, ptr %13, align 4
+9:                                                ; preds = %2
+  %10 = and i32 %1, 1
+  %11 = icmp eq i32 %10, 0
+  %12 = select i1 %11, i32 320880641, i32 321142913
+  %13 = getelementptr i8, ptr %3, i64 4
+  store i32 %12, ptr %3, align 4
+  %14 = getelementptr i8, ptr %3, i64 8
+  store i32 516, ptr %13, align 4
+  %15 = getelementptr i8, ptr %3, i64 12
   store i32 0, ptr %14, align 4
-  br label %15
+  store i32 0, ptr %15, align 4
+  br label %16
 
-15:                                               ; preds = %8, %5
-  %16 = phi i32 [ %7, %5 ], [ 0, %8 ]
-  ret i32 %16
+16:                                               ; preds = %9, %6
+  %17 = phi i32 [ %8, %6 ], [ 0, %9 ]
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @gen6_emit_bb_start(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 2) #4
-  %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  br i1 %6, label %7, label %10
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %5, %6
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %4
-  %8 = ptrtoint ptr %5 to i64
-  %9 = trunc i64 %8 to i32
-  br label %16
+8:                                                ; preds = %4
+  %9 = ptrtoint ptr %5 to i64
+  %10 = trunc i64 %9 to i32
+  br label %17
 
-10:                                               ; preds = %4
-  %11 = shl i32 %3, 8
-  %12 = and i32 %11, 256
-  %13 = trunc i64 %1 to i32
-  %14 = xor i32 %12, 411042048
-  %15 = getelementptr i8, ptr %5, i64 4
-  store i32 %14, ptr %5, align 4
-  store i32 %13, ptr %15, align 4
-  br label %16
+11:                                               ; preds = %4
+  %12 = shl i32 %3, 8
+  %13 = and i32 %12, 256
+  %14 = trunc i64 %1 to i32
+  %15 = xor i32 %13, 411042048
+  %16 = getelementptr i8, ptr %5, i64 4
+  store i32 %15, ptr %5, align 4
+  store i32 %14, ptr %16, align 4
+  br label %17
 
-16:                                               ; preds = %10, %7
-  %17 = phi i32 [ %9, %7 ], [ 0, %10 ]
-  ret i32 %17
+17:                                               ; preds = %11, %8
+  %18 = phi i32 [ %10, %8 ], [ 0, %11 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @hsw_emit_bb_start(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 2) #4
-  %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
-  br i1 %6, label %7, label %10
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %5, %6
+  br i1 %7, label %8, label %11
 
-7:                                                ; preds = %4
-  %8 = ptrtoint ptr %5 to i64
-  %9 = trunc i64 %8 to i32
-  br label %16
+8:                                                ; preds = %4
+  %9 = ptrtoint ptr %5 to i64
+  %10 = trunc i64 %9 to i32
+  br label %17
 
-10:                                               ; preds = %4
-  %11 = and i32 %3, 1
-  %12 = icmp eq i32 %11, 0
-  %13 = trunc i64 %1 to i32
-  %14 = select i1 %12, i32 411050240, i32 411041792
-  %15 = getelementptr i8, ptr %5, i64 4
-  store i32 %14, ptr %5, align 4
-  store i32 %13, ptr %15, align 4
-  br label %16
+11:                                               ; preds = %4
+  %12 = and i32 %3, 1
+  %13 = icmp eq i32 %12, 0
+  %14 = trunc i64 %1 to i32
+  %15 = select i1 %13, i32 411050240, i32 411041792
+  %16 = getelementptr i8, ptr %5, i64 4
+  store i32 %15, ptr %5, align 4
+  store i32 %14, ptr %16, align 4
+  br label %17
 
-16:                                               ; preds = %10, %7
-  %17 = phi i32 [ %9, %7 ], [ 0, %10 ]
-  ret i32 %17
+17:                                               ; preds = %11, %8
+  %18 = phi i32 [ %10, %8 ], [ 0, %11 ]
+  ret i32 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -311,48 +318,50 @@ define dso_local i32 @gen7_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   %19 = select i1 %18, i32 17842176, i32 17846433
   %20 = and i64 %16, 1
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %30, label %22
+  br i1 %21, label %31, label %22
 
 22:                                               ; preds = %2
   %23 = or disjoint i32 %19, 330780
   %24 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 4) #4
-  %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
-  br i1 %25, label %30, label %26
+  %25 = inttoptr i64 -4096 to ptr
+  %26 = icmp ugt ptr %24, %25
+  br i1 %26, label %31, label %27
 
-26:                                               ; preds = %22
-  %27 = getelementptr i8, ptr %24, i64 4
+27:                                               ; preds = %22
+  %28 = getelementptr i8, ptr %24, i64 4
   store i32 2046820354, ptr %24, align 4
-  %28 = getelementptr i8, ptr %24, i64 8
-  store i32 1048578, ptr %27, align 4
-  %29 = getelementptr i8, ptr %24, i64 12
-  store i32 0, ptr %28, align 4
+  %29 = getelementptr i8, ptr %24, i64 8
+  store i32 1048578, ptr %28, align 4
+  %30 = getelementptr i8, ptr %24, i64 12
   store i32 0, ptr %29, align 4
-  br label %30
+  store i32 0, ptr %30, align 4
+  br label %31
 
-30:                                               ; preds = %26, %22, %2
-  %31 = phi i32 [ %19, %2 ], [ %23, %26 ], [ %23, %22 ]
-  %32 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 4) #4
-  %33 = icmp ugt ptr %32, inttoptr (i64 -4096 to ptr)
-  br i1 %33, label %34, label %37
+31:                                               ; preds = %27, %22, %2
+  %32 = phi i32 [ %19, %2 ], [ %23, %27 ], [ %23, %22 ]
+  %33 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 4) #4
+  %34 = inttoptr i64 -4096 to ptr
+  %35 = icmp ugt ptr %33, %34
+  br i1 %35, label %36, label %39
 
-34:                                               ; preds = %30
-  %35 = ptrtoint ptr %32 to i64
-  %36 = trunc i64 %35 to i32
-  br label %41
+36:                                               ; preds = %31
+  %37 = ptrtoint ptr %33 to i64
+  %38 = trunc i64 %37 to i32
+  br label %43
 
-37:                                               ; preds = %30
-  %38 = getelementptr i8, ptr %32, i64 4
-  store i32 2046820354, ptr %32, align 4
-  %39 = getelementptr i8, ptr %32, i64 8
-  store i32 %31, ptr %38, align 4
-  %40 = getelementptr i8, ptr %32, i64 12
-  store i32 %15, ptr %39, align 4
-  store i32 0, ptr %40, align 4
-  br label %41
+39:                                               ; preds = %31
+  %40 = getelementptr i8, ptr %33, i64 4
+  store i32 2046820354, ptr %33, align 4
+  %41 = getelementptr i8, ptr %33, i64 8
+  store i32 %32, ptr %40, align 4
+  %42 = getelementptr i8, ptr %33, i64 12
+  store i32 %15, ptr %41, align 4
+  store i32 0, ptr %42, align 4
+  br label %43
 
-41:                                               ; preds = %37, %34
-  %42 = phi i32 [ %36, %34 ], [ 0, %37 ]
-  ret i32 %42
+43:                                               ; preds = %39, %36
+  %44 = phi i32 [ %38, %36 ], [ 0, %39 ]
+  ret i32 %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn

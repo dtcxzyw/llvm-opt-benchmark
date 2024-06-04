@@ -567,20 +567,21 @@ define void @_ZN12ErrorHandler5ThrowE8RAR_EXIT(ptr noundef nonnull align 4 deref
 define void @_Z13ProcessSignali(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  store i8 1, ptr getelementptr inbounds (%class.ErrorHandler, ptr @ErrHandler, i32 0, i32 6), align 4
+  %3 = getelementptr inbounds %class.ErrorHandler, ptr @ErrHandler, i32 0, i32 6
+  store i8 1, ptr %3, align 4
   call void @_ZN12ErrorHandler18SetDisableShutdownEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
   call void (ptr, ...) @_Z7mprintfPKwz(ptr noundef @.str)
-  %3 = load i32, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4
-  %4 = add i32 %3, 1
-  store i32 %4, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4
-  %5 = icmp ugt i32 %4, 1
-  br i1 %5, label %6, label %7
+  %4 = load i32, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4
+  %5 = add i32 %4, 1
+  store i32 %5, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4
+  %6 = icmp ugt i32 %5, 1
+  br i1 %6, label %7, label %8
 
-6:                                                ; preds = %1
+7:                                                ; preds = %1
   call void @exit(i32 noundef 255) #10
   unreachable
 
-7:                                                ; preds = %1
+8:                                                ; preds = %1
   ret void
 }
 
@@ -619,12 +620,14 @@ define void @_ZN12ErrorHandler17SetSignalHandlersEb(ptr noundef nonnull align 4 
   store i8 %10, ptr %9, align 4
   %11 = load i8, ptr %4, align 1
   %12 = trunc i8 %11 to i1
-  %13 = select i1 %12, ptr @_Z13ProcessSignali, ptr inttoptr (i64 1 to ptr)
-  %14 = call ptr @signal(i32 noundef 2, ptr noundef %13) #8
-  %15 = load i8, ptr %4, align 1
-  %16 = trunc i8 %15 to i1
-  %17 = select i1 %16, ptr @_Z13ProcessSignali, ptr inttoptr (i64 1 to ptr)
-  %18 = call ptr @signal(i32 noundef 15, ptr noundef %17) #8
+  %13 = inttoptr i64 1 to ptr
+  %14 = select i1 %12, ptr @_Z13ProcessSignali, ptr %13
+  %15 = call ptr @signal(i32 noundef 2, ptr noundef %14) #8
+  %16 = load i8, ptr %4, align 1
+  %17 = trunc i8 %16 to i1
+  %18 = inttoptr i64 1 to ptr
+  %19 = select i1 %17, ptr @_Z13ProcessSignali, ptr %18
+  %20 = call ptr @signal(i32 noundef 15, ptr noundef %19) #8
   ret void
 }
 

@@ -10477,7 +10477,8 @@ declare i1 @llvm.is.constant.i64(i64) #4
 define internal ptr @rcu_read_auto_lock() #0 {
 entry:
   call void @rcu_read_lock()
-  ret ptr inttoptr (i64 1 to ptr)
+  %0 = inttoptr i64 1 to ptr
+  ret ptr %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

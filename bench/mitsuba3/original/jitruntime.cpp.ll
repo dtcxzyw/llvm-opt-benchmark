@@ -13,15 +13,16 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1010JitRuntimeC2EPKNS0_12JitAllocator12CreateParamsE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN6asmjit9_abi_1_106TargetC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #6
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1010JitRuntimeE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @_ZN6asmjit9_abi_1_1012JitAllocatorC1EPKNS1_12CreateParamsE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %1) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 1108151894018, ptr %4, align 8, !tbaa.struct !6
-  %5 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_abi_1_107CpuInfo4hostEv() #6
-  %6 = getelementptr inbounds i8, ptr %5, i64 120
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !21
+  %3 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1010JitRuntimeE, i64 0, i32 0, i64 2
+  store ptr %3, ptr %0, align 8, !tbaa !3
+  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  tail call void @_ZN6asmjit9_abi_1_1012JitAllocatorC1EPKNS1_12CreateParamsE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %1) #6
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 1108151894018, ptr %5, align 8, !tbaa.struct !6
+  %6 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_abi_1_107CpuInfo4hostEv() #6
+  %7 = getelementptr inbounds i8, ptr %6, i64 120
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !21
   ret void
 }
 
@@ -45,9 +46,10 @@ declare noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_abi_1_107C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1010JitRuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1010JitRuntimeE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @_ZN6asmjit9_abi_1_1012JitAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
+  %2 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN6asmjit9_abi_1_1010JitRuntimeE, i64 0, i32 0, i64 2
+  store ptr %2, ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  tail call void @_ZN6asmjit9_abi_1_1012JitAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   tail call void @_ZN6asmjit9_abi_1_106TargetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #6
   ret void
 }

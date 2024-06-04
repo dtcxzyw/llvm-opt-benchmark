@@ -95,7 +95,7 @@ define internal i32 @opal_if_base_open(i32 noundef %0) #0 {
 
 6:                                                ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %19
+  br label %21
 
 7:                                                ; preds = %1
   store i8 1, ptr @frameopen, align 1
@@ -106,32 +106,34 @@ define internal i32 @opal_if_base_open(i32 noundef %0) #0 {
 
 9:                                                ; preds = %8
   %10 = load i32, ptr @opal_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %12 = icmp ne i32 %10, %11
-  br i1 %12, label %13, label %14
+  %11 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp ne i32 %10, %12
+  br i1 %13, label %14, label %15
 
-13:                                               ; preds = %9
+14:                                               ; preds = %9
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %14
-
-14:                                               ; preds = %13, %9
-  store ptr @opal_list_t_class, ptr @opal_if_list, align 8
-  store volatile i32 1, ptr getelementptr inbounds (%struct.opal_object_t, ptr @opal_if_list, i32 0, i32 1), align 8
-  call void @opal_obj_run_constructors(ptr noundef @opal_if_list)
   br label %15
 
-15:                                               ; preds = %14
-  br label %16
+15:                                               ; preds = %14, %9
+  store ptr @opal_list_t_class, ptr @opal_if_list, align 8
+  %16 = getelementptr inbounds %struct.opal_object_t, ptr @opal_if_list, i32 0, i32 1
+  store volatile i32 1, ptr %16, align 8
+  call void @opal_obj_run_constructors(ptr noundef @opal_if_list)
+  br label %17
 
-16:                                               ; preds = %15
-  %17 = load i32, ptr %3, align 4
-  %18 = call i32 @mca_base_framework_components_open(ptr noundef @opal_if_base_framework, i32 noundef %17)
-  store i32 %18, ptr %2, align 4
-  br label %19
+17:                                               ; preds = %15
+  br label %18
 
-19:                                               ; preds = %16, %6
-  %20 = load i32, ptr %2, align 4
-  ret i32 %20
+18:                                               ; preds = %17
+  %19 = load i32, ptr %3, align 4
+  %20 = call i32 @mca_base_framework_components_open(ptr noundef @opal_if_base_framework, i32 noundef %19)
+  store i32 %20, ptr %2, align 4
+  br label %21
+
+21:                                               ; preds = %18, %6
+  %22 = load i32, ptr %2, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1539,7 +1539,7 @@ define internal void @sigpipe_ignore(ptr noundef %0, ptr noundef %1) #0 {
   %22 = and i64 %21, 1
   %23 = trunc i64 %22 to i32
   %24 = icmp ne i32 %23, 0
-  br i1 %24, label %33, label %25
+  br i1 %24, label %34, label %25
 
 25:                                               ; preds = %2
   %26 = load ptr, ptr %4, align 8
@@ -1549,11 +1549,12 @@ define internal void @sigpipe_ignore(ptr noundef %0, ptr noundef %1) #0 {
   %30 = getelementptr inbounds %struct.sigpipe_ignore, ptr %29, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %30, i64 152, i1 false)
   %31 = getelementptr inbounds %struct.sigaction, ptr %5, i32 0, i32 0
-  store ptr inttoptr (i64 1 to ptr), ptr %31, align 8
-  %32 = call i32 @sigaction(i32 noundef 13, ptr noundef %5, ptr noundef null) #6
-  br label %33
+  %32 = inttoptr i64 1 to ptr
+  store ptr %32, ptr %31, align 8
+  %33 = call i32 @sigaction(i32 noundef 13, ptr noundef %5, ptr noundef null) #6
+  br label %34
 
-33:                                               ; preds = %25, %2
+34:                                               ; preds = %25, %2
   ret void
 }
 

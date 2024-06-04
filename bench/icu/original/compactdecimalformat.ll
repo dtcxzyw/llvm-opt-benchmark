@@ -900,10 +900,11 @@ new.cont:                                         ; preds = %invoke.cont, %entry
   %2 = phi ptr [ %call, %invoke.cont ], [ null, %entry ]
   %3 = load ptr, ptr %status.addr, align 8
   call void @_ZN6icu_7513DecimalFormatC2EPKNS_20DecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(368) %this1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [77 x ptr] }, ptr @_ZTVN6icu_7520CompactDecimalFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %4 = load ptr, ptr %status.addr, align 8
-  %5 = load i32, ptr %4, align 4
-  %call4 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %5)
+  %4 = getelementptr inbounds { [77 x ptr] }, ptr @_ZTVN6icu_7520CompactDecimalFormatE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %this1, align 8
+  %5 = load ptr, ptr %status.addr, align 8
+  %6 = load i32, ptr %5, align 4
+  %call4 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %6)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %new.cont
@@ -914,12 +915,12 @@ if.then:                                          ; preds = %invoke.cont3
   br label %invoke.cont11
 
 lpad:                                             ; preds = %new.notnull
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
@@ -931,36 +932,36 @@ cleanup.done:                                     ; preds = %cleanup.action, %lp
   br label %eh.resume
 
 lpad2:                                            ; preds = %invoke.cont5, %if.end, %new.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513DecimalFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this1) #7
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont3
   %fields = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %fields, align 8
-  %properties = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %12, i32 0, i32 1
+  %13 = load ptr, ptr %fields, align 8
+  %properties = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %13, i32 0, i32 1
   %compactStyle = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties, i32 0, i32 0
   %call6 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN6icu_756number4impl13NullableValueI19UNumberCompactStyleEaSERKS3_(ptr noundef nonnull align 4 dereferenceable(8) %compactStyle, ptr noundef nonnull align 4 dereferenceable(4) %style.addr)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %if.end
   %fields7 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %13 = load ptr, ptr %fields7, align 8
-  %properties8 = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %fields7, align 8
+  %properties8 = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %14, i32 0, i32 1
   %groupingSize = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties8, i32 0, i32 11
   store i32 -2, ptr %groupingSize, align 4
   %fields9 = getelementptr inbounds %"class.icu_75::DecimalFormat", ptr %this1, i32 0, i32 1
-  %14 = load ptr, ptr %fields9, align 8
-  %properties10 = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %14, i32 0, i32 1
+  %15 = load ptr, ptr %fields9, align 8
+  %properties10 = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatFields", ptr %15, i32 0, i32 1
   %minimumGroupingDigits = getelementptr inbounds %"struct.icu_75::number::impl::DecimalFormatProperties", ptr %properties10, i32 0, i32 20
   store i32 2, ptr %minimumGroupingDigits, align 4
-  %15 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7513DecimalFormat5touchER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(368) %this1, ptr noundef nonnull align 4 dereferenceable(4) %15)
+  %16 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7513DecimalFormat5touchER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(368) %this1, ptr noundef nonnull align 4 dereferenceable(4) %16)
           to label %invoke.cont11 unwind label %lpad2
 
 invoke.cont11:                                    ; preds = %invoke.cont5, %if.then
@@ -1010,7 +1011,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %source.addr, align 8
   call void @_ZN6icu_7513DecimalFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(368) %this1, ptr noundef nonnull align 8 dereferenceable(368) %0)
-  store ptr getelementptr inbounds ({ [77 x ptr] }, ptr @_ZTVN6icu_7520CompactDecimalFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [77 x ptr] }, ptr @_ZTVN6icu_7520CompactDecimalFormatE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 

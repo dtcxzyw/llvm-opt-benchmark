@@ -710,7 +710,7 @@ define dso_local noundef i32 @mpihelp_mul_karatsuba_case(ptr noundef %0, ptr nou
   %19 = tail call ptr @mpi_alloc_limb_space(i32 noundef %18) #5
   store ptr %19, ptr %8, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %171, label %21
+  br i1 %20, label %172, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %5, i64 16
@@ -775,7 +775,7 @@ define dso_local noundef i32 @mpihelp_mul_karatsuba_case(ptr noundef %0, ptr nou
 
 52:                                               ; preds = %51, %48
   store ptr null, ptr %8, align 8
-  br label %171
+  br label %172
 
 53:                                               ; preds = %44
   %54 = getelementptr inbounds i8, ptr %5, i64 32
@@ -869,7 +869,7 @@ define dso_local noundef i32 @mpihelp_mul_karatsuba_case(ptr noundef %0, ptr nou
   %110 = phi ptr [ %31, %28 ], [ %105, %104 ]
   %111 = phi ptr [ %30, %28 ], [ %67, %104 ]
   %112 = icmp eq i32 %109, 0
-  br i1 %112, label %171, label %113
+  br i1 %112, label %172, label %113
 
 113:                                              ; preds = %108
   %114 = icmp slt i32 %109, 16
@@ -882,87 +882,88 @@ define dso_local noundef i32 @mpihelp_mul_karatsuba_case(ptr noundef %0, ptr nou
   %117 = call i32 @mpihelp_mul(ptr noundef %116, ptr noundef %3, i32 noundef %4, ptr noundef %110, i32 noundef %109, ptr noundef nonnull %7), !range !19
   %118 = icmp sgt i32 %117, -1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  br i1 %118, label %131, label %171
+  br i1 %118, label %132, label %172
 
 119:                                              ; preds = %113
   %120 = load ptr, ptr %5, align 8
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %122, label %126
+  br i1 %121, label %122, label %127
 
 122:                                              ; preds = %119
-  %123 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
-  %124 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %123, i32 noundef 3520, i64 noundef 40) #6
-  store ptr %124, ptr %5, align 8
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %171, label %126
+  %123 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6
+  %124 = load ptr, ptr %123, align 16
+  %125 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %124, i32 noundef 3520, i64 noundef 40) #6
+  store ptr %125, ptr %5, align 8
+  %126 = icmp eq ptr %125, null
+  br i1 %126, label %172, label %127
 
-126:                                              ; preds = %122, %119
-  %127 = load ptr, ptr %8, align 8
-  %128 = load ptr, ptr %5, align 8
-  %129 = tail call i32 @mpihelp_mul_karatsuba_case(ptr noundef %127, ptr noundef %3, i32 noundef %4, ptr noundef %110, i32 noundef %109, ptr noundef %128), !range !19
-  %130 = icmp slt i32 %129, 0
-  br i1 %130, label %171, label %131
+127:                                              ; preds = %122, %119
+  %128 = load ptr, ptr %8, align 8
+  %129 = load ptr, ptr %5, align 8
+  %130 = tail call i32 @mpihelp_mul_karatsuba_case(ptr noundef %128, ptr noundef %3, i32 noundef %4, ptr noundef %110, i32 noundef %109, ptr noundef %129), !range !19
+  %131 = icmp slt i32 %130, 0
+  br i1 %131, label %172, label %132
 
-131:                                              ; preds = %126, %115
-  %132 = load ptr, ptr %8, align 8
-  %133 = tail call i64 @mpihelp_add_n(ptr noundef %111, ptr noundef %111, ptr noundef %132, i32 noundef %4) #5
-  %134 = getelementptr i64, ptr %111, i64 %29
-  %135 = load ptr, ptr %8, align 8
-  %136 = getelementptr i64, ptr %135, i64 %29
-  %137 = getelementptr i8, ptr %136, i64 8
-  %138 = load i64, ptr %136, align 8
-  %139 = add i64 %138, %133
-  %140 = getelementptr i8, ptr %134, i64 8
-  store i64 %139, ptr %134, align 8
-  %141 = icmp ult i64 %139, %138
-  br i1 %141, label %142, label %154
+132:                                              ; preds = %127, %115
+  %133 = load ptr, ptr %8, align 8
+  %134 = tail call i64 @mpihelp_add_n(ptr noundef %111, ptr noundef %111, ptr noundef %133, i32 noundef %4) #5
+  %135 = getelementptr i64, ptr %111, i64 %29
+  %136 = load ptr, ptr %8, align 8
+  %137 = getelementptr i64, ptr %136, i64 %29
+  %138 = getelementptr i8, ptr %137, i64 8
+  %139 = load i64, ptr %137, align 8
+  %140 = add i64 %139, %134
+  %141 = getelementptr i8, ptr %135, i64 8
+  store i64 %140, ptr %135, align 8
+  %142 = icmp ult i64 %140, %139
+  br i1 %142, label %143, label %155
 
-142:                                              ; preds = %148, %131
-  %143 = phi ptr [ %152, %148 ], [ %140, %131 ]
-  %144 = phi ptr [ %149, %148 ], [ %137, %131 ]
-  %145 = phi i32 [ %146, %148 ], [ %109, %131 ]
-  %146 = add i32 %145, -1
-  %147 = icmp eq i32 %146, 0
-  br i1 %147, label %171, label %148
+143:                                              ; preds = %149, %132
+  %144 = phi ptr [ %153, %149 ], [ %141, %132 ]
+  %145 = phi ptr [ %150, %149 ], [ %138, %132 ]
+  %146 = phi i32 [ %147, %149 ], [ %109, %132 ]
+  %147 = add i32 %146, -1
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %172, label %149
 
-148:                                              ; preds = %142
-  %149 = getelementptr i8, ptr %144, i64 8
-  %150 = load i64, ptr %144, align 8
-  %151 = add i64 %150, 1
-  %152 = getelementptr i8, ptr %143, i64 8
-  store i64 %151, ptr %143, align 8
-  %153 = icmp eq i64 %151, 0
-  br i1 %153, label %142, label %154, !llvm.loop !10
+149:                                              ; preds = %143
+  %150 = getelementptr i8, ptr %145, i64 8
+  %151 = load i64, ptr %145, align 8
+  %152 = add i64 %151, 1
+  %153 = getelementptr i8, ptr %144, i64 8
+  store i64 %152, ptr %144, align 8
+  %154 = icmp eq i64 %152, 0
+  br i1 %154, label %143, label %155, !llvm.loop !10
 
-154:                                              ; preds = %148, %131
-  %155 = phi ptr [ %140, %131 ], [ %152, %148 ]
-  %156 = phi ptr [ %137, %131 ], [ %149, %148 ]
-  %157 = phi i32 [ %109, %131 ], [ %146, %148 ]
-  %158 = icmp eq ptr %155, %156
-  br i1 %158, label %171, label %159
+155:                                              ; preds = %149, %132
+  %156 = phi ptr [ %141, %132 ], [ %153, %149 ]
+  %157 = phi ptr [ %138, %132 ], [ %150, %149 ]
+  %158 = phi i32 [ %109, %132 ], [ %147, %149 ]
+  %159 = icmp eq ptr %156, %157
+  br i1 %159, label %172, label %160
 
-159:                                              ; preds = %154
-  %160 = add i32 %157, -1
-  %161 = icmp sgt i32 %160, 0
-  br i1 %161, label %162, label %171
+160:                                              ; preds = %155
+  %161 = add i32 %158, -1
+  %162 = icmp sgt i32 %161, 0
+  br i1 %162, label %163, label %172
 
-162:                                              ; preds = %159
-  %163 = zext nneg i32 %160 to i64
-  br label %164
+163:                                              ; preds = %160
+  %164 = zext nneg i32 %161 to i64
+  br label %165
 
-164:                                              ; preds = %164, %162
-  %165 = phi i64 [ 0, %162 ], [ %169, %164 ]
-  %166 = getelementptr i64, ptr %156, i64 %165
-  %167 = load i64, ptr %166, align 8
-  %168 = getelementptr i64, ptr %155, i64 %165
-  store i64 %167, ptr %168, align 8
-  %169 = add nuw nsw i64 %165, 1
-  %170 = icmp eq i64 %169, %163
-  br i1 %170, label %171, label %164, !llvm.loop !16
+165:                                              ; preds = %165, %163
+  %166 = phi i64 [ 0, %163 ], [ %170, %165 ]
+  %167 = getelementptr i64, ptr %157, i64 %166
+  %168 = load i64, ptr %167, align 8
+  %169 = getelementptr i64, ptr %156, i64 %166
+  store i64 %168, ptr %169, align 8
+  %170 = add nuw nsw i64 %166, 1
+  %171 = icmp eq i64 %170, %164
+  br i1 %171, label %172, label %165, !llvm.loop !16
 
-171:                                              ; preds = %164, %159, %154, %142, %126, %122, %115, %108, %52, %17
-  %172 = phi i32 [ -12, %115 ], [ -12, %52 ], [ -12, %17 ], [ -12, %122 ], [ -12, %126 ], [ 0, %108 ], [ 0, %154 ], [ 0, %159 ], [ 0, %164 ], [ 0, %142 ]
-  ret i32 %172
+172:                                              ; preds = %165, %160, %155, %143, %127, %122, %115, %108, %52, %17
+  %173 = phi i32 [ -12, %115 ], [ -12, %52 ], [ -12, %17 ], [ -12, %122 ], [ -12, %127 ], [ 0, %108 ], [ 0, %155 ], [ 0, %160 ], [ 0, %165 ], [ 0, %143 ]
+  ret i32 %173
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

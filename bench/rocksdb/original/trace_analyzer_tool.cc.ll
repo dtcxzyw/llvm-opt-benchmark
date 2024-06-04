@@ -6007,8 +6007,10 @@ define internal void @__cxx_global_var_init.2() #2 section ".text.startup" {
 entry:
   %0 = load ptr, ptr @_ZN3fLSL18FLAGS_notrace_pathB5cxx11E, align 8
   %1 = load ptr, ptr @_ZN3fLSL18FLAGS_notrace_pathB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL12s_trace_pathE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL12o_trace_pathE, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef %0, ptr noundef getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL12s_trace_pathE, i64 0, i64 1))
+  %2 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL12s_trace_pathE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %3 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL12s_trace_pathE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL12o_trace_pathE, ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef %0, ptr noundef %3)
   ret void
 }
 
@@ -6019,8 +6021,9 @@ declare void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_t
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.6() #2 section ".text.startup" {
 entry:
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL12d_trace_pathE, ptr noundef @_ZN3fLSL12s_trace_pathE, ptr noundef getelementptr inbounds ([2 x %union.anon], ptr @_ZN3fLSL12s_trace_pathE, i64 0, i64 1))
-  %0 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL12d_trace_pathE, ptr @__dso_handle) #3
+  %0 = getelementptr inbounds [2 x %union.anon], ptr @_ZN3fLSL12s_trace_pathE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL12d_trace_pathE, ptr noundef @_ZN3fLSL12s_trace_pathE, ptr noundef %0)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL12d_trace_pathE, ptr @__dso_handle) #3
   ret void
 }
 
@@ -6079,16 +6082,19 @@ define internal void @__cxx_global_var_init.9() #2 section ".text.startup" {
 entry:
   %0 = load ptr, ptr @_ZN3fLSL18FLAGS_nooutput_dirB5cxx11E, align 8
   %1 = load ptr, ptr @_ZN3fLSL18FLAGS_nooutput_dirB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.4], ptr @_ZN3fLSL12s_output_dirE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL12o_output_dirE, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @.str.5, ptr noundef %0, ptr noundef getelementptr inbounds ([2 x %union.anon.4], ptr @_ZN3fLSL12s_output_dirE, i64 0, i64 1))
+  %2 = getelementptr inbounds [2 x %union.anon.4], ptr @_ZN3fLSL12s_output_dirE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %3 = getelementptr inbounds [2 x %union.anon.4], ptr @_ZN3fLSL12s_output_dirE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL12o_output_dirE, ptr noundef @.str.10, ptr noundef @.str.11, ptr noundef @.str.5, ptr noundef %0, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.12() #2 section ".text.startup" {
 entry:
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL12d_output_dirE, ptr noundef @_ZN3fLSL12s_output_dirE, ptr noundef getelementptr inbounds ([2 x %union.anon.4], ptr @_ZN3fLSL12s_output_dirE, i64 0, i64 1))
-  %0 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL12d_output_dirE, ptr @__dso_handle) #3
+  %0 = getelementptr inbounds [2 x %union.anon.4], ptr @_ZN3fLSL12s_output_dirE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL12d_output_dirE, ptr noundef @_ZN3fLSL12s_output_dirE, ptr noundef %0)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL12d_output_dirE, ptr @__dso_handle) #3
   ret void
 }
 
@@ -6113,16 +6119,19 @@ define internal void @__cxx_global_var_init.16() #2 section ".text.startup" {
 entry:
   %0 = load ptr, ptr @_ZN3fLSL21FLAGS_nooutput_prefixB5cxx11E, align 8
   %1 = load ptr, ptr @_ZN3fLSL21FLAGS_nooutput_prefixB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.5], ptr @_ZN3fLSL15s_output_prefixE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL15o_output_prefixE, ptr noundef @.str.17, ptr noundef @.str.18, ptr noundef @.str.5, ptr noundef %0, ptr noundef getelementptr inbounds ([2 x %union.anon.5], ptr @_ZN3fLSL15s_output_prefixE, i64 0, i64 1))
+  %2 = getelementptr inbounds [2 x %union.anon.5], ptr @_ZN3fLSL15s_output_prefixE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %3 = getelementptr inbounds [2 x %union.anon.5], ptr @_ZN3fLSL15s_output_prefixE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL15o_output_prefixE, ptr noundef @.str.17, ptr noundef @.str.18, ptr noundef @.str.5, ptr noundef %0, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.19() #2 section ".text.startup" {
 entry:
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL15d_output_prefixE, ptr noundef @_ZN3fLSL15s_output_prefixE, ptr noundef getelementptr inbounds ([2 x %union.anon.5], ptr @_ZN3fLSL15s_output_prefixE, i64 0, i64 1))
-  %0 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL15d_output_prefixE, ptr @__dso_handle) #3
+  %0 = getelementptr inbounds [2 x %union.anon.5], ptr @_ZN3fLSL15s_output_prefixE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL15d_output_prefixE, ptr noundef @_ZN3fLSL15s_output_prefixE, ptr noundef %0)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL15d_output_prefixE, ptr @__dso_handle) #3
   ret void
 }
 
@@ -6207,16 +6216,19 @@ define internal void @__cxx_global_var_init.46() #2 section ".text.startup" {
 entry:
   %0 = load ptr, ptr @_ZN3fLSL25FLAGS_noprint_correlationB5cxx11E, align 8
   %1 = load ptr, ptr @_ZN3fLSL25FLAGS_noprint_correlationB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.6], ptr @_ZN3fLSL19s_print_correlationE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL19o_print_correlationE, ptr noundef @.str.47, ptr noundef @.str.48, ptr noundef @.str.5, ptr noundef %0, ptr noundef getelementptr inbounds ([2 x %union.anon.6], ptr @_ZN3fLSL19s_print_correlationE, i64 0, i64 1))
+  %2 = getelementptr inbounds [2 x %union.anon.6], ptr @_ZN3fLSL19s_print_correlationE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %3 = getelementptr inbounds [2 x %union.anon.6], ptr @_ZN3fLSL19s_print_correlationE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL19o_print_correlationE, ptr noundef @.str.47, ptr noundef @.str.48, ptr noundef @.str.5, ptr noundef %0, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.49() #2 section ".text.startup" {
 entry:
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL19d_print_correlationE, ptr noundef @_ZN3fLSL19s_print_correlationE, ptr noundef getelementptr inbounds ([2 x %union.anon.6], ptr @_ZN3fLSL19s_print_correlationE, i64 0, i64 1))
-  %0 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL19d_print_correlationE, ptr @__dso_handle) #3
+  %0 = getelementptr inbounds [2 x %union.anon.6], ptr @_ZN3fLSL19s_print_correlationE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL19d_print_correlationE, ptr noundef @_ZN3fLSL19s_print_correlationE, ptr noundef %0)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL19d_print_correlationE, ptr @__dso_handle) #3
   ret void
 }
 
@@ -6241,16 +6253,19 @@ define internal void @__cxx_global_var_init.52() #2 section ".text.startup" {
 entry:
   %0 = load ptr, ptr @_ZN3fLSL21FLAGS_nokey_space_dirB5cxx11E, align 8
   %1 = load ptr, ptr @_ZN3fLSL21FLAGS_nokey_space_dirB5cxx11E, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds ([2 x %union.anon.7], ptr @_ZN3fLSL15s_key_space_dirE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL15o_key_space_dirE, ptr noundef @.str.53, ptr noundef @.str.54, ptr noundef @.str.5, ptr noundef %0, ptr noundef getelementptr inbounds ([2 x %union.anon.7], ptr @_ZN3fLSL15s_key_space_dirE, i64 0, i64 1))
+  %2 = getelementptr inbounds [2 x %union.anon.7], ptr @_ZN3fLSL15s_key_space_dirE, i64 0, i64 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %3 = getelementptr inbounds [2 x %union.anon.7], ptr @_ZN3fLSL15s_key_space_dirE, i64 0, i64 1
+  call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL15o_key_space_dirE, ptr noundef @.str.53, ptr noundef @.str.54, ptr noundef @.str.5, ptr noundef %0, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.55() #2 section ".text.startup" {
 entry:
-  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL15d_key_space_dirE, ptr noundef @_ZN3fLSL15s_key_space_dirE, ptr noundef getelementptr inbounds ([2 x %union.anon.7], ptr @_ZN3fLSL15s_key_space_dirE, i64 0, i64 1))
-  %0 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL15d_key_space_dirE, ptr @__dso_handle) #3
+  %0 = getelementptr inbounds [2 x %union.anon.7], ptr @_ZN3fLSL15s_key_space_dirE, i64 0, i64 1
+  call void @_ZN3fLS20StringFlagDestructorC2EPvS1_(ptr noundef nonnull align 8 dereferenceable(16) @_ZN3fLSL15d_key_space_dirE, ptr noundef @_ZN3fLSL15s_key_space_dirE, ptr noundef %0)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN3fLS20StringFlagDestructorD2Ev, ptr @_ZN3fLSL15d_key_space_dirE, ptr @__dso_handle) #3
   ret void
 }
 
@@ -9000,9 +9015,11 @@ entry:
   call void @_ZN7rocksdb11TraceRecord7HandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN7rocksdb10WriteBatch7HandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  store ptr getelementptr inbounds ({ [22 x ptr], [25 x ptr] }, ptr @_ZTVN7rocksdb13TraceAnalyzerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [22 x ptr], [25 x ptr] }, ptr @_ZTVN7rocksdb13TraceAnalyzerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [25 x ptr] }, ptr @_ZTVN7rocksdb13TraceAnalyzerE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %2 = getelementptr inbounds { [22 x ptr], [25 x ptr] }, ptr @_ZTVN7rocksdb13TraceAnalyzerE, i32 0, i32 1, i32 2
+  store ptr %2, ptr %add.ptr, align 8
   %env_options_ = getelementptr inbounds %"class.rocksdb::TraceAnalyzer", ptr %this1, i32 0, i32 3
   invoke void @_ZN7rocksdb10EnvOptionsC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %env_options_)
           to label %invoke.cont unwind label %lpad
@@ -9013,14 +9030,14 @@ invoke.cont:                                      ; preds = %entry
   %write_batch_ts_ = getelementptr inbounds %"class.rocksdb::TraceAnalyzer", ptr %this1, i32 0, i32 7
   store i64 0, ptr %write_batch_ts_, align 8
   %trace_name_ = getelementptr inbounds %"class.rocksdb::TraceAnalyzer", ptr %this1, i32 0, i32 8
-  %1 = load ptr, ptr %trace_path.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %trace_name_, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %3 = load ptr, ptr %trace_path.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %trace_name_, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %output_path_ = getelementptr inbounds %"class.rocksdb::TraceAnalyzer", ptr %this1, i32 0, i32 9
-  %2 = load ptr, ptr %output_path.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %output_path_, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %4 = load ptr, ptr %output_path.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %output_path_, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -9079,13 +9096,13 @@ invoke.cont10:                                    ; preds = %invoke.cont9
   store i64 0, ptr %time_series_start_, align 8
   %cur_time_sec_ = getelementptr inbounds %"class.rocksdb::TraceAnalyzer", ptr %this1, i32 0, i32 23
   store i32 0, ptr %cur_time_sec_, align 4
-  %3 = load double, ptr @_ZN3fLD18FLAGS_sample_ratioE, align 8
-  %cmp = fcmp ogt double %3, 1.000000e+00
+  %5 = load double, ptr @_ZN3fLD18FLAGS_sample_ratioE, align 8
+  %cmp = fcmp ogt double %5, 1.000000e+00
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont10
-  %4 = load double, ptr @_ZN3fLD18FLAGS_sample_ratioE, align 8
-  %cmp11 = fcmp ole double %4, 0.000000e+00
+  %6 = load double, ptr @_ZN3fLD18FLAGS_sample_ratioE, align 8
+  %cmp11 = fcmp ole double %6, 0.000000e+00
   br i1 %cmp11, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %invoke.cont10
@@ -9094,48 +9111,48 @@ if.then:                                          ; preds = %lor.lhs.false, %inv
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup153
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   br label %ehcleanup152
 
 lpad4:                                            ; preds = %invoke.cont3
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %exn.slot, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %ehselector.slot, align 4
   br label %ehcleanup151
 
 lpad6:                                            ; preds = %invoke.cont5
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad8:                                            ; preds = %if.end131, %if.end116, %if.end101, %if.end86, %if.end71, %if.end56, %if.end41, %if.end26, %invoke.cont14, %if.end, %invoke.cont9, %invoke.cont7
-  %17 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %qps_ave_) #3
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %qps_peak_) #3
   call void @_ZNSt3mapIjN7rocksdb6CfUnitESt4lessIjESaISt4pairIKjS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %cfs_) #3
@@ -9147,8 +9164,8 @@ lpad8:                                            ; preds = %if.end131, %if.end1
   br label %ehcleanup
 
 if.else:                                          ; preds = %lor.lhs.false
-  %20 = load double, ptr @_ZN3fLD18FLAGS_sample_ratioE, align 8
-  %div = fdiv double 1.000000e+00, %20
+  %22 = load double, ptr @_ZN3fLD18FLAGS_sample_ratioE, align 8
+  %div = fdiv double 1.000000e+00, %22
   %conv = fptoui double %div to i32
   %sample_max_12 = getelementptr inbounds %"class.rocksdb::TraceAnalyzer", ptr %this1, i32 0, i32 22
   store i32 %conv, ptr %sample_max_12, align 8
@@ -9167,8 +9184,8 @@ invoke.cont14:                                    ; preds = %if.end
           to label %invoke.cont17 unwind label %lpad8
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  %21 = load i8, ptr @_ZN3fLB17FLAGS_analyze_getE, align 1
-  %tobool = trunc i8 %21 to i1
+  %23 = load i8, ptr @_ZN3fLB17FLAGS_analyze_getE, align 1
+  %tobool = trunc i8 %23 to i1
   br i1 %tobool, label %if.then19, label %if.else22
 
 if.then19:                                        ; preds = %invoke.cont17
@@ -9193,8 +9210,8 @@ if.end26:                                         ; preds = %if.else22, %if.then
           to label %invoke.cont30 unwind label %lpad8
 
 invoke.cont30:                                    ; preds = %if.end26
-  %22 = load i8, ptr @_ZN3fLB17FLAGS_analyze_putE, align 1
-  %tobool32 = trunc i8 %22 to i1
+  %24 = load i8, ptr @_ZN3fLB17FLAGS_analyze_putE, align 1
+  %tobool32 = trunc i8 %24 to i1
   br i1 %tobool32, label %if.then33, label %if.else37
 
 if.then33:                                        ; preds = %invoke.cont30
@@ -9219,8 +9236,8 @@ if.end41:                                         ; preds = %if.else37, %if.then
           to label %invoke.cont45 unwind label %lpad8
 
 invoke.cont45:                                    ; preds = %if.end41
-  %23 = load i8, ptr @_ZN3fLB20FLAGS_analyze_deleteE, align 1
-  %tobool47 = trunc i8 %23 to i1
+  %25 = load i8, ptr @_ZN3fLB20FLAGS_analyze_deleteE, align 1
+  %tobool47 = trunc i8 %25 to i1
   br i1 %tobool47, label %if.then48, label %if.else52
 
 if.then48:                                        ; preds = %invoke.cont45
@@ -9245,8 +9262,8 @@ if.end56:                                         ; preds = %if.else52, %if.then
           to label %invoke.cont60 unwind label %lpad8
 
 invoke.cont60:                                    ; preds = %if.end56
-  %24 = load i8, ptr @_ZN3fLB27FLAGS_analyze_single_deleteE, align 1
-  %tobool62 = trunc i8 %24 to i1
+  %26 = load i8, ptr @_ZN3fLB27FLAGS_analyze_single_deleteE, align 1
+  %tobool62 = trunc i8 %26 to i1
   br i1 %tobool62, label %if.then63, label %if.else67
 
 if.then63:                                        ; preds = %invoke.cont60
@@ -9271,8 +9288,8 @@ if.end71:                                         ; preds = %if.else67, %if.then
           to label %invoke.cont75 unwind label %lpad8
 
 invoke.cont75:                                    ; preds = %if.end71
-  %25 = load i8, ptr @_ZN3fLB26FLAGS_analyze_range_deleteE, align 1
-  %tobool77 = trunc i8 %25 to i1
+  %27 = load i8, ptr @_ZN3fLB26FLAGS_analyze_range_deleteE, align 1
+  %tobool77 = trunc i8 %27 to i1
   br i1 %tobool77, label %if.then78, label %if.else82
 
 if.then78:                                        ; preds = %invoke.cont75
@@ -9297,8 +9314,8 @@ if.end86:                                         ; preds = %if.else82, %if.then
           to label %invoke.cont90 unwind label %lpad8
 
 invoke.cont90:                                    ; preds = %if.end86
-  %26 = load i8, ptr @_ZN3fLB19FLAGS_analyze_mergeE, align 1
-  %tobool92 = trunc i8 %26 to i1
+  %28 = load i8, ptr @_ZN3fLB19FLAGS_analyze_mergeE, align 1
+  %tobool92 = trunc i8 %28 to i1
   br i1 %tobool92, label %if.then93, label %if.else97
 
 if.then93:                                        ; preds = %invoke.cont90
@@ -9323,8 +9340,8 @@ if.end101:                                        ; preds = %if.else97, %if.then
           to label %invoke.cont105 unwind label %lpad8
 
 invoke.cont105:                                   ; preds = %if.end101
-  %27 = load i8, ptr @_ZN3fLB22FLAGS_analyze_iteratorE, align 1
-  %tobool107 = trunc i8 %27 to i1
+  %29 = load i8, ptr @_ZN3fLB22FLAGS_analyze_iteratorE, align 1
+  %tobool107 = trunc i8 %29 to i1
   br i1 %tobool107, label %if.then108, label %if.else112
 
 if.then108:                                       ; preds = %invoke.cont105
@@ -9349,8 +9366,8 @@ if.end116:                                        ; preds = %if.else112, %if.the
           to label %invoke.cont120 unwind label %lpad8
 
 invoke.cont120:                                   ; preds = %if.end116
-  %28 = load i8, ptr @_ZN3fLB22FLAGS_analyze_iteratorE, align 1
-  %tobool122 = trunc i8 %28 to i1
+  %30 = load i8, ptr @_ZN3fLB22FLAGS_analyze_iteratorE, align 1
+  %tobool122 = trunc i8 %30 to i1
   br i1 %tobool122, label %if.then123, label %if.else127
 
 if.then123:                                       ; preds = %invoke.cont120
@@ -9375,8 +9392,8 @@ if.end131:                                        ; preds = %if.else127, %if.the
           to label %invoke.cont135 unwind label %lpad8
 
 invoke.cont135:                                   ; preds = %if.end131
-  %29 = load i8, ptr @_ZN3fLB22FLAGS_analyze_multigetE, align 1
-  %tobool137 = trunc i8 %29 to i1
+  %31 = load i8, ptr @_ZN3fLB22FLAGS_analyze_multigetE, align 1
+  %tobool137 = trunc i8 %31 to i1
   br i1 %tobool137, label %if.then138, label %if.else142
 
 if.then138:                                       ; preds = %invoke.cont135
@@ -9398,22 +9415,22 @@ if.end146:                                        ; preds = %if.else142, %if.the
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end146
-  %30 = load i32, ptr %i, align 4
-  %cmp147 = icmp slt i32 %30, 10
+  %32 = load i32, ptr %i, align 4
+  %cmp147 = icmp slt i32 %32, 10
   br i1 %cmp147, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
   %ta_148 = getelementptr inbounds %"class.rocksdb::TraceAnalyzer", ptr %this1, i32 0, i32 27
-  %31 = load i32, ptr %i, align 4
-  %conv149 = sext i32 %31 to i64
+  %33 = load i32, ptr %i, align 4
+  %conv149 = sext i32 %33 to i64
   %call150 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZNSt6vectorIN7rocksdb8TypeUnitESaIS1_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %ta_148, i64 noundef %conv149) #3
   %sample_count = getelementptr inbounds %"struct.rocksdb::TypeUnit", ptr %call150, i32 0, i32 5
   store i32 0, ptr %sample_count, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %32 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %32, 1
+  %34 = load i32, ptr %i, align 4
+  %inc = add nsw i32 %34, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !6
 
@@ -9433,8 +9450,8 @@ ehcleanup152:                                     ; preds = %ehcleanup151, %lpad
   br label %ehcleanup153
 
 ehcleanup153:                                     ; preds = %ehcleanup152, %lpad
-  %33 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #3
+  %35 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #3
   call void @_ZN7rocksdb11TraceRecord7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   br label %eh.resume
 
@@ -9452,7 +9469,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb11TraceRecord7HandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [8 x ptr] }, ptr @_ZTVN7rocksdb11TraceRecord7HandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9462,7 +9480,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN7rocksdb10WriteBatch7HandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [25 x ptr] }, ptr @_ZTVN7rocksdb10WriteBatch7HandlerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -9764,9 +9783,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [25 x ptr] }, ptr @_ZTVN7rocksdb13TraceAnalyzerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [22 x ptr], [25 x ptr] }, ptr @_ZTVN7rocksdb13TraceAnalyzerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [25 x ptr] }, ptr @_ZTVN7rocksdb13TraceAnalyzerE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %1 = getelementptr inbounds { [22 x ptr], [25 x ptr] }, ptr @_ZTVN7rocksdb13TraceAnalyzerE, i32 0, i32 1, i32 2
+  store ptr %1, ptr %add.ptr, align 8
   %qps_ave_ = getelementptr inbounds %"class.rocksdb::TraceAnalyzer", ptr %this1, i32 0, i32 30
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %qps_ave_) #3
   %qps_peak_ = getelementptr inbounds %"class.rocksdb::TraceAnalyzer", ptr %this1, i32 0, i32 29
@@ -9789,8 +9810,8 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %trace_name_) #3
   %trace_reader_ = getelementptr inbounds %"class.rocksdb::TraceAnalyzer", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN7rocksdb11TraceReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %trace_reader_) #3
-  %0 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+  %2 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   call void @_ZN7rocksdb11TraceRecord7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   ret void
 }
@@ -25624,28 +25645,30 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb10perf_levelE() #12 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb10perf_levelE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  ret ptr %4
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() #12 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb12perf_contextE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -34252,7 +34275,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %file_name_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileTracingWrapper", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_name_) #3
   %io_tracer_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileTracingWrapper", ptr %this1, i32 0, i32 1
@@ -34277,7 +34301,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %guard_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileOwnerWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %guard_) #3
   call void @_ZN7rocksdb23FSSequentialFileWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -62260,7 +62285,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN7rocksdb28FSSequentialFileOwnerWrapperC2EOSt10unique_ptrINS_16FSSequentialFileESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %io_tracer_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileTracingWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %io_tracer_, ptr noundef nonnull align 8 dereferenceable(16) %io_tracer) #3
   %clock_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileTracingWrapper", ptr %this1, i32 0, i32 2
@@ -62271,20 +62297,20 @@ invoke.cont:                                      ; preds = %entry
   %call2 = call noundef ptr @_ZNKSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %call) #3
   store ptr %call2, ptr %clock_, align 8
   %file_name_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileTracingWrapper", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %file_name.addr, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_name_, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %2 = load ptr, ptr %file_name.addr, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_name_, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZNSt10shared_ptrIN7rocksdb8IOTracerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %io_tracer_) #3
   call void @_ZN7rocksdb28FSSequentialFileOwnerWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
   br label %eh.resume
@@ -62416,10 +62442,11 @@ entry:
   %0 = load ptr, ptr %t.addr, align 8
   %call = call noundef ptr @_ZNKSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
   call void @_ZN7rocksdb23FSSequentialFileWrapperC2EPNS_16FSSequentialFileE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %call)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %guard_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileOwnerWrapper", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %t.addr, align 8
-  call void @_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %guard_, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
+  %2 = load ptr, ptr %t.addr, align 8
+  call void @_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %guard_, ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   ret void
 }
 
@@ -62445,10 +62472,11 @@ entry:
   store ptr %t, ptr %t.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb16FSSequentialFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb23FSSequentialFileWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb23FSSequentialFileWrapperE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::FSSequentialFileWrapper", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %t.addr, align 8
-  store ptr %0, ptr %target_, align 8
+  %1 = load ptr, ptr %t.addr, align 8
+  store ptr %1, ptr %target_, align 8
   ret void
 }
 
@@ -62473,7 +62501,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb16FSSequentialFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN7rocksdb16FSSequentialFileE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

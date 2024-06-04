@@ -63,25 +63,28 @@ define internal zeroext i1 @compress_block(ptr noundef %0, i64 noundef %1, ptr n
   store i64 %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %9 = load i8, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 2), align 1
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %20, label %11
+  %9 = getelementptr inbounds %struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 2
+  %10 = load i8, ptr %9, align 1
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %23, label %12
 
-11:                                               ; preds = %4
-  %12 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4), align 8
-  %13 = getelementptr inbounds %struct.pmix_peer_t, ptr %12, i32 0, i32 3
-  %14 = getelementptr inbounds %struct.pmix_proc_type_t, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
-  %16 = and i32 1, %15
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %20, label %18
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds %struct.pmix_peer_t, ptr %14, i32 0, i32 3
+  %16 = getelementptr inbounds %struct.pmix_proc_type_t, ptr %15, i32 0, i32 0
+  %17 = load i32, ptr %16, align 8
+  %18 = and i32 1, %17
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %23, label %20
 
-18:                                               ; preds = %11
-  %19 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 1)
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 2), align 1
-  br label %20
+20:                                               ; preds = %12
+  %21 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 1)
+  %22 = getelementptr inbounds %struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 2
+  store i8 1, ptr %22, align 1
+  br label %23
 
-20:                                               ; preds = %18, %11, %4
+23:                                               ; preds = %20, %12, %4
   ret i1 false
 }
 
@@ -106,25 +109,28 @@ define internal zeroext i1 @compress_string(ptr noundef %0, ptr noundef %1, ptr 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %7 = load i8, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 2), align 1
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %18, label %9
+  %7 = getelementptr inbounds %struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 2
+  %8 = load i8, ptr %7, align 1
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %21, label %10
 
-9:                                                ; preds = %3
-  %10 = load ptr, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4), align 8
-  %11 = getelementptr inbounds %struct.pmix_peer_t, ptr %10, i32 0, i32 3
-  %12 = getelementptr inbounds %struct.pmix_proc_type_t, ptr %11, i32 0, i32 0
-  %13 = load i32, ptr %12, align 8
-  %14 = and i32 1, %13
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %18, label %16
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds %struct.pmix_globals_t, ptr @pmix_globals, i32 0, i32 4
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.pmix_peer_t, ptr %12, i32 0, i32 3
+  %14 = getelementptr inbounds %struct.pmix_proc_type_t, ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8
+  %16 = and i32 1, %15
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %21, label %18
 
-16:                                               ; preds = %9
-  %17 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 1)
-  store i8 1, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 2), align 1
-  br label %18
+18:                                               ; preds = %10
+  %19 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.3, ptr noundef @.str.4, i32 noundef 1)
+  %20 = getelementptr inbounds %struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 2
+  store i8 1, ptr %20, align 1
+  br label %21
 
-18:                                               ; preds = %16, %9, %3
+21:                                               ; preds = %18, %10, %3
   ret i1 false
 }
 
@@ -145,8 +151,10 @@ define internal i32 @pmix_compress_base_register(i32 noundef %0) #0 {
   store i32 %0, ptr %2, align 4
   store i64 4096, ptr @pmix_compress_base, align 8
   %3 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @.str.7, i32 noundef 4, ptr noundef @pmix_compress_base)
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 2), align 1
-  %4 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 7, ptr noundef getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 2))
+  %4 = getelementptr inbounds %struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 2
+  store i8 0, ptr %4, align 1
+  %5 = getelementptr inbounds %struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 2
+  %6 = call i32 @pmix_mca_base_var_register(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @.str.5, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef 7, ptr noundef %5)
   ret i32 0
 }
 
@@ -161,19 +169,22 @@ define internal i32 @pmix_compress_base_open(i32 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_compress_base_close() #0 {
-  store i8 0, ptr getelementptr inbounds (%struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 1), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 1), align 8
-  %2 = icmp ne ptr null, %1
-  br i1 %2, label %3, label %6
+  %1 = getelementptr inbounds %struct.pmix_compress_base_t, ptr @pmix_compress_base, i32 0, i32 1
+  store i8 0, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp ne ptr null, %3
+  br i1 %4, label %5, label %9
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 1), align 8
-  %5 = call i32 %4()
-  br label %6
+5:                                                ; preds = %0
+  %6 = getelementptr inbounds %struct.pmix_compress_base_module_1_0_0_t, ptr @pmix_compress, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = call i32 %7()
+  br label %9
 
-6:                                                ; preds = %3, %0
-  %7 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @pmix_pcompress_base_framework, ptr noundef null)
-  ret i32 %7
+9:                                                ; preds = %5, %0
+  %10 = call i32 @pmix_mca_base_framework_components_close(ptr noundef @pmix_pcompress_base_framework, ptr noundef null)
+  ret i32 %10
 }
 
 declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) #1

@@ -5595,19 +5595,20 @@ define void @_ZN5osgeo4proj4GridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i32 %3, ptr %9, align 4
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5osgeo4proj4GridE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %7, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
-  %14 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %11, i32 0, i32 2
-  %15 = load i32, ptr %8, align 4
-  store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %11, i32 0, i32 3
-  %17 = load i32, ptr %9, align 4
-  store i32 %17, ptr %16, align 4
-  %18 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %11, i32 0, i32 4
-  %19 = load ptr, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %19, i64 72, i1 false)
+  %12 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5osgeo4proj4GridE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %7, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %15 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %11, i32 0, i32 2
+  %16 = load i32, ptr %8, align 4
+  store i32 %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %11, i32 0, i32 3
+  %18 = load i32, ptr %9, align 4
+  store i32 %18, ptr %17, align 4
+  %19 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %11, i32 0, i32 4
+  %20 = load ptr, ptr %10, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %20, i64 72, i1 false)
   ret void
 }
 
@@ -5621,9 +5622,10 @@ define void @_ZN5osgeo4proj4GridD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5osgeo4proj4GridE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5osgeo4proj4GridE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   ret void
 }
 
@@ -5659,10 +5661,11 @@ define void @_ZN5osgeo4proj17VerticalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt
   %14 = load i32, ptr %9, align 4
   %15 = load ptr, ptr %10, align 8
   call void @_ZN5osgeo4proj4GridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(120) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(72) %15)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj17VerticalShiftGridE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %16 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGrid", ptr %11, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
+  %16 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj17VerticalShiftGridE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %11, align 8
+  %17 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGrid", ptr %11, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #8
   ret void
 }
 
@@ -5683,9 +5686,10 @@ define void @_ZN5osgeo4proj17VerticalShiftGridD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj17VerticalShiftGridE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGrid", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj17VerticalShiftGridE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGrid", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
   call void @_ZN5osgeo4proj4GridD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #8
   ret void
 }
@@ -6017,13 +6021,14 @@ define hidden void @_ZN5osgeo4proj20GTXVerticalShiftGridD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj20GTXVerticalShiftGridE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  %5 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %3, i32 0, i32 3
-  call void @_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
-  %6 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj20GTXVerticalShiftGridE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %3, i32 0, i32 3
+  call void @_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
+  %7 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
   call void @_ZN5osgeo4proj17VerticalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #8
   ret void
 }
@@ -6530,19 +6535,20 @@ define linkonce_odr hidden void @_ZN5osgeo4proj20GTXVerticalShiftGridC2EP6pj_ctx
   %20 = load i32, ptr %14, align 4
   %21 = load ptr, ptr %15, align 8
   call void @_ZN5osgeo4proj17VerticalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef %19, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(72) %21)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj20GTXVerticalShiftGridE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %22 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %17, i32 0, i32 1
-  %23 = load ptr, ptr %10, align 8
-  store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %17, i32 0, i32 2
-  %25 = load ptr, ptr %11, align 8
-  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25) #8
-  %26 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %17, i32 0, i32 3
-  %27 = load ptr, ptr %16, align 8
-  call void @_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27) #8
-  %28 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %17, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %28, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #8
+  %22 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj20GTXVerticalShiftGridE, i32 0, i32 0, i32 2
+  store ptr %22, ptr %17, align 8
+  %23 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %17, i32 0, i32 1
+  %24 = load ptr, ptr %10, align 8
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %17, i32 0, i32 2
+  %26 = load ptr, ptr %11, align 8
+  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26) #8
+  %27 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %17, i32 0, i32 3
+  %28 = load ptr, ptr %16, align 8
+  call void @_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28) #8
+  %29 = getelementptr inbounds %"class.osgeo::proj::GTXVerticalShiftGrid", ptr %17, i32 0, i32 4
+  call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #8
   ret void
 }
 
@@ -6595,7 +6601,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj20GTXVerticalShiftGrid7valueAtE
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %12, align 4
-  %35 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %140
 
@@ -6712,7 +6718,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj20GTXVerticalShiftGrid7valueAtE
 
 109:                                              ; preds = %105
   %110 = load i32, ptr %12, align 4
-  %111 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %140
 
@@ -6833,15 +6839,12 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull alig
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
-
 declare ptr @__cxa_begin_catch(ptr)
 
 declare void @__cxa_end_catch()
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #13 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #12 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #8
   call void @_ZSt9terminatev() #17
   unreachable
@@ -6917,14 +6920,15 @@ define void @_ZN5osgeo4proj20VerticalShiftGridSetC2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj20VerticalShiftGridSetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGridSet", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
-  %5 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGridSet", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj20VerticalShiftGridSetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGridSet", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  %6 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGridSet", ptr %3, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
+  %6 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGridSet", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  %7 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGridSet", ptr %3, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
   ret void
 }
 
@@ -6933,13 +6937,14 @@ define void @_ZN5osgeo4proj20VerticalShiftGridSetD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj20VerticalShiftGridSetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGridSet", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  %5 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGridSet", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  %6 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGridSet", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj20VerticalShiftGridSetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGridSet", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGridSet", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  %7 = getelementptr inbounds %"class.osgeo::proj::VerticalShiftGridSet", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   ret void
 }
 
@@ -7280,836 +7285,837 @@ define hidden void @_ZN5osgeo4proj9GTiffGridC2EP6pj_ctxP4tiffRNS0_10BlockCacheEP
   %64 = load i32, ptr %23, align 4
   %65 = load ptr, ptr %24, align 8
   call void @_ZN5osgeo4proj4GridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(120) %61, ptr noundef nonnull align 8 dereferenceable(32) %62, i32 noundef %63, i32 noundef %64, ptr noundef nonnull align 8 dereferenceable(72) %65)
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5osgeo4proj9GTiffGridE, i32 0, i32 0, i32 2), ptr %61, align 8
-  %66 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 1
-  %67 = load ptr, ptr %16, align 8
-  store ptr %67, ptr %66, align 8
-  %68 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
-  %69 = load ptr, ptr %17, align 8
-  store ptr %69, ptr %68, align 8
-  %70 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 3
-  %71 = load ptr, ptr %18, align 8
-  store ptr %71, ptr %70, align 8
-  %72 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 4
-  %73 = load ptr, ptr %19, align 8
-  store ptr %73, ptr %72, align 8
-  %74 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 5
-  %75 = load i32, ptr %20, align 4
-  store i32 %75, ptr %74, align 8
-  %76 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 6
-  %77 = load i32, ptr %25, align 4
-  store i32 %77, ptr %76, align 4
-  %78 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
-  %79 = load i16, ptr %26, align 2
-  store i16 %79, ptr %78, align 8
-  %80 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 8
-  %81 = load i16, ptr %26, align 2
-  %82 = zext i16 %81 to i32
-  %83 = icmp eq i32 %82, 1
-  br i1 %83, label %84, label %85
-
-84:                                               ; preds = %14
-  br label %87
+  %66 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5osgeo4proj9GTiffGridE, i32 0, i32 0, i32 2
+  store ptr %66, ptr %61, align 8
+  %67 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 1
+  %68 = load ptr, ptr %16, align 8
+  store ptr %68, ptr %67, align 8
+  %69 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
+  %70 = load ptr, ptr %17, align 8
+  store ptr %70, ptr %69, align 8
+  %71 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 3
+  %72 = load ptr, ptr %18, align 8
+  store ptr %72, ptr %71, align 8
+  %73 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 4
+  %74 = load ptr, ptr %19, align 8
+  store ptr %74, ptr %73, align 8
+  %75 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 5
+  %76 = load i32, ptr %20, align 4
+  store i32 %76, ptr %75, align 8
+  %77 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 6
+  %78 = load i32, ptr %25, align 4
+  store i32 %78, ptr %77, align 4
+  %79 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
+  %80 = load i16, ptr %26, align 2
+  store i16 %80, ptr %79, align 8
+  %81 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 8
+  %82 = load i16, ptr %26, align 2
+  %83 = zext i16 %82 to i32
+  %84 = icmp eq i32 %83, 1
+  br i1 %84, label %85, label %86
 
 85:                                               ; preds = %14
-  %86 = load i16, ptr %27, align 2
-  br label %87
+  br label %88
 
-87:                                               ; preds = %85, %84
-  %88 = phi i16 [ -1, %84 ], [ %86, %85 ]
-  store i16 %88, ptr %80, align 2
-  %89 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 9
-  %90 = load i8, ptr %28, align 1
-  %91 = trunc i8 %90 to i1
-  %92 = zext i1 %91 to i8
-  store i8 %92, ptr %89, align 4
-  %93 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 11
-  %94 = load ptr, ptr %17, align 8
-  %95 = invoke i64 @TIFFCurrentDirOffset(ptr noundef %94)
-          to label %96 unwind label %133
+86:                                               ; preds = %14
+  %87 = load i16, ptr %27, align 2
+  br label %88
 
-96:                                               ; preds = %87
-  store i64 %95, ptr %93, align 8
-  %97 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 12
-  %98 = load ptr, ptr %17, align 8
-  %99 = invoke i32 @TIFFIsTiled(ptr noundef %98)
-          to label %100 unwind label %133
+88:                                               ; preds = %86, %85
+  %89 = phi i16 [ -1, %85 ], [ %87, %86 ]
+  store i16 %89, ptr %81, align 2
+  %90 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 9
+  %91 = load i8, ptr %28, align 1
+  %92 = trunc i8 %91 to i1
+  %93 = zext i1 %92 to i8
+  store i8 %93, ptr %90, align 4
+  %94 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 11
+  %95 = load ptr, ptr %17, align 8
+  %96 = invoke i64 @TIFFCurrentDirOffset(ptr noundef %95)
+          to label %97 unwind label %134
 
-100:                                              ; preds = %96
-  %101 = icmp ne i32 %99, 0
-  %102 = zext i1 %101 to i8
-  store i8 %102, ptr %97, align 8
-  %103 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
-  store i32 0, ptr %103, align 4
-  %104 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
-  store i32 0, ptr %104, align 8
-  %105 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 17
-  call void @llvm.memset.p0.i64(ptr align 8 %105, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %105) #8
-  %106 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 18
-  %107 = call noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #8
-  store i32 %107, ptr %106, align 8
-  %108 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 19
-  store i32 0, ptr %108, align 4
-  %109 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 20
-  store i32 0, ptr %109, align 8
-  %110 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 21
-  store i32 0, ptr %110, align 4
-  %111 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 22
-  call void @llvm.memset.p0.i64(ptr align 8 %111, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %111) #8
-  %112 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 23
+97:                                               ; preds = %88
+  store i64 %96, ptr %94, align 8
+  %98 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 12
+  %99 = load ptr, ptr %17, align 8
+  %100 = invoke i32 @TIFFIsTiled(ptr noundef %99)
+          to label %101 unwind label %134
+
+101:                                              ; preds = %97
+  %102 = icmp ne i32 %100, 0
+  %103 = zext i1 %102 to i8
+  store i8 %103, ptr %98, align 8
+  %104 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
+  store i32 0, ptr %104, align 4
+  %105 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
+  store i32 0, ptr %105, align 8
+  %106 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 17
+  call void @llvm.memset.p0.i64(ptr align 8 %106, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %106) #8
+  %107 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 18
+  %108 = call noundef i32 @_ZNSt14numeric_limitsIjE3maxEv() #8
+  store i32 %108, ptr %107, align 8
+  %109 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 19
+  store i32 0, ptr %109, align 4
+  %110 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 20
+  store i32 0, ptr %110, align 8
+  %111 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 21
+  store i32 0, ptr %111, align 4
+  %112 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 22
   call void @llvm.memset.p0.i64(ptr align 8 %112, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #8
-  %113 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 24
-  call void @llvm.memset.p0.i64(ptr align 8 %113, i8 0, i64 48, i1 false)
-  call void @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4lessIS7_ESaIS0_IKS7_S6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %113) #8
-  %114 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 25
-  store i8 0, ptr %114, align 8
-  %115 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 26
-  store i8 0, ptr %115, align 1
-  %116 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 27
-  store i8 0, ptr %116, align 2
-  %117 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 29
-  store float 0.000000e+00, ptr %117, align 4
-  %118 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 30
-  store i32 0, ptr %118, align 8
-  %119 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 12
-  %120 = load i8, ptr %119, align 8
-  %121 = trunc i8 %120 to i1
-  br i1 %121, label %122, label %141
+  %113 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 23
+  call void @llvm.memset.p0.i64(ptr align 8 %113, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %113) #8
+  %114 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 24
+  call void @llvm.memset.p0.i64(ptr align 8 %114, i8 0, i64 48, i1 false)
+  call void @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4lessIS7_ESaIS0_IKS7_S6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %114) #8
+  %115 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 25
+  store i8 0, ptr %115, align 8
+  %116 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 26
+  store i8 0, ptr %116, align 1
+  %117 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 27
+  store i8 0, ptr %117, align 2
+  %118 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 29
+  store float 0.000000e+00, ptr %118, align 4
+  %119 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 30
+  store i32 0, ptr %119, align 8
+  %120 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 12
+  %121 = load i8, ptr %120, align 8
+  %122 = trunc i8 %121 to i1
+  br i1 %122, label %123, label %142
 
-122:                                              ; preds = %100
-  %123 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
-  %126 = invoke i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %124, i32 noundef 322, ptr noundef %125)
-          to label %127 unwind label %137
+123:                                              ; preds = %101
+  %124 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
+  %127 = invoke i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %125, i32 noundef 322, ptr noundef %126)
+          to label %128 unwind label %138
 
-127:                                              ; preds = %122
-  %128 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
-  %131 = invoke i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %129, i32 noundef 323, ptr noundef %130)
-          to label %132 unwind label %137
+128:                                              ; preds = %123
+  %129 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
+  %132 = invoke i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %130, i32 noundef 323, ptr noundef %131)
+          to label %133 unwind label %138
 
-132:                                              ; preds = %127
-  br label %159
+133:                                              ; preds = %128
+  br label %160
 
-133:                                              ; preds = %96, %87
-  %134 = landingpad { ptr, i32 }
+134:                                              ; preds = %97, %88
+  %135 = landingpad { ptr, i32 }
           cleanup
-  %135 = extractvalue { ptr, i32 } %134, 0
-  store ptr %135, ptr %29, align 8
-  %136 = extractvalue { ptr, i32 } %134, 1
-  store i32 %136, ptr %30, align 4
-  br label %499
-
-137:                                              ; preds = %482, %472, %467, %440, %190, %182, %141, %127, %122
-  %138 = landingpad { ptr, i32 }
-          cleanup
-  %139 = extractvalue { ptr, i32 } %138, 0
-  store ptr %139, ptr %29, align 8
-  %140 = extractvalue { ptr, i32 } %138, 1
-  store i32 %140, ptr %30, align 4
-  br label %498
-
-141:                                              ; preds = %100
-  %142 = load i32, ptr %22, align 4
-  %143 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
-  store i32 %142, ptr %143, align 4
-  %144 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
-  %147 = invoke i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %145, i32 noundef 278, ptr noundef %146)
-          to label %148 unwind label %137
-
-148:                                              ; preds = %141
-  %149 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
-  %150 = load i32, ptr %149, align 8
-  %151 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 3
-  %152 = load i32, ptr %151, align 4
-  %153 = icmp ugt i32 %150, %152
-  br i1 %153, label %154, label %158
-
-154:                                              ; preds = %148
-  %155 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 3
-  %156 = load i32, ptr %155, align 4
-  %157 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
-  store i32 %156, ptr %157, align 8
-  br label %158
-
-158:                                              ; preds = %154, %148
-  br label %159
-
-159:                                              ; preds = %158, %132
-  %160 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
-  %161 = load i32, ptr %160, align 4
-  %162 = icmp eq i32 %161, 256
-  br i1 %162, label %163, label %167
-
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
-  %165 = load i32, ptr %164, align 8
-  %166 = icmp eq i32 %165, 256
-  br label %167
-
-167:                                              ; preds = %163, %159
-  %168 = phi i1 [ false, %159 ], [ %166, %163 ]
-  %169 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 26
-  %170 = zext i1 %168 to i8
-  store i8 %170, ptr %169, align 1
-  %171 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
-  %172 = load i32, ptr %171, align 4
-  %173 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 2
-  %174 = load i32, ptr %173, align 8
-  %175 = icmp eq i32 %172, %174
-  br i1 %175, label %176, label %182
-
-176:                                              ; preds = %167
-  %177 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
-  %178 = load i32, ptr %177, align 8
-  %179 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 3
-  %180 = load i32, ptr %179, align 4
-  %181 = icmp eq i32 %178, %180
-  br label %182
-
-182:                                              ; preds = %176, %167
-  %183 = phi i1 [ false, %167 ], [ %181, %176 ]
-  %184 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 27
-  %185 = zext i1 %183 to i8
-  store i8 %185, ptr %184, align 2
-  %186 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 30
-  %189 = invoke i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %187, i32 noundef 254, ptr noundef %188)
-          to label %190 unwind label %137
-
-190:                                              ; preds = %182
-  %191 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 2
-  %192 = load i32, ptr %191, align 8
-  %193 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
-  %194 = load i32, ptr %193, align 4
-  %195 = add i32 %192, %194
-  %196 = sub i32 %195, 1
-  %197 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
-  %198 = load i32, ptr %197, align 4
-  %199 = udiv i32 %196, %198
-  %200 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 19
-  store i32 %199, ptr %200, align 4
-  %201 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 3
-  %202 = load i32, ptr %201, align 4
-  %203 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
-  %204 = load i32, ptr %203, align 8
-  %205 = add i32 %202, %204
-  %206 = sub i32 %205, 1
-  %207 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
-  %208 = load i32, ptr %207, align 8
-  %209 = udiv i32 %206, %208
-  %210 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 20
-  store i32 %209, ptr %210, align 8
-  %211 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 19
-  %212 = load i32, ptr %211, align 4
-  %213 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 20
-  %214 = load i32, ptr %213, align 8
-  %215 = mul i32 %212, %214
-  %216 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 21
-  store i32 %215, ptr %216, align 4
-  store ptr null, ptr %31, align 8
-  %217 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
-  %218 = load ptr, ptr %217, align 8
-  %219 = invoke i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %218, i32 noundef 42112, ptr noundef %31)
-          to label %220 unwind label %137
-
-220:                                              ; preds = %190
-  %221 = icmp ne i32 %219, 0
-  br i1 %221, label %222, label %440
-
-222:                                              ; preds = %220
-  %223 = load ptr, ptr %31, align 8
-  store ptr %223, ptr %32, align 8
-  br label %224
-
-224:                                              ; preds = %435, %222
-  br label %225
-
-225:                                              ; preds = %224
-  %226 = load ptr, ptr %32, align 8
-  %227 = call noundef ptr @strstr(ptr noundef %226, ptr noundef @.str.4) #20
-  store ptr %227, ptr %32, align 8
-  %228 = load ptr, ptr %32, align 8
-  %229 = icmp eq ptr %228, null
-  br i1 %229, label %230, label %231
-
-230:                                              ; preds = %225
-  br label %439
-
-231:                                              ; preds = %225
-  %232 = load ptr, ptr %32, align 8
-  %233 = call noundef ptr @strchr(ptr noundef %232, i32 noundef 62) #20
-  store ptr %233, ptr %33, align 8
-  %234 = load ptr, ptr %33, align 8
-  %235 = icmp eq ptr %234, null
-  br i1 %235, label %236, label %237
-
-236:                                              ; preds = %231
-  br label %439
-
-237:                                              ; preds = %231
-  %238 = load ptr, ptr %33, align 8
-  %239 = call noundef ptr @strchr(ptr noundef %238, i32 noundef 60) #20
-  store ptr %239, ptr %34, align 8
-  %240 = load ptr, ptr %34, align 8
-  %241 = icmp eq ptr %240, null
-  br i1 %241, label %242, label %243
-
-242:                                              ; preds = %237
-  br label %439
-
-243:                                              ; preds = %237
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #8
-  %244 = load ptr, ptr %32, align 8
-  %245 = load ptr, ptr %33, align 8
-  %246 = load ptr, ptr %32, align 8
-  %247 = ptrtoint ptr %245 to i64
-  %248 = ptrtoint ptr %246 to i64
-  %249 = sub i64 %247, %248
-  %250 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef %244, i64 noundef %249)
-          to label %251 unwind label %266
-
-251:                                              ; preds = %243
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #8
-  %252 = load ptr, ptr %33, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 1
-  %254 = load ptr, ptr %34, align 8
-  %255 = load ptr, ptr %33, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 1
-  %257 = ptrtoint ptr %254 to i64
-  %258 = ptrtoint ptr %256 to i64
-  %259 = sub i64 %257, %258
-  %260 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef %253, i64 noundef %259)
-          to label %261 unwind label %270
-
-261:                                              ; preds = %251
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #8
-  %262 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef @.str.5, i64 noundef 0) #8
-  store i64 %262, ptr %38, align 8
-  %263 = load i64, ptr %38, align 8
-  %264 = icmp eq i64 %263, -1
-  br i1 %264, label %265, label %274
-
-265:                                              ; preds = %261
-  store i32 3, ptr %39, align 4
-  br label %433
-
-266:                                              ; preds = %243
-  %267 = landingpad { ptr, i32 }
-          cleanup
-  %268 = extractvalue { ptr, i32 } %267, 0
-  store ptr %268, ptr %29, align 8
-  %269 = extractvalue { ptr, i32 } %267, 1
-  store i32 %269, ptr %30, align 4
-  br label %438
-
-270:                                              ; preds = %251
-  %271 = landingpad { ptr, i32 }
-          cleanup
-  %272 = extractvalue { ptr, i32 } %271, 0
-  store ptr %272, ptr %29, align 8
-  %273 = extractvalue { ptr, i32 } %271, 1
-  store i32 %273, ptr %30, align 4
-  br label %437
-
-274:                                              ; preds = %261
-  %275 = load i64, ptr %38, align 8
-  %276 = add i64 %275, 6
-  store i64 %276, ptr %38, align 8
-  %277 = load i64, ptr %38, align 8
-  %278 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 noundef signext 34, i64 noundef %277) #8
-  store i64 %278, ptr %40, align 8
-  %279 = load i64, ptr %40, align 8
-  %280 = icmp eq i64 %279, -1
-  br i1 %280, label %281, label %282
-
-281:                                              ; preds = %274
-  store i32 3, ptr %39, align 4
-  br label %433
-
-282:                                              ; preds = %274
-  %283 = load i64, ptr %38, align 8
-  %284 = load i64, ptr %40, align 8
-  %285 = load i64, ptr %38, align 8
-  %286 = sub i64 %284, %285
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %41, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %283, i64 noundef %286)
-          to label %287 unwind label %298
-
-287:                                              ; preds = %282
-  %288 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %41) #8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #8
-  %289 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef @.str.6, i64 noundef 0) #8
-  store i64 %289, ptr %42, align 8
-  store i32 -1, ptr %43, align 4
-  %290 = load i64, ptr %42, align 8
-  %291 = icmp ne i64 %290, -1
-  br i1 %291, label %292, label %302
-
-292:                                              ; preds = %287
-  %293 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #8
-  %294 = load i64, ptr %42, align 8
-  %295 = getelementptr inbounds i8, ptr %293, i64 %294
-  %296 = getelementptr inbounds i8, ptr %295, i64 8
-  %297 = call i32 @atoi(ptr noundef %296) #20
-  store i32 %297, ptr %43, align 4
-  br label %302
-
-298:                                              ; preds = %324, %302, %282
-  %299 = landingpad { ptr, i32 }
-          cleanup
-  %300 = extractvalue { ptr, i32 } %299, 0
-  store ptr %300, ptr %29, align 8
-  %301 = extractvalue { ptr, i32 } %299, 1
-  store i32 %301, ptr %30, align 4
-  br label %436
-
-302:                                              ; preds = %292, %287
-  %303 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 24
-  invoke void @_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRiRS5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 8 dereferenceable(32) %37)
-          to label %304 unwind label %298
-
-304:                                              ; preds = %302
-  %305 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4lessIS7_ESaIS0_IKS7_S6_EEEixEOS7_(ptr noundef nonnull align 8 dereferenceable(48) %303, ptr noundef nonnull align 8 dereferenceable(40) %44)
-          to label %306 unwind label %320
-
-306:                                              ; preds = %304
-  %307 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %305, ptr noundef nonnull align 8 dereferenceable(32) %36)
-          to label %308 unwind label %320
-
-308:                                              ; preds = %306
-  call void @_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #8
-  %309 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef @.str.7, i64 noundef 0) #8
-  store i64 %309, ptr %45, align 8
-  %310 = load i64, ptr %45, align 8
-  %311 = icmp ne i64 %310, -1
-  br i1 %311, label %312, label %430
-
-312:                                              ; preds = %308
-  %313 = load i64, ptr %45, align 8
-  %314 = add i64 %313, 6
-  store i64 %314, ptr %45, align 8
-  %315 = load i64, ptr %45, align 8
-  %316 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 noundef signext 34, i64 noundef %315) #8
-  store i64 %316, ptr %46, align 8
-  %317 = load i64, ptr %46, align 8
-  %318 = icmp eq i64 %317, -1
-  br i1 %318, label %319, label %324
-
-319:                                              ; preds = %312
-  store i32 3, ptr %39, align 4
-  br label %433
-
-320:                                              ; preds = %306, %304
-  %321 = landingpad { ptr, i32 }
-          cleanup
-  %322 = extractvalue { ptr, i32 } %321, 0
-  store ptr %322, ptr %29, align 8
-  %323 = extractvalue { ptr, i32 } %321, 1
-  store i32 %323, ptr %30, align 4
-  call void @_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #8
-  br label %436
-
-324:                                              ; preds = %312
-  %325 = load i64, ptr %45, align 8
-  %326 = load i64, ptr %46, align 8
-  %327 = load i64, ptr %45, align 8
-  %328 = sub i64 %326, %327
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %47, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %325, i64 noundef %328)
-          to label %329 unwind label %298
-
-329:                                              ; preds = %324
-  %330 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef @.str.8)
-          to label %331 unwind label %355
-
-331:                                              ; preds = %329
-  br i1 %330, label %332, label %380
-
-332:                                              ; preds = %331
-  %333 = load i32, ptr %43, align 4
-  %334 = icmp sge i32 %333, 0
-  br i1 %334, label %335, label %379
-
-335:                                              ; preds = %332
-  %336 = load i32, ptr %43, align 4
-  %337 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
-  %338 = load i16, ptr %337, align 8
-  %339 = zext i16 %338 to i32
-  %340 = icmp ule i32 %336, %339
-  br i1 %340, label %341, label %379
-
-341:                                              ; preds = %335
-  %342 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 22
-  %343 = call noundef zeroext i1 @_ZNKSt6vectorIdSaIdEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %342) #8
-  br i1 %343, label %344, label %372
-
-344:                                              ; preds = %341
-  %345 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 22
-  %346 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
-  %347 = load i16, ptr %346, align 8
-  %348 = zext i16 %347 to i64
-  invoke void @_ZNSt6vectorIdSaIdEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %345, i64 noundef %348)
-          to label %349 unwind label %359
-
-349:                                              ; preds = %344
-  %350 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 23
-  %351 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
-  %352 = load i16, ptr %351, align 8
-  %353 = zext i16 %352 to i64
-  store double 1.000000e+00, ptr %48, align 8
-  invoke void @_ZNSt6vectorIdSaIdEE6resizeEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %350, i64 noundef %353, ptr noundef nonnull align 8 dereferenceable(8) %48)
-          to label %354 unwind label %359
-
-354:                                              ; preds = %349
-  br label %372
-
-355:                                              ; preds = %414, %380, %367, %329
-  %356 = landingpad { ptr, i32 }
-          cleanup
-  %357 = extractvalue { ptr, i32 } %356, 0
-  store ptr %357, ptr %29, align 8
-  %358 = extractvalue { ptr, i32 } %356, 1
-  store i32 %358, ptr %30, align 4
-  br label %429
-
-359:                                              ; preds = %372, %349, %344
-  %360 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  %361 = extractvalue { ptr, i32 } %360, 0
-  store ptr %361, ptr %29, align 8
-  %362 = extractvalue { ptr, i32 } %360, 1
-  store i32 %362, ptr %30, align 4
-  br label %363
-
-363:                                              ; preds = %359
-  %364 = load i32, ptr %30, align 4
-  %365 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
-  %366 = icmp eq i32 %364, %365
-  br i1 %366, label %367, label %429
-
-367:                                              ; preds = %363
-  %368 = load ptr, ptr %29, align 8
-  %369 = call ptr @__cxa_begin_catch(ptr %368) #8
-  store ptr %369, ptr %49, align 8
-  invoke void @__cxa_end_catch()
-          to label %370 unwind label %355
-
-370:                                              ; preds = %367
-  br label %371
-
-371:                                              ; preds = %374, %370
-  br label %379
-
-372:                                              ; preds = %354, %341
-  %373 = invoke noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %36)
-          to label %374 unwind label %359
-
-374:                                              ; preds = %372
-  %375 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 22
-  %376 = load i32, ptr %43, align 4
-  %377 = sext i32 %376 to i64
-  %378 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %375, i64 noundef %377) #8
-  store double %373, ptr %378, align 8
-  br label %371
-
-379:                                              ; preds = %371, %335, %332
-  br label %428
-
-380:                                              ; preds = %331
-  %381 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef @.str.9)
-          to label %382 unwind label %355
-
-382:                                              ; preds = %380
-  br i1 %381, label %383, label %427
-
-383:                                              ; preds = %382
-  %384 = load i32, ptr %43, align 4
-  %385 = icmp sge i32 %384, 0
-  br i1 %385, label %386, label %426
-
-386:                                              ; preds = %383
-  %387 = load i32, ptr %43, align 4
-  %388 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
-  %389 = load i16, ptr %388, align 8
-  %390 = zext i16 %389 to i32
-  %391 = icmp ule i32 %387, %390
-  br i1 %391, label %392, label %426
-
-392:                                              ; preds = %386
-  %393 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 22
-  %394 = call noundef zeroext i1 @_ZNKSt6vectorIdSaIdEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %393) #8
-  br i1 %394, label %395, label %419
-
-395:                                              ; preds = %392
-  %396 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 22
-  %397 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
-  %398 = load i16, ptr %397, align 8
-  %399 = zext i16 %398 to i64
-  invoke void @_ZNSt6vectorIdSaIdEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %396, i64 noundef %399)
-          to label %400 unwind label %406
-
-400:                                              ; preds = %395
-  %401 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 23
-  %402 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
-  %403 = load i16, ptr %402, align 8
-  %404 = zext i16 %403 to i64
-  store double 1.000000e+00, ptr %50, align 8
-  invoke void @_ZNSt6vectorIdSaIdEE6resizeEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %401, i64 noundef %404, ptr noundef nonnull align 8 dereferenceable(8) %50)
-          to label %405 unwind label %406
-
-405:                                              ; preds = %400
-  br label %419
-
-406:                                              ; preds = %419, %400, %395
-  %407 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  %408 = extractvalue { ptr, i32 } %407, 0
-  store ptr %408, ptr %29, align 8
-  %409 = extractvalue { ptr, i32 } %407, 1
-  store i32 %409, ptr %30, align 4
-  br label %410
-
-410:                                              ; preds = %406
-  %411 = load i32, ptr %30, align 4
-  %412 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
-  %413 = icmp eq i32 %411, %412
-  br i1 %413, label %414, label %429
-
-414:                                              ; preds = %410
-  %415 = load ptr, ptr %29, align 8
-  %416 = call ptr @__cxa_begin_catch(ptr %415) #8
-  store ptr %416, ptr %51, align 8
-  invoke void @__cxa_end_catch()
-          to label %417 unwind label %355
-
-417:                                              ; preds = %414
-  br label %418
-
-418:                                              ; preds = %421, %417
-  br label %426
-
-419:                                              ; preds = %405, %392
-  %420 = invoke noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %36)
-          to label %421 unwind label %406
-
-421:                                              ; preds = %419
-  %422 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 23
-  %423 = load i32, ptr %43, align 4
-  %424 = sext i32 %423 to i64
-  %425 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %422, i64 noundef %424) #8
-  store double %420, ptr %425, align 8
-  br label %418
-
-426:                                              ; preds = %418, %386, %383
-  br label %427
-
-427:                                              ; preds = %426, %382
-  br label %428
-
-428:                                              ; preds = %427, %379
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #8
-  br label %430
-
-429:                                              ; preds = %410, %363, %355
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #8
-  br label %436
-
-430:                                              ; preds = %428, %308
-  %431 = load ptr, ptr %34, align 8
-  %432 = getelementptr inbounds i8, ptr %431, i64 1
-  store ptr %432, ptr %32, align 8
-  store i32 0, ptr %39, align 4
-  br label %433
-
-433:                                              ; preds = %430, %319, %281, %265
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #8
-  %434 = load i32, ptr %39, align 4
-  switch i32 %434, label %505 [
-    i32 0, label %435
-    i32 3, label %439
-  ]
-
-435:                                              ; preds = %433
-  br label %224, !llvm.loop !7
-
-436:                                              ; preds = %429, %320, %298
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #8
-  br label %437
-
-437:                                              ; preds = %436, %270
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #8
-  br label %438
-
-438:                                              ; preds = %437, %266
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #8
-  br label %498
-
-439:                                              ; preds = %433, %242, %236, %230
-  br label %440
-
-440:                                              ; preds = %439, %220
-  %441 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
-  %442 = load ptr, ptr %441, align 8
-  %443 = invoke i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %442, i32 noundef 42113, ptr noundef %31)
-          to label %444 unwind label %137
-
-444:                                              ; preds = %440
-  %445 = icmp ne i32 %443, 0
-  br i1 %445, label %446, label %472
-
-446:                                              ; preds = %444
-  %447 = load ptr, ptr %31, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef %447, ptr noundef nonnull align 1 dereferenceable(1) %53)
-          to label %448 unwind label %454
-
-448:                                              ; preds = %446
-  %449 = invoke noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %52)
-          to label %450 unwind label %458
-
-450:                                              ; preds = %448
-  %451 = fptrunc double %449 to float
-  %452 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 29
-  store float %451, ptr %452, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #8
-  %453 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 25
-  store i8 1, ptr %453, align 8
-  br label %471
-
-454:                                              ; preds = %446
-  %455 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  %456 = extractvalue { ptr, i32 } %455, 0
-  store ptr %456, ptr %29, align 8
-  %457 = extractvalue { ptr, i32 } %455, 1
-  store i32 %457, ptr %30, align 4
-  br label %462
-
-458:                                              ; preds = %448
-  %459 = landingpad { ptr, i32 }
-          cleanup
-          catch ptr @_ZTISt9exception
-  %460 = extractvalue { ptr, i32 } %459, 0
-  store ptr %460, ptr %29, align 8
-  %461 = extractvalue { ptr, i32 } %459, 1
-  store i32 %461, ptr %30, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #8
-  br label %462
-
-462:                                              ; preds = %458, %454
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #8
-  br label %463
-
-463:                                              ; preds = %462
-  %464 = load i32, ptr %30, align 4
-  %465 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
-  %466 = icmp eq i32 %464, %465
-  br i1 %466, label %467, label %498
-
-467:                                              ; preds = %463
-  %468 = load ptr, ptr %29, align 8
-  %469 = call ptr @__cxa_begin_catch(ptr %468) #8
-  store ptr %469, ptr %54, align 8
-  invoke void @__cxa_end_catch()
-          to label %470 unwind label %137
-
-470:                                              ; preds = %467
-  br label %471
-
-471:                                              ; preds = %470, %450
-  br label %472
-
-472:                                              ; preds = %471, %444
-  %473 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 24
-  store i32 -1, ptr %57, align 4
-  invoke void @_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IiRA10_KcTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 4 dereferenceable(4) %57, ptr noundef nonnull align 1 dereferenceable(10) @.str.10)
-          to label %474 unwind label %137
-
-474:                                              ; preds = %472
-  %475 = invoke ptr @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4lessIS7_ESaIS0_IKS7_S6_EEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(48) %473, ptr noundef nonnull align 8 dereferenceable(40) %56)
-          to label %476 unwind label %489
-
-476:                                              ; preds = %474
-  %477 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %55, i32 0, i32 0
-  store ptr %475, ptr %477, align 8
-  call void @_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %56) #8
-  %478 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 24
-  %479 = call ptr @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4lessIS7_ESaIS0_IKS7_S6_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %478) #8
-  %480 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %58, i32 0, i32 0
-  store ptr %479, ptr %480, align 8
-  %481 = call noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIKS0_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(8) %58) #8
-  br i1 %481, label %482, label %497
-
-482:                                              ; preds = %476
-  %483 = call noundef ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKS0_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %55) #8
-  %484 = getelementptr inbounds %"struct.std::pair.60", ptr %483, i32 0, i32 1
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %59, ptr noundef @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %484)
-          to label %485 unwind label %137
-
-485:                                              ; preds = %482
-  %486 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 1
-  %487 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %486, ptr noundef nonnull align 8 dereferenceable(32) %59)
-          to label %488 unwind label %493
-
-488:                                              ; preds = %485
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #8
-  br label %497
-
-489:                                              ; preds = %474
-  %490 = landingpad { ptr, i32 }
-          cleanup
-  %491 = extractvalue { ptr, i32 } %490, 0
-  store ptr %491, ptr %29, align 8
-  %492 = extractvalue { ptr, i32 } %490, 1
-  store i32 %492, ptr %30, align 4
-  call void @_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %56) #8
-  br label %498
-
-493:                                              ; preds = %485
-  %494 = landingpad { ptr, i32 }
-          cleanup
-  %495 = extractvalue { ptr, i32 } %494, 0
-  store ptr %495, ptr %29, align 8
-  %496 = extractvalue { ptr, i32 } %494, 1
-  store i32 %496, ptr %30, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #8
-  br label %498
-
-497:                                              ; preds = %488, %476
-  ret void
-
-498:                                              ; preds = %493, %489, %463, %438, %137
-  call void @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4lessIS7_ESaIS0_IKS7_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %113) #8
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #8
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %111) #8
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %105) #8
-  br label %499
-
-499:                                              ; preds = %498, %133
-  call void @_ZN5osgeo4proj4GridD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %61) #8
+  %136 = extractvalue { ptr, i32 } %135, 0
+  store ptr %136, ptr %29, align 8
+  %137 = extractvalue { ptr, i32 } %135, 1
+  store i32 %137, ptr %30, align 4
   br label %500
 
-500:                                              ; preds = %499
-  %501 = load ptr, ptr %29, align 8
-  %502 = load i32, ptr %30, align 4
-  %503 = insertvalue { ptr, i32 } poison, ptr %501, 0
-  %504 = insertvalue { ptr, i32 } %503, i32 %502, 1
-  resume { ptr, i32 } %504
+138:                                              ; preds = %483, %473, %468, %441, %191, %183, %142, %128, %123
+  %139 = landingpad { ptr, i32 }
+          cleanup
+  %140 = extractvalue { ptr, i32 } %139, 0
+  store ptr %140, ptr %29, align 8
+  %141 = extractvalue { ptr, i32 } %139, 1
+  store i32 %141, ptr %30, align 4
+  br label %499
 
-505:                                              ; preds = %433
+142:                                              ; preds = %101
+  %143 = load i32, ptr %22, align 4
+  %144 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
+  store i32 %143, ptr %144, align 4
+  %145 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
+  %148 = invoke i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %146, i32 noundef 278, ptr noundef %147)
+          to label %149 unwind label %138
+
+149:                                              ; preds = %142
+  %150 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
+  %151 = load i32, ptr %150, align 8
+  %152 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 3
+  %153 = load i32, ptr %152, align 4
+  %154 = icmp ugt i32 %151, %153
+  br i1 %154, label %155, label %159
+
+155:                                              ; preds = %149
+  %156 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 3
+  %157 = load i32, ptr %156, align 4
+  %158 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
+  store i32 %157, ptr %158, align 8
+  br label %159
+
+159:                                              ; preds = %155, %149
+  br label %160
+
+160:                                              ; preds = %159, %133
+  %161 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
+  %162 = load i32, ptr %161, align 4
+  %163 = icmp eq i32 %162, 256
+  br i1 %163, label %164, label %168
+
+164:                                              ; preds = %160
+  %165 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
+  %166 = load i32, ptr %165, align 8
+  %167 = icmp eq i32 %166, 256
+  br label %168
+
+168:                                              ; preds = %164, %160
+  %169 = phi i1 [ false, %160 ], [ %167, %164 ]
+  %170 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 26
+  %171 = zext i1 %169 to i8
+  store i8 %171, ptr %170, align 1
+  %172 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
+  %173 = load i32, ptr %172, align 4
+  %174 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 2
+  %175 = load i32, ptr %174, align 8
+  %176 = icmp eq i32 %173, %175
+  br i1 %176, label %177, label %183
+
+177:                                              ; preds = %168
+  %178 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
+  %179 = load i32, ptr %178, align 8
+  %180 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 3
+  %181 = load i32, ptr %180, align 4
+  %182 = icmp eq i32 %179, %181
+  br label %183
+
+183:                                              ; preds = %177, %168
+  %184 = phi i1 [ false, %168 ], [ %182, %177 ]
+  %185 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 27
+  %186 = zext i1 %184 to i8
+  store i8 %186, ptr %185, align 2
+  %187 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 30
+  %190 = invoke i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %188, i32 noundef 254, ptr noundef %189)
+          to label %191 unwind label %138
+
+191:                                              ; preds = %183
+  %192 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 2
+  %193 = load i32, ptr %192, align 8
+  %194 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
+  %195 = load i32, ptr %194, align 4
+  %196 = add i32 %193, %195
+  %197 = sub i32 %196, 1
+  %198 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 14
+  %199 = load i32, ptr %198, align 4
+  %200 = udiv i32 %197, %199
+  %201 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 19
+  store i32 %200, ptr %201, align 4
+  %202 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 3
+  %203 = load i32, ptr %202, align 4
+  %204 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
+  %205 = load i32, ptr %204, align 8
+  %206 = add i32 %203, %205
+  %207 = sub i32 %206, 1
+  %208 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 15
+  %209 = load i32, ptr %208, align 8
+  %210 = udiv i32 %207, %209
+  %211 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 20
+  store i32 %210, ptr %211, align 8
+  %212 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 19
+  %213 = load i32, ptr %212, align 4
+  %214 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 20
+  %215 = load i32, ptr %214, align 8
+  %216 = mul i32 %213, %215
+  %217 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 21
+  store i32 %216, ptr %217, align 4
+  store ptr null, ptr %31, align 8
+  %218 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
+  %219 = load ptr, ptr %218, align 8
+  %220 = invoke i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %219, i32 noundef 42112, ptr noundef %31)
+          to label %221 unwind label %138
+
+221:                                              ; preds = %191
+  %222 = icmp ne i32 %220, 0
+  br i1 %222, label %223, label %441
+
+223:                                              ; preds = %221
+  %224 = load ptr, ptr %31, align 8
+  store ptr %224, ptr %32, align 8
+  br label %225
+
+225:                                              ; preds = %436, %223
+  br label %226
+
+226:                                              ; preds = %225
+  %227 = load ptr, ptr %32, align 8
+  %228 = call noundef ptr @strstr(ptr noundef %227, ptr noundef @.str.4) #20
+  store ptr %228, ptr %32, align 8
+  %229 = load ptr, ptr %32, align 8
+  %230 = icmp eq ptr %229, null
+  br i1 %230, label %231, label %232
+
+231:                                              ; preds = %226
+  br label %440
+
+232:                                              ; preds = %226
+  %233 = load ptr, ptr %32, align 8
+  %234 = call noundef ptr @strchr(ptr noundef %233, i32 noundef 62) #20
+  store ptr %234, ptr %33, align 8
+  %235 = load ptr, ptr %33, align 8
+  %236 = icmp eq ptr %235, null
+  br i1 %236, label %237, label %238
+
+237:                                              ; preds = %232
+  br label %440
+
+238:                                              ; preds = %232
+  %239 = load ptr, ptr %33, align 8
+  %240 = call noundef ptr @strchr(ptr noundef %239, i32 noundef 60) #20
+  store ptr %240, ptr %34, align 8
+  %241 = load ptr, ptr %34, align 8
+  %242 = icmp eq ptr %241, null
+  br i1 %242, label %243, label %244
+
+243:                                              ; preds = %238
+  br label %440
+
+244:                                              ; preds = %238
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #8
+  %245 = load ptr, ptr %32, align 8
+  %246 = load ptr, ptr %33, align 8
+  %247 = load ptr, ptr %32, align 8
+  %248 = ptrtoint ptr %246 to i64
+  %249 = ptrtoint ptr %247 to i64
+  %250 = sub i64 %248, %249
+  %251 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef %245, i64 noundef %250)
+          to label %252 unwind label %267
+
+252:                                              ; preds = %244
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #8
+  %253 = load ptr, ptr %33, align 8
+  %254 = getelementptr inbounds i8, ptr %253, i64 1
+  %255 = load ptr, ptr %34, align 8
+  %256 = load ptr, ptr %33, align 8
+  %257 = getelementptr inbounds i8, ptr %256, i64 1
+  %258 = ptrtoint ptr %255 to i64
+  %259 = ptrtoint ptr %257 to i64
+  %260 = sub i64 %258, %259
+  %261 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef %254, i64 noundef %260)
+          to label %262 unwind label %271
+
+262:                                              ; preds = %252
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #8
+  %263 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef @.str.5, i64 noundef 0) #8
+  store i64 %263, ptr %38, align 8
+  %264 = load i64, ptr %38, align 8
+  %265 = icmp eq i64 %264, -1
+  br i1 %265, label %266, label %275
+
+266:                                              ; preds = %262
+  store i32 3, ptr %39, align 4
+  br label %434
+
+267:                                              ; preds = %244
+  %268 = landingpad { ptr, i32 }
+          cleanup
+  %269 = extractvalue { ptr, i32 } %268, 0
+  store ptr %269, ptr %29, align 8
+  %270 = extractvalue { ptr, i32 } %268, 1
+  store i32 %270, ptr %30, align 4
+  br label %439
+
+271:                                              ; preds = %252
+  %272 = landingpad { ptr, i32 }
+          cleanup
+  %273 = extractvalue { ptr, i32 } %272, 0
+  store ptr %273, ptr %29, align 8
+  %274 = extractvalue { ptr, i32 } %272, 1
+  store i32 %274, ptr %30, align 4
+  br label %438
+
+275:                                              ; preds = %262
+  %276 = load i64, ptr %38, align 8
+  %277 = add i64 %276, 6
+  store i64 %277, ptr %38, align 8
+  %278 = load i64, ptr %38, align 8
+  %279 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 noundef signext 34, i64 noundef %278) #8
+  store i64 %279, ptr %40, align 8
+  %280 = load i64, ptr %40, align 8
+  %281 = icmp eq i64 %280, -1
+  br i1 %281, label %282, label %283
+
+282:                                              ; preds = %275
+  store i32 3, ptr %39, align 4
+  br label %434
+
+283:                                              ; preds = %275
+  %284 = load i64, ptr %38, align 8
+  %285 = load i64, ptr %40, align 8
+  %286 = load i64, ptr %38, align 8
+  %287 = sub i64 %285, %286
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %41, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %284, i64 noundef %287)
+          to label %288 unwind label %299
+
+288:                                              ; preds = %283
+  %289 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %41) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #8
+  %290 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef @.str.6, i64 noundef 0) #8
+  store i64 %290, ptr %42, align 8
+  store i32 -1, ptr %43, align 4
+  %291 = load i64, ptr %42, align 8
+  %292 = icmp ne i64 %291, -1
+  br i1 %292, label %293, label %303
+
+293:                                              ; preds = %288
+  %294 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #8
+  %295 = load i64, ptr %42, align 8
+  %296 = getelementptr inbounds i8, ptr %294, i64 %295
+  %297 = getelementptr inbounds i8, ptr %296, i64 8
+  %298 = call i32 @atoi(ptr noundef %297) #20
+  store i32 %298, ptr %43, align 4
+  br label %303
+
+299:                                              ; preds = %325, %303, %283
+  %300 = landingpad { ptr, i32 }
+          cleanup
+  %301 = extractvalue { ptr, i32 } %300, 0
+  store ptr %301, ptr %29, align 8
+  %302 = extractvalue { ptr, i32 } %300, 1
+  store i32 %302, ptr %30, align 4
+  br label %437
+
+303:                                              ; preds = %293, %288
+  %304 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 24
+  invoke void @_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRiRS5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 8 dereferenceable(32) %37)
+          to label %305 unwind label %299
+
+305:                                              ; preds = %303
+  %306 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4lessIS7_ESaIS0_IKS7_S6_EEEixEOS7_(ptr noundef nonnull align 8 dereferenceable(48) %304, ptr noundef nonnull align 8 dereferenceable(40) %44)
+          to label %307 unwind label %321
+
+307:                                              ; preds = %305
+  %308 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %306, ptr noundef nonnull align 8 dereferenceable(32) %36)
+          to label %309 unwind label %321
+
+309:                                              ; preds = %307
+  call void @_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #8
+  %310 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef @.str.7, i64 noundef 0) #8
+  store i64 %310, ptr %45, align 8
+  %311 = load i64, ptr %45, align 8
+  %312 = icmp ne i64 %311, -1
+  br i1 %312, label %313, label %431
+
+313:                                              ; preds = %309
+  %314 = load i64, ptr %45, align 8
+  %315 = add i64 %314, 6
+  store i64 %315, ptr %45, align 8
+  %316 = load i64, ptr %45, align 8
+  %317 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 noundef signext 34, i64 noundef %316) #8
+  store i64 %317, ptr %46, align 8
+  %318 = load i64, ptr %46, align 8
+  %319 = icmp eq i64 %318, -1
+  br i1 %319, label %320, label %325
+
+320:                                              ; preds = %313
+  store i32 3, ptr %39, align 4
+  br label %434
+
+321:                                              ; preds = %307, %305
+  %322 = landingpad { ptr, i32 }
+          cleanup
+  %323 = extractvalue { ptr, i32 } %322, 0
+  store ptr %323, ptr %29, align 8
+  %324 = extractvalue { ptr, i32 } %322, 1
+  store i32 %324, ptr %30, align 4
+  call void @_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #8
+  br label %437
+
+325:                                              ; preds = %313
+  %326 = load i64, ptr %45, align 8
+  %327 = load i64, ptr %46, align 8
+  %328 = load i64, ptr %45, align 8
+  %329 = sub i64 %327, %328
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %47, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %326, i64 noundef %329)
+          to label %330 unwind label %299
+
+330:                                              ; preds = %325
+  %331 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef @.str.8)
+          to label %332 unwind label %356
+
+332:                                              ; preds = %330
+  br i1 %331, label %333, label %381
+
+333:                                              ; preds = %332
+  %334 = load i32, ptr %43, align 4
+  %335 = icmp sge i32 %334, 0
+  br i1 %335, label %336, label %380
+
+336:                                              ; preds = %333
+  %337 = load i32, ptr %43, align 4
+  %338 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
+  %339 = load i16, ptr %338, align 8
+  %340 = zext i16 %339 to i32
+  %341 = icmp ule i32 %337, %340
+  br i1 %341, label %342, label %380
+
+342:                                              ; preds = %336
+  %343 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 22
+  %344 = call noundef zeroext i1 @_ZNKSt6vectorIdSaIdEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %343) #8
+  br i1 %344, label %345, label %373
+
+345:                                              ; preds = %342
+  %346 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 22
+  %347 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
+  %348 = load i16, ptr %347, align 8
+  %349 = zext i16 %348 to i64
+  invoke void @_ZNSt6vectorIdSaIdEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %346, i64 noundef %349)
+          to label %350 unwind label %360
+
+350:                                              ; preds = %345
+  %351 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 23
+  %352 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
+  %353 = load i16, ptr %352, align 8
+  %354 = zext i16 %353 to i64
+  store double 1.000000e+00, ptr %48, align 8
+  invoke void @_ZNSt6vectorIdSaIdEE6resizeEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %351, i64 noundef %354, ptr noundef nonnull align 8 dereferenceable(8) %48)
+          to label %355 unwind label %360
+
+355:                                              ; preds = %350
+  br label %373
+
+356:                                              ; preds = %415, %381, %368, %330
+  %357 = landingpad { ptr, i32 }
+          cleanup
+  %358 = extractvalue { ptr, i32 } %357, 0
+  store ptr %358, ptr %29, align 8
+  %359 = extractvalue { ptr, i32 } %357, 1
+  store i32 %359, ptr %30, align 4
+  br label %430
+
+360:                                              ; preds = %373, %350, %345
+  %361 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  %362 = extractvalue { ptr, i32 } %361, 0
+  store ptr %362, ptr %29, align 8
+  %363 = extractvalue { ptr, i32 } %361, 1
+  store i32 %363, ptr %30, align 4
+  br label %364
+
+364:                                              ; preds = %360
+  %365 = load i32, ptr %30, align 4
+  %366 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
+  %367 = icmp eq i32 %365, %366
+  br i1 %367, label %368, label %430
+
+368:                                              ; preds = %364
+  %369 = load ptr, ptr %29, align 8
+  %370 = call ptr @__cxa_begin_catch(ptr %369) #8
+  store ptr %370, ptr %49, align 8
+  invoke void @__cxa_end_catch()
+          to label %371 unwind label %356
+
+371:                                              ; preds = %368
+  br label %372
+
+372:                                              ; preds = %375, %371
+  br label %380
+
+373:                                              ; preds = %355, %342
+  %374 = invoke noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %36)
+          to label %375 unwind label %360
+
+375:                                              ; preds = %373
+  %376 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 22
+  %377 = load i32, ptr %43, align 4
+  %378 = sext i32 %377 to i64
+  %379 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %376, i64 noundef %378) #8
+  store double %374, ptr %379, align 8
+  br label %372
+
+380:                                              ; preds = %372, %336, %333
+  br label %429
+
+381:                                              ; preds = %332
+  %382 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef @.str.9)
+          to label %383 unwind label %356
+
+383:                                              ; preds = %381
+  br i1 %382, label %384, label %428
+
+384:                                              ; preds = %383
+  %385 = load i32, ptr %43, align 4
+  %386 = icmp sge i32 %385, 0
+  br i1 %386, label %387, label %427
+
+387:                                              ; preds = %384
+  %388 = load i32, ptr %43, align 4
+  %389 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
+  %390 = load i16, ptr %389, align 8
+  %391 = zext i16 %390 to i32
+  %392 = icmp ule i32 %388, %391
+  br i1 %392, label %393, label %427
+
+393:                                              ; preds = %387
+  %394 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 22
+  %395 = call noundef zeroext i1 @_ZNKSt6vectorIdSaIdEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %394) #8
+  br i1 %395, label %396, label %420
+
+396:                                              ; preds = %393
+  %397 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 22
+  %398 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
+  %399 = load i16, ptr %398, align 8
+  %400 = zext i16 %399 to i64
+  invoke void @_ZNSt6vectorIdSaIdEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %397, i64 noundef %400)
+          to label %401 unwind label %407
+
+401:                                              ; preds = %396
+  %402 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 23
+  %403 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 7
+  %404 = load i16, ptr %403, align 8
+  %405 = zext i16 %404 to i64
+  store double 1.000000e+00, ptr %50, align 8
+  invoke void @_ZNSt6vectorIdSaIdEE6resizeEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %402, i64 noundef %405, ptr noundef nonnull align 8 dereferenceable(8) %50)
+          to label %406 unwind label %407
+
+406:                                              ; preds = %401
+  br label %420
+
+407:                                              ; preds = %420, %401, %396
+  %408 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  %409 = extractvalue { ptr, i32 } %408, 0
+  store ptr %409, ptr %29, align 8
+  %410 = extractvalue { ptr, i32 } %408, 1
+  store i32 %410, ptr %30, align 4
+  br label %411
+
+411:                                              ; preds = %407
+  %412 = load i32, ptr %30, align 4
+  %413 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
+  %414 = icmp eq i32 %412, %413
+  br i1 %414, label %415, label %430
+
+415:                                              ; preds = %411
+  %416 = load ptr, ptr %29, align 8
+  %417 = call ptr @__cxa_begin_catch(ptr %416) #8
+  store ptr %417, ptr %51, align 8
+  invoke void @__cxa_end_catch()
+          to label %418 unwind label %356
+
+418:                                              ; preds = %415
+  br label %419
+
+419:                                              ; preds = %422, %418
+  br label %427
+
+420:                                              ; preds = %406, %393
+  %421 = invoke noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %36)
+          to label %422 unwind label %407
+
+422:                                              ; preds = %420
+  %423 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 23
+  %424 = load i32, ptr %43, align 4
+  %425 = sext i32 %424 to i64
+  %426 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIdSaIdEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %423, i64 noundef %425) #8
+  store double %421, ptr %426, align 8
+  br label %419
+
+427:                                              ; preds = %419, %387, %384
+  br label %428
+
+428:                                              ; preds = %427, %383
+  br label %429
+
+429:                                              ; preds = %428, %380
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #8
+  br label %431
+
+430:                                              ; preds = %411, %364, %356
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #8
+  br label %437
+
+431:                                              ; preds = %429, %309
+  %432 = load ptr, ptr %34, align 8
+  %433 = getelementptr inbounds i8, ptr %432, i64 1
+  store ptr %433, ptr %32, align 8
+  store i32 0, ptr %39, align 4
+  br label %434
+
+434:                                              ; preds = %431, %320, %282, %266
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #8
+  %435 = load i32, ptr %39, align 4
+  switch i32 %435, label %506 [
+    i32 0, label %436
+    i32 3, label %440
+  ]
+
+436:                                              ; preds = %434
+  br label %225, !llvm.loop !7
+
+437:                                              ; preds = %430, %321, %299
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #8
+  br label %438
+
+438:                                              ; preds = %437, %271
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #8
+  br label %439
+
+439:                                              ; preds = %438, %267
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #8
+  br label %499
+
+440:                                              ; preds = %434, %243, %237, %231
+  br label %441
+
+441:                                              ; preds = %440, %221
+  %442 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 2
+  %443 = load ptr, ptr %442, align 8
+  %444 = invoke i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %443, i32 noundef 42113, ptr noundef %31)
+          to label %445 unwind label %138
+
+445:                                              ; preds = %441
+  %446 = icmp ne i32 %444, 0
+  br i1 %446, label %447, label %473
+
+447:                                              ; preds = %445
+  %448 = load ptr, ptr %31, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef %448, ptr noundef nonnull align 1 dereferenceable(1) %53)
+          to label %449 unwind label %455
+
+449:                                              ; preds = %447
+  %450 = invoke noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %52)
+          to label %451 unwind label %459
+
+451:                                              ; preds = %449
+  %452 = fptrunc double %450 to float
+  %453 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 29
+  store float %452, ptr %453, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #8
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #8
+  %454 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 25
+  store i8 1, ptr %454, align 8
+  br label %472
+
+455:                                              ; preds = %447
+  %456 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  %457 = extractvalue { ptr, i32 } %456, 0
+  store ptr %457, ptr %29, align 8
+  %458 = extractvalue { ptr, i32 } %456, 1
+  store i32 %458, ptr %30, align 4
+  br label %463
+
+459:                                              ; preds = %449
+  %460 = landingpad { ptr, i32 }
+          cleanup
+          catch ptr @_ZTISt9exception
+  %461 = extractvalue { ptr, i32 } %460, 0
+  store ptr %461, ptr %29, align 8
+  %462 = extractvalue { ptr, i32 } %460, 1
+  store i32 %462, ptr %30, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #8
+  br label %463
+
+463:                                              ; preds = %459, %455
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #8
+  br label %464
+
+464:                                              ; preds = %463
+  %465 = load i32, ptr %30, align 4
+  %466 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
+  %467 = icmp eq i32 %465, %466
+  br i1 %467, label %468, label %499
+
+468:                                              ; preds = %464
+  %469 = load ptr, ptr %29, align 8
+  %470 = call ptr @__cxa_begin_catch(ptr %469) #8
+  store ptr %470, ptr %54, align 8
+  invoke void @__cxa_end_catch()
+          to label %471 unwind label %138
+
+471:                                              ; preds = %468
+  br label %472
+
+472:                                              ; preds = %471, %451
+  br label %473
+
+473:                                              ; preds = %472, %445
+  %474 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 24
+  store i32 -1, ptr %57, align 4
+  invoke void @_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IiRA10_KcTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 4 dereferenceable(4) %57, ptr noundef nonnull align 1 dereferenceable(10) @.str.10)
+          to label %475 unwind label %138
+
+475:                                              ; preds = %473
+  %476 = invoke ptr @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4lessIS7_ESaIS0_IKS7_S6_EEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(48) %474, ptr noundef nonnull align 8 dereferenceable(40) %56)
+          to label %477 unwind label %490
+
+477:                                              ; preds = %475
+  %478 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %55, i32 0, i32 0
+  store ptr %476, ptr %478, align 8
+  call void @_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %56) #8
+  %479 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %61, i32 0, i32 24
+  %480 = call ptr @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4lessIS7_ESaIS0_IKS7_S6_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %479) #8
+  %481 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %58, i32 0, i32 0
+  store ptr %480, ptr %481, align 8
+  %482 = call noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIKS0_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(8) %58) #8
+  br i1 %482, label %483, label %498
+
+483:                                              ; preds = %477
+  %484 = call noundef ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIKS0_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %55) #8
+  %485 = getelementptr inbounds %"struct.std::pair.60", ptr %484, i32 0, i32 1
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %59, ptr noundef @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %485)
+          to label %486 unwind label %138
+
+486:                                              ; preds = %483
+  %487 = getelementptr inbounds %"class.osgeo::proj::Grid", ptr %61, i32 0, i32 1
+  %488 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %487, ptr noundef nonnull align 8 dereferenceable(32) %59)
+          to label %489 unwind label %494
+
+489:                                              ; preds = %486
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #8
+  br label %498
+
+490:                                              ; preds = %475
+  %491 = landingpad { ptr, i32 }
+          cleanup
+  %492 = extractvalue { ptr, i32 } %491, 0
+  store ptr %492, ptr %29, align 8
+  %493 = extractvalue { ptr, i32 } %491, 1
+  store i32 %493, ptr %30, align 4
+  call void @_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %56) #8
+  br label %499
+
+494:                                              ; preds = %486
+  %495 = landingpad { ptr, i32 }
+          cleanup
+  %496 = extractvalue { ptr, i32 } %495, 0
+  store ptr %496, ptr %29, align 8
+  %497 = extractvalue { ptr, i32 } %495, 1
+  store i32 %497, ptr %30, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #8
+  br label %499
+
+498:                                              ; preds = %489, %477
+  ret void
+
+499:                                              ; preds = %494, %490, %464, %439, %138
+  call void @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4lessIS7_ESaIS0_IKS7_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %114) #8
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %113) #8
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %112) #8
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %106) #8
+  br label %500
+
+500:                                              ; preds = %499, %134
+  call void @_ZN5osgeo4proj4GridD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %61) #8
+  br label %501
+
+501:                                              ; preds = %500
+  %502 = load ptr, ptr %29, align 8
+  %503 = load i32, ptr %30, align 4
+  %504 = insertvalue { ptr, i32 } poison, ptr %502, 0
+  %505 = insertvalue { ptr, i32 } %504, i32 %503, 1
+  resume { ptr, i32 } %505
+
+506:                                              ; preds = %434
   unreachable
 }
 
@@ -8153,10 +8159,10 @@ define linkonce_odr void @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char
 declare i32 @TIFFGetField(ptr noundef, i32 noundef, ...) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @strstr(ptr noundef, ptr noundef) #14
+declare noundef ptr @strstr(ptr noundef, ptr noundef) #13
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) #14
+declare noundef ptr @strchr(ptr noundef, i32 noundef) #13
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) #2
 
@@ -8172,7 +8178,7 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #14
+declare i32 @atoi(ptr noundef) #13
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
@@ -8670,15 +8676,16 @@ define hidden void @_ZN5osgeo4proj9GTiffGridD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5osgeo4proj9GTiffGridE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %3, i32 0, i32 24
-  call void @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4lessIS7_ESaIS0_IKS7_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #8
-  %5 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %3, i32 0, i32 23
-  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
-  %6 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %3, i32 0, i32 22
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5osgeo4proj9GTiffGridE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %3, i32 0, i32 24
+  call void @_ZNSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4lessIS7_ESaIS0_IKS7_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #8
+  %6 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %3, i32 0, i32 23
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
-  %7 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %3, i32 0, i32 17
-  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
+  %7 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %3, i32 0, i32 22
+  call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
+  %8 = getelementptr inbounds %"class.osgeo::proj::GTiffGrid", ptr %3, i32 0, i32 17
+  call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #8
   call void @_ZN5osgeo4proj4GridD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #8
   ret void
 }
@@ -8928,7 +8935,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid7valueAtEtiiRf(ptr no
 
 160:                                              ; preds = %156
   %161 = load i32, ptr %23, align 4
-  %162 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %162 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %163 = icmp eq i32 %161, %162
   br i1 %163, label %164, label %317
 
@@ -9040,7 +9047,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid7valueAtEtiiRf(ptr no
 
 224:                                              ; preds = %220
   %225 = load i32, ptr %23, align 4
-  %226 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %226 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %227 = icmp eq i32 %225, %226
   br i1 %227, label %228, label %317
 
@@ -10073,7 +10080,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
 
 215:                                              ; preds = %211
   %216 = load i32, ptr %30, align 4
-  %217 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %217 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %218 = icmp eq i32 %216, %217
   br i1 %218, label %219, label %605
 
@@ -10185,7 +10192,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
 
 279:                                              ; preds = %275
   %280 = load i32, ptr %30, align 4
-  %281 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %281 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %282 = icmp eq i32 %280, %281
   br i1 %282, label %283, label %605
 
@@ -10953,35 +10960,36 @@ define hidden void @_ZN5osgeo4proj12GTiffDatasetD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5osgeo4proj12GTiffDatasetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %3, i32 0, i32 3
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %11
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5osgeo4proj12GTiffDatasetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %3, i32 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %12
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %3, i32 0, i32 3
-  %9 = load ptr, ptr %8, align 8
-  invoke void @TIFFClose(ptr noundef %9)
-          to label %10 unwind label %15
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %3, i32 0, i32 3
+  %10 = load ptr, ptr %9, align 8
+  invoke void @TIFFClose(ptr noundef %10)
+          to label %11 unwind label %16
 
-10:                                               ; preds = %7
-  br label %11
+11:                                               ; preds = %8
+  br label %12
 
-11:                                               ; preds = %10, %1
-  %12 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %3, i32 0, i32 8
-  call void @_ZN5osgeo4proj10BlockCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #8
-  %13 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %3, i32 0, i32 7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
-  %14 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #8
+12:                                               ; preds = %11, %1
+  %13 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %3, i32 0, i32 8
+  call void @_ZN5osgeo4proj10BlockCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #8
+  %14 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %3, i32 0, i32 7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #8
+  %15 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #8
   ret void
 
-15:                                               ; preds = %7
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %8
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #17
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #17
   unreachable
 }
 
@@ -12319,9 +12327,10 @@ define hidden void @_ZN5osgeo4proj18GTiffVGridShiftSetD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj18GTiffVGridShiftSetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::GTiffVGridShiftSet", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj12GTiffDatasetESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj18GTiffVGridShiftSetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::GTiffVGridShiftSet", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj12GTiffDatasetESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   call void @_ZN5osgeo4proj20VerticalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #8
   ret void
 }
@@ -12385,13 +12394,14 @@ define hidden void @_ZN5osgeo4proj10GTiffVGridC2EOSt10unique_ptrINS0_9GTiffGridE
   %18 = call noundef ptr @_ZNKSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #8
   %19 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK5osgeo4proj4Grid12extentAndResEv(ptr noundef nonnull align 8 dereferenceable(120) %18)
   call void @_ZN5osgeo4proj17VerticalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %13, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(72) %19)
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj10GTiffVGridE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %20 = getelementptr inbounds %"class.osgeo::proj::GTiffVGrid", ptr %7, i32 0, i32 1
-  %21 = load ptr, ptr %5, align 8
-  call void @_ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21) #8
-  %22 = getelementptr inbounds %"class.osgeo::proj::GTiffVGrid", ptr %7, i32 0, i32 2
-  %23 = load i16, ptr %6, align 2
-  store i16 %23, ptr %22, align 8
+  %20 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj10GTiffVGridE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %7, align 8
+  %21 = getelementptr inbounds %"class.osgeo::proj::GTiffVGrid", ptr %7, i32 0, i32 1
+  %22 = load ptr, ptr %5, align 8
+  call void @_ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22) #8
+  %23 = getelementptr inbounds %"class.osgeo::proj::GTiffVGrid", ptr %7, i32 0, i32 2
+  %24 = load i16, ptr %6, align 2
+  store i16 %24, ptr %23, align 8
   ret void
 }
 
@@ -12461,9 +12471,10 @@ define hidden void @_ZN5osgeo4proj10GTiffVGridD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj10GTiffVGridE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::GTiffVGrid", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj10GTiffVGridE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::GTiffVGrid", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   call void @_ZN5osgeo4proj17VerticalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #8
   ret void
 }
@@ -13230,50 +13241,51 @@ define linkonce_odr hidden void @_ZN5osgeo4proj18GTiffVGridShiftSetC2EP6pj_ctxOS
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj20VerticalShiftGridSetC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj18GTiffVGridShiftSetE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.osgeo::proj::GTiffVGridShiftSet", ptr %9, i32 0, i32 1
-  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #19
-          to label %12 unwind label %16
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj18GTiffVGridShiftSetE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.osgeo::proj::GTiffVGridShiftSet", ptr %9, i32 0, i32 1
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #19
+          to label %13 unwind label %17
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %6, align 8
-  invoke void @_ZN5osgeo4proj12GTiffDatasetC2EP6pj_ctxOSt10unique_ptrINS0_4FileESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %11, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %15 unwind label %20
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %6, align 8
+  invoke void @_ZN5osgeo4proj12GTiffDatasetC2EP6pj_ctxOSt10unique_ptrINS0_4FileESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %12, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %16 unwind label %21
 
-15:                                               ; preds = %12
-  call void @_ZNSt10unique_ptrIN5osgeo4proj12GTiffDatasetESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11) #8
+16:                                               ; preds = %13
+  call void @_ZNSt10unique_ptrIN5osgeo4proj12GTiffDatasetESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12) #8
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %7, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %8, align 4
-  br label %24
-
-20:                                               ; preds = %12
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %7, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %8, align 4
-  call void @_ZdlPv(ptr noundef %11) #18
-  br label %24
-
-24:                                               ; preds = %20, %16
-  call void @_ZN5osgeo4proj20VerticalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #8
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %7, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %8, align 4
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %7, align 8
-  %27 = load i32, ptr %8, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+21:                                               ; preds = %13
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %7, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %8, align 4
+  call void @_ZdlPv(ptr noundef %12) #18
+  br label %25
+
+25:                                               ; preds = %21, %17
+  call void @_ZN5osgeo4proj20VerticalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #8
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14381,51 +14393,52 @@ define linkonce_odr hidden void @_ZN5osgeo4proj21NullVerticalShiftGridC2Ev(ptr n
   %8 = load ptr, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.48, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %9 unwind label %12
+          to label %9 unwind label %13
 
 9:                                                ; preds = %1
   invoke void @_ZN5osgeo4projL12globalExtentEv(ptr dead_on_unwind writable sret(%"struct.osgeo::proj::ExtentAndRes") align 8 %7)
-          to label %10 unwind label %16
+          to label %10 unwind label %17
 
 10:                                               ; preds = %9
   invoke void @_ZN5osgeo4proj17VerticalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(72) %7)
-          to label %11 unwind label %16
+          to label %11 unwind label %17
 
 11:                                               ; preds = %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
-  store ptr getelementptr inbounds inrange(-16, 64) ({ [10 x ptr] }, ptr @_ZTVN5osgeo4proj21NullVerticalShiftGridE, i32 0, i32 0, i32 2), ptr %8, align 8
+  %12 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN5osgeo4proj21NullVerticalShiftGridE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %8, align 8
   ret void
 
-12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %5, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %6, align 4
-  br label %20
-
-16:                                               ; preds = %10, %9
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %5, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
-  br label %20
-
-20:                                               ; preds = %16, %12
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %5, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %6, align 4
   br label %21
 
-21:                                               ; preds = %20
-  %22 = load ptr, ptr %5, align 8
-  %23 = load i32, ptr %6, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+17:                                               ; preds = %10, %9
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %5, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
+  br label %21
+
+21:                                               ; preds = %17, %13
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
+  br label %22
+
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %5, align 8
+  %24 = load i32, ptr %6, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15306,10 +15319,11 @@ define void @_ZN5osgeo4proj19HorizontalShiftGridC2ERKNSt7__cxx1112basic_stringIc
   %14 = load i32, ptr %9, align 4
   %15 = load ptr, ptr %10, align 8
   call void @_ZN5osgeo4proj4GridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(120) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(72) %15)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5osgeo4proj19HorizontalShiftGridE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %16 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGrid", ptr %11, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
+  %16 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5osgeo4proj19HorizontalShiftGridE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %11, align 8
+  %17 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGrid", ptr %11, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #8
   ret void
 }
 
@@ -15327,9 +15341,10 @@ define void @_ZN5osgeo4proj19HorizontalShiftGridD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5osgeo4proj19HorizontalShiftGridE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGrid", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5osgeo4proj19HorizontalShiftGridE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGrid", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
   call void @_ZN5osgeo4proj4GridD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #8
   ret void
 }
@@ -15374,14 +15389,15 @@ define void @_ZN5osgeo4proj22HorizontalShiftGridSetC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj22HorizontalShiftGridSetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGridSet", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
-  %5 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGridSet", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj22HorizontalShiftGridSetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGridSet", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  %6 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGridSet", ptr %3, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
+  %6 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGridSet", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  %7 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGridSet", ptr %3, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
   ret void
 }
 
@@ -15390,13 +15406,14 @@ define void @_ZN5osgeo4proj22HorizontalShiftGridSetD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj22HorizontalShiftGridSetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGridSet", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  %5 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGridSet", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  %6 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGridSet", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj22HorizontalShiftGridSetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGridSet", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGridSet", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  %7 = getelementptr inbounds %"class.osgeo::proj::HorizontalShiftGridSet", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   ret void
 }
 
@@ -15437,9 +15454,10 @@ define hidden void @_ZN5osgeo4proj8NTv1GridD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5osgeo4proj8NTv1GridE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::NTv1Grid", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5osgeo4proj8NTv1GridE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::NTv1Grid", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   call void @_ZN5osgeo4proj19HorizontalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #8
   ret void
 }
@@ -15728,13 +15746,14 @@ define linkonce_odr hidden void @_ZN5osgeo4proj8NTv1GridC2EP6pj_ctxOSt10unique_p
   %18 = load i32, ptr %13, align 4
   %19 = load ptr, ptr %14, align 8
   call void @_ZN5osgeo4proj19HorizontalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %15, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(72) %19)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5osgeo4proj8NTv1GridE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %20 = getelementptr inbounds %"class.osgeo::proj::NTv1Grid", ptr %15, i32 0, i32 1
-  %21 = load ptr, ptr %9, align 8
-  store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.osgeo::proj::NTv1Grid", ptr %15, i32 0, i32 2
-  %23 = load ptr, ptr %10, align 8
-  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23) #8
+  %20 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5osgeo4proj8NTv1GridE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %15, align 8
+  %21 = getelementptr inbounds %"class.osgeo::proj::NTv1Grid", ptr %15, i32 0, i32 1
+  %22 = load ptr, ptr %9, align 8
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.osgeo::proj::NTv1Grid", ptr %15, i32 0, i32 2
+  %24 = load ptr, ptr %10, align 8
+  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24) #8
   ret void
 }
 
@@ -15834,9 +15853,10 @@ define hidden void @_ZN5osgeo4proj11CTable2GridD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5osgeo4proj11CTable2GridE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::CTable2Grid", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5osgeo4proj11CTable2GridE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::CTable2Grid", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   call void @_ZN5osgeo4proj19HorizontalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #8
   ret void
 }
@@ -16064,12 +16084,13 @@ define linkonce_odr hidden void @_ZN5osgeo4proj11CTable2GridC2EP6pj_ctxSt10uniqu
   %18 = load i32, ptr %13, align 4
   %19 = load ptr, ptr %14, align 8
   call void @_ZN5osgeo4proj19HorizontalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %15, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(72) %19)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5osgeo4proj11CTable2GridE, i32 0, i32 0, i32 2), ptr %15, align 8
-  %20 = getelementptr inbounds %"class.osgeo::proj::CTable2Grid", ptr %15, i32 0, i32 1
-  %21 = load ptr, ptr %9, align 8
-  store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.osgeo::proj::CTable2Grid", ptr %15, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %2) #8
+  %20 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5osgeo4proj11CTable2GridE, i32 0, i32 0, i32 2
+  store ptr %20, ptr %15, align 8
+  %21 = getelementptr inbounds %"class.osgeo::proj::CTable2Grid", ptr %15, i32 0, i32 1
+  %22 = load ptr, ptr %9, align 8
+  store ptr %22, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.osgeo::proj::CTable2Grid", ptr %15, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %2) #8
   ret void
 }
 
@@ -16216,7 +16237,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj8NTv2Grid7valueAtEiibRfS2_(ptr 
 
 44:                                               ; preds = %40
   %45 = load i32, ptr %16, align 4
-  %46 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %46 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %47 = icmp eq i32 %45, %46
   br i1 %47, label %48, label %257
 
@@ -16436,7 +16457,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj8NTv2Grid7valueAtEiibRfS2_(ptr 
 
 199:                                              ; preds = %195
   %200 = load i32, ptr %16, align 4
-  %201 = call i32 @llvm.eh.typeid.for(ptr @_ZTISt9exception) #8
+  %201 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTISt9exception) #8
   %202 = icmp eq i32 %200, %201
   br i1 %202, label %203, label %257
 
@@ -16565,11 +16586,12 @@ define hidden void @_ZN5osgeo4proj11NTv2GridSetD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj11NTv2GridSetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::NTv2GridSet", ptr %3, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
-  %5 = getelementptr inbounds %"class.osgeo::proj::NTv2GridSet", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj11NTv2GridSetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::NTv2GridSet", ptr %3, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  %6 = getelementptr inbounds %"class.osgeo::proj::NTv2GridSet", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
   call void @_ZN5osgeo4proj22HorizontalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #8
   ret void
 }
@@ -17354,12 +17376,13 @@ define linkonce_odr hidden void @_ZN5osgeo4proj11NTv2GridSetC2EOSt10unique_ptrIN
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5osgeo4proj22HorizontalShiftGridSetC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj11NTv2GridSetE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.osgeo::proj::NTv2GridSet", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #8
-  %8 = getelementptr inbounds %"class.osgeo::proj::NTv2GridSet", ptr %5, i32 0, i32 2
-  call void @_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #8
+  %6 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj11NTv2GridSetE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.osgeo::proj::NTv2GridSet", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #8
+  %9 = getelementptr inbounds %"class.osgeo::proj::NTv2GridSet", ptr %5, i32 0, i32 2
+  call void @_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #8
   ret void
 }
 
@@ -17409,7 +17432,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5osgeo4proj11NTv2GridSetESt1
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #14
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5osgeo4proj8NTv2GridESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
@@ -17422,7 +17445,7 @@ define linkonce_odr hidden void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #14
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #13
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #2
 
@@ -17457,29 +17480,30 @@ define linkonce_odr hidden void @_ZN5osgeo4proj8NTv2GridC2ERKNSt7__cxx1112basic_
   %25 = load i32, ptr %19, align 4
   %26 = load ptr, ptr %20, align 8
   call void @_ZN5osgeo4proj19HorizontalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef %24, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(72) %26)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5osgeo4proj8NTv2GridE, i32 0, i32 0, i32 2), ptr %22, align 8
-  %27 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 1
-  %28 = load ptr, ptr %13, align 8
-  store ptr %28, ptr %27, align 8
-  %29 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 2
-  %30 = load ptr, ptr %14, align 8
-  store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 3
-  store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 4
-  %33 = load i32, ptr %15, align 4
-  store i32 %33, ptr %32, align 8
-  %34 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 5
-  %35 = load i64, ptr %16, align 8
-  store i64 %35, ptr %34, align 8
-  %36 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 6
-  %37 = load i8, ptr %17, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = zext i1 %38 to i8
-  store i8 %39, ptr %36, align 8
-  %40 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 7
-  call void @llvm.memset.p0.i64(ptr align 8 %40, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #8
+  %27 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5osgeo4proj8NTv2GridE, i32 0, i32 0, i32 2
+  store ptr %27, ptr %22, align 8
+  %28 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 1
+  %29 = load ptr, ptr %13, align 8
+  store ptr %29, ptr %28, align 8
+  %30 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 2
+  %31 = load ptr, ptr %14, align 8
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 3
+  store ptr null, ptr %32, align 8
+  %33 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 4
+  %34 = load i32, ptr %15, align 4
+  store i32 %34, ptr %33, align 8
+  %35 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 5
+  %36 = load i64, ptr %16, align 8
+  store i64 %36, ptr %35, align 8
+  %37 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 6
+  %38 = load i8, ptr %17, align 1
+  %39 = trunc i8 %38 to i1
+  %40 = zext i1 %39 to i8
+  store i8 %40, ptr %37, align 8
+  %41 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %22, i32 0, i32 7
+  call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #8
   ret void
 }
 
@@ -17873,9 +17897,10 @@ define hidden void @_ZN5osgeo4proj18GTiffHGridShiftSetD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj18GTiffHGridShiftSetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::GTiffHGridShiftSet", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj12GTiffDatasetESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj18GTiffHGridShiftSetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::GTiffHGridShiftSet", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj12GTiffDatasetESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   call void @_ZN5osgeo4proj22HorizontalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #8
   ret void
 }
@@ -17919,24 +17944,25 @@ define hidden void @_ZN5osgeo4proj10GTiffHGridC2EOSt10unique_ptrINS0_9GTiffGridE
   %25 = call noundef ptr @_ZNKSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #8
   %26 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK5osgeo4proj4Grid12extentAndResEv(ptr noundef nonnull align 8 dereferenceable(120) %25)
   call void @_ZN5osgeo4proj19HorizontalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %14, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %20, i32 noundef %23, ptr noundef nonnull align 8 dereferenceable(72) %26)
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5osgeo4proj10GTiffHGridE, i32 0, i32 0, i32 2), ptr %14, align 8
-  %27 = getelementptr inbounds %"class.osgeo::proj::GTiffHGrid", ptr %14, i32 0, i32 1
-  %28 = load ptr, ptr %8, align 8
-  call void @_ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28) #8
-  %29 = getelementptr inbounds %"class.osgeo::proj::GTiffHGrid", ptr %14, i32 0, i32 2
-  %30 = load i16, ptr %9, align 2
-  store i16 %30, ptr %29, align 8
-  %31 = getelementptr inbounds %"class.osgeo::proj::GTiffHGrid", ptr %14, i32 0, i32 3
-  %32 = load i16, ptr %10, align 2
-  store i16 %32, ptr %31, align 2
-  %33 = getelementptr inbounds %"class.osgeo::proj::GTiffHGrid", ptr %14, i32 0, i32 5
-  %34 = load double, ptr %11, align 8
-  store double %34, ptr %33, align 8
-  %35 = getelementptr inbounds %"class.osgeo::proj::GTiffHGrid", ptr %14, i32 0, i32 6
-  %36 = load i8, ptr %12, align 1
-  %37 = trunc i8 %36 to i1
-  %38 = zext i1 %37 to i8
-  store i8 %38, ptr %35, align 8
+  %27 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5osgeo4proj10GTiffHGridE, i32 0, i32 0, i32 2
+  store ptr %27, ptr %14, align 8
+  %28 = getelementptr inbounds %"class.osgeo::proj::GTiffHGrid", ptr %14, i32 0, i32 1
+  %29 = load ptr, ptr %8, align 8
+  call void @_ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %29) #8
+  %30 = getelementptr inbounds %"class.osgeo::proj::GTiffHGrid", ptr %14, i32 0, i32 2
+  %31 = load i16, ptr %9, align 2
+  store i16 %31, ptr %30, align 8
+  %32 = getelementptr inbounds %"class.osgeo::proj::GTiffHGrid", ptr %14, i32 0, i32 3
+  %33 = load i16, ptr %10, align 2
+  store i16 %33, ptr %32, align 2
+  %34 = getelementptr inbounds %"class.osgeo::proj::GTiffHGrid", ptr %14, i32 0, i32 5
+  %35 = load double, ptr %11, align 8
+  store double %35, ptr %34, align 8
+  %36 = getelementptr inbounds %"class.osgeo::proj::GTiffHGrid", ptr %14, i32 0, i32 6
+  %37 = load i8, ptr %12, align 1
+  %38 = trunc i8 %37 to i1
+  %39 = zext i1 %38 to i8
+  store i8 %39, ptr %36, align 8
   ret void
 }
 
@@ -17945,9 +17971,10 @@ define hidden void @_ZN5osgeo4proj10GTiffHGridD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5osgeo4proj10GTiffHGridE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::GTiffHGrid", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5osgeo4proj10GTiffHGridE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::GTiffHGrid", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   call void @_ZN5osgeo4proj19HorizontalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #8
   ret void
 }
@@ -19169,50 +19196,51 @@ define linkonce_odr hidden void @_ZN5osgeo4proj18GTiffHGridShiftSetC2EP6pj_ctxOS
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj22HorizontalShiftGridSetC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj18GTiffHGridShiftSetE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.osgeo::proj::GTiffHGridShiftSet", ptr %9, i32 0, i32 1
-  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #19
-          to label %12 unwind label %16
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj18GTiffHGridShiftSetE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.osgeo::proj::GTiffHGridShiftSet", ptr %9, i32 0, i32 1
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #19
+          to label %13 unwind label %17
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %6, align 8
-  invoke void @_ZN5osgeo4proj12GTiffDatasetC2EP6pj_ctxOSt10unique_ptrINS0_4FileESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %11, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %15 unwind label %20
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %6, align 8
+  invoke void @_ZN5osgeo4proj12GTiffDatasetC2EP6pj_ctxOSt10unique_ptrINS0_4FileESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %12, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %16 unwind label %21
 
-15:                                               ; preds = %12
-  call void @_ZNSt10unique_ptrIN5osgeo4proj12GTiffDatasetESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11) #8
+16:                                               ; preds = %13
+  call void @_ZNSt10unique_ptrIN5osgeo4proj12GTiffDatasetESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12) #8
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %7, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %8, align 4
-  br label %24
-
-20:                                               ; preds = %12
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %7, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %8, align 4
-  call void @_ZdlPv(ptr noundef %11) #18
-  br label %24
-
-24:                                               ; preds = %20, %16
-  call void @_ZN5osgeo4proj22HorizontalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #8
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %7, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %8, align 4
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %7, align 8
-  %27 = load i32, ptr %8, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+21:                                               ; preds = %13
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %7, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %8, align 4
+  call void @_ZdlPv(ptr noundef %12) #18
+  br label %25
+
+25:                                               ; preds = %21, %17
+  call void @_ZN5osgeo4proj22HorizontalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #8
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20429,48 +20457,49 @@ define linkonce_odr hidden void @_ZN5osgeo4proj23NullHorizontalShiftGridC2Ev(ptr
   %8 = load ptr, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.48, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %9 unwind label %11
+          to label %9 unwind label %12
 
 9:                                                ; preds = %1
   call void @_ZN5osgeo4projL12globalExtentEv(ptr dead_on_unwind writable sret(%"struct.osgeo::proj::ExtentAndRes") align 8 %7)
   invoke void @_ZN5osgeo4proj19HorizontalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(72) %7)
-          to label %10 unwind label %15
+          to label %10 unwind label %16
 
 10:                                               ; preds = %9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5osgeo4proj23NullHorizontalShiftGridE, i32 0, i32 0, i32 2), ptr %8, align 8
+  %11 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5osgeo4proj23NullHorizontalShiftGridE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %8, align 8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  br label %19
-
-15:                                               ; preds = %9
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %5, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
-  br label %19
-
-19:                                               ; preds = %15, %11
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
   br label %20
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+16:                                               ; preds = %9
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %5, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
+  br label %20
+
+20:                                               ; preds = %16, %12
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i32, ptr %6, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -21103,9 +21132,10 @@ define hidden void @_ZN5osgeo4proj24GTiffGenericGridShiftSetD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj24GTiffGenericGridShiftSetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::GTiffGenericGridShiftSet", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5osgeo4proj12GTiffDatasetESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj24GTiffGenericGridShiftSetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::GTiffGenericGridShiftSet", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5osgeo4proj12GTiffDatasetESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   call void @_ZN5osgeo4proj19GenericShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #8
   ret void
 }
@@ -21115,13 +21145,14 @@ define void @_ZN5osgeo4proj19GenericShiftGridSetD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj19GenericShiftGridSetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGridSet", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  %5 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGridSet", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  %6 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGridSet", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj19GenericShiftGridSetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGridSet", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGridSet", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  %7 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGridSet", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   ret void
 }
 
@@ -21155,16 +21186,17 @@ define hidden void @_ZN5osgeo4proj16GTiffGenericGridC2EOSt10unique_ptrINS0_9GTif
   %16 = call noundef ptr @_ZNKSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #8
   %17 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK5osgeo4proj4Grid12extentAndResEv(ptr noundef nonnull align 8 dereferenceable(120) %16)
   call void @_ZN5osgeo4proj16GenericShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %11, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(72) %17)
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN5osgeo4proj16GTiffGenericGridE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %18 = getelementptr inbounds %"class.osgeo::proj::GTiffGenericGrid", ptr %5, i32 0, i32 1
-  %19 = load ptr, ptr %4, align 8
-  call void @_ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #8
-  %20 = getelementptr inbounds %"class.osgeo::proj::GTiffGenericGrid", ptr %5, i32 0, i32 2
-  store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.osgeo::proj::GTiffGenericGrid", ptr %5, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #8
-  %22 = getelementptr inbounds %"class.osgeo::proj::GTiffGenericGrid", ptr %5, i32 0, i32 4
-  store i8 0, ptr %22, align 8
+  %18 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5osgeo4proj16GTiffGenericGridE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %5, align 8
+  %19 = getelementptr inbounds %"class.osgeo::proj::GTiffGenericGrid", ptr %5, i32 0, i32 1
+  %20 = load ptr, ptr %4, align 8
+  call void @_ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20) #8
+  %21 = getelementptr inbounds %"class.osgeo::proj::GTiffGenericGrid", ptr %5, i32 0, i32 2
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds %"class.osgeo::proj::GTiffGenericGrid", ptr %5, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #8
+  %23 = getelementptr inbounds %"class.osgeo::proj::GTiffGenericGrid", ptr %5, i32 0, i32 4
+  store i8 0, ptr %23, align 8
   ret void
 }
 
@@ -21186,10 +21218,11 @@ define void @_ZN5osgeo4proj16GenericShiftGridC2ERKNSt7__cxx1112basic_stringIcSt1
   %14 = load i32, ptr %9, align 4
   %15 = load ptr, ptr %10, align 8
   call void @_ZN5osgeo4proj4GridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(120) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(72) %15)
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN5osgeo4proj16GenericShiftGridE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %16 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGrid", ptr %11, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #8
+  %16 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5osgeo4proj16GenericShiftGridE, i32 0, i32 0, i32 2
+  store ptr %16, ptr %11, align 8
+  %17 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGrid", ptr %11, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #8
   ret void
 }
 
@@ -21211,9 +21244,10 @@ define void @_ZN5osgeo4proj16GenericShiftGridD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN5osgeo4proj16GenericShiftGridE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGrid", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5osgeo4proj16GenericShiftGridE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGrid", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
   call void @_ZN5osgeo4proj4GridD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #8
   ret void
 }
@@ -22083,50 +22117,51 @@ define linkonce_odr hidden void @_ZN5osgeo4proj24GTiffGenericGridShiftSetC2EP6pj
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5osgeo4proj19GenericShiftGridSetC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj24GTiffGenericGridShiftSetE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.osgeo::proj::GTiffGenericGridShiftSet", ptr %9, i32 0, i32 1
-  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #19
-          to label %12 unwind label %16
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj24GTiffGenericGridShiftSetE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.osgeo::proj::GTiffGenericGridShiftSet", ptr %9, i32 0, i32 1
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #19
+          to label %13 unwind label %17
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %6, align 8
-  invoke void @_ZN5osgeo4proj12GTiffDatasetC2EP6pj_ctxOSt10unique_ptrINS0_4FileESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %11, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %15 unwind label %20
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %6, align 8
+  invoke void @_ZN5osgeo4proj12GTiffDatasetC2EP6pj_ctxOSt10unique_ptrINS0_4FileESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(192) %12, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %16 unwind label %21
 
-15:                                               ; preds = %12
-  call void @_ZNSt10unique_ptrIN5osgeo4proj12GTiffDatasetESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11) #8
+16:                                               ; preds = %13
+  call void @_ZNSt10unique_ptrIN5osgeo4proj12GTiffDatasetESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12) #8
   ret void
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %7, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %8, align 4
-  br label %24
-
-20:                                               ; preds = %12
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %7, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %8, align 4
-  call void @_ZdlPv(ptr noundef %11) #18
-  br label %24
-
-24:                                               ; preds = %20, %16
-  call void @_ZN5osgeo4proj19GenericShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #8
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %7, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %8, align 4
   br label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %7, align 8
-  %27 = load i32, ptr %8, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+21:                                               ; preds = %13
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %7, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %8, align 4
+  call void @_ZdlPv(ptr noundef %12) #18
+  br label %25
+
+25:                                               ; preds = %21, %17
+  call void @_ZN5osgeo4proj19GenericShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #8
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22927,14 +22962,15 @@ define void @_ZN5osgeo4proj19GenericShiftGridSetC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5osgeo4proj19GenericShiftGridSetE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGridSet", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
-  %5 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGridSet", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5osgeo4proj19GenericShiftGridSetE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGridSet", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
-  %6 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGridSet", ptr %3, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
+  %6 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGridSet", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  %7 = getelementptr inbounds %"class.osgeo::proj::GenericShiftGridSet", ptr %3, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
   ret void
 }
 
@@ -23282,48 +23318,49 @@ define linkonce_odr hidden void @_ZN5osgeo4proj20NullGenericShiftGridC2Ev(ptr no
   %8 = load ptr, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.48, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %9 unwind label %11
+          to label %9 unwind label %12
 
 9:                                                ; preds = %1
   call void @_ZN5osgeo4projL12globalExtentEv(ptr dead_on_unwind writable sret(%"struct.osgeo::proj::ExtentAndRes") align 8 %7)
   invoke void @_ZN5osgeo4proj16GenericShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(72) %7)
-          to label %10 unwind label %15
+          to label %10 unwind label %16
 
 10:                                               ; preds = %9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
-  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN5osgeo4proj20NullGenericShiftGridE, i32 0, i32 0, i32 2), ptr %8, align 8
+  %11 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5osgeo4proj20NullGenericShiftGridE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %8, align 8
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  br label %19
-
-15:                                               ; preds = %9
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %5, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
-  br label %19
-
-19:                                               ; preds = %15, %11
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
   br label %20
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i32, ptr %6, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+16:                                               ; preds = %9
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %5, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
+  br label %20
+
+20:                                               ; preds = %16, %12
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i32, ptr %6, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -28359,9 +28396,10 @@ define linkonce_odr hidden void @_ZN5osgeo4proj8NTv2GridD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) ({ [9 x ptr] }, ptr @_ZTVN5osgeo4proj8NTv2GridE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN5osgeo4proj8NTv2GridE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::NTv2Grid", ptr %3, i32 0, i32 7
+  call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
   call void @_ZN5osgeo4proj19HorizontalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #8
   ret void
 }
@@ -29719,11 +29757,12 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.26", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  %5 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.26", ptr %3, i32 0, i32 2
-  call void @_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.26", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.26", ptr %3, i32 0, i32 2
+  call void @_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #8
   ret void
 }
 
@@ -30627,48 +30666,49 @@ define linkonce_odr hidden void @_ZN5osgeo4proj12GTiffDatasetC2EP6pj_ctxOSt10uni
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5osgeo4proj12GTiffDatasetE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %6, align 8
-  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13) #8
-  %14 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 3
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 4
-  store i8 0, ptr %15, align 8
-  %16 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 5
-  store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 6
-  store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #8
-  %19 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 8
-  call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 112, i1 false)
-  invoke void @_ZN5osgeo4proj10BlockCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %19)
-          to label %20 unwind label %21
-
-20:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5osgeo4proj12GTiffDatasetE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %6, align 8
+  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14) #8
+  %15 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 3
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 4
+  store i8 0, ptr %16, align 8
+  %17 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 5
+  store i32 0, ptr %17, align 4
+  %18 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 6
+  store i64 0, ptr %18, align 8
+  %19 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 7
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #8
+  %20 = getelementptr inbounds %"class.osgeo::proj::GTiffDataset", ptr %9, i32 0, i32 8
+  call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 112, i1 false)
+  invoke void @_ZN5osgeo4proj10BlockCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %20)
+          to label %21 unwind label %22
 
 21:                                               ; preds = %3
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %7, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #8
-  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #8
-  br label %25
+  ret void
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %7, align 8
-  %27 = load i32, ptr %8, align 4
-  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
-  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
-  resume { ptr, i32 } %29
+22:                                               ; preds = %3
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %7, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #8
+  call void @_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #8
+  br label %26
+
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr %8, align 4
+  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -30713,19 +30753,20 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS
   store i64 %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.26", ptr %7, i32 0, i32 2
-  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 56, i1 false)
-  call void @_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #8
-  %9 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.26", ptr %7, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 24, i1 false)
-  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %10 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.26", ptr %7, i32 0, i32 4
-  %11 = load i64, ptr %5, align 8
-  store i64 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.26", ptr %7, i32 0, i32 5
-  %13 = load i64, ptr %6, align 8
-  store i64 %13, ptr %12, align 8
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.26", ptr %7, i32 0, i32 2
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 56, i1 false)
+  call void @_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #8
+  %10 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.26", ptr %7, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 24, i1 false)
+  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #8
+  %11 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.26", ptr %7, i32 0, i32 4
+  %12 = load i64, ptr %5, align 8
+  store i64 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache.26", ptr %7, i32 0, i32 5
+  %14 = load i64, ptr %6, align 8
+  store i64 %14, ptr %13, align 8
   ret void
 }
 
@@ -32122,11 +32163,12 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
-  %5 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %3, i32 0, i32 2
-  call void @_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
+  %6 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %3, i32 0, i32 2
+  call void @_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #8
   ret void
 }
 
@@ -35089,7 +35131,7 @@ define linkonce_odr noundef i64 @_ZNKSt6vectorISt10unique_ptrIN5osgeo4proj22Hori
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #15
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
@@ -35269,10 +35311,10 @@ define linkonce_odr noundef ptr @_ZNSt15__new_allocatorISt10unique_ptrIN5osgeo4p
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #15
+declare void @_ZSt28__throw_bad_array_new_lengthv() #14
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #15
+declare void @_ZSt17__throw_bad_allocv() #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EE14_S_do_relocateEPS6_S9_S9_RS7_St17integral_constantIbLb1EE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #0 comdat align 2 {
@@ -39047,7 +39089,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt11__alloc_neqISaISt10_List_n
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #16
+declare void @abort() #15
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) #4
@@ -41217,19 +41259,20 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS
   store i64 %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 2
-  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 56, i1 false)
-  call void @_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #8
-  %9 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 24, i1 false)
-  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #8
-  %10 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 4
-  %11 = load i64, ptr %5, align 8
-  store i64 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 5
-  %13 = load i64, ptr %6, align 8
-  store i64 %13, ptr %12, align 8
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 2
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 56, i1 false)
+  call void @_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #8
+  %10 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 24, i1 false)
+  call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEESaIS8_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #8
+  %11 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 4
+  %12 = load i64, ptr %5, align 8
+  store i64 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.osgeo::proj::lru11::Cache", ptr %7, i32 0, i32 5
+  %14 = load i64, ptr %6, align 8
+  store i64 %14, ptr %13, align 8
   ret void
 }
 
@@ -47352,10 +47395,10 @@ define linkonce_odr void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tre
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #14
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #13
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #14
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES0_IKS7_S6_ESt10_Select1stIS9_ESt4lessIS7_ESaIS9_EE14_M_insert_nodeEPSt18_Rb_tree_node_baseSH_PSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 comdat align 2 {
@@ -65956,6 +65999,9 @@ define internal void @_GLOBAL__sub_I_grids.cpp() #7 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -65968,11 +66014,11 @@ attributes #8 = { nounwind }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind memory(none) }
-attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind memory(none) }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { builtin nounwind }
 attributes #19 = { builtin allocsize(0) }

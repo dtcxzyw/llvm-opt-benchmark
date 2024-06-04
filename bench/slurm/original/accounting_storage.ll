@@ -156,68 +156,71 @@ define i32 @jobacct_storage_g_job_start(ptr noundef %0, ptr noundef %1) #0 {
 
 10:                                               ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %49
+  br label %52
 
 11:                                               ; preds = %2
-  %12 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 2), align 8
-  %13 = zext i16 %12 to i64
-  %14 = and i64 %13, 32
-  %15 = icmp ne i64 %14, 0
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %11
-  store i32 0, ptr %3, align 4
-  br label %49
+  %12 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 2
+  %13 = load i16, ptr %12, align 8
+  %14 = zext i16 %13 to i64
+  %15 = and i64 %14, 32
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.job_record, ptr %18, i32 0, i32 60
-  %20 = load i32, ptr %19, align 8
-  %21 = and i32 %20, 255
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %44
+  store i32 0, ptr %3, align 4
+  br label %52
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.job_record, ptr %24, i32 0, i32 60
-  %26 = load i32, ptr %25, align 8
-  %27 = zext i32 %26 to i64
-  %28 = and i64 %27, 32768
-  %29 = icmp ne i64 %28, 0
-  br i1 %29, label %44, label %30
+18:                                               ; preds = %11
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds %struct.job_record, ptr %19, i32 0, i32 60
+  %21 = load i32, ptr %20, align 8
+  %22 = and i32 %21, 255
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %46
 
-30:                                               ; preds = %23
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.job_record, ptr %31, i32 0, i32 120
-  %33 = load i64, ptr %32, align 8
-  store i64 %33, ptr %7, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.job_record, ptr %34, i32 0, i32 120
-  store i64 0, ptr %35, align 8
-  %36 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 62), align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = call i32 %36(ptr noundef %37, ptr noundef %38)
-  store i32 %39, ptr %6, align 4
-  %40 = load i64, ptr %7, align 8
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.job_record, ptr %41, i32 0, i32 120
-  store i64 %40, ptr %42, align 8
-  %43 = load i32, ptr %6, align 4
-  store i32 %43, ptr %3, align 4
-  br label %49
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds %struct.job_record, ptr %25, i32 0, i32 60
+  %27 = load i32, ptr %26, align 8
+  %28 = zext i32 %27 to i64
+  %29 = and i64 %28, 32768
+  %30 = icmp ne i64 %29, 0
+  br i1 %30, label %46, label %31
 
-44:                                               ; preds = %23, %17
-  %45 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 62), align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = call i32 %45(ptr noundef %46, ptr noundef %47)
-  store i32 %48, ptr %3, align 4
-  br label %49
+31:                                               ; preds = %24
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds %struct.job_record, ptr %32, i32 0, i32 120
+  %34 = load i64, ptr %33, align 8
+  store i64 %34, ptr %7, align 8
+  %35 = load ptr, ptr %5, align 8
+  %36 = getelementptr inbounds %struct.job_record, ptr %35, i32 0, i32 120
+  store i64 0, ptr %36, align 8
+  %37 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 62
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = load ptr, ptr %5, align 8
+  %41 = call i32 %38(ptr noundef %39, ptr noundef %40)
+  store i32 %41, ptr %6, align 4
+  %42 = load i64, ptr %7, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds %struct.job_record, ptr %43, i32 0, i32 120
+  store i64 %42, ptr %44, align 8
+  %45 = load i32, ptr %6, align 4
+  store i32 %45, ptr %3, align 4
+  br label %52
 
-49:                                               ; preds = %44, %30, %16, %10
-  %50 = load i32, ptr %3, align 4
-  ret i32 %50
+46:                                               ; preds = %24, %18
+  %47 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 62
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %4, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = call i32 %48(ptr noundef %49, ptr noundef %50)
+  store i32 %51, ptr %3, align 4
+  br label %52
+
+52:                                               ; preds = %46, %31, %17, %10
+  %53 = load i32, ptr %3, align 4
+  ret i32 %53
 }
 
 ; Function Attrs: nounwind uwtable
@@ -253,61 +256,64 @@ define i32 @acct_storage_g_init() #0 {
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  br label %32
+  br label %35
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 9), align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %21, label %20
-
-20:                                               ; preds = %17
-  store i32 1, ptr @plugin_inited, align 4
-  br label %32
+  %18 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 9
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %2, align 8
-  %23 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 9), align 8
-  %24 = call ptr @plugin_context_create(ptr noundef %22, ptr noundef %23, ptr noundef @ops, ptr noundef @syms, i64 noundef 640)
-  store ptr %24, ptr @plugin_context, align 8
-  %25 = load ptr, ptr @plugin_context, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %31, label %27
+  store i32 1, ptr @plugin_inited, align 4
+  br label %35
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %2, align 8
-  %29 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 9), align 8
-  %30 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %28, ptr noundef %29)
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 9
+  %25 = load ptr, ptr %24, align 8
+  %26 = call ptr @plugin_context_create(ptr noundef %23, ptr noundef %25, ptr noundef @ops, ptr noundef @syms, i64 noundef 640)
+  store ptr %26, ptr @plugin_context, align 8
+  %27 = load ptr, ptr @plugin_context, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %34, label %29
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 9
+  %32 = load ptr, ptr %31, align 8
+  %33 = call i32 (ptr, ...) @error(ptr noundef @.str.3, ptr noundef %30, ptr noundef %32)
   store i32 -1, ptr %1, align 4
   store i32 0, ptr @plugin_inited, align 4
-  br label %32
+  br label %35
 
-31:                                               ; preds = %21
+34:                                               ; preds = %22
   store i32 2, ptr @plugin_inited, align 4
-  br label %32
+  br label %35
 
-32:                                               ; preds = %31, %27, %20, %16
-  br label %33
+35:                                               ; preds = %34, %29, %21, %16
+  br label %36
 
-33:                                               ; preds = %32
-  %34 = call i32 @pthread_rwlock_unlock(ptr noundef @plugin_context_lock) #5
-  store i32 %34, ptr %4, align 4
-  %35 = load i32, ptr %4, align 4
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %37, label %40
-
-37:                                               ; preds = %33
+36:                                               ; preds = %35
+  %37 = call i32 @pthread_rwlock_unlock(ptr noundef @plugin_context_lock) #5
+  store i32 %37, ptr %4, align 4
   %38 = load i32, ptr %4, align 4
-  %39 = call ptr @__errno_location() #6
-  store i32 %38, ptr %39, align 4
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %43
+
+40:                                               ; preds = %36
+  %41 = load i32, ptr %4, align 4
+  %42 = call ptr @__errno_location() #6
+  store i32 %41, ptr %42, align 4
   call void (ptr, ...) @fatal(ptr noundef @.str.4, ptr noundef @.str.2, i32 noundef 358, ptr noundef @__func__.acct_storage_g_init) #7
   unreachable
 
-40:                                               ; preds = %33
-  br label %41
+43:                                               ; preds = %36
+  br label %44
 
-41:                                               ; preds = %40
-  %42 = load i32, ptr %1, align 4
-  ret i32 %42
+44:                                               ; preds = %43
+  %45 = load i32, ptr %1, align 4
+  ret i32 %45
 }
 
 ; Function Attrs: nounwind
@@ -438,18 +444,19 @@ define i32 @acct_storage_g_close_connection(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %11
+  br label %12
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 1), align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call i32 %8(ptr noundef %9)
-  store i32 %10, ptr %2, align 4
-  br label %11
+  %8 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call i32 %9(ptr noundef %10)
+  store i32 %11, ptr %2, align 4
+  br label %12
 
-11:                                               ; preds = %7, %6
-  %12 = load i32, ptr %2, align 4
-  ret i32 %12
+12:                                               ; preds = %7, %6
+  %13 = load i32, ptr %2, align 4
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -466,20 +473,21 @@ define i32 @acct_storage_g_commit(ptr noundef %0, i1 noundef zeroext %1) #0 {
 
 9:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %16
+  br label %17
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 2), align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i8, ptr %5, align 1
-  %14 = trunc i8 %13 to i1
-  %15 = call i32 %11(ptr noundef %12, i1 noundef zeroext %14)
-  store i32 %15, ptr %3, align 4
-  br label %16
+  %11 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = load i8, ptr %5, align 1
+  %15 = trunc i8 %14 to i1
+  %16 = call i32 %12(ptr noundef %13, i1 noundef zeroext %15)
+  store i32 %16, ptr %3, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+17:                                               ; preds = %10, %9
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -497,20 +505,21 @@ define i32 @acct_storage_g_add_users(ptr noundef %0, i32 noundef %1, ptr noundef
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 3), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 3
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %4, align 4
-  ret i32 %18
+18:                                               ; preds = %11, %10
+  %19 = load i32, ptr %4, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -530,21 +539,22 @@ define ptr @acct_storage_g_add_users_cond(ptr noundef %0, i32 noundef %1, ptr no
 
 12:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 4), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 4
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load ptr, ptr %5, align 8
-  ret ptr %21
+21:                                               ; preds = %13, %12
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -564,21 +574,22 @@ define i32 @acct_storage_g_add_coord(ptr noundef %0, i32 noundef %1, ptr noundef
 
 12:                                               ; preds = %4
   store i32 0, ptr %5, align 4
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 5), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call i32 %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store i32 %19, ptr %5, align 4
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 5
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call i32 %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store i32 %20, ptr %5, align 4
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load i32, ptr %5, align 4
-  ret i32 %21
+21:                                               ; preds = %13, %12
+  %22 = load i32, ptr %5, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -596,20 +607,21 @@ define i32 @acct_storage_g_add_accounts(ptr noundef %0, i32 noundef %1, ptr noun
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 6), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 6
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %4, align 4
-  ret i32 %18
+18:                                               ; preds = %11, %10
+  %19 = load i32, ptr %4, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -629,21 +641,22 @@ define ptr @acct_storage_g_add_accounts_cond(ptr noundef %0, i32 noundef %1, ptr
 
 12:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 7), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load ptr, ptr %5, align 8
-  ret ptr %21
+21:                                               ; preds = %13, %12
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -661,20 +674,21 @@ define i32 @acct_storage_g_add_clusters(ptr noundef %0, i32 noundef %1, ptr noun
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 8), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %4, align 4
-  ret i32 %18
+18:                                               ; preds = %11, %10
+  %19 = load i32, ptr %4, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -692,20 +706,21 @@ define i32 @acct_storage_g_add_federations(ptr noundef %0, i32 noundef %1, ptr n
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 9), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 9
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %4, align 4
-  ret i32 %18
+18:                                               ; preds = %11, %10
+  %19 = load i32, ptr %4, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -723,20 +738,21 @@ define i32 @acct_storage_g_add_tres(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 10), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 10
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %4, align 4
-  ret i32 %18
+18:                                               ; preds = %11, %10
+  %19 = load i32, ptr %4, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -754,20 +770,21 @@ define i32 @acct_storage_g_add_assocs(ptr noundef %0, i32 noundef %1, ptr nounde
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 11), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 11
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %4, align 4
-  ret i32 %18
+18:                                               ; preds = %11, %10
+  %19 = load i32, ptr %4, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -785,20 +802,21 @@ define i32 @acct_storage_g_add_qos(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 12), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 12
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %4, align 4
-  ret i32 %18
+18:                                               ; preds = %11, %10
+  %19 = load i32, ptr %4, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -816,20 +834,21 @@ define i32 @acct_storage_g_add_res(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 13), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 13
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %4, align 4
-  ret i32 %18
+18:                                               ; preds = %11, %10
+  %19 = load i32, ptr %4, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -847,20 +866,21 @@ define i32 @acct_storage_g_add_wckeys(ptr noundef %0, i32 noundef %1, ptr nounde
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 14), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 14
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %4, align 4
-  ret i32 %18
+18:                                               ; preds = %11, %10
+  %19 = load i32, ptr %4, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -876,19 +896,20 @@ define i32 @acct_storage_g_add_reservation(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 15), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call i32 %10(ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 15
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 %11(ptr noundef %12, ptr noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %9, %8
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -908,21 +929,22 @@ define ptr @acct_storage_g_modify_users(ptr noundef %0, i32 noundef %1, ptr noun
 
 12:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 16), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load ptr, ptr %5, align 8
-  ret ptr %21
+21:                                               ; preds = %13, %12
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -942,21 +964,22 @@ define ptr @acct_storage_g_modify_accounts(ptr noundef %0, i32 noundef %1, ptr n
 
 12:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 17), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 17
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load ptr, ptr %5, align 8
-  ret ptr %21
+21:                                               ; preds = %13, %12
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -976,21 +999,22 @@ define ptr @acct_storage_g_modify_clusters(ptr noundef %0, i32 noundef %1, ptr n
 
 12:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 18), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 18
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load ptr, ptr %5, align 8
-  ret ptr %21
+21:                                               ; preds = %13, %12
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1010,21 +1034,22 @@ define ptr @acct_storage_g_modify_assocs(ptr noundef %0, i32 noundef %1, ptr nou
 
 12:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 19), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 19
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load ptr, ptr %5, align 8
-  ret ptr %21
+21:                                               ; preds = %13, %12
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1044,21 +1069,22 @@ define ptr @acct_storage_g_modify_federations(ptr noundef %0, i32 noundef %1, pt
 
 12:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 20), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 20
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load ptr, ptr %5, align 8
-  ret ptr %21
+21:                                               ; preds = %13, %12
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1078,21 +1104,22 @@ define ptr @acct_storage_g_modify_job(ptr noundef %0, i32 noundef %1, ptr nounde
 
 12:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 21), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 21
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load ptr, ptr %5, align 8
-  ret ptr %21
+21:                                               ; preds = %13, %12
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1112,21 +1139,22 @@ define ptr @acct_storage_g_modify_qos(ptr noundef %0, i32 noundef %1, ptr nounde
 
 12:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 22), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 22
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load ptr, ptr %5, align 8
-  ret ptr %21
+21:                                               ; preds = %13, %12
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1146,21 +1174,22 @@ define ptr @acct_storage_g_modify_res(ptr noundef %0, i32 noundef %1, ptr nounde
 
 12:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 23), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 23
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load ptr, ptr %5, align 8
-  ret ptr %21
+21:                                               ; preds = %13, %12
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1180,21 +1209,22 @@ define ptr @acct_storage_g_modify_wckeys(ptr noundef %0, i32 noundef %1, ptr nou
 
 12:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 24), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load ptr, ptr %5, align 8
-  ret ptr %21
+21:                                               ; preds = %13, %12
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1210,19 +1240,20 @@ define i32 @acct_storage_g_modify_reservation(ptr noundef %0, ptr noundef %1) #0
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 25), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call i32 %10(ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 25
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 %11(ptr noundef %12, ptr noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %9, %8
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1240,20 +1271,21 @@ define ptr @acct_storage_g_remove_users(ptr noundef %0, i32 noundef %1, ptr noun
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 26), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 26
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1273,21 +1305,22 @@ define ptr @acct_storage_g_remove_coord(ptr noundef %0, i32 noundef %1, ptr noun
 
 12:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  br label %20
+  br label %21
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 27), align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  br label %20
+  %14 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 27
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr %15(ptr noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %13, %12
-  %21 = load ptr, ptr %5, align 8
-  ret ptr %21
+21:                                               ; preds = %13, %12
+  %22 = load ptr, ptr %5, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1305,20 +1338,21 @@ define ptr @acct_storage_g_remove_accounts(ptr noundef %0, i32 noundef %1, ptr n
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 28), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 28
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1336,20 +1370,21 @@ define ptr @acct_storage_g_remove_clusters(ptr noundef %0, i32 noundef %1, ptr n
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 29), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 29
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1367,20 +1402,21 @@ define ptr @acct_storage_g_remove_assocs(ptr noundef %0, i32 noundef %1, ptr nou
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 30), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 30
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1398,20 +1434,21 @@ define ptr @acct_storage_g_remove_federations(ptr noundef %0, i32 noundef %1, pt
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 31), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 31
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1429,20 +1466,21 @@ define ptr @acct_storage_g_remove_qos(ptr noundef %0, i32 noundef %1, ptr nounde
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 32), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 32
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1460,20 +1498,21 @@ define ptr @acct_storage_g_remove_res(ptr noundef %0, i32 noundef %1, ptr nounde
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 33), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 33
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1491,20 +1530,21 @@ define ptr @acct_storage_g_remove_wckeys(ptr noundef %0, i32 noundef %1, ptr nou
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 34), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 34
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1520,19 +1560,20 @@ define i32 @acct_storage_g_remove_reservation(ptr noundef %0, ptr noundef %1) #0
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 35), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call i32 %10(ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 35
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 %11(ptr noundef %12, ptr noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %9, %8
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1550,20 +1591,21 @@ define ptr @acct_storage_g_get_users(ptr noundef %0, i32 noundef %1, ptr noundef
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 36), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 36
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1581,20 +1623,21 @@ define ptr @acct_storage_g_get_accounts(ptr noundef %0, i32 noundef %1, ptr noun
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 37), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 37
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1612,20 +1655,21 @@ define ptr @acct_storage_g_get_clusters(ptr noundef %0, i32 noundef %1, ptr noun
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 38), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 38
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1643,20 +1687,21 @@ define ptr @acct_storage_g_get_federations(ptr noundef %0, i32 noundef %1, ptr n
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 39), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 39
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1672,19 +1717,20 @@ define ptr @acct_storage_g_get_config(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   store ptr null, ptr %3, align 8
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 40), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call ptr %10(ptr noundef %11, ptr noundef %12)
-  store ptr %13, ptr %3, align 8
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 40
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call ptr %11(ptr noundef %12, ptr noundef %13)
+  store ptr %14, ptr %3, align 8
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load ptr, ptr %3, align 8
-  ret ptr %15
+15:                                               ; preds = %9, %8
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1702,20 +1748,21 @@ define ptr @acct_storage_g_get_tres(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 41), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 41
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1733,20 +1780,21 @@ define ptr @acct_storage_g_get_assocs(ptr noundef %0, i32 noundef %1, ptr nounde
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 42), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 42
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1764,20 +1812,21 @@ define ptr @acct_storage_g_get_events(ptr noundef %0, i32 noundef %1, ptr nounde
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 43), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 43
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1795,20 +1844,21 @@ define ptr @acct_storage_g_get_instances(ptr noundef %0, i32 noundef %1, ptr nou
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 44), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 44
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1826,20 +1876,21 @@ define ptr @acct_storage_g_get_problems(ptr noundef %0, i32 noundef %1, ptr noun
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 45), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 45
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1857,20 +1908,21 @@ define ptr @acct_storage_g_get_qos(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 46), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 46
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1888,20 +1940,21 @@ define ptr @acct_storage_g_get_res(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 47), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 47
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1919,20 +1972,21 @@ define ptr @acct_storage_g_get_wckeys(ptr noundef %0, i32 noundef %1, ptr nounde
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 48), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 48
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1950,20 +2004,21 @@ define ptr @acct_storage_g_get_reservations(ptr noundef %0, i32 noundef %1, ptr 
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 49), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 49
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1981,20 +2036,21 @@ define ptr @acct_storage_g_get_txn(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 10:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 50), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call ptr %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store ptr %16, ptr %4, align 8
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 50
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store ptr %17, ptr %4, align 8
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load ptr, ptr %4, align 8
-  ret ptr %18
+18:                                               ; preds = %11, %10
+  %19 = load ptr, ptr %4, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2018,23 +2074,24 @@ define i32 @acct_storage_g_get_usage(ptr noundef %0, i32 noundef %1, ptr noundef
 
 16:                                               ; preds = %6
   store i32 0, ptr %7, align 4
-  br label %26
+  br label %27
 
 17:                                               ; preds = %6
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 51), align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i32, ptr %9, align 4
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i32, ptr %11, align 4
-  %23 = load i64, ptr %12, align 8
-  %24 = load i64, ptr %13, align 8
-  %25 = call i32 %18(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i64 noundef %23, i64 noundef %24)
-  store i32 %25, ptr %7, align 4
-  br label %26
+  %18 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 51
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = load i32, ptr %9, align 4
+  %22 = load ptr, ptr %10, align 8
+  %23 = load i32, ptr %11, align 4
+  %24 = load i64, ptr %12, align 8
+  %25 = load i64, ptr %13, align 8
+  %26 = call i32 %19(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef %23, i64 noundef %24, i64 noundef %25)
+  store i32 %26, ptr %7, align 4
+  br label %27
 
-26:                                               ; preds = %17, %16
-  %27 = load i32, ptr %7, align 4
-  ret i32 %27
+27:                                               ; preds = %17, %16
+  %28 = load i32, ptr %7, align 4
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2056,22 +2113,23 @@ define i32 @acct_storage_g_roll_usage(ptr noundef %0, i64 noundef %1, i64 nounde
 
 14:                                               ; preds = %5
   store i32 0, ptr %6, align 4
-  br label %23
+  br label %24
 
 15:                                               ; preds = %5
-  %16 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 52), align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i64, ptr %8, align 8
-  %19 = load i64, ptr %9, align 8
-  %20 = load i16, ptr %10, align 2
-  %21 = load ptr, ptr %11, align 8
-  %22 = call i32 %16(ptr noundef %17, i64 noundef %18, i64 noundef %19, i16 noundef zeroext %20, ptr noundef %21)
-  store i32 %22, ptr %6, align 4
-  br label %23
+  %16 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 52
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i64, ptr %8, align 8
+  %20 = load i64, ptr %9, align 8
+  %21 = load i16, ptr %10, align 2
+  %22 = load ptr, ptr %11, align 8
+  %23 = call i32 %17(ptr noundef %18, i64 noundef %19, i64 noundef %20, i16 noundef zeroext %21, ptr noundef %22)
+  store i32 %23, ptr %6, align 4
+  br label %24
 
-23:                                               ; preds = %15, %14
-  %24 = load i32, ptr %6, align 4
-  ret i32 %24
+24:                                               ; preds = %15, %14
+  %25 = load i32, ptr %6, align 4
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2089,20 +2147,21 @@ define i32 @acct_storage_g_fix_runaway_jobs(ptr noundef %0, i32 noundef %1, ptr 
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 53), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 53
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %4, align 4
-  ret i32 %18
+18:                                               ; preds = %11, %10
+  %19 = load i32, ptr %4, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2124,22 +2183,23 @@ define i32 @clusteracct_storage_g_node_down(ptr noundef %0, ptr noundef %1, i64 
 
 14:                                               ; preds = %5
   store i32 0, ptr %6, align 4
-  br label %23
+  br label %24
 
 15:                                               ; preds = %5
-  %16 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 54), align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = load i64, ptr %9, align 8
-  %20 = load ptr, ptr %10, align 8
-  %21 = load i32, ptr %11, align 4
-  %22 = call i32 %16(ptr noundef %17, ptr noundef %18, i64 noundef %19, ptr noundef %20, i32 noundef %21)
-  store i32 %22, ptr %6, align 4
-  br label %23
+  %16 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 54
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = load i64, ptr %9, align 8
+  %21 = load ptr, ptr %10, align 8
+  %22 = load i32, ptr %11, align 4
+  %23 = call i32 %17(ptr noundef %18, ptr noundef %19, i64 noundef %20, ptr noundef %21, i32 noundef %22)
+  store i32 %23, ptr %6, align 4
+  br label %24
 
-23:                                               ; preds = %15, %14
-  %24 = load i32, ptr %6, align 4
-  ret i32 %24
+24:                                               ; preds = %15, %14
+  %25 = load i32, ptr %6, align 4
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2155,19 +2215,20 @@ define ptr @acct_storage_g_node_inx(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   store ptr null, ptr %3, align 8
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 55), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call ptr %10(ptr noundef %11, ptr noundef %12)
-  store ptr %13, ptr %3, align 8
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 55
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call ptr %11(ptr noundef %12, ptr noundef %13)
+  store ptr %14, ptr %3, align 8
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load ptr, ptr %3, align 8
-  ret ptr %15
+15:                                               ; preds = %9, %8
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2185,7 +2246,7 @@ define i32 @clusteracct_storage_g_node_up(ptr noundef %0, ptr noundef %1, i64 no
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %23
+  br label %24
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %6, align 8
@@ -2197,17 +2258,18 @@ define i32 @clusteracct_storage_g_node_up(ptr noundef %0, ptr noundef %1, i64 no
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds %struct.node_record, ptr %16, i32 0, i32 55
   store i32 -2, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 56), align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = load ptr, ptr %6, align 8
-  %21 = load i64, ptr %7, align 8
-  %22 = call i32 %18(ptr noundef %19, ptr noundef %20, i64 noundef %21)
-  store i32 %22, ptr %4, align 4
-  br label %23
+  %18 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 56
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = load ptr, ptr %6, align 8
+  %22 = load i64, ptr %7, align 8
+  %23 = call i32 %19(ptr noundef %20, ptr noundef %21, i64 noundef %22)
+  store i32 %23, ptr %4, align 4
+  br label %24
 
-23:                                               ; preds = %11, %10
-  %24 = load i32, ptr %4, align 4
-  ret i32 %24
+24:                                               ; preds = %11, %10
+  %25 = load i32, ptr %4, align 4
+  ret i32 %25
 }
 
 declare void @slurm_xfree(ptr noundef) #1
@@ -2225,19 +2287,20 @@ define i32 @clusteracct_storage_g_node_update(ptr noundef %0, ptr noundef %1) #0
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 57), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call i32 %10(ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 57
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 %11(ptr noundef %12, ptr noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %9, %8
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2259,22 +2322,23 @@ define i32 @clusteracct_storage_g_cluster_tres(ptr noundef %0, ptr noundef %1, p
 
 14:                                               ; preds = %5
   store i32 0, ptr %6, align 4
-  br label %23
+  br label %24
 
 15:                                               ; preds = %5
-  %16 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 58), align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = load ptr, ptr %9, align 8
-  %20 = load i64, ptr %10, align 8
-  %21 = load i16, ptr %11, align 2
-  %22 = call i32 %16(ptr noundef %17, ptr noundef %18, ptr noundef %19, i64 noundef %20, i16 noundef zeroext %21)
-  store i32 %22, ptr %6, align 4
-  br label %23
+  %16 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 58
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = load ptr, ptr %9, align 8
+  %21 = load i64, ptr %10, align 8
+  %22 = load i16, ptr %11, align 2
+  %23 = call i32 %17(ptr noundef %18, ptr noundef %19, ptr noundef %20, i64 noundef %21, i16 noundef zeroext %22)
+  store i32 %23, ptr %6, align 4
+  br label %24
 
-23:                                               ; preds = %15, %14
-  %24 = load i32, ptr %6, align 4
-  ret i32 %24
+24:                                               ; preds = %15, %14
+  %25 = load i32, ptr %6, align 4
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2290,19 +2354,20 @@ define i32 @clusteracct_storage_g_register_ctld(ptr noundef %0, i16 noundef zero
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 59), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load i16, ptr %5, align 2
-  %13 = call i32 %10(ptr noundef %11, i16 noundef zeroext %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 59
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load i16, ptr %5, align 2
+  %14 = call i32 %11(ptr noundef %12, i16 noundef zeroext %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %9, %8
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2318,19 +2383,20 @@ define i32 @clusteracct_storage_g_register_disconn_ctld(ptr noundef %0, ptr noun
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 60), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call i32 %10(ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 60
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 %11(ptr noundef %12, ptr noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %9, %8
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2346,19 +2412,20 @@ define i32 @clusteracct_storage_g_fini_ctld(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 61), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call i32 %10(ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 61
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 %11(ptr noundef %12, ptr noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %9, %8
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2374,30 +2441,32 @@ define i32 @jobacct_storage_g_job_heavy(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %20
+  br label %22
 
 9:                                                ; preds = %2
-  %10 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 2), align 8
-  %11 = zext i16 %10 to i64
-  %12 = and i64 %11, 32
-  %13 = icmp ne i64 %12, 0
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %9
-  store i32 0, ptr %3, align 4
-  br label %20
+  %10 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 2
+  %11 = load i16, ptr %10, align 8
+  %12 = zext i16 %11 to i64
+  %13 = and i64 %12, 32
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 63), align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = call i32 %16(ptr noundef %17, ptr noundef %18)
-  store i32 %19, ptr %3, align 4
-  br label %20
+  store i32 0, ptr %3, align 4
+  br label %22
 
-20:                                               ; preds = %15, %14, %8
-  %21 = load i32, ptr %3, align 4
-  ret i32 %21
+16:                                               ; preds = %9
+  %17 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 63
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = call i32 %18(ptr noundef %19, ptr noundef %20)
+  store i32 %21, ptr %3, align 4
+  br label %22
+
+22:                                               ; preds = %16, %15, %8
+  %23 = load i32, ptr %3, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2413,30 +2482,32 @@ define i32 @jobacct_storage_g_job_complete(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %20
+  br label %22
 
 9:                                                ; preds = %2
-  %10 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 2), align 8
-  %11 = zext i16 %10 to i64
-  %12 = and i64 %11, 32
-  %13 = icmp ne i64 %12, 0
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %9
-  store i32 0, ptr %3, align 4
-  br label %20
+  %10 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 2
+  %11 = load i16, ptr %10, align 8
+  %12 = zext i16 %11 to i64
+  %13 = and i64 %12, 32
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 64), align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = call i32 %16(ptr noundef %17, ptr noundef %18)
-  store i32 %19, ptr %3, align 4
-  br label %20
+  store i32 0, ptr %3, align 4
+  br label %22
 
-20:                                               ; preds = %15, %14, %8
-  %21 = load i32, ptr %3, align 4
-  ret i32 %21
+16:                                               ; preds = %9
+  %17 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 64
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = call i32 %18(ptr noundef %19, ptr noundef %20)
+  store i32 %21, ptr %3, align 4
+  br label %22
+
+22:                                               ; preds = %16, %15, %8
+  %23 = load i32, ptr %3, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2452,30 +2523,32 @@ define i32 @jobacct_storage_g_step_start(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %20
+  br label %22
 
 9:                                                ; preds = %2
-  %10 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 2), align 8
-  %11 = zext i16 %10 to i64
-  %12 = and i64 %11, 64
-  %13 = icmp ne i64 %12, 0
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %9
-  store i32 0, ptr %3, align 4
-  br label %20
+  %10 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 2
+  %11 = load i16, ptr %10, align 8
+  %12 = zext i16 %11 to i64
+  %13 = and i64 %12, 64
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 65), align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = call i32 %16(ptr noundef %17, ptr noundef %18)
-  store i32 %19, ptr %3, align 4
-  br label %20
+  store i32 0, ptr %3, align 4
+  br label %22
 
-20:                                               ; preds = %15, %14, %8
-  %21 = load i32, ptr %3, align 4
-  ret i32 %21
+16:                                               ; preds = %9
+  %17 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 65
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = call i32 %18(ptr noundef %19, ptr noundef %20)
+  store i32 %21, ptr %3, align 4
+  br label %22
+
+22:                                               ; preds = %16, %15, %8
+  %23 = load i32, ptr %3, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2491,30 +2564,32 @@ define i32 @jobacct_storage_g_step_complete(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %20
+  br label %22
 
 9:                                                ; preds = %2
-  %10 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 2), align 8
-  %11 = zext i16 %10 to i64
-  %12 = and i64 %11, 64
-  %13 = icmp ne i64 %12, 0
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %9
-  store i32 0, ptr %3, align 4
-  br label %20
+  %10 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 2
+  %11 = load i16, ptr %10, align 8
+  %12 = zext i16 %11 to i64
+  %13 = and i64 %12, 64
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 66), align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = call i32 %16(ptr noundef %17, ptr noundef %18)
-  store i32 %19, ptr %3, align 4
-  br label %20
+  store i32 0, ptr %3, align 4
+  br label %22
 
-20:                                               ; preds = %15, %14, %8
-  %21 = load i32, ptr %3, align 4
-  ret i32 %21
+16:                                               ; preds = %9
+  %17 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 66
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = call i32 %18(ptr noundef %19, ptr noundef %20)
+  store i32 %21, ptr %3, align 4
+  br label %22
+
+22:                                               ; preds = %16, %15, %8
+  %23 = load i32, ptr %3, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2530,30 +2605,32 @@ define i32 @jobacct_storage_g_job_suspend(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %20
+  br label %22
 
 9:                                                ; preds = %2
-  %10 = load i16, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 2), align 8
-  %11 = zext i16 %10 to i64
-  %12 = and i64 %11, 32
-  %13 = icmp ne i64 %12, 0
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %9
-  store i32 0, ptr %3, align 4
-  br label %20
+  %10 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 2
+  %11 = load i16, ptr %10, align 8
+  %12 = zext i16 %11 to i64
+  %13 = and i64 %12, 32
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 67), align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = call i32 %16(ptr noundef %17, ptr noundef %18)
-  store i32 %19, ptr %3, align 4
-  br label %20
+  store i32 0, ptr %3, align 4
+  br label %22
 
-20:                                               ; preds = %15, %14, %8
-  %21 = load i32, ptr %3, align 4
-  ret i32 %21
+16:                                               ; preds = %9
+  %17 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 67
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = call i32 %18(ptr noundef %19, ptr noundef %20)
+  store i32 %21, ptr %3, align 4
+  br label %22
+
+22:                                               ; preds = %16, %15, %8
+  %23 = load i32, ptr %3, align 4
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2572,52 +2649,53 @@ define ptr @jobacct_storage_g_get_jobs_cond(ptr noundef %0, i32 noundef %1, ptr 
 
 11:                                               ; preds = %3
   store ptr null, ptr %4, align 8
-  br label %38
+  br label %39
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 68), align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = load i32, ptr %6, align 4
-  %16 = load ptr, ptr %7, align 8
-  %17 = call ptr %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %36
+  %13 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 68
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = load i32, ptr %6, align 4
+  %17 = load ptr, ptr %7, align 8
+  %18 = call ptr %14(ptr noundef %15, i32 noundef %16, ptr noundef %17)
+  store ptr %18, ptr %8, align 8
+  %19 = load ptr, ptr %8, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %37
 
-20:                                               ; preds = %12
-  %21 = load ptr, ptr %7, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %23, label %36
+21:                                               ; preds = %12
+  %22 = load ptr, ptr %7, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %37
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %24, i32 0, i32 2
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %36
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %25, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %37
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %29, i32 0, i32 2
-  %31 = load ptr, ptr %30, align 8
-  %32 = call i32 @list_count(ptr noundef %31)
-  %33 = icmp sgt i32 %32, 1
-  br i1 %33, label %34, label %36
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds %struct.slurmdb_job_cond_t, ptr %30, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8
+  %33 = call i32 @list_count(ptr noundef %32)
+  %34 = icmp sgt i32 %33, 1
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %28
-  %35 = load ptr, ptr %8, align 8
-  call void @list_sort(ptr noundef %35, ptr noundef @_sort_desc_submit_time)
-  br label %36
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %8, align 8
+  call void @list_sort(ptr noundef %36, ptr noundef @_sort_desc_submit_time)
+  br label %37
 
-36:                                               ; preds = %34, %28, %23, %20, %12
-  %37 = load ptr, ptr %8, align 8
-  store ptr %37, ptr %4, align 8
-  br label %38
+37:                                               ; preds = %35, %29, %24, %21, %12
+  %38 = load ptr, ptr %8, align 8
+  store ptr %38, ptr %4, align 8
+  br label %39
 
-38:                                               ; preds = %36, %11
-  %39 = load ptr, ptr %4, align 8
-  ret ptr %39
+39:                                               ; preds = %37, %11
+  %40 = load ptr, ptr %4, align 8
+  ret ptr %40
 }
 
 declare i32 @list_count(ptr noundef) #1
@@ -2691,19 +2769,20 @@ define i32 @jobacct_storage_g_archive(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 69), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call i32 %10(ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 69
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 %11(ptr noundef %12, ptr noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %9, %8
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2719,19 +2798,20 @@ define i32 @jobacct_storage_g_archive_load(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 70), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call i32 %10(ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 70
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 %11(ptr noundef %12, ptr noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %9, %8
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2747,19 +2827,20 @@ define i32 @acct_storage_g_update_shares_used(ptr noundef %0, ptr noundef %1) #0
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 71), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call i32 %10(ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 71
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 %11(ptr noundef %12, ptr noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %9, %8
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2775,19 +2856,20 @@ define i32 @acct_storage_g_flush_jobs_on_cluster(ptr noundef %0, i64 noundef %1)
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 72), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = call i32 %10(ptr noundef %11, i64 noundef %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 72
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load i64, ptr %5, align 8
+  %14 = call i32 %11(ptr noundef %12, i64 noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %9, %8
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2804,20 +2886,21 @@ define i32 @acct_storage_g_reconfig(ptr noundef %0, i1 noundef zeroext %1) #0 {
 
 9:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %16
+  br label %17
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 73), align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i8, ptr %5, align 1
-  %14 = trunc i8 %13 to i1
-  %15 = call i32 %11(ptr noundef %12, i1 noundef zeroext %14)
-  store i32 %15, ptr %3, align 4
-  br label %16
+  %11 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 73
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = load i8, ptr %5, align 1
+  %15 = trunc i8 %14 to i1
+  %16 = call i32 %12(ptr noundef %13, i1 noundef zeroext %15)
+  store i32 %16, ptr %3, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+17:                                               ; preds = %10, %9
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2835,20 +2918,21 @@ define i32 @acct_storage_g_reset_lft_rgt(ptr noundef %0, i32 noundef %1, ptr nou
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 74), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 74
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %4, align 4
-  ret i32 %18
+18:                                               ; preds = %11, %10
+  %19 = load i32, ptr %4, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2864,19 +2948,20 @@ define i32 @acct_storage_g_get_stats(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 75), align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = call i32 %10(ptr noundef %11, ptr noundef %12)
-  store i32 %13, ptr %3, align 4
-  br label %14
+  %10 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 75
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 %11(ptr noundef %12, ptr noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
 
-14:                                               ; preds = %9, %8
-  %15 = load i32, ptr %3, align 4
-  ret i32 %15
+15:                                               ; preds = %9, %8
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2890,18 +2975,19 @@ define i32 @acct_storage_g_clear_stats(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %11
+  br label %12
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 76), align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call i32 %8(ptr noundef %9)
-  store i32 %10, ptr %2, align 4
-  br label %11
+  %8 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 76
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call i32 %9(ptr noundef %10)
+  store i32 %11, ptr %2, align 4
+  br label %12
 
-11:                                               ; preds = %7, %6
-  %12 = load i32, ptr %2, align 4
-  ret i32 %12
+12:                                               ; preds = %7, %6
+  %13 = load i32, ptr %2, align 4
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2919,20 +3005,21 @@ define i32 @acct_storage_g_get_data(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 10:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %17
+  br label %18
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 77), align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = call i32 %12(ptr noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %4, align 4
-  br label %17
+  %12 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 77
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  %16 = load ptr, ptr %7, align 8
+  %17 = call i32 %13(ptr noundef %14, i32 noundef %15, ptr noundef %16)
+  store i32 %17, ptr %4, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %4, align 4
-  ret i32 %18
+18:                                               ; preds = %11, %10
+  %19 = load i32, ptr %4, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2948,17 +3035,18 @@ define void @acct_storage_g_send_all(ptr noundef %0, i64 noundef %1, i32 noundef
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %3
-  br label %15
+  br label %16
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 78), align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i64, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  call void %11(ptr noundef %12, i64 noundef %13, i32 noundef %14)
-  br label %15
+  %11 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 78
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = load i64, ptr %5, align 8
+  %15 = load i32, ptr %6, align 4
+  call void %12(ptr noundef %13, i64 noundef %14, i32 noundef %15)
+  br label %16
 
-15:                                               ; preds = %10, %9
+16:                                               ; preds = %10, %9
   ret void
 }
 
@@ -2973,18 +3061,19 @@ define i32 @acct_storage_g_shutdown(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %11
+  br label %12
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds (%struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 79), align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call i32 %8(ptr noundef %9)
-  store i32 %10, ptr %2, align 4
-  br label %11
+  %8 = getelementptr inbounds %struct.slurm_acct_storage_ops, ptr @ops, i32 0, i32 79
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call i32 %9(ptr noundef %10)
+  store i32 %11, ptr %2, align 4
+  br label %12
 
-11:                                               ; preds = %7, %6
-  %12 = load i32, ptr %2, align 4
-  ret i32 %12
+12:                                               ; preds = %7, %6
+  %13 = load i32, ptr %2, align 4
+  ret i32 %13
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

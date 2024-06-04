@@ -16,25 +16,26 @@ define dso_local zeroext i1 @copy_from_kernel_nofault_allowed(ptr noundef %0, i6
   %7 = and i64 %3, -4096
   %8 = icmp eq i64 %7, -10485760
   %9 = or i1 %8, %6
-  br i1 %9, label %20, label %10
+  br i1 %9, label %21, label %10
 
 10:                                               ; preds = %2
-  %11 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 6), align 4
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %20, label %13
+  %11 = getelementptr inbounds %struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 6
+  %12 = load i8, ptr %11, align 4
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %21, label %14
 
-13:                                               ; preds = %10
-  %14 = zext i8 %11 to i64
-  %15 = sub nsw i64 64, %14
-  %16 = and i64 %15, 4294967295
-  %17 = shl i64 %3, %16
-  %18 = ashr exact i64 %17, %16
-  %19 = icmp eq i64 %18, %3
-  br label %20
+14:                                               ; preds = %10
+  %15 = zext i8 %12 to i64
+  %16 = sub nsw i64 64, %15
+  %17 = and i64 %16, 4294967295
+  %18 = shl i64 %3, %17
+  %19 = ashr exact i64 %18, %17
+  %20 = icmp eq i64 %19, %3
+  br label %21
 
-20:                                               ; preds = %13, %10, %2
-  %21 = phi i1 [ %19, %13 ], [ false, %2 ], [ true, %10 ]
-  ret i1 %21
+21:                                               ; preds = %14, %10, %2
+  %22 = phi i1 [ %20, %14 ], [ false, %2 ], [ true, %10 ]
+  ret i1 %22
 }
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

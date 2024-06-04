@@ -49,19 +49,20 @@ declare dso_local void @ttm_resource_manager_init(ptr noundef, ptr noundef, i64 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @ttm_sys_man_alloc(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
-  %6 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 72) #4
-  store ptr %6, ptr %3, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %5 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 72) #4
+  store ptr %7, ptr %3, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %10, label %9
 
-8:                                                ; preds = %4
-  tail call void @ttm_resource_init(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6) #3
-  br label %9
+9:                                                ; preds = %4
+  tail call void @ttm_resource_init(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7) #3
+  br label %10
 
-9:                                                ; preds = %8, %4
-  %10 = phi i32 [ 0, %8 ], [ -12, %4 ]
-  ret i32 %10
+10:                                               ; preds = %9, %4
+  %11 = phi i32 [ 0, %9 ], [ -12, %4 ]
+  ret i32 %11
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

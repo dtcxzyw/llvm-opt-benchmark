@@ -3994,9 +3994,10 @@ define linkonce_odr void @_ZN5draco33SequentialIntegerAttributeEncoderD2Ev(ptr n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5draco33SequentialIntegerAttributeEncoderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::SequentialIntegerAttributeEncoder", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5draco37PredictionSchemeTypedEncoderInterfaceIiiEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5draco33SequentialIntegerAttributeEncoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::SequentialIntegerAttributeEncoder", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5draco37PredictionSchemeTypedEncoderInterfaceIiiEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN5draco26SequentialAttributeEncoderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
   ret void
 }
@@ -4050,11 +4051,12 @@ define linkonce_odr void @_ZN5draco26SequentialAttributeEncoderD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco26SequentialAttributeEncoderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::SequentialAttributeEncoder", ptr %3, i32 0, i32 6
-  call void @_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %5 = getelementptr inbounds %"class.draco::SequentialAttributeEncoder", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco26SequentialAttributeEncoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::SequentialAttributeEncoder", ptr %3, i32 0, i32 6
+  call void @_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %6 = getelementptr inbounds %"class.draco::SequentialAttributeEncoder", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   ret void
 }
 
@@ -5014,7 +5016,8 @@ define linkonce_odr void @_ZN5draco28PredictionSchemeDeltaEncoderIiNS_62Predicti
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5draco23PredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEC2EPKNS_14PointAttributeERKS2_(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(20) %9)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco28PredictionSchemeDeltaEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco28PredictionSchemeDeltaEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -5544,7 +5547,8 @@ define linkonce_odr void @_ZN5draco40MeshPredictionSchemeParallelogramEncoderIiN
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco40MeshPredictionSchemeParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %13 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco40MeshPredictionSchemeParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
   ret void
 }
 
@@ -5565,59 +5569,60 @@ define linkonce_odr void @_ZN5draco56MeshPredictionSchemeConstrainedMultiParalle
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %11, i32 0, i32 1
-  %16 = getelementptr inbounds [4 x %"class.std::vector.95"], ptr %15, i32 0, i32 0
-  %17 = getelementptr inbounds %"class.std::vector.95", ptr %16, i64 4
-  br label %18
+  %15 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %11, i32 0, i32 1
+  %17 = getelementptr inbounds [4 x %"class.std::vector.95"], ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::vector.95", ptr %17, i64 4
+  br label %19
 
-18:                                               ; preds = %18, %4
-  %19 = phi ptr [ %16, %4 ], [ %20, %18 ]
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
-  %20 = getelementptr inbounds %"class.std::vector.95", ptr %19, i64 1
-  %21 = icmp eq ptr %20, %17
-  br i1 %21, label %22, label %18
+19:                                               ; preds = %19, %4
+  %20 = phi ptr [ %17, %4 ], [ %21, %19 ]
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
+  %21 = getelementptr inbounds %"class.std::vector.95", ptr %20, i64 1
+  %22 = icmp eq ptr %21, %18
+  br i1 %22, label %23, label %19
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %11, i32 0, i32 2
-  store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %11, i32 0, i32 3
-  invoke void @_ZN5draco21ShannonEntropyTrackerC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %24)
-          to label %25 unwind label %27
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %11, i32 0, i32 2
+  store i32 0, ptr %24, align 8
+  %25 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %11, i32 0, i32 3
+  invoke void @_ZN5draco21ShannonEntropyTrackerC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %25)
+          to label %26 unwind label %28
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %11, i32 0, i32 4
-  call void @_ZNSt6vectorIjSaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %11, i32 0, i32 4
+  call void @_ZNSt6vectorIjSaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
   ret void
 
-27:                                               ; preds = %22
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %23
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %9, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %10, align 4
-  %31 = getelementptr inbounds [4 x %"class.std::vector.95"], ptr %15, i32 0, i32 0
-  %32 = getelementptr inbounds %"class.std::vector.95", ptr %31, i64 4
-  br label %33
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %9, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %10, align 4
+  %32 = getelementptr inbounds [4 x %"class.std::vector.95"], ptr %16, i32 0, i32 0
+  %33 = getelementptr inbounds %"class.std::vector.95", ptr %32, i64 4
+  br label %34
 
-33:                                               ; preds = %33, %27
-  %34 = phi ptr [ %32, %27 ], [ %35, %33 ]
-  %35 = getelementptr inbounds %"class.std::vector.95", ptr %34, i64 -1
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %35) #3
-  %36 = icmp eq ptr %35, %31
-  br i1 %36, label %37, label %33
+34:                                               ; preds = %34, %28
+  %35 = phi ptr [ %33, %28 ], [ %36, %34 ]
+  %36 = getelementptr inbounds %"class.std::vector.95", ptr %35, i64 -1
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %36) #3
+  %37 = icmp eq ptr %36, %32
+  br i1 %37, label %38, label %34
 
-37:                                               ; preds = %33
+38:                                               ; preds = %34
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
-  br label %38
+  br label %39
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %9, align 8
-  %40 = load i32, ptr %10, align 4
-  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
-  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
-  resume { ptr, i32 } %42
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %9, align 8
+  %41 = load i32, ptr %10, align 4
+  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
+  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
+  resume { ptr, i32 } %43
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5637,31 +5642,32 @@ define linkonce_odr void @_ZN5draco44MeshPredictionSchemeTexCoordsPortableEncode
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco44MeshPredictionSchemeTexCoordsPortableEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"class.draco::MeshPredictionSchemeTexCoordsPortableEncoder", ptr %11, i32 0, i32 1
-  %16 = load ptr, ptr %8, align 8
-  invoke void @_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %18
-
-17:                                               ; preds = %4
-  ret void
+  %15 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco44MeshPredictionSchemeTexCoordsPortableEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.draco::MeshPredictionSchemeTexCoordsPortableEncoder", ptr %11, i32 0, i32 1
+  %17 = load ptr, ptr %8, align 8
+  invoke void @_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %19
 
 18:                                               ; preds = %4
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %9, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %10, align 4
-  call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
-  br label %22
+  ret void
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %9, align 8
-  %24 = load i32, ptr %10, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %9, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %10, align 4
+  call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
+  br label %23
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %9, align 8
+  %25 = load i32, ptr %10, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5681,54 +5687,55 @@ define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalEncoderI
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder", ptr %11, i32 0, i32 1
-  %16 = load ptr, ptr %8, align 8
-  invoke void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(60) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %22
+  %15 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder", ptr %11, i32 0, i32 1
+  %17 = load ptr, ptr %8, align 8
+  invoke void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(60) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %23
 
-17:                                               ; preds = %4
-  %18 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder", ptr %11, i32 0, i32 2
-  invoke void @_ZN5draco17OctahedronToolBoxC2Ev(ptr noundef nonnull align 4 dereferenceable(20) %18)
-          to label %19 unwind label %26
+18:                                               ; preds = %4
+  %19 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder", ptr %11, i32 0, i32 2
+  invoke void @_ZN5draco17OctahedronToolBoxC2Ev(ptr noundef nonnull align 4 dereferenceable(20) %19)
+          to label %20 unwind label %27
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder", ptr %11, i32 0, i32 3
-  invoke void @_ZN5draco14RAnsBitEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %20)
-          to label %21 unwind label %26
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder", ptr %11, i32 0, i32 3
+  invoke void @_ZN5draco14RAnsBitEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %21)
+          to label %22 unwind label %27
 
-21:                                               ; preds = %19
+22:                                               ; preds = %20
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %4
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %9, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %10, align 4
-  br label %30
-
-26:                                               ; preds = %19, %17
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %9, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %10, align 4
-  call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %15) #3
-  br label %30
-
-30:                                               ; preds = %26, %22
-  call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %9, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %10, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %9, align 8
-  %33 = load i32, ptr %10, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+27:                                               ; preds = %20, %18
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %9, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %10, align 4
+  call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %16) #3
+  br label %31
+
+31:                                               ; preds = %27, %23
+  call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %9, align 8
+  %34 = load i32, ptr %10, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5745,10 +5752,11 @@ define linkonce_odr void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62Predictio
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   call void @_ZN5draco23PredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEC2EPKNS_14PointAttributeERKS2_(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(20) %11)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"class.draco::MeshPredictionSchemeEncoder", ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 32, i1 false)
+  %12 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"class.draco::MeshPredictionSchemeEncoder", ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %14, i64 32, i1 false)
   ret void
 }
 
@@ -6092,13 +6100,14 @@ define linkonce_odr void @_ZN5draco23PredictionSchemeEncoderIiNS_62PredictionSch
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5draco37PredictionSchemeTypedEncoderInterfaceIiiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco23PredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.draco::PredictionSchemeEncoder", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.draco::PredictionSchemeEncoder", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 4 %11, i64 20, i1 false)
+  %8 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco23PredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.draco::PredictionSchemeEncoder", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.draco::PredictionSchemeEncoder", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 4 %12, i64 20, i1 false)
   ret void
 }
 
@@ -6127,7 +6136,8 @@ define linkonce_odr void @_ZN5draco37PredictionSchemeTypedEncoderInterfaceIiiEC2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco32PredictionSchemeEncoderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco37PredictionSchemeTypedEncoderInterfaceIiiEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco37PredictionSchemeTypedEncoderInterfaceIiiEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6154,7 +6164,8 @@ define linkonce_odr void @_ZN5draco32PredictionSchemeEncoderInterfaceC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco25PredictionSchemeInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5draco32PredictionSchemeEncoderInterfaceE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN5draco32PredictionSchemeEncoderInterfaceE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -6180,7 +6191,8 @@ define linkonce_odr void @_ZN5draco25PredictionSchemeInterfaceC2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5draco25PredictionSchemeInterfaceE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN5draco25PredictionSchemeInterfaceE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -10290,24 +10302,25 @@ define linkonce_odr void @_ZN5draco56MeshPredictionSchemeConstrainedMultiParalle
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %3, i32 0, i32 3
-  call void @_ZN5draco21ShannonEntropyTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
-  %6 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %3, i32 0, i32 1
-  %7 = getelementptr inbounds [4 x %"class.std::vector.95"], ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"class.std::vector.95", ptr %7, i64 4
-  br label %9
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %3, i32 0, i32 3
+  call void @_ZN5draco21ShannonEntropyTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  %7 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder", ptr %3, i32 0, i32 1
+  %8 = getelementptr inbounds [4 x %"class.std::vector.95"], ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds %"class.std::vector.95", ptr %8, i64 4
+  br label %10
 
-9:                                                ; preds = %9, %1
-  %10 = phi ptr [ %8, %1 ], [ %11, %9 ]
-  %11 = getelementptr inbounds %"class.std::vector.95", ptr %10, i64 -1
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #3
-  %12 = icmp eq ptr %11, %7
-  br i1 %12, label %13, label %9
+10:                                               ; preds = %10, %1
+  %11 = phi ptr [ %9, %1 ], [ %12, %10 ]
+  %12 = getelementptr inbounds %"class.std::vector.95", ptr %11, i64 -1
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
+  %13 = icmp eq ptr %12, %8
+  br i1 %13, label %14, label %10
 
-13:                                               ; preds = %9
+14:                                               ; preds = %10
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
   ret void
 }
@@ -17811,9 +17824,10 @@ define linkonce_odr void @_ZN5draco44MeshPredictionSchemeTexCoordsPortableEncode
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco44MeshPredictionSchemeTexCoordsPortableEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshPredictionSchemeTexCoordsPortableEncoder", ptr %3, i32 0, i32 1
-  call void @_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #3
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco44MeshPredictionSchemeTexCoordsPortableEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshPredictionSchemeTexCoordsPortableEncoder", ptr %3, i32 0, i32 1
+  call void @_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #3
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
   ret void
 }
@@ -21845,32 +21859,33 @@ define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredicto
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(60) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 2
-  %11 = load ptr, ptr %10, align 8
-  %12 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(60) %7, i32 noundef 1)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds ptr, ptr %10, i64 2
+  %12 = load ptr, ptr %11, align 8
+  %13 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(60) %7, i32 noundef 1)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %2
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %5, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %6, align 4
-  call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #3
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %5, align 8
-  %20 = load i32, ptr %6, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #3
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = load i32, ptr %6, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -21887,11 +21902,12 @@ define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalEncoderI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder", ptr %3, i32 0, i32 3
-  call void @_ZN5draco14RAnsBitEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #3
-  %5 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder", ptr %3, i32 0, i32 1
-  call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #3
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder", ptr %3, i32 0, i32 3
+  call void @_ZN5draco14RAnsBitEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  %6 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder", ptr %3, i32 0, i32 1
+  call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #3
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
   ret void
 }
@@ -22231,14 +22247,15 @@ define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredicto
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalPredictorBase", ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalPredictorBase", ptr %5, i32 0, i32 2
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalPredictorBase", ptr %5, i32 0, i32 1
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalPredictorBase", ptr %5, i32 0, i32 3
-  %9 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 32, i1 false)
+  %8 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalPredictorBase", ptr %5, i32 0, i32 2
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalPredictorBase", ptr %5, i32 0, i32 3
+  %10 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %10, i64 32, i1 false)
   ret void
 }
 
@@ -23670,7 +23687,8 @@ define linkonce_odr void @_ZN5draco40MeshPredictionSchemeParallelogramEncoderIiN
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco40MeshPredictionSchemeParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %13 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco40MeshPredictionSchemeParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
   ret void
 }
 
@@ -23691,59 +23709,60 @@ define linkonce_odr void @_ZN5draco56MeshPredictionSchemeConstrainedMultiParalle
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %11, i32 0, i32 1
-  %16 = getelementptr inbounds [4 x %"class.std::vector.95"], ptr %15, i32 0, i32 0
-  %17 = getelementptr inbounds %"class.std::vector.95", ptr %16, i64 4
-  br label %18
+  %15 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %11, i32 0, i32 1
+  %17 = getelementptr inbounds [4 x %"class.std::vector.95"], ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::vector.95", ptr %17, i64 4
+  br label %19
 
-18:                                               ; preds = %18, %4
-  %19 = phi ptr [ %16, %4 ], [ %20, %18 ]
-  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #3
-  %20 = getelementptr inbounds %"class.std::vector.95", ptr %19, i64 1
-  %21 = icmp eq ptr %20, %17
-  br i1 %21, label %22, label %18
+19:                                               ; preds = %19, %4
+  %20 = phi ptr [ %17, %4 ], [ %21, %19 ]
+  call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
+  %21 = getelementptr inbounds %"class.std::vector.95", ptr %20, i64 1
+  %22 = icmp eq ptr %21, %18
+  br i1 %22, label %23, label %19
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %11, i32 0, i32 2
-  store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %11, i32 0, i32 3
-  invoke void @_ZN5draco21ShannonEntropyTrackerC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %24)
-          to label %25 unwind label %27
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %11, i32 0, i32 2
+  store i32 0, ptr %24, align 8
+  %25 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %11, i32 0, i32 3
+  invoke void @_ZN5draco21ShannonEntropyTrackerC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %25)
+          to label %26 unwind label %28
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %11, i32 0, i32 4
-  call void @_ZNSt6vectorIjSaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %11, i32 0, i32 4
+  call void @_ZNSt6vectorIjSaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
   ret void
 
-27:                                               ; preds = %22
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %23
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %9, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %10, align 4
-  %31 = getelementptr inbounds [4 x %"class.std::vector.95"], ptr %15, i32 0, i32 0
-  %32 = getelementptr inbounds %"class.std::vector.95", ptr %31, i64 4
-  br label %33
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %9, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %10, align 4
+  %32 = getelementptr inbounds [4 x %"class.std::vector.95"], ptr %16, i32 0, i32 0
+  %33 = getelementptr inbounds %"class.std::vector.95", ptr %32, i64 4
+  br label %34
 
-33:                                               ; preds = %33, %27
-  %34 = phi ptr [ %32, %27 ], [ %35, %33 ]
-  %35 = getelementptr inbounds %"class.std::vector.95", ptr %34, i64 -1
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %35) #3
-  %36 = icmp eq ptr %35, %31
-  br i1 %36, label %37, label %33
+34:                                               ; preds = %34, %28
+  %35 = phi ptr [ %33, %28 ], [ %36, %34 ]
+  %36 = getelementptr inbounds %"class.std::vector.95", ptr %35, i64 -1
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %36) #3
+  %37 = icmp eq ptr %36, %32
+  br i1 %37, label %38, label %34
 
-37:                                               ; preds = %33
+38:                                               ; preds = %34
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
-  br label %38
+  br label %39
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %9, align 8
-  %40 = load i32, ptr %10, align 4
-  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
-  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
-  resume { ptr, i32 } %42
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %9, align 8
+  %41 = load i32, ptr %10, align 4
+  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
+  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
+  resume { ptr, i32 } %43
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -23763,31 +23782,32 @@ define linkonce_odr void @_ZN5draco44MeshPredictionSchemeTexCoordsPortableEncode
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco44MeshPredictionSchemeTexCoordsPortableEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"class.draco::MeshPredictionSchemeTexCoordsPortableEncoder.157", ptr %11, i32 0, i32 1
-  %16 = load ptr, ptr %8, align 8
-  invoke void @_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %18
-
-17:                                               ; preds = %4
-  ret void
+  %15 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco44MeshPredictionSchemeTexCoordsPortableEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.draco::MeshPredictionSchemeTexCoordsPortableEncoder.157", ptr %11, i32 0, i32 1
+  %17 = load ptr, ptr %8, align 8
+  invoke void @_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %19
 
 18:                                               ; preds = %4
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %9, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %10, align 4
-  call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
-  br label %22
+  ret void
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %9, align 8
-  %24 = load i32, ptr %10, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %9, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %10, align 4
+  call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
+  br label %23
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %9, align 8
+  %25 = load i32, ptr %10, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -23807,54 +23827,55 @@ define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalEncoderI
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %15 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder.159", ptr %11, i32 0, i32 1
-  %16 = load ptr, ptr %8, align 8
-  invoke void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(60) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %22
+  %15 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %11, align 8
+  %16 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder.159", ptr %11, i32 0, i32 1
+  %17 = load ptr, ptr %8, align 8
+  invoke void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(60) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %23
 
-17:                                               ; preds = %4
-  %18 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder.159", ptr %11, i32 0, i32 2
-  invoke void @_ZN5draco17OctahedronToolBoxC2Ev(ptr noundef nonnull align 4 dereferenceable(20) %18)
-          to label %19 unwind label %26
+18:                                               ; preds = %4
+  %19 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder.159", ptr %11, i32 0, i32 2
+  invoke void @_ZN5draco17OctahedronToolBoxC2Ev(ptr noundef nonnull align 4 dereferenceable(20) %19)
+          to label %20 unwind label %27
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder.159", ptr %11, i32 0, i32 3
-  invoke void @_ZN5draco14RAnsBitEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %20)
-          to label %21 unwind label %26
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder.159", ptr %11, i32 0, i32 3
+  invoke void @_ZN5draco14RAnsBitEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %21)
+          to label %22 unwind label %27
 
-21:                                               ; preds = %19
+22:                                               ; preds = %20
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %4
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %9, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %10, align 4
-  br label %30
-
-26:                                               ; preds = %19, %17
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %9, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %10, align 4
-  call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %15) #3
-  br label %30
-
-30:                                               ; preds = %26, %22
-  call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %9, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %10, align 4
   br label %31
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %9, align 8
-  %33 = load i32, ptr %10, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+27:                                               ; preds = %20, %18
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %9, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %10, align 4
+  call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %16) #3
+  br label %31
+
+31:                                               ; preds = %27, %23
+  call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #3
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %9, align 8
+  %34 = load i32, ptr %10, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -23871,10 +23892,11 @@ define linkonce_odr void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62Predictio
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   call void @_ZN5draco23PredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEC2EPKNS_14PointAttributeERKS2_(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(20) %11)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"class.draco::MeshPredictionSchemeEncoder.155", ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 32, i1 false)
+  %12 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"class.draco::MeshPredictionSchemeEncoder.155", ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %14, i64 32, i1 false)
   ret void
 }
 
@@ -24510,24 +24532,25 @@ define linkonce_odr void @_ZN5draco56MeshPredictionSchemeConstrainedMultiParalle
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %3, i32 0, i32 3
-  call void @_ZN5draco21ShannonEntropyTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
-  %6 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %3, i32 0, i32 1
-  %7 = getelementptr inbounds [4 x %"class.std::vector.95"], ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"class.std::vector.95", ptr %7, i64 4
-  br label %9
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco56MeshPredictionSchemeConstrainedMultiParallelogramEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %3, i32 0, i32 3
+  call void @_ZN5draco21ShannonEntropyTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  %7 = getelementptr inbounds %"class.draco::MeshPredictionSchemeConstrainedMultiParallelogramEncoder.156", ptr %3, i32 0, i32 1
+  %8 = getelementptr inbounds [4 x %"class.std::vector.95"], ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds %"class.std::vector.95", ptr %8, i64 4
+  br label %10
 
-9:                                                ; preds = %9, %1
-  %10 = phi ptr [ %8, %1 ], [ %11, %9 ]
-  %11 = getelementptr inbounds %"class.std::vector.95", ptr %10, i64 -1
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #3
-  %12 = icmp eq ptr %11, %7
-  br i1 %12, label %13, label %9
+10:                                               ; preds = %10, %1
+  %11 = phi ptr [ %9, %1 ], [ %12, %10 ]
+  %12 = getelementptr inbounds %"class.std::vector.95", ptr %11, i64 -1
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #3
+  %13 = icmp eq ptr %12, %8
+  br i1 %13, label %14, label %10
 
-13:                                               ; preds = %9
+14:                                               ; preds = %10
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
   ret void
 }
@@ -25937,9 +25960,10 @@ define linkonce_odr void @_ZN5draco44MeshPredictionSchemeTexCoordsPortableEncode
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco44MeshPredictionSchemeTexCoordsPortableEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshPredictionSchemeTexCoordsPortableEncoder.157", ptr %3, i32 0, i32 1
-  call void @_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #3
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco44MeshPredictionSchemeTexCoordsPortableEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshPredictionSchemeTexCoordsPortableEncoder.157", ptr %3, i32 0, i32 1
+  call void @_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #3
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
   ret void
 }
@@ -26845,32 +26869,33 @@ define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredicto
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(60) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 2
-  %11 = load ptr, ptr %10, align 8
-  %12 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(60) %7, i32 noundef 1)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %2
-  ret void
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds ptr, ptr %10, i64 2
+  %12 = load ptr, ptr %11, align 8
+  %13 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(60) %7, i32 noundef 1)
+          to label %14 unwind label %15
 
 14:                                               ; preds = %2
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %5, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %6, align 4
-  call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #3
-  br label %18
+  ret void
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %5, align 8
-  %20 = load i32, ptr %6, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #3
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = load i32, ptr %6, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26887,11 +26912,12 @@ define linkonce_odr void @_ZN5draco42MeshPredictionSchemeGeometricNormalEncoderI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder.159", ptr %3, i32 0, i32 3
-  call void @_ZN5draco14RAnsBitEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #3
-  %5 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder.159", ptr %3, i32 0, i32 1
-  call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #3
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder.159", ptr %3, i32 0, i32 3
+  call void @_ZN5draco14RAnsBitEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  %6 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalEncoder.159", ptr %3, i32 0, i32 1
+  call void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #3
   call void @_ZN5draco27MeshPredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
   ret void
 }
@@ -27231,14 +27257,15 @@ define linkonce_odr void @_ZN5draco48MeshPredictionSchemeGeometricNormalPredicto
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalPredictorBase.161", ptr %5, i32 0, i32 1
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalPredictorBase.161", ptr %5, i32 0, i32 2
+  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorBaseIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalPredictorBase.161", ptr %5, i32 0, i32 1
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalPredictorBase.161", ptr %5, i32 0, i32 3
-  %9 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 32, i1 false)
+  %8 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalPredictorBase.161", ptr %5, i32 0, i32 2
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds %"class.draco::MeshPredictionSchemeGeometricNormalPredictorBase.161", ptr %5, i32 0, i32 3
+  %10 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %10, i64 32, i1 false)
   ret void
 }
 

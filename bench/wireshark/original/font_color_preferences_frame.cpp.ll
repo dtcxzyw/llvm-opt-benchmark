@@ -720,194 +720,214 @@ define void @_ZN25FontColorPreferencesFrameC2EP7QWidget(ptr noundef nonnull alig
   %11 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %12 = load i32, ptr %11, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %10, i32 %12)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV25FontColorPreferencesFrame, i32 0, i32 0, i32 2), ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV25FontColorPreferencesFrame, i32 0, i32 1, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 1
-  %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 312) #17
-          to label %16 unwind label %84
-
-16:                                               ; preds = %2
+  %13 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV25FontColorPreferencesFrame, i32 0, i32 0, i32 2
+  store ptr %13, ptr %9, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV25FontColorPreferencesFrame, i32 0, i32 1, i32 2
   store ptr %15, ptr %14, align 8
-  %17 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 20
-  invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %17)
-          to label %18 unwind label %84
+  %16 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 1
+  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 312) #17
+          to label %18 unwind label %104
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  invoke void @_ZN28Ui_FontColorPreferencesFrame7setupUiEP6QFrame(ptr noundef nonnull align 8 dereferenceable(312) %20, ptr noundef %9)
-          to label %21 unwind label %88
+18:                                               ; preds = %2
+  store ptr %17, ptr %16, align 8
+  %19 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 20
+  invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %19)
+          to label %20 unwind label %104
 
-21:                                               ; preds = %18
-  %22 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 11))
-          to label %23 unwind label %88
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  invoke void @_ZN28Ui_FontColorPreferencesFrame7setupUiEP6QFrame(ptr noundef nonnull align 8 dereferenceable(312) %22, ptr noundef %9)
+          to label %23 unwind label %108
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 2
-  store ptr %22, ptr %24, align 8
-  %25 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 12))
-          to label %26 unwind label %88
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 11
+  %25 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %24)
+          to label %26 unwind label %108
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 3
+  %27 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 2
   store ptr %25, ptr %27, align 8
-  %28 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 13))
-          to label %29 unwind label %88
+  %28 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 12
+  %29 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %28)
+          to label %30 unwind label %108
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 4
-  store ptr %28, ptr %30, align 8
-  %31 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 14))
-          to label %32 unwind label %88
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 3
+  store ptr %29, ptr %31, align 8
+  %32 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 13
+  %33 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %32)
+          to label %34 unwind label %108
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 5
-  store ptr %31, ptr %33, align 8
-  %34 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 15))
-          to label %35 unwind label %88
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 4
+  store ptr %33, ptr %35, align 8
+  %36 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 14
+  %37 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %36)
+          to label %38 unwind label %108
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 6
-  store ptr %34, ptr %36, align 8
-  %37 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 16))
-          to label %38 unwind label %88
-
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 7
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 5
   store ptr %37, ptr %39, align 8
-  %40 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 17))
-          to label %41 unwind label %88
+  %40 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 15
+  %41 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %40)
+          to label %42 unwind label %108
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 8
-  store ptr %40, ptr %42, align 8
-  %43 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 18))
-          to label %44 unwind label %88
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 6
+  store ptr %41, ptr %43, align 8
+  %44 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 16
+  %45 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %44)
+          to label %46 unwind label %108
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 9
-  store ptr %43, ptr %45, align 8
-  %46 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 19))
-          to label %47 unwind label %88
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 7
+  store ptr %45, ptr %47, align 8
+  %48 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 17
+  %49 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %48)
+          to label %50 unwind label %108
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 10
-  store ptr %46, ptr %48, align 8
-  %49 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 20))
-          to label %50 unwind label %88
-
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 11
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 8
   store ptr %49, ptr %51, align 8
-  %52 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 21))
-          to label %53 unwind label %88
+  %52 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 18
+  %53 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %52)
+          to label %54 unwind label %108
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 12
-  store ptr %52, ptr %54, align 8
-  %55 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 2))
-          to label %56 unwind label %88
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 9
+  store ptr %53, ptr %55, align 8
+  %56 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 19
+  %57 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %56)
+          to label %58 unwind label %108
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 13
-  store ptr %55, ptr %57, align 8
-  %58 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 3))
-          to label %59 unwind label %88
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 10
+  store ptr %57, ptr %59, align 8
+  %60 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 20
+  %61 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %60)
+          to label %62 unwind label %108
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 14
-  store ptr %58, ptr %60, align 8
-  %61 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 4))
-          to label %62 unwind label %88
-
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 15
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 11
   store ptr %61, ptr %63, align 8
-  %64 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 5))
-          to label %65 unwind label %88
+  %64 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 21
+  %65 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %64)
+          to label %66 unwind label %108
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 16
-  store ptr %64, ptr %66, align 8
-  %67 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 6))
-          to label %68 unwind label %88
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 12
+  store ptr %65, ptr %67, align 8
+  %68 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 2
+  %69 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %68)
+          to label %70 unwind label %108
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 17
-  store ptr %67, ptr %69, align 8
-  %70 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 7))
-          to label %71 unwind label %88
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 13
+  store ptr %69, ptr %71, align 8
+  %72 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 3
+  %73 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %72)
+          to label %74 unwind label %108
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 18
-  store ptr %70, ptr %72, align 8
-  %73 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 8))
-          to label %74 unwind label %88
-
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 19
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 14
   store ptr %73, ptr %75, align 8
-  %76 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 20
-  %77 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 2
-  %78 = load ptr, ptr %77, align 8
-  %79 = invoke ptr @prefs_get_string_value(ptr noundef %78, i32 noundef 1)
-          to label %80 unwind label %88
+  %76 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 4
+  %77 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %76)
+          to label %78 unwind label %108
 
-80:                                               ; preds = %74
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %79)
-          to label %81 unwind label %88
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 15
+  store ptr %77, ptr %79, align 8
+  %80 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 5
+  %81 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %80)
+          to label %82 unwind label %108
 
-81:                                               ; preds = %80
-  %82 = invoke noundef zeroext i1 @_ZN5QFont10fromStringERK7QString(ptr noundef nonnull align 8 dereferenceable(12) %76, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %83 unwind label %92
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 16
+  store ptr %81, ptr %83, align 8
+  %84 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 6
+  %85 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %84)
+          to label %86 unwind label %108
 
-83:                                               ; preds = %81
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 17
+  store ptr %85, ptr %87, align 8
+  %88 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 7
+  %89 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %88)
+          to label %90 unwind label %108
+
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 18
+  store ptr %89, ptr %91, align 8
+  %92 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 8
+  %93 = invoke noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %92)
+          to label %94 unwind label %108
+
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 19
+  store ptr %93, ptr %95, align 8
+  %96 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 20
+  %97 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %9, i32 0, i32 2
+  %98 = load ptr, ptr %97, align 8
+  %99 = invoke ptr @prefs_get_string_value(ptr noundef %98, i32 noundef 1)
+          to label %100 unwind label %108
+
+100:                                              ; preds = %94
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %99)
+          to label %101 unwind label %108
+
+101:                                              ; preds = %100
+  %102 = invoke noundef zeroext i1 @_ZN5QFont10fromStringERK7QString(ptr noundef nonnull align 8 dereferenceable(12) %96, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %103 unwind label %112
+
+103:                                              ; preds = %101
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #16
   ret void
 
-84:                                               ; preds = %16, %2
-  %85 = landingpad { ptr, i32 }
+104:                                              ; preds = %18, %2
+  %105 = landingpad { ptr, i32 }
           cleanup
-  %86 = extractvalue { ptr, i32 } %85, 0
-  store ptr %86, ptr %6, align 8
-  %87 = extractvalue { ptr, i32 } %85, 1
-  store i32 %87, ptr %7, align 4
-  br label %97
+  %106 = extractvalue { ptr, i32 } %105, 0
+  store ptr %106, ptr %6, align 8
+  %107 = extractvalue { ptr, i32 } %105, 1
+  store i32 %107, ptr %7, align 4
+  br label %117
 
-88:                                               ; preds = %80, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26, %23, %21, %18
-  %89 = landingpad { ptr, i32 }
+108:                                              ; preds = %100, %94, %90, %86, %82, %78, %74, %70, %66, %62, %58, %54, %50, %46, %42, %38, %34, %30, %26, %23, %20
+  %109 = landingpad { ptr, i32 }
           cleanup
-  %90 = extractvalue { ptr, i32 } %89, 0
-  store ptr %90, ptr %6, align 8
-  %91 = extractvalue { ptr, i32 } %89, 1
-  store i32 %91, ptr %7, align 4
-  br label %96
+  %110 = extractvalue { ptr, i32 } %109, 0
+  store ptr %110, ptr %6, align 8
+  %111 = extractvalue { ptr, i32 } %109, 1
+  store i32 %111, ptr %7, align 4
+  br label %116
 
-92:                                               ; preds = %81
-  %93 = landingpad { ptr, i32 }
+112:                                              ; preds = %101
+  %113 = landingpad { ptr, i32 }
           cleanup
-  %94 = extractvalue { ptr, i32 } %93, 0
-  store ptr %94, ptr %6, align 8
-  %95 = extractvalue { ptr, i32 } %93, 1
-  store i32 %95, ptr %7, align 4
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %6, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %7, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #16
-  br label %96
+  br label %116
 
-96:                                               ; preds = %92, %88
-  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #16
-  br label %97
+116:                                              ; preds = %112, %108
+  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %19) #16
+  br label %117
 
-97:                                               ; preds = %96, %84
+117:                                              ; preds = %116, %104
   call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #16
-  br label %98
+  br label %118
 
-98:                                               ; preds = %97
-  %99 = load ptr, ptr %6, align 8
-  %100 = load i32, ptr %7, align 4
-  %101 = insertvalue { ptr, i32 } poison, ptr %99, 0
-  %102 = insertvalue { ptr, i32 } %101, i32 %100, 1
-  resume { ptr, i32 } %102
+118:                                              ; preds = %117
+  %119 = load ptr, ptr %6, align 8
+  %120 = load i32, ptr %7, align 4
+  %121 = insertvalue { ptr, i32 } poison, ptr %119, 0
+  %122 = insertvalue { ptr, i32 } %121, i32 %120, 1
+  resume { ptr, i32 } %122
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3612,21 +3632,23 @@ define void @_ZN25FontColorPreferencesFrameD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV25FontColorPreferencesFrame, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV25FontColorPreferencesFrame, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV25FontColorPreferencesFrame, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV25FontColorPreferencesFrame, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #18
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #18
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %3, i32 0, i32 20
-  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.FontColorPreferencesFrame, ptr %3, i32 0, i32 20
+  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
   call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #16
   ret void
 }
@@ -8194,19 +8216,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.20, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #16
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #16
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #16
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #16
   ret void
 }
 
@@ -9213,9 +9236,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

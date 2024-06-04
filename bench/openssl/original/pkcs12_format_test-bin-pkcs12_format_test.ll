@@ -395,9 +395,10 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pkcs12_enc, ptr @enc_default, i32 0, i32 1), align 8
+  %5 = getelementptr inbounds %struct.pkcs12_enc, ptr @enc_default, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
   %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i32 0, i32 1
-  store ptr %5, ptr %pass, align 8
+  store ptr %6, ptr %pass, align 8
   %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i32 0, i32 2
   store i32 1000, ptr %iter, align 8
   %call = call i32 @test_single_key(ptr noundef %enc)
@@ -433,9 +434,10 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %5 = load ptr, ptr getelementptr inbounds (%struct.pkcs12_enc, ptr @enc_default, i32 0, i32 1), align 8
+  %5 = getelementptr inbounds %struct.pkcs12_enc, ptr @enc_default, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
   %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i32 0, i32 1
-  store ptr %5, ptr %pass, align 8
+  store ptr %6, ptr %pass, align 8
   %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i32 0, i32 2
   store i32 1000, ptr %iter, align 8
   %call = call i32 @test_single_secret(ptr noundef %enc)
@@ -709,15 +711,16 @@ entry:
   store i32 %z, ptr %z.addr, align 4
   %nid = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i32 0, i32 0
   store i32 146, ptr %nid, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pkcs12_enc, ptr @enc_default, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.pkcs12_enc, ptr @enc_default, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
   %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i32 0, i32 1
-  store ptr %0, ptr %pass, align 8
-  %1 = load i32, ptr %z.addr, align 4
-  %idxprom = sext i32 %1 to i64
+  store ptr %1, ptr %pass, align 8
+  %2 = load i32, ptr %z.addr, align 4
+  %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr inbounds [2 x i32], ptr @iters, i64 0, i64 %idxprom
-  %2 = load i32, ptr %arrayidx, align 4
+  %3 = load i32, ptr %arrayidx, align 4
   %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %enc, i32 0, i32 2
-  store i32 %2, ptr %iter, align 8
+  store i32 %3, ptr %iter, align 8
   %call = call i32 @test_single_key(ptr noundef %enc)
   ret i32 %call
 }
@@ -765,9 +768,10 @@ entry:
   %1 = load i32, ptr %arrayidx, align 4
   %nid = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i32 0, i32 0
   store i32 %1, ptr %nid, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.pkcs12_enc, ptr @mac_default, i32 0, i32 1), align 8
+  %2 = getelementptr inbounds %struct.pkcs12_enc, ptr @mac_default, i32 0, i32 1
+  %3 = load ptr, ptr %2, align 8
   %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i32 0, i32 1
-  store ptr %2, ptr %pass, align 8
+  store ptr %3, ptr %pass, align 8
   %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i32 0, i32 2
   store i32 1000, ptr %iter, align 8
   %call = call i32 @test_single_cert_mac(ptr noundef %mac)
@@ -802,15 +806,16 @@ entry:
   store i32 %z, ptr %z.addr, align 4
   %nid = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i32 0, i32 0
   store i32 64, ptr %nid, align 8
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pkcs12_enc, ptr @mac_default, i32 0, i32 1), align 8
+  %0 = getelementptr inbounds %struct.pkcs12_enc, ptr @mac_default, i32 0, i32 1
+  %1 = load ptr, ptr %0, align 8
   %pass = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i32 0, i32 1
-  store ptr %0, ptr %pass, align 8
-  %1 = load i32, ptr %z.addr, align 4
-  %idxprom = sext i32 %1 to i64
+  store ptr %1, ptr %pass, align 8
+  %2 = load i32, ptr %z.addr, align 4
+  %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr inbounds [2 x i32], ptr @iters, i64 0, i64 %idxprom
-  %2 = load i32, ptr %arrayidx, align 4
+  %3 = load i32, ptr %arrayidx, align 4
   %iter = getelementptr inbounds %struct.pkcs12_enc, ptr %mac, i32 0, i32 2
-  store i32 %2, ptr %iter, align 8
+  store i32 %3, ptr %iter, align 8
   %call = call i32 @test_single_cert_mac(ptr noundef %mac)
   ret i32 %call
 }

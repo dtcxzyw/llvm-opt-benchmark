@@ -2009,28 +2009,30 @@ define dso_local ptr @pci_host_bridge_acpi_msi_domain(ptr noundef %0) local_unna
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @acpi_pci_init() #7 section ".init.text" align 16 {
-  %1 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 36), align 1
-  %2 = and i16 %1, 8
-  %3 = icmp eq i16 %2, 0
-  br i1 %3, label %6, label %4
+  %1 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 36
+  %2 = load i16, ptr %1, align 1
+  %3 = and i16 %2, 8
+  %4 = icmp eq i16 %3, 0
+  br i1 %4, label %7, label %5
 
-4:                                                ; preds = %0
-  %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #11
+5:                                                ; preds = %0
+  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #11
   tail call void @pci_no_msi() #10
-  br label %6
+  br label %7
 
-6:                                                ; preds = %4, %0
-  %7 = load i16, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 36), align 1
-  %8 = and i16 %7, 16
-  %9 = icmp eq i16 %8, 0
-  br i1 %9, label %12, label %10
+7:                                                ; preds = %5, %0
+  %8 = getelementptr inbounds %struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 36
+  %9 = load i16, ptr %8, align 1
+  %10 = and i16 %9, 16
+  %11 = icmp eq i16 %10, 0
+  br i1 %11, label %14, label %12
 
-10:                                               ; preds = %6
-  %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18) #11
+12:                                               ; preds = %7
+  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18) #11
   tail call void @pcie_no_aspm() #10
-  br label %12
+  br label %14
 
-12:                                               ; preds = %10, %6
+14:                                               ; preds = %12, %7
   ret i32 0
 }
 

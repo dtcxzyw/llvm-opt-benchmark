@@ -61,19 +61,20 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_text_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
   invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_text_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %other.addr, align 8
-  %m_breakiterator_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %m_breakiterator_, align 8
+  %2 = load ptr, ptr %other.addr, align 8
+  %m_breakiterator_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %m_breakiterator_, align 8
   %m_breakiterator_2 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 2
-  store ptr %2, ptr %m_breakiterator_2, align 8
-  %3 = load ptr, ptr %other.addr, align 8
-  %m_text_3 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %3, i32 0, i32 3
+  store ptr %3, ptr %m_breakiterator_2, align 8
+  %4 = load ptr, ptr %other.addr, align 8
+  %m_text_3 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %4, i32 0, i32 3
   %m_text_4 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_text_4, ptr noundef nonnull align 8 dereferenceable(64) %m_text_3)
           to label %invoke.cont6 unwind label %lpad5
@@ -85,96 +86,96 @@ invoke.cont6:                                     ; preds = %invoke.cont
 invoke.cont7:                                     ; preds = %invoke.cont6
   %m_search_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
   store ptr %call8, ptr %m_search_, align 8
-  %4 = load ptr, ptr %other.addr, align 8
-  %m_search_9 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %m_search_9, align 8
-  %breakIter = getelementptr inbounds %struct.USearch, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %breakIter, align 8
+  %5 = load ptr, ptr %other.addr, align 8
+  %m_search_9 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %5, i32 0, i32 1
+  %6 = load ptr, ptr %m_search_9, align 8
+  %breakIter = getelementptr inbounds %struct.USearch, ptr %6, i32 0, i32 6
+  %7 = load ptr, ptr %breakIter, align 8
   %m_search_10 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %m_search_10, align 8
-  %breakIter11 = getelementptr inbounds %struct.USearch, ptr %7, i32 0, i32 6
-  store ptr %6, ptr %breakIter11, align 8
-  %8 = load ptr, ptr %other.addr, align 8
-  %m_search_12 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %m_search_12, align 8
-  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %9, i32 0, i32 3
-  %10 = load i8, ptr %isCanonicalMatch, align 1
+  %8 = load ptr, ptr %m_search_10, align 8
+  %breakIter11 = getelementptr inbounds %struct.USearch, ptr %8, i32 0, i32 6
+  store ptr %7, ptr %breakIter11, align 8
+  %9 = load ptr, ptr %other.addr, align 8
+  %m_search_12 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %9, i32 0, i32 1
+  %10 = load ptr, ptr %m_search_12, align 8
+  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %10, i32 0, i32 3
+  %11 = load i8, ptr %isCanonicalMatch, align 1
   %m_search_13 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %11 = load ptr, ptr %m_search_13, align 8
-  %isCanonicalMatch14 = getelementptr inbounds %struct.USearch, ptr %11, i32 0, i32 3
-  store i8 %10, ptr %isCanonicalMatch14, align 1
-  %12 = load ptr, ptr %other.addr, align 8
-  %m_search_15 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %m_search_15, align 8
-  %isOverlap = getelementptr inbounds %struct.USearch, ptr %13, i32 0, i32 2
-  %14 = load i8, ptr %isOverlap, align 4
+  %12 = load ptr, ptr %m_search_13, align 8
+  %isCanonicalMatch14 = getelementptr inbounds %struct.USearch, ptr %12, i32 0, i32 3
+  store i8 %11, ptr %isCanonicalMatch14, align 1
+  %13 = load ptr, ptr %other.addr, align 8
+  %m_search_15 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %13, i32 0, i32 1
+  %14 = load ptr, ptr %m_search_15, align 8
+  %isOverlap = getelementptr inbounds %struct.USearch, ptr %14, i32 0, i32 2
+  %15 = load i8, ptr %isOverlap, align 4
   %m_search_16 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %15 = load ptr, ptr %m_search_16, align 8
-  %isOverlap17 = getelementptr inbounds %struct.USearch, ptr %15, i32 0, i32 2
-  store i8 %14, ptr %isOverlap17, align 4
-  %16 = load ptr, ptr %other.addr, align 8
-  %m_search_18 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %m_search_18, align 8
-  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %17, i32 0, i32 4
-  %18 = load i16, ptr %elementComparisonType, align 2
+  %16 = load ptr, ptr %m_search_16, align 8
+  %isOverlap17 = getelementptr inbounds %struct.USearch, ptr %16, i32 0, i32 2
+  store i8 %15, ptr %isOverlap17, align 4
+  %17 = load ptr, ptr %other.addr, align 8
+  %m_search_18 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %17, i32 0, i32 1
+  %18 = load ptr, ptr %m_search_18, align 8
+  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %18, i32 0, i32 4
+  %19 = load i16, ptr %elementComparisonType, align 2
   %m_search_19 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %19 = load ptr, ptr %m_search_19, align 8
-  %elementComparisonType20 = getelementptr inbounds %struct.USearch, ptr %19, i32 0, i32 4
-  store i16 %18, ptr %elementComparisonType20, align 2
-  %20 = load ptr, ptr %other.addr, align 8
-  %m_search_21 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %m_search_21, align 8
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %21, i32 0, i32 7
-  %22 = load i32, ptr %matchedIndex, align 8
+  %20 = load ptr, ptr %m_search_19, align 8
+  %elementComparisonType20 = getelementptr inbounds %struct.USearch, ptr %20, i32 0, i32 4
+  store i16 %19, ptr %elementComparisonType20, align 2
+  %21 = load ptr, ptr %other.addr, align 8
+  %m_search_21 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %21, i32 0, i32 1
+  %22 = load ptr, ptr %m_search_21, align 8
+  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %22, i32 0, i32 7
+  %23 = load i32, ptr %matchedIndex, align 8
   %m_search_22 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %23 = load ptr, ptr %m_search_22, align 8
-  %matchedIndex23 = getelementptr inbounds %struct.USearch, ptr %23, i32 0, i32 7
-  store i32 %22, ptr %matchedIndex23, align 8
-  %24 = load ptr, ptr %other.addr, align 8
-  %m_search_24 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %m_search_24, align 8
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %25, i32 0, i32 8
-  %26 = load i32, ptr %matchedLength, align 4
+  %24 = load ptr, ptr %m_search_22, align 8
+  %matchedIndex23 = getelementptr inbounds %struct.USearch, ptr %24, i32 0, i32 7
+  store i32 %23, ptr %matchedIndex23, align 8
+  %25 = load ptr, ptr %other.addr, align 8
+  %m_search_24 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %25, i32 0, i32 1
+  %26 = load ptr, ptr %m_search_24, align 8
+  %matchedLength = getelementptr inbounds %struct.USearch, ptr %26, i32 0, i32 8
+  %27 = load i32, ptr %matchedLength, align 4
   %m_search_25 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %27 = load ptr, ptr %m_search_25, align 8
-  %matchedLength26 = getelementptr inbounds %struct.USearch, ptr %27, i32 0, i32 8
-  store i32 %26, ptr %matchedLength26, align 4
-  %28 = load ptr, ptr %other.addr, align 8
-  %m_search_27 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %m_search_27, align 8
-  %text = getelementptr inbounds %struct.USearch, ptr %29, i32 0, i32 0
-  %30 = load ptr, ptr %text, align 8
+  %28 = load ptr, ptr %m_search_25, align 8
+  %matchedLength26 = getelementptr inbounds %struct.USearch, ptr %28, i32 0, i32 8
+  store i32 %27, ptr %matchedLength26, align 4
+  %29 = load ptr, ptr %other.addr, align 8
+  %m_search_27 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %29, i32 0, i32 1
+  %30 = load ptr, ptr %m_search_27, align 8
+  %text = getelementptr inbounds %struct.USearch, ptr %30, i32 0, i32 0
+  %31 = load ptr, ptr %text, align 8
   %m_search_28 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %31 = load ptr, ptr %m_search_28, align 8
-  %text29 = getelementptr inbounds %struct.USearch, ptr %31, i32 0, i32 0
-  store ptr %30, ptr %text29, align 8
-  %32 = load ptr, ptr %other.addr, align 8
-  %m_search_30 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %32, i32 0, i32 1
-  %33 = load ptr, ptr %m_search_30, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %33, i32 0, i32 1
-  %34 = load i32, ptr %textLength, align 8
+  %32 = load ptr, ptr %m_search_28, align 8
+  %text29 = getelementptr inbounds %struct.USearch, ptr %32, i32 0, i32 0
+  store ptr %31, ptr %text29, align 8
+  %33 = load ptr, ptr %other.addr, align 8
+  %m_search_30 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %33, i32 0, i32 1
+  %34 = load ptr, ptr %m_search_30, align 8
+  %textLength = getelementptr inbounds %struct.USearch, ptr %34, i32 0, i32 1
+  %35 = load i32, ptr %textLength, align 8
   %m_search_31 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %35 = load ptr, ptr %m_search_31, align 8
-  %textLength32 = getelementptr inbounds %struct.USearch, ptr %35, i32 0, i32 1
-  store i32 %34, ptr %textLength32, align 8
+  %36 = load ptr, ptr %m_search_31, align 8
+  %textLength32 = getelementptr inbounds %struct.USearch, ptr %36, i32 0, i32 1
+  store i32 %35, ptr %textLength32, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %36 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %37 = extractvalue { ptr, i32 } %36, 0
-  store ptr %37, ptr %exn.slot, align 8
-  %38 = extractvalue { ptr, i32 } %36, 1
-  store i32 %38, ptr %ehselector.slot, align 4
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %exn.slot, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont6, %invoke.cont
-  %39 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %exn.slot, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %ehselector.slot, align 4
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %exn.slot, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_text_) #8
   br label %ehcleanup
 
@@ -198,7 +199,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -209,7 +211,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -235,16 +238,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_search_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_search_, align 8
-  %cmp = icmp ne ptr %0, null
+  %1 = load ptr, ptr %m_search_, align 8
+  %cmp = icmp ne ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_search_2 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_search_2, align 8
-  invoke void @uprv_free_75(ptr noundef %1)
+  %2 = load ptr, ptr %m_search_2, align 8
+  invoke void @uprv_free_75(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -257,10 +261,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #10
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #10
   unreachable
 }
 
@@ -1545,234 +1549,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %m_text_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
-  invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_text_)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %call = invoke noalias ptr @uprv_malloc_75(i64 noundef 48) #9
-          to label %invoke.cont3 unwind label %lpad2
-
-invoke.cont3:                                     ; preds = %invoke.cont
-  %m_search_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  store ptr %call, ptr %m_search_, align 8
-  %m_search_4 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_search_4, align 8
-  %breakIter = getelementptr inbounds %struct.USearch, ptr %0, i32 0, i32 6
-  store ptr null, ptr %breakIter, align 8
-  %m_search_5 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_search_5, align 8
-  %isOverlap = getelementptr inbounds %struct.USearch, ptr %1, i32 0, i32 2
-  store i8 0, ptr %isOverlap, align 4
-  %m_search_6 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %m_search_6, align 8
-  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %2, i32 0, i32 3
-  store i8 0, ptr %isCanonicalMatch, align 1
-  %m_search_7 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %m_search_7, align 8
-  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %3, i32 0, i32 4
-  store i16 0, ptr %elementComparisonType, align 2
-  %m_search_8 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %m_search_8, align 8
-  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %4, i32 0, i32 9
-  store i8 1, ptr %isForwardSearching, align 8
-  %m_search_9 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %m_search_9, align 8
-  %reset = getelementptr inbounds %struct.USearch, ptr %5, i32 0, i32 10
-  store i8 1, ptr %reset, align 1
-  %m_search_10 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %m_search_10, align 8
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %6, i32 0, i32 7
-  store i32 -1, ptr %matchedIndex, align 8
-  %m_search_11 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %m_search_11, align 8
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %7, i32 0, i32 8
-  store i32 0, ptr %matchedLength, align 4
-  %m_search_12 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %m_search_12, align 8
-  %text = getelementptr inbounds %struct.USearch, ptr %8, i32 0, i32 0
-  store ptr null, ptr %text, align 8
-  %m_search_13 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %m_search_13, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %9, i32 0, i32 1
-  store i32 0, ptr %textLength, align 8
-  %m_breakiterator_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 2
-  store ptr null, ptr %m_breakiterator_, align 8
-  ret void
-
-lpad:                                             ; preds = %entry
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad2:                                            ; preds = %invoke.cont
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_text_) #8
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad2, %lpad
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val14 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val14
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef %breakiter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %text.addr = alloca ptr, align 8
-  %breakiter.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %text, ptr %text.addr, align 8
-  store ptr %breakiter, ptr %breakiter.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %m_breakiterator_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %breakiter.addr, align 8
-  store ptr %0, ptr %m_breakiterator_, align 8
-  %m_text_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %text.addr, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_text_, ptr noundef nonnull align 8 dereferenceable(64) %1)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %call = invoke noalias ptr @uprv_malloc_75(i64 noundef 48) #9
-          to label %invoke.cont3 unwind label %lpad2
-
-invoke.cont3:                                     ; preds = %invoke.cont
-  %m_search_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  store ptr %call, ptr %m_search_, align 8
-  %m_search_4 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %m_search_4, align 8
-  %breakIter = getelementptr inbounds %struct.USearch, ptr %2, i32 0, i32 6
-  store ptr null, ptr %breakIter, align 8
-  %m_search_5 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %m_search_5, align 8
-  %isOverlap = getelementptr inbounds %struct.USearch, ptr %3, i32 0, i32 2
-  store i8 0, ptr %isOverlap, align 4
-  %m_search_6 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %m_search_6, align 8
-  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %4, i32 0, i32 3
-  store i8 0, ptr %isCanonicalMatch, align 1
-  %m_search_7 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %m_search_7, align 8
-  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %5, i32 0, i32 4
-  store i16 0, ptr %elementComparisonType, align 2
-  %m_search_8 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %6 = load ptr, ptr %m_search_8, align 8
-  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %6, i32 0, i32 9
-  store i8 1, ptr %isForwardSearching, align 8
-  %m_search_9 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %m_search_9, align 8
-  %reset = getelementptr inbounds %struct.USearch, ptr %7, i32 0, i32 10
-  store i8 1, ptr %reset, align 1
-  %m_search_10 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %m_search_10, align 8
-  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %8, i32 0, i32 7
-  store i32 -1, ptr %matchedIndex, align 8
-  %m_search_11 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %m_search_11, align 8
-  %matchedLength = getelementptr inbounds %struct.USearch, ptr %9, i32 0, i32 8
-  store i32 0, ptr %matchedLength, align 4
-  %m_text_12 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
-  %call14 = invoke noundef ptr @_ZNK6icu_7513UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %m_text_12)
-          to label %invoke.cont13 unwind label %lpad2
-
-invoke.cont13:                                    ; preds = %invoke.cont3
-  %m_search_15 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %m_search_15, align 8
-  %text16 = getelementptr inbounds %struct.USearch, ptr %10, i32 0, i32 0
-  store ptr %call14, ptr %text16, align 8
-  %11 = load ptr, ptr %text.addr, align 8
-  %call18 = invoke noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
-          to label %invoke.cont17 unwind label %lpad2
-
-invoke.cont17:                                    ; preds = %invoke.cont13
-  %m_search_19 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %m_search_19, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %12, i32 0, i32 1
-  store i32 %call18, ptr %textLength, align 8
-  ret void
-
-lpad:                                             ; preds = %entry
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad2:                                            ; preds = %invoke.cont13, %invoke.cont3, %invoke.cont
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_text_) #8
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad2, %lpad
-  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val20 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val20
-}
-
-declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %text, ptr noundef %breakiter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %text.addr = alloca ptr, align 8
-  %breakiter.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %text, ptr %text.addr, align 8
-  store ptr %breakiter, ptr %breakiter.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %m_breakiterator_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %breakiter.addr, align 8
-  store ptr %0, ptr %m_breakiterator_, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_text_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
   invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_text_)
           to label %invoke.cont unwind label %lpad
@@ -1816,36 +1594,140 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %8 = load ptr, ptr %m_search_11, align 8
   %matchedLength = getelementptr inbounds %struct.USearch, ptr %8, i32 0, i32 8
   store i32 0, ptr %matchedLength, align 4
-  %9 = load ptr, ptr %text.addr, align 8
+  %m_search_12 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %9 = load ptr, ptr %m_search_12, align 8
+  %text = getelementptr inbounds %struct.USearch, ptr %9, i32 0, i32 0
+  store ptr null, ptr %text, align 8
+  %m_search_13 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %10 = load ptr, ptr %m_search_13, align 8
+  %textLength = getelementptr inbounds %struct.USearch, ptr %10, i32 0, i32 1
+  store i32 0, ptr %textLength, align 8
+  %m_breakiterator_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 2
+  store ptr null, ptr %m_breakiterator_, align 8
+  ret void
+
+lpad:                                             ; preds = %entry
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %exn.slot, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad2:                                            ; preds = %invoke.cont
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %exn.slot, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %ehselector.slot, align 4
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_text_) #8
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad2, %lpad
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val14 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
+entry:
+  %this.addr = alloca ptr, align 8
+  store ptr %this, ptr %this.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef %breakiter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %text.addr = alloca ptr, align 8
+  %breakiter.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %text, ptr %text.addr, align 8
+  store ptr %breakiter, ptr %breakiter.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %m_breakiterator_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 2
+  %1 = load ptr, ptr %breakiter.addr, align 8
+  store ptr %1, ptr %m_breakiterator_, align 8
+  %m_text_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
+  %2 = load ptr, ptr %text.addr, align 8
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_text_, ptr noundef nonnull align 8 dereferenceable(64) %2)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %call = invoke noalias ptr @uprv_malloc_75(i64 noundef 48) #9
+          to label %invoke.cont3 unwind label %lpad2
+
+invoke.cont3:                                     ; preds = %invoke.cont
+  %m_search_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  store ptr %call, ptr %m_search_, align 8
+  %m_search_4 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %m_search_4, align 8
+  %breakIter = getelementptr inbounds %struct.USearch, ptr %3, i32 0, i32 6
+  store ptr null, ptr %breakIter, align 8
+  %m_search_5 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %4 = load ptr, ptr %m_search_5, align 8
+  %isOverlap = getelementptr inbounds %struct.USearch, ptr %4, i32 0, i32 2
+  store i8 0, ptr %isOverlap, align 4
+  %m_search_6 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %5 = load ptr, ptr %m_search_6, align 8
+  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %5, i32 0, i32 3
+  store i8 0, ptr %isCanonicalMatch, align 1
+  %m_search_7 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %6 = load ptr, ptr %m_search_7, align 8
+  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %6, i32 0, i32 4
+  store i16 0, ptr %elementComparisonType, align 2
+  %m_search_8 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %7 = load ptr, ptr %m_search_8, align 8
+  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %7, i32 0, i32 9
+  store i8 1, ptr %isForwardSearching, align 8
+  %m_search_9 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %8 = load ptr, ptr %m_search_9, align 8
+  %reset = getelementptr inbounds %struct.USearch, ptr %8, i32 0, i32 10
+  store i8 1, ptr %reset, align 1
+  %m_search_10 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %9 = load ptr, ptr %m_search_10, align 8
+  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %9, i32 0, i32 7
+  store i32 -1, ptr %matchedIndex, align 8
+  %m_search_11 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %10 = load ptr, ptr %m_search_11, align 8
+  %matchedLength = getelementptr inbounds %struct.USearch, ptr %10, i32 0, i32 8
+  store i32 0, ptr %matchedLength, align 4
   %m_text_12 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
-  %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
-  %10 = load ptr, ptr %vfn, align 8
-  invoke void %10(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(64) %m_text_12)
+  %call14 = invoke noundef ptr @_ZNK6icu_7513UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %m_text_12)
           to label %invoke.cont13 unwind label %lpad2
 
 invoke.cont13:                                    ; preds = %invoke.cont3
-  %m_text_14 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
-  %call16 = invoke noundef ptr @_ZNK6icu_7513UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %m_text_14)
-          to label %invoke.cont15 unwind label %lpad2
+  %m_search_15 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %11 = load ptr, ptr %m_search_15, align 8
+  %text16 = getelementptr inbounds %struct.USearch, ptr %11, i32 0, i32 0
+  store ptr %call14, ptr %text16, align 8
+  %12 = load ptr, ptr %text.addr, align 8
+  %call18 = invoke noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
+          to label %invoke.cont17 unwind label %lpad2
 
-invoke.cont15:                                    ; preds = %invoke.cont13
-  %m_search_17 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %11 = load ptr, ptr %m_search_17, align 8
-  %text18 = getelementptr inbounds %struct.USearch, ptr %11, i32 0, i32 0
-  store ptr %call16, ptr %text18, align 8
-  %m_text_19 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
-  %call21 = invoke noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %m_text_19)
-          to label %invoke.cont20 unwind label %lpad2
-
-invoke.cont20:                                    ; preds = %invoke.cont15
-  %m_search_22 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %m_search_22, align 8
-  %textLength = getelementptr inbounds %struct.USearch, ptr %12, i32 0, i32 1
-  store i32 %call21, ptr %textLength, align 8
-  %13 = load ptr, ptr %breakiter.addr, align 8
-  %m_breakiterator_23 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 2
-  store ptr %13, ptr %m_breakiterator_23, align 8
+invoke.cont17:                                    ; preds = %invoke.cont13
+  %m_search_19 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %13 = load ptr, ptr %m_search_19, align 8
+  %textLength = getelementptr inbounds %struct.USearch, ptr %13, i32 0, i32 1
+  store i32 %call18, ptr %textLength, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -1857,13 +1739,139 @@ lpad:                                             ; preds = %entry
   store i32 %16, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
-lpad2:                                            ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont3, %invoke.cont
+lpad2:                                            ; preds = %invoke.cont13, %invoke.cont3, %invoke.cont
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = extractvalue { ptr, i32 } %17, 0
   store ptr %18, ptr %exn.slot, align 8
   %19 = extractvalue { ptr, i32 } %17, 1
   store i32 %19, ptr %ehselector.slot, align 4
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_text_) #8
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad2, %lpad
+  call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %ehcleanup
+  %exn = load ptr, ptr %exn.slot, align 8
+  %sel = load i32, ptr %ehselector.slot, align 4
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
+  %lpad.val20 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
+  resume { ptr, i32 } %lpad.val20
+}
+
+declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %text, ptr noundef %breakiter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %this.addr = alloca ptr, align 8
+  %text.addr = alloca ptr, align 8
+  %breakiter.addr = alloca ptr, align 8
+  %exn.slot = alloca ptr, align 8
+  %ehselector.slot = alloca i32, align 4
+  store ptr %this, ptr %this.addr, align 8
+  store ptr %text, ptr %text.addr, align 8
+  store ptr %breakiter, ptr %breakiter.addr, align 8
+  %this1 = load ptr, ptr %this.addr, align 8
+  call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %m_breakiterator_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 2
+  %1 = load ptr, ptr %breakiter.addr, align 8
+  store ptr %1, ptr %m_breakiterator_, align 8
+  %m_text_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
+  invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_text_)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %entry
+  %call = invoke noalias ptr @uprv_malloc_75(i64 noundef 48) #9
+          to label %invoke.cont3 unwind label %lpad2
+
+invoke.cont3:                                     ; preds = %invoke.cont
+  %m_search_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  store ptr %call, ptr %m_search_, align 8
+  %m_search_4 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %2 = load ptr, ptr %m_search_4, align 8
+  %breakIter = getelementptr inbounds %struct.USearch, ptr %2, i32 0, i32 6
+  store ptr null, ptr %breakIter, align 8
+  %m_search_5 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %3 = load ptr, ptr %m_search_5, align 8
+  %isOverlap = getelementptr inbounds %struct.USearch, ptr %3, i32 0, i32 2
+  store i8 0, ptr %isOverlap, align 4
+  %m_search_6 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %4 = load ptr, ptr %m_search_6, align 8
+  %isCanonicalMatch = getelementptr inbounds %struct.USearch, ptr %4, i32 0, i32 3
+  store i8 0, ptr %isCanonicalMatch, align 1
+  %m_search_7 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %5 = load ptr, ptr %m_search_7, align 8
+  %elementComparisonType = getelementptr inbounds %struct.USearch, ptr %5, i32 0, i32 4
+  store i16 0, ptr %elementComparisonType, align 2
+  %m_search_8 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %6 = load ptr, ptr %m_search_8, align 8
+  %isForwardSearching = getelementptr inbounds %struct.USearch, ptr %6, i32 0, i32 9
+  store i8 1, ptr %isForwardSearching, align 8
+  %m_search_9 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %7 = load ptr, ptr %m_search_9, align 8
+  %reset = getelementptr inbounds %struct.USearch, ptr %7, i32 0, i32 10
+  store i8 1, ptr %reset, align 1
+  %m_search_10 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %8 = load ptr, ptr %m_search_10, align 8
+  %matchedIndex = getelementptr inbounds %struct.USearch, ptr %8, i32 0, i32 7
+  store i32 -1, ptr %matchedIndex, align 8
+  %m_search_11 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %9 = load ptr, ptr %m_search_11, align 8
+  %matchedLength = getelementptr inbounds %struct.USearch, ptr %9, i32 0, i32 8
+  store i32 0, ptr %matchedLength, align 4
+  %10 = load ptr, ptr %text.addr, align 8
+  %m_text_12 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
+  %vtable = load ptr, ptr %10, align 8
+  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
+  %11 = load ptr, ptr %vfn, align 8
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(64) %m_text_12)
+          to label %invoke.cont13 unwind label %lpad2
+
+invoke.cont13:                                    ; preds = %invoke.cont3
+  %m_text_14 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
+  %call16 = invoke noundef ptr @_ZNK6icu_7513UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %m_text_14)
+          to label %invoke.cont15 unwind label %lpad2
+
+invoke.cont15:                                    ; preds = %invoke.cont13
+  %m_search_17 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %12 = load ptr, ptr %m_search_17, align 8
+  %text18 = getelementptr inbounds %struct.USearch, ptr %12, i32 0, i32 0
+  store ptr %call16, ptr %text18, align 8
+  %m_text_19 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 3
+  %call21 = invoke noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %m_text_19)
+          to label %invoke.cont20 unwind label %lpad2
+
+invoke.cont20:                                    ; preds = %invoke.cont15
+  %m_search_22 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 1
+  %13 = load ptr, ptr %m_search_22, align 8
+  %textLength = getelementptr inbounds %struct.USearch, ptr %13, i32 0, i32 1
+  store i32 %call21, ptr %textLength, align 8
+  %14 = load ptr, ptr %breakiter.addr, align 8
+  %m_breakiterator_23 = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %this1, i32 0, i32 2
+  store ptr %14, ptr %m_breakiterator_23, align 8
+  ret void
+
+lpad:                                             ; preds = %entry
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
+  br label %ehcleanup
+
+lpad2:                                            ; preds = %invoke.cont15, %invoke.cont13, %invoke.cont3, %invoke.cont
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %exn.slot, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_text_) #8
   br label %ehcleanup
 
@@ -2022,7 +2030,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

@@ -343,7 +343,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7525ScientificNumberFormatter5StyleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter16SuperscriptStyleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter16SuperscriptStyleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -454,37 +455,38 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_7525ScientificNumberFormatter5StyleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter11MarkupStyleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter11MarkupStyleE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fBeginMarkup = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %beginMarkup.addr, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %2 = load ptr, ptr %beginMarkup.addr, align 8
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup, ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %fEndMarkup = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %endMarkup.addr, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fEndMarkup, ptr noundef nonnull align 8 dereferenceable(64) %2)
+  %3 = load ptr, ptr %endMarkup.addr, align 8
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fEndMarkup, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup) #6
   br label %ehcleanup
 
@@ -737,7 +739,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6icu_7525ScientificNumberFormatter5StyleC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter16SuperscriptStyleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter16SuperscriptStyleE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -1030,7 +1033,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fField = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %fField, align 8
   %fBeginIndex = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %this1, i32 0, i32 2
@@ -1298,17 +1302,18 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6icu_7525ScientificNumberFormatter5StyleC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter11MarkupStyleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter11MarkupStyleE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %fBeginMarkup = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %fBeginMarkup2 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %2, i32 0, i32 1
+  %3 = load ptr, ptr %.addr, align 8
+  %fBeginMarkup2 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %3, i32 0, i32 1
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup, ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %fEndMarkup = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %fEndMarkup3 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %fEndMarkup3 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %4, i32 0, i32 2
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fEndMarkup, ptr noundef nonnull align 8 dereferenceable(64) %fEndMarkup3)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -1316,21 +1321,21 @@ invoke.cont5:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup) #6
   br label %ehcleanup
 
@@ -1526,21 +1531,22 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fPreExponent = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this1, i32 0, i32 1
   invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %fDecimalFormat = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %fmtToAdopt.addr, align 8
-  store ptr %0, ptr %fDecimalFormat, align 8
+  %1 = load ptr, ptr %fmtToAdopt.addr, align 8
+  store ptr %1, ptr %fDecimalFormat, align 8
   %fStyle = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %styleToAdopt.addr, align 8
-  store ptr %1, ptr %fStyle, align 8
-  %2 = load ptr, ptr %status.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %3)
+  %2 = load ptr, ptr %styleToAdopt.addr, align 8
+  store ptr %2, ptr %fStyle, align 8
+  %3 = load ptr, ptr %status.addr, align 8
+  %4 = load i32, ptr %3, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %4)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -1551,65 +1557,65 @@ if.then:                                          ; preds = %invoke.cont3
   br label %invoke.cont16
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %if.end14, %if.end8, %invoke.cont
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent) #6
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont3
   %fDecimalFormat4 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this1, i32 0, i32 2
-  %10 = load ptr, ptr %fDecimalFormat4, align 8
-  %cmp = icmp eq ptr %10, null
+  %11 = load ptr, ptr %fDecimalFormat4, align 8
+  %cmp = icmp eq ptr %11, null
   br i1 %cmp, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %fStyle5 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this1, i32 0, i32 3
-  %11 = load ptr, ptr %fStyle5, align 8
-  %cmp6 = icmp eq ptr %11, null
+  %12 = load ptr, ptr %fStyle5, align 8
+  %cmp6 = icmp eq ptr %12, null
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %lor.lhs.false, %if.end
-  %12 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %12, align 4
+  %13 = load ptr, ptr %status.addr, align 8
+  store i32 1, ptr %13, align 4
   br label %invoke.cont16
 
 if.end8:                                          ; preds = %lor.lhs.false
   %fDecimalFormat9 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this1, i32 0, i32 2
-  %13 = load ptr, ptr %fDecimalFormat9, align 8
-  %vtable = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %fDecimalFormat9, align 8
+  %vtable = load ptr, ptr %14, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 39
-  %14 = load ptr, ptr %vfn, align 8
-  %call11 = invoke noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(368) %13)
+  %15 = load ptr, ptr %vfn, align 8
+  %call11 = invoke noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(368) %14)
           to label %invoke.cont10 unwind label %lpad2
 
 invoke.cont10:                                    ; preds = %if.end8
   store ptr %call11, ptr %sym, align 8
-  %15 = load ptr, ptr %sym, align 8
-  %cmp12 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %sym, align 8
+  %cmp12 = icmp eq ptr %16, null
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %invoke.cont10
-  %16 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %16, align 4
+  %17 = load ptr, ptr %status.addr, align 8
+  store i32 1, ptr %17, align 4
   br label %invoke.cont16
 
 if.end14:                                         ; preds = %invoke.cont10
-  %17 = load ptr, ptr %sym, align 8
+  %18 = load ptr, ptr %sym, align 8
   %fPreExponent15 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this1, i32 0, i32 1
-  invoke void @_ZN6icu_7525ScientificNumberFormatter14getPreExponentERKNS_20DecimalFormatSymbolsERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(2883) %17, ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent15)
+  invoke void @_ZN6icu_7525ScientificNumberFormatter14getPreExponentERKNS_20DecimalFormatSymbolsERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(2883) %18, ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent15)
           to label %invoke.cont16 unwind label %lpad2
 
 invoke.cont16:                                    ; preds = %if.end14, %if.then13, %if.then7, %if.then
@@ -1633,7 +1639,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1644,7 +1651,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -1691,10 +1699,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %fPreExponent = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %other.addr, align 8
-  %fPreExponent2 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %1, i32 0, i32 1
+  %2 = load ptr, ptr %other.addr, align 8
+  %fPreExponent2 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %2, i32 0, i32 1
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent, ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent2)
           to label %invoke.cont unwind label %lpad
 
@@ -1703,25 +1712,25 @@ invoke.cont:                                      ; preds = %entry
   store ptr null, ptr %fDecimalFormat, align 8
   %fStyle = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this1, i32 0, i32 3
   store ptr null, ptr %fStyle, align 8
-  %2 = load ptr, ptr %other.addr, align 8
-  %fDecimalFormat3 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %fDecimalFormat3, align 8
-  %vtable = load ptr, ptr %3, align 8
+  %3 = load ptr, ptr %other.addr, align 8
+  %fDecimalFormat3 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %fDecimalFormat3, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %4 = load ptr, ptr %vfn, align 8
-  %call = invoke noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(368) %3)
+  %5 = load ptr, ptr %vfn, align 8
+  %call = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(368) %4)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   %fDecimalFormat6 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this1, i32 0, i32 2
   store ptr %call, ptr %fDecimalFormat6, align 8
-  %5 = load ptr, ptr %other.addr, align 8
-  %fStyle7 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %5, i32 0, i32 3
-  %6 = load ptr, ptr %fStyle7, align 8
-  %vtable8 = load ptr, ptr %6, align 8
+  %6 = load ptr, ptr %other.addr, align 8
+  %fStyle7 = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %6, i32 0, i32 3
+  %7 = load ptr, ptr %fStyle7, align 8
+  %vtable8 = load ptr, ptr %7, align 8
   %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 3
-  %7 = load ptr, ptr %vfn9, align 8
-  %call11 = invoke noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %8 = load ptr, ptr %vfn9, align 8
+  %call11 = invoke noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %invoke.cont10 unwind label %lpad4
 
 invoke.cont10:                                    ; preds = %invoke.cont5
@@ -1730,21 +1739,21 @@ invoke.cont10:                                    ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont5, %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fPreExponent) #6
   br label %ehcleanup
 
@@ -1768,7 +1777,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1780,30 +1790,31 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fDecimalFormat = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %fDecimalFormat, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %fDecimalFormat, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(368) %0) #6
+  %2 = load ptr, ptr %vfn, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(368) %1) #6
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   %fStyle = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %fStyle, align 8
-  %isnull2 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %fStyle, align 8
+  %isnull2 = icmp eq ptr %3, null
   br i1 %isnull2, label %delete.end6, label %delete.notnull3
 
 delete.notnull3:                                  ; preds = %delete.end
-  %vtable4 = load ptr, ptr %2, align 8
+  %vtable4 = load ptr, ptr %3, align 8
   %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 1
-  %3 = load ptr, ptr %vfn5, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
+  %4 = load ptr, ptr %vfn5, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   br label %delete.end6
 
 delete.end6:                                      ; preds = %delete.notnull3, %delete.end
@@ -1963,7 +1974,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter11MarkupStyleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter11MarkupStyleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fEndMarkup = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this1, i32 0, i32 2
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fEndMarkup) #6
   %fBeginMarkup = getelementptr inbounds %"class.icu_75::ScientificNumberFormatter::MarkupStyle", ptr %this1, i32 0, i32 1
@@ -2013,7 +2025,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter5StyleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter5StyleE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2051,7 +2064,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter5StyleE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7525ScientificNumberFormatter5StyleE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   ret void
 }
 
@@ -2097,7 +2111,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

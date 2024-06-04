@@ -295,7 +295,7 @@ define internal noundef i32 @cn_init() #0 align 16 {
   %8 = call ptr @__netlink_kernel_create(ptr noundef nonnull @init_net, i32 noundef 11, ptr noundef null, ptr noundef nonnull %1) #4
   store ptr %8, ptr @cdev.0, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %18, label %10
+  br i1 %9, label %19, label %10
 
 10:                                               ; preds = %0
   %11 = call ptr @cn_queue_alloc_dev(ptr noundef nonnull @.str, ptr noundef nonnull %8) #4
@@ -306,29 +306,31 @@ define internal noundef i32 @cn_init() #0 align 16 {
 13:                                               ; preds = %10
   %14 = load ptr, ptr @cdev.0, align 8
   call void @netlink_kernel_release(ptr noundef %14) #4
-  br label %18
+  br label %19
 
 15:                                               ; preds = %10
   store i1 true, ptr @cn_already_initialized, align 4
-  %16 = load ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 18), align 32
-  %17 = call ptr @proc_create_single_data(ptr noundef nonnull @.str.1, i16 noundef zeroext 292, ptr noundef %16, ptr noundef nonnull @cn_proc_show, ptr noundef null) #4
-  br label %18
+  %16 = getelementptr inbounds %struct.net, ptr @init_net, i64 0, i32 18
+  %17 = load ptr, ptr %16, align 32
+  %18 = call ptr @proc_create_single_data(ptr noundef nonnull @.str.1, i16 noundef zeroext 292, ptr noundef %17, ptr noundef nonnull @cn_proc_show, ptr noundef null) #4
+  br label %19
 
-18:                                               ; preds = %15, %13, %0
-  %19 = phi i32 [ 0, %15 ], [ -22, %13 ], [ -5, %0 ]
+19:                                               ; preds = %15, %13, %0
+  %20 = phi i32 [ 0, %15 ], [ -22, %13 ], [ -5, %0 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1) #4
-  ret i32 %19
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cn_fini() #0 align 16 {
   store i1 false, ptr @cn_already_initialized, align 4
-  %1 = load ptr, ptr getelementptr inbounds (%struct.net, ptr @init_net, i64 0, i32 18), align 32
-  tail call void @remove_proc_entry(ptr noundef nonnull @.str.1, ptr noundef %1) #4
-  %2 = load ptr, ptr @cdev.1, align 8
-  tail call void @cn_queue_free_dev(ptr noundef %2) #4
-  %3 = load ptr, ptr @cdev.0, align 8
-  tail call void @netlink_kernel_release(ptr noundef %3) #4
+  %1 = getelementptr inbounds %struct.net, ptr @init_net, i64 0, i32 18
+  %2 = load ptr, ptr %1, align 32
+  tail call void @remove_proc_entry(ptr noundef nonnull @.str.1, ptr noundef %2) #4
+  %3 = load ptr, ptr @cdev.1, align 8
+  tail call void @cn_queue_free_dev(ptr noundef %3) #4
+  %4 = load ptr, ptr @cdev.0, align 8
+  tail call void @netlink_kernel_release(ptr noundef %4) #4
   ret void
 }
 

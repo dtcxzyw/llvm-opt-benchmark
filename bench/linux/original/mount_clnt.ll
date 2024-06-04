@@ -115,7 +115,7 @@ define dso_local i32 @nfs_mount(ptr nocapture noundef readonly %0, i32 noundef %
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false)
   %53 = call i64 @strlen(ptr noundef %19) #7
   %54 = icmp ugt i64 %53, 1024
-  br i1 %54, label %85, label %55
+  br i1 %54, label %86, label %55
 
 55:                                               ; preds = %3
   %56 = getelementptr inbounds i8, ptr %0, i64 48
@@ -130,54 +130,55 @@ define dso_local i32 @nfs_mount(ptr nocapture noundef readonly %0, i32 noundef %
 60:                                               ; preds = %59, %55
   call void @nfs_init_timeout_values(ptr noundef nonnull %4, i32 noundef %27, i32 noundef %1, i32 noundef %2) #7
   %61 = call ptr @rpc_create(ptr noundef nonnull %7) #7
-  %62 = icmp ugt ptr %61, inttoptr (i64 -4096 to ptr)
-  br i1 %62, label %82, label %63
+  %62 = inttoptr i64 -4096 to ptr
+  %63 = icmp ugt ptr %61, %62
+  br i1 %63, label %83, label %64
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %61, i64 56
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr i8, ptr %65, i64 48
-  store ptr %66, ptr %6, align 8
-  %67 = call i32 @rpc_call_sync(ptr noundef %61, ptr noundef nonnull %6, i32 noundef 4608) #7
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %61, i64 56
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr i8, ptr %66, i64 48
+  store ptr %67, ptr %6, align 8
+  %68 = call i32 @rpc_call_sync(ptr noundef %61, ptr noundef nonnull %6, i32 noundef 4608) #7
   call void @rpc_shutdown_client(ptr noundef %61) #7
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %85, label %69
+  %69 = icmp slt i32 %68, 0
+  br i1 %69, label %86, label %70
 
-69:                                               ; preds = %63
-  %70 = load i32, ptr %5, align 8
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %85
+70:                                               ; preds = %64
+  %71 = load i32, ptr %5, align 8
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %86
 
-72:                                               ; preds = %69
-  %73 = load i32, ptr %42, align 8
-  %74 = icmp eq i32 %73, 3
-  br i1 %74, label %75, label %79
+73:                                               ; preds = %70
+  %74 = load i32, ptr %42, align 8
+  %75 = icmp eq i32 %74, 3
+  br i1 %75, label %76, label %80
 
-75:                                               ; preds = %72
-  %76 = load ptr, ptr %12, align 8
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %85
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %12, align 8
+  %78 = load i32, ptr %77, align 4
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %86
 
-79:                                               ; preds = %75, %72
-  %80 = load ptr, ptr %15, align 8
-  store i32 0, ptr %80, align 4
-  %81 = load ptr, ptr %12, align 8
-  store i32 1, ptr %81, align 4
-  br label %85
+80:                                               ; preds = %76, %73
+  %81 = load ptr, ptr %15, align 8
+  store i32 0, ptr %81, align 4
+  %82 = load ptr, ptr %12, align 8
+  store i32 1, ptr %82, align 4
+  br label %86
 
-82:                                               ; preds = %60
-  %83 = ptrtoint ptr %61 to i64
-  %84 = trunc i64 %83 to i32
-  br label %85
+83:                                               ; preds = %60
+  %84 = ptrtoint ptr %61 to i64
+  %85 = trunc i64 %84 to i32
+  br label %86
 
-85:                                               ; preds = %82, %79, %75, %69, %63, %3
-  %86 = phi i32 [ -36, %3 ], [ %84, %82 ], [ %67, %63 ], [ 0, %79 ], [ 0, %75 ], [ %70, %69 ]
+86:                                               ; preds = %83, %80, %76, %70, %64, %3
+  %87 = phi i32 [ -36, %3 ], [ %85, %83 ], [ %68, %64 ], [ 0, %80 ], [ 0, %76 ], [ %71, %70 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
-  ret i32 %86
+  ret i32 %87
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -264,7 +265,7 @@ define dso_local void @nfs_umount(ptr nocapture noundef readonly %0) local_unnam
   store ptr %35, ptr %33, align 8
   %36 = tail call i64 @strlen(ptr noundef %35) #7
   %37 = icmp ugt i64 %36, 1024
-  br i1 %37, label %51, label %38
+  br i1 %37, label %52, label %38
 
 38:                                               ; preds = %1
   %39 = getelementptr inbounds i8, ptr %0, i64 48
@@ -278,19 +279,20 @@ define dso_local void @nfs_umount(ptr nocapture noundef readonly %0) local_unnam
 
 43:                                               ; preds = %42, %38
   %44 = call ptr @rpc_create(ptr noundef nonnull %2) #7
-  %45 = icmp ugt ptr %44, inttoptr (i64 -4096 to ptr)
-  br i1 %45, label %51, label %46
+  %45 = inttoptr i64 -4096 to ptr
+  %46 = icmp ugt ptr %44, %45
+  br i1 %46, label %52, label %47
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %44, i64 56
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr i8, ptr %48, i64 144
-  store ptr %49, ptr %3, align 8
-  %50 = call i32 @rpc_call_sync(ptr noundef %44, ptr noundef nonnull %3, i32 noundef 0) #7
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds i8, ptr %44, i64 56
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr i8, ptr %49, i64 144
+  store ptr %50, ptr %3, align 8
+  %51 = call i32 @rpc_call_sync(ptr noundef %44, ptr noundef nonnull %3, i32 noundef 0) #7
   call void @rpc_shutdown_client(ptr noundef %44) #7
-  br label %51
+  br label %52
 
-51:                                               ; preds = %46, %43, %1
+52:                                               ; preds = %47, %43, %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2) #7
   ret void

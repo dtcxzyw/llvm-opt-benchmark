@@ -3470,7 +3470,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net28PrimaryConfigChangedCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net28PrimaryConfigChangedCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3603,7 +3604,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net33ValidateClientHelloResultCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net33ValidateClientHelloResultCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -17130,24 +17132,25 @@ entry:
   store ptr %done_cb, ptr %done_cb.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net11ProofSource8CallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net27EvaluateClientHelloCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net27EvaluateClientHelloCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %config_ = getelementptr inbounds %"class.net::EvaluateClientHelloCallback", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %config.addr, align 8
-  store ptr %0, ptr %config_, align 8
+  %1 = load ptr, ptr %config.addr, align 8
+  store ptr %1, ptr %config_, align 8
   %found_error_ = getelementptr inbounds %"class.net::EvaluateClientHelloCallback", ptr %this1, i32 0, i32 2
-  %1 = load i8, ptr %found_error.addr, align 1
-  %tobool = trunc i8 %1 to i1
+  %2 = load i8, ptr %found_error.addr, align 1
+  %tobool = trunc i8 %2 to i1
   %frombool2 = zext i1 %tobool to i8
   store i8 %frombool2, ptr %found_error_, align 8
   %server_ip_ = getelementptr inbounds %"class.net::EvaluateClientHelloCallback", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %server_ip.addr, align 8
-  store ptr %2, ptr %server_ip_, align 8
+  %3 = load ptr, ptr %server_ip.addr, align 8
+  store ptr %3, ptr %server_ip_, align 8
   %version_ = getelementptr inbounds %"class.net::EvaluateClientHelloCallback", ptr %this1, i32 0, i32 4
-  %3 = load i32, ptr %version.addr, align 4
-  store i32 %3, ptr %version_, align 8
+  %4 = load i32, ptr %version.addr, align 4
+  store i32 %4, ptr %version_, align 8
   %primary_orbit_ = getelementptr inbounds %"class.net::EvaluateClientHelloCallback", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %primary_orbit.addr, align 8
-  store ptr %4, ptr %primary_orbit_, align 8
+  %5 = load ptr, ptr %primary_orbit.addr, align 8
+  store ptr %5, ptr %primary_orbit_, align 8
   %requested_config_ = getelementptr inbounds %"class.net::EvaluateClientHelloCallback", ptr %this1, i32 0, i32 6
   invoke void @_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %requested_config_, ptr noundef nonnull align 8 dereferenceable(8) %requested_config)
           to label %invoke.cont unwind label %lpad
@@ -17159,8 +17162,8 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %crypto_proof_ = getelementptr inbounds %"class.net::EvaluateClientHelloCallback", ptr %this1, i32 0, i32 8
-  %5 = load ptr, ptr %crypto_proof.addr, align 8
-  store ptr %5, ptr %crypto_proof_, align 8
+  %6 = load ptr, ptr %crypto_proof.addr, align 8
+  store ptr %6, ptr %crypto_proof_, align 8
   %client_hello_state_ = getelementptr inbounds %"class.net::EvaluateClientHelloCallback", ptr %this1, i32 0, i32 9
   call void @_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %client_hello_state_, ptr noundef nonnull align 8 dereferenceable(8) %client_hello_state) #14
   %done_cb_ = getelementptr inbounds %"class.net::EvaluateClientHelloCallback", ptr %this1, i32 0, i32 10
@@ -17168,21 +17171,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
+  %8 = extractvalue { ptr, i32 } %7, 0
+  store ptr %8, ptr %exn.slot, align 8
+  %9 = extractvalue { ptr, i32 } %7, 1
+  store i32 %9, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %exn.slot, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %ehselector.slot, align 4
   call void @_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %requested_config_) #14
   br label %ehcleanup
 
@@ -18478,7 +18481,8 @@ entry:
   store ptr %done_cb, ptr %done_cb.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net20StrikeRegisterClient14ResultCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net35VerifyNonceIsValidAndUniqueCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net35VerifyNonceIsValidAndUniqueCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %result_ = getelementptr inbounds %"class.net::VerifyNonceIsValidAndUniqueCallback", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %result_, ptr noundef nonnull align 8 dereferenceable(8) %result) #14
   %proof_source_details_ = getelementptr inbounds %"class.net::VerifyNonceIsValidAndUniqueCallback", ptr %this1, i32 0, i32 2
@@ -19483,7 +19487,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %cb_ = getelementptr inbounds %"class.net::QuicCryptoServerConfig::BuildServerConfigUpdateMessageProofSourceCallback", ptr %this1, i32 0, i32 9
   call void @_ZNSt10unique_ptrIN3net44BuildServerConfigUpdateMessageResultCallbackESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %cb_) #14
   %message_ = getelementptr inbounds %"class.net::QuicCryptoServerConfig::BuildServerConfigUpdateMessageProofSourceCallback", ptr %this1, i32 0, i32 8
@@ -19530,38 +19535,39 @@ entry:
   store ptr %cb, ptr %cb.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net11ProofSource8CallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %config_ = getelementptr inbounds %"class.net::QuicCryptoServerConfig::BuildServerConfigUpdateMessageProofSourceCallback", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %config.addr, align 8
-  store ptr %0, ptr %config_, align 8
+  %1 = load ptr, ptr %config.addr, align 8
+  store ptr %1, ptr %config_, align 8
   %version_ = getelementptr inbounds %"class.net::QuicCryptoServerConfig::BuildServerConfigUpdateMessageProofSourceCallback", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %version.addr, align 4
-  store i32 %1, ptr %version_, align 8
+  %2 = load i32, ptr %version.addr, align 4
+  store i32 %2, ptr %version_, align 8
   %compressed_certs_cache_ = getelementptr inbounds %"class.net::QuicCryptoServerConfig::BuildServerConfigUpdateMessageProofSourceCallback", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %compressed_certs_cache.addr, align 8
-  store ptr %2, ptr %compressed_certs_cache_, align 8
+  %3 = load ptr, ptr %compressed_certs_cache.addr, align 8
+  store ptr %3, ptr %compressed_certs_cache_, align 8
   %common_cert_sets_ = getelementptr inbounds %"class.net::QuicCryptoServerConfig::BuildServerConfigUpdateMessageProofSourceCallback", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %common_cert_sets.addr, align 8
-  store ptr %3, ptr %common_cert_sets_, align 8
+  %4 = load ptr, ptr %common_cert_sets.addr, align 8
+  store ptr %4, ptr %common_cert_sets_, align 8
   %client_common_set_hashes_ = getelementptr inbounds %"class.net::QuicCryptoServerConfig::BuildServerConfigUpdateMessageProofSourceCallback", ptr %this1, i32 0, i32 5
-  %4 = load ptr, ptr %params.addr, align 8
-  %client_common_set_hashes = getelementptr inbounds %"struct.net::QuicCryptoNegotiatedParameters", ptr %4, i32 0, i32 19
+  %5 = load ptr, ptr %params.addr, align 8
+  %client_common_set_hashes = getelementptr inbounds %"struct.net::QuicCryptoNegotiatedParameters", ptr %5, i32 0, i32 19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_, ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %client_cached_cert_hashes_ = getelementptr inbounds %"class.net::QuicCryptoServerConfig::BuildServerConfigUpdateMessageProofSourceCallback", ptr %this1, i32 0, i32 6
-  %5 = load ptr, ptr %params.addr, align 8
-  %client_cached_cert_hashes = getelementptr inbounds %"struct.net::QuicCryptoNegotiatedParameters", ptr %5, i32 0, i32 20
+  %6 = load ptr, ptr %params.addr, align 8
+  %client_cached_cert_hashes = getelementptr inbounds %"struct.net::QuicCryptoNegotiatedParameters", ptr %6, i32 0, i32 20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_, ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %sct_supported_by_client_ = getelementptr inbounds %"class.net::QuicCryptoServerConfig::BuildServerConfigUpdateMessageProofSourceCallback", ptr %this1, i32 0, i32 7
-  %6 = load ptr, ptr %params.addr, align 8
-  %sct_supported_by_client = getelementptr inbounds %"struct.net::QuicCryptoNegotiatedParameters", ptr %6, i32 0, i32 21
-  %7 = load i8, ptr %sct_supported_by_client, align 8
-  %tobool = trunc i8 %7 to i1
+  %7 = load ptr, ptr %params.addr, align 8
+  %sct_supported_by_client = getelementptr inbounds %"struct.net::QuicCryptoNegotiatedParameters", ptr %7, i32 0, i32 21
+  %8 = load i8, ptr %sct_supported_by_client, align 8
+  %tobool = trunc i8 %8 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %sct_supported_by_client_, align 8
   %message_ = getelementptr inbounds %"class.net::QuicCryptoServerConfig::BuildServerConfigUpdateMessageProofSourceCallback", ptr %this1, i32 0, i32 8
@@ -19574,30 +19580,30 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
+  %10 = extractvalue { ptr, i32 } %9, 0
+  store ptr %10, ptr %exn.slot, align 8
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store i32 %11, ptr %ehselector.slot, align 4
   br label %ehcleanup6
 
 lpad2:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %invoke.cont3
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %exn.slot, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_) #14
   br label %ehcleanup
 
@@ -19623,7 +19629,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net11ProofSource8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net11ProofSource8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -21108,7 +21115,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig6ConfigE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig6ConfigE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %serialized = getelementptr inbounds %"class.net::QuicCryptoServerConfig::Config", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #14
   %id = getelementptr inbounds %"class.net::QuicCryptoServerConfig::Config", ptr %this1, i32 0, i32 4
@@ -21144,32 +21152,32 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont3, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %tag_value_map) #14
   call void @_ZNSt6vectorIPN3net11KeyExchangeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %key_exchanges) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %id) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #14
-  %8 = getelementptr inbounds i8, ptr %this1, i64 88
-  call void @_ZN4base10RefCountedIN3net22QuicCryptoServerConfig6ConfigEED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #14
+  %9 = getelementptr inbounds i8, ptr %this1, i64 88
+  call void @_ZN4base10RefCountedIN3net22QuicCryptoServerConfig6ConfigEED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9) #14
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %9 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN3net16QuicCryptoConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %9) #14
+  %10 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN3net16QuicCryptoConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #14
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup
@@ -21283,7 +21291,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig6ConfigE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig6ConfigE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %key_exchanges = getelementptr inbounds %"class.net::QuicCryptoServerConfig::Config", ptr %this1, i32 0, i32 6
   invoke void @_ZN4base17STLDeleteElementsISt6vectorIPN3net11KeyExchangeESaIS4_EEEEvPT_(ptr noundef %key_exchanges)
           to label %invoke.cont unwind label %terminate.lpad
@@ -21299,17 +21308,17 @@ invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %id) #14
   %serialized = getelementptr inbounds %"class.net::QuicCryptoServerConfig::Config", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #14
-  %0 = getelementptr inbounds i8, ptr %this1, i64 88
-  call void @_ZN4base10RefCountedIN3net22QuicCryptoServerConfig6ConfigEED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) #14
-  %1 = getelementptr inbounds i8, ptr %this1, i64 8
-  call void @_ZN3net16QuicCryptoConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %1) #14
+  %1 = getelementptr inbounds i8, ptr %this1, i64 88
+  call void @_ZN4base10RefCountedIN3net22QuicCryptoServerConfig6ConfigEED2Ev(ptr noundef nonnull align 4 dereferenceable(4) %1) #14
+  %2 = getelementptr inbounds i8, ptr %this1, i64 8
+  call void @_ZN3net16QuicCryptoConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #14
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #15
+  %4 = extractvalue { ptr, i32 } %3, 0
+  call void @__clang_call_terminate(ptr %4) #15
   unreachable
 }
 
@@ -23673,7 +23682,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net27EvaluateClientHelloCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net27EvaluateClientHelloCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %done_cb_ = getelementptr inbounds %"class.net::EvaluateClientHelloCallback", ptr %this1, i32 0, i32 10
   call void @_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallbackESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %done_cb_) #14
   %client_hello_state_ = getelementptr inbounds %"class.net::EvaluateClientHelloCallback", ptr %this1, i32 0, i32 9
@@ -23958,7 +23968,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net20StrikeRegisterClient14ResultCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net20StrikeRegisterClient14ResultCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -23968,7 +23979,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net35VerifyNonceIsValidAndUniqueCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3net35VerifyNonceIsValidAndUniqueCallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %done_cb_ = getelementptr inbounds %"class.net::VerifyNonceIsValidAndUniqueCallback", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallbackESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %done_cb_) #14
   %proof_source_details_ = getelementptr inbounds %"class.net::VerifyNonceIsValidAndUniqueCallback", ptr %this1, i32 0, i32 2

@@ -97,73 +97,77 @@ define internal i32 @prte_odls_default_launch_local_procs(ptr noundef %0) #1 {
   store i32 %8, ptr %4, align 4
   %9 = load i32, ptr %4, align 4
   %10 = icmp ne i32 0, %9
-  br i1 %10, label %11, label %31
+  br i1 %10, label %11, label %35
 
 11:                                               ; preds = %1
-  %12 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %13 = icmp sge i32 %12, 0
-  br i1 %13, label %14, label %29
+  %12 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp sge i32 %13, 0
+  br i1 %14, label %15, label %33
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %16 = icmp slt i32 %15, 64
-  br i1 %16, label %17, label %29
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp slt i32 %17, 64
+  br i1 %18, label %19, label %33
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %19
-  %21 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %20, i32 0, i32 2
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp sge i32 %22, 2
-  br i1 %23, label %24, label %29
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %21 = load i32, ptr %20, align 4
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %22
+  %24 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %23, i32 0, i32 2
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp sge i32 %25, 2
+  br i1 %26, label %27, label %33
 
-24:                                               ; preds = %17
-  %25 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %26 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
-  %27 = load i32, ptr %4, align 4
-  %28 = call ptr @prte_strerror(i32 noundef %27)
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %25, ptr noundef @.str.4, ptr noundef %26, ptr noundef %28)
-  br label %29
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %29 = load i32, ptr %28, align 4
+  %30 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
+  %31 = load i32, ptr %4, align 4
+  %32 = call ptr @prte_strerror(i32 noundef %31)
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %29, ptr noundef @.str.4, ptr noundef %30, ptr noundef %32)
+  br label %33
 
-29:                                               ; preds = %24, %17, %14, %11
-  %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %2, align 4
-  br label %50
+33:                                               ; preds = %27, %19, %15, %11
+  %34 = load i32, ptr %4, align 4
+  store i32 %34, ptr %2, align 4
+  br label %54
 
-31:                                               ; preds = %1
-  br label %32
+35:                                               ; preds = %1
+  br label %36
 
-32:                                               ; preds = %31
-  %33 = call ptr @pmix_obj_new_tma(ptr noundef @prte_odls_launch_local_t_class, ptr noundef null)
-  store ptr %33, ptr %6, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.prte_odls_launch_local_t, ptr %34, i32 0, i32 2
-  %36 = getelementptr inbounds [256 x i8], ptr %35, i64 0, i64 0
-  %37 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  call void @PMIx_Load_nspace(ptr noundef %36, ptr noundef %37)
+36:                                               ; preds = %35
+  %37 = call ptr @pmix_obj_new_tma(ptr noundef @prte_odls_launch_local_t_class, ptr noundef null)
+  store ptr %37, ptr %6, align 8
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.prte_odls_launch_local_t, ptr %38, i32 0, i32 3
-  store ptr @odls_default_fork_local_proc, ptr %39, align 8
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct.prte_odls_launch_local_t, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr @prte_event_base, align 8
+  %39 = getelementptr inbounds %struct.prte_odls_launch_local_t, ptr %38, i32 0, i32 2
+  %40 = getelementptr inbounds [256 x i8], ptr %39, i64 0, i64 0
+  %41 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
+  call void @PMIx_Load_nspace(ptr noundef %40, ptr noundef %41)
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds %struct.prte_odls_launch_local_t, ptr %42, i32 0, i32 3
+  store ptr @odls_default_fork_local_proc, ptr %43, align 8
   %44 = load ptr, ptr %6, align 8
-  %45 = call i32 @prte_event_assign(ptr noundef %42, ptr noundef %43, i32 noundef -1, i16 noundef signext 4, ptr noundef @prte_odls_base_default_launch_local, ptr noundef %44)
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct.prte_odls_launch_local_t, ptr %46, i32 0, i32 1
-  %48 = load ptr, ptr %47, align 8
-  call void @event_active(ptr noundef %48, i32 noundef 4, i16 noundef signext 1)
-  br label %49
+  %45 = getelementptr inbounds %struct.prte_odls_launch_local_t, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr @prte_event_base, align 8
+  %48 = load ptr, ptr %6, align 8
+  %49 = call i32 @prte_event_assign(ptr noundef %46, ptr noundef %47, i32 noundef -1, i16 noundef signext 4, ptr noundef @prte_odls_base_default_launch_local, ptr noundef %48)
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr inbounds %struct.prte_odls_launch_local_t, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8
+  call void @event_active(ptr noundef %52, i32 noundef 4, i16 noundef signext 1)
+  br label %53
 
-49:                                               ; preds = %32
+53:                                               ; preds = %36
   store i32 0, ptr %2, align 4
-  br label %50
+  br label %54
 
-50:                                               ; preds = %49, %29
-  %51 = load i32, ptr %2, align 4
-  ret i32 %51
+54:                                               ; preds = %53, %33
+  %55 = load i32, ptr %2, align 4
+  ret i32 %55
 }
 
 ; Function Attrs: nounwind uwtable
@@ -266,41 +270,45 @@ define internal i32 @prte_odls_default_restart_proc(ptr noundef %0) #1 {
   store i32 %5, ptr %3, align 4
   %6 = load i32, ptr %3, align 4
   %7 = icmp ne i32 0, %6
-  br i1 %7, label %8, label %27
+  br i1 %7, label %8, label %31
 
 8:                                                ; preds = %1
-  %9 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %10 = icmp sge i32 %9, 0
-  br i1 %10, label %11, label %26
+  %9 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp sge i32 %10, 0
+  br i1 %11, label %12, label %30
 
-11:                                               ; preds = %8
-  %12 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %13 = icmp slt i32 %12, 64
-  br i1 %13, label %14, label %26
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp slt i32 %14, 64
+  br i1 %15, label %16, label %30
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %16
-  %18 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %17, i32 0, i32 2
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp sge i32 %19, 2
-  br i1 %20, label %21, label %26
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %18 = load i32, ptr %17, align 4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %19
+  %21 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %20, i32 0, i32 2
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp sge i32 %22, 2
+  br i1 %23, label %24, label %30
 
-21:                                               ; preds = %14
-  %22 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %23 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
-  %24 = load i32, ptr %3, align 4
-  %25 = call ptr @prte_strerror(i32 noundef %24)
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %22, ptr noundef @.str.20, ptr noundef %23, ptr noundef %25)
-  br label %26
-
-26:                                               ; preds = %21, %14, %11, %8
-  br label %27
-
-27:                                               ; preds = %26, %1
+24:                                               ; preds = %16
+  %25 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %26 = load i32, ptr %25, align 4
+  %27 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
   %28 = load i32, ptr %3, align 4
-  ret i32 %28
+  %29 = call ptr @prte_strerror(i32 noundef %28)
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %26, ptr noundef @.str.20, ptr noundef %27, ptr noundef %29)
+  br label %30
+
+30:                                               ; preds = %24, %16, %12, %8
+  br label %31
+
+31:                                               ; preds = %30, %1
+  %32 = load i32, ptr %3, align 4
+  ret i32 %32
 }
 
 declare i32 @prte_odls_base_default_kill_local_procs(ptr noundef, ptr noundef) #0
@@ -331,86 +339,94 @@ define internal i32 @odls_default_kill_local(i32 noundef %0, i32 noundef %1) #1 
   %16 = load i32, ptr %5, align 4
   %17 = call i32 @kill(i32 noundef %15, i32 noundef %16) #11
   %18 = icmp ne i32 0, %17
-  br i1 %18, label %19, label %47
+  br i1 %18, label %19, label %51
 
 19:                                               ; preds = %14
   %20 = call ptr @__errno_location() #12
   %21 = load i32, ptr %20, align 4
   %22 = icmp ne i32 3, %21
-  br i1 %22, label %23, label %46
+  br i1 %22, label %23, label %50
 
 23:                                               ; preds = %19
-  %24 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %25 = icmp sge i32 %24, 0
-  br i1 %25, label %26, label %43
+  %24 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp sge i32 %25, 0
+  br i1 %26, label %27, label %47
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %28 = icmp slt i32 %27, 64
-  br i1 %28, label %29, label %43
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp slt i32 %29, 64
+  br i1 %30, label %31, label %47
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %31
-  %33 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %32, i32 0, i32 2
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp sge i32 %34, 2
-  br i1 %35, label %36, label %43
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %33 = load i32, ptr %32, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %34
+  %36 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %35, i32 0, i32 2
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp sge i32 %37, 2
+  br i1 %38, label %39, label %47
 
-36:                                               ; preds = %29
-  %37 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %38 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
-  %39 = load i32, ptr %5, align 4
-  %40 = load i32, ptr %4, align 4
-  %41 = call ptr @__errno_location() #12
-  %42 = load i32, ptr %41, align 4
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %37, ptr noundef @.str.2, ptr noundef %38, i32 noundef %39, i32 noundef %40, i32 noundef %42)
-  br label %43
-
-43:                                               ; preds = %36, %29, %26, %23
-  %44 = call ptr @__errno_location() #12
-  %45 = load i32, ptr %44, align 4
-  store i32 %45, ptr %3, align 4
-  br label %66
-
-46:                                               ; preds = %19
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %41 = load i32, ptr %40, align 4
+  %42 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
+  %43 = load i32, ptr %5, align 4
+  %44 = load i32, ptr %4, align 4
+  %45 = call ptr @__errno_location() #12
+  %46 = load i32, ptr %45, align 4
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %41, ptr noundef @.str.2, ptr noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef %46)
   br label %47
 
-47:                                               ; preds = %46, %14
-  %48 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %49 = icmp sge i32 %48, 0
-  br i1 %49, label %50, label %65
+47:                                               ; preds = %39, %31, %27, %23
+  %48 = call ptr @__errno_location() #12
+  %49 = load i32, ptr %48, align 4
+  store i32 %49, ptr %3, align 4
+  br label %74
 
-50:                                               ; preds = %47
-  %51 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %52 = icmp slt i32 %51, 64
-  br i1 %52, label %53, label %65
+50:                                               ; preds = %19
+  br label %51
 
-53:                                               ; preds = %50
-  %54 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %55
-  %57 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %56, i32 0, i32 2
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp sge i32 %58, 2
-  br i1 %59, label %60, label %65
+51:                                               ; preds = %50, %14
+  %52 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp sge i32 %53, 0
+  br i1 %54, label %55, label %73
 
-60:                                               ; preds = %53
-  %61 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %62 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
-  %63 = load i32, ptr %5, align 4
-  %64 = load i32, ptr %4, align 4
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %61, ptr noundef @.str.3, ptr noundef %62, i32 noundef %63, i32 noundef %64)
-  br label %65
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp slt i32 %57, 64
+  br i1 %58, label %59, label %73
 
-65:                                               ; preds = %60, %53, %50, %47
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %61 = load i32, ptr %60, align 4
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %62
+  %64 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %63, i32 0, i32 2
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp sge i32 %65, 2
+  br i1 %66, label %67, label %73
+
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %69 = load i32, ptr %68, align 4
+  %70 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
+  %71 = load i32, ptr %5, align 4
+  %72 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %69, ptr noundef @.str.3, ptr noundef %70, i32 noundef %71, i32 noundef %72)
+  br label %73
+
+73:                                               ; preds = %67, %59, %55, %51
   store i32 0, ptr %3, align 4
-  br label %66
+  br label %74
 
-66:                                               ; preds = %65, %43
-  %67 = load i32, ptr %3, align 4
-  ret i32 %67
+74:                                               ; preds = %73, %47
+  %75 = load i32, ptr %3, align 4
+  ret i32 %75
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) #0
@@ -755,7 +771,7 @@ define internal void @do_child(ptr noundef %0, i32 noundef %1) #6 {
   store i32 %13, ptr %5, align 4
   %14 = load i32, ptr %5, align 4
   %15 = icmp ne i32 0, %14
-  br i1 %15, label %16, label %32
+  br i1 %15, label %16, label %33
 
 16:                                               ; preds = %2
   br label %17
@@ -776,330 +792,336 @@ define internal void @do_child(ptr noundef %0, i32 noundef %1) #6 {
 
 24:                                               ; preds = %23
   %25 = load i32, ptr %4, align 4
-  %26 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7), align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %27, i32 0, i32 7
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.prte_app_context_t, ptr %29, i32 0, i32 3
-  %31 = load ptr, ptr %30, align 8
-  call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %25, i32 noundef 1, ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef %26, ptr noundef %31) #13
+  %26 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %28, i32 0, i32 7
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds %struct.prte_app_context_t, ptr %30, i32 0, i32 3
+  %32 = load ptr, ptr %31, align 8
+  call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %25, i32 noundef 1, ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef %27, ptr noundef %32) #13
   unreachable
 
-32:                                               ; preds = %2
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %33, i32 0, i32 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr null, %35
-  br i1 %36, label %37, label %74
+33:                                               ; preds = %2
+  %34 = load ptr, ptr %3, align 8
+  %35 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %34, i32 0, i32 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr null, %36
+  br i1 %37, label %38, label %77
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %38, i32 0, i32 6
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct.prte_job_t, ptr %40, i32 0, i32 25
-  %42 = load i16, ptr %41, align 4
-  %43 = zext i16 %42 to i32
-  %44 = and i32 %43, 32
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %70
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %39, i32 0, i32 6
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds %struct.prte_job_t, ptr %41, i32 0, i32 25
+  %43 = load i16, ptr %42, align 4
+  %44 = zext i16 %43 to i32
+  %45 = and i32 %44, 32
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %72
 
-46:                                               ; preds = %37
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %47, i32 0, i32 10
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %49, i32 0, i32 5
-  %51 = call i32 @prte_iof_base_setup_child(ptr noundef %48, ptr noundef %50)
-  store i32 %51, ptr %5, align 4
-  %52 = icmp ne i32 0, %51
-  br i1 %52, label %53, label %69
+47:                                               ; preds = %38
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %48, i32 0, i32 10
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %50, i32 0, i32 5
+  %52 = call i32 @prte_iof_base_setup_child(ptr noundef %49, ptr noundef %51)
+  store i32 %52, ptr %5, align 4
+  %53 = icmp ne i32 0, %52
+  br i1 %53, label %54, label %71
 
-53:                                               ; preds = %46
-  br label %54
+54:                                               ; preds = %47
+  br label %55
 
-54:                                               ; preds = %53
-  %55 = load i32, ptr %5, align 4
-  %56 = icmp ne i32 -43, %55
-  br i1 %56, label %57, label %60
+55:                                               ; preds = %54
+  %56 = load i32, ptr %5, align 4
+  %57 = icmp ne i32 -43, %56
+  br i1 %57, label %58, label %61
 
-57:                                               ; preds = %54
-  %58 = load i32, ptr %5, align 4
-  %59 = call ptr @prte_strerror(i32 noundef %58)
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str, ptr noundef %59, ptr noundef @.str.1, i32 noundef 328)
-  br label %60
-
-60:                                               ; preds = %57, %54
+58:                                               ; preds = %55
+  %59 = load i32, ptr %5, align 4
+  %60 = call ptr @prte_strerror(i32 noundef %59)
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str, ptr noundef %60, ptr noundef @.str.1, i32 noundef 328)
   br label %61
 
-61:                                               ; preds = %60
-  %62 = load i32, ptr %4, align 4
-  %63 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7), align 8
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %64, i32 0, i32 7
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %struct.prte_app_context_t, ptr %66, i32 0, i32 3
+61:                                               ; preds = %58, %55
+  br label %62
+
+62:                                               ; preds = %61
+  %63 = load i32, ptr %4, align 4
+  %64 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %66, i32 0, i32 7
   %68 = load ptr, ptr %67, align 8
-  call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %62, i32 noundef 1, ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef %63, ptr noundef %68) #13
+  %69 = getelementptr inbounds %struct.prte_app_context_t, ptr %68, i32 0, i32 3
+  %70 = load ptr, ptr %69, align 8
+  call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %63, i32 noundef 1, ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef %65, ptr noundef %70) #13
   unreachable
 
-69:                                               ; preds = %46
-  br label %70
+71:                                               ; preds = %47
+  br label %72
 
-70:                                               ; preds = %69, %37
-  %71 = load ptr, ptr getelementptr inbounds (%struct.prte_rtc_API_module_t, ptr @prte_rtc, i32 0, i32 1), align 8
-  %72 = load ptr, ptr %3, align 8
-  %73 = load i32, ptr %4, align 4
-  call void %71(ptr noundef %72, i32 noundef %73)
-  br label %108
-
-74:                                               ; preds = %32
+72:                                               ; preds = %71, %38
+  %73 = getelementptr inbounds %struct.prte_rtc_API_module_t, ptr @prte_rtc, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %75, i32 0, i32 6
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct.prte_job_t, ptr %77, i32 0, i32 25
-  %79 = load i16, ptr %78, align 4
-  %80 = zext i16 %79 to i32
-  %81 = and i32 %80, 32
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %107, label %83
+  %76 = load i32, ptr %4, align 4
+  call void %74(ptr noundef %75, i32 noundef %76)
+  br label %111
 
-83:                                               ; preds = %74
+77:                                               ; preds = %33
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %78, i32 0, i32 6
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds %struct.prte_job_t, ptr %80, i32 0, i32 25
+  %82 = load i16, ptr %81, align 4
+  %83 = zext i16 %82 to i32
+  %84 = and i32 %83, 32
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %110, label %86
+
+86:                                               ; preds = %77
   store i32 0, ptr %5, align 4
-  br label %84
+  br label %87
 
-84:                                               ; preds = %103, %83
-  %85 = load i32, ptr %5, align 4
-  %86 = icmp slt i32 %85, 3
-  br i1 %86, label %87, label %106
+87:                                               ; preds = %106, %86
+  %88 = load i32, ptr %5, align 4
+  %89 = icmp slt i32 %88, 3
+  br i1 %89, label %90, label %109
 
-87:                                               ; preds = %84
-  %88 = call i32 (ptr, i32, ...) @open(ptr noundef @.str.7, i32 noundef 0, i32 noundef 0)
-  store i32 %88, ptr %8, align 4
-  %89 = load i32, ptr %8, align 4
-  %90 = load i32, ptr %5, align 4
-  %91 = icmp sgt i32 %89, %90
-  br i1 %91, label %92, label %100
-
-92:                                               ; preds = %87
+90:                                               ; preds = %87
+  %91 = call i32 (ptr, i32, ...) @open(ptr noundef @.str.7, i32 noundef 0, i32 noundef 0)
+  store i32 %91, ptr %8, align 4
+  %92 = load i32, ptr %8, align 4
   %93 = load i32, ptr %5, align 4
-  %94 = load i32, ptr %4, align 4
-  %95 = icmp ne i32 %93, %94
-  br i1 %95, label %96, label %100
+  %94 = icmp sgt i32 %92, %93
+  br i1 %94, label %95, label %103
 
-96:                                               ; preds = %92
-  %97 = load i32, ptr %8, align 4
-  %98 = load i32, ptr %5, align 4
-  %99 = call i32 @dup2(i32 noundef %97, i32 noundef %98) #11
-  br label %100
+95:                                               ; preds = %90
+  %96 = load i32, ptr %5, align 4
+  %97 = load i32, ptr %4, align 4
+  %98 = icmp ne i32 %96, %97
+  br i1 %98, label %99, label %103
 
-100:                                              ; preds = %96, %92, %87
-  %101 = load i32, ptr %8, align 4
-  %102 = call i32 @close(i32 noundef %101)
+99:                                               ; preds = %95
+  %100 = load i32, ptr %8, align 4
+  %101 = load i32, ptr %5, align 4
+  %102 = call i32 @dup2(i32 noundef %100, i32 noundef %101) #11
   br label %103
 
-103:                                              ; preds = %100
-  %104 = load i32, ptr %5, align 4
-  %105 = add nsw i32 %104, 1
-  store i32 %105, ptr %5, align 4
-  br label %84, !llvm.loop !6
+103:                                              ; preds = %99, %95, %90
+  %104 = load i32, ptr %8, align 4
+  %105 = call i32 @close(i32 noundef %104)
+  br label %106
 
-106:                                              ; preds = %84
-  br label %107
+106:                                              ; preds = %103
+  %107 = load i32, ptr %5, align 4
+  %108 = add nsw i32 %107, 1
+  store i32 %108, ptr %5, align 4
+  br label %87, !llvm.loop !6
 
-107:                                              ; preds = %106, %74
-  br label %108
+109:                                              ; preds = %87
+  br label %110
 
-108:                                              ; preds = %107, %70
-  %109 = load i32, ptr %4, align 4
-  call void @pmix_close_open_file_descriptors(i32 noundef %109)
-  %110 = load ptr, ptr %3, align 8
-  %111 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %110, i32 0, i32 4
-  %112 = load ptr, ptr %111, align 8
-  %113 = icmp eq ptr %112, null
-  br i1 %113, label %114, label %132
+110:                                              ; preds = %109, %77
+  br label %111
 
-114:                                              ; preds = %108
-  %115 = call noalias ptr @malloc(i64 noundef 16) #14
-  %116 = load ptr, ptr %3, align 8
-  %117 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %116, i32 0, i32 4
-  store ptr %115, ptr %117, align 8
-  %118 = load ptr, ptr %3, align 8
-  %119 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %118, i32 0, i32 7
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds %struct.prte_app_context_t, ptr %120, i32 0, i32 3
-  %122 = load ptr, ptr %121, align 8
-  %123 = call noalias ptr @strdup(ptr noundef %122) #11
-  %124 = load ptr, ptr %3, align 8
-  %125 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %124, i32 0, i32 4
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds ptr, ptr %126, i64 0
-  store ptr %123, ptr %127, align 8
-  %128 = load ptr, ptr %3, align 8
-  %129 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %128, i32 0, i32 4
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds ptr, ptr %130, i64 1
-  store ptr null, ptr %131, align 8
-  br label %132
+111:                                              ; preds = %110, %72
+  %112 = load i32, ptr %4, align 4
+  call void @pmix_close_open_file_descriptors(i32 noundef %112)
+  %113 = load ptr, ptr %3, align 8
+  %114 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %113, i32 0, i32 4
+  %115 = load ptr, ptr %114, align 8
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %117, label %135
 
-132:                                              ; preds = %114, %108
+117:                                              ; preds = %111
+  %118 = call noalias ptr @malloc(i64 noundef 16) #14
+  %119 = load ptr, ptr %3, align 8
+  %120 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %119, i32 0, i32 4
+  store ptr %118, ptr %120, align 8
+  %121 = load ptr, ptr %3, align 8
+  %122 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %121, i32 0, i32 7
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds %struct.prte_app_context_t, ptr %123, i32 0, i32 3
+  %125 = load ptr, ptr %124, align 8
+  %126 = call noalias ptr @strdup(ptr noundef %125) #11
+  %127 = load ptr, ptr %3, align 8
+  %128 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %127, i32 0, i32 4
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds ptr, ptr %129, i64 0
+  store ptr %126, ptr %130, align 8
+  %131 = load ptr, ptr %3, align 8
+  %132 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %131, i32 0, i32 4
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds ptr, ptr %133, i64 1
+  store ptr null, ptr %134, align 8
+  br label %135
+
+135:                                              ; preds = %117, %111
   call void @set_handler_default(i32 noundef 15)
   call void @set_handler_default(i32 noundef 2)
   call void @set_handler_default(i32 noundef 1)
   call void @set_handler_default(i32 noundef 13)
   call void @set_handler_default(i32 noundef 17)
   call void @set_handler_default(i32 noundef 5)
-  %133 = call i32 @sigprocmask(i32 noundef 0, ptr noundef null, ptr noundef %6) #11
-  %134 = call i32 @sigprocmask(i32 noundef 1, ptr noundef %6, ptr noundef null) #11
-  %135 = load ptr, ptr %3, align 8
-  %136 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %135, i32 0, i32 3
-  %137 = load ptr, ptr %136, align 8
-  %138 = icmp ne ptr null, %137
-  br i1 %138, label %139, label %165
+  %136 = call i32 @sigprocmask(i32 noundef 0, ptr noundef null, ptr noundef %6) #11
+  %137 = call i32 @sigprocmask(i32 noundef 1, ptr noundef %6, ptr noundef null) #11
+  %138 = load ptr, ptr %3, align 8
+  %139 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %138, i32 0, i32 3
+  %140 = load ptr, ptr %139, align 8
+  %141 = icmp ne ptr null, %140
+  br i1 %141, label %142, label %169
 
-139:                                              ; preds = %132
-  %140 = load ptr, ptr %3, align 8
-  %141 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %140, i32 0, i32 3
-  %142 = load ptr, ptr %141, align 8
-  %143 = call i32 @chdir(ptr noundef %142) #11
-  %144 = icmp ne i32 0, %143
-  br i1 %144, label %145, label %164
+142:                                              ; preds = %135
+  %143 = load ptr, ptr %3, align 8
+  %144 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %143, i32 0, i32 3
+  %145 = load ptr, ptr %144, align 8
+  %146 = call i32 @chdir(ptr noundef %145) #11
+  %147 = icmp ne i32 0, %146
+  br i1 %147, label %148, label %168
 
-145:                                              ; preds = %139
-  %146 = load i32, ptr %4, align 4
-  %147 = load ptr, ptr %3, align 8
-  %148 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %147, i32 0, i32 3
-  %149 = load ptr, ptr %148, align 8
-  %150 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7), align 8
-  %151 = load ptr, ptr %3, align 8
-  %152 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %151, i32 0, i32 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = icmp eq ptr null, %153
-  br i1 %154, label %155, label %156
+148:                                              ; preds = %142
+  %149 = load i32, ptr %4, align 4
+  %150 = load ptr, ptr %3, align 8
+  %151 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %150, i32 0, i32 3
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7
+  %154 = load ptr, ptr %153, align 8
+  %155 = load ptr, ptr %3, align 8
+  %156 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %155, i32 0, i32 8
+  %157 = load ptr, ptr %156, align 8
+  %158 = icmp eq ptr null, %157
+  br i1 %158, label %159, label %160
 
-155:                                              ; preds = %145
-  br label %162
+159:                                              ; preds = %148
+  br label %166
 
-156:                                              ; preds = %145
-  %157 = load ptr, ptr %3, align 8
-  %158 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %157, i32 0, i32 8
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds %struct.prte_proc_t, ptr %159, i32 0, i32 6
-  %161 = load i32, ptr %160, align 8
-  br label %162
+160:                                              ; preds = %148
+  %161 = load ptr, ptr %3, align 8
+  %162 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %161, i32 0, i32 8
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds %struct.prte_proc_t, ptr %163, i32 0, i32 6
+  %165 = load i32, ptr %164, align 8
+  br label %166
 
-162:                                              ; preds = %156, %155
-  %163 = phi i32 [ 0, %155 ], [ %161, %156 ]
-  call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %146, i32 noundef 1, ptr noundef @.str.8, ptr noundef @.str.9, ptr noundef @.str.10, ptr noundef %149, ptr noundef %150, i32 noundef %163) #13
+166:                                              ; preds = %160, %159
+  %167 = phi i32 [ 0, %159 ], [ %165, %160 ]
+  call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %149, i32 noundef 1, ptr noundef @.str.8, ptr noundef @.str.9, ptr noundef @.str.10, ptr noundef %152, ptr noundef %154, i32 noundef %167) #13
   unreachable
 
-164:                                              ; preds = %139
-  br label %165
+168:                                              ; preds = %142
+  br label %169
 
-165:                                              ; preds = %164, %132
-  %166 = load ptr, ptr %3, align 8
-  %167 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %166, i32 0, i32 6
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds %struct.prte_job_t, ptr %168, i32 0, i32 26
-  %170 = call zeroext i1 @prte_get_attribute(ptr noundef %169, i16 noundef zeroext 262, ptr noundef null, i16 noundef zeroext 1)
-  br i1 %170, label %171, label %198
+169:                                              ; preds = %168, %135
+  %170 = load ptr, ptr %3, align 8
+  %171 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %170, i32 0, i32 6
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds %struct.prte_job_t, ptr %172, i32 0, i32 26
+  %174 = call zeroext i1 @prte_get_attribute(ptr noundef %173, i16 noundef zeroext 262, ptr noundef null, i16 noundef zeroext 1)
+  br i1 %174, label %175, label %203
 
-171:                                              ; preds = %165
-  %172 = call ptr @__errno_location() #12
-  store i32 0, ptr %172, align 4
-  %173 = call i64 (i32, ...) @ptrace(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
-  %174 = trunc i64 %173 to i32
-  store i32 %174, ptr %5, align 4
-  %175 = call ptr @__errno_location() #12
-  %176 = load i32, ptr %175, align 4
-  %177 = icmp ne i32 0, %176
-  br i1 %177, label %178, label %197
+175:                                              ; preds = %169
+  %176 = call ptr @__errno_location() #12
+  store i32 0, ptr %176, align 4
+  %177 = call i64 (i32, ...) @ptrace(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  %178 = trunc i64 %177 to i32
+  store i32 %178, ptr %5, align 4
+  %179 = call ptr @__errno_location() #12
+  %180 = load i32, ptr %179, align 4
+  %181 = icmp ne i32 0, %180
+  br i1 %181, label %182, label %202
 
-178:                                              ; preds = %171
-  %179 = load i32, ptr %4, align 4
-  %180 = call ptr @__errno_location() #12
-  %181 = load i32, ptr %180, align 4
-  %182 = call ptr @strerror(i32 noundef %181) #11
-  %183 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7), align 8
-  %184 = load ptr, ptr %3, align 8
-  %185 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %184, i32 0, i32 8
-  %186 = load ptr, ptr %185, align 8
-  %187 = icmp eq ptr null, %186
-  br i1 %187, label %188, label %189
+182:                                              ; preds = %175
+  %183 = load i32, ptr %4, align 4
+  %184 = call ptr @__errno_location() #12
+  %185 = load i32, ptr %184, align 4
+  %186 = call ptr @strerror(i32 noundef %185) #11
+  %187 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7
+  %188 = load ptr, ptr %187, align 8
+  %189 = load ptr, ptr %3, align 8
+  %190 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %189, i32 0, i32 8
+  %191 = load ptr, ptr %190, align 8
+  %192 = icmp eq ptr null, %191
+  br i1 %192, label %193, label %194
 
-188:                                              ; preds = %178
-  br label %195
+193:                                              ; preds = %182
+  br label %200
 
-189:                                              ; preds = %178
-  %190 = load ptr, ptr %3, align 8
-  %191 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %190, i32 0, i32 8
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds %struct.prte_proc_t, ptr %192, i32 0, i32 6
-  %194 = load i32, ptr %193, align 8
-  br label %195
+194:                                              ; preds = %182
+  %195 = load ptr, ptr %3, align 8
+  %196 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %195, i32 0, i32 8
+  %197 = load ptr, ptr %196, align 8
+  %198 = getelementptr inbounds %struct.prte_proc_t, ptr %197, i32 0, i32 6
+  %199 = load i32, ptr %198, align 8
+  br label %200
 
-195:                                              ; preds = %189, %188
-  %196 = phi i32 [ 0, %188 ], [ %194, %189 ]
-  call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %179, i32 noundef 1, ptr noundef @.str.8, ptr noundef @.str.11, ptr noundef @.str.10, ptr noundef %182, ptr noundef %183, i32 noundef %196) #13
+200:                                              ; preds = %194, %193
+  %201 = phi i32 [ 0, %193 ], [ %199, %194 ]
+  call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %183, i32 noundef 1, ptr noundef @.str.8, ptr noundef @.str.11, ptr noundef @.str.10, ptr noundef %186, ptr noundef %188, i32 noundef %201) #13
   unreachable
 
-197:                                              ; preds = %171
-  br label %198
+202:                                              ; preds = %175
+  br label %203
 
-198:                                              ; preds = %197, %165
-  %199 = load ptr, ptr %3, align 8
-  %200 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %199, i32 0, i32 2
-  %201 = load ptr, ptr %200, align 8
-  %202 = load ptr, ptr %3, align 8
-  %203 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %202, i32 0, i32 4
-  %204 = load ptr, ptr %203, align 8
-  %205 = load ptr, ptr %3, align 8
-  %206 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %205, i32 0, i32 5
-  %207 = load ptr, ptr %206, align 8
-  %208 = call i32 @execve(ptr noundef %201, ptr noundef %204, ptr noundef %207) #11
-  %209 = getelementptr inbounds [4096 x i8], ptr %7, i64 0, i64 0
-  %210 = call ptr @getcwd(ptr noundef %209, i64 noundef 4096) #11
-  %211 = call ptr @__errno_location() #12
-  %212 = load i32, ptr %211, align 4
-  %213 = icmp eq i32 2, %212
-  br i1 %213, label %214, label %229
+203:                                              ; preds = %202, %169
+  %204 = load ptr, ptr %3, align 8
+  %205 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %204, i32 0, i32 2
+  %206 = load ptr, ptr %205, align 8
+  %207 = load ptr, ptr %3, align 8
+  %208 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %207, i32 0, i32 4
+  %209 = load ptr, ptr %208, align 8
+  %210 = load ptr, ptr %3, align 8
+  %211 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %210, i32 0, i32 5
+  %212 = load ptr, ptr %211, align 8
+  %213 = call i32 @execve(ptr noundef %206, ptr noundef %209, ptr noundef %212) #11
+  %214 = getelementptr inbounds [4096 x i8], ptr %7, i64 0, i64 0
+  %215 = call ptr @getcwd(ptr noundef %214, i64 noundef 4096) #11
+  %216 = call ptr @__errno_location() #12
+  %217 = load i32, ptr %216, align 4
+  %218 = icmp eq i32 2, %217
+  br i1 %218, label %219, label %234
 
-214:                                              ; preds = %198
-  %215 = load ptr, ptr %3, align 8
-  %216 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %215, i32 0, i32 7
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds %struct.prte_app_context_t, ptr %217, i32 0, i32 3
-  %219 = load ptr, ptr %218, align 8
-  %220 = call i32 @stat(ptr noundef %219, ptr noundef %9) #11
-  %221 = icmp eq i32 0, %220
-  br i1 %221, label %222, label %229
+219:                                              ; preds = %203
+  %220 = load ptr, ptr %3, align 8
+  %221 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %220, i32 0, i32 7
+  %222 = load ptr, ptr %221, align 8
+  %223 = getelementptr inbounds %struct.prte_app_context_t, ptr %222, i32 0, i32 3
+  %224 = load ptr, ptr %223, align 8
+  %225 = call i32 @stat(ptr noundef %224, ptr noundef %9) #11
+  %226 = icmp eq i32 0, %225
+  br i1 %226, label %227, label %234
 
-222:                                              ; preds = %214
-  %223 = load ptr, ptr %3, align 8
-  %224 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %223, i32 0, i32 7
-  %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds %struct.prte_app_context_t, ptr %225, i32 0, i32 3
-  %227 = load ptr, ptr %226, align 8
-  %228 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str.12, ptr noundef %227) #11
-  br label %234
+227:                                              ; preds = %219
+  %228 = load ptr, ptr %3, align 8
+  %229 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %228, i32 0, i32 7
+  %230 = load ptr, ptr %229, align 8
+  %231 = getelementptr inbounds %struct.prte_app_context_t, ptr %230, i32 0, i32 3
+  %232 = load ptr, ptr %231, align 8
+  %233 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %10, ptr noundef @.str.12, ptr noundef %232) #11
+  br label %239
 
-229:                                              ; preds = %214, %198
-  %230 = call ptr @__errno_location() #12
-  %231 = load i32, ptr %230, align 4
-  %232 = call ptr @strerror(i32 noundef %231) #11
-  %233 = call noalias ptr @strdup(ptr noundef %232) #11
-  store ptr %233, ptr %10, align 8
-  br label %234
+234:                                              ; preds = %219, %203
+  %235 = call ptr @__errno_location() #12
+  %236 = load i32, ptr %235, align 4
+  %237 = call ptr @strerror(i32 noundef %236) #11
+  %238 = call noalias ptr @strdup(ptr noundef %237) #11
+  store ptr %238, ptr %10, align 8
+  br label %239
 
-234:                                              ; preds = %229, %222
-  %235 = load i32, ptr %4, align 4
-  %236 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7), align 8
-  %237 = getelementptr inbounds [4096 x i8], ptr %7, i64 0, i64 0
-  %238 = load ptr, ptr %3, align 8
-  %239 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %238, i32 0, i32 7
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds %struct.prte_app_context_t, ptr %240, i32 0, i32 3
+239:                                              ; preds = %234, %227
+  %240 = load i32, ptr %4, align 4
+  %241 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7
   %242 = load ptr, ptr %241, align 8
-  %243 = load ptr, ptr %10, align 8
-  call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %235, i32 noundef 1, ptr noundef @.str.5, ptr noundef @.str.13, ptr noundef %236, ptr noundef %237, ptr noundef %242, ptr noundef %243) #13
+  %243 = getelementptr inbounds [4096 x i8], ptr %7, i64 0, i64 0
+  %244 = load ptr, ptr %3, align 8
+  %245 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %244, i32 0, i32 7
+  %246 = load ptr, ptr %245, align 8
+  %247 = getelementptr inbounds %struct.prte_app_context_t, ptr %246, i32 0, i32 3
+  %248 = load ptr, ptr %247, align 8
+  %249 = load ptr, ptr %10, align 8
+  call void (i32, i32, ptr, ptr, ...) @send_error_show_help(i32 noundef %240, i32 noundef 1, ptr noundef @.str.5, ptr noundef @.str.13, ptr noundef %242, ptr noundef %243, ptr noundef %248, ptr noundef %249) #13
   unreachable
 }
 
@@ -1153,7 +1175,7 @@ define internal i32 @do_parent(ptr noundef %0, i32 noundef %1) #1 {
   %41 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %40, i32 0, i32 8
   %42 = load ptr, ptr %41, align 8
   %43 = icmp ne ptr null, %42
-  br i1 %43, label %44, label %195
+  br i1 %43, label %44, label %201
 
 44:                                               ; preds = %27
   %45 = load ptr, ptr %4, align 8
@@ -1161,7 +1183,7 @@ define internal i32 @do_parent(ptr noundef %0, i32 noundef %1) #1 {
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds %struct.prte_job_t, ptr %47, i32 0, i32 26
   %49 = call zeroext i1 @prte_get_attribute(ptr noundef %48, i16 noundef zeroext 262, ptr noundef null, i16 noundef zeroext 1)
-  br i1 %49, label %50, label %180
+  br i1 %49, label %50, label %186
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr %4, align 8
@@ -1193,13 +1215,13 @@ define internal i32 @do_parent(ptr noundef %0, i32 noundef %1) #1 {
   %72 = load i32, ptr %5, align 4
   %73 = call i32 @close(i32 noundef %72)
   store i32 75, ptr %3, align 4
-  br label %429
+  br label %438
 
 74:                                               ; preds = %50
   %75 = load i32, ptr %7, align 4
   %76 = and i32 %75, 255
   %77 = icmp eq i32 %76, 127
-  br i1 %77, label %78, label %179
+  br i1 %77, label %78, label %185
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %4, align 8
@@ -1231,7 +1253,7 @@ define internal i32 @do_parent(ptr noundef %0, i32 noundef %1) #1 {
   %100 = load i32, ptr %5, align 4
   %101 = call i32 @close(i32 noundef %100)
   store i32 75, ptr %3, align 4
-  br label %429
+  br label %438
 
 102:                                              ; preds = %78
   %103 = call ptr @__errno_location() #12
@@ -1265,7 +1287,7 @@ define internal i32 @do_parent(ptr noundef %0, i32 noundef %1) #1 {
   %126 = load i32, ptr %5, align 4
   %127 = call i32 @close(i32 noundef %126)
   store i32 75, ptr %3, align 4
-  br label %429
+  br label %438
 
 128:                                              ; preds = %102
   br label %129
@@ -1276,460 +1298,469 @@ define internal i32 @do_parent(ptr noundef %0, i32 noundef %1) #1 {
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds %struct.prte_proc_t, ptr %132, i32 0, i32 1
   store ptr %133, ptr %12, align 8
-  %134 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i32 0, i32 10), align 8
-  %135 = icmp sgt i32 %134, 0
-  br i1 %135, label %136, label %175
+  %134 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i32 0, i32 10
+  %135 = load i32, ptr %134, align 8
+  %136 = icmp sgt i32 %135, 0
+  br i1 %136, label %137, label %180
 
-136:                                              ; preds = %129
+137:                                              ; preds = %129
   store double 0.000000e+00, ptr %13, align 8
-  br label %137
+  br label %138
 
-137:                                              ; preds = %136
-  %138 = call i32 @gettimeofday(ptr noundef %14, ptr noundef null) #11
-  %139 = getelementptr inbounds %struct.timeval, ptr %14, i32 0, i32 0
-  %140 = load i64, ptr %139, align 8
-  %141 = sitofp i64 %140 to double
-  store double %141, ptr %13, align 8
-  %142 = getelementptr inbounds %struct.timeval, ptr %14, i32 0, i32 1
-  %143 = load i64, ptr %142, align 8
-  %144 = sitofp i64 %143 to double
-  %145 = fdiv double %144, 1.000000e+06
-  %146 = load double, ptr %13, align 8
-  %147 = fadd double %146, %145
-  store double %147, ptr %13, align 8
-  br label %148
+138:                                              ; preds = %137
+  %139 = call i32 @gettimeofday(ptr noundef %14, ptr noundef null) #11
+  %140 = getelementptr inbounds %struct.timeval, ptr %14, i32 0, i32 0
+  %141 = load i64, ptr %140, align 8
+  %142 = sitofp i64 %141 to double
+  store double %142, ptr %13, align 8
+  %143 = getelementptr inbounds %struct.timeval, ptr %14, i32 0, i32 1
+  %144 = load i64, ptr %143, align 8
+  %145 = sitofp i64 %144 to double
+  %146 = fdiv double %145, 1.000000e+06
+  %147 = load double, ptr %13, align 8
+  %148 = fadd double %147, %146
+  store double %148, ptr %13, align 8
+  br label %149
 
-148:                                              ; preds = %137
-  %149 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i32 0, i32 11), align 4
-  %150 = icmp sge i32 %149, 0
-  br i1 %150, label %151, label %174
+149:                                              ; preds = %138
+  %150 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i32 0, i32 11
+  %151 = load i32, ptr %150, align 4
+  %152 = icmp sge i32 %151, 0
+  br i1 %152, label %153, label %179
 
-151:                                              ; preds = %148
-  %152 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i32 0, i32 11), align 4
-  %153 = icmp slt i32 %152, 64
-  br i1 %153, label %154, label %174
+153:                                              ; preds = %149
+  %154 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i32 0, i32 11
+  %155 = load i32, ptr %154, align 4
+  %156 = icmp slt i32 %155, 64
+  br i1 %156, label %157, label %179
 
-154:                                              ; preds = %151
-  %155 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i32 0, i32 11), align 4
-  %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %156
-  %158 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %157, i32 0, i32 2
+157:                                              ; preds = %153
+  %158 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i32 0, i32 11
   %159 = load i32, ptr %158, align 4
-  %160 = icmp sge i32 %159, 1
-  br i1 %160, label %161, label %174
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %160
+  %162 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %161, i32 0, i32 2
+  %163 = load i32, ptr %162, align 4
+  %164 = icmp sge i32 %163, 1
+  br i1 %164, label %165, label %179
 
-161:                                              ; preds = %154
-  %162 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i32 0, i32 11), align 4
-  %163 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
-  %164 = load double, ptr %13, align 8
-  %165 = load ptr, ptr %12, align 8
-  %166 = icmp eq ptr null, %165
-  br i1 %166, label %167, label %168
+165:                                              ; preds = %157
+  %166 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_state_base_framework, i32 0, i32 11
+  %167 = load i32, ptr %166, align 4
+  %168 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
+  %169 = load double, ptr %13, align 8
+  %170 = load ptr, ptr %12, align 8
+  %171 = icmp eq ptr null, %170
+  br i1 %171, label %172, label %173
 
-167:                                              ; preds = %161
-  br label %171
+172:                                              ; preds = %165
+  br label %176
 
-168:                                              ; preds = %161
-  %169 = load ptr, ptr %12, align 8
-  %170 = call ptr @prte_util_print_name_args(ptr noundef %169)
-  br label %171
+173:                                              ; preds = %165
+  %174 = load ptr, ptr %12, align 8
+  %175 = call ptr @prte_util_print_name_args(ptr noundef %174)
+  br label %176
 
-171:                                              ; preds = %168, %167
-  %172 = phi ptr [ @.str.15, %167 ], [ %170, %168 ]
-  %173 = call ptr @prte_proc_state_to_str(i32 noundef 9)
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %162, ptr noundef @.str.14, ptr noundef %163, double noundef %164, ptr noundef %172, ptr noundef %173, ptr noundef @.str.1, i32 noundef 471)
-  br label %174
-
-174:                                              ; preds = %171, %154, %151, %148
-  br label %175
-
-175:                                              ; preds = %174, %129
-  %176 = load ptr, ptr getelementptr inbounds (%struct.prte_state_base_module_1_0_0_t, ptr @prte_state, i32 0, i32 6), align 8
-  %177 = load ptr, ptr %12, align 8
-  call void %176(ptr noundef %177, i32 noundef 9)
-  br label %178
-
-178:                                              ; preds = %175
+176:                                              ; preds = %173, %172
+  %177 = phi ptr [ @.str.15, %172 ], [ %175, %173 ]
+  %178 = call ptr @prte_proc_state_to_str(i32 noundef 9)
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %167, ptr noundef @.str.14, ptr noundef %168, double noundef %169, ptr noundef %177, ptr noundef %178, ptr noundef @.str.1, i32 noundef 471)
   br label %179
 
-179:                                              ; preds = %178, %74
+179:                                              ; preds = %176, %157, %153, %149
   br label %180
 
-180:                                              ; preds = %179, %44
-  %181 = load ptr, ptr %4, align 8
-  %182 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %181, i32 0, i32 8
-  %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds %struct.prte_proc_t, ptr %183, i32 0, i32 9
-  store i32 4, ptr %184, align 4
-  %185 = load ptr, ptr %4, align 8
-  %186 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %185, i32 0, i32 8
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds %struct.prte_proc_t, ptr %187, i32 0, i32 16
-  %189 = load i16, ptr %188, align 8
-  %190 = zext i16 %189 to i32
-  %191 = or i32 %190, 1
-  %192 = trunc i32 %191 to i16
-  store i16 %192, ptr %188, align 8
-  %193 = load i32, ptr %5, align 4
-  %194 = call i32 @close(i32 noundef %193)
+180:                                              ; preds = %179, %129
+  %181 = getelementptr inbounds %struct.prte_state_base_module_1_0_0_t, ptr @prte_state, i32 0, i32 6
+  %182 = load ptr, ptr %181, align 8
+  %183 = load ptr, ptr %12, align 8
+  call void %182(ptr noundef %183, i32 noundef 9)
+  br label %184
+
+184:                                              ; preds = %180
+  br label %185
+
+185:                                              ; preds = %184, %74
+  br label %186
+
+186:                                              ; preds = %185, %44
+  %187 = load ptr, ptr %4, align 8
+  %188 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %187, i32 0, i32 8
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds %struct.prte_proc_t, ptr %189, i32 0, i32 9
+  store i32 4, ptr %190, align 4
+  %191 = load ptr, ptr %4, align 8
+  %192 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %191, i32 0, i32 8
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds %struct.prte_proc_t, ptr %193, i32 0, i32 16
+  %195 = load i16, ptr %194, align 8
+  %196 = zext i16 %195 to i32
+  %197 = or i32 %196, 1
+  %198 = trunc i32 %197 to i16
+  store i16 %198, ptr %194, align 8
+  %199 = load i32, ptr %5, align 4
+  %200 = call i32 @close(i32 noundef %199)
   store i32 0, ptr %3, align 4
-  br label %429
+  br label %438
 
-195:                                              ; preds = %27
-  br label %196
+201:                                              ; preds = %27
+  br label %202
 
-196:                                              ; preds = %407, %195
-  %197 = load i32, ptr %5, align 4
-  %198 = call i32 @pmix_fd_read(i32 noundef %197, i32 noundef 20, ptr noundef %8)
-  store i32 %198, ptr %6, align 4
-  %199 = load i32, ptr %6, align 4
-  %200 = icmp eq i32 -24, %199
-  br i1 %200, label %201, label %202
+202:                                              ; preds = %416, %201
+  %203 = load i32, ptr %5, align 4
+  %204 = call i32 @pmix_fd_read(i32 noundef %203, i32 noundef 20, ptr noundef %8)
+  store i32 %204, ptr %6, align 4
+  %205 = load i32, ptr %6, align 4
+  %206 = icmp eq i32 -24, %205
+  br i1 %206, label %207, label %208
 
-201:                                              ; preds = %196
-  br label %408
+207:                                              ; preds = %202
+  br label %417
 
-202:                                              ; preds = %196
-  %203 = load i32, ptr %6, align 4
-  %204 = icmp ne i32 0, %203
-  br i1 %204, label %205, label %229
+208:                                              ; preds = %202
+  %209 = load i32, ptr %6, align 4
+  %210 = icmp ne i32 0, %209
+  br i1 %210, label %211, label %235
 
-205:                                              ; preds = %202
-  br label %206
-
-206:                                              ; preds = %205
-  %207 = load i32, ptr %6, align 4
-  %208 = icmp ne i32 -2, %207
-  br i1 %208, label %209, label %212
-
-209:                                              ; preds = %206
-  %210 = load i32, ptr %6, align 4
-  %211 = call ptr @PMIx_Error_string(i32 noundef %210)
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.16, ptr noundef %211, ptr noundef @.str.1, i32 noundef 492)
+211:                                              ; preds = %208
   br label %212
 
-212:                                              ; preds = %209, %206
-  br label %213
+212:                                              ; preds = %211
+  %213 = load i32, ptr %6, align 4
+  %214 = icmp ne i32 -2, %213
+  br i1 %214, label %215, label %218
 
-213:                                              ; preds = %212
-  %214 = load i32, ptr %5, align 4
-  %215 = call i32 @close(i32 noundef %214)
-  %216 = load ptr, ptr %4, align 8
-  %217 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %216, i32 0, i32 8
-  %218 = load ptr, ptr %217, align 8
-  %219 = icmp ne ptr null, %218
-  br i1 %219, label %220, label %225
+215:                                              ; preds = %212
+  %216 = load i32, ptr %6, align 4
+  %217 = call ptr @PMIx_Error_string(i32 noundef %216)
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef @.str.16, ptr noundef %217, ptr noundef @.str.1, i32 noundef 492)
+  br label %218
 
-220:                                              ; preds = %213
-  %221 = load ptr, ptr %4, align 8
-  %222 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %221, i32 0, i32 8
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds %struct.prte_proc_t, ptr %223, i32 0, i32 9
-  store i32 0, ptr %224, align 4
-  br label %225
+218:                                              ; preds = %215, %212
+  br label %219
 
-225:                                              ; preds = %220, %213
-  %226 = load i32, ptr %6, align 4
-  %227 = call i32 @prte_pmix_convert_status(i32 noundef %226)
-  store i32 %227, ptr %6, align 4
-  %228 = load i32, ptr %6, align 4
-  store i32 %228, ptr %3, align 4
-  br label %429
+219:                                              ; preds = %218
+  %220 = load i32, ptr %5, align 4
+  %221 = call i32 @close(i32 noundef %220)
+  %222 = load ptr, ptr %4, align 8
+  %223 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %222, i32 0, i32 8
+  %224 = load ptr, ptr %223, align 8
+  %225 = icmp ne ptr null, %224
+  br i1 %225, label %226, label %231
 
-229:                                              ; preds = %202
-  %230 = load ptr, ptr %4, align 8
-  %231 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %230, i32 0, i32 8
-  %232 = load ptr, ptr %231, align 8
-  %233 = icmp ne ptr null, %232
-  br i1 %233, label %234, label %257
+226:                                              ; preds = %219
+  %227 = load ptr, ptr %4, align 8
+  %228 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %227, i32 0, i32 8
+  %229 = load ptr, ptr %228, align 8
+  %230 = getelementptr inbounds %struct.prte_proc_t, ptr %229, i32 0, i32 9
+  store i32 0, ptr %230, align 4
+  br label %231
 
-234:                                              ; preds = %229
-  %235 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 0
-  %236 = load i8, ptr %235, align 4
-  %237 = trunc i8 %236 to i1
-  br i1 %237, label %238, label %247
+231:                                              ; preds = %226, %219
+  %232 = load i32, ptr %6, align 4
+  %233 = call i32 @prte_pmix_convert_status(i32 noundef %232)
+  store i32 %233, ptr %6, align 4
+  %234 = load i32, ptr %6, align 4
+  store i32 %234, ptr %3, align 4
+  br label %438
 
-238:                                              ; preds = %234
-  %239 = load ptr, ptr %4, align 8
-  %240 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %239, i32 0, i32 8
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds %struct.prte_proc_t, ptr %241, i32 0, i32 16
-  %243 = load i16, ptr %242, align 8
-  %244 = zext i16 %243 to i32
-  %245 = and i32 %244, -2
-  %246 = trunc i32 %245 to i16
-  store i16 %246, ptr %242, align 8
-  br label %256
+235:                                              ; preds = %208
+  %236 = load ptr, ptr %4, align 8
+  %237 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %236, i32 0, i32 8
+  %238 = load ptr, ptr %237, align 8
+  %239 = icmp ne ptr null, %238
+  br i1 %239, label %240, label %263
 
-247:                                              ; preds = %234
-  %248 = load ptr, ptr %4, align 8
-  %249 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %248, i32 0, i32 8
-  %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds %struct.prte_proc_t, ptr %250, i32 0, i32 16
-  %252 = load i16, ptr %251, align 8
-  %253 = zext i16 %252 to i32
-  %254 = or i32 %253, 1
-  %255 = trunc i32 %254 to i16
-  store i16 %255, ptr %251, align 8
-  br label %256
+240:                                              ; preds = %235
+  %241 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 0
+  %242 = load i8, ptr %241, align 4
+  %243 = trunc i8 %242 to i1
+  br i1 %243, label %244, label %253
 
-256:                                              ; preds = %247, %238
-  br label %257
+244:                                              ; preds = %240
+  %245 = load ptr, ptr %4, align 8
+  %246 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %245, i32 0, i32 8
+  %247 = load ptr, ptr %246, align 8
+  %248 = getelementptr inbounds %struct.prte_proc_t, ptr %247, i32 0, i32 16
+  %249 = load i16, ptr %248, align 8
+  %250 = zext i16 %249 to i32
+  %251 = and i32 %250, -2
+  %252 = trunc i32 %251 to i16
+  store i16 %252, ptr %248, align 8
+  br label %262
 
-257:                                              ; preds = %256, %229
-  %258 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 2
-  %259 = load i32, ptr %258, align 4
-  %260 = icmp sgt i32 %259, 0
-  br i1 %260, label %261, label %295
+253:                                              ; preds = %240
+  %254 = load ptr, ptr %4, align 8
+  %255 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %254, i32 0, i32 8
+  %256 = load ptr, ptr %255, align 8
+  %257 = getelementptr inbounds %struct.prte_proc_t, ptr %256, i32 0, i32 16
+  %258 = load i16, ptr %257, align 8
+  %259 = zext i16 %258 to i32
+  %260 = or i32 %259, 1
+  %261 = trunc i32 %260 to i16
+  store i16 %261, ptr %257, align 8
+  br label %262
 
-261:                                              ; preds = %257
-  %262 = load i32, ptr %5, align 4
-  %263 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 2
-  %264 = load i32, ptr %263, align 4
-  %265 = getelementptr inbounds [512 x i8], ptr %9, i64 0, i64 0
-  %266 = call i32 @pmix_fd_read(i32 noundef %262, i32 noundef %264, ptr noundef %265)
-  store i32 %266, ptr %6, align 4
-  %267 = load i32, ptr %6, align 4
-  %268 = icmp ne i32 0, %267
-  br i1 %268, label %269, label %290
+262:                                              ; preds = %253, %244
+  br label %263
 
-269:                                              ; preds = %261
-  %270 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7), align 8
-  %271 = load ptr, ptr %4, align 8
-  %272 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %271, i32 0, i32 7
-  %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds %struct.prte_app_context_t, ptr %273, i32 0, i32 3
-  %275 = load ptr, ptr %274, align 8
-  %276 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.5, ptr noundef @.str.17, i32 noundef 1, ptr noundef %270, ptr noundef %275, ptr noundef @.str.18, ptr noundef @.str.1, i32 noundef 517)
-  %277 = load ptr, ptr %4, align 8
-  %278 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %277, i32 0, i32 8
-  %279 = load ptr, ptr %278, align 8
-  %280 = icmp ne ptr null, %279
-  br i1 %280, label %281, label %286
+263:                                              ; preds = %262, %235
+  %264 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 2
+  %265 = load i32, ptr %264, align 4
+  %266 = icmp sgt i32 %265, 0
+  br i1 %266, label %267, label %302
 
-281:                                              ; preds = %269
-  %282 = load ptr, ptr %4, align 8
-  %283 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %282, i32 0, i32 8
-  %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds %struct.prte_proc_t, ptr %284, i32 0, i32 9
-  store i32 0, ptr %285, align 4
-  br label %286
+267:                                              ; preds = %263
+  %268 = load i32, ptr %5, align 4
+  %269 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 2
+  %270 = load i32, ptr %269, align 4
+  %271 = getelementptr inbounds [512 x i8], ptr %9, i64 0, i64 0
+  %272 = call i32 @pmix_fd_read(i32 noundef %268, i32 noundef %270, ptr noundef %271)
+  store i32 %272, ptr %6, align 4
+  %273 = load i32, ptr %6, align 4
+  %274 = icmp ne i32 0, %273
+  br i1 %274, label %275, label %297
 
-286:                                              ; preds = %281, %269
-  %287 = load i32, ptr %6, align 4
-  %288 = call i32 @prte_pmix_convert_status(i32 noundef %287)
-  store i32 %288, ptr %6, align 4
-  %289 = load i32, ptr %6, align 4
-  store i32 %289, ptr %3, align 4
-  br label %429
+275:                                              ; preds = %267
+  %276 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7
+  %277 = load ptr, ptr %276, align 8
+  %278 = load ptr, ptr %4, align 8
+  %279 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %278, i32 0, i32 7
+  %280 = load ptr, ptr %279, align 8
+  %281 = getelementptr inbounds %struct.prte_app_context_t, ptr %280, i32 0, i32 3
+  %282 = load ptr, ptr %281, align 8
+  %283 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.5, ptr noundef @.str.17, i32 noundef 1, ptr noundef %277, ptr noundef %282, ptr noundef @.str.18, ptr noundef @.str.1, i32 noundef 517)
+  %284 = load ptr, ptr %4, align 8
+  %285 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %284, i32 0, i32 8
+  %286 = load ptr, ptr %285, align 8
+  %287 = icmp ne ptr null, %286
+  br i1 %287, label %288, label %293
 
-290:                                              ; preds = %261
-  %291 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 2
-  %292 = load i32, ptr %291, align 4
-  %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds [512 x i8], ptr %9, i64 0, i64 %293
-  store i8 0, ptr %294, align 1
-  br label %295
+288:                                              ; preds = %275
+  %289 = load ptr, ptr %4, align 8
+  %290 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %289, i32 0, i32 8
+  %291 = load ptr, ptr %290, align 8
+  %292 = getelementptr inbounds %struct.prte_proc_t, ptr %291, i32 0, i32 9
+  store i32 0, ptr %292, align 4
+  br label %293
 
-295:                                              ; preds = %290, %257
-  %296 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 3
-  %297 = load i32, ptr %296, align 4
-  %298 = icmp sgt i32 %297, 0
-  br i1 %298, label %299, label %333
+293:                                              ; preds = %288, %275
+  %294 = load i32, ptr %6, align 4
+  %295 = call i32 @prte_pmix_convert_status(i32 noundef %294)
+  store i32 %295, ptr %6, align 4
+  %296 = load i32, ptr %6, align 4
+  store i32 %296, ptr %3, align 4
+  br label %438
 
-299:                                              ; preds = %295
-  %300 = load i32, ptr %5, align 4
-  %301 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 3
-  %302 = load i32, ptr %301, align 4
-  %303 = getelementptr inbounds [512 x i8], ptr %10, i64 0, i64 0
-  %304 = call i32 @pmix_fd_read(i32 noundef %300, i32 noundef %302, ptr noundef %303)
-  store i32 %304, ptr %6, align 4
-  %305 = load i32, ptr %6, align 4
-  %306 = icmp ne i32 0, %305
-  br i1 %306, label %307, label %328
+297:                                              ; preds = %267
+  %298 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 2
+  %299 = load i32, ptr %298, align 4
+  %300 = sext i32 %299 to i64
+  %301 = getelementptr inbounds [512 x i8], ptr %9, i64 0, i64 %300
+  store i8 0, ptr %301, align 1
+  br label %302
 
-307:                                              ; preds = %299
-  %308 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7), align 8
-  %309 = load ptr, ptr %4, align 8
-  %310 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %309, i32 0, i32 7
-  %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr inbounds %struct.prte_app_context_t, ptr %311, i32 0, i32 3
-  %313 = load ptr, ptr %312, align 8
-  %314 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.5, ptr noundef @.str.17, i32 noundef 1, ptr noundef %308, ptr noundef %313, ptr noundef @.str.18, ptr noundef @.str.1, i32 noundef 531)
-  %315 = load ptr, ptr %4, align 8
-  %316 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %315, i32 0, i32 8
-  %317 = load ptr, ptr %316, align 8
-  %318 = icmp ne ptr null, %317
-  br i1 %318, label %319, label %324
+302:                                              ; preds = %297, %263
+  %303 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 3
+  %304 = load i32, ptr %303, align 4
+  %305 = icmp sgt i32 %304, 0
+  br i1 %305, label %306, label %341
 
-319:                                              ; preds = %307
-  %320 = load ptr, ptr %4, align 8
-  %321 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %320, i32 0, i32 8
-  %322 = load ptr, ptr %321, align 8
-  %323 = getelementptr inbounds %struct.prte_proc_t, ptr %322, i32 0, i32 9
-  store i32 0, ptr %323, align 4
-  br label %324
+306:                                              ; preds = %302
+  %307 = load i32, ptr %5, align 4
+  %308 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 3
+  %309 = load i32, ptr %308, align 4
+  %310 = getelementptr inbounds [512 x i8], ptr %10, i64 0, i64 0
+  %311 = call i32 @pmix_fd_read(i32 noundef %307, i32 noundef %309, ptr noundef %310)
+  store i32 %311, ptr %6, align 4
+  %312 = load i32, ptr %6, align 4
+  %313 = icmp ne i32 0, %312
+  br i1 %313, label %314, label %336
 
-324:                                              ; preds = %319, %307
-  %325 = load i32, ptr %6, align 4
-  %326 = call i32 @prte_pmix_convert_status(i32 noundef %325)
-  store i32 %326, ptr %6, align 4
-  %327 = load i32, ptr %6, align 4
-  store i32 %327, ptr %3, align 4
-  br label %429
+314:                                              ; preds = %306
+  %315 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7
+  %316 = load ptr, ptr %315, align 8
+  %317 = load ptr, ptr %4, align 8
+  %318 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %317, i32 0, i32 7
+  %319 = load ptr, ptr %318, align 8
+  %320 = getelementptr inbounds %struct.prte_app_context_t, ptr %319, i32 0, i32 3
+  %321 = load ptr, ptr %320, align 8
+  %322 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.5, ptr noundef @.str.17, i32 noundef 1, ptr noundef %316, ptr noundef %321, ptr noundef @.str.18, ptr noundef @.str.1, i32 noundef 531)
+  %323 = load ptr, ptr %4, align 8
+  %324 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %323, i32 0, i32 8
+  %325 = load ptr, ptr %324, align 8
+  %326 = icmp ne ptr null, %325
+  br i1 %326, label %327, label %332
 
-328:                                              ; preds = %299
-  %329 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 3
-  %330 = load i32, ptr %329, align 4
-  %331 = sext i32 %330 to i64
-  %332 = getelementptr inbounds [512 x i8], ptr %10, i64 0, i64 %331
-  store i8 0, ptr %332, align 1
-  br label %333
+327:                                              ; preds = %314
+  %328 = load ptr, ptr %4, align 8
+  %329 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %328, i32 0, i32 8
+  %330 = load ptr, ptr %329, align 8
+  %331 = getelementptr inbounds %struct.prte_proc_t, ptr %330, i32 0, i32 9
+  store i32 0, ptr %331, align 4
+  br label %332
 
-333:                                              ; preds = %328, %295
-  %334 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 4
-  %335 = load i32, ptr %334, align 4
-  %336 = icmp sgt i32 %335, 0
-  br i1 %336, label %337, label %372
+332:                                              ; preds = %327, %314
+  %333 = load i32, ptr %6, align 4
+  %334 = call i32 @prte_pmix_convert_status(i32 noundef %333)
+  store i32 %334, ptr %6, align 4
+  %335 = load i32, ptr %6, align 4
+  store i32 %335, ptr %3, align 4
+  br label %438
 
-337:                                              ; preds = %333
-  %338 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 4
-  %339 = load i32, ptr %338, align 4
-  %340 = add nsw i32 %339, 1
-  %341 = sext i32 %340 to i64
-  %342 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %341) #15
-  store ptr %342, ptr %11, align 8
-  %343 = load ptr, ptr %11, align 8
-  %344 = icmp eq ptr null, %343
-  br i1 %344, label %345, label %366
+336:                                              ; preds = %306
+  %337 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 3
+  %338 = load i32, ptr %337, align 4
+  %339 = sext i32 %338 to i64
+  %340 = getelementptr inbounds [512 x i8], ptr %10, i64 0, i64 %339
+  store i8 0, ptr %340, align 1
+  br label %341
 
-345:                                              ; preds = %337
-  %346 = load ptr, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7), align 8
-  %347 = load ptr, ptr %4, align 8
-  %348 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %347, i32 0, i32 7
-  %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr inbounds %struct.prte_app_context_t, ptr %349, i32 0, i32 3
-  %351 = load ptr, ptr %350, align 8
-  %352 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.5, ptr noundef @.str.17, i32 noundef 1, ptr noundef %346, ptr noundef %351, ptr noundef @.str.18, ptr noundef @.str.1, i32 noundef 545)
-  %353 = load ptr, ptr %4, align 8
-  %354 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %353, i32 0, i32 8
+341:                                              ; preds = %336, %302
+  %342 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 4
+  %343 = load i32, ptr %342, align 4
+  %344 = icmp sgt i32 %343, 0
+  br i1 %344, label %345, label %381
+
+345:                                              ; preds = %341
+  %346 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 4
+  %347 = load i32, ptr %346, align 4
+  %348 = add nsw i32 %347, 1
+  %349 = sext i32 %348 to i64
+  %350 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %349) #15
+  store ptr %350, ptr %11, align 8
+  %351 = load ptr, ptr %11, align 8
+  %352 = icmp eq ptr null, %351
+  br i1 %352, label %353, label %375
+
+353:                                              ; preds = %345
+  %354 = getelementptr inbounds %struct.prte_process_info_t, ptr @prte_process_info, i32 0, i32 7
   %355 = load ptr, ptr %354, align 8
-  %356 = icmp ne ptr null, %355
-  br i1 %356, label %357, label %362
-
-357:                                              ; preds = %345
-  %358 = load ptr, ptr %4, align 8
-  %359 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %358, i32 0, i32 8
+  %356 = load ptr, ptr %4, align 8
+  %357 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %356, i32 0, i32 7
+  %358 = load ptr, ptr %357, align 8
+  %359 = getelementptr inbounds %struct.prte_app_context_t, ptr %358, i32 0, i32 3
   %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds %struct.prte_proc_t, ptr %360, i32 0, i32 9
-  store i32 0, ptr %361, align 4
-  br label %362
+  %361 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef @.str.5, ptr noundef @.str.17, i32 noundef 1, ptr noundef %355, ptr noundef %360, ptr noundef @.str.18, ptr noundef @.str.1, i32 noundef 545)
+  %362 = load ptr, ptr %4, align 8
+  %363 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %362, i32 0, i32 8
+  %364 = load ptr, ptr %363, align 8
+  %365 = icmp ne ptr null, %364
+  br i1 %365, label %366, label %371
 
-362:                                              ; preds = %357, %345
-  %363 = load i32, ptr %6, align 4
-  %364 = call i32 @prte_pmix_convert_status(i32 noundef %363)
-  store i32 %364, ptr %6, align 4
-  %365 = load i32, ptr %6, align 4
-  store i32 %365, ptr %3, align 4
-  br label %429
+366:                                              ; preds = %353
+  %367 = load ptr, ptr %4, align 8
+  %368 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %367, i32 0, i32 8
+  %369 = load ptr, ptr %368, align 8
+  %370 = getelementptr inbounds %struct.prte_proc_t, ptr %369, i32 0, i32 9
+  store i32 0, ptr %370, align 4
+  br label %371
 
-366:                                              ; preds = %337
-  %367 = load i32, ptr %5, align 4
-  %368 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 4
-  %369 = load i32, ptr %368, align 4
-  %370 = load ptr, ptr %11, align 8
-  %371 = call i32 @pmix_fd_read(i32 noundef %367, i32 noundef %369, ptr noundef %370)
-  store i32 %371, ptr %6, align 4
-  br label %372
+371:                                              ; preds = %366, %353
+  %372 = load i32, ptr %6, align 4
+  %373 = call i32 @prte_pmix_convert_status(i32 noundef %372)
+  store i32 %373, ptr %6, align 4
+  %374 = load i32, ptr %6, align 4
+  store i32 %374, ptr %3, align 4
+  br label %438
 
-372:                                              ; preds = %366, %333
-  %373 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 4
-  %374 = load i32, ptr %373, align 4
-  %375 = icmp sgt i32 %374, 0
-  br i1 %375, label %376, label %382
-
-376:                                              ; preds = %372
-  %377 = getelementptr inbounds [512 x i8], ptr %9, i64 0, i64 0
-  %378 = getelementptr inbounds [512 x i8], ptr %10, i64 0, i64 0
+375:                                              ; preds = %345
+  %376 = load i32, ptr %5, align 4
+  %377 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 4
+  %378 = load i32, ptr %377, align 4
   %379 = load ptr, ptr %11, align 8
-  %380 = call i32 @pmix_show_help_norender(ptr noundef %377, ptr noundef %378, ptr noundef %379)
-  %381 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %381) #11
+  %380 = call i32 @pmix_fd_read(i32 noundef %376, i32 noundef %378, ptr noundef %379)
+  store i32 %380, ptr %6, align 4
+  br label %381
+
+381:                                              ; preds = %375, %341
+  %382 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 4
+  %383 = load i32, ptr %382, align 4
+  %384 = icmp sgt i32 %383, 0
+  br i1 %384, label %385, label %391
+
+385:                                              ; preds = %381
+  %386 = getelementptr inbounds [512 x i8], ptr %9, i64 0, i64 0
+  %387 = getelementptr inbounds [512 x i8], ptr %10, i64 0, i64 0
+  %388 = load ptr, ptr %11, align 8
+  %389 = call i32 @pmix_show_help_norender(ptr noundef %386, ptr noundef %387, ptr noundef %388)
+  %390 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %390) #11
   store ptr null, ptr %11, align 8
-  br label %382
+  br label %391
 
-382:                                              ; preds = %376, %372
-  %383 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 0
-  %384 = load i8, ptr %383, align 4
-  %385 = trunc i8 %384 to i1
-  br i1 %385, label %386, label %407
+391:                                              ; preds = %385, %381
+  %392 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %8, i32 0, i32 0
+  %393 = load i8, ptr %392, align 4
+  %394 = trunc i8 %393 to i1
+  br i1 %394, label %395, label %416
 
-386:                                              ; preds = %382
-  %387 = load ptr, ptr %4, align 8
-  %388 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %387, i32 0, i32 8
-  %389 = load ptr, ptr %388, align 8
-  %390 = icmp ne ptr null, %389
-  br i1 %390, label %391, label %404
-
-391:                                              ; preds = %386
-  %392 = load ptr, ptr %4, align 8
-  %393 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %392, i32 0, i32 8
-  %394 = load ptr, ptr %393, align 8
-  %395 = getelementptr inbounds %struct.prte_proc_t, ptr %394, i32 0, i32 9
-  store i32 53, ptr %395, align 4
+395:                                              ; preds = %391
   %396 = load ptr, ptr %4, align 8
   %397 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %396, i32 0, i32 8
   %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds %struct.prte_proc_t, ptr %398, i32 0, i32 16
-  %400 = load i16, ptr %399, align 8
-  %401 = zext i16 %400 to i32
-  %402 = and i32 %401, -2
-  %403 = trunc i32 %402 to i16
-  store i16 %403, ptr %399, align 8
-  br label %404
+  %399 = icmp ne ptr null, %398
+  br i1 %399, label %400, label %413
 
-404:                                              ; preds = %391, %386
-  %405 = load i32, ptr %5, align 4
-  %406 = call i32 @close(i32 noundef %405)
+400:                                              ; preds = %395
+  %401 = load ptr, ptr %4, align 8
+  %402 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %401, i32 0, i32 8
+  %403 = load ptr, ptr %402, align 8
+  %404 = getelementptr inbounds %struct.prte_proc_t, ptr %403, i32 0, i32 9
+  store i32 53, ptr %404, align 4
+  %405 = load ptr, ptr %4, align 8
+  %406 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %405, i32 0, i32 8
+  %407 = load ptr, ptr %406, align 8
+  %408 = getelementptr inbounds %struct.prte_proc_t, ptr %407, i32 0, i32 16
+  %409 = load i16, ptr %408, align 8
+  %410 = zext i16 %409 to i32
+  %411 = and i32 %410, -2
+  %412 = trunc i32 %411 to i16
+  store i16 %412, ptr %408, align 8
+  br label %413
+
+413:                                              ; preds = %400, %395
+  %414 = load i32, ptr %5, align 4
+  %415 = call i32 @close(i32 noundef %414)
   store i32 75, ptr %3, align 4
-  br label %429
+  br label %438
 
-407:                                              ; preds = %382
-  br label %196
+416:                                              ; preds = %391
+  br label %202
 
-408:                                              ; preds = %201
-  %409 = load ptr, ptr %4, align 8
-  %410 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %409, i32 0, i32 8
-  %411 = load ptr, ptr %410, align 8
-  %412 = icmp ne ptr null, %411
-  br i1 %412, label %413, label %426
-
-413:                                              ; preds = %408
-  %414 = load ptr, ptr %4, align 8
-  %415 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %414, i32 0, i32 8
-  %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds %struct.prte_proc_t, ptr %416, i32 0, i32 9
-  store i32 4, ptr %417, align 4
+417:                                              ; preds = %207
   %418 = load ptr, ptr %4, align 8
   %419 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %418, i32 0, i32 8
   %420 = load ptr, ptr %419, align 8
-  %421 = getelementptr inbounds %struct.prte_proc_t, ptr %420, i32 0, i32 16
-  %422 = load i16, ptr %421, align 8
-  %423 = zext i16 %422 to i32
-  %424 = or i32 %423, 1
-  %425 = trunc i32 %424 to i16
-  store i16 %425, ptr %421, align 8
-  br label %426
+  %421 = icmp ne ptr null, %420
+  br i1 %421, label %422, label %435
 
-426:                                              ; preds = %413, %408
-  %427 = load i32, ptr %5, align 4
-  %428 = call i32 @close(i32 noundef %427)
+422:                                              ; preds = %417
+  %423 = load ptr, ptr %4, align 8
+  %424 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %423, i32 0, i32 8
+  %425 = load ptr, ptr %424, align 8
+  %426 = getelementptr inbounds %struct.prte_proc_t, ptr %425, i32 0, i32 9
+  store i32 4, ptr %426, align 4
+  %427 = load ptr, ptr %4, align 8
+  %428 = getelementptr inbounds %struct.prte_odls_spawn_caddy_t, ptr %427, i32 0, i32 8
+  %429 = load ptr, ptr %428, align 8
+  %430 = getelementptr inbounds %struct.prte_proc_t, ptr %429, i32 0, i32 16
+  %431 = load i16, ptr %430, align 8
+  %432 = zext i16 %431 to i32
+  %433 = or i32 %432, 1
+  %434 = trunc i32 %433 to i16
+  store i16 %434, ptr %430, align 8
+  br label %435
+
+435:                                              ; preds = %422, %417
+  %436 = load i32, ptr %5, align 4
+  %437 = call i32 @close(i32 noundef %436)
   store i32 0, ptr %3, align 4
-  br label %429
+  br label %438
 
-429:                                              ; preds = %426, %404, %362, %324, %286, %225, %180, %113, %87, %59
-  %430 = load i32, ptr %3, align 4
-  ret i32 %430
+438:                                              ; preds = %435, %413, %371, %332, %293, %231, %186, %113, %87, %59
+  %439 = load i32, ptr %3, align 4
+  ret i32 %439
 }
 
 ; Function Attrs: nounwind
@@ -1755,14 +1786,14 @@ define internal void @send_error_show_help(i32 noundef %0, i32 noundef %1, ptr n
   %13 = getelementptr inbounds %struct.prte_odls_pipe_err_msg_t, ptr %10, i32 0, i32 1
   store i32 %12, ptr %13, align 4
   %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_start(ptr %14)
+  call void @llvm.va_start.p0(ptr %14)
   %15 = load i32, ptr %5, align 4
   %16 = load ptr, ptr %7, align 8
   %17 = load ptr, ptr %8, align 8
   %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
   %19 = call i32 @write_help_msg(i32 noundef %15, ptr noundef %10, ptr noundef %16, ptr noundef %17, ptr noundef %18)
   %20 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
-  call void @llvm.va_end(ptr %20)
+  call void @llvm.va_end.p0(ptr %20)
   %21 = load i32, ptr %6, align 4
   call void @_exit(i32 noundef %21) #13
   unreachable
@@ -1821,9 +1852,6 @@ declare i32 @stat(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @write_help_msg(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #1 {
@@ -2003,16 +2031,13 @@ define internal i32 @write_help_msg(i32 noundef %0, ptr noundef %1, ptr noundef 
   ret i32 %110
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
-
 ; Function Attrs: noreturn
-declare void @_exit(i32 noundef) #8
+declare void @_exit(i32 noundef) #7
 
 declare ptr @pmix_show_help_vstring(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #9
+declare i64 @strlen(ptr noundef) #8
 
 declare i32 @pmix_fd_write(i32 noundef, i32 noundef, ptr noundef) #0
 
@@ -2041,7 +2066,7 @@ declare i32 @prte_pmix_convert_status(i32 noundef) #0
 declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) #0
 
 ; Function Attrs: nounwind allocsize(0,1)
-declare noalias ptr @calloc(i64 noundef, i64 noundef) #10
+declare noalias ptr @calloc(i64 noundef, i64 noundef) #9
 
 declare i32 @pmix_show_help_norender(ptr noundef, ptr noundef, ptr noundef) #0
 
@@ -2056,89 +2081,100 @@ define internal i32 @send_signal(i32 noundef %0, i32 noundef %1) #1 {
   store i32 %0, ptr %3, align 4
   store i32 %1, ptr %4, align 4
   store i32 0, ptr %5, align 4
-  %7 = load i8, ptr getelementptr inbounds (%struct.prte_odls_globals_t, ptr @prte_odls_globals, i32 0, i32 9), align 4
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %11
+  %7 = getelementptr inbounds %struct.prte_odls_globals_t, ptr @prte_odls_globals, i32 0, i32 9
+  %8 = load i8, ptr %7, align 4
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %12
 
-9:                                                ; preds = %2
-  %10 = load i32, ptr %3, align 4
-  store i32 %10, ptr %6, align 4
-  br label %14
+10:                                               ; preds = %2
+  %11 = load i32, ptr %3, align 4
+  store i32 %11, ptr %6, align 4
+  br label %15
 
-11:                                               ; preds = %2
-  %12 = load i32, ptr %3, align 4
-  %13 = sub nsw i32 0, %12
-  store i32 %13, ptr %6, align 4
-  br label %14
+12:                                               ; preds = %2
+  %13 = load i32, ptr %3, align 4
+  %14 = sub nsw i32 0, %13
+  store i32 %14, ptr %6, align 4
+  br label %15
 
-14:                                               ; preds = %11, %9
-  %15 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %16 = icmp sge i32 %15, 0
-  br i1 %16, label %17, label %33
+15:                                               ; preds = %12, %10
+  %16 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp sge i32 %17, 0
+  br i1 %18, label %19, label %38
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %19 = icmp slt i32 %18, 64
-  br i1 %19, label %20, label %33
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp slt i32 %21, 64
+  br i1 %22, label %23, label %38
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %22
-  %24 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %23, i32 0, i32 2
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
   %25 = load i32, ptr %24, align 4
-  %26 = icmp sge i32 %25, 1
-  br i1 %26, label %27, label %33
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %26
+  %28 = getelementptr inbounds %struct.pmix_output_desc_t, ptr %27, i32 0, i32 2
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp sge i32 %29, 1
+  br i1 %30, label %31, label %38
 
-27:                                               ; preds = %20
-  %28 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11), align 4
-  %29 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
-  %30 = load i32, ptr %4, align 4
-  %31 = load i32, ptr %6, align 4
-  %32 = sext i32 %31 to i64
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %28, ptr noundef @.str.19, ptr noundef %29, i32 noundef %30, i64 noundef %32)
-  br label %33
-
-33:                                               ; preds = %27, %20, %17, %14
-  %34 = load i32, ptr %6, align 4
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_odls_base_framework, i32 0, i32 11
+  %33 = load i32, ptr %32, align 4
+  %34 = call ptr @prte_util_print_name_args(ptr noundef @prte_process_info)
   %35 = load i32, ptr %4, align 4
-  %36 = call i32 @kill(i32 noundef %34, i32 noundef %35) #11
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %46
+  %36 = load i32, ptr %6, align 4
+  %37 = sext i32 %36 to i64
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %33, ptr noundef @.str.19, ptr noundef %34, i32 noundef %35, i64 noundef %37)
+  br label %38
 
-38:                                               ; preds = %33
-  %39 = call ptr @__errno_location() #12
-  %40 = load i32, ptr %39, align 4
-  switch i32 %40, label %44 [
-    i32 22, label %41
-    i32 3, label %42
-    i32 1, label %43
-  ]
-
-41:                                               ; preds = %38
-  store i32 -5, ptr %5, align 4
-  br label %45
-
-42:                                               ; preds = %38
-  br label %45
+38:                                               ; preds = %31, %23, %19, %15
+  %39 = load i32, ptr %6, align 4
+  %40 = load i32, ptr %4, align 4
+  %41 = call i32 @kill(i32 noundef %39, i32 noundef %40) #11
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %51
 
 43:                                               ; preds = %38
+  %44 = call ptr @__errno_location() #12
+  %45 = load i32, ptr %44, align 4
+  switch i32 %45, label %49 [
+    i32 22, label %46
+    i32 3, label %47
+    i32 1, label %48
+  ]
+
+46:                                               ; preds = %43
+  store i32 -5, ptr %5, align 4
+  br label %50
+
+47:                                               ; preds = %43
+  br label %50
+
+48:                                               ; preds = %43
   store i32 -17, ptr %5, align 4
-  br label %45
+  br label %50
 
-44:                                               ; preds = %38
+49:                                               ; preds = %43
   store i32 -1, ptr %5, align 4
-  br label %45
+  br label %50
 
-45:                                               ; preds = %44, %43, %42, %41
-  br label %46
+50:                                               ; preds = %49, %48, %47, %46
+  br label %51
 
-46:                                               ; preds = %45, %33
-  %47 = load i32, ptr %5, align 4
-  ret i32 %47
+51:                                               ; preds = %50, %38
+  %52 = load i32, ptr %5, align 4
+  ret i32 %52
 }
 
 declare i32 @prte_odls_base_default_restart_proc(ptr noundef, ptr noundef) #0
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2147,10 +2183,10 @@ attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-tra
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }
 attributes #13 = { noreturn }

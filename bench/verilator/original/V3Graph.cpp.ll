@@ -1324,59 +1324,60 @@ define dso_local void @_ZN13V3GraphVertexC2EP7V3GraphRKS_(ptr noundef nonnull al
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV13V3GraphVertex, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 1
-  call void @_ZN11V3ListLinksI13V3GraphVertexEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  %11 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 2
-  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_EC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
-  %12 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 3
-  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_EC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  %13 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 4
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %class.V3GraphVertex, ptr %14, i32 0, i32 4
-  %16 = load double, ptr %15, align 8
-  store double %16, ptr %13, align 8
-  %17 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 5
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %class.V3GraphVertex, ptr %18, i32 0, i32 5
-  %20 = load i32, ptr %19, align 8
-  store i32 %20, ptr %17, align 8
-  %21 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 6
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %class.V3GraphVertex, ptr %22, i32 0, i32 6
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %21, align 4
-  %25 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 7
-  store ptr null, ptr %25, align 8
-  %26 = load ptr, ptr %5, align 8
-  %27 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7V3Graph8verticesEv(ptr noundef nonnull align 8 dereferenceable(24) %26)
-          to label %28 unwind label %30
+  %10 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV13V3GraphVertex, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 1
+  call void @_ZN11V3ListLinksI13V3GraphVertexEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  %12 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 2
+  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_EC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  %13 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 3
+  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_EC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
+  %14 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 4
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds %class.V3GraphVertex, ptr %15, i32 0, i32 4
+  %17 = load double, ptr %16, align 8
+  store double %17, ptr %14, align 8
+  %18 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 5
+  %19 = load ptr, ptr %6, align 8
+  %20 = getelementptr inbounds %class.V3GraphVertex, ptr %19, i32 0, i32 5
+  %21 = load i32, ptr %20, align 8
+  store i32 %21, ptr %18, align 8
+  %22 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 6
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds %class.V3GraphVertex, ptr %23, i32 0, i32 6
+  %25 = load i32, ptr %24, align 4
+  store i32 %25, ptr %22, align 4
+  %26 = getelementptr inbounds %class.V3GraphVertex, ptr %9, i32 0, i32 7
+  store ptr null, ptr %26, align 8
+  %27 = load ptr, ptr %5, align 8
+  %28 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7V3Graph8verticesEv(ptr noundef nonnull align 8 dereferenceable(24) %27)
+          to label %29 unwind label %31
 
-28:                                               ; preds = %3
-  invoke void @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E8linkBackEPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef %9)
-          to label %29 unwind label %30
+29:                                               ; preds = %3
+  invoke void @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E8linkBackEPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef %9)
+          to label %30 unwind label %31
 
-29:                                               ; preds = %28
+30:                                               ; preds = %29
   ret void
 
-30:                                               ; preds = %28, %3
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %29, %3
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %7, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %8, align 4
-  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
-  call void @_ZN11V3ListLinksI13V3GraphVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  br label %34
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %7, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %8, align 4
+  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
+  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  call void @_ZN11V3ListLinksI13V3GraphVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  br label %35
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %7, align 8
-  %36 = load i32, ptr %8, align 4
-  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
-  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
-  resume { ptr, i32 } %38
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i32, ptr %8, align 4
+  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
+  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
+  resume { ptr, i32 } %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1515,50 +1516,51 @@ define dso_local void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV13V3GraphVertex, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 1
-  call void @_ZN11V3ListLinksI13V3GraphVertexEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  %9 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 2
-  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_EC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  %10 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 3
-  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_EC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  %11 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 4
-  store double 0.000000e+00, ptr %11, align 8
-  %12 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 5
-  store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 6
-  store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 7
-  store ptr null, ptr %14, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7V3Graph8verticesEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %17 unwind label %19
+  %8 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV13V3GraphVertex, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 1
+  call void @_ZN11V3ListLinksI13V3GraphVertexEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  %10 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 2
+  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_EC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  %11 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 3
+  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_EC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  %12 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 4
+  store double 0.000000e+00, ptr %12, align 8
+  %13 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 5
+  store i32 0, ptr %13, align 8
+  %14 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 6
+  store i32 0, ptr %14, align 4
+  %15 = getelementptr inbounds %class.V3GraphVertex, ptr %7, i32 0, i32 7
+  store ptr null, ptr %15, align 8
+  %16 = load ptr, ptr %4, align 8
+  %17 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7V3Graph8verticesEv(ptr noundef nonnull align 8 dereferenceable(24) %16)
+          to label %18 unwind label %20
 
-17:                                               ; preds = %2
-  invoke void @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E8linkBackEPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %7)
-          to label %18 unwind label %19
+18:                                               ; preds = %2
+  invoke void @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E8linkBackEPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %7)
+          to label %19 unwind label %20
 
-18:                                               ; preds = %17
+19:                                               ; preds = %18
   ret void
 
-19:                                               ; preds = %17, %2
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %18, %2
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %5, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %6, align 4
-  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  call void @_ZN11V3ListLinksI13V3GraphVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  br label %23
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %5, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %6, align 4
+  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
+  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZN11V3ListLinksI13V3GraphVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
+  br label %24
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2243,40 +2245,41 @@ define linkonce_odr dso_local void @_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertex
   %15 = zext i1 %5 to i8
   store i8 %15, ptr %12, align 1
   %16 = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTV11V3GraphEdge, i32 0, i32 0, i32 2), ptr %16, align 8
-  %17 = getelementptr inbounds %class.V3GraphEdge, ptr %16, i32 0, i32 1
-  call void @_ZN11V3ListLinksI11V3GraphEdgeEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  %18 = getelementptr inbounds %class.V3GraphEdge, ptr %16, i32 0, i32 2
+  %17 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV11V3GraphEdge, i32 0, i32 0, i32 2
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds %class.V3GraphEdge, ptr %16, i32 0, i32 1
   call void @_ZN11V3ListLinksI11V3GraphEdgeEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #3
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %9, align 8
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i32, ptr %11, align 4
-  %23 = load i8, ptr %12, align 1
-  %24 = trunc i8 %23 to i1
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, i1 noundef zeroext %24)
-          to label %25 unwind label %26
-
-25:                                               ; preds = %6
-  ret void
+  %19 = getelementptr inbounds %class.V3GraphEdge, ptr %16, i32 0, i32 2
+  call void @_ZN11V3ListLinksI11V3GraphEdgeEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #3
+  %20 = load ptr, ptr %8, align 8
+  %21 = load ptr, ptr %9, align 8
+  %22 = load ptr, ptr %10, align 8
+  %23 = load i32, ptr %11, align 4
+  %24 = load i8, ptr %12, align 1
+  %25 = trunc i8 %24 to i1
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef %23, i1 noundef zeroext %25)
+          to label %26 unwind label %27
 
 26:                                               ; preds = %6
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %13, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %14, align 4
-  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #3
-  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
-  br label %30
+  ret void
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %13, align 8
-  %32 = load i32, ptr %14, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+27:                                               ; preds = %6
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %13, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %14, align 4
+  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #3
+  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #3
+  br label %31
+
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %13, align 8
+  %33 = load i32, ptr %14, align 4
+  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
+  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
+  resume { ptr, i32 } %35
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -2998,17 +3001,17 @@ define internal noundef i32 @_ZL5debugv() #4 personality ptr @__gxx_personality_
   %13 = icmp slt i32 %12, 0
   %14 = xor i1 %13, true
   %15 = xor i1 %14, true
-  br i1 %15, label %16, label %67
+  br i1 %15, label %16, label %70
 
 16:                                               ; preds = %0
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %17 unwind label %44
+          to label %17 unwind label %47
 
 17:                                               ; preds = %16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   %18 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0)
-          to label %19 unwind label %48
+          to label %19 unwind label %51
 
 19:                                               ; preds = %17
   %20 = load i8, ptr %18, align 1
@@ -3016,135 +3019,138 @@ define internal noundef i32 @_ZL5debugv() #4 personality ptr @__gxx_personality_
   %22 = call i32 @tolower(i32 noundef %21) #17
   %23 = trunc i32 %22 to i8
   %24 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0)
-          to label %25 unwind label %48
+          to label %25 unwind label %51
 
 25:                                               ; preds = %19
   store i8 %23, ptr %24, align 1
-  %26 = invoke noundef i32 @_ZNK9V3Options10debugLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22), ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %27 unwind label %48
+  %26 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %27 = invoke noundef i32 @_ZNK9V3Options10debugLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) %26, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %28 unwind label %51
 
-27:                                               ; preds = %25
-  store i32 %26, ptr %6, align 4
+28:                                               ; preds = %25
+  store i32 %27, ptr %6, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %28 unwind label %52
+          to label %29 unwind label %55
 
-28:                                               ; preds = %27
-  %29 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22), ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %30 unwind label %56
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %31 = invoke noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1560) %30, ptr noundef nonnull align 8 dereferenceable(32) %8)
+          to label %32 unwind label %59
 
-30:                                               ; preds = %28
+32:                                               ; preds = %29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  store i32 %29, ptr %7, align 4
-  %31 = load i32, ptr %6, align 4
-  %32 = load i32, ptr %7, align 4
-  %33 = icmp uge i32 %31, %32
-  br i1 %33, label %34, label %36
+  store i32 %31, ptr %7, align 4
+  %33 = load i32, ptr %6, align 4
+  %34 = load i32, ptr %7, align 4
+  %35 = icmp uge i32 %33, %34
+  br i1 %35, label %36, label %38
 
-34:                                               ; preds = %30
-  %35 = load i32, ptr %6, align 4
-  br label %38
+36:                                               ; preds = %32
+  %37 = load i32, ptr %6, align 4
+  br label %40
 
-36:                                               ; preds = %30
-  %37 = load i32, ptr %7, align 4
-  br label %38
+38:                                               ; preds = %32
+  %39 = load i32, ptr %7, align 4
+  br label %40
 
-38:                                               ; preds = %36, %34
-  %39 = phi i32 [ %35, %34 ], [ %37, %36 ]
-  store i32 %39, ptr %10, align 4
-  %40 = invoke noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) getelementptr inbounds (%class.V3Global, ptr @v3Global, i32 0, i32 22))
-          to label %41 unwind label %48
+40:                                               ; preds = %38, %36
+  %41 = phi i32 [ %37, %36 ], [ %39, %38 ]
+  store i32 %41, ptr %10, align 4
+  %42 = getelementptr inbounds %class.V3Global, ptr @v3Global, i32 0, i32 22
+  %43 = invoke noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) %42)
+          to label %44 unwind label %51
 
-41:                                               ; preds = %38
-  br i1 %40, label %61, label %42
+44:                                               ; preds = %40
+  br i1 %43, label %64, label %45
 
-42:                                               ; preds = %41
-  %43 = load i32, ptr %10, align 4
-  store i32 %43, ptr %1, align 4
+45:                                               ; preds = %44
+  %46 = load i32, ptr %10, align 4
+  store i32 %46, ptr %1, align 4
   store i32 1, ptr %11, align 4
-  br label %63
+  br label %66
 
-44:                                               ; preds = %16
-  %45 = landingpad { ptr, i32 }
+47:                                               ; preds = %16
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %46 = extractvalue { ptr, i32 } %45, 0
-  store ptr %46, ptr %4, align 8
-  %47 = extractvalue { ptr, i32 } %45, 1
-  store i32 %47, ptr %5, align 4
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %4, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %5, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
-  br label %71
+  br label %74
 
-48:                                               ; preds = %38, %25, %19, %17
-  %49 = landingpad { ptr, i32 }
+51:                                               ; preds = %40, %25, %19, %17
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %50 = extractvalue { ptr, i32 } %49, 0
-  store ptr %50, ptr %4, align 8
-  %51 = extractvalue { ptr, i32 } %49, 1
-  store i32 %51, ptr %5, align 4
-  br label %66
-
-52:                                               ; preds = %27
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %4, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %5, align 4
-  br label %60
-
-56:                                               ; preds = %28
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  %58 = extractvalue { ptr, i32 } %57, 0
-  store ptr %58, ptr %4, align 8
-  %59 = extractvalue { ptr, i32 } %57, 1
-  store i32 %59, ptr %5, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
-  br label %60
-
-60:                                               ; preds = %56, %52
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
-  br label %66
-
-61:                                               ; preds = %41
-  %62 = load i32, ptr %10, align 4
-  store i32 %62, ptr @_ZZL5debugvE5level, align 4
-  store i32 0, ptr %11, align 4
-  br label %63
-
-63:                                               ; preds = %61, %42
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
-  %64 = load i32, ptr %11, align 4
-  switch i32 %64, label %76 [
-    i32 0, label %65
-    i32 1, label %69
-  ]
-
-65:                                               ; preds = %63
-  br label %67
-
-66:                                               ; preds = %60, %48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
-  br label %71
-
-67:                                               ; preds = %65, %0
-  %68 = load i32, ptr @_ZZL5debugvE5level, align 4
-  store i32 %68, ptr %1, align 4
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %4, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %5, align 4
   br label %69
 
-69:                                               ; preds = %67, %63
-  %70 = load i32, ptr %1, align 4
-  ret i32 %70
+55:                                               ; preds = %28
+  %56 = landingpad { ptr, i32 }
+          cleanup
+  %57 = extractvalue { ptr, i32 } %56, 0
+  store ptr %57, ptr %4, align 8
+  %58 = extractvalue { ptr, i32 } %56, 1
+  store i32 %58, ptr %5, align 4
+  br label %63
 
-71:                                               ; preds = %66, %44
-  %72 = load ptr, ptr %4, align 8
-  %73 = load i32, ptr %5, align 4
-  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
-  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
-  resume { ptr, i32 } %75
+59:                                               ; preds = %29
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %4, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %5, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  br label %63
 
-76:                                               ; preds = %63
+63:                                               ; preds = %59, %55
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
+  br label %69
+
+64:                                               ; preds = %44
+  %65 = load i32, ptr %10, align 4
+  store i32 %65, ptr @_ZZL5debugvE5level, align 4
+  store i32 0, ptr %11, align 4
+  br label %66
+
+66:                                               ; preds = %64, %45
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  %67 = load i32, ptr %11, align 4
+  switch i32 %67, label %79 [
+    i32 0, label %68
+    i32 1, label %72
+  ]
+
+68:                                               ; preds = %66
+  br label %70
+
+69:                                               ; preds = %63, %51
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #3
+  br label %74
+
+70:                                               ; preds = %68, %0
+  %71 = load i32, ptr @_ZZL5debugvE5level, align 4
+  store i32 %71, ptr %1, align 4
+  br label %72
+
+72:                                               ; preds = %70, %66
+  %73 = load i32, ptr %1, align 4
+  ret i32 %73
+
+74:                                               ; preds = %69, %47
+  %75 = load ptr, ptr %4, align 8
+  %76 = load i32, ptr %5, align 4
+  %77 = insertvalue { ptr, i32 } poison, ptr %75, 0
+  %78 = insertvalue { ptr, i32 } %77, i32 %76, 1
+  resume { ptr, i32 } %78
+
+79:                                               ; preds = %66
   unreachable
 }
 
@@ -4029,9 +4035,10 @@ define dso_local void @_ZN7V3GraphC2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTV7V3Graph, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.V3Graph, ptr %3, i32 0, i32 1
-  call void @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_EC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV7V3Graph, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.V3Graph, ptr %3, i32 0, i32 1
+  call void @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_EC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
 }
 
@@ -4052,20 +4059,21 @@ define dso_local void @_ZN7V3GraphD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTV7V3Graph, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTV7V3Graph, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   invoke void @_ZN7V3Graph5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %4 unwind label %6
+          to label %5 unwind label %7
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds %class.V3Graph, ptr %3, i32 0, i32 1
-  call void @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %class.V3Graph, ptr %3, i32 0, i32 1
+  call void @_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   ret void
 
-6:                                                ; preds = %1
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #19
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #19
   unreachable
 }
 
@@ -8115,11 +8123,12 @@ define linkonce_odr dso_local void @_ZN11V3GraphEdgeD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTV11V3GraphEdge, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.V3GraphEdge, ptr %3, i32 0, i32 2
-  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
-  %5 = getelementptr inbounds %class.V3GraphEdge, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV11V3GraphEdge, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.V3GraphEdge, ptr %3, i32 0, i32 2
   call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %6 = getelementptr inbounds %class.V3GraphEdge, ptr %3, i32 0, i32 1
+  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   ret void
 }
 
@@ -8331,13 +8340,14 @@ define linkonce_odr dso_local void @_ZN13V3GraphVertexD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV13V3GraphVertex, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.V3GraphVertex, ptr %3, i32 0, i32 3
-  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
-  %5 = getelementptr inbounds %class.V3GraphVertex, ptr %3, i32 0, i32 2
-  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  %6 = getelementptr inbounds %class.V3GraphVertex, ptr %3, i32 0, i32 1
-  call void @_ZN11V3ListLinksI13V3GraphVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV13V3GraphVertex, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.V3GraphVertex, ptr %3, i32 0, i32 3
+  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  %6 = getelementptr inbounds %class.V3GraphVertex, ptr %3, i32 0, i32 2
+  call void @_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %7 = getelementptr inbounds %class.V3GraphVertex, ptr %3, i32 0, i32 1
+  call void @_ZN11V3ListLinksI13V3GraphVertexED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
   ret void
 }
 
@@ -10624,7 +10634,8 @@ define linkonce_odr dso_local void @_ZNSt15__new_allocatorINSt8__detail10_Hash_n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZN11V3GraphEdge11rttiClassIdEv() #5 comdat align 2 {
-  ret i64 ptrtoint (ptr @_ZZN11V3GraphEdge11rttiClassIdEvE15aStaticVariable to i64)
+  %1 = ptrtoint ptr @_ZZN11V3GraphEdge11rttiClassIdEvE15aStaticVariable to i64
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10642,44 +10653,45 @@ define linkonce_odr dso_local void @_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertex
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %13 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) ({ [11 x ptr] }, ptr @_ZTV11V3GraphEdge, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %class.V3GraphEdge, ptr %13, i32 0, i32 1
-  call void @_ZN11V3ListLinksI11V3GraphEdgeEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  %15 = getelementptr inbounds %class.V3GraphEdge, ptr %13, i32 0, i32 2
+  %14 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTV11V3GraphEdge, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.V3GraphEdge, ptr %13, i32 0, i32 1
   call void @_ZN11V3ListLinksI11V3GraphEdgeEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds %class.V3GraphEdge, ptr %19, i32 0, i32 5
-  %21 = load i32, ptr %20, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds %class.V3GraphEdge, ptr %22, i32 0, i32 6
-  %24 = load i8, ptr %23, align 4
-  %25 = trunc i8 %24 to i1
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %21, i1 noundef zeroext %25)
-          to label %26 unwind label %27
-
-26:                                               ; preds = %5
-  ret void
+  %16 = getelementptr inbounds %class.V3GraphEdge, ptr %13, i32 0, i32 2
+  call void @_ZN11V3ListLinksI11V3GraphEdgeEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  %17 = load ptr, ptr %7, align 8
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = getelementptr inbounds %class.V3GraphEdge, ptr %20, i32 0, i32 5
+  %22 = load i32, ptr %21, align 8
+  %23 = load ptr, ptr %10, align 8
+  %24 = getelementptr inbounds %class.V3GraphEdge, ptr %23, i32 0, i32 6
+  %25 = load i8, ptr %24, align 4
+  %26 = trunc i8 %25 to i1
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %22, i1 noundef zeroext %26)
+          to label %27 unwind label %28
 
 27:                                               ; preds = %5
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %11, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %12, align 4
-  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
-  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  br label %31
+  ret void
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %11, align 8
-  %33 = load i32, ptr %12, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+28:                                               ; preds = %5
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %11, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %12, align 4
+  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
+  call void @_ZN11V3ListLinksI11V3GraphEdgeED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #3
+  br label %32
+
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %11, align 8
+  %34 = load i32, ptr %12, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
 ; Function Attrs: nounwind
@@ -17116,7 +17128,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt8__detail15_Hashtable_bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZN13V3GraphVertex11rttiClassIdEv() #5 comdat align 2 {
-  ret i64 ptrtoint (ptr @_ZZN13V3GraphVertex11rttiClassIdEvE15aStaticVariable to i64)
+  %1 = ptrtoint ptr @_ZZN13V3GraphVertex11rttiClassIdEvE15aStaticVariable to i64
+  ret i64 %1
 }
 
 ; Function Attrs: uwtable

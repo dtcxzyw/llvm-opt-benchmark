@@ -560,7 +560,7 @@ define internal i32 @ompi_request_complete(ptr noundef %0, i1 noundef zeroext %1
 22:                                               ; preds = %13, %2
   %23 = load i32, ptr %5, align 4
   %24 = icmp eq i32 0, %23
-  br i1 %24, label %25, label %51
+  br i1 %24, label %25, label %52
 
 25:                                               ; preds = %22
   %26 = load i8, ptr %4, align 1
@@ -593,18 +593,19 @@ define internal i32 @ompi_request_complete(ptr noundef %0, i1 noundef zeroext %1
   br label %46
 
 46:                                               ; preds = %40, %33
-  br label %50
+  br label %51
 
 47:                                               ; preds = %25
   %48 = load ptr, ptr %3, align 8
   %49 = getelementptr inbounds %struct.ompi_request_t, ptr %48, i32 0, i32 3
-  store ptr inttoptr (i64 1 to ptr), ptr %49, align 8
-  br label %50
-
-50:                                               ; preds = %47, %46
+  %50 = inttoptr i64 1 to ptr
+  store ptr %50, ptr %49, align 8
   br label %51
 
-51:                                               ; preds = %50, %22
+51:                                               ; preds = %47, %46
+  br label %52
+
+52:                                               ; preds = %51, %22
   ret i32 0
 }
 
@@ -734,35 +735,36 @@ define internal void @mca_pml_cm_recv_request_construct(ptr noundef %0) #0 {
 
 16:                                               ; preds = %15
   %17 = load i32, ptr @opal_class_init_epoch, align 4
-  %18 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_convertor_t_class, i32 0, i32 4), align 8
-  %19 = icmp ne i32 %17, %18
-  br i1 %19, label %20, label %21
+  %18 = getelementptr inbounds %struct.opal_class_t, ptr @opal_convertor_t_class, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ne i32 %17, %19
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %16
+21:                                               ; preds = %16
   call void @opal_class_initialize(ptr noundef @opal_convertor_t_class)
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %16
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.mca_pml_cm_thin_recv_request_t, ptr %22, i32 0, i32 0
-  %24 = getelementptr inbounds %struct.mca_pml_cm_request_t, ptr %23, i32 0, i32 6
-  %25 = getelementptr inbounds %struct.opal_object_t, ptr %24, i32 0, i32 0
-  store ptr @opal_convertor_t_class, ptr %25, align 8
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct.mca_pml_cm_thin_recv_request_t, ptr %26, i32 0, i32 0
-  %28 = getelementptr inbounds %struct.mca_pml_cm_request_t, ptr %27, i32 0, i32 6
-  %29 = getelementptr inbounds %struct.opal_object_t, ptr %28, i32 0, i32 1
-  store volatile i32 1, ptr %29, align 8
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.mca_pml_cm_thin_recv_request_t, ptr %30, i32 0, i32 0
-  %32 = getelementptr inbounds %struct.mca_pml_cm_request_t, ptr %31, i32 0, i32 6
-  call void @opal_obj_run_constructors(ptr noundef %32)
-  br label %33
-
-33:                                               ; preds = %21
+22:                                               ; preds = %21, %16
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds %struct.mca_pml_cm_thin_recv_request_t, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds %struct.mca_pml_cm_request_t, ptr %24, i32 0, i32 6
+  %26 = getelementptr inbounds %struct.opal_object_t, ptr %25, i32 0, i32 0
+  store ptr @opal_convertor_t_class, ptr %26, align 8
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds %struct.mca_pml_cm_thin_recv_request_t, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds %struct.mca_pml_cm_request_t, ptr %28, i32 0, i32 6
+  %30 = getelementptr inbounds %struct.opal_object_t, ptr %29, i32 0, i32 1
+  store volatile i32 1, ptr %30, align 8
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds %struct.mca_pml_cm_thin_recv_request_t, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds %struct.mca_pml_cm_request_t, ptr %32, i32 0, i32 6
+  call void @opal_obj_run_constructors(ptr noundef %33)
   br label %34
 
-34:                                               ; preds = %33
+34:                                               ; preds = %22
+  br label %35
+
+35:                                               ; preds = %34
   ret void
 }
 

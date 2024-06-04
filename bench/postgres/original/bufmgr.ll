@@ -547,7 +547,7 @@ define dso_local zeroext i1 @ReadRecentBuffer(i64 %0, i32 %1, i32 noundef %2, i3
   call void @InitBufferTag(ptr noundef %13, ptr noundef %7, i32 noundef %20, i32 noundef %21)
   %22 = load i32, ptr %11, align 4
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %24, label %46
+  br i1 %23, label %24, label %48
 
 24:                                               ; preds = %5
   %25 = load i32, ptr %11, align 4
@@ -564,108 +564,110 @@ define dso_local zeroext i1 @ReadRecentBuffer(i64 %0, i32 %1, i32 noundef %2, i3
   %33 = load i32, ptr %14, align 4
   %34 = and i32 %33, 16777216
   %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %45
+  br i1 %35, label %36, label %47
 
 36:                                               ; preds = %24
   %37 = load ptr, ptr %12, align 8
   %38 = getelementptr inbounds %struct.BufferDesc, ptr %37, i32 0, i32 0
   %39 = call zeroext i1 @BufferTagsEqual(ptr noundef %13, ptr noundef %38)
-  br i1 %39, label %40, label %45
+  br i1 %39, label %40, label %47
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %12, align 8
   %42 = call zeroext i1 @PinLocalBuffer(ptr noundef %41, i1 noundef zeroext true)
-  %43 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 4), align 8
-  %44 = add i64 %43, 1
-  store i64 %44, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 4), align 8
+  %43 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 4
+  %44 = load i64, ptr %43, align 8
+  %45 = add i64 %44, 1
+  %46 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 4
+  store i64 %45, ptr %46, align 8
   store i1 true, ptr %6, align 1
+  br label %92
+
+47:                                               ; preds = %36, %24
+  br label %91
+
+48:                                               ; preds = %5
+  %49 = load i32, ptr %11, align 4
+  %50 = sub i32 %49, 1
+  %51 = call ptr @GetBufferDescriptor(i32 noundef %50)
+  store ptr %51, ptr %12, align 8
+  %52 = load i32, ptr %11, align 4
+  %53 = call i32 @GetPrivateRefCount(i32 noundef %52)
+  %54 = icmp sgt i32 %53, 0
+  %55 = zext i1 %54 to i8
+  store i8 %55, ptr %15, align 1
+  %56 = load i8, ptr %15, align 1
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %62
+
+58:                                               ; preds = %48
+  %59 = load ptr, ptr %12, align 8
+  %60 = getelementptr inbounds %struct.BufferDesc, ptr %59, i32 0, i32 2
+  %61 = call i32 @pg_atomic_read_u32(ptr noundef %60)
+  store i32 %61, ptr %14, align 4
+  br label %65
+
+62:                                               ; preds = %48
+  %63 = load ptr, ptr %12, align 8
+  %64 = call i32 @LockBufHdr(ptr noundef %63)
+  store i32 %64, ptr %14, align 4
+  br label %65
+
+65:                                               ; preds = %62, %58
+  %66 = load i32, ptr %14, align 4
+  %67 = and i32 %66, 16777216
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %84
+
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %12, align 8
+  %71 = getelementptr inbounds %struct.BufferDesc, ptr %70, i32 0, i32 0
+  %72 = call zeroext i1 @BufferTagsEqual(ptr noundef %13, ptr noundef %71)
+  br i1 %72, label %73, label %84
+
+73:                                               ; preds = %69
+  %74 = load i8, ptr %15, align 1
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %79
+
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %12, align 8
+  %78 = call zeroext i1 @PinBuffer(ptr noundef %77, ptr noundef null)
+  br label %81
+
+79:                                               ; preds = %73
+  %80 = load ptr, ptr %12, align 8
+  call void @PinBuffer_Locked(ptr noundef %80)
+  br label %81
+
+81:                                               ; preds = %79, %76
+  %82 = load i64, ptr @pgBufferUsage, align 8
+  %83 = add i64 %82, 1
+  store i64 %83, ptr @pgBufferUsage, align 8
+  store i1 true, ptr %6, align 1
+  br label %92
+
+84:                                               ; preds = %69, %65
+  %85 = load i8, ptr %15, align 1
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %90, label %87
+
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %12, align 8
+  %89 = load i32, ptr %14, align 4
+  call void @UnlockBufHdr(ptr noundef %88, i32 noundef %89)
   br label %90
 
-45:                                               ; preds = %36, %24
-  br label %89
+90:                                               ; preds = %87, %84
+  br label %91
 
-46:                                               ; preds = %5
-  %47 = load i32, ptr %11, align 4
-  %48 = sub i32 %47, 1
-  %49 = call ptr @GetBufferDescriptor(i32 noundef %48)
-  store ptr %49, ptr %12, align 8
-  %50 = load i32, ptr %11, align 4
-  %51 = call i32 @GetPrivateRefCount(i32 noundef %50)
-  %52 = icmp sgt i32 %51, 0
-  %53 = zext i1 %52 to i8
-  store i8 %53, ptr %15, align 1
-  %54 = load i8, ptr %15, align 1
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %60
-
-56:                                               ; preds = %46
-  %57 = load ptr, ptr %12, align 8
-  %58 = getelementptr inbounds %struct.BufferDesc, ptr %57, i32 0, i32 2
-  %59 = call i32 @pg_atomic_read_u32(ptr noundef %58)
-  store i32 %59, ptr %14, align 4
-  br label %63
-
-60:                                               ; preds = %46
-  %61 = load ptr, ptr %12, align 8
-  %62 = call i32 @LockBufHdr(ptr noundef %61)
-  store i32 %62, ptr %14, align 4
-  br label %63
-
-63:                                               ; preds = %60, %56
-  %64 = load i32, ptr %14, align 4
-  %65 = and i32 %64, 16777216
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %82
-
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %12, align 8
-  %69 = getelementptr inbounds %struct.BufferDesc, ptr %68, i32 0, i32 0
-  %70 = call zeroext i1 @BufferTagsEqual(ptr noundef %13, ptr noundef %69)
-  br i1 %70, label %71, label %82
-
-71:                                               ; preds = %67
-  %72 = load i8, ptr %15, align 1
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %77
-
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %12, align 8
-  %76 = call zeroext i1 @PinBuffer(ptr noundef %75, ptr noundef null)
-  br label %79
-
-77:                                               ; preds = %71
-  %78 = load ptr, ptr %12, align 8
-  call void @PinBuffer_Locked(ptr noundef %78)
-  br label %79
-
-79:                                               ; preds = %77, %74
-  %80 = load i64, ptr @pgBufferUsage, align 8
-  %81 = add i64 %80, 1
-  store i64 %81, ptr @pgBufferUsage, align 8
-  store i1 true, ptr %6, align 1
-  br label %90
-
-82:                                               ; preds = %67, %63
-  %83 = load i8, ptr %15, align 1
-  %84 = trunc i8 %83 to i1
-  br i1 %84, label %88, label %85
-
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %12, align 8
-  %87 = load i32, ptr %14, align 4
-  call void @UnlockBufHdr(ptr noundef %86, i32 noundef %87)
-  br label %88
-
-88:                                               ; preds = %85, %82
-  br label %89
-
-89:                                               ; preds = %88, %45
+91:                                               ; preds = %90, %47
   store i1 false, ptr %6, align 1
-  br label %90
+  br label %92
 
-90:                                               ; preds = %89, %79, %40
-  %91 = load i1, ptr %6, align 1
-  ret i1 %91
+92:                                               ; preds = %91, %81, %40
+  %93 = load i1, ptr %6, align 1
+  ret i1 %93
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1370,7 +1372,7 @@ define internal i32 @ReadBuffer_common(ptr noundef %0, i8 noundef signext %1, i3
   %67 = load i32, ptr %22, align 4
   %68 = call i32 @ExtendBufferedRel(ptr noundef byval(%struct.BufferManagerRelation) align 8 %23, i32 noundef %65, ptr noundef %66, i32 noundef %67)
   store i32 %68, ptr %8, align 4
-  br label %397
+  br label %403
 
 69:                                               ; preds = %7
   br label %70
@@ -1381,7 +1383,7 @@ define internal i32 @ReadBuffer_common(ptr noundef %0, i8 noundef signext %1, i3
 71:                                               ; preds = %70
   %72 = load i8, ptr %21, align 1
   %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %98
+  br i1 %73, label %74, label %102
 
 74:                                               ; preds = %71
   store i32 2, ptr %19, align 4
@@ -1393,543 +1395,549 @@ define internal i32 @ReadBuffer_common(ptr noundef %0, i8 noundef signext %1, i3
   store ptr %78, ptr %16, align 8
   %79 = load i8, ptr %18, align 1
   %80 = trunc i8 %79 to i1
-  br i1 %80, label %81, label %84
+  br i1 %80, label %81, label %86
 
 81:                                               ; preds = %74
-  %82 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 4), align 8
-  %83 = add i64 %82, 1
-  store i64 %83, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 4), align 8
-  br label %97
+  %82 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 4
+  %83 = load i64, ptr %82, align 8
+  %84 = add i64 %83, 1
+  %85 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 4
+  store i64 %84, ptr %85, align 8
+  br label %101
 
-84:                                               ; preds = %74
-  %85 = load i32, ptr %13, align 4
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %93, label %87
+86:                                               ; preds = %74
+  %87 = load i32, ptr %13, align 4
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %95, label %89
 
-87:                                               ; preds = %84
-  %88 = load i32, ptr %13, align 4
-  %89 = icmp eq i32 %88, 4
-  br i1 %89, label %93, label %90
+89:                                               ; preds = %86
+  %90 = load i32, ptr %13, align 4
+  %91 = icmp eq i32 %90, 4
+  br i1 %91, label %95, label %92
 
-90:                                               ; preds = %87
-  %91 = load i32, ptr %13, align 4
-  %92 = icmp eq i32 %91, 3
-  br i1 %92, label %93, label %96
+92:                                               ; preds = %89
+  %93 = load i32, ptr %13, align 4
+  %94 = icmp eq i32 %93, 3
+  br i1 %94, label %95, label %100
 
-93:                                               ; preds = %90, %87, %84
-  %94 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 5), align 8
-  %95 = add i64 %94, 1
-  store i64 %95, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 5), align 8
-  br label %96
+95:                                               ; preds = %92, %89, %86
+  %96 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 5
+  %97 = load i64, ptr %96, align 8
+  %98 = add i64 %97, 1
+  %99 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 5
+  store i64 %98, ptr %99, align 8
+  br label %100
 
-96:                                               ; preds = %93, %90
-  br label %97
+100:                                              ; preds = %95, %92
+  br label %101
 
-97:                                               ; preds = %96, %81
-  br label %127
+101:                                              ; preds = %100, %81
+  br label %133
 
-98:                                               ; preds = %71
-  %99 = load ptr, ptr %14, align 8
-  %100 = call i32 @IOContextForStrategy(ptr noundef %99)
-  store i32 %100, ptr %19, align 4
+102:                                              ; preds = %71
+  %103 = load ptr, ptr %14, align 8
+  %104 = call i32 @IOContextForStrategy(ptr noundef %103)
+  store i32 %104, ptr %19, align 4
   store i32 0, ptr %20, align 4
-  %101 = load ptr, ptr %9, align 8
-  %102 = load i8, ptr %10, align 1
-  %103 = load i32, ptr %11, align 4
-  %104 = load i32, ptr %12, align 4
-  %105 = load ptr, ptr %14, align 8
-  %106 = load i32, ptr %19, align 4
-  %107 = call ptr @BufferAlloc(ptr noundef %101, i8 noundef signext %102, i32 noundef %103, i32 noundef %104, ptr noundef %105, ptr noundef %18, i32 noundef %106)
-  store ptr %107, ptr %16, align 8
-  %108 = load i8, ptr %18, align 1
-  %109 = trunc i8 %108 to i1
-  br i1 %109, label %110, label %113
+  %105 = load ptr, ptr %9, align 8
+  %106 = load i8, ptr %10, align 1
+  %107 = load i32, ptr %11, align 4
+  %108 = load i32, ptr %12, align 4
+  %109 = load ptr, ptr %14, align 8
+  %110 = load i32, ptr %19, align 4
+  %111 = call ptr @BufferAlloc(ptr noundef %105, i8 noundef signext %106, i32 noundef %107, i32 noundef %108, ptr noundef %109, ptr noundef %18, i32 noundef %110)
+  store ptr %111, ptr %16, align 8
+  %112 = load i8, ptr %18, align 1
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %117
 
-110:                                              ; preds = %98
-  %111 = load i64, ptr @pgBufferUsage, align 8
-  %112 = add i64 %111, 1
-  store i64 %112, ptr @pgBufferUsage, align 8
-  br label %126
+114:                                              ; preds = %102
+  %115 = load i64, ptr @pgBufferUsage, align 8
+  %116 = add i64 %115, 1
+  store i64 %116, ptr @pgBufferUsage, align 8
+  br label %132
 
-113:                                              ; preds = %98
-  %114 = load i32, ptr %13, align 4
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %122, label %116
+117:                                              ; preds = %102
+  %118 = load i32, ptr %13, align 4
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %126, label %120
 
-116:                                              ; preds = %113
-  %117 = load i32, ptr %13, align 4
-  %118 = icmp eq i32 %117, 4
-  br i1 %118, label %122, label %119
+120:                                              ; preds = %117
+  %121 = load i32, ptr %13, align 4
+  %122 = icmp eq i32 %121, 4
+  br i1 %122, label %126, label %123
 
-119:                                              ; preds = %116
-  %120 = load i32, ptr %13, align 4
-  %121 = icmp eq i32 %120, 3
-  br i1 %121, label %122, label %125
+123:                                              ; preds = %120
+  %124 = load i32, ptr %13, align 4
+  %125 = icmp eq i32 %124, 3
+  br i1 %125, label %126, label %131
 
-122:                                              ; preds = %119, %116, %113
-  %123 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 1), align 8
-  %124 = add i64 %123, 1
-  store i64 %124, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 1), align 8
-  br label %125
+126:                                              ; preds = %123, %120, %117
+  %127 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 1
+  %128 = load i64, ptr %127, align 8
+  %129 = add i64 %128, 1
+  %130 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 1
+  store i64 %129, ptr %130, align 8
+  br label %131
 
-125:                                              ; preds = %122, %119
-  br label %126
+131:                                              ; preds = %126, %123
+  br label %132
 
-126:                                              ; preds = %125, %110
-  br label %127
+132:                                              ; preds = %131, %114
+  br label %133
 
-127:                                              ; preds = %126, %97
-  %128 = load i8, ptr %18, align 1
-  %129 = trunc i8 %128 to i1
-  br i1 %129, label %130, label %165
+133:                                              ; preds = %132, %101
+  %134 = load i8, ptr %18, align 1
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %136, label %171
 
-130:                                              ; preds = %127
-  %131 = load ptr, ptr %15, align 8
-  store i8 1, ptr %131, align 1
-  %132 = load i64, ptr @VacuumPageHit, align 8
-  %133 = add i64 %132, 1
-  store i64 %133, ptr @VacuumPageHit, align 8
-  %134 = load i32, ptr %20, align 4
-  %135 = load i32, ptr %19, align 4
-  call void @pgstat_count_io_op(i32 noundef %134, i32 noundef %135, i32 noundef 3)
-  %136 = load i8, ptr @VacuumCostActive, align 1
-  %137 = trunc i8 %136 to i1
-  br i1 %137, label %138, label %142
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %15, align 8
+  store i8 1, ptr %137, align 1
+  %138 = load i64, ptr @VacuumPageHit, align 8
+  %139 = add i64 %138, 1
+  store i64 %139, ptr @VacuumPageHit, align 8
+  %140 = load i32, ptr %20, align 4
+  %141 = load i32, ptr %19, align 4
+  call void @pgstat_count_io_op(i32 noundef %140, i32 noundef %141, i32 noundef 3)
+  %142 = load i8, ptr @VacuumCostActive, align 1
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %144, label %148
 
-138:                                              ; preds = %130
-  %139 = load i32, ptr @VacuumCostPageHit, align 4
-  %140 = load i32, ptr @VacuumCostBalance, align 4
-  %141 = add i32 %140, %139
-  store i32 %141, ptr @VacuumCostBalance, align 4
-  br label %142
+144:                                              ; preds = %136
+  %145 = load i32, ptr @VacuumCostPageHit, align 4
+  %146 = load i32, ptr @VacuumCostBalance, align 4
+  %147 = add i32 %146, %145
+  store i32 %147, ptr @VacuumCostBalance, align 4
+  br label %148
 
-142:                                              ; preds = %138, %130
-  br label %143
+148:                                              ; preds = %144, %136
+  br label %149
 
-143:                                              ; preds = %142
-  br label %144
+149:                                              ; preds = %148
+  br label %150
 
-144:                                              ; preds = %143
-  %145 = load i8, ptr %21, align 1
-  %146 = trunc i8 %145 to i1
-  br i1 %146, label %162, label %147
+150:                                              ; preds = %149
+  %151 = load i8, ptr %21, align 1
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %168, label %153
 
-147:                                              ; preds = %144
-  %148 = load i32, ptr %13, align 4
-  %149 = icmp eq i32 %148, 1
-  br i1 %149, label %150, label %154
+153:                                              ; preds = %150
+  %154 = load i32, ptr %13, align 4
+  %155 = icmp eq i32 %154, 1
+  br i1 %155, label %156, label %160
 
-150:                                              ; preds = %147
-  %151 = load ptr, ptr %16, align 8
-  %152 = call ptr @BufferDescriptorGetContentLock(ptr noundef %151)
-  %153 = call zeroext i1 @LWLockAcquire(ptr noundef %152, i32 noundef 0)
-  br label %161
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %16, align 8
+  %158 = call ptr @BufferDescriptorGetContentLock(ptr noundef %157)
+  %159 = call zeroext i1 @LWLockAcquire(ptr noundef %158, i32 noundef 0)
+  br label %167
 
-154:                                              ; preds = %147
-  %155 = load i32, ptr %13, align 4
-  %156 = icmp eq i32 %155, 2
-  br i1 %156, label %157, label %160
+160:                                              ; preds = %153
+  %161 = load i32, ptr %13, align 4
+  %162 = icmp eq i32 %161, 2
+  br i1 %162, label %163, label %166
 
-157:                                              ; preds = %154
-  %158 = load ptr, ptr %16, align 8
-  %159 = call i32 @BufferDescriptorGetBuffer(ptr noundef %158)
-  call void @LockBufferForCleanup(i32 noundef %159)
-  br label %160
+163:                                              ; preds = %160
+  %164 = load ptr, ptr %16, align 8
+  %165 = call i32 @BufferDescriptorGetBuffer(ptr noundef %164)
+  call void @LockBufferForCleanup(i32 noundef %165)
+  br label %166
 
-160:                                              ; preds = %157, %154
-  br label %161
+166:                                              ; preds = %163, %160
+  br label %167
 
-161:                                              ; preds = %160, %150
-  br label %162
+167:                                              ; preds = %166, %156
+  br label %168
 
-162:                                              ; preds = %161, %144
-  %163 = load ptr, ptr %16, align 8
-  %164 = call i32 @BufferDescriptorGetBuffer(ptr noundef %163)
-  store i32 %164, ptr %8, align 4
-  br label %397
+168:                                              ; preds = %167, %150
+  %169 = load ptr, ptr %16, align 8
+  %170 = call i32 @BufferDescriptorGetBuffer(ptr noundef %169)
+  store i32 %170, ptr %8, align 4
+  br label %403
 
-165:                                              ; preds = %127
-  %166 = load i8, ptr %21, align 1
-  %167 = trunc i8 %166 to i1
-  br i1 %167, label %168, label %178
+171:                                              ; preds = %133
+  %172 = load i8, ptr %21, align 1
+  %173 = trunc i8 %172 to i1
+  br i1 %173, label %174, label %184
 
-168:                                              ; preds = %165
-  %169 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %170 = load ptr, ptr %16, align 8
-  %171 = getelementptr inbounds %struct.BufferDesc, ptr %170, i32 0, i32 1
-  %172 = load i32, ptr %171, align 4
-  %173 = add i32 %172, 2
-  %174 = sub i32 0, %173
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr ptr, ptr %169, i64 %175
-  %177 = load ptr, ptr %176, align 8
-  br label %186
+174:                                              ; preds = %171
+  %175 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %176 = load ptr, ptr %16, align 8
+  %177 = getelementptr inbounds %struct.BufferDesc, ptr %176, i32 0, i32 1
+  %178 = load i32, ptr %177, align 4
+  %179 = add i32 %178, 2
+  %180 = sub i32 0, %179
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr ptr, ptr %175, i64 %181
+  %183 = load ptr, ptr %182, align 8
+  br label %192
 
-178:                                              ; preds = %165
-  %179 = load ptr, ptr @BufferBlocks, align 8
-  %180 = load ptr, ptr %16, align 8
-  %181 = getelementptr inbounds %struct.BufferDesc, ptr %180, i32 0, i32 1
-  %182 = load i32, ptr %181, align 4
-  %183 = sext i32 %182 to i64
-  %184 = mul i64 %183, 8192
-  %185 = getelementptr i8, ptr %179, i64 %184
-  br label %186
+184:                                              ; preds = %171
+  %185 = load ptr, ptr @BufferBlocks, align 8
+  %186 = load ptr, ptr %16, align 8
+  %187 = getelementptr inbounds %struct.BufferDesc, ptr %186, i32 0, i32 1
+  %188 = load i32, ptr %187, align 4
+  %189 = sext i32 %188 to i64
+  %190 = mul i64 %189, 8192
+  %191 = getelementptr i8, ptr %185, i64 %190
+  br label %192
 
-186:                                              ; preds = %178, %168
-  %187 = phi ptr [ %177, %168 ], [ %185, %178 ]
-  store ptr %187, ptr %17, align 8
-  %188 = load i32, ptr %13, align 4
-  %189 = icmp eq i32 %188, 1
-  br i1 %189, label %193, label %190
+192:                                              ; preds = %184, %174
+  %193 = phi ptr [ %183, %174 ], [ %191, %184 ]
+  store ptr %193, ptr %17, align 8
+  %194 = load i32, ptr %13, align 4
+  %195 = icmp eq i32 %194, 1
+  br i1 %195, label %199, label %196
 
-190:                                              ; preds = %186
-  %191 = load i32, ptr %13, align 4
-  %192 = icmp eq i32 %191, 2
-  br i1 %192, label %193, label %230
+196:                                              ; preds = %192
+  %197 = load i32, ptr %13, align 4
+  %198 = icmp eq i32 %197, 2
+  br i1 %198, label %199, label %236
 
-193:                                              ; preds = %190, %186
-  br label %194
+199:                                              ; preds = %196, %192
+  br label %200
 
-194:                                              ; preds = %193
-  %195 = load ptr, ptr %17, align 8
-  store ptr %195, ptr %24, align 8
+200:                                              ; preds = %199
+  %201 = load ptr, ptr %17, align 8
+  store ptr %201, ptr %24, align 8
   store i32 0, ptr %25, align 4
   store i64 8192, ptr %26, align 8
-  %196 = load ptr, ptr %24, align 8
-  %197 = ptrtoint ptr %196 to i64
-  %198 = and i64 %197, 7
-  %199 = icmp eq i64 %198, 0
-  br i1 %199, label %200, label %223
+  %202 = load ptr, ptr %24, align 8
+  %203 = ptrtoint ptr %202 to i64
+  %204 = and i64 %203, 7
+  %205 = icmp eq i64 %204, 0
+  br i1 %205, label %206, label %229
 
-200:                                              ; preds = %194
-  %201 = load i64, ptr %26, align 8
-  %202 = and i64 %201, 7
-  %203 = icmp eq i64 %202, 0
-  br i1 %203, label %204, label %223
+206:                                              ; preds = %200
+  %207 = load i64, ptr %26, align 8
+  %208 = and i64 %207, 7
+  %209 = icmp eq i64 %208, 0
+  br i1 %209, label %210, label %229
 
-204:                                              ; preds = %200
-  %205 = load i32, ptr %25, align 4
-  %206 = icmp eq i32 %205, 0
-  br i1 %206, label %207, label %223
+210:                                              ; preds = %206
+  %211 = load i32, ptr %25, align 4
+  %212 = icmp eq i32 %211, 0
+  br i1 %212, label %213, label %229
 
-207:                                              ; preds = %204
-  %208 = load i64, ptr %26, align 8
-  %209 = icmp ule i64 %208, 1024
-  br i1 %209, label %210, label %223
+213:                                              ; preds = %210
+  %214 = load i64, ptr %26, align 8
+  %215 = icmp ule i64 %214, 1024
+  br i1 %215, label %216, label %229
 
-210:                                              ; preds = %207
-  %211 = load ptr, ptr %24, align 8
-  store ptr %211, ptr %27, align 8
-  %212 = load ptr, ptr %27, align 8
-  %213 = load i64, ptr %26, align 8
-  %214 = getelementptr i8, ptr %212, i64 %213
-  store ptr %214, ptr %28, align 8
-  br label %215
+216:                                              ; preds = %213
+  %217 = load ptr, ptr %24, align 8
+  store ptr %217, ptr %27, align 8
+  %218 = load ptr, ptr %27, align 8
+  %219 = load i64, ptr %26, align 8
+  %220 = getelementptr i8, ptr %218, i64 %219
+  store ptr %220, ptr %28, align 8
+  br label %221
 
-215:                                              ; preds = %219, %210
-  %216 = load ptr, ptr %27, align 8
-  %217 = load ptr, ptr %28, align 8
-  %218 = icmp ult ptr %216, %217
-  br i1 %218, label %219, label %222
+221:                                              ; preds = %225, %216
+  %222 = load ptr, ptr %27, align 8
+  %223 = load ptr, ptr %28, align 8
+  %224 = icmp ult ptr %222, %223
+  br i1 %224, label %225, label %228
 
-219:                                              ; preds = %215
-  %220 = load ptr, ptr %27, align 8
-  %221 = getelementptr i64, ptr %220, i32 1
-  store ptr %221, ptr %27, align 8
-  store i64 0, ptr %220, align 8
-  br label %215, !llvm.loop !8
+225:                                              ; preds = %221
+  %226 = load ptr, ptr %27, align 8
+  %227 = getelementptr i64, ptr %226, i32 1
+  store ptr %227, ptr %27, align 8
+  store i64 0, ptr %226, align 8
+  br label %221, !llvm.loop !8
 
-222:                                              ; preds = %215
-  br label %228
+228:                                              ; preds = %221
+  br label %234
 
-223:                                              ; preds = %207, %204, %200, %194
-  %224 = load ptr, ptr %24, align 8
-  %225 = load i32, ptr %25, align 4
-  %226 = trunc i32 %225 to i8
-  %227 = load i64, ptr %26, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %224, i8 %226, i64 %227, i1 false)
-  br label %228
+229:                                              ; preds = %213, %210, %206, %200
+  %230 = load ptr, ptr %24, align 8
+  %231 = load i32, ptr %25, align 4
+  %232 = trunc i32 %231 to i8
+  %233 = load i64, ptr %26, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %230, i8 %232, i64 %233, i1 false)
+  br label %234
 
-228:                                              ; preds = %223, %222
-  br label %229
+234:                                              ; preds = %229, %228
+  br label %235
 
-229:                                              ; preds = %228
-  br label %356
+235:                                              ; preds = %234
+  br label %362
 
-230:                                              ; preds = %190
-  %231 = load i8, ptr @track_io_timing, align 1
-  %232 = trunc i8 %231 to i1
-  %233 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %232)
-  %234 = getelementptr inbounds %struct.instr_time, ptr %29, i32 0, i32 0
-  store i64 %233, ptr %234, align 8
-  %235 = load ptr, ptr %9, align 8
-  %236 = load i32, ptr %11, align 4
-  %237 = load i32, ptr %12, align 4
-  %238 = load ptr, ptr %17, align 8
-  call void @smgrread(ptr noundef %235, i32 noundef %236, i32 noundef %237, ptr noundef %238)
-  %239 = load i32, ptr %20, align 4
-  %240 = load i32, ptr %19, align 4
-  %241 = getelementptr inbounds %struct.instr_time, ptr %29, i32 0, i32 0
-  %242 = load i64, ptr %241, align 8
-  call void @pgstat_count_io_op_time(i32 noundef %239, i32 noundef %240, i32 noundef 4, i64 %242, i32 noundef 1)
-  %243 = load ptr, ptr %17, align 8
-  %244 = load i32, ptr %12, align 4
-  %245 = call zeroext i1 @PageIsVerifiedExtended(ptr noundef %243, i32 noundef %244, i32 noundef 3)
-  br i1 %245, label %355, label %246
+236:                                              ; preds = %196
+  %237 = load i8, ptr @track_io_timing, align 1
+  %238 = trunc i8 %237 to i1
+  %239 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %238)
+  %240 = getelementptr inbounds %struct.instr_time, ptr %29, i32 0, i32 0
+  store i64 %239, ptr %240, align 8
+  %241 = load ptr, ptr %9, align 8
+  %242 = load i32, ptr %11, align 4
+  %243 = load i32, ptr %12, align 4
+  %244 = load ptr, ptr %17, align 8
+  call void @smgrread(ptr noundef %241, i32 noundef %242, i32 noundef %243, ptr noundef %244)
+  %245 = load i32, ptr %20, align 4
+  %246 = load i32, ptr %19, align 4
+  %247 = getelementptr inbounds %struct.instr_time, ptr %29, i32 0, i32 0
+  %248 = load i64, ptr %247, align 8
+  call void @pgstat_count_io_op_time(i32 noundef %245, i32 noundef %246, i32 noundef 4, i64 %248, i32 noundef 1)
+  %249 = load ptr, ptr %17, align 8
+  %250 = load i32, ptr %12, align 4
+  %251 = call zeroext i1 @PageIsVerifiedExtended(ptr noundef %249, i32 noundef %250, i32 noundef 3)
+  br i1 %251, label %361, label %252
 
-246:                                              ; preds = %230
-  %247 = load i32, ptr %13, align 4
-  %248 = icmp eq i32 %247, 3
-  br i1 %248, label %252, label %249
+252:                                              ; preds = %236
+  %253 = load i32, ptr %13, align 4
+  %254 = icmp eq i32 %253, 3
+  br i1 %254, label %258, label %255
 
-249:                                              ; preds = %246
-  %250 = load i8, ptr @zero_damaged_pages, align 1
-  %251 = trunc i8 %250 to i1
-  br i1 %251, label %252, label %321
+255:                                              ; preds = %252
+  %256 = load i8, ptr @zero_damaged_pages, align 1
+  %257 = trunc i8 %256 to i1
+  br i1 %257, label %258, label %327
 
-252:                                              ; preds = %249, %246
-  br label %253
+258:                                              ; preds = %255, %252
+  br label %259
 
-253:                                              ; preds = %252
-  br i1 false, label %254, label %256
+259:                                              ; preds = %258
+  br i1 false, label %260, label %262
 
-254:                                              ; preds = %253
-  %255 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #5
-  br i1 %255, label %258, label %283
+260:                                              ; preds = %259
+  %261 = call zeroext i1 @errstart_cold(i32 noundef 19, ptr noundef null) #5
+  br i1 %261, label %264, label %289
 
-256:                                              ; preds = %253
-  %257 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
-  br i1 %257, label %258, label %283
+262:                                              ; preds = %259
+  %263 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null)
+  br i1 %263, label %264, label %289
 
-258:                                              ; preds = %256, %254
-  %259 = call i32 @errcode(i32 noundef 16779816)
-  %260 = load i32, ptr %12, align 4
-  %261 = load ptr, ptr %9, align 8
-  %262 = getelementptr inbounds %struct.SMgrRelationData, ptr %261, i32 0, i32 0
-  %263 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %262, i32 0, i32 0
-  %264 = getelementptr inbounds %struct.RelFileLocator, ptr %263, i32 0, i32 1
-  %265 = load i32, ptr %264, align 4
-  %266 = load ptr, ptr %9, align 8
-  %267 = getelementptr inbounds %struct.SMgrRelationData, ptr %266, i32 0, i32 0
-  %268 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %267, i32 0, i32 0
-  %269 = getelementptr inbounds %struct.RelFileLocator, ptr %268, i32 0, i32 0
-  %270 = load i32, ptr %269, align 8
-  %271 = load ptr, ptr %9, align 8
-  %272 = getelementptr inbounds %struct.SMgrRelationData, ptr %271, i32 0, i32 0
-  %273 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %272, i32 0, i32 0
-  %274 = getelementptr inbounds %struct.RelFileLocator, ptr %273, i32 0, i32 2
-  %275 = load i32, ptr %274, align 8
-  %276 = load ptr, ptr %9, align 8
-  %277 = getelementptr inbounds %struct.SMgrRelationData, ptr %276, i32 0, i32 0
-  %278 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %277, i32 0, i32 1
-  %279 = load i32, ptr %278, align 4
-  %280 = load i32, ptr %11, align 4
-  %281 = call ptr @GetRelationPath(i32 noundef %265, i32 noundef %270, i32 noundef %275, i32 noundef %279, i32 noundef %280)
-  %282 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11, i32 noundef %260, ptr noundef %281)
+264:                                              ; preds = %262, %260
+  %265 = call i32 @errcode(i32 noundef 16779816)
+  %266 = load i32, ptr %12, align 4
+  %267 = load ptr, ptr %9, align 8
+  %268 = getelementptr inbounds %struct.SMgrRelationData, ptr %267, i32 0, i32 0
+  %269 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %268, i32 0, i32 0
+  %270 = getelementptr inbounds %struct.RelFileLocator, ptr %269, i32 0, i32 1
+  %271 = load i32, ptr %270, align 4
+  %272 = load ptr, ptr %9, align 8
+  %273 = getelementptr inbounds %struct.SMgrRelationData, ptr %272, i32 0, i32 0
+  %274 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %273, i32 0, i32 0
+  %275 = getelementptr inbounds %struct.RelFileLocator, ptr %274, i32 0, i32 0
+  %276 = load i32, ptr %275, align 8
+  %277 = load ptr, ptr %9, align 8
+  %278 = getelementptr inbounds %struct.SMgrRelationData, ptr %277, i32 0, i32 0
+  %279 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %278, i32 0, i32 0
+  %280 = getelementptr inbounds %struct.RelFileLocator, ptr %279, i32 0, i32 2
+  %281 = load i32, ptr %280, align 8
+  %282 = load ptr, ptr %9, align 8
+  %283 = getelementptr inbounds %struct.SMgrRelationData, ptr %282, i32 0, i32 0
+  %284 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %283, i32 0, i32 1
+  %285 = load i32, ptr %284, align 4
+  %286 = load i32, ptr %11, align 4
+  %287 = call ptr @GetRelationPath(i32 noundef %271, i32 noundef %276, i32 noundef %281, i32 noundef %285, i32 noundef %286)
+  %288 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.11, i32 noundef %266, ptr noundef %287)
   call void @errfinish(ptr noundef @.str.3, i32 noundef 1159, ptr noundef @__func__.ReadBuffer_common)
-  br label %283
+  br label %289
 
-283:                                              ; preds = %258, %256, %254
-  br label %284
+289:                                              ; preds = %264, %262, %260
+  br label %290
 
-284:                                              ; preds = %283
-  br label %285
+290:                                              ; preds = %289
+  br label %291
 
-285:                                              ; preds = %284
-  %286 = load ptr, ptr %17, align 8
-  store ptr %286, ptr %30, align 8
+291:                                              ; preds = %290
+  %292 = load ptr, ptr %17, align 8
+  store ptr %292, ptr %30, align 8
   store i32 0, ptr %31, align 4
   store i64 8192, ptr %32, align 8
-  %287 = load ptr, ptr %30, align 8
-  %288 = ptrtoint ptr %287 to i64
-  %289 = and i64 %288, 7
-  %290 = icmp eq i64 %289, 0
-  br i1 %290, label %291, label %314
+  %293 = load ptr, ptr %30, align 8
+  %294 = ptrtoint ptr %293 to i64
+  %295 = and i64 %294, 7
+  %296 = icmp eq i64 %295, 0
+  br i1 %296, label %297, label %320
 
-291:                                              ; preds = %285
-  %292 = load i64, ptr %32, align 8
-  %293 = and i64 %292, 7
-  %294 = icmp eq i64 %293, 0
-  br i1 %294, label %295, label %314
+297:                                              ; preds = %291
+  %298 = load i64, ptr %32, align 8
+  %299 = and i64 %298, 7
+  %300 = icmp eq i64 %299, 0
+  br i1 %300, label %301, label %320
 
-295:                                              ; preds = %291
-  %296 = load i32, ptr %31, align 4
-  %297 = icmp eq i32 %296, 0
-  br i1 %297, label %298, label %314
+301:                                              ; preds = %297
+  %302 = load i32, ptr %31, align 4
+  %303 = icmp eq i32 %302, 0
+  br i1 %303, label %304, label %320
 
-298:                                              ; preds = %295
-  %299 = load i64, ptr %32, align 8
-  %300 = icmp ule i64 %299, 1024
-  br i1 %300, label %301, label %314
+304:                                              ; preds = %301
+  %305 = load i64, ptr %32, align 8
+  %306 = icmp ule i64 %305, 1024
+  br i1 %306, label %307, label %320
 
-301:                                              ; preds = %298
-  %302 = load ptr, ptr %30, align 8
-  store ptr %302, ptr %33, align 8
-  %303 = load ptr, ptr %33, align 8
-  %304 = load i64, ptr %32, align 8
-  %305 = getelementptr i8, ptr %303, i64 %304
-  store ptr %305, ptr %34, align 8
-  br label %306
+307:                                              ; preds = %304
+  %308 = load ptr, ptr %30, align 8
+  store ptr %308, ptr %33, align 8
+  %309 = load ptr, ptr %33, align 8
+  %310 = load i64, ptr %32, align 8
+  %311 = getelementptr i8, ptr %309, i64 %310
+  store ptr %311, ptr %34, align 8
+  br label %312
 
-306:                                              ; preds = %310, %301
-  %307 = load ptr, ptr %33, align 8
-  %308 = load ptr, ptr %34, align 8
-  %309 = icmp ult ptr %307, %308
-  br i1 %309, label %310, label %313
+312:                                              ; preds = %316, %307
+  %313 = load ptr, ptr %33, align 8
+  %314 = load ptr, ptr %34, align 8
+  %315 = icmp ult ptr %313, %314
+  br i1 %315, label %316, label %319
 
-310:                                              ; preds = %306
-  %311 = load ptr, ptr %33, align 8
-  %312 = getelementptr i64, ptr %311, i32 1
-  store ptr %312, ptr %33, align 8
-  store i64 0, ptr %311, align 8
-  br label %306, !llvm.loop !9
+316:                                              ; preds = %312
+  %317 = load ptr, ptr %33, align 8
+  %318 = getelementptr i64, ptr %317, i32 1
+  store ptr %318, ptr %33, align 8
+  store i64 0, ptr %317, align 8
+  br label %312, !llvm.loop !9
 
-313:                                              ; preds = %306
-  br label %319
+319:                                              ; preds = %312
+  br label %325
 
-314:                                              ; preds = %298, %295, %291, %285
-  %315 = load ptr, ptr %30, align 8
-  %316 = load i32, ptr %31, align 4
-  %317 = trunc i32 %316 to i8
-  %318 = load i64, ptr %32, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %315, i8 %317, i64 %318, i1 false)
-  br label %319
+320:                                              ; preds = %304, %301, %297, %291
+  %321 = load ptr, ptr %30, align 8
+  %322 = load i32, ptr %31, align 4
+  %323 = trunc i32 %322 to i8
+  %324 = load i64, ptr %32, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %321, i8 %323, i64 %324, i1 false)
+  br label %325
 
-319:                                              ; preds = %314, %313
-  br label %320
+325:                                              ; preds = %320, %319
+  br label %326
 
-320:                                              ; preds = %319
-  br label %354
+326:                                              ; preds = %325
+  br label %360
 
-321:                                              ; preds = %249
-  br label %322
+327:                                              ; preds = %255
+  br label %328
 
-322:                                              ; preds = %321
-  br i1 true, label %323, label %325
+328:                                              ; preds = %327
+  br i1 true, label %329, label %331
 
-323:                                              ; preds = %322
-  %324 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  br i1 %324, label %327, label %352
+329:                                              ; preds = %328
+  %330 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  br i1 %330, label %333, label %358
 
-325:                                              ; preds = %322
-  %326 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
-  br i1 %326, label %327, label %352
+331:                                              ; preds = %328
+  %332 = call zeroext i1 @errstart(i32 noundef 21, ptr noundef null)
+  br i1 %332, label %333, label %358
 
-327:                                              ; preds = %325, %323
-  %328 = call i32 @errcode(i32 noundef 16779816)
-  %329 = load i32, ptr %12, align 4
-  %330 = load ptr, ptr %9, align 8
-  %331 = getelementptr inbounds %struct.SMgrRelationData, ptr %330, i32 0, i32 0
-  %332 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %331, i32 0, i32 0
-  %333 = getelementptr inbounds %struct.RelFileLocator, ptr %332, i32 0, i32 1
-  %334 = load i32, ptr %333, align 4
-  %335 = load ptr, ptr %9, align 8
-  %336 = getelementptr inbounds %struct.SMgrRelationData, ptr %335, i32 0, i32 0
-  %337 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %336, i32 0, i32 0
-  %338 = getelementptr inbounds %struct.RelFileLocator, ptr %337, i32 0, i32 0
-  %339 = load i32, ptr %338, align 8
-  %340 = load ptr, ptr %9, align 8
-  %341 = getelementptr inbounds %struct.SMgrRelationData, ptr %340, i32 0, i32 0
-  %342 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %341, i32 0, i32 0
-  %343 = getelementptr inbounds %struct.RelFileLocator, ptr %342, i32 0, i32 2
-  %344 = load i32, ptr %343, align 8
-  %345 = load ptr, ptr %9, align 8
-  %346 = getelementptr inbounds %struct.SMgrRelationData, ptr %345, i32 0, i32 0
-  %347 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %346, i32 0, i32 1
-  %348 = load i32, ptr %347, align 4
-  %349 = load i32, ptr %11, align 4
-  %350 = call ptr @GetRelationPath(i32 noundef %334, i32 noundef %339, i32 noundef %344, i32 noundef %348, i32 noundef %349)
-  %351 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.12, i32 noundef %329, ptr noundef %350)
+333:                                              ; preds = %331, %329
+  %334 = call i32 @errcode(i32 noundef 16779816)
+  %335 = load i32, ptr %12, align 4
+  %336 = load ptr, ptr %9, align 8
+  %337 = getelementptr inbounds %struct.SMgrRelationData, ptr %336, i32 0, i32 0
+  %338 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %337, i32 0, i32 0
+  %339 = getelementptr inbounds %struct.RelFileLocator, ptr %338, i32 0, i32 1
+  %340 = load i32, ptr %339, align 4
+  %341 = load ptr, ptr %9, align 8
+  %342 = getelementptr inbounds %struct.SMgrRelationData, ptr %341, i32 0, i32 0
+  %343 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %342, i32 0, i32 0
+  %344 = getelementptr inbounds %struct.RelFileLocator, ptr %343, i32 0, i32 0
+  %345 = load i32, ptr %344, align 8
+  %346 = load ptr, ptr %9, align 8
+  %347 = getelementptr inbounds %struct.SMgrRelationData, ptr %346, i32 0, i32 0
+  %348 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %347, i32 0, i32 0
+  %349 = getelementptr inbounds %struct.RelFileLocator, ptr %348, i32 0, i32 2
+  %350 = load i32, ptr %349, align 8
+  %351 = load ptr, ptr %9, align 8
+  %352 = getelementptr inbounds %struct.SMgrRelationData, ptr %351, i32 0, i32 0
+  %353 = getelementptr inbounds %struct.RelFileLocatorBackend, ptr %352, i32 0, i32 1
+  %354 = load i32, ptr %353, align 4
+  %355 = load i32, ptr %11, align 4
+  %356 = call ptr @GetRelationPath(i32 noundef %340, i32 noundef %345, i32 noundef %350, i32 noundef %354, i32 noundef %355)
+  %357 = call i32 (ptr, ...) @errmsg(ptr noundef @.str.12, i32 noundef %335, ptr noundef %356)
   call void @errfinish(ptr noundef @.str.3, i32 noundef 1167, ptr noundef @__func__.ReadBuffer_common)
-  br label %352
+  br label %358
 
-352:                                              ; preds = %327, %325, %323
+358:                                              ; preds = %333, %331, %329
   unreachable
 
-353:                                              ; No predecessors!
-  br label %354
+359:                                              ; No predecessors!
+  br label %360
 
-354:                                              ; preds = %353, %320
-  br label %355
+360:                                              ; preds = %359, %326
+  br label %361
 
-355:                                              ; preds = %354, %230
-  br label %356
+361:                                              ; preds = %360, %236
+  br label %362
 
-356:                                              ; preds = %355, %229
-  %357 = load i32, ptr %13, align 4
-  %358 = icmp eq i32 %357, 1
-  br i1 %358, label %362, label %359
-
-359:                                              ; preds = %356
-  %360 = load i32, ptr %13, align 4
-  %361 = icmp eq i32 %360, 2
-  br i1 %361, label %362, label %369
-
-362:                                              ; preds = %359, %356
-  %363 = load i8, ptr %21, align 1
-  %364 = trunc i8 %363 to i1
-  br i1 %364, label %369, label %365
+362:                                              ; preds = %361, %235
+  %363 = load i32, ptr %13, align 4
+  %364 = icmp eq i32 %363, 1
+  br i1 %364, label %368, label %365
 
 365:                                              ; preds = %362
-  %366 = load ptr, ptr %16, align 8
-  %367 = call ptr @BufferDescriptorGetContentLock(ptr noundef %366)
-  %368 = call zeroext i1 @LWLockAcquire(ptr noundef %367, i32 noundef 0)
-  br label %369
+  %366 = load i32, ptr %13, align 4
+  %367 = icmp eq i32 %366, 2
+  br i1 %367, label %368, label %375
 
-369:                                              ; preds = %365, %362, %359
-  %370 = load i8, ptr %21, align 1
-  %371 = trunc i8 %370 to i1
-  br i1 %371, label %372, label %381
+368:                                              ; preds = %365, %362
+  %369 = load i8, ptr %21, align 1
+  %370 = trunc i8 %369 to i1
+  br i1 %370, label %375, label %371
 
-372:                                              ; preds = %369
-  %373 = load ptr, ptr %16, align 8
-  %374 = getelementptr inbounds %struct.BufferDesc, ptr %373, i32 0, i32 2
-  %375 = call i32 @pg_atomic_read_u32(ptr noundef %374)
-  store i32 %375, ptr %35, align 4
-  %376 = load i32, ptr %35, align 4
-  %377 = or i32 %376, 16777216
-  store i32 %377, ptr %35, align 4
-  %378 = load ptr, ptr %16, align 8
-  %379 = getelementptr inbounds %struct.BufferDesc, ptr %378, i32 0, i32 2
-  %380 = load i32, ptr %35, align 4
-  call void @pg_atomic_unlocked_write_u32(ptr noundef %379, i32 noundef %380)
-  br label %383
+371:                                              ; preds = %368
+  %372 = load ptr, ptr %16, align 8
+  %373 = call ptr @BufferDescriptorGetContentLock(ptr noundef %372)
+  %374 = call zeroext i1 @LWLockAcquire(ptr noundef %373, i32 noundef 0)
+  br label %375
 
-381:                                              ; preds = %369
-  %382 = load ptr, ptr %16, align 8
-  call void @TerminateBufferIO(ptr noundef %382, i1 noundef zeroext false, i32 noundef 16777216, i1 noundef zeroext true)
-  br label %383
+375:                                              ; preds = %371, %368, %365
+  %376 = load i8, ptr %21, align 1
+  %377 = trunc i8 %376 to i1
+  br i1 %377, label %378, label %387
 
-383:                                              ; preds = %381, %372
-  %384 = load i64, ptr @VacuumPageMiss, align 8
-  %385 = add i64 %384, 1
-  store i64 %385, ptr @VacuumPageMiss, align 8
-  %386 = load i8, ptr @VacuumCostActive, align 1
-  %387 = trunc i8 %386 to i1
-  br i1 %387, label %388, label %392
+378:                                              ; preds = %375
+  %379 = load ptr, ptr %16, align 8
+  %380 = getelementptr inbounds %struct.BufferDesc, ptr %379, i32 0, i32 2
+  %381 = call i32 @pg_atomic_read_u32(ptr noundef %380)
+  store i32 %381, ptr %35, align 4
+  %382 = load i32, ptr %35, align 4
+  %383 = or i32 %382, 16777216
+  store i32 %383, ptr %35, align 4
+  %384 = load ptr, ptr %16, align 8
+  %385 = getelementptr inbounds %struct.BufferDesc, ptr %384, i32 0, i32 2
+  %386 = load i32, ptr %35, align 4
+  call void @pg_atomic_unlocked_write_u32(ptr noundef %385, i32 noundef %386)
+  br label %389
 
-388:                                              ; preds = %383
-  %389 = load i32, ptr @VacuumCostPageMiss, align 4
-  %390 = load i32, ptr @VacuumCostBalance, align 4
-  %391 = add i32 %390, %389
-  store i32 %391, ptr @VacuumCostBalance, align 4
-  br label %392
+387:                                              ; preds = %375
+  %388 = load ptr, ptr %16, align 8
+  call void @TerminateBufferIO(ptr noundef %388, i1 noundef zeroext false, i32 noundef 16777216, i1 noundef zeroext true)
+  br label %389
 
-392:                                              ; preds = %388, %383
-  br label %393
+389:                                              ; preds = %387, %378
+  %390 = load i64, ptr @VacuumPageMiss, align 8
+  %391 = add i64 %390, 1
+  store i64 %391, ptr @VacuumPageMiss, align 8
+  %392 = load i8, ptr @VacuumCostActive, align 1
+  %393 = trunc i8 %392 to i1
+  br i1 %393, label %394, label %398
 
-393:                                              ; preds = %392
-  br label %394
+394:                                              ; preds = %389
+  %395 = load i32, ptr @VacuumCostPageMiss, align 4
+  %396 = load i32, ptr @VacuumCostBalance, align 4
+  %397 = add i32 %396, %395
+  store i32 %397, ptr @VacuumCostBalance, align 4
+  br label %398
 
-394:                                              ; preds = %393
-  %395 = load ptr, ptr %16, align 8
-  %396 = call i32 @BufferDescriptorGetBuffer(ptr noundef %395)
-  store i32 %396, ptr %8, align 4
-  br label %397
+398:                                              ; preds = %394, %389
+  br label %399
 
-397:                                              ; preds = %394, %162, %59
-  %398 = load i32, ptr %8, align 4
-  ret i32 %398
+399:                                              ; preds = %398
+  br label %400
+
+400:                                              ; preds = %399
+  %401 = load ptr, ptr %16, align 8
+  %402 = call i32 @BufferDescriptorGetBuffer(ptr noundef %401)
+  store i32 %402, ptr %8, align 4
+  br label %403
+
+403:                                              ; preds = %400, %168, %59
+  %404 = load i32, ptr %8, align 4
+  ret i32 %404
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2550,7 +2558,7 @@ define dso_local void @MarkBufferDirty(i32 noundef %0) #0 {
 22:                                               ; preds = %19
   %23 = load i32, ptr %2, align 4
   call void @MarkLocalBufferDirty(i32 noundef %23)
-  br label %64
+  br label %66
 
 24:                                               ; preds = %19
   %25 = load i32, ptr %2, align 4
@@ -2597,30 +2605,32 @@ define dso_local void @MarkBufferDirty(i32 noundef %0) #0 {
   %49 = load i32, ptr %5, align 4
   %50 = and i32 %49, 8388608
   %51 = icmp ne i32 %50, 0
-  br i1 %51, label %64, label %52
+  br i1 %51, label %66, label %52
 
 52:                                               ; preds = %48
   %53 = load i64, ptr @VacuumPageDirty, align 8
   %54 = add i64 %53, 1
   store i64 %54, ptr @VacuumPageDirty, align 8
-  %55 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 2), align 8
-  %56 = add i64 %55, 1
-  store i64 %56, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 2), align 8
-  %57 = load i8, ptr @VacuumCostActive, align 1
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %63
+  %55 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 2
+  %56 = load i64, ptr %55, align 8
+  %57 = add i64 %56, 1
+  %58 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 2
+  store i64 %57, ptr %58, align 8
+  %59 = load i8, ptr @VacuumCostActive, align 1
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %65
 
-59:                                               ; preds = %52
-  %60 = load i32, ptr @VacuumCostPageDirty, align 4
-  %61 = load i32, ptr @VacuumCostBalance, align 4
-  %62 = add i32 %61, %60
-  store i32 %62, ptr @VacuumCostBalance, align 4
-  br label %63
+61:                                               ; preds = %52
+  %62 = load i32, ptr @VacuumCostPageDirty, align 4
+  %63 = load i32, ptr @VacuumCostBalance, align 4
+  %64 = add i32 %63, %62
+  store i32 %64, ptr @VacuumCostBalance, align 4
+  br label %65
 
-63:                                               ; preds = %59, %52
-  br label %64
+65:                                               ; preds = %61, %52
+  br label %66
 
-64:                                               ; preds = %63, %48, %22
+66:                                               ; preds = %65, %48, %22
   ret void
 }
 
@@ -2897,354 +2907,358 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) #0 {
   store i32 %23, ptr %4, align 4
   %24 = load i32, ptr %6, align 4
   %25 = zext i32 %24 to i64
-  %26 = load i64, ptr getelementptr inbounds (%struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i32 0, i32 2), align 8
-  %27 = add i64 %26, %25
-  store i64 %27, ptr getelementptr inbounds (%struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i32 0, i32 2), align 8
-  %28 = load i32, ptr @bgwriter_lru_maxpages, align 4
-  %29 = icmp sle i32 %28, 0
-  br i1 %29, label %30, label %31
+  %26 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i32 0, i32 2
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %27, %25
+  %29 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i32 0, i32 2
+  store i64 %28, ptr %29, align 8
+  %30 = load i32, ptr @bgwriter_lru_maxpages, align 4
+  %31 = icmp sle i32 %30, 0
+  br i1 %31, label %32, label %33
 
-30:                                               ; preds = %1
+32:                                               ; preds = %1
   store i8 0, ptr @BgBufferSync.saved_info_valid, align 1
   store i1 true, ptr %2, align 1
-  br label %241
+  br label %245
 
-31:                                               ; preds = %1
-  %32 = load i8, ptr @BgBufferSync.saved_info_valid, align 1
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %77
+33:                                               ; preds = %1
+  %34 = load i8, ptr @BgBufferSync.saved_info_valid, align 1
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %79
 
-34:                                               ; preds = %31
-  %35 = load i32, ptr %5, align 4
-  %36 = load i32, ptr @BgBufferSync.prev_strategy_passes, align 4
-  %37 = sub i32 %35, %36
-  store i32 %37, ptr %21, align 4
-  %38 = load i32, ptr %4, align 4
-  %39 = load i32, ptr @BgBufferSync.prev_strategy_buf_id, align 4
-  %40 = sub i32 %38, %39
-  %41 = sext i32 %40 to i64
-  store i64 %41, ptr %9, align 8
-  %42 = load i32, ptr %21, align 4
+36:                                               ; preds = %33
+  %37 = load i32, ptr %5, align 4
+  %38 = load i32, ptr @BgBufferSync.prev_strategy_passes, align 4
+  %39 = sub i32 %37, %38
+  store i32 %39, ptr %21, align 4
+  %40 = load i32, ptr %4, align 4
+  %41 = load i32, ptr @BgBufferSync.prev_strategy_buf_id, align 4
+  %42 = sub i32 %40, %41
   %43 = sext i32 %42 to i64
-  %44 = load i32, ptr @NBuffers, align 4
+  store i64 %43, ptr %9, align 8
+  %44 = load i32, ptr %21, align 4
   %45 = sext i32 %44 to i64
-  %46 = mul i64 %43, %45
-  %47 = load i64, ptr %9, align 8
-  %48 = add i64 %47, %46
-  store i64 %48, ptr %9, align 8
-  %49 = load i32, ptr @BgBufferSync.next_passes, align 4
-  %50 = load i32, ptr %5, align 4
-  %51 = sub i32 %49, %50
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %53, label %57
+  %46 = load i32, ptr @NBuffers, align 4
+  %47 = sext i32 %46 to i64
+  %48 = mul i64 %45, %47
+  %49 = load i64, ptr %9, align 8
+  %50 = add i64 %49, %48
+  store i64 %50, ptr %9, align 8
+  %51 = load i32, ptr @BgBufferSync.next_passes, align 4
+  %52 = load i32, ptr %5, align 4
+  %53 = sub i32 %51, %52
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %55, label %59
 
-53:                                               ; preds = %34
-  %54 = load i32, ptr %4, align 4
-  %55 = load i32, ptr @BgBufferSync.next_to_clean, align 4
-  %56 = sub i32 %54, %55
-  store i32 %56, ptr %10, align 4
-  br label %76
+55:                                               ; preds = %36
+  %56 = load i32, ptr %4, align 4
+  %57 = load i32, ptr @BgBufferSync.next_to_clean, align 4
+  %58 = sub i32 %56, %57
+  store i32 %58, ptr %10, align 4
+  br label %78
 
-57:                                               ; preds = %34
-  %58 = load i32, ptr @BgBufferSync.next_passes, align 4
-  %59 = load i32, ptr %5, align 4
-  %60 = icmp eq i32 %58, %59
-  br i1 %60, label %61, label %71
+59:                                               ; preds = %36
+  %60 = load i32, ptr @BgBufferSync.next_passes, align 4
+  %61 = load i32, ptr %5, align 4
+  %62 = icmp eq i32 %60, %61
+  br i1 %62, label %63, label %73
 
-61:                                               ; preds = %57
-  %62 = load i32, ptr @BgBufferSync.next_to_clean, align 4
-  %63 = load i32, ptr %4, align 4
-  %64 = icmp sge i32 %62, %63
-  br i1 %64, label %65, label %71
+63:                                               ; preds = %59
+  %64 = load i32, ptr @BgBufferSync.next_to_clean, align 4
+  %65 = load i32, ptr %4, align 4
+  %66 = icmp sge i32 %64, %65
+  br i1 %66, label %67, label %73
 
-65:                                               ; preds = %61
-  %66 = load i32, ptr @NBuffers, align 4
-  %67 = load i32, ptr @BgBufferSync.next_to_clean, align 4
-  %68 = load i32, ptr %4, align 4
-  %69 = sub i32 %67, %68
-  %70 = sub i32 %66, %69
-  store i32 %70, ptr %10, align 4
-  br label %75
+67:                                               ; preds = %63
+  %68 = load i32, ptr @NBuffers, align 4
+  %69 = load i32, ptr @BgBufferSync.next_to_clean, align 4
+  %70 = load i32, ptr %4, align 4
+  %71 = sub i32 %69, %70
+  %72 = sub i32 %68, %71
+  store i32 %72, ptr %10, align 4
+  br label %77
 
-71:                                               ; preds = %61, %57
-  %72 = load i32, ptr %4, align 4
-  store i32 %72, ptr @BgBufferSync.next_to_clean, align 4
-  %73 = load i32, ptr %5, align 4
-  store i32 %73, ptr @BgBufferSync.next_passes, align 4
-  %74 = load i32, ptr @NBuffers, align 4
-  store i32 %74, ptr %10, align 4
-  br label %75
+73:                                               ; preds = %63, %59
+  %74 = load i32, ptr %4, align 4
+  store i32 %74, ptr @BgBufferSync.next_to_clean, align 4
+  %75 = load i32, ptr %5, align 4
+  store i32 %75, ptr @BgBufferSync.next_passes, align 4
+  %76 = load i32, ptr @NBuffers, align 4
+  store i32 %76, ptr %10, align 4
+  br label %77
 
-75:                                               ; preds = %71, %65
-  br label %76
+77:                                               ; preds = %73, %67
+  br label %78
 
-76:                                               ; preds = %75, %53
-  br label %81
+78:                                               ; preds = %77, %55
+  br label %83
 
-77:                                               ; preds = %31
+79:                                               ; preds = %33
   store i64 0, ptr %9, align 8
-  %78 = load i32, ptr %4, align 4
-  store i32 %78, ptr @BgBufferSync.next_to_clean, align 4
-  %79 = load i32, ptr %5, align 4
-  store i32 %79, ptr @BgBufferSync.next_passes, align 4
-  %80 = load i32, ptr @NBuffers, align 4
-  store i32 %80, ptr %10, align 4
-  br label %81
+  %80 = load i32, ptr %4, align 4
+  store i32 %80, ptr @BgBufferSync.next_to_clean, align 4
+  %81 = load i32, ptr %5, align 4
+  store i32 %81, ptr @BgBufferSync.next_passes, align 4
+  %82 = load i32, ptr @NBuffers, align 4
+  store i32 %82, ptr %10, align 4
+  br label %83
 
-81:                                               ; preds = %77, %76
-  %82 = load i32, ptr %4, align 4
-  store i32 %82, ptr @BgBufferSync.prev_strategy_buf_id, align 4
-  %83 = load i32, ptr %5, align 4
-  store i32 %83, ptr @BgBufferSync.prev_strategy_passes, align 4
+83:                                               ; preds = %79, %78
+  %84 = load i32, ptr %4, align 4
+  store i32 %84, ptr @BgBufferSync.prev_strategy_buf_id, align 4
+  %85 = load i32, ptr %5, align 4
+  store i32 %85, ptr @BgBufferSync.prev_strategy_passes, align 4
   store i8 1, ptr @BgBufferSync.saved_info_valid, align 1
-  %84 = load i64, ptr %9, align 8
-  %85 = icmp sgt i64 %84, 0
-  br i1 %85, label %86, label %102
+  %86 = load i64, ptr %9, align 8
+  %87 = icmp sgt i64 %86, 0
+  br i1 %87, label %88, label %104
 
-86:                                               ; preds = %81
-  %87 = load i32, ptr %6, align 4
-  %88 = icmp ugt i32 %87, 0
-  br i1 %88, label %89, label %102
+88:                                               ; preds = %83
+  %89 = load i32, ptr %6, align 4
+  %90 = icmp ugt i32 %89, 0
+  br i1 %90, label %91, label %104
 
-89:                                               ; preds = %86
-  %90 = load i64, ptr %9, align 8
-  %91 = sitofp i64 %90 to float
-  %92 = load i32, ptr %6, align 4
-  %93 = uitofp i32 %92 to float
-  %94 = fdiv float %91, %93
-  store float %94, ptr %12, align 4
-  %95 = load float, ptr %12, align 4
-  %96 = load float, ptr @BgBufferSync.smoothed_density, align 4
-  %97 = fsub float %95, %96
-  %98 = load float, ptr %7, align 4
-  %99 = fdiv float %97, %98
-  %100 = load float, ptr @BgBufferSync.smoothed_density, align 4
-  %101 = fadd float %100, %99
-  store float %101, ptr @BgBufferSync.smoothed_density, align 4
-  br label %102
+91:                                               ; preds = %88
+  %92 = load i64, ptr %9, align 8
+  %93 = sitofp i64 %92 to float
+  %94 = load i32, ptr %6, align 4
+  %95 = uitofp i32 %94 to float
+  %96 = fdiv float %93, %95
+  store float %96, ptr %12, align 4
+  %97 = load float, ptr %12, align 4
+  %98 = load float, ptr @BgBufferSync.smoothed_density, align 4
+  %99 = fsub float %97, %98
+  %100 = load float, ptr %7, align 4
+  %101 = fdiv float %99, %100
+  %102 = load float, ptr @BgBufferSync.smoothed_density, align 4
+  %103 = fadd float %102, %101
+  store float %103, ptr @BgBufferSync.smoothed_density, align 4
+  br label %104
 
-102:                                              ; preds = %89, %86, %81
-  %103 = load i32, ptr @NBuffers, align 4
-  %104 = load i32, ptr %10, align 4
-  %105 = sub i32 %103, %104
-  store i32 %105, ptr %11, align 4
-  %106 = load i32, ptr %11, align 4
-  %107 = sitofp i32 %106 to float
-  %108 = load float, ptr @BgBufferSync.smoothed_density, align 4
-  %109 = fdiv float %107, %108
-  %110 = fptosi float %109 to i32
-  store i32 %110, ptr %13, align 4
-  %111 = load float, ptr @BgBufferSync.smoothed_alloc, align 4
-  %112 = load i32, ptr %6, align 4
-  %113 = uitofp i32 %112 to float
-  %114 = fcmp ole float %111, %113
-  br i1 %114, label %115, label %118
+104:                                              ; preds = %91, %88, %83
+  %105 = load i32, ptr @NBuffers, align 4
+  %106 = load i32, ptr %10, align 4
+  %107 = sub i32 %105, %106
+  store i32 %107, ptr %11, align 4
+  %108 = load i32, ptr %11, align 4
+  %109 = sitofp i32 %108 to float
+  %110 = load float, ptr @BgBufferSync.smoothed_density, align 4
+  %111 = fdiv float %109, %110
+  %112 = fptosi float %111 to i32
+  store i32 %112, ptr %13, align 4
+  %113 = load float, ptr @BgBufferSync.smoothed_alloc, align 4
+  %114 = load i32, ptr %6, align 4
+  %115 = uitofp i32 %114 to float
+  %116 = fcmp ole float %113, %115
+  br i1 %116, label %117, label %120
 
-115:                                              ; preds = %102
-  %116 = load i32, ptr %6, align 4
-  %117 = uitofp i32 %116 to float
-  store float %117, ptr @BgBufferSync.smoothed_alloc, align 4
-  br label %127
+117:                                              ; preds = %104
+  %118 = load i32, ptr %6, align 4
+  %119 = uitofp i32 %118 to float
+  store float %119, ptr @BgBufferSync.smoothed_alloc, align 4
+  br label %129
 
-118:                                              ; preds = %102
-  %119 = load i32, ptr %6, align 4
-  %120 = uitofp i32 %119 to float
-  %121 = load float, ptr @BgBufferSync.smoothed_alloc, align 4
-  %122 = fsub float %120, %121
-  %123 = load float, ptr %7, align 4
-  %124 = fdiv float %122, %123
-  %125 = load float, ptr @BgBufferSync.smoothed_alloc, align 4
-  %126 = fadd float %125, %124
-  store float %126, ptr @BgBufferSync.smoothed_alloc, align 4
-  br label %127
+120:                                              ; preds = %104
+  %121 = load i32, ptr %6, align 4
+  %122 = uitofp i32 %121 to float
+  %123 = load float, ptr @BgBufferSync.smoothed_alloc, align 4
+  %124 = fsub float %122, %123
+  %125 = load float, ptr %7, align 4
+  %126 = fdiv float %124, %125
+  %127 = load float, ptr @BgBufferSync.smoothed_alloc, align 4
+  %128 = fadd float %127, %126
+  store float %128, ptr @BgBufferSync.smoothed_alloc, align 4
+  br label %129
 
-127:                                              ; preds = %118, %115
-  %128 = load float, ptr @BgBufferSync.smoothed_alloc, align 4
-  %129 = fpext float %128 to double
-  %130 = load double, ptr @bgwriter_lru_multiplier, align 8
-  %131 = fmul double %129, %130
-  %132 = fptosi double %131 to i32
-  store i32 %132, ptr %14, align 4
-  %133 = load i32, ptr %14, align 4
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %135, label %136
+129:                                              ; preds = %120, %117
+  %130 = load float, ptr @BgBufferSync.smoothed_alloc, align 4
+  %131 = fpext float %130 to double
+  %132 = load double, ptr @bgwriter_lru_multiplier, align 8
+  %133 = fmul double %131, %132
+  %134 = fptosi double %133 to i32
+  store i32 %134, ptr %14, align 4
+  %135 = load i32, ptr %14, align 4
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %137, label %138
 
-135:                                              ; preds = %127
+137:                                              ; preds = %129
   store float 0.000000e+00, ptr @BgBufferSync.smoothed_alloc, align 4
-  br label %136
+  br label %138
 
-136:                                              ; preds = %135, %127
-  %137 = load i32, ptr @NBuffers, align 4
-  %138 = sitofp i32 %137 to float
-  %139 = load float, ptr %8, align 4
-  %140 = load i32, ptr @BgWriterDelay, align 4
-  %141 = sitofp i32 %140 to float
-  %142 = fdiv float %139, %141
-  %143 = fdiv float %138, %142
-  %144 = fptosi float %143 to i32
-  store i32 %144, ptr %15, align 4
-  %145 = load i32, ptr %14, align 4
-  %146 = load i32, ptr %15, align 4
-  %147 = load i32, ptr %13, align 4
-  %148 = add i32 %146, %147
-  %149 = icmp slt i32 %145, %148
-  br i1 %149, label %150, label %154
+138:                                              ; preds = %137, %129
+  %139 = load i32, ptr @NBuffers, align 4
+  %140 = sitofp i32 %139 to float
+  %141 = load float, ptr %8, align 4
+  %142 = load i32, ptr @BgWriterDelay, align 4
+  %143 = sitofp i32 %142 to float
+  %144 = fdiv float %141, %143
+  %145 = fdiv float %140, %144
+  %146 = fptosi float %145 to i32
+  store i32 %146, ptr %15, align 4
+  %147 = load i32, ptr %14, align 4
+  %148 = load i32, ptr %15, align 4
+  %149 = load i32, ptr %13, align 4
+  %150 = add i32 %148, %149
+  %151 = icmp slt i32 %147, %150
+  br i1 %151, label %152, label %156
 
-150:                                              ; preds = %136
-  %151 = load i32, ptr %15, align 4
-  %152 = load i32, ptr %13, align 4
-  %153 = add i32 %151, %152
-  store i32 %153, ptr %14, align 4
-  br label %154
+152:                                              ; preds = %138
+  %153 = load i32, ptr %15, align 4
+  %154 = load i32, ptr %13, align 4
+  %155 = add i32 %153, %154
+  store i32 %155, ptr %14, align 4
+  br label %156
 
-154:                                              ; preds = %150, %136
-  %155 = load i32, ptr %10, align 4
-  store i32 %155, ptr %16, align 4
+156:                                              ; preds = %152, %138
+  %157 = load i32, ptr %10, align 4
+  store i32 %157, ptr %16, align 4
   store i32 0, ptr %17, align 4
-  %156 = load i32, ptr %13, align 4
-  store i32 %156, ptr %18, align 4
-  br label %157
+  %158 = load i32, ptr %13, align 4
+  store i32 %158, ptr %18, align 4
+  br label %159
 
-157:                                              ; preds = %202, %154
-  %158 = load i32, ptr %16, align 4
-  %159 = icmp sgt i32 %158, 0
-  br i1 %159, label %160, label %164
+159:                                              ; preds = %206, %156
+  %160 = load i32, ptr %16, align 4
+  %161 = icmp sgt i32 %160, 0
+  br i1 %161, label %162, label %166
 
-160:                                              ; preds = %157
-  %161 = load i32, ptr %18, align 4
-  %162 = load i32, ptr %14, align 4
-  %163 = icmp slt i32 %161, %162
-  br label %164
+162:                                              ; preds = %159
+  %163 = load i32, ptr %18, align 4
+  %164 = load i32, ptr %14, align 4
+  %165 = icmp slt i32 %163, %164
+  br label %166
 
-164:                                              ; preds = %160, %157
-  %165 = phi i1 [ false, %157 ], [ %163, %160 ]
-  br i1 %165, label %166, label %203
+166:                                              ; preds = %162, %159
+  %167 = phi i1 [ false, %159 ], [ %165, %162 ]
+  br i1 %167, label %168, label %207
 
-166:                                              ; preds = %164
-  %167 = load i32, ptr @BgBufferSync.next_to_clean, align 4
-  %168 = load ptr, ptr %3, align 8
-  %169 = call i32 @SyncOneBuffer(i32 noundef %167, i1 noundef zeroext true, ptr noundef %168)
-  store i32 %169, ptr %22, align 4
-  %170 = load i32, ptr @BgBufferSync.next_to_clean, align 4
-  %171 = add i32 %170, 1
-  store i32 %171, ptr @BgBufferSync.next_to_clean, align 4
-  %172 = load i32, ptr @NBuffers, align 4
-  %173 = icmp sge i32 %171, %172
-  br i1 %173, label %174, label %177
+168:                                              ; preds = %166
+  %169 = load i32, ptr @BgBufferSync.next_to_clean, align 4
+  %170 = load ptr, ptr %3, align 8
+  %171 = call i32 @SyncOneBuffer(i32 noundef %169, i1 noundef zeroext true, ptr noundef %170)
+  store i32 %171, ptr %22, align 4
+  %172 = load i32, ptr @BgBufferSync.next_to_clean, align 4
+  %173 = add i32 %172, 1
+  store i32 %173, ptr @BgBufferSync.next_to_clean, align 4
+  %174 = load i32, ptr @NBuffers, align 4
+  %175 = icmp sge i32 %173, %174
+  br i1 %175, label %176, label %179
 
-174:                                              ; preds = %166
+176:                                              ; preds = %168
   store i32 0, ptr @BgBufferSync.next_to_clean, align 4
-  %175 = load i32, ptr @BgBufferSync.next_passes, align 4
-  %176 = add i32 %175, 1
-  store i32 %176, ptr @BgBufferSync.next_passes, align 4
-  br label %177
+  %177 = load i32, ptr @BgBufferSync.next_passes, align 4
+  %178 = add i32 %177, 1
+  store i32 %178, ptr @BgBufferSync.next_passes, align 4
+  br label %179
 
-177:                                              ; preds = %174, %166
-  %178 = load i32, ptr %16, align 4
-  %179 = add i32 %178, -1
-  store i32 %179, ptr %16, align 4
-  %180 = load i32, ptr %22, align 4
-  %181 = and i32 %180, 1
-  %182 = icmp ne i32 %181, 0
-  br i1 %182, label %183, label %194
+179:                                              ; preds = %176, %168
+  %180 = load i32, ptr %16, align 4
+  %181 = add i32 %180, -1
+  store i32 %181, ptr %16, align 4
+  %182 = load i32, ptr %22, align 4
+  %183 = and i32 %182, 1
+  %184 = icmp ne i32 %183, 0
+  br i1 %184, label %185, label %198
 
-183:                                              ; preds = %177
-  %184 = load i32, ptr %18, align 4
-  %185 = add i32 %184, 1
-  store i32 %185, ptr %18, align 4
-  %186 = load i32, ptr %17, align 4
+185:                                              ; preds = %179
+  %186 = load i32, ptr %18, align 4
   %187 = add i32 %186, 1
-  store i32 %187, ptr %17, align 4
-  %188 = load i32, ptr @bgwriter_lru_maxpages, align 4
-  %189 = icmp sge i32 %187, %188
-  br i1 %189, label %190, label %193
+  store i32 %187, ptr %18, align 4
+  %188 = load i32, ptr %17, align 4
+  %189 = add i32 %188, 1
+  store i32 %189, ptr %17, align 4
+  %190 = load i32, ptr @bgwriter_lru_maxpages, align 4
+  %191 = icmp sge i32 %189, %190
+  br i1 %191, label %192, label %197
 
-190:                                              ; preds = %183
-  %191 = load i64, ptr getelementptr inbounds (%struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i32 0, i32 1), align 8
-  %192 = add i64 %191, 1
-  store i64 %192, ptr getelementptr inbounds (%struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i32 0, i32 1), align 8
-  br label %203
+192:                                              ; preds = %185
+  %193 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i32 0, i32 1
+  %194 = load i64, ptr %193, align 8
+  %195 = add i64 %194, 1
+  %196 = getelementptr inbounds %struct.PgStat_BgWriterStats, ptr @PendingBgWriterStats, i32 0, i32 1
+  store i64 %195, ptr %196, align 8
+  br label %207
 
-193:                                              ; preds = %183
-  br label %202
+197:                                              ; preds = %185
+  br label %206
 
-194:                                              ; preds = %177
-  %195 = load i32, ptr %22, align 4
-  %196 = and i32 %195, 2
-  %197 = icmp ne i32 %196, 0
-  br i1 %197, label %198, label %201
+198:                                              ; preds = %179
+  %199 = load i32, ptr %22, align 4
+  %200 = and i32 %199, 2
+  %201 = icmp ne i32 %200, 0
+  br i1 %201, label %202, label %205
 
-198:                                              ; preds = %194
-  %199 = load i32, ptr %18, align 4
-  %200 = add i32 %199, 1
-  store i32 %200, ptr %18, align 4
-  br label %201
+202:                                              ; preds = %198
+  %203 = load i32, ptr %18, align 4
+  %204 = add i32 %203, 1
+  store i32 %204, ptr %18, align 4
+  br label %205
 
-201:                                              ; preds = %198, %194
-  br label %202
+205:                                              ; preds = %202, %198
+  br label %206
 
-202:                                              ; preds = %201, %193
-  br label %157, !llvm.loop !13
+206:                                              ; preds = %205, %197
+  br label %159, !llvm.loop !13
 
-203:                                              ; preds = %190, %164
-  %204 = load i32, ptr %17, align 4
-  %205 = sext i32 %204 to i64
-  %206 = load i64, ptr @PendingBgWriterStats, align 8
-  %207 = add i64 %206, %205
-  store i64 %207, ptr @PendingBgWriterStats, align 8
-  %208 = load i32, ptr %10, align 4
-  %209 = load i32, ptr %16, align 4
-  %210 = sub i32 %208, %209
-  %211 = sext i32 %210 to i64
-  store i64 %211, ptr %19, align 8
-  %212 = load i32, ptr %18, align 4
-  %213 = load i32, ptr %13, align 4
+207:                                              ; preds = %192, %166
+  %208 = load i32, ptr %17, align 4
+  %209 = sext i32 %208 to i64
+  %210 = load i64, ptr @PendingBgWriterStats, align 8
+  %211 = add i64 %210, %209
+  store i64 %211, ptr @PendingBgWriterStats, align 8
+  %212 = load i32, ptr %10, align 4
+  %213 = load i32, ptr %16, align 4
   %214 = sub i32 %212, %213
-  store i32 %214, ptr %20, align 4
-  %215 = load i64, ptr %19, align 8
-  %216 = icmp sgt i64 %215, 0
-  br i1 %216, label %217, label %233
+  %215 = sext i32 %214 to i64
+  store i64 %215, ptr %19, align 8
+  %216 = load i32, ptr %18, align 4
+  %217 = load i32, ptr %13, align 4
+  %218 = sub i32 %216, %217
+  store i32 %218, ptr %20, align 4
+  %219 = load i64, ptr %19, align 8
+  %220 = icmp sgt i64 %219, 0
+  br i1 %220, label %221, label %237
 
-217:                                              ; preds = %203
-  %218 = load i32, ptr %20, align 4
-  %219 = icmp ugt i32 %218, 0
-  br i1 %219, label %220, label %233
+221:                                              ; preds = %207
+  %222 = load i32, ptr %20, align 4
+  %223 = icmp ugt i32 %222, 0
+  br i1 %223, label %224, label %237
 
-220:                                              ; preds = %217
-  %221 = load i64, ptr %19, align 8
-  %222 = sitofp i64 %221 to float
-  %223 = load i32, ptr %20, align 4
-  %224 = uitofp i32 %223 to float
-  %225 = fdiv float %222, %224
-  store float %225, ptr %12, align 4
-  %226 = load float, ptr %12, align 4
-  %227 = load float, ptr @BgBufferSync.smoothed_density, align 4
-  %228 = fsub float %226, %227
-  %229 = load float, ptr %7, align 4
-  %230 = fdiv float %228, %229
+224:                                              ; preds = %221
+  %225 = load i64, ptr %19, align 8
+  %226 = sitofp i64 %225 to float
+  %227 = load i32, ptr %20, align 4
+  %228 = uitofp i32 %227 to float
+  %229 = fdiv float %226, %228
+  store float %229, ptr %12, align 4
+  %230 = load float, ptr %12, align 4
   %231 = load float, ptr @BgBufferSync.smoothed_density, align 4
-  %232 = fadd float %231, %230
-  store float %232, ptr @BgBufferSync.smoothed_density, align 4
-  br label %233
+  %232 = fsub float %230, %231
+  %233 = load float, ptr %7, align 4
+  %234 = fdiv float %232, %233
+  %235 = load float, ptr @BgBufferSync.smoothed_density, align 4
+  %236 = fadd float %235, %234
+  store float %236, ptr @BgBufferSync.smoothed_density, align 4
+  br label %237
 
-233:                                              ; preds = %220, %217, %203
-  %234 = load i32, ptr %10, align 4
-  %235 = icmp eq i32 %234, 0
-  br i1 %235, label %236, label %239
+237:                                              ; preds = %224, %221, %207
+  %238 = load i32, ptr %10, align 4
+  %239 = icmp eq i32 %238, 0
+  br i1 %239, label %240, label %243
 
-236:                                              ; preds = %233
-  %237 = load i32, ptr %6, align 4
-  %238 = icmp eq i32 %237, 0
-  br label %239
+240:                                              ; preds = %237
+  %241 = load i32, ptr %6, align 4
+  %242 = icmp eq i32 %241, 0
+  br label %243
 
-239:                                              ; preds = %236, %233
-  %240 = phi i1 [ false, %233 ], [ %238, %236 ]
-  store i1 %240, ptr %2, align 1
-  br label %241
+243:                                              ; preds = %240, %237
+  %244 = phi i1 [ false, %237 ], [ %242, %240 ]
+  store i1 %244, ptr %2, align 1
+  br label %245
 
-241:                                              ; preds = %239, %30
-  %242 = load i1, ptr %2, align 1
-  ret i1 %242
+245:                                              ; preds = %243, %32
+  %246 = load i1, ptr %2, align 1
+  ret i1 %246
 }
 
 declare i32 @StrategySyncStart(ptr noundef, ptr noundef) #2
@@ -3676,7 +3690,7 @@ define internal void @BufferSync(i32 noundef %0) #0 {
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %87
-  br label %274
+  br label %278
 
 91:                                               ; preds = %87
   call void @WritebackContextInit(ptr noundef %14, ptr noundef @checkpoint_flush_after)
@@ -3845,13 +3859,13 @@ define internal void @BufferSync(i32 noundef %0) #0 {
   store i32 0, ptr %8, align 4
   br label %190
 
-190:                                              ; preds = %260, %188
+190:                                              ; preds = %262, %188
   %191 = load ptr, ptr %11, align 8
   %192 = getelementptr inbounds %struct.binaryheap, ptr %191, i32 0, i32 0
   %193 = load i32, ptr %192, align 8
   %194 = icmp eq i32 %193, 0
   %195 = xor i1 %194, true
-  br i1 %195, label %196, label %267
+  br i1 %195, label %196, label %269
 
 196:                                              ; preds = %190
   store ptr null, ptr %21, align 8
@@ -3879,14 +3893,14 @@ define internal void @BufferSync(i32 noundef %0) #0 {
   %214 = call i32 @pg_atomic_read_u32(ptr noundef %213)
   %215 = and i32 %214, 1073741824
   %216 = icmp ne i32 %215, 0
-  br i1 %216, label %217, label %230
+  br i1 %216, label %217, label %232
 
 217:                                              ; preds = %196
   %218 = load i32, ptr %4, align 4
   %219 = call i32 @SyncOneBuffer(i32 noundef %218, i1 noundef zeroext false, ptr noundef %14)
   %220 = and i32 %219, 1
   %221 = icmp ne i32 %220, 0
-  br i1 %221, label %222, label %229
+  br i1 %221, label %222, label %231
 
 222:                                              ; preds = %217
   br label %223
@@ -3895,84 +3909,88 @@ define internal void @BufferSync(i32 noundef %0) #0 {
   br label %224
 
 224:                                              ; preds = %223
-  %225 = load i64, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 7), align 8
-  %226 = add i64 %225, 1
-  store i64 %226, ptr getelementptr inbounds (%struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 7), align 8
-  %227 = load i32, ptr %8, align 4
-  %228 = add i32 %227, 1
-  store i32 %228, ptr %8, align 4
-  br label %229
+  %225 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 7
+  %226 = load i64, ptr %225, align 8
+  %227 = add i64 %226, 1
+  %228 = getelementptr inbounds %struct.PgStat_CheckpointerStats, ptr @PendingCheckpointerStats, i32 0, i32 7
+  store i64 %227, ptr %228, align 8
+  %229 = load i32, ptr %8, align 4
+  %230 = add i32 %229, 1
+  store i32 %230, ptr %8, align 4
+  br label %231
 
-229:                                              ; preds = %224, %217
-  br label %230
+231:                                              ; preds = %224, %217
+  br label %232
 
-230:                                              ; preds = %229, %196
-  %231 = load ptr, ptr %22, align 8
-  %232 = getelementptr inbounds %struct.CkptTsStatus, ptr %231, i32 0, i32 2
-  %233 = load double, ptr %232, align 8
-  %234 = load ptr, ptr %22, align 8
-  %235 = getelementptr inbounds %struct.CkptTsStatus, ptr %234, i32 0, i32 1
-  %236 = load double, ptr %235, align 8
-  %237 = fadd double %236, %233
-  store double %237, ptr %235, align 8
-  %238 = load ptr, ptr %22, align 8
-  %239 = getelementptr inbounds %struct.CkptTsStatus, ptr %238, i32 0, i32 4
-  %240 = load i32, ptr %239, align 4
-  %241 = add i32 %240, 1
-  store i32 %241, ptr %239, align 4
-  %242 = load ptr, ptr %22, align 8
-  %243 = getelementptr inbounds %struct.CkptTsStatus, ptr %242, i32 0, i32 5
-  %244 = load i32, ptr %243, align 8
-  %245 = add i32 %244, 1
-  store i32 %245, ptr %243, align 8
-  %246 = load ptr, ptr %22, align 8
-  %247 = getelementptr inbounds %struct.CkptTsStatus, ptr %246, i32 0, i32 4
-  %248 = load i32, ptr %247, align 4
-  %249 = load ptr, ptr %22, align 8
-  %250 = getelementptr inbounds %struct.CkptTsStatus, ptr %249, i32 0, i32 3
-  %251 = load i32, ptr %250, align 8
-  %252 = icmp eq i32 %248, %251
-  br i1 %252, label %253, label %256
+232:                                              ; preds = %231, %196
+  %233 = load ptr, ptr %22, align 8
+  %234 = getelementptr inbounds %struct.CkptTsStatus, ptr %233, i32 0, i32 2
+  %235 = load double, ptr %234, align 8
+  %236 = load ptr, ptr %22, align 8
+  %237 = getelementptr inbounds %struct.CkptTsStatus, ptr %236, i32 0, i32 1
+  %238 = load double, ptr %237, align 8
+  %239 = fadd double %238, %235
+  store double %239, ptr %237, align 8
+  %240 = load ptr, ptr %22, align 8
+  %241 = getelementptr inbounds %struct.CkptTsStatus, ptr %240, i32 0, i32 4
+  %242 = load i32, ptr %241, align 4
+  %243 = add i32 %242, 1
+  store i32 %243, ptr %241, align 4
+  %244 = load ptr, ptr %22, align 8
+  %245 = getelementptr inbounds %struct.CkptTsStatus, ptr %244, i32 0, i32 5
+  %246 = load i32, ptr %245, align 8
+  %247 = add i32 %246, 1
+  store i32 %247, ptr %245, align 8
+  %248 = load ptr, ptr %22, align 8
+  %249 = getelementptr inbounds %struct.CkptTsStatus, ptr %248, i32 0, i32 4
+  %250 = load i32, ptr %249, align 4
+  %251 = load ptr, ptr %22, align 8
+  %252 = getelementptr inbounds %struct.CkptTsStatus, ptr %251, i32 0, i32 3
+  %253 = load i32, ptr %252, align 8
+  %254 = icmp eq i32 %250, %253
+  br i1 %254, label %255, label %258
 
-253:                                              ; preds = %230
-  %254 = load ptr, ptr %11, align 8
-  %255 = call i64 @binaryheap_remove_first(ptr noundef %254)
-  br label %260
+255:                                              ; preds = %232
+  %256 = load ptr, ptr %11, align 8
+  %257 = call i64 @binaryheap_remove_first(ptr noundef %256)
+  br label %262
 
-256:                                              ; preds = %230
-  %257 = load ptr, ptr %11, align 8
-  %258 = load ptr, ptr %22, align 8
-  %259 = call i64 @PointerGetDatum(ptr noundef %258)
-  call void @binaryheap_replace_first(ptr noundef %257, i64 noundef %259)
-  br label %260
+258:                                              ; preds = %232
+  %259 = load ptr, ptr %11, align 8
+  %260 = load ptr, ptr %22, align 8
+  %261 = call i64 @PointerGetDatum(ptr noundef %260)
+  call void @binaryheap_replace_first(ptr noundef %259, i64 noundef %261)
+  br label %262
 
-260:                                              ; preds = %256, %253
-  %261 = load i32, ptr %2, align 4
-  %262 = load i32, ptr %7, align 4
-  %263 = sitofp i32 %262 to double
-  %264 = load i32, ptr %5, align 4
+262:                                              ; preds = %258, %255
+  %263 = load i32, ptr %2, align 4
+  %264 = load i32, ptr %7, align 4
   %265 = sitofp i32 %264 to double
-  %266 = fdiv double %263, %265
-  call void @CheckpointWriteDelay(i32 noundef %261, double noundef %266)
+  %266 = load i32, ptr %5, align 4
+  %267 = sitofp i32 %266 to double
+  %268 = fdiv double %265, %267
+  call void @CheckpointWriteDelay(i32 noundef %263, double noundef %268)
   br label %190, !llvm.loop !17
 
-267:                                              ; preds = %190
+269:                                              ; preds = %190
   call void @IssuePendingWritebacks(ptr noundef %14, i32 noundef 2)
-  %268 = load ptr, ptr %9, align 8
-  call void @pfree(ptr noundef %268)
+  %270 = load ptr, ptr %9, align 8
+  call void @pfree(ptr noundef %270)
   store ptr null, ptr %9, align 8
-  %269 = load ptr, ptr %11, align 8
-  call void @binaryheap_free(ptr noundef %269)
-  %270 = load i32, ptr %8, align 4
-  %271 = load i32, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 5), align 8
-  %272 = add i32 %271, %270
-  store i32 %272, ptr getelementptr inbounds (%struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 5), align 8
-  br label %273
+  %271 = load ptr, ptr %11, align 8
+  call void @binaryheap_free(ptr noundef %271)
+  %272 = load i32, ptr %8, align 4
+  %273 = getelementptr inbounds %struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 5
+  %274 = load i32, ptr %273, align 8
+  %275 = add i32 %274, %272
+  %276 = getelementptr inbounds %struct.CheckpointStatsData, ptr @CheckpointStats, i32 0, i32 5
+  store i32 %275, ptr %276, align 8
+  br label %277
 
-273:                                              ; preds = %267
-  br label %274
+277:                                              ; preds = %269
+  br label %278
 
-274:                                              ; preds = %273, %90
+278:                                              ; preds = %277, %90
   ret void
 }
 
@@ -5557,17 +5575,17 @@ define dso_local void @FlushRelationBuffers(ptr noundef %0) #0 {
   %18 = load i8, ptr %17, align 2
   %19 = sext i8 %18 to i32
   %20 = icmp eq i32 %19, 116
-  br i1 %20, label %21, label %89
+  br i1 %20, label %21, label %91
 
 21:                                               ; preds = %1
   store i32 0, ptr %3, align 4
   br label %22
 
-22:                                               ; preds = %85, %21
+22:                                               ; preds = %87, %21
   %23 = load i32, ptr %3, align 4
   %24 = load i32, ptr @NLocBuffer, align 4
   %25 = icmp slt i32 %23, %24
-  br i1 %25, label %26, label %88
+  br i1 %25, label %26, label %90
 
 26:                                               ; preds = %22
   %27 = load i32, ptr %3, align 4
@@ -5578,7 +5596,7 @@ define dso_local void @FlushRelationBuffers(ptr noundef %0) #0 {
   %31 = load ptr, ptr %2, align 8
   %32 = getelementptr inbounds %struct.RelationData, ptr %31, i32 0, i32 0
   %33 = call zeroext i1 @BufTagMatchesRelFileLocator(ptr noundef %30, ptr noundef %32)
-  br i1 %33, label %34, label %84
+  br i1 %33, label %34, label %86
 
 34:                                               ; preds = %26
   %35 = load ptr, ptr %4, align 8
@@ -5587,7 +5605,7 @@ define dso_local void @FlushRelationBuffers(ptr noundef %0) #0 {
   store i32 %37, ptr %6, align 4
   %38 = and i32 %37, 25165824
   %39 = icmp eq i32 %38, 25165824
-  br i1 %39, label %40, label %84
+  br i1 %39, label %40, label %86
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr @LocalBufferBlockPointers, align 8
@@ -5641,102 +5659,104 @@ define dso_local void @FlushRelationBuffers(ptr noundef %0) #0 {
   %78 = getelementptr inbounds %struct.BufferDesc, ptr %77, i32 0, i32 2
   %79 = load i32, ptr %6, align 4
   call void @pg_atomic_unlocked_write_u32(ptr noundef %78, i32 noundef %79)
-  %80 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 7), align 8
-  %81 = add i64 %80, 1
-  store i64 %81, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 7), align 8
-  %82 = getelementptr inbounds %struct.ErrorContextCallback, ptr %8, i32 0, i32 0
-  %83 = load ptr, ptr %82, align 8
-  store ptr %83, ptr @error_context_stack, align 8
-  br label %84
+  %80 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 7
+  %81 = load i64, ptr %80, align 8
+  %82 = add i64 %81, 1
+  %83 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 7
+  store i64 %82, ptr %83, align 8
+  %84 = getelementptr inbounds %struct.ErrorContextCallback, ptr %8, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8
+  store ptr %85, ptr @error_context_stack, align 8
+  br label %86
 
-84:                                               ; preds = %40, %34, %26
-  br label %85
+86:                                               ; preds = %40, %34, %26
+  br label %87
 
-85:                                               ; preds = %84
-  %86 = load i32, ptr %3, align 4
-  %87 = add i32 %86, 1
-  store i32 %87, ptr %3, align 4
+87:                                               ; preds = %86
+  %88 = load i32, ptr %3, align 4
+  %89 = add i32 %88, 1
+  store i32 %89, ptr %3, align 4
   br label %22, !llvm.loop !33
 
-88:                                               ; preds = %22
-  br label %133
+90:                                               ; preds = %22
+  br label %135
 
-89:                                               ; preds = %1
+91:                                               ; preds = %1
   store i32 0, ptr %3, align 4
-  br label %90
+  br label %92
 
-90:                                               ; preds = %130, %89
-  %91 = load i32, ptr %3, align 4
-  %92 = load i32, ptr @NBuffers, align 4
-  %93 = icmp slt i32 %91, %92
-  br i1 %93, label %94, label %133
+92:                                               ; preds = %132, %91
+  %93 = load i32, ptr %3, align 4
+  %94 = load i32, ptr @NBuffers, align 4
+  %95 = icmp slt i32 %93, %94
+  br i1 %95, label %96, label %135
 
-94:                                               ; preds = %90
-  %95 = load i32, ptr %3, align 4
-  %96 = call ptr @GetBufferDescriptor(i32 noundef %95)
-  store ptr %96, ptr %4, align 8
-  %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds %struct.BufferDesc, ptr %97, i32 0, i32 0
-  %99 = load ptr, ptr %2, align 8
-  %100 = getelementptr inbounds %struct.RelationData, ptr %99, i32 0, i32 0
-  %101 = call zeroext i1 @BufTagMatchesRelFileLocator(ptr noundef %98, ptr noundef %100)
-  br i1 %101, label %103, label %102
+96:                                               ; preds = %92
+  %97 = load i32, ptr %3, align 4
+  %98 = call ptr @GetBufferDescriptor(i32 noundef %97)
+  store ptr %98, ptr %4, align 8
+  %99 = load ptr, ptr %4, align 8
+  %100 = getelementptr inbounds %struct.BufferDesc, ptr %99, i32 0, i32 0
+  %101 = load ptr, ptr %2, align 8
+  %102 = getelementptr inbounds %struct.RelationData, ptr %101, i32 0, i32 0
+  %103 = call zeroext i1 @BufTagMatchesRelFileLocator(ptr noundef %100, ptr noundef %102)
+  br i1 %103, label %105, label %104
 
-102:                                              ; preds = %94
-  br label %130
+104:                                              ; preds = %96
+  br label %132
 
-103:                                              ; preds = %94
+105:                                              ; preds = %96
   call void @ReservePrivateRefCountEntry()
-  %104 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %104)
-  %105 = load ptr, ptr %4, align 8
-  %106 = call i32 @LockBufHdr(ptr noundef %105)
-  store i32 %106, ptr %11, align 4
+  %106 = load ptr, ptr @CurrentResourceOwner, align 8
+  call void @ResourceOwnerEnlarge(ptr noundef %106)
   %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.BufferDesc, ptr %107, i32 0, i32 0
-  %109 = load ptr, ptr %2, align 8
-  %110 = getelementptr inbounds %struct.RelationData, ptr %109, i32 0, i32 0
-  %111 = call zeroext i1 @BufTagMatchesRelFileLocator(ptr noundef %108, ptr noundef %110)
-  br i1 %111, label %112, label %126
+  %108 = call i32 @LockBufHdr(ptr noundef %107)
+  store i32 %108, ptr %11, align 4
+  %109 = load ptr, ptr %4, align 8
+  %110 = getelementptr inbounds %struct.BufferDesc, ptr %109, i32 0, i32 0
+  %111 = load ptr, ptr %2, align 8
+  %112 = getelementptr inbounds %struct.RelationData, ptr %111, i32 0, i32 0
+  %113 = call zeroext i1 @BufTagMatchesRelFileLocator(ptr noundef %110, ptr noundef %112)
+  br i1 %113, label %114, label %128
 
-112:                                              ; preds = %103
-  %113 = load i32, ptr %11, align 4
-  %114 = and i32 %113, 25165824
-  %115 = icmp eq i32 %114, 25165824
-  br i1 %115, label %116, label %126
+114:                                              ; preds = %105
+  %115 = load i32, ptr %11, align 4
+  %116 = and i32 %115, 25165824
+  %117 = icmp eq i32 %116, 25165824
+  br i1 %117, label %118, label %128
 
-116:                                              ; preds = %112
-  %117 = load ptr, ptr %4, align 8
-  call void @PinBuffer_Locked(ptr noundef %117)
-  %118 = load ptr, ptr %4, align 8
-  %119 = call ptr @BufferDescriptorGetContentLock(ptr noundef %118)
-  %120 = call zeroext i1 @LWLockAcquire(ptr noundef %119, i32 noundef 1)
-  %121 = load ptr, ptr %4, align 8
-  %122 = load ptr, ptr %5, align 8
-  call void @FlushBuffer(ptr noundef %121, ptr noundef %122, i32 noundef 0, i32 noundef 2)
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %4, align 8
+  call void @PinBuffer_Locked(ptr noundef %119)
+  %120 = load ptr, ptr %4, align 8
+  %121 = call ptr @BufferDescriptorGetContentLock(ptr noundef %120)
+  %122 = call zeroext i1 @LWLockAcquire(ptr noundef %121, i32 noundef 1)
   %123 = load ptr, ptr %4, align 8
-  %124 = call ptr @BufferDescriptorGetContentLock(ptr noundef %123)
-  call void @LWLockRelease(ptr noundef %124)
+  %124 = load ptr, ptr %5, align 8
+  call void @FlushBuffer(ptr noundef %123, ptr noundef %124, i32 noundef 0, i32 noundef 2)
   %125 = load ptr, ptr %4, align 8
-  call void @UnpinBuffer(ptr noundef %125)
-  br label %129
-
-126:                                              ; preds = %112, %103
+  %126 = call ptr @BufferDescriptorGetContentLock(ptr noundef %125)
+  call void @LWLockRelease(ptr noundef %126)
   %127 = load ptr, ptr %4, align 8
-  %128 = load i32, ptr %11, align 4
-  call void @UnlockBufHdr(ptr noundef %127, i32 noundef %128)
-  br label %129
+  call void @UnpinBuffer(ptr noundef %127)
+  br label %131
 
-129:                                              ; preds = %126, %116
-  br label %130
+128:                                              ; preds = %114, %105
+  %129 = load ptr, ptr %4, align 8
+  %130 = load i32, ptr %11, align 4
+  call void @UnlockBufHdr(ptr noundef %129, i32 noundef %130)
+  br label %131
 
-130:                                              ; preds = %129, %102
-  %131 = load i32, ptr %3, align 4
-  %132 = add i32 %131, 1
-  store i32 %132, ptr %3, align 4
-  br label %90, !llvm.loop !34
+131:                                              ; preds = %128, %118
+  br label %132
 
-133:                                              ; preds = %90, %88
+132:                                              ; preds = %131, %104
+  %133 = load i32, ptr %3, align 4
+  %134 = add i32 %133, 1
+  store i32 %134, ptr %3, align 4
+  br label %92, !llvm.loop !34
+
+135:                                              ; preds = %92, %90
   ret void
 }
 
@@ -5866,7 +5886,7 @@ define internal void @FlushBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %4
-  br label %98
+  br label %100
 
 22:                                               ; preds = %4
   %23 = getelementptr inbounds %struct.ErrorContextCallback, ptr %10, i32 0, i32 1
@@ -5968,23 +5988,25 @@ define internal void @FlushBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %89 = getelementptr inbounds %struct.instr_time, ptr %11, i32 0, i32 0
   %90 = load i64, ptr %89, align 8
   call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %88, i32 noundef 6, i64 %90, i32 noundef 1)
-  %91 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 3), align 8
-  %92 = add i64 %91, 1
-  store i64 %92, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 3), align 8
-  %93 = load ptr, ptr %5, align 8
-  call void @TerminateBufferIO(ptr noundef %93, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext true)
-  br label %94
+  %91 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 3
+  %92 = load i64, ptr %91, align 8
+  %93 = add i64 %92, 1
+  %94 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 3
+  store i64 %93, ptr %94, align 8
+  %95 = load ptr, ptr %5, align 8
+  call void @TerminateBufferIO(ptr noundef %95, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext true)
+  br label %96
 
-94:                                               ; preds = %61
-  br label %95
+96:                                               ; preds = %61
+  br label %97
 
-95:                                               ; preds = %94
-  %96 = getelementptr inbounds %struct.ErrorContextCallback, ptr %10, i32 0, i32 0
-  %97 = load ptr, ptr %96, align 8
-  store ptr %97, ptr @error_context_stack, align 8
-  br label %98
+97:                                               ; preds = %96
+  %98 = getelementptr inbounds %struct.ErrorContextCallback, ptr %10, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8
+  store ptr %99, ptr @error_context_stack, align 8
+  br label %100
 
-98:                                               ; preds = %95, %21
+100:                                              ; preds = %97, %21
   ret void
 }
 
@@ -6970,7 +6992,7 @@ define dso_local void @MarkBufferDirtyHint(i32 noundef %0, i1 noundef zeroext %1
 33:                                               ; preds = %30
   %34 = load i32, ptr %3, align 4
   call void @MarkLocalBufferDirty(i32 noundef %34)
-  br label %117
+  br label %119
 
 35:                                               ; preds = %30
   %36 = load i32, ptr %3, align 4
@@ -6982,7 +7004,7 @@ define dso_local void @MarkBufferDirtyHint(i32 noundef %0, i1 noundef zeroext %1
   %41 = call i32 @pg_atomic_read_u32(ptr noundef %40)
   %42 = and i32 %41, 276824064
   %43 = icmp ne i32 %42, 276824064
-  br i1 %43, label %44, label %117
+  br i1 %43, label %44, label %119
 
 44:                                               ; preds = %35
   store i64 0, ptr %7, align 8
@@ -7023,7 +7045,7 @@ define dso_local void @MarkBufferDirtyHint(i32 noundef %0, i1 noundef zeroext %1
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %57, %55
-  br label %117
+  br label %119
 
 67:                                               ; preds = %57
   %68 = load ptr, ptr @MyProc, align 8
@@ -7085,33 +7107,35 @@ define dso_local void @MarkBufferDirtyHint(i32 noundef %0, i1 noundef zeroext %1
 101:                                              ; preds = %96, %89
   %102 = load i8, ptr %8, align 1
   %103 = trunc i8 %102 to i1
-  br i1 %103, label %104, label %116
+  br i1 %103, label %104, label %118
 
 104:                                              ; preds = %101
   %105 = load i64, ptr @VacuumPageDirty, align 8
   %106 = add i64 %105, 1
   store i64 %106, ptr @VacuumPageDirty, align 8
-  %107 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 2), align 8
-  %108 = add i64 %107, 1
-  store i64 %108, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 2), align 8
-  %109 = load i8, ptr @VacuumCostActive, align 1
-  %110 = trunc i8 %109 to i1
-  br i1 %110, label %111, label %115
+  %107 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 2
+  %108 = load i64, ptr %107, align 8
+  %109 = add i64 %108, 1
+  %110 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 2
+  store i64 %109, ptr %110, align 8
+  %111 = load i8, ptr @VacuumCostActive, align 1
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %113, label %117
 
-111:                                              ; preds = %104
-  %112 = load i32, ptr @VacuumCostPageDirty, align 4
-  %113 = load i32, ptr @VacuumCostBalance, align 4
-  %114 = add i32 %113, %112
-  store i32 %114, ptr @VacuumCostBalance, align 4
-  br label %115
-
-115:                                              ; preds = %111, %104
-  br label %116
-
-116:                                              ; preds = %115, %101
+113:                                              ; preds = %104
+  %114 = load i32, ptr @VacuumCostPageDirty, align 4
+  %115 = load i32, ptr @VacuumCostBalance, align 4
+  %116 = add i32 %115, %114
+  store i32 %116, ptr @VacuumCostBalance, align 4
   br label %117
 
-117:                                              ; preds = %116, %66, %35, %33
+117:                                              ; preds = %113, %104
+  br label %118
+
+118:                                              ; preds = %117, %101
+  br label %119
+
+119:                                              ; preds = %118, %66, %35, %33
   ret void
 }
 
@@ -9691,7 +9715,7 @@ define internal i32 @ExtendBufferedRelShared(ptr noundef byval(%struct.BufferMan
   store i32 %188, ptr %189, align 4
   %190 = load i32, ptr %17, align 4
   store i32 %190, ptr %9, align 4
-  br label %453
+  br label %455
 
 191:                                              ; preds = %177
   br label %192
@@ -10085,19 +10109,21 @@ define internal i32 @ExtendBufferedRelShared(ptr noundef byval(%struct.BufferMan
 445:                                              ; preds = %399
   %446 = load i32, ptr %13, align 4
   %447 = zext i32 %446 to i64
-  %448 = load i64, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 3), align 8
-  %449 = add i64 %448, %447
-  store i64 %449, ptr getelementptr inbounds (%struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 3), align 8
-  %450 = load i32, ptr %13, align 4
-  %451 = load ptr, ptr %16, align 8
-  store i32 %450, ptr %451, align 4
-  %452 = load i32, ptr %17, align 4
-  store i32 %452, ptr %9, align 4
-  br label %453
+  %448 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 3
+  %449 = load i64, ptr %448, align 8
+  %450 = add i64 %449, %447
+  %451 = getelementptr inbounds %struct.BufferUsage, ptr @pgBufferUsage, i32 0, i32 3
+  store i64 %450, ptr %451, align 8
+  %452 = load i32, ptr %13, align 4
+  %453 = load ptr, ptr %16, align 8
+  store i32 %452, ptr %453, align 4
+  %454 = load i32, ptr %17, align 4
+  store i32 %454, ptr %9, align 4
+  br label %455
 
-453:                                              ; preds = %445, %187
-  %454 = load i32, ptr %9, align 4
-  ret i32 %454
+455:                                              ; preds = %445, %187
+  %456 = load i32, ptr %9, align 4
+  ret i32 %456
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10370,34 +10396,35 @@ define internal void @ForgetPrivateRefCountEntry(ptr noundef %0) #0 {
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp uge ptr %5, @PrivateRefCountArray
-  br i1 %6, label %7, label %14
+  br i1 %6, label %7, label %15
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %9 = icmp ult ptr %8, getelementptr inbounds ([8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 1, i64 0)
-  br i1 %9, label %10, label %14
+  %9 = getelementptr inbounds [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 1, i64 0
+  %10 = icmp ult ptr %8, %9
+  br i1 %10, label %11, label %15
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.PrivateRefCountEntry, ptr %11, i32 0, i32 0
-  store i32 0, ptr %12, align 4
-  %13 = load ptr, ptr %2, align 8
-  store ptr %13, ptr @ReservedRefCountEntry, align 8
-  br label %22
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds %struct.PrivateRefCountEntry, ptr %12, i32 0, i32 0
+  store i32 0, ptr %13, align 4
+  %14 = load ptr, ptr %2, align 8
+  store ptr %14, ptr @ReservedRefCountEntry, align 8
+  br label %23
 
-14:                                               ; preds = %7, %1
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.PrivateRefCountEntry, ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr %4, align 4
-  %18 = load ptr, ptr @PrivateRefCountHash, align 8
-  %19 = call ptr @hash_search(ptr noundef %18, ptr noundef %4, i32 noundef 2, ptr noundef %3)
-  %20 = load i32, ptr @PrivateRefCountOverflowed, align 4
-  %21 = add i32 %20, -1
-  store i32 %21, ptr @PrivateRefCountOverflowed, align 4
-  br label %22
+15:                                               ; preds = %7, %1
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds %struct.PrivateRefCountEntry, ptr %16, i32 0, i32 0
+  %18 = load i32, ptr %17, align 4
+  store i32 %18, ptr %4, align 4
+  %19 = load ptr, ptr @PrivateRefCountHash, align 8
+  %20 = call ptr @hash_search(ptr noundef %19, ptr noundef %4, i32 noundef 2, ptr noundef %3)
+  %21 = load i32, ptr @PrivateRefCountOverflowed, align 4
+  %22 = add i32 %21, -1
+  store i32 %22, ptr @PrivateRefCountOverflowed, align 4
+  br label %23
 
-22:                                               ; preds = %14, %10
+23:                                               ; preds = %15, %11
   ret void
 }
 

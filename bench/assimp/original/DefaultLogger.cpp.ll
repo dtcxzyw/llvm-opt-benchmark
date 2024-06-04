@@ -537,17 +537,18 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pStream = getelementptr inbounds %"class.Assimp::FileLogStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_pStream, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %m_pStream, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
+  %2 = load ptr, ptr %vfn, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #5
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -619,7 +620,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp6LoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp10NullLoggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6Assimp10NullLoggerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -777,10 +779,11 @@ entry:
   store ptr %_ostream, ptr %_ostream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp9LogStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mOstream = getelementptr inbounds %"class.Assimp::StdOStreamLogStream", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %_ostream.addr, align 8
-  store ptr %0, ptr %mOstream, align 8
+  %1 = load ptr, ptr %_ostream.addr, align 8
+  store ptr %1, ptr %mOstream, align 8
   ret void
 }
 
@@ -800,17 +803,18 @@ entry:
   store ptr %io, ptr %io.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp9LogStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pStream = getelementptr inbounds %"class.Assimp::FileLogStream", ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_pStream, align 8
-  %0 = load ptr, ptr %file.addr, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %file.addr, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %file.addr, align 8
-  %2 = load i8, ptr %1, align 1
-  %conv = sext i8 %2 to i32
+  %2 = load ptr, ptr %file.addr, align 8
+  %3 = load i8, ptr %2, align 1
+  %conv = sext i8 %3 to i32
   %cmp = icmp eq i32 0, %conv
   br i1 %cmp, label %if.then, label %if.end
 
@@ -818,14 +822,14 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end9
 
 if.end:                                           ; preds = %lor.lhs.false
-  %3 = load ptr, ptr %io.addr, align 8
-  %tobool2 = icmp ne ptr %3, null
+  %4 = load ptr, ptr %io.addr, align 8
+  %tobool2 = icmp ne ptr %4, null
   br i1 %tobool2, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   call void @_ZN6Assimp15DefaultIOSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %FileSystem) #5
-  %4 = load ptr, ptr %file.addr, align 8
-  %call = invoke noundef ptr @_ZN6Assimp15DefaultIOSystem4OpenEPKcS2_(ptr noundef nonnull align 8 dereferenceable(32) %FileSystem, ptr noundef %4, ptr noundef @.str.9)
+  %5 = load ptr, ptr %file.addr, align 8
+  %call = invoke noundef ptr @_ZN6Assimp15DefaultIOSystem4OpenEPKcS2_(ptr noundef nonnull align 8 dereferenceable(32) %FileSystem, ptr noundef %5, ptr noundef @.str.9)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then3
@@ -835,22 +839,22 @@ invoke.cont:                                      ; preds = %if.then3
   br label %if.end9
 
 lpad:                                             ; preds = %if.then3
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN6Assimp15DefaultIOSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %FileSystem) #5
   br label %ehcleanup
 
 if.else:                                          ; preds = %if.end
-  %8 = load ptr, ptr %io.addr, align 8
-  %9 = load ptr, ptr %file.addr, align 8
-  %vtable = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %io.addr, align 8
+  %10 = load ptr, ptr %file.addr, align 8
+  %vtable = load ptr, ptr %9, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %10 = load ptr, ptr %vfn, align 8
-  %call7 = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %9, ptr noundef @.str.9)
+  %11 = load ptr, ptr %vfn, align 8
+  %call7 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef @.str.9)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.else
@@ -859,12 +863,12 @@ invoke.cont6:                                     ; preds = %if.else
   br label %if.end9
 
 lpad5:                                            ; preds = %if.else
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %exn.slot, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 if.end9:                                          ; preds = %invoke.cont6, %invoke.cont, %if.then
@@ -1979,7 +1983,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %severity.addr, align 4
   call void @_ZN6Assimp6LoggerC2ENS0_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp13DefaultLoggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6Assimp13DefaultLoggerE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_StreamArray = getelementptr inbounds %"class.Assimp::DefaultLogger", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_StreamArray) #5
   %noRepeatMsg = getelementptr inbounds %"class.Assimp::DefaultLogger", ptr %this1, i32 0, i32 2
@@ -2000,10 +2005,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %severity, ptr %severity.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp6LoggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6Assimp6LoggerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_Severity = getelementptr inbounds %"class.Assimp::Logger", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %severity.addr, align 4
-  store i32 %0, ptr %m_Severity, align 8
+  %1 = load i32, ptr %severity.addr, align 4
+  store i32 %1, ptr %m_Severity, align 8
   ret void
 }
 
@@ -2025,7 +2031,8 @@ entry:
   %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp13DefaultLoggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6Assimp13DefaultLoggerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_StreamArray = getelementptr inbounds %"class.Assimp::DefaultLogger", ptr %this1, i32 0, i32 1
   %call = call ptr @_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %m_StreamArray) #5
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %it, i32 0, i32 0
@@ -2042,13 +2049,13 @@ for.cond:                                         ; preds = %for.inc, %entry
 
 for.body:                                         ; preds = %for.cond
   %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN6Assimp13LogStreamInfoESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %it) #5
-  %0 = load ptr, ptr %call6, align 8
-  %isnull = icmp eq ptr %0, null
+  %1 = load ptr, ptr %call6, align 8
+  %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  call void @_ZN6Assimp13LogStreamInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
-  call void @_ZdlPv(ptr noundef %0) #16
+  call void @_ZN6Assimp13LogStreamInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #5
+  call void @_ZdlPv(ptr noundef %1) #16
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
@@ -2160,7 +2167,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #5
   ret void
@@ -2411,7 +2419,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp6LoggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN6Assimp6LoggerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_Severity = getelementptr inbounds %"class.Assimp::Logger", ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_Severity, align 8
   ret void
@@ -2508,7 +2517,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp9LogStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6Assimp9LogStreamE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2519,7 +2529,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp8IOSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #5
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp15DefaultIOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp15DefaultIOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -2541,7 +2552,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #5
   ret void

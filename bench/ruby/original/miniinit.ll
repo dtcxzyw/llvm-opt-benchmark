@@ -163,670 +163,655 @@ define hidden ptr @rb_builtin_ast(ptr noundef %0, ptr noundef %1) #0 {
   store ptr null, ptr %8, align 8
   %11 = load i64, ptr %7, align 8
   %12 = icmp eq i64 3, %11
-  br i1 %12, label %13, label %23
+  br i1 %12, label %13, label %24
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %4, align 8
   %15 = load i64, ptr %7, align 8
-  %16 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name0, i64 10), ptr noundef %14, i64 noundef %15) #4
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %23
+  %16 = getelementptr i8, ptr @prelude_name0, i64 10
+  %17 = call i32 @strncmp(ptr noundef %16, ptr noundef %14, i64 noundef %15) #4
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %24
 
-18:                                               ; preds = %13
-  %19 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name0, i64 noundef 14)
-  %20 = load ptr, ptr %5, align 8
-  store i64 %19, ptr %20, align 8
-  %21 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code0, i64 noundef 2204)
-  %22 = call ptr @prelude_ast(i64 noundef %19, i64 noundef %21, i32 noundef 20)
-  br label %24
+19:                                               ; preds = %13
+  %20 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name0, i64 noundef 14)
+  %21 = load ptr, ptr %5, align 8
+  store i64 %20, ptr %21, align 8
+  %22 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code0, i64 noundef 2204)
+  %23 = call ptr @prelude_ast(i64 noundef %20, i64 noundef %22, i32 noundef 20)
+  br label %25
 
-23:                                               ; preds = %13, %2
-  br label %24
+24:                                               ; preds = %13, %2
+  br label %25
 
-24:                                               ; preds = %23, %18
-  %25 = phi ptr [ %22, %18 ], [ null, %23 ]
-  store ptr %25, ptr %8, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %27, label %29
+25:                                               ; preds = %24, %19
+  %26 = phi ptr [ %23, %19 ], [ null, %24 ]
+  store ptr %26, ptr %8, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %8, align 8
-  store ptr %28, ptr %3, align 8
-  br label %411
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %8, align 8
+  store ptr %29, ptr %3, align 8
+  br label %432
 
-29:                                               ; preds = %24
-  %30 = load i64, ptr %7, align 8
-  %31 = icmp eq i64 3, %30
-  br i1 %31, label %32, label %42
+30:                                               ; preds = %25
+  %31 = load i64, ptr %7, align 8
+  %32 = icmp eq i64 3, %31
+  br i1 %32, label %33, label %44
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %4, align 8
-  %34 = load i64, ptr %7, align 8
-  %35 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name1, i64 10), ptr noundef %33, i64 noundef %34) #4
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %42
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %4, align 8
+  %35 = load i64, ptr %7, align 8
+  %36 = getelementptr i8, ptr @prelude_name1, i64 10
+  %37 = call i32 @strncmp(ptr noundef %36, ptr noundef %34, i64 noundef %35) #4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %44
 
-37:                                               ; preds = %32
-  %38 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name1, i64 noundef 14)
-  %39 = load ptr, ptr %5, align 8
-  store i64 %38, ptr %39, align 8
-  %40 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code1, i64 noundef 974)
-  %41 = call ptr @prelude_ast(i64 noundef %38, i64 noundef %40, i32 noundef 158)
-  br label %43
+39:                                               ; preds = %33
+  %40 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name1, i64 noundef 14)
+  %41 = load ptr, ptr %5, align 8
+  store i64 %40, ptr %41, align 8
+  %42 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code1, i64 noundef 974)
+  %43 = call ptr @prelude_ast(i64 noundef %40, i64 noundef %42, i32 noundef 158)
+  br label %45
 
-42:                                               ; preds = %32, %29
-  br label %43
+44:                                               ; preds = %33, %30
+  br label %45
 
-43:                                               ; preds = %42, %37
-  %44 = phi ptr [ %41, %37 ], [ null, %42 ]
-  store ptr %44, ptr %8, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %48
+45:                                               ; preds = %44, %39
+  %46 = phi ptr [ %43, %39 ], [ null, %44 ]
+  store ptr %46, ptr %8, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %50
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %8, align 8
-  store ptr %47, ptr %3, align 8
-  br label %411
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %8, align 8
+  store ptr %49, ptr %3, align 8
+  br label %432
 
-48:                                               ; preds = %43
-  %49 = load i64, ptr %7, align 8
-  %50 = icmp eq i64 2, %49
-  br i1 %50, label %51, label %61
+50:                                               ; preds = %45
+  %51 = load i64, ptr %7, align 8
+  %52 = icmp eq i64 2, %51
+  br i1 %52, label %53, label %64
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %4, align 8
-  %53 = load i64, ptr %7, align 8
-  %54 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name2, i64 10), ptr noundef %52, i64 noundef %53) #4
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %61
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %4, align 8
+  %55 = load i64, ptr %7, align 8
+  %56 = getelementptr i8, ptr @prelude_name2, i64 10
+  %57 = call i32 @strncmp(ptr noundef %56, ptr noundef %54, i64 noundef %55) #4
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %64
 
-56:                                               ; preds = %51
-  %57 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name2, i64 noundef 13)
-  %58 = load ptr, ptr %5, align 8
-  store i64 %57, ptr %58, align 8
-  %59 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code2, i64 noundef 2026)
-  %60 = call ptr @prelude_ast(i64 noundef %57, i64 noundef %59, i32 noundef 11)
-  br label %62
+59:                                               ; preds = %53
+  %60 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name2, i64 noundef 13)
+  %61 = load ptr, ptr %5, align 8
+  store i64 %60, ptr %61, align 8
+  %62 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code2, i64 noundef 2026)
+  %63 = call ptr @prelude_ast(i64 noundef %60, i64 noundef %62, i32 noundef 11)
+  br label %65
 
-61:                                               ; preds = %51, %48
-  br label %62
+64:                                               ; preds = %53, %50
+  br label %65
 
-62:                                               ; preds = %61, %56
-  %63 = phi ptr [ %60, %56 ], [ null, %61 ]
-  store ptr %63, ptr %8, align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %65, label %67
+65:                                               ; preds = %64, %59
+  %66 = phi ptr [ %63, %59 ], [ null, %64 ]
+  store ptr %66, ptr %8, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %70
 
-65:                                               ; preds = %62
-  %66 = load ptr, ptr %8, align 8
-  store ptr %66, ptr %3, align 8
-  br label %411
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %8, align 8
+  store ptr %69, ptr %3, align 8
+  br label %432
 
-67:                                               ; preds = %62
-  %68 = load i64, ptr %7, align 8
-  %69 = icmp eq i64 7, %68
-  br i1 %69, label %70, label %80
+70:                                               ; preds = %65
+  %71 = load i64, ptr %7, align 8
+  %72 = icmp eq i64 7, %71
+  br i1 %72, label %73, label %84
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %4, align 8
-  %72 = load i64, ptr %7, align 8
-  %73 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name3, i64 10), ptr noundef %71, i64 noundef %72) #4
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %80
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %4, align 8
+  %75 = load i64, ptr %7, align 8
+  %76 = getelementptr i8, ptr @prelude_name3, i64 10
+  %77 = call i32 @strncmp(ptr noundef %76, ptr noundef %74, i64 noundef %75) #4
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %84
 
-75:                                               ; preds = %70
-  %76 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name3, i64 noundef 18)
-  %77 = load ptr, ptr %5, align 8
-  store i64 %76, ptr %77, align 8
-  %78 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code3, i64 noundef 2304)
-  %79 = call ptr @prelude_ast(i64 noundef %76, i64 noundef %78, i32 noundef 1)
-  br label %81
+79:                                               ; preds = %73
+  %80 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name3, i64 noundef 18)
+  %81 = load ptr, ptr %5, align 8
+  store i64 %80, ptr %81, align 8
+  %82 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code3, i64 noundef 2304)
+  %83 = call ptr @prelude_ast(i64 noundef %80, i64 noundef %82, i32 noundef 1)
+  br label %85
 
-80:                                               ; preds = %70, %67
-  br label %81
+84:                                               ; preds = %73, %70
+  br label %85
 
-81:                                               ; preds = %80, %75
-  %82 = phi ptr [ %79, %75 ], [ null, %80 ]
-  store ptr %82, ptr %8, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %86
+85:                                               ; preds = %84, %79
+  %86 = phi ptr [ %83, %79 ], [ null, %84 ]
+  store ptr %86, ptr %8, align 8
+  %87 = icmp ne ptr %86, null
+  br i1 %87, label %88, label %90
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %8, align 8
-  store ptr %85, ptr %3, align 8
-  br label %411
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %8, align 8
+  store ptr %89, ptr %3, align 8
+  br label %432
 
-86:                                               ; preds = %81
-  %87 = load i64, ptr %7, align 8
-  %88 = icmp eq i64 2, %87
-  br i1 %88, label %89, label %99
-
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %4, align 8
+90:                                               ; preds = %85
   %91 = load i64, ptr %7, align 8
-  %92 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name4, i64 10), ptr noundef %90, i64 noundef %91) #4
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %99
+  %92 = icmp eq i64 2, %91
+  br i1 %92, label %93, label %104
 
-94:                                               ; preds = %89
-  %95 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name4, i64 noundef 13)
-  %96 = load ptr, ptr %5, align 8
-  store i64 %95, ptr %96, align 8
-  %97 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code4, i64 noundef 449)
-  %98 = call ptr @prelude_ast(i64 noundef %95, i64 noundef %97, i32 noundef 1)
-  br label %100
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %4, align 8
+  %95 = load i64, ptr %7, align 8
+  %96 = getelementptr i8, ptr @prelude_name4, i64 10
+  %97 = call i32 @strncmp(ptr noundef %96, ptr noundef %94, i64 noundef %95) #4
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %104
 
-99:                                               ; preds = %89, %86
-  br label %100
+99:                                               ; preds = %93
+  %100 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name4, i64 noundef 13)
+  %101 = load ptr, ptr %5, align 8
+  store i64 %100, ptr %101, align 8
+  %102 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code4, i64 noundef 449)
+  %103 = call ptr @prelude_ast(i64 noundef %100, i64 noundef %102, i32 noundef 1)
+  br label %105
 
-100:                                              ; preds = %99, %94
-  %101 = phi ptr [ %98, %94 ], [ null, %99 ]
-  store ptr %101, ptr %8, align 8
-  %102 = icmp ne ptr %101, null
-  br i1 %102, label %103, label %105
+104:                                              ; preds = %93, %90
+  br label %105
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr %8, align 8
-  store ptr %104, ptr %3, align 8
-  br label %411
-
-105:                                              ; preds = %100
-  %106 = load i64, ptr %7, align 8
-  %107 = icmp eq i64 7, %106
-  br i1 %107, label %108, label %118
+105:                                              ; preds = %104, %99
+  %106 = phi ptr [ %103, %99 ], [ null, %104 ]
+  store ptr %106, ptr %8, align 8
+  %107 = icmp ne ptr %106, null
+  br i1 %107, label %108, label %110
 
 108:                                              ; preds = %105
-  %109 = load ptr, ptr %4, align 8
-  %110 = load i64, ptr %7, align 8
-  %111 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name5, i64 10), ptr noundef %109, i64 noundef %110) #4
-  %112 = icmp eq i32 %111, 0
-  br i1 %112, label %113, label %118
+  %109 = load ptr, ptr %8, align 8
+  store ptr %109, ptr %3, align 8
+  br label %432
 
-113:                                              ; preds = %108
-  %114 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name5, i64 noundef 18)
-  %115 = load ptr, ptr %5, align 8
-  store i64 %114, ptr %115, align 8
-  %116 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code5, i64 noundef 202)
-  %117 = call ptr @prelude_ast(i64 noundef %114, i64 noundef %116, i32 noundef 1)
-  br label %119
+110:                                              ; preds = %105
+  %111 = load i64, ptr %7, align 8
+  %112 = icmp eq i64 7, %111
+  br i1 %112, label %113, label %124
 
-118:                                              ; preds = %108, %105
-  br label %119
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %4, align 8
+  %115 = load i64, ptr %7, align 8
+  %116 = getelementptr i8, ptr @prelude_name5, i64 10
+  %117 = call i32 @strncmp(ptr noundef %116, ptr noundef %114, i64 noundef %115) #4
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %119, label %124
 
-119:                                              ; preds = %118, %113
-  %120 = phi ptr [ %117, %113 ], [ null, %118 ]
-  store ptr %120, ptr %8, align 8
-  %121 = icmp ne ptr %120, null
-  br i1 %121, label %122, label %124
+119:                                              ; preds = %113
+  %120 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name5, i64 noundef 18)
+  %121 = load ptr, ptr %5, align 8
+  store i64 %120, ptr %121, align 8
+  %122 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code5, i64 noundef 202)
+  %123 = call ptr @prelude_ast(i64 noundef %120, i64 noundef %122, i32 noundef 1)
+  br label %125
 
-122:                                              ; preds = %119
-  %123 = load ptr, ptr %8, align 8
-  store ptr %123, ptr %3, align 8
-  br label %411
+124:                                              ; preds = %113, %110
+  br label %125
 
-124:                                              ; preds = %119
-  %125 = load i64, ptr %7, align 8
-  %126 = icmp eq i64 4, %125
-  br i1 %126, label %127, label %137
+125:                                              ; preds = %124, %119
+  %126 = phi ptr [ %123, %119 ], [ null, %124 ]
+  store ptr %126, ptr %8, align 8
+  %127 = icmp ne ptr %126, null
+  br i1 %127, label %128, label %130
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %4, align 8
-  %129 = load i64, ptr %7, align 8
-  %130 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name6, i64 10), ptr noundef %128, i64 noundef %129) #4
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %137
+128:                                              ; preds = %125
+  %129 = load ptr, ptr %8, align 8
+  store ptr %129, ptr %3, align 8
+  br label %432
 
-132:                                              ; preds = %127
-  %133 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name6, i64 noundef 15)
-  %134 = load ptr, ptr %5, align 8
-  store i64 %133, ptr %134, align 8
-  %135 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code6, i64 noundef 695)
-  %136 = call ptr @prelude_ast(i64 noundef %133, i64 noundef %135, i32 noundef 1)
-  br label %138
+130:                                              ; preds = %125
+  %131 = load i64, ptr %7, align 8
+  %132 = icmp eq i64 4, %131
+  br i1 %132, label %133, label %144
 
-137:                                              ; preds = %127, %124
-  br label %138
+133:                                              ; preds = %130
+  %134 = load ptr, ptr %4, align 8
+  %135 = load i64, ptr %7, align 8
+  %136 = getelementptr i8, ptr @prelude_name6, i64 10
+  %137 = call i32 @strncmp(ptr noundef %136, ptr noundef %134, i64 noundef %135) #4
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %139, label %144
 
-138:                                              ; preds = %137, %132
-  %139 = phi ptr [ %136, %132 ], [ null, %137 ]
-  store ptr %139, ptr %8, align 8
-  %140 = icmp ne ptr %139, null
-  br i1 %140, label %141, label %143
+139:                                              ; preds = %133
+  %140 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name6, i64 noundef 15)
+  %141 = load ptr, ptr %5, align 8
+  store i64 %140, ptr %141, align 8
+  %142 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code6, i64 noundef 695)
+  %143 = call ptr @prelude_ast(i64 noundef %140, i64 noundef %142, i32 noundef 1)
+  br label %145
 
-141:                                              ; preds = %138
-  %142 = load ptr, ptr %8, align 8
-  store ptr %142, ptr %3, align 8
-  br label %411
+144:                                              ; preds = %133, %130
+  br label %145
 
-143:                                              ; preds = %138
-  %144 = load i64, ptr %7, align 8
-  %145 = icmp eq i64 6, %144
-  br i1 %145, label %146, label %156
+145:                                              ; preds = %144, %139
+  %146 = phi ptr [ %143, %139 ], [ null, %144 ]
+  store ptr %146, ptr %8, align 8
+  %147 = icmp ne ptr %146, null
+  br i1 %147, label %148, label %150
 
-146:                                              ; preds = %143
-  %147 = load ptr, ptr %4, align 8
-  %148 = load i64, ptr %7, align 8
-  %149 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name7, i64 10), ptr noundef %147, i64 noundef %148) #4
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %151, label %156
+148:                                              ; preds = %145
+  %149 = load ptr, ptr %8, align 8
+  store ptr %149, ptr %3, align 8
+  br label %432
 
-151:                                              ; preds = %146
-  %152 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name7, i64 noundef 17)
-  %153 = load ptr, ptr %5, align 8
-  store i64 %152, ptr %153, align 8
-  %154 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code7, i64 noundef 92210)
-  %155 = call ptr @prelude_ast(i64 noundef %152, i64 noundef %154, i32 noundef 4)
-  br label %157
+150:                                              ; preds = %145
+  %151 = load i64, ptr %7, align 8
+  %152 = icmp eq i64 6, %151
+  br i1 %152, label %153, label %164
 
-156:                                              ; preds = %146, %143
-  br label %157
+153:                                              ; preds = %150
+  %154 = load ptr, ptr %4, align 8
+  %155 = load i64, ptr %7, align 8
+  %156 = getelementptr i8, ptr @prelude_name7, i64 10
+  %157 = call i32 @strncmp(ptr noundef %156, ptr noundef %154, i64 noundef %155) #4
+  %158 = icmp eq i32 %157, 0
+  br i1 %158, label %159, label %164
 
-157:                                              ; preds = %156, %151
-  %158 = phi ptr [ %155, %151 ], [ null, %156 ]
-  store ptr %158, ptr %8, align 8
-  %159 = icmp ne ptr %158, null
-  br i1 %159, label %160, label %162
+159:                                              ; preds = %153
+  %160 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name7, i64 noundef 17)
+  %161 = load ptr, ptr %5, align 8
+  store i64 %160, ptr %161, align 8
+  %162 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code7, i64 noundef 92210)
+  %163 = call ptr @prelude_ast(i64 noundef %160, i64 noundef %162, i32 noundef 4)
+  br label %165
 
-160:                                              ; preds = %157
-  %161 = load ptr, ptr %8, align 8
-  store ptr %161, ptr %3, align 8
-  br label %411
+164:                                              ; preds = %153, %150
+  br label %165
 
-162:                                              ; preds = %157
-  %163 = load i64, ptr %7, align 8
-  %164 = icmp eq i64 4, %163
-  br i1 %164, label %165, label %175
+165:                                              ; preds = %164, %159
+  %166 = phi ptr [ %163, %159 ], [ null, %164 ]
+  store ptr %166, ptr %8, align 8
+  %167 = icmp ne ptr %166, null
+  br i1 %167, label %168, label %170
 
-165:                                              ; preds = %162
-  %166 = load ptr, ptr %4, align 8
-  %167 = load i64, ptr %7, align 8
-  %168 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name8, i64 10), ptr noundef %166, i64 noundef %167) #4
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %170, label %175
+168:                                              ; preds = %165
+  %169 = load ptr, ptr %8, align 8
+  store ptr %169, ptr %3, align 8
+  br label %432
 
 170:                                              ; preds = %165
-  %171 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name8, i64 noundef 15)
-  %172 = load ptr, ptr %5, align 8
-  store i64 %171, ptr %172, align 8
-  %173 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code8, i64 noundef 273)
-  %174 = call ptr @prelude_ast(i64 noundef %171, i64 noundef %173, i32 noundef 1)
-  br label %176
+  %171 = load i64, ptr %7, align 8
+  %172 = icmp eq i64 4, %171
+  br i1 %172, label %173, label %184
 
-175:                                              ; preds = %165, %162
-  br label %176
+173:                                              ; preds = %170
+  %174 = load ptr, ptr %4, align 8
+  %175 = load i64, ptr %7, align 8
+  %176 = getelementptr i8, ptr @prelude_name8, i64 10
+  %177 = call i32 @strncmp(ptr noundef %176, ptr noundef %174, i64 noundef %175) #4
+  %178 = icmp eq i32 %177, 0
+  br i1 %178, label %179, label %184
 
-176:                                              ; preds = %175, %170
-  %177 = phi ptr [ %174, %170 ], [ null, %175 ]
-  store ptr %177, ptr %8, align 8
-  %178 = icmp ne ptr %177, null
-  br i1 %178, label %179, label %181
+179:                                              ; preds = %173
+  %180 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name8, i64 noundef 15)
+  %181 = load ptr, ptr %5, align 8
+  store i64 %180, ptr %181, align 8
+  %182 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code8, i64 noundef 273)
+  %183 = call ptr @prelude_ast(i64 noundef %180, i64 noundef %182, i32 noundef 1)
+  br label %185
 
-179:                                              ; preds = %176
-  %180 = load ptr, ptr %8, align 8
-  store ptr %180, ptr %3, align 8
-  br label %411
+184:                                              ; preds = %173, %170
+  br label %185
 
-181:                                              ; preds = %176
-  %182 = load i64, ptr %7, align 8
-  %183 = icmp eq i64 11, %182
-  br i1 %183, label %184, label %194
+185:                                              ; preds = %184, %179
+  %186 = phi ptr [ %183, %179 ], [ null, %184 ]
+  store ptr %186, ptr %8, align 8
+  %187 = icmp ne ptr %186, null
+  br i1 %187, label %188, label %190
 
-184:                                              ; preds = %181
-  %185 = load ptr, ptr %4, align 8
-  %186 = load i64, ptr %7, align 8
-  %187 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name9, i64 10), ptr noundef %185, i64 noundef %186) #4
-  %188 = icmp eq i32 %187, 0
-  br i1 %188, label %189, label %194
+188:                                              ; preds = %185
+  %189 = load ptr, ptr %8, align 8
+  store ptr %189, ptr %3, align 8
+  br label %432
 
-189:                                              ; preds = %184
-  %190 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name9, i64 noundef 22)
-  %191 = load ptr, ptr %5, align 8
-  store i64 %190, ptr %191, align 8
-  %192 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code9, i64 noundef 1724)
-  %193 = call ptr @prelude_ast(i64 noundef %190, i64 noundef %192, i32 noundef 50)
-  br label %195
+190:                                              ; preds = %185
+  %191 = load i64, ptr %7, align 8
+  %192 = icmp eq i64 11, %191
+  br i1 %192, label %193, label %204
 
-194:                                              ; preds = %184, %181
-  br label %195
+193:                                              ; preds = %190
+  %194 = load ptr, ptr %4, align 8
+  %195 = load i64, ptr %7, align 8
+  %196 = getelementptr i8, ptr @prelude_name9, i64 10
+  %197 = call i32 @strncmp(ptr noundef %196, ptr noundef %194, i64 noundef %195) #4
+  %198 = icmp eq i32 %197, 0
+  br i1 %198, label %199, label %204
 
-195:                                              ; preds = %194, %189
-  %196 = phi ptr [ %193, %189 ], [ null, %194 ]
-  store ptr %196, ptr %8, align 8
-  %197 = icmp ne ptr %196, null
-  br i1 %197, label %198, label %200
+199:                                              ; preds = %193
+  %200 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name9, i64 noundef 22)
+  %201 = load ptr, ptr %5, align 8
+  store i64 %200, ptr %201, align 8
+  %202 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code9, i64 noundef 1724)
+  %203 = call ptr @prelude_ast(i64 noundef %200, i64 noundef %202, i32 noundef 50)
+  br label %205
 
-198:                                              ; preds = %195
-  %199 = load ptr, ptr %8, align 8
-  store ptr %199, ptr %3, align 8
-  br label %411
+204:                                              ; preds = %193, %190
+  br label %205
 
-200:                                              ; preds = %195
-  %201 = load i64, ptr %7, align 8
-  %202 = icmp eq i64 7, %201
-  br i1 %202, label %203, label %213
+205:                                              ; preds = %204, %199
+  %206 = phi ptr [ %203, %199 ], [ null, %204 ]
+  store ptr %206, ptr %8, align 8
+  %207 = icmp ne ptr %206, null
+  br i1 %207, label %208, label %210
 
-203:                                              ; preds = %200
-  %204 = load ptr, ptr %4, align 8
-  %205 = load i64, ptr %7, align 8
-  %206 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name10, i64 10), ptr noundef %204, i64 noundef %205) #4
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %208, label %213
+208:                                              ; preds = %205
+  %209 = load ptr, ptr %8, align 8
+  store ptr %209, ptr %3, align 8
+  br label %432
 
-208:                                              ; preds = %203
-  %209 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name10, i64 noundef 18)
-  %210 = load ptr, ptr %5, align 8
-  store i64 %209, ptr %210, align 8
-  %211 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code10, i64 noundef 182)
-  %212 = call ptr @prelude_ast(i64 noundef %209, i64 noundef %211, i32 noundef 4)
-  br label %214
+210:                                              ; preds = %205
+  %211 = load i64, ptr %7, align 8
+  %212 = icmp eq i64 7, %211
+  br i1 %212, label %213, label %224
 
-213:                                              ; preds = %203, %200
-  br label %214
+213:                                              ; preds = %210
+  %214 = load ptr, ptr %4, align 8
+  %215 = load i64, ptr %7, align 8
+  %216 = getelementptr i8, ptr @prelude_name10, i64 10
+  %217 = call i32 @strncmp(ptr noundef %216, ptr noundef %214, i64 noundef %215) #4
+  %218 = icmp eq i32 %217, 0
+  br i1 %218, label %219, label %224
 
-214:                                              ; preds = %213, %208
-  %215 = phi ptr [ %212, %208 ], [ null, %213 ]
-  store ptr %215, ptr %8, align 8
-  %216 = icmp ne ptr %215, null
-  br i1 %216, label %217, label %219
+219:                                              ; preds = %213
+  %220 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name10, i64 noundef 18)
+  %221 = load ptr, ptr %5, align 8
+  store i64 %220, ptr %221, align 8
+  %222 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code10, i64 noundef 182)
+  %223 = call ptr @prelude_ast(i64 noundef %220, i64 noundef %222, i32 noundef 4)
+  br label %225
 
-217:                                              ; preds = %214
-  %218 = load ptr, ptr %8, align 8
-  store ptr %218, ptr %3, align 8
-  br label %411
+224:                                              ; preds = %213, %210
+  br label %225
 
-219:                                              ; preds = %214
-  %220 = load i64, ptr %7, align 8
-  %221 = icmp eq i64 5, %220
-  br i1 %221, label %222, label %232
+225:                                              ; preds = %224, %219
+  %226 = phi ptr [ %223, %219 ], [ null, %224 ]
+  store ptr %226, ptr %8, align 8
+  %227 = icmp ne ptr %226, null
+  br i1 %227, label %228, label %230
 
-222:                                              ; preds = %219
-  %223 = load ptr, ptr %4, align 8
-  %224 = load i64, ptr %7, align 8
-  %225 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name11, i64 10), ptr noundef %223, i64 noundef %224) #4
-  %226 = icmp eq i32 %225, 0
-  br i1 %226, label %227, label %232
+228:                                              ; preds = %225
+  %229 = load ptr, ptr %8, align 8
+  store ptr %229, ptr %3, align 8
+  br label %432
 
-227:                                              ; preds = %222
-  %228 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name11, i64 noundef 16)
-  %229 = load ptr, ptr %5, align 8
-  store i64 %228, ptr %229, align 8
-  %230 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code11, i64 noundef 1503)
-  %231 = call ptr @prelude_ast(i64 noundef %228, i64 noundef %230, i32 noundef 1)
-  br label %233
+230:                                              ; preds = %225
+  %231 = load i64, ptr %7, align 8
+  %232 = icmp eq i64 5, %231
+  br i1 %232, label %233, label %244
 
-232:                                              ; preds = %222, %219
-  br label %233
+233:                                              ; preds = %230
+  %234 = load ptr, ptr %4, align 8
+  %235 = load i64, ptr %7, align 8
+  %236 = getelementptr i8, ptr @prelude_name11, i64 10
+  %237 = call i32 @strncmp(ptr noundef %236, ptr noundef %234, i64 noundef %235) #4
+  %238 = icmp eq i32 %237, 0
+  br i1 %238, label %239, label %244
 
-233:                                              ; preds = %232, %227
-  %234 = phi ptr [ %231, %227 ], [ null, %232 ]
-  store ptr %234, ptr %8, align 8
-  %235 = icmp ne ptr %234, null
-  br i1 %235, label %236, label %238
+239:                                              ; preds = %233
+  %240 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name11, i64 noundef 16)
+  %241 = load ptr, ptr %5, align 8
+  store i64 %240, ptr %241, align 8
+  %242 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code11, i64 noundef 1503)
+  %243 = call ptr @prelude_ast(i64 noundef %240, i64 noundef %242, i32 noundef 1)
+  br label %245
 
-236:                                              ; preds = %233
-  %237 = load ptr, ptr %8, align 8
-  store ptr %237, ptr %3, align 8
-  br label %411
+244:                                              ; preds = %233, %230
+  br label %245
 
-238:                                              ; preds = %233
-  %239 = load i64, ptr %7, align 8
-  %240 = icmp eq i64 6, %239
-  br i1 %240, label %241, label %251
+245:                                              ; preds = %244, %239
+  %246 = phi ptr [ %243, %239 ], [ null, %244 ]
+  store ptr %246, ptr %8, align 8
+  %247 = icmp ne ptr %246, null
+  br i1 %247, label %248, label %250
 
-241:                                              ; preds = %238
-  %242 = load ptr, ptr %4, align 8
-  %243 = load i64, ptr %7, align 8
-  %244 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name12, i64 10), ptr noundef %242, i64 noundef %243) #4
-  %245 = icmp eq i32 %244, 0
-  br i1 %245, label %246, label %251
+248:                                              ; preds = %245
+  %249 = load ptr, ptr %8, align 8
+  store ptr %249, ptr %3, align 8
+  br label %432
 
-246:                                              ; preds = %241
-  %247 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name12, i64 noundef 17)
-  %248 = load ptr, ptr %5, align 8
-  store i64 %247, ptr %248, align 8
-  %249 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code12, i64 noundef 1591)
-  %250 = call ptr @prelude_ast(i64 noundef %247, i64 noundef %249, i32 noundef 1)
-  br label %252
+250:                                              ; preds = %245
+  %251 = load i64, ptr %7, align 8
+  %252 = icmp eq i64 6, %251
+  br i1 %252, label %253, label %264
 
-251:                                              ; preds = %241, %238
-  br label %252
+253:                                              ; preds = %250
+  %254 = load ptr, ptr %4, align 8
+  %255 = load i64, ptr %7, align 8
+  %256 = getelementptr i8, ptr @prelude_name12, i64 10
+  %257 = call i32 @strncmp(ptr noundef %256, ptr noundef %254, i64 noundef %255) #4
+  %258 = icmp eq i32 %257, 0
+  br i1 %258, label %259, label %264
 
-252:                                              ; preds = %251, %246
-  %253 = phi ptr [ %250, %246 ], [ null, %251 ]
-  store ptr %253, ptr %8, align 8
-  %254 = icmp ne ptr %253, null
-  br i1 %254, label %255, label %257
+259:                                              ; preds = %253
+  %260 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name12, i64 noundef 17)
+  %261 = load ptr, ptr %5, align 8
+  store i64 %260, ptr %261, align 8
+  %262 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code12, i64 noundef 1591)
+  %263 = call ptr @prelude_ast(i64 noundef %260, i64 noundef %262, i32 noundef 1)
+  br label %265
 
-255:                                              ; preds = %252
-  %256 = load ptr, ptr %8, align 8
-  store ptr %256, ptr %3, align 8
-  br label %411
+264:                                              ; preds = %253, %250
+  br label %265
 
-257:                                              ; preds = %252
-  %258 = load i64, ptr %7, align 8
-  %259 = icmp eq i64 6, %258
-  br i1 %259, label %260, label %270
+265:                                              ; preds = %264, %259
+  %266 = phi ptr [ %263, %259 ], [ null, %264 ]
+  store ptr %266, ptr %8, align 8
+  %267 = icmp ne ptr %266, null
+  br i1 %267, label %268, label %270
 
-260:                                              ; preds = %257
-  %261 = load ptr, ptr %4, align 8
-  %262 = load i64, ptr %7, align 8
-  %263 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name13, i64 10), ptr noundef %261, i64 noundef %262) #4
-  %264 = icmp eq i32 %263, 0
-  br i1 %264, label %265, label %270
+268:                                              ; preds = %265
+  %269 = load ptr, ptr %8, align 8
+  store ptr %269, ptr %3, align 8
+  br label %432
 
-265:                                              ; preds = %260
-  %266 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name13, i64 noundef 17)
-  %267 = load ptr, ptr %5, align 8
-  store i64 %266, ptr %267, align 8
-  %268 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code13, i64 noundef 3683)
-  %269 = call ptr @prelude_ast(i64 noundef %266, i64 noundef %268, i32 noundef 239)
-  br label %271
+270:                                              ; preds = %265
+  %271 = load i64, ptr %7, align 8
+  %272 = icmp eq i64 6, %271
+  br i1 %272, label %273, label %284
 
-270:                                              ; preds = %260, %257
-  br label %271
+273:                                              ; preds = %270
+  %274 = load ptr, ptr %4, align 8
+  %275 = load i64, ptr %7, align 8
+  %276 = getelementptr i8, ptr @prelude_name13, i64 10
+  %277 = call i32 @strncmp(ptr noundef %276, ptr noundef %274, i64 noundef %275) #4
+  %278 = icmp eq i32 %277, 0
+  br i1 %278, label %279, label %284
 
-271:                                              ; preds = %270, %265
-  %272 = phi ptr [ %269, %265 ], [ null, %270 ]
-  store ptr %272, ptr %8, align 8
-  %273 = icmp ne ptr %272, null
-  br i1 %273, label %274, label %276
+279:                                              ; preds = %273
+  %280 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name13, i64 noundef 17)
+  %281 = load ptr, ptr %5, align 8
+  store i64 %280, ptr %281, align 8
+  %282 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code13, i64 noundef 3683)
+  %283 = call ptr @prelude_ast(i64 noundef %280, i64 noundef %282, i32 noundef 239)
+  br label %285
 
-274:                                              ; preds = %271
-  %275 = load ptr, ptr %8, align 8
-  store ptr %275, ptr %3, align 8
-  br label %411
+284:                                              ; preds = %273, %270
+  br label %285
 
-276:                                              ; preds = %271
-  %277 = load i64, ptr %7, align 8
-  %278 = icmp eq i64 6, %277
-  br i1 %278, label %279, label %289
+285:                                              ; preds = %284, %279
+  %286 = phi ptr [ %283, %279 ], [ null, %284 ]
+  store ptr %286, ptr %8, align 8
+  %287 = icmp ne ptr %286, null
+  br i1 %287, label %288, label %290
 
-279:                                              ; preds = %276
-  %280 = load ptr, ptr %4, align 8
-  %281 = load i64, ptr %7, align 8
-  %282 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name14, i64 10), ptr noundef %280, i64 noundef %281) #4
-  %283 = icmp eq i32 %282, 0
-  br i1 %283, label %284, label %289
+288:                                              ; preds = %285
+  %289 = load ptr, ptr %8, align 8
+  store ptr %289, ptr %3, align 8
+  br label %432
 
-284:                                              ; preds = %279
-  %285 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name14, i64 noundef 17)
-  %286 = load ptr, ptr %5, align 8
-  store i64 %285, ptr %286, align 8
-  %287 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code14, i64 noundef 189)
-  %288 = call ptr @prelude_ast(i64 noundef %285, i64 noundef %287, i32 noundef 1)
-  br label %290
-
-289:                                              ; preds = %279, %276
-  br label %290
-
-290:                                              ; preds = %289, %284
-  %291 = phi ptr [ %288, %284 ], [ null, %289 ]
-  store ptr %291, ptr %8, align 8
-  %292 = icmp ne ptr %291, null
-  br i1 %292, label %293, label %295
+290:                                              ; preds = %285
+  %291 = load i64, ptr %7, align 8
+  %292 = icmp eq i64 6, %291
+  br i1 %292, label %293, label %304
 
 293:                                              ; preds = %290
-  %294 = load ptr, ptr %8, align 8
-  store ptr %294, ptr %3, align 8
-  br label %411
+  %294 = load ptr, ptr %4, align 8
+  %295 = load i64, ptr %7, align 8
+  %296 = getelementptr i8, ptr @prelude_name14, i64 10
+  %297 = call i32 @strncmp(ptr noundef %296, ptr noundef %294, i64 noundef %295) #4
+  %298 = icmp eq i32 %297, 0
+  br i1 %298, label %299, label %304
 
-295:                                              ; preds = %290
-  %296 = load i64, ptr %7, align 8
-  %297 = icmp eq i64 5, %296
-  br i1 %297, label %298, label %308
+299:                                              ; preds = %293
+  %300 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name14, i64 noundef 17)
+  %301 = load ptr, ptr %5, align 8
+  store i64 %300, ptr %301, align 8
+  %302 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code14, i64 noundef 189)
+  %303 = call ptr @prelude_ast(i64 noundef %300, i64 noundef %302, i32 noundef 1)
+  br label %305
 
-298:                                              ; preds = %295
-  %299 = load ptr, ptr %4, align 8
-  %300 = load i64, ptr %7, align 8
-  %301 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name15, i64 10), ptr noundef %299, i64 noundef %300) #4
-  %302 = icmp eq i32 %301, 0
-  br i1 %302, label %303, label %308
+304:                                              ; preds = %293, %290
+  br label %305
 
-303:                                              ; preds = %298
-  %304 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name15, i64 noundef 16)
-  %305 = load ptr, ptr %5, align 8
-  store i64 %304, ptr %305, align 8
-  %306 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code15, i64 noundef 1062)
-  %307 = call ptr @prelude_ast(i64 noundef %304, i64 noundef %306, i32 noundef 216)
-  br label %309
+305:                                              ; preds = %304, %299
+  %306 = phi ptr [ %303, %299 ], [ null, %304 ]
+  store ptr %306, ptr %8, align 8
+  %307 = icmp ne ptr %306, null
+  br i1 %307, label %308, label %310
 
-308:                                              ; preds = %298, %295
-  br label %309
+308:                                              ; preds = %305
+  %309 = load ptr, ptr %8, align 8
+  store ptr %309, ptr %3, align 8
+  br label %432
 
-309:                                              ; preds = %308, %303
-  %310 = phi ptr [ %307, %303 ], [ null, %308 ]
-  store ptr %310, ptr %8, align 8
-  %311 = icmp ne ptr %310, null
-  br i1 %311, label %312, label %314
+310:                                              ; preds = %305
+  %311 = load i64, ptr %7, align 8
+  %312 = icmp eq i64 5, %311
+  br i1 %312, label %313, label %324
 
-312:                                              ; preds = %309
-  %313 = load ptr, ptr %8, align 8
-  store ptr %313, ptr %3, align 8
-  br label %411
-
-314:                                              ; preds = %309
+313:                                              ; preds = %310
+  %314 = load ptr, ptr %4, align 8
   %315 = load i64, ptr %7, align 8
-  %316 = icmp eq i64 11, %315
-  br i1 %316, label %317, label %327
+  %316 = getelementptr i8, ptr @prelude_name15, i64 10
+  %317 = call i32 @strncmp(ptr noundef %316, ptr noundef %314, i64 noundef %315) #4
+  %318 = icmp eq i32 %317, 0
+  br i1 %318, label %319, label %324
 
-317:                                              ; preds = %314
-  %318 = load ptr, ptr %4, align 8
-  %319 = load i64, ptr %7, align 8
-  %320 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name16, i64 10), ptr noundef %318, i64 noundef %319) #4
-  %321 = icmp eq i32 %320, 0
-  br i1 %321, label %322, label %327
+319:                                              ; preds = %313
+  %320 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name15, i64 noundef 16)
+  %321 = load ptr, ptr %5, align 8
+  store i64 %320, ptr %321, align 8
+  %322 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code15, i64 noundef 1062)
+  %323 = call ptr @prelude_ast(i64 noundef %320, i64 noundef %322, i32 noundef 216)
+  br label %325
 
-322:                                              ; preds = %317
-  %323 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name16, i64 noundef 22)
-  %324 = load ptr, ptr %5, align 8
-  store i64 %323, ptr %324, align 8
-  %325 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code16, i64 noundef 946)
-  %326 = call ptr @prelude_ast(i64 noundef %323, i64 noundef %325, i32 noundef 1)
-  br label %328
+324:                                              ; preds = %313, %310
+  br label %325
 
-327:                                              ; preds = %317, %314
-  br label %328
+325:                                              ; preds = %324, %319
+  %326 = phi ptr [ %323, %319 ], [ null, %324 ]
+  store ptr %326, ptr %8, align 8
+  %327 = icmp ne ptr %326, null
+  br i1 %327, label %328, label %330
 
-328:                                              ; preds = %327, %322
-  %329 = phi ptr [ %326, %322 ], [ null, %327 ]
-  store ptr %329, ptr %8, align 8
-  %330 = icmp ne ptr %329, null
-  br i1 %330, label %331, label %333
+328:                                              ; preds = %325
+  %329 = load ptr, ptr %8, align 8
+  store ptr %329, ptr %3, align 8
+  br label %432
 
-331:                                              ; preds = %328
-  %332 = load ptr, ptr %8, align 8
-  store ptr %332, ptr %3, align 8
-  br label %411
+330:                                              ; preds = %325
+  %331 = load i64, ptr %7, align 8
+  %332 = icmp eq i64 11, %331
+  br i1 %332, label %333, label %344
 
-333:                                              ; preds = %328
-  %334 = load i64, ptr %7, align 8
-  %335 = icmp eq i64 8, %334
-  br i1 %335, label %336, label %346
+333:                                              ; preds = %330
+  %334 = load ptr, ptr %4, align 8
+  %335 = load i64, ptr %7, align 8
+  %336 = getelementptr i8, ptr @prelude_name16, i64 10
+  %337 = call i32 @strncmp(ptr noundef %336, ptr noundef %334, i64 noundef %335) #4
+  %338 = icmp eq i32 %337, 0
+  br i1 %338, label %339, label %344
 
-336:                                              ; preds = %333
-  %337 = load ptr, ptr %4, align 8
-  %338 = load i64, ptr %7, align 8
-  %339 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name17, i64 10), ptr noundef %337, i64 noundef %338) #4
-  %340 = icmp eq i32 %339, 0
-  br i1 %340, label %341, label %346
+339:                                              ; preds = %333
+  %340 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name16, i64 noundef 22)
+  %341 = load ptr, ptr %5, align 8
+  store i64 %340, ptr %341, align 8
+  %342 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code16, i64 noundef 946)
+  %343 = call ptr @prelude_ast(i64 noundef %340, i64 noundef %342, i32 noundef 1)
+  br label %345
 
-341:                                              ; preds = %336
-  %342 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name17, i64 noundef 19)
-  %343 = load ptr, ptr %5, align 8
-  store i64 %342, ptr %343, align 8
-  %344 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code17, i64 noundef 98)
-  %345 = call ptr @prelude_ast(i64 noundef %342, i64 noundef %344, i32 noundef 1)
-  br label %347
+344:                                              ; preds = %333, %330
+  br label %345
 
-346:                                              ; preds = %336, %333
-  br label %347
+345:                                              ; preds = %344, %339
+  %346 = phi ptr [ %343, %339 ], [ null, %344 ]
+  store ptr %346, ptr %8, align 8
+  %347 = icmp ne ptr %346, null
+  br i1 %347, label %348, label %350
 
-347:                                              ; preds = %346, %341
-  %348 = phi ptr [ %345, %341 ], [ null, %346 ]
-  store ptr %348, ptr %8, align 8
-  %349 = icmp ne ptr %348, null
-  br i1 %349, label %350, label %352
+348:                                              ; preds = %345
+  %349 = load ptr, ptr %8, align 8
+  store ptr %349, ptr %3, align 8
+  br label %432
 
-350:                                              ; preds = %347
-  %351 = load ptr, ptr %8, align 8
-  store ptr %351, ptr %3, align 8
-  br label %411
+350:                                              ; preds = %345
+  %351 = load i64, ptr %7, align 8
+  %352 = icmp eq i64 8, %351
+  br i1 %352, label %353, label %364
 
-352:                                              ; preds = %347
-  %353 = load i64, ptr %7, align 8
-  %354 = icmp eq i64 7, %353
-  br i1 %354, label %355, label %365
+353:                                              ; preds = %350
+  %354 = load ptr, ptr %4, align 8
+  %355 = load i64, ptr %7, align 8
+  %356 = getelementptr i8, ptr @prelude_name17, i64 10
+  %357 = call i32 @strncmp(ptr noundef %356, ptr noundef %354, i64 noundef %355) #4
+  %358 = icmp eq i32 %357, 0
+  br i1 %358, label %359, label %364
 
-355:                                              ; preds = %352
-  %356 = load ptr, ptr %4, align 8
-  %357 = load i64, ptr %7, align 8
-  %358 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name18, i64 10), ptr noundef %356, i64 noundef %357) #4
-  %359 = icmp eq i32 %358, 0
-  br i1 %359, label %360, label %365
+359:                                              ; preds = %353
+  %360 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name17, i64 noundef 19)
+  %361 = load ptr, ptr %5, align 8
+  store i64 %360, ptr %361, align 8
+  %362 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code17, i64 noundef 98)
+  %363 = call ptr @prelude_ast(i64 noundef %360, i64 noundef %362, i32 noundef 1)
+  br label %365
 
-360:                                              ; preds = %355
-  %361 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name18, i64 noundef 18)
-  %362 = load ptr, ptr %5, align 8
-  store i64 %361, ptr %362, align 8
-  %363 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code18, i64 noundef 352)
-  %364 = call ptr @prelude_ast(i64 noundef %361, i64 noundef %363, i32 noundef 1)
-  br label %366
+364:                                              ; preds = %353, %350
+  br label %365
 
-365:                                              ; preds = %355, %352
-  br label %366
+365:                                              ; preds = %364, %359
+  %366 = phi ptr [ %363, %359 ], [ null, %364 ]
+  store ptr %366, ptr %8, align 8
+  %367 = icmp ne ptr %366, null
+  br i1 %367, label %368, label %370
 
-366:                                              ; preds = %365, %360
-  %367 = phi ptr [ %364, %360 ], [ null, %365 ]
-  store ptr %367, ptr %8, align 8
-  %368 = icmp ne ptr %367, null
-  br i1 %368, label %369, label %371
+368:                                              ; preds = %365
+  %369 = load ptr, ptr %8, align 8
+  store ptr %369, ptr %3, align 8
+  br label %432
 
-369:                                              ; preds = %366
-  %370 = load ptr, ptr %8, align 8
-  store ptr %370, ptr %3, align 8
-  br label %411
+370:                                              ; preds = %365
+  %371 = load i64, ptr %7, align 8
+  %372 = icmp eq i64 7, %371
+  br i1 %372, label %373, label %384
 
-371:                                              ; preds = %366
-  %372 = load i64, ptr %7, align 8
-  %373 = icmp eq i64 11, %372
-  br i1 %373, label %374, label %384
-
-374:                                              ; preds = %371
-  %375 = load ptr, ptr %4, align 8
-  %376 = load i64, ptr %7, align 8
-  %377 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name19, i64 10), ptr noundef %375, i64 noundef %376) #4
+373:                                              ; preds = %370
+  %374 = load ptr, ptr %4, align 8
+  %375 = load i64, ptr %7, align 8
+  %376 = getelementptr i8, ptr @prelude_name18, i64 10
+  %377 = call i32 @strncmp(ptr noundef %376, ptr noundef %374, i64 noundef %375) #4
   %378 = icmp eq i32 %377, 0
   br i1 %378, label %379, label %384
 
-379:                                              ; preds = %374
-  %380 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name19, i64 noundef 22)
+379:                                              ; preds = %373
+  %380 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name18, i64 noundef 18)
   %381 = load ptr, ptr %5, align 8
   store i64 %380, ptr %381, align 8
-  %382 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code19, i64 noundef 552)
+  %382 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code18, i64 noundef 352)
   %383 = call ptr @prelude_ast(i64 noundef %380, i64 noundef %382, i32 noundef 1)
   br label %385
 
-384:                                              ; preds = %374, %371
+384:                                              ; preds = %373, %370
   br label %385
 
 385:                                              ; preds = %384, %379
@@ -838,50 +823,86 @@ define hidden ptr @rb_builtin_ast(ptr noundef %0, ptr noundef %1) #0 {
 388:                                              ; preds = %385
   %389 = load ptr, ptr %8, align 8
   store ptr %389, ptr %3, align 8
-  br label %411
+  br label %432
 
 390:                                              ; preds = %385
   %391 = load i64, ptr %7, align 8
-  %392 = icmp eq i64 4, %391
-  br i1 %392, label %393, label %403
+  %392 = icmp eq i64 11, %391
+  br i1 %392, label %393, label %404
 
 393:                                              ; preds = %390
   %394 = load ptr, ptr %4, align 8
   %395 = load i64, ptr %7, align 8
-  %396 = call i32 @strncmp(ptr noundef getelementptr (i8, ptr @prelude_name20, i64 10), ptr noundef %394, i64 noundef %395) #4
-  %397 = icmp eq i32 %396, 0
-  br i1 %397, label %398, label %403
+  %396 = getelementptr i8, ptr @prelude_name19, i64 10
+  %397 = call i32 @strncmp(ptr noundef %396, ptr noundef %394, i64 noundef %395) #4
+  %398 = icmp eq i32 %397, 0
+  br i1 %398, label %399, label %404
 
-398:                                              ; preds = %393
-  %399 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name20, i64 noundef 15)
-  %400 = load ptr, ptr %5, align 8
-  store i64 %399, ptr %400, align 8
-  %401 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code20, i64 noundef 16901)
-  %402 = call ptr @prelude_ast(i64 noundef %399, i64 noundef %401, i32 noundef 10)
-  br label %404
+399:                                              ; preds = %393
+  %400 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name19, i64 noundef 22)
+  %401 = load ptr, ptr %5, align 8
+  store i64 %400, ptr %401, align 8
+  %402 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code19, i64 noundef 552)
+  %403 = call ptr @prelude_ast(i64 noundef %400, i64 noundef %402, i32 noundef 1)
+  br label %405
 
-403:                                              ; preds = %393, %390
-  br label %404
+404:                                              ; preds = %393, %390
+  br label %405
 
-404:                                              ; preds = %403, %398
-  %405 = phi ptr [ %402, %398 ], [ null, %403 ]
-  store ptr %405, ptr %8, align 8
-  %406 = icmp ne ptr %405, null
-  br i1 %406, label %407, label %409
+405:                                              ; preds = %404, %399
+  %406 = phi ptr [ %403, %399 ], [ null, %404 ]
+  store ptr %406, ptr %8, align 8
+  %407 = icmp ne ptr %406, null
+  br i1 %407, label %408, label %410
 
-407:                                              ; preds = %404
-  %408 = load ptr, ptr %8, align 8
-  store ptr %408, ptr %3, align 8
-  br label %411
+408:                                              ; preds = %405
+  %409 = load ptr, ptr %8, align 8
+  store ptr %409, ptr %3, align 8
+  br label %432
 
-409:                                              ; preds = %404
-  %410 = load ptr, ptr %8, align 8
-  store ptr %410, ptr %3, align 8
-  br label %411
+410:                                              ; preds = %405
+  %411 = load i64, ptr %7, align 8
+  %412 = icmp eq i64 4, %411
+  br i1 %412, label %413, label %424
 
-411:                                              ; preds = %409, %407, %388, %369, %350, %331, %312, %293, %274, %255, %236, %217, %198, %179, %160, %141, %122, %103, %84, %65, %46, %27
-  %412 = load ptr, ptr %3, align 8
-  ret ptr %412
+413:                                              ; preds = %410
+  %414 = load ptr, ptr %4, align 8
+  %415 = load i64, ptr %7, align 8
+  %416 = getelementptr i8, ptr @prelude_name20, i64 10
+  %417 = call i32 @strncmp(ptr noundef %416, ptr noundef %414, i64 noundef %415) #4
+  %418 = icmp eq i32 %417, 0
+  br i1 %418, label %419, label %424
+
+419:                                              ; preds = %413
+  %420 = call i64 @rb_usascii_str_new_static(ptr noundef @prelude_name20, i64 noundef 15)
+  %421 = load ptr, ptr %5, align 8
+  store i64 %420, ptr %421, align 8
+  %422 = call i64 @rb_utf8_str_new_static(ptr noundef @prelude_code20, i64 noundef 16901)
+  %423 = call ptr @prelude_ast(i64 noundef %420, i64 noundef %422, i32 noundef 10)
+  br label %425
+
+424:                                              ; preds = %413, %410
+  br label %425
+
+425:                                              ; preds = %424, %419
+  %426 = phi ptr [ %423, %419 ], [ null, %424 ]
+  store ptr %426, ptr %8, align 8
+  %427 = icmp ne ptr %426, null
+  br i1 %427, label %428, label %430
+
+428:                                              ; preds = %425
+  %429 = load ptr, ptr %8, align 8
+  store ptr %429, ptr %3, align 8
+  br label %432
+
+430:                                              ; preds = %425
+  %431 = load ptr, ptr %8, align 8
+  store ptr %431, ptr %3, align 8
+  br label %432
+
+432:                                              ; preds = %430, %428, %408, %388, %368, %348, %328, %308, %288, %268, %248, %228, %208, %188, %168, %148, %128, %108, %88, %68, %48, %28
+  %433 = load ptr, ptr %3, align 8
+  ret ptr %433
 }
 
 ; Function Attrs: nounwind willreturn memory(read)

@@ -1131,45 +1131,51 @@ define ptr @Bac_ManCollectGateNamesByTruth(ptr noundef %0) #0 {
   call void @Bac_ManCollectGateNameOne(ptr noundef %12, i32 noundef 4, i64 noundef %14, ptr noundef %15)
   %16 = load ptr, ptr %2, align 8
   %17 = load i64, ptr @Bac_ManCollectGateNamesByTruth.uTruths6, align 16
-  %18 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @Bac_ManCollectGateNamesByTruth.uTruths6, i64 0, i64 1), align 8
-  %19 = and i64 %17, %18
-  %20 = load ptr, ptr %3, align 8
-  call void @Bac_ManCollectGateNameOne(ptr noundef %16, i32 noundef 5, i64 noundef %19, ptr noundef %20)
-  %21 = load ptr, ptr %2, align 8
-  %22 = load i64, ptr @Bac_ManCollectGateNamesByTruth.uTruths6, align 16
-  %23 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @Bac_ManCollectGateNamesByTruth.uTruths6, i64 0, i64 1), align 8
-  %24 = and i64 %22, %23
-  %25 = xor i64 %24, -1
-  %26 = load ptr, ptr %3, align 8
-  call void @Bac_ManCollectGateNameOne(ptr noundef %21, i32 noundef 6, i64 noundef %25, ptr noundef %26)
-  %27 = load ptr, ptr %2, align 8
-  %28 = load i64, ptr @Bac_ManCollectGateNamesByTruth.uTruths6, align 16
-  %29 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @Bac_ManCollectGateNamesByTruth.uTruths6, i64 0, i64 1), align 8
-  %30 = or i64 %28, %29
-  %31 = load ptr, ptr %3, align 8
-  call void @Bac_ManCollectGateNameOne(ptr noundef %27, i32 noundef 7, i64 noundef %30, ptr noundef %31)
-  %32 = load ptr, ptr %2, align 8
-  %33 = load i64, ptr @Bac_ManCollectGateNamesByTruth.uTruths6, align 16
-  %34 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @Bac_ManCollectGateNamesByTruth.uTruths6, i64 0, i64 1), align 8
-  %35 = or i64 %33, %34
-  %36 = xor i64 %35, -1
-  %37 = load ptr, ptr %3, align 8
-  call void @Bac_ManCollectGateNameOne(ptr noundef %32, i32 noundef 8, i64 noundef %36, ptr noundef %37)
-  %38 = load ptr, ptr %2, align 8
-  %39 = load i64, ptr @Bac_ManCollectGateNamesByTruth.uTruths6, align 16
-  %40 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @Bac_ManCollectGateNamesByTruth.uTruths6, i64 0, i64 1), align 8
-  %41 = xor i64 %39, %40
-  %42 = load ptr, ptr %3, align 8
-  call void @Bac_ManCollectGateNameOne(ptr noundef %38, i32 noundef 9, i64 noundef %41, ptr noundef %42)
-  %43 = load ptr, ptr %2, align 8
-  %44 = load i64, ptr @Bac_ManCollectGateNamesByTruth.uTruths6, align 16
-  %45 = load i64, ptr getelementptr inbounds ([3 x i64], ptr @Bac_ManCollectGateNamesByTruth.uTruths6, i64 0, i64 1), align 8
-  %46 = xor i64 %44, %45
-  %47 = xor i64 %46, -1
-  %48 = load ptr, ptr %3, align 8
-  call void @Bac_ManCollectGateNameOne(ptr noundef %43, i32 noundef 10, i64 noundef %47, ptr noundef %48)
-  %49 = load ptr, ptr %3, align 8
-  ret ptr %49
+  %18 = getelementptr inbounds [3 x i64], ptr @Bac_ManCollectGateNamesByTruth.uTruths6, i64 0, i64 1
+  %19 = load i64, ptr %18, align 8
+  %20 = and i64 %17, %19
+  %21 = load ptr, ptr %3, align 8
+  call void @Bac_ManCollectGateNameOne(ptr noundef %16, i32 noundef 5, i64 noundef %20, ptr noundef %21)
+  %22 = load ptr, ptr %2, align 8
+  %23 = load i64, ptr @Bac_ManCollectGateNamesByTruth.uTruths6, align 16
+  %24 = getelementptr inbounds [3 x i64], ptr @Bac_ManCollectGateNamesByTruth.uTruths6, i64 0, i64 1
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %23, %25
+  %27 = xor i64 %26, -1
+  %28 = load ptr, ptr %3, align 8
+  call void @Bac_ManCollectGateNameOne(ptr noundef %22, i32 noundef 6, i64 noundef %27, ptr noundef %28)
+  %29 = load ptr, ptr %2, align 8
+  %30 = load i64, ptr @Bac_ManCollectGateNamesByTruth.uTruths6, align 16
+  %31 = getelementptr inbounds [3 x i64], ptr @Bac_ManCollectGateNamesByTruth.uTruths6, i64 0, i64 1
+  %32 = load i64, ptr %31, align 8
+  %33 = or i64 %30, %32
+  %34 = load ptr, ptr %3, align 8
+  call void @Bac_ManCollectGateNameOne(ptr noundef %29, i32 noundef 7, i64 noundef %33, ptr noundef %34)
+  %35 = load ptr, ptr %2, align 8
+  %36 = load i64, ptr @Bac_ManCollectGateNamesByTruth.uTruths6, align 16
+  %37 = getelementptr inbounds [3 x i64], ptr @Bac_ManCollectGateNamesByTruth.uTruths6, i64 0, i64 1
+  %38 = load i64, ptr %37, align 8
+  %39 = or i64 %36, %38
+  %40 = xor i64 %39, -1
+  %41 = load ptr, ptr %3, align 8
+  call void @Bac_ManCollectGateNameOne(ptr noundef %35, i32 noundef 8, i64 noundef %40, ptr noundef %41)
+  %42 = load ptr, ptr %2, align 8
+  %43 = load i64, ptr @Bac_ManCollectGateNamesByTruth.uTruths6, align 16
+  %44 = getelementptr inbounds [3 x i64], ptr @Bac_ManCollectGateNamesByTruth.uTruths6, i64 0, i64 1
+  %45 = load i64, ptr %44, align 8
+  %46 = xor i64 %43, %45
+  %47 = load ptr, ptr %3, align 8
+  call void @Bac_ManCollectGateNameOne(ptr noundef %42, i32 noundef 9, i64 noundef %46, ptr noundef %47)
+  %48 = load ptr, ptr %2, align 8
+  %49 = load i64, ptr @Bac_ManCollectGateNamesByTruth.uTruths6, align 16
+  %50 = getelementptr inbounds [3 x i64], ptr @Bac_ManCollectGateNamesByTruth.uTruths6, i64 0, i64 1
+  %51 = load i64, ptr %50, align 8
+  %52 = xor i64 %49, %51
+  %53 = xor i64 %52, -1
+  %54 = load ptr, ptr %3, align 8
+  call void @Bac_ManCollectGateNameOne(ptr noundef %48, i32 noundef 10, i64 noundef %53, ptr noundef %54)
+  %55 = load ptr, ptr %3, align 8
+  ret ptr %55
 }
 
 ; Function Attrs: nounwind uwtable

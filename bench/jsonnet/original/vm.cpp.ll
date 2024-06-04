@@ -26416,14 +26416,15 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_15StackC2Ej(ptr noundef n
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) ({ [3 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_15StackE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.jsonnet::internal::(anonymous namespace)::Stack", ptr %5, i32 0, i32 1
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds %"class.jsonnet::internal::(anonymous namespace)::Stack", ptr %5, i32 0, i32 2
-  %8 = load i32, ptr %4, align 4
-  store i32 %8, ptr %7, align 4
-  %9 = getelementptr inbounds %"class.jsonnet::internal::(anonymous namespace)::Stack", ptr %5, i32 0, i32 3
-  call void @_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15FrameESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %6 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_15StackE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.jsonnet::internal::(anonymous namespace)::Stack", ptr %5, i32 0, i32 1
+  store i32 0, ptr %7, align 8
+  %8 = getelementptr inbounds %"class.jsonnet::internal::(anonymous namespace)::Stack", ptr %5, i32 0, i32 2
+  %9 = load i32, ptr %4, align 4
+  store i32 %9, ptr %8, align 4
+  %10 = getelementptr inbounds %"class.jsonnet::internal::(anonymous namespace)::Stack", ptr %5, i32 0, i32 3
+  call void @_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15FrameESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
   ret void
 }
 
@@ -33956,7 +33957,7 @@ define internal noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter16bu
 
 73:                                               ; preds = %69, %65, %61
   %74 = load i32, ptr %10, align 4
-  %75 = call i32 @llvm.eh.typeid.for(ptr @_ZTIN8nlohmann6detail11parse_errorE) #3
+  %75 = call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIN8nlohmann6detail11parse_errorE) #3
   %76 = icmp eq i32 %74, %75
   br i1 %76, label %77, label %103
 
@@ -35206,9 +35207,10 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_15StackD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) ({ [3 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_15StackE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.jsonnet::internal::(anonymous namespace)::Stack", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15FrameESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [3 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_15StackE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.jsonnet::internal::(anonymous namespace)::Stack", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15FrameESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   ret void
 }
 
@@ -38250,10 +38252,11 @@ define linkonce_odr void @_ZN7jsonnet8internal3VarC2ERKNS0_13LocationRangeERKSt6
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   call void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7ASTTypeERKSt6vectorINS0_13FodderElementESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 30, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal3VarE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"struct.jsonnet::internal::Var", ptr %9, i32 0, i32 1
-  %13 = load ptr, ptr %8, align 8
-  store ptr %13, ptr %12, align 8
+  %12 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal3VarE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"struct.jsonnet::internal::Var", ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  store ptr %14, ptr %13, align 8
   ret void
 }
 
@@ -38288,39 +38291,40 @@ define linkonce_odr void @_ZN7jsonnet8internal3ASTC2ERKNS0_13LocationRangeENS0_7
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal3ASTE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %6, align 8
-  call void @_ZN7jsonnet8internal13LocationRangeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %13)
-  %14 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 2
-  %15 = load i32, ptr %7, align 4
-  store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 3
-  %17 = load ptr, ptr %8, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
-          to label %18 unwind label %20
+  %12 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal3ASTE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %6, align 8
+  call void @_ZN7jsonnet8internal13LocationRangeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %14)
+  %15 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 2
+  %16 = load i32, ptr %7, align 4
+  store i32 %16, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 3
+  %18 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
+          to label %19 unwind label %21
 
-18:                                               ; preds = %4
-  %19 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 4
-  call void @_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+19:                                               ; preds = %4
+  %20 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %11, i32 0, i32 4
+  call void @_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
   ret void
 
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %4
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %9, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %10, align 4
-  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #3
-  br label %24
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %9, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %10, align 4
+  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #3
+  br label %25
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %9, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %9, align 8
+  %27 = load i32, ptr %10, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -38449,13 +38453,14 @@ define linkonce_odr void @_ZN7jsonnet8internal3ASTD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal3ASTE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %3, i32 0, i32 1
-  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal3ASTE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::AST", ptr %3, i32 0, i32 1
+  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #3
   ret void
 }
 
@@ -49295,23 +49300,24 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapThunkC2EPKNS0_10Ide
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityC2ENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(10) %11, i8 noundef zeroext 0)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_19HeapThunkE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %11, i32 0, i32 1
-  store i8 0, ptr %12, align 2
-  %13 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %11, i32 0, i32 3
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %11, i32 0, i32 4
-  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
-  %16 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %11, i32 0, i32 5
-  %17 = load ptr, ptr %8, align 8
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %11, i32 0, i32 6
-  %19 = load i32, ptr %9, align 4
-  store i32 %19, ptr %18, align 8
-  %20 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %11, i32 0, i32 7
-  %21 = load ptr, ptr %10, align 8
-  store ptr %21, ptr %20, align 8
+  %12 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_19HeapThunkE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %11, i32 0, i32 1
+  store i8 0, ptr %13, align 2
+  %14 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %11, i32 0, i32 3
+  %15 = load ptr, ptr %7, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %11, i32 0, i32 4
+  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
+  %17 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %11, i32 0, i32 5
+  %18 = load ptr, ptr %8, align 8
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %11, i32 0, i32 6
+  %20 = load i32, ptr %9, align 4
+  store i32 %20, ptr %19, align 8
+  %21 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %11, i32 0, i32 7
+  %22 = load ptr, ptr %10, align 8
+  store ptr %22, ptr %21, align 8
   ret void
 }
 
@@ -49352,10 +49358,11 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityC2ENS2_4Type
   store ptr %0, ptr %3, align 8
   store i8 %1, ptr %4, align 1
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_110HeapEntityE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapEntity", ptr %5, i32 0, i32 2
-  %7 = load i8, ptr %4, align 1
-  store i8 %7, ptr %6, align 1
+  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_110HeapEntityE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapEntity", ptr %5, i32 0, i32 2
+  %8 = load i8, ptr %4, align 1
+  store i8 %8, ptr %7, align 1
   ret void
 }
 
@@ -49374,9 +49381,10 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapThunkD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_19HeapThunkE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %3, i32 0, i32 4
-  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_19HeapThunkE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapThunk", ptr %3, i32 0, i32 4
+  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #3
   ret void
 }
@@ -54749,31 +54757,32 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapArrayC2ERKSt6vector
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityC2ENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(10) %7, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_19HeapArrayE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapArray", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_19HeapArrayE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapArray", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -54856,9 +54865,10 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapArrayD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_19HeapArrayE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapArray", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_19HeapArrayE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapArray", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #3
   ret void
 }
@@ -57051,31 +57061,32 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapStringC2ERKNSt7__c
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityC2ENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(10) %7, i8 noundef zeroext 3)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_110HeapStringE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapString", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_110HeapStringE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapString", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %12
 
 11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %5, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %6, align 4
-  call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %7) #3
-  br label %15
+  ret void
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
-  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
-  resume { ptr, i32 } %19
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %7) #3
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -57083,9 +57094,10 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapStringD2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_110HeapStringE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapString", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_110HeapStringE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapString", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #3
   ret void
 }
@@ -65708,78 +65720,79 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_111HeapClosureC2ERKSt3map
   store ptr %6, ptr %14, align 8
   %17 = load ptr, ptr %8, align 8
   call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityC2ENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(10) %17, i8 noundef zeroext 2)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_111HeapClosureE, i32 0, i32 0, i32 2), ptr %17, align 8
-  %18 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %9, align 8
-  invoke void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %19)
-          to label %20 unwind label %33
+  %18 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_111HeapClosureE, i32 0, i32 0, i32 2
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %17, i32 0, i32 1
+  %20 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(48) %20)
+          to label %21 unwind label %34
 
-20:                                               ; preds = %7
-  %21 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %17, i32 0, i32 2
-  %22 = load ptr, ptr %10, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %17, i32 0, i32 3
-  %24 = load i32, ptr %11, align 4
-  store i32 %24, ptr %23, align 8
-  %25 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %17, i32 0, i32 4
-  %26 = load ptr, ptr %12, align 8
-  invoke void @_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
-          to label %27 unwind label %37
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %17, i32 0, i32 2
+  %23 = load ptr, ptr %10, align 8
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %17, i32 0, i32 3
+  %25 = load i32, ptr %11, align 4
+  store i32 %25, ptr %24, align 8
+  %26 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %17, i32 0, i32 4
+  %27 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27)
+          to label %28 unwind label %38
 
-27:                                               ; preds = %20
-  %28 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %17, i32 0, i32 5
-  %29 = load ptr, ptr %13, align 8
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %17, i32 0, i32 6
-  %31 = load ptr, ptr %14, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %31)
-          to label %32 unwind label %41
+28:                                               ; preds = %21
+  %29 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %17, i32 0, i32 5
+  %30 = load ptr, ptr %13, align 8
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %17, i32 0, i32 6
+  %32 = load ptr, ptr %14, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
+          to label %33 unwind label %42
 
-32:                                               ; preds = %27
+33:                                               ; preds = %28
   ret void
 
-33:                                               ; preds = %7
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %7
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %15, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %16, align 4
-  br label %46
-
-37:                                               ; preds = %20
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %15, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %16, align 4
-  br label %45
-
-41:                                               ; preds = %27
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  %43 = extractvalue { ptr, i32 } %42, 0
-  store ptr %43, ptr %15, align 8
-  %44 = extractvalue { ptr, i32 } %42, 1
-  store i32 %44, ptr %16, align 4
-  call void @_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
-  br label %45
-
-45:                                               ; preds = %41, %37
-  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #3
-  br label %46
-
-46:                                               ; preds = %45, %33
-  call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %17) #3
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %15, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %16, align 4
   br label %47
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %15, align 8
-  %49 = load i32, ptr %16, align 4
-  %50 = insertvalue { ptr, i32 } poison, ptr %48, 0
-  %51 = insertvalue { ptr, i32 } %50, i32 %49, 1
-  resume { ptr, i32 } %51
+38:                                               ; preds = %21
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %15, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %16, align 4
+  br label %46
+
+42:                                               ; preds = %28
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %15, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %16, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #3
+  br label %46
+
+46:                                               ; preds = %42, %38
+  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
+  br label %47
+
+47:                                               ; preds = %46, %34
+  call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %17) #3
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %15, align 8
+  %50 = load i32, ptr %16, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -65862,13 +65875,14 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_111HeapClosureD2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_111HeapClosureE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %3, i32 0, i32 6
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %6 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_111HeapClosureE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %3, i32 0, i32 6
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapClosure", ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
   call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #3
   ret void
 }
@@ -69754,9 +69768,6 @@ define linkonce_odr void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   ret void
 }
 
-; Function Attrs: nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #18
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEC2EDn(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
@@ -72403,7 +72414,8 @@ define linkonce_odr void @_ZN8nlohmann6detail11other_errorC2EiPKc(ptr noundef no
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN8nlohmann6detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11other_errorE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11other_errorE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -72806,34 +72818,35 @@ define linkonce_odr void @_ZN8nlohmann6detail9exceptionC2EiPKc(ptr noundef nonnu
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %9, i32 0, i32 1
-  %11 = load i32, ptr %5, align 4
-  store i32 %11, ptr %10, align 8
-  %12 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %13)
-          to label %14 unwind label %15
-
-14:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %9, i32 0, i32 1
+  %12 = load i32, ptr %5, align 4
+  store i32 %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %14)
+          to label %15 unwind label %16
 
 15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %7, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %8, align 4
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %19
+  ret void
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
-  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
-  resume { ptr, i32 } %23
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %20
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -72861,7 +72874,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -72875,9 +72889,10 @@ define linkonce_odr void @_ZN8nlohmann6detail9exceptionD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %3, i32 0, i32 2
-  call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %3, i32 0, i32 2
+  call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -76070,7 +76085,7 @@ define linkonce_odr noundef i64 @_ZNKSt16initializer_listIiE4sizeEv(ptr noundef 
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #19
+declare ptr @__errno_location() #18
 
 ; Function Attrs: nounwind
 declare i64 @strtoull(ptr noundef, ptr noundef, i32 noundef) #2
@@ -89679,7 +89694,8 @@ define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorC2EiPKc(ptr nound
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN8nlohmann6detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -90491,7 +90507,8 @@ define linkonce_odr void @_ZN8nlohmann6detail10type_errorC2EiPKc(ptr noundef non
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN8nlohmann6detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -91962,7 +91979,8 @@ define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeC2EiPKc(ptr noundef n
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN8nlohmann6detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -93755,12 +93773,13 @@ define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef n
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8nlohmann6detail9exceptionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.nlohmann::detail::parse_error", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.nlohmann::detail::parse_error", ptr %8, i32 0, i32 1
-  %10 = load i64, ptr %9, align 8
-  store i64 %10, ptr %7, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.nlohmann::detail::parse_error", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.nlohmann::detail::parse_error", ptr %9, i32 0, i32 1
+  %11 = load i64, ptr %10, align 8
+  store i64 %11, ptr %8, align 8
   ret void
 }
 
@@ -93773,7 +93792,8 @@ define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr noundef 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8nlohmann6detail9exceptionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -93786,7 +93806,8 @@ define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorC2ERKS1_(ptr noun
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8nlohmann6detail9exceptionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -93799,7 +93820,8 @@ define linkonce_odr void @_ZN8nlohmann6detail10type_errorC2ERKS1_(ptr noundef no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8nlohmann6detail9exceptionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -93812,7 +93834,8 @@ define linkonce_odr void @_ZN8nlohmann6detail11other_errorC2ERKS1_(ptr noundef n
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8nlohmann6detail9exceptionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11other_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11other_errorE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -93825,16 +93848,17 @@ define linkonce_odr void @_ZN8nlohmann6detail9exceptionC2ERKS1_(ptr noundef nonn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 8
-  store i32 %10, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %12, i32 0, i32 2
-  call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %13) #3
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 8
+  store i32 %11, ptr %8, align 8
+  %12 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %5, i32 0, i32 2
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %"class.nlohmann::detail::exception", ptr %13, i32 0, i32 2
+  call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %14) #3
   ret void
 }
 
@@ -93855,7 +93879,8 @@ define linkonce_odr void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 der
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
   ret void
 }
 
@@ -93920,7 +93945,7 @@ define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK9__gnu_c
 declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef ptr @_ZNSt5arrayIcLm9EE4dataEv(ptr noundef nonnull align 1 dereferenceable(9) %0) #20 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt5arrayIcLm9EE4dataEv(ptr noundef nonnull align 1 dereferenceable(9) %0) #19 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -93930,7 +93955,7 @@ define linkonce_odr noundef ptr @_ZNSt5arrayIcLm9EE4dataEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(none) uwtable
-define linkonce_odr noundef i64 @_ZNKSt5arrayIcLm9EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(9) %0) #20 comdat align 2 {
+define linkonce_odr noundef i64 @_ZNKSt5arrayIcLm9EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(9) %0) #19 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret i64 9
@@ -94095,10 +94120,11 @@ define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2EimPKc(ptr noundef n
   %10 = load i32, ptr %6, align 4
   %11 = load ptr, ptr %8, align 8
   call void @_ZN8nlohmann6detail9exceptionC2EiPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"class.nlohmann::detail::parse_error", ptr %9, i32 0, i32 1
-  %13 = load i64, ptr %7, align 8
-  store i64 %13, ptr %12, align 8
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"class.nlohmann::detail::parse_error", ptr %9, i32 0, i32 1
+  %14 = load i64, ptr %7, align 8
+  store i64 %14, ptr %13, align 8
   ret void
 }
 
@@ -97251,13 +97277,14 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20inpu
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %8) #3
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann6detail20input_buffer_adapterEJPKcRKmEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %8) #3
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %7, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann6detail20input_buffer_adapterEJPKcRKmEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13) #3
   ret void
 }
 
@@ -97416,11 +97443,12 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  store i32 1, ptr %5, align 8
+  %6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  store i32 1, ptr %6, align 4
   ret void
 }
 
@@ -97626,15 +97654,16 @@ define linkonce_odr void @_ZN8nlohmann6detail20input_buffer_adapterC2EPKcm(ptr n
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN8nlohmann6detail22input_adapter_protocolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail20input_buffer_adapterE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"class.nlohmann::detail::input_buffer_adapter", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.nlohmann::detail::input_buffer_adapter", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %5, align 8
-  %12 = load i64, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
-  store ptr %13, ptr %10, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail20input_buffer_adapterE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"class.nlohmann::detail::input_buffer_adapter", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"class.nlohmann::detail::input_buffer_adapter", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i64, ptr %6, align 8
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  store ptr %14, ptr %11, align 8
   ret void
 }
 
@@ -97643,7 +97672,8 @@ define linkonce_odr void @_ZN8nlohmann6detail22input_adapter_protocolC2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail22input_adapter_protocolE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8nlohmann6detail22input_adapter_protocolE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -98160,13 +98190,14 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20inpu
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
-  call void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %8) #3
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann6detail20input_buffer_adapterEJDnRKmEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  %9 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
+  call void @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %11 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %8) #3
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %7, align 8
+  call void @_ZNSt16allocator_traitsISaIvEE9constructIN8nlohmann6detail20input_buffer_adapterEJDnRKmEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13) #3
   ret void
 }
 
@@ -99709,56 +99740,57 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjec
   store ptr %4, ptr %10, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN7jsonnet8internal12_GLOBAL__N_114HeapLeafObjectC2ENS1_10HeapEntity4TypeE(ptr noundef nonnull align 8 dereferenceable(10) %13, i8 noundef zeroext 5)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectE, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapComprehensionObject", ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %7, align 8
-  invoke void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %15)
-          to label %16 unwind label %24
+  %14 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapComprehensionObject", ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %7, align 8
+  invoke void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %16)
+          to label %17 unwind label %25
 
-16:                                               ; preds = %5
-  %17 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapComprehensionObject", ptr %13, i32 0, i32 2
-  %18 = load ptr, ptr %8, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapComprehensionObject", ptr %13, i32 0, i32 3
-  %20 = load ptr, ptr %9, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapComprehensionObject", ptr %13, i32 0, i32 4
-  %22 = load ptr, ptr %10, align 8
-  invoke void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %22)
-          to label %23 unwind label %28
+17:                                               ; preds = %5
+  %18 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapComprehensionObject", ptr %13, i32 0, i32 2
+  %19 = load ptr, ptr %8, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapComprehensionObject", ptr %13, i32 0, i32 3
+  %21 = load ptr, ptr %9, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapComprehensionObject", ptr %13, i32 0, i32 4
+  %23 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %23)
+          to label %24 unwind label %29
 
-23:                                               ; preds = %16
+24:                                               ; preds = %17
   ret void
 
-24:                                               ; preds = %5
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %5
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %11, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %12, align 4
-  br label %32
-
-28:                                               ; preds = %16
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %11, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %12, align 4
-  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
-  br label %32
-
-32:                                               ; preds = %28, %24
-  call void @_ZN7jsonnet8internal12_GLOBAL__N_114HeapLeafObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %13) #3
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %11, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %12, align 4
   br label %33
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %11, align 8
-  %35 = load i32, ptr %12, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+29:                                               ; preds = %17
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %11, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %12, align 4
+  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
+  br label %33
+
+33:                                               ; preds = %29, %25
+  call void @_ZN7jsonnet8internal12_GLOBAL__N_114HeapLeafObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %13) #3
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i32, ptr %12, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -99770,7 +99802,8 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_114HeapLeafObjectC2ENS1_1
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %4, align 1
   call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapObjectC2ENS1_10HeapEntity4TypeE(ptr noundef nonnull align 8 dereferenceable(10) %5, i8 noundef zeroext %6)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_114HeapLeafObjectE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_114HeapLeafObjectE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -99779,11 +99812,12 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjec
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapComprehensionObject", ptr %3, i32 0, i32 4
-  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapComprehensionObject", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapComprehensionObject", ptr %3, i32 0, i32 4
   call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapComprehensionObject", ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
   call void @_ZN7jsonnet8internal12_GLOBAL__N_114HeapLeafObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #3
   ret void
 }
@@ -99807,7 +99841,8 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapObjectC2ENS1_10Hea
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %4, align 1
   call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapEntityC2ENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(10) %5, i8 noundef zeroext %6)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_110HeapObjectE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_110HeapObjectE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -108598,7 +108633,7 @@ define linkonce_odr void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118ba
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr noundef i32 @_ZNK2c415basic_substringIKcE7compareEPS1_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef %1, i64 noundef %2) #21 comdat align 2 {
+define linkonce_odr noundef i32 @_ZNK2c415basic_substringIKcE7compareEPS1_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef %1, i64 noundef %2) #20 comdat align 2 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -111903,7 +111938,7 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_integral_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE13_word_followsEmS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, ptr %2, i64 %3) #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE13_word_followsEmS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, ptr %2, i64 %3) #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.c4::basic_substring.410", align 8
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
@@ -112207,7 +112242,7 @@ define linkonce_odr void @_ZN2c415basic_substringIKcEC2ILm8EEERAT__S1_(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span_decEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span_decEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -113156,7 +113191,7 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span_hexEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span_hexEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -114195,7 +114230,7 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span_binEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span_binEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -115164,7 +115199,7 @@ define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read) uwtable
-define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span_octEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr { ptr, i64 } @_ZNK2c415basic_substringIKcE20_first_real_span_octEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -137788,67 +137823,68 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_116HeapSimpleObjectC2ERKS
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN7jsonnet8internal12_GLOBAL__N_114HeapLeafObjectC2ENS1_10HeapEntity4TypeE(ptr noundef nonnull align 8 dereferenceable(10) %11, i8 noundef zeroext 4)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_116HeapSimpleObjectE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapSimpleObject", ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %13)
-          to label %14 unwind label %19
+  %12 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_116HeapSimpleObjectE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapSimpleObject", ptr %11, i32 0, i32 1
+  %14 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %14)
+          to label %15 unwind label %20
 
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapSimpleObject", ptr %11, i32 0, i32 2
-  invoke void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5FieldESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %2)
-          to label %16 unwind label %23
+15:                                               ; preds = %4
+  %16 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapSimpleObject", ptr %11, i32 0, i32 2
+  invoke void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5FieldESt4lessIS4_ESaISt4pairIKS4_S7_EEEC2ERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %2)
+          to label %17 unwind label %24
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapSimpleObject", ptr %11, i32 0, i32 3
-  invoke void @_ZNSt7__cxx114listIPN7jsonnet8internal3ASTESaIS4_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %18 unwind label %27
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapSimpleObject", ptr %11, i32 0, i32 3
+  invoke void @_ZNSt7__cxx114listIPN7jsonnet8internal3ASTESaIS4_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %19 unwind label %28
 
-18:                                               ; preds = %16
+19:                                               ; preds = %17
   ret void
 
-19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %9, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %10, align 4
-  br label %32
-
-23:                                               ; preds = %14
-  %24 = landingpad { ptr, i32 }
-          cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %9, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %10, align 4
-  br label %31
-
-27:                                               ; preds = %16
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %9, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %10, align 4
-  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5FieldESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
-  br label %31
-
-31:                                               ; preds = %27, %23
-  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
-  br label %32
-
-32:                                               ; preds = %31, %19
-  call void @_ZN7jsonnet8internal12_GLOBAL__N_114HeapLeafObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %11) #3
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %9, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %10, align 4
   br label %33
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %9, align 8
-  %35 = load i32, ptr %10, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %9, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %10, align 4
+  br label %32
+
+28:                                               ; preds = %17
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %9, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %10, align 4
+  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5FieldESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
+  br label %33
+
+33:                                               ; preds = %32, %20
+  call void @_ZN7jsonnet8internal12_GLOBAL__N_114HeapLeafObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %11) #3
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %9, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -137856,13 +137892,14 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_116HeapSimpleObjectD2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_116HeapSimpleObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapSimpleObject", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx114listIPN7jsonnet8internal3ASTESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapSimpleObject", ptr %3, i32 0, i32 2
-  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5FieldESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
-  %6 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapSimpleObject", ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_116HeapSimpleObjectE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapSimpleObject", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx114listIPN7jsonnet8internal3ASTESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapSimpleObject", ptr %3, i32 0, i32 2
+  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierENS1_12_GLOBAL__N_116HeapSimpleObject5FieldESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapSimpleObject", ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4lessIS4_ESaISt4pairIKS4_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
   call void @_ZN7jsonnet8internal12_GLOBAL__N_114HeapLeafObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %3) #3
   ret void
 }
@@ -140894,13 +140931,14 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_118HeapExtendedObjectC2EP
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapObjectC2ENS1_10HeapEntity4TypeE(ptr noundef nonnull align 8 dereferenceable(10) %7, i8 noundef zeroext 6)
-  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_118HeapExtendedObjectE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapExtendedObject", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapExtendedObject", ptr %7, i32 0, i32 2
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_118HeapExtendedObjectE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapExtendedObject", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %5, align 8
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %"struct.jsonnet::internal::(anonymous namespace)::HeapExtendedObject", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %11, align 8
   ret void
 }
 
@@ -149721,6 +149759,9 @@ define internal void @_GLOBAL__sub_I_vm.cpp() #0 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #21
+
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -149739,10 +149780,10 @@ attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #18 = { nounwind memory(none) }
-attributes #19 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nounwind memory(none) }
 attributes #22 = { noreturn nounwind }
 attributes #23 = { noreturn }
 attributes #24 = { builtin nounwind }

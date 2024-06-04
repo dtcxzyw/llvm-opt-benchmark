@@ -238,33 +238,34 @@ define dso_local noundef i32 @acpi_register_wakeup_handler(i32 noundef %0, ptr n
   %5 = icmp ne i32 %4, -1
   %6 = icmp eq i32 %4, %0
   %7 = and i1 %5, %6
-  br i1 %7, label %8, label %18
+  br i1 %7, label %8, label %19
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
-  %10 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 32) #5
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %18, label %12
+  %9 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3264, i64 noundef 32) #5
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %19, label %13
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %2, ptr %14, align 8
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %1, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr %2, ptr %15, align 8
   tail call void @mutex_lock(ptr noundef nonnull @acpi_wakeup_handler_mutex) #4
-  %15 = load ptr, ptr @acpi_wakeup_handler_head, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %10, ptr %16, align 8
-  store ptr %15, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr @acpi_wakeup_handler_head, ptr %17, align 8
-  store volatile ptr %10, ptr @acpi_wakeup_handler_head, align 8
+  %16 = load ptr, ptr @acpi_wakeup_handler_head, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %11, ptr %17, align 8
+  store ptr %16, ptr %11, align 8
+  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr @acpi_wakeup_handler_head, ptr %18, align 8
+  store volatile ptr %11, ptr @acpi_wakeup_handler_head, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_wakeup_handler_mutex) #4
-  br label %18
+  br label %19
 
-18:                                               ; preds = %12, %8, %3
-  %19 = phi i32 [ 0, %12 ], [ 0, %3 ], [ -12, %8 ]
-  ret i32 %19
+19:                                               ; preds = %13, %8, %3
+  %20 = phi i32 [ 0, %13 ], [ 0, %3 ], [ -12, %8 ]
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -272,20 +273,20 @@ define dso_local void @acpi_unregister_wakeup_handler(ptr noundef readnone %0, p
   tail call void @mutex_lock(ptr noundef nonnull @acpi_wakeup_handler_mutex) #4
   %3 = load ptr, ptr @acpi_wakeup_handler_head, align 8
   %4 = icmp eq ptr %3, @acpi_wakeup_handler_head
-  br i1 %4, label %22, label %5
+  br i1 %4, label %24, label %5
 
-5:                                                ; preds = %19, %2
-  %6 = phi ptr [ %20, %19 ], [ %3, %2 ]
+5:                                                ; preds = %21, %2
+  %6 = phi ptr [ %22, %21 ], [ %3, %2 ]
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %0
-  br i1 %9, label %10, label %19
+  br i1 %9, label %10, label %21
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %1
-  br i1 %13, label %14, label %19
+  br i1 %13, label %14, label %21
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %6, i64 8
@@ -294,17 +295,19 @@ define dso_local void @acpi_unregister_wakeup_handler(ptr noundef readnone %0, p
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %16, ptr %18, align 8
   store volatile ptr %17, ptr %16, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %15, align 8
+  %19 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %19, ptr %6, align 8
+  %20 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %20, ptr %15, align 8
   tail call void @kfree(ptr noundef %6) #4
-  br label %22
+  br label %24
 
-19:                                               ; preds = %10, %5
-  %20 = load ptr, ptr %6, align 8
-  %21 = icmp eq ptr %20, @acpi_wakeup_handler_head
-  br i1 %21, label %22, label %5, !llvm.loop !10
+21:                                               ; preds = %10, %5
+  %22 = load ptr, ptr %6, align 8
+  %23 = icmp eq ptr %22, @acpi_wakeup_handler_head
+  br i1 %23, label %24, label %5, !llvm.loop !10
 
-22:                                               ; preds = %19, %14, %2
+24:                                               ; preds = %21, %14, %2
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_wakeup_handler_mutex) #4
   ret void
 }

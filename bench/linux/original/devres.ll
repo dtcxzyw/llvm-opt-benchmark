@@ -194,133 +194,137 @@ define internal fastcc ptr @__devm_ioremap_resource(ptr noundef %0, ptr noundef 
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 7936
   %12 = icmp eq i64 %11, 512
-  br i1 %12, label %14, label %13
+  br i1 %12, label %15, label %13
 
 13:                                               ; preds = %8, %6
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef %1) #6
-  br label %76
+  %14 = inttoptr i64 -22 to ptr
+  br label %80
 
-14:                                               ; preds = %8
-  %15 = icmp eq i32 %2, 0
-  %16 = and i64 %10, 128
-  %17 = icmp eq i64 %16, 0
-  %18 = select i1 %17, i32 0, i32 3
-  %19 = select i1 %15, i32 %18, i32 %2
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = load i64, ptr %1, align 8
-  %23 = add i64 %21, 1
-  %24 = sub i64 %23, %22
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %27, label %37, label %31
+15:                                               ; preds = %8
+  %16 = icmp eq i32 %2, 0
+  %17 = and i64 %10, 128
+  %18 = icmp eq i64 %17, 0
+  %19 = select i1 %18, i32 0, i32 3
+  %20 = select i1 %16, i32 %19, i32 %2
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = load i64, ptr %1, align 8
+  %24 = add i64 %22, 1
+  %25 = sub i64 %24, %23
+  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %28, label %38, label %32
 
-31:                                               ; preds = %14
-  br i1 %30, label %32, label %34
+32:                                               ; preds = %15
+  br i1 %31, label %33, label %35
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %0, align 8
-  br label %34
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %0, align 8
+  br label %35
 
-34:                                               ; preds = %32, %31
-  %35 = phi ptr [ %33, %32 ], [ %29, %31 ]
-  %36 = tail call noalias ptr (ptr, i32, ptr, ...) @devm_kasprintf(ptr noundef nonnull %0, i32 noundef 3264, ptr noundef nonnull @.str.7, ptr noundef %35, ptr noundef nonnull %26) #5
-  br label %43
+35:                                               ; preds = %33, %32
+  %36 = phi ptr [ %34, %33 ], [ %30, %32 ]
+  %37 = tail call noalias ptr (ptr, i32, ptr, ...) @devm_kasprintf(ptr noundef nonnull %0, i32 noundef 3264, ptr noundef nonnull @.str.7, ptr noundef %36, ptr noundef nonnull %27) #5
+  br label %44
 
-37:                                               ; preds = %14
-  br i1 %30, label %38, label %40
+38:                                               ; preds = %15
+  br i1 %31, label %39, label %41
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %0, align 8
-  br label %40
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %0, align 8
+  br label %41
 
-40:                                               ; preds = %38, %37
-  %41 = phi ptr [ %39, %38 ], [ %29, %37 ]
-  %42 = tail call noalias ptr @devm_kstrdup(ptr noundef nonnull %0, ptr noundef %41, i32 noundef 3264) #5
-  br label %43
+41:                                               ; preds = %39, %38
+  %42 = phi ptr [ %40, %39 ], [ %30, %38 ]
+  %43 = tail call noalias ptr @devm_kstrdup(ptr noundef nonnull %0, ptr noundef %42, i32 noundef 3264) #5
+  br label %44
 
-43:                                               ; preds = %40, %34
-  %44 = phi ptr [ %36, %34 ], [ %42, %40 ]
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %47
+44:                                               ; preds = %41, %35
+  %45 = phi ptr [ %37, %35 ], [ %43, %41 ]
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %43
+47:                                               ; preds = %44
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %1) #6
-  br label %76
+  %48 = inttoptr i64 -12 to ptr
+  br label %80
 
-47:                                               ; preds = %43
-  %48 = load i64, ptr %1, align 8
-  %49 = tail call ptr @__devm_request_region(ptr noundef nonnull %0, ptr noundef nonnull @iomem_resource, i64 noundef %48, i64 noundef %24, ptr noundef nonnull %44) #5
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %52
+49:                                               ; preds = %44
+  %50 = load i64, ptr %1, align 8
+  %51 = tail call ptr @__devm_request_region(ptr noundef nonnull %0, ptr noundef nonnull @iomem_resource, i64 noundef %50, i64 noundef %25, ptr noundef nonnull %45) #5
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %55
 
-51:                                               ; preds = %47
+53:                                               ; preds = %49
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #6
-  br label %76
+  %54 = inttoptr i64 -16 to ptr
+  br label %80
 
-52:                                               ; preds = %47
-  %53 = load i64, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 640
-  %55 = load i32, ptr %54, align 8
-  %56 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_ioremap_release, i64 noundef 8, i32 noundef 3264, i32 noundef %55, ptr noundef nonnull @.str.5) #5
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %71, label %58
+55:                                               ; preds = %49
+  %56 = load i64, ptr %1, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 640
+  %58 = load i32, ptr %57, align 8
+  %59 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_ioremap_release, i64 noundef 8, i32 noundef 3264, i32 noundef %58, ptr noundef nonnull @.str.5) #5
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %74, label %61
 
-58:                                               ; preds = %52
-  switch i32 %19, label %65 [
-    i32 0, label %59
-    i32 1, label %61
-    i32 2, label %63
-    i32 3, label %66
+61:                                               ; preds = %55
+  switch i32 %20, label %68 [
+    i32 0, label %62
+    i32 1, label %64
+    i32 2, label %66
+    i32 3, label %69
   ]
 
-59:                                               ; preds = %58
-  %60 = tail call ptr @ioremap(i64 noundef %53, i64 noundef %24) #5
-  br label %66
+62:                                               ; preds = %61
+  %63 = tail call ptr @ioremap(i64 noundef %56, i64 noundef %25) #5
+  br label %69
 
-61:                                               ; preds = %58
-  %62 = tail call ptr @ioremap_uc(i64 noundef %53, i64 noundef %24) #5
-  br label %66
+64:                                               ; preds = %61
+  %65 = tail call ptr @ioremap_uc(i64 noundef %56, i64 noundef %25) #5
+  br label %69
 
-63:                                               ; preds = %58
-  %64 = tail call ptr @ioremap_wc(i64 noundef %53, i64 noundef %24) #5
-  br label %66
+66:                                               ; preds = %61
+  %67 = tail call ptr @ioremap_wc(i64 noundef %56, i64 noundef %25) #5
+  br label %69
 
-65:                                               ; preds = %58
+68:                                               ; preds = %61
   unreachable
 
-66:                                               ; preds = %63, %61, %59, %58
-  %67 = phi ptr [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ null, %58 ]
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %70, label %69
+69:                                               ; preds = %66, %64, %62, %61
+  %70 = phi ptr [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ null, %61 ]
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %73, label %72
 
-69:                                               ; preds = %66
-  store ptr %67, ptr %56, align 8
-  tail call void @devres_add(ptr noundef nonnull %0, ptr noundef nonnull %56) #5
-  br label %71
+72:                                               ; preds = %69
+  store ptr %70, ptr %59, align 8
+  tail call void @devres_add(ptr noundef nonnull %0, ptr noundef nonnull %59) #5
+  br label %74
 
-70:                                               ; preds = %66
-  tail call void @devres_free(ptr noundef nonnull %56) #5
-  br label %71
+73:                                               ; preds = %69
+  tail call void @devres_free(ptr noundef nonnull %59) #5
+  br label %74
 
-71:                                               ; preds = %70, %69, %52
-  %72 = phi ptr [ null, %52 ], [ %67, %70 ], [ %67, %69 ]
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %76
+74:                                               ; preds = %73, %72, %55
+  %75 = phi ptr [ null, %55 ], [ %70, %73 ], [ %70, %72 ]
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %80
 
-74:                                               ; preds = %71
+77:                                               ; preds = %74
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %1) #6
-  %75 = load i64, ptr %1, align 8
-  tail call void @__devm_release_region(ptr noundef nonnull %0, ptr noundef nonnull @iomem_resource, i64 noundef %75, i64 noundef %24) #5
-  br label %76
+  %78 = load i64, ptr %1, align 8
+  tail call void @__devm_release_region(ptr noundef nonnull %0, ptr noundef nonnull @iomem_resource, i64 noundef %78, i64 noundef %25) #5
+  %79 = inttoptr i64 -12 to ptr
+  br label %80
 
-76:                                               ; preds = %74, %71, %51, %46, %13
-  %77 = phi ptr [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -16 to ptr), %51 ], [ inttoptr (i64 -12 to ptr), %46 ], [ %72, %71 ], [ inttoptr (i64 -12 to ptr), %74 ]
-  ret ptr %77
+80:                                               ; preds = %77, %74, %53, %47, %13
+  %81 = phi ptr [ %14, %13 ], [ %54, %53 ], [ %48, %47 ], [ %75, %74 ], [ %79, %77 ]
+  ret ptr %81
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -331,7 +335,8 @@ define dso_local ptr @devm_ioremap_resource_wc(ptr noundef %0, ptr noundef %1) l
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local noundef nonnull ptr @devm_of_iomap(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #3 align 16 {
-  ret ptr inttoptr (i64 -22 to ptr)
+  %5 = inttoptr i64 -22 to ptr
+  ret ptr %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

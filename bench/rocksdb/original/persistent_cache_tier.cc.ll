@@ -1291,7 +1291,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb21PersistentTieredCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7rocksdb21PersistentTieredCacheE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %tiers_ = getelementptr inbounds %"class.rocksdb::PersistentTieredCache", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx114listISt10shared_ptrIN7rocksdb19PersistentCacheTierEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %tiers_) #11
   call void @_ZN7rocksdb19PersistentCacheTierD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #11
@@ -1660,7 +1661,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb19PersistentCacheTierE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTVN7rocksdb19PersistentCacheTierE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next_tier_ = getelementptr inbounds %"class.rocksdb::PersistentCacheTier", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN7rocksdb19PersistentCacheTierEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %next_tier_) #11
   call void @_ZN7rocksdb15PersistentCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11

@@ -702,73 +702,75 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   store ptr @_ZL23ID_COMPAT_MATH_CONTINUE, ptr %__range2, align 8
   store ptr @_ZL23ID_COMPAT_MATH_CONTINUE, ptr %__begin2, align 8
-  store ptr getelementptr inbounds (i32, ptr @_ZL23ID_COMPAT_MATH_CONTINUE, i64 10), ptr %__end2, align 8
+  %3 = getelementptr inbounds i32, ptr @_ZL23ID_COMPAT_MATH_CONTINUE, i64 10
+  store ptr %3, ptr %__end2, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.then1
-  %3 = load ptr, ptr %__begin2, align 8
-  %4 = load ptr, ptr %__end2, align 8
-  %cmp2 = icmp ne ptr %3, %4
+  %4 = load ptr, ptr %__begin2, align 8
+  %5 = load ptr, ptr %__end2, align 8
+  %cmp2 = icmp ne ptr %4, %5
   br i1 %cmp2, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %__begin2, align 8
-  %6 = load i32, ptr %5, align 4
-  store i32 %6, ptr %c, align 4
-  %7 = load ptr, ptr %sa.addr, align 8
-  %add = getelementptr inbounds %struct.USetAdder, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %add, align 8
-  %9 = load ptr, ptr %sa.addr, align 8
-  %set = getelementptr inbounds %struct.USetAdder, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %set, align 8
-  %11 = load i32, ptr %c, align 4
-  call void %8(ptr noundef %10, i32 noundef %11)
+  %6 = load ptr, ptr %__begin2, align 8
+  %7 = load i32, ptr %6, align 4
+  store i32 %7, ptr %c, align 4
+  %8 = load ptr, ptr %sa.addr, align 8
+  %add = getelementptr inbounds %struct.USetAdder, ptr %8, i32 0, i32 1
+  %9 = load ptr, ptr %add, align 8
+  %10 = load ptr, ptr %sa.addr, align 8
+  %set = getelementptr inbounds %struct.USetAdder, ptr %10, i32 0, i32 0
+  %11 = load ptr, ptr %set, align 8
+  %12 = load i32, ptr %c, align 4
+  call void %9(ptr noundef %11, i32 noundef %12)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %12 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %12, i32 1
+  %13 = load ptr, ptr %__begin2, align 8
+  %incdec.ptr = getelementptr inbounds i32, ptr %13, i32 1
   store ptr %incdec.ptr, ptr %__begin2, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond
   store ptr @_ZL20ID_COMPAT_MATH_START, ptr %__range23, align 8
   store ptr @_ZL20ID_COMPAT_MATH_START, ptr %__begin24, align 8
-  store ptr getelementptr inbounds (i32, ptr @_ZL20ID_COMPAT_MATH_START, i64 13), ptr %__end25, align 8
+  %14 = getelementptr inbounds i32, ptr @_ZL20ID_COMPAT_MATH_START, i64 13
+  store ptr %14, ptr %__end25, align 8
   br label %for.cond6
 
 for.cond6:                                        ; preds = %for.inc15, %for.end
-  %13 = load ptr, ptr %__begin24, align 8
-  %14 = load ptr, ptr %__end25, align 8
-  %cmp7 = icmp ne ptr %13, %14
+  %15 = load ptr, ptr %__begin24, align 8
+  %16 = load ptr, ptr %__end25, align 8
+  %cmp7 = icmp ne ptr %15, %16
   br i1 %cmp7, label %for.body8, label %for.end17
 
 for.body8:                                        ; preds = %for.cond6
-  %15 = load ptr, ptr %__begin24, align 8
-  %16 = load i32, ptr %15, align 4
-  store i32 %16, ptr %c9, align 4
-  %17 = load ptr, ptr %sa.addr, align 8
-  %add10 = getelementptr inbounds %struct.USetAdder, ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %add10, align 8
+  %17 = load ptr, ptr %__begin24, align 8
+  %18 = load i32, ptr %17, align 4
+  store i32 %18, ptr %c9, align 4
   %19 = load ptr, ptr %sa.addr, align 8
-  %set11 = getelementptr inbounds %struct.USetAdder, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %set11, align 8
-  %21 = load i32, ptr %c9, align 4
-  call void %18(ptr noundef %20, i32 noundef %21)
-  %22 = load ptr, ptr %sa.addr, align 8
-  %add12 = getelementptr inbounds %struct.USetAdder, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %add12, align 8
+  %add10 = getelementptr inbounds %struct.USetAdder, ptr %19, i32 0, i32 1
+  %20 = load ptr, ptr %add10, align 8
+  %21 = load ptr, ptr %sa.addr, align 8
+  %set11 = getelementptr inbounds %struct.USetAdder, ptr %21, i32 0, i32 0
+  %22 = load ptr, ptr %set11, align 8
+  %23 = load i32, ptr %c9, align 4
+  call void %20(ptr noundef %22, i32 noundef %23)
   %24 = load ptr, ptr %sa.addr, align 8
-  %set13 = getelementptr inbounds %struct.USetAdder, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %set13, align 8
-  %26 = load i32, ptr %c9, align 4
-  %add14 = add nsw i32 %26, 1
-  call void %23(ptr noundef %25, i32 noundef %add14)
+  %add12 = getelementptr inbounds %struct.USetAdder, ptr %24, i32 0, i32 1
+  %25 = load ptr, ptr %add12, align 8
+  %26 = load ptr, ptr %sa.addr, align 8
+  %set13 = getelementptr inbounds %struct.USetAdder, ptr %26, i32 0, i32 0
+  %27 = load ptr, ptr %set13, align 8
+  %28 = load i32, ptr %c9, align 4
+  %add14 = add nsw i32 %28, 1
+  call void %25(ptr noundef %27, i32 noundef %add14)
   br label %for.inc15
 
 for.inc15:                                        ; preds = %for.body8
-  %27 = load ptr, ptr %__begin24, align 8
-  %incdec.ptr16 = getelementptr inbounds i32, ptr %27, i32 1
+  %29 = load ptr, ptr %__begin24, align 8
+  %incdec.ptr16 = getelementptr inbounds i32, ptr %29, i32 1
   store ptr %incdec.ptr16, ptr %__begin24, align 8
   br label %for.cond6
 
@@ -776,8 +778,8 @@ for.end17:                                        ; preds = %for.cond6
   br label %while.end
 
 if.end18:                                         ; preds = %if.end
-  %28 = load ptr, ptr %pErrorCode.addr, align 8
-  %call19 = call noundef signext i8 @_ZN12_GLOBAL__N_118ulayout_ensureDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %28)
+  %30 = load ptr, ptr %pErrorCode.addr, align 8
+  %call19 = call noundef signext i8 @_ZN12_GLOBAL__N_118ulayout_ensureDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %30)
   %tobool20 = icmp ne i8 %call19, 0
   br i1 %tobool20, label %if.end22, label %if.then21
 
@@ -785,41 +787,41 @@ if.then21:                                        ; preds = %if.end18
   br label %while.end
 
 if.end22:                                         ; preds = %if.end18
-  %29 = load i32, ptr %src.addr, align 4
-  switch i32 %29, label %sw.default [
+  %31 = load i32, ptr %src.addr, align 4
+  switch i32 %31, label %sw.default [
     i32 12, label %sw.bb
     i32 13, label %sw.bb23
     i32 14, label %sw.bb24
   ]
 
 sw.bb:                                            ; preds = %if.end22
-  %30 = load ptr, ptr @_ZN12_GLOBAL__N_19gInpcTrieE, align 8
-  store ptr %30, ptr %trie, align 8
-  br label %sw.epilog
-
-sw.bb23:                                          ; preds = %if.end22
-  %31 = load ptr, ptr @_ZN12_GLOBAL__N_19gInscTrieE, align 8
-  store ptr %31, ptr %trie, align 8
-  br label %sw.epilog
-
-sw.bb24:                                          ; preds = %if.end22
-  %32 = load ptr, ptr @_ZN12_GLOBAL__N_17gVoTrieE, align 8
+  %32 = load ptr, ptr @_ZN12_GLOBAL__N_19gInpcTrieE, align 8
   store ptr %32, ptr %trie, align 8
   br label %sw.epilog
 
+sw.bb23:                                          ; preds = %if.end22
+  %33 = load ptr, ptr @_ZN12_GLOBAL__N_19gInscTrieE, align 8
+  store ptr %33, ptr %trie, align 8
+  br label %sw.epilog
+
+sw.bb24:                                          ; preds = %if.end22
+  %34 = load ptr, ptr @_ZN12_GLOBAL__N_17gVoTrieE, align 8
+  store ptr %34, ptr %trie, align 8
+  br label %sw.epilog
+
 sw.default:                                       ; preds = %if.end22
-  %33 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %33, align 4
+  %35 = load ptr, ptr %pErrorCode.addr, align 8
+  store i32 1, ptr %35, align 4
   br label %while.end
 
 sw.epilog:                                        ; preds = %sw.bb24, %sw.bb23, %sw.bb
-  %34 = load ptr, ptr %trie, align 8
-  %cmp25 = icmp eq ptr %34, null
+  %36 = load ptr, ptr %trie, align 8
+  %cmp25 = icmp eq ptr %36, null
   br i1 %cmp25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %sw.epilog
-  %35 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 2, ptr %35, align 4
+  %37 = load ptr, ptr %pErrorCode.addr, align 8
+  store i32 2, ptr %37, align 4
   br label %while.end
 
 if.end27:                                         ; preds = %sw.epilog
@@ -827,24 +829,24 @@ if.end27:                                         ; preds = %sw.epilog
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end27
-  %36 = load ptr, ptr %trie, align 8
-  %37 = load i32, ptr %start, align 4
-  %call28 = call i32 @ucptrie_getRange_75(ptr noundef %36, i32 noundef %37, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  %38 = load ptr, ptr %trie, align 8
+  %39 = load i32, ptr %start, align 4
+  %call28 = call i32 @ucptrie_getRange_75(ptr noundef %38, i32 noundef %39, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   store i32 %call28, ptr %end, align 4
   %cmp29 = icmp sge i32 %call28, 0
   br i1 %cmp29, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %38 = load ptr, ptr %sa.addr, align 8
-  %add30 = getelementptr inbounds %struct.USetAdder, ptr %38, i32 0, i32 1
-  %39 = load ptr, ptr %add30, align 8
   %40 = load ptr, ptr %sa.addr, align 8
-  %set31 = getelementptr inbounds %struct.USetAdder, ptr %40, i32 0, i32 0
-  %41 = load ptr, ptr %set31, align 8
-  %42 = load i32, ptr %start, align 4
-  call void %39(ptr noundef %41, i32 noundef %42)
-  %43 = load i32, ptr %end, align 4
-  %add32 = add nsw i32 %43, 1
+  %add30 = getelementptr inbounds %struct.USetAdder, ptr %40, i32 0, i32 1
+  %41 = load ptr, ptr %add30, align 8
+  %42 = load ptr, ptr %sa.addr, align 8
+  %set31 = getelementptr inbounds %struct.USetAdder, ptr %42, i32 0, i32 0
+  %43 = load ptr, ptr %set31, align 8
+  %44 = load i32, ptr %start, align 4
+  call void %41(ptr noundef %43, i32 noundef %44)
+  %45 = load i32, ptr %end, align 4
+  %add32 = add nsw i32 %45, 1
   store i32 %add32, ptr %start, align 4
   br label %while.cond, !llvm.loop !4
 
@@ -1222,7 +1224,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -2263,22 +2266,23 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store ptr @_ZL20ID_COMPAT_MATH_START, ptr %__range1, align 8
   store ptr @_ZL20ID_COMPAT_MATH_START, ptr %__begin1, align 8
-  store ptr getelementptr inbounds (i32, ptr @_ZL20ID_COMPAT_MATH_START, i64 13), ptr %__end1, align 8
+  %4 = getelementptr inbounds i32, ptr @_ZL20ID_COMPAT_MATH_START, i64 13
+  store ptr %4, ptr %__end1, align 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end
-  %4 = load ptr, ptr %__begin1, align 8
-  %5 = load ptr, ptr %__end1, align 8
-  %cmp2 = icmp ne ptr %4, %5
+  %5 = load ptr, ptr %__begin1, align 8
+  %6 = load ptr, ptr %__end1, align 8
+  %cmp2 = icmp ne ptr %5, %6
   br i1 %cmp2, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %6 = load ptr, ptr %__begin1, align 8
-  %7 = load i32, ptr %6, align 4
-  store i32 %7, ptr %startChar, align 4
-  %8 = load i32, ptr %c.addr, align 4
-  %9 = load i32, ptr %startChar, align 4
-  %cmp3 = icmp eq i32 %8, %9
+  %7 = load ptr, ptr %__begin1, align 8
+  %8 = load i32, ptr %7, align 4
+  store i32 %8, ptr %startChar, align 4
+  %9 = load i32, ptr %c.addr, align 4
+  %10 = load i32, ptr %startChar, align 4
+  %cmp3 = icmp eq i32 %9, %10
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %for.body
@@ -2289,8 +2293,8 @@ if.end5:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end5
-  %10 = load ptr, ptr %__begin1, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %10, i32 1
+  %11 = load ptr, ptr %__begin1, align 8
+  %incdec.ptr = getelementptr inbounds i32, ptr %11, i32 1
   store ptr %incdec.ptr, ptr %__begin1, align 8
   br label %for.cond
 
@@ -2299,8 +2303,8 @@ for.end:                                          ; preds = %for.cond
   br label %return
 
 return:                                           ; preds = %for.end, %if.then4, %if.then
-  %11 = load i8, ptr %retval, align 1
-  ret i8 %11
+  %12 = load i8, ptr %retval, align 1
+  ret i8 %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3710,7 +3714,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3720,7 +3725,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

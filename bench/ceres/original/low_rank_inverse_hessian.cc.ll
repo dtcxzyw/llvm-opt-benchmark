@@ -1364,81 +1364,82 @@ define hidden void @_ZN5ceres8internal21LowRankInverseHessianC2Eiib(ptr noundef 
   store i8 %11, ptr %8, align 1
   %12 = load ptr, ptr %5, align 8
   call void @_ZN5ceres8internal14LinearOperatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #12
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5ceres8internal21LowRankInverseHessianE, i32 0, i32 0, i32 2), ptr %12, align 8
-  %13 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 1
-  %14 = load i32, ptr %6, align 4
-  store i32 %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 2
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 3
-  %18 = load i8, ptr %8, align 1
-  %19 = trunc i8 %18 to i1
-  %20 = zext i1 %19 to i8
-  store i8 %20, ptr %17, align 8
-  %21 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 4
-  store double 1.000000e+00, ptr %21, align 8
-  %22 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 5
-  invoke void @_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
-          to label %23 unwind label %29
+  %13 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5ceres8internal21LowRankInverseHessianE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 1
+  %15 = load i32, ptr %6, align 4
+  store i32 %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 2
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 3
+  %19 = load i8, ptr %8, align 1
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i8
+  store i8 %21, ptr %18, align 8
+  %22 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 4
+  store double 1.000000e+00, ptr %22, align 8
+  %23 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 5
+  invoke void @_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+          to label %24 unwind label %30
 
-23:                                               ; preds = %4
-  %24 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 6
-  invoke void @_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
-          to label %25 unwind label %33
+24:                                               ; preds = %4
+  %25 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 6
+  invoke void @_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+          to label %26 unwind label %34
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 7
-  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(4) %7)
-          to label %27 unwind label %37
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 7
+  invoke void @_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 4 dereferenceable(4) %7)
+          to label %28 unwind label %38
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 8
-  call void @_ZNSt7__cxx114listIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #12
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds %"class.ceres::internal::LowRankInverseHessian", ptr %12, i32 0, i32 8
+  call void @_ZNSt7__cxx114listIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #12
   ret void
 
-29:                                               ; preds = %4
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %4
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %9, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %10, align 4
-  br label %42
-
-33:                                               ; preds = %23
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %9, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %10, align 4
-  br label %41
-
-37:                                               ; preds = %25
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  %39 = extractvalue { ptr, i32 } %38, 0
-  store ptr %39, ptr %9, align 8
-  %40 = extractvalue { ptr, i32 } %38, 1
-  store i32 %40, ptr %10, align 4
-  call void @_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #12
-  br label %41
-
-41:                                               ; preds = %37, %33
-  call void @_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #12
-  br label %42
-
-42:                                               ; preds = %41, %29
-  call void @_ZN5ceres8internal14LinearOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %9, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %10, align 4
   br label %43
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %9, align 8
-  %45 = load i32, ptr %10, align 4
-  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
-  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
-  resume { ptr, i32 } %47
+34:                                               ; preds = %24
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %9, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %10, align 4
+  br label %42
+
+38:                                               ; preds = %26
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %9, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %10, align 4
+  call void @_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #12
+  br label %42
+
+42:                                               ; preds = %38, %34
+  call void @_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #12
+  br label %43
+
+43:                                               ; preds = %42, %30
+  call void @_ZN5ceres8internal14LinearOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %9, align 8
+  %46 = load i32, ptr %10, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1446,7 +1447,8 @@ define linkonce_odr hidden void @_ZN5ceres8internal14LinearOperatorC2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5ceres8internal14LinearOperatorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5ceres8internal14LinearOperatorE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3513,7 +3515,8 @@ define linkonce_odr hidden void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3527,7 +3530,8 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 

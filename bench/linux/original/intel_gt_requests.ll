@@ -8,69 +8,70 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_engine_add_retire(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 296
-  %4 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, ptr nonnull inttoptr (i64 1 to ptr), ptr null, ptr elementtype(i64) %3) #7, !srcloc !5
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %45
+  %4 = inttoptr i64 1 to ptr
+  %5 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, ptr nonnull %4, ptr null, ptr elementtype(i64) %3) #7, !srcloc !5
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %46
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 352
-  %8 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, i32 1, ptr elementtype(i32) %7) #7, !srcloc !6
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %14, label %10, !prof !7
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %1, i64 352
+  %9 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, i32 1, ptr elementtype(i32) %8) #7, !srcloc !6
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %15, label %11, !prof !7
 
-10:                                               ; preds = %6
-  %11 = add i32 %8, 1
-  %12 = or i32 %11, %8
-  %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %16, label %14, !prof !8
+11:                                               ; preds = %7
+  %12 = add i32 %9, 1
+  %13 = or i32 %12, %9
+  %14 = icmp sgt i32 %13, -1
+  br i1 %14, label %17, label %15, !prof !8
 
-14:                                               ; preds = %10, %6
-  %15 = phi i32 [ 2, %6 ], [ 1, %10 ]
-  tail call void @refcount_warn_saturate(ptr noundef %7, i32 noundef %15) #7
-  br label %16
+15:                                               ; preds = %11, %7
+  %16 = phi i32 [ 2, %7 ], [ 1, %11 ]
+  tail call void @refcount_warn_saturate(ptr noundef %8, i32 noundef %16) #7
+  br label %17
 
-16:                                               ; preds = %14, %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 1192
-  %18 = load volatile ptr, ptr %17, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = or i64 %19, 1
-  %21 = inttoptr i64 %20 to ptr
-  store ptr %21, ptr %3, align 8
-  %22 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %17, ptr %1, ptr elementtype(i64) %17, ptr %18) #7, !srcloc !9
-  %23 = extractvalue { i8, ptr } %22, 0
-  %24 = icmp ult i8 %23, 2
-  tail call void @llvm.assume(i1 %24)
-  %25 = icmp eq i8 %23, 0
-  br i1 %25, label %26, label %36, !prof !10
+17:                                               ; preds = %15, %11
+  %18 = getelementptr inbounds i8, ptr %0, i64 1192
+  %19 = load volatile ptr, ptr %18, align 8
+  %20 = ptrtoint ptr %19 to i64
+  %21 = or i64 %20, 1
+  %22 = inttoptr i64 %21 to ptr
+  store ptr %22, ptr %3, align 8
+  %23 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %18, ptr %1, ptr elementtype(i64) %18, ptr %19) #7, !srcloc !9
+  %24 = extractvalue { i8, ptr } %23, 0
+  %25 = icmp ult i8 %24, 2
+  tail call void @llvm.assume(i1 %25)
+  %26 = icmp eq i8 %24, 0
+  br i1 %26, label %27, label %37, !prof !10
 
-26:                                               ; preds = %26, %16
-  %27 = phi { i8, ptr } [ %32, %26 ], [ %22, %16 ]
-  %28 = extractvalue { i8, ptr } %27, 1
-  %29 = ptrtoint ptr %28 to i64
-  %30 = or i64 %29, 1
-  %31 = inttoptr i64 %30 to ptr
-  store ptr %31, ptr %3, align 8
-  %32 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %17, ptr %1, ptr elementtype(i64) %17, ptr %28) #7, !srcloc !9
-  %33 = extractvalue { i8, ptr } %32, 0
-  %34 = icmp ult i8 %33, 2
-  tail call void @llvm.assume(i1 %34)
-  %35 = icmp eq i8 %33, 0
-  br i1 %35, label %26, label %36, !prof !11, !llvm.loop !12
+27:                                               ; preds = %27, %17
+  %28 = phi { i8, ptr } [ %33, %27 ], [ %23, %17 ]
+  %29 = extractvalue { i8, ptr } %28, 1
+  %30 = ptrtoint ptr %29 to i64
+  %31 = or i64 %30, 1
+  %32 = inttoptr i64 %31 to ptr
+  store ptr %32, ptr %3, align 8
+  %33 = tail call { i8, ptr } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %18, ptr %1, ptr elementtype(i64) %18, ptr %29) #7, !srcloc !9
+  %34 = extractvalue { i8, ptr } %33, 0
+  %35 = icmp ult i8 %34, 2
+  tail call void @llvm.assume(i1 %35)
+  %36 = icmp eq i8 %34, 0
+  br i1 %36, label %27, label %37, !prof !11, !llvm.loop !12
 
-36:                                               ; preds = %26, %16
-  %37 = phi ptr [ %18, %16 ], [ %28, %26 ]
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %45
+37:                                               ; preds = %27, %17
+  %38 = phi ptr [ %19, %17 ], [ %29, %27 ]
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %46
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8096
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 1200
-  %44 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %42, ptr noundef %43) #7
-  br label %45
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 8096
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 1200
+  %45 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %43, ptr noundef %44) #7
+  br label %46
 
-45:                                               ; preds = %39, %36, %2
+46:                                               ; preds = %40, %37, %2
   ret void
 }
 
@@ -226,12 +227,12 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
   %34 = getelementptr inbounds i8, ptr %0, i64 3152
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %34
-  br i1 %36, label %180, label %37
+  br i1 %36, label %182, label %37
 
-37:                                               ; preds = %175, %33
-  %38 = phi i64 [ %178, %175 ], [ %1, %33 ]
-  %39 = phi ptr [ %177, %175 ], [ %35, %33 ]
-  %40 = phi i64 [ %176, %175 ], [ 0, %33 ]
+37:                                               ; preds = %177, %33
+  %38 = phi i64 [ %180, %177 ], [ %1, %33 ]
+  %39 = phi ptr [ %179, %177 ], [ %35, %33 ]
+  %40 = phi i64 [ %178, %177 ], [ 0, %33 ]
   %41 = load ptr, ptr %39, align 8
   %42 = getelementptr i8, ptr %39, i64 -296
   %43 = call i32 @mutex_trylock(ptr noundef %42) #7
@@ -240,7 +241,7 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
 
 45:                                               ; preds = %37
   %46 = add i64 %40, 1
-  br label %175
+  br label %177
 
 47:                                               ; preds = %37
   %48 = getelementptr i8, ptr %39, i64 40
@@ -396,7 +397,7 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
   %126 = phi i32 [ 0, %106 ], [ %122, %119 ]
   %127 = phi i64 [ %40, %106 ], [ %124, %119 ]
   %128 = phi i64 [ %38, %106 ], [ %109, %119 ]
-  switch i32 %126, label %234 [
+  switch i32 %126, label %236 [
     i32 0, label %129
     i32 5, label %150
   ]
@@ -442,7 +443,7 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
   %155 = icmp ult i8 %154, 2
   call void @llvm.assume(i1 %155)
   %156 = icmp eq i8 %154, 0
-  br i1 %156, label %162, label %157
+  br i1 %156, label %164, label %157
 
 157:                                              ; preds = %150
   %158 = getelementptr inbounds i8, ptr %39, i64 8
@@ -451,134 +452,136 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
   %161 = getelementptr inbounds i8, ptr %160, i64 8
   store ptr %159, ptr %161, align 8
   store volatile ptr %160, ptr %159, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %39, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %158, align 8
-  br label %162
+  %162 = inttoptr i64 -2401263026318606080 to ptr
+  store ptr %162, ptr %39, align 8
+  %163 = inttoptr i64 -2401263026318606046 to ptr
+  store ptr %163, ptr %158, align 8
+  br label %164
 
-162:                                              ; preds = %157, %150
-  %163 = getelementptr i8, ptr %39, i64 40
-  %164 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %163, i32 -1, ptr elementtype(i32) %163) #7, !srcloc !18
-  %165 = icmp eq i32 %164, 1
-  br i1 %165, label %166, label %167
+164:                                              ; preds = %157, %150
+  %165 = getelementptr i8, ptr %39, i64 40
+  %166 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %165, i32 -1, ptr elementtype(i32) %165) #7, !srcloc !18
+  %167 = icmp eq i32 %166, 1
+  br i1 %167, label %168, label %169
 
-166:                                              ; preds = %162
+168:                                              ; preds = %164
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
-  br label %170
+  br label %172
 
-167:                                              ; preds = %162
-  %168 = icmp sgt i32 %164, 0
-  br i1 %168, label %170, label %169, !prof !8
+169:                                              ; preds = %164
+  %170 = icmp sgt i32 %166, 0
+  br i1 %170, label %172, label %171, !prof !8
 
-169:                                              ; preds = %167
-  call void @refcount_warn_saturate(ptr noundef %163, i32 noundef 3) #7
-  br label %170
+171:                                              ; preds = %169
+  call void @refcount_warn_saturate(ptr noundef %165, i32 noundef 3) #7
+  br label %172
 
-170:                                              ; preds = %169, %167, %166
-  br i1 %165, label %171, label %175
+172:                                              ; preds = %171, %169, %168
+  br i1 %167, label %173, label %177
 
-171:                                              ; preds = %170
-  %172 = load ptr, ptr %4, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 8
-  store ptr %39, ptr %173, align 8
-  store ptr %172, ptr %39, align 8
-  %174 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr %4, ptr %174, align 8
+173:                                              ; preds = %172
+  %174 = load ptr, ptr %4, align 8
+  %175 = getelementptr inbounds i8, ptr %174, i64 8
+  store ptr %39, ptr %175, align 8
+  store ptr %174, ptr %39, align 8
+  %176 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %4, ptr %176, align 8
   store volatile ptr %39, ptr %4, align 8
-  br label %175
+  br label %177
 
-175:                                              ; preds = %171, %170, %45
-  %176 = phi i64 [ %151, %171 ], [ %151, %170 ], [ %46, %45 ]
-  %177 = phi ptr [ %153, %171 ], [ %153, %170 ], [ %41, %45 ]
-  %178 = phi i64 [ %152, %171 ], [ %152, %170 ], [ %38, %45 ]
-  %179 = icmp eq ptr %177, %34
-  br i1 %179, label %180, label %37, !llvm.loop !29
+177:                                              ; preds = %173, %172, %45
+  %178 = phi i64 [ %151, %173 ], [ %151, %172 ], [ %46, %45 ]
+  %179 = phi ptr [ %153, %173 ], [ %153, %172 ], [ %41, %45 ]
+  %180 = phi i64 [ %152, %173 ], [ %152, %172 ], [ %38, %45 ]
+  %181 = icmp eq ptr %179, %34
+  br i1 %181, label %182, label %37, !llvm.loop !29
 
-180:                                              ; preds = %175, %33
-  %181 = phi i64 [ 0, %33 ], [ %176, %175 ]
-  %182 = phi i64 [ %1, %33 ], [ %178, %175 ]
+182:                                              ; preds = %177, %33
+  %183 = phi i64 [ 0, %33 ], [ %178, %177 ]
+  %184 = phi i64 [ %1, %33 ], [ %180, %177 ]
   call void @_raw_spin_unlock(ptr noundef %5) #7
-  %183 = load ptr, ptr %4, align 8
-  %184 = icmp eq ptr %183, %4
-  br i1 %184, label %190, label %185
+  %185 = load ptr, ptr %4, align 8
+  %186 = icmp eq ptr %185, %4
+  br i1 %186, label %192, label %187
 
-185:                                              ; preds = %185, %180
-  %186 = phi ptr [ %187, %185 ], [ %183, %180 ]
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr i8, ptr %186, i64 40
-  call void @__intel_timeline_free(ptr noundef %188) #7
-  %189 = icmp eq ptr %187, %4
-  br i1 %189, label %190, label %185, !llvm.loop !30
+187:                                              ; preds = %187, %182
+  %188 = phi ptr [ %189, %187 ], [ %185, %182 ]
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr i8, ptr %188, i64 40
+  call void @__intel_timeline_free(ptr noundef %190) #7
+  %191 = icmp eq ptr %189, %4
+  br i1 %191, label %192, label %187, !llvm.loop !30
 
-190:                                              ; preds = %185, %180
-  %191 = icmp eq i64 %182, 0
-  br i1 %191, label %225, label %192
+192:                                              ; preds = %187, %182
+  %193 = icmp eq i64 %184, 0
+  br i1 %193, label %227, label %194
 
-192:                                              ; preds = %190
-  %193 = getelementptr inbounds i8, ptr %0, i64 3336
-  %194 = load volatile i64, ptr %193, align 8
-  %195 = icmp eq i64 %194, 0
-  br i1 %195, label %225, label %196
+194:                                              ; preds = %192
+  %195 = getelementptr inbounds i8, ptr %0, i64 3336
+  %196 = load volatile i64, ptr %195, align 8
+  %197 = icmp eq i64 %196, 0
+  br i1 %197, label %227, label %198
 
-196:                                              ; preds = %192
-  %197 = getelementptr inbounds i8, ptr %0, i64 4040
-  br label %198
+198:                                              ; preds = %194
+  %199 = getelementptr inbounds i8, ptr %0, i64 4040
+  br label %200
 
-198:                                              ; preds = %218, %196
-  %199 = phi i64 [ 0, %196 ], [ %220, %218 ]
-  %200 = phi i8 [ 0, %196 ], [ %219, %218 ]
-  %201 = getelementptr [27 x ptr], ptr %197, i64 0, i64 %199
-  %202 = load ptr, ptr %201, align 8
-  %203 = icmp eq ptr %202, null
-  br i1 %203, label %218, label %204
+200:                                              ; preds = %220, %198
+  %201 = phi i64 [ 0, %198 ], [ %222, %220 ]
+  %202 = phi i8 [ 0, %198 ], [ %221, %220 ]
+  %203 = getelementptr [27 x ptr], ptr %199, i64 0, i64 %201
+  %204 = load ptr, ptr %203, align 8
+  %205 = icmp eq ptr %204, null
+  br i1 %205, label %220, label %206
 
-204:                                              ; preds = %198
-  call void @__intel_engine_flush_submission(ptr noundef nonnull %202, i1 noundef zeroext true) #7
-  %205 = getelementptr inbounds i8, ptr %202, i64 1200
-  %206 = call zeroext i1 @flush_work(ptr noundef %205) #7
-  %207 = getelementptr inbounds i8, ptr %202, i64 416
-  %208 = call zeroext i1 @flush_delayed_work(ptr noundef %207) #7
-  %209 = getelementptr inbounds i8, ptr %202, i64 176
-  %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 112
+206:                                              ; preds = %200
+  call void @__intel_engine_flush_submission(ptr noundef nonnull %204, i1 noundef zeroext true) #7
+  %207 = getelementptr inbounds i8, ptr %204, i64 1200
+  %208 = call zeroext i1 @flush_work(ptr noundef %207) #7
+  %209 = getelementptr inbounds i8, ptr %204, i64 416
+  %210 = call zeroext i1 @flush_delayed_work(ptr noundef %209) #7
+  %211 = getelementptr inbounds i8, ptr %204, i64 176
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 88
-  %214 = load volatile ptr, ptr %213, align 8
-  %215 = icmp ne ptr %214, %213
-  %216 = zext i1 %215 to i8
-  %217 = or i8 %200, %216
-  br label %218
+  %213 = getelementptr inbounds i8, ptr %212, i64 112
+  %214 = load ptr, ptr %213, align 8
+  %215 = getelementptr inbounds i8, ptr %214, i64 88
+  %216 = load volatile ptr, ptr %215, align 8
+  %217 = icmp ne ptr %216, %215
+  %218 = zext i1 %217 to i8
+  %219 = or i8 %202, %218
+  br label %220
 
-218:                                              ; preds = %204, %198
-  %219 = phi i8 [ %217, %204 ], [ %200, %198 ]
-  %220 = add nuw nsw i64 %199, 1
-  %221 = icmp eq i64 %220, 27
-  br i1 %221, label %222, label %198, !llvm.loop !23
+220:                                              ; preds = %206, %200
+  %221 = phi i8 [ %219, %206 ], [ %202, %200 ]
+  %222 = add nuw nsw i64 %201, 1
+  %223 = icmp eq i64 %222, 27
+  br i1 %223, label %224, label %200, !llvm.loop !23
 
-222:                                              ; preds = %218
-  %223 = and i8 %219, 1
-  %224 = zext nneg i8 %223 to i64
-  br label %225
+224:                                              ; preds = %220
+  %225 = and i8 %221, 1
+  %226 = zext nneg i8 %225 to i64
+  br label %227
 
-225:                                              ; preds = %222, %192, %190
-  %226 = phi i64 [ %224, %222 ], [ 0, %190 ], [ 0, %192 ]
-  %227 = icmp eq ptr %2, null
-  br i1 %227, label %229, label %228
+227:                                              ; preds = %224, %194, %192
+  %228 = phi i64 [ %226, %224 ], [ 0, %192 ], [ 0, %194 ]
+  %229 = icmp eq ptr %2, null
+  br i1 %229, label %231, label %230
 
-228:                                              ; preds = %225
-  store i64 %182, ptr %2, align 8
-  br label %229
+230:                                              ; preds = %227
+  store i64 %184, ptr %2, align 8
+  br label %231
 
-229:                                              ; preds = %228, %225
-  %230 = sub nsw i64 0, %226
-  %231 = icmp eq i64 %181, %230
-  %232 = select i1 %191, i64 -62, i64 %182
-  %233 = select i1 %231, i64 0, i64 %232
-  br label %234
+231:                                              ; preds = %230, %227
+  %232 = sub nsw i64 0, %228
+  %233 = icmp eq i64 %183, %232
+  %234 = select i1 %193, i64 -62, i64 %184
+  %235 = select i1 %233, i64 0, i64 %234
+  br label %236
 
-234:                                              ; preds = %229, %125
-  %235 = phi i64 [ %233, %229 ], [ undef, %125 ]
+236:                                              ; preds = %231, %125
+  %237 = phi i64 [ %235, %231 ], [ undef, %125 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  ret i64 %235
+  ret i64 %237
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -676,93 +679,95 @@ define dso_local void @intel_gt_watchdog_work(ptr noundef %0) local_unnamed_addr
   %2 = getelementptr i8, ptr %0, i64 -8
   %3 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %2, ptr null, ptr elementtype(ptr) %2) #7, !srcloc !31
   %4 = getelementptr i8, ptr %3, i64 -520
-  %5 = icmp eq ptr %4, inttoptr (i64 -520 to ptr)
-  br i1 %5, label %56, label %6
+  %5 = inttoptr i64 -520 to ptr
+  %6 = icmp eq ptr %4, %5
+  br i1 %6, label %58, label %7
 
-6:                                                ; preds = %53, %1
-  %7 = phi ptr [ %54, %53 ], [ %4, %1 ]
-  %8 = phi ptr [ %9, %53 ], [ %3, %1 ]
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr i8, ptr %8, i64 -472
-  %11 = load volatile i64, ptr %10, align 8
-  %12 = and i64 %11, 1
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %41
+7:                                                ; preds = %54, %1
+  %8 = phi ptr [ %55, %54 ], [ %4, %1 ]
+  %9 = phi ptr [ %10, %54 ], [ %3, %1 ]
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr i8, ptr %9, i64 -472
+  %12 = load volatile i64, ptr %11, align 8
+  %13 = and i64 %12, 1
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %42
 
-14:                                               ; preds = %6
+15:                                               ; preds = %7
   tail call void @__rcu_read_lock() #7
-  %15 = load volatile i64, ptr %10, align 8
-  %16 = and i64 %15, 1
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %40, !prof !8
+  %16 = load volatile i64, ptr %11, align 8
+  %17 = and i64 %16, 1
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %41, !prof !8
 
-18:                                               ; preds = %14
-  %19 = getelementptr i8, ptr %8, i64 -72
-  %20 = load volatile ptr, ptr %19, align 8
-  %21 = load volatile i32, ptr %20, align 4
-  %22 = getelementptr i8, ptr %8, i64 -480
-  %23 = load i64, ptr %22, align 8
-  %24 = trunc i64 %23 to i32
-  %25 = sub i32 %21, %24
-  %26 = icmp sgt i32 %25, -1
+19:                                               ; preds = %15
+  %20 = getelementptr i8, ptr %9, i64 -72
+  %21 = load volatile ptr, ptr %20, align 8
+  %22 = load volatile i32, ptr %21, align 4
+  %23 = getelementptr i8, ptr %9, i64 -480
+  %24 = load i64, ptr %23, align 8
+  %25 = trunc i64 %24 to i32
+  %26 = sub i32 %22, %25
+  %27 = icmp sgt i32 %26, -1
   tail call void @__rcu_read_unlock() #7
-  br i1 %26, label %41, label %27
+  br i1 %27, label %42, label %28
 
-27:                                               ; preds = %18
-  %28 = getelementptr i8, ptr %8, i64 -512
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr %31(ptr noundef %7) #7
-  %33 = load ptr, ptr %28, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call ptr %35(ptr noundef %7) #7
-  %37 = getelementptr i8, ptr %8, i64 -480
-  %38 = load i64, ptr %37, align 8
-  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %32, ptr noundef %36, i64 noundef %38) #8
-  tail call void @i915_request_cancel(ptr noundef %7, i32 noundef -4) #7
-  br label %41
+28:                                               ; preds = %19
+  %29 = getelementptr i8, ptr %9, i64 -512
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call ptr %32(ptr noundef %8) #7
+  %34 = load ptr, ptr %29, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call ptr %36(ptr noundef %8) #7
+  %38 = getelementptr i8, ptr %9, i64 -480
+  %39 = load i64, ptr %38, align 8
+  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %33, ptr noundef %37, i64 noundef %39) #8
+  tail call void @i915_request_cancel(ptr noundef %8, i32 noundef -4) #7
+  br label %42
 
-40:                                               ; preds = %14
+41:                                               ; preds = %15
   tail call void @__rcu_read_unlock() #7
-  br label %41
+  br label %42
 
-41:                                               ; preds = %40, %27, %18, %6
-  %42 = icmp eq ptr %7, null
-  br i1 %42, label %53, label %43
+42:                                               ; preds = %41, %28, %19, %7
+  %43 = icmp eq ptr %8, null
+  br i1 %43, label %54, label %44
 
-43:                                               ; preds = %41
-  %44 = getelementptr i8, ptr %8, i64 -464
-  %45 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %44, i32 -1, ptr elementtype(i32) %44) #7, !srcloc !18
-  %46 = icmp eq i32 %45, 1
-  br i1 %46, label %47, label %48
+44:                                               ; preds = %42
+  %45 = getelementptr i8, ptr %9, i64 -464
+  %46 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45, i32 -1, ptr elementtype(i32) %45) #7, !srcloc !18
+  %47 = icmp eq i32 %46, 1
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %43
+48:                                               ; preds = %44
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
-  br label %51
+  br label %52
 
-48:                                               ; preds = %43
-  %49 = icmp sgt i32 %45, 0
-  br i1 %49, label %51, label %50, !prof !8
+49:                                               ; preds = %44
+  %50 = icmp sgt i32 %46, 0
+  br i1 %50, label %52, label %51, !prof !8
 
-50:                                               ; preds = %48
-  tail call void @refcount_warn_saturate(ptr noundef %44, i32 noundef 3) #7
-  br label %51
+51:                                               ; preds = %49
+  tail call void @refcount_warn_saturate(ptr noundef %45, i32 noundef 3) #7
+  br label %52
 
-51:                                               ; preds = %50, %48, %47
-  br i1 %46, label %52, label %53
+52:                                               ; preds = %51, %49, %48
+  br i1 %47, label %53, label %54
 
-52:                                               ; preds = %51
-  tail call void @dma_fence_release(ptr noundef %44) #7, !callees !20
-  br label %53
+53:                                               ; preds = %52
+  tail call void @dma_fence_release(ptr noundef %45) #7, !callees !20
+  br label %54
 
-53:                                               ; preds = %52, %51, %41
-  %54 = getelementptr i8, ptr %9, i64 -520
-  %55 = icmp eq ptr %54, inttoptr (i64 -520 to ptr)
-  br i1 %55, label %56, label %6, !llvm.loop !32
+54:                                               ; preds = %53, %52, %42
+  %55 = getelementptr i8, ptr %10, i64 -520
+  %56 = inttoptr i64 -520 to ptr
+  %57 = icmp eq ptr %55, %56
+  br i1 %57, label %58, label %7, !llvm.loop !32
 
-56:                                               ; preds = %53, %1
+58:                                               ; preds = %54, %1
   ret void
 }
 

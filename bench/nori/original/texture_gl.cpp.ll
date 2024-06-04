@@ -1075,25 +1075,26 @@ define hidden void @_ZN7nanogui7TextureD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.nanogui::Texture", ptr %3, i32 0, i32 10
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef %4)
-          to label %5 unwind label %8
+  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.nanogui::Texture", ptr %3, i32 0, i32 10
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef %5)
+          to label %6 unwind label %9
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds %"class.nanogui::Texture", ptr %3, i32 0, i32 11
-  invoke void @glDeleteRenderbuffers(i32 noundef 1, ptr noundef %6)
-          to label %7 unwind label %8
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds %"class.nanogui::Texture", ptr %3, i32 0, i32 11
+  invoke void @glDeleteRenderbuffers(i32 noundef 1, ptr noundef %7)
+          to label %8 unwind label %9
 
-7:                                                ; preds = %5
+8:                                                ; preds = %6
   call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #8
   ret void
 
-8:                                                ; preds = %5, %1
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %6, %1
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #10
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #10
   unreachable
 }
 

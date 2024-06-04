@@ -238,50 +238,51 @@ if.end32:                                         ; preds = %for.cond28
   br i1 %tobool33, label %land.lhs.true, label %if.end38
 
 land.lhs.true:                                    ; preds = %if.end32
-  %32 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
-  %33 = load ptr, ptr %opt.addr, align 8
-  %max_changes34 = getelementptr inbounds %struct.diff_options, ptr %33, i32 0, i32 34
-  %34 = load i32, ptr %max_changes34, align 8
-  %cmp35 = icmp sgt i32 %32, %34
+  %32 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  %33 = load i32, ptr %32, align 4
+  %34 = load ptr, ptr %opt.addr, align 8
+  %max_changes34 = getelementptr inbounds %struct.diff_options, ptr %34, i32 0, i32 34
+  %35 = load i32, ptr %max_changes34, align 8
+  %cmp35 = icmp sgt i32 %33, %35
   br i1 %cmp35, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %land.lhs.true
   br label %for.end194
 
 if.end38:                                         ; preds = %land.lhs.true, %if.end32
-  %35 = load ptr, ptr %opt.addr, align 8
-  %pathspec39 = getelementptr inbounds %struct.diff_options, ptr %35, i32 0, i32 59
+  %36 = load ptr, ptr %opt.addr, align 8
+  %pathspec39 = getelementptr inbounds %struct.diff_options, ptr %36, i32 0, i32 59
   %nr = getelementptr inbounds %struct.pathspec, ptr %pathspec39, i32 0, i32 0
-  %36 = load i32, ptr %nr, align 8
-  %tobool40 = icmp ne i32 %36, 0
+  %37 = load i32, ptr %nr, align 8
+  %tobool40 = icmp ne i32 %37, 0
   br i1 %tobool40, label %if.then41, label %if.end51
 
 if.then41:                                        ; preds = %if.end38
-  %37 = load ptr, ptr %base.addr, align 8
-  %38 = load ptr, ptr %opt.addr, align 8
-  call void @skip_uninteresting(ptr noundef %t, ptr noundef %37, ptr noundef %38)
+  %38 = load ptr, ptr %base.addr, align 8
+  %39 = load ptr, ptr %opt.addr, align 8
+  call void @skip_uninteresting(ptr noundef %t, ptr noundef %38, ptr noundef %39)
   store i32 0, ptr %i, align 4
   br label %for.cond42
 
 for.cond42:                                       ; preds = %for.inc48, %if.then41
-  %39 = load i32, ptr %i, align 4
-  %40 = load i32, ptr %nparent.addr, align 4
-  %cmp43 = icmp slt i32 %39, %40
+  %40 = load i32, ptr %i, align 4
+  %41 = load i32, ptr %nparent.addr, align 4
+  %cmp43 = icmp slt i32 %40, %41
   br i1 %cmp43, label %for.body45, label %for.end50
 
 for.body45:                                       ; preds = %for.cond42
-  %41 = load ptr, ptr %tp, align 8
-  %42 = load i32, ptr %i, align 4
-  %idxprom46 = sext i32 %42 to i64
-  %arrayidx47 = getelementptr inbounds %struct.tree_desc, ptr %41, i64 %idxprom46
-  %43 = load ptr, ptr %base.addr, align 8
-  %44 = load ptr, ptr %opt.addr, align 8
-  call void @skip_uninteresting(ptr noundef %arrayidx47, ptr noundef %43, ptr noundef %44)
+  %42 = load ptr, ptr %tp, align 8
+  %43 = load i32, ptr %i, align 4
+  %idxprom46 = sext i32 %43 to i64
+  %arrayidx47 = getelementptr inbounds %struct.tree_desc, ptr %42, i64 %idxprom46
+  %44 = load ptr, ptr %base.addr, align 8
+  %45 = load ptr, ptr %opt.addr, align 8
+  call void @skip_uninteresting(ptr noundef %arrayidx47, ptr noundef %44, ptr noundef %45)
   br label %for.inc48
 
 for.inc48:                                        ; preds = %for.body45
-  %45 = load i32, ptr %i, align 4
-  %inc49 = add nsw i32 %45, 1
+  %46 = load i32, ptr %i, align 4
+  %inc49 = add nsw i32 %46, 1
   store i32 %inc49, ptr %i, align 4
   br label %for.cond42, !llvm.loop !7
 
@@ -290,8 +291,8 @@ for.end50:                                        ; preds = %for.cond42
 
 if.end51:                                         ; preds = %for.end50, %if.end38
   %size = getelementptr inbounds %struct.tree_desc, ptr %t, i32 0, i32 2
-  %46 = load i32, ptr %size, align 8
-  %tobool52 = icmp ne i32 %46, 0
+  %47 = load i32, ptr %size, align 8
+  %tobool52 = icmp ne i32 %47, 0
   br i1 %tobool52, label %if.end70, label %if.then53
 
 if.then53:                                        ; preds = %if.end51
@@ -300,19 +301,19 @@ if.then53:                                        ; preds = %if.end51
   br label %for.cond54
 
 for.cond54:                                       ; preds = %for.inc64, %if.then53
-  %47 = load i32, ptr %i, align 4
-  %48 = load i32, ptr %nparent.addr, align 4
-  %cmp55 = icmp slt i32 %47, %48
+  %48 = load i32, ptr %i, align 4
+  %49 = load i32, ptr %nparent.addr, align 4
+  %cmp55 = icmp slt i32 %48, %49
   br i1 %cmp55, label %for.body57, label %for.end66
 
 for.body57:                                       ; preds = %for.cond54
-  %49 = load ptr, ptr %tp, align 8
-  %50 = load i32, ptr %i, align 4
-  %idxprom58 = sext i32 %50 to i64
-  %arrayidx59 = getelementptr inbounds %struct.tree_desc, ptr %49, i64 %idxprom58
+  %50 = load ptr, ptr %tp, align 8
+  %51 = load i32, ptr %i, align 4
+  %idxprom58 = sext i32 %51 to i64
+  %arrayidx59 = getelementptr inbounds %struct.tree_desc, ptr %50, i64 %idxprom58
   %size60 = getelementptr inbounds %struct.tree_desc, ptr %arrayidx59, i32 0, i32 2
-  %51 = load i32, ptr %size60, align 8
-  %tobool61 = icmp ne i32 %51, 0
+  %52 = load i32, ptr %size60, align 8
+  %tobool61 = icmp ne i32 %52, 0
   br i1 %tobool61, label %if.then62, label %if.end63
 
 if.then62:                                        ; preds = %for.body57
@@ -323,14 +324,14 @@ if.end63:                                         ; preds = %for.body57
   br label %for.inc64
 
 for.inc64:                                        ; preds = %if.end63
-  %52 = load i32, ptr %i, align 4
-  %inc65 = add nsw i32 %52, 1
+  %53 = load i32, ptr %i, align 4
+  %inc65 = add nsw i32 %53, 1
   store i32 %inc65, ptr %i, align 4
   br label %for.cond54, !llvm.loop !8
 
 for.end66:                                        ; preds = %if.then62, %for.cond54
-  %53 = load i32, ptr %done, align 4
-  %tobool67 = icmp ne i32 %53, 0
+  %54 = load i32, ptr %done, align 4
+  %tobool67 = icmp ne i32 %54, 0
   br i1 %tobool67, label %if.then68, label %if.end69
 
 if.then68:                                        ; preds = %for.end66
@@ -341,77 +342,77 @@ if.end69:                                         ; preds = %for.end66
 
 if.end70:                                         ; preds = %if.end69, %if.end51
   store i32 0, ptr %imin, align 4
-  %54 = load ptr, ptr %tp, align 8
-  %arrayidx71 = getelementptr inbounds %struct.tree_desc, ptr %54, i64 0
+  %55 = load ptr, ptr %tp, align 8
+  %arrayidx71 = getelementptr inbounds %struct.tree_desc, ptr %55, i64 0
   %entry72 = getelementptr inbounds %struct.tree_desc, ptr %arrayidx71, i32 0, i32 1
   %mode = getelementptr inbounds %struct.name_entry, ptr %entry72, i32 0, i32 3
-  %55 = load i32, ptr %mode, align 4
-  %and = and i32 %55, 2147483647
+  %56 = load i32, ptr %mode, align 4
+  %and = and i32 %56, 2147483647
   store i32 %and, ptr %mode, align 4
   store i32 1, ptr %i, align 4
   br label %for.cond73
 
 for.cond73:                                       ; preds = %for.inc106, %if.end70
-  %56 = load i32, ptr %i, align 4
-  %57 = load i32, ptr %nparent.addr, align 4
-  %cmp74 = icmp slt i32 %56, %57
+  %57 = load i32, ptr %i, align 4
+  %58 = load i32, ptr %nparent.addr, align 4
+  %cmp74 = icmp slt i32 %57, %58
   br i1 %cmp74, label %for.body76, label %for.end108
 
 for.body76:                                       ; preds = %for.cond73
-  %58 = load ptr, ptr %tp, align 8
-  %59 = load i32, ptr %i, align 4
-  %idxprom77 = sext i32 %59 to i64
-  %arrayidx78 = getelementptr inbounds %struct.tree_desc, ptr %58, i64 %idxprom77
-  %60 = load ptr, ptr %tp, align 8
-  %61 = load i32, ptr %imin, align 4
-  %idxprom79 = sext i32 %61 to i64
-  %arrayidx80 = getelementptr inbounds %struct.tree_desc, ptr %60, i64 %idxprom79
+  %59 = load ptr, ptr %tp, align 8
+  %60 = load i32, ptr %i, align 4
+  %idxprom77 = sext i32 %60 to i64
+  %arrayidx78 = getelementptr inbounds %struct.tree_desc, ptr %59, i64 %idxprom77
+  %61 = load ptr, ptr %tp, align 8
+  %62 = load i32, ptr %imin, align 4
+  %idxprom79 = sext i32 %62 to i64
+  %arrayidx80 = getelementptr inbounds %struct.tree_desc, ptr %61, i64 %idxprom79
   %call81 = call i32 @tree_entry_pathcmp(ptr noundef %arrayidx78, ptr noundef %arrayidx80)
   store i32 %call81, ptr %cmp29, align 4
-  %62 = load i32, ptr %cmp29, align 4
-  %cmp82 = icmp slt i32 %62, 0
+  %63 = load i32, ptr %cmp29, align 4
+  %cmp82 = icmp slt i32 %63, 0
   br i1 %cmp82, label %if.then84, label %if.else90
 
 if.then84:                                        ; preds = %for.body76
-  %63 = load i32, ptr %i, align 4
-  store i32 %63, ptr %imin, align 4
-  %64 = load ptr, ptr %tp, align 8
-  %65 = load i32, ptr %i, align 4
-  %idxprom85 = sext i32 %65 to i64
-  %arrayidx86 = getelementptr inbounds %struct.tree_desc, ptr %64, i64 %idxprom85
+  %64 = load i32, ptr %i, align 4
+  store i32 %64, ptr %imin, align 4
+  %65 = load ptr, ptr %tp, align 8
+  %66 = load i32, ptr %i, align 4
+  %idxprom85 = sext i32 %66 to i64
+  %arrayidx86 = getelementptr inbounds %struct.tree_desc, ptr %65, i64 %idxprom85
   %entry87 = getelementptr inbounds %struct.tree_desc, ptr %arrayidx86, i32 0, i32 1
   %mode88 = getelementptr inbounds %struct.name_entry, ptr %entry87, i32 0, i32 3
-  %66 = load i32, ptr %mode88, align 4
-  %and89 = and i32 %66, 2147483647
+  %67 = load i32, ptr %mode88, align 4
+  %and89 = and i32 %67, 2147483647
   store i32 %and89, ptr %mode88, align 4
   br label %if.end105
 
 if.else90:                                        ; preds = %for.body76
-  %67 = load i32, ptr %cmp29, align 4
-  %cmp91 = icmp eq i32 %67, 0
+  %68 = load i32, ptr %cmp29, align 4
+  %cmp91 = icmp eq i32 %68, 0
   br i1 %cmp91, label %if.then93, label %if.else99
 
 if.then93:                                        ; preds = %if.else90
-  %68 = load ptr, ptr %tp, align 8
-  %69 = load i32, ptr %i, align 4
-  %idxprom94 = sext i32 %69 to i64
-  %arrayidx95 = getelementptr inbounds %struct.tree_desc, ptr %68, i64 %idxprom94
+  %69 = load ptr, ptr %tp, align 8
+  %70 = load i32, ptr %i, align 4
+  %idxprom94 = sext i32 %70 to i64
+  %arrayidx95 = getelementptr inbounds %struct.tree_desc, ptr %69, i64 %idxprom94
   %entry96 = getelementptr inbounds %struct.tree_desc, ptr %arrayidx95, i32 0, i32 1
   %mode97 = getelementptr inbounds %struct.name_entry, ptr %entry96, i32 0, i32 3
-  %70 = load i32, ptr %mode97, align 4
-  %and98 = and i32 %70, 2147483647
+  %71 = load i32, ptr %mode97, align 4
+  %and98 = and i32 %71, 2147483647
   store i32 %and98, ptr %mode97, align 4
   br label %if.end104
 
 if.else99:                                        ; preds = %if.else90
-  %71 = load ptr, ptr %tp, align 8
-  %72 = load i32, ptr %i, align 4
-  %idxprom100 = sext i32 %72 to i64
-  %arrayidx101 = getelementptr inbounds %struct.tree_desc, ptr %71, i64 %idxprom100
+  %72 = load ptr, ptr %tp, align 8
+  %73 = load i32, ptr %i, align 4
+  %idxprom100 = sext i32 %73 to i64
+  %arrayidx101 = getelementptr inbounds %struct.tree_desc, ptr %72, i64 %idxprom100
   %entry102 = getelementptr inbounds %struct.tree_desc, ptr %arrayidx101, i32 0, i32 1
   %mode103 = getelementptr inbounds %struct.name_entry, ptr %entry102, i32 0, i32 3
-  %73 = load i32, ptr %mode103, align 4
-  %or = or i32 %73, -2147483648
+  %74 = load i32, ptr %mode103, align 4
+  %or = or i32 %74, -2147483648
   store i32 %or, ptr %mode103, align 4
   br label %if.end104
 
@@ -422,8 +423,8 @@ if.end105:                                        ; preds = %if.end104, %if.then
   br label %for.inc106
 
 for.inc106:                                       ; preds = %if.end105
-  %74 = load i32, ptr %i, align 4
-  %inc107 = add nsw i32 %74, 1
+  %75 = load i32, ptr %i, align 4
+  %inc107 = add nsw i32 %75, 1
   store i32 %inc107, ptr %i, align 4
   br label %for.cond73, !llvm.loop !9
 
@@ -432,46 +433,46 @@ for.end108:                                       ; preds = %for.cond73
   br label %for.cond109
 
 for.cond109:                                      ; preds = %for.inc118, %for.end108
-  %75 = load i32, ptr %i, align 4
-  %76 = load i32, ptr %imin, align 4
-  %cmp110 = icmp slt i32 %75, %76
+  %76 = load i32, ptr %i, align 4
+  %77 = load i32, ptr %imin, align 4
+  %cmp110 = icmp slt i32 %76, %77
   br i1 %cmp110, label %for.body112, label %for.end120
 
 for.body112:                                      ; preds = %for.cond109
-  %77 = load ptr, ptr %tp, align 8
-  %78 = load i32, ptr %i, align 4
-  %idxprom113 = sext i32 %78 to i64
-  %arrayidx114 = getelementptr inbounds %struct.tree_desc, ptr %77, i64 %idxprom113
+  %78 = load ptr, ptr %tp, align 8
+  %79 = load i32, ptr %i, align 4
+  %idxprom113 = sext i32 %79 to i64
+  %arrayidx114 = getelementptr inbounds %struct.tree_desc, ptr %78, i64 %idxprom113
   %entry115 = getelementptr inbounds %struct.tree_desc, ptr %arrayidx114, i32 0, i32 1
   %mode116 = getelementptr inbounds %struct.name_entry, ptr %entry115, i32 0, i32 3
-  %79 = load i32, ptr %mode116, align 4
-  %or117 = or i32 %79, -2147483648
+  %80 = load i32, ptr %mode116, align 4
+  %or117 = or i32 %80, -2147483648
   store i32 %or117, ptr %mode116, align 4
   br label %for.inc118
 
 for.inc118:                                       ; preds = %for.body112
-  %80 = load i32, ptr %i, align 4
-  %inc119 = add nsw i32 %80, 1
+  %81 = load i32, ptr %i, align 4
+  %inc119 = add nsw i32 %81, 1
   store i32 %inc119, ptr %i, align 4
   br label %for.cond109, !llvm.loop !10
 
 for.end120:                                       ; preds = %for.cond109
-  %81 = load ptr, ptr %tp, align 8
-  %82 = load i32, ptr %imin, align 4
-  %idxprom121 = sext i32 %82 to i64
-  %arrayidx122 = getelementptr inbounds %struct.tree_desc, ptr %81, i64 %idxprom121
+  %82 = load ptr, ptr %tp, align 8
+  %83 = load i32, ptr %imin, align 4
+  %idxprom121 = sext i32 %83 to i64
+  %arrayidx122 = getelementptr inbounds %struct.tree_desc, ptr %82, i64 %idxprom121
   %call123 = call i32 @tree_entry_pathcmp(ptr noundef %t, ptr noundef %arrayidx122)
   store i32 %call123, ptr %cmp29, align 4
-  %83 = load i32, ptr %cmp29, align 4
-  %cmp124 = icmp eq i32 %83, 0
+  %84 = load i32, ptr %cmp29, align 4
+  %cmp124 = icmp eq i32 %84, 0
   br i1 %cmp124, label %if.then126, label %if.else165
 
 if.then126:                                       ; preds = %for.end120
-  %84 = load ptr, ptr %opt.addr, align 8
-  %flags127 = getelementptr inbounds %struct.diff_options, ptr %84, i32 0, i32 14
+  %85 = load ptr, ptr %opt.addr, align 8
+  %flags127 = getelementptr inbounds %struct.diff_options, ptr %85, i32 0, i32 14
   %find_copies_harder = getelementptr inbounds %struct.diff_flags, ptr %flags127, i32 0, i32 6
-  %85 = load i32, ptr %find_copies_harder, align 8
-  %tobool128 = icmp ne i32 %85, 0
+  %86 = load i32, ptr %find_copies_harder, align 8
+  %tobool128 = icmp ne i32 %86, 0
   br i1 %tobool128, label %if.end163, label %if.then129
 
 if.then129:                                       ; preds = %if.then126
@@ -479,20 +480,20 @@ if.then129:                                       ; preds = %if.then126
   br label %for.cond130
 
 for.cond130:                                      ; preds = %for.inc160, %if.then129
-  %86 = load i32, ptr %i, align 4
-  %87 = load i32, ptr %nparent.addr, align 4
-  %cmp131 = icmp slt i32 %86, %87
+  %87 = load i32, ptr %i, align 4
+  %88 = load i32, ptr %nparent.addr, align 4
+  %cmp131 = icmp slt i32 %87, %88
   br i1 %cmp131, label %for.body133, label %for.end162
 
 for.body133:                                      ; preds = %for.cond130
-  %88 = load ptr, ptr %tp, align 8
-  %89 = load i32, ptr %i, align 4
-  %idxprom134 = sext i32 %89 to i64
-  %arrayidx135 = getelementptr inbounds %struct.tree_desc, ptr %88, i64 %idxprom134
+  %89 = load ptr, ptr %tp, align 8
+  %90 = load i32, ptr %i, align 4
+  %idxprom134 = sext i32 %90 to i64
+  %arrayidx135 = getelementptr inbounds %struct.tree_desc, ptr %89, i64 %idxprom134
   %entry136 = getelementptr inbounds %struct.tree_desc, ptr %arrayidx135, i32 0, i32 1
   %mode137 = getelementptr inbounds %struct.name_entry, ptr %entry136, i32 0, i32 3
-  %90 = load i32, ptr %mode137, align 4
-  %and138 = and i32 %90, -2147483648
+  %91 = load i32, ptr %mode137, align 4
+  %and138 = and i32 %91, -2147483648
   %tobool139 = icmp ne i32 %and138, 0
   br i1 %tobool139, label %if.then140, label %if.end141
 
@@ -502,10 +503,10 @@ if.then140:                                       ; preds = %for.body133
 if.end141:                                        ; preds = %for.body133
   %entry142 = getelementptr inbounds %struct.tree_desc, ptr %t, i32 0, i32 1
   %oid143 = getelementptr inbounds %struct.name_entry, ptr %entry142, i32 0, i32 0
-  %91 = load ptr, ptr %tp, align 8
-  %92 = load i32, ptr %i, align 4
-  %idxprom144 = sext i32 %92 to i64
-  %arrayidx145 = getelementptr inbounds %struct.tree_desc, ptr %91, i64 %idxprom144
+  %92 = load ptr, ptr %tp, align 8
+  %93 = load i32, ptr %i, align 4
+  %idxprom144 = sext i32 %93 to i64
+  %arrayidx145 = getelementptr inbounds %struct.tree_desc, ptr %92, i64 %idxprom144
   %entry146 = getelementptr inbounds %struct.tree_desc, ptr %arrayidx145, i32 0, i32 1
   %oid147 = getelementptr inbounds %struct.name_entry, ptr %entry146, i32 0, i32 0
   %call148 = call i32 @oideq(ptr noundef %oid143, ptr noundef %oid147)
@@ -515,15 +516,15 @@ if.end141:                                        ; preds = %for.body133
 lor.lhs.false:                                    ; preds = %if.end141
   %entry150 = getelementptr inbounds %struct.tree_desc, ptr %t, i32 0, i32 1
   %mode151 = getelementptr inbounds %struct.name_entry, ptr %entry150, i32 0, i32 3
-  %93 = load i32, ptr %mode151, align 4
-  %94 = load ptr, ptr %tp, align 8
-  %95 = load i32, ptr %i, align 4
-  %idxprom152 = sext i32 %95 to i64
-  %arrayidx153 = getelementptr inbounds %struct.tree_desc, ptr %94, i64 %idxprom152
+  %94 = load i32, ptr %mode151, align 4
+  %95 = load ptr, ptr %tp, align 8
+  %96 = load i32, ptr %i, align 4
+  %idxprom152 = sext i32 %96 to i64
+  %arrayidx153 = getelementptr inbounds %struct.tree_desc, ptr %95, i64 %idxprom152
   %entry154 = getelementptr inbounds %struct.tree_desc, ptr %arrayidx153, i32 0, i32 1
   %mode155 = getelementptr inbounds %struct.name_entry, ptr %entry154, i32 0, i32 3
-  %96 = load i32, ptr %mode155, align 4
-  %cmp156 = icmp ne i32 %93, %96
+  %97 = load i32, ptr %mode155, align 4
+  %cmp156 = icmp ne i32 %94, %97
   br i1 %cmp156, label %if.then158, label %if.end159
 
 if.then158:                                       ; preds = %lor.lhs.false, %if.end141
@@ -533,8 +534,8 @@ if.end159:                                        ; preds = %lor.lhs.false
   br label %skip_emit_t_tp
 
 for.inc160:                                       ; preds = %if.then158, %if.then140
-  %97 = load i32, ptr %i, align 4
-  %inc161 = add nsw i32 %97, 1
+  %98 = load i32, ptr %i, align 4
+  %inc161 = add nsw i32 %98, 1
   store i32 %inc161, ptr %i, align 4
   br label %for.cond130, !llvm.loop !11
 
@@ -542,46 +543,46 @@ for.end162:                                       ; preds = %for.cond130
   br label %if.end163
 
 if.end163:                                        ; preds = %for.end162, %if.then126
-  %98 = load ptr, ptr %p.addr, align 8
-  %99 = load ptr, ptr %base.addr, align 8
-  %100 = load ptr, ptr %opt.addr, align 8
-  %101 = load i32, ptr %nparent.addr, align 4
-  %102 = load ptr, ptr %tp, align 8
-  %103 = load i32, ptr %imin, align 4
-  %104 = load i32, ptr %depth.addr, align 4
-  %call164 = call ptr @emit_path(ptr noundef %98, ptr noundef %99, ptr noundef %100, i32 noundef %101, ptr noundef %t, ptr noundef %102, i32 noundef %103, i32 noundef %104)
+  %99 = load ptr, ptr %p.addr, align 8
+  %100 = load ptr, ptr %base.addr, align 8
+  %101 = load ptr, ptr %opt.addr, align 8
+  %102 = load i32, ptr %nparent.addr, align 4
+  %103 = load ptr, ptr %tp, align 8
+  %104 = load i32, ptr %imin, align 4
+  %105 = load i32, ptr %depth.addr, align 4
+  %call164 = call ptr @emit_path(ptr noundef %99, ptr noundef %100, ptr noundef %101, i32 noundef %102, ptr noundef %t, ptr noundef %103, i32 noundef %104, i32 noundef %105)
   store ptr %call164, ptr %p.addr, align 8
   br label %skip_emit_t_tp
 
 skip_emit_t_tp:                                   ; preds = %if.end163, %if.end159
   call void @update_tree_entry(ptr noundef %t)
-  %105 = load ptr, ptr %tp, align 8
-  %106 = load i32, ptr %nparent.addr, align 4
-  call void @update_tp_entries(ptr noundef %105, i32 noundef %106)
+  %106 = load ptr, ptr %tp, align 8
+  %107 = load i32, ptr %nparent.addr, align 4
+  call void @update_tp_entries(ptr noundef %106, i32 noundef %107)
   br label %if.end193
 
 if.else165:                                       ; preds = %for.end120
-  %107 = load i32, ptr %cmp29, align 4
-  %cmp166 = icmp slt i32 %107, 0
+  %108 = load i32, ptr %cmp29, align 4
+  %cmp166 = icmp slt i32 %108, 0
   br i1 %cmp166, label %if.then168, label %if.else170
 
 if.then168:                                       ; preds = %if.else165
-  %108 = load ptr, ptr %p.addr, align 8
-  %109 = load ptr, ptr %base.addr, align 8
-  %110 = load ptr, ptr %opt.addr, align 8
-  %111 = load i32, ptr %nparent.addr, align 4
-  %112 = load i32, ptr %depth.addr, align 4
-  %call169 = call ptr @emit_path(ptr noundef %108, ptr noundef %109, ptr noundef %110, i32 noundef %111, ptr noundef %t, ptr noundef null, i32 noundef -1, i32 noundef %112)
+  %109 = load ptr, ptr %p.addr, align 8
+  %110 = load ptr, ptr %base.addr, align 8
+  %111 = load ptr, ptr %opt.addr, align 8
+  %112 = load i32, ptr %nparent.addr, align 4
+  %113 = load i32, ptr %depth.addr, align 4
+  %call169 = call ptr @emit_path(ptr noundef %109, ptr noundef %110, ptr noundef %111, i32 noundef %112, ptr noundef %t, ptr noundef null, i32 noundef -1, i32 noundef %113)
   store ptr %call169, ptr %p.addr, align 8
   call void @update_tree_entry(ptr noundef %t)
   br label %if.end192
 
 if.else170:                                       ; preds = %if.else165
-  %113 = load ptr, ptr %opt.addr, align 8
-  %flags171 = getelementptr inbounds %struct.diff_options, ptr %113, i32 0, i32 14
+  %114 = load ptr, ptr %opt.addr, align 8
+  %flags171 = getelementptr inbounds %struct.diff_options, ptr %114, i32 0, i32 14
   %find_copies_harder172 = getelementptr inbounds %struct.diff_flags, ptr %flags171, i32 0, i32 6
-  %114 = load i32, ptr %find_copies_harder172, align 8
-  %tobool173 = icmp ne i32 %114, 0
+  %115 = load i32, ptr %find_copies_harder172, align 8
+  %tobool173 = icmp ne i32 %115, 0
   br i1 %tobool173, label %if.end190, label %if.then174
 
 if.then174:                                       ; preds = %if.else170
@@ -589,20 +590,20 @@ if.then174:                                       ; preds = %if.else170
   br label %for.cond175
 
 for.cond175:                                      ; preds = %for.inc187, %if.then174
-  %115 = load i32, ptr %i, align 4
-  %116 = load i32, ptr %nparent.addr, align 4
-  %cmp176 = icmp slt i32 %115, %116
+  %116 = load i32, ptr %i, align 4
+  %117 = load i32, ptr %nparent.addr, align 4
+  %cmp176 = icmp slt i32 %116, %117
   br i1 %cmp176, label %for.body178, label %for.end189
 
 for.body178:                                      ; preds = %for.cond175
-  %117 = load ptr, ptr %tp, align 8
-  %118 = load i32, ptr %i, align 4
-  %idxprom179 = sext i32 %118 to i64
-  %arrayidx180 = getelementptr inbounds %struct.tree_desc, ptr %117, i64 %idxprom179
+  %118 = load ptr, ptr %tp, align 8
+  %119 = load i32, ptr %i, align 4
+  %idxprom179 = sext i32 %119 to i64
+  %arrayidx180 = getelementptr inbounds %struct.tree_desc, ptr %118, i64 %idxprom179
   %entry181 = getelementptr inbounds %struct.tree_desc, ptr %arrayidx180, i32 0, i32 1
   %mode182 = getelementptr inbounds %struct.name_entry, ptr %entry181, i32 0, i32 3
-  %119 = load i32, ptr %mode182, align 4
-  %and183 = and i32 %119, -2147483648
+  %120 = load i32, ptr %mode182, align 4
+  %and183 = and i32 %120, -2147483648
   %tobool184 = icmp ne i32 %and183, 0
   br i1 %tobool184, label %if.then185, label %if.end186
 
@@ -613,8 +614,8 @@ if.end186:                                        ; preds = %for.body178
   br label %for.inc187
 
 for.inc187:                                       ; preds = %if.end186
-  %120 = load i32, ptr %i, align 4
-  %inc188 = add nsw i32 %120, 1
+  %121 = load i32, ptr %i, align 4
+  %inc188 = add nsw i32 %121, 1
   store i32 %inc188, ptr %i, align 4
   br label %for.cond175, !llvm.loop !12
 
@@ -622,21 +623,21 @@ for.end189:                                       ; preds = %for.cond175
   br label %if.end190
 
 if.end190:                                        ; preds = %for.end189, %if.else170
-  %121 = load ptr, ptr %p.addr, align 8
-  %122 = load ptr, ptr %base.addr, align 8
-  %123 = load ptr, ptr %opt.addr, align 8
-  %124 = load i32, ptr %nparent.addr, align 4
-  %125 = load ptr, ptr %tp, align 8
-  %126 = load i32, ptr %imin, align 4
-  %127 = load i32, ptr %depth.addr, align 4
-  %call191 = call ptr @emit_path(ptr noundef %121, ptr noundef %122, ptr noundef %123, i32 noundef %124, ptr noundef null, ptr noundef %125, i32 noundef %126, i32 noundef %127)
+  %122 = load ptr, ptr %p.addr, align 8
+  %123 = load ptr, ptr %base.addr, align 8
+  %124 = load ptr, ptr %opt.addr, align 8
+  %125 = load i32, ptr %nparent.addr, align 4
+  %126 = load ptr, ptr %tp, align 8
+  %127 = load i32, ptr %imin, align 4
+  %128 = load i32, ptr %depth.addr, align 4
+  %call191 = call ptr @emit_path(ptr noundef %122, ptr noundef %123, ptr noundef %124, i32 noundef %125, ptr noundef null, ptr noundef %126, i32 noundef %127, i32 noundef %128)
   store ptr %call191, ptr %p.addr, align 8
   br label %skip_emit_tp
 
 skip_emit_tp:                                     ; preds = %if.end190, %if.then185
-  %128 = load ptr, ptr %tp, align 8
-  %129 = load i32, ptr %nparent.addr, align 4
-  call void @update_tp_entries(ptr noundef %128, i32 noundef %129)
+  %129 = load ptr, ptr %tp, align 8
+  %130 = load i32, ptr %nparent.addr, align 4
+  call void @update_tp_entries(ptr noundef %129, i32 noundef %130)
   br label %if.end192
 
 if.end192:                                        ; preds = %skip_emit_tp, %if.then168
@@ -646,30 +647,30 @@ if.end193:                                        ; preds = %if.end192, %skip_em
   br label %for.cond28
 
 for.end194:                                       ; preds = %if.then68, %if.then37, %if.then31
-  %130 = load ptr, ptr %ttree, align 8
-  call void @free(ptr noundef %130) #6
-  %131 = load i32, ptr %nparent.addr, align 4
-  %sub = sub nsw i32 %131, 1
+  %131 = load ptr, ptr %ttree, align 8
+  call void @free(ptr noundef %131) #6
+  %132 = load i32, ptr %nparent.addr, align 4
+  %sub = sub nsw i32 %132, 1
   store i32 %sub, ptr %i, align 4
   br label %for.cond195
 
 for.cond195:                                      ; preds = %for.inc201, %for.end194
-  %132 = load i32, ptr %i, align 4
-  %cmp196 = icmp sge i32 %132, 0
+  %133 = load i32, ptr %i, align 4
+  %cmp196 = icmp sge i32 %133, 0
   br i1 %cmp196, label %for.body198, label %for.end202
 
 for.body198:                                      ; preds = %for.cond195
-  %133 = load ptr, ptr %tptree, align 8
-  %134 = load i32, ptr %i, align 4
-  %idxprom199 = sext i32 %134 to i64
-  %arrayidx200 = getelementptr inbounds ptr, ptr %133, i64 %idxprom199
-  %135 = load ptr, ptr %arrayidx200, align 8
-  call void @free(ptr noundef %135) #6
+  %134 = load ptr, ptr %tptree, align 8
+  %135 = load i32, ptr %i, align 4
+  %idxprom199 = sext i32 %135 to i64
+  %arrayidx200 = getelementptr inbounds ptr, ptr %134, i64 %idxprom199
+  %136 = load ptr, ptr %arrayidx200, align 8
+  call void @free(ptr noundef %136) #6
   br label %for.inc201
 
 for.inc201:                                       ; preds = %for.body198
-  %136 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %136, -1
+  %137 = load i32, ptr %i, align 4
+  %dec = add nsw i32 %137, -1
   store i32 %dec, ptr %i, align 4
   br label %for.cond195, !llvm.loop !13
 
@@ -677,8 +678,8 @@ for.end202:                                       ; preds = %for.cond195
   br label %do.body203
 
 do.body203:                                       ; preds = %for.end202
-  %137 = load i32, ptr %nparent.addr, align 4
-  %cmp204 = icmp sle i32 %137, 2
+  %138 = load i32, ptr %nparent.addr, align 4
+  %cmp204 = icmp sle i32 %138, 2
   br i1 %cmp204, label %if.then206, label %if.else209
 
 if.then206:                                       ; preds = %do.body203
@@ -691,8 +692,8 @@ do.end208:                                        ; preds = %do.body207
   br label %if.end210
 
 if.else209:                                       ; preds = %do.body203
-  %138 = load ptr, ptr %tptree, align 8
-  call void @free(ptr noundef %138) #6
+  %139 = load ptr, ptr %tptree, align 8
+  call void @free(ptr noundef %139) #6
   br label %if.end210
 
 if.end210:                                        ; preds = %if.else209, %do.end208
@@ -702,8 +703,8 @@ do.end211:                                        ; preds = %if.end210
   br label %do.body212
 
 do.body212:                                       ; preds = %do.end211
-  %139 = load i32, ptr %nparent.addr, align 4
-  %cmp213 = icmp sle i32 %139, 2
+  %140 = load i32, ptr %nparent.addr, align 4
+  %cmp213 = icmp sle i32 %140, 2
   br i1 %cmp213, label %if.then215, label %if.else218
 
 if.then215:                                       ; preds = %do.body212
@@ -716,16 +717,16 @@ do.end217:                                        ; preds = %do.body216
   br label %if.end219
 
 if.else218:                                       ; preds = %do.body212
-  %140 = load ptr, ptr %tp, align 8
-  call void @free(ptr noundef %140) #6
+  %141 = load ptr, ptr %tp, align 8
+  call void @free(ptr noundef %141) #6
   br label %if.end219
 
 if.end219:                                        ; preds = %if.else218, %do.end217
   br label %do.end220
 
 do.end220:                                        ; preds = %if.end219
-  %141 = load ptr, ptr %p.addr, align 8
-  ret ptr %141
+  %142 = load ptr, ptr %p.addr, align 8
+  ret ptr %142
 }
 
 ; Function Attrs: nounwind
@@ -857,26 +858,27 @@ for.end:                                          ; preds = %for.cond
 ; Function Attrs: nounwind uwtable
 define internal i32 @diff_might_be_rename() #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2), align 4
-  %cmp = icmp eq i32 %0, 1
+  %0 = getelementptr inbounds %struct.diff_queue_struct, ptr @diff_queued_diff, i32 0, i32 2
+  %1 = load i32, ptr %0, align 4
+  %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %1 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 0
-  %2 = load ptr, ptr %arrayidx, align 8
-  %one = getelementptr inbounds %struct.diff_filepair, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %one, align 8
-  %mode = getelementptr inbounds %struct.diff_filespec, ptr %3, i32 0, i32 7
-  %4 = load i16, ptr %mode, align 8
-  %conv = zext i16 %4 to i32
+  %2 = load ptr, ptr @diff_queued_diff, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 0
+  %3 = load ptr, ptr %arrayidx, align 8
+  %one = getelementptr inbounds %struct.diff_filepair, ptr %3, i32 0, i32 0
+  %4 = load ptr, ptr %one, align 8
+  %mode = getelementptr inbounds %struct.diff_filespec, ptr %4, i32 0, i32 7
+  %5 = load i16, ptr %mode, align 8
+  %conv = zext i16 %5 to i32
   %cmp1 = icmp ne i32 %conv, 0
   %lnot = xor i1 %cmp1, true
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %5 = phi i1 [ false, %entry ], [ %lnot, %land.rhs ]
-  %land.ext = zext i1 %5 to i32
+  %6 = phi i1 [ false, %entry ], [ %lnot, %land.rhs ]
+  %land.ext = zext i1 %6 to i32
   ret i32 %land.ext
 }
 

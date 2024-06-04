@@ -66,45 +66,48 @@ define internal ptr @isofs_fh_to_dentry(ptr noundef %0, ptr nocapture noundef re
   %5 = icmp slt i32 %2, 3
   %6 = icmp sgt i32 %3, 2
   %7 = or i1 %5, %6
-  br i1 %7, label %29, label %8
+  br i1 %7, label %32, label %8
 
 8:                                                ; preds = %4
   %9 = load i32, ptr %1, align 4
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %9, 0
-  br i1 %12, label %29, label %13
+  %13 = inttoptr i64 -116 to ptr
+  br i1 %12, label %32, label %14
 
-13:                                               ; preds = %8
-  %14 = zext i32 %9 to i64
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
-  %16 = load i16, ptr %15, align 4
-  %17 = zext i16 %16 to i64
-  %18 = tail call ptr @__isofs_iget(ptr noundef %0, i64 noundef %14, i64 noundef %17, i32 noundef 0) #4
-  %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
-  br i1 %19, label %29, label %20
+14:                                               ; preds = %8
+  %15 = zext i32 %9 to i64
+  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = load i16, ptr %16, align 4
+  %18 = zext i16 %17 to i64
+  %19 = tail call ptr @__isofs_iget(ptr noundef %0, i64 noundef %15, i64 noundef %18, i32 noundef 0) #4
+  %20 = inttoptr i64 -4096 to ptr
+  %21 = icmp ugt ptr %19, %20
+  br i1 %21, label %32, label %22
 
-20:                                               ; preds = %13
-  %21 = icmp eq i32 %11, 0
-  br i1 %21, label %27, label %22
+22:                                               ; preds = %14
+  %23 = icmp eq i32 %11, 0
+  br i1 %23, label %30, label %24
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %18, i64 576
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp eq i32 %24, %11
-  br i1 %25, label %27, label %26
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %19, i64 576
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp eq i32 %26, %11
+  br i1 %27, label %30, label %28
 
-26:                                               ; preds = %22
-  tail call void @iput(ptr noundef %18) #4
-  br label %29
+28:                                               ; preds = %24
+  tail call void @iput(ptr noundef %19) #4
+  %29 = inttoptr i64 -116 to ptr
+  br label %32
 
-27:                                               ; preds = %22, %20
-  %28 = tail call ptr @d_obtain_alias(ptr noundef %18) #4
-  br label %29
+30:                                               ; preds = %24, %22
+  %31 = tail call ptr @d_obtain_alias(ptr noundef %19) #4
+  br label %32
 
-29:                                               ; preds = %27, %26, %13, %8, %4
-  %30 = phi ptr [ null, %4 ], [ inttoptr (i64 -116 to ptr), %26 ], [ %28, %27 ], [ inttoptr (i64 -116 to ptr), %8 ], [ %18, %13 ]
-  ret ptr %30
+32:                                               ; preds = %30, %28, %14, %8, %4
+  %33 = phi ptr [ null, %4 ], [ %29, %28 ], [ %31, %30 ], [ %13, %8 ], [ %19, %14 ]
+  ret ptr %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -112,7 +115,7 @@ define internal ptr @isofs_fh_to_parent(ptr noundef %0, ptr nocapture noundef re
   %5 = icmp slt i32 %2, 2
   %6 = icmp ne i32 %3, 2
   %7 = or i1 %5, %6
-  br i1 %7, label %38, label %8
+  br i1 %7, label %41, label %8
 
 8:                                                ; preds = %4
   %9 = icmp sgt i32 %2, 2
@@ -140,34 +143,37 @@ define internal ptr @isofs_fh_to_parent(ptr noundef %0, ptr nocapture noundef re
 23:                                               ; preds = %20, %14
   %24 = phi i32 [ %22, %20 ], [ 0, %14 ]
   %25 = icmp eq i64 %15, 0
-  br i1 %25, label %38, label %26
+  %26 = inttoptr i64 -116 to ptr
+  br i1 %25, label %41, label %27
 
-26:                                               ; preds = %23
-  %27 = tail call ptr @__isofs_iget(ptr noundef %0, i64 noundef %15, i64 noundef %18, i32 noundef 0) #4
-  %28 = icmp ugt ptr %27, inttoptr (i64 -4096 to ptr)
-  br i1 %28, label %38, label %29
+27:                                               ; preds = %23
+  %28 = tail call ptr @__isofs_iget(ptr noundef %0, i64 noundef %15, i64 noundef %18, i32 noundef 0) #4
+  %29 = inttoptr i64 -4096 to ptr
+  %30 = icmp ugt ptr %28, %29
+  br i1 %30, label %41, label %31
 
-29:                                               ; preds = %26
-  %30 = icmp eq i32 %24, 0
-  br i1 %30, label %36, label %31
+31:                                               ; preds = %27
+  %32 = icmp eq i32 %24, 0
+  br i1 %32, label %39, label %33
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %27, i64 576
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp eq i32 %33, %24
-  br i1 %34, label %36, label %35
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %28, i64 576
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp eq i32 %35, %24
+  br i1 %36, label %39, label %37
 
-35:                                               ; preds = %31
-  tail call void @iput(ptr noundef %27) #4
-  br label %38
+37:                                               ; preds = %33
+  tail call void @iput(ptr noundef %28) #4
+  %38 = inttoptr i64 -116 to ptr
+  br label %41
 
-36:                                               ; preds = %31, %29
-  %37 = tail call ptr @d_obtain_alias(ptr noundef %27) #4
-  br label %38
+39:                                               ; preds = %33, %31
+  %40 = tail call ptr @d_obtain_alias(ptr noundef %28) #4
+  br label %41
 
-38:                                               ; preds = %36, %35, %26, %23, %4
-  %39 = phi ptr [ null, %4 ], [ inttoptr (i64 -116 to ptr), %35 ], [ %37, %36 ], [ inttoptr (i64 -116 to ptr), %23 ], [ %27, %26 ]
-  ret ptr %39
+41:                                               ; preds = %39, %37, %27, %23, %4
+  %42 = phi ptr [ null, %4 ], [ %38, %37 ], [ %40, %39 ], [ %26, %23 ], [ %28, %27 ]
+  ret ptr %42
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -178,93 +184,97 @@ define internal ptr @isofs_export_get_parent(ptr nocapture noundef readonly %0) 
   %5 = load i16, ptr %3, align 8
   %6 = and i16 %5, -4096
   %7 = icmp eq i16 %6, 16384
-  br i1 %7, label %10, label %8
+  br i1 %7, label %11, label %8
 
 8:                                                ; preds = %1
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #5
-  br label %61
+  %10 = inttoptr i64 -13 to ptr
+  br label %65
 
-10:                                               ; preds = %1
-  %11 = getelementptr i8, ptr %3, i64 -40
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %16, label %14
+11:                                               ; preds = %1
+  %12 = getelementptr i8, ptr %3, i64 -40
+  %13 = load i64, ptr %12, align 8
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %18, label %15
 
-14:                                               ; preds = %10
-  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #5
-  br label %61
+15:                                               ; preds = %11
+  %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #5
+  %17 = inttoptr i64 -13 to ptr
+  br label %65
 
-16:                                               ; preds = %10
-  %17 = load i64, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 40
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 200
+18:                                               ; preds = %11
+  %19 = load i64, ptr %4, align 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
-  %23 = load i64, ptr %22, align 8
-  %24 = trunc i64 %23 to i32
-  %25 = tail call ptr @__bread_gfp(ptr noundef %21, i64 noundef %17, i32 noundef %24, i32 noundef 8) #4
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %61, label %27
+  %22 = getelementptr inbounds i8, ptr %21, i64 200
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 24
+  %25 = load i64, ptr %24, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = tail call ptr @__bread_gfp(ptr noundef %23, i64 noundef %19, i32 noundef %26, i32 noundef 8) #4
+  %28 = icmp eq ptr %27, null
+  %29 = inttoptr i64 -13 to ptr
+  br i1 %28, label %65, label %30
 
-27:                                               ; preds = %16
-  %28 = getelementptr inbounds i8, ptr %25, i64 40
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i64
-  %32 = getelementptr i8, ptr %29, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
-  %34 = load i8, ptr %33, align 1
-  %35 = icmp eq i8 %34, 1
-  br i1 %35, label %36, label %40
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds i8, ptr %27, i64 40
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i64
+  %35 = getelementptr i8, ptr %32, i64 %34
+  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %37 = load i8, ptr %36, align 1
+  %38 = icmp eq i8 %37, 1
+  br i1 %38, label %39, label %43
 
-36:                                               ; preds = %27
-  %37 = getelementptr inbounds i8, ptr %32, i64 33
-  %38 = load i8, ptr %37, align 1
-  %39 = icmp eq i8 %38, 1
-  br i1 %39, label %42, label %40
+39:                                               ; preds = %30
+  %40 = getelementptr inbounds i8, ptr %35, i64 33
+  %41 = load i8, ptr %40, align 1
+  %42 = icmp eq i8 %41, 1
+  br i1 %42, label %46, label %43
 
-40:                                               ; preds = %36, %27
-  %41 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #5
-  br label %61
+43:                                               ; preds = %39, %30
+  %44 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #5
+  %45 = inttoptr i64 -13 to ptr
+  br label %65
 
-42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %32, i64 25
-  %44 = load i8, ptr %43, align 1
-  %45 = and i8 %44, 2
-  %46 = icmp eq i8 %45, 0
-  br i1 %46, label %55, label %47
+46:                                               ; preds = %39
+  %47 = getelementptr inbounds i8, ptr %35, i64 25
+  %48 = load i8, ptr %47, align 1
+  %49 = and i8 %48, 2
+  %50 = icmp eq i8 %49, 0
+  br i1 %50, label %59, label %51
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %32, i64 2
-  %49 = load i32, ptr %48, align 1
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %32, i64 1
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i64
-  %54 = add nuw nsw i64 %53, %50
-  br label %55
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds i8, ptr %35, i64 2
+  %53 = load i32, ptr %52, align 1
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %35, i64 1
+  %56 = load i8, ptr %55, align 1
+  %57 = zext i8 %56 to i64
+  %58 = add nuw nsw i64 %57, %54
+  br label %59
 
-55:                                               ; preds = %47, %42
-  %56 = phi i64 [ %17, %42 ], [ %54, %47 ]
-  %57 = phi i64 [ %31, %42 ], [ 0, %47 ]
-  %58 = load ptr, ptr %18, align 8
-  %59 = tail call ptr @__isofs_iget(ptr noundef %58, i64 noundef %56, i64 noundef %57, i32 noundef 0) #4
-  %60 = tail call ptr @d_obtain_alias(ptr noundef %59) #4
-  br label %61
+59:                                               ; preds = %51, %46
+  %60 = phi i64 [ %19, %46 ], [ %58, %51 ]
+  %61 = phi i64 [ %34, %46 ], [ 0, %51 ]
+  %62 = load ptr, ptr %20, align 8
+  %63 = tail call ptr @__isofs_iget(ptr noundef %62, i64 noundef %60, i64 noundef %61, i32 noundef 0) #4
+  %64 = tail call ptr @d_obtain_alias(ptr noundef %63) #4
+  br label %65
 
-61:                                               ; preds = %55, %40, %16, %14, %8
-  %62 = phi ptr [ null, %14 ], [ %25, %40 ], [ %25, %55 ], [ null, %8 ], [ null, %16 ]
-  %63 = phi ptr [ inttoptr (i64 -13 to ptr), %14 ], [ inttoptr (i64 -13 to ptr), %40 ], [ %60, %55 ], [ inttoptr (i64 -13 to ptr), %8 ], [ inttoptr (i64 -13 to ptr), %16 ]
-  %64 = icmp eq ptr %62, null
-  br i1 %64, label %66, label %65
+65:                                               ; preds = %59, %43, %18, %15, %8
+  %66 = phi ptr [ null, %15 ], [ %27, %43 ], [ %27, %59 ], [ null, %8 ], [ null, %18 ]
+  %67 = phi ptr [ %17, %15 ], [ %45, %43 ], [ %64, %59 ], [ %10, %8 ], [ %29, %18 ]
+  %68 = icmp eq ptr %66, null
+  br i1 %68, label %70, label %69
 
-65:                                               ; preds = %61
-  tail call void @__brelse(ptr noundef nonnull %62) #4
-  br label %66
+69:                                               ; preds = %65
+  tail call void @__brelse(ptr noundef nonnull %66) #4
+  br label %70
 
-66:                                               ; preds = %65, %61
-  ret ptr %63
+70:                                               ; preds = %69, %65
+  ret ptr %67
 }
 
 ; Function Attrs: null_pointer_is_valid

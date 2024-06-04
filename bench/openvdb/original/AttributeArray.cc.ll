@@ -650,104 +650,105 @@ entry:
   store ptr %rhs, ptr %rhs.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %mIsUniform = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %rhs.addr, align 8
-  %mIsUniform2 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %1, i32 0, i32 1
-  %2 = load i8, ptr %mIsUniform2, align 8
-  %tobool = trunc i8 %2 to i1
+  %2 = load ptr, ptr %rhs.addr, align 8
+  %mIsUniform2 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %2, i32 0, i32 1
+  %3 = load i8, ptr %mIsUniform2, align 8
+  %tobool = trunc i8 %3 to i1
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %mIsUniform, align 8
   %mMutex = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 2
   call void @_ZN3tbb6detail2d110spin_mutexC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %mMutex) #3
   %mFlags = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %rhs.addr, align 8
-  %mFlags3 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %3, i32 0, i32 3
-  %4 = load i8, ptr %mFlags3, align 2
-  store i8 %4, ptr %mFlags, align 2
+  %4 = load ptr, ptr %rhs.addr, align 8
+  %mFlags3 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %4, i32 0, i32 3
+  %5 = load i8, ptr %mFlags3, align 2
+  store i8 %5, ptr %mFlags, align 2
   %mUsePagedRead = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %rhs.addr, align 8
-  %mUsePagedRead4 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %5, i32 0, i32 4
-  %6 = load i8, ptr %mUsePagedRead4, align 1
-  store i8 %6, ptr %mUsePagedRead, align 1
+  %6 = load ptr, ptr %rhs.addr, align 8
+  %mUsePagedRead4 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %6, i32 0, i32 4
+  %7 = load i8, ptr %mUsePagedRead4, align 1
+  store i8 %7, ptr %mUsePagedRead, align 1
   %mOutOfCore = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 5
-  %7 = load ptr, ptr %rhs.addr, align 8
-  %mOutOfCore5 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %7, i32 0, i32 5
+  %8 = load ptr, ptr %rhs.addr, align 8
+  %mOutOfCore5 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %8, i32 0, i32 5
   store ptr %mOutOfCore5, ptr %this.addr.i, align 8
   store i32 5, ptr %__m.addr.i, align 4
   %this1.i = load ptr, ptr %this.addr.i, align 8
-  %8 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
-  store i32 %call.i, ptr %__b.i, align 4
   %9 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %9, label %monotonic.i [
+  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %9, i32 noundef 65535)
+  store i32 %call.i, ptr %__b.i, align 4
+  %10 = load i32, ptr %__m.addr.i, align 4
+  switch i32 %10, label %monotonic.i [
     i32 1, label %acquire.i
     i32 2, label %acquire.i
     i32 5, label %seqcst.i
   ]
 
 monotonic.i:                                      ; preds = %entry
-  %10 = load atomic i32, ptr %this1.i monotonic, align 4
-  store i32 %10, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-
-acquire.i:                                        ; preds = %entry, %entry
-  %11 = load atomic i32, ptr %this1.i acquire, align 4
+  %11 = load atomic i32, ptr %this1.i monotonic, align 4
   store i32 %11, ptr %atomic-temp.i, align 4
   br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
 
-seqcst.i:                                         ; preds = %entry
-  %12 = load atomic i32, ptr %this1.i seq_cst, align 4
+acquire.i:                                        ; preds = %entry, %entry
+  %12 = load atomic i32, ptr %this1.i acquire, align 4
   store i32 %12, ptr %atomic-temp.i, align 4
   br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
 
+seqcst.i:                                         ; preds = %entry
+  %13 = load atomic i32, ptr %this1.i seq_cst, align 4
+  store i32 %13, ptr %atomic-temp.i, align 4
+  br label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
+
 _ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %13 = load i32, ptr %atomic-temp.i, align 4
-  call void @_ZNSt6atomicIjEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %mOutOfCore, i32 noundef %13) #3
-  %14 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 6
-  call void @_ZNSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %14 = load i32, ptr %atomic-temp.i, align 4
+  call void @_ZNSt6atomicIjEC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %mOutOfCore, i32 noundef %14) #3
+  %15 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 6
+  call void @_ZNSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
   %mFlags6 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 3
-  %15 = load i8, ptr %mFlags6, align 2
-  %conv = zext i8 %15 to i32
+  %16 = load i8, ptr %mFlags6, align 2
+  %conv = zext i8 %16 to i32
   %and = and i32 %conv, 32
   %tobool7 = icmp ne i32 %and, 0
   br i1 %tobool7, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-  %16 = load ptr, ptr %rhs.addr, align 8
-  %17 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %16, i32 0, i32 6
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 6
-  store i64 %18, ptr %19, align 8
+  %17 = load ptr, ptr %rhs.addr, align 8
+  %18 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %17, i32 0, i32 6
+  %19 = load i64, ptr %18, align 8
+  %20 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 6
+  store i64 %19, ptr %20, align 8
   br label %if.end12
 
 if.else:                                          ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit
-  %20 = load ptr, ptr %rhs.addr, align 8
-  %21 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %20, i32 0, i32 6
-  %call8 = call noundef zeroext i1 @_ZNKSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
+  %21 = load ptr, ptr %rhs.addr, align 8
+  %22 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %21, i32 0, i32 6
+  %call8 = call noundef zeroext i1 @_ZNKSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
   br i1 %call8, label %if.then9, label %if.end
 
 if.then9:                                         ; preds = %if.else
-  %22 = load ptr, ptr %rhs.addr, align 8
-  %23 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %22, i32 0, i32 6
-  %call10 = call noundef ptr @_ZNKSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #3
+  %23 = load ptr, ptr %rhs.addr, align 8
+  %24 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %23, i32 0, i32 6
+  %call10 = call noundef ptr @_ZNKSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
   invoke void @_ZN7openvdb5v11_011compression10PageHandle4copyEv(ptr sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %call10)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then9
-  %24 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 6
-  %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
+  %25 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 6
+  %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   call void @_ZNSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   br label %if.end
 
 lpad:                                             ; preds = %if.then9
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
-  call void @_ZNSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
+  call void @_ZNSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont, %if.else
@@ -1422,7 +1423,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef @.str.7, ptr noundef %0) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_011LookupErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7openvdb5v11_011LookupErrorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -1833,7 +1835,8 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef @.str.9, ptr noundef %0) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_08KeyErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7openvdb5v11_08KeyErrorE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   ret void
 }
 
@@ -2194,17 +2197,18 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mFlags = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 3
-  %0 = load i8, ptr %mFlags, align 2
-  %conv = zext i8 %0 to i32
+  %1 = load i8, ptr %mFlags, align 2
+  %conv = zext i8 %1 to i32
   %and = and i32 %conv, 32
   %tobool = icmp ne i32 %and, 0
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 6
-  store i64 0, ptr %1, align 8
+  %2 = getelementptr inbounds %"class.openvdb::v11_0::points::AttributeArray", ptr %this1, i32 0, i32 6
+  store i64 0, ptr %2, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -3381,39 +3385,40 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #3
-  %0 = load ptr, ptr %eType.addr, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %eType.addr, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %eType.addr, align 8
+  %2 = load ptr, ptr %eType.addr, align 8
   %mMessage2 = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this1, i32 0, i32 1
-  %call = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %mMessage2, ptr noundef %1)
+  %call = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %mMessage2, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then4, %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %catch
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %5 = load ptr, ptr %msg.addr, align 8
-  %tobool3 = icmp ne ptr %5, null
+  %6 = load ptr, ptr %msg.addr, align 8
+  %tobool3 = icmp ne ptr %6, null
   br i1 %tobool3, label %if.then4, label %if.end10
 
 if.then4:                                         ; preds = %if.end
-  %6 = load ptr, ptr %msg.addr, align 8
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef @.str.8, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = load ptr, ptr %msg.addr, align 8
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef @.str.8, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %if.then4
@@ -3426,18 +3431,18 @@ invoke.cont8:                                     ; preds = %invoke.cont5
   br label %if.end10
 
 lpad7:                                            ; preds = %invoke.cont5
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
+  %9 = extractvalue { ptr, i32 } %8, 0
+  store ptr %9, ptr %exn.slot, align 8
+  %10 = extractvalue { ptr, i32 } %8, 1
+  store i32 %10, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   br label %catch
 
 catch:                                            ; preds = %lpad7, %lpad
   %exn = load ptr, ptr %exn.slot, align 8
-  %10 = call ptr @__cxa_begin_catch(ptr %exn) #3
+  %11 = call ptr @__cxa_begin_catch(ptr %exn) #3
   invoke void @__cxa_end_catch()
           to label %invoke.cont11 unwind label %terminate.lpad
 
@@ -3451,10 +3456,10 @@ if.end10:                                         ; preds = %invoke.cont8, %if.e
   br label %try.cont
 
 terminate.lpad:                                   ; preds = %catch
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #14
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #14
   unreachable
 }
 
@@ -3486,7 +3491,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -3586,7 +3592,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

@@ -239,9 +239,10 @@ define void @_ZN5draco22MeshEdgebreakerDecoderC2Ev(ptr noundef nonnull align 8 d
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco11MeshDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco22MeshEdgebreakerDecoderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoder", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5draco35MeshEdgebreakerDecoderImplInterfaceESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN5draco22MeshEdgebreakerDecoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoder", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5draco35MeshEdgebreakerDecoderImplInterfaceESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   ret void
 }
 
@@ -606,9 +607,10 @@ define linkonce_odr void @_ZN5draco22MeshEdgebreakerDecoderD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco22MeshEdgebreakerDecoderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoder", ptr %3, i32 0, i32 1
-  call void @_ZNSt10unique_ptrIN5draco35MeshEdgebreakerDecoderImplInterfaceESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN5draco22MeshEdgebreakerDecoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::MeshEdgebreakerDecoder", ptr %3, i32 0, i32 1
+  call void @_ZNSt10unique_ptrIN5draco35MeshEdgebreakerDecoderImplInterfaceESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   call void @_ZN5draco11MeshDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #3
   ret void
 }
@@ -979,11 +981,12 @@ define linkonce_odr void @_ZN5draco17PointCloudDecoderD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5draco17PointCloudDecoderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.draco::PointCloudDecoder", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %"class.draco::PointCloudDecoder", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %4 = getelementptr inbounds { [11 x ptr] }, ptr @_ZTVN5draco17PointCloudDecoderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.draco::PointCloudDecoder", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %"class.draco::PointCloudDecoder", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   ret void
 }
 

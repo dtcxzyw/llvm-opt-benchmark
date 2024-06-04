@@ -424,7 +424,8 @@ entry:
   %13 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
   call void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 %12, ptr %14, ptr noundef byval(%"class.std::basic_string_view") align 8 %agg.tmp2, ptr noundef byval(%"class.std::basic_string_view") align 8 %agg.tmp3, ptr noundef byval(%"class.std::basic_string_view") align 8 %agg.tmp4, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef byval(%"class.std::basic_string_view") align 8 %agg.tmp5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox17VeloxRuntimeErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %15 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8facebook5velox17VeloxRuntimeErrorE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %this1, align 8
   ret void
 }
 
@@ -918,7 +919,8 @@ entry:
   %13 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
   call void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 %12, ptr %14, ptr noundef byval(%"class.std::basic_string_view") align 8 %agg.tmp2, ptr noundef byval(%"class.std::basic_string_view") align 8 %agg.tmp3, ptr noundef byval(%"class.std::basic_string_view") align 8 %agg.tmp4, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef byval(%"class.std::basic_string_view") align 8 %agg.tmp5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox14VeloxUserErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %15 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8facebook5velox14VeloxUserErrorE, i32 0, i32 0, i32 2
+  store ptr %15, ptr %this1, align 8
   ret void
 }
 
@@ -1266,7 +1268,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %state_ = getelementptr inbounds %"class.facebook::velox::VeloxException", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN8facebook5velox14VeloxException5StateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %state_) #8
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8

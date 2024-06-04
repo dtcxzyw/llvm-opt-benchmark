@@ -393,21 +393,22 @@ define dso_local void @_ZN25cmRulePlaceholderExpanderC2ESt3mapINSt7__cxx1112basi
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN21cmPlaceholderExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25cmRulePlaceholderExpander, i32 0, i32 0, i32 2), ptr %11, align 8
-  %12 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  %13 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 2
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %1) #3
-  %14 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %2) #3
-  %15 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %3) #3
-  %16 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %17 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 6
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 7
+  %12 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV25cmRulePlaceholderExpander, i32 0, i32 0, i32 2
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  %14 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 2
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %1) #3
+  %15 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 3
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %2) #3
+  %16 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %3) #3
+  %17 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %18 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 6
   store ptr null, ptr %18, align 8
+  %19 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %11, i32 0, i32 7
+  store ptr null, ptr %19, align 8
   ret void
 }
 
@@ -416,7 +417,8 @@ define linkonce_odr dso_local void @_ZN21cmPlaceholderExpanderC2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV21cmPlaceholderExpander, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV21cmPlaceholderExpander, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -3505,17 +3507,18 @@ define linkonce_odr dso_local void @_ZN25cmRulePlaceholderExpanderD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25cmRulePlaceholderExpander, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %3, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
-  %5 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV25cmRulePlaceholderExpander, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %3, i32 0, i32 3
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
-  %7 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %3, i32 0, i32 2
+  %6 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %3, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  %7 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %3, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  %8 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  %8 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %3, i32 0, i32 2
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %9 = getelementptr inbounds %class.cmRulePlaceholderExpander, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   call void @_ZN21cmPlaceholderExpanderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }

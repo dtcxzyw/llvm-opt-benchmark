@@ -822,7 +822,8 @@ entry:
   store ptr %pat, ptr %pat.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fDeferredStatus = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 39
   store i32 0, ptr %fDeferredStatus, align 4
   %fDeferredStatus2 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 39
@@ -831,8 +832,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %fDeferredStatus3 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 39
-  %0 = load i32, ptr %fDeferredStatus3, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %0)
+  %1 = load i32, ptr %fDeferredStatus3, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -843,18 +844,18 @@ if.then:                                          ; preds = %invoke.cont4
   br label %invoke.cont9
 
 lpad:                                             ; preds = %if.end7, %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
+  %3 = extractvalue { ptr, i32 } %2, 0
+  store ptr %3, ptr %exn.slot, align 8
+  %4 = extractvalue { ptr, i32 } %2, 1
+  store i32 %4, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont4
-  %4 = load ptr, ptr %pat.addr, align 8
-  %cmp = icmp eq ptr %4, null
+  %5 = load ptr, ptr %pat.addr, align 8
+  %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
@@ -863,14 +864,14 @@ if.then5:                                         ; preds = %if.end
   br label %invoke.cont9
 
 if.end7:                                          ; preds = %if.end
-  %5 = load ptr, ptr %pat.addr, align 8
+  %6 = load ptr, ptr %pat.addr, align 8
   %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 1
-  store ptr %5, ptr %fPattern, align 8
-  %6 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
-  %fEmptyText = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %6, i32 0, i32 6
-  %7 = load ptr, ptr %fEmptyText, align 8
+  store ptr %6, ptr %fPattern, align 8
+  %7 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
+  %fEmptyText = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %7, i32 0, i32 6
+  %8 = load ptr, ptr %fEmptyText, align 8
   %fDeferredStatus8 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 39
-  invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %fDeferredStatus8)
+  invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %fDeferredStatus8)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %if.end7, %if.then5, %if.then
@@ -890,7 +891,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -1152,15 +1154,16 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512RegexMatcher4initER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %0 = getelementptr inbounds { [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512RegexMatcher4initER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %status.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
+  %2 = load ptr, ptr %status.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -1171,42 +1174,42 @@ if.then:                                          ; preds = %invoke.cont2
   br label %return
 
 lpad:                                             ; preds = %invoke.cont8, %invoke.cont6, %invoke.cont3, %if.end, %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont2
-  %6 = load ptr, ptr %regexp.addr, align 8
-  %7 = load i32, ptr %flags.addr, align 4
-  %8 = load ptr, ptr %status.addr, align 8
-  %call4 = invoke noundef ptr @_ZN6icu_7512RegexPattern7compileERKNS_13UnicodeStringEjR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(72) %pe, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %7 = load ptr, ptr %regexp.addr, align 8
+  %8 = load i32, ptr %flags.addr, align 4
+  %9 = load ptr, ptr %status.addr, align 8
+  %call4 = invoke noundef ptr @_ZN6icu_7512RegexPattern7compileERKNS_13UnicodeStringEjR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(72) %pe, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
   %fPatternOwned = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 2
   store ptr %call4, ptr %fPatternOwned, align 8
   %fPatternOwned5 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 2
-  %9 = load ptr, ptr %fPatternOwned5, align 8
+  %10 = load ptr, ptr %fPatternOwned5, align 8
   %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 1
-  store ptr %9, ptr %fPattern, align 8
+  store ptr %10, ptr %fPattern, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %inputText, i8 0, i64 144, i1 false)
-  %10 = getelementptr inbounds %struct.UText, ptr %inputText, i32 0, i32 0
-  store i32 878368812, ptr %10, align 8
-  %11 = getelementptr inbounds %struct.UText, ptr %inputText, i32 0, i32 3
-  store i32 144, ptr %11, align 4
-  %12 = load ptr, ptr %input.addr, align 8
-  %13 = load ptr, ptr %status.addr, align 8
-  %call7 = invoke ptr @utext_openConstUnicodeString_75(ptr noundef %inputText, ptr noundef %12, ptr noundef %13)
+  %11 = getelementptr inbounds %struct.UText, ptr %inputText, i32 0, i32 0
+  store i32 878368812, ptr %11, align 8
+  %12 = getelementptr inbounds %struct.UText, ptr %inputText, i32 0, i32 3
+  store i32 144, ptr %12, align 4
+  %13 = load ptr, ptr %input.addr, align 8
+  %14 = load ptr, ptr %status.addr, align 8
+  %call7 = invoke ptr @utext_openConstUnicodeString_75(ptr noundef %inputText, ptr noundef %13, ptr noundef %14)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont3
-  %14 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef %inputText, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %15 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef %inputText, ptr noundef nonnull align 4 dereferenceable(4) %15)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -1256,15 +1259,16 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512RegexMatcher4initER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %0 = getelementptr inbounds { [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512RegexMatcher4initER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %status.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
+  %2 = load ptr, ptr %status.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -1275,28 +1279,28 @@ if.then:                                          ; preds = %invoke.cont2
   br label %invoke.cont11
 
 lpad:                                             ; preds = %if.end9, %invoke.cont3, %if.end, %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont2
-  %6 = load ptr, ptr %regexp.addr, align 8
-  %7 = load i32, ptr %flags.addr, align 4
-  %8 = load ptr, ptr %status.addr, align 8
-  %call4 = invoke noundef ptr @_ZN6icu_7512RegexPattern7compileEP5UTextjR11UParseErrorR10UErrorCode(ptr noundef %6, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(72) %pe, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %7 = load ptr, ptr %regexp.addr, align 8
+  %8 = load i32, ptr %flags.addr, align 4
+  %9 = load ptr, ptr %status.addr, align 8
+  %call4 = invoke noundef ptr @_ZN6icu_7512RegexPattern7compileEP5UTextjR11UParseErrorR10UErrorCode(ptr noundef %7, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(72) %pe, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
   %fPatternOwned = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 2
   store ptr %call4, ptr %fPatternOwned, align 8
-  %9 = load ptr, ptr %status.addr, align 8
-  %10 = load i32, ptr %9, align 4
-  %call6 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %10)
+  %10 = load ptr, ptr %status.addr, align 8
+  %11 = load i32, ptr %10, align 4
+  %call6 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %11)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -1308,12 +1312,12 @@ if.then8:                                         ; preds = %invoke.cont5
 
 if.end9:                                          ; preds = %invoke.cont5
   %fPatternOwned10 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 2
-  %11 = load ptr, ptr %fPatternOwned10, align 8
+  %12 = load ptr, ptr %fPatternOwned10, align 8
   %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 1
-  store ptr %11, ptr %fPattern, align 8
-  %12 = load ptr, ptr %input.addr, align 8
-  %13 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  store ptr %12, ptr %fPattern, align 8
+  %13 = load ptr, ptr %input.addr, align 8
+  %14 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %if.end9, %if.then8, %if.then
@@ -1345,15 +1349,16 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512RegexMatcher4initER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %0 = getelementptr inbounds { [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512RegexMatcher4initER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %status.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
+  %2 = load ptr, ptr %status.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -1364,28 +1369,28 @@ if.then:                                          ; preds = %invoke.cont2
   br label %invoke.cont11
 
 lpad:                                             ; preds = %if.end9, %invoke.cont3, %if.end, %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont2
-  %6 = load ptr, ptr %regexp.addr, align 8
-  %7 = load i32, ptr %flags.addr, align 4
-  %8 = load ptr, ptr %status.addr, align 8
-  %call4 = invoke noundef ptr @_ZN6icu_7512RegexPattern7compileERKNS_13UnicodeStringEjR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(72) %pe, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %7 = load ptr, ptr %regexp.addr, align 8
+  %8 = load i32, ptr %flags.addr, align 4
+  %9 = load ptr, ptr %status.addr, align 8
+  %call4 = invoke noundef ptr @_ZN6icu_7512RegexPattern7compileERKNS_13UnicodeStringEjR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(72) %pe, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
   %fPatternOwned = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 2
   store ptr %call4, ptr %fPatternOwned, align 8
-  %9 = load ptr, ptr %status.addr, align 8
-  %10 = load i32, ptr %9, align 4
-  %call6 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %10)
+  %10 = load ptr, ptr %status.addr, align 8
+  %11 = load i32, ptr %10, align 4
+  %call6 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %11)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -1397,14 +1402,14 @@ if.then8:                                         ; preds = %invoke.cont5
 
 if.end9:                                          ; preds = %invoke.cont5
   %fPatternOwned10 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 2
-  %11 = load ptr, ptr %fPatternOwned10, align 8
+  %12 = load ptr, ptr %fPatternOwned10, align 8
   %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 1
-  store ptr %11, ptr %fPattern, align 8
-  %12 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
-  %fEmptyText = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %12, i32 0, i32 6
-  %13 = load ptr, ptr %fEmptyText, align 8
-  %14 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  store ptr %12, ptr %fPattern, align 8
+  %13 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
+  %fEmptyText = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %13, i32 0, i32 6
+  %14 = load ptr, ptr %fEmptyText, align 8
+  %15 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %if.end9, %if.then8, %if.then
@@ -1434,15 +1439,16 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512RegexMatcher4initER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
+  %0 = getelementptr inbounds { [64 x ptr] }, ptr @_ZTVN6icu_7512RegexMatcherE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512RegexMatcher4initER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %status.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
+  %2 = load ptr, ptr %status.addr, align 8
+  %3 = load i32, ptr %2, align 4
+  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %3)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -1453,28 +1459,28 @@ if.then:                                          ; preds = %invoke.cont2
   br label %invoke.cont11
 
 lpad:                                             ; preds = %if.end9, %invoke.cont3, %if.end, %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %5 = extractvalue { ptr, i32 } %4, 0
+  store ptr %5, ptr %exn.slot, align 8
+  %6 = extractvalue { ptr, i32 } %4, 1
+  store i32 %6, ptr %ehselector.slot, align 4
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont2
-  %6 = load ptr, ptr %regexp.addr, align 8
-  %7 = load i32, ptr %flags.addr, align 4
-  %8 = load ptr, ptr %status.addr, align 8
-  %call4 = invoke noundef ptr @_ZN6icu_7512RegexPattern7compileEP5UTextjR11UParseErrorR10UErrorCode(ptr noundef %6, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(72) %pe, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %7 = load ptr, ptr %regexp.addr, align 8
+  %8 = load i32, ptr %flags.addr, align 4
+  %9 = load ptr, ptr %status.addr, align 8
+  %call4 = invoke noundef ptr @_ZN6icu_7512RegexPattern7compileEP5UTextjR11UParseErrorR10UErrorCode(ptr noundef %7, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(72) %pe, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
   %fPatternOwned = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 2
   store ptr %call4, ptr %fPatternOwned, align 8
-  %9 = load ptr, ptr %status.addr, align 8
-  %10 = load i32, ptr %9, align 4
-  %call6 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %10)
+  %10 = load ptr, ptr %status.addr, align 8
+  %11 = load i32, ptr %10, align 4
+  %call6 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %11)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -1486,14 +1492,14 @@ if.then8:                                         ; preds = %invoke.cont5
 
 if.end9:                                          ; preds = %invoke.cont5
   %fPatternOwned10 = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 2
-  %11 = load ptr, ptr %fPatternOwned10, align 8
+  %12 = load ptr, ptr %fPatternOwned10, align 8
   %fPattern = getelementptr inbounds %"class.icu_75::RegexMatcher", ptr %this1, i32 0, i32 1
-  store ptr %11, ptr %fPattern, align 8
-  %12 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
-  %fEmptyText = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %12, i32 0, i32 6
-  %13 = load ptr, ptr %fEmptyText, align 8
-  %14 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  store ptr %12, ptr %fPattern, align 8
+  %13 = load ptr, ptr @_ZN6icu_7515RegexStaticSets11gStaticSetsE, align 8
+  %fEmptyText = getelementptr inbounds %"class.icu_75::RegexStaticSets", ptr %13, i32 0, i32 6
+  %14 = load ptr, ptr %fEmptyText, align 8
+  %15 = load ptr, ptr %status.addr, align 8
+  invoke void @_ZN6icu_7512RegexMatcher5init2EP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this1, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %if.end9, %if.then8, %if.then
@@ -3112,7 +3118,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -26319,7 +26326,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

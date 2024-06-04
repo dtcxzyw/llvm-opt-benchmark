@@ -1247,33 +1247,36 @@ entry:
   %3 = load ptr, ptr %out.addr, align 8
   %arrayidx1 = getelementptr inbounds i128, ptr %3, i64 0
   store i128 %add, ptr %arrayidx1, align 16
-  %4 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero100, i64 0, i64 1), align 16
-  %5 = load ptr, ptr %in.addr, align 8
-  %arrayidx2 = getelementptr inbounds i128, ptr %5, i64 1
-  %6 = load i128, ptr %arrayidx2, align 16
-  %add3 = add i128 %4, %6
-  %7 = load ptr, ptr %out.addr, align 8
-  %arrayidx4 = getelementptr inbounds i128, ptr %7, i64 1
+  %4 = getelementptr inbounds [4 x i128], ptr @zero100, i64 0, i64 1
+  %5 = load i128, ptr %4, align 16
+  %6 = load ptr, ptr %in.addr, align 8
+  %arrayidx2 = getelementptr inbounds i128, ptr %6, i64 1
+  %7 = load i128, ptr %arrayidx2, align 16
+  %add3 = add i128 %5, %7
+  %8 = load ptr, ptr %out.addr, align 8
+  %arrayidx4 = getelementptr inbounds i128, ptr %8, i64 1
   store i128 %add3, ptr %arrayidx4, align 16
-  %8 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero100, i64 0, i64 2), align 16
-  %9 = load ptr, ptr %in.addr, align 8
-  %arrayidx5 = getelementptr inbounds i128, ptr %9, i64 2
-  %10 = load i128, ptr %arrayidx5, align 16
-  %add6 = add i128 %8, %10
-  %11 = load ptr, ptr %out.addr, align 8
-  %arrayidx7 = getelementptr inbounds i128, ptr %11, i64 2
+  %9 = getelementptr inbounds [4 x i128], ptr @zero100, i64 0, i64 2
+  %10 = load i128, ptr %9, align 16
+  %11 = load ptr, ptr %in.addr, align 8
+  %arrayidx5 = getelementptr inbounds i128, ptr %11, i64 2
+  %12 = load i128, ptr %arrayidx5, align 16
+  %add6 = add i128 %10, %12
+  %13 = load ptr, ptr %out.addr, align 8
+  %arrayidx7 = getelementptr inbounds i128, ptr %13, i64 2
   store i128 %add6, ptr %arrayidx7, align 16
-  %12 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero100, i64 0, i64 3), align 16
-  %13 = load ptr, ptr %in.addr, align 8
-  %arrayidx8 = getelementptr inbounds i128, ptr %13, i64 3
-  %14 = load i128, ptr %arrayidx8, align 16
-  %add9 = add i128 %12, %14
-  %15 = load ptr, ptr %out.addr, align 8
-  %arrayidx10 = getelementptr inbounds i128, ptr %15, i64 3
+  %14 = getelementptr inbounds [4 x i128], ptr @zero100, i64 0, i64 3
+  %15 = load i128, ptr %14, align 16
+  %16 = load ptr, ptr %in.addr, align 8
+  %arrayidx8 = getelementptr inbounds i128, ptr %16, i64 3
+  %17 = load i128, ptr %arrayidx8, align 16
+  %add9 = add i128 %15, %17
+  %18 = load ptr, ptr %out.addr, align 8
+  %arrayidx10 = getelementptr inbounds i128, ptr %18, i64 3
   store i128 %add9, ptr %arrayidx10, align 16
-  %16 = load ptr, ptr %out.addr, align 8
-  %17 = load ptr, ptr %in.addr, align 8
-  call void @felem_reduce_(ptr noundef %16, ptr noundef %17)
+  %19 = load ptr, ptr %out.addr, align 8
+  %20 = load ptr, ptr %in.addr, align 8
+  call void @felem_reduce_(ptr noundef %19, ptr noundef %20)
   ret void
 }
 
@@ -1433,32 +1436,35 @@ for.end:                                          ; preds = %for.cond
   %45 = load ptr, ptr %out.addr, align 8
   %arrayidx27 = getelementptr inbounds i64, ptr %45, i64 1
   %46 = load i64, ptr %result, align 8
-  %47 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @kPrime, i64 0, i64 1), align 8
-  %and28 = and i64 %46, %47
+  %47 = getelementptr inbounds [4 x i64], ptr @kPrime, i64 0, i64 1
+  %48 = load i64, ptr %47, align 8
+  %and28 = and i64 %46, %48
   call void @subtract_u64(ptr noundef %arrayidx27, ptr noundef %carry, i64 noundef %and28)
-  %48 = load ptr, ptr %out.addr, align 8
-  %arrayidx29 = getelementptr inbounds i64, ptr %48, i64 2
-  %49 = load i64, ptr %carry, align 8
-  call void @subtract_u64(ptr noundef %arrayidx29, ptr noundef %carry, i64 noundef %49)
-  %50 = load ptr, ptr %out.addr, align 8
-  %arrayidx30 = getelementptr inbounds i64, ptr %50, i64 3
-  %51 = load i64, ptr %carry, align 8
-  call void @subtract_u64(ptr noundef %arrayidx30, ptr noundef %carry, i64 noundef %51)
-  %52 = load ptr, ptr %out.addr, align 8
-  %arrayidx31 = getelementptr inbounds i64, ptr %52, i64 2
-  %53 = load i64, ptr %result, align 8
-  %54 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @kPrime, i64 0, i64 2), align 16
-  %and32 = and i64 %53, %54
+  %49 = load ptr, ptr %out.addr, align 8
+  %arrayidx29 = getelementptr inbounds i64, ptr %49, i64 2
+  %50 = load i64, ptr %carry, align 8
+  call void @subtract_u64(ptr noundef %arrayidx29, ptr noundef %carry, i64 noundef %50)
+  %51 = load ptr, ptr %out.addr, align 8
+  %arrayidx30 = getelementptr inbounds i64, ptr %51, i64 3
+  %52 = load i64, ptr %carry, align 8
+  call void @subtract_u64(ptr noundef %arrayidx30, ptr noundef %carry, i64 noundef %52)
+  %53 = load ptr, ptr %out.addr, align 8
+  %arrayidx31 = getelementptr inbounds i64, ptr %53, i64 2
+  %54 = load i64, ptr %result, align 8
+  %55 = getelementptr inbounds [4 x i64], ptr @kPrime, i64 0, i64 2
+  %56 = load i64, ptr %55, align 16
+  %and32 = and i64 %54, %56
   call void @subtract_u64(ptr noundef %arrayidx31, ptr noundef %carry, i64 noundef %and32)
-  %55 = load ptr, ptr %out.addr, align 8
-  %arrayidx33 = getelementptr inbounds i64, ptr %55, i64 3
-  %56 = load i64, ptr %carry, align 8
-  call void @subtract_u64(ptr noundef %arrayidx33, ptr noundef %carry, i64 noundef %56)
   %57 = load ptr, ptr %out.addr, align 8
-  %arrayidx34 = getelementptr inbounds i64, ptr %57, i64 3
-  %58 = load i64, ptr %result, align 8
-  %59 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @kPrime, i64 0, i64 3), align 8
-  %and35 = and i64 %58, %59
+  %arrayidx33 = getelementptr inbounds i64, ptr %57, i64 3
+  %58 = load i64, ptr %carry, align 8
+  call void @subtract_u64(ptr noundef %arrayidx33, ptr noundef %carry, i64 noundef %58)
+  %59 = load ptr, ptr %out.addr, align 8
+  %arrayidx34 = getelementptr inbounds i64, ptr %59, i64 3
+  %60 = load i64, ptr %result, align 8
+  %61 = getelementptr inbounds [4 x i64], ptr @kPrime, i64 0, i64 3
+  %62 = load i64, ptr %61, align 8
+  %and35 = and i64 %60, %62
   call void @subtract_u64(ptr noundef %arrayidx34, ptr noundef %carry, i64 noundef %and35)
   ret void
 }
@@ -1621,236 +1627,241 @@ entry:
   %low = alloca i64, align 8
   store ptr %out, ptr %out.addr, align 8
   store ptr %in, ptr %in.addr, align 8
-  %0 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero110, i64 0, i64 3), align 16
-  %1 = load ptr, ptr %in.addr, align 8
-  %arrayidx = getelementptr inbounds i128, ptr %1, i64 3
-  %2 = load i128, ptr %arrayidx, align 16
-  %add = add i128 %0, %2
-  %3 = load ptr, ptr %in.addr, align 8
-  %arrayidx1 = getelementptr inbounds i128, ptr %3, i64 2
-  %4 = load i128, ptr %arrayidx1, align 16
-  %shr = lshr i128 %4, 64
+  %0 = getelementptr inbounds [4 x i128], ptr @zero110, i64 0, i64 3
+  %1 = load i128, ptr %0, align 16
+  %2 = load ptr, ptr %in.addr, align 8
+  %arrayidx = getelementptr inbounds i128, ptr %2, i64 3
+  %3 = load i128, ptr %arrayidx, align 16
+  %add = add i128 %1, %3
+  %4 = load ptr, ptr %in.addr, align 8
+  %arrayidx1 = getelementptr inbounds i128, ptr %4, i64 2
+  %5 = load i128, ptr %arrayidx1, align 16
+  %shr = lshr i128 %5, 64
   %conv = trunc i128 %shr to i64
   %conv2 = zext i64 %conv to i128
   %add3 = add i128 %add, %conv2
   %arrayidx4 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
   store i128 %add3, ptr %arrayidx4, align 16
-  %5 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero110, i64 0, i64 2), align 16
-  %6 = load ptr, ptr %in.addr, align 8
-  %arrayidx5 = getelementptr inbounds i128, ptr %6, i64 2
-  %7 = load i128, ptr %arrayidx5, align 16
-  %conv6 = trunc i128 %7 to i64
+  %6 = getelementptr inbounds [4 x i128], ptr @zero110, i64 0, i64 2
+  %7 = load i128, ptr %6, align 16
+  %8 = load ptr, ptr %in.addr, align 8
+  %arrayidx5 = getelementptr inbounds i128, ptr %8, i64 2
+  %9 = load i128, ptr %arrayidx5, align 16
+  %conv6 = trunc i128 %9 to i64
   %conv7 = zext i64 %conv6 to i128
-  %add8 = add i128 %5, %conv7
+  %add8 = add i128 %7, %conv7
   %arrayidx9 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 2
   store i128 %add8, ptr %arrayidx9, align 16
-  %8 = load i128, ptr @zero110, align 16
-  %9 = load ptr, ptr %in.addr, align 8
-  %arrayidx10 = getelementptr inbounds i128, ptr %9, i64 0
-  %10 = load i128, ptr %arrayidx10, align 16
-  %add11 = add i128 %8, %10
+  %10 = load i128, ptr @zero110, align 16
+  %11 = load ptr, ptr %in.addr, align 8
+  %arrayidx10 = getelementptr inbounds i128, ptr %11, i64 0
+  %12 = load i128, ptr %arrayidx10, align 16
+  %add11 = add i128 %10, %12
   %arrayidx12 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 0
   store i128 %add11, ptr %arrayidx12, align 16
-  %11 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero110, i64 0, i64 1), align 16
-  %12 = load ptr, ptr %in.addr, align 8
-  %arrayidx13 = getelementptr inbounds i128, ptr %12, i64 1
-  %13 = load i128, ptr %arrayidx13, align 16
-  %add14 = add i128 %11, %13
+  %13 = getelementptr inbounds [4 x i128], ptr @zero110, i64 0, i64 1
+  %14 = load i128, ptr %13, align 16
+  %15 = load ptr, ptr %in.addr, align 8
+  %arrayidx13 = getelementptr inbounds i128, ptr %15, i64 1
+  %16 = load i128, ptr %arrayidx13, align 16
+  %add14 = add i128 %14, %16
   %arrayidx15 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 1
   store i128 %add14, ptr %arrayidx15, align 16
   %arrayidx16 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %14 = load i128, ptr %arrayidx16, align 16
-  %shr17 = lshr i128 %14, 64
+  %17 = load i128, ptr %arrayidx16, align 16
+  %shr17 = lshr i128 %17, 64
   %conv18 = trunc i128 %shr17 to i64
   store i64 %conv18, ptr %a, align 8
   %arrayidx19 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %15 = load i128, ptr %arrayidx19, align 16
-  %conv20 = trunc i128 %15 to i64
+  %18 = load i128, ptr %arrayidx19, align 16
+  %conv20 = trunc i128 %18 to i64
   %conv21 = zext i64 %conv20 to i128
   %arrayidx22 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
   store i128 %conv21, ptr %arrayidx22, align 16
-  %16 = load i64, ptr %a, align 8
-  %conv23 = zext i64 %16 to i128
+  %19 = load i64, ptr %a, align 8
+  %conv23 = zext i64 %19 to i128
   %arrayidx24 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %17 = load i128, ptr %arrayidx24, align 16
-  %sub = sub i128 %17, %conv23
+  %20 = load i128, ptr %arrayidx24, align 16
+  %sub = sub i128 %20, %conv23
   store i128 %sub, ptr %arrayidx24, align 16
-  %18 = load i64, ptr %a, align 8
-  %conv25 = zext i64 %18 to i128
+  %21 = load i64, ptr %a, align 8
+  %conv25 = zext i64 %21 to i128
   %shl = shl i128 %conv25, 32
   %arrayidx26 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %19 = load i128, ptr %arrayidx26, align 16
-  %add27 = add i128 %19, %shl
+  %22 = load i128, ptr %arrayidx26, align 16
+  %add27 = add i128 %22, %shl
   store i128 %add27, ptr %arrayidx26, align 16
-  %20 = load i64, ptr %a, align 8
-  store i64 %20, ptr %b, align 8
+  %23 = load i64, ptr %a, align 8
+  store i64 %23, ptr %b, align 8
   %arrayidx28 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %21 = load i128, ptr %arrayidx28, align 16
-  %shr29 = lshr i128 %21, 64
+  %24 = load i128, ptr %arrayidx28, align 16
+  %shr29 = lshr i128 %24, 64
   %conv30 = trunc i128 %shr29 to i64
   store i64 %conv30, ptr %a, align 8
-  %22 = load i64, ptr %a, align 8
-  %23 = load i64, ptr %b, align 8
-  %add31 = add i64 %23, %22
+  %25 = load i64, ptr %a, align 8
+  %26 = load i64, ptr %b, align 8
+  %add31 = add i64 %26, %25
   store i64 %add31, ptr %b, align 8
   %arrayidx32 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %24 = load i128, ptr %arrayidx32, align 16
-  %conv33 = trunc i128 %24 to i64
+  %27 = load i128, ptr %arrayidx32, align 16
+  %conv33 = trunc i128 %27 to i64
   %conv34 = zext i64 %conv33 to i128
   %arrayidx35 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
   store i128 %conv34, ptr %arrayidx35, align 16
-  %25 = load i64, ptr %a, align 8
-  %conv36 = zext i64 %25 to i128
+  %28 = load i64, ptr %a, align 8
+  %conv36 = zext i64 %28 to i128
   %arrayidx37 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %26 = load i128, ptr %arrayidx37, align 16
-  %sub38 = sub i128 %26, %conv36
+  %29 = load i128, ptr %arrayidx37, align 16
+  %sub38 = sub i128 %29, %conv36
   store i128 %sub38, ptr %arrayidx37, align 16
-  %27 = load i64, ptr %a, align 8
-  %conv39 = zext i64 %27 to i128
+  %30 = load i64, ptr %a, align 8
+  %conv39 = zext i64 %30 to i128
   %shl40 = shl i128 %conv39, 32
   %arrayidx41 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %28 = load i128, ptr %arrayidx41, align 16
-  %add42 = add i128 %28, %shl40
+  %31 = load i128, ptr %arrayidx41, align 16
+  %add42 = add i128 %31, %shl40
   store i128 %add42, ptr %arrayidx41, align 16
-  %29 = load i64, ptr %b, align 8
-  %conv43 = zext i64 %29 to i128
+  %32 = load i64, ptr %b, align 8
+  %conv43 = zext i64 %32 to i128
   %arrayidx44 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 0
-  %30 = load i128, ptr %arrayidx44, align 16
-  %add45 = add i128 %30, %conv43
+  %33 = load i128, ptr %arrayidx44, align 16
+  %add45 = add i128 %33, %conv43
   store i128 %add45, ptr %arrayidx44, align 16
-  %31 = load i64, ptr %b, align 8
-  %conv46 = zext i64 %31 to i128
+  %34 = load i64, ptr %b, align 8
+  %conv46 = zext i64 %34 to i128
   %shl47 = shl i128 %conv46, 32
   %arrayidx48 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 1
-  %32 = load i128, ptr %arrayidx48, align 16
-  %sub49 = sub i128 %32, %shl47
+  %35 = load i128, ptr %arrayidx48, align 16
+  %sub49 = sub i128 %35, %shl47
   store i128 %sub49, ptr %arrayidx48, align 16
   %arrayidx50 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %33 = load i128, ptr %arrayidx50, align 16
-  %shr51 = lshr i128 %33, 64
+  %36 = load i128, ptr %arrayidx50, align 16
+  %shr51 = lshr i128 %36, 64
   %conv52 = trunc i128 %shr51 to i64
   store i64 %conv52, ptr %high, align 8
-  %34 = load i64, ptr %high, align 8
-  %sub53 = sub nsw i64 %34, 1
+  %37 = load i64, ptr %high, align 8
+  %sub53 = sub nsw i64 %37, 1
   %not = xor i64 %sub53, -1
   store i64 %not, ptr %high, align 8
   %arrayidx54 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %35 = load i128, ptr %arrayidx54, align 16
-  %conv55 = trunc i128 %35 to i64
+  %38 = load i128, ptr %arrayidx54, align 16
+  %conv55 = trunc i128 %38 to i64
   store i64 %conv55, ptr %low, align 8
-  %36 = load i64, ptr %low, align 8
-  %shr56 = ashr i64 %36, 63
-  store i64 %shr56, ptr %mask, align 8
-  %37 = load i64, ptr %low, align 8
-  %and = and i64 %37, 9223372036854775807
-  store i64 %and, ptr %low, align 8
-  %38 = load i64, ptr %low, align 8
-  %sub57 = sub i64 %38, 9223372032559808513
-  store i64 %sub57, ptr %low, align 8
   %39 = load i64, ptr %low, align 8
-  %not58 = xor i64 %39, -1
-  store i64 %not58, ptr %low, align 8
+  %shr56 = ashr i64 %39, 63
+  store i64 %shr56, ptr %mask, align 8
   %40 = load i64, ptr %low, align 8
-  %shr59 = ashr i64 %40, 63
-  store i64 %shr59, ptr %low, align 8
-  %41 = load i64, ptr %mask, align 8
+  %and = and i64 %40, 9223372036854775807
+  store i64 %and, ptr %low, align 8
+  %41 = load i64, ptr %low, align 8
+  %sub57 = sub i64 %41, 9223372032559808513
+  store i64 %sub57, ptr %low, align 8
   %42 = load i64, ptr %low, align 8
-  %and60 = and i64 %41, %42
-  %43 = load i64, ptr %high, align 8
-  %or = or i64 %and60, %43
-  store i64 %or, ptr %mask, align 8
+  %not58 = xor i64 %42, -1
+  store i64 %not58, ptr %low, align 8
+  %43 = load i64, ptr %low, align 8
+  %shr59 = ashr i64 %43, 63
+  store i64 %shr59, ptr %low, align 8
   %44 = load i64, ptr %mask, align 8
-  %45 = load i64, ptr @kPrime, align 16
-  %and61 = and i64 %44, %45
+  %45 = load i64, ptr %low, align 8
+  %and60 = and i64 %44, %45
+  %46 = load i64, ptr %high, align 8
+  %or = or i64 %and60, %46
+  store i64 %or, ptr %mask, align 8
+  %47 = load i64, ptr %mask, align 8
+  %48 = load i64, ptr @kPrime, align 16
+  %and61 = and i64 %47, %48
   %conv62 = zext i64 %and61 to i128
   %arrayidx63 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 0
-  %46 = load i128, ptr %arrayidx63, align 16
-  %sub64 = sub i128 %46, %conv62
+  %49 = load i128, ptr %arrayidx63, align 16
+  %sub64 = sub i128 %49, %conv62
   store i128 %sub64, ptr %arrayidx63, align 16
-  %47 = load i64, ptr %mask, align 8
-  %48 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @kPrime, i64 0, i64 1), align 8
-  %and65 = and i64 %47, %48
+  %50 = load i64, ptr %mask, align 8
+  %51 = getelementptr inbounds [4 x i64], ptr @kPrime, i64 0, i64 1
+  %52 = load i64, ptr %51, align 8
+  %and65 = and i64 %50, %52
   %conv66 = zext i64 %and65 to i128
   %arrayidx67 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 1
-  %49 = load i128, ptr %arrayidx67, align 16
-  %sub68 = sub i128 %49, %conv66
+  %53 = load i128, ptr %arrayidx67, align 16
+  %sub68 = sub i128 %53, %conv66
   store i128 %sub68, ptr %arrayidx67, align 16
-  %50 = load i64, ptr %mask, align 8
-  %51 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @kPrime, i64 0, i64 3), align 8
-  %and69 = and i64 %50, %51
+  %54 = load i64, ptr %mask, align 8
+  %55 = getelementptr inbounds [4 x i64], ptr @kPrime, i64 0, i64 3
+  %56 = load i64, ptr %55, align 8
+  %and69 = and i64 %54, %56
   %conv70 = zext i64 %and69 to i128
   %arrayidx71 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %52 = load i128, ptr %arrayidx71, align 16
-  %sub72 = sub i128 %52, %conv70
+  %57 = load i128, ptr %arrayidx71, align 16
+  %sub72 = sub i128 %57, %conv70
   store i128 %sub72, ptr %arrayidx71, align 16
   %arrayidx73 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 0
-  %53 = load i128, ptr %arrayidx73, align 16
-  %shr74 = lshr i128 %53, 64
+  %58 = load i128, ptr %arrayidx73, align 16
+  %shr74 = lshr i128 %58, 64
   %conv75 = trunc i128 %shr74 to i64
   %conv76 = zext i64 %conv75 to i128
   %arrayidx77 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 1
-  %54 = load i128, ptr %arrayidx77, align 16
-  %add78 = add i128 %54, %conv76
+  %59 = load i128, ptr %arrayidx77, align 16
+  %add78 = add i128 %59, %conv76
   store i128 %add78, ptr %arrayidx77, align 16
   %arrayidx79 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 0
-  %55 = load i128, ptr %arrayidx79, align 16
-  %conv80 = trunc i128 %55 to i64
+  %60 = load i128, ptr %arrayidx79, align 16
+  %conv80 = trunc i128 %60 to i64
   %conv81 = zext i64 %conv80 to i128
   %arrayidx82 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 0
   store i128 %conv81, ptr %arrayidx82, align 16
   %arrayidx83 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 1
-  %56 = load i128, ptr %arrayidx83, align 16
-  %shr84 = lshr i128 %56, 64
+  %61 = load i128, ptr %arrayidx83, align 16
+  %shr84 = lshr i128 %61, 64
   %conv85 = trunc i128 %shr84 to i64
   %conv86 = zext i64 %conv85 to i128
   %arrayidx87 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 2
-  %57 = load i128, ptr %arrayidx87, align 16
-  %add88 = add i128 %57, %conv86
+  %62 = load i128, ptr %arrayidx87, align 16
+  %add88 = add i128 %62, %conv86
   store i128 %add88, ptr %arrayidx87, align 16
   %arrayidx89 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 1
-  %58 = load i128, ptr %arrayidx89, align 16
-  %conv90 = trunc i128 %58 to i64
+  %63 = load i128, ptr %arrayidx89, align 16
+  %conv90 = trunc i128 %63 to i64
   %conv91 = zext i64 %conv90 to i128
   %arrayidx92 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 1
   store i128 %conv91, ptr %arrayidx92, align 16
   %arrayidx93 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 2
-  %59 = load i128, ptr %arrayidx93, align 16
-  %shr94 = lshr i128 %59, 64
+  %64 = load i128, ptr %arrayidx93, align 16
+  %shr94 = lshr i128 %64, 64
   %conv95 = trunc i128 %shr94 to i64
   %conv96 = zext i64 %conv95 to i128
   %arrayidx97 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %60 = load i128, ptr %arrayidx97, align 16
-  %add98 = add i128 %60, %conv96
+  %65 = load i128, ptr %arrayidx97, align 16
+  %add98 = add i128 %65, %conv96
   store i128 %add98, ptr %arrayidx97, align 16
   %arrayidx99 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 2
-  %61 = load i128, ptr %arrayidx99, align 16
-  %conv100 = trunc i128 %61 to i64
+  %66 = load i128, ptr %arrayidx99, align 16
+  %conv100 = trunc i128 %66 to i64
   %conv101 = zext i64 %conv100 to i128
   %arrayidx102 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 2
   store i128 %conv101, ptr %arrayidx102, align 16
   %arrayidx103 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 0
-  %62 = load i128, ptr %arrayidx103, align 16
-  %conv104 = trunc i128 %62 to i64
-  %63 = load ptr, ptr %out.addr, align 8
-  %arrayidx105 = getelementptr inbounds i64, ptr %63, i64 0
+  %67 = load i128, ptr %arrayidx103, align 16
+  %conv104 = trunc i128 %67 to i64
+  %68 = load ptr, ptr %out.addr, align 8
+  %arrayidx105 = getelementptr inbounds i64, ptr %68, i64 0
   store i64 %conv104, ptr %arrayidx105, align 8
   %arrayidx106 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 1
-  %64 = load i128, ptr %arrayidx106, align 16
-  %conv107 = trunc i128 %64 to i64
-  %65 = load ptr, ptr %out.addr, align 8
-  %arrayidx108 = getelementptr inbounds i64, ptr %65, i64 1
+  %69 = load i128, ptr %arrayidx106, align 16
+  %conv107 = trunc i128 %69 to i64
+  %70 = load ptr, ptr %out.addr, align 8
+  %arrayidx108 = getelementptr inbounds i64, ptr %70, i64 1
   store i64 %conv107, ptr %arrayidx108, align 8
   %arrayidx109 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 2
-  %66 = load i128, ptr %arrayidx109, align 16
-  %conv110 = trunc i128 %66 to i64
-  %67 = load ptr, ptr %out.addr, align 8
-  %arrayidx111 = getelementptr inbounds i64, ptr %67, i64 2
+  %71 = load i128, ptr %arrayidx109, align 16
+  %conv110 = trunc i128 %71 to i64
+  %72 = load ptr, ptr %out.addr, align 8
+  %arrayidx111 = getelementptr inbounds i64, ptr %72, i64 2
   store i64 %conv110, ptr %arrayidx111, align 8
   %arrayidx112 = getelementptr inbounds [4 x i128], ptr %tmp, i64 0, i64 3
-  %68 = load i128, ptr %arrayidx112, align 16
-  %conv113 = trunc i128 %68 to i64
-  %69 = load ptr, ptr %out.addr, align 8
-  %arrayidx114 = getelementptr inbounds i64, ptr %69, i64 3
+  %73 = load i128, ptr %arrayidx112, align 16
+  %conv113 = trunc i128 %73 to i64
+  %74 = load ptr, ptr %out.addr, align 8
+  %arrayidx114 = getelementptr inbounds i64, ptr %74, i64 3
   store i64 %conv113, ptr %arrayidx114, align 8
   ret void
 }
@@ -3150,9 +3161,10 @@ if.then16:                                        ; preds = %land.lhs.true
   store i64 %or37, ptr %bits, align 8
   %15 = load i64, ptr %bits, align 8
   %arraydecay38 = getelementptr inbounds [3 x [4 x i64]], ptr %tmp, i64 0, i64 0
-  call void @select_point(i64 noundef %15, i64 noundef 16, ptr noundef getelementptr inbounds ([2 x [16 x [3 x [4 x i64]]]], ptr @g_pre_comp, i64 0, i64 1), ptr noundef %arraydecay38)
-  %16 = load i32, ptr %skip, align 4
-  %tobool39 = icmp ne i32 %16, 0
+  %16 = getelementptr inbounds [2 x [16 x [3 x [4 x i64]]]], ptr @g_pre_comp, i64 0, i64 1
+  call void @select_point(i64 noundef %15, i64 noundef 16, ptr noundef %16, ptr noundef %arraydecay38)
+  %17 = load i32, ptr %skip, align 4
+  %tobool39 = icmp ne i32 %17, 0
   br i1 %tobool39, label %if.else, label %if.then40
 
 if.then40:                                        ; preds = %if.then16
@@ -3197,48 +3209,48 @@ if.else:                                          ; preds = %if.then16
   br label %if.end71
 
 if.end71:                                         ; preds = %if.else, %if.then40
-  %17 = load ptr, ptr %g_scalar.addr, align 8
-  %18 = load i64, ptr %i, align 8
-  %add72 = add i64 %18, 192
+  %18 = load ptr, ptr %g_scalar.addr, align 8
+  %19 = load i64, ptr %i, align 8
+  %add72 = add i64 %19, 192
   %conv73 = trunc i64 %add72 to i32
-  %call74 = call signext i8 @get_bit(ptr noundef %17, i32 noundef %conv73)
+  %call74 = call signext i8 @get_bit(ptr noundef %18, i32 noundef %conv73)
   %conv75 = sext i8 %call74 to i32
   %shl76 = shl i32 %conv75, 3
   %conv77 = sext i32 %shl76 to i64
   store i64 %conv77, ptr %bits, align 8
-  %19 = load ptr, ptr %g_scalar.addr, align 8
-  %20 = load i64, ptr %i, align 8
-  %add78 = add i64 %20, 128
+  %20 = load ptr, ptr %g_scalar.addr, align 8
+  %21 = load i64, ptr %i, align 8
+  %add78 = add i64 %21, 128
   %conv79 = trunc i64 %add78 to i32
-  %call80 = call signext i8 @get_bit(ptr noundef %19, i32 noundef %conv79)
+  %call80 = call signext i8 @get_bit(ptr noundef %20, i32 noundef %conv79)
   %conv81 = sext i8 %call80 to i32
   %shl82 = shl i32 %conv81, 2
   %conv83 = sext i32 %shl82 to i64
-  %21 = load i64, ptr %bits, align 8
-  %or84 = or i64 %21, %conv83
+  %22 = load i64, ptr %bits, align 8
+  %or84 = or i64 %22, %conv83
   store i64 %or84, ptr %bits, align 8
-  %22 = load ptr, ptr %g_scalar.addr, align 8
-  %23 = load i64, ptr %i, align 8
-  %add85 = add i64 %23, 64
+  %23 = load ptr, ptr %g_scalar.addr, align 8
+  %24 = load i64, ptr %i, align 8
+  %add85 = add i64 %24, 64
   %conv86 = trunc i64 %add85 to i32
-  %call87 = call signext i8 @get_bit(ptr noundef %22, i32 noundef %conv86)
+  %call87 = call signext i8 @get_bit(ptr noundef %23, i32 noundef %conv86)
   %conv88 = sext i8 %call87 to i32
   %shl89 = shl i32 %conv88, 1
   %conv90 = sext i32 %shl89 to i64
-  %24 = load i64, ptr %bits, align 8
-  %or91 = or i64 %24, %conv90
+  %25 = load i64, ptr %bits, align 8
+  %or91 = or i64 %25, %conv90
   store i64 %or91, ptr %bits, align 8
-  %25 = load ptr, ptr %g_scalar.addr, align 8
-  %26 = load i64, ptr %i, align 8
-  %conv92 = trunc i64 %26 to i32
-  %call93 = call signext i8 @get_bit(ptr noundef %25, i32 noundef %conv92)
+  %26 = load ptr, ptr %g_scalar.addr, align 8
+  %27 = load i64, ptr %i, align 8
+  %conv92 = trunc i64 %27 to i32
+  %call93 = call signext i8 @get_bit(ptr noundef %26, i32 noundef %conv92)
   %conv94 = sext i8 %call93 to i64
-  %27 = load i64, ptr %bits, align 8
-  %or95 = or i64 %27, %conv94
-  store i64 %or95, ptr %bits, align 8
   %28 = load i64, ptr %bits, align 8
+  %or95 = or i64 %28, %conv94
+  store i64 %or95, ptr %bits, align 8
+  %29 = load i64, ptr %bits, align 8
   %arraydecay96 = getelementptr inbounds [3 x [4 x i64]], ptr %tmp, i64 0, i64 0
-  call void @select_point(i64 noundef %28, i64 noundef 16, ptr noundef @g_pre_comp, ptr noundef %arraydecay96)
+  call void @select_point(i64 noundef %29, i64 noundef 16, ptr noundef @g_pre_comp, ptr noundef %arraydecay96)
   %arrayidx97 = getelementptr inbounds [3 x [4 x i128]], ptr %nq, i64 0, i64 0
   %arraydecay98 = getelementptr inbounds [4 x i128], ptr %arrayidx97, i64 0, i64 0
   %arrayidx99 = getelementptr inbounds [3 x [4 x i128]], ptr %nq, i64 0, i64 1
@@ -3261,13 +3273,13 @@ if.end71:                                         ; preds = %if.else, %if.then40
   br label %if.end115
 
 if.end115:                                        ; preds = %if.end71, %land.lhs.true, %if.end
-  %29 = load i64, ptr %num_points.addr, align 8
-  %cmp116 = icmp ne i64 %29, 0
+  %30 = load i64, ptr %num_points.addr, align 8
+  %cmp116 = icmp ne i64 %30, 0
   br i1 %cmp116, label %land.lhs.true118, label %if.end224
 
 land.lhs.true118:                                 ; preds = %if.end115
-  %30 = load i64, ptr %i, align 8
-  %rem = urem i64 %30, 5
+  %31 = load i64, ptr %i, align 8
+  %rem = urem i64 %31, 5
   %cmp119 = icmp eq i64 %rem, 0
   br i1 %cmp119, label %if.then121, label %if.end224
 
@@ -3276,99 +3288,99 @@ if.then121:                                       ; preds = %land.lhs.true118
   br label %for.cond122
 
 for.cond122:                                      ; preds = %for.inc, %if.then121
-  %31 = load i64, ptr %num, align 8
-  %32 = load i64, ptr %num_points.addr, align 8
-  %cmp123 = icmp ult i64 %31, %32
+  %32 = load i64, ptr %num, align 8
+  %33 = load i64, ptr %num_points.addr, align 8
+  %cmp123 = icmp ult i64 %32, %33
   br i1 %cmp123, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond122
-  %33 = load ptr, ptr %scalars.addr, align 8
-  %34 = load i64, ptr %num, align 8
-  %arrayidx125 = getelementptr inbounds [32 x i8], ptr %33, i64 %34
+  %34 = load ptr, ptr %scalars.addr, align 8
+  %35 = load i64, ptr %num, align 8
+  %arrayidx125 = getelementptr inbounds [32 x i8], ptr %34, i64 %35
   %arraydecay126 = getelementptr inbounds [32 x i8], ptr %arrayidx125, i64 0, i64 0
-  %35 = load i64, ptr %i, align 8
-  %add127 = add i64 %35, 4
+  %36 = load i64, ptr %i, align 8
+  %add127 = add i64 %36, 4
   %conv128 = trunc i64 %add127 to i32
   %call129 = call signext i8 @get_bit(ptr noundef %arraydecay126, i32 noundef %conv128)
   %conv130 = sext i8 %call129 to i32
   %shl131 = shl i32 %conv130, 5
   %conv132 = sext i32 %shl131 to i64
   store i64 %conv132, ptr %bits, align 8
-  %36 = load ptr, ptr %scalars.addr, align 8
-  %37 = load i64, ptr %num, align 8
-  %arrayidx133 = getelementptr inbounds [32 x i8], ptr %36, i64 %37
+  %37 = load ptr, ptr %scalars.addr, align 8
+  %38 = load i64, ptr %num, align 8
+  %arrayidx133 = getelementptr inbounds [32 x i8], ptr %37, i64 %38
   %arraydecay134 = getelementptr inbounds [32 x i8], ptr %arrayidx133, i64 0, i64 0
-  %38 = load i64, ptr %i, align 8
-  %add135 = add i64 %38, 3
+  %39 = load i64, ptr %i, align 8
+  %add135 = add i64 %39, 3
   %conv136 = trunc i64 %add135 to i32
   %call137 = call signext i8 @get_bit(ptr noundef %arraydecay134, i32 noundef %conv136)
   %conv138 = sext i8 %call137 to i32
   %shl139 = shl i32 %conv138, 4
   %conv140 = sext i32 %shl139 to i64
-  %39 = load i64, ptr %bits, align 8
-  %or141 = or i64 %39, %conv140
+  %40 = load i64, ptr %bits, align 8
+  %or141 = or i64 %40, %conv140
   store i64 %or141, ptr %bits, align 8
-  %40 = load ptr, ptr %scalars.addr, align 8
-  %41 = load i64, ptr %num, align 8
-  %arrayidx142 = getelementptr inbounds [32 x i8], ptr %40, i64 %41
+  %41 = load ptr, ptr %scalars.addr, align 8
+  %42 = load i64, ptr %num, align 8
+  %arrayidx142 = getelementptr inbounds [32 x i8], ptr %41, i64 %42
   %arraydecay143 = getelementptr inbounds [32 x i8], ptr %arrayidx142, i64 0, i64 0
-  %42 = load i64, ptr %i, align 8
-  %add144 = add i64 %42, 2
+  %43 = load i64, ptr %i, align 8
+  %add144 = add i64 %43, 2
   %conv145 = trunc i64 %add144 to i32
   %call146 = call signext i8 @get_bit(ptr noundef %arraydecay143, i32 noundef %conv145)
   %conv147 = sext i8 %call146 to i32
   %shl148 = shl i32 %conv147, 3
   %conv149 = sext i32 %shl148 to i64
-  %43 = load i64, ptr %bits, align 8
-  %or150 = or i64 %43, %conv149
+  %44 = load i64, ptr %bits, align 8
+  %or150 = or i64 %44, %conv149
   store i64 %or150, ptr %bits, align 8
-  %44 = load ptr, ptr %scalars.addr, align 8
-  %45 = load i64, ptr %num, align 8
-  %arrayidx151 = getelementptr inbounds [32 x i8], ptr %44, i64 %45
+  %45 = load ptr, ptr %scalars.addr, align 8
+  %46 = load i64, ptr %num, align 8
+  %arrayidx151 = getelementptr inbounds [32 x i8], ptr %45, i64 %46
   %arraydecay152 = getelementptr inbounds [32 x i8], ptr %arrayidx151, i64 0, i64 0
-  %46 = load i64, ptr %i, align 8
-  %add153 = add i64 %46, 1
+  %47 = load i64, ptr %i, align 8
+  %add153 = add i64 %47, 1
   %conv154 = trunc i64 %add153 to i32
   %call155 = call signext i8 @get_bit(ptr noundef %arraydecay152, i32 noundef %conv154)
   %conv156 = sext i8 %call155 to i32
   %shl157 = shl i32 %conv156, 2
   %conv158 = sext i32 %shl157 to i64
-  %47 = load i64, ptr %bits, align 8
-  %or159 = or i64 %47, %conv158
+  %48 = load i64, ptr %bits, align 8
+  %or159 = or i64 %48, %conv158
   store i64 %or159, ptr %bits, align 8
-  %48 = load ptr, ptr %scalars.addr, align 8
-  %49 = load i64, ptr %num, align 8
-  %arrayidx160 = getelementptr inbounds [32 x i8], ptr %48, i64 %49
+  %49 = load ptr, ptr %scalars.addr, align 8
+  %50 = load i64, ptr %num, align 8
+  %arrayidx160 = getelementptr inbounds [32 x i8], ptr %49, i64 %50
   %arraydecay161 = getelementptr inbounds [32 x i8], ptr %arrayidx160, i64 0, i64 0
-  %50 = load i64, ptr %i, align 8
-  %conv162 = trunc i64 %50 to i32
+  %51 = load i64, ptr %i, align 8
+  %conv162 = trunc i64 %51 to i32
   %call163 = call signext i8 @get_bit(ptr noundef %arraydecay161, i32 noundef %conv162)
   %conv164 = sext i8 %call163 to i32
   %shl165 = shl i32 %conv164, 1
   %conv166 = sext i32 %shl165 to i64
-  %51 = load i64, ptr %bits, align 8
-  %or167 = or i64 %51, %conv166
+  %52 = load i64, ptr %bits, align 8
+  %or167 = or i64 %52, %conv166
   store i64 %or167, ptr %bits, align 8
-  %52 = load ptr, ptr %scalars.addr, align 8
-  %53 = load i64, ptr %num, align 8
-  %arrayidx168 = getelementptr inbounds [32 x i8], ptr %52, i64 %53
+  %53 = load ptr, ptr %scalars.addr, align 8
+  %54 = load i64, ptr %num, align 8
+  %arrayidx168 = getelementptr inbounds [32 x i8], ptr %53, i64 %54
   %arraydecay169 = getelementptr inbounds [32 x i8], ptr %arrayidx168, i64 0, i64 0
-  %54 = load i64, ptr %i, align 8
-  %sub = sub i64 %54, 1
+  %55 = load i64, ptr %i, align 8
+  %sub = sub i64 %55, 1
   %conv170 = trunc i64 %sub to i32
   %call171 = call signext i8 @get_bit(ptr noundef %arraydecay169, i32 noundef %conv170)
   %conv172 = sext i8 %call171 to i64
-  %55 = load i64, ptr %bits, align 8
-  %or173 = or i64 %55, %conv172
-  store i64 %or173, ptr %bits, align 8
   %56 = load i64, ptr %bits, align 8
-  %conv174 = trunc i64 %56 to i8
+  %or173 = or i64 %56, %conv172
+  store i64 %or173, ptr %bits, align 8
+  %57 = load i64, ptr %bits, align 8
+  %conv174 = trunc i64 %57 to i8
   call void @ec_GFp_nistp_recode_scalar_bits(ptr noundef %sign, ptr noundef %digit, i8 noundef zeroext %conv174)
-  %57 = load i8, ptr %digit, align 1
-  %conv175 = zext i8 %57 to i64
-  %58 = load ptr, ptr %pre_comp.addr, align 8
-  %59 = load i64, ptr %num, align 8
-  %arrayidx176 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %58, i64 %59
+  %58 = load i8, ptr %digit, align 1
+  %conv175 = zext i8 %58 to i64
+  %59 = load ptr, ptr %pre_comp.addr, align 8
+  %60 = load i64, ptr %num, align 8
+  %arrayidx176 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %59, i64 %60
   %arraydecay177 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %arrayidx176, i64 0, i64 0
   %arraydecay178 = getelementptr inbounds [3 x [4 x i64]], ptr %tmp, i64 0, i64 0
   call void @select_point(i64 noundef %conv175, i64 noundef 17, ptr noundef %arraydecay177, ptr noundef %arraydecay178)
@@ -3379,21 +3391,21 @@ for.body:                                         ; preds = %for.cond122
   %arraydecay182 = getelementptr inbounds [4 x i128], ptr %ftmp, i64 0, i64 0
   %arrayidx183 = getelementptr inbounds [3 x [4 x i64]], ptr %tmp, i64 0, i64 1
   %arraydecay184 = getelementptr inbounds [4 x i64], ptr %arrayidx183, i64 0, i64 0
-  %60 = load i8, ptr %sign, align 1
-  %conv185 = zext i8 %60 to i128
+  %61 = load i8, ptr %sign, align 1
+  %conv185 = zext i8 %61 to i128
   %sub186 = sub i128 %conv185, 1
   store i128 %sub186, ptr %coerce, align 16
-  %61 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
-  %62 = load i64, ptr %61, align 16
-  %63 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
-  %64 = load i64, ptr %63, align 8
-  call void @copy_small_conditional(ptr noundef %arraydecay182, ptr noundef %arraydecay184, i64 noundef %62, i64 noundef %64)
+  %62 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
+  %63 = load i64, ptr %62, align 16
+  %64 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
+  %65 = load i64, ptr %64, align 8
+  call void @copy_small_conditional(ptr noundef %arraydecay182, ptr noundef %arraydecay184, i64 noundef %63, i64 noundef %65)
   %arrayidx187 = getelementptr inbounds [3 x [4 x i64]], ptr %tmp, i64 0, i64 1
   %arraydecay188 = getelementptr inbounds [4 x i64], ptr %arrayidx187, i64 0, i64 0
   %arraydecay189 = getelementptr inbounds [4 x i128], ptr %ftmp, i64 0, i64 0
   call void @felem_contract(ptr noundef %arraydecay188, ptr noundef %arraydecay189)
-  %65 = load i32, ptr %skip, align 4
-  %tobool190 = icmp ne i32 %65, 0
+  %66 = load i32, ptr %skip, align 4
+  %tobool190 = icmp ne i32 %66, 0
   br i1 %tobool190, label %if.else210, label %if.then191
 
 if.then191:                                       ; preds = %for.body
@@ -3441,8 +3453,8 @@ if.end223:                                        ; preds = %if.else210, %if.the
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end223
-  %66 = load i64, ptr %num, align 8
-  %inc = add i64 %66, 1
+  %67 = load i64, ptr %num, align 8
+  %inc = add i64 %67, 1
   store i64 %inc, ptr %num, align 8
   br label %for.cond122, !llvm.loop !19
 
@@ -3450,32 +3462,32 @@ for.end:                                          ; preds = %for.cond122
   br label %if.end224
 
 if.end224:                                        ; preds = %for.end, %land.lhs.true118, %if.end115
-  %67 = load i64, ptr %i, align 8
-  %cmp225 = icmp eq i64 %67, 0
+  %68 = load i64, ptr %i, align 8
+  %cmp225 = icmp eq i64 %68, 0
   br i1 %cmp225, label %if.then227, label %if.end228
 
 if.then227:                                       ; preds = %if.end224
   br label %for.end229
 
 if.end228:                                        ; preds = %if.end224
-  %68 = load i64, ptr %i, align 8
-  %dec = add i64 %68, -1
+  %69 = load i64, ptr %i, align 8
+  %dec = add i64 %69, -1
   store i64 %dec, ptr %i, align 8
   br label %for.cond
 
 for.end229:                                       ; preds = %if.then227
-  %69 = load ptr, ptr %x_out.addr, align 8
+  %70 = load ptr, ptr %x_out.addr, align 8
   %arrayidx230 = getelementptr inbounds [3 x [4 x i128]], ptr %nq, i64 0, i64 0
   %arraydecay231 = getelementptr inbounds [4 x i128], ptr %arrayidx230, i64 0, i64 0
-  call void @felem_assign(ptr noundef %69, ptr noundef %arraydecay231)
-  %70 = load ptr, ptr %y_out.addr, align 8
+  call void @felem_assign(ptr noundef %70, ptr noundef %arraydecay231)
+  %71 = load ptr, ptr %y_out.addr, align 8
   %arrayidx232 = getelementptr inbounds [3 x [4 x i128]], ptr %nq, i64 0, i64 1
   %arraydecay233 = getelementptr inbounds [4 x i128], ptr %arrayidx232, i64 0, i64 0
-  call void @felem_assign(ptr noundef %70, ptr noundef %arraydecay233)
-  %71 = load ptr, ptr %z_out.addr, align 8
+  call void @felem_assign(ptr noundef %71, ptr noundef %arraydecay233)
+  %72 = load ptr, ptr %z_out.addr, align 8
   %arrayidx234 = getelementptr inbounds [3 x [4 x i128]], ptr %nq, i64 0, i64 2
   %arraydecay235 = getelementptr inbounds [4 x i128], ptr %arrayidx234, i64 0, i64 0
-  call void @felem_assign(ptr noundef %71, ptr noundef %arraydecay235)
+  call void @felem_assign(ptr noundef %72, ptr noundef %arraydecay235)
   ret void
 }
 
@@ -3975,75 +3987,78 @@ entry:
   %25 = load ptr, ptr %small.addr, align 8
   %arrayidx17 = getelementptr inbounds i64, ptr %25, i64 1
   %26 = load i64, ptr %arrayidx17, align 8
-  %27 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @kPrime, i64 0, i64 1), align 8
-  %xor18 = xor i64 %26, %27
+  %27 = getelementptr inbounds [4 x i64], ptr @kPrime, i64 0, i64 1
+  %28 = load i64, ptr %27, align 8
+  %xor18 = xor i64 %26, %28
   %or19 = or i64 %xor, %xor18
-  %28 = load ptr, ptr %small.addr, align 8
-  %arrayidx20 = getelementptr inbounds i64, ptr %28, i64 2
-  %29 = load i64, ptr %arrayidx20, align 8
-  %30 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @kPrime, i64 0, i64 2), align 16
-  %xor21 = xor i64 %29, %30
+  %29 = load ptr, ptr %small.addr, align 8
+  %arrayidx20 = getelementptr inbounds i64, ptr %29, i64 2
+  %30 = load i64, ptr %arrayidx20, align 8
+  %31 = getelementptr inbounds [4 x i64], ptr @kPrime, i64 0, i64 2
+  %32 = load i64, ptr %31, align 16
+  %xor21 = xor i64 %30, %32
   %or22 = or i64 %or19, %xor21
-  %31 = load ptr, ptr %small.addr, align 8
-  %arrayidx23 = getelementptr inbounds i64, ptr %31, i64 3
-  %32 = load i64, ptr %arrayidx23, align 8
-  %33 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @kPrime, i64 0, i64 3), align 8
-  %xor24 = xor i64 %32, %33
+  %33 = load ptr, ptr %small.addr, align 8
+  %arrayidx23 = getelementptr inbounds i64, ptr %33, i64 3
+  %34 = load i64, ptr %arrayidx23, align 8
+  %35 = getelementptr inbounds [4 x i64], ptr @kPrime, i64 0, i64 3
+  %36 = load i64, ptr %35, align 8
+  %xor24 = xor i64 %34, %36
   %or25 = or i64 %or22, %xor24
   store i64 %or25, ptr %is_p, align 8
-  %34 = load i64, ptr %is_p, align 8
-  %dec26 = add i64 %34, -1
-  store i64 %dec26, ptr %is_p, align 8
-  %35 = load i64, ptr %is_p, align 8
-  %shl27 = shl i64 %35, 32
-  %36 = load i64, ptr %is_p, align 8
-  %and28 = and i64 %36, %shl27
-  store i64 %and28, ptr %is_p, align 8
   %37 = load i64, ptr %is_p, align 8
-  %shl29 = shl i64 %37, 16
+  %dec26 = add i64 %37, -1
+  store i64 %dec26, ptr %is_p, align 8
   %38 = load i64, ptr %is_p, align 8
-  %and30 = and i64 %38, %shl29
-  store i64 %and30, ptr %is_p, align 8
+  %shl27 = shl i64 %38, 32
   %39 = load i64, ptr %is_p, align 8
-  %shl31 = shl i64 %39, 8
+  %and28 = and i64 %39, %shl27
+  store i64 %and28, ptr %is_p, align 8
   %40 = load i64, ptr %is_p, align 8
-  %and32 = and i64 %40, %shl31
-  store i64 %and32, ptr %is_p, align 8
+  %shl29 = shl i64 %40, 16
   %41 = load i64, ptr %is_p, align 8
-  %shl33 = shl i64 %41, 4
+  %and30 = and i64 %41, %shl29
+  store i64 %and30, ptr %is_p, align 8
   %42 = load i64, ptr %is_p, align 8
-  %and34 = and i64 %42, %shl33
-  store i64 %and34, ptr %is_p, align 8
+  %shl31 = shl i64 %42, 8
   %43 = load i64, ptr %is_p, align 8
-  %shl35 = shl i64 %43, 2
+  %and32 = and i64 %43, %shl31
+  store i64 %and32, ptr %is_p, align 8
   %44 = load i64, ptr %is_p, align 8
-  %and36 = and i64 %44, %shl35
-  store i64 %and36, ptr %is_p, align 8
+  %shl33 = shl i64 %44, 4
   %45 = load i64, ptr %is_p, align 8
-  %shl37 = shl i64 %45, 1
+  %and34 = and i64 %45, %shl33
+  store i64 %and34, ptr %is_p, align 8
   %46 = load i64, ptr %is_p, align 8
-  %and38 = and i64 %46, %shl37
-  store i64 %and38, ptr %is_p, align 8
+  %shl35 = shl i64 %46, 2
   %47 = load i64, ptr %is_p, align 8
-  %shr39 = ashr i64 %47, 63
-  store i64 %shr39, ptr %is_p, align 8
+  %and36 = and i64 %47, %shl35
+  store i64 %and36, ptr %is_p, align 8
   %48 = load i64, ptr %is_p, align 8
-  %49 = load i64, ptr %is_zero, align 8
-  %or40 = or i64 %49, %48
+  %shl37 = shl i64 %48, 1
+  %49 = load i64, ptr %is_p, align 8
+  %and38 = and i64 %49, %shl37
+  store i64 %and38, ptr %is_p, align 8
+  %50 = load i64, ptr %is_p, align 8
+  %shr39 = ashr i64 %50, 63
+  store i64 %shr39, ptr %is_p, align 8
+  %51 = load i64, ptr %is_p, align 8
+  %52 = load i64, ptr %is_zero, align 8
+  %or40 = or i64 %52, %51
   store i64 %or40, ptr %is_zero, align 8
-  %50 = load i64, ptr %is_zero, align 8
-  %conv = zext i64 %50 to i128
+  %53 = load i64, ptr %is_zero, align 8
+  %conv = zext i64 %53 to i128
   store i128 %conv, ptr %result, align 16
-  %51 = load i64, ptr %is_zero, align 8
-  %conv41 = zext i64 %51 to i128
+  %54 = load i64, ptr %is_zero, align 8
+  %conv41 = zext i64 %54 to i128
   %shl42 = shl i128 %conv41, 64
-  %52 = load i128, ptr %result, align 16
-  %or43 = or i128 %52, %shl42
+  %55 = load i128, ptr %result, align 16
+  %or43 = or i128 %55, %shl42
   store i128 %or43, ptr %result, align 16
-  %53 = load i128, ptr %result, align 16
-  store i128 %53, ptr %retval, align 16
-  %54 = load { i64, i64 }, ptr %retval, align 16
-  ret { i64, i64 } %54
+  %56 = load i128, ptr %result, align 16
+  store i128 %56, ptr %retval, align 16
+  %57 = load { i64, i64 }, ptr %retval, align 16
+  ret { i64, i64 } %57
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4147,55 +4162,58 @@ entry:
   %2 = load i128, ptr %arrayidx, align 16
   %add = add i128 %2, %0
   store i128 %add, ptr %arrayidx, align 16
-  %3 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero105, i64 0, i64 1), align 16
-  %4 = load ptr, ptr %out.addr, align 8
-  %arrayidx1 = getelementptr inbounds i128, ptr %4, i64 1
-  %5 = load i128, ptr %arrayidx1, align 16
-  %add2 = add i128 %5, %3
+  %3 = getelementptr inbounds [4 x i128], ptr @zero105, i64 0, i64 1
+  %4 = load i128, ptr %3, align 16
+  %5 = load ptr, ptr %out.addr, align 8
+  %arrayidx1 = getelementptr inbounds i128, ptr %5, i64 1
+  %6 = load i128, ptr %arrayidx1, align 16
+  %add2 = add i128 %6, %4
   store i128 %add2, ptr %arrayidx1, align 16
-  %6 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero105, i64 0, i64 2), align 16
-  %7 = load ptr, ptr %out.addr, align 8
-  %arrayidx3 = getelementptr inbounds i128, ptr %7, i64 2
-  %8 = load i128, ptr %arrayidx3, align 16
-  %add4 = add i128 %8, %6
+  %7 = getelementptr inbounds [4 x i128], ptr @zero105, i64 0, i64 2
+  %8 = load i128, ptr %7, align 16
+  %9 = load ptr, ptr %out.addr, align 8
+  %arrayidx3 = getelementptr inbounds i128, ptr %9, i64 2
+  %10 = load i128, ptr %arrayidx3, align 16
+  %add4 = add i128 %10, %8
   store i128 %add4, ptr %arrayidx3, align 16
-  %9 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero105, i64 0, i64 3), align 16
-  %10 = load ptr, ptr %out.addr, align 8
-  %arrayidx5 = getelementptr inbounds i128, ptr %10, i64 3
-  %11 = load i128, ptr %arrayidx5, align 16
-  %add6 = add i128 %11, %9
+  %11 = getelementptr inbounds [4 x i128], ptr @zero105, i64 0, i64 3
+  %12 = load i128, ptr %11, align 16
+  %13 = load ptr, ptr %out.addr, align 8
+  %arrayidx5 = getelementptr inbounds i128, ptr %13, i64 3
+  %14 = load i128, ptr %arrayidx5, align 16
+  %add6 = add i128 %14, %12
   store i128 %add6, ptr %arrayidx5, align 16
-  %12 = load ptr, ptr %in.addr, align 8
-  %arrayidx7 = getelementptr inbounds i128, ptr %12, i64 0
-  %13 = load i128, ptr %arrayidx7, align 16
-  %14 = load ptr, ptr %out.addr, align 8
-  %arrayidx8 = getelementptr inbounds i128, ptr %14, i64 0
-  %15 = load i128, ptr %arrayidx8, align 16
-  %sub = sub i128 %15, %13
+  %15 = load ptr, ptr %in.addr, align 8
+  %arrayidx7 = getelementptr inbounds i128, ptr %15, i64 0
+  %16 = load i128, ptr %arrayidx7, align 16
+  %17 = load ptr, ptr %out.addr, align 8
+  %arrayidx8 = getelementptr inbounds i128, ptr %17, i64 0
+  %18 = load i128, ptr %arrayidx8, align 16
+  %sub = sub i128 %18, %16
   store i128 %sub, ptr %arrayidx8, align 16
-  %16 = load ptr, ptr %in.addr, align 8
-  %arrayidx9 = getelementptr inbounds i128, ptr %16, i64 1
-  %17 = load i128, ptr %arrayidx9, align 16
-  %18 = load ptr, ptr %out.addr, align 8
-  %arrayidx10 = getelementptr inbounds i128, ptr %18, i64 1
-  %19 = load i128, ptr %arrayidx10, align 16
-  %sub11 = sub i128 %19, %17
+  %19 = load ptr, ptr %in.addr, align 8
+  %arrayidx9 = getelementptr inbounds i128, ptr %19, i64 1
+  %20 = load i128, ptr %arrayidx9, align 16
+  %21 = load ptr, ptr %out.addr, align 8
+  %arrayidx10 = getelementptr inbounds i128, ptr %21, i64 1
+  %22 = load i128, ptr %arrayidx10, align 16
+  %sub11 = sub i128 %22, %20
   store i128 %sub11, ptr %arrayidx10, align 16
-  %20 = load ptr, ptr %in.addr, align 8
-  %arrayidx12 = getelementptr inbounds i128, ptr %20, i64 2
-  %21 = load i128, ptr %arrayidx12, align 16
-  %22 = load ptr, ptr %out.addr, align 8
-  %arrayidx13 = getelementptr inbounds i128, ptr %22, i64 2
-  %23 = load i128, ptr %arrayidx13, align 16
-  %sub14 = sub i128 %23, %21
+  %23 = load ptr, ptr %in.addr, align 8
+  %arrayidx12 = getelementptr inbounds i128, ptr %23, i64 2
+  %24 = load i128, ptr %arrayidx12, align 16
+  %25 = load ptr, ptr %out.addr, align 8
+  %arrayidx13 = getelementptr inbounds i128, ptr %25, i64 2
+  %26 = load i128, ptr %arrayidx13, align 16
+  %sub14 = sub i128 %26, %24
   store i128 %sub14, ptr %arrayidx13, align 16
-  %24 = load ptr, ptr %in.addr, align 8
-  %arrayidx15 = getelementptr inbounds i128, ptr %24, i64 3
-  %25 = load i128, ptr %arrayidx15, align 16
-  %26 = load ptr, ptr %out.addr, align 8
-  %arrayidx16 = getelementptr inbounds i128, ptr %26, i64 3
-  %27 = load i128, ptr %arrayidx16, align 16
-  %sub17 = sub i128 %27, %25
+  %27 = load ptr, ptr %in.addr, align 8
+  %arrayidx15 = getelementptr inbounds i128, ptr %27, i64 3
+  %28 = load i128, ptr %arrayidx15, align 16
+  %29 = load ptr, ptr %out.addr, align 8
+  %arrayidx16 = getelementptr inbounds i128, ptr %29, i64 3
+  %30 = load i128, ptr %arrayidx16, align 16
+  %sub17 = sub i128 %30, %28
   store i128 %sub17, ptr %arrayidx16, align 16
   ret void
 }
@@ -4251,55 +4269,58 @@ entry:
   %2 = load i128, ptr %arrayidx, align 16
   %add = add i128 %2, %0
   store i128 %add, ptr %arrayidx, align 16
-  %3 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero107, i64 0, i64 1), align 16
-  %4 = load ptr, ptr %out.addr, align 8
-  %arrayidx1 = getelementptr inbounds i128, ptr %4, i64 1
-  %5 = load i128, ptr %arrayidx1, align 16
-  %add2 = add i128 %5, %3
+  %3 = getelementptr inbounds [4 x i128], ptr @zero107, i64 0, i64 1
+  %4 = load i128, ptr %3, align 16
+  %5 = load ptr, ptr %out.addr, align 8
+  %arrayidx1 = getelementptr inbounds i128, ptr %5, i64 1
+  %6 = load i128, ptr %arrayidx1, align 16
+  %add2 = add i128 %6, %4
   store i128 %add2, ptr %arrayidx1, align 16
-  %6 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero107, i64 0, i64 2), align 16
-  %7 = load ptr, ptr %out.addr, align 8
-  %arrayidx3 = getelementptr inbounds i128, ptr %7, i64 2
-  %8 = load i128, ptr %arrayidx3, align 16
-  %add4 = add i128 %8, %6
+  %7 = getelementptr inbounds [4 x i128], ptr @zero107, i64 0, i64 2
+  %8 = load i128, ptr %7, align 16
+  %9 = load ptr, ptr %out.addr, align 8
+  %arrayidx3 = getelementptr inbounds i128, ptr %9, i64 2
+  %10 = load i128, ptr %arrayidx3, align 16
+  %add4 = add i128 %10, %8
   store i128 %add4, ptr %arrayidx3, align 16
-  %9 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero107, i64 0, i64 3), align 16
-  %10 = load ptr, ptr %out.addr, align 8
-  %arrayidx5 = getelementptr inbounds i128, ptr %10, i64 3
-  %11 = load i128, ptr %arrayidx5, align 16
-  %add6 = add i128 %11, %9
+  %11 = getelementptr inbounds [4 x i128], ptr @zero107, i64 0, i64 3
+  %12 = load i128, ptr %11, align 16
+  %13 = load ptr, ptr %out.addr, align 8
+  %arrayidx5 = getelementptr inbounds i128, ptr %13, i64 3
+  %14 = load i128, ptr %arrayidx5, align 16
+  %add6 = add i128 %14, %12
   store i128 %add6, ptr %arrayidx5, align 16
-  %12 = load ptr, ptr %in.addr, align 8
-  %arrayidx7 = getelementptr inbounds i128, ptr %12, i64 0
-  %13 = load i128, ptr %arrayidx7, align 16
-  %14 = load ptr, ptr %out.addr, align 8
-  %arrayidx8 = getelementptr inbounds i128, ptr %14, i64 0
-  %15 = load i128, ptr %arrayidx8, align 16
-  %sub = sub i128 %15, %13
+  %15 = load ptr, ptr %in.addr, align 8
+  %arrayidx7 = getelementptr inbounds i128, ptr %15, i64 0
+  %16 = load i128, ptr %arrayidx7, align 16
+  %17 = load ptr, ptr %out.addr, align 8
+  %arrayidx8 = getelementptr inbounds i128, ptr %17, i64 0
+  %18 = load i128, ptr %arrayidx8, align 16
+  %sub = sub i128 %18, %16
   store i128 %sub, ptr %arrayidx8, align 16
-  %16 = load ptr, ptr %in.addr, align 8
-  %arrayidx9 = getelementptr inbounds i128, ptr %16, i64 1
-  %17 = load i128, ptr %arrayidx9, align 16
-  %18 = load ptr, ptr %out.addr, align 8
-  %arrayidx10 = getelementptr inbounds i128, ptr %18, i64 1
-  %19 = load i128, ptr %arrayidx10, align 16
-  %sub11 = sub i128 %19, %17
+  %19 = load ptr, ptr %in.addr, align 8
+  %arrayidx9 = getelementptr inbounds i128, ptr %19, i64 1
+  %20 = load i128, ptr %arrayidx9, align 16
+  %21 = load ptr, ptr %out.addr, align 8
+  %arrayidx10 = getelementptr inbounds i128, ptr %21, i64 1
+  %22 = load i128, ptr %arrayidx10, align 16
+  %sub11 = sub i128 %22, %20
   store i128 %sub11, ptr %arrayidx10, align 16
-  %20 = load ptr, ptr %in.addr, align 8
-  %arrayidx12 = getelementptr inbounds i128, ptr %20, i64 2
-  %21 = load i128, ptr %arrayidx12, align 16
-  %22 = load ptr, ptr %out.addr, align 8
-  %arrayidx13 = getelementptr inbounds i128, ptr %22, i64 2
-  %23 = load i128, ptr %arrayidx13, align 16
-  %sub14 = sub i128 %23, %21
+  %23 = load ptr, ptr %in.addr, align 8
+  %arrayidx12 = getelementptr inbounds i128, ptr %23, i64 2
+  %24 = load i128, ptr %arrayidx12, align 16
+  %25 = load ptr, ptr %out.addr, align 8
+  %arrayidx13 = getelementptr inbounds i128, ptr %25, i64 2
+  %26 = load i128, ptr %arrayidx13, align 16
+  %sub14 = sub i128 %26, %24
   store i128 %sub14, ptr %arrayidx13, align 16
-  %24 = load ptr, ptr %in.addr, align 8
-  %arrayidx15 = getelementptr inbounds i128, ptr %24, i64 3
-  %25 = load i128, ptr %arrayidx15, align 16
-  %26 = load ptr, ptr %out.addr, align 8
-  %arrayidx16 = getelementptr inbounds i128, ptr %26, i64 3
-  %27 = load i128, ptr %arrayidx16, align 16
-  %sub17 = sub i128 %27, %25
+  %27 = load ptr, ptr %in.addr, align 8
+  %arrayidx15 = getelementptr inbounds i128, ptr %27, i64 3
+  %28 = load i128, ptr %arrayidx15, align 16
+  %29 = load ptr, ptr %out.addr, align 8
+  %arrayidx16 = getelementptr inbounds i128, ptr %29, i64 3
+  %30 = load i128, ptr %arrayidx16, align 16
+  %sub17 = sub i128 %30, %28
   store i128 %sub17, ptr %arrayidx16, align 16
   ret void
 }
@@ -4645,33 +4666,36 @@ entry:
   %3 = load ptr, ptr %out.addr, align 8
   %arrayidx1 = getelementptr inbounds i128, ptr %3, i64 0
   store i128 %add, ptr %arrayidx1, align 16
-  %4 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero105, i64 0, i64 1), align 16
-  %5 = load ptr, ptr %in.addr, align 8
-  %arrayidx2 = getelementptr inbounds i128, ptr %5, i64 1
-  %6 = load i128, ptr %arrayidx2, align 16
-  %add3 = add i128 %4, %6
-  %7 = load ptr, ptr %out.addr, align 8
-  %arrayidx4 = getelementptr inbounds i128, ptr %7, i64 1
+  %4 = getelementptr inbounds [4 x i128], ptr @zero105, i64 0, i64 1
+  %5 = load i128, ptr %4, align 16
+  %6 = load ptr, ptr %in.addr, align 8
+  %arrayidx2 = getelementptr inbounds i128, ptr %6, i64 1
+  %7 = load i128, ptr %arrayidx2, align 16
+  %add3 = add i128 %5, %7
+  %8 = load ptr, ptr %out.addr, align 8
+  %arrayidx4 = getelementptr inbounds i128, ptr %8, i64 1
   store i128 %add3, ptr %arrayidx4, align 16
-  %8 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero105, i64 0, i64 2), align 16
-  %9 = load ptr, ptr %in.addr, align 8
-  %arrayidx5 = getelementptr inbounds i128, ptr %9, i64 2
-  %10 = load i128, ptr %arrayidx5, align 16
-  %add6 = add i128 %8, %10
-  %11 = load ptr, ptr %out.addr, align 8
-  %arrayidx7 = getelementptr inbounds i128, ptr %11, i64 2
+  %9 = getelementptr inbounds [4 x i128], ptr @zero105, i64 0, i64 2
+  %10 = load i128, ptr %9, align 16
+  %11 = load ptr, ptr %in.addr, align 8
+  %arrayidx5 = getelementptr inbounds i128, ptr %11, i64 2
+  %12 = load i128, ptr %arrayidx5, align 16
+  %add6 = add i128 %10, %12
+  %13 = load ptr, ptr %out.addr, align 8
+  %arrayidx7 = getelementptr inbounds i128, ptr %13, i64 2
   store i128 %add6, ptr %arrayidx7, align 16
-  %12 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero105, i64 0, i64 3), align 16
-  %13 = load ptr, ptr %in.addr, align 8
-  %arrayidx8 = getelementptr inbounds i128, ptr %13, i64 3
-  %14 = load i128, ptr %arrayidx8, align 16
-  %add9 = add i128 %12, %14
-  %15 = load ptr, ptr %out.addr, align 8
-  %arrayidx10 = getelementptr inbounds i128, ptr %15, i64 3
+  %14 = getelementptr inbounds [4 x i128], ptr @zero105, i64 0, i64 3
+  %15 = load i128, ptr %14, align 16
+  %16 = load ptr, ptr %in.addr, align 8
+  %arrayidx8 = getelementptr inbounds i128, ptr %16, i64 3
+  %17 = load i128, ptr %arrayidx8, align 16
+  %add9 = add i128 %15, %17
+  %18 = load ptr, ptr %out.addr, align 8
+  %arrayidx10 = getelementptr inbounds i128, ptr %18, i64 3
   store i128 %add9, ptr %arrayidx10, align 16
-  %16 = load ptr, ptr %out.addr, align 8
-  %17 = load ptr, ptr %in.addr, align 8
-  call void @felem_reduce_(ptr noundef %16, ptr noundef %17)
+  %19 = load ptr, ptr %out.addr, align 8
+  %20 = load ptr, ptr %in.addr, align 8
+  call void @felem_reduce_(ptr noundef %19, ptr noundef %20)
   ret void
 }
 
@@ -4957,32 +4981,35 @@ entry:
   %3 = load ptr, ptr %out.addr, align 8
   %arrayidx1 = getelementptr inbounds i128, ptr %3, i64 0
   store i128 %sub, ptr %arrayidx1, align 16
-  %4 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero105, i64 0, i64 1), align 16
-  %5 = load ptr, ptr %small.addr, align 8
-  %arrayidx2 = getelementptr inbounds i64, ptr %5, i64 1
-  %6 = load i64, ptr %arrayidx2, align 8
-  %conv3 = zext i64 %6 to i128
-  %sub4 = sub i128 %4, %conv3
-  %7 = load ptr, ptr %out.addr, align 8
-  %arrayidx5 = getelementptr inbounds i128, ptr %7, i64 1
+  %4 = getelementptr inbounds [4 x i128], ptr @zero105, i64 0, i64 1
+  %5 = load i128, ptr %4, align 16
+  %6 = load ptr, ptr %small.addr, align 8
+  %arrayidx2 = getelementptr inbounds i64, ptr %6, i64 1
+  %7 = load i64, ptr %arrayidx2, align 8
+  %conv3 = zext i64 %7 to i128
+  %sub4 = sub i128 %5, %conv3
+  %8 = load ptr, ptr %out.addr, align 8
+  %arrayidx5 = getelementptr inbounds i128, ptr %8, i64 1
   store i128 %sub4, ptr %arrayidx5, align 16
-  %8 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero105, i64 0, i64 2), align 16
-  %9 = load ptr, ptr %small.addr, align 8
-  %arrayidx6 = getelementptr inbounds i64, ptr %9, i64 2
-  %10 = load i64, ptr %arrayidx6, align 8
-  %conv7 = zext i64 %10 to i128
-  %sub8 = sub i128 %8, %conv7
-  %11 = load ptr, ptr %out.addr, align 8
-  %arrayidx9 = getelementptr inbounds i128, ptr %11, i64 2
+  %9 = getelementptr inbounds [4 x i128], ptr @zero105, i64 0, i64 2
+  %10 = load i128, ptr %9, align 16
+  %11 = load ptr, ptr %small.addr, align 8
+  %arrayidx6 = getelementptr inbounds i64, ptr %11, i64 2
+  %12 = load i64, ptr %arrayidx6, align 8
+  %conv7 = zext i64 %12 to i128
+  %sub8 = sub i128 %10, %conv7
+  %13 = load ptr, ptr %out.addr, align 8
+  %arrayidx9 = getelementptr inbounds i128, ptr %13, i64 2
   store i128 %sub8, ptr %arrayidx9, align 16
-  %12 = load i128, ptr getelementptr inbounds ([4 x i128], ptr @zero105, i64 0, i64 3), align 16
-  %13 = load ptr, ptr %small.addr, align 8
-  %arrayidx10 = getelementptr inbounds i64, ptr %13, i64 3
-  %14 = load i64, ptr %arrayidx10, align 8
-  %conv11 = zext i64 %14 to i128
-  %sub12 = sub i128 %12, %conv11
-  %15 = load ptr, ptr %out.addr, align 8
-  %arrayidx13 = getelementptr inbounds i128, ptr %15, i64 3
+  %14 = getelementptr inbounds [4 x i128], ptr @zero105, i64 0, i64 3
+  %15 = load i128, ptr %14, align 16
+  %16 = load ptr, ptr %small.addr, align 8
+  %arrayidx10 = getelementptr inbounds i64, ptr %16, i64 3
+  %17 = load i64, ptr %arrayidx10, align 8
+  %conv11 = zext i64 %17 to i128
+  %sub12 = sub i128 %15, %conv11
+  %18 = load ptr, ptr %out.addr, align 8
+  %arrayidx13 = getelementptr inbounds i128, ptr %18, i64 3
   store i128 %sub12, ptr %arrayidx13, align 16
   ret void
 }

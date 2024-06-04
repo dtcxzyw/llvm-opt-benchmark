@@ -21,51 +21,53 @@ define ptr @mca_mpool_base_component_lookup(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  %6 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 12, i32 1, i32 1), align 8
-  store ptr %6, ptr %4, align 8
-  br label %7
+  %6 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 12, i32 1, i32 1
+  %7 = load volatile ptr, ptr %6, align 8
+  store ptr %7, ptr %4, align 8
+  br label %8
 
-7:                                                ; preds = %24, %1
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp ne ptr %8, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 12, i32 1)
-  br i1 %9, label %10, label %28
+8:                                                ; preds = %26, %1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 12, i32 1
+  %11 = icmp ne ptr %9, %10
+  br i1 %11, label %12, label %30
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %5, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.mca_mpool_base_component_3_1_0_t, ptr %14, i32 0, i32 0
-  %16 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %15, i32 0, i32 11
-  %17 = getelementptr inbounds [64 x i8], ptr %16, i64 0, i64 0
-  %18 = load ptr, ptr %3, align 8
-  %19 = call i32 @strcmp(ptr noundef %17, ptr noundef %18) #2
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %5, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds %struct.mca_mpool_base_component_3_1_0_t, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %17, i32 0, i32 11
+  %19 = getelementptr inbounds [64 x i8], ptr %18, i64 0, i64 0
+  %20 = load ptr, ptr %3, align 8
+  %21 = call i32 @strcmp(ptr noundef %19, ptr noundef %20) #2
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %25
 
-21:                                               ; preds = %10
-  %22 = load ptr, ptr %5, align 8
-  store ptr %22, ptr %2, align 8
-  br label %29
+23:                                               ; preds = %12
+  %24 = load ptr, ptr %5, align 8
+  store ptr %24, ptr %2, align 8
+  br label %31
 
-23:                                               ; preds = %10
-  br label %24
+25:                                               ; preds = %12
+  br label %26
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.opal_list_item_t, ptr %25, i32 0, i32 1
-  %27 = load volatile ptr, ptr %26, align 8
-  store ptr %27, ptr %4, align 8
-  br label %7, !llvm.loop !4
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %struct.opal_list_item_t, ptr %27, i32 0, i32 1
+  %29 = load volatile ptr, ptr %28, align 8
+  store ptr %29, ptr %4, align 8
+  br label %8, !llvm.loop !4
 
-28:                                               ; preds = %7
+30:                                               ; preds = %8
   store ptr null, ptr %2, align 8
-  br label %29
+  br label %31
 
-29:                                               ; preds = %28, %21
-  %30 = load ptr, ptr %2, align 8
-  ret ptr %30
+31:                                               ; preds = %30, %23
+  %32 = load ptr, ptr %2, align 8
+  ret ptr %32
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
@@ -86,59 +88,61 @@ define ptr @mca_mpool_base_module_lookup(ptr noundef %0) #0 {
   store ptr %10, ptr %3, align 8
   %11 = load i32, ptr @mca_mpool_base_default_priority, align 4
   store i32 %11, ptr %5, align 4
-  %12 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 12, i32 1, i32 1), align 8
-  store ptr %12, ptr %4, align 8
-  br label %13
+  %12 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 12, i32 1, i32 1
+  %13 = load volatile ptr, ptr %12, align 8
+  store ptr %13, ptr %4, align 8
+  br label %14
 
-13:                                               ; preds = %36, %1
-  %14 = load ptr, ptr %4, align 8
-  %15 = icmp ne ptr %14, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 12, i32 1)
-  br i1 %15, label %16, label %40
+14:                                               ; preds = %38, %1
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %struct.mca_base_framework_t, ptr @opal_mpool_base_framework, i32 0, i32 12, i32 1
+  %17 = icmp ne ptr %15, %16
+  br i1 %17, label %18, label %42
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %7, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct.mca_mpool_base_component_3_1_0_t, ptr %20, i32 0, i32 2
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %2, align 8
-  %24 = call i32 %22(ptr noundef %23, ptr noundef %9, ptr noundef %8)
-  store i32 %24, ptr %6, align 4
-  %25 = load i32, ptr %6, align 4
-  %26 = icmp eq i32 0, %25
-  br i1 %26, label %27, label %35
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %struct.mca_base_component_list_item_t, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %7, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = getelementptr inbounds %struct.mca_mpool_base_component_3_1_0_t, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %2, align 8
+  %26 = call i32 %24(ptr noundef %25, ptr noundef %9, ptr noundef %8)
+  store i32 %26, ptr %6, align 4
+  %27 = load i32, ptr %6, align 4
+  %28 = icmp eq i32 0, %27
+  br i1 %28, label %29, label %37
 
-27:                                               ; preds = %16
-  %28 = load i32, ptr %9, align 4
-  %29 = load i32, ptr %5, align 4
-  %30 = icmp sgt i32 %28, %29
-  br i1 %30, label %31, label %34
+29:                                               ; preds = %18
+  %30 = load i32, ptr %9, align 4
+  %31 = load i32, ptr %5, align 4
+  %32 = icmp sgt i32 %30, %31
+  br i1 %32, label %33, label %36
 
-31:                                               ; preds = %27
-  %32 = load i32, ptr %9, align 4
-  store i32 %32, ptr %5, align 4
-  %33 = load ptr, ptr %8, align 8
-  store ptr %33, ptr %3, align 8
-  br label %34
-
-34:                                               ; preds = %31, %27
-  br label %35
-
-35:                                               ; preds = %34, %16
+33:                                               ; preds = %29
+  %34 = load i32, ptr %9, align 4
+  store i32 %34, ptr %5, align 4
+  %35 = load ptr, ptr %8, align 8
+  store ptr %35, ptr %3, align 8
   br label %36
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.opal_list_item_t, ptr %37, i32 0, i32 1
-  %39 = load volatile ptr, ptr %38, align 8
-  store ptr %39, ptr %4, align 8
-  br label %13, !llvm.loop !6
+36:                                               ; preds = %33, %29
+  br label %37
 
-40:                                               ; preds = %13
-  %41 = load ptr, ptr %3, align 8
-  ret ptr %41
+37:                                               ; preds = %36, %18
+  br label %38
+
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds %struct.opal_list_item_t, ptr %39, i32 0, i32 1
+  %41 = load volatile ptr, ptr %40, align 8
+  store ptr %41, ptr %4, align 8
+  br label %14, !llvm.loop !6
+
+42:                                               ; preds = %14
+  %43 = load ptr, ptr %3, align 8
+  ret ptr %43
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

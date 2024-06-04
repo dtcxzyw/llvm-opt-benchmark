@@ -497,49 +497,51 @@ define void @_ZN18AddressEditorFrameC2EP7QWidget(ptr noundef nonnull align 8 der
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV18AddressEditorFrame, i32 0, i32 0, i32 2), ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV18AddressEditorFrame, i32 0, i32 1, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.AddressEditorFrame, ptr %7, i32 0, i32 1
-  %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #15
-          to label %12 unwind label %22
-
-12:                                               ; preds = %2
+  %9 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV18AddressEditorFrame, i32 0, i32 0, i32 2
+  store ptr %9, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV18AddressEditorFrame, i32 0, i32 1, i32 2
   store ptr %11, ptr %10, align 8
-  %13 = getelementptr inbounds %class.AddressEditorFrame, ptr %7, i32 0, i32 2
-  store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds %class.AddressEditorFrame, ptr %7, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
-  invoke void @_ZN21Ui_AddressEditorFrame7setupUiEP14AccordionFrame(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef %7)
-          to label %16 unwind label %22
+  %12 = getelementptr inbounds %class.AddressEditorFrame, ptr %7, i32 0, i32 1
+  %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #15
+          to label %14 unwind label %24
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds %class.AddressEditorFrame, ptr %7, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %class.Ui_AddressEditorFrame, ptr %18, i32 0, i32 4
+14:                                               ; preds = %2
+  store ptr %13, ptr %12, align 8
+  %15 = getelementptr inbounds %class.AddressEditorFrame, ptr %7, i32 0, i32 2
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds %class.AddressEditorFrame, ptr %7, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  invoke void @_ZN21Ui_AddressEditorFrame7setupUiEP14AccordionFrame(ptr noundef nonnull align 8 dereferenceable(80) %17, ptr noundef %7)
+          to label %18 unwind label %24
+
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds %class.AddressEditorFrame, ptr %7, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
-  invoke void @_ZN9QComboBox19setSizeAdjustPolicyENS_16SizeAdjustPolicyE(ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 0)
-          to label %21 unwind label %22
+  %21 = getelementptr inbounds %class.Ui_AddressEditorFrame, ptr %20, i32 0, i32 4
+  %22 = load ptr, ptr %21, align 8
+  invoke void @_ZN9QComboBox19setSizeAdjustPolicyENS_16SizeAdjustPolicyE(ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 0)
+          to label %23 unwind label %24
 
-21:                                               ; preds = %16
+23:                                               ; preds = %18
   ret void
 
-22:                                               ; preds = %16, %12, %2
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %18, %14, %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %5, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %6, align 4
   call void @_ZN14AccordionFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #16
-  br label %26
+  br label %28
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = insertvalue { ptr, i32 } poison, ptr %27, 0
-  %30 = insertvalue { ptr, i32 } %29, i32 %28, 1
-  resume { ptr, i32 } %30
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %5, align 8
+  %30 = load i32, ptr %6, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 declare void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) unnamed_addr #1
@@ -1131,19 +1133,21 @@ define void @_ZN18AddressEditorFrameD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV18AddressEditorFrame, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV18AddressEditorFrame, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.AddressEditorFrame, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV18AddressEditorFrame, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [55 x ptr], [10 x ptr] }, ptr @_ZTV18AddressEditorFrame, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.AddressEditorFrame, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #17
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #17
+  br label %11
 
-9:                                                ; preds = %8, %1
+11:                                               ; preds = %10, %1
   call void @_ZN14AccordionFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   ret void
 }
@@ -2705,7 +2709,7 @@ define void @_ZN18AddressEditorFrame21on_buttonBox_acceptedEv(ptr noundef nonnul
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %1
-  br label %113
+  br label %114
 
 26:                                               ; preds = %1
   %27 = getelementptr inbounds %class.AddressEditorFrame, ptr %18, i32 0, i32 1
@@ -2797,7 +2801,7 @@ define void @_ZN18AddressEditorFrame21on_buttonBox_acceptedEv(ptr noundef nonnul
 68:                                               ; preds = %67
   store i32 1, ptr %17, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
-  br label %111
+  br label %112
 
 69:                                               ; preds = %26
   %70 = landingpad { ptr, i32 }
@@ -2806,16 +2810,16 @@ define void @_ZN18AddressEditorFrame21on_buttonBox_acceptedEv(ptr noundef nonnul
   store ptr %71, ptr %5, align 8
   %72 = extractvalue { ptr, i32 } %70, 1
   store i32 %72, ptr %6, align 4
-  br label %115
+  br label %116
 
-73:                                               ; preds = %108, %104, %48, %35
+73:                                               ; preds = %109, %104, %48, %35
   %74 = landingpad { ptr, i32 }
           cleanup
   %75 = extractvalue { ptr, i32 } %74, 0
   store ptr %75, ptr %5, align 8
   %76 = extractvalue { ptr, i32 } %74, 1
   store i32 %76, ptr %6, align 4
-  br label %114
+  br label %115
 
 77:                                               ; preds = %40, %38
   %78 = landingpad { ptr, i32 }
@@ -2838,7 +2842,7 @@ define void @_ZN18AddressEditorFrame21on_buttonBox_acceptedEv(ptr noundef nonnul
 
 85:                                               ; preds = %81, %77
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #16
-  br label %114
+  br label %115
 
 86:                                               ; preds = %49
   %87 = landingpad { ptr, i32 }
@@ -2861,7 +2865,7 @@ define void @_ZN18AddressEditorFrame21on_buttonBox_acceptedEv(ptr noundef nonnul
 
 94:                                               ; preds = %90, %86
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
-  br label %114
+  br label %115
 
 95:                                               ; preds = %59
   %96 = landingpad { ptr, i32 }
@@ -2884,56 +2888,57 @@ define void @_ZN18AddressEditorFrame21on_buttonBox_acceptedEv(ptr noundef nonnul
 
 103:                                              ; preds = %99, %95
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
-  br label %114
+  br label %115
 
 104:                                              ; preds = %45
   invoke void @_ZN18AddressEditorFrame21on_buttonBox_rejectedEv(ptr noundef nonnull align 8 dereferenceable(72) %18)
           to label %105 unwind label %73
 
 105:                                              ; preds = %104
-  %106 = load i32, ptr getelementptr inbounds (%struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1), align 4
-  %107 = icmp ne i32 %106, 0
-  br i1 %107, label %108, label %110
+  %106 = getelementptr inbounds %struct._e_addr_resolve, ptr @gbl_resolv_flags, i32 0, i32 1
+  %107 = load i32, ptr %106, align 4
+  %108 = icmp ne i32 %107, 0
+  br i1 %108, label %109, label %111
 
-108:                                              ; preds = %105
+109:                                              ; preds = %105
   invoke void @_ZN18AddressEditorFrame16redissectPacketsEv(ptr noundef nonnull align 8 dereferenceable(72) %18)
-          to label %109 unwind label %73
+          to label %110 unwind label %73
 
-109:                                              ; preds = %108
-  br label %110
-
-110:                                              ; preds = %109, %105
-  store i32 0, ptr %17, align 4
+110:                                              ; preds = %109
   br label %111
 
-111:                                              ; preds = %110, %68
+111:                                              ; preds = %110, %105
+  store i32 0, ptr %17, align 4
+  br label %112
+
+112:                                              ; preds = %111, %68
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
-  %112 = load i32, ptr %17, align 4
-  switch i32 %112, label %121 [
-    i32 0, label %113
-    i32 1, label %113
+  %113 = load i32, ptr %17, align 4
+  switch i32 %113, label %122 [
+    i32 0, label %114
+    i32 1, label %114
   ]
 
-113:                                              ; preds = %111, %111, %25
+114:                                              ; preds = %112, %112, %25
   ret void
 
-114:                                              ; preds = %103, %94, %85, %73
+115:                                              ; preds = %103, %94, %85, %73
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
-  br label %115
-
-115:                                              ; preds = %114, %69
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
   br label %116
 
-116:                                              ; preds = %115
-  %117 = load ptr, ptr %5, align 8
-  %118 = load i32, ptr %6, align 4
-  %119 = insertvalue { ptr, i32 } poison, ptr %117, 0
-  %120 = insertvalue { ptr, i32 } %119, i32 %118, 1
-  resume { ptr, i32 } %120
+116:                                              ; preds = %115, %69
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
+  br label %117
 
-121:                                              ; preds = %111
+117:                                              ; preds = %116
+  %118 = load ptr, ptr %5, align 8
+  %119 = load i32, ptr %6, align 4
+  %120 = insertvalue { ptr, i32 } poison, ptr %118, 0
+  %121 = insertvalue { ptr, i32 } %120, i32 %119, 1
+  resume { ptr, i32 } %121
+
+122:                                              ; preds = %112
   unreachable
 }
 
@@ -3241,19 +3246,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.15, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #16
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #16
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #16
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #16
   ret void
 }
 
@@ -3917,9 +3923,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 

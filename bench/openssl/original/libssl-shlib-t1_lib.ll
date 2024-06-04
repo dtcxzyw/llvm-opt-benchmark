@@ -969,47 +969,48 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb2:                                           ; preds = %entry
   %9 = load ptr, ptr %pgroups.addr, align 8
-  store ptr getelementptr inbounds (i16, ptr @suiteb_curves, i64 1), ptr %9, align 8
-  %10 = load ptr, ptr %pgroupslen.addr, align 8
-  store i64 1, ptr %10, align 8
+  %10 = getelementptr inbounds i16, ptr @suiteb_curves, i64 1
+  store ptr %10, ptr %9, align 8
+  %11 = load ptr, ptr %pgroupslen.addr, align 8
+  store i64 1, ptr %11, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %11 = load ptr, ptr %s.addr, align 8
-  %ext = getelementptr inbounds %struct.ssl_connection_st, ptr %11, i32 0, i32 80
+  %12 = load ptr, ptr %s.addr, align 8
+  %ext = getelementptr inbounds %struct.ssl_connection_st, ptr %12, i32 0, i32 80
   %supportedgroups = getelementptr inbounds %struct.anon.1, ptr %ext, i32 0, i32 16
-  %12 = load ptr, ptr %supportedgroups, align 8
-  %cmp = icmp eq ptr %12, null
+  %13 = load ptr, ptr %supportedgroups, align 8
+  %cmp = icmp eq ptr %13, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.default
-  %13 = load ptr, ptr %sctx, align 8
-  %ext3 = getelementptr inbounds %struct.ssl_ctx_st, ptr %13, i32 0, i32 61
+  %14 = load ptr, ptr %sctx, align 8
+  %ext3 = getelementptr inbounds %struct.ssl_ctx_st, ptr %14, i32 0, i32 61
   %supported_groups_default = getelementptr inbounds %struct.anon.4, ptr %ext3, i32 0, i32 14
-  %14 = load ptr, ptr %supported_groups_default, align 8
-  %15 = load ptr, ptr %pgroups.addr, align 8
-  store ptr %14, ptr %15, align 8
-  %16 = load ptr, ptr %sctx, align 8
-  %ext4 = getelementptr inbounds %struct.ssl_ctx_st, ptr %16, i32 0, i32 61
+  %15 = load ptr, ptr %supported_groups_default, align 8
+  %16 = load ptr, ptr %pgroups.addr, align 8
+  store ptr %15, ptr %16, align 8
+  %17 = load ptr, ptr %sctx, align 8
+  %ext4 = getelementptr inbounds %struct.ssl_ctx_st, ptr %17, i32 0, i32 61
   %supported_groups_default_len = getelementptr inbounds %struct.anon.4, ptr %ext4, i32 0, i32 15
-  %17 = load i64, ptr %supported_groups_default_len, align 8
-  %18 = load ptr, ptr %pgroupslen.addr, align 8
-  store i64 %17, ptr %18, align 8
+  %18 = load i64, ptr %supported_groups_default_len, align 8
+  %19 = load ptr, ptr %pgroupslen.addr, align 8
+  store i64 %18, ptr %19, align 8
   br label %if.end
 
 if.else:                                          ; preds = %sw.default
-  %19 = load ptr, ptr %s.addr, align 8
-  %ext5 = getelementptr inbounds %struct.ssl_connection_st, ptr %19, i32 0, i32 80
+  %20 = load ptr, ptr %s.addr, align 8
+  %ext5 = getelementptr inbounds %struct.ssl_connection_st, ptr %20, i32 0, i32 80
   %supportedgroups6 = getelementptr inbounds %struct.anon.1, ptr %ext5, i32 0, i32 16
-  %20 = load ptr, ptr %supportedgroups6, align 8
-  %21 = load ptr, ptr %pgroups.addr, align 8
-  store ptr %20, ptr %21, align 8
-  %22 = load ptr, ptr %s.addr, align 8
-  %ext7 = getelementptr inbounds %struct.ssl_connection_st, ptr %22, i32 0, i32 80
+  %21 = load ptr, ptr %supportedgroups6, align 8
+  %22 = load ptr, ptr %pgroups.addr, align 8
+  store ptr %21, ptr %22, align 8
+  %23 = load ptr, ptr %s.addr, align 8
+  %ext7 = getelementptr inbounds %struct.ssl_connection_st, ptr %23, i32 0, i32 80
   %supportedgroups_len = getelementptr inbounds %struct.anon.1, ptr %ext7, i32 0, i32 15
-  %23 = load i64, ptr %supportedgroups_len, align 8
-  %24 = load ptr, ptr %pgroupslen.addr, align 8
-  store i64 %23, ptr %24, align 8
+  %24 = load i64, ptr %supportedgroups_len, align 8
+  %25 = load ptr, ptr %pgroupslen.addr, align 8
+  store i64 %24, ptr %25, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -3337,89 +3338,90 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb2:                                           ; preds = %entry
   %5 = load ptr, ptr %psigs.addr, align 8
-  store ptr getelementptr inbounds (i16, ptr @suiteb_sigalgs, i64 1), ptr %5, align 8
+  %6 = getelementptr inbounds i16, ptr @suiteb_sigalgs, i64 1
+  store ptr %6, ptr %5, align 8
   store i64 1, ptr %retval, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  %6 = load ptr, ptr %s.addr, align 8
-  %server = getelementptr inbounds %struct.ssl_connection_st, ptr %6, i32 0, i32 7
-  %7 = load i32, ptr %server, align 8
-  %8 = load i32, ptr %sent.addr, align 4
-  %cmp = icmp eq i32 %7, %8
+  %7 = load ptr, ptr %s.addr, align 8
+  %server = getelementptr inbounds %struct.ssl_connection_st, ptr %7, i32 0, i32 7
+  %8 = load i32, ptr %server, align 8
+  %9 = load i32, ptr %sent.addr, align 4
+  %cmp = icmp eq i32 %8, %9
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %sw.epilog
-  %9 = load ptr, ptr %s.addr, align 8
-  %cert3 = getelementptr inbounds %struct.ssl_connection_st, ptr %9, i32 0, i32 44
-  %10 = load ptr, ptr %cert3, align 8
-  %client_sigalgs = getelementptr inbounds %struct.cert_st, ptr %10, i32 0, i32 11
-  %11 = load ptr, ptr %client_sigalgs, align 8
-  %cmp4 = icmp ne ptr %11, null
+  %10 = load ptr, ptr %s.addr, align 8
+  %cert3 = getelementptr inbounds %struct.ssl_connection_st, ptr %10, i32 0, i32 44
+  %11 = load ptr, ptr %cert3, align 8
+  %client_sigalgs = getelementptr inbounds %struct.cert_st, ptr %11, i32 0, i32 11
+  %12 = load ptr, ptr %client_sigalgs, align 8
+  %cmp4 = icmp ne ptr %12, null
   br i1 %cmp4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %12 = load ptr, ptr %s.addr, align 8
-  %cert5 = getelementptr inbounds %struct.ssl_connection_st, ptr %12, i32 0, i32 44
-  %13 = load ptr, ptr %cert5, align 8
-  %client_sigalgs6 = getelementptr inbounds %struct.cert_st, ptr %13, i32 0, i32 11
-  %14 = load ptr, ptr %client_sigalgs6, align 8
-  %15 = load ptr, ptr %psigs.addr, align 8
-  store ptr %14, ptr %15, align 8
-  %16 = load ptr, ptr %s.addr, align 8
-  %cert7 = getelementptr inbounds %struct.ssl_connection_st, ptr %16, i32 0, i32 44
-  %17 = load ptr, ptr %cert7, align 8
-  %client_sigalgslen = getelementptr inbounds %struct.cert_st, ptr %17, i32 0, i32 12
-  %18 = load i64, ptr %client_sigalgslen, align 8
-  store i64 %18, ptr %retval, align 8
+  %13 = load ptr, ptr %s.addr, align 8
+  %cert5 = getelementptr inbounds %struct.ssl_connection_st, ptr %13, i32 0, i32 44
+  %14 = load ptr, ptr %cert5, align 8
+  %client_sigalgs6 = getelementptr inbounds %struct.cert_st, ptr %14, i32 0, i32 11
+  %15 = load ptr, ptr %client_sigalgs6, align 8
+  %16 = load ptr, ptr %psigs.addr, align 8
+  store ptr %15, ptr %16, align 8
+  %17 = load ptr, ptr %s.addr, align 8
+  %cert7 = getelementptr inbounds %struct.ssl_connection_st, ptr %17, i32 0, i32 44
+  %18 = load ptr, ptr %cert7, align 8
+  %client_sigalgslen = getelementptr inbounds %struct.cert_st, ptr %18, i32 0, i32 12
+  %19 = load i64, ptr %client_sigalgslen, align 8
+  store i64 %19, ptr %retval, align 8
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %sw.epilog
-  %19 = load ptr, ptr %s.addr, align 8
-  %cert8 = getelementptr inbounds %struct.ssl_connection_st, ptr %19, i32 0, i32 44
-  %20 = load ptr, ptr %cert8, align 8
-  %conf_sigalgs = getelementptr inbounds %struct.cert_st, ptr %20, i32 0, i32 9
-  %21 = load ptr, ptr %conf_sigalgs, align 8
-  %tobool = icmp ne ptr %21, null
+  %20 = load ptr, ptr %s.addr, align 8
+  %cert8 = getelementptr inbounds %struct.ssl_connection_st, ptr %20, i32 0, i32 44
+  %21 = load ptr, ptr %cert8, align 8
+  %conf_sigalgs = getelementptr inbounds %struct.cert_st, ptr %21, i32 0, i32 9
+  %22 = load ptr, ptr %conf_sigalgs, align 8
+  %tobool = icmp ne ptr %22, null
   br i1 %tobool, label %if.then9, label %if.else13
 
 if.then9:                                         ; preds = %if.else
-  %22 = load ptr, ptr %s.addr, align 8
-  %cert10 = getelementptr inbounds %struct.ssl_connection_st, ptr %22, i32 0, i32 44
-  %23 = load ptr, ptr %cert10, align 8
-  %conf_sigalgs11 = getelementptr inbounds %struct.cert_st, ptr %23, i32 0, i32 9
-  %24 = load ptr, ptr %conf_sigalgs11, align 8
-  %25 = load ptr, ptr %psigs.addr, align 8
-  store ptr %24, ptr %25, align 8
-  %26 = load ptr, ptr %s.addr, align 8
-  %cert12 = getelementptr inbounds %struct.ssl_connection_st, ptr %26, i32 0, i32 44
-  %27 = load ptr, ptr %cert12, align 8
-  %conf_sigalgslen = getelementptr inbounds %struct.cert_st, ptr %27, i32 0, i32 10
-  %28 = load i64, ptr %conf_sigalgslen, align 8
-  store i64 %28, ptr %retval, align 8
+  %23 = load ptr, ptr %s.addr, align 8
+  %cert10 = getelementptr inbounds %struct.ssl_connection_st, ptr %23, i32 0, i32 44
+  %24 = load ptr, ptr %cert10, align 8
+  %conf_sigalgs11 = getelementptr inbounds %struct.cert_st, ptr %24, i32 0, i32 9
+  %25 = load ptr, ptr %conf_sigalgs11, align 8
+  %26 = load ptr, ptr %psigs.addr, align 8
+  store ptr %25, ptr %26, align 8
+  %27 = load ptr, ptr %s.addr, align 8
+  %cert12 = getelementptr inbounds %struct.ssl_connection_st, ptr %27, i32 0, i32 44
+  %28 = load ptr, ptr %cert12, align 8
+  %conf_sigalgslen = getelementptr inbounds %struct.cert_st, ptr %28, i32 0, i32 10
+  %29 = load i64, ptr %conf_sigalgslen, align 8
+  store i64 %29, ptr %retval, align 8
   br label %return
 
 if.else13:                                        ; preds = %if.else
-  %29 = load ptr, ptr %s.addr, align 8
-  %ssl = getelementptr inbounds %struct.ssl_connection_st, ptr %29, i32 0, i32 0
+  %30 = load ptr, ptr %s.addr, align 8
+  %ssl = getelementptr inbounds %struct.ssl_connection_st, ptr %30, i32 0, i32 0
   %ctx = getelementptr inbounds %struct.ssl_st, ptr %ssl, i32 0, i32 1
-  %30 = load ptr, ptr %ctx, align 8
-  %tls12_sigalgs = getelementptr inbounds %struct.ssl_ctx_st, ptr %30, i32 0, i32 93
-  %31 = load ptr, ptr %tls12_sigalgs, align 8
-  %32 = load ptr, ptr %psigs.addr, align 8
-  store ptr %31, ptr %32, align 8
-  %33 = load ptr, ptr %s.addr, align 8
-  %ssl14 = getelementptr inbounds %struct.ssl_connection_st, ptr %33, i32 0, i32 0
+  %31 = load ptr, ptr %ctx, align 8
+  %tls12_sigalgs = getelementptr inbounds %struct.ssl_ctx_st, ptr %31, i32 0, i32 93
+  %32 = load ptr, ptr %tls12_sigalgs, align 8
+  %33 = load ptr, ptr %psigs.addr, align 8
+  store ptr %32, ptr %33, align 8
+  %34 = load ptr, ptr %s.addr, align 8
+  %ssl14 = getelementptr inbounds %struct.ssl_connection_st, ptr %34, i32 0, i32 0
   %ctx15 = getelementptr inbounds %struct.ssl_st, ptr %ssl14, i32 0, i32 1
-  %34 = load ptr, ptr %ctx15, align 8
-  %tls12_sigalgs_len = getelementptr inbounds %struct.ssl_ctx_st, ptr %34, i32 0, i32 91
-  %35 = load i64, ptr %tls12_sigalgs_len, align 8
-  store i64 %35, ptr %retval, align 8
+  %35 = load ptr, ptr %ctx15, align 8
+  %tls12_sigalgs_len = getelementptr inbounds %struct.ssl_ctx_st, ptr %35, i32 0, i32 91
+  %36 = load i64, ptr %tls12_sigalgs_len, align 8
+  store i64 %36, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %if.else13, %if.then9, %if.then, %sw.bb2, %sw.bb1, %sw.bb
-  %36 = load i64, ptr %retval, align 8
-  ret i64 %36
+  %37 = load i64, ptr %retval, align 8
+  ret i64 %37
 }
 
 ; Function Attrs: nounwind uwtable

@@ -11234,8 +11234,9 @@ define void @Cudd_Srandom(i64 noundef %0) #0 {
   br label %19, !llvm.loop !78
 
 48:                                               ; preds = %19
-  %49 = load i64, ptr getelementptr inbounds ([64 x i64], ptr @shuffleTable, i64 0, i64 1), align 8
-  store i64 %49, ptr @shuffleSelect, align 8
+  %49 = getelementptr inbounds [64 x i64], ptr @shuffleTable, i64 0, i64 1
+  %50 = load i64, ptr %49, align 8
+  store i64 %50, ptr @shuffleSelect, align 8
   ret void
 }
 

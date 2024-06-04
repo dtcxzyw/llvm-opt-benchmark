@@ -76,7 +76,7 @@ define dso_local noundef zeroext i1 @setup_ipc_sysctls(ptr noundef %0) local_unn
   tail call void @setup_sysctl_set(ptr noundef %2, ptr noundef nonnull @set_root, ptr noundef nonnull @set_is_seen) #9
   %3 = tail call dereferenceable_or_null(640) ptr @kmemdup(ptr noundef nonnull @ipc_sysctls, i64 noundef 640, i32 noundef 3264) #10
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %41, label %5
+  br i1 %4, label %49, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 648
@@ -89,68 +89,76 @@ define dso_local noundef zeroext i1 @setup_ipc_sysctls(ptr noundef %0) local_unn
   %13 = getelementptr inbounds i8, ptr %0, i64 760
   br label %14
 
-14:                                               ; preds = %34, %5
-  %15 = phi i64 [ 0, %5 ], [ %36, %34 ]
+14:                                               ; preds = %42, %5
+  %15 = phi i64 [ 0, %5 ], [ %44, %42 ]
   %16 = getelementptr %struct.ctl_table, ptr %3, i64 %15, i32 1
   %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 8)
-  br i1 %18, label %34, label %19
+  %18 = getelementptr inbounds %struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 8
+  %19 = icmp eq ptr %17, %18
+  br i1 %19, label %42, label %20
 
-19:                                               ; preds = %14
-  %20 = icmp eq ptr %17, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 9)
-  br i1 %20, label %34, label %21
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds %struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 9
+  %22 = icmp eq ptr %17, %21
+  br i1 %22, label %42, label %23
 
-21:                                               ; preds = %19
-  %22 = icmp eq ptr %17, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 11)
-  br i1 %22, label %34, label %23
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds %struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 11
+  %25 = icmp eq ptr %17, %24
+  br i1 %25, label %42, label %26
 
-23:                                               ; preds = %21
-  %24 = icmp eq ptr %17, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 12)
-  br i1 %24, label %34, label %25
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds %struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 12
+  %28 = icmp eq ptr %17, %27
+  br i1 %28, label %42, label %29
 
-25:                                               ; preds = %23
-  %26 = icmp eq ptr %17, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 3)
-  br i1 %26, label %34, label %27
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds %struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 3
+  %31 = icmp eq ptr %17, %30
+  br i1 %31, label %42, label %32
 
-27:                                               ; preds = %25
-  %28 = icmp eq ptr %17, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 5)
-  br i1 %28, label %34, label %29
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds %struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 5
+  %34 = icmp eq ptr %17, %33
+  br i1 %34, label %42, label %35
 
-29:                                               ; preds = %27
-  %30 = icmp eq ptr %17, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 4)
-  br i1 %30, label %34, label %31
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds %struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 4
+  %37 = icmp eq ptr %17, %36
+  br i1 %37, label %42, label %38
 
-31:                                               ; preds = %29
-  %32 = icmp eq ptr %17, getelementptr inbounds (%struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 1)
-  %33 = select i1 %32, ptr %6, ptr null
-  br label %34
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds %struct.ipc_namespace, ptr @init_ipc_ns, i64 0, i32 1
+  %40 = icmp eq ptr %17, %39
+  %41 = select i1 %40, ptr %6, ptr null
+  br label %42
 
-34:                                               ; preds = %31, %29, %27, %25, %23, %21, %19, %14
-  %35 = phi ptr [ %13, %14 ], [ %12, %19 ], [ %11, %21 ], [ %10, %23 ], [ %9, %25 ], [ %8, %27 ], [ %7, %29 ], [ %33, %31 ]
-  store ptr %35, ptr %16, align 8
-  %36 = add nuw nsw i64 %15, 1
-  %37 = icmp eq i64 %36, 10
-  br i1 %37, label %38, label %14, !llvm.loop !5
+42:                                               ; preds = %38, %35, %32, %29, %26, %23, %20, %14
+  %43 = phi ptr [ %13, %14 ], [ %12, %20 ], [ %11, %23 ], [ %10, %26 ], [ %9, %29 ], [ %8, %32 ], [ %7, %35 ], [ %41, %38 ]
+  store ptr %43, ptr %16, align 8
+  %44 = add nuw nsw i64 %15, 1
+  %45 = icmp eq i64 %44, 10
+  br i1 %45, label %46, label %14, !llvm.loop !5
 
-38:                                               ; preds = %34
-  %39 = tail call ptr @__register_sysctl_table(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull %3, i64 noundef 10) #9
-  %40 = getelementptr inbounds i8, ptr %0, i64 1048
-  store ptr %39, ptr %40, align 8
-  br label %41
+46:                                               ; preds = %42
+  %47 = tail call ptr @__register_sysctl_table(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull %3, i64 noundef 10) #9
+  %48 = getelementptr inbounds i8, ptr %0, i64 1048
+  store ptr %47, ptr %48, align 8
+  br label %49
 
-41:                                               ; preds = %38, %1
-  %42 = getelementptr inbounds i8, ptr %0, i64 1048
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %46, label %45
+49:                                               ; preds = %46, %1
+  %50 = getelementptr inbounds i8, ptr %0, i64 1048
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %54, label %53
 
-45:                                               ; preds = %41
+53:                                               ; preds = %49
   tail call void @kfree(ptr noundef %3) #9
   tail call void @retire_sysctl_set(ptr noundef %2) #9
-  br label %46
+  br label %54
 
-46:                                               ; preds = %45, %41
-  ret i1 %44
+54:                                               ; preds = %53, %49
+  ret i1 %52
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

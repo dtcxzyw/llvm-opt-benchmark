@@ -921,14 +921,14 @@ define internal void @dissect_tftp_message(ptr noundef %0, ptr noundef %1, ptr n
 114:                                              ; preds = %91, %68, %64, %4
   %115 = load i16, ptr %14, align 2
   %116 = zext i16 %115 to i32
-  switch i32 %116, label %763 [
+  switch i32 %116, label %765 [
     i32 1, label %117
     i32 2, label %178
     i32 255, label %239
     i32 3, label %246
     i32 4, label %563
-    i32 5, label %682
-    i32 6, label %756
+    i32 5, label %683
+    i32 6, label %758
   ]
 
 117:                                              ; preds = %114
@@ -1001,7 +1001,7 @@ define internal void @dissect_tftp_message(ptr noundef %0, ptr noundef %1, ptr n
   %176 = load i16, ptr %14, align 2
   %177 = load ptr, ptr %5, align 8
   call void @tftp_dissect_options(ptr noundef %172, ptr noundef %173, i32 noundef %174, ptr noundef %175, i16 noundef zeroext %176, ptr noundef %177)
-  br label %769
+  br label %771
 
 178:                                              ; preds = %114
   %179 = load ptr, ptr %6, align 8
@@ -1073,7 +1073,7 @@ define internal void @dissect_tftp_message(ptr noundef %0, ptr noundef %1, ptr n
   %237 = load i16, ptr %14, align 2
   %238 = load ptr, ptr %5, align 8
   call void @tftp_dissect_options(ptr noundef %233, ptr noundef %234, i32 noundef %235, ptr noundef %236, i16 noundef zeroext %237, ptr noundef %238)
-  br label %769
+  br label %771
 
 239:                                              ; preds = %114
   %240 = load ptr, ptr %6, align 8
@@ -1083,7 +1083,7 @@ define internal void @dissect_tftp_message(ptr noundef %0, ptr noundef %1, ptr n
   %244 = load i16, ptr %14, align 2
   %245 = load ptr, ptr %5, align 8
   call void @tftp_dissect_options(ptr noundef %240, ptr noundef %241, i32 noundef %242, ptr noundef %243, i16 noundef zeroext %244, ptr noundef %245)
-  br label %769
+  br label %771
 
 246:                                              ; preds = %114
   %247 = load ptr, ptr %10, align 8
@@ -1452,7 +1452,7 @@ define internal void @dissect_tftp_message(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %506, label %507, label %508
 
 507:                                              ; preds = %501, %496
-  br label %769
+  br label %771
 
 508:                                              ; preds = %501
   %509 = load ptr, ptr %5, align 8
@@ -1524,7 +1524,7 @@ define internal void @dissect_tftp_message(ptr noundef %0, ptr noundef %1, ptr n
   br label %562
 
 562:                                              ; preds = %561, %475, %470, %467, %462, %458
-  br label %769
+  br label %771
 
 563:                                              ; preds = %114
   %564 = load ptr, ptr %9, align 8
@@ -1589,14 +1589,14 @@ define internal void @dissect_tftp_message(ptr noundef %0, ptr noundef %1, ptr n
   %610 = getelementptr inbounds %struct._tftp_conv_info_t, ptr %609, i32 0, i32 5
   %611 = load i32, ptr %610, align 8
   %612 = icmp ne i32 %611, 0
-  br i1 %612, label %613, label %681
+  br i1 %612, label %613, label %682
 
 613:                                              ; preds = %596
   %614 = load ptr, ptr %6, align 8
   %615 = load i32, ptr %13, align 4
   %616 = call i32 @tvb_bytes_exist(ptr noundef %614, i32 noundef %615, i32 noundef 1)
   %617 = icmp ne i32 %616, 0
-  br i1 %617, label %618, label %681
+  br i1 %617, label %618, label %682
 
 618:                                              ; preds = %613
   %619 = load ptr, ptr %6, align 8
@@ -1620,7 +1620,7 @@ define internal void @dissect_tftp_message(ptr noundef %0, ptr noundef %1, ptr n
   %635 = and i16 %634, 1
   %636 = zext i16 %635 to i32
   %637 = icmp ne i32 %636, 0
-  br i1 %637, label %666, label %638
+  br i1 %637, label %667, label %638
 
 638:                                              ; preds = %618
   %639 = load i8, ptr %30, align 1
@@ -1646,167 +1646,169 @@ define internal void @dissect_tftp_message(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %654, ptr %29, align 4
   %655 = load i32, ptr %29, align 4
   %656 = icmp ne i32 %655, 0
-  br i1 %656, label %657, label %665
+  br i1 %656, label %657, label %666
 
 657:                                              ; preds = %652
   %658 = call ptr @wmem_file_scope()
   %659 = load ptr, ptr %7, align 8
   %660 = load i32, ptr @proto_tftp, align 4
-  call void @p_add_proto_data(ptr noundef %658, ptr noundef %659, i32 noundef %660, i32 noundef 3, ptr noundef inttoptr (i64 1 to ptr))
-  %661 = load i8, ptr %30, align 1
-  %662 = zext i8 %661 to i16
-  %663 = load ptr, ptr %5, align 8
-  %664 = getelementptr inbounds %struct._tftp_conv_info_t, ptr %663, i32 0, i32 6
-  store i16 %662, ptr %664, align 4
-  br label %665
+  %661 = inttoptr i64 1 to ptr
+  call void @p_add_proto_data(ptr noundef %658, ptr noundef %659, i32 noundef %660, i32 noundef 3, ptr noundef %661)
+  %662 = load i8, ptr %30, align 1
+  %663 = zext i8 %662 to i16
+  %664 = load ptr, ptr %5, align 8
+  %665 = getelementptr inbounds %struct._tftp_conv_info_t, ptr %664, i32 0, i32 6
+  store i16 %663, ptr %665, align 4
+  br label %666
 
-665:                                              ; preds = %657, %652
-  br label %673
+666:                                              ; preds = %657, %652
+  br label %674
 
-666:                                              ; preds = %618
-  %667 = call ptr @wmem_file_scope()
-  %668 = load ptr, ptr %7, align 8
-  %669 = load i32, ptr @proto_tftp, align 4
-  %670 = call ptr @p_get_proto_data(ptr noundef %667, ptr noundef %668, i32 noundef %669, i32 noundef 3)
-  %671 = icmp ne ptr %670, null
-  %672 = zext i1 %671 to i32
-  store i32 %672, ptr %29, align 4
-  br label %673
+667:                                              ; preds = %618
+  %668 = call ptr @wmem_file_scope()
+  %669 = load ptr, ptr %7, align 8
+  %670 = load i32, ptr @proto_tftp, align 4
+  %671 = call ptr @p_get_proto_data(ptr noundef %668, ptr noundef %669, i32 noundef %670, i32 noundef 3)
+  %672 = icmp ne ptr %671, null
+  %673 = zext i1 %672 to i32
+  store i32 %673, ptr %29, align 4
+  br label %674
 
-673:                                              ; preds = %666, %665
-  %674 = load i32, ptr %29, align 4
-  %675 = icmp ne i32 %674, 0
-  br i1 %675, label %676, label %680
+674:                                              ; preds = %667, %666
+  %675 = load i32, ptr %29, align 4
+  %676 = icmp ne i32 %675, 0
+  br i1 %676, label %677, label %681
 
-676:                                              ; preds = %673
-  %677 = load ptr, ptr %7, align 8
-  %678 = load ptr, ptr %11, align 8
-  %679 = call ptr @expert_add_info(ptr noundef %677, ptr noundef %678, ptr noundef @ei_tftp_windowsize_change)
-  br label %680
-
-680:                                              ; preds = %676, %673
+677:                                              ; preds = %674
+  %678 = load ptr, ptr %7, align 8
+  %679 = load ptr, ptr %11, align 8
+  %680 = call ptr @expert_add_info(ptr noundef %678, ptr noundef %679, ptr noundef @ei_tftp_windowsize_change)
   br label %681
 
-681:                                              ; preds = %680, %613, %596
-  br label %769
+681:                                              ; preds = %677, %674
+  br label %682
 
-682:                                              ; preds = %114
-  %683 = load ptr, ptr %6, align 8
-  %684 = load i32, ptr %13, align 4
-  %685 = call zeroext i16 @tvb_get_ntohs(ptr noundef %683, i32 noundef %684)
-  store i16 %685, ptr %19, align 2
-  %686 = load ptr, ptr %9, align 8
-  %687 = load i32, ptr @hf_tftp_error_code, align 4
-  %688 = load ptr, ptr %6, align 8
-  %689 = load i32, ptr %13, align 4
-  %690 = load i16, ptr %19, align 2
-  %691 = zext i16 %690 to i32
-  %692 = call ptr @proto_tree_add_uint(ptr noundef %686, i32 noundef %687, ptr noundef %688, i32 noundef %689, i32 noundef 2, i32 noundef %691)
-  %693 = load ptr, ptr %7, align 8
-  %694 = getelementptr inbounds %struct._packet_info, ptr %693, i32 0, i32 1
-  %695 = load ptr, ptr %694, align 8
-  %696 = load i16, ptr %19, align 2
-  %697 = zext i16 %696 to i32
-  %698 = call ptr @val_to_str(i32 noundef %697, ptr noundef @tftp_error_code_vals, ptr noundef @.str.122)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %695, i32 noundef 25, ptr noundef @.str.121, ptr noundef %698)
-  %699 = load i32, ptr %13, align 4
-  %700 = add i32 %699, 2
-  store i32 %700, ptr %13, align 4
-  %701 = load ptr, ptr %6, align 8
-  %702 = load i32, ptr %13, align 4
-  %703 = call i32 @tvb_strsize(ptr noundef %701, i32 noundef %702)
-  store i32 %703, ptr %18, align 4
-  %704 = load ptr, ptr %9, align 8
-  %705 = load i32, ptr @hf_tftp_error_string, align 4
-  %706 = load ptr, ptr %6, align 8
-  %707 = load i32, ptr %13, align 4
-  %708 = load i32, ptr %18, align 4
-  %709 = call ptr @proto_tree_add_item(ptr noundef %704, i32 noundef %705, ptr noundef %706, i32 noundef %707, i32 noundef %708, i32 noundef 0)
-  %710 = load ptr, ptr %7, align 8
-  %711 = getelementptr inbounds %struct._packet_info, ptr %710, i32 0, i32 1
-  %712 = load ptr, ptr %711, align 8
-  %713 = load ptr, ptr %7, align 8
-  %714 = getelementptr inbounds %struct._packet_info, ptr %713, i32 0, i32 50
-  %715 = load ptr, ptr %714, align 8
-  %716 = load ptr, ptr %6, align 8
-  %717 = load i32, ptr %13, align 4
-  %718 = load i32, ptr %18, align 4
-  %719 = call ptr @tvb_format_stringzpad(ptr noundef %715, ptr noundef %716, i32 noundef %717, i32 noundef %718)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %712, i32 noundef 25, ptr noundef @.str.123, ptr noundef %719)
-  %720 = load ptr, ptr %7, align 8
-  %721 = getelementptr inbounds %struct._packet_info, ptr %720, i32 0, i32 8
-  %722 = load ptr, ptr %721, align 8
-  %723 = getelementptr inbounds %struct._frame_data, ptr %722, i32 0, i32 9
-  %724 = load i16, ptr %723, align 2
-  %725 = lshr i16 %724, 3
-  %726 = and i16 %725, 1
-  %727 = zext i16 %726 to i32
-  %728 = icmp ne i32 %727, 0
-  br i1 %728, label %740, label %729
+682:                                              ; preds = %681, %613, %596
+  br label %771
 
-729:                                              ; preds = %682
-  %730 = load i16, ptr %19, align 2
-  %731 = load ptr, ptr %5, align 8
-  %732 = call i32 @error_is_likely_tsize_probe(i16 noundef zeroext %730, ptr noundef %731)
-  store i32 %732, ptr %20, align 4
-  %733 = load i32, ptr %20, align 4
-  %734 = icmp ne i32 %733, 0
-  br i1 %734, label %735, label %739
+683:                                              ; preds = %114
+  %684 = load ptr, ptr %6, align 8
+  %685 = load i32, ptr %13, align 4
+  %686 = call zeroext i16 @tvb_get_ntohs(ptr noundef %684, i32 noundef %685)
+  store i16 %686, ptr %19, align 2
+  %687 = load ptr, ptr %9, align 8
+  %688 = load i32, ptr @hf_tftp_error_code, align 4
+  %689 = load ptr, ptr %6, align 8
+  %690 = load i32, ptr %13, align 4
+  %691 = load i16, ptr %19, align 2
+  %692 = zext i16 %691 to i32
+  %693 = call ptr @proto_tree_add_uint(ptr noundef %687, i32 noundef %688, ptr noundef %689, i32 noundef %690, i32 noundef 2, i32 noundef %692)
+  %694 = load ptr, ptr %7, align 8
+  %695 = getelementptr inbounds %struct._packet_info, ptr %694, i32 0, i32 1
+  %696 = load ptr, ptr %695, align 8
+  %697 = load i16, ptr %19, align 2
+  %698 = zext i16 %697 to i32
+  %699 = call ptr @val_to_str(i32 noundef %698, ptr noundef @tftp_error_code_vals, ptr noundef @.str.122)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %696, i32 noundef 25, ptr noundef @.str.121, ptr noundef %699)
+  %700 = load i32, ptr %13, align 4
+  %701 = add i32 %700, 2
+  store i32 %701, ptr %13, align 4
+  %702 = load ptr, ptr %6, align 8
+  %703 = load i32, ptr %13, align 4
+  %704 = call i32 @tvb_strsize(ptr noundef %702, i32 noundef %703)
+  store i32 %704, ptr %18, align 4
+  %705 = load ptr, ptr %9, align 8
+  %706 = load i32, ptr @hf_tftp_error_string, align 4
+  %707 = load ptr, ptr %6, align 8
+  %708 = load i32, ptr %13, align 4
+  %709 = load i32, ptr %18, align 4
+  %710 = call ptr @proto_tree_add_item(ptr noundef %705, i32 noundef %706, ptr noundef %707, i32 noundef %708, i32 noundef %709, i32 noundef 0)
+  %711 = load ptr, ptr %7, align 8
+  %712 = getelementptr inbounds %struct._packet_info, ptr %711, i32 0, i32 1
+  %713 = load ptr, ptr %712, align 8
+  %714 = load ptr, ptr %7, align 8
+  %715 = getelementptr inbounds %struct._packet_info, ptr %714, i32 0, i32 50
+  %716 = load ptr, ptr %715, align 8
+  %717 = load ptr, ptr %6, align 8
+  %718 = load i32, ptr %13, align 4
+  %719 = load i32, ptr %18, align 4
+  %720 = call ptr @tvb_format_stringzpad(ptr noundef %716, ptr noundef %717, i32 noundef %718, i32 noundef %719)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %713, i32 noundef 25, ptr noundef @.str.123, ptr noundef %720)
+  %721 = load ptr, ptr %7, align 8
+  %722 = getelementptr inbounds %struct._packet_info, ptr %721, i32 0, i32 8
+  %723 = load ptr, ptr %722, align 8
+  %724 = getelementptr inbounds %struct._frame_data, ptr %723, i32 0, i32 9
+  %725 = load i16, ptr %724, align 2
+  %726 = lshr i16 %725, 3
+  %727 = and i16 %726, 1
+  %728 = zext i16 %727 to i32
+  %729 = icmp ne i32 %728, 0
+  br i1 %729, label %742, label %730
 
-735:                                              ; preds = %729
-  %736 = call ptr @wmem_file_scope()
-  %737 = load ptr, ptr %7, align 8
-  %738 = load i32, ptr @proto_tftp, align 4
-  call void @p_add_proto_data(ptr noundef %736, ptr noundef %737, i32 noundef %738, i32 noundef 0, ptr noundef inttoptr (i64 1 to ptr))
-  br label %739
+730:                                              ; preds = %683
+  %731 = load i16, ptr %19, align 2
+  %732 = load ptr, ptr %5, align 8
+  %733 = call i32 @error_is_likely_tsize_probe(i16 noundef zeroext %731, ptr noundef %732)
+  store i32 %733, ptr %20, align 4
+  %734 = load i32, ptr %20, align 4
+  %735 = icmp ne i32 %734, 0
+  br i1 %735, label %736, label %741
 
-739:                                              ; preds = %735, %729
-  br label %749
+736:                                              ; preds = %730
+  %737 = call ptr @wmem_file_scope()
+  %738 = load ptr, ptr %7, align 8
+  %739 = load i32, ptr @proto_tftp, align 4
+  %740 = inttoptr i64 1 to ptr
+  call void @p_add_proto_data(ptr noundef %737, ptr noundef %738, i32 noundef %739, i32 noundef 0, ptr noundef %740)
+  br label %741
 
-740:                                              ; preds = %682
-  %741 = call ptr @wmem_file_scope()
-  %742 = load ptr, ptr %7, align 8
-  %743 = load i32, ptr @proto_tftp, align 4
-  %744 = call ptr @p_get_proto_data(ptr noundef %741, ptr noundef %742, i32 noundef %743, i32 noundef 0)
-  %745 = ptrtoint ptr %744 to i64
-  %746 = trunc i64 %745 to i32
-  %747 = icmp ne i32 %746, 0
-  %748 = zext i1 %747 to i32
-  store i32 %748, ptr %20, align 4
-  br label %749
+741:                                              ; preds = %736, %730
+  br label %751
 
-749:                                              ; preds = %740, %739
-  %750 = load ptr, ptr %7, align 8
-  %751 = load ptr, ptr %9, align 8
-  %752 = load i32, ptr %20, align 4
-  %753 = icmp ne i32 %752, 0
-  %754 = select i1 %753, ptr @ei_tftp_likely_tsize_probe, ptr @ei_tftp_error
-  %755 = call ptr @expert_add_info(ptr noundef %750, ptr noundef %751, ptr noundef %754)
-  br label %769
+742:                                              ; preds = %683
+  %743 = call ptr @wmem_file_scope()
+  %744 = load ptr, ptr %7, align 8
+  %745 = load i32, ptr @proto_tftp, align 4
+  %746 = call ptr @p_get_proto_data(ptr noundef %743, ptr noundef %744, i32 noundef %745, i32 noundef 0)
+  %747 = ptrtoint ptr %746 to i64
+  %748 = trunc i64 %747 to i32
+  %749 = icmp ne i32 %748, 0
+  %750 = zext i1 %749 to i32
+  store i32 %750, ptr %20, align 4
+  br label %751
 
-756:                                              ; preds = %114
-  %757 = load ptr, ptr %6, align 8
-  %758 = load ptr, ptr %7, align 8
-  %759 = load i32, ptr %13, align 4
-  %760 = load ptr, ptr %9, align 8
-  %761 = load i16, ptr %14, align 2
-  %762 = load ptr, ptr %5, align 8
-  call void @tftp_dissect_options(ptr noundef %757, ptr noundef %758, i32 noundef %759, ptr noundef %760, i16 noundef zeroext %761, ptr noundef %762)
-  br label %769
+751:                                              ; preds = %742, %741
+  %752 = load ptr, ptr %7, align 8
+  %753 = load ptr, ptr %9, align 8
+  %754 = load i32, ptr %20, align 4
+  %755 = icmp ne i32 %754, 0
+  %756 = select i1 %755, ptr @ei_tftp_likely_tsize_probe, ptr @ei_tftp_error
+  %757 = call ptr @expert_add_info(ptr noundef %752, ptr noundef %753, ptr noundef %756)
+  br label %771
 
-763:                                              ; preds = %114
-  %764 = load ptr, ptr %9, align 8
-  %765 = load i32, ptr @hf_tftp_data, align 4
-  %766 = load ptr, ptr %6, align 8
-  %767 = load i32, ptr %13, align 4
-  %768 = call ptr @proto_tree_add_item(ptr noundef %764, i32 noundef %765, ptr noundef %766, i32 noundef %767, i32 noundef -1, i32 noundef 0)
-  br label %769
+758:                                              ; preds = %114
+  %759 = load ptr, ptr %6, align 8
+  %760 = load ptr, ptr %7, align 8
+  %761 = load i32, ptr %13, align 4
+  %762 = load ptr, ptr %9, align 8
+  %763 = load i16, ptr %14, align 2
+  %764 = load ptr, ptr %5, align 8
+  call void @tftp_dissect_options(ptr noundef %759, ptr noundef %760, i32 noundef %761, ptr noundef %762, i16 noundef zeroext %763, ptr noundef %764)
+  br label %771
 
-769:                                              ; preds = %763, %756, %749, %681, %562, %507, %239, %178, %117
-  %770 = load i16, ptr %14, align 2
-  %771 = load ptr, ptr %5, align 8
-  %772 = getelementptr inbounds %struct._tftp_conv_info_t, ptr %771, i32 0, i32 7
-  store i16 %770, ptr %772, align 2
+765:                                              ; preds = %114
+  %766 = load ptr, ptr %9, align 8
+  %767 = load i32, ptr @hf_tftp_data, align 4
+  %768 = load ptr, ptr %6, align 8
+  %769 = load i32, ptr %13, align 4
+  %770 = call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %767, ptr noundef %768, i32 noundef %769, i32 noundef -1, i32 noundef 0)
+  br label %771
+
+771:                                              ; preds = %765, %758, %751, %682, %562, %507, %239, %178, %117
+  %772 = load i16, ptr %14, align 2
+  %773 = load ptr, ptr %5, align 8
+  %774 = getelementptr inbounds %struct._tftp_conv_info_t, ptr %773, i32 0, i32 7
+  store i16 %772, ptr %774, align 2
   ret void
 }
 

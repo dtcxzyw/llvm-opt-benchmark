@@ -273,16 +273,17 @@ entry:
   %0 = load ptr, ptr %rbA.addr, align 8
   %1 = load ptr, ptr %rbB.addr, align 8
   call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(744) %1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV30btGeneric6DofSpring2Constraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %2 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV30btGeneric6DofSpring2Constraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 8
   %m_frameInA = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %frameInA.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(64) %2)
+  %3 = load ptr, ptr %frameInA.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(64) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_frameInB = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %frameInB.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %3)
+  %4 = load ptr, ptr %frameInB.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %4)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -340,8 +341,8 @@ invoke.cont17:                                    ; preds = %arrayctor.loop15
 
 arrayctor.cont20:                                 ; preds = %invoke.cont17
   %m_rotateOrder = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 7
-  %4 = load i32, ptr %rotOrder.addr, align 4
-  store i32 %4, ptr %m_rotateOrder, align 8
+  %5 = load i32, ptr %rotOrder.addr, align 4
+  store i32 %5, ptr %m_rotateOrder, align 8
   %m_calculatedTransformA = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 8
   invoke void @_ZN11btTransformC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %m_calculatedTransformA)
           to label %invoke.cont21 unwind label %lpad
@@ -387,12 +388,12 @@ invoke.cont33:                                    ; preds = %invoke.cont32
   ret void
 
 lpad:                                             ; preds = %invoke.cont32, %arrayctor.cont31, %arrayctor.loop26, %invoke.cont22, %invoke.cont21, %arrayctor.cont20, %arrayctor.loop15, %arrayctor.cont11, %arrayctor.loop6, %arrayctor.loop, %invoke.cont, %entry
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #10
   br label %eh.resume
 
@@ -760,15 +761,16 @@ entry:
   %call = call noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint12getFixedBodyEv()
   %0 = load ptr, ptr %rbB.addr, align 8
   call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(744) %call, ptr noundef nonnull align 8 dereferenceable(744) %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV30btGeneric6DofSpring2Constraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV30btGeneric6DofSpring2Constraint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %m_frameInA = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 1
   invoke void @_ZN11btTransformC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInA)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_frameInB = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %frameInB.addr, align 8
-  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %1)
+  %2 = load ptr, ptr %frameInB.addr, align 8
+  invoke void @_ZN11btTransformC2ERKS_(ptr noundef nonnull align 4 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(64) %2)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -826,8 +828,8 @@ invoke.cont17:                                    ; preds = %arrayctor.loop15
 
 arrayctor.cont20:                                 ; preds = %invoke.cont17
   %m_rotateOrder = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 7
-  %2 = load i32, ptr %rotOrder.addr, align 4
-  store i32 %2, ptr %m_rotateOrder, align 8
+  %3 = load i32, ptr %rotOrder.addr, align 4
+  store i32 %3, ptr %m_rotateOrder, align 8
   %m_calculatedTransformA = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 8
   invoke void @_ZN11btTransformC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %m_calculatedTransformA)
           to label %invoke.cont21 unwind label %lpad
@@ -866,8 +868,8 @@ arrayctor.cont31:                                 ; preds = %invoke.cont28
 invoke.cont32:                                    ; preds = %arrayctor.cont31
   %m_flags = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this1, i32 0, i32 17
   store i32 0, ptr %m_flags, align 8
-  %3 = load ptr, ptr %rbB.addr, align 8
-  %call34 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZNK11btRigidBody24getCenterOfMassTransformEv(ptr noundef nonnull align 8 dereferenceable(744) %3)
+  %4 = load ptr, ptr %rbB.addr, align 8
+  %call34 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZNK11btRigidBody24getCenterOfMassTransformEv(ptr noundef nonnull align 8 dereferenceable(744) %4)
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont32
@@ -888,12 +890,12 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   ret void
 
 lpad:                                             ; preds = %invoke.cont38, %invoke.cont36, %invoke.cont33, %invoke.cont32, %arrayctor.cont31, %arrayctor.loop26, %invoke.cont22, %invoke.cont21, %arrayctor.cont20, %arrayctor.loop15, %arrayctor.cont11, %arrayctor.loop6, %arrayctor.loop, %invoke.cont, %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #10
   br label %eh.resume
 
@@ -7419,7 +7421,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

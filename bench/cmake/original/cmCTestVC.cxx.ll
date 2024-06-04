@@ -297,69 +297,70 @@ define dso_local void @_ZN9cmCTestVCC2EP7cmCTestRSo(ptr noundef nonnull align 8 
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9cmCTestVC, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 1
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 2
-  %13 = load ptr, ptr %6, align 8
-  store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
-  %15 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 4
+  %10 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9cmCTestVC, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 2
+  %14 = load ptr, ptr %6, align 8
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  %16 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 5
+  %16 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
-  %17 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 6
-  call void @_ZN9cmCTestVC8RevisionC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %17) #3
-  %18 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 7
-  %19 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 0
-  store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 7
-  %21 = getelementptr inbounds [3 x i32], ptr %20, i64 0, i64 1
-  store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 7
-  %23 = getelementptr inbounds [3 x i32], ptr %22, i64 0, i64 2
-  store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 6
-  %25 = getelementptr inbounds %"struct.cmCTestVC::Revision", ptr %24, i32 0, i32 1
-  %26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef @.str)
-          to label %27 unwind label %36
+  %17 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  %18 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 6
+  call void @_ZN9cmCTestVC8RevisionC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %18) #3
+  %19 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 7
+  %20 = getelementptr inbounds [3 x i32], ptr %19, i64 0, i64 0
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 7
+  %22 = getelementptr inbounds [3 x i32], ptr %21, i64 0, i64 1
+  store i32 0, ptr %22, align 4
+  %23 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 7
+  %24 = getelementptr inbounds [3 x i32], ptr %23, i64 0, i64 2
+  store i32 0, ptr %24, align 8
+  %25 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 6
+  %26 = getelementptr inbounds %"struct.cmCTestVC::Revision", ptr %25, i32 0, i32 1
+  %27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef @.str)
+          to label %28 unwind label %37
 
-27:                                               ; preds = %3
-  %28 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 6
-  %29 = getelementptr inbounds %"struct.cmCTestVC::Revision", ptr %28, i32 0, i32 2
-  %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef @.str)
-          to label %31 unwind label %36
+28:                                               ; preds = %3
+  %29 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 6
+  %30 = getelementptr inbounds %"struct.cmCTestVC::Revision", ptr %29, i32 0, i32 2
+  %31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef @.str)
+          to label %32 unwind label %37
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 6
-  %33 = getelementptr inbounds %"struct.cmCTestVC::Revision", ptr %32, i32 0, i32 0
-  %34 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef @.str)
-          to label %35 unwind label %36
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 6
+  %34 = getelementptr inbounds %"struct.cmCTestVC::Revision", ptr %33, i32 0, i32 0
+  %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef @.str)
+          to label %36 unwind label %37
 
-35:                                               ; preds = %31
+36:                                               ; preds = %32
   ret void
 
-36:                                               ; preds = %31, %27, %3
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %32, %28, %3
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %7, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %8, align 4
-  call void @_ZN9cmCTestVC8RevisionD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %17) #3
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %7, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %8, align 4
+  call void @_ZN9cmCTestVC8RevisionD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %18) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
-  br label %40
+  br label %41
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %7, align 8
-  %42 = load i32, ptr %8, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr %8, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: nounwind
@@ -425,15 +426,16 @@ define dso_local void @_ZN9cmCTestVCD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9cmCTestVC, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmCTestVC, ptr %3, i32 0, i32 6
-  call void @_ZN9cmCTestVC8RevisionD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %4) #3
-  %5 = getelementptr inbounds %class.cmCTestVC, ptr %3, i32 0, i32 5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  %6 = getelementptr inbounds %class.cmCTestVC, ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV9cmCTestVC, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmCTestVC, ptr %3, i32 0, i32 6
+  call void @_ZN9cmCTestVC8RevisionD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %5) #3
+  %6 = getelementptr inbounds %class.cmCTestVC, ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
-  %7 = getelementptr inbounds %class.cmCTestVC, ptr %3, i32 0, i32 3
+  %7 = getelementptr inbounds %class.cmCTestVC, ptr %3, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  %8 = getelementptr inbounds %class.cmCTestVC, ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   ret void
 }
 
@@ -938,31 +940,32 @@ define linkonce_odr dso_local void @_ZN14cmProcessTools12OutputLoggerC2ERSoPKc(p
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59) %9, i8 noundef signext 10, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools12OutputLoggerE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %6, align 8
-  invoke void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr noundef nonnull align 8 dereferenceable(59) %9, ptr noundef %10, ptr noundef %11)
-          to label %12 unwind label %13
-
-12:                                               ; preds = %3
-  ret void
+  %10 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN14cmProcessTools12OutputLoggerE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %9, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %6, align 8
+  invoke void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr noundef nonnull align 8 dereferenceable(59) %9, ptr noundef %11, ptr noundef %12)
+          to label %13 unwind label %14
 
 13:                                               ; preds = %3
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %7, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %8, align 4
-  call void @_ZN14cmProcessTools10LineParserD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %9) #3
-  br label %17
+  ret void
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i32, ptr %8, align 4
-  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
-  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
-  resume { ptr, i32 } %21
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %7, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %8, align 4
+  call void @_ZN14cmProcessTools10LineParserD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %9) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2794,9 +2797,10 @@ define linkonce_odr dso_local void @_ZN14cmProcessTools10LineParserD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools10LineParserE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %3, i32 0, i32 3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN14cmProcessTools10LineParserE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZN14cmProcessTools12OutputParserD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }

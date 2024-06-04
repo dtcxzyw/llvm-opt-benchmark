@@ -34,7 +34,7 @@ define zeroext i1 @zend_gdb_register_code(ptr noundef %0, i64 noundef %1) #0 {
 
 12:                                               ; preds = %2
   store i1 false, ptr %3, align 1
-  br label %44
+  br label %48
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %6, align 8
@@ -55,38 +55,42 @@ define zeroext i1 @zend_gdb_register_code(ptr noundef %0, i64 noundef %1) #0 {
   %26 = load ptr, ptr %6, align 8
   %27 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %26, i32 0, i32 1
   store ptr null, ptr %27, align 8
-  %28 = load ptr, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 3), align 8
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %29, i32 0, i32 0
-  store ptr %28, ptr %30, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %41
+  %28 = getelementptr inbounds %struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 3
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %6, align 8
+  %31 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %30, i32 0, i32 0
+  store ptr %29, ptr %31, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %42
 
-35:                                               ; preds = %13
-  %36 = load ptr, ptr %6, align 8
+36:                                               ; preds = %13
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %39, i32 0, i32 1
-  store ptr %36, ptr %40, align 8
-  br label %41
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %40, i32 0, i32 1
+  store ptr %37, ptr %41, align 8
+  br label %42
 
-41:                                               ; preds = %35, %13
-  %42 = load ptr, ptr %6, align 8
-  store ptr %42, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 3), align 8
+42:                                               ; preds = %36, %13
   %43 = load ptr, ptr %6, align 8
-  store ptr %43, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 2), align 8
-  store i32 1, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 1), align 4
+  %44 = getelementptr inbounds %struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 3
+  store ptr %43, ptr %44, align 8
+  %45 = load ptr, ptr %6, align 8
+  %46 = getelementptr inbounds %struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 2
+  store ptr %45, ptr %46, align 8
+  %47 = getelementptr inbounds %struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 1
+  store i32 1, ptr %47, align 4
   call void @__jit_debug_register_code()
   store i1 true, ptr %3, align 1
-  br label %44
+  br label %48
 
-44:                                               ; preds = %41, %12
-  %45 = load i1, ptr %3, align 1
-  ret i1 %45
+48:                                               ; preds = %42, %12
+  %49 = load i1, ptr %3, align 1
+  ret i1 %49
 }
 
 ; Function Attrs: nounwind allocsize(0)
@@ -98,43 +102,47 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define void @zend_gdb_unregister_all() #0 {
   %1 = alloca ptr, align 8
-  store i32 2, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 1), align 4
-  br label %2
+  %2 = getelementptr inbounds %struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 1
+  store i32 2, ptr %2, align 4
+  br label %3
 
-2:                                                ; preds = %18, %0
-  %3 = load ptr, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 3), align 8
-  store ptr %3, ptr %1, align 8
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %21
+3:                                                ; preds = %21, %0
+  %4 = getelementptr inbounds %struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  store ptr %5, ptr %1, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %25
 
-5:                                                ; preds = %2
-  %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 3), align 8
-  %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %18
+7:                                                ; preds = %3
+  %8 = load ptr, ptr %1, align 8
+  %9 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds %struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 3
+  store ptr %10, ptr %11, align 8
+  %12 = load ptr, ptr %1, align 8
+  %13 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %21
 
-13:                                               ; preds = %5
-  %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %16, i32 0, i32 1
-  store ptr null, ptr %17, align 8
-  br label %18
+16:                                               ; preds = %7
+  %17 = load ptr, ptr %1, align 8
+  %18 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds %struct._zend_gdbjit_code_entry, ptr %19, i32 0, i32 1
+  store ptr null, ptr %20, align 8
+  br label %21
 
-18:                                               ; preds = %13, %5
-  %19 = load ptr, ptr %1, align 8
-  store ptr %19, ptr getelementptr inbounds (%struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 2), align 8
+21:                                               ; preds = %16, %7
+  %22 = load ptr, ptr %1, align 8
+  %23 = getelementptr inbounds %struct._zend_gdbjit_descriptor, ptr @__jit_debug_descriptor, i32 0, i32 2
+  store ptr %22, ptr %23, align 8
   call void @__jit_debug_register_code()
-  %20 = load ptr, ptr %1, align 8
-  call void @free(ptr noundef %20) #6
-  br label %2
+  %24 = load ptr, ptr %1, align 8
+  call void @free(ptr noundef %24) #6
+  br label %3
 
-21:                                               ; preds = %2
+25:                                               ; preds = %3
   ret void
 }
 

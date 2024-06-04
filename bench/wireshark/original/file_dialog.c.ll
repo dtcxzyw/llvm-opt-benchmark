@@ -51,13 +51,13 @@ define hidden i32 @get_stats_for_preview(ptr noundef %0, ptr noundef %1, ptr nou
   call void @ws_buffer_init(ptr noundef %12, i64 noundef 1514)
   br label %23
 
-23:                                               ; preds = %77, %4
+23:                                               ; preds = %78, %4
   %24 = load ptr, ptr %6, align 8
   %25 = load ptr, ptr %8, align 8
   %26 = load ptr, ptr %9, align 8
   %27 = call i32 @wtap_read(ptr noundef %24, ptr noundef %11, ptr noundef %12, ptr noundef %25, ptr noundef %26, ptr noundef %10)
   %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %78
+  br i1 %28, label %29, label %79
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds %struct.wtap_rec, ptr %11, i32 0, i32 1
@@ -131,71 +131,72 @@ define hidden i32 @get_stats_for_preview(ptr noundef %0, ptr noundef %1, ptr nou
   %64 = load i32, ptr %13, align 4
   %65 = urem i32 %64, 1000
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %77
+  br i1 %66, label %67, label %78
 
 67:                                               ; preds = %61
   %68 = call i64 @time(ptr noundef %20) #3
   %69 = load i64, ptr %20, align 8
   %70 = load i64, ptr %19, align 8
   %71 = sub i64 %69, %70
-  %72 = load i32, ptr getelementptr inbounds (%struct._e_prefs, ptr @prefs, i32 0, i32 31), align 8
-  %73 = zext i32 %72 to i64
-  %74 = icmp sge i64 %71, %73
-  br i1 %74, label %75, label %76
-
-75:                                               ; preds = %67
-  store i32 1, ptr %18, align 4
-  br label %78
+  %72 = getelementptr inbounds %struct._e_prefs, ptr @prefs, i32 0, i32 31
+  %73 = load i32, ptr %72, align 8
+  %74 = zext i32 %73 to i64
+  %75 = icmp sge i64 %71, %74
+  br i1 %75, label %76, label %77
 
 76:                                               ; preds = %67
-  br label %77
+  store i32 1, ptr %18, align 4
+  br label %79
 
-77:                                               ; preds = %76, %61
+77:                                               ; preds = %67
+  br label %78
+
+78:                                               ; preds = %77, %61
   call void @wtap_rec_reset(ptr noundef %11)
   br label %23, !llvm.loop !4
 
-78:                                               ; preds = %75, %23
-  %79 = load i32, ptr %17, align 4
-  %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds %struct.ws_file_preview_stats, ptr %80, i32 0, i32 0
-  store i32 %79, ptr %81, align 8
-  %82 = load double, ptr %15, align 8
-  %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %struct.ws_file_preview_stats, ptr %83, i32 0, i32 1
-  store double %82, ptr %84, align 8
-  %85 = load double, ptr %16, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds %struct.ws_file_preview_stats, ptr %86, i32 0, i32 2
-  store double %85, ptr %87, align 8
-  %88 = load i32, ptr %13, align 4
-  %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds %struct.ws_file_preview_stats, ptr %89, i32 0, i32 3
-  store i32 %88, ptr %90, align 8
-  %91 = load i32, ptr %14, align 4
-  %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds %struct.ws_file_preview_stats, ptr %92, i32 0, i32 4
-  store i32 %91, ptr %93, align 4
+79:                                               ; preds = %76, %23
+  %80 = load i32, ptr %17, align 4
+  %81 = load ptr, ptr %7, align 8
+  %82 = getelementptr inbounds %struct.ws_file_preview_stats, ptr %81, i32 0, i32 0
+  store i32 %80, ptr %82, align 8
+  %83 = load double, ptr %15, align 8
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds %struct.ws_file_preview_stats, ptr %84, i32 0, i32 1
+  store double %83, ptr %85, align 8
+  %86 = load double, ptr %16, align 8
+  %87 = load ptr, ptr %7, align 8
+  %88 = getelementptr inbounds %struct.ws_file_preview_stats, ptr %87, i32 0, i32 2
+  store double %86, ptr %88, align 8
+  %89 = load i32, ptr %13, align 4
+  %90 = load ptr, ptr %7, align 8
+  %91 = getelementptr inbounds %struct.ws_file_preview_stats, ptr %90, i32 0, i32 3
+  store i32 %89, ptr %91, align 8
+  %92 = load i32, ptr %14, align 4
+  %93 = load ptr, ptr %7, align 8
+  %94 = getelementptr inbounds %struct.ws_file_preview_stats, ptr %93, i32 0, i32 4
+  store i32 %92, ptr %94, align 4
   call void @wtap_rec_cleanup(ptr noundef %11)
   call void @ws_buffer_free(ptr noundef %12)
-  %94 = load ptr, ptr %8, align 8
-  %95 = load i32, ptr %94, align 4
-  %96 = icmp ne i32 %95, 0
-  br i1 %96, label %97, label %98
+  %95 = load ptr, ptr %8, align 8
+  %96 = load i32, ptr %95, align 4
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %98, label %99
 
-97:                                               ; preds = %78
+98:                                               ; preds = %79
   store i32 2, ptr %5, align 4
-  br label %102
+  br label %103
 
-98:                                               ; preds = %78
-  %99 = load i32, ptr %18, align 4
-  %100 = icmp ne i32 %99, 0
-  %101 = select i1 %100, i32 1, i32 0
-  store i32 %101, ptr %5, align 4
-  br label %102
+99:                                               ; preds = %79
+  %100 = load i32, ptr %18, align 4
+  %101 = icmp ne i32 %100, 0
+  %102 = select i1 %101, i32 1, i32 0
+  store i32 %102, ptr %5, align 4
+  br label %103
 
-102:                                              ; preds = %98, %97
-  %103 = load i32, ptr %5, align 4
-  ret i32 %103
+103:                                              ; preds = %99, %98
+  %104 = load i32, ptr %5, align 4
+  ret i32 %104
 }
 
 ; Function Attrs: nounwind

@@ -1003,7 +1003,8 @@ define i32 @data_parser_p_increment_reference(ptr noundef %0, i32 noundef %1, pt
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %6, align 8
-  store ptr inttoptr (i64 768602689902870592 to ptr), ptr %7, align 8
+  %8 = inttoptr i64 768602689902870592 to ptr
+  store ptr %8, ptr %7, align 8
   ret i32 0
 }
 

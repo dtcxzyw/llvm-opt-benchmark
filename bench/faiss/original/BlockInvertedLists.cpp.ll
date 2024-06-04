@@ -2976,51 +2976,52 @@ define void @_ZN5faiss18BlockInvertedListsC2Emmm(ptr noundef nonnull align 8 der
   %11 = load ptr, ptr %5, align 8
   %12 = load i64, ptr %6, align 8
   call void @_ZN5faiss13InvertedListsC2Emm(ptr noundef nonnull align 8 dereferenceable(25) %11, i64 noundef %12, i64 noundef -1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, i32 0, i32 2), ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 1
-  %14 = load i64, ptr %7, align 8
-  store i64 %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 2
-  %16 = load i64, ptr %8, align 8
-  store i64 %16, ptr %15, align 8
-  %17 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 3
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 4
-  call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
-  %19 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 5
-  call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
+  %13 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %11, align 8
+  %14 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 1
+  %15 = load i64, ptr %7, align 8
+  store i64 %15, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 2
+  %17 = load i64, ptr %8, align 8
+  store i64 %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 3
+  store ptr null, ptr %18, align 8
+  %19 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 4
+  call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   %20 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 5
-  %21 = load i64, ptr %6, align 8
-  invoke void @_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %21)
-          to label %22 unwind label %26
+  call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
+  %21 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 5
+  %22 = load i64, ptr %6, align 8
+  invoke void @_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %22)
+          to label %23 unwind label %27
 
-22:                                               ; preds = %4
-  %23 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 4
-  %24 = load i64, ptr %6, align 8
-  invoke void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %24)
-          to label %25 unwind label %26
+23:                                               ; preds = %4
+  %24 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 4
+  %25 = load i64, ptr %6, align 8
+  invoke void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %25)
+          to label %26 unwind label %27
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   ret void
 
-26:                                               ; preds = %22, %4
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %23, %4
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %9, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %10, align 4
-  call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
-  call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #13
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %9, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %10, align 4
+  call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
+  call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   call void @_ZN5faiss13InvertedListsD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %11) #13
-  br label %30
+  br label %31
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %9, align 8
-  %32 = load i32, ptr %10, align 4
-  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
-  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
-  resume { ptr, i32 } %34
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %9, align 8
+  %33 = load i32, ptr %10, align 4
+  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
+  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
+  resume { ptr, i32 } %35
 }
 
 declare void @_ZN5faiss13InvertedListsC2Emm(ptr noundef nonnull align 8 dereferenceable(25), i64 noundef, i64 noundef) unnamed_addr #1
@@ -5673,7 +5674,8 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5687,7 +5689,8 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -5850,56 +5853,57 @@ define void @_ZN5faiss18BlockInvertedListsC2EmPKNS_10CodePackerE(ptr noundef non
   %9 = load ptr, ptr %4, align 8
   %10 = load i64, ptr %5, align 8
   call void @_ZN5faiss13InvertedListsC2Emm(ptr noundef nonnull align 8 dereferenceable(25) %9, i64 noundef %10, i64 noundef -1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %11 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 1
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %"struct.faiss::CodePacker", ptr %12, i32 0, i32 2
-  %14 = load i64, ptr %13, align 8
-  store i64 %14, ptr %11, align 8
-  %15 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 2
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %"struct.faiss::CodePacker", ptr %16, i32 0, i32 3
-  %18 = load i64, ptr %17, align 8
-  store i64 %18, ptr %15, align 8
-  %19 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 3
-  %20 = load ptr, ptr %6, align 8
-  store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 4
-  call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
-  %22 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 5
-  call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
+  %11 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %9, align 8
+  %12 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds %"struct.faiss::CodePacker", ptr %13, i32 0, i32 2
+  %15 = load i64, ptr %14, align 8
+  store i64 %15, ptr %12, align 8
+  %16 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 2
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds %"struct.faiss::CodePacker", ptr %17, i32 0, i32 3
+  %19 = load i64, ptr %18, align 8
+  store i64 %19, ptr %16, align 8
+  %20 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 3
+  %21 = load ptr, ptr %6, align 8
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 4
+  call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   %23 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 5
-  %24 = load i64, ptr %5, align 8
-  invoke void @_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %24)
-          to label %25 unwind label %29
+  call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
+  %24 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 5
+  %25 = load i64, ptr %5, align 8
+  invoke void @_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %25)
+          to label %26 unwind label %30
 
-25:                                               ; preds = %3
-  %26 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 4
-  %27 = load i64, ptr %5, align 8
-  invoke void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %27)
-          to label %28 unwind label %29
+26:                                               ; preds = %3
+  %27 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 4
+  %28 = load i64, ptr %5, align 8
+  invoke void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %28)
+          to label %29 unwind label %30
 
-28:                                               ; preds = %25
+29:                                               ; preds = %26
   ret void
 
-29:                                               ; preds = %25, %3
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %26, %3
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %7, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %8, align 4
-  call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
-  call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %7, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %8, align 4
+  call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #13
+  call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
   call void @_ZN5faiss13InvertedListsD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %9) #13
-  br label %33
+  br label %34
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %7, align 8
-  %35 = load i32, ptr %8, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %8, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5908,17 +5912,18 @@ define void @_ZN5faiss18BlockInvertedListsC2Ev(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss13InvertedListsC2Emm(ptr noundef nonnull align 8 dereferenceable(25) %3, i64 noundef 0, i64 noundef -1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 1
-  store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 1
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 3
-  store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
-  %8 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
+  %6 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 2
+  store i64 0, ptr %6, align 8
+  %7 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 3
+  store ptr null, ptr %7, align 8
+  %8 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #13
+  %9 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
   ret void
 }
 
@@ -5944,9 +5949,10 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -7927,24 +7933,25 @@ define void @_ZN5faiss18BlockInvertedListsD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 3
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %11, label %7
+  %4 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 5
-  %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
-  br label %11
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 5
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
+  br label %12
 
-11:                                               ; preds = %7, %1
-  %12 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
-  %13 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
+12:                                               ; preds = %8, %1
+  %13 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
+  %14 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #13
   call void @_ZN5faiss13InvertedListsD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #13
   ret void
 }
@@ -7962,69 +7969,70 @@ define void @_ZN5faiss24BlockInvertedListsIOHookC2Ev(ptr noundef nonnull align 8
   %9 = load ptr, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %10 unwind label %14
+          to label %10 unwind label %15
 
 10:                                               ; preds = %1
   %11 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN5faiss18BlockInvertedListsE) #13
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %12 unwind label %18
+          to label %12 unwind label %19
 
 12:                                               ; preds = %10
   invoke void @_ZN5faiss19InvertedListsIOHookC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %13 unwind label %22
+          to label %13 unwind label %23
 
 13:                                               ; preds = %12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss24BlockInvertedListsIOHookE, i32 0, i32 0, i32 2), ptr %9, align 8
+  %14 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5faiss24BlockInvertedListsIOHookE, i32 0, i32 0, i32 2
+  store ptr %14, ptr %9, align 8
   ret void
 
-14:                                               ; preds = %1
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %1
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %5, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %6, align 4
-  br label %27
-
-18:                                               ; preds = %10
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  br label %26
-
-22:                                               ; preds = %12
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
-  br label %26
-
-26:                                               ; preds = %22, %18
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
-  br label %27
-
-27:                                               ; preds = %26, %14
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
   br label %28
 
-28:                                               ; preds = %27
-  %29 = load ptr, ptr %5, align 8
-  %30 = load i32, ptr %6, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
+19:                                               ; preds = %10
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  br label %27
+
+23:                                               ; preds = %12
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #13
+  br label %27
+
+27:                                               ; preds = %23, %19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
+  br label %28
+
+28:                                               ; preds = %27, %15
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %5, align 8
+  %31 = load i32, ptr %6, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8099,11 +8107,12 @@ define linkonce_odr void @_ZN5faiss19InvertedListsIOHookD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss19InvertedListsIOHookE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.faiss::InvertedListsIOHook", ptr %3, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
-  %5 = getelementptr inbounds %"struct.faiss::InvertedListsIOHook", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5faiss19InvertedListsIOHookE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.faiss::InvertedListsIOHook", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
+  %6 = getelementptr inbounds %"struct.faiss::InvertedListsIOHook", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   ret void
 }
 

@@ -504,18 +504,21 @@ do.body1:                                         ; preds = %do.end
   %0 = load ptr, ptr %bs.addr, align 8
   %monitor_list = getelementptr inbounds %struct.BlockDriverState, ptr %0, i32 0, i32 25
   store ptr null, ptr %monitor_list, align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @monitor_bdrv_states, i32 0, i32 1), align 8
-  %2 = load ptr, ptr %bs.addr, align 8
-  %monitor_list2 = getelementptr inbounds %struct.BlockDriverState, ptr %2, i32 0, i32 25
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %monitor_list2, i32 0, i32 1
-  store ptr %1, ptr %tql_prev, align 8
+  %1 = getelementptr inbounds %struct.QTailQLink, ptr @monitor_bdrv_states, i32 0, i32 1
+  %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %bs.addr, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.QTailQLink, ptr @monitor_bdrv_states, i32 0, i32 1), align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %4, i32 0, i32 0
-  store ptr %3, ptr %tql_next, align 8
-  %5 = load ptr, ptr %bs.addr, align 8
-  %monitor_list3 = getelementptr inbounds %struct.BlockDriverState, ptr %5, i32 0, i32 25
-  store ptr %monitor_list3, ptr getelementptr inbounds (%struct.QTailQLink, ptr @monitor_bdrv_states, i32 0, i32 1), align 8
+  %monitor_list2 = getelementptr inbounds %struct.BlockDriverState, ptr %3, i32 0, i32 25
+  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %monitor_list2, i32 0, i32 1
+  store ptr %2, ptr %tql_prev, align 8
+  %4 = load ptr, ptr %bs.addr, align 8
+  %5 = getelementptr inbounds %struct.QTailQLink, ptr @monitor_bdrv_states, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %6, i32 0, i32 0
+  store ptr %4, ptr %tql_next, align 8
+  %7 = load ptr, ptr %bs.addr, align 8
+  %monitor_list3 = getelementptr inbounds %struct.BlockDriverState, ptr %7, i32 0, i32 25
+  %8 = getelementptr inbounds %struct.QTailQLink, ptr @monitor_bdrv_states, i32 0, i32 1
+  store ptr %monitor_list3, ptr %8, align 8
   br label %do.end4
 
 do.end4:                                          ; preds = %do.body1
@@ -8401,29 +8404,30 @@ if.else28:                                        ; preds = %do.body19
   %monitor_list29 = getelementptr inbounds %struct.BlockDriverState, ptr %25, i32 0, i32 25
   %tql_prev30 = getelementptr inbounds %struct.QTailQLink, ptr %monitor_list29, i32 0, i32 1
   %26 = load ptr, ptr %tql_prev30, align 8
-  store ptr %26, ptr getelementptr inbounds (%struct.QTailQLink, ptr @monitor_bdrv_states, i32 0, i32 1), align 8
+  %27 = getelementptr inbounds %struct.QTailQLink, ptr @monitor_bdrv_states, i32 0, i32 1
+  store ptr %26, ptr %27, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else28, %if.then22
-  %27 = load ptr, ptr %bs, align 8
-  %monitor_list32 = getelementptr inbounds %struct.BlockDriverState, ptr %27, i32 0, i32 25
-  %28 = load ptr, ptr %monitor_list32, align 8
-  %29 = load ptr, ptr %bs, align 8
-  %monitor_list33 = getelementptr inbounds %struct.BlockDriverState, ptr %29, i32 0, i32 25
+  %28 = load ptr, ptr %bs, align 8
+  %monitor_list32 = getelementptr inbounds %struct.BlockDriverState, ptr %28, i32 0, i32 25
+  %29 = load ptr, ptr %monitor_list32, align 8
+  %30 = load ptr, ptr %bs, align 8
+  %monitor_list33 = getelementptr inbounds %struct.BlockDriverState, ptr %30, i32 0, i32 25
   %tql_prev34 = getelementptr inbounds %struct.QTailQLink, ptr %monitor_list33, i32 0, i32 1
-  %30 = load ptr, ptr %tql_prev34, align 8
-  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %30, i32 0, i32 0
-  store ptr %28, ptr %tql_next, align 8
-  %31 = load ptr, ptr %bs, align 8
-  %monitor_list35 = getelementptr inbounds %struct.BlockDriverState, ptr %31, i32 0, i32 25
+  %31 = load ptr, ptr %tql_prev34, align 8
+  %tql_next = getelementptr inbounds %struct.QTailQLink, ptr %31, i32 0, i32 0
+  store ptr %29, ptr %tql_next, align 8
+  %32 = load ptr, ptr %bs, align 8
+  %monitor_list35 = getelementptr inbounds %struct.BlockDriverState, ptr %32, i32 0, i32 25
   %tql_prev36 = getelementptr inbounds %struct.QTailQLink, ptr %monitor_list35, i32 0, i32 1
   store ptr null, ptr %tql_prev36, align 8
-  %32 = load ptr, ptr %bs, align 8
-  %monitor_list37 = getelementptr inbounds %struct.BlockDriverState, ptr %32, i32 0, i32 25
+  %33 = load ptr, ptr %bs, align 8
+  %monitor_list37 = getelementptr inbounds %struct.BlockDriverState, ptr %33, i32 0, i32 25
   %tql_next38 = getelementptr inbounds %struct.QTailQLink, ptr %monitor_list37, i32 0, i32 0
   store ptr null, ptr %tql_next38, align 8
-  %33 = load ptr, ptr %bs, align 8
-  %monitor_list39 = getelementptr inbounds %struct.BlockDriverState, ptr %33, i32 0, i32 25
+  %34 = load ptr, ptr %bs, align 8
+  %monitor_list39 = getelementptr inbounds %struct.BlockDriverState, ptr %34, i32 0, i32 25
   store ptr null, ptr %monitor_list39, align 8
   br label %do.cond
 
@@ -8431,13 +8435,13 @@ do.cond:                                          ; preds = %if.end31
   br label %do.end40
 
 do.end40:                                         ; preds = %do.cond
-  %34 = load ptr, ptr %bs, align 8
-  call void @bdrv_unref(ptr noundef %34)
+  %35 = load ptr, ptr %bs, align 8
+  call void @bdrv_unref(ptr noundef %35)
   br label %out
 
 out:                                              ; preds = %do.end40, %if.then16, %if.then12, %if.then10
-  %35 = load ptr, ptr %aio_context, align 8
-  call void @aio_context_release(ptr noundef %35)
+  %36 = load ptr, ptr %aio_context, align 8
+  call void @aio_context_release(ptr noundef %36)
   store i32 0, ptr %cleanup.dest.slot, align 4
   br label %cleanup
 

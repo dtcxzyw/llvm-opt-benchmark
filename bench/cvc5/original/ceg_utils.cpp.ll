@@ -2707,15 +2707,16 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %d_type = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %.addr, align 8
-  %d_type2 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %d_type2, align 8
-  store i32 %2, ptr %d_type, align 8
+  %2 = load ptr, ptr %.addr, align 8
+  %d_type2 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %2, i32 0, i32 1
+  %3 = load i32, ptr %d_type2, align 8
+  store i32 %3, ptr %d_type, align 8
   %d_coeff = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %d_coeff3 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %3, i32 0, i32 2
+  %4 = load ptr, ptr %.addr, align 8
+  %d_coeff3 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %4, i32 0, i32 2
   call void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_coeff, ptr noundef nonnull align 8 dereferenceable(8) %d_coeff3)
   ret void
 }
@@ -2726,7 +2727,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %d_coeff = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %this1, i32 0, i32 2
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_coeff) #3
   ret void

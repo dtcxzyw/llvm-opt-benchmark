@@ -260,7 +260,8 @@ entry:
   store i32 %initialChildCapacity, ptr %initialChildCapacity.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN16btCollisionShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV15btCompoundShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV15btCompoundShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_children = getelementptr inbounds %class.btCompoundShape, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayI20btCompoundShapeChildEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_children)
           to label %invoke.cont unwind label %lpad
@@ -298,8 +299,8 @@ invoke.cont9:                                     ; preds = %invoke.cont5
 invoke.cont13:                                    ; preds = %invoke.cont9
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 31, ptr %m_shapeType, align 8
-  %0 = load i8, ptr %enableDynamicAabbTree.addr, align 1
-  %tobool = trunc i8 %0 to i1
+  %1 = load i8, ptr %enableDynamicAabbTree.addr, align 1
+  %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont13
@@ -308,38 +309,38 @@ if.then:                                          ; preds = %invoke.cont13
 
 invoke.cont14:                                    ; preds = %if.then
   store ptr %call, ptr %mem, align 8
-  %1 = load ptr, ptr %mem, align 8
-  invoke void @_ZN6btDbvtC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %2 = load ptr, ptr %mem, align 8
+  invoke void @_ZN6btDbvtC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %invoke.cont15 unwind label %lpad4
 
 invoke.cont15:                                    ; preds = %invoke.cont14
   %m_dynamicAabbTree16 = getelementptr inbounds %class.btCompoundShape, ptr %this1, i32 0, i32 4
-  store ptr %1, ptr %m_dynamicAabbTree16, align 8
+  store ptr %2, ptr %m_dynamicAabbTree16, align 8
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   br label %ehcleanup
 
 lpad4:                                            ; preds = %if.end, %invoke.cont14, %if.then, %invoke.cont9, %invoke.cont5, %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @_ZN20btAlignedObjectArrayI20btCompoundShapeChildED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_children) #9
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont15, %invoke.cont13
   %m_children17 = getelementptr inbounds %class.btCompoundShape, ptr %this1, i32 0, i32 1
-  %8 = load i32, ptr %initialChildCapacity.addr, align 4
-  invoke void @_ZN20btAlignedObjectArrayI20btCompoundShapeChildE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_children17, i32 noundef %8)
+  %9 = load i32, ptr %initialChildCapacity.addr, align 4
+  invoke void @_ZN20btAlignedObjectArrayI20btCompoundShapeChildE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_children17, i32 noundef %9)
           to label %invoke.cont18 unwind label %lpad4
 
 invoke.cont18:                                    ; preds = %if.end
@@ -363,7 +364,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV16btCollisionShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [18 x ptr] }, ptr @_ZTV16btCollisionShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 35, ptr %m_shapeType, align 8
   %m_userPointer = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 2
@@ -498,19 +500,20 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV15btCompoundShape, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTV15btCompoundShape, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_dynamicAabbTree = getelementptr inbounds %class.btCompoundShape, ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %m_dynamicAabbTree, align 8
-  %tobool = icmp ne ptr %0, null
+  %1 = load ptr, ptr %m_dynamicAabbTree, align 8
+  %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %m_dynamicAabbTree2 = getelementptr inbounds %class.btCompoundShape, ptr %this1, i32 0, i32 4
-  %1 = load ptr, ptr %m_dynamicAabbTree2, align 8
-  call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %1) #9
+  %2 = load ptr, ptr %m_dynamicAabbTree2, align 8
+  call void @_ZN6btDbvtD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #9
   %m_dynamicAabbTree3 = getelementptr inbounds %class.btCompoundShape, ptr %this1, i32 0, i32 4
-  %2 = load ptr, ptr %m_dynamicAabbTree3, align 8
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %2)
+  %3 = load ptr, ptr %m_dynamicAabbTree3, align 8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %3)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -523,10 +526,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #10
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #10
   unreachable
 }
 

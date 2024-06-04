@@ -1700,360 +1700,361 @@ define void @_ZN5ZXing4OneD6ReaderC2ERKNS_13ReaderOptionsE(ptr noundef nonnull a
   %23 = load ptr, ptr %3, align 8
   %24 = load ptr, ptr %4, align 8
   call void @_ZN5ZXing6ReaderC2ERKNS_13ReaderOptionsEb(ptr noundef nonnull align 8 dereferenceable(17) %23, ptr noundef nonnull align 4 dereferenceable(12) %24, i1 noundef zeroext false)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing4OneD6ReaderE, i32 0, i32 0, i32 2), ptr %23, align 8
-  %25 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
+  %25 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ZXing4OneD6ReaderE, i32 0, i32 0, i32 2
+  store ptr %25, ptr %23, align 8
   %26 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
-  invoke void @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef 8)
-          to label %27 unwind label %55
+  call void @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #14
+  %27 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
+  invoke void @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef 8)
+          to label %28 unwind label %56
 
-27:                                               ; preds = %2
-  %28 = load ptr, ptr %4, align 8
-  %29 = call i32 @_ZNK5ZXing13ReaderOptions7formatsEv(ptr noundef nonnull align 4 dereferenceable(12) %28) #14
-  %30 = getelementptr inbounds %"class.ZXing::Flags", ptr %8, i32 0, i32 0
-  store i32 %29, ptr %30, align 4
-  %31 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE5emptyEv(ptr noundef nonnull align 4 dereferenceable(4) %8) #14
-  br i1 %31, label %32, label %33
+28:                                               ; preds = %2
+  %29 = load ptr, ptr %4, align 8
+  %30 = call i32 @_ZNK5ZXing13ReaderOptions7formatsEv(ptr noundef nonnull align 4 dereferenceable(12) %29) #14
+  %31 = getelementptr inbounds %"class.ZXing::Flags", ptr %8, i32 0, i32 0
+  store i32 %30, ptr %31, align 4
+  %32 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE5emptyEv(ptr noundef nonnull align 4 dereferenceable(4) %8) #14
+  br i1 %32, label %33, label %34
 
-32:                                               ; preds = %27
+33:                                               ; preds = %28
   call void @_ZN5ZXing5FlagsINS_13BarcodeFormatEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 524287) #14
-  br label %37
+  br label %38
 
-33:                                               ; preds = %27
-  %34 = load ptr, ptr %4, align 8
-  %35 = call i32 @_ZNK5ZXing13ReaderOptions7formatsEv(ptr noundef nonnull align 4 dereferenceable(12) %34) #14
-  %36 = getelementptr inbounds %"class.ZXing::Flags", ptr %7, i32 0, i32 0
-  store i32 %35, ptr %36, align 4
-  br label %37
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %4, align 8
+  %36 = call i32 @_ZNK5ZXing13ReaderOptions7formatsEv(ptr noundef nonnull align 4 dereferenceable(12) %35) #14
+  %37 = getelementptr inbounds %"class.ZXing::Flags", ptr %7, i32 0, i32 0
+  store i32 %36, ptr %37, align 4
+  br label %38
 
-37:                                               ; preds = %33, %32
-  %38 = call i32 @_ZN5ZXingorENS_13BarcodeFormatES0_(i32 noundef 512, i32 noundef 16384) #14
-  %39 = getelementptr inbounds %"class.ZXing::Flags", ptr %11, i32 0, i32 0
-  store i32 %38, ptr %39, align 4
-  %40 = call i32 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEEorES1_(ptr noundef nonnull align 4 dereferenceable(4) %11, i32 noundef 256) #14
-  %41 = getelementptr inbounds %"class.ZXing::Flags", ptr %10, i32 0, i32 0
-  store i32 %40, ptr %41, align 4
-  %42 = call i32 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEEorES1_(ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef 32768) #14
-  %43 = getelementptr inbounds %"class.ZXing::Flags", ptr %9, i32 0, i32 0
-  store i32 %42, ptr %43, align 4
+38:                                               ; preds = %34, %33
+  %39 = call i32 @_ZN5ZXingorENS_13BarcodeFormatES0_(i32 noundef 512, i32 noundef 16384) #14
+  %40 = getelementptr inbounds %"class.ZXing::Flags", ptr %11, i32 0, i32 0
+  store i32 %39, ptr %40, align 4
+  %41 = call i32 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEEorES1_(ptr noundef nonnull align 4 dereferenceable(4) %11, i32 noundef 256) #14
+  %42 = getelementptr inbounds %"class.ZXing::Flags", ptr %10, i32 0, i32 0
+  store i32 %41, ptr %42, align 4
+  %43 = call i32 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEEorES1_(ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef 32768) #14
   %44 = getelementptr inbounds %"class.ZXing::Flags", ptr %9, i32 0, i32 0
-  %45 = load i32, ptr %44, align 4
-  %46 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE9testFlagsES2_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 %45) #14
-  br i1 %46, label %47, label %63
+  store i32 %43, ptr %44, align 4
+  %45 = getelementptr inbounds %"class.ZXing::Flags", ptr %9, i32 0, i32 0
+  %46 = load i32, ptr %45, align 4
+  %47 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE9testFlagsES2_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 %46) #14
+  br i1 %47, label %48, label %64
 
-47:                                               ; preds = %37
-  %48 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
-  %49 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
-          to label %50 unwind label %55
+48:                                               ; preds = %38
+  %49 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
+  %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
+          to label %51 unwind label %56
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ZXing4OneD17MultiUPCEANReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(12) %51)
-          to label %52 unwind label %59
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ZXing4OneD17MultiUPCEANReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(12) %52)
+          to label %53 unwind label %60
 
-52:                                               ; preds = %50
-  store ptr %49, ptr %12, align 8
-  %53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_17MultiUPCEANReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %54 unwind label %55
+53:                                               ; preds = %51
+  store ptr %50, ptr %12, align 8
+  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_17MultiUPCEANReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %55 unwind label %56
 
-54:                                               ; preds = %52
-  br label %63
+55:                                               ; preds = %53
+  br label %64
 
-55:                                               ; preds = %172, %167, %158, %153, %142, %137, %126, %121, %112, %107, %98, %93, %84, %79, %70, %65, %52, %47, %2
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %173, %168, %159, %154, %143, %138, %127, %122, %113, %108, %99, %94, %85, %80, %71, %66, %53, %48, %2
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %57 = extractvalue { ptr, i32 } %56, 0
-  store ptr %57, ptr %5, align 8
-  %58 = extractvalue { ptr, i32 } %56, 1
-  store i32 %58, ptr %6, align 4
-  br label %180
-
-59:                                               ; preds = %50
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %5, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %49) #16
-  br label %180
-
-63:                                               ; preds = %54, %37
-  %64 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 4) #14
-  br i1 %64, label %65, label %77
-
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
-  %67 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
-          to label %68 unwind label %55
-
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ZXing4OneD12Code39ReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(12) %69)
-          to label %70 unwind label %73
-
-70:                                               ; preds = %68
-  store ptr %67, ptr %13, align 8
-  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_12Code39ReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %72 unwind label %55
-
-72:                                               ; preds = %70
-  br label %77
-
-73:                                               ; preds = %68
-  %74 = landingpad { ptr, i32 }
-          cleanup
-  %75 = extractvalue { ptr, i32 } %74, 0
-  store ptr %75, ptr %5, align 8
-  %76 = extractvalue { ptr, i32 } %74, 1
-  store i32 %76, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %67) #16
-  br label %180
-
-77:                                               ; preds = %72, %63
-  %78 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 8) #14
-  br i1 %78, label %79, label %91
-
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
-  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
-          to label %82 unwind label %55
-
-82:                                               ; preds = %79
-  %83 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ZXing4OneD12Code93ReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 4 dereferenceable(12) %83)
-          to label %84 unwind label %87
-
-84:                                               ; preds = %82
-  store ptr %81, ptr %14, align 8
-  %85 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_12Code93ReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %86 unwind label %55
-
-86:                                               ; preds = %84
-  br label %91
-
-87:                                               ; preds = %82
-  %88 = landingpad { ptr, i32 }
-          cleanup
-  %89 = extractvalue { ptr, i32 } %88, 0
-  store ptr %89, ptr %5, align 8
-  %90 = extractvalue { ptr, i32 } %88, 1
-  store i32 %90, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %81) #16
-  br label %180
-
-91:                                               ; preds = %86, %77
-  %92 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 16) #14
-  br i1 %92, label %93, label %105
-
-93:                                               ; preds = %91
-  %94 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
-  %95 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
-          to label %96 unwind label %55
-
-96:                                               ; preds = %93
-  %97 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ZXing4OneD13Code128ReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 4 dereferenceable(12) %97)
-          to label %98 unwind label %101
-
-98:                                               ; preds = %96
-  store ptr %95, ptr %15, align 8
-  %99 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13Code128ReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %100 unwind label %55
-
-100:                                              ; preds = %98
-  br label %105
-
-101:                                              ; preds = %96
-  %102 = landingpad { ptr, i32 }
-          cleanup
-  %103 = extractvalue { ptr, i32 } %102, 0
-  store ptr %103, ptr %5, align 8
-  %104 = extractvalue { ptr, i32 } %102, 1
-  store i32 %104, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %95) #16
-  br label %180
-
-105:                                              ; preds = %100, %91
-  %106 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 1024) #14
-  br i1 %106, label %107, label %119
-
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
-  %109 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
-          to label %110 unwind label %55
-
-110:                                              ; preds = %107
-  %111 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ZXing4OneD9ITFReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 4 dereferenceable(12) %111)
-          to label %112 unwind label %115
-
-112:                                              ; preds = %110
-  store ptr %109, ptr %16, align 8
-  %113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_9ITFReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %114 unwind label %55
-
-114:                                              ; preds = %112
-  br label %119
-
-115:                                              ; preds = %110
-  %116 = landingpad { ptr, i32 }
-          cleanup
-  %117 = extractvalue { ptr, i32 } %116, 0
-  store ptr %117, ptr %5, align 8
-  %118 = extractvalue { ptr, i32 } %116, 1
-  store i32 %118, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %109) #16
-  br label %180
-
-119:                                              ; preds = %114, %105
-  %120 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 2) #14
-  br i1 %120, label %121, label %133
-
-121:                                              ; preds = %119
-  %122 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
-  %123 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
-          to label %124 unwind label %55
-
-124:                                              ; preds = %121
-  %125 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ZXing4OneD13CodabarReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 4 dereferenceable(12) %125)
-          to label %126 unwind label %129
-
-126:                                              ; preds = %124
-  store ptr %123, ptr %17, align 8
-  %127 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13CodabarReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %128 unwind label %55
-
-128:                                              ; preds = %126
-  br label %133
-
-129:                                              ; preds = %124
-  %130 = landingpad { ptr, i32 }
-          cleanup
-  %131 = extractvalue { ptr, i32 } %130, 0
-  store ptr %131, ptr %5, align 8
-  %132 = extractvalue { ptr, i32 } %130, 1
-  store i32 %132, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %123) #16
-  br label %180
-
-133:                                              ; preds = %128, %119
-  call void @_ZN5ZXing5FlagsINS_13BarcodeFormatEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %18, i32 noundef 32) #14
-  %134 = getelementptr inbounds %"class.ZXing::Flags", ptr %18, i32 0, i32 0
-  %135 = load i32, ptr %134, align 4
-  %136 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE9testFlagsES2_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 %135) #14
-  br i1 %136, label %137, label %149
-
-137:                                              ; preds = %133
-  %138 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
-  %139 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
-          to label %140 unwind label %55
-
-140:                                              ; preds = %137
-  %141 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ZXing4OneD13DataBarReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 4 dereferenceable(12) %141)
-          to label %142 unwind label %145
-
-142:                                              ; preds = %140
-  store ptr %139, ptr %19, align 8
-  %143 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13DataBarReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %144 unwind label %55
-
-144:                                              ; preds = %142
-  br label %149
-
-145:                                              ; preds = %140
-  %146 = landingpad { ptr, i32 }
-          cleanup
-  %147 = extractvalue { ptr, i32 } %146, 0
-  store ptr %147, ptr %5, align 8
-  %148 = extractvalue { ptr, i32 } %146, 1
-  store i32 %148, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %139) #16
-  br label %180
-
-149:                                              ; preds = %144, %133
-  call void @_ZN5ZXing5FlagsINS_13BarcodeFormatEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef 64) #14
-  %150 = getelementptr inbounds %"class.ZXing::Flags", ptr %20, i32 0, i32 0
-  %151 = load i32, ptr %150, align 4
-  %152 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE9testFlagsES2_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 %151) #14
-  br i1 %152, label %153, label %165
-
-153:                                              ; preds = %149
-  %154 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
-  %155 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
-          to label %156 unwind label %55
-
-156:                                              ; preds = %153
-  %157 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ZXing4OneD21DataBarExpandedReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull align 4 dereferenceable(12) %157)
-          to label %158 unwind label %161
-
-158:                                              ; preds = %156
-  store ptr %155, ptr %21, align 8
-  %159 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_21DataBarExpandedReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %154, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %160 unwind label %55
-
-160:                                              ; preds = %158
-  br label %165
-
-161:                                              ; preds = %156
-  %162 = landingpad { ptr, i32 }
-          cleanup
-  %163 = extractvalue { ptr, i32 } %162, 0
-  store ptr %163, ptr %5, align 8
-  %164 = extractvalue { ptr, i32 } %162, 1
-  store i32 %164, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %155) #16
-  br label %180
-
-165:                                              ; preds = %160, %149
-  %166 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 262144) #14
-  br i1 %166, label %167, label %179
-
-167:                                              ; preds = %165
-  %168 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
-  %169 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
-          to label %170 unwind label %55
-
-170:                                              ; preds = %167
-  %171 = load ptr, ptr %4, align 8
-  invoke void @_ZN5ZXing4OneD16DXFilmEdgeReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %169, ptr noundef nonnull align 4 dereferenceable(12) %171)
-          to label %172 unwind label %175
-
-172:                                              ; preds = %170
-  store ptr %169, ptr %22, align 8
-  %173 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_16DXFilmEdgeReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %168, ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %174 unwind label %55
-
-174:                                              ; preds = %172
-  br label %179
-
-175:                                              ; preds = %170
-  %176 = landingpad { ptr, i32 }
-          cleanup
-  %177 = extractvalue { ptr, i32 } %176, 0
-  store ptr %177, ptr %5, align 8
-  %178 = extractvalue { ptr, i32 } %176, 1
-  store i32 %178, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %169) #16
-  br label %180
-
-179:                                              ; preds = %174, %165
-  ret void
-
-180:                                              ; preds = %175, %161, %145, %129, %115, %101, %87, %73, %59, %55
-  call void @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
-  call void @_ZN5ZXing6ReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %23) #14
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %5, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %6, align 4
   br label %181
 
-181:                                              ; preds = %180
-  %182 = load ptr, ptr %5, align 8
-  %183 = load i32, ptr %6, align 4
-  %184 = insertvalue { ptr, i32 } poison, ptr %182, 0
-  %185 = insertvalue { ptr, i32 } %184, i32 %183, 1
-  resume { ptr, i32 } %185
+60:                                               ; preds = %51
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %5, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %50) #16
+  br label %181
+
+64:                                               ; preds = %55, %38
+  %65 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 4) #14
+  br i1 %65, label %66, label %78
+
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
+  %68 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
+          to label %69 unwind label %56
+
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ZXing4OneD12Code39ReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 4 dereferenceable(12) %70)
+          to label %71 unwind label %74
+
+71:                                               ; preds = %69
+  store ptr %68, ptr %13, align 8
+  %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_12Code39ReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %73 unwind label %56
+
+73:                                               ; preds = %71
+  br label %78
+
+74:                                               ; preds = %69
+  %75 = landingpad { ptr, i32 }
+          cleanup
+  %76 = extractvalue { ptr, i32 } %75, 0
+  store ptr %76, ptr %5, align 8
+  %77 = extractvalue { ptr, i32 } %75, 1
+  store i32 %77, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %68) #16
+  br label %181
+
+78:                                               ; preds = %73, %64
+  %79 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 8) #14
+  br i1 %79, label %80, label %92
+
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
+  %82 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
+          to label %83 unwind label %56
+
+83:                                               ; preds = %80
+  %84 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ZXing4OneD12Code93ReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 4 dereferenceable(12) %84)
+          to label %85 unwind label %88
+
+85:                                               ; preds = %83
+  store ptr %82, ptr %14, align 8
+  %86 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_12Code93ReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %87 unwind label %56
+
+87:                                               ; preds = %85
+  br label %92
+
+88:                                               ; preds = %83
+  %89 = landingpad { ptr, i32 }
+          cleanup
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %5, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %82) #16
+  br label %181
+
+92:                                               ; preds = %87, %78
+  %93 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 16) #14
+  br i1 %93, label %94, label %106
+
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
+  %96 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
+          to label %97 unwind label %56
+
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ZXing4OneD13Code128ReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 4 dereferenceable(12) %98)
+          to label %99 unwind label %102
+
+99:                                               ; preds = %97
+  store ptr %96, ptr %15, align 8
+  %100 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13Code128ReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %101 unwind label %56
+
+101:                                              ; preds = %99
+  br label %106
+
+102:                                              ; preds = %97
+  %103 = landingpad { ptr, i32 }
+          cleanup
+  %104 = extractvalue { ptr, i32 } %103, 0
+  store ptr %104, ptr %5, align 8
+  %105 = extractvalue { ptr, i32 } %103, 1
+  store i32 %105, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %96) #16
+  br label %181
+
+106:                                              ; preds = %101, %92
+  %107 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 1024) #14
+  br i1 %107, label %108, label %120
+
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
+  %110 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
+          to label %111 unwind label %56
+
+111:                                              ; preds = %108
+  %112 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ZXing4OneD9ITFReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 4 dereferenceable(12) %112)
+          to label %113 unwind label %116
+
+113:                                              ; preds = %111
+  store ptr %110, ptr %16, align 8
+  %114 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_9ITFReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %115 unwind label %56
+
+115:                                              ; preds = %113
+  br label %120
+
+116:                                              ; preds = %111
+  %117 = landingpad { ptr, i32 }
+          cleanup
+  %118 = extractvalue { ptr, i32 } %117, 0
+  store ptr %118, ptr %5, align 8
+  %119 = extractvalue { ptr, i32 } %117, 1
+  store i32 %119, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %110) #16
+  br label %181
+
+120:                                              ; preds = %115, %106
+  %121 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 2) #14
+  br i1 %121, label %122, label %134
+
+122:                                              ; preds = %120
+  %123 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
+  %124 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
+          to label %125 unwind label %56
+
+125:                                              ; preds = %122
+  %126 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ZXing4OneD13CodabarReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 4 dereferenceable(12) %126)
+          to label %127 unwind label %130
+
+127:                                              ; preds = %125
+  store ptr %124, ptr %17, align 8
+  %128 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13CodabarReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %129 unwind label %56
+
+129:                                              ; preds = %127
+  br label %134
+
+130:                                              ; preds = %125
+  %131 = landingpad { ptr, i32 }
+          cleanup
+  %132 = extractvalue { ptr, i32 } %131, 0
+  store ptr %132, ptr %5, align 8
+  %133 = extractvalue { ptr, i32 } %131, 1
+  store i32 %133, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %124) #16
+  br label %181
+
+134:                                              ; preds = %129, %120
+  call void @_ZN5ZXing5FlagsINS_13BarcodeFormatEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %18, i32 noundef 32) #14
+  %135 = getelementptr inbounds %"class.ZXing::Flags", ptr %18, i32 0, i32 0
+  %136 = load i32, ptr %135, align 4
+  %137 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE9testFlagsES2_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 %136) #14
+  br i1 %137, label %138, label %150
+
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
+  %140 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
+          to label %141 unwind label %56
+
+141:                                              ; preds = %138
+  %142 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ZXing4OneD13DataBarReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %140, ptr noundef nonnull align 4 dereferenceable(12) %142)
+          to label %143 unwind label %146
+
+143:                                              ; preds = %141
+  store ptr %140, ptr %19, align 8
+  %144 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13DataBarReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %145 unwind label %56
+
+145:                                              ; preds = %143
+  br label %150
+
+146:                                              ; preds = %141
+  %147 = landingpad { ptr, i32 }
+          cleanup
+  %148 = extractvalue { ptr, i32 } %147, 0
+  store ptr %148, ptr %5, align 8
+  %149 = extractvalue { ptr, i32 } %147, 1
+  store i32 %149, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %140) #16
+  br label %181
+
+150:                                              ; preds = %145, %134
+  call void @_ZN5ZXing5FlagsINS_13BarcodeFormatEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef 64) #14
+  %151 = getelementptr inbounds %"class.ZXing::Flags", ptr %20, i32 0, i32 0
+  %152 = load i32, ptr %151, align 4
+  %153 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE9testFlagsES2_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 %152) #14
+  br i1 %153, label %154, label %166
+
+154:                                              ; preds = %150
+  %155 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
+  %156 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
+          to label %157 unwind label %56
+
+157:                                              ; preds = %154
+  %158 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ZXing4OneD21DataBarExpandedReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %156, ptr noundef nonnull align 4 dereferenceable(12) %158)
+          to label %159 unwind label %162
+
+159:                                              ; preds = %157
+  store ptr %156, ptr %21, align 8
+  %160 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_21DataBarExpandedReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %155, ptr noundef nonnull align 8 dereferenceable(8) %21)
+          to label %161 unwind label %56
+
+161:                                              ; preds = %159
+  br label %166
+
+162:                                              ; preds = %157
+  %163 = landingpad { ptr, i32 }
+          cleanup
+  %164 = extractvalue { ptr, i32 } %163, 0
+  store ptr %164, ptr %5, align 8
+  %165 = extractvalue { ptr, i32 } %163, 1
+  store i32 %165, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %156) #16
+  br label %181
+
+166:                                              ; preds = %161, %150
+  %167 = call noundef zeroext i1 @_ZNK5ZXing5FlagsINS_13BarcodeFormatEE8testFlagES1_(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 262144) #14
+  br i1 %167, label %168, label %180
+
+168:                                              ; preds = %166
+  %169 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %23, i32 0, i32 1
+  %170 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
+          to label %171 unwind label %56
+
+171:                                              ; preds = %168
+  %172 = load ptr, ptr %4, align 8
+  invoke void @_ZN5ZXing4OneD16DXFilmEdgeReaderCI2NS0_9RowReaderEERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %170, ptr noundef nonnull align 4 dereferenceable(12) %172)
+          to label %173 unwind label %176
+
+173:                                              ; preds = %171
+  store ptr %170, ptr %22, align 8
+  %174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_16DXFilmEdgeReaderEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %169, ptr noundef nonnull align 8 dereferenceable(8) %22)
+          to label %175 unwind label %56
+
+175:                                              ; preds = %173
+  br label %180
+
+176:                                              ; preds = %171
+  %177 = landingpad { ptr, i32 }
+          cleanup
+  %178 = extractvalue { ptr, i32 } %177, 0
+  store ptr %178, ptr %5, align 8
+  %179 = extractvalue { ptr, i32 } %177, 1
+  store i32 %179, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %170) #16
+  br label %181
+
+180:                                              ; preds = %175, %166
+  ret void
+
+181:                                              ; preds = %176, %162, %146, %130, %116, %102, %88, %74, %60, %56
+  call void @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #14
+  call void @_ZN5ZXing6ReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %23) #14
+  br label %182
+
+182:                                              ; preds = %181
+  %183 = load ptr, ptr %5, align 8
+  %184 = load i32, ptr %6, align 4
+  %185 = insertvalue { ptr, i32 } poison, ptr %183, 0
+  %186 = insertvalue { ptr, i32 } %185, i32 %184, 1
+  resume { ptr, i32 } %186
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2066,15 +2067,16 @@ define linkonce_odr void @_ZN5ZXing6ReaderC2ERKNS_13ReaderOptionsEb(ptr noundef 
   %7 = zext i1 %2 to i8
   store i8 %7, ptr %6, align 1
   %8 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing6ReaderE, i32 0, i32 0, i32 2), ptr %8, align 8
-  %9 = getelementptr inbounds %"class.ZXing::Reader", ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %5, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds %"class.ZXing::Reader", ptr %8, i32 0, i32 2
-  %12 = load i8, ptr %6, align 1
-  %13 = trunc i8 %12 to i1
-  %14 = zext i1 %13 to i8
-  store i8 %14, ptr %11, align 8
+  %9 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ZXing6ReaderE, i32 0, i32 0, i32 2
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"class.ZXing::Reader", ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %5, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.ZXing::Reader", ptr %8, i32 0, i32 2
+  %13 = load i8, ptr %6, align 1
+  %14 = trunc i8 %13 to i1
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %12, align 8
   ret void
 }
 
@@ -2325,7 +2327,8 @@ define linkonce_odr void @_ZN5ZXing4OneD17MultiUPCEANReaderCI2NS0_9RowReaderEERK
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ZXing4OneD9RowReaderC2ERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD17MultiUPCEANReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ZXing4OneD17MultiUPCEANReaderE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2423,7 +2426,8 @@ define linkonce_odr void @_ZN5ZXing4OneD12Code39ReaderCI2NS0_9RowReaderEERKNS_13
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ZXing4OneD9RowReaderC2ERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD12Code39ReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ZXing4OneD12Code39ReaderE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2482,7 +2486,8 @@ define linkonce_odr void @_ZN5ZXing4OneD12Code93ReaderCI2NS0_9RowReaderEERKNS_13
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ZXing4OneD9RowReaderC2ERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD12Code93ReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ZXing4OneD12Code93ReaderE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2541,7 +2546,8 @@ define linkonce_odr void @_ZN5ZXing4OneD13Code128ReaderCI2NS0_9RowReaderEERKNS_1
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ZXing4OneD9RowReaderC2ERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD13Code128ReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ZXing4OneD13Code128ReaderE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2600,7 +2606,8 @@ define linkonce_odr void @_ZN5ZXing4OneD9ITFReaderCI2NS0_9RowReaderEERKNS_13Read
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ZXing4OneD9RowReaderC2ERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD9ITFReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ZXing4OneD9ITFReaderE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2659,7 +2666,8 @@ define linkonce_odr void @_ZN5ZXing4OneD13CodabarReaderCI2NS0_9RowReaderEERKNS_1
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ZXing4OneD9RowReaderC2ERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD13CodabarReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ZXing4OneD13CodabarReaderE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2718,7 +2726,8 @@ define linkonce_odr void @_ZN5ZXing4OneD13DataBarReaderCI2NS0_9RowReaderEERKNS_1
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ZXing4OneD9RowReaderC2ERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD13DataBarReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ZXing4OneD13DataBarReaderE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2777,7 +2786,8 @@ define linkonce_odr void @_ZN5ZXing4OneD21DataBarExpandedReaderCI2NS0_9RowReader
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ZXing4OneD9RowReaderC2ERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD21DataBarExpandedReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ZXing4OneD21DataBarExpandedReaderE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2836,7 +2846,8 @@ define linkonce_odr void @_ZN5ZXing4OneD16DXFilmEdgeReaderCI2NS0_9RowReaderEERKN
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ZXing4OneD9RowReaderC2ERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD16DXFilmEdgeReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ZXing4OneD16DXFilmEdgeReaderE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
   ret void
 }
 
@@ -2872,9 +2883,10 @@ define void @_ZN5ZXing4OneD6ReaderD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing4OneD6ReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ZXing4OneD6ReaderE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.ZXing::OneD::Reader", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #14
   call void @_ZN5ZXing6ReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #14
   ret void
 }
@@ -7607,10 +7619,11 @@ define linkonce_odr void @_ZN5ZXing4OneD9RowReaderC2ERKNS_13ReaderOptionsE(ptr n
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN5ZXing4OneD9RowReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"class.ZXing::OneD::RowReader", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN5ZXing4OneD9RowReaderE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"class.ZXing::OneD::RowReader", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 

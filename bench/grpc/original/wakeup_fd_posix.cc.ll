@@ -141,8 +141,9 @@ entry:
   br i1 %tobool, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (%struct.grpc_wakeup_fd_vtable, ptr @grpc_specialized_wakeup_fd_vtable, i32 0, i32 4), align 8
-  %call = call noundef i32 %1()
+  %1 = getelementptr inbounds %struct.grpc_wakeup_fd_vtable, ptr @grpc_specialized_wakeup_fd_vtable, i32 0, i32 4
+  %2 = load ptr, ptr %1, align 8
+  %call = call noundef i32 %2()
   %tobool2 = icmp ne i32 %call, 0
   br i1 %tobool2, label %if.then, label %if.else
 
@@ -151,13 +152,14 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end9
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %2 = load i32, ptr @grpc_allow_pipe_wakeup_fd, align 4
-  %tobool3 = icmp ne i32 %2, 0
+  %3 = load i32, ptr @grpc_allow_pipe_wakeup_fd, align 4
+  %tobool3 = icmp ne i32 %3, 0
   br i1 %tobool3, label %land.lhs.true4, label %if.else8
 
 land.lhs.true4:                                   ; preds = %if.else
-  %3 = load ptr, ptr getelementptr inbounds (%struct.grpc_wakeup_fd_vtable, ptr @grpc_pipe_wakeup_fd_vtable, i32 0, i32 4), align 8
-  %call5 = call noundef i32 %3()
+  %4 = getelementptr inbounds %struct.grpc_wakeup_fd_vtable, ptr @grpc_pipe_wakeup_fd_vtable, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8
+  %call5 = call noundef i32 %5()
   %tobool6 = icmp ne i32 %call5, 0
   br i1 %tobool6, label %if.then7, label %if.else8
 

@@ -114,30 +114,34 @@ define internal noundef ptr @proc_self_get_link(ptr noundef readnone %0, ptr noc
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call i32 @__task_pid_nr_ns(ptr noundef %10, i32 noundef 1, ptr noundef %8) #6
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %24, label %13
+  %13 = inttoptr i64 -2 to ptr
+  br i1 %12, label %28, label %14
 
-13:                                               ; preds = %3
-  %14 = icmp eq ptr %0, null
-  %15 = select i1 %14, i32 2080, i32 3264
-  %16 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4), align 16
-  %17 = tail call noalias align 8 dereferenceable_or_null(11) ptr @kmalloc_trace(ptr noundef %16, i32 noundef %15, i64 noundef 11) #9
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %21, !prof !6
+14:                                               ; preds = %3
+  %15 = icmp eq ptr %0, null
+  %16 = select i1 %15, i32 2080, i32 3264
+  %17 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 4
+  %18 = load ptr, ptr %17, align 16
+  %19 = tail call noalias align 8 dereferenceable_or_null(11) ptr @kmalloc_trace(ptr noundef %18, i32 noundef %16, i64 noundef 11) #9
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %25, !prof !6
 
-19:                                               ; preds = %13
-  %20 = select i1 %14, ptr inttoptr (i64 -10 to ptr), ptr inttoptr (i64 -12 to ptr)
-  br label %24
+21:                                               ; preds = %14
+  %22 = inttoptr i64 -10 to ptr
+  %23 = inttoptr i64 -12 to ptr
+  %24 = select i1 %15, ptr %22, ptr %23
+  br label %28
 
-21:                                               ; preds = %13
-  %22 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %11) #6
+25:                                               ; preds = %14
+  %26 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %11) #6
   store ptr @kfree_link, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %17, ptr %23, align 8
-  br label %24
+  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr %19, ptr %27, align 8
+  br label %28
 
-24:                                               ; preds = %21, %19, %3
-  %25 = phi ptr [ %17, %21 ], [ inttoptr (i64 -2 to ptr), %3 ], [ %20, %19 ]
-  ret ptr %25
+28:                                               ; preds = %25, %21, %3
+  %29 = phi ptr [ %19, %25 ], [ %13, %3 ], [ %24, %21 ]
+  ret ptr %29
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

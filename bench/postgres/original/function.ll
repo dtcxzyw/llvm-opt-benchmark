@@ -44,211 +44,222 @@ define dso_local void @get_loadable_libraries() #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %13 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2, i32 1), align 8
-  %14 = sext i32 %13 to i64
-  %15 = mul i64 %14, 8
-  %16 = call ptr @pg_malloc(i64 noundef %15)
-  store ptr %16, ptr %1, align 8
+  %13 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2, i32 1
+  %14 = load i32, ptr %13, align 8
+  %15 = sext i32 %14 to i64
+  %16 = mul i64 %15, 8
+  %17 = call ptr @pg_malloc(i64 noundef %16)
+  store ptr %17, ptr %1, align 8
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
-  br label %17
+  br label %18
 
-17:                                               ; preds = %45, %0
-  %18 = load i32, ptr %3, align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2, i32 1), align 8
-  %20 = icmp slt i32 %18, %19
-  br i1 %20, label %21, label %48
+18:                                               ; preds = %48, %0
+  %19 = load i32, ptr %3, align 4
+  %20 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2, i32 1
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp slt i32 %19, %21
+  br i1 %22, label %23, label %51
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2), align 8
-  %23 = load i32, ptr %3, align 4
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr %struct.DbInfo, ptr %22, i64 %24
-  store ptr %25, ptr %5, align 8
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.DbInfo, ptr %26, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
-  %29 = call ptr @connectToServer(ptr noundef @old_cluster, ptr noundef %28)
-  store ptr %29, ptr %6, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %30, ptr noundef @.str, i32 noundef 13, i32 noundef 16384)
-  %32 = load ptr, ptr %1, align 8
-  %33 = load i32, ptr %3, align 4
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr ptr, ptr %32, i64 %34
-  store ptr %31, ptr %35, align 8
-  %36 = load ptr, ptr %1, align 8
-  %37 = load i32, ptr %3, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr ptr, ptr %36, i64 %38
-  %40 = load ptr, ptr %39, align 8
-  %41 = call i32 @PQntuples(ptr noundef %40)
-  %42 = load i32, ptr %2, align 4
-  %43 = add i32 %42, %41
-  store i32 %43, ptr %2, align 4
-  %44 = load ptr, ptr %6, align 8
-  call void @PQfinish(ptr noundef %44)
-  br label %45
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i32, ptr %3, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr %struct.DbInfo, ptr %25, i64 %27
+  store ptr %28, ptr %5, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds %struct.DbInfo, ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = call ptr @connectToServer(ptr noundef @old_cluster, ptr noundef %31)
+  store ptr %32, ptr %6, align 8
+  %33 = load ptr, ptr %6, align 8
+  %34 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %33, ptr noundef @.str, i32 noundef 13, i32 noundef 16384)
+  %35 = load ptr, ptr %1, align 8
+  %36 = load i32, ptr %3, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr ptr, ptr %35, i64 %37
+  store ptr %34, ptr %38, align 8
+  %39 = load ptr, ptr %1, align 8
+  %40 = load i32, ptr %3, align 4
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr ptr, ptr %39, i64 %41
+  %43 = load ptr, ptr %42, align 8
+  %44 = call i32 @PQntuples(ptr noundef %43)
+  %45 = load i32, ptr %2, align 4
+  %46 = add i32 %45, %44
+  store i32 %46, ptr %2, align 4
+  %47 = load ptr, ptr %6, align 8
+  call void @PQfinish(ptr noundef %47)
+  br label %48
 
-45:                                               ; preds = %21
-  %46 = load i32, ptr %3, align 4
-  %47 = add i32 %46, 1
-  store i32 %47, ptr %3, align 4
-  br label %17, !llvm.loop !5
+48:                                               ; preds = %23
+  %49 = load i32, ptr %3, align 4
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %3, align 4
+  br label %18, !llvm.loop !5
 
-48:                                               ; preds = %17
-  %49 = load i32, ptr %2, align 4
-  %50 = call i32 @count_old_cluster_logical_slots()
-  %51 = add i32 %49, %50
-  store i32 %51, ptr %4, align 4
-  %52 = load i32, ptr %4, align 4
-  %53 = sext i32 %52 to i64
-  %54 = mul i64 16, %53
-  %55 = call ptr @pg_malloc(i64 noundef %54)
-  store ptr %55, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 5), align 8
+51:                                               ; preds = %18
+  %52 = load i32, ptr %2, align 4
+  %53 = call i32 @count_old_cluster_logical_slots()
+  %54 = add i32 %52, %53
+  store i32 %54, ptr %4, align 4
+  %55 = load i32, ptr %4, align 4
+  %56 = sext i32 %55 to i64
+  %57 = mul i64 16, %56
+  %58 = call ptr @pg_malloc(i64 noundef %57)
+  %59 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 5
+  store ptr %58, ptr %59, align 8
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
-  br label %56
+  br label %60
 
-56:                                               ; preds = %145, %48
-  %57 = load i32, ptr %3, align 4
-  %58 = load i32, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2, i32 1), align 8
-  %59 = icmp slt i32 %57, %58
-  br i1 %59, label %60, label %148
+60:                                               ; preds = %155, %51
+  %61 = load i32, ptr %3, align 4
+  %62 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2, i32 1
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp slt i32 %61, %63
+  br i1 %64, label %65, label %158
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %1, align 8
-  %62 = load i32, ptr %3, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr ptr, ptr %61, i64 %63
-  %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr %7, align 8
-  %66 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2), align 8
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %1, align 8
   %67 = load i32, ptr %3, align 4
   %68 = sext i32 %67 to i64
-  %69 = getelementptr %struct.DbInfo, ptr %66, i64 %68
-  %70 = getelementptr inbounds %struct.DbInfo, ptr %69, i32 0, i32 4
-  store ptr %70, ptr %10, align 8
-  %71 = load ptr, ptr %7, align 8
-  %72 = call i32 @PQntuples(ptr noundef %71)
-  store i32 %72, ptr %8, align 4
+  %69 = getelementptr ptr, ptr %66, i64 %68
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %7, align 8
+  %71 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2
+  %72 = load ptr, ptr %71, align 8
+  %73 = load i32, ptr %3, align 4
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr %struct.DbInfo, ptr %72, i64 %74
+  %76 = getelementptr inbounds %struct.DbInfo, ptr %75, i32 0, i32 4
+  store ptr %76, ptr %10, align 8
+  %77 = load ptr, ptr %7, align 8
+  %78 = call i32 @PQntuples(ptr noundef %77)
+  store i32 %78, ptr %8, align 4
   store i32 0, ptr %9, align 4
-  br label %73
+  br label %79
 
-73:                                               ; preds = %96, %60
-  %74 = load i32, ptr %9, align 4
-  %75 = load i32, ptr %8, align 4
-  %76 = icmp slt i32 %74, %75
-  br i1 %76, label %77, label %99
+79:                                               ; preds = %104, %65
+  %80 = load i32, ptr %9, align 4
+  %81 = load i32, ptr %8, align 4
+  %82 = icmp slt i32 %80, %81
+  br i1 %82, label %83, label %107
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr %7, align 8
-  %79 = load i32, ptr %9, align 4
-  %80 = call ptr @PQgetvalue(ptr noundef %78, i32 noundef %79, i32 noundef 0)
-  store ptr %80, ptr %11, align 8
-  %81 = load ptr, ptr %11, align 8
-  %82 = call ptr @pg_strdup(ptr noundef %81)
-  %83 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 5), align 8
-  %84 = load i32, ptr %2, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr %struct.LibraryInfo, ptr %83, i64 %85
-  %87 = getelementptr inbounds %struct.LibraryInfo, ptr %86, i32 0, i32 0
-  store ptr %82, ptr %87, align 8
-  %88 = load i32, ptr %3, align 4
-  %89 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 5), align 8
-  %90 = load i32, ptr %2, align 4
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr %struct.LibraryInfo, ptr %89, i64 %91
-  %93 = getelementptr inbounds %struct.LibraryInfo, ptr %92, i32 0, i32 1
-  store i32 %88, ptr %93, align 8
-  %94 = load i32, ptr %2, align 4
-  %95 = add i32 %94, 1
-  store i32 %95, ptr %2, align 4
-  br label %96
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %9, align 4
+  %86 = call ptr @PQgetvalue(ptr noundef %84, i32 noundef %85, i32 noundef 0)
+  store ptr %86, ptr %11, align 8
+  %87 = load ptr, ptr %11, align 8
+  %88 = call ptr @pg_strdup(ptr noundef %87)
+  %89 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 5
+  %90 = load ptr, ptr %89, align 8
+  %91 = load i32, ptr %2, align 4
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr %struct.LibraryInfo, ptr %90, i64 %92
+  %94 = getelementptr inbounds %struct.LibraryInfo, ptr %93, i32 0, i32 0
+  store ptr %88, ptr %94, align 8
+  %95 = load i32, ptr %3, align 4
+  %96 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 5
+  %97 = load ptr, ptr %96, align 8
+  %98 = load i32, ptr %2, align 4
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr %struct.LibraryInfo, ptr %97, i64 %99
+  %101 = getelementptr inbounds %struct.LibraryInfo, ptr %100, i32 0, i32 1
+  store i32 %95, ptr %101, align 8
+  %102 = load i32, ptr %2, align 4
+  %103 = add i32 %102, 1
+  store i32 %103, ptr %2, align 4
+  br label %104
 
-96:                                               ; preds = %77
-  %97 = load i32, ptr %9, align 4
-  %98 = add i32 %97, 1
-  store i32 %98, ptr %9, align 4
-  br label %73, !llvm.loop !7
+104:                                              ; preds = %83
+  %105 = load i32, ptr %9, align 4
+  %106 = add i32 %105, 1
+  store i32 %106, ptr %9, align 4
+  br label %79, !llvm.loop !7
 
-99:                                               ; preds = %73
-  %100 = load ptr, ptr %7, align 8
-  call void @PQclear(ptr noundef %100)
+107:                                              ; preds = %79
+  %108 = load ptr, ptr %7, align 8
+  call void @PQclear(ptr noundef %108)
   store i32 0, ptr %12, align 4
-  br label %101
+  br label %109
 
-101:                                              ; preds = %141, %99
-  %102 = load i32, ptr %12, align 4
-  %103 = load ptr, ptr %10, align 8
-  %104 = getelementptr inbounds %struct.LogicalSlotInfoArr, ptr %103, i32 0, i32 0
-  %105 = load i32, ptr %104, align 8
-  %106 = icmp slt i32 %102, %105
-  br i1 %106, label %107, label %144
+109:                                              ; preds = %151, %107
+  %110 = load i32, ptr %12, align 4
+  %111 = load ptr, ptr %10, align 8
+  %112 = getelementptr inbounds %struct.LogicalSlotInfoArr, ptr %111, i32 0, i32 0
+  %113 = load i32, ptr %112, align 8
+  %114 = icmp slt i32 %110, %113
+  br i1 %114, label %115, label %154
 
-107:                                              ; preds = %101
-  %108 = load ptr, ptr %10, align 8
-  %109 = getelementptr inbounds %struct.LogicalSlotInfoArr, ptr %108, i32 0, i32 1
-  %110 = load ptr, ptr %109, align 8
-  %111 = load i32, ptr %12, align 4
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr %struct.LogicalSlotInfo, ptr %110, i64 %112
-  %114 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %113, i32 0, i32 4
-  %115 = load i8, ptr %114, align 2
-  %116 = trunc i8 %115 to i1
-  br i1 %116, label %117, label %118
+115:                                              ; preds = %109
+  %116 = load ptr, ptr %10, align 8
+  %117 = getelementptr inbounds %struct.LogicalSlotInfoArr, ptr %116, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8
+  %119 = load i32, ptr %12, align 4
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr %struct.LogicalSlotInfo, ptr %118, i64 %120
+  %122 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %121, i32 0, i32 4
+  %123 = load i8, ptr %122, align 2
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %125, label %126
 
-117:                                              ; preds = %107
-  br label %141
+125:                                              ; preds = %115
+  br label %151
 
-118:                                              ; preds = %107
-  %119 = load ptr, ptr %10, align 8
-  %120 = getelementptr inbounds %struct.LogicalSlotInfoArr, ptr %119, i32 0, i32 1
-  %121 = load ptr, ptr %120, align 8
-  %122 = load i32, ptr %12, align 4
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr %struct.LogicalSlotInfo, ptr %121, i64 %123
-  %125 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %124, i32 0, i32 1
-  %126 = load ptr, ptr %125, align 8
-  %127 = call ptr @pg_strdup(ptr noundef %126)
-  %128 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 5), align 8
-  %129 = load i32, ptr %2, align 4
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr %struct.LibraryInfo, ptr %128, i64 %130
-  %132 = getelementptr inbounds %struct.LibraryInfo, ptr %131, i32 0, i32 0
-  store ptr %127, ptr %132, align 8
-  %133 = load i32, ptr %3, align 4
-  %134 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 5), align 8
-  %135 = load i32, ptr %2, align 4
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr %struct.LibraryInfo, ptr %134, i64 %136
-  %138 = getelementptr inbounds %struct.LibraryInfo, ptr %137, i32 0, i32 1
-  store i32 %133, ptr %138, align 8
-  %139 = load i32, ptr %2, align 4
-  %140 = add i32 %139, 1
-  store i32 %140, ptr %2, align 4
-  br label %141
+126:                                              ; preds = %115
+  %127 = load ptr, ptr %10, align 8
+  %128 = getelementptr inbounds %struct.LogicalSlotInfoArr, ptr %127, i32 0, i32 1
+  %129 = load ptr, ptr %128, align 8
+  %130 = load i32, ptr %12, align 4
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr %struct.LogicalSlotInfo, ptr %129, i64 %131
+  %133 = getelementptr inbounds %struct.LogicalSlotInfo, ptr %132, i32 0, i32 1
+  %134 = load ptr, ptr %133, align 8
+  %135 = call ptr @pg_strdup(ptr noundef %134)
+  %136 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 5
+  %137 = load ptr, ptr %136, align 8
+  %138 = load i32, ptr %2, align 4
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr %struct.LibraryInfo, ptr %137, i64 %139
+  %141 = getelementptr inbounds %struct.LibraryInfo, ptr %140, i32 0, i32 0
+  store ptr %135, ptr %141, align 8
+  %142 = load i32, ptr %3, align 4
+  %143 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 5
+  %144 = load ptr, ptr %143, align 8
+  %145 = load i32, ptr %2, align 4
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr %struct.LibraryInfo, ptr %144, i64 %146
+  %148 = getelementptr inbounds %struct.LibraryInfo, ptr %147, i32 0, i32 1
+  store i32 %142, ptr %148, align 8
+  %149 = load i32, ptr %2, align 4
+  %150 = add i32 %149, 1
+  store i32 %150, ptr %2, align 4
+  br label %151
 
-141:                                              ; preds = %118, %117
-  %142 = load i32, ptr %12, align 4
-  %143 = add i32 %142, 1
-  store i32 %143, ptr %12, align 4
-  br label %101, !llvm.loop !8
+151:                                              ; preds = %126, %125
+  %152 = load i32, ptr %12, align 4
+  %153 = add i32 %152, 1
+  store i32 %153, ptr %12, align 4
+  br label %109, !llvm.loop !8
 
-144:                                              ; preds = %101
-  br label %145
+154:                                              ; preds = %109
+  br label %155
 
-145:                                              ; preds = %144
-  %146 = load i32, ptr %3, align 4
-  %147 = add i32 %146, 1
-  store i32 %147, ptr %3, align 4
-  br label %56, !llvm.loop !9
+155:                                              ; preds = %154
+  %156 = load i32, ptr %3, align 4
+  %157 = add i32 %156, 1
+  store i32 %157, ptr %3, align 4
+  br label %60, !llvm.loop !9
 
-148:                                              ; preds = %56
-  %149 = load ptr, ptr %1, align 8
-  call void @pg_free(ptr noundef %149)
-  %150 = load i32, ptr %2, align 4
-  store i32 %150, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 6), align 8
+158:                                              ; preds = %60
+  %159 = load ptr, ptr %1, align 8
+  call void @pg_free(ptr noundef %159)
+  %160 = load i32, ptr %2, align 4
+  %161 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 6
+  store i32 %160, ptr %161, align 8
   ret void
 }
 
@@ -289,161 +300,169 @@ define dso_local void @check_loadable_libraries() #0 {
   store ptr null, ptr %4, align 8
   call void (ptr, ...) @prep_status(ptr noundef @.str.2)
   %11 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
-  %12 = load ptr, ptr getelementptr inbounds (%struct.LogOpts, ptr @log_opts, i32 0, i32 4), align 8
-  %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %11, i64 noundef 1024, ptr noundef @.str.3, ptr noundef %12, ptr noundef @.str.4)
-  %14 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 5), align 8
-  %15 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 6), align 8
-  %16 = sext i32 %15 to i64
-  call void @pg_qsort(ptr noundef %14, i64 noundef %16, i64 noundef 16, ptr noundef @library_name_compare)
+  %12 = getelementptr inbounds %struct.LogOpts, ptr @log_opts, i32 0, i32 4
+  %13 = load ptr, ptr %12, align 8
+  %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %11, i64 noundef 1024, ptr noundef @.str.3, ptr noundef %13, ptr noundef @.str.4)
+  %15 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 5
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 6
+  %18 = load i32, ptr %17, align 8
+  %19 = sext i32 %18 to i64
+  call void @pg_qsort(ptr noundef %16, i64 noundef %19, i64 noundef 16, ptr noundef @library_name_compare)
   store i32 0, ptr %2, align 4
-  br label %17
+  br label %20
 
-17:                                               ; preds = %103, %0
-  %18 = load i32, ptr %2, align 4
-  %19 = load i32, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 6), align 8
-  %20 = icmp slt i32 %18, %19
-  br i1 %20, label %21, label %106
+20:                                               ; preds = %111, %0
+  %21 = load i32, ptr %2, align 4
+  %22 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 6
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp slt i32 %21, %23
+  br i1 %24, label %25, label %114
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 5), align 8
-  %23 = load i32, ptr %2, align 4
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr %struct.LibraryInfo, ptr %22, i64 %24
-  %26 = getelementptr inbounds %struct.LibraryInfo, ptr %25, i32 0, i32 0
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 5
   %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %6, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = call i64 @strlen(ptr noundef %28) #6
-  %30 = trunc i64 %29 to i32
-  store i32 %30, ptr %7, align 4
-  %31 = load i32, ptr %2, align 4
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %44, label %33
-
-33:                                               ; preds = %21
-  %34 = load ptr, ptr %6, align 8
-  %35 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 5), align 8
+  %28 = load i32, ptr %2, align 4
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr %struct.LibraryInfo, ptr %27, i64 %29
+  %31 = getelementptr inbounds %struct.LibraryInfo, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr %6, align 8
+  %33 = load ptr, ptr %6, align 8
+  %34 = call i64 @strlen(ptr noundef %33) #6
+  %35 = trunc i64 %34 to i32
+  store i32 %35, ptr %7, align 4
   %36 = load i32, ptr %2, align 4
-  %37 = sub i32 %36, 1
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.LibraryInfo, ptr %35, i64 %38
-  %40 = getelementptr inbounds %struct.LibraryInfo, ptr %39, i32 0, i32 0
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %50, label %38
+
+38:                                               ; preds = %25
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 5
   %41 = load ptr, ptr %40, align 8
-  %42 = call i32 @strcmp(ptr noundef %34, ptr noundef %41) #6
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %85
+  %42 = load i32, ptr %2, align 4
+  %43 = sub i32 %42, 1
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr %struct.LibraryInfo, ptr %41, i64 %44
+  %46 = getelementptr inbounds %struct.LibraryInfo, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = call i32 @strcmp(ptr noundef %39, ptr noundef %47) #6
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %91
 
-44:                                               ; preds = %33, %21
-  %45 = getelementptr inbounds [2056 x i8], ptr %8, i64 0, i64 0
-  %46 = call ptr @strcpy(ptr noundef %45, ptr noundef @.str.5) #7
-  %47 = load ptr, ptr %1, align 8
-  %48 = getelementptr inbounds [2056 x i8], ptr %8, i64 0, i64 0
-  %49 = getelementptr inbounds [2056 x i8], ptr %8, i64 0, i64 0
-  %50 = call i64 @strlen(ptr noundef %49) #6
-  %51 = getelementptr i8, ptr %48, i64 %50
-  %52 = load ptr, ptr %6, align 8
-  %53 = load i32, ptr %7, align 4
-  %54 = sext i32 %53 to i64
-  %55 = call i64 @PQescapeStringConn(ptr noundef %47, ptr noundef %51, ptr noundef %52, i64 noundef %54, ptr noundef null)
-  %56 = getelementptr inbounds [2056 x i8], ptr %8, i64 0, i64 0
-  %57 = call ptr @strcat(ptr noundef %56, ptr noundef @.str.6) #7
-  %58 = load ptr, ptr %1, align 8
-  %59 = getelementptr inbounds [2056 x i8], ptr %8, i64 0, i64 0
-  %60 = call ptr @PQexec(ptr noundef %58, ptr noundef %59)
-  store ptr %60, ptr %9, align 8
-  %61 = load ptr, ptr %9, align 8
-  %62 = call i32 @PQresultStatus(ptr noundef %61)
-  %63 = icmp ne i32 %62, 1
-  br i1 %63, label %64, label %82
+50:                                               ; preds = %38, %25
+  %51 = getelementptr inbounds [2056 x i8], ptr %8, i64 0, i64 0
+  %52 = call ptr @strcpy(ptr noundef %51, ptr noundef @.str.5) #7
+  %53 = load ptr, ptr %1, align 8
+  %54 = getelementptr inbounds [2056 x i8], ptr %8, i64 0, i64 0
+  %55 = getelementptr inbounds [2056 x i8], ptr %8, i64 0, i64 0
+  %56 = call i64 @strlen(ptr noundef %55) #6
+  %57 = getelementptr i8, ptr %54, i64 %56
+  %58 = load ptr, ptr %6, align 8
+  %59 = load i32, ptr %7, align 4
+  %60 = sext i32 %59 to i64
+  %61 = call i64 @PQescapeStringConn(ptr noundef %53, ptr noundef %57, ptr noundef %58, i64 noundef %60, ptr noundef null)
+  %62 = getelementptr inbounds [2056 x i8], ptr %8, i64 0, i64 0
+  %63 = call ptr @strcat(ptr noundef %62, ptr noundef @.str.6) #7
+  %64 = load ptr, ptr %1, align 8
+  %65 = getelementptr inbounds [2056 x i8], ptr %8, i64 0, i64 0
+  %66 = call ptr @PQexec(ptr noundef %64, ptr noundef %65)
+  store ptr %66, ptr %9, align 8
+  %67 = load ptr, ptr %9, align 8
+  %68 = call i32 @PQresultStatus(ptr noundef %67)
+  %69 = icmp ne i32 %68, 1
+  br i1 %69, label %70, label %88
 
-64:                                               ; preds = %44
+70:                                               ; preds = %50
   store i32 1, ptr %3, align 4
-  %65 = load ptr, ptr %4, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %67, label %76
+  %71 = load ptr, ptr %4, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %82
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
-  %69 = call noalias ptr @fopen(ptr noundef %68, ptr noundef @.str.7)
-  store ptr %69, ptr %4, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %76
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
+  %75 = call noalias ptr @fopen(ptr noundef %74, ptr noundef @.str.7)
+  store ptr %75, ptr %4, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %82
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
-  %73 = call ptr @__errno_location() #8
-  %74 = load i32, ptr %73, align 4
-  %75 = call ptr @pg_strerror(i32 noundef %74)
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.8, ptr noundef %72, ptr noundef %75) #9
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
+  %79 = call ptr @__errno_location() #8
+  %80 = load i32, ptr %79, align 4
+  %81 = call ptr @pg_strerror(i32 noundef %80)
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.8, ptr noundef %78, ptr noundef %81) #9
   unreachable
 
-76:                                               ; preds = %67, %64
-  %77 = load ptr, ptr %4, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = load ptr, ptr %1, align 8
-  %80 = call ptr @PQerrorMessage(ptr noundef %79)
-  %81 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %77, ptr noundef @.str.9, ptr noundef %78, ptr noundef %80)
-  br label %83
+82:                                               ; preds = %73, %70
+  %83 = load ptr, ptr %4, align 8
+  %84 = load ptr, ptr %6, align 8
+  %85 = load ptr, ptr %1, align 8
+  %86 = call ptr @PQerrorMessage(ptr noundef %85)
+  %87 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %83, ptr noundef @.str.9, ptr noundef %84, ptr noundef %86)
+  br label %89
 
-82:                                               ; preds = %44
+88:                                               ; preds = %50
   store i32 0, ptr %3, align 4
-  br label %83
+  br label %89
 
-83:                                               ; preds = %82, %76
-  %84 = load ptr, ptr %9, align 8
-  call void @PQclear(ptr noundef %84)
-  br label %85
+89:                                               ; preds = %88, %82
+  %90 = load ptr, ptr %9, align 8
+  call void @PQclear(ptr noundef %90)
+  br label %91
 
-85:                                               ; preds = %83, %33
-  %86 = load i32, ptr %3, align 4
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %88, label %102
+91:                                               ; preds = %89, %38
+  %92 = load i32, ptr %3, align 4
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %110
 
-88:                                               ; preds = %85
-  %89 = load ptr, ptr %4, align 8
-  %90 = load ptr, ptr getelementptr inbounds (%struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2), align 8
-  %91 = load ptr, ptr getelementptr inbounds (%struct.OSInfo, ptr @os_info, i32 0, i32 5), align 8
-  %92 = load i32, ptr %2, align 4
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr %struct.LibraryInfo, ptr %91, i64 %93
-  %95 = getelementptr inbounds %struct.LibraryInfo, ptr %94, i32 0, i32 1
-  %96 = load i32, ptr %95, align 8
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr %struct.DbInfo, ptr %90, i64 %97
-  %99 = getelementptr inbounds %struct.DbInfo, ptr %98, i32 0, i32 1
-  %100 = load ptr, ptr %99, align 8
-  %101 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %89, ptr noundef @.str.10, ptr noundef %100)
-  br label %102
+94:                                               ; preds = %91
+  %95 = load ptr, ptr %4, align 8
+  %96 = getelementptr inbounds %struct.ClusterInfo, ptr @old_cluster, i32 0, i32 2
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds %struct.OSInfo, ptr @os_info, i32 0, i32 5
+  %99 = load ptr, ptr %98, align 8
+  %100 = load i32, ptr %2, align 4
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr %struct.LibraryInfo, ptr %99, i64 %101
+  %103 = getelementptr inbounds %struct.LibraryInfo, ptr %102, i32 0, i32 1
+  %104 = load i32, ptr %103, align 8
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr %struct.DbInfo, ptr %97, i64 %105
+  %107 = getelementptr inbounds %struct.DbInfo, ptr %106, i32 0, i32 1
+  %108 = load ptr, ptr %107, align 8
+  %109 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %95, ptr noundef @.str.10, ptr noundef %108)
+  br label %110
 
-102:                                              ; preds = %88, %85
-  br label %103
+110:                                              ; preds = %94, %91
+  br label %111
 
-103:                                              ; preds = %102
-  %104 = load i32, ptr %2, align 4
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %2, align 4
-  br label %17, !llvm.loop !10
+111:                                              ; preds = %110
+  %112 = load i32, ptr %2, align 4
+  %113 = add i32 %112, 1
+  store i32 %113, ptr %2, align 4
+  br label %20, !llvm.loop !10
 
-106:                                              ; preds = %17
-  %107 = load ptr, ptr %1, align 8
-  call void @PQfinish(ptr noundef %107)
-  %108 = load ptr, ptr %4, align 8
-  %109 = icmp ne ptr %108, null
-  br i1 %109, label %110, label %114
+114:                                              ; preds = %20
+  %115 = load ptr, ptr %1, align 8
+  call void @PQfinish(ptr noundef %115)
+  %116 = load ptr, ptr %4, align 8
+  %117 = icmp ne ptr %116, null
+  br i1 %117, label %118, label %122
 
-110:                                              ; preds = %106
-  %111 = load ptr, ptr %4, align 8
-  %112 = call i32 @fclose(ptr noundef %111)
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %4, align 8
+  %120 = call i32 @fclose(ptr noundef %119)
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef @.str.11)
-  %113 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
-  call void (ptr, ...) @pg_fatal(ptr noundef @.str.12, ptr noundef %113) #9
+  %121 = getelementptr inbounds [1024 x i8], ptr %5, i64 0, i64 0
+  call void (ptr, ...) @pg_fatal(ptr noundef @.str.12, ptr noundef %121) #9
   unreachable
 
-114:                                              ; preds = %106
+122:                                              ; preds = %114
   call void @check_ok()
-  br label %115
+  br label %123
 
-115:                                              ; preds = %114
+123:                                              ; preds = %122
   ret void
 }
 

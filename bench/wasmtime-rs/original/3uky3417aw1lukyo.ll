@@ -125,74 +125,78 @@ define { i8, i8 } @_ZN23wasmtime_component_util9FlagsSize10from_count17hd3908913
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { i8, [1 x i8] }, align 1
   %4 = icmp eq i64 %0, 0
-  br i1 %4, label %5, label %9
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
   %6 = load i8, ptr @anon.b1944cf119c04b11a542e513218e87df.0, align 1, !range !3, !noundef !4
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @anon.b1944cf119c04b11a542e513218e87df.0, i64 1), align 1
+  %7 = getelementptr inbounds i8, ptr @anon.b1944cf119c04b11a542e513218e87df.0, i64 1
+  %8 = load i8, ptr %7, align 1
   store i8 %6, ptr %3, align 1
-  %8 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %7, ptr %8, align 1
-  br label %11
+  %9 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 %8, ptr %9, align 1
+  br label %12
 
-9:                                                ; preds = %1
-  %10 = icmp ule i64 %0, 8
-  br i1 %10, label %19, label %17
+10:                                               ; preds = %1
+  %11 = icmp ule i64 %0, 8
+  br i1 %11, label %20, label %18
 
-11:                                               ; preds = %30, %26, %19, %5
-  %12 = load i8, ptr %3, align 1, !range !3, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %3, i64 1
-  %14 = load i8, ptr %13, align 1
-  %15 = insertvalue { i8, i8 } poison, i8 %12, 0
-  %16 = insertvalue { i8, i8 } %15, i8 %14, 1
-  ret { i8, i8 } %16
+12:                                               ; preds = %33, %28, %20, %5
+  %13 = load i8, ptr %3, align 1, !range !3, !noundef !4
+  %14 = getelementptr inbounds i8, ptr %3, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = insertvalue { i8, i8 } poison, i8 %13, 0
+  %17 = insertvalue { i8, i8 } %16, i8 %15, 1
+  ret { i8, i8 } %17
 
-17:                                               ; preds = %9
-  %18 = icmp ule i64 %0, 16
-  br i1 %18, label %26, label %23
+18:                                               ; preds = %10
+  %19 = icmp ule i64 %0, 16
+  br i1 %19, label %28, label %25
 
-19:                                               ; preds = %9
-  %20 = load i8, ptr @anon.b1944cf119c04b11a542e513218e87df.8, align 1, !range !3, !noundef !4
-  %21 = load i8, ptr getelementptr inbounds (i8, ptr @anon.b1944cf119c04b11a542e513218e87df.8, i64 1), align 1
-  store i8 %20, ptr %3, align 1
-  %22 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %21, ptr %22, align 1
-  br label %11
+20:                                               ; preds = %10
+  %21 = load i8, ptr @anon.b1944cf119c04b11a542e513218e87df.8, align 1, !range !3, !noundef !4
+  %22 = getelementptr inbounds i8, ptr @anon.b1944cf119c04b11a542e513218e87df.8, i64 1
+  %23 = load i8, ptr %22, align 1
+  store i8 %21, ptr %3, align 1
+  %24 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 %23, ptr %24, align 1
+  br label %12
 
-23:                                               ; preds = %17
-  %24 = call i64 @_ZN23wasmtime_component_util14ceiling_divide17hb024d0748d7113d1E(i64 %0, i64 32)
-  %25 = icmp ugt i64 %24, 255
-  br i1 %25, label %33, label %30
+25:                                               ; preds = %18
+  %26 = call i64 @_ZN23wasmtime_component_util14ceiling_divide17hb024d0748d7113d1E(i64 %0, i64 32)
+  %27 = icmp ugt i64 %26, 255
+  br i1 %27, label %36, label %33
 
-26:                                               ; preds = %17
-  %27 = load i8, ptr @anon.b1944cf119c04b11a542e513218e87df.7, align 1, !range !3, !noundef !4
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @anon.b1944cf119c04b11a542e513218e87df.7, i64 1), align 1
-  store i8 %27, ptr %3, align 1
-  %29 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %28, ptr %29, align 1
-  br label %11
-
-30:                                               ; preds = %23
-  %31 = trunc i64 %24 to i8
+28:                                               ; preds = %18
+  %29 = load i8, ptr @anon.b1944cf119c04b11a542e513218e87df.7, align 1, !range !3, !noundef !4
+  %30 = getelementptr inbounds i8, ptr @anon.b1944cf119c04b11a542e513218e87df.7, i64 1
+  %31 = load i8, ptr %30, align 1
+  store i8 %29, ptr %3, align 1
   %32 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 %31, ptr %32, align 1
-  store i8 3, ptr %3, align 1
-  br label %11
+  br label %12
 
-33:                                               ; preds = %23
+33:                                               ; preds = %25
+  %34 = trunc i64 %26 to i8
+  %35 = getelementptr inbounds i8, ptr %3, i64 1
+  store i8 %34, ptr %35, align 1
+  store i8 3, ptr %3, align 1
+  br label %12
+
+36:                                               ; preds = %25
   store ptr @anon.b1944cf119c04b11a542e513218e87df.2, ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 1, ptr %34, align 8
-  %35 = load ptr, ptr @anon.b1944cf119c04b11a542e513218e87df.4, align 8, !align !6, !noundef !4
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @anon.b1944cf119c04b11a542e513218e87df.4, i64 8), align 8
-  %37 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %2, i32 0, i32 2
-  store ptr %35, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  store i64 %36, ptr %38, align 8
-  %39 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %2, i32 0, i32 1
-  store ptr @anon.b1944cf119c04b11a542e513218e87df.3, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
-  store i64 0, ptr %40, align 8
+  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 1, ptr %37, align 8
+  %38 = load ptr, ptr @anon.b1944cf119c04b11a542e513218e87df.4, align 8, !align !6, !noundef !4
+  %39 = getelementptr inbounds i8, ptr @anon.b1944cf119c04b11a542e513218e87df.4, i64 8
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %2, i32 0, i32 2
+  store ptr %38, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  store i64 %40, ptr %42, align 8
+  %43 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, ptr %2, i32 0, i32 1
+  store ptr @anon.b1944cf119c04b11a542e513218e87df.3, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  store i64 0, ptr %44, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8 %2, ptr align 8 @anon.b1944cf119c04b11a542e513218e87df.6) #3
   unreachable
 }

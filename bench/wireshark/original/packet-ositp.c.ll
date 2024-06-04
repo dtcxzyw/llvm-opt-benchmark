@@ -1626,7 +1626,7 @@ define internal i32 @ositp_decode_DT(ptr noundef %0, i32 noundef %1, i8 noundef 
 
 51:                                               ; preds = %44
   store i32 -1, ptr %9, align 4
-  br label %578
+  br label %579
 
 52:                                               ; preds = %44
   br label %53
@@ -1674,7 +1674,7 @@ define internal i32 @ositp_decode_DT(ptr noundef %0, i32 noundef %1, i8 noundef 
 
 79:                                               ; preds = %72
   store i32 -1, ptr %9, align 4
-  br label %578
+  br label %579
 
 80:                                               ; preds = %72
   br label %81
@@ -1815,7 +1815,7 @@ define internal i32 @ositp_decode_DT(ptr noundef %0, i32 noundef %1, i8 noundef 
 
 160:                                              ; preds = %41
   store i32 -1, ptr %9, align 4
-  br label %578
+  br label %579
 
 161:                                              ; preds = %159, %93, %66
   br label %289
@@ -1852,7 +1852,7 @@ define internal i32 @ositp_decode_DT(ptr noundef %0, i32 noundef %1, i8 noundef 
 
 179:                                              ; preds = %172
   store i32 -1, ptr %9, align 4
-  br label %578
+  br label %579
 
 180:                                              ; preds = %172, %165
   br label %181
@@ -1909,7 +1909,7 @@ define internal i32 @ositp_decode_DT(ptr noundef %0, i32 noundef %1, i8 noundef 
 
 214:                                              ; preds = %207
   store i32 -1, ptr %9, align 4
-  br label %578
+  br label %579
 
 215:                                              ; preds = %207, %200
   br label %216
@@ -1956,7 +1956,7 @@ define internal i32 @ositp_decode_DT(ptr noundef %0, i32 noundef %1, i8 noundef 
 
 241:                                              ; preds = %234
   store i32 -1, ptr %9, align 4
-  br label %578
+  br label %579
 
 242:                                              ; preds = %234
   %243 = load ptr, ptr %10, align 8
@@ -2001,7 +2001,7 @@ define internal i32 @ositp_decode_DT(ptr noundef %0, i32 noundef %1, i8 noundef 
 
 268:                                              ; preds = %261
   store i32 -1, ptr %9, align 4
-  br label %578
+  br label %579
 
 269:                                              ; preds = %261
   %270 = load ptr, ptr %10, align 8
@@ -2036,7 +2036,7 @@ define internal i32 @ositp_decode_DT(ptr noundef %0, i32 noundef %1, i8 noundef 
 
 287:                                              ; preds = %162
   store i32 -1, ptr %9, align 4
-  br label %578
+  br label %579
 
 288:                                              ; preds = %281, %255, %228, %194
   br label %289
@@ -2295,7 +2295,7 @@ define internal i32 @ositp_decode_DT(ptr noundef %0, i32 noundef %1, i8 noundef 
 466:                                              ; preds = %462, %454
   %467 = load i32, ptr @cotp_reassemble, align 4
   %468 = icmp ne i32 %467, 0
-  br i1 %468, label %469, label %528
+  br i1 %468, label %469, label %529
 
 469:                                              ; preds = %466
   %470 = load ptr, ptr %27, align 8
@@ -2307,14 +2307,14 @@ define internal i32 @ositp_decode_DT(ptr noundef %0, i32 noundef %1, i8 noundef 
   store ptr %475, ptr %28, align 8
   %476 = load ptr, ptr %28, align 8
   %477 = icmp ne ptr %476, null
-  br i1 %477, label %478, label %527
+  br i1 %477, label %478, label %528
 
 478:                                              ; preds = %469
   %479 = load ptr, ptr %28, align 8
   %480 = getelementptr inbounds %struct._fragment_head, ptr %479, i32 0, i32 0
   %481 = load ptr, ptr %480, align 8
   %482 = icmp ne ptr %481, null
-  br i1 %482, label %483, label %527
+  br i1 %482, label %483, label %528
 
 483:                                              ; preds = %478
   %484 = load ptr, ptr %18, align 8
@@ -2341,7 +2341,7 @@ define internal i32 @ositp_decode_DT(ptr noundef %0, i32 noundef %1, i8 noundef 
   %503 = load ptr, ptr %15, align 8
   %504 = call ptr @process_reassembled_data(ptr noundef %499, i32 noundef %500, ptr noundef %501, ptr noundef @.str.270, ptr noundef %502, ptr noundef @cotp_frag_items, ptr noundef null, ptr noundef %503)
   store ptr %504, ptr %27, align 8
-  br label %523
+  br label %524
 
 505:                                              ; preds = %483
   %506 = load ptr, ptr %14, align 8
@@ -2351,117 +2351,118 @@ define internal i32 @ositp_decode_DT(ptr noundef %0, i32 noundef %1, i8 noundef 
   %510 = getelementptr inbounds %struct._fragment_head, ptr %509, i32 0, i32 8
   %511 = load i32, ptr %510, align 8
   %512 = icmp ne i32 %508, %511
-  br i1 %512, label %513, label %522
+  br i1 %512, label %513, label %523
 
 513:                                              ; preds = %505
   %514 = load ptr, ptr %18, align 8
-  %515 = load ptr, ptr getelementptr inbounds (%struct._fragment_items, ptr @cotp_frag_items, i32 0, i32 10), align 8
-  %516 = load i32, ptr %515, align 4
-  %517 = load ptr, ptr %27, align 8
-  %518 = load ptr, ptr %28, align 8
-  %519 = getelementptr inbounds %struct._fragment_head, ptr %518, i32 0, i32 8
-  %520 = load i32, ptr %519, align 8
-  %521 = call ptr @proto_tree_add_uint(ptr noundef %514, i32 noundef %516, ptr noundef %517, i32 noundef 0, i32 noundef 0, i32 noundef %520)
-  br label %522
-
-522:                                              ; preds = %513, %505
+  %515 = getelementptr inbounds %struct._fragment_items, ptr @cotp_frag_items, i32 0, i32 10
+  %516 = load ptr, ptr %515, align 8
+  %517 = load i32, ptr %516, align 4
+  %518 = load ptr, ptr %27, align 8
+  %519 = load ptr, ptr %28, align 8
+  %520 = getelementptr inbounds %struct._fragment_head, ptr %519, i32 0, i32 8
+  %521 = load i32, ptr %520, align 8
+  %522 = call ptr @proto_tree_add_uint(ptr noundef %514, i32 noundef %517, ptr noundef %518, i32 noundef 0, i32 noundef 0, i32 noundef %521)
   br label %523
 
-523:                                              ; preds = %522, %498
-  %524 = load i32, ptr %25, align 4
-  %525 = load ptr, ptr %14, align 8
-  %526 = getelementptr inbounds %struct._packet_info, ptr %525, i32 0, i32 20
-  store i32 %524, ptr %526, align 8
-  br label %527
+523:                                              ; preds = %513, %505
+  br label %524
 
-527:                                              ; preds = %523, %478, %469
+524:                                              ; preds = %523, %498
+  %525 = load i32, ptr %25, align 4
+  %526 = load ptr, ptr %14, align 8
+  %527 = getelementptr inbounds %struct._packet_info, ptr %526, i32 0, i32 20
+  store i32 %525, ptr %527, align 8
   br label %528
 
-528:                                              ; preds = %527, %466
-  %529 = load i32, ptr %16, align 4
-  %530 = icmp ne i32 %529, 0
-  br i1 %530, label %531, label %546
+528:                                              ; preds = %524, %478, %469
+  br label %529
 
-531:                                              ; preds = %528
-  %532 = load ptr, ptr @cotp_is_heur_subdissector_list, align 8
-  %533 = load ptr, ptr %27, align 8
-  %534 = load ptr, ptr %14, align 8
-  %535 = load ptr, ptr %15, align 8
-  %536 = call i32 @dissector_try_heuristic(ptr noundef %532, ptr noundef %533, ptr noundef %534, ptr noundef %535, ptr noundef %31, ptr noundef null)
-  %537 = icmp ne i32 %536, 0
-  br i1 %537, label %538, label %540
+529:                                              ; preds = %528, %466
+  %530 = load i32, ptr %16, align 4
+  %531 = icmp ne i32 %530, 0
+  br i1 %531, label %532, label %547
 
-538:                                              ; preds = %531
-  %539 = load ptr, ptr %17, align 8
-  store i32 1, ptr %539, align 4
-  br label %545
+532:                                              ; preds = %529
+  %533 = load ptr, ptr @cotp_is_heur_subdissector_list, align 8
+  %534 = load ptr, ptr %27, align 8
+  %535 = load ptr, ptr %14, align 8
+  %536 = load ptr, ptr %15, align 8
+  %537 = call i32 @dissector_try_heuristic(ptr noundef %533, ptr noundef %534, ptr noundef %535, ptr noundef %536, ptr noundef %31, ptr noundef null)
+  %538 = icmp ne i32 %537, 0
+  br i1 %538, label %539, label %541
 
-540:                                              ; preds = %531
-  %541 = load ptr, ptr %27, align 8
-  %542 = load ptr, ptr %14, align 8
-  %543 = load ptr, ptr %15, align 8
-  %544 = call i32 @call_data_dissector(ptr noundef %541, ptr noundef %542, ptr noundef %543)
-  br label %545
+539:                                              ; preds = %532
+  %540 = load ptr, ptr %17, align 8
+  store i32 1, ptr %540, align 4
+  br label %546
 
-545:                                              ; preds = %540, %538
-  br label %571
+541:                                              ; preds = %532
+  %542 = load ptr, ptr %27, align 8
+  %543 = load ptr, ptr %14, align 8
+  %544 = load ptr, ptr %15, align 8
+  %545 = call i32 @call_data_dissector(ptr noundef %542, ptr noundef %543, ptr noundef %544)
+  br label %546
 
-546:                                              ; preds = %528
-  %547 = load i32, ptr @cotp_reassemble, align 4
-  %548 = icmp ne i32 %547, 0
-  br i1 %548, label %549, label %555
+546:                                              ; preds = %541, %539
+  br label %572
 
-549:                                              ; preds = %546
-  %550 = load i32, ptr @cotp_reassemble, align 4
-  %551 = icmp ne i32 %550, 0
-  br i1 %551, label %552, label %570
+547:                                              ; preds = %529
+  %548 = load i32, ptr @cotp_reassemble, align 4
+  %549 = icmp ne i32 %548, 0
+  br i1 %549, label %550, label %556
 
-552:                                              ; preds = %549
-  %553 = load i32, ptr %25, align 4
-  %554 = icmp ne i32 %553, 0
-  br i1 %554, label %570, label %555
+550:                                              ; preds = %547
+  %551 = load i32, ptr @cotp_reassemble, align 4
+  %552 = icmp ne i32 %551, 0
+  br i1 %552, label %553, label %571
 
-555:                                              ; preds = %552, %546
-  %556 = load ptr, ptr @cotp_heur_subdissector_list, align 8
-  %557 = load ptr, ptr %27, align 8
-  %558 = load ptr, ptr %14, align 8
-  %559 = load ptr, ptr %15, align 8
-  %560 = call i32 @dissector_try_heuristic(ptr noundef %556, ptr noundef %557, ptr noundef %558, ptr noundef %559, ptr noundef %31, ptr noundef null)
-  %561 = icmp ne i32 %560, 0
-  br i1 %561, label %562, label %564
+553:                                              ; preds = %550
+  %554 = load i32, ptr %25, align 4
+  %555 = icmp ne i32 %554, 0
+  br i1 %555, label %571, label %556
 
-562:                                              ; preds = %555
-  %563 = load ptr, ptr %17, align 8
-  store i32 1, ptr %563, align 4
-  br label %569
+556:                                              ; preds = %553, %547
+  %557 = load ptr, ptr @cotp_heur_subdissector_list, align 8
+  %558 = load ptr, ptr %27, align 8
+  %559 = load ptr, ptr %14, align 8
+  %560 = load ptr, ptr %15, align 8
+  %561 = call i32 @dissector_try_heuristic(ptr noundef %557, ptr noundef %558, ptr noundef %559, ptr noundef %560, ptr noundef %31, ptr noundef null)
+  %562 = icmp ne i32 %561, 0
+  br i1 %562, label %563, label %565
 
-564:                                              ; preds = %555
-  %565 = load ptr, ptr %27, align 8
-  %566 = load ptr, ptr %14, align 8
-  %567 = load ptr, ptr %15, align 8
-  %568 = call i32 @call_data_dissector(ptr noundef %565, ptr noundef %566, ptr noundef %567)
-  br label %569
-
-569:                                              ; preds = %564, %562
+563:                                              ; preds = %556
+  %564 = load ptr, ptr %17, align 8
+  store i32 1, ptr %564, align 4
   br label %570
 
-570:                                              ; preds = %569, %552, %549
+565:                                              ; preds = %556
+  %566 = load ptr, ptr %27, align 8
+  %567 = load ptr, ptr %14, align 8
+  %568 = load ptr, ptr %15, align 8
+  %569 = call i32 @call_data_dissector(ptr noundef %566, ptr noundef %567, ptr noundef %568)
+  br label %570
+
+570:                                              ; preds = %565, %563
   br label %571
 
-571:                                              ; preds = %570, %545
-  %572 = load ptr, ptr %10, align 8
-  %573 = load i32, ptr %11, align 4
-  %574 = call i32 @tvb_captured_length_remaining(ptr noundef %572, i32 noundef %573)
-  %575 = load i32, ptr %11, align 4
-  %576 = add i32 %575, %574
-  store i32 %576, ptr %11, align 4
-  %577 = load i32, ptr %11, align 4
-  store i32 %577, ptr %9, align 4
-  br label %578
+571:                                              ; preds = %570, %553, %550
+  br label %572
 
-578:                                              ; preds = %571, %287, %268, %241, %214, %179, %160, %79, %51
-  %579 = load i32, ptr %9, align 4
-  ret i32 %579
+572:                                              ; preds = %571, %546
+  %573 = load ptr, ptr %10, align 8
+  %574 = load i32, ptr %11, align 4
+  %575 = call i32 @tvb_captured_length_remaining(ptr noundef %573, i32 noundef %574)
+  %576 = load i32, ptr %11, align 4
+  %577 = add i32 %576, %575
+  store i32 %577, ptr %11, align 4
+  %578 = load i32, ptr %11, align 4
+  store i32 %578, ptr %9, align 4
+  br label %579
+
+579:                                              ; preds = %572, %287, %268, %241, %214, %179, %160, %79, %51
+  %580 = load i32, ptr %9, align 4
+  ret i32 %580
 }
 
 ; Function Attrs: nounwind uwtable

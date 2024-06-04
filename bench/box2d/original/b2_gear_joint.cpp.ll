@@ -119,138 +119,139 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %def.addr, align 8
   call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11b2GearJoint, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %1 = load ptr, ptr %def.addr, align 8
-  %joint1 = getelementptr inbounds %struct.b2GearJointDef, ptr %1, i32 0, i32 2
-  %2 = load ptr, ptr %joint1, align 8
+  %1 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTV11b2GearJoint, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
+  %2 = load ptr, ptr %def.addr, align 8
+  %joint1 = getelementptr inbounds %struct.b2GearJointDef, ptr %2, i32 0, i32 2
+  %3 = load ptr, ptr %joint1, align 8
   %m_joint1 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 1
-  store ptr %2, ptr %m_joint1, align 8
-  %3 = load ptr, ptr %def.addr, align 8
-  %joint2 = getelementptr inbounds %struct.b2GearJointDef, ptr %3, i32 0, i32 3
-  %4 = load ptr, ptr %joint2, align 8
+  store ptr %3, ptr %m_joint1, align 8
+  %4 = load ptr, ptr %def.addr, align 8
+  %joint2 = getelementptr inbounds %struct.b2GearJointDef, ptr %4, i32 0, i32 3
+  %5 = load ptr, ptr %joint2, align 8
   %m_joint2 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 2
-  store ptr %4, ptr %m_joint2, align 8
+  store ptr %5, ptr %m_joint2, align 8
   %m_joint12 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %m_joint12, align 8
-  %call = invoke noundef i32 @_ZNK7b2Joint7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(128) %5)
+  %6 = load ptr, ptr %m_joint12, align 8
+  %call = invoke noundef i32 @_ZNK7b2Joint7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(128) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_typeA = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 3
   store i32 %call, ptr %m_typeA, align 8
   %m_joint23 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 2
-  %6 = load ptr, ptr %m_joint23, align 8
-  %call5 = invoke noundef i32 @_ZNK7b2Joint7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(128) %6)
+  %7 = load ptr, ptr %m_joint23, align 8
+  %call5 = invoke noundef i32 @_ZNK7b2Joint7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(128) %7)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %m_typeB = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 4
   store i32 %call5, ptr %m_typeB, align 4
   %m_joint16 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 1
-  %7 = load ptr, ptr %m_joint16, align 8
-  %call8 = invoke noundef ptr @_ZN7b2Joint8GetBodyAEv(ptr noundef nonnull align 8 dereferenceable(128) %7)
+  %8 = load ptr, ptr %m_joint16, align 8
+  %call8 = invoke noundef ptr @_ZN7b2Joint8GetBodyAEv(ptr noundef nonnull align 8 dereferenceable(128) %8)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont4
   %m_bodyC = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 5
   store ptr %call8, ptr %m_bodyC, align 8
   %m_joint19 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %m_joint19, align 8
-  %call11 = invoke noundef ptr @_ZN7b2Joint8GetBodyBEv(ptr noundef nonnull align 8 dereferenceable(128) %8)
+  %9 = load ptr, ptr %m_joint19, align 8
+  %call11 = invoke noundef ptr @_ZN7b2Joint8GetBodyBEv(ptr noundef nonnull align 8 dereferenceable(128) %9)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont7
   %m_bodyA = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 6
   store ptr %call11, ptr %m_bodyA, align 8
   %m_bodyA12 = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 6
-  %9 = load ptr, ptr %m_bodyA12, align 8
-  %m_xf = getelementptr inbounds %class.b2Body, ptr %9, i32 0, i32 3
+  %10 = load ptr, ptr %m_bodyA12, align 8
+  %m_xf = getelementptr inbounds %class.b2Body, ptr %10, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %xfA, ptr align 4 %m_xf, i64 16, i1 false)
   %m_bodyA13 = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 6
-  %10 = load ptr, ptr %m_bodyA13, align 8
-  %m_sweep = getelementptr inbounds %class.b2Body, ptr %10, i32 0, i32 4
+  %11 = load ptr, ptr %m_bodyA13, align 8
+  %m_sweep = getelementptr inbounds %class.b2Body, ptr %11, i32 0, i32 4
   %a = getelementptr inbounds %struct.b2Sweep, ptr %m_sweep, i32 0, i32 4
-  %11 = load float, ptr %a, align 4
-  store float %11, ptr %aA, align 4
+  %12 = load float, ptr %a, align 4
+  store float %12, ptr %aA, align 4
   %m_bodyC14 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 5
-  %12 = load ptr, ptr %m_bodyC14, align 8
-  %m_xf15 = getelementptr inbounds %class.b2Body, ptr %12, i32 0, i32 3
+  %13 = load ptr, ptr %m_bodyC14, align 8
+  %m_xf15 = getelementptr inbounds %class.b2Body, ptr %13, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %xfC, ptr align 4 %m_xf15, i64 16, i1 false)
   %m_bodyC16 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 5
-  %13 = load ptr, ptr %m_bodyC16, align 8
-  %m_sweep17 = getelementptr inbounds %class.b2Body, ptr %13, i32 0, i32 4
+  %14 = load ptr, ptr %m_bodyC16, align 8
+  %m_sweep17 = getelementptr inbounds %class.b2Body, ptr %14, i32 0, i32 4
   %a18 = getelementptr inbounds %struct.b2Sweep, ptr %m_sweep17, i32 0, i32 4
-  %14 = load float, ptr %a18, align 4
-  store float %14, ptr %aC, align 4
+  %15 = load float, ptr %a18, align 4
+  store float %15, ptr %aC, align 4
   %m_typeA19 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 3
-  %15 = load i32, ptr %m_typeA19, align 8
-  %cmp = icmp eq i32 %15, 1
+  %16 = load i32, ptr %m_typeA19, align 8
+  %cmp = icmp eq i32 %16, 1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont10
-  %16 = load ptr, ptr %def.addr, align 8
-  %joint120 = getelementptr inbounds %struct.b2GearJointDef, ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %joint120, align 8
-  store ptr %17, ptr %revolute, align 8
-  %18 = load ptr, ptr %revolute, align 8
-  %m_localAnchorA21 = getelementptr inbounds %class.b2RevoluteJoint, ptr %18, i32 0, i32 1
+  %17 = load ptr, ptr %def.addr, align 8
+  %joint120 = getelementptr inbounds %struct.b2GearJointDef, ptr %17, i32 0, i32 2
+  %18 = load ptr, ptr %joint120, align 8
+  store ptr %18, ptr %revolute, align 8
+  %19 = load ptr, ptr %revolute, align 8
+  %m_localAnchorA21 = getelementptr inbounds %class.b2RevoluteJoint, ptr %19, i32 0, i32 1
   %m_localAnchorC22 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 9
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorC22, ptr align 8 %m_localAnchorA21, i64 8, i1 false)
-  %19 = load ptr, ptr %revolute, align 8
-  %m_localAnchorB23 = getelementptr inbounds %class.b2RevoluteJoint, ptr %19, i32 0, i32 2
+  %20 = load ptr, ptr %revolute, align 8
+  %m_localAnchorB23 = getelementptr inbounds %class.b2RevoluteJoint, ptr %20, i32 0, i32 2
   %m_localAnchorA24 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 7
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorA24, ptr align 8 %m_localAnchorB23, i64 8, i1 false)
-  %20 = load ptr, ptr %revolute, align 8
-  %m_referenceAngle = getelementptr inbounds %class.b2RevoluteJoint, ptr %20, i32 0, i32 11
-  %21 = load float, ptr %m_referenceAngle, align 4
+  %21 = load ptr, ptr %revolute, align 8
+  %m_referenceAngle = getelementptr inbounds %class.b2RevoluteJoint, ptr %21, i32 0, i32 11
+  %22 = load float, ptr %m_referenceAngle, align 4
   %m_referenceAngleA = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 13
-  store float %21, ptr %m_referenceAngleA, align 8
+  store float %22, ptr %m_referenceAngleA, align 8
   %m_localAxisC25 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 11
   invoke void @_ZN6b2Vec27SetZeroEv(ptr noundef nonnull align 4 dereferenceable(8) %m_localAxisC25)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %if.then
-  %22 = load float, ptr %aA, align 4
-  %23 = load float, ptr %aC, align 4
-  %sub = fsub float %22, %23
+  %23 = load float, ptr %aA, align 4
+  %24 = load float, ptr %aC, align 4
+  %sub = fsub float %23, %24
   %m_referenceAngleA27 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 13
-  %24 = load float, ptr %m_referenceAngleA27, align 8
-  %sub28 = fsub float %sub, %24
+  %25 = load float, ptr %m_referenceAngleA27, align 8
+  %sub28 = fsub float %sub, %25
   store float %sub28, ptr %coordinateA, align 4
   %m_tolerance = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 17
   store float 0x3FA1DF46C0000000, ptr %m_tolerance, align 8
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont118, %invoke.cont115, %invoke.cont113, %invoke.cont111, %invoke.cont106, %if.else89, %if.then76, %invoke.cont59, %if.end, %invoke.cont52, %invoke.cont49, %invoke.cont47, %invoke.cont45, %invoke.cont41, %if.else, %if.then, %invoke.cont7, %invoke.cont4, %invoke.cont, %entry
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %exn.slot, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %ehselector.slot, align 4
   call void @_ZN7b2JointD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this1) #8
   br label %eh.resume
 
 if.else:                                          ; preds = %invoke.cont10
-  %28 = load ptr, ptr %def.addr, align 8
-  %joint129 = getelementptr inbounds %struct.b2GearJointDef, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %joint129, align 8
-  store ptr %29, ptr %prismatic, align 8
-  %30 = load ptr, ptr %prismatic, align 8
-  %m_localAnchorA30 = getelementptr inbounds %class.b2PrismaticJoint, ptr %30, i32 0, i32 1
+  %29 = load ptr, ptr %def.addr, align 8
+  %joint129 = getelementptr inbounds %struct.b2GearJointDef, ptr %29, i32 0, i32 2
+  %30 = load ptr, ptr %joint129, align 8
+  store ptr %30, ptr %prismatic, align 8
+  %31 = load ptr, ptr %prismatic, align 8
+  %m_localAnchorA30 = getelementptr inbounds %class.b2PrismaticJoint, ptr %31, i32 0, i32 1
   %m_localAnchorC31 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 9
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorC31, ptr align 8 %m_localAnchorA30, i64 8, i1 false)
-  %31 = load ptr, ptr %prismatic, align 8
-  %m_localAnchorB32 = getelementptr inbounds %class.b2PrismaticJoint, ptr %31, i32 0, i32 2
+  %32 = load ptr, ptr %prismatic, align 8
+  %m_localAnchorB32 = getelementptr inbounds %class.b2PrismaticJoint, ptr %32, i32 0, i32 2
   %m_localAnchorA33 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 7
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorA33, ptr align 8 %m_localAnchorB32, i64 8, i1 false)
-  %32 = load ptr, ptr %prismatic, align 8
-  %m_referenceAngle34 = getelementptr inbounds %class.b2PrismaticJoint, ptr %32, i32 0, i32 5
-  %33 = load float, ptr %m_referenceAngle34, align 8
+  %33 = load ptr, ptr %prismatic, align 8
+  %m_referenceAngle34 = getelementptr inbounds %class.b2PrismaticJoint, ptr %33, i32 0, i32 5
+  %34 = load float, ptr %m_referenceAngle34, align 8
   %m_referenceAngleA35 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 13
-  store float %33, ptr %m_referenceAngleA35, align 8
-  %34 = load ptr, ptr %prismatic, align 8
-  %m_localXAxisA = getelementptr inbounds %class.b2PrismaticJoint, ptr %34, i32 0, i32 3
+  store float %34, ptr %m_referenceAngleA35, align 8
+  %35 = load ptr, ptr %prismatic, align 8
+  %m_localXAxisA = getelementptr inbounds %class.b2PrismaticJoint, ptr %35, i32 0, i32 3
   %m_localAxisC36 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 11
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAxisC36, ptr align 8 %m_localXAxisA, i64 8, i1 false)
   %m_localAnchorC37 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 9
@@ -297,98 +298,98 @@ invoke.cont55:                                    ; preds = %invoke.cont52
 
 if.end:                                           ; preds = %invoke.cont55, %invoke.cont26
   %m_joint258 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 2
-  %35 = load ptr, ptr %m_joint258, align 8
-  %call60 = invoke noundef ptr @_ZN7b2Joint8GetBodyAEv(ptr noundef nonnull align 8 dereferenceable(128) %35)
+  %36 = load ptr, ptr %m_joint258, align 8
+  %call60 = invoke noundef ptr @_ZN7b2Joint8GetBodyAEv(ptr noundef nonnull align 8 dereferenceable(128) %36)
           to label %invoke.cont59 unwind label %lpad
 
 invoke.cont59:                                    ; preds = %if.end
   %m_bodyD = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 6
   store ptr %call60, ptr %m_bodyD, align 8
   %m_joint261 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 2
-  %36 = load ptr, ptr %m_joint261, align 8
-  %call63 = invoke noundef ptr @_ZN7b2Joint8GetBodyBEv(ptr noundef nonnull align 8 dereferenceable(128) %36)
+  %37 = load ptr, ptr %m_joint261, align 8
+  %call63 = invoke noundef ptr @_ZN7b2Joint8GetBodyBEv(ptr noundef nonnull align 8 dereferenceable(128) %37)
           to label %invoke.cont62 unwind label %lpad
 
 invoke.cont62:                                    ; preds = %invoke.cont59
   %m_bodyB = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 7
   store ptr %call63, ptr %m_bodyB, align 8
   %m_bodyB64 = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 7
-  %37 = load ptr, ptr %m_bodyB64, align 8
-  %m_xf65 = getelementptr inbounds %class.b2Body, ptr %37, i32 0, i32 3
+  %38 = load ptr, ptr %m_bodyB64, align 8
+  %m_xf65 = getelementptr inbounds %class.b2Body, ptr %38, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %xfB, ptr align 4 %m_xf65, i64 16, i1 false)
   %m_bodyB66 = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 7
-  %38 = load ptr, ptr %m_bodyB66, align 8
-  %m_sweep67 = getelementptr inbounds %class.b2Body, ptr %38, i32 0, i32 4
+  %39 = load ptr, ptr %m_bodyB66, align 8
+  %m_sweep67 = getelementptr inbounds %class.b2Body, ptr %39, i32 0, i32 4
   %a68 = getelementptr inbounds %struct.b2Sweep, ptr %m_sweep67, i32 0, i32 4
-  %39 = load float, ptr %a68, align 4
-  store float %39, ptr %aB, align 4
+  %40 = load float, ptr %a68, align 4
+  store float %40, ptr %aB, align 4
   %m_bodyD69 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 6
-  %40 = load ptr, ptr %m_bodyD69, align 8
-  %m_xf70 = getelementptr inbounds %class.b2Body, ptr %40, i32 0, i32 3
+  %41 = load ptr, ptr %m_bodyD69, align 8
+  %m_xf70 = getelementptr inbounds %class.b2Body, ptr %41, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %xfD, ptr align 4 %m_xf70, i64 16, i1 false)
   %m_bodyD71 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 6
-  %41 = load ptr, ptr %m_bodyD71, align 8
-  %m_sweep72 = getelementptr inbounds %class.b2Body, ptr %41, i32 0, i32 4
+  %42 = load ptr, ptr %m_bodyD71, align 8
+  %m_sweep72 = getelementptr inbounds %class.b2Body, ptr %42, i32 0, i32 4
   %a73 = getelementptr inbounds %struct.b2Sweep, ptr %m_sweep72, i32 0, i32 4
-  %42 = load float, ptr %a73, align 4
-  store float %42, ptr %aD, align 4
+  %43 = load float, ptr %a73, align 4
+  store float %43, ptr %aD, align 4
   %m_typeB74 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 4
-  %43 = load i32, ptr %m_typeB74, align 4
-  %cmp75 = icmp eq i32 %43, 1
+  %44 = load i32, ptr %m_typeB74, align 4
+  %cmp75 = icmp eq i32 %44, 1
   br i1 %cmp75, label %if.then76, label %if.else89
 
 if.then76:                                        ; preds = %invoke.cont62
-  %44 = load ptr, ptr %def.addr, align 8
-  %joint278 = getelementptr inbounds %struct.b2GearJointDef, ptr %44, i32 0, i32 3
-  %45 = load ptr, ptr %joint278, align 8
-  store ptr %45, ptr %revolute77, align 8
-  %46 = load ptr, ptr %revolute77, align 8
-  %m_localAnchorA79 = getelementptr inbounds %class.b2RevoluteJoint, ptr %46, i32 0, i32 1
+  %45 = load ptr, ptr %def.addr, align 8
+  %joint278 = getelementptr inbounds %struct.b2GearJointDef, ptr %45, i32 0, i32 3
+  %46 = load ptr, ptr %joint278, align 8
+  store ptr %46, ptr %revolute77, align 8
+  %47 = load ptr, ptr %revolute77, align 8
+  %m_localAnchorA79 = getelementptr inbounds %class.b2RevoluteJoint, ptr %47, i32 0, i32 1
   %m_localAnchorD80 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 10
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorD80, ptr align 8 %m_localAnchorA79, i64 8, i1 false)
-  %47 = load ptr, ptr %revolute77, align 8
-  %m_localAnchorB81 = getelementptr inbounds %class.b2RevoluteJoint, ptr %47, i32 0, i32 2
+  %48 = load ptr, ptr %revolute77, align 8
+  %m_localAnchorB81 = getelementptr inbounds %class.b2RevoluteJoint, ptr %48, i32 0, i32 2
   %m_localAnchorB82 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorB82, ptr align 8 %m_localAnchorB81, i64 8, i1 false)
-  %48 = load ptr, ptr %revolute77, align 8
-  %m_referenceAngle83 = getelementptr inbounds %class.b2RevoluteJoint, ptr %48, i32 0, i32 11
-  %49 = load float, ptr %m_referenceAngle83, align 4
+  %49 = load ptr, ptr %revolute77, align 8
+  %m_referenceAngle83 = getelementptr inbounds %class.b2RevoluteJoint, ptr %49, i32 0, i32 11
+  %50 = load float, ptr %m_referenceAngle83, align 4
   %m_referenceAngleB = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 14
-  store float %49, ptr %m_referenceAngleB, align 4
+  store float %50, ptr %m_referenceAngleB, align 4
   %m_localAxisD84 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 12
   invoke void @_ZN6b2Vec27SetZeroEv(ptr noundef nonnull align 4 dereferenceable(8) %m_localAxisD84)
           to label %invoke.cont85 unwind label %lpad
 
 invoke.cont85:                                    ; preds = %if.then76
-  %50 = load float, ptr %aB, align 4
-  %51 = load float, ptr %aD, align 4
-  %sub86 = fsub float %50, %51
+  %51 = load float, ptr %aB, align 4
+  %52 = load float, ptr %aD, align 4
+  %sub86 = fsub float %51, %52
   %m_referenceAngleB87 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 14
-  %52 = load float, ptr %m_referenceAngleB87, align 4
-  %sub88 = fsub float %sub86, %52
+  %53 = load float, ptr %m_referenceAngleB87, align 4
+  %sub88 = fsub float %sub86, %53
   store float %sub88, ptr %coordinateB, align 4
   br label %if.end123
 
 if.else89:                                        ; preds = %invoke.cont62
-  %53 = load ptr, ptr %def.addr, align 8
-  %joint291 = getelementptr inbounds %struct.b2GearJointDef, ptr %53, i32 0, i32 3
-  %54 = load ptr, ptr %joint291, align 8
-  store ptr %54, ptr %prismatic90, align 8
-  %55 = load ptr, ptr %prismatic90, align 8
-  %m_localAnchorA92 = getelementptr inbounds %class.b2PrismaticJoint, ptr %55, i32 0, i32 1
+  %54 = load ptr, ptr %def.addr, align 8
+  %joint291 = getelementptr inbounds %struct.b2GearJointDef, ptr %54, i32 0, i32 3
+  %55 = load ptr, ptr %joint291, align 8
+  store ptr %55, ptr %prismatic90, align 8
+  %56 = load ptr, ptr %prismatic90, align 8
+  %m_localAnchorA92 = getelementptr inbounds %class.b2PrismaticJoint, ptr %56, i32 0, i32 1
   %m_localAnchorD93 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 10
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorD93, ptr align 8 %m_localAnchorA92, i64 8, i1 false)
-  %56 = load ptr, ptr %prismatic90, align 8
-  %m_localAnchorB94 = getelementptr inbounds %class.b2PrismaticJoint, ptr %56, i32 0, i32 2
+  %57 = load ptr, ptr %prismatic90, align 8
+  %m_localAnchorB94 = getelementptr inbounds %class.b2PrismaticJoint, ptr %57, i32 0, i32 2
   %m_localAnchorB95 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAnchorB95, ptr align 8 %m_localAnchorB94, i64 8, i1 false)
-  %57 = load ptr, ptr %prismatic90, align 8
-  %m_referenceAngle96 = getelementptr inbounds %class.b2PrismaticJoint, ptr %57, i32 0, i32 5
-  %58 = load float, ptr %m_referenceAngle96, align 8
+  %58 = load ptr, ptr %prismatic90, align 8
+  %m_referenceAngle96 = getelementptr inbounds %class.b2PrismaticJoint, ptr %58, i32 0, i32 5
+  %59 = load float, ptr %m_referenceAngle96, align 8
   %m_referenceAngleB97 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 14
-  store float %58, ptr %m_referenceAngleB97, align 4
-  %59 = load ptr, ptr %prismatic90, align 8
-  %m_localXAxisA98 = getelementptr inbounds %class.b2PrismaticJoint, ptr %59, i32 0, i32 3
+  store float %59, ptr %m_referenceAngleB97, align 4
+  %60 = load ptr, ptr %prismatic90, align 8
+  %m_localXAxisA98 = getelementptr inbounds %class.b2PrismaticJoint, ptr %60, i32 0, i32 3
   %m_localAxisD99 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 12
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_localAxisD99, ptr align 8 %m_localXAxisA98, i64 8, i1 false)
   %m_localAnchorD100 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 10
@@ -432,18 +433,18 @@ invoke.cont121:                                   ; preds = %invoke.cont118
   br label %if.end123
 
 if.end123:                                        ; preds = %invoke.cont121, %invoke.cont85
-  %60 = load ptr, ptr %def.addr, align 8
-  %ratio = getelementptr inbounds %struct.b2GearJointDef, ptr %60, i32 0, i32 4
-  %61 = load float, ptr %ratio, align 8
+  %61 = load ptr, ptr %def.addr, align 8
+  %ratio = getelementptr inbounds %struct.b2GearJointDef, ptr %61, i32 0, i32 4
+  %62 = load float, ptr %ratio, align 8
   %m_ratio = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 16
-  store float %61, ptr %m_ratio, align 4
-  %62 = load float, ptr %coordinateA, align 4
+  store float %62, ptr %m_ratio, align 4
+  %63 = load float, ptr %coordinateA, align 4
   %m_ratio124 = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 16
-  %63 = load float, ptr %m_ratio124, align 4
-  %64 = load float, ptr %coordinateB, align 4
-  %65 = call float @llvm.fmuladd.f32(float %63, float %64, float %62)
+  %64 = load float, ptr %m_ratio124, align 4
+  %65 = load float, ptr %coordinateB, align 4
+  %66 = call float @llvm.fmuladd.f32(float %64, float %65, float %63)
   %m_constant = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 15
-  store float %65, ptr %m_constant, align 8
+  store float %66, ptr %m_constant, align 8
   %m_impulse = getelementptr inbounds %class.b2GearJoint, ptr %this1, i32 0, i32 18
   store float 0.000000e+00, ptr %m_impulse, align 4
   ret void

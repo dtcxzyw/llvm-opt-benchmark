@@ -138,13 +138,14 @@ entry:
   %0 = load i32, ptr %rbA.addr, align 4
   %1 = load i32, ptr %rbB.addr, align 4
   call void @_ZN17b3TypedConstraintC2E21b3TypedConstraintTypeii(ptr noundef nonnull align 16 dereferenceable(64) %this1, i32 noundef 3, i32 noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV23b3Point2PointConstraint, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %2 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV23b3Point2PointConstraint, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this1, align 16
   %m_pivotInA = getelementptr inbounds %class.b3Point2PointConstraint, ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %pivotInA.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %m_pivotInA, ptr align 16 %2, i64 16, i1 false)
+  %3 = load ptr, ptr %pivotInA.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %m_pivotInA, ptr align 16 %3, i64 16, i1 false)
   %m_pivotInB = getelementptr inbounds %class.b3Point2PointConstraint, ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %pivotInB.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %m_pivotInB, ptr align 16 %3, i64 16, i1 false)
+  %4 = load ptr, ptr %pivotInB.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %m_pivotInB, ptr align 16 %4, i64 16, i1 false)
   %m_flags = getelementptr inbounds %class.b3Point2PointConstraint, ptr %this1, i32 0, i32 3
   store i32 0, ptr %m_flags, align 16
   %m_setting = getelementptr inbounds %class.b3Point2PointConstraint, ptr %this1, i32 0, i32 6
@@ -155,12 +156,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN17b3TypedConstraintD2Ev(ptr noundef nonnull align 16 dereferenceable(64) %this1) #9
   br label %eh.resume
 
@@ -1054,7 +1055,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 16
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 16
   ret void
 }
 

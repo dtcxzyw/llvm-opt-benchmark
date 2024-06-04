@@ -1733,7 +1733,8 @@ cond.false5:                                      ; preds = %cond.end
 
 cond.end6:                                        ; preds = %6, %cond.true4
   %7 = load ptr, ptr %table, align 8
-  %call7 = call ptr @_Py_hashtable_get(ptr noundef %7, ptr noundef inttoptr (i64 120 to ptr))
+  %8 = inttoptr i64 120 to ptr
+  %call7 = call ptr @_Py_hashtable_get(ptr noundef %7, ptr noundef %8)
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %cond.true9, label %cond.false10
 
@@ -1744,39 +1745,39 @@ cond.false10:                                     ; preds = %cond.end6
   call void @__assert_fail(ptr noundef @.str.67, ptr noundef @.str.65, i32 noundef 266, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-8:                                                ; No predecessors!
+9:                                                ; No predecessors!
   br label %cond.end11
 
-cond.end11:                                       ; preds = %8, %cond.true9
+cond.end11:                                       ; preds = %9, %cond.true9
   store i8 97, ptr %key, align 1
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %cond.end11
-  %9 = load i8, ptr %key, align 1
-  %conv = sext i8 %9 to i32
+  %10 = load i8, ptr %key, align 1
+  %conv = sext i8 %10 to i32
   %cmp12 = icmp sle i32 %conv, 122
   br i1 %cmp12, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %10 = load i8, ptr %key, align 1
-  %conv14 = sext i8 %10 to i32
+  %11 = load i8, ptr %key, align 1
+  %conv14 = sext i8 %11 to i32
   %sub = sub i32 %conv14, 97
   %add = add i32 1, %sub
   store i32 %add, ptr %value, align 4
-  %11 = load ptr, ptr %table, align 8
-  %12 = load i8, ptr %key, align 1
-  %conv15 = sext i8 %12 to i64
-  %13 = inttoptr i64 %conv15 to ptr
-  %14 = load i32, ptr %value, align 4
-  %conv16 = sext i32 %14 to i64
-  %15 = inttoptr i64 %conv16 to ptr
-  %call17 = call i32 @_Py_hashtable_set(ptr noundef %11, ptr noundef %13, ptr noundef %15)
+  %12 = load ptr, ptr %table, align 8
+  %13 = load i8, ptr %key, align 1
+  %conv15 = sext i8 %13 to i64
+  %14 = inttoptr i64 %conv15 to ptr
+  %15 = load i32, ptr %value, align 4
+  %conv16 = sext i32 %15 to i64
+  %16 = inttoptr i64 %conv16 to ptr
+  %call17 = call i32 @_Py_hashtable_set(ptr noundef %12, ptr noundef %14, ptr noundef %16)
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %for.body
-  %16 = load ptr, ptr %table, align 8
-  call void @_Py_hashtable_destroy(ptr noundef %16)
+  %17 = load ptr, ptr %table, align 8
+  call void @_Py_hashtable_destroy(ptr noundef %17)
   %call21 = call ptr @PyErr_NoMemory()
   store ptr %call21, ptr %retval, align 8
   br label %return
@@ -1785,16 +1786,16 @@ if.end22:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end22
-  %17 = load i8, ptr %key, align 1
-  %inc = add i8 %17, 1
+  %18 = load i8, ptr %key, align 1
+  %inc = add i8 %18, 1
   store i8 %inc, ptr %key, align 1
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  %18 = load ptr, ptr %table, align 8
-  %nentries23 = getelementptr inbounds %struct._Py_hashtable_t, ptr %18, i32 0, i32 0
-  %19 = load i64, ptr %nentries23, align 8
-  %cmp24 = icmp eq i64 %19, 26
+  %19 = load ptr, ptr %table, align 8
+  %nentries23 = getelementptr inbounds %struct._Py_hashtable_t, ptr %19, i32 0, i32 0
+  %20 = load i64, ptr %nentries23, align 8
+  %cmp24 = icmp eq i64 %20, 26
   br i1 %cmp24, label %cond.true26, label %cond.false27
 
 cond.true26:                                      ; preds = %for.end
@@ -1804,17 +1805,17 @@ cond.false27:                                     ; preds = %for.end
   call void @__assert_fail(ptr noundef @.str.68, ptr noundef @.str.65, i32 noundef 277, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-20:                                               ; No predecessors!
+21:                                               ; No predecessors!
   br label %cond.end28
 
-cond.end28:                                       ; preds = %20, %cond.true26
-  %21 = load ptr, ptr %table, align 8
-  %nbuckets29 = getelementptr inbounds %struct._Py_hashtable_t, ptr %21, i32 0, i32 1
-  %22 = load i64, ptr %nbuckets29, align 8
-  %23 = load ptr, ptr %table, align 8
-  %nentries30 = getelementptr inbounds %struct._Py_hashtable_t, ptr %23, i32 0, i32 0
-  %24 = load i64, ptr %nentries30, align 8
-  %cmp31 = icmp ugt i64 %22, %24
+cond.end28:                                       ; preds = %21, %cond.true26
+  %22 = load ptr, ptr %table, align 8
+  %nbuckets29 = getelementptr inbounds %struct._Py_hashtable_t, ptr %22, i32 0, i32 1
+  %23 = load i64, ptr %nbuckets29, align 8
+  %24 = load ptr, ptr %table, align 8
+  %nentries30 = getelementptr inbounds %struct._Py_hashtable_t, ptr %24, i32 0, i32 0
+  %25 = load i64, ptr %nentries30, align 8
+  %cmp31 = icmp ugt i64 %23, %25
   br i1 %cmp31, label %cond.true33, label %cond.false34
 
 cond.true33:                                      ; preds = %cond.end28
@@ -1824,28 +1825,28 @@ cond.false34:                                     ; preds = %cond.end28
   call void @__assert_fail(ptr noundef @.str.69, ptr noundef @.str.65, i32 noundef 278, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-25:                                               ; No predecessors!
+26:                                               ; No predecessors!
   br label %cond.end35
 
-cond.end35:                                       ; preds = %25, %cond.true33
+cond.end35:                                       ; preds = %26, %cond.true33
   store i8 97, ptr %key, align 1
   br label %for.cond36
 
 for.cond36:                                       ; preds = %for.inc66, %cond.end35
-  %26 = load i8, ptr %key, align 1
-  %conv37 = sext i8 %26 to i32
+  %27 = load i8, ptr %key, align 1
+  %conv37 = sext i8 %27 to i32
   %cmp38 = icmp sle i32 %conv37, 122
   br i1 %cmp38, label %for.body40, label %for.end68
 
 for.body40:                                       ; preds = %for.cond36
-  %27 = load ptr, ptr %table, align 8
-  %28 = load i8, ptr %key, align 1
-  %conv42 = sext i8 %28 to i64
-  %29 = inttoptr i64 %conv42 to ptr
-  %call43 = call ptr @_Py_hashtable_get_entry(ptr noundef %27, ptr noundef %29)
+  %28 = load ptr, ptr %table, align 8
+  %29 = load i8, ptr %key, align 1
+  %conv42 = sext i8 %29 to i64
+  %30 = inttoptr i64 %conv42 to ptr
+  %call43 = call ptr @_Py_hashtable_get_entry(ptr noundef %28, ptr noundef %30)
   store ptr %call43, ptr %entry41, align 8
-  %30 = load ptr, ptr %entry41, align 8
-  %cmp44 = icmp ne ptr %30, null
+  %31 = load ptr, ptr %entry41, align 8
+  %cmp44 = icmp ne ptr %31, null
   br i1 %cmp44, label %cond.true46, label %cond.false47
 
 cond.true46:                                      ; preds = %for.body40
@@ -1855,17 +1856,17 @@ cond.false47:                                     ; preds = %for.body40
   call void @__assert_fail(ptr noundef @.str.70, ptr noundef @.str.65, i32 noundef 283, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-31:                                               ; No predecessors!
+32:                                               ; No predecessors!
   br label %cond.end48
 
-cond.end48:                                       ; preds = %31, %cond.true46
-  %32 = load ptr, ptr %entry41, align 8
-  %key49 = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %32, i32 0, i32 2
-  %33 = load ptr, ptr %key49, align 8
-  %34 = load i8, ptr %key, align 1
-  %conv50 = sext i8 %34 to i64
-  %35 = inttoptr i64 %conv50 to ptr
-  %cmp51 = icmp eq ptr %33, %35
+cond.end48:                                       ; preds = %32, %cond.true46
+  %33 = load ptr, ptr %entry41, align 8
+  %key49 = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %33, i32 0, i32 2
+  %34 = load ptr, ptr %key49, align 8
+  %35 = load i8, ptr %key, align 1
+  %conv50 = sext i8 %35 to i64
+  %36 = inttoptr i64 %conv50 to ptr
+  %cmp51 = icmp eq ptr %34, %36
   br i1 %cmp51, label %cond.true53, label %cond.false54
 
 cond.true53:                                      ; preds = %cond.end48
@@ -1875,20 +1876,20 @@ cond.false54:                                     ; preds = %cond.end48
   call void @__assert_fail(ptr noundef @.str.71, ptr noundef @.str.65, i32 noundef 284, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-36:                                               ; No predecessors!
+37:                                               ; No predecessors!
   br label %cond.end55
 
-cond.end55:                                       ; preds = %36, %cond.true53
-  %37 = load ptr, ptr %entry41, align 8
-  %value56 = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %37, i32 0, i32 3
-  %38 = load ptr, ptr %value56, align 8
-  %39 = load i8, ptr %key, align 1
-  %conv57 = sext i8 %39 to i32
+cond.end55:                                       ; preds = %37, %cond.true53
+  %38 = load ptr, ptr %entry41, align 8
+  %value56 = getelementptr inbounds %struct._Py_hashtable_entry_t, ptr %38, i32 0, i32 3
+  %39 = load ptr, ptr %value56, align 8
+  %40 = load i8, ptr %key, align 1
+  %conv57 = sext i8 %40 to i32
   %sub58 = sub i32 %conv57, 97
   %add59 = add i32 1, %sub58
   %conv60 = sext i32 %add59 to i64
-  %40 = inttoptr i64 %conv60 to ptr
-  %cmp61 = icmp eq ptr %38, %40
+  %41 = inttoptr i64 %conv60 to ptr
+  %cmp61 = icmp eq ptr %39, %41
   br i1 %cmp61, label %cond.true63, label %cond.false64
 
 cond.true63:                                      ; preds = %cond.end55
@@ -1898,15 +1899,15 @@ cond.false64:                                     ; preds = %cond.end55
   call void @__assert_fail(ptr noundef @.str.72, ptr noundef @.str.65, i32 noundef 285, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-41:                                               ; No predecessors!
+42:                                               ; No predecessors!
   br label %cond.end65
 
-cond.end65:                                       ; preds = %41, %cond.true63
+cond.end65:                                       ; preds = %42, %cond.true63
   br label %for.inc66
 
 for.inc66:                                        ; preds = %cond.end65
-  %42 = load i8, ptr %key, align 1
-  %inc67 = add i8 %42, 1
+  %43 = load i8, ptr %key, align 1
+  %inc67 = add i8 %43, 1
   store i8 %inc67, ptr %key, align 1
   br label %for.cond36, !llvm.loop !6
 
@@ -1915,23 +1916,23 @@ for.end68:                                        ; preds = %for.cond36
   br label %for.cond69
 
 for.cond69:                                       ; preds = %for.inc85, %for.end68
-  %43 = load i8, ptr %key, align 1
-  %conv70 = sext i8 %43 to i32
+  %44 = load i8, ptr %key, align 1
+  %conv70 = sext i8 %44 to i32
   %cmp71 = icmp sle i32 %conv70, 122
   br i1 %cmp71, label %for.body73, label %for.end87
 
 for.body73:                                       ; preds = %for.cond69
-  %44 = load ptr, ptr %table, align 8
-  %45 = load i8, ptr %key, align 1
-  %conv74 = sext i8 %45 to i64
-  %46 = inttoptr i64 %conv74 to ptr
-  %call75 = call ptr @_Py_hashtable_get(ptr noundef %44, ptr noundef %46)
+  %45 = load ptr, ptr %table, align 8
+  %46 = load i8, ptr %key, align 1
+  %conv74 = sext i8 %46 to i64
+  %47 = inttoptr i64 %conv74 to ptr
+  %call75 = call ptr @_Py_hashtable_get(ptr noundef %45, ptr noundef %47)
   store ptr %call75, ptr %value_ptr, align 8
-  %47 = load ptr, ptr %value_ptr, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %conv76 = trunc i64 %48 to i32
-  %49 = load i8, ptr %key, align 1
-  %conv77 = sext i8 %49 to i32
+  %48 = load ptr, ptr %value_ptr, align 8
+  %49 = ptrtoint ptr %48 to i64
+  %conv76 = trunc i64 %49 to i32
+  %50 = load i8, ptr %key, align 1
+  %conv77 = sext i8 %50 to i32
   %sub78 = sub i32 %conv77, 97
   %add79 = add i32 1, %sub78
   %cmp80 = icmp eq i32 %conv76, %add79
@@ -1944,31 +1945,31 @@ cond.false83:                                     ; preds = %for.body73
   call void @__assert_fail(ptr noundef @.str.73, ptr noundef @.str.65, i32 noundef 291, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-50:                                               ; No predecessors!
+51:                                               ; No predecessors!
   br label %cond.end84
 
-cond.end84:                                       ; preds = %50, %cond.true82
+cond.end84:                                       ; preds = %51, %cond.true82
   br label %for.inc85
 
 for.inc85:                                        ; preds = %cond.end84
-  %51 = load i8, ptr %key, align 1
-  %inc86 = add i8 %51, 1
+  %52 = load i8, ptr %key, align 1
+  %inc86 = add i8 %52, 1
   store i8 %inc86, ptr %key, align 1
   br label %for.cond69, !llvm.loop !7
 
 for.end87:                                        ; preds = %for.cond69
   store i8 112, ptr %key, align 1
-  %52 = load ptr, ptr %table, align 8
-  %53 = load i8, ptr %key, align 1
-  %conv89 = sext i8 %53 to i64
-  %54 = inttoptr i64 %conv89 to ptr
-  %call90 = call ptr @_Py_hashtable_steal(ptr noundef %52, ptr noundef %54)
+  %53 = load ptr, ptr %table, align 8
+  %54 = load i8, ptr %key, align 1
+  %conv89 = sext i8 %54 to i64
+  %55 = inttoptr i64 %conv89 to ptr
+  %call90 = call ptr @_Py_hashtable_steal(ptr noundef %53, ptr noundef %55)
   store ptr %call90, ptr %value_ptr88, align 8
-  %55 = load ptr, ptr %value_ptr88, align 8
-  %56 = ptrtoint ptr %55 to i64
-  %conv91 = trunc i64 %56 to i32
-  %57 = load i8, ptr %key, align 1
-  %conv92 = sext i8 %57 to i32
+  %56 = load ptr, ptr %value_ptr88, align 8
+  %57 = ptrtoint ptr %56 to i64
+  %conv91 = trunc i64 %57 to i32
+  %58 = load i8, ptr %key, align 1
+  %conv92 = sext i8 %58 to i32
   %sub93 = sub i32 %conv92, 97
   %add94 = add i32 1, %sub93
   %cmp95 = icmp eq i32 %conv91, %add94
@@ -1981,14 +1982,14 @@ cond.false98:                                     ; preds = %for.end87
   call void @__assert_fail(ptr noundef @.str.73, ptr noundef @.str.65, i32 noundef 297, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-58:                                               ; No predecessors!
+59:                                               ; No predecessors!
   br label %cond.end99
 
-cond.end99:                                       ; preds = %58, %cond.true97
-  %59 = load ptr, ptr %table, align 8
-  %nentries100 = getelementptr inbounds %struct._Py_hashtable_t, ptr %59, i32 0, i32 0
-  %60 = load i64, ptr %nentries100, align 8
-  %cmp101 = icmp eq i64 %60, 25
+cond.end99:                                       ; preds = %59, %cond.true97
+  %60 = load ptr, ptr %table, align 8
+  %nentries100 = getelementptr inbounds %struct._Py_hashtable_t, ptr %60, i32 0, i32 0
+  %61 = load i64, ptr %nentries100, align 8
+  %cmp101 = icmp eq i64 %61, 25
   br i1 %cmp101, label %cond.true103, label %cond.false104
 
 cond.true103:                                     ; preds = %cond.end99
@@ -1998,15 +1999,15 @@ cond.false104:                                    ; preds = %cond.end99
   call void @__assert_fail(ptr noundef @.str.74, ptr noundef @.str.65, i32 noundef 298, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-61:                                               ; No predecessors!
+62:                                               ; No predecessors!
   br label %cond.end105
 
-cond.end105:                                      ; preds = %61, %cond.true103
-  %62 = load ptr, ptr %table, align 8
-  %63 = load i8, ptr %key, align 1
-  %conv106 = sext i8 %63 to i64
-  %64 = inttoptr i64 %conv106 to ptr
-  %call107 = call ptr @_Py_hashtable_get_entry(ptr noundef %62, ptr noundef %64)
+cond.end105:                                      ; preds = %62, %cond.true103
+  %63 = load ptr, ptr %table, align 8
+  %64 = load i8, ptr %key, align 1
+  %conv106 = sext i8 %64 to i64
+  %65 = inttoptr i64 %conv106 to ptr
+  %call107 = call ptr @_Py_hashtable_get_entry(ptr noundef %63, ptr noundef %65)
   %cmp108 = icmp eq ptr %call107, null
   br i1 %cmp108, label %cond.true110, label %cond.false111
 
@@ -2017,16 +2018,16 @@ cond.false111:                                    ; preds = %cond.end105
   call void @__assert_fail(ptr noundef @.str.75, ptr noundef @.str.65, i32 noundef 299, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-65:                                               ; No predecessors!
+66:                                               ; No predecessors!
   br label %cond.end112
 
-cond.end112:                                      ; preds = %65, %cond.true110
+cond.end112:                                      ; preds = %66, %cond.true110
   store i32 0, ptr %count, align 4
-  %66 = load ptr, ptr %table, align 8
-  %call113 = call i32 @_Py_hashtable_foreach(ptr noundef %66, ptr noundef @hashtable_cb, ptr noundef %count)
+  %67 = load ptr, ptr %table, align 8
+  %call113 = call i32 @_Py_hashtable_foreach(ptr noundef %67, ptr noundef @hashtable_cb, ptr noundef %count)
   store i32 %call113, ptr %res, align 4
-  %67 = load i32, ptr %res, align 4
-  %cmp114 = icmp eq i32 %67, 0
+  %68 = load i32, ptr %res, align 4
+  %cmp114 = icmp eq i32 %68, 0
   br i1 %cmp114, label %cond.true116, label %cond.false117
 
 cond.true116:                                     ; preds = %cond.end112
@@ -2036,12 +2037,12 @@ cond.false117:                                    ; preds = %cond.end112
   call void @__assert_fail(ptr noundef @.str.76, ptr noundef @.str.65, i32 noundef 304, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-68:                                               ; No predecessors!
+69:                                               ; No predecessors!
   br label %cond.end118
 
-cond.end118:                                      ; preds = %68, %cond.true116
-  %69 = load i32, ptr %count, align 4
-  %cmp119 = icmp eq i32 %69, 25
+cond.end118:                                      ; preds = %69, %cond.true116
+  %70 = load i32, ptr %count, align 4
+  %cmp119 = icmp eq i32 %70, 25
   br i1 %cmp119, label %cond.true121, label %cond.false122
 
 cond.true121:                                     ; preds = %cond.end118
@@ -2051,16 +2052,16 @@ cond.false122:                                    ; preds = %cond.end118
   call void @__assert_fail(ptr noundef @.str.77, ptr noundef @.str.65, i32 noundef 305, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-70:                                               ; No predecessors!
+71:                                               ; No predecessors!
   br label %cond.end123
 
-cond.end123:                                      ; preds = %70, %cond.true121
-  %71 = load ptr, ptr %table, align 8
-  call void @_Py_hashtable_clear(ptr noundef %71)
+cond.end123:                                      ; preds = %71, %cond.true121
   %72 = load ptr, ptr %table, align 8
-  %nentries124 = getelementptr inbounds %struct._Py_hashtable_t, ptr %72, i32 0, i32 0
-  %73 = load i64, ptr %nentries124, align 8
-  %cmp125 = icmp eq i64 %73, 0
+  call void @_Py_hashtable_clear(ptr noundef %72)
+  %73 = load ptr, ptr %table, align 8
+  %nentries124 = getelementptr inbounds %struct._Py_hashtable_t, ptr %73, i32 0, i32 0
+  %74 = load i64, ptr %nentries124, align 8
+  %cmp125 = icmp eq i64 %74, 0
   br i1 %cmp125, label %cond.true127, label %cond.false128
 
 cond.true127:                                     ; preds = %cond.end123
@@ -2070,14 +2071,14 @@ cond.false128:                                    ; preds = %cond.end123
   call void @__assert_fail(ptr noundef @.str.64, ptr noundef @.str.65, i32 noundef 309, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-74:                                               ; No predecessors!
+75:                                               ; No predecessors!
   br label %cond.end129
 
-cond.end129:                                      ; preds = %74, %cond.true127
-  %75 = load ptr, ptr %table, align 8
-  %nbuckets130 = getelementptr inbounds %struct._Py_hashtable_t, ptr %75, i32 0, i32 1
-  %76 = load i64, ptr %nbuckets130, align 8
-  %cmp131 = icmp ugt i64 %76, 0
+cond.end129:                                      ; preds = %75, %cond.true127
+  %76 = load ptr, ptr %table, align 8
+  %nbuckets130 = getelementptr inbounds %struct._Py_hashtable_t, ptr %76, i32 0, i32 1
+  %77 = load i64, ptr %nbuckets130, align 8
+  %cmp131 = icmp ugt i64 %77, 0
   br i1 %cmp131, label %cond.true133, label %cond.false134
 
 cond.true133:                                     ; preds = %cond.end129
@@ -2087,12 +2088,13 @@ cond.false134:                                    ; preds = %cond.end129
   call void @__assert_fail(ptr noundef @.str.66, ptr noundef @.str.65, i32 noundef 310, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-77:                                               ; No predecessors!
+78:                                               ; No predecessors!
   br label %cond.end135
 
-cond.end135:                                      ; preds = %77, %cond.true133
-  %78 = load ptr, ptr %table, align 8
-  %call136 = call ptr @_Py_hashtable_get(ptr noundef %78, ptr noundef inttoptr (i64 120 to ptr))
+cond.end135:                                      ; preds = %78, %cond.true133
+  %79 = load ptr, ptr %table, align 8
+  %80 = inttoptr i64 120 to ptr
+  %call136 = call ptr @_Py_hashtable_get(ptr noundef %79, ptr noundef %80)
   %cmp137 = icmp eq ptr %call136, null
   br i1 %cmp137, label %cond.true139, label %cond.false140
 
@@ -2103,18 +2105,18 @@ cond.false140:                                    ; preds = %cond.end135
   call void @__assert_fail(ptr noundef @.str.67, ptr noundef @.str.65, i32 noundef 311, ptr noundef @__PRETTY_FUNCTION__.test_hashtable) #7
   unreachable
 
-79:                                               ; No predecessors!
+81:                                               ; No predecessors!
   br label %cond.end141
 
-cond.end141:                                      ; preds = %79, %cond.true139
-  %80 = load ptr, ptr %table, align 8
-  call void @_Py_hashtable_destroy(ptr noundef %80)
+cond.end141:                                      ; preds = %81, %cond.true139
+  %82 = load ptr, ptr %table, align 8
+  call void @_Py_hashtable_destroy(ptr noundef %82)
   store ptr @_Py_NoneStruct, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %cond.end141, %if.then20, %if.then
-  %81 = load ptr, ptr %retval, align 8
-  ret ptr %81
+  %83 = load ptr, ptr %retval, align 8
+  ret ptr %83
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5042,56 +5044,59 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp23, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %for.body
-  store ptr getelementptr inbounds (%struct.anon.46, ptr getelementptr inbounds (%struct.anon.44, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37), i32 0, i32 3), i32 0, i32 5), ptr %item, align 8
+  %21 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 37
+  %22 = getelementptr inbounds %struct.anon.44, ptr %21, i32 0, i32 3
+  %23 = getelementptr inbounds %struct.anon.46, ptr %22, i32 0, i32 5
+  store ptr %23, ptr %item, align 8
   br label %if.end26
 
 if.else:                                          ; preds = %for.body
-  %21 = load ptr, ptr %item, align 8
-  store ptr %21, ptr %op.addr.i, align 8
-  %22 = load ptr, ptr %op.addr.i, align 8
-  %23 = load i32, ptr %22, align 8
-  store i32 %23, ptr %cur_refcnt.i, align 4
-  %24 = load i32, ptr %cur_refcnt.i, align 4
-  %add.i = add i32 %24, 1
+  %24 = load ptr, ptr %item, align 8
+  store ptr %24, ptr %op.addr.i, align 8
+  %25 = load ptr, ptr %op.addr.i, align 8
+  %26 = load i32, ptr %25, align 8
+  store i32 %26, ptr %cur_refcnt.i, align 4
+  %27 = load i32, ptr %cur_refcnt.i, align 4
+  %add.i = add i32 %27, 1
   store i32 %add.i, ptr %new_refcnt.i, align 4
-  %25 = load i32, ptr %new_refcnt.i, align 4
-  %cmp.i = icmp eq i32 %25, 0
+  %28 = load i32, ptr %new_refcnt.i, align 4
+  %cmp.i = icmp eq i32 %28, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else
   br label %Py_INCREF.exit
 
 if.end.i:                                         ; preds = %if.else
-  %26 = load i32, ptr %new_refcnt.i, align 4
-  %27 = load ptr, ptr %op.addr.i, align 8
-  store i32 %26, ptr %27, align 8
+  %29 = load i32, ptr %new_refcnt.i, align 4
+  %30 = load ptr, ptr %op.addr.i, align 8
+  store i32 %29, ptr %30, align 8
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %if.end.i, %if.then.i
   br label %if.end26
 
 if.end26:                                         ; preds = %Py_INCREF.exit, %if.then25
-  %28 = load ptr, ptr %res, align 8
-  %29 = load i32, ptr %i, align 4
-  %conv27 = sext i32 %29 to i64
-  %30 = load ptr, ptr %item, align 8
-  call void @PyTuple_SET_ITEM(ptr noundef %28, i64 noundef %conv27, ptr noundef %30)
+  %31 = load ptr, ptr %res, align 8
+  %32 = load i32, ptr %i, align 4
+  %conv27 = sext i32 %32 to i64
+  %33 = load ptr, ptr %item, align 8
+  call void @PyTuple_SET_ITEM(ptr noundef %31, i64 noundef %conv27, ptr noundef %33)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end26
-  %31 = load i32, ptr %i, align 4
-  %inc = add i32 %31, 1
+  %34 = load i32, ptr %i, align 4
+  %inc = add i32 %34, 1
   store i32 %inc, ptr %i, align 4
   br label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %for.cond
-  %32 = load ptr, ptr %res, align 8
-  store ptr %32, ptr %retval, align 8
+  %35 = load ptr, ptr %res, align 8
+  store ptr %35, ptr %retval, align 8
   br label %return
 
 return:                                           ; preds = %for.end, %if.then18, %if.then5, %if.then
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
+  %36 = load ptr, ptr %retval, align 8
+  ret ptr %36
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7153,8 +7158,9 @@ declare i64 @PyLong_AsLong(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @_PyInterpreterState_Main() #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 8, i32 2), align 8
-  ret ptr %0
+  %0 = getelementptr inbounds %struct.pyruntimestate, ptr @_PyRuntime, i32 0, i32 8, i32 2
+  %1 = load ptr, ptr %0, align 8
+  ret ptr %1
 }
 
 declare ptr @PyDict_New() #1

@@ -123,49 +123,50 @@ entry:
   store ptr %device, ptr %device.addr, align 8
   store ptr %queue, ptr %queue.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8b3FillCL, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV8b3FillCL, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %m_commandQueue = getelementptr inbounds %class.b3FillCL, ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %queue.addr, align 8
-  store ptr %0, ptr %m_commandQueue, align 8
-  %1 = load ptr, ptr @_ZL13fillKernelsCL, align 8
-  store ptr %1, ptr %kernelSource, align 8
+  %1 = load ptr, ptr %queue.addr, align 8
+  store ptr %1, ptr %m_commandQueue, align 8
+  %2 = load ptr, ptr @_ZL13fillKernelsCL, align 8
+  store ptr %2, ptr %kernelSource, align 8
   store ptr @.str, ptr %additionalMacros, align 8
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %3 = load ptr, ptr %device.addr, align 8
-  %4 = load ptr, ptr %kernelSource, align 8
-  %5 = load ptr, ptr %additionalMacros, align 8
-  %call = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %pErrNum, ptr noundef %5, ptr noundef @.str.1, i1 noundef zeroext false)
+  %3 = load ptr, ptr %ctx.addr, align 8
+  %4 = load ptr, ptr %device.addr, align 8
+  %5 = load ptr, ptr %kernelSource, align 8
+  %6 = load ptr, ptr %additionalMacros, align 8
+  %call = call noundef ptr @_ZN13b3OpenCLUtils26compileCLProgramFromStringEP11_cl_contextP13_cl_device_idPKcPiS5_S5_b(ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %pErrNum, ptr noundef %6, ptr noundef @.str.1, i1 noundef zeroext false)
   store ptr %call, ptr %fillProg, align 8
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %7 = load ptr, ptr %device.addr, align 8
-  %8 = load ptr, ptr %kernelSource, align 8
-  %9 = load ptr, ptr %fillProg, align 8
-  %10 = load ptr, ptr %additionalMacros, align 8
-  %call2 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef @.str.2, ptr noundef %pErrNum, ptr noundef %9, ptr noundef %10)
+  %7 = load ptr, ptr %ctx.addr, align 8
+  %8 = load ptr, ptr %device.addr, align 8
+  %9 = load ptr, ptr %kernelSource, align 8
+  %10 = load ptr, ptr %fillProg, align 8
+  %11 = load ptr, ptr %additionalMacros, align 8
+  %call2 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef @.str.2, ptr noundef %pErrNum, ptr noundef %10, ptr noundef %11)
   %m_fillIntKernel = getelementptr inbounds %class.b3FillCL, ptr %this1, i32 0, i32 3
   store ptr %call2, ptr %m_fillIntKernel, align 8
-  %11 = load ptr, ptr %ctx.addr, align 8
-  %12 = load ptr, ptr %device.addr, align 8
-  %13 = load ptr, ptr %kernelSource, align 8
-  %14 = load ptr, ptr %fillProg, align 8
-  %15 = load ptr, ptr %additionalMacros, align 8
-  %call3 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef @.str.3, ptr noundef %pErrNum, ptr noundef %14, ptr noundef %15)
+  %12 = load ptr, ptr %ctx.addr, align 8
+  %13 = load ptr, ptr %device.addr, align 8
+  %14 = load ptr, ptr %kernelSource, align 8
+  %15 = load ptr, ptr %fillProg, align 8
+  %16 = load ptr, ptr %additionalMacros, align 8
+  %call3 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef @.str.3, ptr noundef %pErrNum, ptr noundef %15, ptr noundef %16)
   %m_fillUnsignedIntKernel = getelementptr inbounds %class.b3FillCL, ptr %this1, i32 0, i32 4
   store ptr %call3, ptr %m_fillUnsignedIntKernel, align 8
-  %16 = load ptr, ptr %ctx.addr, align 8
-  %17 = load ptr, ptr %device.addr, align 8
-  %18 = load ptr, ptr %kernelSource, align 8
-  %19 = load ptr, ptr %fillProg, align 8
-  %20 = load ptr, ptr %additionalMacros, align 8
-  %call4 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @.str.4, ptr noundef %pErrNum, ptr noundef %19, ptr noundef %20)
+  %17 = load ptr, ptr %ctx.addr, align 8
+  %18 = load ptr, ptr %device.addr, align 8
+  %19 = load ptr, ptr %kernelSource, align 8
+  %20 = load ptr, ptr %fillProg, align 8
+  %21 = load ptr, ptr %additionalMacros, align 8
+  %call4 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef @.str.4, ptr noundef %pErrNum, ptr noundef %20, ptr noundef %21)
   %m_fillFloatKernel = getelementptr inbounds %class.b3FillCL, ptr %this1, i32 0, i32 5
   store ptr %call4, ptr %m_fillFloatKernel, align 8
-  %21 = load ptr, ptr %ctx.addr, align 8
-  %22 = load ptr, ptr %device.addr, align 8
-  %23 = load ptr, ptr %kernelSource, align 8
-  %24 = load ptr, ptr %fillProg, align 8
-  %25 = load ptr, ptr %additionalMacros, align 8
-  %call5 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef @.str.5, ptr noundef %pErrNum, ptr noundef %24, ptr noundef %25)
+  %22 = load ptr, ptr %ctx.addr, align 8
+  %23 = load ptr, ptr %device.addr, align 8
+  %24 = load ptr, ptr %kernelSource, align 8
+  %25 = load ptr, ptr %fillProg, align 8
+  %26 = load ptr, ptr %additionalMacros, align 8
+  %call5 = call noundef ptr @_ZN13b3OpenCLUtils25compileCLKernelFromStringEP11_cl_contextP13_cl_device_idPKcS5_PiP11_cl_programS5_(ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef @.str.5, ptr noundef %pErrNum, ptr noundef %25, ptr noundef %26)
   %m_fillKernelInt2 = getelementptr inbounds %class.b3FillCL, ptr %this1, i32 0, i32 2
   store ptr %call5, ptr %m_fillKernelInt2, align 8
   ret void
@@ -235,42 +236,43 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8b3FillCL, i32 0, i32 0, i32 2), ptr %this1, align 8
-  %0 = load ptr, ptr @__clewReleaseKernel, align 8
+  %0 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV8b3FillCL, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
+  %1 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_fillKernelInt2 = getelementptr inbounds %class.b3FillCL, ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %m_fillKernelInt2, align 8
-  %call = invoke i32 %0(ptr noundef %1)
+  %2 = load ptr, ptr %m_fillKernelInt2, align 8
+  %call = invoke i32 %1(ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr @__clewReleaseKernel, align 8
+  %3 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_fillIntKernel = getelementptr inbounds %class.b3FillCL, ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %m_fillIntKernel, align 8
-  %call3 = invoke i32 %2(ptr noundef %3)
+  %4 = load ptr, ptr %m_fillIntKernel, align 8
+  %call3 = invoke i32 %3(ptr noundef %4)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %4 = load ptr, ptr @__clewReleaseKernel, align 8
+  %5 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_fillUnsignedIntKernel = getelementptr inbounds %class.b3FillCL, ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %m_fillUnsignedIntKernel, align 8
-  %call5 = invoke i32 %4(ptr noundef %5)
+  %6 = load ptr, ptr %m_fillUnsignedIntKernel, align 8
+  %call5 = invoke i32 %5(ptr noundef %6)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %6 = load ptr, ptr @__clewReleaseKernel, align 8
+  %7 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_fillFloatKernel = getelementptr inbounds %class.b3FillCL, ptr %this1, i32 0, i32 5
-  %7 = load ptr, ptr %m_fillFloatKernel, align 8
-  %call7 = invoke i32 %6(ptr noundef %7)
+  %8 = load ptr, ptr %m_fillFloatKernel, align 8
+  %call7 = invoke i32 %7(ptr noundef %8)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont4, %invoke.cont2, %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #7
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #7
   unreachable
 }
 

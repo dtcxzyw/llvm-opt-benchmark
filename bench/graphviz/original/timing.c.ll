@@ -26,13 +26,14 @@ define double @elapsed_sec() #0 {
   %8 = add nsw i64 %5, %7
   %9 = load i64, ptr @T, align 8
   %10 = sub nsw i64 %8, %9
-  %11 = load i64, ptr getelementptr inbounds (%struct.tms, ptr @T, i32 0, i32 1), align 8
-  %12 = sub nsw i64 %10, %11
-  %13 = sitofp i64 %12 to double
-  %14 = fdiv double %13, 1.000000e+02
-  store double %14, ptr %2, align 8
-  %15 = load double, ptr %2, align 8
-  ret double %15
+  %11 = getelementptr inbounds %struct.tms, ptr @T, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  %13 = sub nsw i64 %10, %12
+  %14 = sitofp i64 %13 to double
+  %15 = fdiv double %14, 1.000000e+02
+  store double %15, ptr %2, align 8
+  %16 = load double, ptr %2, align 8
+  ret double %16
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

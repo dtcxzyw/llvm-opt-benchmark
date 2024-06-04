@@ -2078,10 +2078,11 @@ define dso_local void @_ZN17ProbabilityFilterC2E8ProbName(ptr noundef nonnull al
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17ProbabilityFilter, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %class.ProbabilityFilter, ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %4, align 4
-  store i32 %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV17ProbabilityFilter, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.ProbabilityFilter, ptr %5, i32 0, i32 1
+  %8 = load i32, ptr %4, align 4
+  store i32 %8, ptr %7, align 8
   ret void
 }
 
@@ -2523,40 +2524,41 @@ define dso_local void @_ZN14SingleProbElemC2ERKNSt7__cxx1112basic_stringIcSt11ch
   store i32 %4, ptr %10, align 4
   %13 = load ptr, ptr %6, align 8
   call void @_ZN8ProbElemC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14SingleProbElem, i32 0, i32 0, i32 2), ptr %13, align 8
-  %14 = getelementptr inbounds %class.SingleProbElem, ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %7, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %16 unwind label %23
+  %14 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14SingleProbElem, i32 0, i32 0, i32 2
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds %class.SingleProbElem, ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %7, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %17 unwind label %24
 
-16:                                               ; preds = %5
-  %17 = getelementptr inbounds %class.SingleProbElem, ptr %13, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.SingleProbElem, ptr %13, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  store i32 %20, ptr %19, align 4
-  %21 = getelementptr inbounds %class.SingleProbElem, ptr %13, i32 0, i32 4
-  %22 = load i32, ptr %10, align 4
-  store i32 %22, ptr %21, align 8
+17:                                               ; preds = %5
+  %18 = getelementptr inbounds %class.SingleProbElem, ptr %13, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.SingleProbElem, ptr %13, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  store i32 %21, ptr %20, align 4
+  %22 = getelementptr inbounds %class.SingleProbElem, ptr %13, i32 0, i32 4
+  %23 = load i32, ptr %10, align 4
+  store i32 %23, ptr %22, align 8
   ret void
 
-23:                                               ; preds = %5
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %5
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %11, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %12, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %11, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %12, align 4
   call void @_ZN8ProbElemD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  br label %27
+  br label %28
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %11, align 8
-  %29 = load i32, ptr %12, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %11, align 8
+  %30 = load i32, ptr %12, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2564,7 +2566,8 @@ define linkonce_odr dso_local void @_ZN8ProbElemC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ProbElem, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV8ProbElem, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2577,9 +2580,10 @@ define dso_local void @_ZN14SingleProbElemD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14SingleProbElem, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.SingleProbElem, ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV14SingleProbElem, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.SingleProbElem, ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZN8ProbElemD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
@@ -2722,38 +2726,39 @@ define dso_local void @_ZN13GroupProbElemC2EbRKNSt7__cxx1112basic_stringIcSt11ch
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN8ProbElemC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GroupProbElem, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %class.GroupProbElem, ptr %10, i32 0, i32 1
-  %12 = load i8, ptr %5, align 1
-  %13 = trunc i8 %12 to i1
-  %14 = zext i1 %13 to i8
-  store i8 %14, ptr %11, align 8
-  %15 = getelementptr inbounds %class.GroupProbElem, ptr %10, i32 0, i32 2
-  %16 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %17 unwind label %19
+  %11 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13GroupProbElem, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %class.GroupProbElem, ptr %10, i32 0, i32 1
+  %13 = load i8, ptr %5, align 1
+  %14 = trunc i8 %13 to i1
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.GroupProbElem, ptr %10, i32 0, i32 2
+  %17 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %20
 
-17:                                               ; preds = %3
-  %18 = getelementptr inbounds %class.GroupProbElem, ptr %10, i32 0, i32 3
-  call void @_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %18) #3
+18:                                               ; preds = %3
+  %19 = getelementptr inbounds %class.GroupProbElem, ptr %10, i32 0, i32 3
+  call void @_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #3
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %7, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %8, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %7, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %8, align 4
   call void @_ZN8ProbElemD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  br label %23
+  br label %24
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %7, align 8
-  %25 = load i32, ptr %8, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2774,51 +2779,52 @@ define dso_local void @_ZN13GroupProbElemD2Ev(ptr noundef nonnull align 8 derefe
   %5 = alloca %"struct.std::_Rb_tree_iterator", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GroupProbElem, i32 0, i32 0, i32 2), ptr %6, align 8
+  %7 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTV13GroupProbElem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
   call void @_ZNSt17_Rb_tree_iteratorISt4pairIK8ProbNameP14SingleProbElemEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %7 = getelementptr inbounds %class.GroupProbElem, ptr %6, i32 0, i32 3
-  %8 = call ptr @_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #3
-  %9 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %4, i32 0, i32 0
-  store ptr %8, ptr %9, align 8
+  %8 = getelementptr inbounds %class.GroupProbElem, ptr %6, i32 0, i32 3
+  %9 = call ptr @_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %10 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %4, i32 0, i32 0
+  store ptr %9, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 8, i1 false)
-  br label %10
+  br label %11
 
-10:                                               ; preds = %25, %1
-  %11 = getelementptr inbounds %class.GroupProbElem, ptr %6, i32 0, i32 3
-  %12 = call ptr @_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
-  %13 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
-  store ptr %12, ptr %13, align 8
-  %14 = call noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIK8ProbNameP14SingleProbElemEES8_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  br i1 %14, label %15, label %27
+11:                                               ; preds = %26, %1
+  %12 = getelementptr inbounds %class.GroupProbElem, ptr %6, i32 0, i32 3
+  %13 = call ptr @_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
+  %14 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
+  store ptr %13, ptr %14, align 8
+  %15 = call noundef zeroext i1 @_ZStneRKSt17_Rb_tree_iteratorISt4pairIK8ProbNameP14SingleProbElemEES8_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br i1 %15, label %16, label %28
 
-15:                                               ; preds = %10
-  %16 = call noundef ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIK8ProbNameP14SingleProbElemEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  %17 = getelementptr inbounds %"struct.std::pair", ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %24, label %20
+16:                                               ; preds = %11
+  %17 = call noundef ptr @_ZNKSt17_Rb_tree_iteratorISt4pairIK8ProbNameP14SingleProbElemEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  %18 = getelementptr inbounds %"struct.std::pair", ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %25, label %21
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 1
-  %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(52) %18) #3
-  br label %24
-
-24:                                               ; preds = %20, %15
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %19, align 8
+  %23 = getelementptr inbounds ptr, ptr %22, i64 1
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(52) %19) #3
   br label %25
 
-25:                                               ; preds = %24
-  %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIK8ProbNameP14SingleProbElemEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  br label %10, !llvm.loop !7
+25:                                               ; preds = %21, %16
+  br label %26
 
-27:                                               ; preds = %10
-  %28 = getelementptr inbounds %class.GroupProbElem, ptr %6, i32 0, i32 3
-  call void @_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %28) #3
+26:                                               ; preds = %25
+  %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIK8ProbNameP14SingleProbElemEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  br label %11, !llvm.loop !7
+
+28:                                               ; preds = %11
   %29 = getelementptr inbounds %class.GroupProbElem, ptr %6, i32 0, i32 3
-  call void @_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %29) #3
-  %30 = getelementptr inbounds %class.GroupProbElem, ptr %6, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #3
+  call void @_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %29) #3
+  %30 = getelementptr inbounds %class.GroupProbElem, ptr %6, i32 0, i32 3
+  call void @_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #3
+  %31 = getelementptr inbounds %class.GroupProbElem, ptr %6, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #3
   call void @_ZN8ProbElemD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   ret void
 }

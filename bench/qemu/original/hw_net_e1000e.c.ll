@@ -318,15 +318,18 @@ entry:
   %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %12, i32 0, i32 10
   store ptr @e1000e_vmstate, ptr %vmsd, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @e1000e_prop_disable_vnet, ptr align 8 @qdev_prop_uint8, i64 80, i1 false)
-  store ptr @.str.10, ptr getelementptr inbounds (%struct.PropertyInfo, ptr @e1000e_prop_disable_vnet, i32 0, i32 1), align 8
+  %13 = getelementptr inbounds %struct.PropertyInfo, ptr @e1000e_prop_disable_vnet, i32 0, i32 1
+  store ptr @.str.10, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @e1000e_prop_subsys_ven, ptr align 8 @qdev_prop_uint16, i64 80, i1 false)
-  store ptr @.str.11, ptr getelementptr inbounds (%struct.PropertyInfo, ptr @e1000e_prop_subsys_ven, i32 0, i32 1), align 8
+  %14 = getelementptr inbounds %struct.PropertyInfo, ptr @e1000e_prop_subsys_ven, i32 0, i32 1
+  store ptr @.str.11, ptr %14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 @e1000e_prop_subsys, ptr align 8 @qdev_prop_uint16, i64 80, i1 false)
-  store ptr @.str.12, ptr getelementptr inbounds (%struct.PropertyInfo, ptr @e1000e_prop_subsys, i32 0, i32 1), align 8
-  %13 = load ptr, ptr %dc, align 8
-  call void @device_class_set_props(ptr noundef %13, ptr noundef @e1000e_properties)
-  %14 = load ptr, ptr %dc, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds %struct.PropertyInfo, ptr @e1000e_prop_subsys, i32 0, i32 1
+  store ptr @.str.12, ptr %15, align 8
+  %16 = load ptr, ptr %dc, align 8
+  call void @device_class_set_props(ptr noundef %16, ptr noundef @e1000e_properties)
+  %17 = load ptr, ptr %dc, align 8
+  %categories = getelementptr inbounds %struct.DeviceClass, ptr %17, i32 0, i32 1
   %arraydecay = getelementptr inbounds [1 x i64], ptr %categories, i64 0, i64 0
   call void @set_bit(i64 noundef 3, ptr noundef %arraydecay)
   ret void

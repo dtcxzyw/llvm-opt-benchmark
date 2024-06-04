@@ -1473,7 +1473,7 @@ define internal fastcc i32 @nf_xfrm_me_harder(ptr noundef %0, ptr noundef %1, i3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false), !annotation !5
   %7 = call i32 @__xfrm_decode_session(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef %2, i32 noundef 0) #8
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %82, label %9
+  br i1 %8, label %83, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 88
@@ -1501,7 +1501,7 @@ define internal fastcc i32 @nf_xfrm_me_harder(ptr noundef %0, ptr noundef %1, i3
 
 26:                                               ; preds = %20
   %27 = call zeroext i1 @rcuref_get_slowpath(ptr noundef %22) #8
-  br i1 %27, label %28, label %82
+  br i1 %27, label %28, label %83
 
 28:                                               ; preds = %26, %20
   %29 = icmp eq ptr %6, null
@@ -1517,76 +1517,77 @@ define internal fastcc i32 @nf_xfrm_me_harder(ptr noundef %0, ptr noundef %1, i3
 35:                                               ; preds = %30, %28
   %36 = phi ptr [ null, %28 ], [ %34, %30 ]
   %37 = call ptr @xfrm_lookup(ptr noundef %0, ptr noundef %21, ptr noundef nonnull %4, ptr noundef %36, i32 noundef 0) #8
-  %38 = icmp ugt ptr %37, inttoptr (i64 -4096 to ptr)
-  br i1 %38, label %39, label %42
+  %38 = inttoptr i64 -4096 to ptr
+  %39 = icmp ugt ptr %37, %38
+  br i1 %39, label %40, label %43
 
-39:                                               ; preds = %35
-  %40 = ptrtoint ptr %37 to i64
-  %41 = trunc i64 %40 to i32
-  br label %82
+40:                                               ; preds = %35
+  %41 = ptrtoint ptr %37 to i64
+  %42 = trunc i64 %41 to i32
+  br label %83
 
-42:                                               ; preds = %35
-  %43 = load i64, ptr %10, align 8
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %51, label %45
+43:                                               ; preds = %35
+  %44 = load i64, ptr %10, align 8
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %52, label %46
 
-45:                                               ; preds = %42
-  %46 = and i64 %43, 1
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %50
+46:                                               ; preds = %43
+  %47 = and i64 %44, 1
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %49, label %51
 
-48:                                               ; preds = %45
-  %49 = inttoptr i64 %43 to ptr
-  call void @dst_release(ptr noundef nonnull %49) #8
-  br label %50
-
-50:                                               ; preds = %48, %45
-  store i64 0, ptr %10, align 8
+49:                                               ; preds = %46
+  %50 = inttoptr i64 %44 to ptr
+  call void @dst_release(ptr noundef nonnull %50) #8
   br label %51
 
-51:                                               ; preds = %50, %42
-  %52 = icmp ne ptr %37, null
-  %53 = getelementptr inbounds i8, ptr %1, i64 129
-  %54 = load i24, ptr %53, align 1
-  %55 = and i24 %54, 1048576
-  %56 = icmp ne i24 %55, 0
-  %57 = or i1 %52, %56
-  %58 = select i1 %57, i24 1048576, i24 0
-  %59 = and i24 %54, -1048577
-  %60 = or disjoint i24 %58, %59
-  store i24 %60, ptr %53, align 1
-  %61 = ptrtoint ptr %37 to i64
-  store i64 %61, ptr %10, align 8
-  %62 = and i64 %61, -2
-  %63 = inttoptr i64 %62 to ptr
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 172
-  %66 = load i16, ptr %65, align 4
-  %67 = zext i16 %66 to i32
-  %68 = getelementptr inbounds i8, ptr %1, i64 200
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %1, i64 192
-  %71 = load ptr, ptr %70, align 8
-  %72 = ptrtoint ptr %69 to i64
-  %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = trunc i64 %74 to i32
-  %76 = icmp ult i32 %75, %67
-  br i1 %76, label %77, label %81
+51:                                               ; preds = %49, %46
+  store i64 0, ptr %10, align 8
+  br label %52
 
-77:                                               ; preds = %51
-  %78 = sub i32 %67, %75
-  %79 = call i32 @pskb_expand_head(ptr noundef %1, i32 noundef %78, i32 noundef 0, i32 noundef 2080) #8
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %82
+52:                                               ; preds = %51, %43
+  %53 = icmp ne ptr %37, null
+  %54 = getelementptr inbounds i8, ptr %1, i64 129
+  %55 = load i24, ptr %54, align 1
+  %56 = and i24 %55, 1048576
+  %57 = icmp ne i24 %56, 0
+  %58 = or i1 %53, %57
+  %59 = select i1 %58, i24 1048576, i24 0
+  %60 = and i24 %55, -1048577
+  %61 = or disjoint i24 %59, %60
+  store i24 %61, ptr %54, align 1
+  %62 = ptrtoint ptr %37 to i64
+  store i64 %62, ptr %10, align 8
+  %63 = and i64 %62, -2
+  %64 = inttoptr i64 %63 to ptr
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 172
+  %67 = load i16, ptr %66, align 4
+  %68 = zext i16 %67 to i32
+  %69 = getelementptr inbounds i8, ptr %1, i64 200
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %1, i64 192
+  %72 = load ptr, ptr %71, align 8
+  %73 = ptrtoint ptr %70 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = trunc i64 %75 to i32
+  %77 = icmp ult i32 %76, %68
+  br i1 %77, label %78, label %82
 
-81:                                               ; preds = %77, %51
-  br label %82
+78:                                               ; preds = %52
+  %79 = sub i32 %68, %76
+  %80 = call i32 @pskb_expand_head(ptr noundef %1, i32 noundef %79, i32 noundef 0, i32 noundef 2080) #8
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %83
 
-82:                                               ; preds = %81, %77, %39, %26, %3
-  %83 = phi i32 [ %41, %39 ], [ 0, %81 ], [ %7, %3 ], [ -113, %26 ], [ -12, %77 ]
+82:                                               ; preds = %78, %52
+  br label %83
+
+83:                                               ; preds = %82, %78, %40, %26, %3
+  %84 = phi i32 [ %42, %40 ], [ 0, %82 ], [ %7, %3 ], [ -113, %26 ], [ -12, %78 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #8
-  ret i32 %83
+  ret i32 %84
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -2323,13 +2323,14 @@ define linkonce_odr void @_ZN5Ttopt13TruthTableReoC2Eii(ptr noundef nonnull alig
   %8 = load i32, ptr %5, align 4
   %9 = load i32, ptr %6, align 4
   call void @_ZN5Ttopt10TruthTableC2Eii(ptr noundef nonnull align 8 dereferenceable(216) %7, i32 noundef %8, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt13TruthTableReoE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %10 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %7, i32 0, i32 2
-  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  %11 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %7, i32 0, i32 3
-  call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
-  %12 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %7, i32 0, i32 1
-  store i8 0, ptr %12, align 8
+  %10 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5Ttopt13TruthTableReoE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
+  %11 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %7, i32 0, i32 2
+  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  %12 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %7, i32 0, i32 3
+  call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  %13 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %7, i32 0, i32 1
+  store i8 0, ptr %13, align 8
   ret void
 }
 
@@ -2596,136 +2597,137 @@ define linkonce_odr void @_ZN5Ttopt10TruthTableC2Eii(ptr noundef nonnull align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
   %10 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt10TruthTableE, i32 0, i32 0, i32 2), ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 1
-  %12 = load i32, ptr %5, align 4
-  store i32 %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 4
-  %14 = load i32, ptr %6, align 4
-  store i32 %14, ptr %13, align 4
-  %15 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 5
-  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
-  %16 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 6
-  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
-  %17 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 7
+  %11 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5Ttopt10TruthTableE, i32 0, i32 0, i32 2
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 1
+  %13 = load i32, ptr %5, align 4
+  store i32 %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 4
+  %15 = load i32, ptr %6, align 4
+  store i32 %15, ptr %14, align 4
+  %16 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 5
+  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
+  %17 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 6
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
-  %18 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 8
-  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
-  %19 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 9
-  call void @_ZNSt6vectorIS_ImSaImEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
-  %20 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 10
-  call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
-  %21 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 11
+  %18 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 7
+  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
+  %19 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 8
+  call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
+  %20 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 9
+  call void @_ZNSt6vectorIS_ImSaImEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
+  %21 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 10
   call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #18
-  %22 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 12
-  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
+  %22 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 11
+  call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
+  %23 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 12
+  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #18
   call void @srand(i32 noundef 2748) #18
-  %23 = load i32, ptr %5, align 4
-  %24 = icmp sge i32 %23, 6
-  br i1 %24, label %25, label %44
+  %24 = load i32, ptr %5, align 4
+  %25 = icmp sge i32 %24, 6
+  br i1 %25, label %26, label %45
 
-25:                                               ; preds = %3
-  %26 = load i32, ptr %5, align 4
-  %27 = sub nsw i32 %26, 6
-  %28 = shl i32 1, %27
-  %29 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 2
-  store i32 %28, ptr %29, align 4
+26:                                               ; preds = %3
+  %27 = load i32, ptr %5, align 4
+  %28 = sub nsw i32 %27, 6
+  %29 = shl i32 1, %28
   %30 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 2
-  %31 = load i32, ptr %30, align 4
-  %32 = load i32, ptr %6, align 4
-  %33 = mul nsw i32 %31, %32
-  %34 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 3
-  store i32 %33, ptr %34, align 8
-  %35 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 5
-  %36 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 3
-  %37 = load i32, ptr %36, align 8
-  %38 = sext i32 %37 to i64
-  invoke void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef %38)
-          to label %39 unwind label %40
+  store i32 %29, ptr %30, align 4
+  %31 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 2
+  %32 = load i32, ptr %31, align 4
+  %33 = load i32, ptr %6, align 4
+  %34 = mul nsw i32 %32, %33
+  %35 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 3
+  store i32 %34, ptr %35, align 8
+  %36 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 5
+  %37 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 3
+  %38 = load i32, ptr %37, align 8
+  %39 = sext i32 %38 to i64
+  invoke void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %39)
+          to label %40 unwind label %41
 
-39:                                               ; preds = %25
-  br label %59
+40:                                               ; preds = %26
+  br label %60
 
-40:                                               ; preds = %59, %44, %25
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %60, %45, %26
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %42 = extractvalue { ptr, i32 } %41, 0
-  store ptr %42, ptr %7, align 8
-  %43 = extractvalue { ptr, i32 } %41, 1
-  store i32 %43, ptr %8, align 4
-  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %7, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %8, align 4
+  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #18
+  call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #18
   call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #18
-  call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
-  call void @_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
+  call void @_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
+  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
-  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
-  br label %78
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
+  br label %79
 
-44:                                               ; preds = %3
-  %45 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 2
-  store i32 0, ptr %45, align 4
-  %46 = load i32, ptr %5, align 4
-  %47 = shl i32 1, %46
-  %48 = load i32, ptr %6, align 4
-  %49 = mul nsw i32 %47, %48
-  %50 = add nsw i32 %49, 64
-  %51 = sub nsw i32 %50, 1
-  %52 = sdiv i32 %51, 64
-  %53 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 3
-  store i32 %52, ptr %53, align 8
-  %54 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 5
-  %55 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 3
-  %56 = load i32, ptr %55, align 8
-  %57 = sext i32 %56 to i64
-  invoke void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef %57)
-          to label %58 unwind label %40
+45:                                               ; preds = %3
+  %46 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 2
+  store i32 0, ptr %46, align 4
+  %47 = load i32, ptr %5, align 4
+  %48 = shl i32 1, %47
+  %49 = load i32, ptr %6, align 4
+  %50 = mul nsw i32 %48, %49
+  %51 = add nsw i32 %50, 64
+  %52 = sub nsw i32 %51, 1
+  %53 = sdiv i32 %52, 64
+  %54 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 3
+  store i32 %53, ptr %54, align 8
+  %55 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 5
+  %56 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 3
+  %57 = load i32, ptr %56, align 8
+  %58 = sext i32 %57 to i64
+  invoke void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %58)
+          to label %59 unwind label %41
 
-58:                                               ; preds = %44
-  br label %59
+59:                                               ; preds = %45
+  br label %60
 
-59:                                               ; preds = %58, %39
-  %60 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 8
-  %61 = load i32, ptr %5, align 4
-  %62 = sext i32 %61 to i64
-  invoke void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %60, i64 noundef %62)
-          to label %63 unwind label %40
+60:                                               ; preds = %59, %40
+  %61 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 8
+  %62 = load i32, ptr %5, align 4
+  %63 = sext i32 %62 to i64
+  invoke void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %61, i64 noundef %63)
+          to label %64 unwind label %41
 
-63:                                               ; preds = %59
+64:                                               ; preds = %60
   store i32 0, ptr %9, align 4
-  br label %64
+  br label %65
 
-64:                                               ; preds = %74, %63
-  %65 = load i32, ptr %9, align 4
-  %66 = load i32, ptr %5, align 4
-  %67 = icmp slt i32 %65, %66
-  br i1 %67, label %68, label %77
+65:                                               ; preds = %75, %64
+  %66 = load i32, ptr %9, align 4
+  %67 = load i32, ptr %5, align 4
+  %68 = icmp slt i32 %66, %67
+  br i1 %68, label %69, label %78
 
-68:                                               ; preds = %64
-  %69 = load i32, ptr %9, align 4
-  %70 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 8
-  %71 = load i32, ptr %9, align 4
-  %72 = sext i32 %71 to i64
-  %73 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %70, i64 noundef %72) #18
-  store i32 %69, ptr %73, align 4
-  br label %74
+69:                                               ; preds = %65
+  %70 = load i32, ptr %9, align 4
+  %71 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 8
+  %72 = load i32, ptr %9, align 4
+  %73 = sext i32 %72 to i64
+  %74 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %71, i64 noundef %73) #18
+  store i32 %70, ptr %74, align 4
+  br label %75
 
-74:                                               ; preds = %68
-  %75 = load i32, ptr %9, align 4
-  %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %9, align 4
-  br label %64, !llvm.loop !12
+75:                                               ; preds = %69
+  %76 = load i32, ptr %9, align 4
+  %77 = add nsw i32 %76, 1
+  store i32 %77, ptr %9, align 4
+  br label %65, !llvm.loop !12
 
-77:                                               ; preds = %64
+78:                                               ; preds = %65
   ret void
 
-78:                                               ; preds = %40
-  %79 = load ptr, ptr %7, align 8
-  %80 = load i32, ptr %8, align 4
-  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
-  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
-  resume { ptr, i32 } %82
+79:                                               ; preds = %41
+  %80 = load ptr, ptr %7, align 8
+  %81 = load i32, ptr %8, align 4
+  %82 = insertvalue { ptr, i32 } poison, ptr %80, 0
+  %83 = insertvalue { ptr, i32 } %82, i32 %81, 1
+  resume { ptr, i32 } %83
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3338,23 +3340,24 @@ define linkonce_odr void @_ZN5Ttopt10TruthTableD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt10TruthTableE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 12
-  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
-  %5 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 11
-  call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
-  %6 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 10
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5Ttopt10TruthTableE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 12
+  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  %6 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 11
   call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
-  %7 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 9
-  call void @_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
-  %8 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
-  %9 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 7
-  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
-  %10 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 6
+  %7 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 10
+  call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
+  %8 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 9
+  call void @_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
+  %9 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  %10 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 7
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
-  %11 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  %11 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  %12 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
   ret void
 }
 
@@ -3363,11 +3366,12 @@ define linkonce_odr void @_ZN5Ttopt13TruthTableReoD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt13TruthTableReoE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
-  %5 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  %4 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5Ttopt13TruthTableReoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  %6 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
   call void @_ZN5Ttopt10TruthTableD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #18
   ret void
 }
@@ -3906,7 +3910,8 @@ define linkonce_odr void @_ZN5Ttopt18TruthTableLevelTSMC2Eii(ptr noundef nonnull
   %8 = load i32, ptr %5, align 4
   %9 = load i32, ptr %6, align 4
   call void @_ZN5Ttopt14TruthTableCareC2Eii(ptr noundef nonnull align 8 dereferenceable(360) %7, i32 noundef %8, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5Ttopt18TruthTableLevelTSME, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5Ttopt18TruthTableLevelTSME, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -17678,68 +17683,69 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCareC2Eii(ptr noundef nonnull ali
   %10 = load i32, ptr %5, align 4
   %11 = load i32, ptr %6, align 4
   call void @_ZN5Ttopt17TruthTableRewriteC2Eii(ptr noundef nonnull align 8 dereferenceable(216) %9, i32 noundef %10, i32 noundef %11)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5Ttopt14TruthTableCareE, i32 0, i32 0, i32 2), ptr %9, align 8
-  %12 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 1
-  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  %13 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 2
+  %12 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5Ttopt14TruthTableCareE, i32 0, i32 0, i32 2
+  store ptr %12, ptr %9, align 8
+  %13 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 1
   call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
-  %14 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 3
+  %14 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 2
   call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
-  %15 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 4
-  call void @_ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
-  %16 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 5
-  call void @_ZNSt6vectorIS_ImSaImEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
-  %17 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 6
-  call void @_ZNSt6vectorIS_IS_ISt4pairIiiESaIS1_EESaIS3_EESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
-  %18 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %9, i32 0, i32 2
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %31
+  %15 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 3
+  call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  %16 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 4
+  call void @_ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
+  %17 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 5
+  call void @_ZNSt6vectorIS_ImSaImEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
+  %18 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 6
+  call void @_ZNSt6vectorIS_IS_ISt4pairIiiESaIS1_EESaIS3_EESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
+  %19 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %9, i32 0, i32 2
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %32
 
-21:                                               ; preds = %3
-  %22 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 3
-  %23 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %9, i32 0, i32 2
-  %24 = load i32, ptr %23, align 4
-  %25 = sext i32 %24 to i64
-  invoke void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %25)
-          to label %26 unwind label %27
+22:                                               ; preds = %3
+  %23 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 3
+  %24 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %9, i32 0, i32 2
+  %25 = load i32, ptr %24, align 4
+  %26 = sext i32 %25 to i64
+  invoke void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %26)
+          to label %27 unwind label %28
 
-26:                                               ; preds = %21
-  br label %34
-
-27:                                               ; preds = %31, %21
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %7, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %8, align 4
-  call void @_ZNSt6vectorIS_IS_ISt4pairIiiESaIS1_EESaIS3_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
-  call void @_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
-  call void @_ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  call void @_ZN5Ttopt17TruthTableRewriteD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %9) #18
+27:                                               ; preds = %22
   br label %35
 
-31:                                               ; preds = %3
-  %32 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 3
-  invoke void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef 1)
-          to label %33 unwind label %27
+28:                                               ; preds = %32, %22
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %7, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %8, align 4
+  call void @_ZNSt6vectorIS_IS_ISt4pairIiiESaIS1_EESaIS3_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #18
+  call void @_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
+  call void @_ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #18
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #18
+  call void @_ZN5Ttopt17TruthTableRewriteD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %9) #18
+  br label %36
 
-33:                                               ; preds = %31
-  br label %34
+32:                                               ; preds = %3
+  %33 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 3
+  invoke void @_ZNSt6vectorImSaImEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef 1)
+          to label %34 unwind label %28
 
-34:                                               ; preds = %33, %26
+34:                                               ; preds = %32
+  br label %35
+
+35:                                               ; preds = %34, %27
   ret void
 
-35:                                               ; preds = %27
-  %36 = load ptr, ptr %7, align 8
-  %37 = load i32, ptr %8, align 4
-  %38 = insertvalue { ptr, i32 } poison, ptr %36, 0
-  %39 = insertvalue { ptr, i32 } %38, i32 %37, 1
-  resume { ptr, i32 } %39
+36:                                               ; preds = %28
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -18412,7 +18418,8 @@ define linkonce_odr void @_ZN5Ttopt17TruthTableRewriteC2Eii(ptr noundef nonnull 
   %8 = load i32, ptr %5, align 4
   %9 = load i32, ptr %6, align 4
   call void @_ZN5Ttopt10TruthTableC2Eii(ptr noundef nonnull align 8 dereferenceable(216) %7, i32 noundef %8, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt17TruthTableRewriteE, i32 0, i32 0, i32 2), ptr %7, align 8
+  %10 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN5Ttopt17TruthTableRewriteE, i32 0, i32 0, i32 2
+  store ptr %10, ptr %7, align 8
   ret void
 }
 
@@ -27451,7 +27458,7 @@ define linkonce_odr void @_ZN5Ttopt17TruthTableRewrite8CopyFuncEiiib(ptr noundef
   store i32 %23, ptr %11, align 4
   %24 = load i32, ptr %11, align 4
   %25 = icmp sgt i32 %24, 6
-  br i1 %25, label %26, label %133
+  br i1 %25, label %26, label %134
 
 26:                                               ; preds = %5
   %27 = load i32, ptr %11, align 4
@@ -27539,128 +27546,129 @@ define linkonce_odr void @_ZN5Ttopt17TruthTableRewrite8CopyFuncEiiib(ptr noundef
   br label %80
 
 80:                                               ; preds = %79, %52
-  br label %132
+  br label %133
 
 81:                                               ; preds = %26
   %82 = load i32, ptr %8, align 4
   %83 = icmp slt i32 %82, 0
-  br i1 %83, label %84, label %103
+  br i1 %83, label %84, label %104
 
 84:                                               ; preds = %81
   store i32 0, ptr %15, align 4
   br label %85
 
-85:                                               ; preds = %99, %84
+85:                                               ; preds = %100, %84
   %86 = load i32, ptr %15, align 4
   %87 = load i32, ptr %12, align 4
   %88 = icmp slt i32 %86, %87
-  br i1 %88, label %89, label %102
+  br i1 %88, label %89, label %103
 
 89:                                               ; preds = %85
-  %90 = load i64, ptr getelementptr inbounds ([7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 6), align 16
-  %91 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %19, i32 0, i32 5
-  %92 = load i32, ptr %12, align 4
-  %93 = load i32, ptr %7, align 4
-  %94 = mul nsw i32 %92, %93
-  %95 = load i32, ptr %15, align 4
-  %96 = add nsw i32 %94, %95
-  %97 = sext i32 %96 to i64
-  %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorImSaImEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %91, i64 noundef %97) #18
-  store i64 %90, ptr %98, align 8
-  br label %99
+  %90 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 6
+  %91 = load i64, ptr %90, align 16
+  %92 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %19, i32 0, i32 5
+  %93 = load i32, ptr %12, align 4
+  %94 = load i32, ptr %7, align 4
+  %95 = mul nsw i32 %93, %94
+  %96 = load i32, ptr %15, align 4
+  %97 = add nsw i32 %95, %96
+  %98 = sext i32 %97 to i64
+  %99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorImSaImEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %92, i64 noundef %98) #18
+  store i64 %91, ptr %99, align 8
+  br label %100
 
-99:                                               ; preds = %89
-  %100 = load i32, ptr %15, align 4
-  %101 = add nsw i32 %100, 1
-  store i32 %101, ptr %15, align 4
+100:                                              ; preds = %89
+  %101 = load i32, ptr %15, align 4
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %15, align 4
   br label %85, !llvm.loop !119
 
-102:                                              ; preds = %85
-  br label %131
-
-103:                                              ; preds = %81
-  store i32 0, ptr %16, align 4
-  br label %104
-
-104:                                              ; preds = %127, %103
-  %105 = load i32, ptr %16, align 4
-  %106 = load i32, ptr %12, align 4
-  %107 = icmp slt i32 %105, %106
-  br i1 %107, label %108, label %130
-
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %19, i32 0, i32 5
-  %110 = load i32, ptr %12, align 4
-  %111 = load i32, ptr %8, align 4
-  %112 = mul nsw i32 %110, %111
-  %113 = load i32, ptr %16, align 4
-  %114 = add nsw i32 %112, %113
-  %115 = sext i32 %114 to i64
-  %116 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorImSaImEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %109, i64 noundef %115) #18
-  %117 = load i64, ptr %116, align 8
-  %118 = xor i64 %117, -1
-  %119 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %19, i32 0, i32 5
-  %120 = load i32, ptr %12, align 4
-  %121 = load i32, ptr %7, align 4
-  %122 = mul nsw i32 %120, %121
-  %123 = load i32, ptr %16, align 4
-  %124 = add nsw i32 %122, %123
-  %125 = sext i32 %124 to i64
-  %126 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorImSaImEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %119, i64 noundef %125) #18
-  store i64 %118, ptr %126, align 8
-  br label %127
-
-127:                                              ; preds = %108
-  %128 = load i32, ptr %16, align 4
-  %129 = add nsw i32 %128, 1
-  store i32 %129, ptr %16, align 4
-  br label %104, !llvm.loop !120
-
-130:                                              ; preds = %104
-  br label %131
-
-131:                                              ; preds = %130, %102
+103:                                              ; preds = %85
   br label %132
 
-132:                                              ; preds = %131, %80
-  br label %154
+104:                                              ; preds = %81
+  store i32 0, ptr %16, align 4
+  br label %105
 
-133:                                              ; preds = %5
+105:                                              ; preds = %128, %104
+  %106 = load i32, ptr %16, align 4
+  %107 = load i32, ptr %12, align 4
+  %108 = icmp slt i32 %106, %107
+  br i1 %108, label %109, label %131
+
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %19, i32 0, i32 5
+  %111 = load i32, ptr %12, align 4
+  %112 = load i32, ptr %8, align 4
+  %113 = mul nsw i32 %111, %112
+  %114 = load i32, ptr %16, align 4
+  %115 = add nsw i32 %113, %114
+  %116 = sext i32 %115 to i64
+  %117 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorImSaImEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %110, i64 noundef %116) #18
+  %118 = load i64, ptr %117, align 8
+  %119 = xor i64 %118, -1
+  %120 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %19, i32 0, i32 5
+  %121 = load i32, ptr %12, align 4
+  %122 = load i32, ptr %7, align 4
+  %123 = mul nsw i32 %121, %122
+  %124 = load i32, ptr %16, align 4
+  %125 = add nsw i32 %123, %124
+  %126 = sext i32 %125 to i64
+  %127 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorImSaImEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %120, i64 noundef %126) #18
+  store i64 %119, ptr %127, align 8
+  br label %128
+
+128:                                              ; preds = %109
+  %129 = load i32, ptr %16, align 4
+  %130 = add nsw i32 %129, 1
+  store i32 %130, ptr %16, align 4
+  br label %105, !llvm.loop !120
+
+131:                                              ; preds = %105
+  br label %132
+
+132:                                              ; preds = %131, %103
+  br label %133
+
+133:                                              ; preds = %132, %80
+  br label %155
+
+134:                                              ; preds = %5
   store i64 0, ptr %17, align 8
-  %134 = load i32, ptr %8, align 4
-  %135 = icmp sge i32 %134, 0
-  br i1 %135, label %136, label %140
+  %135 = load i32, ptr %8, align 4
+  %136 = icmp sge i32 %135, 0
+  br i1 %136, label %137, label %141
 
-136:                                              ; preds = %133
-  %137 = load i32, ptr %8, align 4
-  %138 = load i32, ptr %9, align 4
-  %139 = call noundef i64 @_ZN5Ttopt10TruthTable8GetValueEii(ptr noundef nonnull align 8 dereferenceable(216) %19, i32 noundef %137, i32 noundef %138)
-  store i64 %139, ptr %17, align 8
-  br label %140
+137:                                              ; preds = %134
+  %138 = load i32, ptr %8, align 4
+  %139 = load i32, ptr %9, align 4
+  %140 = call noundef i64 @_ZN5Ttopt10TruthTable8GetValueEii(ptr noundef nonnull align 8 dereferenceable(216) %19, i32 noundef %138, i32 noundef %139)
+  store i64 %140, ptr %17, align 8
+  br label %141
 
-140:                                              ; preds = %136, %133
-  %141 = load i8, ptr %10, align 1
-  %142 = trunc i8 %141 to i1
-  br i1 %142, label %143, label %150
+141:                                              ; preds = %137, %134
+  %142 = load i8, ptr %10, align 1
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %144, label %151
 
-143:                                              ; preds = %140
-  %144 = load i32, ptr %11, align 4
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %145
-  %147 = load i64, ptr %146, align 8
-  %148 = load i64, ptr %17, align 8
-  %149 = xor i64 %148, %147
-  store i64 %149, ptr %17, align 8
-  br label %150
+144:                                              ; preds = %141
+  %145 = load i32, ptr %11, align 4
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %146
+  %148 = load i64, ptr %147, align 8
+  %149 = load i64, ptr %17, align 8
+  %150 = xor i64 %149, %148
+  store i64 %150, ptr %17, align 8
+  br label %151
 
-150:                                              ; preds = %143, %140
-  %151 = load i32, ptr %7, align 4
-  %152 = load i32, ptr %9, align 4
-  %153 = load i64, ptr %17, align 8
-  call void @_ZN5Ttopt17TruthTableRewrite8SetValueEiim(ptr noundef nonnull align 8 dereferenceable(216) %19, i32 noundef %151, i32 noundef %152, i64 noundef %153)
-  br label %154
+151:                                              ; preds = %144, %141
+  %152 = load i32, ptr %7, align 4
+  %153 = load i32, ptr %9, align 4
+  %154 = load i64, ptr %17, align 8
+  call void @_ZN5Ttopt17TruthTableRewrite8SetValueEiim(ptr noundef nonnull align 8 dereferenceable(216) %19, i32 noundef %152, i32 noundef %153, i64 noundef %154)
+  br label %155
 
-154:                                              ; preds = %150, %132
+155:                                              ; preds = %151, %133
   ret void
 }
 
@@ -27869,19 +27877,20 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCareD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5Ttopt14TruthTableCareE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 6
-  call void @_ZNSt6vectorIS_IS_ISt4pairIiiESaIS1_EESaIS3_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
-  %5 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 5
-  call void @_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
-  %6 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 4
-  call void @_ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
-  %7 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 3
-  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
-  %8 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN5Ttopt14TruthTableCareE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 6
+  call void @_ZNSt6vectorIS_IS_ISt4pairIiiESaIS1_EESaIS3_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
+  %6 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 5
+  call void @_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
+  %7 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 4
+  call void @_ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
+  %8 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #18
-  %9 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 1
+  %9 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  %10 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
   call void @_ZN5Ttopt17TruthTableRewriteD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #18
   ret void
 }

@@ -61,22 +61,23 @@ invoke.cont:                                      ; preds = %init
   %2 = extractvalue { ptr, i8 } %call, 0
   store ptr %2, ptr @_ZZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEvE5state, align 8
   %3 = extractvalue { ptr, i8 } %call, 1
-  store i8 %3, ptr getelementptr inbounds ({ ptr, i8 }, ptr @_ZZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEvE5state, i32 0, i32 1), align 8
+  %4 = getelementptr inbounds { ptr, i8 }, ptr @_ZZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEvE5state, i32 0, i32 1
+  store i8 %3, ptr %4, align 8
   call void @__cxa_guard_release(ptr @_ZGVZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEvE5state) #1
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 @_ZZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEvE5state, i64 16, i1 false)
-  %4 = load { ptr, i8 }, ptr %retval, align 8
-  ret { ptr, i8 } %4
+  %5 = load { ptr, i8 }, ptr %retval, align 8
+  ret { ptr, i8 } %5
 
 lpad:                                             ; preds = %init
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
+  %7 = extractvalue { ptr, i32 } %6, 0
+  store ptr %7, ptr %exn.slot, align 8
+  %8 = extractvalue { ptr, i32 } %6, 1
+  store i32 %8, ptr %ehselector.slot, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEvE5state) #1
   br label %eh.resume
 

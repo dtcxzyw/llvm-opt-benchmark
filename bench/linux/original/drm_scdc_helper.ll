@@ -243,7 +243,7 @@ define dso_local noundef zeroext i1 @drm_scdc_set_scrambling(ptr nocapture nound
   %32 = getelementptr inbounds i8, ptr %0, i64 96
   %33 = load ptr, ptr %32, align 8
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %29, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef %31, ptr noundef %33, i32 noundef %20) #7
-  br label %68
+  br label %69
 
 34:                                               ; preds = %2
   %35 = load i8, ptr %6, align 1
@@ -261,55 +261,56 @@ define dso_local noundef zeroext i1 @drm_scdc_set_scrambling(ptr nocapture nound
   store i16 2, ptr %41, align 4
   %42 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %42, align 8
-  %43 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
-  %44 = call noalias align 8 dereferenceable_or_null(2) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 3264, i64 noundef 2) #9
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %53, label %46
+  %43 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3
+  %44 = load ptr, ptr %43, align 8
+  %45 = call noalias align 8 dereferenceable_or_null(2) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 3264, i64 noundef 2) #9
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %54, label %47
 
-46:                                               ; preds = %34
-  store ptr %44, ptr %42, align 8
-  store i8 32, ptr %44, align 8
-  %47 = getelementptr i8, ptr %44, i64 1
-  store i8 %38, ptr %47, align 1
-  %48 = call i32 @i2c_transfer(ptr noundef %39, ptr noundef nonnull %3, i32 noundef 1) #7
-  call void @kfree(ptr noundef nonnull %44) #7
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %53, label %50
+47:                                               ; preds = %34
+  store ptr %45, ptr %42, align 8
+  store i8 32, ptr %45, align 8
+  %48 = getelementptr i8, ptr %45, i64 1
+  store i8 %38, ptr %48, align 1
+  %49 = call i32 @i2c_transfer(ptr noundef %39, ptr noundef nonnull %3, i32 noundef 1) #7
+  call void @kfree(ptr noundef nonnull %45) #7
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %54, label %51
 
-50:                                               ; preds = %46
-  %51 = icmp eq i32 %48, 1
-  %52 = select i1 %51, i32 0, i32 -71
-  br label %53
+51:                                               ; preds = %47
+  %52 = icmp eq i32 %49, 1
+  %53 = select i1 %52, i32 0, i32 -71
+  br label %54
 
-53:                                               ; preds = %50, %46, %34
-  %54 = phi i32 [ -12, %34 ], [ %52, %50 ], [ %48, %46 ]
+54:                                               ; preds = %51, %47, %34
+  %55 = phi i32 [ -12, %34 ], [ %53, %51 ], [ %49, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %56, label %68
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %69
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %0, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %62, label %59
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %0, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %63, label %60
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %57, i64 8
-  %61 = load ptr, ptr %60, align 8
-  br label %62
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %62 = load ptr, ptr %61, align 8
+  br label %63
 
-62:                                               ; preds = %59, %56
-  %63 = phi ptr [ %61, %59 ], [ null, %56 ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 64
-  %65 = load i32, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 96
-  %67 = load ptr, ptr %66, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %63, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef %65, ptr noundef %67, i32 noundef %54) #7
-  br label %68
+63:                                               ; preds = %60, %57
+  %64 = phi ptr [ %62, %60 ], [ null, %57 ]
+  %65 = getelementptr inbounds i8, ptr %0, i64 64
+  %66 = load i32, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 96
+  %68 = load ptr, ptr %67, align 8
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %64, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef %66, ptr noundef %68, i32 noundef %55) #7
+  br label %69
 
-68:                                               ; preds = %62, %53, %28
-  %69 = phi i1 [ false, %28 ], [ false, %62 ], [ true, %53 ]
+69:                                               ; preds = %63, %54, %28
+  %70 = phi i1 [ false, %28 ], [ false, %63 ], [ true, %54 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
-  ret i1 %69
+  ret i1 %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -368,7 +369,7 @@ define dso_local noundef zeroext i1 @drm_scdc_set_high_tmds_clock_ratio(ptr noca
   %32 = getelementptr inbounds i8, ptr %0, i64 96
   %33 = load ptr, ptr %32, align 8
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %29, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef %31, ptr noundef %33, i32 noundef %20) #7
-  br label %69
+  br label %70
 
 34:                                               ; preds = %2
   %35 = load i8, ptr %6, align 1
@@ -386,59 +387,60 @@ define dso_local noundef zeroext i1 @drm_scdc_set_high_tmds_clock_ratio(ptr noca
   store i16 2, ptr %41, align 4
   %42 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %42, align 8
-  %43 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3), align 8
-  %44 = call noalias align 8 dereferenceable_or_null(2) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 3264, i64 noundef 2) #9
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %53, label %46
+  %43 = getelementptr inbounds [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 3
+  %44 = load ptr, ptr %43, align 8
+  %45 = call noalias align 8 dereferenceable_or_null(2) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 3264, i64 noundef 2) #9
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %54, label %47
 
-46:                                               ; preds = %34
-  store ptr %44, ptr %42, align 8
-  store i8 32, ptr %44, align 8
-  %47 = getelementptr i8, ptr %44, i64 1
-  store i8 %38, ptr %47, align 1
-  %48 = call i32 @i2c_transfer(ptr noundef %39, ptr noundef nonnull %3, i32 noundef 1) #7
-  call void @kfree(ptr noundef nonnull %44) #7
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %53, label %50
+47:                                               ; preds = %34
+  store ptr %45, ptr %42, align 8
+  store i8 32, ptr %45, align 8
+  %48 = getelementptr i8, ptr %45, i64 1
+  store i8 %38, ptr %48, align 1
+  %49 = call i32 @i2c_transfer(ptr noundef %39, ptr noundef nonnull %3, i32 noundef 1) #7
+  call void @kfree(ptr noundef nonnull %45) #7
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %54, label %51
 
-50:                                               ; preds = %46
-  %51 = icmp eq i32 %48, 1
-  %52 = select i1 %51, i32 0, i32 -71
-  br label %53
+51:                                               ; preds = %47
+  %52 = icmp eq i32 %49, 1
+  %53 = select i1 %52, i32 0, i32 -71
+  br label %54
 
-53:                                               ; preds = %50, %46, %34
-  %54 = phi i32 [ -12, %34 ], [ %52, %50 ], [ %48, %46 ]
+54:                                               ; preds = %51, %47, %34
+  %55 = phi i32 [ -12, %34 ], [ %53, %51 ], [ %49, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %56, label %68
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %69
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %0, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %62, label %59
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %0, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %63, label %60
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %57, i64 8
-  %61 = load ptr, ptr %60, align 8
-  br label %62
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %62 = load ptr, ptr %61, align 8
+  br label %63
 
-62:                                               ; preds = %59, %56
-  %63 = phi ptr [ %61, %59 ], [ null, %56 ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 64
-  %65 = load i32, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 96
-  %67 = load ptr, ptr %66, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %63, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %65, ptr noundef %67, i32 noundef %54) #7
-  br label %69
+63:                                               ; preds = %60, %57
+  %64 = phi ptr [ %62, %60 ], [ null, %57 ]
+  %65 = getelementptr inbounds i8, ptr %0, i64 64
+  %66 = load i32, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 96
+  %68 = load ptr, ptr %67, align 8
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %64, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %66, ptr noundef %68, i32 noundef %55) #7
+  br label %70
 
-68:                                               ; preds = %53
+69:                                               ; preds = %54
   call void @usleep_range_state(i64 noundef 1000, i64 noundef 2000, i32 noundef 2) #7
-  br label %69
+  br label %70
 
-69:                                               ; preds = %68, %62, %28
-  %70 = phi i1 [ false, %28 ], [ false, %62 ], [ true, %68 ]
+70:                                               ; preds = %69, %63, %28
+  %71 = phi i1 [ false, %28 ], [ false, %63 ], [ true, %69 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
-  ret i1 %70
+  ret i1 %71
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)

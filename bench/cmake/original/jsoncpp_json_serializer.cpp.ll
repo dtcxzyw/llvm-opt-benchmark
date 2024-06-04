@@ -955,51 +955,52 @@ define dso_local void @_ZN3dap4json19JsonCppDeserializerC2ERKNSt7__cxx1112basic_
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN3dap12DeserializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.dap::json::JsonCppDeserializer", ptr %7, i32 0, i32 1
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
-          to label %10 unwind label %14
+  %8 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.dap::json::JsonCppDeserializer", ptr %7, i32 0, i32 1
+  %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
+          to label %11 unwind label %15
 
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  invoke void @_ZN3dap4json19JsonCppDeserializer5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.Json::Value") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %12 unwind label %18
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8
+  invoke void @_ZN3dap4json19JsonCppDeserializer5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.Json::Value") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %19
 
-12:                                               ; preds = %10
-  store ptr %9, ptr %8, align 8
-  %13 = getelementptr inbounds %"struct.dap::json::JsonCppDeserializer", ptr %7, i32 0, i32 2
-  store i8 1, ptr %13, align 8
+13:                                               ; preds = %11
+  store ptr %10, ptr %9, align 8
+  %14 = getelementptr inbounds %"struct.dap::json::JsonCppDeserializer", ptr %7, i32 0, i32 2
+  store i8 1, ptr %14, align 8
   ret void
 
-14:                                               ; preds = %2
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %5, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %6, align 4
-  br label %22
-
-18:                                               ; preds = %10
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %5, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %6, align 4
-  call void @_ZdlPv(ptr noundef %9) #15
-  br label %22
-
-22:                                               ; preds = %18, %14
-  call void @_ZN3dap12DeserializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
   br label %23
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %6, align 4
-  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
-  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
-  resume { ptr, i32 } %27
+19:                                               ; preds = %11
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  call void @_ZdlPv(ptr noundef %10) #15
+  br label %23
+
+23:                                               ; preds = %19, %15
+  call void @_ZN3dap12DeserializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  br label %24
+
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1007,7 +1008,8 @@ define linkonce_odr dso_local void @_ZN3dap12DeserializerC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap12DeserializerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3dap12DeserializerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -1132,12 +1134,13 @@ define dso_local void @_ZN3dap4json19JsonCppDeserializerC2EPKN4Json5ValueE(ptr n
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3dap12DeserializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.dap::json::JsonCppDeserializer", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"struct.dap::json::JsonCppDeserializer", ptr %5, i32 0, i32 2
-  store i8 0, ptr %8, align 8
+  %6 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.dap::json::JsonCppDeserializer", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.dap::json::JsonCppDeserializer", ptr %5, i32 0, i32 2
+  store i8 0, ptr %9, align 8
   ret void
 }
 
@@ -1146,27 +1149,28 @@ define dso_local void @_ZN3dap4json19JsonCppDeserializerD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.dap::json::JsonCppDeserializer", ptr %3, i32 0, i32 2
-  %5 = load i8, ptr %4, align 8
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %13
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.dap::json::JsonCppDeserializer", ptr %3, i32 0, i32 2
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %14
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"struct.dap::json::JsonCppDeserializer", ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %12, label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"struct.dap::json::JsonCppDeserializer", ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %13, label %12
 
-11:                                               ; preds = %7
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #13
-  call void @_ZdlPv(ptr noundef %9) #15
-  br label %12
-
-12:                                               ; preds = %11, %7
+12:                                               ; preds = %8
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #13
+  call void @_ZdlPv(ptr noundef %10) #15
   br label %13
 
-13:                                               ; preds = %12, %1
+13:                                               ; preds = %12, %8
+  br label %14
+
+14:                                               ; preds = %13, %1
   call void @_ZN3dap12DeserializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -2684,52 +2688,53 @@ define dso_local void @_ZN3dap4json17JsonCppSerializerC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN3dap10SerializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json17JsonCppSerializerE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %5, i32 0, i32 1
-  %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
-          to label %8 unwind label %12
+  %6 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3dap4json17JsonCppSerializerE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %5, i32 0, i32 1
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
+          to label %9 unwind label %13
 
-8:                                                ; preds = %1
-  invoke void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 0)
-          to label %9 unwind label %16
+9:                                                ; preds = %1
+  invoke void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 0)
+          to label %10 unwind label %17
 
-9:                                                ; preds = %8
-  store ptr %7, ptr %6, align 8
-  %10 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %5, i32 0, i32 2
-  store i8 1, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %5, i32 0, i32 3
-  store i8 0, ptr %11, align 1
+10:                                               ; preds = %9
+  store ptr %8, ptr %7, align 8
+  %11 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %5, i32 0, i32 2
+  store i8 1, ptr %11, align 8
+  %12 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %5, i32 0, i32 3
+  store i8 0, ptr %12, align 1
   ret void
 
-12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %1
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %3, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %4, align 4
-  br label %20
-
-16:                                               ; preds = %8
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %3, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %4, align 4
-  call void @_ZdlPv(ptr noundef %7) #15
-  br label %20
-
-20:                                               ; preds = %16, %12
-  call void @_ZN3dap10SerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %3, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %4, align 4
   br label %21
 
-21:                                               ; preds = %20
-  %22 = load ptr, ptr %3, align 8
-  %23 = load i32, ptr %4, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %3, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %4, align 4
+  call void @_ZdlPv(ptr noundef %8) #15
+  br label %21
+
+21:                                               ; preds = %17, %13
+  call void @_ZN3dap10SerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  br label %22
+
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %3, align 8
+  %24 = load i32, ptr %4, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2737,7 +2742,8 @@ define linkonce_odr dso_local void @_ZN3dap10SerializerC2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap10SerializerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3dap10SerializerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -2749,14 +2755,15 @@ define dso_local void @_ZN3dap4json17JsonCppSerializerC2EPN4Json5ValueE(ptr noun
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3dap10SerializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json17JsonCppSerializerE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %5, i32 0, i32 2
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %5, i32 0, i32 3
-  store i8 0, ptr %9, align 1
+  %6 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3dap4json17JsonCppSerializerE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %5, i32 0, i32 2
+  store i8 0, ptr %9, align 8
+  %10 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %5, i32 0, i32 3
+  store i8 0, ptr %10, align 1
   ret void
 }
 
@@ -2765,27 +2772,28 @@ define dso_local void @_ZN3dap4json17JsonCppSerializerD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3dap4json17JsonCppSerializerE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %3, i32 0, i32 2
-  %5 = load i8, ptr %4, align 8
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %13
+  %4 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN3dap4json17JsonCppSerializerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %3, i32 0, i32 2
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %14
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %3, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %12, label %11
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds %"struct.dap::json::JsonCppSerializer", ptr %3, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %13, label %12
 
-11:                                               ; preds = %7
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #13
-  call void @_ZdlPv(ptr noundef %9) #15
-  br label %12
-
-12:                                               ; preds = %11, %7
+12:                                               ; preds = %8
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #13
+  call void @_ZdlPv(ptr noundef %10) #15
   br label %13
 
-13:                                               ; preds = %12, %1
+13:                                               ; preds = %12, %8
+  br label %14
+
+14:                                               ; preds = %13, %1
   call void @_ZN3dap10SerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }
@@ -3620,10 +3628,11 @@ define internal void @_ZZN3dap4json17JsonCppSerializer6objectERKSt8functionIFbPN
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3dap15FieldSerializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN3dap4json17JsonCppSerializer6objectERKSt8functionIFbPNS_15FieldSerializerEEEE2FS, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %struct.FS, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVZN3dap4json17JsonCppSerializer6objectERKSt8functionIFbPNS_15FieldSerializerEEEE2FS, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %struct.FS, ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
   ret void
 }
 
@@ -4518,7 +4527,8 @@ define linkonce_odr dso_local void @_ZN3dap15FieldSerializerC2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3dap15FieldSerializerE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN3dap15FieldSerializerE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9106,10 +9116,11 @@ define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoISt6vectorINS_3anyESaI
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3dap8TypeInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt6vectorINS_3anyESaIS2_EEEE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.dap::BasicTypeInfo", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #13
+  %6 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt6vectorINS_3anyESaIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.dap::BasicTypeInfo", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #13
   ret void
 }
 
@@ -9120,7 +9131,8 @@ define linkonce_odr dso_local void @_ZN3dap8TypeInfoC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap8TypeInfoE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3dap8TypeInfoE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -9129,9 +9141,10 @@ define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoISt6vectorINS_3anyESaI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt6vectorINS_3anyESaIS2_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %"struct.dap::BasicTypeInfo", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
+  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt6vectorINS_3anyESaIS2_EEEE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.dap::BasicTypeInfo", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   ret void
 }

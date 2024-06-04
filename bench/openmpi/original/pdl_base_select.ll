@@ -23,25 +23,27 @@ define i32 @pmix_pdl_base_select() #0 {
   store i32 0, ptr %1, align 4
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pdl_base_framework, i32 0, i32 11), align 4
-  %5 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %4, ptr noundef getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pdl_base_framework, i32 0, i32 12), ptr noundef %3, ptr noundef %2, ptr noundef null)
-  %6 = icmp ne i32 0, %5
-  br i1 %6, label %7, label %8
+  %4 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pdl_base_framework, i32 0, i32 11
+  %5 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @pmix_pdl_base_framework, i32 0, i32 12
+  %7 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %5, ptr noundef %6, ptr noundef %3, ptr noundef %2, ptr noundef null)
+  %8 = icmp ne i32 0, %7
+  br i1 %8, label %9, label %10
 
-7:                                                ; preds = %0
+9:                                                ; preds = %0
   store i32 -1, ptr %1, align 4
-  br label %11
+  br label %13
 
-8:                                                ; preds = %0
-  %9 = load ptr, ptr %2, align 8
-  store ptr %9, ptr @pmix_pdl_base_selected_component, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %10, ptr @pmix_pdl, align 8
-  br label %11
+10:                                               ; preds = %0
+  %11 = load ptr, ptr %2, align 8
+  store ptr %11, ptr @pmix_pdl_base_selected_component, align 8
+  %12 = load ptr, ptr %3, align 8
+  store ptr %12, ptr @pmix_pdl, align 8
+  br label %13
 
-11:                                               ; preds = %8, %7
-  %12 = load i32, ptr %1, align 4
-  ret i32 %12
+13:                                               ; preds = %10, %9
+  %14 = load i32, ptr %1, align 4
+  ret i32 %14
 }
 
 declare i32 @pmix_mca_base_select(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1

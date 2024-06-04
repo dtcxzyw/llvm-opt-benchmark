@@ -868,41 +868,43 @@ if.end10:                                         ; preds = %if.end3
   %24 = load i32, ptr %ce_namelen, align 8
   %conv13 = zext i32 %24 to i64
   call void @strbuf_add(ptr noundef @checkout_entry_ca.path, ptr noundef %arraydecay12, i64 noundef %conv13)
-  %25 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 2), align 8
-  %26 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 1), align 8
-  %conv14 = trunc i64 %26 to i32
-  %27 = load ptr, ptr %state.addr, align 8
-  %base_dir_len15 = getelementptr inbounds %struct.checkout, ptr %27, i32 0, i32 2
-  %28 = load i32, ptr %base_dir_len15, align 8
-  %call16 = call i32 @check_path(ptr noundef %25, i32 noundef %conv14, ptr noundef %st, i32 noundef %28)
+  %25 = getelementptr inbounds %struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 1
+  %28 = load i64, ptr %27, align 8
+  %conv14 = trunc i64 %28 to i32
+  %29 = load ptr, ptr %state.addr, align 8
+  %base_dir_len15 = getelementptr inbounds %struct.checkout, ptr %29, i32 0, i32 2
+  %30 = load i32, ptr %base_dir_len15, align 8
+  %call16 = call i32 @check_path(ptr noundef %26, i32 noundef %conv14, ptr noundef %st, i32 noundef %30)
   %tobool17 = icmp ne i32 %call16, 0
   br i1 %tobool17, label %if.else101, label %if.then18
 
 if.then18:                                        ; preds = %if.end10
-  %29 = load ptr, ptr %state.addr, align 8
-  %istate19 = getelementptr inbounds %struct.checkout, ptr %29, i32 0, i32 0
-  %30 = load ptr, ptr %istate19, align 8
-  %31 = load ptr, ptr %ce.addr, align 8
-  %call20 = call i32 @ie_match_stat(ptr noundef %30, ptr noundef %31, ptr noundef %st, i32 noundef 5)
+  %31 = load ptr, ptr %state.addr, align 8
+  %istate19 = getelementptr inbounds %struct.checkout, ptr %31, i32 0, i32 0
+  %32 = load ptr, ptr %istate19, align 8
+  %33 = load ptr, ptr %ce.addr, align 8
+  %call20 = call i32 @ie_match_stat(ptr noundef %32, ptr noundef %33, ptr noundef %st, i32 noundef 5)
   store i32 %call20, ptr %changed, align 4
-  %32 = load ptr, ptr %ce.addr, align 8
-  %call21 = call ptr @submodule_from_ce(ptr noundef %32)
+  %34 = load ptr, ptr %ce.addr, align 8
+  %call21 = call ptr @submodule_from_ce(ptr noundef %34)
   store ptr %call21, ptr %sub, align 8
-  %33 = load ptr, ptr %sub, align 8
-  %tobool22 = icmp ne ptr %33, null
+  %35 = load ptr, ptr %sub, align 8
+  %tobool22 = icmp ne ptr %35, null
   br i1 %tobool22, label %if.then23, label %if.end57
 
 if.then23:                                        ; preds = %if.then18
-  %34 = load ptr, ptr %ce.addr, align 8
-  %name24 = getelementptr inbounds %struct.cache_entry, ptr %34, i32 0, i32 8
+  %36 = load ptr, ptr %ce.addr, align 8
+  %name24 = getelementptr inbounds %struct.cache_entry, ptr %36, i32 0, i32 8
   %arraydecay25 = getelementptr inbounds [0 x i8], ptr %name24, i64 0, i64 0
   %call26 = call i32 @is_submodule_populated_gently(ptr noundef %arraydecay25, ptr noundef %err)
   %tobool27 = icmp ne i32 %call26, 0
   br i1 %tobool27, label %if.else, label %if.then28
 
 if.then28:                                        ; preds = %if.then23
-  %35 = load ptr, ptr %ce.addr, align 8
-  %name29 = getelementptr inbounds %struct.cache_entry, ptr %35, i32 0, i32 8
+  %37 = load ptr, ptr %ce.addr, align 8
+  %name29 = getelementptr inbounds %struct.cache_entry, ptr %37, i32 0, i32 8
   %arraydecay30 = getelementptr inbounds [0 x i8], ptr %name29, i64 0, i64 0
   %call31 = call i32 @lstat64(ptr noundef %arraydecay30, ptr noundef %sb) #8
   %tobool32 = icmp ne i32 %call31, 0
@@ -910,64 +912,64 @@ if.then28:                                        ; preds = %if.then23
 
 if.then33:                                        ; preds = %if.then28
   %call34 = call ptr @_(ptr noundef @.str.6)
-  %36 = load ptr, ptr %ce.addr, align 8
-  %name35 = getelementptr inbounds %struct.cache_entry, ptr %36, i32 0, i32 8
+  %38 = load ptr, ptr %ce.addr, align 8
+  %name35 = getelementptr inbounds %struct.cache_entry, ptr %38, i32 0, i32 8
   %arraydecay36 = getelementptr inbounds [0 x i8], ptr %name35, i64 0, i64 0
   call void (ptr, ...) @die(ptr noundef %call34, ptr noundef %arraydecay36) #10
   unreachable
 
 if.end37:                                         ; preds = %if.then28
   %st_mode = getelementptr inbounds %struct.stat, ptr %st, i32 0, i32 3
-  %37 = load i32, ptr %st_mode, align 8
-  %and38 = and i32 %37, 16384
+  %39 = load i32, ptr %st_mode, align 8
+  %and38 = and i32 %39, 16384
   %tobool39 = icmp ne i32 %and38, 0
   br i1 %tobool39, label %if.end44, label %if.then40
 
 if.then40:                                        ; preds = %if.end37
-  %38 = load ptr, ptr %ce.addr, align 8
-  %name41 = getelementptr inbounds %struct.cache_entry, ptr %38, i32 0, i32 8
+  %40 = load ptr, ptr %ce.addr, align 8
+  %name41 = getelementptr inbounds %struct.cache_entry, ptr %40, i32 0, i32 8
   %arraydecay42 = getelementptr inbounds [0 x i8], ptr %name41, i64 0, i64 0
   %call43 = call i32 @unlink_or_warn(ptr noundef %arraydecay42)
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then40, %if.end37
-  %39 = load ptr, ptr %ce.addr, align 8
-  %name45 = getelementptr inbounds %struct.cache_entry, ptr %39, i32 0, i32 8
+  %41 = load ptr, ptr %ce.addr, align 8
+  %name45 = getelementptr inbounds %struct.cache_entry, ptr %41, i32 0, i32 8
   %arraydecay46 = getelementptr inbounds [0 x i8], ptr %name45, i64 0, i64 0
-  %40 = load ptr, ptr %state.addr, align 8
-  %super_prefix47 = getelementptr inbounds %struct.checkout, ptr %40, i32 0, i32 3
-  %41 = load ptr, ptr %super_prefix47, align 8
-  %42 = load ptr, ptr %ce.addr, align 8
-  %oid = getelementptr inbounds %struct.cache_entry, ptr %42, i32 0, i32 7
+  %42 = load ptr, ptr %state.addr, align 8
+  %super_prefix47 = getelementptr inbounds %struct.checkout, ptr %42, i32 0, i32 3
+  %43 = load ptr, ptr %super_prefix47, align 8
+  %44 = load ptr, ptr %ce.addr, align 8
+  %oid = getelementptr inbounds %struct.cache_entry, ptr %44, i32 0, i32 7
   %call48 = call ptr @oid_to_hex(ptr noundef %oid)
-  %call49 = call i32 @submodule_move_head(ptr noundef %arraydecay46, ptr noundef %41, ptr noundef null, ptr noundef %call48, i32 noundef 0)
+  %call49 = call i32 @submodule_move_head(ptr noundef %arraydecay46, ptr noundef %43, ptr noundef null, ptr noundef %call48, i32 noundef 0)
   store i32 %call49, ptr %retval, align 4
   br label %return
 
 if.else:                                          ; preds = %if.then23
-  %43 = load ptr, ptr %ce.addr, align 8
-  %name50 = getelementptr inbounds %struct.cache_entry, ptr %43, i32 0, i32 8
+  %45 = load ptr, ptr %ce.addr, align 8
+  %name50 = getelementptr inbounds %struct.cache_entry, ptr %45, i32 0, i32 8
   %arraydecay51 = getelementptr inbounds [0 x i8], ptr %name50, i64 0, i64 0
-  %44 = load ptr, ptr %state.addr, align 8
-  %super_prefix52 = getelementptr inbounds %struct.checkout, ptr %44, i32 0, i32 3
-  %45 = load ptr, ptr %super_prefix52, align 8
-  %46 = load ptr, ptr %ce.addr, align 8
-  %oid53 = getelementptr inbounds %struct.cache_entry, ptr %46, i32 0, i32 7
+  %46 = load ptr, ptr %state.addr, align 8
+  %super_prefix52 = getelementptr inbounds %struct.checkout, ptr %46, i32 0, i32 3
+  %47 = load ptr, ptr %super_prefix52, align 8
+  %48 = load ptr, ptr %ce.addr, align 8
+  %oid53 = getelementptr inbounds %struct.cache_entry, ptr %48, i32 0, i32 7
   %call54 = call ptr @oid_to_hex(ptr noundef %oid53)
-  %47 = load ptr, ptr %state.addr, align 8
-  %force = getelementptr inbounds %struct.checkout, ptr %47, i32 0, i32 6
+  %49 = load ptr, ptr %state.addr, align 8
+  %force = getelementptr inbounds %struct.checkout, ptr %49, i32 0, i32 6
   %bf.load = load i8, ptr %force, align 8
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext i8 %bf.clear to i32
   %tobool55 = icmp ne i32 %bf.cast, 0
   %cond = select i1 %tobool55, i32 2, i32 0
-  %call56 = call i32 @submodule_move_head(ptr noundef %arraydecay51, ptr noundef %45, ptr noundef @.str.7, ptr noundef %call54, i32 noundef %cond)
+  %call56 = call i32 @submodule_move_head(ptr noundef %arraydecay51, ptr noundef %47, ptr noundef @.str.7, ptr noundef %call54, i32 noundef %cond)
   store i32 %call56, ptr %retval, align 4
   br label %return
 
 if.end57:                                         ; preds = %if.then18
-  %48 = load i32, ptr %changed, align 4
-  %tobool58 = icmp ne i32 %48, 0
+  %50 = load i32, ptr %changed, align 4
+  %tobool58 = icmp ne i32 %50, 0
   br i1 %tobool58, label %if.end60, label %if.then59
 
 if.then59:                                        ; preds = %if.end57
@@ -975,8 +977,8 @@ if.then59:                                        ; preds = %if.end57
   br label %return
 
 if.end60:                                         ; preds = %if.end57
-  %49 = load ptr, ptr %state.addr, align 8
-  %force61 = getelementptr inbounds %struct.checkout, ptr %49, i32 0, i32 6
+  %51 = load ptr, ptr %state.addr, align 8
+  %force61 = getelementptr inbounds %struct.checkout, ptr %51, i32 0, i32 6
   %bf.load62 = load i8, ptr %force61, align 8
   %bf.clear63 = and i8 %bf.load62, 1
   %bf.cast64 = zext i8 %bf.clear63 to i32
@@ -984,8 +986,8 @@ if.end60:                                         ; preds = %if.end57
   br i1 %tobool65, label %if.end74, label %if.then66
 
 if.then66:                                        ; preds = %if.end60
-  %50 = load ptr, ptr %state.addr, align 8
-  %quiet = getelementptr inbounds %struct.checkout, ptr %50, i32 0, i32 6
+  %52 = load ptr, ptr %state.addr, align 8
+  %quiet = getelementptr inbounds %struct.checkout, ptr %52, i32 0, i32 6
   %bf.load67 = load i8, ptr %quiet, align 8
   %bf.lshr = lshr i8 %bf.load67, 1
   %bf.clear68 = and i8 %bf.lshr, 1
@@ -994,9 +996,10 @@ if.then66:                                        ; preds = %if.end60
   br i1 %tobool70, label %if.end73, label %if.then71
 
 if.then71:                                        ; preds = %if.then66
-  %51 = load ptr, ptr @stderr, align 8
-  %52 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 2), align 8
-  %call72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef @.str.8, ptr noundef %52)
+  %53 = load ptr, ptr @stderr, align 8
+  %54 = getelementptr inbounds %struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8
+  %call72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.8, ptr noundef %55)
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then71, %if.then66
@@ -1004,8 +1007,8 @@ if.end73:                                         ; preds = %if.then71, %if.then
   br label %return
 
 if.end74:                                         ; preds = %if.end60
-  %53 = load ptr, ptr %state.addr, align 8
-  %clone = getelementptr inbounds %struct.checkout, ptr %53, i32 0, i32 6
+  %56 = load ptr, ptr %state.addr, align 8
+  %clone = getelementptr inbounds %struct.checkout, ptr %56, i32 0, i32 6
   %bf.load75 = load i8, ptr %clone, align 8
   %bf.lshr76 = lshr i8 %bf.load75, 3
   %bf.clear77 = and i8 %bf.lshr76, 1
@@ -1014,23 +1017,23 @@ if.end74:                                         ; preds = %if.end60
   br i1 %tobool79, label %if.then80, label %if.end81
 
 if.then80:                                        ; preds = %if.end74
-  %54 = load ptr, ptr %state.addr, align 8
-  %55 = load ptr, ptr %ce.addr, align 8
-  call void @mark_colliding_entries(ptr noundef %54, ptr noundef %55, ptr noundef %st)
+  %57 = load ptr, ptr %state.addr, align 8
+  %58 = load ptr, ptr %ce.addr, align 8
+  call void @mark_colliding_entries(ptr noundef %57, ptr noundef %58, ptr noundef %st)
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then80, %if.end74
   %st_mode82 = getelementptr inbounds %struct.stat, ptr %st, i32 0, i32 3
-  %56 = load i32, ptr %st_mode82, align 8
-  %and83 = and i32 %56, 61440
+  %59 = load i32, ptr %st_mode82, align 8
+  %and83 = and i32 %59, 61440
   %cmp84 = icmp eq i32 %and83, 16384
   br i1 %cmp84, label %if.then86, label %if.else93
 
 if.then86:                                        ; preds = %if.end81
-  %57 = load ptr, ptr %ce.addr, align 8
-  %ce_mode87 = getelementptr inbounds %struct.cache_entry, ptr %57, i32 0, i32 2
-  %58 = load i32, ptr %ce_mode87, align 4
-  %and88 = and i32 %58, 61440
+  %60 = load ptr, ptr %ce.addr, align 8
+  %ce_mode87 = getelementptr inbounds %struct.cache_entry, ptr %60, i32 0, i32 2
+  %61 = load i32, ptr %ce_mode87, align 4
+  %and88 = and i32 %61, 61440
   %cmp89 = icmp eq i32 %and88, 57344
   br i1 %cmp89, label %if.then91, label %if.end92
 
@@ -1043,14 +1046,16 @@ if.end92:                                         ; preds = %if.then86
   br label %if.end100
 
 if.else93:                                        ; preds = %if.end81
-  %59 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 2), align 8
-  %call94 = call i32 @unlink(ptr noundef %59) #8
+  %62 = getelementptr inbounds %struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 2
+  %63 = load ptr, ptr %62, align 8
+  %call94 = call i32 @unlink(ptr noundef %63) #8
   %tobool95 = icmp ne i32 %call94, 0
   br i1 %tobool95, label %if.then96, label %if.end99
 
 if.then96:                                        ; preds = %if.else93
-  %60 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 2), align 8
-  %call97 = call i32 (ptr, ...) @error_errno(ptr noundef @.str.9, ptr noundef %60)
+  %64 = getelementptr inbounds %struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 2
+  %65 = load ptr, ptr %64, align 8
+  %call97 = call i32 (ptr, ...) @error_errno(ptr noundef @.str.9, ptr noundef %65)
   %call98 = call i32 @const_error()
   store i32 %call98, ptr %retval, align 4
   br label %return
@@ -1062,8 +1067,8 @@ if.end100:                                        ; preds = %if.end99, %if.end92
   br label %if.end109
 
 if.else101:                                       ; preds = %if.end10
-  %61 = load ptr, ptr %state.addr, align 8
-  %not_new = getelementptr inbounds %struct.checkout, ptr %61, i32 0, i32 6
+  %66 = load ptr, ptr %state.addr, align 8
+  %not_new = getelementptr inbounds %struct.checkout, ptr %66, i32 0, i32 6
   %bf.load102 = load i8, ptr %not_new, align 8
   %bf.lshr103 = lshr i8 %bf.load102, 2
   %bf.clear104 = and i8 %bf.lshr103, 1
@@ -1079,39 +1084,41 @@ if.end108:                                        ; preds = %if.else101
   br label %if.end109
 
 if.end109:                                        ; preds = %if.end108, %if.end100
-  %62 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 2), align 8
-  %63 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 1), align 8
-  %conv110 = trunc i64 %63 to i32
-  %64 = load ptr, ptr %state.addr, align 8
-  call void @create_directories(ptr noundef %62, i32 noundef %conv110, ptr noundef %64)
-  %65 = load ptr, ptr %ce.addr, align 8
-  %ce_mode111 = getelementptr inbounds %struct.cache_entry, ptr %65, i32 0, i32 2
-  %66 = load i32, ptr %ce_mode111, align 4
-  %and112 = and i32 %66, 61440
+  %67 = getelementptr inbounds %struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 2
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds %struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 1
+  %70 = load i64, ptr %69, align 8
+  %conv110 = trunc i64 %70 to i32
+  %71 = load ptr, ptr %state.addr, align 8
+  call void @create_directories(ptr noundef %68, i32 noundef %conv110, ptr noundef %71)
+  %72 = load ptr, ptr %ce.addr, align 8
+  %ce_mode111 = getelementptr inbounds %struct.cache_entry, ptr %72, i32 0, i32 2
+  %73 = load i32, ptr %ce_mode111, align 4
+  %and112 = and i32 %73, 61440
   %cmp113 = icmp eq i32 %and112, 32768
   br i1 %cmp113, label %land.lhs.true115, label %if.end121
 
 land.lhs.true115:                                 ; preds = %if.end109
-  %67 = load ptr, ptr %ca.addr, align 8
-  %tobool116 = icmp ne ptr %67, null
+  %74 = load ptr, ptr %ca.addr, align 8
+  %tobool116 = icmp ne ptr %74, null
   br i1 %tobool116, label %if.end121, label %if.then117
 
 if.then117:                                       ; preds = %land.lhs.true115
-  %68 = load ptr, ptr %state.addr, align 8
-  %istate118 = getelementptr inbounds %struct.checkout, ptr %68, i32 0, i32 0
-  %69 = load ptr, ptr %istate118, align 8
-  %70 = load ptr, ptr %ce.addr, align 8
-  %name119 = getelementptr inbounds %struct.cache_entry, ptr %70, i32 0, i32 8
+  %75 = load ptr, ptr %state.addr, align 8
+  %istate118 = getelementptr inbounds %struct.checkout, ptr %75, i32 0, i32 0
+  %76 = load ptr, ptr %istate118, align 8
+  %77 = load ptr, ptr %ce.addr, align 8
+  %name119 = getelementptr inbounds %struct.cache_entry, ptr %77, i32 0, i32 8
   %arraydecay120 = getelementptr inbounds [0 x i8], ptr %name119, i64 0, i64 0
-  call void @convert_attrs(ptr noundef %69, ptr noundef %ca_buf, ptr noundef %arraydecay120)
+  call void @convert_attrs(ptr noundef %76, ptr noundef %ca_buf, ptr noundef %arraydecay120)
   store ptr %ca_buf, ptr %ca.addr, align 8
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then117, %land.lhs.true115, %if.end109
-  %71 = load ptr, ptr %ce.addr, align 8
-  %72 = load ptr, ptr %ca.addr, align 8
-  %73 = load ptr, ptr %nr_checkouts.addr, align 8
-  %call122 = call i32 @enqueue_checkout(ptr noundef %71, ptr noundef %72, ptr noundef %73)
+  %78 = load ptr, ptr %ce.addr, align 8
+  %79 = load ptr, ptr %ca.addr, align 8
+  %80 = load ptr, ptr %nr_checkouts.addr, align 8
+  %call122 = call i32 @enqueue_checkout(ptr noundef %78, ptr noundef %79, ptr noundef %80)
   %tobool123 = icmp ne i32 %call122, 0
   br i1 %tobool123, label %if.end125, label %if.then124
 
@@ -1120,18 +1127,19 @@ if.then124:                                       ; preds = %if.end121
   br label %return
 
 if.end125:                                        ; preds = %if.end121
-  %74 = load ptr, ptr %ce.addr, align 8
-  %75 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 2), align 8
-  %76 = load ptr, ptr %ca.addr, align 8
-  %77 = load ptr, ptr %state.addr, align 8
-  %78 = load ptr, ptr %nr_checkouts.addr, align 8
-  %call126 = call i32 @write_entry(ptr noundef %74, ptr noundef %75, ptr noundef %76, ptr noundef %77, i32 noundef 0, ptr noundef %78)
+  %81 = load ptr, ptr %ce.addr, align 8
+  %82 = getelementptr inbounds %struct.strbuf, ptr @checkout_entry_ca.path, i32 0, i32 2
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %ca.addr, align 8
+  %85 = load ptr, ptr %state.addr, align 8
+  %86 = load ptr, ptr %nr_checkouts.addr, align 8
+  %call126 = call i32 @write_entry(ptr noundef %81, ptr noundef %83, ptr noundef %84, ptr noundef %85, i32 noundef 0, ptr noundef %86)
   store i32 %call126, ptr %retval, align 4
   br label %return
 
 return:                                           ; preds = %if.end125, %if.then124, %if.then107, %if.then96, %if.then91, %if.end73, %if.then59, %if.else, %if.end44, %if.end9, %if.end
-  %79 = load i32, ptr %retval, align 4
-  ret i32 %79
+  %87 = load i32, ptr %retval, align 4
+  ret i32 %87
 }
 
 ; Function Attrs: noreturn

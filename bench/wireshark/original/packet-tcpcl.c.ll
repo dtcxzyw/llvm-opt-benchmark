@@ -6659,31 +6659,32 @@ define internal i32 @fragment_key_equal(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %7, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   store ptr %8, ptr %6, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.reassembly_table_functions, ptr @addresses_ports_reassembly_table_functions, i32 0, i32 1), align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = call i32 %9(ptr noundef %12, ptr noundef %15)
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %26
+  %9 = getelementptr inbounds %struct.reassembly_table_functions, ptr @addresses_ports_reassembly_table_functions, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = call i32 %10(ptr noundef %13, ptr noundef %16)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %27
 
-18:                                               ; preds = %2
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %19, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %22, i32 0, i32 1
-  %24 = load i64, ptr %23, align 8
-  %25 = icmp eq i64 %21, %24
-  br label %26
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %20, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %23, i32 0, i32 1
+  %25 = load i64, ptr %24, align 8
+  %26 = icmp eq i64 %22, %25
+  br label %27
 
-26:                                               ; preds = %18, %2
-  %27 = phi i1 [ false, %2 ], [ %25, %18 ]
-  %28 = zext i1 %27 to i32
-  ret i32 %28
+27:                                               ; preds = %19, %2
+  %28 = phi i1 [ false, %2 ], [ %26, %19 ]
+  %29 = zext i1 %28 to i32
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6697,20 +6698,21 @@ define internal ptr @fragment_key_temporary(ptr noundef %0, i32 noundef %1, ptr 
   store ptr %2, ptr %6, align 8
   %8 = call noalias ptr @g_slice_alloc(i64 noundef 16) #6
   store ptr %8, ptr %7, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.reassembly_table_functions, ptr @addresses_ports_reassembly_table_functions, i32 0, i32 2), align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i32, ptr %5, align 4
-  %12 = call ptr %9(ptr noundef %10, i32 noundef %11, ptr noundef null)
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %13, i32 0, i32 0
-  store ptr %12, ptr %14, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i64, ptr %15, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %17, i32 0, i32 1
-  store i64 %16, ptr %18, align 8
-  %19 = load ptr, ptr %7, align 8
-  ret ptr %19
+  %9 = getelementptr inbounds %struct.reassembly_table_functions, ptr @addresses_ports_reassembly_table_functions, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = load i32, ptr %5, align 4
+  %13 = call ptr %10(ptr noundef %11, i32 noundef %12, ptr noundef null)
+  %14 = load ptr, ptr %7, align 8
+  %15 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %14, i32 0, i32 0
+  store ptr %13, ptr %15, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i64, ptr %16, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %18, i32 0, i32 1
+  store i64 %17, ptr %19, align 8
+  %20 = load ptr, ptr %7, align 8
+  ret ptr %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6724,20 +6726,21 @@ define internal ptr @fragment_key_persistent(ptr noundef %0, i32 noundef %1, ptr
   store ptr %2, ptr %6, align 8
   %8 = call noalias ptr @g_slice_alloc(i64 noundef 16) #6
   store ptr %8, ptr %7, align 8
-  %9 = load ptr, ptr getelementptr inbounds (%struct.reassembly_table_functions, ptr @addresses_ports_reassembly_table_functions, i32 0, i32 3), align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i32, ptr %5, align 4
-  %12 = call ptr %9(ptr noundef %10, i32 noundef %11, ptr noundef null)
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %13, i32 0, i32 0
-  store ptr %12, ptr %14, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i64, ptr %15, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %17, i32 0, i32 1
-  store i64 %16, ptr %18, align 8
-  %19 = load ptr, ptr %7, align 8
-  ret ptr %19
+  %9 = getelementptr inbounds %struct.reassembly_table_functions, ptr @addresses_ports_reassembly_table_functions, i32 0, i32 3
+  %10 = load ptr, ptr %9, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = load i32, ptr %5, align 4
+  %13 = call ptr %10(ptr noundef %11, i32 noundef %12, ptr noundef null)
+  %14 = load ptr, ptr %7, align 8
+  %15 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %14, i32 0, i32 0
+  store ptr %13, ptr %15, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i64, ptr %16, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %18, i32 0, i32 1
+  store i64 %17, ptr %19, align 8
+  %20 = load ptr, ptr %7, align 8
+  ret ptr %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6749,25 +6752,26 @@ define internal void @fragment_key_free_temporary(ptr noundef %0) #0 {
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds (%struct.reassembly_table_functions, ptr @addresses_ports_reassembly_table_functions, i32 0, i32 4), align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  call void %8(ptr noundef %11)
-  br label %12
+  %8 = getelementptr inbounds %struct.reassembly_table_functions, ptr @addresses_ports_reassembly_table_functions, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  call void %9(ptr noundef %12)
+  br label %13
 
-12:                                               ; preds = %7
-  %13 = load ptr, ptr %3, align 8
-  call void @g_slice_free1(i64 noundef 16, ptr noundef %13)
-  br label %14
-
-14:                                               ; preds = %12
+13:                                               ; preds = %7
+  %14 = load ptr, ptr %3, align 8
+  call void @g_slice_free1(i64 noundef 16, ptr noundef %14)
   br label %15
 
-15:                                               ; preds = %14, %1
+15:                                               ; preds = %13
+  br label %16
+
+16:                                               ; preds = %15, %1
   ret void
 }
 
@@ -6780,25 +6784,26 @@ define internal void @fragment_key_free_persistent(ptr noundef %0) #0 {
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds (%struct.reassembly_table_functions, ptr @addresses_ports_reassembly_table_functions, i32 0, i32 5), align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  call void %8(ptr noundef %11)
-  br label %12
+  %8 = getelementptr inbounds %struct.reassembly_table_functions, ptr @addresses_ports_reassembly_table_functions, i32 0, i32 5
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds %struct.tcpcl_fragment_key_t, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  call void %9(ptr noundef %12)
+  br label %13
 
-12:                                               ; preds = %7
-  %13 = load ptr, ptr %3, align 8
-  call void @g_slice_free1(i64 noundef 16, ptr noundef %13)
-  br label %14
-
-14:                                               ; preds = %12
+13:                                               ; preds = %7
+  %14 = load ptr, ptr %3, align 8
+  call void @g_slice_free1(i64 noundef 16, ptr noundef %14)
   br label %15
 
-15:                                               ; preds = %14, %1
+15:                                               ; preds = %13
+  br label %16
+
+16:                                               ; preds = %15, %1
   ret void
 }
 

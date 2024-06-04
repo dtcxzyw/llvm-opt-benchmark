@@ -5755,15 +5755,15 @@ define hidden i32 @psa_generate_random(ptr noundef %0, i64 noundef %1) #0 {
 
 12:                                               ; preds = %2
   store i32 -137, ptr %3, align 4
-  br label %41
+  br label %42
 
 13:                                               ; preds = %2
   br label %14
 
-14:                                               ; preds = %33, %13
+14:                                               ; preds = %34, %13
   %15 = load i64, ptr %5, align 8
   %16 = icmp ugt i64 %15, 0
-  br i1 %16, label %17, label %40
+  br i1 %16, label %17, label %41
 
 17:                                               ; preds = %14
   %18 = load i64, ptr %5, align 8
@@ -5782,36 +5782,37 @@ define hidden i32 @psa_generate_random(ptr noundef %0, i64 noundef %1) #0 {
   store i64 %24, ptr %6, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = load i64, ptr %6, align 8
-  %27 = call i32 @mbedtls_ctr_drbg_random(ptr noundef getelementptr (i8, ptr @global_data, i64 1056), ptr noundef %25, i64 noundef %26)
-  store i32 %27, ptr %7, align 4
-  %28 = load i32, ptr %7, align 4
-  %29 = icmp ne i32 %28, 0
-  br i1 %29, label %30, label %33
+  %27 = getelementptr i8, ptr @global_data, i64 1056
+  %28 = call i32 @mbedtls_ctr_drbg_random(ptr noundef %27, ptr noundef %25, i64 noundef %26)
+  store i32 %28, ptr %7, align 4
+  %29 = load i32, ptr %7, align 4
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %34
 
-30:                                               ; preds = %23
-  %31 = load i32, ptr %7, align 4
-  %32 = call i32 @mbedtls_to_psa_error(i32 noundef %31)
-  store i32 %32, ptr %3, align 4
-  br label %41
+31:                                               ; preds = %23
+  %32 = load i32, ptr %7, align 4
+  %33 = call i32 @mbedtls_to_psa_error(i32 noundef %32)
+  store i32 %33, ptr %3, align 4
+  br label %42
 
-33:                                               ; preds = %23
-  %34 = load i64, ptr %6, align 8
-  %35 = load i64, ptr %5, align 8
-  %36 = sub i64 %35, %34
-  store i64 %36, ptr %5, align 8
-  %37 = load i64, ptr %6, align 8
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 %37
-  store ptr %39, ptr %4, align 8
+34:                                               ; preds = %23
+  %35 = load i64, ptr %6, align 8
+  %36 = load i64, ptr %5, align 8
+  %37 = sub i64 %36, %35
+  store i64 %37, ptr %5, align 8
+  %38 = load i64, ptr %6, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 %38
+  store ptr %40, ptr %4, align 8
   br label %14, !llvm.loop !6
 
-40:                                               ; preds = %14
+41:                                               ; preds = %14
   store i32 0, ptr %3, align 4
-  br label %41
+  br label %42
 
-41:                                               ; preds = %40, %30, %12
-  %42 = load i32, ptr %3, align 4
-  ret i32 %42
+42:                                               ; preds = %41, %31, %12
+  %43 = load i32, ptr %3, align 4
+  ret i32 %43
 }
 
 declare i32 @psa_driver_wrapper_cipher_set_iv(ptr noundef, ptr noundef, i64 noundef) #3
@@ -11609,19 +11610,21 @@ define hidden i32 @mbedtls_psa_crypto_configure_entropy_sources(ptr noundef %0, 
 
 11:                                               ; preds = %2
   store i32 -137, ptr %3, align 4
-  br label %15
+  br label %17
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %4, align 8
-  store ptr %13, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i32 0, i32 1), align 8
-  %14 = load ptr, ptr %5, align 8
-  store ptr %14, ptr getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i32 0, i32 1, i32 1), align 8
+  %14 = getelementptr inbounds %struct.psa_global_data_t, ptr @global_data, i32 0, i32 1
+  store ptr %13, ptr %14, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds %struct.psa_global_data_t, ptr @global_data, i32 0, i32 1, i32 1
+  store ptr %15, ptr %16, align 8
   store i32 0, ptr %3, align 4
-  br label %15
+  br label %17
 
-15:                                               ; preds = %12, %11
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+17:                                               ; preds = %12, %11
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11632,13 +11635,14 @@ define hidden void @mbedtls_psa_crypto_free() #0 {
   %3 = and i8 %2, 3
   %4 = zext i8 %3 to i32
   %5 = icmp ne i32 %4, 0
-  br i1 %5, label %6, label %7
+  br i1 %5, label %6, label %8
 
 6:                                                ; preds = %0
-  call void @mbedtls_psa_random_free(ptr noundef getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i32 0, i32 1))
-  br label %7
+  %7 = getelementptr inbounds %struct.psa_global_data_t, ptr @global_data, i32 0, i32 1
+  call void @mbedtls_psa_random_free(ptr noundef %7)
+  br label %8
 
-7:                                                ; preds = %6, %0
+8:                                                ; preds = %6, %0
   call void @mbedtls_platform_zeroize(ptr noundef @global_data, i64 noundef 1400)
   call void @psa_driver_wrapper_free()
   ret void
@@ -11650,13 +11654,14 @@ declare void @psa_wipe_all_key_slots() #3
 define internal void @mbedtls_psa_random_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  call void @mbedtls_psa_drbg_free(ptr noundef getelementptr (i8, ptr @global_data, i64 1056))
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.mbedtls_psa_random_context_t, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.mbedtls_psa_random_context_t, ptr %6, i32 0, i32 2
-  call void %5(ptr noundef %7)
+  %3 = getelementptr i8, ptr @global_data, i64 1056
+  call void @mbedtls_psa_drbg_free(ptr noundef %3)
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds %struct.mbedtls_psa_random_context_t, ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds %struct.mbedtls_psa_random_context_t, ptr %7, i32 0, i32 2
+  call void %6(ptr noundef %8)
   ret void
 }
 
@@ -11674,71 +11679,73 @@ define hidden i32 @psa_crypto_init() #0 {
 
 7:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  br label %39
+  br label %41
 
 8:                                                ; preds = %0
-  call void @mbedtls_psa_random_init(ptr noundef getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i32 0, i32 1))
-  %9 = load i8, ptr @global_data, align 8
-  %10 = and i8 %9, -7
-  %11 = or i8 %10, 2
-  store i8 %11, ptr @global_data, align 8
-  %12 = call i32 @mbedtls_psa_random_seed(ptr noundef getelementptr inbounds (%struct.psa_global_data_t, ptr @global_data, i32 0, i32 1))
-  store i32 %12, ptr %2, align 4
-  %13 = load i32, ptr %2, align 4
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %16
+  %9 = getelementptr inbounds %struct.psa_global_data_t, ptr @global_data, i32 0, i32 1
+  call void @mbedtls_psa_random_init(ptr noundef %9)
+  %10 = load i8, ptr @global_data, align 8
+  %11 = and i8 %10, -7
+  %12 = or i8 %11, 2
+  store i8 %12, ptr @global_data, align 8
+  %13 = getelementptr inbounds %struct.psa_global_data_t, ptr @global_data, i32 0, i32 1
+  %14 = call i32 @mbedtls_psa_random_seed(ptr noundef %13)
+  store i32 %14, ptr %2, align 4
+  %15 = load i32, ptr %2, align 4
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %18
 
-15:                                               ; preds = %8
-  br label %33
+17:                                               ; preds = %8
+  br label %35
 
-16:                                               ; preds = %8
-  %17 = load i8, ptr @global_data, align 8
-  %18 = and i8 %17, -7
-  %19 = or i8 %18, 4
-  store i8 %19, ptr @global_data, align 8
-  %20 = call i32 @psa_initialize_key_slots()
-  store i32 %20, ptr %2, align 4
-  %21 = load i32, ptr %2, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %24
+18:                                               ; preds = %8
+  %19 = load i8, ptr @global_data, align 8
+  %20 = and i8 %19, -7
+  %21 = or i8 %20, 4
+  store i8 %21, ptr @global_data, align 8
+  %22 = call i32 @psa_initialize_key_slots()
+  store i32 %22, ptr %2, align 4
+  %23 = load i32, ptr %2, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %26
 
-23:                                               ; preds = %16
-  br label %33
+25:                                               ; preds = %18
+  br label %35
 
-24:                                               ; preds = %16
-  %25 = call i32 @psa_driver_wrapper_init()
-  store i32 %25, ptr %2, align 4
-  %26 = load i32, ptr %2, align 4
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %29
+26:                                               ; preds = %18
+  %27 = call i32 @psa_driver_wrapper_init()
+  store i32 %27, ptr %2, align 4
+  %28 = load i32, ptr %2, align 4
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %31
 
-28:                                               ; preds = %24
-  br label %33
+30:                                               ; preds = %26
+  br label %35
 
-29:                                               ; preds = %24
-  %30 = load i8, ptr @global_data, align 8
-  %31 = and i8 %30, -2
-  %32 = or i8 %31, 1
-  store i8 %32, ptr @global_data, align 8
-  br label %33
+31:                                               ; preds = %26
+  %32 = load i8, ptr @global_data, align 8
+  %33 = and i8 %32, -2
+  %34 = or i8 %33, 1
+  store i8 %34, ptr @global_data, align 8
+  br label %35
 
-33:                                               ; preds = %29, %28, %23, %15
-  %34 = load i32, ptr %2, align 4
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %37
+35:                                               ; preds = %31, %30, %25, %17
+  %36 = load i32, ptr %2, align 4
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %39
 
-36:                                               ; preds = %33
+38:                                               ; preds = %35
   call void @mbedtls_psa_crypto_free()
-  br label %37
-
-37:                                               ; preds = %36, %33
-  %38 = load i32, ptr %2, align 4
-  store i32 %38, ptr %1, align 4
   br label %39
 
-39:                                               ; preds = %37, %7
-  %40 = load i32, ptr %1, align 4
-  ret i32 %40
+39:                                               ; preds = %38, %35
+  %40 = load i32, ptr %2, align 4
+  store i32 %40, ptr %1, align 4
+  br label %41
+
+41:                                               ; preds = %39, %7
+  %42 = load i32, ptr %1, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11777,7 +11784,8 @@ define internal void @mbedtls_psa_random_init(ptr noundef %0) #0 {
   %22 = load ptr, ptr %2, align 8
   %23 = getelementptr inbounds %struct.mbedtls_psa_random_context_t, ptr %22, i32 0, i32 2
   call void %21(ptr noundef %23)
-  call void @mbedtls_psa_drbg_init(ptr noundef getelementptr (i8, ptr @global_data, i64 1056))
+  %24 = getelementptr i8, ptr @global_data, i64 1056
+  call void @mbedtls_psa_drbg_init(ptr noundef %24)
   ret void
 }
 
@@ -17959,7 +17967,7 @@ define internal i32 @psa_key_agreement_ecdh(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %6
-  br label %66
+  br label %67
 
 34:                                               ; preds = %6
   %35 = load ptr, ptr %13, align 8
@@ -17971,7 +17979,7 @@ define internal i32 @psa_key_agreement_ecdh(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %34
-  br label %66
+  br label %67
 
 41:                                               ; preds = %34
   %42 = load ptr, ptr %9, align 8
@@ -17983,57 +17991,58 @@ define internal i32 @psa_key_agreement_ecdh(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %41
-  br label %66
+  br label %67
 
 48:                                               ; preds = %41
   %49 = load ptr, ptr %12, align 8
   %50 = load ptr, ptr %10, align 8
   %51 = load i64, ptr %11, align 8
-  %52 = call i32 @mbedtls_ecdh_calc_secret(ptr noundef %14, ptr noundef %49, ptr noundef %50, i64 noundef %51, ptr noundef @mbedtls_ctr_drbg_random, ptr noundef getelementptr (i8, ptr @global_data, i64 1056))
-  %53 = call i32 @mbedtls_to_psa_error(i32 noundef %52)
-  store i32 %53, ptr %15, align 4
-  %54 = load i32, ptr %15, align 4
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %56, label %57
-
-56:                                               ; preds = %48
-  br label %66
+  %52 = getelementptr i8, ptr @global_data, i64 1056
+  %53 = call i32 @mbedtls_ecdh_calc_secret(ptr noundef %14, ptr noundef %49, ptr noundef %50, i64 noundef %51, ptr noundef @mbedtls_ctr_drbg_random, ptr noundef %52)
+  %54 = call i32 @mbedtls_to_psa_error(i32 noundef %53)
+  store i32 %54, ptr %15, align 4
+  %55 = load i32, ptr %15, align 4
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %58
 
 57:                                               ; preds = %48
-  %58 = load i64, ptr %16, align 8
-  %59 = add i64 %58, 7
-  %60 = udiv i64 %59, 8
-  %61 = load ptr, ptr %12, align 8
-  %62 = load i64, ptr %61, align 8
-  %63 = icmp ne i64 %60, %62
-  br i1 %63, label %64, label %65
+  br label %67
 
-64:                                               ; preds = %57
+58:                                               ; preds = %48
+  %59 = load i64, ptr %16, align 8
+  %60 = add i64 %59, 7
+  %61 = udiv i64 %60, 8
+  %62 = load ptr, ptr %12, align 8
+  %63 = load i64, ptr %62, align 8
+  %64 = icmp ne i64 %61, %63
+  br i1 %64, label %65, label %66
+
+65:                                               ; preds = %58
   store i32 -151, ptr %15, align 4
-  br label %65
-
-65:                                               ; preds = %64, %57
   br label %66
 
-66:                                               ; preds = %65, %56, %47, %40, %33
-  %67 = load i32, ptr %15, align 4
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %72
+66:                                               ; preds = %65, %58
+  br label %67
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr %10, align 8
-  %71 = load i64, ptr %11, align 8
-  call void @mbedtls_platform_zeroize(ptr noundef %70, i64 noundef %71)
-  br label %72
+67:                                               ; preds = %66, %57, %47, %40, %33
+  %68 = load i32, ptr %15, align 4
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %73
 
-72:                                               ; preds = %69, %66
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %10, align 8
+  %72 = load i64, ptr %11, align 8
+  call void @mbedtls_platform_zeroize(ptr noundef %71, i64 noundef %72)
+  br label %73
+
+73:                                               ; preds = %70, %67
   call void @mbedtls_ecdh_free(ptr noundef %14)
-  %73 = load ptr, ptr %13, align 8
-  call void @mbedtls_ecp_keypair_free(ptr noundef %73)
   %74 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %74) #7
-  %75 = load i32, ptr %15, align 4
-  ret i32 %75
+  call void @mbedtls_ecp_keypair_free(ptr noundef %74)
+  %75 = load ptr, ptr %13, align 8
+  call void @free(ptr noundef %75) #7
+  %76 = load i32, ptr %15, align 4
+  ret i32 %76
 }
 
 declare void @mbedtls_ecp_keypair_free(ptr noundef) #3
@@ -18198,8 +18207,9 @@ define internal i32 @mbedtls_psa_drbg_seed(ptr noundef %0, ptr noundef %1, i64 n
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
-  %10 = call i32 @mbedtls_ctr_drbg_seed(ptr noundef getelementptr (i8, ptr @global_data, i64 1056), ptr noundef @mbedtls_entropy_func, ptr noundef %7, ptr noundef %8, i64 noundef %9)
-  ret i32 %10
+  %10 = getelementptr i8, ptr @global_data, i64 1056
+  %11 = call i32 @mbedtls_ctr_drbg_seed(ptr noundef %10, ptr noundef @mbedtls_entropy_func, ptr noundef %7, ptr noundef %8, i64 noundef %9)
+  ret i32 %11
 }
 
 declare i32 @mbedtls_ctr_drbg_seed(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3

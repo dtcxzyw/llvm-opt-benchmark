@@ -651,14 +651,15 @@ entry:
   store ptr %accConfig, ptr %accConfig.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen16HTTPCodecFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen30HTTPDefaultSessionCodecFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen30HTTPDefaultSessionCodecFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %accConfig_ = getelementptr inbounds %"class.proxygen::HTTPDefaultSessionCodecFactory", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %accConfig.addr, align 8
-  store ptr %0, ptr %accConfig_, align 8
+  %1 = load ptr, ptr %accConfig.addr, align 8
+  store ptr %1, ptr %accConfig_, align 8
   %alwaysUseHTTP2_ = getelementptr inbounds %"class.proxygen::HTTPDefaultSessionCodecFactory", ptr %this1, i32 0, i32 2
   call void @_ZN5folly8OptionalIbEC2Ev(ptr noundef nonnull align 1 dereferenceable(2) %alwaysUseHTTP2_) #3
-  %1 = load ptr, ptr %accConfig.addr, align 8
-  %plaintextProtocol = getelementptr inbounds %"struct.proxygen::AcceptorConfiguration", ptr %1, i32 0, i32 6
+  %2 = load ptr, ptr %accConfig.addr, align 8
+  %plaintextProtocol = getelementptr inbounds %"struct.proxygen::AcceptorConfiguration", ptr %2, i32 0, i32 6
   %call = call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %plaintextProtocol, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygen5http224kProtocolCleartextStringB5cxx11E) #3
   br i1 %call, label %if.then, label %if.end
 
@@ -672,12 +673,12 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
+  %4 = extractvalue { ptr, i32 } %3, 0
+  store ptr %4, ptr %exn.slot, align 8
+  %5 = extractvalue { ptr, i32 } %3, 1
+  store i32 %5, ptr %ehselector.slot, align 4
   call void @_ZN8proxygen16HTTPCodecFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
   br label %eh.resume
 
@@ -699,7 +700,8 @@ entry:
   %ref.tmp = alloca %class.anon, align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %useStrictValidationFn_ = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFbvEEC2IN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   ret void
@@ -1510,7 +1512,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %useStrictValidationFn_ = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFbvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_) #3
   ret void

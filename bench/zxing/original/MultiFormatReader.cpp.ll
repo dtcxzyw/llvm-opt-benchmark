@@ -180,209 +180,214 @@ define void @_ZN5ZXing17MultiFormatReaderC2ERKNS_13ReaderOptionsE(ptr noundef no
 31:                                               ; preds = %29, %27
   %32 = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  br label %112
+  br label %117
 
 33:                                               ; preds = %26, %17, %14
   %34 = phi i1 [ true, %26 ], [ true, %17 ], [ false, %14 ]
   %35 = phi i32 [ %18, %26 ], [ %18, %17 ], [ %12, %14 ]
   %36 = and i32 %35, 204800
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %47, label %38
+  br i1 %37, label %48, label %38
 
 38:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   %39 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
-          to label %40 unwind label %45
+          to label %40 unwind label %46
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %1, ptr %41, align 8, !tbaa !3
   %42 = getelementptr inbounds i8, ptr %39, i64 16
   store i8 1, ptr %42, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing6QRCode6ReaderE, i64 0, i32 0, i64 2), ptr %39, align 8, !tbaa !12
+  %43 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ZXing6QRCode6ReaderE, i64 0, i32 0, i64 2
+  store ptr %43, ptr %39, align 8, !tbaa !12
   store ptr %39, ptr %4, align 8, !tbaa !3
-  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_6QRCode6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4) #17
-          to label %44 unwind label %45
+  %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_6QRCode6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+          to label %45 unwind label %46
 
-44:                                               ; preds = %40
+45:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  br label %47
+  br label %48
 
-45:                                               ; preds = %40, %38
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %40, %38
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  br label %112
+  br label %117
 
-47:                                               ; preds = %44, %33
-  %48 = and i32 %35, 128
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %59, label %50
+48:                                               ; preds = %45, %33
+  %49 = and i32 %35, 128
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %61, label %51
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  %51 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
-          to label %52 unwind label %57
+  %52 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
+          to label %53 unwind label %59
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %51, i64 8
-  store ptr %1, ptr %53, align 8, !tbaa !3
-  %54 = getelementptr inbounds i8, ptr %51, i64 16
-  store i8 1, ptr %54, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing10DataMatrix6ReaderE, i64 0, i32 0, i64 2), ptr %51, align 8, !tbaa !12
-  store ptr %51, ptr %5, align 8, !tbaa !3
-  %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_10DataMatrix6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
-          to label %56 unwind label %57
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  store ptr %1, ptr %54, align 8, !tbaa !3
+  %55 = getelementptr inbounds i8, ptr %52, i64 16
+  store i8 1, ptr %55, align 8, !tbaa !9
+  %56 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ZXing10DataMatrix6ReaderE, i64 0, i32 0, i64 2
+  store ptr %56, ptr %52, align 8, !tbaa !12
+  store ptr %52, ptr %5, align 8, !tbaa !3
+  %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_10DataMatrix6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+          to label %58 unwind label %59
 
-56:                                               ; preds = %52
+58:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  br label %59
+  br label %61
 
-57:                                               ; preds = %52, %50
-  %58 = landingpad { ptr, i32 }
+59:                                               ; preds = %53, %51
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  br label %112
+  br label %117
 
-59:                                               ; preds = %56, %47
-  %60 = and i32 %35, 1
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %71, label %62
+61:                                               ; preds = %58, %48
+  %62 = and i32 %35, 1
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %74, label %64
 
-62:                                               ; preds = %59
+64:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
-          to label %64 unwind label %69
+  %65 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
+          to label %66 unwind label %72
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %63, i64 8
-  store ptr %1, ptr %65, align 8, !tbaa !3
-  %66 = getelementptr inbounds i8, ptr %63, i64 16
-  store i8 1, ptr %66, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing5Aztec6ReaderE, i64 0, i32 0, i64 2), ptr %63, align 8, !tbaa !12
-  store ptr %63, ptr %6, align 8, !tbaa !3
-  %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_5Aztec6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %6) #17
-          to label %68 unwind label %69
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds i8, ptr %65, i64 8
+  store ptr %1, ptr %67, align 8, !tbaa !3
+  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  store i8 1, ptr %68, align 8, !tbaa !9
+  %69 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ZXing5Aztec6ReaderE, i64 0, i32 0, i64 2
+  store ptr %69, ptr %65, align 8, !tbaa !12
+  store ptr %65, ptr %6, align 8, !tbaa !3
+  %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_5Aztec6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+          to label %71 unwind label %72
 
-68:                                               ; preds = %64
+71:                                               ; preds = %66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  br label %71
+  br label %74
 
-69:                                               ; preds = %64, %62
-  %70 = landingpad { ptr, i32 }
+72:                                               ; preds = %66, %64
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  br label %112
+  br label %117
 
-71:                                               ; preds = %68, %59
-  %72 = and i32 %35, 4096
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %83, label %74
+74:                                               ; preds = %71, %61
+  %75 = and i32 %35, 4096
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %87, label %77
 
-74:                                               ; preds = %71
+77:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
-  %75 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
-          to label %76 unwind label %81
+  %78 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
+          to label %79 unwind label %85
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %75, i64 8
-  store ptr %1, ptr %77, align 8, !tbaa !3
-  %78 = getelementptr inbounds i8, ptr %75, i64 16
-  store i8 0, ptr %78, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing6Pdf4176ReaderE, i64 0, i32 0, i64 2), ptr %75, align 8, !tbaa !12
-  store ptr %75, ptr %7, align 8, !tbaa !3
-  %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_6Pdf4176ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %7) #17
-          to label %80 unwind label %81
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds i8, ptr %78, i64 8
+  store ptr %1, ptr %80, align 8, !tbaa !3
+  %81 = getelementptr inbounds i8, ptr %78, i64 16
+  store i8 0, ptr %81, align 8, !tbaa !9
+  %82 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ZXing6Pdf4176ReaderE, i64 0, i32 0, i64 2
+  store ptr %82, ptr %78, align 8, !tbaa !12
+  store ptr %78, ptr %7, align 8, !tbaa !3
+  %83 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_6Pdf4176ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+          to label %84 unwind label %85
 
-80:                                               ; preds = %76
+84:                                               ; preds = %79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  br label %83
+  br label %87
 
-81:                                               ; preds = %76, %74
-  %82 = landingpad { ptr, i32 }
+85:                                               ; preds = %79, %77
+  %86 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  br label %112
+  br label %117
 
-83:                                               ; preds = %80, %71
-  %84 = and i32 %35, 2048
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %95, label %86
+87:                                               ; preds = %84, %74
+  %88 = and i32 %35, 2048
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %100, label %90
 
-86:                                               ; preds = %83
+90:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
-  %87 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
-          to label %88 unwind label %93
+  %91 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
+          to label %92 unwind label %98
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %87, i64 8
-  store ptr %1, ptr %89, align 8, !tbaa !3
-  %90 = getelementptr inbounds i8, ptr %87, i64 16
-  store i8 0, ptr %90, align 8, !tbaa !9
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing8MaxiCode6ReaderE, i64 0, i32 0, i64 2), ptr %87, align 8, !tbaa !12
-  store ptr %87, ptr %8, align 8, !tbaa !3
-  %91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_8MaxiCode6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %8) #17
-          to label %92 unwind label %93
+92:                                               ; preds = %90
+  %93 = getelementptr inbounds i8, ptr %91, i64 8
+  store ptr %1, ptr %93, align 8, !tbaa !3
+  %94 = getelementptr inbounds i8, ptr %91, i64 16
+  store i8 0, ptr %94, align 8, !tbaa !9
+  %95 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN5ZXing8MaxiCode6ReaderE, i64 0, i32 0, i64 2
+  store ptr %95, ptr %91, align 8, !tbaa !12
+  store ptr %91, ptr %8, align 8, !tbaa !3
+  %96 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_8MaxiCode6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+          to label %97 unwind label %98
 
-92:                                               ; preds = %88
+97:                                               ; preds = %92
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  br label %95
+  br label %100
 
-93:                                               ; preds = %88, %86
-  %94 = landingpad { ptr, i32 }
+98:                                               ; preds = %92, %90
+  %99 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  br label %112
+  br label %117
 
-95:                                               ; preds = %92, %83
-  br i1 %34, label %96, label %111
+100:                                              ; preds = %97, %87
+  br i1 %34, label %101, label %116
 
-96:                                               ; preds = %95
-  %97 = load i32, ptr %1, align 4
-  %98 = trunc i32 %97 to i1
-  br i1 %98, label %99, label %111
+101:                                              ; preds = %100
+  %102 = load i32, ptr %1, align 4
+  %103 = trunc i32 %102 to i1
+  br i1 %103, label %104, label %116
 
-99:                                               ; preds = %96
+104:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  %100 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
-          to label %101 unwind label %105
+  %105 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
+          to label %106 unwind label %110
 
-101:                                              ; preds = %99
-  invoke void @_ZN5ZXing4OneD6ReaderC1ERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %100, ptr noundef nonnull align 4 dereferenceable(12) %1) #17
-          to label %102 unwind label %107
+106:                                              ; preds = %104
+  invoke void @_ZN5ZXing4OneD6ReaderC1ERKNS_13ReaderOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %105, ptr noundef nonnull align 4 dereferenceable(12) %1) #17
+          to label %107 unwind label %112
 
-102:                                              ; preds = %101
-  store ptr %100, ptr %9, align 8, !tbaa !3
-  %103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_4OneD6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %9) #17
-          to label %104 unwind label %105
+107:                                              ; preds = %106
+  store ptr %105, ptr %9, align 8, !tbaa !3
+  %108 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPNS1_4OneD6ReaderEEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %9) #17
+          to label %109 unwind label %110
 
-104:                                              ; preds = %102
+109:                                              ; preds = %107
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  br label %111
+  br label %116
 
-105:                                              ; preds = %102, %99
-  %106 = landingpad { ptr, i32 }
+110:                                              ; preds = %107, %104
+  %111 = landingpad { ptr, i32 }
           cleanup
-  br label %109
+  br label %114
 
-107:                                              ; preds = %101
-  %108 = landingpad { ptr, i32 }
+112:                                              ; preds = %106
+  %113 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %100) #18
-  br label %109
+  call void @_ZdlPv(ptr noundef nonnull %105) #18
+  br label %114
 
-109:                                              ; preds = %107, %105
-  %110 = phi { ptr, i32 } [ %106, %105 ], [ %108, %107 ]
+114:                                              ; preds = %112, %110
+  %115 = phi { ptr, i32 } [ %111, %110 ], [ %113, %112 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  br label %112
+  br label %117
 
-111:                                              ; preds = %104, %96, %95
+116:                                              ; preds = %109, %101, %100
   ret void
 
-112:                                              ; preds = %109, %93, %81, %69, %57, %45, %31
-  %113 = phi { ptr, i32 } [ %110, %109 ], [ %94, %93 ], [ %82, %81 ], [ %70, %69 ], [ %58, %57 ], [ %46, %45 ], [ %32, %31 ]
+117:                                              ; preds = %114, %98, %85, %72, %59, %46, %31
+  %118 = phi { ptr, i32 } [ %115, %114 ], [ %99, %98 ], [ %86, %85 ], [ %73, %72 ], [ %60, %59 ], [ %47, %46 ], [ %32, %31 ]
   call void @_ZNSt6vectorISt10unique_ptrIN5ZXing6ReaderESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
-  resume { ptr, i32 } %113
+  resume { ptr, i32 } %118
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

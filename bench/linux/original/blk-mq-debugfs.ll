@@ -353,171 +353,174 @@ define dso_local void @blk_mq_debugfs_register(ptr noundef %0) local_unnamed_add
   %3 = getelementptr inbounds i8, ptr %0, i64 816
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  %6 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
-  %7 = or i1 %5, %6
-  br i1 %7, label %21, label %8
+  %6 = inttoptr i64 -4096 to ptr
+  %7 = icmp ugt ptr %4, %6
+  %8 = or i1 %5, %7
+  br i1 %8, label %22, label %9
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 592
-  store ptr %0, ptr %11, align 8
-  br label %12
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds i8, ptr %4, i64 48
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 592
+  store ptr %0, ptr %12, align 8
+  br label %13
 
-12:                                               ; preds = %12, %8
-  %13 = phi ptr [ %19, %12 ], [ @.str.51, %8 ]
-  %14 = phi ptr [ %18, %12 ], [ @blk_mq_debugfs_queue_attrs, %8 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load i16, ptr %15, align 8
-  %17 = tail call ptr @debugfs_create_file(ptr noundef nonnull %13, i16 noundef zeroext %16, ptr noundef %4, ptr noundef %14, ptr noundef nonnull @blk_mq_debugfs_fops) #9
-  %18 = getelementptr i8, ptr %14, i64 40
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %12, !llvm.loop !13
+13:                                               ; preds = %13, %9
+  %14 = phi ptr [ %20, %13 ], [ @.str.51, %9 ]
+  %15 = phi ptr [ %19, %13 ], [ @blk_mq_debugfs_queue_attrs, %9 ]
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load i16, ptr %16, align 8
+  %18 = tail call ptr @debugfs_create_file(ptr noundef nonnull %14, i16 noundef zeroext %17, ptr noundef %4, ptr noundef %15, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %19 = getelementptr i8, ptr %15, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %13, !llvm.loop !13
 
-21:                                               ; preds = %12, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %58, label %25
+22:                                               ; preds = %13, %1
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %60, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 824
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %58
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %0, i64 824
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %60
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %3, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %58, label %32
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %3, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %60, label %33
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %23, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 240
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %58, label %37
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %24, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 240
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %60, label %38
 
-37:                                               ; preds = %32
-  %38 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.10, ptr noundef nonnull %30) #9
-  store ptr %38, ptr %26, align 8
-  %39 = icmp eq ptr %38, null
-  %40 = icmp ugt ptr %38, inttoptr (i64 -4096 to ptr)
-  %41 = or i1 %39, %40
-  br i1 %41, label %58, label %42
+38:                                               ; preds = %33
+  %39 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.10, ptr noundef nonnull %31) #9
+  store ptr %39, ptr %27, align 8
+  %40 = icmp eq ptr %39, null
+  %41 = inttoptr i64 -4096 to ptr
+  %42 = icmp ugt ptr %39, %41
+  %43 = or i1 %40, %42
+  br i1 %43, label %60, label %44
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %34, align 8
-  %44 = getelementptr inbounds i8, ptr %38, i64 48
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 592
-  store ptr %0, ptr %46, align 8
-  %47 = load ptr, ptr %43, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %58, label %49
+44:                                               ; preds = %38
+  %45 = load ptr, ptr %35, align 8
+  %46 = getelementptr inbounds i8, ptr %39, i64 48
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 592
+  store ptr %0, ptr %48, align 8
+  %49 = load ptr, ptr %45, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %60, label %51
 
-49:                                               ; preds = %49, %42
-  %50 = phi ptr [ %56, %49 ], [ %47, %42 ]
-  %51 = phi ptr [ %55, %49 ], [ %43, %42 ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
-  %53 = load i16, ptr %52, align 8
-  %54 = tail call ptr @debugfs_create_file(ptr noundef nonnull %50, i16 noundef zeroext %53, ptr noundef %38, ptr noundef %51, ptr noundef nonnull @blk_mq_debugfs_fops) #9
-  %55 = getelementptr i8, ptr %51, i64 40
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %49, !llvm.loop !13
+51:                                               ; preds = %51, %44
+  %52 = phi ptr [ %58, %51 ], [ %49, %44 ]
+  %53 = phi ptr [ %57, %51 ], [ %45, %44 ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = load i16, ptr %54, align 8
+  %56 = tail call ptr @debugfs_create_file(ptr noundef nonnull %52, i16 noundef zeroext %55, ptr noundef %39, ptr noundef %53, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %57 = getelementptr i8, ptr %53, i64 40
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %51, !llvm.loop !13
 
-58:                                               ; preds = %49, %42, %37, %32, %29, %25, %21
+60:                                               ; preds = %51, %44, %38, %33, %30, %26, %22
   store i64 0, ptr %2, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
-  %60 = call ptr @xa_find(ptr noundef %59, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #9
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %107, label %62
+  %61 = getelementptr inbounds i8, ptr %0, i64 56
+  %62 = call ptr @xa_find(ptr noundef %61, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #9
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %110, label %64
 
-62:                                               ; preds = %104, %58
-  %63 = phi ptr [ %105, %104 ], [ %60, %58 ]
-  %64 = getelementptr inbounds i8, ptr %63, i64 448
-  %65 = load ptr, ptr %64, align 64
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %67, label %68
+64:                                               ; preds = %107, %60
+  %65 = phi ptr [ %108, %107 ], [ %62, %60 ]
+  %66 = getelementptr inbounds i8, ptr %65, i64 448
+  %67 = load ptr, ptr %66, align 64
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %69, label %70
 
-67:                                               ; preds = %62
-  call void @blk_mq_debugfs_register_hctx(ptr noundef %0, ptr noundef nonnull %63)
-  br label %68
+69:                                               ; preds = %64
+  call void @blk_mq_debugfs_register_hctx(ptr noundef %0, ptr noundef nonnull %65)
+  br label %70
 
-68:                                               ; preds = %67, %62
-  %69 = load ptr, ptr %22, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %104, label %71
+70:                                               ; preds = %69, %64
+  %71 = load ptr, ptr %23, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %107, label %73
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %63, i64 456
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %104
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %65, i64 456
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %107
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %64, align 64
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %104, label %78
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %66, align 64
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %107, label %80
 
-78:                                               ; preds = %75
-  %79 = load ptr, ptr %69, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 248
-  %81 = load ptr, ptr %80, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %104, label %83
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %71, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 248
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %107, label %85
 
-83:                                               ; preds = %78
-  %84 = call ptr @debugfs_create_dir(ptr noundef nonnull @.str.10, ptr noundef nonnull %76) #9
-  store ptr %84, ptr %72, align 8
-  %85 = icmp eq ptr %84, null
-  %86 = icmp ugt ptr %84, inttoptr (i64 -4096 to ptr)
-  %87 = or i1 %85, %86
-  br i1 %87, label %104, label %88
+85:                                               ; preds = %80
+  %86 = call ptr @debugfs_create_dir(ptr noundef nonnull @.str.10, ptr noundef nonnull %78) #9
+  store ptr %86, ptr %74, align 8
+  %87 = icmp eq ptr %86, null
+  %88 = inttoptr i64 -4096 to ptr
+  %89 = icmp ugt ptr %86, %88
+  %90 = or i1 %87, %89
+  br i1 %90, label %107, label %91
 
-88:                                               ; preds = %83
-  %89 = load ptr, ptr %80, align 8
-  %90 = getelementptr inbounds i8, ptr %84, i64 48
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 592
-  store ptr %63, ptr %92, align 8
-  %93 = load ptr, ptr %89, align 8
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %104, label %95
+91:                                               ; preds = %85
+  %92 = load ptr, ptr %82, align 8
+  %93 = getelementptr inbounds i8, ptr %86, i64 48
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 592
+  store ptr %65, ptr %95, align 8
+  %96 = load ptr, ptr %92, align 8
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %107, label %98
 
-95:                                               ; preds = %95, %88
-  %96 = phi ptr [ %102, %95 ], [ %93, %88 ]
-  %97 = phi ptr [ %101, %95 ], [ %89, %88 ]
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
-  %99 = load i16, ptr %98, align 8
-  %100 = call ptr @debugfs_create_file(ptr noundef nonnull %96, i16 noundef zeroext %99, ptr noundef %84, ptr noundef %97, ptr noundef nonnull @blk_mq_debugfs_fops) #9
-  %101 = getelementptr i8, ptr %97, i64 40
-  %102 = load ptr, ptr %101, align 8
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %104, label %95, !llvm.loop !13
-
-104:                                              ; preds = %95, %88, %83, %78, %75, %71, %68
-  %105 = call ptr @xa_find_after(ptr noundef %59, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #9
+98:                                               ; preds = %98, %91
+  %99 = phi ptr [ %105, %98 ], [ %96, %91 ]
+  %100 = phi ptr [ %104, %98 ], [ %92, %91 ]
+  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  %102 = load i16, ptr %101, align 8
+  %103 = call ptr @debugfs_create_file(ptr noundef nonnull %99, i16 noundef zeroext %102, ptr noundef %86, ptr noundef %100, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %104 = getelementptr i8, ptr %100, i64 40
+  %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %62, !llvm.loop !14
+  br i1 %106, label %107, label %98, !llvm.loop !13
 
-107:                                              ; preds = %104, %58
-  %108 = getelementptr inbounds i8, ptr %0, i64 264
-  %109 = load ptr, ptr %108, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %116, label %111
+107:                                              ; preds = %98, %91, %85, %80, %77, %73, %70
+  %108 = call ptr @xa_find_after(ptr noundef %61, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #9
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %110, label %64, !llvm.loop !14
 
-111:                                              ; preds = %111, %107
-  %112 = phi ptr [ %114, %111 ], [ %109, %107 ]
-  call void @blk_mq_debugfs_register_rqos(ptr noundef nonnull %112)
-  %113 = getelementptr inbounds i8, ptr %112, i64 24
-  %114 = load ptr, ptr %113, align 8
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %116, label %111, !llvm.loop !15
+110:                                              ; preds = %107, %60
+  %111 = getelementptr inbounds i8, ptr %0, i64 264
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %119, label %114
 
-116:                                              ; preds = %111, %107
+114:                                              ; preds = %114, %110
+  %115 = phi ptr [ %117, %114 ], [ %112, %110 ]
+  call void @blk_mq_debugfs_register_rqos(ptr noundef nonnull %115)
+  %116 = getelementptr inbounds i8, ptr %115, i64 24
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %119, label %114, !llvm.loop !15
+
+119:                                              ; preds = %114, %110
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   ret void
 }
@@ -527,7 +530,7 @@ define dso_local void @blk_mq_debugfs_register_sched(ptr noundef %0) local_unnam
   %2 = getelementptr inbounds i8, ptr %0, i64 816
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %34, label %5
+  br i1 %4, label %35, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -536,39 +539,40 @@ define dso_local void @blk_mq_debugfs_register_sched(ptr noundef %0) local_unnam
   %9 = getelementptr inbounds i8, ptr %8, i64 240
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %34, label %12
+  br i1 %11, label %35, label %12
 
 12:                                               ; preds = %5
   %13 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #9
   %14 = getelementptr inbounds i8, ptr %0, i64 824
   store ptr %13, ptr %14, align 8
   %15 = icmp eq ptr %13, null
-  %16 = icmp ugt ptr %13, inttoptr (i64 -4096 to ptr)
-  %17 = or i1 %15, %16
-  br i1 %17, label %34, label %18
+  %16 = inttoptr i64 -4096 to ptr
+  %17 = icmp ugt ptr %13, %16
+  %18 = or i1 %15, %17
+  br i1 %18, label %35, label %19
 
-18:                                               ; preds = %12
-  %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 48
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 592
-  store ptr %0, ptr %22, align 8
-  %23 = load ptr, ptr %19, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %34, label %25
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds i8, ptr %13, i64 48
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 592
+  store ptr %0, ptr %23, align 8
+  %24 = load ptr, ptr %20, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %35, label %26
 
-25:                                               ; preds = %25, %18
-  %26 = phi ptr [ %32, %25 ], [ %23, %18 ]
-  %27 = phi ptr [ %31, %25 ], [ %19, %18 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load i16, ptr %28, align 8
-  %30 = tail call ptr @debugfs_create_file(ptr noundef nonnull %26, i16 noundef zeroext %29, ptr noundef %13, ptr noundef %27, ptr noundef nonnull @blk_mq_debugfs_fops) #9
-  %31 = getelementptr i8, ptr %27, i64 40
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %25, !llvm.loop !13
+26:                                               ; preds = %26, %19
+  %27 = phi ptr [ %33, %26 ], [ %24, %19 ]
+  %28 = phi ptr [ %32, %26 ], [ %20, %19 ]
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load i16, ptr %29, align 8
+  %31 = tail call ptr @debugfs_create_file(ptr noundef nonnull %27, i16 noundef zeroext %30, ptr noundef %13, ptr noundef %28, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %32 = getelementptr i8, ptr %28, i64 40
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %26, !llvm.loop !13
 
-34:                                               ; preds = %25, %18, %12, %5, %1
+35:                                               ; preds = %26, %19, %12, %5, %1
   ret void
 }
 
@@ -584,7 +588,7 @@ define dso_local void @blk_mq_debugfs_register_hctx(ptr nocapture noundef readon
   %5 = getelementptr inbounds i8, ptr %0, i64 816
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %68, label %8
+  br i1 %7, label %70, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 340
@@ -595,82 +599,84 @@ define dso_local void @blk_mq_debugfs_register_hctx(ptr nocapture noundef readon
   %14 = getelementptr inbounds i8, ptr %1, i64 448
   store ptr %13, ptr %14, align 64
   %15 = icmp eq ptr %13, null
-  %16 = icmp ugt ptr %13, inttoptr (i64 -4096 to ptr)
-  %17 = or i1 %15, %16
-  br i1 %17, label %31, label %18
+  %16 = inttoptr i64 -4096 to ptr
+  %17 = icmp ugt ptr %13, %16
+  %18 = or i1 %15, %17
+  br i1 %18, label %32, label %19
 
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %13, i64 48
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 592
-  store ptr %1, ptr %21, align 8
-  br label %22
+19:                                               ; preds = %8
+  %20 = getelementptr inbounds i8, ptr %13, i64 48
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 592
+  store ptr %1, ptr %22, align 8
+  br label %23
 
-22:                                               ; preds = %22, %18
-  %23 = phi ptr [ %29, %22 ], [ @.str.54, %18 ]
-  %24 = phi ptr [ %28, %22 ], [ @blk_mq_debugfs_hctx_attrs, %18 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = load i16, ptr %25, align 8
-  %27 = call ptr @debugfs_create_file(ptr noundef nonnull %23, i16 noundef zeroext %26, ptr noundef %13, ptr noundef %24, ptr noundef nonnull @blk_mq_debugfs_fops) #9
-  %28 = getelementptr i8, ptr %24, i64 40
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %22, !llvm.loop !13
+23:                                               ; preds = %23, %19
+  %24 = phi ptr [ %30, %23 ], [ @.str.54, %19 ]
+  %25 = phi ptr [ %29, %23 ], [ @blk_mq_debugfs_hctx_attrs, %19 ]
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = load i16, ptr %26, align 8
+  %28 = call ptr @debugfs_create_file(ptr noundef nonnull %24, i16 noundef zeroext %27, ptr noundef %13, ptr noundef %25, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %29 = getelementptr i8, ptr %25, i64 40
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %23, !llvm.loop !13
 
-31:                                               ; preds = %22, %8
-  %32 = getelementptr inbounds i8, ptr %1, i64 254
-  %33 = load i16, ptr %32, align 2
-  %34 = icmp eq i16 %33, 0
-  br i1 %34, label %68, label %35
+32:                                               ; preds = %23, %8
+  %33 = getelementptr inbounds i8, ptr %1, i64 254
+  %34 = load i16, ptr %33, align 2
+  %35 = icmp eq i16 %34, 0
+  br i1 %35, label %70, label %36
 
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %1, i64 256
-  br label %37
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds i8, ptr %1, i64 256
+  br label %38
 
-37:                                               ; preds = %63, %35
-  %38 = phi i64 [ 0, %35 ], [ %64, %63 ]
-  %39 = load ptr, ptr %36, align 64
-  %40 = getelementptr ptr, ptr %39, i64 %38
-  %41 = load ptr, ptr %40, align 8
+38:                                               ; preds = %65, %36
+  %39 = phi i64 [ 0, %36 ], [ %66, %65 ]
+  %40 = load ptr, ptr %37, align 64
+  %41 = getelementptr ptr, ptr %40, i64 %39
+  %42 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !12
-  %42 = getelementptr inbounds i8, ptr %41, i64 64
-  %43 = load i32, ptr %42, align 64
-  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 20, ptr noundef nonnull @.str.122, i32 noundef %43) #9
-  %45 = load ptr, ptr %14, align 64
-  %46 = call ptr @debugfs_create_dir(ptr noundef nonnull %3, ptr noundef %45) #9
-  %47 = icmp eq ptr %46, null
-  %48 = icmp ugt ptr %46, inttoptr (i64 -4096 to ptr)
-  %49 = or i1 %47, %48
-  br i1 %49, label %63, label %50
+  %43 = getelementptr inbounds i8, ptr %42, i64 64
+  %44 = load i32, ptr %43, align 64
+  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 20, ptr noundef nonnull @.str.122, i32 noundef %44) #9
+  %46 = load ptr, ptr %14, align 64
+  %47 = call ptr @debugfs_create_dir(ptr noundef nonnull %3, ptr noundef %46) #9
+  %48 = icmp eq ptr %47, null
+  %49 = inttoptr i64 -4096 to ptr
+  %50 = icmp ugt ptr %47, %49
+  %51 = or i1 %48, %50
+  br i1 %51, label %65, label %52
 
-50:                                               ; preds = %37
-  %51 = getelementptr inbounds i8, ptr %46, i64 48
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 592
-  store ptr %41, ptr %53, align 8
-  br label %54
+52:                                               ; preds = %38
+  %53 = getelementptr inbounds i8, ptr %47, i64 48
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 592
+  store ptr %42, ptr %55, align 8
+  br label %56
 
-54:                                               ; preds = %54, %50
-  %55 = phi ptr [ %61, %54 ], [ @.str.123, %50 ]
-  %56 = phi ptr [ %60, %54 ], [ @blk_mq_debugfs_ctx_attrs, %50 ]
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
-  %58 = load i16, ptr %57, align 8
-  %59 = call ptr @debugfs_create_file(ptr noundef nonnull %55, i16 noundef zeroext %58, ptr noundef %46, ptr noundef %56, ptr noundef nonnull @blk_mq_debugfs_fops) #9
-  %60 = getelementptr i8, ptr %56, i64 40
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %54, !llvm.loop !13
+56:                                               ; preds = %56, %52
+  %57 = phi ptr [ %63, %56 ], [ @.str.123, %52 ]
+  %58 = phi ptr [ %62, %56 ], [ @blk_mq_debugfs_ctx_attrs, %52 ]
+  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = load i16, ptr %59, align 8
+  %61 = call ptr @debugfs_create_file(ptr noundef nonnull %57, i16 noundef zeroext %60, ptr noundef %47, ptr noundef %58, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %62 = getelementptr i8, ptr %58, i64 40
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %56, !llvm.loop !13
 
-63:                                               ; preds = %54, %37
+65:                                               ; preds = %56, %38
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #9
-  %64 = add nuw nsw i64 %38, 1
-  %65 = load i16, ptr %32, align 2
-  %66 = zext i16 %65 to i64
-  %67 = icmp ult i64 %64, %66
-  br i1 %67, label %37, label %68, !llvm.loop !16
+  %66 = add nuw nsw i64 %39, 1
+  %67 = load i16, ptr %33, align 2
+  %68 = zext i16 %67 to i64
+  %69 = icmp ult i64 %66, %68
+  br i1 %69, label %38, label %70, !llvm.loop !16
 
-68:                                               ; preds = %63, %31, %2
+70:                                               ; preds = %65, %32, %2
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
   ret void
 }
@@ -680,7 +686,7 @@ define dso_local void @blk_mq_debugfs_register_sched_hctx(ptr nocapture noundef 
   %3 = getelementptr inbounds i8, ptr %1, i64 448
   %4 = load ptr, ptr %3, align 64
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %35, label %6
+  br i1 %5, label %36, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -689,39 +695,40 @@ define dso_local void @blk_mq_debugfs_register_sched_hctx(ptr nocapture noundef 
   %10 = getelementptr inbounds i8, ptr %9, i64 248
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %35, label %13
+  br i1 %12, label %36, label %13
 
 13:                                               ; preds = %6
   %14 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.10, ptr noundef nonnull %4) #9
   %15 = getelementptr inbounds i8, ptr %1, i64 456
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
-  %17 = icmp ugt ptr %14, inttoptr (i64 -4096 to ptr)
-  %18 = or i1 %16, %17
-  br i1 %18, label %35, label %19
+  %17 = inttoptr i64 -4096 to ptr
+  %18 = icmp ugt ptr %14, %17
+  %19 = or i1 %16, %18
+  br i1 %19, label %36, label %20
 
-19:                                               ; preds = %13
-  %20 = load ptr, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 48
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 592
-  store ptr %1, ptr %23, align 8
-  %24 = load ptr, ptr %20, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %35, label %26
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %10, align 8
+  %22 = getelementptr inbounds i8, ptr %14, i64 48
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 592
+  store ptr %1, ptr %24, align 8
+  %25 = load ptr, ptr %21, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %36, label %27
 
-26:                                               ; preds = %26, %19
-  %27 = phi ptr [ %33, %26 ], [ %24, %19 ]
-  %28 = phi ptr [ %32, %26 ], [ %20, %19 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = load i16, ptr %29, align 8
-  %31 = tail call ptr @debugfs_create_file(ptr noundef nonnull %27, i16 noundef zeroext %30, ptr noundef %14, ptr noundef %28, ptr noundef nonnull @blk_mq_debugfs_fops) #9
-  %32 = getelementptr i8, ptr %28, i64 40
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %26, !llvm.loop !13
+27:                                               ; preds = %27, %20
+  %28 = phi ptr [ %34, %27 ], [ %25, %20 ]
+  %29 = phi ptr [ %33, %27 ], [ %21, %20 ]
+  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = load i16, ptr %30, align 8
+  %32 = tail call ptr @debugfs_create_file(ptr noundef nonnull %28, i16 noundef zeroext %31, ptr noundef %14, ptr noundef %29, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %33 = getelementptr i8, ptr %29, i64 40
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %27, !llvm.loop !13
 
-35:                                               ; preds = %26, %19, %13, %6, %2
+36:                                               ; preds = %27, %20, %13, %6, %2
   ret void
 }
 
@@ -756,14 +763,14 @@ define dso_local void @blk_mq_debugfs_register_rqos(ptr noundef %0) local_unname
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %53
+  br i1 %15, label %16, label %54
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %53, label %21
+  br i1 %20, label %54, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %5, i64 832
@@ -783,34 +790,35 @@ define dso_local void @blk_mq_debugfs_register_rqos(ptr noundef %0) local_unname
   %31 = tail call ptr @debugfs_create_dir(ptr noundef nonnull %12, ptr noundef %30) #9
   store ptr %31, ptr %13, align 8
   %32 = icmp eq ptr %31, null
-  %33 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
-  %34 = or i1 %32, %33
-  br i1 %34, label %53, label %35
+  %33 = inttoptr i64 -4096 to ptr
+  %34 = icmp ugt ptr %31, %33
+  %35 = or i1 %32, %34
+  br i1 %35, label %54, label %36
 
-35:                                               ; preds = %29
-  %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 80
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %31, i64 48
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 592
-  store ptr %0, ptr %41, align 8
-  %42 = load ptr, ptr %38, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %53, label %44
+36:                                               ; preds = %29
+  %37 = load ptr, ptr %0, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 80
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %31, i64 48
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 592
+  store ptr %0, ptr %42, align 8
+  %43 = load ptr, ptr %39, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %54, label %45
 
-44:                                               ; preds = %44, %35
-  %45 = phi ptr [ %51, %44 ], [ %42, %35 ]
-  %46 = phi ptr [ %50, %44 ], [ %38, %35 ]
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
-  %48 = load i16, ptr %47, align 8
-  %49 = tail call ptr @debugfs_create_file(ptr noundef nonnull %45, i16 noundef zeroext %48, ptr noundef %31, ptr noundef %46, ptr noundef nonnull @blk_mq_debugfs_fops) #9
-  %50 = getelementptr i8, ptr %46, i64 40
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %44, !llvm.loop !13
+45:                                               ; preds = %45, %36
+  %46 = phi ptr [ %52, %45 ], [ %43, %36 ]
+  %47 = phi ptr [ %51, %45 ], [ %39, %36 ]
+  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = load i16, ptr %48, align 8
+  %50 = tail call ptr @debugfs_create_file(ptr noundef nonnull %46, i16 noundef zeroext %49, ptr noundef %31, ptr noundef %47, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %51 = getelementptr i8, ptr %47, i64 40
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %45, !llvm.loop !13
 
-53:                                               ; preds = %44, %35, %29, %16, %11
+54:                                               ; preds = %45, %36, %29, %16, %11
   ret void
 }
 

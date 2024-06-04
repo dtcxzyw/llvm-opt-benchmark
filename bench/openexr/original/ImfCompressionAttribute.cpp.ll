@@ -93,11 +93,12 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_11CompressionEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_11CompressionEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %value.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  store i32 %1, ptr %_value, align 8
+  %1 = load ptr, ptr %value.addr, align 8
+  %2 = load i32, ptr %1, align 4
+  store i32 %2, ptr %_value, align 8
   ret void
 }
 
@@ -209,7 +210,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_11CompressionEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_11CompressionEEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

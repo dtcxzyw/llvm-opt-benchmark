@@ -115,10 +115,11 @@ define internal zeroext i1 @mca_btl_is_self_endpoint(ptr noundef %0) #0 {
   %4 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %3, i32 0, i32 3
   %5 = load i16, ptr %4, align 8
   %6 = zext i16 %5 to i32
-  %7 = load i16, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 8), align 4
-  %8 = zext i16 %7 to i32
-  %9 = icmp eq i32 %6, %8
-  ret i1 %9
+  %7 = getelementptr inbounds %struct.opal_process_info_t, ptr @opal_process_info, i32 0, i32 8
+  %8 = load i16, ptr %7, align 4
+  %9 = zext i16 %8 to i32
+  %10 = icmp eq i32 %6, %9
+  ret i1 %10
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -72,14 +72,15 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  store ptr @mktag_fsck_error_func, ptr getelementptr inbounds (%struct.fsck_options, ptr @fsck_options, i32 0, i32 1), align 8
+  %3 = getelementptr inbounds %struct.fsck_options, ptr @fsck_options, i32 0, i32 1
+  store ptr @mktag_fsck_error_func, ptr %3, align 8
   call void @fsck_set_msg_type_from_ids(ptr noundef @fsck_options, i32 noundef 57, i32 noundef 4)
   call void @git_config(ptr noundef @git_fsck_config, ptr noundef @fsck_options)
   %buf3 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 2
-  %3 = load ptr, ptr %buf3, align 8
+  %4 = load ptr, ptr %buf3, align 8
   %len = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 1
-  %4 = load i64, ptr %len, align 8
-  %call4 = call i32 @fsck_tag_standalone(ptr noundef null, ptr noundef %3, i64 noundef %4, ptr noundef @fsck_options, ptr noundef %tagged_oid, ptr noundef %tagged_type)
+  %5 = load i64, ptr %len, align 8
+  %call4 = call i32 @fsck_tag_standalone(ptr noundef null, ptr noundef %4, i64 noundef %5, ptr noundef @fsck_options, ptr noundef %tagged_oid, ptr noundef %tagged_type)
   %tobool = icmp ne i32 %call4, 0
   br i1 %tobool, label %if.then5, label %if.end7
 
@@ -100,10 +101,10 @@ if.then10:                                        ; preds = %if.end7
 
 if.end12:                                         ; preds = %if.end7
   %buf13 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 2
-  %5 = load ptr, ptr %buf13, align 8
+  %6 = load ptr, ptr %buf13, align 8
   %len14 = getelementptr inbounds %struct.strbuf, ptr %buf, i32 0, i32 1
-  %6 = load i64, ptr %len14, align 8
-  %call15 = call i32 @write_object_file(ptr noundef %5, i64 noundef %6, i32 noundef 4, ptr noundef %result)
+  %7 = load i64, ptr %len14, align 8
+  %call15 = call i32 @write_object_file(ptr noundef %6, i64 noundef %7, i32 noundef 4, ptr noundef %result)
   %cmp16 = icmp slt i32 %call15, 0
   br i1 %cmp16, label %if.then17, label %if.end19
 

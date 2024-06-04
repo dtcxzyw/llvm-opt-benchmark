@@ -96,51 +96,56 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @ipv6_frag_init() local_unnamed_addr #0 section ".init.text" align 16 {
-  store ptr @ip6frag_init, ptr getelementptr inbounds (%struct.inet_frags, ptr @ip6_frags, i64 0, i32 1), align 8
-  store ptr null, ptr getelementptr inbounds (%struct.inet_frags, ptr @ip6_frags, i64 0, i32 2), align 8
+  %1 = getelementptr inbounds %struct.inet_frags, ptr @ip6_frags, i64 0, i32 1
+  store ptr @ip6frag_init, ptr %1, align 8
+  %2 = getelementptr inbounds %struct.inet_frags, ptr @ip6_frags, i64 0, i32 2
+  store ptr null, ptr %2, align 8
   store i32 184, ptr @ip6_frags, align 8
-  store ptr @ip6_frag_expire, ptr getelementptr inbounds (%struct.inet_frags, ptr @ip6_frags, i64 0, i32 3), align 8
-  store ptr @ip6_frag_cache_name, ptr getelementptr inbounds (%struct.inet_frags, ptr @ip6_frags, i64 0, i32 5), align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%struct.inet_frags, ptr @ip6_frags, i64 0, i32 6), ptr noundef nonnull align 8 dereferenceable(40) @ip6_rhash_params, i64 40, i1 false)
-  %1 = tail call i32 @inet_frags_init(ptr noundef nonnull @ip6_frags) #13
-  %2 = icmp eq i32 %1, 0
-  br i1 %2, label %3, label %13
+  %3 = getelementptr inbounds %struct.inet_frags, ptr @ip6_frags, i64 0, i32 3
+  store ptr @ip6_frag_expire, ptr %3, align 8
+  %4 = getelementptr inbounds %struct.inet_frags, ptr @ip6_frags, i64 0, i32 5
+  store ptr @ip6_frag_cache_name, ptr %4, align 8
+  %5 = getelementptr inbounds %struct.inet_frags, ptr @ip6_frags, i64 0, i32 6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @ip6_rhash_params, i64 40, i1 false)
+  %6 = tail call i32 @inet_frags_init(ptr noundef nonnull @ip6_frags) #13
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %18
 
-3:                                                ; preds = %0
-  %4 = tail call i32 @inet6_add_protocol(ptr noundef nonnull @frag_protocol, i8 noundef zeroext 44) #13
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %20
+8:                                                ; preds = %0
+  %9 = tail call i32 @inet6_add_protocol(ptr noundef nonnull @frag_protocol, i8 noundef zeroext 44) #13
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %25
 
-6:                                                ; preds = %3
-  %7 = tail call ptr @register_net_sysctl_sz(ptr noundef nonnull @init_net, ptr noundef nonnull @.str.2, ptr noundef nonnull @ip6_frags_ctl_table, i64 noundef 2) #13
-  store ptr %7, ptr @ip6_ctl_header, align 8
-  %8 = icmp eq ptr %7, null
-  %9 = select i1 %8, i32 -12, i32 0
-  br i1 %8, label %17, label %10
+11:                                               ; preds = %8
+  %12 = tail call ptr @register_net_sysctl_sz(ptr noundef nonnull @init_net, ptr noundef nonnull @.str.2, ptr noundef nonnull @ip6_frags_ctl_table, i64 noundef 2) #13
+  store ptr %12, ptr @ip6_ctl_header, align 8
+  %13 = icmp eq ptr %12, null
+  %14 = select i1 %13, i32 -12, i32 0
+  br i1 %13, label %22, label %15
 
-10:                                               ; preds = %6
-  %11 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @ip6_frags_ops) #13
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %15
+15:                                               ; preds = %11
+  %16 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @ip6_frags_ops) #13
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %20
 
-13:                                               ; preds = %20, %10, %0
-  %14 = phi i32 [ %1, %0 ], [ %21, %20 ], [ 0, %10 ]
-  ret i32 %14
+18:                                               ; preds = %25, %15, %0
+  %19 = phi i32 [ %6, %0 ], [ %26, %25 ], [ 0, %15 ]
+  ret i32 %19
 
-15:                                               ; preds = %10
-  %16 = load ptr, ptr @ip6_ctl_header, align 8
-  tail call void @unregister_net_sysctl_table(ptr noundef %16) #13
-  br label %17
+20:                                               ; preds = %15
+  %21 = load ptr, ptr @ip6_ctl_header, align 8
+  tail call void @unregister_net_sysctl_table(ptr noundef %21) #13
+  br label %22
 
-17:                                               ; preds = %15, %6
-  %18 = phi i32 [ %9, %6 ], [ %11, %15 ]
-  %19 = tail call i32 @inet6_del_protocol(ptr noundef nonnull @frag_protocol, i8 noundef zeroext 44) #13
-  br label %20
+22:                                               ; preds = %20, %11
+  %23 = phi i32 [ %14, %11 ], [ %16, %20 ]
+  %24 = tail call i32 @inet6_del_protocol(ptr noundef nonnull @frag_protocol, i8 noundef zeroext 44) #13
+  br label %25
 
-20:                                               ; preds = %17, %3
-  %21 = phi i32 [ %4, %3 ], [ %18, %17 ]
+25:                                               ; preds = %22, %8
+  %26 = phi i32 [ %9, %8 ], [ %23, %22 ]
   tail call void @inet_frags_fini(ptr noundef nonnull @ip6_frags) #13
-  br label %13
+  br label %18
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

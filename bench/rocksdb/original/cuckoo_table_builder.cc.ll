@@ -1664,32 +1664,33 @@ entry:
   store i64 %file_number, ptr %file_number.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12TableBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb18CuckooTableBuilderE, i32 0, i32 0, i32 2), ptr %this2, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN7rocksdb18CuckooTableBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this2, align 8
   %num_hash_func_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 1
   store i32 2, ptr %num_hash_func_, align 8
   %file_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 3
-  %0 = load ptr, ptr %file.addr, align 8
-  store ptr %0, ptr %file_, align 8
+  %1 = load ptr, ptr %file.addr, align 8
+  store ptr %1, ptr %file_, align 8
   %max_hash_table_ratio_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 4
-  %1 = load double, ptr %max_hash_table_ratio.addr, align 8
-  store double %1, ptr %max_hash_table_ratio_, align 8
+  %2 = load double, ptr %max_hash_table_ratio.addr, align 8
+  store double %2, ptr %max_hash_table_ratio_, align 8
   %max_num_hash_func_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 5
-  %2 = load i32, ptr %max_num_hash_table.addr, align 4
-  store i32 %2, ptr %max_num_hash_func_, align 8
+  %3 = load i32, ptr %max_num_hash_table.addr, align 4
+  store i32 %3, ptr %max_num_hash_func_, align 8
   %max_search_depth_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 6
-  %3 = load i32, ptr %max_search_depth.addr, align 4
-  store i32 %3, ptr %max_search_depth_, align 4
+  %4 = load i32, ptr %max_search_depth.addr, align 4
+  store i32 %4, ptr %max_search_depth_, align 4
   %cuckoo_block_size_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 7
   store i32 1, ptr %ref.tmp, align 4
   %call = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %cuckoo_block_size.addr)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %4 = load i32, ptr %call, align 4
-  store i32 %4, ptr %cuckoo_block_size_, align 8
+  %5 = load i32, ptr %call, align 4
+  store i32 %5, ptr %cuckoo_block_size_, align 8
   %hash_table_size_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 9
-  %5 = load i8, ptr %use_module_hash.addr, align 1
-  %tobool = trunc i8 %5 to i1
+  %6 = load i8, ptr %use_module_hash.addr, align 1
+  %tobool = trunc i8 %6 to i1
   %cond = select i1 %tobool, i32 0, i32 2
   %conv = sext i32 %cond to i64
   store i64 %conv, ptr %hash_table_size_, align 8
@@ -1724,21 +1725,21 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   %properties_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 22
   call void @_ZN7rocksdb15TablePropertiesC2Ev(ptr noundef nonnull align 8 dereferenceable(696) %properties_) #3
   %ucomp_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 23
-  %6 = load ptr, ptr %user_comparator.addr, align 8
-  store ptr %6, ptr %ucomp_, align 8
+  %7 = load ptr, ptr %user_comparator.addr, align 8
+  store ptr %7, ptr %ucomp_, align 8
   %use_module_hash_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 24
-  %7 = load i8, ptr %use_module_hash.addr, align 1
-  %tobool7 = trunc i8 %7 to i1
+  %8 = load i8, ptr %use_module_hash.addr, align 1
+  %tobool7 = trunc i8 %8 to i1
   %frombool8 = zext i1 %tobool7 to i8
   store i8 %frombool8, ptr %use_module_hash_, align 8
   %identity_as_first_hash_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 25
-  %8 = load i8, ptr %identity_as_first_hash.addr, align 1
-  %tobool9 = trunc i8 %8 to i1
+  %9 = load i8, ptr %identity_as_first_hash.addr, align 1
+  %tobool9 = trunc i8 %9 to i1
   %frombool10 = zext i1 %tobool9 to i8
   store i8 %frombool10, ptr %identity_as_first_hash_, align 1
   %get_slice_hash_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 27
-  %9 = load ptr, ptr %get_slice_hash.addr, align 8
-  store ptr %9, ptr %get_slice_hash_, align 8
+  %10 = load ptr, ptr %get_slice_hash.addr, align 8
+  store ptr %10, ptr %get_slice_hash_, align 8
   %largest_user_key_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 28
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %largest_user_key_, ptr noundef @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
@@ -1764,36 +1765,36 @@ invoke.cont16:                                    ; preds = %invoke.cont13
   %properties_19 = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 22
   %filter_size = getelementptr inbounds %"struct.rocksdb::TableProperties", ptr %properties_19, i32 0, i32 7
   store i64 0, ptr %filter_size, align 8
-  %10 = load i32, ptr %column_family_id.addr, align 4
-  %conv20 = zext i32 %10 to i64
+  %11 = load i32, ptr %column_family_id.addr, align 4
+  %conv20 = zext i32 %11 to i64
   %properties_21 = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 22
   %column_family_id22 = getelementptr inbounds %"struct.rocksdb::TableProperties", ptr %properties_21, i32 0, i32 18
   store i64 %conv20, ptr %column_family_id22, align 8
-  %11 = load ptr, ptr %column_family_name.addr, align 8
+  %12 = load ptr, ptr %column_family_name.addr, align 8
   %properties_23 = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 22
   %column_family_name24 = getelementptr inbounds %"struct.rocksdb::TableProperties", ptr %properties_23, i32 0, i32 30
-  %call27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name24, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %call27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %column_family_name24, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont16
-  %12 = load ptr, ptr %db_id.addr, align 8
+  %13 = load ptr, ptr %db_id.addr, align 8
   %properties_28 = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 22
   %db_id29 = getelementptr inbounds %"struct.rocksdb::TableProperties", ptr %properties_28, i32 0, i32 27
-  %call31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %db_id29, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %call31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %db_id29, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %invoke.cont30 unwind label %lpad25
 
 invoke.cont30:                                    ; preds = %invoke.cont26
-  %13 = load ptr, ptr %db_session_id.addr, align 8
+  %14 = load ptr, ptr %db_session_id.addr, align 8
   %properties_32 = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 22
   %db_session_id33 = getelementptr inbounds %"struct.rocksdb::TableProperties", ptr %properties_32, i32 0, i32 28
-  %call35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %db_session_id33, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  %call35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %db_session_id33, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %invoke.cont34 unwind label %lpad25
 
 invoke.cont34:                                    ; preds = %invoke.cont30
-  %14 = load i64, ptr %file_number.addr, align 8
+  %15 = load i64, ptr %file_number.addr, align 8
   %properties_36 = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 22
   %orig_file_number = getelementptr inbounds %"struct.rocksdb::TableProperties", ptr %properties_36, i32 0, i32 0
-  store i64 %14, ptr %orig_file_number, align 8
+  store i64 %15, ptr %orig_file_number, align 8
   %status_37 = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 20
   invoke void @_ZNK7rocksdb6Status20PermitUncheckedErrorEv(ptr noundef nonnull align 8 dereferenceable(16) %status_37)
           to label %invoke.cont38 unwind label %lpad25
@@ -1807,59 +1808,59 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   ret void
 
 lpad:                                             ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %exn.slot, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %ehselector.slot, align 4
   br label %ehcleanup46
 
 lpad3:                                            ; preds = %invoke.cont
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %exn.slot, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %ehselector.slot, align 4
   br label %ehcleanup44
 
 lpad5:                                            ; preds = %invoke.cont4
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %exn.slot, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %ehselector.slot, align 4
   br label %ehcleanup43
 
 lpad12:                                           ; preds = %invoke.cont6
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  store ptr %25, ptr %exn.slot, align 8
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store i32 %26, ptr %ehselector.slot, align 4
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %exn.slot, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #3
   br label %ehcleanup41
 
 lpad15:                                           ; preds = %invoke.cont13
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %exn.slot, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %ehselector.slot, align 4
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %exn.slot, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %ehselector.slot, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #3
   br label %ehcleanup
 
 lpad25:                                           ; preds = %invoke.cont38, %invoke.cont34, %invoke.cont30, %invoke.cont26, %invoke.cont16
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %exn.slot, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %ehselector.slot, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %smallest_user_key_) #3
   br label %ehcleanup
 
@@ -1899,7 +1900,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb12TableBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN7rocksdb12TableBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -6317,7 +6319,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb18CuckooTableBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN7rocksdb18CuckooTableBuilderE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %smallest_user_key_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this1, i32 0, i32 29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %smallest_user_key_) #3
   %largest_user_key_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this1, i32 0, i32 28
@@ -6472,28 +6475,30 @@ entry:
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb10perf_levelE() #7 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb10perf_levelE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb10perf_levelE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7rocksdb10perf_levelE)
+  ret ptr %4
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() #7 comdat {
-  br i1 icmp ne (ptr @_ZTHN7rocksdb12perf_contextE, ptr null), label %1, label %2
+  %1 = icmp ne ptr @_ZTHN7rocksdb12perf_contextE, null
+  br i1 %1, label %2, label %3
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   call void @_ZTHN7rocksdb12perf_contextE()
-  br label %2
+  br label %3
 
-2:                                                ; preds = %1, %0
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  ret ptr %3
+3:                                                ; preds = %2, %0
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

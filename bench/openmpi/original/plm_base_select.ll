@@ -22,20 +22,22 @@ define i32 @prte_plm_base_select() #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
-  %4 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_plm_base_framework, i32 0, i32 11), align 4
-  %5 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %4, ptr noundef getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @prte_plm_base_framework, i32 0, i32 12), ptr noundef %3, ptr noundef %2, ptr noundef null)
-  store i32 %5, ptr %1, align 4
-  %6 = icmp eq i32 0, %5
-  br i1 %6, label %7, label %9
+  %4 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_plm_base_framework, i32 0, i32 11
+  %5 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds %struct.pmix_mca_base_framework_t, ptr @prte_plm_base_framework, i32 0, i32 12
+  %7 = call i32 @pmix_mca_base_select(ptr noundef @.str, i32 noundef %5, ptr noundef %6, ptr noundef %3, ptr noundef %2, ptr noundef null)
+  store i32 %7, ptr %1, align 4
+  %8 = icmp eq i32 0, %7
+  br i1 %8, label %9, label %11
 
-7:                                                ; preds = %0
-  %8 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @prte_plm, ptr align 8 %8, i64 72, i1 false)
-  br label %9
+9:                                                ; preds = %0
+  %10 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @prte_plm, ptr align 8 %10, i64 72, i1 false)
+  br label %11
 
-9:                                                ; preds = %7, %0
-  %10 = load i32, ptr %1, align 4
-  ret i32 %10
+11:                                               ; preds = %9, %0
+  %12 = load i32, ptr %1, align 4
+  ret i32 %12
 }
 
 declare i32 @pmix_mca_base_select(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1

@@ -577,15 +577,16 @@ define dso_local void @_ZN20cmParseMumpsCoverageC2ER31cmCTestCoverageHandlerCont
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20cmParseMumpsCoverage, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %class.cmParseMumpsCoverage, ptr %7, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
-  %9 = getelementptr inbounds %class.cmParseMumpsCoverage, ptr %7, i32 0, i32 2
-  %10 = load ptr, ptr %5, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds %class.cmParseMumpsCoverage, ptr %7, i32 0, i32 3
-  %12 = load ptr, ptr %6, align 8
-  store ptr %12, ptr %11, align 8
+  %8 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV20cmParseMumpsCoverage, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.cmParseMumpsCoverage, ptr %7, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
+  %10 = getelementptr inbounds %class.cmParseMumpsCoverage, ptr %7, i32 0, i32 2
+  %11 = load ptr, ptr %5, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds %class.cmParseMumpsCoverage, ptr %7, i32 0, i32 3
+  %13 = load ptr, ptr %6, align 8
+  store ptr %13, ptr %12, align 8
   ret void
 }
 
@@ -604,9 +605,10 @@ define dso_local void @_ZN20cmParseMumpsCoverageD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20cmParseMumpsCoverage, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %class.cmParseMumpsCoverage, ptr %3, i32 0, i32 1
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  %4 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTV20cmParseMumpsCoverage, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %class.cmParseMumpsCoverage, ptr %3, i32 0, i32 1
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   ret void
 }
 

@@ -57,7 +57,8 @@ define void @_ZN4LIEF5MachO10VersionMinC2Ev(ptr noundef nonnull align 8 derefere
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO10VersionMinE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO10VersionMinE, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -125,11 +126,12 @@ define void @_ZN4LIEF5MachO10VersionMinC2ERKS1_(ptr noundef nonnull align 8 dere
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO10VersionMinE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %7 = getelementptr inbounds %"class.LIEF::MachO::VersionMin", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.LIEF::MachO::VersionMin", ptr %8, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %9, i64 24, i1 false)
+  %7 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO10VersionMinE, i32 0, i32 0, i32 2
+  store ptr %7, ptr %5, align 8
+  %8 = getelementptr inbounds %"class.LIEF::MachO::VersionMin", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.LIEF::MachO::VersionMin", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 24, i1 false)
   ret void
 }
 
@@ -175,53 +177,54 @@ define void @_ZN4LIEF5MachO10VersionMinC2ERKNS0_7details19version_min_commandE(p
   %11 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %10, i32 0, i32 1
   %12 = load i32, ptr %11, align 4
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %5, i64 noundef %9, i32 noundef %12)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO10VersionMinE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %13 = getelementptr inbounds %"class.LIEF::MachO::VersionMin", ptr %5, i32 0, i32 1
-  %14 = getelementptr inbounds %"struct.std::array", ptr %13, i32 0, i32 0
-  %15 = getelementptr inbounds [3 x i32], ptr %14, i64 0, i64 0
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %16, i32 0, i32 2
-  %18 = load i32, ptr %17, align 4
-  %19 = lshr i32 %18, 16
-  %20 = and i32 %19, 65535
-  store i32 %20, ptr %15, align 4
-  %21 = getelementptr inbounds i32, ptr %15, i64 1
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %22, i32 0, i32 2
-  %24 = load i32, ptr %23, align 4
-  %25 = lshr i32 %24, 8
-  %26 = and i32 %25, 255
-  store i32 %26, ptr %21, align 4
-  %27 = getelementptr inbounds i32, ptr %21, i64 1
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %28, i32 0, i32 2
-  %30 = load i32, ptr %29, align 4
-  %31 = lshr i32 %30, 0
-  %32 = and i32 %31, 255
-  store i32 %32, ptr %27, align 4
-  %33 = getelementptr inbounds %"class.LIEF::MachO::VersionMin", ptr %5, i32 0, i32 2
-  %34 = getelementptr inbounds %"struct.std::array", ptr %33, i32 0, i32 0
-  %35 = getelementptr inbounds [3 x i32], ptr %34, i64 0, i64 0
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %36, i32 0, i32 3
-  %38 = load i32, ptr %37, align 4
-  %39 = lshr i32 %38, 16
-  %40 = and i32 %39, 65535
-  store i32 %40, ptr %35, align 4
-  %41 = getelementptr inbounds i32, ptr %35, i64 1
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %42, i32 0, i32 3
-  %44 = load i32, ptr %43, align 4
-  %45 = lshr i32 %44, 8
-  %46 = and i32 %45, 255
-  store i32 %46, ptr %41, align 4
-  %47 = getelementptr inbounds i32, ptr %41, i64 1
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %48, i32 0, i32 3
-  %50 = load i32, ptr %49, align 4
-  %51 = lshr i32 %50, 0
-  %52 = and i32 %51, 255
-  store i32 %52, ptr %47, align 4
+  %13 = getelementptr inbounds { [9 x ptr] }, ptr @_ZTVN4LIEF5MachO10VersionMinE, i32 0, i32 0, i32 2
+  store ptr %13, ptr %5, align 8
+  %14 = getelementptr inbounds %"class.LIEF::MachO::VersionMin", ptr %5, i32 0, i32 1
+  %15 = getelementptr inbounds %"struct.std::array", ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds [3 x i32], ptr %15, i64 0, i64 0
+  %17 = load ptr, ptr %4, align 8
+  %18 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %18, align 4
+  %20 = lshr i32 %19, 16
+  %21 = and i32 %20, 65535
+  store i32 %21, ptr %16, align 4
+  %22 = getelementptr inbounds i32, ptr %16, i64 1
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %23, i32 0, i32 2
+  %25 = load i32, ptr %24, align 4
+  %26 = lshr i32 %25, 8
+  %27 = and i32 %26, 255
+  store i32 %27, ptr %22, align 4
+  %28 = getelementptr inbounds i32, ptr %22, i64 1
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %29, i32 0, i32 2
+  %31 = load i32, ptr %30, align 4
+  %32 = lshr i32 %31, 0
+  %33 = and i32 %32, 255
+  store i32 %33, ptr %28, align 4
+  %34 = getelementptr inbounds %"class.LIEF::MachO::VersionMin", ptr %5, i32 0, i32 2
+  %35 = getelementptr inbounds %"struct.std::array", ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds [3 x i32], ptr %35, i64 0, i64 0
+  %37 = load ptr, ptr %4, align 8
+  %38 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %37, i32 0, i32 3
+  %39 = load i32, ptr %38, align 4
+  %40 = lshr i32 %39, 16
+  %41 = and i32 %40, 65535
+  store i32 %41, ptr %36, align 4
+  %42 = getelementptr inbounds i32, ptr %36, i64 1
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %43, i32 0, i32 3
+  %45 = load i32, ptr %44, align 4
+  %46 = lshr i32 %45, 8
+  %47 = and i32 %46, 255
+  store i32 %47, ptr %42, align 4
+  %48 = getelementptr inbounds i32, ptr %42, i64 1
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds %"struct.LIEF::MachO::details::version_min_command", ptr %49, i32 0, i32 3
+  %51 = load i32, ptr %50, align 4
+  %52 = lshr i32 %51, 0
+  %53 = and i32 %52, 255
+  store i32 %53, ptr %48, align 4
   ret void
 }
 

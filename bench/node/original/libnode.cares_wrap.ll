@@ -7170,7 +7170,8 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %0, ptr %1, i32 noundef 2, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap11ChannelWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap11ChannelWrapE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %timer_handle_ = getelementptr inbounds %"class.node::cares_wrap::ChannelWrap", ptr %this3, i32 0, i32 1
   store ptr null, ptr %timer_handle_, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::ChannelWrap", ptr %this3, i32 0, i32 2
@@ -7182,11 +7183,11 @@ entry:
   %library_inited_ = getelementptr inbounds %"class.node::cares_wrap::ChannelWrap", ptr %this3, i32 0, i32 5
   store i8 0, ptr %library_inited_, align 2
   %timeout_ = getelementptr inbounds %"class.node::cares_wrap::ChannelWrap", ptr %this3, i32 0, i32 6
-  %2 = load i32, ptr %timeout.addr, align 4
-  store i32 %2, ptr %timeout_, align 4
+  %3 = load i32, ptr %timeout.addr, align 4
+  store i32 %3, ptr %timeout_, align 4
   %tries_ = getelementptr inbounds %"class.node::cares_wrap::ChannelWrap", ptr %this3, i32 0, i32 7
-  %3 = load i32, ptr %tries.addr, align 4
-  store i32 %3, ptr %tries_, align 8
+  %4 = load i32, ptr %tries.addr, align 4
+  store i32 %4, ptr %tries_, align 8
   %active_query_count_ = getelementptr inbounds %"class.node::cares_wrap::ChannelWrap", ptr %this3, i32 0, i32 8
   store i32 0, ptr %active_query_count_, align 4
   %task_list_ = getelementptr inbounds %"class.node::cares_wrap::ChannelWrap", ptr %this3, i32 0, i32 9
@@ -8578,12 +8579,14 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node7ReqWrapI16uv_getaddrinfo_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(248) %this3, ptr noundef %0, ptr %1, i32 noundef 10)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node10cares_wrap18GetAddrInfoReqWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node10cares_wrap18GetAddrInfoReqWrapE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node10cares_wrap18GetAddrInfoReqWrapE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node10cares_wrap18GetAddrInfoReqWrapE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   %verbatim_ = getelementptr inbounds %"class.node::cares_wrap::GetAddrInfoReqWrap", ptr %this3, i32 0, i32 1
-  %2 = load i8, ptr %verbatim.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  %4 = load i8, ptr %verbatim.addr, align 1
+  %tobool = trunc i8 %4 to i1
   %frombool7 = zext i1 %tobool to i8
   store i8 %frombool7, ptr %verbatim_, align 8
   ret void
@@ -8616,9 +8619,11 @@ entry:
   %3 = getelementptr inbounds i8, ptr %this3, i64 56
   %4 = load ptr, ptr %env.addr, align 8
   call void @_ZN4node11ReqWrapBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI16uv_getaddrinfo_sEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %5 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI16uv_getaddrinfo_sEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI16uv_getaddrinfo_sEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %6 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI16uv_getaddrinfo_sEE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %add.ptr, align 8
   %original_callback_ = getelementptr inbounds %"class.node::ReqWrap", ptr %this3, i32 0, i32 2
   store ptr null, ptr %original_callback_, align 8
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
@@ -8647,9 +8652,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node7ReqWrapI16uv_getnameinfo_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(1408) %this3, ptr noundef %0, ptr %1, i32 noundef 11)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node10cares_wrap18GetNameInfoReqWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node10cares_wrap18GetNameInfoReqWrapE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node10cares_wrap18GetNameInfoReqWrapE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %3 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node10cares_wrap18GetNameInfoReqWrapE, i32 0, i32 1, i32 2
+  store ptr %3, ptr %add.ptr, align 8
   ret void
 }
 
@@ -8680,9 +8687,11 @@ entry:
   %3 = getelementptr inbounds i8, ptr %this3, i64 56
   %4 = load ptr, ptr %env.addr, align 8
   call void @_ZN4node11ReqWrapBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI16uv_getnameinfo_sEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %5 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI16uv_getnameinfo_sEE, i32 0, i32 0, i32 2
+  store ptr %5, ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI16uv_getnameinfo_sEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %6 = getelementptr inbounds { [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI16uv_getnameinfo_sEE, i32 0, i32 1, i32 2
+  store ptr %6, ptr %add.ptr, align 8
   %original_callback_ = getelementptr inbounds %"class.node::ReqWrap.24", ptr %this3, i32 0, i32 2
   store ptr null, ptr %original_callback_, align 8
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
@@ -8871,7 +8880,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node10cares_wrap12NodeAresTaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node10cares_wrap12NodeAresTaskE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -54365,7 +54375,8 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -54376,14 +54387,14 @@ entry:
   store i64 0, ptr %size_, align 8
   %detachedness_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 0, ptr %detachedness_, align 8
-  %0 = load ptr, ptr %name.addr, align 8
+  %1 = load ptr, ptr %name.addr, align 8
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
-  store ptr %0, ptr %name_, align 8
-  %1 = load i64, ptr %size.addr, align 8
+  store ptr %1, ptr %name_, align 8
+  %2 = load i64, ptr %size.addr, align 8
   %size_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
-  store i64 %1, ptr %size_2, align 8
-  %2 = load i8, ptr %is_root_node.addr, align 1
-  %tobool = trunc i8 %2 to i1
+  store i64 %2, ptr %size_2, align 8
+  %3 = load i8, ptr %is_root_node.addr, align 1
+  %tobool = trunc i8 %3 to i1
   %is_root_node_3 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
   %frombool4 = zext i1 %tobool to i8
   store i8 %frombool4, ptr %is_root_node_3, align 8
@@ -54465,7 +54476,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -55071,7 +55083,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 
@@ -56259,10 +56272,11 @@ entry:
   store ptr %retainer, ptr %retainer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %retainer.addr, align 8
-  store ptr %0, ptr %retainer_, align 8
+  %1 = load ptr, ptr %retainer.addr, align 8
+  store ptr %1, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
   store ptr null, ptr %wrapper_node_, align 8
   %is_root_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 3
@@ -56275,8 +56289,8 @@ entry:
 
 do.body:                                          ; preds = %entry
   %retainer_2 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %retainer_2, align 8
-  %cmp = icmp ne ptr %1, null
+  %2 = load ptr, ptr %retainer_2, align 8
+  %cmp = icmp ne ptr %2, null
   %lnot = xor i1 %cmp, true
   %lnot3 = xor i1 %lnot, true
   %lnot4 = xor i1 %lnot3, true
@@ -56297,72 +56311,72 @@ if.end:                                           ; preds = %do.end, %do.body
   br label %do.end6
 
 do.end6:                                          ; preds = %if.end
-  %2 = load ptr, ptr %tracker.addr, align 8
-  %call = call noundef ptr @_ZN4node13MemoryTracker7isolateEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
+  %3 = load ptr, ptr %tracker.addr, align 8
+  %call = call noundef ptr @_ZN4node13MemoryTracker7isolateEv(ptr noundef nonnull align 8 dereferenceable(152) %3)
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %call)
   %retainer_7 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %retainer_7, align 8
-  %vtable = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %retainer_7, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
-  %4 = load ptr, ptr %vfn, align 8
-  %call8 = call ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %5 = load ptr, ptr %vfn, align 8
+  %call8 = call ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %coerce.dive = getelementptr inbounds %"class.v8::Local", ptr %obj, i32 0, i32 0
   %coerce.dive9 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive, i32 0, i32 0
   %coerce.dive10 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive9, i32 0, i32 0
   store ptr %call8, ptr %coerce.dive10, align 8
   store ptr %obj, ptr %this.addr.i36, align 8
   %this1.i = load ptr, ptr %this.addr.i36, align 8
-  %5 = load ptr, ptr %this1.i, align 8
-  %cmp.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %this1.i, align 8
+  %cmp.i = icmp eq ptr %6, null
   br i1 %cmp.i, label %if.end21, label %if.then12
 
 if.then12:                                        ; preds = %do.end6
-  %6 = load ptr, ptr %tracker.addr, align 8
-  %call13 = call noundef ptr @_ZN4node13MemoryTracker5graphEv(ptr noundef nonnull align 8 dereferenceable(152) %6)
+  %7 = load ptr, ptr %tracker.addr, align 8
+  %call13 = call noundef ptr @_ZN4node13MemoryTracker5graphEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %obj, i64 8, i1 false)
   %coerce.dive14 = getelementptr inbounds %"class.v8::Local", ptr %agg.tmp, i32 0, i32 0
   %coerce.dive15 = getelementptr inbounds %"class.v8::LocalBase", ptr %coerce.dive14, i32 0, i32 0
   %coerce.dive16 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive15, i32 0, i32 0
-  %7 = load ptr, ptr %coerce.dive16, align 8
-  store ptr %7, ptr %that.i, align 8
+  %8 = load ptr, ptr %coerce.dive16, align 8
+  store ptr %8, ptr %that.i, align 8
   store ptr %ref.tmp, ptr %this.addr.i, align 8
   %this3.i = load ptr, ptr %this.addr.i, align 8
   store ptr %this3.i, ptr %this.addr.i37, align 8
   store ptr %that.i, ptr %other.addr.i, align 8
   %this1.i38 = load ptr, ptr %this.addr.i37, align 8
-  %8 = load ptr, ptr %other.addr.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i38, ptr align 8 %8, i64 8, i1 false)
+  %9 = load ptr, ptr %other.addr.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %this1.i38, ptr align 8 %9, i64 8, i1 false)
   %vtable17 = load ptr, ptr %call13, align 8
   %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 0
-  %9 = load ptr, ptr %vfn18, align 8
-  %call19 = call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  %10 = load ptr, ptr %vfn18, align 8
+  %call19 = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %wrapper_node_20 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
   store ptr %call19, ptr %wrapper_node_20, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then12, %do.end6
   %retainer_22 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %retainer_22, align 8
-  %vtable23 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %retainer_22, align 8
+  %vtable23 = load ptr, ptr %11, align 8
   %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 3
-  %11 = load ptr, ptr %vfn24, align 8
-  %call25 = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %12 = load ptr, ptr %vfn24, align 8
+  %call25 = call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %name_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 5
   store ptr %call25, ptr %name_, align 8
   %retainer_26 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %retainer_26, align 8
-  %vtable27 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %retainer_26, align 8
+  %vtable27 = load ptr, ptr %13, align 8
   %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 4
-  %13 = load ptr, ptr %vfn28, align 8
-  %call29 = call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %14 = load ptr, ptr %vfn28, align 8
+  %call29 = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %size_30 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 6
   store i64 %call29, ptr %size_30, align 8
   %retainer_31 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
-  %14 = load ptr, ptr %retainer_31, align 8
-  %vtable32 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %retainer_31, align 8
+  %vtable32 = load ptr, ptr %15, align 8
   %vfn33 = getelementptr inbounds ptr, ptr %vtable32, i64 7
-  %15 = load ptr, ptr %vfn33, align 8
-  %call34 = call noundef zeroext i8 %15(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %16 = load ptr, ptr %vfn33, align 8
+  %call34 = call noundef zeroext i8 %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
   %detachedness_35 = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 7
   store i8 %call34, ptr %detachedness_35, align 8
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #3
@@ -74420,14 +74434,15 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %env, ptr %env.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %req_wrap_queue_ = getelementptr inbounds %"class.node::ReqWrapBase", ptr %this1, i32 0, i32 1
   call void @_ZN4node8ListNodeINS_11ReqWrapBaseEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %req_wrap_queue_)
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = load ptr, ptr %env.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4node11Environment26has_run_bootstrapping_codeEv(ptr noundef nonnull align 8 dereferenceable(2872) %0)
+  %1 = load ptr, ptr %env.addr, align 8
+  %call = call noundef zeroext i1 @_ZNK4node11Environment26has_run_bootstrapping_codeEv(ptr noundef nonnull align 8 dereferenceable(2872) %1)
   %lnot = xor i1 %call, true
   %lnot2 = xor i1 %lnot, true
   %lnot3 = xor i1 %lnot2, true
@@ -74448,8 +74463,8 @@ if.end:                                           ; preds = %do.end, %do.body
   br label %do.end5
 
 do.end5:                                          ; preds = %if.end
-  %1 = load ptr, ptr %env.addr, align 8
-  %call6 = call noundef ptr @_ZN4node11Environment14req_wrap_queueEv(ptr noundef nonnull align 8 dereferenceable(2872) %1)
+  %2 = load ptr, ptr %env.addr, align 8
+  %call6 = call noundef ptr @_ZN4node11Environment14req_wrap_queueEv(ptr noundef nonnull align 8 dereferenceable(2872) %2)
   call void @_ZN4node8ListHeadINS_11ReqWrapBaseEXadL_ZNS1_15req_wrap_queue_EEEE8PushBackEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %call6, ptr noundef %this1)
   ret void
 }
@@ -74589,7 +74604,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %req_wrap_queue_ = getelementptr inbounds %"class.node::ReqWrapBase", ptr %this1, i32 0, i32 1
   call void @_ZN4node8ListNodeINS_11ReqWrapBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %req_wrap_queue_) #3
   ret void
@@ -77099,10 +77115,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_9AnyTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_9AnyTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_9AnyTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_9AnyTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -77128,10 +77145,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %flags, ptr %flags.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %flags.addr, align 4
-  store i32 %0, ptr %flags_, align 8
+  %1 = load i32, ptr %flags.addr, align 4
+  store i32 %1, ptr %flags_, align 8
   %next_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EEC2IS7_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %next_) #3
   ret void
@@ -77212,7 +77230,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %next_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %next_) #3
   ret void
@@ -79410,10 +79429,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_7ATraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_7ATraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.615", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_7ATraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_7ATraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -80975,10 +80995,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_10AaaaTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_10AaaaTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.639", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_10AaaaTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_10AaaaTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -82540,10 +82561,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_9CaaTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_9CaaTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.663", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_9CaaTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_9CaaTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -84105,10 +84127,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_11CnameTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_11CnameTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.687", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_11CnameTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_11CnameTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -85670,10 +85693,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_8MxTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_8MxTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.711", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_8MxTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_8MxTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -87235,10 +87259,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_8NsTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_8NsTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.735", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_8NsTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_8NsTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -88800,10 +88825,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_9TxtTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_9TxtTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.759", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_9TxtTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_9TxtTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -90365,10 +90391,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_9SrvTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_9SrvTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.783", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_9SrvTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_9SrvTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -91930,10 +91957,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_9PtrTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_9PtrTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.807", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_9PtrTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_9PtrTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -93495,10 +93523,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_11NaptrTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_11NaptrTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.831", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_11NaptrTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_11NaptrTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -95060,10 +95089,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_9SoaTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_9SoaTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.855", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_9SoaTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_9SoaTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -97553,10 +97583,11 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_13ReverseTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %1 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10cares_wrap9QueryWrapINS5_13ReverseTraitsEE21QueueResponseCallbackEiEUlS2_E_EE, i32 0, i32 0, i32 2
+  store ptr %1, ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.880", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %callback.addr, align 8
-  call void @_ZZN4node10cares_wrap9QueryWrapINS0_13ReverseTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %2 = load ptr, ptr %callback.addr, align 8
+  call void @_ZZN4node10cares_wrap9QueryWrapINS0_13ReverseTraitsEE21QueueResponseCallbackEiENUlPNS_11EnvironmentEE_C2EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
@@ -98478,10 +98509,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_9AnyTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_9AnyTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap", ptr %this3, i32 0, i32 3
@@ -99214,10 +99246,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_7ATraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_7ATraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.309", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.309", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.309", ptr %this3, i32 0, i32 3
@@ -99766,10 +99799,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_10AaaaTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_10AaaaTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.310", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.310", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.310", ptr %this3, i32 0, i32 3
@@ -100318,10 +100352,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_9CaaTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_9CaaTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.311", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.311", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.311", ptr %this3, i32 0, i32 3
@@ -100870,10 +100905,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_11CnameTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_11CnameTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.312", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.312", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.312", ptr %this3, i32 0, i32 3
@@ -101422,10 +101458,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_8MxTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_8MxTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.313", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.313", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.313", ptr %this3, i32 0, i32 3
@@ -101974,10 +102011,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_8NsTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_8NsTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.314", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.314", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.314", ptr %this3, i32 0, i32 3
@@ -102526,10 +102564,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_9TxtTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_9TxtTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.315", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.315", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.315", ptr %this3, i32 0, i32 3
@@ -103078,10 +103117,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_9SrvTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_9SrvTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.316", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.316", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.316", ptr %this3, i32 0, i32 3
@@ -103630,10 +103670,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_9PtrTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_9PtrTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.317", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.317", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.317", ptr %this3, i32 0, i32 3
@@ -104182,10 +104223,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_11NaptrTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_11NaptrTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.318", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.318", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.318", ptr %this3, i32 0, i32 3
@@ -104734,10 +104776,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_9SoaTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_9SoaTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.319", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.319", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.319", ptr %this3, i32 0, i32 3
@@ -105286,10 +105329,11 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1, i32 noundef 27, double noundef -1.000000e+00)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_13ReverseTraitsEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
+  %2 = getelementptr inbounds { [20 x ptr] }, ptr @_ZTVN4node10cares_wrap9QueryWrapINS0_13ReverseTraitsEEE, i32 0, i32 0, i32 2
+  store ptr %2, ptr %this3, align 8
   %channel_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.338", ptr %this3, i32 0, i32 1
-  %2 = load ptr, ptr %channel.addr, align 8
-  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %2)
+  %3 = load ptr, ptr %channel.addr, align 8
+  call void @_ZN4node17BaseObjectPtrImplINS_10cares_wrap11ChannelWrapELb0EEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %channel_, ptr noundef %3)
   %response_data_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.338", ptr %this3, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node10cares_wrap12ResponseDataESt14default_deleteIS2_EEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %response_data_) #3
   %trace_name_ = getelementptr inbounds %"class.node::cares_wrap::QueryWrap.338", ptr %this3, i32 0, i32 3

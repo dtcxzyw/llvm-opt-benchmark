@@ -3,7 +3,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull ptr @"_ZN14ockam_executor4time5error115_$LT$impl$u20$core..convert..From$LT$ockam_executor..time..error..Elapsed$GT$$u20$for$u20$std..io..error..Error$GT$4from17h52ea4e7cb243026eE"(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
-  ret ptr inttoptr (i64 94489280515 to ptr)
+  %2 = inttoptr i64 94489280515 to ptr
+  ret ptr %2
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

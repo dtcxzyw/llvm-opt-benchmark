@@ -5907,431 +5907,433 @@ define void @_ZN24SaveMeshAttributesDialogC2EP7QWidgetP9MeshModeliiRK17RichParam
   %33 = getelementptr inbounds %class.QFlags, ptr %15, i32 0, i32 0
   %34 = load i32, ptr %33, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef %32, i32 %34)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV24SaveMeshAttributesDialog, i32 0, i32 0, i32 2), ptr %31, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV24SaveMeshAttributesDialog, i32 0, i32 1, i32 2), ptr %35, align 8
-  %36 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %37 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 376) #17
-          to label %38 unwind label %93
-
-38:                                               ; preds = %7
+  %35 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV24SaveMeshAttributesDialog, i32 0, i32 0, i32 2
+  store ptr %35, ptr %31, align 8
+  %36 = getelementptr inbounds i8, ptr %31, i64 16
+  %37 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV24SaveMeshAttributesDialog, i32 0, i32 1, i32 2
   store ptr %37, ptr %36, align 8
-  %39 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 2
-  %40 = load ptr, ptr %10, align 8
-  store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 3
-  %42 = load i32, ptr %11, align 4
-  store i32 %42, ptr %41, align 8
-  %43 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 4
-  %44 = load i32, ptr %12, align 4
-  store i32 %44, ptr %43, align 4
-  %45 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 5
-  store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 6
-  store i32 66, ptr %46, align 4
-  %47 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 7
-  %48 = load ptr, ptr %13, align 8
-  invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %48)
-          to label %49 unwind label %93
+  %38 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
+  %39 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 376) #17
+          to label %40 unwind label %95
 
-49:                                               ; preds = %38
-  %50 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 8
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #3
-  %51 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 10
-  %52 = load ptr, ptr %14, align 8
-  store ptr %52, ptr %51, align 8
-  %53 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %54 = load ptr, ptr %53, align 8
-  invoke void @_ZN27Ui_SaveMeshAttributesDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(376) %54, ptr noundef %31)
-          to label %55 unwind label %97
+40:                                               ; preds = %7
+  store ptr %39, ptr %38, align 8
+  %41 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 2
+  %42 = load ptr, ptr %10, align 8
+  store ptr %42, ptr %41, align 8
+  %43 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 3
+  %44 = load i32, ptr %11, align 4
+  store i32 %44, ptr %43, align 8
+  %45 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 4
+  %46 = load i32, ptr %12, align 4
+  store i32 %46, ptr %45, align 4
+  %47 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 5
+  store i32 0, ptr %47, align 8
+  %48 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 6
+  store i32 66, ptr %48, align 4
+  %49 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 7
+  %50 = load ptr, ptr %13, align 8
+  invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %50)
+          to label %51 unwind label %95
 
-55:                                               ; preds = %49
-  %56 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #17
-          to label %57 unwind label %97
+51:                                               ; preds = %40
+  %52 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 8
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #3
+  %53 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 10
+  %54 = load ptr, ptr %14, align 8
+  store ptr %54, ptr %53, align 8
+  %55 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8
+  invoke void @_ZN27Ui_SaveMeshAttributesDialog7setupUiEP7QDialog(ptr noundef nonnull align 8 dereferenceable(376) %56, ptr noundef %31)
+          to label %57 unwind label %99
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 7
-  %59 = load ptr, ptr %14, align 8
-  invoke void @_ZN22RichParameterListFrameC1ERK17RichParameterListP7QWidgetS4_(ptr noundef nonnull align 8 dereferenceable(200) %56, ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef %31, ptr noundef %59)
-          to label %60 unwind label %101
+57:                                               ; preds = %51
+  %58 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 200) #17
+          to label %59 unwind label %99
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 9
-  store ptr %56, ptr %61, align 8
-  %62 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #17
-          to label %63 unwind label %97
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 7
+  %61 = load ptr, ptr %14, align 8
+  invoke void @_ZN22RichParameterListFrameC1ERK17RichParameterListP7QWidgetS4_(ptr noundef nonnull align 8 dereferenceable(200) %58, ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef %31, ptr noundef %61)
+          to label %62 unwind label %103
 
-63:                                               ; preds = %60
-  invoke void @_ZN11QVBoxLayoutC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %62, ptr noundef %31)
-          to label %64 unwind label %105
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 9
+  store ptr %58, ptr %63, align 8
+  %64 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #17
+          to label %65 unwind label %99
 
-64:                                               ; preds = %63
-  store ptr %62, ptr %18, align 8
-  %65 = load ptr, ptr %18, align 8
-  %66 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 9
-  %67 = load ptr, ptr %66, align 8
+65:                                               ; preds = %62
+  invoke void @_ZN11QVBoxLayoutC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %64, ptr noundef %31)
+          to label %66 unwind label %107
+
+66:                                               ; preds = %65
+  store ptr %64, ptr %18, align 8
+  %67 = load ptr, ptr %18, align 8
+  %68 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 9
+  %69 = load ptr, ptr %68, align 8
   call void @_ZN6QFlagsIN2Qt13AlignmentFlagEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %19) #3
-  %68 = getelementptr inbounds %class.QFlags.58, ptr %19, i32 0, i32 0
-  %69 = load i32, ptr %68, align 4
-  invoke void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %65, ptr noundef %67, i32 noundef 0, i32 %69)
-          to label %70 unwind label %97
+  %70 = getelementptr inbounds %class.QFlags.58, ptr %19, i32 0, i32 0
+  %71 = load i32, ptr %70, align 4
+  invoke void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %67, ptr noundef %69, i32 noundef 0, i32 %71)
+          to label %72 unwind label %99
 
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %72, i32 0, i32 35
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %18, align 8
-  invoke void @_ZN7QWidget9setLayoutEP7QLayout(ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef %75)
-          to label %76 unwind label %97
+  %75 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %74, i32 0, i32 35
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %18, align 8
+  invoke void @_ZN7QWidget9setLayoutEP7QLayout(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef %77)
+          to label %78 unwind label %99
 
-76:                                               ; preds = %70
-  %77 = load ptr, ptr %10, align 8
-  invoke void @_ZNK9MeshModel8fullNameEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %21, ptr noundef nonnull align 8 dereferenceable(1288) %77)
-          to label %78 unwind label %97
+78:                                               ; preds = %72
+  %79 = load ptr, ptr %10, align 8
+  invoke void @_ZNK9MeshModel8fullNameEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %21, ptr noundef nonnull align 8 dereferenceable(1288) %79)
+          to label %80 unwind label %99
 
-78:                                               ; preds = %76
+80:                                               ; preds = %78
   invoke void @_ZN9QFileInfoC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %79 unwind label %109
-
-79:                                               ; preds = %78
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
-  invoke void @_ZNK9QFileInfo8baseNameEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %80 unwind label %113
-
-80:                                               ; preds = %79
-  invoke void @_ZplPKcRK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %23, ptr noundef @.str.6, ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %81 unwind label %117
+          to label %81 unwind label %111
 
 81:                                               ; preds = %80
-  invoke void @_ZplRK7QStringPKc(ptr dead_on_unwind writable sret(%class.QString) align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef @.str.7)
-          to label %82 unwind label %121
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
+  invoke void @_ZNK9QFileInfo8baseNameEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %20)
+          to label %82 unwind label %115
 
 82:                                               ; preds = %81
-  invoke void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %83 unwind label %125
+  invoke void @_ZplPKcRK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %23, ptr noundef @.str.6, ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %83 unwind label %119
 
 83:                                               ; preds = %82
+  invoke void @_ZplRK7QStringPKc(ptr dead_on_unwind writable sret(%class.QString) align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef @.str.7)
+          to label %84 unwind label %123
+
+84:                                               ; preds = %83
+  invoke void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(8) %22)
+          to label %85 unwind label %127
+
+85:                                               ; preds = %84
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
-  %84 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 7
-  %85 = invoke noundef zeroext i1 @_ZNK17RichParameterList7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %84)
-          to label %86 unwind label %113
+  %86 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 7
+  %87 = invoke noundef zeroext i1 @_ZNK17RichParameterList7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %86)
+          to label %88 unwind label %115
 
-86:                                               ; preds = %83
-  br i1 %85, label %87, label %131
+88:                                               ; preds = %85
+  br i1 %87, label %89, label %133
 
-87:                                               ; preds = %86
-  %88 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %89, i32 0, i32 35
+89:                                               ; preds = %88
+  %90 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %91 = load ptr, ptr %90, align 8
-  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(48) %91)
-          to label %92 unwind label %113
+  %92 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %91, i32 0, i32 35
+  %93 = load ptr, ptr %92, align 8
+  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(48) %93)
+          to label %94 unwind label %115
 
-92:                                               ; preds = %87
-  br label %164
+94:                                               ; preds = %89
+  br label %166
 
-93:                                               ; preds = %38, %7
-  %94 = landingpad { ptr, i32 }
+95:                                               ; preds = %40, %7
+  %96 = landingpad { ptr, i32 }
           cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %16, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %17, align 4
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %16, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %17, align 4
+  br label %244
+
+99:                                               ; preds = %78, %72, %66, %62, %57, %51
+  %100 = landingpad { ptr, i32 }
+          cleanup
+  %101 = extractvalue { ptr, i32 } %100, 0
+  store ptr %101, ptr %16, align 8
+  %102 = extractvalue { ptr, i32 } %100, 1
+  store i32 %102, ptr %17, align 4
+  br label %243
+
+103:                                              ; preds = %59
+  %104 = landingpad { ptr, i32 }
+          cleanup
+  %105 = extractvalue { ptr, i32 } %104, 0
+  store ptr %105, ptr %16, align 8
+  %106 = extractvalue { ptr, i32 } %104, 1
+  store i32 %106, ptr %17, align 4
+  call void @_ZdlPv(ptr noundef %58) #18
+  br label %243
+
+107:                                              ; preds = %65
+  %108 = landingpad { ptr, i32 }
+          cleanup
+  %109 = extractvalue { ptr, i32 } %108, 0
+  store ptr %109, ptr %16, align 8
+  %110 = extractvalue { ptr, i32 } %108, 1
+  store i32 %110, ptr %17, align 4
+  call void @_ZdlPv(ptr noundef %64) #18
+  br label %243
+
+111:                                              ; preds = %80
+  %112 = landingpad { ptr, i32 }
+          cleanup
+  %113 = extractvalue { ptr, i32 } %112, 0
+  store ptr %113, ptr %16, align 8
+  %114 = extractvalue { ptr, i32 } %112, 1
+  store i32 %114, ptr %17, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
+  br label %243
+
+115:                                              ; preds = %240, %225, %221, %203, %197, %192, %187, %182, %177, %166, %164, %159, %157, %148, %138, %133, %89, %85, %81
+  %116 = landingpad { ptr, i32 }
+          cleanup
+  %117 = extractvalue { ptr, i32 } %116, 0
+  store ptr %117, ptr %16, align 8
+  %118 = extractvalue { ptr, i32 } %116, 1
+  store i32 %118, ptr %17, align 4
   br label %242
 
-97:                                               ; preds = %76, %70, %64, %60, %55, %49
-  %98 = landingpad { ptr, i32 }
+119:                                              ; preds = %82
+  %120 = landingpad { ptr, i32 }
           cleanup
-  %99 = extractvalue { ptr, i32 } %98, 0
-  store ptr %99, ptr %16, align 8
-  %100 = extractvalue { ptr, i32 } %98, 1
-  store i32 %100, ptr %17, align 4
-  br label %241
+  %121 = extractvalue { ptr, i32 } %120, 0
+  store ptr %121, ptr %16, align 8
+  %122 = extractvalue { ptr, i32 } %120, 1
+  store i32 %122, ptr %17, align 4
+  br label %132
 
-101:                                              ; preds = %57
-  %102 = landingpad { ptr, i32 }
+123:                                              ; preds = %83
+  %124 = landingpad { ptr, i32 }
           cleanup
-  %103 = extractvalue { ptr, i32 } %102, 0
-  store ptr %103, ptr %16, align 8
-  %104 = extractvalue { ptr, i32 } %102, 1
-  store i32 %104, ptr %17, align 4
-  call void @_ZdlPv(ptr noundef %56) #18
-  br label %241
+  %125 = extractvalue { ptr, i32 } %124, 0
+  store ptr %125, ptr %16, align 8
+  %126 = extractvalue { ptr, i32 } %124, 1
+  store i32 %126, ptr %17, align 4
+  br label %131
 
-105:                                              ; preds = %63
-  %106 = landingpad { ptr, i32 }
+127:                                              ; preds = %84
+  %128 = landingpad { ptr, i32 }
           cleanup
-  %107 = extractvalue { ptr, i32 } %106, 0
-  store ptr %107, ptr %16, align 8
-  %108 = extractvalue { ptr, i32 } %106, 1
-  store i32 %108, ptr %17, align 4
-  call void @_ZdlPv(ptr noundef %62) #18
-  br label %241
-
-109:                                              ; preds = %78
-  %110 = landingpad { ptr, i32 }
-          cleanup
-  %111 = extractvalue { ptr, i32 } %110, 0
-  store ptr %111, ptr %16, align 8
-  %112 = extractvalue { ptr, i32 } %110, 1
-  store i32 %112, ptr %17, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #3
-  br label %241
-
-113:                                              ; preds = %238, %223, %219, %201, %195, %190, %185, %180, %175, %164, %162, %157, %155, %146, %136, %131, %87, %83, %79
-  %114 = landingpad { ptr, i32 }
-          cleanup
-  %115 = extractvalue { ptr, i32 } %114, 0
-  store ptr %115, ptr %16, align 8
-  %116 = extractvalue { ptr, i32 } %114, 1
-  store i32 %116, ptr %17, align 4
-  br label %240
-
-117:                                              ; preds = %80
-  %118 = landingpad { ptr, i32 }
-          cleanup
-  %119 = extractvalue { ptr, i32 } %118, 0
-  store ptr %119, ptr %16, align 8
-  %120 = extractvalue { ptr, i32 } %118, 1
-  store i32 %120, ptr %17, align 4
-  br label %130
-
-121:                                              ; preds = %81
-  %122 = landingpad { ptr, i32 }
-          cleanup
-  %123 = extractvalue { ptr, i32 } %122, 0
-  store ptr %123, ptr %16, align 8
-  %124 = extractvalue { ptr, i32 } %122, 1
-  store i32 %124, ptr %17, align 4
-  br label %129
-
-125:                                              ; preds = %82
-  %126 = landingpad { ptr, i32 }
-          cleanup
-  %127 = extractvalue { ptr, i32 } %126, 0
-  store ptr %127, ptr %16, align 8
-  %128 = extractvalue { ptr, i32 } %126, 1
-  store i32 %128, ptr %17, align 4
+  %129 = extractvalue { ptr, i32 } %128, 0
+  store ptr %129, ptr %16, align 8
+  %130 = extractvalue { ptr, i32 } %128, 1
+  store i32 %130, ptr %17, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #3
-  br label %129
+  br label %131
 
-129:                                              ; preds = %125, %121
+131:                                              ; preds = %127, %123
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #3
-  br label %130
+  br label %132
 
-130:                                              ; preds = %129, %117
+132:                                              ; preds = %131, %119
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
-  br label %240
+  br label %242
 
-131:                                              ; preds = %86
-  %132 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %133, i32 0, i32 35
+133:                                              ; preds = %88
+  %134 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %135 = load ptr, ptr %134, align 8
-  invoke void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(48) %135)
-          to label %136 unwind label %113
+  %136 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %135, i32 0, i32 35
+  %137 = load ptr, ptr %136, align 8
+  invoke void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(48) %137)
+          to label %138 unwind label %115
 
-136:                                              ; preds = %131
-  %137 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %138, i32 0, i32 32
+138:                                              ; preds = %133
+  %139 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
+  %141 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %140, i32 0, i32 32
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %142, i32 0, i32 32
+  %143 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %144 = load ptr, ptr %143, align 8
-  %145 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(48) %144)
-          to label %146 unwind label %113
+  %145 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %144, i32 0, i32 32
+  %146 = load ptr, ptr %145, align 8
+  %147 = invoke noundef i32 @_ZNK7QWidget5widthEv(ptr noundef nonnull align 8 dereferenceable(48) %146)
+          to label %148 unwind label %115
 
-146:                                              ; preds = %136
-  %147 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %148, i32 0, i32 35
+148:                                              ; preds = %138
+  %149 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %150 = load ptr, ptr %149, align 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds ptr, ptr %151, i64 14
+  %151 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %150, i32 0, i32 35
+  %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %152, align 8
-  %154 = invoke i64 %153(ptr noundef nonnull align 8 dereferenceable(48) %150)
-          to label %155 unwind label %113
+  %154 = getelementptr inbounds ptr, ptr %153, i64 14
+  %155 = load ptr, ptr %154, align 8
+  %156 = invoke i64 %155(ptr noundef nonnull align 8 dereferenceable(48) %152)
+          to label %157 unwind label %115
 
-155:                                              ; preds = %146
-  store i64 %154, ptr %25, align 4
-  %156 = call noundef i32 @_ZNK5QSize6heightEv(ptr noundef nonnull align 4 dereferenceable(8) %25) #3
-  invoke void @_ZN7QWidget14setMinimumSizeEii(ptr noundef nonnull align 8 dereferenceable(48) %140, i32 noundef %145, i32 noundef %156)
-          to label %157 unwind label %113
+157:                                              ; preds = %148
+  store i64 %156, ptr %25, align 4
+  %158 = call noundef i32 @_ZNK5QSize6heightEv(ptr noundef nonnull align 4 dereferenceable(8) %25) #3
+  invoke void @_ZN7QWidget14setMinimumSizeEii(ptr noundef nonnull align 8 dereferenceable(48) %142, i32 noundef %147, i32 noundef %158)
+          to label %159 unwind label %115
 
-157:                                              ; preds = %155
-  %158 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %159, i32 0, i32 32
+159:                                              ; preds = %157
+  %160 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %161 = load ptr, ptr %160, align 8
-  invoke void @_ZN7QWidget10adjustSizeEv(ptr noundef nonnull align 8 dereferenceable(48) %161)
-          to label %162 unwind label %113
+  %162 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %161, i32 0, i32 32
+  %163 = load ptr, ptr %162, align 8
+  invoke void @_ZN7QWidget10adjustSizeEv(ptr noundef nonnull align 8 dereferenceable(48) %163)
+          to label %164 unwind label %115
 
-162:                                              ; preds = %157
+164:                                              ; preds = %159
   invoke void @_ZN7QWidget14updateGeometryEv(ptr noundef nonnull align 8 dereferenceable(48) %31)
-          to label %163 unwind label %113
+          to label %165 unwind label %115
 
-163:                                              ; preds = %162
-  br label %164
+165:                                              ; preds = %164
+  br label %166
 
-164:                                              ; preds = %163, %92
-  %165 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %166, i32 0, i32 38
+166:                                              ; preds = %165, %94
+  %167 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %168 = load ptr, ptr %167, align 8
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %168, i1 noundef zeroext true)
-          to label %169 unwind label %113
+  %169 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %168, i32 0, i32 38
+  %170 = load ptr, ptr %169, align 8
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %170, i1 noundef zeroext true)
+          to label %171 unwind label %115
 
-169:                                              ; preds = %164
-  %170 = load ptr, ptr %10, align 8
-  %171 = getelementptr inbounds %class.MeshModel, ptr %170, i32 0, i32 0
-  %172 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %171, i32 0, i32 17
-  %173 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %172) #3
-  %174 = icmp eq i64 %173, 0
-  br i1 %174, label %175, label %201
+171:                                              ; preds = %166
+  %172 = load ptr, ptr %10, align 8
+  %173 = getelementptr inbounds %class.MeshModel, ptr %172, i32 0, i32 0
+  %174 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %173, i32 0, i32 17
+  %175 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %174) #3
+  %176 = icmp eq i64 %175, 0
+  br i1 %176, label %177, label %203
 
-175:                                              ; preds = %169
-  %176 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %177, i32 0, i32 22
+177:                                              ; preds = %171
+  %178 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %179 = load ptr, ptr %178, align 8
-  invoke void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %179, i1 noundef zeroext true)
-          to label %180 unwind label %113
+  %180 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %179, i32 0, i32 22
+  %181 = load ptr, ptr %180, align 8
+  invoke void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %181, i1 noundef zeroext true)
+          to label %182 unwind label %115
 
-180:                                              ; preds = %175
-  %181 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %182, i32 0, i32 22
+182:                                              ; preds = %177
+  %183 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %184 = load ptr, ptr %183, align 8
-  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %184, i1 noundef zeroext false)
-          to label %185 unwind label %113
+  %185 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %184, i32 0, i32 22
+  %186 = load ptr, ptr %185, align 8
+  invoke void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(48) %186, i1 noundef zeroext false)
+          to label %187 unwind label %115
 
-185:                                              ; preds = %180
-  %186 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %187, i32 0, i32 27
+187:                                              ; preds = %182
+  %188 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %189 = load ptr, ptr %188, align 8
-  invoke void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %189, i1 noundef zeroext true)
-          to label %190 unwind label %113
+  %190 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %189, i32 0, i32 27
+  %191 = load ptr, ptr %190, align 8
+  invoke void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %191, i1 noundef zeroext true)
+          to label %192 unwind label %115
 
-190:                                              ; preds = %185
-  %191 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %192, i32 0, i32 31
+192:                                              ; preds = %187
+  %193 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %194 = load ptr, ptr %193, align 8
-  invoke void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %194, i1 noundef zeroext true)
-          to label %195 unwind label %113
+  %195 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %194, i32 0, i32 31
+  %196 = load ptr, ptr %195, align 8
+  invoke void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %196, i1 noundef zeroext true)
+          to label %197 unwind label %115
 
-195:                                              ; preds = %190
-  %196 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %197, i32 0, i32 30
+197:                                              ; preds = %192
+  %198 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %199 = load ptr, ptr %198, align 8
-  invoke void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %199, i1 noundef zeroext true)
-          to label %200 unwind label %113
+  %200 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %199, i32 0, i32 30
+  %201 = load ptr, ptr %200, align 8
+  invoke void @_ZN7QWidget11setDisabledEb(ptr noundef nonnull align 8 dereferenceable(48) %201, i1 noundef zeroext true)
+          to label %202 unwind label %115
 
-200:                                              ; preds = %195
-  br label %201
+202:                                              ; preds = %197
+  br label %203
 
-201:                                              ; preds = %200, %169
-  %202 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 8
-  %203 = load ptr, ptr %10, align 8
-  %204 = getelementptr inbounds %class.MeshModel, ptr %203, i32 0, i32 0
-  %205 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %204, i32 0, i32 17
-  %206 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %205) #3
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %202, i64 noundef %206)
-          to label %207 unwind label %113
+203:                                              ; preds = %202, %171
+  %204 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 8
+  %205 = load ptr, ptr %10, align 8
+  %206 = getelementptr inbounds %class.MeshModel, ptr %205, i32 0, i32 0
+  %207 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %206, i32 0, i32 17
+  %208 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %207) #3
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %204, i64 noundef %208)
+          to label %209 unwind label %115
 
-207:                                              ; preds = %201
-  %208 = load ptr, ptr %10, align 8
-  %209 = getelementptr inbounds %class.MeshModel, ptr %208, i32 0, i32 0
-  %210 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %209, i32 0, i32 17
-  store ptr %210, ptr %26, align 8
-  %211 = load ptr, ptr %26, align 8
-  %212 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %211) #3
-  %213 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.165", ptr %27, i32 0, i32 0
-  store ptr %212, ptr %213, align 8
-  %214 = load ptr, ptr %26, align 8
-  %215 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %214) #3
-  %216 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.165", ptr %28, i32 0, i32 0
-  store ptr %215, ptr %216, align 8
-  br label %217
+209:                                              ; preds = %203
+  %210 = load ptr, ptr %10, align 8
+  %211 = getelementptr inbounds %class.MeshModel, ptr %210, i32 0, i32 0
+  %212 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %211, i32 0, i32 17
+  store ptr %212, ptr %26, align 8
+  %213 = load ptr, ptr %26, align 8
+  %214 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %213) #3
+  %215 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.165", ptr %27, i32 0, i32 0
+  store ptr %214, ptr %215, align 8
+  %216 = load ptr, ptr %26, align 8
+  %217 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %216) #3
+  %218 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.165", ptr %28, i32 0, i32 0
+  store ptr %217, ptr %218, align 8
+  br label %219
 
-217:                                              ; preds = %232, %207
-  %218 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28) #3
-  br i1 %218, label %219, label %238
+219:                                              ; preds = %234, %209
+  %220 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28) #3
+  br i1 %220, label %221, label %240
 
-219:                                              ; preds = %217
-  %220 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #3
-  store ptr %220, ptr %29, align 8
-  %221 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 8
-  %222 = load ptr, ptr %29, align 8
-  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %221, ptr noundef nonnull align 8 dereferenceable(32) %222)
-          to label %223 unwind label %113
-
-223:                                              ; preds = %219
+221:                                              ; preds = %219
+  %222 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #3
+  store ptr %222, ptr %29, align 8
+  %223 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 8
   %224 = load ptr, ptr %29, align 8
-  %225 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %224) #3
-  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %225)
-          to label %226 unwind label %113
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %223, ptr noundef nonnull align 8 dereferenceable(32) %224)
+          to label %225 unwind label %115
 
-226:                                              ; preds = %223
-  %227 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
-  %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %228, i32 0, i32 26
+225:                                              ; preds = %221
+  %226 = load ptr, ptr %29, align 8
+  %227 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %226) #3
+  invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %227)
+          to label %228 unwind label %115
+
+228:                                              ; preds = %225
+  %229 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %31, i32 0, i32 1
   %230 = load ptr, ptr %229, align 8
-  invoke void @_ZN11QListWidget7addItemERK7QString(ptr noundef nonnull align 8 dereferenceable(48) %230, ptr noundef nonnull align 8 dereferenceable(8) %30)
-          to label %231 unwind label %234
+  %231 = getelementptr inbounds %class.Ui_SaveMeshAttributesDialog, ptr %230, i32 0, i32 26
+  %232 = load ptr, ptr %231, align 8
+  invoke void @_ZN11QListWidget7addItemERK7QString(ptr noundef nonnull align 8 dereferenceable(48) %232, ptr noundef nonnull align 8 dereferenceable(8) %30)
+          to label %233 unwind label %236
 
-231:                                              ; preds = %226
+233:                                              ; preds = %228
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #3
-  br label %232
+  br label %234
 
-232:                                              ; preds = %231
-  %233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #3
-  br label %217
+234:                                              ; preds = %233
+  %235 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #3
+  br label %219
 
-234:                                              ; preds = %226
-  %235 = landingpad { ptr, i32 }
+236:                                              ; preds = %228
+  %237 = landingpad { ptr, i32 }
           cleanup
-  %236 = extractvalue { ptr, i32 } %235, 0
-  store ptr %236, ptr %16, align 8
-  %237 = extractvalue { ptr, i32 } %235, 1
-  store i32 %237, ptr %17, align 4
+  %238 = extractvalue { ptr, i32 } %237, 0
+  store ptr %238, ptr %16, align 8
+  %239 = extractvalue { ptr, i32 } %237, 1
+  store i32 %239, ptr %17, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #3
-  br label %240
+  br label %242
 
-238:                                              ; preds = %217
+240:                                              ; preds = %219
   invoke void @_ZN24SaveMeshAttributesDialog17setMaskCapabilityEv(ptr noundef nonnull align 8 dereferenceable(144) %31)
-          to label %239 unwind label %113
+          to label %241 unwind label %115
 
-239:                                              ; preds = %238
+241:                                              ; preds = %240
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
   ret void
 
-240:                                              ; preds = %234, %130, %113
+242:                                              ; preds = %236, %132, %115
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
-  br label %241
-
-241:                                              ; preds = %240, %109, %105, %101, %97
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #3
-  call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #3
-  br label %242
-
-242:                                              ; preds = %241, %93
-  call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %31) #3
   br label %243
 
-243:                                              ; preds = %242
-  %244 = load ptr, ptr %16, align 8
-  %245 = load i32, ptr %17, align 4
-  %246 = insertvalue { ptr, i32 } poison, ptr %244, 0
-  %247 = insertvalue { ptr, i32 } %246, i32 %245, 1
-  resume { ptr, i32 } %247
+243:                                              ; preds = %242, %111, %107, %103, %99
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #3
+  call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #3
+  br label %244
+
+244:                                              ; preds = %243, %95
+  call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %31) #3
+  br label %245
+
+245:                                              ; preds = %244
+  %246 = load ptr, ptr %16, align 8
+  %247 = load i32, ptr %17, align 4
+  %248 = insertvalue { ptr, i32 } poison, ptr %246, 0
+  %249 = insertvalue { ptr, i32 } %248, i32 %247, 1
+  resume { ptr, i32 } %249
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9447,19 +9449,20 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.58, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
-  %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
-  %16 = load i32, ptr %7, align 4
-  store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef %20, i32 noundef %21, i32 noundef 1) #3
-  %22 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
-  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %22) #3
+  %15 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2
+  store ptr %15, ptr %12, align 8
+  %16 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
+  %17 = load i32, ptr %7, align 4
+  store i32 %17, ptr %16, align 4
+  %18 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 2
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 3
+  %21 = load i32, ptr %9, align 4
+  %22 = load i32, ptr %10, align 4
+  call void @_ZN11QSizePolicyC2ENS_6PolicyES0_NS_11ControlTypeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef %21, i32 noundef %22, i32 noundef 1) #3
+  %23 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 4
+  call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %23) #3
   ret void
 }
 
@@ -10317,9 +10320,10 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
+  %7 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2
+  store ptr %7, ptr %6, align 8
+  %8 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 4, i1 false)
   ret void
 }
 
@@ -11599,23 +11603,25 @@ define void @_ZN24SaveMeshAttributesDialogD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV24SaveMeshAttributesDialog, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV24SaveMeshAttributesDialog, i32 0, i32 1, i32 2), ptr %4, align 8
-  %5 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %3, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %9, label %8
+  %4 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV24SaveMeshAttributesDialog, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds { [59 x ptr], [10 x ptr] }, ptr @_ZTV24SaveMeshAttributesDialog, i32 0, i32 1, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %1
-  call void @_ZdlPv(ptr noundef %6) #18
-  br label %9
+10:                                               ; preds = %1
+  call void @_ZdlPv(ptr noundef %8) #18
+  br label %11
 
-9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %3, i32 0, i32 8
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %11 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %3, i32 0, i32 7
-  call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+11:                                               ; preds = %10, %1
+  %12 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %3, i32 0, i32 8
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = getelementptr inbounds %class.SaveMeshAttributesDialog, ptr %3, i32 0, i32 7
+  call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
   call void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
   ret void
 }

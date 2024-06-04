@@ -86,32 +86,33 @@ define internal void @ompi_osc_rdma_handle_init(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load i32, ptr @opal_class_init_epoch, align 4
-  %8 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4), align 8
-  %9 = icmp ne i32 %7, %8
-  br i1 %9, label %10, label %11
+  %8 = getelementptr inbounds %struct.opal_class_t, ptr @opal_list_t_class, i32 0, i32 4
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp ne i32 %7, %9
+  br i1 %10, label %11, label %12
 
-10:                                               ; preds = %6
+11:                                               ; preds = %6
   call void @opal_class_initialize(ptr noundef @opal_list_t_class)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %6
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.ompi_osc_rdma_handle_t, ptr %12, i32 0, i32 2
-  %14 = getelementptr inbounds %struct.opal_object_t, ptr %13, i32 0, i32 0
-  store ptr @opal_list_t_class, ptr %14, align 8
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.ompi_osc_rdma_handle_t, ptr %15, i32 0, i32 2
-  %17 = getelementptr inbounds %struct.opal_object_t, ptr %16, i32 0, i32 1
-  store volatile i32 1, ptr %17, align 8
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.ompi_osc_rdma_handle_t, ptr %18, i32 0, i32 2
-  call void @opal_obj_run_constructors(ptr noundef %19)
-  br label %20
-
-20:                                               ; preds = %11
+12:                                               ; preds = %11, %6
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds %struct.ompi_osc_rdma_handle_t, ptr %13, i32 0, i32 2
+  %15 = getelementptr inbounds %struct.opal_object_t, ptr %14, i32 0, i32 0
+  store ptr @opal_list_t_class, ptr %15, align 8
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds %struct.ompi_osc_rdma_handle_t, ptr %16, i32 0, i32 2
+  %18 = getelementptr inbounds %struct.opal_object_t, ptr %17, i32 0, i32 1
+  store volatile i32 1, ptr %18, align 8
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds %struct.ompi_osc_rdma_handle_t, ptr %19, i32 0, i32 2
+  call void @opal_obj_run_constructors(ptr noundef %20)
   br label %21
 
-21:                                               ; preds = %20
+21:                                               ; preds = %12
+  br label %22
+
+22:                                               ; preds = %21
   ret void
 }
 
@@ -241,7 +242,7 @@ define i32 @ompi_osc_rdma_attach(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 42:                                               ; preds = %3
   store i32 -108, ptr %6, align 4
-  br label %347
+  br label %349
 
 43:                                               ; preds = %3
   %44 = load i64, ptr %9, align 8
@@ -250,7 +251,7 @@ define i32 @ompi_osc_rdma_attach(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 46:                                               ; preds = %43
   store i32 0, ptr %6, align 4
-  br label %347
+  br label %349
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr @opal_accelerator, align 8
@@ -265,7 +266,7 @@ define i32 @ompi_osc_rdma_attach(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 54:                                               ; preds = %52
   store i32 -8, ptr %6, align 4
-  br label %347
+  br label %349
 
 55:                                               ; preds = %52
   br label %56
@@ -311,374 +312,376 @@ define i32 @ompi_osc_rdma_attach(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %84 = ashr i64 %83, 32
   store i64 %84, ptr %16, align 8
   %85 = load i64, ptr %15, align 8
-  %86 = load i32, ptr getelementptr inbounds (%struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 8), align 8
-  %87 = zext i32 %86 to i64
-  %88 = icmp eq i64 %85, %87
-  br i1 %88, label %89, label %103
+  %86 = getelementptr inbounds %struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 8
+  %87 = load i32, ptr %86, align 8
+  %88 = zext i32 %87 to i64
+  %89 = icmp eq i64 %85, %88
+  br i1 %89, label %90, label %104
 
-89:                                               ; preds = %69
-  br label %90
+90:                                               ; preds = %69
+  br label %91
 
-90:                                               ; preds = %89
-  %91 = load i8, ptr @opal_uses_threads, align 1
-  %92 = trunc i8 %91 to i1
-  %93 = xor i1 %92, true
+91:                                               ; preds = %90
+  %92 = load i8, ptr @opal_uses_threads, align 1
+  %93 = trunc i8 %92 to i1
   %94 = xor i1 %93, true
-  %95 = zext i1 %94 to i32
-  %96 = sext i32 %95 to i64
-  %97 = icmp ne i64 %96, 0
-  br i1 %97, label %98, label %101
+  %95 = xor i1 %94, true
+  %96 = zext i1 %95 to i32
+  %97 = sext i32 %96 to i64
+  %98 = icmp ne i64 %97, 0
+  br i1 %98, label %99, label %102
 
-98:                                               ; preds = %90
-  %99 = load ptr, ptr %10, align 8
-  %100 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %99, i32 0, i32 2
-  call void @opal_mutex_unlock(ptr noundef %100)
-  br label %101
-
-101:                                              ; preds = %98, %90
+99:                                               ; preds = %91
+  %100 = load ptr, ptr %10, align 8
+  %101 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %100, i32 0, i32 2
+  call void @opal_mutex_unlock(ptr noundef %101)
   br label %102
 
-102:                                              ; preds = %101
+102:                                              ; preds = %99, %91
+  br label %103
+
+103:                                              ; preds = %102
   store i32 -104, ptr %6, align 4
-  br label %347
+  br label %349
 
-103:                                              ; preds = %69
-  %104 = load ptr, ptr %8, align 8
-  %105 = ptrtoint ptr %104 to i64
-  %106 = load i64, ptr %9, align 8
-  %107 = add i64 %105, %106
-  %108 = load i64, ptr %19, align 8
-  %109 = sub nsw i64 %108, 1
-  %110 = add i64 %107, %109
-  %111 = load i64, ptr %19, align 8
-  %112 = sub nsw i64 %111, 1
-  %113 = xor i64 %112, -1
-  %114 = and i64 %110, %113
-  store i64 %114, ptr %18, align 8
-  %115 = load ptr, ptr %8, align 8
-  %116 = ptrtoint ptr %115 to i64
-  %117 = load i64, ptr %19, align 8
-  %118 = sub nsw i64 %117, 1
-  %119 = xor i64 %118, -1
-  %120 = and i64 %116, %119
-  store i64 %120, ptr %17, align 8
-  %121 = load i64, ptr %18, align 8
-  %122 = load i64, ptr %17, align 8
-  %123 = sub nsw i64 %121, %122
-  store i64 %123, ptr %22, align 8
-  %124 = load ptr, ptr %10, align 8
-  %125 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %124, i32 0, i32 17
-  %126 = load ptr, ptr %125, align 16
-  %127 = getelementptr inbounds %struct.ompi_osc_rdma_state_t, ptr %126, i32 0, i32 10
-  %128 = getelementptr inbounds [0 x i8], ptr %127, i64 0, i64 0
-  %129 = load i64, ptr %15, align 8
-  %130 = sub nsw i64 %129, 1
-  %131 = trunc i64 %130 to i32
-  %132 = load i64, ptr %17, align 8
-  %133 = load i64, ptr %18, align 8
-  %134 = load ptr, ptr %10, align 8
-  %135 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %134, i32 0, i32 27
-  %136 = load i64, ptr %135, align 8
-  %137 = call ptr @ompi_osc_rdma_find_region_containing(ptr noundef %128, i32 noundef 0, i32 noundef %131, i64 noundef %132, i64 noundef %133, i64 noundef %136, ptr noundef %20)
-  store ptr %137, ptr %13, align 8
-  %138 = load ptr, ptr %13, align 8
-  %139 = icmp ne ptr null, %138
-  br i1 %139, label %140, label %169
+104:                                              ; preds = %69
+  %105 = load ptr, ptr %8, align 8
+  %106 = ptrtoint ptr %105 to i64
+  %107 = load i64, ptr %9, align 8
+  %108 = add i64 %106, %107
+  %109 = load i64, ptr %19, align 8
+  %110 = sub nsw i64 %109, 1
+  %111 = add i64 %108, %110
+  %112 = load i64, ptr %19, align 8
+  %113 = sub nsw i64 %112, 1
+  %114 = xor i64 %113, -1
+  %115 = and i64 %111, %114
+  store i64 %115, ptr %18, align 8
+  %116 = load ptr, ptr %8, align 8
+  %117 = ptrtoint ptr %116 to i64
+  %118 = load i64, ptr %19, align 8
+  %119 = sub nsw i64 %118, 1
+  %120 = xor i64 %119, -1
+  %121 = and i64 %117, %120
+  store i64 %121, ptr %17, align 8
+  %122 = load i64, ptr %18, align 8
+  %123 = load i64, ptr %17, align 8
+  %124 = sub nsw i64 %122, %123
+  store i64 %124, ptr %22, align 8
+  %125 = load ptr, ptr %10, align 8
+  %126 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %125, i32 0, i32 17
+  %127 = load ptr, ptr %126, align 16
+  %128 = getelementptr inbounds %struct.ompi_osc_rdma_state_t, ptr %127, i32 0, i32 10
+  %129 = getelementptr inbounds [0 x i8], ptr %128, i64 0, i64 0
+  %130 = load i64, ptr %15, align 8
+  %131 = sub nsw i64 %130, 1
+  %132 = trunc i64 %131 to i32
+  %133 = load i64, ptr %17, align 8
+  %134 = load i64, ptr %18, align 8
+  %135 = load ptr, ptr %10, align 8
+  %136 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %135, i32 0, i32 27
+  %137 = load i64, ptr %136, align 8
+  %138 = call ptr @ompi_osc_rdma_find_region_containing(ptr noundef %129, i32 noundef 0, i32 noundef %132, i64 noundef %133, i64 noundef %134, i64 noundef %137, ptr noundef %20)
+  store ptr %138, ptr %13, align 8
+  %139 = load ptr, ptr %13, align 8
+  %140 = icmp ne ptr null, %139
+  br i1 %140, label %141, label %170
 
-140:                                              ; preds = %103
-  %141 = load ptr, ptr %10, align 8
-  %142 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %141, i32 0, i32 50
-  %143 = load ptr, ptr %142, align 64
-  %144 = load i32, ptr %20, align 4
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds ptr, ptr %143, i64 %145
-  %147 = load ptr, ptr %146, align 8
-  %148 = load ptr, ptr %8, align 8
-  %149 = ptrtoint ptr %148 to i64
-  %150 = load i64, ptr %9, align 8
-  %151 = call i32 @ompi_osc_rdma_add_attachment(ptr noundef %147, i64 noundef %149, i64 noundef %150)
-  store i32 %151, ptr %21, align 4
-  br label %152
+141:                                              ; preds = %104
+  %142 = load ptr, ptr %10, align 8
+  %143 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %142, i32 0, i32 50
+  %144 = load ptr, ptr %143, align 64
+  %145 = load i32, ptr %20, align 4
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds ptr, ptr %144, i64 %146
+  %148 = load ptr, ptr %147, align 8
+  %149 = load ptr, ptr %8, align 8
+  %150 = ptrtoint ptr %149 to i64
+  %151 = load i64, ptr %9, align 8
+  %152 = call i32 @ompi_osc_rdma_add_attachment(ptr noundef %148, i64 noundef %150, i64 noundef %151)
+  store i32 %152, ptr %21, align 4
+  br label %153
 
-152:                                              ; preds = %140
-  %153 = load i8, ptr @opal_uses_threads, align 1
-  %154 = trunc i8 %153 to i1
-  %155 = xor i1 %154, true
+153:                                              ; preds = %141
+  %154 = load i8, ptr @opal_uses_threads, align 1
+  %155 = trunc i8 %154 to i1
   %156 = xor i1 %155, true
-  %157 = zext i1 %156 to i32
-  %158 = sext i32 %157 to i64
-  %159 = icmp ne i64 %158, 0
-  br i1 %159, label %160, label %163
+  %157 = xor i1 %156, true
+  %158 = zext i1 %157 to i32
+  %159 = sext i32 %158 to i64
+  %160 = icmp ne i64 %159, 0
+  br i1 %160, label %161, label %164
 
-160:                                              ; preds = %152
-  %161 = load ptr, ptr %10, align 8
-  %162 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %161, i32 0, i32 2
-  call void @opal_mutex_unlock(ptr noundef %162)
-  br label %163
-
-163:                                              ; preds = %160, %152
+161:                                              ; preds = %153
+  %162 = load ptr, ptr %10, align 8
+  %163 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %162, i32 0, i32 2
+  call void @opal_mutex_unlock(ptr noundef %163)
   br label %164
 
-164:                                              ; preds = %163
-  %165 = load ptr, ptr %10, align 8
-  %166 = load ptr, ptr %12, align 8
-  %167 = call i32 @ompi_osc_rdma_lock_release_exclusive(ptr noundef %165, ptr noundef %166, i64 noundef 304)
-  %168 = load i32, ptr %21, align 4
-  store i32 %168, ptr %6, align 4
-  br label %347
+164:                                              ; preds = %161, %153
+  br label %165
 
-169:                                              ; preds = %103
-  %170 = load i64, ptr %15, align 8
-  %171 = icmp ne i64 %170, 0
-  br i1 %171, label %172, label %227
+165:                                              ; preds = %164
+  %166 = load ptr, ptr %10, align 8
+  %167 = load ptr, ptr %12, align 8
+  %168 = call i32 @ompi_osc_rdma_lock_release_exclusive(ptr noundef %166, ptr noundef %167, i64 noundef 304)
+  %169 = load i32, ptr %21, align 4
+  store i32 %169, ptr %6, align 4
+  br label %349
 
-172:                                              ; preds = %169
-  %173 = load ptr, ptr %10, align 8
-  %174 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %173, i32 0, i32 17
-  %175 = load ptr, ptr %174, align 16
-  %176 = getelementptr inbounds %struct.ompi_osc_rdma_state_t, ptr %175, i32 0, i32 10
-  %177 = getelementptr inbounds [0 x i8], ptr %176, i64 0, i64 0
-  %178 = load i64, ptr %15, align 8
-  %179 = sub nsw i64 %178, 1
-  %180 = trunc i64 %179 to i32
-  %181 = load ptr, ptr %8, align 8
-  %182 = ptrtoint ptr %181 to i64
-  %183 = load ptr, ptr %10, align 8
-  %184 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %183, i32 0, i32 27
-  %185 = load i64, ptr %184, align 8
-  %186 = call ptr @find_insertion_point(ptr noundef %177, i32 noundef 0, i32 noundef %180, i64 noundef %182, i64 noundef %185, ptr noundef %20)
-  store ptr %186, ptr %13, align 8
-  %187 = load i32, ptr %20, align 4
-  %188 = sext i32 %187 to i64
-  %189 = load i64, ptr %15, align 8
-  %190 = icmp slt i64 %188, %189
-  br i1 %190, label %191, label %226
+170:                                              ; preds = %104
+  %171 = load i64, ptr %15, align 8
+  %172 = icmp ne i64 %171, 0
+  br i1 %172, label %173, label %228
 
-191:                                              ; preds = %172
-  %192 = load ptr, ptr %13, align 8
-  %193 = ptrtoint ptr %192 to i64
-  %194 = load ptr, ptr %10, align 8
-  %195 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %194, i32 0, i32 27
-  %196 = load i64, ptr %195, align 8
-  %197 = add i64 %193, %196
-  %198 = inttoptr i64 %197 to ptr
-  %199 = load ptr, ptr %13, align 8
-  %200 = load i64, ptr %15, align 8
-  %201 = load i32, ptr %20, align 4
-  %202 = sext i32 %201 to i64
-  %203 = sub nsw i64 %200, %202
-  %204 = load ptr, ptr %10, align 8
-  %205 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %204, i32 0, i32 27
-  %206 = load i64, ptr %205, align 8
-  %207 = mul i64 %203, %206
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %198, ptr align 8 %199, i64 %207, i1 false)
-  %208 = load ptr, ptr %10, align 8
-  %209 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %208, i32 0, i32 50
-  %210 = load ptr, ptr %209, align 64
-  %211 = load i32, ptr %20, align 4
-  %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds ptr, ptr %210, i64 %212
-  %214 = getelementptr inbounds ptr, ptr %213, i64 1
-  %215 = load ptr, ptr %10, align 8
-  %216 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %215, i32 0, i32 50
-  %217 = load ptr, ptr %216, align 64
-  %218 = load i32, ptr %20, align 4
-  %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds ptr, ptr %217, i64 %219
-  %221 = load i64, ptr %15, align 8
-  %222 = load i32, ptr %20, align 4
-  %223 = sext i32 %222 to i64
-  %224 = sub nsw i64 %221, %223
-  %225 = mul i64 %224, 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %214, ptr align 8 %220, i64 %225, i1 false)
-  br label %226
+173:                                              ; preds = %170
+  %174 = load ptr, ptr %10, align 8
+  %175 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %174, i32 0, i32 17
+  %176 = load ptr, ptr %175, align 16
+  %177 = getelementptr inbounds %struct.ompi_osc_rdma_state_t, ptr %176, i32 0, i32 10
+  %178 = getelementptr inbounds [0 x i8], ptr %177, i64 0, i64 0
+  %179 = load i64, ptr %15, align 8
+  %180 = sub nsw i64 %179, 1
+  %181 = trunc i64 %180 to i32
+  %182 = load ptr, ptr %8, align 8
+  %183 = ptrtoint ptr %182 to i64
+  %184 = load ptr, ptr %10, align 8
+  %185 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %184, i32 0, i32 27
+  %186 = load i64, ptr %185, align 8
+  %187 = call ptr @find_insertion_point(ptr noundef %178, i32 noundef 0, i32 noundef %181, i64 noundef %183, i64 noundef %186, ptr noundef %20)
+  store ptr %187, ptr %13, align 8
+  %188 = load i32, ptr %20, align 4
+  %189 = sext i32 %188 to i64
+  %190 = load i64, ptr %15, align 8
+  %191 = icmp slt i64 %189, %190
+  br i1 %191, label %192, label %227
 
-226:                                              ; preds = %191, %172
-  br label %233
+192:                                              ; preds = %173
+  %193 = load ptr, ptr %13, align 8
+  %194 = ptrtoint ptr %193 to i64
+  %195 = load ptr, ptr %10, align 8
+  %196 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %195, i32 0, i32 27
+  %197 = load i64, ptr %196, align 8
+  %198 = add i64 %194, %197
+  %199 = inttoptr i64 %198 to ptr
+  %200 = load ptr, ptr %13, align 8
+  %201 = load i64, ptr %15, align 8
+  %202 = load i32, ptr %20, align 4
+  %203 = sext i32 %202 to i64
+  %204 = sub nsw i64 %201, %203
+  %205 = load ptr, ptr %10, align 8
+  %206 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %205, i32 0, i32 27
+  %207 = load i64, ptr %206, align 8
+  %208 = mul i64 %204, %207
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %199, ptr align 8 %200, i64 %208, i1 false)
+  %209 = load ptr, ptr %10, align 8
+  %210 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %209, i32 0, i32 50
+  %211 = load ptr, ptr %210, align 64
+  %212 = load i32, ptr %20, align 4
+  %213 = sext i32 %212 to i64
+  %214 = getelementptr inbounds ptr, ptr %211, i64 %213
+  %215 = getelementptr inbounds ptr, ptr %214, i64 1
+  %216 = load ptr, ptr %10, align 8
+  %217 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %216, i32 0, i32 50
+  %218 = load ptr, ptr %217, align 64
+  %219 = load i32, ptr %20, align 4
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds ptr, ptr %218, i64 %220
+  %222 = load i64, ptr %15, align 8
+  %223 = load i32, ptr %20, align 4
+  %224 = sext i32 %223 to i64
+  %225 = sub nsw i64 %222, %224
+  %226 = mul i64 %225, 8
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %215, ptr align 8 %221, i64 %226, i1 false)
+  br label %227
 
-227:                                              ; preds = %169
+227:                                              ; preds = %192, %173
+  br label %234
+
+228:                                              ; preds = %170
   store i32 0, ptr %20, align 4
-  %228 = load ptr, ptr %10, align 8
-  %229 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %228, i32 0, i32 17
-  %230 = load ptr, ptr %229, align 16
-  %231 = getelementptr inbounds %struct.ompi_osc_rdma_state_t, ptr %230, i32 0, i32 10
-  %232 = getelementptr inbounds [0 x i8], ptr %231, i64 0, i64 0
-  store ptr %232, ptr %13, align 8
-  br label %233
+  %229 = load ptr, ptr %10, align 8
+  %230 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %229, i32 0, i32 17
+  %231 = load ptr, ptr %230, align 16
+  %232 = getelementptr inbounds %struct.ompi_osc_rdma_state_t, ptr %231, i32 0, i32 10
+  %233 = getelementptr inbounds [0 x i8], ptr %232, i64 0, i64 0
+  store ptr %233, ptr %13, align 8
+  br label %234
 
-233:                                              ; preds = %227, %226
-  %234 = load i64, ptr %17, align 8
-  %235 = load ptr, ptr %13, align 8
-  %236 = getelementptr inbounds %struct.ompi_osc_rdma_region_t, ptr %235, i32 0, i32 0
-  store i64 %234, ptr %236, align 8
-  %237 = load i64, ptr %22, align 8
-  %238 = load ptr, ptr %13, align 8
-  %239 = getelementptr inbounds %struct.ompi_osc_rdma_region_t, ptr %238, i32 0, i32 1
-  store i64 %237, ptr %239, align 8
-  %240 = call ptr @opal_obj_new(ptr noundef @ompi_osc_rdma_handle_t_class)
-  store ptr %240, ptr %14, align 8
-  %241 = load ptr, ptr %10, align 8
-  %242 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %241, i32 0, i32 43
-  %243 = load i8, ptr %242, align 8
-  %244 = trunc i8 %243 to i1
-  br i1 %244, label %245, label %305
+234:                                              ; preds = %228, %227
+  %235 = load i64, ptr %17, align 8
+  %236 = load ptr, ptr %13, align 8
+  %237 = getelementptr inbounds %struct.ompi_osc_rdma_region_t, ptr %236, i32 0, i32 0
+  store i64 %235, ptr %237, align 8
+  %238 = load i64, ptr %22, align 8
+  %239 = load ptr, ptr %13, align 8
+  %240 = getelementptr inbounds %struct.ompi_osc_rdma_region_t, ptr %239, i32 0, i32 1
+  store i64 %238, ptr %240, align 8
+  %241 = call ptr @opal_obj_new(ptr noundef @ompi_osc_rdma_handle_t_class)
+  store ptr %241, ptr %14, align 8
+  %242 = load ptr, ptr %10, align 8
+  %243 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %242, i32 0, i32 43
+  %244 = load i8, ptr %243, align 8
+  %245 = trunc i8 %244 to i1
+  br i1 %245, label %246, label %307
 
-245:                                              ; preds = %233
-  %246 = load ptr, ptr %10, align 8
-  %247 = load ptr, ptr %13, align 8
-  %248 = getelementptr inbounds %struct.ompi_osc_rdma_region_t, ptr %247, i32 0, i32 0
-  %249 = load i64, ptr %248, align 8
-  %250 = inttoptr i64 %249 to ptr
-  %251 = load ptr, ptr %13, align 8
-  %252 = getelementptr inbounds %struct.ompi_osc_rdma_region_t, ptr %251, i32 0, i32 1
-  %253 = load i64, ptr %252, align 8
-  %254 = call i32 @_ompi_osc_rdma_register(ptr noundef %246, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef %250, i64 noundef %253, i32 noundef 15, ptr noundef %25, i32 noundef 259, ptr noundef @.str.2)
-  store i32 %254, ptr %21, align 4
-  %255 = load i32, ptr %21, align 4
-  %256 = icmp ne i32 0, %255
-  %257 = xor i1 %256, true
-  %258 = xor i1 %257, true
-  %259 = zext i1 %258 to i32
-  %260 = sext i32 %259 to i64
-  %261 = icmp ne i64 %260, 0
-  br i1 %261, label %262, label %291
+246:                                              ; preds = %234
+  %247 = load ptr, ptr %10, align 8
+  %248 = load ptr, ptr %13, align 8
+  %249 = getelementptr inbounds %struct.ompi_osc_rdma_region_t, ptr %248, i32 0, i32 0
+  %250 = load i64, ptr %249, align 8
+  %251 = inttoptr i64 %250 to ptr
+  %252 = load ptr, ptr %13, align 8
+  %253 = getelementptr inbounds %struct.ompi_osc_rdma_region_t, ptr %252, i32 0, i32 1
+  %254 = load i64, ptr %253, align 8
+  %255 = inttoptr i64 -1 to ptr
+  %256 = call i32 @_ompi_osc_rdma_register(ptr noundef %247, ptr noundef %255, ptr noundef %251, i64 noundef %254, i32 noundef 15, ptr noundef %25, i32 noundef 259, ptr noundef @.str.2)
+  store i32 %256, ptr %21, align 4
+  %257 = load i32, ptr %21, align 4
+  %258 = icmp ne i32 0, %257
+  %259 = xor i1 %258, true
+  %260 = xor i1 %259, true
+  %261 = zext i1 %260 to i32
+  %262 = sext i32 %261 to i64
+  %263 = icmp ne i64 %262, 0
+  br i1 %263, label %264, label %293
 
-262:                                              ; preds = %245
-  br label %263
+264:                                              ; preds = %246
+  br label %265
 
-263:                                              ; preds = %262
-  %264 = load i8, ptr @opal_uses_threads, align 1
-  %265 = trunc i8 %264 to i1
-  %266 = xor i1 %265, true
-  %267 = xor i1 %266, true
-  %268 = zext i1 %267 to i32
-  %269 = sext i32 %268 to i64
-  %270 = icmp ne i64 %269, 0
-  br i1 %270, label %271, label %274
+265:                                              ; preds = %264
+  %266 = load i8, ptr @opal_uses_threads, align 1
+  %267 = trunc i8 %266 to i1
+  %268 = xor i1 %267, true
+  %269 = xor i1 %268, true
+  %270 = zext i1 %269 to i32
+  %271 = sext i32 %270 to i64
+  %272 = icmp ne i64 %271, 0
+  br i1 %272, label %273, label %276
 
-271:                                              ; preds = %263
-  %272 = load ptr, ptr %10, align 8
-  %273 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %272, i32 0, i32 2
-  call void @opal_mutex_unlock(ptr noundef %273)
-  br label %274
-
-274:                                              ; preds = %271, %263
-  br label %275
-
-275:                                              ; preds = %274
+273:                                              ; preds = %265
+  %274 = load ptr, ptr %10, align 8
+  %275 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %274, i32 0, i32 2
+  call void @opal_mutex_unlock(ptr noundef %275)
   br label %276
 
-276:                                              ; preds = %275
-  %277 = load ptr, ptr %14, align 8
-  store ptr %277, ptr %4, align 8
+276:                                              ; preds = %273, %265
+  br label %277
+
+277:                                              ; preds = %276
+  br label %278
+
+278:                                              ; preds = %277
+  %279 = load ptr, ptr %14, align 8
+  store ptr %279, ptr %4, align 8
   store i32 -1, ptr %5, align 4
-  %278 = load ptr, ptr %4, align 8
-  %279 = getelementptr inbounds %struct.opal_object_t, ptr %278, i32 0, i32 1
-  %280 = load i32, ptr %5, align 4
-  %281 = call i32 @opal_thread_add_fetch_32(ptr noundef %279, i32 noundef %280)
-  %282 = icmp eq i32 0, %281
-  br i1 %282, label %283, label %286
+  %280 = load ptr, ptr %4, align 8
+  %281 = getelementptr inbounds %struct.opal_object_t, ptr %280, i32 0, i32 1
+  %282 = load i32, ptr %5, align 4
+  %283 = call i32 @opal_thread_add_fetch_32(ptr noundef %281, i32 noundef %282)
+  %284 = icmp eq i32 0, %283
+  br i1 %284, label %285, label %288
 
-283:                                              ; preds = %276
-  %284 = load ptr, ptr %14, align 8
-  call void @opal_obj_run_destructors(ptr noundef %284)
-  %285 = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %285) #7
+285:                                              ; preds = %278
+  %286 = load ptr, ptr %14, align 8
+  call void @opal_obj_run_destructors(ptr noundef %286)
+  %287 = load ptr, ptr %14, align 8
+  call void @free(ptr noundef %287) #7
   store ptr null, ptr %14, align 8
-  br label %286
+  br label %288
 
-286:                                              ; preds = %283, %276
-  br label %287
+288:                                              ; preds = %285, %278
+  br label %289
 
-287:                                              ; preds = %286
-  %288 = load ptr, ptr %10, align 8
-  %289 = load ptr, ptr %12, align 8
-  %290 = call i32 @ompi_osc_rdma_lock_release_exclusive(ptr noundef %288, ptr noundef %289, i64 noundef 304)
+289:                                              ; preds = %288
+  %290 = load ptr, ptr %10, align 8
+  %291 = load ptr, ptr %12, align 8
+  %292 = call i32 @ompi_osc_rdma_lock_release_exclusive(ptr noundef %290, ptr noundef %291, i64 noundef 304)
   store i32 -104, ptr %6, align 4
-  br label %347
+  br label %349
 
-291:                                              ; preds = %245
-  %292 = load ptr, ptr %13, align 8
-  %293 = getelementptr inbounds %struct.ompi_osc_rdma_region_t, ptr %292, i32 0, i32 2
-  %294 = getelementptr inbounds [0 x i8], ptr %293, i64 0, i64 0
-  %295 = load ptr, ptr %25, align 8
-  %296 = load ptr, ptr %10, align 8
-  %297 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %296, i32 0, i32 42
-  %298 = getelementptr inbounds %struct.anon.3, ptr %297, i32 0, i32 0
-  %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr %299, i32 0, i32 12
-  %301 = load i64, ptr %300, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %294, ptr align 1 %295, i64 %301, i1 false)
-  %302 = load ptr, ptr %25, align 8
-  %303 = load ptr, ptr %14, align 8
-  %304 = getelementptr inbounds %struct.ompi_osc_rdma_handle_t, ptr %303, i32 0, i32 1
-  store ptr %302, ptr %304, align 8
-  br label %308
+293:                                              ; preds = %246
+  %294 = load ptr, ptr %13, align 8
+  %295 = getelementptr inbounds %struct.ompi_osc_rdma_region_t, ptr %294, i32 0, i32 2
+  %296 = getelementptr inbounds [0 x i8], ptr %295, i64 0, i64 0
+  %297 = load ptr, ptr %25, align 8
+  %298 = load ptr, ptr %10, align 8
+  %299 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %298, i32 0, i32 42
+  %300 = getelementptr inbounds %struct.anon.3, ptr %299, i32 0, i32 0
+  %301 = load ptr, ptr %300, align 8
+  %302 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr %301, i32 0, i32 12
+  %303 = load i64, ptr %302, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %296, ptr align 1 %297, i64 %303, i1 false)
+  %304 = load ptr, ptr %25, align 8
+  %305 = load ptr, ptr %14, align 8
+  %306 = getelementptr inbounds %struct.ompi_osc_rdma_handle_t, ptr %305, i32 0, i32 1
+  store ptr %304, ptr %306, align 8
+  br label %310
 
-305:                                              ; preds = %233
-  %306 = load ptr, ptr %14, align 8
-  %307 = getelementptr inbounds %struct.ompi_osc_rdma_handle_t, ptr %306, i32 0, i32 1
-  store ptr null, ptr %307, align 8
-  br label %308
+307:                                              ; preds = %234
+  %308 = load ptr, ptr %14, align 8
+  %309 = getelementptr inbounds %struct.ompi_osc_rdma_handle_t, ptr %308, i32 0, i32 1
+  store ptr null, ptr %309, align 8
+  br label %310
 
-308:                                              ; preds = %305, %291
-  %309 = load ptr, ptr %14, align 8
-  %310 = load ptr, ptr %8, align 8
-  %311 = ptrtoint ptr %310 to i64
-  %312 = load i64, ptr %9, align 8
-  %313 = call i32 @ompi_osc_rdma_add_attachment(ptr noundef %309, i64 noundef %311, i64 noundef %312)
-  store i32 %313, ptr %21, align 4
-  %314 = load ptr, ptr %14, align 8
-  %315 = load ptr, ptr %10, align 8
-  %316 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %315, i32 0, i32 50
-  %317 = load ptr, ptr %316, align 64
-  %318 = load i32, ptr %20, align 4
-  %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds ptr, ptr %317, i64 %319
-  store ptr %314, ptr %320, align 8
-  %321 = load i64, ptr %16, align 8
-  %322 = add nsw i64 %321, 1
-  %323 = shl i64 %322, 32
-  %324 = load i64, ptr %15, align 8
-  %325 = add nsw i64 %324, 1
-  %326 = or i64 %323, %325
-  %327 = load ptr, ptr %10, align 8
-  %328 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %327, i32 0, i32 17
-  %329 = load ptr, ptr %328, align 16
-  %330 = getelementptr inbounds %struct.ompi_osc_rdma_state_t, ptr %329, i32 0, i32 9
-  store i64 %326, ptr %330, align 8
+310:                                              ; preds = %307, %293
+  %311 = load ptr, ptr %14, align 8
+  %312 = load ptr, ptr %8, align 8
+  %313 = ptrtoint ptr %312 to i64
+  %314 = load i64, ptr %9, align 8
+  %315 = call i32 @ompi_osc_rdma_add_attachment(ptr noundef %311, i64 noundef %313, i64 noundef %314)
+  store i32 %315, ptr %21, align 4
+  %316 = load ptr, ptr %14, align 8
+  %317 = load ptr, ptr %10, align 8
+  %318 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %317, i32 0, i32 50
+  %319 = load ptr, ptr %318, align 64
+  %320 = load i32, ptr %20, align 4
+  %321 = sext i32 %320 to i64
+  %322 = getelementptr inbounds ptr, ptr %319, i64 %321
+  store ptr %316, ptr %322, align 8
+  %323 = load i64, ptr %16, align 8
+  %324 = add nsw i64 %323, 1
+  %325 = shl i64 %324, 32
+  %326 = load i64, ptr %15, align 8
+  %327 = add nsw i64 %326, 1
+  %328 = or i64 %325, %327
+  %329 = load ptr, ptr %10, align 8
+  %330 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %329, i32 0, i32 17
+  %331 = load ptr, ptr %330, align 16
+  %332 = getelementptr inbounds %struct.ompi_osc_rdma_state_t, ptr %331, i32 0, i32 9
+  store i64 %328, ptr %332, align 8
   call void @opal_atomic_wmb()
-  %331 = load ptr, ptr %10, align 8
-  %332 = load ptr, ptr %12, align 8
-  %333 = call i32 @ompi_osc_rdma_lock_release_exclusive(ptr noundef %331, ptr noundef %332, i64 noundef 304)
-  br label %334
+  %333 = load ptr, ptr %10, align 8
+  %334 = load ptr, ptr %12, align 8
+  %335 = call i32 @ompi_osc_rdma_lock_release_exclusive(ptr noundef %333, ptr noundef %334, i64 noundef 304)
+  br label %336
 
-334:                                              ; preds = %308
-  %335 = load i8, ptr @opal_uses_threads, align 1
-  %336 = trunc i8 %335 to i1
-  %337 = xor i1 %336, true
-  %338 = xor i1 %337, true
-  %339 = zext i1 %338 to i32
-  %340 = sext i32 %339 to i64
-  %341 = icmp ne i64 %340, 0
-  br i1 %341, label %342, label %345
+336:                                              ; preds = %310
+  %337 = load i8, ptr @opal_uses_threads, align 1
+  %338 = trunc i8 %337 to i1
+  %339 = xor i1 %338, true
+  %340 = xor i1 %339, true
+  %341 = zext i1 %340 to i32
+  %342 = sext i32 %341 to i64
+  %343 = icmp ne i64 %342, 0
+  br i1 %343, label %344, label %347
 
-342:                                              ; preds = %334
-  %343 = load ptr, ptr %10, align 8
-  %344 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %343, i32 0, i32 2
-  call void @opal_mutex_unlock(ptr noundef %344)
-  br label %345
-
-345:                                              ; preds = %342, %334
-  br label %346
-
-346:                                              ; preds = %345
-  store i32 0, ptr %6, align 4
+344:                                              ; preds = %336
+  %345 = load ptr, ptr %10, align 8
+  %346 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %345, i32 0, i32 2
+  call void @opal_mutex_unlock(ptr noundef %346)
   br label %347
 
-347:                                              ; preds = %346, %287, %164, %102, %54, %46, %42
-  %348 = load i32, ptr %6, align 4
-  ret i32 %348
+347:                                              ; preds = %344, %336
+  br label %348
+
+348:                                              ; preds = %347
+  store i32 0, ptr %6, align 4
+  br label %349
+
+349:                                              ; preds = %348, %289, %165, %103, %54, %46, %42
+  %350 = load i32, ptr %6, align 4
+  ret i32 %350
 }
 
 ; Function Attrs: nounwind uwtable
@@ -739,7 +742,7 @@ define internal zeroext i1 @osc_rdma_btl_accel_support(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   store i1 false, ptr %2, align 1
-  br label %48
+  br label %50
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %3, align 8
@@ -749,68 +752,70 @@ define internal zeroext i1 @osc_rdma_btl_accel_support(ptr noundef %0) #0 {
   store ptr %13, ptr %4, align 8
   br label %14
 
-14:                                               ; preds = %43, %9
+14:                                               ; preds = %45, %9
   %15 = load ptr, ptr %4, align 8
   %16 = load ptr, ptr %3, align 8
   %17 = getelementptr inbounds %struct.opal_list_t, ptr %16, i32 0, i32 1
   %18 = icmp ne ptr %15, %17
-  br i1 %18, label %19, label %47
+  br i1 %18, label %19, label %49
 
 19:                                               ; preds = %14
   br label %20
 
 20:                                               ; preds = %19
-  %21 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 11), align 4
-  %22 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %21)
-  br i1 %22, label %23, label %31
+  %21 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 11
+  %22 = load i32, ptr %21, align 4
+  %23 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 40, i32 noundef %22)
+  br i1 %23, label %24, label %33
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 11), align 4
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.mca_btl_base_selected_module_t, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.mca_btl_base_component_3_0_0_t, ptr %27, i32 0, i32 0
-  %29 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %28, i32 0, i32 11
-  %30 = getelementptr inbounds [64 x i8], ptr %29, i64 0, i64 0
-  call void (i32, ptr, ...) @opal_output(i32 noundef %24, ptr noundef @.str.3, ptr noundef %30)
-  br label %31
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds %struct.mca_base_framework_t, ptr @ompi_osc_base_framework, i32 0, i32 11
+  %26 = load i32, ptr %25, align 4
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %struct.mca_btl_base_selected_module_t, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %struct.mca_btl_base_component_3_0_0_t, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds %struct.mca_base_component_2_1_0_t, ptr %30, i32 0, i32 11
+  %32 = getelementptr inbounds [64 x i8], ptr %31, i64 0, i64 0
+  call void (i32, ptr, ...) @opal_output(i32 noundef %26, ptr noundef @.str.3, ptr noundef %32)
+  br label %33
 
-31:                                               ; preds = %23, %20
-  br label %32
+33:                                               ; preds = %24, %20
+  br label %34
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.mca_btl_base_selected_module_t, ptr %33, i32 0, i32 2
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %5, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr %36, i32 0, i32 10
-  %38 = load i32, ptr %37, align 4
-  %39 = and i32 %38, 3072
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %42
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds %struct.mca_btl_base_selected_module_t, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %5, align 8
+  %38 = load ptr, ptr %5, align 8
+  %39 = getelementptr inbounds %struct.mca_btl_base_module_t, ptr %38, i32 0, i32 10
+  %40 = load i32, ptr %39, align 4
+  %41 = and i32 %40, 3072
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %44
 
-41:                                               ; preds = %32
+43:                                               ; preds = %34
   store i1 true, ptr %2, align 1
-  br label %48
+  br label %50
 
-42:                                               ; preds = %32
-  br label %43
+44:                                               ; preds = %34
+  br label %45
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.opal_list_item_t, ptr %44, i32 0, i32 1
-  %46 = load volatile ptr, ptr %45, align 8
-  store ptr %46, ptr %4, align 8
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds %struct.opal_list_item_t, ptr %46, i32 0, i32 1
+  %48 = load volatile ptr, ptr %47, align 8
+  store ptr %48, ptr %4, align 8
   br label %14, !llvm.loop !6
 
-47:                                               ; preds = %14
+49:                                               ; preds = %14
   store i1 false, ptr %2, align 1
-  br label %48
+  br label %50
 
-48:                                               ; preds = %47, %41, %8
-  %49 = load i1, ptr %2, align 1
-  ret i1 %49
+50:                                               ; preds = %49, %43, %8
+  %51 = load i1, ptr %2, align 1
+  ret i1 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2834,195 +2839,202 @@ define internal i32 @ompi_osc_rdma_frag_alloc(ptr noundef %0, i64 noundef %1, pt
   %20 = and i64 %19, -8
   store i64 %20, ptr %7, align 8
   %21 = load i64, ptr %7, align 8
-  %22 = load i32, ptr getelementptr inbounds (%struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 5), align 16
-  %23 = lshr i32 %22, 1
-  %24 = zext i32 %23 to i64
-  %25 = icmp ugt i64 %21, %24
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %4
-  store i32 -18, ptr %5, align 4
-  br label %142
+  %22 = getelementptr inbounds %struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 5
+  %23 = load i32, ptr %22, align 16
+  %24 = lshr i32 %23, 1
+  %25 = zext i32 %24 to i64
+  %26 = icmp ugt i64 %21, %25
+  br i1 %26, label %27, label %28
 
 27:                                               ; preds = %4
-  %28 = load ptr, ptr %10, align 8
-  %29 = icmp eq ptr null, %28
-  br i1 %29, label %30, label %107
+  store i32 -18, ptr %5, align 4
+  br label %149
 
-30:                                               ; preds = %27
+28:                                               ; preds = %4
+  %29 = load ptr, ptr %10, align 8
+  %30 = icmp eq ptr null, %29
+  br i1 %30, label %31, label %112
+
+31:                                               ; preds = %28
   store ptr null, ptr %13, align 8
   store ptr null, ptr %14, align 8
-  %31 = call ptr @opal_free_list_get(ptr noundef getelementptr inbounds (%struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 3))
-  store ptr %31, ptr %13, align 8
-  %32 = load ptr, ptr %13, align 8
-  %33 = icmp eq ptr null, %32
-  %34 = xor i1 %33, true
-  %35 = xor i1 %34, true
-  %36 = zext i1 %35 to i32
-  %37 = sext i32 %36 to i64
-  %38 = icmp ne i64 %37, 0
-  br i1 %38, label %39, label %53
+  %32 = getelementptr inbounds %struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 3
+  %33 = call ptr @opal_free_list_get(ptr noundef %32)
+  store ptr %33, ptr %13, align 8
+  %34 = load ptr, ptr %13, align 8
+  %35 = icmp eq ptr null, %34
+  %36 = xor i1 %35, true
+  %37 = xor i1 %36, true
+  %38 = zext i1 %37 to i32
+  %39 = sext i32 %38 to i64
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %41, label %55
 
-39:                                               ; preds = %30
-  br label %40
+41:                                               ; preds = %31
+  br label %42
 
-40:                                               ; preds = %39
-  %41 = load i8, ptr @opal_uses_threads, align 1
-  %42 = trunc i8 %41 to i1
-  %43 = xor i1 %42, true
-  %44 = xor i1 %43, true
-  %45 = zext i1 %44 to i32
-  %46 = sext i32 %45 to i64
-  %47 = icmp ne i64 %46, 0
-  br i1 %47, label %48, label %51
+42:                                               ; preds = %41
+  %43 = load i8, ptr @opal_uses_threads, align 1
+  %44 = trunc i8 %43 to i1
+  %45 = xor i1 %44, true
+  %46 = xor i1 %45, true
+  %47 = zext i1 %46 to i32
+  %48 = sext i32 %47 to i64
+  %49 = icmp ne i64 %48, 0
+  br i1 %49, label %50, label %53
 
-48:                                               ; preds = %40
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %49, i32 0, i32 2
-  call void @opal_mutex_unlock(ptr noundef %50)
-  br label %51
+50:                                               ; preds = %42
+  %51 = load ptr, ptr %6, align 8
+  %52 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %51, i32 0, i32 2
+  call void @opal_mutex_unlock(ptr noundef %52)
+  br label %53
 
-51:                                               ; preds = %48, %40
-  br label %52
+53:                                               ; preds = %50, %42
+  br label %54
 
-52:                                               ; preds = %51
+54:                                               ; preds = %53
   store i32 -2, ptr %5, align 4
-  br label %142
+  br label %149
 
-53:                                               ; preds = %30
-  %54 = load ptr, ptr %13, align 8
-  store ptr %54, ptr %10, align 8
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %55, i32 0, i32 4
-  store ptr null, ptr %56, align 8
+55:                                               ; preds = %31
+  %56 = load ptr, ptr %13, align 8
+  store ptr %56, ptr %10, align 8
   %57 = load ptr, ptr %10, align 8
-  %58 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %57, i32 0, i32 1
-  store volatile i32 1, ptr %58, align 8
-  %59 = load ptr, ptr %6, align 8
-  %60 = load ptr, ptr %10, align 8
-  %61 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %60, i32 0, i32 3
-  store ptr %59, ptr %61, align 8
+  %58 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %57, i32 0, i32 4
+  store ptr null, ptr %58, align 8
+  %59 = load ptr, ptr %10, align 8
+  %60 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %59, i32 0, i32 1
+  store volatile i32 1, ptr %60, align 8
+  %61 = load ptr, ptr %6, align 8
   %62 = load ptr, ptr %10, align 8
-  %63 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %62, i32 0, i32 2
-  store volatile i64 0, ptr %63, align 8
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %64, i32 0, i32 43
-  %66 = load i8, ptr %65, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %88
+  %63 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %62, i32 0, i32 3
+  store ptr %61, ptr %63, align 8
+  %64 = load ptr, ptr %10, align 8
+  %65 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %64, i32 0, i32 2
+  store volatile i64 0, ptr %65, align 8
+  %66 = load ptr, ptr %6, align 8
+  %67 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %66, i32 0, i32 43
+  %68 = load i8, ptr %67, align 8
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %92
 
-68:                                               ; preds = %53
-  %69 = load ptr, ptr %6, align 8
-  %70 = load ptr, ptr %10, align 8
-  %71 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %70, i32 0, i32 0
-  %72 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %71, i32 0, i32 2
-  %73 = load ptr, ptr %72, align 8
-  %74 = load i32, ptr getelementptr inbounds (%struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 5), align 16
-  %75 = zext i32 %74 to i64
-  %76 = load ptr, ptr %10, align 8
-  %77 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %76, i32 0, i32 4
-  %78 = call i32 @_ompi_osc_rdma_register(ptr noundef %69, ptr noundef inttoptr (i64 -1 to ptr), ptr noundef %73, i64 noundef %75, i32 noundef 15, ptr noundef %77, i32 noundef 68, ptr noundef @.str.4)
-  store i32 %78, ptr %12, align 4
-  %79 = load i32, ptr %12, align 4
-  %80 = icmp ne i32 0, %79
-  %81 = xor i1 %80, true
-  %82 = xor i1 %81, true
-  %83 = zext i1 %82 to i32
-  %84 = sext i32 %83 to i64
-  %85 = icmp ne i64 %84, 0
-  br i1 %85, label %86, label %87
+70:                                               ; preds = %55
+  %71 = load ptr, ptr %6, align 8
+  %72 = load ptr, ptr %10, align 8
+  %73 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %72, i32 0, i32 0
+  %74 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %73, i32 0, i32 2
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds %struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 5
+  %77 = load i32, ptr %76, align 16
+  %78 = zext i32 %77 to i64
+  %79 = load ptr, ptr %10, align 8
+  %80 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %79, i32 0, i32 4
+  %81 = inttoptr i64 -1 to ptr
+  %82 = call i32 @_ompi_osc_rdma_register(ptr noundef %71, ptr noundef %81, ptr noundef %75, i64 noundef %78, i32 noundef 15, ptr noundef %80, i32 noundef 68, ptr noundef @.str.4)
+  store i32 %82, ptr %12, align 4
+  %83 = load i32, ptr %12, align 4
+  %84 = icmp ne i32 0, %83
+  %85 = xor i1 %84, true
+  %86 = xor i1 %85, true
+  %87 = zext i1 %86 to i32
+  %88 = sext i32 %87 to i64
+  %89 = icmp ne i64 %88, 0
+  br i1 %89, label %90, label %91
 
-86:                                               ; preds = %68
+90:                                               ; preds = %70
   store i32 -2, ptr %5, align 4
-  br label %142
+  br label %149
 
-87:                                               ; preds = %68
-  br label %88
+91:                                               ; preds = %70
+  br label %92
 
-88:                                               ; preds = %87, %53
-  %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %89, i32 0, i32 49
-  %91 = load ptr, ptr %10, align 8
-  %92 = ptrtoint ptr %91 to i64
-  %93 = call zeroext i1 @opal_atomic_compare_exchange_strong_ptr(ptr noundef %90, ptr noundef %14, i64 noundef %92)
-  br i1 %93, label %106, label %94
+92:                                               ; preds = %91, %55
+  %93 = load ptr, ptr %6, align 8
+  %94 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %93, i32 0, i32 49
+  %95 = load ptr, ptr %10, align 8
+  %96 = ptrtoint ptr %95 to i64
+  %97 = call zeroext i1 @opal_atomic_compare_exchange_strong_ptr(ptr noundef %94, ptr noundef %14, i64 noundef %96)
+  br i1 %97, label %111, label %98
 
-94:                                               ; preds = %88
-  %95 = load ptr, ptr %6, align 8
-  %96 = load ptr, ptr %10, align 8
-  %97 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %96, i32 0, i32 4
-  %98 = load ptr, ptr %97, align 8
-  call void @_ompi_osc_rdma_deregister(ptr noundef %95, ptr noundef %98, i32 noundef 75, ptr noundef @.str.4)
-  %99 = load ptr, ptr %10, align 8
-  %100 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %99, i32 0, i32 4
-  store ptr null, ptr %100, align 8
-  %101 = load ptr, ptr %10, align 8
-  %102 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %101, i32 0, i32 0
-  call void @opal_free_list_return(ptr noundef getelementptr inbounds (%struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 3), ptr noundef %102)
-  %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %103, i32 0, i32 49
-  %105 = load ptr, ptr %104, align 8
-  store ptr %105, ptr %10, align 8
-  br label %106
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %6, align 8
+  %100 = load ptr, ptr %10, align 8
+  %101 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %100, i32 0, i32 4
+  %102 = load ptr, ptr %101, align 8
+  call void @_ompi_osc_rdma_deregister(ptr noundef %99, ptr noundef %102, i32 noundef 75, ptr noundef @.str.4)
+  %103 = load ptr, ptr %10, align 8
+  %104 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %103, i32 0, i32 4
+  store ptr null, ptr %104, align 8
+  %105 = load ptr, ptr %10, align 8
+  %106 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %105, i32 0, i32 0
+  %107 = getelementptr inbounds %struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 3
+  call void @opal_free_list_return(ptr noundef %107, ptr noundef %106)
+  %108 = load ptr, ptr %6, align 8
+  %109 = getelementptr inbounds %struct.ompi_osc_rdma_module_t, ptr %108, i32 0, i32 49
+  %110 = load ptr, ptr %109, align 8
+  store ptr %110, ptr %10, align 8
+  br label %111
 
-106:                                              ; preds = %94, %88
-  br label %107
+111:                                              ; preds = %98, %92
+  br label %112
 
-107:                                              ; preds = %106, %27
-  %108 = load ptr, ptr %10, align 8
-  %109 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %108, i32 0, i32 1
-  %110 = call i32 @opal_thread_add_fetch_32(ptr noundef %109, i32 noundef 1)
-  %111 = load ptr, ptr %10, align 8
-  %112 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %111, i32 0, i32 2
-  %113 = load i64, ptr %7, align 8
-  %114 = call i64 @opal_atomic_fetch_add_64(ptr noundef %112, i64 noundef %113)
-  store i64 %114, ptr %11, align 8
-  %115 = load i64, ptr %11, align 8
-  %116 = load i64, ptr %7, align 8
-  %117 = add i64 %115, %116
-  %118 = load i32, ptr getelementptr inbounds (%struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 5), align 16
-  %119 = zext i32 %118 to i64
-  %120 = icmp ugt i64 %117, %119
-  br i1 %120, label %121, label %130
+112:                                              ; preds = %111, %28
+  %113 = load ptr, ptr %10, align 8
+  %114 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %113, i32 0, i32 1
+  %115 = call i32 @opal_thread_add_fetch_32(ptr noundef %114, i32 noundef 1)
+  %116 = load ptr, ptr %10, align 8
+  %117 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %116, i32 0, i32 2
+  %118 = load i64, ptr %7, align 8
+  %119 = call i64 @opal_atomic_fetch_add_64(ptr noundef %117, i64 noundef %118)
+  store i64 %119, ptr %11, align 8
+  %120 = load i64, ptr %11, align 8
+  %121 = load i64, ptr %7, align 8
+  %122 = add i64 %120, %121
+  %123 = getelementptr inbounds %struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 5
+  %124 = load i32, ptr %123, align 16
+  %125 = zext i32 %124 to i64
+  %126 = icmp ugt i64 %122, %125
+  br i1 %126, label %127, label %137
 
-121:                                              ; preds = %107
-  %122 = load i64, ptr %11, align 8
-  %123 = load i32, ptr getelementptr inbounds (%struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 5), align 16
-  %124 = zext i32 %123 to i64
-  %125 = icmp sle i64 %122, %124
-  br i1 %125, label %126, label %128
+127:                                              ; preds = %112
+  %128 = load i64, ptr %11, align 8
+  %129 = getelementptr inbounds %struct.ompi_osc_rdma_component_t, ptr @mca_osc_rdma_component, i32 0, i32 5
+  %130 = load i32, ptr %129, align 16
+  %131 = zext i32 %130 to i64
+  %132 = icmp sle i64 %128, %131
+  br i1 %132, label %133, label %135
 
-126:                                              ; preds = %121
-  %127 = load ptr, ptr %10, align 8
-  call void @ompi_osc_rdma_frag_complete(ptr noundef %127)
-  br label %128
+133:                                              ; preds = %127
+  %134 = load ptr, ptr %10, align 8
+  call void @ompi_osc_rdma_frag_complete(ptr noundef %134)
+  br label %135
 
-128:                                              ; preds = %126, %121
-  %129 = load ptr, ptr %10, align 8
-  call void @ompi_osc_rdma_frag_complete(ptr noundef %129)
+135:                                              ; preds = %133, %127
+  %136 = load ptr, ptr %10, align 8
+  call void @ompi_osc_rdma_frag_complete(ptr noundef %136)
   store i32 -2, ptr %5, align 4
-  br label %142
+  br label %149
 
-130:                                              ; preds = %107
-  %131 = load ptr, ptr %10, align 8
-  %132 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %131, i32 0, i32 0
-  %133 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %132, i32 0, i32 2
-  %134 = load ptr, ptr %133, align 8
-  %135 = ptrtoint ptr %134 to i64
-  %136 = load i64, ptr %11, align 8
-  %137 = add nsw i64 %135, %136
-  %138 = inttoptr i64 %137 to ptr
-  %139 = load ptr, ptr %9, align 8
-  store ptr %138, ptr %139, align 8
-  %140 = load ptr, ptr %10, align 8
-  %141 = load ptr, ptr %8, align 8
-  store ptr %140, ptr %141, align 8
+137:                                              ; preds = %112
+  %138 = load ptr, ptr %10, align 8
+  %139 = getelementptr inbounds %struct.ompi_osc_rdma_frag_t, ptr %138, i32 0, i32 0
+  %140 = getelementptr inbounds %struct.opal_free_list_item_t, ptr %139, i32 0, i32 2
+  %141 = load ptr, ptr %140, align 8
+  %142 = ptrtoint ptr %141 to i64
+  %143 = load i64, ptr %11, align 8
+  %144 = add nsw i64 %142, %143
+  %145 = inttoptr i64 %144 to ptr
+  %146 = load ptr, ptr %9, align 8
+  store ptr %145, ptr %146, align 8
+  %147 = load ptr, ptr %10, align 8
+  %148 = load ptr, ptr %8, align 8
+  store ptr %147, ptr %148, align 8
   store i32 0, ptr %5, align 4
-  br label %142
+  br label %149
 
-142:                                              ; preds = %130, %128, %86, %52, %26
-  %143 = load i32, ptr %5, align 4
-  ret i32 %143
+149:                                              ; preds = %137, %135, %90, %54, %27
+  %150 = load i32, ptr %5, align 4
+  ret i32 %150
 }
 
 ; Function Attrs: nounwind uwtable

@@ -758,7 +758,8 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net14WriteSchedulerIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %num_ready_streams_ = getelementptr inbounds %"class.net::PriorityWriteScheduler", ptr %this1, i32 0, i32 1
   store i64 0, ptr %num_ready_streams_, align 8
   %priority_infos_ = getelementptr inbounds %"class.net::PriorityWriteScheduler", ptr %this1, i32 0, i32 2
@@ -782,12 +783,12 @@ arrayctor.cont:                                   ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %arrayctor.loop
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
+  %2 = extractvalue { ptr, i32 } %1, 0
+  store ptr %2, ptr %exn.slot, align 8
+  %3 = extractvalue { ptr, i32 } %1, 1
+  store i32 %3, ptr %ehselector.slot, align 4
   %arraydestroy.isempty = icmp eq ptr %array.begin, %arrayctor.cur
   br i1 %arraydestroy.isempty, label %arraydestroy.done2, label %arraydestroy.body
 
@@ -830,16 +831,17 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   %stream_infos_ = getelementptr inbounds %"class.net::PriorityWriteScheduler", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %stream_infos_) #11
   %priority_infos_ = getelementptr inbounds %"class.net::PriorityWriteScheduler", ptr %this1, i32 0, i32 2
   %array.begin = getelementptr inbounds [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i32 0, i32 0
-  %0 = getelementptr inbounds %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %array.begin, i64 8
+  %1 = getelementptr inbounds %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %array.begin, i64 8
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
+  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
   %arraydestroy.element = getelementptr inbounds %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo", ptr %arraydestroy.elementPast, i64 -1
   call void @_ZN3net22PriorityWriteSchedulerIjE12PriorityInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element) #11
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %array.begin
@@ -856,7 +858,8 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net14WriteSchedulerIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %0 = getelementptr inbounds { [19 x ptr] }, ptr @_ZTVN3net14WriteSchedulerIjEE, i32 0, i32 0, i32 2
+  store ptr %0, ptr %this1, align 8
   ret void
 }
 

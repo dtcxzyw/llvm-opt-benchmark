@@ -293,55 +293,57 @@ define void @_ZN8MdiChildC2Ev(ptr noundef nonnull align 8 dereferenceable(153) %
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN9QTextEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef null)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i32 0, i32 1, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 3
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
-  %8 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 7
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #9
-  %9 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 8
-  call void @_ZNSt10unique_ptrI11ImageViewerSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  %10 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 12
+  %6 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i32 0, i32 0, i32 2
+  store ptr %6, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds { [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i32 0, i32 1, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 3
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
+  %10 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 7
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #9
+  %11 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 8
+  call void @_ZNSt10unique_ptrI11ImageViewerSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #9
+  %12 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 12
+  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #9
   invoke void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 55, i1 noundef zeroext true)
-          to label %11 unwind label %18
+          to label %13 unwind label %20
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 13
-  store i8 1, ptr %12, align 8
-  %13 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 1
-  store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 2
-  store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 4
-  store i8 1, ptr %15, align 8
-  %16 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 5
-  store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 10
-  store i8 0, ptr %17, align 8
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 13
+  store i8 1, ptr %14, align 8
+  %15 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 1
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 2
+  store i32 0, ptr %16, align 4
+  %17 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 4
+  store i8 1, ptr %17, align 8
+  %18 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 5
+  store i8 0, ptr %18, align 1
+  %19 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 10
+  store i8 0, ptr %19, align 8
   ret void
 
-18:                                               ; preds = %1
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %1
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %3, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %4, align 4
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %3, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %4, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #9
+  call void @_ZNSt10unique_ptrI11ImageViewerSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #9
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #9
-  call void @_ZNSt10unique_ptrI11ImageViewerSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #9
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
   call void @_ZN9QTextEditD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #9
-  br label %22
+  br label %24
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %3, align 8
-  %24 = load i32, ptr %4, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8
+  %26 = load i32, ptr %4, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
 }
 
 declare void @_ZN9QTextEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1

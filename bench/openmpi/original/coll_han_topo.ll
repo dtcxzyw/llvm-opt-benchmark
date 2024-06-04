@@ -83,7 +83,7 @@ define ptr @mca_coll_han_topo_init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %32 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %31, i32 0, i32 7
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %4, align 8
-  br label %319
+  br label %321
 
 34:                                               ; preds = %3
   store ptr @ompi_request_null, ptr %10, align 8
@@ -145,7 +145,7 @@ define ptr @mca_coll_han_topo_init(ptr noundef %0, ptr noundef %1, i32 noundef %
   store i32 0, ptr %18, align 4
   %73 = load i32, ptr %14, align 4
   %74 = icmp eq i32 0, %73
-  br i1 %74, label %75, label %183
+  br i1 %74, label %75, label %184
 
 75:                                               ; preds = %61
   %76 = load i32, ptr %15, align 4
@@ -250,257 +250,259 @@ define ptr @mca_coll_han_topo_init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %143, i32 0, i32 5
   %145 = load ptr, ptr %144, align 8
-  %146 = call i32 %139(ptr noundef inttoptr (i64 1 to ptr), ptr noundef %22, i32 noundef 3, ptr noundef @ompi_mpi_int, ptr noundef @ompi_mpi_op_max, ptr noundef %140, ptr noundef %145)
-  %147 = getelementptr inbounds [3 x i32], ptr %22, i64 0, i64 1
-  %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds [3 x i32], ptr %22, i64 0, i64 2
-  %150 = load i32, ptr %149, align 4
-  %151 = sub nsw i32 0, %150
-  %152 = icmp eq i32 %148, %151
-  %153 = select i1 %152, i32 0, i32 1
-  store i32 %153, ptr %17, align 4
-  %154 = getelementptr inbounds [3 x i32], ptr %22, i64 0, i64 0
-  %155 = load i32, ptr %154, align 4
-  store i32 %155, ptr %18, align 4
-  %156 = load i32, ptr %18, align 4
-  %157 = icmp ne i32 %156, 0
-  br i1 %157, label %158, label %182
+  %146 = inttoptr i64 1 to ptr
+  %147 = call i32 %139(ptr noundef %146, ptr noundef %22, i32 noundef 3, ptr noundef @ompi_mpi_int, ptr noundef @ompi_mpi_op_max, ptr noundef %140, ptr noundef %145)
+  %148 = getelementptr inbounds [3 x i32], ptr %22, i64 0, i64 1
+  %149 = load i32, ptr %148, align 4
+  %150 = getelementptr inbounds [3 x i32], ptr %22, i64 0, i64 2
+  %151 = load i32, ptr %150, align 4
+  %152 = sub nsw i32 0, %151
+  %153 = icmp eq i32 %149, %152
+  %154 = select i1 %153, i32 0, i32 1
+  store i32 %154, ptr %17, align 4
+  %155 = getelementptr inbounds [3 x i32], ptr %22, i64 0, i64 0
+  %156 = load i32, ptr %155, align 4
+  store i32 %156, ptr %18, align 4
+  %157 = load i32, ptr %18, align 4
+  %158 = icmp ne i32 %157, 0
+  br i1 %158, label %159, label %183
 
-158:                                              ; preds = %127
-  %159 = load i32, ptr %17, align 4
-  %160 = icmp ne i32 %159, 0
-  br i1 %160, label %182, label %161
+159:                                              ; preds = %127
+  %160 = load i32, ptr %17, align 4
+  %161 = icmp ne i32 %160, 0
+  br i1 %161, label %183, label %162
 
-161:                                              ; preds = %158
-  %162 = load i32, ptr %13, align 4
-  %163 = sext i32 %162 to i64
-  %164 = mul i64 4, %163
-  %165 = call noalias ptr @malloc(i64 noundef %164) #4
-  store ptr %165, ptr %12, align 8
-  %166 = load ptr, ptr %8, align 8
-  %167 = getelementptr inbounds %struct.ompi_communicator_t, ptr %166, i32 0, i32 23
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %168, i32 0, i32 34
-  %170 = load ptr, ptr %169, align 8
-  %171 = load ptr, ptr %11, align 8
-  %172 = load i32, ptr %15, align 4
-  %173 = load ptr, ptr %12, align 8
-  %174 = load i32, ptr %15, align 4
-  %175 = load ptr, ptr %8, align 8
+162:                                              ; preds = %159
+  %163 = load i32, ptr %13, align 4
+  %164 = sext i32 %163 to i64
+  %165 = mul i64 4, %164
+  %166 = call noalias ptr @malloc(i64 noundef %165) #4
+  store ptr %166, ptr %12, align 8
+  %167 = load ptr, ptr %8, align 8
+  %168 = getelementptr inbounds %struct.ompi_communicator_t, ptr %167, i32 0, i32 23
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %169, i32 0, i32 34
+  %171 = load ptr, ptr %170, align 8
+  %172 = load ptr, ptr %11, align 8
+  %173 = load i32, ptr %15, align 4
+  %174 = load ptr, ptr %12, align 8
+  %175 = load i32, ptr %15, align 4
   %176 = load ptr, ptr %8, align 8
-  %177 = getelementptr inbounds %struct.ompi_communicator_t, ptr %176, i32 0, i32 23
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %178, i32 0, i32 35
-  %180 = load ptr, ptr %179, align 8
-  %181 = call i32 %170(ptr noundef %171, i32 noundef %172, ptr noundef @ompi_mpi_int, ptr noundef %173, i32 noundef %174, ptr noundef @ompi_mpi_int, ptr noundef %175, ptr noundef %10, ptr noundef %180)
-  br label %182
-
-182:                                              ; preds = %161, %158, %127
+  %177 = load ptr, ptr %8, align 8
+  %178 = getelementptr inbounds %struct.ompi_communicator_t, ptr %177, i32 0, i32 23
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %179, i32 0, i32 35
+  %181 = load ptr, ptr %180, align 8
+  %182 = call i32 %171(ptr noundef %172, i32 noundef %173, ptr noundef @ompi_mpi_int, ptr noundef %174, i32 noundef %175, ptr noundef @ompi_mpi_int, ptr noundef %176, ptr noundef %10, ptr noundef %181)
   br label %183
 
-183:                                              ; preds = %182, %61
-  %184 = getelementptr inbounds [2 x i32], ptr %23, i64 0, i64 0
-  %185 = load i32, ptr %17, align 4
-  store i32 %185, ptr %184, align 4
-  %186 = getelementptr inbounds i32, ptr %184, i64 1
-  %187 = load i32, ptr %18, align 4
-  store i32 %187, ptr %186, align 4
-  %188 = load ptr, ptr %9, align 8
-  %189 = getelementptr inbounds %struct.ompi_communicator_t, ptr %188, i32 0, i32 23
-  %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %190, i32 0, i32 14
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds [2 x i32], ptr %23, i64 0, i64 0
-  %194 = load ptr, ptr %9, align 8
+183:                                              ; preds = %162, %159, %127
+  br label %184
+
+184:                                              ; preds = %183, %61
+  %185 = getelementptr inbounds [2 x i32], ptr %23, i64 0, i64 0
+  %186 = load i32, ptr %17, align 4
+  store i32 %186, ptr %185, align 4
+  %187 = getelementptr inbounds i32, ptr %185, i64 1
+  %188 = load i32, ptr %18, align 4
+  store i32 %188, ptr %187, align 4
+  %189 = load ptr, ptr %9, align 8
+  %190 = getelementptr inbounds %struct.ompi_communicator_t, ptr %189, i32 0, i32 23
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %191, i32 0, i32 14
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds [2 x i32], ptr %23, i64 0, i64 0
   %195 = load ptr, ptr %9, align 8
-  %196 = getelementptr inbounds %struct.ompi_communicator_t, ptr %195, i32 0, i32 23
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %197, i32 0, i32 15
-  %199 = load ptr, ptr %198, align 8
-  %200 = call i32 %192(ptr noundef %193, i32 noundef 2, ptr noundef @ompi_mpi_int, i32 noundef 0, ptr noundef %194, ptr noundef %199)
-  %201 = getelementptr inbounds [2 x i32], ptr %23, i64 0, i64 0
-  %202 = load i32, ptr %201, align 4
-  store i32 %202, ptr %17, align 4
-  %203 = getelementptr inbounds [2 x i32], ptr %23, i64 0, i64 1
-  %204 = load i32, ptr %203, align 4
-  store i32 %204, ptr %18, align 4
-  %205 = load i32, ptr %17, align 4
-  %206 = icmp ne i32 %205, 0
-  br i1 %206, label %207, label %221
+  %196 = load ptr, ptr %9, align 8
+  %197 = getelementptr inbounds %struct.ompi_communicator_t, ptr %196, i32 0, i32 23
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %198, i32 0, i32 15
+  %200 = load ptr, ptr %199, align 8
+  %201 = call i32 %193(ptr noundef %194, i32 noundef 2, ptr noundef @ompi_mpi_int, i32 noundef 0, ptr noundef %195, ptr noundef %200)
+  %202 = getelementptr inbounds [2 x i32], ptr %23, i64 0, i64 0
+  %203 = load i32, ptr %202, align 4
+  store i32 %203, ptr %17, align 4
+  %204 = getelementptr inbounds [2 x i32], ptr %23, i64 0, i64 1
+  %205 = load i32, ptr %204, align 4
+  store i32 %205, ptr %18, align 4
+  %206 = load i32, ptr %17, align 4
+  %207 = icmp ne i32 %206, 0
+  br i1 %207, label %208, label %222
 
-207:                                              ; preds = %183
-  %208 = load ptr, ptr %6, align 8
-  %209 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %208, i32 0, i32 9
-  store i8 1, ptr %209, align 1
-  %210 = load ptr, ptr %16, align 8
-  call void @free(ptr noundef %210) #5
-  %211 = load ptr, ptr %11, align 8
-  %212 = icmp ne ptr null, %211
-  br i1 %212, label %213, label %215
+208:                                              ; preds = %184
+  %209 = load ptr, ptr %6, align 8
+  %210 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %209, i32 0, i32 9
+  store i8 1, ptr %210, align 1
+  %211 = load ptr, ptr %16, align 8
+  call void @free(ptr noundef %211) #5
+  %212 = load ptr, ptr %11, align 8
+  %213 = icmp ne ptr null, %212
+  br i1 %213, label %214, label %216
 
-213:                                              ; preds = %207
-  %214 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %214) #5
-  br label %215
+214:                                              ; preds = %208
+  %215 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %215) #5
+  br label %216
 
-215:                                              ; preds = %213, %207
-  %216 = load ptr, ptr %12, align 8
-  %217 = icmp ne ptr null, %216
-  br i1 %217, label %218, label %220
+216:                                              ; preds = %214, %208
+  %217 = load ptr, ptr %12, align 8
+  %218 = icmp ne ptr null, %217
+  br i1 %218, label %219, label %221
 
-218:                                              ; preds = %215
-  %219 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %219) #5
-  br label %220
+219:                                              ; preds = %216
+  %220 = load ptr, ptr %12, align 8
+  call void @free(ptr noundef %220) #5
+  br label %221
 
-220:                                              ; preds = %218, %215
+221:                                              ; preds = %219, %216
   store ptr null, ptr %4, align 8
-  br label %319
+  br label %321
 
-221:                                              ; preds = %183
-  %222 = load ptr, ptr %6, align 8
-  %223 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %222, i32 0, i32 9
-  store i8 0, ptr %223, align 1
-  %224 = load i32, ptr %18, align 4
-  %225 = icmp ne i32 %224, 0
-  br i1 %225, label %253, label %226
+222:                                              ; preds = %184
+  %223 = load ptr, ptr %6, align 8
+  %224 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %223, i32 0, i32 9
+  store i8 0, ptr %224, align 1
+  %225 = load i32, ptr %18, align 4
+  %226 = icmp ne i32 %225, 0
+  br i1 %226, label %254, label %227
 
-226:                                              ; preds = %221
+227:                                              ; preds = %222
   store i32 0, ptr %24, align 4
-  br label %227
+  br label %228
 
-227:                                              ; preds = %247, %226
-  %228 = load i32, ptr %24, align 4
-  %229 = load i32, ptr %13, align 4
-  %230 = icmp slt i32 %228, %229
-  br i1 %230, label %231, label %250
+228:                                              ; preds = %248, %227
+  %229 = load i32, ptr %24, align 4
+  %230 = load i32, ptr %13, align 4
+  %231 = icmp slt i32 %229, %230
+  br i1 %231, label %232, label %251
 
-231:                                              ; preds = %227
-  %232 = load i32, ptr %24, align 4
-  %233 = load i32, ptr %15, align 4
-  %234 = sdiv i32 %232, %233
-  %235 = load ptr, ptr %16, align 8
-  %236 = load i32, ptr %24, align 4
-  %237 = mul nsw i32 2, %236
-  %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds i32, ptr %235, i64 %238
-  store i32 %234, ptr %239, align 4
-  %240 = load i32, ptr %24, align 4
-  %241 = load ptr, ptr %16, align 8
-  %242 = load i32, ptr %24, align 4
-  %243 = mul nsw i32 2, %242
-  %244 = add nsw i32 %243, 1
-  %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds i32, ptr %241, i64 %245
-  store i32 %240, ptr %246, align 4
-  br label %247
+232:                                              ; preds = %228
+  %233 = load i32, ptr %24, align 4
+  %234 = load i32, ptr %15, align 4
+  %235 = sdiv i32 %233, %234
+  %236 = load ptr, ptr %16, align 8
+  %237 = load i32, ptr %24, align 4
+  %238 = mul nsw i32 2, %237
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr inbounds i32, ptr %236, i64 %239
+  store i32 %235, ptr %240, align 4
+  %241 = load i32, ptr %24, align 4
+  %242 = load ptr, ptr %16, align 8
+  %243 = load i32, ptr %24, align 4
+  %244 = mul nsw i32 2, %243
+  %245 = add nsw i32 %244, 1
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds i32, ptr %242, i64 %246
+  store i32 %241, ptr %247, align 4
+  br label %248
 
-247:                                              ; preds = %231
-  %248 = load i32, ptr %24, align 4
-  %249 = add nsw i32 %248, 1
-  store i32 %249, ptr %24, align 4
-  br label %227, !llvm.loop !7
+248:                                              ; preds = %232
+  %249 = load i32, ptr %24, align 4
+  %250 = add nsw i32 %249, 1
+  store i32 %250, ptr %24, align 4
+  br label %228, !llvm.loop !7
 
-250:                                              ; preds = %227
-  %251 = load ptr, ptr %6, align 8
-  %252 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %251, i32 0, i32 8
-  store i8 1, ptr %252, align 8
-  br label %297
+251:                                              ; preds = %228
+  %252 = load ptr, ptr %6, align 8
+  %253 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %252, i32 0, i32 8
+  store i8 1, ptr %253, align 8
+  br label %299
 
-253:                                              ; preds = %221
-  %254 = load ptr, ptr %6, align 8
-  %255 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %254, i32 0, i32 8
-  store i8 0, ptr %255, align 8
-  %256 = load i32, ptr %14, align 4
-  %257 = icmp eq i32 0, %256
-  br i1 %257, label %258, label %296
+254:                                              ; preds = %222
+  %255 = load ptr, ptr %6, align 8
+  %256 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %255, i32 0, i32 8
+  store i8 0, ptr %256, align 8
+  %257 = load i32, ptr %14, align 4
+  %258 = icmp eq i32 0, %257
+  br i1 %258, label %259, label %298
 
-258:                                              ; preds = %253
-  %259 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4), align 8
-  %260 = call i32 %259(ptr noundef %10, ptr noundef null)
+259:                                              ; preds = %254
+  %260 = getelementptr inbounds %struct.ompi_request_fns_t, ptr @ompi_request_functions, i32 0, i32 4
+  %261 = load ptr, ptr %260, align 8
+  %262 = call i32 %261(ptr noundef %10, ptr noundef null)
   store i32 0, ptr %25, align 4
-  br label %261
+  br label %263
 
-261:                                              ; preds = %291, %258
-  %262 = load i32, ptr %25, align 4
-  %263 = load i32, ptr %13, align 4
-  %264 = icmp slt i32 %262, %263
-  br i1 %264, label %265, label %294
+263:                                              ; preds = %293, %259
+  %264 = load i32, ptr %25, align 4
+  %265 = load i32, ptr %13, align 4
+  %266 = icmp slt i32 %264, %265
+  br i1 %266, label %267, label %296
 
-265:                                              ; preds = %261
-  %266 = load ptr, ptr %12, align 8
-  %267 = load i32, ptr %25, align 4
-  %268 = load i32, ptr %15, align 4
-  %269 = sdiv i32 %267, %268
+267:                                              ; preds = %263
+  %268 = load ptr, ptr %12, align 8
+  %269 = load i32, ptr %25, align 4
   %270 = load i32, ptr %15, align 4
-  %271 = mul nsw i32 %269, %270
-  %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds i32, ptr %266, i64 %272
-  %274 = load i32, ptr %273, align 4
-  %275 = load ptr, ptr %16, align 8
-  %276 = load i32, ptr %25, align 4
-  %277 = mul nsw i32 2, %276
-  %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds i32, ptr %275, i64 %278
-  store i32 %274, ptr %279, align 4
-  %280 = load ptr, ptr %12, align 8
-  %281 = load i32, ptr %25, align 4
-  %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds i32, ptr %280, i64 %282
-  %284 = load i32, ptr %283, align 4
-  %285 = load ptr, ptr %16, align 8
-  %286 = load i32, ptr %25, align 4
-  %287 = mul nsw i32 2, %286
-  %288 = add nsw i32 %287, 1
-  %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds i32, ptr %285, i64 %289
-  store i32 %284, ptr %290, align 4
-  br label %291
+  %271 = sdiv i32 %269, %270
+  %272 = load i32, ptr %15, align 4
+  %273 = mul nsw i32 %271, %272
+  %274 = sext i32 %273 to i64
+  %275 = getelementptr inbounds i32, ptr %268, i64 %274
+  %276 = load i32, ptr %275, align 4
+  %277 = load ptr, ptr %16, align 8
+  %278 = load i32, ptr %25, align 4
+  %279 = mul nsw i32 2, %278
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr inbounds i32, ptr %277, i64 %280
+  store i32 %276, ptr %281, align 4
+  %282 = load ptr, ptr %12, align 8
+  %283 = load i32, ptr %25, align 4
+  %284 = sext i32 %283 to i64
+  %285 = getelementptr inbounds i32, ptr %282, i64 %284
+  %286 = load i32, ptr %285, align 4
+  %287 = load ptr, ptr %16, align 8
+  %288 = load i32, ptr %25, align 4
+  %289 = mul nsw i32 2, %288
+  %290 = add nsw i32 %289, 1
+  %291 = sext i32 %290 to i64
+  %292 = getelementptr inbounds i32, ptr %287, i64 %291
+  store i32 %286, ptr %292, align 4
+  br label %293
 
-291:                                              ; preds = %265
-  %292 = load i32, ptr %25, align 4
-  %293 = add nsw i32 %292, 1
-  store i32 %293, ptr %25, align 4
-  br label %261, !llvm.loop !8
+293:                                              ; preds = %267
+  %294 = load i32, ptr %25, align 4
+  %295 = add nsw i32 %294, 1
+  store i32 %295, ptr %25, align 4
+  br label %263, !llvm.loop !8
 
-294:                                              ; preds = %261
-  %295 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %295) #5
-  br label %296
+296:                                              ; preds = %263
+  %297 = load ptr, ptr %12, align 8
+  call void @free(ptr noundef %297) #5
+  br label %298
 
-296:                                              ; preds = %294, %253
-  br label %297
+298:                                              ; preds = %296, %254
+  br label %299
 
-297:                                              ; preds = %296, %250
-  %298 = load ptr, ptr %9, align 8
-  %299 = getelementptr inbounds %struct.ompi_communicator_t, ptr %298, i32 0, i32 23
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %300, i32 0, i32 14
+299:                                              ; preds = %298, %251
+  %300 = load ptr, ptr %9, align 8
+  %301 = getelementptr inbounds %struct.ompi_communicator_t, ptr %300, i32 0, i32 23
   %302 = load ptr, ptr %301, align 8
-  %303 = load ptr, ptr %16, align 8
-  %304 = load i32, ptr %7, align 4
-  %305 = load i32, ptr %13, align 4
-  %306 = mul nsw i32 %304, %305
-  %307 = load ptr, ptr %9, align 8
-  %308 = load ptr, ptr %9, align 8
-  %309 = getelementptr inbounds %struct.ompi_communicator_t, ptr %308, i32 0, i32 23
-  %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %310, i32 0, i32 15
+  %303 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %302, i32 0, i32 14
+  %304 = load ptr, ptr %303, align 8
+  %305 = load ptr, ptr %16, align 8
+  %306 = load i32, ptr %7, align 4
+  %307 = load i32, ptr %13, align 4
+  %308 = mul nsw i32 %306, %307
+  %309 = load ptr, ptr %9, align 8
+  %310 = load ptr, ptr %9, align 8
+  %311 = getelementptr inbounds %struct.ompi_communicator_t, ptr %310, i32 0, i32 23
   %312 = load ptr, ptr %311, align 8
-  %313 = call i32 %302(ptr noundef %303, i32 noundef %306, ptr noundef @ompi_mpi_int, i32 noundef 0, ptr noundef %307, ptr noundef %312)
-  %314 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %314) #5
-  %315 = load ptr, ptr %16, align 8
-  %316 = load ptr, ptr %6, align 8
-  %317 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %316, i32 0, i32 7
-  store ptr %315, ptr %317, align 8
-  %318 = load ptr, ptr %16, align 8
-  store ptr %318, ptr %4, align 8
-  br label %319
+  %313 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %312, i32 0, i32 15
+  %314 = load ptr, ptr %313, align 8
+  %315 = call i32 %304(ptr noundef %305, i32 noundef %308, ptr noundef @ompi_mpi_int, i32 noundef 0, ptr noundef %309, ptr noundef %314)
+  %316 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %316) #5
+  %317 = load ptr, ptr %16, align 8
+  %318 = load ptr, ptr %6, align 8
+  %319 = getelementptr inbounds %struct.mca_coll_han_module_t, ptr %318, i32 0, i32 7
+  store ptr %317, ptr %319, align 8
+  %320 = load ptr, ptr %16, align 8
+  store ptr %320, ptr %4, align 8
+  br label %321
 
-319:                                              ; preds = %297, %220, %30
-  %320 = load ptr, ptr %4, align 8
-  ret ptr %320
+321:                                              ; preds = %299, %221, %30
+  %322 = load ptr, ptr %4, align 8
+  ret ptr %322
 }
 
 ; Function Attrs: nounwind uwtable

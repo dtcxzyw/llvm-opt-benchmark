@@ -98,9 +98,11 @@ entry:
   %1 = load ptr, ptr %socket_.addr, align 8
   %2 = load ptr, ptr %options_.addr, align 8
   call void @_ZN3zmq22stream_listener_base_tC2EPNS_11io_thread_tEPNS_13socket_base_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1520) %this1, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1336) %2)
-  store ptr getelementptr inbounds ({ [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq15tipc_listener_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
+  %3 = getelementptr inbounds { [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq15tipc_listener_tE, i32 0, i32 0, i32 2
+  store ptr %3, ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 1448
-  store ptr getelementptr inbounds ({ [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq15tipc_listener_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
+  %4 = getelementptr inbounds { [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq15tipc_listener_tE, i32 0, i32 1, i32 2
+  store ptr %4, ptr %add.ptr, align 8
   %_address = getelementptr inbounds %"class.zmq::tipc_listener_t", ptr %this1, i32 0, i32 1
   invoke void @_ZN3zmq14tipc_address_tC1Ev(ptr noundef nonnull align 4 dereferenceable(20) %_address)
           to label %invoke.cont unwind label %lpad
@@ -109,12 +111,12 @@ invoke.cont:                                      ; preds = %entry
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
+  %6 = extractvalue { ptr, i32 } %5, 0
+  store ptr %6, ptr %exn.slot, align 8
+  %7 = extractvalue { ptr, i32 } %5, 1
+  store i32 %7, ptr %ehselector.slot, align 4
   call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1520) %this1) #10
   br label %eh.resume
 

@@ -595,17 +595,18 @@ define dso_local void @_ZN26GeneratorExpressionContentC2EPKcm(ptr noundef nonnul
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN30cmGeneratorExpressionEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV26GeneratorExpressionContent, i32 0, i32 0, i32 2), ptr %7, align 8
-  %8 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %7, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %9 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %7, i32 0, i32 2
-  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  %10 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %7, i32 0, i32 3
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %7, i32 0, i32 4
-  %13 = load i64, ptr %6, align 8
-  store i64 %13, ptr %12, align 8
+  %8 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV26GeneratorExpressionContent, i32 0, i32 0, i32 2
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %10 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %7, i32 0, i32 2
+  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %11 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %7, i32 0, i32 3
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %11, align 8
+  %13 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %7, i32 0, i32 4
+  %14 = load i64, ptr %6, align 8
+  store i64 %14, ptr %13, align 8
   ret void
 }
 
@@ -614,7 +615,8 @@ define linkonce_odr dso_local void @_ZN30cmGeneratorExpressionEvaluatorC2Ev(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV30cmGeneratorExpressionEvaluator, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV30cmGeneratorExpressionEvaluator, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
   ret void
 }
 
@@ -641,11 +643,12 @@ define dso_local void @_ZN26GeneratorExpressionContentD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV26GeneratorExpressionContent, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %3, i32 0, i32 2
-  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  %5 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %3, i32 0, i32 1
-  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %4 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTV26GeneratorExpressionContent, i32 0, i32 0, i32 2
+  store ptr %4, ptr %3, align 8
+  %5 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %3, i32 0, i32 2
+  call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %6 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   call void @_ZN30cmGeneratorExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }

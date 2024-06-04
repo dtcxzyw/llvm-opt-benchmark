@@ -20,62 +20,68 @@ define i32 @init() #0 {
   %1 = alloca i32, align 4
   store i32 0, ptr %1, align 4
   %2 = call zeroext i1 @running_in_slurmctld()
-  br i1 %2, label %3, label %28
+  br i1 %2, label %3, label %34
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 140), align 8
-  %5 = icmp ne ptr %4, null
-  br i1 %5, label %6, label %15
+  %4 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 140
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %18
 
-6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 140), align 8
-  %8 = call i32 @access(ptr noundef %7, i32 noundef 1) #3
-  %9 = icmp slt i32 %8, 0
-  br i1 %9, label %10, label %13
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 140
+  %9 = load ptr, ptr %8, align 8
+  %10 = call i32 @access(ptr noundef %9, i32 noundef 1) #3
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %16
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 140), align 8
-  %12 = call i32 (ptr, ...) @error(ptr noundef @.str, ptr noundef %11)
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 140
+  %14 = load ptr, ptr %13, align 8
+  %15 = call i32 (ptr, ...) @error(ptr noundef @.str, ptr noundef %14)
   store i32 -1, ptr %1, align 4
-  br label %14
+  br label %17
 
-13:                                               ; preds = %6
+16:                                               ; preds = %7
   store i8 1, ptr @have_prolog_slurmctld, align 1
-  br label %14
+  br label %17
 
-14:                                               ; preds = %13, %10
-  br label %15
+17:                                               ; preds = %16, %12
+  br label %18
 
-15:                                               ; preds = %14, %3
-  %16 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 45), align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %27
-
-18:                                               ; preds = %15
-  %19 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 45), align 8
-  %20 = call i32 @access(ptr noundef %19, i32 noundef 1) #3
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %22, label %25
+18:                                               ; preds = %17, %3
+  %19 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 45
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %33
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 45), align 8
-  %24 = call i32 (ptr, ...) @error(ptr noundef @.str.1, ptr noundef %23)
+  %23 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 45
+  %24 = load ptr, ptr %23, align 8
+  %25 = call i32 @access(ptr noundef %24, i32 noundef 1) #3
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %31
+
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 45
+  %29 = load ptr, ptr %28, align 8
+  %30 = call i32 (ptr, ...) @error(ptr noundef @.str.1, ptr noundef %29)
   store i32 -1, ptr %1, align 4
-  br label %26
+  br label %32
 
-25:                                               ; preds = %18
+31:                                               ; preds = %22
   store i8 1, ptr @have_epilog_slurmctld, align 1
-  br label %26
+  br label %32
 
-26:                                               ; preds = %25, %22
-  br label %27
+32:                                               ; preds = %31, %27
+  br label %33
 
-27:                                               ; preds = %26, %15
-  br label %28
+33:                                               ; preds = %32, %18
+  br label %34
 
-28:                                               ; preds = %27, %0
-  %29 = load i32, ptr %1, align 4
-  ret i32 %29
+34:                                               ; preds = %33, %0
+  %35 = load i32, ptr %1, align 4
+  ret i32 %35
 }
 
 declare zeroext i1 @running_in_slurmctld() #1

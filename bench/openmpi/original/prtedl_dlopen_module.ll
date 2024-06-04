@@ -64,130 +64,132 @@ define internal i32 @dlopen_open(ptr noundef %0, i1 noundef zeroext %1, i1 nound
   store ptr null, ptr %13, align 8
   %31 = load i8, ptr %8, align 1
   %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %83
+  br i1 %32, label %33, label %85
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %7, align 8
   %35 = icmp ne ptr null, %34
-  br i1 %35, label %36, label %83
+  br i1 %35, label %36, label %85
 
 36:                                               ; preds = %33
   store i32 0, ptr %14, align 4
-  %37 = load ptr, ptr getelementptr inbounds (%struct.prte_prtedl_dlopen_component_t, ptr @prte_mca_prtedl_dlopen_component, i32 0, i32 2), align 8
-  %38 = load i32, ptr %14, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %37, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %16, align 8
-  br label %42
+  %37 = getelementptr inbounds %struct.prte_prtedl_dlopen_component_t, ptr @prte_mca_prtedl_dlopen_component, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i32, ptr %14, align 4
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %16, align 8
+  br label %43
 
-42:                                               ; preds = %75, %36
-  %43 = load ptr, ptr %16, align 8
-  %44 = icmp ne ptr null, %43
-  br i1 %44, label %45, label %82
+43:                                               ; preds = %76, %36
+  %44 = load ptr, ptr %16, align 8
+  %45 = icmp ne ptr null, %44
+  br i1 %45, label %46, label %84
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr %7, align 8
-  %47 = load ptr, ptr %16, align 8
-  %48 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef %17, ptr noundef @.str, ptr noundef %46, ptr noundef %47)
-  %49 = load ptr, ptr %17, align 8
-  %50 = icmp eq ptr null, %49
-  br i1 %50, label %51, label %52
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %7, align 8
+  %48 = load ptr, ptr %16, align 8
+  %49 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef %17, ptr noundef @.str, ptr noundef %47, ptr noundef %48)
+  %50 = load ptr, ptr %17, align 8
+  %51 = icmp eq ptr null, %50
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %45
+52:                                               ; preds = %46
   store i32 -11, ptr %6, align 4
-  br label %101
+  br label %103
 
-52:                                               ; preds = %45
-  %53 = load ptr, ptr %17, align 8
-  %54 = call i32 @stat(ptr noundef %53, ptr noundef %18) #5
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %56, label %70
+53:                                               ; preds = %46
+  %54 = load ptr, ptr %17, align 8
+  %55 = call i32 @stat(ptr noundef %54, ptr noundef %18) #5
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %71
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %11, align 8
-  %58 = icmp ne ptr null, %57
-  br i1 %58, label %59, label %68
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %11, align 8
+  %59 = icmp ne ptr null, %58
+  br i1 %59, label %60, label %69
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %11, align 8
-  %61 = load ptr, ptr %17, align 8
-  %62 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %60, ptr noundef @.str.1, ptr noundef %61) #5
-  store i32 %62, ptr %15, align 4
-  %63 = load i32, ptr %15, align 4
-  %64 = icmp sgt i32 0, %63
-  br i1 %64, label %65, label %67
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %11, align 8
+  %62 = load ptr, ptr %17, align 8
+  %63 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %61, ptr noundef @.str.1, ptr noundef %62) #5
+  store i32 %63, ptr %15, align 4
+  %64 = load i32, ptr %15, align 4
+  %65 = icmp sgt i32 0, %64
+  br i1 %65, label %66, label %68
 
-65:                                               ; preds = %59
-  %66 = load ptr, ptr %17, align 8
-  call void @free(ptr noundef %66) #5
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %17, align 8
+  call void @free(ptr noundef %67) #5
   store i32 -2, ptr %6, align 4
-  br label %101
+  br label %103
 
-67:                                               ; preds = %59
-  br label %68
+68:                                               ; preds = %60
+  br label %69
 
-68:                                               ; preds = %67, %56
-  %69 = load ptr, ptr %17, align 8
-  call void @free(ptr noundef %69) #5
-  br label %75
+69:                                               ; preds = %68, %57
+  %70 = load ptr, ptr %17, align 8
+  call void @free(ptr noundef %70) #5
+  br label %76
 
-70:                                               ; preds = %52
-  %71 = load ptr, ptr %17, align 8
-  %72 = load i32, ptr %12, align 4
-  %73 = load ptr, ptr %11, align 8
-  call void @do_dlopen(ptr noundef %71, i32 noundef %72, ptr noundef %13, ptr noundef %73)
-  %74 = load ptr, ptr %17, align 8
-  call void @free(ptr noundef %74) #5
-  br label %82
+71:                                               ; preds = %53
+  %72 = load ptr, ptr %17, align 8
+  %73 = load i32, ptr %12, align 4
+  %74 = load ptr, ptr %11, align 8
+  call void @do_dlopen(ptr noundef %72, i32 noundef %73, ptr noundef %13, ptr noundef %74)
+  %75 = load ptr, ptr %17, align 8
+  call void @free(ptr noundef %75) #5
+  br label %84
 
-75:                                               ; preds = %68
-  %76 = load ptr, ptr getelementptr inbounds (%struct.prte_prtedl_dlopen_component_t, ptr @prte_mca_prtedl_dlopen_component, i32 0, i32 2), align 8
-  %77 = load i32, ptr %14, align 4
-  %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %14, align 4
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %76, i64 %79
-  %81 = load ptr, ptr %80, align 8
-  store ptr %81, ptr %16, align 8
-  br label %42, !llvm.loop !4
+76:                                               ; preds = %69
+  %77 = getelementptr inbounds %struct.prte_prtedl_dlopen_component_t, ptr @prte_mca_prtedl_dlopen_component, i32 0, i32 2
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i32, ptr %14, align 4
+  %80 = add nsw i32 %79, 1
+  store i32 %80, ptr %14, align 4
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds ptr, ptr %78, i64 %81
+  %83 = load ptr, ptr %82, align 8
+  store ptr %83, ptr %16, align 8
+  br label %43, !llvm.loop !4
 
-82:                                               ; preds = %70, %42
-  br label %87
+84:                                               ; preds = %71, %43
+  br label %89
 
-83:                                               ; preds = %33, %30
-  %84 = load ptr, ptr %7, align 8
-  %85 = load i32, ptr %12, align 4
-  %86 = load ptr, ptr %11, align 8
-  call void @do_dlopen(ptr noundef %84, i32 noundef %85, ptr noundef %13, ptr noundef %86)
-  br label %87
+85:                                               ; preds = %33, %30
+  %86 = load ptr, ptr %7, align 8
+  %87 = load i32, ptr %12, align 4
+  %88 = load ptr, ptr %11, align 8
+  call void @do_dlopen(ptr noundef %86, i32 noundef %87, ptr noundef %13, ptr noundef %88)
+  br label %89
 
-87:                                               ; preds = %83, %82
-  %88 = load ptr, ptr %13, align 8
-  %89 = icmp ne ptr null, %88
-  br i1 %89, label %90, label %97
+89:                                               ; preds = %85, %84
+  %90 = load ptr, ptr %13, align 8
+  %91 = icmp ne ptr null, %90
+  br i1 %91, label %92, label %99
 
-90:                                               ; preds = %87
-  %91 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 8) #6
-  %92 = load ptr, ptr %10, align 8
-  store ptr %91, ptr %92, align 8
-  %93 = load ptr, ptr %13, align 8
+92:                                               ; preds = %89
+  %93 = call noalias ptr @calloc(i64 noundef 1, i64 noundef 8) #6
   %94 = load ptr, ptr %10, align 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %struct.prte_dl_handle_t, ptr %95, i32 0, i32 0
-  store ptr %93, ptr %96, align 8
-  br label %97
+  store ptr %93, ptr %94, align 8
+  %95 = load ptr, ptr %13, align 8
+  %96 = load ptr, ptr %10, align 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds %struct.prte_dl_handle_t, ptr %97, i32 0, i32 0
+  store ptr %95, ptr %98, align 8
+  br label %99
 
-97:                                               ; preds = %90, %87
-  %98 = load ptr, ptr %13, align 8
-  %99 = icmp ne ptr null, %98
-  %100 = select i1 %99, i32 0, i32 -1
-  store i32 %100, ptr %6, align 4
-  br label %101
+99:                                               ; preds = %92, %89
+  %100 = load ptr, ptr %13, align 8
+  %101 = icmp ne ptr null, %100
+  %102 = select i1 %101, i32 0, i32 -1
+  store i32 %102, ptr %6, align 4
+  br label %103
 
-101:                                              ; preds = %97, %65, %51
-  %102 = load i32, ptr %6, align 4
-  ret i32 %102
+103:                                              ; preds = %99, %66, %52
+  %104 = load i32, ptr %6, align 4
+  ret i32 %104
 }
 
 ; Function Attrs: nounwind uwtable

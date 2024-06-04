@@ -69,7 +69,8 @@ entry:
   %0 = extractvalue { i64, i64 } %call, 0
   store i64 %0, ptr @_ZN3net12_GLOBAL__N_117kAlarmGranularityE, align 8
   %1 = extractvalue { i64, i64 } %call, 1
-  store i64 %1, ptr getelementptr inbounds ({ i64, i64 }, ptr @_ZN3net12_GLOBAL__N_117kAlarmGranularityE, i32 0, i32 1), align 8
+  %2 = getelementptr inbounds { i64, i64 }, ptr @_ZN3net12_GLOBAL__N_117kAlarmGranularityE, i32 0, i32 1
+  store i64 %1, ptr %2, align 8
   ret void
 }
 

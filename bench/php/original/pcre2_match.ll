@@ -57024,238 +57024,239 @@ define internal i32 @do_callout(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = icmp eq i32 %17, 118
-  br i1 %18, label %19, label %22
+  br i1 %18, label %19, label %23
 
 19:                                               ; preds = %3
-  %20 = load i8, ptr getelementptr inbounds ([0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 118), align 1
-  %21 = zext i8 %20 to i32
-  br label %37
+  %20 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 118
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  br label %38
 
-22:                                               ; preds = %3
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.heapframe, ptr %23, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 5
-  %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i32
-  %29 = shl i32 %28, 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.heapframe, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 6
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = or i32 %29, %35
-  br label %37
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds %struct.heapframe, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 5
+  %28 = load i8, ptr %27, align 1
+  %29 = zext i8 %28 to i32
+  %30 = shl i32 %29, 8
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds %struct.heapframe, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 6
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
+  %37 = or i32 %30, %36
+  br label %38
 
-37:                                               ; preds = %22, %19
-  %38 = phi i32 [ %21, %19 ], [ %36, %22 ]
-  %39 = zext i32 %38 to i64
-  %40 = load ptr, ptr %7, align 8
-  store i64 %39, ptr %40, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.match_block_8, ptr %41, i32 0, i32 40
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %46
+38:                                               ; preds = %23, %19
+  %39 = phi i32 [ %22, %19 ], [ %37, %23 ]
+  %40 = zext i32 %39 to i64
+  %41 = load ptr, ptr %7, align 8
+  store i64 %40, ptr %41, align 8
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds %struct.match_block_8, ptr %42, i32 0, i32 40
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %37
+46:                                               ; preds = %38
   store i32 0, ptr %4, align 4
-  br label %202
+  br label %203
 
-46:                                               ; preds = %37
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.heapframe, ptr %47, i32 0, i32 19
-  %49 = getelementptr inbounds [131072 x i64], ptr %48, i64 0, i64 0
-  %50 = getelementptr inbounds i64, ptr %49, i64 -2
-  store ptr %50, ptr %11, align 8
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.match_block_8, ptr %51, i32 0, i32 38
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %12, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.heapframe, ptr %54, i32 0, i32 18
-  %56 = load i64, ptr %55, align 8
-  %57 = trunc i64 %56 to i32
-  %58 = udiv i32 %57, 2
-  %59 = add i32 %58, 1
-  %60 = load ptr, ptr %12, align 8
-  %61 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %60, i32 0, i32 2
-  store i32 %59, ptr %61, align 8
-  %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds %struct.heapframe, ptr %62, i32 0, i32 16
-  %64 = load i32, ptr %63, align 4
-  %65 = load ptr, ptr %12, align 8
-  %66 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %65, i32 0, i32 3
-  store i32 %64, ptr %66, align 4
-  %67 = load ptr, ptr %11, align 8
-  %68 = load ptr, ptr %12, align 8
-  %69 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %68, i32 0, i32 4
-  store ptr %67, ptr %69, align 8
-  %70 = load ptr, ptr %6, align 8
-  %71 = getelementptr inbounds %struct.match_block_8, ptr %70, i32 0, i32 27
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %12, align 8
-  %74 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %73, i32 0, i32 5
-  store ptr %72, ptr %74, align 8
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds %struct.heapframe, ptr %75, i32 0, i32 11
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds %struct.match_block_8, ptr %78, i32 0, i32 19
-  %80 = load ptr, ptr %79, align 8
-  %81 = ptrtoint ptr %77 to i64
-  %82 = ptrtoint ptr %80 to i64
-  %83 = sub i64 %81, %82
-  %84 = load ptr, ptr %12, align 8
-  %85 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %84, i32 0, i32 9
-  store i64 %83, ptr %85, align 8
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.heapframe, ptr %86, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 1
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
-  %92 = shl i32 %91, 8
-  %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds %struct.heapframe, ptr %93, i32 0, i32 0
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 2
-  %97 = load i8, ptr %96, align 1
-  %98 = zext i8 %97 to i32
-  %99 = or i32 %92, %98
-  %100 = zext i32 %99 to i64
-  %101 = load ptr, ptr %12, align 8
-  %102 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %101, i32 0, i32 10
-  store i64 %100, ptr %102, align 8
-  %103 = load ptr, ptr %5, align 8
-  %104 = getelementptr inbounds %struct.heapframe, ptr %103, i32 0, i32 0
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 3
-  %107 = load i8, ptr %106, align 1
-  %108 = zext i8 %107 to i32
-  %109 = shl i32 %108, 8
-  %110 = load ptr, ptr %5, align 8
-  %111 = getelementptr inbounds %struct.heapframe, ptr %110, i32 0, i32 0
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 4
-  %114 = load i8, ptr %113, align 1
-  %115 = zext i8 %114 to i32
-  %116 = or i32 %109, %115
-  %117 = zext i32 %116 to i64
-  %118 = load ptr, ptr %12, align 8
-  %119 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %118, i32 0, i32 11
-  store i64 %117, ptr %119, align 8
-  %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds %struct.heapframe, ptr %120, i32 0, i32 0
-  %122 = load ptr, ptr %121, align 8
-  %123 = load i8, ptr %122, align 1
-  %124 = zext i8 %123 to i32
-  %125 = icmp eq i32 %124, 118
-  br i1 %125, label %126, label %141
+47:                                               ; preds = %38
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds %struct.heapframe, ptr %48, i32 0, i32 19
+  %50 = getelementptr inbounds [131072 x i64], ptr %49, i64 0, i64 0
+  %51 = getelementptr inbounds i64, ptr %50, i64 -2
+  store ptr %51, ptr %11, align 8
+  %52 = load ptr, ptr %6, align 8
+  %53 = getelementptr inbounds %struct.match_block_8, ptr %52, i32 0, i32 38
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %12, align 8
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds %struct.heapframe, ptr %55, i32 0, i32 18
+  %57 = load i64, ptr %56, align 8
+  %58 = trunc i64 %57 to i32
+  %59 = udiv i32 %58, 2
+  %60 = add i32 %59, 1
+  %61 = load ptr, ptr %12, align 8
+  %62 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %61, i32 0, i32 2
+  store i32 %60, ptr %62, align 8
+  %63 = load ptr, ptr %5, align 8
+  %64 = getelementptr inbounds %struct.heapframe, ptr %63, i32 0, i32 16
+  %65 = load i32, ptr %64, align 4
+  %66 = load ptr, ptr %12, align 8
+  %67 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %66, i32 0, i32 3
+  store i32 %65, ptr %67, align 4
+  %68 = load ptr, ptr %11, align 8
+  %69 = load ptr, ptr %12, align 8
+  %70 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %69, i32 0, i32 4
+  store ptr %68, ptr %70, align 8
+  %71 = load ptr, ptr %6, align 8
+  %72 = getelementptr inbounds %struct.match_block_8, ptr %71, i32 0, i32 27
+  %73 = load ptr, ptr %72, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %74, i32 0, i32 5
+  store ptr %73, ptr %75, align 8
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds %struct.heapframe, ptr %76, i32 0, i32 11
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %6, align 8
+  %80 = getelementptr inbounds %struct.match_block_8, ptr %79, i32 0, i32 19
+  %81 = load ptr, ptr %80, align 8
+  %82 = ptrtoint ptr %78 to i64
+  %83 = ptrtoint ptr %81 to i64
+  %84 = sub i64 %82, %83
+  %85 = load ptr, ptr %12, align 8
+  %86 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %85, i32 0, i32 9
+  store i64 %84, ptr %86, align 8
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds %struct.heapframe, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 1
+  %91 = load i8, ptr %90, align 1
+  %92 = zext i8 %91 to i32
+  %93 = shl i32 %92, 8
+  %94 = load ptr, ptr %5, align 8
+  %95 = getelementptr inbounds %struct.heapframe, ptr %94, i32 0, i32 0
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 2
+  %98 = load i8, ptr %97, align 1
+  %99 = zext i8 %98 to i32
+  %100 = or i32 %93, %99
+  %101 = zext i32 %100 to i64
+  %102 = load ptr, ptr %12, align 8
+  %103 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %102, i32 0, i32 10
+  store i64 %101, ptr %103, align 8
+  %104 = load ptr, ptr %5, align 8
+  %105 = getelementptr inbounds %struct.heapframe, ptr %104, i32 0, i32 0
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 3
+  %108 = load i8, ptr %107, align 1
+  %109 = zext i8 %108 to i32
+  %110 = shl i32 %109, 8
+  %111 = load ptr, ptr %5, align 8
+  %112 = getelementptr inbounds %struct.heapframe, ptr %111, i32 0, i32 0
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 4
+  %115 = load i8, ptr %114, align 1
+  %116 = zext i8 %115 to i32
+  %117 = or i32 %110, %116
+  %118 = zext i32 %117 to i64
+  %119 = load ptr, ptr %12, align 8
+  %120 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %119, i32 0, i32 11
+  store i64 %118, ptr %120, align 8
+  %121 = load ptr, ptr %5, align 8
+  %122 = getelementptr inbounds %struct.heapframe, ptr %121, i32 0, i32 0
+  %123 = load ptr, ptr %122, align 8
+  %124 = load i8, ptr %123, align 1
+  %125 = zext i8 %124 to i32
+  %126 = icmp eq i32 %125, 118
+  br i1 %126, label %127, label %142
 
-126:                                              ; preds = %46
-  %127 = load ptr, ptr %5, align 8
-  %128 = getelementptr inbounds %struct.heapframe, ptr %127, i32 0, i32 0
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 5
-  %131 = load i8, ptr %130, align 1
-  %132 = zext i8 %131 to i32
-  %133 = load ptr, ptr %12, align 8
-  %134 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %133, i32 0, i32 1
-  store i32 %132, ptr %134, align 4
-  %135 = load ptr, ptr %12, align 8
-  %136 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %135, i32 0, i32 12
-  store i64 0, ptr %136, align 8
-  %137 = load ptr, ptr %12, align 8
-  %138 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %137, i32 0, i32 14
-  store ptr null, ptr %138, align 8
-  %139 = load ptr, ptr %12, align 8
-  %140 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %139, i32 0, i32 13
-  store i64 0, ptr %140, align 8
-  br label %174
+127:                                              ; preds = %47
+  %128 = load ptr, ptr %5, align 8
+  %129 = getelementptr inbounds %struct.heapframe, ptr %128, i32 0, i32 0
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 5
+  %132 = load i8, ptr %131, align 1
+  %133 = zext i8 %132 to i32
+  %134 = load ptr, ptr %12, align 8
+  %135 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %134, i32 0, i32 1
+  store i32 %133, ptr %135, align 4
+  %136 = load ptr, ptr %12, align 8
+  %137 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %136, i32 0, i32 12
+  store i64 0, ptr %137, align 8
+  %138 = load ptr, ptr %12, align 8
+  %139 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %138, i32 0, i32 14
+  store ptr null, ptr %139, align 8
+  %140 = load ptr, ptr %12, align 8
+  %141 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %140, i32 0, i32 13
+  store i64 0, ptr %141, align 8
+  br label %175
 
-141:                                              ; preds = %46
-  %142 = load ptr, ptr %12, align 8
-  %143 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %142, i32 0, i32 1
-  store i32 0, ptr %143, align 4
-  %144 = load ptr, ptr %5, align 8
-  %145 = getelementptr inbounds %struct.heapframe, ptr %144, i32 0, i32 0
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 7
-  %148 = load i8, ptr %147, align 1
-  %149 = zext i8 %148 to i32
-  %150 = shl i32 %149, 8
-  %151 = load ptr, ptr %5, align 8
-  %152 = getelementptr inbounds %struct.heapframe, ptr %151, i32 0, i32 0
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 8
-  %155 = load i8, ptr %154, align 1
-  %156 = zext i8 %155 to i32
-  %157 = or i32 %150, %156
-  %158 = zext i32 %157 to i64
-  %159 = load ptr, ptr %12, align 8
-  %160 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %159, i32 0, i32 12
-  store i64 %158, ptr %160, align 8
-  %161 = load ptr, ptr %5, align 8
-  %162 = getelementptr inbounds %struct.heapframe, ptr %161, i32 0, i32 0
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 9
-  %165 = getelementptr inbounds i8, ptr %164, i64 1
-  %166 = load ptr, ptr %12, align 8
-  %167 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %166, i32 0, i32 14
-  store ptr %165, ptr %167, align 8
-  %168 = load ptr, ptr %7, align 8
-  %169 = load i64, ptr %168, align 8
-  %170 = sub i64 %169, 9
-  %171 = sub i64 %170, 2
-  %172 = load ptr, ptr %12, align 8
-  %173 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %172, i32 0, i32 13
-  store i64 %171, ptr %173, align 8
-  br label %174
+142:                                              ; preds = %47
+  %143 = load ptr, ptr %12, align 8
+  %144 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %143, i32 0, i32 1
+  store i32 0, ptr %144, align 4
+  %145 = load ptr, ptr %5, align 8
+  %146 = getelementptr inbounds %struct.heapframe, ptr %145, i32 0, i32 0
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 7
+  %149 = load i8, ptr %148, align 1
+  %150 = zext i8 %149 to i32
+  %151 = shl i32 %150, 8
+  %152 = load ptr, ptr %5, align 8
+  %153 = getelementptr inbounds %struct.heapframe, ptr %152, i32 0, i32 0
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %156 = load i8, ptr %155, align 1
+  %157 = zext i8 %156 to i32
+  %158 = or i32 %151, %157
+  %159 = zext i32 %158 to i64
+  %160 = load ptr, ptr %12, align 8
+  %161 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %160, i32 0, i32 12
+  store i64 %159, ptr %161, align 8
+  %162 = load ptr, ptr %5, align 8
+  %163 = getelementptr inbounds %struct.heapframe, ptr %162, i32 0, i32 0
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 9
+  %166 = getelementptr inbounds i8, ptr %165, i64 1
+  %167 = load ptr, ptr %12, align 8
+  %168 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %167, i32 0, i32 14
+  store ptr %166, ptr %168, align 8
+  %169 = load ptr, ptr %7, align 8
+  %170 = load i64, ptr %169, align 8
+  %171 = sub i64 %170, 9
+  %172 = sub i64 %171, 2
+  %173 = load ptr, ptr %12, align 8
+  %174 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %173, i32 0, i32 13
+  store i64 %172, ptr %174, align 8
+  br label %175
 
-174:                                              ; preds = %141, %126
-  %175 = load ptr, ptr %11, align 8
-  %176 = getelementptr inbounds i64, ptr %175, i64 0
-  %177 = load i64, ptr %176, align 8
-  store i64 %177, ptr %9, align 8
-  %178 = load ptr, ptr %11, align 8
-  %179 = getelementptr inbounds i64, ptr %178, i64 1
-  %180 = load i64, ptr %179, align 8
-  store i64 %180, ptr %10, align 8
-  %181 = load ptr, ptr %11, align 8
-  %182 = getelementptr inbounds i64, ptr %181, i64 1
-  store i64 -1, ptr %182, align 8
-  %183 = load ptr, ptr %11, align 8
-  %184 = getelementptr inbounds i64, ptr %183, i64 0
-  store i64 -1, ptr %184, align 8
-  %185 = load ptr, ptr %6, align 8
-  %186 = getelementptr inbounds %struct.match_block_8, ptr %185, i32 0, i32 40
-  %187 = load ptr, ptr %186, align 8
-  %188 = load ptr, ptr %12, align 8
-  %189 = load ptr, ptr %6, align 8
-  %190 = getelementptr inbounds %struct.match_block_8, ptr %189, i32 0, i32 39
-  %191 = load ptr, ptr %190, align 8
-  %192 = call i32 %187(ptr noundef %188, ptr noundef %191)
-  store i32 %192, ptr %8, align 4
-  %193 = load i64, ptr %9, align 8
-  %194 = load ptr, ptr %11, align 8
-  %195 = getelementptr inbounds i64, ptr %194, i64 0
-  store i64 %193, ptr %195, align 8
-  %196 = load i64, ptr %10, align 8
-  %197 = load ptr, ptr %11, align 8
-  %198 = getelementptr inbounds i64, ptr %197, i64 1
-  store i64 %196, ptr %198, align 8
-  %199 = load ptr, ptr %12, align 8
-  %200 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %199, i32 0, i32 15
-  store i32 0, ptr %200, align 8
-  %201 = load i32, ptr %8, align 4
-  store i32 %201, ptr %4, align 4
-  br label %202
+175:                                              ; preds = %142, %127
+  %176 = load ptr, ptr %11, align 8
+  %177 = getelementptr inbounds i64, ptr %176, i64 0
+  %178 = load i64, ptr %177, align 8
+  store i64 %178, ptr %9, align 8
+  %179 = load ptr, ptr %11, align 8
+  %180 = getelementptr inbounds i64, ptr %179, i64 1
+  %181 = load i64, ptr %180, align 8
+  store i64 %181, ptr %10, align 8
+  %182 = load ptr, ptr %11, align 8
+  %183 = getelementptr inbounds i64, ptr %182, i64 1
+  store i64 -1, ptr %183, align 8
+  %184 = load ptr, ptr %11, align 8
+  %185 = getelementptr inbounds i64, ptr %184, i64 0
+  store i64 -1, ptr %185, align 8
+  %186 = load ptr, ptr %6, align 8
+  %187 = getelementptr inbounds %struct.match_block_8, ptr %186, i32 0, i32 40
+  %188 = load ptr, ptr %187, align 8
+  %189 = load ptr, ptr %12, align 8
+  %190 = load ptr, ptr %6, align 8
+  %191 = getelementptr inbounds %struct.match_block_8, ptr %190, i32 0, i32 39
+  %192 = load ptr, ptr %191, align 8
+  %193 = call i32 %188(ptr noundef %189, ptr noundef %192)
+  store i32 %193, ptr %8, align 4
+  %194 = load i64, ptr %9, align 8
+  %195 = load ptr, ptr %11, align 8
+  %196 = getelementptr inbounds i64, ptr %195, i64 0
+  store i64 %194, ptr %196, align 8
+  %197 = load i64, ptr %10, align 8
+  %198 = load ptr, ptr %11, align 8
+  %199 = getelementptr inbounds i64, ptr %198, i64 1
+  store i64 %197, ptr %199, align 8
+  %200 = load ptr, ptr %12, align 8
+  %201 = getelementptr inbounds %struct.pcre2_callout_block_8, ptr %200, i32 0, i32 15
+  store i32 0, ptr %201, align 8
+  %202 = load i32, ptr %8, align 4
+  store i32 %202, ptr %4, align 4
+  br label %203
 
-202:                                              ; preds = %174, %45
-  %203 = load i32, ptr %4, align 4
-  ret i32 %203
+203:                                              ; preds = %175, %46
+  %204 = load i32, ptr %4, align 4
+  ret i32 %204
 }
 
 declare i32 @_pcre2_script_run_8(ptr noundef, ptr noundef, i32 noundef) #1

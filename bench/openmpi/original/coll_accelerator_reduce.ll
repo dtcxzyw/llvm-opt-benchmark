@@ -74,153 +74,154 @@ define i32 @mca_coll_accelerator_reduce(ptr noundef %0, ptr noundef %1, i32 noun
 38:                                               ; preds = %8
   %39 = load i32, ptr %25, align 4
   store i32 %39, ptr %9, align 4
-  br label %129
+  br label %130
 
 40:                                               ; preds = %8
   %41 = load ptr, ptr %10, align 8
-  %42 = icmp ne ptr inttoptr (i64 1 to ptr), %41
-  br i1 %42, label %43, label %61
+  %42 = inttoptr i64 1 to ptr
+  %43 = icmp ne ptr %42, %41
+  br i1 %43, label %44, label %62
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr %25, align 4
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %46, label %61
+44:                                               ; preds = %40
+  %45 = load i32, ptr %25, align 4
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %47, label %62
 
-46:                                               ; preds = %43
-  %47 = load i64, ptr %24, align 8
-  %48 = call noalias ptr @malloc(i64 noundef %47) #5
-  store ptr %48, ptr %22, align 8
-  %49 = load ptr, ptr %22, align 8
-  %50 = icmp eq ptr null, %49
-  br i1 %50, label %51, label %52
+47:                                               ; preds = %44
+  %48 = load i64, ptr %24, align 8
+  %49 = call noalias ptr @malloc(i64 noundef %48) #5
+  store ptr %49, ptr %22, align 8
+  %50 = load ptr, ptr %22, align 8
+  %51 = icmp eq ptr null, %50
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %46
+52:                                               ; preds = %47
   store i32 -2, ptr %9, align 4
-  br label %129
+  br label %130
 
-52:                                               ; preds = %46
-  %53 = load ptr, ptr %22, align 8
-  %54 = load ptr, ptr %10, align 8
-  %55 = load i64, ptr %24, align 8
-  %56 = call ptr @mca_coll_accelerator_memcpy(ptr noundef %53, ptr noundef %54, i64 noundef %55)
-  %57 = load ptr, ptr %22, align 8
-  %58 = load i64, ptr %20, align 8
-  %59 = sub i64 0, %58
-  %60 = getelementptr inbounds i8, ptr %57, i64 %59
-  store ptr %60, ptr %10, align 8
-  br label %61
+53:                                               ; preds = %47
+  %54 = load ptr, ptr %22, align 8
+  %55 = load ptr, ptr %10, align 8
+  %56 = load i64, ptr %24, align 8
+  %57 = call ptr @mca_coll_accelerator_memcpy(ptr noundef %54, ptr noundef %55, i64 noundef %56)
+  %58 = load ptr, ptr %22, align 8
+  %59 = load i64, ptr %20, align 8
+  %60 = sub i64 0, %59
+  %61 = getelementptr inbounds i8, ptr %58, i64 %60
+  store ptr %61, ptr %10, align 8
+  br label %62
 
-61:                                               ; preds = %52, %43, %40
-  %62 = load ptr, ptr %11, align 8
-  %63 = call i32 @mca_coll_accelerator_check_buf(ptr noundef %62)
-  store i32 %63, ptr %25, align 4
-  %64 = load i32, ptr %25, align 4
-  %65 = icmp slt i32 %64, 0
-  br i1 %65, label %66, label %68
+62:                                               ; preds = %53, %44, %40
+  %63 = load ptr, ptr %11, align 8
+  %64 = call i32 @mca_coll_accelerator_check_buf(ptr noundef %63)
+  store i32 %64, ptr %25, align 4
+  %65 = load i32, ptr %25, align 4
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %67, label %69
 
-66:                                               ; preds = %61
-  %67 = load i32, ptr %25, align 4
-  store i32 %67, ptr %9, align 4
-  br label %129
+67:                                               ; preds = %62
+  %68 = load i32, ptr %25, align 4
+  store i32 %68, ptr %9, align 4
+  br label %130
 
-68:                                               ; preds = %61
-  %69 = load i32, ptr %19, align 4
-  %70 = load i32, ptr %15, align 4
-  %71 = icmp eq i32 %69, %70
-  br i1 %71, label %72, label %96
+69:                                               ; preds = %62
+  %70 = load i32, ptr %19, align 4
+  %71 = load i32, ptr %15, align 4
+  %72 = icmp eq i32 %70, %71
+  br i1 %72, label %73, label %97
 
-72:                                               ; preds = %68
-  %73 = load i32, ptr %25, align 4
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %75, label %96
+73:                                               ; preds = %69
+  %74 = load i32, ptr %25, align 4
+  %75 = icmp sgt i32 %74, 0
+  br i1 %75, label %76, label %97
 
-75:                                               ; preds = %72
-  %76 = load i64, ptr %24, align 8
-  %77 = call noalias ptr @malloc(i64 noundef %76) #5
-  store ptr %77, ptr %21, align 8
-  %78 = load ptr, ptr %21, align 8
-  %79 = icmp eq ptr null, %78
-  br i1 %79, label %80, label %86
+76:                                               ; preds = %73
+  %77 = load i64, ptr %24, align 8
+  %78 = call noalias ptr @malloc(i64 noundef %77) #5
+  store ptr %78, ptr %21, align 8
+  %79 = load ptr, ptr %21, align 8
+  %80 = icmp eq ptr null, %79
+  br i1 %80, label %81, label %87
 
-80:                                               ; preds = %75
-  %81 = load ptr, ptr %22, align 8
-  %82 = icmp ne ptr null, %81
-  br i1 %82, label %83, label %85
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %22, align 8
+  %83 = icmp ne ptr null, %82
+  br i1 %83, label %84, label %86
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %84) #6
-  br label %85
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %22, align 8
+  call void @free(ptr noundef %85) #6
+  br label %86
 
-85:                                               ; preds = %83, %80
+86:                                               ; preds = %84, %81
   store i32 -2, ptr %9, align 4
-  br label %129
+  br label %130
 
-86:                                               ; preds = %75
-  %87 = load ptr, ptr %21, align 8
-  %88 = load ptr, ptr %11, align 8
-  %89 = load i64, ptr %24, align 8
-  %90 = call ptr @mca_coll_accelerator_memcpy(ptr noundef %87, ptr noundef %88, i64 noundef %89)
-  %91 = load ptr, ptr %11, align 8
-  store ptr %91, ptr %23, align 8
-  %92 = load ptr, ptr %21, align 8
-  %93 = load i64, ptr %20, align 8
-  %94 = sub i64 0, %93
-  %95 = getelementptr inbounds i8, ptr %92, i64 %94
-  store ptr %95, ptr %11, align 8
-  br label %96
+87:                                               ; preds = %76
+  %88 = load ptr, ptr %21, align 8
+  %89 = load ptr, ptr %11, align 8
+  %90 = load i64, ptr %24, align 8
+  %91 = call ptr @mca_coll_accelerator_memcpy(ptr noundef %88, ptr noundef %89, i64 noundef %90)
+  %92 = load ptr, ptr %11, align 8
+  store ptr %92, ptr %23, align 8
+  %93 = load ptr, ptr %21, align 8
+  %94 = load i64, ptr %20, align 8
+  %95 = sub i64 0, %94
+  %96 = getelementptr inbounds i8, ptr %93, i64 %95
+  store ptr %96, ptr %11, align 8
+  br label %97
 
-96:                                               ; preds = %86, %72, %68
-  %97 = load ptr, ptr %18, align 8
-  %98 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %97, i32 0, i32 1
-  %99 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %98, i32 0, i32 22
-  %100 = load ptr, ptr %99, align 8
-  %101 = load ptr, ptr %10, align 8
-  %102 = load ptr, ptr %11, align 8
-  %103 = load i32, ptr %12, align 4
-  %104 = load ptr, ptr %13, align 8
-  %105 = load ptr, ptr %14, align 8
-  %106 = load i32, ptr %15, align 4
-  %107 = load ptr, ptr %16, align 8
-  %108 = load ptr, ptr %18, align 8
-  %109 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %108, i32 0, i32 1
-  %110 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %109, i32 0, i32 23
-  %111 = load ptr, ptr %110, align 8
-  %112 = call i32 %100(ptr noundef %101, ptr noundef %102, i32 noundef %103, ptr noundef %104, ptr noundef %105, i32 noundef %106, ptr noundef %107, ptr noundef %111)
-  store i32 %112, ptr %25, align 4
-  %113 = load ptr, ptr %22, align 8
-  %114 = icmp ne ptr null, %113
-  br i1 %114, label %115, label %117
+97:                                               ; preds = %87, %73, %69
+  %98 = load ptr, ptr %18, align 8
+  %99 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %98, i32 0, i32 1
+  %100 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %99, i32 0, i32 22
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %11, align 8
+  %104 = load i32, ptr %12, align 4
+  %105 = load ptr, ptr %13, align 8
+  %106 = load ptr, ptr %14, align 8
+  %107 = load i32, ptr %15, align 4
+  %108 = load ptr, ptr %16, align 8
+  %109 = load ptr, ptr %18, align 8
+  %110 = getelementptr inbounds %struct.mca_coll_accelerator_module_t, ptr %109, i32 0, i32 1
+  %111 = getelementptr inbounds %struct.mca_coll_base_comm_coll_t, ptr %110, i32 0, i32 23
+  %112 = load ptr, ptr %111, align 8
+  %113 = call i32 %101(ptr noundef %102, ptr noundef %103, i32 noundef %104, ptr noundef %105, ptr noundef %106, i32 noundef %107, ptr noundef %108, ptr noundef %112)
+  store i32 %113, ptr %25, align 4
+  %114 = load ptr, ptr %22, align 8
+  %115 = icmp ne ptr null, %114
+  br i1 %115, label %116, label %118
 
-115:                                              ; preds = %96
-  %116 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %116) #6
-  br label %117
+116:                                              ; preds = %97
+  %117 = load ptr, ptr %22, align 8
+  call void @free(ptr noundef %117) #6
+  br label %118
 
-117:                                              ; preds = %115, %96
-  %118 = load ptr, ptr %21, align 8
-  %119 = icmp ne ptr null, %118
-  br i1 %119, label %120, label %127
+118:                                              ; preds = %116, %97
+  %119 = load ptr, ptr %21, align 8
+  %120 = icmp ne ptr null, %119
+  br i1 %120, label %121, label %128
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %23, align 8
-  store ptr %121, ptr %11, align 8
-  %122 = load ptr, ptr %11, align 8
-  %123 = load ptr, ptr %21, align 8
-  %124 = load i64, ptr %24, align 8
-  %125 = call ptr @mca_coll_accelerator_memcpy(ptr noundef %122, ptr noundef %123, i64 noundef %124)
-  %126 = load ptr, ptr %21, align 8
-  call void @free(ptr noundef %126) #6
-  br label %127
+121:                                              ; preds = %118
+  %122 = load ptr, ptr %23, align 8
+  store ptr %122, ptr %11, align 8
+  %123 = load ptr, ptr %11, align 8
+  %124 = load ptr, ptr %21, align 8
+  %125 = load i64, ptr %24, align 8
+  %126 = call ptr @mca_coll_accelerator_memcpy(ptr noundef %123, ptr noundef %124, i64 noundef %125)
+  %127 = load ptr, ptr %21, align 8
+  call void @free(ptr noundef %127) #6
+  br label %128
 
-127:                                              ; preds = %120, %117
-  %128 = load i32, ptr %25, align 4
-  store i32 %128, ptr %9, align 4
-  br label %129
+128:                                              ; preds = %121, %118
+  %129 = load i32, ptr %25, align 4
+  store i32 %129, ptr %9, align 4
+  br label %130
 
-129:                                              ; preds = %127, %85, %66, %51, %38
-  %130 = load i32, ptr %9, align 4
-  ret i32 %130
+130:                                              ; preds = %128, %86, %67, %52, %38
+  %131 = load i32, ptr %9, align 4
+  ret i32 %131
 }
 
 ; Function Attrs: nounwind uwtable
@@ -346,29 +347,30 @@ define internal ptr @mca_coll_accelerator_memcpy(ptr noundef %0, ptr noundef %1,
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
-  %8 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 7), align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load i64, ptr %6, align 8
-  %12 = call i32 %8(i32 noundef -1, i32 noundef -1, ptr noundef %9, ptr noundef %10, i64 noundef %11, i32 noundef 0)
-  store i32 %12, ptr %7, align 4
-  %13 = load i32, ptr %7, align 4
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %21
+  %8 = getelementptr inbounds %struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i32 0, i32 7
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = load i64, ptr %6, align 8
+  %13 = call i32 %9(i32 noundef -1, i32 noundef -1, ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef 0)
+  store i32 %13, ptr %7, align 4
+  %14 = load i32, ptr %7, align 4
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %22
 
-15:                                               ; preds = %3
-  %16 = load i32, ptr %7, align 4
-  %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i64, ptr %6, align 8
-  %20 = trunc i64 %19 to i32
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, i32 noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %20)
+16:                                               ; preds = %3
+  %17 = load i32, ptr %7, align 4
+  %18 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i64, ptr %6, align 8
+  %21 = trunc i64 %20 to i32
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef @.str, i32 noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %21)
   call void @abort() #7
   unreachable
 
-21:                                               ; preds = %3
-  %22 = load ptr, ptr %4, align 8
-  ret ptr %22
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %4, align 8
+  ret ptr %23
 }
 
 ; Function Attrs: nounwind
